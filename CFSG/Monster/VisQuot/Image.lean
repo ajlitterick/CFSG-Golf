@@ -24,15 +24,6 @@ theorem mem_OLvis {u : GLV} : u ∈ OLvis ↔ ∃ g : latticeO, modTwoUnit g = u
   · rintro ⟨g, rfl⟩
     exact ⟨g, rfl⟩
 
-theorem range_actQ : actQ.range = modTwoHom.range := by
-  ext x
-  rw [MonoidHom.mem_range, MonoidHom.mem_range]
-  constructor
-  · rintro ⟨y, rfl⟩
-    induction y using QuotientGroup.induction_on with
-    | H g => exact ⟨g, rfl⟩
-  · rintro ⟨g, rfl⟩
-    exact ⟨QuotientGroup.mk g, rfl⟩
 
 theorem Hvis_le_OLvis : Hvis ≤ OLvis := fun _ hu => by
   obtain ⟨g, -, rfl⟩ := mem_Hvis.1 hu
@@ -82,9 +73,6 @@ theorem exists_mem_Pvis
     rw [coe_negPair, Prod.mk_mul_mk, e] at h
     exact h
 
-theorem PvisLat_eq_top :
-    PvisLat = ⊤ :=
-  eq_top_iff.2 fun g _ => mem_PvisLat.2 (exists_mem_Pvis g)
 
 theorem range_piVis_unop :
     piVis.range.unop = ⊤ := by
@@ -94,23 +82,6 @@ theorem range_piVis_unop :
     obtain ⟨s, hs⟩ := exists_mem_Pvis g
     exact mem_unop_range_piVis.2 ⟨⟨(s, g), hs⟩, rfl⟩
 
-theorem closure_frameGen_eq_top :
-    Subgroup.closure (Set.range fun j : Fin 15 => (QuotientGroup.mk (frameGen j) : OLq)) = ⊤ := by
-  apply Subgroup.map_injective actQ_injective
-  rw [MonoidHom.map_closure, ← Set.range_comp, ← MonoidHom.range_eq_map, range_actQ]
-  have e : Set.range (⇑actQ ∘ fun j : Fin 15 => (QuotientGroup.mk (frameGen j) : OLq)) =
-      MulOpposite.unop ⁻¹' Set.range kGen := by
-    ext x
-    constructor
-    · rintro ⟨j, rfl⟩
-      exact ⟨j, rfl⟩
-    · rintro ⟨j, hj⟩
-      exact ⟨j, by
-        show MulOpposite.op (kGen j) = x
-        rw [hj, MulOpposite.op_unop]⟩
-  rw [e, ← Subgroup.op_closure]
-  show Kvis.op = modTwoHom.range
-  rw [Kvis_eq_OLvis, OLvis, Subgroup.op_unop]
 
 theorem eq_one_of_forall_frameDelta {u : GLV} (hu : ∀ x ∈ frameDelta, u • x = x) : u = 1 := by
   let W : Submodule (ZMod 2) L2 := LinearMap.ker ((u : Module.End (ZMod 2) L2) - 1)
@@ -129,24 +100,5 @@ theorem eq_one_of_forall_frameDelta {u : GLV} (hu : ∀ x ∈ frameDelta, u • 
   rw [LinearMap.sub_apply, Module.End.one_apply, sub_eq_zero] at this
   exact this
 
-theorem eq_one_of_forall_frameDelta_actQ {x : OLq}
-    (hx : ∀ v ∈ frameDelta, (actQ x).unop • v = v) : x = 1 := by
-  have h := eq_one_of_forall_frameDelta hx
-  apply actQ_injective
-  rw [map_one, ← MulOpposite.op_unop (actQ x), h, MulOpposite.op_one]
-
-theorem visible_full_lattice_image_and_generation :
-    Hvis = Kvis ∧ Kvis = OLvis ∧ (∀ u : GLV, u ∈ OLvis ↔ ∃ g : latticeO, modTwoUnit g = u) ∧
-    Function.Injective actQ ∧ piVis.range.unop = ⊤ ∧
-    PvisLat = ⊤ ∧ (∀ g : latticeO, ∃ s, (s, g) ∈ Pvis) ∧
-    Subgroup.closure (Set.range fun j : Fin 15 => (QuotientGroup.mk (frameGen j) : OLq)) = ⊤ ∧
-    (∀ (g : latticeO) (x : L2), modTwoEnd g x ∈ frameDelta ↔ x ∈ frameDelta) ∧
-    (∀ x ∈ frameDelta, ∀ y ∈ frameDelta, ∃ k ∈ Kvis, k • x = y) ∧
-    (∀ u ∈ Kvis, (∀ x ∈ frameDelta, u • x = x) → u = 1) ∧
-    (∀ x : OLq, (∀ v ∈ frameDelta, (actQ x).unop • v = v) → x = 1) :=
-  ⟨Hvis_eq_Kvis, Kvis_eq_OLvis, fun _ => mem_OLvis, actQ_injective, range_piVis_unop,
-    PvisLat_eq_top, exists_mem_Pvis, closure_frameGen_eq_top,
-    fun g _ => modTwoEnd_mem_frameDelta_iff g, fun _ hx _ hy => exists_Kvis_smul_eq hx hy,
-    fun _ _ h => eq_one_of_forall_frameDelta h, fun _ h => eq_one_of_forall_frameDelta_actQ h⟩
 
 end CFSG.Monster.VisQuot

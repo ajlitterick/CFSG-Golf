@@ -113,13 +113,6 @@ theorem Setting146.lemma_14_6_2 (S : Setting146 G T M) {H : Subgroup G} (hH : Is
   · rw [← heq]
     exact hUXQ'
 
-theorem stage1462_of (h5 : Stage1461Five) :
-    ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
-      ∀ H : Subgroup G, IsHTM T M H → ∀ X : Subgroup G, X ≠ ⊥ → oTwoUpper X = X →
-        X ≤ oTwoFstarIn H → pCoreOf 2 H ≤ Subgroup.normalizer (X : Set G) →
-          quasithinOmegaOneCenter T ≤ ⁅conjClosure (VZ T M) H, X⁆ :=
-  fun G _ _ T M S H hH _ hX1 hX2 hXF hQX =>
-    S.lemma_14_6_2 hH (h5 G T M S H hH) hX1 hX2 hXF hQX
 
 end Main
 

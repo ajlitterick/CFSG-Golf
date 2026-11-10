@@ -51,6 +51,5 @@ theorem false_of_dihedral_eight {M : Type*} [Group M] {Γ R : Subgroup M} (hΓR 
   rw [h8'] at this
   omega
 
-variable [Finite G]
 
 end CFSG.RankThree.PartOne.S15K

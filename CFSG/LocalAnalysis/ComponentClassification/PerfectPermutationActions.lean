@@ -37,19 +37,6 @@ theorem fixed_on_small_invariant {A I : Type*} [Group A] [Group.IsPerfect A]
   exact congrArg (fun homomorphism : A →* Equiv.Perm invariantSet =>
     ((homomorphism actor) (⟨point, hpoint⟩ : invariantSet)).val) htrivial
 
-theorem eq_one_of_small_invariant_cover {A I : Type*} [Group A] [Group.IsPerfect A]
-    (action : A →* Equiv.Perm I)
-    (hcover : ∀ point : I, ∃ invariantSet : Set I, invariantSet.Finite ∧
-      Nat.card invariantSet ≤ 2 ∧ point ∈ invariantSet ∧
-      ∀ actor : A, ∀ member : I, action actor member ∈ invariantSet ↔ member ∈ invariantSet) :
-    action = 1 := by
-  apply MonoidHom.ext
-  intro actor
-  apply Equiv.ext
-  intro point
-  obtain ⟨invariantSet, hfinite, hcard, hpoint, hinvariant⟩ := hcover point
-  let : Finite invariantSet := hfinite.to_subtype
-  exact fixed_on_small_invariant action invariantSet hcard hinvariant actor point hpoint
 
 theorem fixed_of_involutive_pair {A I : Type*} [Group A] [Group.IsPerfect A]
     (action : A →* Equiv.Perm I) (involution : Equiv.Perm I)

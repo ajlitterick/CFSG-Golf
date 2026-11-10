@@ -311,14 +311,6 @@ theorem dualRoot_mem_f4LayerRoots
   · exact ⟨i, hi, Or.inr h3⟩
   · exact ⟨i, hi, Or.inl h4⟩
 
-theorem map_finiteExceptionalAut_f4LayerGroup
-    (j : ℕ) :
-    ((f4LayerGroup K j).subgroupOf (adjointGroup ReeTag.F4.tag K)).map
-        (ReeTag.F4.finiteExceptionalAut K).toMonoidHom =
-      (f4LayerGroup K j).subgroupOf (adjointGroup ReeTag.F4.tag K) := by
-  rw [← finiteReeAut_zero_F4]
-  exact map_eq_of_map_le _ (ReeTag.map_finiteReeAut_rootSpan_le fun _ hα =>
-    dualRoot_mem_f4LayerRoots hα)
 
 end Exceptional
 
@@ -539,93 +531,8 @@ theorem exists_f4Layer_mulEquiv
     (f4LayerElt_bijective (K := K) i).comp (Multiplicative.toAdd.bijective)
   exact ⟨MulEquiv.ofBijective Ψ hΨ, fun a b => rfl⟩
 
-theorem finiteExceptionalAut_f4LayerElt
-    (i : Fin 12) (a b : K) :
-    (ReeTag.F4.finiteExceptionalAut K ⟨f4LayerElt K i a b, f4LayerElt_mem_adjointGroup i a b⟩ :
-        ModGL ReeTag.F4.tag K) =
-      pinnedX ReeTag.F4.tag K (orbitCertRoot ReeTag.F4.tag (f4PairShort i)) a *
-        pinnedX ReeTag.F4.tag K (orbitCertRoot ReeTag.F4.tag (f4PairLong i)) (b ^ 2) := by
-  obtain ⟨hl, hs, hls, hsl⟩ := f4Pair_roots i
-  have e : (⟨f4LayerElt K i a b, f4LayerElt_mem_adjointGroup i a b⟩ :
-      adjointGroup ReeTag.F4.tag K) =
-      ⟨_, pinnedX_mem_adjointGroup (orbitCertRoot ReeTag.F4.tag (f4PairLong i)) a⟩ *
-        ⟨_, pinnedX_mem_adjointGroup (orbitCertRoot ReeTag.F4.tag (f4PairShort i)) b⟩ :=
-    Subtype.ext rfl
-  rw [e, map_mul, finiteExceptionalAut_pinnedX_long hl, finiteExceptionalAut_pinnedX_short hs]
-  simp only [Subgroup.coe_mul, hls, hsl]
-
-theorem finiteExceptionalAut_f4LayerElt_mem
-    (i : Fin 12) (a b : K) :
-    ((f4LayerElt K i (b ^ 2) a : ModGL ReeTag.F4.tag K))⁻¹ *
-        (ReeTag.F4.finiteExceptionalAut K ⟨f4LayerElt K i a b, f4LayerElt_mem_adjointGroup i a b⟩ :
-          ModGL ReeTag.F4.tag K) ∈ f4LayerGroup K (i.val + 2) := by
-  have : CharP K 2 := ‹CharP K ReeTag.F4.prime›
-  rw [finiteExceptionalAut_f4LayerElt]
-  have hs := f4LayerRoots_subset_pos _ (f4PairShort_mem i)
-  have hc := f4_commutator_mem_succ (K := K) hs (f4PairLong_mem i) (-a) (-(b ^ 2))
-  convert hc using 1
-  simp only [f4LayerElt, ← pinnedX_neg, commutatorElement_def, mul_inv_rev, inv_inv]
-  group
 
 end Main
 
-theorem even_F4_exceptional_root_layers
-    (K : Type) [Field K] [Finite K]
-    [CharP K ReeTag.F4.prime] :
-    (∀ α ∈ ReeTag.F4.longRoots, ∀ c : K,
-      ReeTag.F4.finiteExceptionalAut K
-          ⟨pinnedX ReeTag.F4.tag K α c, pinnedX_mem_adjointGroup α c⟩ =
-        ⟨pinnedX ReeTag.F4.tag K (ReeTag.F4.dualRoot α) c, pinnedX_mem_adjointGroup _ _⟩) ∧
-    (∀ α ∈ ReeTag.F4.shortRoots, ∀ c : K,
-      ReeTag.F4.finiteExceptionalAut K
-          ⟨pinnedX ReeTag.F4.tag K α c, pinnedX_mem_adjointGroup α c⟩ =
-        ⟨pinnedX ReeTag.F4.tag K (ReeTag.F4.dualRoot α) (c ^ 2), pinnedX_mem_adjointGroup _ _⟩) ∧
-    ((posUnipotent ReeTag.F4.tag K).subgroupOf (adjointGroup ReeTag.F4.tag K)).map
-        (ReeTag.F4.finiteExceptionalAut K).toMonoidHom =
-      (posUnipotent ReeTag.F4.tag K).subgroupOf (adjointGroup ReeTag.F4.tag K) ∧
-    ((negUnipotent ReeTag.F4.tag K).subgroupOf (adjointGroup ReeTag.F4.tag K)).map
-        (ReeTag.F4.finiteExceptionalAut K).toMonoidHom =
-      (negUnipotent ReeTag.F4.tag K).subgroupOf (adjointGroup ReeTag.F4.tag K) ∧
-    (∀ i : Fin 12, orbitCertRoot ReeTag.F4.tag (f4PairLong i) ∈ ReeTag.F4.longRoots ∧
-      orbitCertRoot ReeTag.F4.tag (f4PairShort i) ∈ ReeTag.F4.shortRoots ∧
-      ReeTag.F4.dualRoot (orbitCertRoot ReeTag.F4.tag (f4PairLong i)) =
-        orbitCertRoot ReeTag.F4.tag (f4PairShort i) ∧
-      ReeTag.F4.dualRoot (orbitCertRoot ReeTag.F4.tag (f4PairShort i)) =
-        orbitCertRoot ReeTag.F4.tag (f4PairLong i)) ∧
-    f4LayerRoots 1 = {α | IsRoot ReeTag.F4.tag α ∧ 0 < height α} ∧
-    f4LayerGroup K 1 = posUnipotent ReeTag.F4.tag K ∧ f4LayerGroup K 13 = ⊥ ∧
-    (∀ j : ℕ, 1 ≤ j → j ≤ 13 →
-      ((f4LayerGroup K j).subgroupOf (adjointGroup ReeTag.F4.tag K)).map
-          (ReeTag.F4.finiteExceptionalAut K).toMonoidHom =
-        (f4LayerGroup K j).subgroupOf (adjointGroup ReeTag.F4.tag K) ∧
-      f4LayerGroup K j ≤ posUnipotent ReeTag.F4.tag K ∧
-      ((f4LayerGroup K j).subgroupOf (posUnipotent ReeTag.F4.tag K)).Normal) ∧
-    (∀ j : ℕ, 1 ≤ j → j ≤ 12 →
-      ⁅posUnipotent ReeTag.F4.tag K, f4LayerGroup K j⁆ ≤ f4LayerGroup K (j + 1)) ∧
-    ∀ i : Fin 12,
-      (∃ e : Multiplicative (K × K) ≃* f4LayerGroup K (i.val + 1) ⧸
-          (f4LayerGroup K (i.val + 2)).subgroupOf (f4LayerGroup K (i.val + 1)),
-        ∀ a b : K, e (Multiplicative.ofAdd (a, b)) = QuotientGroup.mk (f4LayerElt K i a b)) ∧
-      ∀ a b : K, ((f4LayerElt K i (b ^ 2) a : ModGL ReeTag.F4.tag K))⁻¹ *
-          (ReeTag.F4.finiteExceptionalAut K
-            ⟨f4LayerElt K i a b, f4LayerElt_mem_adjointGroup i a b⟩ : ModGL ReeTag.F4.tag K) ∈
-        f4LayerGroup K (i.val + 2) := by
-  have : CharP K 2 := ‹CharP K ReeTag.F4.prime›
-  refine ⟨fun α hα c => finiteExceptionalAut_pinnedX_long hα c,
-    fun α hα c => finiteExceptionalAut_pinnedX_short hα c, ?_, ?_, f4Pair_roots,
-    f4LayerRoots_one, f4LayerGroup_one K, f4LayerGroup_thirteen K, fun j hj hj' => ?_,
-    fun j hj hj' => ?_,
-    fun i => ⟨exists_f4Layer_mulEquiv i, finiteExceptionalAut_f4LayerElt_mem i⟩⟩
-  · rw [← finiteReeAut_zero_F4]
-    exact ReeTag.map_finiteReeAut_posUnipotentSub
-  · rw [← finiteReeAut_zero_F4]
-    exact ReeTag.map_finiteReeAut_negUnipotentSub
-  · refine ⟨map_finiteExceptionalAut_f4LayerGroup j, f4LayerGroup_le_posUnipotent K j, ?_⟩
-    refine (Subgroup.normal_subgroupOf_iff_le_normalizer (f4LayerGroup_le_posUnipotent K j)).2 ?_
-    have h := f4_le_normalizer_layer (K := K) (13 - j) (by omega)
-    rwa [show 13 - (13 - j) = j by omega] at h
-  · have h := f4_le_normalizer_layer (K := K) (12 - j) (by omega)
-    rw [show 13 - (12 - j) = j + 1 by omega] at h
-    exact f4_commutator_layer_le h
 
 end CFSG.LieType.Chevalley

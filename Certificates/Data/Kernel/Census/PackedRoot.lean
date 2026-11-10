@@ -104,21 +104,6 @@ variable (n w : Nat)
     pvalid n w c₁ && pvalid n w c₂ && inX c₁ && inX c₂ && pcommA n w c₁ e' && pcommA n w c₂ e' &&
       pord4 n w (ppow n w (pc n w (pc n w x (pcomm n w c₁ c₂)) (pc n w x (pcomm n w c₂ c₁))) m)
 
-@[expose] noncomputable def pleafOK (inX : Nat → Bool) (bmode : Nat) (skip : List Nat) (x : Nat)
-    (ga gi : Array Nat) (pG : Array (Array Nat)) (b : Nat) (c : RootWitP) : Bool :=
-  !(pinvol n w b) || Nat.beq b x || (Nat.beq bmode 1 && !(inX b)) || (Nat.beq bmode 2 && inX b) ||
-    skip.contains (pfix n w b) || skip.contains (pfix n w (pc n w x b)) ||
-    pcandOK n w inX x ga gi pG b c
-
-@[expose] noncomputable def pentryOK (inX : Nat → Bool) (bmode : Nat) (skip : List Nat)
-    (pG : Array (Array Nat)) (r : RootConjP) (k : Nat) : Bool :=
-  let e := r.e k
-  bif Nat.beq e.1 0 then
-    Nat.beq e.2.2.2 0 && pinvol n w (ppcA n w r.xs e.2.1) && Nat.blt e.2.2.1 r.cands.size &&
-      pleafOK n w inX bmode skip r.x r.ga r.gi pG (ppcA n w r.xs e.2.1) r.cands[e.2.2.1]!
-  else
-    Nat.blt e.2.1 (usize r.ukc) && Nat.beq e.2.2.2 ((r.e e.2.1).2.2.2 + 1) &&
-      Nat.blt e.2.2.1 r.xs.length
 
 @[expose] noncomputable def pordOK (r : RootConjP) : Bool :=
   (List.range (usize r.ukc - 1)).all fun i => Nat.blt (pkeyU n w r i) (pkeyU n w r (i + 1))
@@ -129,33 +114,10 @@ variable (n w : Nat)
   | .ord4p ls _ => ls.all fun l => Nat.blt l r.gams.size
   | .ord4c .. => true
 
-@[expose] noncomputable def prootConjOK (ps : List Nat) (inX inW : Nat → Bool) (pw : Bool)
-    (bmode : Nat) (skip : List Nat) (r : RootConjP) : Bool :=
-  let pG := r.perfs.map (pperfGens n w r.ga)
-  pvalid n w r.x && pinvol n w r.x && inW r.x &&
-    Nat.beq r.xi.length r.xs.length &&
-    (r.xs.zip r.xi).all (fun gi => Nat.beq (pc n w gi.2 gi.1) (pid n w)) &&
-    ppcOK n w r.xs r.rs r.cjs r.bs &&
-    r.xs.all (fun g => pcommA n w g r.x && inW g) &&
-    r.cs.toList.all (fun c => pvalid n w c && inX c && pcommA n w c r.x) &&
-    Nat.beq r.ga.size r.gams.size && Nat.beq r.gi.size r.gams.size &&
-    (List.range r.gams.size).all (fun l =>
-      Nat.blt r.gams[l]!.1 r.cs.size && Nat.blt r.gams[l]!.2 r.cs.size &&
-      Nat.beq r.ga[l]! (pcomm n w r.cs[r.gams[l]!.1]! r.cs[r.gams[l]!.2]!) &&
-      Nat.beq r.gi[l]! (pcomm n w r.cs[r.gams[l]!.2]! r.cs[r.gams[l]!.1]!)) &&
-    (pw || Nat.beq r.perfs.size 0) && r.perfs.toList.all (pperfOK n w ps r.ga) &&
-    r.cands.toList.all (RootWitP.inRange r) &&
-    Nat.beq r.wt.flatten.length (2 ^ r.xs.length) &&
-    pinvRest n w r.xs 0 r.im r.wt.flatten == some [] &&
-    Nat.beq (usize r.ukc) r.im.length &&
-    (List.range (usize r.ukc)).all (pentryOK n w inX bmode skip pG r) && pordOK n w r
 
 @[expose] noncomputable def pskipFix (rs : List RootConjP) (i : Nat) : List Nat :=
   (rs.take i).map fun r => pfix n w r.x
 
-@[expose] noncomputable def prootsConjOK (ps : List Nat) (inX inW : Nat → Bool) (pw : Bool)
-    (bmode : Nat) (rs : List RootConjP) : Bool :=
-  (List.range rs.length).all fun i => prootConjOK n w ps inX inW pw bmode (pskipFix n w rs i) rs[i]!
 
 end Checks
 

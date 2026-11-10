@@ -119,17 +119,6 @@ section Cases
 
 variable {X : Type} [Group X] [Finite X] {p : ℕ} {R : Sylow p X} {B K : Subgroup X} {z : X}
 
-theorem Cfg.false_of_lie (h : Cfg p R B K z)
-    (hS : CFSG.LieType.SeitzGeneration.SeitzPlanes fun d p _ => IsPCoverLieIndex p d.1)
-    {d : TauCeti.ValidLieTypeIndex} (hchar : p ≠ d.1.characteristic)
-    (hnex : ¬ CFSG.AGLEmbeddingD2.IsD2SeitzException p d.1) (hsc : IsPCoverLieIndex p d.1)
-    (e : ↥K ⧸ Subgroup.center ↥K ≃* (TauCeti.CFSGIndex.lie d).Group) : False := by
-  have hperf : Group.IsPerfect ↥K := ⟨h.comp.2.2.1⟩
-  obtain ⟨E, hEel, hEcard, hEB⟩ := exists_plane_image h.prime h.normalizes h.elem
-    h.mem_B h.order h.cen_le h.three_le_card
-  have hcl := closure_fix_lift hperf e (fun _ => True)
-    (fun E' hE' hc _ => hS d p h.prime h.ne_two hchar hnex E' hE' hc hsc) E hEel hEcard trivial
-  exact h.false_of_closure (h.closure_gens_eq_top hEB hcl)
 
 end Cases
 
@@ -290,42 +279,5 @@ theorem Cfg.false_of_lfour {R : Sylow 3 X} (h : Cfg 3 R B K z) {d : TauCeti.Vali
 
 end Cases3
 
-theorem gl83ComponentPCoreTrivial_of_seitzCover
-    (hS : CFSG.LieType.SeitzGeneration.SeitzPlanes fun d p _ => IsPCoverLieIndex p d.1)
-    (hList : PCoverList) (hCover : ThreeCoverTable)
-    (hSmall : SmallThreeFacts) (hL4 : LFourFacts) :
-    CFSG.LocalAnalysis.RankFourTheoremC.GL83ComponentPCoreTrivial := by
-  intro X _ _ hX p R K hp hp2 hrank hK hKR
-  by_contra hO
-  have hq : Open.IsQuasisimple ↥K := hK.2.2
-  have hZ : p ∣ Nat.card (Subgroup.center ↥K) :=
-    dvd_card_center_of_pCore_ne_bot hp hq hO
-  obtain ⟨B, hBR, hBel, hBcard⟩ := pRank_attained p hp (R : Subgroup X)
-  have hBN := normalizes_of_not_le_weakCore hp hp2 R hBR hBel hBcard hrank hK hZ hKR
-  obtain ⟨z, hzB, hzK, hzc, hzp⟩ := exists_mem_center_of_normalizes hp hBel
-    (sc_of_maximal hp R hBel hBcard) hBN hZ
-  have hB3 : 3 ≤ Open.pRank p B := (pRank_eq_of_max hp R hBR hBel hBcard).symm ▸ hrank
-  have hCB := inf_centralizer_le_zpowers hp R hKR hBR hBel hB3 hzB hzc hzp
-  obtain ⟨i, ⟨e⟩⟩ := hX.isCatalogGroup_center_quotient hK
-  have hcase := hList ↥K hq p hp hp2 hZ i ⟨e⟩
-  have hΩ := omega_le_zpowers_of_not_le_weakCore hp R hK hKR hBR hBel hBcard hrank hBN hzB hzK hzc hzp hCB
-  have hcfg : Cfg p R B K z :=
-    ⟨hp, hp2, hK, hKR, hBR, hBel, hBcard, hrank, hBN, hzB, hzK, hzc, hzp, hCB, hΩ⟩
-  rcases hcase with ⟨d, rfl, hchar, hnex, hsc⟩ | ⟨rfl, hB | ⟨hsm | hl4, h9⟩⟩
-  · exact hcfg.false_of_lie hS hchar hnex hsc e
-  · exact hcfg.false_of_cover (hCover _ hB) e hO
-  · obtain ⟨hOut, h9', h27'⟩ := hSmall ↥K hq i hsm ⟨e⟩
-    exact hcfg.false_of_small hOut h9' h27' hZ h9
-  · obtain ⟨d, rfl, hd⟩ := hl4
-    exact hcfg.false_of_lfour hd hL4 e hZ h9
-
-theorem gl83ComponentPCoreTrivial_of_seitz
-    (hS : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo) (hList : PCoverList) (hCover : ThreeCoverTable)
-    (hSmall : SmallThreeFacts) (hL4 : LFourFacts) :
-    CFSG.LocalAnalysis.RankFourTheoremC.GL83ComponentPCoreTrivial :=
-  gl83ComponentPCoreTrivial_of_seitzCover
-    (CFSG.LieType.SeitzGeneration.SeitzPlanes.mono (fun _ _ _ _ => trivial)
-      (CFSG.LieType.SeitzGeneration.kFactSeitzRankTwo_iff.mp hS))
-    hList hCover hSmall hL4
 
 end GL83.I243

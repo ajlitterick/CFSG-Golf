@@ -217,19 +217,5 @@ theorem lemma_3_5 (hK : AschbacherKnownGroupFacts) {H : Type} [Group H] [Finite 
   obtain ⟨h1, h2⟩ := h12 U hU hgen
   exact ⟨h1, h2, h3 h1, h4⟩
 
-theorem lemma_3_6 (hK : AschbacherKnownGroupFacts) {H : Type} [Group H] [Finite H]
-    (L U : Subgroup H) [L.Normal] (hLq : Open.IsQuasisimple L) (hd : HasDihedralSylowTwo L)
-    (hU : IsFourGroup U) (hgen : ¬ L ≤ centralizerJoin U L) :
-    (Nat.card (center L)).factorization 2 = 0 ∧
-    IsSmallDihedralSimple (L ⧸ center L) ∧ U ≤ L ⊔ centralizer (L : Set H) ∧
-    (∀ (X : Subgroup (H ⧸ centralizer (L : Set H))) (k : ℕ), 1 ≤ k →
-      Nonempty (X ≃* QuaternionGroup (2 ^ k)) →
-      Open.pRank 2 (centralizer (X : Set (H ⧸ centralizer (L : Set H)))) ≤ 1) ∧
-    (∀ V : Subgroup H, 3 ≤ Open.pRank 2 V →
-      ∃ W : Subgroup H, W ≤ V ∧ IsFourGroup W ∧ L ≤ centralizerJoin W L) := by
-  obtain ⟨hD, hZ⟩ := dihedral_quotient_center hLq hd
-  obtain ⟨h12, h3, h4⟩ := Lemma35.core hK L hLq hD (by omega)
-  obtain ⟨h1, h2⟩ := h12 U hU hgen
-  exact ⟨hZ, h1, h2, h3 h1, h4⟩
 
 end CFSG.ComponentClassification.AschbacherKnownGroup

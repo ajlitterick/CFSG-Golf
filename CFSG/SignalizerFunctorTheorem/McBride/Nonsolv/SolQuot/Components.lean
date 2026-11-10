@@ -22,8 +22,6 @@ theorem inf_le_sol (hR : Group.IsSolvable R) (hY : Y ≤ nrm R) : Y ⊓ R ≤ so
   rw [ker_qres, Subgroup.subgroupOf_map_subtype] at h2
   rwa [inf_comm]
 
-theorem le_sol (hR : Group.IsSolvable R) (hY : Y ≤ nrm R) (hRY : R ≤ Y) : R ≤ sol Y :=
-  (le_inf hRY le_rfl).trans (inf_le_sol hR hY)
 
 theorem normalizer_le_nrm_sol (G : Subgroup Γ) :
     Subgroup.normalizer (G : Set Γ) ≤ nrm (sol G) := by

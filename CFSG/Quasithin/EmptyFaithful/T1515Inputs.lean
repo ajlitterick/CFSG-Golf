@@ -53,37 +53,6 @@ theorem Construction1516.exists_setting (h : Construction1516) {G : Type} [Group
       z ∈ Subgroup.centralizer (T : Set G) → z ≠ 1 → z ^ 2 = 1 → quasithinIsMaxTwoLocal M →
       Subgroup.centralizer ({z} : Set G) ≤ M → Lemma115Hyp H S M z
 
-@[expose] def Lemma15119Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂
-
-@[expose] def Lemma15120Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂ → IsL1520 T Mc Z₁ L →
-    (CharTwo L → ⁅L, thompsonJ (s1516 T Z₁)⁆ = L ∧
-      (Case15120TwoA T Mc Z₁ L ∨ Case15120TwoB T Mc Z₁ L ∨ Case15120TwoC Mc Z₁ L)) ∧
-    (IsComponentOf L (g1_1516 Z₁) → IsPGroup 2 (Subgroup.center ↥L) ∧
-      (Case15120ThreeA Mc Z₁ L ∨ Case15120ThreeB Mc Z₁ L ∨ Case15120ThreeC T Mc Z₁ L ∨
-        Case15120ThreeD T Mc Z₁ L ∨ Case15120ThreeE T Mc Z₁ L))
-
-@[expose] def Lemma15121Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂ → Lemma15121Concl Mc Z₁ L
-
-@[expose] def Lemma15122Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂ → IsL1519 Mc Z₁ L → Lemma15120Concl T Mc M Z₁ L →
-    Lemma15121Concl Mc Z₁ L → Lemma15122Concl T Mc M Z₁ L
-
-@[expose] def Lemma15123Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂ → IsL1519 Mc Z₁ L → Lemma15122Concl T Mc M Z₁ L →
-    ∀ p : ℕ, (p = 3 ∨ p = 5) → Ce15Six T Mc M p → p = 3
 
 @[expose] def Lemma15124Input : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
@@ -91,13 +60,6 @@ theorem Construction1516.exists_setting (h : Construction1516) {G : Type} [Group
     Lemma15119Concl T Mc M Z₁ V₂ → IsL1519 Mc Z₁ L → Lemma15122Concl T Mc M Z₁ L →
     Ce15Small T Mc M → (Ce15Four T Mc M ∨ Ce15Six T Mc M 3) ∧ ¬ IsLnBlock L 3
 
-@[expose] def Lemma15125Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx1515 T Mc M Z₁ Z₂ V₁ V₂ → Lemma15117Concl T M Z₁ → Lemma15118Concl T Mc M Z₁ →
-    Lemma15119Concl T Mc M Z₁ V₂ → IsL1519 Mc Z₁ L → Lemma15122Concl T Mc M Z₁ L →
-    Lemma15124Concl T Mc M Z₁ V₁ V₂ L →
-    L = oPrimeResidualOf 3 (g1_1516 Z₁) ∧ ¬ IsSporadic .M11 ↥L ∧
-      ¬ V₁ ≤ Subgroup.centralizer (L : Set G) ∧ ¬ IsAltBlockType L 7
 
 @[expose] def Lemma15127Input : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),

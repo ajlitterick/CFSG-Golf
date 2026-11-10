@@ -39,17 +39,12 @@ local notation "M₃" => Matrix (Fin 3) (Fin 3) (ZMod 2)
   map_add' _ _ := rfl
   map_smul' _ _ := rfl
 
-theorem symThreeDiagLin_apply (B : 𝕍) : symThreeDiagLin B = symThreeDiag (B : M₃) :=
-  rfl
 
 @[expose] def symThreeDiagSection : (Fin 3 → ZMod 2) →ₗ[ZMod 2] ↥(binarySymMatrices 3) where
   toFun e := ⟨diagonal e, diagonal_transpose e⟩
   map_add' e e' := Subtype.ext (diagonal_add e e').symm
   map_smul' c e := Subtype.ext (diagonal_smul c e)
 
-theorem coe_symThreeDiagSection (e : Fin 3 → ZMod 2) :
-    (symThreeDiagSection e : M₃) = diagonal e :=
-  rfl
 
 theorem symThreeDiag_diagSection (e : Fin 3 → ZMod 2) :
     symThreeDiag (symThreeDiagSection e : M₃) = e := by
@@ -92,9 +87,6 @@ theorem symThreeCongr_smul (D : GL (Fin 3) (ZMod 2)) (c : ZMod 2) (B : 𝕍) :
   right_inv B := by
     rw [← symThreeCongr_mul, mul_inv_cancel, symThreeCongr_one]
 
-theorem symThreeCongrEquiv_apply (D : GL (Fin 3) (ZMod 2)) (B : 𝕍) :
-    symThreeCongrEquiv D B = symThreeCongr D B :=
-  rfl
 
 @[expose] def symThreeCongrHom :
     GL (Fin 3) (ZMod 2) →* (↥(binarySymMatrices 3) ≃ₗ[ZMod 2] ↥(binarySymMatrices 3)) where
@@ -110,9 +102,6 @@ theorem symThreeCongrHom_apply (D : GL (Fin 3) (ZMod 2)) (B : 𝕍) :
     Subgroup (↥(binarySymMatrices 3) ≃ₗ[ZMod 2] ↥(binarySymMatrices 3)) :=
   symThreeCongrHom.range
 
-theorem mem_symThreeCongrGroup {g : 𝕍 ≃ₗ[ZMod 2] 𝕍} :
-    g ∈ symThreeCongrGroup ↔ ∃ D : GL (Fin 3) (ZMod 2), symThreeCongrHom D = g :=
-  Iff.rfl
 
 @[expose] def symThreeRankOne (v : Fin 3 → ZMod 2) : 𝕍 :=
   ⟨vecMulVec v v, by rw [mem_binarySymMatrices, transpose_vecMulVec]⟩
@@ -145,9 +134,6 @@ theorem card_symThreeCongrGroup : Nat.card symThreeCongrGroup = 168 := by
   rw [symThreeCongrGroup, ← card_glThree]
   exact Nat.card_congr (Equiv.ofInjective _ symThreeCongrHom_injective).symm
 
-theorem symThreeDiagLin_congr (D : GL (Fin 3) (ZMod 2)) (B : 𝕍) :
-    symThreeDiagLin (symThreeCongrHom D B) = (D : M₃) *ᵥ symThreeDiagLin B :=
-  symThreeDiag_coe_congr D B
 
 @[expose] def symThreeType (B : M₃) : Fin 5 :=
   if (Finset.univ.image B.mulVec).card = 1 then 0
@@ -189,27 +175,6 @@ theorem symThreeType_eq_aux {c c' : ℕ} {p p' : Prop} [Decidable p] [Decidable 
   rcases hc with rfl | rfl | rfl | rfl <;> rcases hc' with rfl | rfl | rfl | rfl <;>
     by_cases hp : p <;> by_cases hp' : p' <;> simp_all
 
-theorem symThreeType_congr (D : GL (Fin 3) (ZMod 2)) (B : 𝕍) :
-    symThreeType (symThreeCongr D B : M₃) = symThreeType (B : M₃) := by
-  have hc : (Finset.univ.image (symThreeCongr D B : M₃).mulVec).card =
-      (Finset.univ.image (B : M₃).mulVec).card := by
-    rw [card_image_mulVec_eq_pow_rank, card_image_mulVec_eq_pow_rank, coe_symThreeCongr,
-      BinarySymplecticSix.rank_congr_three]
-  have hd : symThreeDiag (symThreeCongr D B : M₃) = 0 ↔ symThreeDiag (B : M₃) = 0 := by
-    rw [symThreeDiag_coe_congr]
-    constructor
-    · intro h
-      have h1 := congrArg (((D⁻¹ : GL (Fin 3) (ZMod 2)) : M₃) *ᵥ ·) h
-      simp only [mulVec_mulVec, mulVec_zero] at h1
-      rwa [← Units.val_mul, inv_mul_cancel, Units.val_one, one_mulVec] at h1
-    · intro h
-      rw [h, mulVec_zero]
-  unfold symThreeType
-  rw [hc]
-  by_cases h0 : symThreeDiag (B : M₃) = 0
-  · simp only [h0, hd.2 h0]
-  · have h1 : ¬ symThreeDiag (symThreeCongr D B : M₃) = 0 := fun h => h0 (hd.1 h)
-    simp only [h0, h1]
 
 theorem exists_symThreeCongr_of_type_eq {B B' : 𝕍}
     (h : symThreeType (B : M₃) = symThreeType (B' : M₃)) :

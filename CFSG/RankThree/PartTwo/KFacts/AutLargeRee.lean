@@ -151,11 +151,6 @@ theorem inducesKindLargeRee_iff (e : L ⧸ aschbacherSolvableCore 3 L ≃* F4.re
   · intro h
     exact ⟨e, h⟩
 
-theorem inducesKindLargeRee_unique {x : G} {k₁ k₂ : AutKind}
-    (h₁ : InducesKindLargeRee a K L x k₁) (h₂ : InducesKindLargeRee a K L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedLargeRee_separated ha hK) h₁
-    ((inducesKindLargeRee_iff L ha hK e x k₂).mp h₂)
 
 theorem inducesKindLargeRee_field (hLang : LargeReeOrderThreeFieldConj a K) {x : G}
     (hx3 : x ^ 3 = 1) (hout : InducesOuterTheta x L)

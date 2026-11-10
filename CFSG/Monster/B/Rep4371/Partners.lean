@@ -463,7 +463,6 @@ theorem isPartner_xRep (hoct : Model.octDataOK = true) (t : Fin 2300) :
     exact hsum
   exact ⟨hs, fun h => hne (Subtype.ext h.symm), (isShortCoord_add_iff hne).1 hsum⟩
 
-theorem coordOf_labelElt (l : ShortLabel) : coordOf (labelElt l) = (labelIdx l).1 := rfl
 
 theorem huniq_xRep (hoct : Model.octDataOK = true) (d : ShortIdx)
     (hd : PartnerCls Short.isShortCoord_rStar d) :

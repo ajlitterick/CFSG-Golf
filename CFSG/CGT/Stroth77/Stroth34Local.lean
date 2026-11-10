@@ -102,9 +102,6 @@ section OddCentralizer
 
 variable {D : Subgroup G} (hD : IsSylowIn 2 (Subgroup.centralizer (D : Set G)) D)
 
-theorem mem_oddCentralizer_iff {k : G} :
-    k ∈ oddCentralizer D hD ↔ k ∈ Subgroup.centralizer (D : Set G) ∧ Odd (orderOf k) :=
-  Iff.rfl
 
 theorem oddCentralizer_le : oddCentralizer D hD ≤ Subgroup.centralizer (D : Set G) :=
   fun _ hk => hk.1
@@ -115,27 +112,6 @@ theorem exists_mul_oddCentralizer {k : G} (hk : k ∈ Subgroup.centralizer (D : 
   obtain ⟨d, hd, o, ho, rfl⟩ := hdec k hk
   exact ⟨d, hd, o, (mem_odd_complement_iff hD.2.1 hOK hO hdec o).mp ho, rfl⟩
 
-theorem odd_card_oddCentralizer : Odd (Nat.card (oddCentralizer D hD)) := by
-  obtain ⟨O, hOK, hO, hdec⟩ := exists_odd_complement hD
-  have e : O = oddCentralizer D hD := by
-    ext k
-    exact mem_odd_complement_iff hD.2.1 hOK hO hdec k
-  rw [← e]
-  exact hO
-
-theorem eq_one_of_mem_oddCentralizer {d : G} (hd : d ∈ D) (hdo : d ∈ oddCentralizer D hD) :
-    d = 1 := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨j, hj⟩ := (hD.2.1 ⟨d, hd⟩)
-  have hdj : d ^ 2 ^ j = 1 := congrArg Subtype.val hj
-  have h1 : orderOf d ∣ 2 ^ j := orderOf_dvd_of_pow_eq_one hdj
-  obtain ⟨i, -, hi⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp h1
-  rcases i with _ | i
-  · simpa using hi
-  · exfalso
-    have hodd := hdo.2
-    rw [hi, pow_succ] at hodd
-    exact (Nat.not_even_iff_odd.mpr hodd) (even_iff_two_dvd.mpr (dvd_mul_left 2 _))
 
 theorem conj_mem_oddCentralizer {g : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) {k : G}
     (hk : k ∈ oddCentralizer D hD) : g⁻¹ * k * g ∈ oddCentralizer D hD := by
@@ -500,20 +476,6 @@ theorem proj_conj_D {g r : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) (hr :
     _ = o⁻¹ * ((p⁻¹ * d * p) * o) := by rw [hc]
     _ = (p * o)⁻¹ * d * (p * o) := by group
 
-theorem proj_mul_D {g r : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) (hr : r ∈ h.R) {d : G}
-    (hd : d ∈ D) : h.proj g (r * d) = h.proj g r * (g⁻¹ * d * g) := by
-  obtain ⟨hp, o, ho, e⟩ := h.proj_spec hg hr
-  have hd' : g⁻¹ * d * g ∈ D := (Subgroup.mem_normalizer_iff''.mp hg d).mp hd
-  have hc := Subgroup.mem_centralizer_iff.mp (h.O_le_centralizer ho) _ hd'
-  have e' : g⁻¹ * (r * d) * g = (h.proj g r * (g⁻¹ * d * g)) * o := by
-    calc g⁻¹ * (r * d) * g = (g⁻¹ * r * g) * (g⁻¹ * d * g) := by group
-      _ = h.proj g r * o * (g⁻¹ * d * g) := by rw [e]
-      _ = h.proj g r * (o * (g⁻¹ * d * g)) := by group
-      _ = h.proj g r * ((g⁻¹ * d * g) * o) := by rw [← hc]
-      _ = (h.proj g r * (g⁻¹ * d * g)) * o := by group
-  unfold proj
-  rw [e']
-  exact h.rPart_eq (mul_mem hp (h.D_le_R hd')) ho
 
 theorem proj_twist {g r : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) (hr : r ∈ h.R)
     {x δ : G} (hxS : x ∈ S) (hxN : x ∈ Subgroup.normalizer (D : Set G)) (hδ : δ ∈ D)

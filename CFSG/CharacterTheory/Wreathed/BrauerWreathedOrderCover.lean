@@ -51,9 +51,6 @@ variable {G : Type} [Group G] [Finite G] {n : ℕ} {S : Sylow 2 G} {e : S ≃* W
 @[expose] def quotHom : GL (Fin 2) F →* centralizerOddCoreQuotient n S e :=
   (centralizerOddCoreMap n S e).comp (centralizerHom φ)
 
-omit [Finite G] [Finite F] in
-theorem quotHom_apply (A : GL (Fin 2) F) :
-    quotHom φ A = centralizerOddCoreMap n S e (centralizerHom φ A) := rfl
 
 omit [Finite G] [Finite F] in
 theorem quotHom_surjective : Function.Surjective (quotHom φ) :=

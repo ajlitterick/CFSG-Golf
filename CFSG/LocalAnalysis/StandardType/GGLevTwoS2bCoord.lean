@@ -94,31 +94,6 @@ theorem levTwoS2b_lam_ofCoord (n p : ℕ) (c : Fin n → ZMod p) (e : Fin n → 
   refine Finset.sum_congr rfl fun k _ => ?_
   rw [levTwoS2b_coord_ofCoord]
 
-theorem levTwoS2b_lam_eps_sub (n p : ℕ) (c : Fin n → ZMod p) (a b : Fin n) :
-    lam c (levTwoS2b_ofCoord n (Pi.single a 1 - Pi.single b 1)) =
-      levTwoS2b_D c a - levTwoS2b_D c b := by
-  rw [levTwoS2b_lam_ofCoord]
-  simp only [Pi.sub_apply, Int.cast_sub, sub_mul, Finset.sum_sub_distrib]
-  rw [Fintype.sum_eq_single a]
-  · rw [Fintype.sum_eq_single b]
-    · simp
-    · intro d hd
-      simp [hd]
-  · intro d hd
-    simp [hd]
-
-theorem levTwoS2b_lam_eps_add (n p : ℕ) (c : Fin n → ZMod p) (a b : Fin n) :
-    lam c (levTwoS2b_ofCoord n (Pi.single a 1 + Pi.single b 1)) =
-      levTwoS2b_D c a + levTwoS2b_D c b := by
-  rw [levTwoS2b_lam_ofCoord]
-  simp only [Pi.add_apply, Int.cast_add, add_mul, Finset.sum_add_distrib]
-  rw [Fintype.sum_eq_single a]
-  · rw [Fintype.sum_eq_single b]
-    · simp
-    · intro d hd
-      simp [hd]
-  · intro d hd
-    simp [hd]
 
 theorem levTwoS2b_rank_bounds (n : ℕ) (_hn : 2 ≤ n) (p : ℕ) (c : Fin n → ZMod p)
     (Φ : Set (Fin n → ℤ)) (h : LevTwoData (CFSG.LieType.Universal.Spin.isFiniteType_cartanB n)

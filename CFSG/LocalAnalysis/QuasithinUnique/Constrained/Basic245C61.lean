@@ -63,16 +63,5 @@ theorem c61_lin2
 
 end C56
 
-theorem lemma245_3
-    (h567 : Lemma245_C56_7) (hO : C61OtherCases) : Lemma245_3 := by
-  rw [lemma245_3_iff]
-  intro G _ _ T M H S L hcs hhyp
-  by_cases hs : conjJoin S L = L ∧ ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) ∧
-      ¬ IsAltType L 5
-  · exact C56.c61_single
-      (fun M₀ hSM hMT h2 => lemma245_C56_7_iff.1 h567 G T M H S L hcs M₀ hSM hMT h2)
-      (C56.c61SingleTail naturalModuleStructure (c61SingleAlternatives c61Lin2Alternatives)) hcs
-      hs.1 hs.2.1 hs.2.2
-  · exact hO G T M H S L hcs hhyp hs
 
 end CFSG.QuasithinUnique

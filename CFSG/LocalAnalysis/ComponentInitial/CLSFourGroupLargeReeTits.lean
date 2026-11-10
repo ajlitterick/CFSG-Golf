@@ -29,9 +29,6 @@ variable (τ) in
   ((baseChangeGL ι).comp (adjointGroup τ k).subtype).codRestrict _ fun g =>
     baseChangeGL_mem_adjointGroup ι g.2
 
-theorem coe_adjointBaseChange (ι : k →+* K) (g : adjointGroup τ k) :
-    (adjointBaseChange τ ι g : ModGL τ K) = baseChangeGL ι (g : ModGL τ k) :=
-  rfl
 
 theorem adjointBaseChange_xElement (ι : k →+* K) (i : Fin τ.rank) (c : k) :
     adjointBaseChange τ ι (xElement i c) = xElement i (ι c) :=

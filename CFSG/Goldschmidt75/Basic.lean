@@ -35,8 +35,6 @@ theorem rconj_mul (g h : G) (U : Set G) : rconj (g * h) U = rconj h (rconj g U) 
 theorem rconj_inv_rconj (g : G) (U : Set G) : rconj g⁻¹ (rconj g U) = U := by
   rw [← rconj_mul, mul_inv_cancel, rconj_one]
 
-theorem rconj_rconj_inv (g : G) (U : Set G) : rconj g (rconj g⁻¹ U) = U := by
-  rw [← rconj_mul, inv_mul_cancel, rconj_one]
 
 theorem rconj_mono {g : G} {U V : Set G} (h : U ⊆ V) : rconj g U ⊆ rconj g V :=
   Set.image_mono h
@@ -97,17 +95,6 @@ theorem rconj_eq_self_of_mem_centralizer {g : G} {A : Subgroup G} {U : Set G}
         _ = x := by group
     rwa [this]
 
-theorem rconj_subset_iff {g : G} {U V : Set G} : rconj g U ⊆ V ↔ U ⊆ rconj g⁻¹ V := by
-  constructor
-  · intro h x hx
-    rw [mem_rconj, inv_inv]
-    have := h (conj_mem_rconj (g := g) hx)
-    simpa [mul_assoc] using this
-  · intro h x hx
-    rw [mem_rconj] at hx
-    have := h hx
-    rw [mem_rconj, inv_inv] at this
-    simpa [mul_assoc] using this
 
 theorem image_rconj {H : Type*} [Group H] (f : G →* H) (g : G) (U : Set G) :
     f '' rconj g U = rconj (f g) (f '' U) := by

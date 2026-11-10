@@ -66,20 +66,10 @@ variable
   (hrest : ∀ v : V, (∀ k r, polar Q v (F.vec k r) = 0) → Q v = 0 → v = 0)
 include hlong hperp hrest
 
-omit hrest in
-theorem rootGroup_vec_le_map_spinAction (i : Fin n) (s : Bool) :
-    rootGroup Q (F.vec i s) ≤ R.map (spinAction Q) :=
-  F.rootGroup_vec_le (F.eichler_mem_map hlong) hperp i s
 
 theorem elementaryGroup_le_map_spinAction : elementaryGroup Q ≤ R.map (spinAction Q) :=
   F.elementaryGroup_le (F.eichler_mem_map hlong) hperp hrest
 
-theorem exists_mem_spinAction_eq_vec (hn : 2 ≤ n) (j : Fin n) (r : Bool) {v : V} (hv : Q v = 0)
-    (hv0 : v ≠ 0) : ∃ x ∈ R, spinAction Q x v = F.vec j r := by
-  obtain ⟨g, hg, h⟩ :=
-    F.exists_mem_apply_eq_vec (F.eichler_mem_map hlong) hperp hrest hn j r hv hv0
-  obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.mp hg
-  exact ⟨x, hx, h⟩
 
 theorem exists_mem_spinAction_eq (hn : 2 ≤ n) {x y : V} (hx : Q x = 0) (hy : Q y = 0)
     (hx0 : x ≠ 0) (hy0 : y ≠ 0) : ∃ g ∈ R, spinAction Q g x = y := by
@@ -132,10 +122,6 @@ theorem elementaryGroup_le_map_spinAction : elementaryGroup Q ≤ R.map (spinAct
   F.toHypFrame.elementaryGroup_le_map_spinAction hlong (F.eichler_perp_mem_map hshort hz)
     (F.eq_zero_of_perp hz)
 
-theorem exists_mem_spinAction_eq_vec (hn : 2 ≤ n) (j : Fin n) (r : Bool) {v : V} (hv : Q v = 0)
-    (hv0 : v ≠ 0) : ∃ x ∈ R, spinAction Q x v = F.vec j r :=
-  F.toHypFrame.exists_mem_spinAction_eq_vec hlong (F.eichler_perp_mem_map hshort hz)
-    (F.eq_zero_of_perp hz) hn j r hv hv0
 
 theorem exists_mem_spinAction_eq (hn : 2 ≤ n) {x y : V} (hx : Q x = 0) (hy : Q y = 0)
     (hx0 : x ≠ 0) (hy0 : y ≠ 0) : ∃ g ∈ R, spinAction Q g x = y :=

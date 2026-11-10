@@ -30,9 +30,6 @@ theorem reflect_apply_self {v : V} (hv : Q v ≠ 0) : reflect Q v v = -v := by
   rw [reflect_apply hv, polar_self_eq_two_mul, mul_div_cancel_right₀ _ hv]
   module
 
-theorem reflect_apply_smul_self {v : V} (hv : Q v ≠ 0) (c : K) :
-    reflect Q v (c • v) = -(c • v) := by
-  rw [map_smul, reflect_apply_self hv, smul_neg]
 
 theorem reflect_sub_apply (h2 : (2 : K) ≠ 0) {u v : V} (hu : Q u = 1) (hv : Q v = 1)
     (huv : polar Q u v = 0) :
@@ -470,33 +467,5 @@ theorem orthogonal_isotropic_line_unipotent_core {p f : ℕ} (hp : p.Prime) (hp3
     · rintro _ ⟨i, x, rfl⟩ _ ⟨j, y, rfl⟩
       exact hβ i j x y
 
-theorem orthogonal_isotropic_line_unipotent_central_preimage_abelian {p f : ℕ} (hp : p.Prime)
-    (hp3 : 3 < p) (hf : 1 ≤ f) (hK : Nat.card K = p ^ f) [FiniteDimensional K V]
-    (Q : QuadraticForm K V) (_hB : (polarBilin Q).Nondegenerate) {e h : V}
-    {D R : Submodule K V} (he : Q e = 0) (hh : Q h = 0) (heh : polar Q e h = 1)
-    (hDe : ∀ w ∈ D, polar Q e w = 0) (hDh : ∀ w ∈ D, polar Q h w = 0)
-    (_hRe : ∀ x ∈ R, polar Q e x = 0) (_hRh : ∀ x ∈ R, polar Q h x = 0)
-    (_hDR : ∀ w ∈ D, ∀ x ∈ R, polar Q w x = 0) (_hV : Submodule.span K {e, h} ⊔ D ⊔ R = ⊤)
-    (hDreg : (LinearMap.BilinForm.restrict (polarBilin Q) D).Nondegenerate)
-    (_hRreg : (LinearMap.BilinForm.restrict (polarBilin Q) R).Nondegenerate)
-    {d : ℕ} (hd : Module.finrank K D = d) (hd4 : 4 ≤ d) :
-    ∃ U₀ : Subgroup (V ≃ₗ[K] V),
-      (U₀ : Set (V ≃ₗ[K] V)) =
-        {g : V ≃ₗ[K] V | ∃ w ∈ D, (g : V →ₗ[K] V) = orthElementaryMap Q e w} ∧
-      U₀ ≤ orthDerived Q ∧
-      Set.InjOn (QuotientGroup.mk' ((scalars K V).subgroupOf (orthDerived Q)))
-        (U₀.subgroupOf (orthDerived Q)) ∧
-      CFSG.Assembly.IsElemAbelian p ((U₀.subgroupOf (orthDerived Q)).map
-        (QuotientGroup.mk' ((scalars K V).subgroupOf (orthDerived Q)))) ∧
-      Nat.card ((U₀.subgroupOf (orthDerived Q)).map
-        (QuotientGroup.mk' ((scalars K V).subgroupOf (orthDerived Q)))) = p ^ (f * d) ∧
-      ∀ (Y : Type u) [Group Y] (φ : Y →* ProjOrthDerived Q), Function.Surjective φ →
-        φ.ker ≤ Subgroup.center Y →
-        ∀ x ∈ ((U₀.subgroupOf (orthDerived Q)).map
-            (QuotientGroup.mk' ((scalars K V).subgroupOf (orthDerived Q)))).comap φ,
-          ∀ y ∈ ((U₀.subgroupOf (orthDerived Q)).map
-            (QuotientGroup.mk' ((scalars K V).subgroupOf (orthDerived Q)))).comap φ,
-            x * y = y * x :=
-  orthogonal_isotropic_line_unipotent_core hp hp3 hf hK Q he hh heh hDe hDh hDreg hd hd4
 
 end CFSG.RankThree.Classical2

@@ -64,16 +64,6 @@ theorem exists_conj_eq_mul_longRoot_twoSided_minus (hset : SeitzSetting G L) {n 
       ((conjugateMulEquiv L x).symm.trans e) U'
       (fun h1 => hz1 (congrArg Subtype.val h1)) fun u hu => Subtype.ext (hU' u hu)
 
-theorem exists_conj_eq_mul_longRoot_minus (hset : SeitzSetting G L) {n f : ℕ} (hn : 4 ≤ n)
-    {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ f) (hq : 4 ≤ Nat.card K)
-    {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ (g : G) (z : L), IsLongRoot _ (e z) ∧ g⁻¹ * t * g = t * (z : G) := by
-  obtain ⟨x, z, -, hxz, ⟨hzL, hzl⟩, -, -⟩ :=
-    exists_conj_eq_mul_longRoot_twoSided_minus hset hn hK hq hirr e ht hKt
-  exact ⟨x, ⟨z, hzL⟩, hzl, hxz⟩
 
 theorem habel_plus_of_odd (hset : SeitzSetting G L) {n f : ℕ} (hn : 5 ≤ n) (hf : Odd f)
     {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2 ^ f)
@@ -147,44 +137,5 @@ theorem conj_mul_eq_mul_conj {t g : G} (htC : t ∈ centralizer (L : Set G)) {z 
     _ = t * (c : G)⁻¹ * (z : G) * c := by rw [hct]
     _ = t * ((c⁻¹ * z * c : L) : G) := by simp [mul_assoc]
 
-omit [Finite G] in
-theorem exists_conj_eq_mul_of_isConj {X : Type*} [Group X] (e : L ≃* X) {t g : G}
-    (htC : t ∈ centralizer (L : Set G)) {z : L} (hz : g⁻¹ * t * g = t * (z : G)) {z₀ : X}
-    (hc : IsConj (e z) z₀) : ∃ (g' : G) (z' : L), e z' = z₀ ∧ g'⁻¹ * t * g' = t * (z' : G) := by
-  obtain ⟨c', hc'⟩ := isConj_iff.mp hc
-  refine ⟨g * (e.symm c'⁻¹ : G), (e.symm c'⁻¹)⁻¹ * z * e.symm c'⁻¹, ?_,
-    conj_mul_eq_mul_conj htC hz _⟩
-  rw [map_mul, map_mul, map_inv, MulEquiv.apply_symm_apply, inv_inv, ← hc']
-
-theorem exists_conj_eq_mul_longRoot_mem_minusPairPerp (hset : SeitzSetting G L) {n f : ℕ}
-    (hn : 4 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ f)
-    (hq : 4 ≤ Nat.card K) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (k : Fin (n - 1)) :
-    ∃ (g : G) (z : L), e z ∈ minusPairPerp (by omega) b c k ∧ IsLongRoot _ (e z) ∧
-      g⁻¹ * t * g = t * (z : G) := by
-  obtain ⟨g, z, hz, hgz⟩ := exists_conj_eq_mul_longRoot_minus hset hn hK hq hirr e ht hKt
-  obtain ⟨z₀, hz₀D, hz₀⟩ := exists_isLongRoot_mem_minusPairPerp (K := K) hn hirr k
-  obtain ⟨g', z', hz', hg'⟩ := exists_conj_eq_mul_of_isConj e (mem_centralizer_of_inf_eq hKt)
-    hgz (isConj_of_isLongRoot_minus hn hirr hz hz₀)
-  exact ⟨g', z', hz' ▸ hz₀D, hz' ▸ hz₀, hg'⟩
-
-theorem exists_conj_eq_mul_longRoot_mem_pairPerp_or_residual (hset : SeitzSetting G L)
-    {n f : ℕ} (hn : 5 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ f)
-    (hq : 4 ≤ Nat.card K) (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (k : Fin n) :
-    (∃ (g : G) (z : L), e z ∈ pairPerp k ∧ IsLongRoot _ (e z) ∧ g⁻¹ * t * g = t * (z : G)) ∨
-      (Even f ∧ ∃ S : Sylow 2 G, (S : Subgroup G) ≤ centralizer ({t} : Set G) ∧
-        ∃ y ∈ (S : Subgroup G), ∃ w ∈ (S : Subgroup G), y * w * y⁻¹ * w⁻¹ ∉ L) := by
-  rcases exists_conj_eq_mul_longRoot_plus_or_residual hset hn hK hq e ht hKt with
-    ⟨g, z, hz, hgz⟩ | hres
-  · left
-    obtain ⟨z₀, hz₀D, hz₀⟩ := exists_isLongRoot_mem_pairPerp (K := K) (by omega : 3 ≤ n) k
-    obtain ⟨g', z', hz', hg'⟩ := exists_conj_eq_mul_of_isConj e (mem_centralizer_of_inf_eq hKt)
-      hgz (isConj_of_isLongRoot_plus (by omega) hz hz₀)
-    exact ⟨g', z', hz' ▸ hz₀D, hz' ▸ hz₀, hg'⟩
-  · exact Or.inr hres
 
 end CFSG.SeitzReduction.OmegaPilot

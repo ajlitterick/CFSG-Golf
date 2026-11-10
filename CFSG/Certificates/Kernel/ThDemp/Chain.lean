@@ -65,13 +65,6 @@ theorem act_ht {l : ℕ} (hl : l < L) {h : G} (hh : h ∈ lev fr n s (l + 1)) {z
     (hz : z < N l) : act (b l) (h * t l z) = O l z := by
   rw [H.act_mul, H.fix_lev hl hh, H.tpt l hl z hz]
 
-theorem res_unique {l : ℕ} (hl : l < L) {i g z z' : ℕ} (hz : z < N l) (hz' : z' < N l)
-    (h1 : t l i * s g * (t l z)⁻¹ ∈ lev fr n s (l + 1))
-    (h2 : t l i * s g * (t l z')⁻¹ ∈ lev fr n s (l + 1)) : z = z' := by
-  have e1 := H.act_ht hl h1 hz
-  have e2 := H.act_ht hl h2 hz'
-  rw [inv_mul_cancel_right] at e1 e2
-  exact H.inj l hl z z' hz hz' (e1.symm.trans e2)
 
 theorem decomp {l : ℕ} (hl : l < L) {x : G} (hx : x ∈ lev fr n s l) :
     ∃ h ∈ lev fr n s (l + 1), ∃ z < N l, x = h * t l z := by

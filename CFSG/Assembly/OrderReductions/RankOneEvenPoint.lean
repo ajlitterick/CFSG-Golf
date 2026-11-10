@@ -41,20 +41,5 @@ theorem maximal_even_point_normalizer_of_coreFree_centrality
       (CFSG.OrderReductions.RankOneInduction.involution_image_central_of_coreFree_centrality
         centrality normalizer no_four)
 
-theorem maximal_even_point_normalizer_of_proper_normal_step
-    (proper_normal_step : ∀ (group : Type group_universe) [Group group] [Finite group],
-      CFSG.OrderReductions.RankOneInduction.NoFourInvolutions group → CFSG.OrderReductions.OddCore.oddCore group = ⊥ →
-      ∀ involution : Involution group,
-        (∃ normal : Subgroup group, normal.Normal ∧ normal ≠ ⊤ ∧ involution.val ∈ normal) ∨
-        ∃ sylow : Sylow 2 group, IsCyclic sylow)
-    {group : Type group_universe} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (prime_odd : Odd prime) (subgroup : Subgroup group)
-    (maximal : Maximal
-      (CFSG.OrderReductions.MaximalThreePoint.ThreePointPrime (points := Component group) prime) subgroup) :
-    ∃ point ∈ MulAction.fixedPoints subgroup (Component group),
-      Even (Nat.card ↥(Subgroup.normalizer (subgroup : Set group) ⊓ componentStabilizer point)) :=
-  maximal_even_point_normalizer_of_coreFree_centrality
-    (CFSG.OrderReductions.RankOneInduction.coreFree_centrality_of_proper_normal_step proper_normal_step)
-    prime prime_odd subgroup maximal
 
 end CFSG.OrderReductions.RankOneEvenPoint

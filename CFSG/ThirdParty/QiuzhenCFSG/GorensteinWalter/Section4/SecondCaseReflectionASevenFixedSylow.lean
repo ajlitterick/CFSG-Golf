@@ -153,10 +153,6 @@ private theorem a7s_mem_base :
   simpa [a7BaseSylow, a7BaseSubgroup] using
     Subgroup.mem_sup_right (Subgroup.mem_zpowers a7s)
 
-private theorem a7v_mem_base :
-    a7v ∈ (a7BaseSylow : Subgroup A7) := by
-  simpa [a7BaseSylow, a7BaseSubgroup] using
-    Subgroup.mem_sup_left (Subgroup.mem_zpowers a7v)
 
 private theorem a7Base_le_centralizer :
     (a7BaseSylow : Subgroup A7) ≤

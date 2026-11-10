@@ -95,11 +95,6 @@ theorem central_mul_central : (central : CocExt f) * central = 1 := by
       grind
     · simp only [mul_g, map_mul]
 
-theorem twistAut_e (β : G ≃* G) (lam : G → ZMod 2) (hlam) (x : CocExt f) :
-    (twistAut β lam hlam x).e = x.e + lam x.g := rfl
-
-theorem twistAut_g (β : G ≃* G) (lam : G → ZMod 2) (hlam) (x : CocExt f) :
-    (twistAut β lam hlam x).g = β x.g := rfl
 
 theorem card_cocExt [Finite G] : Nat.card (CocExt f) = 2 * Nat.card G := by
   have e : CocExt f ≃ ZMod 2 × G := ⟨fun x => (x.e, x.g), fun p => ⟨p.1, p.2⟩, fun _ => rfl,
@@ -367,30 +362,6 @@ theorem tauR_tauR (x : Rf) : tauR (tauR x) = x := by
 
 @[expose] noncomputable def bigLam (g : P) : ZMod 2 := ∑ i : Fin 4725, cCoef i g
 
-theorem cMul_snd (i : Fin 4725) (g : P) :
-    (cMul i g).g = factor (sigmaIdx i) (betaP g) ∧
-      cosetAct (sigmaIdx i) (betaP g) = sigmaIdx (cosetAct i g) := by
-  have key : rep (sigmaIdx i) * (betaP g : Perm315) =
-      ((aElt i)⁻¹ * betaS (factor i g) * aElt (cosetAct i g) : S) *
-        rep (sigmaIdx (cosetAct i g)) := by
-    have h1 := congrArg (fun x : Perm315 => bOut * x * bOut⁻¹) (rep_mul_eq i g)
-    have h2 : bOut * (rep i * (g : Perm315)) * bOut⁻¹ =
-        (bOut * rep i * bOut⁻¹) * (bOut * g * bOut⁻¹) := by group
-    have h3 : bOut * ((factor i g : Perm315) * rep (cosetAct i g)) * bOut⁻¹ =
-        (bOut * factor i g * bOut⁻¹) * (bOut * rep (cosetAct i g) * bOut⁻¹) := by group
-    rw [h2, h3, ← betaP_coe, ← betaS_coe] at h1
-    have h4 := betaP_repP i
-    have h5 := betaP_repP (cosetAct i g)
-    rw [betaP_coe, repP_coe] at h4 h5
-    rw [h4, h5] at h1
-    rw [Subgroup.coe_mul, Subgroup.coe_mul, Subgroup.coe_inv]
-    calc rep (sigmaIdx i) * (betaP g : Perm315)
-        = (aElt i : Perm315)⁻¹ * ((aElt i : Perm315) * rep (sigmaIdx i) * betaP g) := by group
-      _ = _ := by rw [h1]; group
-  obtain ⟨hf, hc⟩ := decomp_unique key
-  refine ⟨?_, hc⟩
-  rw [hf, cMul, CocExt.mul_g, CocExt.mul_g, CocExt.inv_g, tauR_g]
-  rfl
 
 theorem fNorm_toFun : fNorm.toFun = fCoc := rfl
 

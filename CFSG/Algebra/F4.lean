@@ -59,11 +59,9 @@ instance : Pow F4 Int := ⟨fun x n => zpowRec npowRec n x⟩
 
 @[simp] theorem neg_def (x : F4) : -x = x := rfl
 
-theorem sub_def (x y : F4) : x - y = x + y := rfl
 
 @[simp] theorem inv_def (x : F4) : x⁻¹ = if x = 0 then 0 else x * x := rfl
 
-theorem div_def (x y : F4) : x / y = x * y⁻¹ := rfl
 
 instance : CommRing F4 where
   add_assoc := by decide
@@ -116,24 +114,6 @@ instance : Field F4 where
 
 @[simp] theorem omega_def : omega = ⟨0, 1⟩ := rfl
 
-theorem omega_sq' : omega ^ 2 = omega + 1 := by decide
-
-theorem omega_sq : omega * omega = omega + 1 := by decide
-
-theorem omega_cube : omega ^ 3 = 1 := by decide
-
-theorem omega_ne_zero : omega ≠ 0 := by decide
-
-theorem omega_ne_one : omega ≠ 1 := by decide
-
-theorem omega_sq_add_omega_add_one : omega ^ 2 + omega + 1 = 0 := by decide
-
-theorem eq_add_mul_omega (x : F4) : x = ⟨x.a, 0⟩ + ⟨x.b, 0⟩ * omega := by
-  ext <;> simp
-
-theorem exists_eq_add_mul_omega (x : F4) :
-    ∃ a b : ZMod 2, x = ⟨a, 0⟩ + ⟨b, 0⟩ * omega :=
-  ⟨x.a, x.b, eq_add_mul_omega x⟩
 
 theorem card : Fintype.card F4 = 4 := by decide
 
@@ -143,9 +123,6 @@ instance instCharP : CharP F4 2 := by
   rw [CharP.charP_iff_prime_eq_zero Nat.prime_two]
   exact two_eq_zero
 
-theorem add_self (x : F4) : x + x = 0 := by
-  revert x
-  decide
 
 end F4
 

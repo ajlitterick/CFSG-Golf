@@ -20,9 +20,6 @@ variable {a : ℕ} {K : Type} [Field K]
   map_one' := suzukiDElt_one
   map_mul' l m := (suzukiDElt_mul l m).symm
 
-theorem suzukiDHom_apply
-    (l : Kˣ) : suzukiDHom a K l = suzukiDElt a K l :=
-  rfl
 
 theorem range_suzukiDHom : (suzukiDHom a K).range = suzukiT a K :=
   SetLike.coe_injective (by rw [MonoidHom.coe_range, coe_suzukiT]; rfl)

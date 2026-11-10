@@ -75,10 +75,6 @@ theorem v4OfNat_xor {a b : Nat} (ha : a < 2 ^ 248) (hb : b < 2 ^ 248) :
   rw [V4.toVec_xor, Pi.add_apply, toVec_v4OfNat, toVec_v4OfNat, toVec_v4OfNat, rowOfNat_xor]
   rfl
 
-theorem v4_lt {a b : Nat} (ha : a < 2 ^ 248) (hb : b < 2 ^ 248) :
-    (v4OfNat a).lt (v4OfNat b) = Nat.blt a b := by
-  apply Bool.eq_iff_iff.2
-  rw [V4.lt_iff, v4OfNat_toNat_of_lt ha, v4OfNat_toNat_of_lt hb, Nat.blt_eq]
 
 theorem v4_lt' (a b : Nat) : (v4OfNat a).lt (v4OfNat b) = Nat.blt (a % 2 ^ 256) (b % 2 ^ 256) := by
   apply Bool.eq_iff_iff.2

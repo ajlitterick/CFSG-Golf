@@ -152,18 +152,6 @@ theorem not_disc_of_cover {K' V B H : Subgroup G} (hP : SigPair N K K' V B)
     mem_centralizer_iff.mpr fun u hu => ((mem_centralizer_iff.mp (hUY hu).2) e (hEB he)).symm
   exact hdisc g (hKH hgK) U E E hU hUY hE hEB hEK hE hEU hgE Relation.ReflTransGen.refl
 
-@[expose] def GoodInvolutionsLeftDiscThreeFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      3 ≤ CFSG.Open.pRank 2 K → ¬ InvolutionsFourCover (coreQuot K) →
-      (∀ K'' ∈ kStarComponents N, K'' ≤ normalizer (wGroup B V : Set G)) →
-      ∀ x ∈ K, orderOf x = 2 →
-        (∀ g ∈ normalizer (wGroup B V : Set G), ∀ U E F : Subgroup G, IsKleinFour U →
-          U ≤ K' ⊓ centralizer (B : Set G) → IsKleinFour E → E ≤ B → E ≤ K → IsKleinFour F →
-          F ≤ K ⊓ centralizer (U : Set G) → g⁻¹ * x * g ∈ F →
-          ¬ Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (U : Set G))) E F) →
-        ∃ g ∈ normalizer (wGroup B V : Set G), IsGoodFor N (wGroup B V) (g⁻¹ * x * g)
 
 @[expose] def GoodInvolutionsLeftDiscThreeAt (R : SigOrientation) : Prop :=
   ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
@@ -178,15 +166,6 @@ theorem not_disc_of_cover {K' V B H : Subgroup G} (hP : SigPair N K K' V B)
           ¬ Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (U : Set G))) E F) →
         ∃ g ∈ normalizer (wGroup B V : Set G), IsGoodFor N (wGroup B V) (g⁻¹ * x * g)
 
-theorem goodInvolutionsLeftDiscFor_of_rank2 (hC : C1Rank2)
-    (h3 : GoodInvolutionsLeftDiscThreeFor) : GoodInvolutionsLeftDiscFor := by
-  intro G _ _ hG N hN h2 K K' V B hP hW hKH x hx hx2 hdisc
-  by_cases hcov : InvolutionsFourCover (coreQuot K)
-  · exact (not_disc_of_cover hP hcov (hKH K hP.1) hx hx2 hdisc).elim
-  by_cases hr : 3 ≤ CFSG.Open.pRank 2 K
-  · exact h3 G hG N hN h2 K K' V B hP hW hr hcov hKH x hx hx2 hdisc
-  · exact (hcov (involutionsFourCover_coreQuot hC (kStarKProper_of_simpleAmbient hG) hP.1
-      (by omega))).elim
 
 theorem goodInvolutionsLeftDiscAt_of_rank2 (hC : C1Rank2) {R : SigOrientation}
     (h3 : GoodInvolutionsLeftDiscThreeAt R) : GoodInvolutionsLeftDiscAt R := by

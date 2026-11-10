@@ -18,8 +18,6 @@ namespace CFSG.RankThree.PartTwo.Sec19
 
 open CFSG.LieType.SeitzGeneration CFSG.AGLEmbeddingD2
 
-@[expose] def SeitzThreeSec441Noninner : Prop :=
-  SeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ p = 3 ∧ IsSeitz441Index d.1
 
 @[expose] def SeitzThreeTrialityWide : Prop :=
   SeitzPlanes fun d p E => p = 3 ∧ IsTrialityIndex d.1 ∧

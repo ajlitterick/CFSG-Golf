@@ -53,9 +53,6 @@ theorem ggConjAut_mul {g h : G} (hg : g ∈ Subgroup.normalizer (Bs : Set G))
   ext b
   simp only [ggConjAut_apply, MulAut.mul_apply, Subgroup.coe_mul, mul_assoc, mul_inv_rev]
 
-theorem ggConjAut_one : ggConjAut Bs (Subgroup.one_mem (Subgroup.normalizer (Bs : Set G))) = 1 := by
-  ext b
-  simp [ggConjAut_apply]
 
 theorem SpCoord.permAut_mul' (σ τ : Equiv.Perm (Fin n)) :
     (SpCoord.permAut (p := p) (σ * τ)) = SpCoord.permAut σ * SpCoord.permAut τ := by
@@ -353,20 +350,6 @@ theorem ggSingletonFrom_eq_of_four_charts {Bs : Subgroup G}
   rw [← hsing i s t (fun h => hd (by rw [h])),
     ← hsing i s t' (fun h => hd' (by rw [h]))]
 
-theorem ggSingletonFrom_uniFour_eq [Finite G] [Fact p.Prime] {Bs L KU : Subgroup G}
-    {x : G} {eta : ↥Bs ≃* (Fin 4 → Multiplicative (ZMod p))} {π : Equiv.Perm (Fin 4)}
-    {κ : normOmega E 3 →* G} {χ : Multiplicative (ZMod p) →* Kˣ}
-    (hκ : GGSecFiveBPermOmKFrame E Bs L eta π κ χ) (hK : UnitaryFieldData 2 f K)
-    {σ : ↥(unitarySU 2 f K 4) →* G} {χ' : Multiplicative (ZMod p) →* Kˣ}
-    (hσ : GGSecFiveBPermUniLFrame Bs KU eta π σ χ')
-    (hBsC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hA : (ggAutomizer KU Bs).map (MulAut.congr eta).toMonoidHom = aPermutationFull 4 p)
-    (hX : CFSG.Open.IsComponentOf L (Subgroup.centralizer ({x} : Set G))) (hxB : x ∈ Bs)
-    (hpq : p ∣ 2 ^ f + 1) {c d d' : Fin 4} (hd : d ≠ c) (hd' : d' ≠ c) :
-    ggSingletonFrom Bs eta (π c) (π d) = ggSingletonFrom Bs eta (π c) (π d') := by
-  exact ggSingletonFrom_eq_of_four_charts (uniFourChart hK σ κ)
-    (fun i s t hst => uniFourChart_map_normBlock_singleton hκ hK hσ hBsC hA hX hxB hpq i hst)
-    hd hd'
 
 private theorem uniFour_add_one_ne (c : Fin 4) : c + 1 ≠ c := by
   fin_cases c <;> decide

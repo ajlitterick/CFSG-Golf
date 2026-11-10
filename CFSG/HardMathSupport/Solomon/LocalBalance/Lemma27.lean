@@ -322,23 +322,6 @@ theorem g_lift_centralizer {H : Type*} [Group H] [Finite H] {p : ℕ} (hp : p.Pr
     calc c * g * y = (c * (g * y * g⁻¹) * c⁻¹) * (c * g) := by group
       _ = y * (c * g) := by rw [h2]
 
-theorem g_mem_of_pow {H : Type*} [Group H] [Finite H] {p : ℕ} (hp : p.Prime) {M L : Subgroup H}
-    (hLM : L ≤ M) (hn : (L.subgroupOf M).Normal) (hcop : Nat.Coprime p (L.relIndex M)) {g : H}
-    (hg : g ∈ M) {k : ℕ} (hk : g ^ (p ^ k) = 1) : g ∈ L := by
-  set q : ↥M ⧸ L.subgroupOf M := QuotientGroup.mk (⟨g, hg⟩ : ↥M) with hq
-  have h1 : orderOf q ∣ p ^ k := by
-    refine orderOf_dvd_of_pow_eq_one ?_
-    rw [hq, ← QuotientGroup.mk_pow]
-    have : (⟨g, hg⟩ : ↥M) ^ (p ^ k) = 1 := Subtype.ext (by simpa using hk)
-    rw [this]; rfl
-  have h2 : orderOf q ∣ Nat.card (↥M ⧸ L.subgroupOf M) := orderOf_dvd_natCard _
-  have h3 : Nat.card (↥M ⧸ L.subgroupOf M) = L.relIndex M := by
-    rw [← Subgroup.index_eq_card]; rfl
-  rw [h3] at h2
-  have h4 : orderOf q = 1 := Nat.eq_one_of_dvd_coprimes (Nat.Coprime.pow_left k hcop) h1 h2
-  have h5 : q = 1 := orderOf_eq_one_iff.1 h4
-  have h6 : (⟨g, hg⟩ : ↥M) ∈ L.subgroupOf M := (QuotientGroup.eq_one_iff _).1 h5
-  exact h6
 
 end Generic1
 
@@ -1544,9 +1527,6 @@ private theorem r1_mkX_pow {C : Subgroup G} {g : G} (hgC : g ∈ C) (n : ℕ) :
   rw [← QuotientGroup.mk_pow]
   rfl
 
-omit [Finite G] in
-private theorem r1_mkX_mul {C : Subgroup G} {g h : G} (hgC : g ∈ C) (hhC : h ∈ C) :
-    mkX C g hgC * mkX C h hhC = mkX C (g * h) (mul_mem hgC hhC) := rfl
 
 omit [Finite G] in
 private theorem r1_card_sup_mul_card_inf {K : Type*} [Group K] {A B : Subgroup K}
@@ -4348,9 +4328,6 @@ theorem b2_mem_P3_iff {X : Subgroup G} {g : G} :
   · rintro ⟨hg, h⟩
     exact ⟨⟨g, hg⟩, (QuotientGroup.eq_one_iff _).1 h, rfl⟩
 
-theorem b2_P3_le (X : Subgroup G) : P3 X ≤ X := by
-  rintro _ ⟨c, _, rfl⟩
-  exact c.2
 
 theorem b2_three_core {X : Subgroup G} {g : G} (hg : g ∈ P3 X) {k : ℕ} (hk : g ^ (3 ^ k) = 1) :
     g = 1 := by
@@ -4389,11 +4366,6 @@ theorem b2_mkX_eq_one_iff (X : Subgroup G) {g : G} (hg : g ∈ X) :
     obtain ⟨hg', h'⟩ := b2_mem_P3_iff.1 h
     exact h'
 
-theorem b2_mkX_mul (X : Subgroup G) {g h : G} (hg : g ∈ X) (hh : h ∈ X) :
-    mkX X g hg * mkX X h hh = mkX X (g * h) (mul_mem hg hh) := rfl
-
-theorem b2_mkX_inv (X : Subgroup G) {g : G} (hg : g ∈ X) :
-    (mkX X g hg)⁻¹ = mkX X g⁻¹ (inv_mem hg) := rfl
 
 theorem b2_mem_barX_iff {X Y : Subgroup G} {w : ↥X ⧸ GLAPPrimeCore 3 ↥X} :
     w ∈ barX 3 X Y ↔ ∃ (y : G) (hy : y ∈ X), y ∈ Y ∧ mkX X y hy = w := by
@@ -4505,9 +4477,6 @@ theorem b2_bClosure_conj {B : Subgroup G} {g : G} (hg : g ∈ B) (L : Subgroup G
     exact le_iSup₂ (f := fun (b : G) (_ : b ∈ B) => GLBConj b (GLBConj g L)) (g⁻¹ * b')
       (B.mul_mem (B.inv_mem hg) hb')
 
-theorem b2_mkX_congr (X : Subgroup G) {g h : G} (hg : g ∈ X) (hh : h ∈ X) (e : g = h) :
-    mkX X g hg = mkX X h hh := by
-  subst e; rfl
 
 theorem b2_mem_ZR {R : Subgroup G} {z : G} : z ∈ ZR R ↔ z ∈ R ∧ ∀ r ∈ R, r * z = z * r := by
   constructor
@@ -9325,16 +9294,5 @@ namespace CFSG.HardMathSupport.Solomon.LocalBalance
 open CFSG.Open CFSG.LocalAnalysis.GLTheoremB CFSG.HardMathSupport.Solomon.Coordinator
   Lemma27Ns
 
-theorem lemma27_of_inputs (_h24 : Lemma24) (h25 : Lemma25Strong) (i112 : Input11_2Full)
-    (i112f : Input11_2Four) (i112t : Input11_2Two) (iB0 : InputB0T) (i302 : Input30_2)
-    (i183 : CFSG.HardMathSupport.Solomon.UniquenessMaximal.Input18_3_4) (i145 : Input14_5)
-    (i253 : Input25_3) (i1433 : Input14_33)
-    (iD4 : InputD4) : Lemma27 := by
-  intro G _ _ m hS B hB b hb hb1 L hL hn hbK hcase Li Lj hLi hLj x hx hx3
-  rcases hcase with hA | hb'
-  · exact lemma27a_of_inputs h25 i112 i112f i302 i183 i145 i253 G m hS B hB b hb hb1 L hL hn hbK
-      hA Li Lj hLi hLj x hx hx3
-  · exact lemma27b_of_inputs i112 i112f i112t iB0 i302 i183 i145 i253 i1433 iD4 G m hS B hB b hb
-      hb1 L hL hn hbK hb' Li Lj hLi hLj x hx hx3
 
 end CFSG.HardMathSupport.Solomon.LocalBalance

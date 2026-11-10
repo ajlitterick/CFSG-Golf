@@ -46,21 +46,6 @@ theorem finiteExceptionalAut_yElement
   exceptionalEndo_yElement (CharP.cast_eq_zero K t.prime)
     (shortFaithful (CharP.cast_eq_zero K t.prime)) i c
 
-theorem eq_finiteExceptionalAut
-    {ψ : MulAut (adjointGroup t.tag K)}
-    (hψ : ∀ (i : Fin t.tag.rank) (c : K),
-      ψ (xElement i c) = xElement (t.perm i) (c ^ t.exponent i) ∧
-        ψ (yElement i c) = yElement (t.perm i) (c ^ t.exponent i)) :
-    ψ = t.finiteExceptionalAut K := by
-  refine MulEquiv.ext fun g => ?_
-  have h := adjointGroup_hom_ext (f := ψ.toMonoidHom) (g := (t.finiteExceptionalAut K).toMonoidHom)
-    (fun i c => by
-      change ψ (xElement i c) = t.finiteExceptionalAut K (xElement i c)
-      rw [(hψ i c).1, finiteExceptionalAut_xElement])
-    (fun i c => by
-      change ψ (yElement i c) = t.finiteExceptionalAut K (yElement i c)
-      rw [(hψ i c).2, finiteExceptionalAut_yElement])
-  exact DFunLike.congr_fun h g
 
 theorem coe_finiteFrobeniusAut
     (g : adjointGroup t.tag K) :

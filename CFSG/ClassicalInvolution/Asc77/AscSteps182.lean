@@ -83,13 +83,6 @@ theorem exists_conj_mem_of_sylow_le [Finite G] {S : Sylow 2 G} {H : Subgroup G}
   ∀ S : Sylow 2 G, ∀ η ∈ etaG Ω, (∀ V ∈ η, V ≤ (S : Subgroup G)) →
     ∀ K ∈ Ω, 2 < Nat.card ↥(K ⊓ (S : Subgroup G)) → K ⊓ (⨆ V ∈ η, V) ∈ η
 
-theorem EtaAbelian.of_cyc66 [Finite G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (hC : Cyc66 Ω) : EtaAbelian Ω :=
-  fun _ _ hη hinv => (eta_abelian_of_cyc66 hp hq hΩ hC hη hinv).1
-
-theorem EtaMeet.of_cyc66 [Finite G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (hC : Cyc66 Ω) : EtaMeet Ω :=
-  fun _ _ hη hηS _ hK h2 => eta_inf_mem_of_cyc66 hp hq hΩ hC hη hηS hK h2
 
 theorem EtaAbelian.of_l6_9 [Finite G] (h : L6_9 p f) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
     (hΩ : HypOmegaMod p f Ω) : EtaAbelian Ω :=
@@ -205,15 +198,5 @@ theorem e18_2_of_l6_9_l6_11 (h69 : L6_9 p f) (h611 : L6_11 p f) : E18_2 p f := b
 theorem e18_2 (h : L6_6ii p f) : E18_2 p f :=
   e18_2_of_l6_9_l6_11 p f (l6_9_of_l6_6ii p f h) (l6_11_of_l6_6ii p f h)
 
-theorem e18_2AEmpty (h3 : E18_3 p f) (h : L6_6iiAEmpty p f) : E18_2 p f := by
-  intro G _ _ Ω K S R W H c u hu hu4 g hg
-  have hA := aEmpty_forall_of_transitive c.stand.hyp.conjInvariant (h3 G Ω K S R W H c)
-    c.stand.aEmpty
-  have hC := h c.stand.odd c.stand.five G Ω c.stand.hyp hA
-  exact c.mem_of_conj_mem (EtaAbelian.of_cyc66 c.stand.odd c.stand.five c.stand.hyp hC)
-    (EtaMeet.of_cyc66 c.stand.odd c.stand.five c.stand.hyp hC) hu hu4 hg
-
-theorem e18_2_of_l6_7 (h67 : L6_7 p f) (h : L6_6iiAEmpty p f) : E18_2 p f :=
-  e18_2AEmpty p f (e18_3 p f h67) h
 
 end CFSG.ClassicalInvolution.Asc77

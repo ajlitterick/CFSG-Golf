@@ -34,9 +34,6 @@ theorem barSL_diagSL (s : Fˣ) :
   rw [coe_barSL, coe_diagSL, coe_diagSL]
   fin_cases a <;> fin_cases b <;> simp [Units.coe_map]
 
-variable [CharP K 2] {E : Type*} [Group E] (π : E →* G0 T r)
-
-variable [Finite K] [Finite E] {T π}
 
 end Lifts
 

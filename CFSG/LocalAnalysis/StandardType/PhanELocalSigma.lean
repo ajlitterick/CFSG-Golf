@@ -96,15 +96,6 @@ theorem sgS_span_singleton (hK : Nat.card K = (2 ^ f) ^ 2) (v : Fin n → K) :
   rw [pls2_sgS_eq_map hK, Submodule.map_span]
   simp
 
-theorem sgS_eq_iff (hK : Nat.card K = (2 ^ f) ^ 2) {U V : Submodule K (Fin n → K)} :
-    sgS K f n U = V ↔ sgS K f n V = U := by
-  constructor
-  · intro h
-    calc sgS K f n V = sgS K f n (sgS K f n U) := by rw [← h]
-      _ = U := sgS_sgS hK U
-  · intro h
-    calc sgS K f n U = sgS K f n (sgS K f n V) := by rw [← h]
-      _ = V := sgS_sgS hK V
 
 theorem card_sg_fixed_le (hK : Nat.card K = (2 ^ f) ^ 2) :
     Nat.card {a : K // sg K f a = a} ≤ 2 ^ f := by

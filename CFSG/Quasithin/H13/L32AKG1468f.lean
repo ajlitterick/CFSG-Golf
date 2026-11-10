@@ -68,18 +68,6 @@ theorem map_normalizer_subtype {Y E : Subgroup G} (hEY : E ≤ Y) :
     rw [Subgroup.mem_subgroupOf, Subgroup.mem_subgroupOf]
     exact Subgroup.mem_normalizer_iff.mp hgN e
 
-theorem oTwoUpper_normal (X : Subgroup G) : ((oTwoUpper X).subgroupOf X).Normal :=
-  (Subgroup.normal_subgroupOf_iff_le_normalizer (oTwoUpper_le X)).mpr (le_normalizer_oTwoUpper X)
-
-theorem isPGroup_quot_oTwoUpper [Finite G] (X : Subgroup G)
-    [((oTwoUpper X).subgroupOf X).Normal] :
-    IsPGroup 2 (↥X ⧸ (oTwoUpper X).subgroupOf X) := by
-  intro q
-  obtain ⟨c, rfl⟩ := QuotientGroup.mk_surjective q
-  obtain ⟨k, hk⟩ := exists_pow_mem_oTwoUpper X c.2
-  refine ⟨k, ?_⟩
-  rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf]
-  simpa using hk
 
 section Central
 

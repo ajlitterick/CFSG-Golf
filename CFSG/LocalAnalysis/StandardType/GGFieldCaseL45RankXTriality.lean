@@ -152,13 +152,6 @@ theorem card_le_nine_of_theta_pow (hcls : GGD4TrialityClassInput) {γ : Om8 K} {
   exact false_of_fixDim_two_four (CharP.cast_eq_zero K 2) (Module.finrank_fin_fun K)
     (omRep.comp E.subtype) hexp h27 fun x hx => hd x x.2 fun h => hx (Subtype.ext h)
 
-theorem mem_inner_sup_of_pow_fix {α : MulAut (Om8 K)} {e : ℕ} (hα : α ^ 3 ^ e = 1)
-    {E : Subgroup (Om8 K)} (hE : IsElemAbelian 3 E) (h9 : 9 < Nat.card E)
-    (hfix : ∀ x ∈ E, α x = x) : α ∈ inner (Om8 K) ⊔ (AutOm.fieldAutP 4).range := by
-  by_contra hα'
-  obtain ⟨γ, k, σ, hk, rfl⟩ := exists_conj_theta_pow_fieldAutP_of_pow hα hα'
-  have := card_le_nine_of_theta_pow ggD4TrialityClassInput_holds hk hE hfix
-  omega
 
 end Aut
 

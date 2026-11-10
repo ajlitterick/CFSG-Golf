@@ -149,10 +149,6 @@ theorem pPrimeCore_le_ker : pPrimeCore 2 K ≤ ((rhoZ K).rangeRestrict.comp K.su
 theorem liftHom_mk (k : K) :
     liftHom K (k : K ⧸ pPrimeCore 2 K) = (rhoZ K).rangeRestrict (k : J) := rfl
 
-theorem liftHom_surjective_inner {g : (rhoZ K).range}
-    (hg : ∃ k : K, (rhoZ K).rangeRestrict (k : J) = g) : g ∈ (liftHom K).range := by
-  obtain ⟨k, rfl⟩ := hg
-  exact ⟨_, liftHom_mk K k⟩
 
 theorem liftHom_conj (g : J) (x : K ⧸ pPrimeCore 2 K) :
     liftHom K (phiO K g x) =

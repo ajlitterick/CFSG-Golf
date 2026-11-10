@@ -149,19 +149,6 @@ theorem hLiftRho_mem {i j : Fin r} (hij : i ≠ j) (a : kˣ) : hLiftRho π i j h
   rw [hLiftRho_eq hS]
   exact mul_mem (hLift_mem _ _) (inv_mem (hLift_mem _ _))
 
-theorem commute_hLift (i j : Fin r) (a b : kˣ) : Commute (hLift π i a) (hLift π j b) := by
-  by_cases hij : i = j
-  · subst hij
-    rw [Commute, SemiconjBy, hLift, hLift, ← map_mul, ← map_mul, ← map_mul, ← map_mul, mul_comm a b]
-  · exact commute_lamLift hS hij _ _
-
-theorem liftTorus_commute {x y : E} (hx : x ∈ liftTorus π) (hy : y ∈ liftTorus π) :
-    Commute x y := by
-  have hcomm := Subgroup.isMulCommutative_closure (k := Set.range fun p : Fin r × kˣ =>
-    hLift π p.1 p.2) (by
-      rintro _ ⟨⟨i, a⟩, rfl⟩ _ ⟨⟨j, b⟩, rfl⟩ _
-      exact commute_hLift hS i j a b)
-  exact congrArg Subtype.val (hcomm.is_comm.comm (⟨x, hx⟩ : liftTorus π) ⟨y, hy⟩)
 
 theorem pairwise_commute_lamLift :
     Pairwise fun i j => ∀ x y : kˣ,
@@ -174,10 +161,6 @@ noncomputable def thetaHom : (Fin r → kˣ) →* E :=
 theorem thetaHom_mulSingle (i : Fin r) (a : kˣ) : thetaHom hS (Pi.mulSingle i a) = hLift π i a :=
   MonoidHom.noncommPiCoprod_mulSingle _ _ _
 
-theorem thetaHom_apply (t : Fin r → kˣ) :
-    thetaHom hS t = (List.ofFn fun i => hLift π i (t i)).prod := by
-  rw [thetaHom, MonoidHom.noncommPiCoprod_apply]
-  exact noncommProd_univ_fin _ _
 
 theorem comp_thetaHom : π.comp (thetaHom hS) = torusHom :=
   MonoidHom.pi_ext fun i a => by

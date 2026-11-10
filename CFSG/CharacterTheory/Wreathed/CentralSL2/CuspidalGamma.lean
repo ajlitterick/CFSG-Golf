@@ -63,9 +63,6 @@ theorem alpha_mul_unipotent_mem_au {α : CentralExtension F b m hm heven}
     rw [mul_assoc, ← mul_assoc (q.1 : CentralExtension F b m hm heven), hc]
     simp only [mul_assoc])
 
-theorem auHom_apply (p : Subgroup.zpowers (cyclicGenerator F b m hm heven ^ 2) × Multiplicative F) :
-    ((auHom p : auSubgroup F b m hm heven) : CentralExtension F b m hm heven) =
-      p.1 * unipotentElement F b m hm heven p.2.toAdd := rfl
 
 theorem auHom_bijective (hb : ¬ IsSquare b) :
     Function.Bijective (auHom (F := F) (b := b) (m := m) (hm := hm) (heven := heven)) := by

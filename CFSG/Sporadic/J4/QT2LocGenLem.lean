@@ -62,9 +62,6 @@ variable {G M : Type*} [Group G] [Monoid M]
     have hinv : x⁻¹ = x := inv_eq_of_mul_eq_one_right hxx
     simpa [hinv] using hx
 
-theorem mem_msSubgroup (φ : G →* M) (hφ : Function.Injective φ) (S : Set M) (h1 : (1 : M) ∈ S)
-    (hmul : ∀ a ∈ S, ∀ b ∈ S, a * b ∈ S) (hsq : ∀ a ∈ S, a * a = 1) {x : G} :
-    x ∈ msSubgroup φ hφ S h1 hmul hsq ↔ φ x ∈ S := Iff.rfl
 
 theorem preimage_ncard_le (φ : G →* M) (hφ : Function.Injective φ) (S : Set M) (hS : S.Finite) :
     (φ ⁻¹' S).ncard ≤ S.ncard :=
@@ -126,52 +123,6 @@ variable {K : Type*} [Field K] {n : ℕ}
 @[expose] noncomputable def fixDim (A : Matrix (Fin n) (Fin n) K) : ℕ :=
   Module.finrank K (LinearMap.ker (fixPhi A))
 
-theorem linIndep_of_biorth {m : ℕ} (f d : Fin m → Fin n → K)
-    (h : ∀ i j, f i ⬝ᵥ d j = if i = j then 1 else 0) : LinearIndependent K f := by
-  let D : Matrix (Fin m) (Fin n) K := Matrix.of d
-  have hcomp : LinearIndependent K ((Matrix.mulVecLin D) ∘ f) := by
-    have e : (Matrix.mulVecLin D) ∘ f = fun i => Pi.basisFun K (Fin m) i := by
-      funext i j
-      simp only [Function.comp_apply, Matrix.mulVecLin_apply, Pi.basisFun_apply]
-      show (d j ⬝ᵥ f i) = (Pi.single i (1 : K) : Fin m → K) j
-      rw [dotProduct_comm, h i j]
-      by_cases hij : i = j
-      · subst hij; simp
-      · simp [hij, Ne.symm hij]
-    rw [e]
-    exact (Pi.basisFun K (Fin m)).linearIndependent
-  exact LinearIndependent.of_comp _ hcomp
-
-theorem le_fixDim {A : Matrix (Fin n) (Fin n) K} {m : ℕ} (f d : Fin m → Fin n → K)
-    (hbi : ∀ i j, f i ⬝ᵥ d j = if i = j then 1 else 0) (hfix : ∀ i, f i ᵥ* A = f i) :
-    m ≤ fixDim A := by
-  have hmem : ∀ i, f i ∈ LinearMap.ker (fixPhi A) := by
-    intro i
-    rw [LinearMap.mem_ker]
-    show f i ᵥ* (A - 1) = 0
-    rw [Matrix.vecMul_sub, Matrix.vecMul_one, hfix i, sub_self]
-  have hli : LinearIndependent K (fun i => (⟨f i, hmem i⟩ : LinearMap.ker (fixPhi A))) := by
-    refine LinearIndependent.of_comp (LinearMap.ker (fixPhi A)).subtype ?_
-    exact linIndep_of_biorth f d hbi
-  have := hli.fintype_card_le_finrank
-  simpa [fixDim] using this
-
-theorem fixDim_le_of_range {A : Matrix (Fin n) (Fin n) K} {m : ℕ} (f d : Fin m → Fin n → K)
-    (hbi : ∀ i j, f i ⬝ᵥ d j = if i = j then 1 else 0)
-    (hrange : ∀ i, ∃ x, x ᵥ* (A - 1) = f i) : fixDim A ≤ n - m := by
-  have hmem : ∀ i, f i ∈ LinearMap.range (fixPhi A) := by
-    intro i
-    obtain ⟨x, hx⟩ := hrange i
-    exact ⟨x, hx⟩
-  have hli : LinearIndependent K (fun i => (⟨f i, hmem i⟩ : LinearMap.range (fixPhi A))) := by
-    refine LinearIndependent.of_comp (LinearMap.range (fixPhi A)).subtype ?_
-    exact linIndep_of_biorth f d hbi
-  have h1 := hli.fintype_card_le_finrank
-  have h2 := LinearMap.finrank_range_add_finrank_ker (fixPhi A)
-  rw [Module.finrank_fintype_fun_eq_card, Fintype.card_fin] at h2
-  rw [Fintype.card_fin] at h1
-  unfold fixDim
-  omega
 
 theorem fixDim_conj_le (P Q : Matrix (Fin n) (Fin n) K) (hPQ : P * Q = 1) (hQP : Q * P = 1)
     (A : Matrix (Fin n) (Fin n) K) : fixDim (P * A * Q) ≤ fixDim A := by

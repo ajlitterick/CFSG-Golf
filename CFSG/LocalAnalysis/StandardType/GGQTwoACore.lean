@@ -67,13 +67,6 @@ private lemma ggQ2xA_dot_self_full {m : ℕ} {w : GGBCV m} (hfull : ∀ i, w i �
     w ⬝ᵥ w = (m : ZMod 3) := by
   rw [ggQ2x_dot_self_eq_wt, ggQ2x_wt_eq_of_full hfull]
 
-private lemma ggQ2xA_dot_self_ne_zero_of_full {m : ℕ} {w : GGBCV m}
-    (hfull : ∀ i, w i ≠ 0) (hm3 : m % 3 ≠ 0) : w ⬝ᵥ w ≠ 0 := by
-  rw [ggQ2xA_dot_self_full hfull]
-  intro h
-  apply hm3
-  have hv := congrArg ZMod.val h
-  simpa [ZMod.val_natCast] using hv
 
 private lemma ggQ2xA_natCast_eq_one {m : ℕ} (h : m % 3 = 1) : (m : ZMod 3) = 1 := by
   apply ZMod.val_injective
@@ -563,12 +556,6 @@ private lemma ggQ2xA_flip_apply_of_notMem {m : ℕ} {S : Finset (Fin m)} {w : GG
     {j : Fin m} (h : j ∉ S) : ggQ2xA_flip S w j = w j := by
   unfold ggQ2xA_flip; rw [if_neg h]
 
-private lemma ggQ2xA_flip_full {m : ℕ} {S : Finset (Fin m)} {w : GGBCV m}
-    (hw : ∀ j, w j ≠ 0) : ∀ j, ggQ2xA_flip S w j ≠ 0 := by
-  intro j
-  by_cases h : j ∈ S
-  · rw [ggQ2xA_flip_apply_of_mem h]; exact neg_ne_zero.mpr (hw j)
-  · rw [ggQ2xA_flip_apply_of_notMem h]; exact hw j
 
 private lemma ggQ2xA_flip_flip {m : ℕ} {S T : Finset (Fin m)} {w : GGBCV m}
     (h : Disjoint S T) : ggQ2xA_flip S (ggQ2xA_flip T w) = ggQ2xA_flip (S ∪ T) w := by

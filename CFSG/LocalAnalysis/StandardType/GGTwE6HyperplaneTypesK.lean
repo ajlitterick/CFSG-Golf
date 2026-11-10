@@ -126,25 +126,6 @@ theorem cAct_rootE6 : ∀ n < 72, sg n < 72 ∧
     TableBExc.wordAct .E6 TableBExc.E6Three.wordE6C (rootE6 n) = rootE6 (sg n) := by
   decide +kernel
 
-theorem rootE6_35 : rootE6 35 = ![0, 0, 1, 1, 1, 1] := by
-  funext j
-  fin_cases j <;> decide +kernel
-
-theorem rootE6_33 : rootE6 33 = ![0, 1, 0, 1, 1, 1] := by
-  funext j
-  fin_cases j <;> decide +kernel
-
-theorem forall_root_c (P : (Fin Tag.E6.rank → ℤ) → (Fin Tag.E6.rank → ℤ) →
-      (Fin Tag.E6.rank → ℤ) → Prop)
-    (h : ∀ n < 72, P (rootE6 n) (rootE6 (sg n)) (rootE6 (sg (sg n)))) :
-    ∀ α ∈ rootFinset .E6, P α (TableBExc.wordAct .E6 TableBExc.E6Three.wordE6C α)
-      (TableBExc.wordAct .E6 TableBExc.E6Three.wordE6C
-        (TableBExc.wordAct .E6 TableBExc.E6Three.wordE6C α)) := by
-  intro α hα
-  obtain ⟨n, hn, rfl⟩ := mem_rootFinset_E6.1 hα
-  obtain ⟨h1, e1⟩ := cAct_rootE6 n hn
-  rw [e1, (cAct_rootE6 _ h1).2]
-  exact h n hn
 
 theorem root_c_of_forall (P : (Fin Tag.E6.rank → ℤ) → (Fin Tag.E6.rank → ℤ) →
       (Fin Tag.E6.rank → ℤ) → Prop)

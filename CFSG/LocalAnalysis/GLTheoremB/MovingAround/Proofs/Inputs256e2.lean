@@ -1593,9 +1593,6 @@ theorem oPrimeResidualOf_le_of_qGen {p q : ℕ} (hp : p.Prime) (hq : q.Prime) (h
               IsChevSimple q (barOf p Q ⧸ Subgroup.center (barOf p Q))),
             Q
 
-theorem input14_2Struct_of_at (h : Input14_2StructAt fun _ => True) : Inputs2311.Input14_2Struct := by
-  intro G _ _ p q hp hp2 hq hq2 hqp a K E A hK hchev hA0C hA0el hA0r hN hF hIii
-  exact h hp hp2 hq hq2 hqp trivial hK hchev hA0C hA0el hA0r hN hF hIii
 
 theorem input14_2StructAt_five_le (hQ : QGenOn fun _ => True) : Input14_2StructAt (5 ≤ ·) := by
   intro G _ _ p q hp hp2 hq hq2 hqp hq5 a K E A hK hchev hA0C hA0el hA0r hN hF hIii

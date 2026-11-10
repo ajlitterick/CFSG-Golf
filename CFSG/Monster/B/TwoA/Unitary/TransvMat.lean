@@ -162,10 +162,6 @@ theorem isotropic_of_isSingPt {R : Submodule F4 V6} (hR : IsSingPt R) {v : V6} (
     hU v v = 0 :=
   hR.2 v hv v hv
 
-theorem coe_sigmaAct_transvAt {R : Submodule F4 V6} (hR : IsSingPt R) {v : V6} (hv : v ∈ R)
-    (hv0 : v ≠ 0) (P : Submodule F4 V6) :
-    ((sigmaAct P (transvAt R) : Submodule F4 V6) : Set V6) = (fun x => x + hU x v • v) '' P := by
-  rw [transvAt_eq hR hv hv0, coe_sigmaAct_transvSig (isotropic_of_isSingPt hR hv)]
 
 theorem isSingPt_sigmaAct {R : Submodule F4 V6} (hR : IsSingPt R) (x : SigmaU6) :
     IsSingPt (sigmaAct R x) :=

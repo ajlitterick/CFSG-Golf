@@ -82,22 +82,5 @@ set_option compiler.extract_closed false
   Array.ofFn (n := 15) fun i => Array.ofFn (n := 15) fun j =>
     commRows glMkT[i.val]! glMkT[j.val]!
 
-@[expose] def glMkPathOK (rel com : Array (Array Bool)) (a b c d e : Nat) : Bool :=
-  (rel[a]!)[b]! && (rel[b]!)[c]! && (rel[c]!)[d]! && (rel[d]!)[e]! && (com[a]!)[c]! &&
-    (com[a]!)[d]! && (com[a]!)[e]! && (com[b]!)[d]! && (com[b]!)[e]! && (com[c]!)[e]!
-
-@[expose] def glMkConjPath (T : Array (Array Nat)) (g : Array Nat) (p : List Nat) : Bool :=
-  p.length == 5 && (List.range 5).all fun i =>
-    decide (p[i]! < 15) && mulRows 22 g T[i]! == mulRows 22 T[p[i]!]! g
-
-@[expose] def glMkCoxOK : Bool :=
-  let rel := glMkRelTab
-  let com := glMkComTab
-  let T := glMkT
-  glMkPathOK rel com 0 1 2 3 4 &&
-    glMkCox.all (fun e => commRows (glR e.2) glZ && glMkConjPath T (glR e.2) e.1) &&
-    (List.range 15).all fun a => (List.range 15).all fun b => (List.range 15).all fun c =>
-      (List.range 15).all fun d => (List.range 15).all fun e =>
-        !glMkPathOK rel com a b c d e || glMkCox.any fun p => p.1 == [a, b, c, d, e]
 
 end CFSG.Sporadic.Co2Smith.Native

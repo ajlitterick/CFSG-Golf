@@ -31,10 +31,6 @@ theorem InnerNotQConfig.nineThree (hOut : KFactOutCyclic)
     (hC.cfg.red.cycAutRankLeTwo_of_kFactOutCyclic hC.cfg.catalog hOut) hC.isComponent hC.not_le
     fun _ hL' hne => hC.le_X0_of_ne hL' hne
 
-theorem InnerNotQConfig.innerNotQJ_eq (hOut : KFactOutCyclic)
-    (hC : InnerNotQConfig p P M H R Rbar z L E) : innerNotQJ p H L = L := by
-  haveI := (hC.nineThree hOut).normal
-  exact innerNotQJ_eq_of_normal p H L
 
 theorem InnerNotQConfig.b3 (hOut : KFactOutCyclic) (hS : KFactSeitzCyc) (hNo2 : KFactCaseTwoNoTwo)
     (hC : InnerNotQConfig p P M H R Rbar z L E) : Hyp111B3 p H E (innerNotQJ p H L) := by
@@ -45,9 +41,5 @@ theorem InnerNotQConfig.b3 (hOut : KFactOutCyclic) (hS : KFactSeitzCyc) (hNo2 : 
   rw [innerNotQJ_eq_of_normal]
   exact b3_of_isFieldOmegaA hNo2 hC.cfg.ext.prime hcase hC.fieldOmega
 
-theorem innerNotQNineThree_of_out (hOut : KFactOutCyclic) : InnerNotQNineThree G := by
-  intro p P M H R Rbar z L E hC
-  have h93 := hC.nineThree hOut
-  rwa [hC.innerNotQJ_eq hOut]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

@@ -143,9 +143,5 @@ namespace Certificates.KernelTower
     (Nat.add (Nat.shiftLeft (r2u2 R2 (Nat.land (r3L R3 r3) 4095)) 32)
       (Nat.shiftLeft (Nat.land (Nat.shiftRight (r3L R3 r3) 12) 8191) 48)))
 
-@[expose] noncomputable def r3OK (n : Nat) (mul : Nat → Nat → Nat) (t GS PT AI na R1 R2 R3 n2 a k : Nat) :
-    Bool :=
-  allFrom a k fun r3 => Nat.blt (Nat.land (r3L R3 r3) 4095) n2 &&
-    outC n mul GS PT AI na (r3IM t R1 R2 R3 r3) (Nat.shiftRight (r3L R3 r3) 25)
 
 end Certificates.KernelTower

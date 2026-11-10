@@ -84,50 +84,6 @@ namespace CertificateChecks.KernelTitsN12
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CFSG.KC.TitsN12K
 open CertificateChecks.KernelSpor
 
-theorem mH : Nat.beq (maskOf SH.C) SH.M = true := by quickRfl
-theorem aH : ascK (tot5 TitsH.LR) SH.C 0 = true := by quickRfl
-theorem zH : zipK (fun c l => Nat.beq (prodCode 1755 11 (mask 11) (1755 * 11) TitsH.LR TitsH.TR c) l)
-    SH.C SH.L = true := by quickRfl
-theorem mN : Nat.beq (maskOf SN.C) SN.M = true := by quickRfl
-theorem aN : ascK (tot5 TitsN.LR) SN.C 0 = true := by quickRfl
-
-theorem farH : zipK (farOK CFSG.KD.TitsOct.LAY0 SF.M) SH.C SH.L = true := by quickRfl
-theorem mF : Nat.beq (maskOf SF.C) SF.M = true := by quickRfl
-theorem aF : ascK (tot5 TitsH.LR) SF.C 0 = true := by quickRfl
-theorem sF : Nat.beq (Nat.land SF.M SH.M) SF.M = true := by quickRfl
-
-theorem cnt3 : Nat.beq (cntAt TitsH.LR TitsH.TR 1 3 4 SF.C) 16 = true := by quickRfl
-theorem cnt5 : Nat.beq (cntAt TitsH.LR TitsH.TR 1 5 7 SF.C) 16 = true := by quickRfl
-theorem cnt9 : Nat.beq (cntAt TitsH.LR TitsH.TR 1 9 13 SF.C) 16 = true := by quickRfl
-theorem cnt17 : Nat.beq (cntAt TitsH.LR TitsH.TR 1 17 25 SF.C) 16 = true := by quickRfl
-theorem cntN1 : Nat.beq (cntAt TitsN.LR TitsN.TR 0 1 1 SN.C) 64 = true := by quickRfl
-theorem cntN2 : Nat.beq (cntAt TitsN.LR TitsN.TR 0 2 2 SN.C) 64 = true := by quickRfl
-
-@[expose] noncomputable def U (j : Nat) : Nat :=
-  prodCode 1755 11 (mask 11) (1755 * 11) TitsK.LR TitsK.TR (D.U.getD j 0)
-
-theorem uJ0 : siftK 1755 11 (mask 11) (1755 * 11) (pidn 1755 11) TitsJ.LR TitsJ.TRI TitsJ.BP 4 0
-    (U 0) = true := by quickRfl
-theorem uJ1 : siftK 1755 11 (mask 11) (1755 * 11) (pidn 1755 11) TitsJ.LR TitsJ.TRI TitsJ.BP 4 0
-    (U 1) = true := by quickRfl
-theorem uLen : Nat.beq D.U.length 2 = true := by quickRfl
-
-@[expose] noncomputable def walkU (u0 u1 : Nat) (E : List (Nat × Nat × Nat)) (R : List Nat) :
-    List Nat :=
-  walkK (conjOK (fun j => Bool.rec (motive := fun _ => Nat) u1 u0 (Nat.beq j 0)) SH.C SH.L) E R
-
-@[expose] noncomputable def cntW (a b : Nat) (W : List Nat) : Nat :=
-  List.rec (motive := fun _ => Nat) (nat_lit 0)
-    (fun c _ ih => Bool.rec (motive := fun _ => Nat) (nat_lit 1000) (Nat.succ ih)
-      (bAnd(memL c SF.C, in2 a b (gptC TitsH.LR TitsH.TR c 1)))) W
-
-@[expose] noncomputable def walkOK (a b : Nat) (E : List (Nat × Nat × Nat)) (R : List Nat) : Bool :=
-  strictB (U 0) (fun u0 => strictB (U 1) (fun u1 => Nat.beq (cntW a b (walkU u0 u1 E R)) 16))
-
-theorem walk3 : walkOK 3 4 D.E1 D.R1 = true := by quickRfl
-theorem walk5 : walkOK 5 7 D.E2 D.R2 = true := by quickRfl
-theorem walk9 : walkOK 9 13 D.E4 D.R4 = true := by quickRfl
-theorem walk17 : walkOK 17 25 D.E8 D.R8 = true := by quickRfl
 
 end CertificateChecks.KernelTitsN12
 

@@ -206,10 +206,6 @@ theorem multQ_induction {P : Multiplicative (C ⧸ ΩLine) → Prop}
         rw [hf]
         rfl))
 
-theorem liftΩ_mk {G : Type*} [Group G] (f : Multiplicative C →* G)
-    (hf : f (Multiplicative.ofAdd ΩC) = 1) (a : C) :
-    liftΩ f hf (Multiplicative.ofAdd (Submodule.Quotient.mk a)) = f (Multiplicative.ofAdd a) :=
-  rfl
 
 theorem signHom_ΩC : signHom (Multiplicative.ofAdd ΩC) = 1 := by
   rw [signHom_apply, gO_ΩC]
@@ -254,14 +250,10 @@ theorem monoHom_mk (a : C) (p : AutPerm) :
 theorem monoHom_comp_inl : monoHom.comp SemidirectProduct.inl = signQ :=
   SemidirectProduct.lift_comp_inl _ _ _
 
-theorem monoHom_comp_inr : monoHom.comp SemidirectProduct.inr = permHom :=
-  SemidirectProduct.lift_comp_inr _ _ _
 
 theorem permHom_mem_range_monoHom (p : AutPerm) : permHom p ∈ monoHom.range :=
   ⟨SemidirectProduct.inr p, SemidirectProduct.lift_inr _ _ _ p⟩
 
-theorem signQ_mem_range_monoHom (n : Multiplicative (C ⧸ ΩLine)) : signQ n ∈ monoHom.range :=
-  ⟨SemidirectProduct.inl n, SemidirectProduct.lift_inl _ _ _ n⟩
 
 theorem mk_eq_zero_of_scalar {a : C} (h : a = 0 ∨ a = ΩC) :
     (Submodule.Quotient.mk a : C ⧸ ΩLine) = 0 :=
@@ -331,7 +323,6 @@ theorem permOHom_apply (p : AutPerm) : permOHom p = PO p⁻¹ := rfl
   map_one' := gO_zero
   map_mul' _ _ := gO_add _ _
 
-theorem signOHom_apply (a : C) : signOHom (Multiplicative.ofAdd a) = gO a := rfl
 
 @[expose] def signQO : Multiplicative (C ⧸ ΩLine) →* OLq :=
   liftΩ ((QuotientGroup.mk' _).comp signOHom) (by
@@ -368,14 +359,6 @@ theorem monoQ_injective : Function.Injective monoQ := by
     show Multiplicative.ofAdd (Submodule.Quotient.mk a) = Multiplicative.ofAdd 0
     rw [mk_eq_zero_of_scalar ha]
 
-theorem mem_range_monoQ {x : OLq} :
-    x ∈ monoQ.range ↔ ∃ (a : C) (p : AutPerm), x = QuotientGroup.mk (gO a * PO p) := by
-  constructor
-  · rintro ⟨⟨n, p⟩, rfl⟩
-    induction n using multQ_induction with
-    | h a => exact ⟨a, p⁻¹, rfl⟩
-  · rintro ⟨a, p, rfl⟩
-    exact ⟨⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⁻¹⟩, by rw [monoQ_mk, inv_inv]⟩
 
 theorem mem_stabQ_iff {x : OLq} :
     x ∈ stabQ ↔ ∃ (a : C) (p : AutPerm), x = QuotientGroup.mk (gO a * PO p) := by
@@ -392,12 +375,6 @@ theorem mem_stabQ_iff {x : OLq} :
       rw [← h] at h1
       exact (modTwoEnd_frameClass_eq_iff g).1 h1
 
-theorem range_monoQ : monoQ.range = stabQ := by
-  ext x
-  rw [mem_range_monoQ, mem_stabQ_iff]
-
-def stabQEquiv : MonoSD ≃* stabQ :=
-  (MonoidHom.ofInjective monoQ_injective).trans (MulEquiv.subgroupCongr range_monoQ)
 
 theorem mk_gO_mul_PO_eq_iff (a b : C) (p q : AutPerm) :
     (QuotientGroup.mk (gO a * PO p) : OLq) = QuotientGroup.mk (gO b * PO q) ↔
@@ -489,9 +466,6 @@ theorem ker_rangeMonoToAutPerm : rangeMonoToAutPerm.ker = Esign.subgroupOf monoH
 instance normal_Esign_subgroupOf : (Esign.subgroupOf monoHom.range).Normal :=
   ker_rangeMonoToAutPerm ▸ MonoidHom.normal_ker _
 
-def rangeMonoQuotEquiv : monoHom.range ⧸ Esign.subgroupOf monoHom.range ≃* AutPerm :=
-  (QuotientGroup.quotientMulEquivOfEq ker_rangeMonoToAutPerm.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective _ rangeMonoToAutPerm_surjective)
 
 theorem kGen_one : kGen 1 = permHom pAAut := by
   simp [kGen, frameGen, permHom_apply]

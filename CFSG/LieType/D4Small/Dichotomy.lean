@@ -35,9 +35,6 @@ variable {G : Type*} [Group G] {K : Type*} [Field K] [Finite K] [CharP K 2]
 local notation "P[" α "]" => rootOp D ρ α 1
 local notation "Q[" α "]" => rootOp D ρ α 2
 
-private theorem three_eq_zero (hN : Nat.card Kˣ = 3) : (3 : ZMod (Nat.card Kˣ)) = 0 := by
-  rw [hN]
-  exact ZMod.natCast_self 3
 
 private theorem two_eq_neg_one (hN : Nat.card Kˣ = 3) : (2 : ZMod (Nat.card Kˣ)) = -1 := by
   rw [hN]
@@ -53,11 +50,6 @@ private theorem add_self_castW (hN : Nat.card Kˣ = 3) (α : Fin 4 → ℤ) :
   rw [← two_smul (ZMod (Nat.card Kˣ)) (castW (Nat.card Kˣ) α), two_eq_neg_one hN,
     neg_one_smul]
 
-private theorem two_smul_castW_neg (hN : Nat.card Kˣ = 3) (β : Fin 4 → ℤ) :
-    ((2 : ℕ) : ZMod (Nat.card Kˣ)) • castW (Nat.card Kˣ) (-β) =
-      castW (Nat.card Kˣ) β := by
-  have h2 : ((2 : ℕ) : ZMod (Nat.card Kˣ)) = -1 := by rw [hN]; decide
-  rw [h2, smul_castW_neg, neg_neg, one_smul]
 
 private theorem rootOp_one_mem_wtSpace {α : Fin 4 → ℤ} (hα : IsD4Root α)
     {a : Fin 4 → ZMod (Nat.card Kˣ)} {x : X} (hx : x ∈ D.wtSpace ρ a) :

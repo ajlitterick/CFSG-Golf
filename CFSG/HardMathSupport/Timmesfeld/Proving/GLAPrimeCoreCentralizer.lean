@@ -12,8 +12,6 @@ open CFSG.Open
 
 variable {X : Type*} [Group X]
 
-theorem pCore_eq_open_pCore' (p : ℕ) (G : Type*) [Group G] :
-    CFSG.pCore p G = CFSG.Open.pCore p G := (CFSG.Open.pCore_eq_pCore p G).symm
 
 theorem orderOf_coprime_of_mem_GLAPPrimeCoreOf [Finite X] {p : ℕ} (hp : p.Prime)
     {C : Subgroup X} {d : X} (hd : d ∈ GLAPPrimeCoreOf p C) :

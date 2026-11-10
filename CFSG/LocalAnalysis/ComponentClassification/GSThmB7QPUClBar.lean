@@ -104,9 +104,5 @@ theorem inf_center_eq_bot (hZ : IsPGroup 2 (center M)) {L : Subgroup M}
     exact Subtype.ext this)).trans
     (MulEquiv.subgroupCongr (by rw [MonoidHom.range_comp, Subgroup.range_subtype]))
 
-omit [Finite M] in
-theorem equivMapMk_apply {L : Subgroup M} (hL : L ⊓ center M = ⊥) (y : L) :
-    ((equivMapMk hL y : L.map (QuotientGroup.mk' (center M))) : M ⧸ center M) =
-      ((y : M) : M ⧸ center M) := rfl
 
 end CFSG.ComponentClassification.GSThmB.QPUCl

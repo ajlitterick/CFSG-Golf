@@ -192,10 +192,5 @@ theorem psiM_xorF (S : Setting G M L)
     hc.add (S.psiM hc m v) (S.psiM hc m w), S.rep_psiM hc m v, S.rep_psiM hc m w]
   group
 
-theorem psiM_zero (S : Setting G M L)
-    (hc : HexaCoord (blockU L) R (hallPts (blockU L) L) rep) (m : ↥M) :
-    S.psiM hc m 0 = 0 := by
-  have h := S.psiM_xorF hc m 0 0
-  simpa [xorF_self] using h
 
 end CFSG.CGT.Hall82.Setting

@@ -30,11 +30,6 @@ variable (p f : ℕ) [Fact p.Prime]
     rw [conjSub_conjSub_inv] at h
     exact h.symm
 
-@[expose] def DstarConnected {G : Type} [Group G] (Ω : Set (Subgroup G)) : Prop :=
-  ∀ K ∈ Ω, ∀ J ∈ Ω, Relation.ReflTransGen (dstarAdj Ω) K J
-
-@[expose] def LFiveType {G : Type} [Group G] (Ω : Set (Subgroup G)) : Prop :=
-  if piSign p f then HasLieType p f Ω .PSU 5 else HasLieType p f Ω .PSL 5
 
 structure Std8 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
     (S : Sylow 2 G) (R T W : Subgroup G) (z t : G) : Prop where
@@ -62,41 +57,12 @@ structure Std8 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K J : Su
     (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
       ¬ DConnected Ω → ¬ MuIsoWylD4 Ω W
 
-@[expose] def C26_6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      MuIsoE4 Ω W → ¬ LFiveType p f Ω →
-        (⨆ M ∈ KPerp Ω K, M) ⊔ (⨆ M ∈ KPerp Ω J, M) = ⊤
-
-@[expose] def C26_7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      MuIsoE4 Ω W → ¬ LFiveType p f Ω → DConnected Ω
-
-@[expose] def C26_L5 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      LFiveType p f Ω → DConnected Ω
-
-@[expose] def CF26 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → ¬ MuIsoE4 Ω W
 
 variable {p f}
 
-theorem cf26_of_steps (h7 : C26_7 p f) (hL5 : C26_L5 p f) : CF26 p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc hE4
-  by_cases h5 : LFiveType p f Ω
-  · exact hdisc (hL5 G Ω K J S R T W z t hs h5)
-  · exact hdisc (h7 G Ω K J S R T W z t hs hE4 h5)
 
 variable (p f)
 
-@[expose] def C27_1 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → ¬ (MuIsoE4 Ω W ∨ MuIsoS4 Ω W ∨ MuIsoWylD4 Ω W)
 
 @[expose] def C27_2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
@@ -110,17 +76,6 @@ variable (p f)
         sigmaNorm Ω K ⊔ (⨆ M ∈ omegaNbr Ω K, ⨆ (s : G) (_ : IsUniqueInvolution M s),
           Subgroup.centralizer ({z * s} : Set G)) = ⊤
 
-@[expose] def C27_6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω →
-        rLayer Ω (z * t) ≤ oddCoreOf (rLayer Ω (z * t)) ⊔ (rLayer Ω (z * t) ⊓ sigmaNorm Ω K) ∧
-          ∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x
-
-@[expose] def C27_7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → alphaOf (Subgroup.closure {t, z}) = ⊥
 
 @[expose] def C27_8 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
@@ -139,12 +94,6 @@ variable (p f)
 
 variable {p f}
 
-theorem c27_1_of_steps (hF : CF26 p f) (h2 : C26_2 p f) (h13 : C26_13 p f) : C27_1 p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc h
-  rcases h with h | h | h
-  · exact hF G Ω K J S R T W z t hs hdisc h
-  · exact h2 G Ω K J S R T W z t hs hdisc h
-  · exact h13 G Ω K J S R T W z t hs hdisc h
 
 theorem reflTransGen_dAdj_symm {G : Type} [Group G] {Ω : Set (Subgroup G)} {K J : Subgroup G}
     (hK : K ∈ Ω)

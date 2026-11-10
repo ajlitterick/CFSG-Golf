@@ -37,25 +37,6 @@ theorem torusSetHom_mem {L : Subfield K} (hζL : (ζ : K) ∈ L) (e : κ → Mul
   · rw [Pi.mulSingle_eq_of_ne hk, Units.val_one]
     exact L.one_mem
 
-omit [Fintype ι] [DecidableEq κ] in
-theorem torusSetHom_perm (π : Equiv.Perm ι) (hS : ∀ b i, π i ∈ S b ↔ i ∈ S b)
-    (e : κ → Multiplicative (ZMod s)) (k : ι) :
-    torusSetHom ζ hζ S e (π k) = torusSetHom ζ hζ S e k := by
-  rw [torusSetHom_apply, Finset.prod_apply, Finset.prod_apply]
-  refine Finset.prod_congr rfl fun b _ => ?_
-  rw [Finset.prod_apply, Finset.prod_apply]
-  by_cases hk : k ∈ S b
-  · have hk' : π k ∈ S b := (hS b k).mpr hk
-    rw [Finset.prod_eq_single (π k) (fun i _ hi => Pi.mulSingle_eq_of_ne (Ne.symm hi) _)
-      (fun h => absurd hk' h), Finset.prod_eq_single k
-      (fun i _ hi => Pi.mulSingle_eq_of_ne (Ne.symm hi) _) (fun h => absurd hk h),
-      Pi.mulSingle_eq_same, Pi.mulSingle_eq_same]
-  · have h1 : ∀ i ∈ S b, Pi.mulSingle (M := fun _ : ι => Kˣ) i (zpowHom ζ hζ (e b)) (π k) = 1 :=
-      fun i hi => Pi.mulSingle_eq_of_ne (fun h => hk ((hS b k).mp (by rw [h]; exact hi))) _
-    have h2 : ∀ i ∈ S b, Pi.mulSingle (M := fun _ : ι => Kˣ) i (zpowHom ζ hζ (e b)) k = 1 :=
-      fun i hi =>
-      Pi.mulSingle_eq_of_ne (fun h => hk (by rw [h]; exact hi)) _
-    rw [Finset.prod_eq_one h1, Finset.prod_eq_one h2]
 
 omit [DecidableEq κ] in
 theorem torusSetHom_char (CM : Matrix ι ι ℤ) (e : κ → Multiplicative (ZMod s)) (j : ι) :

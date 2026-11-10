@@ -56,12 +56,6 @@ def GGTBTorDHighNonsplit : Prop :=
         GGTorusTorW p (lab.rank - ggTorEnn p lab) (ggTorMpm p lab) lab.rank
           (CartanMatrix.D lab.rank) (ggCoxeterMatrixD lab.rank) R I
 
-theorem GGTBTorD.highNonsplit (h : GGTBTorD) : GGTBTorDHighNonsplit := by
-  intro p hp hp2 lab hlab _ hplus htag
-  apply h p hp hp2 lab hlab
-  rcases htag with ⟨ht, heven⟩ | ⟨ht, hodd⟩
-  · exact Or.inl ⟨ht, Or.inr ⟨hplus, heven⟩⟩
-  · exact Or.inr ⟨ht, hplus, hodd⟩
 
 def GGTBTorE6Ind : Prop :=
   ∀ p : ℕ, p.Prime → p ≠ 2 → p ≠ 3 → ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →
@@ -75,8 +69,6 @@ def GGTBTorE6IndTwist : Prop :=
       LargeEvenLabelAll lab fun R _ I _ =>
         GGTorusTorW p (6 - ggTorEnn p lab) (ggTorM lab) 6 (CartanMatrix.E 6) CoxeterMatrix.E₆ R I
 
-theorem GGTBTorE6Ind.twist (h : GGTBTorE6Ind) : GGTBTorE6IndTwist :=
-  fun p hp hp2 hp3 lab hlab ht hm => h p hp hp2 hp3 lab hlab (Or.inr ht) hm
 
 def GGTBTorE7 : Prop :=
   ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab → lab.tag = .E7 →

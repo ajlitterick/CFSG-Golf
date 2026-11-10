@@ -91,12 +91,6 @@ theorem intRootData : IntRootData (CartanMatrix.B (n + 1)).transpose
         torusCharacter_def]
       rfl)
 
-theorem rootData_G (K : Type) [Field K] : (rootData n K).G = points n K := rfl
-
-theorem rootData_root (K : Type) [Field K] (k : Fin (n + 1) ⊕ Fin (n + 1)) :
-    (rootData n K).root k = rootSubgroupPoints n k K := rfl
-
-theorem rootData_torus (K : Type) [Field K] : (rootData n K).torus = weightTorusPoints n K := rfl
 
 theorem rootData_CM (K : Type) [Field K] :
     (rootData n K).CM = (CartanMatrix.B (n + 1)).transpose := rfl

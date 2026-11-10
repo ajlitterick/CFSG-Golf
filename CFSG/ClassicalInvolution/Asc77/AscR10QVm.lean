@@ -16,7 +16,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 open scoped commutatorElement
 
 
-
 section SmallComponents
 
 variable {X : Type} [Group X] {Φ : Set (Subgroup X)}
@@ -74,36 +73,6 @@ end SmallComponents
 
 section Residual
 
-@[expose] def QV3Model : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (Φ : Set (Subgroup X)), HypOmegaModU (.sl2 3 1) Φ →
-    ∀ {ι : Type} (D : Q3.LieSystemData3 ι X Φ) (i : ι)
-      (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n : ℕ),
-      D.kind i = Q3.CompData.model t n → t ≠ .G2 →
-        ∀ (R S : Subgroup (D.kind i).G), R ∈ (D.kind i).fund → S ∈ (D.kind i).fund →
-          ∀ z j a : X, QuotViol Φ (R.map (D.hom i)) (S.map (D.hom i)) z j a → False
-
-theorem qv3Comp_of_qv3Model (hM : QV3Model) : QV3Comp := by
-  intro X _ _ Φ hΦ ι D i R S hR hS z j a h
-  rcases D.valid i with ⟨t, n, -, hadm, hk⟩ | hk | hk
-  · by_cases ht : t = .G2
-    · subst ht
-      obtain ⟨-, -, hn, -⟩ := hadm
-      subst hn
-      exact hk
-    · exact (hM X Φ hΦ D i t n hk ht R S hR hS z j a h).elim
-  · exact (quotViol_false_of_sl23 hk (D.hom i) hR hS h).elim
-  · exact (quotViol_false_of_m11 hk (D.hom i) (D.ker_le_center i) hR hS h).elim
-
-theorem g2Comp3_of_qv3Model (hM : QV3Model) : G2Comp3 :=
-  g2Comp3_of_qv3Comp (qv3Comp_of_qv3Model hM)
-
-theorem res10aNoConj_nine_of_qv3Model (p f : ℕ) [Fact p.Prime] (h3 : Q3.CIT3Inductive)
-    (hM : QV3Model) (h9 : p ^ f = 9) : Res10aNoConj p f :=
-  res10aNoConj_nine_of_qv3Comp p f h3 (qv3Comp_of_qv3Model hM) h9
-
-theorem res10aNoConj9_of_qv3Model (p f : ℕ) [Fact p.Prime] (hM : QV3Model) :
-    Q3.CIT3Inductive → p ^ f = 9 → Res10aNoConj p f :=
-  res10aNoConj9_of_qv3Comp p f (qv3Comp_of_qv3Model hM)
 
 end Residual
 

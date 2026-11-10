@@ -39,14 +39,5 @@ theorem lemma_14_2_6_two (h : Hyp1421 G T M) (f : Facts1422 T M) {H : Subgroup G
         (tildeOf (quasithinOmegaOneCenter T) (conjClosure (VZ T M) H)) :=
   (lemma_14_2_4 h f).lemma_12_8_4_two ((lemma_14_2_5 h f).mpr ⟨hH, hHM⟩)
 
-theorem lemma_14_2_6_three (h : Hyp1421 G T M) (f : Facts1422 T M) {H : Subgroup G}
-    (hH : InH T H) (hHM : ¬ H ≤ M) :
-    frattiniOf (conjClosure (VZ T M) H) ≤ quasithinOmegaOneCenter T :=
-  (lemma_14_2_4 h f).lemma_12_8_4_three ((lemma_14_2_5 h f).mpr ⟨hH, hHM⟩)
-
-theorem lemma_14_2_6_four (h : Hyp1421 G T M) (f : Facts1422 T M) {H : Subgroup G} (hH : InH T H)
-    (hHM : ¬ H ≤ M) :
-    centralizerMod (quasithinOmegaOneCenter T) H (conjClosure (VZ T M) H) = pCoreOf 2 H :=
-  (lemma_14_2_4 h f).lemma_12_8_4_four ((lemma_14_2_5 h f).mpr ⟨hH, hHM⟩)
 
 end CFSG.Quasithin

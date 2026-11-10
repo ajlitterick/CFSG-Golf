@@ -693,11 +693,6 @@ private theorem v2Block_pow_unit (Y : Matrix (Fin 2) (Fin 4) (ZMod 2))
     rw [hX]
     simp only [Matrix.one_mul, pow_succ]
 
-private theorem v2Block_five_upper_apply (Y : Matrix (Fin 2) (Fin 4) (ZMod 2))
-    (N : Matrix (Fin 4) (Fin 4) (ZMod 2)) (i : Fin 2) (j : Fin 4) :
-    (v2Block 1 Y N ^ 5) (Fin.castAdd 4 i) (Fin.natAdd 2 j) =
-      (Y * ∑ k : Fin 5, N ^ (k : ℕ)) i j := by
-  rw [v2Block_pow_unit, v2Block_castAdd_natAdd]
 
 private theorem v2Block_upper_eq {U U' : Matrix (Fin 2) (Fin 2) (ZMod 2)}
     {X X' : Matrix (Fin 2) (Fin 4) (ZMod 2)}
@@ -718,11 +713,6 @@ private theorem v2Block_one_upper {X : Matrix (Fin 2) (Fin 4) (ZMod 2)}
     omega
   simpa [v2Block_castAdd_natAdd, Matrix.one_apply, hne] using h1
 
-private theorem v2Block_sq (X : Matrix (Fin 2) (Fin 4) (ZMod 2))
-    (N : Matrix (Fin 4) (Fin 4) (ZMod 2)) :
-    v2Block 1 X N * v2Block 1 X N = v2Block 1 (X + X * N) (N * N) := by
-  rw [v2Block_mul]
-  simp [Matrix.one_mul, Matrix.mul_one]
 
 private theorem ext2Map_add (X Y : Fin 3 → Matrix (Fin 2) (Fin 4) (ZMod 2)) :
     CFSG.Quasithin.St84.G24LE.ext2Map (X + Y) =

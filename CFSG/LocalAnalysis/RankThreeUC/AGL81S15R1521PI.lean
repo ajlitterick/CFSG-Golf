@@ -308,14 +308,6 @@ theorem gamma_le_of_le_lift_gen {G : Type} [Group G] [Finite G] {M T : Subgroup 
     hO1217 q r hq hq5 hr hr2 E1 hE1M hE1a hE1c hdvd hA
   exact gamma_le_of_le_lift_aux_conj hxM hr hΓ
 
-theorem gamma_le_of_le_lift (o1217 : O1217) {G : Type} [Group G] [Finite G] {M T : Subgroup G}
-    {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂) (h11 : Row1511 G M T T₁ T₂)
-    (h20 : Row1520 G M T T₁ T₂) {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls) {r : ℕ}
-    (hr : r.Prime) (hr2 : r ≠ 2) {E : Subgroup ↥M} (hEL : E ≤ L) (hEa : IsElemAbelian r E)
-    (hE : Nat.card E = r ^ 2) : rankThreeGamma 1 r (E.map M.subtype) ≤ M :=
-  gamma_le_of_le_lift_gen (O1217At.of_ctx2 o1217 ctx) (S15CtxGen.of_ctx2 ctx) h11 h20 hLs hL hr
-    hr2 hEL hEa hE
 
 theorem pRank_lift_eq_one_of_isLThreeOdd_gen (hT : LieOddRankTable) (hKSML3 : KSML3) {X : Type}
     [Group X] [Finite X] {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X}
@@ -356,9 +348,5 @@ theorem pRank_lift_eq_one_of_isLThreeOdd_gen (hT : LieOddRankTable) (hKSML3 : KS
     simp only [mRankChev, rkLin, hQc, eP_two_pow_three, if_neg (Nat.not_even_iff_odd.2 hn)]
     norm_num
 
-theorem pRank_lift_eq_one_of_isLThreeOdd (hT : LieOddRankTable) (hKSML3 : KSML3) {X : Type}
-    [Group X] [Finite X] {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X}
-    (hl : LiftCtx X T T₁ T₂ Ls L) (h : IsLThreeOdd ↥Ls) : CFSG.Open.pRank 3 L = 1 :=
-  pRank_lift_eq_one_of_isLThreeOdd_gen hT hKSML3 hl.toGen h
 
 end CFSG.LocalAnalysis.RankThreeUC.S15

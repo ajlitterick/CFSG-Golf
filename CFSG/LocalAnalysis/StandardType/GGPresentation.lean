@@ -98,23 +98,6 @@ theorem levi_le_of_rootGroup_le {J : Finset (Fin D.rank)} {M : Subgroup U}
     levi D.rootGroup J ≤ M :=
   iSup₂_le fun j hj => sup_le (h j hj).1 (h j hj).2
 
-theorem hom_ext_levi {J : Finset (Fin D.rank)} {f g : levi D.rootGroup J →* X}
-    (h : ∀ j ∈ J, ∀ γ ∈ ({Pi.single j 1, -Pi.single j 1} : Set (Fin D.rank → ℤ)),
-      ∀ (u : U) (hu : u ∈ levi D.rootGroup J), u ∈ D.rootGroup γ → f ⟨u, hu⟩ = g ⟨u, hu⟩) :
-    f = g := by
-  have hle : levi D.rootGroup J ≤ (MonoidHom.eqLocus f g).map (levi D.rootGroup J).subtype := by
-    refine levi_le_of_rootGroup_le fun j hj => ⟨fun u hu => ?_, fun u hu => ?_⟩
-    · have hul : u ∈ levi D.rootGroup J :=
-        rankOne_le_levi D.rootGroup hj (le_sup_left (b := D.rootGroup (-Pi.single j 1)) hu)
-      exact ⟨⟨u, hul⟩, h j hj _ (Or.inl rfl) u hul hu, rfl⟩
-    · have hul : u ∈ levi D.rootGroup J :=
-        rankOne_le_levi D.rootGroup hj (le_sup_right (a := D.rootGroup (Pi.single j 1)) hu)
-      exact ⟨⟨u, hul⟩, h j hj _ (Or.inr rfl) u hul hu, rfl⟩
-  ext ⟨u, hu⟩
-  obtain ⟨v, hv, hvu⟩ := hle hu
-  have : v = ⟨u, hu⟩ := Subtype.ext hvu
-  rw [← this]
-  exact hv
 
 theorem eq_of_levi {J J' : Finset (Fin D.rank)} {f : levi D.rootGroup J →* X}
     {g : levi D.rootGroup J' →* X}

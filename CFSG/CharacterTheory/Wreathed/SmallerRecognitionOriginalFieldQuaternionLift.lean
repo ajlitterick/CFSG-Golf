@@ -20,10 +20,6 @@ universe u v
   map_one' := Subtype.ext pi.map_one
   map_mul' d e := Subtype.ext (pi.map_mul d e)
 
-theorem componentRestriction_coe {N : Type u} [Group N] {H : Type v} [Group H]
-    (pi : N →* H) (B : Subgroup N) (M : Subgroup H)
-    (d : componentPreimage pi B M) :
-    (componentRestriction pi B M d : H) = pi d.val := rfl
 
 theorem componentRestriction_surjective {N : Type u} [Group N] {H : Type v} [Group H]
     (pi : N →* H) (B : Subgroup N) (M : Subgroup H) (hcover : M ≤ B.map pi) :
@@ -166,33 +162,5 @@ theorem original_component_preimage_sylow_quaternion
   let F := Sylow.equiv (actualLayerSylow hnonab n hn S e hfour) (Q.mapSurjective hf)
   exact ⟨((originalLayerQuaternionEquiv hnonab n hn S e hfour).trans F).trans E.symm⟩
 
-
-theorem original_component_preimage_quaternion_sylow_lift
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G) (hxK : wreathModelHom S e (Original.x (2 ^ n)) ∈ K)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤
-      ComponentCoveringLocal.originalImage n S e K) :
-    let D := originalComponentPreimage n S e K
-    let f := originalComponentRestriction n S e K
-    let xD : D := ⟨centralInvolution n S e,
-      original_involution_mem_component_preimage hnonab n hn S e hfour K hxK⟩
-    Function.Surjective f ∧ Odd (Nat.card f.ker) ∧
-      xD ∈ Subgroup.center D ∧ orderOf xD = 2 ∧
-      ∀ Q : Sylow 2 D,
-        xD ∈ Q ∧ Nonempty (QuaternionGroup (2 ^ n / 2) ≃* Q) ∧
-          Function.Injective (f.comp (Q : Subgroup D).subtype) ∧
-          (∀ q : Q, (f.comp (Q : Subgroup D).subtype q :
-              centralizerOddCoreQuotient n S e) =
-            centralizerOddCoreMap n S e ((q : D) : involutionCentralizer n S e)) := by
-  obtain ⟨hZ, ho⟩ := original_component_preimage_central_involution hnonab n hn S e hfour K hxK
-  refine ⟨originalComponentRestriction_surjective n S e K hcover,
-    originalComponentRestriction_odd_kernel n S e K, hZ, ho, ?_⟩
-  intro Q
-  exact ⟨original_involution_mem_every_component_sylow hnonab n hn S e hfour K hxK Q,
-    original_component_preimage_sylow_quaternion hnonab n hn S e hfour K hcover Q,
-    CFSG.DisconnectedInvolutionGraph.Helpers.odd_kernel_two_subgroup_injective _
-      (originalComponentRestriction_odd_kernel n S e K) _ Q.isPGroup', fun _ => rfl⟩
 
 end CFSG.Wreathed.SmallerRecognitionOriginalField

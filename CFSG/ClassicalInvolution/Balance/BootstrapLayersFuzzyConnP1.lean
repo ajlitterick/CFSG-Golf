@@ -28,28 +28,6 @@ variable {p f : ℕ} [Fact p.Prime]
           ∀ A' ∈ fuzzyFrames p f (CoreAssembly.conjClass K),
             Relation.ReflTransGen (ShareFourIn (fuzzyFrames p f (CoreAssembly.conjClass K))) A A'
 
-theorem fuzzyFramesConnected_conjMembers (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hF3 : LinkNoF3 p f conjMembers) : FuzzyFramesConnected p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
-  have hmap : ∀ A ∈ fuzzyFrames p f (CoreAssembly.conjClass K), ∀ g : G,
-      A.map (MulAut.conj g).toMonoidHom ∈ fuzzyFrames p f (CoreAssembly.conjClass K) :=
-    fun A hA g => Theorem5.FuzzyFrameOn.map (conjInvariant_conjMembers K) hA g
-  have hvert := fuzzyVertexConn_of_adj fuzzyMemberConn_conjMembers
-    (fuzzyEdgeInFrame_conjMembers hF3)
-  have hlink := fuzzyLinkConn_conjMembers hMFC hF3
-  exact Theorem5.shareFour_connected_of_vertexGraph_modOdd
-    (𝒯 := fuzzyFrames p f (CoreAssembly.conjClass K)) hmap
-    (fun A hA => by
-      obtain ⟨J, z, -, -, hel, hcard, -⟩ := hA
-      exact ⟨hel, hcard⟩)
-    (fuzzyVertices p f (CoreAssembly.conjClass K)) (fun A _ z hz => hz.1)
-    (fun A hA => hA.exists_vertex)
-    (fun A _ A' _ a ha a' ha' =>
-      hvert G hnab hp2 hq K z hz hBelow hconn hind a a'
-        (by obtain ⟨-, J, hJ, hJa, -⟩ := ha; exact ⟨J, hJ, hJa⟩)
-        (by obtain ⟨-, J, hJ, hJa, -⟩ := ha'; exact ⟨J, hJ, hJa⟩))
-    (fun a A hA A' hA' ha ha' =>
-      hlink G hnab hp2 hq K z hz hBelow hconn hind a A hA A' hA' ha ha')
 
 end Connected
 
@@ -104,40 +82,11 @@ theorem triangleConnectedAll_of_bootTriple (hBT : CoreAssembly.BootTriple p f)
     (localLieSystems_of_citBelowU hΩ hBelow) hex (hcon G hnab hp2 hq K z hz hBelow hconn hind)
     A hA A' hA'
 
-theorem triangleConnectedAll_conjMembers (hlay : TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hF3 : FuzzyNoF3 p f conjMembers)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    TriangleConnectedAll p f :=
-  triangleConnectedAll_of_bootTriple
-    (bootTriple_conjMembers hlay hmodel hF3 hlinkF3 hMFC hcov9 hexotic)
-    (fuzzyFramesConnected_conjMembers hMFC hlinkF3)
 
 end Triangle
 
 section P1
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem productOfTwoP1_of_indepTriple (hlay : TriangleLayers p f)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p) :
-    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-      ∀ (K : Subgroup G) (z : G), CoreAssembly.RouteDSetup p f K z →
-        CoreAssembly.IndepTriple p f (CoreAssembly.conjClass K) →
-        ∀ M ∈ CoreAssembly.conjClass K, ∀ w : G, IsClassicalMember p f M w → Commutes K M →
-          z ≠ w → LocalOddCentral (CoreAssembly.conjClass K) {z * w} := by
-  intro G _ _ _ hnab K z S hind M hM w hw hKM hzw
-  have hf : 0 < f := Nat.pos_of_ne_zero (by rintro rfl; have := S.five; simp at this)
-  have hlay' : ∀ A' : Subgroup G, IndepTripleOn p f (CoreAssembly.conjClass K) A' →
-      ∀ a ∈ A', a ≠ 1 → ComponentLayersAt (CoreAssembly.conjClass K) A' a := fun A' hA' =>
-    hlay G hnab S.odd S.five K z S.cls S.below S.conn A' hA'
-  have hadj := fuzzyEdgeInFrame_conjMembers hlinkF3 G hnab S.odd S.five K z S.cls S.below S.conn
-    hind K (CoreAssembly.mem_conjClass_self K) M hM z w S.cls hw hKM hzw
-  have hbal := fuzzyFramesBalanced_of_exact hnab S.odd hf S.five S.inClass S.ih S.exact hlay'
-  have hcon := fuzzyFramesConnected_conjMembers hMFC hlinkF3 G hnab S.odd S.five K z S.cls
-    S.below S.conn hind
-  exact Theorem5.localOddCentral_mul_of_frameAdj hnab S.odd S.five S.inClass S.ih S.exact hlay'
-    hbal hcon hzw hadj
 
 end P1
 

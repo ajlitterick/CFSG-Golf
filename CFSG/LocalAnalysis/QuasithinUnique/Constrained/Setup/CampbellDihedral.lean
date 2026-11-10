@@ -150,9 +150,6 @@ theorem Wnc_le_sylow (α : (S : Subgroup G) ≃* (S : Subgroup G))
     Wnc S α ≤ (S : Subgroup G) :=
   (h.Wnc_le_thompsonJ_core α hV).trans (thompsonJ_le_self' _ |>.trans (core_le_sylow S))
 
-theorem aimg_Zfix_le_Wnc (α : (S : Subgroup G) ≃* (S : Subgroup G)) :
-    aimg (S : Subgroup G) α (Zfix S) ≤ Wnc S α :=
-  (aimg_mono (h.Zfix_le_Fcore)).trans (aimg_Fcore_le_Wnc α)
 
 theorem commutator_Fa_Wnc_le (α : (S : Subgroup G) ≃* (S : Subgroup G))
     (hV : aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G) :
@@ -236,16 +233,6 @@ theorem aimg_symm_Wnc_mem_normal (α : (S : Subgroup G) ≃* (S : Subgroup G))
   mem_conj_of_normal_subgroupOf (normal_subgroupOf_aimg (h.Wnc_le_sylow α hV) inferInstance)
     hs hx (aimg_le hx)
 
-theorem aimg_symm_Wnc_commutator_le (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hV : aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G)
-    (hF : aimg (S : Subgroup G) α (Fcore G) ≠ Fcore G) :
-    ⁅aimg (S : Subgroup G) α.symm (Wnc S α), aimg (S : Subgroup G) α.symm (Wnc S α)⁆ ≤
-      Zfix S := by
-  have hWS := h.Wnc_le_sylow α hV
-  have h1 := aimg_commutator (S := (S : Subgroup G)) (α := α.symm) hWS hWS
-  rw [← h1]
-  have := aimg_mono (S := (S : Subgroup G)) (α := α.symm) (h.commutator_Wnc_Wnc_le α hV hF)
-  rwa [aimg_symm_aimg Zfix_le_sylow] at this
 
 theorem sq_mem_of_mem_aimg_symm_Wnc (α : (S : Subgroup G) ≃* (S : Subgroup G))
     (hV : aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G)
@@ -365,24 +352,6 @@ theorem dihedral_commute (α : (S : Subgroup G) ≃* (S : Subgroup G))
   rw [hcen] at h1
   exact hz0ne h1
 
-theorem dihedral_translated_module_obstruction (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hV : aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G)
-    (hF : aimg (S : Subgroup G) α (Fcore G) ≠ Fcore G) :
-    aimg (S : Subgroup G) α (Zfix S) ≤ Subgroup.center G ∧
-    aimg (S : Subgroup G) α (Zfix S) ≤ Wnc S α ∧
-    Wnc S α ≤ thompsonJ (CFSG.pCore 2 G) ∧ (Wnc S α).Normal ∧
-    (⁅Wnc S α, Wnc S α⁆ ≤ aimg (S : Subgroup G) α (Zfix S) ∧
-      ∀ w ∈ Wnc S α, w ^ 2 ∈ aimg (S : Subgroup G) α (Zfix S)) ∧
-    ((aimg (S : Subgroup G) α.symm (Wnc S α)).subgroupOf (S : Subgroup G)).Normal ∧
-    (⁅aimg (S : Subgroup G) α.symm (Wnc S α), aimg (S : Subgroup G) α.symm (Wnc S α)⁆ ≤ Zfix S ∧
-      ∀ w ∈ aimg (S : Subgroup G) α.symm (Wnc S α), w ^ 2 ∈ Zfix S) ∧
-    ∀ u : G, ∀ v ∈ aimg (S : Subgroup G) α.symm (cj (aimg (S : Subgroup G) α (Vmod G)) u⁻¹),
-      ∀ hh ∈ Wnc S α, hh ^ 2 = 1 → hh * (v⁻¹ * hh * v) = (v⁻¹ * hh * v) * hh :=
-  ⟨h.aimg_Zfix_le_center α hV hF, h.aimg_Zfix_le_Wnc α, h.Wnc_le_thompsonJ_core α hV, inferInstance,
-    ⟨h.commutator_Wnc_Wnc_le α hV hF, fun _ hw => h.sq_mem_of_mem_Wnc α hV hF hw⟩,
-    normal_subgroupOf_aimg (h.Wnc_le_sylow α hV) inferInstance,
-    ⟨h.aimg_symm_Wnc_commutator_le α hV hF, fun _ hw => h.sq_mem_of_mem_aimg_symm_Wnc α hV hF hw⟩,
-    fun u _ hv _ hhW hh2 => h.dihedral_commute α hV hF u hv hhW hh2⟩
 
 end IsSeed
 

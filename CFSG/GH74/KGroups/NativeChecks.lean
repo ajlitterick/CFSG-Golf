@@ -121,55 +121,9 @@ theorem pairCountB_eq (QP : RawSchreierDatum n) (oa ob : ℕ) (ws : List (List B
   unfold pairCountB
   rw [length_filter_product]
 
-@[expose] def solvN (n : ℕ) (LA LP : List (Array ℕ)) : Bool :=
-  LA.all fun τ => bif isInvolA n τ then decide ((centLenA n LP τ).primeFactors.card ≤ 2)
-    else true
-
-theorem solvCheck_eq (LA LP : List (Equiv.Perm (Fin n))) :
-    solvCheck LA LP = solvN n (LA.map toA) (LP.map toA) := by
-  unfold solvCheck solvN
-  rw [List.all_map]
-  refine all_congr' fun τ _ => ?_
-  simp only [Function.comp, isInvolA_rep (rep_toA τ), centLenA, List.filter_map, List.length_map]
-  have hq : (fun g : Equiv.Perm (Fin n) => decide (g * τ = τ * g)) =
-      ((fun g => eqA n (compA n g (toA τ)) (compA n (toA τ) g)) ∘ toA) := by
-    funext g
-    exact (eqA_eq_decide (rep_compA (rep_toA g) (rep_toA τ))
-      (rep_compA (rep_toA τ) (rep_toA g))).symm
-  rw [hq]
-
-@[expose] def powInPN (QP : RawSchreierDatum n) (k : ℕ) (LA : List (Equiv.Perm (Fin n))) : Bool :=
-  LA.all fun g => bif eqA n (powA n (toA g) k) (idA n) then QP.sift g 0 else true
-
-theorem powInPCheck_eq (LA : List (Equiv.Perm (Fin n))) (QP : RawSchreierDatum n) (k : ℕ) :
-    powInPCheck LA QP k = powInPN QP k LA := by
-  unfold powInPCheck powInPN
-  refine all_congr' fun g _ => ?_
-  rw [eqA_eq_decide (rep_powA (rep_toA g) k) (rep_idA (n := n))]
 
 @[expose] def centInCheck (LA LS : List (Equiv.Perm (Fin n))) : Bool :=
   LA.all fun σ => !(LS.all fun q => decide (σ * q = q * σ)) || decide (σ ∈ LS)
 
-theorem centInCheck_eq (LA LS : List (Equiv.Perm (Fin n))) :
-    centInCheck LA LS = centInA n (LA.map toA) (LS.map toA) := by
-  unfold centInCheck centInA
-  rw [List.all_map]
-  refine all_congr' fun σ _ => ?_
-  have h1 : (LS.map toA).all (fun q => eqA n (compA n (toA σ) q) (compA n q (toA σ))) =
-      LS.all fun q => decide (σ * q = q * σ) := by
-    rw [List.all_map]
-    refine all_congr' fun q _ => ?_
-    exact eqA_eq_decide (rep_compA (rep_toA σ) (rep_toA q)) (rep_compA (rep_toA q) (rep_toA σ))
-  have h2 : (LS.map toA).any (fun q => eqA n (toA σ) q) = decide (σ ∈ LS) := by
-    rw [List.any_map]
-    apply Bool.eq_iff_iff.2
-    simp only [List.any_eq_true, Function.comp, decide_eq_true_eq]
-    constructor
-    · rintro ⟨q, hq, h⟩
-      rw [eqA_eq_decide (rep_toA σ) (rep_toA q)] at h
-      exact (of_decide_eq_true h) ▸ hq
-    · intro h
-      exact ⟨σ, h, by rw [eqA_eq_decide (rep_toA σ) (rep_toA σ)]; simp⟩
-  simp only [Function.comp, h1, h2]
 
 end CFSG.GH74.KGroups.NativeChecks

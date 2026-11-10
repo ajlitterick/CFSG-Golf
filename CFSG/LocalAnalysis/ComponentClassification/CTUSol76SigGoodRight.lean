@@ -91,46 +91,5 @@ theorem exists_isGoodFor_of_mem_right_all (hq : QuasisimpleTwoPartInput)
   exact ⟨m, hm, hm1, K, K', U, B, ⟨hK, hK', hne, hU, hUK', hBQ, hBU, hB, hB8, hBN, E, hE, hEB,
     hEK⟩, hWBU.symm.trans hW, Or.inr hxU⟩
 
-@[expose] def GoodInvolutionsLeftTwoFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      (∀ K'' ∈ kStarComponents N, K'' ≤ normalizer (wGroup B V : Set G)) →
-      ∀ x ∈ K, orderOf x = 2 →
-        ∃ g ∈ normalizer (wGroup B V : Set G), IsGoodFor N (wGroup B V) (g⁻¹ * x * g)
-
-theorem goodInvolutionsTwoFor_of_left (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (h : GoodInvolutionsLeftTwoFor) :
-    GoodInvolutionsTwoFor := by
-  classical
-  intro G _ _ hG N hN h2 K K' V B hP hW hKH K'' hK'' x hx hx2
-  by_cases hK''K : K'' = K
-  · rw [hK''K] at hx
-    exact h G hG N hN h2 K K' V B hP hW hKH x hx hx2
-  by_cases hK''K' : K'' = K'
-  · rw [hK''K'] at hx
-    obtain ⟨g, hg, hgood⟩ :=
-      exists_isGoodFor_of_mem_right_all hq hR1 hG hN hP (hKH K' hP.2.1) hx hx2
-    exact ⟨g, hKH K' hP.2.1 hg, hgood⟩
-  exfalso
-  have hsub : ({K'', K, K'} : Set (Subgroup G)) ⊆ kStarComponents N := by
-    rintro J (rfl | rfl | rfl)
-    · exact hK''
-    · exact hP.1
-    · exact hP.2.1
-  have h3 : ({K'', K, K'} : Set (Subgroup G)).ncard = 3 := by
-    rw [Set.ncard_insert_of_notMem, Set.ncard_pair hP.2.2.1]
-    simp [hK''K, hK''K']
-  have hle := Set.ncard_le_ncard hsub (Set.toFinite _)
-  omega
-
-theorem lemma315bInputFor_simple_of_left_residues (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (h39 : Lemma39TwoRestFor) (hgood : GoodInvolutionsLeftTwoFor)
-    (hC : SingleComponentCatalogFor) (hpair : SigPairExistsTwoFor) :
-    Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_two_residues hq hR1 hF h39
-    (goodInvolutionsTwoFor_of_left hq hR1 hgood) (singleComponentExcludedFor_of_catalog hq hR1 hC)
-    hpair
 
 end CFSG.ComponentClassification.Sol76.Sig

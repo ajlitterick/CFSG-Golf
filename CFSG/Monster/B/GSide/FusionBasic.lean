@@ -69,11 +69,6 @@ theorem psi_self_mem_centralizer (ψ : Subgroup.centralizer {d} ≃* K) (w : K) 
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem coe_coe_centralizerCommEquiv (x : Subgroup.centralizer {d})
-    (hxd : d ∈ Subgroup.centralizer {(x : G)}) (z : Subgroup.centralizer {x}) :
-    ((centralizerCommEquiv x hxd z : Subgroup.centralizer {(x : G)}) : G) =
-      ((z : Subgroup.centralizer {d}) : G) :=
-  rfl
 
 theorem exists_swap_centralizer (ψ : Subgroup.centralizer {d} ≃* K) {y : K} (hy : y ∈ dH ψ)
     (hne : y ≠ ψ ⟨d, mem_centralizer_singleton_self d⟩) :
@@ -241,19 +236,6 @@ theorem exists_swap_of_adjR (hR1 : ∀ y y' : K, y ∈ R → y' ∈ R → IsConj
     ∃ s : G, s * a * s⁻¹ = b ∧ s * b * s⁻¹ = a :=
   exists_conj_pair_of_adjR hR hR1 ψ h h'
 
-omit hR in
-theorem adjR_ne (ψ : Subgroup.centralizer {d} ≃* K)
-    (hR0 : ψ ⟨d, mem_centralizer_singleton_self d⟩ ∉ R) {a b : G} (h : adjR R ψ a b) : b ≠ a := by
-  rintro rfl
-  obtain ⟨ha, hb, hbR⟩ := h
-  apply hR0
-  convert hbR using 1
-  rw [MulEquiv.trans_apply]
-  refine congrArg ψ (Subtype.ext ?_)
-  show d = (conjugator ha)⁻¹ * b * conjugator ha
-  have hs := conjugator_spec ha
-  calc d = (conjugator ha)⁻¹ * (conjugator ha * d * (conjugator ha)⁻¹) * conjugator ha := by group
-    _ = (conjugator ha)⁻¹ * b * conjugator ha := by rw [hs]
 
 omit hR in
 theorem natCard_centralizer_swap (ψ : Subgroup.centralizer {d} ≃* K)
@@ -368,32 +350,15 @@ theorem cV0_not_mem_RA :
     (ψ : Subgroup.centralizer {d} ≃* vStab cv0) (a b : G) : Prop :=
   ∃ (ha : IsConj d a) (hb : b ∈ Subgroup.centralizer {a}), psiAt ψ ha ⟨b, hb⟩ ∈ RA
 
-theorem gAdj_iff_adjR
-    (ψ : Subgroup.centralizer {d} ≃* vStab cv0) (a b : G) :
-    gAdj ψ a b ↔ adjR RA ψ a b :=
-  Iff.rfl
 
 variable (ψ : Subgroup.centralizer {d} ≃* vStab cv0)
 
-theorem gAdj_iff_conjEquiv
-    {a b : G} (ha : IsConj d a) (g : G) (hg : g * d * g⁻¹ = a)
-    (hb : b ∈ Subgroup.centralizer {a}) :
-    gAdj ψ a b ↔ (centralizerConjEquiv g hg).trans ψ ⟨b, hb⟩ ∈ RA :=
-  adjR_iff RA_conj ψ ha g hg hb
-
-theorem gAdj_conj
-    {a b : G} (h : G) (hab : gAdj ψ a b) : gAdj ψ (h * a * h⁻¹) (h * b * h⁻¹) :=
-  adjR_conj RA_conj ψ h hab
 
 theorem gAdj_self_iff
     {b : G} (hb : b ∈ Subgroup.centralizer {d}) :
     gAdj ψ d b ↔ ψ ⟨b, hb⟩ ∈ RA :=
   adjR_self_iff RA_conj ψ hb
 
-theorem exists_centralizer_conj_of_gAdj
-    {a b b' : G} (h : gAdj ψ a b) (h' : gAdj ψ a b') :
-    ∃ k ∈ Subgroup.centralizer {a}, k * b * k⁻¹ = b' :=
-  exists_centralizer_conj_of_adjR RA_isConj ψ h h'
 
 theorem exists_conj_pair_of_gAdj
     {a b a' b' : G} (h : gAdj ψ a b) (h' : gAdj ψ a' b') :
@@ -413,9 +378,5 @@ theorem gAdj_symm
   adjR_symm RA_conj RA_isConj ψ (hψ ▸ cV0_not_mem_RA) hRA lamW0H_mem_RA
     (fun y hy hne hc => hcls y hy (hψ ▸ hne) hc) h
 
-theorem gAdj_ne
-    (hψ : ψ ⟨d, mem_centralizer_singleton_self d⟩ = cV0) {a b : G}
-    (h : gAdj ψ a b) : b ≠ a :=
-  adjR_ne ψ (hψ ▸ cV0_not_mem_RA) h
 
 end CFSG.Monster.B.GSide

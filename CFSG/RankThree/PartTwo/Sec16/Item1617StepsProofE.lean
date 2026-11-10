@@ -109,6 +109,5 @@ end Proof1617
 
 open Proof1617
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec16

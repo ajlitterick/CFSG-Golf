@@ -43,7 +43,6 @@ theorem card_ker_comp_le {H : Type*} [Group H] [Finite H] (ψ χ : H →* H) :
   rw [h1]
   exact Nat.mul_le_mul h2 h3
 
-variable {G : Type} [Group G] [Finite G]
 
 end Fixed
 

@@ -162,40 +162,20 @@ end S_sporDownRow_B_five_of_types
 section S_sporDownRow_B_three
 
 
-theorem sporDownRow_B_three (hB3 : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp) : SporDownRow .B 3 :=
-  sporDownRow_B_three_of_types (SporTables.sporTypes_B_three CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds hB3)
-
 end S_sporDownRow_B_three
 
 section S_sporDownRow_M_three
 
-
-theorem sporDownRow_M_three (hB : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp) : SporDownRow .M 3 :=
-  sporDownRow_M_three_of_types (SporTables.sporTypes_M_three CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds hB)
 
 end S_sporDownRow_M_three
 
 section S_sporDownRow_B_five
 
 
-theorem sporDownRow_B_five
-    (hB : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp) : SporDownRow .B 5 :=
-  sporDownRow_B_five_of_types (SporTables.sporTypes_B_five_of_noComp
-    CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds hB)
-
 end S_sporDownRow_B_five
 
 section S_sporDownRow_M_five
 
-
-theorem sporDownRow_M_five
-    (hB : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)) :
-    SporDownRow .M 5 :=
-  sporDownRow_M_five_of_types (SporTables.sporTypes_M_five CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds hB)
 
 end S_sporDownRow_M_five
 
@@ -464,16 +444,6 @@ end S_sporDownRow_M_thirteen
 section S_mElevenDown_of_card
 
 
-open CFSG.AGLEmbedding.Norton.MON5_7 (gw) in
-open CFSG.Monster.Generated (Gmat) in
-theorem mElevenDown_of_card (h : ∀ I : Subgroup Gmat, GLAPComponent 11 (Subgroup.centralizer
-      ({gw CFSG.AGLEmbedding.Norton.Gen11.gen11W0} : Set Gmat)) I → Nat.card (PSimple 11 I) = 95040) :
-    MElevenDown := by
-  haveI : Finite Gmat := CFSG.Monster.Generated.finite_Gmat
-  intro I hI
-  exact downTypeOK_of_not_chev (not_isChevSimple_of_card_bound (h I hI) (by norm_num) (by norm_num)
-    (by simp only [Nat.primeFactorsList_ofNat]; decide +kernel) (by decide) (by decide))
-
 end S_mElevenDown_of_card
 
 section Natural
@@ -514,42 +484,15 @@ end S_sporDownRow_M_thirteen_of
 section Structure
 
 
-structure SporDownResidual'' : Prop where
-  B_three : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp
-  M_three : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp
-  Fi23_five : Fi23FiveNoA6
-  Fi24Prime_five : SporTables.Fi24FiveA9
-  B_five : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp
-  M_five : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)
-  B_seven : BSevenNoL28
-  M_eleven : MElevenDown
-  M_thirteen_A : MThirteenADown
-
 end Structure
 
 section S_sporDownResidualP_of_residualPP
 
 
-theorem sporDownResidual'_of_residual''
-    (h : SporDownResidual'') : Claims1116d.SporDownResidual' where
-  B_three := sporDownRow_B_three h.B_three
-  M_three := sporDownRow_M_three h.M_three
-  Fi23_five := sporDownRow_Fi23_five h.Fi23_five
-  Fi24Prime_five := sporDownRow_Fi24_five h.Fi24Prime_five
-  B_five := sporDownRow_B_five h.B_five
-  M_five := sporDownRow_M_five h.M_five
-  B_seven := sporDownRow_B_seven h.B_seven
-  M_eleven := sporDownRow_M_eleven h.M_eleven
-  M_thirteen := sporDownRow_M_thirteen_of h.M_thirteen_A
-
 end S_sporDownResidualP_of_residualPP
 
 section S_inputSporDownChev_of_residualPP
 
-
-theorem inputSporDownChev_of_residual''
-    (h : SporDownResidual'') : Claims1116b.InputSporDownChev :=
-  Claims1116d.inputSporDownChev_of_residual' (sporDownResidual'_of_residual'' h)
 
 end S_inputSporDownChev_of_residualPP
 
@@ -614,20 +557,6 @@ end StructureK
 
 section S_sporDownResidualP_of_residualK
 
-
-theorem sporDownResidual'_of_residualK
-    (hB : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .B).Group)
-    (hM : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .M).Group) (h : SporDownResidualK) :
-    Claims1116d.SporDownResidual' where
-  B_three := sporDownRow_B_three_of_kGroup hB
-  M_three := sporDownRow_M_three_of_kGroup hM
-  Fi23_five := sporDownRow_Fi23_five h.Fi23_five
-  Fi24Prime_five := sporDownRow_Fi24_five h.Fi24Prime_five
-  B_five := sporDownRow_B_five_of_kGroup hB
-  M_five := sporDownRow_M_five_of_kGroup hM
-  B_seven := sporDownRow_B_seven h.B_seven
-  M_eleven := sporDownRow_M_eleven h.M_eleven
-  M_thirteen := sporDownRow_M_thirteen_of h.M_thirteen_A
 
 end S_sporDownResidualP_of_residualK
 

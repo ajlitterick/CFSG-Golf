@@ -27,18 +27,6 @@ theorem quotAut_mk (g : MulAut P) (N : Subgroup P) [N.Normal] (hN : ∀ x, g x �
     (x : P) : quotAut g N hN (x : P ⧸ N) = ((g x : P) : P ⧸ N) := by
   simp [quotAut]
 
-theorem quotAut_mul (g h : MulAut P) (N : Subgroup P) [N.Normal] (hg : ∀ x, g x ∈ N ↔ x ∈ N)
-    (hh : ∀ x, h x ∈ N ↔ x ∈ N) (hgh : ∀ x, (g * h) x ∈ N ↔ x ∈ N) :
-    quotAut (g * h) N hgh = quotAut g N hg * quotAut h N hh := by
-  ext z
-  induction z using QuotientGroup.induction_on with
-  | H x => simp [quotAut_mk, MulAut.mul_apply]
-
-theorem quotAut_one (N : Subgroup P) [N.Normal] (h1 : ∀ x, (1 : MulAut P) x ∈ N ↔ x ∈ N) :
-    quotAut (1 : MulAut P) N h1 = 1 := by
-  ext z
-  induction z using QuotientGroup.induction_on with
-  | H x => simp [quotAut_mk]
 
 theorem quotAut_pow_three (g : MulAut P) (N : Subgroup P) [N.Normal]
     (hN : ∀ x, g x ∈ N ↔ x ∈ N) (hg : g ^ 3 = 1) : quotAut g N hN ^ 3 = 1 := by

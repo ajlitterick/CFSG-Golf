@@ -78,15 +78,6 @@ theorem mem_of_odd_index {G : Type*} [Group G] (I : Subgroup G) [I.Normal] (hodd
   rw [orderOf_eq_one_iff, QuotientGroup.eq_one_iff] at h3
   exact h3
 
-theorem conjAut_mem_inner_of_two (L : Subgroup X)
-    (hodd : Odd (MulAut.conj : ↥L →* MulAut ↥L).range.index) (g : ↥(normalizer (L : Set X)))
-    {k : ℕ} (hg : (g : X) ^ 2 ^ k = 1) :
-    conjAut L g ∈ (MulAut.conj : ↥L →* MulAut ↥L).range := by
-  have : (MulAut.conj : ↥L →* MulAut ↥L).range.Normal := Bender.normal_range_conj ↥L
-  apply mem_of_odd_index _ hodd (k := k)
-  rw [← map_pow]
-  have hg' : g ^ 2 ^ k = 1 := Subtype.ext (by simpa using hg)
-  rw [hg', map_one]
 
 theorem card_eq_card_inf_ker_mul {G G' : Type*} [Group G] [Group G'] (f : G →* G')
     (H : Subgroup G) : Nat.card H = Nat.card ↥(f.ker ⊓ H) * Nat.card ↥(H.map f) := by

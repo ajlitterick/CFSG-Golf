@@ -87,9 +87,6 @@ theorem pat_block_perm (hK : Fintype.card K = 2 ^ n) (ρ : Representation K (Sta
     pat (ρ.comp block) (J ∘ σ) = pat (ρ.comp block) J :=
   pat_perm_of_equiv hK (blockPermEquiv ρ σ) hJ
 
-variable (hK : Fintype.card K = 2 ^ n) (ρ : Representation K (StatedSp 3 K) Y) {A B C : Finset ℕ}
-  (hA : ∀ i ∈ A, i < n) (hB : ∀ i ∈ B, i < n) (hC : ∀ i ∈ C, i < n)
-include hK hA hB hC
 
 end Sp6
 

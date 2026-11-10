@@ -31,7 +31,6 @@ open CFSG.Sporadic.J3.Native CFSG.Monster.B.Co2.Native CFSG.Sporadic.SmallOddCor
 
 @[expose] def kDeriv : Array (List Int) := #[[], []]
 
-@[expose] def kBase : Array Nat := #[0, 1, 2]
 
 @[expose] def uWordsK : List (List Int) :=
   [
@@ -42,7 +41,6 @@ open CFSG.Sporadic.J3.Native CFSG.Monster.B.Co2.Native CFSG.Sporadic.SmallOddCor
 
 @[expose] def uStrong : Array (Array Nat) := (uWordsK.map (wordA 20520 kStrong kInv)).toArray
 
-@[expose] def uDeriv : Array (List Int) := #[[], [], [], []]
 
 @[expose] def uBase : Array Nat := #[0]
 

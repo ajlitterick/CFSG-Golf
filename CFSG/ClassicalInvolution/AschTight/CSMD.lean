@@ -22,14 +22,6 @@ theorem mem_omegaNbr_of_commuting_sylow (ht : S19R.TightStdDelta p f K z) {g : G
   rw [normalizer_eq_centralizer_of_tight ht, Subgroup.mem_centralizer_singleton_iff]
   exact (hcomm z hzP₁ y hy).symm
 
-theorem commutingSylowForcesCommuting_of_tightD (ht : S19R.TightStd p f K z) :
-    CommutingSylowForcesCommuting K := by
-  intro g hg P₁ P₂ hP₁ hP₂ hcomm
-  exact absurd (Or.inl (mem_omegaNbr_of_commuting_sylow ht.toTightBranch hg hP₁ hP₂ hcomm))
-    (ht.edgeless K (CoreAssembly.mem_conjClass_self K) _ ⟨g, rfl⟩)
-
-theorem tightCSMD : TightCSMD p f :=
-  fun _ _ _ _ _ _ ht => commutingSylowForcesCommuting_of_tightD (S19R.tightStd_of_tightBranchD ht)
 
 theorem conjSubgroup_sylow_eq_of_tightD (ht : S19R.TightStd p f K z) (Q : Sylow 2 K)
     {S : Subgroup G} (hS : IsPGroup 2 S) (hQS : (Q : Subgroup K).map K.subtype ≤ S) {g : G}

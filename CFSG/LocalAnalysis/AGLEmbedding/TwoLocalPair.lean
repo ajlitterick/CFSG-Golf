@@ -76,11 +76,6 @@ theorem not_le_normalizer_of_char (h : TwoLocalPair M H) {C : Subgroup G}
     ((CFSG.RankThreeCoreUniqueness.Helpers.pCoreOf_isPGroup 2 H).to_le hCS)
     (le_normalizer_of_characteristic_pCoreOf hCS hchar)
 
-theorem ne_of_le_normalizer (h : TwoLocalPair M H) {C D : Subgroup G} (hC1 : C ≠ ⊥)
-    (hC2 : IsPGroup 2 C) (hHC : H ≤ Subgroup.normalizer (C : Set G))
-    (hMD : M ≤ Subgroup.normalizer (D : Set G)) : C ≠ D := by
-  rintro rfl
-  exact h.not_le_normalizer_of_le_normalizer hC1 hC2 hHC hMD
 
 theorem ne_of_char (h : TwoLocalPair M H) {C D : Subgroup G} (hCS : C ≤ pCoreOf 2 H)
     (hC1 : C ≠ ⊥) (hCchar : (C.subgroupOf (pCoreOf 2 H)).Characteristic)

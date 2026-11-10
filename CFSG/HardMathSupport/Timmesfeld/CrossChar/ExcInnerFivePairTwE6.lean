@@ -315,13 +315,6 @@ theorem twistedE6LangTorusPlaneBalance_one_five_of_components (hsub : LangSubnor
     (setupRigidAtTwistedE6_one (by norm_num) fun ℓ f hℓ hf (hq : 5 ∣ ℓ ^ f - 1) =>
       ⟨hq, eight_le_of_five_dvd_sub_one hℓ hf hq⟩) hsub hin hsu htw hex
 
-theorem crossCharInnerAt_twistedE6_five_of_components_only (hsub : LangSubnormal)
-    (hin : LangComponentsQuasisimple .inner) (hsu : LangComponentsQuasisimple .suN)
-    (htw : LangComponentsQuasisimple .twoD) (hex : LangComponentsQuasisimple .exc) :
-    CrossCharInnerAt .twistedE6 fun idx p =>
-      (∃ q : TauCeti.PrimePower, idx.1 = .twistedE6 q ∧ 5 ∣ q.card ^ 2 - 1) ∧ p = 5 :=
-  crossCharInnerAt_twistedE6_five_of_components hsub hin hsu htw hex
-    (twistedE6LangTorusPlaneBalance_one_five_of_components hsub hin hsu htw hex)
 
 end Frame
 

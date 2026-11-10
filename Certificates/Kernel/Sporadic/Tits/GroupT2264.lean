@@ -21,10 +21,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.BfsPin CFSG.KS.PresPG
 open CFSG.Sporadic.Schreier.Tits CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
 open CFSG.Certificates.Native CFSG.LieType.Multipliers.Tits CertificateChecks.KernelMisc
 
-theorem get_extract {S : Array (Array Nat)} {m k : Nat} (hk : k < m) (hS : m ≤ S.size) :
-    (S.extract 0 m)[k]! = S[k]! := by
-  rw [getElem!_pos _ k (by simp; omega), Array.getElem_extract, getElem!_pos S k (by omega)]
-  simp
 
 theorem hiOf {G : Nat} (h : canonK 1755 11 (mask 11) (1755 * 11) G = true) :
     Nat.shiftRight G (1755 * 11) = 0 := by

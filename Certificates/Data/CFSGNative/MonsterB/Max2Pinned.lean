@@ -20,24 +20,5 @@ set_option compiler.extract_closed false
 
 @[expose] def runProg (n : Nat) (A B : Mat) : Array Mat := max2Prog.foldl (progStep n) (initRegs n A B)
 
-@[expose] def pinnedChecks (n : Nat) (A B T : Mat) (Tb : ByteArray) : Bool :=
-  let I := idMat n
-  let R := runProg n A B
-  let c := R.getD 1 #[]
-  let d := R.getD 2 #[]
-  let D := powM n d 24
-  let W := mulP n (mulP n (mulP n B B) D) B
-  Binary.Native.sha256Nat Tb == tSha &&
-  mulP n c c == I && neM n c I &&
-  powM n d 48 == I && neM n D I && neM n (powM n d 16) I &&
-  mulP n D c == mulP n c D &&
-  mulP n T (invM n T) == I &&
-  mulP n (mulP n B B) B == I &&
-  powM n (mulP n D W) 5 == I
-
-@[expose] def pinnedOK (n : Nat) : Bool :=
-  let Tb := tBytes tLen
-  pinnedChecks n (seedMat n CFSG.SectionRank.Native.bData.seedA)
-    (seedMat n CFSG.SectionRank.Native.bData.seedB) (matOfPayload n Tb 0) Tb
 
 end CFSG.Monster.B.Bin

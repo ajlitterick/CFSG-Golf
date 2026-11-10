@@ -332,10 +332,5 @@ theorem pair_eq_D_native
   calc E = fi22EquivJ.symm '' (fi22EquivJ '' E) := (CFSG.Fischer.image_symm_image _ _).symm
     _ = fi22EquivJ.symm '' D := by rw [h]
 
-theorem pair_iff_native
-    (E : Set Blueprint.NativeSporadic.Fi22) :
-    CFSG.Blueprint.Fischer.Pair _ E ↔ E = fi22EquivJ.symm '' D :=
-  ⟨pair_eq_D_native E, fun h => h ▸ @CFSG.Fischer.pair_map (↥J) Blueprint.NativeSporadic.Fi22
-    inferInstance inferInstance D pair_D fi22EquivJ.symm⟩
 
 end CFSG.Sporadic.Fi22

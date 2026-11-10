@@ -121,12 +121,5 @@ open CFSG.GF2Type.Smith1979.GammaU CFSG.GF2Type.Smith1979.GammaU.StepA CFSG.GF2T
 @[expose] def compGens (i : ℕ) : List (Array ℕ) :=
   (List.range 5).map fun j => if i.testBit j then mulR k0 cBasis[j]! else cBasis[j]!
 
-@[expose] def conjRows (c : Array ℕ) (gs : List (Array ℕ)) : List (Array ℕ) :=
-  gs.map fun g => mulR (mulR c g) (invR c)
-
-@[expose] def residualPairCheck (_ : Unit := ()) : Bool :=
-  [0, 1].all fun i => (resConj i).all fun c =>
-    c == idR || (okRows c && okRows (invR c) && mulR c (invR c) == idR && mulR (invR c) c == idR &&
-      violCheck (n2Gens i ++ conjRows c (n2Gens i)) (compOf i) (compGens i) (idR :: hyp10 i))
 
 end CFSG.GF2Type.Smith1979.GammaU.ResPair

@@ -141,16 +141,6 @@ theorem a5LeviBaseChange_slToA5Levi (ι : K →+* M) (A : Matrix.SpecialLinearGr
     rw [coe_slToAdjointE6_transvection, coe_slToAdjointE6_transvection, baseChangeGL_pinnedX]
   exact hle (mem_top A)
 
-theorem map_a5LeviBaseChange_eq (ι : K →+* M) :
-    (⊤ : Subgroup (a5Levi K)).map (a5LeviBaseChange ι) =
-      ((Matrix.SpecialLinearGroup.map ι).range).map slToA5Levi := by
-  ext y
-  constructor
-  · rintro ⟨x, -, rfl⟩
-    obtain ⟨A, rfl⟩ := slToA5Levi_surjective x
-    exact ⟨Matrix.SpecialLinearGroup.map ι A, ⟨A, rfl⟩, (a5LeviBaseChange_slToA5Levi ι A).symm⟩
-  · rintro ⟨_, ⟨A, rfl⟩, rfl⟩
-    exact ⟨slToA5Levi A, mem_top _, a5LeviBaseChange_slToA5Levi ι A⟩
 
 theorem map_a5LeviBaseChange_eq_eqLocus {K₀ : Type} [Field K₀] [Finite K₀] [CharP K₀ 2]
     (ι : K₀ →+* K) (σ : K →+* K) (hfix : ∀ x : K, σ x = x ↔ x ∈ Set.range ι)
@@ -193,35 +183,6 @@ theorem exists_baseChangeGL_eq_of_mem_rootSpan_a5LeviRoots {K₀ : Type} [Field 
   refine ⟨((d₀ : adjointGroup .E6 K₀) : ModGL .E6 K₀), mem_a5Levi_iff.1 d₀.2, ?_⟩
   rw [← coe_a5LeviBaseChange, hd₀]
 
-theorem slToA5Levi_mem_eqLocus_not_mem_map {K₀ : Type} [Field K₀] [Finite K₀] [CharP K₀ 2]
-    (ι : K₀ →+* K) (σ : K →+* K) (hσι : σ.comp ι = ι)
-    (hcent : ∀ W ∈ center (Matrix.SpecialLinearGroup (Fin 6) K),
-      Matrix.SpecialLinearGroup.map σ W = W)
-    {A Z : Matrix.SpecialLinearGroup (Fin 6) K}
-    (hZ : Z ∈ center (Matrix.SpecialLinearGroup (Fin 6) K)) (hZ1 : Z ≠ 1)
-    (hA : Matrix.SpecialLinearGroup.map σ A = A * Z) :
-    slToA5Levi A ∈ MonoidHom.eqLocus (a5LeviBaseChange σ) (MonoidHom.id _) ∧
-      slToA5Levi A ∉ (⊤ : Subgroup (a5Levi K₀)).map (a5LeviBaseChange ι) := by
-  have hZker : Z ∈ (slToA5Levi (K := K)).ker := by rw [ker_slToA5Levi]; exact hZ
-  refine ⟨?_, ?_⟩
-  · change a5LeviBaseChange σ (slToA5Levi A) = slToA5Levi A
-    rw [a5LeviBaseChange_slToA5Levi, hA, map_mul, (MonoidHom.mem_ker).1 hZker, mul_one]
-  · rintro ⟨x, -, hx⟩
-    obtain ⟨B₀, rfl⟩ := slToA5Levi_surjective x
-    rw [a5LeviBaseChange_slToA5Levi] at hx
-    have hWker : A⁻¹ * Matrix.SpecialLinearGroup.map ι B₀ ∈ (slToA5Levi (K := K)).ker := by
-      rw [MonoidHom.mem_ker, map_mul, map_inv, hx, inv_mul_cancel]
-    have hWc : A⁻¹ * Matrix.SpecialLinearGroup.map ι B₀ ∈
-        center (Matrix.SpecialLinearGroup (Fin 6) K) := by
-      rwa [← ker_slToA5Levi]
-    have hfixB : Matrix.SpecialLinearGroup.map σ (Matrix.SpecialLinearGroup.map ι B₀) =
-        Matrix.SpecialLinearGroup.map ι B₀ := by
-      rw [specialLinearGroup_map_map, hσι]
-    have hAW : Matrix.SpecialLinearGroup.map ι B₀ =
-        A * (A⁻¹ * Matrix.SpecialLinearGroup.map ι B₀) := by
-      rw [mul_inv_cancel_left]
-    rw [hAW, map_mul, hA, hcent _ hWc, mul_assoc] at hfixB
-    exact hZ1 (mul_right_cancel ((mul_left_cancel hfixB).trans (one_mul _).symm))
 
 end Naturality
 

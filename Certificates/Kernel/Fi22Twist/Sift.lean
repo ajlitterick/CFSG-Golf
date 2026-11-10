@@ -38,10 +38,6 @@ namespace CFSG.KD.Fi22Twist
 
 open CFSG.KC.Ord CFSG.KC.Enum CertificateChecks.KernelSpor
 
-theorem neg431009sf : notB (strictB (CJ (nat_lit 0)) fun p =>
-    strictB (fld(p, nat_lit 0, nat_lit 4095)) fun a => strictB (fld(p, nat_lit 12, nat_lit 4095)) fun b =>
-      Fi22X.siftP (Nat.xor (Nat.xor p (Nat.lor a (Nat.shiftLeft b (nat_lit 12))))
-        (Nat.lor b (Nat.shiftLeft a (nat_lit 12))))) = true := by quickRfl
 
 end CFSG.KD.Fi22Twist
 

@@ -19,8 +19,6 @@ structure GDSpec (g : Native.GD) (P : Pvis) : Prop where
     (Pi.single (spinOfRow r) (1 : ℚ) : SpinIdx → ℚ) ᵥ* (P.1.1 : Matrix SpinIdx SpinIdx ℚ) =
       ((g.rowT[r]!).map fun t => ((t.2 : ℚ) / 2 ^ g.rowS) • eRow t.1).sum
 
-theorem pow_two_sub (a b : ℕ) (h : a ≤ b) : (2 : ℚ) ^ (b - a) * 2 ^ a = 2 ^ b := by
-  rw [← pow_add, Nat.sub_add_cancel h]
 
 theorem eNew_ge (g : Native.GD) : 2 * g.latS ≤ g.eNew ∧ g.latS + g.rowS ≤ g.eNew :=
   ⟨le_max_left _ _, le_max_right _ _⟩

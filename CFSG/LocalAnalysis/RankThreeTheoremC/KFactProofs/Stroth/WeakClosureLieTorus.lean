@@ -151,9 +151,6 @@ theorem SylowTorusIrr.normalizerMovesLines [Fact p.Prime] (h : SylowTorusIrr G p
     NormalizerMovesLines p (P : Subgroup G) :=
   NormalizerMovesLines.of_irreducibleOnOmega1 hrank (h.irreducibleOnOmega1 P)
 
-theorem WCOn.of_sylowTorusIrr [Fact p.Prime] (h : SylowTorusIrr G p m) : WCOn p G := by
-  obtain ⟨P₀⟩ : Nonempty (Sylow p G) := inferInstance
-  exact WCOn.of_normalizerMovesLines P₀ fun _ hrank => h.normalizerMovesLines P₀ hrank
 
 end Torus
 
@@ -161,41 +158,6 @@ section Transitive
 
 variable {K : Type} [Group K] [Finite K] {p : ℕ}
 
-theorem normalizerMovesLines_of_transitive [Fact p.Prime] {P : Subgroup K}
-    (hrank : 2 ≤ CFSG.Open.pRank p P)
-    (htrans : ∀ x ∈ P, ∀ y ∈ P, x ≠ 1 → y ≠ 1 → x ^ p = 1 → y ^ p = 1 →
-      ∃ n ∈ Subgroup.normalizer (P : Set K), n * x * n⁻¹ = y) :
-    NormalizerMovesLines p P := by
-  intro A hAP hA
-  by_contra hcon
-  push Not at hcon
-  have hconjA : ∀ n ∈ Subgroup.normalizer (P : Set K), ∀ y ∈ A, n * y * n⁻¹ ∈ A := by
-    intro n hn y hy
-    rw [← hcon n hn]
-    exact ⟨y, hy, by simp [MulAut.conj_apply]⟩
-  have hexp : ∀ y ∈ A, y ^ p = 1 := by
-    intro y hy
-    have := pow_card_eq_one' (G := A) (x := ⟨y, hy⟩)
-    rw [hA] at this
-    exact congrArg Subtype.val this
-  obtain ⟨x, hxA, hx1⟩ : ∃ x ∈ A, x ≠ 1 := by
-    by_contra h
-    push Not at h
-    have : A = ⊥ := (Subgroup.eq_bot_iff_forall A).2 h
-    rw [this, Subgroup.card_bot] at hA
-    exact (Fact.out : p.Prime).one_lt.ne hA
-  obtain ⟨E, hEP, hE, hEcard⟩ := CFSG.SectionRank.exists_isElemAbelian_card_of_le_pRank
-    (p := p) (H := P) (k := 2) hrank
-  obtain ⟨y, hyE, hyA⟩ : ∃ y ∈ E, y ∉ A := by
-    by_contra h
-    push Not at h
-    have h1 : Nat.card E ≤ Nat.card A := Subgroup.card_le_of_le fun z hz => h z hz
-    rw [hEcard, hA] at h1
-    have hp2 := (Fact.out : p.Prime).two_le
-    nlinarith
-  have hy1 : y ≠ 1 := fun h => hyA (h ▸ A.one_mem)
-  obtain ⟨n, hn, hnxy⟩ := htrans x (hAP hxA) y (hEP hyE) hx1 hy1 (hexp x hxA) (hE.2 y hyE)
-  exact hyA (hnxy ▸ hconjA n hn x hxA)
 
 end Transitive
 
@@ -326,23 +288,6 @@ theorem NormalizerMovesLines.map (ι : K₁ →* K) (hι : Function.Injective ι
       exact heq
     exact Subgroup.map_injective hι hmap2
 
-theorem WCOn.of_subgroup_sylow [Fact p.Prime] (ι : K₁ →* K) (hι : Function.Injective ι)
-    (P₁ : Sylow p K₁) (hcard : Nat.card (P₁ : Subgroup K₁) = p ^ (Nat.card K).factorization p)
-    (h : IsMulCommutative (P₁ : Subgroup K₁) → 2 ≤ CFSG.Open.pRank p (P₁ : Subgroup K₁) →
-      NormalizerMovesLines p (P₁ : Subgroup K₁)) : WCOn p K := by
-  have hcard' : Nat.card ((P₁ : Subgroup K₁).map ι) = p ^ (Nat.card K).factorization p := by
-    rw [Subgroup.card_map_of_injective hι, hcard]
-  let P₀ : Sylow p K := Sylow.ofCard _ hcard'
-  have hP₀ : (P₀ : Subgroup K) = (P₁ : Subgroup K₁).map ι := Sylow.coe_ofCard _ _
-  refine WCOn.of_normalizerMovesLines P₀ fun hab hrank => ?_
-  rw [hP₀] at hab hrank ⊢
-  have hab₁ : IsMulCommutative (P₁ : Subgroup K₁) := by
-    refine ⟨⟨fun a b => Subtype.ext (hι ?_)⟩⟩
-    have h1 := congrArg Subtype.val (hab.is_comm.comm ⟨ι a, a, a.2, rfl⟩ ⟨ι b, b, b.2, rfl⟩)
-    simpa [map_mul] using h1
-  have hrank₁ : 2 ≤ CFSG.Open.pRank p (P₁ : Subgroup K₁) := by
-    rwa [CFSG.PreuniquenessRankFour.Helpers.pRank_map_of_injective p Fact.out ι hι] at hrank
-  exact (h hab₁ hrank₁).map ι hι
 
 end Embedding
 

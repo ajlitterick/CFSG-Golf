@@ -26,7 +26,6 @@ theorem burnsideJ4NP_col_eta_congr {G : Type*} [Group G] (u : ℕ → G) {k c d 
   | succ k ih =>
     rw [eta_succ, eta_succ, ih (fun j hj => h j (Nat.lt_succ_of_lt hj)), h k (Nat.lt_succ_self k)]
 
-@[expose] noncomputable def burnsideJ4NP_colLab (x : J) : ℕ := QT2.fixDim (Mx x)
 
 @[expose] noncomputable def burnsideJ4NP_colPair (x w : J) : ℕ :=
   QT2.fixDim ((Mx x - 1) * (Mx w - 1) + 1)

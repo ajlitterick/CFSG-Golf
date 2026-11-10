@@ -41,13 +41,6 @@ private theorem e16l_conj_w {n : ℕ} (a : Wr n) (l : Fin n) :
   funext i
   simp only [e16l_w, Equiv.symm_apply_eq]
 
-private theorem e16l_perm_fix {n : ℕ} (a : Wr n) (l : Fin n)
-    (h : a * ofVec (e16l_w l) * a⁻¹ = ofVec (e16l_w l)) : a.perm l = l := by
-  rw [e16l_conj_w] at h
-  have hv : e16l_w (a.perm l) = e16l_w l := congrArg Wr.vec h
-  by_contra hne
-  have := congrFun hv (a.perm l)
-  simp [e16l_w, hne] at this
 
 private theorem e16l_wsum_ofVec {n : ℕ} (v : Fin n → ZMod 2) : wsum (ofVec v) = ∑ i, v i := rfl
 
@@ -158,7 +151,6 @@ private theorem e16l_mem_memBar {α : Finset (Fin 7)} {h : α.card = 4} {a : Wr 
   rcases hmem with hk | hk
   · exact Or.inl (TL4.AECov.mkQ_embed_mem_memBar α h true hk)
   · exact Or.inr (TL4.AECov.mkQ_embed_mem_memBar α h false hk)
-
 
 
 section E16LB
@@ -838,7 +830,6 @@ private theorem e16l_aux {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   rcases eq_memBar_of_le_sup_memBar (by norm_num) hle hcardK hw with h1 | h1
   · exact ⟨K, hK, (Sset)ᶜ, hγcard, true, φ, hφβ, hφH, h1⟩
   · exact ⟨K, hK, (Sset)ᶜ, hγcard, false, φ, hφβ, hφH, h1⟩
-
 
 
 namespace Sit16

@@ -19,7 +19,6 @@ theorem isRoot_root0122 : IsRoot .F4 root0122 := mem_rootFinset.1 (by decide +ke
 
 theorem isRoot_root0121 : IsRoot .F4 root0121 := mem_rootFinset.1 (by decide +kernel)
 
-theorem isRoot_root0110 : IsRoot .F4 root0110 := mem_rootFinset.1 (by decide +kernel)
 
 theorem iform_neg_left (γ δ : Fin (Tag.rank .F4) → ℤ) : iform (-γ) δ = -iform γ δ := by
   simp only [iform, Pi.neg_apply, neg_mul, Finset.sum_neg_distrib]
@@ -70,8 +69,6 @@ theorem yRep_mem_C3Levi (κ : TwoCentral) : yRep K κ ∈ C3Levi K := by
   · exact h2
   · exact mul_mem h1 h2
 
-theorem yV_mem_C3Levi : yV K ∈ C3Levi K :=
-  mul_mem (xC_mem_C3Levi ⟨isRoot_root0110, rfl⟩ 1) (xC_mem_C3Levi ⟨isRoot_root0122, rfl⟩ 1)
 
 end Subgroups
 

@@ -75,10 +75,6 @@ theorem mem_sectionTenOne_iff {p : ℕ} {A L : Subgroup G} :
     obtain ⟨q, hq⟩ := h a
     exact ⟨q, hq.symm⟩
 
-theorem sectionTenOne_union_sectionTenTwo (p : ℕ) (A : Subgroup G) :
-    sectionTenOne p A ∪ sectionTenTwo p A = thetaComponentFamily p A ∧
-      Disjoint (sectionTenOne p A) (sectionTenTwo p A) :=
-  ⟨Set.union_sdiff_cancel fun _ hL => hL.1, Set.disjoint_sdiff_right⟩
 
 theorem sectionTenZeroStar_subset (p : ℕ) (A : Subgroup G) :
     sectionTenZeroStar p A ⊆ sectionTenZero p A ∧

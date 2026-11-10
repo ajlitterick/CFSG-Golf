@@ -23,18 +23,6 @@ open CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinCentRes
 
 variable {n : ℕ}
 
-@[expose] def V3ExitOrbitAd (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y)
-    (K K' K₃ : Subgroup Y) (u₁ u₂ u₃ : Y), V3Std n Y R S t K K' K₃ u₁ u₂ u₃ →
-      ∀ (K₄ : Subgroup Y) (a₃ a₄ y : Y), V3Frame R t K K' K₃ u₁ u₂ K₄ a₃ a₄ y →
-        ∀ W ∈ WSet (CoreAssembly.conjClass (tightCore R)), u₁ ∈ W → u₂ ∈ W → a₃ ∈ W → a₄ ∈ W →
-        ¬ SecNoExitAt (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂) →
-          (∃ V : Subgroup (LSec (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)),
-            WSet (TwinDisc.secFam (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)) = {V}) →
-          ∀ c ∈ Subgroup.centralizer ({u₁ * u₂} : Set Y),
-            ∃ g ∈ oddCoreOf (rLayer (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)),
-              c * t * c⁻¹ = g * t * g⁻¹ ∨ c * t * c⁻¹ = g * (y * t * y⁻¹) * g⁻¹ ∨
-                c * t * c⁻¹ = g * (t * (y * t * y⁻¹)) * g⁻¹
 
 end
 

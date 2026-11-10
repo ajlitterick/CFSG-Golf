@@ -875,12 +875,6 @@ theorem ev_eltMinusOne (hn : 0 < n) : ev n K (eltMinusOne n) = 1 := by
   rw [hu, conjAut_scalar, eE_eltMinusOne hn]
   simp
 
-theorem eltValid_eltNorm (hn : 0 < n) {x : Array ℕ} (hx : eltValid n x = true) :
-    eltValid n (eltNorm n x) = true := by
-  unfold eltNorm
-  split_ifs
-  · exact eltValid_eltMul (n := n) hn (eltValid_eltMinusOne (n := n) hn) hx
-  · exact hx
 
 theorem ev_eltNorm (hn : 0 < n) {x : Array ℕ} (hx : eltValid n x = true) :
     ev n K (eltNorm n x) = ev n K x := by

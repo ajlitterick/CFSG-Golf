@@ -130,13 +130,6 @@ theorem inn_le_inndiag :
   obtain ⟨g, rfl⟩ := proj_surjective n K x
   exact ⟨SpecialLinearGroup.toGL g, conjAut_toGL g⟩
 
-theorem dualAut_conj_mem (A : GL (Fin n) K) :
-    dualAut n K * conjAut n K A * (dualAut n K)⁻¹ ∈
-      (inndiag : Subgroup (MulAut (projectiveSL n K))) := by
-  have htr := standard_automorphism_transport (K := K) (n := n)
-  have hδinv : (dualAut n K)⁻¹ = dualAut n K := (eq_inv_of_mul_eq_one_left htr.2.2.2.1).symm
-  rw [hδinv, htr.2.2.2.2.1 A]
-  exact ⟨_, rfl⟩
 
 theorem fieldAut_conj_mem (σ : K ≃+* K) (A : GL (Fin n) K) :
     fieldAut n K σ * conjAut n K A * (fieldAut n K σ)⁻¹ ∈

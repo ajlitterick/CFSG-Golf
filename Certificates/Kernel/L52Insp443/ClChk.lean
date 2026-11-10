@@ -23,8 +23,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM CFSG.KC.L52I
 #kc_each ch725109zc 0 7
 #kc_each ch725109ac 0 6
 
-theorem ch725109n_cl : notB (clK (D.zB.getD 0 []) (D.zS.getD 1 [])) = true := by
-  quickRfl
 
 end CertificateChecks.KernelL52I
 

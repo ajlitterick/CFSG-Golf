@@ -75,9 +75,6 @@ theorem map_toLinU_gBlock (x : primeFormUnitary h (idGram K n)) (a : K[X]) :
 
 section Data
 
-theorem toLinU_coe_eq_toLin' (x : primeFormUnitary h (idGram K n)) :
-    ((toLinU h n x : LinearMap.GeneralLinearGroup K (Fin n → K)) : Module.End K (Fin n → K)) =
-      Matrix.toLin' (((x : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K) := rfl
 
 theorem squarefree_minpoly_of_pow_eq_scalar (hp : p.Prime) (hpℓ : p ≠ ℓ)
     {x : primeFormUnitary h (idGram K n)} {c : Kˣ}

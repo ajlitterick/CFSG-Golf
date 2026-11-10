@@ -265,14 +265,6 @@ variable (h) in
       (stdPinnedPSU3 h).HasKind (MulAut.congr (suCenterEquiv h hq)
         (centerDescend _ (inducedAutHom L e ⟨x, hx⟩))) k
 
-theorem inducesKindPSU3_iff (hq : 2 < p ^ f) (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitaryPSU h 3)
-    (x : G) (k : AutKind) :
-    InducesKindPSU3 h L x k ↔ InducesKind L (stdPinnedPSU3 h) e x k := by
-  constructor
-  · rintro ⟨e', h'⟩
-    exact (inducesKind_iff_of_stable L (stdPinnedPSU3_stable hq) e' e x k).1 h'
-  · intro h'
-    exact ⟨e, h'⟩
 
 theorem inducesKindSU3_iff (hq : 2 < p ^ f)
     (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitarySU p f K 3) (x : G) (k : AutKind) :

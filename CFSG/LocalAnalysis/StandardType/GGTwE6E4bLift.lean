@@ -91,47 +91,6 @@ theorem fixedA2Scalar_pow_three_eq (ζ : Fˣ) :
   rw [h]
 
 
-def fixedA2RangeEquiv : SL(3, F) ≃* (fixedA2AdjRho (F := F)).range :=
-  MulEquiv.ofBijective (fixedA2AdjRho (F := F)).rangeRestrict
-    ⟨fun _ _ h => fixedA2AdjRho_injective (F := F) (congrArg Subtype.val h),
-      MonoidHom.rangeRestrict_surjective _⟩
-
-def fixedA2NormalizerMulAut (X : ↥(adjointGroup Tag.E6 F))
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F))) :
-    MulAut (SL(3, F)) :=
-  MulAut.congr (fixedA2RangeEquiv (F := F)).symm
-    ((fixedA2AdjRho (F := F)).range.normalizerMonoidHom ⟨X, hX⟩)
-
-theorem fixedA2NormalizerMulAut_apply (X : ↥(adjointGroup Tag.E6 F))
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F))) (A : SL(3, F)) :
-    fixedA2AdjRho (F := F) (fixedA2NormalizerMulAut (F := F) X hX A) =
-      X * fixedA2AdjRho (F := F) A * X⁻¹ := by
-  have hcongr : fixedA2RangeEquiv (F := F) (fixedA2NormalizerMulAut (F := F) X hX A) =
-      ((fixedA2AdjRho (F := F)).range.normalizerMonoidHom ⟨X, hX⟩)
-        (fixedA2RangeEquiv (F := F) A) := by
-    rw [fixedA2NormalizerMulAut, MulAut.congr_apply]
-    change fixedA2RangeEquiv (F := F)
-      ((fixedA2RangeEquiv (F := F)).symm
-        (((fixedA2AdjRho (F := F)).range.normalizerMonoidHom ⟨X, hX⟩)
-          (fixedA2RangeEquiv (F := F) A))) = _
-    rw [MulEquiv.apply_symm_apply]
-  have hval := congrArg Subtype.val hcongr
-  rw [Subgroup.normalizerMonoidHom_apply_apply_coe] at hval
-  change fixedA2AdjRho (F := F) (fixedA2NormalizerMulAut (F := F) X hX A) =
-    X * fixedA2AdjRho (F := F) A * X⁻¹ at hval
-  exact hval
-
-theorem exists_fixedA2NormalizerMulAut (X : ↥(adjointGroup Tag.E6 F))
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F))) :
-    ∃ α : MulAut (SL(3, F)),
-      ∀ A, fixedA2AdjRho (F := F) (α A) = X * fixedA2AdjRho (F := F) A * X⁻¹ :=
-  ⟨fixedA2NormalizerMulAut (F := F) X hX,
-    fixedA2NormalizerMulAut_apply (F := F) X hX⟩
-
-
 section Cover
 
 variable
@@ -188,65 +147,6 @@ theorem fixedA2Lift_pi (hF : 4 < Nat.card F) (A : SL(3, F)) :
       ↥(e6Data_valid.minGroup F)).2 = _
   rw [← hmem, h1]
 
-theorem e6Isogeny_comp_fixedA2Lift (hF : 4 < Nat.card F) :
-    (e6Isogeny F).comp (fixedA2Lift (F := F) hF) = fixedA2AdjRho (F := F) :=
-  MonoidHom.ext (fixedA2Lift_pi (F := F) hF)
-
-theorem fixedA2Lift_injective (hF : 4 < Nat.card F) :
-    Function.Injective (fixedA2Lift (F := F) hF) := by
-  intro A B h
-  apply fixedA2AdjRho_injective (F := F)
-  rw [← fixedA2Lift_pi (F := F) hF A, ← fixedA2Lift_pi (F := F) hF B, h]
-
-theorem fixedA2Lift_unique (hF : 4 < Nat.card F)
-    {lam' : SL(3, F) →* ↥(e6Data_valid.minGroup F)}
-    (hlam' : ∀ A, e6Isogeny F (lam' A) = fixedA2AdjRho (F := F) A) :
-    lam' = fixedA2Lift (F := F) hF := by
-  have hperf : Group.IsPerfect (SL(3, F)) :=
-    CFSG.ClassicalModels.specialLinear_isPerfect_of_three_le (by norm_num)
-  apply TypeA.eq_of_inv_mul_mem_center (G := ↥(e6Data_valid.minGroup F))
-    (hS := hperf.commutator_eq_top)
-  intro A
-  exact ker_e6Isogeny_le_center (F := F) (by
-    rw [MonoidHom.mem_ker, map_mul, map_inv, hlam', fixedA2Lift_pi (F := F) hF, inv_mul_cancel])
-
-theorem fixedA2Lift_equivariant (hF : 4 < Nat.card F)
-    {X : ↥(adjointGroup Tag.E6 F)} (Xhat : ↥(e6Data_valid.minGroup F))
-    (hXhat : e6Isogeny F Xhat = X)
-    {α : MulAut (SL(3, F))}
-    (hα : ∀ A, fixedA2AdjRho (F := F) (α A) =
-      X * fixedA2AdjRho (F := F) A * X⁻¹) :
-    ∀ A, Xhat * fixedA2Lift (F := F) hF A * Xhat⁻¹ =
-      fixedA2Lift (F := F) hF (α A) := by
-  have hperf : Group.IsPerfect (SL(3, F)) :=
-    CFSG.ClassicalModels.specialLinear_isPerfect_of_three_le (by norm_num)
-  let F₁ : SL(3, F) →* ↥(e6Data_valid.minGroup F) :=
-    (MulAut.conj Xhat).toMonoidHom.comp (fixedA2Lift (F := F) hF)
-  let F₂ : SL(3, F) →* ↥(e6Data_valid.minGroup F) :=
-    (fixedA2Lift (F := F) hF).comp α.toMonoidHom
-  have heq : F₁ = F₂ := by
-    apply TypeA.eq_of_inv_mul_mem_center (G := ↥(e6Data_valid.minGroup F))
-      (hS := hperf.commutator_eq_top)
-    intro A
-    exact ker_e6Isogeny_le_center (F := F) (by
-      rw [MonoidHom.mem_ker, map_mul, map_inv]
-      rw [show F₁ A = Xhat * fixedA2Lift (F := F) hF A * Xhat⁻¹ from rfl,
-        show F₂ A = fixedA2Lift (F := F) hF (α A) from rfl,
-        map_mul, map_mul, map_inv, hXhat, fixedA2Lift_pi (F := F) hF,
-        fixedA2Lift_pi (F := F) hF, hα, inv_mul_cancel])
-  intro A
-  have h := DFunLike.congr_fun heq A
-  simpa [F₁, F₂, MulAut.conj_apply, MonoidHom.comp_apply] using h
-
-theorem fixedA2Lift_normalizer_conj (hF : 4 < Nat.card F)
-    {X : ↥(adjointGroup Tag.E6 F)}
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F)))
-    (Xhat : ↥(e6Data_valid.minGroup F)) (hXhat : e6Isogeny F Xhat = X) (A : SL(3, F)) :
-    Xhat * fixedA2Lift (F := F) hF A * Xhat⁻¹ =
-      fixedA2Lift (F := F) hF (fixedA2NormalizerMulAut (F := F) X hX A) :=
-  fixedA2Lift_equivariant (F := F) hF Xhat hXhat
-    (fixedA2NormalizerMulAut_apply (F := F) X hX) A
 
 def fixedA2Ahat (hF : 4 < Nat.card F) (ω : Fˣ) :
     ↥(e6Data_valid.minGroup F) :=
@@ -261,48 +161,6 @@ theorem fixedA2Ahat_pow_three (hF : 4 < Nat.card F) {ω : Fˣ} (hω3 : ω ^ 3 = 
     fixedA2Ahat (F := F) hF ω ^ 3 = 1 := by
   rw [fixedA2Ahat, ← map_pow, fixedA2Scalar_pow_three (F := F) hω3, map_one]
 
-theorem fixedA2Ahat_ne_one (hF : 4 < Nat.card F) {ω : Fˣ} (hω1 : ω ≠ 1) :
-    fixedA2Ahat (F := F) hF ω ≠ 1 := by
-  intro h
-  have h1 : fixedA2AdjRho (F := F) (fixedA2Scalar (F := F) ω) = 1 := by
-    rw [← fixedA2Ahat_pi (F := F) hF ω, h, map_one]
-  exact fixedA2Scalar_ne_one (F := F) hω1 (fixedA2AdjRho_injective (F := F) (by
-    simpa using h1))
-
-theorem fixedA2Ahat_normalizer_fixes (hF : 4 < Nat.card F)
-    {X : ↥(adjointGroup Tag.E6 F)}
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F)))
-    (Xhat : ↥(e6Data_valid.minGroup F)) (hXhat : e6Isogeny F Xhat = X)
-    (ω : Fˣ)
-    (hfix : X * fixedA2AdjRho (F := F) (fixedA2Scalar (F := F) ω) * X⁻¹ =
-      fixedA2AdjRho (F := F) (fixedA2Scalar (F := F) ω)) :
-    Xhat * fixedA2Ahat (F := F) hF ω * Xhat⁻¹ = fixedA2Ahat (F := F) hF ω := by
-  have hβ : fixedA2NormalizerMulAut (F := F) X hX (fixedA2Scalar (F := F) ω) =
-      fixedA2Scalar (F := F) ω :=
-    fixedA2AdjRho_injective (F := F) (by
-      rw [fixedA2NormalizerMulAut_apply (F := F) X hX, hfix])
-  have h := fixedA2Lift_normalizer_conj (F := F) hF hX Xhat hXhat
-    (fixedA2Scalar (F := F) ω)
-  simpa [fixedA2Ahat, hβ] using h
-
-theorem fixedA2Ahat_normalizer_inverts (hF : 4 < Nat.card F)
-    {X : ↥(adjointGroup Tag.E6 F)}
-    (hX : X ∈ Subgroup.normalizer ((fixedA2AdjRho (F := F)).range :
-      Set ↥(adjointGroup Tag.E6 F)))
-    (Xhat : ↥(e6Data_valid.minGroup F)) (hXhat : e6Isogeny F Xhat = X)
-    (ω : Fˣ)
-    (hinv : X * fixedA2AdjRho (F := F) (fixedA2Scalar (F := F) ω) * X⁻¹ =
-      (fixedA2AdjRho (F := F) (fixedA2Scalar (F := F) ω))⁻¹) :
-    Xhat * fixedA2Ahat (F := F) hF ω * Xhat⁻¹ =
-      (fixedA2Ahat (F := F) hF ω)⁻¹ := by
-  have hβ : fixedA2NormalizerMulAut (F := F) X hX (fixedA2Scalar (F := F) ω) =
-      (fixedA2Scalar (F := F) ω)⁻¹ :=
-    fixedA2AdjRho_injective (F := F) (by
-      rw [fixedA2NormalizerMulAut_apply (F := F) X hX, map_inv, hinv])
-  have h := fixedA2Lift_normalizer_conj (F := F) hF hX Xhat hXhat
-    (fixedA2Scalar (F := F) ω)
-  simpa [fixedA2Ahat, hβ, map_inv] using h
 
 theorem fixedA2Ahat_conj_zpow_of_cube_preimage (hF : 4 < Nat.card F)
     {X : ↥(adjointGroup Tag.E6 F)}

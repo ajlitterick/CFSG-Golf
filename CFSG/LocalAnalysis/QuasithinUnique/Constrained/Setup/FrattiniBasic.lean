@@ -51,10 +51,6 @@ theorem frattini_quotient_eq (G : Type*) [Group G] [Finite G] (A : Subgroup G) [
       (QuotientGroup.mk'_surjective A)
     exact Subgroup.map_le_iff_le_comap.mpr this
 
-theorem frattini_quotient_frattini (G : Type*) [Group G] [Finite G] :
-    frattini (G ⧸ frattini G) = ⊥ := by
-  rw [frattini_quotient_eq G (frattini G) le_rfl]
-  rw [Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk']
 
 theorem frattini_sylow_normal (G : Type*) [Group G] [Finite G] (p : ℕ) [Fact p.Prime]
     (P : Sylow p (frattini G)) : (P.map (frattini G).subtype).Normal := by
@@ -93,17 +89,6 @@ theorem frattini_le_frattini_of_normal (G : Type*) [Group G] [Finite G] (N : Sub
   have : y' ∈ (M ⊓ N).subgroupOf N := h3 ▸ mem_top _
   exact (mem_inf.mp this).1
 
-theorem frattini_finite_properties (G : Type*) [Group G] [Finite G] :
-    (frattini G).Characteristic ∧
-    (∀ (p : ℕ) [Fact p.Prime] (P : Sylow p (frattini G)),
-      (P.map (frattini G).subtype).Normal) ∧
-    (∀ (N : Subgroup G) [N.Normal], (frattini N).map N.subtype ≤ frattini G) ∧
-    (∀ (A : Subgroup G) [A.Normal], A ≤ frattini G →
-      frattini (G ⧸ A) = (frattini G).map (QuotientGroup.mk' A)) ∧
-    frattini (G ⧸ frattini G) = ⊥ :=
-  ⟨inferInstance, fun p _ P => frattini_sylow_normal G p P,
-    fun N _ => frattini_le_frattini_of_normal G N,
-    fun A _ hAΦ => frattini_quotient_eq G A hAΦ, frattini_quotient_frattini G⟩
 
 theorem frattini_map_equiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) :
     (frattini X).map e.toMonoidHom = frattini Y := by

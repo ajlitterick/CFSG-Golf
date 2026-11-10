@@ -97,18 +97,6 @@ theorem ggD4OuterSylowInput_of_field (h : GGD4FieldSylowInput) : GGD4OuterSylowI
 
 section Main
 
-theorem ggD4TrialityCentralInput_of_rest (hF : GGD4FieldSylowInput)
-    (h2 : GGD4SemilinearLayerInput) (h4 : GGD4ClassThreeLayerInput) :
-    GGD4TrialityCentralInput :=
-  ggD4TrialityCentralInput_of_om8 (ggD4OuterSylowInput_of_field hF) h2
-    ggD4CentralClassThreeInput_holds h4
-
-theorem ggSixTrialityInput_of_rest (h611 : GGSixLSixElevenInput) (hF : GGD4FieldSylowInput)
-    (h2 : GGD4SemilinearLayerInput) (h4 : GGD4ClassThreeLayerInput)
-    (h5 : GGD4ClassThreeCentralInput) (h6 : GGSixTrialityDClassThreeInput) :
-    GGSixTrialityInput :=
-  ggSixTrialityInput_of_lSixEleven_central h611 (ggD4TrialityCentralInput_of_rest hF h2 h4)
-    (ggSixTrialityDCentralInput_of_om8 h6 h5)
 
 end Main
 

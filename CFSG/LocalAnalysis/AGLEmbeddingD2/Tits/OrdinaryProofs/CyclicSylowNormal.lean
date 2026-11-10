@@ -38,58 +38,6 @@ theorem sSup_normal_subgroupOf {G : Type*} [Group G] {H : Subgroup G} {S : Set (
   have hT2 : ∀ g ∈ H, g * (n : G) * g⁻¹ ∈ sSup S := hT hn'
   exact Subgroup.mem_subgroupOf.mpr (by simpa using hT2 (g : G) g.2)
 
-theorem glbPrimeCore_subgroupOf_eq {G : Type*} [Group G] (p : ℕ) (C : Subgroup G) :
-    (CFSG.Open.GLBPrimeCore p C).subgroupOf C = CFSG.pPrimeCore p C := by
-  apply le_antisymm
-  · intro x hx
-    rw [Subgroup.mem_subgroupOf] at hx
-    have key : CFSG.Open.GLBPrimeCore p C ≤ (CFSG.pPrimeCore p C).map C.subtype := by
-      apply sSup_le
-      intro N hN
-      obtain ⟨hNC, hNn, hcop⟩ := hN
-      intro z hz
-      have hzC : z ∈ C := hNC hz
-      have hcard : Nat.card (N.subgroupOf C) = Nat.card N :=
-        Nat.card_congr (Subgroup.subgroupOfEquivOfLe hNC).toEquiv
-      have hle : N.subgroupOf C ≤ CFSG.pPrimeCore p C := by
-        unfold CFSG.pPrimeCore
-        exact le_sSup ⟨hNn, by rw [hcard]; exact hcop⟩
-      have hw : (⟨z, hzC⟩ : C) ∈ N.subgroupOf C := Subgroup.mem_subgroupOf.mpr hz
-      exact Subgroup.mem_map.mpr ⟨⟨z, hzC⟩, hle hw, rfl⟩
-    obtain ⟨y, hy, hyx⟩ := Subgroup.mem_map.mp (key hx)
-    have hxy : y = x := Subtype.ext hyx
-    rw [← hxy]
-    exact hy
-  · unfold CFSG.pPrimeCore
-    apply sSup_le
-    rintro K ⟨hK, hcop⟩
-    have hNK : (K.map C.subtype).subgroupOf C = K := by
-      ext x
-      rw [Subgroup.mem_subgroupOf]
-      constructor
-      · intro hx
-        obtain ⟨y, hy, hyx⟩ := Subgroup.mem_map.mp hx
-        have hxy : y = x := Subtype.ext hyx
-        rw [← hxy]
-        exact hy
-      · intro hx
-        exact Subgroup.mem_map.mpr ⟨x, hx, rfl⟩
-    have hcardK : Nat.card (K.map C.subtype) = Nat.card K :=
-      (Nat.card_congr (Subgroup.equivMapOfInjective K C.subtype Subtype.val_injective).toEquiv).symm
-    have hNle : K.map C.subtype ≤ CFSG.Open.GLBPrimeCore p C := by
-      unfold CFSG.Open.GLBPrimeCore CFSG.Open.relPPrimeCore
-      refine le_sSup ⟨?_, ?_, ?_⟩
-      · intro z hz
-        obtain ⟨y, _, hyz⟩ := Subgroup.mem_map.mp hz
-        rw [← hyz]
-        exact y.2
-      · rw [hNK]
-        exact hK
-      · rw [hcardK]
-        exact hcop
-    intro x hx
-    rw [Subgroup.mem_subgroupOf]
-    exact hNle (Subgroup.mem_map.mpr ⟨x, hx, rfl⟩)
 
 theorem subgroupOf_normal_of_conj {G : Type*} [Group G] {M X : Subgroup G}
     (h : ∀ m ∈ M, ∀ x ∈ X, m * x * m⁻¹ ∈ X) : (X.subgroupOf M).Normal := by

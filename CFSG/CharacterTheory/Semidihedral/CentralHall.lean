@@ -107,13 +107,6 @@ theorem centralHallComplementMulEquiv_apply (A : Subgroup G)
     (a : A) (k : centralHallComplement A hA hcop) :
     centralHallComplementMulEquiv A hA hcop (a, k) = (a : G) * (k : G) := rfl
 
-theorem centralHallComplement_bot :
-    centralHallComplement (⊥ : Subgroup G) bot_le (by simp) = ⊤ :=
-  Subgroup.isComplement'_bot_left.mp (centralHallComplement_isComplement _ _ _)
-
-theorem centralHallComplement_top (hG : (⊤ : Subgroup G) ≤ Subgroup.center G) :
-    centralHallComplement (⊤ : Subgroup G) hG (by simp) = ⊥ :=
-  Subgroup.isComplement'_top_left.mp (centralHallComplement_isComplement _ _ _)
 
 theorem central_hall_subgroup_direct_complement [Finite G] (A : Subgroup G)
     (hA : A ≤ Subgroup.center G) (hcop : (Nat.card A).Coprime A.index) :

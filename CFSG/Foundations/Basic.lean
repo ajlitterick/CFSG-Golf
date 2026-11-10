@@ -125,9 +125,6 @@ variable (G) in
 @[expose] def IsStandardSubgroup (L : Subgroup G) : Prop :=
   full_standard% FullStandardCore (IsQuasisimple L) conjugate L
 
-theorem isStandardSubgroup_eq_fullStandardCore (L : Subgroup G) :
-    IsStandardSubgroup L = FullStandardCore (IsQuasisimple L) conjugate L :=
-  rfl
 
 @[expose] def IsExtraspecialPGroup (p : ℕ) (P : Type*) [Group P] : Prop :=
   IsPGroup p P ∧ commutator P = center P ∧ frattini P = center P ∧ Nat.card (center P) = p

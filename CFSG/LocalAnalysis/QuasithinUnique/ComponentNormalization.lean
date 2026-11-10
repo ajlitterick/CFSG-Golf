@@ -293,57 +293,6 @@ theorem oddCore_eq_bot_of_isSimpleGroup_of_even {Q : Type*} [Group Q] [Finite Q]
     rw [← CFSG.oddCore_eq_piCore, h, CFSG.IsPiSubgroup, Subgroup.card_top] at hπ
     exact hπ ⟨2, Nat.prime_two⟩ (even_iff_two_dvd.mp heven) rfl
 
-omit [Finite H] in
-theorem isSubnormal_of_commuting_family {ι : Type*} (K : ι → Subgroup H)
-    (hcomm : ∀ i j, i ≠ j → ⁅K i, K j⁆ = ⊥)
-    (hperm : ∀ g : H, ∀ i, ∃ j, (K i).map (MulAut.conj g⁻¹).toMonoidHom = K j) (i : ι) :
-    (K i).IsSubnormal := by
-  have hN : (⨆ j, K j).Normal := by
-    refine ⟨fun x hx g => ?_⟩
-    have hle : (⨆ j, K j).map (MulAut.conj g).toMonoidHom ≤ ⨆ j, K j := by
-      rw [Subgroup.map_iSup]
-      refine iSup_le fun j => ?_
-      obtain ⟨j', hj'⟩ := hperm g⁻¹ j
-      rw [inv_inv] at hj'
-      rw [hj']
-      exact le_iSup K j'
-    exact hle ⟨x, hx, rfl⟩
-  have hnorm : ⨆ j, K j ≤ Subgroup.normalizer (K i : Set H) := by
-    refine iSup_le fun j => ?_
-    by_cases hij : j = i
-    · subst hij
-      exact Subgroup.le_normalizer
-    · exact (Subgroup.commutator_eq_bot_iff_le_centralizer.mp (hcomm j i hij)).trans
-        (Subgroup.centralizer_le_normalizer _)
-  exact Subgroup.IsSubnormal.step (K i) (⨆ j, K j) (le_iSup K i) hN.isSubnormal
-    ((Subgroup.normal_subgroupOf_iff_le_normalizer (le_iSup K i)).mpr hnorm)
-
-theorem strongly_closed_normalizes_simple_factors {ι : Type*} (S : Sylow 2 H) {A : Subgroup H}
-    (hAS : A ≤ (S : Subgroup H)) (hA : IsElemAbelian 2 A)
-    (hclosed : fusionStronglyClosed (A : Set H) (S : Subgroup H)) (K : ι → Subgroup H)
-    (hsimple : ∀ i, IsSimpleGroup (K i)) (hnonab : ∀ i, ∃ a b : K i, a * b ≠ b * a)
-    (heven : ∀ i, Even (Nat.card (K i))) (hcomm : ∀ i j, i ≠ j → ⁅K i, K j⁆ = ⊥)
-    (hperm : ∀ g : H, ∀ i, ∃ j, (K i).map (MulAut.conj g⁻¹).toMonoidHom = K j) (i : ι) :
-    A ≤ Subgroup.normalizer (K i : Set H) := by
-  intro a ha
-  by_contra hna
-  obtain ⟨j, hj⟩ := hperm a i
-  have hji : j ≠ i := by
-    rintro rfl
-    exact hna (Subgroup.mem_normalizer_iff.mpr fun x =>
-      (SetLike.ext_iff.mp hj x).symm.trans (mem_map_conj_inv_iff _ a x))
-  have := hsimple i
-  have hKM : ∀ k ∈ K i, ∀ m ∈ (K i).map (MulAut.conj a⁻¹).toMonoidHom, k * m = m * k := by
-    rw [hj]
-    intro k hk m hm
-    exact (Subgroup.mem_centralizer_iff.mp
-      (Subgroup.commutator_eq_bot_iff_le_centralizer.mp (hcomm i j hji.symm) hk) m hm).symm
-  have hAab : ∀ x ∈ A, ∀ y ∈ A, x * y = y * x := fun x hx y hy =>
-    congrArg Subtype.val (hA.1.is_comm.comm ⟨x, hx⟩ ⟨y, hy⟩)
-  exact false_of_commute_conj_of_stronglyClosed S hAS hAab hclosed
-    (isSubnormal_of_commuting_family K hcomm hperm i)
-    (CFSG.LocalCores.isQuasisimple_of_isSimpleGroup (hnonab i)).1
-    (oddCore_eq_bot_of_isSimpleGroup_of_even (heven i)) ha hKM
 
 theorem strongly_closed_normalizes_components (hcore : CFSG.oddCore H = ⊥) (S : Sylow 2 H)
     {U : Subgroup H} (hUS : U ≤ (S : Subgroup H)) (hU : IsElemAbelian 2 U)

@@ -63,10 +63,6 @@ private theorem lemma119_innSet_gen {K : Type} [Field K] {ι : Type} [Fintype ι
   congr 1
   exact Subtype.ext (by rw [hh']; rfl)
 
-private theorem lemma119_innSet_sl {K : Type} [Field K] {d : ℕ} :
-    LargeEvenInnSet (LargeEvenProj (LargeEvenSLGroup (Fin d) K)) ⊆
-      LargeEvenMatConjImage (LargeEvenProjMk (LargeEvenSLGroup (Fin d) K)) Set.univ :=
-  lemma119_innSet_gen _ _ (fun _ _ => Set.mem_univ _)
 
 private theorem lemma119_sp_form {K : Type} [Field K] {m : ℕ} {g : GL (Fin m ⊕ Fin m) K}
     (hg : g ∈ LargeEvenSpGroup K m) :
@@ -170,9 +166,6 @@ private theorem lemma119_su_mem_gu {K : Type} [Field K] [CharP K 2] {d n : ℕ} 
     rw [hmap]
     rw [h3, Matrix.smul_mul, hXZ]
 
-private theorem lemma119_su_mem_gu_closure {K : Type} [Field K] [CharP K 2] {d n : ℕ} :
-    ∀ g ∈ LargeEvenSUGroup (Fin d) K (2 ^ n), g ∈ LargeEvenGUSet (Fin d) K (2 ^ n) :=
-  fun _ hg => lemma119_su_mem_gu hg
 
 private theorem lemma119_innSet_su {K : Type} [Field K] [CharP K 2] {d n : ℕ} (H : Subgroup (GL (Fin d) K))
     (hH : H ≤ LargeEvenSUGroup (Fin d) K (2 ^ n)) :
@@ -267,10 +260,6 @@ private theorem lemma119_recipeSuzuki_inn {a : ℕ} {Q : LargeEvenRawCont}
   obtain ⟨K, hF, hfin, hK, hQ⟩ := h
   exact ⟨K, hF, hfin, hK, ⟨hQ, subset_rfl⟩⟩
 
-private theorem lemma119_recipeTwF4_inn {a : ℕ} {Q : LargeEvenRawCont} (h : LargeEvenRecipeTwF4 a Q) :
-    LargeEvenRecipeTwF4 a fun R _ I F => Q R I F ∧ LargeEvenInnSet R ⊆ I := by
-  obtain ⟨K, hF, hfin, hK, hQ⟩ := h
-  exact ⟨K, hF, hfin, hK, ⟨hQ, lemma119_chevID_inn _⟩⟩
 
 private theorem lemma119_recipeTwF4Inh_inn {a : ℕ} {Q : LargeEvenRawCont}
     (h : LargeEvenRecipeTwF4Inherited a Q) :

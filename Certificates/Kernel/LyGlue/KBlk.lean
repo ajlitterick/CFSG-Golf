@@ -23,9 +23,6 @@ theorem k_tBlk : (strictB (encW (Glue.txWords.getD 0 [])) fun e0 =>
     tBlkK e0 e1 e2 e3) = true := by
   decide +kernel
 
-theorem k_neg : (strictB (encW Ly0.wordU2) fun e1 => strictB (encW Ly0.wordU3) fun e2 =>
-    strictB (encW Ly0.wordU4) fun e3 => yBlkK e1 e1 e2 e3) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelLy
 

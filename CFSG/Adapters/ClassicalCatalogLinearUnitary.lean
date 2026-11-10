@@ -123,13 +123,6 @@ theorem statedClassicalModel_PSL_inCatalog_all
     exact ⟨.alternating 8 h8, ⟨e⟩⟩
   exact statedClassicalModel_PSL_inCatalog G n p f hn3 h h32 h42
 
-theorem statedClassicalModel_PSL_or_PSU_inCatalog
-    (G : Type) [Group G] (t : StatedLieTag)
-    (n p f : ℕ) (ht : t = .PSL ∨ t = .PSU) (h : StatedClassicalModel G t n p f) :
-    CFSG.Assembly.InCatalog G := by
-  rcases ht with rfl | rfl
-  · exact statedClassicalModel_PSL_inCatalog_all G n p f h
-  · exact statedClassicalModel_PSU_inCatalog G n p f h
 
 theorem statedClassicalModel_PSp_inCatalog (G : Type) [Group G] (n p f : ℕ)
     (h : StatedClassicalModel G .PSp n p f)

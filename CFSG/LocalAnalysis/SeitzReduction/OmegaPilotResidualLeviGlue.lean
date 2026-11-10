@@ -59,12 +59,6 @@ theorem spLeviSection_top (fp : MulAut C →* (K ≃+* K)) (X : Subgroup C) :
   have h3 := one_lt_card_statedProj_statedSp (K := K) hr
   omega
 
-omit [Finite K] in
-theorem spLeviSection_of_card_ne (fp : MulAut C →* (K ≃+* K)) (X : Subgroup C)
-    (N : Subgroup ↥X) [N.Normal]
-    (h : ∀ r : ℕ, 1 ≤ r → Nat.card (↥X ⧸ N) ≠ Nat.card (StatedProj (StatedSp r K))) :
-    SpLeviSection fp X N :=
-  Or.inl fun r hr => ⟨fun ε => h r hr (Nat.card_congr ε.toEquiv)⟩
 
 omit [Finite K] in
 theorem spLeviSection_of_hom (fp : MulAut C →* (K ≃+* K)) {X : Subgroup C} {r : ℕ} (hr : 1 ≤ r)
@@ -130,20 +124,6 @@ theorem mem_of_isEmpty_mulEquiv {X : Type*} [Group X] [Finite X] (N₁ N₂ N₃
   have hθm : θ m ∈ M := ⟨m, hm, rfl⟩
   rwa [hM1] at hθm
 
-theorem eq_ker_or_eq_top_of_range {G H : Type*} [Group G] [Group H] (ρ : G →* H)
-    (hρ : IsSimpleGroup ρ.range ∨ ρ.range = ⊥) (M : Subgroup G) (hM : M.Normal)
-    (hle : ρ.ker ≤ M) : M = ρ.ker ∨ M = ⊤ := by
-  rcases hρ with hs | hb
-  · have : IsSimpleGroup (G ⧸ ρ.ker) :=
-      MulEquiv.isSimpleGroup (QuotientGroup.quotientKerEquivRange ρ)
-    exact eq_or_eq_top_of_simple_quotient M hM hle
-  · right
-    rw [eq_top_iff]
-    intro x _
-    apply hle
-    have hx : ρ x ∈ ρ.range := ⟨x, rfl⟩
-    rw [hb, Subgroup.mem_bot] at hx
-    exact hx
 
 end Characteristic
 
@@ -205,16 +185,6 @@ theorem spLeviData_two_of_isEmpty_mulEquiv (fp : MulAut C →* (K ≃+* K)) (hq4
     · exact hs₂
     · exact spLeviSection_top fp X
 
-theorem spLeviData_one (fp : MulAut C →* (K ≃+* K)) (hq4 : 4 ≤ Nat.card K) {X : Subgroup C}
-    (N₁ : Subgroup ↥X) [N₁.Normal] (h1 : IsPGroup 2 ↥N₁)
-    (hs₁ : SpLeviSection fp X N₁) {r : ℕ} (hr : 1 ≤ r)
-    (e : ↥X ⧸ N₁ ≃* StatedProj (StatedSp r K)) : SpLeviData fp X := by
-  obtain ⟨hsimple, -⟩ := simple_perfect_statedProj_of_one_le hq4 hr
-  have : IsSimpleGroup (↥X ⧸ N₁) := MulEquiv.isSimpleGroup e
-  exact spLeviData_two_of_isEmpty_mulEquiv fp hq4 N₁ ⊤ (by rwa [inf_top_eq])
-    (eq_or_eq_top_of_simple_quotient (N := N₁))
-    (fun M _ hle => Or.inr (top_le_iff.mp hle)) hs₁ (spLeviSection_top fp X) hr e
-    (isEmpty_quotient_top_mulEquiv X hr)
 
 end Data
 

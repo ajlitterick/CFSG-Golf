@@ -189,8 +189,6 @@ variable (A)
 
 variable {A}
 
-theorem coe_restrFix_apply (g : stab A) (x : fixSp A) :
-    (restrFix A g x : V) = (g : V ≃ₗ[K] V) x := rfl
 
 theorem coe_restrFree_apply (g : stab A) (x : freeSp A) :
     (restrFree A g x : V) = (g : V ≃ₗ[K] V) x := rfl

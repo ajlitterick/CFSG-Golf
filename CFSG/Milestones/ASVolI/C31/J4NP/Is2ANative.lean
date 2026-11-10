@@ -33,17 +33,5 @@ set_option compiler.extract_closed false
 @[expose] def burnsideJ4NP_classOf (c e : Nat) : Option (Nat × Nat × Nat × Nat) :=
   burnsideJ4NP_classOfWith (invData.find? (fun x => x.1 == e)) (imSet (tabE e)) c
 
-@[expose] def burnsideJ4NP_is2APcWith (x? : Option (Nat × Nat × List (Nat × Nat × Nat × Nat)))
-    (im : List Nat) (c e : Nat) : Bool :=
-  if e = 0 then zMasks.contains c else
-    match burnsideJ4NP_classOfWith x? im c with
-    | none => false
-    | some y => zMasks.contains y.2.2.1
-
-@[expose] def burnsideJ4NP_is2APc (c e : Nat) : Bool :=
-  if e = 0 then zMasks.contains c else
-    match burnsideJ4NP_classOf c e with
-    | none => false
-    | some y => zMasks.contains y.2.2.1
 
 end CFSG.ASVolI

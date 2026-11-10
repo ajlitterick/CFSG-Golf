@@ -27,8 +27,6 @@ variable {G : Type*} [Group G]
     rw [e2]
     exact h.symm
 
-theorem mem_stabSet_iff {U : Set G} {g : G} :
-    g ∈ stabSet U ↔ ∀ x, x ∈ U ↔ g⁻¹ * x * g ∈ U := Iff.rfl
 
 theorem mem_stabSet_of_forall {U : Set G} {g : G} (h1 : ∀ x ∈ U, g⁻¹ * x * g ∈ U)
     (h2 : ∀ x ∈ U, g * x * g⁻¹ ∈ U) : g ∈ stabSet U := by

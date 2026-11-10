@@ -39,8 +39,6 @@ theorem commute_longBlock_01 (a b : SL(2, F)) :
 @[expose] def upperM (S : Matrix (Fin 2) (Fin 2) F) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F :=
   fromBlocks 1 S 0 1
 
-@[expose] def lowerM (S : Matrix (Fin 2) (Fin 2) F) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F :=
-  fromBlocks 1 0 S 1
 
 theorem mat_posLong (i : Fin 2) (c : F) :
     mat 2 F (elt (.positiveLong i) c) = upperM (c • Matrix.single i i 1) := by
@@ -49,12 +47,6 @@ theorem mat_posLong (i : Fin 2) (c : F) :
   rcases a with a | a <;> rcases b with b | b <;>
     simp [E, upperM, Matrix.single_apply, Matrix.one_apply]
 
-theorem mat_negLong (i : Fin 2) (c : F) :
-    mat 2 F (elt (.negativeLong i) c) = lowerM (c • Matrix.single i i 1) := by
-  rw [mat_elt]
-  ext a b
-  rcases a with a | a <;> rcases b with b | b <;>
-    simp [E, lowerM, Matrix.single_apply, Matrix.one_apply]
 
 theorem mat_posSum (c : F) :
     mat 2 F (elt (.positiveSum 0 1 (by decide)) c) =
@@ -64,13 +56,6 @@ theorem mat_posSum (c : F) :
   rcases a with a | a <;> rcases b with b | b <;> fin_cases a <;> fin_cases b <;>
     simp [E, upperM]
 
-theorem mat_negSum (c : F) :
-    mat 2 F (elt (.negativeSum 0 1 (by decide)) c) =
-      lowerM (c • (Matrix.single 0 1 1 + Matrix.single 1 0 1)) := by
-  rw [mat_elt]
-  ext a b
-  rcases a with a | a <;> rcases b with b | b <;> fin_cases a <;> fin_cases b <;>
-    simp [E, lowerM]
 
 @[expose] noncomputable def phi4 (F : Type) [Field F] : SL(2, F) × SL(2, F) →* StatedSp 2 F :=
   MonoidHom.noncommCoprod (longBlock F 2 0) (longBlock F 2 1)

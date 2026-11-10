@@ -331,19 +331,6 @@ theorem exists_eq_conj_of_fix_e7Levi [Finite K] [CharP K 2] (β : MulAut (adjoin
       g ∈ centralizer (e7Levi K : Set (adjointGroup .E8 K)) :=
   exists_eq_conj_of_fix_perpLevi (Or.inr rfl) β hβ
 
-theorem exists_eq_conj_E8_of_card_eq_two [Finite K] (hK2 : Nat.card K = 2)
-    (β : MulAut (adjointGroup .E8 K)) : ∃ g : adjointGroup .E8 K, β = MulAut.conj g :=
-  exists_eq_conj_of_card_eq_two (Or.inr rfl) hK2 β
-
-theorem exists_eq_conj_mem_highRootSL2_of_fix_e7Levi [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K)
-    (β : MulAut (adjointGroup .E8 K)) (hβ : ∀ x ∈ e7Levi K, β x = x) :
-    ∃ g : adjointGroup .E8 K, β = MulAut.conj g ∧
-      g ∈ (EPilot.highRootSL2 .E8 K).subgroupOf (adjointGroup .E8 K) := by
-  obtain ⟨g, hg, hgD⟩ := exists_eq_conj_of_fix_e7Levi β hβ
-  refine ⟨g, hg, ?_⟩
-  rw [← EPilot.centralizer_perpLevi_subgroupOf (Or.inr (Or.inr rfl)) hq]
-  exact hgD
-
 
 theorem eq_one_of_fix_e7Levi [Finite K] [CharP K 2] {X Y : Subgroup (adjointGroup .E8 K)}
     (hXc : centralizer (X : Set (adjointGroup .E8 K)) ≤ Y ⊔ e7Levi K)

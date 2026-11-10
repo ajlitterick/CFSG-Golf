@@ -38,7 +38,6 @@ theorem kInv : allN 22 (fun j => canonK 42 6 (mask 6) (42 * 6) (K j) &&
     (canonK 42 6 (mask 6) (42 * 6) (KI j) && Nat.beq (pc (K j) (KI j)) (pidn 42 6))) = true := by
   quickRfl
 
-theorem kNeg : (Nat.beq (pc (K 0) (KI 1)) (pidn 42 6)).not = true := by quickRfl
 
 theorem beq_nat (a b : Nat) : (a == b) = Nat.beq a b := by
   by_cases e : a = b

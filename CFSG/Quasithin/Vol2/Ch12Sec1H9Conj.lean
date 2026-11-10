@@ -38,10 +38,6 @@ theorem card_conjAut (A : Subgroup (MulAut W)) (m : MulAut W) :
   rw [conjAut_eq_b1]
   exact B1.card_conjAut m A
 
-theorem isElemAbelian2_conjAut {A : Subgroup (MulAut W)} {m : MulAut W} (h : IsElemAbelian2 A) :
-    IsElemAbelian2 (conjAut A m) := by
-  rw [conjAut_eq_b1]
-  exact B1.isElemAbelian2_conjAut h
 
 theorem fixV_conjAut (A : Subgroup (MulAut W)) (m : MulAut W) :
     fixV (conjAut A m) = (fixV A).map m.toMonoidHom := by
@@ -191,71 +187,6 @@ theorem map_W₁_of_not_mem {n : ℕ} {M L T : Subgroup (MulAut W)} {W₁ W₂ :
     simp
   rw [e, map_eq_of_mem_stabV (hyp.inv₁ hl), ht]
 
-theorem card_fixV_inf_le_of_lemH92 (hH92 : LemH92) [Finite W] {M L T : Subgroup (MulAut W)}
-    {W₁ W₂ : Subgroup W} {β : W → W → ZMod 2} (hyp : H9Hyp 5 M L T W₁ W₂)
-    (hβ : IsDualH9 L W₁ W₂ β) {A : Subgroup (MulAut W)} (hAM : A ≤ M) (hA : IsElemAbelian2 A)
-    (hcard : 2 ^ 5 ≤ Nat.card A) :
-    Nat.card ↥(fixV A ⊓ W₁) ≤ 2 ^ 2 ∨ Nat.card ↥(fixV A ⊓ W₂) ≤ 2 ^ 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨-, -, ⟨U, hUW₁, hUcard, -, h3a, h3b, h4⟩, -⟩ := hH92 W M L T W₁ W₂ β hyp hβ
-  have hAp : IsPGroup 2 ↥A := isPGroup_of_isElemAbelian2 hA
-  have hdvd : 2 ^ 5 ∣ Nat.card ↥A := by
-    rw [card_eq_two_pow_of_isPGroup hAp] at hcard ⊢
-    exact pow_dvd_pow 2 ((Nat.pow_le_pow_iff_right (by norm_num)).mp hcard)
-  obtain ⟨K, hK⟩ := Sylow.exists_subgroup_card_pow_prime 2 hdvd
-  have hA'A : K.map A.subtype ≤ A := Subgroup.map_subtype_le K
-  have hA'card : Nat.card (K.map A.subtype) = 2 ^ 5 := by
-    rw [Subgroup.card_map_of_injective A.subtype_injective, hK]
-  have hA'e : IsElemAbelian2 (K.map A.subtype) :=
-    ⟨fun x hx y hy => hA.1 x (hA'A hx) y (hA'A hy), fun x hx => hA.2 x (hA'A hx)⟩
-  obtain ⟨m, hmM, hm⟩ := h3b _ (hA'A.trans hAM) hA'e hA'card
-  have hA₀M : pCoreOf 2 (L ⊓ stabV U) ≤ M :=
-    (CFSG.LieType.BorelTits.pCoreOf_le 2 _).trans (inf_le_left.trans hyp.le)
-  have hA₀card : Nat.card (pCoreOf 2 (L ⊓ stabV U)) = 2 ^ 6 :=
-    ((h3a _ hA₀M).mpr ⟨1, M.one_mem, (conjAut_one _).symm⟩).2
-  obtain ⟨-, -, -, hdesc, hF⟩ := h4 (conjAut (K.map A.subtype) m) hm
-    (by rw [card_conjAut, hA'card, hA₀card]; norm_num)
-  have hβ1 : ∀ u ∈ W₁, β u 1 = 0 := fun u hu => by
-    have h := hβ.2.1 u hu 1 W₂.one_mem 1 W₂.one_mem
-    rw [mul_one, CharTwo.add_self_eq_zero] at h
-    exact h
-  have hUF : U ≤ fixV (conjAut (K.map A.subtype) m) := fun u hu =>
-    (hdesc u).mpr ⟨u, hu, 1, W₂.one_mem, fun u' hu' => hβ1 u' (hUW₁ hu'), (mul_one u).symm⟩
-  have hdisj : Disjoint U (fixV (conjAut (K.map A.subtype) m) ⊓ W₂) := by
-    rw [disjoint_iff, eq_bot_iff, ← hyp.inf]
-    exact inf_le_inf hUW₁ inf_le_right
-  have hinj : Function.Injective (fun p : ↥U × ↥(fixV (conjAut (K.map A.subtype) m) ⊓ W₂) =>
-      (⟨(p.1 : W) * p.2, (fixV (conjAut (K.map A.subtype) m)).mul_mem (hUF p.1.2) p.2.2.1⟩ :
-        ↥(fixV (conjAut (K.map A.subtype) m)))) := by
-    intro p q hpq
-    exact Subgroup.mul_injective_of_disjoint hdisj (congrArg Subtype.val hpq)
-  have hle := Nat.card_le_card_of_injective _ hinj
-  rw [Nat.card_prod, hUcard, hF] at hle
-  have hF2 : Nat.card ↥(fixV (conjAut (K.map A.subtype) m) ⊓ W₂) ≤ 2 ^ 2 := by omega
-  rw [fixV_conjAut] at hF2
-  by_cases hmL : m ∈ L
-  · right
-    rw [← map_eq_of_mem_stabV (hyp.inv₂ hmL), ← Subgroup.map_inf_eq _ _ _ m.injective,
-      Subgroup.card_map_of_injective (f := m.toMonoidHom) m.injective] at hF2
-    exact (Subgroup.card_le_of_le (inf_le_inf_right _ (B1.fixV_le_fixV hA'A))).trans hF2
-  · left
-    rw [← map_W₁_of_not_mem hyp hmM hmL, ← Subgroup.map_inf_eq _ _ _ m.injective,
-      Subgroup.card_map_of_injective (f := m.toMonoidHom) m.injective] at hF2
-    exact (Subgroup.card_le_of_le (inf_le_inf_right _ (B1.fixV_le_fixV hA'A))).trans hF2
-
-theorem lemH93Use_of_lemH93 (hH93 : LemH93) : LemH93Use := by
-  intro W _ _ M L T W₁ W₂ hyp
-  obtain ⟨-, -, -, A₁, A₂, hAi, -, hA₂L, hconj, -, -, -, -, ⟨hA₀c, hA₀⟩,
-    ⟨hA₁c, r, -, -, -, hr, hrc⟩, h6, h7, hfaith⟩ := hH93 W M L T W₁ W₂ hyp
-  obtain ⟨a, ha, haL⟩ := Set.not_subset.mp hA₂L
-  obtain ⟨-, h6c, -, h6g⟩ := h6 a ha haL
-  exact ⟨_, A₁, A₂, hAi, hconj, ⟨hA₀c, hA₀⟩, ⟨hA₁c, by rw [hr, hrc]⟩, ⟨h6c, h6g, hfaith⟩, h7⟩
-
-theorem lemH92Use_of_lemH92 (hH92 : LemH92) : LemH92Use := by
-  intro W _ _ M L T W₁ W₂ β hyp hβ A hAM hA hcard
-  obtain ⟨-, h2, -, h5⟩ := hH92 W M L T W₁ W₂ β hyp hβ
-  exact ⟨h2 A hAM hA hcard, h5 A hAM hA hcard,
-    card_fixV_inf_le_of_lemH92 hH92 hyp hβ hAM hA hcard⟩
 
 end H9Conj
 

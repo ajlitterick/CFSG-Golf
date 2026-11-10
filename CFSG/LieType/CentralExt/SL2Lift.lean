@@ -167,13 +167,6 @@ theorem existsUnique_lift (hk : ringChar k ≠ 2) (hπ : Function.Surjective π)
     ∃! β : SpecialLinearGroup (Fin 2) k →* E, π.comp β = α :=
   ⟨sl2Lift π α, comp_sl2Lift hk hπ hcen h2 α, fun _ hβ => eq_sl2Lift hk hcen h2 hβ⟩
 
-theorem sl2Lift_injective (hk : ringChar k ≠ 2) (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (h2 : IsPGroup 2 π.ker)
-    {α : SpecialLinearGroup (Fin 2) k →* G} (hα : Function.Injective α) :
-    Function.Injective (sl2Lift π α) := by
-  intro h₁ h₂ h
-  apply hα
-  rw [← map_sl2Lift hk hπ hcen h2 α, ← map_sl2Lift hk hπ hcen h2 α, h]
 
 theorem sl2Lift_conj (hk : ringChar k ≠ 2) (hπ : Function.Surjective π)
     (hcen : π.ker ≤ Subgroup.center E) (h2 : IsPGroup 2 π.ker)
@@ -212,24 +205,6 @@ theorem commute_sl2Lift (hk : ringChar k ≠ 2) (hk' : ringChar k' ≠ 2)
   rw [hconj] at h3
   exact (mul_inv_eq_iff_eq_mul.1 h3)
 
-theorem odd_special_linear_two_lifting (hk : ringChar k ≠ 2) (hk' : ringChar k' ≠ 2)
-    (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E) (h2 : IsPGroup 2 π.ker) :
-    (∀ α : SpecialLinearGroup (Fin 2) k →* G,
-      ∃! β : SpecialLinearGroup (Fin 2) k →* E, π.comp β = α) ∧
-    (∀ α : SpecialLinearGroup (Fin 2) k →* G, Function.Injective α →
-      Function.Injective (sl2Lift π α)) ∧
-    (∀ (α : SpecialLinearGroup (Fin 2) k →* G) (α' : SpecialLinearGroup (Fin 2) k' →* G),
-      (∀ h h', Commute (α h) (α' h')) →
-        ∀ h h', Commute (sl2Lift π α h) (sl2Lift π α' h')) ∧
-    (∀ (α : SpecialLinearGroup (Fin 2) k →* G) (e : E),
-      (MulAut.conj e).toMonoidHom.comp (sl2Lift π α) =
-        sl2Lift π ((MulAut.conj (π e)).toMonoidHom.comp α)) ∧
-    (∀ (α : SpecialLinearGroup (Fin 2) k →* G)
-      (β : SpecialLinearGroup (Fin 2) k' →* SpecialLinearGroup (Fin 2) k),
-      (sl2Lift π α).comp β = sl2Lift π (α.comp β)) :=
-  ⟨existsUnique_lift hk hπ hcen h2, fun _ hα => sl2Lift_injective hk hπ hcen h2 hα,
-    fun α α' hαα' => commute_sl2Lift hk hk' hπ hcen h2 α α' hαα',
-    sl2Lift_conj hk hπ hcen h2, sl2Lift_comp hk hk' hπ hcen h2⟩
 
 end Lift
 

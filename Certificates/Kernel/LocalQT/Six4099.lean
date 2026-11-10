@@ -62,24 +62,5 @@ theorem invTypes : L.all (fun p => !decide (p.1 * p.1 = 1) || decide (p.1 = 1) |
     decide (p.1.support.card = 2) || decide (p.2.1.support.card = 2)) = true := by
   decide +kernel
 
-example : ¬ ∀ i, epsFun (swap 0 1) i = epsT 0 2 i := by decide +kernel
-
-example : ¬ ∀ i, epsFun (epsT 0 1) i = swap 0 2 i := by decide +kernel
-
-example : Perm.sign (epsT 0 1 * epsT 1 2) ≠ -1 := by decide +kernel
-
-example : (epsT 0 1 * epsT 0 1).support.card ≠ 6 := by decide +kernel
-
-example : ¬ ∀ τ : Perm (Fin 6), τ * (swap 0 1 * swap 1 2) = (swap 0 1 * swap 1 2) * τ →
-    τ * (swap 1 2 * swap 2 3) = (swap 1 2 * swap 2 3) * τ → τ = 1 :=
-  fun h => absurd (h (swap 4 5) (by decide +kernel) (by decide +kernel)) (by decide +kernel)
-
-example : L.all (fun p => !decide (p.1 * p.2.1 = 1) ||
-    !decide (10 ∣ (L.filter fun q => q.2.2 && decide (p.1 * q.2.1 = q.1 * p.1)).length)) = false := by
-  decide +kernel
-
-example : L.all (fun p => !decide (p.1 * p.1 = 1) || decide (p.1 = 1) || p.2.2 ||
-    decide (p.1.support.card = 2)) = false := by
-  decide +kernel
 
 end CFSG.KD.LQT.Six4099

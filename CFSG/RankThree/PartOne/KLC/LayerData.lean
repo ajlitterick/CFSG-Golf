@@ -48,15 +48,6 @@ theorem LieLayerData.conclusion {G : Type} [Group G] [Finite G] {p : ℕ} {α : 
   · intro g hg _ hk
     exact mem_inSubgroup_layer_of_odd_index Q hQ hsolv hN hodd hg hk
 
-theorem lieGood_of_layerData {t : StatedLieTag}
-    (h : ∀ (T : Type) [Group T] [Finite T] (p : ℕ), p.Prime → 5 ≤ p → LocalRankLeTwo p T →
-      CFSG.pRank p T = 1 → ∀ n f₀ : ℕ, 1 ≤ f₀ → LieModel T t n 2 (p * f₀) →
-      ∀ α : MulAut T, α ^ p = 1 → α ∉ innerAut T → LocalRankAut p T α → FixModel t n f₀ α →
-      ∀ x : T, x ^ p = 1 → x ≠ 1 → α x = x → ∀ y : T, y ^ 2 = 1 → y ≠ 1 → x * y = y * x →
-        LieLayerData p α (Subgroup.centralizer ({x} : Set T))) :
-    LieGoodComponentFixT t := by
-  intro T _ _ p hp hp5 hLR hpr n f₀ hf₀ hM α hαp hαinn hLRA hX x hxp hx1 hαx y hy2 hy1 hxy
-  exact (h T p hp hp5 hLR hpr n f₀ hf₀ hM α hαp hαinn hLRA hX x hxp hx1 hαx y hy2 hy1 hxy).conclusion
 
 section Sector
 

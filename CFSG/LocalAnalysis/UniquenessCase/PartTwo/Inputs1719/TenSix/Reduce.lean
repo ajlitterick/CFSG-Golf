@@ -36,61 +36,6 @@ private theorem center_eq_bot_of_dvd_two_of_o2Trivial {W : Type} [CommGroup W] [
     rw [hZbot] at h2
     simp at h2
 
-@[expose] def W4Lem10_6Residual : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →
-    ∀ (Y L : Subgroup (MulAut W)) (t : CFSG.Open.StatedLieTag) (n p e : ℕ),
-      L ≤ Y → (L.subgroupOf Y).Normal → Fstar Y = L →
-      IsQuasisimple ↥L → O2Trivial L →
-      p.Prime → p ≠ 2 → 0 < e → ¬ (t = .PSL ∧ n = 2) →
-      LieModel (↥L ⧸ Subgroup.center ↥L) t n p e →
-        (9 < p ^ e → E3.aParam Y = 1) ∧
-        (3 < p ^ e → E3.aParam Y ≤ 2) ∧
-        (p ^ e = 3 → E3.aParam Y ≤ 3)
-
-theorem w4Lem10_6_of_residual
-    (h : W4Lem10_6Residual) : W4Lem10_6 := by
-  intro W _ _ hW Y L p e q hLY hLn hF hLq hO2 hp hp2 he hq hIn
-  rcases hIn with ⟨t, n, p', e', hp', hp2', he', hq', hmodel⟩ | ⟨hq3, hmodel⟩
-  · by_cases hpsl : t = .PSL ∧ n = 2
-    · obtain ⟨rfl, rfl⟩ := hpsl
-      have h6 := w4Lem10_6_psl2 hW hLY hLn hF hLq hO2 hp2' hmodel
-      refine ⟨?_, ?_, ?_⟩
-      · intro h9
-        exact h6.1 (by rw [← hq']; exact h9)
-      · intro _
-        exact h6.2.trans (by norm_num)
-      · intro _
-        exact h6.2.trans (by norm_num)
-    · have hres := h W hW Y L t n p' e' hLY hLn hF hLq hO2 hp' hp2' he' hpsl hmodel
-      rw [hq']
-      exact hres
-  · subst hq3
-    have h6 := w4Lem10_6_psl2_eight hLY hLn hF hLq hO2 hmodel
-    exact ⟨fun h9 => by omega, fun h3 => by omega, fun _ => h6⟩
-
-@[expose] def W4Lem10_5Residual : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →
-    ∀ (Y L : Subgroup (MulAut W)) (t : CFSG.Open.StatedLieTag) (n p e : ℕ),
-      L ≤ Y → (L.subgroupOf Y).Normal → Fstar Y = L →
-      IsQuasisimple ↥L → O2Trivial L →
-      p.Prime → p ≠ 2 → 0 < e → ¬ (t = .PSL ∧ n = 2) →
-      LieModel (↥L ⧸ Subgroup.center ↥L) t n p e →
-        8 ≤ E3.mParam Y ∨
-        (LieModel ↥L .PSL 3 3 1 ∧ 4 ≤ E3.mParam Y) ∨
-        ((LieModel ↥L .PSL 4 3 1 ∨ LieModel ↥L .PSU 4 3 1 ∨
-            LieModel ↥L .G2 0 3 1 ∨
-            (∃ (Z : Subgroup ↥L) (hZ : Z.Normal), Z ≤ Subgroup.center ↥L ∧
-              Nat.card Z = 3 ∧ LieModel (quotBy Z hZ) .G2 0 3 1) ∨
-            LieModel ↥L .PSp 3 3 1) ∧
-          6 ≤ E3.mParam Y) ∨
-        (LieModel ↥L .PSU 3 3 1 ∨ LieModel ↥L .PSp 2 3 1 ∨
-          LieModel ↥L .PSL 2 2 3 ∨
-          (LieModel (↥L ⧸ Subgroup.center ↥L) .PSU 4 3 1 ∧
-            Subgroup.center ↥L ≠ ⊥)) ∨
-        ((LieModel ↥L .PSL 2 5 2 ∨ LieModel ↥L .PSL 2 p 1) ∧ 4 ≤ E3.mParam Y) ∨
-        (LieModel (↥L ⧸ Subgroup.center ↥L) .PSL 2 5 1 ∨
-          LieModel (↥L ⧸ Subgroup.center ↥L) .PSL 2 7 1 ∨
-          LieModel (↥L ⧸ Subgroup.center ↥L) .PSL 2 3 2)
 
 section TenFive
 
@@ -203,22 +148,6 @@ theorem w4Lem10_5_psl2 (h74 : W4Lem7_4) {W : Type} [CommGroup W] [Finite W]
           h74r.2.2.2.2⟩))))
         exact hmodelL
 
-theorem w4Lem10_5_of_residual (h74 : W4Lem7_4) (h : W4Lem10_5Residual) : W4Lem10_5 := by
-  intro W _ _ hW Y L p e q hLY hLn hF hLq hO2 hp hp2 he hq hIn
-  rcases hIn with ⟨t, n, p', e', hp', hp2', he', hq', hmodel⟩ | ⟨hq3, hmodel⟩
-  · have hpq : p = p' ∧ e = e' := by
-      have hpe : p ^ e = p' ^ e' := by rw [← hq, hq']
-      exact Nat.Prime.pow_inj' hp hp' (by omega) (by omega) hpe
-    obtain ⟨rfl, rfl⟩ := hpq
-    by_cases hpsl : t = .PSL ∧ n = 2
-    · obtain ⟨rfl, rfl⟩ := hpsl
-      exact w4Lem10_5_psl2 h74 hW hLY hLn hF hLq hO2 hp hp2 he hmodel
-    · exact h W hW Y L t n p e hLY hLn hF hLq hO2 hp hp2 he hpsl hmodel
-  · subst hq3
-    have hZ : Subgroup.center ↥L = ⊥ :=
-      CFSG.GH74.GLS.Stage2.Signalizer.Odd87.center_eq_bot_psl2_even hLq (Or.inl rfl) hmodel
-    have hmodelL : LieModel ↥L .PSL 2 2 3 := CFSG.Timmesfeld.lieModel_of_center_eq_bot hZ hmodel
-    exact Or.inr (Or.inr (Or.inr (Or.inl (Or.inr (Or.inr (Or.inl hmodelL))))))
 
 end TenFive
 

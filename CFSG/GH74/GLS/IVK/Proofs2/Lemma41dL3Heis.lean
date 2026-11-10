@@ -239,63 +239,11 @@ theorem card_le_sq [Finite F] (E : Subgroup (Heis F)) (hE : ∀ x ∈ E, ∀ y �
   have := Nat.card_le_card_of_injective f hf
   rwa [Nat.card_prod, ← sq] at this
 
-theorem le_index [Finite F] (E : Subgroup (Heis F)) (hE : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x) :
-    Nat.card F ≤ E.index := by
-  have h1 := card_le_sq E hE
-  have h2 := E.index_mul_card
-  rw [card_eq] at h2
-  have hq : 0 < Nat.card F := Nat.card_pos
-  have : Nat.card F ^ 2 * Nat.card F ≤ Nat.card F ^ 2 * E.index := by
-    calc Nat.card F ^ 2 * Nat.card F = Nat.card F ^ 3 := by ring
-      _ = E.index * Nat.card E := h2.symm
-      _ ≤ E.index * Nat.card F ^ 2 := Nat.mul_le_mul_left _ h1
-      _ = Nat.card F ^ 2 * E.index := by ring
-  exact Nat.le_of_mul_le_mul_left this (by positivity)
-
-theorem frattini_eq_commutator {p : ℕ} (hp : p.Prime) [Finite F] (hQp : IsPGroup p (Heis F))
-    (hexp : ∀ x : Heis F, x ^ p = 1) : frattini (Heis F) = _root_.commutator (Heis F) := by
-  have : Fact p.Prime := ⟨hp⟩
-  have : Fact (IsPGroup p (Heis F)) := ⟨hQp⟩
-  have : Finite (Heis F) := Finite.of_equiv _ equivProd.symm
-  rw [CFSG.frattini_eq_closure_commutator_union_powers (p := p)]
-  apply le_antisymm
-  · rw [Subgroup.closure_le]
-    rintro y (hy | ⟨x, rfl⟩)
-    · exact hy
-    · show x ^ p ∈ _root_.commutator (Heis F)
-      rw [hexp x]
-      exact one_mem _
-  · exact fun y hy => Subgroup.subset_closure (Or.inl hy)
 
 end Field
 
 end Heis
 
-@[expose] def SpecialP (p n : ℕ) (H : Type) [Group H] : Prop :=
-  (∀ E : Subgroup H, IsElementaryAbelian p ↥E → p ^ n ≤ E.index ∧ Nat.card ↥E ≤ p ^ (2 * n)) ∧
-    Subgroup.center H = ⁅(⊤ : Subgroup H), ⊤⁆ ∧ Subgroup.center H = frattini H ∧
-      IsElementaryAbelian p ↥(Subgroup.center H) ∧ Nat.card ↥(Subgroup.center H) = p ^ n
-
-theorem Heis.specialP {F : Type} [Field F] [Finite F] {p n : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    [CharP F p] (hF : Nat.card F = p ^ n) : SpecialP p n (Heis F) := by
-  have hpg : IsPGroup p (Heis F) :=
-    IsPGroup.of_card (n := n * 3) (by rw [Heis.card_eq, hF, pow_mul])
-  refine ⟨fun E hE => ?_, Heis.commutator_eq_center.symm, ?_, ?_, ?_⟩
-  · have := hE.toIsMulCommutative
-    have hc : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x := fun x hx y hy =>
-      congrArg Subtype.val (IsMulCommutative.is_comm.comm (⟨x, hx⟩ : E) ⟨y, hy⟩)
-    refine ⟨?_, ?_⟩
-    · rw [← hF]
-      exact Heis.le_index E hc
-    · rw [pow_mul', ← hF]
-      exact Heis.card_le_sq E hc
-  · rw [Heis.frattini_eq_commutator hp hpg (Heis.pow_prime_eq_one hp hp2), commutator_def,
-      Heis.commutator_eq_center]
-  · exact
-      { toIsMulCommutative := inferInstance
-        exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun g =>
-          Subtype.ext (Heis.pow_prime_eq_one hp hp2 g.1) }
-  · rw [Heis.card_center, hF]
 
 theorem map_center_mulEquiv {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
     (Subgroup.center A).map e.toMonoidHom = Subgroup.center B := by
@@ -311,13 +259,6 @@ theorem map_center_mulEquiv {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
     refine ⟨x, fun g => e.injective ?_, rfl⟩
     simpa using h (e g)
 
-theorem map_frattini_mulEquiv {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
-    (frattini A).map e.toMonoidHom = frattini B :=
-  OrderIso.map_radical (MulEquiv.mapSubgroup e)
-
-theorem map_commutator_mulEquiv {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
-    Subgroup.map e.toMonoidHom ⁅(⊤ : Subgroup A), ⊤⁆ = ⁅(⊤ : Subgroup B), ⊤⁆ := by
-  rw [Subgroup.map_commutator, Subgroup.map_top_of_surjective _ e.surjective]
 
 theorem map_map_symm {A B : Type*} [Group A] [Group B] (e : A ≃* B) (E : Subgroup B) :
     (E.map e.symm.toMonoidHom).map e.toMonoidHom = E := by
@@ -325,26 +266,5 @@ theorem map_map_symm {A B : Type*} [Group A] [Group B] (e : A ≃* B) (E : Subgr
   have : e.toMonoidHom.comp e.symm.toMonoidHom = MonoidHom.id B := by ext x; simp
   rw [this, Subgroup.map_id]
 
-theorem specialP_of_mulEquiv {p n : ℕ} [Fact p.Prime] {A B : Type} [Group A] [Group B]
-    (e : A ≃* B) (h : SpecialP p n A) : SpecialP p n B := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := h
-  have hc := map_center_mulEquiv e
-  refine ⟨fun E' hE' => ?_, ?_, ?_, ?_, ?_⟩
-  · have hE : IsElementaryAbelian p ↥(E'.map e.symm.toMonoidHom) := by
-      have := hE'
-      exact IsElementaryAbelian.map e.symm.toMonoidHom
-    obtain ⟨i1, i2⟩ := h1 _ hE
-    have hi : ((E'.map e.symm.toMonoidHom).map e.toMonoidHom).index =
-        (E'.map e.symm.toMonoidHom).index := Subgroup.index_map_equiv _ e
-    have hcard : Nat.card ((E'.map e.symm.toMonoidHom).map e.toMonoidHom) =
-        Nat.card (E'.map e.symm.toMonoidHom) := Subgroup.card_map_of_injective e.injective
-    rw [map_map_symm] at hi hcard
-    exact ⟨hi ▸ i1, hcard ▸ i2⟩
-  · rw [← hc, h2, map_commutator_mulEquiv e]
-  · rw [← hc, h3, map_frattini_mulEquiv e]
-  · rw [← hc]
-    have := h4
-    exact IsElementaryAbelian.map e.toMonoidHom
-  · rw [← hc, Subgroup.card_map_of_injective e.injective, h5]
 
 end CFSG.GH74.GLS.IVK.Proofs2.Lemma41dL3

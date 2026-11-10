@@ -47,10 +47,6 @@ theorem Std20.late_V_le_N_RR' (d : Std20 p f K K' J S R R' W V z t) :
     V ≤ Subgroup.normalizer ((R ⊔ R' : Subgroup G) : Set G) := by
   exact d.late_toG.late_V_le_N_RR'
 
-theorem Std20.late_P_inv' (d : Std20 p f K K' J S R R' W V z t)
-    (hWeq : W = (W ⊓ K) ⊔ (W ⊓ J)) {x : G} (hxS : x ∈ (S : Subgroup G)) :
-    conjSub x (R ⊔ R' ⊔ (J ⊓ W)) = R ⊔ R' ⊔ (J ⊓ W) := by
-  exact d.late_toG.late_P_inv' hWeq hxS
 
 theorem Std20.late_98_iff (d : Std20 p f K K' J S R R' W V z t)
     (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) (hWeq : W = (W ⊓ K) ⊔ (W ⊓ J))

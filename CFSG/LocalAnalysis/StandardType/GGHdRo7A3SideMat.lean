@@ -64,21 +64,6 @@ private theorem hdRo7A3SMAux_dvec_prod (hu : u ^ 3 = 1)
         obtain ⟨k, hk⟩ := hdvd
         rw [hk, pow_mul, hu, one_pow]
 
-private theorem hdRo7A3SMAux_dvec_injective (hu : u ^ 3 = 1) (hune : u ≠ 1) :
-    Function.Injective (hdRo7A3SMAux_dvec (m := m) u hu) := by
-  have hfact : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have huord : orderOf u = 3 := orderOf_eq_prime (p := 3) hu hune
-  intro x y hxy
-  have hcoord : ∀ i, ((Multiplicative.toAdd x).1 i) =
-      ((Multiplicative.toAdd y).1 i) := by
-    intro i
-    have h := congrFun hxy i
-    rw [hdRo7A3SMAux_dvec_apply, hdRo7A3SMAux_dvec_apply] at h
-    have h2 := (pow_inj_mod (x := u)).mp h
-    rw [huord, Nat.mod_eq_of_lt (ZMod.val_lt _), Nat.mod_eq_of_lt (ZMod.val_lt _)] at h2
-    exact ZMod.val_injective 3 h2
-  apply Multiplicative.toAdd.injective
-  exact Subtype.ext (funext hcoord)
 
 end Coord
 
@@ -193,8 +178,6 @@ section Kernel
 variable {G : Type} [Group G] {p : ℕ} {B Bs X : Subgroup G}
   {F : Type} [Field F] {m : ℕ} {φ : ↥(unitarySU 2 1 F m) →* ↥X}
 
-private theorem hdRo7A3SMAux_units_card (hF : Nat.card F = 4) : Nat.card Fˣ = 3 := by
-  rw [Nat.card_units, hF]
 
 private theorem hdRo7A3SMAux_pow_val_eq (u : Fˣ) {a b : ℕ} (huord : orderOf u = 3)
     (h : u ^ a = u ^ b) (ha : a < 3) (hb : b < 3) : a = b := by
@@ -230,31 +213,6 @@ private theorem hdRo7A3SMAux_eq_gOne_pow_of_const (h3m : 3 ∣ m)
   funext i
   rw [hdRo7A3SMAux_gOne_pow_val, hc i, ZMod.natCast_zmod_val]
 
-private theorem hdRo7A3SMAux_const_of_eq_gOne_pow (h3m : 3 ∣ m) (k : ℕ) :
-    ∃ c : ZMod 3, ∀ i,
-      (Multiplicative.toAdd (hdRo7A3SMAux_gOne (m := m) h3m ^ k)).1 i = c :=
-  ⟨(k : ZMod 3), fun i => hdRo7A3SMAux_gOne_pow_val h3m k i⟩
-
-private theorem hdRo7A3SMAux_orderOf_gOne (h3m : 3 ∣ m) (hm : 1 ≤ m) :
-    orderOf (hdRo7A3SMAux_gOne (m := m) h3m) = 3 := by
-  have hfact : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  refine orderOf_eq_prime (p := 3) ?_ ?_
-  · rw [show hdRo7A3SMAux_gOne (m := m) h3m ^ 3 =
-      Multiplicative.ofAdd (3 • hdRo7A3SMAux_ones (m := m) h3m) from ofAdd_nsmul 3 _]
-    rw [show (3 : ℕ) • hdRo7A3SMAux_ones (m := m) h3m = 0 from ?_]
-    · rfl
-    · apply Subtype.ext
-      funext i
-      change (3 • ((hdRo7A3SMAux_ones (m := m) h3m : ↥(a3Aug 3 m)) : Fin m → ZMod 3)) i =
-        (0 : ZMod 3)
-      rw [Pi.smul_apply, hdRo7A3SMAux_ones_val, nsmul_eq_mul, mul_one]
-      exact CharP.cast_eq_zero (ZMod 3) 3
-  · intro h
-    have h1 := hdRo7A3SMAux_gOne_pow_val (m := m) h3m 1 ⟨0, hm⟩
-    rw [pow_one, h] at h1
-    rw [show (Multiplicative.toAdd (1 : Multiplicative ↥(a3Aug 3 m))).1 ⟨0, hm⟩ = 0 from rfl]
-      at h1
-    exact one_ne_zero h1.symm
 
 private theorem hdRo7A3SMAux_const_of_tor_eq_one (u : Fˣ) (hu : u ^ 3 = 1)
     (huord : orderOf u = 3) (hM : UnitTB.Model φ) (hm : 1 ≤ m)
@@ -720,9 +678,6 @@ private theorem hdRo7A3SMAux_proj_apply {i0 : Fin m} {v : Fin m → ZMod 3}
   rw [hv]
   simp
 
-private noncomputable def hdRo7A3SMAux_sumHom (m : ℕ) :
-    (Fin m → ZMod 3) →+ ZMod 3 :=
-  ∑ i : Fin m, Pi.evalAddMonoidHom (fun _ : Fin m => ZMod 3) i
 
 section ThetaDef
 

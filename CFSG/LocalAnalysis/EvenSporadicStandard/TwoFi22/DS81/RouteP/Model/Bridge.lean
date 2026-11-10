@@ -137,10 +137,6 @@ theorem rep_genQ {i : ℕ} (hi : i < 22) :
   rw [e]
   exact rep_genPerm hi
 
-theorem rep_of (i : Fin nG) :
-    Rep 920808 (genTabs ())[i.val]! (PresentedGroup.of i : Q3) := by
-  rw [← genQ_of]
-  exact rep_genQ i.isLt
 
 theorem smul_val_of_rep {T : Table} {g : Q3}
     (h : Rep 920808 T g) (p : Ω) : (g • p).val = ap T p.val := by
@@ -148,56 +144,6 @@ theorem smul_val_of_rep {T : Table} {g : Q3}
   rw [idx_of_lt _ p.isLt] at this
   exact this.symm
 
-theorem smul_of (i : Fin nG) (p : Ω) :
-    ((PresentedGroup.of i : Q3) • p).val = ap (genTabs ())[i.val]! p.val :=
-  smul_val_of_rep (rep_of i) p
-
-theorem rep_wordT (w : List ℤ) :
-    Rep 920808 (wordT 920808 (letterTab 920808 (genTabs ()) ((genTabs ()).map (invT 920808))) w)
-      (wordG (letterPerm genQ 22) w) := by
-  have := rep_wordT_letters (G := Q3) (n := 920808) (by norm_num) (gs := genTabs ())
-    (π := genQ) (fun l hl => rep_genQ (by rwa [bridgeFacts.gs_size] at hl))
-    (fun l hl => invOK_genTabs (by rwa [bridgeFacts.gs_size] at hl)) w
-  rwa [bridgeFacts.gs_size] at this
-
-theorem rep_wordT_signed (w : List (Fin nG × Bool)) :
-    Rep 920808 (wordT 920808 (letterTab 920808 (genTabs ()) ((genTabs ()).map (invT 920808)))
-      (w.map litInt)) (wprod (fun i : Fin nG => (PresentedGroup.of i : Q3)) w) := by
-  have e : wprod (fun i : Fin nG => (PresentedGroup.of i : Q3)) w =
-      wordG (letterPerm genQ 22) (w.map litInt) := by
-    rw [← wprod_eq_wordG genQ w]
-    congr 1
-    funext i
-    exact (genQ_of i).symm
-  rw [e]
-  exact rep_wordT _
-
-theorem rep_runSLP (prog : List Instr) (extra : ℕ)
-    (hprog : ∀ ins ∈ prog, instrRegsLt (22 + extra) ins)
-    (hok : (runSLP 920808 prog (genTabs () ++ Array.replicate extra (idT 920808))).2 = true) :
-    ∀ r < 22 + extra, Rep 920808
-      (runSLP 920808 prog (genTabs () ++ Array.replicate extra (idT 920808))).1[r]!
-      (runSLPG prog genQ r) := by
-  have hsz : (genTabs () ++ Array.replicate extra (idT 920808)).size = 22 + extra := by
-    simp [bridgeFacts.gs_size]
-  have hregs : ∀ r < (genTabs () ++ Array.replicate extra (idT 920808)).size,
-      Rep 920808 (genTabs () ++ Array.replicate extra (idT 920808))[r]! (genQ r) := by
-    intro r hr
-    by_cases h22 : r < 22
-    · rw [getElem!_pos _ r hr, Array.getElem_append_left (by rw [bridgeFacts.gs_size]; exact h22),
-        ← getElem!_pos (genTabs ()) r (by rw [bridgeFacts.gs_size]; exact h22)]
-      exact rep_genQ h22
-    · have hq : genQ r = 1 := by
-        have : ¬ r < nG := h22
-        simp [genQ, this]
-      rw [hq, getElem!_pos _ r hr, Array.getElem_append_right (by rw [bridgeFacts.gs_size]; omega)]
-      simp only [Array.getElem_replicate]
-      exact Rep.idT (by norm_num)
-  have := runSLP_rep (n := 920808) (by norm_num) prog
-    (genTabs () ++ Array.replicate extra (idT 920808)) genQ
-    (by rwa [hsz]) hregs hok
-  intro r hr
-  exact this.2 r (by rwa [hsz])
 
 noncomputable def regsM (r : ℕ) : Q3 := if r < 11 then genQ r else 1
 
@@ -225,21 +171,6 @@ theorem rep_m1Q : Rep 920808 (mTabs ())[0]! m1Q :=
 theorem rep_m2Q : Rep 920808 (mTabs ())[1]! m2Q :=
   rep_m1Q_m2Q.2
 
-noncomputable def m1Perm : Perm Ω := permOfTab 920808 (mTabs ())[0]!
-
-noncomputable def m2Perm : Perm Ω := permOfTab 920808 (mTabs ())[1]!
-
-theorem rep_m1Perm : Rep 920808 (mTabs ())[0]! m1Perm :=
-  rep_permOfTab (permOK_of_tabsOK bridgeFacts.ms_perm (by rw [bridgeFacts.ms_size]; norm_num))
-
-theorem rep_m2Perm : Rep 920808 (mTabs ())[1]! m2Perm :=
-  rep_permOfTab (permOK_of_tabsOK bridgeFacts.ms_perm (by rw [bridgeFacts.ms_size]; norm_num))
-
-theorem rho_m1Q : rho m1Q = m1Perm :=
-  rep_unique (rep_iff_rho.1 rep_m1Q) rep_m1Perm
-
-theorem rho_m2Q : rho m2Q = m2Perm :=
-  rep_unique (rep_iff_rho.1 rep_m2Q) rep_m2Perm
 
 noncomputable def mQ (i : ℕ) : Q3 := if i = 0 then m1Q else if i = 1 then m2Q else 1
 

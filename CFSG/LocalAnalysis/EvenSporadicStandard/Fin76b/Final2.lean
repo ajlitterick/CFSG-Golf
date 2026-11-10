@@ -32,6 +32,5 @@ theorem fin76bLemma65b_of_noKleinFour
     (h2 : Fin76bNoKleinFour) : Fin76bLemma65b :=
   fin76bLemma65b_of_residuals fin76bNoOrderEight h2
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end CFSG.EvenSporadicStandard.Fin76b

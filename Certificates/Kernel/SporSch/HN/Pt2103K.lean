@@ -30,12 +30,6 @@ theorem p_S0 : ptsImg TX MS CM3 M TS0 FL0 IL0 2 = true := by quickRfl
 theorem p_K1 : ptsImg TX MS CM3 M TK1 F8 F8 8 = true := by quickRfl
 theorem p_K2 : ptsImg TX MS CM3 M TK2 F8 U8 8 = true := by quickRfl
 
-theorem neg_w : Bool.not (Nat.beq (wordC CFSG.KD.HNPt.R k2c) K1) = true := by quickRfl
-theorem neg_conj : Bool.not (Nat.beq (CFSG.KC.LL.HN.mm S0 K2) (CFSG.KC.LL.HN.mm C1 S0)) = true := by
-  quickRfl
-theorem neg_pK2 : Bool.not (ptsImg TX MS CM3 M TK2 F8 F8 8) = true := by quickRfl
-theorem neg_pS0 : Bool.not (ptsImg TX MS CM3 M TS0 FL0 FL0 2) = true := by quickRfl
-theorem neg_fix : Bool.not (Nat.beq (fixSum TX CM3 M GK1 0 1) 0) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2103
 

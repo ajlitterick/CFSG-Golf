@@ -148,9 +148,6 @@ theorem ggStepTwoCoordModelOn_PSU_of_coord (hcoord : GGSUNsCoordInput) :
     rw [← hG₀] at hcomp'
     exact hcomp b L₁ hb hb1 hcomp' hcard β hβ
 
-theorem ggStepTwoToralWitnessOn_PSU_of_coord (hcoord : GGSUNsCoordInput) :
-    GGStepTwoToralWitnessOn .PSU :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_PSU_of_coord hcoord)
 
 end Reduction
 

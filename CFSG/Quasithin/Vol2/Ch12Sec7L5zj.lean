@@ -29,8 +29,6 @@ variable {X : Type*} [Group X]
   map_one' := by ext v; rfl
   map_mul' := fun a b => by ext v; rfl
 
-theorem restr_apply (S : Subgroup X) (g : ↥(stab S)) (v : ↥S) :
-    ((restr S g v : ↥S) : X) = (g : MulAut X) v := rfl
 
 end Restr
 

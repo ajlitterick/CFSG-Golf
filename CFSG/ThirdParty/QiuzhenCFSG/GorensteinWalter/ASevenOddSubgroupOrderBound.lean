@@ -745,12 +745,6 @@ private lemma factorization_45_5 : (45 : ℕ).factorization 5 = 1 := by
   simp [Nat.prime_five.factorization_self,
     Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 5 ∣ 9)]
 
-private lemma factorization_63_3 : (63 : ℕ).factorization 3 = 2 := by
-  rw [show (63 : ℕ) = 3 ^ 2 * 7 by norm_num]
-  rw [Nat.factorization_mul (by norm_num) (by norm_num)]
-  rw [Nat.factorization_pow]
-  simp [Nat.prime_three.factorization_self,
-    Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 3 ∣ 7)]
 
 private lemma factorization_63_7 : (63 : ℕ).factorization 7 = 1 := by
   rw [show (63 : ℕ) = 7 * 9 by norm_num]
@@ -1046,11 +1040,6 @@ private lemma exists_order_seven_centralizing_normal_five_of_card_105
     exact hcomm.symm
   exact ⟨z, hz_ne, hz_ord, hz_cent⟩
 
-private lemma factorization_105_3 : (105 : ℕ).factorization 3 = 1 := by
-  rw [show (105 : ℕ) = 3 * 35 by norm_num]
-  rw [Nat.factorization_mul (by norm_num) (by norm_num)]
-  simp [Nat.prime_three.factorization_self,
-    Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 3 ∣ 35)]
 
 private lemma factorization_105_5 : (105 : ℕ).factorization 5 = 1 := by
   rw [show (105 : ℕ) = 5 * 21 by norm_num]

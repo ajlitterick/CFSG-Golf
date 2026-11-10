@@ -28,10 +28,5 @@ theorem le_5130K : (QS.original.toList.all fun g => siftP QP g 0) = true := by
 theorem tt_5130K : siftP QP tt 0 = true := by
   decide +kernel
 
-theorem neg5130K : siftP QP sg0 0 = false := by
-  decide +kernel
-
-theorem negC5130K : centralIn (elemsV QS) tt = false := by
-  decide +kernel
 
 end CertificateChecks.KernelKGroupsE

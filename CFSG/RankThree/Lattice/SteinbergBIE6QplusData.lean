@@ -128,43 +128,6 @@ theorem e6Delta_qp_involutive (m : Fin 15) (x : Fin Tag.E6.rank → ℤ) :
     e6Delta (e6QpSupport m) (e6Delta (e6QpSupport m) x) = x := by
   rw [e6Delta_qp, e6Delta_qp, Matrix.mulVec_mulVec, e6QpDelta_sq, Matrix.one_mulVec]
 
-@[expose] def e6QpNonorthB (m : Fin 15) (l : List ℤ) : Bool :=
-  !(decide (∀ i, i ∉ e6QpSupportList m → toVec Tag.E6.rank l i = 0)) ||
-    decide (toMat Tag.E6.rank (e6QpDeltaList m) *ᵥ toVec Tag.E6.rank l = toVec Tag.E6.rank l) ||
-    decide (iform (toVec Tag.E6.rank l)
-      (toMat Tag.E6.rank (e6QpDeltaList m) *ᵥ toVec Tag.E6.rank l) = 0) ||
-    (decide (m = 12 ∨ m = 13) &&
-      decide (∀ i : Fin Tag.E6.rank, i ≠ 1 → i ≠ 3 → toVec Tag.E6.rank l i = 0))
-
-theorem e6QpNonorthB_eq : ∀ m : Fin 15, ∀ l ∈ Tag.E6.artifactRoots, e6QpNonorthB m l = true := by
-  decide +kernel
-
-theorem e6QpDelta_nonorth {m : Fin 15} {l : List ℤ} (hl : l ∈ Tag.E6.artifactRoots)
-    (h1 : ∀ i, i ∉ e6QpSupportList m → toVec Tag.E6.rank l i = 0)
-    (h2 : toMat Tag.E6.rank (e6QpDeltaList m) *ᵥ toVec Tag.E6.rank l ≠ toVec Tag.E6.rank l)
-    (h3 : iform (toVec Tag.E6.rank l)
-      (toMat Tag.E6.rank (e6QpDeltaList m) *ᵥ toVec Tag.E6.rank l) ≠ 0) :
-    (m = 12 ∨ m = 13) ∧ ∀ i : Fin Tag.E6.rank, i ≠ 1 → i ≠ 3 → toVec Tag.E6.rank l i = 0 := by
-  have h := e6QpNonorthB_eq m l hl
-  simp only [e6QpNonorthB, Bool.or_eq_true, Bool.not_eq_true', decide_eq_false_iff_not,
-    decide_eq_true_eq, Bool.and_eq_true] at h
-  rcases h with ((h | h) | h) | h
-  · exact absurd h1 h
-  · exact absurd h h2
-  · exact absurd h h3
-  · exact h
-
-theorem e6QpDelta_exception : ∀ m : Fin 15, (m = 12 ∨ m = 13) →
-    toMat Tag.E6.rank (e6QpDeltaList m) *ᵥ Pi.single 1 1 = Pi.single 3 1 ∧
-      iform (Pi.single 1 1 : Fin Tag.E6.rank → ℤ) (Pi.single 3 1) = -1 := by
-  decide +kernel
-
-theorem e6QpDelta_D4 :
-    toMat Tag.E6.rank (e6QpDeltaList 14) *ᵥ Pi.single 2 1 = Pi.single 4 1 ∧
-      toMat Tag.E6.rank (e6QpDeltaList 14) *ᵥ Pi.single 4 1 = Pi.single 2 1 ∧
-      toMat Tag.E6.rank (e6QpDeltaList 14) *ᵥ Pi.single 1 1 = Pi.single 1 1 ∧
-      toMat Tag.E6.rank (e6QpDeltaList 14) *ᵥ Pi.single 3 1 = Pi.single 3 1 := by
-  decide +kernel
 
 @[expose] def e6QpC : Fin 15 → List (Fin Tag.E6.rank → ℤ) :=
   ![[], [![0, 0, 0, 0, 0, 1], ![1, 0, 0, 0, 0, 0]], [![0, 0, 0, 0, 1, 0], ![0, 0, 1, 0, 0, 0]],
@@ -178,8 +141,6 @@ theorem e6QpDelta_D4 :
     [![0, 0, 0, 0, 0, 1], ![0, 1, 0, 1, 0, 0], ![1, 0, 0, 0, 0, 0]],
     [![0, 0, 0, 0, 1, 0], ![0, 0, 1, 0, 0, 0], ![0, 1, 0, 0, 0, 0], ![0, 1, 1, 2, 1, 0]]]
 
-@[expose] def e6W0C : List (Fin Tag.E6.rank → ℤ) :=
-  [![0, 0, 0, 1, 0, 0], ![0, 0, 1, 1, 1, 0], ![1, 0, 1, 1, 1, 1], ![1, 2, 2, 3, 2, 1]]
 
 theorem e6QpC_check : ∀ m : Fin 15, (e6QpC m).Nodup ∧
     (∀ β ∈ e6QpC m, List.ofFn β ∈ Tag.E6.artifactRoots ∧ 0 < height β ∧
@@ -190,12 +151,6 @@ theorem e6QpC_check : ∀ m : Fin 15, (e6QpC m).Nodup ∧
       (e6QpWord m).foldr (reflect Tag.E6) (Pi.single i 1) := by
   decide +kernel
 
-theorem e6W0C_check : e6W0C.Nodup ∧
-    (∀ β ∈ e6W0C, List.ofFn β ∈ Tag.E6.artifactRoots ∧ permLattice e6Rho β = β) ∧
-    (∀ β ∈ e6W0C, ∀ β' ∈ e6W0C, β ≠ β' → iform β β' = 0) ∧
-    ∀ i : Fin Tag.E6.rank, e6W0C.foldr (fun β v => v - corootPair β v • β) (Pi.single i 1) =
-      -permLattice e6Rho (Pi.single i 1) := by
-  decide +kernel
 
 theorem iform_rho_check : ∀ l ∈ Tag.E6.artifactRoots,
     permLattice e6Rho (toVec Tag.E6.rank l) ≠ toVec Tag.E6.rank l →

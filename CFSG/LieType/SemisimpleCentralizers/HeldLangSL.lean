@@ -174,23 +174,6 @@ theorem coe_iterate_slTwist (σ : F ≃+* F) (g : GL ι F) (k : ℕ) (x : slGL �
       normProd σ g k * glMap (σ ^ k) x * (normProd σ g k)⁻¹ :=
   coe_iterate_twistHom (slGL ι F) σ g _ k x
 
-theorem exists_scalar_normProd [Finite F] (σ : F ≃+* F) (g : GL ι F)
-    (h : ∀ x : slGL ι F, (slTwist σ g)^[orderOf σ] x = x) :
-    ∃ c : F, Ai σ (g : Matrix ι ι F) (orderOf σ) = c • (1 : Matrix ι ι F) := by
-  obtain ⟨c, hc⟩ := exists_scalar_of_commute_slGL (normProd σ g (orderOf σ)) fun x hx => by
-    have := congrArg (fun z : slGL ι F => (z : GL ι F)) (h ⟨x, hx⟩)
-    simpa [coe_iterate_slTwist, pow_orderOf_eq_one, glMap_one] using this
-  refine ⟨c, ?_⟩
-  rw [← coe_normProd, hc, Matrix.GeneralLinearGroup.coe_scalar]
-  ext i j
-  simp [Matrix.scalar_apply, Matrix.diagonal_apply, Matrix.one_apply]
-
-theorem iterate_slTwist_orderOf [Finite F] (σ : F ≃+* F) (g : GL ι F) (c : Fˣ)
-    (h : normProd σ g (orderOf σ) = Matrix.GeneralLinearGroup.scalar ι c) (x : slGL ι F) :
-    (slTwist σ g)^[orderOf σ] x = x := by
-  apply Subtype.ext
-  rw [coe_iterate_slTwist, pow_orderOf_eq_one, glMap_one, h, scalar_mul_comm, mul_assoc,
-    mul_inv_cancel, mul_one]
 
 abbrev slScalars (ι : Type*) [Fintype ι] [DecidableEq ι] (F : Type*) [Field F] : Subgroup (slGL ι F) :=
   (Subgroup.center (GL ι F)).subgroupOf (slGL ι F)
@@ -252,9 +235,5 @@ theorem exists_psl_fix [Finite F] [Nonempty ι] (σ : F ≃+* F) (g : GL ι F) (
   · exact map_fixHom_normal (slTwist σ g) slScalars_le_center _ (slTwistBar_mk (ι := ι) σ g)
   · exact commutator_fixHom_le (slTwist σ g) slScalars_le_center _ (slTwistBar_mk (ι := ι) σ g)
 
-theorem le_map_fix_of_perfect_psl (σ : F ≃+* F) (g : GL ι F) {J : Subgroup (PSL ι F)}
-    (hJ : ⁅J, J⁆ = J) (hJf : J ≤ fixHom (slTwistBar σ g)) :
-    J ≤ (fixHom (slTwist σ g)).map (QuotientGroup.mk' (slScalars ι F)) :=
-  le_map_fixHom_of_perfect (slTwist σ g) slScalars_le_center _ (slTwistBar_mk σ g) hJ hJf
 
 end CFSG.LieType.SemisimpleCentralizers.HeldLang

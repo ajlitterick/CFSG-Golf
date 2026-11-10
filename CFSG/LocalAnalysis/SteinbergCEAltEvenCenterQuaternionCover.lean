@@ -179,9 +179,6 @@ variable {n : ℕ}
     rw [Perm.inv_eq_iff_eq]
     exact (ha i hi).symm
 
-theorem mem_fixAbove {h : alternatingGroup (Fin 7)} :
-    h ∈ fixAbove n ↔ ∀ i : Fin 7, n ≤ i.val → (h : Perm (Fin 7)) i = i :=
-  Iff.rfl
 
 @[expose] def altExtendLow (hn : n ≤ 7) : alternatingGroup (Fin n) →* alternatingGroup (Fin 7) :=
   ((extendDomainHom (Fin.castLEquiv hn)).comp (alternatingGroup (Fin n)).subtype).codRestrict
@@ -191,10 +188,6 @@ theorem mem_fixAbove {h : alternatingGroup (Fin 7)} :
 theorem altExtendLow_injective (hn : n ≤ 7) : Function.Injective (altExtendLow hn) :=
   fun _ _ h => Subtype.ext (extendDomainHom_injective (Fin.castLEquiv hn) (congrArg Subtype.val h))
 
-theorem altExtendLow_apply_low (hn : n ≤ 7) (σ : alternatingGroup (Fin n)) (i : Fin n) :
-    (altExtendLow hn σ : Perm (Fin 7)) (Fin.castLE hn i) =
-      Fin.castLE hn ((σ : Perm (Fin n)) i) :=
-  extendDomain_apply_image (σ : Perm (Fin n)) (Fin.castLEquiv hn) i
 
 theorem altExtendLow_apply_high (hn : n ≤ 7) (σ : alternatingGroup (Fin n)) {x : Fin 7}
     (hx : n ≤ x.val) : (altExtendLow hn σ : Perm (Fin 7)) x = x :=
@@ -253,14 +246,6 @@ theorem altExtendLow_restrictLow (hn : n ≤ 7) (h : fixAbove n) :
     ((MulEquiv.subgroupCongr (range_altExtendLow hn)).symm h)
   exact congrArg Subtype.val this
 
-theorem restrictLow_apply (hn : n ≤ 7) (h : fixAbove n) (i : Fin n) :
-    (((restrictLow hn h : Perm (Fin n)) i : Fin n) : ℕ) =
-      (((h : Perm (Fin 7)) (Fin.castLE hn i) : Fin 7) : ℕ) := by
-  have e := congrArg (fun g : alternatingGroup (Fin 7) => (g : Perm (Fin 7)) (Fin.castLE hn i))
-    (altExtendLow_restrictLow hn h)
-  simp only [altExtendLow_apply_low] at e
-  rw [← e]
-  rfl
 
 theorem restrictLow_altExtendLow (hn : n ≤ 7) (σ : alternatingGroup (Fin n)) :
     restrictLow hn ⟨altExtendLow hn σ, range_altExtendLow hn ▸ ⟨σ, rfl⟩⟩ = σ := by
@@ -314,11 +299,6 @@ variable {n : ℕ}
     (hn : n ≤ 7) : altCoverE n →* alternatingGroup (Fin n) :=
   (restrictLow hn).toMonoidHom.comp (altSevenPi.subgroupComap (fixAbove n))
 
-theorem altCoverPi_apply
-    (hn : n ≤ 7) (e : altCoverE n) (i : Fin n) :
-    (((altCoverPi hn e : Perm (Fin n)) i : Fin n) : ℕ) =
-      (((altSevenPi (e : altSevenE) : Perm (Fin 7)) (Fin.castLE hn i) : Fin 7) : ℕ) :=
-  restrictLow_apply hn _ i
 
 theorem altSevenPi_altSevenZ
     : altSevenPi altSevenZ = 1 := by

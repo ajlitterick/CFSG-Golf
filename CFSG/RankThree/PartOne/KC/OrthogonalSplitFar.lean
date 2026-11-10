@@ -312,39 +312,6 @@ theorem spinAction_longRoot_mem_supportedDerived_pure {n : ℕ} (hcard : 2 < Nat
     simp
   · exact eichler_mem_orthDerived_of_ne_zero_ne_one hnd hν0 hν1 _ _
 
-omit [Finite F] in
-theorem coordPermHom_swap_mem_supportedDerived_pure {n : ℕ} (hcard : 2 < Nat.card F)
-    (S : Finset (Fin (n - 1))) {i j : Fin (n - 1)} (hi : i ∈ S) (hj : j ∈ S) :
-    coordPermHom (minusPlaneCoordinates (n := n) (F := F)) (Equiv.swap i j) ∈
-      supportedDerived (quadMinus n F b c) (pureSupport F n S) := by
-  by_cases hij : i = j
-  · subst hij
-    rw [Equiv.swap_self]
-    change coordPermHom (minusPlaneCoordinates (n := n) (F := F)) (1 : Equiv.Perm (Fin (n - 1))) ∈
-      supportedDerived (quadMinus n F b c) (pureSupport F n S)
-    rw [map_one]
-    exact Subgroup.one_mem (H := supportedDerived (quadMinus n F b c) (pureSupport F n S))
-  · rw [← spinAction_longWeyl_eq_coordPermHom (n := n) (F := F) (b := b) (c := c) hij]
-    rw [(minusFrame n b c).longWeyl_eq hij true false]
-    simp only [Bool.not_true, Bool.not_false, map_mul]
-    have h1 : spinAction (quadMinus n F b c)
-        ((minusFrame n b c).longRoot hij true false (.ofAdd 1)) ∈
-        supportedDerived (quadMinus n F b c) (pureSupport F n S) :=
-      spinAction_longRoot_mem_supportedDerived_pure hcard S hij hi hj true false 1
-    have h2 : spinAction (quadMinus n F b c)
-        ((minusFrame n b c).longRoot (Ne.symm hij) true false (.ofAdd (-1))) ∈
-        supportedDerived (quadMinus n F b c) (pureSupport F n S) :=
-      spinAction_longRoot_mem_supportedDerived_pure hcard S (Ne.symm hij) hj hi true false (-1)
-    refine Subgroup.mul_mem (H := supportedDerived (quadMinus n F b c) (pureSupport F n S)) ?_ h1
-    exact Subgroup.mul_mem (H := supportedDerived (quadMinus n F b c) (pureSupport F n S)) h1 h2
-
-theorem splitMinusRhoOfTwoLe_swap_mem_chartPure (r : ℕ) (hr : 2 ≤ r)
-    (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) (hcard : 2 < Nat.card F) (i j : Fin (r + 1)) :
-    splitMinusRhoOfTwoLe (r := r) (F := F) (b := b) (c := c) hirr hr (Equiv.swap i j) ∈
-      chartPure (n := r + 2) (F := F) (b := b) (c := c) ({i, j} : Finset (Fin (r + 1))) := by
-  refine Subgroup.mem_subgroupOf.mpr ?_
-  rw [coe_splitMinusRhoOfTwoLe_apply]
-  exact coordPermHom_swap_mem_supportedDerived_pure hcard _ (by simp) (by simp)
 
 theorem nodeOmega_le_chartPure (r : ℕ) (hr : 2 ≤ r)
     (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) (hcard : 2 < Nat.card F) {k : Fin (r + 1)}

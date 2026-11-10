@@ -24,9 +24,6 @@ theorem s3_cycle_eq_pow : ∀ a c : Perm (Fin 3), (∀ k, a k ≠ k) → (∀ k,
     a = c ∨ a = c ^ 2 := by
   decide
 
-theorem res3_cyc016_even : ∀ i : Fin 3, ∀ k : Fin 3,
-    r3fun (cyc016 ^ (i : ℕ)) (r3fun (cyc016 ^ (i : ℕ)) (r3fun (cyc016 ^ (i : ℕ)) k)) = k := by
-  decide +kernel
 
 theorem r3fun_swap01 : ∀ k : Fin 3, r3fun (swap 0 1) k = (swap 0 1 : Perm (Fin 3)) k := by
   decide +kernel
@@ -34,13 +31,6 @@ theorem r3fun_swap01 : ∀ k : Fin 3, r3fun (swap 0 1) k = (swap 0 1 : Perm (Fin
 theorem r3fun_swap23 : ∀ k : Fin 3, r3fun (swap 2 3) k = k := by
   decide +kernel
 
-theorem swap01_mem_stab016 : (swap 0 1 : Perm (Fin 7)) ∈ stab016 := q48_le_stab016 (by
-  rw [mem_q48_iff]
-  decide +kernel)
-
-theorem swap23_mem_stab016 : (swap 2 3 : Perm (Fin 7)) ∈ stab016 := q48_le_stab016 (by
-  rw [mem_q48_iff]
-  decide +kernel)
 
 theorem cyc016_pow_moves_vecTwo : ∀ i : Fin 3, i ≠ 0 →
     permAct7 (cyc016 ^ (i : ℕ)) vecTwo ≠ vecTwo := by

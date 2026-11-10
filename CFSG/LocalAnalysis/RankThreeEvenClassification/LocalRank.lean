@@ -95,34 +95,5 @@ theorem evenRank_eq_sup_twoLocalRanks (G : Type u) [Group G] [Finite G] :
     rw [← heq]
     exact twoLocalRank_le_evenRank prime hprime hodd G
 
-theorem local_rank_three_prime_cases (G : Type u) [Group G] [Finite G]
-    (hrank : evenRank G = 3) :
-    (∃ prime : ℕ, prime.Prime ∧ 3 < prime ∧ twoLocalRank prime G = 3) ∨
-    ((∀ prime : ℕ, prime.Prime → 3 < prime → twoLocalRank prime G < 3) ∧
-      twoLocalRank 3 G = 3) := by
-  rcases rank_three_prime_cases G hrank with hlarge | ⟨hsmall, subgroup, hlocal, heq⟩
-  · obtain ⟨prime, subgroup, hprime, hgreater, hlocal, heq⟩ := hlarge
-    left
-    refine ⟨prime, hprime, hgreater, ?_⟩
-    apply le_antisymm
-    · have hodd : prime ≠ 2 := by omega
-      simpa only [hrank] using twoLocalRank_le_evenRank prime hprime hodd G
-    · rw [← heq]
-      exact pRank_le_twoLocalRank prime hprime subgroup hlocal
-  · right
-    constructor
-    · intro prime hprime hgreater
-      have hbound : twoLocalRank prime G ≤ 2 := by
-        apply csSup_le'
-        rintro rank ⟨other, hother, hrankeq⟩
-        have hlt := hsmall prime other hprime hgreater hother
-        omega
-      omega
-    · apply le_antisymm
-      · simpa only [hrank] using twoLocalRank_le_evenRank 3 Nat.prime_three (by omega) G
-      · calc
-          3 = pRank 3 subgroup := heq.symm
-          _ ≤ twoLocalRank 3 G :=
-            pRank_le_twoLocalRank 3 Nat.prime_three subgroup hlocal
 
 end CFSG.RankThreeEvenClassification.Helpers

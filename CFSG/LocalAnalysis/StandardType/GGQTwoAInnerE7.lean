@@ -203,7 +203,6 @@ private lemma ggQ2xE7_sum_smul_single {n : ℕ} (i : Fin n) (x : ZMod 3) :
     simp [Pi.smul_apply, Pi.single_eq_of_ne hj, smul_eq_mul]
   · intro hi; exact absurd (Finset.mem_univ i) hi
 
-private lemma ggQ2xE7_wordList_nodup : ggQ2xE7_wordList.Nodup := by decide +kernel
 
 private lemma ggQ2xE7_wordList_isT :
     ggQ2xE7_wordList.Forall (fun v : GGBCV 8 =>
@@ -332,11 +331,6 @@ private lemma ggQ2xE7_proj_spec (v : GGBCV 8) :
     (ggQ2xE7_proj v : GGBCV 8) + ggQ2xE7_c v • (1 : GGBCV 8) = v := by
   simp [ggQ2xE7_proj]
 
-private lemma ggQ2xE7_c_one : ggQ2xE7_c (1 : GGBCV 8) = 1 := by decide
-
-private lemma ggQ2xE7_proj_one : ggQ2xE7_proj (1 : GGBCV 8) = 0 := by
-  ext
-  simp [ggQ2xE7_proj, ggQ2xE7_c_one]
 
 private lemma ggQ2xE7_ggBCDot_apply (c v : GGBCV 8) : ggBCDot c v = c ⬝ᵥ v := by
   simp only [ggBCDot, LinearMap.sum_apply, LinearMap.smul_apply, LinearMap.proj_apply,
@@ -648,8 +642,6 @@ private lemma ggQ2xE7_reflGp_isometry :
     exact h.symm
 
 
-
-
 private noncomputable def ggQ2xE7_idx : Fin 7 → ggQ2xE7_D.ι := fun j => j
 
 private noncomputable def ggQ2xE7_vec : ggQ2xE7_H → ggQ2xE7_D.V := fun v => v
@@ -659,10 +651,6 @@ private noncomputable def ggQ2xE7_vecInv : ggQ2xE7_D.V → ggQ2xE7_H := fun v =>
 private lemma ggQ2xE7_vec_vecInv (v : ggQ2xE7_D.V) : ggQ2xE7_vec (ggQ2xE7_vecInv v) = v := rfl
 
 private lemma ggQ2xE7_vecInv_vec (v : ggQ2xE7_H) : ggQ2xE7_vecInv (ggQ2xE7_vec v) = v := rfl
-
-example (v : ggQ2xE7_H) : ggQ2xE7_vecInv (ggQ2xE7_vec v) = v := rfl
-example (v : ggQ2xE7_D.V) : ggQ2xE7_vec (ggQ2xE7_vecInv v) = v := rfl
-example (j : Fin 7) : ggQ2xE7_idx j = (j : ggQ2xE7_D.ι) := rfl
 
 
 private noncomputable def ggQ2xE7_val (v : ggQ2xE7_D.V) : GGBCV 8 :=
@@ -717,7 +705,6 @@ private lemma ggQ2xE7_z_mem_TH (k : Fin 7) : ggQ2xE7_D.coroot (ggQ2xE7_idx k) �
 
 private noncomputable def ggQ2xE7_idx_inv : ggQ2xE7_D.ι → Fin 7 := fun k => k
 
-private lemma ggQ2xE7_idx_inv_idx (j : Fin 7) : ggQ2xE7_idx_inv (ggQ2xE7_idx j) = j := rfl
 
 private lemma ggQ2xE7_val_simpleRefl (j : Fin 7) (v : ggQ2xE7_D.V) :
     ggQ2xE7_val (ggQ2xE7_D.simpleRefl (ggQ2xE7_idx j) v) =
@@ -835,7 +822,6 @@ private lemma ggQ2xE7_z_hc (k : Fin 7) : ggQ2xE7_z k ⬝ᵥ ggQ2xE7_z k ≠ 0 :=
   rw [ggQ2xE7_z_hc_eq]; decide
 
 
-
 private noncomputable def ggQ2xE7_tauD : ggQ2xE7_H ≃ₗ[ZMod 3] ggQ2xE7_D.V where
   toFun := ggQ2xE7_vec
   invFun := ggQ2xE7_vecInv
@@ -855,7 +841,6 @@ private lemma ggQ2xE7_resHomD_apply (g : ggQ2xE7_K) (x : ggQ2xE7_H) :
   rw [ggLinConj_apply, show ggQ2xE7_vec x = ggQ2xE7_tauD x from rfl,
     LinearEquiv.symm_apply_apply]
   rfl
-
 
 
 private lemma ggQ2xE7_act_eq_refl (j : Fin 7) (v : GGBCV 8) :
@@ -918,20 +903,12 @@ private lemma ggQ2xE7_val_smul (a : ZMod 3) (y : ggQ2xE7_D.V) :
   rw [show ggQ2xE7_vecInv (a • y) = a • ggQ2xE7_vecInv y from rfl, Submodule.coe_smul]
   rfl
 
-private lemma ggQ2xE7_val_vec (y : ggQ2xE7_D.V) :
-    ggQ2xE7_val (ggQ2xE7_vec y) = ggQ2xE7_val y := rfl
-
-private lemma ggQ2xE7_val_vecInv (y : ggQ2xE7_H) :
-    ggQ2xE7_val (ggQ2xE7_vec y) = (y : GGBCV 8) := rfl
 
 private lemma ggQ2xE7_root_eq (k : ggQ2xE7_D.ι) (y : ggQ2xE7_D.V) :
     ggQ2xE7_D.root k y = ggQ2xE7_z (ggQ2xE7_idx_inv k) ⬝ᵥ ggQ2xE7_val y := by
   show ggBCDot (ggQ2xE7_z (ggQ2xE7_idx_inv k)) (ggQ2xE7_val y) = _
   rw [ggQ2xE7_ggBCDot_apply]
 
-private lemma ggQ2xE7_val_refl_apply (v : GGBCV 8) (hc : v ⬝ᵥ v ≠ 0) (y : GGBCV 8) :
-    ggBCRefl v hc y = y - (2 / (v ⬝ᵥ v) * (v ⬝ᵥ y)) • v :=
-  ggQ2xE7_ggBCRefl_apply v hc y
 
 private lemma ggQ2xE7_resHomD_refl_apply (v : GGBCV 8) (hv : v ∈ ggQ2xE7_T)
     (hc : v ⬝ᵥ v ≠ 0) (x : ggQ2xE7_D.V) :
@@ -998,19 +975,14 @@ private lemma ggQ2xE7_resHomD_weyl_subset :
     ⟨ggQ2xE7_z (ggQ2xE7_idx_inv k), ggQ2xE7_z_mem_T _, ggQ2xE7_z_hc _, rfl⟩
 
 
-
 private lemma ggQ2xE7_ggBCRefl_hc (v : GGBCV 8) (h1 h2 : v ⬝ᵥ v ≠ 0) :
     ggBCRefl v h1 = ggBCRefl v h2 := by
   refine LinearEquiv.ext (fun y => ?_)
   rw [ggQ2xE7_ggBCRefl_apply v h1 y]
 
 
-
-
 private lemma ggQ2xE7_val_mk (v : GGBCV 8) (h : v ∈ ggQ2xE7_H) :
     ggQ2xE7_val (⟨v, h⟩ : ggQ2xE7_D.V) = v := rfl
-
-
 
 
 private lemma ggQ2xE7_conj_simpleRefl_D_symm (k : ggQ2xE7_D.ι)
@@ -1072,7 +1044,6 @@ private lemma ggQ2xE7_refl_mem_T (c : GGBCV 8) (hcT : c ∈ ggQ2xE7_T)
   exact h3
 
 
-
 private lemma ggQ2xE7_reflGp_image_T :
     ∀ b ∈ ggBCReflGp ggQ2xE7_T, b '' ggQ2xE7_T = ggQ2xE7_T := by
   intro b hb
@@ -1105,7 +1076,6 @@ private lemma ggQ2xE7_reflGp_mem_T :
   have h := ggQ2xE7_reflGp_image_T b hb
   have hmem : b v ∈ b '' ggQ2xE7_T := ⟨v, hv, rfl⟩
   rwa [h] at hmem
-
 
 
 private lemma ggQ2xE7_conj_simpleRefl_D_inv (k : ggQ2xE7_D.ι)

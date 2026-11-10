@@ -22,15 +22,6 @@ variable {G : Type} [Group G]
       Multiplicative.toAdd (β v) =
         ((α ℓ : Matrix.GeneralLinearGroup ι F) : Matrix ι ι F).mulVec (Multiplicative.toAdd (β u))
 
-theorem isMatrixBlockType_iff_exists_with (L : Subgroup G) {ι : Type} [Fintype ι] [DecidableEq ι]
-    {F : Type} [Field F] (H : Subgroup (Matrix.GeneralLinearGroup ι F)) :
-    IsMatrixBlockType L H ↔ ∃ (α : ↥L →* ↥H) (β : ↥(blockU L) →* Multiplicative (ι → F)),
-      IsMatrixBlockTypeWith L H α β := by
-  constructor
-  · rintro ⟨α, hα, hker, β, hβ, hβker, hβeq⟩
-    exact ⟨α, β, hα, hker, hβ, hβker, hβeq⟩
-  · rintro ⟨α, β, hα, hker, hβ, hβker, hβeq⟩
-    exact ⟨α, hα, hker, β, hβ, hβker, hβeq⟩
 
 @[expose] def IsNaturalSectionWith (A V Z : Subgroup G) (N : Subgroup ↥A) {ι : Type} [Fintype ι]
     [DecidableEq ι] {F : Type} [Field F] (Γ : Subgroup (Matrix.GeneralLinearGroup ι F))

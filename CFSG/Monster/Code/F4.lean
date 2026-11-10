@@ -41,7 +41,6 @@ instance : Mul F4 := ⟨fun x y => ⟨x.re * y.re + x.im * y.im, x.re * y.im + x
 instance : Inv F4 := ⟨fun x => x * x⟩
 instance : Div F4 := ⟨fun x y => x * (y * y)⟩
 
-theorem zero_def : (0 : F4) = ⟨0, 0⟩ := rfl
 theorem one_def : (1 : F4) = ⟨1, 0⟩ := rfl
 theorem add_def (x y : F4) : x + y = ⟨x.re + y.re, x.im + y.im⟩ := rfl
 theorem mul_def (x y : F4) :
@@ -80,15 +79,6 @@ instance : Field F4 where
 
 @[expose] def ᾱ : F4 := ⟨1, 1⟩
 
-theorem α_sq : α ^ 2 = α + 1 := by decide
-
-theorem α_mul_α : α * α = α + 1 := by decide
-
-theorem ᾱ_eq : ᾱ = α + 1 := by decide
-
-theorem α_mul_ᾱ : α * ᾱ = 1 := by decide
-
-theorem ᾱ_mul_ᾱ : ᾱ * ᾱ = α := by decide
 
 theorem two_eq_zero : (2 : F4) = 0 := by decide
 

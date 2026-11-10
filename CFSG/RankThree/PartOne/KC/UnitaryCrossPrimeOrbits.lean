@@ -46,22 +46,6 @@ theorem commute_specialBlock_of_ne (a b : primaryFactors (x : Module.End K V))
   exact commute_of_disjoint H (adjointOrbits_disjoint H hO hO' hne)
     (specialBlock_le_orbitFactor hg) (specialBlock_le_orbitFactor hg')
 
-include H in
-theorem specialBlock_dualFactor (hq : 4 ≤ ℓ ^ f) (a : primaryFactors (x : Module.End K V))
-    (hm : 2 ≤ primaryMultiplicity (x : Module.End K V) (a : K[X])) :
-    specialBlock B x (dualFactor H a : K[X]) = specialBlock B x (a : K[X]) := by
-  have hmb : primaryMultiplicity (x : Module.End K V) ((dualFactor H a : primaryFactors
-      (x : Module.End K V)) : K[X]) = primaryMultiplicity (x : Module.End K V) (a : K[X]) :=
-    primaryMultiplicity_dualPoly H a.2
-  have hset : orbitFactor B x ((dualFactor H a : primaryFactors (x : Module.End K V)) : K[X]) =
-      orbitFactor B x (a : K[X]) := by
-    unfold orbitFactor
-    have : dualPoly hK.bar (dualPoly hK.bar (a : K[X])) = a := dualPoly_dualPoly_of_mem H a.2
-    change supportedUnitary B x {dualPoly hK.bar (a : K[X]),
-      dualPoly hK.bar (dualPoly hK.bar (a : K[X]))} = _
-    rw [this, Set.pair_comm]
-  rw [← (specialBlockFacts H hq a).commutator_eq hm,
-    ← (specialBlockFacts H hq (dualFactor H a)).commutator_eq (by omega), hset]
 
 include H in
 theorem commutator_unitaryCentralizer_eq_iSup_specialBlock (hq : 4 ≤ ℓ ^ f) :
@@ -157,13 +141,6 @@ variable {σ : K →+* K}
       exact this.symm
     exact Subtype.ext (Commute.units_inv_left h2).symm.eq
 
-omit [FiniteDimensional K V] in
-theorem mem_centerUnitary {B : V →ₛₗ[σ] V →ₗ[K] K} {x : LinearMap.GeneralLinearGroup K V}
-    {g : LinearMap.GeneralLinearGroup K V} :
-    g ∈ centerUnitary B x ↔ g ∈ sesqUnitaryGroup B ∧
-      ∃ hz : (g : Module.End K V) ∈ commutant (x : Module.End K V),
-        (⟨(g : Module.End K V), hz⟩ : commutant (x : Module.End K V)) ∈
-          Subalgebra.center K (commutant (x : Module.End K V)) := Iff.rfl
 
 variable {B : V →ₛₗ[σ] V →ₗ[K] K} {x : LinearMap.GeneralLinearGroup K V}
 

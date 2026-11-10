@@ -28,10 +28,6 @@ theorem y443_Y_comm_C :
 theorem y443S_inv :
     y443S⁻¹ = y443S := inv_eq_of_mul_eq_one_right y443S_mul_self
 
-theorem y443S_conj
-    (hcx : (y443C * y443X) ^ 3 = 1) : y443S * y443C * y443S = y443Y :=
-  CFSG.Monster.Tri.coxeter_conj y443X_mul_self y443C_mul_self y443Y_mul_self
-    y443_Y_comm_C.symm hcx y443_xy_cube
 
 theorem fM_c_mul_self :
     fM y443C * fM y443C = 1 := by
@@ -90,10 +86,6 @@ theorem fM_S_conj
     (by rw [← map_mul, ← map_pow, y443_xy_cube, map_one])
   simpa [y443S, map_mul] using h
 
-theorem fM_cx_cube_of_source
-    (hcx : (y443C * y443X) ^ 3 = 1) :
-    (fM y443C * fM y443X) ^ 3 = 1 := by
-  rw [← map_mul, ← map_pow, hcx, map_one]
 
 theorem coe_fM_S_smul
     (hcx : (fM y443C * fM y443X) ^ 3 = 1) :

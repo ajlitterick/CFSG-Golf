@@ -146,8 +146,6 @@ theorem toMat_mulVec (A : Mc) (hA : A.Valid) (v : ℕ) :
     Matrix.head_cons, Matrix.tail_cons]
   ring
 
-theorem toMat_apply (A : Mc) (i j : Fin 3) :
-    A.toMat i j = decV (![A.c0, A.c1, A.c2] j) i := rfl
 
 theorem toMat_mul (A B : Mc) (hA : A.Valid) (hB : B.Valid) :
     (A.mul B).toMat = A.toMat * B.toMat := by

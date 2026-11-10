@@ -274,19 +274,6 @@ theorem sigma_xm (θ : k →+* k) {γ : Fin (Tag.rank .E6) → ℤ} (hγ : IsRoo
       e6Data_valid.xm k (rho γ) ((twistSign γ : k) * θ c) :=
   Subtype.ext (sigmaGL_xu_eq θ hγ c)
 
-theorem map_sigma_rootGroup (θ : k →+* k) (hθ : Function.Surjective θ)
-    {γ : Fin (Tag.rank .E6) → ℤ} (hγ : IsRoot .E6 γ) :
-    (e6Data_valid.rootGroup k γ).map (sigma k θ) = e6Data_valid.rootGroup k (rho γ) := by
-  ext g
-  simp only [Subgroup.mem_map, MinData.Valid.mem_rootGroup]
-  constructor
-  · rintro ⟨_, ⟨c, rfl⟩, rfl⟩
-    exact ⟨_, (sigma_xm θ hγ c).symm⟩
-  · rintro ⟨c, rfl⟩
-    obtain ⟨d, hd⟩ := hθ ((twistSign γ : k) * c)
-    refine ⟨_, ⟨d, rfl⟩, ?_⟩
-    rw [sigma_xm θ hγ d, hd, ← mul_assoc]
-    rcases twistSign_eq_one_or γ with h | h <;> simp [h]
 
 end Sigma
 

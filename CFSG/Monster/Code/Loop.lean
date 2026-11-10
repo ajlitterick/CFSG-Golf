@@ -47,7 +47,6 @@ instance : One Parker := ⟨⟨0, 0⟩⟩
 
 @[expose] def omega : Parker := ⟨⟨Ω, Ω_mem_C⟩, 0⟩
 
-@[expose] def negOmega : Parker := ⟨⟨Ω, Ω_mem_C⟩, 1⟩
 
 theorem mul_def (x y : Parker) :
     x * y = ⟨x.code + y.code, x.sign + y.sign + θ x.code y.code⟩ := rfl

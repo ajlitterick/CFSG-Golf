@@ -88,16 +88,6 @@ theorem surjective_ker_quotient [hNn : (N.subgroupOf B).Normal] (hAB : A ≤ B)
     rw [QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf]
     exact ⟨fun h => ⟨x.2, h⟩, fun h => h.2⟩
 
-theorem exists_mulEquiv_quotient [hNn : (N.subgroupOf B).Normal] [(D.subgroupOf A).Normal]
-    (hAB : A ≤ B) (hD : A ⊓ N = D) (hfac : ∀ b ∈ B, ∃ a ∈ A, ∃ n ∈ N, b = a * n) :
-    ∃ e : (A ⧸ D.subgroupOf A) ≃* (B ⧸ N.subgroupOf B),
-      ∀ a : A, e (QuotientGroup.mk a) = QuotientGroup.mk (Subgroup.inclusion hAB a) := by
-  obtain ⟨φ, hφa, hφ, hker⟩ := surjective_ker_quotient (N := N) hAB hfac
-  rw [hD] at hker
-  refine ⟨(QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective φ hφ), fun a => ?_⟩
-  rw [MulEquiv.trans_apply, QuotientGroup.quotientMulEquivOfEq_mk]
-  exact hφa a
 
 theorem natCard_mul_natCard_inf [Finite G] [hNn : (N.subgroupOf B).Normal] (hAB : A ≤ B)
     (hNB : N ≤ B) (hfac : ∀ b ∈ B, ∃ a ∈ A, ∃ n ∈ N, b = a * n) :
@@ -173,9 +163,6 @@ omit [Finite G] in
 theorem O_le_C : oddCoreImg R ≤ Subgroup.centralizer ({t} : Set G) :=
   (oddCoreImg_le R).trans d.le_C
 
-omit [Finite G] in
-theorem commute_t_O {o : G} (ho : o ∈ oddCoreImg R) : t * o = o * t := by
-  exact Subgroup.mem_centralizer_iff.mp (d.O_le_C ho) t rfl
 
 theorem inf_O_S : oddCoreImg R ⊓ S = ⊥ := by
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
@@ -283,13 +270,6 @@ theorem exists_mul_M_O {h : G} (hh : h ∈ Subgroup.centralizer ({t} : Set G)) :
       _ = s * o * (r⁻¹ * h) := by rw [← hro]
       _ = s * (r⁻¹ * h) * ((r⁻¹ * h)⁻¹ * o * (r⁻¹ * h)) := by group
 
-theorem exists_mul_O_M {h : G} (hh : h ∈ Subgroup.centralizer ({t} : Set G)) :
-    ∃ o ∈ oddCoreImg R, ∃ m ∈ Subgroup.normalizer (S : Set G), h = o * m := by
-  obtain ⟨m, hm, o, ho, he⟩ := d.exists_mul_M_O ((Subgroup.centralizer ({t} : Set G)).inv_mem hh)
-  refine ⟨o⁻¹, (oddCoreImg R).inv_mem ho, m⁻¹, (Subgroup.normalizer (S : Set G)).inv_mem hm, ?_⟩
-  have : h = (h⁻¹)⁻¹ := (inv_inv h).symm
-  rw [this, he]
-  group
 
 theorem inf_O_M : oddCoreImg R ⊓ Subgroup.normalizer (S : Set G) =
     oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) := by
@@ -307,21 +287,6 @@ theorem inf_O_M : oddCoreImg R ⊓ Subgroup.normalizer (S : Set G) =
   · rintro ⟨ho, hc⟩
     exact ⟨ho, Subgroup.centralizer_le_normalizer _ hc⟩
 
-theorem M_le_normalizer_D : Subgroup.normalizer (S : Set G) ≤
-    Subgroup.normalizer
-      ((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) : Subgroup G) : Set G) := by
-  refine le_normalizer_of_conj_mem fun m hm o ho => ?_
-  refine ⟨d.conj_mem_O (d.M_le_C hm) ho.1, ?_⟩
-  show m * o * m⁻¹ ∈ Subgroup.centralizer (S : Set G)
-  rw [Subgroup.mem_centralizer_iff]
-  intro x hx
-  have hxm : m⁻¹ * x * m ∈ S := by
-    have := (Subgroup.mem_normalizer_iff.mp ((Subgroup.normalizer (S : Set G)).inv_mem hm) x).mp hx
-    simpa using this
-  have h1 := Subgroup.mem_centralizer_iff.mp ho.2 _ hxm
-  calc x * (m * o * m⁻¹) = m * ((m⁻¹ * x * m) * o) * m⁻¹ := by group
-    _ = m * (o * (m⁻¹ * x * m)) * m⁻¹ := by rw [h1]
-    _ = (m * o * m⁻¹) * x := by group
 
 theorem C_le_normalizer_O : Subgroup.centralizer ({t} : Set G) ≤
     Subgroup.normalizer ((oddCoreImg R : Subgroup G) : Set G) :=
@@ -331,31 +296,6 @@ theorem normal_O_subgroupOf :
     ((oddCoreImg R).subgroupOf (Subgroup.centralizer ({t} : Set G))).Normal :=
   (Subgroup.normal_subgroupOf_iff_le_normalizer d.O_le_C).mpr d.C_le_normalizer_O
 
-omit [Finite G] d in
-theorem D_le_M :
-    oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) ≤ Subgroup.normalizer (S : Set G) :=
-  fun _ hx => Subgroup.centralizer_le_normalizer _ hx.2
-
-theorem normal_D_subgroupOf :
-    ((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-      (Subgroup.normalizer (S : Set G))).Normal :=
-  (Subgroup.normal_subgroupOf_iff_le_normalizer D_le_M).mpr d.M_le_normalizer_D
-
-theorem exists_mulEquiv_M_H
-    [((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-      (Subgroup.normalizer (S : Set G))).Normal]
-    [((oddCoreImg R).subgroupOf (Subgroup.centralizer ({t} : Set G))).Normal] :
-    ∃ e : (Subgroup.normalizer (S : Set G) ⧸
-        (oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-          (Subgroup.normalizer (S : Set G))) ≃*
-      (Subgroup.centralizer ({t} : Set G) ⧸
-        (oddCoreImg R).subgroupOf (Subgroup.centralizer ({t} : Set G))),
-      ∀ m : Subgroup.normalizer (S : Set G), e (QuotientGroup.mk m) =
-        QuotientGroup.mk (Subgroup.inclusion (fun _ hm => d.M_le_C hm) m) :=
-  exists_mulEquiv_quotient (A := Subgroup.normalizer (S : Set G))
-    (B := Subgroup.centralizer ({t} : Set G)) (N := oddCoreImg R)
-    (D := oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)) (fun _ hm => d.M_le_C hm)
-    (by rw [inf_comm]; exact d.inf_O_M) fun _ hh => d.exists_mul_M_O hh
 
 theorem relIndex_M_H :
     (Subgroup.normalizer (S : Set G)).relIndex (Subgroup.centralizer ({t} : Set G)) =
@@ -423,34 +363,6 @@ theorem card_sylow : Nat.card {P : Subgroup G // IsSylow2Of P R} =
   rw [Subgroup.relIndex, Subgroup.index_eq_card]
   exact (Nat.card_congr (Equiv.ofBijective g hg)).symm
 
-theorem inf_conj_eq_centralizer {o : G} (ho : o ∈ oddCoreImg R) :
-    S ⊓ conjSubgroup o S = S ⊓ Subgroup.centralizer ({o} : Set G) := by
-  ext x
-  constructor
-  · rintro ⟨hx, hxo⟩
-    refine ⟨hx, ?_⟩
-    have hxo' : x ∈ conjSubgroup o S := hxo
-    rw [mem_conjSubgroup_iff] at hxo'
-    have h1 := d.conj_eq_of_mem ((oddCoreImg R).inv_mem ho) hx (by simpa using hxo')
-    have h2 : o⁻¹ * x * o = x := by simpa using h1
-    show x ∈ Subgroup.centralizer ({o} : Set G)
-    rw [Subgroup.mem_centralizer_iff]
-    intro h hh
-    rw [Set.mem_singleton_iff] at hh
-    subst hh
-    calc h * x = h * (h⁻¹ * x * h) := by rw [h2]
-      _ = x * h := by group
-  · rintro ⟨hx, hxc⟩
-    refine ⟨hx, ?_⟩
-    show x ∈ conjSubgroup o S
-    rw [mem_conjSubgroup_iff]
-    have hc := Subgroup.mem_centralizer_iff.mp hxc o rfl
-    have : o⁻¹ * x * o = x := by
-      calc o⁻¹ * x * o = o⁻¹ * (x * o) := by rw [mul_assoc]
-        _ = o⁻¹ * (o * x) := by rw [hc]
-        _ = x := by group
-    rw [this]
-    exact hx
 
 omit [Finite G] in
 theorem mem_C_of_conj_mem {g : G} (hg : g * t * g⁻¹ ∈ S) :
@@ -502,38 +414,6 @@ section Local
 variable {P : Subgroup G} (hP1 : P ≠ ⊥) (hPS : P ≤ S)
 include hP1 hPS
 
-omit [Finite G] in
-theorem normalizer_le_C :
-    Subgroup.normalizer (P : Set G) ≤ Subgroup.centralizer ({t} : Set G) := fun _ hg =>
-  d.fusion_mem_C hP1 hPS (by rw [conjSubgroup_eq_self_iff.mpr hg]; exact hPS)
-
-theorem normalizer_le_normalizer_K : Subgroup.normalizer (P : Set G) ≤
-    Subgroup.normalizer ((oddCoreImg R ⊓ Subgroup.centralizer (P : Set G) : Subgroup G) : Set G) :=
-  le_normalizer_of_conj_mem fun g hg k hk => by
-    refine ⟨d.conj_mem_O (d.normalizer_le_C hP1 hPS hg) hk.1, ?_⟩
-    show g * k * g⁻¹ ∈ Subgroup.centralizer (P : Set G)
-    rw [Subgroup.mem_centralizer_iff]
-    intro p hp
-    have hp' : g⁻¹ * p * g ∈ P := by
-      have := (Subgroup.mem_normalizer_iff.mp
-        ((Subgroup.normalizer (P : Set G)).inv_mem hg) p).mp hp
-      simpa using this
-    have h1 := Subgroup.mem_centralizer_iff.mp hk.2 _ hp'
-    calc p * (g * k * g⁻¹) = g * ((g⁻¹ * p * g) * k) * g⁻¹ := by group
-      _ = g * (k * (g⁻¹ * p * g)) * g⁻¹ := by rw [h1]
-      _ = (g * k * g⁻¹) * p := by group
-
-omit hP1 in
-theorem inf_K_M : (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) ⊓
-    Subgroup.normalizer (S : Set G) = oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) := by
-  ext x
-  constructor
-  · rintro ⟨⟨ho, _⟩, hm⟩
-    have : x ∈ oddCoreImg R ⊓ Subgroup.normalizer (S : Set G) := ⟨ho, hm⟩
-    rwa [d.inf_O_M] at this
-  · rintro ⟨ho, hc⟩
-    exact ⟨⟨ho, Subgroup.centralizer_le (fun y hy => hPS hy) hc⟩,
-      Subgroup.centralizer_le_normalizer _ hc⟩
 
 theorem factor_normalizer {g : G} (hg : g ∈ Subgroup.normalizer (P : Set G)) :
     ∃ m ∈ Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G),
@@ -580,14 +460,6 @@ theorem factor_centralizer {g : G} (hg : g ∈ Subgroup.centralizer (P : Set G))
     intro p hp
     exact (hoc p hp).symm
 
-omit [Finite G] d hP1 in
-theorem D_le_K : oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) ≤
-    oddCoreImg R ⊓ Subgroup.centralizer (P : Set G) :=
-  fun _ hx => ⟨hx.1, Subgroup.centralizer_le (fun _ hy => hPS hy) hx.2⟩
-
-omit d hP1 hPS in
-theorem odd_K : Odd (Nat.card (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G) : Subgroup G)) :=
-  (odd_natCard_oddCoreImg R).of_dvd_nat (Subgroup.card_dvd_of_le inf_le_left)
 
 theorem normalizer_eq : Subgroup.normalizer (P : Set G) =
     (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) ⊔
@@ -607,111 +479,6 @@ theorem centralizer_eq : Subgroup.centralizer (P : Set G) =
   rw [sup_comm]
   exact Subgroup.mul_mem_sup hm ho
 
-theorem exists_mulEquiv_normalizer
-    [((oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)).subgroupOf
-      (Subgroup.normalizer (P : Set G))).Normal]
-    [((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-      (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G))).Normal] :
-    ∃ e : ((Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G) : Subgroup G) ⧸
-        (oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-          (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G))) ≃*
-      ((Subgroup.normalizer (P : Set G)) ⧸
-        (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)).subgroupOf
-          (Subgroup.normalizer (P : Set G))),
-      ∀ a : ↥(Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G)),
-        e (QuotientGroup.mk a) = QuotientGroup.mk (Subgroup.inclusion inf_le_right a) := by
-  refine exists_mulEquiv_quotient (A := Subgroup.normalizer (S : Set G) ⊓
-      Subgroup.normalizer (P : Set G)) (B := Subgroup.normalizer (P : Set G))
-    (N := oddCoreImg R ⊓ Subgroup.centralizer (P : Set G))
-    (D := oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)) inf_le_right ?_
-    fun g hg => d.factor_normalizer hP1 hPS hg
-  ext x
-  constructor
-  · rintro ⟨⟨hm, _⟩, hk⟩
-    rw [← d.inf_K_M hPS]
-    exact ⟨hk, hm⟩
-  · intro hx
-    exact ⟨⟨D_le_M hx, Subgroup.centralizer_le_normalizer _
-      (Subgroup.centralizer_le (fun y hy => hPS hy) hx.2)⟩, D_le_K hPS hx⟩
-
-theorem exists_mulEquiv_centralizer
-    [((oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)).subgroupOf
-      (Subgroup.centralizer (P : Set G))).Normal]
-    [((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-      (Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G))).Normal] :
-    ∃ e : ((Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G) : Subgroup G) ⧸
-        (oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).subgroupOf
-          (Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G))) ≃*
-      ((Subgroup.centralizer (P : Set G)) ⧸
-        (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)).subgroupOf
-          (Subgroup.centralizer (P : Set G))),
-      ∀ a : ↥(Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G)),
-        e (QuotientGroup.mk a) = QuotientGroup.mk (Subgroup.inclusion inf_le_right a) := by
-  refine exists_mulEquiv_quotient (A := Subgroup.normalizer (S : Set G) ⊓
-      Subgroup.centralizer (P : Set G)) (B := Subgroup.centralizer (P : Set G))
-    (N := oddCoreImg R ⊓ Subgroup.centralizer (P : Set G))
-    (D := oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)) inf_le_right ?_
-    fun g hg => d.factor_centralizer hP1 hPS hg
-  ext x
-  constructor
-  · rintro ⟨⟨hm, _⟩, hk⟩
-    rw [← d.inf_K_M hPS]
-    exact ⟨hk, hm⟩
-  · intro hx
-    exact ⟨⟨D_le_M hx, Subgroup.centralizer_le (fun y hy => hPS hy) hx.2⟩, D_le_K hPS hx⟩
-
-theorem relIndex_eq :
-    (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G)).relIndex
-        (Subgroup.normalizer (P : Set G)) =
-      (oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).relIndex
-        (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) ∧
-    (Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G)).relIndex
-        (Subgroup.centralizer (P : Set G)) =
-      (oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).relIndex
-        (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) ∧
-    Odd ((oddCoreImg R ⊓ Subgroup.centralizer (S : Set G)).relIndex
-        (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G))) := by
-  have hKN : oddCoreImg R ⊓ Subgroup.centralizer (P : Set G) ≤ Subgroup.normalizer (P : Set G) :=
-    fun _ hk => Subgroup.centralizer_le_normalizer _ hk.2
-  have hKC : oddCoreImg R ⊓ Subgroup.centralizer (P : Set G) ≤ Subgroup.centralizer (P : Set G) :=
-    inf_le_right
-  have hnN := (Subgroup.normal_subgroupOf_iff_le_normalizer hKN).mpr
-    (d.normalizer_le_normalizer_K hP1 hPS)
-  have hnC := (Subgroup.normal_subgroupOf_iff_le_normalizer hKC).mpr
-    (fun g hg => d.normalizer_le_normalizer_K hP1 hPS (Subgroup.centralizer_le_normalizer _ hg))
-  have h1 := relIndex_eq_relIndex_inf (A := Subgroup.normalizer (S : Set G) ⊓
-      Subgroup.normalizer (P : Set G)) (B := Subgroup.normalizer (P : Set G))
-    (N := oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) inf_le_right hKN
-    fun g hg => d.factor_normalizer hP1 hPS hg
-  have h2 := relIndex_eq_relIndex_inf (A := Subgroup.normalizer (S : Set G) ⊓
-      Subgroup.centralizer (P : Set G)) (B := Subgroup.centralizer (P : Set G))
-    (N := oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) inf_le_right hKC
-    fun g hg => d.factor_centralizer hP1 hPS hg
-  have e1 : (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (P : Set G)) ⊓
-      (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) =
-      oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) := by
-    ext x
-    constructor
-    · rintro ⟨⟨hm, _⟩, hk⟩
-      rw [← d.inf_K_M hPS]
-      exact ⟨hk, hm⟩
-    · intro hx
-      exact ⟨⟨D_le_M hx, Subgroup.centralizer_le_normalizer _
-        (Subgroup.centralizer_le (fun y hy => hPS hy) hx.2)⟩, D_le_K hPS hx⟩
-  have e2 : (Subgroup.normalizer (S : Set G) ⊓ Subgroup.centralizer (P : Set G)) ⊓
-      (oddCoreImg R ⊓ Subgroup.centralizer (P : Set G)) =
-      oddCoreImg R ⊓ Subgroup.centralizer (S : Set G) := by
-    ext x
-    constructor
-    · rintro ⟨⟨hm, _⟩, hk⟩
-      rw [← d.inf_K_M hPS]
-      exact ⟨hk, hm⟩
-    · intro hx
-      exact ⟨⟨D_le_M hx, Subgroup.centralizer_le (fun y hy => hPS hy) hx.2⟩, D_le_K hPS hx⟩
-  rw [e1] at h1
-  rw [e2] at h2
-  refine ⟨h1, h2, ?_⟩
-  exact (odd_K (R := R) (P := P)).of_dvd_nat (Subgroup.relIndex_dvd_card _ _)
 
 end Local
 

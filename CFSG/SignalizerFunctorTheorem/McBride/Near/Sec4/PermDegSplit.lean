@@ -21,9 +21,6 @@ universe u v
     rw [map_mul]
     rfl
 
-theorem restrictHom_apply_coe {K : Type*} [Group K] {Ω : Type*} (f : K →* Equiv.Perm Ω)
-    (p : Ω → Prop) (hp : ∀ k ω, p (f k ω) ↔ p ω) (k : K) (ω : {ω // p ω}) :
-    ((restrictHom f p hp k ω : {ω // p ω}) : Ω) = f k ω := rfl
 
 variable {ι : Type u} [Fintype ι] {G : ι → Type v} [∀ i, Group (G i)] [∀ i, Finite (G i)]
 

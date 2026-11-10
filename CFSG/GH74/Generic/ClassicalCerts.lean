@@ -546,8 +546,6 @@ theorem swap2_mul_diagonal_mul (d : Fin 2 → F) :
     funext i
     fin_cases i <;> simp
 
-theorem alphaSp2_apply (ρ : Q8 →* Matrix (Fin 2) (Fin 2) F) (g : Q8 × Q8) :
-    alphaSp2 ρ g = planeDiag ![ρ g.1, ρ g.2] := rfl
 
 theorem planeDiag_inj {X Y : Fin 2 → Matrix (Fin 2) (Fin 2) F} (h : planeDiag X = planeDiag Y) :
     X = Y := by

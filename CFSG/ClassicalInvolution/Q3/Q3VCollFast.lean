@@ -166,50 +166,6 @@ theorem commute_of_commRel {m : ℕ} {ws : List (List (Fin m × Bool))} (a b : F
           PresentedGroup.of b) := by group
     _ = PresentedGroup.of b * PresentedGroup.of a := by rw [h2]
 
-theorem v6Collapse_of_checkFast (h : V6CollapseCheckFast) : V6Collapse := by
-  intro k hk G _ g hg i
-  have hall := List.all_eq_true.mp h k (List.mem_finRange k)
-  rw [hk, Bool.false_or] at hall
-  have hcomm := (collCommOK k).resolve_left (by simp [hk])
-  set ws := v6aWords k with hws
-  set T := subsetOf 12 (collSet k) with hT
-  let gens : Set (PG 12 ws) := {y | ∃ x ∈ T, y = PresentedGroup.of x}
-  have hcheck : check (presParams ws (T.map fun x => [(x, true)])) 200000 1 = true := by
-    unfold subsetCheck at hall
-    exact hall
-  obtain ⟨hfi, hidx⟩ := index_le_presented ws (T.map fun x => [(x, true)])
-    (Subgroup.closure gens)
-    (by
-      intro w hw
-      obtain ⟨x, hx, rfl⟩ := List.mem_map.mp hw
-      exact Subgroup.subset_closure ⟨x, hx, rfl⟩) hcheck
-  have htop : Subgroup.closure gens = ⊤ := by
-    have h1 : (Subgroup.closure gens).index = 1 := by
-      have := hfi.index_ne_zero
-      omega
-    exact Subgroup.index_eq_one.mp h1
-  have hgc : gens.Pairwise Commute := by
-    rintro _ ⟨a, ha, rfl⟩ _ ⟨b, hb, rfl⟩ _
-    have hab := List.all_eq_true.mp hcomm a ha
-    have hab' := List.all_eq_true.mp hab b hb
-    simp only [Bool.or_eq_true, decide_eq_true_eq, List.contains_iff_mem] at hab'
-    rcases hab' with (rfl | h1) | h1
-    · exact Commute.refl _
-    · exact commute_of_commRel a b h1
-    · exact (commute_of_commRel b a h1).symm
-  have hcommAll : ∀ a b : PG 12 ws, a * b = b * a := by
-    intro a b
-    have hmem : ∀ c : PG 12 ws, c ∈ Subgroup.centralizer (Subgroup.centralizer gens) := by
-      intro c
-      have : c ∈ Subgroup.closure gens := by rw [htop]; exact Subgroup.mem_top c
-      exact Subgroup.closure_le_centralizer_centralizer gens this
-    exact Set.centralizer_centralizer_comm_of_comm hgc a (hmem a) b (hmem b)
-  let _ : CommGroup (PG 12 ws) := { (inferInstance : Group (PG 12 ws)) with mul_comm := hcommAll }
-  have hone : ∀ j, (PresentedGroup.of j : PG 12 ws) = 1 := fun j =>
-    eq_one_of_lattice (fun j => (PresentedGroup.of j : PG 12 ws)) (relsHold_of ws)
-      (collLatticeOK_v6a k) j
-  obtain ⟨f, hf⟩ := exists_hom_of_relsHold ws g hg
-  rw [← hf i, hone i, map_one]
 
 end Presented
 

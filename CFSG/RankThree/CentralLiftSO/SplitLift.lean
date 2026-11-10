@@ -475,10 +475,6 @@ theorem liftTorus_inf_ker (hr : 3 ≤ r) :
   · rw [Subgroup.zpowers_le]
     exact ⟨mul_mem (hSimple_mem _ _) (hSimple_mem _ _), epsilon_mem_ker hS hr⟩
 
-theorem card_liftTorus_inf_ker_le_two (hr : 3 ≤ r) :
-    Nat.card (liftTorus π ⊓ π.ker : Subgroup E) ≤ 2 := by
-  rw [liftTorus_inf_ker hS hr, Nat.card_zpowers]
-  exact orderOf_le_of_pow_eq_one (by norm_num) (epsilon_sq hS hr)
 
 omit [Finite k] [Finite E] in
 theorem eq_one_of_mem_ker_of_sq_eq_one {x : E} (hx : x ∈ π.ker) (hx2 : x ^ 2 = 1) : x = 1 := by
@@ -494,16 +490,6 @@ theorem epsilon_eq_one (hr : 3 ≤ r) :
     hSimple π ⟨r - 2, by omega⟩ (-1) * hSimple π ⟨r - 1, by omega⟩ (-1) = 1 :=
   eq_one_of_mem_ker_of_sq_eq_one hS (epsilon_mem_ker hS hr) (epsilon_sq hS hr)
 
-theorem liftTorus_inf_ker_eq_bot (hr : 3 ≤ r) : liftTorus π ⊓ π.ker = ⊥ := by
-  rw [liftTorus_inf_ker hS hr, epsilon_eq_one hS hr, Subgroup.zpowers_one_eq_bot]
-
-theorem injective_pi_liftTorus (hr : 3 ≤ r) :
-    Function.Injective (π.comp (liftTorus π).subtype) := by
-  rw [injective_iff_map_eq_one]
-  intro x hx
-  have hmem : (x : E) ∈ liftTorus π ⊓ π.ker := ⟨x.2, hx⟩
-  rw [liftTorus_inf_ker_eq_bot hS hr, Subgroup.mem_bot] at hmem
-  exact Subtype.ext hmem
 
 end Kernel
 

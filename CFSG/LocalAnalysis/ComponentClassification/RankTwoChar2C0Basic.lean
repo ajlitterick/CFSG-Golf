@@ -118,54 +118,6 @@ theorem isCharacteristicP_centralizer_of_mulEquiv {T X : Type*} [Group T] [Group
     (((centralizer ({u} : Set T)).equivMapOfInjective e.toMonoidHom e.injective).trans
       (MulEquiv.subgroupCongr (map_centralizer_mulEquiv e u))).symm (h (e u) hu')
 
-theorem isCharacteristicP_centralizer_of_two_element {F : Type*} [Group F] [Finite F]
-    (h : ∀ z : F, orderOf z = 2 → IsCharacteristicP 2 (centralizer ({z} : Set F)))
-    {x : F} (hx1 : x ≠ 1) (hx2 : ∃ k : ℕ, x ^ 2 ^ k = 1) :
-    IsCharacteristicP 2 (centralizer ({x} : Set F)) ∧
-      pPrimeCore 2 (centralizer ({x} : Set F)) = ⊥ := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hk : x ^ 2 ^ Nat.find hx2 = 1 := Nat.find_spec hx2
-  have hk0 : Nat.find hx2 ≠ 0 := by
-    intro h0
-    rw [h0, pow_zero, pow_one] at hk
-    exact hx1 hk
-  obtain ⟨m, hm⟩ := Nat.exists_eq_succ_of_ne_zero hk0
-  have hnot : ¬ x ^ 2 ^ m = 1 := Nat.find_min hx2 (by omega)
-  have hfin : x ^ 2 ^ (m + 1) = 1 := by rw [show m + 1 = Nat.find hx2 by omega]; exact hk
-  have hord : orderOf x = 2 ^ (m + 1) := orderOf_eq_prime_pow hnot hfin
-  have hz2 : orderOf (x ^ 2 ^ m) = 2 := by
-    refine orderOf_eq_prime ?_ hnot
-    rw [← pow_mul, ← pow_succ]
-    exact hfin
-  set z := x ^ 2 ^ m with hz
-  set P := centralizer ({z} : Set F) with hP
-  have hPc : IsCharacteristicP 2 P := h z hz2
-  set U : Subgroup F := (pCore 2 P).map P.subtype with hU
-  have hUP : U ≤ P := map_subtype_le _
-  have hUn : (U.subgroupOf P).Normal := by
-    rw [hU, Subgroup.subgroupOf, comap_map_eq_self_of_injective P.subtype_injective]
-    exact pCore_normal
-  have hUp : IsPGroup 2 U := pCore_isPGroup.map _
-  have hCU : centralizer (U : Set F) ⊓ P ≤ U := by
-    rintro g ⟨hgC, hgP⟩
-    refine ⟨⟨g, hgP⟩, hPc ?_, rfl⟩
-    rw [mem_centralizer_iff]
-    intro y hy
-    exact Subtype.ext (mem_centralizer_iff.mp hgC _ ⟨y, hy, rfl⟩)
-  have hQP : zpowers x ≤ P := by
-    rw [zpowers_le, hP, mem_centralizer_singleton_iff]
-    exact (Commute.self_pow x _).eq
-  have hQp : IsPGroup 2 (zpowers x) := IsPGroup.of_card (n := m + 1) (by
-    rw [Nat.card_zpowers, hord])
-  have hHP : centralizer ({x} : Set F) ≤ P := by
-    intro c hc
-    rw [hP, mem_centralizer_singleton_iff]
-    exact (Commute.pow_right (mem_centralizer_singleton_iff.mp hc) _).eq
-  obtain ⟨-, hH, -, hcore⟩ := parabolic_containing_subgroup_local_characteristic_transfer
-    (p := 2) (H := centralizer ({x} : Set F)) hUP hUn hUp hCU hQP hQp
-    (Or.inr (CFSG.ClassicalInvolution.centralizer_zpowers_eq x).symm) hHP
-  exact ⟨hH, hcore⟩
 
 theorem isCharacteristicP_of_normal {K : Type*} [Group K] [Finite K] {p : ℕ} [Fact p.Prime]
     (N : Subgroup K) [N.Normal] (hK : IsCharacteristicP p K) : IsCharacteristicP p ↥N := by

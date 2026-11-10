@@ -68,15 +68,6 @@ theorem hasStrothTypeOver_of_conjTorus_Idx4 {τ : StrothTypeIndex} (D : StrothTy
     ρ_conj := conj_of (hL D.ρ_mem_L) (torus_endo_ext_Idx4 _ _ fun j => (h j).2.2.2) },
     rfl, rfl, rfl, rfl⟩
 
-theorem hasStrothType_of_conjTorus_Idx4 {τ : StrothTypeIndex} (D : StrothTypeData B τ)
-    (hL : D.L ≤ Subgroup.normalizer C) (τ' : StrothTypeIndex) (E : Torus τ'.k ≃+ Additive C)
-    (h : ∀ j : Fin 3,
-      conjTorusIdx4 E (hL D.uv_mem_L) (gen τ'.k j) = τ'.action.φuv (gen τ'.k j) ∧
-      conjTorusIdx4 E (hL D.t_mem_L) (gen τ'.k j) = τ'.action.φt (gen τ'.k j) ∧
-      conjTorusIdx4 E (hL D.u_mem_L) (gen τ'.k j) = τ'.action.φu (gen τ'.k j) ∧
-      conjTorusIdx4 E (hL D.ρ_mem_L) (gen τ'.k j) = τ'.action.φρ (gen τ'.k j)) :
-    HasStrothType C τ' :=
-  (hasStrothTypeOver_of_conjTorus_Idx4 D hL τ' E h).hasStrothType
 
 section Normalize
 

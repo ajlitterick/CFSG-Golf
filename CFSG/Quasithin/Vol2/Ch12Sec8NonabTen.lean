@@ -524,14 +524,6 @@ theorem omegaOneCenter_inf_centerOf_ne_bot (hN : centerOf (L ⊔ uOfL22 T M) ≠
   rw [hbot] at this
   exact Subgroup.mem_bot.mp this
 
-theorem lemma_12_8_10_three
-    (hlt : quasithinOmegaOneCenter T < centerOf (uOfL22 T M) ⊓ rconj (uOfL22 T M) g) :
-    quasithinOmegaOneCenter T ⊓ centerOf (L ⊔ uOfL22 T M) ≠ ⊥ := by
-  refine h.omegaOneCenter_inf_centerOf_ne_bot hU hg ?_
-  intro h0
-  have h1 := h.lemma_12_8_10_one hU hg
-  rw [h.lemma_12_8_10_two hU hg, h0, bot_sup_eq] at h1
-  exact hlt.ne h1.symm
 
 theorem commutator_wOfU_rconj_centerOf_le :
     ⁅wOfU T M, rconj (centerOf (uOfL22 T M)) g⁆ ≤
@@ -561,33 +553,6 @@ theorem lemma_12_8_10_four :
   rw [h.lemma_12_8_10_one_symm hU hg]
   exact sup_le_sup inf_le_left ((h.l2Setting128 hU).V₁_le_rconj_V hg.mem)
 
-theorem lemma_12_8_10_five (hle : rconj (centerOf (uOfL22 T M)) g ≤ uOfL22 T M) :
-    centerOf (uOfL22 T M) = centerOf (L ⊔ uOfL22 T M) ⊔ quasithinOmegaOneCenter T ∧
-      Disjoint (centerOf (L ⊔ uOfL22 T M)) (quasithinOmegaOneCenter T) ∧
-      L ≤ Subgroup.centralizer (centerOf (L ⊔ uOfL22 T M) : Set G) := by
-  have h1 := h.lemma_12_8_10_one_symm hU hg
-  rw [inf_eq_left.mpr hle, h.lemma_12_8_10_two hU hg] at h1
-  have hZI : rconj (centerOf (L ⊔ uOfL22 T M)) g⁻¹ = centerOf (L ⊔ uOfL22 T M) := by
-    rw [← centerOf_rconj, rconj_eq_of_mem_normalizer]
-    exact Subgroup.inv_mem _ (Subgroup.le_normalizer (hg.mem_sup _))
-  refine ⟨?_, ?_, ?_⟩
-  · have h2 := congrArg (fun K => rconj K g⁻¹) h1
-    simp only [rconj_rconj_inv_eq, rconj_sup_eq, hZI] at h2
-    exact h2
-  · rw [disjoint_iff, eq_bot_iff]
-    intro x hx
-    have hxZg : x ∈ rconj (centerOf (uOfL22 T M)) g := by
-      have := h.lemma_12_8_10_two hU hg
-      have hxI : x ∈ centerOf (uOfL22 T M) ⊓ rconj (centerOf (uOfL22 T M)) g := by
-        rw [this]; exact hx.1
-      exact hxI.2
-    have : x ∈ quasithinOmegaOneCenter T ⊓ rconj (centerOf (uOfL22 T M)) g := ⟨hx.2, hxZg⟩
-    rw [h.omegaOneCenter_inf_rconj_centerOf hU hg] at this
-    exact this
-  · intro l hl
-    rw [Subgroup.mem_centralizer_iff]
-    intro z hz
-    exact (Subgroup.mem_centralizer_iff.mp hz.2 l (Subgroup.mem_sup_left hl)).symm
 
 theorem lemma_12_8_10_six :
     centralizerMod (centerOf (uOfL22 T M)) (rconj (centerOf (uOfL22 T M)) g) (uOfL22 T M) =

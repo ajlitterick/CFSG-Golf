@@ -11,19 +11,6 @@ namespace CFSG.RankThreeEvenClassification.Helpers
 
 universe u
 
-theorem signalizerSpectrum_restriction_subset {G : Type u} [Group G] [Finite G]
-    (actor overgroup : Subgroup G) (signalizer : G → Subgroup G) :
-    signalizerSpectrum (actor.subgroupOf overgroup) (restrictedSignalizer overgroup signalizer) ⊆
-      signalizerSpectrum actor signalizer := by
-  rintro prime ⟨hprime, element, hmem, hne, hdiv⟩
-  refine ⟨hprime, element, hmem, fun heq => hne (Subtype.ext heq), ?_⟩
-  have hcard : Nat.card (restrictedSignalizer overgroup signalizer element) =
-      Nat.card (signalizer element ⊓ overgroup : Subgroup G) :=
-    (Subgroup.card_map_of_injective overgroup.subtype_injective).symm.trans
-      (congrArg (fun subgroup : Subgroup G => Nat.card subgroup)
-        (restrictedSignalizer_map_eq overgroup signalizer element))
-  rw [hcard] at hdiv
-  exact hdiv.trans (Subgroup.card_dvd_of_le inf_le_left)
 
 theorem signalizerGenerated_restriction_map_eq {G : Type u} [Group G]
     (actor overgroup : Subgroup G) (signalizer : G → Subgroup G) (hactorLe : actor ≤ overgroup) :
@@ -49,27 +36,6 @@ theorem signalizerGenerated_restriction_map_eq {G : Type u} [Group G]
     exact le_iSup_of_le (⟨element, hactorLe hmem⟩ : overgroup) (le_iSup_of_le hmem
       (le_iSup_of_le (fun heq => hne (congrArg Subtype.val heq)) le_rfl))
 
-theorem compatible_subgroup_le_restriction_completion
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor plane overgroup : Subgroup G)
-    (signalizer : G → Subgroup G) (hactorLe : actor ≤ overgroup) (hplaneLe : plane ≤ actor)
-    (hpower : ∀ member : plane, member ^ prime = 1) (hplaneCard : Nat.card plane = prime ^ 2)
-    (subgroup : Subgroup G) (hcompatible : SignalizerCompatible prime actor signalizer subgroup)
-    (hsubgroupLe : subgroup ≤ overgroup) :
-    subgroup ≤ (signalizerGenerated (actor.subgroupOf overgroup)
-      (restrictedSignalizer overgroup signalizer)).map overgroup.subtype := by
-  rw [signalizerGenerated_restriction_map_eq actor overgroup signalizer hactorLe,
-    solvable_centralizer_generation_of_plane prime hprime plane subgroup hpower hplaneCard
-      hcompatible.solvable hcompatible.primeComplement (hplaneLe.trans hcompatible.normalized)]
-  apply iSup_le
-  intro member
-  apply iSup_le
-  intro hne
-  have hmemberNe : (member : G) ≠ 1 := fun heq => hne (Subtype.ext heq)
-  exact le_iSup_of_le (member : G) (le_iSup_of_le (hplaneLe member.property)
-    (le_iSup_of_le hmemberNe (le_inf
-      (hcompatible.fixed_le member (hplaneLe member.property) hmemberNe)
-      (inf_le_left.trans hsubgroupLe))))
 
 theorem SignalizerComplete.restriction {G : Type u} [Group G] [Finite G]
     (prime : ℕ) (hprime : prime.Prime) (actor overgroup : Subgroup G) (signalizer : G → Subgroup G)

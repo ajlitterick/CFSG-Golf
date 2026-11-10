@@ -39,12 +39,5 @@ theorem noNonsolvableClassical_of_lieModel_two {X : Type} [Group X] {t : StatedL
     · exact absurd rfl hTits
   · exact noNonsolvableClassical_of_suzukiModel hm
 
-theorem noNonsolvableClassical_of_lieModel_two_of_isEvenCharacteristic {X : Type} [Group X]
-    [Finite X] {t : StatedLieTag} {n f : ℕ} (h : LieModel X t n 2 f)
-    (hRT : (t = .twistedF4 ∨ t = .Tits) → IsEvenCharacteristic X) : NoNonsolvableClassical X := by
-  by_cases h4 : t = .twistedF4 ∨ t = .Tits
-  · exact noNonsolvableClassical_of_lieModel_of_isEvenCharacteristic h (hRT h4)
-  · exact noNonsolvableClassical_of_lieModel_two h (fun h' => h4 (Or.inl h'))
-      (fun h' => h4 (Or.inr h'))
 
 end CFSG.ClassicalInvolution

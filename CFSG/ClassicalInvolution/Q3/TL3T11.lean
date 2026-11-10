@@ -145,52 +145,6 @@ open CFSG.ClassicalInvolution.Q3.TC.Graph
 section Cit3
 
 
-@[expose] def TightCaseBNonAE (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
-    TightLargeHyp n Y R S t → TightOddCent t →
-      Disconnected.DConnected (CoreAssembly.conjClass (tightCore R)) →
-      TC.SepHyp (CoreAssembly.conjClass (tightCore R)) →
-      (∀ M N : Subgroup Y, MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N →
-        TC.ThinAt (CoreAssembly.conjClass (tightCore R)) M N) →
-      ∀ M N N' : Subgroup Y,
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N →
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N' → N ≠ N' →
-        ∀ u u' : Y, IsUniqueInvolution N u → IsUniqueInvolution N' u' →
-        TC.Thin.CentX (CoreAssembly.conjClass (tightCore R)) M (u * u') →
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) N N' →
-        (¬ ∃ m : ℕ, 5 ≤ m ∧ m ≠ 8 ∧ Nonempty (TC.Thin.AEIdent
-          {L : Subgroup Y | MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M L} m)) →
-          False
-
-variable {n : ℕ}
-
-theorem tightCaseBLeaf_of_nonAE (h : TightCaseBNonAE n) : TightCaseBLeaf n := by
-  intro Y _ _ R S t hL hO hconn hsep hall M N N' hN hN' hne u u' hu hu' hc hNN'
-  by_cases hAE : ∃ m : ℕ, 5 ≤ m ∧ m ≠ 8 ∧ Nonempty (TC.Thin.AEIdent
-      {L : Subgroup Y | MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M L} m)
-  · exfalso
-    obtain ⟨m, hm, hm8, ⟨IM⟩⟩ := hAE
-    have hS := hL.thinStd hO hconn hsep
-    have huniq := hL.datum.isUniqueInvolution_core
-    have hOC : classicalInvolutionOddCore ↥(Subgroup.centralizer ({t} : Set Y)) = ⊥ := by
-      rw [eq_bot_iff]
-      intro x hx
-      have : (x : Y) ∈ oddCoreImg (Subgroup.centralizer ({t} : Set Y)) := ⟨x, hx, rfl⟩
-      unfold TightOddCent at hO
-      rw [hO, Subgroup.mem_bot] at this
-      exact (Subgroup.mem_bot).mpr (Subtype.ext this)
-    have hOK := hS.oddCore_pSpan_eq_bot huniq hOC
-    obtain ⟨a, rfl⟩ := hS.trans M hN.1.1
-    obtain ⟨b, rfl⟩ := hS.trans N hN.1.2.1
-    have hOM := hS.oddCore_pSpan_conj hOK a
-    have hON := hS.oddCore_pSpan_conj hOK b
-    have hab : conjSub (b * a⁻¹) (conjSub a (tightCore R)) = conjSub b (tightCore R) := by
-      rw [← conjSub_mul, inv_mul_cancel_right]
-    have IN := TC.Thin.AEIdent.ofEq (by rw [hab]) (hS.aeIdent_conj IM (b * a⁻¹))
-    exact hS.false_of_triangle_of_aeIdent hall hm hm8 hm hm8 IM IN hOM hON hN hN' hne hu hu' hc
-      hNN'
-  · exact h Y R S t hL hO hconn hsep hall M N N' hN hN' hne u u' hu hu' hc hNN' hAE
-
 end Cit3
 
 end CFSG.ClassicalInvolution.Q3

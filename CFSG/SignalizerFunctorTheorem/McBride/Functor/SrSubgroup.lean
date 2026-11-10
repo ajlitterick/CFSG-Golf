@@ -50,23 +50,6 @@ private theorem mem_signalizersOfPrime_iff [Finite G] (hp : p.Prime) (hA : IsEle
     rw [hn]
     exact ((Nat.coprime_primes hp hr).mpr hrp.symm).pow_right n
 
-theorem isSrSubgroup_of_forall_isSrSubgroupOf [Finite G] (hp : p.Prime) (hA : IsElemAbelian p A)
-    {r : ℕ} {P : Subgroup G → Prop} {S : Subgroup G} (hS : S ∈ signalizersOfPrime p A θ P r)
-    {B : Subgroup G} (hBA : B ≤ A) (hB : p ^ 2 ≤ Nat.card B)
-    (h : ∀ b ∈ B, b ≠ 1 → IsSrSubgroupOf A r (θ b) (S ⊓ Subgroup.centralizer {b})) :
-    IsSrSubgroup p A θ P r S := by
-  have hBe : IsElemAbelian p B :=
-    CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le p hA hBA
-  refine ⟨hS, fun Q hQ hSQ => ?_⟩
-  calc Q = ⨆ (b : G) (_ : b ∈ B) (_ : b ≠ 1), Q ⊓ Subgroup.centralizer {b} :=
-        (iSup_inf_centralizer hp hBe hB (hBA.trans hQ.1.1) hQ.1.2.1).symm
-    _ ≤ S := by
-      refine iSup_le fun b => iSup_le fun hb => iSup_le fun hb1 => ?_
-      have hmax := h b hb hb1
-      have := hmax.2 (y := Q ⊓ Subgroup.centralizer {b})
-        ⟨normalizer_inf_centralizer_singleton hA.1 hQ.1.1 (hBA hb), hQ.2.to_le inf_le_left,
-          hQ.1.2.2.1 b (hBA hb) hb1⟩ (inf_le_inf_right _ hSQ)
-      exact this.trans inf_le_left
 
 theorem IsSrSubgroup.isSrSubgroupOf_inf_centralizer [Finite G] (hp : p.Prime)
     (hA : IsElemAbelian p A) (hrank : p ^ 3 ≤ Nat.card A) (hθ : IsFunctor p A θ) {r : ℕ}
@@ -115,16 +98,6 @@ theorem IsSrSubgroup.isSrSubgroupOf_inf_centralizer [Finite G] (hp : p.Prime)
     hcard ▸ Subgroup.card_le_of_le hle1
   exact (Subgroup.eq_of_le_of_card_ge hSQ h1).ge
 
-theorem isSrSubgroup_iff [Finite G] (hp : p.Prime) (hA : IsElemAbelian p A)
-    (hrank : p ^ 3 ≤ Nat.card A) (hθ : IsFunctor p A θ) {r : ℕ} (hr : r.Prime) (hrp : r ≠ p)
-    {P : Subgroup G → Prop} (hPr : ∀ X : Subgroup G, IsPGroup r X → P X) {S : Subgroup G}
-    (hS : S ∈ signalizersOfPrime p A θ P r) {B : Subgroup G} (hBA : B ≤ A)
-    (hB : p ^ 2 ≤ Nat.card B) :
-    IsSrSubgroup p A θ P r S ↔
-      ∀ b ∈ B, b ≠ 1 → IsSrSubgroupOf A r (θ b) (S ⊓ Subgroup.centralizer {b}) :=
-  ⟨fun h _ hb hb1 =>
-    h.isSrSubgroupOf_inf_centralizer hp hA hrank hθ hr hrp hPr (hBA hb) hb1,
-    isSrSubgroup_of_forall_isSrSubgroupOf hp hA hS hBA hB⟩
 
 theorem two_le_rank_of_not_isCyclic [Finite G] (hp : p.Prime) (hA : IsElemAbelian p A)
     {B : Subgroup G} (hBA : B ≤ A) (hB : ¬ IsCyclic B) : p ^ 2 ≤ Nat.card B := by

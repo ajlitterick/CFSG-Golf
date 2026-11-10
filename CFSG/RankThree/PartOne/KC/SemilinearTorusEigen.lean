@@ -49,35 +49,6 @@ variable {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V] {τ : K
 theorem semilinear_ne_zero_of_injective (γ : V →ₛₗ[τ] V) (hγ : Function.Injective γ) {e : V}
     (he : e ≠ 0) : γ e ≠ 0 := fun h0 => he (hγ (by rw [h0, map_zero]))
 
-theorem semilinear_eigenvector_of_torus_single (γ : V →ₛₗ[τ] V) (hγ : Function.Injective γ)
-    {e : V} (he : e ≠ 0) (Y : V →ₗ[K] V) {c : K}
-    (hrange : ∀ v, Y v - v ∈ Submodule.span K {e}) (hYe : Y e = c • e) (hc : τ c ≠ 1)
-    (hcomm : ∀ v, γ (Y v) = Y (γ v)) :
-    (∃ d : K, d ≠ 0 ∧ γ e = d • e) ∧ τ c = c := by
-  have hu0 : γ e ≠ 0 := semilinear_ne_zero_of_injective γ hγ he
-  have hYu : Y (γ e) = τ c • γ e := by
-    rw [← hcomm, hYe, map_smulₛₗ]
-  have h1 : Y (γ e) - γ e = (τ c - 1) • γ e := by rw [hYu, sub_smul, one_smul]
-  have hsub : τ c - 1 ≠ 0 := sub_ne_zero.mpr hc
-  have h2 : γ e ∈ Submodule.span K {e} := by
-    have h3 := hrange (γ e)
-    rw [h1] at h3
-    have := Submodule.smul_mem _ (τ c - 1)⁻¹ h3
-    rwa [smul_smul, inv_mul_cancel₀ hsub, one_smul] at this
-  obtain ⟨d, hd⟩ := Submodule.mem_span_singleton.mp h2
-  have hd0 : d ≠ 0 := by
-    rintro rfl
-    rw [zero_smul] at hd
-    exact hu0 hd.symm
-  refine ⟨⟨d, hd0, hd.symm⟩, ?_⟩
-  have h4 : Y (γ e) = (d * c) • e := by
-    rw [← hd, map_smul, hYe, smul_smul]
-  have h5 : τ c • γ e = (τ c * d) • e := by rw [← hd, smul_smul]
-  rw [hYu, h5, mul_comm d c] at h4
-  have h6 : (c * d - τ c * d) • e = 0 := by rw [sub_smul, h4, sub_self]
-  have h7 := (smul_eq_zero.mp h6).resolve_right he
-  have h8 : (c - τ c) * d = 0 := by linear_combination h7
-  exact ((mul_eq_zero.mp h8).resolve_right hd0 |> sub_eq_zero.mp).symm
 
 theorem semilinear_eigenvector_of_torus_pair (γ : V →ₛₗ[τ] V) (hγ : Function.Injective γ)
     {e₁ e₂ : V} (hind : LinearIndependent K ![e₁, e₂]) (Y : V →ₗ[K] V) {c c' : K}

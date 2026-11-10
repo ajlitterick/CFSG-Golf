@@ -208,17 +208,5 @@ theorem s168e3_false_of_sl2_eight_of_s_eq_one
   exact s168e3_false_of_sl2_eight_realization
     (K := K) (fieldK := hKf) c hs hK8 hreal hfacts.1 hfacts.2
 
-theorem s168e3_concl163F_of_sl2_eight_of_s_eq_one
-    {G : Type} [Group G] [Finite G]
-    {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV)
-    (hcomp : IsComponentOf (lBar V₀ V hV L) (Mbar D.M V₀ V hV))
-    (hthin : ∀ q : ℕ, q.Prime → q ≠ 2 → CFSG.Open.pRank q (lBar V₀ V hV L) ≤ 1)
-    (hs : s15 D.M V₀ V hV L = 1)
-    (hrow : s16h_H5RowSL2 (lBar V₀ V hV L)
-      (commSub ⊤ (lBar V₀ V hV L))
-      (commSub ⊤ (lBar V₀ V hV L) ⊓ fixV (lBar V₀ V hV L)) 3) :
-    Concl163F D V₀ V hV L :=
-  (s168e3_false_of_sl2_eight_of_s_eq_one c hcomp hthin hs hrow).elim
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

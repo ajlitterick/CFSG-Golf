@@ -137,13 +137,5 @@ theorem citSimplePerfectSL2_of_citInductiveU
   obtain ⟨L, hL⟩ := exists_classicalMember_of_witness hz hzK hK e hn hp2 hns
   exact oddLieType_of_classicalMember (hI p n) h0 hp2 hq5 hnab hL
 
-theorem citSimplePerfect_of_coreStep
-    (hcore : ∀ (p f : ℕ) [Fact p.Prime], CoreStep p f)
-    (hfund : ∀ (p f : ℕ) [Fact p.Prime], ClassicalIsFundamental p f)
-    (hlift : ∀ (p : ℕ) [Fact p.Prime], CentralLift p) (h0 : ModelClauseZero)
-    (h2 : CIT2A7Case) : CITSimplePerfect :=
-  citSimplePerfect_of_cases
-    (citSimplePerfectSL2_of_citInductiveU
-      (fun p f _ => citInductiveU_of_coreStep (hcore p f) (hfund p f) (hlift p)) h0) h2
 
 end CFSG.ClassicalInvolution.Generic

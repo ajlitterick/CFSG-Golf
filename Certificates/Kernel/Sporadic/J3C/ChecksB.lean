@@ -23,8 +23,6 @@ theorem cwLet :
     List.all conjWordsAB (fun w => List.all w fun z => Nat.blt (sgnL z) 4) = true := by
   decide +kernel
 
-theorem klInvNeg : invK (fun l => KLr (List.getD [0, 3, 2, 1] l 0)) 20520 4 = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.J3C
 

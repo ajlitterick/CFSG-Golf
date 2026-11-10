@@ -15,6 +15,5 @@ theorem pCore_eq_of_normal {Y : Type*} [Group Y] {p : ℕ} (N : Subgroup Y) [N.N
   refine le_antisymm (hmax (CFSG.pCore p Y) CFSG.pCore_normal CFSG.pCore_isPGroup) ?_
   exact le_sSup ⟨inferInstance, hN⟩
 
-variable {G G₁ : Type*} [Group G] [Group G₁]
 
 end CFSG.OddStandard.SmallF3.HarrisU33

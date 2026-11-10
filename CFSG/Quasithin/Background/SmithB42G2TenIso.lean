@@ -229,11 +229,6 @@ theorem tRep_map_frob (hK : Fintype.card K = 2 ^ f) (lab : Fin f → G2L) (d : �
   rw [iterateFrobenius_frK, frK_mod k hK (((finRotate f ^ d).symm j : Fin f) + d),
     ← val_finRotate_pow, Equiv.apply_symm_apply]
 
-theorem tRep_map_frob_equiv (hK : Fintype.card K = 2 ^ f) (lab : Fin f → G2L) (d : ℕ) :
-    Nonempty ((matRep (matMap (iterateFrobenius k 2 d) (tRep K k lab))).Equiv
-      (matRep (tRep K k (lab ∘ ⇑(finRotate f ^ d).symm)))) := by
-  obtain ⟨P, Q, h⟩ := tRep_map_frob k hK lab d
-  exact h.equiv
 
 theorem lab_comp_finRotate_pow (hK : Fintype.card K = 2 ^ f) {ι : Type*} [Fintype ι]
     [DecidableEq ι] (R : ↥(cayleyGroup K) →* Matrix ι ι k) (d : ℕ)

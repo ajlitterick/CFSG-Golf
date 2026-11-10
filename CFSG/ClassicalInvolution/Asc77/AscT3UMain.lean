@@ -201,8 +201,6 @@ theorem res20_7Hyp51At_proved : Res20_7Hyp51At p f := by
       ⟨hK'Ω, (trivialOnQuot K').mul_mem haK' hzK'_tq⟩ hB'ab hzB ht'B hazB
       (closure_triple_mul_right hz2).symm haz1 hzaz ht'1 ht'z ht'2 hdsup
 
-theorem t3CaseII_of_res10 (hP1 : Res10bP1 p f) (hY : Res10aY p f) : T3CaseII p f :=
-  t3CaseII_of_hyp51At res20_7Hyp51At_proved hP1 hY
 
 end Main
 

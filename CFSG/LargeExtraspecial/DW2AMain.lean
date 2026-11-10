@@ -28,6 +28,5 @@ theorem exists_maximal_singular {W₀ : Submodule (ZMod 2) S.Qt} (hi : IsMbarInv
   by_contra hne
   exact hmax U ⟨hU, hUs, h3.trans hle⟩ (lt_of_le_of_ne hle (Ne.symm hne))
 
-variable [IsSimpleGroup G]
 
 end CFSG.LargeExtraspecial.DW

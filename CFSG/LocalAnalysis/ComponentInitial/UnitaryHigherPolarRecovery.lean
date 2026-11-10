@@ -43,9 +43,6 @@ variable {σ : K →+* K} (B : V →ₛₗ[σ] V →ₗ[K] K)
 
 variable {B}
 
-theorem mem_isoLines {L : Submodule K V} :
-    L ∈ isoLines B ↔ finrank K L = 1 ∧ ∀ a ∈ L, B a a = 0 :=
-  Iff.rfl
 
 theorem isTotIso_span {T : Set V} (hT : ∀ x ∈ T, ∀ y ∈ T, B x y = 0) :
     ∀ x ∈ span K T, ∀ y ∈ span K T, B x y = 0 := by
@@ -152,9 +149,6 @@ section Image
 
 variable (φ : isoLines B ≃ isoLines B)
 
-theorem eq_polarImage {W W' : Submodule K V} (hW' : ∀ x ∈ W', ∀ y ∈ W', B x y = 0)
-    (he : φ '' ptsIn B W = ptsIn B W') : W' = polarImage B φ W := by
-  rw [polarImage, he, ptSpan_ptsIn hW']
 
 theorem polarImage_point [FiniteDimensional K V] (L : isoLines B) :
     polarImage B φ L = φ L := by
@@ -373,67 +367,5 @@ theorem finrank_polarImage {W : Submodule K V} (hW : ∀ x ∈ W, ∀ y ∈ W, B
 
 end Recovery
 
-theorem coe_hypIsotropicLines {K : Type} [Field K] (h : UnitaryFieldData p f K) (r ε : ℕ) :
-    (hypIsotropicLines h r ε : Set (Submodule K (HypIndex r ε → K))) =
-      isoLines (hypForm h r ε) :=
-  rfl
-
-theorem unitary_polar_subspace_recovery (h : UnitaryFieldData p f K) [FiniteDimensional K V]
-    {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm) (hBl : B.SeparatingLeft)
-    (φ : isoLines B ≃ isoLines B)
-    (hφ : ∀ L M : isoLines B, SubOrtho B L M ↔ SubOrtho B (φ L) (φ M)) :
-    (∀ W : Submodule K V, (∀ x ∈ W, ∀ y ∈ W, B x y = 0) →
-      (∀ x ∈ polarImage B φ W, ∀ y ∈ polarImage B φ W, B x y = 0) ∧
-      φ '' ptsIn B W = ptsIn B (polarImage B φ W) ∧
-      ∀ W' : Submodule K V, (∀ x ∈ W', ∀ y ∈ W', B x y = 0) →
-        φ '' ptsIn B W = ptsIn B W' → W' = polarImage B φ W) ∧
-    (∀ W : Submodule K V, (∀ x ∈ W, ∀ y ∈ W, B x y = 0) →
-      finrank K (polarImage B φ W) = finrank K W) ∧
-    (∀ W₁ W₂ : Submodule K V, (∀ x ∈ W₁, ∀ y ∈ W₁, B x y = 0) →
-      (∀ x ∈ W₂, ∀ y ∈ W₂, B x y = 0) →
-      (W₁ ≤ W₂ ↔ polarImage B φ W₁ ≤ polarImage B φ W₂)) ∧
-    (∀ W : Submodule K V, (∀ x ∈ W, ∀ y ∈ W, B x y = 0) →
-      polarImage B φ.symm (polarImage B φ W) = W) ∧
-    (∀ L : isoLines B, polarImage B φ L = φ L) ∧
-    ∀ M : Submodule K V, IsMaxTotIso B M →
-      IsMaxTotIso B (polarImage B φ M) ∧
-      (∀ L : isoLines B, (L : Submodule K V) ≤ M ↔ (φ L : Submodule K V) ≤ polarImage B φ M) ∧
-      (∀ H : Submodule K V, H ≤ M → finrank K H + 1 = finrank K M →
-        polarImage B φ H ≤ polarImage B φ M ∧
-          finrank K (polarImage B φ H) + 1 = finrank K (polarImage B φ M) ∧
-          ∀ L : isoLines B,
-            ((L : Submodule K V) ≤ H ↔ (φ L : Submodule K V) ≤ polarImage B φ H)) ∧
-      ∀ H' : Submodule K V, H' ≤ polarImage B φ M →
-        finrank K H' + 1 = finrank K (polarImage B φ M) →
-        ∃ H : Submodule K V, H ≤ M ∧ finrank K H + 1 = finrank K M ∧
-          polarImage B φ H = H' := by
-  have hφ' := subOrtho_symm_iff φ hφ
-  refine ⟨fun W hW => ⟨isTotIso_polarImage φ hφ hW, (ptsIn_polarImage h hB hBl hφ hW).symm,
-    fun W' hW' he => eq_polarImage φ hW' he⟩, fun W hW => finrank_polarImage h hB hBl hφ hW,
-    fun W₁ W₂ h1 h2 => (polarImage_le_iff h hB hBl hφ h1 h2).symm,
-    fun W hW => polarImage_symm_polarImage h hB hBl hφ hW, polarImage_point φ,
-    fun M hM => ⟨(isMaxTotIso_ptSpan
-      (isMaxClique_image φ hφ (isMaxClique_ptsIn hB.isRefl hM))).1, ?_, ?_, ?_⟩⟩
-  · intro L
-    rw [← polarImage_point φ L]
-    exact (polarImage_le_iff h hB hBl hφ (isTotIso_of_mem_isoLines L.2) hM.1).symm
-  · intro H hH hd
-    have hHs : ∀ x ∈ H, ∀ y ∈ H, B x y = 0 := fun x hx y hy => hM.1 x (hH hx) y (hH hy)
-    refine ⟨(polarImage_le_iff h hB hBl hφ hHs hM.1).2 hH, by
-      rw [finrank_polarImage h hB hBl hφ hHs, finrank_polarImage h hB hBl hφ hM.1, hd],
-      fun L => ?_⟩
-    rw [← polarImage_point φ L]
-    exact (polarImage_le_iff h hB hBl hφ (isTotIso_of_mem_isoLines L.2) hHs).symm
-  · intro H' hH' hd
-    have hMs := isTotIso_polarImage φ hφ hM.1
-    have hHs : ∀ x ∈ H', ∀ y ∈ H', B x y = 0 := fun x hx y hy => hMs x (hH' hx) y (hH' hy)
-    have hHs' := isTotIso_polarImage φ.symm hφ' hHs
-    have hHH : polarImage B φ (polarImage B φ.symm H') = H' := by
-      have := polarImage_symm_polarImage h hB hBl hφ' hHs
-      rwa [Equiv.symm_symm] at this
-    refine ⟨polarImage B φ.symm H', ?_, ?_, hHH⟩
-    · rw [← polarImage_le_iff h hB hBl hφ hHs' hM.1, hHH]
-      exact hH'
-    · rw [← finrank_polarImage h hB hBl hφ hHs', hHH, hd, finrank_polarImage h hB hBl hφ hM.1]
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

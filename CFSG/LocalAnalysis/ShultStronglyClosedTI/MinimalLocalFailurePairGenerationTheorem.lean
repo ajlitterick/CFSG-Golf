@@ -66,10 +66,5 @@ theorem pair_generated_hull_eq_top
   (minimalLocalFailure_pair_generated_hull_is_ambient h (properStrongEmbeddingCommutingImages G)
     (smallerR1Full_of_bender G) hbeta ht).1
 
-theorem pairGenerationTheorem
-    (G : Type) [Group G] [Finite G] :
-    CFSG.ProperTwoGeneratedCore.HighRankPair.PairGenerationTheorem G := fun _ _ h _ hbeta _ ht =>
-  (minimalLocalFailure_pair_generated_hull_is_ambient h (properStrongEmbeddingCommutingImages G)
-    (smallerR1Full_of_bender G) hbeta ht).2
 
 end CFSG.ShultStronglyClosedTI.PairGeneration

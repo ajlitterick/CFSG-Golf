@@ -229,26 +229,5 @@ theorem perfect_central_prime_kernel_heisenberg_dilation_trivial' [Finite E]
     from hc)
   exact (Subgroup.mem_bot).mpr (congrArg Subtype.val ((Subgroup.mem_bot).mp h))
 
-theorem perfect_central_prime_kernel_heisenberg_dilation_trivial [Finite E]
-    [Group.IsPerfect E] {p : ℕ} [Fact p.Prime] (hp3 : 3 < p) (C : Subgroup E) [C.Normal]
-    (hCZ : C ≤ center E) (hCp : IsPGroup p C) (P : Sylow p E)
-    (hclass : (⊤ : Subgroup ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E))).lowerCentralSeries
-      2 = ⊥)
-    (helem : IsElementaryAbelian p (((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E)) ⧸
-      commutator ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E))))
-    (a : E) (ha : a ∈ normalizer (P : Set E)) (t : (ZMod p)ˣ) (ht2 : t ^ 2 ≠ 1)
-    (ht3 : t ^ 3 ≠ 1)
-    (hact : ∀ x y : (P : Subgroup E), (y : E) = a * x * a⁻¹ →
-      ((y : (P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E)) :
-          ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E)) ⧸
-            commutator ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E))) =
-        ((x : (P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E)) :
-          ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E)) ⧸
-            commutator ((P : Subgroup E) ⧸ C.subgroupOf (P : Subgroup E))) ^
-          (t : ZMod p).val) :
-    C = ⊥ :=
-  perfect_central_prime_kernel_heisenberg_dilation_trivial' hp3 C hCZ hCp P
-    (QuotientGroup.mk' _) (QuotientGroup.mk'_surjective _) (QuotientGroup.ker_mk' _) hclass helem
-    a ha t ht2 ht3 hact
 
 end CFSG.RankThree.PerfectCover

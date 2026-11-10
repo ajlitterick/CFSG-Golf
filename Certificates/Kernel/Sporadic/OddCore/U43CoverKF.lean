@@ -28,10 +28,6 @@ theorem base : szOK 820 10 = true ∧ cK (pidn 820 10) = true ∧
     penumHdK (pidn 820 10) U43KC.cnt 400 U43KC.T U43KC.PL = true := by
   simpa only [bAnd_iff] using base_ok
 
-theorem hidc : canonK 820 10 (mask 10) (820 * 10) (pidn 820 10) = true := base.2.1
-
-theorem hid : idT 820 = tabT (unpack 820 10 (pidn 820 10)) := by
-  rw [idT_tabT, idK_sound base.2.2.1]
 
 @[expose] noncomputable def tP (P : Nat) : Table := tabT (unpack 820 10 P)
 

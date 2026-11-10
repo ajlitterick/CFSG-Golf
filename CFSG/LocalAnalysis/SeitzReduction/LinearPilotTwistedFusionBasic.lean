@@ -18,10 +18,6 @@ variable {X : Type*} [Group X]
   ∃ m y : X, y ≠ 1 ∧ (α m)⁻¹ * m = y ∧ Q y ∧
     ∃ P : Subgroup X, ⁅P, P⁆ = P ∧ y ∈ P ∧ ∀ p ∈ P, α p = p
 
-theorem PerfectTwistedFusionIn.perfectTwistedFusion {α : MulAut X} {Q : X → Prop}
-    (h : PerfectTwistedFusionIn α Q) : PerfectTwistedFusion α := by
-  obtain ⟨m, y, hy, hmy, -, P, hP, hyP, hPα⟩ := h
-  exact ⟨m, y, hy, hmy, P, hP, hyP, hPα⟩
 
 theorem PerfectTwistedFusionIn.mono {α : MulAut X} {Q Q' : X → Prop} (hQ : ∀ x, Q x → Q' x)
     (h : PerfectTwistedFusionIn α Q) : PerfectTwistedFusionIn α Q' := by
@@ -47,11 +43,6 @@ theorem PerfectTwistedFusionIn.of_conj {α β ψ : MulAut X} {Q : X → Prop}
   · rintro _ ⟨p, hp, rfl⟩
     exact (h' p).trans (congrArg _ (hPβ p hp))
 
-theorem inv_apply_mul_eq_of_sq_eq_one {α : MulAut X} (hα : α ^ 2 = 1) (m : X) :
-    α ((α m)⁻¹ * m) = ((α m)⁻¹ * m)⁻¹ := by
-  have hαα : α (α m) = m := by
-    rw [← MulAut.mul_apply, ← sq, hα, MulAut.one_apply]
-  rw [map_mul, map_inv, hαα, _root_.mul_inv_rev, inv_inv]
 
 theorem mulAut_mul_conj_mul_inv_eq_conj (ψ : MulAut X) (c : X) :
     ψ * MulAut.conj c * ψ⁻¹ = MulAut.conj (ψ c) := by
@@ -92,30 +83,6 @@ theorem rank_eq_one_of_col_mem {M : Matrix (Fin n) (Fin n) K} {v : Fin n → K} 
       exact Submodule.subset_span ⟨j₀, hj₀⟩
   rw [hspan, finrank_span_singleton hv]
 
-theorem rank_eq_two_of_col_mem {M : Matrix (Fin n) (Fin n) K} {v w : Fin n → K}
-    (hvw : LinearIndependent K ![v, w]) (hcol : ∀ j, M.col j ∈ Submodule.span K {v, w})
-    {j₁ j₂ : Fin n} (hj₁ : M.col j₁ = v) (hj₂ : M.col j₂ = w) : M.rank = 2 := by
-  rw [rank_eq_finrank_span_cols]
-  have hspan : Submodule.span K (Set.range M.col) = Submodule.span K {v, w} := by
-    refine le_antisymm (Submodule.span_le.mpr ?_) (Submodule.span_le.mpr ?_)
-    · rintro _ ⟨j, rfl⟩
-      exact hcol j
-    · rintro x (rfl | rfl)
-      · exact Submodule.subset_span ⟨j₁, hj₁⟩
-      · exact Submodule.subset_span ⟨j₂, hj₂⟩
-  have hrange : Set.range ![v, w] = {v, w} := by
-    rw [Matrix.range_cons, Matrix.range_cons, Matrix.range_empty, Set.union_empty,
-      Set.singleton_union]
-  rw [hspan, ← hrange, finrank_span_eq_card hvw, Fintype.card_fin]
-
-theorem linearIndependent_pi_single_pair {a b : Fin n} (hab : a ≠ b) :
-    LinearIndependent K ![(Pi.single a 1 : Fin n → K), Pi.single b 1] := by
-  have h := (Pi.basisFun K (Fin n)).linearIndependent.comp ![a, b] (by
-    intro x y hxy
-    fin_cases x <;> fin_cases y <;> simp_all [eq_comm])
-  convert h using 1
-  ext i : 1
-  fin_cases i <;> simp
 
 end Rank
 

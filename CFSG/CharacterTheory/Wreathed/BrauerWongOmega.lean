@@ -33,8 +33,6 @@ theorem mem_modelOmega_iff (hn : 1 ≤ n) (g : G) :
     apply wreathModelHom_injective S e
     rw [map_pow, hsq, map_one]
 
-theorem modelOmega_le_modelBase (hn : 1 ≤ n) : modelOmega S e ≤ modelBase S e :=
-  fun g hg => ((mem_modelOmega_iff S e hn g).mp hg).1
 
 theorem modelBase_commute (x y : G) (hx : x ∈ modelBase S e) (hy : y ∈ modelBase S e) :
     x * y = y * x := by
@@ -42,27 +40,6 @@ theorem modelBase_commute (x y : G) (hx : x ∈ modelBase S e) (hy : y ∈ model
     ⟨x, hx⟩ ⟨y, hy⟩
   exact congrArg Subtype.val h
 
-theorem modelBase_le_centralizer_modelOmega (hn : 1 ≤ n) :
-    modelBase S e ≤ Subgroup.centralizer (modelOmega S e : Set G) := by
-  intro x hx
-  rw [Subgroup.mem_centralizer_iff]
-  intro d hd
-  exact modelBase_commute S e d x (modelOmega_le_modelBase S e hn hd) hx
-
-theorem normalizer_modelBase_le_normalizer_modelOmega (hn : 1 ≤ n) :
-    Subgroup.normalizer (modelBase S e : Set G) ≤ Subgroup.normalizer (modelOmega S e : Set G) := by
-  intro k hk
-  rw [Subgroup.mem_normalizer_iff]
-  intro d
-  rw [mem_modelOmega_iff S e hn, mem_modelOmega_iff S e hn, ← (Subgroup.mem_normalizer_iff.mp hk d)]
-  constructor
-  · rintro ⟨hd, hsq⟩
-    exact ⟨hd, by rw [conj_pow, hsq]; group⟩
-  · rintro ⟨hd, hsq⟩
-    refine ⟨hd, ?_⟩
-    rw [conj_pow] at hsq
-    have := congrArg (fun y => k⁻¹ * y * k) hsq
-    simpa [mul_assoc] using this
 
 theorem mem_modelCenter_of_commute_outside (hn : 1 ≤ n) {u w : G} (hu : u ∈ modelBase S e)
     (hw : w ∈ (S : Subgroup G)) (hwB : w ∉ modelBase S e) (hc : u * w = w * u) :
@@ -88,11 +65,6 @@ theorem mem_modelCenter_of_commute_outside (hn : 1 ≤ n) {u w : G} (hu : u ∈ 
   rw [base_commutes_swap_iff] at hc'
   exact (mem_Z_iff _ hm _ _ _).mpr ⟨rfl, hc'⟩
 
-theorem modelHom_x2_not_mem_modelCenter (hn : 1 ≤ n) :
-    wreathModelHom S e (Original.x2 (2 ^ n)) ∉ modelCenter S e := by
-  have hm : 1 < 2 ^ n := Nat.one_lt_two_pow (by omega)
-  rw [mem_modelCenter_iff, x2_eq_element, mem_Z_iff _ hm]
-  exact fun h => half_ne_zero n hn h.2
 
 theorem modelHom_z_not_mem_modelBase :
     wreathModelHom S e (Original.z (2 ^ n)) ∉ modelBase S e := by
@@ -142,26 +114,6 @@ theorem modelBase_sylow_of_forall {n : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath (
   rw [this]
   exact hP₀C hxP
 
-theorem modelBase_sylow_centralizer_modelOmega {n : ℕ} (hn : 2 ≤ n) (S : Sylow 2 G)
-    (e : S ≃* Wreath (2 ^ n)) :
-    ∃ P : Sylow 2 (Subgroup.centralizer (modelOmega S e : Set G)),
-      (P : Subgroup _).map (Subgroup.centralizer (modelOmega S e : Set G)).subtype =
-        modelBase S e := by
-  apply modelBase_sylow_of_forall S e _ (modelBase_le_centralizer_modelOmega S e (by omega))
-  intro k hk w hwS hwB hwC
-  set j₁ := wreathModelHom S e (Original.x2 (2 ^ n))
-  have hj₁ : j₁ ∈ modelOmega S e :=
-    ⟨Original.x2 (2 ^ n), Subgroup.subset_closure (by simp), rfl⟩
-  have hd : k * j₁ * k⁻¹ ∈ modelOmega S e :=
-    (Subgroup.mem_normalizer_iff.mp
-      (normalizer_modelBase_le_normalizer_modelOmega S e (by omega) hk) j₁).mp hj₁
-  have hc := Subgroup.mem_centralizer_iff.mp hwC _ hd
-  have hc' : j₁ * w = w * j₁ := by
-    have h := congrArg (fun y => k⁻¹ * y * k) hc
-    simpa [mul_assoc] using h
-  have hj₁B : j₁ ∈ modelBase S e := modelOmega_le_modelBase S e (by omega) hj₁
-  exact modelHom_x2_not_mem_modelCenter S e (by omega)
-    (mem_modelCenter_of_commute_outside S e (by omega) hj₁B hwS hwB hc')
 
 omit [Finite G] in
 theorem normalizer_le_normalizer_centralizer (D : Subgroup G) :
@@ -187,21 +139,5 @@ theorem normalizer_le_normalizer_centralizer (D : Subgroup G) :
       _ = g⁻¹ * ((g * h * g⁻¹) * (g * d * g⁻¹)) * g := by rw [this]
       _ = h * d := by group
 
-theorem normalizer_modelOmega_eq {n : ℕ} (hn : 2 ≤ n) (S : Sylow 2 G)
-    (e : S ≃* Wreath (2 ^ n)) :
-    (Subgroup.normalizer (modelOmega S e : Set G) : Set G) =
-      (Subgroup.centralizer (modelOmega S e : Set G) : Set G) *
-        (Subgroup.normalizer (modelBase S e : Set G) : Set G) := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  apply Set.Subset.antisymm
-  · intro g hg
-    obtain ⟨P, hP⟩ := modelBase_sylow_centralizer_modelOmega hn S e
-    obtain ⟨c, hc, m, hm, rfl⟩ := exists_mem_mul_mem_normalizer P
-      (normalizer_le_normalizer_centralizer _ hg)
-    rw [hP] at hm
-    exact ⟨c, hc, m, hm, rfl⟩
-  · rintro _ ⟨c, hc, m, hm, rfl⟩
-    exact Subgroup.mul_mem _ (Subgroup.centralizer_le_normalizer _ hc)
-      (normalizer_modelBase_le_normalizer_modelOmega S e (by omega) hm)
 
 end CFSG.Wreathed.BrauerWong

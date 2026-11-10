@@ -10,19 +10,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
   CFSG.RankThree.PartTwo.Sec13 CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.PartTwo.Sec15
   CFSG.RankThree.PartTwo.Sec16 CFSG.RankThree.PartTwo.Late CFSG.GH74.GLS
 
-@[expose] def Item1724LocNSpec : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ Y₁ S : Subgroup G) (p : ℕ)
-    (P : Subgroup G) (w : G) (Q : Subgroup G), Sec17W G A c L Y₀ Y₁ S p P w Q →
-    Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2) →
-      (∀ D ∈ scriptQPi A (lB A) ⊤ (piOf p), D ≠ ⊥ →
-        ∀ S' ∈ scriptQPiStar A (lB A) (Subgroup.normalizer (D : Set G)) (piOf p),
-        ∀ T' ∈ scriptQPiStar A (lB A) (Subgroup.normalizer (D : Set G)) (piOf p),
-          IsConjIn (xA A ⊓ Subgroup.normalizer (D : Set G)) S' T') ∧
-      (∀ a ∈ A, a ≠ 1 →
-        (Subgroup.zpowers a ∈ omegaA A ∨ ∃ B, IsHyperplane A B ∧ a ∈ B ∧ lB A B ≠ ⊥) →
-        ∀ S' ∈ scriptQPiStar A (lB A) (Subgroup.centralizer ({a} : Set G)) (piOf p),
-        ∀ T' ∈ scriptQPiStar A (lB A) (Subgroup.centralizer ({a} : Set G)) (piOf p),
-          IsConjIn (xA A ⊓ Subgroup.centralizer ({a} : Set G)) S' T')
 
 @[expose] def Claim1724DeltaMeet : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ Y₁ S : Subgroup G) (p : ℕ)

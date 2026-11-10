@@ -41,47 +41,6 @@ theorem largeEvenMarking_or {X : Type*} [Group X] {P Q : LargeEvenMarkProp X}
 
 section Inputs
 
-@[expose] def GGNonsplitNbrHalfSplitInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G)
-    (G₀ : Subgroup G), GGPresentsG0 G₀ (ggU t n f).D t n f ψ →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ¬ p ∣ 2 ^ f - 1 → ¬ p ∣ 2 ^ f + 1 →
-    ∀ x y : G, x ^ p = 1 → y ^ p = 1 → x * y = y * x →
-      x ∈ Subgroup.normalizer (G₀ : Set G) → y ∈ Subgroup.normalizer (G₀ : Set G) →
-      GGPsiInnerDiag (ggU t n f).D ψ x → GGPsiInnerDiag (ggU t n f).D ψ y →
-      ∀ K K' : Subgroup G, IsComponentOf K (G₀ ⊓ Subgroup.centralizer {x}) →
-        ¬ p ∣ Nat.card K → IsComponentOf K' (G₀ ⊓ Subgroup.centralizer {y}) → K ≤ K' →
-        x ∈ Subgroup.normalizer (K' : Set G) →
-          ¬ LargeEvenMarking K' fun lab _ _ _ _ _ =>
-            LargeEvenHalfSplit p lab (Subgroup.center K' = ⊥)
-
-@[expose] def GGNonsplitNbrPrimeFieldInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G)
-    (G₀ : Subgroup G), GGPresentsG0 G₀ (ggU t n f).D t n f ψ →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ¬ p ∣ 2 ^ f - 1 → ¬ p ∣ 2 ^ f + 1 →
-    ∀ x y : G, x ^ p = 1 → y ^ p = 1 → x * y = y * x →
-      x ∈ Subgroup.normalizer (G₀ : Set G) → y ∈ Subgroup.normalizer (G₀ : Set G) →
-      GGPsiInnerDiag (ggU t n f).D ψ x → GGPsiInnerDiag (ggU t n f).D ψ y →
-      ∀ K K' : Subgroup G, IsComponentOf K (G₀ ⊓ Subgroup.centralizer {x}) →
-        ¬ p ∣ Nat.card K → IsComponentOf K' (G₀ ⊓ Subgroup.centralizer {y}) → K ≤ K' →
-        x ∈ Subgroup.normalizer (K' : Set G) →
-          ¬ LargeEvenMarking K' fun lab _ _ I F θ =>
-            LargeEvenPrimeField p lab I F
-              (LargeEvenInduces θ fun j j' => (j' : G) = x⁻¹ * j * x)
-
-theorem ggNonsplitNbrMarkingInput_of_split (hHS : GGNonsplitNbrHalfSplitInput)
-    (hPF : GGNonsplitNbrPrimeFieldInput) : GGNonsplitNbrMarkingInput := by
-  intro G _ _ t n f ψ G₀ hpres p hp hp2 hq1 hq2 x y hxp hyp hxy hxN hyN hxD hyD K K' hK hpK
-    hK' hKK' hxK' hmark
-  rcases largeEvenMarking_or hmark with h | h
-  · exact hHS G t n f ψ G₀ hpres p hp hp2 hq1 hq2 x y hxp hyp hxy hxN hyN hxD hyD K K' hK hpK
-      hK' hKK' hxK' h
-  · exact hPF G t n f ψ G₀ hpres p hp hp2 hq1 hq2 x y hxp hyp hxy hxN hyN hxD hyD K K' hK hpK
-      hK' hKK' hxK' h
-
-theorem ggSixLayerCXNonsplitInput_of_split3 (hlift : GGNonsplitCompLiftInput)
-    (hHS : GGNonsplitNbrHalfSplitInput) (hPF : GGNonsplitNbrPrimeFieldInput) :
-    GGSixLayerCXNonsplitInput :=
-  ggSixLayerCXNonsplitInput_of_kg hlift (ggNonsplitNbrMarkingInput_of_split hHS hPF)
 
 end Inputs
 

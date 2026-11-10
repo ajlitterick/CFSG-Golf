@@ -45,7 +45,6 @@ open CertificateChecks.KernelSporSch.TitsAbel
     strictB (pc (prod5K 1755 11 (mask 11) t0 t1 t2 t3 t4) T614G1) (fun U =>
       strictB (pinv U) (fun UI => kTests U UI)), true)
 
-@[expose] noncomputable def QOU : Nat → Nat → Nat → Nat → Nat → Nat → Bool := fun _ => POU
 
 end CertificateChecks.KernelSporSch.T614
 

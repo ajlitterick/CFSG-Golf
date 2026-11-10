@@ -64,12 +64,6 @@ theorem inr_range_normal : (MonoidHom.inr X Y).range.Normal := by
 
 variable [Finite X] [Finite Y]
 
-theorem isPComponent_prod_bot {L : Subgroup X} (hL : IsPComponent 2 L) :
-    IsPComponent 2 (L.prod (⊥ : Subgroup Y)) := by
-  have := inl_range_normal (X := X) (Y := Y)
-  have h := pComponent_map_injective_normal (MonoidHom.inl X Y)
-    (fun _ _ h => (Prod.ext_iff.mp h).1) hL
-  rwa [map_inl_eq_prod_bot] at h
 
 theorem isPComponent_bot_prod {L : Subgroup Y} (hL : IsPComponent 2 L) :
     IsPComponent 2 ((⊥ : Subgroup X).prod L) := by

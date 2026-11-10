@@ -70,10 +70,6 @@ open CFSG.ComponentClassification.J2Cover CFSG.Certificates.Native CFSG.Monster.
     enumOK 315 gensNE keyPts cNE && cNE.pts.size == 54 &&
     [0, 1, 2].all fun k => enumOK 315 (gensS k) keyPts (cS k) && (cS k).pts.size == 64
 
-@[expose] def chkCent45 : Bool :=
-  allLt 315 fun a => allLt 160 fun b => allLt 12 fun c =>
-    let t := prod3 315 autLevels a b c
-    (!(commA t xArr) || inCert cCa t) && (!(commA t v1Arr) || inCert cCv t)
 
 @[expose] def twoTest (ns : Array (Array ℕ)) (w : Array ℕ) : Bool :=
   isTwoA w && ns.all fun n => isTwoA (compA 315 w (conjA 315 n w))
@@ -227,7 +223,5 @@ open CFSG.ComponentClassification.J2Cover CFSG.Certificates.Native CFSG.Monster.
       (List.range 4).all fun a' => (List.range 4).all fun b' => (List.range 4).all fun c' =>
         (a == a' && b == b' && c == c') || !(eqA 315 (phiA a b c) (phiA a' b' c')))
 
-@[expose] def j2Check45 : Bool :=
-  chkElts45 && chkEnum45 && chkCent45 && chkLocal45 && chkW && chkS && chkE0 && chkVk
 
 end CFSG.RankThree.PartTwo.Sec4.Sporadic.J2

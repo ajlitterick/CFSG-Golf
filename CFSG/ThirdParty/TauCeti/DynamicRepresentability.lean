@@ -243,7 +243,6 @@ theorem exists_algHom_toLaurent_comp_eq_iff [CommSemiring A] [Semiring H]
 end CFSG.ThirdParty.TauCeti
 
 
-
 namespace CFSG.ThirdParty.TauCeti.Cocharacter
 
 open WithConv
@@ -359,12 +358,6 @@ private theorem prodSubst_comp_const :
           (IsScalarTower.toAlgHom R A (LaurentPolynomial A)) :=
   AlgHom.ext fun a ↦ prodSubst_C R A a
 
-variable (R A) in
-private theorem prodUnit_val :
-    (prodUnit R A : LaurentPolynomial (LaurentPolynomial A)) =
-      LaurentPolynomial.C (LaurentPolynomial.T 1) * LaurentPolynomial.T 1 := by
-  rw [prodUnit, Units.val_mul, Units.coe_map]
-  simp
 
 variable (R A) in
 /-- The substitution `T ↦ T · T'` sends the monomial `a Tⁿ` to `(a Tⁿ) T'ⁿ`. -/
@@ -525,17 +518,6 @@ theorem quotientPointsSubgroup_parabolicDefiningHopfIdeal
   rw [hker, parabolicDefiningHopfIdeal_toIdeal]
   exact negativeCoefficientIdeal_le_ker_iff l g
 
-/-- The coefficient ideal is the smallest Hopf ideal containing all the negative coefficients. -/
-theorem parabolicDefiningHopfIdeal_le_iff (l : H →ₐc[R] LaurentPolynomial R)
-    (I : HopfIdeal R H) :
-    parabolicDefiningHopfIdeal l ≤ I ↔
-      ∀ h : H, ∀ n : ℤ, n < 0 → (conjugationAlgHom l h).coeff n ∈ I := by
-  rw [← toIdeal_le_toIdeal, parabolicDefiningHopfIdeal_toIdeal, Ideal.span_le]
-  constructor
-  · intro hi h n hn
-    exact hi ⟨h, n, hn, rfl⟩
-  · rintro hi x ⟨h, n, hn, rfl⟩
-    exact hi h n hn
 
 end CFSG.ThirdParty.TauCeti.Cocharacter
 
@@ -550,13 +532,6 @@ universe u v w
 variable {R : Type u} {H : Type v} [CommRing R] [CommRing H] [HopfAlgebra R H]
 variable {A : Type w} [CommRing A] [Algebra R A]
 
-/-- If the dynamic parabolic of a cocharacter is the whole group, then its points over every
-value algebra are all the points. -/
-theorem parabolic_eq_top_of_parabolicDefiningHopfIdeal_eq_bot
-    (l : H →ₐc[R] LaurentPolynomial R) (hl : parabolicDefiningHopfIdeal l = ⊥)
-    (A : Type*) [CommRing A] [Algebra R A] :
-    parabolic A l = ⊤ := by
-  rw [← quotientPointsSubgroup_parabolicDefiningHopfIdeal, hl, quotientPointsSubgroup_bot]
 
 /-- A parabolic point has trivial dynamic limit exactly when it annihilates the differences
 between the universal constant coefficients and the counit. -/
@@ -633,34 +608,6 @@ theorem mem_unipotentDefiningHopfIdeal (l : H →ₐc[R] LaurentPolynomial R) (x
           algebraMap R H (Coalgebra.counit h) = x} := by
   rw [← mem_toIdeal, unipotentDefiningHopfIdeal_toIdeal]
 
-/-- The dynamic unipotent defining ideal contains the parabolic defining ideal. -/
-theorem parabolicDefiningHopfIdeal_le_unipotentDefiningHopfIdeal
-    (l : H →ₐc[R] LaurentPolynomial R) :
-    parabolicDefiningHopfIdeal l ≤ unipotentDefiningHopfIdeal l := by
-  rw [← toIdeal_le_toIdeal, unipotentDefiningHopfIdeal_toIdeal]
-  exact le_sup_left
-
-/-- The constant coefficient of universal conjugation equals the counit on the dynamic
-unipotent subgroup. -/
-theorem coeff_conjugationAlgHom_sub_counit_mem_unipotentDefiningHopfIdeal
-    (l : H →ₐc[R] LaurentPolynomial R) (h : H) :
-    (conjugationAlgHom l h).coeff 0 - algebraMap R H (Coalgebra.counit h) ∈
-      unipotentDefiningHopfIdeal l := by
-  rw [← mem_toIdeal, unipotentDefiningHopfIdeal_toIdeal]
-  exact Ideal.mem_sup_right (Ideal.subset_span ⟨h, rfl⟩)
-
-/-- The unipotent ideal is the smallest Hopf ideal containing the parabolic ideal and
-all constant-coefficient differences from the counit. -/
-theorem unipotentDefiningHopfIdeal_le_iff (l : H →ₐc[R] LaurentPolynomial R)
-    (I : HopfIdeal R H) :
-    unipotentDefiningHopfIdeal l ≤ I ↔
-      parabolicDefiningHopfIdeal l ≤ I ∧ ∀ h : H,
-        (conjugationAlgHom l h).coeff 0 - algebraMap R H (Coalgebra.counit h) ∈ I := by
-  rw [← toIdeal_le_toIdeal, unipotentDefiningHopfIdeal_toIdeal,
-    sup_le_iff, toIdeal_le_toIdeal, Ideal.span_le]
-  exact and_congr_right fun _ ↦ ⟨fun hi h ↦ hi ⟨h, rfl⟩, by
-    rintro hi x ⟨h, rfl⟩
-    exact hi h⟩
 
 /-- The points cut out by the coefficient ideal are exactly the dynamic unipotent subgroup. -/
 @[simp]
@@ -676,17 +623,6 @@ theorem quotientPointsSubgroup_unipotentDefiningHopfIdeal
   rw [hker, unipotentDefiningHopfIdeal_toIdeal]
   exact unipotentCoefficientIdeal_le_ker_iff l g
 
-/-- If the dynamic parabolic of a cocharacter is the whole group, then the dynamic unipotent
-subgroup is a normal closed subgroup of the whole group. -/
-theorem isNormal_unipotentDefiningHopfIdeal_of_parabolicDefiningHopfIdeal_eq_bot
-    (l : H →ₐc[R] LaurentPolynomial R) (hl : parabolicDefiningHopfIdeal l = ⊥) :
-    (unipotentDefiningHopfIdeal l).IsNormal := by
-  rw [isNormal_iff_quotientPointsSubgroup_normal (CommHopfAlgCat.of R H)]
-  rintro ⟨A⟩
-  rw [quotientPointsSubgroup_unipotentDefiningHopfIdeal]
-  refine ⟨fun u hu g ↦ conj_mem_unipotent ?_ hu⟩
-  rw [parabolic_eq_top_of_parabolicDefiningHopfIdeal_eq_bot l hl]
-  exact Subgroup.mem_top g
 
 end CFSG.ThirdParty.TauCeti.BialgHom
 

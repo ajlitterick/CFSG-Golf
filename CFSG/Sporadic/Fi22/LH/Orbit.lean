@@ -165,11 +165,6 @@ theorem tv_eq_conjPerm
   apply Subtype.ext
   rw [pairModel_tv, Pair.conjPerm_apply, Pair.inv_eq pair_D p.2]
 
-theorem tv_image_mem_lhOrbit
-    {i : Fin 2} {T : Set D} (hT : T ∈ lhOrbit i) (p : D) :
-    (pairModel pair_D).tv p '' T ∈ lhOrbit i := by
-  rw [tv_eq_conjPerm]
-  exact conjPerm_mem_lhOrbit hT p
 
 theorem conjPerm_mem_of_invariant {𝒮 : Set (Set D)}
     (h𝒮 : ∀ T ∈ 𝒮, ∀ p, (pairModel pair_D).tv p '' T ∈ 𝒮) (g : J) :
@@ -202,9 +197,6 @@ theorem lhOrbit_subset_of_invariant (𝒮 : Set (Set D))
 theorem lhU_ptD
     (i : Fin 3510) : lhU (ptD i) = ptD (uOut i) := lhU_apply i
 
-theorem ptD_symm_lhU
-    (x : D) : ptD.symm (lhU x) = uOut (ptD.symm x) := by
-  rw [← ptD.apply_symm_apply x, lhU_ptD, Equiv.symm_apply_apply, Equiv.symm_apply_apply]
 
 theorem lhU_lhU
     (x : D) : lhU (lhU x) = x := by

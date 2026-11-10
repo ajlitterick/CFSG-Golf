@@ -67,51 +67,5 @@ theorem card_dvd_of_injective_hom {Source : Type groupUniverse} [Group Source]
   rw [Nat.card_congr hequivalence.toEquiv]
   exact embedding.range.card_subgroup_dvd_card
 
-theorem binary_GL_small_card_dvd {dimension : ℕ} (hdimension : dimension ≤ 4) :
-    Nat.card (GL (Fin dimension) (ZMod 2)) ∣ 20160 := by
-  rw [Matrix.card_GL_field]
-  interval_cases dimension <;> norm_num [Fin.prod_univ_succ]
-
-theorem odd_prime_cube_not_dvd_20160 {prime : ℕ} (hprime : prime.Prime) (hodd : prime ≠ 2) :
-    ¬ prime ^ 3 ∣ 20160 := by
-  intro hcube
-  have hdivides : prime ∣ 20160 := by
-    have hpower : prime ∣ prime ^ 3 := by
-      exact dvd_pow_self prime (by decide : 3 ≠ 0)
-    exact hpower.trans hcube
-  have hprimeOptions : prime = 2 ∨ prime = 3 ∨ prime = 5 ∨ prime = 7 := by
-    have hfactorization : 20160 = 2 ^ 6 * 3 ^ 2 * 5 * 7 := by norm_num
-    rw [hfactorization] at hdivides
-    rcases hprime.dvd_mul.mp hdivides with hfirst | hseven
-    · rcases hprime.dvd_mul.mp hfirst with hsecond | hfive
-      · rcases hprime.dvd_mul.mp hsecond with htwo | hthree
-        · exact Or.inl ((Nat.prime_dvd_prime_iff_eq hprime Nat.prime_two).mp
-            (hprime.dvd_of_dvd_pow htwo))
-        · exact Or.inr (Or.inl ((Nat.prime_dvd_prime_iff_eq hprime (by norm_num)).mp
-            (hprime.dvd_of_dvd_pow hthree)))
-      · exact Or.inr (Or.inr (Or.inl ((Nat.prime_dvd_prime_iff_eq hprime (by norm_num)).mp hfive)))
-    · exact Or.inr (Or.inr (Or.inr ((Nat.prime_dvd_prime_iff_eq hprime (by norm_num)).mp hseven)))
-  rcases hprimeOptions with htwo | hthree | hfive | hseven
-  · exact hodd htwo
-  · subst prime
-    norm_num at hcube
-  · subst prime
-    norm_num at hcube
-  · subst prime
-    norm_num at hcube
-
-theorem faithful_odd_rank_three_binary_dimension {Acting Space : Type groupUniverse}
-    [Group Acting] [AddCommGroup Space] [Module (ZMod 2) Space] [Finite Space]
-    {prime rank : ℕ} (hprime : prime.Prime) (hodd : prime ≠ 2) (hrank : 3 ≤ rank)
-    (hcard : Nat.card Acting = prime ^ rank)
-    (action : Acting →* (Space ≃ₗ[ZMod 2] Space)) (hinjective : Function.Injective action) :
-    5 ≤ Module.finrank (ZMod 2) Space := by
-  by_contra hsmall
-  have hdimension : Module.finrank (ZMod 2) Space ≤ 4 := by omega
-  have hdivides := card_dvd_of_injective_hom action hinjective
-  rw [hcard, card_linear_aut_binary] at hdivides
-  have hcubeDivides : prime ^ 3 ∣ 20160 :=
-    (Nat.pow_dvd_pow prime hrank).trans (hdivides.trans (binary_GL_small_card_dvd hdimension))
-  exact odd_prime_cube_not_dvd_20160 hprime hodd hcubeDivides
 
 end CFSG.LargeEvenClassification.Helpers

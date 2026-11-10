@@ -18,8 +18,6 @@ section Theta
 
 variable {G : Type} [Group G]
 
-theorem thetaOf_le {A : Subgroup G} : thetaOf A ≤ A :=
-  (Subgroup.closure_le A).mpr fun _ hx => hx.1
 
 theorem thetaOf_mono {A B : Subgroup G} (h : A ≤ B) : thetaOf A ≤ thetaOf B :=
   Subgroup.closure_mono fun _ hx => ⟨h hx.1, hx.2⟩

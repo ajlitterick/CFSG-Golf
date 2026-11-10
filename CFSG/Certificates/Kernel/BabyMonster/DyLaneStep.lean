@@ -29,9 +29,6 @@ theorem eq_of_xor_eq_zero {a b : ℕ} (h : a ^^^ b = 0) : a = b := by
   simp only [Nat.testBit_xor, Nat.zero_testBit] at this
   cases ha : a.testBit i <;> cases hb : b.testBit i <;> simp_all
 
-theorem lnOne_lt : lnOne < 2 ^ 256 := by
-  have := lt_of_fld (x := lnOne) (n := 16) (fun t ht => by rw [fld_lnOne, ite_eq_right (by omega)])
-  exact this
 
 theorem ln_step {e : ℕ} (he1 : 1 ≤ e) (he : e ≤ 8) {j0 j : ℕ} (hj0 : j0 ≤ j) (hj : j < 4371)
     {b : ℕ} (hrow : dyRowOK 4371 j b = true) {S sh p : ℕ}

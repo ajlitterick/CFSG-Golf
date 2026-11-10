@@ -119,8 +119,5 @@ theorem catalogBridgeFor_of_nonEven
     CatalogBridgeFor i :=
   catalogBridgeFor_of_remaining (b1Remaining_of_nonEven h) i
 
-theorem tcKGroupBridge_of_nonEven
-    (h : B1RemainingNonEven) : TCKGroupBridge :=
-  tcKGroupBridge_of_remaining (b1Remaining_of_nonEven h)
 
 end CFSG.TauCetiBridge.Even

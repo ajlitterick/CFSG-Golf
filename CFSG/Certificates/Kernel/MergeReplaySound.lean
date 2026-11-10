@@ -79,8 +79,6 @@ theorem get_of_toList {α : Type} [Inhabited α] {a : Array α} {l : List α} (e
 @[expose] noncomputable def recT (w m Lp j : Nat) : Nat × Nat × Nat :=
   (recF w m Lp j (nat_lit 0), recF w m Lp j (nat_lit 1), recF w m Lp j (nat_lit 2))
 
-theorem recT_eq (w m Lp j : Nat) :
-    recT w m Lp j = (pg w m Lp (3 * j), pg w m Lp (3 * j + 1), pg w m Lp (3 * j + 2)) := rfl
 
 @[expose] def img (G : Array (Array Nat)) (r : Nat × Nat × Nat) : Nat × Nat :=
   ((G[r.1]!)[r.2.1]!, (G[r.1]!)[r.2.2]!)

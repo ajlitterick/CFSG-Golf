@@ -108,8 +108,6 @@ theorem R_inf_centralizer : R ⊓ Subgroup.centralizer ({j} : Set G) = Subgroup.
     le_inf c.huR c.U_le_centralizer
   exact (Subgroup.eq_of_le_of_card_ge hUle hcard).symm
 
-theorem T_inf_centralizer : T ⊓ Subgroup.centralizer ({z} : Set G) = Subgroup.zpowers v :=
-  c.symm.R_inf_centralizer
 
 end Cfg64
 

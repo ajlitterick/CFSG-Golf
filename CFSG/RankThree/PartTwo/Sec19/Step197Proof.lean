@@ -638,20 +638,6 @@ end Step197Proof
 
 open Step197Proof
 
-theorem step197_of_hyperplane
-    (h45 : Sec4.Item4_5)
-    (h131 : Item131) (h1730 : Sec17.Item1730) (hspor : SporadicModels131)
-    (hgap : ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L E M : Subgroup G),
-      Ctx195 G A c L E M →
-      Sec4.IsHeisCentral (lBarA c L A) (L ⧸ aschbacherSolvableCore 3 L) →
-      ∀ B : Subgroup G, B ≤ A → Nat.card B = 9 → c ∉ B →
-        Subgroup.normalizer (B : Set G) ≤ M) :
-    Step197 := by
-  intro G _ _ A c L E M hctx
-  rcases isSLThreePiTwo_or_exists_hyperplane h131 h1730 hspor (step196_of h45 h131 hspor) hctx
-    with h | ⟨hH, B, hBA, hB9, hcB, hBM⟩
-  · exact h
-  · exact absurd (hgap G A c L E M hctx hH B hBA hB9 hcB) hBM
 
 theorem step197_of_item181
     (h45 : Sec4.Item4_5)

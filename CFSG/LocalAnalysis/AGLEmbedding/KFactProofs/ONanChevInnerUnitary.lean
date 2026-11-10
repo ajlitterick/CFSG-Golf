@@ -233,8 +233,6 @@ theorem Ok.su_pm (h : d.Ok) {i j : ℕ} (hi : i < 5) (hj : j < 5) (hij : i ≠ j
     rw [Dm_add]
     exact (suOf_mul_of_eq (h.su_dm _) (h.su_dm _) (by rw [← Dm_add]; exact h.su_dm _) rfl).symm
 
-theorem theta_apply (h : d.Ok) (v : Fin 4 → ZMod 3) :
-    theta h (Multiplicative.ofAdd v) = suOf (Dm v) := rfl
 
 @[expose] noncomputable def phiHom (h : d.Ok) :
     Multiplicative (Fin 2 → ZMod 3) →* Multiplicative (Fin 4 → ZMod 3) where
@@ -263,8 +261,6 @@ theorem phiHom_injective (h : d.Ok) : Function.Injective (phiHom h) := by
   apply Multiplicative.toAdd.injective
   exact this
 
-theorem theta_phi (h : d.Ok) (a : Multiplicative (Fin 2 → ZMod 3)) :
-    ((theta h).comp (phiHom h)) a = suOf (Dm (d.phi (Multiplicative.toAdd a))) := rfl
 
 theorem swap_conj₁ (h : d.Ok) {i j : Fin 4} (hij : i ≠ j) :
     suOf (Pm n i.val j.val) * theta h (Multiplicative.ofAdd (Pi.single i 1)) *

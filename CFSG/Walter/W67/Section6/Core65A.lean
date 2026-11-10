@@ -44,9 +44,6 @@ include h
 
 theorem ρ_pow_three : ρ ^ 3 = 1 := by rw [← h.orderOf_ρ, pow_orderOf_eq_one]
 
-theorem e_pow_seven : e ^ 7 = 1 := by rw [← h.orderOf_e, pow_orderOf_eq_one]
-
-theorem u_pow_seven : u ^ 7 = 1 := by rw [← h.orderOf_u, pow_orderOf_eq_one]
 
 theorem card_E : Nat.card (Subgroup.zpowers e) = 7 := by rw [Nat.card_zpowers, h.orderOf_e]
 

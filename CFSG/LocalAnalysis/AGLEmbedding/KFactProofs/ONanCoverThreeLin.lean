@@ -88,64 +88,12 @@ theorem isLinThreeCover3_of_isLieThreeIndex {d : ValidLieTypeIndex}
     exact Or.inr ⟨q, rfl, h3⟩
   | _ => exact h.elim
 
-theorem three_ne_characteristic {d : ValidLieTypeIndex} (hd : IsLinThreeCover3 d) :
-    3 ≠ d.1.characteristic := by
-  obtain ⟨dd, hv⟩ := d
-  rcases hd with ⟨q, hq, h3⟩ | ⟨q, hq, h3⟩
-  · change dd = .A 2 q at hq
-    subst hq
-    intro h
-    simp only [LieTypeIndex.characteristic_A] at h
-    have h1 : 0 < q.p ^ q.exponent := pow_pos q.prime_p.pos _
-    have h2 : 3 ∣ q.p ^ q.exponent := h ▸ dvd_pow_self _ q.exponent_pos.ne'
-    rw [PrimePower.card_def] at h3
-    omega
-  · change dd = .twistedA 2 q at hq
-    subst hq
-    intro h
-    simp only [LieTypeIndex.characteristic_twistedA] at h
-    have h2 : 3 ∣ q.p ^ q.exponent := h ▸ dvd_pow_self _ q.exponent_pos.ne'
-    rw [PrimePower.card_def] at h3
-    omega
-
-theorem not_isD2SeitzException_linThree {d : ValidLieTypeIndex} (hd : IsLinThreeCover3 d)
-    (hnot : ¬ ∃ q : PrimePower, q.p = 2 ∧ q.exponent = 2 ∧ d.1 = .A 2 q) :
-    ¬ IsD2SeitzException 3 d.1 := by
-  obtain ⟨dd, hv⟩ := d
-  rcases hd with ⟨q, hq, -⟩ | ⟨q, hq, -⟩
-  · change dd = .A 2 q at hq
-    subst hq
-    simp [IsD2SeitzException]
-    exact fun hp hf => hnot ⟨q, hp, hf, rfl⟩
-  · change dd = .twistedA 2 q at hq
-    subst hq
-    simp [IsD2SeitzException]
-
-theorem kGenTwoModAb_of_seitz {K : Type} [Group K] [Finite K] (hK : Open.IsQuasisimple K)
-    (hS : KFactSeitzRankTwo) {d : ValidLieTypeIndex} (hd : IsLinThreeCover3 d)
-    (hnot : ¬ ∃ q : PrimePower, q.p = 2 ∧ q.exponent = 2 ∧ d.1 = .A 2 q)
-    (e : K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) : KGenTwoModAb 3 K := by
-  have hperf : Group.IsPerfect K := ⟨hK.1⟩
-  exact kGenTwoModAb_of_kGenTwoMod (kGenTwoMod_of_seitz hperf e fun E' hE' hc =>
-    hS d 3 Nat.prime_three (by norm_num) (three_ne_characteristic hd)
-      (not_isD2SeitzException_linThree hd hnot) E' hE' hc)
 
 @[expose] def SL3FourGenTwoModAb : Prop :=
   ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → Nat.card (Subgroup.center K) = 3 →
     ∀ d : ValidLieTypeIndex, (∃ q : PrimePower, q.p = 2 ∧ q.exponent = 2 ∧ d.1 = .A 2 q) →
       Nonempty (K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) → KGenTwoModAb 3 K
 
-@[expose] def SL3CoverGenTwoModAb : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → Nat.card (Subgroup.center K) = 3 →
-    ∀ d : ValidLieTypeIndex, IsLinThreeCover3 d →
-      Nonempty (K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) → KGenTwoModAb 3 K
-
-theorem sl3CoverGenTwoModAb_of_seitz (hS : KFactSeitzRankTwo) (hFour : SL3FourGenTwoModAb) :
-    SL3CoverGenTwoModAb := by
-  intro K _ _ hK hZ3 d hd ⟨e⟩
-  by_cases h4 : ∃ q : PrimePower, q.p = 2 ∧ q.exponent = 2 ∧ d.1 = .A 2 q
-  · exact hFour K hK hZ3 d h4 ⟨e⟩
-  · exact kGenTwoModAb_of_seitz hK hS hd h4 e
 
 @[expose] def CoverE6RankFour : Prop :=
   ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → Subgroup.center K ≠ ⊥ →
@@ -154,13 +102,5 @@ theorem sl3CoverGenTwoModAb_of_seitz (hS : KFactSeitzRankTwo) (hFour : SL3FourGe
       Nonempty (K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) →
       4 ≤ Open.pRank 3 (⊤ : Subgroup K)
 
-theorem linThree_case (hGA : GriessMultipliersAllModels) (hR1 : SL3CoverGenTwoModAb)
-    {K : Type} [Group K] [Finite K] (hK : Open.IsQuasisimple K)
-    (hZp : IsPGroup 3 (Subgroup.center K)) (hZ : Subgroup.center K ≠ ⊥)
-    {d : ValidLieTypeIndex} (hd : IsLinThreeCover3 d)
-    (e : K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) :
-    KGenTwoModAb 3 K ∧ Nat.card (Subgroup.center K) = 3 ∧ KOutNormalSylow 3 K := by
-  have hZ3 := card_center_linThree hGA hK hZp hZ hd e
-  exact ⟨hR1 K hK hZ3 d hd ⟨e⟩, hZ3, kFactSL3OutNormalSylow K hK d hd ⟨e⟩⟩
 
 end CFSG.AGLEmbedding.KFactProofs.CoverThree

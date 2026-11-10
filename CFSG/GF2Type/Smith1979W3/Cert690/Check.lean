@@ -117,11 +117,6 @@ open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62
       else (E, par)
   go fuel #[Code.one] #[(0, 0)] ((∅ : Std.HashSet ℕ).insert Code.one) 0
 
-@[expose] def enumGroup (gens : List ℕ) (_ : Unit := ()) : Array ℕ :=
-  (enumData gens).1
-
-@[expose] def enumParents (gens : List ℕ) (_ : Unit := ()) : Array (ℕ × ℕ) :=
-  (enumData gens).2
 
 @[expose] def enumOK (gens : List ℕ) (E : Array ℕ) (par : Array (ℕ × ℕ)) : Bool :=
   let gs := gens.toArray
@@ -144,12 +139,6 @@ open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62
     | f + 1 => if Code.mul y x == Code.one then y else go f (Code.mul y x)
   go bound x
 
-@[expose] def codeOrder (bound x : ℕ) : ℕ :=
-  let rec go (fuel y n : ℕ) : ℕ :=
-    match fuel with
-    | 0 => 0
-    | f + 1 => if y == Code.one then n else go f (Code.mul y x) (n + 1)
-  go bound x 1
 
 @[expose] def codePow (a n : ℕ) : ℕ :=
   let rec go (fuel acc : ℕ) : ℕ :=
@@ -161,8 +150,6 @@ open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62
 @[expose] def pow2K (a : ℕ) : Bool :=
   codePow a 16 == Code.one
 
-@[expose] def isPow2B (n : ℕ) : Bool :=
-  n != 0 && (n &&& (n - 1)) == 0
 
 @[expose] def isoQ (minus : Bool) (g : ℕ) : Bool :=
   (List.range 64).all fun v => qB minus (Code.act g v) == qB minus v
@@ -452,19 +439,6 @@ structure PGLData where
     (D.elems.filter fun k => Code.mul k w == Code.mul w k).size == 16 &&
     ((List.range 64).filter fun v => Code.act w v == v).length == 16
 
-@[expose] def pglF1 (_ : Unit := ()) : Bool := pglF1Of (pglData ())
-@[expose] def pglF2 (_ : Unit := ()) : Bool := pglF2Of (pglData ())
-@[expose] def pglF3 (_ : Unit := ()) : Bool := pglF3Of (pglData ())
-@[expose] def pglF4 (_ : Unit := ()) : Bool := pglF4Of (pglData ())
-@[expose] def pglF5 (_ : Unit := ()) : Bool := pglF5Of (pglData ())
-@[expose] def pglF6 (_ : Unit := ()) : Bool := pglF6Of (pglData ())
-@[expose] def pglF7 (_ : Unit := ()) : Bool := pglF7Of (pglData ())
-@[expose] def pglF8 (_ : Unit := ()) : Bool := pglF8Of (pglData ())
-@[expose] def pglF9 (_ : Unit := ()) : Bool := pglF9Of (pglData ())
-@[expose] def pglF10 (_ : Unit := ()) : Bool := pglF10Of (pglData ())
-@[expose] def pglF11 (_ : Unit := ()) : Bool := pglF11Of (pglData ())
-@[expose] def pglF12 (_ : Unit := ()) : Bool := pglF12Of (pglData ())
-@[expose] def pglF13 (_ : Unit := ()) : Bool := pglF13Of (pglData ())
 
 @[expose] def pglFactsCheck (_ : Unit := ()) : Bool :=
   let D := pglData ()
@@ -650,10 +624,6 @@ structure PGLSquareData where
             else true
         w.g == u && existOK && sigma1 && sigma2 && distinctTabs tabs
 
-@[expose] def pglS1 (_ : Unit := ()) : Bool := pglS1Of (pglSquareData ())
-@[expose] def pglS2 (_ : Unit := ()) : Bool := pglS2Of (pglSquareData ())
-@[expose] def pglS3 (_ : Unit := ()) : Bool := pglS3Of (pglSquareData ())
-@[expose] def pglS4 (_ : Unit := ()) : Bool := pglS4Of (pglSquareData ())
 
 @[expose] def pglSquareCheck (_ : Unit := ()) : Bool :=
   let D := pglSquareData ()
@@ -767,11 +737,6 @@ structure A8Data where
     existOK && vals.size == flat.length && na == 120 &&
       ([72, 336, 408, 672].contains nz)
 
-@[expose] def a8S1 (_ : Unit := ()) : Bool := a8S1Of (a8Data ())
-@[expose] def a8S2 (_ : Unit := ()) : Bool := a8S2Of (a8Data ())
-@[expose] def a8S3 (_ : Unit := ()) : Bool := a8S3Of (a8Data ())
-@[expose] def a8S4 (_ : Unit := ()) : Bool := a8S4Of (a8Data ())
-@[expose] def a8S5 (_ : Unit := ()) : Bool := a8S5Of (a8Data ())
 
 @[expose] def a8SquareCheck (_ : Unit := ()) : Bool :=
   let D := a8Data ()

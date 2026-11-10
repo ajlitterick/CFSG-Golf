@@ -237,9 +237,6 @@ theorem image_conjOrbit (N : Subgroup (MulAut K)) (w : MulAut K) :
   · rintro ⟨_, ⟨n, hn, rfl⟩, rfl⟩
     exact ⟨n⁻¹ * w * n, ⟨n, hn, rfl⟩, by rw [map_mul, map_mul, map_inv]⟩
 
-theorem card_conjOrbit (N : Subgroup (MulAut K)) (w : MulAut K) :
-    Nat.card (Cat8.conjOrbit N w) = Nat.card (Cat8.conjOrbit (N.map M.ι) (M.ι w)) := by
-  rw [← image_conjOrbit, Nat.card_image_of_injective M.ι_injective]
 
 variable (hPA : M.P ≤ M.A) (hcent : ∀ g ∈ M.A, (∀ x ∈ M.P, g * x = x * g) → g = 1)
 include hPA hcent

@@ -64,10 +64,6 @@ theorem stmtLemmaBRel_of_cyc (h : StmtLemmaBRelCyc) : StmtLemmaBRel := by
   exact h G M S L Y Z p r t hK hA hL hX1 hS hp hp2
     (fun Y' hY' hperf A hAY hAp => isCyclic_of_le_of_coprime hp (hcop Y' hY' hperf) hAY hAp)
 
-theorem stmtLemmaB_of_cyc (h : StmtLemmaBCyc) : StmtLemmaB := by
-  intro G _ _ M S L X p r t hK hA hL hX1 hS hp hp2 hcop
-  exact h G M S L X p r t hK hA hL hX1 hS hp hp2
-    (fun Y' hY' hperf A hAY hAp => isCyclic_of_le_of_coprime hp (hcop Y' hY' hperf) hAY hAp)
 
 theorem stmtLemmaBCyc_of_relCyc (h : StmtLemmaBRelCyc) : StmtLemmaBCyc := by
   intro G _ _ M S L X p r t hK hA hL hX1 hS hp hp2 hcyc hXK hXL hXel hXcard htK htL htX hr hr2

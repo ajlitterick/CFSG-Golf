@@ -363,41 +363,6 @@ theorem mulR4_sound {Rb : List (List Nat)} {Bs : List Nat} {Ds : List (List Nat)
   simp only [mulW_cons]
   exact beq4_spec h
 
-theorem mulW4_sound0 (Ws Ds : List (List Nat)) (A0 A1 A2 A3 C0 C1 C2 C3 : Nat)
-    (h : mulW4 Ws A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW Ws A0) (mulW Ds C0) = true := (mulW4_sound h).1
-
-theorem mulW4_sound1 (Ws Ds : List (List Nat)) (A0 A1 A2 A3 C0 C1 C2 C3 : Nat)
-    (h : mulW4 Ws A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW Ws A1) (mulW Ds C1) = true := (mulW4_sound h).2.1
-
-theorem mulW4_sound2 (Ws Ds : List (List Nat)) (A0 A1 A2 A3 C0 C1 C2 C3 : Nat)
-    (h : mulW4 Ws A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW Ws A2) (mulW Ds C2) = true := (mulW4_sound h).2.2.1
-
-theorem mulW4_sound3 (Ws Ds : List (List Nat)) (A0 A1 A2 A3 C0 C1 C2 C3 : Nat)
-    (h : mulW4 Ws A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW Ws A3) (mulW Ds C3) = true := (mulW4_sound h).2.2.2
-
-theorem mulR4_sound0 (Rb : List (List Nat)) (Bs : List Nat) (Ds : List (List Nat))
-    (A0 A1 A2 A3 C0 C1 C2 C3 : Nat) (hR : spreadOK Rb Bs = true)
-    (h : mulR4 Rb A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW [Bs] A0) (mulW Ds C0) = true := (mulR4_sound hR h).1
-
-theorem mulR4_sound1 (Rb : List (List Nat)) (Bs : List Nat) (Ds : List (List Nat))
-    (A0 A1 A2 A3 C0 C1 C2 C3 : Nat) (hR : spreadOK Rb Bs = true)
-    (h : mulR4 Rb A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW [Bs] A1) (mulW Ds C1) = true := (mulR4_sound hR h).2.1
-
-theorem mulR4_sound2 (Rb : List (List Nat)) (Bs : List Nat) (Ds : List (List Nat))
-    (A0 A1 A2 A3 C0 C1 C2 C3 : Nat) (hR : spreadOK Rb Bs = true)
-    (h : mulR4 Rb A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW [Bs] A2) (mulW Ds C2) = true := (mulR4_sound hR h).2.2.1
-
-theorem mulR4_sound3 (Rb : List (List Nat)) (Bs : List Nat) (Ds : List (List Nat))
-    (A0 A1 A2 A3 C0 C1 C2 C3 : Nat) (hR : spreadOK Rb Bs = true)
-    (h : mulR4 Rb A0 A1 A2 A3 (rhs4 Ds C0 C1 C2 C3) = true) :
-    Nat.beq (mulW [Bs] A3) (mulW Ds C3) = true := (mulR4_sound hR h).2.2.2
 
 end CFSG.KC.BM.F4
 

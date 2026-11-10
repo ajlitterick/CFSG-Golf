@@ -177,12 +177,6 @@ theorem orbitXProd_add
   · intro x hx y hy
     exact commute_xUnit_xUnit K ((t.mem_orbitWord).1 hx) ((t.mem_orbitWord).1 hy) _ _
 
-theorem orbitXProd_zero
-    (a : Fin t.foldedTag.rank) :
-    orbitXProd t a (0 : Fin t.tag.rank → K) = 1 := by
-  have h := orbitXProd_add t a (0 : Fin t.tag.rank → K) 0
-  rw [add_zero] at h
-  exact left_eq_mul.1 h
 
 theorem orbitXProd_mem_rootSpan
     (a : Fin t.foldedTag.rank) (γ : Fin t.tag.rank → K) :

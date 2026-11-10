@@ -170,6 +170,5 @@ theorem localDeltaIn_eq_bot_of_frameBalanced_mulEquiv {C M : Type*} [Group C] [G
   rw [hmap, key, le_bot_iff, Subgroup.map_eq_bot_iff_of_injective _ hψinj] at hle
   exact hle
 
-variable {τ : Tag} {L : Type} [Field L]
 
 end CFSG.HardMathSupport.Timmesfeld.CrossChar

@@ -15,10 +15,6 @@ open scoped MatrixGroups
     ∀ z : G, orderOf z = 2 → ∀ L : Subgroup G, IsTwoComponentIn L (centralizer {z}) → z ∈ L →
       ∀ p : ℕ, p.Prime → p ≠ 2 → ¬ IsMTypeSchur p ↥L
 
-theorem harris82Theorem1KProper_of_input (hT1 : Harris82Theorem1Input) :
-    Harris82Theorem1KProper :=
-  fun _ _ _ _ hnonab _ hcat _ hz _ hL hzL _ hp hp2 =>
-    not_isMTypeSchur_of_theorem1 hT1 hnonab hcat hz hL hzL hp hp2
 
 theorem not_isMTypeSchur_of_kProper (h : Harris82Theorem1KProper) {G : Type} [Group G]
     [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -56,8 +52,6 @@ namespace T1
             pPrimeCore 2 ↥(GH74.GLS.oPrimeResidual 2 G)) ∨
           Nonempty (G ⧸ pPrimeCore 2 G ≃* ↥Blueprint.NativeSporadic.M11)
 
-theorem knownRow_of_input (hT1 : Harris82Theorem1Input) : KnownRow :=
-  fun G _ _ hG _ z hz L hL hzL p hp hp2 hM _ => hT1 G hG z hz L (.inl hL) hzL p hp hp2 hM
 
 end T1
 

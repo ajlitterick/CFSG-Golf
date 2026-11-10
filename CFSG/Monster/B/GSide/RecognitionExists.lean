@@ -50,26 +50,5 @@ theorem natCard_centralizer_labelB :
   have h := (Nat.card_congr e.toEquiv).symm.trans natCard_centralizer_labelS
   exact h.trans (by norm_num [CFSG.Open.sporadicOrderTwistedE6Two])
 
-theorem recognition_exists_of_models
-    (hmodels : ∀ (d₀ : NativeSporadic.B) (_ : orderOf d₀ = 2)
-      (_ : Matrix.rank (d₀.val.val - 1) = 1860)
-      (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-      (d : G) (_ : orderOf d = 2)
-      (_ : Nonempty (Subgroup.centralizer ({d} : Set G) ≃*
-        Subgroup.centralizer ({d₀} : Set NativeSporadic.B))),
-      Nonempty (G ≃* NativeSporadic.B)) :
-    ∃ (B : Type) (_ : Group B) (_ : Finite B), IsSimpleGroup B ∧
-      Nat.card B = CFSG.Open.sporadicOrderBabyMonster ∧
-      ∃ d₀ : B, orderOf d₀ = 2 ∧
-        Nat.card (Subgroup.centralizer ({d₀} : Set B)) =
-          4 * CFSG.Open.sporadicOrderTwistedE6Two ∧
-        ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup G →
-          ∀ d : G, orderOf d = 2 →
-            Nonempty (Subgroup.centralizer ({d} : Set G) ≃*
-              Subgroup.centralizer ({d₀} : Set B)) →
-            Nonempty (G ≃* B) :=
-  ⟨NativeSporadic.B, inferInstance, inferInstance, CFSG.Sporadic.B.fam_b_simplicity,
-    CFSG.Monster.Existence.card_nativeB, labelB, orderOf_labelB, natCard_centralizer_labelB,
-    fun G _ _ hG d hd hc => @hmodels labelB orderOf_labelB rank_labelB G _ _ hG d hd hc⟩
 
 end CFSG.Monster.B.GSide

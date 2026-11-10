@@ -241,17 +241,6 @@ theorem lowerParam_zero : g 0 = 0 := by
   rw [add_zero] at h
   linear_combination -h
 
-include hker hf in
-theorem upperParam_neg (c : K) : f (-c) = -f c := by
-  have h := upperParam_add hker hf c (-c)
-  rw [add_neg_cancel, upperParam_zero hker hf] at h
-  linear_combination -h
-
-include hker hg in
-theorem lowerParam_neg (c : K) : g (-c) = -g c := by
-  have h := lowerParam_add hker hg c (-c)
-  rw [add_neg_cancel, lowerParam_zero hker hg] at h
-  linear_combination -h
 
 include hker hf in
 theorem upperParam_ne_zero {c : K} (hc : c ≠ 0) : f c ≠ 0 := by

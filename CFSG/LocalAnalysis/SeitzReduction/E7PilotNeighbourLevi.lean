@@ -32,11 +32,6 @@ theorem spinToE7_x {γ : Fin 6 → ℤ} (hγ : γ ∈ roots (isFiniteType_cartan
     spinToE7 K (SpinPlus.x 6 K three_le_rank_D6 γ c) = d6LeviPar K γ c :=
   liftOfPresentationB_apply _ _ _ _ _ hγ c
 
-theorem coe_spinToE7_x {γ : Fin 6 → ℤ} (hγ : γ ∈ roots (isFiniteType_cartanD 6) ∅) (c : K) :
-    ((spinToE7 K (SpinPlus.x 6 K three_le_rank_D6 γ c) : adjointGroup .E7 K) : ModGL .E7 K) =
-      pinnedX .E7 K (d6Embed γ) c := by
-  rw [spinToE7_x hγ]
-  rfl
 
 omit [Finite K] [CharP K 2]
   in
@@ -95,9 +90,6 @@ variable (K) in
 @[expose] noncomputable def spinEquivPerpLevi : spinGroup (quadPlus 6 K) ≃* ↥(perpLevi .E7 K) :=
   (MonoidHom.ofInjective spinToE7_injective).trans (MulEquiv.subgroupCongr range_spinToE7)
 
-theorem coe_spinEquivPerpLevi (g : spinGroup (quadPlus 6 K)) :
-    ((spinEquivPerpLevi K g : perpLevi .E7 K) : adjointGroup .E7 K) = spinToE7 K g :=
-  rfl
 
 theorem spinEquivPerpLevi_x {γ : Fin 6 → ℤ} (hγ : γ ∈ roots (isFiniteType_cartanD 6) ∅)
     (c : K) :

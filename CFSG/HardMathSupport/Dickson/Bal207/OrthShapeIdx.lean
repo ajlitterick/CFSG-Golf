@@ -60,58 +60,6 @@ theorem orthCompIdx_cases {d : TauCeti.LieTypeIndex} (h : OrthCompIdx d) :
     · exact Or.inr (Or.inr (Or.inl ⟨rfl, Or.inl hq3⟩))
   | _ => exact h.elim
 
-theorem orthCompType_psl2 {E : Type} [Field E] [Finite E] (hE : Nat.card E = 8) :
-    OrthCompType (Matrix.SpecialLinearGroup (Fin 2) E ⧸
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 2) E)) := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let q : TauCeti.PrimePower := ⟨2, 3, Nat.prime_two, by norm_num⟩
-  have hv : (TauCeti.LieTypeIndex.A 1 q).Valid := by
-    rw [TauCeti.LieTypeIndex.valid_iff, TauCeti.LieTypeIndex.inStandardRange_iff,
-      TauCeti.LieTypeIndex.isDuplicateRepresentative_iff]
-    simp [q, TauCeti.PrimePower.card_def]
-  let eF := CFSG.ClassicalModels.finiteFieldEquivGaloisField E 2 3 (by norm_num)
-    (by rw [hE]; norm_num)
-  let eP := CFSG.ClassicalModels.projectiveSpecialLinearFieldEquiv eF (Fin 2)
-  let eC := CFSG.ClassicalModels.linearCatalogCandidateEquivPSL 1 q hv
-  exact ⟨⟨.A 1 q, hv⟩, ⟨rfl, rfl, rfl⟩, ⟨eP.trans eC.symm⟩⟩
-
-theorem orthCompType_psu {E : Type} [Field E] [Finite E] {k m : ℕ}
-    (hE : Nat.card E = (2 ^ k) ^ 2) (hk : k = 1 ∨ k = 3) (hm : 3 ≤ m)
-    (hmq : (m, 2 ^ k) ≠ (3, 2)) :
-    OrthCompType (↥(StatedSU m (2 ^ k) E) ⧸ Subgroup.center ↥(StatedSU m (2 ^ k) E)) := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hk0 : 0 < k := by omega
-  have hQ := CFSG.LieType.Universal.Unitary.isQuasisimple_statedSU_of_card (p := 2) hE hm hmq
-  obtain ⟨r, rfl⟩ : ∃ r, m = r + 1 := ⟨m - 1, by omega⟩
-  let q : TauCeti.PrimePower := ⟨2, k, Nat.prime_two, hk0⟩
-  have hv : (TauCeti.LieTypeIndex.twistedA r q).Valid := by
-    rw [TauCeti.LieTypeIndex.valid_iff]
-    refine ⟨?_, by simp [TauCeti.LieTypeIndex.isDuplicateRepresentative_iff]⟩
-    rw [TauCeti.LieTypeIndex.inStandardRange_iff]
-    refine ⟨by omega, fun hr => ?_⟩
-    rw [TauCeti.PrimePower.card_def]
-    show 3 ≤ 2 ^ k
-    rcases hk with rfl | rfl
-    · exact absurd (by subst hr; rfl) hmq
-    · norm_num
-  obtain ⟨-, K₀, _, _, hK₀, ⟨e₀⟩⟩ :=
-    CFSG.QuasithinUnique.SQTK.statedClassicalModel_twistedA r q hv (MulEquiv.refl _)
-  haveI : Fintype K₀ := Fintype.ofFinite _
-  haveI : Fintype E := Fintype.ofFinite E
-  have hKK : Fintype.card E = Fintype.card K₀ := by
-    rw [← Nat.card_eq_fintype_card, ← Nat.card_eq_fintype_card, hK₀, hE]
-  let eK : E ≃+* K₀ := FiniteField.ringEquivOfCardEq hKK
-  let eP := CFSG.Open.StatedSUFieldChange.statedProjSUEquiv eK (r + 1) (2 ^ k)
-  let eC := QuotientGroup.quotientMulEquivOfEq hQ.2
-  refine ⟨⟨.twistedA r q, hv⟩, Or.inl ⟨?_, by omega, fun h => hmq ?_⟩,
-    ⟨(eC.trans eP).trans e₀.symm⟩⟩
-  · rcases hk with rfl | rfl
-    · exact Or.inl ⟨rfl, rfl⟩
-    · exact Or.inr ⟨rfl, rfl⟩
-  · obtain ⟨h2, -, h1⟩ := h
-    have : k = 1 := h1
-    subst this h2
-    rfl
 
 theorem orthCompType_of_model_plus {G : Type} [Group G] {s f : ℕ}
     (hG : StatedClassicalModel G .POmegaPlus s 2 f) (hf : f = 1 ∨ f = 3) (hs : Even s) :

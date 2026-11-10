@@ -66,55 +66,6 @@ theorem centralizer_le_of_conj {H : Subgroup G} {u v : G} (hv : v ∈ H)
   have := H.mul_mem (H.mul_mem hv (h hc')) (H.inv_mem hv)
   simpa [mul_assoc] using this
 
-theorem centralizer_le_H274_of_factors_mem {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 p f Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {x y : G}
-    (hx : IsConj z x) (hy : IsConj z y) (hxy : x * y = y * x) (hne : x ≠ y)
-    (hxH : x ∈ H274 Ω K z) (hyH : y ∈ H274 Ω K z) :
-    Subgroup.centralizer ({x * y} : Set G) ≤ H274 Ω K z := by
-  have hz := hs.hz
-  obtain ⟨c, rfl⟩ := isConj_iff.1 hx
-  obtain ⟨c', rfl⟩ := isConj_iff.1 hy
-  have hcH : c ∈ H274 Ω K z := by
-    have h := mem_H274_of_conj_mem_H274 hs hcomp (g := c⁻¹) (by simpa using hxH)
-    simpa using (H274 Ω K z).inv_mem h
-  obtain ⟨e, he⟩ : ∃ e, e = c⁻¹ * c' := ⟨_, rfl⟩
-  have hy0 : c⁻¹ * (c' * z * c'⁻¹) * c = e * z * e⁻¹ := by
-    rw [he]
-    group
-  have hcomm0 : z * (e * z * e⁻¹) = e * z * e⁻¹ * z := by
-    rw [← hy0]
-    calc z * (c⁻¹ * (c' * z * c'⁻¹) * c)
-        = c⁻¹ * ((c * z * c⁻¹) * (c' * z * c'⁻¹)) * c := by group
-      _ = c⁻¹ * ((c' * z * c'⁻¹) * (c * z * c⁻¹)) * c := by rw [hxy]
-      _ = c⁻¹ * (c' * z * c'⁻¹) * c * z := by group
-  have hv : c⁻¹ * (c * z * c⁻¹ * (c' * z * c'⁻¹)) * c = z * (e * z * e⁻¹) := by
-    rw [he]
-    group
-  have hne0 : e * z * e⁻¹ ≠ z := by
-    intro h
-    apply hne
-    have h2 : c' * z * c'⁻¹ = c * z * c⁻¹ := by
-      calc c' * z * c'⁻¹ = c * (c⁻¹ * (c' * z * c'⁻¹) * c) * c⁻¹ := by group
-        _ = c * z * c⁻¹ := by rw [hy0, h]
-    exact h2.symm
-  have hne0' : (e⁻¹)⁻¹ * z * e⁻¹ ≠ z := by simpa using hne0
-  have hcomm0' : z * ((e⁻¹)⁻¹ * z * e⁻¹) = (e⁻¹)⁻¹ * z * e⁻¹ * z := by simpa using hcomm0
-  have huH : c⁻¹ * (c * z * c⁻¹ * (c' * z * c'⁻¹)) * c ∈ H274 Ω K z :=
-    (H274 Ω K z).mul_mem ((H274 Ω K z).mul_mem ((H274 Ω K z).inv_mem hcH)
-      ((H274 Ω K z).mul_mem hxH hyH)) hcH
-  refine centralizer_le_of_conj hcH ?_
-  rw [hv] at huH ⊢
-  rcases isConj_or_mem_omegaNbr hs.stand hs.noTwins hz hne0' hcomm0' with hconj | hnbr
-  · have hconj' : IsConj z (z * (e * z * e⁻¹)) := by simpa using hconj
-    exact centralizer_le_H274_of_isConj hs hcomp hconj' huH
-  · have hM : conjSub e K ∈ omegaNbr Ω K := by simpa using hnbr
-    exact centralizer_mul_le_H274 hM (hz.conj e)
-
-omit [Finite G] in
-theorem mul_self_eq_one_of_isConj {z x : G} (hz : z * z = 1) (hx : IsConj z x) : x * x = 1 := by
-  obtain ⟨c, rfl⟩ := isConj_iff.1 hx
-  calc c * z * c⁻¹ * (c * z * c⁻¹) = c * (z * z) * c⁻¹ := by group
-    _ = 1 := by rw [hz]; group
 
 omit [Finite G] in
 theorem isPGroup_closure_pair {x y : G} (hx : x * x = 1) (hy : y * y = 1) (hxy : x * y = y * x) :
@@ -134,55 +85,6 @@ theorem isPGroup_closure_pair {x y : G} (hx : x * x = 1) (hy : y * y = 1) (hxy :
   apply Subtype.ext
   simpa [pow_two] using hg
 
-theorem centralizer_le_H274_of_sylow_le {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 p f Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {x y : G}
-    (hx : IsConj z x) (hy : IsConj z y) (hxy : x * y = y * x) (hne : x ≠ y) {P : Subgroup G}
-    (hP : IsSylow2In P (Subgroup.centralizer ({x * y} : Set G))) (hPH : P ≤ H274 Ω K z) :
-    Subgroup.centralizer ({x * y} : Set G) ≤ H274 Ω K z := by
-  have hx2 : x * x = 1 := mul_self_eq_one_of_isConj hs.hz.sq hx
-  have hy2 : y * y = 1 := mul_self_eq_one_of_isConj hs.hz.sq hy
-  have hxC : x ∈ Subgroup.centralizer ({x * y} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc x * (x * y) = x * (y * x) := by rw [hxy]
-      _ = x * y * x := by group
-  have hyC : y ∈ Subgroup.centralizer ({x * y} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have h1 : y * (x * y) = x := by
-      rw [← mul_assoc, ← hxy, mul_assoc, hy2, mul_one]
-    rw [h1, mul_assoc, hy2, mul_one]
-  have hU2 : IsPGroup 2 (Subgroup.closure ({x, y} : Set G)) := isPGroup_closure_pair hx2 hy2 hxy
-  have hUC : Subgroup.closure ({x, y} : Set G) ≤ Subgroup.centralizer ({x * y} : Set G) := by
-    rw [Subgroup.closure_le]
-    rintro w (rfl | rfl)
-    · exact hxC
-    · exact hyC
-  obtain ⟨V, hV, hUV⟩ := IsSylow2In.exists_ge hU2 hUC
-  obtain ⟨c, hcC, hcV⟩ := exists_conj_of_isSylow2In hP hV
-  have hxV : x ∈ conjSub c P := hcV ▸ hUV (Subgroup.subset_closure (by simp))
-  have hyV : y ∈ conjSub c P := hcV ▸ hUV (Subgroup.subset_closure (by simp))
-  rw [mem_conjSub_iff] at hxV hyV
-  have hcc : c⁻¹ * (x * y) * c = x * y := by
-    have h := Subgroup.mem_centralizer_singleton_iff.1 hcC
-    calc c⁻¹ * (x * y) * c = c⁻¹ * (x * y * c) := by group
-      _ = c⁻¹ * (c * (x * y)) := by rw [h]
-      _ = x * y := by group
-  have hx' : IsConj z (c⁻¹ * x * c) := hx.trans (isConj_iff.2 ⟨c⁻¹, by group⟩)
-  have hy' : IsConj z (c⁻¹ * y * c) := hy.trans (isConj_iff.2 ⟨c⁻¹, by group⟩)
-  have hxy' : c⁻¹ * x * c * (c⁻¹ * y * c) = c⁻¹ * y * c * (c⁻¹ * x * c) := by
-    calc c⁻¹ * x * c * (c⁻¹ * y * c) = c⁻¹ * (x * y) * c := by group
-      _ = c⁻¹ * (y * x) * c := by rw [hxy]
-      _ = c⁻¹ * y * c * (c⁻¹ * x * c) := by group
-  have hne' : c⁻¹ * x * c ≠ c⁻¹ * y * c := by
-    intro h
-    apply hne
-    calc x = c * (c⁻¹ * x * c) * c⁻¹ := by group
-      _ = c * (c⁻¹ * y * c) * c⁻¹ := by rw [h]
-      _ = y := by group
-  have key := centralizer_le_H274_of_factors_mem hs hcomp hx' hy' hxy' hne' (hPH hxV) (hPH hyV)
-  have hprod : c⁻¹ * x * c * (c⁻¹ * y * c) = x * y := by
-    calc c⁻¹ * x * c * (c⁻¹ * y * c) = c⁻¹ * (x * y) * c := by group
-      _ = x * y := hcc
-  rwa [hprod] at key
 
 theorem exists_mul_self_ne_one_of_mem_RSet (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
     (hΩ : HypOmegaMod p f Ω) {X : Subgroup G} (hX : X ∈ RSet Ω) : ∃ x ∈ X, x * x ≠ 1 := by

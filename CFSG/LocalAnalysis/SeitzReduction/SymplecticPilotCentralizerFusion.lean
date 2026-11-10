@@ -58,26 +58,6 @@ theorem not_forall_commute_sylow_conj (hset : SeitzSetting G L) {n : ℕ} [Finit
     rw [mem_centralizer_singleton_iff]
     exact congrArg Subtype.val h
 
-theorem exists_conj_eq_mul_spRep (hset : SeitzSetting G L) {n : ℕ} [Finite K] [CharP K 2]
-    (hK : 4 ≤ Nat.card K) (e : L ≃* StatedSp (n + 3) K) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ (g : G) (κ : SpTwoCentral), g⁻¹ * t * g = t * (e.symm (spRep n κ) : G) :=
-  exists_conj_eq_mul_spRep_of_hnot hset e ht hKt
-    (not_forall_commute_sylow_conj hset hK e (LinearPilot.mem_centralizer_of_inf_eq_zpowers hKt)
-      ht)
-
-theorem exists_conj_eq_mul_twoCentral_twoSided_of_four_le (hset : SeitzSetting G L) {n : ℕ}
-    [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K) (e : L ≃* StatedSp (n + 3) K) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ x : G, ∃ z ∈ L ⊓ CFSG.conjugate L x, x⁻¹ * t * x = t * z ∧ z ≠ 1 ∧
-      (∃ U : Sylow 2 L, ∀ u ∈ (U : Subgroup L), (u : G) * z = z * u) ∧
-      (∃ U' : Sylow 2 (CFSG.conjugate L x),
-        ∀ u ∈ (U' : Subgroup (CFSG.conjugate L x)), (u : G) * z = z * u) ∧
-      ∀ l ∈ CFSG.conjugate L x, t * l * t⁻¹ = z * l * z⁻¹ :=
-  exists_conj_eq_mul_twoCentral_twoSided_of_hnot hset (by omega) e ht hKt
-    (not_forall_commute_sylow_conj hset hK e (LinearPilot.mem_centralizer_of_inf_eq_zpowers hKt)
-      ht)
 
 theorem exists_conj_eq_mul_spRep_twoSided (hset : SeitzSetting G L) {n : ℕ} [Finite K]
     [CharP K 2] (hK : 4 ≤ Nat.card K) (e : L ≃* StatedSp (n + 3) K) {t : G} (ht : orderOf t = 2)

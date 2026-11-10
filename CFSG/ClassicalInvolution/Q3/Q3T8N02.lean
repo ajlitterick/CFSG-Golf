@@ -75,29 +75,6 @@ theorem oddCoreOf_layerJoin_le_of_zt (hs : Std8 Ω K J S R T W z t) {K' : Subgro
     calc t * (z * t) = (t * z) * t := by group
       _ = (z * t) * t := by rw [huv]
 
-theorem exists_good_pair_of_nonabelian (hs : Std8 Ω K J S R T W z t)
-    (hcomp : dComp Ω K = dstarComp Ω K)
-    (hab : ¬ ∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x) :
-    ∃ (ρ σ : Rep Ω W) (u v : G), repElt ρ * repElt σ ≠ repElt σ * repElt ρ ∧
-      IsUniqueInvolution ρ.K u ∧ IsUniqueInvolution σ.K v ∧ u * v = v * u ∧ u ≠ v ∧
-      u ∈ cenZ (z * t) ∧ v ∈ cenZ (z * t) ∧
-      Subgroup.centralizer ({u} : Set G) ≤ sigmaNorm Ω K ∧
-      Subgroup.centralizer ({v} : Set G) ≤ sigmaNorm Ω K ∧
-      Subgroup.centralizer ({u * v} : Set G) ≤ sigmaNorm Ω K := by
-  have hP := partIHyp_of_std8 hs
-  have hc := Q3CL.T8.ctxOf hP hs.hW.1
-  have hΩ : HypOmegaMod Ω := hs.stand.hyp
-  have hK : K ∈ Ω := hs.stand.mem
-  have hnt : ∀ M ∈ Ω, ∀ M' ∈ twinSet Ω M, M' = M := fun M hM =>
-    noTwins_of_mem hΩ.conjInvariant hs.stand.trans hs.noTwins hM
-  exact CFSG.ClassicalInvolution.Asc77.T8.exists_good_pair_of_nonabelianE hΩ.conjInvariant
-    (fun hM => hΩ.exists_uniqueInvolution hM)
-    (fun hM hR hRM hx => Q3CL.Thompson.uniqueInvolution_mem_W hΩ hs.hW.1 hM hR hRM hx) hc.comm_W
-    (repElt_eq_iff hc) (repElt_commute_iff hc) (repElt_omegaStar hc)
-    (fun ρ => mem_dComp_of_rep hs hcomp ρ) hK hnt hs.stand.aEmpty
-    (Q3CL.Thompson.uniqueInvolution_mem_W hΩ hs.hW.1 hK (stdRepK hs).hR (stdRepK hs).hRK hs.hz).2
-    (Q3CL.Thompson.uniqueInvolution_mem_W hΩ hs.hW.1 hs.hJ.1 (stdRepJ hs).hR (stdRepJ hs).hRK
-        hs.ht).2 hab
 end Zt
 end T8
 section Residual

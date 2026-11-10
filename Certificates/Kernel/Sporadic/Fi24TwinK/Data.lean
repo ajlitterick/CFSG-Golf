@@ -15,7 +15,6 @@ namespace CFSG.KD.Fi24TwinK
 open CFSG.KC CFSG.KC.Loop CFSG.KC.LceS CFSG.KC.Fi24Net CFSG.KC.Fi24NetPt CFSG.KC.Fi24Kit
   CFSG.KC.Fi24ThreeO CFSG.KC.Fi24TwinK CFSG.KD.Fi24Net CFSG.KD.Fi24Kit
 
-@[expose] noncomputable def OL : Nat → Nat := CFSG.KD.Fi24Orb.OL
 
 @[expose] noncomputable def wr (r : Nat) : List Nat :=
   nthL [] [[14, 16, 16, 14, 16, 16], [16, 19], [16]] r

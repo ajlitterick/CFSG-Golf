@@ -22,41 +22,6 @@ theorem centralizer_le_of_unique (htM : t ∈ M) (huniq : ∀ g : G, g⁻¹ * t 
   rw [h]
   exact htM
 
-theorem normalizer_le_of_unique (htM : t ∈ M) (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) :
-    normalizer (M : Set G) ≤ M := fun g hg =>
-  huniq g ((mem_normalizer_iff''.1 hg t).1 htM)
-
-theorem map_conj_eq_of_mem_of_unique (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) {g : G}
-    (htg : t ∈ M.map (MulAut.conj g).toMonoidHom) :
-    M.map (MulAut.conj g).toMonoidHom = M := by
-  have hg : g ∈ M := by
-    obtain ⟨m, hm, hmt⟩ := htg
-    refine huniq g ?_
-    have hmt' : g * m * g⁻¹ = t := by simpa using hmt
-    rw [← hmt']
-    simpa [mul_assoc] using hm
-  ext x
-  constructor
-  · rintro ⟨m, hm, rfl⟩
-    exact M.mul_mem (M.mul_mem hg hm) (M.inv_mem hg)
-  · intro hx
-    refine ⟨g⁻¹ * x * g, M.mul_mem (M.mul_mem (M.inv_mem hg) hx) hg, ?_⟩
-    simp [mul_assoc]
-
-theorem conj_not_mem_inf_map_conj_of_unique (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M)
-    {g : G} (hg : g ∉ M) (x : G) : x⁻¹ * t * x ∉ M ⊓ M.map (MulAut.conj g).toMonoidHom := by
-  rintro ⟨hxM, m, hm, hmx⟩
-  have hx : x ∈ M := huniq x hxM
-  have hmx' : g * m * g⁻¹ = x⁻¹ * t * x := by simpa using hmx
-  have hxg : x * g ∈ M := by
-    refine huniq (x * g) ?_
-    have : (x * g)⁻¹ * t * (x * g) = m := by
-      calc (x * g)⁻¹ * t * (x * g) = g⁻¹ * (x⁻¹ * t * x) * g := by group
-        _ = g⁻¹ * (g * m * g⁻¹) * g := by rw [hmx']
-        _ = m := by group
-    rw [this]
-    exact hm
-  exact hg (by simpa using M.mul_mem (M.inv_mem hx) hxg)
 
 theorem le_of_isNilpotent_of_unique (htM : t ∈ M) (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M)
     {P : Subgroup G} [Group.IsNilpotent P] (htP : t ∈ P) : P ≤ M := by
@@ -95,14 +60,6 @@ theorem not_dvd_index_of_unique_of_isPGroup (htM : t ∈ M)
   obtain ⟨-, S, -, hSM⟩ := exists_sylow_mem_le_of_unique htM huniq ht
   exact fun h => S.not_dvd_index (h.trans (index_dvd_of_le hSM))
 
-theorem exists_sylow_eq_map_of_unique (htM : t ∈ M) (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M)
-    (ht : IsPGroup p (zpowers t)) (P : Sylow p M) :
-    ∃ S : Sylow p G, (S : Subgroup G) = (P : Subgroup M).map M.subtype := by
-  have hidx : ¬ p ∣ ((P : Subgroup M).map M.subtype).index := by
-    rw [index_map_subtype]
-    exact (Fact.out : p.Prime).not_dvd_mul P.not_dvd_index
-      (not_dvd_index_of_unique_of_isPGroup htM huniq ht)
-  exact ⟨(P.isPGroup'.map M.subtype).toSylow hidx, rfl⟩
 
 theorem centralizer_le_and_sylow_le_of_unique {M : Subgroup G} {t : G} (ht : orderOf t = 2)
     (htM : t ∈ M) (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) :

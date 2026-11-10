@@ -64,8 +64,6 @@ theorem mem_diagSub_iff (A : SL2 F) : A ∈ diagSub F ↔ ∃ t : Fˣ, A = sl2D 
 theorem upperHom_injective : Function.Injective (upperHom F) := fun _ _ h =>
   Multiplicative.toAdd.injective (sl2U_injective h)
 
-theorem lowerHom_injective : Function.Injective (lowerHom F) := fun _ _ h =>
-  Multiplicative.toAdd.injective (sl2L_injective h)
 
 theorem diagHom_injective : Function.Injective (diagHom F) := by
   intro a b h
@@ -76,9 +74,6 @@ theorem card_upperSub [Finite F] : Nat.card (upperSub F) = Nat.card F :=
   (Nat.card_congr (MonoidHom.ofInjective upperHom_injective).toEquiv).symm.trans
     (Nat.card_congr Multiplicative.toAdd)
 
-theorem card_lowerSub [Finite F] : Nat.card (lowerSub F) = Nat.card F :=
-  (Nat.card_congr (MonoidHom.ofInjective lowerHom_injective).toEquiv).symm.trans
-    (Nat.card_congr Multiplicative.toAdd)
 
 theorem card_diagSub [Finite F] : Nat.card (diagSub F) = Nat.card F - 1 :=
   (Nat.card_congr (MonoidHom.ofInjective diagHom_injective).toEquiv).symm.trans

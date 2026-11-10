@@ -103,9 +103,6 @@ theorem vecIncl_smul (c : k) (v : Fin d → k) : vecIncl k (c • v) = (c : K) �
   funext i
   simp [vecIncl]
 
-theorem vecIncl_sub (v w : Fin d → k) : vecIncl k (v - w) = vecIncl k v - vecIncl k w := by
-  funext i
-  simp [vecIncl]
 
 theorem eichler_vecIncl (hext : IsExtension k Q₀ Q) {u w : Fin d → k} (hu : Q₀ u = 0)
     (huw : polar Q₀ u w = 0) (v : Fin d → k) :

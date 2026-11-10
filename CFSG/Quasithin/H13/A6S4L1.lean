@@ -16,7 +16,6 @@ theorem K4L_inv : ∀ σ ∈ K4L, σ⁻¹ ∈ K4L := by decide +kernel
 
 theorem K4L_sq : ∀ σ ∈ K4L, σ * σ = 1 := by decide +kernel
 
-theorem c012_not_K4L : swap (0 : Fin 6) 1 * swap 1 2 ∉ K4L := by decide +kernel
 
 @[expose] def A4At (σ : Perm (Fin 6)) : Prop :=
   σ 4 = 4 → σ 5 = 5 → Perm.sign σ = 1 →

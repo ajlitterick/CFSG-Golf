@@ -139,10 +139,6 @@ noncomputable abbrev d4Levi : Subgroup (ModGL Tag.E6 K) := subsystemGroup Tag.E6
 
 variable {K}
 
-theorem d4RestrictEnd_apply (g : d4Levi K) (v : d4Module K) :
-    ((d4RestrictEnd K g v : d4Module K) : RootModule Tag.E6 K) =
-      ((g : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) v :=
-  rfl
 
 theorem d4Psi_apply (g : d4Levi K) (x : Fin 4 ⊕ Fin 4 → K) :
     d4Psi K g x = d4Phi K (d4RestrictEnd K g ((d4Phi K).symm x)) :=

@@ -9,13 +9,6 @@ namespace CFSG.ComponentClassification.RankTwoSporadic.J4
 
 open Subgroup CFSG.Open CFSG.ComponentClassification.RankTwoSporadic
 
-@[expose] def FinkelsteinJ4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), standardComponentIsStandard A →
-    standardComponentOddCore G = ⊥ → Blueprint.NativeSporadic.IsSporadic ↥A .J4 →
-      RankTwoStandard.rankTwoX A = A ∨
-        ∃ g : G, A ⊓ A.map (MulAut.conj g).toMonoidHom = ⊥ ∧
-          ⁅A, A.map (MulAut.conj g).toMonoidHom⁆ = ⊥ ∧
-          RankTwoStandard.rankTwoX A = A ⊔ A.map (MulAut.conj g).toMonoidHom
 
 @[expose] def J4NoDoubleCover : Prop :=
   CFSG.Monster.Schur.NoPerfectDoubleCover (Blueprint.NativeSporadic.Carrier .J4)
@@ -38,12 +31,5 @@ theorem isSporadic_J4_of_quot (hM : J4NoDoubleCover) {A : Type} [Group A] [Finit
       (hker ▸ hodd)
   exact ⟨MulEquiv.ofBijective π ⟨(MonoidHom.ker_eq_bot_iff π).mp hbot, hπ⟩⟩
 
-theorem sporadicCaseOdd_J4 (hF : FinkelsteinJ4) (hM : J4NoDoubleCover) :
-    SporadicCaseOdd .J4 := by
-  intro G _ _ A hA hO ⟨e⟩
-  obtain ⟨⟨hperf, -⟩, -, -, -, hcomm⟩ := hA.standard
-  rcases hF G A hA.standard hO (isSporadic_J4_of_quot hM hperf e) with h | ⟨g, -, hc, -⟩
-  · exact hA.not_normal (h ▸ normalClosure_normal)
-  · exact hcomm g hc
 
 end CFSG.ComponentClassification.RankTwoSporadic.J4

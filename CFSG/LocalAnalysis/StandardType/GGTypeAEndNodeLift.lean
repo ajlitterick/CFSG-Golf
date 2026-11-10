@@ -260,61 +260,11 @@ theorem exists_mulAut_of_slLift [Finite F] (hm : 3 ≤ m)
 
 end Unique
 
-@[expose] def GGTypeAEndBlockLExInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeASplitNbr p B Bs x L D J n f y K →
-    ∃ φ : Matrix.SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ.range = L ∧
-      φ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) ∧
-      (φ.comp (slLowerBlockHom n (GaloisField 2 f))).range = J
-
-theorem ggTypeAEndBlockLInput_of_ex (h : GGTypeAEndBlockLExInput) : GGTypeAEndBlockLInput := by
-  intro G _ _ p B Bs x L D J n f y K hN φ₁ hφL hker
-  obtain ⟨-, -, -, -, -, -, hn, -⟩ := id hN
-  obtain ⟨φ, hφL', hφker, hJ⟩ := h G p B Bs x L D J n f y K hN
-  obtain ⟨α, hα⟩ := exists_mulAut_of_slLift (by omega : 3 ≤ n + 1) (hφL'.trans hφL.symm) hφker hker
-  obtain ⟨s, hs⟩ := exists_conj_of_mulAut_slLowerBlockHom (by omega : 2 ≤ n) α⁻¹
-  have hsL : φ₁ s ∈ L := by
-    rw [← hφL]
-    exact ⟨s, rfl⟩
-  refine ⟨φ₁ s, hsL, ?_⟩
-  have e1 : (MulAut.conj (φ₁ s)).toMonoidHom.comp φ₁ = φ₁.comp (MulAut.conj s).toMonoidHom := by
-    ext g
-    simp [MulAut.conj_apply]
-  have e2 : φ = φ₁.comp (α⁻¹).toMonoidHom := by
-    rw [hα]
-    ext g
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
-    exact congrArg φ (MulEquiv.apply_symm_apply α g).symm
-  rw [← hJ, MonoidHom.range_comp, MonoidHom.range_comp, Subgroup.map_map, e1,
-    ← Subgroup.map_map, ← hs, Subgroup.map_map, ← e2]
-
-theorem ggTypeAEndNodeInput_of_inputs' (hA : GGTypeAEndBlockLExInput)
-    (hB : GGTypeAEndBlockKInput) (hC : GGTypeAFarCommuteInput) (hD : GGTypeAJoinInput) :
-    GGTypeAEndNodeInput :=
-  ggTypeAEndNodeInput_of_inputs (ggTypeAEndBlockLInput_of_ex hA) hB hC hD
 
 section Assembly
 
 open CFSG.Assembly CFSG.Blueprint CFSG.RankThree.PartTwo.Sec21
 
-theorem lc_gl_std_of_typeAEndNode (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (heL : GGTypeAEndBlockLExInput) (heK : GGTypeAEndBlockKInput)
-    (heC : GGTypeAFarCommuteInput) (heD : GGTypeAJoinInput) (heR : GGSecFiveDataInputRest)
-    (hf : GGHypSixV2Input) (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput)
-    (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneV2Input)
-    (h2 : GGSixStepTwoV2Input) (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput)
-    (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_typeA hHolt ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd
-    (ggTypeAEndNodeInput_of_inputs' heL heK heC heD) heR hf hg₁ hg₂ hR1 hR h1 h2 h3a h3b h3c h3d
-    hKG G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

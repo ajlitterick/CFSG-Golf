@@ -32,12 +32,6 @@ theorem inv_scalar_eq {c : K} (hc : c ≠ 0) :
     (d : Fin ε → Kˣ) (i : Fin r) :
     torusEntries h a d (.inr (.inr i)) = (h.bar (a i))⁻¹ := rfl
 
-theorem torusEntries_ne_zero (h : UnitaryFieldData p f K) (a : Fin r → Kˣ) (d : Fin ε → Kˣ)
-    (x : HypIndex r ε) : torusEntries h a d x ≠ 0 := by
-  rcases x with i | k | i
-  · simpa using (a i).ne_zero
-  · simpa using (d k).ne_zero
-  · simpa using inv_ne_zero (map_ne_zero h.bar (a i).ne_zero)
 
 theorem exists_mem_hypTorus_diag (h : UnitaryFieldData p f K) (hε : ε ≤ 1)
     {a : Fin r → Kˣ} {d : Fin ε → Kˣ} (hd : ∀ k, h.norm (d k : K) = 1)
@@ -130,7 +124,6 @@ theorem mul_N_eq_N_mul_of_conj_scalar {h : UnitaryFieldData p f K} {g u z : hypS
   simp only [Matrix.mul_add, Matrix.mul_one, Matrix.one_mul, Matrix.add_mul,
     Matrix.add_apply] at h
   exact add_left_cancel h
-
 
 
 theorem centralizer_hypProjUnitriangular_le (h : UnitaryFieldData p f K) (hr : 1 ≤ r)

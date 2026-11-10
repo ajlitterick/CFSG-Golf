@@ -207,11 +207,6 @@ theorem exists_eq_mul_of_mem_torusGroup [Finite k] [CharP k 2] (N : E6Neighbour)
     rw [h1, he]
     group
 
-theorem exists_eq_mul_of_mem_leviTorus_inf [Finite k] [CharP k 2] (N : E6Neighbour)
-    {J : Finset (Fin (Tag.rank .E6))} {d : ModGL .E6 k}
-    (hd : d ∈ leviTorus k J ⊓ adjointGroup .E6 k) :
-    ∃ d₁ ∈ N.torus k, ∃ d₂ ∈ (N.levi k).map (adjointGroup .E6 k).subtype, d = d₁ * d₂ :=
-  exists_eq_mul_of_mem_torusGroup N (leviTorus_inf_adjointGroup_le_torusGroup J hd)
 
 end Decomp
 

@@ -19,8 +19,6 @@ theorem height_neg' (β : Fin τ.rank → ℤ) : height (-β) = -height β := by
 theorem height_sub' (α β : Fin τ.rank → ℤ) : height (α - β) = height α - height β := by
   simp [height, Finset.sum_sub_distrib]
 
-theorem height_add' (α β : Fin τ.rank → ℤ) : height (α + β) = height α + height β := by
-  simp [height, Finset.sum_add_distrib]
 
 theorem simplyLaced_of (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) :
     τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8 := by

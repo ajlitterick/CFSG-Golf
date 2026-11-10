@@ -86,7 +86,6 @@ theorem sign_kx : kx ∈ alternatingGroup (Fin 4) := mem_alternatingGroup.2 (by 
 
 theorem sign_ky : ky ∈ alternatingGroup (Fin 4) := mem_alternatingGroup.2 (by decide)
 
-theorem sign_kt : kt ∈ alternatingGroup (Fin 4) := mem_alternatingGroup.2 (by decide)
 
 theorem kt_kx : kt * kx * kt⁻¹ = kx * ky := by decide
 

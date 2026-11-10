@@ -97,12 +97,6 @@ theorem Ch6Basics.B_le (h : Ch6Basics D) (b : Bool) : D.B b ≤ D.K₂ := by
   · rw [Ch6Notation.B_true, h.K₂_eq]
     exact le_sup_right
 
-theorem Ch6Basics.hInv_A (h : Ch6Basics D) (b : Bool) : HInv D.H (D.A b) := by
-  cases b
-  · rw [Ch6Notation.A_false]
-    exact h.H_norm_X₁
-  · rw [Ch6Notation.A_true]
-    exact h.H_norm_X₁'
 
 theorem Ch6Basics.hInv_B (h : Ch6Basics D) (b : Bool) : HInv D.H (D.B b) := by
   cases b

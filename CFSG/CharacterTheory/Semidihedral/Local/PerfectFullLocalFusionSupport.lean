@@ -429,10 +429,6 @@ variable {S : Subgroup G} {k : ℕ} (c : SemidihedralFullFusionChain S k)
   image_eq := c.image_eq
   realized := hreal
 
-theorem toFusionChain_composite (hreal : ∀ i, ∃ h : G,
-    SemidihedralFusionStep S (c.supports i) h ∧
-      ∀ x : c.supports i, (c.automorphisms i x : G) = h⁻¹ * (x : G) * h) (x : c.subgroups 0) :
-    ((c.toFusionChain hreal).composite x : G) = c.composite x := rfl
 
 end SemidihedralFullFusionChain
 
@@ -452,8 +448,5 @@ end SemidihedralFullFusionChain
     · exact Or.inr (Or.inl hK)
     · exact Or.inr (Or.inr hQ)
 
-theorem SemidihedralFusionChain.toFullFusionChain_composite {S : Subgroup G} {k : ℕ}
-    (c : SemidihedralFusionChain S k) (x : c.subgroups 0) :
-    (c.toFullFusionChain.composite x : G) = c.composite x := rfl
 
 end CFSG.Semidihedral.Local

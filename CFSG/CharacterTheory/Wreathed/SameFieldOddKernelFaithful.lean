@@ -38,29 +38,6 @@ theorem subgroup_eq_bot_of_image_le_ker (ρ : Representation ℂ G V)
 
 section FixedSpace
 
-variable {G V : Type} [Group G] [IsSimpleGroup G]
-variable [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
-
-omit [IsSimpleGroup G] in
-theorem oddKernel_eq_bot_of_fixedSpace_finrank (ρ : Representation ℂ G V)
-    (hρ : MonoidHom.ker ρ = ⊥) (K : Subgroup G) (O : Subgroup K)
-    (hfixed : Module.finrank ℂ
-      (Representation.invariants ((ρ.comp K.subtype).comp O.subtype)) =
-        Module.finrank ℂ V) : O = ⊥ := by
-  apply subgroup_eq_bot_of_image_le_ker ρ hρ K O
-  rw [Subgroup.map_le_iff_le_comap, MonoidHom.comap_ker]
-  exact (finrank_invariants_eq_finrank_iff (ρ.comp K.subtype) O).mp hfixed
-
-theorem oddKernel_eq_bot_of_fixedSpace_character_degree (ρ : Representation ℂ G V)
-    [ρ.IsIrreducible] (hdegree : ρ.character 1 ≠ 1)
-    (K : Subgroup G) (O : Subgroup K) [O.Normal]
-    (hfixed : (fixedSpaceQuotientRepresentation ρ K O).character 1 = ρ.character 1) :
-    O = ⊥ := by
-  apply oddKernel_eq_bot_of_fixedSpace_finrank ρ
-    (irreducible_ker_eq_bot_of_degree_ne_one ρ hdegree) K O
-  rw [fixedSpaceQuotientRepresentation_character_one, Representation.char_one,
-    Nat.cast_inj] at hfixed
-  exact hfixed
 
 end FixedSpace
 

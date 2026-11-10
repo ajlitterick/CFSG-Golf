@@ -117,28 +117,6 @@ theorem commutator_centralizer_eq :
     have := Subgroup.commutator_mem_commutator hy hu₀C
     rwa [commutatorElement_def, h.commutator_u₀ hy, hτ] at this
 
-theorem center_centralizer_eq :
-    (Subgroup.center (Subgroup.centralizer (B : Set Y))).map
-      (Subgroup.centralizer (B : Set Y)).subtype = B := by
-  apply le_antisymm
-  · rintro _ ⟨z, hz, rfl⟩
-    have hzU : (z : Y) ∈ U := by
-      rw [← h.centralizer_U, Subgroup.mem_centralizer_iff]
-      intro x hx
-      have := Subgroup.mem_center_iff.mp hz ⟨x, h.U_le_centralizer hx⟩
-      exact congrArg Subtype.val this
-    by_contra hzB
-    obtain ⟨y, hy, hτ⟩ := h.exists_translation h.b₁_mem
-    have hc := h.conj_of_not_mem hy hzU hzB
-    have hcomm := congrArg Subtype.val (Subgroup.mem_center_iff.mp hz ⟨y, hy⟩)
-    simp only [Subgroup.coe_mul] at hcomm
-    rw [hcomm, mul_inv_cancel_right, hτ] at hc
-    exact h.b₁_ne_one (left_eq_mul.mp hc)
-  · intro b hb
-    refine ⟨⟨b, Subgroup.mem_centralizer_iff.mpr fun c hc => ?_⟩, ?_, rfl⟩
-    · exact mul_comm_of_mem (h.le hc) (h.le hb)
-    · exact Subgroup.mem_center_iff.mpr fun y =>
-        Subtype.ext (Subgroup.mem_centralizer_iff.mp y.2 b hb).symm
 
 omit [U.Normal] [IsElementaryAbelian 2 U] h in
 theorem le_centralizer_of_le {B : Subgroup Y} (hBU : B ≤ U) [IsElementaryAbelian 2 U] :
@@ -148,41 +126,6 @@ theorem le_centralizer_of_le {B : Subgroup Y} (hBU : B ≤ U) [IsElementaryAbeli
   intro c hc
   exact mul_comm_of_mem (hBU hc) (hBU hb)
 
-omit [U.Normal] [IsElementaryAbelian 2 U] h in
-theorem normal_B_subgroupOf : (B.subgroupOf (Subgroup.centralizer (B : Set Y))).Normal := by
-  refine ⟨fun n hn g => ?_⟩
-  rw [Subgroup.mem_subgroupOf] at hn ⊢
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, Subgroup.coe_inv,
-    conj_eq_of_mem_centralizer g.2 hn]
-  exact hn
-
-theorem quotient_B_spec :
-    ∃ _ : (B.subgroupOf (Subgroup.centralizer (B : Set Y))).Normal,
-      IsElementaryAbelian 2
-          (Subgroup.centralizer (B : Set Y) ⧸ B.subgroupOf (Subgroup.centralizer (B : Set Y))) ∧
-        Nat.card
-          (Subgroup.centralizer (B : Set Y) ⧸ B.subgroupOf (Subgroup.centralizer (B : Set Y))) =
-          8 := by
-  have hBC : B ≤ Subgroup.centralizer (B : Set Y) := le_centralizer_of_le h.le
-  have hN := normal_B_subgroupOf (B := B)
-  refine ⟨hN, ?_, ?_⟩
-  · refine { is_comm := ⟨fun a b => ?_⟩, exponent_dvd_p := ?_ }
-    · obtain ⟨x, rfl⟩ := QuotientGroup.mk_surjective a
-      obtain ⟨y, rfl⟩ := QuotientGroup.mk_surjective b
-      rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul, QuotientGroup.eq,
-        Subgroup.mem_subgroupOf]
-      have := h.commutator_mem_B (Subgroup.inv_mem _ y.2) (Subgroup.inv_mem _ x.2)
-      simp only [inv_inv] at this
-      simpa [mul_assoc] using this
-    · refine Monoid.exponent_dvd_of_forall_pow_eq_one fun q => ?_
-      obtain ⟨x, rfl⟩ := QuotientGroup.mk_surjective q
-      rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf,
-        Subgroup.coe_pow, pow_two]
-      exact h.mul_self_mem_B x.2
-  · have hcard := Subgroup.card_eq_card_quotient_mul_card_subgroup
-      (B.subgroupOf (Subgroup.centralizer (B : Set Y)))
-    rw [h.card_C, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hBC).toEquiv, h.card_B] at hcard
-    omega
 
 end PlaneHyp
 

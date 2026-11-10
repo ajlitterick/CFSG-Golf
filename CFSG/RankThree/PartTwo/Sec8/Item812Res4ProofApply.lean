@@ -83,13 +83,6 @@ open CFSG.RankThree.PartTwo.Sec4
 open CFSG.Assembly.RankThreeEven (projSU projSp)
 open CFSG.Blueprint
 
-@[expose] def KF89JRank : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a b : G)
-    (X : Subgroup G) (n : ℕ), Sec8Pair G A c L a b X n →
-    ∀ p : ℕ, p.Prime → 3 < p →
-      CFSG.Assembly.RankThreeEven.localRank p
-        (↥(Subgroup.centralizer ({a} : Set G)) ⧸
-          aschbacherSolvableCore 3 ↥(Subgroup.centralizer ({a} : Set G))) < 3
 
 @[expose] def KF89JCentA : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a b : G)

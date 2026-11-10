@@ -54,13 +54,6 @@ theorem pglGraphFieldAut_mk (n : ℕ) (K : Type u) [Field K]
     MulAut (ProjectiveSpecialLinearGroup (Fin n) K) :=
   pslFieldAut (Fin n) K sigma * pslGraphAut n K
 
-theorem pslGraphFieldAut_mk (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (g : SpecialLinearGroup (Fin n) K) :
-    pslGraphFieldAut n K sigma (QuotientGroup.mk g) =
-      QuotientGroup.mk (slGraphFieldAut n K sigma g) := by
-  change pslFieldAut (Fin n) K sigma (pslGraphAut n K (QuotientGroup.mk g)) = _
-  rw [pslGraphAut_mk_inverseTranspose, pslFieldAut_mk]
-  rfl
 
 theorem toPGL_pslGraphFieldAut (n : ℕ) (K : Type u) [Field K]
     (sigma : K ≃+* K) (x : ProjectiveSpecialLinearGroup (Fin n) K) :
@@ -104,74 +97,12 @@ theorem pslGraphFieldAut_mul (n : ℕ) (K : Type u) [Field K]
       rw [← mul_assoc, mul_assoc (pslFieldAut (Fin n) K sigma *
         pslFieldAut (Fin n) K rho), ← pow_two, pslGraphAut_sq, mul_one, map_mul]
 
-theorem pslGraphFieldAut_sq (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) :
-    pslGraphFieldAut n K sigma ^ 2 = pslFieldAut (Fin n) K (sigma ^ 2) := by
-  simpa only [pow_two] using pslGraphFieldAut_mul n K sigma sigma
-
-theorem pslGraphFieldAut_sq_eq_one (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1) :
-    pslGraphFieldAut n K sigma ^ 2 = 1 := by
-  rw [pslGraphFieldAut_sq, hsigma, map_one]
-
-theorem pglGraphFieldAut_sq (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) :
-    pglGraphFieldAut n K sigma ^ 2 = pglFieldAut (Fin n) K (sigma ^ 2) := by
-  unfold pglGraphFieldAut
-  calc
-    _ = pglFieldAut (Fin n) K sigma *
-        (pglGraphAut n K * pglFieldAut (Fin n) K sigma) * pglGraphAut n K := by
-      rw [pow_two]
-      group
-    _ = pglFieldAut (Fin n) K sigma *
-        (pglFieldAut (Fin n) K sigma * pglGraphAut n K) * pglGraphAut n K := by
-      rw [pglGraphAut_field_commute]
-    _ = pglFieldAut (Fin n) K sigma ^ 2 * pglGraphAut n K ^ 2 := by
-      rw [pow_two, pow_two]
-      group
-    _ = pglFieldAut (Fin n) K (sigma ^ 2) := by
-      rw [pglGraphAut_sq, mul_one, map_pow]
-
-theorem pglGraphFieldAut_sq_eq_one (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1) :
-    pglGraphFieldAut n K sigma ^ 2 = 1 := by
-  rw [pglGraphFieldAut_sq, hsigma, map_one]
-
-@[expose] def pglGraphFieldAction (n : ℕ) (K : Type u) [Field K]
-    (A : GL (Fin n) K) (sigma : K ≃+* K) :
-    MulAut (ProjGenLinGroup (Fin n) K) :=
-  MulAut.conj (ProjGenLinGroup.mk A) * pglGraphFieldAut n K sigma
-
-theorem pglGraphFieldAction_mk (n : ℕ) (K : Type u) [Field K]
-    (A : GL (Fin n) K) (sigma : K ≃+* K) (g : GL (Fin n) K) :
-    pglGraphFieldAction n K A sigma (ProjGenLinGroup.mk g) =
-      ProjGenLinGroup.mk (A * glGraphFieldAut n K sigma g * A⁻¹) := by
-  change MulAut.conj (ProjGenLinGroup.mk A)
-    (pglGraphFieldAut n K sigma (ProjGenLinGroup.mk g)) = _
-  rw [pglGraphFieldAut_mk, MulAut.conj_apply, map_mul, map_mul, map_inv]
 
 @[expose] def graphFieldAction (n : ℕ) (K : Type u) [Field K]
     (A : GL (Fin n) K) (sigma : K ≃+* K) :
     MulAut (ProjectiveSpecialLinearGroup (Fin n) K) :=
   innerDiagonalAction n K A * pslGraphFieldAut n K sigma
 
-theorem graphFieldAction_mk (n : ℕ) (K : Type u) [Field K]
-    (A : GL (Fin n) K) (sigma : K ≃+* K) (g : SpecialLinearGroup (Fin n) K) :
-    graphFieldAction n K A sigma (QuotientGroup.mk g) =
-      QuotientGroup.mk (slConjugation n K A (slGraphFieldAut n K sigma g)) := by
-  change innerDiagonalAction n K A (pslGraphFieldAut n K sigma (QuotientGroup.mk g)) = _
-  rw [pslGraphFieldAut_mk]
-  exact innerDiagonalAction_mk n K A _
-
-theorem toPGL_graphFieldAction (n : ℕ) (K : Type u) [Field K]
-    (A : GL (Fin n) K) (sigma : K ≃+* K)
-    (x : ProjectiveSpecialLinearGroup (Fin n) K) :
-    ProjectiveSpecialLinearGroup.toPGL (graphFieldAction n K A sigma x) =
-      pglGraphFieldAction n K A sigma (ProjectiveSpecialLinearGroup.toPGL x) := by
-  change ProjectiveSpecialLinearGroup.toPGL
-    (innerDiagonalAction n K A (pslGraphFieldAut n K sigma x)) = _
-  rw [innerDiagonalAction_eq_pglAction, toPGL_pglAction, toPGL_pslGraphFieldAut]
-  rfl
 
 theorem graphFieldAction_eq_semilinear_graph (n : ℕ) (K : Type u) [Field K]
     (A : GL (Fin n) K) (sigma : K ≃+* K) :

@@ -48,11 +48,6 @@ theorem IsConfining.map_equiv (hf : M.map f.toMonoidHom = M) {U : Subgroup G}
     rw [hM, ← map_equiv_inf]
     exact Subgroup.map_mono hUC
 
-theorem isConfining_map_equiv_iff (hf : M.map f.toMonoidHom = M) {U : Subgroup G} :
-    IsConfining M (U.map f.toMonoidHom) ↔ IsConfining M U := by
-  refine ⟨fun h => ?_, IsConfining.map_equiv hf⟩
-  have := IsConfining.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsWitnessPair.map_equiv (hf : M.map f.toMonoidHom = M) {U HU : Subgroup G}
     (h : IsWitnessPair M U HU) :
@@ -61,22 +56,12 @@ theorem IsWitnessPair.map_equiv (hf : M.map f.toMonoidHom = M) {U HU : Subgroup 
     (charTwo_map_equiv_iff f HU).mpr h.2.2.2.1,
     fun hle => h.2.2.2.2 ((map_equiv_le_iff_of_fixes hf).mp hle)⟩
 
-theorem isWitnessPair_map_equiv_iff (hf : M.map f.toMonoidHom = M) {U HU : Subgroup G} :
-    IsWitnessPair M (U.map f.toMonoidHom) (HU.map f.toMonoidHom) ↔ IsWitnessPair M U HU := by
-  refine ⟨fun h => ?_, IsWitnessPair.map_equiv hf⟩
-  have := IsWitnessPair.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv, map_equiv_symm_map_equiv] at this
 
 theorem IsWitness.map_equiv (hf : M.map f.toMonoidHom = M) {U : Subgroup G}
     (h : IsWitness M U) : IsWitness M (U.map f.toMonoidHom) := by
   obtain ⟨HU, hp⟩ := h
   exact ⟨HU.map f.toMonoidHom, hp.map_equiv hf⟩
 
-theorem isWitness_map_equiv_iff (hf : M.map f.toMonoidHom = M) {U : Subgroup G} :
-    IsWitness M (U.map f.toMonoidHom) ↔ IsWitness M U := by
-  refine ⟨fun h => ?_, IsWitness.map_equiv hf⟩
-  have := IsWitness.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsGamma.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : IsGamma M H) :
     IsGamma M (H.map f.toMonoidHom) := by
@@ -84,11 +69,6 @@ theorem IsGamma.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : I
   exact ⟨(pCoreOf_map_equiv_ne_bot_iff 2 f H).mpr hcore, U.map f.toMonoidHom,
     HU.map f.toMonoidHom, hp.map_equiv hf, Subgroup.map_mono hle⟩
 
-theorem isGamma_map_equiv_iff (hf : M.map f.toMonoidHom = M) {H : Subgroup G} :
-    IsGamma M (H.map f.toMonoidHom) ↔ IsGamma M H := by
-  refine ⟨fun h => ?_, IsGamma.map_equiv hf⟩
-  have := IsGamma.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsGammaTop.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G}
     (h : IsGammaTop M H) : IsGammaTop M (H.map f.toMonoidHom) := by
@@ -100,11 +80,6 @@ theorem IsGammaTop.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G}
   have := hmax _ hV'
   rwa [card_map_equiv, ← card_map_equiv f U] at this
 
-theorem isGammaTop_map_equiv_iff (hf : M.map f.toMonoidHom = M) {H : Subgroup G} :
-    IsGammaTop M (H.map f.toMonoidHom) ↔ IsGammaTop M H := by
-  refine ⟨fun h => ?_, IsGammaTop.map_equiv hf⟩
-  have := IsGammaTop.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsGammaU.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : IsGammaU M H) :
     IsGammaU M (H.map f.toMonoidHom) := by
@@ -114,11 +89,6 @@ theorem IsGammaU.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : 
   have := h.2 _ hK'
   rwa [twoPart_map_equiv, ← twoPart_map_equiv f H] at this
 
-theorem isGammaU_map_equiv_iff (hf : M.map f.toMonoidHom = M) {H : Subgroup G} :
-    IsGammaU M (H.map f.toMonoidHom) ↔ IsGammaU M H := by
-  refine ⟨fun h => ?_, IsGammaU.map_equiv hf⟩
-  have := IsGammaU.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsGamma2.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : IsGamma2 M H) :
     IsGamma2 M (H.map f.toMonoidHom) := by
@@ -128,19 +98,11 @@ theorem IsGamma2.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : 
   have := h.2 _ hK'
   rwa [twoPart_map_equiv, ← twoPart_map_equiv f H] at this
 
-theorem isGamma2_map_equiv_iff (hf : M.map f.toMonoidHom = M) {H : Subgroup G} :
-    IsGamma2 M (H.map f.toMonoidHom) ↔ IsGamma2 M H := by
-  refine ⟨fun h => ?_, IsGamma2.map_equiv hf⟩
-  have := IsGamma2.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
 
 theorem IsGamma0.map_equiv (hf : M.map f.toMonoidHom = M) {H : Subgroup G} (h : IsGamma0 M H) :
     IsGamma0 M (H.map f.toMonoidHom) :=
   h.imp (IsGammaU.map_equiv hf) (IsGamma2.map_equiv hf)
 
-theorem isGamma0_map_equiv_iff (hf : M.map f.toMonoidHom = M) {H : Subgroup G} :
-    IsGamma0 M (H.map f.toMonoidHom) ↔ IsGamma0 M H :=
-  or_congr (isGammaU_map_equiv_iff hf) (isGamma2_map_equiv_iff hf)
 
 theorem IsEscaping.map_equiv (hf : M.map f.toMonoidHom = M) {D : Subgroup G}
     (h : IsEscaping M D) : IsEscaping M (D.map f.toMonoidHom) := by
@@ -152,28 +114,6 @@ theorem IsEscaping.map_equiv (hf : M.map f.toMonoidHom = M) {D : Subgroup G}
   · rw [normalizer_map_equiv]
     exact fun hle => hDnot ((map_equiv_le_iff_of_fixes hf).mp hle)
 
-theorem isEscaping_map_equiv_iff (hf : M.map f.toMonoidHom = M) {D : Subgroup G} :
-    IsEscaping M (D.map f.toMonoidHom) ↔ IsEscaping M D := by
-  refine ⟨fun h => ?_, IsEscaping.map_equiv hf⟩
-  have := IsEscaping.map_equiv (map_symm_eq_self_of_map_eq_self hf) h
-  rwa [map_equiv_symm_map_equiv] at this
-
-theorem maximal_isEscaping_map_equiv_iff (hf : M.map f.toMonoidHom = M) {D : Subgroup G} :
-    Maximal (IsEscaping M) (D.map f.toMonoidHom) ↔ Maximal (IsEscaping M) D := by
-  have key : ∀ g : G ≃* G, M.map g.toMonoidHom = M → ∀ D : Subgroup G,
-      Maximal (IsEscaping M) D → Maximal (IsEscaping M) (D.map g.toMonoidHom) := by
-    intro g hg D hD
-    refine ⟨hD.1.map_equiv hg, fun y hy hle => ?_⟩
-    have hy' : IsEscaping M (y.map g.symm.toMonoidHom) :=
-      IsEscaping.map_equiv (map_symm_eq_self_of_map_eq_self hg) hy
-    have hDy : D ≤ y.map g.symm.toMonoidHom := by
-      have := Subgroup.map_mono (f := g.symm.toMonoidHom) hle
-      rwa [map_equiv_symm_map_equiv] at this
-    have := Subgroup.map_mono (f := g.toMonoidHom) (hD.2 hy' hDy)
-    rwa [map_equiv_map_equiv_symm] at this
-  refine ⟨fun h => ?_, key f hf D⟩
-  have := key f.symm (map_symm_eq_self_of_map_eq_self hf) _ h
-  rwa [map_equiv_symm_map_equiv] at this
 
 end Invariance
 
@@ -293,33 +233,6 @@ end Tools
 
 section WitnessFamilies
 
-theorem witness_local_families_conj_invariant {G : Type*} [Group G] {M : Subgroup G} {m : G}
-    (hm : m ∈ M) :
-    (∀ D : Subgroup G,
-      IsEscaping M D ↔ IsEscaping M (D.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ D : Subgroup G,
-      Maximal (IsEscaping M) D ↔ Maximal (IsEscaping M) (D.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ U : Subgroup G,
-      IsConfining M U ↔ IsConfining M (U.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ U HU : Subgroup G, IsWitnessPair M U HU ↔
-      IsWitnessPair M (U.map (MulAut.conj m).toMonoidHom) (HU.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ U : Subgroup G, IsWitness M U ↔ IsWitness M (U.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ H : Subgroup G, IsGamma M H ↔ IsGamma M (H.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ H : Subgroup G, IsGammaTop M H ↔ IsGammaTop M (H.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ H : Subgroup G, IsGammaU M H ↔ IsGammaU M (H.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ H : Subgroup G, IsGamma2 M H ↔ IsGamma2 M (H.map (MulAut.conj m).toMonoidHom)) ∧
-    (∀ H : Subgroup G, IsGamma0 M H ↔ IsGamma0 M (H.map (MulAut.conj m).toMonoidHom)) := by
-  have hf := map_conj_eq_self_of_mem hm
-  exact ⟨fun D => (isEscaping_map_equiv_iff hf).symm,
-    fun D => (maximal_isEscaping_map_equiv_iff hf).symm,
-    fun U => (isConfining_map_equiv_iff hf).symm,
-    fun U HU => (isWitnessPair_map_equiv_iff hf).symm,
-    fun U => (isWitness_map_equiv_iff hf).symm,
-    fun H => (isGamma_map_equiv_iff hf).symm,
-    fun H => (isGammaTop_map_equiv_iff hf).symm,
-    fun H => (isGammaU_map_equiv_iff hf).symm,
-    fun H => (isGamma2_map_equiv_iff hf).symm,
-    fun H => (isGamma0_map_equiv_iff hf).symm⟩
 
 variable {G : Type} [Group G] [Finite G] {T M : Subgroup G}
 
@@ -611,12 +524,6 @@ theorem IsGamma0.normalizer_inf_le_of_characteristic (h : UniqueSetting G T M) {
   rw [← hSK.card_eq] at hcard
   exact absurd (Subgroup.card_lt_of_lt hlt') (not_lt.mpr hcard)
 
-theorem IsGamma0.iSup_normalizer_inf_le_of_characteristic (h : UniqueSetting G T M)
-    {H S : Subgroup G} (hH : IsGamma0 M H) (hchar : CharTwo H) (hS : IsSylowTwoOf S (H ⊓ M)) :
-    (⨆ R : Subgroup G, ⨆ (_ : R ≠ ⊥ ∧ R ≤ S ∧ (R.subgroupOf S).Characteristic),
-      H ⊓ Subgroup.normalizer (R : Set G)) ≤ H ⊓ M :=
-  iSup₂_le fun _ hR =>
-    hH.normalizer_inf_le_of_characteristic h hchar hS hR.1 hR.2.1 hR.2.2
 
 end CharacteristicNormalizers
 
@@ -653,20 +560,6 @@ theorem IsGamma0.le_of_charTwo_of_forall_not_charTwo (h : UniqueSetting G T M)
   · obtain ⟨hX0, -, -, -, -⟩ := IsGamma0.overgroup_of_sylow_le h hH0 hS hXΓ hSX (Or.inl h2)
     exact hno X hX0 hX
 
-theorem IsGamma0.maximal_inf_of_forall_not_charTwo (h : UniqueSetting G T M)
-    (hno : ∀ K : Subgroup G, IsGamma0 M K → ¬ CharTwo K) {H S : Subgroup G}
-    (hH : IsGamma0 M H) (hS : IsSylowTwoOf S (H ⊓ M)) (hHM : CharTwo (H ⊓ M)) :
-    (H ⊓ M ≤ H ∧ S ≤ H ⊓ M ∧ CharTwo (H ⊓ M)) ∧
-      (∀ X : Subgroup G, X ≤ H → S ≤ X → CharTwo X → X ≤ H ⊓ M) ∧
-      Maximal (fun X : Subgroup G => X ≤ H ∧ S ≤ X ∧ CharTwo X) (H ⊓ M) ∧
-      ∀ X : Subgroup G, Maximal (fun X : Subgroup G => X ≤ H ∧ S ≤ X ∧ CharTwo X) X →
-        X = H ⊓ M := by
-  have hmem : H ⊓ M ≤ H ∧ S ≤ H ⊓ M ∧ CharTwo (H ⊓ M) := ⟨inf_le_left, hS.le, hHM⟩
-  have hgreat : ∀ X : Subgroup G, X ≤ H → S ≤ X → CharTwo X → X ≤ H ⊓ M :=
-    fun X hXH hSX hX => le_inf hXH (hH.le_of_charTwo_of_forall_not_charTwo h hno hS hSX hX)
-  refine ⟨hmem, hgreat, ⟨hmem, fun Y hY _ => hgreat Y hY.1 hY.2.1 hY.2.2⟩, fun X hX => ?_⟩
-  have hXle := hgreat X hX.1.1 hX.1.2.1 hX.1.2.2
-  exact le_antisymm hXle (hX.2 hmem hXle)
 
 end ConstrainedContainment
 

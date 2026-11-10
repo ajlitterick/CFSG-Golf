@@ -30,46 +30,6 @@ theorem pRank_witness {Ambient : Type groupUniverse} [Group Ambient] [Finite Amb
         Nat.card Elementary = prime ^ pRank prime Local :=
   CFSG.SectionRank.exists_pRank hprime Local
 
-theorem evenRank_le_card (Ambient : Type groupUniverse) [Group Ambient] [Finite Ambient] :
-    evenRank Ambient ≤ Nat.card Ambient := by
-  apply csSup_le'
-  rintro rank ⟨prime, Local, hprime, _, _, hrank⟩
-  rw [← hrank]
-  exact pRank_le_card hprime.one_lt Local
-
-theorem evenRank_witness (Ambient : Type groupUniverse) [Group Ambient] [Finite Ambient]
-    (hpositive : 0 < evenRank Ambient) :
-    ∃ (prime : ℕ) (Local : Subgroup Ambient),
-      prime.Prime ∧ prime ≠ 2 ∧ IsTwoLocal Local ∧ pRank prime Local = evenRank Ambient := by
-  change evenRank Ambient ∈ {rank | ∃ (prime : ℕ) (Local : Subgroup Ambient),
-    prime.Prime ∧ prime ≠ 2 ∧ IsTwoLocal Local ∧ pRank prime Local = rank}
-  unfold evenRank
-  apply Nat.sSup_mem
-  · by_contra hempty
-    have hset : {rank | ∃ (prime : ℕ) (Local : Subgroup Ambient),
-        prime.Prime ∧ prime ≠ 2 ∧ IsTwoLocal Local ∧ pRank prime Local = rank} = ∅ :=
-      Set.not_nonempty_iff_eq_empty.mp hempty
-    have hzero : evenRank Ambient = 0 := by
-      unfold evenRank
-      rw [hset]
-      simp
-    omega
-  · refine ⟨Nat.card Ambient, ?_⟩
-    rintro rank ⟨prime, Local, hprime, _, _, hrank⟩
-    rw [← hrank]
-    exact pRank_le_card hprime.one_lt Local
-
-theorem evenRank_four_witness (Ambient : Type groupUniverse) [Group Ambient]
-    [Finite Ambient] (hrank : 4 ≤ evenRank Ambient) :
-    ∃ (prime : ℕ) (Local Elementary : Subgroup Ambient),
-      prime.Prime ∧ prime ≠ 2 ∧ IsTwoLocal Local ∧ Elementary ≤ Local ∧
-        IsElemAbelian prime Elementary ∧
-        Nat.card Elementary = prime ^ evenRank Ambient := by
-  obtain ⟨prime, Local, hprime, hodd, hlocal, hlocalRank⟩ :=
-    evenRank_witness Ambient (by omega)
-  obtain ⟨Elementary, hle, helementary, hcard⟩ := pRank_witness hprime.one_lt Local
-  exact ⟨prime, Local, Elementary, hprime, hodd, hlocal, hle, helementary,
-    hlocalRank ▸ hcard⟩
 
 theorem not_isPGroup_of_nonabelian_simple (Ambient : Type groupUniverse) [Group Ambient]
     [Finite Ambient] [IsSimpleGroup Ambient] {prime : ℕ} (hprime : prime.Prime)
@@ -97,13 +57,5 @@ theorem twoLocal_ne_top (Ambient : Type groupUniverse) [Group Ambient] [Finite A
       exact hpgroup.of_equiv Subgroup.topEquiv
     exact not_isPGroup_of_nonabelian_simple Ambient Nat.prime_two hnonab hpambient
 
-theorem evenRank_four_prime_power_dvd (Ambient : Type groupUniverse) [Group Ambient]
-    [Finite Ambient] (hrank : 4 ≤ evenRank Ambient) :
-    ∃ prime : ℕ, prime.Prime ∧ prime ≠ 2 ∧ prime ^ 4 ∣ Nat.card Ambient := by
-  obtain ⟨prime, Local, Elementary, hprime, hodd, _, _, _, hcard⟩ :=
-    evenRank_four_witness Ambient hrank
-  refine ⟨prime, hprime, hodd, dvd_trans (Nat.pow_dvd_pow prime hrank) ?_⟩
-  rw [← hcard]
-  exact Elementary.card_subgroup_dvd_card
 
 end CFSG.LargeEvenClassification.Helpers

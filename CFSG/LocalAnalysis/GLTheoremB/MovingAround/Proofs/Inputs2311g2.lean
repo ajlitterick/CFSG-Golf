@@ -170,10 +170,6 @@ theorem uniPlaneGen_twistedA5_three_of_card_ne_two
   · exact hU
   · omega
 
-theorem uniPlaneGen_twistedA5_three {Q : TauCeti.PrimePower} (hQ2 : Q.p ≠ 2)
-    (h3 : 3 ∣ Q.card + 1) {E : Subgroup (MulAut (Cat (twistedA5Index Q)))} (hE : IsElemAbelian 3 E)
-    (hc : Nat.card E = 3 ^ 2) : UniPlaneGen Q.p E :=
-  uniPlaneGen_twistedA5_three_of_card_ne_two (fun hcard => hQ2 (primePower_card_two hcard).1) h3 hE hc
 
 theorem closure_pow_eq_top_twistedA5 {Q : TauCeti.PrimePower} (hQ : Q.card ≠ 2) :
     Subgroup.closure {c : Cat (twistedA5Index Q) | ∃ n : ℕ, c ^ (Q.p ^ n) = 1} = ⊤ := by
@@ -285,14 +281,6 @@ theorem uniClosure_eq_top_of_central_quotient_twA5_of_card_ne_two {Y : Type*} [G
     exact ⟨s, Subgroup.subset_closure ⟨ε, hε, hε1, hεs, m, hm⟩, by rw [hqs, hqw]⟩
   exact eq_top_of_map_eq_top_of_perfect hperf q hqker M hqM
 
-theorem uniClosure_eq_top_of_central_quotient_twA5 {Y : Type*} [Group Y]
-    [Finite Y] (hperf : ⁅(⊤ : Subgroup Y), (⊤ : Subgroup Y)⁆ = ⊤)
-    (hZ : (Nat.card (Subgroup.center Y)).Coprime 3) {Q : TauCeti.PrimePower} (hQ2 : Q.p ≠ 2)
-    (h3 : 3 ∣ Q.card + 1) (φ : Y ⧸ Subgroup.center Y ≃* Cat (twistedA5Index Q))
-    (E' : Subgroup (MulAut Y)) (hE' : IsElemAbelian 3 E') (hcard : Nat.card E' = 3 ^ 2) :
-    Subgroup.closure {u : Y | ∃ ε ∈ E', ε ≠ 1 ∧ ε u = u ∧ ∃ n : ℕ, u ^ (Q.p ^ n) = 1} = ⊤ :=
-  uniClosure_eq_top_of_central_quotient_twA5_of_card_ne_two hperf hZ
-    (fun hcard => hQ2 (primePower_card_two hcard).1) h3 φ E' hE' hcard
 
 theorem levi_le_uniPlaneClosure_twA5_of_card_ne_two {G : Type*} [Group G] (J : Subgroup G)
     [Finite J] (E : Subgroup (MulAut G)) (hE : IsElemAbelian 3 E) (hcard : Nat.card E = 3 ^ 2)
@@ -387,14 +375,6 @@ theorem levi_le_uniPlaneClosure_twA5_of_card_ne_two {G : Type*} [Group G] (J : S
         simpa using this
     exact hS (Subgroup.mem_map.2 ⟨_, hmem, rfl⟩)
 
-theorem levi_le_uniPlaneClosure_twA5 {G : Type*} [Group G] (J : Subgroup G)
-    [Finite J] (E : Subgroup (MulAut G)) (hE : IsElemAbelian 3 E) (hcard : Nat.card E = 3 ^ 2)
-    (hinv : ∀ ε ∈ E, ∀ u ∈ J, ε u ∈ J) (hperf : ⁅J, J⁆ = J)
-    (hZ : (Nat.card (Subgroup.center J)).Coprime 3) {Q : TauCeti.PrimePower} (hQ2 : Q.p ≠ 2)
-    (h3 : 3 ∣ Q.card + 1) (φ : J ⧸ Subgroup.center J ≃* Cat (twistedA5Index Q)) :
-    J ≤ uniPlaneClosure Q.p E :=
-  levi_le_uniPlaneClosure_twA5_of_card_ne_two J E hE hcard hinv hperf hZ
-    (fun hcard => hQ2 (primePower_card_two hcard).1) h3 φ
 
 end Levi
 
@@ -530,17 +510,6 @@ theorem twE6DiagRegular_uniPlaneGen_of_ne_two
     · exact hQH hu
     · exact H.mul_mem (H.mul_mem (hSH hnS) (hQH hv)) (H.inv_mem (hSH hnS))
 
-theorem twE6DiagRegular_uniPlaneGen
-    (K : Type) [Field K] [Finite K] (σ : K ≃+* K) (q : ℕ)
-    (hK3 : ringChar K ≠ 3) (hK2 : ringChar K ≠ 2) (hσ : ∀ c, σ c = c ^ q) (hK : Nat.card K = q ^ 2)
-    (E : Subgroup (MulAut (twistedE6RootGroup K σ))) (hE : E ≤ twistedE6Inn K σ ⊔ twistedE6Diag K σ)
-    (hEab : CFSG.IsElementaryAbelian 3 E) (hcard : Nat.card E = 3 ^ 2)
-    (hnin : ¬ E ≤ CFSG.Fischer.innerAut (twistedE6RootGroup K σ))
-    (D : TwLangData K σ q (twPlanePre K σ E)) (hreg : D.IsRegular) :
-    UniPlaneGen (ringChar K) E :=
-  twE6DiagRegular_uniPlaneGen_of_ne_two K σ q hK3 (fun hq => hK2 (by
-    have hq4 : Nat.card K = 2 ^ (2 * 1) := by rw [hK, hq]
-    exact ringChar_eq_of_card_pow Nat.prime_two (by norm_num) K hq4)) hσ hK E hE hEab hcard hnin D hreg
 
 theorem twE6Diag_uniPlaneGen_of_not_normalizes_of_ne_two
     (K : Type) [Field K] [Finite K] (σ : K ≃+* K) (q : ℕ) (hK3 : ringChar K ≠ 3) (hq2 : q ≠ 2)
@@ -597,16 +566,6 @@ theorem twE6Diag_uniPlaneGen_of_not_normalizes_of_ne_two
     · exact twE6DiagRegular_uniPlaneGen_of_ne_two K σ q hK3 hq2 hσ hK E hE hEab hcard hnin D hkillex
   · exact absurd hnorm hnR
 
-theorem twE6Diag_uniPlaneGen_of_not_normalizes
-    (K : Type) [Field K] [Finite K] (σ : K ≃+* K) (q : ℕ) (hK3 : ringChar K ≠ 3) (hK2 : ringChar K ≠ 2)
-    (hσ : ∀ c, σ c = c ^ q) (hK : Nat.card K = q ^ 2)
-    (E : Subgroup (MulAut (twistedE6RootGroup K σ))) (hE : E ≤ twistedE6Inn K σ ⊔ twistedE6Diag K σ)
-    (hEab : CFSG.IsElementaryAbelian 3 E) (hcard : Nat.card E = 3 ^ 2)
-    (hnin : ¬ E ≤ CFSG.Fischer.innerAut (twistedE6RootGroup K σ)) (hnR : ¬ TwE6NormalizesR K σ E) :
-    UniPlaneGen (ringChar K) E :=
-  twE6Diag_uniPlaneGen_of_not_normalizes_of_ne_two K σ q hK3 (fun hq => hK2 (by
-    have hq4 : Nat.card K = 2 ^ (2 * 1) := by rw [hK, hq]
-    exact ringChar_eq_of_card_pow Nat.prime_two (by norm_num) K hq4)) hσ hK E hE hEab hcard hnin hnR
 
 theorem uniPlaneGen_twE6_three_diag_of_model
     {q : TauCeti.PrimePower}
@@ -643,19 +602,6 @@ theorem uniPlaneGen_twE6_three_diag_of_model
   rw [hchar] at h
   simpa using h
 
-theorem uniPlaneGen_twE6_three_diag_odd_of_model
-    {q : TauCeti.PrimePower}
-    (hv : (TauCeti.LieTypeIndex.twistedE6 q).Valid) (hq2 : q.p ≠ 2) (hq3 : q.p ≠ 3)
-    {E : Subgroup (MulAut (CFSG.LieType.SeitzGeneration.Cat ⟨.twistedE6 q, hv⟩))} (hE : IsElemAbelian 3 E)
-    (hc : Nat.card E = 3 ^ 2) (hout : ¬ InnerPlane ⟨.twistedE6 q, hv⟩ 3 E)
-    (K : Type) [Field K] [Finite K] (σ : K ≃+* K) (hK : Nat.card K = (q.p ^ q.exponent) ^ 2)
-    (hσ : ∀ c, σ c = c ^ (q.p ^ q.exponent))
-    (e : CFSG.LieType.SeitzGeneration.Cat ⟨.twistedE6 q, hv⟩ ≃* twistedE6RootGroup K σ)
-    (hdiag : E.map (MulAut.congr e).toMonoidHom ≤ twistedE6Inn K σ ⊔ twistedE6Diag K σ)
-    (hnpar : ¬ Inputs2311d.IsTwE6DiagParabolicPlane ⟨.twistedE6 q, hv⟩ E) :
-    UniPlaneGen q.p E :=
-  uniPlaneGen_twE6_three_diag_of_model hv (fun hcard => hq2 (primePower_card_two hcard).1) hq3 hE hc hout
-    K σ hK hσ e hdiag hnpar
 
 theorem uniPlaneGen_twE6_three_diag
     {q : TauCeti.PrimePower}
@@ -671,19 +617,6 @@ theorem uniPlaneGen_twE6_three_diag
   obtain ⟨K, _, _, σ, hK, hσ, e, hdiag⟩ := hdiag
   exact uniPlaneGen_twE6_three_diag_of_model hv hq2 hq3 hE hc hout K σ hK hσ e hdiag hnpar
 
-theorem uniPlaneGen_twE6_three_diag_odd
-    {q : TauCeti.PrimePower}
-    (hv : (TauCeti.LieTypeIndex.twistedE6 q).Valid) (hq2 : q.p ≠ 2) (hq3 : q.p ≠ 3)
-    {E : Subgroup (MulAut (CFSG.LieType.SeitzGeneration.Cat ⟨.twistedE6 q, hv⟩))} (hE : IsElemAbelian 3 E)
-    (hc : Nat.card E = 3 ^ 2) (hout : ¬ InnerPlane ⟨.twistedE6 q, hv⟩ 3 E)
-    (hdiag : ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K ≃+* K), Nat.card K = (q.p ^ q.exponent) ^ 2 ∧
-      (∀ c, σ c = c ^ (q.p ^ q.exponent)) ∧
-      ∃ e : CFSG.LieType.SeitzGeneration.Cat ⟨.twistedE6 q, hv⟩ ≃* twistedE6RootGroup K σ,
-        E.map (MulAut.congr e).toMonoidHom ≤ twistedE6Inn K σ ⊔ twistedE6Diag K σ)
-    (hnpar : ¬ Inputs2311d.IsTwE6DiagParabolicPlane ⟨.twistedE6 q, hv⟩ E) :
-    UniPlaneGen q.p E :=
-  uniPlaneGen_twE6_three_diag hv (fun hcard => hq2 (primePower_card_two hcard).1) hq3 hE hc hout
-    hdiag hnpar
 
 theorem uniSeitzPlanes_twE6_diag :
     UniSeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ p = 3 ∧
@@ -1870,21 +1803,6 @@ theorem degCountE8_cases {e : ℕ} (h : 2 ≤ degCount Tag.E8 e) :
       e = 1 ∨ e = 2 ∨ e = 3 ∨ e = 4 ∨ e = 5 ∨ e = 6 ∨ e = 8 ∨ e = 10 ∨ e = 12 := by decide
   exact key e h30 h
 
-theorem orderOf_natCast_eq_one_of_dvd_pred {p q : ℕ} (hq : 1 ≤ q) (h : p ∣ q - 1) :
-    orderOf ((q : ℕ) : ZMod p) = 1 := by
-  rw [orderOf_eq_one_iff]
-  have h1 := (ZMod.natCast_eq_zero_iff (q - 1) p).2 h
-  rw [Nat.cast_sub hq, Nat.cast_one, sub_eq_zero] at h1
-  exact h1
-
-theorem orderOf_natCast_dvd_two_of_dvd_succ {p q : ℕ} (h : p ∣ q + 1) :
-    orderOf ((q : ℕ) : ZMod p) ∣ 2 := by
-  apply orderOf_dvd_of_pow_eq_one
-  have h1 := (ZMod.natCast_eq_zero_iff (q + 1) p).2 h
-  push_cast at h1
-  have h2 : ((q : ℕ) : ZMod p) = -1 := eq_neg_of_add_eq_zero_left h1
-  rw [h2]
-  norm_num
 
 theorem one_le_primePower_card_excFive (q : PrimePower) : 1 ≤ q.card := by
   rw [PrimePower.card_def]
@@ -3784,42 +3702,6 @@ end TriTauBR
 section ResidualScope
 
 
-theorem oddCpfRest3_of_rest4 {d : TauCeti.ValidLieTypeIndex} {p : ℕ}
-    {E : Subgroup (MulAut (CFSG.LieType.SeitzGeneration.Cat d))} (h : OddCpfRest4 d p E) :
-    OddCpfRest3 d p E := by
-  obtain ⟨hR, hb | ⟨hin, hexc, hsub⟩ | htri⟩ := h
-  · exact ⟨hR, Or.inl ⟨hb.1, hb.2.1, hb.2.2.1, hb.2.2.2.1⟩⟩
-  · refine ⟨hR, Or.inr (Or.inl ⟨hin, hexc, ?_⟩)⟩
-    rcases hsub with ⟨h5, hcls⟩ | ⟨hp3, ht | htw⟩
-    · refine Or.inl ⟨h5, ?_, ?_⟩
-      · rintro ⟨q', hq', -⟩
-        rcases hcls with ⟨q, hq, -⟩ | ⟨q, hq, -⟩ | ⟨q, hq, -⟩ | ⟨q, hq, -⟩ | ⟨q, hq, -⟩ <;>
-          · rw [hq] at hq'
-            cases hq'
-      · rintro ⟨q', hq', hE8⟩
-        rcases hcls with ⟨q, hq, -⟩ | ⟨q, hq, -⟩ | ⟨q, hq, hp7, he⟩ | ⟨q, hq, -⟩ | ⟨q, hq, -⟩
-        · rw [hq] at hq'
-          cases hq'
-        · rw [hq] at hq'
-          cases hq'
-        · rw [hq] at hq'
-          cases hq'
-          rcases hE8 with h5' | ⟨-, h1 | h2⟩ | h4
-          · omega
-          · have := orderOf_natCast_eq_one_of_dvd_pred (one_le_primePower_card_excFive _) h1
-            rcases he with he | he | he | he <;> omega
-          · have h2' := orderOf_natCast_dvd_two_of_dvd_succ h2
-            rcases he with he | he | he | he <;> rw [he] at h2' <;> norm_num at h2'
-          · rcases he with he | he | he | he <;> omega
-        · rw [hq] at hq'
-          cases hq'
-        · rw [hq] at hq'
-          cases hq'
-    · obtain ⟨q, hq, -⟩ := ht
-      exact Or.inr ⟨hp3, Or.inr (Or.inl ⟨q, hq⟩)⟩
-    · exact Or.inr ⟨hp3, Or.inr (Or.inr htw)⟩
-  · exact ⟨hR, Or.inr (Or.inr (Or.inr ⟨htri.1, htri.2.1, htri.2.2.1⟩))⟩
-
 end ResidualScope
 
 section Residual
@@ -3947,8 +3829,6 @@ theorem uniSeitzPlanes_oddCpfRest3_of_rest4 (h : UniSeitzPlanes OddCpfRest4) :
     · exact uniSeitzPlanes_triality_tauLine d p hp hp2 hpd hex E hE hc ⟨hp3, hch, htb⟩
     · exact hres ⟨hR, Or.inr (Or.inr ⟨hout, hp3, hti, htb⟩)⟩
 
-theorem uniSeitzPlanes_oddCpfRest4_iff : UniSeitzPlanes OddCpfRest4 ↔ UniSeitzPlanes OddCpfRest3 :=
-  ⟨uniSeitzPlanes_oddCpfRest3_of_rest4, UniSeitzPlanes.mono fun _ _ _ => oddCpfRest3_of_rest4⟩
 
 end Residual
 

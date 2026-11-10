@@ -107,11 +107,6 @@ theorem planeEmbedding_polar_of_ne {i j : Fin m} (hij : i ≠ j) (x y : K × K) 
     rw [planeEmbedding_polar, planeEmbedding_apply, e.apply_symm_apply]
     simp
 
-theorem originalHypPair_e (i : Fin m) :
-    (originalHypPair e i).e = e.symm (Pi.single i (1, 0), 0) := rfl
-
-theorem originalHypPair_f (i : Fin m) :
-    (originalHypPair e i).f = e.symm (Pi.single i (0, 1), 0) := rfl
 
 theorem originalHypPair_orth {i j : Fin m} (hij : i ≠ j) :
     (originalHypPair e i).Orth (originalHypPair e j) where
@@ -126,10 +121,6 @@ theorem originalHypPair_orth {i j : Fin m} (hij : i ≠ j) :
 
 @[expose] def planeSubspace (i : Fin m) : Submodule K V := (planeEmbedding e i).range
 
-@[expose] def hyperbolicSubspaceEquiv :
-    (hyperbolicSumForm K m).IsometryEquiv (Q.restrict (hyperbolicSubspace e)) where
-  toLinearEquiv := LinearEquiv.ofInjective _ (hyperbolicEmbedding_injective e)
-  map_app' x := hyperbolicEmbedding_form e x
 
 @[expose] def residualSubspaceEquiv : R.IsometryEquiv (Q.restrict (residualSubspace e)) where
   toLinearEquiv := LinearEquiv.ofInjective _ (residualEmbedding_injective e)
@@ -140,9 +131,6 @@ theorem originalHypPair_orth {i j : Fin m} (hij : i ≠ j) :
   toLinearEquiv := LinearEquiv.ofInjective _ (planeEmbedding_injective e i)
   map_app' x := planeEmbedding_form e i x
 
-theorem hyperbolicSubspace_finrank : Module.finrank K (hyperbolicSubspace e) = 2 * m := by
-  rw [← (hyperbolicSubspaceEquiv e).toLinearEquiv.finrank_eq, Module.finrank_pi_fintype]
-  simp [Module.finrank_self, Nat.mul_comm]
 
 theorem residualSubspace_finrank :
     Module.finrank K (residualSubspace e) = Module.finrank K W :=
@@ -264,19 +252,6 @@ theorem residualSubspace_eq_iInf_perp :
     rw [residualEmbedding_apply, ← hcoords]
     exact e.symm_apply_apply v
 
-@[expose] def originalSubspaceDecomposition :
-    ((Q.restrict (hyperbolicSubspace e)).prod
-      (Q.restrict (residualSubspace e))).IsometryEquiv Q where
-  toLinearEquiv := (hyperbolicSubspace e).prodEquivOfIsCompl
-    (residualSubspace e) (hyperbolic_residual_isCompl e)
-  map_app' x := by
-    change Q ((x.1 : V) + x.2) = Q x.1 + Q x.2
-    rw [QuadraticMap.map_add Q, hyperbolic_residual_orthogonal e x.1.2 x.2.2, add_zero]
-
-theorem originalSubspaceDecomposition_apply
-    (x : hyperbolicSubspace e × residualSubspace e) :
-    originalSubspaceDecomposition e x = (x.1 : V) + x.2 :=
-  Submodule.coe_prodEquivOfIsCompl' _ _ (hyperbolic_residual_isCompl e) x
 
 theorem residualSubspace_anisotropic (hR : R.Anisotropic) :
     (Q.restrict (residualSubspace e)).Anisotropic := by

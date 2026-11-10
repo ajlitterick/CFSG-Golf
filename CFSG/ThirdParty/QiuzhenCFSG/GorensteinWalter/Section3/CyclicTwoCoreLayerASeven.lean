@@ -406,18 +406,5 @@ public theorem firstCase_cyclic_oriented_prime_eq_three
   exact firstCase_cyclic_oriented_prime_eq_three_of_aSeven_layer
     hmin c hfirst hcyclic od fd M X hMmax hV2 hXleE hXne hXp hXinv hXcent hA7
 
-/-- In the cyclic two-core subcase the forced A₇ layer quotient implies
-that the oriented prime is `3`. -/
-public theorem firstCase_cyclic_layer_p_eq_three
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (hfirst : FirstCase c)
-    (hcyclic : twoCoreOf c.Hhat ≤ c.S0) :
-    ∃ od : FirstCaseOrientedPrimeData c, od.p = 3 := by
-  obtain ⟨od⟩ :=
-    firstCase_cyclic_layer_quotient_isASeven hmin c hfirst hcyclic
-  exact ⟨od, firstCase_cyclic_oriented_prime_eq_three
-    hmin c hfirst hcyclic od⟩
 
 end CFSG.GorensteinWalter

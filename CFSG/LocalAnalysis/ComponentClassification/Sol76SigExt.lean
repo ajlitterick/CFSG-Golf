@@ -172,25 +172,5 @@ theorem oddCoreIn_inf_eq_bot_of_sigPair {V B : Subgroup G} (hP : SigPair N K K' 
     oddCoreIn (centralizer ({e} : Set G)) ⊓ oddCoreIn (centralizer ({f} : Set G)) = ⊥ :=
   eq_bot_iff.mpr ((oddCoreIn_inf_le_wGroup hP.2.2.2.1 hP.2.2.2.2.2.2.1 heB he1 hfV).trans hW.le)
 
-theorem oddCoreIn_inf_eq_bot_of_forced (hK : K ∈ kStarComponents N)
-    (hK' : K' ∈ kStarComponents N) (hne : K ≠ K')
-    (hW : ∀ V B : Subgroup G, SigPair N K K' V B → wGroup B V = ⊥)
-    (hW' : ∀ V B : Subgroup G, SigPair N K' K V B → wGroup B V = ⊥) {e f : G} (heK : e ∈ K)
-    (he2 : orderOf e = 2) (hfK' : f ∈ K') (hf2 : orderOf f = 2) (hfe : f * e = e * f)
-    (hforced :
-      CFSG.Open.pRank 2 (K ⊓ centralizer ({e} : Set G) ⊓ centralizer ({f} : Set G)) ≤ 2 →
-      CFSG.Open.pRank 2 (K' ⊓ centralizer ({e} : Set G) ⊓ centralizer ({f} : Set G)) ≤ 2 →
-      (∀ b ∈ N ⊓ coreActionKernel K ⊓ coreActionKernel K', orderOf b = 2 →
-        b * e = e * b → b * f = f * b → b ∈ K ⊓ K') →
-      oddCoreIn (centralizer ({e} : Set G)) ⊓ oddCoreIn (centralizer ({f} : Set G)) = ⊥) :
-    oddCoreIn (centralizer ({e} : Set G)) ⊓ oddCoreIn (centralizer ({f} : Set G)) = ⊥ := by
-  have he1 : e ≠ 1 := fun h => by rw [h, orderOf_one] at he2; norm_num at he2
-  have hf1 : f ≠ 1 := fun h => by rw [h, orderOf_one] at hf2; norm_num at hf2
-  rcases exists_sigPair_or_forced hK hK' hne heK he2 hfK' hf2 hfe with
-    ⟨V, B, hP, hfV, heB⟩ | ⟨V, B, hP, heV, hfB⟩ | ⟨h1, h2, h3⟩
-  · exact oddCoreIn_inf_eq_bot_of_sigPair hP (hW V B hP) heB he1 hfV
-  · rw [inf_comm]
-    exact oddCoreIn_inf_eq_bot_of_sigPair hP (hW' V B hP) hfB hf1 heV
-  · exact hforced h1 h2 h3
 
 end CFSG.ComponentClassification.Sol76.Sig

@@ -19,9 +19,6 @@ theorem o_B : CFSG.KC.Fam.ordExact RW (CFSG.KC.Ord.mulR 5 13 1729 133 9 L H CM R
     true := by
   quickRfl
 
-theorem o_AB : CFSG.KC.Fam.ordExact RW (CFSG.KC.Ord.mulR 5 13 1729 133 9 L H CM RM) ONE RWn 5 22
-    [2, 11] = true := by
-  quickRfl
 
 theorem o_X : CFSG.KC.Fam.ordExact RW (CFSG.KC.Ord.mulR 5 13 1729 133 9 L H CM RM) ONE RWn 20 19
     [19] = true := by

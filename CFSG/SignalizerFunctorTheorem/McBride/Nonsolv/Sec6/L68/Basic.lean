@@ -52,9 +52,6 @@ theorem fitting_smear_le_orbitClosure {M A B : Subgroup Γ} (h : B ≤ A) :
   ((Subgroup.map_subtype_le _).trans (smear_le_orbitClosure M B)).trans
     (orbitClosure_mono_right h)
 
-theorem fitting_smear_le_smear (M A : Subgroup Γ) :
-    CFSG.inSubgroup CFSG.generalizedFitting (smear M A) ≤ smear M A :=
-  Subgroup.map_subtype_le _
 
 theorem orbitClosure_le_of_le {L T A : Subgroup Γ} (hLT : L ≤ T)
     (hAT : A ≤ Subgroup.normalizer (T : Set Γ)) : orbitClosure L A ≤ T :=

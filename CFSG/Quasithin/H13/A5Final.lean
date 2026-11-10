@@ -97,17 +97,5 @@ theorem input1336_of (h331 : Stmt3_3_1) (h1327 : Stmt13_2_7) : Input1336 := by
   rw [Subgroup.mem_centralizer_singleton_iff]
   exact this.symm
 
-theorem stmt13_6_1_of_ext
-    (h132two : Stmt13_3_2_two) (h132fsu : Stmt13_3_2_three_fsu)
-    (h132A5 : Stmt13_3_2_three_A5) (h311 : Theorem311Stmt) (h1222 : Stmt12_2_2)
-    (h517 : Stmt5_1_7_one) (h331 : Stmt3_3_1) (h1327 : Stmt13_2_7) (hG248 : StmtG248)
-    (h13518 : Input13518) (h136 : Input136) (hF112 : F112Statement) (hF431 : StmtF431U42) :
-    Stmt13_6_1 := by
-  have h1323 := input1323Two_of h311 h1222
-  have h1326 := input1326Two_of h1222 h517
-  have h1336 := input1336_of h331 h1327
-  exact stmt13_6_1_of_inputs h132two h132fsu h132A5 h1323 h1336
-    (input13515_of h1323 h1326 h1336 VolI.stmtF956i hG248 VolI.stmtC113c) h13518 h136 hF112
-    hF431
 
 end CFSG.Quasithin.H13.A5

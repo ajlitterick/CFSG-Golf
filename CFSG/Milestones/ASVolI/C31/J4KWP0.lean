@@ -197,8 +197,5 @@ theorem burnsideJ4KW_maxNonParabolicCore_of_P0
   have h1 := Subgroup.map_mono (f := (MulAut.conj g).toMonoidHom) hk
   rwa [burnsideJ4KW_map_conj_map_conj] at h1
 
-theorem burnsideJ4KW_core_of_maxNonParabolicP0
-    (h : burnsideJ4KW_MaxNonParabolicP0) : burnsideC31_J4KWCore :=
-  burnsideJ4KW_core_of_maxNonParabolicCore (burnsideJ4KW_maxNonParabolicCore_of_P0 h)
 
 end CFSG.ASVolI

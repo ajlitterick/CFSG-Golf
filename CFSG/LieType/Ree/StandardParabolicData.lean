@@ -12,10 +12,6 @@ namespace ReeTag
 
 variable (t : ReeTag)
 
-@[expose] def reeParabolicWeylGroup
-    (J : Set (Fin t.fixedOrbitCount)) :
-    Subgroup (WeylGroup t.tag) :=
-  Subgroup.closure (t.fixedOrbitElement '' J)
 
 variable (K : Type) [Field K] [Finite K] [CharP K t.prime] (a : ℕ)
 
@@ -24,10 +20,6 @@ variable (K : Type) [Field K] [Finite K] [CharP K t.prime] (a : ℕ)
   t.reeFixedBorel K a ⊔ Subgroup.closure
     ((fun j => canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j)) '' J)
 
-theorem reeParabolicWeylGroup_le
-    (J : Set (Fin t.fixedOrbitCount)) :
-    t.reeParabolicWeylGroup J ≤ t.relWeylRee :=
-  (Subgroup.closure_le _).2 fun _ ⟨j, _, hj⟩ => hj ▸ fixedOrbitElement_mem j
 
 theorem reeParabolic_le
     (J : Set (Fin t.fixedOrbitCount)) :
@@ -46,10 +38,6 @@ theorem canonicalRep_mem_reeParabolic
     canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j) ∈ t.reeParabolic K a J :=
   Subgroup.mem_sup_right (Subgroup.subset_closure ⟨j, hj, rfl⟩)
 
-omit [Finite K] [CharP K t.prime] in
-theorem reeParabolicWeylGroup_empty
-    : t.reeParabolicWeylGroup ∅ = ⊥ := by
-  rw [reeParabolicWeylGroup, Set.image_empty, Subgroup.closure_empty]
 
 theorem reeParabolic_empty
     : t.reeParabolic K a ∅ = t.reeFixedBorel K a := by

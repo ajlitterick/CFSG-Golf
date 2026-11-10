@@ -286,11 +286,6 @@ theorem P_le_Jhat (h : PStr14612 X Tb P p) : P ≤ Jhat X := by
   · rw [← h1]
     exact inf_le_left
 
-theorem fixV_Jhat (h : PStr14612 X Tb P p) (hfix : fixV P = ⊥) : fixV (Jhat X) = ⊥ := by
-  refine (Subgroup.eq_bot_iff_forall _).2 fun v hv => ?_
-  have : v ∈ fixV P := fun a ha => hv a (h.P_le_Jhat ha)
-  rw [hfix] at this
-  exact this
 
 theorem setting (h : PStr14612 X Tb P p) (hfix : fixV P = ⊥)
     (hgen : ∀ W : Subgroup V, (∀ g ∈ X, ∀ z ∈ fixV Tb, g z ∈ W) → W = ⊤) :

@@ -196,15 +196,5 @@ theorem c21_normCent_of_Y_ne (hC3 : C21_3 p f) (hY : C21_14_Y_ne_W p f) :
     _ = t * (z * n) := by rw [hnt, hnz]
     _ = (t * z) * n := by group
 
-theorem c21_14_Y_ne_of_alt_rest (hAlt : C21_14_alt_rest p f) : C21_14_Y_ne_W p f := by
-  intro G _ _ _ Ω K K' z u J t W h _ hα hne
-  rcases hAlt G Ω K K' z u J t W h hα (fun hh => hne hh.1) with h1 | h2
-  · exact Or.inl h1
-  · refine Or.inr (iSup₂_le fun R hR => iSup_le fun hRC => ?_)
-    exact le_iSup₂_of_le R hR (le_iSup_of_le (fun x hx => h2 (hRC hx)) le_rfl)
-
-theorem c21_normCent_of_alt_rest (hC3 : C21_3 p f) (hAlt : C21_14_alt_rest p f) :
-    C21_NormCent p f :=
-  c21_normCent_of_Y_ne hC3 (c21_14_Y_ne_of_alt_rest hAlt)
 
 end CFSG.ClassicalInvolution.Asc77

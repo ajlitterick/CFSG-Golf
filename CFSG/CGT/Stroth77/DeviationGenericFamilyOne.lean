@@ -57,11 +57,6 @@ theorem sqBar_conj_uv_familyOne {x : G} (hx : x ∈ 𝓡[S, D])
   rw [sqBar_conj hk hcent hx dD.uv_mem hy dD.uv_conj
     (fun v => (familyOne_torusBar hfam (one_le_of_two_le hk) v).1), Matrix.one_mulVec]
 
-theorem sqBar_conj_t_familyOne {x : G} (hx : x ∈ 𝓡[S, D])
-    (hy : dD.t⁻¹ * x * dD.t ∈ 𝓡[S, D]) :
-    sqBar dD hk hcent _ hy = sqBar dD hk hcent x hx := by
-  rw [sqBar_conj hk hcent hx dD.t_mem hy dD.t_conj
-    (fun v => (familyOne_torusBar hfam (one_le_of_two_le hk) v).2.1), Matrix.one_mulVec]
 
 theorem sqBar_conj_u_familyOne {x : G} (hx : x ∈ 𝓡[S, D])
     (hy : dD.u⁻¹ * x * dD.u ∈ 𝓡[S, D]) :
@@ -104,39 +99,6 @@ theorem sqBar_proj_rho_familyOne (hfam : τ.m + 1 = τ.n) (hk : ∀ i, 2 ≤ τ.
   rw [sqBar, h, barD, dD.ρ_conj, (familyOne_torusBar hfam (one_le_of_two_le hk) _).2.2.2]
   rfl
 
-theorem mem_centralizer_omegaIn_iff_familyOne (hfam : τ.m + 1 = τ.n) (hk : ∀ i, 2 ≤ τ.k i)
-    {x : G} (hx : x ∈ 𝓡[S, D]) :
-    x ∈ Subgroup.centralizer ((omegaIn (τ.n - 1) D : Subgroup G) : Set G) ↔
-      ∀ i, devMat dD hk x hx i 0 = 0 := by
-  have hcomm : ∀ a ∈ D, ∀ b ∈ D, a * b = b * a := fun a ha b hb => comm_of_mem dD ha hb
-  have hn : τ.n - 1 = τ.m := by omega
-  have hkk := familyOne_k hfam
-  constructor
-  · intro hc
-    have hcΩ : (dD.c : G) ∈ omegaIn (τ.n - 1) D := by
-      refine mem_omegaIn_of_pow_eq_one dD.c.2 ?_
-      rw [hn, ← orderOf_dvd_iff_pow_eq_one, Subgroup.orderOf_coe, dD.orderOf_c]
-    have hcx := Subgroup.mem_centralizer_iff.mp hc _ hcΩ
-    have h := devMat_val_eq (dD := dD) hk x hx dD.c
-    have h0 : (⟨x * (dD.c : G) * x⁻¹ * (dD.c : G)⁻¹, omegaIn_le 1 D
-        (commutator_mem_omegaIn_one dD hx dD.c.2)⟩ : D) = 1 := Subtype.ext (by
-      simp only [Subgroup.coe_one]
-      rw [← hcx]; group)
-    rw [h0, ofMul_one, map_zero, barD_c] at h
-    have h' := torusHalf_injective τ.k (one_le_of_two_le hk) (h.symm.trans (map_zero _).symm)
-    intro i
-    have := congrFun h' i
-    simpa [Matrix.mulVec, dotProduct, Fin.sum_univ_three] using this
-  · intro hcol
-    rw [Subgroup.mem_centralizer_iff]
-    intro w hw
-    obtain ⟨hwD, hw2⟩ := (mem_omegaIn_iff_of_comm hcomm).mp hw
-    have hw' : (⟨w, hwD⟩ : D) ^ (2 ^ τ.m) = 1 := Subtype.ext (by rw [← hn]; simpa using hw2)
-    have h1 : barD dD hk ⟨w, hwD⟩ 1 = 0 := barD_eq_zero_of_pow hk hw' (by rw [hkk]; simp)
-    have h2 : barD dD hk ⟨w, hwD⟩ 2 = 0 := barD_eq_zero_of_pow hk hw' (by rw [hkk]; simp)
-    have := conj_eq_of_devMat_col hk hx hcol h1 h2
-    calc w * x = (x * w * x⁻¹) * x := by rw [this]
-      _ = x * w := by group
 
 theorem barD_commutator_one_two_familyOne (hfam : τ.m + 1 = τ.n) (hk : ∀ i, 2 ≤ τ.k i)
     (hcent : S ⊓ Subgroup.centralizer (D : Set G) = D) {x y : G} (hx : x ∈ 𝓡[S, D])

@@ -423,11 +423,6 @@ theorem iotaA_theta
   show ((thetaJ.symm (thetaJ h) : HJ) : JH) = h
   rw [MulEquiv.symm_apply_apply]
 
-theorem theta_sJ_eq
-    {k : ℕ} (hk : k < 4) :
-    thetaJ ⟨sJ k, sJ_mem k⟩ = ⟨tripleNat (k + 1), by
-      rw [← thetaJ_sJ hk]; exact (thetaJ ⟨sJ k, sJ_mem k⟩).2⟩ :=
-  Subtype.ext (thetaJ_sJ hk)
 
 theorem theta_s1 :
     thetaJ ⟨sJ 0, sJ_mem 0⟩ = tri012A :=
@@ -575,16 +570,6 @@ theorem card_centralizer_equiv {G G' : Type*} [Group G] [Group G'] (e : G ≃* G
   simp only [MulEquiv.toEquiv_eq_coe, EquivLike.coe_coe]
   rw [← map_mul, ← map_mul, e.injective.eq_iff]
 
-theorem card_CH_eq {g : HJ} :
-    Nat.card (CJ g ⊓ HJ : Subgroup JH) = Nat.card (Subgroup.centralizer {g}) := by
-  refine Nat.card_congr
-    { toFun := fun x => ⟨⟨x.1, (Subgroup.mem_inf.1 x.2).2⟩,
-        Subgroup.mem_centralizer_singleton_iff.2 (Subtype.ext
-          (mem_CJ.1 (Subgroup.mem_inf.1 x.2).1).symm)⟩
-      invFun := fun x => ⟨x.1.1, Subgroup.mem_inf.2 ⟨mem_CJ.2
-          (congrArg Subtype.val (Subgroup.mem_centralizer_singleton_iff.1 x.2)).symm, x.1.2⟩⟩
-      left_inv := fun x => rfl
-      right_inv := fun x => rfl }
 
 theorem theta_s3 :
     (thetaJ ⟨sJ 2, sJ_mem 2⟩ : Perm (Fin 12)) = tri 0 1 2 * tri 3 4 5 * tri 6 7 8 :=

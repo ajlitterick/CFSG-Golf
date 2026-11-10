@@ -43,8 +43,6 @@ theorem exists_of_mem_Ehat {e : Dfull} (he : e ∈ Ehat) :
   obtain ⟨q, hq, hqe⟩ := exists_rep_Ebar ⟨e₀, he₀⟩
   exact ⟨q, hq, congrArg (fun x : Ebar => iotaD (x : Cbar)) hqe.symm⟩
 
-theorem shat_eq_cbarEquiv {h : Dfull} {g : Cgen} (hS : h ∈ Shat) (hg : iotaD (kappa g) = h) :
-    (⟨h, hS⟩ : Shat) = cbarEquiv (kappa g) := Subtype.ext hg.symm
 
 @[expose] def blockA : Submodule ℚ SpaceB where
   carrier := {v | v.2.1 = 0 ∧ v.2.2 = 0}

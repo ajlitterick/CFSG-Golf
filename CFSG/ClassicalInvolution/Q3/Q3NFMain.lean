@@ -21,8 +21,6 @@ section Vertex
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {A : Subgroup G}
 
-@[expose] def fuzzyMembers3 (Ω : Set (Subgroup G)) (A : Subgroup G) : Set (Subgroup G) :=
-  {M | M ∈ Ω ∧ ∃ z ∈ A, IsClassicalMember3 M z}
 
 theorem pairData3_of_fuzzyFrame {J : Fin 3 → Subgroup G} {z : Fin 3 → G}
     (hJ : ∀ i, J i ∈ Ω ∧ IsClassicalMember3 (J i) (z i))
@@ -111,84 +109,11 @@ end Vertex
 
 section Frame
 
-variable {G : Type} [Group G] [Finite G] [IsSimpleGroup G] {Ω : Set (Subgroup G)}
-  {A : Subgroup G}
-
-theorem exactLayer3_generation_of_fuzzyFrame (hΩ : InClass3 Ω) (hBelow : CIT3Below (Nat.card G))
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hfr : FuzzyFrame3 Ω A) {a : G} (haA : a ∈ A)
-    (ha1 : a ≠ 1) :
-    exactLayer3 Ω a ≤ oddCoreIn (exactLayer3 Ω a) ⊔
-      ⨆ F ∈ signalizerFunctorEk 2 2 A, (Subgroup.centralizer (F : Set G) ⊓ exactLayer3 Ω a) := by
-  obtain ⟨J, z, hJ, hAdef, hAe, hAc, hAt⟩ := hfr
-  have hc2 : IsPGroup 2 (Subgroup.zpowers a) := isPGroup_zpowers_of_mem_isElemAbelian3 hAe haA
-  have hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G := Q3W.not_subset_center_of_ne_one hnab ha1
-  have hzA : ∀ i, z i ∈ A := fun i => hAdef ▸ Subgroup.subset_closure ⟨i, rfl⟩
-  have hsq : ∀ i, z i * z i = 1 := fun i => (hJ i).2.isCentralInvolution.sq
-  have hcomm : ∀ i j, z i * z j = z j * z i := fun i j =>
-    comm_of_mem_elemAbelian hAe (hzA i) (hzA j)
-  have hind := fuzzy_independent hsq hcomm (hAdef ▸ hAc)
-  have htq : ∀ i, J i ∈ tqMembers3 Ω a := fun i => ⟨(hJ i).1, hAt i haA⟩
-  obtain ⟨ι, -, ⟨D⟩⟩ := lieSystemMod3_exactPair3 hΩ hc2 hBelow hnc
-  have hAY : A ≤ centralizingLayer (exactFamily3 Ω a) {a} := by
-    rw [hAdef, Subgroup.closure_le]
-    rintro _ ⟨i, rfl⟩
-    refine exactCore3_le_exactLayer3 (htq i) ⟨(hJ i).2.mem, ?_⟩
-    exact Subgroup.mem_centralizer_singleton_iff.mpr (comm_of_mem_elemAbelian hAe (hzA i) haA)
-  exact centralizerGeneration_of_triple hAe haA ha1 hAY D
-    (fun p q hpq => pairData3_of_fuzzyFrame hJ hAdef hAe hAt haA D (hind.1 p q hpq)) hind.2
-
-theorem frameSideLayers3_of_fuzzyFrame (hΩ : InClass3 Ω) (hBelow : CIT3Below (Nat.card G))
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hfr : FuzzyFrame3 Ω A)
-    (hcov : ∀ a ∈ A, IsFrameInvolution3 (fuzzyMembers3 Ω A) a →
-      ExactCovers3 Ω (fuzzyMembers3 Ω A) a) :
-    FrameSideLayers3 Ω A (fuzzyMembers3 Ω A) := by
-  have hfr' := hfr
-  obtain ⟨J, z, hJ, hAdef, hAe, hAc, hAt⟩ := hfr'
-  have hzA : ∀ i, z i ∈ A := fun i => hAdef ▸ Subgroup.subset_closure ⟨i, rfl⟩
-  have h8 : 8 ≤ Nat.card A := hAc.ge
-  have hS : fuzzyMembers3 Ω A ⊆ Ω := fun K hK => hK.1
-  have hinv : ∀ K ∈ fuzzyMembers3 Ω A, ∃ w ∈ A, IsClassicalMember3 K w := fun K hK => hK.2
-  have hlay : ∀ a ∈ A, IsFrameInvolution3 (fuzzyMembers3 Ω A) a →
-      exactLayer3 Ω a ≤ rankTwoSpan A := by
-    intro a haA hfa
-    obtain ⟨K, -, hKa⟩ := hfa
-    exact exactLayer3_le_rankTwoSpan hΩ hAe h8 haA
-      (exactLayer3_generation_of_fuzzyFrame hΩ hBelow hnab hfr haA hKa.ne_one)
-  refine ⟨hS, ⟨J 0, (hJ 0).1, z 0, hzA 0, (hJ 0).2⟩, hinv, fun a haA hfa => ?_, fun a haA hfa => ?_⟩
-  · exact centralizingLayer_le_exactLayer3.trans (hlay a haA hfa)
-  · obtain ⟨K, hKS, hKa⟩ := hfa
-    have hfa' : IsFrameInvolution3 (fuzzyMembers3 Ω A) a := ⟨K, hKS, hKa⟩
-    have hc2 : IsPGroup 2 (Subgroup.zpowers a) := isPGroup_zpowers_of_mem_isElemAbelian3 hAe haA
-    have hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G :=
-      Q3W.not_subset_center_of_ne_one hnab hKa.ne_one
-    exact involutionLinkSpan3_of_exactCovers3 hΩ hc2 (lieSystemMod3_exactPair3 hΩ hc2 hBelow hnc)
-      hS hinv (hlay a haA hfa') (hcov a haA hfa')
 
 end Frame
 
 section NT
 
-@[expose] def NTFuzzyCovers3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G), NTHyps3 K z →
-    ∀ A : Subgroup G, FuzzyFrame3 (conjClass3 K) A →
-      ∀ a ∈ A, IsFrameInvolution3 (fuzzyMembers3 (conjClass3 K) A) a →
-        ExactCovers3 (conjClass3 K) (fuzzyMembers3 (conjClass3 K) A) a
-
-theorem ntFuzzyGeneration3_of_covers (h : NTFuzzyCovers3) : NTFuzzyGeneration3 := by
-  intro G _ _ _ K z hyps A hA
-  have hΩ := hyps.common.inClass
-  exact rankTwoSpan_eq_top3_of_layers hΩ
-    (frameSideLayers3_of_fuzzyFrame hΩ hyps.common.below hyps.common.nonab hA
-      (h G K z hyps A hA))
-    (omegaConnected_range_conjSub hyps.common.delta)
-
-theorem ntResiduals3_of_fuzzy_covers (hU : NTUniqPair3) (h1 : NTFuzzyBalance3)
-    (h2 : NTFuzzyCovers3) (h3 : NTOddThreeFree3) (twinsCommute : NTTwinsCommute3)
-    (noAllA1 : NTNoAllA1_3) (noM11 : NTNoM11_3) (noG2D4 : NTNoG2D4_3)
-    (noM3Twin : NTNoM3Twin_3) (noSmallSingle : NTNoSmallSingle_3)
-    (noManyTwins : NTNoManyTwins_3) : NTResiduals3 :=
-  ntResiduals3_of_fuzzy hU h1 (ntFuzzyGeneration3_of_covers h2) h3 twinsCommute noAllA1 noM11
-    noG2D4 noM3Twin noSmallSingle noManyTwins
 
 end NT
 

@@ -93,8 +93,6 @@ theorem vCode_ofCode {n : ℕ} (hn : n < 4680) : vCode (ofCode n) = n := by
     rw [finPt_val (by omega)]
     omega
 
-theorem vCode_injective : Function.Injective vCode := fun x y h =>
-  (ofCode_vCode x).symm.trans ((congrArg ofCode h).trans (ofCode_vCode y))
 
 theorem ofCode_inl {n : ℕ} (h : n < 1755) : ofCode n = Sum.inl ⟨n, h⟩ := by
   unfold ofCode

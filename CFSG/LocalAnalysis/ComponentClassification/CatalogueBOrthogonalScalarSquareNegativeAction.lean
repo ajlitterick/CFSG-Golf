@@ -34,8 +34,6 @@ variable (B : LinearMap.BilinForm K V) (hB : B.Nondegenerate)
   letI := negative_eigenspaces_perfect B hB T b hb h2 hsquare hadj
   exact (crossPairing B (T.eigenspace b) (T.eigenspace (-b))).flip.toPerfPair
 
-theorem negativePairingEquiv_apply (y : T.eigenspace (-b)) (x : T.eigenspace b) :
-    negativePairingEquiv B hB T b hb h2 hsquare hadj y x = B x.val y.val := rfl
 
 @[expose] def negativeEigenspaceDual (f : T.eigenspace b ≃ₗ[K] T.eigenspace b) :
     T.eigenspace (-b) ≃ₗ[K] T.eigenspace (-b) :=
@@ -64,14 +62,5 @@ theorem negativeEigenspaceDual_unique (f : T.eigenspace b ≃ₗ[K] T.eigenspace
   exact inverseDualAction_unique
     (crossPairing B (T.eigenspace b) (T.eigenspace (-b))) f g hg
 
-@[expose] def negativeEigenspaceDualHom :
-    (T.eigenspace b ≃ₗ[K] T.eigenspace b) →*
-      (T.eigenspace (-b) ≃ₗ[K] T.eigenspace (-b)) := by
-  letI := negative_eigenspaces_perfect B hB T b hb h2 hsquare hadj
-  exact inverseDualHom (crossPairing B (T.eigenspace b) (T.eigenspace (-b)))
-
-theorem negativeEigenspaceDualHom_apply (f : T.eigenspace b ≃ₗ[K] T.eigenspace b) :
-    negativeEigenspaceDualHom B hB T b hb h2 hsquare hadj f =
-      negativeEigenspaceDual B hB T b hb h2 hsquare hadj f := rfl
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareNegative

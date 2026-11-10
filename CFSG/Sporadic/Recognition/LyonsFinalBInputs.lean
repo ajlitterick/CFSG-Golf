@@ -59,10 +59,5 @@ abbrev RB3 := restrictWords (subsetOf _ [1, 2]) RB4
 
 abbrev RB2 := restrictWords (subsetOf _ [0]) RB3
 
-@[expose] def rbSubset (R : List (List (Fin 6 × Bool))) : Bool := RB.all fun r => R.contains r
-
-@[expose] def bCheck : Bool :=
-  subsetCheckCC RB5 [2, 3, 4] 30000 22275 && subsetCheckCC RB4 [1, 2] 30000 20160 &&
-    subsetCheckCC RB3 [0] 100 6 && subsetCheckCC RB2 [] 100 2
 
 end CFSG.Sporadic.Recognition.LyonsSims.LyFinal

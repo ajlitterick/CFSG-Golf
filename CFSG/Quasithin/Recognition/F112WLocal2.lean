@@ -118,28 +118,6 @@ theorem sup_oTwoUpper_eq_of_isSylowTwoOf {H T : Subgroup G} (hT : IsSylowTwoOf T
   rw [← F6.twoResidual_eq_oTwoUpper]
   exact sup_twoResidual_eq hT
 
-theorem commutator_V_oTwoUpper_ne_bot (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥) :
-    ⁅V, oTwoUpper G₂⁆ ≠ ⊥ := by
-  intro h
-  have hOC : oTwoUpper G₂ ≤ Subgroup.centralizer (V : Set G) :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mp (by rw [Subgroup.commutator_comm]; exact h)
-  have hG₂N : G₂ ≤ Subgroup.normalizer (V : Set G) := by
-    rw [← sup_oTwoUpper_eq_of_isSylowTwoOf hyp.sylow₂]
-    exact sup_le ((hyp.T_le.trans inf_le_left).trans hyp.normalizes)
-      (hOC.trans (Subgroup.centralizer_le_normalizer _))
-  have hG₀N : G₀ ≤ Subgroup.normalizer (V : Set G) := by
-    rw [hyp.gen]
-    exact sup_le hyp.normalizes hG₂N
-  have hVB : V ≤ G₁ ⊓ G₂ :=
-    ((V_le_pCoreOf hyp).trans (isSylowTwoOf_pCoreOf_le hyp.sylow₁)).trans hyp.T_le
-  have hVcore : V ≤ coreIn (G₁ ⊓ G₂) G₀ := le_coreIn (hVB.trans (inf_le_left.trans hyp.le₁)) hG₀N hVB
-  rw [coreIn_eq_bot_of_amalgamHyp hyp.toAmalgamHyp] at hVcore
-  exact hV (le_bot_iff.mp hVcore)
-
-theorem commutator_conjClosure_oTwoUpper_ne_bot (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥) :
-    ⁅conjClosure V G₂, oTwoUpper G₂⁆ ≠ ⊥ := fun h =>
-  commutator_V_oTwoUpper_ne_bot hyp hV
-    (le_bot_iff.mp ((Subgroup.commutator_mono (le_conjClosure V G₂) le_rfl).trans h.le))
 
 theorem critDist_eq_two_of_commutator_ne_bot (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥)
     (hVQ : V ≤ pCoreOf 2 G₂) (hna : ⁅conjClosure V G₂, conjClosure V G₂⁆ ≠ ⊥) :

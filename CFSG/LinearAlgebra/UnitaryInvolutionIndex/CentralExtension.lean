@@ -230,38 +230,5 @@ theorem exists_odd_prime_dvd_succ_three_lt (hq2 : Even q) (hq4 : 4 ≤ q) :
     rw [hfac, ← h3]
     omega
 
-theorem even_rank_one_central_odd_extension_involution_index_bound (hq : IsPrimePow q)
-    (hq2 : Even q) (hp : p.Prime) (hp2 : p ≠ 2) (hpq : p ∣ q + 1) (π : G →* L)
-    (hπ : Function.Surjective π) (hker : π.ker ≤ Subgroup.center G)
-    (hodd : Odd (Nat.card π.ker)) (P : Subgroup G) (hP : IsPGroup p P) (t : G) (ht : t ^ 2 = 1)
-    (htP : t ∈ Subgroup.normalizer (P : Set G)) :
-    (∀ (K : Type*) [Field K] [Finite K], (Nat.card K = q ∨ Nat.card K = q ^ 2) →
-        Nonempty (L ≃* SpecialLinearGroup (Fin 2) K ⧸ signScalars K) →
-        (P ⊓ Subgroup.centralizer {t}).relIndex P ≤ p ^ (q + 1).factorization p ∧
-          (3 < p ^ (q + 1).factorization p →
-            (P ⊓ Subgroup.centralizer {t}).relIndex P < (p ^ (q + 1).factorization p) ^ 2)) ∧
-    (∀ (F : Type*) [Field F] [Finite F] (σ : F →+* F)
-        (h : (Fin 3 → F) →ₛₗ[σ] (Fin 3 → F) →ₗ[F] F), Nat.card F = q ^ 2 →
-        (∀ c, σ c = c ^ q) → h.Nondegenerate →
-        Nonempty (L ≃* projectiveSpecialUnitaryGroup h) →
-        (P ⊓ Subgroup.centralizer {t}).relIndex P ≤ 3 * p ^ (q + 1).factorization p ∧
-          (p ≠ 3 →
-            (P ⊓ Subgroup.centralizer {t}).relIndex P ≤ p ^ (q + 1).factorization p) ∧
-          (3 < p ^ (q + 1).factorization p →
-            (P ⊓ Subgroup.centralizer {t}).relIndex P < (p ^ (q + 1).factorization p) ^ 2)) ∧
-    (4 ≤ q → ∃ p' : ℕ, p'.Prime ∧ p' ≠ 2 ∧ p' ∣ q + 1 ∧ 3 < p' ^ (q + 1).factorization p') := by
-  refine ⟨fun K _ _ hK ⟨e⟩ => ?_, fun F _ _ σ h hF hσ hh ⟨e⟩ => ?_,
-    fun hq4 => exists_odd_prime_dvd_succ_three_lt hq2 hq4⟩
-  · have h1 := relIndex_centralizer_le_of_mulEquiv_linear hp hp2 hpq π hker K hK e P hP t
-    refine ⟨h1, fun ha => h1.trans_lt ?_⟩
-    calc p ^ (q + 1).factorization p = p ^ (q + 1).factorization p * 1 := (mul_one _).symm
-      _ < p ^ (q + 1).factorization p * p ^ (q + 1).factorization p :=
-          Nat.mul_lt_mul_of_pos_left (by omega) (by omega)
-      _ = (p ^ (q + 1).factorization p) ^ 2 := (sq _).symm
-  · obtain ⟨h3, h1⟩ := relIndex_centralizer_le_of_mulEquiv_unitary hq hp hp2 hpq π hπ hker hodd
-      hF hσ hh e P hP t ht htP
-    refine ⟨h3, h1, fun ha => h3.trans_lt ?_⟩
-    rw [sq]
-    exact Nat.mul_lt_mul_of_pos_right ha (by omega)
 
 end CFSG.UnitaryInvolutionIndex

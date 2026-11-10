@@ -247,10 +247,6 @@ theorem LangSetup.rho_mem_kernelRoots {a : Fin τ.rank → Lˣ} (hE : rootDiagUn
     S.ρ γ ∈ kernelRoots (rootCharHom a) :=
   outer_rho_mem_kernelRoots S (S.E_le hE).1 hγ
 
-theorem LangSetup.iterate_mem_kernelRoots {a : Fin τ.rank → Lˣ} (hE : rootDiagUnit τ a ∈ S.E)
-    (n : ℕ) {γ : Fin τ.rank → ℤ} (hγ : γ ∈ kernelRoots (rootCharHom a)) :
-    (S.ρ : (Fin τ.rank → ℤ) → _)^[n] γ ∈ kernelRoots (rootCharHom a) :=
-  outer_iterate_mem_kernelRoots S (S.E_le hE).1 n hγ
 
 theorem exists_lang_torus_sup_kernelRoots {M : Type*} [CommGroup M]
     {χ : Multiplicative (Fin τ.rank → ℤ) →* M} {s : ℕ} (hs : 0 < s)

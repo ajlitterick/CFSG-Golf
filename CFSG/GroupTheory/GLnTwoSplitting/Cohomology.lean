@@ -166,89 +166,13 @@ end TwoCocycle
     [AddCommMonoid V] [Module k V] (ρ : Representation k G V) : G →* (V ≃ₗ[k] V) :=
   (LinearMap.GeneralLinearGroup.generalLinearEquiv k V).toMonoidHom.comp ρ.asGroupHom
 
-theorem repLinearEquivHom_apply {k G V : Type*} [CommSemiring k] [Group G]
-    [AddCommMonoid V] [Module k V] (ρ : Representation k G V) (g : G) (v : V) :
-    repLinearEquivHom ρ g v = ρ g v :=
-  rfl
-
-theorem subsingleton_H2_of_injective {n : ℕ} (hn : 6 ≤ n) {W : Type} [AddCommGroup W]
-    [Module (ZMod 2) W] [FiniteDimensional (ZMod 2) W] (hW : finrank (ZMod 2) W = n)
-    (ρ : Representation (ZMod 2) (GL (Fin n) (ZMod 2)) W) (hρ : Function.Injective ρ) :
-    Subsingleton (groupCohomology.H2 (Rep.of ρ)) := by
-  let ρL := repLinearEquivHom ρ
-  have hinj : Function.Injective ρL := fun g h hgh => hρ (LinearMap.ext fun v =>
-    LinearEquiv.congr_fun hgh v)
-  have hsurj : Function.Surjective ρL := by
-    have : Finite (W ≃ₗ[ZMod 2] W) := by
-      have : Finite W := Module.finite_of_finite (ZMod 2)
-      exact Finite.of_injective (fun f : W ≃ₗ[ZMod 2] W => (f : W → W))
-        fun f g h => LinearEquiv.ext (congrFun h)
-    exact (hinj.bijective_of_nat_card_le (card_linearEquiv_eq hW).le).2
-  have hzero : ∀ x : groupCohomology.H2 (Rep.of ρ), x = 0 := by
-    intro x
-    induction x using groupCohomology.H2_induction_on with
-    | h z =>
-      rw [groupCohomology.H2π_eq_zero_iff]
-      have hz := (groupCohomology.mem_cocycles₂_iff (z : GL (Fin n) (ZMod 2) ×
-        GL (Fin n) (ZMod 2) → W)).1 z.2
-      let c : TwoCocycle ρL := ⟨z, fun g h j => by
-        have := hz g h j
-        rw [Rep.of_ρ] at this
-        exact this⟩
-      obtain ⟨s, hs⟩ := c.exists_eq (by omega) hinj hsurj
-      exact ⟨s, funext fun gh => by
-        rw [groupCohomology.d₁₂_hom_apply]
-        exact (hs gh.1 gh.2).symm⟩
-  exact ⟨fun x y => by rw [hzero x, hzero y]⟩
 
 @[expose] noncomputable def naturalRep (n : ℕ) :
     Representation (ZMod 2) (GL (Fin n) (ZMod 2)) (Fin n → ZMod 2) :=
   (Matrix.toLinAlgEquiv' : Matrix (Fin n) (Fin n) (ZMod 2) ≃ₐ[ZMod 2] _).toMonoidHom.comp
     (Units.coeHom _)
 
-@[expose] noncomputable def dualRep (n : ℕ) :
-    Representation (ZMod 2) (GL (Fin n) (ZMod 2)) (Fin n → ZMod 2) where
-  toFun g := Matrix.toLin' ((g⁻¹ : GL (Fin n) (ZMod 2)) : Matrix (Fin n) (Fin n) (ZMod 2))ᵀ
-  map_one' := by
-    rw [inv_one, Units.val_one, Matrix.transpose_one, Matrix.toLin'_one]
-    rfl
-  map_mul' g h := by
-    rw [_root_.mul_inv_rev, Units.val_mul, Matrix.transpose_mul, Matrix.toLin'_mul]
-    rfl
-
-theorem naturalRep_injective (n : ℕ) : Function.Injective (naturalRep n) := fun _ _ hgh =>
-  Units.ext (Matrix.toLin'.injective (LinearMap.ext fun v => LinearMap.congr_fun hgh v))
-
-theorem dualRep_injective (n : ℕ) : Function.Injective (dualRep n) := fun g h hgh => by
-  have h1 : ((g⁻¹ : GL (Fin n) (ZMod 2)) : Matrix (Fin n) (Fin n) (ZMod 2))ᵀ =
-      ((h⁻¹ : GL (Fin n) (ZMod 2)) : Matrix (Fin n) (Fin n) (ZMod 2))ᵀ :=
-    Matrix.toLin'.injective (LinearMap.ext fun v => LinearMap.congr_fun hgh v)
-  exact inv_injective (Units.ext (Matrix.transpose_injective h1))
-
-@[expose] noncomputable def naturalModule (n : ℕ) : Rep (ZMod 2) (GL (Fin n) (ZMod 2)) :=
-  @Rep.of (ZMod 2) _ _ _ (Fin n → ZMod 2) _ (Pi.Function.module _ _ _) (naturalRep n)
-
-@[expose] noncomputable def dualModule (n : ℕ) : Rep (ZMod 2) (GL (Fin n) (ZMod 2)) :=
-  @Rep.of (ZMod 2) _ _ _ (Fin n → ZMod 2) _ (Pi.Function.module _ _ _) (dualRep n)
-
-theorem subsingleton_H2_natural {n : ℕ} (hn : 6 ≤ n) :
-    Subsingleton (groupCohomology.H2 (naturalModule n)) :=
-  @subsingleton_H2_of_injective n hn (Fin n → ZMod 2) _ (Pi.Function.module _ _ _)
-    Module.Finite.pi (Module.finrank_fin_fun (ZMod 2)) (naturalRep n) (naturalRep_injective n)
-
-theorem subsingleton_H2_dual {n : ℕ} (hn : 6 ≤ n) :
-    Subsingleton (groupCohomology.H2 (dualModule n)) :=
-  @subsingleton_H2_of_injective n hn (Fin n → ZMod 2) _ (Pi.Function.module _ _ _)
-    Module.Finite.pi (Module.finrank_fin_fun (ZMod 2)) (dualRep n) (dualRep_injective n)
 
 universe u in
-theorem dempwolff_1973_gln_two_natural_module_splitting {n : ℕ} (hn : 6 ≤ n) :
-    (∀ (G : Type u) [Group G] [Finite G] (V : Subgroup G) [V.Normal] [IsElementaryAbelian 2 V],
-      Nat.card V = 2 ^ n → Subgroup.centralizer (V : Set G) ≤ V →
-        Nonempty (G ⧸ V ≃* GL (Fin n) (ZMod 2)) → ∃ K : Subgroup G, V ⊔ K = ⊤ ∧ V ⊓ K = ⊥) ∧
-      Subsingleton (groupCohomology.H2 (naturalModule n)) ∧
-        Subsingleton (groupCohomology.H2 (dualModule n)) :=
-  ⟨fun _ _ _ V _ _ hV hC hGV => dempwolff_gln_two_natural_module_splitting hn V hV hC hGV,
-    subsingleton_H2_natural hn, subsingleton_H2_dual hn⟩
 
 end CFSG.GroupTheory.GLnTwoSplitting

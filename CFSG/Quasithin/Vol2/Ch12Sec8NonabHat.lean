@@ -112,8 +112,6 @@ theorem mem_hat {A : Subgroup G} {v : D.V} :
 theorem π_mem_hat {A : Subgroup G} {a : G} (haA : a ∈ A) (haU : a ∈ uOfL22 T M) :
     D.π a ∈ D.hat A := ⟨a, haA, haU, rfl⟩
 
-theorem hat_mono {A A' : Subgroup G} (hAA' : A ≤ A') : D.hat A ≤ D.hat A' :=
-  fun _ ⟨a, ha, haU, hv⟩ => ⟨a, hAA' ha, haU, hv⟩
 
 end HatModel
 

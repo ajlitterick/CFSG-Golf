@@ -42,8 +42,6 @@ theorem card_rootSpan_orbit
 theorem prod_posOrbits : ∏ O ∈ posOrbits, (if O.card = 1 then 2 else 4) = 2 ^ 36 := by
   decide +kernel
 
-theorem card_posOrbits : posOrbits.card = 24 := by
-  decide +kernel
 
 abbrev posRootSet : Set (Fin TwistTag.E6.tag.rank → ℤ) :=
   {α | IsRoot TwistTag.E6.tag α ∧ 0 < height α}
@@ -145,26 +143,5 @@ theorem card_stdBorel
     : Nat.card stdBorel = 3 * 2 ^ 36 := by
   rw [stdBorel_eq_stdBorel0, card_stdBorel0, card_stdTorus0, card_stdUnipotent0]
 
-theorem standard_fixed_torus_and_borel_order :
-    stdTorus0 = stdTorus ∧
-    stdTorus0 = Subgroup.zpowers
-      (torusElt Tag.E6 K (i6 2) omegaUnit * torusElt Tag.E6 K (i6 4) (omegaUnit ^ 2)) ∧
-    Nat.card stdTorus0 = 3 ∧
-    stdTorus0 ≤ groupA ⊓ groupD ∧
-    stdFixedGroup = stdGroup ∧
-    stdBorel = stdBorel0 ∧
-    Nat.card stdUnipotent0 = 2 ^ 36 ∧
-    Nat.card stdBorel = 3 * 2 ^ 36 ∧ 3 * 2 ^ 36 = 206158430208 ∧
-    (∀ h : ModGL Tag.E6 K, h ∈ torusGroup Tag.E6 K ↔ ∃ c : Fin 6 → ZMod 3, h = torusWord i6 c) ∧
-    (∀ h : ModGL Tag.E6 K, h ∈ stdTorus0 ↔
-      ∃ a b : ZMod 3, h = torusWord i6 ![a, 0, b, 0, 2 * b, 2 * a]) ∧
-    (∀ c : Fin 6 → ZMod 3,
-      torusWord i6 c ∈ stdTorus0 ↔ ∃ a b : ZMod 3, c = ![a, 0, b, 0, 2 * b, 2 * a]) ∧
-    (∀ c d : Fin 6 → ZMod 3, torusWord i6 c = torusWord i6 d ↔
-      c - d = 0 ∨ c - d = ![1, 0, 2, 0, 1, 2] ∨ c - d = ![2, 0, 1, 0, 2, 1]) :=
-  ⟨stdTorus0_eq_stdTorus, stdTorus0_eq_zpowers, card_stdTorus0, stdTorus0_le_groupA_inf_groupD,
-    stdFixedGroup_eq_stdGroup, stdBorel_eq_stdBorel0, card_stdUnipotent0, card_stdBorel,
-    by norm_num, fun _ => mem_torusGroup_iff, fun _ => mem_stdTorus0_iff,
-    torusWord_mem_stdTorus0_iff, torusWord6_eq_iff⟩
 
 end CFSG.LieType.Chevalley.C2E6Std

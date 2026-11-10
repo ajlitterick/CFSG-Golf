@@ -361,23 +361,6 @@ theorem ggOmCoordInput_of_move_splitFour (hmove : GGOmFrameMoveInput)
 
 section Certified
 
-theorem ggStepTwoCoordModelOn_POmegaPlus_of_move_splitFour (hmove : GGOmFrameMoveInput)
-    (hsf : GGOmSplitFourCentInput) : GGStepTwoCoordModelOn .POmegaPlus :=
-  ggStepTwoCoordModelOn_POmegaPlus_of_coord (ggOmCoordInput_of_move_splitFour hmove hsf)
-
-theorem ggStepTwoCoordModelOn_POmegaMinus_of_move_splitFour (hmove : GGOmFrameMoveInput)
-    (hsf : GGOmSplitFourCentInput) : GGStepTwoCoordModelOn .POmegaMinus :=
-  ggStepTwoCoordModelOn_POmegaMinus_of_coord (ggOmCoordInput_of_move_splitFour hmove hsf)
-
-theorem ggStepTwoToralWitnessOn_POmegaPlus_of_move_splitFour (hmove : GGOmFrameMoveInput)
-    (hsf : GGOmSplitFourCentInput) : GGStepTwoToralWitnessOn .POmegaPlus :=
-  ggStepTwoToralWitnessOn_of_coordModel
-    (ggStepTwoCoordModelOn_POmegaPlus_of_move_splitFour hmove hsf)
-
-theorem ggStepTwoToralWitnessOn_POmegaMinus_of_move_splitFour (hmove : GGOmFrameMoveInput)
-    (hsf : GGOmSplitFourCentInput) : GGStepTwoToralWitnessOn .POmegaMinus :=
-  ggStepTwoToralWitnessOn_of_coordModel
-    (ggStepTwoCoordModelOn_POmegaMinus_of_move_splitFour hmove hsf)
 
 end Certified
 

@@ -163,8 +163,6 @@ theorem hSet_inv {g : G} (hg : g ∈ R.hSet) : g⁻¹ ∈ R.hSet := by
   one_mem' := Or.inl ⟨1, one_mem_bSet σ, by rw [map_one]⟩
   inv_mem' := R.hSet_inv
 
-omit [Finite k] in
-theorem mem_hSub_iff (g : G) : g ∈ R.hSub ha haσ h69 ↔ g ∈ R.hSet := Iff.rfl
 
 omit [Finite k] in
 theorem ι_mem_hSub {b : ThompsonN k σ} (hb : b ∈ bSet σ) : R.ι b ∈ R.hSub ha haσ h69 :=

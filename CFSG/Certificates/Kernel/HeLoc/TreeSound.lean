@@ -69,7 +69,6 @@ theorem beq_zero_false {i : Nat} (hi : 0 < i) : Nat.beq i 0 = false :=
     have := Nat.eq_of_beq_eq_true h
     omega
 
-theorem trV_zero (x : Nat) : trV g P Lb 0 0 x = x := rfl
 
 theorem trV_succ_zero (f x : Nat) : trV g P Lb (f + 1) 0 x = x := rfl
 

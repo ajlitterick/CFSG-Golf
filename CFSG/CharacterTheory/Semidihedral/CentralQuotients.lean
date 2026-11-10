@@ -51,8 +51,6 @@ theorem centerZ_eq_center (n : ℕ) (hn : 4 ≤ n) :
     centerZ n hn = Subgroup.center (SemidihedralGroup n) :=
   (center_eq_zpowers n hn).symm
 
-theorem centerZ_natCard (n : ℕ) (hn : 4 ≤ n) : Nat.card (centerZ n hn) = 2 := by
-  rw [centerZ, Nat.card_zpowers, orderOf_z n (by omega)]
 
 @[expose] def semidihedralReduction (n : ℕ) (hn : 4 ≤ n) :
     ZMod (modulus n) →+* ZMod (half n) :=
@@ -134,8 +132,6 @@ theorem toDihedral_surjective (n : ℕ) (hn : 4 ≤ n) :
   · refine ⟨element n (by omega) (-(a.val : ZMod (modulus n))) 1, ?_⟩
     simp [reducedElement]
 
-theorem toDihedral_range (n : ℕ) (hn : 4 ≤ n) : (toDihedral n hn).range = ⊤ :=
-  MonoidHom.range_eq_top.mpr (toDihedral_surjective n hn)
 
 theorem toDihedral_ker (n : ℕ) (hn : 4 ≤ n) :
     (toDihedral n hn).ker = Subgroup.zpowers (z n) := by
@@ -188,49 +184,6 @@ theorem toDihedral_ker (n : ℕ) (hn : 4 ≤ n) :
   rw [MulEquiv.symm_apply_apply]
   exact (toDihedral_s n hn).symm
 
-theorem orderOf_rZ (n : ℕ) (hn : 4 ≤ n) : orderOf (rZ n hn) = half n := by
-  rw [← dihedralQuotientEquiv_rotation n hn, equiv_orderOf,
-    DihedralGroup.orderOf_r_one]
-
-theorem orderOf_sZ (n : ℕ) (hn : 4 ≤ n) : orderOf (sZ n hn) = 2 := by
-  rw [← dihedralQuotientEquiv_reflection n hn, equiv_orderOf,
-    DihedralGroup.orderOf_sr]
-
-theorem sZ_conj_rZ (n : ℕ) (hn : 4 ≤ n) :
-    sZ n hn * rZ n hn * (sZ n hn)⁻¹ = (rZ n hn)⁻¹ := by
-  rw [← dihedralQuotientEquiv_rotation n hn, ← dihedralQuotientEquiv_reflection n hn,
-    ← map_inv, ← map_mul, ← map_mul, ← map_inv]
-  congr 1
-  simp
-
-theorem centralQuotient_natCard (n : ℕ) (hn : 4 ≤ n) :
-    Nat.card (SemidihedralGroup n ⧸ centerZ n hn) = modulus n := by
-  rw [← Nat.card_congr (dihedralQuotientEquiv n hn).toEquiv,
-    DihedralGroup.nat_card, modulus_eq_two_mul_half (by omega)]
-
-theorem quotientMap_ker (n : ℕ) (hn : 4 ≤ n) :
-    (QuotientGroup.mk' (centerZ n hn)).ker = Subgroup.zpowers (z n) :=
-  QuotientGroup.ker_mk' _
-
-theorem quotientMap_range (n : ℕ) (hn : 4 ≤ n) :
-    (QuotientGroup.mk' (centerZ n hn)).range = ⊤ :=
-  MonoidHom.range_eq_top.mpr (QuotientGroup.mk'_surjective _)
-
-theorem centerZ_le_rotationSubgroup (n : ℕ) (hn : 4 ≤ n) :
-    centerZ n hn ≤ rotationSubgroup n :=
-  Subgroup.zpowers_le.mpr (Subgroup.npow_mem_zpowers (r n) (half n))
-
-theorem rotationQuotient_ker (n : ℕ) (hn : 4 ≤ n) :
-    ((QuotientGroup.mk' (centerZ n hn)).comp (rotationSubgroup n).subtype).ker =
-      (Subgroup.zpowers (z n)).subgroupOf (rotationSubgroup n) := by
-  rw [← MonoidHom.comap_ker, quotientMap_ker]
-  rfl
-
-theorem rotationQuotient_range (n : ℕ) (hn : 4 ≤ n) :
-    ((QuotientGroup.mk' (centerZ n hn)).comp (rotationSubgroup n).subtype).range =
-      Subgroup.zpowers (rZ n hn) := by
-  rw [MonoidHom.range_comp, Subgroup.range_subtype]
-  exact MonoidHom.map_zpowers _ _
 
 theorem original_generators_closure (n : ℕ) (hn : 3 ≤ n) :
     Subgroup.closure {r n, s n} = ⊤ := by
@@ -243,30 +196,6 @@ theorem original_generators_closure (n : ℕ) (hn : 3 ≤ n) :
     (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
     (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
 
-theorem quotient_generators_closure (n : ℕ) (hn : 4 ≤ n) :
-    Subgroup.closure {rZ n hn, sZ n hn} = ⊤ := by
-  have h := congrArg (Subgroup.map (QuotientGroup.mk' (centerZ n hn)))
-    (original_generators_closure n (by omega))
-  rw [MonoidHom.map_closure, Subgroup.map_top, quotientMap_range] at h
-  simpa only [Set.image_insert_eq, Set.image_singleton, rZ, sZ] using h
-
-theorem original_central_quotient (n : ℕ) (hn : 4 ≤ n) :
-    ∃ e : DihedralGroup (2 ^ (n - 2)) ≃* SemidihedralGroup n ⧸ centerZ n hn,
-      e (DihedralGroup.r 1) = rZ n hn ∧
-      e (DihedralGroup.sr 0) = sZ n hn ∧
-      (toDihedral n hn).ker = Subgroup.zpowers (z n) ∧
-      (toDihedral n hn).range = ⊤ ∧
-      (QuotientGroup.mk' (centerZ n hn)).ker = Subgroup.zpowers (z n) ∧
-      orderOf (r n) = 2 ^ (n - 1) ∧ orderOf (s n) = 2 ∧ orderOf (z n) = 2 ∧
-      orderOf (rZ n hn) = 2 ^ (n - 2) ∧ orderOf (sZ n hn) = 2 ∧
-      sZ n hn * rZ n hn * (sZ n hn)⁻¹ = (rZ n hn)⁻¹ ∧
-      Nat.card (SemidihedralGroup n ⧸ centerZ n hn) = 2 ^ (n - 1) ∧
-      Subgroup.closure {rZ n hn, sZ n hn} = ⊤ := by
-  exact ⟨dihedralQuotientEquiv n hn, dihedralQuotientEquiv_rotation n hn,
-    dihedralQuotientEquiv_reflection n hn, toDihedral_ker n hn, toDihedral_range n hn,
-    quotientMap_ker n hn, orderOf_r n (by omega), orderOf_s n (by omega),
-    orderOf_z n (by omega), orderOf_rZ n hn, orderOf_sZ n hn, sZ_conj_rZ n hn,
-    centralQuotient_natCard n hn, quotient_generators_closure n hn⟩
 
 @[expose] def nativeQuaternionZ (q : ℕ) : Subgroup (QuaternionGroup q) :=
   Subgroup.zpowers (QuaternionGroup.a (q : ZMod (2 * q)))
@@ -327,9 +256,6 @@ theorem quaternionToDihedral_surjective (q : ℕ) [NeZero q] :
   · refine ⟨QuaternionGroup.xa (i.val : ZMod (2 * q)), ?_⟩
     simp
 
-theorem quaternionToDihedral_range (q : ℕ) [NeZero q] :
-    (quaternionToDihedral q).range = ⊤ :=
-  MonoidHom.range_eq_top.mpr (quaternionToDihedral_surjective q)
 
 theorem quaternionToDihedral_ker (q : ℕ) [NeZero q] :
     (quaternionToDihedral q).ker = nativeQuaternionZ q := by
@@ -445,36 +371,6 @@ theorem map_nativeQuaternionZ (n : ℕ) (hn : 4 ≤ n) :
   apply Subtype.ext
   exact quaternionEquiv_generator n hn
 
-theorem orderOf_xZ (n : ℕ) (hn : 4 ≤ n) :
-    orderOf (xZ n hn) = 2 ^ (n - 3) := by
-  rw [← quaternionQuotientEquiv_rotation n hn, equiv_orderOf,
-    DihedralGroup.orderOf_r_one]
-
-theorem orderOf_yZ (n : ℕ) (hn : 4 ≤ n) : orderOf (yZ n hn) = 2 := by
-  rw [← quaternionQuotientEquiv_generator n hn, equiv_orderOf,
-    DihedralGroup.orderOf_sr]
-
-theorem quaternionQuotient_natCard (n : ℕ) (hn : 4 ≤ n) :
-    Nat.card (quaternionSubgroup n ⧸ quaternionZ n hn) = half n := by
-  rw [← Nat.card_congr (quaternionQuotientEquiv n hn).toEquiv,
-    DihedralGroup.nat_card, half_eq_two_mul_parameter n (by omega)]
-
-theorem quaternionQuotientMap_ker (n : ℕ) (hn : 4 ≤ n) :
-    (QuotientGroup.mk' (quaternionZ n hn)).ker =
-      (Subgroup.zpowers (z n)).subgroupOf (quaternionSubgroup n) :=
-  QuotientGroup.ker_mk' _
-
-theorem quaternionQuotientMap_range (n : ℕ) (hn : 4 ≤ n) :
-    (QuotientGroup.mk' (quaternionZ n hn)).range = ⊤ :=
-  MonoidHom.range_eq_top.mpr (QuotientGroup.mk'_surjective _)
-
-theorem quaternionQuotient_four_isKleinFour :
-    IsKleinFour (quaternionSubgroup 4 ⧸ quaternionZ 4 (by decide)) := by
-  let e := quaternionQuotientEquiv 4 (by decide)
-  refine ⟨?_, ?_⟩
-  · exact quaternionQuotient_natCard 4 (by decide)
-  · rw [← Monoid.exponent_eq_of_mulEquiv e]
-    exact DihedralGroup.exponent
 
 theorem nativeQuaternion_center (q : ℕ) (hq : 2 ≤ q) :
     Subgroup.center (QuaternionGroup q) = nativeQuaternionZ q := by
@@ -506,93 +402,6 @@ theorem nativeQuaternion_center (q : ℕ) (hq : 2 ≤ q) :
       exact (Nat.not_dvd_of_pos_of_lt (by decide : 0 < (2 : ℕ)) (by omega) hd).elim
   · exact Subgroup.zpowers_le.mpr (nativeQuaternion_half_mem_center q)
 
-theorem quaternionZ_eq_center (n : ℕ) (hn : 4 ≤ n) :
-    quaternionZ n hn = Subgroup.center (quaternionSubgroup n) := by
-  have hq : 2 ≤ 2 ^ (n - 3) := by
-    have he : n - 3 = n - 4 + 1 := by omega
-    rw [he, pow_succ]
-    have hp : 0 < 2 ^ (n - 4) := pow_pos (by decide) _
-    omega
-  rw [← Subgroup.map_center_eq (quaternionEquiv n hn), nativeQuaternion_center _ hq]
-  exact (map_nativeQuaternionZ n hn).symm
-
-theorem quaternionZ_natCard (n : ℕ) (hn : 4 ≤ n) : Nat.card (quaternionZ n hn) = 2 := by
-  rw [quaternionZ_eq_zpowers, Nat.card_zpowers]
-  have ho := orderOf_injective (quaternionSubgroup n).subtype
-    (quaternionSubgroup n).subtype_injective (quaternionInvolution n hn)
-  change orderOf (z n) = orderOf (quaternionInvolution n hn) at ho
-  rw [← ho, orderOf_z n (by omega)]
-
-theorem quaternionX_order (n : ℕ) (hn : 4 ≤ n) :
-    orderOf (quaternionX n) = half n := by
-  have hx : quaternionEquiv n hn (QuaternionGroup.a 1) = quaternionX n := by
-    apply Subtype.ext
-    exact quaternionEquiv_rotation n hn
-  have hp : 1 < 2 * 2 ^ (n - 3) := by
-    have he : 0 < 2 ^ (n - 3) := pow_pos (by decide) _
-    omega
-  rw [← hx, equiv_orderOf, QuaternionGroup.orderOf_a, ZMod.val_one_eq_one_mod,
-    Nat.mod_eq_of_lt hp]
-  simp only [Nat.gcd_one_right, Nat.div_one]
-  exact (half_eq_two_mul_parameter n (by omega)).symm
-
-theorem quaternionY_order (n : ℕ) (hn : 4 ≤ n) : orderOf (quaternionY n) = 4 := by
-  have hy : quaternionEquiv n hn (QuaternionGroup.xa 0) = quaternionY n := by
-    apply Subtype.ext
-    exact quaternionEquiv_generator n hn
-  rw [← hy, equiv_orderOf, QuaternionGroup.orderOf_xa]
-
-theorem yZ_conj_xZ (n : ℕ) (hn : 4 ≤ n) :
-    yZ n hn * xZ n hn * (yZ n hn)⁻¹ = (xZ n hn)⁻¹ := by
-  rw [← quaternionQuotientEquiv_rotation n hn, ← quaternionQuotientEquiv_generator n hn,
-    ← map_inv, ← map_mul, ← map_mul, ← map_inv]
-  congr 1
-  simp
-
-theorem quaternionQuotient_generators_closure (n : ℕ) (hn : 4 ≤ n) :
-    Subgroup.closure {xZ n hn, yZ n hn} = ⊤ := by
-  apply top_unique
-  intro g _
-  obtain ⟨a, rfl⟩ := (quaternionQuotientEquiv n hn).surjective g
-  have hx : xZ n hn ∈ Subgroup.closure {xZ n hn, yZ n hn} :=
-    Subgroup.subset_closure (by simp)
-  have hy : yZ n hn ∈ Subgroup.closure {xZ n hn, yZ n hn} :=
-    Subgroup.subset_closure (by simp)
-  cases a with
-  | r i =>
-    have he : DihedralGroup.r i = (DihedralGroup.r 1) ^ i.val := by
-      rw [DihedralGroup.r_one_pow, ZMod.natCast_zmod_val]
-    rw [he, map_pow, quaternionQuotientEquiv_rotation]
-    exact Subgroup.pow_mem _ hx _
-  | sr i =>
-    have he : DihedralGroup.sr i = DihedralGroup.sr 0 * (DihedralGroup.r 1) ^ i.val := by
-      rw [DihedralGroup.r_one_pow, DihedralGroup.sr_mul_r, zero_add,
-        ZMod.natCast_zmod_val]
-    rw [he, map_mul, map_pow, quaternionQuotientEquiv_rotation,
-      quaternionQuotientEquiv_generator]
-    exact Subgroup.mul_mem _ hy (Subgroup.pow_mem _ hx _)
-
-theorem original_quaternion_central_quotient (n : ℕ) (hn : 4 ≤ n) :
-    ∃ e : DihedralGroup (2 ^ (n - 3)) ≃* quaternionSubgroup n ⧸ quaternionZ n hn,
-      e (DihedralGroup.r 1) = xZ n hn ∧ e (DihedralGroup.sr 0) = yZ n hn ∧
-      (quaternionX n : SemidihedralGroup n) = r n ^ 2 ∧
-      (quaternionY n : SemidihedralGroup n) = r n * s n ∧
-      quaternionZ n hn = Subgroup.center (quaternionSubgroup n) ∧
-      Nat.card (quaternionZ n hn) = 2 ∧
-      (QuotientGroup.mk' (quaternionZ n hn)).ker =
-        (Subgroup.zpowers (z n)).subgroupOf (quaternionSubgroup n) ∧
-      (QuotientGroup.mk' (quaternionZ n hn)).range = ⊤ ∧
-      orderOf (quaternionX n) = half n ∧ orderOf (quaternionY n) = 4 ∧
-      orderOf (xZ n hn) = 2 ^ (n - 3) ∧ orderOf (yZ n hn) = 2 ∧
-      yZ n hn * xZ n hn * (yZ n hn)⁻¹ = (xZ n hn)⁻¹ ∧
-      Nat.card (quaternionSubgroup n ⧸ quaternionZ n hn) = 2 ^ (n - 2) ∧
-      Subgroup.closure {xZ n hn, yZ n hn} = ⊤ := by
-  exact ⟨quaternionQuotientEquiv n hn, quaternionQuotientEquiv_rotation n hn,
-    quaternionQuotientEquiv_generator n hn, rfl, rfl, quaternionZ_eq_center n hn,
-    quaternionZ_natCard n hn, quaternionQuotientMap_ker n hn,
-    quaternionQuotientMap_range n hn, quaternionX_order n hn, quaternionY_order n hn,
-    orderOf_xZ n hn, orderOf_yZ n hn, yZ_conj_xZ n hn, quaternionQuotient_natCard n hn,
-    quaternionQuotient_generators_closure n hn⟩
 
 @[expose] def ambientZ {H : Type*} [Group H] (t : H)
     (_htc : t ∈ Subgroup.center H) : Subgroup H := Subgroup.zpowers t
@@ -728,10 +537,6 @@ theorem map_centerZ_to_sylowZ {H : Type*} [Group H] (S : Sylow 2 H)
   let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   S.mapSurjective (QuotientGroup.mk'_surjective (ambientZ t htc))
 
-theorem quotientSylow_eq_map {H : Type*} [Group H] [Finite H] (S : Sylow 2 H) (t : H)
-    (htc : t ∈ Subgroup.center H) :
-    (quotientSylow S t htc : Subgroup (H ⧸ ambientZ t htc)) =
-      (S : Subgroup H).map (QuotientGroup.mk' (ambientZ t htc)) := rfl
 
 @[expose] def quotientToSylow {H : Type*} [Group H] [Finite H] (S : Sylow 2 H) (t : H)
     (htc : t ∈ Subgroup.center H) : S →* quotientSylow S t htc :=
@@ -794,38 +599,6 @@ theorem quotientToSylow_ker {H : Type*} [Group H] [Finite H]
   rw [ambientDihedralEquiv, MulEquiv.trans_apply, suppliedCenterQuotientEquiv_reflection,
     sylowQuotientEquivImage_mk]
 
-theorem ambientDihedralEquiv_rotation_coe {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (ambientDihedralEquiv S n hn f t htc ht (DihedralGroup.r 1) : H ⧸ ambientZ t htc) =
-      QuotientGroup.mk' (ambientZ t htc) (f (r n) : H) := by
-  rw [ambientDihedralEquiv_rotation, quotientToSylow_coe]
-
-theorem ambientDihedralEquiv_reflection_coe {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (ambientDihedralEquiv S n hn f t htc ht (DihedralGroup.sr 0) : H ⧸ ambientZ t htc) =
-      QuotientGroup.mk' (ambientZ t htc) (f (s n) : H) := by
-  rw [ambientDihedralEquiv_reflection, quotientToSylow_coe]
-
-theorem quotientSylow_natCard {H : Type*} [Group H] [Finite H] (S : Sylow 2 H)
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    Nat.card (quotientSylow S t htc) = modulus n := by
-  rw [← Nat.card_congr (ambientDihedralEquiv S n hn f t htc ht).toEquiv,
-    DihedralGroup.nat_card, modulus_eq_two_mul_half (by omega)]
-
-theorem ambient_quotient_rotation_order {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    orderOf (QuotientGroup.mk' (ambientZ t htc) (f (r n) : H)) = half n := by
-  have h := orderOf_injective (quotientSylow S t htc : Subgroup (H ⧸ ambientZ t htc)).subtype
-    (quotientSylow S t htc : Subgroup (H ⧸ ambientZ t htc)).subtype_injective
-    (quotientToSylow S t htc (f (r n)))
-  change orderOf (QuotientGroup.mk' (ambientZ t htc) (f (r n) : H)) =
-    orderOf (quotientToSylow S t htc (f (r n))) at h
-  rw [h, ← ambientDihedralEquiv_rotation S n hn f t htc ht, equiv_orderOf,
-    DihedralGroup.orderOf_r_one]
 
 theorem ambient_quotient_reflection_order {H : Type*} [Group H] [Finite H]
     (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
@@ -839,105 +612,5 @@ theorem ambient_quotient_reflection_order {H : Type*} [Group H] [Finite H]
   rw [h, ← ambientDihedralEquiv_reflection S n hn f t htc ht, equiv_orderOf,
     DihedralGroup.orderOf_sr]
 
-theorem ambient_quotient_conjugation {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    let pi := QuotientGroup.mk' (ambientZ t htc)
-    pi (f (s n) : H) * pi (f (r n) : H) * (pi (f (s n) : H))⁻¹ =
-      (pi (f (r n) : H))⁻¹ := by
-  dsimp only
-  have h : quotientToSylow S t htc (f (s n)) * quotientToSylow S t htc (f (r n)) *
-      (quotientToSylow S t htc (f (s n)))⁻¹ = (quotientToSylow S t htc (f (r n)))⁻¹ := by
-    rw [← ambientDihedralEquiv_rotation S n hn f t htc ht,
-      ← ambientDihedralEquiv_reflection S n hn f t htc ht,
-      ← map_inv, ← map_mul, ← map_mul, ← map_inv]
-    congr 1
-    simp
-  exact congrArg (fun a : quotientSylow S t htc => (a : H ⧸ ambientZ t htc)) h
-
-theorem quotientSylow_generators_closure {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) :
-    Subgroup.closure {QuotientGroup.mk' (ambientZ t htc) (f (r n) : H),
-        QuotientGroup.mk' (ambientZ t htc) (f (s n) : H)} =
-      (quotientSylow S t htc : Subgroup (H ⧸ ambientZ t htc)) := by
-  have hf : Subgroup.closure {f (r n), f (s n)} = (⊤ : Subgroup S) := by
-    apply top_unique
-    intro a _
-    obtain ⟨g, rfl⟩ := f.surjective a
-    obtain ⟨⟨i, e⟩, hg⟩ := (coordinateEquiv n (show 3 ≤ n from by omega)).symm.surjective g
-    change element n (show 3 ≤ n from by omega) i e = g at hg
-    rw [← hg, element_eq, map_mul, map_pow, map_pow]
-    exact Subgroup.mul_mem _
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
-  have h := congrArg (Subgroup.map ((QuotientGroup.mk' (ambientZ t htc)).comp
-    (S : Subgroup H).subtype)) hf
-  rw [MonoidHom.map_closure, Subgroup.map_top, MonoidHom.range_comp,
-    Subgroup.range_subtype, ← quotientSylow_eq_map S t htc] at h
-  simpa only [Set.image_insert_eq, Set.image_singleton, MonoidHom.comp_apply,
-    Subgroup.coe_subtype] using h
-
-theorem ambient_quotient_ker {H : Type*} [Group H] (t : H)
-    (htc : t ∈ Subgroup.center H) :
-    (QuotientGroup.mk' (ambientZ t htc)).ker = Subgroup.zpowers t :=
-  QuotientGroup.ker_mk' _
-
-theorem ambient_quotient_range {H : Type*} [Group H] (t : H)
-    (htc : t ∈ Subgroup.center H) :
-    (QuotientGroup.mk' (ambientZ t htc)).range = ⊤ :=
-  MonoidHom.range_eq_top.mpr (QuotientGroup.mk'_surjective _)
-
-theorem ambient_quotient_sylow_ker {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (t : H) (htc : t ∈ Subgroup.center H) :
-    ((QuotientGroup.mk' (ambientZ t htc)).domRestrict (S : Subgroup H)).ker =
-      (Subgroup.zpowers t).subgroupOf (S : Subgroup H) := by
-  rw [MonoidHom.ker_domRestrict, ambient_quotient_ker]
-
-theorem ambient_quotient_rotation_ker {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    ((quotientToSylow S t htc).domRestrict (Subgroup.zpowers (f (r n)))).ker =
-      (Subgroup.zpowers (f (z n))).subgroupOf (Subgroup.zpowers (f (r n))) := by
-  rw [MonoidHom.ker_domRestrict, quotientToSylow_ker, sylowZ_eq_zpowers S t htc ht,
-    ← supplied_z_eq_involution S n hn f t htc ht]
-
-theorem central_involution_dihedral_quotient {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    ∃ htS : t ∈ S,
-      Subgroup.center S = Subgroup.zpowers (⟨t, htS⟩ : S) ∧
-      f (z n) = (⟨t, htS⟩ : S) ∧
-      Nat.card (Subgroup.center S) = 2 ∧
-      (ambientZ t htc).Normal ∧
-      let pi := QuotientGroup.mk' (ambientZ t htc)
-      pi.ker = Subgroup.zpowers t ∧ pi.range = ⊤ ∧
-      ∃ (T : Sylow 2 (H ⧸ ambientZ t htc))
-        (e : DihedralGroup (2 ^ (n - 2)) ≃* T),
-        (T : Subgroup (H ⧸ ambientZ t htc)) = (S : Subgroup H).map pi ∧
-        (e (DihedralGroup.r 1) : H ⧸ ambientZ t htc) = pi (f (r n) : H) ∧
-        (e (DihedralGroup.sr 0) : H ⧸ ambientZ t htc) = pi (f (s n) : H) ∧
-        Nat.card T = 2 ^ (n - 1) ∧
-        orderOf (pi (f (r n) : H)) = 2 ^ (n - 2) ∧
-        orderOf (pi (f (s n) : H)) = 2 ∧
-        pi (f (s n) : H) * pi (f (r n) : H) * (pi (f (s n) : H))⁻¹ =
-          (pi (f (r n) : H))⁻¹ ∧
-        Subgroup.closure {pi (f (r n) : H), pi (f (s n) : H)} =
-          (T : Subgroup (H ⧸ ambientZ t htc)) ∧
-        (pi.domRestrict (S : Subgroup H)).ker =
-          (Subgroup.zpowers t).subgroupOf (S : Subgroup H) := by
-  refine ⟨centralInvolution_mem_sylow S t htc ht, supplied_sylow_center S n hn f t htc ht,
-    supplied_z_eq_involution S n hn f t htc ht, ?_, inferInstance, ?_⟩
-  · exact (supplied_center n hn f).2
-  · dsimp only
-    exact ⟨ambient_quotient_ker t htc, ambient_quotient_range t htc,
-      quotientSylow S t htc, ambientDihedralEquiv S n hn f t htc ht,
-      quotientSylow_eq_map S t htc, ambientDihedralEquiv_rotation_coe S n hn f t htc ht,
-      ambientDihedralEquiv_reflection_coe S n hn f t htc ht,
-      quotientSylow_natCard S n hn f t htc ht, ambient_quotient_rotation_order S n hn f t htc ht,
-      ambient_quotient_reflection_order S n hn f t htc ht,
-      ambient_quotient_conjugation S n hn f t htc ht,
-      quotientSylow_generators_closure S n hn f t htc,
-      ambient_quotient_sylow_ker S t htc⟩
 
 end CFSG.Semidihedral.CentralQuotients

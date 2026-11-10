@@ -97,16 +97,6 @@ structure Assumption41 (Ω : Set (Subgroup G)) : Prop where
             (k * j) ^ 2 ∈ centralizer (sec4W Ω S : Set G) ∨
               (k * j) ^ 3 ∈ centralizer (sec4W Ω S : Set G))
 
-@[expose] def Asc76Theorem5Printed : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), Assumption41 Ω →
-    ∀ S : Subgroup G, IsSylowOf 2 S ⊤ →
-      (∃ K ∈ Ω, ¬ Group.IsSolvable K ∧ K.Normal) ∨
-        ((sec4W Ω S).Normal ∧
-          (∀ K ∈ Ω, (centralizer (sec4W Ω S : Set G)).relIndex K = 2) ∧
-          ∀ K ∈ Ω, ∀ J ∈ Ω, ∀ k ∈ K, ∀ j ∈ J, k ∉ centralizer (sec4W Ω S : Set G) →
-            j ∉ centralizer (sec4W Ω S : Set G) →
-            (k * j) ^ 2 ∈ centralizer (sec4W Ω S : Set G) ∨
-              (k * j) ^ 3 ∈ centralizer (sec4W Ω S : Set G))
 
 @[expose] def Asc76Lemma22 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K J T R : Subgroup G), TightlyEmbedded K →
@@ -163,12 +153,5 @@ structure Assumption41 (Ω : Set (Subgroup G)) : Prop where
       ∀ P : Subgroup G, IsSylowOf 2 P (normalClosure (T : Set G)) →
         Nonempty (P ≃* DihedralGroup 4)
 
-@[expose] def FischerDisconnectedPrinted : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (D : Set X), (∀ d ∈ D, orderOf d = 2) →
-    (∀ d ∈ D, ∀ x : X, x * d * x⁻¹ ∈ D) → (∀ d ∈ D, ∀ e ∈ D, orderOf (d * e) ≤ 3) →
-    closure D = ⊤ → ¬ (CFSG.Fischer.commGraph D).Connected →
-    (∀ d ∈ D, ∀ e ∈ D, IsConj d e) ∧
-      ∃ (Y : Subgroup X) (_ : Y.Normal), Nonempty (X ⧸ Y ≃* Equiv.Perm (Fin 3)) ∧
-        ∀ d ∈ D, (∀ e ∈ D, d⁻¹ * e ∈ Y → d * e = e * d) → Y = pCore 2 X
 
 end CFSG.ComponentClassification.Asc76

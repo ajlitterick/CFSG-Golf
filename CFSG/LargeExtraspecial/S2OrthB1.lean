@@ -98,57 +98,6 @@ theorem eq_of_radFix_eq (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2
   · exact absurd h0 hp'0
   · exact h1.symm
 
-theorem mem_normalizer_radFix_iff (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2) V}
-    (hF : F ⊓ perp q F = ⊥) (h4 : 4 ≤ finrank (ZMod 2) (perp q F)) {p : V}
-    (hpF : p ∈ perp q F) (hp0 : p ≠ 0) (hp : q p = 0) {g : V ≃ₗ[ZMod 2] V}
-    (hg : g ∈ omegaFix q hq F) :
-    g ∈ Subgroup.normalizer (radFix q F p : Set (V ≃ₗ[ZMod 2] V)) ↔ g p = p := by
-  have hgO := mem_orthogonalGroup_of_mem_omegaFix hg
-  constructor
-  · intro hN
-    have hgpF : g p ∈ perp q F := apply_mem_perp hgO hg.2 hpF
-    have hgp0 : g p ≠ 0 := fun h => hp0 (g.map_eq_zero_iff.mp h)
-    have hgp : q (g p) = 0 := by
-      rw [TauCeti.QuadraticMap.map_app_of_mem_orthogonalGroup hgO, hp]
-    refine eq_of_radFix_eq hq hF h4 hgpF hpF hgp0 hp0 hgp ?_
-    ext x
-    rw [map_conj_radFix hq hp0 hp hpF hgO hg.2 x]
-    rw [Subgroup.mem_normalizer_iff''] at hN
-    exact (hN x).symm
-  · intro hgp
-    rw [Subgroup.mem_normalizer_iff'']
-    intro x
-    have := map_conj_radFix hq hp0 hp hpF hgO hg.2 x
-    rw [hgp] at this
-    exact this
-
-theorem timmesfeld_2_1_b1 (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2) V}
-    (hF : F ⊓ perp q F = ⊥) {m : ℕ} (hm : 2 ≤ m) (hdim : finrank (ZMod 2) (perp q F) = 2 * m)
-    {p p₁ : V} (hpF : p ∈ perp q F) (hp₁F : p₁ ∈ perp q F) (hp0 : p ≠ 0) (hp : q p = 0)
-    (hp₁ : q p₁ = 0) (hpp₁ : polar q p p₁ = 1) :
-    (∀ g, g ∈ omegaFix q hq (F ⊔ Submodule.span (ZMod 2) {p, p₁}) ↔
-      g ∈ omegaFix q hq F ∧ g ∈ Subgroup.normalizer (radFix q F p : Set (V ≃ₗ[ZMod 2] V)) ∧
-        g ∈ Subgroup.normalizer (radFix q F p₁ : Set (V ≃ₗ[ZMod 2] V))) ∧
-    (∀ g ∈ omegaFix q hq F, g ∈ Subgroup.normalizer (radFix q F p : Set (V ≃ₗ[ZMod 2] V)) →
-      ∃ t ∈ radFix q F p, ∃ y ∈ omegaFix q hq (F ⊔ Submodule.span (ZMod 2) {p, p₁}),
-        g = t * y) ∧
-    radFix q F p ⊓ omegaFix q hq (F ⊔ Submodule.span (ZMod 2) {p, p₁}) = ⊥ := by
-  have hp₁0 : p₁ ≠ 0 := by
-    rintro rfl
-    rw [polar_zero_right] at hpp₁
-    exact zero_ne_one hpp₁
-  refine ⟨fun g => ?_, fun g hg hN => ?_, radFix_inf_omegaFix_eq_bot hq hp0 hp hpp₁⟩
-  · rw [mem_omegaFix_sup_span_pair]
-    constructor
-    · rintro ⟨hg, hgp, hgp₁⟩
-      exact ⟨hg, (mem_normalizer_radFix_iff hq hF (by omega) hpF hp0 hp hg).mpr hgp,
-        (mem_normalizer_radFix_iff hq hF (by omega) hp₁F hp₁0 hp₁ hg).mpr hgp₁⟩
-    · rintro ⟨hg, hN, hN₁⟩
-      exact ⟨hg, (mem_normalizer_radFix_iff hq hF (by omega) hpF hp0 hp hg).mp hN,
-        (mem_normalizer_radFix_iff hq hF (by omega) hp₁F hp₁0 hp₁ hg).mp hN₁⟩
-  · have hgp := (mem_normalizer_radFix_iff hq hF (by omega) hpF hp0 hp hg).mp hN
-    obtain ⟨t, ht, hty⟩ := exists_mem_radFix_inv_mul_mem hq hpF hp₁F hp0 hp hp₁ hpp₁ hg hgp
-    exact ⟨t, ht, t⁻¹ * g, hty, by group⟩
 
 theorem radFix_inf_eq_bot_iff (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2) V}
     {p p' : V} (hpF : p ∈ perp q F) (hp'F : p' ∈ perp q F) (hp0 : p ≠ 0) (hp'0 : p' ≠ 0)
@@ -173,20 +122,6 @@ theorem radFix_inf_eq_bot_iff (hq : q.polarBilin.Nondegenerate) {F : Submodule (
     rw [eq_bot_iff] at this
     exact this ⟨ht.1, ht'.1⟩
 
-theorem normalizer_inf_radFix_eq_bot (hq : q.polarBilin.Nondegenerate) {F : Submodule (ZMod 2) V}
-    (hF : F ⊓ perp q F = ⊥) (h4 : 4 ≤ finrank (ZMod 2) (perp q F)) {p p₁ : V}
-    (hp₁F : p₁ ∈ perp q F) (hp0 : p ≠ 0) (hp : q p = 0) (hp₁ : q p₁ = 0)
-    (hpp₁ : polar q p p₁ = 1) :
-    radFix q F p ⊓ Subgroup.normalizer (radFix q F p₁ : Set (V ≃ₗ[ZMod 2] V)) = ⊥ := by
-  have hp₁0 : p₁ ≠ 0 := by
-    rintro rfl
-    rw [polar_zero_right] at hpp₁
-    exact zero_ne_one hpp₁
-  rw [eq_bot_iff]
-  rintro t ⟨ht, hN⟩
-  have htΩ := radFix_le_omegaFix hq hp0 hp ht
-  have htp₁ := (mem_normalizer_radFix_iff hq hF h4 hp₁F hp₁0 hp₁ htΩ).mp hN
-  exact (Subgroup.mem_bot).mpr (eq_one_of_mem_pointRadical_of_apply_eq hq hp0 hp hpp₁ ht.1 htp₁)
 
 theorem exists_mem_radGen_apply_eq_orth (hq : q.polarBilin.Nondegenerate)
     {F : Submodule (ZMod 2) V} (hF : F ⊓ perp q F = ⊥) {m : ℕ} (hm : 3 ≤ m)

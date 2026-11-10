@@ -123,9 +123,6 @@ theorem exchangeEquiv_apply (α δ : MulAut R)
     (hexchange : ∀ r : R, δ (α r) = (α (δ r))⁻¹) (r : positiveGroup α) :
     (exchangeEquiv α δ hexchange r : R) = δ r := rfl
 
-theorem exchangeEquiv_symm_apply (α δ : MulAut R)
-    (hexchange : ∀ r : R, δ (α r) = (α (δ r))⁻¹) (r : negativeGroup α) :
-    ((exchangeEquiv α δ hexchange).symm r : R) = δ⁻¹ r := rfl
 
 theorem eigengroups_card_eq (α δ : MulAut R)
     (hexchange : ∀ r : R, δ (α r) = (α (δ r))⁻¹) :

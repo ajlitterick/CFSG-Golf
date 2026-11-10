@@ -62,27 +62,5 @@ theorem intersection_le_product_center {group : Type*} [Group group]
   exact Subtype.ext (Subgroup.mem_centralizer_iff.mp (product_centralizes other.property)
     element (Set.mem_singleton element)).symm
 
-theorem mutually_normalizing_commutator_central {group : Type*} [Group group]
-    (first second : Subgroup group) [IsMulCommutative first] [IsMulCommutative second]
-    (first_normalizes : first ≤ Subgroup.normalizer (second : Set group))
-    (second_normalizes : second ≤ Subgroup.normalizer (first : Set group)) :
-    commutator ↥(first ⊔ second) ≤ Subgroup.center ↥(first ⊔ second) := by
-  have mapped_le := (mutually_normalizing_commutator_le_intersection first second first_normalizes second_normalizes).trans
-    (intersection_le_product_center first second)
-  have mapped_commutator : (commutator ↥(first ⊔ second)).map (first ⊔ second).subtype =
-      ⁅first ⊔ second, first ⊔ second⁆ := by
-    rw [commutator_def, Subgroup.map_commutator, ← MonoidHom.range_eq_map, Subgroup.subtype_range]
-  rw [← mapped_commutator] at mapped_le
-  have preimage_le := Subgroup.comap_mono (f := (first ⊔ second).subtype) mapped_le
-  rwa [Subgroup.comap_map_eq_self_of_injective Subtype.val_injective,
-    Subgroup.comap_map_eq_self_of_injective Subtype.val_injective] at preimage_le
-
-theorem mutually_normalizing_product_nilpotent {group : Type*} [Group group]
-    (first second : Subgroup group) [IsMulCommutative first] [IsMulCommutative second]
-    (first_normalizes : first ≤ Subgroup.normalizer (second : Set group))
-    (second_normalizes : second ≤ Subgroup.normalizer (first : Set group)) :
-    Group.IsNilpotent ↥(first ⊔ second) :=
-  CFSG.OrderReductions.SolvablePrimeCore.nilpotent_of_commutator_le_center
-    (mutually_normalizing_commutator_central first second first_normalizes second_normalizes)
 
 end CFSG.OrderReductions.AbelianProduct

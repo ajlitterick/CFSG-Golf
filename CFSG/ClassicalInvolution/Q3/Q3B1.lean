@@ -19,8 +19,6 @@ variable {Y : Type} [Group Y]
 theorem mem_conjClass_self (L : Subgroup Y) : L ∈ conjClass L :=
   ⟨1, conjSub_one L⟩
 
-theorem exists_conjSub_eq {L M : Subgroup Y} (hM : M ∈ conjClass L) : ∃ g : Y, conjSub g L = M :=
-  hM
 
 theorem conjInvariant_conjClass (L : Subgroup Y) : ConjInvariant (conjClass L) := by
   rintro g _ ⟨h, rfl⟩
@@ -130,9 +128,6 @@ theorem solvableMemberInnerTight_of_conn (h : SolvableMemberInnerTightConn) :
     · exact (hgen h1).elim
     · exact le_sup_of_le_right h1
 
-theorem solvableMemberInnerTightConn_of_tight (h : SolvableMemberInnerTight) :
-    SolvableMemberInnerTightConn :=
-  fun Y _ _ hBelow hO z L hz T hT hTL _ _ _ => h Y hBelow hO z L hz T hT hTL
 
 @[expose] def TightNormalizesComponentConn : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y], CIT3Below (Nat.card Y) → classicalInvolutionOddCore Y = ⊥ →
@@ -159,16 +154,6 @@ theorem solvableMemberInnerTightConn_of_normalizes_of_normalInner
     exact sup_le Subgroup.le_normalizer hN
   exact h2 Y hBelow hO z L hz T hT hTL hgen hconn hTn hTz
 
-theorem tightNormalizesComponentConn_of_conn (h : SolvableMemberInnerTightConn) :
-    TightNormalizesComponentConn := by
-  intro Y _ _ hBelow hO z L hz T hT hTL hgen hconn hTz
-  exact (h Y hBelow hO z L hz T hT hTL hgen hconn hTz).trans
-    (sup_le Subgroup.le_normalizer (Subgroup.centralizer_le_normalizer _))
-
-theorem tightNormalInnerConn_of_conn (h : SolvableMemberInnerTightConn) :
-    TightNormalInnerConn := by
-  intro Y _ _ hBelow hO z L hz T hT hTL hgen hconn _ hTz
-  exact h Y hBelow hO z L hz T hT hTL hgen hconn hTz
 
 end Conn
 

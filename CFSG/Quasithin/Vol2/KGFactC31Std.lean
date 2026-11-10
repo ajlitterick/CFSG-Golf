@@ -41,12 +41,6 @@ theorem exists_conj_zpowers {X : Type} [Group X] [Finite X] {N₀ : Subgroup X} 
   · have := mem_zpowers_of_prime hp.out hx hmem hne
     simpa using this
 
-theorem false_of_conj_not_normalizer {A : Type*} [Group A] {M₀ R V : Subgroup A}
-    (hNRM : Subgroup.normalizer (R : Set A) ≤ Subgroup.normalizer (M₀ : Set A))
-    (hM₀V : M₀ ≤ Subgroup.normalizer (V : Set A)) {x g : A} (hx : x ∈ M₀)
-    (hg : g ∈ Subgroup.normalizer (R : Set A))
-    (hgx : g * x * g⁻¹ ∉ Subgroup.normalizer (V : Set A)) : False :=
-  hgx (hM₀V ((Subgroup.mem_normalizer_iff.mp (hNRM hg) x).mp hx))
 
 theorem eq_bot_of_perfect_of_isSolvable {X : Type*} [Group X] {K : Subgroup X}
     (hK : ⁅K, K⁆ = K) (hs : Group.IsSolvable K) : K = ⊥ := by
@@ -67,13 +61,6 @@ theorem eq_bot_of_perfect_of_isSolvable {X : Type*} [Group X] {K : Subgroup X}
   have h2 : (⟨x, hx⟩ : K) = 1 := Subgroup.mem_bot.mp h1
   exact Subgroup.mem_bot.mpr (congrArg Subtype.val h2)
 
-theorem eq_bot_of_perfect_of_card {X : Type*} [Group X] [Finite X] {K : Subgroup X}
-    (hK : ⁅K, K⁆ = K) {p q a b : ℕ} (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q)
-    (hc : Nat.card K = p ^ a * q ^ b) : K = ⊥ := by
-  have : Fintype K := Fintype.ofFinite K
-  exact eq_bot_of_perfect_of_isSolvable hK
-    (CFSG.Burnside.finite_group_isSolvable_of_card_eq_prime_pow_mul_prime_pow hp hq hpq
-      (by rwa [← Nat.card_eq_fintype_card]))
 
 end CFSG.Quasithin.KGC31
 

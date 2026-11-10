@@ -155,15 +155,6 @@ theorem hexagonData (hF : Nat.card F = 9) :
       fun h => hbe ((collinear_iff_orth hF hbe').mpr h),
       fun h => hce ((collinear_iff_orth hF hce').mpr h)⟩
 
-theorem getVert_inl_or_inr {p₀ : NonisoLine F} {v : NonisoLine F ⊕ HexLine F}
-    (c : (incGraph F).Walk (Sum.inl p₀) v) (i : ℕ) (hi : i ≤ c.length) :
-    (Even i → ∃ p, c.getVert i = Sum.inl p) ∧ (Odd i → ∃ T, c.getVert i = Sum.inr T) :=
-  CFSG.GroupTheory.InvolutionHexagon.getVert_inl_or_inr
-    (inc := fun (p : NonisoLine F) (T : HexLine F) => p ∈ T.1) c i hi
-
-theorem twelve_le_length_of_inl (hF : Nat.card F = 9) {p₀ : NonisoLine F}
-    (c : (incGraph F).Walk (Sum.inl p₀) (Sum.inl p₀)) (hc : c.IsCycle) : 12 ≤ c.length :=
-  (hexagonData hF).twelve_le_length_of_inl c hc
 
 theorem twelve_le_length (hF : Nat.card F = 9) {v : NonisoLine F ⊕ HexLine F}
     (c : (incGraph F).Walk v v) (hc : c.IsCycle) : 12 ≤ c.length :=

@@ -111,10 +111,5 @@ theorem isIStar_sylow_cases (S : Setting146 G T M) {H : Subgroup G} {u : G}
       rw [hTI, hN0] at hyN
       exact hyA ⟨hyN, hS₀.1 hyS⟩
 
-theorem stage1466_one_of (h1 : Stage1463One) (h2 : Stage1463Two) (h4 : Stage1463Four) :
-    Stage1466One := by
-  intro G _ _ T M H u S hH hu I hI
-  exact (isIStar_sylow_cases S hu (h1 G T M S H hH u hu).2.1 (h2 G T M S H hH u hu)
-    (h4 G T M S H hH u hu).1 hI).2
 
 end CFSG.Quasithin

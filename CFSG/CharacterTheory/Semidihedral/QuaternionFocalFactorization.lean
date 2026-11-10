@@ -85,25 +85,6 @@ theorem originalQuaternion_index (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H)
       (S : Subgroup H).subtype_injective).trans
         (MulEquiv.subgroupCongr (originalQuaternion_eq_map n S f).symm))
 
-theorem originalQuaternionEquiv_coe (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (g : QuaternionGroup (2 ^ (n - 3))) :
-    (originalQuaternionEquiv n hn S f g : H) = (f (quaternionHom n hn g) : H) :=
-  rfl
-
-theorem originalQuaternionEquiv_rotation (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S) :
-    (originalQuaternionEquiv n hn S f (QuaternionGroup.a 1) : H) =
-      originalRotation n S f ^ 2 := by
-  rw [originalQuaternionEquiv_coe, quaternionHom_rotation, map_pow]
-  rfl
-
-theorem originalQuaternionEquiv_generator (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S) :
-    (originalQuaternionEquiv n hn S f (QuaternionGroup.xa 0) : H) =
-      originalRotation n S f * originalReflection n S f := by
-  rw [originalQuaternionEquiv_coe, quaternionHom_generator, map_mul]
-  rfl
 
 theorem originalQuaternion_card (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H)
     (f : SemidihedralGroup n ≃* S) :
@@ -129,18 +110,6 @@ theorem originalInvolution_order (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H)
   rw [originalInvolution_eq_image, Subgroup.orderOf_coe, equiv_orderOf]
   exact orderOf_z n (by omega)
 
-theorem originalQuaternion_unique_involution (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S) {x : H}
-    (hxQ : x ∈ originalQuaternion n S f) (hx : orderOf x = 2) :
-    x = originalInvolution n S f := by
-  rw [originalQuaternion_eq_map] at hxQ
-  obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp hxQ
-  have haord : orderOf a = 2 := by
-    simpa only [orderOf_injective (S : Subgroup H).subtype
-      (S : Subgroup H).subtype_injective] using hx
-  have heq := supplied_quaternion_unique_involution n hn f a ha haord
-  rw [modulus_div_two n (by omega)] at heq
-  exact congrArg Subtype.val heq
 
 theorem originalSylow_le_centralizer (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H)
     (f : SemidihedralGroup n ≃* S) :
@@ -215,26 +184,6 @@ theorem oddGenerated_original_sylow [Finite H]
     (focal_abelianization_index n hn S f hfocal), hfocal] at hT
   exact hT
 
-theorem original_quaternion_focal_odd_generated_subgroup_and_sylow_transport [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H = originalQuaternion n S f) :
-    (oddGenerated H).Characteristic ∧ (oddGenerated H).index = 2 ∧
-      oddGenerated H ⊓ (S : Subgroup H) = originalQuaternion n S f ∧
-      oddCore H ≤ oddGenerated H ∧
-      (oddCore (oddGenerated H)).map (oddGenerated H).subtype = oddCore H ∧
-      (∃ T : Sylow 2 (oddGenerated H),
-        (T : Subgroup (oddGenerated H)) =
-          (originalQuaternion n S f).subgroupOf (oddGenerated H)) ∧
-      Nonempty (QuaternionGroup (2 ^ (n - 3)) ≃* originalQuaternion n S f) ∧
-      Nat.card (originalQuaternion n S f) = 2 ^ (n - 1) ∧
-      orderOf (originalInvolution n S f) = 2 ∧
-      (S : Subgroup H) ≤ Subgroup.centralizer {originalInvolution n S f} := by
-  exact ⟨inferInstance, oddGenerated_index n hn S f hfocal,
-    oddGenerated_inf_sylow n hn S f hfocal, oddCore_le_oddGenerated,
-    oddGenerated_oddCore_map, oddGenerated_original_sylow n hn S f hfocal,
-    ⟨originalQuaternionEquiv n hn S f⟩, originalQuaternion_card n hn S f,
-    originalInvolution_order n hn S f, originalSylow_le_centralizer n hn S f⟩
-
 
 @[expose] noncomputable def oddGeneratedSylow [Finite H]
     (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
@@ -258,12 +207,6 @@ theorem oddGeneratedSylow_eq [Finite H]
       (originalQuaternion_le_oddGenerated n hn S f hfocal)).symm.trans
         (MulEquiv.subgroupCongr (oddGeneratedSylow_eq n hn S f hfocal).symm))
 
-theorem oddGeneratedQuaternionEquiv_coe [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H = originalQuaternion n S f)
-    (g : QuaternionGroup (2 ^ (n - 3))) :
-    ((oddGeneratedQuaternionEquiv n hn S f hfocal g : oddGenerated H) : H) =
-      (f (quaternionHom n hn g) : H) := rfl
 
 @[expose] def oddGeneratedInvolution [Finite H]
     (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
@@ -376,25 +319,6 @@ theorem originalInvolution_central_mod_oddCore [Finite H]
   obtain ⟨a, rfl⟩ := QuotientGroup.mk'_surjective (oddCore H) x
   exact Subgroup.mem_centralizer_singleton_iff.mp (hall (Subgroup.mem_top a))
 
-theorem originalInvolution_mod_oddCore_ne_one [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S) :
-    QuotientGroup.mk' (oddCore H) (originalInvolution n S f) ≠ 1 := by
-  intro heq
-  have hmem : originalInvolution n S f ∈ oddCore H := (QuotientGroup.eq_one_iff _).mp heq
-  have hdvd := (oddCore H).orderOf_dvd_natCard hmem
-  rw [originalInvolution_order n hn S f, oddCore_eq_twoPrimeCore] at hdvd
-  exact (Nat.prime_two.coprime_iff_not_dvd.mp
-    (pPrimeCore_coprime_card (p := 2))) hdvd
-
-theorem original_quaternion_focal_involution_central_in_original_odd_core_quotient [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H = originalQuaternion n S f) :
-    QuotientGroup.mk' (oddCore H) (originalInvolution n S f) ≠ 1 ∧
-      QuotientGroup.mk' (oddCore H) (originalInvolution n S f) ∈
-        Subgroup.center (H ⧸ oddCore H) :=
-  ⟨originalInvolution_mod_oddCore_ne_one n hn S f,
-    originalInvolution_central_mod_oddCore n hn S f hfocal⟩
-
 
 theorem centralizer_zpowers_eq_singleton (t : H) :
     Subgroup.centralizer ((Subgroup.zpowers t : Subgroup H) : Set H) =
@@ -444,15 +368,6 @@ theorem original_element_oddCore_centralizer_factorization [Finite H]
   change q (x * c⁻¹) = 1
   rw [map_mul, map_inv, hcx, mul_inv_cancel]
 
-theorem original_oddCore_centralizer_set_product [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H = originalQuaternion n S f) :
-    (oddCore H : Set H) * (Subgroup.centralizer {originalInvolution n S f} : Set H) =
-      Set.univ := by
-  apply Set.eq_univ_of_forall
-  intro x
-  obtain ⟨a, ha, c, hc, h⟩ := original_element_oddCore_centralizer_factorization n hn S f hfocal x
-  exact Set.mem_mul.mpr ⟨a, ha, c, hc, h⟩
 
 theorem original_oddCore_centralizer_sup [Finite H]
     (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
@@ -505,40 +420,5 @@ theorem originalCentralizer_oddCore [Finite H]
     exact (le_sSup ⟨inferInstance, Nat.coprime_two_left.mp hcop⟩ : φ.ker ≤ oddCore C)
   exact (le_antisymm hle hkerle).trans hker
 
-theorem originalCentralizer_oddCore_map [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H = originalQuaternion n S f) :
-    (oddCore (Subgroup.centralizer {originalInvolution n S f})).map
-      (Subgroup.centralizer {originalInvolution n S f}).subtype =
-        oddCore H ⊓ Subgroup.centralizer {originalInvolution n S f} := by
-  rw [originalCentralizer_oddCore n hn S f hfocal, Subgroup.subgroupOf_map_subtype]
-
-theorem quaternion_focal_subgroup_forces_odd_core_centralizer_factorization [Finite H]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 H) (f : SemidihedralGroup n ≃* S)
-    (hfocal : (S : Subgroup H) ⊓ commutator H =
-      Subgroup.closure {(f (r n) : H) ^ 2, (f (r n) : H) * (f (s n) : H)}) :
-    let r := (f (CFSG.Semidihedral.r n) : H)
-    let s := (f (CFSG.Semidihedral.s n) : H)
-    let t := r ^ (2 ^ (n - 2))
-    let Q := Subgroup.closure {r ^ 2, r * s}
-    let R := oddCore H
-    let K := Subgroup.closure {x : H | Odd (orderOf x)}
-    let C := Subgroup.centralizer {t}
-    K.Characteristic ∧ K.index = 2 ∧ K ⊓ (S : Subgroup H) = Q ∧
-      (oddCore K).map K.subtype = R ∧
-      QuotientGroup.mk' R t ≠ 1 ∧ QuotientGroup.mk' R t ∈ Subgroup.center (H ⧸ R) ∧
-      (R : Set H) * (C : Set H) = Set.univ ∧
-      (∀ x : H, ∃ a ∈ R, ∃ c ∈ C, a * c = x) ∧
-      R ⊔ C = ⊤ ∧ oddCore C = R.subgroupOf C ∧
-      (oddCore C).map C.subtype = R ⊓ C := by
-  dsimp only
-  exact ⟨oddGenerated_characteristic, oddGenerated_index n hn S f hfocal,
-    oddGenerated_inf_sylow n hn S f hfocal, oddGenerated_oddCore_map,
-    originalInvolution_mod_oddCore_ne_one n hn S f,
-    originalInvolution_central_mod_oddCore n hn S f hfocal,
-    original_oddCore_centralizer_set_product n hn S f hfocal,
-    original_element_oddCore_centralizer_factorization n hn S f hfocal,
-    original_oddCore_centralizer_sup n hn S f hfocal,
-    originalCentralizer_oddCore n hn S f hfocal, originalCentralizer_oddCore_map n hn S f hfocal⟩
 
 end CFSG.Semidihedral.QuaternionFocalFactorization

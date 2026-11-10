@@ -496,14 +496,6 @@ private theorem xA_ord : orderOf xA = 3 := by
   haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
   exact orderOf_eq_prime fuse_facts.2.2.1 fuse_facts.2.2.2.1
 
-private theorem yPerm_ne_one : yPerm ≠ 1 := fun h1 => by
-  have := (eqA_iff rep_y rep_idA).2 h1
-  rw [cCheck_parts.2.2.2.1] at this
-  exact absurd this (by decide)
-
-private theorem yPerm_ord : orderOf yPerm = 3 := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  exact orderOf_eq_prime yPerm_pow yPerm_ne_one
 
 private theorem card_Cy : Nat.card (Subgroup.centralizer ({yPerm} : Set (Equiv.Perm (Fin 1782))) ⊓
     suzM : Subgroup (Equiv.Perm (Fin 1782))) = 3 ^ 1 * 1080 := by

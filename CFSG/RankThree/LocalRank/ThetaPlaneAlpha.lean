@@ -71,11 +71,6 @@ theorem thetaT_map_equiv {p : ℕ} (hp : p.Prime) {X Y : Type*} [Group X] [Group
   rw [thetaT_eq_thetaPlaneIntersection hp, thetaT_eq_thetaPlaneIntersection hp]
   exact thetaPlaneIntersection_map_equiv p hp φ B
 
-theorem thetaJ_map_equiv {p : ℕ} (hp : p.Prime) {X Y : Type*} [Group X] [Group Y] [Finite X]
-    [Finite Y] (φ : X ≃* Y) (B : Subgroup X) :
-    (thetaJ p B).map φ.toMonoidHom = thetaJ p (B.map φ.toMonoidHom) := by
-  rw [thetaJ_eq_thetaPlaneCommutators hp, thetaJ_eq_thetaPlaneCommutators hp]
-  exact thetaPlaneCommutators_map_equiv p hp φ B
 
 theorem thetaAlpha_map_equiv {p : ℕ} (hp : p.Prime) {X Y : Type*} [Group X] [Group Y]
     [Finite X] [Finite Y] (φ : X ≃* Y) (B : Subgroup X) :

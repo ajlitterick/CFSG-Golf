@@ -104,15 +104,6 @@ theorem exists_leviSL2Cube (h3 : Nat.card (leviComps R A A₀) = 3)
 
 end SL2
 
-theorem lieModel_of_forall_isSL2Comp {G : Type} [Group G] {R : Set (Subgroup G)} (h : Hyp G R)
-    {A A₀ : Subgroup G} (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A)
-    (hmax : IsSigmaMaximal R (centralGroup R A)) (hA₀ : A₀ ∈ omegaSet R A)
-    (hr : 1 < Nat.card (leviComps R A A₀)) (hall : ∀ Δ ∈ leviComps R A A₀, IsSL2Comp Δ) :
-    ∃ f : ℕ, 1 ≤ f ∧ (∀ E ∈ R, Nat.card E = 2 ^ f) ∧
-      Blueprint.LieModel G .POmegaPlus 4 2 f := by
-  obtain ⟨P, Q, hPQ⟩ := exists_leviSL2Cube h hA hAne hA₀
-    (card_leviComps_eq_three h hA hAne hmax hA₀ hr hall) hall
-  exact lieModel_caseD4 h hA hAne hmax hA₀ hPQ
 
 end Sec9
 

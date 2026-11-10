@@ -32,8 +32,6 @@ theorem self_mem_twoCore [Finite G] {z : G} (hz : orderOf z = 2) : z ∈ twoCore
   show z ∈ (pCore 2 (cent z)).map (cent z).subtype
   exact ⟨⟨z, self_mem_cent z⟩, hle (mem_zpowers _), rfl⟩
 
-theorem twoCore_le_centralizer_self (z : G) :
-    twoCore z ≤ centralizer ({z} : Set G) := twoCore_le z
 
 theorem self_mem_centralizer_twoCore (z : G) : z ∈ centralizer (twoCore z : Set G) := by
   rw [mem_centralizer_iff]
@@ -167,15 +165,6 @@ theorem isSimpleGroup_MGriess :
     centralizer_xGriess_le P (hPx.trans centralizer_xGriess_le)
     ((normalizer_le_centralizer_of_center orderOf_xGriess hZ).trans centralizer_xGriess_le)
 
-theorem odd_index_Gmat :
-    Odd GmatGriess.index := by
-  obtain ⟨h1, -, -, -⟩ := (isTwoBCentralizer_MGriess xGriess (IsConj.refl _)).sylow orderOf_xGriess
-  obtain ⟨P, hP, -, -⟩ := h1 default
-  have hPx : (P : Subgroup MGriess) ≤ cent xGriess := hP ▸ map_subtype_le _
-  have h1 := P.not_dvd_index
-  have h2 : GmatGriess.index ∣ (P : Subgroup MGriess).index :=
-    index_dvd_of_le (hPx.trans centralizer_xGriess_le)
-  exact Nat.odd_iff.2 (Nat.two_dvd_ne_zero.1 fun h => h1 (h.trans h2))
 
 theorem MGriess_finite_nonabelian_simple :
     Finite MGriess ∧ IsSimpleGroup MGriess ∧ ∃ g h : MGriess, g * h ≠ h * g := by

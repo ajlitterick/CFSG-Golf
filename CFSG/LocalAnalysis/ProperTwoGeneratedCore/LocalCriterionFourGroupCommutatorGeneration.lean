@@ -72,14 +72,5 @@ theorem odd_four_group_two_centralizer_commutator_generation [IsKleinFour A]
     · exact actorCommutatorSubgroup_mono b le_top
     · exact actorCommutatorSubgroup_mono b le_top
 
-theorem odd_elementary_four_group_two_centralizer_commutator_generation
-    [IsElementaryAbelian 2 A] (hcard : Nat.card A = 4)
-    (a b : A) (ha : a ≠ 1) (hb : b ≠ 1) (hab : a ≠ b)
-    (hodd : Odd (Nat.card I)) :
-    actorCommutatorSubgroup b (⊤ : Subgroup I) =
-      actorCommutatorSubgroup b (actorFixedSubgroup (I := I) a) ⊔
-        actorCommutatorSubgroup b (actorFixedSubgroup (I := I) (a * b)) := by
-  let : IsKleinFour A := isKleinFour_of_elementary_card_four hcard
-  exact odd_four_group_two_centralizer_commutator_generation a b ha hb hab hodd
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionFourGroupCommutator

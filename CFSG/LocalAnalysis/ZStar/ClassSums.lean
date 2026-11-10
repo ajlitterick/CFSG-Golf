@@ -78,11 +78,6 @@ theorem classRep_mem_classFinset (C : ConjClasses G) : classRep C ∈ classFinse
 @[expose] noncomputable def classSize (C : ConjClasses G) : ℕ :=
   (classFinset C).card
 
-theorem classSize_eq_natCard_carrier (C : ConjClasses G) :
-    classSize C = Nat.card C.carrier := by
-  classical
-  rw [Nat.card_eq_fintype_card]
-  simp [classSize, classFinset]
 
 @[expose] noncomputable def classSum (R : Type v) [Semiring R] (C : ConjClasses G) :
     MonoidAlgebra R G :=
@@ -95,15 +90,6 @@ theorem classSum_coeff (R : Type v) [Semiring R] (C : ConjClasses G) (x : G) :
   simp [classSum, Finsupp.finsetSum_apply, Finsupp.single_apply,
     mem_classFinset]
 
-theorem classSum_coeff_of_mem (R : Type v) [Semiring R]
-    {C : ConjClasses G} {x : G} (hx : ConjClasses.mk x = C) :
-    (classSum R C).coeff x = 1 := by
-  simp [hx]
-
-theorem classSum_coeff_of_not_mem (R : Type v) [Semiring R]
-    {C : ConjClasses G} {x : G} (hx : ConjClasses.mk x ≠ C) :
-    (classSum R C).coeff x = 0 := by
-  simp [hx]
 
 private theorem classSum_commute_single (R : Type v) [CommSemiring R]
     (C : ConjClasses G) (g : G) :
@@ -223,142 +209,10 @@ theorem scalarAlgebraMap_bijective :
   Classical.choose ((scalarAlgebraMap_bijective ρ).surjective
     (Representation.IntertwiningMap.centralAlgebraMul ρ hz))
 
-private theorem algebraMap_centralScalar {z : MonoidAlgebra k G}
-    (hz : z ∈ Submonoid.center (MonoidAlgebra k G)) :
-    algebraMap k (ρ.IntertwiningMap ρ) (centralScalar ρ hz) =
-      Representation.IntertwiningMap.centralAlgebraMul ρ hz :=
-  Classical.choose_spec ((scalarAlgebraMap_bijective ρ).surjective
-    (Representation.IntertwiningMap.centralAlgebraMul ρ hz))
-
-theorem centralScalar_action {z : MonoidAlgebra k G}
-    (hz : z ∈ Submonoid.center (MonoidAlgebra k G)) (v : V) :
-    ρ.asAlgebraHom z v = centralScalar ρ hz • v := by
-  have h := congrArg (fun f : ρ.IntertwiningMap ρ => f v)
-    (algebraMap_centralScalar ρ hz)
-  simpa [Representation.IntertwiningMap.algebraMap_apply] using h.symm
-
-theorem centralScalar_unique {z : MonoidAlgebra k G}
-    (hz : z ∈ Submonoid.center (MonoidAlgebra k G)) (a : k)
-    (ha : ∀ v : V, ρ.asAlgebraHom z v = a • v) :
-    centralScalar ρ hz = a := by
-  apply (scalarAlgebraMap_bijective ρ).injective
-  rw [algebraMap_centralScalar]
-  ext v
-  simpa [Representation.IntertwiningMap.algebraMap_apply] using ha v
-
-private theorem centralScalar_mul {z w : MonoidAlgebra k G}
-    (hz : z ∈ Submonoid.center (MonoidAlgebra k G))
-    (hw : w ∈ Submonoid.center (MonoidAlgebra k G)) :
-    centralScalar ρ
-        ((Submonoid.center (MonoidAlgebra k G)).mul_mem hz hw) =
-      centralScalar ρ hz * centralScalar ρ hw := by
-  apply centralScalar_unique ρ
-  intro v
-  simp only [map_mul, Module.End.mul_apply]
-  rw [centralScalar_action ρ hw]
-  rw [map_smul, centralScalar_action ρ hz, smul_smul]
-  simp only [mul_comm]
 
 @[expose] noncomputable def omega (C : ConjClasses G) : k :=
   centralScalar ρ (classSum_mem_center k C)
 
-theorem omega_action (C : ConjClasses G) (v : V) :
-    ρ.asAlgebraHom (classSum k C) v = omega ρ C • v :=
-  centralScalar_action ρ (classSum_mem_center k C) v
-
-private theorem omega_unique (C : ConjClasses G) (a : k)
-    (ha : ∀ v : V, ρ.asAlgebraHom (classSum k C) v = a • v) :
-    omega ρ C = a :=
-  centralScalar_unique ρ (classSum_mem_center k C) a ha
-
-theorem existsUnique_omega (C : ConjClasses G) :
-    ∃! a : k, ∀ v : V, ρ.asAlgebraHom (classSum k C) v = a • v := by
-  refine ⟨omega ρ C, omega_action ρ C, ?_⟩
-  intro a ha
-  exact (omega_unique ρ C a ha).symm
-
-theorem omega_mul (C D : ConjClasses G) :
-    centralScalar ρ
-        ((Submonoid.center (MonoidAlgebra k G)).mul_mem
-          (classSum_mem_center k C) (classSum_mem_center k D)) =
-      omega ρ C * omega ρ D :=
-  centralScalar_mul ρ (classSum_mem_center k C) (classSum_mem_center k D)
-
-theorem omega_product (C D : ConjClasses G) :
-    omega ρ C * omega ρ D =
-      ∑ E : ConjClasses G, (structureConstant C D E : k) * omega ρ E := by
-  let hp := (Submonoid.center (MonoidAlgebra k G)).mul_mem
-    (classSum_mem_center k C) (classSum_mem_center k D)
-  calc
-    omega ρ C * omega ρ D = centralScalar ρ hp := (omega_mul ρ C D).symm
-    _ = ∑ E : ConjClasses G,
-          (structureConstant C D E : k) * omega ρ E := by
-      apply centralScalar_unique ρ
-      intro v
-      rw [classSum_mul k C D]
-      simp only [map_sum, map_smul, LinearMap.sum_apply, LinearMap.smul_apply]
-      simp_rw [omega_action ρ]
-      simp only [smul_smul, Finset.sum_smul]
-
-omit [IsAlgClosed k] [FiniteDimensional k V] [Representation.IsIrreducible ρ] in
-private theorem character_eq_classRep (C : ConjClasses G) {x : G}
-    (hx : x ∈ classFinset C) :
-    ρ.character x = ρ.character (classRep C) := by
-  have hconj : IsConj x (classRep C) := by
-    apply ConjClasses.mk_eq_mk_iff_isConj.mp
-    rw [mem_classFinset.mp hx, mk_classRep]
-  obtain ⟨g, hg⟩ := isConj_iff.mp hconj
-  calc
-    ρ.character x = ρ.character (g * x * g⁻¹) :=
-      (Representation.char_conj ρ x g).symm
-    _ = ρ.character (classRep C) := by rw [hg]
-
-private theorem trace_classSum (C : ConjClasses G) :
-    LinearMap.trace k V (ρ.asAlgebraHom (classSum k C)) =
-      (classSize C : k) * ρ.character (classRep C) := by
-  calc
-    LinearMap.trace k V (ρ.asAlgebraHom (classSum k C)) =
-        ∑ x ∈ classFinset C, ρ.character x := by
-      simp [classSum, Representation.character]
-    _ = ∑ _x ∈ classFinset C, ρ.character (classRep C) := by
-      apply Finset.sum_congr rfl
-      intro x hx
-      exact character_eq_classRep ρ C hx
-    _ = (classSize C : k) * ρ.character (classRep C) := by
-      simp [classSize]
-
-theorem trace_centralScalar {z : MonoidAlgebra k G}
-    (hz : z ∈ Submonoid.center (MonoidAlgebra k G)) :
-    LinearMap.trace k V (ρ.asAlgebraHom z) =
-      centralScalar ρ hz * (Module.finrank k V : k) := by
-  have hmap : ρ.asAlgebraHom z =
-      centralScalar ρ hz • (1 : Module.End k V) := by
-    ext v
-    simp [centralScalar_action ρ hz]
-  rw [hmap]
-  simp
-
-theorem omega_mul_degree (C : ConjClasses G) :
-    omega ρ C * (Module.finrank k V : k) =
-      (classSize C : k) * ρ.character (classRep C) := by
-  calc
-    omega ρ C * (Module.finrank k V : k) =
-        LinearMap.trace k V (ρ.asAlgebraHom (classSum k C)) :=
-      (trace_centralScalar ρ (classSum_mem_center k C)).symm
-    _ = (classSize C : k) * ρ.character (classRep C) := trace_classSum ρ C
-
-theorem omega_eq_classSize_mul_character_div_degree [CharZero k]
-    (C : ConjClasses G) :
-    omega ρ C =
-      (classSize C : k) * ρ.character (classRep C) /
-        (Module.finrank k V : k) := by
-  let _ : Nontrivial V :=
-    IsSimpleModule.nontrivial (MonoidAlgebra k G) ρ.asModule
-  have hn : Module.finrank k V ≠ 0 := Nat.ne_of_gt Module.finrank_pos
-  have hk : (Module.finrank k V : k) ≠ 0 := by
-    exact_mod_cast hn
-  apply (eq_div_iff hk).mpr
-  exact omega_mul_degree ρ C
 
 end Schur
 

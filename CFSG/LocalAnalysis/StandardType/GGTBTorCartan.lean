@@ -5,29 +5,6 @@ public import CFSG.LocalAnalysis.StandardType.GGCorFourTwoTableBTypeAMono
 @[expose] public section
 namespace CFSG.StandardType
 
-theorem ggCartanE₈_ker_zero : ∀ c : Fin 8 → ZMod 3,
-    (∀ j, ∑ k, (CartanMatrix.E₈ j k : ZMod 3) * c k = 0) → c = 0 := by
-  intro c h
-  have h0 := h 0
-  have h1 := h 1
-  have h2 := h 2
-  have h3 := h 3
-  have h4 := h 4
-  have h5 := h 5
-  have h6 := h 6
-  have h7 := h 7
-  simp [CartanMatrix.E₈, CartanMatrix.E_eight_eq, Fin.sum_univ_succ] at h0 h1 h2 h3 h4 h5 h6 h7
-  funext k
-  simp only [Pi.zero_apply]
-  fin_cases k <;> simp only [Fin.zero_eta, Fin.mk_one, Fin.reduceFinMk]
-  · linear_combination 4 * h0 + 5 * h1 + 7 * h2 + 10 * h3 + 8 * h4 + 6 * h5 + 4 * h6 + 2 * h7
-  · linear_combination 5 * h0 + 8 * h1 + 10 * h2 + 15 * h3 + 12 * h4 + 9 * h5 + 6 * h6 + 3 * h7
-  · linear_combination 7 * h0 + 10 * h1 + 14 * h2 + 20 * h3 + 16 * h4 + 12 * h5 + 8 * h6 + 4 * h7
-  · linear_combination 10 * h0 + 15 * h1 + 20 * h2 + 30 * h3 + 24 * h4 + 18 * h5 + 12 * h6 + 6 * h7
-  · linear_combination 8 * h0 + 12 * h1 + 16 * h2 + 24 * h3 + 20 * h4 + 15 * h5 + 10 * h6 + 5 * h7
-  · linear_combination 6 * h0 + 9 * h1 + 12 * h2 + 18 * h3 + 15 * h4 + 12 * h5 + 8 * h6 + 4 * h7
-  · linear_combination 4 * h0 + 6 * h1 + 8 * h2 + 12 * h3 + 10 * h4 + 8 * h5 + 6 * h6 + 3 * h7
-  · linear_combination 2 * h0 + 3 * h1 + 4 * h2 + 6 * h3 + 5 * h4 + 4 * h5 + 3 * h6 + 2 * h7
 
 theorem ggCartanE₆_ker_coord (c : Fin 6 → ZMod 3)
     (h : ∀ j, ∑ k, (CartanMatrix.E₆ j k : ZMod 3) * c k = 0) :

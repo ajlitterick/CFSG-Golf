@@ -186,14 +186,6 @@ theorem toStdB_reflection_of_lt {k : Fin n} (h : k.val + 1 < n) (v : Fin n → �
     toStdB n (reflection (cartanB n) k v) = toStdB n v ∘ Equiv.swap k ⟨k.val + 1, h⟩ := by
   rw [toStdB_reflection, stdReflB_of_lt n h]
 
-theorem toStdB_reflection_of_not_lt {k : Fin n} (h : ¬k.val + 1 < n) (v : Fin n → ℤ) :
-    toStdB n (reflection (cartanB n) k v) = Function.update (toStdB n v) k (-toStdB n v k) := by
-  rw [toStdB_reflection, stdReflB_of_not_lt n h]
-  funext a
-  by_cases ha : a = k
-  · subst ha
-    simp
-  · simp [ha]
 
 private theorem stdReflB_of_succ {k k' : Fin n} (h : k.val + 1 = k'.val) (e : Fin n → ℤ) :
     stdReflB n k e = e ∘ Equiv.swap k k' := by
@@ -449,13 +441,6 @@ theorem ht_of_toStdB_eq_single {γ : Fin n → ℤ} {i : Fin n} {s : ℤ}
   rw [ht_eq_sum_toStdB, h]
   simp [Pi.single_apply, mul_comm]
 
-theorem ht_pos_iff_of_toStdB_eq_add {γ : Fin n → ℤ} {i j : Fin n} {s t : ℤ} (hij : i < j)
-    (hs₁ : s = 1 ∨ s = -1) (ht₁ : t = 1 ∨ t = -1)
-    (h : toStdB n γ = Pi.single i s + Pi.single j t) : 0 < ht γ ↔ s = 1 := by
-  rw [ht_of_toStdB_eq_add n h]
-  have hij' : i.val < j.val := hij
-  have hj := j.isLt
-  rcases hs₁ with rfl | rfl <;> rcases ht₁ with rfl | rfl <;> omega
 
 theorem ht_pos_iff_of_toStdB_eq_single {γ : Fin n → ℤ} {i : Fin n} {s : ℤ}
     (hs₁ : s = 1 ∨ s = -1) (h : toStdB n γ = Pi.single i s) : 0 < ht γ ↔ s = 1 := by

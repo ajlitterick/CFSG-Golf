@@ -22,6 +22,5 @@ theorem c19_main_of (h11b : C19_11bTmp p f) (h16F : C19_16FTmp p f) : Asc77.C19_
   exact Or.inr
     (S1911.twoSubgroupsFourGenerated_of_e2Prime (S1911.c19_E2PrimeTmp_of p f h11b) hd hE3)
 
-variable {p f} {G : Type} [Group G] [Finite G] {K : Subgroup G} {z : G}
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S19R

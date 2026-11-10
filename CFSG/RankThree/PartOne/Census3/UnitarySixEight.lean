@@ -16,7 +16,6 @@ open CFSG.Assembly CFSG.Assembly.RankThreeEven CFSG.Assembly.LowTwoRank
   ![u 0, u 0, u 0 + 3 * u 1, u 0 + 6 * u 1 + 3 * u 2, u 0 + 6 * u 2 + 3 * u 3, -5 * u 0 + 6 * u 3]
 
 theorem u68Exp_apply_zero (u : Fin 4 → ℤ) : u68Exp u 0 = u 0 := rfl
-theorem u68Exp_apply_one (u : Fin 4 → ℤ) : u68Exp u 1 = u 0 := rfl
 theorem u68Exp_apply_two (u : Fin 4 → ℤ) : u68Exp u 2 = u 0 + 3 * u 1 := rfl
 theorem u68Exp_apply_three (u : Fin 4 → ℤ) : u68Exp u 3 = u 0 + 6 * u 1 + 3 * u 2 := rfl
 theorem u68Exp_apply_four (u : Fin 4 → ℤ) : u68Exp u 4 = u 0 + 6 * u 2 + 3 * u 3 := rfl

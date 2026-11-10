@@ -89,12 +89,5 @@ theorem polar_similarity (T : V ≃ₛₗ[σ.toRingHom] V) (μ : Kˣ)
     rw [T.map_smulₛₗ]
     simp [hσ]
 
-theorem originalLinearEquiv_apply (T : V ≃ₛₗ[σ.toRingHom] V)
-    (hσ : σ = RingEquiv.refl K) (v : V) : originalLinearEquiv T hσ v = T v :=
-  rfl
-
-theorem originalLinearEquiv_symm_apply (T : V ≃ₛₗ[σ.toRingHom] V)
-    (hσ : σ = RingEquiv.refl K) (v : V) : (originalLinearEquiv T hσ).symm v = T.symm v :=
-  rfl
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarKernel

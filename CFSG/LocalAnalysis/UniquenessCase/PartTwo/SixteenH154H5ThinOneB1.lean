@@ -229,48 +229,6 @@ private theorem s16h_false_of_isOmegaPlus_le_one {X : Type} [Group X]
     rw [map_mul, map_mul]
     exact mul_comm' (e x) (e y))
 
-private theorem s16h_not_isSolvable_of_isQuasisimple {Q : Type} [Group Q]
-    (hq : CFSG.Open.IsQuasisimple Q) : ¬ Group.IsSolvable Q := by
-  intro hs
-  haveI := hs
-  haveI : Nontrivial (Q ⧸ Subgroup.center Q) := hq.2.toNontrivial
-  haveI : Nontrivial Q := (QuotientGroup.mk'_surjective (Subgroup.center Q)).nontrivial
-  have h := Group.IsSolvable.commutator_lt_top_of_nontrivial Q
-  rw [hq.1] at h
-  exact lt_irrefl _ h
-
-private theorem s16h_card_GL_fin_le_six {K : Type} [Field K] [Fintype K]
-    (hK : Fintype.card K = 2) {d : ℕ} (hd : d ≤ 2) : Nat.card (GL (Fin d) K) < 60 := by
-  rw [Matrix.card_GL_field]
-  interval_cases d <;> simp_all <;> norm_num
-
-private theorem s16h_card_GL_le_six {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type} [Field K]
-    [Fintype K] (hK : Fintype.card K = 2) (hι : Fintype.card ι ≤ 2) :
-    Nat.card (GL ι K) < 60 := by
-  classical
-  let e : ι ≃ Fin (Fintype.card ι) := Fintype.equivFin ι
-  have h := Nat.card_congr (Units.mapEquiv (Matrix.reindexRingEquiv K e).toMulEquiv).toEquiv
-  rw [h]
-  exact s16h_card_GL_fin_le_six hK hι
-
-private theorem s16h_isSolvable_GL_of_card_le_two {ι : Type} [Fintype ι] [DecidableEq ι]
-    {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2) (hι : Fintype.card ι ≤ 2) :
-    Group.IsSolvable (GL ι K) := by
-  haveI : Fintype K := Fintype.ofFinite K
-  have hK' : Fintype.card K = 2 := by rw [← Nat.card_eq_fintype_card]; exact hK
-  exact CFSG.GroupTheory.groups_order_below_sixty_solvable (s16h_card_GL_le_six hK' hι)
-
-private theorem s16h_isSolvable_subgroup_GL {ι : Type} [Fintype ι] [DecidableEq ι]
-    {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2) (hι : Fintype.card ι ≤ 2)
-    (H : Subgroup (GL ι K)) : Group.IsSolvable ↥H :=
-  haveI := s16h_isSolvable_GL_of_card_le_two hK hι
-  Group.isSolvable_of_isSolvable_injective (f := H.subtype) H.subtype_injective
-
-private theorem s16h_isSolvable_statedProj {ι : Type} [Fintype ι] [DecidableEq ι]
-    {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2) (hι : Fintype.card ι ≤ 2)
-    (H : Subgroup (GL ι K)) : Group.IsSolvable (StatedProj H) :=
-  haveI := s16h_isSolvable_subgroup_GL hK hι H
-  Group.isSolvable_of_surjective (QuotientGroup.mk'_surjective ((StatedScalars ι K).subgroupOf H))
 
 private theorem s16h_isSolvable_orthGroup_quadPlus_two {K : Type} [Field K] [Finite K]
     (hK : Nat.card K = 2) : Group.IsSolvable ↥(orthGroup (StatedQuadPlus 2 K)) := by

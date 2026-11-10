@@ -443,13 +443,6 @@ theorem blockEmbed222_hdiag_right (u : Fˣ) :
     simp only [Sum.elim_inr, (e222 c).injective.eq_iff]
     simp
 
-theorem transvection_congr {n : ℕ} {i j i' j' : Fin n} (hi : i = i') (hj : j = j')
-    (hij : i ≠ j) (x : F) :
-    SpecialLinearGroup.transvection hij x =
-      SpecialLinearGroup.transvection (hi ▸ hj ▸ hij) x := by
-  subst hi
-  subst hj
-  exact Subtype.ext rfl
 
 theorem prod_triple_left (a1 a2 a3 : SpecialLinearGroup (Fin 2) F) :
     (a1 * a2 * a3, (1 : SpecialLinearGroup (Fin c) F), (1 : SpecialLinearGroup (Fin 2) F)) =

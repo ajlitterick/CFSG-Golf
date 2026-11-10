@@ -293,18 +293,6 @@ theorem centralizer_radTwo {g : unipAll F} (hA : coordA g = 0) (hB : coordB g �
     refine (commute_unipAll_iff' h g).2 ?_
     rw [hA, h1, zero_mul, zero_mul]
 
-theorem centralizer_radOne {g : unipAll F} (hB : coordB g = 0) (hA : coordA g ≠ 0) :
-    centralizer {g} = radOne F := by
-  ext h
-  rw [Subgroup.mem_centralizer_singleton_iff, mem_radOne]
-  constructor
-  · intro h1
-    have h2 := (commute_unipAll_iff' h g).1 h1
-    rw [hB, mul_zero] at h2
-    exact (mul_eq_zero.1 h2.symm).resolve_left hA
-  · intro h1
-    refine (commute_unipAll_iff' h g).2 ?_
-    rw [hB, h1, mul_zero, mul_zero]
 
 end Centralizers
 

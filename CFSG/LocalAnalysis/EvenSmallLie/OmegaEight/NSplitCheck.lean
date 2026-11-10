@@ -33,11 +33,6 @@ theorem nsGamCheck_plus : nsGamCheck .plus = true :=
 theorem nsGamCheck_minus : nsGamCheck .minus = true :=
     Certificates.certificate3850.2.2.2.2.2.2.2.2.1
 
-theorem nsH1Check_plus : nsH1Check .plus = true :=
-    Certificates.certificate3850.2.2.2.2.2.2.2.2.2.1
-
-theorem nsH1Check_minus : nsH1Check .minus = true :=
-    Certificates.certificate3850.2.2.2.2.2.2.2.2.2.2.1
 
 theorem nsSplitCheck_plus :
     ∃ Y : Array ℕ, splitTest .plus (29 * nM .plus) (fmMat .plus) (iotaMat .plus) Y = true :=

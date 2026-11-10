@@ -190,9 +190,6 @@ variable {A : Type*} [CommGroup A]
       rw [MulAut.apply_inv_self] at h
       simpa using h
 
-theorem mem_sectionAutomorphisms {E : Subgroup A} {α : MulAut A} :
-    α ∈ sectionAutomorphisms E ↔ (∀ e ∈ E, α e = e) ∧ ∀ a : A, a⁻¹ * α a ∈ E :=
-  Iff.rfl
 
 theorem sectionAutomorphisms_comm (E : Subgroup A) {α β : MulAut A}
     (hα : α ∈ sectionAutomorphisms E) (hβ : β ∈ sectionAutomorphisms E) : α * β = β * α := by

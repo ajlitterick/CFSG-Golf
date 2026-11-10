@@ -204,10 +204,6 @@ theorem step1918W_of
   have hKeq := map_conj_eq_of_le hctx hZ hK hLK hFL hF hF9 hKg h1
   exact hgM (mem_of_map_conj_eq hctx hK hKn hKeq)
 
-theorem step1918W_of_seitz434
-    (h1913 : Step1913) (h1915 : Step1915W) (h1916D : Step1916D) (h1917 : Step1917)
-    (hS199 : Seitz199) (h434 : Sec4.Seitz434) (hgap : SeitzL3PiGap) : Step1918 :=
-  step1918W_of h1913 h1915 h1916D h1917 hS199 (seitzL3Pi_of_seitz434 h434 hgap)
 
 theorem step1918W_of_step1913
     (h1913 : Step1913) (h1915 : Step1915W) (h1917 : Step1917) (hS199 : Seitz199)

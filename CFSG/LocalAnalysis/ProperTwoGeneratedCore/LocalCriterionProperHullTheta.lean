@@ -13,11 +13,6 @@ universe u
 
 variable {G : Type u} [Group G] [Finite G]
 
-theorem properHull_theta_eq_iterated_core (D : Subgroup G) (p : ℕ) (hp : p.Prime) :
-    minimalLocalFailurePairConfinementTheta p D =
-      (pPrimeCore p ((CFSG.oddCore D).map D.subtype)).map
-        ((CFSG.oddCore D).map D.subtype).subtype :=
-  generatedPairGrowth_ambient_canonical_core_eq D hp
 
 theorem properHull_theta_inf_subgroup_le
     (p : ℕ) (hp : p.Prime) (D E : Subgroup G) (hED : E ≤ D) :

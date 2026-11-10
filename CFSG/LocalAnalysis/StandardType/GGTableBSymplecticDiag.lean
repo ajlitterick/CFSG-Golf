@@ -20,9 +20,6 @@ variable {K : Type} [Field K] {m : ℕ}
   (Matrix.toLinAlgEquiv' (R := K) (n := Fin m ⊕ Fin m)).toAlgHom.toRingHom.toMonoidHom.comp
     (Units.coeHom _)
 
-theorem glToEnd_apply (g : GL (Fin m ⊕ Fin m) K) (v : Fin m ⊕ Fin m → K) :
-    glToEnd g v = (g : Matrix (Fin m ⊕ Fin m) (Fin m ⊕ Fin m) K) *ᵥ v :=
-  rfl
 
 theorem mem_symplecticGroup_of_mem_sp {g : GL (Fin m ⊕ Fin m) K} (hg : g ∈ LargeEvenSpGroup K m) :
     (g : Matrix (Fin m ⊕ Fin m) (Fin m ⊕ Fin m) K) ∈ Matrix.symplecticGroup (Fin m) K := by

@@ -97,12 +97,6 @@ theorem ggLemmaThreeFourteenInput_of_schreier (hSch : SchreierFor InCatalog) :
 
 section Inputs
 
-theorem ggSixStepTwoV2Input_of_schreier (hSch : SchreierFor InCatalog)
-    (h613 : GGStepTwoLemmaSixThirteenInput) (hA : GGStepTwoLinearFusionInput)
-    (hKF : GGKGroupFusionLegacyUnrestrictedInput) (hR : GGStepTwoAutKRestInput)
-    (h615 : GGStepTwoCentralizerInput) : GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_coprime' h613 hA ggLemmaThreeThirteenPInput_holds
-    (ggLemmaThreeFourteenPInput_of_schreier hSch) hKF hR h615
 
 end Inputs
 

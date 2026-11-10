@@ -195,7 +195,6 @@ theorem sum_map_eq_range {α : Type} (f : α → Nat) (d : α) : ∀ l : List α
 theorem getD_entArr (y : Nat) {t : Nat} (ht : t < 64) :
     (entArr y).getD t 0 = GF8.ofNat' (entP y t) := getD_ofFn _ _ ht
 
-theorem size_entArr (y : Nat) : (entArr y).size = 64 := by simp [entArr]
 
 theorem bitsE_testBit (b0 b1 b2 : Bool) : (bitsE b0 b1 b2).toNat.testBit 0 = b0 ∧
     (bitsE b0 b1 b2).toNat.testBit 1 = b1 ∧ (bitsE b0 b1 b2).toNat.testBit 2 = b2 := by

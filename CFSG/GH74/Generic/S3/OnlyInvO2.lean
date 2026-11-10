@@ -63,6 +63,5 @@ theorem two_le_pRank_of_two_involutions {P : Type*} [Group P] [Finite P] {a b : 
     omega
   exact hm2.trans (le_pRank_of_card' one_lt_two _ hE hm)
 
-variable {G : Type} [Group G] [Finite G] {x : G} {K : Subgroup (CentralizerBar x)}
 
 end CFSG.GH74.Generic.S3

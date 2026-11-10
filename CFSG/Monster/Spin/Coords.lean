@@ -146,26 +146,12 @@ theorem Tmat_eq_qmatR (a : C) : Tmat a = qmatR ℚ 0 a 0 := TmatR_eq_qmatR a
 
 theorem zmat_eq_qmatR : zmat = qmatR ℚ 1 0 0 := neg_one_eq_qmatR
 
-theorem Tmat_transpose_mul_self (a : C) : (Tmat a)ᵀ * Tmat a = 1 := by
-  rw [Tmat_eq_qmatR]
-  exact qmatR_transpose_mul_self _ _ _
-
-theorem Tmat_mul_transpose_self (a : C) : Tmat a * (Tmat a)ᵀ = 1 := by
-  rw [Tmat_eq_qmatR]
-  exact qmatR_mul_transpose_self _ _ _
 
 theorem Tmat_apply_mem (a : C) (i j : SpinIdx) :
     Tmat a i j = 0 ∨ Tmat a i j = 1 ∨ Tmat a i j = -1 := by
   rw [Tmat_eq_qmatR]
   exact qmatR_apply_mem _ _ _ _ _
 
-theorem zmat_transpose_mul_self : zmatᵀ * zmat = 1 := by
-  rw [zmat_eq_qmatR]
-  exact qmatR_transpose_mul_self _ _ _
-
-theorem zmat_mul_transpose_self : zmat * zmatᵀ = 1 := by
-  rw [zmat_eq_qmatR]
-  exact qmatR_mul_transpose_self _ _ _
 
 theorem zmat_pow_eq_qmatR (s : ZMod 2) : zmat ^ s.val = qmatR ℚ s 0 0 := by
   rcases zmod2_cases s with rfl | rfl

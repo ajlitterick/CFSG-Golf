@@ -74,28 +74,6 @@ theorem primeSetCore_maximal {G : Type*} [Group G] [Finite G] (π : Set ℕ) :
   rw [primeSetCore_eq_helpersPrimeSetCore]
   exact Helpers.prime_set_core_supported π
 
-private theorem primeSetCore_map_le {G H : Type*} [Group G] [Group H] (π : Set ℕ)
-    (f : G ≃* H) :
-    (primeSetCore π G).map f.toMonoidHom ≤ primeSetCore π H := by
-  rw [primeSetCore, sSup_eq_iSup, Subgroup.map_iSup]
-  refine iSup_le fun N => ?_
-  rw [Subgroup.map_iSup]
-  refine iSup_le fun hN => le_sSup ⟨hN.1.map f.toMonoidHom f.surjective, ?_⟩
-  rw [Subgroup.card_map_of_injective f.injective]
-  exact hN.2
-
-theorem primeSetCore_map_mulEquiv {G H : Type*} [Group G] [Finite G] [Group H] [Finite H]
-    (π : Set ℕ) (f : G ≃* H) :
-    (primeSetCore π G).map f.toMonoidHom = primeSetCore π H := by
-  refine le_antisymm (primeSetCore_map_le π f) ?_
-  have h := Subgroup.map_mono (f := f.toMonoidHom) (primeSetCore_map_le π f.symm)
-  have hid : f.toMonoidHom.comp f.symm.toMonoidHom = MonoidHom.id H := by ext; simp
-  rwa [Subgroup.map_map, hid, Subgroup.map_id] at h
-
-theorem primeSetCore_characteristic_and_normal {G : Type*} [Group G] [Finite G] (π : Set ℕ) :
-    (primeSetCore π G).Characteristic ∧ (primeSetCore π G).Normal :=
-  ⟨Subgroup.characteristic_iff_map_eq.mpr fun f => primeSetCore_map_mulEquiv π f,
-    inferInstance⟩
 
 theorem primeSetCore_quotient_primeSetCore_eq_bot {G : Type*} [Group G] [Finite G] (π : Set ℕ) :
     primeSetCore π (G ⧸ primeSetCore π G) = ⊥ := by

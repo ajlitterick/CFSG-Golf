@@ -24,12 +24,6 @@ open CFSG.ComponentClassification.CatalogueBOrthogonalFourSplit
 variable {p f : ℕ} {E : Type} [Field E] {V : Type} [AddCommGroup V] [Module E V]
   [FiniteDimensional E V]
 
-theorem center_psl2_eq_bot {F₀ : Type} [Field F₀] [Finite F₀] (h3 : 3 < Nat.card F₀) :
-    center (GorensteinWalter.PSL2 F₀) = ⊥ := by
-  rw [eq_bot_iff]
-  intro z hz
-  exact (mem_bot).mpr
-    (OddSelector.Catalog7L3.eq_one_of_mem_center_psl2 h3 (MulEquiv.refl _) hz)
 
 theorem center_quotient_equiv_of_sl {Y X : Type*} [Group Y] [Group X] {F₀ : Type} [Field F₀]
     (σ : Y →* X) (hσs : Function.Surjective σ) (hσk : σ.ker ≤ center Y)

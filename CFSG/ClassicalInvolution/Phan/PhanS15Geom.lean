@@ -12,10 +12,6 @@ namespace CFSG.ClassicalInvolution.PhanB3.S
 @[expose] def Q7Residual : Prop :=
   ∀ (K : Type) [Field K] [Finite K] (M : Std.Model K), M.q = 7 → Std.Q.BBQuad M
 
-theorem q7Residual_of_hardWay
-    (h : ∀ (K : Type) [Field K] [Finite K] (M : Std.Model K), M.q = 7 → Std.Q.HardWay M) :
-    Q7Residual :=
-  fun K _ _ M hM => Std.Q.bbQuad_of_hardWay (h K M hM)
 
 theorem stdGeometryFacts_of_q7 (h7 : Q7Residual) : StdGeometryFacts := by
   intro K _ _ M hq hmod

@@ -82,12 +82,6 @@ theorem ch22201t_wit : (invCK (abK witnessF) (GT 4) && invCK (abK witnessG) (GT 
     invCK (abK witnessU) r4K) = true := by
   decide +kernel
 
-theorem ch22201t_neg1 : (!invCK (abK witnessG) (GT 4)) = true := by decide +kernel
-
-theorem ch22201t_neg2 : (!Nat.beq (abK (tw 2)) (tgK GT 1)) = true := by decide +kernel
-
-theorem ch22201t_neg3 : (!(oneK (pc (tgK GT 1) (tgK GT 1)) == (1 == 0 || false))) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

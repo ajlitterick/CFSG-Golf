@@ -66,15 +66,6 @@ theorem GGNbrLangTorusAxisOn.or {S S' : ℕ → LargeEvenLabel → Prop}
   · exact hQ hS
   · exact hQ' hS
 
-theorem ggNbrLangTorusAxisOn_true_of {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGNbrLangTorusAxisOn S) (h' : GGNbrLangTorusAxisOn fun p lab => ¬ S p lab) :
-    GGNbrLangTorusAxisOn fun _ _ => True :=
-  (h.or h').mono fun p lab _ => em (S p lab)
-
-theorem ggNbrLangTorusAxisInput_of_on (h : GGNbrLangTorusAxisOn fun _ _ => True) :
-    GGNbrLangTorusAxisInput := by
-  intro G _ _ p B Bs x L D J hC y K hK hN
-  exact ggMarkingAll_mono (fun lab R _ I F θ hQ => hQ trivial) (h G p B Bs x L D J hC y K hK hN)
 
 @[expose] def GGNbrInnerWeylOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),

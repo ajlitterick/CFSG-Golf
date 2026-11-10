@@ -26,7 +26,6 @@ attribute [-instance] instCommGroupOfIsSimpleGroupOfIsNilpotent
 
 theorem oData_iso (v : OV) : OData.Iso v ↔ oQ v = 0 := Iff.rfl
 
-theorem oData_pair (w v : OV) : OData.pair w v = oPolar v w := rfl
 
 theorem oQ_eq_zero_of_mem_cspan {s : Finset (Fin 8)} (h6 : 6 ∉ s) (h7 : 7 ∉ s)
     (h0 : 0 ∉ s ∨ 3 ∉ s) (h1 : 1 ∉ s ∨ 4 ∉ s) (h2 : 2 ∉ s ∨ 5 ∉ s) {v : OV}

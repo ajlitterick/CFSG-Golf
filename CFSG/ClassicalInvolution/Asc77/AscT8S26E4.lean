@@ -115,10 +115,6 @@ theorem s26_H274_eq_top (h4a : C27_4a p f) {G : Type} [Group G] [Finite G] [IsSi
 
 variable (p f)
 
-@[expose] def C27_4c : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → dComp Ω K = dstarComp Ω K → T8.H274 Ω K z = ⊤
 
 @[expose] def C27_8E4 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
@@ -132,32 +128,6 @@ variable (p f)
 
 variable {p f}
 
-theorem c27_4c_of_c27_4 (h : C27_4 p f) : C27_4c p f :=
-  fun G _ _ _ Ω K J S R T W z t hs hdisc _ => h G Ω K J S R T W z t hs hdisc
-
-theorem c27_4c_of_c27_4a (h : C27_4a p f) : C27_4c p f :=
-  fun _ _ _ _ _ _ _ _ _ _ _ _ _ hs hdisc hcomp => s26_H274_eq_top h hs hdisc hcomp
-
-theorem c26_7_of_c27_8E4 (h752 : L7_5_2 p f) (h4 : C27_4c p f) (h8 : C27_8E4 p f) :
-    C26_7 p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hE4 _
-  by_contra hdisc
-  have hcomp := s26_dComp_eq_of_e4 hs hE4
-  have h4' : T8.H274 Ω K z = ⊤ := h4 G Ω K J S R T W z t hs hdisc hcomp
-  have hz := hs.hz
-  have hle : T8.H274 Ω K z ≤ sigmaNorm Ω K := by
-    refine sup_le le_rfl (iSup₂_le fun M hM => iSup_le fun s => iSup_le fun hs' => ?_)
-    obtain ⟨S', R', T', W', hstd'⟩ := c27_setup_proved G Ω K hs.stand hs.noTwins hdisc z hz M hM s
-      hs'
-    obtain ⟨φ⟩ := hE4
-    obtain ⟨ψ⟩ := h752 hs.stand.odd hs.stand.five G Ω hs.stand.hyp W' hstd'.hW.1 W hs.hW.1
-    exact h8 G Ω K M S' R' T' W' z s hstd' hdisc ⟨ψ.trans φ⟩
-  rw [h4'] at hle
-  exact hdisc (dConnected_of_sigmaNorm_eq_top hs.stand.mem hs.stand.trans (top_le_iff.mp hle))
-
-theorem c26_7_of_c27_8E4_a (h752 : L7_5_2 p f) (h4a : C27_4a p f) (h8 : C27_8E4 p f) :
-    C26_7 p f :=
-  c26_7_of_c27_8E4 h752 (c27_4c_of_c27_4a h4a) h8
 
 theorem c27_8_of_split (h1 : C27_8E4 p f) (h2 : C27_8nE4 p f) : C27_8 p f := by
   intro G _ _ _ Ω K J S R T W z t hs hdisc
@@ -165,8 +135,5 @@ theorem c27_8_of_split (h1 : C27_8E4 p f) (h2 : C27_8nE4 p f) : C27_8 p f := by
   · exact h1 G Ω K J S R T W z t hs hdisc hE4
   · exact h2 G Ω K J S R T W z t hs hdisc hE4
 
-theorem c26_7_of_c27_8 (h752 : L7_5_2 p f) (h4 : C27_4 p f) (h8 : C27_8 p f) : C26_7 p f :=
-  c26_7_of_c27_8E4 h752 (c27_4c_of_c27_4 h4) fun G _ _ _ Ω K J S R T W z t hs hdisc _ =>
-    h8 G Ω K J S R T W z t hs hdisc
 
 end CFSG.ClassicalInvolution.Asc77

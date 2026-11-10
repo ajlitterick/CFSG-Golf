@@ -10,17 +10,6 @@ namespace CFSG.RankThree.PartTwo.Sec21
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.Assembly.RankThreeEven (projSL projSU)
 
-@[expose] def Inspection223 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (X A B K : Subgroup G) (m : ℕ),
-    Sec4.IsList46 (X ⧸ aschbacherSolvableCore 3 X) →
-    CFSG.Assembly.IsElemAbelian 3 A → Nat.card A = 3 ^ 4 →
-    A ≤ Subgroup.normalizer (X : Set G) →
-    Nat.card (A ⊓ Sec4.thetaQuotCentralizer X : Subgroup G) = 3 →
-    (∀ x ∈ A, Sec4.InducesOuterTheta x X → KFacts.InducesStdKind X x .diagonal) →
-    B ≤ A → Nat.card B = 3 ^ 3 → K ≤ X → K ≤ Subgroup.centralizer (B : Set G) →
-    (∀ y ∈ X ⊓ Subgroup.centralizer (B : Set G), ∀ k ∈ K, y * k * y⁻¹ ∈ K) →
-    Nonempty (K ≃* projSL 2 (GaloisField 2 m)) → 1 < m → Odd m →
-    Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSU 4 2 m)
 
 @[expose] def U4TorusBlocks : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (X T B₁ B₂ K₁ K₂ : Subgroup G) (m : ℕ),

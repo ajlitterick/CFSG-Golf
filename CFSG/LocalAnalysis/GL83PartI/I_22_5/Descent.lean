@@ -134,9 +134,6 @@ theorem le_normJoin (hF : IsFam p B 𝒦) {K₀ M : Subgroup G} (hM : M ∈ norm
     M ≤ normJoin hF K₀ :=
   le_iSup₂ (f := fun M (_ : M ∈ normAll hF K₀) => M) M hM
 
-theorem layer_normFam_le_normJoin (hF : IsFam p B 𝒦) {K₀ : Subgroup G} {b : G} (hb : b ∈ B)
-    (hbA : b ∉ stab B K₀) : layer (normFam hF b hb) ≤ normJoin hF K₀ :=
-  iSup₂_le fun _ hM => le_normJoin hF ⟨b, hb, hbA, hM⟩
 
 theorem IsFam.cj_normJoin_le (hF : IsFam p B 𝒦) (K₀ : Subgroup G) {c : G} (hc : c ∈ B) :
     cj c (normJoin hF K₀) ≤ normJoin hF K₀ := by

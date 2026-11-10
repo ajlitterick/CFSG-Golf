@@ -355,22 +355,6 @@ theorem not_jAtLeast_le_of_not_le_q1
     exact false_of_commutator_le_of_bender hF hB hS1 hq (zTilde_le_pCoreOf L1 L2 S q)
       hYn (commutator_zTilde_oTwoUpper_of_not_le_q1 hF hS1 hq hJ) hz'S hz'Q1 hc
 
-theorem str83_not_jAtLeast_le_of_caseIa
-    {L1 L2 S : Subgroup G} {a : ℕ} (hF : F112Hyp L1 L2 S)
-    (hB : bigB L1 L2 S ≤ Subgroup.normalizer (S : Set G)) (ha : 1 ≤ a)
-    (hSz : Nonempty (oTwoQuot ↥L1 ≃* Sz a))
-    (hL2 : IsL2Quot (2 * a + 1) (oTwoQuot ↥L2))
-    (hJ2 : thompsonJ S ≤ Q2 L1 L2 S) (hJ1 : ¬ thompsonJ S ≤ Q1 L1 L2 S) :
-    ¬ jAtLeast (2 ^ CFSG.Open.pRank 2 S) (2 ^ (2 * a + 1)) S ≤ Q2 L1 L2 S := by
-  have hS1 : S = (S ⊓ L1) ⊔ Q1 L1 L2 S :=
-    eq_sup_pCoreOf_of_bender_left hF.1 hB (Or.inl ⟨a, ha, hSz⟩)
-  have hS2 : S = (S ⊓ L2) ⊔ Q2 L1 L2 S :=
-    eq_sup_pCoreOf_of_bender_right hF.1 hB
-      (Or.inr (Or.inr ⟨2 * a + 1, by omega, hL2⟩))
-  have hq : IsSzU3Quot (oTwoQuot ↥L1) (2 ^ (2 * a + 1)) := by
-    obtain ⟨e⟩ := hSz
-    exact Or.inl ⟨a, ha, rfl, ⟨e⟩⟩
-  exact not_jAtLeast_le_of_not_le_q1 hF.1 hB hS1 hS2 hq hJ1
 
 theorem card_chiefSeries_z2_le_two
     {L1 L2 S : Subgroup G} {a c : ℕ} (hF : F112HypW L1 L2 S)
@@ -572,64 +556,6 @@ theorem one_le_chiefSeries_z2_of_caseI
     exact (Subgroup.mem_centralizer_iff.mp (hC hg) z hz).symm
   have hZ2bot := z2_inf_centralizer_sup_eq_bot_of_caseI hF hB ha hSz hL2 hZI
   exact hZ2ne (le_bot_iff.mp (hZ2le.trans (le_of_eq hZ2bot)))
-
-theorem centralizer_eq_q2_of_caseI
-    {L1 L2 S : Subgroup G} {a : ℕ} (hF : F112Hyp L1 L2 S)
-    (hB : bigB L1 L2 S ≤ Subgroup.normalizer (S : Set G)) (ha : 1 ≤ a)
-    (hSz : Nonempty (oTwoQuot ↥L1 ≃* Sz a))
-    (hL2 : IsL2Quot (2 * a + 1) (oTwoQuot ↥L2))
-    (hZI : L1 ⊔ Q1 L1 L2 S ≤ Subgroup.centralizer (Z1 L1 L2 S : Set G))
-    {Y : Subgroup G} (hYn : L2 ⊔ S ≤ Subgroup.normalizer (Y : Set G))
-    (hYZ : Y ≤ Z2 L1 L2 S) (hYne : Y ≠ ⊥) :
-    (L2 ⊔ S) ⊓ Subgroup.centralizer (Y : Set G) = Q2 L1 L2 S := by
-  have hS2 : S = (S ⊓ L2) ⊔ Q2 L1 L2 S :=
-    eq_sup_pCoreOf_of_bender_right hF.1 hB
-      (Or.inr (Or.inr ⟨2 * a + 1, by omega, hL2⟩))
-  have hQ2S : Q2 L1 L2 S ≤ S := by
-    conv_rhs => rw [hS2]
-    exact le_sup_right
-  have hsup2 : L2 ⊔ S = L2 ⊔ Q2 L1 L2 S := by
-    have h1 : L2 ⊔ S = L2 ⊔ ((S ⊓ L2) ⊔ Q2 L1 L2 S) :=
-      congrArg (fun X => L2 ⊔ X) hS2
-    rw [h1, ← sup_assoc, show L2 ⊔ (S ⊓ L2) = L2 from sup_eq_left.mpr inf_le_right]
-  set H : Subgroup G := L2 ⊔ S with hH
-  set K : Subgroup G := H ⊓ Subgroup.centralizer (Y : Set G) with hK
-  have hKH : K ≤ H := by rw [hK]; exact inf_le_left
-  have hQ2H : Q2 L1 L2 S ≤ H := hQ2S.trans le_sup_right
-  have hQ2C : Q2 L1 L2 S ≤ Subgroup.centralizer (Y : Set G) :=
-    (SmithC27.pCoreOf_le_centralizer_omegaOneCenterOf (P2 L1 L2 S)).trans
-      (Subgroup.centralizer_le hYZ)
-  have hQ2K : Q2 L1 L2 S ≤ K := le_inf hQ2H hQ2C
-  have hHnC : H ≤ Subgroup.normalizer
-      (Subgroup.centralizer (Y : Set G) : Set G) :=
-    hYn.trans (F7.normalizer_le_normalizer_centralizer Y)
-  have hKn : H ≤ Subgroup.normalizer (K : Set G) := by
-    intro x hx
-    rw [hK]
-    exact A4.mem_normalizer_inf (Subgroup.le_normalizer hx) (hHnC hx)
-  have hKn' : L2 ⊔ Q2 L1 L2 S ≤ Subgroup.normalizer (K : Set G) := by
-    rwa [← hsup2]
-  have hKH' : K ≤ L2 ⊔ Q2 L1 L2 S := by
-    rwa [← hsup2]
-  rcases eq_or_eq_sup_of_normal_of_isL2Quot hF.toW (by omega : 2 ≤ 2 * a + 1) hL2
-      hKH' hKn' hQ2K with hQ | hTop
-  · rw [hK] at hQ
-    exact hQ
-  · exfalso
-    have hKtop : K = H := by rw [hTop, hsup2]
-    have hHleC : H ≤ Subgroup.centralizer (Y : Set G) := by
-      have := hKtop
-      rw [hK] at this
-      exact inf_eq_left.mp this
-    have hYleC : Y ≤ Subgroup.centralizer (H : Set G) := by
-      intro y hy
-      rw [Subgroup.mem_centralizer_iff]
-      intro g hg
-      exact (Subgroup.mem_centralizer_iff.mp (hHleC hg) y hy).symm
-    have hYle : Y ≤ Z2 L1 L2 S ⊓ Subgroup.centralizer (H : Set G) := le_inf hYZ hYleC
-    rw [hH] at hYle
-    have hZ2bot := z2_inf_centralizer_sup_eq_bot_of_caseI hF.toW hB ha hSz hL2 hZI
-    exact hYne (le_bot_iff.mp (hYle.trans (le_of_eq hZ2bot)))
 
 
 end CFSG.Quasithin.Stroth

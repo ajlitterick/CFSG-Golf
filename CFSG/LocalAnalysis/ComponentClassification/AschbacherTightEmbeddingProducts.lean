@@ -27,15 +27,6 @@ theorem product_mul_injective {G : Type*} [Group G] (A B : Subgroup G)
     exact mul_left_cancel heq
   exact Prod.ext hac hbd
 
-theorem disjoint_card_mul_le {G : Type*} [Group G] [Finite G]
-    (A B X : Subgroup G) (hA : A ≤ X) (hB : B ≤ X) (hdisjoint : Disjoint A B) :
-    Nat.card A * Nat.card B ≤ Nat.card X := by
-  let mulMap : A × B → X := fun pair =>
-    ⟨pair.1.val * pair.2.val, X.mul_mem (hA pair.1.property) (hB pair.2.property)⟩
-  have hinjective : Function.Injective mulMap := by
-    intro first second heq
-    exact product_mul_injective A B hdisjoint (congrArg Subtype.val heq)
-  simpa only [Nat.card_prod] using Nat.card_le_card_of_injective mulMap hinjective
 
 @[expose] noncomputable def commutingProductEquiv {G : Type*} [Group G]
     (A B : Subgroup G) (hcommutes : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
@@ -64,11 +55,6 @@ theorem commutingProductEquiv_apply {G : Type*} [Group G]
     (hdisjoint : Disjoint A B) (pair : A × B) :
     (commutingProductEquiv A B hcommutes hdisjoint pair).val = pair.1.val * pair.2.val := rfl
 
-theorem commutingProduct_card {G : Type*} [Group G]
-    (A B : Subgroup G) (hcommutes : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
-    (hdisjoint : Disjoint A B) :
-    Nat.card ↥(A ⊔ B) = Nat.card A * Nat.card B := by
-  rw [← Nat.card_congr (commutingProductEquiv A B hcommutes hdisjoint).toEquiv, Nat.card_prod]
 
 @[expose] def relativeNormalizer {G : Type*} [Group G] (T S : Subgroup G) : Subgroup G :=
   Subgroup.normalizer (T : Set G) ⊓ S
@@ -150,21 +136,5 @@ theorem overlap_relativeNormalizer_product {G : Type*} [Group G]
       sylowImage _ T ⊔ (relativeNormalizer (sylowImage _ T) (sylowImage _ S) ⊓ Q) :=
   relativeNormalizer_product_eq Q _ _ (overlap_sylow_le_normalizer Q g T) hTS (sylowImage_le _ S)
 
-theorem overlap_relativeNormalizer_directProduct {G : Type*} [Group G] [Finite G]
-    (Q : Subgroup G) (htight : TightlyEmbedded Q) (g : G)
-    (hg : g ∉ Subgroup.normalizer (Q : Set G))
-    (T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)))
-    (S : Sylow 2 ↥(Q ⊔ sylowImage _ T))
-    (hTS : sylowImage _ T ≤ sylowImage _ S) :
-    ∃ e : sylowImage _ T ×
-        ↥(relativeNormalizer (sylowImage _ T) (sylowImage _ S) ⊓ Q) ≃*
-          relativeNormalizer (sylowImage _ T) (sylowImage _ S),
-      ∀ pair, (e pair).val = pair.1.val * pair.2.val := by
-  have hdisjoint : Disjoint (sylowImage _ T) Q :=
-    disjoint_iff.mpr (overlap_sylow_inf_eq_bot Q htight g hg T)
-  refine ⟨relativeNormalizerProductEquiv Q _ _ (overlap_sylow_le_normalizer Q g T)
-    hdisjoint hTS (sylowImage_le _ S), ?_⟩
-  exact relativeNormalizerProductEquiv_apply Q _ _ (overlap_sylow_le_normalizer Q g T)
-    hdisjoint hTS (sylowImage_le _ S)
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

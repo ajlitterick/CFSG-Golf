@@ -35,17 +35,6 @@ theorem Zp_eq_stabilizer :
     Nat.le_antisymm (Nat.le_of_mul_le_mul_right h3 (by norm_num)) hpos
   exact le_antisymm hle (Subgroup.relIndex_eq_one.1 h2)
 
-theorem mem_Zp_iff_of_rep
-    {T : Table} {g : Q3} (h : Rep 920808 T g) : g ∈ Zp ↔ ap T 0 = 0 := by
-  rw [Zp_eq_stabilizer, MulAction.mem_stabilizer_iff]
-  have e := smul_val_of_rep h x0
-  rw [x0_val] at e
-  constructor
-  · intro hg
-    rw [← e, hg, x0_val]
-  · intro h0
-    apply Fin.ext
-    rw [e, h0, x0_val]
 
 @[expose] noncomputable def omegaEquiv :
     Q3 ⧸ Zp ≃ Ω :=
@@ -59,11 +48,5 @@ theorem omegaEquiv_mk (g : Q3) :
     omegaEquiv (QuotientGroup.mk g : Q3 ⧸ Zp) = g • x0 :=
   rfl
 
-theorem omegaEquiv_smul (g : Q3)
-    (q : Q3 ⧸ Zp) : omegaEquiv (g • q) = g • omegaEquiv q := by
-  induction q using QuotientGroup.induction_on with
-  | H h =>
-    have e : (g • (QuotientGroup.mk h : Q3 ⧸ Zp)) = QuotientGroup.mk (g * h) := rfl
-    rw [e, omegaEquiv_mk, omegaEquiv_mk, mul_smul]
 
 end CFSG.EvenSporadicStandard.TwoFi22.DS81.RouteP.Model

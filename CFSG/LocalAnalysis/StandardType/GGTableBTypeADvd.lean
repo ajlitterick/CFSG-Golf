@@ -208,14 +208,6 @@ theorem largeEvenLabelAll_typeA_dvd (htor : GGPGLToralityInput) {p : ℕ} (hp : 
   have hl1 : 1 ≤ l := hlab.2.1
   exact recipeLinear_tableB_dvd htor hp hpn ⟨n, rfl⟩ (by omega) hpl hQ
 
-theorem ggBstarInputOn_typeA_dvd (htor : GGPGLToralityInput) : GGBstarInputOn GGTypeALabelDvd :=
-  ggBstarInputOn_of_labels (fun _ _ h => Or.inl h.1) fun _ _ hp hlab h =>
-    (largeEvenLabelAll_typeA_dvd htor hp hlab h).mono fun _ _ _ _ ⟨r, h1, h2, _⟩ => ⟨r, h1, h2⟩
-
-theorem ggStdSubPreInputOn_typeA_dvd (htor : GGPGLToralityInput) :
-    GGStdSubPreInputOn GGTypeALabelDvd :=
-  ggStdSubPreInputOn_of_labels fun _ _ hp hlab h =>
-    (largeEvenLabelAll_typeA_dvd htor hp hlab h).mono fun _ _ _ _ ⟨r, h1, _, h3⟩ => ⟨r, h1, h3⟩
 
 @[expose] def GGTypeASplitLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   GGTypeALabel p lab ∨ GGTypeALabelDvd p lab

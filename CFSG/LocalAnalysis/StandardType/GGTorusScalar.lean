@@ -35,55 +35,6 @@ def corTupleHom (C : Matrix (Fin N) (Fin N) ℤ) (k : Fin N) : μ →* (Fin N �
 @[simp] theorem corTupleHom_apply (C : Matrix (Fin N) (Fin N) ℤ) (k : Fin N) (z : μ) :
     corTupleHom C k z = corTuple C k z := rfl
 
-theorem corTuple_injective (C B : Matrix (Fin N) (Fin N) ℤ) (hCB : C * B = 1) (k : Fin N) :
-    Function.Injective (corTuple (μ := μ) C k) := by
-  intro z w h
-  have hsum : ∑ j, C k j * B j k = 1 := by
-    have := congrFun (congrFun hCB k) k
-    simpa [Matrix.mul_apply, Matrix.one_apply] using this
-  calc z = z ^ (1 : ℤ) := (zpow_one z).symm
-    _ = z ^ (∑ j, C k j * B j k) := by rw [hsum]
-    _ = ∏ j, z ^ (C k j * B j k) := by rw [Finset.prod_zpow_eq_zpow_sum]
-    _ = ∏ j, (z ^ C k j) ^ B j k := by simp only [zpow_mul]
-    _ = ∏ j, (w ^ C k j) ^ B j k := by
-        refine Finset.prod_congr rfl fun j _ => ?_
-        have hzj : z ^ C k j = w ^ C k j := by
-          simpa only [corTuple_apply] using congrFun h j
-        rw [hzj]
-    _ = ∏ j, w ^ (C k j * B j k) := by simp only [zpow_mul]
-    _ = w ^ (∑ j, C k j * B j k) := by rw [Finset.prod_zpow_eq_zpow_sum]
-    _ = w ^ (1 : ℤ) := by rw [hsum]
-    _ = w := zpow_one w
-
-theorem corTuple_prod_mul_eq (C B : Matrix (Fin N) (Fin N) ℤ) (hBC : B * C = 1)
-    (a : Fin N → μ) :
-    (∏ k, corTuple C k (∏ j, a j ^ B j k)) = a := by
-  funext j
-  rw [Finset.prod_apply]
-  simp only [corTuple_apply]
-  calc (∏ k, (∏ j', a j' ^ B j' k) ^ C k j)
-      = ∏ k, ∏ j', (a j' ^ B j' k) ^ C k j := by
-          refine Finset.prod_congr rfl fun k _ => ?_
-          rw [Finset.prod_zpow]
-    _ = ∏ k, ∏ j', a j' ^ (B j' k * C k j) := by
-          refine Finset.prod_congr rfl fun k _ => ?_
-          refine Finset.prod_congr rfl fun j' _ => ?_
-          rw [zpow_mul]
-    _ = ∏ j', ∏ k, a j' ^ (B j' k * C k j) := by rw [Finset.prod_comm]
-    _ = ∏ j', a j' ^ (∑ k, B j' k * C k j) := by
-          refine Finset.prod_congr rfl fun j' _ => ?_
-          rw [Finset.prod_zpow_eq_zpow_sum]
-    _ = a j := by
-          rw [Finset.prod_eq_single j (fun j' _ hj => ?_)
-            (fun hj => absurd (Finset.mem_univ j) hj)]
-          · have hsum : ∑ k, B j k * C k j = 1 := by
-              have := congrFun (congrFun hBC j) j
-              simpa [Matrix.mul_apply, Matrix.one_apply] using this
-            rw [hsum, zpow_one]
-          · have hsum : ∑ k, B j' k * C k j = 0 := by
-              have := congrFun (congrFun hBC j') j
-              simpa [Matrix.mul_apply, Matrix.one_apply, hj] using this
-            rw [hsum, zpow_zero]
 
 theorem zpow_eq_zpow_of_intCast_eq {m : ℕ} (l : μ ≃* Multiplicative (ZMod m)) (z : μ) {a b : ℤ}
     (h : (a : ZMod m) = (b : ZMod m)) : z ^ a = z ^ b := by
@@ -707,14 +658,6 @@ theorem exists_int_matrix_inverse_mod_of_isUnit_det {m N : ℕ} (C : Matrix (Fin
   · rw [Matrix.smul_mul, Matrix.adjugate_mul, smul_smul]
     exact hmap
 
-theorem exists_int_matrix_inverse_mod_E₇ {m : ℕ} (hm : Odd m) :
-    ∃ B : Matrix (Fin 7) (Fin 7) ℤ,
-      (Int.castRingHom (ZMod m)).mapMatrix (CartanMatrix.E 7 * B) = 1 ∧
-        (Int.castRingHom (ZMod m)).mapMatrix (B * CartanMatrix.E 7) = 1 := by
-  refine exists_int_matrix_inverse_mod_of_isUnit_det _ ?_
-  rw [CartanMatrix.E₇_det]
-  have h := (ZMod.isUnit_iff_coprime 2 m).mpr (Nat.coprime_two_left.mpr hm)
-  simpa using h
 
 theorem exists_int_matrix_inverse_mod_C {m n : ℕ} (hn : 0 < n) (hm : Odd m) :
     ∃ B : Matrix (Fin n) (Fin n) ℤ,

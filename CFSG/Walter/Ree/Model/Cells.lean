@@ -48,9 +48,6 @@ theorem smallReeH_neg_one_mul_self :
     smallReeH a K (-1) * smallReeH a K (-1) = 1 := by
   rw [← smallReeH_mul, neg_one_mul, neg_neg, smallReeH_one]
 
-theorem smallReeH_neg_one_inv :
-    (smallReeH a K (-1))⁻¹ = smallReeH a K (-1) :=
-  inv_eq_of_mul_eq_one_right smallReeH_neg_one_mul_self
 
 theorem smallReeH_mem_torusGroup
     (s : Kˣ) : smallReeH a K s ∈ torusGroup ReeTag.G2.tag K :=

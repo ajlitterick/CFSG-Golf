@@ -27,10 +27,6 @@ variable {S V : Type*} [Group S] {act : S →* Equiv.Perm V} {lab : V → S} {Y 
     (ρ : sliceGroup lab Y →* stdGroup) (u : fixedL) : Set fixedL :=
   {u' | ∃ h : sliceGroup lab Y, u' = actStar (SemidirectProduct.inl (ρ h)) u}
 
-theorem mem_hOrbit
-    {ρ : sliceGroup lab Y →* stdGroup} {u u' : fixedL} :
-    u' ∈ hOrbit ρ u ↔ ∃ h : sliceGroup lab Y, u' = actH ρ h u :=
-  Iff.rfl
 
 theorem mem_hOrbit_self
     (ρ : sliceGroup lab Y →* stdGroup) (u : fixedL) : u ∈ hOrbit ρ u :=

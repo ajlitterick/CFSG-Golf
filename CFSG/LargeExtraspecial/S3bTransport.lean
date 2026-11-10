@@ -68,22 +68,6 @@ theorem isTypeA_of_intertwine (φ : V ≃ₗ[ZMod 2] V') (hφ : ∀ v, q' (φ v)
   rw [LinearEquiv.coe_coe, hφ]
   exact hsing y hy
 
-theorem isTypeC_of_intertwine (φ : V ≃ₗ[ZMod 2] V') (hφ : ∀ v, q' (φ v) = q v)
-    {t : V ≃ₗ[ZMod 2] V} {t' : V' ≃ₗ[ZMod 2] V'} (ht : ∀ v, t' (φ v) = φ (t v)) {l : ℕ}
-    (h : IsTypeC q t l) : IsTypeC q' t' l := by
-  obtain ⟨hiso, hne, htt, hdim, hev, x, hx, hqx⟩ := h
-  refine ⟨iso_of_intertwine φ hφ ht hiso, ne_one_of_intertwine φ ht hne,
-    mul_self_of_intertwine φ ht htt, by rw [finrank_commSpace_of_intertwine φ ht, hdim], hev,
-    φ x, ?_, by rw [hφ]; exact hqx⟩
-  rw [commSpace_eq_map_of_intertwine φ ht]
-  exact ⟨x, hx, rfl⟩
-
-theorem isTypeB_of_intertwine (φ : V ≃ₗ[ZMod 2] V') (hφ : ∀ v, q' (φ v) = q v)
-    {t : V ≃ₗ[ZMod 2] V} {t' : V' ≃ₗ[ZMod 2] V'} (ht : ∀ v, t' (φ v) = φ (t v)) {l : ℕ}
-    (h : IsTypeB q t l) : IsTypeB q' t' l := by
-  obtain ⟨hiso, htt, hdim, hodd⟩ := h
-  exact ⟨iso_of_intertwine φ hφ ht hiso, mul_self_of_intertwine φ ht htt,
-    by rw [finrank_commSpace_of_intertwine φ ht, hdim], hodd⟩
 
 end TypeTransport
 
@@ -204,15 +188,6 @@ theorem isTypeAOn_transport (S S' : Setting G) {k : G} (hk : k * S.z * k⁻¹ = 
     S'.IsTypeAOn ⟨k * m * k⁻¹, conj_mem_M_of_conj_eq S S' hk m.2⟩ l :=
   isTypeA_of_intertwine (transportQt S S' hk) (q_transportQt S S' hk) (transportQt_ρ S S' hk m) h
 
-theorem isTypeCOn_transport (S S' : Setting G) {k : G} (hk : k * S.z * k⁻¹ = S'.z) {m : S.M}
-    {l : ℕ} (h : S.IsTypeCOn m l) :
-    S'.IsTypeCOn ⟨k * m * k⁻¹, conj_mem_M_of_conj_eq S S' hk m.2⟩ l :=
-  isTypeC_of_intertwine (transportQt S S' hk) (q_transportQt S S' hk) (transportQt_ρ S S' hk m) h
-
-theorem isTypeBOn_transport (S S' : Setting G) {k : G} (hk : k * S.z * k⁻¹ = S'.z) {m : S.M}
-    {l : ℕ} (h : S.IsTypeBOn m l) :
-    S'.IsTypeBOn ⟨k * m * k⁻¹, conj_mem_M_of_conj_eq S S' hk m.2⟩ l :=
-  isTypeB_of_intertwine (transportQt S S' hk) (q_transportQt S S' hk) (transportQt_ρ S S' hk m) h
 
 variable (S : Setting G)
 

@@ -19,8 +19,6 @@ theorem subTreeFacts {j : ℕ} (hj : j < D.subReps.size) :
     TreeFacts D.n (S D)[j]! (lv D) (pairG (gs D)) D.subReps[j]! :=
   treeOK_facts (fun l hl => rep_pairG_all hF l (levelLetters_lt hl)) (hF.subTrees j hj)
 
-omit hF in
-theorem lettersGroup_lv : lettersGroup (lv D) (pairG (gs D)) = lvl D 1 := rfl
 
 omit hF in
 theorem orbit_conj {H : Subgroup (J D)} {x p q : Fin D.n} (hp : p ∈ MulAction.orbit H x)

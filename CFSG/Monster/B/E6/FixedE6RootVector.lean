@@ -130,34 +130,6 @@ theorem gEnd_a0_eq_iff
     rw [← gEnd_rootMap, ← gEnd_rootInv]
     exact congrArg gEnd h
 
-theorem actStar_inl_a0L_eq_iff
-    (g : stdGroup) :
-    actStar (SemidirectProduct.inl g) a0L = a0L ↔ g ∈ PJ := by
-  rw [actStar_inl_eq_gL, ← Subtype.coe_inj, coe_gL_apply, coe_a0L]
-  exact gEnd_a0_eq_iff g
-
-theorem coe_actStar_a0L
-    (γ : GStar) : (actStar γ a0L : V) = gEnd γ.left a0 := by
-  rw [coe_actStar_apply, coe_a0L, sigmaPow_a0]
-
-theorem actStar_a0L_eq_iff
-    (γ : GStar) : actStar γ a0L = a0L ↔ γ ∈ parStar firstJ := by
-  rw [mem_parStar, ← Subtype.coe_inj, coe_actStar_a0L, coe_a0L]
-  exact gEnd_a0_eq_iff γ.left
-
-theorem stabilizer_a0L :
-    (MulAction.stabilizer (Equiv.Perm fixedL) a0L).comap
-      (actStar.comp SemidirectProduct.inl) = PJ := by
-  ext g
-  rw [Subgroup.mem_comap, MulAction.mem_stabilizer_iff, MonoidHom.comp_apply,
-    Equiv.Perm.smul_def]
-  exact actStar_inl_a0L_eq_iff g
-
-theorem stabilizer_star_a0L :
-    (MulAction.stabilizer (Equiv.Perm fixedL) a0L).comap actStar = parStar firstJ := by
-  ext γ
-  rw [Subgroup.mem_comap, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def]
-  exact actStar_a0L_eq_iff γ
 
 open _root_.Classical in
 @[expose] def rootVecOf
@@ -171,10 +143,6 @@ theorem rootVecOf_rootMap
   refine Subtype.ext (rootOpV_injective ?_)
   rw [coe_gL_apply, coe_gL_apply, coe_a0L, ← gEnd_rootMap, ← gEnd_rootMap, h.choose_spec]
 
-theorem rootVecOf_conj_rootInv
-    (g : stdGroup) :
-    rootVecOf (g * rootInv * g⁻¹) = actStar (SemidirectProduct.inl g) a0L :=
-  (rootVecOf_rootMap g).trans (actStar_inl_eq_gL g a0L).symm
 
 theorem rootVecOf_rootInv :
     rootVecOf rootInv = a0L := by
@@ -186,10 +154,6 @@ theorem gEnd_eq_rootOpV
   obtain ⟨g, rfl⟩ := (mem_rootClass_iff q).1 hq
   rw [gEnd_rootMap, rootVecOf_rootMap, coe_gL_apply, coe_a0L]
 
-theorem rootVecOf_eq_of_gEnd
-    {q : stdGroup} (hq : q ∈ rootClass) {a : fixedL}
-    (h : gEnd q = rootOpV a) : rootVecOf q = a :=
-  Subtype.ext (rootOpV_injective ((gEnd_eq_rootOpV hq).symm.trans h))
 
 theorem rootVecOf_conj
     {q : stdGroup} (hq : q ∈ rootClass) (g : stdGroup) :
@@ -216,16 +180,6 @@ theorem bijOn_rootVecOf :
     exact ⟨rootMap g, (mem_rootClass_iff _).2 ⟨g, rfl⟩,
       (rootVecOf_rootMap g).trans (actStar_inl_eq_gL g a0L).symm⟩
 
-theorem range_actStar_a0L :
-    (Set.range fun γ : GStar => actStar γ a0L) = rootOrbit := by
-  ext u
-  constructor
-  · rintro ⟨γ, rfl⟩
-    refine ⟨γ.left, Subtype.ext ?_⟩
-    simp only
-    rw [actStar_inl, coe_actStar_a0L, coe_a0L]
-  · rintro ⟨g, rfl⟩
-    exact ⟨_, rfl⟩
 
 theorem rootVecOf_conj_star
     (γ : GStar) {q q' : stdGroup} (hq : q ∈ rootClass)
@@ -467,44 +421,5 @@ theorem formL_bracketL_of_orderOf_eq_three
   calc c = c + a₂ + a₂ + a₁ + a₁ := by rw [add_add_self_zmod, add_add_self_zmod]
     _ = a₁ + a₂ + (a₂ + c + a₁) := by abel
 
-theorem fixed_E6_root_involution_vector_bijection :
-    theta = e6HighestRoot ∧ a0 = rootVec Tag.E6 K theta ∧ a0 ∈ fixedL ∧ (a0L : V) = a0 ∧
-    (rootInv : ModGL Tag.E6 K) = pinnedX Tag.E6 K theta 1 ∧
-    gEnd rootInv = 1 + ad K a0 + formTensor K a0 ∧
-    (MulAction.stabilizer (Equiv.Perm fixedL) a0L).comap
-      (actStar.comp SemidirectProduct.inl) = PJ ∧
-    (MulAction.stabilizer (Equiv.Perm fixedL) a0L).comap actStar = parStar firstJ ∧
-    (∀ g : stdGroup, rootVecOf (g * rootInv * g⁻¹) = actStar (SemidirectProduct.inl g) a0L) ∧
-    Set.BijOn rootVecOf {q : stdGroup | IsConj rootInv q}
-      (Set.range fun g : stdGroup => actStar (SemidirectProduct.inl g) a0L) ∧
-    (Set.range fun γ : GStar => actStar γ a0L) =
-      Set.range (fun g : stdGroup => actStar (SemidirectProduct.inl g) a0L) ∧
-    (∀ (γ : GStar) (q : stdGroup), γ * SemidirectProduct.inl q * γ⁻¹ =
-      SemidirectProduct.inl (γ.left * (γ.right : MulAut stdGroup) q * γ.left⁻¹)) ∧
-    (∀ (γ : GStar) (q q' : stdGroup), IsConj rootInv q →
-      SemidirectProduct.inl q' = γ * SemidirectProduct.inl q * γ⁻¹ →
-        IsConj rootInv q' ∧ rootVecOf q' = actStar γ (rootVecOf q)) ∧
-    (∀ (g : stdGroup) (u : fixedL), actStar (SemidirectProduct.inl g) u = gL g u) ∧
-    (∀ q : stdGroup, IsConj rootInv q →
-      gL q = 1 + adL (rootVecOf q) + formTensorL (rootVecOf q)) ∧
-    (∀ a u : fixedL, adL a u = bracketL a u ∧ formTensorL a u = formL a u • a) ∧
-    (∀ q : stdGroup, IsConj rootInv q → ∀ u : fixedL, actStar (SemidirectProduct.inl q) u =
-      u + bracketL (rootVecOf q) u + formL (rootVecOf q) u • rootVecOf q) ∧
-    (∀ q : stdGroup, IsConj rootInv q →
-      gEnd q = 1 + ad K (rootVecOf q : V) + formTensor K (rootVecOf q : V)) ∧
-    (∀ q₁ q₂ : stdGroup, IsConj rootInv q₁ → IsConj rootInv q₂ → Commute q₁ q₂ →
-      formL (rootVecOf q₁) (rootVecOf q₂) = 0 ∧ bracketL (rootVecOf q₁) (rootVecOf q₂) = 0) ∧
-    ∀ q₁ q₂ : stdGroup, IsConj rootInv q₁ → IsConj rootInv q₂ → orderOf (q₁ * q₂) = 3 →
-      formL (rootVecOf q₁) (rootVecOf q₂) = 1 ∧
-        bracketL (rootVecOf q₁) (rootVecOf q₂) =
-          rootVecOf q₁ + rootVecOf q₂ + rootVecOf (q₁ * q₂ * q₁) :=
-  ⟨rfl, rfl, a0_mem_fixedL, rfl, rfl, gEnd_rootInv, stabilizer_a0L, stabilizer_star_a0L,
-    rootVecOf_conj_rootInv, bijOn_rootVecOf,
-    range_actStar_a0L, conj_inl, fun γ _ _ hq hq' => rootVecOf_conj_star γ hq hq',
-    actStar_inl_eq_gL,
-    fun _ hq => gL_eq_of_mem_rootClass hq, fun _ _ => ⟨rfl, rfl⟩,
-    fun _ hq => actStar_inl_of_mem_rootClass hq, fun _ hq => gEnd_eq_rootOpV hq,
-    fun _ _ h₁ h₂ hc => formL_bracketL_of_commute h₁ h₂ hc,
-    fun _ _ h₁ h₂ h3 => formL_bracketL_of_orderOf_eq_three h₁ h₂ h3⟩
 
 end CFSG.Monster.B.E6.FixedE6Root

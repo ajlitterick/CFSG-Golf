@@ -26,6 +26,5 @@ theorem stage14612PartP_of_class_F4 (hc : Stage14612Class) (hN : NoE9Z4_F4) : St
   · exact hdec
   · exact absurd hshape (hN G T M S H PQ p hred hmax)
 
-variable {G : Type} [Group G] [CFSG.GH74.QTGen4.Finite4 G] {T M : Subgroup G}
 
 end CFSG.Quasithin

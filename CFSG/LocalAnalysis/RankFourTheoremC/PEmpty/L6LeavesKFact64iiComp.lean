@@ -137,11 +137,6 @@ theorem z_pow : z ^ p = 1 := by
   rw [← h.z_order]
   exact pow_orderOf_eq_one z
 
-theorem x_ne_one : x ≠ 1 := by
-  intro h1
-  have := h.x_order
-  rw [h1, orderOf_one] at this
-  exact h.prime.one_lt.ne this
 
 theorem z_ne_one : z ≠ 1 := by
   intro h1

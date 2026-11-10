@@ -84,10 +84,6 @@ theorem thetaOf_le_apply {B : Subgroup G} {b : G} (hb : b ∈ B) (hb1 : b ≠ 1)
 theorem thetaOf_anti {B B' : Subgroup G} (h : B ≤ B') : thetaOf θ B' ≤ thetaOf θ B :=
   le_thetaOf_iff.mpr fun _ hb hb1 => thetaOf_le_apply (h hb) hb1
 
-theorem thetaOf_bot : thetaOf θ (⊥ : Subgroup G) = ⊤ := by
-  rw [eq_top_iff, le_thetaOf_iff]
-  intro b hb hb1
-  exact absurd (Subgroup.mem_bot.mp hb) hb1
 
 theorem IsFunctor.thetaOf_le_centralizer (hθ : IsFunctor p A θ) {B : Subgroup G} (hB : B ≤ A) :
     thetaOf θ B ≤ Subgroup.centralizer (B : Set G) := by
@@ -114,16 +110,6 @@ theorem IsFunctor.coprime_thetaOf (hθ : IsFunctor p A θ) {B : Subgroup G} (hB 
   exact (hθ.coprime b (hB hb) hb1').of_dvd_right
     (Subgroup.card_dvd_of_le (thetaOf_le_apply hb hb1'))
 
-theorem IsFunctor.disjoint_thetaOf [Finite G] (hp : p.Prime) (hA : IsElemAbelian p A)
-    (hθ : IsFunctor p A θ) {B : Subgroup G} (hB : B ≤ A) (hB1 : B ≠ ⊥) :
-    Disjoint (thetaOf θ B) B := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hBp : IsPGroup p B := CFSG.SignalizerFunctor.Helpers.elementary_abelian_isPGroup p B
-    (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le p hA hB)
-  obtain ⟨n, hn⟩ := hBp.exists_card_eq
-  apply Subgroup.disjoint_of_coprime_natCard
-  rw [hn]
-  exact (hθ.coprime_thetaOf hB hB1).symm.pow_right n
 
 theorem IsFunctor.thetaOf_zpowers (hθ : IsFunctor p A θ) {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) :
     thetaOf θ (Subgroup.zpowers a) = θ a :=
@@ -226,8 +212,6 @@ theorem le_thetaSup {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) : θ a ≤ thetaSup A
 theorem thetaSup_le {H : Subgroup G} (h : ∀ a ∈ A, a ≠ 1 → θ a ≤ H) : thetaSup A θ ≤ H :=
   iSup_le fun a => iSup_le fun ha => iSup_le fun ha1 => h a ha ha1
 
-theorem thetaSup_mono {B : Subgroup G} (h : B ≤ A) : thetaSup B θ ≤ thetaSup A θ :=
-  thetaSup_le fun _ ha ha1 => le_thetaSup (h ha) ha1
 
 theorem IsFunctor.normalizes_thetaSup (hθ : IsFunctor p A θ) :
     A ≤ Subgroup.normalizer (thetaSup A θ : Set G) := by
@@ -388,15 +372,5 @@ theorem isCompleteIn_of_isLocallyCompleteIn [Finite G] (hp : p.Prime) (hA : IsEl
   refine (le_thetaSup_of_mem_signalizers hp hA hBA hB hZ).trans (thetaSup_le fun b hb hb1 => ?_)
   exact hYmax _ (hθ.apply_mem_signalizers (hBA hb) hb1 (hP b (hBA hb) hb1)) (hnorm b hb hb1)
 
-theorem isCompleteIn_iff_existsUnique_maximal [Finite G] (S : Set (Subgroup G)) :
-    IsCompleteIn S ↔ ∃! W, Maximal (· ∈ S) W := by
-  constructor
-  · rintro ⟨W, hW, hmax⟩
-    refine ⟨W, ⟨hW, fun y hy _ => hmax y hy⟩, fun W' hW' => ?_⟩
-    exact le_antisymm (hmax W' hW'.1) (hW'.2 hW (hmax W' hW'.1))
-  · rintro ⟨W, hW, huniq⟩
-    refine ⟨W, hW.1, fun X hX => ?_⟩
-    obtain ⟨W', hXW', hW'max⟩ := Finite.exists_le_maximal (p := (· ∈ S)) hX
-    exact huniq W' hW'max ▸ hXW'
 
 end CFSG.SignalizerFunctorTheorem.McBride

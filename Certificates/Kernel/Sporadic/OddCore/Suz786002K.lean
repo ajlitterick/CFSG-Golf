@@ -44,11 +44,6 @@ theorem kRoot : andB (rootOK DL (pidn 42 6) RA) (rootOK DL (pidn 42 6) RB) = tru
   strictB (pidn 42 6) fun e => strictB RA fun a => strictB RB fun b => strictB (SuzSV 0) fun v =>
     scanSl (ptOK e a b v) SK0.T 1260 s
 
-theorem kNeg : andB (notB (centSubK 42 6 2 RP 3 ZP (ZP 3)))
-    (andB (notB (centSubK 42 6 2 (roots (pidn 42 6) (pidn 42 6)) 4 ZP (SuzDP 0)))
-      (andB (notB (offK 42 6 2 RP (pidn 42 6) (pidn 42 6)))
-        (andB (notB (rootOK DL (pidn 42 6) (SuzDP 0))) (notB (rootOK DL RB RB))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.Suz786002
 

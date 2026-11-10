@@ -208,7 +208,6 @@ theorem hnL1_mem_plus :
     (fun _ hw'' => mem_restrictWords_of_subset (fun _ hw3 => List.mem_append_left _ hw3) hw'')
     hw') (hnL1_mem w hw)
 
-include H
 
 end Final
 

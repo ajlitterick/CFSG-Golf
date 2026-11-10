@@ -207,16 +207,6 @@ theorem dgHom_const (c : Eˣ) : dgHom n E (fun _ => c) = Matrix.GeneralLinearGro
 abbrev Zsc (n : ℕ) : Subgroup ↥(gramSU hU (1 : Matrix (Fin n) (Fin n) E)) :=
   normOneScalars hU (gramSU hU (1 : Matrix (Fin n) (Fin n) E)) n
 
-theorem Zsc_le_range : Zsc hU n ≤ (dgG hU n).range := by
-  intro z hz
-  obtain ⟨c, -, hcn, hc⟩ := hz
-  have hprod : (fun _ : Fin n => c) ∈ prodKer n E := by
-    change ∏ _i : Fin n, c = 1
-    rw [Finset.prod_const, Finset.card_univ, Fintype.card_fin]
-    exact hcn
-  refine ⟨⟨fun _ => c, hprod⟩, Subtype.ext ?_⟩
-  rw [dgG_val]
-  exact (dgHom_const c).trans hc.symm
 
 theorem card_Zsc_le_three (hU : UnitaryFieldData 2 1 E) : Nat.card (Zsc hU n) ≤ 3 := by
   have := hU.finite

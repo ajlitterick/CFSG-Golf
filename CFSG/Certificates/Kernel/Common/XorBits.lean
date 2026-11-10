@@ -106,16 +106,6 @@ theorem xorB_congr_fun {f g : ℕ → ℕ} (x : ℕ) :
     rw [xorB_succ, xorB_succ, xorB_congr_fun x k fun i hi => h i (Nat.lt_succ_of_lt hi),
       h k (Nat.lt_succ_self k)]
 
-theorem xorB_lt {f : ℕ → ℕ} {w : ℕ} (hf : ∀ i, f i < 2 ^ w) (x : ℕ) : ∀ k, xorB f x k < 2 ^ w
-  | 0 => Nat.two_pow_pos w
-  | k + 1 => by
-    rw [xorB_succ]
-    refine Nat.xor_lt_two_pow (xorB_lt hf x k) ?_
-    by_cases h : x.testBit k = true
-    · rw [ite_eq_left h]
-      exact hf k
-    · rw [ite_eq_right h]
-      exact Nat.two_pow_pos w
 
 theorem xorB_add (f : ℕ → ℕ) (x k : ℕ) :
     ∀ l, xorB f x (k + l) = xorB f x k ^^^ xorB (fun j => f (k + j)) (x >>> k) l

@@ -354,41 +354,5 @@ theorem exists_weight_zero_pow_ne_one {n : ℕ} (hn : 3 ≤ n) (hK : Nat.card K 
     ring
   exact not_dvd_two_pow_add_two_pow hn hi hj (hodd.dvd_of_dvd_mul_left hdvd')
 
-theorem form_trialityGroup_zero_self_eq_zero
-    (hσ : σ ^ 3 = 1) {n : ℕ} (hn : 3 ≤ n)
-    (hK : Nat.card K = 2 ^ n) (b : ModGL TwistTag.D4.tag K → ModGL TwistTag.D4.tag K → ZMod 2)
-    (hb₁ : ∀ x ∈ trialityGroup σ 0, ∀ x' ∈ trialityGroup σ 0, ∀ y ∈ trialityGroup σ 0,
-      b (x * x') y = b x y + b x' y)
-    (hb₂ : ∀ x ∈ trialityGroup σ 0, ∀ y ∈ trialityGroup σ 0, ∀ y' ∈ trialityGroup σ 0,
-      b x (y * y') = b x y + b x y')
-    (hbT : ∀ p, ∀ x ∈ trialityGroup σ 0, ∀ y ∈ trialityGroup σ 0,
-      b (trialityTorus σ p * x * (trialityTorus σ p)⁻¹)
-        (trialityTorus σ p * y * (trialityTorus σ p)⁻¹) = b x y) :
-    ∀ x ∈ trialityGroup σ 0, ∀ y ∈ trialityGroup σ 0, b x y = 0 := by
-  set P : K → ModGL TwistTag.D4.tag K := fun c =>
-    (trialityOrbitProd K σ.toRingHom (trialityRoot 0) c : ModGL TwistTag.D4.tag K)
-  have hPmem : ∀ c, P c ∈ trialityGroup σ 0 := fun c =>
-    trialityOrbitProd_mem (Or.inl rfl) (toRingHom_pow_three σ hσ) c
-  have hPadd : ∀ c c', P (c + c') = P c * P c' := fun c c' => by
-    simp only [P, trialityOrbitProd_add' (Or.inl rfl), Subgroup.coe_mul]
-  let χ : Kˣ × (trialityFixedField K σ.toRingHom)ˣ → Kˣ := fun p =>
-    rootChar K (trialityRoot 0) (torusParam σ p)
-  have hnd := exists_weight_zero_pow_ne_one σ hn hK
-  have hF := form_eq_zero_of_chars (k := K) (by omega) hK χ χ hnd (fun c d => b (P c) (P d))
-    (fun c₁ c₂ d => by
-      simp only [hPadd]
-      exact hb₁ _ (hPmem c₁) _ (hPmem c₂) _ (hPmem d))
-    (fun c d₁ d₂ => by
-      simp only [hPadd]
-      exact hb₂ _ (hPmem c) _ (hPmem d₁) _ (hPmem d₂))
-    (fun t c d => by
-      have h := hbT t _ (hPmem c) _ (hPmem d)
-      simp only [P] at h ⊢
-      rwa [trialityTorus_conj_orbitProd σ hσ (isRoot_trialityRoot 0),
-        trialityTorus_conj_orbitProd σ hσ (isRoot_trialityRoot 0)] at h)
-  intro x hx y hy
-  obtain ⟨c, rfl⟩ := exists_trialityOrbitProd_eq' (Or.inl rfl) hx
-  obtain ⟨d, rfl⟩ := exists_trialityOrbitProd_eq' (Or.inl rfl) hy
-  exact hF c d
 
 end CFSG.LieType.Chevalley.TrialityCover

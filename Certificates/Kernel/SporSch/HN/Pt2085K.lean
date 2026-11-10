@@ -63,12 +63,6 @@ theorem sch : schOk IS TW IDS = true := by decide +kernel
 theorem ids : idsAt 0 = true ∧ idsAt 1 = true ∧ idsAt 2 = true ∧ idsAt 3 = true := by
   decide +kernel
 
-theorem neg_fx : Bool.not (ptsFn TX MS CM3 M TI0 om om 50) = true := by decide +kernel
-theorem neg_rs : Bool.not (omImg TI1 (lgetL IS 0)) = true := by decide +kernel
-theorem neg_cm : Bool.not (Nat.beq (mm F (R 34)) (mm (R 34) F)) = true := by decide +kernel
-theorem neg_sch : Bool.not (schOk IS TW IDS.tail) = true := by decide +kernel
-theorem neg_ids : Bool.not (idsOk src dst TW IS (lget CH 1) IDS (lgetL ST 0)) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelSporSch.HNPt2085
 

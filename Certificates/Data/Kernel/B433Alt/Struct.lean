@@ -331,7 +331,6 @@ abbrev WS := Nat × Nat
 
 end
 
-@[expose] noncomputable def foldInit : Nat := nat_lit 1
 
 end CFSG.KC.B4A
 

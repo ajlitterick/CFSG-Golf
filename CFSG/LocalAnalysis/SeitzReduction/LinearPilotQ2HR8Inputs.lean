@@ -18,6 +18,5 @@ theorem slmCatalogueClausesAt_of_gls3_sporadic {m : ℕ} (hm : 3 ≤ m)
   slmCatalogueClausesAt_of_inputs hm (slmEvenTypeDetAt hm) hGLS
     (CrossChar.sLmNotOddLieInputAt (by omega)) hSpor
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end CFSG.SeitzReduction.LinearPilot

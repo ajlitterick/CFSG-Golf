@@ -22,8 +22,5 @@ variable {G : Type*} [Group G]
     twoResidual G₂ = ⁅twoResidual G₂, thompsonJ (pCoreOf 2 G₁)⁆ ∧
     thompsonJ (pCoreOf 2 G₁) = thompsonJ T)
 
-@[expose] def InputD15 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (G₁ G₂ T V M₂ : Subgroup G) (h : D11Hyp G₁ G₂ T V M₂),
-    D15ConclAS G₁ G₂ T V h.reduced.2.2.1
 
 end CFSG.Quasithin.EmptyFaithfulMultiple

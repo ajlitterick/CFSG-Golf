@@ -42,12 +42,5 @@ variable {G : Type} [Group G] [Finite G]
                     (alternatingGroup (Fin 6)) ∨
                   IsCentralProductA6Covers (↥X ⧸ aschbacherSolvableCore 3 ↥X)))))
 
-theorem item143_of_item143N {A : Subgroup G} {LB : Subgroup G → Subgroup G}
-    (h : Item143N A LB) : Item143 A LB := fun a ha ha1 hΩ Q hQ =>
-  (h a ha ha1 hΩ Q hQ).imp_right (Or.imp_right fun ⟨b, d, Lb, hb, hLb, hJ, hdA, hd1, hdc, hab,
-    X, hX, _, hcase⟩ => ⟨b, d, Lb, hb, hLb, hJ, hdA, hd1, hdc, hab, X, hX, hcase⟩)
-
-theorem concl143_of_item143N {A : Subgroup G} {LB : Subgroup G → Subgroup G}
-    (h : Item143N A LB) : Concl143 A LB := fun a ha ha1 hΩ Q hQ => (h a ha ha1 hΩ Q hQ).1
 
 end CFSG.RankThree.PartTwo.Sec14

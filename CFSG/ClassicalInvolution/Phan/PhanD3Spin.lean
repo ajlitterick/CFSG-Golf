@@ -184,17 +184,5 @@ theorem weakPhan_of_lifts (hp2 : p ≠ 2) (hq : 5 ≤ p ^ e) {ε : GaloisField p
     · obtain ⟨θ, hinj, -, hU, hV⟩ := hθ13
       exact hW ⟨θ, hinj, hU, hV⟩
 
-theorem exists_weakPhan_D4 (hp2 : p ≠ 2) (hq : 5 ≤ p ^ e) :
-    ∃ R : Fin 4 → Subgroup (spinGroup (quadPlus 4 (GaloisField p e))),
-      (∀ k, R k ∈ longestFundamental (plusDatum 4 (GaloisField p e) (by norm_num))) ∧
-      (∀ i j : Fin 4, i ≠ j → ¬ edgeD 4 i j → ¬ edgeD 4 j i →
-        ∀ a ∈ R i, ∀ b ∈ R j, a * b = b * a) ∧
-      (∀ i j : Fin 4, edgeD 4 i j →
-        ∃ W, UnitaryBlockStandardPair (GaloisField p (2 * e)) p e W (R i) (R j)) := by
-  obtain ⟨ε, hε, h4, hεs⟩ := exists_eps (e := e) hp2
-  let fr : Fin 4 → Frame (quadPlus 4 (GaloisField p e)) :=
-    ![frame0, frame1 ε hε h4, frame2, (frame2 (F := GaloisField p e)).swap]
-  choose R hRmem hRspec using fun k => exists_lift_frame hp2 hq (fr k)
-  exact ⟨R, hRmem, weakPhan_of_lifts hp2 hq hε h4 hεs R hRspec⟩
 
 end CFSG.ClassicalInvolution.PhanD4

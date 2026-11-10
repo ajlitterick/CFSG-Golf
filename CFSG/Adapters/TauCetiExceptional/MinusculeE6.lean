@@ -50,21 +50,6 @@ theorem e6_rootSubgroupPoints_inr
   rw [E6Minuscule.coe_rootSubgroupPoints_inr, toAdd_ofAdd]
   exact (e6Match.toMat_rootUnit_neg_single e6Data_valid A i c).symm
 
-theorem e6_weightTorusPoints
-    (A : Type*) [CommRing A] (s : Fin 6 → Aˣ) :
-    (E6Minuscule.weightTorusPoints A s : Matrix.GeneralLinearGroup (Fin 27) A) =
-      toMat e6Match.lab A
-        (diagUnit fun a => torusCharacter (s ∘ e6Match.node.symm) (e6Data.wt a)) := by
-  refine Units.ext ?_
-  rw [E6Minuscule.coe_weightTorusPoints, UniversalEnvelopingAlgebra.kostantTorusMatrix_apply,
-    diagGL_coe, e6Match.coe_toMat_diagUnit_torusCharacter A s]
-
-theorem e6_weightTorusPoints_eq_torusElt
-    (K : Type*) [Field K] (s : Fin 6 → Kˣ) :
-    (E6Minuscule.weightTorusPoints K s : Matrix.GeneralLinearGroup (Fin 27) K) =
-      toMat e6Match.lab K
-        (torusElt e6Data_valid K (s ∘ e6Match.node.symm) : e6Data_valid.minGroup K) := by
-  rw [e6_weightTorusPoints, coe_torusElt]
 
 theorem map_toMat_e6_minGroup
     (K : Type*) [Field K] :

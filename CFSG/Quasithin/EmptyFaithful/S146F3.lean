@@ -58,8 +58,6 @@ variable {G : Type} [Group G]
 theorem kbarIsL3Two_of_isPSL {K : Subgroup G} (h : IsPSL 3 2 1 (KBar K)) : KbarIsL3Two K :=
   nonempty_mulEquiv_slThree_of_isPSL h
 
-theorem isPSL_of_kbarIsL3Two {K : Subgroup G} (h : KbarIsL3Two K) : IsPSL 3 2 1 (KBar K) :=
-  isPSL_three_two_iff.mpr h
 
 end Bridge
 

@@ -59,21 +59,6 @@ theorem image_labelStar_image (s : Finset (Fin n)) :
   ext j
   rw [mem_image_labelStar_iff, mem_image_labelStar_iff, labelStar_labelStar]
 
-theorem erase_image_labelStar (s : Finset (Fin n)) (j : Fin n) :
-    (s.erase j).image labelStar = (s.image labelStar).erase (labelStar j) := by
-  ext a
-  rw [mem_image_labelStar_iff, Finset.mem_erase, Finset.mem_erase, mem_image_labelStar_iff]
-  constructor
-  · rintro ⟨hne, hmem⟩
-    refine ⟨?_, hmem⟩
-    intro h
-    apply hne
-    rw [h, labelStar_labelStar]
-  · rintro ⟨hne, hmem⟩
-    refine ⟨?_, hmem⟩
-    intro h
-    apply hne
-    rw [← labelStar_labelStar a, h]
 
 theorem nodeLo_lt {n : ℕ} (s : Fin (n / 2)) : (s : ℕ) + 1 < n :=
   lt_of_le_of_lt (Nat.succ_le_of_lt s.isLt)
@@ -113,20 +98,6 @@ private theorem rotEps_apply_succ {m : ℕ} (hf : 0 < m + 1) (ε : Fin (m + 1) �
   rw [dif_neg (by simp)]
   exact congrArg ε (Fin.ext rfl)
 
-theorem isFullNode_image_labelStar_iff (ε : Fin f → Finset (Fin n)) (s : Fin (n / 2)) :
-    IsFullNode (fun r => (ε r).image labelStar) s ↔ IsFullNode ε s := by
-  constructor
-  · intro h r
-    have h1 : (⟨(s : ℕ) + 1, nodeLo_lt s⟩ : Fin n) ∈ (ε r).image labelStar := (h r).1
-    have h2 : (⟨n - 1 - (s : ℕ), nodeHi_lt s⟩ : Fin n) ∈ (ε r).image labelStar := (h r).2
-    rw [mem_image_labelStar_iff, labelStar_nodeLo] at h1
-    rw [mem_image_labelStar_iff, labelStar_nodeHi] at h2
-    exact ⟨h2, h1⟩
-  · intro h r
-    have h1 : (⟨(s : ℕ) + 1, nodeLo_lt s⟩ : Fin n) ∈ ε r := (h r).1
-    have h2 : (⟨n - 1 - (s : ℕ), nodeHi_lt s⟩ : Fin n) ∈ ε r := (h r).2
-    exact ⟨(mem_image_labelStar_iff).mpr (by simpa [labelStar_nodeLo] using h2),
-      (mem_image_labelStar_iff).mpr (by simpa [labelStar_nodeHi] using h1)⟩
 
 theorem isFullNode_rotEps_iff (hf : 0 < f) (ε : Fin f → Finset (Fin n))
     (s : Fin (n / 2)) : IsFullNode (rotEps hf ε) s ↔ IsFullNode ε s := by
@@ -369,7 +340,6 @@ private theorem bExp_rotEps {m n : ℕ} (hf : 0 < m + 1)
     simp only [h, if_true] at this ⊢
     exact this
   · simp [h]
-
 
 
 theorem chiEps_sq (hF : Nat.card F = (2 ^ f) ^ 2) (hf : 0 < f) (φ₀ : F →+* k)

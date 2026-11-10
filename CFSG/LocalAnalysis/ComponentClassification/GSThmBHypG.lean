@@ -445,8 +445,6 @@ section CoreFreeMap
 variable {W B : Subgroup X} (hN : (oddTwoCore ↥W).map W.subtype = oddCoreIn W ⊔ B)
   (hB : B ≤ coreActionKernel (layerIn W))
 
-theorem coreFreeMap_mk (w : W) :
-    coreFreeMap hN hB (QuotientGroup.mk w) = QuotientGroup.mk w := rfl
 
 theorem coreFreeMap_comp_mk' :
     (coreFreeMap hN hB).comp (QuotientGroup.mk' (oddTwoCore ↥W)) =
@@ -965,8 +963,6 @@ theorem mem_normalizer_inf {A C : Subgroup X} {g : X} (hA : g ∈ normalizer (A 
       ∀ (Y : Type) [Group Y], Nonempty (↥J ⧸ CFSG.Open.fusionZStar ↥J ≃* Y) →
         Nonempty (↥L ⧸ center ↥L ≃* Y)
 
-theorem oddTwoCore_eq_criticalOddTwoCore (Y : Type*) [Group Y] :
-    oddTwoCore Y = criticalOddTwoCore Y := rfl
 
 theorem hyp52_of_criticalAlternative (hS : SchreierFor Blueprint.Catalog)
     (hRS : RestrictedStandardInput) [IsSimpleGroup X] (hnonab : ∃ u v : X, u * v ≠ v * u)

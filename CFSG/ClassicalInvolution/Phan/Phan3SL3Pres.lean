@@ -224,10 +224,6 @@ theorem sl3_lift_of_card (hK : Nat.card K = 3)
   rw [this]
   exact PresentedGroup.toGroup.of _
 
-theorem sl3_lift (hK : Nat.card K = 3) (h : sl3OrderCheck = true) {X : Type} [Group X]
-    (x : Fin 4 → X) (hx : ∀ r ∈ sl3Rels, wordVal x r = 1) :
-    ∃ θ : SL(3, K) →* X, ∀ i, θ (sl3Gen K i) = x i :=
-  sl3_lift_of_card hK (card_le_of_subsetCheckCC_nil sl3Rels h) x hx
 
 theorem sl3_ker_le_center {X : Type} [Group X] (θ : SL(3, K) →* X) (m : Fin 4)
     (h1 : θ (sl3Gen K m) ≠ 1) : θ.ker ≤ Subgroup.center SL(3, K) := by

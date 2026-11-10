@@ -341,15 +341,6 @@ theorem mS_mN_eq_one {T T₁ T₂ : Subgroup X} (hthree : GNThree T T₁ T₂)
   obtain ⟨b1, b2⟩ := key T₂ ((hthree Ls hLs).2 (Or.inl hcl)) h₂
   exact ⟨a1, b1, a2, b2⟩
 
-theorem Y0_eq_comap_of_unique {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    (hLs : GNYComponent T T₁ T₂ Ls) (huniq : ∀ Is, GNYComponent T T₁ T₂ Is → Is = Ls) :
-    Y0 T T₁ T₂ = Ls.comap (toStar T) := by
-  have h : Ystar T T₁ T₂ = Ls := by
-    apply le_antisymm
-    · exact iSup₂_le fun L hL => (huniq L hL).le
-    · exact le_iSup₂_of_le (f := fun L (_ : L ∈ {L : Subgroup (X ⧸ gnC T) | GNYComponent T T₁ T₂ L}) => L) Ls hLs le_rfl
-  unfold Y0
-  rw [h]
 
 theorem three_le_pRank_of_le_comap {T : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
     (hC : ¬ 3 ∣ Nat.card (gnC T)) (hle : pElementSubgroup 3 (⊤ : Subgroup X) ≤ Ls.comap (toStar T))
@@ -534,18 +525,6 @@ theorem xlevel_three_branch_gen (hK518 : K518) (hK517 : K517_6) {T T₁ T₂ : S
   refine ⟨Ls₀, hLs₀, hnorm, hC, hle, hy, h3, ?_⟩
   exact hK517 X T T₁ T₂ hX hg Ls₀ hLs₀ hinv (isChevTwo_of_classicalTwoOrG2 hcl) (by omega) m1 m2
 
-open KFactsPair in
-theorem xlevel_three_branch (hK518 : K518) (hK517 : K517_6) {T T₁ T₂ : Subgroup X}
-    (hX : GNSetting X T) (hg : GNGood T T₁ T₂)
-    (h₁ : CFSG.Open.pRank 3 (normalizer (T₁ : Set X)) ≤ 1) (h₂ : CFSG.Open.pRank 3 (normalizer (T₂ : Set X)) ≤ 1)
-    (hX3 : CFSG.Open.pRank 3 (⊤ : Subgroup X) = 3) {Ls₀ : Subgroup (X ⧸ gnC T)}
-    (hLs₀ : GNYComponent T T₁ T₂ Ls₀) {L : Subgroup X} (hL : LiftOf T L Ls₀) :
-    ∃ Ls : Subgroup (X ⧸ gnC T), GNYComponent T T₁ T₂ Ls ∧ Ls.Normal ∧
-      ¬ 3 ∣ Nat.card (gnC T) ∧ pElementSubgroup 3 (⊤ : Subgroup X) ≤ Ls.comap (toStar T) ∧
-      ¬ pElementSubgroup 3 Ls ≤ (Subgroup.center ↥Ls).map Ls.subtype ∧ 3 ≤ CFSG.Open.pRank 3 Ls ∧
-      (IsUFourOdd ↥Ls ∨
-        (CFSG.Open.pRank 3 Ls = 3 ∧ (HasLThreeCore (gnA T T₁ Ls) ∨ HasLThreeCore (gnA T T₂ Ls)))) :=
-  xlevel_three_branch_gen hK518 hK517 hX hg h₁ h₂ hX3.ge hLs₀ hL
 
 end XLevel
 end CFSG.LocalAnalysis.RankThreeUC.S15

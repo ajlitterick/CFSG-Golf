@@ -59,39 +59,5 @@ theorem spinWitness_typeTwistedD (r : ℕ) (q : PrimePower)
         · exact excluded433_twistedD_two r q hv hp h6
   · exact excluded433_twistedD_odd r q hv hp
 
-theorem spinCarrierExclusions_of_B32
-    (hB32 : ∀ (q : PrimePower) (hv : (LieTypeIndex.B 3 q).Valid), q.p = 2 → q.exponent = 1 →
-      Excluded433 (.lie ⟨.B 3 q, hv⟩)) : SpinCarrierExclusions where
-  typeB r q hv hr h42 h34 := by
-    by_cases h32 : r = 3 ∧ q.p = 2 ∧ q.exponent = 1
-    · obtain ⟨rfl, hp, he⟩ := h32
-      exact hB32 q hv hp he
-    · exact spinWitness_typeB r q hv hr h42 h34 h32
-  typeD := spinWitness_typeD
-  typeTwistedD := spinWitness_typeTwistedD
-
-theorem item433Case_B_of_bridges (hSp8 : BridgeSp8Two) (hSp64 : BridgeSp6Four)
-    (hB32 : ∀ (q : PrimePower) (hv : (LieTypeIndex.B 3 q).Valid), q.p = 2 → q.exponent = 1 →
-      Excluded433 (.lie ⟨.B 3 q, hv⟩))
-    (r : ℕ) (q : PrimePower) (hv : (LieTypeIndex.B r q).Valid) (hr : 3 ≤ r) :
-    Item433Case (.lie ⟨.B r q, hv⟩) :=
-  item433Case_B_of_open hSp8 hSp64 (spinCarrierExclusions_of_B32 hB32) r q hv hr
-
-theorem item433Case_D_of_bridge (hOp : BridgeOmega8PlusTwo) (r : ℕ) (q : PrimePower)
-    (hv : (LieTypeIndex.D r q).Valid) : Item433Case (.lie ⟨.D r q, hv⟩) := by
-  by_cases h8 : r = 4 ∧ q.p = 2 ∧ q.exponent = 1
-  · obtain ⟨rfl, hp, he⟩ := h8
-    obtain ⟨b⟩ := hOp q hv hp he
-    exact fun _ _ _ _ e => iiModel_of_projOmegaPlus_four_two (e.trans b)
-  exact (spinWitness_typeD r q hv h8).item433Case
-
-theorem item433Case_twistedD_of_bridge (hOm : BridgeOmega8MinusTwo) (r : ℕ) (q : PrimePower)
-    (hv : (LieTypeIndex.twistedD r q).Valid) :
-    Item433Case (.lie ⟨.twistedD r q, hv⟩) := by
-  by_cases h8 : r = 4 ∧ q.p = 2 ∧ q.exponent = 1
-  · obtain ⟨rfl, hp, he⟩ := h8
-    obtain ⟨b, c, hbc, ⟨f⟩⟩ := hOm q hv hp he
-    exact fun _ _ _ _ e => iiModel_of_projOmegaMinus_three_two hbc (e.trans f)
-  exact (spinWitness_typeTwistedD r q hv h8).item433Case
 
 end CFSG.RankThree.PartTwo.Census.Spin

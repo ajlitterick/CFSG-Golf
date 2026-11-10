@@ -56,8 +56,6 @@ theorem refl0_refl0 (v : Fin 4 → ℤ) : refl0 (refl0 v) = v := by
 theorem tri_injective : Function.Injective tri := fun v w h => by
   rw [← tri_tri_tri v, ← tri_tri_tri w, h]
 
-theorem refl0_injective : Function.Injective refl0 := fun v w h => by
-  rw [← refl0_refl0 v, ← refl0_refl0 w, h]
 
 theorem toStdD_refl0 (v : Fin 4 → ℤ) :
     toStdD 4 (refl0 v) = fun a => if a = 0 then -toStdD 4 v a else toStdD 4 v a := by
@@ -103,10 +101,6 @@ theorem tri_mem_roots_iff {γ : Fin 4 → ℤ} : tri γ ∈ rootsD4 ↔ γ ∈ r
     rw [← tri_tri_tri γ]
     exact tri_mem_roots (tri_mem_roots h), tri_mem_roots⟩
 
-theorem refl0_mem_roots_iff {γ : Fin 4 → ℤ} : refl0 γ ∈ rootsD4 ↔ γ ∈ rootsD4 :=
-  ⟨fun h => by
-    rw [← refl0_refl0 γ]
-    exact refl0_mem_roots h, refl0_mem_roots⟩
 
 @[expose] def flip0 (i : Fin 4) (s : Bool) : Bool := if i = 0 then !s else s
 

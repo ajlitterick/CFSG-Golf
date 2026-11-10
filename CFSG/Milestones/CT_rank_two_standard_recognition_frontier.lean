@@ -109,16 +109,6 @@ universe u v w
 
 namespace CFSG.Open
 
-theorem _root_.CFSG.Milestones.ct_rank_two_standard_recognition_frontier
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
-    (L : Subgroup G) (hL : standardComponentIsStandard L)
-    (hrank : 2 ≤ pRank 2 (Subgroup.centralizer (L : Set G))) :
-    (∃ n : ℕ, 9 ≤ n ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∨
-      Nat.card G ∈ standardComponentRankTwoSporadicOrders :=
-  CFSG.ComponentClassification.RankTwoStandard.ct_rank_two_standard_recognition_orders
-    G hnonab hK L hL hrank
 
 end CFSG.Open
 

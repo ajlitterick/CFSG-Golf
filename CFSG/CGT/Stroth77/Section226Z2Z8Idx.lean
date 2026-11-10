@@ -268,27 +268,6 @@ private theorem exists_coords_inv (h : F.IsD D dD) {x : G}
 
 end Cases
 
-theorem conj_omegaTwo_of_t2m1 (h : F.IsD D dD) (hτ : τ = .t200 1 ∨ τ = .t201 1)
-    (hCA : ∀ x ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-        Subgroup.centralizer ((F.A : Subgroup G) : Set G),
-      (∀ d ∈ D, x⁻¹ * d * x = d) ∨
-      (x⁻¹ * (dD.c : G) * x = dD.c ∧ x⁻¹ * (dD.a : G) * x = (dD.a : G) ^ 5 ∧
-        x⁻¹ * (dD.b : G) * x = (dD.b : G) ^ 5))
-    {x : G} (hx : x ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-      Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G))
-    (hxA : x ∉ Subgroup.centralizer ((F.A : Subgroup G) : Set G)) :
-    x⁻¹ * (dD.c : G) * x = dD.c ∧ x⁻¹ * (dD.a : G) ^ 2 * x = ((dD.a : G) ^ 2)⁻¹ ∧
-      x⁻¹ * (dD.b : G) ^ 2 * x = ((dD.b : G) ^ 2)⁻¹ := by
-  have hF := idxFacts_of hτ
-  obtain ⟨pa, pb, hc, hconj, -, -, h2a, h2b⟩ := exists_coords_inv hF hCA h hx hxA
-  obtain ⟨-, -, -, hla, hlb⟩ := hF.linf pa pb
-  have ha2 : (dD.a : G) ^ 2 = dD.ofTorus (2 • gen τ.k 1) := by
-    rw [StrothWeakTypeData.ofTorus_nsmul, ← dD.a_eq]
-  have hb2 : (dD.b : G) ^ 2 = dD.ofTorus (2 • gen τ.k 2) := by
-    rw [StrothWeakTypeData.ofTorus_nsmul, ← dD.b_eq]
-  refine ⟨hc, ?_, ?_⟩
-  · rw [ha2, hconj, hla, h2a, StrothWeakTypeData.ofTorus_neg]
-  · rw [hb2, hconj, hlb, h2b, StrothWeakTypeData.ofTorus_neg]
 
 theorem inf_centralizer_le_omegaIn_of_t2m1 (h : F.IsD D dD) (hτ : τ = .t200 1 ∨ τ = .t201 1)
     (hCA : ∀ x ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓

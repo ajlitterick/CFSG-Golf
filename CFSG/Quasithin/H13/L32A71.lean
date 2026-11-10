@@ -99,40 +99,6 @@ theorem uα_ne (N : Not1471 T L V H γ γ' g h) (hF : HypF98 T V L (fsuV1 T V) V
   rw [hD] at this
   simp [mIdx] at this
 
-theorem lemma14_7_12_two (N : Not1471 T L V H γ γ' g h) (hF : HypF98 T V L (fsuV1 T V) V H)
-    (hTL : T ≤ Subgroup.normalizer (L : Set G)) (hb : F8.b T V L H = 3) :
-    ∃ l ∈ L, conjSub (h : G) (F8.Uγ V H (g : G)) = conjSub l (conjClosure V H) := by
-  obtain ⟨γ₂, -, hd, hγ₂⟩ := N.geo
-  have hd1 : CosetGeom.dist γ γ₂ = 1 := by omega
-  have hadj : (graph ((L ⊔ T) ⊔ H) (L ⊔ T) H).Adj (F8.γ₀ T L H) (h • γ) := by
-    rw [← hγ₂]
-    exact (smul_adj h).mpr (dist_eq_one_iff_adj.mp hd1).symm
-  obtain ⟨k, hk0, hk1⟩ :=
-    exists_stab_smul_eq (adj_γ₀_γ₁ (G₀ := (L ⊔ T) ⊔ H) (G₁ := L ⊔ T) (G₂ := H)) hadj
-  have hkLT : (k : G) ∈ L ⊔ T := by
-    have := mem_stab_of_smul_eq hk0
-    rwa [stab_γ₀ hF.amalgamHypV.le₁] at this
-  have hkH : ((k⁻¹ * h * g : ↥((L ⊔ T) ⊔ H)) : G) ∈ H := by
-    have h1 : (k⁻¹ * h * g) • F8.γ₁ T L H = F8.γ₁ T L H := by
-      rw [mul_smul, mul_smul, N.setup.edge₁, ← hk1, inv_smul_smul]
-    have := mem_stab_of_smul_eq h1
-    rwa [stab_γ₁ hF.amalgamHypV.le₂] at this
-  have hk' : (k : G) ∈ (L : Set G) * (T : Set G) := by
-    rw [← Subgroup.coe_mul_of_right_le_normalizer_left L T hTL]
-    exact hkLT
-  obtain ⟨l, hl, t, ht, hlt⟩ := hk'
-  refine ⟨l, hl, ?_⟩
-  have hTU : conjSub t (conjClosure V H) = conjClosure V H :=
-    conjSub_eq_self_iff.mpr (le_normalizer_conjClosure V H (hF.T_le_H ht))
-  have hHU : conjSub ((k⁻¹ * h * g : ↥((L ⊔ T) ⊔ H)) : G) (conjClosure V H) = conjClosure V H :=
-    conjSub_eq_self_iff.mpr (le_normalizer_conjClosure V H hkH)
-  calc conjSub (h : G) (F8.Uγ V H (g : G)) =
-        conjSub (k : G) (conjSub ((k⁻¹ * h * g : ↥((L ⊔ T) ⊔ H)) : G) (conjClosure V H)) := by
-        rw [F8.Uγ, ← conjSub_mul, ← conjSub_mul]
-        congr 1
-        push_cast
-        group
-    _ = conjSub l (conjClosure V H) := by rw [hHU, ← hlt, conjSub_mul, hTU]
 
 end Not1471
 

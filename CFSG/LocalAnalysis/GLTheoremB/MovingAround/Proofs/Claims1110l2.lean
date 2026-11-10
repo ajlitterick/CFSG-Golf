@@ -350,13 +350,6 @@ theorem not_pumpup_co2_of_lieModel_D4
 
 end Co2
 
-@[expose] def InputD4UpClassChev2Spor : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], CFSG.LocalAnalysis.GLTheoremA.IsKHat K → GLAPPrimeCore 5 K = ⊥ →
-    ((∃ s : TauCeti.SporadicName, (s = .Co1 ∨ s = .Th ∨ s = .HN ∨ s = .B ∨ s = .M) ∧
-        IsSporType s (K ⧸ Subgroup.center K)) ∨ IsLieChar (· = 2) K) →
-    ∀ (D : Type) [Group D], CFSG.Models.LieModel D .POmegaPlus 4 2 1 →
-    ∀ x : MulAut K, Lemma1314.PumpupVia 5 D K x →
-      (∃ (ε : Bool) (m : ℕ), 4 ≤ m ∧ IsOmegaTwo ε m K) ∨ CFSG.Models.LieModel K .POmegaPlus 4 2 5
 
 end Narrow
 

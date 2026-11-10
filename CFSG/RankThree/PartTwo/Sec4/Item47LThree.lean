@@ -56,8 +56,6 @@ theorem root13_zero : root13 (0 : K) = 1 :=
   map_one' := root13_zero
   map_mul' _ _ := (root13_mul _ _).symm
 
-theorem root13Hom_apply (t : Multiplicative K) : root13Hom K t = root13 (Multiplicative.toAdd t) :=
-  rfl
 
 theorem diag3_mul_root13 {a b c : K} (h : a * b * c = 1) (t : K) :
     diag3 a b c h * root13 t = root13 (a * t * c⁻¹) * diag3 a b c h := by

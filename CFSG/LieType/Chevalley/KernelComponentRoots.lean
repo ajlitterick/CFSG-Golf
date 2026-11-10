@@ -555,16 +555,6 @@ theorem rootReflection_mem_posRoots
   have := simpleRoots_height_pos hβ
   omega
 
-theorem bijOn_rootReflection
-    (hΨ : IsRootComponent Ψ) {β : Fin τ.rank → ℤ}
-    (hβ : β ∈ simpleRoots Ψ) :
-    Set.BijOn (rootReflection β • ·) (posRoots Ψ \ {β}) (posRoots Ψ \ {β}) := by
-  have hβr := simpleRoots_isRoot hβ
-  have hmaps : Set.MapsTo (rootReflection β • ·) (posRoots Ψ \ {β}) (posRoots Ψ \ {β}) :=
-    fun α ⟨hα, hne⟩ => ⟨(rootReflection_mem_posRoots hΨ hβ hα hne).1,
-      (rootReflection_mem_posRoots hΨ hβ hα hne).2⟩
-  refine Set.InvOn.bijOn ⟨fun α _ => ?_, fun α _ => ?_⟩ hmaps hmaps <;>
-    simp only [smul_smul, rootReflection_mul_self hβr, one_smul]
 
 @[expose] def componentWeylGroup
     (Ψ : Set (Fin τ.rank → ℤ)) : Subgroup (WeylGroup τ) :=
@@ -593,11 +583,6 @@ theorem smul_mem_of_mem_componentWeylGroup
     rw [← hxγ, inv_smul_smul]
     exact hγ
 
-theorem smul_mem_posRoots_or_negRoots
-    (hΨ : IsRootComponent Ψ) {w : WeylGroup τ}
-    (hw : w ∈ componentWeylGroup Ψ) {α : Fin τ.rank → ℤ} (hα : α ∈ Ψ) :
-    w • α ∈ posRoots Ψ ∨ w • α ∈ negRoots Ψ :=
-  mem_posRoots_or_mem_negRoots hΨ (smul_mem_of_mem_componentWeylGroup hΨ hw α hα)
 
 theorem exists_smul_simpleRoot_of_pos
     (hΨ : IsRootComponent Ψ) {α : Fin τ.rank → ℤ}

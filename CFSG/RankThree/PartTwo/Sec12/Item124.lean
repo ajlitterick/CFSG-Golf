@@ -197,12 +197,5 @@ theorem normalizer_le_of_autIn_eq {G : Type} [Group G] [Finite G] {A : Subgroup 
   intro g hg
   exact mem_normalizer_zpowers_of_map_eq f c' ⟨g, hg⟩ (hfix _ ⟨⟨g, hg⟩, rfl⟩)
 
-theorem item124_of_item123 (h123 : Item123) : Item124 := by
-  intro G _ _ A c L h
-  obtain ⟨P, hP, hPB⟩ := h.exists_sylow
-  obtain ⟨hPaut, hP9⟩ := h123 G A c L h P hP hPB
-  have hA27 : Nat.card A = 3 ^ 3 := by rw [h.isE27.2]; norm_num
-  obtain ⟨V, _, _, hV, ⟨f⟩⟩ := exists_coords_module h.isE27.1 hA27
-  exact normalizer_le_of_autIn_eq h.mem_A h.ne_one hP hPaut hP9 hV f
 
 end CFSG.RankThree.PartTwo.Sec12

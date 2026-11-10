@@ -163,11 +163,6 @@ variable (ℓ) in
         rw [Subgroup.coe_mul, map_mul]
         exact (g.2.1.mul hℓ h.2.1).2 }
 
-theorem coe_blockRep
-    (hℓ : Function.Injective ℓ) (g : blockStab (K := K) ℓ hℓ) :
-    ((blockRep ℓ hℓ g : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) =
-      blockMat ℓ (endHom K (g : adjointGroup τ K)) :=
-  rfl
 
 end Block
 

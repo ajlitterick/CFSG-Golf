@@ -42,10 +42,6 @@ theorem blockSL_neg_one_conj (A : SL(2, F)) :
   rw [mul_inv_eq_iff_eq_mul, CFSG.ClassicalInvolution.RouteD.Gaps.blockSL_neg_one_mul,
     diagConj3_blockSL_zero]
 
-theorem blockSL_neg_one_conj_uSL (t : F) :
-    blockSL F 3 2 1 (by omega) (-1) * blockSL F 3 2 0 (by omega) (uSL t) *
-        (blockSL F 3 2 1 (by omega) (-1))⁻¹ = blockSL F 3 2 0 (by omega) (uSL (-t)) := by
-  rw [blockSL_neg_one_conj, diagConj2_uSL]
 
 end Block
 

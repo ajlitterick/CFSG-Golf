@@ -67,46 +67,5 @@ theorem commutator_mem_sup_cStar [IsSimpleGroup G] (hd : Sec19Data p f K z S W) 
   exact Subgroup.mul_mem _ (Subgroup.mem_sup_left (Subgroup.mem_subgroupOf.mp hxX))
     (Subgroup.mem_sup_right hyC)
 
-variable (p f) in
-theorem c19_16FNe9_of (hInv : C19_16InvTmp p f) (hFus : C19_16FusTmp p f) :
-    C19_16FNe9Tmp p f := by
-  intro G _ _ _ K z S W hd hq
-  by_contra hS
-  obtain ⟨a, haS, ha2, haT⟩ := hInv G K z S W hd hq hS
-  have hCz := hd.hSz
-  refine false_of_transfer hd.tight.branch.nonabelian S
-    (P := (S : Subgroup G) ⊓ (sec19X K z ⊔ centralizerModOdd ⊤ K))
-    (fun s hs => mem_normalizer_inf (Subgroup.le_normalizer hs)
-      (mem_normalizer_sup_cStar hd (hCz hs)))
-    (fun x hx y hy => ⟨S.mul_mem (S.mul_mem (S.mul_mem hx hy) (S.inv_mem hx)) (S.inv_mem hy),
-      commutator_mem_sup_cStar hd (hCz hx) (hCz hy)⟩) haS (fun h => haT h.2) ha2 ?_
-  intro g hg
-  have hgz : (g⁻¹ * a * g) * z = z * (g⁻¹ * a * g) :=
-    (Subgroup.mem_centralizer_singleton_iff.mp (hCz hg))
-  have hzC : g * z * g⁻¹ ∈ Subgroup.centralizer ({a} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc g * z * g⁻¹ * a = g * (z * (g⁻¹ * a * g)) * g⁻¹ := by group
-      _ = g * ((g⁻¹ * a * g) * z) * g⁻¹ := by rw [hgz]
-      _ = a * (g * z * g⁻¹) := by group
-  obtain ⟨c, hcC, hcz⟩ := hFus G K z S W hd hq a haS ha2 haT g hzC
-  have hca : c * a = a * c := Subgroup.mem_centralizer_singleton_iff.mp hcC
-  set d := c⁻¹ * g with hd'
-  have hdz : d ∈ Subgroup.centralizer ({z} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc d * z = c⁻¹ * (g * z * g⁻¹) * g := by rw [hd']; group
-      _ = c⁻¹ * (c * z * c⁻¹) * g := by rw [hcz]
-      _ = z * d := by rw [hd']; group
-  have hb : g⁻¹ * a * g = d⁻¹ * a * d := by
-    have h1 : c * a * c⁻¹ = a := by rw [hca, mul_inv_cancel_right]
-    calc g⁻¹ * a * g = g⁻¹ * (c * a * c⁻¹) * g := by rw [h1]
-      _ = d⁻¹ * a * d := by rw [hd']; group
-  have haC : a ∈ Subgroup.centralizer ({z} : Set G) := hCz haS
-  refine ⟨S.mul_mem (S.inv_mem hg) haS, ?_⟩
-  have h2 := commutator_mem_sup_cStar hd (Subgroup.inv_mem _ hdz) (Subgroup.inv_mem _ haC)
-  have e : (g⁻¹ * a * g)⁻¹ * a = d⁻¹ * a⁻¹ * d⁻¹⁻¹ * a⁻¹⁻¹ := by
-    rw [hb]
-    group
-  rw [e]
-  exact h2
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S1916

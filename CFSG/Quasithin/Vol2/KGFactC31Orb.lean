@@ -38,9 +38,6 @@ theorem orbSub_map {B : Type} [Group B] (f : A →* B) (y t : A) :
   · rintro ⟨j, rfl⟩
     exact ⟨_, ⟨j, rfl⟩, by simp⟩
 
-theorem not_mem_of_comm {y t : A} {U : Subgroup A} (hU : ∀ a ∈ U, ∀ b ∈ U, a * b = b * a)
-    (ht : t ∈ U) (hyt : y * t * y⁻¹ ≠ t) : y ∉ U := fun hy =>
-  hyt (by rw [hU y hy t ht, mul_inv_cancel_right])
 
 variable {S M₀ R M V : Subgroup A}
 

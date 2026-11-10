@@ -158,12 +158,6 @@ theorem isE_one_top_of_fstar_simple {G : Type*} [Group G] [Finite G] (T A : Subg
     exact congrArg Subtype.val hxc
   exact isE_one_top_of_almostSimple _ T A hnc hC hT hLT hAT hA
 
-theorem isE_one_top_of_fstar_simple' {G : Type*} [Group G] [Finite G] (T A : Subgroup G)
-    [IsSimpleGroup ↥(CFSG.generalizedFitting G)]
-    (hnc : ∃ a b : ↥(CFSG.generalizedFitting G), a * b ≠ b * a)
-    (hT : quasithinIsSylowTwo T) (hLT : CFSG.generalizedFitting G ⊔ T = ⊤)
-    (hAT : A ≤ T) (hA : Nat.card A = 2) : IsE 1 ⊤ T A ⊤ :=
-  isE_one_top_of_fstar_simple T A hnc (isSylowIn_top_of_quasithinIsSylowTwo hT) hLT hAT hA
 
 theorem pCore_two_eq_bot_of_normal_simple {Q : Type*} [Group Q] [Finite Q]
     (L : Subgroup Q) [L.Normal] [IsSimpleGroup L] (hnc : ∃ a b : L, a * b ≠ b * a)

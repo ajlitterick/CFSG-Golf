@@ -59,67 +59,12 @@ variable {G : Type} [Group G] [Finite G] [IsSimpleGroup G] {p f : ℕ} [Fact p.P
   {t u₁ u₂ : G}
 
 
-theorem exceptional_swap (hyp : Hyp25 p f Ω K K' W S R R' z t u₁ u₂) {a : G}
-    (ha2 : a * a = 1) (ha1 : a ≠ 1)
-    (haA : a ∈ (S : Subgroup G) ⊓ Subgroup.centralizer ((R ⊔ R' : Subgroup G) : Set G))
-    (hconj : ∀ s ∈ (S : Subgroup G), s * a * s⁻¹ = a ∨ s * a * s⁻¹ = a * z) :
-    ∃ t' : G, t' ∈ (S : Subgroup G) ∧ t' * t' = 1 ∧ t' * a = a * t' ∧ t' * z = z * t' ∧
-      conjSub t' R = R' ∧ (∃ g : G, g * z * g⁻¹ = t') ∧ (¬ ∃ y : G, y * z * y⁻¹ = t' * z) ∧
-      ((∀ h ∈ Subgroup.centralizer ({a} : Set G), h * z * h⁻¹ ≠ t') ∨
-        (∀ m ∈ Subgroup.centralizer ({a * z} : Set G), m * z * m⁻¹ ≠ t')) := by
-  classical
-  have hs : Hyp23Setting p f Ω K K' z := hyp.std.setting
-  have haS : a ∈ (S : Subgroup G) := haA.1
-  have hcent := Subgroup.mem_centralizer_iff.mp haA.2
-  have haR : ∀ x ∈ R, a * x = x * a := fun x hx => (hcent x (Subgroup.mem_sup_left hx)).symm
-  have haR' : ∀ x ∈ R', a * x = x * a := fun x hx => (hcent x (Subgroup.mem_sup_right hx)).symm
-  obtain ⟨-, -, -, hK₂, hK₂', -⟩ := C25X.layer_a_frame hyp ha2 ha1 haR haR'
-  obtain ⟨t', ht'S, ht'2, ⟨g, hg⟩, ht'R, hnf⟩ := T7G2.exists_swap_nonfused hyp
-  have hRne : R ≠ R' := T7ER.ne_of_hyp25 hyp
-  have hzt : z ≠ t' := by
-    intro h
-    apply hRne
-    have h1 : conjSub t' R = R := by
-      rw [← h]
-      exact T7F2.conjSub_eq_of_centralizes fun r hr => hyp.hzS r (hyp.hR.2.2 hr)
-    rw [← ht'R, h1]
-  have ht'z : t' * z = z * t' := hyp.hzS t' ht'S
-  have hzc : z * t' * z⁻¹ = t' := by
-    calc z * t' * z⁻¹ = (t' * z) * z⁻¹ := by rw [ht'z]
-      _ = t' := by group
-  have hat : t' * a = a * t' := T7U.comm_swap_of_normal_four hyp ht'S ht'2 hg hnf haS hconj
-  refine ⟨t', ht'S, ht'2, hat, ht'z, ht'R, ⟨g, hg⟩, hnf, ?_⟩
-  by_contra hcon
-  push Not at hcon
-  obtain ⟨⟨h, hhC, hh⟩, ⟨m, hmC, hm⟩⟩ := hcon
-  exact not_swap_in_both hyp hK₂.2 hK₂'.2 hzt hzc hnf hh
-    (Subgroup.mem_centralizer_singleton_iff.mp hhC) hm
-    (Subgroup.mem_centralizer_singleton_iff.mp hmC)
-
 end Swap
 
 section SwapFusion
 
 variable {G : Type} [Group G]
 
-theorem swap_fusion_left {a z t' h : G} (hh : h * z * h⁻¹ = t') (hha : h * a = a * h) :
-    h * (a * z) * h⁻¹ = a * t' := by
-  calc h * (a * z) * h⁻¹ = (h * a * h⁻¹) * (h * z * h⁻¹) := by group
-    _ = a * t' := by
-      rw [hh]
-      congr 1
-      calc h * a * h⁻¹ = (a * h) * h⁻¹ := by rw [hha]
-        _ = a := by group
-
-theorem swap_fusion_right {a z t' m : G} (hz2 : z * z = 1) (hm : m * z * m⁻¹ = t')
-    (hma : m * (a * z) = (a * z) * m) : m * a * m⁻¹ = (a * z) * t' := by
-  have hzi : z⁻¹ = z := inv_eq_of_mul_eq_one_right hz2
-  calc m * a * m⁻¹ = (m * (a * z) * m⁻¹) * (m * z⁻¹ * m⁻¹) := by group
-    _ = (a * z) * t' := by
-      rw [hzi, hm]
-      congr 1
-      calc m * (a * z) * m⁻¹ = ((a * z) * m) * m⁻¹ := by rw [hma]
-        _ = a * z := by group
 
 end SwapFusion
 
@@ -142,7 +87,6 @@ variable (p f : ℕ) [Fact p.Prime]
             ¬ LayerOrthType p f Ω a 5 true
 
 variable {p f}
-
 
 
 theorem c25_11Typed_of_residuals (h9 : C25_9 p f) (hM6 : Layer6Cen4 p f) (h5 : C25_11Ω5 p f) :
@@ -246,9 +190,6 @@ theorem c25_11Typed_of_residuals (h9 : C25_9 p f) (hM6 : Layer6Cen4 p f) (h5 : C
   · exact h5 G Ω K K' W S R R' z t u₁ u₂ hyp a haA ha2 ha1 haz hconj hA0 hbad hbad' h5z hL5
   · exact not_layerOrthSix hM6 hyp ha2 ha1 haz haA hconj hA0 hL6
 
-theorem c25_11E4_of_residuals (h9 : C25_9 p f) (hM6 : Layer6Cen4 p f) (h5 : C25_11Ω5 p f) :
-    T7U.C25_11E4 p f :=
-  C25X.c25_11E4_of_typed (c25_11Typed_of_residuals h9 hM6 h5)
 
 theorem c25_11_of_residuals (h9 : C25_9 p f) (hM6 : Layer6Cen4 p f) (h5 : C25_11Ω5 p f) :
     C25_11 p f :=

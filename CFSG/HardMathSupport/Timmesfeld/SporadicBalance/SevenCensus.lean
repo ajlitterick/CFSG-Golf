@@ -58,6 +58,5 @@ theorem card_sup_of_le_normalizer {H N : Subgroup G}
     obtain ⟨h, hh, n, hn, rfl⟩ := hz
     exact ⟨(⟨h, hh⟩, ⟨n, hn⟩), rfl⟩
 
-variable [Finite G]
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.SevenCensus

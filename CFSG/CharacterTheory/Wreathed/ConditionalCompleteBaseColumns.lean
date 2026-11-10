@@ -90,12 +90,5 @@ theorem base_column_pair_sums {A Bq Dq : ι} {σ τ₀ κ : ℤ} (hσ : σ = 1 �
     quadSign_zero, quadSign_one, quadSign_two, quadSign_three] at e2
   constructor <;> linarith
 
-theorem sum_ge_three_disjoint {S₁ S₂ S₃ : Finset ι} (h₁ : S₁ ⊆ B) (h₂ : S₂ ⊆ B) (h₃ : S₃ ⊆ B)
-    (h12 : Disjoint S₁ S₂) (h13 : Disjoint S₁ S₃) (h23 : Disjoint S₂ S₃) {f : ι → ℤ}
-    (hf : ∀ φ ∈ B, 0 ≤ f φ) :
-    ∑ φ ∈ S₁, f φ + ∑ φ ∈ S₂, f φ + ∑ φ ∈ S₃, f φ ≤ ∑ φ ∈ B, f φ := by
-  rw [← Finset.sum_union h12, ← Finset.sum_union (Finset.disjoint_union_left.mpr ⟨h13, h23⟩)]
-  exact Finset.sum_le_sum_of_subset_of_nonneg
-    (Finset.union_subset (Finset.union_subset h₁ h₂) h₃) fun φ hφ _ => hf φ hφ
 
 end CFSG.Wreathed.ConditionalCompleteBase

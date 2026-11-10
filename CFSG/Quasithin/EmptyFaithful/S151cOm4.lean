@@ -118,10 +118,6 @@ end S3Mod
 
 section S3ModMain
 
-theorem S3mod_rk_fixV_t (hU : ∀ u : U, u ^ 2 = 1) (hcard : Nat.card U = 16) {a t : MulAut U}
-    (ha3 : a ^ 3 = 1) (_ha1 : a ≠ 1) (ht2 : t ^ 2 = 1) (_ht1 : t ≠ 1) (hta : t * a * t⁻¹ = a⁻¹)
-    (hfix : ∀ u : U, a u = u → u = 1) : rk (fixV (Subgroup.zpowers t)) = 2 :=
-  S3mod_rk_fixV_t_aux hU hcard ha3 ht2 hta hfix
 
 theorem S3mod_eq_top_of_invariant (hU : ∀ u : U, u ^ 2 = 1) (hcard : Nat.card U = 16)
     {a t : MulAut U} (ha3 : a ^ 3 = 1) (_ha1 : a ≠ 1) (ht2 : t ^ 2 = 1) (_ht1 : t ≠ 1)
@@ -273,7 +269,6 @@ theorem eVecFun_injective : Function.Injective eVecFun := by decide +kernel
     (Function.Injective.bijective_of_nat_card_le eVecFun_injective
       (by rw [card_Vec, card_F2sq_prod]))
 
-theorem eVec_apply (p : F2sq × F2sq) : eVec p = eVecFun p := rfl
 
 theorem act_r_eVec : ∀ x y : F2sq,
     act (DihedralGroup.r 1, 1) (eVecFun (x, y)) = eVecFun (y, x * y) := by
@@ -933,12 +928,6 @@ theorem Jhat_eq_of_isOmegaFourPlus {Y : Subgroup (MulAut U)} (hY : IsOmegaFourPl
   subst hc
   exact Jhat_range c
 
-open S152O4 S151cOm4 in
-theorem mem_QhatStar_iff_of_isOmegaFourPlus {Y : Subgroup (MulAut U)} (hY : IsOmegaFourPlus Y)
-    {A : Subgroup (MulAut U)} : A ∈ QhatStar Y ↔ IsA2 Y A ∧ Nat.card A = 4 := by
-  obtain ⟨c, hc⟩ := om4_model hY
-  subst hc
-  exact mem_QhatStar_range_iff c
 
 open S152O4 S151cOm4 in
 theorem qhatOf_eq_of_isOmegaFourPlus {Y : Subgroup (MulAut U)} (hY : IsOmegaFourPlus Y) :

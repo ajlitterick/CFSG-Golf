@@ -34,13 +34,6 @@ theorem ncard_normOne_eq (h : UnitaryFieldData 3 1 F) (d : ℕ) :
     Finset.sum_congr rfl fun j _ => by rw [UnitaryFieldData.norm, bar_eq_cube h, mul_comm]
   rw [Set.mem_ofPred_eq, hsum]
 
-theorem ncard_normOne_one (hF : Nat.card F = 9) :
-    {v : Fin 1 → F | ∑ j, v j ^ 3 * v j = 1}.ncard = 4 := by
-  have h := unitaryFieldData_of_card hF
-  have h0 := (normSumCount_closed h 0).1
-  norm_num at h0
-  rw [ncard_normOne_eq h]
-  exact_mod_cast h0
 
 theorem ncard_normOne_two (hF : Nat.card F = 9) :
     {v : Fin 2 → F | ∑ j, v j ^ 3 * v j = 1}.ncard = 24 := by

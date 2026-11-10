@@ -11,12 +11,6 @@ open Subgroup CFSG CFSG.Quasithin CFSG.Quasithin.BlueprintB2
 
 section Iso
 
-theorem pRank_set_subset {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) (p r : ℕ)
-    (h : ∃ A : Subgroup X, IsElementaryAbelian p A ∧ Nat.card A = p ^ r) :
-    ∃ A : Subgroup Y, IsElementaryAbelian p A ∧ Nat.card A = p ^ r := by
-  obtain ⟨A, hA, hc⟩ := h
-  exact ⟨A.map e.toMonoidHom, isElementaryAbelian_map hA e.toMonoidHom,
-    by rw [Subgroup.card_map_of_injective e.injective, hc]⟩
 
 theorem pRank_eq_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) (p : ℕ) :
     pRank p X = pRank p Y := CFSG.pRank_congr_of_mulEquiv e p

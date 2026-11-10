@@ -209,22 +209,6 @@ universe u v w
 
 namespace CFSG.Open
 
-theorem _root_.CFSG.Milestones.cl_lit_gh74_sectional_two_rank_four
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hrank : 3 ≤ twoRank G)
-    (hsect : ∀ P : Subgroup G, IsPGroup 2 P →
-      ∃ s : Finset G, s.card ≤ 4 ∧ Subgroup.closure (s : Set G) = P) :
-    Nat.card G ∈ gorensteinHarada74Orders :=
-  (CFSG.GH74.milestone_forms_of_leaves35
-    (CFSG.GH74.QTGen4.s_QTKE_Gen4_of_inputs
-      CFSG.Yardstones.M39f387008ab2.ys01_stmt13_1_7_GH
-      CFSG.Yardstones.M39f387008ab2.ys02_stmt13_1_2_three_GH
-      CFSG.GH74.QTGen4.stmt13_3_16_GH
-      CFSG.Yardstones.M39f387008ab2.ys03_stmt13_6_1_GH
-      CFSG.Yardstones.M39f387008ab2.ys04_stmt13_8_1_GH
-      CFSG.Yardstones.M39f387008ab2.ys05_stmt14_8_1_three_GH
-      CFSG.Yardstones.M39f387008ab2.ys06_stmt15_3_1_GH)).2 G hnonab hrank hsect
 
 end CFSG.Open
 

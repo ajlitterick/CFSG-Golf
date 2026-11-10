@@ -10,9 +10,6 @@ namespace CFSG.OddStandard.AltStdSmall4.Tower
 
 open Subgroup GL62.Code
 
-theorem mAct_eq (m v : ℕ) : SCATWreath.mAct m v = act m v := rfl
-
-theorem mMul_eq (a b : ℕ) : SCATWreath.mMul a b = mul a b := rfl
 
 theorem vec_xor (a b : ℕ) : vec (a ^^^ b) = vec a + vec b := by
   funext i
@@ -304,21 +301,6 @@ theorem decW_64 (hz : mat L[1]! = (GL62.z₀ : Matrix (Fin 6) (Fin 6) (ZMod 2)))
 
 end SubModel
 
-theorem IsModel.map_range {G H : Type*} [Group G] [Group H] {n : ℕ} {mul : ℕ → ℕ → ℕ}
-    {dec : ℕ → H} (M : IsModel (⊤ : Subgroup H) n mul dec) (ι : H →* G)
-    (hι : Function.Injective ι) : IsModel ι.range n mul (ι ∘ dec) where
-  mem c _ := ⟨dec c, rfl⟩
-  inj a ha b hb h := M.inj a ha b hb (hι h)
-  surj x hx := by
-    obtain ⟨y, rfl⟩ := hx
-    obtain ⟨c, hc, rfl⟩ := M.surj y (mem_top y)
-    exact ⟨c, hc, rfl⟩
-  mul_lt := M.mul_lt
-  dec_mul a ha b hb := by
-    simp only [Function.comp_apply]
-    rw [M.dec_mul a ha b hb, map_mul]
-  zero_lt := M.zero_lt
-  dec_zero := by simp [M.dec_zero]
 
 theorem mat_wr1 : mat SCATWreath.wrList[1]! = (GL62.z₀ : Matrix (Fin 6) (Fin 6) (ZMod 2)) := by
   decide

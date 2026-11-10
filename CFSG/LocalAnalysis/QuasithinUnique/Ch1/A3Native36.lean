@@ -141,8 +141,5 @@ theorem a36ForSQTKCat_of_threeCover
     (hT : ThreeCoverFactCat) : A36ForSQTKCat :=
   a36ForSQTKCat_of_facts a129One hT
 
-theorem a37ForSQTKCat_of_facts
-    (h129 : A129One) (hT : ThreeCoverFactCat) : A37ForSQTKCat :=
-  a37ForSQTKCat_of_a36 (a36ForSQTKCat_of_facts h129 hT)
 
 end CFSG.QuasithinUnique.Vol2Native

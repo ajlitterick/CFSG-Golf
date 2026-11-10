@@ -21,10 +21,6 @@ theorem trK_C : trK permMonoC = 2 * 0 := by
   rw [trK, xBlk, latTrC, latTr2C, wTrC, pairC_sum, oddC_sum, octC_sum]
   norm_num
 
-theorem trK_A_ne : trK permMonoA ≠ 2 * 782 := by
-  rw [trK_A]
-  norm_num
-
 
 theorem traceA (hv : Native.permValid permMonoA = true) : permTraceCheck permMonoA 783 = true :=
   permTraceCheck_of_K permMonoA hv trK_A

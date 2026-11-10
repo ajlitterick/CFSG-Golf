@@ -65,6 +65,5 @@ theorem not_eTwo_of_barRad_eq_bot {Q : Type*} [Group Q] {S B : Subgroup Q}
     infer_instance
   · exact hN bot_le
 
-variable {K X : Type*} [Group K] [Group X] [Finite K] [Finite X]
 
 end CFSG.Quasithin.E1.RootLift

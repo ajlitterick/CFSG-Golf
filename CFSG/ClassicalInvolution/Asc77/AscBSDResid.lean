@@ -27,17 +27,5 @@ variable (p f : ℕ) [Fact p.Prime]
     BootSetting p f K z → ∀ D : LocalLieSystemAt p f (exactFamily (𝒞 K) z) z, ∀ i,
       D.tag i = .G2 → 3 ≤ D.card → False
 
-@[expose] def BootNoG2D4Single : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    BootSetting p f K z → ∀ D : LocalLieSystemAt p f (exactFamily (𝒞 K) z) z, ∀ i,
-      (D.tag i = .G2 ∨ D.tag i = .trialityD4) → D.card ≤ 2 → False
-
-structure BootShapeResidualsNarrow : Prop where
-  noAllA1 : BootNoAllA1 p f
-  noG2Twin : BootNoG2Twin p f
-  noG2D4Single : BootNoG2D4Single p f
-  noD4Twins : BootNoManyTwinsD4 p f
-  noSmallSingle : BootNoSmallSingle p f
-  twinsCommute : BootTwinsCommute p f
 
 end CFSG.ClassicalInvolution.Asc77.BSC

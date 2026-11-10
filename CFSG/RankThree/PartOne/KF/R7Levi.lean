@@ -13,12 +13,6 @@ open Matrix CFSG CFSG.LieType.Universal.Unitary CFSG.Assembly.LowTwoRank
 
 variable {K : Type} [Field K]
 
-theorem commute_diagU_apply {n : ℕ} {d : Fin n → Kˣ} {g : GL (Fin n) K}
-    (hg : g * diagU d = diagU d * g) (i j : Fin n) :
-    (g : Matrix (Fin n) (Fin n) K) i j * (d j : K) =
-      (d i : K) * (g : Matrix (Fin n) (Fin n) K) i j := by
-  have := congrArg (fun x : GL (Fin n) K => (x : Matrix (Fin n) (Fin n) K) i j) hg
-  simpa [Units.val_mul, diagU_val, Matrix.mul_diagonal, Matrix.diagonal_mul] using this
 
 theorem apply_eq_zero_of_commute_diagU {n : ℕ} {d : Fin n → Kˣ} {g : GL (Fin n) K}
     (hg : g * diagU d = diagU d * g) {i j : Fin n} (hij : d i ≠ d j) :

@@ -81,7 +81,6 @@ theorem lieModel_PSL_two_unique {X : Type} [Group X] {m f : ℕ} (hm : 3 ≤ m)
 theorem slmEvenTypeDetAt {m : ℕ} (hm : 3 ≤ m) : SLmEvenTypeDetAt m :=
   fun _ _ _ _ _ _ hX _ h => lieModel_PSL_two_unique hm hX h
 
-theorem slmEvenTypeDet : SLmEvenTypeDet := fun _ hm => slmEvenTypeDetAt hm
 
 end Orders
 

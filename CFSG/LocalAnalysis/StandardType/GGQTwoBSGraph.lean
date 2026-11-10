@@ -55,10 +55,6 @@ private theorem bsg_unitaryInvolution_invol (hK : Nat.card K = 4) :
   have hK' : Nat.card K = (2 ^ 1) ^ 2 := by rw [hK]; norm_num
   exact unitaryInvolution_involutive hK'
 
-theorem orthGraph_adj (hK : Nat.card K = 4) {m : ℕ} {x y : NormOneVec K m} :
-    (orthGraph K m).Adj x y ↔ herm (unitaryInvolution K 2 1) x.val y.val = 0 := by
-  refine ⟨fun h => h.1, fun h => ⟨h, ?_⟩⟩
-  exact herm_eq_zero_comm _ (bsg_unitaryInvolution_invol hK) h
 
 theorem orthGraph_adj_smul {m : ℕ} (g : Su K 2 1 m) {x y : NormOneVec K m}
     (h : (orthGraph K m).Adj x y) : (orthGraph K m).Adj (g • x) (g • y) := by

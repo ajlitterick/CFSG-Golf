@@ -175,20 +175,6 @@ theorem Offender.eq_one_of_commute (H : Offender π A) (g : antiSp K) (a : M ≃
   show π g (a u) ∈ U i
   exact (hU i).2.2.1 g _ ((hU i).2.2.2.2 a ha u hu)
 
-theorem Offender.normAut_eq_one (H : Offender π A) (a : A)
-    (h : normAut π H.inj A H.norm a = 1) : a = 1 := by
-  have hcomm : ∀ x, (π 1 * a.1) * π x = π x * (π 1 * a.1) := fun x => by
-    have h1 := π_normAut π H.inj A H.norm a x
-    rw [h] at h1
-    simp only [map_one, one_mul]
-    have h2 : a.1 * π x * a.1⁻¹ = π x := by rw [← h1]; rfl
-    calc a.1 * π x = (a.1 * π x * a.1⁻¹) * a.1 := by group
-      _ = π x * a.1 := by rw [h2]
-  have hcc : (π 1 * a.1) * (π 1 * a.1) = 1 := by
-    simpa using H.sq a.1 a.2
-  have h1 := H.eq_one_of_commute 1 a.1 a.2 hcc hcomm
-  have h2 : a.1 = 1 := by simpa using h1
-  exact Subtype.ext h2
 
 end Setting
 

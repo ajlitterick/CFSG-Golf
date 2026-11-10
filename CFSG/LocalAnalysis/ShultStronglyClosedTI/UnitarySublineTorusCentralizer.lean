@@ -49,10 +49,6 @@ theorem range_sublineTorusMul [CharP K 2] (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1,
   (MonoidHom.ofInjective (sublineTorusMul_injective hJ hC)).trans
     (MulEquiv.subgroupCongr (range_sublineTorusMul hJ))
 
-theorem coe_sublineTorusProdEquiv [CharP K 2] (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
-    (hC : C ≤ scalarCenter J) (p : sublineL J C hJ × torusL J C hJ) :
-    (sublineTorusProdEquiv hJ hC p : J.specialSubgroup ⧸ C) = (p.1 : J.specialSubgroup ⧸ C) * p.2 :=
-  rfl
 
 end Product
 

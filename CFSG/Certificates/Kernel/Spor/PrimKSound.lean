@@ -483,8 +483,6 @@ theorem prim_sound {n NL k cnt0 : Nat} {letters : Array Table} {lv : Array Nat}
     rw [TBfs.ap_ofFn hz', TBfs.ap_ofFn a3]
     exact ⟨a3, a4⟩
 
-example : subLblK (fun _ => 1) (fun _ _ => 0) 0 0 = false := by
-  decide +kernel
 
 end CFSG.KS.PR
 

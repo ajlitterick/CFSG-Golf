@@ -108,32 +108,12 @@ theorem mul_self_z : z * z = 1 := by decide
 
 theorem z_ne_one : z ≠ 1 := by decide
 
-theorem mem_zpowers_z_iff (x : Ext32) : x ∈ Subgroup.zpowers z ↔ x.a = 0 ∧ x.b = 0 := by
-  rw [mem_zpowers_iff_of_sq_eq_one mul_self_z]
-  revert x
-  decide
 
 theorem mem_center_iff (x : Ext32) : x ∈ Subgroup.center Ext32 ↔ x.a = 0 ∧ x.b = 0 := by
   rw [Subgroup.mem_center_iff]
   revert x
   decide
 
-theorem center_eq : Subgroup.center Ext32 = Subgroup.zpowers z := by
-  ext x
-  rw [mem_center_iff, mem_zpowers_z_iff]
-
-theorem commutator_eq : _root_.commutator Ext32 = Subgroup.zpowers z := by
-  apply le_antisymm
-  · rw [_root_.commutator_def, Subgroup.commutator_le]
-    intro g hg h hh
-    clear hg hh
-    rw [mem_zpowers_z_iff]
-    revert g h
-    decide
-  · rw [Subgroup.zpowers_le, _root_.commutator_def]
-    have h : ⁅(⟨⟨0, 1⟩, 0, 0⟩ : Ext32), ⟨0, ⟨1, 0⟩, 0⟩⁆ = z := by decide
-    rw [← h]
-    exact Subgroup.commutator_mem_commutator (Subgroup.mem_top _) (Subgroup.mem_top _)
 
 theorem card_eq : Nat.card Ext32 = 2 ^ 5 := by
   rw [Nat.card_eq_fintype_card]; decide
@@ -142,33 +122,12 @@ theorem orderOf_z : orderOf z = 2 := by
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   exact orderOf_eq_prime (by rw [sq]; exact mul_self_z) z_ne_one
 
-theorem card_center : Nat.card (Subgroup.center Ext32) = 2 := by
-  rw [center_eq, Nat.card_zpowers, orderOf_z]
-
-theorem frattini_eq : frattini Ext32 = Subgroup.zpowers z := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Fact (IsPGroup 2 Ext32) := ⟨IsPGroup.of_card card_eq⟩
-  rw [frattini_eq_closure_commutator_union_powers (p := 2) (R := Ext32), commutator_eq]
-  apply le_antisymm
-  · rw [Subgroup.closure_le]
-    rintro x (hx | ⟨y, rfl⟩)
-    · exact hx
-    · show y ^ 2 ∈ Subgroup.zpowers z
-      rw [mem_zpowers_z_iff, sq]
-      revert y
-      decide
-  · exact fun x hx => Subgroup.subset_closure (Or.inl hx)
-
-theorem isExtraspecialPGroup : IsExtraspecialPGroup 2 Ext32 :=
-  ⟨IsPGroup.of_card card_eq, commutator_eq.trans center_eq.symm, frattini_eq.trans center_eq.symm,
-    card_center⟩
 
 end Ext32
 
 @[expose] def proj : UT3 F4c →* Ext32 :=
   MonoidHom.mk' (fun x => ⟨x.a, x.b, x.c.b⟩) (fun _ _ => rfl)
 
-theorem proj_apply (x : UT3 F4c) : proj x = ⟨x.a, x.b, x.c.b⟩ := rfl
 
 theorem proj_surjective : Function.Surjective proj := fun y => ⟨⟨y.a, y.b, ⟨0, y.s⟩⟩, rfl⟩
 
@@ -181,21 +140,5 @@ theorem ker_proj : proj.ker = Subgroup.zpowers (⟨0, 0, 1⟩ : UT3 F4c) := by
 
 end UT3Aux
 
-theorem exists_extraspecial_quot :
-    ∃ (P : Type) (_ : Group P) (φ : UT3 F4c →* P), Function.Surjective φ ∧
-      φ.ker = Subgroup.zpowers (⟨0, 0, 1⟩ : UT3 F4c) ∧ IsExtraspecialPGroup 2 P :=
-  ⟨UT3Aux.Ext32, inferInstance, UT3Aux.proj, UT3Aux.proj_surjective, UT3Aux.ker_proj,
-    UT3Aux.Ext32.isExtraspecialPGroup⟩
-
-theorem exists_extraspecial_quot_of_equiv {G : Type} [Group G] (e : G ≃* UT3 F4c) {t : G}
-    (ht : e t = ⟨0, 0, 1⟩) :
-    ∃ (P : Type) (_ : Group P) (φ : G →* P), Function.Surjective φ ∧
-      φ.ker = Subgroup.zpowers t ∧ IsExtraspecialPGroup 2 P := by
-  obtain ⟨P, _, φ, hsurj, hker, hext⟩ := exists_extraspecial_quot
-  refine ⟨P, _, φ.comp e.toMonoidHom, hsurj.comp e.surjective, ?_, hext⟩
-  have h1 : Subgroup.zpowers (e t) = (Subgroup.zpowers t).map e.toMonoidHom :=
-    (MonoidHom.map_zpowers e.toMonoidHom t).symm
-  rw [← MonoidHom.comap_ker, hker, ← ht, h1]
-  exact Subgroup.comap_map_eq_self_of_injective e.injective _
 
 end CFSG.GH74.GLS.IVK.Proofs2.Ivk5An

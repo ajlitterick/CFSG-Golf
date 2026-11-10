@@ -298,9 +298,6 @@ def listSub (l : List N3) (h : N3.Closed l) : Subgroup SL32 where
     rw [toN3_inv]
     exact h.2.2 _ hx
 
-theorem mem_listSub {l : List N3} {h : N3.Closed l} {x : SL32} :
-    x ∈ listSub l h ↔ toN3 x ∈ l :=
-  Iff.rfl
 
 def R0 : Subgroup SL32 := listSub N3.rl N3.closed_lists.1
 

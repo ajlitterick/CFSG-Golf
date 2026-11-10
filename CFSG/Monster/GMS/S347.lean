@@ -330,20 +330,6 @@ theorem s347_exists
   rw [← hgy]
   exact Subgroup.mul_mem _ (Subgroup.mul_mem _ hg hxC) (Subgroup.inv_mem _ hg)
 
-theorem s347_isConj_mul
-    (hSLS : SLSStatement d₀) (hTV : TableVIn G) (hL : LeechStatement)
-    {a z₀ : G} (hG : GMSF1Type d₀ a z₀) {w : G} (hw : IsConj z₀ w) {x y : G}
-    (h : IsOddPair a w x y) : IsConj z₀ (x * w) ∧ IsConj z₀ (y * w) := by
-  obtain ⟨b, z, u, hT⟩ := exists_twoClasses hSLS hTV hL hG
-  obtain ⟨hxQ, hyQ, -⟩ := not_mem_leechQ_of_odd hG.1.1 h
-  have key : ∀ {t : G}, t ∈ Subgroup.centralizer ({w} : Set G) → IsConj a t → t ∉ leechQ w →
-      IsConj z₀ (t * w) := by
-    intro t htC htA htQ
-    obtain ⟨g, hg1, hg2⟩ := hT.exists_conj_of_not_mem_leechQ hw htA htC htQ
-    refine hT.isConj_au.trans (isConj_iff.mpr ⟨g, ?_⟩)
-    rw [← hg1, ← hg2]
-    group
-  exact ⟨key h.1 h.2.2.1 hxQ, key h.2.1 h.2.2.2.1 hyQ⟩
 
 end Main
 

@@ -12,13 +12,6 @@ section Shared
 
 variable (G : Type*) [Group G]
 
-theorem genFittingFitting_eq_componentClassification :
-    CFSG.Open.genFittingFitting G = CFSG.ComponentClassification.Fitting.subgroup G :=
-  rfl
-
-theorem genFittingLayer_eq_componentClassification :
-    CFSG.Open.genFittingLayer G = CFSG.ComponentClassification.Layer.subgroup G :=
-  rfl
 
 theorem genFittingFStar_eq_componentClassification :
     CFSG.Open.genFittingFStar G = CFSG.ComponentClassification.GeneralizedFitting.subgroup G :=

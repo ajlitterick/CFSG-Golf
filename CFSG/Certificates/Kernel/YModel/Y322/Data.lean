@@ -18,14 +18,6 @@ open CFSG.KC.YModel
 
 #kc_select CFSG.KD.YMY322 Nf N 8
 
-@[expose] noncomputable def T0_0 : Nat := N0
-@[expose] noncomputable def T0_1 : Nat := N1
-@[expose] noncomputable def T0_2 : Nat := N2
-@[expose] noncomputable def T0_3 : Nat := N3
-@[expose] noncomputable def T0_4 : Nat := N4
-@[expose] noncomputable def T0_5 : Nat := N5
-@[expose] noncomputable def T0_6 : Nat := N6
-@[expose] noncomputable def T0_7 : Nat := N7
 #kc_select CFSG.KD.YMY322 T0 T0_ 8
 #kc_select CFSG.KD.YMY322 M0 M0_ 7
 #kc_select CFSG.KD.YMY322 R0 R0_ 7
@@ -33,13 +25,6 @@ open CFSG.KC.YModel
 @[expose] noncomputable def WP0 (i : Nat) : Nat := CFSG.KD.YM322C.F (i + 1)
 @[expose] noncomputable def WL0 (i : Nat) : Nat := lget CFSG.KD.YM322C.El (i + 1)
 
-@[expose] noncomputable def T1_0 : Nat := N0
-@[expose] noncomputable def T1_1 : Nat := N1
-@[expose] noncomputable def T1_2 : Nat := N2
-@[expose] noncomputable def T1_3 : Nat := N3
-@[expose] noncomputable def T1_4 : Nat := N4
-@[expose] noncomputable def T1_5 : Nat := N5
-@[expose] noncomputable def T1_6 : Nat := N6
 #kc_select CFSG.KD.YMY322 T1 T1_ 7
 #kc_select CFSG.KD.YMY322 M1 M1_ 6
 #kc_select CFSG.KD.YMY322 R1 R1_ 6

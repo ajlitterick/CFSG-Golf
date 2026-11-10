@@ -165,24 +165,6 @@ theorem le_or_le {E : Subgroup G} (hES : E ≤ S) [IsElementaryAbelian 2 E] : E 
   rw [h.inf_centralizer_left e₂ he₂A he₂B] at he₁C
   exact he₁A he₁C
 
-theorem maximal_iff (E : Subgroup G) :
-    Maximal (fun F : Subgroup G => F ≤ S ∧ IsElementaryAbelian 2 F) E ↔ E = A ∨ E = B := by
-  have hA : A ≤ S ∧ IsElementaryAbelian 2 A := ⟨h.le_left, h.isElementaryAbelian_left⟩
-  have hB : B ≤ S ∧ IsElementaryAbelian 2 B := ⟨h.le_right, h.isElementaryAbelian_right⟩
-  constructor
-  · rintro ⟨⟨hES, hE⟩, hmax⟩
-    rcases h.le_or_le hES with hEA | hEB
-    · exact Or.inl (le_antisymm hEA (hmax hA hEA))
-    · exact Or.inr (le_antisymm hEB (hmax hB hEB))
-  · rintro (rfl | rfl)
-    · refine ⟨hA, fun F ⟨hFS, hF⟩ hEF => ?_⟩
-      rcases h.le_or_le hFS with hFA | hFB
-      · exact hFA
-      · exact absurd (hEF.trans hFB) h.not_le_left
-    · refine ⟨hB, fun F ⟨hFS, hF⟩ hEF => ?_⟩
-      rcases h.le_or_le hFS with hFA | hFB
-      · exact absurd (hEF.trans hFA) h.not_le_right
-      · exact hFB
 
 theorem inf_inf_centralizer {x : G} (hx : x ∈ S) (hxA : x ∉ A) :
     A ⊓ (S ⊓ centralizer ({x} : Set G)) = A ⊓ B := by
@@ -209,58 +191,6 @@ theorem relIndex_left_eq : A.relIndex S = A.relIndex B := by
     simpa using ha
   exact (Nat.card_congr (Equiv.ofBijective f ⟨f.injective, hf⟩)).symm
 
-theorem normalizer_inf_le_normalizer_right :
-    Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (A : Set G) ≤
-      Subgroup.normalizer (B : Set G) := by
-  have hconj (x : G) (hxS : x ∈ Subgroup.normalizer (S : Set G))
-      (hxA : x ∈ Subgroup.normalizer (A : Set G)) : ∀ b ∈ B, x * b * x⁻¹ ∈ B := by
-    intro b hb
-    let E : Subgroup G := B.map (MulAut.conj x).toMonoidHom
-    have hES : E ≤ S := by
-      intro e he
-      rw [Subgroup.mem_map] at he
-      obtain ⟨b', hb', rfl⟩ := he
-      have hmap : S.map (MulAut.conj x).toMonoidHom = S :=
-        Subgroup.mem_normalizer_iff_map_conj_eq.mp hxS
-      rw [← hmap]
-      exact Subgroup.mem_map_of_mem _ (h.le_right hb')
-    have hEel : IsElementaryAbelian 2 E := by
-      have hBel : IsElementaryAbelian 2 B := h.isElementaryAbelian_right
-      exact IsElementaryAbelian.map (A := B) (MulAut.conj x).toMonoidHom
-    have hEeli : IsElementaryAbelian 2 E := hEel
-    rcases h.le_or_le hES with hEA | hEB
-    · exfalso
-      apply h.not_le_right
-      intro b' hb'
-      have hmem : (MulAut.conj x) b' ∈ A := hEA (Subgroup.mem_map_of_mem _ hb')
-      have hxinv : x⁻¹ ∈ Subgroup.normalizer (A : Set G) :=
-        (Subgroup.normalizer (A : Set G)).inv_mem hxA
-      have hmap : A.map (MulAut.conj x⁻¹).toMonoidHom = A :=
-        Subgroup.mem_normalizer_iff_map_conj_eq.mp hxinv
-      have hmem' : (MulAut.conj x⁻¹) ((MulAut.conj x) b') ∈ A := by
-        rw [← hmap]
-        exact Subgroup.mem_map_of_mem _ hmem
-      have hmem'' : b' ∈ A := by
-        convert hmem' using 2
-        simp [MulAut.conj_apply]
-        group
-      exact hmem''
-    · exact hEB (Subgroup.mem_map_of_mem _ hb)
-  intro g hg
-  rw [Subgroup.mem_normalizer_iff]
-  intro b
-  constructor
-  · intro hb
-    exact hconj g hg.1 hg.2 b hb
-  · intro hb
-    have hg'S : g⁻¹ ∈ Subgroup.normalizer (S : Set G) :=
-      (Subgroup.normalizer (S : Set G)).inv_mem hg.1
-    have hg'A : g⁻¹ ∈ Subgroup.normalizer (A : Set G) :=
-      (Subgroup.normalizer (A : Set G)).inv_mem hg.2
-    have hb' : g⁻¹ * (g * b * g⁻¹) * (g⁻¹)⁻¹ ∈ B :=
-      hconj g⁻¹ hg'S hg'A (g * b * g⁻¹) hb
-    convert hb' using 2
-    group
 
 variable [Finite G]
 

@@ -197,7 +197,6 @@ theorem uBar_mem_Ebar : uBar ∈ Ebar := kappa_rho_mem_Ebar xD_mem_centralizer
 @[expose] noncomputable def uTauC : Cgen :=
   tauC * ⟨rhoEquiv xD, rhoEquiv_mem_Cgen xD_mem_centralizer⟩ * tauC⁻¹
 
-theorem coe_uTauC : (uTauC : SpaceB ≃ₗ[ℚ] SpaceB) = tauB * rhoEquiv xD * tauB⁻¹ := rfl
 
 theorem uTauC_mem_Jstar : (uTauC : SpaceB ≃ₗ[ℚ] SpaceB) ∈ Jstar :=
   ⟨rhoEquiv_XQ_conj_mem_Hmat ⟨dCode, 0⟩, (Cgen_le uTauC.2).2⟩

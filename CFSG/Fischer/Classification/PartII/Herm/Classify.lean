@@ -132,9 +132,6 @@ structure IsHermForm (σ : K ≃+* K) (h : V → V → K) : Prop where
     (fun x y y' => by rw [hh.conj, hh.add_left, map_add, ← hh.conj, ← hh.conj])
     (fun c x y => by rw [hh.conj, hh.smul_left, map_mul, hσ, ← hh.conj]; rfl)
 
-theorem mkForm_apply (hσ : ∀ c, σ (σ c) = c) {h : V → V → K} (hh : IsHermForm σ h) (x y : V) :
-    mkForm hσ hh x y = h x y :=
-  rfl
 
 theorem isSymm_mkForm (hσ : ∀ c, σ (σ c) = c) {h : V → V → K} (hh : IsHermForm σ h) :
     (mkForm hσ hh).IsSymm :=
@@ -185,27 +182,7 @@ end General
 section F4
 
 open CFSG.Fischer.Classification.Unitary CFSG.Open
-open CFSG.Blueprint.Fischer (K)
 
-variable {W : Type*} [AddCommGroup W] [Module K W] [FiniteDimensional K W]
-
-theorem exists_linearEquiv_herm_frob {B : W →ₛₗ[(frob : K →+* K)] W →ₗ[K] K} (hB : B.IsSymm)
-    (hnd : B.SeparatingLeft) {m : ℕ} (hm : finrank K W = m) :
-    ∃ e : W ≃ₗ[K] (Fin m → K), ∀ x y, herm frob (e x) (e y) = B x y :=
-  exists_linearEquiv_herm_of_finrank isUnitaryInvolution_frob hB hnd hm
-
-theorem exists_linearEquiv_fischerHermitianF4 (h : W → W → K)
-    (add_left : ∀ x x' y, h (x + x') y = h x y + h x' y)
-    (smul_left : ∀ (c : K) x y, h (c • x) y = c * h x y) (conj : ∀ x y, h y x = h x y ^ 2)
-    (nondeg : ∀ x, (∀ y, h x y = 0) → x = 0) {m : ℕ} (hm : finrank K W = m) :
-    ∃ e : W ≃ₗ[K] (Fin m → K), ∀ x y, fischerHermitianF4 m (e x) (e y) = h x y := by
-  have hc : ∀ x y, h y x = frob (h x y) := fun x y => by rw [frob_apply, conj]
-  obtain ⟨e, he⟩ := exists_linearEquiv_herm_of_form isUnitaryInvolution_frob
-    (h := fun x y => h y x)
-    ⟨fun x x' y => by rw [hc x, hc x', hc (x + x'), add_left, map_add],
-      fun c x y => by rw [hc x, hc (c • x), smul_left, map_mul], fun x y => hc y x⟩
-    (fun x hx => nondeg x fun y => by rw [hc, hx y, map_zero]) hm
-  exact ⟨e, fun x y => by rw [fischerHermitianF4_eq_herm, he]⟩
 
 end F4
 

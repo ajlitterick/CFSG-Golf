@@ -27,27 +27,6 @@ variable {GroupType : Type groupUniverse} [Group GroupType] [Finite GroupType]
     rw [MulAut.apply_inv_self] at equal
     exact equal.symm
 
-omit [Finite GroupType] in
-theorem frattini_automorphism_kernel_normal : (frattiniAutomorphismKernel GroupType).Normal := by
-  constructor
-  intro automorphism member conjugator element
-  have invariant : ∀ actorElement : MulAut GroupType, ∀ value ∈ frattini GroupType,
-      actorElement • value ∈ frattini GroupType := by
-    intro actorElement value value_member
-    exact Subgroup.characteristic_iff_le_comap.mp inferInstance actorElement value_member
-  let _action := invariantQuotientAction (frattini GroupType) invariant
-  change QuotientGroup.mk' (frattini GroupType) (conjugator (automorphism (conjugator⁻¹ element))) = _
-  have equivariant := invariant_quotient_equivariant (frattini GroupType) invariant
-  have first_image : QuotientGroup.mk' (frattini GroupType)
-      (conjugator (automorphism (conjugator⁻¹ element))) =
-      conjugator • QuotientGroup.mk' (frattini GroupType) (automorphism (conjugator⁻¹ element)) :=
-    equivariant conjugator (automorphism (conjugator⁻¹ element))
-  have second_image : conjugator • QuotientGroup.mk' (frattini GroupType) (conjugator⁻¹ element) =
-      QuotientGroup.mk' (frattini GroupType) element := by
-    have result := (equivariant conjugator (conjugator⁻¹ element)).symm
-    simpa only [MulAut.smul_def, MulAut.apply_inv_self] using result
-  exact first_image.trans ((congrArg (fun value => conjugator • value)
-    (member (conjugator⁻¹ element))).trans second_image)
 
 theorem frattini_generators_lift (generators : Subgroup GroupType)
     (full_image : generators.map (QuotientGroup.mk' (frattini GroupType)) = ⊤) : generators = ⊤ := by

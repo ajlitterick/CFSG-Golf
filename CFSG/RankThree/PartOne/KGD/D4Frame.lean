@@ -37,9 +37,6 @@ section Torus
 
 variable {L : Type} [Field L]
 
-theorem d4_perm_symm_apply (i : Fin TwistTag.D4.tag.rank) :
-    TwistTag.D4.perm.symm (TwistTag.D4.perm i) = i :=
-  TwistTag.D4.perm.symm_apply_apply i
 
 theorem permLattice_symm_permLattice (y : Fin TwistTag.D4.tag.rank → ℤ) :
     permLattice TwistTag.D4.perm.symm (permLattice TwistTag.D4.perm y) = y := by

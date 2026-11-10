@@ -144,6 +144,5 @@ theorem m42_map_HCen {H : Subgroup G} {g : G} (hg : g ∈ H) (e : G) :
     have := hc.map (MulAut.conj g⁻¹)
     simpa [mul_assoc] using this.eq
 
-variable [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec21.FF79

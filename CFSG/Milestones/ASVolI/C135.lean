@@ -9,16 +9,6 @@ namespace CFSG.ASVolI
 
 section C135
 
-set_option linter.unusedSectionVars false
-
-
-theorem as_C_1_35
-    : C_1_35 :=
-  burnsideC135_C_1_35_ofW CFSG.Quasithin.MS93.burnsideC134w_c134W_holds
-
-theorem as_C_1_36
-    : C_1_36 :=
-  burnsideC135_C_1_36_ofW CFSG.Quasithin.MS93.burnsideC134w_c134W_holds
 
 end C135
 

@@ -259,9 +259,6 @@ variable {K : Type} [Field K] {n : ℕ} {M : Subgroup (adjointGroup .F4 K)}
 @[expose] noncomputable def equiv (L : LeviModel K n M S) : StatedSp n K ≃* M :=
   (MonoidHom.ofInjective L.injective).trans (MulEquiv.subgroupCongr L.range_eq)
 
-theorem coe_equiv (L : LeviModel K n M S) (g : StatedSp n K) :
-    (L.equiv g : adjointGroup .F4 K) = L.E g :=
-  rfl
 
 theorem map_E_eq (L : LeviModel K n M S) (H : Subgroup (StatedSp n K)) :
     H.map L.E = (H.map L.equiv.toMonoidHom).map M.subtype := by

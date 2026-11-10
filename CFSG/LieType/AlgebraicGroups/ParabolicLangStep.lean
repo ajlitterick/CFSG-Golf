@@ -43,38 +43,6 @@ theorem entrywiseFrobGL_mem_parabolicSubgroup {τ : Tag} (e : ℕ) (J : Set (Fin
       exact weylElt_mem_parabolicSubgroup hj
   exact hmap (Subgroup.mem_map_of_mem _ hg)
 
-private theorem orbitUnion_orbitIndex_image_eq {t : TwistTag} {J : Set (Fin t.tag.rank)}
-    (hJ : ∀ j ∈ J, t.perm j ∈ J) : t.orbitUnion (t.orbitIndex '' J) = J := by
-  ext i
-  rw [mem_orbitUnion_iff_orbitIndex]
-  constructor
-  · rintro ⟨j, hj, hji⟩
-    have hi : i ∈ t.orbit (t.orbitIndex i) := t.mem_orbit_orbitIndex i
-    rw [← hji, t.orbit_orbitIndex, Finset.mem_image] at hi
-    obtain ⟨m, -, hm⟩ := hi
-    rw [← hm]
-    have hmJ : ∀ m, (t.perm ^ m) j ∈ J := by
-      intro m
-      induction m with
-      | zero => simpa using hj
-      | succ m ih =>
-        rw [pow_succ', Equiv.Perm.mul_apply]
-        exact hJ _ ih
-    exact hmJ m
-  · intro hi
-    exact ⟨i, hi, rfl⟩
-
-theorem frobTwistGL_mem_parabolicSubgroup_diagram (t : TwistTag) (e : ℕ)
-    {J : Set (Fin t.tag.rank)} (hJ : ∀ j ∈ J, t.perm j ∈ J) {g : ModGL t.tag k}
-    (hg : g ∈ parabolicSubgroup t.tag k J) :
-    frobTwistGL t.tag k p e (diagramMap t k) g ∈ parabolicSubgroup t.tag k J := by
-  have hσ : Function.Surjective (iterateFrobenius k p e) :=
-    (iterateFrobeniusEquiv k p e).surjective
-  have hU : t.orbitUnion (t.orbitIndex '' J) = J := orbitUnion_orbitIndex_image_eq hJ
-  have h := map_twistHom_parabolicSubgroup (t := t) (K := k)
-    (σ := iterateFrobenius k p e) hσ (J := t.orbitIndex '' J)
-  rw [hU] at h
-  exact h ▸ Subgroup.mem_map_of_mem _ hg
 
 theorem exists_frobTwistGL_fixed_mul_of_mem_normalizer_parabolic {τ : Tag} {e : ℕ} (he : 1 ≤ e)
     (Q : ModGL τ k) {J : Set (Fin τ.rank)}
@@ -126,27 +94,5 @@ theorem exists_entrywiseFrobGL_fixed_mul_of_mem_normalizer_parabolic {τ : Tag} 
   rw [frobTwistGL_apply] at hzx
   simpa using hzx
 
-theorem exists_frobTwistGL_diagram_fixed_mul_of_mem_normalizer_parabolic (t : TwistTag) {e : ℕ}
-    (he : 1 ≤ e) {J : Set (Fin t.tag.rank)} (hJ : ∀ j ∈ J, t.perm j ∈ J) {x : ModGL t.tag k}
-    (hx : x ∈ adjointGroup t.tag k)
-    (hN : x * (frobTwistGL t.tag k p e (diagramMap t k) x)⁻¹ ∈
-      Subgroup.normalizer (parabolicSubgroup t.tag k J : Set (ModGL t.tag k))) :
-    ∃ z ∈ parabolicSubgroup t.tag k J,
-      frobTwistGL t.tag k p e (diagramMap t k) (z * x) = z * x := by
-  have hP : ∀ g ∈ parabolicSubgroup t.tag k J,
-      frobTwistGL t.tag k p e (diagramMap t k) g ∈ parabolicSubgroup t.tag k J :=
-    fun g hg => frobTwistGL_mem_parabolicSubgroup_diagram (p := p) (t := t) e hJ hg
-  have hA : ∀ g ∈ adjointGroup t.tag k,
-      frobTwistGL t.tag k p e (diagramMap t k) g ∈ adjointGroup t.tag k := by
-    intro g hg
-    have hmem := conj_mem_adjointGroup_of_map_eq (τ := t.tag) (L := k)
-      (Q := diagramMap t k ^ (1 : ℤ))
-      (map_conj_diagramMap_zpow (t := t) (L := k) (1 : ℤ))
-      (entrywiseFrobGL t.tag k p e g)
-      (entrywiseFrobGL_mem (τ := t.tag) (L := k) p e hg)
-    rw [frobTwistGL_apply]
-    simpa using hmem
-  exact exists_frobTwistGL_fixed_mul_of_mem_normalizer_parabolic (p := p) (τ := t.tag) he
-    (diagramMap t k) hP hA hx hN
 
 end CFSG.LieType.AlgebraicGroups

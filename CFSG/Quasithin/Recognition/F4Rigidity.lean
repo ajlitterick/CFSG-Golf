@@ -553,21 +553,6 @@ theorem IsGenPolygon.eq_one_of_fix_apartment {m : ℕ} (hP : IsGenPolygon Γ m) 
     rw [hp_apply (by omega)] at hw
     exact (hfull i hi2).2 w hw
 
-theorem IsGenPolygon.smul_eq_of_fix_gPath {H : Type*} [Group H] [MulAction H V]
-    [GraphAction H Γ] {m : ℕ} (hP : IsGenPolygon Γ m) (hm : 3 ≤ m)
-    (hT : ∀ v, 3 ≤ (Γ.neighborSet v).encard) (p : GPath Γ (m + 1)) (hp : p.NoBack)
-    {g : H} (hfix : ∀ i, i ≤ m + 1 → g • p i = p i)
-    (hfixΓ : ∀ i, 1 ≤ i → i ≤ m - 1 → ∀ w, Γ.Adj (p i) w → g • w = w) :
-    ∀ v : V, g • v = v := by
-  have hperm : MulAction.toPerm g = 1 :=
-    IsGenPolygon.eq_one_of_fix_gPath hP hm hT p hp
-      (fun v w => by simpa [MulAction.toPerm_apply] using GraphAction.adj_smul g v w)
-      (fun i hi => by simpa [MulAction.toPerm_apply] using hfix i hi)
-      (fun i hi1 hi2 w hw => by
-        simpa [MulAction.toPerm_apply] using hfixΓ i hi1 hi2 w hw)
-  intro v
-  have := congrArg (fun e : Equiv.Perm V => e v) hperm
-  simpa [MulAction.toPerm_apply] using this
 
 theorem IsGenPolygon.smul_eq_of_fix_root {H : Type*} [Group H] [MulAction H V]
     [GraphAction H Γ] {m : ℕ} (hP : IsGenPolygon Γ m) (hm : 3 ≤ m)

@@ -11,15 +11,6 @@ namespace CFSG.StandardType
 
 open CFSG.Assembly
 
-theorem ggLayerCenterCyclicInput_of_rest
-    (hrest : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → p ≠ 2 → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab → ¬ GGLayerLinearLabel lab →
-        LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGLayerCenterCyclic p R I)) :
-    GGLayerCenterCyclicInput := by
-  intro p lab hp hp2 hlab hsplit
-  by_cases h : GGLayerLinearLabel lab
-  · exact largeEvenLabelAll_layerCenterCyclic_linear hp hp2 hlab h
-  · exact hrest p lab hp hp2 hlab hsplit h
 
 @[expose] def GGLayerUnitaryModelInput : Prop :=
   ∀ (d n : ℕ) (K : Type) [Field K] [Finite K], Nat.card K = (2 ^ n) ^ 2 → 1 ≤ n → 3 ≤ d →

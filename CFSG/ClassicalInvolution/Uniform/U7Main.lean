@@ -17,9 +17,6 @@ theorem thm3_of_g2Facts (hgen : G2NonToralGenerate3) (hF : G2CentralizerInvoluti
     ∀ n : ℕ, CITBelowT (.sl2 3 1) n → Thm3TypedBelowExactU 3 1 n :=
   fun _ hn => thm3TypedBelowExactU_three hgen hF hn
 
-theorem thm3TypedBelowExactU_three_of_g2NonToral (hgen : G2NonToralGenerate3) {n : ℕ}
-    (hn : CITBelowT (.sl2 3 1) n) : Thm3TypedBelowExactU 3 1 n :=
-  thm3TypedBelowExactU_three hgen g2CentralizerInvolution3_proved hn
 
 theorem thm3_of_g2NonToral (hgen : G2NonToralGenerate3) :
     ∀ n : ℕ, CITBelowT (.sl2 3 1) n → Thm3TypedBelowExactU 3 1 n :=

@@ -120,10 +120,6 @@ section Thm33
 
 variable {Y X Z : Subgroup G}
 
-theorem thetaU_mem_usetX
-    (hθ : NearFunctor p A θ) (hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) : thetaU p A θ Y X ∈ usetX p A θ Y X :=
-  thetaU_mem_usetX' hθ hY hX
 
 theorem thetaM_thetaL_mem_pairsYX
     (hθ : NearFunctor p A θ) (hY : Y ∈ dset p A θ)
@@ -150,21 +146,6 @@ theorem thetaY_le_thetaM
     (hX : X ∈ cset p A θ Y) : thetaY p A θ Y X ≤ thetaM p A θ Y X :=
   thetaY_le_thetaM' hθ hY hX
 
-theorem thetaM_le_thetaU (hθ : NearFunctor p A θ) (hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) : thetaM p A θ Y X ≤ thetaU p A θ Y X :=
-  thetaM_le_thetaU' hθ hY hX
-
-theorem thetaU_inf
-    (hθ : NearFunctor p A θ) (hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) (hZ : Z ∈ cset p A θ Y) :
-    thetaU p A θ Y X ⊓ Z = X ⊓ thetaU p A θ Y Z :=
-  thetaU_inf' hθ hY hX hZ
-
-theorem thetaY_inf
-    (hθ : NearFunctor p A θ) (hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) (hZ : Z ∈ cset p A θ Y) :
-    thetaY p A θ Y X ⊓ Z = X ⊓ thetaY p A θ Y Z :=
-  thetaY_inf' hθ hY hX hZ
 
 end Thm33
 
@@ -179,19 +160,5 @@ theorem fitting_minimal_normal
       M = fittingPre (dsub A θ) (dsub A θ ⊓ X₂) :=
   fitting_minimal_normal' hθ h
 
-theorem exists_complement_B
-    (hθ : NearFunctor p A θ) {D₂ : Subgroup G}
-    (hD₂ : D₂ ∈ dset p A θ) {X : Subgroup G} (hX : X ∈ cset p A θ D₂)
-    [(D₂.subgroupOf (dsub A θ)).Normal] {N L R : Subgroup G}
-    (hN : N ≤ X) (hL : L ≤ X) (hR : R ≤ X)
-    (ha : IsNormalIn N (R ⊔ dsub A θ ⊔ A) ∧ IsNormalIn L (R ⊔ dsub A θ ⊔ A) ∧
-      IsNormalIn R (R ⊔ dsub A θ ⊔ A))
-    (hb : IsChiefFactorOf (R ⊔ dsub A θ ⊔ A) L N ∧ L ≤ R)
-    (hc : A ⊔ R ≤ secCenIn (R ⊔ dsub A θ ⊔ A) L N)
-    (hd : R ⊓ dsub A θ = fittingPre (dsub A θ) D₂ ∧ dsub A θ ⊓ N ≤ D₂ ∧
-      IsDirectProductMod N (fittingPre (dsub A θ) D₂ ⊔ N) (D₂ ⊔ N) L) :
-    ∃ B : Subgroup G, B ≤ R ∧ IsNormalIn B (R ⊔ dsub A θ ⊔ A) ∧ B ⊓ dsub A θ = D₂ ∧
-      R = B ⊔ fittingPre (dsub A θ) D₂ :=
-  exists_complement_B' hθ hD₂ hX hN hL hR ha hb hc hd
 
 end CFSG.SignalizerFunctorTheorem.McBride.Near

@@ -24,35 +24,6 @@ theorem pow_eq_self_of_pow_prime_pow {G : Type*} [Group G] [Finite G] (hp : p.Pr
   have hge : g ^ (p ^ e) = 1 := orderOf_dvd_iff_pow_eq_one.mp h3
   simpa using pow_eq_pow_of_modEq hge hk1
 
-theorem galois_apply_sum_pow [NeZero N] (hζ : IsPrimitiveRoot ζ N) {σ : ℚ⟮ζ⟯ ≃ₐ[ℚ] ℚ⟮ζ⟯}
-    (hσ : (σ (AdjoinSimple.gen ℚ ζ) : ℂ) = ζ ^ k) {ξ : ℂ} (hξ : ξ ^ N = 1) (s : Finset ℕ)
-    (n : ℕ → ℤ) {z : ℂ} (hz : z ∈ ℚ⟮ζ⟯) (hzs : z = ∑ i ∈ s, (n i : ℂ) * ξ ^ i) :
-    ((σ ⟨z, hz⟩ : ℚ⟮ζ⟯) : ℂ) = ∑ i ∈ s, (n i : ℂ) * ξ ^ (k * i) := by
-  set ξE : ℚ⟮ζ⟯ := ⟨ξ, mem_adjoin_of_pow_eq_one hζ hξ⟩
-  have hzE : (⟨z, hz⟩ : ℚ⟮ζ⟯) = ∑ i ∈ s, (n i : ℚ⟮ζ⟯) * ξE ^ i := by
-    apply Subtype.ext
-    change z = _
-    rw [hzs]
-    push_cast
-    rfl
-  have hσξ : σ ξE = ξE ^ k := galois_apply_of_pow_eq_one hζ hσ (Subtype.ext (by simpa using hξ))
-  rw [hzE, map_sum]
-  push_cast
-  refine Finset.sum_congr rfl fun i _ => ?_
-  rw [map_mul, map_pow, map_intCast, hσξ, ← pow_mul]
-  push_cast
-  rfl
-
-theorem frobenius_apply_sum_pow (hN : N = p ^ e * M) (hM : 0 < M) (hp : p.Prime)
-    (hζ : IsPrimitiveRoot ζ N) (hkp : k ≡ p [MOD M]) {σ : ℚ⟮ζ⟯ ≃ₐ[ℚ] ℚ⟮ζ⟯}
-    (hσ : (σ (AdjoinSimple.gen ℚ ζ) : ℂ) = ζ ^ k) {ξ : ℂ} (hξ : ξ ^ M = 1) (s : Finset ℕ)
-    (n : ℕ → ℤ) {z : ℂ} (hz : z ∈ ℚ⟮ζ⟯) (hzs : z = ∑ i ∈ s, (n i : ℂ) * ξ ^ i) :
-    ((σ ⟨z, hz⟩ : ℚ⟮ζ⟯) : ℂ) = ∑ i ∈ s, (n i : ℂ) * ξ ^ (p * i) := by
-  have : NeZero N := ⟨by rw [hN]; exact (Nat.mul_pos (pow_pos hp.pos e) hM).ne'⟩
-  have hξN : ξ ^ N = 1 := by rw [hN, mul_comm, pow_mul, hξ, one_pow]
-  rw [galois_apply_sum_pow hζ hσ hξN s n hz hzs]
-  refine Finset.sum_congr rfl fun i _ => ?_
-  rw [pow_mul, pow_mul, pow_eq_pow_of_modEq hξ hkp]
 
 variable {G : Type*} [Group G] [Fintype G] (basis : FiniteIrreducibleCharacterBasis G)
 

@@ -52,14 +52,6 @@ private theorem ggQ2HeartJDictAux_pr_iform (γ γ' : Fin Tag.E6.rank → ℤ) :
   refine Finset.sum_congr rfl fun k _ => Finset.sum_congr rfl fun j _ => ?_
   ring
 
-private theorem ggQ2HeartJDictAux_excRefl {β : Fin Tag.E6.rank → ℤ} (hβ : IsRoot Tag.E6 β)
-    (t : Fin Tag.E6.rank → ZMod 3) :
-    ExcSplitRootGen.excRefl (p := 3) β t =
-      t - (∑ j, (β j : ZMod 3) * t j) • fun i => (iform β (Pi.single i 1) : ZMod 3) := by
-  funext i
-  rw [ExcSplitRootGen.excRefl_apply hβ, ggQ2HeartJDictAux_corootPair hβ]
-  simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul]
-  ring
 
 private theorem ggQ2HeartJDictAux_iform_self_nonneg (z : Fin Tag.E6.rank → ℤ) : 0 ≤ iform z z := by
   by_cases h : z = 0

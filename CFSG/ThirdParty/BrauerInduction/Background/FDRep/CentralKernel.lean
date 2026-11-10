@@ -227,15 +227,6 @@ noncomputable def centralKernel
     (Subgroup.center G).subtype
     (MonoidHom.ker (centralCharacter ρ))
 
-/--
-The central kernel is contained in the center.
--/
-lemma centralKernel_le_center
-    (ρ : FDRep k G) [Simple ρ] :
-    centralKernel ρ ≤ Subgroup.center G := by
-  intro g hg
-  rcases (Subgroup.mem_map).1 hg with ⟨z, hz, rfl⟩
-  exact z.2
 
 /--
 The central kernel is a normal subgroup.
@@ -256,58 +247,6 @@ instance centralKernel_normal
           simp [mul_assoc]
     simpa only [Subgroup.subtype_apply, hconj]
 
-/--
-Every element of the central kernel acts trivially.
--/
-lemma centralKernel_acts_trivially
-    (ρ : FDRep k G) [Simple ρ]
-    (g : centralKernel ρ) :
-    ρ.ρ (g : G) = 1 := by
-  rcases (Subgroup.mem_map).1 g.2 with ⟨z, hz, hz_eq⟩
-  rw [← hz_eq]
-  have hz_char :
-      centralCharacter ρ z = 1 := hz
-  have hz_scalar :
-      centralScalar ρ z = 1 := by
-    simpa [centralCharacter] using congrArg Units.val hz_char
-  change ρ.ρ (z : G) = 1
-  rw [centralScalar_spec ρ z, hz_scalar]
-  simp only [Module.End.one_eq_id, one_smul]
-
-/--
-A central element lies in the central kernel iff it acts trivially.
--/
-lemma center_coe_mem_centralKernel_iff
-    (ρ : FDRep k G) [Simple ρ]
-    (z : Subgroup.center G) :
-    (z : G) ∈ centralKernel ρ ↔
-      ρ.ρ (z : G) = 1 := by
-  constructor
-  · intro hz
-    exact centralKernel_acts_trivially ρ ⟨(z : G), hz⟩
-  · intro hz
-    refine (Subgroup.mem_map).2 ?_
-    refine ⟨z, ?_, rfl⟩
-    apply Units.ext
-    change centralScalar ρ z = 1
-    apply FDRep.smul_id_injective ρ
-    change
-      centralScalar ρ z •
-          (LinearMap.id : ρ →ₗ[k] ρ)
-        =
-      (1 : k) •
-          (LinearMap.id : ρ →ₗ[k] ρ)
-    rw [← centralScalar_spec ρ z, hz]
-    simp only [Module.End.one_eq_id, one_smul]
-
-/--
-The representation is trivial on its central kernel.
--/
-lemma rho_eq_one_of_mem_centralKernel
-    (ρ : FDRep k G) [Simple ρ] :
-    ∀ x ∈ centralKernel ρ, ρ.ρ x = 1 := by
-  intro x hx
-  exact centralKernel_acts_trivially ρ ⟨x, hx⟩
 
 end centralKernel
 

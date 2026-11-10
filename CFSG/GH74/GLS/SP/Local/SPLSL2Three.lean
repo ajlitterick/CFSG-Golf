@@ -79,8 +79,6 @@ variable {F : Type} [Field F]
 @[expose] def torus (P : GL (Fin 2) F) : Subgroup SL(2, F) :=
   (diagSub F).map (slConjugation F P).toMonoidHom
 
-theorem mem_torus_iff (P : GL (Fin 2) F) (x : SL(2, F)) :
-    x ∈ torus P ↔ ∃ d ∈ diagSub F, slConjugation F P d = x := Iff.rfl
 
 theorem torus_isCyclic [Finite F] (P : GL (Fin 2) F) : IsCyclic (torus P) :=
   (Subgroup.equivMapOfInjective (diagSub F) (slConjugation F P).toMonoidHom

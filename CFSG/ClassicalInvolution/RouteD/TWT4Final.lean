@@ -15,5 +15,3 @@ open CFSG.Open (classicalInvolutionOddCore)
 
 local notation "𝒞" => CoreAssembly.conjClass
 
-set_option linter.unusedSectionVars false
-

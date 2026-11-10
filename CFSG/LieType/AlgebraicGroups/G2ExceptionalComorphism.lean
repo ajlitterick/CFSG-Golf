@@ -133,8 +133,6 @@ variable {k : Type} [Field k] {A B : Type} [CommRing A] [HopfAlgebra k A] [CommR
 theorem includeLeftBialgHom_apply (a : A) : includeLeftBialgHom k A B a = a ⊗ₜ 1 :=
   DFunLike.congr_fun (coe_includeLeftBialgHom (k := k) (A := A) (B := B)) a
 
-theorem includeRightBialgHom_apply (b : B) : includeRightBialgHom k A B b = 1 ⊗ₜ b :=
-  DFunLike.congr_fun (coe_includeRightBialgHom (k := k) (A := A) (B := B)) b
 
 end Include
 

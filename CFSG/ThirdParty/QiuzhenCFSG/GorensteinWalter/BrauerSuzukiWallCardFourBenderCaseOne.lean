@@ -544,26 +544,5 @@ private theorem exists_order_nine_selected_centralizer_case_one_data
   · simpa [F] using hresult.1
   · simpa [n, M, F] using hresult.2.1
 
-/-- Bender's first order-four case: if the order-three centralizer is not
-contained in the self-centralizing Klein-four normalizer, then the ambient
-group has order 360. -/
-public theorem
-    BrauerSuzukiWallHypotheses.card_eq_360_of_card_K_eq_four_of_bender_case_one
-    {G : Type u} [Group G] [Finite G]
-    (h : BrauerSuzukiWallHypotheses G)
-    (hk : Nat.card h.K = 4)
-    (hcase :
-      ∃ V X : Subgroup G,
-        IsKleinFour V ∧
-        Subgroup.centralizer (V : Set G) = V ∧
-        Nat.card (Subgroup.normalizer (V : Set G)) = 24 ∧
-        X ≤ Subgroup.normalizer (V : Set G) ∧
-        Nat.card X = 3 ∧
-        ¬ Subgroup.centralizer (X : Set G) ≤
-          Subgroup.normalizer (V : Set G)) :
-    Nat.card G = 360 := by
-  obtain ⟨_x, _hxOrder, _htx, _hFcard, _hAcard, _hHindex, hGcard⟩ :=
-    exists_order_nine_selected_centralizer_case_one_data h hk hcase
-  exact hGcard
 
 end CFSG.GorensteinWalter

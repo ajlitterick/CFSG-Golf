@@ -64,15 +64,6 @@ theorem replacementNormalizer_inf_normal {G : Type u} [Group G]
     exact ⟨(le_sup_right : normal ⊓ Subgroup.normalizer (abelian : Set G) ≤
       abelian ⊔ (normal ⊓ Subgroup.normalizer (abelian : Set G))) helement, helement.1⟩
 
-theorem ReplacementDatum.normalizer_lt_sup {G : Type u} [Group G]
-    {prime : ℕ} {normal abelian : Subgroup G} {element : G}
-    (datum : ReplacementDatum prime normal abelian element) :
-    replacementNormalizer normal abelian < abelian ⊔ normal := by
-  apply lt_of_le_of_ne (replacementNormalizer_le_sup normal abelian)
-  intro heq
-  have hinf := replacementNormalizer_inf_normal normal abelian
-  rw [heq, inf_eq_right.mpr le_sup_right] at hinf
-  exact datum.normalizer_proper.ne hinf.symm
 
 theorem ReplacementDatum.element_normalizes_normalizer {G : Type u} [Group G]
     {prime : ℕ} {normal abelian : Subgroup G} {element : G}

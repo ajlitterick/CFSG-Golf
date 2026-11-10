@@ -74,13 +74,5 @@ theorem S_Ly_leaf_of_LyContains
   obtain ⟨f⟩ := exists_mulEquiv_of_subgroup_ly hs hG H e
   exact ⟨f⟩
 
-theorem LyContains_of_S_Ly_leaf (h : S_Ly_leaf) : LyContains := by
-  intro G _ _ hs hnab hG
-  obtain ⟨e⟩ := h G hs hnab hG
-  exact ⟨⊤, ⟨(Subgroup.topEquiv (G := G)).trans e⟩⟩
-
-theorem lyContains_iff_S_Ly_leaf :
-    LyContains ↔ S_Ly_leaf :=
-  ⟨S_Ly_leaf_of_LyContains, LyContains_of_S_Ly_leaf⟩
 
 end CFSG.Sporadic.Recognition.LyonsSims

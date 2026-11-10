@@ -185,13 +185,6 @@ theorem run_append_iterations {n : ℕ} (steps : List (Equiv.Perm (Fin n)))
   | zero => simp only [Nat.zero_add, run_zero]
   | succ fuel ih => simpa only [Nat.succ_add, run_succ] using ih (step steps q)
 
-theorem run_preserves_intermediate_transversal {n : ℕ}
-    (steps : List (Equiv.Perm (Fin n))) (fuel extra : ℕ) (q : SchreierOrbitState n)
-    (x : Fin n) (t : Equiv.Perm (Fin n))
-    (ht : (run steps fuel q).transversal? x = some t) :
-    (run steps (fuel + extra) q).transversal? x = some t := by
-  rw [run_append_iterations]
-  exact run_preserves_transversal steps extra (run steps fuel q) x t ht
 
 theorem run_invariant {n : ℕ} (steps : List (Equiv.Perm (Fin n)))
     (H : Subgroup (Equiv.Perm (Fin n))) (b : Fin n)
@@ -235,13 +228,6 @@ theorem run_initial_keys_nodup {n : ℕ} (steps : List (Equiv.Perm (Fin n)))
     (by simp) fuel [] (initial b) (initial_invariant steps ⊤ b)
   exact hfinal.keys_nodup
 
-theorem run_initial_queue_nodup {n : ℕ} (steps : List (Equiv.Perm (Fin n)))
-    (fuel : ℕ) (b : Fin n) : (run steps fuel (initial b)).queue.Nodup := by
-  obtain ⟨processed, hfinal, _⟩ := run_invariant steps ⊤ b
-    (by simp) fuel [] (initial b) (initial_invariant steps ⊤ b)
-  have hnodup := hfinal.keys_nodup
-  rw [hfinal.pending_suffix] at hnodup
-  exact hnodup.of_append_right
 
 theorem run_initial_closed {n : ℕ} (steps : List (Equiv.Perm (Fin n)))
     (b : Fin n) (x : Fin n) (hx : x ∈ (run steps n (initial b)).points)

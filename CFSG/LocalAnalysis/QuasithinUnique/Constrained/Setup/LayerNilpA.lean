@@ -44,10 +44,6 @@ theorem isSubnormal_trans {X : Type*} [Group X] {B L K : Subgroup X} (hBL : B �
     (hA : A ≤ Subgroup.normalizer (Fn : Set (V ≃ₗ[k] V))) : ↥A →* MulAut ↥Fn :=
   Fn.normalizerMonoidHom.comp (Subgroup.inclusion hA)
 
-theorem conjAction_apply_coe (Fn A : Subgroup (V ≃ₗ[k] V))
-    (hA : A ≤ Subgroup.normalizer (Fn : Set (V ≃ₗ[k] V))) (a : ↥A) (x : ↥Fn) :
-    ((conjAction Fn A hA a x : ↥Fn) : V ≃ₗ[k] V) = (a : V ≃ₗ[k] V) * x * (a : V ≃ₗ[k] V)⁻¹ :=
-  rfl
 
 variable [Finite V]
 

@@ -10,30 +10,6 @@ namespace CFSG.RankThree.PartTwo.Sec21.Holder214Theta
 open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Fischer
   CFSG.Monster.B.Mathieu CFSG.RankThree.Native CFSG.RankThree.PartOne
 
-@[expose] def extendWordsA (n : ℕ) (A : Array (Array ℕ)) (ds : List (List ℤ)) :
-    Array (Array ℕ) :=
-  ds.foldl (fun acc w => acc.push (CFSG.Monster.B.Co2.Native.wordA n acc (rawInvs n acc) w)) A
-
-@[expose] def basicOK24 (L : Array Level) (base x y τ c₁ c₂ : Array ℕ) (cT : ArrCert) : Bool :=
-  validA 1365 τ && validA 1365 c₁ && validA 1365 c₂ &&
-    siftA 1365 L base 0 (conjA 1365 τ x) && siftA 1365 L base 0 (conjA 1365 τ y) &&
-    eqA 1365 (powArr 1365 c₁ 3) (idA 1365) && eqA 1365 (powArr 1365 c₂ 3) (idA 1365) &&
-    commA 1365 c₁ c₂ && !(eqA 1365 c₁ (idA 1365)) && !(eqA 1365 c₂ (idA 1365)) &&
-    !(eqA 1365 c₂ c₁) && !(eqA 1365 c₂ (powArr 1365 c₁ 2)) &&
-    cT.pts.toList.any (eqA 1365 c₁) && cT.pts.toList.any (eqA 1365 c₂)
-
-@[expose] def sylowOK24 (L : Array Level) (base : Array ℕ) (gP : Array (Array ℕ)) (ps : List ℕ)
-    (cP : ArrCert) (E ds : Array (Array ℕ)) : Bool :=
-  enumOK 1365 gP ps cP && cP.pts.size == 27 &&
-    allLt gP.size (fun k => siftA 1365 L base 0 gP[k]!) &&
-    allLt ds.size (fun k => validA 1365 ds[k]! && siftA 1365 L base 0 ds[k]!) &&
-    allLt cP.pts.size (fun i => eqA 1365 (powArr 1365 cP.pts[i]! 3) (idA 1365)) &&
-    allLt cP.pts.size fun i => allLt cP.pts.size fun j =>
-      !(commA 1365 cP.pts[i]! cP.pts[j]!) || eqA 1365 cP.pts[i]! (idA 1365) ||
-        eqA 1365 cP.pts[j]! (idA 1365) || eqA 1365 cP.pts[j]! cP.pts[i]! ||
-        eqA 1365 cP.pts[j]! (compA 1365 cP.pts[i]! cP.pts[i]!) ||
-        (List.range ds.size).any fun k => E.toList.any (eqA 1365 (conjA 1365 ds[k]! cP.pts[i]!)) &&
-          E.toList.any (eqA 1365 (conjA 1365 ds[k]! cP.pts[j]!))
 
 @[expose] def g24ThHex : String :=
   "0000D02423ED4EE52E4BC01C0550183290DB17E3C03B24232AB1EA4DD0ED37D16F34A1002B918C10E25B15F21C36D3B5\
@@ -594,13 +570,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Fischer
 
 @[expose] def g24ThArr (k : ℕ) : Array ℕ := hexTable3 1365 (1365 * k) g24ThHex
 
-@[expose] def g24ThX : Array ℕ :=
-  CFSG.EvenSporadicStandard.G24Aut.prodA CFSG.EvenSporadicStandard.G24Model.pgArrs
-    CFSG.EvenSporadicStandard.G24Model.waWord
-
-@[expose] def g24ThY : Array ℕ :=
-  CFSG.EvenSporadicStandard.G24Aut.prodA CFSG.EvenSporadicStandard.G24Model.pgArrs
-    CFSG.EvenSporadicStandard.G24Model.wbWord
 
 @[expose] def g24ThC1 : Array ℕ := g24ThArr 0
 
@@ -608,75 +577,5 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Monster.B.Fischer
 
 @[expose] def g24ThTau : Array ℕ := g24ThArr 2
 
-@[expose] def g24ThKeys : List ℕ := [1, 208, 1187, 2]
-
-@[expose] def g24ThRWords : Array (List ℤ) :=
-    #[[], [], [], [-1, 2, 2, -3, -1, 2, 2, -1, -3, 1, 2, 3, 1, 2, -1, 1, -1, 1, 3, -1, 1, 2, -1, 3,
-      -3, 1, 2, 3, 3, 3, 2], [-1, -2, -4, 2, 4, -1, -3, -4, -3, 2, 1, -4, -4, -1, 4, 3, 4, -1, 3,
-      -3, -4, 1, -4, 1, -4, -4, -1, -3, 1, -1], [-1, -3, -4, -2, -2, 3, 2, -4, -1, 4, -5, -2, -5,
-      -4, -4, 2, 2, 2, 1, -5, 3, -1, 4, -5, -2, 4, -4, -4, 4], [-4, -5, -6, -4, 6, -1, -3, 2, -5,
-      -1, 1, 4, 1, -5, 1, 5, 5, 3, 1, 5, -2, -3, -4, 1, -4, -4, -1, 1, -6, -4, 5, 2, -2], [7, -4, 6,
-      7, 5, -2, -3, -6, -4, 7, -6, 6, -5, -2, -7, 5, -6, 5, 7, 7, -6, 2, -3, 1, -4, -2, -4, -3, 2,
-      2, -2, -2, -5], [-5, 6, -7, 6, -1, -2, 8, 8, -2, 7, 8, 7, -2, -8, -2, 3, 1, 8, 8, -3, 1, 2, 7,
-      4, 5, 5, 6, -7, 1, -8, -3], [-7, -9, -6, -5, -8, -1, 2, -6, -1, 9, 8, 1, 3, 8, 9, 6, -2, 4, 5,
-      2, -9, 2, -6, 5, -9, -9, 9, -9, 8, 7, 7, -6, 4], [9, -7, -4, 6, -10, 2, 5, 6, -2, 5, 3, -3,
-      -3, -4, 7, -3, 3, -9, -6, -4, -6, 6, 6, -8, 7, -9, -9, 2, 2, 5, -1, 5]]
-
-@[expose] def g24ThRArrs : Array (Array ℕ) :=
-  extendWordsA 1365 #[g24ThX, g24ThY, g24ThTau] (g24ThRWords.toList.drop 3)
-
-@[expose] def g24ThRBase : List (Fin 1365) := [1, 208, 1187, 2, 578, 919, 3, 1005]
-
-@[expose] def g24ThRBaseArr : Array ℕ := (g24ThRBase.map Fin.val).toArray
-
-@[expose] def g24ThRRels : List (ℕ × ℕ × ℕ) :=
-    [(0, 1, 1), (0, 2, 2), (1, 2, 1), (1, 0, 2), (2, 0, 1), (2, 1, 2), (3, 4, 1), (3, 5, 2),
-     (4, 5, 1), (4, 3, 2), (5, 3, 1), (5, 4, 2), (6, 7, 1), (7, 6, 2)]
-
-@[expose] def g24ThC1Gens : Array (Array ℕ) := Array.ofFn fun j : Fin 3 => g24ThArr (3 + j.val)
-
-@[expose] def g24ThC1Cert : ArrCert := enumBfs 1365 g24ThC1Gens g24ThKeys 380
-
-@[expose] def g24ThDWords : Array (List ℤ) :=
-    #[[], [], [-1, -2, -2, -1, -2, -1, 2, 2, -1, -2, -1, 1, -2, -2, -1, 2, 2, 2, -1, 2, -2, -2, 1,
-      -2, 1, -2, -2, -1, -2, 1, -1, 2, 1, -2, -1], [-2, -1, -2, 3, -1, -3, 2, -3, -1, -3, -3, -2,
-      -1, 1, 1, 3, 1, -3, 2, -1, 2, -3, -1, 2, -2, -2, 2, -1, 1, 2], [-3, 4, 4, -3, -3, -3, -4, 3,
-      -2, -2, -3, -1, 3, 1, -1, 1, 1, -1, 2, -2, -3, -4, 1, -4, -4, -1, 1, -3, -2, 2, -2, 3, 3, -2,
-      -2, -2, 2], [-3, -4, -3, -3, 2, 4, -2, -1, -2, 5, -3, 1, -4, -2, -4, -3, 2, 2, -2, -2, -5, 4,
-      -1, 4, 4, 4, -1, -4, -1, 2, 1, 5], [-3, -4, 5, -6, 4, -2, -6, -5, -6, 5, -6, -2, 1, 6, 5, 4,
-      2, 3, 3, 5, -3, -2, 6, -4, -5, 5, 5, 4, 5, 2, 2, -5]]
-
-@[expose] def g24ThDArrs : Array (Array ℕ) :=
-  extendWordsA 1365 #[g24ThX, g24ThY] (g24ThDWords.toList.drop 2)
-
-@[expose] def g24ThDBase : List (Fin 1365) := [1, 891, 2, 1225, 3, 1275, 4, 728]
-
-@[expose] def g24ThDBaseArr : Array ℕ := (g24ThDBase.map Fin.val).toArray
-
-@[expose] def g24ThDLevels : Array Level := rawLevels 1365 g24ThDArrs g24ThDBaseArr
-
-@[expose] def g24ThDRels : List (ℕ × ℕ × ℕ) :=
-    [(0, 1, 1), (1, 0, 1), (2, 3, 1), (3, 2, 1), (4, 5, 1), (5, 4, 1), (6, 7, 1), (7, 6, 1)]
-
-@[expose] def g24ThMGens : Array (Array ℕ) := Array.ofFn fun j : Fin 2 => g24ThArr (6 + j.val)
-
-@[expose] def g24ThMCert : ArrCert := enumBfs 1365 g24ThMGens g24ThKeys 12120
-
-@[expose] def g24ThDWit : Array (Array ℕ) :=
-  let g := g24ThMGens
-  #[g[0]!, g[1]!, g[0]!, compA 1365 g[0]! g[1]!]
-
-@[expose] def g24ThDTCert : ArrCert := enumBfs 1365 (dGensA 1365 g24ThDWit) g24ThKeys 6070
-
-@[expose] def g24ThP3Gens : Array (Array ℕ) := Array.ofFn fun j : Fin 2 => g24ThArr (8 + j.val)
-
-@[expose] def g24ThP3Cert : ArrCert := enumBfs 1365 g24ThP3Gens g24ThKeys 40
-
-@[expose] def g24ThDs : Array (Array ℕ) := #[g24ThArr 10, idA 1365, g24ThArr 11, g24ThArr 12]
-
-@[expose] def g24ThE0 : Array (Array ℕ) :=
-  let c₁ := g24ThC1
-  let c₂ := g24ThC2
-  Array.ofFn fun i : Fin 9 => compA 1365 (powArr 1365 c₁ (i.val / 3)) (powArr 1365 c₂ (i.val % 3))
 
 end CFSG.RankThree.PartTwo.Sec21.Holder214Theta

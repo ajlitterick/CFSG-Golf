@@ -59,14 +59,6 @@ theorem modelToG_top : modelToG e (⊤ : Subgroup P) = L := by
 theorem modelToG_bot : modelToG e (⊥ : Subgroup P) = ⊥ := by
   rw [modelToG, Subgroup.map_bot, Subgroup.map_bot]
 
-theorem modelToG_injective : Function.Injective (modelToG (G := G) e) := by
-  intro A B hAB
-  ext x
-  rw [← symm_mem_modelToG_iff e, hAB, symm_mem_modelToG_iff e]
-
-theorem modelToG_le_modelToG_iff {A B : Subgroup P} : modelToG e A ≤ modelToG e B ↔ A ≤ B := by
-  refine ⟨fun h x hx => ?_, modelToG_mono e⟩
-  exact (symm_mem_modelToG_iff e).1 (h (symm_mem_modelToG e hx))
 
 theorem modelToG_sup (A B : Subgroup P) :
     modelToG e (A ⊔ B) = modelToG e A ⊔ modelToG e B := by
@@ -197,16 +189,6 @@ theorem centralizerPerfectCore_modelToG_eq_perfectCore_inf {X : Subgroup G} {T :
       perfectCore (centralizerPerfectCore X ⊓ centralizer (modelToG e T : Set G)) :=
   F4Pilot.centralizerPerfectCore_eq_of_le hX
 
-theorem centralizerPerfectCore_modelToG_of_le {Y T : Subgroup P} (hYT : Y ≤ T) :
-    centralizerPerfectCore (modelToG e T) =
-      perfectCore (centralizerPerfectCore (modelToG e Y) ⊓ centralizer (modelToG e T : Set G)) :=
-  centralizerPerfectCore_modelToG_eq_perfectCore_inf e (modelToG_mono e hYT)
-
-theorem perfectCore_inf_centralizer_modelToG_eq {X X' : Subgroup G} {T : Subgroup P}
-    (hX : X ≤ modelToG e T) (hX' : X' ≤ modelToG e T) :
-    perfectCore (centralizerPerfectCore X ⊓ centralizer (modelToG e T : Set G)) =
-      perfectCore (centralizerPerfectCore X' ⊓ centralizer (modelToG e T : Set G)) :=
-  F4Pilot.perfectCore_neighbour_eq_of_le_of_le hX hX'
 
 end Cores
 

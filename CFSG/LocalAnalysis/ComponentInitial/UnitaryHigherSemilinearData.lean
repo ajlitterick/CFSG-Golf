@@ -354,16 +354,5 @@ theorem semilinearPointGroup_le_normalizer :
     rw [hy, semilinearPointAction_conj]
     exact ⟨_, rfl⟩
 
-theorem unitary_semilinear_point_data :
-    (∀ (x : semilinearSimilitudes h r ε) (L : hypIsotropicLines h r ε),
-      ((semilinearPointAction h r ε x L : hypIsotropicLines h r ε) :
-        Submodule K (HypIndex r ε → K)) =
-        (x : SemiGL (HypIndex r ε) K).left •
-          coordImage (x : SemiGL (HypIndex r ε) K).right
-            (L : Submodule K (HypIndex r ε → K))) ∧
-    (hypProjLineAction h r ε).range ≤ semilinearPointGroup h r ε ∧
-    semilinearPointGroup h r ε ≤
-      Subgroup.normalizer ((hypProjLineAction h r ε).range : Set (Equiv.Perm _)) :=
-  ⟨semilinearPointAction_apply, hypProjLineAction_range_le, semilinearPointGroup_le_normalizer⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

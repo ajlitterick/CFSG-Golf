@@ -93,27 +93,5 @@ theorem centralizer_translate_eq_generated_centralizer (U : Subgroup G) (u : G) 
       Subgroup.centralizer ((Subgroup.closure ({u} : Set G) ⊔ U : Subgroup G) : Set G) := by
   rw [← Subgroup.centralizer_closure, closure_translate_eq_sup]
 
-@[expose] def cosetClosureConjugation (Delta : Set G) :
-    Subgroup.normalizer Delta →* MulAut (Subgroup.closure Delta) :=
-  (Subgroup.closure Delta).normalizerMonoidHom.comp
-    (Subgroup.inclusion (Subgroup.normalizer_le_normalizer_closure Delta))
-
-theorem cosetClosureConjugation_ker_eq_entire_centralizer (Delta : Set G) :
-    (cosetClosureConjugation Delta).ker =
-      (Subgroup.centralizer Delta).subgroupOf (Subgroup.normalizer Delta) := by
-  ext x
-  change (Subgroup.closure Delta).normalizerMonoidHom
-      (Subgroup.inclusion (Subgroup.normalizer_le_normalizer_closure Delta) x) = 1 ↔
-    (x : G) ∈ Subgroup.centralizer Delta
-  rw [← MonoidHom.mem_ker, Subgroup.normalizerMonoidHom_ker]
-  change (x : G) ∈ Subgroup.centralizer (Subgroup.closure Delta : Set G) ↔
-    (x : G) ∈ Subgroup.centralizer Delta
-  rw [Subgroup.centralizer_closure]
-
-theorem cosetClosureConjugation_ker_map_eq_entire_centralizer (Delta : Set G) :
-    (cosetClosureConjugation Delta).ker.map (Subgroup.normalizer Delta).subtype =
-      Subgroup.centralizer Delta := by
-  rw [cosetClosureConjugation_ker_eq_entire_centralizer]
-  exact Subgroup.map_subgroupOf_eq_of_le (Subgroup.centralizer_le_normalizer Delta)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

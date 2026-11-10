@@ -98,10 +98,6 @@ structure ECert.Sound (enc : G → RN n) (a b : G) (c : ECert) (E N : Subgroup G
   surjE : ∀ ε ∈ c.Es ([a, b, a⁻¹, b⁻¹].map enc), ∃ x ∈ E, enc x = ε
   surjN : ∀ ε ∈ c.Ns ([a, b, a⁻¹, b⁻¹].map enc), ∃ x ∈ N, enc x = ε
 
-omit [Finite G] in
-theorem enc_mem_of_mem_Es (h : IsEnc enc) (eG : List G) {r : RN n}
-    (hr : r ∈ bfsSet (eG.map enc) 16) : ∃ x ∈ Subgroup.closure {g | g ∈ eG}, enc x = r :=
-  bfsSet_sound h eG 16 r hr
 
 theorem ECert.exists_soundCore (h : IsEnc enc) (a b : G) (c : ECert) (m : ℕ)
     (hm : m * c.nOrd = Nat.card G)

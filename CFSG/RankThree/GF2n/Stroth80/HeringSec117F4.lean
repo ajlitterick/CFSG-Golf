@@ -117,9 +117,5 @@ theorem Ctx.not_lieModel_f4_of (hF1 : F4ExclStatement) (hF2 : F4GenStatement)
     exact hsieg s₀ (hs₀a ▸ haL) (hs₀a ▸ haA)
   exact false_of_f4 hnd ρV hρinj hρQ (MulEquiv.refl _) ht₀ hF1 hF2
 
-omit [Finite G] [(Q.subgroupOf M).Normal] in
-theorem cmF4Width_of (hF1 : F4ExclStatement) (hF2 : F4GenStatement) : CMF4Width := by
-  intro G _ _ M Q Z B _ hc n _ _ ha2 ⟨x, hLie⟩
-  exact (hc.not_lieModel_f4_of hF1 hF2 ha2 hLie).elim
 
 end CFSG.RankThree.GF2n.Stroth80

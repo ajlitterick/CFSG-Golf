@@ -86,19 +86,6 @@ theorem ggNbrLangTypeARankLabel_lt {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {lab
     (θ : K ⧸ Subgroup.center K ≃* R) : MulAut K →* MulAut R :=
   (MulAut.congr θ).toMonoidHom.comp (centerQuotAut K)
 
-@[expose] def KGLangTorusCont (p : ℕ) : LargeEvenRawCont := fun R _ I F =>
-  ∀ (K : Type) [Group K] [Finite K] (θ : K ⧸ Subgroup.center K ≃* R), commutator K = ⊤ →
-    ∀ A : Subgroup (MulAut K), IsElemAbelian p A →
-      (∀ α ∈ A, ∃ u ∈ I, ∃ f ∈ Subgroup.closure F, kgInducedAut θ α = u * f) →
-      ∀ α₀ ∈ A, kgInducedAut θ α₀ ∉ I →
-        ∃ T : Subgroup K, (∀ a ∈ T, ∀ c ∈ T, a * c = c * a) ∧ (∀ t : K, α₀ t ∈ T ↔ t ∈ T) ∧
-          (∀ α ∈ A, kgInducedAut θ α ∈ I → ∀ t ∈ T, α t = t) ∧
-          (∀ t ∈ T, α₀ t = t → ∃ s ∈ T, t = ((List.range p).map fun i => (α₀ ^ i) s).prod) ∧
-          ∃ e ∈ T, e ≠ 1 ∧ e ^ p = 1 ∧ ∀ α ∈ A, α e = e
-
-@[expose] def KGLangTorusOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
-  ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → p ≠ 2 → LargeEvenInLambda2 lab → S p lab →
-    LargeEvenLabelAll lab (KGLangTorusCont p)
 
 @[expose] def KGFieldNotInnerCont (p : ℕ) : LargeEvenRawCont := fun R _ I F =>
   ∀ α : MulAut R, (∃ u ∈ I, ∃ f ∈ Subgroup.closure F, α = u * f) → α ∉ I → α ^ p = 1 →

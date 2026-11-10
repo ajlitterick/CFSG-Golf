@@ -26,14 +26,5 @@ theorem chkKOrb_true : chkKOrb = true := by
   simp only [chkKAll, Bool.and_eq_true] at h
   exact h.1.1.2
 
-theorem chkKComm_true : chkKComm = true := by
-  have h := chkKAll_true
-  simp only [chkKAll, Bool.and_eq_true] at h
-  exact h.1.2
-
-theorem chkEStab_true : chkEStab = true := by
-  have h := chkKAll_true
-  simp only [chkKAll, Bool.and_eq_true] at h
-  exact h.2
 
 end CFSG.Sporadic.J4.QT2

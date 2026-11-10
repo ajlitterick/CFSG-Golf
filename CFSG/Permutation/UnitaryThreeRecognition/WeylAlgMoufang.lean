@@ -17,9 +17,6 @@ theorem zc_fst {c : K} (hc : J.conj c = -c) : (zc c hc).1.1 = 0 := rfl
 
 theorem zc_snd {c : K} (hc : J.conj c = -c) : (zc c hc).1.2 = c := rfl
 
-theorem eq_zc {z : Coord J} (hz : z.1.1 = 0) :
-    z = zc z.1.2 (conj_snd_of_fst_eq_zero hz) :=
-  coord_ext hz rfl
 
 variable [Finite K] {q : ℕ} {F : Coord J → Coord J} {σ : Kˣ →* Kˣ} {h : Coord J → Kˣ}
 

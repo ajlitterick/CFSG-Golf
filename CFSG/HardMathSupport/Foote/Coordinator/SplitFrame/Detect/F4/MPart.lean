@@ -48,14 +48,6 @@ theorem pinnedX_mem_Qθ {β : Fin Tag.F4.rank → ℤ} (hβ : β ∈ Deg1 Tag.F4
   · exact h rfl
   · omega
 
-theorem Uθ_le_Qθ : Uθ Tag.F4 K ≤ Qθ Tag.F4 K := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ ⟨c, rfl⟩
-  refine pinnedX_mem_rootSpan ?_ c
-  rw [mem_parabolicRadicalRoots_iff]
-  refine ⟨isRoot_theta, ?_, Heis.iθ Tag.F4, fun h => h rfl, ?_⟩
-  · exact height_highRoot_pos Tag.F4
-  · decide +kernel
 
 theorem Uθ_le_X1 : Uθ Tag.F4 K ≤ X1 K := rootSubgroup_le_rootSpan_aux theta_mem_S1set K
 

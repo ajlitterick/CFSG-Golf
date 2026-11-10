@@ -297,32 +297,5 @@ theorem eq_top_of_centralizer_le
       · rfl)
   exact hG.not_isConj (isConj_of_isStronglyEmbeddedOrder hSE S hSH hG.1.1 hzG.1)
 
-theorem nonempty_mulEquiv_of_centralizer_le
-    {d₀ : B} {a z : G} (hG : GMSF1Type d₀ a z)
-    {X : Type*} [Group X] {a₀ z₀ : X} (hz₀ : GMSLeechCentralizer z₀)
-    (hX : ∀ t : X, orderOf t = 2 → IsConj a₀ t ∨ IsConj z₀ t)
-    (H : Subgroup G) (haH : Subgroup.centralizer ({a} : Set G) ≤ H) (e : H ≃* X)
-    (hea : e ⟨a, haH (Subgroup.mem_centralizer_singleton_iff.mpr rfl)⟩ = a₀) :
-    Nonempty (G ≃* X) := by
-  have hz' : GMSLeechCentralizer (e.symm z₀) := GMSLeechCentralizer.of_mulEquiv e.symm hz₀
-  have htop : H = ⊤ := by
-    refine eq_top_of_centralizer_le hG H haH hz' fun t ht => ?_
-    have ht' : orderOf (e t) = 2 := by rw [MulEquiv.orderOf_eq]; exact ht
-    rcases hX (e t) ht' with h | h
-    · left
-      obtain ⟨c, hc⟩ := isConj_iff.mp h
-      refine ⟨e.symm c, ?_⟩
-      have : e.symm c * ⟨a, haH (Subgroup.mem_centralizer_singleton_iff.mpr rfl)⟩ *
-          (e.symm c)⁻¹ = t := by
-        apply e.injective
-        rw [map_mul, map_mul, map_inv, e.apply_symm_apply, hea, hc]
-      simpa using congrArg Subtype.val this
-    · right
-      have := (isConj_iff.mp h)
-      obtain ⟨c, hc⟩ := this
-      refine isConj_iff.mpr ⟨e.symm c, ?_⟩
-      apply e.injective
-      rw [map_mul, map_mul, map_inv, e.apply_symm_apply, e.apply_symm_apply, hc]
-  exact ⟨Subgroup.topEquiv.symm.trans ((MulEquiv.subgroupCongr htop).symm.trans e)⟩
 
 end CFSG.Monster.GMS

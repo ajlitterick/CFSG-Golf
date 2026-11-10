@@ -58,7 +58,6 @@ theorem card_Q_ge_of_case4Corr [Finite G] {T R L : Subgroup G}
     Subgroup.card_le_of_le ((sup_le hCZ hUZ).trans inf_le_left)
   omega
 
-variable [Finite G] {T M L D : Subgroup G}
 
 end C4Fix3323
 

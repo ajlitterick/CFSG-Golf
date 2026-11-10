@@ -76,10 +76,6 @@ theorem goldschmidtOddCore_top_eq_bot (hO : goldschmidtOddCore M = ⊥) :
   Subgroup.topEquiv.symm.trans (QuotientGroup.quotientBot.symm.trans
     (QuotientGroup.quotientMulEquivOfEq (goldschmidtOddCore_top_eq_bot hO).symm))
 
-theorem topQuot_apply (hO : goldschmidtOddCore M = ⊥) (x : M) :
-    topQuot hO x = (QuotientGroup.mk (⟨x, trivial⟩ : (⊤ : Subgroup M)) :
-      (⊤ : Subgroup M) ⧸ goldschmidtOddCore (⊤ : Subgroup M)) :=
-  rfl
 
 theorem barOf_top_eq_map (hO : goldschmidtOddCore M = ⊥) (B : Subgroup M) :
     barOf ⊤ B = B.map (topQuot hO).toMonoidHom := by

@@ -51,8 +51,6 @@ theorem su_entries (A : Su K p f 2) :
 
 variable (Q : QData F K (unitaryInvolution K p f))
 
-@[expose] def crd (A : Su K p f 2) : F × F × F × F :=
-  (Q.re (ent A 0 0), Q.im (ent A 0 0), Q.re (ent A 0 1), Q.im (ent A 0 1))
 
 theorem su_norm (A : Su K p f 2) :
     Q.re (ent A 0 0) * Q.re (ent A 0 0) + Q.im (ent A 0 0) * Q.im (ent A 0 0) +

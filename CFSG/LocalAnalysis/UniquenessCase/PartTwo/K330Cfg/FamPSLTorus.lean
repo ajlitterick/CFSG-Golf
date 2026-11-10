@@ -13,12 +13,6 @@ open CFSG.Open Subgroup
 open CFSG.Blueprint (LieModel)
 open CFSG.ABGLocalTools (IsSylowOf)
 
-private theorem k330c_three_dvd_add_one {Q : ℕ} (hQ : Q % 3 = 2) : 3 ∣ Q + 1 := by
-  obtain ⟨m, hm⟩ : ∃ m, Q = 3 * m + 2 := by
-    refine ⟨Q / 3, ?_⟩
-    have := Nat.mod_add_div Q 3
-    omega
-  exact ⟨m + 1, by omega⟩
 
 private theorem k330c_not_three_dvd_sub_one {Q : ℕ} (hQ : Q % 3 = 2) : ¬ 3 ∣ Q - 1 := by
   obtain ⟨m, hm⟩ : ∃ m, Q = 3 * m + 2 := by

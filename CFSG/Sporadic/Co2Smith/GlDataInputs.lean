@@ -109,51 +109,12 @@ set_option compiler.extract_closed false
 @[expose] def glElemOK : Bool :=
   glLetOK && glOrdOK && glPtOK && glCOK && glArcOK && glGenOK
 
-@[expose] def glFix (arcs : List (Array Nat)) (v : Nat) : Nat :=
-  arcs.foldr (fun p acc => 2 * acc + if p[v]! == v then 1 else 0) 0
-
-@[expose] def glInit (arcs : List (Array Nat)) (b : List Nat) (s : Nat) : Array Nat :=
-  Array.ofFn (n := 2300) fun v => (individualize 2300 b s)[v.val]! * 16 + glFix arcs v.val
-
-@[expose] def glArcNbr (p : Array Nat) : Array (List Nat) := p.map fun x => [x]
-
-@[expose] def glRound (nbr : Array (List Nat)) (arcs : List (Array Nat)) (col : Array Nat) :
-    Array Nat :=
-  arcs.foldl (fun col p => refineStep 2300 (glArcNbr p) col) (refineStep 2300 nbr col)
-
-@[expose] def glRefine (nbr : Array (List Nat)) (arcs : List (Array Nat)) (col : Array Nat) :
-    Nat → Array Nat
-  | 0 => col
-  | k + 1 => glRound nbr arcs (glRefine nbr arcs col k)
-
-@[expose] def glColour (nbr : Array (List Nat)) (arcs : List (Array Nat)) (b : List Nat)
-    (s k : Nat) : Array Nat :=
-  glRefine nbr arcs (glInit arcs b s) k
 
 @[expose] def glBase : List Nat := [80, 1, 0]
 
-@[expose] def glClassIn (col : Array Nat) (x : Nat) (pts : List Nat) : Bool :=
-  allLt 2300 fun w => !(col[w]! == col[x]!) || pts.contains w
-
-@[expose] def glRefineOK (arcs : List (Array Nat)) (b p₀ p₁ p₂ : List Nat)
-    (extra : List (Nat × List Nat)) : Bool :=
-  let nbr := CFSG.Sporadic.Co2Rank3.co2Nbr
-  let c0 := glColour nbr arcs b 0 3
-  let c1 := glColour nbr arcs b 1 3
-  let c2 := glColour nbr arcs b 2 3
-  let c3 := glColour nbr arcs b 3 3
-  glClassIn c0 b[0]! p₀ && glClassIn c1 b[1]! p₁ && glClassIn c2 b[2]! p₂ &&
-    extra.all (fun e => glClassIn c1 e.1 e.2) && decide c3.toList.Nodup && c3.size == 2300
 
 @[expose] def glWit0Pts (t : Nat) : List Nat := (glWit0.filter fun e => e.2.1 == t).map (·.1)
 
-@[expose] def glRefineC0OK : Bool :=
-  glRefineOK [glPermArr glAl, glPermArr glGa] glBase (glWit0.map (·.1)) (glWit1.map (·.1))
-    (glWit2.map (·.1)) [(1172, glWit0Pts 1), (1348, glWit0Pts 2)]
-
-@[expose] def glRefineCzOK : Bool :=
-  glRefineOK [glPermArr glAl, glPermArr glGa, glPermArr glZ] glBase (glWitZ0.map (·.1))
-    (glWitZ1.map (·.1)) (glWitZ2.map (·.1)) []
 
 @[expose] def glForm (t : Nat) : Array Nat :=
   if t == 1 then glU else if t == 2 then glV else idRows 22
@@ -203,6 +164,5 @@ set_option compiler.extract_closed false
 
 @[expose] def glChainNOK : Bool := glChainOK glNWords glChainNBase glChainNW 20643840
 
-@[expose] def glChainMOK : Bool := glChainOK glMWords glChainMBase glChainMW 13063680
 
 end CFSG.Sporadic.Co2Smith.Native

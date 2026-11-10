@@ -121,8 +121,6 @@ theorem run_initial_transversal_mem (M : Subgroup (Equiv.Perm (Fin n) × K))
 
 end LiftedOrbitState
 
-theorem liftSiftResidual_nil (φ : K →* Equiv.Perm (Fin n)) (v : K) :
-    liftSiftResidual φ [] v = some v := rfl
 
 theorem liftSiftResidual_unavailable (φ : K →* Equiv.Perm (Fin n)) (b : Fin n)
     (q : LiftedOrbitState n K) (levels : List (Fin n × LiftedOrbitState n K)) (v : K)
@@ -216,48 +214,12 @@ theorem lifted_record_mem (Q : RawSchreierDatum n) (U : Vector K Q.originalCount
     (Q.liftedLevelSubgroup U i.val)) (fun j hj => ⟨Subgroup.mem_top _,
       Q.lift_mem_liftedLevelSubgroup U i.val j hj⟩) x p hp).2
 
-theorem liftedTransversal?_eq_some_iff (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) (T : K) :
-    Q.liftedTransversal? U i x = some T ↔
-      ∃ t, (Q.liftedOrbitSearch U i).transversal? x = some (t, T) := by
-  rw [liftedTransversal?, Option.map_eq_some_iff]
-  constructor
-  · rintro ⟨⟨t, T'⟩, hp, rfl⟩
-    exact ⟨t, hp⟩
-  · rintro ⟨t, hp⟩
-    exact ⟨(t, T), hp, rfl⟩
-
-theorem liftedTransversal_mem (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) (T : K) (hT : Q.liftedTransversal? U i x = some T) :
-    T ∈ Q.liftedLevelSubgroup U i.val := by
-  obtain ⟨t, hp⟩ := (Q.liftedTransversal?_eq_some_iff U i x T).1 hT
-  exact Q.lifted_record_mem U i x (t, T) hp
 
 theorem liftedTransversal_root (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
     (i : Fin Q.baseCount) : Q.liftedTransversal? U i (Q.base.get i) = some 1 := by
   rw [liftedTransversal?, liftedOrbitSearch, LiftedOrbitState.run_initial_root]
   rfl
 
-theorem transversal_of_lifted_record (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) (p : Equiv.Perm (Fin n) × K)
-    (hp : (Q.liftedOrbitSearch U i).transversal? x = some p) : Q.transversal? i x = some p.1 := by
-  rw [Q.transversal?_eq_map_fst U i x, hp]
-  rfl
-
-theorem exists_lifted_record (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) (t : Equiv.Perm (Fin n)) (ht : Q.transversal? i x = some t) :
-    ∃ T, (Q.liftedOrbitSearch U i).transversal? x = some (t, T) := by
-  rw [Q.transversal?_eq_map_fst U i x, Option.map_eq_some_iff] at ht
-  obtain ⟨⟨t', T⟩, hp, rfl⟩ := ht
-  exact ⟨T, hp⟩
-
-theorem lifted_record_map (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (φ : K →* Equiv.Perm (Fin n)) (hlift : ∀ j, φ (Q.lift U j) = Q.strong.get j)
-    (i : Fin Q.baseCount) (x : Fin n) (p : Equiv.Perm (Fin n) × K)
-    (hp : (Q.liftedOrbitSearch U i).transversal? x = some p) : p.1 = φ p.2 :=
-  Q.liftedOrbitSearch_mem U i ((MonoidHom.fst (Equiv.Perm (Fin n)) K).eqLocus
-    (φ.comp (MonoidHom.snd (Equiv.Perm (Fin n)) K)))
-    (fun j _ => show Q.strong.get j = φ (Q.lift U j) from (hlift j).symm) x p hp
 
 theorem lift_mem_liftedOriginalSubgroup (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
     (j : Fin Q.strongCount) : Q.lift U j ∈ Q.liftedOriginalSubgroup U := by
@@ -314,28 +276,6 @@ theorem mem_liftedSiftLevels_iff (Q : RawSchreierDatum n)
       ∃ j : Fin Q.baseCount, i ≤ j.val ∧ (Q.base.get j, tables.get j) = p := by
   simp only [liftedSiftLevels, List.mem_map, mem_finRange_drop_iff]
 
-omit [Group K] in
-theorem liftedSiftLevels_cons (Q : RawSchreierDatum n)
-    (tables : Vector (LiftedOrbitState n K) Q.baseCount) (i : Fin Q.baseCount) :
-    Q.liftedSiftLevels tables i.val =
-      (Q.base.get i, tables.get i) :: Q.liftedSiftLevels tables (i.val + 1) := by
-  have hi : i.val < (List.finRange Q.baseCount).length := by simp
-  have hentry : (List.finRange Q.baseCount)[i.val] = i := by
-    apply Fin.ext
-    simp only [List.getElem_finRange, Fin.val_cast]
-  simp only [liftedSiftLevels, List.drop_eq_getElem_cons hi, hentry, List.map_cons]
-
-omit [Group K] in
-theorem liftedSiftLevels_terminal (Q : RawSchreierDatum n)
-    (tables : Vector (LiftedOrbitState n K) Q.baseCount) :
-    Q.liftedSiftLevels tables Q.baseCount = [] := by
-  have hdrop : (List.finRange Q.baseCount).drop Q.baseCount = [] :=
-    List.drop_eq_nil_iff.2 (by simp)
-  simp only [liftedSiftLevels, hdrop, List.map_nil]
-
-theorem liftSift_terminal (Q : RawSchreierDatum n) (φ : K →* Equiv.Perm (Fin n))
-    (U : Vector K Q.originalCount) (v : K) : LiftSift Q φ U v Q.baseCount ↔ v = 1 := by
-  rw [LiftSift, liftedSiftLevels_terminal, liftSiftResidual_nil, Option.some.injEq]
 
 theorem liftSift_mem (Q : RawSchreierDatum n) (φ : K →* Equiv.Perm (Fin n))
     (U : Vector K Q.originalCount) (i : ℕ) (v : K) (hv : LiftSift Q φ U v i) :

@@ -25,11 +25,6 @@ variable (n : ℕ) (K : Type) [Field K]
 theorem plusDerivedEquiv_val (hn : 3 ≤ n) (g : StatedOmega (StatedQuadPlus n K)) :
     (plusDerivedEquiv n K hn g).val = toLinEquiv (Fin n ⊕ Fin n) K g.val := rfl
 
-theorem plusDerivedEquiv_scalars (hn : 3 ≤ n) :
-    ((StatedScalars (Fin n ⊕ Fin n) K).subgroupOf (StatedOmega (StatedQuadPlus n K))).map
-        (plusDerivedEquiv n K hn).toMonoidHom = elemScalars n K :=
-  statedActionEquiv_scalarKernel (coe_quadPlus n K)
-    (CFSG.ClassicalGroups.Orthogonal.commutator_orthogonalGroup_quadPlus hn)
 
 @[expose] def plusProjectiveEquiv (hn : 3 ≤ n) :
     StatedProj (StatedOmega (StatedQuadPlus n K)) ≃*

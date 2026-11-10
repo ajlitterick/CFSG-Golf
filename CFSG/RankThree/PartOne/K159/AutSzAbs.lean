@@ -218,9 +218,6 @@ variable {H : Type} [Group H]
     MulAction H (Sylow p ↥S) :=
   MulAction.compHom (Sylow p ↥S) (MulAut.conjNormal : H →* MulAut ↥S)
 
-theorem hAct_coe (S : Subgroup H) [S.Normal] {p : ℕ} (h : H) (V : Sylow p ↥S) :
-    ((@HSMul.hSMul H (Sylow p ↥S) (Sylow p ↥S) (@instHSMul _ _ (hAct S p).toSMul) h V :
-        Sylow p ↥S) : Subgroup ↥S) = (MulAut.conjNormal h : MulAut ↥S) • (V : Subgroup ↥S) := rfl
 
 theorem smul_eq_iff_mem_normalizer {S : Subgroup H} {p : ℕ} [Fact p.Prime] (g : ↥S)
     (V : Sylow p ↥S) :

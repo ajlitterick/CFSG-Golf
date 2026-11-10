@@ -17,7 +17,6 @@ open CFSG.CosetTable CFSG.ClassicalInvolution.Q3.AE CFSG.ClassicalInvolution.Q3.
 
 @[expose] def memB (k : Fin 14) : Bool := k.val % 2 == 0
 
-@[expose] def memIdx (k : Fin 14) : Finset (Fin 7) × Bool := (memSet k, memB k)
 
 theorem memSet_card (k : Fin 14) : (memSet k).card = 4 := by
   revert k
@@ -112,8 +111,6 @@ theorem modelGen_mem_memBar (g : Fin 28) :
     modelGen g ∈ memBar (memSet (memOf g)) (memSet_card _) (memB (memOf g)) :=
   ⟨genW g, genW_mem_memAt g, rfl⟩
 
-theorem modelGen_mem (g : Fin 28) : modelGen g ∈ e64Sub :=
-  TwinThinPf.memBar_le_e64 _ (memSet_mem _) (memSet_card _) _ (modelGen_mem_memBar g)
 
 theorem closure_iQ_jQ : Subgroup.closure {iQ, jQ} = kQ := by
   apply le_antisymm
@@ -183,13 +180,6 @@ theorem genW_pow_four : ∀ g : Fin 28, genW g ^ 4 = 1 := by
 theorem genW_sq_ne : ∀ g : Fin 28, genW g ^ 2 ≠ 1 ∧ genW g ^ 2 ≠ allOnes 7 := by
   decide +kernel
 
-theorem orderOf_genW (g : Fin 28) : orderOf (genW g) = 4 := by
-  have h4 : genW g ^ 2 ^ (1 + 1) = 1 := by
-    rw [show 2 ^ (1 + 1) = 4 by norm_num, genW_pow_four]
-  have h2 : ¬ genW g ^ 2 ^ 1 = 1 := by
-    rw [pow_one]
-    exact (genW_sq_ne g).1
-  exact (orderOf_eq_prime_pow h2 h4).trans (by norm_num)
 
 theorem orderOf_modelGen (g : Fin 28) : orderOf (modelGen g) = 4 := by
   have h4 : modelGen g ^ 2 ^ (1 + 1) = 1 := by
@@ -202,46 +192,6 @@ theorem orderOf_modelGen (g : Fin 28) : orderOf (modelGen g) = 4 := by
     · exact (genW_sq_ne g).2 h
   exact (orderOf_eq_prime_pow h2 h4).trans (by norm_num)
 
-theorem genW_zero : genW 0 = TwinThinPf.aW := by
-  decide +kernel
-
-theorem genW_one : genW 1 = TwinThinPf.bW := by
-  decide +kernel
-
-theorem genW_hW : genW 3 * genW 13 * genW 20 * genW 21 = TwinThinPf.hW := by
-  decide +kernel
-
-theorem closure_modelGen : Subgroup.closure (Set.range modelGen) = e64Sub := by
-  refine le_antisymm ((Subgroup.closure_le _).mpr ?_) fun y hy => ?_
-  · rintro _ ⟨g, rfl⟩
-    exact modelGen_mem g
-  · set C := Subgroup.closure (Set.range modelGen)
-    have hmem : ∀ g, modelGen g ∈ C := fun g => Subgroup.subset_closure ⟨g, rfl⟩
-    have hle : Subgroup.closure {z | z ∈ [TwinThinPf.aH, TwinThinPf.bH, TwinThinPf.hH]} ≤
-        C.subgroupOf e64Sub := by
-      rw [Subgroup.closure_le]
-      intro z hz
-      simp only [Set.mem_setOf_eq, List.mem_cons, List.mem_nil_iff, or_false] at hz
-      rw [SetLike.mem_coe, Subgroup.mem_subgroupOf]
-      rcases hz with rfl | rfl | rfl
-      · have e : ((TwinThinPf.aH : ↥e64Sub) : AEQ 7) = modelGen 0 := by
-          rw [modelGen, genW_zero]
-          rfl
-        rw [e]
-        exact hmem 0
-      · have e : ((TwinThinPf.bH : ↥e64Sub) : AEQ 7) = modelGen 1 := by
-          rw [modelGen, genW_one]
-          rfl
-        rw [e]
-        exact hmem 1
-      · have e : ((TwinThinPf.hH : ↥e64Sub) : AEQ 7) =
-            modelGen 3 * modelGen 13 * modelGen 20 * modelGen 21 := by
-          simp only [modelGen]
-          rw [← map_mul, ← map_mul, ← map_mul, genW_hW]
-          rfl
-        rw [e]
-        exact C.mul_mem (C.mul_mem (C.mul_mem (hmem 3) (hmem 13)) (hmem 20)) (hmem 21)
-    exact hle (TwinThinPf.gen_e64 ⟨y, hy⟩)
 
 section Model
 
@@ -409,33 +359,6 @@ theorem card_closure_le_of_rels (x : Fin 28 → G)
     Nat.card (Subgroup.closure (Set.range x)) ≤ 10752 :=
   (finite_card_closure_of_rels x hx).2
 
-theorem surjective_of_map_gen {x : Fin 28 → G}
-    (f : ↥(Subgroup.closure (Set.range x)) →* ↥e64Sub)
-    (hfx : ∀ i, (f ⟨x i, Subgroup.subset_closure ⟨i, rfl⟩⟩ : AEQ 7) = modelGen i) :
-    Function.Surjective f := by
-  intro y
-  have hle : e64Sub ≤ f.range.map e64Sub.subtype := by
-    refine closure_modelGen.symm.le.trans ?_
-    rw [Subgroup.closure_le]
-    rintro _ ⟨i, rfl⟩
-    exact ⟨f ⟨x i, _⟩, ⟨_, rfl⟩, hfx i⟩
-  obtain ⟨z, ⟨w, rfl⟩, hz⟩ := hle y.2
-  exact ⟨w, Subtype.ext hz⟩
-
-
-theorem injective_of_rels (x : Fin 28 → G)
-    (hx : ∀ r ∈ e64MemberRels, FreeGroup.lift x (FreeGroup.mk r) = 1)
-    (f : ↥(Subgroup.closure (Set.range x)) →* ↥e64Sub) (hf : Function.Surjective f) :
-    Function.Injective f := by
-  obtain ⟨hfin, hcard⟩ := finite_card_closure_of_rels x hx
-  exact (hf.bijective_of_nat_card_le (hcard.trans E64Ker.le_card_e64Sub)).1
-
-theorem injective_of_rels_of_map (x : Fin 28 → G)
-    (hx : ∀ r ∈ e64MemberRels, FreeGroup.lift x (FreeGroup.mk r) = 1)
-    (f : ↥(Subgroup.closure (Set.range x)) →* ↥e64Sub)
-    (hfx : ∀ i, (f ⟨x i, Subgroup.subset_closure ⟨i, rfl⟩⟩ : AEQ 7) = modelGen i) :
-    Function.Injective f :=
-  injective_of_rels x hx f (surjective_of_map_gen f hfx)
 
 end Order
 

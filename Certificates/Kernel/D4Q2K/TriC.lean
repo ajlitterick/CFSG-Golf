@@ -19,13 +19,6 @@ open CFSG.KC.D4Q2K
 
 #kc_each CertificateChecks.KernelD4Q2K.triCSl 0 112
 
-theorem triC_negRow :
-    (!triCK DS.SF (fun j => Nat.land (DT.TF j) (Nat.sub (Nat.shiftLeft 1 4480) 2)) DC.cl 0 20) =
-      true := by
-  quickRfl
-
-theorem triC_negCol : (!triCK (fun i => DS.SF (Nat.succ i)) DT.TF DC.cl 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

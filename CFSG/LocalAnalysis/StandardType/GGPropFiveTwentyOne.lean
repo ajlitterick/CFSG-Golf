@@ -42,22 +42,6 @@ end Wiring
 
 section Assembly
 
-theorem lc_gl_std_of_secFiveData (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (he : GGSecFiveDataInput) (hf : GGHypSixV2Input)
-    (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput) (hR1 : GGLieModelMarkingInput)
-    (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneV2Input) (h2 : GGSixStepTwoV2Input)
-    (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput)
-    (h3d : GGSixStepThreeDInput) (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_v2_steps' hHolt ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd
-    (ggPropFiveTwentyOneV2Input_of_data he) hf hg₁ hg₂ hR1 hR h1 h2 h3a h3b h3c h3d hKG
-    G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

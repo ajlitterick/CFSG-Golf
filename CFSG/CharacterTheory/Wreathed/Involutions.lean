@@ -180,16 +180,6 @@ theorem swap_conjugacy_iff (m : ℕ) (g : Wreath m) :
   · rintro ⟨a, rfl⟩
     exact isConj_iff.mp (outside_involution_conjugate m a)
 
-theorem three_representatives_pairwise_not_conjugate (k : ℕ) :
-    ¬IsConj (element (2 ^ (k + 1)) (2 ^ k : ℕ) (2 ^ k : ℕ) 0)
-      (element (2 ^ (k + 1)) (2 ^ k : ℕ) 0 0) ∧
-    ¬IsConj (element (2 ^ (k + 1)) (2 ^ k : ℕ) (2 ^ k : ℕ) 0)
-      (element (2 ^ (k + 1)) 0 0 1) ∧
-    ¬IsConj (element (2 ^ (k + 1)) (2 ^ k : ℕ) 0 0)
-      (element (2 ^ (k + 1)) 0 0 1) := by
-  have hn := half_residue_ne_zero k
-  simp only [base_conjugacy_iff, element_eq_iff, eq_self, one_ne_zero,
-    Ne.symm hn, and_false, false_or, not_false_eq_true, and_true]
 
 theorem unique_central_involution (k : ℕ) (g : Wreath (2 ^ (k + 1)))
     (hg : orderOf g = 2) (hz : g ∈ Subgroup.center (Wreath (2 ^ (k + 1)))) :
@@ -209,27 +199,5 @@ theorem unique_central_involution (k : ℕ) (g : Wreath (2 ^ (k + 1)))
   · exact False.elim (hne (h.1.symm.trans h.2))
   · exact False.elim (hne (h.2.symm.trans h.1))
 
-theorem involution_three_classes (k : ℕ) (g : Wreath (2 ^ (k + 1)))
-    (hg : orderOf g = 2) :
-    IsConj (element (2 ^ (k + 1)) (2 ^ k : ℕ) (2 ^ k : ℕ) 0) g ∨
-    IsConj (element (2 ^ (k + 1)) (2 ^ k : ℕ) 0 0) g ∨
-    IsConj (element (2 ^ (k + 1)) 0 0 1) g := by
-  obtain ⟨⟨a, b, e⟩, rfl⟩ := (coordinateEquiv (2 ^ (k + 1))).symm.surjective g
-  change orderOf (element (2 ^ (k + 1)) a b e) = 2 at hg
-  change IsConj _ (element (2 ^ (k + 1)) a b e) ∨
-    IsConj _ (element (2 ^ (k + 1)) a b e) ∨ IsConj _ (element (2 ^ (k + 1)) a b e)
-  rcases swap_exponent_cases e with rfl | rfl
-  · rcases (element_base_involution_iff k a b).mp hg with h | h | h
-    · rcases h with ⟨rfl, rfl⟩
-      exact Or.inl (IsConj.refl _)
-    · rcases h with ⟨rfl, rfl⟩
-      exact Or.inr (Or.inl (IsConj.refl _))
-    · rcases h with ⟨rfl, rfl⟩
-      exact Or.inr (Or.inl ((base_conjugacy_iff _ _ _ _).mpr (Or.inr rfl)))
-  · have hb : b = -a := by
-      have hsum := (element_swap_involution_iff _ a b).mp hg
-      linear_combination hsum
-    subst b
-    exact Or.inr (Or.inr (outside_involution_conjugate _ a))
 
 end CFSG.Wreathed

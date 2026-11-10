@@ -161,13 +161,9 @@ open PV
 @[expose] def unpack (m n : ℕ) (M : PM) : Vector (Vector FieldFour n) m :=
   Vector.ofFn fun i => Vector.ofFn fun j => (col M j).get i
 
-theorem col_cons_zero (c : PV) (cs : PM) : col (c :: cs) 0 = c := rfl
 
 theorem col_cons_succ (c : PV) (cs : PM) (j : ℕ) : col (c :: cs) (j + 1) = col cs j := rfl
 
-theorem col_ge {M : PM} {j : ℕ} (h : M.length ≤ j) : col M j = (0, 0) := by
-  simp only [col]
-  rw [List.getD_eq_default _ _ h]
 
 theorem get_mulVec (M : PM) (x : PV) (i : ℕ) :
     (mulVec M x).get i = ∑ j : Fin M.length, x.get j * (col M j).get i := by

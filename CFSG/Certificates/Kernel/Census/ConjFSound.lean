@@ -50,16 +50,6 @@ theorem all_blocks {α : Type} {f : α → Bool} {l : List α} {B : Nat} : ∀ {
     have := h (c + 1) (by omega)
     rwa [show a + (c + 1) * B = a + B + c * B by rw [Nat.add_mul, Nat.one_mul]; omega] at this
 
-theorem pwordsWalk_blocks {n w : Nat} {gens : Array Nat} {xs : List Nat}
-    {ws : List (List Nat)} {B : Nat} : ∀ {C a : Nat},
-    (∀ c < C, pwordsWalk n w gens ((xs.drop (a + c * B)).take B) (ws.drop (a + c * B)) = true) →
-    xs.length ≤ a + C * B → pwordsWalk n w gens (xs.drop a) (ws.drop a) = true
-  | 0, a, _, hl => by rw [List.drop_eq_nil_of_le (by omega)]; rfl
-  | C + 1, a, h, hl => by
-    refine pwordsWalk_chunk (by simpa using h 0 (by omega)) (pwordsWalk_blocks (B := B) (C := C)
-      (a := a + B) (fun c hc => ?_) (by rw [Nat.add_mul, Nat.one_mul] at hl; omega))
-    have := h (c + 1) (by omega)
-    rwa [show a + (c + 1) * B = a + B + c * B by rw [Nat.add_mul, Nat.one_mul]; omega] at this
 
 theorem eqA_unpackP {n w P Q : Nat} (_hn : n < 2 ^ 32) (_hw : n ≤ 2 ^ w)
     (hP : canon1 n w P = true) (hQ : canon1 n w Q = true) :

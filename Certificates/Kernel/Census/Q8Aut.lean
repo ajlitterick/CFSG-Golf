@@ -119,11 +119,5 @@ theorem twisted_of_outer : ∀ σ : MulAut Q, (∀ y, σ (σ y) = y) →
   forall_of_adm (fun f => (∀ y, f (f y) = y) → ¬ (∃ q : Q, ∀ y, f y = q * y * q⁻¹) →
     ∀ q, q * f q = 1 → ∃ d, q = d * (f d)⁻¹) (by decide +kernel)
 
-theorem neg_card : Fintype.card {p : Q × Q // Adm p.1 p.2} ≠ 23 := by decide +kernel
-
-theorem neg_inner : ¬ ∀ u v : Q, Adm u v → ∃ q0, ∀ x, img u v x = q0 * x * q0⁻¹ := by
-  decide +kernel
-
-theorem neg_fixed : ¬ ∀ u v : Q, Adm u v → ∀ x, img u v x = x → x = 1 := by decide +kernel
 
 end Certificates.Census.Q8Aut

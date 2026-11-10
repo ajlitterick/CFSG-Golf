@@ -218,32 +218,6 @@ public theorem centralizer_mul_inf_rightConjugate_eq
         hM hzM hz ht htM m hm
     exact ⟨c, hc, d, hd, hcd.symm⟩
 
-/-- Lattice form of the product decomposition in `[IG; 17.8(iii)]`. -/
-public theorem centralizer_sup_inf_rightConjugate_eq
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) {z t : X}
-    (hzM : z ∈ M) (hz : IsInvolution z)
-    (ht : IsInvolution t) (htM : t ∉ M) :
-    Subgroup.centralizer ({z} : Set X) ⊔
-        (M ⊓ rightConjugate M t) = M := by
-  apply le_antisymm
-  · exact sup_le (hM.centralizer_le hzM hz) inf_le_left
-  · intro m hm
-    obtain ⟨c, hc, d, hd, rfl⟩ :=
-      exists_centralizer_mul_inf_rightConjugate
-        hM hzM hz ht htM m hm
-    have hcSup : c ∈ Subgroup.centralizer ({z} : Set X) ⊔
-        (M ⊓ rightConjugate M t) :=
-      (show Subgroup.centralizer ({z} : Set X) ≤
-        Subgroup.centralizer ({z} : Set X) ⊔
-          (M ⊓ rightConjugate M t) from le_sup_left) hc
-    have hdSup : d ∈ Subgroup.centralizer ({z} : Set X) ⊔
-        (M ⊓ rightConjugate M t) :=
-      (show M ⊓ rightConjugate M t ≤
-        Subgroup.centralizer ({z} : Set X) ⊔
-          (M ⊓ rightConjugate M t) from le_sup_right) hd
-    exact (Subgroup.centralizer ({z} : Set X) ⊔
-      (M ⊓ rightConjugate M t)).mul_mem hcSup hdSup
 
 end IsStronglyEmbedded
 end CFSG.BenderSuzuki

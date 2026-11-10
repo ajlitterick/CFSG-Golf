@@ -116,9 +116,6 @@ theorem mem_elationGenerators {L : Submodule K (Fin n → K)} {A : SpecialLinear
     Subgroup (SpecialLinearGroup (Fin n) K) :=
   Subgroup.closure (elationGenerators L)
 
-theorem elationGenerators_subset (L : Submodule K (Fin n → K)) :
-    elationGenerators L ⊆ elationSubgroup L :=
-  Subgroup.subset_closure
 
 theorem mem_elationSubgroup_of_mem {L : Submodule K (Fin n → K)}
     {A : SpecialLinearGroup (Fin n) K} (hA : A ∈ elationGenerators L) :
@@ -134,9 +131,6 @@ theorem one_mem_elationGenerators (L : Submodule K (Fin n → K)) :
     Subgroup (projectiveSL n K) :=
   (elationSubgroup L).map (proj n K)
 
-theorem mem_projElationSubgroup {L : Submodule K (Fin n → K)} {x : projectiveSL n K} :
-    x ∈ projElationSubgroup L ↔ ∃ A ∈ elationSubgroup L, proj n K A = x :=
-  Subgroup.mem_map
 
 theorem proj_mem_projElationSubgroup {L : Submodule K (Fin n → K)}
     {A : SpecialLinearGroup (Fin n) K} (hA : A ∈ elationSubgroup L) :

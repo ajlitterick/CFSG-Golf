@@ -24,16 +24,6 @@ variable {G : Type*} [Group G] [Finite G]
   ∀ H₁ H₂ : Subgroup G, fusionStronglyEmbedded H₁ → fusionStronglyEmbedded H₂ →
     ∃ g : G, H₁.map (MulAut.conj g⁻¹).toMonoidHom = H₂
 
-omit [Finite G] in
-theorem r1Full_iff_explicit :
-    R1Full G ↔
-      (∃ (N : Subgroup G) (_ : N.Normal),
-        oddCore G < N ∧ Odd N.index ∧
-        ExplicitRankOneModel (N ⧸ (oddCore G).subgroupOf N)) ∧
-      ∀ H₁ H₂ : Subgroup G, fusionStronglyEmbedded H₁ → fusionStronglyEmbedded H₂ →
-        ∃ g : G, H₁.map (MulAut.conj g⁻¹).toMonoidHom = H₂ := by
-  unfold R1Full
-  simp_rw [explicitRankOneModel_iff_fusionIsBenderGroup]
 
 omit [Finite G] in
 theorem rankOneModel_of_equiv {Y : Type*} [Group Y] (e : G ≃* Y)

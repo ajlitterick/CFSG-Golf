@@ -120,9 +120,6 @@ theorem tv_mul_tv_mul_tv {φ ψ : Dual (ZMod 2) V} {a c : V} (h : φ a = 0) (h' 
     Prop :=
   ∃ h : φ a = 0, g = tv φ a h
 
-theorem IsTv.apply_eq_zero {g : LinearMap.GeneralLinearGroup (ZMod 2) V} {φ : Dual (ZMod 2) V}
-    {a : V} (hg : IsTv g φ a) : φ a = 0 :=
-  hg.1
 
 theorem IsTv.mul_self {g : LinearMap.GeneralLinearGroup (ZMod 2) V} {φ : Dual (ZMod 2) V} {a : V}
     (hg : IsTv g φ a) : g * g = 1 := by

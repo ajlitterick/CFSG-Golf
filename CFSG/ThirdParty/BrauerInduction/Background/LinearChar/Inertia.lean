@@ -90,16 +90,6 @@ lemma conj_mul (ψ : H →* kˣ) (g₁ g₂ : G) :
   ext h
   simp [conj, map_mul]
 
-/--
-Conjugating the one-dimensional representation associated to `ψ` is isomorphic
-to the one-dimensional representation associated to the
-conjugate character `conj ψ g`.
--/
-noncomputable def conj_ofLinearChar_iso
-    (ψ : H →* kˣ) (g : G) :
-    FDRep.conjNormal H (FDRep.ofLinearChar (k := k) ψ) g
-      ≅ FDRep.ofLinearChar (k := k) (LinearChar.conj (H := H) ψ g) := by
-  exact Iso.refl _
 
 section Inertia
 
@@ -166,30 +156,6 @@ lemma inertia_eq_stabilizer (ψ : H →* kˣ) :
     have := Subgroup.inv_mem (inertia (H := H) ψ) hginv_mem
     simpa using this
 
-/--
-Every element of a commutative normal subgroup `A` fixes each linear
-character of `A` under conjugation. Consequently, `A` is contained in the
-inertia subgroup of any linear character of `A`.
--/
-lemma le_inertia_of_isMulCommutative
-    {A : Subgroup G} [A.Normal] [IsMulCommutative A]
-    (ψ : A →* kˣ) :
-    A ≤ LinearChar.inertia (H := A) ψ := by
-  intro a ha
-  rw [mem_inertia_iff]
-  ext x
-  let aA : A := ⟨a, ha⟩
-  have hx : ((MulAut.conjNormal (H := A) a) x) = x := by
-    apply Subtype.ext
-    have hcomm : aA * x = x * aA := by exact mul_comm' aA x
-    have hcommG : (a : G) * (x : G) = (x : G) * (a : G) :=
-      congrArg (fun y : A => (y : G)) hcomm
-    calc
-      (a : G) * (x : G) * (a : G)⁻¹
-          = ((x : G) * (a : G)) * (a : G)⁻¹ := by simp [mul_assoc, hcommG]
-      _   = (x : G) * ((a : G) * (a : G)⁻¹) := by simp [mul_assoc]
-      _   = (x : G) := by simp
-  rw [conj_apply, hx]
 
 /--
 Membership in the inertia subgroup is equivalent to fixing the character under
@@ -200,19 +166,6 @@ the left conjugation action.
   simp [LinearChar.inertia_eq_stabilizer,
       MulAction.mem_stabilizer_iff (G := G) (a := ψ) (g := g)]
 
-/--
-If `g` does not belong to the inertia subgroup of `ψ`, then conjugation by `g`
-changes the value of `ψ` at some element of the normal subgroup.
--/
-lemma exists_conj_coe_apply_ne_of_not_mem_inertia
-    {A : Subgroup G} [A.Normal]
-    (ψ : A →* kˣ) {g : G}
-    (hg : g ∉ LinearChar.inertia ψ) :
-    ∃ a : A,
-      ((LinearChar.conj ψ g) a : k) ≠ (ψ a : k) := by
-  apply LinearChar.exists_apply_ne
-  intro h
-  exact hg ((LinearChar.mem_inertia_iff (H := A) ψ g).2 h)
 
 end Inertia
 

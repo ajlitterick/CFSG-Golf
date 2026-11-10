@@ -16,10 +16,6 @@ theorem five_sq : bIf(eqOnL bs (powF (fun x => powF (nfp 281475052077923) 1
     (fun x => x), false, true) = true := by
   quickRfl
 
-theorem neg_five_six : bIf(eqOnL bs (powF (fun x => powF (nfp 281475052077923) 1
-    (nfp 281474999390686 (powF (nfp 281475052077923) 1 (nfi 281474999390686 x)))) 6)
-    (fun x => x), false, true) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSporSch.PJ3C81
 

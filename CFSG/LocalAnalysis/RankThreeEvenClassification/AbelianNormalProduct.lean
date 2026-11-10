@@ -28,15 +28,6 @@ theorem abelian_inf_le_centralizer_sup {G : Type u} [Group G]
   intro member hmember
   exact Subgroup.mem_centralizer_singleton_iff.mp (hcentralizer hmember)
 
-theorem abelian_inf_subgroupOf_sup_le_center {G : Type u} [Group G]
-    (first second : Subgroup G) (hfirst : IsMulCommutative first) (hsecond : IsMulCommutative second) :
-    (first ⊓ second).subgroupOf (first ⊔ second) ≤ Subgroup.center (first ⊔ second : Subgroup G) := by
-  intro element helement
-  apply Subgroup.mem_center_iff.mpr
-  intro member
-  apply Subtype.ext
-  exact Subgroup.mem_centralizer_iff.mp
-    (abelian_inf_le_centralizer_sup first second hfirst hsecond helement) member member.property
 
 theorem mutually_normalizing_abelian_sup_commutator_le_inf {G : Type u} [Group G]
     (first second : Subgroup G) (hfirst : IsMulCommutative first) (hsecond : IsMulCommutative second)
@@ -58,14 +49,5 @@ theorem mutually_normalizing_abelian_sup_commutator_le_inf {G : Type u} [Group G
   rintro element ⟨representative, hrepresentative, rfl⟩
   exact ⟨hleFirst hrepresentative, hleSecond hrepresentative⟩
 
-theorem mutually_normalizing_abelian_sup_classTwo {G : Type u} [Group G]
-    (first second : Subgroup G) (hfirst : IsMulCommutative first) (hsecond : IsMulCommutative second)
-    (hfirstNormalizes : first ≤ Subgroup.normalizer (second : Set G))
-    (hsecondNormalizes : second ≤ Subgroup.normalizer (first : Set G)) :
-    commutator (first ⊔ second : Subgroup G) ≤ Subgroup.center (first ⊔ second : Subgroup G) := by
-  intro element helement
-  apply abelian_inf_subgroupOf_sup_le_center first second hfirst hsecond
-  exact mutually_normalizing_abelian_sup_commutator_le_inf first second hfirst hsecond
-    hfirstNormalizes hsecondNormalizes (Subgroup.mem_map.mpr ⟨element, helement, rfl⟩)
 
 end CFSG.RankThreeEvenClassification.Helpers

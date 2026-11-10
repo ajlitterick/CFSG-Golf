@@ -17,7 +17,6 @@ structure HForm (h : W → W → F4) : Prop where
   swap : ∀ x y, h y x = (h x y) ^ 2
   nondeg : ∀ x, (∀ y, h x y = 0) → x = 0
 
-private theorem sq_sq' : ∀ c : F4, (c ^ 2) ^ 2 = c := by decide
 
 private theorem sq_add' : ∀ a b : F4, (a + b) ^ 2 = a ^ 2 + b ^ 2 := by decide
 

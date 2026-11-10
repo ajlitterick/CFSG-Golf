@@ -48,17 +48,6 @@ theorem a2Triples_data : ∀ t ∈ a2Triples, t.1 ∈ lxRoots ∧ t.2.1 ∈ lxRo
   simp only [hw, e8tK_lx_iff, e8tK_mem_iff]
   decide +kernel
 
-theorem s2_data : ∀ γ ∈ ([Pi.single 0 1, Pi.single 1 1, Pi.single 2 1, Pi.single 3 1,
-    Pi.single 2 1 + Pi.single 3 1] : List (Fin Tag.E8.rank → ℤ)),
-    γ ∈ rootFinset Tag.E8 ∧ ∀ i : Fin Tag.E8.rank, i.val ∉ TwClass.e8Ten.J₂ → γ i = 0 := by
-  simp only [e8tK_mem_iff]
-  decide +kernel
-
-theorem s2_data_neg : ∀ γ ∈ ([Pi.single 0 1, Pi.single 1 1, Pi.single 2 1, Pi.single 3 1,
-    Pi.single 2 1 + Pi.single 3 1] : List (Fin Tag.E8.rank → ℤ)),
-    -γ ∈ rootFinset Tag.E8 ∧ ∀ i : Fin Tag.E8.rank, i.val ∉ TwClass.e8Ten.J₂ → (-γ) i = 0 := by
-  simp only [e8tK_mem_iff]
-  decide +kernel
 
 theorem s1_data : ∀ γ ∈ ([Pi.single 5 1, Pi.single 6 1, Pi.single 5 1 + Pi.single 6 1] :
     List (Fin Tag.E8.rank → ℤ)),
@@ -68,13 +57,6 @@ theorem s1_data : ∀ γ ∈ ([Pi.single 5 1, Pi.single 6 1, Pi.single 5 1 + Pi.
   simp only [e8tK_mem_iff]
   decide +kernel
 
-theorem s1_data_neg : ∀ γ ∈ ([Pi.single 5 1, Pi.single 6 1, Pi.single 5 1 + Pi.single 6 1] :
-    List (Fin Tag.E8.rank → ℤ)),
-    -γ ∈ rootFinset Tag.E8 ∧ ∀ α ∈ rootFinset Tag.E8,
-      (∀ i : Fin Tag.E8.rank, i.val ∉ TwClass.e8Ten.J₂ → α i = 0) → iform (-γ) α = 0 := by
-  simp only [e8tK_ball_root]
-  simp only [e8tK_mem_iff]
-  decide +kernel
 
 @[expose] def listA : List (Fin Tag.E8.rank → ℤ) :=
   [Pi.single 0 1, Pi.single 1 1, Pi.single 2 1, Pi.single 3 1, Pi.single 2 1 + Pi.single 3 1,

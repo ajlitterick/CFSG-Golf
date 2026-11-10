@@ -303,10 +303,6 @@ theorem pow_mod_of_pow_eq_one {X : Type*} [Monoid X] {x : X} {p : ℕ} (hx : x ^
       rw [inv_eq_iff_mul_eq_one, ← pow_add, Nat.add_sub_cancel' hb.le, hy]
     rw [mul_inv_rev, h1, h2, (hxy.pow_pow (p - a) (p - b)).eq]
 
-theorem mem_gridSubgroup {X : Type*} [Group X] {x y : X} {p : ℕ} {hp : 0 < p} {hx : x ^ p = 1}
-    {hy : y ^ p = 1} {hxy : Commute x y} {z : X} :
-    z ∈ gridSubgroup hp hx hy hxy ↔ ∃ a < p, ∃ b < p, z = x ^ a * y ^ b :=
-  Iff.rfl
 
 theorem card_gridSubgroup {X : Type*} [Group X] {x y : X} {p : ℕ} (hp : 0 < p) (hx : x ^ p = 1)
     (hy : y ^ p = 1) (hxy : Commute x y)

@@ -43,6 +43,5 @@ theorem center_ne_bot_of_sl2 {X : Type} [Group X] (h : HasSL2Model X Odd) : cent
 
 end S3Sec29D
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.Generic.BProg.B3

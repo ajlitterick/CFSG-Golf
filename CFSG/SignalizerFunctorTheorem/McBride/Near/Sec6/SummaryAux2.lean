@@ -522,21 +522,6 @@ theorem Data.isDirectProduct_T
       exact le_sSup hmem (d.coord_mem_T hL hxK hxE hxS.2)
 
 
-omit [Finite G] in
-theorem fitting_le_c1 (C : Subgroup G) :
-    CFSG.fittingSubgroupOf C ≤ C ⊓ sectionCentralizer (CFSG.fittingSubgroupOf C) C := by
-  intro x hx
-  have hxC : x ∈ C := Subgroup.map_subtype_le _ hx
-  refine ⟨hxC, mem_sectionCentralizer_iff.mpr ⟨Thm210.le_normalizer_fittingSubgroupOf C hxC,
-    Subgroup.le_normalizer hxC, fun y hy => ?_⟩⟩
-  have h1 : y * x⁻¹ * y⁻¹ ∈ CFSG.fittingSubgroupOf C :=
-    Thm210.fittingSubgroupOf_conj_mem hy ((CFSG.fittingSubgroupOf C).inv_mem hx)
-  have : ⁅x, y⁆ = x * (y * x⁻¹ * y⁻¹) := by
-    simp only [commutatorElement_def]
-    group
-  rw [this]
-  exact (CFSG.fittingSubgroupOf C).mul_mem hx h1
-
 theorem Data.coord_injOn
     (d : Data h E f) {L : Subgroup G} (hL : L ∈ lcal (θ f)) {x y : G}
     (hx : x ∈ dZero p A θ) (hy : y ∈ dZero p A θ) (hxK : x ∈ kOf (θ f)) (hyK : y ∈ kOf (θ f))

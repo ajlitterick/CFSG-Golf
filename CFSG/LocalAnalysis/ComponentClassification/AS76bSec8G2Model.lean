@@ -19,6 +19,5 @@ theorem step814_g2_model
     (h4 : Asc75Theorem4) (h32 : Lemma32) (h33 : Lemma33Three) : Step814 .G2 :=
   step814_g2 h4 h32 h33 g2Centr184 g2Centr184s g2Levi187 g2TorusConj
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.ComponentClassification.RankTwoExceptional

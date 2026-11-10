@@ -114,9 +114,6 @@ theorem NativeBenderType.isSimpleGroup (h : NativeBenderType Q) :
   have := h.finite
   exact RankTwoBender.isSimpleGroup_of_bender h.fusionIsBenderGroup
 
-theorem suzukiModel_two_three_of_mulEquiv {Q : Type} [Group Q] (e : Q ≃* Sz 1) :
-    CFSG.Blueprint.SuzukiModel Q 2 3 :=
-  suzukiModel_of_mulEquiv le_rfl e
 
 end Models
 
@@ -205,76 +202,6 @@ theorem odd_card_center_of_psu3 (hA : commutator A = ⊤) {m : ℕ} (hm : 2 ≤ 
     (e.surjective.comp hsurj) (hker.symm ▸ hcen) (hker.symm ▸ hp)
   rwa [hker] at h
 
-theorem exists_double_cover {E Q : Type} [Group E] [Finite E] [Group.IsPerfect E] [Group Q]
-    (η : E →* Q) (hsurj : Function.Surjective η) (hcen : η.ker ≤ center E)
-    (hp : IsPGroup 2 η.ker) (hne : η.ker ≠ ⊥) :
-    ∃ (Y : Type) (_ : Group Y) (_ : Finite Y) (Z : Subgroup Y) (_ : Z.Normal),
-      Z ≤ center Y ∧ Nat.card Z = 2 ∧ Z ≤ commutator Y ∧ Nonempty (Y ⧸ Z ≃* Q) := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set P := η.ker with hPdef
-  obtain ⟨k, hk⟩ := IsPGroup.iff_card.mp hp
-  have hk0 : k ≠ 0 := by
-    rintro rfl
-    exact hne ((card_eq_one).mp (by rw [hk, pow_zero]))
-  obtain ⟨W', hW'⟩ := Sylow.exists_subgroup_card_pow_prime (G := P) 2 (n := k - 1)
-    (by rw [hk]; exact pow_dvd_pow 2 (Nat.sub_le k 1))
-  set W : Subgroup E := W'.map P.subtype with hWdef
-  have hWP : W ≤ P := map_subtype_le W'
-  have hWc : W ≤ center E := hWP.trans hcen
-  have hWn : W.Normal := ⟨fun w hw g => by
-    rw [mem_center_iff.mp (hWc hw) g, mul_inv_cancel_right]
-    exact hw⟩
-  have hWcard : Nat.card W = 2 ^ (k - 1) := by
-    rw [hWdef, card_map_of_injective P.subtype_injective, hW']
-  set Z : Subgroup (E ⧸ W) := P.map (QuotientGroup.mk' W) with hZdef
-  have hZn : Z.Normal := (MonoidHom.normal_ker η).map _ (QuotientGroup.mk'_surjective W)
-  have hZcard : Nat.card Z = 2 := by
-    let f : P →* E ⧸ W := (QuotientGroup.mk' W).comp P.subtype
-    have hrange : f.range = Z := by rw [MonoidHom.range_comp, range_subtype]
-    have hfker : f.ker = W.subgroupOf P := by
-      ext x
-      rw [MonoidHom.mem_ker, mem_subgroupOf]
-      change QuotientGroup.mk' W (x : E) = 1 ↔ _
-      rw [QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff]
-    have h1 := card_ker_mul_card_range f
-    rw [hrange, hfker, Nat.card_congr (subgroupOfEquivOfLe hWP).toEquiv, hWcard, hk] at h1
-    have h2 : 2 ^ k = 2 ^ (k - 1) * 2 := by
-      rw [← pow_succ, Nat.sub_add_cancel (Nat.one_le_iff_ne_zero.mpr hk0)]
-    rw [h2] at h1
-    exact Nat.eq_of_mul_eq_mul_left (by positivity) h1
-  have hZc : Z ≤ center (E ⧸ W) := by
-    rintro _ ⟨c, hc, rfl⟩
-    rw [mem_center_iff]
-    intro g
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective W g
-    rw [← map_mul, ← map_mul, mem_center_iff.mp (hcen hc) g]
-  have hperf : commutator (E ⧸ W) = ⊤ :=
-    commutator_eq_top_of_surjective (QuotientGroup.mk'_surjective W)
-      Group.IsPerfect.commutator_eq_top
-  refine ⟨E ⧸ W, inferInstance, inferInstance, Z, hZn, hZc, hZcard, hperf ▸ le_top,
-    ⟨(QuotientGroup.quotientQuotientEquivQuotient W P hWP).trans
-      (QuotientGroup.quotientKerEquivOfSurjective η hsurj)⟩⟩
-
-theorem odd_card_center_of_sz (hA : commutator A = ⊤) {a : ℕ}
-    (ha : 2 ≤ a) (e : A ⧸ center A ≃* Sz a) : Odd (Nat.card (center A)) := by
-  obtain ⟨E, _, _, _, η, hsurj, hcen, hp, hodd⟩ := exists_two_cover hA
-  apply hodd
-  by_contra hne
-  obtain ⟨Y, _, _, Z, _, hZc, hZ2, hle, ⟨eY⟩⟩ := exists_double_cover η hsurj hcen hp hne
-  have := Asc76X.eq_one_of_le_commutator_of_mulEquiv_sz hZc hZ2 (by omega) (eY.trans e) hle
-  omega
-
-theorem odd_card_center_of_nativeBenderType
-    (hA : commutator A = ⊤) (h : NativeBenderType (A ⧸ center A))
-    (h8 : ¬ Nonempty (A ⧸ center A ≃* Sz 1)) : Odd (Nat.card (center A)) := by
-  rcases h with ⟨m, hm, ⟨e⟩⟩ | ⟨m, hm, ⟨e⟩⟩ | ⟨a, ha, ⟨e⟩⟩
-  · exact odd_card_center_of_psl2 hA hm e
-  · exact odd_card_center_of_psu3 hA hm e
-  · rcases Nat.lt_or_ge a 2 with ha2 | ha2
-    · obtain rfl : a = 1 := by omega
-      exact absurd ⟨e⟩ h8
-    · exact odd_card_center_of_sz hA ha2 e
 
 end Center
 
@@ -299,10 +226,6 @@ theorem hyp31_of_standard
     (hB : RankTwoBenderType (rankTwoQuot L)) : AS76b.Hyp31 L :=
   ⟨hstd, hypII_of_nativeBenderType hstd.1.1 (rankTwoBenderType_iff.mp hB), hO, hrank, hnn⟩
 
-theorem hyp31_of_bender
-    {A : Subgroup G} (h : RankTwoHyp G A) (hO : standardComponentOddCore G = ⊥)
-    (hB : RankTwoBenderType (rankTwoQuot A)) : AS76b.Hyp31 A :=
-  hyp31_of_standard h.standard hO h.not_normal h.rank hB
 
 end Hyp
 

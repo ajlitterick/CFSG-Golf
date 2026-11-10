@@ -374,14 +374,6 @@ public theorem commutingGraphEdgeStar_endpoints_not_mem
     · exact (commutingGraph c).irrefl hBB.1
     · exact hCB.2.1 rfl
 
-public theorem commutingGraphEdgeStar_comm
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (A B : UConjugates c) :
-    commutingGraphEdgeStar c A B = commutingGraphEdgeStar c B A := by
-  ext X
-  simp only [commutingGraphEdgeStar, commutingGraphEdgeWing, commutingGraphEdgeCenter, Set.mem_union,
-    Set.mem_setOf_eq]
-  aesop
 
 public theorem commutingGraphEdgeStar_smul_iff
     {G : Type u} [Group G] [Finite G]

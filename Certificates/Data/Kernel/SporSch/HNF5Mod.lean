@@ -12,9 +12,6 @@ open CFSG.KC.Enum
   foldN (nat_lit 133) (fun j acc => Nat.lor acc
     (Nat.shiftLeft (lane5 (T j) i) (Nat.mul (nat_lit 16) j))) (nat_lit 0)
 
-@[expose] noncomputable def fixRow5 (C : Nat → Nat) (i : Nat) : Nat :=
-  nIf(Nat.beq i (nat_lit 1), idRow5 (nat_lit 1),
-    Nat.sub (C i) (Nat.shiftLeft (lane5 (C i) (nat_lit 1)) (nat_lit 16)))
 
 @[expose] noncomputable def specRow (MT : Nat → Nat) (op l r k i : Nat) : Bool :=
   bIf(Nat.beq op (nat_lit 0), Nat.beq (vm5 (slice5 MT r) (slice5 MT l i)) (slice5 MT k i),

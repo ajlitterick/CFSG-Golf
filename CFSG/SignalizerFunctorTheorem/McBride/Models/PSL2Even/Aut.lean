@@ -49,18 +49,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride.PSL2Even
 open CFSG.GorensteinWalter CFSG.ComponentClassification.CatalogueSchreierLinearTwo
   CFSG.SignalizerFunctorTheorem.NearModels.PSLTwo
 
-theorem exists_aut {p : ℕ} (hp : p.Prime) :
-    ∃ f : MulAut PSL(2, GaloisField 2 p), orderOf f = p := by
-  classical
-  have : Fact p.Prime := ⟨hp⟩
-  have hGal : Nat.card (GaloisField 2 p ≃+* GaloisField 2 p) = p :=
-    natCard_ringEquiv_galoisField 2 hp.ne_zero
-  have : Finite (GaloisField 2 p ≃+* GaloisField 2 p) :=
-    Nat.finite_of_card_ne_zero (by rw [hGal]; exact hp.ne_zero)
-  obtain ⟨σ, hσ⟩ := exists_prime_orderOf_dvd_card' p (by rw [hGal])
-  refine ⟨psl2FieldAut (GaloisField 2 p) σ, ?_⟩
-  rw [orderOf_injective (psl2FieldAut (GaloisField 2 p))
-    (psl2FieldAut_injective (GaloisField 2 p)) σ, hσ]
 
 theorem toPGL_surjective (K : Type*) [Field K] [Finite K] [CharP K 2] :
     Function.Surjective

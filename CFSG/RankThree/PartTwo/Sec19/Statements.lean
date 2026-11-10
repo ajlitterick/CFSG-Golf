@@ -20,9 +20,6 @@ variable {G : Type*} [Group G]
 @[expose] def starIm (K X : Subgroup G) : Subgroup (K ⧸ CFSG.pCore 2 K) :=
   (X.subgroupOf K).map (QuotientGroup.mk' (CFSG.pCore 2 K))
 
-@[expose] def oTwoZ (K : Subgroup G) : Subgroup G :=
-  ((Subgroup.center (K ⧸ CFSG.pCore 2 K)).comap (QuotientGroup.mk' (CFSG.pCore 2 K))).map
-    K.subtype
 
 @[expose] def oUpperThreePrime {Y : Type*} [Group Y] (X : Subgroup Y) : Subgroup Y :=
   Subgroup.closure {y | y ∈ X ∧ ∃ k : ℕ, y ^ 3 ^ k = 1}
@@ -45,24 +42,6 @@ end Notation
     Nonempty (X ≃* projOmegaMinus 3 (GaloisField 2 1) b c)) ∨
   Nonempty (X ≃* alternatingGroup (Fin 10))
 
-@[expose] def Item194 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Sec19Std G →
-    ∀ A M H : Subgroup G, IsE27 A → M ∈ scriptM (gamma 2 A : Set G) →
-      H ∈ scriptM (A : Set G) → H ≠ M →
-      (scriptJ M H).Nonempty ∧
-      (∀ K ∈ scriptJ M H,
-        CFSG.Open.pCoreOf 2 H ≤ Subgroup.normalizer (K : Set G) ∧
-        IsList194 (K ⧸ CFSG.pCore 2 K) ∧
-        ((IsEmpty (K ⧸ CFSG.pCore 2 K ≃* alternatingGroup (Fin 10)) ∧
-            IsProperParabolic (starIm K H)) ∨
-          (Nonempty (K ⧸ CFSG.pCore 2 K ≃* alternatingGroup (Fin 10)) ∧
-            Sec4.IsExtOf (starIm K H) (Equiv.Perm (Fin 5)) (Multiplicative (Fin 4 → ZMod 2)))) ∧
-        ((∃ n : ℕ, 1 ≤ n ∧ 2 ^ n % 3 = 1 ∧
-            Nonempty (K ⧸ CFSG.pCore 2 K ≃* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 n))) →
-          ∀ J ∈ oTwoComponentsIn M, J ≠ K →
-            oTwoZ K ⊔ CFSG.Open.pCoreOf 2 M ≠ oTwoZ J ⊔ CFSG.Open.pCoreOf 2 M)) ∧
-      ∀ m ∈ M, (∀ K ∈ scriptJ M H, ∀ k ∈ K, m * k * m⁻¹ * k⁻¹ ∈ CFSG.Open.pCoreOf 2 M) →
-        m ∈ H
 
 @[expose] def Item195 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], Sec19Std G → ∀ A ∈ partTwoE G, A ∉ partTwoT G → HypS A

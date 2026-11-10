@@ -33,7 +33,6 @@ theorem ne_two (hS : Sit G p P M) : p ≠ 2 := by
 
 theorem simple (hS : Sit G p P M) : IsSimpleGroup G := hS.setting.simple
 
-theorem nonab (hS : Sit G p P M) : ∃ a b : G, a * b ≠ b * a := hS.setting.nonab
 
 theorem isTwoLocal (hS : Sit G p P M) : IsTwoLocal M := hS.situation.isCoreMaxLocal.1.1
 
@@ -74,9 +73,6 @@ theorem plane (hS : Sit G p P M) {x z : G} (hx : SmallRankPoint P M x)
     (hz : SmallRankCentral P z) : SmallRankPlane p (P : Subgroup G) x z :=
   SmallRankPlane.of_situation hS.setting hS.situation hx hz
 
-theorem orderOf_point (hS : Sit G p P M) {x : G} (hx : SmallRankPoint P M x) : orderOf x = p := by
-  haveI : Fact p.Prime := ⟨hS.prime⟩
-  exact orderOf_eq_prime hx.pow_eq_one hx.ne_one
 
 theorem pRank_centralizer_le (hS : Sit G p P M) {x : G} (hx : SmallRankPoint P M x) :
     Open.pRank p (centralizer ({x} : Set G)) ≤ 2 := by
@@ -95,10 +91,6 @@ theorem centralizer_plane_le (hS : Sit G p P M) {x z : G} (hx : SmallRankPoint P
     centralizer ((zpowers x ⊔ zpowers z : Subgroup G) : Set G) ≤ M :=
   CFSG.LocalAnalysis.RankThreeTheoremC.centralizer_plane_le hS.setting hS.situation hx hz
 
-theorem normalizer_plane_le (hS : Sit G p P M) {x z : G} (hx : SmallRankPoint P M x)
-    (hz : SmallRankCentral P z) :
-    normalizer ((zpowers x ⊔ zpowers z : Subgroup G) : Set G) ≤ M :=
-  CFSG.LocalAnalysis.RankThreeTheoremC.normalizer_plane_le hS.setting hS.u0 hS.situation hx hz
 
 theorem pRank_centralizer_le_of_mem_plane (hS : Sit G p P M) {x z : G}
     (hx : SmallRankPoint P M x) (hz : SmallRankCentral P z) {y : G}

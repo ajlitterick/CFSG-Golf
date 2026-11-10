@@ -47,7 +47,6 @@ theorem nonempty_mulEquiv_psl2GF_of_isSLModel {X : Type} [Group X] {m : ℕ} (hm
   exact ⟨e.trans ((specialLinearGroupEquivStatedSL 2 K).symm.trans
     (eP.trans (CFSG.GorensteinWalter.psl2RingEquiv iso)))⟩
 
-variable {H : Type} [Group H] [Finite H] {M Q Z B : Subgroup H}
 
 end D3
 

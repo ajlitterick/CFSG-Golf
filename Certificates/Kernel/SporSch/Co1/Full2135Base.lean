@@ -22,10 +22,6 @@ theorem pts_ptK {i : Nat} (hi : i < 98280) : (Native.fullOrb 2).pts[i]! = ptK F2
   rw [full2]
   exact (vorbK_sound F2.hr (by decide) (by decide) (by decide) F2.hc0 F2.hcN F2.hb F2.hp).2.2.1 i hi
 
-theorem X_inv {g : GL24} (hg : g ∈ GA) {x : Vec24} (hx : x ∈ XS) :
-    (Mt g) *ᵥ x ∈ XS := by
-  obtain ⟨h, hh, rfl⟩ := hx
-  exact ⟨g * h, GA.mul_mem hg hh, by rw [Units.val_mul, ← mulVec_mulVec]⟩
 
 abbrev fib (w : Vec24) : Set Vec24 := {x | x ∈ XS ∧ x + w ∈ XS}
 
@@ -372,16 +368,6 @@ theorem notin_X_small {c : Nat} (hc : c < 2 ^ 24) (hX : toVecD 24 c ∈ XS) :
       exact absurd hm (by decide)
   · exact h
 
-theorem fullOK_two : Native.fullOK 2 = true := by
-  unfold Native.fullOK Native.fullOKOf
-  rw [Bool.and_eq_true]
-  refine ⟨enum2, ?_⟩
-  rw [CFSG.Sporadic.Th.allIn_eq_true]
-  intro i _ hi
-  have hX : toVecD 24 ((Native.fullOrb 2).pts[i]!) ∈ XS := by
-    rw [X_eq]
-    exact ⟨i, hi, rfl⟩
-  exact decide_eq_true (notin_X_small (pts_lt hi) hX)
 
 end CertificateChecks.KernelSporSch.Co1Full2135
 

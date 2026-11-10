@@ -29,13 +29,6 @@ theorem pvalid_pprod_proved {n w : Nat} {l : List Nat} (h24 : n ≤ 2 ^ 24) (hn 
     change canon1 n w (pc n w a (pprod n w l)) = true ∧ pvalid n w (pc n w a (pprod n w l)) = true
     exact ⟨SP.pc_canon G _ _, pvalid_pc hn hw ha.1 ha.2 c1 v1⟩
 
-theorem pvalid_ppcA_proved {n w : Nat} {xs : List Nat} (h24 : n ≤ 2 ^ 24) (hn : n < 2 ^ 32)
-    (hw : n ≤ 2 ^ w) (hx : ∀ x ∈ xs, canon1 n w x = true ∧ pvalid n w x = true) (m : Nat) :
-    canon1 n w (ppcA n w xs m) = true ∧ pvalid n w (ppcA n w xs m) = true := by
-  obtain ⟨e1, e2, -⟩ := SP.pid_good24 hw h24
-  have G : SP.Good n w := ⟨hn, hw, e1, e2⟩
-  exact ⟨(SP.ppcA_eq G xs m fun x hx' => (hx x hx').1).2,
-    SP.ppcA_valid G (pid_valid24 hw h24) xs m hx⟩
 
 private noncomputable def toPerm (n w p : Nat) : Equiv.Perm (Fin n) :=
   if h : pvalid n w p = true then

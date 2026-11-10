@@ -103,12 +103,6 @@ theorem submatrix_free_eq_one_of_mem_radical {r : SpecialLinearGroup (Fin n) K}
   rw [submatrix_apply, hr _ _ (by rw [P.mem_free.1 x.2, P.mem_free.1 y.2]),
     one_apply_of_injective Subtype.val_injective]
 
-theorem submatrix_u_eq_one_of_mem_free {B : SpecialLinearGroup (Fin n) K}
-    (hB : B ∈ blockSpecialLinear P.free) :
-    (B : Matrix (Fin n) (Fin n) K).submatrix P.u P.u = 1 := by
-  ext x y
-  rw [submatrix_apply, hB _ _ (Or.inl (P.u_not_mem_free x)),
-    one_apply_of_injective P.u_injective]
 
 theorem det_blocks_of_mem_core {B : SpecialLinearGroup (Fin n) K} (hB : B ∈ P.core K) :
     ((B : Matrix (Fin n) (Fin n) K).submatrix P.u P.u).det = 1 ∧
@@ -416,26 +410,6 @@ theorem le_radicalP_of_isPGroup_perfectCore [Finite K] [CharP K 2] (hq : 4 ≤ N
   rw [← map_core_eq] at hΛ
   exact P.le_radicalP_of_isPGroup hq (Finset.card_pos.1 (by omega)) hT (hΛ ▸ hTΛ) (hΛ ▸ hN)
 
-theorem radicalP_eq_of_isPGroup [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K)
-    (hJ : 2 ≤ P.free.card) {Q' : Subgroup (LinearFlag.projectiveSL n K)} (hQ' : IsPGroup 2 Q')
-    (hQ'Λ : Q' ≤ perfectCore (Subgroup.centralizer {P.elt K}))
-    (hN : perfectCore (Subgroup.centralizer {P.elt K}) ≤
-      Subgroup.normalizer (Q' : Set (LinearFlag.projectiveSL n K)))
-    (hmax : ∀ T : Subgroup (LinearFlag.projectiveSL n K), IsPGroup 2 T →
-      T ≤ perfectCore (Subgroup.centralizer {P.elt K}) →
-      perfectCore (Subgroup.centralizer {P.elt K}) ≤
-        Subgroup.normalizer (T : Set (LinearFlag.projectiveSL n K)) → T ≤ Q') :
-    Q' = P.radicalP K := by
-  have := isPerfect_specialLinearGroup_of_four_le hq (Fin k)
-  have := isPerfect_specialLinearGroup_of_four_le hq P.free
-  have hΛ := P.perfectCore_centralizer_elt (K := K) hJ
-  rw [← map_core_eq] at hΛ
-  refine le_antisymm (P.le_radicalP_of_isPGroup_perfectCore hq hJ hQ' hQ'Λ hN)
-    (hmax _ P.isPGroup_radicalP ?_ ?_)
-  · rw [hΛ]
-    exact Subgroup.map_mono le_sup_left
-  · rw [hΛ, map_core_eq]
-    exact sup_le (Subgroup.le_normalizer) P.levi_le_normalizer_radicalP
 
 end InvPlacement
 

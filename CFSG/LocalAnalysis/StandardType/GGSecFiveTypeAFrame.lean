@@ -496,42 +496,5 @@ theorem ggSecFiveTypeA_of_endNode {G : Type} [Group G] [Finite G] {p : ℕ} {B :
         ggSupp (rootDatum (n + 1) (GaloisField 2 f)) (typeALeviJ (n + 1) (n + 1)))
       (φ := fun _ => typeALeviHom φ₁) (R := (typeAFrameLift h2 hT).range) ⟨T, hTR⟩ ()
 
-theorem ggTypeAEndNode_standard {n : ℕ} {F : Type} [Field F] {X : Type*} [Group X]
-    (h2 : (2 : F) = 0) (ψ : SpecialLinearGroup (Fin (n + 1 + 1)) F →* X) :
-    GGTypeAEndNode (ψ.comp (slBlockHom n F)) (ψ (weylRep (n + 1) F (Fin.last n))) := by
-  refine ⟨?_, ?_, ?_⟩
-  · rw [← map_mul, weylRep_mul_self (n + 1) h2, map_one]
-  · intro j hj
-    rw [MonoidHom.comp_apply, slBlockHom_weylRep, ← map_mul, ← map_pow]
-    have hW : (coxeterMatrix (isFiniteType_A (n + 1))).IsLiftable (weylRep (n + 1) F) :=
-      isLiftable_of_braid _ (weylRep_mul_self (n + 1) h2) (isCTGroupDatum (n + 1) F).braid
-    have hne : Fin.last n ≠ j.castSucc := fun e => by
-      have := congrArg Fin.val e
-      simp only [Fin.val_last, Fin.val_castSucc] at this
-      omega
-    have h3 := hW (Fin.last n) j.castSucc
-    rw [coxeterMatrix_A_adj hne (Or.inr (by simp only [Fin.val_last, Fin.val_castSucc]; omega))]
-      at h3
-    rw [h3, map_one]
-  · intro a b hab ha hb c
-    rw [MonoidHom.comp_apply, slBlockHom_transvection, ← map_mul, ← map_mul]
-    congr 1
-    have hg := coe_weylRep_of_two (n + 1) h2 (Fin.last n)
-    have key := conj_transvection_of_coe_eq_signedPerm hg (fun _ => by simp)
-      ((Fin.castSucc_injective _).ne hab) c
-    have hfix : ∀ y : Fin (n + 1), y.val < n →
-        Equiv.swap (Fin.last n).castSucc (Fin.last n).succ y.castSucc = y.castSucc := by
-      intro y hy
-      refine Equiv.swap_apply_of_ne_of_ne (fun e => ?_) (fun e => ?_)
-      · have := congrArg Fin.val e
-        simp only [Fin.val_castSucc, Fin.val_last] at this
-        omega
-      · have := congrArg Fin.val e
-        simp only [Fin.val_castSucc, Fin.val_succ, Fin.val_last] at this
-        omega
-    rw [transvection_eq_of_eq _ ((Fin.castSucc_injective _).ne hab) (hfix a ha) (hfix b hb)] at key
-    simp only [Pi.one_apply, one_mul] at key
-    rw [mul_inv_eq_iff_eq_mul] at key
-    exact key
 
 end CFSG.StandardType

@@ -95,56 +95,5 @@ theorem exists_sylow_normalizer_of_card_max
       _ = Nat.card R := hcardR
   exact ⟨T, (Subgroup.eq_of_le_of_card_ge hRT hcardT).symm⟩
 
-@[expose] def localNormalizerToNormalizer
-    {G : Type u} [Group G] (S H : Subgroup G) :
-    ((Subgroup.normalizer (H : Set G)).subgroupOf S) →*
-      Subgroup.normalizer (H : Set G) where
-  toFun x := ⟨x.val.val, x.property⟩
-  map_one' := rfl
-  map_mul' _ _ := rfl
-
-theorem localNormalizerToNormalizer_injective
-    {G : Type u} [Group G] (S H : Subgroup G) :
-    Function.Injective (localNormalizerToNormalizer S H) := by
-  intro x y hxy
-  apply Subtype.ext
-  apply Subtype.ext
-  exact congrArg (fun z : Subgroup.normalizer (H : Set G) => z.val) hxy
-
-theorem localNormalizerToNormalizer_range
-    {G : Type u} [Group G] (S H : Subgroup G) :
-    (localNormalizerToNormalizer S H).range =
-      S.subgroupOf (Subgroup.normalizer (H : Set G)) := by
-  ext x
-  constructor
-  · rintro ⟨y, rfl⟩
-    exact y.val.property
-  · intro hx
-    exact ⟨⟨⟨x.val, hx⟩, x.property⟩, rfl⟩
-
-theorem exists_sylow_localNormalizer_range_of_card_max
-    {G : Type u} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    (S : Sylow p G) (H : Subgroup G) (hHS : H ≤ (S : Subgroup G))
-    (hmax : ∀ K : Subgroup G, K ≤ (S : Subgroup G) → Nonempty (K ≃* H) →
-      Nat.card ((Subgroup.normalizer (K : Set G)).subgroupOf (S : Subgroup G)) ≤
-        Nat.card ((Subgroup.normalizer (H : Set G)).subgroupOf (S : Subgroup G))) :
-    ∃ T : Sylow p (Subgroup.normalizer (H : Set G)),
-      (T : Subgroup (Subgroup.normalizer (H : Set G))) =
-        (localNormalizerToNormalizer (S : Subgroup G) H).range := by
-  rw [localNormalizerToNormalizer_range]
-  exact exists_sylow_normalizer_of_card_max S H hHS hmax
-
-theorem exists_sylow_normalizer_map_of_card_max
-    {G : Type u} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    (S : Sylow p G) (H : Subgroup G) (hHS : H ≤ (S : Subgroup G))
-    (hmax : ∀ K : Subgroup G, K ≤ (S : Subgroup G) → Nonempty (K ≃* H) →
-      Nat.card ((Subgroup.normalizer (K : Set G)).subgroupOf (S : Subgroup G)) ≤
-        Nat.card ((Subgroup.normalizer (H : Set G)).subgroupOf (S : Subgroup G))) :
-    ∃ T : Sylow p (Subgroup.normalizer (H : Set G)),
-      (T : Subgroup (Subgroup.normalizer (H : Set G))).map
-          (Subgroup.normalizer (H : Set G)).subtype =
-        (S : Subgroup G) ⊓ Subgroup.normalizer (H : Set G) := by
-  obtain ⟨T, hT⟩ := exists_sylow_normalizer_of_card_max S H hHS hmax
-  exact ⟨T, by rw [hT, Subgroup.subgroupOf_map_subtype]⟩
 
 end CFSG.GorensteinWalter

@@ -39,8 +39,6 @@ theorem isUnit_of_isUnit_ι' {v : V} (h : IsUnit (ι Q v)) : IsUnit (Q v) := by
   rw [ι_sq_scalar, hv, map_zero] at h2
   exact not_isUnit_zero h2
 
-theorem isUnit_ι_iff' {v : V} : IsUnit (ι Q v) ↔ IsUnit (Q v) :=
-  ⟨isUnit_of_isUnit_ι' Q, isUnit_ι_of_isUnit Q⟩
 
 theorem units_conj_mem_range_ι {x : (CliffordAlgebra Q)ˣ} (hx : x ∈ lipschitzGroup Q) (v : V) :
     (x : CliffordAlgebra Q) * ι Q v * ↑x⁻¹ ∈ LinearMap.range (ι Q) := by

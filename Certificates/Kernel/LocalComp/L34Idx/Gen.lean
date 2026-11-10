@@ -46,28 +46,6 @@ namespace CertificateChecks.KernelLC.L34IdxGen
 open CFSG.PSL3Four.Native CertificateChecks.KernelLC.L34Gen
 open CFSG.ComponentClassification.GrSLit.L34Facts
 
-meta def pow4 (x : Array Nat) : Array Nat :=
-  comp 42 (comp 42 (comp 42 x x) x) x
-
-meta def t0Pts : Array (Array Nat) := (searchSt 4 (lst (wordTabs wT₀)) (idTab 42)).1
-
-meta def cm (x y : Array Nat) : Bool := comp 42 x y == comp 42 y x
-
-meta def yM : Array (Array Nat) :=
-  let iS := posIn sPts
-  let z5 := t0Pts[5]!
-  let z51 := t0Pts[51]!
-  rRun.1.filter fun y => cm y z5 && cm y z51 && pow4 y == idTab 42 && !iS.contains y
-
-meta def wM : Array (Array Nat) :=
-  let iS := posIn sPts
-  chunks 16 ((Array.range (48 * 48)).map fun k =>
-    let p := comp 42 yM[k / 48]! (invTab 42 yM[k % 48]!)
-    if pow4 p == idTab 42 then iS.getD p 0 else 0)
-
-meta def tsM : Array (Array Nat) :=
-  let iS := posIn sPts
-  chunks 16 (t0Pts.map fun t => iS.getD t 0)
 
 end CertificateChecks.KernelLC.L34IdxGen
 

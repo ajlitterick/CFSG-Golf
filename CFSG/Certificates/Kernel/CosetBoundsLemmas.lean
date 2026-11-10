@@ -152,11 +152,6 @@ theorem byte_pkb (l : List ℕ) (h : ∀ d ∈ l, d < 256) (q : ℕ) (hq : q < l
     byte (pkb 256 l) q = l[q] := by
   rw [byte_eq', pkb_digit (by norm_num) l h q hq]
 
-theorem bytes_congr {w w' n : ℕ} (h : ∀ q < n, byte w q = byte w' q) : bytes w n = bytes w' n := by
-  unfold bytes
-  apply List.map_congr_left
-  intro q hq
-  exact h q (List.mem_range.1 hq)
 
 @[expose] def lv {G : Type*} [Group G] (val : ℕ → G) (l : List ℕ) : G := (l.map val).prod
 
@@ -327,11 +322,6 @@ theorem wKind_eq (w : ℕ) : wKind w = w / 256 % 2 := by
   rw [land_mask, Nat.shiftRight_eq_div_pow]
   norm_num
 
-theorem wBase_eq (w : ℕ) : wBase w = w / 512 % 32768 := by
-  unfold wBase
-  change (w >>> 9) &&& (2 ^ 15 - 1) = _
-  rw [land_mask, Nat.shiftRight_eq_div_pow]
-  norm_num
 
 theorem wLetters_eq (w : ℕ) : wLetters w = w / 2 ^ 24 := by
   unfold wLetters
@@ -1335,7 +1325,6 @@ theorem subsOk_spec {S : ℕ → ℕ} {nS amap : ℕ} {subs : List (List (ℕ ×
   · refine ⟨by omega, fun i hi => ⟨(h2 i hi).1, ?_⟩⟩
     have := Nat.eq_of_beq_eq_true (h2 i hi).2
     simpa using this
-
 
 
 noncomputable def alphaScanN (amap n : ℕ) : ℕ × ℕ :=

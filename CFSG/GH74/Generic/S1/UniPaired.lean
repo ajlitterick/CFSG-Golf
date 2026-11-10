@@ -33,8 +33,6 @@ theorem cT_cT (M : Matrix m n F) : cT h (cT h M) = M := by
 theorem cT_one [DecidableEq m] : cT h (1 : Matrix m m F) = 1 := by
   simp [cT, Matrix.map_one _ (map_zero h.bar) (map_one h.bar)]
 
-theorem cT_add (M N : Matrix m n F) : cT h (M + N) = cT h M + cT h N := by
-  simp [cT, Matrix.map_add _ (map_add h.bar), Matrix.transpose_add]
 
 theorem cT_sub (M N : Matrix m n F) : cT h (M - N) = cT h M - cT h N := by
   ext i j
@@ -148,10 +146,6 @@ theorem eq_zero_of_eq_neg {m n : Type} {M : Matrix m n F} (h2 : (2 : F) ≠ 0) (
 
 def colsOf {ι : Type} (v : ι → (Fin 4 → F)) : Matrix (Fin 4) ι F := Matrix.of fun i j => v j i
 
-theorem colsOf_mulVec_apply {ι : Type} [Fintype ι] (v : ι → (Fin 4 → F)) (a : ι → F) :
-    colsOf v *ᵥ a = ∑ j, a j • v j := by
-  ext i
-  simp [colsOf, Matrix.mulVec, dotProduct, Finset.sum_apply, mul_comm]
 
 theorem mul_colsOf {ι : Type} (M : Matrix (Fin 4) (Fin 4) F) (v : ι → (Fin 4 → F)) :
     M * colsOf v = colsOf (fun j => M *ᵥ v j) := by

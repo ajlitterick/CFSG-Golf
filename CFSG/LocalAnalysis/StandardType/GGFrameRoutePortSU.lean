@@ -497,20 +497,6 @@ theorem rank3Witness_unitarySU_two {K : Type} [Field K] (h : UnitaryFieldData 2 
   exact ⟨(frameRoutePortSU_hom h hk hkn).range, t, hElem_card.1, hElem_card.2, hInter,
     ⟨1, ht_pow⟩, ht_notcenter, hcentral⟩
 
-theorem F07a_SU5 {K : Type} [Field K] (h : UnitaryFieldData 2 1 K) :
-    Rank3Witness (unitarySU 2 1 K 5) 3 :=
-  rank3Witness_unitarySU_two h (k := 3) (n := 5) (by norm_num) (by norm_num)
-    (Or.inr (by decide))
-
-theorem F07b_SU6 {K : Type} [Field K] (h : UnitaryFieldData 2 1 K) :
-    Rank3Witness (unitarySU 2 1 K 6) 3 :=
-  rank3Witness_unitarySU_two h (k := 3) (n := 6) (by norm_num) (by norm_num)
-    (Or.inl (by norm_num))
-
-theorem F07c_SU7 {K : Type} [Field K] (h : UnitaryFieldData 2 1 K) :
-    Rank3Witness (unitarySU 2 1 K 7) 5 :=
-  rank3Witness_unitarySU_two h (k := 5) (n := 7) (by norm_num) (by norm_num)
-    (Or.inr (by decide))
 
 end CFSG.StandardType.FrameRoute
 

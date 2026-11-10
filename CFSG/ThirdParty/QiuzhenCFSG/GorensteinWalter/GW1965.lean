@@ -117,70 +117,9 @@ is cyclic"). -/
 
 /-! ## Proposition 9 (Part II, pp. 218--220): proper subgroups -/
 
-/-- Proposition 9 proof (p. 219): "the subgroups of a dihedral `2`-group are
-either cyclic or dihedral `2`-groups." -/
-public theorem gw_prop9_subgroups_dihedral_twoGroup_cyclic_or_dihedral
-    {m : ℕ} (hm : 1 ≤ m) (H : Subgroup (DihedralGroup (2 ^ m))) :
-    IsCyclic H ∨ ∃ k : ℕ, 1 ≤ k ∧ Nonempty (H ≃* DihedralGroup (2 ^ k)) := by
-  exact subgroups_dihedral_twoGroup_cyclic_or_dihedral hm H
-
-/-- Proposition 9 proof (p. 219): "Burnside's transfer theorem implies that
-`H` has a normal `2`-complement" — a finite group with cyclic Sylow
-`2`-subgroups has a normal `2`-complement. -/
-public theorem gw_prop9_burnside_cyclicSylowTwo_normalTwoComplement
-    {G : Type u} [Group G] [Finite G]
-    (hSylow : HasCyclicSylowTwo G) :
-    Glauberman.NormalPComplement 2 G := by
-  by_cases h2 : 2 ∣ Nat.card G
-  · let S : Sylow 2 G := Classical.choice Sylow.nonempty
-    have hmin : (Nat.card G).minFac = 2 :=
-      (Nat.minFac_eq_two_iff (Nat.card G)).2 h2
-    have hNC : Subgroup.normalizer (S : Set G) ≤
-        Subgroup.centralizer (S : Set G) :=
-      (hSylow S).normalizer_le_centralizer hmin
-    have hScenter : (S : Subgroup G) ≤
-        centerIn (G := G) (Subgroup.normalizer (S : Subgroup G)) := by
-      intro s hs
-      refine ⟨Subgroup.le_normalizer hs, ?_⟩
-      change s ∈ Subgroup.centralizer (Subgroup.normalizer (S : Set G) : Set G)
-      rw [Subgroup.mem_centralizer_iff]
-      intro g hg
-      exact (Subgroup.mem_centralizer_iff.mp (hNC hg) s hs).symm
-    have hcomp : HasNormalPComplement 2 G :=
-      hasNormalPComplement_of_sylow_le_center_normalizer (G := G) 2 S hScenter
-    exact normalPComplement_of_hasNormalPComplement hcomp
-  · have hodd : Odd (Nat.card G) := by
-      rw [← Nat.not_even_iff_odd, even_iff_two_dvd]
-      exact h2
-    have hcomp : HasNormalPComplement 2 G := by
-      refine ⟨⊤, inferInstance, ?_, ?_⟩
-      · simpa using hodd.coprime_two_left
-      · intro x
-        refine ⟨0, ?_⟩
-        have hsub : Subsingleton (G ⧸ (⊤ : Subgroup G)) :=
-          QuotientGroup.subsingleton_quotient_top
-        simpa using (@Subsingleton.elim _ hsub x 1)
-    exact normalPComplement_of_hasNormalPComplement hcomp
-
-/-- Proposition 9, second assertion (p. 219): every proper subgroup `H` of a
-minimal counterexample is a `D`-group or possesses a normal `2`-complement.
-The paper's "minimal counterexample to Theorem 1" is expressed by
-`IsMinimalCounterexample` (see the module header for the mapping). -/
-public theorem gw_prop9_properSubgroups_dGroup_or_normalTwoComplement
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (H : Subgroup G) (hH : H ≠ ⊤) :
-    IsDGroup H ∨ Glauberman.NormalPComplement 2 (↥H) := by
-  exact Or.inl (properSubgroups_areDGroups hmin H hH)
 
 /-! ## Proposition 9: `O(G) = 1` and the minimal-normal-subgroup analysis -/
 
-/-- Proposition 9 proof (p. 219): "Hence `O(𝔊) = 1`." -/
-public theorem gw_prop9_oddCore_trivial
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G) :
-    pPrimeCore 2 G = ⊥ := by
-  exact pPrimeCore_two_eq_bot_of_minimalCounterexample hmin
 
 /-! ## Minimal-normal quotient transport
 
@@ -1178,19 +1117,6 @@ public theorem gw_lemma_3_3_vi_linear_normal_subgroup_mulAut_embedding
   let ψ : R →* MulAut N := φ.comp qE.symm.toMonoidHom
   exact ⟨ψ, hφ.comp qE.symm.injective⟩
 
-/-- In the large-field `PGL₂` branch of Lemma 3.3(vi), the characteristic
-derived subgroup supplies a normal `PSL₂` core in the ambient group. -/
-public theorem gw_lemma_3_3_vi_pgl_normal_subgroup_reduces_to_psl_of_card_gt_three
-    {R : Type u} [Group R] [Finite R]
-    (N : Subgroup R) (hNnormal : N.Normal)
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (hcard : 3 < Nat.card K)
-    (e : N ≃* PGL2 K) :
-    ∃ L : Subgroup R,
-      L.Normal ∧ L ≤ N ∧ IsIsoToPSL2OddExists (G := R) L := by
-  rcases exists_normal_psl2_core_of_normal_mulEquiv_pgl2_card_gt_three
-      N hNnormal K hK hcard e with ⟨L, hLnormal, hLle, hLmodel⟩
-  exact ⟨L, hLnormal, hLle, K, inferInstance, inferInstance, hK, hLmodel⟩
 
 /-- The `|K| = 3` PSL₂ branch of Lemma 3.3(vi): normalize the coefficient
 field to `ZMod 3`, identify `PSL₂(3)` with `A₄`, and use

@@ -98,17 +98,11 @@ theorem PhiD_add (v w : Fin 8 → ZMod 2) : PhiD (v + w) = PhiD v *
   rw [PhiD, PhiC_add, map_mul, map_mul]
   rfl
 
-theorem PhiD_comm (v w : Fin 8 → ZMod 2) : PhiD v * PhiD w = PhiD w *
-    PhiD v := by
-  rw [← PhiD_add, ← PhiD_add, add_comm]
 
 theorem PhiD_zero : PhiD 0 = 1 := by
   have h : PhiD 0 * PhiD 0 = PhiD 0 * 1 := by rw [← PhiD_add, add_zero, mul_one]
   exact mul_left_cancel h
 
-theorem PhiD_mul_self (v : Fin 8 → ZMod 2) : PhiD v * PhiD v = 1 :=
-    by
-  rw [← PhiD_add, ZModModule.add_self, PhiD_zero]
 
 theorem PhiC_eq_tStarC_iff (v : Fin 8 → ZMod 2) : PhiC v = tStarC ↔ v
     = Pi.single 7 1 := by

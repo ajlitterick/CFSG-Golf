@@ -161,59 +161,6 @@ theorem ggL44iiiMarking_core {p : ℕ} {Bs X K : Subgroup G} {x : G} {R : Type} 
 
 end Proofs
 
-theorem ggL44iiiMarkingInput_of_parts (hBN : GGBstarNbrNormalInput) (hgr : GGNbrGraphInput)
-    (hraw : GGRawInnFieldInput) (hcen : GGRawFieldCentralInput) (hlang : GGRawFieldConjInput)
-    (hL : GGLBalanceInput) (hJp : GGStdSubPrimeInput) (hI2 : GGStdSubBstarMeetInput)
-    (hS1 : GGL44iiiNotInnerInput) (hS5 : GGL44iiiMcLaughlinInput) : GGL44iiiMarkingInput := by
-  intro G _ _ p B Bs x L D J X B₂ hFC hM h43 h44 h44ii d hd hd1 y K hnbr hyd
-  obtain ⟨hI, hBstar, hDJ⟩ := hFC.1
-  have hp : p.Prime := hI.2.2.2.2.2.1.1
-  have : Fact p.Prime := ⟨hp⟩
-  have hp2 : p ≠ 2 := hI.2.2.2.2.2.1.2.1
-  have hS : LargeEvenSStar p B x L := hI.2.2.2.2.2.2.1
-  have hst : LargeEvenStandardType p B x L := hI.2.2.2.2.2.2.2
-  have hBs : IsElemAbelian p Bs := hBstar.2.1
-  have hxBs : x ∈ Bs := hBstar.1 hS.2.1
-  have hxp : x ^ p = 1 := hBs.2 x hxBs
-  have hxc : ∀ b ∈ Bs ⊓ Subgroup.centralizer (X : Set G), x * b = b * x :=
-    fun b hb => mul_comm_of_isElemAbelian hBs hxBs hb.1
-  have hN : Bs ≤ Subgroup.normalizer (K : Set G) := hBN G p B Bs x L D J hFC.1 y K hnbr
-  have hpJ : p ∣ Nat.card J := hJp G p B x L D J hI hDJ
-  have hKd : LargeEvenPComponent p (Subgroup.centralizer ({d} : Set G)) K := by
-    rw [← centralizer_singleton_eq_of_zpowers_eq hyd]
-    exact hnbr.1.2.2.2.2.1
-  have hXK : X ≤ Subgroup.normalizer (K : Set G) :=
-    le_normalizer_of_ggL44i hFC h44 hpJ (hI2 G p B Bs x L D J hFC.1) hd.2.2 hKd
-      (le_of_ggNbr hL hI hDJ hpJ hnbr)
-  have hK0 : LargeEvenMarking ↥K fun _ _ _ _ _ _ => True :=
-    largeEvenMarking_mono (fun _ _ _ _ _ _ _ => trivial)
-      (hst.2.2.1 y K (isNeighborOf_of_ggNbr hDJ hnbr)).2
-  have hK1 := hgr G p B Bs x L D J hFC.1 y K hnbr hN _ hK0
-  have hK2 := largeEvenMarking_and_labelAll (S := fun _ => True)
-    (fun lab hlab _ => hraw p hp hp2 lab hlab) (fun _ _ _ _ _ _ _ => trivial) hK1
-  have hK3 := largeEvenMarking_and_labelAll (S := fun _ => True)
-    (fun lab hlab _ => hcen lab hlab) (fun _ _ _ _ _ _ _ => trivial) hK2
-  have hK4 := largeEvenMarking_and_labelAll (S := fun _ => True)
-    (fun lab hlab _ => hlang p hp hp2 lab hlab) (fun _ _ _ _ _ _ _ => trivial) hK3
-  have hK5 := hS1 G p B Bs x L D J X B₂ hFC hM h43 h44 h44ii d hd hd1 y K hnbr hyd hN _ hK4
-  rcases h44ii with h44a | ⟨hlt, h44b⟩
-  · refine largeEvenMarking_mono_of_simple ?_ hK5
-    rintro lab R _ I F θ hs hna ⟨⟨⟨⟨⟨-, hgrθ⟩, hrawθ⟩, hcenθ⟩, hlangθ⟩, hS1θ⟩
-    obtain ⟨hmul, hinv, hinn, -⟩ := hrawθ hs hna
-    have hone : (1 : MulAut R) ∈ I := by simpa using hinn 1
-    refine ⟨hN, ggL44iiiMarking_core θ hN hxBs hxp h43.2 hxc hmul hinv hone (hlangθ hs hna)
-      hgrθ ?_ (hS1θ hgrθ)⟩
-    exact ggL44iiiInner_of_first θ hN hXK hxBs (hcenθ hs hna) hgrθ inf_le_left
-      (fun b hb => (h44a b).1 hb)
-  · have hK6 := hS5 G p B Bs x L D J X B₂ hFC hM h43 h44 hlt h44b d hd hd1 y K hnbr hyd hN _ hK5
-    refine largeEvenMarking_mono_of_simple ?_ hK6
-    rintro lab R _ I F θ hs hna ⟨⟨⟨⟨⟨⟨-, hgrθ⟩, hrawθ⟩, hcenθ⟩, hlangθ⟩, hS1θ⟩, hS5θ⟩
-    obtain ⟨hmul, hinv, hinn, -⟩ := hrawθ hs hna
-    have hone : (1 : MulAut R) ∈ I := by simpa using hinn 1
-    have hB₁₂ := ggL44iiiInner_of_first θ hN hXK hxBs (hcenθ hs hna) hgrθ
-      (inf_le_left.trans inf_le_left) (fun b hb => (h44b b).1 hb)
-    refine ⟨hN, ggL44iiiMarking_core θ hN hxBs hxp h43.2 hxc hmul hinv hone (hlangθ hs hna)
-      hgrθ (hS5θ hgrθ hB₁₂ (hS1θ hgrθ)) (hS1θ hgrθ)⟩
 
 end CFSG.StandardType
 

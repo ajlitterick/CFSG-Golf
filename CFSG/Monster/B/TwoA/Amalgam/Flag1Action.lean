@@ -23,11 +23,6 @@ theorem barPowF_zero_right (ε : ZMod 2) : barPowF ε 0 = 0 := by
   · rfl
   · exact bar_zero
 
-theorem barPowF_ne_zero (ε : ZMod 2) {c : F4} (hc : c ≠ 0) : barPowF ε c ≠ 0 := by
-  unfold barPowF
-  split_ifs
-  · exact hc
-  · exact fun h => hc (CFSG.Monster.B.Classical.UnitarySix.bar_eq_zero_iff.1 h)
 
 theorem barPowV_add (ε : ZMod 2) (s t : V6) : barPowV ε (s + t) = barPowV ε s + barPowV ε t := by
   unfold barPowV
@@ -119,11 +114,6 @@ theorem sigmaAct_mono {S S' : Submodule F4 V6} (h : S ≤ S') (x : SigmaU6) :
   rw [← SetLike.coe_subset_coe, coe_sigmaAct, coe_sigmaAct]
   exact Set.image_mono h
 
-theorem sigmaAct_le_iff {S S' : Submodule F4 V6} (x : SigmaU6) :
-    sigmaAct S x ≤ sigmaAct S' x ↔ S ≤ S' := by
-  refine ⟨fun h => ?_, fun h => sigmaAct_mono h x⟩
-  have := sigmaAct_mono h x⁻¹
-  rwa [sigmaAct_sigmaAct_inv, sigmaAct_sigmaAct_inv] at this
 
 theorem sigmaAct_left_injective (x : SigmaU6) : Function.Injective fun S => sigmaAct S x := by
   intro S S' h
@@ -165,7 +155,6 @@ theorem sigmaAct_isotropic {S : Submodule F4 V6} (hS : ∀ s ∈ S, ∀ t ∈ S,
 @[expose] def UIso (d : ℕ) (S : Submodule F4 V6) : Prop :=
   finrank F4 S = d ∧ ∀ s ∈ S, ∀ t ∈ S, hU s t = 0
 
-theorem uIso_three_iff (S : Submodule F4 V6) : UIso 3 S ↔ IsMaxIso S := Iff.rfl
 
 theorem UIso.sigmaAct {d : ℕ} {S : Submodule F4 V6} (h : UIso d S) (x : SigmaU6) :
     UIso d (sigmaAct S x) :=
@@ -513,10 +502,5 @@ theorem exists_flag_of_one_three {R T : Submodule F4 V6} (hR : UIso 1 R) (hT : U
   rw [hRv]
   exact Submodule.span_mono (Set.singleton_subset_iff.2 (Set.mem_insert _ _))
 
-theorem exists_one_le_two {H : Submodule F4 V6} (hH : UIso 2 H) :
-    ∃ R : Submodule F4 V6, UIso 1 R ∧ R ≤ H := by
-  obtain ⟨v, -, hvH, hv1⟩ := exists_one_le (by rw [hH.1]; norm_num)
-  have hle : Submodule.span F4 {v} ≤ H := (Submodule.span_singleton_le_iff_mem _ _).2 hvH
-  exact ⟨_, UIso.mono hH.2 hle hv1, hle⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

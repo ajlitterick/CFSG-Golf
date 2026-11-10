@@ -50,18 +50,5 @@ theorem stronglyPEmbedded_of_e9_le_center_sylow [Finite G]
   h614 hsub 3 Nat.prime_three (by decide) h3 P hP E hE hEel
     (by rw [hEcard]; norm_num) hΓ
 
-theorem omega_center_of_sylow_eq {P Q : Subgroup G} (hPQ : P = Q)
-    (hQab : ∀ x ∈ Q, ∀ y ∈ Q, x * y = y * x) :
-    CFSG.RankThree.PartOne.omegaOne 3 Q ≤ (Subgroup.center ↥P).map P.subtype := by
-  intro x hx
-  have hωQ : CFSG.RankThree.PartOne.omegaOne 3 Q ≤ Q :=
-    (Subgroup.closure_le Q).2 fun _ hx => hx.1
-  have hxQ : x ∈ Q := hωQ hx
-  have hxP : x ∈ P := hPQ.symm ▸ hxQ
-  refine Subgroup.mem_map.mpr ⟨⟨x, hxP⟩, ?_, rfl⟩
-  rw [Subgroup.mem_center_iff]
-  intro y
-  apply Subtype.ext
-  exact (hQab x hxQ y (hPQ ▸ y.2)).symm
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

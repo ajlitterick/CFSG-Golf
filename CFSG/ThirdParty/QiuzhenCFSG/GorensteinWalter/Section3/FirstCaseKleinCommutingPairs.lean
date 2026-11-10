@@ -431,9 +431,5 @@ public theorem firstCase_klein_external_commuting_pair_card
     _ = Nat.card S * (2 * k) := by simp [Nat.card_eq_fintype_card]
     _ = 12 * k ^ 2 := by rw [hS]; ring
 
-public theorem firstCase_klein_h8_of_coset_pair_distribution
-    (k b2 b4 : ℕ)
-    (hpair : 2 * (3 * b4 + b2) = 12 * k ^ 2) :
-    3 * b4 + b2 = 6 * k ^ 2 := by omega
 
 end CFSG.GorensteinWalter

@@ -95,23 +95,6 @@ end Choice
 
 section Inputs
 
-@[expose] def GGSixAutKHypRestAtInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      ∀ b ∈ Bs, b ≠ 1 → ∀ L₁ : Subgroup G,
-      IsComponentOf L₁ (ggG0 p B x L D J ⊓ Subgroup.centralizer {b}) →
-      ∀ K : Subgroup G, IsComponentOf K (Subgroup.centralizer {b}) → L₁ ≤ K →
-        ¬ K ≤ ggM p B x L D J →
-        ∀ m ∈ ggM p B x L D J,
-          D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} →
-          ∃ (W' : Type) (_ : Group W') (_ : Finite W') (π : ↥(ggAutKW D K m) →* W'),
-            Function.Surjective π ∧
-            π.ker ≤ (ggAutKH D K (ggM p B x L D J) m ⊓
-              Subgroup.centralizer (K : Set G)).subgroupOf (ggAutKW D K m) ∧
-            GGHypThreeSixteenRest p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π)
 
 theorem ggStepTwo_map_conj_one_le {G : Type} [Group G] {p : ℕ} {Bs D : Subgroup G}
     (hBs : IsElemAbelian p Bs) (hDBs : D ≤ Bs) {b : G} (hb : b ∈ Bs) :
@@ -122,13 +105,6 @@ theorem ggStepTwo_map_conj_one_le {G : Type} [Group G] {p : ℕ} {Bs D : Subgrou
   simp only [inv_one, map_one, MulEquiv.coe_toMonoidHom, MulAut.one_apply]
   exact congrArg Subtype.val (mul_comm' (⟨d, hDBs hd⟩ : Bs) ⟨b, hb⟩)
 
-theorem ggSixAutKHypRestInput_of_at (h : GGSixAutKHypRestAtInput) : GGSixAutKHypRestInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 b hb hb1 L₁ hL₁ K hK hLK hKM
-  obtain ⟨⟨hBBs, hBsEl, -⟩, ⟨⟨hDB, -⟩, -⟩, -⟩ := hctx.2
-  have hD := ggStepTwo_map_conj_one_le hBsEl (hDB.trans hBBs) hb
-  exact ⟨1, (ggM p B x L D J).one_mem, hD,
-    h G p B Bs x L D J t n f ψ hctx s1 b hb hb1 L₁ hL₁ K hK hLK hKM 1
-      (ggM p B x L D J).one_mem hD⟩
 
 @[expose] def GGStepTwoAutKFiveInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -153,55 +129,6 @@ theorem ggSixAutKHypRestInput_of_at (h : GGSixAutKHypRestAtInput) : GGSixAutKHyp
               g ∈ Subgroup.centralizer (D.map (MulAut.conj m⁻¹).toMonoidHom : Set G) ∧
               Nat.Coprime (orderOf g) p
 
-theorem ggStepTwoAutKRestInput_of_finer (hR : GGSixAutKHypRestAtInput)
-    (h5 : GGStepTwoAutKFiveInput) (h3 : GGStepTwoAutKThreeInput) : GGStepTwoAutKRestInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM
-  have hchoice : ∃ m ∈ ggM p B x L D J,
-      D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} ∧
-      (p = 3 → GGStepTwoExcThreeType L₁ → ∃ g ∈ L₁, (∃ l ∈ L₁, g * l ≠ l * g) ∧
-        g ∈ Subgroup.centralizer (D.map (MulAut.conj m⁻¹).toMonoidHom : Set G) ∧
-        Nat.Coprime (orderOf g) p) := by
-    by_cases hT : p = 3 ∧ GGStepTwoExcThreeType L₁
-    · obtain ⟨m, hm, hmC, hg⟩ :=
-        h3 G p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM hT.1 hT.2
-      exact ⟨m, hm, hmC, fun _ _ => hg⟩
-    · obtain ⟨⟨hBBs, hBsEl, -⟩, ⟨⟨hDB, -⟩, -⟩, -⟩ := hctx.2
-      exact ⟨1, (ggM p B x L D J).one_mem,
-        ggStepTwo_map_conj_one_le hBsEl (hDB.trans hBBs) hpair.1,
-        fun hp3 hT' => absurd ⟨hp3, hT'⟩ hT⟩
-  obtain ⟨m, hm, hEC, hgchoice⟩ := hchoice
-  obtain ⟨W', _, _, π, hπ, hker, hrest⟩ :=
-    hR G p B Bs x L D J t n f ψ hctx s1 b hpair.1 hpair.2.1 L₁ hpair.2.2.1 K hK hLK hKM m hm hEC
-  refine ⟨m, hm, hEC, W', inferInstance, inferInstance, π, hπ, hker, hrest, fun hex => ?_⟩
-  have : IsSimpleGroup G := hctx.1.1
-  have hp : p.Prime := hctx.1.2.2.2.2.2.1.1
-  have hp2 : p ≠ 2 := hctx.1.2.2.2.2.2.1.2.1
-  obtain ⟨-, ⟨⟨-, hDel, hDcard, -⟩, -⟩, -⟩ := hctx.2
-  have hfusE : GGControlsStrongFusion (ggM p B x L D J) (D.map (MulAut.conj m⁻¹).toMonoidHom) := by
-    refine s1.2.1.of_map_conj_le ((ggM p B x L D J).inv_mem hm) ?_
-    rintro _ ⟨_, ⟨d, hd, rfl⟩, rfl⟩
-    simpa [MulAut.conj_apply, mul_assoc] using hd
-  have hE0el : IsElemAbelian p (D.map (MulAut.conj m⁻¹).toMonoidHom) :=
-    isElemAbelian_map_hom hDel _
-  have hE0card : Nat.card (D.map (MulAut.conj m⁻¹).toMonoidHom) = p ^ 2 := by
-    rw [Subgroup.card_map_of_injective (MulAut.conj m⁻¹).injective, hDcard]
-  have hnorm : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.normalizer (K : Set G) :=
-    ggLemmaThreeThirteenInput_holds G p hp hp2 (Subgroup.centralizer {b})
-      (ggM p B x L D J ⊓ Subgroup.centralizer {b}) _
-      (ggStepTwo_kGroup_of_ne_top hctx.1.2.2.1
-        (ggStepTwo_centralizer_ne_top hctx.1.2.1 hpair.2.1))
-      hE0el hE0card (hfusE.inf_in hEC) K hK (fun h => hKM (h.trans inf_le_left))
-  have hEM : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ ggM p B x L D J := hfusE.1
-  have hH₀C : D.map (MulAut.conj m⁻¹).toMonoidHom ⊔ (K ⊓ ggM p B x L D J) ≤
-      ggM p B x L D J ⊓ Subgroup.centralizer {b} :=
-    sup_le (le_inf hEM hEC) (le_inf inf_le_right (inf_le_left.trans hK.1))
-  obtain ⟨hC, he⟩ := ggAutK_image_component hpair.isComponentOf_inf hLK hpair.le_ggM hH₀C
-    hK.2.2 hnorm π hπ hker
-  rcases ggFusionException_of_component hC he hex with ⟨hp3, hT, hpg⟩ | ⟨hp5, hT⟩
-  · obtain ⟨g, hgL, hgZ, hgE, hgp⟩ := hgchoice hp3 hT
-    exact ggAutK_not_isPGroup hpair.isComponentOf_inf hLK hpair.le_ggM hH₀C hK.2.2 hnorm π hπ
-      hker hgL hgZ hgE hgp hpg
-  · exact h5 G p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM hp5 hT
 
 end Inputs
 

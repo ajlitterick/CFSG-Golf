@@ -11,8 +11,6 @@ namespace CFSG.KS.SporSch
 
 open CFSG.KC.Enum CFSG.KC.LL
 
-@[expose] noncomputable def ckC (n k : Nat) : Nat :=
-  nIf(Nat.ble (Nat.mul (nat_lit 32) (Nat.succ k)) n, nat_lit 32, Nat.sub n (Nat.mul (nat_lit 32) k))
 
 @[expose] noncomputable def isIdK (X : Nat) : Bool :=
   allN (nat_lit 133) (fun i => allN (nat_lit 133) (fun j =>

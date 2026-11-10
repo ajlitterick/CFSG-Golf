@@ -22,10 +22,6 @@ open CFSG.RankThree.E6 Matrix
     Subgroup (WeylGroup Tag.E6) :=
   Subgroup.closure (setReflection '' e6Orbits J i₀)
 
-@[expose] def e6RelLength (J : Set (Fin Tag.E6.rank)) (i₀ : Fin Tag.E6.rank)
-    (w : WeylGroup Tag.E6) : ℕ :=
-  sInf {n | ∃ l : List (WeylGroup Tag.E6), l.length = n ∧
-    (∀ x ∈ l, x ∈ setReflection '' e6Orbits J i₀) ∧ l.prod = w}
 
 @[expose] def e6RootOrbit (J : Set (Fin Tag.E6.rank)) (α : Fin Tag.E6.rank → ℤ) :
     Set (Fin Tag.E6.rank → ℤ) :=
@@ -485,13 +481,6 @@ theorem e6OrbitRefl_mul_self (j : Fin Tag.E6.rank) (hc : e6QpPerm m j ≠ j →
   · rw [reflect_reflect]
   · rw [reflect_comm_of_cartan_eq_zero (hc hπ), reflect_reflect, reflect_reflect]
 
-theorem e6OrbitRefl_smul_apply_of_ne (j : Fin Tag.E6.rank) (x : Fin Tag.E6.rank → ℤ)
-    {i : Fin Tag.E6.rank} (hij : i ≠ j) (hiπ : i ≠ e6QpPerm m j) :
-    (e6OrbitRefl m j • x) i = x i := by
-  rw [e6OrbitRefl_smul]
-  split_ifs
-  · exact reflect_apply_of_ne j hij x
-  · rw [reflect_apply_of_ne j hij, reflect_apply_of_ne _ hiπ]
 
 include hi₀ in
 theorem e6OrbitRefl_smul_mem_e6Xi {j : Fin Tag.E6.rank}
@@ -556,26 +545,6 @@ theorem IsE6OrbitGen.mul_self {r : WeylGroup Tag.E6} (hr : IsE6OrbitGen m i₀ r
   obtain ⟨j, hj, rfl⟩ := hr
   exact e6OrbitRefl_mul_self m j (cartan_e6QpPerm_eq_zero m hi₀ horth hj)
 
-include hi₀ horth in
-theorem exists_list_of_mem_e6RelWeyl {w : WeylGroup Tag.E6}
-    (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    ∃ l : List (WeylGroup Tag.E6), (∀ x ∈ l, IsE6OrbitGen m i₀ x) ∧ l.prod = w := by
-  rw [e6RelWeyl, setReflection_image_e6Orbits m hi₀ horth] at hw
-  induction hw using Subgroup.closure_induction with
-  | mem x hx => exact ⟨[x], by simpa using hx, by simp⟩
-  | one => exact ⟨[], by simp, rfl⟩
-  | mul x y _ _ hx hy =>
-    obtain ⟨l, hl, rfl⟩ := hx
-    obtain ⟨l', hl', rfl⟩ := hy
-    exact ⟨l ++ l', fun z hz => (List.mem_append.1 hz).elim (hl z) (hl' z), List.prod_append⟩
-  | inv x _ hx =>
-    obtain ⟨l, hl, rfl⟩ := hx
-    refine ⟨l.reverse, fun z hz => hl z (List.mem_reverse.1 hz), ?_⟩
-    have hinv : List.map (fun x => x⁻¹) l = l := by
-      conv_rhs => rw [← List.map_id l]
-      exact List.map_congr_left fun z hz =>
-        inv_eq_of_mul_eq_one_right ((hl z hz).mul_self m hi₀ horth)
-    rw [List.prod_inv_reverse, hinv]
 
 include hi₀ horth in
 theorem IsE6OrbitGen.mem {r : WeylGroup Tag.E6} (hr : IsE6OrbitGen m i₀ r) :
@@ -584,82 +553,9 @@ theorem IsE6OrbitGen.mem {r : WeylGroup Tag.E6} (hr : IsE6OrbitGen m i₀ r) :
   rw [setReflection_image_e6Orbits m hi₀ horth]
   exact hr
 
-include hi₀ horth in
-theorem list_prod_mem_e6RelWeyl {l : List (WeylGroup Tag.E6)}
-    (hl : ∀ x ∈ l, IsE6OrbitGen m i₀ x) : l.prod ∈ e6RelWeyl (e6QpSupport m) i₀ := by
-  refine Subgroup.list_prod_mem _ fun x hx => Subgroup.subset_closure ?_
-  rw [setReflection_image_e6Orbits m hi₀ horth]
-  exact hl x hx
-
-include hi₀ horth in
-theorem e6RelWeyl_props {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    (∀ γ ∈ e6Xi (e6QpSupport m) i₀, w • γ ∈ e6Xi (e6QpSupport m) i₀) ∧
-    (∀ x, w • e6Delta (e6QpSupport m) x = e6Delta (e6QpSupport m) (w • x)) ∧
-    ∀ (x : Fin Tag.E6.rank → ℤ) (i : Fin Tag.E6.rank),
-      Pi.single i 1 ∉ e6Xi (e6QpSupport m) i₀ → (w • x) i = x i := by
-  obtain ⟨l, hl, rfl⟩ := exists_list_of_mem_e6RelWeyl m hi₀ horth hw
-  clear hw
-  induction l with
-  | nil => exact ⟨fun γ hγ => by simpa using hγ, fun x => by simp, fun x i _ => by simp⟩
-  | cons r l ih =>
-    obtain ⟨h1, h2, h3⟩ := ih (fun x hx => hl x (List.mem_cons_of_mem _ hx))
-    obtain ⟨j, hj, rfl⟩ := hl r List.mem_cons_self
-    have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-    refine ⟨fun γ hγ => ?_, fun x => ?_, fun x i hi => ?_⟩
-    · rw [List.prod_cons, mul_smul]
-      exact e6OrbitRefl_smul_mem_e6Xi m hi₀ hj (h1 γ hγ)
-    · rw [List.prod_cons, mul_smul, mul_smul, h2, e6OrbitRefl_smul_e6Delta m hi₀ horth hj]
-    · have hij : i ≠ j := fun e => hi (e ▸ hj)
-      have hiπ : i ≠ e6QpPerm m j := by
-        rintro rfl
-        apply hi
-        rw [← e6Delta_qp_single m hjJ]
-        rw [e6Xi_eq m hi₀] at hj ⊢
-        rcases hj with h | h
-        · right
-          rw [← e6Delta_image_parabolicRoots m hi₀]
-          exact ⟨_, h, rfl⟩
-        · left
-          rw [← e6Delta_image_parabolicRoots m hi₀] at h
-          obtain ⟨y, hy, hye⟩ := h
-          rw [← hye, e6Delta_qp_involutive]
-          exact hy
-      rw [List.prod_cons, mul_smul, e6OrbitRefl_smul_apply_of_ne m j _ hij hiπ, h3 x i hi]
-
-include hi₀ horth in
-theorem exists_height_neg_of_mem_e6RelWeyl {w : WeylGroup Tag.E6}
-    (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) (hne : w ≠ 1) :
-    ∃ j, Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀ ∧
-      height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) < 0 := by
-  by_contra! h
-  apply hne
-  have hw' := inv_mem hw
-  have h3 := (e6RelWeyl_props m hi₀ horth hw').2.2
-  refine inv_eq_one.1 (eq_one_of_forall_height_pos fun i => ?_)
-  have hr := IsRoot.smul (isRoot_single Tag.E6 i) w⁻¹
-  by_cases hi : Pi.single i 1 ∈ e6Xi (e6QpSupport m) i₀
-  · exact lt_of_le_of_ne (h i hi) hr.height_ne_zero.symm
-  · have hc : (w⁻¹ • (Pi.single i 1 : Fin Tag.E6.rank → ℤ)) i = 1 := by
-      rw [h3 _ i hi]
-      simp
-    rcases IsRoot.height_pos_or_neg hr with hp | hn
-    · exact hp
-    · have := ((IsRoot.height_neg_iff hr).1 hn) i
-      omega
 
 end RelWeyl
 
-open _root_.Classical in
-@[expose] def e6XiPos (m : Fin 15) (i₀ : Fin Tag.E6.rank) : Finset (Fin Tag.E6.rank → ℤ) :=
-  (rootFinset Tag.E6).filter fun γ => γ ∈ e6Xi (e6QpSupport m) i₀ ∧ 0 < height γ
-
-open _root_.Classical in
-@[expose] def e6XiWt (m : Fin 15) (γ : Fin Tag.E6.rank → ℤ) : ℕ :=
-  if e6Delta (e6QpSupport m) γ = γ then 2 else 1
-
-open _root_.Classical in
-@[expose] def e6XiS (m : Fin 15) (i₀ : Fin Tag.E6.rank) (w : WeylGroup Tag.E6) : ℕ :=
-  ∑ γ ∈ e6XiPos m i₀, if height (w • γ) < 0 then e6XiWt m γ else 0
 
 section Weights
 
@@ -711,52 +607,6 @@ theorem height_e6Delta_of_mem_e6Xi {γ : Fin Tag.E6.rank → ℤ}
     (hγ : γ ∈ e6Xi (e6QpSupport m) i₀) : height (e6Delta (e6QpSupport m) γ) = height γ := by
   rw [e6Delta_eq_permLattice m (support_of_mem_e6Xi m hi₀ hγ), height_permLattice]
 
-include hi₀ in
-theorem mem_e6XiPos {γ : Fin Tag.E6.rank → ℤ} :
-    γ ∈ e6XiPos m i₀ ↔ γ ∈ e6Xi (e6QpSupport m) i₀ ∧ 0 < height γ := by
-  classical
-  rw [e6XiPos, Finset.mem_filter, mem_rootFinset]
-  exact ⟨fun h => h.2, fun h => ⟨isRoot_of_mem_e6Xi m hi₀ h.1, h⟩⟩
-
-theorem e6XiWt_neg (γ : Fin Tag.E6.rank → ℤ) : e6XiWt m (-γ) = e6XiWt m γ := by
-  classical
-  simp only [e6XiWt, e6Delta_qp_neg, neg_inj]
-
-include hi₀ horth in
-theorem e6XiWt_smul {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀)
-    (γ : Fin Tag.E6.rank → ℤ) : e6XiWt m (w • γ) = e6XiWt m γ := by
-  classical
-  simp only [e6XiWt, ← (e6RelWeyl_props m hi₀ horth hw).2.1, smul_left_cancel_iff]
-
-include hi₀ horth in
-theorem height_inv_smul_e6QpPerm {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀)
-    {j : Fin Tag.E6.rank} (hj : Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀) :
-    height (w⁻¹ • (Pi.single (e6QpPerm m j) 1 : Fin Tag.E6.rank → ℤ)) =
-      height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) := by
-  have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-  have hw' := inv_mem hw
-  rw [← e6Delta_qp_single m hjJ, (e6RelWeyl_props m hi₀ horth hw').2.1,
-    height_e6Delta_of_mem_e6Xi m hi₀ ((e6RelWeyl_props m hi₀ horth hw').1 _ hj)]
-
-include hi₀ in
-theorem single_e6QpPerm_mem_e6Xi {j : Fin Tag.E6.rank}
-    (hj : Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀) :
-    Pi.single (e6QpPerm m j) 1 ∈ e6Xi (e6QpSupport m) i₀ := by
-  rw [← e6Delta_qp_single m (mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj)]
-  exact e6Delta_mem_e6Xi m hi₀ hj
-
-theorem sum_e6XiWt_orbit (j : Fin Tag.E6.rank) (hj : j ∈ e6QpSupport m) :
-    ∑ β ∈ ({Pi.single j 1, Pi.single (e6QpPerm m j) 1} : Finset (Fin Tag.E6.rank → ℤ)),
-      e6XiWt m β = 2 := by
-  classical
-  by_cases hπ : e6QpPerm m j = j
-  · rw [hπ, Finset.pair_eq_singleton, Finset.sum_singleton, e6XiWt, e6Delta_qp_single m hj, hπ,
-      ite_eq_left rfl]
-  · have hne : (Pi.single j 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single (e6QpPerm m j) 1 :=
-      fun e => hπ (single_one_inj e).symm
-    rw [Finset.sum_pair hne, e6XiWt, e6XiWt, e6Delta_qp_single m hj,
-      e6Delta_qp_single m ((e6QpPerm_mem_iff m j).1 hj), e6QpPerm_perm_of_mem m hj,
-      ite_eq_right hne.symm, ite_eq_right hne]
 
 include hi₀ horth in
 theorem height_e6OrbitRefl_smul_pos {j : Fin Tag.E6.rank}
@@ -780,131 +630,6 @@ section Step
 variable (m : Fin 15) {i₀ : Fin Tag.E6.rank} (hi₀ : i₀ ∈ e6QpSupport m)
   (horth : e6XiOrth (e6QpSupport m) i₀)
 
-include hi₀ horth in
-theorem e6XiS_step {j : Fin Tag.E6.rank} (hj : Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀)
-    {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    (0 < height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) →
-      e6XiS m i₀ (e6OrbitRefl m j * w) = e6XiS m i₀ w + 2) ∧
-    (height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) < 0 →
-      e6XiS m i₀ (e6OrbitRefl m j * w) + 2 = e6XiS m i₀ w) := by
-  classical
-  set R := e6OrbitRefl m j with hRdef
-  set O : Finset (Fin Tag.E6.rank → ℤ) := {Pi.single j 1, Pi.single (e6QpPerm m j) 1} with hO
-  have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-  have hπj := single_e6QpPerm_mem_e6Xi m hi₀ hj
-  obtain ⟨hR1, hR2⟩ := e6OrbitRefl_smul_single m hi₀ horth hj
-  have hheq := height_inv_smul_e6QpPerm m hi₀ horth hw hj
-  have hw' := inv_mem hw
-  have hWΞ := (e6RelWeyl_props m hi₀ horth hw).1
-  have hWΞ' := (e6RelWeyl_props m hi₀ horth hw').1
-  have hmemO : ∀ β, β ∈ O ↔ β = Pi.single j 1 ∨ β = Pi.single (e6QpPerm m j) 1 := fun β => by
-    simp [O]
-  have hOΞ : ∀ β ∈ O, β ∈ e6Xi (e6QpSupport m) i₀ := fun β hβ => by
-    rcases (hmemO β).1 hβ with rfl | rfl
-    exacts [hj, hπj]
-  have hRO : ∀ β ∈ O, R • β = -β := fun β hβ => by
-    rcases (hmemO β).1 hβ with rfl | rfl
-    exacts [hR1, hR2]
-  have hhO : ∀ β ∈ O, height β = 1 := fun β hβ => by
-    rcases (hmemO β).1 hβ with rfl | rfl <;> exact height_single _
-  have hsign : ∀ β ∈ O, height (w⁻¹ • β) = height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) :=
-    fun β hβ => by
-      rcases (hmemO β).1 hβ with rfl | rfl
-      · rfl
-      · exact hheq
-  have hpt : ∀ β ∈ e6Xi (e6QpSupport m) i₀, β ∉ O → -β ∉ O →
-      (height (R • β) < 0 ↔ height β < 0) := fun β hβ h1 h2 => by
-    have hr := isRoot_of_mem_e6Xi m hi₀ hβ
-    rcases IsRoot.height_pos_or_neg hr with hp | hn
-    · have := height_e6OrbitRefl_smul_pos m hi₀ horth hj hβ hp (fun e => h1 (by simp [O, e]))
-        (fun e => h1 (by simp [O, e]))
-      rw [← hRdef] at this
-      exact ⟨fun h => by omega, fun h => by omega⟩
-    · have hnβ := neg_mem_e6Xi m hi₀ hβ
-      have hp' : 0 < height (-β) := by rw [height_neg]; omega
-      have := height_e6OrbitRefl_smul_pos m hi₀ horth hj hnβ hp' (fun e => h2 (by simp [O, e]))
-        (fun e => h2 (by simp [O, e]))
-      rw [← hRdef, smul_neg, height_neg] at this
-      exact ⟨fun _ => hn, fun _ => by omega⟩
-  have hS : ∀ v : WeylGroup Tag.E6, e6XiS m i₀ v =
-      ∑ γ ∈ e6XiPos m i₀, if height (v • γ) < 0 then e6XiWt m γ else 0 := fun v => rfl
-  refine ⟨fun hpos => ?_, fun hneg => ?_⟩
-  · have hposO : ∀ β ∈ O, 0 < height (w⁻¹ • β) := fun β hβ => by rw [hsign β hβ]; exact hpos
-    have hpw : ∀ γ ∈ e6XiPos m i₀, (if height ((R * w) • γ) < 0 then e6XiWt m γ else 0) =
-        (if height (w • γ) < 0 then e6XiWt m γ else 0) +
-          (if w • γ ∈ O then e6XiWt m γ else 0) := fun γ hγ => by
-      obtain ⟨hγΞ, hγp⟩ := (mem_e6XiPos m hi₀).1 hγ
-      have hβΞ := hWΞ γ hγΞ
-      rw [mul_smul]
-      by_cases h1 : w • γ ∈ O
-      · rw [hRO _ h1, height_neg, hhO _ h1, ite_eq_left h1]
-        simp
-      · by_cases h2 : -(w • γ) ∈ O
-        · exfalso
-          have := hposO _ h2
-          rw [smul_neg, inv_smul_smul, height_neg] at this
-          omega
-        · rw [ite_eq_right h1, add_zero]
-          simp only [hpt _ hβΞ h1 h2]
-    have hbij : ∑ γ ∈ e6XiPos m i₀, (if w • γ ∈ O then e6XiWt m γ else 0) = 2 := by
-      rw [← Finset.sum_filter, ← sum_e6XiWt_orbit m j hjJ]
-      refine Finset.sum_nbij' (fun γ => w • γ) (fun β => w⁻¹ • β) ?_ ?_ ?_ ?_ ?_
-      · intro γ hγ
-        exact (Finset.mem_filter.1 hγ).2
-      · intro β hβ
-        refine Finset.mem_filter.2 ⟨(mem_e6XiPos m hi₀).2 ⟨hWΞ' β (hOΞ β hβ), hposO β hβ⟩, ?_⟩
-        rw [smul_inv_smul]
-        exact hβ
-      · intro γ _
-        exact inv_smul_smul w γ
-      · intro β _
-        exact smul_inv_smul w β
-      · intro γ _
-        exact (e6XiWt_smul m hi₀ horth hw γ).symm
-    rw [hS, hS, Finset.sum_congr rfl hpw, Finset.sum_add_distrib, hbij]
-  · have hnegO : ∀ β ∈ O, height (w⁻¹ • β) < 0 := fun β hβ => by rw [hsign β hβ]; exact hneg
-    have hpw : ∀ γ ∈ e6XiPos m i₀, (if height ((R * w) • γ) < 0 then e6XiWt m γ else 0) +
-        (if -(w • γ) ∈ O then e6XiWt m γ else 0) =
-          (if height (w • γ) < 0 then e6XiWt m γ else 0) := fun γ hγ => by
-      obtain ⟨hγΞ, hγp⟩ := (mem_e6XiPos m hi₀).1 hγ
-      have hβΞ := hWΞ γ hγΞ
-      rw [mul_smul]
-      by_cases h1 : w • γ ∈ O
-      · exfalso
-        have := hnegO _ h1
-        rw [inv_smul_smul] at this
-        omega
-      · by_cases h2 : -(w • γ) ∈ O
-        · have hRw : R • (w • γ) = -(w • γ) := by
-            have h := hRO _ h2
-            rw [smul_neg, neg_inj] at h
-            exact h
-          have hh := hhO _ h2
-          rw [height_neg] at hh
-          rw [hRw, ite_eq_left h2, height_neg, ite_eq_right (by omega), ite_eq_left (by omega),
-            zero_add]
-        · rw [ite_eq_right h2, add_zero]
-          simp only [hpt _ hβΞ h1 h2]
-    have hbij : ∑ γ ∈ e6XiPos m i₀, (if -(w • γ) ∈ O then e6XiWt m γ else 0) = 2 := by
-      rw [← Finset.sum_filter, ← sum_e6XiWt_orbit m j hjJ]
-      refine Finset.sum_nbij' (fun γ => -(w • γ)) (fun β => w⁻¹ • (-β)) ?_ ?_ ?_ ?_ ?_
-      · intro γ hγ
-        exact (Finset.mem_filter.1 hγ).2
-      · intro β hβ
-        refine Finset.mem_filter.2 ⟨(mem_e6XiPos m hi₀).2 ⟨hWΞ' _ (neg_mem_e6Xi m hi₀ (hOΞ β hβ)),
-          ?_⟩, ?_⟩
-        · rw [smul_neg, height_neg]
-          have := hnegO β hβ
-          omega
-        · rw [smul_inv_smul, neg_neg]
-          exact hβ
-      · intro γ _
-        simp
-      · intro β _
-        simp
-      · intro γ _
-        rw [e6XiWt_neg, e6XiWt_smul m hi₀ horth hw]
-    rw [hS, hS, ← Finset.sum_congr rfl hpw, Finset.sum_add_distrib, hbij]
 
 end Step
 
@@ -913,90 +638,6 @@ section LengthFormula
 variable (m : Fin 15) {i₀ : Fin Tag.E6.rank} (hi₀ : i₀ ∈ e6QpSupport m)
   (horth : e6XiOrth (e6QpSupport m) i₀)
 
-include hi₀ in
-theorem e6XiS_one : e6XiS m i₀ 1 = 0 := by
-  classical
-  refine Finset.sum_eq_zero fun γ hγ => ?_
-  have := ((mem_e6XiPos m hi₀).1 hγ).2
-  rw [one_smul, ite_eq_right (by omega)]
-
-include hi₀ horth in
-theorem e6XiS_list_prod_le {l : List (WeylGroup Tag.E6)} (hl : ∀ x ∈ l, IsE6OrbitGen m i₀ x) :
-    e6XiS m i₀ l.prod ≤ 2 * l.length := by
-  induction l with
-  | nil => rw [List.prod_nil, e6XiS_one m hi₀]; simp
-  | cons r l ih =>
-    have hl' : ∀ x ∈ l, IsE6OrbitGen m i₀ x := fun x hx => hl x (List.mem_cons_of_mem _ hx)
-    obtain ⟨j, hj, rfl⟩ := hl r List.mem_cons_self
-    have hw := list_prod_mem_e6RelWeyl m hi₀ horth hl'
-    obtain ⟨hA, hB⟩ := e6XiS_step m hi₀ horth hj hw
-    have ih' := ih hl'
-    rw [List.prod_cons, List.length_cons]
-    have hr := IsRoot.smul (isRoot_single Tag.E6 j) l.prod⁻¹
-    rcases IsRoot.height_pos_or_neg hr with hp | hn
-    · rw [hA hp]; omega
-    · have := hB hn; omega
-
-include hi₀ horth in
-theorem exists_list_e6XiS {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    ∃ l : List (WeylGroup Tag.E6), (∀ x ∈ l, IsE6OrbitGen m i₀ x) ∧ l.prod = w ∧
-      2 * l.length = e6XiS m i₀ w := by
-  induction hS : e6XiS m i₀ w using Nat.strong_induction_on generalizing w with
-  | _ n ih =>
-    by_cases h1 : w = 1
-    · subst h1
-      rw [e6XiS_one m hi₀] at hS
-      exact ⟨[], by simp, rfl, by simp [← hS]⟩
-    · obtain ⟨j, hj, hneg⟩ := exists_height_neg_of_mem_e6RelWeyl m hi₀ horth hw h1
-      have hstep := (e6XiS_step m hi₀ horth hj hw).2 hneg
-      have hgen : IsE6OrbitGen m i₀ (e6OrbitRefl m j) := ⟨j, hj, rfl⟩
-      have hRw : e6OrbitRefl m j * w ∈ e6RelWeyl (e6QpSupport m) i₀ :=
-        mul_mem (hgen.mem m hi₀ horth) hw
-      obtain ⟨l, hl, hlp, hll⟩ := ih (e6XiS m i₀ (e6OrbitRefl m j * w)) (by omega) hRw rfl
-      refine ⟨e6OrbitRefl m j :: l, fun x hx => ?_, ?_, ?_⟩
-      · rcases List.mem_cons.1 hx with rfl | hx
-        · exact hgen
-        · exact hl x hx
-      · rw [List.prod_cons, hlp, ← mul_assoc, hgen.mul_self m hi₀ horth, one_mul]
-      · rw [List.length_cons]
-        omega
-
-include hi₀ horth in
-theorem e6RelLength_eq {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    e6RelLength (e6QpSupport m) i₀ w = e6XiS m i₀ w / 2 := by
-  obtain ⟨l, hl, hlp, hll⟩ := exists_list_e6XiS m hi₀ horth hw
-  have hgen := setReflection_image_e6Orbits m hi₀ horth
-  have hmem : e6XiS m i₀ w / 2 ∈ {n | ∃ l : List (WeylGroup Tag.E6), l.length = n ∧
-      (∀ x ∈ l, x ∈ setReflection '' e6Orbits (e6QpSupport m) i₀) ∧ l.prod = w} :=
-    ⟨l, by omega, fun x hx => by rw [hgen]; exact hl x hx, hlp⟩
-  refine le_antisymm (Nat.sInf_le hmem) (le_csInf ⟨_, hmem⟩ ?_)
-  rintro n ⟨l', rfl, hl', rfl⟩
-  have := e6XiS_list_prod_le m hi₀ horth (l := l') fun x hx => by
-    have := hl' x hx
-    rw [hgen] at this
-    exact this
-  omega
-
-include hi₀ horth in
-theorem e6RelLength_e6OrbitRefl_mul {j : Fin Tag.E6.rank}
-    (hj : Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀) {w : WeylGroup Tag.E6}
-    (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    (0 < height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) →
-      e6RelLength (e6QpSupport m) i₀ (e6OrbitRefl m j * w) =
-        e6RelLength (e6QpSupport m) i₀ w + 1) ∧
-    (height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) < 0 →
-      e6RelLength (e6QpSupport m) i₀ (e6OrbitRefl m j * w) + 1 =
-        e6RelLength (e6QpSupport m) i₀ w) := by
-  have hgen : IsE6OrbitGen m i₀ (e6OrbitRefl m j) := ⟨j, hj, rfl⟩
-  have hRw : e6OrbitRefl m j * w ∈ e6RelWeyl (e6QpSupport m) i₀ :=
-    mul_mem (hgen.mem m hi₀ horth) hw
-  obtain ⟨hA, hB⟩ := e6XiS_step m hi₀ horth hj hw
-  rw [e6RelLength_eq m hi₀ horth hw, e6RelLength_eq m hi₀ horth hRw]
-  refine ⟨fun h => ?_, fun h => ?_⟩
-  · rw [hA h]
-    omega
-  · have := hB h
-    omega
 
 end LengthFormula
 
@@ -1005,106 +646,12 @@ section Folded
 variable (m : Fin 15) {i₀ : Fin Tag.E6.rank} (hi₀ : i₀ ∈ e6QpSupport m)
   (horth : e6XiOrth (e6QpSupport m) i₀)
 
-theorem cartan_nonpos_E6 (a b : Fin Tag.E6.rank) : a ≠ b → Tag.E6.cartan a b ≤ 0 := by
-  fin_cases a <;> fin_cases b <;> decide
-
-theorem reflTransGen_swap_of_symm {α : Type*} {r : α → α → Prop} (h : ∀ {a b}, r a b → r b a)
-    {x y : α} (hxy : Relation.ReflTransGen r x y) : Relation.ReflTransGen r y x := by
-  induction hxy with
-  | refl => exact Relation.ReflTransGen.refl
-  | tail _ hbc ih => exact Relation.ReflTransGen.head (h hbc) ih
 
 theorem height_reflect_eq_E6 (t : Fin Tag.E6.rank) (v : Fin Tag.E6.rank → ℤ) :
     height (reflect Tag.E6 t v) = height v - ∑ l, Tag.E6.cartan t l * v l := by
   simp only [reflect, height, Pi.sub_apply, Finset.sum_sub_distrib, Pi.smul_apply, smul_eq_mul]
   simp [Pi.single_apply]
 
-theorem e6SimpleOrbit_e6QpPerm {j : Fin Tag.E6.rank} (hj : j ∈ e6QpSupport m) :
-    e6SimpleOrbit (e6QpSupport m) (e6QpPerm m j) = e6SimpleOrbit (e6QpSupport m) j := by
-  rw [e6SimpleOrbit_qp_eq m ((e6QpPerm_mem_iff m j).1 hj), e6SimpleOrbit_qp_eq m hj,
-    e6QpPerm_perm_of_mem m hj, Set.pair_comm]
-
-theorem mem_e6Orbits_iff {O : Set (Fin Tag.E6.rank → ℤ)} :
-    O ∈ e6Orbits (e6QpSupport m) i₀ ↔
-      ∃ j, Pi.single j 1 ∈ e6Xi (e6QpSupport m) i₀ ∧ O = e6SimpleOrbit (e6QpSupport m) j :=
-  Iff.rfl
-
-include hi₀ horth in
-theorem e6RelLength_mul {O : Set (Fin Tag.E6.rank → ℤ)} (hO : O ∈ e6Orbits (e6QpSupport m) i₀)
-    {w : WeylGroup Tag.E6} (hw : w ∈ e6RelWeyl (e6QpSupport m) i₀) :
-    (e6RelLength (e6QpSupport m) i₀ (setReflection O * w) =
-        e6RelLength (e6QpSupport m) i₀ w + 1 ↔ ∀ β ∈ O, 0 < height (w⁻¹ • β)) ∧
-      (e6RelLength (e6QpSupport m) i₀ (setReflection O * w) =
-          e6RelLength (e6QpSupport m) i₀ w + 1 ∨
-        e6RelLength (e6QpSupport m) i₀ (setReflection O * w) + 1 =
-          e6RelLength (e6QpSupport m) i₀ w) := by
-  obtain ⟨j, hj, rfl⟩ := hO
-  have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-  rw [setReflection_eq_e6OrbitRefl m hi₀ horth hj]
-  obtain ⟨hA, hB⟩ := e6RelLength_e6OrbitRefl_mul m hi₀ horth hj hw
-  have hheq := height_inv_smul_e6QpPerm m hi₀ horth hw hj
-  have hall : (∀ β ∈ e6SimpleOrbit (e6QpSupport m) j, 0 < height (w⁻¹ • β)) ↔
-      0 < height (w⁻¹ • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) := by
-    rw [e6SimpleOrbit_qp_eq m hjJ]
-    constructor
-    · intro h
-      exact h _ (Set.mem_insert _ _)
-    · rintro h β (rfl | rfl)
-      · exact h
-      · rw [hheq]
-        exact h
-  rw [hall]
-  have hr := IsRoot.smul (isRoot_single Tag.E6 j) w⁻¹
-  rcases IsRoot.height_pos_or_neg hr with hp | hn
-  · exact ⟨⟨fun _ => hp, fun _ => hA hp⟩, Or.inl (hA hp)⟩
-  · have := hB hn
-    exact ⟨⟨fun h => by omega, fun h => absurd h (by omega)⟩, Or.inr this⟩
-
-include hi₀ in
-theorem e6Orbits_connected {O O' : Set (Fin Tag.E6.rank → ℤ)}
-    (hO : O ∈ e6Orbits (e6QpSupport m) i₀) (hO' : O' ∈ e6Orbits (e6QpSupport m) i₀) :
-    Relation.ReflTransGen (fun A B => A ∈ e6Orbits (e6QpSupport m) i₀ ∧
-      B ∈ e6Orbits (e6QpSupport m) i₀ ∧ ∃ β ∈ A, ∃ β' ∈ B, iform β β' ≠ 0) O O' := by
-  have hπ₀ := (e6QpPerm_mem_iff m i₀).1 hi₀
-  have hred : ∀ {O : Set (Fin Tag.E6.rank → ℤ)}, O ∈ e6Orbits (e6QpSupport m) i₀ →
-      ∃ a ∈ e6JComponent (e6QpSupport m) i₀, O = e6SimpleOrbit (e6QpSupport m) a := by
-    rintro O ⟨j, hj, rfl⟩
-    have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-    rw [e6Xi_eq m hi₀, Set.mem_union, single_mem_parabolicRoots_iff,
-      single_mem_parabolicRoots_iff] at hj
-    rcases hj with h | h
-    · exact ⟨j, h, rfl⟩
-    · refine ⟨e6QpPerm m j, ?_, (e6SimpleOrbit_e6QpPerm m hjJ).symm⟩
-      have := e6QpPerm_mem_e6JComponent m h
-      rwa [e6QpPerm_perm_of_mem m hi₀] at this
-  have hmemC : ∀ a ∈ e6JComponent (e6QpSupport m) i₀,
-      e6SimpleOrbit (e6QpSupport m) a ∈ e6Orbits (e6QpSupport m) i₀ := fun a ha =>
-    ⟨a, by rw [e6Xi_eq m hi₀]; exact Or.inl (single_mem_parabolicRoots_iff.2 ha), rfl⟩
-  have hstep : ∀ a b, a ∈ e6JComponent (e6QpSupport m) i₀ → e6JAdj (e6QpSupport m) a b →
-      Relation.ReflTransGen (fun A B => A ∈ e6Orbits (e6QpSupport m) i₀ ∧
-        B ∈ e6Orbits (e6QpSupport m) i₀ ∧ ∃ β ∈ A, ∃ β' ∈ B, iform β β' ≠ 0)
-        (e6SimpleOrbit (e6QpSupport m) a) (e6SimpleOrbit (e6QpSupport m) b) := fun a b ha hab =>
-    Relation.ReflTransGen.single ⟨hmemC a ha, hmemC b (e6JComponent_tail ha hab),
-      Pi.single a 1, ⟨0, rfl⟩, Pi.single b 1, ⟨0, rfl⟩,
-      by rw [iform_single_single_E6']; exact hab.2.2.2⟩
-  have hfrom : ∀ a ∈ e6JComponent (e6QpSupport m) i₀,
-      Relation.ReflTransGen (fun A B => A ∈ e6Orbits (e6QpSupport m) i₀ ∧
-        B ∈ e6Orbits (e6QpSupport m) i₀ ∧ ∃ β ∈ A, ∃ β' ∈ B, iform β β' ≠ 0)
-        (e6SimpleOrbit (e6QpSupport m) i₀) (e6SimpleOrbit (e6QpSupport m) a) := by
-    intro a ha
-    induction ha with
-    | refl => exact Relation.ReflTransGen.refl
-    | tail hb hbc ih => exact ih.trans (hstep _ _ hb hbc)
-  have hsymm : ∀ {A B : Set (Fin Tag.E6.rank → ℤ)}, (A ∈ e6Orbits (e6QpSupport m) i₀ ∧
-      B ∈ e6Orbits (e6QpSupport m) i₀ ∧ ∃ β ∈ A, ∃ β' ∈ B, iform β β' ≠ 0) →
-      (B ∈ e6Orbits (e6QpSupport m) i₀ ∧ A ∈ e6Orbits (e6QpSupport m) i₀ ∧
-        ∃ β ∈ B, ∃ β' ∈ A, iform β β' ≠ 0) := fun ⟨hA, hB, β, hβ, β', hβ', h⟩ =>
-    ⟨hB, hA, β', hβ', β, hβ, by rw [iform_comm]; exact h⟩
-  obtain ⟨a, ha, rfl⟩ := hred hO
-  obtain ⟨b, hb, rfl⟩ := hred hO'
-  have h1 := hfrom a ha
-  have h2 := hfrom b hb
-  exact (reflTransGen_swap_of_symm hsymm h1).trans h2
 
 theorem sum_cartan_mul_eq_iform (a : Fin Tag.E6.rank) (y : Fin Tag.E6.rank → ℤ) :
     ∑ k, Tag.E6.cartan a k * y k = iform (Pi.single a 1) y := by
@@ -1120,108 +667,6 @@ theorem single_mem_e6Xi_of_ne_zero {x : Fin Tag.E6.rank → ℤ} (hx : x ∈ e6X
   · exact Or.inl (single_mem_parabolicRoots_iff.2 (mem_parabolicRoots_of_support h hk))
   · exact Or.inr (single_mem_parabolicRoots_iff.2 (mem_parabolicRoots_of_support h hk))
 
-include hi₀ horth in
-theorem e6RelLength_braid {O O' : Set (Fin Tag.E6.rank → ℤ)}
-    (hO : O ∈ e6Orbits (e6QpSupport m) i₀) (hO' : O' ∈ e6Orbits (e6QpSupport m) i₀)
-    (hne : O ≠ O') (hadj : ∃ β ∈ O, ∃ β' ∈ O', iform β β' ≠ 0) :
-    e6RelLength (e6QpSupport m) i₀ (setReflection O * setReflection O' * setReflection O) = 3 := by
-  obtain ⟨j, hj, rfl⟩ := hO
-  obtain ⟨k, hk, rfl⟩ := hO'
-  have hjJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hj
-  have hkJ := mem_e6QpSupport_of_single_mem_e6Xi m hi₀ hk
-  have hadj' : Tag.E6.cartan k j ≠ 0 ∨ Tag.E6.cartan (e6QpPerm m k) j ≠ 0 := by
-    obtain ⟨β, hβ, β', hβ', h⟩ := hadj
-    rw [e6SimpleOrbit_qp_eq m hjJ] at hβ
-    rw [e6SimpleOrbit_qp_eq m hkJ] at hβ'
-    have hd : ∀ a b : Fin Tag.E6.rank, a ∈ e6QpSupport m → b ∈ e6QpSupport m →
-        iform (Pi.single (e6QpPerm m a) 1 : Fin Tag.E6.rank → ℤ) (Pi.single (e6QpPerm m b) 1) =
-          iform (Pi.single a 1) (Pi.single b 1) := fun a b ha hb => by
-      rw [← e6Delta_qp_single m ha, ← e6Delta_qp_single m hb, iform_e6Delta]
-    have hπk := (e6QpPerm_mem_iff m k).1 hkJ
-    rcases hβ with rfl | rfl <;> rcases hβ' with rfl | rfl
-    · left
-      rw [iform_single_single_E6'] at h
-      rwa [cartan_symm_E6]
-    · right
-      rw [iform_single_single_E6'] at h
-      rwa [cartan_symm_E6]
-    · right
-      rw [show (Pi.single k 1 : Fin Tag.E6.rank → ℤ) = Pi.single (e6QpPerm m (e6QpPerm m k)) 1 by
-        rw [e6QpPerm_perm_of_mem m hkJ], hd j _ hjJ hπk, iform_single_single_E6'] at h
-      rwa [cartan_symm_E6]
-    · left
-      rw [hd j k hjJ hkJ, iform_single_single_E6'] at h
-      rwa [cartan_symm_E6]
-  rw [setReflection_eq_e6OrbitRefl m hi₀ horth hj, setReflection_eq_e6OrbitRefl m hi₀ horth hk]
-  have hgr : IsE6OrbitGen m i₀ (e6OrbitRefl m j) := ⟨j, hj, rfl⟩
-  have hgr' : IsE6OrbitGen m i₀ (e6OrbitRefl m k) := ⟨k, hk, rfl⟩
-  have hr := hgr.mem m hi₀ horth
-  have hr' := hgr'.mem m hi₀ horth
-  have hrinv : (e6OrbitRefl m j)⁻¹ = e6OrbitRefl m j :=
-    inv_eq_of_mul_eq_one_right (hgr.mul_self m hi₀ horth)
-  have hrinv' : (e6OrbitRefl m k)⁻¹ = e6OrbitRefl m k :=
-    inv_eq_of_mul_eq_one_right (hgr'.mul_self m hi₀ horth)
-  have hkO : (Pi.single k 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single j 1 ∧
-      (Pi.single k 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single (e6QpPerm m j) 1 := by
-    constructor
-    · intro e
-      apply hne
-      rw [single_one_inj e]
-    · intro e
-      apply hne
-      rw [single_one_inj e, e6SimpleOrbit_e6QpPerm m hjJ]
-  have hjO' : (Pi.single j 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single k 1 ∧
-      (Pi.single j 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single (e6QpPerm m k) 1 := by
-    constructor
-    · intro e
-      apply hne
-      rw [single_one_inj e]
-    · intro e
-      apply hne
-      rw [single_one_inj e, e6SimpleOrbit_e6QpPerm m hkJ]
-  have h0 : e6RelLength (e6QpSupport m) i₀ 1 = 0 := by
-    rw [e6RelLength_eq m hi₀ horth (one_mem _), e6XiS_one m hi₀]
-  have h1 : e6RelLength (e6QpSupport m) i₀ (e6OrbitRefl m j) = 1 := by
-    have := (e6RelLength_e6OrbitRefl_mul m hi₀ horth hj (one_mem _)).1 (by simp)
-    rwa [mul_one, h0] at this
-  have h2 : e6RelLength (e6QpSupport m) i₀ (e6OrbitRefl m k * e6OrbitRefl m j) = 2 := by
-    have hpos : 0 < height ((e6OrbitRefl m j)⁻¹ • (Pi.single k 1 : Fin Tag.E6.rank → ℤ)) := by
-      rw [hrinv]
-      exact height_e6OrbitRefl_smul_pos m hi₀ horth hj hk (by simp) hkO.1 hkO.2
-    rw [(e6RelLength_e6OrbitRefl_mul m hi₀ horth hk hr).1 hpos, h1]
-  have hmem := e6OrbitRefl_smul_mem_e6Xi m hi₀ hk hj
-  have hpos' : 0 < height (e6OrbitRefl m k • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) :=
-    height_e6OrbitRefl_smul_pos m hi₀ horth hk hj (by simp) hjO'.1 hjO'.2
-  have hkj : k ≠ j := fun e => hjO'.1 (by rw [e])
-  have hπkj : e6QpPerm m k ≠ j := fun e => hjO'.2 (by rw [e])
-  have hn1 := cartan_nonpos_E6 k j hkj
-  have hn2 := cartan_nonpos_E6 (e6QpPerm m k) j hπkj
-  have hht : 2 ≤ height (e6OrbitRefl m k • (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) := by
-    have hs : ∀ a, ∑ l, Tag.E6.cartan a l * (Pi.single j 1 : Fin Tag.E6.rank → ℤ) l =
-        Tag.E6.cartan a j := fun a => by simp [Pi.single_apply]
-    rw [e6OrbitRefl_smul]
-    split_ifs with hπ
-    · rw [height_reflect_eq_E6, height_single, hs]
-      rcases hadj' with h | h
-      · omega
-      · rw [hπ] at h
-        omega
-    · have hc := cartan_e6QpPerm_eq_zero m hi₀ horth hk hπ
-      have hs2 : ∑ l, Tag.E6.cartan k l *
-          reflect Tag.E6 (e6QpPerm m k) (Pi.single j 1) l = Tag.E6.cartan k j := by
-        rw [reflect, hs]
-        simp [Pi.single_apply, mul_sub, Finset.sum_sub_distrib, hc]
-      rw [height_reflect_eq_E6, height_reflect_eq_E6, height_single, hs, hs2]
-      rcases hadj' with h | h <;> omega
-  have hne1 : e6OrbitRefl m k • (Pi.single j 1 : Fin Tag.E6.rank → ℤ) ≠ Pi.single j 1 :=
-    fun e => by rw [e, height_single] at hht; omega
-  have hne2 : e6OrbitRefl m k • (Pi.single j 1 : Fin Tag.E6.rank → ℤ) ≠
-      Pi.single (e6QpPerm m j) 1 := fun e => by rw [e, height_single] at hht; omega
-  have hpos3 : 0 < height ((e6OrbitRefl m k * e6OrbitRefl m j)⁻¹ •
-      (Pi.single j 1 : Fin Tag.E6.rank → ℤ)) := by
-    rw [_root_.mul_inv_rev, hrinv, hrinv', mul_smul]
-    exact height_e6OrbitRefl_smul_pos m hi₀ horth hj hmem hpos' hne1 hne2
-  rw [mul_assoc, (e6RelLength_e6OrbitRefl_mul m hi₀ horth hj (mul_mem hr' hr)).1 hpos3, h2]
 
 include hi₀ horth in
 theorem exists_smul_e6Orbit_eq {γ : Fin Tag.E6.rank → ℤ} (hγ : γ ∈ e6Xi (e6QpSupport m) i₀) :

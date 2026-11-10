@@ -11,8 +11,6 @@ namespace CFSG.ClassicalInvolution.Q3
 theorem classicalMemberParametersE7TwE6_proved : ClassicalMemberParametersE7TwE6 :=
   ⟨classicalMemberParameters3At_E7, classicalMemberParameters3At_twistedE6⟩
 
-theorem classicalMemberParameters3_proved : ClassicalMemberParameters3 :=
-  classicalMemberParameters3_of_E7_twistedE6 classicalMemberParametersE7TwE6_proved
 
 theorem smallUpgrade3_proved : SmallUpgrade3 :=
   smallUpgrade3_of_E7_twistedE6 classicalMemberParametersE7TwE6_proved

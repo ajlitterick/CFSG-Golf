@@ -26,23 +26,6 @@ theorem reindexPointEquiv_submodule (eI : ι ≃ Fin d) (Q : QuadraticForm K (ι
     (reindexPointEquiv eI Q L).val =
       L.val.map (CatalogueBOrthogonalPointData.reindexVectorEquiv eI).toLinearMap := rfl
 
-theorem reindexPointEquiv_symm_submodule (eI : ι ≃ Fin d)
-    (Q : QuadraticForm K (ι → K))
-    (L : Points (CatalogueBOrthogonalPointData.reindexQuadraticForm eI Q)) :
-    ((reindexPointEquiv eI Q).symm L).val =
-      L.val.map (CatalogueBOrthogonalPointData.reindexVectorEquiv eI).symm.toLinearMap := rfl
-
-theorem mem_reindexPointEquiv (eI : ι ≃ Fin d) (Q : QuadraticForm K (ι → K))
-    (L : Points Q) (x : Fin d → K) :
-    x ∈ (reindexPointEquiv eI Q L).val ↔ (fun i => x (eI i)) ∈ L.val :=
-  CatalogueBOrthogonalPointIsometry.mem_pointIsometryEquiv
-    (CatalogueBOrthogonalPointData.reindexQuadraticIsometry eI Q) L x
-
-theorem mem_reindexPointEquiv_symm (eI : ι ≃ Fin d) (Q : QuadraticForm K (ι → K))
-    (L : Points (CatalogueBOrthogonalPointData.reindexQuadraticForm eI Q)) (x : ι → K) :
-    x ∈ ((reindexPointEquiv eI Q).symm L).val ↔ (fun i => x (eI.symm i)) ∈ L.val :=
-  CatalogueBOrthogonalPointIsometry.mem_pointIsometryEquiv_symm
-    (CatalogueBOrthogonalPointData.reindexQuadraticIsometry eI Q) L x
 
 end Points
 
@@ -110,13 +93,6 @@ theorem statedDerivedReindexEquiv_symm_vector (eI : ι ≃ Fin d)
   rw [← statedDerivedReindexEquiv_vector eI Q hQ, MulEquiv.apply_symm_apply,
     LinearEquiv.apply_symm_apply, LinearEquiv.apply_symm_apply]
 
-theorem statedDerivedReindexEquiv_scalars (eI : ι ≃ Fin d)
-    (Q : QuadraticForm K (ι → K)) {Q0 : (ι → K) → K} (hQ : ⇑Q = Q0) :
-    ((StatedScalars ι K).subgroupOf (StatedOmega Q0)).map
-        (statedDerivedReindexEquiv eI Q hQ).toMonoidHom =
-      matrixDerivedScalars (CatalogueBOrthogonalPointData.reindexQuadraticForm eI Q) := by
-  subst Q0
-  exact CatalogueBOrthogonalPointData.statedMatrixDerivedEquiv_scalars eI Q
 
 @[expose] def statedProjectiveReindexEquiv (eI : ι ≃ Fin d)
     (Q : QuadraticForm K (ι → K)) {Q0 : (ι → K) → K} (hQ : ⇑Q = Q0) :

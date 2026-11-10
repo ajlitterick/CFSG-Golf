@@ -12,12 +12,6 @@ open CFSG.Open CFSG.QuasithinUnique
 
 variable {G : Type} [Group G] [Finite G] {H R M : Subgroup G}
 
-theorem HypC23.satisfiesCPU (h : HypC23 H R M) (hlt : M < H) : SatisfiesCPU H R M :=
-  ⟨h.cgs, hlt, h.radical, h.sylow.2.2⟩
-
-theorem HypC23.of_satisfiesCPU (h : SatisfiesCPU H R M) (hH : IsSQTKIn H) : HypC23 H R M :=
-  ⟨hH, h.2.2.1, h.2.1.le, h.1, le_conjClosure R M, h.2.2.1.isPGroup, h.2.2.2⟩
-
 
 omit [Finite G] in
 theorem preimage_congr_of_eq {X : Type} [Group X] (N N' : Subgroup X) [N.Normal] [N'.Normal]

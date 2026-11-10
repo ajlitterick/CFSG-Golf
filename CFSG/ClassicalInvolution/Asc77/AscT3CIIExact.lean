@@ -15,11 +15,6 @@ section Exact
 
 variable {G : Type} [Group G] [Finite G] {p f : ℕ} [Fact p.Prime] {Ω : Set (Subgroup G)}
 
-omit [Finite G] in
-theorem exists_equiv_sl2_of_exact (hΩ : HypOmegaMod p f Ω) (hex : ExactMembers Ω) {L : Subgroup G}
-    (hL : L ∈ Ω) : Nonempty (L ≃* SL(2, GaloisField p f)) := by
-  obtain ⟨z, hz⟩ := hΩ.classical L hL
-  exact hz.nonempty_equiv_sl2 (hex L hL)
 
 omit [Finite G] in
 theorem odd_natCard_galoisField (hp : p ≠ 2) (hq : 5 ≤ p ^ f) :
@@ -32,16 +27,6 @@ theorem odd_natCard_galoisField (hp : p ≠ 2) (hq : 5 ≤ p ^ f) :
   · exact absurd h hp
   · exact h.pow
 
-theorem commute_of_twin_exact (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (hex : ExactMembers Ω) {K K' : Subgroup G} {z : G} (hK : K ∈ Ω) (hK' : K' ∈ Ω)
-    (hne : K' ≠ K) (hz : IsUniqueInvolution K z) (hz' : IsUniqueInvolution K' z) :
-    ∀ k ∈ K, ∀ k' ∈ K', k * k' = k' * k := by
-  have h1 := Sec6Gen.comm_le_oddCore_of_twin (hypOmegaGen_of_mod hp hq hΩ) hK hK' hne.symm hz hz'
-  rw [oddCoreOf_eq_bot_of_exact hex hK, bot_inf_eq, le_bot_iff] at h1
-  intro k hk k' hk'
-  have h2 : ⁅k, k'⁆ ∈ ⁅K, K'⁆ := Subgroup.commutator_mem_commutator hk hk'
-  rw [h1, Subgroup.mem_bot, commutatorElement_eq_one_iff_mul_comm] at h2
-  exact h2
 
 end Exact
 

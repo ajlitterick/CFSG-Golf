@@ -483,41 +483,6 @@ theorem GGResHyp.unitary_exactThree_singular_chart_of_L
   exact ggRes_exactThree_singular_chart hH.1 ι φ h α hWM hC hlin hrefl hpair hv hvα S hS
     hgenJ (hH.unitary_J_fix_mem_centralizer_of_L hM hdiag)
 
-theorem GGResHyp.unitary_exactThree_singular_chart_of_K
-    (hLB : GGLBalanceInput) (hSP : GGStdSubPrimeInput)
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F] {n d p : ℕ}
-    [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {φU : ↥(unitarySU 2 n F d) →* ↥K} (hM : UnitTB.Model φU)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin d → F, ActsDiagU φU a t)
-    {Λ : Type} [Fintype Λ] [DecidableEq Λ] {M : CoxeterMatrix Λ} {C : Matrix Λ Λ ℤ}
-    {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    (ι : Additive ↥Bs ≃+ V) (φ : Λ → MulAut ↥Bs) (h : Λ → V)
-    (α : Λ → Module.Dual (ZMod p) V) (hWM : GGIsWeylMatrix M) (hC : GGIntCartan M C)
-    (hlin : ∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i)
-    (hrefl : ∀ i, GGIsReflection p (φ i))
-    (hpair : ∀ i j, α i (h j) = (C i j : ZMod p))
-    (hCdiag : ∀ i, C i i = 2)
-    (hgenX : ggAutomizer K Bs = Subgroup.closure (Set.range φ))
-    (S : Finset Λ) (hS : S.card = 3)
-    (hgenJ : ggAutomizer J Bs =
-      Subgroup.closure (Set.range fun i : {i : Λ // i ∉ S} => φ i.1)) :
-    Module.finrank (ZMod p) V = Fintype.card Λ ∧
-      Matrix.rank (C.map (Int.castRingHom (ZMod p))) + 1 = Fintype.card Λ ∧
-      Module.finrank (ZMod p)
-        (LinearMap.ker (LinearMap.pi fun i : {i : Λ // i ∉ S} => α i.1)) = 3 ∧
-      ((GGIsTypeA M ∧ p ∣ Fintype.card Λ + 1) ∨ (p = 3 ∧ GGIsTypeE6 M)) ∧
-      Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) = p ^ 3 ∧ B < Bs := by
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hSHat : LargeEvenSHat p B y K := hH.2.2.2.2.1.1
-  have hyBs : y ∈ Bs := hH.1.2.1.1 hSHat.2.1
-  have hy1 : y ≠ 1 := hSHat.2.2.1
-  have hyK : K ≤ Subgroup.centralizer ({y} : Set G) := hSHat.2.2.2.1
-  obtain ⟨v, hv, hvα⟩ :=
-    exists_root_kernel_of_centralizing (p := p) hp2 hlin hpair hCdiag hgenX hyBs hy1 hyK
-  exact ggRes_exactThree_singular_chart hH.1 ι φ h α hWM hC hlin hrefl hpair hv hvα S hS
-    hgenJ (hH.unitary_J_fix_mem_centralizer_of_K hLB hSP hM hdiag)
 
 theorem card_ggAutomizer_eq_factorial_of_unitaryModel
     {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
@@ -734,43 +699,6 @@ theorem GGResHyp.unitary_exactThree_typeA_of_L
     hH.unitary_exactThree_typeA_card_J_of_L hM hpq hd hdiag h3
   exact ⟨r, hd, hp, hD, hcard, hcent, hlt⟩
 
-theorem GGResHyp.unitary_exactThree_J_degree_qTwo_of_L
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    {d m p r : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 1 F d) →* ↥L} (hM : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ 1 + 1) (hd : 5 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hH.2.2.1.1.le_normalizer).range,
-      ∃ t : Fin d → F, LineU.ActsDiagU ψ a t)
-    {δ : ↥(unitarySU 2 1 F m) →* ↥J} (hm : 2 ≤ m) (hδ : UnitTB.Model δ)
-    (hδdiag : ∀ a ∈ (ggGamma J hH.Bs_le_normalizer_J).range,
-      ∃ t : Fin m → F, LineU.ActsDiagU δ a t)
-    {Λ : Type} [Fintype Λ] [DecidableEq Λ] (e : Fin r ≃ Λ)
-    (S : Finset Λ) (hS : S.card = 3) (hr : 3 < r)
-    (hconn : GGDeletedConnectedS ((CoxeterMatrix.A r).reindex e) S)
-    (φ : Λ → MulAut Bs)
-    (f : ((CoxeterMatrix.A r).reindex e).Group ≃* ggAutomizer L Bs)
-    (hf : ∀ i, (f (((CoxeterMatrix.A r).reindex e).simple i) : MulAut Bs) = φ i)
-    (hclosJ : ggAutomizer J Bs = Subgroup.closure
-      (Set.range fun i : {i : Λ // i ∉ S} => φ i.val)) : m = d - 3 := by
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hcardL := card_ggAutomizer_eq_factorial_of_unitaryModel hH.1.2.1.2.1
-    hH.1.2.1.2.2.2 hH.2.2.1.1.le_normalizer hM hM.field.card_eq_sq hp2 hpq (by omega) hdiag
-  have hcardA : Nat.card (ggAutomizer L Bs) = (r + 1).factorial := by
-    rw [← Nat.card_congr f.toEquiv]
-    rw [Nat.card_congr
-      (CoxeterMatrix.reindexGroupEquiv (CoxeterMatrix.A r) e).toEquiv]
-    exact l05nK3a_card_coxeterA r
-  have hdEq : d = r + 1 :=
-    (Nat.factorial_inj (by omega : 1 < d)).mp (hcardL.symm.trans hcardA)
-  have hm4 := hH.unitaryModel_J_degree_ge_four_qTwo hm hδ
-  have hcardJ := card_ggAutomizer_eq_factorial_of_unitaryModel hH.1.2.1.2.1
-    hH.1.2.1.2.2.2 hH.Bs_le_normalizer_J hδ hδ.field.card_eq_sq hp2 hpq hm4 hδdiag
-  have hc := ggRes_typeA_deletedS_card_automizer hr e S hS hconn φ f hf hclosJ
-  have hmEq : m = r - 3 + 1 :=
-    (Nat.factorial_inj (by omega : 1 < m)).mp (hcardJ.symm.trans hc)
-  omega
 
 theorem GGResHyp.unitary_exactThree_J_model_qTwo_of_L
     {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
@@ -910,25 +838,6 @@ theorem GGResHyp.unitary_exactThree_typeA_card_J_of_K
     omega
   exact ⟨r, hdegree, hp, hD, hcard, hcent, hlt, hc'⟩
 
-
-
-theorem GGResHyp.unitary_exactThree_typeA_of_K
-    (hLB : GGLBalanceInput)
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    {n d p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 n F d) →* ↥K} (hM : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 5 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin d → F, LineU.ActsDiagU ψ a t)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    ∃ r : ℕ, d = r + 1 ∧ p ∣ d ∧ GGResXDatumA p Bs K r ∧
-      Nat.card Bs = p ^ r ∧
-      Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) = p ^ 3 ∧ B < Bs := by
-  obtain ⟨r, hdegree, hp, hD, hcard, hcent, hlt, _⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hM hpq hd hdiag h3
-  exact ⟨r, hdegree, hp, hD, hcard, hcent, hlt⟩
 
 theorem GGResHyp.not_exactThree_K_of_unitaryModel_degree_five
     (hLB : GGLBalanceInput)
@@ -1092,84 +1001,6 @@ theorem GGResHyp.unitary_exactThree_reserved_row_qTwo_of_K
     exact ⟨hp3, rfl, rfl, rfl, rfl, by omega, by omega,
       by simpa [Nat.sub_add_cancel (by omega : 1 ≤ d)] using hdiv⟩
 
-theorem GGResHyp.unitary_exactThree_J_model_of_K
-    (hLB : GGLBalanceInput)
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    {n d p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 n F d) →* ↥K} (hM : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 7 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin d → F, LineU.ActsDiagU ψ a t)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    ∃ δ : ↥(unitarySU 2 n F (d - 3)) →* ↥J, UnitTB.Model δ ∧
-      ∀ a ∈ (ggGamma J hH.Bs_le_normalizer_J).range,
-        ∃ t : Fin (d - 3) → F, LineU.ActsDiagU δ a t := by
-  obtain ⟨r, hdegree, _, _, hcard, hcent, _, hAJ⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hM hpq (by omega : 5 ≤ d) hdiag h3
-  have hp : p.Prime := Fact.out
-  have hpJ := hH.prime_dvd_J_of_unitary_K_exactThree hM hpq (by omega : 5 ≤ d) hdiag h3
-  have hN := (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer
-  obtain ⟨hJK, hcomp⟩ := isComponentOf_comap_ggFix_ggGamma_x_of_dvd
-    hLB hH.1 hpJ hH.2.2.2.2.1 hN hH.1.tableB_facts.2.2.1
-  obtain ⟨m, hm, δ, hδ, hδdiag⟩ := exists_unitaryModel_of_component_gamma
-    hN hH.Bs_le_normalizer_J hJK hM hdiag ⟨x, hH.1.tableB_facts.2.2.1⟩ hcomp
-  have hm3 := hH.unitaryModel_J_degree_ge_three hm hδ hδdiag
-  have hm_ne_three : m ≠ 3 := by
-    intro hm3eq
-    have hAp : ∀ a ∈ (ggGamma J hH.Bs_le_normalizer_J).range, a ^ p = 1 := by
-      rintro a ⟨b, rfl⟩
-      have hb : b ^ p = 1 := Subtype.ext (hH.1.2.1.2.1.2 (b : G) b.2)
-      rw [← map_pow, hb, map_one]
-    have hbound : Nat.card (ggGamma J hH.Bs_le_normalizer_J).range ≤ p ^ (m - 1) :=
-      UnitTB.card_diagonal_pow_le hδ (by omega : 3 ≤ m) hp hAp hδdiag
-    have hbound2 : Nat.card (ggGamma J hH.Bs_le_normalizer_J).range ≤ p ^ 2 := by
-      simpa [hm3eq] using hbound
-    have hker : (ggGamma J hH.Bs_le_normalizer_J).ker =
-        (Subgroup.centralizer (J : Set G)).subgroupOf Bs := by
-      ext b
-      rw [MonoidHom.mem_ker, Subgroup.mem_subgroupOf, ggGamma_eq_one_iff]
-    have he : Nat.card ↥((Subgroup.centralizer (J : Set G)).subgroupOf Bs) =
-        Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) := by
-      rw [← Subgroup.inf_subgroupOf_left]
-      exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_left).toEquiv
-    have hmul := TableB.card_range_mul_card_ker (ggGamma J hH.Bs_le_normalizer_J)
-    rw [hker, he] at hmul
-    have hBsle : Nat.card Bs ≤ p ^ 5 := by
-      calc Nat.card Bs = Nat.card (ggGamma J hH.Bs_le_normalizer_J).range *
-            Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) := hmul.symm
-        _ ≤ p ^ 2 * p ^ 3 := Nat.mul_le_mul hbound2 (le_of_eq hcent)
-        _ = p ^ 5 := by ring
-    have hr6 : 6 ≤ r := by omega
-    have hlt : p ^ 5 < p ^ r := Nat.pow_lt_pow_right hp.one_lt hr6
-    have hle : p ^ r ≤ p ^ 5 := by simpa [hcard] using hBsle
-    exact (not_le_of_gt hlt hle).elim
-  have hm4 : 4 ≤ m := by omega
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hc := card_ggAutomizer_eq_factorial_of_unitaryModel hH.1.2.1.2.1
-    hH.1.2.1.2.2.2 hH.Bs_le_normalizer_J hδ hδ.field.card_eq_sq hp2 hpq hm4 hδdiag
-  have hmEq : m = r - 2 :=
-    (Nat.factorial_inj (by omega : 1 < m)).mp (hc.symm.trans hAJ)
-  have hmdeg : m = d - 3 := by omega
-  cases hmdeg
-  exact ⟨δ, hδ, hδdiag⟩
-
-theorem GGResHyp.unitary_exactThree_J_model_six_of_K
-    (hLB : GGLBalanceInput)
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    {n p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 n F 9) →* ↥K} (hM : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ n + 1)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin 9 → F, LineU.ActsDiagU ψ a t)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    ∃ δ : ↥(unitarySU 2 n F 6) →* ↥J, UnitTB.Model δ ∧
-      ∀ a ∈ (ggGamma J hH.Bs_le_normalizer_J).range,
-        ∃ t : Fin 6 → F, LineU.ActsDiagU δ a t := by
-  simpa using hH.unitary_exactThree_J_model_of_K hLB hM hpq (by omega : 7 ≤ 9) hdiag h3
 
 private theorem qTwo_K_singular_chart_of_L
     {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
@@ -1793,119 +1624,6 @@ theorem GGResHyp.not_exactThree_either_of_unitary_label_qGeFour
   exact hH.not_exactThree_either_of_unitary_marking_qGeFour hF hpred.2.2.1
     (by omega : 5 ≤ lab.rank + 1) hpred.2.2.2 θ hact
 
-theorem GGResHyp.exactThree_A2_line_of_rankFive
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (h3 : GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny)
-    (hcardK : Nat.card ↥(ggAutomizer K Bs) = 720)
-    (hAJ6 : Nat.card ↥(ggAutomizer J Bs) = 6) :
-    GGResLineJDatum 3 Bs J .A2 := by
-  classical
-  obtain ⟨Λ, i1, i2, Sdel, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-    hS3, hA1, hA3, hML, hCL, hMK, hCK, htyp, hlin, hrefl, hpairL, hpairK, hsel,
-    ⟨fL, hfL⟩, ⟨fK, hfK⟩, hclosL, hclosK, hdel, hclosJ⟩ := h3
-  let _ := i1
-  let _ := i2
-  let _ := i3
-  let _ := i4
-  let _ := i5
-  let _ := i6
-  have hcardML : Nat.card ML.Group = 720 :=
-    (Nat.card_congr fL.toEquiv).trans hcardK
-  have hW : GGWeylOfType 3 ML (ggAutomizer K Bs) :=
-    ⟨fL, fun i => by rw [hfL i]; exact hrefl (Sum.inl i)⟩
-  obtain ⟨eA, hMA⟩ := l05nQW_A5_of_weyl ML hML hW hcardK
-  have h5 : Fintype.card Λ = 5 := by
-    simpa using (Fintype.card_congr eA).symm
-  have hcompl : Nat.card {i : Λ // i ∉ Sdel} = 2 := by
-    rw [Nat.card_eq_fintype_card, Fintype.card_subtype_compl, Fintype.card_coe, h5, hS3]
-  obtain ⟨u, v, huv, huniv⟩ := Nat.card_eq_two_iff.mp hcompl
-  have hcover : ∀ w : {i : Λ // i ∉ Sdel}, w = u ∨ w = v := by
-    intro w
-    have hw : w ∈ ({u, v} : Set {i : Λ // i ∉ Sdel}) := by
-      rw [huniv]
-      exact Set.mem_univ w
-    simpa using hw
-  have hadj : ML.M u v ≠ 2 := by
-    rcases Relation.ReflTransGen.cases_head (hdel u v) with huv' | ⟨c, ⟨huc, hc2⟩, -⟩
-    · exact absurd huv' huv
-    · rcases hcover c with rfl | rfl
-      · exact absurd rfl huc
-      · exact hc2
-  have huv1 : u.1 ≠ v.1 := fun h' => huv (Subtype.ext h')
-  have hle3 : ML.M u.1 v.1 ≤ 3 := by
-    rw [hMA]
-    exact coxeterMatrixA_reindex_le_three eA _ _
-  have hCuv : CL u.1 v.1 = -1 ∧ CL v.1 u.1 = -1 := by
-    rcases hCL.2 u.1 v.1 huv1 with ⟨h2, -, -⟩ | ⟨-, hc1, hc2⟩ | ⟨h4', -⟩ | ⟨h6', -⟩
-    · exact absurd h2 hadj
-    · exact ⟨hc1, hc2⟩
-    · change ML.M u.1 v.1 = 4 at h4'
-      omega
-    · change ML.M u.1 v.1 = 6 at h6'
-      omega
-  let pr : Fin 2 → Λ := ![u.1, v.1]
-  let r : Fin 2 → MulAut ↥Bs := fun k => φ (Sum.inl (pr k))
-  let hv : Fin 2 → V := fun k => h (Sum.inl (pr k))
-  let αv : Fin 2 → Module.Dual (ZMod 3) V := fun k => α (Sum.inl (pr k))
-  have hform : ∀ k w, ggLin (p := 3) ι (r k) w = w - αv k w • hv k :=
-    fun k w => hlin (Sum.inl (pr k)) w
-  have hCLA : ∀ i j, CL (pr i) (pr j) = CartanMatrix.A 2 i j := by
-    intro i j
-    fin_cases i <;> fin_cases j
-    · show CL u.1 u.1 = CartanMatrix.A 2 0 0
-      rw [hCL.1]
-      decide
-    · show CL u.1 v.1 = CartanMatrix.A 2 0 1
-      rw [hCuv.1]
-      decide
-    · show CL v.1 u.1 = CartanMatrix.A 2 1 0
-      rw [hCuv.2]
-      decide
-    · show CL v.1 v.1 = CartanMatrix.A 2 1 1
-      rw [hCL.1]
-      decide
-  have hpairv : ∀ i j, αv i (hv j) = (CartanMatrix.A 2 i j : ZMod 3) := by
-    intro i j
-    rw [← hCLA i j]
-    exact hpairL (pr i) (pr j)
-  have hrange : Set.range r = Set.range fun j : {j : Λ // j ∉ Sdel} => φ (Sum.inl j) := by
-    ext ψ
-    constructor
-    · rintro ⟨k, rfl⟩
-      fin_cases k
-      · exact ⟨u, rfl⟩
-      · exact ⟨v, rfl⟩
-    · rintro ⟨j, rfl⟩
-      rcases hcover j with rfl | rfl
-      · exact ⟨0, rfl⟩
-      · exact ⟨1, rfl⟩
-  have hmem : ∀ k, r k ∈ ggAutomizer J Bs := by
-    intro k
-    fin_cases k
-    · rw [hclosJ]
-      exact Subgroup.subset_closure ⟨u, rfl⟩
-    · rw [hclosJ]
-      exact Subgroup.subset_closure ⟨v, rfl⟩
-  rcases linearIndependent_coroots_or_eq_of_A2 ι hform hpairv hmem hH.2.2.2.1 with hind | heq
-  · exact ⟨V, inferInstance, inferInstance, ι, r, hv, αv, hform, fun k => hrefl _,
-      hpairv, hind, hclosJ.trans (congrArg Subgroup.closure hrange.symm)⟩
-  · have hr1 : Set.range r = {r 0} := by
-      ext ψ
-      constructor
-      · rintro ⟨k, rfl⟩
-        fin_cases k
-        · rfl
-        · exact heq.symm
-      · rintro rfl
-        exact ⟨0, rfl⟩
-    have hAJ : ggAutomizer J Bs = Subgroup.zpowers (r 0) := by
-      rw [hclosJ, ← hrange, hr1, Subgroup.zpowers_eq_closure]
-    have hAJle : Nat.card ↥(ggAutomizer J Bs) ≤ 2 := by
-      rw [hAJ, Nat.card_zpowers]
-      exact Nat.le_of_dvd (by norm_num) (orderOf_dvd_of_pow_eq_one (hrefl _).1)
-    omega
 
 end ExactThreeUnitaryExclusion
 

@@ -11,20 +11,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride.Near
 
 variable {Γ : Type*} [Group Γ] [Finite Γ] {p : ℕ} {A G : Subgroup Γ}
 
-theorem thm210a
-    (h : SemisimpleAction p A G) :
-    IsDirectProduct {K | ∃ J ∈ lcal G, K = mOf A G ⊓ J} (mOf A G) ∧
-      IsDirectProduct {K | ∃ J ∈ lcal G, K = kJ A J} (mOf A G) := by
-  rw [h.mOf_eq_kProd]
-  have hset : {K | ∃ J ∈ lcal G, K = kProd A G ⊓ J} = {K | ∃ J ∈ lcal G, K = kJ A J} := by
-    ext K
-    constructor
-    · rintro ⟨J, hJ, rfl⟩
-      exact ⟨J, hJ, h.kProd_inf hJ⟩
-    · rintro ⟨J, hJ, rfl⟩
-      exact ⟨J, hJ, (h.kProd_inf hJ).symm⟩
-  rw [hset]
-  exact ⟨h.isDirectProduct_kProd, h.isDirectProduct_kProd⟩
 
 theorem thm210b
     (h : SemisimpleAction p A G) :

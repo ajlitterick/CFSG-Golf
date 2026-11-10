@@ -84,9 +84,6 @@ structure Hyp27 (H R M K : Subgroup G) : Prop where
       Nonempty (↥(autOn K V) ≃* ↥(StatedSL 5 (ZMod 2)))) ∧
     IsParabolic2 (autOn K V) (autOn (M ⊓ K) V) ∧ ¬ IsBorelIn (autOn K V) (autOn (M ⊓ K) V))
 
-theorem c27Concl_iff {H R M K V : Subgroup G} :
-    C27Concl H R M K V ↔ C27One R K V ∧ C27Two R K V ∧ C27Three H R M K V :=
-  Iff.rfl
 
 theorem c27Concl_of_parts {H R M K V : Subgroup G} (h1 : C27One R K V) (h2 : C27Two R K V)
     (h3 : C27Three H R M K V) : C27Concl H R M K V :=

@@ -251,10 +251,6 @@ theorem mem_ker_realize
   (QuotientGroup.quotientKerEquivRange (realize h2)).trans
     (MulEquiv.subgroupCongr (range_realize h2))
 
-theorem realizeQuotient_mk
-    (h2 : (2 : E) = 0) (B : SpecialLinearGroup (Fin 6) E) :
-    (realizeQuotient h2 (QuotientGroup.mk B) : ModGL TwistTag.E6.tag E) = realize h2 B :=
-  rfl
 
 variable (E) in
 @[expose] def antiId : Matrix (Fin 6) (Fin 6) E :=
@@ -445,98 +441,5 @@ theorem realize_transvection_zero_five
   rw [← pathSum_last]
   exact realize_upper h2 c 4
 
-
-theorem cubeRoot_weight : ∀ S : Finset (Fin 6), S.card = 3 → ∀ i : Fin 5,
-    CFSG.LieType.Steinberg.Adjoint.iform (Pi.single (pathIdx i) 1) (cubeRoot S) =
-      (if i.castSucc ∈ S then 1 else 0) - (if i.succ ∈ S then 1 else 0) := by
-  decide +kernel
-
-theorem negCube_weight : ∀ S : Finset (Fin 6), S.card = 3 → ∀ i : Fin 5,
-    CFSG.LieType.Steinberg.Adjoint.iform (Pi.single (pathIdx i) 1) (-cubeRoot Sᶜ) =
-      (if i.castSucc ∈ S then 1 else 0) - (if i.succ ∈ S then 1 else 0) := by
-  decide +kernel
-
-theorem hImage_two : hImage (E := E) (e6Idx 1) =
-    (Matrix.single 3 3 1 + Matrix.single 4 4 1 + Matrix.single 5 5 1, 0, 0, 0, 0) := by
-  have h : (fun i => (diagCoeff (e6Idx 1) i : E)) =
-      Pi.single 3 1 + Pi.single 4 1 + Pi.single 5 1 := by
-    funext i
-    fin_cases i <;> simp [diagCoeff]
-  rw [hImage, h, show (Pi.single 3 1 + Pi.single 4 1 + Pi.single 5 1 : Fin 6 → E) =
-    fun i => Pi.single (3 : Fin 6) (1 : E) i + Pi.single 4 1 i + Pi.single 5 1 i from rfl,
-    ← Matrix.diagonal_add, ← Matrix.diagonal_add, Matrix.diagonal_single, Matrix.diagonal_single,
-    Matrix.diagonal_single]
-
-theorem _root_.CFSG.LieType.Chevalley.even_E6_graph_A5_polynomial_Levi_realization
-    (E : Type) [Field E] (hE : ringChar E = 2) :
-    (∀ t : Fin 5, modelEquiv (two_eq_zero_of_ringChar hE) (hVec TwistTag.E6.tag E (pathIdx t)) =
-      (Matrix.single t.castSucc t.castSucc 1 + Matrix.single t.succ t.succ 1, 0, 0, 0, 0)) ∧
-    modelEquiv (two_eq_zero_of_ringChar hE) (hVec TwistTag.E6.tag E (e6Idx 1)) =
-      (Matrix.single 3 3 1 + Matrix.single 4 4 1 + Matrix.single 5 5 1, 0, 0, 0, 0) ∧
-    (∀ β, IsRoot TwistTag.E6.tag β →
-      modelEquiv (two_eq_zero_of_ringChar hE) (rootVec TwistTag.E6.tag E β) = rootImage β) ∧
-    (∀ β ∈ rootFinset TwistTag.E6.tag, (∃ a b : Fin 6, a ≠ b ∧ matRoot a b = β) ∨
-      β = e6HighestRoot ∨ β = -e6HighestRoot ∨
-      (∃ S : Finset (Fin 6), S.card = 3 ∧ cubeRoot S = β) ∨
-      ∃ S : Finset (Fin 6), S.card = 3 ∧ -cubeRoot Sᶜ = β) ∧
-    (∀ a b : Fin 6, a ≠ b → rootImage (E := E) (matRoot a b) = (Matrix.single a b 1, 0, 0, 0, 0)) ∧
-    rootImage (E := E) e6HighestRoot = (0, 1, 0, 0, 0) ∧
-    rootImage (E := E) (-e6HighestRoot) = (0, 0, 1, 0, 0) ∧
-    (∀ S : Set.powersetCard (Fin 6) 3,
-      rootImage (E := E) (cubeRoot S.1) = (0, 0, 0, cubeBasis S, 0)) ∧
-    (∀ S : Set.powersetCard (Fin 6) 3,
-      rootImage (E := E) (-cubeRoot S.1ᶜ) = (0, 0, 0, 0, cubeBasis S)) ∧
-    (∀ S : Finset (Fin 6), S.card = 3 → ∀ i : Fin 5,
-      CFSG.LieType.Steinberg.Adjoint.iform (Pi.single (pathIdx i) 1) (cubeRoot S) =
-        (if i.castSucc ∈ S then 1 else 0) - (if i.succ ∈ S then 1 else 0) ∧
-      CFSG.LieType.Steinberg.Adjoint.iform (Pi.single (pathIdx i) 1) (-cubeRoot Sᶜ) =
-        (if i.castSucc ∈ S then 1 else 0) - (if i.succ ∈ S then 1 else 0)) ∧
-    (∀ (B : SpecialLinearGroup (Fin 6) E) (x : Model E), modelHom B x =
-      ((B : Matrix (Fin 6) (Fin 6) E) * x.1 *
-          ((B⁻¹ : SpecialLinearGroup (Fin 6) E) : Matrix (Fin 6) (Fin 6) E), x.2.1, x.2.2.1,
-        exteriorPower.map 3 (Matrix.toLin' (B : Matrix (Fin 6) (Fin 6) E)) x.2.2.2.1,
-        exteriorPower.map 3 (Matrix.toLin' (B : Matrix (Fin 6) (Fin 6) E)) x.2.2.2.2)) ∧
-    (∀ B : SpecialLinearGroup (Fin 6) E,
-      (realize (two_eq_zero_of_ringChar hE) B : Module.End E (RootModule TwistTag.E6.tag E)) =
-        (modelEquiv (two_eq_zero_of_ringChar hE)).symm.toLinearMap ∘ₗ modelHom B ∘ₗ
-          (modelEquiv (two_eq_zero_of_ringChar hE)).toLinearMap) ∧
-    (∀ (t : Fin 5) (c : E), realize (two_eq_zero_of_ringChar hE)
-      (SpecialLinearGroup.transvection (castSucc_ne_succ t) c) =
-        xUnit TwistTag.E6.tag E (pathIdx t) c) ∧
-    (∀ (t : Fin 5) (c : E), realize (two_eq_zero_of_ringChar hE)
-      (SpecialLinearGroup.transvection (castSucc_ne_succ t).symm c) =
-        yUnit TwistTag.E6.tag E (pathIdx t) c) ∧
-    (realize (two_eq_zero_of_ringChar hE)).range = subsystemGroup TwistTag.E6.tag E setA ∧
-    (∀ B : SpecialLinearGroup (Fin 6) E, B ∈ (realize (two_eq_zero_of_ringChar hE)).ker ↔
-      ∃ l : E, l ^ 3 = 1 ∧ (B : Matrix (Fin 6) (Fin 6) E) = Matrix.scalar (Fin 6) l) ∧
-    (∀ B : SpecialLinearGroup (Fin 6) E,
-      (realizeQuotient (two_eq_zero_of_ringChar hE) (QuotientGroup.mk B) :
-        ModGL TwistTag.E6.tag E) = realize (two_eq_zero_of_ringChar hE) B) ∧
-    (∀ B : SpecialLinearGroup (Fin 6) E, diagramMap TwistTag.E6 E *
-      realize (two_eq_zero_of_ringChar hE) B * (diagramMap TwistTag.E6 E)⁻¹ =
-        realize (two_eq_zero_of_ringChar hE) (graphSL E B)) ∧
-    (∀ B : SpecialLinearGroup (Fin 6) E, (graphSL E B : Matrix (Fin 6) (Fin 6) E) =
-      antiId E * ((B⁻¹ : SpecialLinearGroup (Fin 6) E) : Matrix (Fin 6) (Fin 6) E)ᵀ *
-        antiId E) ∧
-    (∀ i j : Fin 6, antiId E i j = if j = Fin.rev i then 1 else 0) ∧
-    (∀ (E' : Type) [Field E'] (f : E →+* E') (B : SpecialLinearGroup (Fin 6) E),
-      baseChangeGL f (realize (two_eq_zero_of_ringChar hE) B) =
-        realize (two_eq_zero_of_ringHom f (two_eq_zero_of_ringChar hE))
-          (Matrix.SpecialLinearGroup.map f B)) ∧
-    ∀ c : E, realize (two_eq_zero_of_ringChar hE)
-      (SpecialLinearGroup.transvection (show (0 : Fin 6) ≠ 5 by decide) c) =
-        pinnedX TwistTag.E6.tag E sRoot c := by
-  have h2 : (2 : E) = 0 := two_eq_zero_of_ringChar hE
-  refine ⟨fun t => ?_, ?_, fun β hβ => toModel_rootVec β, root_cases, fun a b hab =>
-    rootImage_matRoot hab, rootImage_e6HighestRoot, rootImage_neg_e6HighestRoot,
-    rootImage_cubeRoot, rootImage_neg_cubeRoot,
-    fun S hS i => ⟨cubeRoot_weight S hS i, negCube_weight S hS i⟩, fun B x => modelLin_apply _ _ x,
-    fun B => rfl, realize_x h2, realize_y h2, range_realize h2, mem_ker_realize h2,
-    realizeQuotient_mk h2, diagramMap_conj_realize h2, coe_graphSL, fun i j => rfl,
-    fun E' _ f B => baseChangeGL_realize f h2 B, realize_transvection_zero_five h2⟩
-  · change toModel (hVec TwistTag.E6.tag E (pathIdx t)) = _
-    rw [toModel_hVec, hImage, diagonal_coeff_path]
-  · change toModel (hVec TwistTag.E6.tag E (e6Idx 1)) = _
-    rw [toModel_hVec, hImage_two]
 
 end CFSG.LieType.Chevalley.E6GraphLevi

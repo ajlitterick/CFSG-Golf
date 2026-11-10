@@ -50,12 +50,6 @@ theorem pow_eq_one_of_coe_eq_rootDiagUnit {y : ↥(adjointGroup τ K)} {a : Fin 
   have h2 := congrArg (fun z : ↥(adjointGroup τ K) => (z : ModGL τ K)) hm
   simpa only [Subgroup.coe_pow, Subgroup.coe_one] using h2
 
-theorem pow_eq_one_of_coe_eq_rootDiagUnit' {y : ↥(adjointGroup τ K)} {a : Fin τ.rank → Kˣ}
-    (hya : (y : ModGL τ K) = rootDiagUnit τ a) {m : ℕ} (hm : a ^ m = 1) : y ^ m = 1 := by
-  refine Subtype.ext ?_
-  rw [Subgroup.coe_pow, hya, Subgroup.coe_one]
-  change rootDiagUnitHom τ K a ^ m = 1
-  rw [← map_pow, hm, map_one]
 
 open CFSG.LieType.Steinberg.Adjoint RootSpace CFSG.RankThree.PartOne.KE in
 open CFSG.RankThree.E6 (charVal charVal_neg) in
@@ -181,7 +175,6 @@ end Toral
 section Conj
 
 
-
 theorem exists_subCoreFamily_centralizer_of_conj_toral [Finite K] [CharP K 2]
     (A : Subgroup ↥(adjointGroup τ K)) (hA1 : A ≠ ⊥) (g : ↥(adjointGroup τ K))
     (hg : ∀ x ∈ A, ((g * x * g⁻¹ : ↥(adjointGroup τ K)) : ModGL τ K) ∈ torusGroup τ K)
@@ -258,17 +251,6 @@ theorem ggExcAdjCoreRestInput_F4_of_nonToral (h : GGExcAdjCoreNonToralInput .F4)
     GGExcAdjCoreRestInput .F4 :=
   ggExcAdjCoreRestInput_of_nonToral ggWeylFamQuotSolvInput_F4 h
 
-theorem ggLayerTags_F4_of_nonToral (h : GGExcAdjCoreNonToralInput .F4) :
-    GGLayerCentreOddTag .F4 ∧ GGLayerPerfectTag .F4 :=
-  ggLayerTags_F4_of_rest (ggExcAdjCoreRestInput_F4_of_nonToral h)
-
-theorem ggLayerTags_E7_of_nonToral (hW : GGWeylFamQuotSolvInput .E7)
-    (h : GGExcAdjCoreNonToralInput .E7) : GGLayerCentreOddTag .E7 ∧ GGLayerPerfectTag .E7 :=
-  ggLayerTags_E7_of_rest (ggExcAdjCoreRestInput_of_nonToral hW h)
-
-theorem ggLayerTags_E8_of_nonToral (hW : GGWeylFamQuotSolvInput .E8)
-    (h : GGExcAdjCoreNonToralInput .E8) : GGLayerCentreOddTag .E8 ∧ GGLayerPerfectTag .E8 :=
-  ggLayerTags_E8_of_rest (ggExcAdjCoreRestInput_of_nonToral hW h)
 
 end Tags
 

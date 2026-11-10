@@ -215,19 +215,6 @@ theorem normalizer_le_of_hyp1223 (h331 : Stmt3_3_1) {T L V : Subgroup G}
   rw [← huniq M' hM' hLT]
   exact hVM'
 
-theorem exists_A7NatPre (h331 : Stmt3_3_1) {T L V : Subgroup G} (hyp : Hyp1223 G T L V)
-    (hVT : V ≤ T) (hTV : T ≤ normalizer (V : Set G))
-    (hTI : ∀ m ∈ normalizer (L : Set G),
-      CFSG.conjugate V m = V ∨ V ⊓ CFSG.conjugate V m = ⊥)
-    [IsMulCommutative ↥V]
-    (hnat : AlternatingNatural (V := ↥V) (autOn L V) ⊤
-      ((centralizer (L : Set G)).subgroupOf V) 7)
-    (hCV : V ⊓ centralizer (L : Set G) = ⊥) :
-    ∃ ψ : V ≃* Multiplicative (evenWeight 7), A7NatPre T L V ψ := by
-  have hLV : L ≤ normalizer (V : Set G) := hyp.irrPlus.2.2.1
-  obtain ⟨ψ, hLact, hLonto⟩ := exists_coord_of_alternatingNatural hLV hnat hCV
-  have hNM := normalizer_le_of_hyp1223 h331 hyp hVT hTV
-  exact ⟨ψ, ⟨hVT, hLV, hTV, hLact, hLonto, nact_of_lact hLV hLact hLonto hNM, hNM, hTI⟩⟩
 
 end Assembly
 

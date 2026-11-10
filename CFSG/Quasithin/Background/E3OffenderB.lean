@@ -317,45 +317,6 @@ theorem mQuot_bot_eq_rk (X : Subgroup G) : mQuot X ⊥ = rk ↥X := by
   unfold mQuot rk
   rw [Subgroup.relIndex_bot_left]
 
-theorem e3_33_one (hV : IsElemAbelian 2 V) {g : G} (hg : IsWOffenderAt T V g)
-    (hws : wParam T V < (sParam hV : ℕ∞)) :
-    V ⊓ Subgroup.centralizer ((conjSubgroup V g ⊓ Subgroup.normalizer (V : Set G) : Subgroup G) :
-        Set G) = V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) ∧
-      V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) < V := by
-  have hb : mQuot (conjSubgroup V g) (conjSubgroup V g ⊓ Subgroup.normalizer (V : Set G)) <
-      sParam hV := by
-    have := hg.2 ▸ hws
-    exact_mod_cast this
-  refine ⟨e3_10_one hV hb, lt_of_le_of_ne inf_le_left fun h => hg.1 ?_⟩
-  have hVC : V ≤ Subgroup.centralizer (conjSubgroup V g : Set G) :=
-    h.symm.le.trans inf_le_right
-  exact commutator_eq_bot_iff_le_centralizer'.2 hVC
-
-theorem e3_33_two (hV : IsElemAbelian 2 V) (hT : HypE322 T V) {g : G} (hg : IsWOffenderAt T V g)
-    (h0w : 0 < wParam T V) :
-    V < V ⊔ conjSubgroup V g ∧
-      V ⊔ conjSubgroup V g ≤ Subgroup.centralizer
-        ((V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) : Subgroup G) : Set G) ∧
-      ¬ Subgroup.centralizer ((V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) :
-        Subgroup G) : Set G) ≤ Subgroup.normalizer (V : Set G) := by
-  have hn := e3_28_four_right hV hT hg h0w
-  have hVU : V ≤ Subgroup.centralizer ((V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) :
-      Subgroup G) : Set G) := fun v hv =>
-    Subgroup.mem_centralizer_iff.2 fun u hu =>
-      (B2F.isElemAbelian_comm hV (Subgroup.mem_inf.1 hu).1 hv)
-  have hVgU : conjSubgroup V g ≤ Subgroup.centralizer
-      ((V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G) : Subgroup G) : Set G) :=
-    fun x hx => Subgroup.mem_centralizer_iff.2 fun u hu =>
-      (Subgroup.mem_centralizer_iff.1 (Subgroup.mem_inf.1 hu).2 x hx).symm
-  refine ⟨lt_of_le_of_ne le_sup_left fun h => hn ?_, sup_le hVU hVgU, fun h => hn (hVgU.trans h)⟩
-  exact (le_sup_right.trans h.symm.le).trans (Subgroup.le_normalizer)
-
-theorem e3_33_three (hV : IsElemAbelian 2 V) (hT : HypE322 T V) {g : G} (hg : IsWOffenderAt T V g)
-    (h0w : 0 < wParam T V) :
-    rParam V ≤ mQuot V (V ⊓ Subgroup.centralizer (conjSubgroup V g : Set G)) := by
-  have hn := e3_28_four_right hV hT hg h0w
-  have h := e3_4_two (V := conjSubgroup V g) (g := g⁻¹) (by rwa [conjSubgroup_conj_inv])
-  rwa [rParam_conj, conjSubgroup_conj_inv] at h
 
 theorem e3_33_four (hV : IsElemAbelian 2 V) {g : G} (hg : IsWOffenderAt T V g)
     (hws : wParam T V < (sParam hV : ℕ∞)) :

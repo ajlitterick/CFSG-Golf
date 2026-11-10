@@ -152,8 +152,6 @@ theorem ggAutModelAt_POmegaMinus : GGAutModelAt .POmegaMinus := by
   obtain ⟨a, rfl⟩ := (mem_minusRootGroup_long_iff n hirr hij s t hst).mp hz
   exact ⟨i, j, hij, s, t, a, u, rfl⟩
 
-theorem ggAutStructureAt_POmegaMinus : GGAutStructureAt .POmegaMinus :=
-  ggAutStructureAt_of_autModelAt ggAutModelAt_POmegaMinus
 
 end Family
 

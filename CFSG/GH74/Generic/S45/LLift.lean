@@ -259,10 +259,5 @@ theorem b_S45_lift_of_central
   have hinj := piC_injOn_of_noCentralCover (noCentralCover_of_isJ1OrRee hGA hj) hle hperf hsurj hcent
   exact ⟨K₂, fun k hk => (hle hk).1, hnorm, fun k hk => (hle hk).2, hsurj, hinj⟩
 
-open CFSG.ComponentClassification.TBLit in
-theorem b_S45_pumpStruct_of_central
-    (hc : B_S45_liftCentral) (hGA : GriessMultipliersAllModels)
-    (hs : B_S45_semisimple) : B_S45_pumpStruct :=
-  b_S45_pumpStruct_of_leaves (b_S45_lift_of_central hc hGA) hs
 
 end CFSG.GH74.Generic.S45

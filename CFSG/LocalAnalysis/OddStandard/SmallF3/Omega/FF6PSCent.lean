@@ -58,11 +58,6 @@ theorem ffTs_ne_one (fr : PFrame Q (Option (Fin 5)) ffC) : ffTs fr ≠ 1 := by
     rw [Finset.card_singleton] at hcard
     omega
 
-theorem ffZ0s_mul_self (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ffZ0s hQ fr * ffZ0s hQ fr = 1 := by
-  apply Subtype.ext
-  change (ffZ0s hQ fr : ProjOrth Q) * (ffZ0s hQ fr : ProjOrth Q) = 1
-  rw [ffZ0s, coe_omegaToProj, ← map_mul, ffZ0p_mul_self, map_one]
 
 theorem ffP1p_le_normalizer (hQ : Q.Nondegenerate) (hπ : piOrth Q ∉ omegaGroup hQ)
     (fr : PFrame Q (Option (Fin 5)) ffC) :
@@ -127,10 +122,6 @@ theorem ffTs_comm_normalizer (hQ : Q.Nondegenerate) (h2 : 2 ≤ Module.finrank (
   simp only [← map_mul]
   rw [hcomm]
 
-theorem ffTs_comm_ffZ0s (hQ : Q.Nondegenerate) (h2 : 2 ≤ Module.finrank (ZMod 3) V)
-    (hπ : piOrth Q ∉ omegaGroup hQ) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ffTs fr * ffOmegaToSim hQ (ffZ0s hQ fr) = ffOmegaToSim hQ (ffZ0s hQ fr) * ffTs fr :=
-  ffTs_comm_normalizer hQ h2 hπ fr (Subgroup.le_normalizer (ffZ0s_mem_ffB1p hQ fr))
 
 theorem ff6p_cent_sim_cases (hQ : Q.Nondegenerate) (h2 : 2 ≤ Module.finrank (ZMod 3) V)
     (fr : PFrame Q (Option (Fin 5)) ffC) {z : ProjSim Q}

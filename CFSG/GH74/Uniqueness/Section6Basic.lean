@@ -40,12 +40,6 @@ theorem closure_invertedSet_eq_commutator {W : Subgroup X} {z : X} (hz : orderOf
     · rw [commutatorElement_def]
       exact Subgroup.subset_closure (commutator_mem_invertedSet hz hzW hk)
 
-omit [Finite X] in
-theorem commutator_mem_closure_invertedSet {W : Subgroup X} {z : X} (hz : orderOf z = 2)
-    (hW : Odd (Nat.card W)) (hzW : z ∈ normalizer (W : Set X)) {w : X} (hw : w ∈ W) :
-    z * w * z⁻¹ * w⁻¹ ∈ Subgroup.closure (CFSG.OddInversion.invertedSet W z) := by
-  rw [closure_invertedSet_eq_commutator hz hW hzW, ← commutatorElement_def]
-  exact Subgroup.commutator_mem_commutator (Subgroup.mem_zpowers z) hw
 
 theorem T4Cand.odd_card {z : X} {p : ℕ} {W : Subgroup X} (hW : T4Cand Z M z p W) :
     Odd (Nat.card W) := by
@@ -81,15 +75,6 @@ theorem T4Cand.closure_invertedSet (hZ : IsInvariantInvolutionSet Z) {z : X} {p 
     Subgroup.closure (CFSG.OddInversion.invertedSet W z) = W := by
   rw [closure_invertedSet_eq_commutator (hZ.1 z hW.mem_Z) hW.odd_card hW.normalizes, hW.comm_eq]
 
-theorem T4Cand.omegaFix_invertedSet (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {z : X} {p : ℕ} {W : Subgroup X} (hW : T4Cand Z M z p W) :
-    omegaFix M (CFSG.OddInversion.invertedSet W z) = omegaFix M (W : Set X) := by
-  refine Set.Subset.antisymm ?_ (omegaFix_anti fun g hg => hg.1)
-  rintro β ⟨hβ, hfix⟩
-  rw [h.mem_omegaFix_iff]
-  refine ⟨hβ, ?_⟩
-  rw [← hW.closure_invertedSet hZ, Subgroup.closure_le]
-  exact fun g hg => (h.conjugate_eq_iff_mem hβ).mp (hfix g hg)
 
 theorem T4Cand.one_lt_card_invertedSet (hZ : IsInvariantInvolutionSet Z) {z : X} {p : ℕ}
     {W : Subgroup X} (hW : T4Cand Z M z p W) :

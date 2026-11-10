@@ -249,8 +249,6 @@ theorem memT_at {cnt : Nat} {T PL POS : Nat → Nat} {i X : Nat} (hX : Cn X)
   have hT : T (r32 POS i) = X := Nat.eq_of_beq_eq_true h2
   exact memT_of (T := T) (Nat.le_of_ble_eq_true h1) (by rw [hT]; exact tblEq_self hX)
 
-theorem tab_at {cnt q : Nat} {T PL : Nat → Nat} (hq : q < cnt) :
-    (hRec 275 9 cnt T PL).1[q]! = tabT (unpack 275 9 (T q)) := hRec_get hq
 
 theorem nrmY_ok : (tblEq 275 nrmY[0]! (threeTbl 0) && nrmY.all (fun y => permOK 275 y &&
       invOK 275 y (invT 275 y) && memT 275 enumA3.1 y && memT 275 enumClass.1 y)) = true := by

@@ -28,7 +28,6 @@ theorem zB2_exp_le : ∀ z ∈ zB2, ∀ w ∈ zB2, z + w ≠ 0 → ∀ a b : ℕ
     rcases hw with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
     simp [Prod.ext_iff] at hzw h ⊢ <;> omega
 
-theorem zB2_neg_mem : ∀ z ∈ zB2, -z ∈ zB2 := by decide
 
 theorem bS_mem : ∀ z ∈ zB2, bS z ∈ zB2 := by decide
 
@@ -366,9 +365,6 @@ theorem list_prod_inv_of_pairwise {G : Type*} [Group G] (L : List G) (h : L.Pair
   AddMonoidHom.mk' bL fun z w => Prod.ext (by simp only [bL, Prod.fst_add])
     (by simp only [bL, Prod.fst_add, Prod.snd_add]; ring)
 
-theorem bSh_apply (z : ℤ × ℤ) : bSh z = bS z := rfl
-
-theorem bLh_apply (z : ℤ × ℤ) : bLh z = bL z := rfl
 
 theorem bS_bS (z : ℤ × ℤ) : bS (bS z) = z := Prod.ext (by simp only [bS]; ring) (by simp only [bS])
 

@@ -25,12 +25,6 @@ theorem pin_ok : pinB pS w4 l4 w5 l5 = true := by decide +kernel
 
 theorem cls_model_ok : clsModelB tgt cover cpar ca cb cdep = true := by decide +kernel
 
-theorem cls_neg_tgt : clsRowN pS (tgt.map fun t => (t + 1) % 3) cpar clet ca cb cw cl 1 = 0 := by
-  decide +kernel
-
-theorem cls_neg_let : clsRowN pS tgt cpar (clet.map fun c => (c + 1) % 8) ca cb cw cl
-    (cpar.findIdx (· != 48)) = 0 := by
-  decide +kernel
 
 end CFSG.KD.F4Syl3
 

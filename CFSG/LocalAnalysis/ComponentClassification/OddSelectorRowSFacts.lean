@@ -109,27 +109,6 @@ theorem smul_of_root_smul (f : (Fin 2 → extension (ν : k)) →ₗ[k] (Fin 2 �
         rw [pow_succ, ← mul_assoc, map_mul, aeval_X]
       rw [h1, mul_smul, ih, hf, mul_smul]
 
-theorem smul_of_root_smul_neg
-    (f : (Fin 2 → extension (ν : k)) →ₗ[k] (Fin 2 → extension (ν : k)))
-    (hf : ∀ x, f (AdjoinRoot.root (quadraticPolynomial (ν : k)) • x) =
-      -(AdjoinRoot.root (quadraticPolynomial (ν : k)) • f x))
-    (e : extension (ν : k)) (x : Fin 2 → extension (ν : k)) :
-    f (e • x) = extensionConj ν e • f x := by
-  induction e using AdjoinRoot.induction_on with
-  | ih p =>
-    rw [← AdjoinRoot.aeval_eq]
-    induction p using Polynomial.induction_on generalizing x with
-    | C a =>
-      rw [aeval_C, AlgEquiv.commutes, algebraMap_smul, algebraMap_smul, map_smul]
-    | add p q hp hq =>
-      rw [map_add, add_smul, map_add, hp, hq, map_add (extensionConj ν), add_smul]
-    | monomial j a ih =>
-      have h1 : aeval (AdjoinRoot.root (quadraticPolynomial (ν : k))) (C a * X ^ (j + 1)) =
-          aeval (AdjoinRoot.root (quadraticPolynomial (ν : k))) (C a * X ^ j) *
-            AdjoinRoot.root (quadraticPolynomial (ν : k)) := by
-        rw [pow_succ, ← mul_assoc, map_mul, aeval_X]
-      rw [h1, mul_smul, ih, hf, map_mul (extensionConj ν), extensionConj_root]
-      simp only [smul_neg, mul_neg, neg_smul, mul_smul]
 
 end Linear
 

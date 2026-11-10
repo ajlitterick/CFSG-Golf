@@ -23,9 +23,6 @@ theorem comm_of_isElemAbelian {W : Subgroup G} (hW : IsElemAbelian 2 W) {x y : G
     (hx : x ∈ W) (hy : y ∈ W) : x * y = y * x :=
   congrArg Subtype.val (hW.1.is_comm.comm ⟨x, hx⟩ ⟨y, hy⟩)
 
-theorem sq_eq_one_of_isElemAbelian {W : Subgroup G} (hW : IsElemAbelian 2 W) {x : G}
-    (hx : x ∈ W) : x ^ 2 = 1 :=
-  hW.2 x hx
 
 end Basic
 

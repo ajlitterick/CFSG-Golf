@@ -127,42 +127,6 @@ theorem exists_mem_centralizer_conj_eq_mul_of_perfect {G : Type*} [Group G] {J Y
       _ = g⁻¹ * t * g := by group
       _ = u * t := hg
 
-theorem commute_of_conj_eq_mul_of_centralizes {G : Type*} [Group G] {X K U : Subgroup G}
-    {t u g : G} (hUX : ∀ x ∈ X, ∀ w ∈ U, x * w * x⁻¹ ∈ U)
-    (hKX : ∀ x ∈ X, ∀ k ∈ K, ∃ k' ∈ K, ∃ w ∈ U, x * k * x⁻¹ = k' * w)
-    (hKU : K ⊓ U = ⊥) (htX : t ∈ X) (htK : ∀ k ∈ K, t * k = k * t) (hgX : g ∈ X)
-    (hu : u ∈ K) (hconj : g⁻¹ * t * g = u * t) : ∀ k ∈ K, u * k = k * u := by
-  intro k hk
-  obtain ⟨k', hk', w, hw, hgk⟩ := hKX g hgX k hk
-  set w' := g⁻¹ * (w⁻¹ * (t * w * t⁻¹)) * g with hw'
-  have hw'U : w' ∈ U := by
-    have h1 : t * w * t⁻¹ ∈ U := hUX t htX w hw
-    have h2 : g⁻¹ * (w⁻¹ * (t * w * t⁻¹)) * g⁻¹⁻¹ ∈ U :=
-      hUX g⁻¹ (X.inv_mem hgX) _ (U.mul_mem (U.inv_mem hw) h1)
-    rwa [inv_inv] at h2
-  have hk_eq : k = g⁻¹ * (k' * w) * g := by rw [← hgk]; group
-  have htk' : t * k' = k' * t := htK k' hk'
-  have hconjk : (g⁻¹ * t * g) * k * (g⁻¹ * t * g)⁻¹ = k * w' := by
-    rw [hk_eq, hw']
-    calc g⁻¹ * t * g * (g⁻¹ * (k' * w) * g) * (g⁻¹ * t * g)⁻¹
-        = g⁻¹ * ((t * k') * w * t⁻¹) * g := by group
-      _ = g⁻¹ * ((k' * t) * w * t⁻¹) * g := by rw [htk']
-      _ = g⁻¹ * (k' * w) * g * (g⁻¹ * (w⁻¹ * (t * w * t⁻¹)) * g) := by group
-  have htk : t * k * t⁻¹ = k := by rw [htK k hk]; group
-  have hut : (u * t) * k * (u * t)⁻¹ = u * k * u⁻¹ := by
-    calc (u * t) * k * (u * t)⁻¹ = u * (t * k * t⁻¹) * u⁻¹ := by group
-      _ = u * k * u⁻¹ := by rw [htk]
-  rw [hconj, hut] at hconjk
-  have hmemU : k⁻¹ * (u * k * u⁻¹) ∈ U := by
-    rw [hconjk]
-    simpa using hw'U
-  have hmemK : k⁻¹ * (u * k * u⁻¹) ∈ K :=
-    K.mul_mem (K.inv_mem hk) (K.mul_mem (K.mul_mem hu hk) (K.inv_mem hu))
-  have h1 : k⁻¹ * (u * k * u⁻¹) = 1 := by
-    have h := Subgroup.mem_inf.mpr ⟨hmemK, hmemU⟩
-    rwa [hKU, Subgroup.mem_bot] at h
-  calc u * k = k * (k⁻¹ * (u * k * u⁻¹)) * u := by group
-    _ = k * u := by rw [h1, mul_one]
 
 theorem exists_mem_centralizer_conj_of_isExtremalIn {G : Type*} [Group G] [Finite G]
     {P : Subgroup G} {t z g : G} (hzP : z ∈ P) (hzc : ∀ p ∈ P, p * z = z * p)

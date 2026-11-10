@@ -380,16 +380,6 @@ theorem F918_5'
   F918_5 h hH hK hV₁I hIU (isIrrPlusTildeT_of_ambient h hIU W hW hirr) hD36 hD37 hD321 hI5 hA37
     hA38
 
-theorem F918_5_inv'
-    (h : HypF918 T V L V₁ Vp H K) (hH : SQTKGroup ↥H) (hK : conjClosure K T ≠ K)
-    (hV₁I : V₁ ≤ I) (hIU : I ≤ conjClosure Vp H) (W : Subgroup ↥(tildeOf V₁ (conjClosure Vp H)))
-    (hW : ∀ t ∈ autIH V₁ Vp H T, ∀ w ∈ W, t w ∈ W) (hirr : IsIrrPlusTildeU h I W)
-    (hinv : ∀ x ∈ H, x ∈ Subgroup.normalizer (K : Set G) → x ∈ Subgroup.normalizer (I : Set G))
-    (hD36 : D36) (hD37 : D37) (hI5 : Insp5a) (hA37 : A37ForSQTK) (hA38 : A38ForSQTK) :
-    FiveShape ↥(autIH V₁ Vp H K) ∧
-      ∀ t (ht : t ∈ T), t ∉ Subgroup.normalizer (K : Set G) → F918FiveTop h hIU ht :=
-  F918_5_inv h hH hK hV₁I hIU (isIrrPlusTildeT_of_ambient h hIU W hW hirr) hinv hD36 hD37 hI5 hA37
-    hA38
 
 end Final
 

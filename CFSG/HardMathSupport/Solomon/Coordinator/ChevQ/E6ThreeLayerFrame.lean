@@ -69,9 +69,6 @@ theorem conjSL_diagGL3 (d : Fin 3 → Kˣ) (s : SpecialLinearGroup (Fin 3) K) :
     rw [inv_inv, ← h1]
     group
 
-theorem mem_frameActSub {ρ : SpecialLinearGroup (Fin 3) K →* ModGL τ K} {g : ModGL τ K} :
-    g ∈ frameActSub ρ ↔ ∃ γ : GL (Fin 3) K, ∀ s, g * ρ s * g⁻¹ = ρ (conjSL γ s) :=
-  Iff.rfl
 
 end ActSub
 

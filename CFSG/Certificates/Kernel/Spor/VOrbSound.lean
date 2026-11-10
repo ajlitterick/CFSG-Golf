@@ -518,14 +518,6 @@ theorem pmSep_of_proj {p d N : Nat} {PT SP : Nat → Nat} (hp : p.Prime)
   have := hinj i hi j hj (congrArg codeV e)
   omega
 
-example : projSortK 2 1 2 (fun i => if i = 0 then 16 else 1) (fun _ => 1 <<< 32) 0 = true ∧
-    projSortK 2 1 2 (fun i => if i = 0 then 16 else 1) (fun _ => 1 <<< 32) 1 = true ∧
-    minorNZ 2 1 (decV 1 16) (decV 1 1) = false := by
-  decide +kernel
-
-example : vorbPtK 2 1 2 id [[1]] [[1]] (fun i => if i = 0 then 16 else 1) (fun _ => 0)
-    (fun _ => 0) 0 = false := by
-  decide +kernel
 
 theorem invT_get {n : Nat} {t : Table} {f g : Nat → Nat} (hn : n < 2 ^ 32)
     (ht : ∀ x < n, ap t x = f x ∧ f x < n ∧ g (f x) = x) :

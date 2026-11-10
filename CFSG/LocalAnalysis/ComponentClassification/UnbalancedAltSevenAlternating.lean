@@ -48,7 +48,6 @@ open Equiv Equiv.Perm
   left_inv i := Fin.ext (Nat.add_sub_cancel i.val 4)
   right_inv x := Subtype.ext (Fin.ext (Nat.sub_add_cancel x.2))
 
-theorem coe_upperEquiv (i : Fin 7) : ((upperEquiv i : Fin 11) : ℕ) = i.val + 4 := rfl
 
 @[expose] def extendSeven : Perm (Fin 7) →* Perm (Fin 11) := extendDomainHom upperEquiv
 
@@ -67,8 +66,6 @@ theorem sign_extendSeven (σ : Perm (Fin 7)) : sign (extendSeven σ) = sign σ :
   (extendSeven.comp (alternatingGroup (Fin 7)).subtype).codRestrict (alternatingGroup (Fin 11))
     fun σ => mem_alternatingGroup.mpr ((sign_extendSeven σ).trans (mem_alternatingGroup.mp σ.2))
 
-theorem coe_altExtend (σ : alternatingGroup (Fin 7)) :
-    (altExtend σ : Perm (Fin 11)) = extendSeven σ := rfl
 
 theorem altExtend_injective : Function.Injective altExtend := by
   intro σ τ h
@@ -85,8 +82,6 @@ theorem altExtend_injective : Function.Injective altExtend := by
     rw [Perm.inv_eq_iff_eq]
     exact (ha i hi).symm
 
-theorem mem_stabFour {h : alternatingGroup (Fin 11)} :
-    h ∈ stabFour ↔ ∀ i : Fin 11, i.val < 4 → (h : Perm (Fin 11)) i = i := Iff.rfl
 
 theorem four_le_apply_iff_of_mem_stabFour {h : alternatingGroup (Fin 11)} (hh : h ∈ stabFour)
     (x : Fin 11) : 4 ≤ ((h : Perm (Fin 11)) x).val ↔ 4 ≤ x.val := by
@@ -144,21 +139,12 @@ theorem relabel_altExtend (σ : alternatingGroup (Fin 7)) :
   apply altExtend_injective
   rw [altExtend_relabel]
 
-theorem relabel_apply (h : stabFour) (i : Fin 7) :
-    ((relabel h : Perm (Fin 7)) i).val =
-      ((h : Perm (Fin 11)) ⟨i.val + 4, by omega⟩).val - 4 := by
-  have e := congrArg (fun g : alternatingGroup (Fin 11) => (g : Perm (Fin 11)) (upperEquiv i))
-    (altExtend_relabel h)
-  simp only [coe_altExtend, extendSeven_apply_upper] at e
-  change _ = ((h : Perm (Fin 11)) (upperEquiv i)).val - 4
-  rw [← e, coe_upperEquiv, Nat.add_sub_cancel]
 
 @[expose] def tZero : alternatingGroup (Fin 7) :=
   ⟨swap 2 3 * swap 4 6, by
     rw [mem_alternatingGroup, map_mul, sign_swap (by decide), sign_swap (by decide)]
     rfl⟩
 
-theorem coe_tZero : (tZero : Perm (Fin 7)) = swap 2 3 * swap 4 6 := rfl
 
 theorem coe_altExtend_tZero : (altExtend tZero : Perm (Fin 11)) = swap 6 7 * swap 8 10 := by
   decide

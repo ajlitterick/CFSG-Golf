@@ -40,9 +40,6 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Quasithin CFSG.Blueprint Matr
 
 section Consequences
 
-variable {K : Type} [Group K] (h : LieModel K .PSL 2 2 3)
-
-include h
 
 end Consequences
 

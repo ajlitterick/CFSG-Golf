@@ -197,35 +197,6 @@ theorem s12_isReducible12_of_gen_three_two {g : G} (haQ : g * S.z * g⁻¹ ∈ S
   rw [S.finrank_Qt_eq_two_mul_width]
   omega
 
-theorem s12_isReducible12_of_gen_three {g : G} (hn : 4 ≤ S.width) {d₁ d₂ d₃ : S.O}
-    (h₁ : d₁ ∈ S.Ebar12 g) (hA₂ : IsTypeA S.q (d₂ : S.Qt ≃ₗ[ZMod 2] S.Qt) 2)
-    (hA₃ : IsTypeA S.q (d₃ : S.Qt ≃ₗ[ZMod 2] S.Qt) 2)
-    (hgen : S.Xbar12 g = closure {d₁, d₂, d₃}) : S.IsReducible12 := by
-  have hA₁ := isTypeA_of_mem_Ebar12 h₁
-  have hle : S.commSub12 (S.Xbar12 g) ≤
-      commSpace (d₁ : S.Qt ≃ₗ[ZMod 2] S.Qt) ⊔ commSpace (d₂ : S.Qt ≃ₗ[ZMod 2] S.Qt) ⊔
-        commSpace (d₃ : S.Qt ≃ₗ[ZMod 2] S.Qt) := by
-    rw [hgen]
-    refine (commSub12_closure_le _).trans (commSubSet12_le fun x hx => ?_)
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
-    rcases hx with rfl | rfl | rfl
-    · exact le_sup_of_le_left le_sup_left
-    · exact le_sup_of_le_left le_sup_right
-    · exact le_sup_right
-  have hdim : finrank (ZMod 2) (S.commSub12 (S.Xbar12 g)) ≤ 6 := by
-    refine (Submodule.finrank_mono hle).trans ?_
-    refine (Submodule.finrank_add_le_finrank_add_finrank _ _).trans ?_
-    have := Submodule.finrank_add_le_finrank_add_finrank
-      (commSpace (d₁ : S.Qt ≃ₗ[ZMod 2] S.Qt)) (commSpace (d₂ : S.Qt ≃ₗ[ZMod 2] S.Qt))
-    have h1 := hA₁.2.2.2.1
-    have h2 := hA₂.2.2.2.1
-    have h3 := hA₃.2.2.2.1
-    omega
-  have hd₁ : d₁ ∈ S.Xbar12 g := subset_Xbar12 h₁
-  have hd₁1 : d₁ ≠ 1 := fun e => hA₁.2.1 (by rw [e]; rfl)
-  refine S.s12_isReducible12_of_finrank_lt Mbar_le_normalizer_Xbar12 hd₁ hd₁1 ?_
-  rw [S.finrank_Qt_eq_two_mul_width]
-  omega
 
 end Setting
 

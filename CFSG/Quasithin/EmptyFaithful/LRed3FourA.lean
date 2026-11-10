@@ -68,12 +68,6 @@ theorem lred3_cq_simple (hY : CFSG.IsQuasisimple Y) (hΓ : IsSimpleGroup Γ) (π
     rw [hx, hy]) (QuotientGroup.quotientBot (G := Γ)).isSimpleGroup
   exact ⟨e.trans QuotientGroup.quotientBot⟩
 
-private theorem lred3_exists_four {K : Type} [Field K] [Finite K] (h : 4 ≤ Nat.card K) :
-    ∃ s : Finset K, s.card = 4 := by
-  have := Fintype.ofFinite K
-  obtain ⟨s, -, hs⟩ := Finset.exists_subset_card_eq (s := (Finset.univ : Finset K)) (n := 4)
-    (by rw [Finset.card_univ, ← Nat.card_eq_fintype_card]; exact h)
-  exact ⟨s, hs⟩
 
 theorem lred3_simple_statedProj_sl {K : Type} [Field K] [Finite K] {d : ℕ} (hd : 2 ≤ d)
     (h : 3 ≤ d ∨ 4 ≤ Nat.card K) : IsSimpleGroup (StatedProj (StatedSL d K)) :=
@@ -195,12 +189,6 @@ theorem lred3_cq_of_quasisimple {Γ₀ : Type} [Group Γ₀] (hΓ : CFSG.IsQuasi
   exact ⟨CFSG.LieType.CurtisTits.centralQuotientEquivOfIsQuasisimple hΓ hπ
     (CFSG.LieType.CurtisTits.ker_le_center_of_isQuasisimple hΓ ⟨k, hy⟩)⟩
 
-theorem lred3_four_of_hat6 (hY : CFSG.IsQuasisimple Y) {Γ₀ : Type} [Group Γ₀]
-    (hhat : IsHat Γ₀ ↥(alternatingGroup (Fin 6))) (π : Γ₀ →* Y) (hπ : Function.Surjective π) :
-    FourList (Y ⧸ Subgroup.center Y) := by
-  obtain ⟨e⟩ := lred3_cq_of_quasisimple hhat.1 hY π hπ
-  obtain ⟨f⟩ := hhat.2.2
-  exact Or.inr (Or.inr (Or.inr (Or.inl ⟨e.symm.trans f⟩)))
 
 theorem lred3_four_of_hatM22 (hY : CFSG.IsQuasisimple Y) {Γ₀ : Type} [Group Γ₀]
     (hhat : IsHat Γ₀ ↥CFSG.Open.quasithinM22) (π : Γ₀ →* Y) (hπ : Function.Surjective π) :

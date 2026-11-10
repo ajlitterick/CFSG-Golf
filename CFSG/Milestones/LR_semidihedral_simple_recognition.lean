@@ -50,18 +50,5 @@ end CFSG.Open
 
 namespace CFSG.Open
 
-open scoped MatrixGroups in
-theorem _root_.CFSG.Milestones.lr_semidihedral_simple_recognition_2
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (P : Sylow 2 G)
-    (hsd : ∃ n : ℕ, 4 ≤ n ∧ Nonempty ((P : Subgroup G) ≃* SemidihedralGroup n)) :
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 3 ∧
-        Nonempty (G ≃* PSL(3, GaloisField p k))) ∨
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 1 ∧
-        Nonempty (G ≃* PSU3 p k)) ∨
-    Nonempty (G ≃* M11) :=
-  CFSG.Semidihedral.RecognitionFromGaps.semidihedral_catalogue_of_theoremBStar
-    CFSG.Semidihedral.AllPrime.stationaryCoverageStatement G hnonab P hsd
 
 end CFSG.Open

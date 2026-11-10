@@ -48,26 +48,6 @@ theorem isPGroup_outer_of_mulEquiv_F4_two
     IsPGroup 2 (Outer L) :=
   IsPGroup.of_card (n := 1) (by rw [card_outer_eq_two_of_mulEquiv_F4_two hK e, pow_one])
 
-theorem isCyclic_outer_adjointGroup_F4
-    {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) : IsCyclic (Outer (adjointGroup .F4 K)) := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have : Fintype K := Fintype.ofFinite K
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : CharP K 2 := charP_of_card_eq_prime_pow (by rw [← Nat.card_eq_fintype_card, hK])
-  have : CharP K ReeTag.F4.prime := ‹CharP K 2›
-  obtain ⟨-, -, ⟨Θ₀, -, hsurj, hker⟩, -⟩ := even_F4_exact_automorphism_normal_form hf K hK
-  set Θ : MulAut (adjointGroup .F4 K) →* Multiplicative (ZMod (2 * f)) := Θ₀ with hΘ
-  have hinner : inner (adjointGroup .F4 K) = Θ.ker := hker.symm
-  have : Θ.ker.Normal := Θ.normal_ker
-  have e : Outer (adjointGroup .F4 K) ≃* Multiplicative (ZMod (2 * f)) :=
-    (QuotientGroup.quotientMulEquivOfEq hinner).trans
-      (QuotientGroup.quotientKerEquivOfSurjective Θ hsurj)
-  exact (MulEquiv.isCyclic e).2 inferInstance
-
-theorem isCyclic_outer_of_mulEquiv_F4
-    {L : Type*} [Group L] {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (e : L ≃* adjointGroup .F4 K) : IsCyclic (Outer L) :=
-  (MulEquiv.isCyclic (equivalence e)).2 (isCyclic_outer_adjointGroup_F4 hf hK)
 
 theorem card_outer_adjointGroup_E6_two_le
     (hK : Nat.card K = 2) :

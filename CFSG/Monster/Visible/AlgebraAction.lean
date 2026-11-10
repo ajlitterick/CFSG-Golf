@@ -233,32 +233,5 @@ theorem mem_Gvis_gmul {f : SpaceB ≃ₗ[ℚ] SpaceB} (hf : f ∈ Gvis) (u v : S
   rw [thetaEquiv_apply, thetaEquiv_apply, thetaEquiv_apply]
   exact ⟨theta_gmul p u v, bform_theta p u v⟩
 
-theorem compatible_pair_algebra_action :
-    (∀ (p : Pvis) (u v : SpaceB), theta p (gmul u v) = gmul (theta p u) (theta p v)) ∧
-    (∀ (p : Pvis) (u v w : SpaceB), T (theta p u) (theta p v) (theta p w) = T u v w) ∧
-
-    (∀ (p : Pvis) (u v : SpaceB), bform (theta p u) (theta p v) = bform u v) ∧
-    (∀ p : Pvis, BR.map ((theta p).restrictScalars dyadic) = BR) ∧
-    (∀ (p : Pvis) (u : SpaceB), theta p u ∈ BR ↔ u ∈ BR) ∧
-    (negPair : GL SpinIdx ℚ × latticeO) = (zU, negOneO) ∧
-    (zU : Matrix SpinIdx SpinIdx ℚ) = -1 ∧ mat negOneO = -1 ∧
-    (thetaHom.ker : Set Pvis) = {1, negPair} ∧
-    thetaHom.ker = Subgroup.zpowers negPair ∧ Nat.card thetaHom.ker = 2 ∧
-    thetaHom.ker ≤ Subgroup.center Pvis ∧
-    (∀ p : Pvis, quotEquivGvis (QuotientGroup.mk p) =
-      MulOpposite.op ⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩) ∧
-    (∀ r : Q, ((r : GL SpinIdx ℚ), (1 : latticeO)) ∈ Pvis) ∧
-    (∀ r : Q, (rhoPair r : GL SpinIdx ℚ × latticeO) = ((r : GL SpinIdx ℚ), 1) ∧
-      rhoEquiv r = thetaEquiv (rhoPair r) ∧ rho r = MulOpposite.op (rhoEquiv r) ∧
-      rhoEquiv r ∈ Gvis) ∧
-    (∀ r r' : Q, rhoEquiv (r * r') = rhoEquiv r' * rhoEquiv r) ∧
-    Function.Injective rhoEquiv ∧ Function.Injective rho ∧
-    (∀ (r : Q) (A : symMat), rhoEquiv r (A, 0, 0) = (A, 0, 0)) ∧
-    (∀ r t : Q, rhoEquiv r (0, Xlift t, 0) = (0, Xlift (r⁻¹ * t * r), 0)) ∧
-    (∀ (r : Q) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ), rhoEquiv r (0, 0, tensor q v) =
-      (0, 0, tensor (q ᵥ* ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ)) v)) ∧
-    (∀ f : SpaceB ≃ₗ[ℚ] SpaceB, f ∈ rhoQ ↔ ∃ r : Q, rhoEquiv r = f) ∧ rhoQ ≤ Gvis ∧
-    rhoEquiv zQ = xB :=
-  ⟨theta_gmul, T_theta, compatible_pair_algebra_action_data⟩
 
 end CFSG.Monster.Visible

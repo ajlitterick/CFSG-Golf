@@ -179,12 +179,6 @@ theorem exists_fixBarData_of_fixPrimeHyp {p : ℕ} {u : Y} (h : FixPrimeHyp L J 
         (QuotientGroup.mk' (Subgroup.center ↥L) l) :=
   exists_fixBarData_of_census h.parab h.prime h.cyc h.join h.pow h.not_mem h.fix
 
-theorem exists_fixBarData_of_fixThreeHyp {u : Y} (h : FixThreeHyp L J u) :
-    ∃ (l : ↥L) (c : Y), c ∈ Subgroup.centralizer (L : Set Y) ∧ u = (l : Y) * c ∧
-      l ^ 3 ∈ Subgroup.center ↥L ∧
-      FixBarData ((J.subgroupOf L).map (QuotientGroup.mk' (Subgroup.center ↥L))) 3
-        (QuotientGroup.mk' (Subgroup.center ↥L) l) :=
-  exists_fixBarData_of_census h.parab Nat.prime_three h.cyc h.join h.pow h.not_mem h.fix
 
 theorem exists_fixBarData_full_of_census {p : ℕ} {u : Y} (hparab : CompParab L J) (hp : p.Prime)
     (hcyc : CycPerfect p J) (hjoin : u ∈ perfectJoin J ⊔ Subgroup.centralizer (L : Set Y))

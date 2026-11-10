@@ -227,20 +227,5 @@ theorem exists_mem_M_conjSub_eq_of_mem_omegaSet (h : Hyp G R) {A A₀ B : Subgro
     (hB : B ∈ omegaSet R A) : ∃ m ∈ M R A, conjSub A₀ m = B :=
   (mem_component_iff h hA hA₀).1 (mem_component_of_sigmaSet_ne h hA hAne hA₀ hB)
 
-theorem existsUnique_conj_of_sigmaSet_ne (h : Hyp G R) {A A₀ B : Subgroup G} (hA : A ∈ R)
-    (hAne : sigmaSet R A ≠ lambdaSet R A) (hA₀ : A₀ ∈ omegaSet R A) (hB : B ∈ omegaSet R A) :
-    ∃! m : ↥(M R A), conjSub A₀ m = B := by
-  obtain ⟨m, hm, hmB⟩ := exists_mem_M_conjSub_eq_of_mem_omegaSet h hA hAne hA₀ hB
-  refine ⟨⟨m, hm⟩, hmB, fun m' hm'B => ?_⟩
-  have h1 : conjSub A₀ ((m : G)⁻¹ * m') = A₀ := by
-    rw [conjSub_mul, hm'B, ← hmB, ← conjSub_mul, inv_mul_cancel, conjSub_one]
-  have h2 := eq_one_of_mem_M_of_conjSub_eq h hA hA₀ (Subgroup.mul_mem _ (Subgroup.inv_mem _ hm)
-    m'.2) h1
-  exact Subtype.ext (inv_mul_eq_one.1 h2).symm
-
-theorem existsUnique_conj_of_mem_omegaSet (h : Hyp G R) {A A₀ B : Subgroup G} (hA : A ∈ R)
-    (h8 : Sec8 R A) (hA₀ : A₀ ∈ omegaSet R A) (hB : B ∈ omegaSet R A) :
-    ∃! m : ↥(M R A), conjSub A₀ m = B :=
-  existsUnique_conj_of_sigmaSet_ne h hA h8.2 hA₀ hB
 
 end CFSG.Timmesfeld.ARS

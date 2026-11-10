@@ -91,26 +91,5 @@ end HatModelU
       G11.G112ConclusionFix D.B (D.img (Subgroup.normalizer (V₁ : Set G)))
         (D.img (CFSG.conjugate (w128 V V₁ V₂) g))
 
-@[expose] def Lemma12_8_13_hat : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) (n : ℕ) (V₁ V₂ : Subgroup G),
-    Setting1282One G T L V n V₁ V₂ → ∀ g ∈ p128 T L V, g ∉ Subgroup.normalizer (V₁ : Set G) →
-    ∀ D : HatModelU (u128 V V₁),
-      (G112Concl5 D.B (D.img (Subgroup.normalizer (V₁ : Set G))) →
-        ∃ K : Subgroup G,
-          K = Subgroup.closure {x | x ∈ Subgroup.normalizer (V₁ : Set G) ∧
-            ∃ k : ℕ, orderOf x = 3 ^ k} ∧
-          quasithinIsCComponent K (Subgroup.normalizer (V₁ : Set G)) ∧
-          quasithinO2QuotientIso K (alternatingGroup (Fin 8)) ∧
-          quasithinOmegaOneCenter T ⊓ centerOf (i128 T L V V₁) ≠ ⊥ ∧
-          conjClosure (quasithinOmegaOneCenter T ⊓ centerOf (i128 T L V V₁)) K ≤
-            zU128 V V₁ ∧
-          IsTwoReducedIn (K ⊔ T)
-            (conjClosure (quasithinOmegaOneCenter T ⊓ centerOf (i128 T L V V₁)) K) ∧
-          ⁅quasithinOmegaOneCenter T ⊓ centerOf (i128 T L V V₁), K⁆ ≠ ⊥ ∧
-          K = ⁅K, CFSG.conjugate (zU128 V V₁) g⁆ ∧
-          quasithinIsFaithfulLocal T K) ∧
-      ¬ G112Concl4 (D.img (Subgroup.normalizer (V₁ : Set G))) ∧
-      ¬ G112Concl12 (D.img (Subgroup.normalizer (V₁ : Set G)))
-        (D.img (CFSG.conjugate (w128 V V₁ V₂) g))
 
 end CFSG.Quasithin.H13

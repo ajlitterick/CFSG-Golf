@@ -12,8 +12,6 @@ open scoped MatrixGroups
 
 variable {F : Type} [Field F]
 
-theorem negOne_central_H2 (g : GL (Fin 2) F) : g * (-1 : GL (Fin 2) F) = (-1) * g := by
-  simp
 
 theorem center_H2_eq [Finite F] {M : ModelData F} (hG : GoodModel M) :
     (Subgroup.center ↥M.H2).map M.H2.subtype = Subgroup.zpowers (-1 : GL (Fin 2) F) := by

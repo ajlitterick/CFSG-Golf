@@ -75,13 +75,6 @@ theorem mul_comm_of_mem_range {A : Type*} [CommGroup A] (f : A →* K) {y z : K}
     have h := congrArg ψ (R.conj_x t ht a)
     simpa only [map_mul, map_inv] using h
 
-theorem rankOneRelsMap_x {G G' : Type*} [Group G] [Group G'] {k : Type*} [Field k]
-    (R : RankOneRels G k) (ψ : G →* G') (a : k) : (rankOneRelsMap R ψ).x a = ψ (R.x a) :=
-  rfl
-
-theorem rankOneRelsMap_y {G G' : Type*} [Group G] [Group G'] {k : Type*} [Field k]
-    (R : RankOneRels G k) (ψ : G →* G') (a : k) : (rankOneRelsMap R ψ).y a = ψ (R.y a) :=
-  rfl
 
 theorem eq_of_conj_rankOneRels {G : Type*} [Group G] {F : Type*} [Field F] (R : RankOneRels G F)
     (hy : Function.Injective R.y)

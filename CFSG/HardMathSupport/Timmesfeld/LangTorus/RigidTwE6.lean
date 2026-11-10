@@ -215,18 +215,6 @@ theorem setupRigid_twistedE6 (S : LangSetup TwistTag.E6.tag L p)
       CosetCentralizerEmpty S D₁ (diagramMap TwistTag.E6 L)) : SetupRigid S :=
   setupRigid_of_descends_twistedE6 S (S.descendsTwE6 hΦ hAlg) hF hI hIg
 
-theorem setupRigid_twistedE6_of_big (S : LangSetup TwistTag.E6.tag L p)
-    (hΦ : ∃ Fr : L →+* L, (∀ c, Fr c = c ^ S.D.q) ∧ S.D.Φ = twistHom TwistTag.E6 L Fr)
-    (hAlg : S.IsAlgebraic)
-    (hbig : ∀ D₁ : Subgroup (ModGL TwistTag.E6.tag L), D₁ ≤ S.E → Nat.card D₁ = p ^ 2 →
-      HasBigInnerComponent S D₁)
-    (hI : ∀ D₁ : Subgroup (ModGL TwistTag.E6.tag L), D₁ ≤ S.E → Nat.card D₁ = p ^ 2 →
-      CentralizerTrivial S D₁)
-    (hIg : ∀ D₁ : Subgroup (ModGL TwistTag.E6.tag L), D₁ ≤ S.E → Nat.card D₁ = p ^ 2 →
-      CosetCentralizerEmpty S D₁ (diagramMap TwistTag.E6 L)) : SetupRigid S :=
-  setupRigid_twistedE6 S hΦ hAlg
-    (fun D₁ hD₁ hc => noFrobeniusInner_of_big_inner S (by decide) (Or.inr (Or.inr (Or.inl rfl))) hD₁ (hbig D₁ hD₁ hc))
-    hI hIg
 
 end TwE6
 

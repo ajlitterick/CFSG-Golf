@@ -34,10 +34,6 @@ theorem coe_restrictAut (hJC : J ≤ C) (β : MulAut C)
   MonoidHom.mk' (fun β => restrictAut hJC β (hZ β β.2)) fun _ _ =>
     MulEquiv.ext fun _ => Subtype.ext rfl
 
-theorem coe_restrictHom (hJC : J ≤ C) (Z : Subgroup (MulAut C))
-    (hZ : ∀ β ∈ Z, ∀ g : C, (β g : G) ∈ J ↔ (g : G) ∈ J) (β : Z) (g : J) :
-    (restrictHom hJC Z hZ β g : G) = (β : MulAut C) ⟨g, hJC g.2⟩ :=
-  rfl
 
 @[expose] def SecondGraphFullCentralizer (C J : Subgroup G) (P t : G) {F : Type*}
     (act : F → MulAut J) : Prop :=
@@ -175,10 +171,6 @@ theorem map_exactEntrywiseAut_twistedFixedGroup
   mulAutRestrict _ (exactEntrywiseAut TwistTag.E6.tag φ)
     (map_exactEntrywiseAut_twistedFixedGroup φ)
 
-theorem coe_gammaFieldAut
-    (φ : k ≃+* k) (g : twistedFixedGroup TwistTag.E6 k (RingHom.id k)) :
-    (gammaFieldAut φ g : ModGL TwistTag.E6.tag k) = Units.map (entrywiseHom φ.toRingHom) g :=
-  rfl
 
 variable {E : Type} [Field E]
 

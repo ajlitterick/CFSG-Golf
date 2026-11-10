@@ -106,7 +106,6 @@ theorem mtOutcome_of_outcome56 (R : Sylow 2 K) (h : Outcome56 G K (sylowImg R)) 
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h))))
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h))))
 
-variable [Finite G]
 
 end Outcomes
 

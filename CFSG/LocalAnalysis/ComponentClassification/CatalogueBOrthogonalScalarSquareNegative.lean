@@ -83,11 +83,6 @@ theorem negativeCentralizerEquiv_symm_positive
       (f x).val :=
   negativeOrthogonalExtension_positive Q hQ T b hb h2 hsquare hadj f x
 
-theorem negativeCentralizerEquiv_symm_negative
-    (f : T.eigenspace b ≃ₗ[K] T.eigenspace b) (y : T.eigenspace (-b)) :
-    ((negativeCentralizerEquiv Q hQ T b hb h2 hsquare hadj).symm f).val.val y.val =
-      (negativeEigenspaceDual Q.polarBilin hQ T b hb h2 hsquare hadj f y).val :=
-  negativeOrthogonalExtension_negative Q hQ T b hb h2 hsquare hadj f y
 
 include hQ hb h2 hsquare hadj in
 theorem negative_square_centralizer_structure :

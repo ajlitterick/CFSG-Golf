@@ -39,8 +39,6 @@ theorem actV_mul : ∀ (π σ : Perm (Fin 4)) (v : V4), actV (π * σ) v = actV 
     simp only [toAdd_mul]
     rw [actV_add]; rfl
 
-theorem refAut_apply (π : Perm (Fin 4)) (v : V4) :
-    refAut π (Multiplicative.ofAdd v) = Multiplicative.ofAdd (actV π v) := rfl
 
 @[expose] def refAct : Perm (Fin 4) →* MulAut (Multiplicative V4) where
   toFun := refAut
@@ -150,7 +148,6 @@ theorem autMt_apply (σ : MulAut (Multiplicative V4)) (v : V4) :
   all_goals ring
 
 
-
 theorem autMt_mul (σ τ : MulAut (Multiplicative V4)) : autMt (σ * τ) = autMt σ * autMt τ := by
   have h1 : Multiplicative.toAdd ((σ * τ) (Multiplicative.ofAdd e1)) =
       ((autMt σ).a * (autMt τ).a + (autMt σ).b * (autMt τ).c,
@@ -190,7 +187,6 @@ theorem autMt_isU (σ : MulAut (Multiplicative V4)) : (autMt σ).IsU := by
 
 @[expose] def Mt.inv (x : Mt) : Mt := ⟨x.det * x.d, -(x.det * x.b), -(x.det * x.c), x.det * x.a⟩
 
-theorem Mt.mul_inv_cancel' : ∀ x : Mt, x.IsU → x * x.inv = 1 ∧ x.inv * x = 1 := by decide +kernel
 
 @[expose] def Mt.app (x : Mt) (v : V4) : V4 := (x.a * v.1 + x.b * v.2, x.c * v.1 + x.d * v.2)
 
@@ -200,7 +196,6 @@ theorem Mt.inv_app : ∀ x : Mt, x.IsU → ∀ v : V4, x.app (x.inv.app v) = v :
 theorem Mt.app_add (x : Mt) (v w : V4) : x.app (v + w) = x.app v + x.app w := by
   ext <;> simp [Mt.app] <;> ring
 
-theorem Mt.inv_isU : ∀ x : Mt, x.IsU → x.inv.IsU := by decide +kernel
 
 @[expose] def mtAut (g : Mt) (hg : g.IsU) : MulAut (Multiplicative V4) where
   toFun x := Multiplicative.ofAdd (g.app (Multiplicative.toAdd x))
@@ -220,7 +215,6 @@ theorem autMt_mtAut (g : Mt) (hg : g.IsU) : autMt (mtAut g hg) = g := by
   show Mt.mk _ _ _ _ = _
   simp [mtAut, Mt.app, e1, e2]
 
-theorem M0_eq (π : Perm (Fin 4)) : M0 π = autMt (refAut π) := rfl
 
 theorem ga_sq : ga * ga = 1 := by decide
 theorem gb_pow : gb * gb * gb * gb = 1 := by decide

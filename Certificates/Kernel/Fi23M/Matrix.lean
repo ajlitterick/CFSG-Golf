@@ -76,9 +76,6 @@ theorem key2 : keyW 200 2 = conjW 253 matB matBi matD := by
     rfl
   rw [e, if_neg (by decide), if_neg (by rw [tb92_2]; decide), tb91_2, keyW_zero]
 
-theorem conjW_size {g gi X : Array W} (hg : g.size = 253) : (conjW 253 g gi X).size = 253 := by
-  unfold conjW
-  rw [mulW_size, mulW_size, hg]
 
 theorem RowsWF.conjW {g gi X : Array W} (hg : RowsWF (toVM g)) (hgi : RowsWF (toVM gi))
     (hX : RowsWF (toVM X)) : RowsWF (toVM (conjW 253 g gi X)) :=

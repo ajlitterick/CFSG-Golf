@@ -178,9 +178,6 @@ theorem τ_expand {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) (y : L) :
   rw [Set.Finite.mem_toFinset] at hθ
   rw [Pi.smul_apply, smul_eq_mul, S.inner_τ hχ hθ]
 
-theorem two_ma (χ : G → ℂ) (θ : L → ℂ) : 2 * (S.ma χ θ : ℤ) = S.Ar χ θ + S.M χ θ := by
-  simp only [Ar, M]
-  ring
 
 theorem two_mb (χ : G → ℂ) (θ : L → ℂ) : 2 * (S.mb χ θ : ℤ) = S.Ar χ θ - S.M χ θ := by
   simp only [Ar, M]

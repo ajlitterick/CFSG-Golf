@@ -39,11 +39,6 @@ theorem presentationB [Finite K] (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
     (fun O C hC => chevalleyExtras (by omega) O C hC)
     (bijective_stPi_of (isCTGroupDatum h2 hn) (oddDatum_steinbergExtras h2)).2
 
-theorem redundantR2 [Finite K] (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
-    RedundantR2 (Φ n K) (oddDatum n K).rootGroup :=
-  redundantR2_of rfl (fun O => ⟨commC, commutatorFormula O⟩)
-    (fun O C hC => chevalleyExtras (by omega) O C hC)
-    (bijective_stPi_of (isCTGroupDatum h2 hn) (oddDatum_steinbergExtras h2)).2
 
 theorem conclusionB [Finite K] (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
     ConclusionB (oddDatum n K) K (x n K) :=

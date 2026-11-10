@@ -3319,21 +3319,6 @@ public theorem Theorem4bAtBase.centralizes_or_fixedPoints_card_eq_one
       Nat.card (theorem4bFixedPoints M W) = 1 := by
   exact h4b z W hz hzM hWodd hWM hzNorm
 
-/-- Literal source-language form of the contract conclusion. -/
-public theorem Theorem4bAtBase.centralizes_or_existsUnique_fixedPoint
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (h4b : Theorem4bAtBase M) {z : X} {W : Subgroup X}
-    (hz : IsInvolution z) (hzM : z ∈ M)
-    (hWodd : Odd (Nat.card W)) (hWM : W ≤ M)
-    (hzNorm : z ∈ Subgroup.normalizer W) :
-    W ≤ Subgroup.centralizer ({z} : Set X) ∨
-      ∃! omega : conjugateCosetSpace M,
-        omega ∈ fixedPointsOfSubgroup X (conjugateCosetSpace M) W := by
-  rcases h4b.centralizes_or_fixedPoints_card_eq_one
-      hz hzM hWodd hWM hzNorm with hcentral | hfixed
-  · exact Or.inl hcentral
-  · exact Or.inr
-      (theorem4b_fixedPoints_card_eq_one_iff_existsUnique.mp hfixed)
 
 /-- If the fixed-point set is not a singleton, Theorem 4(b) forces `z` to
 centralize `W`. -/
@@ -3403,22 +3388,5 @@ public theorem Theorem4bAtBase.existsUnique_fixedPoint_of_not_centralizes
   exact h4b.fixedPoints_card_eq_one_of_not_centralizes
     hz hzM hWodd hWM hzNorm hnot
 
-/-- Since `W ≤ M`, the unique fixed point in the noncentral case is exactly
-the distinguished base coset. -/
-public theorem Theorem4bAtBase.fixedPoint_eq_base_of_not_centralizes
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (h4b : Theorem4bAtBase M) {z : X} {W : Subgroup X}
-    (hz : IsInvolution z) (hzM : z ∈ M)
-    (hWodd : Odd (Nat.card W)) (hWM : W ≤ M)
-    (hzNorm : z ∈ Subgroup.normalizer W)
-    (hnot : ¬ W ≤ Subgroup.centralizer ({z} : Set X))
-    {omega : conjugateCosetSpace M}
-    (homega : omega ∈ fixedPointsOfSubgroup X (conjugateCosetSpace M) W) :
-    omega = QuotientGroup.mk 1 := by
-  obtain ⟨eta, heta, hunique⟩ :=
-    h4b.existsUnique_fixedPoint_of_not_centralizes
-      hz hzM hWodd hWM hzNorm hnot
-  have hbase := theorem4b_baseCoset_mem_fixedPoints hWM
-  exact (hunique omega homega).trans (hunique _ hbase).symm
 
 end CFSG.BenderSuzuki

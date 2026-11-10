@@ -131,22 +131,6 @@ theorem hS_inner : ∀ θ ∈ S.W.SFam, ∀ χ ∈ BlocksIrr G,
     BlocksInnerProduct (S.σ χ) (S.W.ΦS θ) = S.dS χ θ :=
   fun _ hθ _ hχ => S.inner_ΦS hχ hθ
 
-theorem gram_principal_R {θ : L → ℂ} (hθ : θ ∈ S.W.RFam) :
-    ∑ χ ∈ (irreducibles_finite G).toFinset, S.d1 χ * S.dR χ θ = 0 ∧
-    ∑ χ ∈ (irreducibles_finite G).toFinset, S.d2 χ * S.dR χ θ = 0 ∧
-    ∑ χ ∈ (irreducibles_finite G).toFinset, S.d3 χ * S.dR χ θ = 0 := by
-  obtain ⟨-, -, -, g1, g2, g3⟩ := S.W.gram_principal_other (Or.inl hθ)
-  have hRe : ∀ y : L, Even (orderOf y) → θ y = 0 := fun y hy => S.W.R_even hθ hy
-  refine ⟨?_, ?_, ?_⟩
-  · have := S.gram_int (fun y hy => S.W.Φ1_even hy) hRe S.Φ1_class S.d1 (S.dR · θ)
-      (fun _ hχ => S.inner_Φ1 hχ) (fun χ hχ => S.hR_inner θ hθ χ hχ) 0 (by rw [g1]; simp)
-    linarith
-  · have := S.gram_int (fun y hy => S.W.Φ2_even hy) hRe S.Φ2_class S.d2 (S.dR · θ)
-      (fun _ hχ => S.inner_Φ2 hχ) (fun χ hχ => S.hR_inner θ hθ χ hχ) 0 (by rw [g2]; simp)
-    linarith
-  · have := S.gram_int (fun y hy => S.W.Φ3_even hy) hRe S.Φ3_class S.d3 (S.dR · θ)
-      (fun _ hχ => S.inner_Φ3 hχ) (fun χ hχ => S.hR_inner θ hθ χ hχ) 0 (by rw [g3]; simp)
-    linarith
 
 theorem gram_principal_S {θ : L → ℂ} (hθ : θ ∈ S.W.SFam) :
     ∑ χ ∈ (irreducibles_finite G).toFinset, S.d1 χ * S.dS χ θ = 0 ∧

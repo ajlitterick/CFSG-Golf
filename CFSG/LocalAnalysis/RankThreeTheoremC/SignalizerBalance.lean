@@ -31,6 +31,5 @@ theorem pRank_le_pRank_sylow {p : ℕ} (hp : p.Prime) (P : Sylow p G) (H : Subgr
 
 end Rank
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

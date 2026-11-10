@@ -23,21 +23,6 @@ theorem RRoot.mem_roots {A : Matrix I I ℤ} (hA : IsFiniteType A) {v : I → �
     rw [← CFSG.LieType.RootSystem.weylAction_simple hA i]
     exact CFSG.LieType.RootSystem.weylAction_mem_roots hA _ ih
 
-theorem RRoot.weylAction_apply {A : Matrix I I ℤ} (hA : IsFiniteType A)
-    (w : (CFSG.LieType.RootSystem.coxeterMatrix hA).Group) {v : I → ℤ} (h : RRoot A v) :
-    RRoot A (CFSG.LieType.RootSystem.weylAction hA w v) := by
-  induction w using (CFSG.LieType.RootSystem.coxeterMatrix hA).toCoxeterSystem.simple_induction_left
-    with
-  | one => simpa using h
-  | mul_simple_left w i ih =>
-    rw [CFSG.LieType.RootSystem.weylAction_mul_apply, CFSG.LieType.RootSystem.weylAction_simple]
-    exact ih.reflect i
-
-theorem RRoot.of_mem_roots {A : Matrix I I ℤ} (hA : IsFiniteType A) {v : I → ℤ}
-    (hv : v ∈ CFSG.LieType.RootSystem.roots hA ∅) : RRoot A v := by
-  rcases hv with ⟨w, i, rfl⟩ | ⟨w, i, hi, -⟩
-  · exact (RRoot.simple i).weylAction_apply hA w
-  · exact absurd hi (Set.notMem_empty i)
 
 theorem RRoot.comp_equiv {J : Type} [Fintype J] [DecidableEq J] (e : I ≃ J) {A : Matrix I I ℤ}
     {A' : Matrix J J ℤ} (hAA : ∀ x y, A x y = A' (e x) (e y)) {v : J → ℤ} (h : RRoot A' v) :

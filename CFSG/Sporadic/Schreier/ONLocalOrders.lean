@@ -389,24 +389,4 @@ theorem onTSylow_coe :
   exact IsPGroup.toSylow_coe onT_isPGroup onT_not_dvd_index
 
 
-theorem at_on_local_subgroup_orders :
-    ValidPointSchreier onTChain ∧ ValidSchreier onTChain ∧
-      ValidPointSchreier onMChain ∧ ValidSchreier onMChain ∧
-      ValidPointSchreier onLChain ∧ ValidSchreier onLChain ∧
-      ValidPointSchreier onMcommChain ∧ ValidSchreier onMcommChain ∧
-      ValidPointSchreier onLcommChain ∧ ValidSchreier onLcommChain ∧
-      ValidPointSchreier onJointChain ∧ ValidSchreier onJointChain ∧
-      onTChain.base.toList = base3 ∧ onMChain.base.toList = base3 ∧
-      onLChain.base.toList = base3 ∧ onMcommChain.base.toList = base3 ∧
-      onLcommChain.base.toList = base3 ∧ onJointChain.base.toList = base3 ∧
-      Nat.card onT = 512 ∧ Nat.card onM = 161280 ∧ Nat.card onL = 80640 ∧
-      Nat.card onWM = 80640 ∧ Nat.card onWL = 80640 ∧
-      Nat.card (onM ⊔ onM1 : Subgroup (Equiv.Perm (Fin N))) = 460815505920 ∧
-      onT ≤ Pv ∧ ∃ S : Sylow 2 Pv, (S : Subgroup Pv) = onT.subgroupOf Pv :=
-  ⟨tFacts.point, tFacts.valid, mFacts.point, mFacts.valid, lFacts.point, lFacts.valid,
-    mcommFacts.point, mcommFacts.valid, lcommFacts.point, lcommFacts.valid, jointFacts.point,
-    jointFacts.valid, tFacts.base, mFacts.base, lFacts.base, mcommFacts.base, lcommFacts.base,
-    jointFacts.base, card_onT, card_onM, card_onL, card_onWM, card_onWL, card_joint, onT_le,
-    onTSylow, onTSylow_coe⟩
-
 end CFSG.ONSchreier

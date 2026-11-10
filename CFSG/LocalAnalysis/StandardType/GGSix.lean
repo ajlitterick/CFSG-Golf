@@ -56,18 +56,6 @@ noncomputable abbrev ggM (p : ℕ) (B : Subgroup G) (x : G) (L D J : Subgroup G)
 
 end Defs
 
-@[expose] def GGSixStepOneInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSixCtx p B Bs x L D J → GGSixStepOne p B Bs x L D J
-
-@[expose] def GGSixStepTwoInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSixCtx p B Bs x L D J → GGSixStepOne p B Bs x L D J → GGSixStepTwo p B Bs x L D J
-
-@[expose] def GGSixStepThreeInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSixCtx p B Bs x L D J → GGSixStepOne p B Bs x L D J → GGSixStepTwo p B Bs x L D J →
-      GGSixStepThree p B x L D J
 
 theorem ggHoltAt_of_strongFusion {G : Type} [Group G] [Finite G] {G₀ M : Subgroup G}
     (hle : G₀ ≤ M) (hne : M ≠ ⊤) (hodd : Odd (G₀.relIndex M)) {r : G} (hrG₀ : r ∈ G₀)
@@ -94,13 +82,6 @@ theorem ggSix_holt_of_stepThree {G : Type} [Group G] [Finite G] {p : ℕ} {B : S
   · obtain ⟨hodd, r, hrG₀, hr, hT, -, hfus⟩ := h3
     exact Or.inr (ggHoltAt_of_strongFusion Subgroup.le_normalizer hM hodd hrG₀ hr hT hfus)
 
-theorem ggSecSixInput_of_inputs (h1 : GGSixStepOneInput) (h2 : GGSixStepTwoInput)
-    (h3 : GGSixStepThreeInput) : GGSecSixInput := by
-  intro G _ _ _ hnonab hK hchar he p hp B x L hS hst Bs D J hsix
-  have hctx : GGSixCtx p B Bs x L D J :=
-    ⟨inferInstance, hnonab, hK, hchar, he, hp, hS, hst, hsix⟩
-  have s1 := h1 G p B Bs x L D J hctx
-  exact ggSix_holt_of_stepThree (h3 G p B Bs x L D J hctx s1 (h2 G p B Bs x L D J hctx s1))
 
 section StepOne
 
@@ -131,27 +112,9 @@ theorem mem_normalizer_ggG0 {g : G} (hL : g ∈ Subgroup.normalizer (L : Set G))
   have := key g⁻¹ (Subgroup.inv_mem _ hL) (fun y K hP => Subgroup.inv_mem _ (hK y K hP)) _ hh
   simpa [mul_assoc] using this
 
-theorem centralizer_subcomp_le_normalizer_ggG0
-    (h : ∀ g ∈ Subgroup.centralizer (D : Set G), g ∈ Subgroup.normalizer (L : Set G) ∧
-      ∀ (y : G) (K : Subgroup G), LargeEvenSHat p B y K ∧ LargeEvenNeighbor p x y K D J →
-        g ∈ Subgroup.normalizer (K : Set G)) :
-    Subgroup.centralizer (D : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G) :=
-  fun g hg => mem_normalizer_ggG0 (h g hg).1 (h g hg).2
 
 end StepOne
 
-@[expose] def GGSixNeighborNormalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSixCtx p B Bs x L D J → ∀ g ∈ Subgroup.centralizer (D : Set G),
-      g ∈ Subgroup.normalizer (L : Set G) ∧
-        ∀ (y : G) (K : Subgroup G), LargeEvenSHat p B y K ∧ LargeEvenNeighbor p x y K D J →
-          g ∈ Subgroup.normalizer (K : Set G)
-
-theorem centralizer_le_ggM_of_input (h : GGSixNeighborNormalInput) {G : Type} [Group G]
-    [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hctx : GGSixCtx p B Bs x L D J) :
-    Subgroup.centralizer (D : Set G) ≤ ggM p B x L D J :=
-  centralizer_subcomp_le_normalizer_ggG0 (h G p B Bs x L D J hctx)
 
 theorem mem_of_conj_mem_bstar {G : Type} [Group G] {M Bs : Subgroup G}
     (hfus : ∀ b ∈ Bs, ∀ g : G, g⁻¹ * b * g ∈ Bs →

@@ -329,7 +329,5 @@ theorem mem_centerForms {a : V} {φ : Dual (ZMod 2) V} : φ ∈ centerForms G a 
       exact inG_zero_right φ
     · rwa [one_smul]
 
-theorem mem_axisVectors {a : V} {φ : Dual (ZMod 2) V} : a ∈ axisVectors G φ ↔ InG G φ a :=
-  Iff.rfl
 
 end CFSG.ComponentClassification.OutcomeLocal

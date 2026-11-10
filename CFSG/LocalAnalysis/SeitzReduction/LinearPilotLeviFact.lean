@@ -167,12 +167,6 @@ theorem mem_normalizer_blockSpecialLinear_of_diag {N : Finset (Fin n)}
   (blockSpecialLinear (K := F) N).normalizerMonoidHom
     ⟨g, mem_normalizer_blockSpecialLinear_of_diag hg⟩
 
-theorem coe_conjDiagonal_apply (N : Finset (Fin n)) (g : SpecialLinearGroup (Fin n) F)
-    (hg : ∀ i j, i ≠ j → (g : Matrix (Fin n) (Fin n) F) i j = 0)
-    (x : blockSpecialLinear (K := F) N) :
-    ((conjDiagonal N g hg x : blockSpecialLinear (K := F) N) : SpecialLinearGroup (Fin n) F) =
-      g * x * g⁻¹ :=
-  rfl
 
 theorem perfectCore_fixAll_eq [Finite F] {N I : Finset (Fin n)} (hIN : I ⊆ N) {ι' : Type*}
     (α : ι' → MulAut (blockSpecialLinear (K := F) N)) (d : ι' → SpecialLinearGroup (Fin n) F)
@@ -356,13 +350,6 @@ theorem perfectCore_fixAll_conjDiag_blockTorusLift [Finite F] (ι : K →+* F)
   obtain ⟨c, hc, hcij⟩ := exists_mem_blockTorusParam_ne_of_notMem hIN hk hκ hi hj hij hIJ
   exact exists_blockTorusLift_ne hc hcij
 
-theorem perfectCore_fixAll_conjDiag_blockTorusLift_self [Finite F] (ι : K →+* F)
-    (N : Finset (Fin n))
-    (hperf : ⁅blockSpecialLinear (K := F) N, blockSpecialLinear (K := F) N⁆ =
-      blockSpecialLinear N) :
-    perfectCore (fixAll fun d : blockTorus (K := K) N => conjDiag ι N (blockTorusLift d)) = ⊤ := by
-  rw [perfectCore_fixAll_conjDiag ι subset_rfl _ blockTorusLift_mem
-    (fun i _ j _ _ hIJ => absurd hIJ (by tauto)) hperf, subgroupOf_self]
 
 end Glue
 

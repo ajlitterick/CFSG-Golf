@@ -24,10 +24,6 @@ variable {G : Type} [Group G]
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem centralizerToN_coe (σ : Setting G) {H : Subgroup G} (hxH : σ.x ∈ H)
-    (k : Subgroup.centralizer ({⟨σ.x, hxH⟩} : Set H)) :
-    ((centralizerToN σ hxH k : σ.N) : G) = ((k : H) : G) :=
-  rfl
 
 theorem centralizerToN_injective (σ : Setting G) {H : Subgroup G} (hxH : σ.x ∈ H) :
     Function.Injective (centralizerToN σ hxH) := by

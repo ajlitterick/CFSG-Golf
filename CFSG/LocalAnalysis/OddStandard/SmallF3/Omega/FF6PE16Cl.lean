@@ -15,10 +15,6 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 3) V] [FiniteDimensional (ZMo
 theorem ffV4g_card : ffV4g.card = 4 := by
   decide +kernel
 
-theorem ff_g0_fixed_even_E0 {J : Finset (Fin 5)} (hJ : Even J.card)
-    (h : ffAct ffD8g J = J) : J ∈ ffE0s := by
-  revert J
-  decide +kernel
 
 @[expose] noncomputable def ffS2p (fr : PFrame Q (Option (Fin 5)) ffC) : Set (OGroup Q) :=
   {g | ∃ σ ∈ ffV4g, ∃ J ∈ ffE0s, g = ffHat fr σ * fr.signChange (ffOpt J)}
@@ -34,9 +30,6 @@ private theorem ffOutFF6PE16Cl_S2_eq_image (fr : PFrame Q (Option (Fin 5)) ffC) 
     have hp' : σ ∈ ffV4g ∧ J ∈ ffE0s := by simpa [Finset.mem_product] using hp
     exact ⟨σ, hp'.1, J, hp'.2, rfl⟩
 
-theorem ffS2p_finite (fr : PFrame Q (Option (Fin 5)) ffC) : (ffS2p fr).Finite := by
-  rw [ffOutFF6PE16Cl_S2_eq_image]
-  exact (Finset.finite_toSet (ffV4g ×ˢ ffE0s)).image _
 
 theorem ffS2p_ncard_le (fr : PFrame Q (Option (Fin 5)) ffC) : (ffS2p fr).ncard ≤ 16 := by
   rw [ffOutFF6PE16Cl_S2_eq_image]

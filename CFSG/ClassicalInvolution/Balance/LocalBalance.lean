@@ -69,15 +69,6 @@ theorem deltaCore_eq_bot_of_locallyTwoBalanced (hO : CFSG.pPrimeCore 2 X = ⊥) 
     exact (key d hd x hx).symm
   exact eq_bot_of_centralizes_pCore_of_centralizes_components hO hDodd hQ hL
 
-theorem deltaCore_eq_bot_of_locallyTwoBalanced_of_isComponentOf
-    (hO : CFSG.pPrimeCore 2 X = ⊥) {F : Subgroup X} (hF4 : Nat.card F = 4)
-    (hF2 : ∀ f ∈ F, f * f = 1)
-    (hloc : ∀ L : Subgroup X, IsComponentOf L ⊤ → F ≤ Subgroup.normalizer (L : Set X) →
-      (∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ L, f * x = x * f) →
-      IsLocallyTwoBalanced (L ⧸ Subgroup.center L)) :
-    deltaCore F = ⊥ :=
-  deltaCore_eq_bot_of_locallyTwoBalanced hO hF4 hF2 fun L hL =>
-    hloc L ((CFSG.isComponent_iff_open L).mp hL)
 
 theorem map_deltaCore_le_of_surjective {Z : Type*} [Group Z] (φ : X →* Z)
     (hφ : Function.Surjective φ)
@@ -89,8 +80,5 @@ theorem map_deltaCore_le_of_surjective {Z : Type*} [Group Z] (φ : X →* Z)
   exact (Subgroup.map_mono (deltaCore_le_involutionOddCore hfF hf1)).trans
     (map_involutionOddCore_le φ hφ (isPGroup_zpowers_of_mul_self_eq_one (hF2 f hfF)))
 
-omit [Finite X] in
-theorem oddCoreCentralizer_eq_oddCoreIn (B : Subgroup X) :
-    oddCoreCentralizer B = oddCoreIn (Subgroup.centralizer (B : Set X)) := rfl
 
 end CFSG.ClassicalInvolution.Balance

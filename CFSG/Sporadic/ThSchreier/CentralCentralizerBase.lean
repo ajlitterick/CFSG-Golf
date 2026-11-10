@@ -42,8 +42,6 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 Pointwise
 
 section Facts
 
-variable {c : ℕ} (hC : CertFacts c) (hS : ThScanFacts)
-include hC hS
 
 end Facts
 

@@ -69,38 +69,5 @@ public theorem no_nontrivial_oddP_inverted_centralized
   have hw1 : w = 1 := orderOf_eq_one_iff.mp hord1
   exact hwne hw1
 
-public theorem pgl2_no_inverted_oddP_centralized
-    {K : Type u} [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (hcard : 3 < Nat.card K)
-    (p : ℕ) (hp : p.Prime) (hpodd : Odd p)
-    (P : Subgroup (PGL2 K)) (hPp : IsPGroup p P)
-    {t : PGL2 K} (ht : IsInvolution t)
-    (hPinv : Subgroup.centralizer ({t} : Set (PGL2 K)) ≤
-      Subgroup.normalizer (P : Set (PGL2 K)))
-    (hPinvByT : BenderGlauberman.IsInvertedBy t P)
-    (hPne : P ≠ ⊥) :
-    False := by
-  let : Fact p.Prime := ⟨hp⟩
-  let : Finite (PGL2 K) :=
-    Finite.of_surjective Matrix.ProjGenLinGroup.mk
-      Matrix.ProjGenLinGroup.mk_surjective
-  have hPcent : P ≤ Subgroup.centralizer ({t} : Set (PGL2 K)) :=
-    pgl2_invariant_oddP_subgroup_centralized K hK hcard p hp hpodd P hPp ht hPinv
-  exact no_nontrivial_oddP_inverted_centralized t P hPinvByT hPcent hPp hpodd hPne
-
-public theorem psl2_no_inverted_oddP_centralized
-    {F : Type u} [Field F] [Finite F]
-    {r f p : ℕ} [Fact r.Prime] [Fact p.Prime]
-    (hFcard : Nat.card F = r ^ f) (hrodd : Odd r) (hpodd : Odd p)
-    (P : Subgroup (PSL2MatrixGroup F)) (hPp : IsPGroup p P)
-    {t : PSL2MatrixGroup F} (ht : IsInvolution t)
-    (hPinv : Subgroup.centralizer ({t} : Set (PSL2MatrixGroup F)) ≤
-      Subgroup.normalizer (P : Set (PSL2MatrixGroup F)))
-    (hPinvByT : BenderGlauberman.IsInvertedBy t P)
-    (hPne : P ≠ ⊥) :
-    False := by
-  have hPcent : P ≤ Subgroup.centralizer ({t} : Set (PSL2MatrixGroup F)) :=
-    psl2_invariant_oddP_subgroup_centralized hFcard hrodd hpodd P hPp ht hPinv
-  exact no_nontrivial_oddP_inverted_centralized t P hPinvByT hPcent hPp hpodd hPne
 
 end CFSG.GorensteinWalter

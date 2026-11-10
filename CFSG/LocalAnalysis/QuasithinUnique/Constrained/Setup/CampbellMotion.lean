@@ -73,9 +73,6 @@ theorem aimg_Zfix_central (α : (S : Subgroup G) ≃* (S : Subgroup G)) {s z : G
   rw [α.apply_symm_apply] at h3
   exact congrArg Subtype.val h3
 
-omit [Field k] in
-theorem aimg_Zfix_le_sylow (α : (S : Subgroup G) ≃* (S : Subgroup G)) :
-    aimg (S : Subgroup G) α (Zfix S) ≤ (S : Subgroup G) := aimg_le
 
 omit [Field k] in
 theorem isElemAbelian_aimg_Zfix (α : (S : Subgroup G) ≃* (S : Subgroup G)) :
@@ -151,20 +148,6 @@ theorem commutator_thompsonJ_aimg_Fcore (α : (S : Subgroup G) ≃* (S : Subgrou
   rw [aimg_thompsonJ, h.commutator_thompsonJ_Fcore] at this
   exact this.symm
 
-theorem mul_mem_Fcore_of_central {z z' : G} (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hz : z ∈ Zfix S) (hz' : z' ∈ aimg (S : Subgroup G) α (Zfix S)) : z * z' ∈ Fcore G := by
-  have hzS : z ∈ (S : Subgroup G) := Zfix_le_sylow hz
-  have hz'S : z' ∈ (S : Subgroup G) := aimg_le hz'
-  have hcomm : z * z' = z' * z := (IsSeed.Zfix_central hz hz'S).symm
-  refine h.mem_Fcore_of_central_involution ((S : Subgroup G).mul_mem hzS hz'S) (fun t ht => ?_) ?_
-  · calc z * z' * t = z * (z' * t) := by group
-      _ = z * (t * z') := by rw [aimg_Zfix_central α ht hz']
-      _ = (z * t) * z' := by group
-      _ = (t * z) * z' := by rw [IsSeed.Zfix_central hz ht]
-      _ = t * (z * z') := by group
-  · have h1 : z ^ 2 = 1 := (isElemAbelian_iff.mp isElemAbelian_Zfix).2 z hz
-    have h2 : z' ^ 2 = 1 := (isElemAbelian_iff.mp (isElemAbelian_aimg_Zfix α)).2 z' hz'
-    rw [(show Commute z z' from hcomm).mul_pow, h1, h2, one_mul]
 
 theorem tr_commutator_A_Fcore_le (α : (S : Subgroup G) ≃* (S : Subgroup G)) (g : G)
     {A : Subgroup G} (hA : IsMaxElemAbelian (cj (S : Subgroup G) g) A) :

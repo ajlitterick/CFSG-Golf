@@ -55,11 +55,6 @@ theorem normalizer_zpowers_eq_centralizer {z : G} (hz : orderOf z = 2) :
       rw [this, hx']
       exact hx
 
-theorem le_centralizer_of_mem_center {T : Subgroup G} {z : T} (hz : z ∈ Subgroup.center T) :
-    T ≤ Subgroup.centralizer {(z : G)} := by
-  intro t ht
-  rw [Subgroup.mem_centralizer_singleton_iff]
-  exact congrArg Subtype.val (Subgroup.mem_center_iff.mp hz ⟨t, ht⟩)
 
 theorem isTwoLocal_centralizer {z : G} (hz : orderOf z = 2) :
     IsTwoLocal (Subgroup.centralizer ({z} : Set G)) := by
@@ -104,32 +99,6 @@ theorem eq_bot_of_normal_of_coprime_of_le {H N : Subgroup G}
   rw [eq_bot_iff, ← hdisj]
   exact fun n hn => ⟨hn, hNP hn⟩
 
-theorem eq_bot_of_normal_of_coprime (hE : quasithinEvenCharacteristic G) {H N : Subgroup G}
-    (hH : IsTwoLocal H) (hS : ∃ S : Sylow 2 G, (S : Subgroup G) ≤ H) (hNH : N ≤ H)
-    (hN : (N.subgroupOf H).Normal) (hodd : Nat.Coprime 2 (Nat.card N)) : N = ⊥ :=
-  eq_bot_of_normal_of_coprime_of_le (hE H hH hS) hNH hN hodd
-
-theorem pPrimeCore_eq_bot_of_le {H : Subgroup G}
-    (hH : H ⊓ Subgroup.centralizer (pCoreOf 2 H : Set G) ≤ pCoreOf 2 H) :
-    CFSG.pPrimeCore 2 H = ⊥ := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set N : Subgroup G := (CFSG.pPrimeCore 2 H).map H.subtype with hNdef
-  have hNH : N ≤ H := Subgroup.map_subtype_le _
-  have hNsub : N.subgroupOf H = CFSG.pPrimeCore 2 H :=
-    Subgroup.comap_map_eq_self_of_injective H.subtype_injective _
-  have hN : (N.subgroupOf H).Normal := by
-    rw [hNsub]
-    infer_instance
-  have hodd : Nat.Coprime 2 (Nat.card N) := by
-    rw [hNdef, Subgroup.card_map_of_injective H.subtype_injective]
-    exact CFSG.pPrimeCore_coprime_card
-  have hbot := eq_bot_of_normal_of_coprime_of_le hH hNH hN hodd
-  rwa [hNdef, Subgroup.map_eq_bot_iff_of_injective _ H.subtype_injective] at hbot
-
-theorem pPrimeCore_centralizer_eq_bot (hE : quasithinEvenCharacteristic G) {z : G}
-    (hz : orderOf z = 2) (hS : ∃ S : Sylow 2 G, (S : Subgroup G) ≤ Subgroup.centralizer {z}) :
-    CFSG.pPrimeCore 2 (Subgroup.centralizer ({z} : Set G)) = ⊥ :=
-  pPrimeCore_eq_bot_of_le (hE _ (isTwoLocal_centralizer hz) hS)
 
 omit [Finite G] in
 theorem orderOf_mul_eq_two {a b : G} (ha : orderOf a = 2) (hb : orderOf b = 2) (hab : a ≠ b)

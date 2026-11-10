@@ -43,16 +43,6 @@ theorem HasE22LieQuot.map_mulEquiv {Γ' : Type} [Group Γ'] (φ : Γ ≃* Γ') {
     (h : HasE22LieQuot K) : HasE22LieQuot (K.map φ.toMonoidHom) :=
   h.of_surjective_hom (φ.subgroupMap K).symm.toMonoidHom (φ.subgroupMap K).symm.surjective
 
-theorem hasE22LieQuot_map_mulEquiv_iff {Γ' : Type} [Group Γ'] (φ : Γ ≃* Γ') {K : Subgroup Γ} :
-    HasE22LieQuot (K.map φ.toMonoidHom) ↔ HasE22LieQuot K := by
-  refine ⟨fun h => ?_, fun h => h.map_mulEquiv φ⟩
-  have h' := h.map_mulEquiv φ.symm
-  have hK : (K.map φ.toMonoidHom).map φ.symm.toMonoidHom = K := by
-    rw [Subgroup.map_map]
-    convert Subgroup.map_id K
-    ext x
-    simp
-  rwa [hK] at h'
 
 @[expose] noncomputable def starRestrict (M : Subgroup Γ) {H K : Subgroup Γ} (hKH : K ≤ H) :
     ↥K →* ↥(star M H K) :=

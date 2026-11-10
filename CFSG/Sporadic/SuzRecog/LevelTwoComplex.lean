@@ -61,8 +61,6 @@ theorem conjSet_mul (G H : Equiv.Perm (Fin 1782)) (S : Set (Equiv.Perm (Fin 1782
     conjSet (G * H) S = conjSet G (conjSet H S) := by
   simp only [conjSet, Set.image_image, mul_inv_rev, mul_assoc]
 
-theorem conjSet_injective (G : Equiv.Perm (Fin 1782)) : Function.Injective (conjSet G) :=
-  Set.image_injective.2 fun a b h => by simpa using h
 
 theorem rep_aP {i : ℕ} (hi : i < 2835) :
     Rep 1782 aPts[i]! (aP i) :=
@@ -367,88 +365,10 @@ theorem xGroup_elt_induction {P : xGroup → Prop} (h0 : P (genElt 0 (by norm_nu
 
 abbrev Γ : SimpleGraph (Fin 2997) := nbrGraph 2997 nbr
 
-theorem graphOK_parts :
-    ∀ s < 2, ∀ x < 2997, ∀ k < (nbr[x]!).size,
-      adjB nbr (vtab s)[x]! (vtab s)[(nbr[x]!)[k]!]! = true := by
-  have h := graph_check
-  simp only [graphOK, Bool.and_eq_true, beq_iff_eq] at h
-  intro s hs x hx k hk
-  have := Array.all_eq_true.1 (allLt_spec (allLt_spec h.2 hs) hx) k hk
-  rwa [← getElem!_pos (nbr[x]!) k hk] at this
-
-theorem gens_adj {s : ℕ} (hs : s < 2) {a b : Fin 2997}
-    (h : Γ.Adj a b) : Γ.Adj (genElt s hs • a) (genElt s hs • b) := by
-  rw [genElt_smul, genElt_smul]
-  obtain ⟨-, hab | hba⟩ := h
-  · obtain ⟨k, hk, hkb⟩ := occB_iff.1 hab
-    have := graphOK_parts s hs a a.2 k hk
-    rw [hkb] at this
-    exact nbrGraph_adj_iff.2 this
-  · obtain ⟨k, hk, hkb⟩ := occB_iff.1 hba
-    have := graphOK_parts s hs b b.2 k hk
-    rw [hkb] at this
-    exact (nbrGraph_adj_iff.2 this).symm
-
-theorem adj_smul (g : xGroup) {a b : Fin 2997} (h : Γ.Adj a b) :
-    Γ.Adj (g • a) (g • b) := by
-  revert a b
-  refine xGroup_elt_induction (P := fun g => ∀ {a b : Fin 2997}, Γ.Adj a b →
-    Γ.Adj (g • a) (g • b)) (fun h => gens_adj _ h) (fun h => gens_adj _ h)
-    (fun h => by rwa [one_smul, one_smul]) (fun x y hx hy a b h => ?_) g
-  rw [mul_smul, mul_smul]
-  exact hx (hy h)
 
 @[expose] def admT (S : Set (Fin 2997)) : Prop :=
   ∃ v ∈ S, 2835 ≤ v.1 ∧ ∀ w ∈ S, w ≠ v → w.1 < 2835
 
-theorem admT_smul (g : xGroup) (S : Set (Fin 2997))
-    (h : admT S) : admT ((g • ·) '' S) := by
-  obtain ⟨v, hv, hv2, hw⟩ := h
-  refine ⟨g • v, ⟨v, hv, rfl⟩, ?_, ?_⟩
-  · by_contra hlt
-    exact absurd ((smul_lt_iff g v).1 (by omega)) (by omega)
-  · rintro _ ⟨w, hw', rfl⟩ hne
-    exact (smul_lt_iff g w).2 (hw w hw' fun e => hne (e ▸ rfl))
-
-theorem adjB_ne {x y : ℕ} (h : adjB nbr x y = true) : x ≠ y := by
-  simp only [adjB, Bool.and_eq_true, bne_iff_ne] at h
-  exact h.1
-
-theorem admT_of_triB {x y z : Fin 2997} (h : triB x y z = true) : admT {x, y, z} := by
-  simp only [triB, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨hxy, hyz⟩, hxz⟩, hc⟩ := h
-  have nxy : x ≠ y := fun e => adjB_ne hxy (congrArg Fin.val e)
-  have nyz : y ≠ z := fun e => adjB_ne hyz (congrArg Fin.val e)
-  have nxz : x ≠ z := fun e => adjB_ne hxz (congrArg Fin.val e)
-  by_cases hx : 2835 ≤ x.1 <;> by_cases hy : 2835 ≤ y.1 <;> by_cases hz : 2835 ≤ z.1 <;>
-    simp only [hx, hy, hz, ↓reduceIte] at hc <;> norm_num at hc
-  · refine ⟨x, Set.mem_insert _ _, hx, ?_⟩
-    rintro w hw hne
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hw
-    rcases hw with rfl | rfl | rfl
-    · exact absurd rfl hne
-    · omega
-    · omega
-  · refine ⟨y, Set.mem_insert_of_mem _ (Set.mem_insert _ _), hy, ?_⟩
-    rintro w hw hne
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hw
-    rcases hw with rfl | rfl | rfl
-    · omega
-    · exact absurd rfl hne
-    · omega
-  · refine ⟨z, Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ rfl), hz, ?_⟩
-    rintro w hw hne
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hw
-    rcases hw with rfl | rfl | rfl
-    · omega
-    · omega
-    · exact absurd rfl hne
-
-theorem preconnected_Γ : Γ.Preconnected :=
-  preconnected_of_ok elim_check
-
-theorem triangulableBy_Γ : TriangulableBy Γ admT :=
-  triangulableBy_of_ok (fun _ _ _ h => admT_of_triB h) elim_check
 
 theorem eltG_mem {g gi : Array ℕ} (h : elemOK g gi = true) :
     permC 1782 g ∈ xGroup := by
@@ -481,9 +401,6 @@ theorem eltG_smul {g gi : Array ℕ} (h : elemOK g gi = true)
     · exact Or.inl ⟨inv_smul_eq_iff.2 ga.symm, inv_smul_eq_iff.2 gb.symm⟩
     · exact Or.inr ⟨inv_smul_eq_iff.2 gb.symm, inv_smul_eq_iff.2 ga.symm⟩
 
-theorem mem_edgeStab {a b : Fin 2997} (g : xGroup) :
-    g ∈ edgeStab a b ↔ (g • a = a ∧ g • b = b) ∨ (g • a = b ∧ g • b = a) :=
-  Iff.rfl
 
 theorem pElemOK_parts {e : Elt} {v v' : ℕ} (h : pElemOK e v v' = true) :
     elemOK e.1 e.2 = true ∧ sendsB e.1 e.2 0 0 = true ∧ sendsB e.1 e.2 v v' = true := by
@@ -564,16 +481,6 @@ theorem p1_lt : p1 < 2997 := by
 
 @[expose] def p1V : Fin 2997 := ⟨p1, p1_lt⟩
 
-theorem adj_p_p1 : Γ.Adj pV p1V :=
-  nbrGraph_adj_iff.2 locOK_parts.1
-
-theorem adj_p_q : Γ.Adj pV qV :=
-  nbrGraph_adj_iff.2 locOK_parts.2.1
-
-theorem smul_q_ne_p (g : xGroup) : g • qV ≠ pV := by
-  intro h
-  have := (smul_lt_iff g qV).1 (by rw [h]; show (0 : ℕ) < 2835; norm_num)
-  exact absurd this (by show ¬ (2835 : ℕ) < 2835; norm_num)
 
 @[expose] noncomputable def Xp : Subgroup xGroup :=
   MulAction.stabilizer xGroup pV

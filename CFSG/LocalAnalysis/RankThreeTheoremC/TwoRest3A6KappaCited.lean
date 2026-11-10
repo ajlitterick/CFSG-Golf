@@ -92,18 +92,5 @@ open CFSG.Open CFSG.AGLEmbedding CFSG.AGLEmbeddingD2 CFSG.RankThreeCoreUniquenes
   CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111 CFSG.LocalAnalysis.RankThreeTheoremC.TwoRest3A6.G23
   CFSG.QuasithinUnique CFSG.PreuniquenessRankFour.Helpers
 
-variable {G : Type} [Group G] [Finite G]
-
-@[expose] def TwoRestNineSeventeen (G : Type) [Group G] [Finite G] : Prop :=
-  ∀ (P : Sylow 3 G) (M H R : Subgroup G) (Rbar : Sylow 3 (H ⧸ primeComplementCore (G := H) 3))
-    (z : H) (Kbar : Subgroup (H ⧸ primeComplementCore (G := H) 3)) (L : Subgroup G)
-    (hRM : R ≤ M), TwoRestG23Config P M H R Rbar z Kbar L →
-    Hyp917R 3 M H (centBase M R L hRM) (innerNotQJ 3 H Kbar)
-
-@[expose] def TwoRestRankTwoFactor (G : Type) [Group G] [Finite G] : Prop :=
-  ∀ (P : Sylow 3 G) (M H R : Subgroup G) (Rbar : Sylow 3 (H ⧸ primeComplementCore (G := H) 3))
-    (z : H) (Kbar : Subgroup (H ⧸ primeComplementCore (G := H) 3)) (L : Subgroup G)
-    (hRM : R ≤ M), TwoRestG23Config P M H R Rbar z Kbar L →
-    AGLRankTwoFactorAt 3 M H (centBase M R L hRM) (innerNotQJ 3 H Kbar)
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

@@ -309,14 +309,6 @@ theorem lemmaIV32 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts)
       exact (Subgroup.map_le_map_iff_of_injective H.subtype_injective).mp hle
     exact ⟨h33.1.trans hOS, h33.2⟩
 
-theorem exists_constrained_mem_familyL (hσ : σ.IsValid) (h32 : σ.LemmaIV32) {r : ℕ}
-    (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON)
-    (hexc : σ.Exceptional r) :
-    ∃ H ∈ σ.familyL r, PConstrainedWithin r H (CFSG.solvableRadical H) := by
-  have hD2 : IsPGroup 2 σ.D := σ.S.isPGroup'.to_le σ.D_le_S
-  obtain ⟨R, hR, hDR⟩ := exists_isSylowOf_normalized_of_odd hr hD2
-    ((σ.D_le_N hσ).trans σ.N_le_normalizer_ON) σ.odd_card_ON
-  exact ⟨_, h32 r hr hdiv hexc R hR hDR⟩
 
 end Setting
 

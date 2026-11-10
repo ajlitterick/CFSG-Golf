@@ -32,10 +32,6 @@ theorem twoRank_le_two_of_lieModel_PSU_three_three {G : Type} [Group G] [Finite 
   SmallRanks.twoRank_le_two_of_statedClassicalModel_PSU_three_three
     (CFSG.LieType.Steinberg.statedClassicalModel_of_lieModel (by decide) h)
 
-theorem twoRank_le_two_of_lieModel_PSU_three_four {G : Type} [Group G] [Finite G]
-    (h : Blueprint.LieModel G .PSU 3 2 2) : CFSG.Open.twoRank G ≤ 2 :=
-  SmallRanks.twoRank_le_two_of_statedClassicalModel_PSU_three_four
-    (CFSG.LieType.Steinberg.statedClassicalModel_of_lieModel (by decide) h)
 
 theorem twoRank_le_two_of_alternating_seven {G : Type} [Group G] [Finite G]
     (e : G ≃* alternatingGroup (Fin 7)) : CFSG.Open.twoRank G ≤ 2 := by

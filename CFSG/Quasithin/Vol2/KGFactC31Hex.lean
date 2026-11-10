@@ -215,7 +215,6 @@ theorem ovFun_one (i : Fin 6) : ovFun hv 1 i = i := by
   map_one' := Equiv.ext fun i => ovFun_one hv i
   map_mul' g k := Equiv.ext fun i => ovFun_mul hv g k i
 
-theorem ovPerm_apply (g : ↥(ovStab hv)) (i : Fin 6) : ovPerm hv g i = ovFun hv g i := rfl
 
 theorem image_ovoid (g : ↥(ovStab hv)) (i : Fin 6) :
     (ovoid i).image (eMat hv ⟨g, g.2.1⟩ *ᵥ ·) = ovoid (ovPerm hv g i) :=
@@ -341,11 +340,6 @@ theorem eElt_coords (x : ↥(eSub hv)) :
       Multiplicative.toAdd d))).apply_symm_apply x
   exact congrArg Subtype.val h
 
-omit [Finite Γ] in
-theorem coords_eElt (c : Fin 4 → ZMod 2) :
-    Multiplicative.toAdd (coords hv ⟨eElt v c, eElt_mem hv c⟩) = c := by
-  apply eElt_injective hv
-  rw [eElt_coords]
 
 omit [Finite Γ] in
 theorem ovPerm_eq_one_iff (g : ↥(ovStab hv)) :

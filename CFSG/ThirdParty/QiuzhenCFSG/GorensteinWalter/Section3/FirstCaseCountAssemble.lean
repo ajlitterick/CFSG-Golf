@@ -67,23 +67,5 @@ public theorem firstCase_count_data_nonempty_of_b3_zero
     K b0 b1 b2 b3 b4 hKHall hKne hJn hHcount hHhatcount hindex htotal hsum h4
     h8 h4dvd hb3 h1dvd hUcard
 
-/-- The final index and order computation, conditional only on the `J₃`
-elimination (`b₃ = 0`).  Once `cosetInvolution_b c.Hhat 3 = 0` is proved,
-this is the body of `firstCase_involutionCount` in `Section3/Basic.lean`. -/
-public theorem firstCase_involutionCount_of_b3_zero
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (hfirst : FirstCase c)
-    (h3zero : cosetInvolution_b c.Hhat 3 = 0) :
-    c.Hhat.index = 35 ∧ Nat.card G = 2 ^ 3 * 3 ^ 2 * 5 * 7 := by
-  classical
-  by_cases hcyclic : twoCoreOf c.Hhat ≤ c.S0
-  · exact False.elim (firstCase_cyclicTwoCore_impossible hmin c hfirst hcyclic)
-  · have hklein : IsKleinFour (pCore 2 c.Hhat) :=
-      firstCase_twoCore_isKleinFour hmin c hfirst
-    obtain ⟨d⟩ := firstCase_count_data_nonempty_of_b3_zero
-      hmin c hfirst hklein h3zero
-    exact firstCase_index_card_of_countData c d
 
 end CFSG.GorensteinWalter

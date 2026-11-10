@@ -18,26 +18,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.B.Co2 CFSG.Monster.VisCert CFSG
 
 attribute [local instance] wLeftAction
 
-theorem Zsp_diff_zero :
-
-    (Zsp : Set (Wv v0)) \ {0} = {x | ∃ k ∈ Cr, wAct v0 k wFr = x} := by
-  rw [orbit_Cr_wFr]
-  ext x
-  simp only [Set.mem_sdiff, SetLike.mem_coe, Set.mem_singleton_iff, Set.mem_image,
-    Set.mem_ofPred_eq]
-  constructor
-  · rintro ⟨hx, hx0⟩
-    obtain ⟨c, hc, rfl⟩ := mem_Zsp_iff.1 hx
-    have hc0 : 0 < c := by
-      rcases Nat.eq_zero_or_pos c with rfl | h
-      · exact absurd (by rw [zBasis_comb_zero, decW_zero]) hx0
-      · exact h
-    obtain ⟨i, hi, e⟩ := zBasis_comb_frame c hc hc0
-    exact ⟨i, hi, by rw [e]⟩
-  · rintro ⟨i, hi, rfl⟩
-    obtain ⟨c, hc, hc0, e⟩ := frame_zBasis_comb i hi
-    refine ⟨mem_Zsp_iff.2 ⟨c, hc, by rw [e]⟩, ?_⟩
-    exact decW_ne_zero (frameOrbit_bounds i hi).1 (frameOrbit_bounds i hi).2
 
 theorem wAct_cGen_zComb
     (k : Fin 21) {c : ℕ} (hc : c < 64) :
@@ -190,31 +170,5 @@ theorem resZ_surjective_natCard_ker :
   exact ⟨MonoidHom.range_eq_top.1 (Subgroup.eq_top_of_card_eq _ (hr.trans
     natCard_isometryGroup_bZ.symm)), hk', hr⟩
 
-theorem nonempty_range_resZ_equiv :
-    Nonempty (resZ.range ≃* CFSG.Assembly.LowTwoRank.StatedSp 3 (ZMod 2)) :=
-  nonempty_isometryGroup_bZ_equiv.map fun e =>
-    ((MulEquiv.subgroupCongr (MonoidHom.range_eq_top.2 resZ_surjective_natCard_ker.1)).trans
-      Subgroup.topEquiv).trans e
-
-theorem native_Co2_central_involution_symplectic_six_action :
-    zBasis = #[31, 12319, 20511, 36895, 6145, 69663] ∧
-    (∀ t : Fin 6, zVec t = decW zBasis[(t : ℕ)]!) ∧
-    LinearIndependent (ZMod 2) zVec ∧ (∀ t, (zB t : Wv v0) = zVec t) ∧
-    Module.finrank (ZMod 2) Zsp = 6 ∧
-    (Zsp : Set (Wv v0)) \ {0} = {x | ∃ k ∈ Cr, wAct v0 k wFr = x} ∧
-    gramSix = #[16, 44, 42, 54, 41, 30] ∧
-    (∀ i j : Fin 6, bZ (zB i) (zB j) = bvec 6 gramSix[(i : ℕ)]! j) ∧
-    bZ.IsAlt ∧ bZ.Nondegenerate ∧
-    (∀ (k : Cr) (x : Zsp),
-      (((resZ k : TauCeti.BilinForm.isometryGroup bZ) : Zsp ≃ₗ[ZMod 2] Zsp) x : Wv v0) =
-        wAct v0 (k : Kstab v0)⁻¹ x) ∧
-    Function.Surjective resZ ∧ Nat.card resZ.ker = 512 ∧
-    Nat.card (TauCeti.BilinForm.isometryGroup bZ) = 1451520 ∧
-    Nonempty (resZ.range ≃* CFSG.Assembly.LowTwoRank.StatedSp 3 (ZMod 2)) ∧
-    Nat.card resZ.range = 1451520 := by
-  exact ⟨rfl, fun _ => rfl, linearIndependent_zVec, coe_zB, finrank_Zsp, Zsp_diff_zero, rfl,
-    bZ_zB, bZ_isAlt, bZ_nondegenerate, coe_resZ_apply, resZ_surjective_natCard_ker.1,
-    resZ_surjective_natCard_ker.2.1, natCard_isometryGroup_bZ, nonempty_range_resZ_equiv,
-    resZ_surjective_natCard_ker.2.2⟩
 
 end CFSG.Monster.B.TwoA.Co2Inv

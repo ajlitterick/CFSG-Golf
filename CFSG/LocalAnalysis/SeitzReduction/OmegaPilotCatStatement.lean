@@ -75,12 +75,6 @@ open CFSG.SeitzReduction.LinearPilot (FixedCentralizerTwoSmall)
   CatOmegaAlternating ∧ CatOmegaEvenInner ∧ CatOmegaEvenOuterAt m ∧ CatOmegaOddLieAt m ∧
     CatOmegaSporadicAt m ∧ CatOmegaCovers
 
-@[expose] def OmegaOvergroupCatalogue : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], IsQuasisimple K → Catalog (K ⧸ center K) →
-    ∀ τ : MulAut K, orderOf τ = 2 → ∀ (t : StatedLieTag) (m f : ℕ)
-      (D : Subgroup (fixedSubgroup τ)), (t = .POmegaPlus ∨ t = .POmegaMinus) →
-      IsComponent D → LieModel (D ⧸ center D) t m 2 f → FixedCentralizerTwoFree τ D →
-        OmegaOvergroup K τ m f
 
 set_option linter.unusedVariables false in
 theorem statedLieAdmissible_of_lieModel_POmega {X : Type} [Group X] {t : StatedLieTag}
@@ -159,20 +153,5 @@ theorem omega_overgroup_catalogue {m : ℕ} (h : OmegaCatalogueClausesAt m) {K :
   obtain ⟨hout, hlist⟩ := (omega_simple_of_clauses h hK.2.1 hK.2.2 hcat hτ' ht hD' hD'm).2 hodd2
   exact ⟨fun hin => hout (hinn hin), hZ, hlist⟩
 
-theorem omega_overgroup_catalogue_of_ne {m : ℕ} (h : OmegaCatalogueClausesAt m) {K : Type}
-    [Group K] [Finite K] (hK : IsQuasisimple K) (hcat : Catalog (K ⧸ center K)) (τ : MulAut K)
-    (hτ : orderOf τ = 2) {t : StatedLieTag} {f : ℕ} (ht : t = .POmegaPlus ∨ t = .POmegaMinus)
-    (hmf : (m, f) ≠ (4, 1)) (D : Subgroup (fixedSubgroup τ)) (hD : IsComponent D)
-    (hDm : LieModel (D ⧸ center D) t m 2 f) (hodd : FixedCentralizerTwoFree τ D) :
-    τ ∉ (MulAut.conj : K →* MulAut K).range ∧ Odd (Nat.card (center K)) ∧
-      LieModel (K ⧸ center K) .POmegaPlus m 2 (2 * f) := by
-  obtain ⟨hout, hZ, hlist⟩ := omega_overgroup_catalogue h hK hcat τ hτ ht D hD hDm hodd
-  exact ⟨hout, hZ, hlist.resolve_right (not_omegaSmall_of_ne hmf)⟩
-
-theorem omegaOvergroupCatalogue_of_clauses (h : ∀ m : ℕ, 4 ≤ m → OmegaCatalogueClausesAt m) :
-    OmegaOvergroupCatalogue := by
-  intro K _ _ hK hcat τ hτ t m f D ht hD hDm hodd
-  exact omega_overgroup_catalogue (h m (four_le_of_lieModel_POmega ht hDm)) hK hcat τ hτ ht D
-    hD hDm hodd
 
 end CFSG.SeitzReduction.OmegaPilot

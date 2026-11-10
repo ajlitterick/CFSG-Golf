@@ -115,10 +115,6 @@ theorem mem_fibre
     (π : X →* stdGroup) : fibre π →* twistedE6Group 2 1 :=
   (MonoidHom.snd _ _).comp (fibre π).subtype
 
-theorem fibreHom_apply
-    {π : X →* stdGroup} (x : fibre π) :
-    fibreHom π x = (x : X × twistedE6Group 2 1).2 :=
-  rfl
 
 @[expose] noncomputable def fibreFst
     (π : X →* stdGroup) : fibre π →* X :=
@@ -213,10 +209,6 @@ theorem fibreFst_surjective
   obtain ⟨u, hu⟩ := isogenyStd_surjective (π x)
   exact ⟨⟨(x, u), hu.symm⟩, rfl⟩
 
-theorem mem_ker_fibreHom
-    {x : fibre π} :
-    x ∈ (fibreHom π).ker ↔ (x : X × twistedE6Group 2 1).2 = 1 :=
-  Iff.rfl
 
 theorem fst_mem_ker_of_mem_ker_fibreHom
     {x : fibre π} (hx : x ∈ (fibreHom π).ker) :
@@ -378,22 +370,6 @@ variable
         (fibre π') fun x => h ((x : fibre π) : X × twistedE6Group 2 1).1 (fibre34Hom π x)
           (x : fibre π).2).codRestrict (fibre34 π') fun x => (γ (fibre34Hom π x)).2)
 
-theorem fibre34Hom_fibre34Map
-    (ρ : X →* X')
-    (γ : (twistedE6Datum 2 1).levi levi34 →* (twistedE6Datum 2 1).levi levi34)
-    (h : ∀ x (v : (twistedE6Datum 2 1).levi levi34), π x = isogenyStd v →
-      π' (ρ x) = isogenyStd (γ v)) (x : fibre34 π) :
-    fibre34Hom π' (fibre34Map ρ γ h x) = γ (fibre34Hom π x) :=
-  rfl
-
-theorem fst_fibre34Map
-    (ρ : X →* X')
-    (γ : (twistedE6Datum 2 1).levi levi34 →* (twistedE6Datum 2 1).levi levi34)
-    (h : ∀ x (v : (twistedE6Datum 2 1).levi levi34), π x = isogenyStd v →
-      π' (ρ x) = isogenyStd (γ v)) (x : fibre34 π) :
-    (((fibre34Map ρ γ h x : fibre34 π') : fibre π') : X' × twistedE6Group 2 1).1 =
-      ρ (((x : fibre π) : X × twistedE6Group 2 1).1) :=
-  rfl
 
 @[expose] noncomputable def fibre34Equiv
     (ρ : X ≃* X')
@@ -410,15 +386,6 @@ theorem fst_fibre34Map
     (MonoidHom.ext fun x => Subtype.ext (Subtype.ext (Prod.ext (ρ.apply_symm_apply _)
       (congrArg Subtype.val (γ.apply_symm_apply (fibre34Hom π' x))))))
 
-theorem fibre34Hom_fibre34Equiv
-    (ρ : X ≃* X')
-    (γ : (twistedE6Datum 2 1).levi levi34 ≃* (twistedE6Datum 2 1).levi levi34)
-    (h₁ : ∀ x (v : (twistedE6Datum 2 1).levi levi34), π x = isogenyStd v →
-      π' (ρ x) = isogenyStd (γ v))
-    (h₂ : ∀ x (v : (twistedE6Datum 2 1).levi levi34), π' x = isogenyStd v →
-      π (ρ.symm x) = isogenyStd (γ.symm v)) (x : fibre34 π) :
-    fibre34Hom π' (fibre34Equiv ρ γ h₁ h₂ x) = γ (fibre34Hom π x) :=
-  rfl
 
 end Fibre
 

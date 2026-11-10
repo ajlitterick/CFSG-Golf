@@ -13,7 +13,6 @@ namespace CFSG.Quasithin.H13.S127.Mod
 open CFSG.Open CFSG.Blueprint CFSG.Quasithin
 open scoped IsMulCommutative
 
-theorem r1_sub_s0 : ∀ r ∈ r1, r ∈ s0 := by decide
 
 theorem r2_sub_s0 : ∀ r ∈ r2, r ∈ s0 := by decide
 

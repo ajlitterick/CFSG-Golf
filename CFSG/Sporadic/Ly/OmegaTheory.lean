@@ -12,42 +12,6 @@ section Tree
 
 variable {G X : Type*} [Group G] [MulAction G X]
 
-theorem tree_mem_orbit (H : Subgroup G) (p : X) (key : ℕ → X) (par : ℕ → ℕ) (n : ℕ)
-    (h0 : key 0 = p) (hs : ∀ i, 0 < i → i < n → par i < i ∧ ∃ s ∈ H, key i = s • key (par i)) :
-    ∀ i < n, key i ∈ orbit H p := by
-  intro i
-  induction i using Nat.strong_induction_on with
-  | _ i ih =>
-    intro hi
-    rcases Nat.eq_zero_or_pos i with rfl | hpos
-    · rw [h0]
-      exact mem_orbit_self p
-    · obtain ⟨hp, s, hsH, hk⟩ := hs i hpos hi
-      obtain ⟨g, hg⟩ := ih (par i) hp (lt_trans hp hi)
-      refine ⟨⟨s, hsH⟩ * g, ?_⟩
-      change (⟨s, hsH⟩ * g : H) • p = key i
-      rw [hk, mul_smul]
-      change (⟨s, hsH⟩ : H) • (g • p) = s • key (par i)
-      rw [show g • p = key (par i) from hg]
-      rfl
-
-theorem tree_card_le [Finite X] (H : Subgroup G) (p : X) (key : ℕ → X) (par : ℕ → ℕ) (n : ℕ)
-    (h0 : key 0 = p) (hs : ∀ i, 0 < i → i < n → par i < i ∧ ∃ s ∈ H, key i = s • key (par i))
-    (hinj : ∀ i < n, ∀ j < n, key i = key j → i = j) :
-    n ≤ Nat.card (orbit H p) := by
-  classical
-  have hsub : (((Finset.range n).image key : Finset X) : Set X) ⊆ orbit H p := by
-    intro x hx
-    simp only [Finset.coe_image, Finset.coe_range, Set.mem_image, Set.mem_Iio] at hx
-    obtain ⟨i, hi, rfl⟩ := hx
-    exact tree_mem_orbit H p key par n h0 hs i hi
-  have hcard : ((Finset.range n).image key).card = n := by
-    rw [Finset.card_image_of_injOn (fun i hi j hj e => hinj i (Finset.mem_range.1 hi) j
-      (Finset.mem_range.1 hj) e), Finset.card_range]
-  rw [Nat.card_coe_set_eq]
-  calc n = ((Finset.range n).image key).card := hcard.symm
-    _ = (((Finset.range n).image key : Finset X) : Set X).ncard := (Set.ncard_coe_finset _).symm
-    _ ≤ (orbit H p).ncard := Set.ncard_le_ncard hsub (Set.toFinite _)
 
 end Tree
 

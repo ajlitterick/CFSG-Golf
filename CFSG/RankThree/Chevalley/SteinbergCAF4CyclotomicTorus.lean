@@ -171,9 +171,6 @@ theorem natCard_torus [IsAlgClosed L] (q d : ℕ) [NeZero (d : L)] :
   rw [torus, Subgroup.card_map_of_injective
     (rootDiagUnit_injective.comp (D.cycTupleHom_injective q)), hζ.card_rootsOfUnity]
 
-theorem isCyclic_torus (q d : ℕ) [NeZero d] : IsCyclic (D.torus L q d) :=
-  isCyclic_of_surjective _
-    (((rootDiagUnitHom .F4 L).comp (D.cycTupleHom q)).subgroupMap_surjective (rootsOfUnity d L))
 
 theorem conj_frob_eq_iff_mem_torus (F : L →+* L) {q : ℕ} (hF : ∀ c, F c = c ^ q) {d : ℕ}
     (hd : (d : ℤ) = (q : ℤ) ^ 4 - D.ε * (q : ℤ) ^ 2 + 1) {u : ModGL .F4 L}
@@ -187,105 +184,5 @@ theorem conj_frob_eq_iff_mem_torus (F : L →+* L) {q : ℕ} (hF : ∀ c, F c = 
 
 end F4CyclicBasis
 
-theorem rootChar_ne_one_of_forall_smul_eq_pow {L : Type} [Field L] {w : WeylGroup .F4}
-    {q p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (horb : ∀ α, IsRoot .F4 α → ∃ k : ℕ,
-      |(CFSG.RankThree.Lattice.orbitMat (weylMatrix w) α Tag.F4.rank).det| = 2 ^ k)
-    {c : Fin Tag.F4.rank → Lˣ} (hfix : ∀ v, rootChar c (w • v) = rootChar c v ^ q)
-    (hcp : c ^ p = 1) (hc1 : c ≠ 1) {α : Fin Tag.F4.rank → ℤ} (hα : IsRoot .F4 α) :
-    rootChar c α ≠ 1 := by
-  intro h1
-  have hj : ∀ j : ℕ, rootChar c ((w ^ j) • α) = 1 := by
-    intro j
-    induction j with
-    | zero => rw [pow_zero, one_smul, h1]
-    | succ j ih => rw [pow_succ', mul_smul, hfix, ih, one_pow]
-  obtain ⟨k, hk⟩ := horb α hα
-  set M := CFSG.RankThree.Lattice.orbitMat (weylMatrix w) α Tag.F4.rank with hM
-  have hMv : ∀ y : Fin Tag.F4.rank → ℤ, M.mulVec y = ∑ j, y j • ((w ^ (j : ℕ)) • α) := by
-    intro y
-    funext i
-    simp only [Matrix.mulVec, dotProduct, Finset.sum_apply, Pi.smul_apply, smul_eq_mul]
-    refine Finset.sum_congr rfl fun j _ => ?_
-    rw [hM, CFSG.RankThree.Lattice.orbitMat, Matrix.of_apply, ← weylMatrix_pow,
-      weylMatrix_mulVec, mul_comm]
-  have hall : ∀ v : Fin Tag.F4.rank → ℤ, rootChar c v = 1 := by
-    intro v
-    have hdet : M.det • v = M.mulVec (M.adjugate.mulVec v) := by
-      rw [Matrix.mulVec_mulVec, Matrix.mul_adjugate, Matrix.smul_mulVec, Matrix.one_mulVec]
-    have h2 : rootChar c v ^ M.det = 1 := by
-      rw [← rootChar_zsmul, hdet, hMv, rootChar_sum]
-      exact Finset.prod_eq_one fun j _ => by rw [rootChar_zsmul, hj, one_zpow]
-    have h3 : rootChar c v ^ (2 ^ k) = 1 := by
-      have e : ((2 ^ k : ℕ) : ℤ) = (2 : ℤ) ^ k := by push_cast; ring
-      rcases (abs_eq (by positivity)).1 hk with h | h
-      · rwa [h, ← e, zpow_natCast] at h2
-      · rwa [h, ← e, zpow_neg, zpow_natCast, inv_eq_one] at h2
-    have h4 : rootChar c v ^ p = 1 := rootChar_pow_of_pow_eq_one hcp v
-    have hcop : Nat.gcd (2 ^ k) p = 1 :=
-      Nat.Coprime.pow_left k ((Nat.coprime_primes Nat.prime_two hp).2 (Ne.symm hp2))
-    have h5 := pow_gcd_eq_one.2 ⟨h3, h4⟩
-    rwa [hcop, pow_one] at h5
-  apply hc1
-  funext j
-  rw [← rootChar_pi_single c j, hall, Pi.one_apply]
-
-@[expose] def f4W8Elt : WeylGroup .F4 := f4WordProd [0, 1, 2, 1, 2, 3]
-
-theorem weylMatrix_f4W8Elt : weylMatrix f4W8Elt = CFSG.RankThree.Lattice.f4W8 := by
-  rw [CFSG.RankThree.Lattice.f4W8_eq, f4W8Elt, weylMatrix_f4WordProd]
-  decide
-
-theorem weylMatrix_f4Coxeter_eq_f4W12 : weylMatrix f4Coxeter = CFSG.RankThree.Lattice.f4W12 := by
-  rw [weylMatrix_f4Coxeter, CFSG.RankThree.Lattice.f4W12_eq]
-  decide
-
-@[expose] def f4W8Basis : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
-  !![-1, 0, 0, 0; -1, -1, 0, 0; -1, -1, -1, 1; -1, 0, -1, 0]
-
-@[expose] def f4W8Coord : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
-  !![-1, 0, 0, 0; 1, -1, 0, 0; 1, 0, 0, -1; 1, -1, 1, -1]
-
-@[expose] def f4W12Basis : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
-  !![-1, 0, -1, 0; -1, -1, -1, -1; -1, -1, -2, -1; -1, 0, -1, -1]
-
-@[expose] def f4W12Coord : Matrix (Fin Tag.F4.rank) (Fin Tag.F4.rank) ℤ :=
-  !![-1, -1, 1, 0; 0, -1, 0, 1; 0, 1, -1, 0; 1, 0, 0, -1]
-
-@[expose] def f4W8CyclicBasis : F4CyclicBasis f4W8Elt where
-  B := f4W8Basis
-  N := f4W8Coord
-  ε := 0
-  smul_zero := by rw [f4W8Elt, f4WordProd_smul]; decide
-  smul_one := by rw [f4W8Elt, f4WordProd_smul]; decide
-  smul_two := by rw [f4W8Elt, f4WordProd_smul]; decide
-  smul_three := by rw [f4W8Elt, f4WordProd_smul]; decide
-  N_mul := by decide
-  mul_N := by decide
-
-@[expose] def f4W12CyclicBasis : F4CyclicBasis f4Coxeter where
-  B := f4W12Basis
-  N := f4W12Coord
-  ε := 1
-  smul_zero := by rw [f4Coxeter, f4WordProd_smul]; decide
-  smul_one := by rw [f4Coxeter, f4WordProd_smul]; decide
-  smul_two := by rw [f4Coxeter, f4WordProd_smul]; decide
-  smul_three := by rw [f4Coxeter, f4WordProd_smul]; decide
-  N_mul := by decide
-  mul_N := by decide
-
-theorem orbit_det_f4W8Elt {α : Fin Tag.F4.rank → ℤ} (hα : IsRoot .F4 α) :
-    ∃ k : ℕ, |(CFSG.RankThree.Lattice.orbitMat (weylMatrix f4W8Elt) α Tag.F4.rank).det| =
-      2 ^ k := by
-  rw [weylMatrix_f4W8Elt]
-  exact (CFSG.RankThree.Lattice.F4_eight_twelve_Weyl_cyclic_lattice_and_root_orbit_indices
-    ).2.2.2.2.2.2.2.1 _ (by simp) α hα |>.2
-
-theorem orbit_det_f4Coxeter {α : Fin Tag.F4.rank → ℤ} (hα : IsRoot .F4 α) :
-    ∃ k : ℕ, |(CFSG.RankThree.Lattice.orbitMat (weylMatrix f4Coxeter) α Tag.F4.rank).det| =
-      2 ^ k := by
-  rw [weylMatrix_f4Coxeter_eq_f4W12]
-  exact (CFSG.RankThree.Lattice.F4_eight_twelve_Weyl_cyclic_lattice_and_root_orbit_indices
-    ).2.2.2.2.2.2.2.1 _ (by simp) α hα |>.2
 
 end CFSG.RankThree.Chevalley

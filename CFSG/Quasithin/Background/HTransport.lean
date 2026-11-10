@@ -39,9 +39,6 @@ theorem map_congrHom_le_iff (e : V ≃* W) {A B : Subgroup (MulAut V)} :
     A.map (congrHom e) ≤ B.map (congrHom e) ↔ A ≤ B :=
   Subgroup.map_le_map_iff_of_injective (congrHom_injective e)
 
-theorem map_congrHom_inj (e : V ≃* W) {A B : Subgroup (MulAut V)} :
-    A.map (congrHom e) = B.map (congrHom e) ↔ A = B :=
-  (Subgroup.map_injective (congrHom_injective e)).eq_iff
 
 theorem fixV_map_congrHom (e : V ≃* W) (X : Subgroup (MulAut V)) :
     fixV (X.map (congrHom e)) = (fixV X).map e.toMonoidHom :=

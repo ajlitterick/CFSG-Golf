@@ -22,9 +22,6 @@ open CFSG.ComponentClassification.FixedCommutingProduct (fixedSubgroup)
       (Kc.map (MulAut.conj s).toMonoidHom ≠ Kc ∧
         ⁅Kc, Kc.map (MulAut.conj s).toMonoidHom⁆ = ⊥ ∧ Nonempty (Kc ⧸ center Kc ≃* D)))
 
-theorem neighbourOvergroupSp2m_three_iff {Y : Type} [Group Y] {s : Y} {D : Subgroup Y} {f : ℕ} :
-    NeighbourOvergroupSp2m s D 3 f ↔ F4Pilot.NeighbourOvergroup s D f :=
-  Iff.rfl
 
 theorem neighbour_overgroup_sp2m_of_pPrimeCore_eq_bot {m : ℕ} (hcat : Sp2mCatalogueClausesAt m)
     {Y : Type} [Group Y] [Finite Y] (hO : pPrimeCore 2 Y = ⊥)

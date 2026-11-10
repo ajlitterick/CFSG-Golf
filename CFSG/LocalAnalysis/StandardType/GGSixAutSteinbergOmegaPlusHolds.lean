@@ -92,9 +92,6 @@ theorem ggAutModelAt_POmegaPlus_of_inputs (h4 : GGAutModelPlusFourInput)
       AutOm.autModel_plus hn5 _ (fun r hr => hρ r (AutOm.plusRootElt_of_modelRoot hn hr))
         fun σ hσσ hσ1 r hr => hφ σ hσσ hσ1 r (AutOm.plusRootElt_of_modelRoot hn hr)⟩
 
-theorem ggAutStructureAt_POmegaPlus_of_inputs (h4 : GGAutModelPlusFourInput)
-    (hgood : PlusGoodInput) : GGAutStructureAt .POmegaPlus :=
-  ggAutStructureAt_of_autModelAt (ggAutModelAt_POmegaPlus_of_inputs h4 hgood)
 
 end Family
 

@@ -113,21 +113,6 @@ theorem ggStdSubTwoTorus_symplectic_of_card : ∀ (l n p : ℕ) (K : Type) [Fiel
     have := charP_two_of_card hK
     exact StdSubSp.ggStdSubTwoTorus_symplectic hp hp2 (by rw [hK]; exact hpn) (by omega)
 
-theorem ggStdSubSmallInputOn_symplectic :
-    GGStdSubSmallInputOn fun p lab => (lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1 :=
-  ggStdSubSmallInputOn_symplectic_of_sp ggStdSubTwoTorus_symplectic_of_card
-
-theorem ggStdSubSmallInput_of_rest_symplectic
-    (h : GGStdSubSmallInputOn fun p lab => ¬ GGTypeASplitLabel p lab ∧
-      ¬ ((lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1)) : GGStdSubSmallInput :=
-  ggStdSubSmallInput_of_cover
-    ((ggStdSubSmallInputOn_typeA_split_holds.or ggStdSubSmallInputOn_symplectic).or h)
-    fun p lab _ _ => by
-      by_cases h1 : GGTypeASplitLabel p lab
-      · exact Or.inl (Or.inl h1)
-      · by_cases h2 : (lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1
-        · exact Or.inl (Or.inr h2)
-        · exact Or.inr ⟨h1, h2⟩
 
 end CFSG.StandardType
 

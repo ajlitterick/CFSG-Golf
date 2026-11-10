@@ -62,19 +62,6 @@ section Sums
 
 variable {G : Type*} [Group G] [Fintype G]
 
-theorem sum_conjClass {f : G → ℂ} (hf : ∀ g h : G, f (h * g * h⁻¹) = f g) (x : G) :
-    ∑ g ∈ Finset.univ.filter (fun g => IsConj g x), f g =
-      (Nat.card (ConjClasses.mk x).carrier : ℂ) * f x := by
-  have hcard : (Finset.univ.filter fun g => IsConj g x).card =
-      Nat.card (ConjClasses.mk x).carrier := by
-    rw [Nat.card_eq_fintype_card, ← Set.toFinset_card]
-    congr 1
-    ext g
-    simp [ConjClasses.mem_carrier_iff_mk_eq, ConjClasses.mk_eq_mk_iff_isConj]
-  rw [Finset.sum_congr rfl fun g hg => ?_, Finset.sum_const, nsmul_eq_mul, hcard]
-  obtain ⟨c, hc⟩ := isConj_iff.mp (Finset.mem_filter.mp hg).2
-  rw [← hc]
-  exact (hf g c).symm
 
 end Sums
 

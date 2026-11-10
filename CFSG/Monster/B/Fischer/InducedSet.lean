@@ -12,8 +12,6 @@ namespace CFSG.Monster.B.Fischer
 
 open CFSG.Monster.Code CFSG.Monster.B.Classical.Mog22 CFSG.Monster.B.TwoA CFSG.Sporadic.Mathieu
 
-theorem hexTable3_size {n k₀ : ℕ} {s : String} : (hexTable3 n k₀ s).size = n := by
-  simp [hexTable3]
 
 theorem rhoW_inv_apply
     (k : CFSG.Blueprint.NativeSporadic.M22) (w : W₀) :
@@ -103,9 +101,6 @@ theorem zW_mk
     subst h1
     rw [Subgroup.coe_mul, map_mul, map_perm_mul, (mem_KB.1 h.2)])
 
-theorem hexadOf_mk
-    (k : CFSG.Blueprint.NativeSporadic.M22) (q : Q₀) :
-    hexadOf (zMk k q) = B₀.map (psiHom k).toEmbedding := rfl
 
 abbrev Y :
     Type := X₀ ⊕ W₀ ⊕ Z
@@ -224,21 +219,5 @@ theorem smul_mk
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;>
     simp [smul_def, kF, wF, kAct, wAct, zK_mk, zW_mk]
 
-theorem Fischer_induced_Mathieu_permutation_data :
-    (∀ (k : CFSG.Blueprint.NativeSporadic.M22) (h : KB) (q : Q₀),
-      zMk (k * h) q = zMk k (affA h q)) ∧
-    (∀ (k l : CFSG.Blueprint.NativeSporadic.M22) (r u : W₀) (x : X₀) (q : Q₀),
-      kF k • (.inl x : Y) = .inl (psiX k x) ∧ kF k • (.inr (.inl u) : Y) = .inr (.inl (rhoW k u)) ∧
-      kF k • (.inr (.inr (zMk l q)) : Y) = .inr (.inr (zMk (k * l) q)) ∧
-      wF r • (.inl x : Y) = .inl x ∧ wF r • (.inr (.inl u) : Y) = .inr (.inl (r + u)) ∧
-      wF r • (.inr (.inr (zMk l q)) : Y) = .inr (.inr (zMk l (q + U₀.mkQ (rhoW l⁻¹ r))))) ∧
-    (∀ (k : CFSG.Blueprint.NativeSporadic.M22) (q : Q₀),
-      hexadOf (zMk k q) = B₀.map (psiHom k).toEmbedding) ∧
-    o = .inr (.inl 0) ∧
-    (∀ k < 13, (indCandidate k).size = 3510) ∧ pinXiRaw.size = 3510 ∧
-    pinMembership.length = 13 := by
-  refine ⟨zMk_mul, smul_mk, hexadOf_mk, rfl, fun k _ => ?_, hexTable3_size, rfl⟩
-  unfold indCandidate
-  split_ifs <;> exact hexTable3_size
 
 end CFSG.Monster.B.Fischer

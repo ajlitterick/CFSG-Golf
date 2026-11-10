@@ -29,9 +29,5 @@ structure HaradaFacts3 (H : Type) [Group H] (E : Subgroup H) (a z b z₁ : H)
   W_comm : ∀ x : H, orderOf x = 3 → ∃ s : H, s ∈ centralizer ({x} : Set H) ∧ s ^ 2 = 1 ∧
     s ≠ 1 ∧ tTH a z z₁ s ∧ s ∈ ⁅WsubH a z z₁ x, WsubH a z z₁ x⁆
 
-@[expose] def HaradaInterface3 : Prop :=
-  ∀ (H : Type) [Group H] (E : Subgroup H), TwoHS.IsF5Centralizer H E →
-    ∃ (a z b z₁ : H) (S T T' W0 : Subgroup H) (ι : Elem2 6 →* H),
-      HaradaFacts3 H E a z b z₁ S T T' W0 ι
 
 end CFSG.EvenSporadicStandard.HNRecog

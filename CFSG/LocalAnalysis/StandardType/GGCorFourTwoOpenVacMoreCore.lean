@@ -69,10 +69,6 @@ theorem bstarInnerDiag (hV : GGCorFourTwoVacOn V)
     GGBstarInnerDiagLInputOn U := fun G _ _ p B Bs x L D J hC hL =>
   (h G p B Bs x L D J hC (hV.and_not hC hL)).mono fun _ _ h => h.1
 
-theorem bstarInnerDiag_rest (hV : GGCorFourTwoVacOn V) (h : GGBstarInnerDiagLInputOn U) :
-    GGBstarInnerDiagLInputOn fun p lab => U p lab ∧ ¬ V p lab :=
-  fun G _ _ p B Bs x L D J hC hL =>
-    hV.and_not_bstar hC (h G p B Bs x L D J hC (hL.mono fun _ _ h => h.1))
 
 theorem transvectionCenter (hV : GGCorFourTwoVacOn V)
     (h : GGLTransvectionCenterInputOn fun p lab => U p lab ∧ ¬ V p lab) :

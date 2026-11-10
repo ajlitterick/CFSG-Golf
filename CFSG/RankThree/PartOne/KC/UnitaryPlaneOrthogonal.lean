@@ -80,11 +80,6 @@ theorem separatingLeft_range (hB : B.IsSymm) (hBl : B.SeparatingLeft) (hE : IsSe
     rw [this, map_add, h1, h2, add_zero]
   exact Subtype.ext (hBl (x : V) hx')
 
-theorem apply_eq_of_mem_range (hidem : E * E = E) {v : V} (hv : v ∈ LinearMap.range E) :
-    E v = v := by
-  obtain ⟨u, rfl⟩ := hv
-  have := congrArg (fun f : Module.End K V => f u) hidem
-  simpa using this
 
 end Idempotent
 

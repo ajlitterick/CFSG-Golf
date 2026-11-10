@@ -53,9 +53,6 @@ theorem ggLayerTags_PSL : GGLayerCentreOddTag .PSL ∧ GGLayerPerfectTag .PSL :=
     | exact (LayerFacts.ggLayer_sl (F := GaloisField 2 f) hker hp hp2 hE hEA).1
     | exact (LayerFacts.ggLayer_sl (F := GaloisField 2 f) hker hp hp2 hE hEA).2
 
-theorem ggLayerCentreOddTag_PSL : GGLayerCentreOddTag .PSL := ggLayerTags_PSL.1
-
-theorem ggLayerPerfectTag_PSL : GGLayerPerfectTag .PSL := ggLayerTags_PSL.2
 
 theorem ggLayerTags_of_placeholder (t : StatedLieTag)
     (ht : t = .G2 ∨ t = .trialityD4 ∨ t = .twistedB2 ∨ t = .twistedG2 ∨ t = .twistedF4 ∨
@@ -105,19 +102,6 @@ theorem ggLayerInputs_of_remaining
   exact ⟨ggLayerCentreOddInput_of_tags fun t => (h t).1,
     ggLayerPerfectInput_of_tags fun t => (h t).2⟩
 
-theorem ggSixCentreOddInput_of_remaining
-    (hPSU : GGLayerCentreOddTag .PSU ∧ GGLayerPerfectTag .PSU)
-    (hPSp : GGLayerCentreOddTag .PSp ∧ GGLayerPerfectTag .PSp)
-    (hPlus : GGLayerCentreOddTag .POmegaPlus ∧ GGLayerPerfectTag .POmegaPlus)
-    (hMinus : GGLayerCentreOddTag .POmegaMinus ∧ GGLayerPerfectTag .POmegaMinus)
-    (hF4 : GGLayerCentreOddTag .F4 ∧ GGLayerPerfectTag .F4)
-    (hE6 : GGLayerCentreOddTag .E6 ∧ GGLayerPerfectTag .E6)
-    (hE7 : GGLayerCentreOddTag .E7 ∧ GGLayerPerfectTag .E7)
-    (hE8 : GGLayerCentreOddTag .E8 ∧ GGLayerPerfectTag .E8)
-    (hTwE6 : GGLayerCentreOddTag .twistedE6 ∧ GGLayerPerfectTag .twistedE6) :
-    GGSixCentreOddInput :=
-  have h := ggLayerInputs_of_remaining hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
-  ggSixCentreOddInput_of_layer h.1 h.2
 
 end Tags
 

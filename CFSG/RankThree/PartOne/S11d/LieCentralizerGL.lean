@@ -43,26 +43,5 @@ theorem eq_one_of_sq_eq_one_of_finrank_lt_two {E W : Type*} [Field E] [AddCommGr
     change d • (u : Module.End E W) v = d • v
     rw [← hc, hc1, one_smul]
 
-theorem exists_mult_two_of_involution_gl {K : Type} [Field K] (h2 : (2 : K) = 0) {V : Type*}
-    [AddCommGroup V] [Module K V] [FiniteDimensional K V] {x : LinearMap.GeneralLinearGroup K V}
-    (hsq : Squarefree (minpoly K (x : Module.End K V))) {g : LinearMap.GeneralLinearGroup K V}
-    (hg : g ∈ gl_centralizer x) (hg2 : g ^ 2 = 1) (hg1 : g ≠ 1) :
-    ∃ b : primaryFactors (x : Module.End K V),
-      2 ≤ primaryMultiplicity (x : Module.End K V) (b : K[X]) := by
-  by_contra hno
-  push Not at hno
-  set w := glCentralizerEquivPi hsq ⟨g, hg⟩ with hw
-  have hw2 : w ^ 2 = 1 := by
-    rw [hw, ← map_pow]
-    have : (⟨g, hg⟩ : gl_centralizer x) ^ 2 = 1 := Subtype.ext hg2
-    rw [this, map_one]
-  have hw1 : w = 1 := by
-    funext b
-    have h2b : (2 : AdjoinRoot (b : K[X])) = 0 := by
-      rw [← map_ofNat (algebraMap K (AdjoinRoot (b : K[X]))) 2, h2, map_zero]
-    exact eq_one_of_sq_eq_one_of_finrank_lt_two h2b (hno b) (w b) (congrFun hw2 b)
-  apply hg1
-  have := (glCentralizerEquivPi hsq).injective (hw1.trans (map_one _).symm)
-  exact congrArg Subtype.val this
 
 end CFSG.RankThree.PartOne

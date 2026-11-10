@@ -17,10 +17,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Quasithin.H13
     ∀ z ∈ quasithinOmegaOneCenter T ⊓ fsuVM T L I, z ≠ 1 →
       ¬ Subgroup.centralizer ({z} : Set G) ≤ fsuM T L
 
-@[expose] def Stmt10_3_3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), Hyp10 G T L I →
-    ∀ t v₁ v₂ : G, IsData10_2_11 T L I t v₁ v₂ →
-      Nonempty (↥(Kz T L (v₁ * v₂) ⊔ T) ⧸ CFSG.pCore 2 ↥(Kz T L (v₁ * v₂) ⊔ T) ≃* SymFiveWrTwo)
 
 @[expose] def StmtClose10 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), Hyp10 G T L I →

@@ -41,6 +41,5 @@ theorem fusionStronglyEmbedded_stabilizer_of_forall_existsUnique {G : Type*} [Gr
     exact hg (mem_stabilizer_iff.mpr
       (inv_smul_eq_iff.mp ((huniq _ hx2).trans (huniq _ hx1).symm)).symm)
 
-variable [IsPretransitive X Ω]
 
 end CFSG.Holt

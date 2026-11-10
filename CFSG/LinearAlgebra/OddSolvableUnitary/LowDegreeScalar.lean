@@ -241,31 +241,5 @@ theorem isCyclic_and_scalar_of_forall_abelian_normal_scalar {G : Type*} [Group G
   rw [IsCyclic.exponent_eq_card, hE9] at hexp
   norm_num at hexp
 
-theorem odd_solvable_low_degree_scalar_normal_subgroups_force_scalars {F : Type*} [Field F]
-    [Finite F] {n : ℕ} (hn : n = 2 ∨ n = 3) (H : Subgroup (GL (Fin n) F))
-    (hodd : Odd (Nat.card H)) (hsolv : Group.IsSolvable H)
-    (hscal : ∀ A : Subgroup H, A.Normal → IsMulCommutative A → ∀ x ∈ A,
-      ∃ c : F, ((x : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) = Matrix.scalar (Fin n) c) :
-    (∀ x ∈ H, ∃ c : F, (x : Matrix (Fin n) (Fin n) F) = Matrix.scalar (Fin n) c) ∧
-      IsCyclic H := by
-  let ρ : H →* Module.End F (Fin n → F) :=
-    Matrix.toLinAlgEquiv'.toMonoidHom.comp ((Units.coeHom _).comp H.subtype)
-  have hρ : Function.Injective ρ := fun x y h =>
-    Subtype.ext (Units.ext (Matrix.toLinAlgEquiv'.injective h))
-  have hiff : ∀ (x : H) (c : F), ρ x = c • 1 ↔
-      ((x : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) = Matrix.scalar (Fin n) c := by
-    intro x c
-    rw [Matrix.scalar_apply, ← Matrix.smul_one_eq_diagonal,
-      ← Matrix.toLinAlgEquiv'.injective.eq_iff, map_smul, map_one]
-    rfl
-  have hfin : finrank F (Fin n → F) = 2 ∨ finrank F (Fin n → F) = 3 := by
-    rwa [Module.finrank_fin_fun]
-  obtain ⟨hall, hcyc⟩ := isCyclic_and_scalar_of_forall_abelian_normal_scalar hodd hsolv hfin ρ hρ
-    fun A hAn hAc x hx => by
-      obtain ⟨c, hc⟩ := hscal A hAn hAc x hx
-      exact ⟨c, (hiff x c).2 hc⟩
-  refine ⟨fun x hx => ?_, hcyc⟩
-  obtain ⟨c, hc⟩ := hall ⟨x, hx⟩
-  exact ⟨c, (hiff ⟨x, hx⟩ c).1 hc⟩
 
 end CFSG.OddSolvableUnitary

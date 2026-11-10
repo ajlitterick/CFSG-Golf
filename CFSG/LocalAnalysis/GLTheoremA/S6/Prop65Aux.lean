@@ -37,11 +37,6 @@ theorem le_normalizer_glaPLayer {X B : Subgroup G} (hB : B ≤ Subgroup.normaliz
 theorem glaPLayer_le_self (X : Subgroup G) : GLAPLayer p X ≤ X :=
   sSup_le fun _ hL => (show GLAPComponent p X _ from hL).1
 
-theorem coversMod_of_le {N J : Subgroup G} (h : J ≤ N) : CoversMod p N J := by
-  unfold CoversMod
-  rw [inf_eq_right.2 h]
-  exact sup_eq_left.2 (Subgroup.map_subtype_le _)
-
 
 theorem mem_of_bmax_centralizes (hp : p.Prime) {B U : Subgroup G} {x : G} (hB : GLAIsBmax p B)
     (hxp : x ^ p = 1) (hBx : B ≤ Subgroup.centralizer ({x} : Set G)) (hU : U ≠ ⊥) (hU2 : IsPGroup 2 U)

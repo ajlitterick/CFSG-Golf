@@ -86,11 +86,6 @@ theorem odd_outer_secondDerived_eq_bot
     (odd_outerEquivSemilinearQuotient K (oddPrimePower_of_odd_card K hodd) hcard).surjective
     (semilinearQuotient_secondDerived_eq_bot K)
 
-theorem odd_outer_solvable
-    (K : Type u) [Field K] [Finite K]
-    (hodd : Odd (Nat.card K)) (hcard : 3 < Nat.card K) :
-    Group.IsSolvable (Outer (PSL2 K)) :=
-  ⟨⟨2, odd_outer_secondDerived_eq_bot K hodd hcard⟩⟩
 
 theorem odd_outer_secondDerived_eq_bot_of_equiv
     {G : Type v} [Group G]

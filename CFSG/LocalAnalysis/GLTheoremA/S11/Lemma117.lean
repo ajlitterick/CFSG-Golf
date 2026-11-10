@@ -73,11 +73,6 @@ private theorem lemma117_conjHomS_injective {G : Type} [Group G] (S : Subgroup G
   rw [lemma117_conjHomS_apply, lemma117_conjHomS_apply] at this
   simpa using this
 
-private theorem lemma117_conjHomS_mul {G : Type} [Group G] (S : Subgroup G) (g h : G) (hg : g ∈ Subgroup.normalizer (S : Set G))
-    (hh : h ∈ Subgroup.normalizer (S : Set G)) (hgh : g * h ∈ Subgroup.normalizer (S : Set G)) (s : S) :
-    lemma117_conjHomS S (g * h) hgh s = lemma117_conjHomS S g hg (lemma117_conjHomS S h hh s) := by
-  apply Subtype.ext
-  simp [lemma117_conjHomS_apply, mul_assoc]
 
 private theorem lemma117_not_Q8_action {G : Type} [Group G] [Finite G] {m : ℕ} (hm : 4 ≤ m)
     {B S : Subgroup G} {z : G} (hBN : B ≤ Subgroup.normalizer (S : Set G))
@@ -6380,8 +6375,6 @@ theorem y10xE_eq_of_subnormal_qs (hH : CFSG.Open.IsQuasisimple H) {M : Subgroup 
 end QS
 
 
-
-
 section CentreQuot
 
 variable {H : Type} [Group H] [Finite H]
@@ -6558,8 +6551,6 @@ theorem y10xE_qs_of_surj {G' Γ : Type} [Group G'] [Group Γ] [Finite G'] (f : G
   exact ⟨hcommB, hsimp⟩
 
 end Criterion
-
-
 
 
 section Orbit
@@ -8929,7 +8920,6 @@ end Diag6
 section NoDiag
 
 
-
 private theorem lemma117_succ_mod_inj {p i j : ℕ} (hi : i < p) (hj : j < p) (h : (i + 1) % p = (j + 1) % p) :
     i = j := by
   rcases Nat.lt_or_ge (i + 1) p with h1 | h1 <;> rcases Nat.lt_or_ge (j + 1) p with h2 | h2
@@ -8951,7 +8941,6 @@ private theorem lemma117_pow_mod {x : G} {p : ℕ} (hp0 : 0 < p) (hx : x ^ p = 1
 end NoDiag
 
 section NoDiag2
-
 
 
 private theorem lemma117_no_diag {m p p' : ℕ} {L B' : Subgroup G} {x' : G} {J : Subgroup G}
@@ -9957,34 +9946,6 @@ private theorem y10xC_perfect_pgroup_trivial {p : ℕ} [Fact p.Prime] {H : Type}
   haveI : Group.IsNilpotent H := hH.isNilpotent
   exact Group.IsPerfect.not_isSolvable (G := H) inferInstance
 
-private theorem y10xC_ppp_of_gen {p : ℕ} [hp : Fact p.Prime] {Y : Subgroup G}
-    (hgen : Subgroup.closure {g : G | g ∈ Y ∧ ∃ k : ℕ, g ^ (p ^ k) = 1} = Y) : PPrimePerfect p Y := by
-  intro M hMY hMn hcop
-  have hcopQ : Nat.Coprime (Nat.card (↥Y ⧸ M.subgroupOf Y)) p := by
-    rw [← Subgroup.index_eq_card]
-    exact hcop
-  have hpM : ∀ g ∈ Y, (∃ k : ℕ, g ^ (p ^ k) = 1) → g ∈ M := by
-    rintro g hg ⟨k, hk⟩
-    set q : ↥Y ⧸ M.subgroupOf Y := QuotientGroup.mk (⟨g, hg⟩ : ↥Y) with hqdef
-    have hqpow : q ^ (p ^ k) = 1 := by
-      rw [hqdef, ← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
-      have h1 : (⟨g, hg⟩ : ↥Y) ^ (p ^ k) = 1 := Subtype.ext (by simpa using hk)
-      rw [h1]
-      exact Subgroup.one_mem _
-    have h1 : orderOf q ∣ p ^ k := orderOf_dvd_of_pow_eq_one hqpow
-    have h2 : orderOf q ∣ Nat.card (↥Y ⧸ M.subgroupOf Y) := orderOf_dvd_natCard _
-    have hc : Nat.Coprime (p ^ k) (Nat.card (↥Y ⧸ M.subgroupOf Y)) :=
-      Nat.Coprime.pow_left k hcopQ.symm
-    have h4 : orderOf q ∣ 1 := by
-      rw [← Nat.Coprime.gcd_eq_one hc]
-      exact Nat.dvd_gcd h1 h2
-    have hq1 : q = 1 := orderOf_eq_one_iff.1 (Nat.dvd_one.1 h4)
-    rw [hqdef, QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf] at hq1
-    exact hq1
-  have hYM : Y ≤ M := by
-    rw [← hgen]
-    exact Subgroup.closure_le _ |>.2 (fun g hg => hpM g hg.1 hg.2)
-  exact le_antisymm hMY hYM
 
 private theorem y10xC_le_prod_of_perfect {p : ℕ} [hp : Fact p.Prime] {L T K Y : Subgroup G}
     (hLT : ∀ a ∈ L, ∀ b ∈ T, a * b = b * a) (hKT : K ≤ T)
@@ -10201,12 +10162,6 @@ private theorem y10xC_le_L_of_ppp (hSch : CFSG.AGLEmbedding.KFactCatalogSchreier
     exact L.mul_mem (L.mul_mem ha hl) (L.inv_mem ha)
   exact y10xC_le_of_prod hLK hKp hMN hYM hpp
 
-theorem pPerfect_le_L (hSch : CFSG.AGLEmbedding.KFactCatalogSchreier) (hctx : ThmACtx G m) (hsf : StageFacts G m)
-    (hR : RQuad G m p B x L) {Y : Subgroup G} (hY : Y ≤ Subgroup.centralizer ({x} : Set G))
-    (hperf : commutator ↥Y = ⊤)
-    (hgen : Subgroup.closure {g : G | g ∈ Y ∧ ∃ k : ℕ, g ^ (p ^ k) = 1} = Y) : Y ≤ L := by
-  haveI : Fact p.Prime := ⟨(rquad_hyp hsf hR).prime⟩
-  exact y10xC_le_L_of_ppp hSch hctx hsf hR hY hperf (y10xC_ppp_of_gen hgen)
 
 theorem j_layer_eq (hSch : CFSG.AGLEmbedding.KFactCatalogSchreier) (hCQ : CentQuasiAt G) (hctx : ThmACtx G m)
     (hsf : StageFacts G m) (hR : RQuad G m p B x L) (hc : Cfg116 G m p L p' B' x' J)

@@ -97,7 +97,6 @@ theorem exists_pow_seven_eq_one {n : ℕ} (hn : 8 ≤ n) :
   obtain ⟨σ, h7, h1⟩ := h8
   exact ⟨f σ, by rw [← map_pow, h7, map_one], fun h => h1 (hf (by rw [h, map_one]))⟩
 
-variable {W : Type*} [Group W] [Finite W] {A : Type*} [Group A] [IsSimpleGroup A]
 
 end AltLargePrime
 

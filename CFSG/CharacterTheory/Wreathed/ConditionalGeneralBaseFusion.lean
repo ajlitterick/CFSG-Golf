@@ -189,16 +189,6 @@ theorem isConj_mul_zpow_right (k : ℤ) :
   rw [← h2]
   group
 
-theorem sum_isConj_of_not_mem_exc [Fintype (modelBase S e)] (hn : 2 ≤ n) {x : modelBase S e}
-    (hx : x ∉ h.exc) (F : modelBase S e → ℂ) :
-    ∑ y ∈ Finset.univ.filter (fun y : modelBase S e => IsConj (x : G) (y : G)), F y =
-      ∑ k : Fin 6, F (sixAut h k x) := by
-  have himage : Finset.univ.filter (fun y : modelBase S e => IsConj (x : G) (y : G)) =
-      Finset.univ.image (fun k => sixAut h k x) := by
-    ext y
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_image]
-    exact isConj_iff_exists_sixAut h hn x y
-  rw [himage, Finset.sum_image fun k _ l _ hkl => sixAut_apply_injective h hn hx hkl]
 
 @[expose] noncomputable def tripleElt (k : ℕ) : Fin 3 → modelBase S e :=
   ![(h.left * h.right) ^ k, (h.left ^ k)⁻¹, (h.right ^ k)⁻¹]

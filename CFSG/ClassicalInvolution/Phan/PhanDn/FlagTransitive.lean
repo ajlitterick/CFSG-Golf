@@ -226,23 +226,6 @@ private theorem fgt_append_range {k l : ℕ}
     · refine ⟨Fin.natAdd k j, ?_⟩
       simp
 
-private theorem fgt_span_append_left {k l d : ℕ}
-    (u : Fin k → (Fin (m + 1) ⊕ Fin (m + 1) → K))
-    (v : Fin l → (Fin (m + 1) ⊕ Fin (m + 1) → K)) (hd : d ≤ k) :
-    Submodule.span K ((Fin.append u v) '' {i : Fin (k + l) | (i : ℕ) < d}) =
-      Submodule.span K (u '' {i : Fin k | (i : ℕ) < d}) := by
-  congr 1
-  ext x
-  constructor
-  · rintro ⟨i, hi, rfl⟩
-    have hi' : (i : ℕ) < k := lt_of_lt_of_le hi hd
-    refine ⟨⟨(i : ℕ), hi'⟩, hi, ?_⟩
-    exact (fgt_append_val_lt u v i hi').symm
-  · rintro ⟨i, hi, rfl⟩
-    refine ⟨Fin.castAdd l i, ?_, ?_⟩
-    · simp only [Set.mem_setOf_eq, Fin.val_castAdd]
-      exact hi
-    · exact fgt_append_val_lt u v (Fin.castAdd l i) (by simp)
 
 private theorem fgt_sup_inf_flipOrth_eq (hσ : ∀ x, σ (σ x) = x) (hne : ∃ c, σ c ≠ c)
     {T C : Submodule K (Fin (m + 1) ⊕ Fin (m + 1) → K)}

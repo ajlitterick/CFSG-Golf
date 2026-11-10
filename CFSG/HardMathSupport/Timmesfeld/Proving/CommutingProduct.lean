@@ -93,11 +93,6 @@ theorem card_sup_mul_card_inf [Finite G] (A B : Subgroup G)
   rw [mul_comm]
   exact h1
 
-theorem card_mul_le_card_sup_mul_of_inf_le [Finite G] (A B W : Subgroup G)
-    (hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a) [Finite W] (hW : A ⊓ B ≤ W) :
-    Nat.card ↥A * Nat.card ↥B ≤ Nat.card ↥(A ⊔ B) * Nat.card ↥W := by
-  rw [← card_sup_mul_card_inf A B hc]
-  exact Nat.mul_le_mul_left _ (Subgroup.card_le_of_le hW)
 
 end CFSG.HardMathSupport.Timmesfeld.Proving
 

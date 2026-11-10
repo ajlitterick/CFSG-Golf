@@ -162,28 +162,5 @@ theorem faithful_odd_higher_linear_socle_selector_core
   exact ⟨ρ, hinj, hρW, huniq, hm4, hpl, hfe, ⟨E, inferInstance, inferInstance,
     by rw [hEc, hk], ⟨eL⟩⟩, hfirst, hrow, not_selectorRowS_and_selectorRowO hm3⟩
 
-theorem faithful_odd_higher_linear_socle_small_source_involution_selector
-    {A : Type} [Group A] [Finite A] {W : Subgroup A} [W.Normal]
-    (hWsimple : IsSimpleGroup W) (hWnonab : ∃ x y : W, x * y ≠ y * x)
-    (hCW : centralizer (W : Set A) = ⊥) {a : A} (ha : orderOf a = 2) {L : Subgroup A}
-    (hLW : L ≤ W) (hL : CFSG.Assembly.IsComponentOf L (centralizer ({a} : Set A)))
-    (hL2 : 2 ≤ CFSG.pRank 2 L) (hstd : IsStandardSubgroup L)
-    {p f : ℕ} (_hp : p.Prime) (hp2 : p ≠ 2) (_hf : 1 ≤ f)
-    (hsrc : StatedClassicalModel (L ⧸ center L) .PSL 2 p f ∨
-      Nonempty (L ⧸ center L ≃* alternatingGroup (Fin 7)) ∨
-      StatedClassicalModel (L ⧸ center L) .PSL 3 2 2)
-    {m ℓ e : ℕ} (hm : 4 ≤ m) (hℓ : ℓ.Prime) (hℓ2 : ℓ ≠ 2) (he : 1 ≤ e) {k : Type} [Field k]
-    (hk : Nat.card k = ℓ ^ e) (φ : W ≃* projectiveSL m k) :
-    ∃ ρ : A →* MulAut (projectiveSL m k), Function.Injective ρ ∧
-      (∀ w : W, ρ w = MulAut.conj (φ w)) ∧
-      (∀ ρ' : A →* MulAut (projectiveSL m k), (∀ w : W, ρ' w = MulAut.conj (φ w)) → ρ' = ρ) ∧
-      m = 4 ∧ p = ℓ ∧ f = 2 * e ∧
-      (∃ (E : Type) (_ : Field E) (_ : Finite E), Nat.card E = (ℓ ^ e) ^ 2 ∧
-        Nonempty (L ≃* projectiveSL 2 E)) ∧
-      StatedClassicalModel (L ⧸ center L) .PSL 2 p f ∧
-      (SelectorRowS m k ρ W a L ∨ SelectorRowO m k ρ W a L) ∧
-      ¬ (SelectorRowS m k ρ W a L ∧ SelectorRowO m k ρ W a L) :=
-  faithful_odd_higher_linear_socle_selector_core hWsimple hWnonab hCW ha hLW hL hstd hp2 hsrc
-    (fun _ => Or.inl hL2) hm hℓ hℓ2 he hk φ
 
 end CFSG.ComponentClassification.OddSelector

@@ -42,9 +42,6 @@ theorem gWordG_cons
     (l : ℤ) (w : List ℤ) : gWordG K (l :: w) = gEltG K l * gWordG K w := by
   simp [gWordG]
 
-theorem gWordG_append
-    (w w' : List ℤ) : gWordG K (w ++ w') = gWordG K w * gWordG K w' := by
-  simp [gWordG]
 
 theorem hasBits_gEltG
     {l : ℤ} (hl : GoodLetter l) :

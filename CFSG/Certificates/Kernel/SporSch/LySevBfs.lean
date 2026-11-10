@@ -100,41 +100,11 @@ theorem digits_lt : ∀ (n : Nat) (a : Nat → Nat), (∀ r < n, a r < 5) →
     have : a n * 5 ^ n ≤ 4 * 5 ^ n := Nat.mul_le_mul_right _ (by omega)
     omega
 
-theorem digits_inj : ∀ (n : Nat) (a b : Nat → Nat), (∀ r < n, a r < 5) → (∀ r < n, b r < 5) →
-    ∑ r ∈ Finset.range n, a r * 5 ^ r = ∑ r ∈ Finset.range n, b r * 5 ^ r → ∀ r < n, a r = b r
-  | 0, _, _, _, _, _ => fun r hr => absurd hr (Nat.not_lt_zero r)
-  | n + 1, a, b, ha, hb, h => by
-    rw [Finset.sum_range_succ', Finset.sum_range_succ'] at h
-    have e1 : ∀ c : Nat → Nat, ∑ r ∈ Finset.range n, c (r + 1) * 5 ^ (r + 1) =
-        5 * ∑ r ∈ Finset.range n, c (r + 1) * 5 ^ r := by
-      intro c
-      rw [Finset.mul_sum]
-      refine Finset.sum_congr rfl fun r _ => ?_
-      rw [Nat.pow_succ]
-      ring
-    rw [e1 a, e1 b, Nat.pow_zero, Nat.mul_one, Nat.mul_one] at h
-    have ha0 := ha 0 (by omega)
-    have hb0 := hb 0 (by omega)
-    have h0 : a 0 = b 0 := by omega
-    have hrest : ∑ r ∈ Finset.range n, a (r + 1) * 5 ^ r = ∑ r ∈ Finset.range n, b (r + 1) * 5 ^ r := by
-      omega
-    have ih := digits_inj n (fun r => a (r + 1)) (fun r => b (r + 1)) (fun r hr => ha _ (by omega))
-      (fun r hr => hb _ (by omega)) hrest
-    intro r hr
-    rcases r with _ | r
-    · exact h0
-    · exact ih r (by omega)
 
 theorem code7K_lt {x : Nat} (h : ∀ r < 7, d3 x r < 5) : code7K x < 78125 := by
   rw [code7K_sum]
   exact digits_lt 7 (d3 x) h
 
-theorem dec7B_inj {x y : Nat} (hx : ∀ r < 7, d3 x r < 5) (hy : ∀ r < 7, d3 y r < 5)
-    (h : code7K x = code7K y) : dec7B x = dec7B y := by
-  rw [code7K_sum, code7K_sum] at h
-  have := digits_inj 7 (d3 x) (d3 y) hx hy h
-  unfold dec7B
-  exact congrArg Array.ofFn (funext fun r => this r.val r.isLt)
 
 theorem code7K_of_dec {x y : Nat} (h : dec7B x = dec7B y) : code7K x = code7K y := by
   rw [← code7_dec, ← code7_dec, h]

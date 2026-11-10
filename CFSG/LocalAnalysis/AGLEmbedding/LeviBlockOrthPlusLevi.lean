@@ -131,8 +131,6 @@ theorem plusFinIdx_injective {a b : ℕ} (hb : b ≤ r) :
     Function.Injective (plusFinIdx (a := a) hb) := fun k k' h =>
   Fin.ext (by simpa [plusFinIdx] using congrArg Fin.val h)
 
-theorem plusEIdx_eq {a b : ℕ} (hb : b ≤ r) : plusEIdx (a := a) hb = Sum.inl ∘ plusFinIdx hb :=
-  rfl
 
 variable (K) in
 @[expose] noncomputable def plusFlagLevi {a b : ℕ} (hb : b ≤ r) :

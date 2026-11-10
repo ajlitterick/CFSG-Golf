@@ -16,7 +16,6 @@ abbrev Thm13Ambient : Type 1 := ∀ (G : Type) [Group G] [Finite G], Prop
       ∀ K ∈ kStarComponents N, ∀ b ∈ K, orderOf b = 2 →
         centralizer ({b} : Set G) ≤ normalizer (solomonKStarOf N : Set G)
 
-@[expose] def Lemma316Input : Prop := Lemma316InputFor (fun G _ _ => Thm13Below G)
 
 @[expose] def Lemma313InputFor (𝒜 : Thm13Ambient) : Prop :=
   ∀ (G : Type) [Group G] [Finite G], 𝒜 G → ∀ N : Subgroup G, IsSolomonChoice N →
@@ -31,6 +30,5 @@ abbrev Thm13Ambient : Type 1 := ∀ (G : Type) [Group G] [Finite G], Prop
         ∀ K ∈ kStarComponents N, ∀ (g : G) (X : Subgroup G), X ≤ conjugate M g →
           (∀ a ∈ K, ∃ x ∈ X, ∃ o ∈ oddCoreIn (solomonKStarOf N), a = x * o) → g ∈ M
 
-@[expose] def Lemma313Input : Prop := Lemma313InputFor (fun G _ _ => Thm13Below G)
 
 end CFSG.ComponentClassification.Sol76

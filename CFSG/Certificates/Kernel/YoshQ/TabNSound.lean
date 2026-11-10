@@ -68,13 +68,6 @@ theorem ap_tabN (hw : w ≤ 32) (x i : Nat) : ap (tabN n w x) i = pg w (mask w) 
   · simp only [hi, ↓reduceIte, pg_mod_ge (Nat.le_of_not_lt hi)]
     rfl
 
-theorem tabN_ext {x y : Nat}
-    (h : ∀ i < n, pg w (mask w) (x % 2 ^ (n * w)) i = pg w (mask w) (y % 2 ^ (n * w)) i) :
-    tabN n w x = tabN n w y := by
-  apply Array.ext (by simp [tabN])
-  intro i h1 _
-  have hi : i < n := by simpa [tabN] using h1
-  simp [tabN, h i hi]
 
 theorem compT_tabN (hw : w ≤ 32) (hn : n < 2 ^ 32) (x y : Nat) :
     compT n (tabN n w x) (tabN n w y) = tabN n w (pmN n w x y) := by

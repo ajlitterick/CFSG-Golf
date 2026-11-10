@@ -254,31 +254,6 @@ theorem isQuasisimple_open_map_complSp {G : Type*} [Group G] {L : Subgroup G}
   ⟨(isQuasisimple_map_complSp hK hm e k).1.commutator_eq_top,
     (isQuasisimple_map_complSp hK hm e k).2.1⟩
 
-theorem layer_centralizer_of_mem (hK : 4 ≤ Nat.card K) (hm : 1 ≤ m) {k : Fin (m + 1)} {κ : Kˣ}
-    (hκ : κ * κ ≠ 1) {X : Subgroup (StatedSp (m + 1) K)} (hX : rootTorusHom K (m + 1) k κ ∈ X)
-    (hDX : complSp K k ≤ centralizer (X : Set (StatedSp (m + 1) K))) :
-    inSubgroup layer (centralizer (X : Set (StatedSp (m + 1) K))) = complSp K k :=
-  LinearPilot.inSubgroup_layer_eq_of_commutator_mem hDX
-    (fun _ hg _ hg' => commutator_mem_complSp_of_mem_centralizer hκ hX hg hg')
-    (isQuasisimple_complSp hK hm k)
-
-theorem layer_centralizer_rootTorusSp (hK : 4 ≤ Nat.card K) (hm : 1 ≤ m) (k : Fin (m + 1)) :
-    inSubgroup layer (centralizer (rootTorusSp K k : Set (StatedSp (m + 1) K))) =
-      complSp K k := by
-  obtain ⟨κ, hκ⟩ := exists_units_mul_self_ne_one_of_four_le hK
-  exact layer_centralizer_of_mem hK hm hκ (rootTorusHom_mem_rootTorusSp k κ)
-    (complSp_le_centralizer_rootTorusSp k)
-
-theorem layer_inf_centralizer_of_mem {G : Type*} [Group G] {L : Subgroup G}
-    (hK : 4 ≤ Nat.card K) (hm : 1 ≤ m) (e : L ≃* StatedSp (m + 1) K) {k : Fin (m + 1)} {κ : Kˣ}
-    (hκ : κ * κ ≠ 1) {X : Subgroup (StatedSp (m + 1) K)} (hX : rootTorusHom K (m + 1) k κ ∈ X)
-    (hDX : complSp K k ≤ centralizer (X : Set (StatedSp (m + 1) K))) :
-    inSubgroup layer
-        (L ⊓ centralizer (((X.map e.symm.toMonoidHom).map L.subtype : Subgroup G) : Set G)) =
-      ((complSp K k).map e.symm.toMonoidHom).map L.subtype :=
-  LinearPilot.inSubgroup_layer_inf_centralizer_map_symm_of_commutator_mem e hDX
-    (fun _ hg _ hg' => commutator_mem_complSp_of_mem_centralizer hκ hX hg hg')
-    (isQuasisimple_complSp hK hm k)
 
 theorem layer_inf_centralizer_rootTorusSp {G : Type*} [Group G] {L : Subgroup G}
     (hK : 4 ≤ Nat.card K) (hm : 1 ≤ m) (e : L ≃* StatedSp (m + 1) K) (k : Fin (m + 1)) :
@@ -403,11 +378,6 @@ theorem isQuasisimple_open_map_siegelLevi {G : Type*} [Group G] {L : Subgroup G}
   ⟨(isQuasisimple_map_siegelLevi hK hn e).1.commutator_eq_top,
     (isQuasisimple_map_siegelLevi hK hn e).2.1⟩
 
-theorem layer_centralizer_siegelTorus (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n) :
-    inSubgroup layer (centralizer (siegelTorus K n : Set (StatedSp n K))) = siegelLevi K n := by
-  rw [centralizer_siegelTorus hK]
-  exact LinearPilot.inSubgroup_layer_eq_of_commutator_mem siegelLevi_le_siegelLeviGL
-    (fun _ hg _ hg' => commutator_mem_siegelLevi hg hg') (isQuasisimple_siegelLevi hK hn)
 
 theorem layer_inf_centralizer_siegelTorus {G : Type*} [Group G] {L : Subgroup G}
     (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n) (e : L ≃* StatedSp n K) :

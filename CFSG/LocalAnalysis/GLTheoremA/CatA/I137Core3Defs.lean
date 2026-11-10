@@ -21,12 +21,6 @@ theorem Core3At.mono {P Q : LieTypeIndex → Prop} (hPQ : ∀ d, P d → Q d) (h
     Core3At P :=
   fun d hd S _ _ e => h d (hPQ _ hd) S e
 
-theorem Core3At.or {P Q : LieTypeIndex → Prop} (hP : Core3At P) (hQ : Core3At Q) :
-    Core3At fun d => P d ∨ Q d := by
-  intro d hd S _ _ e
-  rcases hd with h | h
-  · exact hP d h S e
-  · exact hQ d h S e
 
 theorem Core3Group.of_mulEquiv {S S' : Type} [Group S] [Group S'] (e : S ≃* S')
     (h : Core3Group S') : Core3Group S := by

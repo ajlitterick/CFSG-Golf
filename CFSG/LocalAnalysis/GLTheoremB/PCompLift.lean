@@ -81,10 +81,6 @@ theorem glaPPrimeCore_map_subgroupMap {p : ℕ} (hp : p.Prime) (ψ : G →* G') 
     rw [← glaPPrimeCore_map_subgroupMap hp ψ A hker]
     exact Subgroup.le_comap_map _ _)
 
-theorem lcHom_mk {p : ℕ} (hp : p.Prime) (ψ : G →* G') (A : Subgroup G)
-    (hker : Nat.Coprime p (Nat.card ↥(A ⊓ ψ.ker))) (x : ↥A) :
-    lcHom hp ψ A hker (QuotientGroup.mk x) = QuotientGroup.mk (ψ.subgroupMap A x) :=
-  rfl
 
 theorem lcHom_bijective {p : ℕ} (hp : p.Prime) (ψ : G →* G') (A : Subgroup G)
     (hker : Nat.Coprime p (Nat.card ↥(A ⊓ ψ.ker))) :

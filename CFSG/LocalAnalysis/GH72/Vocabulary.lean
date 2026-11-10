@@ -185,7 +185,6 @@ variable {G : Type} [Group G] [Finite G] (𝔖 : Sec4Setting G) {A : Subgroup G}
     ∀ T₂ : Subgroup G, T₂ ≤ 𝔖.S₂ → T₂ ≠ ⊥ →
       N₁ ≤ normalizer (T₂ : Set G) ∧ (N₁.subgroupOf (normalizer (T₂ : Set G))).Normal
 
-variable (hAS : A ≤ 𝔖.S) (hA : IsE16 A)
 
 end Sec4Setting
 

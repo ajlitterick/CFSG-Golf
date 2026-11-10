@@ -284,9 +284,6 @@ include hpk hqk in
 theorem siegDiag_p_mem_centPerf (c : K) : siegDiag K p c ∈ centPerf K hpk hqk :=
   subset_closure (by simp only [centPerfGen, Set.mem_union, Set.mem_range]; tauto)
 
-include hpk hqk in
-theorem siegDiag_q_mem_centPerf (c : K) : siegDiag K q c ∈ centPerf K hpk hqk :=
-  subset_closure (by simp only [centPerfGen, Set.mem_union, Set.mem_range]; tauto)
 
 include hqk in
 theorem leviTv_p_mem_centPerf (c : K) : leviTv K hpk c ∈ centPerf K hpk hqk :=

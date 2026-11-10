@@ -51,19 +51,5 @@ theorem similarityPointAction_eq_one_iff (Q : QuadraticForm K (Fin d → K))
   · rintro ⟨hfield, a, ha⟩
     exact similarityPointAction_of_scalarMatrix Q g hfield a ha
 
-theorem similarityPointAction_kernel_submodule (Q : QuadraticForm K (Fin d → K))
-    (g : similarityPairs Q) (hg : similarityPointAction Q g = 1)
-    (W : Submodule K (Fin d → K)) (hW : Module.finrank K W = 1)
-    (hsing : ∀ v ∈ W, Q v = 0) :
-    W.map (coordinateSemilinearLinearMap g.val) = W :=
-  (similarityPointAction_eq_one_iff_lines Q g).mp hg W hW hsing
-
-theorem similarityPointAction_inverse_kernel_submodule (Q : QuadraticForm K (Fin d → K))
-    (g : similarityPairs Q) (hg : similarityPointAction Q g = 1)
-    (W : Submodule K (Fin d → K)) (hW : Module.finrank K W = 1)
-    (hsing : ∀ v ∈ W, Q v = 0) :
-    W.map (coordinateSemilinearLinearMap g.val⁻¹) = W := by
-  have hi : similarityPointAction Q g⁻¹ = 1 := by rw [map_inv, hg, inv_one]
-  exact similarityPointAction_kernel_submodule Q g⁻¹ hi W hW hsing
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointKernel

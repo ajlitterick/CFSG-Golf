@@ -33,10 +33,6 @@ theorem coe_blkSU {m k i : ℕ} (hk : i + k ≤ m) (A : StatedSU k (p ^ f) K) :
     ((blkSU h i hk A : StatedSU m (p ^ f) K) : GL (Fin m) K) = blockGL m i hk (A : GL (Fin k) K) :=
   rfl
 
-theorem blkSU_injective {m k i : ℕ} (hk : i + k ≤ m) : Function.Injective (blkSU h i hk) :=
-  fun _ _ hAB => Subtype.ext (Units.ext (blockMat_injective hk
-    (congrArg (fun g : StatedSU m (p ^ f) K => ((g : GL (Fin m) K) : Matrix (Fin m) (Fin m) K))
-      hAB)))
 
 theorem eq_one_of_blockGL_mem_scalars {m k i : ℕ} (hk : i + k ≤ m) (hlt : k < m)
     {A : GL (Fin k) K} (hA : blockGL m i hk A ∈ StatedScalars (Fin m) K) : A = 1 := by

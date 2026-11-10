@@ -326,11 +326,6 @@ theorem ggL45D4BstarProperInput_of_fixLocal (hraw : GGRawInnFieldInput)
       hxd hE hE27 hEφ hw2 hw1 hwφ hwE
     omega
 
-theorem ggL45CyclicD4Input_of_fixLocal (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
-    (hcent : GGL45CentInput) (hgr : GGNbrGraphInput) (hKG : GGD4FieldFixLocalOddInput) :
-    GGL45CyclicD4Input :=
-  ggL45CyclicD4Input_of_proper hraw hiso hcent
-    (ggL45D4BstarProperInput_of_fixLocal hraw hiso hgr hKG)
 
 end Certs
 

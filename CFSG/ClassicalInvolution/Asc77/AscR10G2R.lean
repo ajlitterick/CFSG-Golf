@@ -16,7 +16,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 open scoped commutatorElement
 
 
-
 section Lift
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {N : Subgroup G} [N.Normal]
@@ -201,8 +200,6 @@ theorem res10aNoConj_nine_of_cit3 (p f : ℕ) [Fact p.Prime] (h3 : Q3.CIT3Induct
     (hC : G2Comp3) (h9 : p ^ f = 9) : Res10aNoConj p f :=
   res10aNoConj_nine_of_g2Sec3 p f h3 (g2Sec3_of_g2Comp3 hC) h9
 
-theorem sec3Typing_of_g2Comp3 (h3 : Q3.CIT3Inductive) (hC : G2Comp3) : Sec3Typing :=
-  sec3Typing_of_g2Sec3 h3 (g2Sec3_of_g2Comp3 hC)
 
 theorem res10aNoConj9_of_g2Comp3 (p f : ℕ) [Fact p.Prime] (hC : G2Comp3) :
     Q3.CIT3Inductive → p ^ f = 9 → Res10aNoConj p f :=

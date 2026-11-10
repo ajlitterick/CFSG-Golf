@@ -146,11 +146,6 @@ theorem j3InvForm_seed {k : ℕ} (hk : k < 2) (v : J3V) :
     rw [ite_eq_right one_ne_zero]
     exact h
 
-theorem j3InvForm_seed_inv
-    {k : ℕ} (hk : k < 2) (v : J3V) :
-    j3InvForm ((((j3SeedGL k)⁻¹ : GL (Fin 80) (ZMod 2)) : Matrix (Fin 80) (Fin 80) (ZMod 2)) *ᵥ
-      v) = j3InvForm v := by
-  rw [j3InvForm_seed hk, ← j3SeedGL_val, j3SeedGL_mulVec_inv]
 
 theorem j3B_eq : j3B = rowsMatrix 80 BRows := (rowsMatrix_polarRowsZ _).symm
 
@@ -189,59 +184,6 @@ theorem j3_commutant (M : Matrix (Fin 80) (Fin 80) (ZMod 2))
   rw [rowsMatrix_TRows hi]
   exact hM i (by simp [j3CentralizerIdx]; omega)
 
-@[expose] def j3CommMap :
-    Matrix (Fin 80) (Fin 80) (ZMod 2) →ₗ[ZMod 2] (Fin 4 → Matrix (Fin 80) (Fin 80) (ZMod 2)) where
-  toFun M t := M * j3T (j3CentralizerIdx.getD t 0) - j3T (j3CentralizerIdx.getD t 0) * M
-  map_add' M N := by
-    funext t
-    simp only [Pi.add_apply, add_mul, mul_add]
-    abel
-  map_smul' c M := by
-    funext t
-    simp only [Pi.smul_apply, RingHom.id_apply, smul_sub, Matrix.smul_mul, Matrix.mul_smul]
-
-theorem mem_ker_j3CommMap (M : Matrix (Fin 80) (Fin 80) (ZMod 2)) :
-    M ∈ LinearMap.ker j3CommMap ↔ M = 0 ∨ M = 1 := by
-  rw [LinearMap.mem_ker]
-  constructor
-  · intro h
-    refine j3_commutant M fun r hr => ?_
-    obtain ⟨t, ht, rfl⟩ := List.getElem_of_mem hr
-    have := congrFun h ⟨t, by simpa [j3CentralizerIdx] using ht⟩
-    simp only [j3CommMap, LinearMap.coe_mk, AddHom.coe_mk, Pi.zero_apply] at this
-    rw [List.getD_eq_getElem _ _ ht] at this
-    exact sub_eq_zero.1 this
-  · rintro (rfl | rfl)
-    · funext t
-      simp [j3CommMap]
-    · funext t
-      simp [j3CommMap]
-
-theorem ker_j3CommMap_eq_set :
-    (LinearMap.ker j3CommMap : Set (Matrix (Fin 80) (Fin 80) (ZMod 2))) = {0, 1} := by
-  ext M
-  rw [SetLike.mem_coe, mem_ker_j3CommMap]
-  simp
-
-theorem ker_j3CommMap :
-    LinearMap.ker j3CommMap = Submodule.span (ZMod 2) {1} := by
-  ext M
-  rw [mem_ker_j3CommMap, Submodule.mem_span_singleton]
-  constructor
-  · rintro (rfl | rfl)
-    · exact ⟨0, zero_smul _ _⟩
-    · exact ⟨1, one_smul _ _⟩
-  · rintro ⟨c, rfl⟩
-    rcases zmod2_eq_zero_or_one c with rfl | rfl
-    · left; exact zero_smul _ _
-    · right; exact one_smul _ _
-
-theorem finrank_range_j3CommMap :
-    Module.finrank (ZMod 2) (LinearMap.range j3CommMap) = 6399 := by
-  have h := LinearMap.finrank_range_add_finrank_ker j3CommMap
-  rw [ker_j3CommMap, finrank_span_singleton one_ne_zero, Module.finrank_matrix,
-    Module.finrank_self, Fintype.card_fin] at h
-  omega
 
 abbrev J3GL : Type := LinearMap.GeneralLinearGroup (ZMod 2) J3V
 
@@ -486,10 +428,6 @@ theorem j3JHom_bijective : Function.Bijective j3JHom := by
 @[expose] def j3MatEquiv : Blueprint.NativeSporadic.J3 ≃* j3J :=
   Blueprint.NativeSporadic.matrixSeedEquiv 2 80 (by norm_num) j3A1 j3A2 det_j3A1 det_j3A2
 
-theorem j3MatEquiv_val (u : Blueprint.NativeSporadic.J3) :
-    (((j3MatEquiv u : j3J) : GL (Fin 80) (ZMod 2)) : Matrix (Fin 80) (Fin 80) (ZMod 2)) =
-      u.val.val :=
-  Blueprint.NativeSporadic.matrixSeedEquiv_val 2 80 _ j3A1 j3A2 _ _ u
 
 @[expose] def j3EquivG :
     Blueprint.NativeSporadic.J3 ≃* j3G := j3MatEquiv.trans j3JEquivG
@@ -500,9 +438,6 @@ theorem j3MatEquiv_val (u : Blueprint.NativeSporadic.J3) :
   map_one' := by rw [map_one, map_one]
   map_mul' u w := by rw [map_mul, map_mul]
 
-theorem j3PermHom_apply
-    (u : Blueprint.NativeSporadic.J3) :
-    j3PermHom u = j3Rho (j3EquivG u) := rfl
 
 theorem j3PermHom_injective :
     Function.Injective j3PermHom :=
@@ -522,83 +457,5 @@ theorem j3PermHom_range :
     Blueprint.NativeSporadic.J3 ≃* j3P :=
   (MonoidHom.ofInjective j3PermHom_injective).trans (MulEquiv.subgroupCongr j3PermHom_range)
 
-theorem j3PermEquiv_apply
-    (u : Blueprint.NativeSporadic.J3) :
-    (j3PermEquiv u : Equiv.Perm (Fin 6156)) = j3PermHom u := rfl
-
-@[expose] def j3SeedA :
-    Blueprint.NativeSporadic.J3 := j3MatEquiv.symm ⟨j3SeedGL 0, j3SeedGL_mem 0⟩
-
-@[expose] def j3SeedB :
-    Blueprint.NativeSporadic.J3 := j3MatEquiv.symm ⟨j3SeedGL 1, j3SeedGL_mem 1⟩
-
-theorem j3SeedA_val : j3SeedA.val.val = j3A1 := by
-  rw [← j3MatEquiv_val, j3SeedA, MulEquiv.apply_symm_apply, j3SeedGL_val]
-  rfl
-
-theorem j3SeedB_val : j3SeedB.val.val = j3A2 := by
-  rw [← j3MatEquiv_val, j3SeedB, MulEquiv.apply_symm_apply, j3SeedGL_val]
-  rfl
-
-theorem j3EquivG_seed (k : ℕ) (hk : k < 2) :
-    j3EquivG (j3MatEquiv.symm ⟨j3SeedGL k, j3SeedGL_mem k⟩) =
-      ⟨j3SeedLin ⟨k, hk⟩, Subgroup.subset_closure ⟨⟨k, hk⟩, rfl⟩⟩ := by
-  apply Subtype.ext
-  show ((j3JEquivG (j3MatEquiv (j3MatEquiv.symm ⟨j3SeedGL k, j3SeedGL_mem k⟩)) : j3G) :
-    J3GL) = j3SeedLin ⟨k, hk⟩
-  rw [MulEquiv.apply_symm_apply]
-  rfl
-
-theorem j3PermEquiv_seedA :
-    (j3PermEquiv j3SeedA : Equiv.Perm (Fin 6156)) = j3Gen 0 := by
-  rw [j3PermEquiv_apply, j3PermHom_apply, j3SeedA, j3EquivG_seed 0 (by norm_num)]
-  exact j3Rho_seed 0
-
-theorem j3PermEquiv_seedB :
-    (j3PermEquiv j3SeedB : Equiv.Perm (Fin 6156)) = j3Gen 1 := by
-  rw [j3PermEquiv_apply, j3PermHom_apply, j3SeedB, j3EquivG_seed 1 (by norm_num)]
-  exact j3Rho_seed 1
-
-theorem j3Form_permEquiv
-    (u : Blueprint.NativeSporadic.J3) (r : Fin 6156) (v : J3V) :
-    j3Form ((j3PermEquiv u : Equiv.Perm (Fin 6156)) r) v =
-      j3Form r ((u⁻¹ : Blueprint.NativeSporadic.J3).val.val *ᵥ v) := by
-  rw [j3PermEquiv_apply, j3PermHom_apply, j3Form_rho, funAct]
-  congr 1
-
-theorem FAM_J3_faithful_permutation_action :
-    (∀ r < 6156, ∀ r' < 6156, j3Form r = j3Form r' → r = r') ∧
-    (∀ (r : Fin 6156) (v : J3V), j3Form r (j3A1⁻¹ *ᵥ v) = j3Form (j3Gen 0 r) v) ∧
-    (∀ (r : Fin 6156) (v : J3V), j3Form r (j3A2⁻¹ *ᵥ v) = j3Form (j3Gen 1 r) v) ∧
-    (∀ v : J3V, j3InvForm (j3A1⁻¹ *ᵥ v) = j3InvForm v) ∧
-    (∀ v : J3V, j3InvForm (j3A2⁻¹ *ᵥ v) = j3InvForm v) ∧
-    IsUnit j3B ∧
-    (∀ r, j3T r = j3B⁻¹ * polarMatrix (j3Form r)) ∧
-    (LinearMap.ker j3CommMap : Set (Matrix (Fin 80) (Fin 80) (ZMod 2))) = {0, 1} ∧
-    Module.finrank (ZMod 2) (LinearMap.range j3CommMap) = 6399 ∧
-    (∀ (u : Blueprint.NativeSporadic.J3) (r : Fin 6156) (v : J3V),
-      j3Form ((j3PermEquiv u : Equiv.Perm (Fin 6156)) r) v =
-        j3Form r ((u⁻¹ : Blueprint.NativeSporadic.J3).val.val *ᵥ v)) ∧
-    j3SeedA.val.val = j3A1 ∧ j3SeedB.val.val = j3A2 ∧
-    (j3PermEquiv j3SeedA : Equiv.Perm (Fin 6156)) = j3Gen 0 ∧
-    (j3PermEquiv j3SeedB : Equiv.Perm (Fin 6156)) = j3Gen 1 := by
-  have hA : (((j3SeedGL 0)⁻¹ : GL (Fin 80) (ZMod 2)) : Matrix (Fin 80) (Fin 80) (ZMod 2)) =
-      j3A1⁻¹ := by
-    rw [Matrix.coe_units_inv, j3SeedGL_val, ite_eq_left rfl]
-  have hB : (((j3SeedGL 1)⁻¹ : GL (Fin 80) (ZMod 2)) : Matrix (Fin 80) (Fin 80) (ZMod 2)) =
-      j3A2⁻¹ := by
-    rw [Matrix.coe_units_inv, j3SeedGL_val, ite_eq_right one_ne_zero]
-  refine ⟨fun r hr r' hr' h => j3Form_injective hr hr' h, fun r v => ?_, fun r v => ?_,
-    fun v => ?_, fun v => ?_, isUnit_j3B, fun _ => rfl, ker_j3CommMap_eq_set,
-    finrank_range_j3CommMap, j3Form_permEquiv, j3SeedA_val, j3SeedB_val, j3PermEquiv_seedA,
-    j3PermEquiv_seedB⟩
-  · rw [← hA]
-    exact j3Form_seed_inv (by norm_num) r v
-  · rw [← hB]
-    exact j3Form_seed_inv (by norm_num) r v
-  · rw [← hA]
-    exact j3InvForm_seed_inv (by norm_num) v
-  · rw [← hB]
-    exact j3InvForm_seed_inv (by norm_num) v
 
 end CFSG.Sporadic.Schreier

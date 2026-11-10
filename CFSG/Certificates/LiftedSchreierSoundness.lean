@@ -52,24 +52,6 @@ theorem lift_image (hV : ValidLiftedSchreier Q φ U) (j : Fin Q.strongCount) :
         exact ih l.val (by omega) _ rfl
   exact all j.val j rfl
 
-theorem map_liftedLevelSubgroup (hV : ValidLiftedSchreier Q φ U) (i : ℕ) :
-    (Q.liftedLevelSubgroup U i).map φ = Q.levelSubgroup i := by
-  rw [RawSchreierDatum.liftedLevelSubgroup, MonoidHom.map_closure,
-    RawSchreierDatum.levelSubgroup, ← Q.levelIndices_map_strong i]
-  congr 1
-  ext s
-  simp only [Set.mem_image, Set.mem_ofPred_eq, RawSchreierDatum.mem_liftedLevelGenerators_iff,
-    List.mem_map]
-  constructor
-  · rintro ⟨_, ⟨j, hj, rfl⟩, rfl⟩
-    exact ⟨j, hj, (hV.lift_image j).symm⟩
-  · rintro ⟨j, hj, rfl⟩
-    exact ⟨Q.lift U j, ⟨j, hj, rfl⟩, hV.lift_image j⟩
-
-theorem lifted_record_map (hV : ValidLiftedSchreier Q φ U) (i : Fin Q.baseCount) (x : Fin n)
-    (p : Equiv.Perm (Fin n) × K) (hp : (Q.liftedOrbitSearch U i).transversal? x = some p) :
-    p.1 = φ p.2 :=
-  Q.lifted_record_map U φ hV.lift_image i x p hp
 
 theorem schreier_mem_next (hV : ValidLiftedSchreier Q φ U) (i : Fin Q.baseCount) (g : K)
     (hg : g ∈ Q.liftedLevelSubgroup U i.val) :
@@ -159,13 +141,6 @@ theorem mem_liftedLevelSubgroup_iff (hV : ValidLiftedSchreier Q φ U) (i : ℕ)
       exact ⟨⟨hg, fun b hb => hfix b (List.mem_append_left _ hb)⟩,
         hfix _ (List.mem_append_right _ (List.mem_singleton_self _))⟩
 
-theorem liftedLevelSubgroup_eq (hV : ValidLiftedSchreier Q φ U) (i : ℕ) (hi : i ≤ Q.baseCount) :
-    Q.liftedLevelSubgroup U i = Q.liftedOriginalSubgroup U ⊓
-      (fixingSubgroup (Equiv.Perm (Fin n)) {b | b ∈ Q.base.toList.take i}).comap φ := by
-  ext g
-  simp only [Subgroup.mem_inf, Subgroup.mem_comap, mem_fixingSubgroup_iff, Set.mem_ofPred_eq,
-    Equiv.Perm.smul_def]
-  exact hV.mem_liftedLevelSubgroup_iff i hi g
 
 theorem liftedLevelSubgroup_terminal (hV : ValidLiftedSchreier Q φ U) :
     Q.liftedLevelSubgroup U Q.baseCount = ⊥ :=
@@ -210,8 +185,6 @@ theorem map_mem_originalSubgroup (hV : ValidLiftedSchreier Q φ U)
   (φ.comp (Q.liftedOriginalSubgroup U).subtype).codRestrict Q.originalSubgroup
     hV.map_mem_originalSubgroup
 
-theorem liftedRestrict_apply (hV : ValidLiftedSchreier Q φ U) (g : Q.liftedOriginalSubgroup U) :
-    (hV.liftedRestrict g : Equiv.Perm (Fin n)) = φ g := rfl
 
 theorem liftedRestrict_bijective (hV : ValidLiftedSchreier Q φ U) :
     Function.Bijective hV.liftedRestrict := by
@@ -232,14 +205,6 @@ theorem liftedRestrict_bijective (hV : ValidLiftedSchreier Q φ U) :
 theorem restrictEquiv_apply (hV : ValidLiftedSchreier Q φ U) (g : Q.liftedOriginalSubgroup U) :
     (hV.restrictEquiv g : Equiv.Perm (Fin n)) = φ g := rfl
 
-theorem restrictEquiv_symm_original (hV : ValidLiftedSchreier Q φ U) (j : Fin Q.originalCount)
-    (ha : Q.original.get j ∈ Q.originalSubgroup) :
-    (hV.restrictEquiv.symm ⟨Q.original.get j, ha⟩ : K) = U.get j := by
-  have hu : U.get j ∈ Q.liftedOriginalSubgroup U :=
-    Subgroup.subset_closure (schreier_vector_get_mem_toList U j)
-  have he : hV.restrictEquiv ⟨U.get j, hu⟩ = ⟨Q.original.get j, ha⟩ :=
-    Subtype.ext (hV.original_image j)
-  rw [← he, MulEquiv.symm_apply_apply]
 
 theorem finite (hV : ValidLiftedSchreier Q φ U) : Finite (Q.liftedOriginalSubgroup U) :=
   Finite.of_equiv _ hV.restrictEquiv.symm.toEquiv
@@ -248,84 +213,8 @@ theorem card_eq (hV : ValidLiftedSchreier Q φ U) :
     Nat.card (Q.liftedOriginalSubgroup U) = ∏ i : Fin Q.baseCount, Nat.card (Q.orbitPoints i) := by
   rw [Nat.card_congr hV.restrictEquiv.toEquiv, Q.original_card_eq_orbit_product hV.valid]
 
-theorem lift_relation (hV : ValidLiftedSchreier Q φ U) (w : FreeGroup (Fin Q.originalCount))
-    (hw : FreeGroup.lift Q.original.get w = 1) : FreeGroup.lift U.get w = 1 := by
-  have hmem : FreeGroup.lift U.get w ∈ Q.liftedOriginalSubgroup U := by
-    have hrange : FreeGroup.lift U.get w ∈ (FreeGroup.lift U.get).range := ⟨w, rfl⟩
-    rw [FreeGroup.range_lift_eq_closure] at hrange
-    refine Subgroup.closure_mono ?_ hrange
-    rintro _ ⟨j, rfl⟩
-    exact schreier_vector_get_mem_toList U j
-  have hcomp : φ.comp (FreeGroup.lift U.get) = FreeGroup.lift Q.original.get :=
-    FreeGroup.ext_hom _ _ fun j => by
-      rw [MonoidHom.comp_apply, FreeGroup.lift_apply_of, FreeGroup.lift_apply_of,
-        hV.original_image j]
-  have himage : φ (FreeGroup.lift U.get w) = 1 := by
-    rw [← MonoidHom.comp_apply, hcomp, hw]
-  exact hV.eq_one_of_map_eq_one hmem himage
-
-theorem liftSift_of_mem (hV : ValidLiftedSchreier Q φ U) (i : ℕ) (hi : i ≤ Q.baseCount)
-    (v : K) (hv : v ∈ Q.liftedLevelSubgroup U i) : LiftSift Q φ U v i := by
-  have go : ∀ d i, i + d = Q.baseCount → ∀ v : K, v ∈ Q.liftedLevelSubgroup U i →
-      LiftSift Q φ U v i := by
-    intro d
-    induction d with
-    | zero =>
-      intro i hi v hv
-      obtain rfl : i = Q.baseCount := by omega
-      rw [hV.liftedLevelSubgroup_terminal] at hv
-      exact (Q.liftSift_terminal φ U v).2 (Subgroup.mem_bot.1 hv)
-    | succ d ih =>
-      intro i hi v hv
-      let j : Fin Q.baseCount := ⟨i, by omega⟩
-      have hx : φ v (Q.base.get j) ∈ Q.orbitPoints j := by
-        rw [Q.orbitPoints_eq_orbit j]
-        have hφv : φ v ∈ Q.levelSubgroup i := by
-          rw [← hV.map_liftedLevelSubgroup]
-          exact Subgroup.mem_map_of_mem φ hv
-        exact MulAction.mem_orbit_iff.2 ⟨⟨φ v, hφv⟩, rfl⟩
-      obtain ⟨t, ht⟩ := Option.isSome_iff_exists.1 hx
-      obtain ⟨T, hT⟩ := Q.exists_lifted_record U j _ t ht
-      have hTmem := Q.lifted_record_mem U j _ (t, T) hT
-      have hφT : t = φ T := hV.lifted_record_map j _ (t, T) hT
-      have htb : t (Q.base.get j) = φ v (Q.base.get j) := (Q.transversal_sound j _ t ht).2.2
-      have hnext : T⁻¹ * v ∈ Q.liftedLevelSubgroup U (i + 1) := by
-        rw [hV.liftedLevelSubgroup_succ j, Subgroup.mem_inf]
-        refine ⟨mul_mem (inv_mem hTmem) hv, ?_⟩
-        rw [Subgroup.mem_comap, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def, map_mul,
-          map_inv, ← hφT, Equiv.Perm.mul_apply, Equiv.Perm.inv_eq_iff_eq]
-        exact htb.symm
-      have hstep := ih (i + 1) (by omega) (T⁻¹ * v) hnext
-      unfold LiftSift at hstep ⊢
-      rw [Q.liftedSiftLevels_cons _ j, liftSiftResidual_available φ _ _ _ v (t, T)]
-      · exact hstep
-      · rw [Q.liftedOrbitTables_get U j]
-        exact hT
-  exact go (Q.baseCount - i) i (by omega) v hv
-
-theorem liftSift_zero_iff (hV : ValidLiftedSchreier Q φ U) (v : K) :
-    LiftSift Q φ U v 0 ↔ v ∈ Q.liftedOriginalSubgroup U := by
-  rw [← Q.liftedLevelSubgroup_zero U]
-  exact ⟨Q.liftSift_mem φ U 0 v, hV.liftSift_of_mem 0 (Nat.zero_le _) v⟩
 
 end ValidLiftedSchreier
 
-theorem lifted_schreier_soundness {Q : RawSchreierDatum n} {φ : K →* Equiv.Perm (Fin n)}
-    {U : Vector K Q.originalCount} (hV : ValidLiftedSchreier Q φ U) :
-    (∀ i ≤ Q.baseCount, Q.liftedLevelSubgroup U i = Q.liftedOriginalSubgroup U ⊓
-      (fixingSubgroup (Equiv.Perm (Fin n)) {b | b ∈ Q.base.toList.take i}).comap φ) ∧
-    Q.liftedLevelSubgroup U Q.baseCount = ⊥ ∧
-    Finite (Q.liftedOriginalSubgroup U) ∧
-    Nat.card (Q.liftedOriginalSubgroup U) = ∏ i : Fin Q.baseCount, Nat.card (Q.orbitPoints i) ∧
-    (∃ e : Q.liftedOriginalSubgroup U ≃* Q.originalSubgroup,
-      (∀ g : Q.liftedOriginalSubgroup U, (e g : Equiv.Perm (Fin n)) = φ g) ∧
-      ∀ (j : Fin Q.originalCount) (ha : Q.original.get j ∈ Q.originalSubgroup),
-        (e.symm ⟨Q.original.get j, ha⟩ : K) = U.get j) ∧
-    (∀ w : FreeGroup (Fin Q.originalCount),
-      FreeGroup.lift Q.original.get w = 1 → FreeGroup.lift U.get w = 1) ∧
-    ∀ v : K, LiftSift Q φ U v 0 ↔ v ∈ Q.liftedOriginalSubgroup U :=
-  ⟨hV.liftedLevelSubgroup_eq, hV.liftedLevelSubgroup_terminal, hV.finite, hV.card_eq,
-    ⟨hV.restrictEquiv, hV.restrictEquiv_apply, hV.restrictEquiv_symm_original⟩,
-    hV.lift_relation, hV.liftSift_zero_iff⟩
 
 end CFSG.Certificates

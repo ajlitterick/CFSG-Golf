@@ -76,13 +76,6 @@ theorem map_map_center_subtype {f : G →* G'} {X : Subgroup G}
         (f.comp X.subtype) ⟨x * l, X.mul_mem hxX hl⟩ := h
     exact congrArg Subtype.val (hf h')
 
-omit [Group G] [Group G'] in
-theorem exists_elementary_card_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y)
-    (p r : ℕ) (h : ∃ A : Subgroup X, IsElementaryAbelian p A ∧ Nat.card A = p ^ r) :
-    ∃ A : Subgroup Y, IsElementaryAbelian p A ∧ Nat.card A = p ^ r := by
-  obtain ⟨A, hA, hc⟩ := h
-  exact ⟨A.map e.toMonoidHom, Quasithin.BlueprintB2.isElementaryAbelian_map hA e.toMonoidHom,
-    by rw [Subgroup.card_map_of_injective e.injective, hc]⟩
 
 omit [Group G] [Group G'] in
 theorem pRank_eq_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) (p : ℕ) :

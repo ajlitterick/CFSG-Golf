@@ -336,34 +336,6 @@ theorem IsCanonical.conj {J : Subgroup G} {v : G} (h : IsCanonical J v) (g : G) 
     (Subgroup.map_sup _ _ _).symm
   rw [involutionOddCore_conj, e, perfectResidualOf_conjSub, h]
 
-theorem commute_of_mem_trivialOnQuot {J : Subgroup G} {x y : G} (hxJ : x ∈ trivialOnQuot J)
-    (hx2 : x * x = 1) (hyJ : y ∈ J) (hy2 : y * y = 1) (hyc : ∀ k ∈ J, k * y = y * k) :
-    x * y = y * x := by
-  have hc : ⁅x, y⁆ ∈ oddCoreIn J := hxJ.2 y hyJ
-  have hxi : x⁻¹ = x := inv_eq_of_mul_eq_one_right hx2
-  have hyi : y⁻¹ = y := inv_eq_of_mul_eq_one_right hy2
-  have ht' : x * y * x⁻¹ ∈ J := (Subgroup.mem_normalizer_iff.mp hxJ.1 y).mp hyJ
-  have hcomm : (x * y * x⁻¹) * y = y * (x * y * x⁻¹) := hyc _ ht'
-  have ht'2 : (x * y * x⁻¹) * (x * y * x⁻¹) = 1 := by
-    calc (x * y * x⁻¹) * (x * y * x⁻¹) = x * (y * y) * x⁻¹ := by group
-      _ = 1 := by rw [hy2]; group
-  have hsq : ⁅x, y⁆ * ⁅x, y⁆ = 1 := by
-    have e : ⁅x, y⁆ = (x * y * x⁻¹) * y := by
-      simp only [commutatorElement_def, hyi]
-    rw [e]
-    calc (x * y * x⁻¹) * y * ((x * y * x⁻¹) * y)
-        = (x * y * x⁻¹) * (y * (x * y * x⁻¹)) * y := by group
-      _ = (x * y * x⁻¹) * ((x * y * x⁻¹) * y) * y := by rw [← hcomm]
-      _ = ((x * y * x⁻¹) * (x * y * x⁻¹)) * (y * y) := by group
-      _ = 1 := by rw [ht'2, hy2, mul_one]
-  have hodd : Odd (orderOf ⁅x, y⁆) :=
-    (odd_card_oddCoreIn J).of_dvd_nat (Subgroup.orderOf_dvd_natCard (oddCoreIn J) hc)
-  have hdvd : orderOf ⁅x, y⁆ ∣ 2 := orderOf_dvd_of_pow_eq_one (by rw [pow_two]; exact hsq)
-  have hord : orderOf ⁅x, y⁆ = 1 := by
-    rcases (Nat.dvd_prime Nat.prime_two).mp hdvd with h | h
-    · exact h
-    · exact absurd hodd (by rw [h]; decide)
-  exact (commutatorElement_eq_one_iff_mul_comm).mp (orderOf_eq_one_iff.mp hord)
 
 theorem axisResidual_single {J : Subgroup G} {z a : G} (hJ : IsClassicalMember p f J z)
     (ha2 : a * a = 1) (haJ : a ∈ trivialOnQuot J) :

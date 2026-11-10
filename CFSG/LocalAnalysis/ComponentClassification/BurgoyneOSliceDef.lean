@@ -102,30 +102,6 @@ theorem oSliceH_injective [Finite K] (h2 : (2 : K) ≠ 0) (hK4 : 4 ≤ Nat.card 
     Function.Injective (oSliceH h2 hK4 hd hw hW) := fun _ _ h =>
   oSlice_injective h2 hd hW.ha (congrArg Subtype.val h)
 
-theorem blk4_mem_iso (h2 : (2 : K) ≠ 0) (hd : 4 ≤ d) {w : Fin d → K} (hw : ∀ i, w i ≠ 0)
-    {α a : K} (hW : OSliceW hd w α a) {h : GL (Fin d) K}
-    (hh : h ∈ CatalogueBGraphForm.isometryGroup d K (diagGL hw))
-    (hc : (h : Matrix (Fin d) (Fin d) K) * embed4 K hd (-1) =
-      embed4 K hd (-1) * (h : Matrix (Fin d) (Fin d) K)) :
-    ∃ X : CatalogueBGraphForm.isometryGroup 4 K (diagGL (qW_ne_zero hW.ha)),
-      ((X : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) = blk4 hd h ∧
-      ((X⁻¹ : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) =
-        blk4 hd ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) := by
-  have hhi : (h : Matrix (Fin d) (Fin d) K) * ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) =
-      1 := by rw [← Units.val_mul, mul_inv_cancel, Units.val_one]
-  have hih : ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) * (h : Matrix (Fin d) (Fin d) K) =
-      1 := by rw [← Units.val_mul, inv_mul_cancel, Units.val_one]
-  have hci : ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) * embed4 K hd (-1) =
-      embed4 K hd (-1) * ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) :=
-    commute_inv_of_commute hhi hih hc
-  have e1 := (mul_embed4_mul h2 hd hhi hc hci 1).2
-  have e2 := (mul_embed4_mul h2 hd hih hci hc 1).2
-  have hiso := (CatalogueBGraphForm.mem_isometryGroup _ _ _ _).1 hh
-  rw [coe_diagGL] at hiso
-  refine ⟨⟨⟨blk4 hd h, blk4 hd ((h⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K), e1, e2⟩, ?_⟩,
-    rfl, rfl⟩
-  rw [CatalogueBGraphForm.mem_isometryGroup, coe_diagGL]
-  exact blk4_isometry h2 hd hW.hα hW.hw4 hc hiso
 
 theorem conj_oSlice_of_rho (h2 : (2 : K) ≠ 0) (hd : 4 ≤ d) {a : K} (ha : a ≠ 0)
     {h : GL (Fin d) K}

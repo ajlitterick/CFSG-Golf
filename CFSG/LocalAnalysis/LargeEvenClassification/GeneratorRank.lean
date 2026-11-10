@@ -130,42 +130,5 @@ theorem exists_frattini_basis_generators {Ambient : Type groupUniverse} [Group A
   rw [himage]
   exact basis.span_eq
 
-theorem charTwo_local_core_generator_bound {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] {prime rank : ℕ} (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (hchar : IsCharTwoType Ambient) (Local Elementary : Subgroup Ambient)
-    (hlocal : IsTwoLocal Local) (hle : Elementary ≤ Local)
-    (helementary : IsElemAbelian prime Elementary) (hcard : Nat.card Elementary = prime ^ rank)
-    (generators : Finset (pCore 2 Local))
-    (hgenerates : Subgroup.closure (generators : Set (pCore 2 Local)) = ⊤) :
-    2 * rank ≤ generators.card := by
-  let : CommGroup ((pCore 2 Local) ⧸ frattini (pCore 2 Local)) :=
-    pGroupFrattiniCommGroup Nat.prime_two (pCore_isPGroup Local 2)
-  obtain ⟨module, hdimension⟩ := charTwo_local_elementary_frattini_rank hprime hodd
-    hchar Local Elementary hlocal hle helementary hcard
-  let := module
-  exact hdimension.trans (quotient_frattini_dimension_le_generators (prime := 2)
-    (QuotientGroup.mk' (frattini (pCore 2 Local)))
-    (QuotientGroup.mk'_surjective _) generators hgenerates)
-
-theorem large_even_local_core_generator_bound (Ambient : Type groupUniverse) [Group Ambient]
-    [Finite Ambient] [IsSimpleGroup Ambient]
-    (hnonab : ∃ first second : Ambient, first * second ≠ second * first)
-    (hK : IsKProperByOrder Ambient) (hchar : IsCharTwoType Ambient)
-    (hrank : 4 ≤ evenRank Ambient) :
-    ∃ (prime : ℕ) (Local Elementary : Subgroup Ambient),
-      prime ∈ oddLocalPrimes 4 Ambient ∧ IsTwoLocal Local ∧ Local ≠ ⊤ ∧
-        IsKProperByOrder Local ∧ Elementary ≤ Local ∧ IsElemAbelian prime Elementary ∧
-        Nat.card Elementary = prime ^ evenRank Ambient ∧ pCoreOf 2 Local ≠ ⊥ ∧
-        ∀ generators : Finset (pCore 2 Local),
-          Subgroup.closure (generators : Set (pCore 2 Local)) = ⊤ →
-            2 * evenRank Ambient ≤ generators.card := by
-  obtain ⟨prime, Local, Elementary, hprime, hlocal, hproper, hlocalK, hle,
-    helementary, hcard, hcoreNontrivial, _, _⟩ :=
-    large_even_entry_with_K Ambient hnonab hK hchar hrank
-  refine ⟨prime, Local, Elementary, hprime, hlocal, hproper, hlocalK, hle,
-    helementary, hcard, hcoreNontrivial, ?_⟩
-  intro generators hgenerates
-  exact charTwo_local_core_generator_bound hprime.1 hprime.2.1 hchar Local Elementary
-    hlocal hle helementary hcard generators hgenerates
 
 end CFSG.LargeEvenClassification.Helpers

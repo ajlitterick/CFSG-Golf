@@ -206,44 +206,6 @@ theorem i116e_normalizes_of_card_sq {X : Type*} [Group X] [Finite X] {p : ℕ} [
   have := hclaim u⁻¹ (U.inv_mem hu) _ hb
   simpa [mul_assoc] using this
 
-theorem i116e_exists_mem_normalizer_of_not_le {X : Type*} [Group X] [Finite X] {p : ℕ} [Fact p.Prime]
-    {A B T : Subgroup X} (hT : IsPGroup p T) (hAT : A ≤ T) (hBT : B ≤ T)
-    (hBA : B ≤ Subgroup.normalizer (A : Set X)) (hAB : ¬ A ≤ B) :
-    ∃ e ∈ A, e ∈ Subgroup.normalizer (B : Set X) ∧ e ∉ B := by
-  set S : Subgroup X := A ⊔ B with hS
-  have hAS : A ≤ S := le_sup_left
-  have hBS : B ≤ S := le_sup_right
-  have hST : S ≤ T := sup_le hAT hBT
-  have hSp : IsPGroup p ↥S := hT.to_le hST
-  have hnil : Group.IsNilpotent ↥S := hSp.isNilpotent
-  have hlt' : B.subgroupOf S < ⊤ := by
-    refine lt_top_iff_ne_top.2 fun h => hAB fun a ha => ?_
-    have : (⟨a, hAS ha⟩ : ↥S) ∈ B.subgroupOf S := by rw [h]; trivial
-    exact this
-  obtain ⟨g, hg, hgB⟩ := IsConcreteLE.exists_of_lt (Group.normalizerCondition_of_isNilpotent _ hlt')
-  have hgN : (g : X) ∈ Subgroup.normalizer (B : Set X) := by
-    rw [Subgroup.mem_normalizer_iff]
-    intro y
-    constructor
-    · intro hy
-      exact (Subgroup.mem_normalizer_iff.1 hg ⟨y, hBS hy⟩).1 hy
-    · intro hy
-      have hyS : y ∈ S := by
-        have h1 : (g : X)⁻¹ * ((g : X) * y * (g : X)⁻¹) * (g : X) ∈ S :=
-          S.mul_mem (S.mul_mem (S.inv_mem g.2) (hBS hy)) g.2
-        simpa [mul_assoc] using h1
-      exact (Subgroup.mem_normalizer_iff.1 hg ⟨y, hyS⟩).2 hy
-  have hmul : (g : X) ∈ (↑(A ⊔ B) : Set X) := g.2
-  rw [Subgroup.coe_mul_of_right_le_normalizer_left A B hBA] at hmul
-  obtain ⟨a, ha, b, hb, hab⟩ := hmul
-  have hae : a = (g : X) * b⁻¹ := by rw [← hab]; group
-  refine ⟨a, ha, ?_, ?_⟩
-  · rw [hae]
-    exact Subgroup.mul_mem _ hgN (Subgroup.le_normalizer (B.inv_mem hb))
-  · intro haB
-    apply hgB
-    have : (g : X) ∈ B := by rw [← hab]; exact B.mul_mem haB hb
-    exact this
 
 theorem i116e_exists_mulAut {X : Type*} [Group X] {p : ℕ} {L : Subgroup X} {b : X}
     (hb : b ∈ Subgroup.normalizer (L : Set X)) (hbp : b ^ p = 1) :
@@ -279,31 +241,6 @@ theorem i116e_exists_mulAut {X : Type*} [Group X] {p : ℕ} {L : Subgroup X} {b 
   change ((g : MulAut ↥L)) ^ p = 1
   rw [hk', ← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, hφp, one_zpow]
 
-theorem i116e_isElemAbelian_map {G H : Type*} [Group G] [Group H] {p : ℕ} {E : Subgroup G}
-    (hE : IsElemAbelian p E) (f : G →* H) : IsElemAbelian p (E.map f) :=
-  CFSG.Open.IsElemAbelian.map hE _
-
-theorem i116e_conj_mem_of_unique {X : Type*} [Group X] {p : ℕ} {L R : Subgroup X} {b : X}
-    (hb : b ∈ Subgroup.normalizer (L : Set X)) (hbp : b ^ p = 1)
-    (hbR : b ∈ Subgroup.normalizer (R : Set X)) {E : Subgroup ↥L} (hE : IsElemAbelian p E)
-    (hER : E ≤ R.subgroupOf L)
-    (huniq : ∀ E' : Subgroup ↥L, E' ≤ R.subgroupOf L → IsElemAbelian p E' →
-      Nat.card E' = Nat.card E → E' = E) :
-    ∀ e ∈ E, ∃ e' ∈ E, ((e' : ↥L) : X) = b * e * b⁻¹ := by
-  obtain ⟨φ, hφ, -⟩ := i116e_exists_mulAut hb hbp
-  have hEq : E.map φ.toMonoidHom = E := by
-    apply huniq
-    · rintro _ ⟨y, hy, rfl⟩
-      have hyR : (y : X) ∈ R := hER hy
-      show ((φ y : ↥L) : X) ∈ R
-      rw [hφ]
-      exact (Subgroup.mem_normalizer_iff.1 hbR _).1 hyR
-    · exact i116e_isElemAbelian_map hE _
-    · exact Subgroup.card_map_of_injective φ.injective
-  intro e he
-  have : φ e ∈ E.map φ.toMonoidHom := ⟨e, he, rfl⟩
-  rw [hEq] at this
-  exact ⟨φ e, this, hφ e⟩
 
 theorem i116e_isPGroup_center {X : Type} [Group X] [Finite X] {p : ℕ} (hp : p.Prime)
     (hO : GLAPPrimeCore p X = ⊥) {L : Subgroup X} (hL : GLAPComponent p ⊤ L) :

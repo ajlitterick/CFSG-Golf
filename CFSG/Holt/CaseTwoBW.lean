@@ -252,7 +252,6 @@ variable {Ω}
     (ω : fixSet Ω T) : ((toCentralizerImage Ω T c • ω : fixSet Ω T) : Ω) = (c : X) • (ω : Ω) :=
   rfl
 
-variable [Finite Ω]
 
 end TypeA
 

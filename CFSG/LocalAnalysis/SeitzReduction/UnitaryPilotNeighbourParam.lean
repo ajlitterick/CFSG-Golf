@@ -156,14 +156,6 @@ theorem GraphFieldNeighbourParam.pieceCore_eq_map [Finite G]
   pieceCore_eq_map_of_conjTorus e hIN hI2 hIc hXI P.Φ P.ker_le P.range_eq
     (TorusEquivariant.mono e (Finset.empty_subset I) P.N2)
 
-theorem GraphFieldNeighbourParam.pieceCore_eq_map_rootTorus [Finite G] {a b : Fin n}
-    (hab : a ≠ b)
-    (P : GraphFieldNeighbourParam e t (modelToG e (unitaryRootTorus h hab)) {a, b}ᶜ)
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI2 : 2 ≤ I.card) :
-    pieceCore e I = ((blockSpecialLinear (K := K) I).subgroupOf
-      (blockSpecialLinear ({a, b}ᶜ : Finset (Fin n)))).map P.Φ :=
-  P.pieceCore_eq_map hI hI2 (two_le_card_compl_of_subset_compl_pair hab hI)
-    (modelToG_unitaryRootTorus_le e hab hI)
 
 theorem SwapNeighbourParam.pieceCore_eq_map [Finite G] (P : SwapNeighbourParam e t X N)
     {I : Finset (Fin n)} (hIN : I ⊆ N) (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
@@ -174,18 +166,6 @@ theorem SwapNeighbourParam.pieceCore_eq_map [Finite G] (P : SwapNeighbourParam e
   pieceCore_eq_map_of_conjTorusSU_prod e hIN hI2 hIc hperf hXI P.Ψ P.ker_le P.range_eq
     (P.N2.mono (Finset.empty_subset I))
 
-theorem SwapNeighbourParam.pieceCore_eq_map_rootTorus [Finite G] {a b : Fin n} (hab : a ≠ b)
-    (P : SwapNeighbourParam e t (modelToG e (unitaryRootTorus h hab)) {a, b}ᶜ)
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI2 : 2 ≤ I.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I) :
-    pieceCore e I = (((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ)).prod
-      ((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ))).map P.Ψ :=
-  P.pieceCore_eq_map hI hI2 (two_le_card_compl_of_subset_compl_pair hab hI) hperf
-    (modelToG_unitaryRootTorus_le e hab hI)
-
-theorem SwapNeighbourParam.conj_inl (P : SwapNeighbourParam e t X N) (x : unitaryBlock h N) :
-    t * P.Ψ (x, 1) * t⁻¹ = P.Ψ (1, x) :=
-  P.swap x 1
 
 theorem SwapNeighbourParam.commute_inl_inr (P : SwapNeighbourParam e t X N)
     (x y : unitaryBlock h N) : Commute (P.Ψ (x, 1)) (P.Ψ (1, y)) := by
@@ -194,9 +174,6 @@ theorem SwapNeighbourParam.commute_inl_inr (P : SwapNeighbourParam e t X N)
   change P.Ψ (x, 1) * P.Ψ (1, y) = P.Ψ (1, y) * P.Ψ (x, 1)
   rw [← map_mul, hxy, map_mul]
 
-theorem SwapNeighbourParam.mul_conj_inl (P : SwapNeighbourParam e t X N) (x : unitaryBlock h N) :
-    P.Ψ (x, 1) * (t * P.Ψ (x, 1) * t⁻¹) = ((e.symm (unitaryProj h n x) : L) : G) := by
-  rw [P.conj_inl, ← map_mul, Prod.mk_mul_mk, mul_one, one_mul, P.diag]
 
 end Param
 

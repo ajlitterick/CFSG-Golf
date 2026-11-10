@@ -137,25 +137,6 @@ theorem image_mul_sq_rootGroup_right [Finite G] (hclass : ∃ d₀ : G, D = {g |
     · obtain ⟨b, hb, rfl⟩ := h2 a ha c hcz
       exact ⟨b, rootSet_subset_rootGroup D e hb, rfl⟩
 
-theorem image_mul_sq_rootGroup_left [Finite G] (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
-    (hD : IsRootInvolutionSet D) (hc : RootClosure D) (hs : SpecialClosure D) (hd : d ∈ D)
-    (he : e ∈ D) (h4 : orderOf (d * e) = 4) {b : G} (hb : b ∈ rootSet D e) :
-    (fun g => (g * b) ^ 2) '' (rootGroup D d : Set G) = rootGroup D ((d * e) ^ 2) := by
-  obtain ⟨h1, -, h3⟩ := hs.rootSet_of_special hclass hD hc hd he h4
-  have hb2 : b * b = 1 := hD.mul_self_eq_one hb.1
-  ext c
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    rcases (mem_rootGroup_iff_of_rootClosure hD hc hd).1 hg with rfl | hg
-    · dsimp only
-      rw [one_mul, pow_two b, hb2]
-      exact (rootGroup D _).one_mem
-    · exact rootSet_subset_rootGroup _ _ (h1 g hg b hb)
-  · intro hcz
-    rcases (mem_rootGroup_iff_of_rootClosure hD hc (hD.sq_mem hd he h4)).1 hcz with rfl | hcz
-    · exact ⟨1, (rootGroup D d).one_mem, by dsimp only; rw [one_mul, pow_two b, hb2]⟩
-    · obtain ⟨a, ha, rfl⟩ := h3 b hb c hcz
-      exact ⟨a, rootSet_subset_rootGroup D d ha, rfl⟩
 
 end SpecialPair
 

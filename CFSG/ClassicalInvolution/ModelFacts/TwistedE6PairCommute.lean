@@ -28,8 +28,6 @@ theorem even_of_neg_one_zpow_eq_one_E6 {F : Type} [Field F] (hF : ringChar F ≠
     rw [ho.neg_one_zpow] at h
     exact Ring.neg_one_ne_one_of_char_ne_two hF (by simpa using congrArg Units.val h)
 
-theorem neg_one_ne_one_units_E6 {F : Type} [Field F] (hF : ringChar F ≠ 2) : (-1 : Fˣ) ≠ 1 :=
-  fun h => Ring.neg_one_ne_one_of_char_ne_two hF (by simpa using congrArg Units.val h)
 
 theorem thetaDiag_neg_one_sign_E6 {F : Type} [Field F] (δ : Fin (Tag.rank .E6) → ℤ)
     (i : Fin (Tag.rank .E6)) :

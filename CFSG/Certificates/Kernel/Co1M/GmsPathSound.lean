@@ -155,7 +155,6 @@ theorem parR_xor (x y : Nat) : ∀ k, parR (x ^^^ y) k = (parR x k ^^ parR y k) 
 
 theorem parF_xor (x y : Nat) : parF (x ^^^ y) = (parF x ^^ parF y) := parR_xor x y 24
 
-theorem parF_zero : parF 0 = false := rfl
 
 theorem parity24N_eq (x : Nat) : CFSG.Sporadic.Co1.S365Native.parity24N x = parF x := by
   unfold CFSG.Sporadic.Co1.S365Native.parity24N

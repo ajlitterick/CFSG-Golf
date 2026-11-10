@@ -28,14 +28,6 @@ private noncomputable def s16k_d (i : Fin 3) : S16kGL6 where
 @[simp] private lemma s16k_d_val (i : Fin 3) :
     ((s16k_d i : S16kGL6) : Matrix (Fin 6) (Fin 6) (ZMod 2)) = s16kBlockMat i := rfl
 
-private lemma s16k_d_cubed (i : Fin 3) : (s16k_d i) ^ 3 = 1 := by
-  ext r c <;> fin_cases i <;> fin_cases r <;> fin_cases c <;>
-    simp only [s16k_d, Matrix.mul_apply, s16kBlockMat, Matrix.of_apply, Matrix.one_apply,
-      Units.val_pow_eq_pow_val] <;>
-    decide
-
-private lemma s16k_d_ne_one (i : Fin 3) : s16k_d i ≠ 1 := by
-  fin_cases i <;> decide
 
 private lemma s16k_d_comm (i j : Fin 3) : Commute (s16k_d i) (s16k_d j) := by
   ext r c <;> fin_cases i <;> fin_cases j <;> fin_cases r <;> fin_cases c <;>

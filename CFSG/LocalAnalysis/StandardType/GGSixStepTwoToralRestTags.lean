@@ -117,19 +117,6 @@ theorem ggStepTwoToralWitnessOn_of_index_small {t : StatedLieTag} (hI : GGStepTw
   · exact ggStepTwoWitness_of_card_le_mul hp hctx.2.1.2.1 hDBs hDcard
       (hI G p B Bs x L D J n f ψ hctx s1 hW b L₁ hpair)
 
-@[expose] def GGStepTwoToralExcInputs : Prop :=
-  (GGStepTwoExcIndexOn .F4 ∧ GGStepTwoToralWitnessSmallOn .F4) ∧
-    (GGStepTwoExcIndexOn .E6 ∧ GGStepTwoToralWitnessSmallOn .E6) ∧
-    (GGStepTwoExcIndexOn .E7 ∧ GGStepTwoToralWitnessSmallOn .E7) ∧
-    (GGStepTwoExcIndexOn .E8 ∧ GGStepTwoToralWitnessSmallOn .E8) ∧
-    (GGStepTwoExcIndexOn .twistedE6 ∧ GGStepTwoToralWitnessSmallOn .twistedE6)
-
-theorem ggStepTwoToralWitnessRestInput_of_excInputs (h : GGStepTwoToralExcInputs) :
-    GGStepTwoToralWitnessRestInput := by
-  obtain ⟨⟨iF, sF⟩, ⟨i6, s6⟩, ⟨i7, s7⟩, ⟨i8, s8⟩, ⟨iT, sT⟩⟩ := h
-  exact ggStepTwoToralWitnessRestInput_of_exc (ggStepTwoToralWitnessOn_of_index_small iF sF)
-    (ggStepTwoToralWitnessOn_of_index_small i6 s6) (ggStepTwoToralWitnessOn_of_index_small i7 s7)
-    (ggStepTwoToralWitnessOn_of_index_small i8 s8) (ggStepTwoToralWitnessOn_of_index_small iT sT)
 
 end Inputs
 

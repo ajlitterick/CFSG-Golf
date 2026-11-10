@@ -18,8 +18,6 @@ private theorem dihedral4_sq_ne_one_iff (g : DihedralGroup 4) :
 private theorem dihedral4_pow_four (g : DihedralGroup 4) : g ^ 4 = 1 := by
   revert g; decide
 
-private theorem dihedral4_sr_mul_sr (i j : ZMod 4) : ∃ k, sr i * sr j = r k :=
-  ⟨j - i, sr_mul_sr i j⟩
 
 private theorem dihedral4_involution (g : DihedralGroup 4) (h2 : g ^ 2 = 1) (h1 : g ≠ 1)
     (hz : g ≠ r 2) : ∃ j, g = sr j := by

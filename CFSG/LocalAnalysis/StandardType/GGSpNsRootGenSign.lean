@@ -43,36 +43,6 @@ theorem frameSignSwap_mul_self (a : Fin k) :
   rw [hT]
   exact Tsp_mul_self hB _ _
 
-theorem frameSignSwap_app_u (hF : IsCoherentFrame Q p U e E u c t) (a : Fin k) :
-    (frameSignSwap Q e u c t a).app (u a) = (e a : V ≃ₗ[F] V) (u a) := by
-  have hB : LinearMap.BilinForm.IsAlt (polarBilin Q) :=
-    CFSG.AGLEmbedding.polarBilin_isAlt_of_charTwo Q
-  have hV2 : ∀ v : V, v + v = 0 := fun v => by
-    rw [← two_smul F v, CharTwo.two_eq_zero, zero_smul]
-  have htc : t * c ≠ 0 := mul_ne_zero hF.t_ne_zero hF.c_ne_zero
-  have hBuw : polarBilin Q (u a) (u a + (e a : V ≃ₗ[F] V) (u a)) = t * c := by
-    rw [map_add, hB.self_eq_zero, zero_add, polarBilin_apply_apply]
-    exact hF.polar_eq a
-  have hT : frameSignSwap Q e u c t a =
-      Tsp hB (u a + (e a : V ≃ₗ[F] V) (u a)) (t * c)⁻¹ := rfl
-  rw [hT, Tsp_app, hBuw, inv_mul_cancel₀ htc, one_smul]
-  rw [← add_assoc, hV2 (u a), zero_add]
-
-theorem frameSignSwap_app_eu (hF : IsCoherentFrame Q p U e E u c t) (a : Fin k) :
-    (frameSignSwap Q e u c t a).app ((e a : V ≃ₗ[F] V) (u a)) = u a := by
-  have hB : LinearMap.BilinForm.IsAlt (polarBilin Q) :=
-    CFSG.AGLEmbedding.polarBilin_isAlt_of_charTwo Q
-  have hV2 : ∀ v : V, v + v = 0 := fun v => by
-    rw [← two_smul F v, CharTwo.two_eq_zero, zero_smul]
-  have htc : t * c ≠ 0 := mul_ne_zero hF.t_ne_zero hF.c_ne_zero
-  have hBeuw : polarBilin Q ((e a : V ≃ₗ[F] V) (u a))
-      (u a + (e a : V ≃ₗ[F] V) (u a)) = t * c := by
-    rw [map_add, hB.self_eq_zero, add_zero, polarBilin_apply_apply, polar_comm]
-    exact hF.polar_eq a
-  have hT : frameSignSwap Q e u c t a =
-      Tsp hB (u a + (e a : V ≃ₗ[F] V) (u a)) (t * c)⁻¹ := rfl
-  rw [hT, Tsp_app, hBeuw, inv_mul_cancel₀ htc, one_smul]
-  rw [add_comm ((e a : V ≃ₗ[F] V) (u a)), add_assoc, hV2 ((e a : V ≃ₗ[F] V) (u a)), add_zero]
 
 theorem frameSignSwap_conj_self (hQ : (QuadraticMap.polarBilin Q).Nondegenerate)
     (hF : IsCoherentFrame Q p U e E u c t) (a : Fin k) :

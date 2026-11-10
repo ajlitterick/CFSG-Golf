@@ -65,8 +65,6 @@ theorem t_mem_B : t ∈ d.B := Subgroup.mem_sup_right (Subgroup.mem_zpowers t)
 
 theorem D_le_B : d.D ≤ d.B := le_sup_left
 
-theorem B_le_S : d.B ≤ S :=
-  sup_le (d.D_le_N.trans d.hNS) (Subgroup.zpowers_le.mpr d.ht)
 
 variable [Finite G]
 

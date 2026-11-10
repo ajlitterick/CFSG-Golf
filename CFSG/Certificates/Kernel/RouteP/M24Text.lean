@@ -79,12 +79,6 @@ theorem splitSepL_two (a c : Char) (cs : List Char) :
     (by simp only [List.length_cons, List.length_nil]; omega)]
   simp
 
-theorem foldl_congr_mem {α β : Type} (f g : β → α → β) :
-    ∀ (l : List α) (y : β), (∀ x ∈ l, ∀ y, f y x = g y x) → l.foldl f y = l.foldl g y
-  | [], _, _ => rfl
-  | x :: l, y, h => by
-    rw [List.foldl_cons, List.foldl_cons, h x (by simp) y,
-      foldl_congr_mem f g l _ fun z hz => h z (by simp [hz])]
 
 theorem foldl_toArray {α β : Type} (F : Array β → α → Array β) (G : List β → α → List β) :
     ∀ (l : List α) (y : List β), (∀ x ∈ l, ∀ y : List β, F y.toArray x = (G y x).toArray) →

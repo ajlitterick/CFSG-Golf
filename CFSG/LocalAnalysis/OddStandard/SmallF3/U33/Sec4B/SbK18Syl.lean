@@ -65,56 +65,6 @@ theorem exists_cj_of_card_le {S D H : Subgroup G} (hS : IsSylowIn 2 S H) (hD : D
   rw [← hle]
   exact ⟨c, hcH, hcj⟩
 
-theorem isSylowIn_inf_centralizer {P A : Subgroup G} (hP : IsSylowIn 2 P ⊤)
-    (hA : ∀ n ∈ P, ∀ a ∈ A, n * a * n⁻¹ ∈ A) :
-    IsSylowIn 2 (P ⊓ centralizer (A : Set G)) (centralizer (A : Set G)) := by
-  set N : Subgroup G := normalizer (A : Set G) with hN
-  set C : Subgroup G := centralizer (A : Set G) with hC
-  have hPN : P ≤ N := by
-    intro n hn
-    rw [hN, Subgroup.mem_normalizer_iff]
-    intro a
-    constructor
-    · intro ha
-      exact hA n hn a ha
-    · intro ha
-      have h := hA n⁻¹ (P.inv_mem hn) (n * a * n⁻¹) ha
-      simpa [mul_assoc] using h
-  have hPNsylow : IsSylowIn 2 P N := by
-    refine ⟨hPN, hP.2.1, ?_⟩
-    intro hdvd
-    apply hP.2.2
-    rw [← Subgroup.relIndex_mul_relIndex (H := P) (K := N) (L := ⊤) hPN le_top]
-    exact hdvd.mul_right _
-  have hCN : ∀ n ∈ N, ∀ c ∈ C, n * c * n⁻¹ ∈ C := by
-    intro n hn c hc
-    rw [hC, Subgroup.mem_centralizer_iff] at hc ⊢
-    intro a ha
-    have hna : n⁻¹ * a * n ∈ A :=
-      (Subgroup.mem_normalizer_iff''.mp (by rwa [hN] at hn) a).mp ha
-    have hcomm := hc (n⁻¹ * a * n) hna
-    calc a * (n * c * n⁻¹) = n * ((n⁻¹ * a * n) * c) * n⁻¹ := by group
-      _ = n * (c * (n⁻¹ * a * n)) * n⁻¹ := by rw [hcomm]
-      _ = (n * c * n⁻¹) * a := by group
-  have hC2 : IsPGroup 2 ↥(P ⊓ C) := hP.2.1.to_inf_left
-  have hPCC : P ⊓ C ≤ C := inf_le_right
-  obtain ⟨T, hTsylow, hPT⟩ := exists_isSylowIn_of_le hPCC hC2
-  have hTCN : C ≤ N := by
-    rw [hC, hN]
-    exact Subgroup.centralizer_le_normalizer (A : Set G)
-  have hTN : T ≤ N := hTsylow.1.trans hTCN
-  obtain ⟨T₂, hT₂sylow, hTT₂⟩ := exists_isSylowIn_of_le hTN hTsylow.2.1
-  obtain ⟨n, hnN, hncj⟩ := exists_cj_of_isSylowIn hPNsylow hT₂sylow
-  have hCn : cj n C = C := cj_eq_self_of_normalizes (hCN n hnN)
-  have hle : T ≤ cj n (P ⊓ C) := by
-    rw [cj_inf, hncj, hCn]
-    exact le_inf hTT₂ hTsylow.1
-  have hcardT : Nat.card T ≤ Nat.card ↥(P ⊓ C) := by
-    have h1 : Nat.card T ≤ Nat.card (cj n (P ⊓ C)) := Subgroup.card_le_of_le hle
-    rwa [card_cj] at h1
-  have hEq : P ⊓ C = T := Subgroup.eq_of_le_of_card_ge hPT hcardT
-  rw [hEq]
-  exact hTsylow
 
 theorem exists_mul_mem_normalizer {A B E : Subgroup G} (hAB : A ≤ B)
     (hA : ∀ b ∈ B, ∀ a ∈ A, b * a * b⁻¹ ∈ A) (hE : IsSylowIn 2 E A) :

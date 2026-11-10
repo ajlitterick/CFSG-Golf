@@ -24,20 +24,6 @@ theorem inducedFunction_sub' (H : Subgroup G) (α β : H → ℂ) :
   refine Finset.sum_congr rfl fun c _ => ?_
   split_ifs <;> simp
 
-theorem inducedFunction_add' (H : Subgroup G) (α β : H → ℂ) :
-    inducedFunction H (α + β) = inducedFunction H α + inducedFunction H β := by
-  funext x
-  simp only [inducedFunction, Pi.add_apply, ← mul_add, ← Finset.sum_add_distrib]
-  congr 1
-  refine Finset.sum_congr rfl fun c _ => ?_
-  split_ifs <;> simp
-
-theorem inducedFunction_smul' (H : Subgroup G) (c : ℂ) (α : H → ℂ) :
-    inducedFunction H (c • α) = c • inducedFunction H α := by
-  funext x
-  simp only [inducedFunction, Pi.smul_apply, smul_eq_mul, Finset.mul_sum]
-  refine Finset.sum_congr rfl fun a _ => ?_
-  split_ifs <;> ring
 
 theorem inducedFunction_special_restrict {H : Subgroup G} {K : Set G} (hK : IsSpecialSet H K)
     {α : H → ℂ} (hα : BlocksIsClassFunction α) (hsupp : ∀ h : H, (h : G) ∉ K → α h = 0)

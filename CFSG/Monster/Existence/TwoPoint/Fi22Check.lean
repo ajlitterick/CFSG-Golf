@@ -14,11 +14,6 @@ open CFSG.Sporadic.Fi23.Native (dLetters)
 
 @[expose] def fiWDelta : List Native.Gen := fiWBeta ++ fiWU[0]!
 
-@[expose, noinline] def fiConj22Check : Bool :=
-  fiEqP (fiRhoT ++ fiCGamma) (fiCGamma ++ fiWU[0]!) (HS.pw fiRhoT ++ HS.pw fiCGamma)
-      (HS.pw fiCGamma ++ fiPU[0]!) &&
-    fiEqP (fiRhoT ++ fiCDelta) (fiCDelta ++ fiWDelta) (HS.pw fiRhoT ++ HS.pw fiCDelta)
-      (HS.pw fiCDelta ++ HS.pw fiWDelta)
 
 theorem fiConj22Check_parts
     (h : wordLin (fiRhoT ++ fiCGamma) = wordLin (fiCGamma ++ fiWU[0]!) ∧
@@ -37,6 +32,5 @@ theorem fiConj22Check_parts
   imgWords[k]! == imgWords[k]!.take m ++ fiDPowWord ++ fiInvWord (imgWords[k]!.take m) &&
     (imgWords[k]!.take m).all fun z => z == 1 || z == -1 || z == 2 || z == -2
 
-@[expose, noinline] def fi22Check : Bool := fiConj22Check && fiImgConjCheck 0 27
 
 end CFSG.Monster.Existence

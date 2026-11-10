@@ -243,28 +243,6 @@ theorem ggAllFixedArithMarking (hRig : GGLabelRigidInput) (hraw : GGRawInnFieldI
   exact ⟨hHalf', hN, hInv, hfield,
     ggBeta_range_rank_three_of_innerDiag hcfg hX I θ hN hCombined.1 hInv⟩
 
-theorem ggAllFixedArithDispatch (hRig : GGLabelRigidInput) (hraw : GGRawInnFieldInput)
-    (hiso : GGRawInndiagIsoInput) {G : Type} [Group G] [Finite G] {p : ℕ}
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hcfg : GGConfig p B Bs x L D J) (hAll : GGInnerDiagAll p B Bs x L D J)
-    {X : Subgroup G} (hX : X = L ∨ ∃ y : G, GGNbr p B x D J y X) :
-    ∃ (lab : LargeEvenLabel) (R : Type) (_ : Group R) (I F : Set (MulAut R))
-      (hN : Bs ≤ Subgroup.normalizer (X : Set G))
-      (θ : ↥X ⧸ Subgroup.center ↥X ≃* R),
-      LargeEvenInLambda2 lab ∧ GGHasLabel lab (↥X ⧸ Subgroup.center ↥X) ∧
-      commutator ↥X = ⊤ ∧
-      (∀ b ∈ Bs, ∃ φ ∈ I, LargeEvenInduces θ
-        (fun l l' : ↥X => (l' : G) = b⁻¹ * l * b) φ) ∧
-      GGRawInnField p R I F ∧
-      IsElemAbelian p (ggBeta X θ hN).range ∧
-      ((ggBeta X θ hN).range : Set (MulAut R)) ⊆ I ∧
-      p ^ 3 ≤ Nat.card (ggBeta X θ hN).range ∧
-      (p ∣ (2 ^ lab.n) ^ 2 - 1 ∨ (p = 7 ∧ (lab = ⟨.A, 8, 1⟩ ∨ lab = ⟨.E6, 0, 1⟩))) := by
-  have hmark := ggAllFixedArithMarking hRig hraw hiso hcfg hAll hX
-  obtain ⟨lab, hlab, hhas, R, _, I, F, θ, hHalf, hN, hInv, hfield, hEab, hEsub, hE3⟩ :=
-    largeEvenMarking_exists_hasLabel hmark
-  exact ⟨lab, R, inferInstance, I, F, hN, θ, hlab, hhas, hmark.1, hInv, hfield,
-    hEab, hEsub, hE3, largeEvenHalfSplit_dvd hlab hHalf⟩
 
 theorem ggInnerDiagOnLabel_phiOneTwo_nbr (hRig : GGLabelRigidInput) (hraw : GGRawInnFieldInput)
     (hiso : GGRawInndiagIsoInput) {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -298,10 +276,6 @@ end Labels
   GGReflGenerated p (ggAutomizer L Bs) ∧
     ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K → GGReflGenerated p (ggAutomizer K Bs)
 
-theorem GGCorFiveTwentyWeylDomNS.toReflDom {G : Type} [Group G] [Finite G] {p : ℕ}
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (h : GGCorFiveTwentyWeylDomNS p B Bs x L D J) : GGCorFiveTwentyReflDom p B Bs x L D J :=
-  ⟨h.1, fun y K hnb => (h.2.2 y K hnb).1⟩
 
 theorem ggCorFiveTwentyWeylDomNS_of_reflDom (hRig : GGLabelRigidInput)
     (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput) {G : Type} [Group G] [Finite G]
@@ -317,10 +291,6 @@ theorem ggCorFiveTwentyWeylDomNS_of_reflDom (hRig : GGLabelRigidInput)
       GGNbrLabelsOk p B Bs x D J → ¬ GGCorFiveTwentyReflDom p B Bs x L D J →
         Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem ggCorFiveTwentyQFourReflFailInput_of_nonWeylNS
-    (h : GGCorFiveTwentyQFourNonWeylNSInput) : GGCorFiveTwentyQFourReflFailInput :=
-  fun G _ _ p B Bs x L D J hH hq hN hD =>
-    h G p B Bs x L D J hH hq hN fun hW => hD hW.toReflDom
 
 theorem ggCorFiveTwentyQFourNonWeylNSInput_of_reflFail (hRig : GGLabelRigidInput)
     (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
@@ -329,14 +299,6 @@ theorem ggCorFiveTwentyQFourNonWeylNSInput_of_reflFail (hRig : GGLabelRigidInput
     h G p B Bs x L D J hH hq hN fun hR =>
       hD (ggCorFiveTwentyWeylDomNS_of_reflDom hRig hraw hiso hH hN hR)
 
-theorem ggCorFiveTwentyQFourReflFailInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourReflFailInput :=
-  fun G _ _ p B Bs x L D J hH _ _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
-
-theorem ggCorFiveTwentyQFourReflFailInput_of_nonWeyl (h : GGCorFiveTwentyQFourNonWeylInput) :
-    GGCorFiveTwentyQFourReflFailInput :=
-  ggCorFiveTwentyQFourReflFailInput_of_nonWeylNS (ggCorFiveTwentyQFourNonWeylNSInput_of_nonWeyl h)
 
 theorem ggCorFiveTwentyQFourNonWeylInput_of_scalarFail_reflFail (hRig : GGLabelRigidInput)
     (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)

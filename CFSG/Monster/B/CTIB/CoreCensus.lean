@@ -35,8 +35,6 @@ theorem rs3_eq :
   rw [show hs 0 = 1 from rfl, one_mul]
 
 theorem census_valid_one : censusValid 1 = true := by decide
-theorem census_valid_three : censusValid 3 = true := by decide
-theorem census_valid_seven : censusValid 7 = true := by decide
 
 theorem psiS_qS_ne_zero
     {r : ℕ} (hr : censusValid r = true) : psiS (qS r) ≠ 0 :=
@@ -83,35 +81,6 @@ theorem census_cover'
   · exact .inr (.inr (.inr (.inl hw)))
   · exact .inr (.inr (.inr (.inr hw)))
 
-theorem orbits_ne_zero
-    {w : WS} {r : ℕ} (hr : r ∈ [1, 3, 7, 17, 19]) (hw : w ∈ jOrbit (qS r)) :
-    w ≠ 0 := by
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at hr
-  rcases hr with rfl | rfl | rfl | rfl | rfl
-  · exact ne_zero_of_mem_census (r := (1, 2300)) (by decide) hw
-  · exact ne_zero_of_mem_census (r := (3, 46575)) (by decide) hw
-  · exact ne_zero_of_mem_census (r := (7, 2049300)) (by decide) hw
-  · exact ne_zero_of_mem_census (r := (17, 1619200)) (by decide) hw
-  · exact ne_zero_of_mem_census (r := (19, 476928)) (by decide) hw
-
-theorem orbit_set :
-    {O : Set WS | ∃ y ∈ Qs, psiS y ≠ 0 ∧ O = jOrbit y} =
-    {jOrbit (qS 1), jOrbit (qS 3), jOrbit (qS 7), jOrbit (qS 17), jOrbit (qS 19)} := by
-  ext O
-  constructor
-  · rintro ⟨y, hy, h0, rfl⟩
-    rcases census_cover' h0 with h | h | h | h | h
-    · exact .inl (jOrbit_eq_of_mem (qS_mem _) hy h)
-    · exact .inr (.inl (jOrbit_eq_of_mem (qS_mem _) hy h))
-    · exact .inr (.inr (.inl (jOrbit_eq_of_mem (qS_mem _) hy h)))
-    · exact .inr (.inr (.inr (.inl (jOrbit_eq_of_mem (qS_mem _) hy h))))
-    · exact .inr (.inr (.inr (.inr (jOrbit_eq_of_mem (qS_mem _) hy h))))
-  · rintro (rfl | rfl | rfl | rfl | rfl)
-    · exact ⟨_, qS_mem 1, psiS_qS_ne_zero (by decide), rfl⟩
-    · exact ⟨_, qS_mem 3, psiS_qS_ne_zero (by decide), rfl⟩
-    · exact ⟨_, qS_mem 7, psiS_qS_ne_zero (by decide), rfl⟩
-    · exact ⟨_, qS_mem 17, psiS_qS_ne_zero (by decide), rfl⟩
-    · exact ⟨_, qS_mem 19, psiS_qS_ne_zero (by decide), rfl⟩
 
 theorem sq_one_of_mem
     {y : Sbp} (hy : y ∈ Qs)
@@ -187,55 +156,6 @@ theorem ncard_jClass_rs3 :
     (jClass (rs 3)).ncard = 4098600 := by
   rw [rs3_eq, ncard_jClass_qS (by decide), ncard_jOrbit_seven]
 
-theorem class_set :
-    {C : Set Sbp | ∃ t, t ∈ Qs ∧ t * t = 1 ∧ t ≠ 1 ∧ C = jClass t} =
-    {jClass (rs 0), jClass (rs 1), jClass (rs 2), jClass (rs 3)} := by
-  ext C
-  constructor
-  · rintro ⟨t, ht, hsq, hne, rfl⟩
-    have hmem : t ∈ {t | t ∈ Qs ∧ t * t = 1 ∧ t ≠ 1} := ⟨ht, hsq, hne⟩
-    rw [invs_eq] at hmem
-    rcases hmem with ((h | h) | h) | h
-    · exact .inl (jClass_eq_of_mem h)
-    · exact .inr (.inl (jClass_eq_of_mem h))
-    · exact .inr (.inr (.inl (jClass_eq_of_mem h)))
-    · exact .inr (.inr (.inr (jClass_eq_of_mem h)))
-  · have hmem : ∀ i, i < 4 → rs i ∈ {t | t ∈ Qs ∧ t * t = 1 ∧ t ≠ 1} := by
-      intro i hi
-      rw [invs_eq]
-      interval_cases i
-      · exact .inl (.inl (.inl (mem_jClass_self _)))
-      · exact .inl (.inl (.inr (mem_jClass_self _)))
-      · exact .inl (.inr (mem_jClass_self _))
-      · exact .inr (mem_jClass_self _)
-    rintro (rfl | rfl | rfl | rfl)
-    · exact ⟨_, (hmem 0 (by norm_num)).1, (hmem 0 (by norm_num)).2.1, (hmem 0 (by norm_num)).2.2,
-        rfl⟩
-    · exact ⟨_, (hmem 1 (by norm_num)).1, (hmem 1 (by norm_num)).2.1, (hmem 1 (by norm_num)).2.2,
-        rfl⟩
-    · exact ⟨_, (hmem 2 (by norm_num)).1, (hmem 2 (by norm_num)).2.1, (hmem 2 (by norm_num)).2.2,
-        rfl⟩
-    · exact ⟨_, (hmem 3 (by norm_num)).1, (hmem 3 (by norm_num)).2.1, (hmem 3 (by norm_num)).2.2,
-        rfl⟩
-
-theorem classes_disjoint :
-    [jClass (rs 0), jClass (rs 1), jClass (rs 2), jClass (rs 3)].Pairwise Disjoint := by
-  have hn : ∀ i < 4, (jClass (rs i)).ncard = [1, 4600, 93150, 4098600].getD i 0 := by
-    intro i hi
-    interval_cases i
-    · exact ncard_jClass_rs0
-    · exact ncard_jClass_rs1
-    · exact ncard_jClass_rs2
-    · exact ncard_jClass_rs3
-  have hd : ∀ i < 4, ∀ j < 4, i ≠ j → Disjoint (jClass (rs i)) (jClass (rs j)) := by
-    intro i hi j hj hij
-    refine jClass_disjoint ?_
-    rw [hn i hi, hn j hj]
-    interval_cases i <;> interval_cases j <;> simp_all
-  rw [show [jClass (rs 0), jClass (rs 1), jClass (rs 2), jClass (rs 3)] =
-    (List.range 4).map fun i => jClass (rs i) from rfl, List.pairwise_map]
-  exact List.pairwise_lt_range.imp_of_mem fun {i j} hi hj hij =>
-    hd i (List.mem_range.1 hi) j (List.mem_range.1 hj) (by omega)
 
 @[expose] noncomputable def labelS : Sbp := op ((ehatEquiv.symm cE : Ebar) : Cbar)
 
@@ -297,32 +217,6 @@ theorem labelS_mem_jClass :
       omega
   exact mem_jClass_of (by decide) labelS_mem h1
 
-theorem sClass_eq {a b g : Sbp} (h : a = g⁻¹ * b * g) :
-    {u | ∃ k : Sbp, u = k⁻¹ * a * k} = {u | ∃ k : Sbp, u = k⁻¹ * b * k} := by
-  subst h
-  ext u
-  constructor
-  · rintro ⟨k, rfl⟩
-    exact ⟨g * k, by group⟩
-  · rintro ⟨k, rfl⟩
-    exact ⟨g⁻¹ * k, by group⟩
-
-theorem image_sClass_labelS :
-    (fun u : Sbp => (toShat u : Dfull)) '' {u | ∃ k : Sbp, u = k⁻¹ * labelS * k} =
-      {d | ∃ g : Shat, d = (g : Dfull)⁻¹ * cQ * g} := by
-  ext d
-  constructor
-  · rintro ⟨_, ⟨k, rfl⟩, rfl⟩
-    refine ⟨(toShat k)⁻¹, ?_⟩
-    show iotaD (k⁻¹ * labelS * k).unop = (iotaD k.unop)⁻¹⁻¹ * cQ * (iotaD k.unop)⁻¹
-    rw [unop_mul, unop_mul, unop_inv, map_mul, map_mul, map_inv, iotaD_labelS, inv_inv,
-      mul_assoc]
-  · rintro ⟨g, rfl⟩
-    obtain ⟨c, hc⟩ := g.2
-    refine ⟨op c * labelS * (op c)⁻¹, ⟨(op c)⁻¹, by rw [inv_inv]⟩, ?_⟩
-    show iotaD (op c * labelS * (op c)⁻¹).unop = (g : Dfull)⁻¹ * cQ * g
-    simp only [unop_mul, unop_inv, unop_op]
-    rw [map_mul, map_mul, map_inv, iotaD_labelS, hc, mul_assoc]
 
 theorem range_clabel :
     Set.range clabel = {d | ∃ g : Shat, d = (g : Dfull)⁻¹ * cQ * g} := by
@@ -334,41 +228,5 @@ theorem range_clabel :
   · rintro ⟨g, rfl⟩
     exact ⟨cvOf g, clabel_cvOf g⟩
 
-theorem native_core_involution_orbit_census :
-    {O : Set WS | ∃ y ∈ Qs, psiS y ≠ 0 ∧ O = jOrbit y} =
-      {jOrbit (qS 1), jOrbit (qS 3), jOrbit (qS 7), jOrbit (qS 17), jOrbit (qS 19)} ∧
-    (∀ w : WS, w ≠ 0 ↔ ∃ r ∈ [1, 3, 7, 17, 19], w ∈ jOrbit (qS r)) ∧
-    [jOrbit (qS 1), jOrbit (qS 3), jOrbit (qS 7), jOrbit (qS 17), jOrbit (qS 19)].Pairwise
-      Disjoint ∧
-    (jOrbit (qS 1)).ncard = 2300 ∧ (jOrbit (qS 3)).ncard = 46575 ∧
-    (jOrbit (qS 7)).ncard = 2049300 ∧ (jOrbit (qS 17)).ncard = 1619200 ∧
-    (jOrbit (qS 19)).ncard = 476928 ∧
-    (∀ y ∈ Qs, psiS y ∈ jOrbit (qS 1) ∪ jOrbit (qS 3) ∪ jOrbit (qS 7) → y * y = 1) ∧
-    (∀ y ∈ Qs, psiS y ∈ jOrbit (qS 17) ∪ jOrbit (qS 19) → y * y = xs) ∧
-    rs 0 = xs ∧ rs 1 = qS 1 ∧ rs 2 = qS 3 ∧ rs 3 = qS 7 ∧
-    {t | t ∈ Qs ∧ t * t = 1 ∧ t ≠ 1} =
-      jClass (rs 0) ∪ jClass (rs 1) ∪ jClass (rs 2) ∪ jClass (rs 3) ∧
-    {C : Set Sbp | ∃ t, t ∈ Qs ∧ t * t = 1 ∧ t ≠ 1 ∧ C = jClass t} =
-      {jClass (rs 0), jClass (rs 1), jClass (rs 2), jClass (rs 3)} ∧
-    [jClass (rs 0), jClass (rs 1), jClass (rs 2), jClass (rs 3)].Pairwise Disjoint ∧
-    (jClass (rs 0)).ncard = 1 ∧ (jClass (rs 1)).ncard = 4600 ∧
-    (jClass (rs 2)).ncard = 93150 ∧ (jClass (rs 3)).ncard = 4098600 ∧
-    (fun u : Sbp => (toShat u : Dfull)) '' {u | ∃ g : Sbp, u = g⁻¹ * rs 1 * g} =
-      {d | ∃ g : Shat, d = (g : Dfull)⁻¹ * cQ * g} ∧
-    Set.range clabel = {d | ∃ g : Shat, d = (g : Dfull)⁻¹ * cQ * g} := by
-  refine ⟨orbit_set, fun w => ⟨fun hw => ?_, fun ⟨r, hr, hw⟩ => orbits_ne_zero hr hw⟩,
-    censusList_disjoint, ncard_jOrbit_one, ncard_jOrbit_three, ncard_jOrbit_seven, ncard_jOrbit_17,
-    ncard_jOrbit_19, fun y hy h => sq_one_of_mem hy h, fun y hy h => sq_x_of_mem hy h, rs0_eq,
-    rs1_eq, rs2_eq, rs3_eq, invs_eq, class_set, classes_disjoint, ncard_jClass_rs0,
-    ncard_jClass_rs1, ncard_jClass_rs2, ncard_jClass_rs3, ?_, range_clabel⟩
-  · rcases census_cover' hw with h | h | h | h | h
-    · exact ⟨1, by simp, h⟩
-    · exact ⟨3, by simp, h⟩
-    · exact ⟨7, by simp, h⟩
-    · exact ⟨17, by simp, h⟩
-    · exact ⟨19, by simp, h⟩
-  · obtain ⟨g, -, hg⟩ := labelS_mem_jClass
-    rw [rs1_eq, ← sClass_eq hg]
-    exact image_sClass_labelS
 
 end CFSG.Monster.B.CTIB

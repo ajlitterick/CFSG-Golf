@@ -92,42 +92,6 @@ end Core
 
 section Residuals
 
-theorem noG2D4Twin_of (h95 : L9_5Mod p f) (h4 : Asc75Theorem4) : NoG2D4Twin p f := by
-  intro G _ _ _ K z hS hT D i hi
-  have hno := fuzzyFrameExcluded G K z hS
-  let C := Cover.toXCtx hS.nonabelian hS.odd hS.five hS.member hS.below D
-  have hb : ¬ (C.D.tag i = .PSL ∧ C.D.rank i = 2) := fun h => by
-    rcases hi with hi | hi <;>
-    · rw [show C.D.tag i = _ from hi] at h
-      exact absurd h.1 (by decide)
-  obtain ⟨T, hTΩ, hTK, hTz⟩ := hT
-  have hcard : 3 ≤ C.D.card := NDBG.three_le_card_of_twin C hb hTΩ hTK hTz
-  rcases hi with hG2 | hD4
-  · exact false_of_g2_of_card h95 h4 hS.nonabelian hS.odd hS.five hS.member hS.below hno D hG2
-      hcard
-  · exact NDBG.false_of_trialityD4_of_card (C := C) hno (b := i) hD4 hcard
-
-theorem bootNoG2Twin_of (h95 : L9_5Mod p f) (h4 : Asc75Theorem4) : BSC.BootNoG2Twin p f := by
-  intro G _ _ _ K z hS D i hG2 hcard
-  exact false_of_g2_of_card h95 h4 hS.nonabelian hS.odd hS.five hS.member hS.below
-    (BSC.noFuzzyFrame hS) D hG2 hcard
-
-theorem bootNoG2TwinThree_of (h95 : L9_5Mod p f) (h4 : Asc75Theorem4) :
-    BSC.BootNoG2TwinThree p f := by
-  intro G _ _ _ K z hS D i hG2 hcard
-  exact bootNoG2Twin_of h95 h4 G K z hS D i hG2 (by omega)
-
-theorem aEmptyG2Twin_of (h95 : L9_5Mod p f) (h4 : Asc75Theorem4) : BSC.AEmptyG2Twin p f := by
-  intro G _ _ _ K z hS D i hG2 hcard
-  let C := Cover.toXCtx hS.nonabelian hS.odd hS.five hS.member hS.below D
-  have hb : ¬ (C.D.tag i = .PSL ∧ C.D.rank i = 2) := fun h => by
-    rw [show C.D.tag i = .G2 from hG2] at h
-    exact absurd h.1 (by decide)
-  obtain ⟨N, hN, n, hn, hnz⟩ := NDBG.exists_far_member (C := C) (BSC.noFuzzyFrame hS) hb
-  have hNs : N ∈ omegaOfSet (𝒞 K) (twinSet (𝒞 K) K) :=
-    NDBG.mem_omegaOfSet_of_tq hS.odd hS.five C.hΩ (mem_conjClass_self K) C.hKz hN hn hnz
-  exact aEmpty_of_omegaOfSet_nonempty h95 h4 hS.nonabelian hS.odd hS.five hS.member hS.below
-    ⟨N, hNs⟩
 
 end Residuals
 

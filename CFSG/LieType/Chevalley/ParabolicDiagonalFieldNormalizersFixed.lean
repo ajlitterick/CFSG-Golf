@@ -77,44 +77,5 @@ theorem exact_parabolic_diagonal_field_normalizers_characteristic_p_fixed
       exact Subtype.ext (Subtype.ext h1)
   exact ⟨hZ, hne, hp, hall, hconj, hgen⟩
 
-theorem exact_parabolic_diagonal_field_normalizers_characteristic_p
-    {p : ℕ} [Fact p.Prime]
-    (K : Type) [Field K] [Finite K] [CharP K p] :
-    (∀ (τ : Tag) (J : Set (Fin τ.rank)), J ≠ Set.univ →
-      Subgroup.center (adjointGroup τ K) = ⊥ ∧
-      parabolicRadicalIn τ K J ≠ ⊥ ∧ IsPGroup p (parabolicRadicalIn τ K J) ∧
-      (∀ α : MulAut (adjointGroup τ K),
-        (α ∈ diagonalFieldActors τ K ∧ ∀ q ∈ parabolicRadicalIn τ K J, α q = q) ↔
-          α ∈ ((Subgroup.center (parabolicRadicalIn τ K J)).map
-            (parabolicRadicalIn τ K J).subtype).map MulAut.conj) ∧
-      (∀ M : Subgroup (MulAut (adjointGroup τ K)),
-        (parabolicRadicalIn τ K J).map MulAut.conj ≤ M →
-        M ≤ setwiseStabilizer (diagonalFieldActors τ K) (parabolicRadicalIn τ K J) →
-          IsCharacteristicP p M ∧ pPrimeCore p M = ⊥) ∧
-      IsCharacteristicP p
-        (setwiseStabilizer (diagonalFieldActors τ K) (parabolicRadicalIn τ K J)) ∧
-      pPrimeCore p (setwiseStabilizer (diagonalFieldActors τ K) (parabolicRadicalIn τ K J)) = ⊥) ∧
-    (∀ (t : TwistTag) (σ : K ≃+* K), σ ^ t.order = 1 →
-      ∀ J : Set (Fin t.foldedTag.rank), J ≠ Set.univ →
-      Subgroup.center (graphFixedRootGroup t K σ.toRingHom) = ⊥ ∧
-      graphFixedParabolicRadicalIn t K σ J ≠ ⊥ ∧
-      IsPGroup p (graphFixedParabolicRadicalIn t K σ J) ∧
-      (∀ α : MulAut (graphFixedRootGroup t K σ.toRingHom),
-        (α ∈ fixedDiagonalFieldActors t K σ ∧
-            ∀ q ∈ graphFixedParabolicRadicalIn t K σ J, α q = q) ↔
-          α ∈ ((Subgroup.center (graphFixedParabolicRadicalIn t K σ J)).map
-            (graphFixedParabolicRadicalIn t K σ J).subtype).map MulAut.conj) ∧
-      (∀ M : Subgroup (MulAut (graphFixedRootGroup t K σ.toRingHom)),
-        (graphFixedParabolicRadicalIn t K σ J).map MulAut.conj ≤ M →
-        M ≤ setwiseStabilizer (fixedDiagonalFieldActors t K σ)
-          (graphFixedParabolicRadicalIn t K σ J) →
-          IsCharacteristicP p M ∧ pPrimeCore p M = ⊥) ∧
-      IsCharacteristicP p (setwiseStabilizer (fixedDiagonalFieldActors t K σ)
-        (graphFixedParabolicRadicalIn t K σ J)) ∧
-      pPrimeCore p (setwiseStabilizer (fixedDiagonalFieldActors t K σ)
-        (graphFixedParabolicRadicalIn t K σ J)) = ⊥) :=
-  ⟨fun τ _ hJ => exact_parabolic_diagonal_field_normalizers_characteristic_p_ordinary τ K hJ,
-    fun t σ hσ _ hJ =>
-      exact_parabolic_diagonal_field_normalizers_characteristic_p_fixed t K σ hσ hJ⟩
 
 end CFSG.LieType.Chevalley

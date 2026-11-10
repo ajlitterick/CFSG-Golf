@@ -99,26 +99,5 @@ theorem quasithinO2QuotientIso_iff {G : Type*} [Group G] (L : Subgroup G) (H : T
       LieModel G .PSp 3 2 1 ∨ LieModel G .G2 0 3 1 ∨
         Nonempty (G ≃* NativeSporadic.HS) ∨ Nonempty (G ≃* NativeSporadic.Ru)
 
-@[expose] def ModelSp6_2 : Prop :=
-  ∀ (X : Type) [Group X], LieModel X .PSp 3 2 1 →
-    Nonempty (X ≃* Matrix.symplecticGroup (Fin 3) (ZMod 2))
-
-@[expose] def ModelU4_3 : Prop :=
-  ∀ (X : Type) [Group X], LieModel X .PSU 4 3 1 → Nonempty (X ≃* quasithinPSU 4 3 1)
-
-@[expose] def ModelU4_2 : Prop :=
-  ∀ (X : Type) [Group X], LieModel X .PSU 4 2 1 → Nonempty (X ≃* quasithinPSU 4 2 1)
-
-@[expose] def ModelL4_3 : Prop :=
-  ∀ (X : Type) [Group X], LieModel X .PSL 4 3 1 → Nonempty (X ≃* PSL(4, ZMod 3))
-
-@[expose] def ModelG2_3 : Prop :=
-  ∀ (X : Type) [Group X], LieModel X .G2 0 3 1 → Nonempty (X ≃* quasithinG2 (ZMod 3))
-
-@[expose] def ModelHS : Prop :=
-  Nonempty (NativeSporadic.HS ≃* quasithinHS)
-
-@[expose] def ModelRu : Prop :=
-  Nonempty (NativeSporadic.Ru ≃* quasithinRu)
 
 end CFSG.Quasithin.H13

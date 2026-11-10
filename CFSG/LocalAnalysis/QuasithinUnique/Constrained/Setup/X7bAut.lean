@@ -76,14 +76,6 @@ theorem involution_eq_conj_mul_pow [Finite K] {n : ℕ} (hn : 1 ≤ n) (hK : Nat
   rw [map_mul, autCongr_conj, MulEquiv.apply_symm_apply, autCongr_pow, autCongr_minorAut]
   exact hsj
 
-theorem minorAut_pow_not_mem_inner [Finite K] {n : ℕ} (hn : 1 ≤ n) (hK : Nat.card K = 2 ^ n) :
-    minorAut K ^ n ∉ inner (antiSp K) := by
-  obtain ⟨Fr, hFr, hord, hzp⟩ := exists_frobenius_data hn hK
-  obtain ⟨-, -, -, -, -, -, -, -, hmem, -⟩ := exceptionalAut_structure hn hFr hord hzp
-  rw [← mem_inner_iff_autCongr, autCongr_pow, autCongr_minorAut, hmem]
-  intro h
-  have := Nat.le_of_dvd hn h
-  omega
 
 theorem conj_injective : Function.Injective (MulAut.conj : antiSp K →* MulAut (antiSp K)) := by
   intro g h hgh

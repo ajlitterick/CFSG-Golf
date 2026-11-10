@@ -68,50 +68,6 @@ theorem fitting_subgroup_map_isomorphism {ImageType : Type imageUniverse} [Group
 theorem fitting_subgroup_characteristic : (fittingSubgroup (GroupType := GroupType)).Characteristic :=
   Subgroup.characteristic_iff_map_eq.mpr fitting_subgroup_map_isomorphism
 
-theorem nilpotent_sup_of_centralizing (first second : Subgroup GroupType)
-    (centralizes : first ≤ Subgroup.centralizer (second : Set GroupType))
-    (first_nilpotent : Group.IsNilpotent first) (second_nilpotent : Group.IsNilpotent second) :
-    Group.IsNilpotent (first ⊔ second : Subgroup GroupType) := by
-  let := first_nilpotent
-  let := second_nilpotent
-  have normalizes : second ≤ Subgroup.normalizer (first : Set GroupType) :=
-    (Subgroup.le_centralizer_iff.mp centralizes).trans (Subgroup.centralizer_le_normalizer _)
-  let multiplication : first × second →* (first ⊔ second : Subgroup GroupType) :=
-    { toFun := fun pair => ⟨pair.1.val * pair.2.val,
-        Subgroup.mul_mem _ (Subgroup.mem_sup_left pair.1.property) (Subgroup.mem_sup_right pair.2.property)⟩
-      map_one' := Subtype.ext (one_mul 1)
-      map_mul' := by
-        intro firstPair secondPair
-        apply Subtype.ext
-        change (firstPair.1.val * secondPair.1.val) * (firstPair.2.val * secondPair.2.val) =
-          (firstPair.1.val * firstPair.2.val) * (secondPair.1.val * secondPair.2.val)
-        have commutes : secondPair.1.val * firstPair.2.val = firstPair.2.val * secondPair.1.val :=
-          (Subgroup.mem_centralizer_iff.mp (centralizes secondPair.1.property)
-            firstPair.2.val firstPair.2.property).symm
-        calc
-          _ = firstPair.1.val * (secondPair.1.val * firstPair.2.val) * secondPair.2.val := by group
-          _ = firstPair.1.val * (firstPair.2.val * secondPair.1.val) * secondPair.2.val := by rw [commutes]
-          _ = _ := by group }
-  have surjective : Function.Surjective multiplication := by
-    intro element
-    obtain ⟨firstElement, first_member, secondElement, second_member, product⟩ :=
-      (mem_sup_of_normalizing first second normalizes element.val).mp element.property
-    exact ⟨(⟨firstElement, first_member⟩, ⟨secondElement, second_member⟩), Subtype.ext product⟩
-  exact Group.nilpotent_of_surjective multiplication surjective
-
-theorem distinct_prime_cores_centralize [Finite GroupType]
-    (firstPrime secondPrime : ℕ) (first_prime : firstPrime.Prime) (second_prime : secondPrime.Prime)
-    (distinct : firstPrime ≠ secondPrime) :
-    primeSetCore (GroupType := GroupType) {firstPrime} ≤
-      Subgroup.centralizer (primeSetCore (GroupType := GroupType) {secondPrime} : Set GroupType) := by
-  let _firstNormal := prime_set_core_normal (GroupType := GroupType) {firstPrime}
-  let _secondNormal := prime_set_core_normal (GroupType := GroupType) {secondPrime}
-  have disjoint := IsPGroup.disjoint_of_coprime
-    (prime_core_isPGroup (GroupType := GroupType) firstPrime first_prime)
-    (prime_core_isPGroup (GroupType := GroupType) secondPrime second_prime)
-    ((Nat.coprime_primes first_prime second_prime).mpr distinct)
-  apply Subgroup.commutator_eq_bot_iff_le_centralizer.mp
-  exact le_bot_iff.mp ((Subgroup.commutator_le_inf _ _).trans disjoint.eq_bot.le)
 
 theorem normal_nilpotent_le_prime_cores [Finite GroupType]
     (candidate : Subgroup GroupType) [candidate.Normal] [Group.IsNilpotent candidate] :
@@ -156,62 +112,5 @@ theorem fitting_subgroup_eq_prime_cores [Finite GroupType] :
     exact fitting_subgroup_contains _ (prime_set_core_normal {prime.val})
       (prime_core_isPGroup prime.val prime.property).isNilpotent
 
-theorem prime_core_trivial_of_not_dvd [Finite GroupType]
-    (prime : ℕ) (prime_prime : prime.Prime) (not_divides : ¬ prime ∣ Nat.card GroupType) :
-    primeSetCore (GroupType := GroupType) {prime} = ⊥ := by
-  let : Fact prime.Prime := ⟨prime_prime⟩
-  rcases (prime_core_isPGroup (GroupType := GroupType) prime prime_prime).card_eq_or_dvd with equal | divides
-  · exact (Subgroup.eq_bot_iff_card _).mpr equal
-  · exact (not_divides (divides.trans (Subgroup.card_subgroup_dvd_card _))).elim
-
-theorem finite_prime_core_join_nilpotent [Finite GroupType]
-    (primes : Finset ℕ) (all_prime : ∀ prime ∈ primes, prime.Prime) :
-    Group.IsNilpotent (primes.sup (fun prime => primeSetCore (GroupType := GroupType) {prime}) :
-      Subgroup GroupType) := by
-  classical
-  induction primes using Finset.induction_on with
-  | empty =>
-    change Group.IsNilpotent (⊥ : Subgroup GroupType)
-    infer_instance
-  | @insert prime primes not_member induction_hypothesis =>
-    have prime_prime := all_prime prime (Finset.mem_insert_self _ _)
-    have members_prime : ∀ other ∈ primes, other.Prime := fun other member =>
-      all_prime other (Finset.mem_insert_of_mem member)
-    have centralizes : primeSetCore (GroupType := GroupType) {prime} ≤
-        Subgroup.centralizer
-          ((primes.sup (fun other => primeSetCore {other}) : Subgroup GroupType) : Set GroupType) := by
-      apply Subgroup.le_centralizer_iff.mpr
-      apply Finset.sup_le
-      intro other member
-      apply distinct_prime_cores_centralize other prime (members_prime other member) prime_prime
-      intro equal
-      exact not_member (equal ▸ member)
-    rw [Finset.sup_insert]
-    let : Fact prime.Prime := ⟨prime_prime⟩
-    exact nilpotent_sup_of_centralizing _ _ centralizes
-      (prime_core_isPGroup prime prime_prime).isNilpotent (induction_hypothesis members_prime)
-
-theorem fitting_subgroup_eq_finite_prime_cores [Finite GroupType] :
-    fittingSubgroup (GroupType := GroupType) =
-      (Nat.card GroupType).primeFactors.sup (fun prime => primeSetCore {prime}) := by
-  rw [fitting_subgroup_eq_prime_cores]
-  apply le_antisymm
-  · apply iSup_le
-    intro prime
-    by_cases divides : prime.val ∣ Nat.card GroupType
-    · exact Finset.le_sup (f := fun prime => primeSetCore {prime})
-        (prime.property.mem_primeFactors divides Nat.card_pos.ne')
-    · rw [prime_core_trivial_of_not_dvd prime.val prime.property divides]
-      exact bot_le
-  · apply Finset.sup_le
-    intro prime member
-    exact le_iSup (fun prime : {prime : ℕ // prime.Prime} => primeSetCore {prime.val})
-      ⟨prime, Nat.prime_of_mem_primeFactors member⟩
-
-theorem fitting_subgroup_nilpotent [Finite GroupType] :
-    Group.IsNilpotent (fittingSubgroup (GroupType := GroupType)) := by
-  rw [fitting_subgroup_eq_finite_prime_cores]
-  exact finite_prime_core_join_nilpotent (GroupType := GroupType) _
-    (fun _ member => Nat.prime_of_mem_primeFactors member)
 
 end CFSG.SignalizerFunctor.Helpers

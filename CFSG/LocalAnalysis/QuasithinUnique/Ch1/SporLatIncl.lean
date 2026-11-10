@@ -21,10 +21,6 @@ theorem Y_le_iff {j jj : ℕ} (hj : j < C.J) (hjj : jj < C.J) :
   obtain ⟨x, hx, hxe⟩ := (C.Y_mem_iff hjj g).mp (h (C.gens_mem_Y g hg))
   exact ⟨x, hx, hxe.symm⟩
 
-theorem Y_sup_le_iff {j₁ j₂ j : ℕ} (h₁ : j₁ < C.J) (h₂ : j₂ < C.J) (hj : j < C.J) :
-    C.Y j₁ ⊔ C.Y j₂ ≤ C.Y j ↔
-      GensIn C.A.act C.Δ C.D j₁ j ∧ GensIn C.A.act C.Δ C.D j₂ j := by
-  rw [_root_.sup_le_iff, C.Y_le_iff h₁ hj, C.Y_le_iff h₂ hj]
 
 end LatCtx
 

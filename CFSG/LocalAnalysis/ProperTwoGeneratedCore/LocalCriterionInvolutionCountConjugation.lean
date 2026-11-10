@@ -42,23 +42,6 @@ def fullClassConjugateEquiv (u g : G) : fullClass u ≃ fullClass u where
     simp only [rightConjugateElem, inv_inv, mul_assoc, inv_mul_cancel_left,
       inv_mul_cancel, mul_one])
 
-theorem fullClass_orderOf (u : G) (hu : orderOf u = 2) (v : fullClass u) :
-    orderOf (v : G) = 2 := by
-  obtain ⟨g, hg⟩ := v.property
-  rw [← hg]
-  simpa only [MulAut.conj_apply, inv_inv] using
-    ((MulAut.conj (g : G)⁻¹).orderOf_eq u).trans hu
-
-theorem class_flip_reverse (u : G) (hu : orderOf u = 2) (a b : Ω)
-    (v : classFlipPair u a b) : rightAct b (v.val : G) = a := by
-  have hv2 : (v.val : G) * (v.val : G) = 1 := by
-    have hh := pow_orderOf_eq_one (v.val : G)
-    rw [fullClass_orderOf u hu v.val, pow_two] at hh
-    exact hh
-  calc
-    rightAct b (v.val : G) = rightAct (rightAct a (v.val : G)) (v.val : G) :=
-      congrArg (fun x : Ω => rightAct x (v.val : G)) v.property.symm
-    _ = a := by rw [rightAct_mul, hv2, rightAct_one]
 
 theorem classFixPair_conjugate_iff (u g : G) (a b : Ω) (v : fullClass u) :
     (rightAct a (v : G) = a ∧ rightAct b (v : G) = b) ↔

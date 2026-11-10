@@ -105,9 +105,5 @@ theorem evenListBridge_of_exceptional (hX : EvenExceptionalBridge) : EvenListBri
     · exact evenLieType_of_isoLie_D hq hD4
     · exact hX X (Or.inr (Or.inr (Or.inr ⟨q, hq, hf, hF4⟩)))
 
-theorem item613_of_inspections' (hB : ThetaQuotientBookkeeping) (hT : ThmThreeCatalog)
-    (hX : EvenExceptionalBridge) (h2 : Item613Item2) (h3 : Item613Item3) (h4 : Item613Item4)
-    (h6 : Item613Item6) : Item613 :=
-  item613_of_inspections hB hT (evenListBridge_of_exceptional hX) h2 h3 h4 h6
 
 end CFSG.RankThree.PartOne.N143

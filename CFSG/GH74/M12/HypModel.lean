@@ -347,7 +347,6 @@ theorem bfS_le_M12 : bfS ≤ NativeSporadic.M12 := by
 
 @[expose] def bfS' : Subgroup G12 := bfS.subgroupOf NativeSporadic.M12
 
-theorem mem_bfS' {x : G12} : x ∈ bfS' ↔ x.1 ∈ bfS := Iff.rfl
 
 theorem card_bfS' : Nat.card ↥bfS' = 64 := by
   show Nat.card ↥(bfS.subgroupOf NativeSporadic.M12) = 64
@@ -370,9 +369,6 @@ theorem coe_bfSylow
 
 @[expose] def Jelt : G12 := ⟨bfJ, bfS_le_M12 bfJ_mem_bfS⟩
 
-@[expose] def Xelt : G12 := ⟨bfX, bfS_le_M12 bfX_mem⟩
-
-@[expose] def Eelt : G12 := ⟨bfE, bfS_le_M12 bfE_mem⟩
 
 @[expose] def Felt : G12 := ⟨bfF, bfS_le_M12 bfF_mem⟩
 
@@ -462,20 +458,5 @@ theorem exists_conj_of_central_involution
   rw [← hyJ, hyd]
   group
 
-theorem exists_conj_Jelt_Xelt :
-    ∃ h : G12, h * Jelt * h⁻¹ = Xelt := by
-  refine ⟨⟨wordP wordH, wordP_mem _⟩, ?_⟩
-  apply Subtype.ext
-  apply tbl_injective
-  show tbl (wordP wordH * bfJ * (wordP wordH)⁻¹) = tbl bfX
-  rw [tbl_mul, tbl_mul, tbl_inv, tbl_wordP, tbl_bfJ, tbl_bfX]
-  exact wordH_conj
-
-theorem Xelt_ne_Jelt : Xelt ≠ Jelt := by
-  intro h
-  have h0 : Xelt.1 = Jelt.1 := congrArg Subtype.val h
-  have h1 : tbl bfX = tbl bfJ := congrArg tbl h0
-  rw [tbl_bfX, tbl_bfJ] at h1
-  exact XT_ne_JT h1
 
 end CFSG.GH74.M12.Hyp

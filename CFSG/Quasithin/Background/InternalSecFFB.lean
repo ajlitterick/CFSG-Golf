@@ -50,16 +50,5 @@ theorem isFFModule_autOn_of_offender (hW2 : ∀ w ∈ W, w ^ 2 = 1) (hUW : U ≤
   exact B1Red.isFFModule_mono (autSub_map_le_autOn hUW hYU)
     (B1Red.isFFModule_map_congr' (Subgroup.subgroupOfEquivOfLe hUW) hFF)
 
-theorem not_isFFModule_autOn_of_sec {Y' L Cg : Subgroup G} (h : ISec U Y' L Cg)
-    (hW2 : ∀ w ∈ W, w ^ 2 = 1) (hUW : U ≤ W)
-    (hoff : ∀ A, IsFFStarOffender (autOn Y W) A →
-      ∃ B ≤ A, IsFFStarOffender (autOn Y' W) B ∧ ¬ B ≤ centSub (U.subgroupOf W))
-    (hnot : ¬ IsFFModule (autSec (autOn Y' U) ⊤ (Cg.subgroupOf U))) :
-    ¬ IsFFModule (autOn Y W) := by
-  intro hFF
-  have hV : ∀ v : ↥W, v ^ 2 = 1 := fun v => Subtype.ext (by simpa using hW2 v v.2)
-  obtain ⟨A, hA⟩ := ((B1_4_5 hV _).out 1 2).1 hFF
-  obtain ⟨B, -, hB, hBnt⟩ := hoff A hA
-  exact hnot (h.isFFModule_sec (isFFModule_autOn_of_offender hW2 hUW h.normU hB hBnt))
 
 end CFSG.Quasithin.InternalSec

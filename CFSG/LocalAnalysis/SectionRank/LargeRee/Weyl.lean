@@ -54,10 +54,6 @@ variable (τ K) in
     (w : WeylGroup τ) : nrepHom τ K w = nrep τ K w :=
   rfl
 
-variable (K) in
-theorem nrep_inv
-    (w : WeylGroup τ) : nrep τ K w⁻¹ = (nrep τ K w)⁻¹ :=
-  map_inv (nrepHom τ K) w
 
 end CharTwo
 
@@ -120,14 +116,6 @@ theorem blockElt_mul_blockElt_pow_eight :
   revert k
   decide +kernel
 
-theorem blockElt_zero_ne_blockElt_one :
-    ReeTag.F4.blockElt (0 : Fin 4) ≠ ReeTag.F4.blockElt (1 : Fin 4) := by
-  intro h
-  have := congrArg (fun w : WeylGroup ReeTag.F4.tag =>
-    w • (Pi.single (0 : Fin 4) 1 : Fin ReeTag.F4.tag.rank → ℤ)) h
-  simp only [CFSG.LieType.Ree.wordProd_smul] at this
-  revert this
-  decide +kernel
 
 @[expose] def blockIdx : Fin 2 → Fin ReeTag.F4.tag.rank :=
   ![(0 : Fin 4), (1 : Fin 4)]
@@ -147,13 +135,6 @@ theorem blockElt_zero_ne_blockElt_one :
     (blockGen i : WeylGroup ReeTag.F4.tag) = ReeTag.F4.blockElt (blockIdx i) :=
   rfl
 
-theorem blockGen_zero :
-    blockGen 0 = ⟨ReeTag.F4.blockElt (0 : Fin 4), reeOrbitWord_mem ReeTag.F4 (0 : Fin 4)⟩ :=
-  rfl
-
-theorem blockGen_one :
-    blockGen 1 = ⟨ReeTag.F4.blockElt (1 : Fin 4), reeOrbitWord_mem ReeTag.F4 (1 : Fin 4)⟩ :=
-  rfl
 
 theorem blockGen_mul_self
     (i : Fin 2) : blockGen i * blockGen i = 1 :=
@@ -163,9 +144,6 @@ theorem blockGen_ne_one
     (i : Fin 2) : blockGen i ≠ 1 := fun h =>
   blockElt_ne_one ReeTag.F4 (blockIdx i) (congrArg Subtype.val h)
 
-theorem blockGen_zero_ne_blockGen_one
-    : blockGen 0 ≠ blockGen 1 := fun h =>
-  blockElt_zero_ne_blockElt_one (congrArg Subtype.val h)
 
 theorem blockGen_mul_pow_eight
     : (blockGen 0 * blockGen 1) ^ 8 = 1 :=
@@ -230,10 +208,6 @@ variable (K a) in
     have : CharP K 2 := ‹CharP K ReeTag.F4.prime›
     exact Subtype.ext (nrep_mul_charTwo K (v : WeylGroup ReeTag.F4.tag) w)
 
-theorem relNrepHom_apply
-    (w : ReeTag.F4.relWeylRee) :
-    relNrepHom K a w = nrepFixed ReeTag.F4 K a w.2 :=
-  rfl
 
 @[simp] theorem coe_relNrepHom
     (w : ReeTag.F4.relWeylRee) :
@@ -249,9 +223,6 @@ theorem relNrepHom_blockGen_mul_self
     relNrepHom K a (blockGen i) * relNrepHom K a (blockGen i) = 1 := by
   rw [← map_mul, blockGen_mul_self, map_one]
 
-theorem relNrepHom_blockGen_mul_pow_eight :
-    (relNrepHom K a (blockGen 0) * relNrepHom K a (blockGen 1)) ^ 8 = 1 := by
-  rw [← map_mul, ← map_pow, blockGen_mul_pow_eight, map_one]
 
 theorem eq_one_of_mul_relNrepHom_mul_eq_one
     (w : ReeTag.F4.relWeylRee)

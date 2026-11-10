@@ -34,21 +34,6 @@ public theorem UConjugates.exists_smul_base
   change conjugateSubgroup c.U g = V.1
   exact hV.symm
 
-/-- The conjugation action on graph vertices is transitive. -/
-public theorem firstCase_commutingGraph_vertex_transitive
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (V W : UConjugates c) :
-    ∃ g : G, g • V = W := by
-  obtain ⟨a, ha⟩ := UConjugates.exists_smul_base c V
-  obtain ⟨b, hb⟩ := UConjugates.exists_smul_base c W
-  refine ⟨b * a⁻¹, ?_⟩
-  calc
-    (b * a⁻¹) • V = (b * a⁻¹) • (a • UConjugates.base c) := by rw [ha]
-    _ = b • UConjugates.base c := by
-      rw [← mul_smul]
-      congr 1
-      group
-    _ = W := hb
 
 /-- The commuting graph is triangle-free. -/
 public theorem firstCase_commutingGraph_triangle_free

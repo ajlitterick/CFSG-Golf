@@ -81,6 +81,5 @@ end P22s
 
 open P22s
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22

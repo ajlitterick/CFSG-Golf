@@ -192,11 +192,5 @@ theorem not_isRoot_edge
   rw [hvi] at h1
   omega
 
-theorem not_isRoot_edge'
-    (hτ : τ = .F4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {i j : Fin τ.rank}
-    (hij : τ.cartan i j = -1) (hji : τ.cartan j i = -1) {a b : ℕ} (ha : 0 < a) (hb : 0 < b) :
-    ¬ IsRoot τ (a • Pi.single j 1 + b • (Pi.single i 1 + Pi.single j 1)) := by
-  rw [add_comm (Pi.single i 1)]
-  exact not_isRoot_edge hτ hji hij ha hb
 
 end CFSG.LieType.Chevalley.ExceptionalCover

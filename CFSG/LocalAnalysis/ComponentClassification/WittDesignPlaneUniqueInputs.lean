@@ -16,11 +16,9 @@ open Equiv CFSG.Monster.B.Classical.Plane
 
 @[expose] def enc (j : Fin 5) (x : Fin 4) : Fin 21 := ⟨1 + 4 * j + x, by omega⟩
 
-variable {P : Type*} [Fintype P] [DecidableEq P] {𝓛 : Finset (Finset P)}
 
 section Squares
 
-variable (h : IsSteinerPlane 𝓛) (p₀ : P)
 
 end Squares
 

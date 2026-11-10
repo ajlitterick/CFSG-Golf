@@ -56,14 +56,6 @@ private lemma card_conjugate
   exact Subgroup.card_map_of_injective (f := (MulAut.conj g).toMonoidHom) (K := H)
     (MulAut.conj g).injective
 
-/-- Conjugating a join conjugates both summands. -/
-private lemma sup_conjugate
-    {G : Type u} [Group G] {A B : Subgroup G} (g : G) :
-    conjugateSubgroup (A ⊔ B) g =
-      conjugateSubgroup A g ⊔ conjugateSubgroup B g := by
-  change (A ⊔ B).map (MulAut.conj g).toMonoidHom =
-    A.map (MulAut.conj g).toMonoidHom ⊔ B.map (MulAut.conj g).toMonoidHom
-  exact Subgroup.map_sup A B (MulAut.conj g).toMonoidHom
 
 /-- Conjugation is monotone. -/
 private lemma conjugate_mono
@@ -148,44 +140,6 @@ private lemma natCard_sup_of_disjoint {G : Type u} [Group G] [Finite G]
     Nat.card (↥(K ⊔ B)) = Nat.card (↥K × ↥B) := hc.symm
     _ = Nat.card (↥K) * Nat.card (↥B) := by simp
 
-/-- `t^g = t` means `g ∈ H = C_G(t)`. -/
-private lemma g_mem_H_of_fixes_t
-    {G : Type u} [Group G] [Finite G] (c : CentralizerSetup G) {g : G}
-    (hgt : g * c.t * g⁻¹ = c.t) : g ∈ c.H := by
-  rw [c.H_eq_centralizer]
-  rw [Subgroup.mem_centralizer_singleton_iff]
-  exact mul_inv_eq_iff_eq_mul.mp hgt
-
-/-- The two-core `O₂(H)` is invariant under conjugation by elements of
-`H`: it is characteristic in `H`, and conjugation by `h ∈ H` is an inner
-automorphism of `H`. -/
-private lemma conjugate_twoCoreOf_of_mem
-    {G : Type u} [Group G] {H : Subgroup G} (h : G) (hh : h ∈ H) :
-    conjugateSubgroup (twoCoreOf H) h = twoCoreOf H := by
-  classical
-  let K : Subgroup H := pCore 2 H
-  let φ : H →* H := (MulAut.conj (⟨h, hh⟩ : H)).toMonoidHom
-  have hKφ : K.map φ = K := by
-    apply le_antisymm
-    · intro x hx
-      rcases Subgroup.mem_map.mp hx with ⟨k, hk, rfl⟩
-      simpa [φ] using (pCore_normal.conj_mem (G := H) k hk (⟨h, hh⟩ : H))
-    · intro k hk
-      have hk' : (⟨h, hh⟩ : H)⁻¹ * k * ⟨h, hh⟩ ∈ K := by
-        simpa using (pCore_normal.conj_mem (G := H)) k hk (⟨h, hh⟩ : H)⁻¹
-      exact Subgroup.mem_map.mpr ⟨(⟨h, hh⟩ : H)⁻¹ * k * ⟨h, hh⟩, hk', by
-        simp [φ, MulAut.conj_apply, mul_assoc]⟩
-  have hcomp : (MulAut.conj h).toMonoidHom.comp H.subtype = H.subtype.comp φ := by
-    ext x
-    simp [φ, MulAut.conj_apply]
-  calc
-    conjugateSubgroup (twoCoreOf H) h = (K.map H.subtype).map (MulAut.conj h).toMonoidHom := by
-      rfl
-    _ = K.map ((MulAut.conj h).toMonoidHom.comp H.subtype) := by rw [Subgroup.map_map]
-    _ = K.map (H.subtype.comp φ) := by rw [hcomp]
-    _ = (K.map φ).map H.subtype := by rw [Subgroup.map_map]
-    _ = K.map H.subtype := by rw [hKφ]
-    _ = twoCoreOf H := rfl
 
 /-- `A ∩ E = P0`: the rank-two subgroup meets the component in its
 `P0`-part. -/
@@ -454,26 +408,6 @@ private lemma centralizes_P0_of_normalizes_X_of_mem_E
         _ = e * p0 := by simp
     exact hcomm)
 
-/-- A conjugate of a subgroup centralizing `K` centralizes the conjugate
-of `K`. -/
-private lemma centralizer_conjugate_le_of_le
-    {G : Type u} [Group G] {H K : Subgroup G} (g : G)
-    (h : H ≤ Subgroup.centralizer (K : Set G)) :
-    conjugateSubgroup H g ≤
-      Subgroup.centralizer ((conjugateSubgroup K g) : Set G) := by
-  intro x hx
-  rcases Subgroup.mem_map.mp hx with ⟨u, hu, rfl⟩
-  exact Subgroup.mem_centralizer_iff.mpr (by
-    intro y hy
-    rcases Subgroup.mem_map.mp hy with ⟨v, hv, hvy⟩
-    have huv : u * v = v * u := ((Subgroup.mem_centralizer_iff.mp (h hu)) v hv).symm
-    have hxy : (g * u * g⁻¹) * (g * v * g⁻¹) = (g * v * g⁻¹) * (g * u * g⁻¹) := by
-      calc
-        (g * u * g⁻¹) * (g * v * g⁻¹) = g * (u * v) * g⁻¹ := by group
-        _ = g * (v * u) * g⁻¹ := by rw [huv]
-        _ = (g * v * g⁻¹) * (g * u * g⁻¹) := by group
-    rw [← hvy]
-    simpa [MulAut.conj_apply] using hxy.symm)
 
 /-- The first aligned chain, parametrized by the conjugator `h`: for
 `Xh = P^h ≤ A`, `Xh ≠ P`, `A^h = A`,

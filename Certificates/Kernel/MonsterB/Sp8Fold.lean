@@ -20,8 +20,6 @@ theorem zmod2_cases : ∀ x : ZMod 2, x = 0 ∨ x = 1 := by decide
 theorem liftP_comm : ∀ i j : Fin 8,
     Model.Pauli.mul (liftP i) (liftP j) = Model.Pauli.mul (liftP j) (liftP i) := by decide +kernel
 
-theorem liftP_sq : ∀ i : Fin 8, Model.Pauli.mul (liftP i) (liftP i) = (false, 0, 0) := by
-  decide +kernel
 
 theorem liftP_conj : ∀ k : Fin 8, Model.conjYN 3 (liftP k) = liftP k := by decide +kernel
 
@@ -49,8 +47,6 @@ theorem commute_gen (i j : Fin 8) : Commute (pauliQ (liftP i)) (pauliQ (liftP j)
   change pauliQ (liftP i) * pauliQ (liftP j) = pauliQ (liftP j) * pauliQ (liftP i)
   rw [← pauliQ_mul, ← pauliQ_mul, liftP_comm]
 
-theorem sq_gen (i : Fin 8) : pauliQ (liftP i) * pauliQ (liftP i) = 1 := by
-  rw [← pauliQ_mul, liftP_sq, pauliQ_false_zero]
 
 theorem fac_eq (v : Fin 8 → ZMod 2) (k : Fin 8) :
     fac v k = pauliQ (liftP k) ∨ fac v k = 1 := by

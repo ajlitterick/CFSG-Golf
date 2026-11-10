@@ -186,10 +186,6 @@ theorem Uγ_eq_Vv (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
     Uγ V H (g : G) = Vv V γ := by
   rw [Uγ, conjClosure_eq_Vv_γ₁ h, ← Vv_smul h.amalgamHypV.normalizes g (γ₁ T L H), s.edge₁]
 
-theorem F87_1 (h : HypF81 T V L V₁ H) :
-    stab (γ₀ T L H) ⊓ stab (γ₁ T L H) = L₁Of L V₁ ⊔ T := by
-  rw [stab_γ₀ h.amalgamHypV.le₁, stab_γ₁ h.amalgamHypV.le₂]
-  exact h.LT_inf_H
 
 theorem F87_2 (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
     conjClosure V H ≤ pCoreOf 2 (stab γ' ⊓ stab γ) ∧
@@ -201,20 +197,6 @@ theorem F87_2 (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
   · rw [Uγ_eq_Vv h s]
     exact Vv_le_pCoreOf_stab_inf h.amalgamHypV (V_ne_bot h) hγ₂ hd
 
-theorem F87_3 (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
-    ⁅conjClosure V H, Uγ V H (g : G)⁆ ≤ conjClosure V H ⊓ Uγ V H (g : G) := by
-  have hb3 : 3 ≤ critDist ((L ⊔ T) ⊔ H) (L ⊔ T) H V := (three_le_b_and_odd h).1
-  rw [Uγ_eq_Vv h s, conjClosure_eq_Vv_γ₁ h]
-  exact commutator_Vv_γ₁_Vv_le h.amalgamHypV (V_ne_bot h) s.critical.geodesic (by omega)
-
-theorem F87_4 (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
-    Uγ V H (g : G) ≤ Subgroup.normalizer (conjClosure V H : Set G) := by
-  have hb3 : 3 ≤ critDist ((L ⊔ T) ⊔ H) (L ⊔ T) H V := (three_le_b_and_odd h).1
-  obtain ⟨-, ⟨γ₂, hγ₂, hd⟩⟩ :=
-    exists_nbrs_of_geodesic h.amalgamHypV.gen s.critical.geodesic (by omega : 2 ≤ _)
-  refine ((F87_2 h s).2 γ₂ hγ₂ hd).trans ((pCoreOf_le 2 _).trans (inf_le_left.trans ?_))
-  rw [stab_γ₁ h.amalgamHypV.le₂]
-  exact le_normalizer_conjClosure V H
 
 theorem F87_5a (h : HypF81 T V L V₁ H) (s : F8Setup T V L H γ γ' g) :
     ¬ ⁅Uγ V H (g : G), V⁆ ≤ A₁ V₁ (g : G) := by

@@ -18,22 +18,6 @@ private theorem sum_univ_two_pow (e : ℕ) :
   rw [Fin.sum_univ_eq_sum_range (fun i : ℕ => 2 ^ i) e]
   exact sum_range_two_pow e
 
-private theorem sum_filter_testBit (e n : ℕ) (hn : n < 2 ^ e) :
-    (∑ j ∈ Finset.univ.filter (fun j : Fin e => n.testBit (j : ℕ)), 2 ^ (j : ℕ)) = n := by
-  rw [Finset.sum_filter]
-  rw [Fin.sum_univ_eq_sum_range (fun i : ℕ => if n.testBit i then 2 ^ i else 0) e]
-  rw [← Finset.sum_filter]
-  have hbits : (Finset.range e).filter (fun i => n.testBit i) = n.bitIndices.toFinset := by
-    ext i
-    rw [Finset.mem_filter, Finset.mem_range, List.mem_toFinset, Nat.mem_bitIndices]
-    constructor
-    · rintro ⟨_, hi⟩; exact hi
-    · intro hi
-      refine ⟨?_, hi⟩
-      have h2 : 2 ^ i ≤ n := Nat.two_pow_le_of_mem_bitIndices (Nat.mem_bitIndices.mpr hi)
-      have h3 : 2 ^ i < 2 ^ e := lt_of_le_of_lt h2 hn
-      exact (pow_lt_pow_iff_right₀ (by norm_num : 1 < (2 : ℕ))).mp h3
-  rw [hbits, Finset.sum_toFinset_bitIndices_two_pow]
 
 private theorem two_pow_e_eq_one (m : ℕ) :
     (2 : ZMod (2 ^ (2 * m + 1) - 1)) ^ (2 * m + 1) = 1 := by
@@ -209,21 +193,6 @@ private theorem sum_val_image {e : ℕ} (A : Finset (Fin e)) {M : Type*} [AddCom
   · intro i _
     rfl
 
-theorem S_digits (m : ℕ) (x : ZMod (2 ^ (2 * m + 1) - 1)) :
-    S (2 * m + 1) (digits (2 * m + 1) x) = x := by
-  haveI : NeZero (2 ^ (2 * m + 1) - 1) :=
-    ⟨by have h : 1 ≤ 2 ^ (2 * m + 1) := Nat.one_le_two_pow; omega⟩
-  have hlt : x.val < 2 ^ (2 * m + 1) := by
-    have h1 : x.val < 2 ^ (2 * m + 1) - 1 := ZMod.val_lt x
-    have h2 : 0 < 2 ^ (2 * m + 1) := Nat.two_pow_pos _
-    omega
-  unfold S digits
-  calc ∑ j ∈ Finset.univ.filter (fun j : Fin (2 * m + 1) => x.val.testBit (j : ℕ)), 2 ^ (j : ℕ)
-      = ((∑ j ∈ Finset.univ.filter (fun j : Fin (2 * m + 1) => x.val.testBit (j : ℕ)), 2 ^ (j : ℕ) : ℕ) : ZMod (2 ^ (2 * m + 1) - 1)) := by
-        push_cast; rfl
-    _ = (x.val : ZMod (2 ^ (2 * m + 1) - 1)) := by
-        rw [sum_filter_testBit (2 * m + 1) x.val hlt]
-    _ = x := ZMod.natCast_zmod_val x
 
 theorem digits_S (m : ℕ) {A : Finset (Fin (2 * m + 1))} (hA : A ≠ Finset.univ) :
     digits (2 * m + 1) (S (2 * m + 1) A) = A := by

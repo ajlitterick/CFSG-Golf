@@ -22,11 +22,6 @@ universe u v
     ext member
     rfl
 
-theorem zmodLinearAutomorphisms_apply (prime : ℕ) (G : Type u) [CommGroup G]
-    [Module (ZMod prime) (Additive G)]
-    (equivalence : MulAut G) (member : Additive G) :
-    zmodLinearAutomorphisms prime G equivalence member =
-      Additive.ofMul (equivalence (Additive.toMul member)) := rfl
 
 theorem zmodLinearAutomorphisms_injective (prime : ℕ) (G : Type u) [CommGroup G]
     [Module (ZMod prime) (Additive G)] :

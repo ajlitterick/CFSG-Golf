@@ -218,31 +218,6 @@ theorem IsClassicalMember.map_centerQuotient (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
       CFSG.ComponentClassification.OddCore.equiv_invariant eL
     exact ⟨(QuotientGroup.congr _ _ eL hO').symm.trans e'⟩
 
-theorem inClass_centerQuotient (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hO : classicalInvolutionOddCore Y = ⊥) {Λ : Set (Subgroup Y)} (hΛ : InClass p f Λ)
-    (hz : ∀ L ∈ Λ, ∀ z, IsClassicalMember p f L z → z ∉ Subgroup.center Y) :
-    InClass p f (Subgroup.map (QuotientGroup.mk' (Subgroup.center Y)) '' Λ) where
-  nonempty := hΛ.nonempty.image _
-  conjInvariant := by
-    rintro n _ ⟨L, hL, rfl⟩
-    obtain ⟨y, rfl⟩ := QuotientGroup.mk'_surjective _ n
-    exact ⟨conjSub y L, hΛ.conjInvariant y L hL, (conjSub_map (QuotientGroup.mk' _) y L).symm⟩
-  generated := by
-    set π := QuotientGroup.mk' (Subgroup.center Y)
-    have h : ⨆ M ∈ Subgroup.map π '' Λ, M = (⨆ L ∈ Λ, L).map π := by
-      refine le_antisymm (iSup₂_le fun M hM => ?_) ?_
-      · obtain ⟨L, hL, rfl⟩ := hM
-        exact Subgroup.map_mono (le_iSup₂ (f := fun (L : Subgroup Y) (_ : L ∈ Λ) => L) L hL)
-      · rw [Subgroup.map_le_iff_le_comap]
-        refine iSup₂_le fun L hL => ?_
-        exact Subgroup.map_le_iff_le_comap.mp (le_iSup₂
-          (f := fun (M : Subgroup (Y ⧸ Subgroup.center Y)) (_ : M ∈ Subgroup.map π '' Λ) => M)
-          (L.map π) ⟨L, hL, rfl⟩)
-    rw [h, hΛ.generated, Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  classical := by
-    rintro _ ⟨L, hL, rfl⟩
-    obtain ⟨z, hzL⟩ := hΛ.classical L hL
-    exact ⟨_, hzL.map_centerQuotient hp2 hq hO (hz L hL z hzL)⟩
 
 end Member
 

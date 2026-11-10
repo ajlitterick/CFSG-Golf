@@ -47,10 +47,6 @@ theorem coreInvolution_order [Finite G] (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
     (QuotientGroup.mk' (centralizerFullKernel n S f))
       (by rw [QuotientGroup.ker_mk']; exact le_sup_left)
 
-theorem fullReduction_coe (n : ℕ) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) (x : involutionCentralizer n S f) :
-    fullReduction n S f (QuotientGroup.mk' (pPrimeCore 2 (involutionCentralizer n S f)) x) =
-      QuotientGroup.mk' (centralizerFullKernel n S f) x := rfl
 
 theorem fullReduction_surjective (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) : Function.Surjective (fullReduction n S f) :=
@@ -75,12 +71,6 @@ theorem fullReduction_coreResidual_map (n : ℕ) (S : Sylow 2 G)
   rw [coreResidual, Subgroup.map_map]
   rfl
 
-theorem fullReduction_residual_preimage [Finite G] (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    (reducedResidual n S f).comap (fullReduction n S f) = coreResidual n S f := by
-  rw [← fullReduction_coreResidual_map, Subgroup.comap_map_eq_self]
-  rw [fullReduction_ker]
-  exact Subgroup.zpowers_le.mpr (coreInvolution_mem_coreResidual n hn S f hG)
 
 @[expose] def fourPointProjection (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S)
@@ -180,13 +170,6 @@ theorem every_coreResidualSylow_quaternion [Finite G] (n : ℕ) (hn : 4 ≤ n)
   ((MulEquiv.subgroupCongr (fourPointProjection_coreResidual_map n hn S f hG φ)).toMonoidHom).comp
     ((fourPointProjection n S f φ).subgroupMap (coreResidual n S f))
 
-theorem residualFourPointProjection_coe [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2)
-    (φ : (involutionCentralizer n S f ⧸ centralizerFullKernel n S f) ≃* Equiv.Perm (Fin 4))
-    (x : coreResidual n S f) :
-    (residualFourPointProjection n hn S f hG φ x : Equiv.Perm (Fin 4)) =
-      fourPointProjection n S f φ x := rfl
 
 theorem residualFourPointProjection_surjective [Finite G] (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)

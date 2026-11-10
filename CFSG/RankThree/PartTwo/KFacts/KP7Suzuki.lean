@@ -218,12 +218,6 @@ theorem card_suzukiGroup_two : Nat.card (suzukiGroup 0 (ZMod 2)) = 20 := by
   rw [CFSG.LieType.Ree.suzuki_order (a := 0) (K := ZMod 2) (by simp)]
   norm_num
 
-theorem exists_orderOf_eq_thirteen (hK : Nat.card K = 8) :
-    ∃ x : suzukiGroup 1 K, orderOf x = 13 := by
-  have : Fact (Nat.Prime 13) := ⟨by norm_num⟩
-  have : Finite (suzukiGroup 1 K) :=
-    Nat.finite_of_card_ne_zero (by rw [card_suzukiGroup_eight hK]; norm_num)
-  exact exists_prime_orderOf_dvd_card' 13 (by rw [card_suzukiGroup_eight hK]; norm_num)
 
 theorem exists_thirteen_fixedPointFree (hK : Nat.card K = 8) (α : MulAut (suzukiGroup 1 K))
     (hα : orderOf α = 3) :
@@ -281,12 +275,6 @@ section Transport
 
 variable {H : Type} [Group H] {p f : ℕ}
 
-theorem exists_orderOf_eq_thirteen_of_suzukiModel (h : SuzukiModel H p 3) :
-    ∃ x : H, orderOf x = 13 := by
-  obtain ⟨-, a, -, K, _, _, ha, hK, ⟨e⟩⟩ := h
-  obtain rfl : a = 1 := by omega
-  obtain ⟨x, hx⟩ := exists_orderOf_eq_thirteen (K := K) (by rw [hK]; norm_num)
-  exact ⟨e.symm x, by rw [MulEquiv.orderOf_eq, hx]⟩
 
 theorem exists_thirteen_fixedPointFree_of_suzukiModel (h : SuzukiModel H p 3) (α : MulAut H)
     (hα : orderOf α = 3) :

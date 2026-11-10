@@ -101,37 +101,6 @@ private theorem map_mem_normalizer (ψ : M →* G) {R : Subgroup M} {x : M}
       rw [hrh]
       group
 
-theorem u2Witness_map [Finite G] (ψ : M →* G) (hker : ψ.ker ≤ Subgroup.center M)
-    {R₁ R₂ : Subgroup M} (hinj₂ : ∀ x ∈ R₂, ψ x = 1 → x = 1) (hperf₁ : Group.IsPerfect R₁)
-    (hW : U2Witness R₁ R₂) : U2Witness (R₁.map ψ) (R₂.map ψ) := by
-  set J := R₂.map ψ with hJ
-  let e₀ : ↥R₂ →* ↥J :=
-    (ψ.comp R₂.subtype).codRestrict J (fun x => Subgroup.mem_map_of_mem ψ x.2)
-  have he₀inj : Function.Injective e₀ := by
-    intro x y hxy
-    have hxy' : ψ x = ψ y := congrArg Subtype.val hxy
-    have h1 : ψ ((x : M)⁻¹ * y) = 1 := by simp [map_mul, map_inv, hxy']
-    have h2 := hinj₂ _ (R₂.mul_mem (R₂.inv_mem x.2) y.2) h1
-    exact Subtype.ext (inv_mul_eq_one.mp h2)
-  have he₀surj : Function.Surjective e₀ := by
-    rintro ⟨_, r, hr, rfl⟩
-    exact ⟨⟨r, hr⟩, rfl⟩
-  have : Finite ↥R₂ := Finite.of_injective e₀ he₀inj
-  constructor
-  · obtain ⟨P, U, hUP, hcyc, hidx, hUN⟩ := hW.1
-    refine ⟨P.mapSurjective he₀surj, U.map e₀, ?_, ?_, ?_, ?_⟩
-    · exact Subgroup.map_mono hUP
-    · exact (MulEquiv.isCyclic (U.equivMapOfInjective e₀ he₀inj)).mp hcyc
-    · rw [Sylow.coe_mapSurjective]
-      exact (Subgroup.relIndex_map_map_of_injective U _ he₀inj).trans hidx
-    · rintro g ⟨_, ⟨u, hu, rfl⟩, rfl⟩
-      exact map_mem_normalizer ψ (hUN ⟨u, hu, rfl⟩)
-  · intro P' hP'
-    obtain ⟨P, rfl⟩ := Sylow.mapSurjective_surjective he₀surj 2 P'
-    refine hW.2 P ?_
-    rintro _ ⟨u, hu, rfl⟩
-    apply mem_normalizer_of_map_mem_normalizer ψ hker hperf₁
-    exact hP' ⟨e₀ u, ⟨u, hu, rfl⟩, rfl⟩
 
 end Normalizer
 

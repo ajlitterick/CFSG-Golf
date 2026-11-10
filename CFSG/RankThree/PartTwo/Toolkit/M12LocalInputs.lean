@@ -72,30 +72,6 @@ open scoped commutatorElement
   (2, 8, 2, 5, 3), (2, 8, 2, 5, 7), (2, 8, 2, 6, 3), (2, 8, 2, 6, 7), (2, 8, 2, 7, 3),
   (2, 8, 2, 7, 7), (2, 8, 2, 8, 3), (2, 8, 2, 8, 7)]
 
-@[expose] def idxCE : List Idx :=
-  [(0, 0, 0, 0, 0), (0, 0, 0, 1, 4), (0, 0, 0, 2, 4), (0, 0, 0, 3, 0), (0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 0), (0, 0, 0, 6, 4), (0, 0, 0, 7, 4), (0, 0, 0, 8, 0)]
-
-@[expose] def idxCF : List Idx :=
-  [(0, 0, 0, 0, 0), (0, 0, 0, 1, 4), (0, 0, 0, 5, 0), (1, 0, 6, 1, 7), (1, 0, 6, 2, 7),
-  (1, 0, 6, 6, 7), (2, 6, 8, 0, 2), (2, 6, 8, 3, 2), (2, 6, 8, 6, 5)]
-
-@[expose] def idxNA : List Idx :=
-  [(0, 0, 0, 0, 0), (0, 0, 0, 1, 4), (0, 0, 0, 2, 4), (0, 0, 0, 3, 0), (0, 0, 0, 4, 0),
-  (0, 0, 0, 5, 0), (0, 0, 0, 6, 4), (0, 0, 0, 7, 4), (0, 0, 0, 8, 0), (0, 1, 3, 0, 7),
-  (0, 1, 3, 1, 3), (0, 1, 3, 2, 3), (0, 1, 3, 3, 7), (0, 1, 3, 4, 7), (0, 1, 3, 5, 7),
-  (0, 1, 3, 6, 3), (0, 1, 3, 7, 3), (0, 1, 3, 8, 7), (1, 0, 6, 0, 3), (1, 0, 6, 1, 7),
-  (1, 0, 6, 2, 7), (1, 0, 6, 3, 3), (1, 0, 6, 4, 3), (1, 0, 6, 5, 3), (1, 0, 6, 6, 7),
-  (1, 0, 6, 7, 7), (1, 0, 6, 8, 3), (1, 7, 8, 0, 2), (1, 7, 8, 1, 5), (1, 7, 8, 2, 5),
-  (1, 7, 8, 3, 2), (1, 7, 8, 4, 2), (1, 7, 8, 5, 2), (1, 7, 8, 6, 5), (1, 7, 8, 7, 5),
-  (1, 7, 8, 8, 2), (2, 6, 8, 0, 2), (2, 6, 8, 1, 5), (2, 6, 8, 2, 5), (2, 6, 8, 3, 2),
-  (2, 6, 8, 4, 2), (2, 6, 8, 5, 2), (2, 6, 8, 6, 5), (2, 6, 8, 7, 5), (2, 6, 8, 8, 2),
-  (2, 8, 2, 0, 7), (2, 8, 2, 1, 3), (2, 8, 2, 2, 3), (2, 8, 2, 3, 7), (2, 8, 2, 4, 7),
-  (2, 8, 2, 5, 7), (2, 8, 2, 6, 3), (2, 8, 2, 7, 3), (2, 8, 2, 8, 7)]
-
-@[expose] def idxCA : List Idx :=
-  [(0, 0, 0, 0, 0), (0, 0, 0, 1, 4), (0, 0, 0, 5, 0), (1, 0, 6, 3, 3), (1, 0, 6, 5, 3),
-  (1, 0, 6, 7, 7), (2, 6, 8, 1, 5), (2, 6, 8, 7, 5), (2, 6, 8, 8, 2)]
 
 @[expose] def idxNa : List Idx :=
   [(0, 0, 0, 0, 0), (0, 0, 0, 1, 4), (0, 0, 0, 5, 0), (0, 1, 3, 1, 3), (0, 1, 3, 2, 3),
@@ -131,9 +107,6 @@ open scoped commutatorElement
 
 @[expose] def predP (u t : List ℕ) : Bool := tconj t u == u || tconj t u == tpow u 2
 
-@[expose] def enumData : List ((List ℕ → Bool) × List Idx) :=
-  [(predN [xT, yT] P0T, idxNP), (predC [zT, xT], idxCE), (predC [zT, yT], idxCF),
-    (predN [zT, aT] AT, idxNA), (predC [zT, aT], idxCA), (predP aT, idxNa)]
 
 @[expose] def rowOf : List ℕ := [0, 1, 2, 0, 0, 1, 1, 2, 0, 2, 2, 1]
 
@@ -149,26 +122,5 @@ open scoped commutatorElement
 @[expose] def psiT (t : List ℕ) : Equiv.Perm (Fin 3) × Equiv.Perm (Fin 4) :=
   (toP3 (rowTab t), toP4 (colTab t))
 
-@[expose] def chkComplete : Bool :=
-  allIdx.all fun k => enumData.all fun p => !p.1 (prodT k) || p.2.contains k
-
-@[expose] def chkSound : Bool := enumData.all fun p => p.2.all fun k => p.1 (prodT k)
-
-@[expose] def chkNodup : Bool := enumData.all fun p => decide (p.2.map prodT).Nodup
-
-@[expose] def chkNP : Bool :=
-  idxNP.all fun k => P0T.contains (tmul (prodT k) (prodT k)) && predN [zT, xT] ET (prodT k) &&
-    predN [zT, yT] FT (prodT k)
-
-@[expose] def chkNPcomm : Bool :=
-  idxNP.all fun k => idxNP.all fun k' => P0T.contains (tcomm (prodT k) (prodT k'))
-
-@[expose] def chkPsi : Bool :=
-  (idxNa.all fun k => idxNa.all fun k' =>
-    psiT (tmul (prodT k) (prodT k')) == psiT (prodT k) * psiT (prodT k')) &&
-  (idxNa.all fun k => idxNa.all fun k' => psiT (prodT k) != psiT (prodT k') || k == k') &&
-  (idxNa.all fun k => decide (Equiv.Perm.sign (psiT (prodT k)).2 = 1))
-
-@[expose] def m12Check : Bool := chkComplete && chkSound && chkNodup && chkNP && chkNPcomm && chkPsi
 
 end CFSG.RankThree.PartTwo.Toolkit.M12

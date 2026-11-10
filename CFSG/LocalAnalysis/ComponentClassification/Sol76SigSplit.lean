@@ -222,11 +222,5 @@ theorem forcedSeparationTwoFor_of_split (h22a : SolomonQTwoDisconnectedFor)
       · exact (hY' h3K' hR').elim
       · exact (solRestricted_or_of_two h22a hG hN hK hK' hne hR hR').elim
 
-theorem lemma315bInputFor_simple_of_split (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hW : WTrivialFor solRestricted)
-    (h22a : SolomonQTwoDisconnectedFor) (hSp : ForcedSharedRankTwoFor) :
-    Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_wTrivialFor_two hq hR1 hW
-    (forcedSeparationTwoFor_of_split h22a hSp)
 
 end CFSG.ComponentClassification.Sol76.Sig

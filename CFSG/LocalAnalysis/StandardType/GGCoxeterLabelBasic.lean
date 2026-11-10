@@ -253,17 +253,6 @@ theorem reflection_mul_reflection_pow_odd_eq_one_iff (hf : f x = 2) (hg : g y = 
   · intro h
     exact ⟨by rw [h, mul_zero], by rw [h, mul_zero]⟩
 
-theorem orderOf_reflection_mul_reflection_eq {M' : Type*} [AddCommGroup M'] [Module K M']
-    {x' y' : M'} {f' g' : Module.Dual K M'} (hf : f x = 2) (hg : g y = 2)
-    (hxy : LinearIndependent K ![x, y]) (hfg : LinearIndependent K ![f, g]) (hu : f y ≠ 0)
-    (hv : g x ≠ 0) (hf' : f' x' = 2) (hg' : g' y' = 2) (hxy' : LinearIndependent K ![x', y'])
-    (hfg' : LinearIndependent K ![f', g']) (hu' : f' y' ≠ 0) (hv' : g' x' ≠ 0)
-    (huv : f y * g x = f' y' * g' x') :
-    orderOf (reflection hf * reflection hg) = orderOf (reflection hf' * reflection hg') := by
-  rw [orderOf_eq_orderOf_iff]
-  intro m
-  rw [reflection_mul_reflection_pow_eq_one_iff_of_ne_zero hf hg hxy hfg hu hv,
-    reflection_mul_reflection_pow_eq_one_iff_of_ne_zero hf' hg' hxy' hfg' hu' hv', huv]
 
 theorem exists_eq_smul_of_not_linearIndependent {V : Type*} [AddCommGroup V] [Module K V]
     {a b : V} (ha : a ≠ 0) (h : ¬ LinearIndependent K ![a, b]) : ∃ c : K, b = c • a := by

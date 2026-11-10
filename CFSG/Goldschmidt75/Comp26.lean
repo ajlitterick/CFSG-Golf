@@ -101,33 +101,5 @@ theorem oddCoreOf_le_centralizer_of_component {V K : Subgroup L} (hK : CFSG.IsCo
     (Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcomm hmem) r hr
   exact (congrArg Subtype.val this).symm
 
-theorem eq_bot_of_coreSep_balance (hO : goldschmidtOddCore L = ⊥) {V₁ V₂ X : Subgroup L}
-    {t : L} (hsep : ∀ K : Subgroup L, CFSG.IsComponent K →
-      V₁ ≤ centralizer (K : Set L) ∨ V₂ ≤ centralizer (K : Set L))
-    (ht : orderOf t = 2) (hX : X ≤ oddCoreOf (centralizer ({t} : Set L)))
-    (hV₁ : IsPGroup 2 V₁) (hV₂ : IsPGroup 2 V₂)
-    (hV₁N : V₁ ≤ normalizer (X : Set L)) (hV₂N : V₂ ≤ normalizer (X : Set L))
-    (hC₁ : X ⊓ centralizer (V₁ : Set L) ≤ oddCoreOf (centralizer (V₁ : Set L)))
-    (hC₂ : X ⊓ centralizer (V₂ : Set L) ≤ oddCoreOf (centralizer (V₂ : Set L))) : X = ⊥ := by
-  by_contra hX1
-  obtain ⟨K, hK, -, hXK, -, hXC⟩ := exists_component_of_oddCore hO ht hX1 hX
-  have hXodd : Odd (Nat.card X) :=
-    Odd.of_dvd_nat (CFSG.Goldschmidt.Balance.odd_card_oddCoreOf _) (Subgroup.card_dvd_of_le hX)
-  have hcop : Nat.Coprime 2 (Nat.card X) := Nat.coprime_two_left.mpr hXodd
-  apply hXC
-  have key : ∀ V : Subgroup L, IsPGroup 2 V → V ≤ normalizer (X : Set L) →
-      X ⊓ centralizer (V : Set L) ≤ oddCoreOf (centralizer (V : Set L)) →
-      V ≤ centralizer (K : Set L) → X ≤ centralizer (K : Set L) := by
-    intro V hV hVN hC hVK
-    have hfac := CFSG.SignalizerFunctor.Helpers.coprime_normalized_commutator_factorization 2
-      Nat.prime_two V X hV hVN hcop
-    rw [← hfac]
-    refine sup_le (commutator_le_centralizer_of_centralizes hVK hXK) (hC.trans ?_)
-    exact oddCoreOf_le_centralizer_of_component hK fun k hk =>
-      Subgroup.mem_centralizer_iff.mpr fun v hv =>
-        (Subgroup.mem_centralizer_iff.mp (hVK hv) k hk).symm
-  rcases hsep K hK with h | h
-  · exact key V₁ hV₁ hV₁N hC₁ h
-  · exact key V₂ hV₂ hV₂N hC₂ h
 
 end CFSG.Goldschmidt75

@@ -44,9 +44,6 @@ theorem card_classFunOf (h0 : (fixList 0).length = 42) (l : Fin 10) :
     Nat.card (classFunOf h0 l).carrier = classSizes.getD l 0 :=
   (Certificates.certificate2290.2.2 h0 cti_fix1).1.2.2.2.2.2.2.1 l
 
-theorem enumerates_suzDOf (h0 : (fixList 0).length = 42) :
-    Enumerates (suzDOf h0) (enumOf 42 dGens 20160).tabs.toList :=
-  (Certificates.certificate2290.2.2 h0 cti_fix1).1.2.2.2.2.2.2.2
 
 theorem card_range_rho1Of (h1 : (fixList 1).length = 54) :
     Nat.card (rho1Of h1).range = 1658880 :=
@@ -60,9 +57,6 @@ theorem conj_mem_suzQbarOf (h1 : (fixList 1).length = 54) {k : ℕ} (hk : k < 10
     kperm1Of h1 k * x * (kperm1Of h1 k)⁻¹ ∈ suzQbarOf h1 :=
   (Certificates.certificate2290.2.2 cti_fix0 h1).2.2.2.1 k hk x hx
 
-theorem qpermOf_comm (h1 : (fixList 1).length = 54) {i j : ℕ} (hi : i < 6) (hj : j < 6) :
-    qpermOf h1 i * qpermOf h1 j = qpermOf h1 j * qpermOf h1 i :=
-  (Certificates.certificate2290.2.2 cti_fix0 h1).2.2.2.2.1 i hi j hj
 
 theorem mem_suzQbarOf_of_comm (h1 : (fixList 1).length = 54) {y : Equiv.Perm (Fin 54)}
     (hy : y ∈ (rho1Of h1).range) (hc : ∀ j < 6, y * qpermOf h1 j = qpermOf h1 j * y) :

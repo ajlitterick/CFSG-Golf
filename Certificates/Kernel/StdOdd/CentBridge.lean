@@ -80,8 +80,6 @@ theorem ptK_walk {U V : List ℕ} {Ms : List ℕ} {S : List (List ℕ)} {g : Mat
   apply flat_inj
   rw [flat_ptK, hV, flat_mulVec, hg, flat_ptK]
 
-theorem ptK_repl (v w i : ℕ) (hi : i < w) : ptK (repl v w) i = vecK v :=
-  ptK_eq_vecK (repl_sound v w i hi)
 
 theorem ptK_of_neqV {U : List ℕ} (hl : lenN U = 156) {v w : ℕ} (h : Nat.beq (neqV U v w) 0 = true)
     {i : ℕ} (hi : i < w) : ptK U i = vecK v := by

@@ -185,11 +185,6 @@ theorem flagPsi_apply (z : Flags V → ZMod 2) (v : V) :
   rw [flagPsi, Fintype.linearCombination_apply, Submodule.coe_sum, LinearMap.sum_apply]
   rfl
 
-theorem flagPsi_single (pf : Flags V) (v : V) :
-    ((flagPsi V (Pi.single pf 1) : traceZeroEnd V) : Module.End (ZMod 2) V) v =
-      (pf.1.2 : Module.Dual (ZMod 2) V) v • (pf.1.1 : V) := by
-  rw [flagPsi, Fintype.linearCombination_apply_single, one_smul]
-  rfl
 
 theorem sum_flags {M : Type*} [AddCommMonoid M]
     (G : Points V → Points (Module.Dual (ZMod 2) V) → M) :
@@ -464,11 +459,6 @@ theorem ker_flagPsi_eq (hV : finrank (ZMod 2) V = 3) :
   change Nat.card (LinearMap.ker (flagPsi V)) ≤ Nat.card (LinearMap.range (flagIota V))
   rw [natCard_ker_flagPsi hV, natCard_range_flagIota hV]
 
-theorem finrank_range_flagIota (hV : finrank (ZMod 2) V = 3) :
-    finrank (ZMod 2) (LinearMap.range (flagIota V)) = 13 := by
-  have h := FiniteField.pow_finrank_eq_natCard 2 (LinearMap.range (flagIota V))
-  rw [natCard_range_flagIota hV] at h
-  exact Nat.pow_right_injective le_rfl (h.trans (by norm_num))
 
 omit [DecidableEq V] [Fintype (Module.Dual (ZMod 2) V)] [DecidableEq (Module.Dual (ZMod 2) V)] in
 theorem finrank_traceZeroEnd (hV : finrank (ZMod 2) V = 3) :
@@ -480,26 +470,5 @@ theorem finrank_traceZeroEnd (hV : finrank (ZMod 2) V = 3) :
   rw [natCard_traceZeroEnd hV] at h
   exact Nat.pow_right_injective le_rfl (h.trans (by norm_num))
 
-theorem flag_permutation_kernel (hV : finrank (ZMod 2) V = 3) :
-    (∀ (pf : Flags V) (v : V),
-      ((flagPsi V (Pi.single pf 1) : traceZeroEnd V) : Module.End (ZMod 2) V) v =
-        (pf.1.2 : Module.Dual (ZMod 2) V) v • (pf.1.1 : V)) ∧
-    (∀ (t : ZMod 2 × augmentation V × augmentation (Module.Dual (ZMod 2) V)) (pf : Flags V),
-      flagIota V t pf = t.1 + (t.2.1 : Points V → ZMod 2) pf.1.1 +
-        (t.2.2 : Points (Module.Dual (ZMod 2) V) → ZMod 2) pf.1.2) ∧
-    (∀ (g : V ≃ₗ[ZMod 2] V) (t : ZMod 2 × augmentation V × augmentation (Module.Dual (ZMod 2) V)),
-      flagIota V (t.1, permActU g t.2.1, permActU g.symm.dualMap t.2.2) =
-        flagPermAct g (flagIota V t)) ∧
-    (∀ (g : V ≃ₗ[ZMod 2] V) (z : Flags V → ZMod 2),
-      ((flagPsi V (flagPermAct g z) : traceZeroEnd V) : Module.End (ZMod 2) V) =
-        (g : V →ₗ[ZMod 2] V) ∘ₗ (flagPsi V z : Module.End (ZMod 2) V) ∘ₗ
-          (g.symm : V →ₗ[ZMod 2] V)) ∧
-    Function.Injective (flagIota V) ∧ Function.Surjective (flagPsi V) ∧
-    LinearMap.ker (flagPsi V) = LinearMap.range (flagIota V) ∧
-    finrank (ZMod 2) (LinearMap.range (flagIota V)) = 13 ∧
-    finrank (ZMod 2) (traceZeroEnd V) = 8 :=
-  ⟨flagPsi_single, fun _ _ => rfl, flagIota_equivariant, flagPsi_equivariant,
-    flagIota_injective hV, flagPsi_surjective hV, ker_flagPsi_eq hV, finrank_range_flagIota hV,
-    finrank_traceZeroEnd hV⟩
 
 end CFSG.ProperTwoGeneratedCore.BinaryThreeSpace

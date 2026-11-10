@@ -60,18 +60,6 @@ theorem tabP_spanE (gs : List (Perm (Fin 24))) : (spanE gs).map tabP = span (gs.
     rw [List.map_map, List.map_map]
     exact List.map_congr_left fun x _ => tabP_mul g x
 
-theorem one_mem_spanE {G : Type*} [Monoid G] (gs : List G) : (1 : G) ∈ spanE gs := by
-  induction gs with
-  | nil => simp only [spanE, List.mem_singleton]
-  | cons g gs ih => exact List.mem_append_left _ ih
-
-theorem length_spanE {G : Type*} [Monoid G] (gs : List G) :
-    (spanE gs).length = 2 ^ gs.length := by
-  induction gs with
-  | nil => rfl
-  | cons g gs ih =>
-    simp only [spanE, List.length_append, List.length_map, ih, List.length_cons, pow_succ]
-    omega
 
 theorem head_spanE {G : Type*} [Monoid G] (gs : List G) : (spanE gs).head? = some 1 := by
   induction gs with

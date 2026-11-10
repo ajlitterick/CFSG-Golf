@@ -121,18 +121,6 @@ theorem stage15344_of_blocks (h25 : Stage15325) (hc : StageComponentCase) : Stag
   by_contra hne
   exact hmin K ⟨hK, hKJ.trans hJI⟩ (lt_of_le_of_ne hKJ hne)
 
-theorem stage15344_of_inputs
-    (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hC27 : ∀ (G : Type) [Group G] [Finite G], ASC27Statement G)
-    (h37 : A37ForSQTK) (h38 : A38ForSQTK) (hcover : AsA36NoOddCover)
-    (h15 : Input15315Two) (h16 : Input15316One) (h17 : Input15317)
-    (h18 : Input15318) (h19 : Input15319) (h20 : Input15320) (h21 : Input15321)
-    (h23 : Input15323) (h24 : Input15324) (h1 : Stage15325One) (hc : StageComponentCase) :
-    Stage15344 :=
-  stage15344_of_blocks
-    (stage15325_of_blocks h113
-      (theorem15313_of_stages h11 h113 hC27 h37 h38 hcover h15 h16 h17 h18 h19 h20 h21 h23 h24)
-      h1) hc
 
 end Blocks
 

@@ -28,16 +28,6 @@ private lemma s16c1_G47_schur16_restrictMulAut_apply {F : Type*} [Group F] [Fini
     (((s16c1_G47_schur16_restrictMulAut e H he) x : H) : F) = e x := by
   simp [s16c1_G47_schur16_restrictMulAut]
 
-private lemma s16c1_G47_schur16_restrictMulAut_mul {F : Type*} [Group F] [Finite F]
-    (e₁ e₂ : MulAut F) (H : Subgroup F) (h₁ : ∀ x ∈ H, e₁ x ∈ H)
-    (h₂ : ∀ x ∈ H, e₂ x ∈ H) (h : ∀ x ∈ H, (e₁ * e₂) x ∈ H) :
-    s16c1_G47_schur16_restrictMulAut (e₁ * e₂) H h =
-      s16c1_G47_schur16_restrictMulAut e₁ H h₁ *
-        s16c1_G47_schur16_restrictMulAut e₂ H h₂ := by
-  apply MulEquiv.ext
-  intro x
-  apply Subtype.ext
-  simp only [s16c1_G47_schur16_restrictMulAut_apply, MulAut.mul_apply]
 
 private lemma s16c1_G47_schur16_restrictMulAut_pow_apply {F : Type*} [Group F] [Finite F]
     (e : MulAut F) (H : Subgroup F) (he : ∀ x ∈ H, e x ∈ H) (n : ℕ) (x : H) :

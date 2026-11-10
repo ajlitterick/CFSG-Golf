@@ -53,39 +53,5 @@ forgetting the orbit-membership proof. -/
     (f : X) • MulAction.ofQuotientStabilizer F alpha q
   exact MulAction.ofQuotientStabilizer_smul F alpha f q
 
-/-- Source-facing double transitivity on the orbit of `alpha` gives the
-two-pretransitive point-stabilizer coset action required by Theorem 2. -/
-public theorem coset_isTwoPretransitive_of_isTwoTransitiveOn_orbit
-    {X : Type u} {Omega : Type v} [Group X] [MulAction X Omega]
-    (F : Subgroup X) (alpha : Omega)
-    (htwo : IsTwoTransitiveOn F {omega : Omega | InOrbit F alpha omega}) :
-    MulAction.IsMultiplyPretransitive F
-      (F ⧸ pointStabilizerIn F alpha) 2 := by
-  rw [MulAction.is_two_pretransitive_iff]
-  intro a b c d hab hcd
-  let e := inOrbitEquivQuotientPointStabilizer F alpha
-  let ao := e.symm a
-  let bo := e.symm b
-  let co := e.symm c
-  let d_o := e.symm d
-  have habo : (ao : Omega) ≠ (bo : Omega) := by
-    intro h
-    apply hab
-    apply e.symm.injective
-    exact Subtype.ext h
-  have hcdo : (co : Omega) ≠ (d_o : Omega) := by
-    intro h
-    apply hcd
-    apply e.symm.injective
-    exact Subtype.ext h
-  obtain ⟨f, hfac, hfbd⟩ :=
-    htwo ao.property bo.property co.property d_o.property habo hcdo
-  refine ⟨f, ?_, ?_⟩
-  · apply e.symm.injective
-    apply Subtype.ext
-    simpa [e, ao, co] using hfac
-  · apply e.symm.injective
-    apply Subtype.ext
-    simpa [e, bo, d_o] using hfbd
 
 end CFSG.BenderSuzuki

@@ -281,11 +281,6 @@ theorem eq_bot_of_fiveCoreAt' [Finite T] {w : T} (h : FiveCoreAt' w) (N : Subgro
   rw [hNQ] at this
   exact this
 
-theorem eq_bot_of_fiveCoreAt [Finite T] {w : T} (h : FiveCoreAt w) (N : Subgroup T)
-    (hNC : N ≤ centralizer ({w} : Set T))
-    (hNn : ∀ g ∈ centralizer ({w} : Set T), ∀ n ∈ N, g * n * g⁻¹ ∈ N)
-    (hNp : ¬ 5 ∣ Nat.card N) : N = ⊥ :=
-  eq_bot_of_fiveCoreAt' (fiveCoreAt'_of_fiveCoreAt h) N hNC hNn hNp
 
 theorem fiveCoreAt'_map {T' : Type*} [Group T'] (e : T ≃* T') {w : T} (h : FiveCoreAt' w) :
     FiveCoreAt' (e w) := by

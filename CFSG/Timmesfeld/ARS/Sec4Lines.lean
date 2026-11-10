@@ -139,17 +139,6 @@ theorem eq_of_forall_lambdaSet_subset {Δ : Set (Subgroup G)} (hΔ : Δ ⊆ R) (
   | refl => exact hA₀
   | tail _ hCD ih => exact hΩ _ (ih hCD.1) _ hCD.2.1 hCD.2.2
 
-theorem lambdaSet_reflTransGen {A B : Subgroup G} (hA : A ∈ R) (hB : B ∈ R) :
-    Relation.ReflTransGen (fun C D => D ∈ lambdaSet R C) A B := by
-  set Δ := {D | Relation.ReflTransGen (fun C D => D ∈ lambdaSet R C) A D} with hΔ
-  have hΔR : Δ ⊆ R := by
-    intro D hD
-    induction hD with
-    | refl => exact hA
-    | tail _ h _ => exact h.1.1
-  have hΔeq := eq_of_forall_lambdaSet_subset hR hiso hnd hΔR ⟨A, Relation.ReflTransGen.refl⟩
-    fun D hD E hE => Relation.ReflTransGen.tail hD hE
-  exact (hΔeq ▸ hB : B ∈ Δ)
 
 end Closure
 

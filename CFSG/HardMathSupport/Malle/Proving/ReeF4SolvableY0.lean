@@ -19,6 +19,5 @@ theorem isSolvable_of_card_dvd {G : Type*} [Group G] [Finite G]
   exact CFSG.Burnside.finite_group_isSolvable_of_card_eq_prime_pow_mul_prime_pow
     Nat.prime_two Nat.prime_three (by norm_num) (by rw [← Nat.card_eq_fintype_card, hb])
 
-variable {Y : Type} [Group Y] [Finite Y]
 
 end CFSG.HardMathSupport.Malle.Proving

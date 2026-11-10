@@ -27,13 +27,6 @@ theorem even_val_two_mul_sub (hm : 1 ≤ m) (a k : ZMod (2 ^ m)) :
   rw [even_val_iff_castHom_eq_zero hm, even_val_iff_castHom_eq_zero hm, map_sub, map_mul,
     map_ofNat, show (2 : ZMod 2) = 0 from rfl, zero_mul, zero_sub, neg_eq_zero]
 
-theorem even_val_add_half (hm : 2 ≤ m) (a : ZMod (2 ^ m)) :
-    Even (a + ((2 ^ (m - 1) : ℕ) : ZMod (2 ^ m))).val ↔ Even a.val := by
-  have hm1 : 1 ≤ m := by omega
-  have hc : ((2 ^ (m - 1) : ℕ) : ZMod 2) = 0 :=
-    ZMod.natCast_eq_zero_iff_even.mpr (Nat.even_pow.mpr ⟨even_two, by omega⟩)
-  rw [even_val_iff_castHom_eq_zero hm1, even_val_iff_castHom_eq_zero hm1, map_add,
-    map_natCast, hc, add_zero]
 
 theorem even_val_zero : Even (0 : ZMod (2 ^ m)).val := by
   rw [ZMod.val_zero]

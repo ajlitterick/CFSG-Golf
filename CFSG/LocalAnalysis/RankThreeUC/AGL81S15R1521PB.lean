@@ -74,12 +74,6 @@ theorem commute_barO2_of_commute_star_aux_centralizes_gen {T T₁ T₂ : Subgrou
     exact (QuotientGroup.eq_one_iff a).2 (hLC ha)
   · exact Subgroup.commutator_eq_bot_iff_le_centralizer.1 hcomm
 
-theorem commute_barO2_of_commute_star_aux_centralizes {T T₁ T₂ : Subgroup X}
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L)
-    (N : Subgroup X) [N.Normal] (hNC : N ≤ gnC T) :
-    barO2 (Subgroup.normalClosure (L : Set X)) ≤
-      Subgroup.centralizer (barO2 N : Set (X ⧸ CFSG.pCore 2 X)) :=
-  commute_barO2_of_commute_star_aux_centralizes_gen hl.toGen N hNC
 
 theorem commute_barO2_of_commute_star_gen {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
     {L : Subgroup X} (hl : LiftCtxGen X T T₁ T₂ Ls L) {A : Subgroup X}
@@ -117,11 +111,6 @@ theorem commute_barO2_of_commute_star_gen {T T₁ T₂ : Subgroup X} {Ls : Subgr
       (Subgroup.commutator_mono hle hle)
   exact eq_bot_iff.2 (h3 ▸ Subgroup.commutator_mono_left hperf)
 
-theorem commute_barO2_of_commute_star {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) {A : Subgroup X}
-    (h : ⁅gnImg T (Subgroup.normalClosure (L : Set X)), gnImg T A⁆ = ⊥) :
-    ⁅barO2 (Subgroup.normalClosure (L : Set X)), barO2 A⁆ = ⊥ :=
-  commute_barO2_of_commute_star_gen hl.toGen h
 
 theorem pRank_centre_barO2_normalClosure_le_one_aux_rank {Y : Type} [Group Y] [Finite Y]
     {H : Subgroup Y} {q : ℕ} (hq : q.Prime) (h : ¬ q ^ 2 ∣ Nat.card H) :
@@ -186,11 +175,6 @@ theorem pRank_centre_barO2_normalClosure_le_one_aux_card_gen (hT : LieOddRankTab
   · rw [hKSMOdd.2 ↥(barO2 L) hK d ⟨q, hq, hd⟩ ⟨eQ.trans e⟩ hoddK]
     exact one_dvd _
 
-theorem pRank_centre_barO2_normalClosure_le_one_aux_card (hT : LieOddRankTable) (hKSMAlt : KSMAlt)
-    (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ : Subgroup X}
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) :
-    Nat.card (Subgroup.center ↥(barO2 L)) ∣ 15 :=
-  pRank_centre_barO2_normalClosure_le_one_aux_card_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 hl.toGen
 
 theorem pRank_centre_barO2_normalClosure_le_one_aux_prod {S : Type} [Group S] [Finite S]
     (h : IsCentralProdA6Z3 S) : Nat.card (Subgroup.center S) ∣ 3 := by
@@ -355,12 +339,6 @@ theorem pRank_centre_barO2_normalClosure_le_one_gen (hT : LieOddRankTable) (hKSM
     exact pRank_centre_barO2_normalClosure_le_one_aux_rank Nat.prime_three
       (by rw [Subgroup.card_bot]; norm_num)
 
-theorem pRank_centre_barO2_normalClosure_le_one (hT : LieOddRankTable) (hKSMAlt : KSMAlt)
-    (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ : Subgroup X}
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L)
-    (h15 : Shape1515 L) :
-    CFSG.Open.pRank 3 (Subgroup.center ↥(barO2 (Subgroup.normalClosure (L : Set X)))) ≤ 1 :=
-  pRank_centre_barO2_normalClosure_le_one_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 hl.toGen h15
 
 theorem xlevel_1521_S1_aux_inf {A J : Subgroup X} [J.Normal] (hA : IsElemAbelian 3 A)
     (h : A ⊓ J = ⊥) : barO2 A ⊓ barO2 J = ⊥ := by
@@ -417,12 +395,6 @@ theorem xlevel_1521_S1_aux_rank_gen {T T₁ T₂ R A : Subgroup X} {Ls : Subgrou
   rw [pRank_barO2_eq_aux_eq _ Nat.prime_three (by norm_num)]
   exact hJ1
 
-theorem xlevel_1521_S1_aux_rank {T T₁ T₂ R A : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) (hA : AConfig T R A)
-    (hbot : A ⊓ Subgroup.normalClosure (L : Set X) = ⊥)
-    (hbar : ⁅barO2 (Subgroup.normalClosure (L : Set X)), barO2 A⁆ = ⊥) :
-    CFSG.Open.pRank 3 (Subgroup.normalClosure (L : Set X)) ≤ 1 :=
-  xlevel_1521_S1_aux_rank_gen hl.toGen hA hbot hbar
 
 theorem xlevel_1521_S1_aux_le_gen (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd)
     (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ R A : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
@@ -466,12 +438,6 @@ theorem xlevel_1521_S1_aux_le_gen (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKS
   have h1le := pRank_centre_barO2_normalClosure_le_one_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 hl h15
   omega
 
-theorem xlevel_1521_S1_aux_le (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd)
-    (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ R A : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) (hA : AConfig T R A) (h15 : Shape1515 L)
-    (hAJ : A ≤ Subgroup.normalClosure (L : Set X))
-    (hbar : ⁅barO2 (Subgroup.normalClosure (L : Set X)), barO2 A⁆ = ⊥) : False :=
-  xlevel_1521_S1_aux_le_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 hl.toGen hA h15 hAJ hbar
 
 theorem xlevel_1521_S1_gen (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd)
     (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ R A : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
@@ -523,11 +489,5 @@ theorem xlevel_1521_S1_gen (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : 
     · exact ⟨1, odd_one, Or.inl ⟨h1, d, q, hq, hd, ⟨eL.symm.trans e⟩⟩⟩
     · omega
 
-theorem xlevel_1521_S1 (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd)
-    (hKSMU4 : KSMU4) (hKSML3 : KSML3) {T T₁ T₂ R A : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) (hA : AConfig T R A) (h15 : Shape1515 L)
-    (hcomm : ⁅gnImg T (Subgroup.normalClosure (L : Set X)), gnImg T A⁆ = ⊥) :
-    L.Normal ∧ IsLThreeOdd ↥Ls :=
-  xlevel_1521_S1_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 hl.toGen hA h15 hcomm
 
 end CFSG.LocalAnalysis.RankThreeUC.S15

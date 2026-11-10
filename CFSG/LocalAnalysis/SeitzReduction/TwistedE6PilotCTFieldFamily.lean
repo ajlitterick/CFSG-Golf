@@ -51,11 +51,6 @@ theorem coe_mem_rootSpan_of_mem_levi {J : Finset (Fin (Tag.rank .E6))}
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem coe_leviToRootSpan (J : Finset (Fin (Tag.rank .E6)))
-    (x : CFSG.LieType.CurtisTits.levi (adjDatumE6 K).rootGroup J) :
-    ((leviToRootSpan J x : rootSpan TwistTag.E6.tag K _) : ModGL TwistTag.E6.tag K) =
-      (((x : adjointGroup .E6 K) : ModGL .E6 K) : ModGL TwistTag.E6.tag K) :=
-  rfl
 
 theorem rootSpan_signedSimpleRoots_le_subsystemGroup {J : Finset (Fin TwistTag.E6.tag.rank)}
     {S : Set (Fin TwistTag.E6.tag.rank)} (hJS : ∀ j ∈ J, j ∈ S) :
@@ -66,12 +61,6 @@ theorem rootSpan_signedSimpleRoots_le_subsystemGroup {J : Finset (Fin TwistTag.E
   rintro _ ⟨j, hj, c, h⟩
   exact ⟨j, hJS j hj, c, h⟩
 
-theorem eq_one_of_mem_levi_empty {x : adjointGroup .E6 K}
-    (hx : x ∈ CFSG.LieType.CurtisTits.levi (adjDatumE6 K).rootGroup ∅) : x = 1 := by
-  have h : CFSG.LieType.CurtisTits.levi (adjDatumE6 K).rootGroup ∅ = ⊥ := by
-    simp [CFSG.LieType.CurtisTits.levi]
-  rw [h, mem_bot] at hx
-  exact hx
 
 end Members
 

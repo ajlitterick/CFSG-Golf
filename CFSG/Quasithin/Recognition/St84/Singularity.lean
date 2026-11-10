@@ -32,9 +32,6 @@ theorem suffixArc_vert_last {m : ℕ} (P : Arc Γ m) {k : ℕ} (hk : k ≤ m) :
     (suffixArc P k hk).vert k = P.vert m := by
   simp [suffixArc, show k + (m - k) = m by omega]
 
-theorem suffixArc_vert_zero {m : ℕ} (P : Arc Γ m) {k : ℕ} (hk : k ≤ m) :
-    (suffixArc P k hk).vert 0 = P.vert (m - k) := by
-  simp [suffixArc]
 
 theorem stabRange_suffixArc {m : ℕ} (P : Arc Γ m) {k : ℕ} (hk : k ≤ m) :
     stabRange G (suffixArc P k hk).vert 0 k = stabRange G P.vert (m - k) m := by
@@ -76,12 +73,6 @@ theorem rightTransitive_suffixArc_iff {m k : ℕ} (P : Arc Γ m) (hk : k ≤ m) 
   simp only [RightTransitive]
   rw [hstab, hlast, hpen]
 
-theorem rightTransitive_suffixArc {m k : ℕ} (P : Arc Γ m) (hk : k ≤ m) (hk1 : 1 ≤ k)
-    (h : RightTransitive Γ G P.vert 0 m) :
-    RightTransitive Γ G (suffixArc P k hk).vert 0 k := by
-  have hmono : RightTransitive Γ G P.vert (m - k) m :=
-    rightTransitive_mono_range (Nat.zero_le (m - k)) h
-  exact (rightTransitive_suffixArc_iff P hk hk1).1 hmono
 
 theorem rightTransitive_rev_iff {m : ℕ} (P : Arc Γ m) (hm : 1 ≤ m) :
     RightTransitive Γ G P.rev.vert 0 m ↔ LeftTransitive Γ G P.vert 0 m := by
@@ -165,39 +156,6 @@ theorem leftTransitive_of_smul
     rw [mul_smul, mul_smul, hg i hi2, inv_smul_smul, ht i hi1 hi2]
   · rw [mul_smul, mul_smul, hta, smul_inv_smul]
 
-theorem rightTransitive_smul_iff
-    (hadj : ∀ (g : G) (u v : V), Γ.Adj (g • u) (g • v) ↔ Γ.Adj u v)
-    {m : ℕ} (g : G) (P : Arc Γ m) :
-    RightTransitive Γ G (smulArc hadj g P).vert 0 m ↔
-      RightTransitive Γ G P.vert 0 m := by
-  constructor
-  · intro h
-    refine rightTransitive_of_smul hadj (x := (smulArc hadj g P).vert) (y := P.vert)
-      (g := g⁻¹) ?_ h
-    intro i hi
-    simp
-  · intro h
-    refine rightTransitive_of_smul hadj (x := P.vert) (y := (smulArc hadj g P).vert)
-      (g := g) ?_ h
-    intro i hi
-    simp
-
-theorem leftTransitive_smul_iff
-    (hadj : ∀ (g : G) (u v : V), Γ.Adj (g • u) (g • v) ↔ Γ.Adj u v)
-    {m : ℕ} (hm : 1 ≤ m) (g : G) (P : Arc Γ m) :
-    LeftTransitive Γ G (smulArc hadj g P).vert 0 m ↔
-      LeftTransitive Γ G P.vert 0 m := by
-  constructor
-  · intro h
-    refine leftTransitive_of_smul hadj hm (x := (smulArc hadj g P).vert) (y := P.vert)
-      (g := g⁻¹) ?_ h
-    intro i hi
-    simp
-  · intro h
-    refine leftTransitive_of_smul hadj hm (x := P.vert) (y := (smulArc hadj g P).vert)
-      (g := g) ?_ h
-    intro i hi
-    simp
 
 theorem arc_conj_of_le
     (hadj : ∀ (g : G) (u v : V), Γ.Adj (g • u) (g • v) ↔ Γ.Adj u v)
@@ -639,20 +597,6 @@ theorem singularity_dichotomy (hT : Γ.IsTree)
     obtain ⟨o, ho, -⟩ := exists_odd_orbit hT hadj hloc hET hP hs hodd
     exact ⟨hodd, o, ho⟩
 
-theorem regular_even_of_le (hT : Γ.IsTree)
-    (hadj : ∀ (g : G) (u v : V), Γ.Adj (g • u) (g • v) ↔ Γ.Adj u v)
-    (hloc : ∀ v a b : V, Γ.Adj v a → Γ.Adj v b →
-      ∃ g ∈ MulAction.stabilizer G v, g • a = b)
-    (hET : EdgeTransitive Γ (⊤ : Subgroup G)) (hP : PreservesParts Γ G)
-    (hs : IsSingularity Γ G s) (hodd : Odd s) {o : V}
-    (ho : ∀ m, s ≤ m → ∀ P : Arc Γ m,
-      (Odd (Γ.dist o (P.vert m)) → ¬ RightTransitive Γ G P.vert 0 m) ∧
-      (Odd (Γ.dist o (P.vert 0)) → ¬ LeftTransitive Γ G P.vert 0 m)) :
-    ∀ m, s ≤ m → ∀ P : Arc Γ m, Regular Γ G P →
-      Even (Γ.dist o (P.vert 0)) ∧ Even (Γ.dist o (P.vert m)) := by
-  intro m hm P hreg
-  exact ⟨Nat.not_odd_iff_even.mp (fun h0 => (ho m hm P).2 h0 hreg.1),
-    Nat.not_odd_iff_even.mp (fun hm' => (ho m hm P).1 hm' hreg.2)⟩
 
 theorem exists_adj_ne_ne {v a b : V} (hdeg : 3 ≤ Nat.card (Γ.neighborSet v)) :
     ∃ w, Γ.Adj v w ∧ w ≠ a ∧ w ≠ b := by

@@ -190,10 +190,6 @@ variable {K : Type} [Field K] (g : K[X]) [Fact (Irreducible g)] {ℓ : ℕ}
         = σ.symm (σ (AdjoinRoot.root g ^ ((u⁻¹ : (ZMod ℓ)ˣ) : ZMod ℓ).val)) := by rw [h1]
       _ = _ := σ.symm_apply_apply _
 
-theorem mem_galExp {hζ : AdjoinRoot.root g ^ ℓ = 1} {u : (ZMod ℓ)ˣ} :
-    u ∈ galExp g hζ ↔ ∃ σ : AdjoinRoot g ≃ₐ[K] AdjoinRoot g,
-      σ (AdjoinRoot.root g) = AdjoinRoot.root g ^ (u : ZMod ℓ).val :=
-  Iff.rfl
 
 end Gal
 

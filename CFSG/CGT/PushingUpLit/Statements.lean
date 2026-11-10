@@ -18,11 +18,6 @@ open scoped Pointwise
       CFSG.BenderSuzuki.IsStronglyEmbeddedOrder (characteristicCoreStar (T : Subgroup G)) ∨
         ∃ X : Subgroup G, InClassXG X
 
-@[expose] def AschbacherFactorizationThree : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], KProper InCatalog G → CFSG.Assembly.IsCharTwoType G →
-    ∀ X : Subgroup G, IsMaximalInClassXG X →
-      ∃ M : Subgroup G, maximalTwoLocalsContaining (X : Set G) = {M} ∧
-        (X.subgroupOf M).IsSubnormal
 
 @[expose] def AschbacherTheoremOneK : Prop :=
   ∀ (G : Type) [Group G] [Finite G], KProper InCatalog G → CFSG.Assembly.IsCharTwoType G →

@@ -32,10 +32,6 @@ theorem ker_mk_comp_subtype {K : Subgroup X} (hK : K.IsSubnormal) :
     ((QuotientGroup.quotientKerEquivRange _).trans
       (MulEquiv.subgroupCongr (by rw [MonoidHom.range_comp, range_subtype])))
 
-theorem quotientEquivMap_apply {K : Subgroup X} (hK : K.IsSubnormal) (k : K) :
-    ((quotientEquivMap hK (k : K ⧸ pPrimeCore 2 K) : ↥(K.map _)) : X ⧸ pPrimeCore 2 X) =
-      QuotientGroup.mk' (pPrimeCore 2 X) (k : X) :=
-  rfl
 
 theorem commute_map_of_ne {K L : Subgroup X} (hK : IsPComponent 2 K) (hL : IsPComponent 2 L)
     (hne : K ≠ L) {k l : X} (hk : k ∈ K) (hl : l ∈ L) :

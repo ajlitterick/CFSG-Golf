@@ -50,29 +50,6 @@ theorem ggMem_normalizer_of_mem_normalizer_subgroupOf {S K : Subgroup W} (hSK : 
 
 variable [Finite W]
 
-theorem ggKGroupFusionDefiningInnerInput_of_parabolic
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog)
-    (hpar : GGLieParabolicCharInput) : GGKGroupFusionDefiningInnerInput := by
-  intro W _ _ p H E d hpd hyp hL hKH he _ S hSK hSp hSidx _ hNH
-  exfalso
-  apply hL
-  have hKn : (CFSG.generalizedFitting W).Normal :=
-    CFSG.LocalCores.generalized_fitting_characteristic.2
-  have hp : p.Prime := hyp.1.1
-  have hp2 : p ≠ 2 := hyp.1.2.1
-  have hX : IsCharacteristicP p ↥(H.subgroupOf (CFSG.generalizedFitting W)) := by
-    subst hpd
-    refine hpar _ d he hp2 (S.subgroupOf (CFSG.generalizedFitting W))
-      (H.subgroupOf (CFSG.generalizedFitting W)) ?_ hSidx ?_ ?_
-    · exact hSp.comap_of_injective _ (CFSG.generalizedFitting W).subtype_injective
-    · intro k hk
-      exact Subgroup.mem_subgroupOf.mpr (hNH (ggMem_normalizer_of_mem_normalizer_subgroupOf hSK hk))
-    · intro htop
-      exact hKH (Subgroup.subgroupOf_eq_top.mp htop)
-  have hN := CFSG.LocalAnalysis.ComponentInitial.isCharacteristicP_of_mulEquiv
-    (ggSubgroupOfEquivKer H (CFSG.generalizedFitting W)) hX
-  exact ggLayer_quot_pCore_two_eq_bot hp hp2 _ (ggIsSolvable_quot_inf_generalizedFitting hSch hyp)
-    hN
 
 end Inner
 
@@ -90,29 +67,8 @@ theorem GGControlsStrongFusion.not_dvd_relIndex_inf {p : ℕ} [Fact p.Prime] {H 
   rw [← Subgroup.relIndex_mul_relIndex R (H ⊓ K) K hRHK inf_le_right]
   exact Dvd.dvd.mul_left hdvd _
 
-theorem ggKGroupFusionDefiningOuterInput_of_fieldAut (hout : GGLieOuterFieldAutInput) :
-    GGKGroupFusionDefiningOuterInput := by
-  intro W _ _ p H E d hpd hyp _ hKH he hEK
-  exfalso
-  have hKn : (CFSG.generalizedFitting W).Normal :=
-    CFSG.LocalCores.generalized_fitting_characteristic.2
-  obtain ⟨⟨hp, hp2, hE, hEcard, hfus⟩, ⟨hsimple, hnab, -⟩, -⟩ := hyp
-  have : Fact p.Prime := ⟨hp⟩
-  subst hpd
-  obtain ⟨e, heE, he1, hmax⟩ := hout W E d hsimple hnab he hp2 hE hEcard hEK
-  apply hKH
-  have hY := hmax (H ⊓ CFSG.generalizedFitting W) inf_le_right
-    (inf_le_inf_right _ (hfus.centralizer_le heE he1))
-    (hfus.not_dvd_relIndex_inf hE heE he1 _)
-  exact hY ▸ inf_le_left
 
 end Outer
 
-theorem ggKGroupFusionAt_lieDefining_of_inputs
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog)
-    (hpar : GGLieParabolicCharInput) (hout : GGLieOuterFieldAutInput) :
-    GGKGroupFusionAt GGKFLieDefining :=
-  ggKGroupFusionAt_lieDefining_of (ggKGroupFusionDefiningInnerInput_of_parabolic hSch hpar)
-    (ggKGroupFusionDefiningOuterInput_of_fieldAut hout)
 
 end CFSG.StandardType

@@ -61,9 +61,6 @@ theorem exists_split (hK : WeakInSigma F E K) :
   · exact Or.inr h1
   · exact Or.inl h1
 
-theorem exists_mem_not_mem_axis (hK : WeakInSigma F E K) : ∃ a ∈ E, a ∉ axisSub E K := by
-  obtain ⟨a, ha, hna, -⟩ := hK.exists_split
-  exact ⟨a, ha, hna⟩
 
 theorem conj (hK : WeakInSigma F E K) {n : G} (hn : n ∈ Subgroup.normalizer (E : Set G)) :
     WeakInSigma F E (conjSub n K) := by

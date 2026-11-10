@@ -243,17 +243,6 @@ theorem quaternion_range_le_focal_of_conjugation {Q : Type u} {E : Type v}
     (Q0 : Subgroup E) : Subgroup.normalizer (Q0 : Set E) →* MulAut (Q0 ⧸ Subgroup.center Q0) :=
   (intrinsicCenterQuotientAction Q0).comp Q0.normalizerMonoidHom
 
-theorem quaternionNormalizerQuotientAction_mk {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) (q : Q0) :
-    quaternionNormalizerQuotientAction Q0 h
-      ((QuotientGroup.mk' (Subgroup.center Q0)) q) =
-      (QuotientGroup.mk' (Subgroup.center Q0)) (Q0.normalizerMonoidHom h q) := rfl
-
-theorem quaternion_normalizer_difference_coe {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) (q : Q0) :
-    ((Q0.normalizerMonoidHom h q * q⁻¹ : Q0) : E) = ⁅(h : E), (q : E)⁆ := by
-  exact quaternion_difference_map_eq_commutator (Q0.normalizerMonoidHom h) Q0.subtype h
-    (fun q => Q0.normalizerMonoidHom_apply_apply_coe h q) q
 
 theorem quaternion_subgroup_le_commutator {E : Type u} [Group E]
     (Q0 : Subgroup E) (e : QuaternionGroup 2 ≃* Q0) (h : E) (hn : h ∈ Subgroup.normalizer (Q0 : Set E))
@@ -290,13 +279,6 @@ theorem quaternion_subgroup_le_focal {E : Type u} [Group E]
     (by rwa [Subgroup.range_subtype])
   rwa [Subgroup.range_subtype] at hx
 
-theorem quaternion_subgroup_le_sylow_focal {E : Type u} [Group E]
-    {p : ℕ} [Fact p.Prime]
-    (Q0 : Subgroup E) (e : QuaternionGroup 2 ≃* Q0) (h : E) (hn : h ∈ Subgroup.normalizer (Q0 : Set E))
-    (horder : orderOf (quaternionNormalizerQuotientAction Q0 ⟨h, hn⟩) = 3)
-    (P : Sylow p E) (hQP : Q0 ≤ (P : Subgroup E)) :
-    Q0 ≤ (P : Subgroup E).focalSubgroup :=
-  quaternion_subgroup_le_focal Q0 e h hn horder P hQP
 
 theorem quaternion_subgroup_le_relative_focal {E : Type u} [Group E]
     (Q0 : Subgroup E) (e : QuaternionGroup 2 ≃* Q0) (h : E) (hn : h ∈ Subgroup.normalizer (Q0 : Set E))
@@ -316,14 +298,6 @@ theorem quaternion_subgroup_le_relative_focal {E : Type u} [Group E]
   intro q hq
   exact ⟨f ⟨q, hq⟩, hx ⟨⟨q, hq⟩, rfl⟩, rfl⟩
 
-theorem quaternion_subgroup_le_relative_sylow_focal {E : Type u} [Group E]
-    {p : ℕ} [Fact p.Prime]
-    (Q0 : Subgroup E) (e : QuaternionGroup 2 ≃* Q0) (h : E) (hn : h ∈ Subgroup.normalizer (Q0 : Set E))
-    (horder : orderOf (quaternionNormalizerQuotientAction Q0 ⟨h, hn⟩) = 3)
-    (D : Subgroup E) (hQD : Q0 ≤ D) (hhD : h ∈ D)
-    (P : Sylow p D) (hQP : Q0.subgroupOf D ≤ (P : Subgroup D)) :
-    Q0 ≤ (P : Subgroup D).focalSubgroup.map D.subtype :=
-  quaternion_subgroup_le_relative_focal Q0 e h hn horder D hQD hhD P hQP
 
 theorem intrinsicCenterQuotientAction_intertwines {A : Type u} {B : Type v}
     [Group A] [Group B] (e : A ≃* B) (a : MulAut A)
@@ -362,47 +336,6 @@ theorem intrinsicCenterQuotientAction_congr_order {A : Type u} {B : Type v}
   rw [intrinsicCenterQuotientAction_congr]
   exact (MulAut.congr (intrinsicCenterQuotientEquiv e)).orderOf_eq _
 
-theorem quaternion_differences_eq_top_of_equiv {Q : Type u} [Group Q]
-    (e : Q ≃* QuaternionGroup 2) (a : MulAut Q)
-    (horder : orderOf (intrinsicCenterQuotientAction Q a) = 3) :
-    automorphismDifferences a = ⊤ := quaternion_differences_eq_top e.symm a horder
-
-theorem quaternion_normalizer_right_difference_coe {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) (q : Q0) :
-    (((Q0.normalizerMonoidHom h).symm q * q⁻¹ : Q0) : E) =
-      ⁅(h : E)⁻¹, (q : E)⁆ := by
-  rw [Subgroup.coe_mul, Subgroup.coe_inv,
-    Subgroup.normalizerMonoidHom_apply_symm_apply_coe, commutatorElement_def, inv_inv]
-
-theorem quaternion_normalizer_blueprint_focal_difference_coe {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) (q : Q0) :
-    ((q⁻¹ * (Q0.normalizerMonoidHom h).symm q : Q0) : E) =
-      ⁅(q : E)⁻¹, (h : E)⁻¹⁆ := by
-  rw [Subgroup.coe_mul, Subgroup.coe_inv,
-    Subgroup.normalizerMonoidHom_apply_symm_apply_coe, commutatorElement_def, inv_inv]
-  group
-
-theorem quaternionNormalizerQuotientAction_right_mk {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) (q : Q0) :
-    (quaternionNormalizerQuotientAction Q0 h)⁻¹
-      ((QuotientGroup.mk' (Subgroup.center Q0)) q) =
-      (QuotientGroup.mk' (Subgroup.center Q0)) ((Q0.normalizerMonoidHom h).symm q) := by
-  change (intrinsicCenterQuotientAction Q0 (Q0.normalizerMonoidHom h))⁻¹ _ = _
-  rw [← map_inv]
-  exact intrinsicCenterQuotientAction_mk Q0 (Q0.normalizerMonoidHom h)⁻¹ q
-
-theorem quaternionNormalizerQuotientAction_right_order {E : Type u} [Group E]
-    (Q0 : Subgroup E) (h : Subgroup.normalizer (Q0 : Set E)) :
-    orderOf (quaternionNormalizerQuotientAction Q0 h)⁻¹ =
-      orderOf (quaternionNormalizerQuotientAction Q0 h) := orderOf_inv _
-
-theorem quaternion_subgroup_le_commutator_of_right_order {E : Type u} [Group E]
-    (Q0 : Subgroup E) (e : Q0 ≃* QuaternionGroup 2)
-    (h : E) (hn : h ∈ Subgroup.normalizer (Q0 : Set E))
-    (horder : orderOf (quaternionNormalizerQuotientAction Q0 ⟨h, hn⟩)⁻¹ = 3) :
-    Q0 ≤ commutator E := by
-  apply quaternion_subgroup_le_commutator Q0 e.symm h hn
-  rwa [orderOf_inv] at horder
 
 theorem intrinsicCenterQuotientAction_order_of_projection {Q : Type u} {B : Type v}
     [Group Q] [Group B] (f : Q →* B) (hf : Function.Surjective f)
@@ -451,12 +384,6 @@ theorem originalQuaternion_intrinsic_action_order (n : ℕ) (hn : 2 ≤ n)
     (originalQuaternionAutomorphism n hn a) (originalVQuotientAutomorphism n a)
     (originalQuaternionCenterProjection_intertwines n hn a)
 
-theorem originalQuaternion_differences_eq_top (n : ℕ) (hn : 2 ≤ n)
-    (a : MulAut (Original.V (2 ^ n)))
-    (horder : orderOf (originalVQuotientAutomorphism n a) = 3) :
-    automorphismDifferences (originalQuaternionAutomorphism n hn a) = ⊤ := by
-  apply quaternion_differences_eq_top (originalQuaternionProjectionEquiv n hn)
-  exact (originalQuaternion_intrinsic_action_order n hn a).trans horder
 
 theorem modelQ_intrinsic_action_order {G : Type u} [Group G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -478,14 +405,6 @@ theorem modelQ_normalizer_quotient_action_order {G : Type u} [Group G]
   rw [← modelQAutomorphism_eq_actual_action]
   exact modelQ_intrinsic_action_order n hn S e g
 
-theorem modelQ_differences_eq_top {G : Type u} [Group G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (g : Subgroup.normalizer (modelV S e : Set G))
-    (horder : orderOf (modelVQuotientAction S e g) = 3) :
-    automorphismDifferences (modelQAutomorphism n hn S e g) = ⊤ := by
-  apply quaternion_differences_eq_top
-    ((originalQuaternionProjectionEquiv n hn).trans (modelQEquiv S e))
-  exact (modelQ_intrinsic_action_order n hn S e g).trans horder
 
 theorem modelQ_le_commutator_of_order_three {G : Type u} [Group G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))

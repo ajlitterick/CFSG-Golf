@@ -54,27 +54,6 @@ theorem centralizer_eq_bot (h : FourTenSetting Q L p e) :
   rw [hZ, Subgroup.mem_bot] at hxc
   exact Subgroup.mem_bot.mpr (congrArg Subtype.val hxc)
 
-theorem sup_eq_top_of_isSylowIn (h : FourTenSetting Q L p e) {T : Subgroup Q}
-    (hT : IsSylowIn 2 T ⊤) : L ⊔ T = ⊤ := by
-  obtain ⟨T₀, hT₀, hLT₀⟩ := h.sup_eq_top
-  have : L.Normal := h.normal
-  have hquotTop : IsPGroup 2 (↥(⊤ : Subgroup Q) ⧸ L.subgroupOf ⊤) :=
-    CFSG.Quasithin.F112R.isPGroup_quotient_of_sup_eq (K := ⊤) hT₀.isPGroup le_top
-      (by rw [Subgroup.normalizer_eq_top_iff.mpr inferInstance]; exact le_top)
-      (by simpa using hLT₀)
-  have hquot : IsPGroup 2 (Q ⧸ L) := hquotTop.of_equiv
-    (QuotientGroup.congr _ _ (Subgroup.topEquiv (G := Q)) (by
-      ext x
-      constructor
-      · rintro ⟨y, hy, rfl⟩
-        exact hy
-      · intro hx
-        exact ⟨⟨x, Subgroup.mem_top x⟩, hx, rfl⟩))
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hmain := CFSG.RankThree.GF2n.Tim79a.sup_eq_top_of_sylow hquot
-    (hT.isPGroup.toSylow (by
-      simpa [Subgroup.relIndex_top_right] using hT.not_dvd_relIndex))
-  simpa using hmain
 
 theorem almostSimple (h : FourTenSetting Q L p e) : Vol2.Ch11.SecE3.AlmostSimple L := by
   obtain ⟨T, hT, hLT⟩ := h.sup_eq_top

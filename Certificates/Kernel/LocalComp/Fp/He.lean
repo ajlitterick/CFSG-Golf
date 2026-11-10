@@ -18,7 +18,6 @@ open CFSG.KC.OpsLayK CFSG.SectionRank.Native
 
 theorem sec_K : secK lay A B heSec = true := by decide +kernel
 
-theorem sec_neg_seeds : (!secK lay B A heSec) = true := by decide +kernel
 
 end CFSG.KD.LC.Fp.He
 

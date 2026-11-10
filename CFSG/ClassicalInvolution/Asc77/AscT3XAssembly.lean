@@ -27,32 +27,6 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
-theorem res10aNoConj_of_fus (h : Res10aFus p f) : Res10aNoConj p f := by
-  intro G _ _ _ K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb g ha'
-  set X := sec20X (CoreAssembly.conjClass K) z K K' with hXdef
-  have hCz : g⁻¹ * b * g ∈ Subgroup.centralizer ({z} : Set G) := d.r10a_X_le_C ha'
-  have hcomm : z * (g⁻¹ * b * g) = (g⁻¹ * b * g) * z :=
-    (Subgroup.mem_centralizer_singleton_iff.mp hCz).symm
-  obtain ⟨c, hca, hcz⟩ := h G K K' J S R R' W V z t d c3 c4 c5 c7 c8 c9 h8 b hb g (by
-    calc (g * z * g⁻¹) * b = g * (z * (g⁻¹ * b * g)) * g⁻¹ := by group
-      _ = g * ((g⁻¹ * b * g) * z) * g⁻¹ := by rw [hcomm]
-      _ = b * (g * z * g⁻¹) := by group)
-  have hd₀ : g⁻¹ * c ∈ Subgroup.centralizer ({z} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have : (g⁻¹ * c) * z * (g⁻¹ * c)⁻¹ = z := by
-      calc (g⁻¹ * c) * z * (g⁻¹ * c)⁻¹ = g⁻¹ * (c * z * c⁻¹) * g := by group
-        _ = z := by rw [hcz]; group
-    calc (g⁻¹ * c) * z = ((g⁻¹ * c) * z * (g⁻¹ * c)⁻¹) * (g⁻¹ * c) := by group
-      _ = z * (g⁻¹ * c) := by rw [this]
-  have hinv : (g⁻¹ * c)⁻¹ ∈ Subgroup.centralizer ({z} : Set G) := Subgroup.inv_mem _ hd₀
-  have hnorm' := le_normalizer_sec20X d.hyp.conjInvariant d.viol.hzK d.twins hinv
-  have h5 : (g⁻¹ * c)⁻¹ * (g⁻¹ * b * g) * ((g⁻¹ * c)⁻¹)⁻¹ ∈ X :=
-    (Subgroup.mem_normalizer_iff.mp hnorm' _).mp ha'
-  have h6 : (g⁻¹ * c)⁻¹ * (g⁻¹ * b * g) * ((g⁻¹ * c)⁻¹)⁻¹ = b := by
-    calc (g⁻¹ * c)⁻¹ * (g⁻¹ * b * g) * ((g⁻¹ * c)⁻¹)⁻¹ = c⁻¹ * b * c := by group
-      _ = b := by rw [mul_assoc, ← hca, ← mul_assoc, inv_mul_cancel, one_mul]
-  rw [h6] at h5
-  exact hb.not_mem_X h5
 
 variable (p f)
 

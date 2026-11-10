@@ -37,7 +37,6 @@ theorem isRoot_of_isT4Frame
   rcases hβ with rfl | rfl | rfl | rfl
   exacts [isRoot_single _ _, isRoot_t4b0, isRoot_t4b1, isRoot_t4b3]
 
-theorem rho_t4c : rho t4c = t4c := by rw [rho_single, rhoPerm_two]
 
 theorem rho_t4b0 : rho t4b0 = t4b1 := by decide
 

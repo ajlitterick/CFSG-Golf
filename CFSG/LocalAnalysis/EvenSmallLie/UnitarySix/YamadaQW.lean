@@ -103,9 +103,6 @@ theorem conj_Q₁_kap (k : Fin 4) (v : Fin 8 → ZMod 2) (ε : Bool) (w : Fin 8 
   rw [← Matrix.mulVec_mulVec, ← h.conj_xs_kap hd₀ hB hV, ← hc, ← hτ]
   group
 
-omit hθ in
-theorem mem_M₁_iff {g : G} : g ∈ h.M₁ hd₀ hB hV ↔ ∃ v, hiSum v = 0 ∧ h.kap hd₀ v = g :=
-  Iff.rfl
 
 omit hθ in
 theorem M₁_le_D₄ : h.M₁ hd₀ hB hV ≤ d.D₄ := by

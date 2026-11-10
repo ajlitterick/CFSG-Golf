@@ -243,24 +243,5 @@ end CFSG.Open
 
 namespace CFSG.Open
 
-open CFSG.Open in
-open scoped MatrixGroups in
-theorem _root_.CFSG.Milestones.cl_lit_classical_involution_theorem
-    (G : Type) [Group G] [Finite G]
-    (F : Subgroup G) [F.Normal] [IsSimpleGroup F]
-    (hFnonab : ∃ a b : F, a * b ≠ b * a)
-    (hFstar : Subgroup.centralizer (F : Set G) = ⊥)
-    (z : G) (hz : orderOf z = 2)
-    (J : Subgroup G) (hzJ : z ∈ J) (hJ : IsSubnormal J (Subgroup.centralizer ({z} : Set G)))
-    (S : Sylow 2 J)
-    (hS : ∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup J) ≃* QuaternionGroup (2 ^ (r - 2)))) :
-    (classicalInvolutionWitness J →
-      (∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Nat.card F ∈ lieOrdersChar p) ∨ Nonempty (F ≃* M11)) ∧
-    (classicalInvolutionTightlyEmbedded J →
-      (∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Nat.card F ∈ lieOrdersChar p) ∨ Nonempty (F ≃* M11) ∨
-        Nonempty (F ≃* classicalInvolutionM12)) :=
-  CFSG.ClassicalInvolution.orderForm_of_modelsForm
-    (fun _ _ h => CFSG.ClassicalInvolution.card_mem_lieOrdersChar_of_oddLieType h)
-    CFSG.Milestones.cl_lit_classical_involution_theorem_models G F hFnonab hFstar z hz J hzJ hJ S hS
 
 end CFSG.Open

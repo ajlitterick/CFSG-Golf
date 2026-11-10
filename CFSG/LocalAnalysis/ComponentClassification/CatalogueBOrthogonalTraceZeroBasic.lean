@@ -55,9 +55,6 @@ theorem traceZero_diagonal (X : traceZeroSubmodule K) : X.val 1 1 = -X.val 0 0 :
 theorem traceZeroCoordinates_val (x : Fin 3 → K) :
     (traceZeroCoordinates K x).val = !![x 0, x 1; x 2, -x 0] := rfl
 
-theorem traceZero_finrank : Module.finrank K (traceZeroSubmodule K) = 3 := by
-  rw [← (traceZeroCoordinates K).finrank_eq]
-  simp
 
 @[expose] def traceZeroForm (K : Type u) [Field K] :
     QuadraticForm K (traceZeroSubmodule K) :=

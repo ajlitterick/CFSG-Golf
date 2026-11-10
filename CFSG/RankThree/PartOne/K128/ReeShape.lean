@@ -25,7 +25,6 @@ theorem int_dvd_sub_add_one' {p q r : ℕ} (hr : r ≤ q) (h : p ∣ q - r + 1) 
   have := Int.natCast_dvd_natCast.2 h
   rwa [Nat.cast_add, Nat.cast_sub hr, Nat.cast_one] at this
 
-theorem tsq' (a : ℕ) : (2 ^ (a + 1)) ^ 2 = 2 * 2 ^ (2 * a + 1) := tsq a
 
 theorem le_two_mul_of_pow_dvd_sq {p v M : ℕ} (hp : p.Prime) (hM : M ≠ 0) (h : p ^ v ∣ M ^ 2) :
     v ≤ 2 * M.factorization p := by

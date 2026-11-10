@@ -467,24 +467,6 @@ theorem ggNbrInnerWeylOn_typeASplit_of_subcomponent (hI3 : GGNbrSubcomponentInpu
   ggNbrInnerWeylOn_typeASplit_of_repeated
     (ggNbrTypeAXRepeatedInput_of_regular hI3 ggTypeARegularCentralizerInput_holds)
 
-theorem ggNbrLangTorusAxisInput_of_typeASplit_rest
-    (hrest : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGNbrLangTorusAxisInput :=
-  ggNbrLangTorusAxisInput_of_typeASplit ggTypeASplitFrameInput_holds hrest
-
-theorem ggXNotNormalInput_of_typeASplit_rest (hnorm : GGBstarNbrNormalInput)
-    (hgraph : GGNbrGraphInput) (hI3 : GGNbrSubcomponentInput)
-    (hlang : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab)
-    (hweyl : GGNbrInnerWeylOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGXNotNormalInput :=
-  ggXNotNormalInput_of_typeASplit hnorm hgraph ggTypeASplitFrameInput_holds
-    (ggNbrTypeAXNonRegularInput_of_repeated
-      (ggNbrTypeAXRepeatedInput_of_regular hI3 ggTypeARegularCentralizerInput_holds)) hlang hweyl
-
-theorem ggNbrFieldTransvectionInput_of_typeASplit_rest
-    (hlang : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGNbrFieldTransvectionInput :=
-  ggNbrFieldTransvectionInput_of_typeASplit ggTypeASplitFrameInput_holds hlang
 
 end CFSG.StandardType
 

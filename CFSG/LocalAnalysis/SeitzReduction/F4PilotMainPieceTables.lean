@@ -326,17 +326,6 @@ theorem fieldSwapPieceTablesInput_of_inputs (hF : FieldNeighbourInput)
   · exact neighbourPieceCards_field_of_input hF hw hf hN h
   · exact neighbourPieceCards_swap_of_input hS hw hf hN h
 
-theorem swapRowCTInput_of_swapNeighbourInput (hS : SwapNeighbourInput) : SwapRowCTInput := by
-  intro G _ _ L K _ _ _ e t f hw hf hX hY
-  have htt : t * t = 1 := by rw [← sq, ← hw.orderOf_eq, pow_orderOf_eq_one]
-  have hq : 4 ≤ Nat.card K := hw.card_eq ▸ four_le_two_pow_of_two_le hf
-  obtain ⟨KX, hcX, hdX, hEX, hfX⟩ := hS G L K e t f hw hf .X (by decide) hX
-  obtain ⟨KY, hcY, hdY, hEY, hfY⟩ := hS G L K e t f hw hf .Y (by decide) hY
-  obtain ⟨G₁, G₂, ε, hC, hmap, hsup, -⟩ := exists_swapFactors_of_decomposition hw.mem_centralizer
-    htt hq hcX hdX hEX hfX hcY hdY hEY hfY
-  refine ⟨G₁, ⟨ε⟩, hmap ▸ hC, ?_⟩
-  rw [hmap]
-  exact hsup
 
 end Assembly
 

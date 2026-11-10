@@ -216,9 +216,6 @@ theorem tr_enc_proved (_hK : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) {X : Arra
 
 end Proofs
 
-theorem tr_enc (_hK : Consts c rm one pad t0 t1 t2 t3 t4 t5 t6) {X : Array Nat} (_hX : WfN X) :
-    WfN (transposeRows 112 X) ∧ encN (transposeRows 112 X) = trJ t0 t1 t2 t3 t4 t5 t6 (encN X) :=
-  tr_enc_proved _hK _hX
 
 end CFSG.KS.SporSch.J4B
 

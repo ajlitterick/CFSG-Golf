@@ -35,17 +35,5 @@ theorem odd_kernel_sylow_equiv (hom : G →* K) (hsurjective : Function.Surjecti
     exact ⟨⟨element, helement⟩, Subtype.ext hequal⟩
   exact ⟨MulEquiv.ofBijective targetHom ⟨hinjective, hsurjectiveTarget⟩⟩
 
-theorem odd_kernel_no_commuting_distinct_involutions [Finite K]
-    (hom : G →* K) (hsurjective : Function.Surjective hom)
-    (hodd : Odd (Nat.card hom.ker)) (hrank : NoCommutingDistinctInvolutions G) :
-    NoCommutingDistinctInvolutions K := by
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let sylow : Sylow 2 G := default
-  let image := sylow.mapSurjective hsurjective
-  obtain ⟨equivalence⟩ := odd_kernel_sylow_equiv hom hsurjective hodd sylow
-  apply (no_commuting_distinct_involutions_sylow_iff image).mpr
-  exact no_commuting_distinct_involutions_of_injective equivalence.symm.toMonoidHom
-    equivalence.symm.injective (subgroup_no_commuting_distinct_involutions
-      (sylow : Subgroup G) hrank)
 
 end CFSG.DisconnectedInvolutionGraph.Helpers

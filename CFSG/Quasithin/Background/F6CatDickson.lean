@@ -56,38 +56,6 @@ theorem dicksonPSL2_holds : DicksonPSL2 := by
 theorem l2DicksonFacts_holds : L2DicksonFacts :=
   l2DicksonFacts_of_dickson dicksonPSL2_holds
 
-structure F618QSInputs' : Prop where
-  theoremC : NativeTheoremCSection
-  goldschmidt : GoldschmidtS3ListCat.{0}
-  recogE4 : F618RecogE4
-  recogD8 : F618RecogD8
-  recogZ2D8 : F618RecogZ2D8
-  recogZ4wrZ2 : F618RecogZ4wrZ2
-  recogG22M12 : F618RecogG22M12
-  recogAutM12 : F618RecogAutM12
-  sylowG22Prime : G22PrimeSylowFact
-  shapeG22 : G22AmalgamShapeFact
-  shapeM12 : M12AmalgamShapeFact
-  shapeAutM12 : AutM12AmalgamShapeFact
-  inspectPGL2 : PGL2InspectionFact
-  inspectA7 : A7InspectionFact
-  inspectS7 : S7InspectionFact
-  inspectPSigmaL2 : PSigmaL2InspectionFact
-
-theorem F618QSInputs'.toF618QSInputs
-    (I : F618QSInputs') : F618QSInputs :=
-  ⟨I.theoremC, I.goldschmidt, dicksonPSL2_holds, I.recogE4, I.recogD8, I.recogZ2D8,
-    I.recogZ4wrZ2, I.recogG22M12, I.recogAutM12, I.sylowG22Prime, I.shapeG22, I.shapeM12,
-    I.shapeAutM12, I.inspectPGL2, I.inspectA7, I.inspectS7, I.inspectPSigmaL2⟩
-
-theorem f618QuasisimpleCaseCat_of'
-    (I : F618QSInputs') : F618QuasisimpleCaseCat :=
-  f618QuasisimpleCaseCat_of I.toF618QSInputs
-
-theorem theoremF618Cat_of'
-    (hNQ : F617NonquasisimpleCaseCat) (I : F618QSInputs') :
-    TheoremF618Cat :=
-  theoremF618Cat_of hNQ I.toF618QSInputs
 
 end F6
 

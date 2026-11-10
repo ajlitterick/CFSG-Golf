@@ -19,9 +19,6 @@ variable (S : Type*) [Group S] [Finite S]
 def maximalOrderAbelianSubgroups : Set (Subgroup S) :=
   {B | IsMaxCardAbelian B}
 
-theorem maximalOrderAbelianSubgroups_nonempty :
-    (maximalOrderAbelianSubgroups S).Nonempty :=
-  Helpers.maximum_order_abelian_family_nonempty
 
 @[reducible]
 noncomputable def maximalAbelianOrder : ℕ :=
@@ -62,11 +59,6 @@ theorem thompsonOrder_isomorphism {S T : Type*} [Group S] [Finite S]
     Subgroup.characteristic_iff_map_eq.mpr fun ψ => Helpers.order_thompson_subgroup_map ψ,
     Subgroup.characteristic_iff_map_eq.mpr fun ψ => Helpers.order_thompson_center_map ψ⟩
 
-theorem centerThompsonOrder_contains_center (S : Type*) [Group S] [Finite S] :
-    Subgroup.center S ≤ centerThompsonOrder S ∧
-      ∀ p : ℕ, p.Prime → IsPGroup p S → Nontrivial S → centerThompsonOrder S ≠ ⊥ :=
-  ⟨Helpers.center_le_order_thompson_center, fun p hp hS _ =>
-    Helpers.order_thompson_center_pgroup_nontrivial p hp hS⟩
 
 theorem embeddedThompsonCenter_le {G : Type*} [Group G] (U : Subgroup G) :
     embeddedThompsonCenter U ≤ U :=

@@ -161,21 +161,6 @@ theorem false_alt_hyp {K : Type} [Group K] [Finite K]
       rfl
     exact false_of_cover_order hZ hZp e h7 hdvd12 (m := 280) (by norm_num) (by norm_num) T hT
 
-theorem false_M22_hyp (hSpor : SporadicMultipliers) {K : Type}
-    [Group K] [Finite K] (hq : CFSG.IsQuasisimple K) (hZ : Subgroup.center K ≠ ⊥)
-    (hZp : IsPGroup 3 (Subgroup.center K))
-    (e : K ⧸ Subgroup.center K ≃* (TauCeti.CFSGIndex.sporadic .M22).Group) (T : Sylow 3 K)
-    (hT : SylowHyp K T) : False := by
-  have : Group.IsPerfect K := hq.1
-  have hdvd := CFSG.GH74.Generic.card_center_dvd_hopfMultiplier hq e
-  rw [hSpor.1 .M22] at hdvd
-  have hdvd12 : Nat.card (Subgroup.center K) ∣ 12 := hdvd
-  obtain ⟨b⟩ := CFSG.Sporadic.Bridge.M22.nonempty_mulEquiv
-  have hcard : Nat.card (K ⧸ Subgroup.center K) = 443520 := by
-    rw [Nat.card_congr (e.trans b.symm).toEquiv]
-    exact CFSG.Sporadic.Mathieu.card_M22
-  exact false_of_cover_order hZ hZp (MulEquiv.refl _) hcard hdvd12 (m := 49280) (by norm_num)
-    (by norm_num) T hT
 
 theorem centralizer_le_center_of_abelianSylowDatum {K X : Type} [Group K] [Finite K] [Group X]
     (π : K →* X) (hπ : Function.Surjective π) (hker : π.ker = Subgroup.center K)

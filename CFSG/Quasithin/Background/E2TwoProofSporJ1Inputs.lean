@@ -30,10 +30,5 @@ open CFSG.Sporadic.Th.Native
 
 @[expose] def j1Delta : List Nat := [27, 623, 1344, 1386]
 
-@[expose] def j1Lat : LatData (List Nat) :=
-  buildLat ptAct 1540 j1ta.toArray j1tb.toArray j1Delta j1STabs 400
-
-@[expose] def j1Enum : Array (List Nat) × Array Nat × Array Nat :=
-  bfsEnumB 1540 (List.range 1540) j1STabs j1STabs 100
 
 end CFSG.Quasithin.E2P.SporB.J1Lat

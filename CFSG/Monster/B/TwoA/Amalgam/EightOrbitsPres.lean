@@ -72,13 +72,6 @@ theorem cv0_ne_partner :
     cv0 ≠ cvOf a0S :=
   (adj_cv0_elS a0_mem_Ehat a0_not_mem_N1).ne
 
-theorem cpsi_partner :
-
-    cpsi ⟨cv0, cv0_mem_cPi0⟩ = cpsi ⟨cvOf a0S, cvOf_a0S_mem_cPi0⟩ := by
-  have h1 : cpsi ⟨cv0, cv0_mem_cPi0⟩ = piPt 1 := cpsi_piV 1
-  have h2 : cpsi ⟨cvOf a0S, cvOf_a0S_mem_cPi0⟩ = piPt a0J := cpsi_piV a0J
-  rw [h1, h2]
-  exact piPt_eq_iff.2 (Or.inr (by rw [mul_one]))
 
 theorem eq_partner_of_fibre
     {s s' : Shat} {k : Jhat} (hk0 : cvOf (jhatS k) ≠ cv0)

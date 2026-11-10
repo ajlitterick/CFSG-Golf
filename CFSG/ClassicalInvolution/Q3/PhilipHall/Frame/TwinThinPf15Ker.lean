@@ -107,27 +107,9 @@ theorem ker_eq_bot_of_odd {m : ℕ} (hm : 5 ≤ m) (hm8 : m ≠ 8) (hodd : m % 2
     (J : AEIdent (fam K (conjSub g (piGen π))) m) : J.φ.ker = ⊥ :=
   TL4.aeCoverOddKer_proved G _ m J hm (Nat.odd_iff.mpr hodd) (S.aeCoverHyp hm hm8 J)
 
-theorem twelve_eight_small' (h117 : TL4.Model117) {n : ℕ} (hn5 : 5 ≤ n) (hn7 : n ≤ 7)
-    (J : AEIdent (fam K (conjSub g (piGen π))) n) {α : Finset (Fin n)} {h : α.card = 4}
-    {b : Bool}
-    (hlab : (K.subgroupOf (pSpan (fam K (conjSub g (piGen π))))).map J.φ = AE.memBar α h b) :
-    betaOf (nbrAdj (CoreAssembly.conjClass K₀)) (CoreAssembly.conjClass K₀) π = {K, K'} ∧
-      ∃ y : ↥(pSpan (fam K (conjSub g (piGen π)))), J.φ y = AE.yBar α h ∧
-        (∃ a : ℕ, y ^ 3 ^ a = 1) ∧ (y : G) * z = z * (y : G) ∧
-        ∀ x ∈ piGen π, (y : G) * x = x * (y : G) :=
-  S.twelve_eight_small h117 hn5 hn7 J hlab
-    (fun h7 => S.ker_eq_bot_of_odd hn5 (by omega) (by omega) J)
 
 end Setting
 
-theorem thinKerOddN (IH : Prop) :
-    IH → ∀ (G : Type) [Group G] [Finite G] (K₀ K K' : Subgroup G) (z : G) (π : Set (Subgroup G))
-      (g : G), Setting K₀ K K' z π g → IsSimpleGroup ↥(genFittingFStar G) →
-        (∃ a b : ↥(genFittingFStar G), a * b ≠ b * a) →
-        ∀ m : ℕ, 5 ≤ m → m % 2 = 1 → ∀ J : AEIdent (fam K (conjSub g (piGen π))) m, J.φ.ker = ⊥ :=
-  fun _ G _ _ _ K K' z π g S _ _ m hm hmodd J =>
-    TL4.aeCoverOddKer_proved G _ m J hm (Nat.odd_iff.mpr hmodd)
-      (S.aeCoverHyp hm (by omega) J)
 
 end TwinThin
 

@@ -97,8 +97,6 @@ theorem IsDihedralGen.inv_b (h : IsDihedralGen a b n) : b⁻¹ = b :=
 theorem IsDihedralGen.mul_mul_a (h : IsDihedralGen a b n) (z : W) : a * (a * z) = z := by
   rw [← mul_assoc, h.mul_self_a, one_mul]
 
-theorem IsDihedralGen.mul_mul_b (h : IsDihedralGen a b n) (z : W) : b * (b * z) = z := by
-  rw [← mul_assoc, h.mul_self_b, one_mul]
 
 theorem IsDihedralGen.a_mul_r_mul_a (h : IsDihedralGen a b n) : a * (a * b) * a = (a * b)⁻¹ := by
   have hinv : (a * b)⁻¹ = b * a := by rw [mul_inv_rev, h.inv_a, h.inv_b]

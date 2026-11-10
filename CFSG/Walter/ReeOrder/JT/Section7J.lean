@@ -44,14 +44,6 @@ theorem w_mem_T₀ : c.w ∈ c.T₀ := c.mem_T₀.mpr (Or.inr (Or.inr (Or.inl rf
 theorem isPGroup_T₀ : IsPGroup 2 c.T₀ :=
   IsPGroup.of_card (n := 2) (by rw [c.isKleinFour_T₀.card_four]; norm_num)
 
-theorem T₀_le_centralizer_t : c.T₀ ≤ Subgroup.centralizer ({h.t} : Set G) := by
-  intro x hx
-  rw [Subgroup.mem_centralizer_singleton_iff]
-  rcases c.mem_T₀.mp hx with rfl | rfl | rfl | rfl
-  · rw [mul_assoc, ← c.commute_t_w.eq, ← mul_assoc]
-  · rfl
-  · exact c.commute_t_w.eq.symm
-  · simp
 
 theorem T₀_le_normalizer_C : c.T₀ ≤ Subgroup.normalizer (c.C : Set G) := by
   have ht : h.t ∈ Subgroup.normalizer (c.C : Set G) := mem_normalizer_of_conj_mem fun x hx => by

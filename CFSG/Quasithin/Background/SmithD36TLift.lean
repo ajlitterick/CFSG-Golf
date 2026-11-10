@@ -245,13 +245,6 @@ theorem d36t_Ut_le (n : D36Norm M Mp T L V t) :
   rintro _ ⟨u, hu, rfl⟩
   exact mem_orbSup_of_mem_map n.tT (d36t_U_le n hu)
 
-theorem d36t_L_inv_U (n : D36Norm M Mp T L V t) :
-    ∀ l ∈ L, ∀ u ∈ commSub (orbSup T V) L, l u ∈ commSub (orbSup T V) L := by
-  intro l hl u hu
-  have h := (commSub (orbSup T V) L).mul_mem
-    (Subgroup.subset_closure ⟨l, hl, u, d36t_U_le n hu, rfl⟩ :
-      l u * u⁻¹ ∈ commSub (orbSup T V) L) hu
-  rwa [inv_mul_cancel_right] at h
 
 theorem d36t_rank (hL38 : D3L38) (n : D36Norm M Mp T L V t) :
     rk ↥(commSub (orbSup T V) L ⊓ (commSub (orbSup T V) L).map t.toMonoidHom) + 2 <

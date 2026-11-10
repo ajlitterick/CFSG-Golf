@@ -181,32 +181,6 @@ theorem neighbour_standard_torusQ1 (hL : standardComponentIsStandard L) {t : G}
   obtain ⟨-, -, hXe, -, hD, -⟩ := neighbour_data_torusQ1 e hn hab htC hX₀ hX₀c hX hDe
   exact neighbour_standard hL htC ht hK e hn hab htX (hXe ▸ hX₀) (hXe ▸ hX₀c) hDe hD
 
-theorem exists_neighbour_standard_torusQ1 (hL : standardComponentIsStandard L) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (e : L ≃* LinearFlag.projectiveSL n K) (hn : 5 ≤ n) {a b : Fin n} (hab : a ≠ b) :
-    ∃ X₀ : Subgroup (LinearFlag.projectiveSL n K), X₀ ≤ rootSL2 a b ∧ IsCyclic X₀ ∧
-      Nat.card X₀ = Nat.card K + 1 ∧
-      ∀ {X D : Subgroup G}, X = (X₀.map e.symm.toMonoidHom).map L.subtype →
-        D = ((blockSL (({a, b} : Finset (Fin n))ᶜ)).map e.symm.toMonoidHom).map L.subtype →
-        ∃ htX : t ∈ centralizer (X : Set G),
-          CFSG.Open.IsComponentOf
-              ((D.subgroupOf (centralizer (X : Set G))).map
-                (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-              (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-                Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-            (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-              IsPGroup 2 U →
-              U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-                  (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-                Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-              Nat.card U ≤ 2) ∧
-            standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-              (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  obtain ⟨X₀, hX₀, hcyc, hX₀c⟩ := exists_torusQ1 (n := n) (K := K) hab
-  refine ⟨X₀, hX₀, hcyc, hX₀c, fun {X D} hX hDe => ?_⟩
-  have htX : t ∈ centralizer (X : Set G) := hX ▸ mem_centralizer_map_symm e X₀ htC
-  exact ⟨htX, neighbour_standard_torusQ1 hL htC ht hK e hn hab hX₀ hX₀c hX htX hDe⟩
 
 end TorusQ1
 

@@ -33,24 +33,6 @@ theorem centMod_mul_scalar {L : Subgroup (GL (Fin 3) K)} {x z : GL (Fin 3) K}
   have h := key (x * z) z⁻¹ (inv_mem hz)
   rwa [mul_assoc, mul_inv_cancel, mul_one] at h
 
-theorem centralizer_mul_scalar {x z : GL (Fin 3) K} (hz : z ∈ StatedScalars (Fin 3) K) :
-    Subgroup.centralizer ({x * z} : Set (GL (Fin 3) K)) = Subgroup.centralizer {x} := by
-  ext l
-  rw [Subgroup.mem_centralizer_singleton_iff, Subgroup.mem_centralizer_singleton_iff]
-  have hc := commute_of_mem_statedScalars hz l
-  constructor
-  · intro h
-    calc l * x = (l * (x * z)) * z⁻¹ := by group
-      _ = ((x * z) * l) * z⁻¹ := by rw [h]
-      _ = x * (z * l) * z⁻¹ := by group
-      _ = x * (l * z) * z⁻¹ := by rw [← hc]
-      _ = x * l := by group
-  · intro h
-    calc l * (x * z) = (l * x) * z := by group
-      _ = (x * l) * z := by rw [h]
-      _ = x * (l * z) := by group
-      _ = x * (z * l) := by rw [hc]
-      _ = (x * z) * l := by group
 
 theorem false_of_isSolvable_quotient {J : Type*} [Group J] [Finite J]
     (hQ : CFSG.Open.IsQuasisimple (J ⧸ CFSG.Open.GLAPPrimeCore 3 J)) (hs : Group.IsSolvable J) : False :=

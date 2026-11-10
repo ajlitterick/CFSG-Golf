@@ -57,30 +57,6 @@ theorem isPGroup_zpowers_of_orderOf_eq_two {F : Type*} [Group F] {z : F} (hz : o
   rw [hz1, orderOf_one] at hz
   exact absurd hz (by norm_num)
 
-@[expose] def HasParabolicOvergroup {F : Type*} [Group F] (z : F) : Prop :=
-  ∃ P U : Subgroup F, Subgroup.centralizer {z} ≤ P ∧ U ≤ P ∧ (U.subgroupOf P).Normal ∧
-    IsPGroup 2 U ∧ Subgroup.centralizer (U : Set F) ⊓ P ≤ U
-
-theorem isCharacteristicP_centralizer_of_hasParabolicOvergroup {F : Type*} [Group F] [Finite F]
-    {z : F} (hz : orderOf z = 2) (h : HasParabolicOvergroup z) :
-    CFSG.IsCharacteristicP 2 (Subgroup.centralizer {z}) := by
-  obtain ⟨P, U, hCP, hUP, hUn, hUp, hCU⟩ := h
-  have hzp := (isPGroup_zpowers_of_orderOf_eq_two hz).1
-  have heq := centralizer_zpowers_eq z
-  have hzP : Subgroup.zpowers z ≤ P := by
-    rw [Subgroup.zpowers_le]
-    exact hCP (Subgroup.mem_centralizer_iff.mpr fun h hh => by
-      rw [Set.mem_singleton_iff] at hh
-      rw [hh])
-  have := parabolic_containing_subgroup_local_characteristic_transfer
-    (p := 2) (H := Subgroup.centralizer ({z} : Set F)) hUP hUn hUp hCU hzP hzp
-    (Or.inr heq.symm) hCP
-  exact this.2.1
-
-theorem NoNonsolvableClassicalAt.of_hasParabolicOvergroup {F : Type*} [Group F] [Finite F] {z : F}
-    (h : HasParabolicOvergroup z) : NoNonsolvableClassicalAt z :=
-  fun hz => NoNonsolvableClassicalAt.of_isCharacteristicP
-    (isCharacteristicP_centralizer_of_hasParabolicOvergroup hz h) hz
 
 theorem isSolvable_sup_of_cyclic {G : Type*} [Group G] [Finite G] {Q D : Subgroup G}
     (hQ : IsPGroup 2 Q) (hD : IsCyclic D) (hsup : Q ⊔ D = Subgroup.normalizer (Q : Set G)) :

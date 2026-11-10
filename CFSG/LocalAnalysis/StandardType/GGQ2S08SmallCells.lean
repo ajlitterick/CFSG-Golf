@@ -64,9 +64,6 @@ inductive GGQ2ShapeTag
    (.twE6, 0, .a), (.twE6, 0, .b), (.twE6, 0, .c), (.twE6, 0, .d),
    (.E7, 0, .full), (.E8, 0, .full)]
 
-@[expose] def GGQ2S08SmallCells : Prop :=
-  ∀ (t : LargeEvenLieTag) (r : ℕ) (s : GGQ2ShapeTag),
-    (t, r, s) ∈ ggQ2S08CellList → GGQ2S08Cell t r s
 
 private lemma ggQ2S08_cardV {G : Type} [Group G] [Finite G] {Bs L : Subgroup G} {x : G}
     (M : GGQ2LDatum 3 Bs L x) :
@@ -340,9 +337,6 @@ private lemma ggQ2S08_isUnit_det_F4t :
     Matrix.det_transpose, ggQ2S08_det_F4]
   decide
 
-private lemma ggQ2S08_not_isUnit_det_E6 :
-    ¬ IsUnit ((CartanMatrix.E 6).map (Int.castRingHom (ZMod 3))).det := by
-  rw [ggQ2S08_det_E6]; decide
 
 private theorem ggQ2S08_exists_cell {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
     {L D J : Subgroup G} (hS : GGQTwoSetting 3 B Bs x L D J) (hcard : Nat.card ↥Bs ≤ 3 ^ 9)
@@ -629,9 +623,6 @@ theorem ggQ2s08_reflEKSmall_of_cellsEK (hTB : GGQ2TableBI1Fail) (hcells : GGQ2S0
     exact (hcells _ _ s hmem hS hI1 hCav M hs hmark rfl rfl hglab hLW g φ hInd hR hM hCen).2 hne
       y K hNbr hy hnotK hnotAK
 
-theorem ggQ2s08_reflEKSmall_of_cells (hTB : GGQ2TableBI1Fail) (hcells : GGQ2S08SmallCells) :
-    GGQ2ReflEKSmallInput :=
-  ggQ2s08_reflEKSmall_of_cellsEK hTB fun t r s hmem => GGQ2S08Cell.toEK (hcells t r s hmem)
 
 end CFSG.StandardType
 

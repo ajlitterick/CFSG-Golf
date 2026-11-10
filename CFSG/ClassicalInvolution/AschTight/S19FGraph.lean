@@ -27,8 +27,6 @@ section ReeAut
 
 variable {K : Type} [Field K] [Finite K] [CharP K CFSG.LieType.Ree.ReeTag.G2.prime]
 
-theorem g2ReeAut_eq (b : ℕ) : g2ReeAut K b = g2ExcAut K * g2FrobAut K ^ b :=
-  rfl
 
 theorem map_range_g2Chart_frobenius_pow (b : ℕ) (i : Fin Tag.G2.rank) :
     (g2Chart K i).range.map (g2FrobAut K ^ b).toMonoidHom = (g2Chart K i).range := by

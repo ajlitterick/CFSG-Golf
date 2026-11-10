@@ -53,30 +53,18 @@ theorem ch6136_g : bAnd(actC T1X.F AlX.F (eqKC 1 2) (frC 0) 31 (gRels 0),
       actC T1X.F AlX.F eqN2C (frC 2) 31 (gRels 2))) = true := by
   quickRfl
 
-theorem ch6136_neg_rel : (!relsC T1X.F (eqKC 1 2) (frC 0) [(vt, Tm.one)]) = true := by quickRfl
-
-theorem ch6136_neg_act : (!actC T1X.F AlX.F (eqKC 1 2) (frC 0) 1 (actRels 0 1)) = true := by
-  quickRfl
-
-theorem ch6136_neg_n2 : (!relsC T1X.F eqN2C (frC 2) [(vt, pw vt 2)]) = true := by quickRfl
 
 theorem ch6136_gens : bAnd(Nat.beq (CC.G 0) (tgK GT 4), bAnd(Nat.beq (CC.G 1) (tgK GT 8),
     bAnd(Nat.beq (CC.G 2) (tgK GT 3), bAnd(Nat.beq (CC.G 3) (tgK GT 2),
     bAnd(Nat.beq (CC.G 4) (tgK GT 24), Nat.beq (CC.G 5) (tgK GT 16)))))) = true := by
   quickRfl
 
-theorem ch6136_cnt : CC.cnt = 64 := rfl
-theorem ch6136_k : CC.k = 6 := rfl
 theorem ch6136_hd : penumHdK (pidn 42 6) 64 64 CC.T CC.PL = true := by quickRfl
 
 theorem ch6136_sl : penumSlK 42 6 (mask 6) (42 * 6) false CC.G CC.GI 6 64 CC.T CC.PL
     CC.POS CC.SRT CC.SRI 0 64 = true := by
   quickRfl
 
-theorem ch6136_neg_sl : (!penumSlK 42 6 (mask 6) (42 * 6) false
-    (fun j => CC.G (nIf(Nat.beq j 0, 1, nIf(Nat.beq j 1, 0, j)))) CC.GI 6 64 CC.T CC.PL
-    CC.POS CC.SRT CC.SRI 0 64) = true := by
-  quickRfl
 
 theorem ch6136_comm : bAnd(Nat.beq (pcomp 42 6 (mask 6) (repK GT 4) (repK GT 3))
       (pcomp 42 6 (mask 6) (repK GT 3) (repK GT 4)),

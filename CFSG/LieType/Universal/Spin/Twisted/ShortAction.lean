@@ -88,9 +88,6 @@ theorem planeVec_smul (r : K) (w : Fin 2 → K) : planeVec n (r • w) = r • p
   funext v
   rcases v with i | i | t <;> simp [planeVec]
 
-theorem planeVec_neg (w : Fin 2 → K) : planeVec n (-w) = -planeVec n w := by
-  funext v
-  rcases v with i | i | t <;> simp [planeVec]
 
 theorem planeVec_sub (w w' : Fin 2 → K) : planeVec n (w - w') = planeVec n w - planeVec n w' := by
   funext v
@@ -182,15 +179,6 @@ theorem polar_wVec_planeVec (i : Fin (n - 1)) (l : K) (w : Fin 2 → K) (m : K) 
   simp only [wVec, polar_add_left, polar_smul_left, polar_eVec_planeVec, polar_planeVec_planeVec,
     polar_fVec_planeVec, smul_eq_mul, mul_zero, add_zero, zero_add]
 
-theorem quadMinus_wVec (i : Fin (n - 1)) (l : K) (w : Fin 2 → K) (m : K) :
-    quadMinus n K b c (wVec n i l w m) = l * m + planeNorm b c w := by
-  have h := QuadraticMap.map_add (quadMinus n K b c) (l • eVec n i + planeVec n w) (m • fVec n i)
-  rw [QuadraticMap.map_add (quadMinus n K b c) (l • eVec n i) (planeVec n w)] at h
-  rw [wVec, h]
-  simp only [QuadraticMap.map_smul, quadMinus_eVec, quadMinus_fVec, quadMinus_planeVec',
-    polar_add_left, polar_smul_left, polar_smul_right, polar_eVec_planeVec, polar_eVec_fVec,
-    polar_planeVec_fVec, ite_true, smul_eq_mul]
-  ring
 
 variable {b c}
 

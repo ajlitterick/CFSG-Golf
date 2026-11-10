@@ -15,26 +15,6 @@ section Decomp
 
 variable {F : Type u} [Field F] {W : Type u} [AddCommGroup W] [Module F W]
 
-@[expose] def invSubmodule (L : Subgroup (W ≃ₗ[F] W)) (U : Submodule F W)
-    (hU : ∀ l ∈ L, ∀ u ∈ U, l u ∈ U) : Submodule (spanAlg L) W where
-  carrier := U
-  add_mem' := U.add_mem
-  zero_mem' := U.zero_mem
-  smul_mem' := by
-    rintro ⟨r, hr⟩ u hu
-    show r u ∈ U
-    induction hr using Algebra.adjoin_induction generalizing u with
-    | mem x hx =>
-      obtain ⟨l, rfl⟩ := hx
-      exact hU l l.2 u hu
-    | algebraMap c =>
-      simpa using U.smul_mem c hu
-    | add x y _ _ hx hy =>
-      rw [LinearMap.add_apply]
-      exact U.add_mem (hx hu) (hy hu)
-    | mul x y _ _ hx hy =>
-      rw [Module.End.mul_apply]
-      exact hx (hy hu)
 
 theorem exists_simple_submodule (L : Subgroup (W ≃ₗ[F] W)) [Nontrivial W] [Finite W] :
     ∃ I : Submodule (spanAlg L) W, IsSimpleModule (spanAlg L) I := by
@@ -322,7 +302,6 @@ theorem exists_smul_eq_of_scalar_endo [IsSemisimpleModule R M] [Finite M]
 end Density
 
 
-
 section Act
 
 variable {F : Type u} [Field F] {W : Type u} [AddCommGroup W] [Module F W]
@@ -380,7 +359,6 @@ theorem piScalarRight_symm_comp {F : Type*} [Field F] {P : Type*} [AddCommGroup 
   conv_rhs => rw [show y = ∑ i, (Pi.single i (y i) : Fin n → P) from
     (Finset.univ_sum_single _).symm]
   simp [map_sum, TensorProduct.piScalarRight_symm_single, LinearMap.rTensor_tmul]
-
 
 
 section SecondAction
@@ -570,7 +548,6 @@ theorem two_factor_split [Finite F] [Nontrivial W] [Finite W] (L K : Subgroup (W
 end Split
 
 
-
 section Cons
 
 variable {F : Type*} [Field F] {s : ℕ} (V : Fin (s+1) → Type*) [∀ i, AddCommGroup (V i)]
@@ -684,10 +661,6 @@ theorem tensorConsEquiv_tprod (m : ∀ i, V i) :
       m 0 ⊗ₜ[F] PiTensorProduct.tprod F (Fin.tail m) :=
   consFwd_tprod V m
 
-theorem tensorConsEquiv_symm_tmul (v : V 0) (m' : ∀ j : Fin s, V j.succ) :
-    (tensorConsEquiv V).symm (v ⊗ₜ[F] PiTensorProduct.tprod F m') =
-      PiTensorProduct.tprod F (Fin.cons v m' : ∀ i, V i) :=
-  consInv_tmul V v m'
 
 theorem tensorConsEquiv_factorEnd_zero (f : Module.End F (V 0)) (x : ⨂[F] i, V i) :
     tensorConsEquiv V (factorEnd 0 f x) =
@@ -714,7 +687,6 @@ theorem tensorConsEquiv_factorEnd_succ (j : Fin s) (g : Module.End F (V j.succ))
   | add x y hx hy => rw [map_add, map_add, map_add, map_add, hx, hy]
 
 end Cons
-
 
 
 section SliceSub
@@ -830,7 +802,6 @@ theorem consEquiv_succ (e₁ : W ≃ₗ[F] V 0 ⊗[F] Q) (e' : Q ≃ₗ[F] ⨂[F
   exact key _
 
 end ConsStep
-
 
 
 section Step
@@ -975,7 +946,6 @@ theorem step_data [Finite F] {s : ℕ} {W : Type u} [AddCommGroup W] [Module F W
 end Step
 
 
-
 section Core
 
 variable {F : Type u} [Field F]
@@ -1059,7 +1029,6 @@ theorem tensor_decomposition_core [Finite F] : ∀ (s : ℕ) {W : Type u} [AddCo
       | succ j => exact hspan' j
 
 end Core
-
 
 
 section SpanIff

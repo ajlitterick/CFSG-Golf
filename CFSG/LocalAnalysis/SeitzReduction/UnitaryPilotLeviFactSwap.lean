@@ -97,34 +97,6 @@ theorem pieceCore_eq_map_of_conjTorusSU_prod {N I : Finset (Fin n)} (hIN : I ⊆
     fixAll_prodCongr, perfectCore_prod, hβ,
     perfectCore_fixAll_conjTorusSU_unitaryBlockTorusLift h hIN hI2 hIc hperf]
 
-theorem pieceCore_eq_map_of_neighbourCore_prod {a b : Fin n} (hab : a ≠ b)
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI2 : 2 ≤ I.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I)
-    (Ψ : unitaryBlock h ({a, b}ᶜ : Finset (Fin n)) × unitaryBlock h ({a, b}ᶜ : Finset (Fin n)) →* G)
-    (hker : Ψ.ker ≤ center (unitaryBlock h ({a, b}ᶜ : Finset (Fin n)) ×
-      unitaryBlock h ({a, b}ᶜ : Finset (Fin n))))
-    (hrange : Ψ.range = neighbourCore e hab) (hΨ : TorusEquivariantProd e {a, b}ᶜ I Ψ) :
-    pieceCore e I = (((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ)).prod
-      ((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ))).map Ψ :=
-  pieceCore_eq_map_of_conjTorusSU_prod e hI hI2 (two_le_card_compl_of_subset_compl_pair hab hI)
-    hperf (modelToG_unitaryRootTorus_le e hab hI) Ψ hker hrange hΨ
-
-theorem map_prod_eq_map_prod_of_conjTorusSU {N N' I : Finset (Fin n)} (hIN : I ⊆ N)
-    (hIN' : I ⊆ N') (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I) {X X' : Subgroup G}
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I)) (hXI' : X' ≤ modelToG e (unitaryBlockTorus h I))
-    (Ψ : unitaryBlock h N × unitaryBlock h N →* G)
-    (hker : Ψ.ker ≤ center (unitaryBlock h N × unitaryBlock h N))
-    (hrange : Ψ.range = centralizerPerfectCore X) (hΨ : TorusEquivariantProd e N I Ψ)
-    (Ψ' : unitaryBlock h N' × unitaryBlock h N' →* G)
-    (hker' : Ψ'.ker ≤ center (unitaryBlock h N' × unitaryBlock h N'))
-    (hrange' : Ψ'.range = centralizerPerfectCore X') (hΨ' : TorusEquivariantProd e N' I Ψ') :
-    (((unitaryBlock h I).subgroupOf (unitaryBlock h N)).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h N))).map Ψ =
-      (((unitaryBlock h I).subgroupOf (unitaryBlock h N')).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h N'))).map Ψ' := by
-  rw [← pieceCore_eq_map_of_conjTorusSU_prod e hIN hI2 hIc hperf hXI Ψ hker hrange hΨ,
-    ← pieceCore_eq_map_of_conjTorusSU_prod e hIN' hI2 hIc hperf hXI' Ψ' hker' hrange' hΨ']
 
 end Swap
 

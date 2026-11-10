@@ -9,12 +9,6 @@ namespace CFSG.KC.U6Sec3
 
 open CFSG.KC.Enum CFSG.KS.Raw
 
-@[expose] noncomputable def prodAllK (n w m nw : Nat) (LR TR : Nat → Nat) (f : Nat → Bool) (d : Nat) :
-    Nat → Nat → Bool :=
-  Nat.rec (motive := fun _ => Nat → Nat → Bool) (fun _ acc => f acc)
-    (fun _ ih i acc => strictB (LR i) (fun R => strictB (roff n nw R) (fun o =>
-      allN (rcnt R) (fun a => strictB (pcomp n w m acc (TR (Nat.add o a))) (ih (Nat.succ i))))))
-    d
 
 @[expose] noncomputable def prodLazyK (n nw : Nat) (LR TR : Nat → Nat) (f : List Nat → Bool) (d : Nat) :
     Nat → List Nat → Bool :=

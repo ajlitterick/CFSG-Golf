@@ -18,6 +18,5 @@ open CFSG.Assembly.LowTwoRank Vol2.KGNat
     Setting4315 G T M L n I H K t m F α β W' ZS K₂ R₂ μ y KZ → m = 2 →
     IsPSU 3 5 1 (ModO2 KZ ⧸ Subgroup.center (ModO2 KZ)) → False
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.H13.Ch4

@@ -77,8 +77,6 @@ theorem swapFun_norm (x : quasithinZorn F) : cayleyNorm (swapFun x) = cayleyNorm
   ⟨LinearEquiv.ofInvolutive swapLin swapFun_swapFun, swapFun_one, swapFun_mul, swapFun_tr,
     swapFun_norm⟩
 
-theorem g2Sw_apply (x : quasithinZorn F) :
-    ((g2Sw : ↥(cayleyGroup F)) : quasithinZorn F ≃ₗ[F] quasithinZorn F) x = swapFun x := rfl
 
 theorem g2Sw_mul_self : (g2Sw : ↥(cayleyGroup F)) * g2Sw = 1 :=
   Subtype.ext (LinearEquiv.ext fun x => swapFun_swapFun x)
@@ -115,13 +113,6 @@ theorem bilQ_eq_sum (w w' : Ix3 → F) : bilQ w w' = ∑ i, w i * w' i.swap := b
   simp only [bilQ, Fintype.sum_sum_type, Fin.sum_univ_three, Sum.swap_inl, Sum.swap_inr]
   ring
 
-omit [CharP F 2] in
-theorem dotProduct_formQ (w w' : Ix3 → F) : w ⬝ᵥ (formQ F).mulVec w' = bilQ w w' := by
-  rw [bilQ_eq_sum]
-  refine Finset.sum_congr rfl fun i _ => ?_
-  congr 1
-  simp only [Matrix.mulVec, dotProduct, formQ_apply, ite_mul, one_mul, zero_mul,
-    Finset.sum_ite_eq', Finset.mem_univ, ite_true]
 
 theorem repQ_transpose_formQ (g : ↥(cayleyGroup F)) :
     (repQ g)ᵀ * formQ F * repQ g = formQ F := by

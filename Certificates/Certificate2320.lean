@@ -18,8 +18,5 @@ namespace Certificates
 
 open CertificateChecks
 
-open CFSG CFSG.Sporadic CFSG.Sporadic.ThSchreier CFSG.Sporadic.Th CFSG.Sporadic.Th.Native in
-open CFSG.Sporadic.Th.Max3 Pointwise in
-theorem certificate2320 : inUA starKey.u = true ∧ inUA starKey.v = true := KernelSporSch.ThPlane.facts
 
 end Certificates

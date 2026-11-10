@@ -72,9 +72,6 @@ variable {W : Type w} [AddCommGroup W] [Module K W]
     ext x
     simp
 
-theorem formIsometryGroupEquiv_apply (e : V ≃ₗ[K] W)
-    (he : ∀ x y, k (e x) (e y) = h x y) (g : isometryGroup h) (x : W) :
-    (formIsometryGroupEquiv h k e he g).val x = e (g.val (e.symm x)) := rfl
 
 theorem formIsometryGroupEquiv_determinant (e : V ≃ₗ[K] W)
     (he : ∀ x y, k (e x) (e y) = h x y) (g : isometryGroup h) :
@@ -95,9 +92,6 @@ theorem formIsometryGroupEquiv_determinant (e : V ≃ₗ[K] W)
   right_inv g := Subtype.ext ((formIsometryGroupEquiv h k e he).apply_symm_apply g.val)
   map_mul' g j := Subtype.ext ((formIsometryGroupEquiv h k e he).map_mul g.val j.val)
 
-theorem formSpecialIsometryEquiv_val (e : V ≃ₗ[K] W)
-    (he : ∀ x y, k (e x) (e y) = h x y) (g : specialIsometry h) :
-    (formSpecialIsometryEquiv h k e he g).val = formIsometryGroupEquiv h k e he g.val := rfl
 
 variable {n : ℕ}
 

@@ -1085,58 +1085,6 @@ private theorem normalizer_fixed_core_not_le_Hhat
         (centralizes_iff_commutator_eq_bot c.t (K := K)).1 hCentK
       exact hcommK hcomm
 
-/-- If an involution centralizes an odd-order subgroup, the elements it
-inverts inside that subgroup are trivial. -/
-private theorem invertedElements_eq_singleton_one_of_centralizes
-    {G : Type u} [Group G] [Finite G] (X : Subgroup G) {s : G}
-    (_hs : IsInvolution s)
-    (hcent : s ∈ Subgroup.centralizer (X : Set G))
-    (hodd : Nat.Coprime 2 (Nat.card (↥X))) :
-    invertedElements X s = ({1} : Set G) := by
-  classical
-  ext x
-  constructor
-  · intro hx
-    have hxX : x ∈ X := hx.1
-    have hcomm : s * x = x * s := by
-      exact ((Subgroup.mem_centralizer_iff (g := s) (s := (X : Set G))).1
-        hcent x hxX).symm
-    have hfix : s * x * s⁻¹ = x := by
-      calc
-        s * x * s⁻¹ = x * s * s⁻¹ := by rw [hcomm]
-        _ = x := by simp
-    have hxinv : s * x * s⁻¹ = x⁻¹ := hx.2
-    have hxeq : x = x⁻¹ := by
-      calc
-        x = s * x * s⁻¹ := hfix.symm
-        _ = x⁻¹ := hxinv
-    have hx2 : x * x = 1 := by
-      nth_rw 1 [hxeq]
-      simp
-    have hxsq : x ^ 2 = 1 := by simpa [pow_two] using hx2
-    have hmem : (⟨x, hxX⟩ : ↥X) ^ 2 = 1 := by
-      apply Subtype.ext
-      simpa using hxsq
-    have hone : (⟨x, hxX⟩ : ↥X) = 1 :=
-      eq_one_of_sq_eq_one_of_coprime_two (G := ↥X) hodd hmem
-    exact congrArg Subtype.val hone
-  · intro hx
-    rw [Set.mem_singleton_iff] at hx
-    subst x
-    rw [invertedElements]
-    exact ⟨X.one_mem, by simp⟩
-
-/-- If a reflection's inverted set inside `U` is trivial, then `⊥` is the
-subgroup witnessing the Hall clause of `FirstCase`. -/
-private theorem bot_inverted_Hall_of_eq_singleton
-    {G : Type u} [Group G] [Finite G] (c : CentralizerSetup G) {s : G}
-    (h : invertedElements c.U s = ({1} : Set G)) :
-    ∃ I : Subgroup G, IsInvertedSubgroup I c.U s ∧ IsHallIn I c.FU := by
-  refine ⟨⊥, ?_, ?_⟩
-  · rw [IsInvertedSubgroup]
-    ext x
-    simp [h]
-  · exact ⟨bot_le, by simp⟩
 
 private theorem reflection_dihedralModel_is_sr
     {G : Type u} [Group G] [Finite G]

@@ -44,32 +44,6 @@ theorem hs_groupData :
     exact siftA_iff_mem_originalSubgroup hsChainArrays (by norm_num) PairHS.chain_check.1
       (co2Rep_natArr_iff.2 hT)
 
-theorem hs_primes : ∀ r ∈ hsRows, ∀ q : ℕ, q.Prime → q ∣ r.centOrder → q ≠ 2 →
-    q ∈ r.oddPrimes := by
-  intro r hr q hq hdvd hq2
-  simp only [hsRows, List.mem_cons, List.not_mem_nil, or_false] at hr
-  rcases hr with rfl | rfl | rfl | rfl
-  · obtain ⟨f, hf, rfl⟩ := eq_of_prime_dvd_prod hq [(2, 9), (3, 1), (5, 1)] (by norm_num)
-      (by simpa using hdvd)
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
-    rcases hf with rfl | rfl | rfl <;> simp_all
-  · obtain ⟨f, hf, rfl⟩ := eq_of_prime_dvd_prod hq [(2, 6), (3, 2), (5, 1)] (by norm_num)
-      (by simpa using hdvd)
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
-    rcases hf with rfl | rfl | rfl <;> simp_all
-  · obtain ⟨f, hf, rfl⟩ := eq_of_prime_dvd_prod hq [(2, 7), (3, 2), (5, 1), (7, 1)] (by norm_num)
-      (by simpa using hdvd)
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
-    rcases hf with rfl | rfl | rfl | rfl <;> simp_all
-  · obtain ⟨f, hf, rfl⟩ := eq_of_prime_dvd_prod hq [(2, 7), (3, 1), (5, 1)] (by norm_num)
-      (by simpa using hdvd)
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
-    rcases hf with rfl | rfl | rfl <;> simp_all
-
-theorem hs_sylowOrder : hsSylowOrder = 2 ^ (2 * 44352000).factorization 2 := by
-  rw [show 2 * 44352000 = 2 ^ 10 * 86625 by norm_num,
-    factorization_two_pow_mul (by norm_num)]
-  rfl
 
 theorem hs_stab :
     ∀ x : Fin 3850, x ≠ 0 → ∃ s ∈ hsP, s 0 = 0 ∧ s x ≠ x :=

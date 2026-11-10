@@ -21,7 +21,6 @@ theorem zQ_ne_rStar : zQ ≠ rStar := by
   rw [← h, coordOf_zQ'] at hs
   exact not_isShortCoord_zero hs
 
-theorem xmat_ne_tStar : xmat ≠ tStar := fun h => zQ_ne_rStar (rhoEquiv_injective h)
 
 theorem spinΩC_ne_zero : Spin.ΩC ≠ 0 := by
   intro h
@@ -62,13 +61,6 @@ theorem xmatTau2_mem_Cgen : xmatTau2 ∈ Cgen :=
   Cgen.mul_mem (Cgen.mul_mem (Cgen.pow_mem tauB_mem_Cgen 2) xmat_mem_Cgen)
     (Cgen.inv_mem (Cgen.pow_mem tauB_mem_Cgen 2))
 
-theorem Vmat_le_Cgen : Vmat ≤ Cgen := by
-  intro g hg
-  rcases mem_fourGroupB.1 hg with rfl | rfl | rfl | rfl
-  · exact Cgen.one_mem
-  · exact xmat_eq_xB ▸ xmat_mem_Cgen
-  · exact xmatTau_eq ▸ xmatTau_mem_Cgen
-  · exact xmatTau2_eq ▸ xmatTau2_mem_Cgen
 
 @[expose] noncomputable def yC : Cgen := ⟨xmatTau, xmatTau_mem_Cgen⟩
 
@@ -270,13 +262,6 @@ theorem taubar_conj_mem_Vbar {e : Cbar} (he : e ∈ Vbar) : taubar * e * taubar�
   · rw [taubar_conj_ybar]; exact zbar_mem_Vbar
   · rw [taubar_conj_zbar]; exact xbar_mem_Vbar
 
-theorem taubar_inv_conj_mem_Vbar {e : Cbar} (he : e ∈ Vbar) : taubar⁻¹ * e * taubar ∈ Vbar := by
-  rcases (mem_Vbar_iff e).1 he with rfl | rfl | rfl | rfl
-  · rw [mul_one, inv_mul_cancel]
-    exact Vbar.one_mem
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_zbar]; exact zbar_mem_Vbar
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_xbar]; exact xbar_mem_Vbar
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_ybar]; exact ybar_mem_Vbar
 
 theorem taubar_conj_ne {e : Cbar} (he : e ∈ Vbar) (he1 : e ≠ 1) : taubar * e * taubar⁻¹ ≠ e := by
   rcases (mem_Vbar_iff e).1 he with rfl | rfl | rfl | rfl
@@ -285,23 +270,10 @@ theorem taubar_conj_ne {e : Cbar} (he : e ∈ Vbar) (he1 : e ≠ 1) : taubar * e
   · rw [taubar_conj_ybar]; exact ybar_ne_zbar.symm
   · rw [taubar_conj_zbar]; exact zbar_ne_xbar.symm
 
-theorem taubar_inv_conj_ne {e : Cbar} (he : e ∈ Vbar) (he1 : e ≠ 1) :
-    taubar⁻¹ * e * taubar ≠ e := by
-  rcases (mem_Vbar_iff e).1 he with rfl | rfl | rfl | rfl
-  · exact absurd rfl he1
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_zbar]; exact zbar_ne_xbar
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_xbar]; exact xbar_ne_ybar
-  · rw [inv_conj_eq_of_conj_eq taubar_conj_ybar]; exact ybar_ne_zbar
-
-theorem xC_mul_zC : xC * zC = zC * xC :=
-  Subtype.ext (mul_comm_of_mem_fourGroupB xC_mem_Vmat zC_mem_Vmat)
 
 theorem taubar_inv_conj_xbar : taubar⁻¹ * xbar * taubar = zbar :=
   inv_conj_eq_of_conj_eq taubar_conj_zbar
 
-theorem xbar_commute_taubar_inv_conj :
-    xbar * (taubar⁻¹ * xbar * taubar) = (taubar⁻¹ * xbar * taubar) * xbar := by
-  rw [taubar_inv_conj_xbar, xbar, zbar, ← map_mul, ← map_mul, xC_mul_zC]
 
 theorem mul_comm_of_mem_Vbar {c d : Cbar} (hc : c ∈ Vbar) (hd : d ∈ Vbar) : c * d = d * c := by
   obtain ⟨g, hg, rfl⟩ := hc

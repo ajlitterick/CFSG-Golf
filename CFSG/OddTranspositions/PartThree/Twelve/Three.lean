@@ -19,9 +19,6 @@ open scoped Pointwise
 
 variable {G : Type} [Group G] [Finite G] {D : Set G}
 
-@[expose] def lineImage (hC : HypothesisC D) (β : Set G) :
-    Set (Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)) :=
-  ⋃ γ ∈ blockLine D hC.alpha β \ {hC.alpha}, blockImage hC γ
 
 theorem subset_rootBlock_conj {X : Type} [Group X] {E : Set X} (hE : IsNormalSet E) {s : X}
     (hb1 : ∀ B, IsBlock E B → s ∈ B → B ⊆ rootBlock E s) (g : X) (B : Set X)
@@ -171,93 +168,6 @@ theorem isBlock_blockImage (hC : HypothesisC D)
     have heq : h * c' * h⁻¹ = c := hinj hconj (hstar c hc) (by simpa using hcc')
     exact Set.disjoint_left.mp hdisj hc ⟨c', hc', by rw [← heq]; simp⟩
 
-theorem commute_of_mem_of_rootBlock (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    {s₀ : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC)
-    (hb1 : ∀ B, IsBlock (imageClass hC) B → s₀ ∈ B → B ⊆ rootBlock (imageClass hC) s₀)
-    (hne : rootBlock (imageClass hC) s₀ ≠ imageClass hC) {β : Set G}
-    (hβ : β ∈ Dalpha D hC.alpha) {x y : G} (hx : x ∈ β) (hy : y ∈ β) : Commute x y := by
-  let xH : Halpha D hC.alpha := ⟨x, Subgroup.subset_closure ⟨β, hβ, hx⟩⟩
-  let yH : Halpha D hC.alpha := ⟨y, Subgroup.subset_closure ⟨β, hβ, hy⟩⟩
-  have hxs : xH ∈ DstarH hC := ⟨β, hβ, hx⟩
-  have hys : yH ∈ DstarH hC := ⟨β, hβ, hy⟩
-  have hxD : QuotientGroup.mk' _ xH ∈ imageClass hC := ⟨xH, hxs, rfl⟩
-  obtain ⟨hb1x, -⟩ := rootBlock_input_of_mem hC hs₀ hxD hb1 hne
-  have hsub := hb1x _
-    (isBlock_blockImage hC (injOn_mk_DstarH_of_rootBlock_ne hC hMZ hs₀ hne) hβ) ⟨xH, hx, rfl⟩
-  have hc := commute_of_mem_rootBlock hxD (hsub ⟨xH, hx, rfl⟩) (hsub ⟨yH, hy, rfl⟩)
-  exact (commute_of_commute_mk_of_le_center hC hMZ hxs hys hc).map (Subgroup.subtype _)
-
-theorem lineImage_eq_rootBlock_of_commute (hC : HypothesisC D)
-    (hK : ∀ d ∈ DstarH hC, ∀ v ∈ DstarH hC,
-      Commute (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) d)
-        (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) v) → Commute d v)
-    (hF : ∀ δ ∈ Dalpha D hC.alpha, ∀ x ∈ δ, ∀ y ∈ δ, Commute x y)
-    {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) {b : Halpha D hC.alpha} (hb : (b : G) ∈ β) :
-    lineImage hC β = rootBlock (imageClass hC)
-      (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) b) := by
-  have hcp : ∀ δ ∈ Dalpha D hC.alpha, ∀ γ ∈ Dalpha D hC.alpha, ∀ d c : Halpha D hC.alpha,
-      (d : G) ∈ δ → (c : G) ∈ γ →
-      (Commute (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) d)
-        (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) c) ↔ γ ∈ perp D δ) := by
-    intro δ hδ γ hγ d c hd hc
-    constructor
-    · intro h
-      exact mem_perp_of_commute hC hδ.1 hγ.1 hd hc
-        ((hK d ⟨δ, hδ, hd⟩ c ⟨γ, hγ, hc⟩ h).map (Subgroup.subtype _))
-    · intro h
-      have hG : Commute (d : G) (c : G) := by
-        rcases mem_perp_iff.mp h with h' | h'
-        · exact (mem_Dalpha_iff.mp h').2.2.2 _ hd _ hc
-        · exact hF δ hδ _ hd _ (h' ▸ hc)
-      exact (show Commute d c from Subtype.ext hG.eq).map _
-  ext z
-  constructor
-  · intro hz
-    obtain ⟨γ, ⟨hγl, hγα⟩, hz⟩ := Set.mem_iUnion₂.mp hz
-    obtain ⟨c, hc, rfl⟩ := hz
-    have hγD : γ ∈ Dalpha D hC.alpha := mem_Dalpha_of_mem_blockLine hC.isBlock_alpha.1 hβ hγl hγα
-    refine ⟨⟨c, ⟨γ, hγD, hc⟩, rfl⟩, fun u hu => ?_⟩
-    obtain ⟨d, hd, rfl⟩ := hu
-    obtain ⟨δ, hδ, hdδ⟩ := mem_DalphaStar_iff.mp ((mem_DstarH_iff hC).mp hd)
-    rw [hcp δ hδ γ hγD d c hdδ hc, hcp δ hδ β hβ d b hdδ hb]
-    have hδα : δ ∈ perp D hC.alpha := mem_perp_iff.mpr (Or.inl hδ)
-    constructor
-    · intro h
-      have hβl : β ∈ blockLine D hC.alpha γ := by
-        rw [blockLine_eq_of_mem hC hβ hγD hγl]
-        exact right_mem_blockLine hβ.1 hβ.2.1
-      exact hβl.2 δ ⟨hδα, mem_perp_symm h hδ.2.1⟩
-    · intro h
-      exact hγl.2 δ ⟨hδα, mem_perp_symm h hδ.2.1⟩
-  · rintro ⟨⟨e, he, rfl⟩, hze⟩
-    obtain ⟨ε, hε, heε⟩ := mem_DalphaStar_iff.mp ((mem_DstarH_iff hC).mp he)
-    have hεl : ε ∈ blockLine D hC.alpha β := by
-      refine ⟨hε.1, fun δ hδ => ?_⟩
-      by_cases hδα : δ = hC.alpha
-      · rw [hδα]
-        exact mem_perp_iff.mpr (Or.inl hε)
-      have hδD : δ ∈ Dalpha D hC.alpha := (mem_perp_iff.mp hδ.1).resolve_right hδα
-      obtain ⟨d, hdδ⟩ := nonempty_of_mem_blockClass hC.isBlock_alpha.nonempty hδD.1
-      let dH : Halpha D hC.alpha := ⟨d, Subgroup.subset_closure ⟨δ, hδD, hdδ⟩⟩
-      have hdH : dH ∈ DstarH hC := ⟨δ, hδD, hdδ⟩
-      have h1 := (hcp δ hδD β hβ dH b hdδ hb).mpr (mem_perp_symm hδ.2 hβ.2.1)
-      exact (hcp δ hδD ε hε dH e hdδ heε).mp ((hze _ ⟨dH, hdH, rfl⟩).mpr h1)
-    exact Set.mem_iUnion₂.mpr ⟨ε, ⟨hεl, hε.2.2.1⟩, ⟨e, heε, rfl⟩⟩
-
-theorem lineImage_eq_rootBlock (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    {s₀ : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC)
-    (hb1 : ∀ B, IsBlock (imageClass hC) B → s₀ ∈ B → B ⊆ rootBlock (imageClass hC) s₀)
-    (hne : rootBlock (imageClass hC) s₀ ≠ imageClass hC) {β : Set G}
-    (hβ : β ∈ Dalpha D hC.alpha) {b : Halpha D hC.alpha} (hb : (b : G) ∈ β) :
-    lineImage hC β = rootBlock (imageClass hC)
-      (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) b) :=
-  lineImage_eq_rootBlock_of_commute hC
-    (fun _ hd _ hv => commute_of_commute_mk_of_le_center hC hMZ hd hv)
-    (fun _ hδ _ hx _ hy => commute_of_mem_of_rootBlock hC hMZ hs₀ hb1 hne hδ hx hy) hβ hb
 
 end CFSG.OddTranspositions.PartThree
 

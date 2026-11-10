@@ -293,18 +293,6 @@ theorem existsUnique_sextet_kappa_one {l m : Finset (Finset (Fin 24))} (hl : IsT
     (hm : IsTrio m) (h : Delta l m 3) : ∃! π, IsSextet π ∧ TrioIn l π ∧ Kappa π m 1 :=
   (master310 hl hm h).1
 
-theorem existsUnique_sextet_kappa_one' {l m : Finset (Finset (Fin 24))} (hl : IsTrio l)
-    (hm : IsTrio m) (h : Delta l m 3) : ∃! π', IsSextet π' ∧ TrioIn m π' ∧ Kappa π' l 1 :=
-  (master310 hl hm h).2.1
-
-theorem trioIn_or_trioIn_of_coplanar {l m π π' k : Finset (Finset (Fin 24))} (hl : IsTrio l)
-    (hm : IsTrio m) (h : Delta l m 3) (hπ : IsSextet π) (hlπ : TrioIn l π) (hmπ : Kappa π m 1)
-    (hπ' : IsSextet π') (hmπ' : TrioIn m π') (hlπ' : Kappa π' l 1) (hk : IsTrio k)
-    (hkl : Coplanar l k) (hkm : Coplanar m k) : TrioIn k π ∨ TrioIn k π' := by
-  obtain ⟨h1, h2, h3, -⟩ := master310 hl hm h
-  rcases h3 k hk hkl hkm with ⟨σ, hσ, hlσ, hmσ, hkσ⟩ | ⟨σ, hσ, hmσ, hlσ, hkσ⟩
-  · exact Or.inl (h1.unique ⟨hσ, hlσ, hmσ⟩ ⟨hπ, hlπ, hmπ⟩ ▸ hkσ)
-  · exact Or.inr (h2.unique ⟨hσ, hmσ, hlσ⟩ ⟨hπ', hmπ', hlπ'⟩ ▸ hkσ)
 
 theorem coplanar_iff_mem_of_trioIn {l m π k : Finset (Finset (Fin 24))} {y : Finset (Fin 24)}
     (hl : IsTrio l) (hm : IsTrio m) (h : Delta l m 3) (hπ : IsSextet π) (hlπ : TrioIn l π)

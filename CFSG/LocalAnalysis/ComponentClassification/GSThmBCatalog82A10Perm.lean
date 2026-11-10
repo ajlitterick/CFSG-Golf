@@ -153,19 +153,15 @@ end Involution
 
 section SigmaTwo
 
-abbrev sigmaOne : Perm (Fin 10) := swap 0 1
 
 abbrev sigmaTwo : Perm (Fin 10) := swap 0 1 * swap 2 3
 
 abbrev fixTwo : Finset (Fin 10) := {4, 5, 6, 7, 8, 9}
 
-theorem orderOf_sigmaOne : orderOf sigmaOne = 2 :=
-  orderOf_eq_prime (by decide) (by decide)
 
 theorem orderOf_sigmaTwo : orderOf sigmaTwo = 2 :=
   orderOf_eq_prime (by decide) (by decide)
 
-theorem card_support_sigmaOne : sigmaOne.support.card = 2 := by decide
 
 theorem card_support_sigmaTwo : sigmaTwo.support.card = 4 := by decide
 

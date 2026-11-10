@@ -188,10 +188,6 @@ theorem homComp_kdeg_mem_bCyc (ε : τ → Finset (Fin n)) {w : BIdx ε → k} (
     (fun x => bDer_kdeg_mem (k := k) ε x) (e₀ := (kdeg (btop ε) : ℤ))
     (fun i hi => bvec_kdeg_mem (k := k) ε i hi) hw e
 
-theorem homComp_kdeg_mem_bRad (ε : τ → Finset (Fin n)) {w : BIdx ε → k} (hw : w ∈ bRad ε) (e : ℤ) :
-    homComp (fun s : BIdx ε => (kdeg s : ℤ)) e w ∈ bRad ε :=
-  homComp_mem_dotRad (deg := fun s : BIdx ε => (kdeg s : ℤ))
-    (C := bCyc (k := k) ε) (fun _ _ hy => homComp_kdeg_mem_bCyc ε hy _) hw e
 
 theorem bDer_mul_sub_mul_bDer (ε : τ → Finset (Fin n)) (r : τ) {a b c : Fin n} (hac : a ≠ c) :
     bDer (k := k) ε (r, a, b) * bDer ε (r, b, c) - bDer ε (r, b, c) * bDer ε (r, a, b) = bDer ε (r, a, c) := by

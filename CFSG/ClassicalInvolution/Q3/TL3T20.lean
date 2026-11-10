@@ -275,15 +275,10 @@ theorem thmDGen_at {r : ℕ} {Ω : Set (Subgroup G)} (hΩ : HypOmegaGen Ω)
   · obtain ⟨I⟩ := hI
     exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨AEIdentOn.ofRestrict hgen hLX I⟩))))
 
-theorem thmDGen_of_abs {r : ℕ} (hD : ThmDAbs r) : ThmDGen r := by
-  intro G _ _ Ω hΩ h2 h8 hA P hPΩ htrans hinv hodd hE2
-  exact thmDGen_at hΩ h2 h8 hA hPΩ (hD _) htrans hinv hodd hE2
 
 theorem thmDGenBelow_of_absBelow {r n : ℕ} (hD : ThmDAbsBelow r n) : ThmDGenBelow r n := by
   intro G _ _ Ω hΩ h2 h8 hA P hPΩ hcard htrans hinv hodd hE2
   exact thmDGen_at hΩ h2 h8 hA hPΩ (hD _ hcard) htrans hinv hodd hE2
 
-theorem tightThmD3_of_abs (hD : ThmDAbs 3) : TightThmD3 :=
-  tightThmD3_of_gen (thmDGen_of_abs hD)
 
 end CFSG.ClassicalInvolution.Q3.TC.Thin

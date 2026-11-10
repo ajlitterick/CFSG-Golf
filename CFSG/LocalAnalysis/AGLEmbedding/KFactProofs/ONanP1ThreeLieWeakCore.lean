@@ -383,25 +383,6 @@ theorem eq_one_of_mem_center_of_pow_prime_pow {p : ℕ}
     rw [← pow_mul, ← pow_succ']
     exact hk
 
-theorem exists_pGroup_weakCore_of_central_cover {p : ℕ} (hp : p.Prime)
-    (hct : IsCTGroupDatum (coxeterMatrix D.isFiniteType).toCoxeterSystem
-      (weylAction D.isFiniteType) D.roots D.rootGroup n H)
-    (hext : SteinbergExtras D n H) (hrank : 2 ≤ D.rank)
-    (hX : ∀ γ ∈ D.roots, IsPGroup p (D.rootGroup γ))
-    (hcen : ∀ z ∈ Subgroup.center K, z ^ p = 1 → z = 1) (ψ : K →* X)
-    (hψ : Function.Surjective ψ) (hker : ψ.ker ≤ Subgroup.center K)
-    (h3 : ∀ i, 3 ≤ Open.pRank p (posUnipotentExcept D i)) :
-    ∃ P : Subgroup X, IsPGroup p P ∧ GLBWeakCore p P = ⊤ := by
-  have hU : IsPGroup p (posUnipotent D) := isPGroup_iSup_pos hext hX
-  have hinj : ∀ x ∈ posUnipotent D, ψ x = 1 → x = 1 := by
-    intro x hx hx1
-    obtain ⟨k, hk⟩ := hU ⟨x, hx⟩
-    exact eq_one_of_mem_center_of_pow_prime_pow hcen (hker (MonoidHom.mem_ker.2 hx1))
-      (congrArg Subtype.val hk)
-  exact ⟨(posUnipotent D).map ψ, hU.map ψ,
-    weakCore_map_eq_top hp ψ hψ hinj
-      (weakCore_posUnipotent_eq_top hct hp hrank (fun i => (by omega : 2 ≤ 3).trans (h3 i))
-        (fun i => (h3 i).trans (pRank_mono p hp le_sup_left)))⟩
 
 end Cover
 

@@ -29,11 +29,6 @@ namespace CFSG.TwoRankLowerBound.Helpers
   right_inv member := rfl
   map_mul' left right := rfl
 
-theorem relativeCentralizerEquiv_apply {group : Type*} [Group group]
-    (primary intermediate : Subgroup group) (hprimary : primary ≤ intermediate)
-    (hcontains : Subgroup.centralizer (primary : Set group) ≤ intermediate)
-    (member : Subgroup.centralizer (primary.subgroupOf intermediate : Set intermediate)) :
-    (relativeCentralizerEquiv primary intermediate hprimary hcontains member).val = member.val.val := rfl
 
 @[expose] noncomputable def externalCommonCentralCoefficientSubring {group : Type*} [Group group]
     (ring : Subring ℂ) (primary intermediate : Subgroup group)

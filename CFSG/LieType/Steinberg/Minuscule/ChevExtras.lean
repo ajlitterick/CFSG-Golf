@@ -236,14 +236,6 @@ theorem minDatum_presentationB [Finite k] (hpd : (τ.cartan.map (Int.cast : ℤ 
     fun C hC => chevPresented_bijective rfl (hV.minDatum_chevalleyExtras hA k hpd hnb O C hC)
       hbij⟩
 
-theorem minDatum_redundantR2 [Finite k] (hpd : (τ.cartan.map (Int.cast : ℤ → ℚ)).PosDef)
-    (hnb : ∀ i, ∃ l, τ.cartan l i = -1)
-    (hbij : Function.Bijective (stPi (RootSystem.ofCartan (hV.minDatum hA k).isFiniteType
-      (hV.minDatum hA k).divisible) (hV.minDatum hA k).rootGroup)) :
-    RedundantR2 (RootSystem.ofCartan (hV.minDatum hA k).isFiniteType
-      (hV.minDatum hA k).divisible) (hV.minDatum hA k).rootGroup :=
-  redundantR2 rfl
-    (hV.minDatum_chevalleyExtras_commC hA k hpd hnb (commOrder hpd _ (roots_eq hA))).2 hbij
 
 end Valid
 
@@ -291,16 +283,5 @@ theorem e7_presentationB [Finite k] :
   e7Data_valid.minDatum_presentationB isFiniteType_cartan_E7 k posDef_cartan_E7 neighbour_E7
     (bijective_stPi_of (e7Datum_isCTGroupDatum k) (e7Datum_steinbergExtras k)).2
 
-theorem e6_redundantR2 [Finite k] :
-    RedundantR2 (RootSystem.ofCartan (e6Datum k).isFiniteType (e6Datum k).divisible)
-      (e6Datum k).rootGroup :=
-  e6Data_valid.minDatum_redundantR2 isFiniteType_cartan_E6 k posDef_cartan_E6 neighbour_E6
-    (bijective_stPi_of (e6Datum_isCTGroupDatum k) (e6Datum_steinbergExtras k)).2
-
-theorem e7_redundantR2 [Finite k] :
-    RedundantR2 (RootSystem.ofCartan (e7Datum k).isFiniteType (e7Datum k).divisible)
-      (e7Datum k).rootGroup :=
-  e7Data_valid.minDatum_redundantR2 isFiniteType_cartan_E7 k posDef_cartan_E7 neighbour_E7
-    (bijective_stPi_of (e7Datum_isCTGroupDatum k) (e7Datum_steinbergExtras k)).2
 
 end CFSG.LieType.Steinberg.Minuscule

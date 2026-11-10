@@ -26,9 +26,6 @@ theorem ggRootPlaneRest5_of_rest6 (h : GGRootPlaneRest6) : GGRootPlaneRest5 := b
 theorem ggRootPlaneInput_of_rest6 (h : GGRootPlaneRest6) : GGRootPlaneInput :=
   ggRootPlaneInput_of_rest5 ggSLNonsplitFrameInput_holds (ggRootPlaneRest5_of_rest6 h)
 
-theorem ggRootPlaneInputOn_notPSLSplit_of_rest6 (h : GGRootPlaneRest6) :
-    GGRootPlaneInputOn fun t n f p => ¬ GGPSLSplit t n f p :=
-  ggRootPlaneInputOn_notPSLSplit_of_rest5 ggSLNonsplitFrameInput_holds (ggRootPlaneRest5_of_rest6 h)
 
 @[expose] def GGRootPlaneRestOmegaExc : Prop :=
   GGRootPlaneAt .POmegaPlus ∧ GGRootPlaneAt .POmegaMinus ∧ GGRootPlaneAt .F4 ∧

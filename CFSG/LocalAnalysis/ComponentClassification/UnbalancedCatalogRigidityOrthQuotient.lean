@@ -172,9 +172,6 @@ theorem map_vLine_of_fix :
 @[expose] def quotEquivOfFix : vQuot Q v ≃ₗ[K] vQuot Q v :=
   Submodule.Quotient.equiv _ _ (perpEquivOfFix hev hep) (map_vLine_of_fix hev hep)
 
-theorem quotEquivOfFix_mk (x : vPerp Q v) :
-    quotEquivOfFix hev hep (Submodule.Quotient.mk x) =
-      Submodule.Quotient.mk (perpEquivOfFix hev hep x) := rfl
 
 end Fix
 

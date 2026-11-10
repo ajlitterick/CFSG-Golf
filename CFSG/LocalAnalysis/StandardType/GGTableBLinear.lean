@@ -242,13 +242,6 @@ theorem largeEvenLabelAll_outdiag_pilot {lab : LargeEvenLabel} (hlab : LargeEven
 theorem ggLNoncyclicInputOn_pilot : GGLNoncyclicInputOn GGOutdiagPilotLabel :=
   ggLNoncyclicInputOn_of_labels fun _ hlab h => largeEvenLabelAll_outdiag_pilot hlab h
 
-theorem ggLNoncyclicInput_of_remaining
-    (h : ∀ lab, LargeEvenInLambda2 lab → ¬ GGOutdiagPilotLabel lab →
-      LargeEvenLabelAll lab fun R _ I _ => GGOutdiagCyclic R I) : GGLNoncyclicInput :=
-  ggLNoncyclicInput_of_labels fun lab hlab => by
-    by_cases hp : GGOutdiagPilotLabel lab
-    · exact largeEvenLabelAll_outdiag_pilot hlab hp
-    · exact h lab hlab hp
 
 end Labels
 

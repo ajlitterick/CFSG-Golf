@@ -74,22 +74,5 @@ theorem pnodeOKC_of_q {n w : Nat} {ps : List Nat} {inX outX inW : Nat → Bool}
     pnodeOKC n w ps inX outX inW allowPW allowInX allowU d cN e0 i = true := by
   cases hm : d.nodes[i]!.wit.isMono <;> simp_all [pnodeOKC]
 
-theorem pnodeOKC_of_mono {n w : Nat} {ps : List Nat} {inX outX inW : Nat → Bool}
-    {allowPW allowInX allowU : Bool} {d : ConjDataP} {cN : Array ArrCertP} {e0 : Array Nat}
-    {i : Nat} (hE : penumOK n w d.nodes[i]!.basis ps cN[i]! = true)
-    (hw : pwitOK n w ps inX outX allowPW allowInX allowU d.nodes[i]!.basis cN[i]! d.wcs[i]!
-      d.nodes[i]!.wit = true) (hm : d.nodes[i]!.wit.isMono = true) :
-    pnodeOKC n w ps inX outX inW allowPW allowInX allowU d cN e0 i = true := by
-  simp [pnodeOKC, hE, hw, hm]
-
-theorem pnodeOKC_of_ents {n w : Nat} {ps : List Nat} {inX outX inW : Nat → Bool}
-    {allowPW allowInX allowU : Bool} {d : ConjDataP} {cN : Array ArrCertP} {e0 : Array Nat}
-    {i : Nat} (hE : penumOK n w d.nodes[i]!.basis ps cN[i]! = true)
-    (hw : (pwitOK n w ps inX outX allowPW allowInX allowU d.nodes[i]!.basis cN[i]! d.wcs[i]!
-      d.nodes[i]!.wit || pexcOK n w ps inW e0 cN d.excs i) = true)
-    (he : pentsOK n w (d.nodes.map NodeP.basis) cN d.us d.cs d.ci d.ents[i]! i = true) :
-    pnodeOKC n w ps inX outX inW allowPW allowInX allowU d cN e0 i = true := by
-  simp only [pnodeOKC, Bool.and_eq_true, Bool.or_eq_true] at hw ⊢
-  exact ⟨hE, Or.inr ⟨hw, he⟩⟩
 
 end CFSG.KC.Census

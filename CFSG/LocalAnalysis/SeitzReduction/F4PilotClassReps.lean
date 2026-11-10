@@ -50,9 +50,6 @@ theorem orbitCertRoot_32_31_28 :
   ⟨List.ofFn_injective (by decide +kernel), List.ofFn_injective (by decide +kernel),
     List.ofFn_injective (by decide +kernel)⟩
 
-theorem orbitCertRoot_mem_C3Set : orbitCertRoot .F4 32 ∈ C3Set ∧ orbitCertRoot .F4 31 ∈ C3Set ∧
-    orbitCertRoot .F4 28 ∈ C3Set := by
-  refine ⟨?_, ?_, ?_⟩ <;> (show _ ∈ C3Roots; decide +kernel)
 
 @[expose] def weylWordT : List ℕ := [0, 1, 2, 3, 1, 2, 0]
 
@@ -88,20 +85,6 @@ theorem coe_yV : ((yV K : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 28 1 * f4x 
     pinnedX .F4 K (orbitCertRoot .F4 28) 1 * pinnedX .F4 K (orbitCertRoot .F4 32) 1
   rw [orbitCertRoot_32_31_28.1, orbitCertRoot_32_31_28.2.2]
 
-theorem mem_C3Levi_yRep (κ : TwoCentral) : yRep K κ ∈ C3Levi K := by
-  obtain ⟨h32, h31, -⟩ := orbitCertRoot_mem_C3Set
-  have e32 : f4x K 32 1 ∈ rootSpan .F4 K C3Set := pinnedX_mem_rootSpan h32 1
-  have e31 : f4x K 31 1 ∈ rootSpan .F4 K C3Set := pinnedX_mem_rootSpan h31 1
-  rw [C3Levi_eq_subgroupOf_rootSpan_C3Set, Subgroup.mem_subgroupOf]
-  cases κ
-  · rw [coe_yRep_t]; exact e32
-  · rw [coe_yRep_u]; exact e31
-  · rw [coe_yRep_tu]; exact mul_mem e32 e31
-
-theorem mem_C3Levi_yV : yV K ∈ C3Levi K := by
-  obtain ⟨h32, -, h28⟩ := orbitCertRoot_mem_C3Set
-  rw [C3Levi_eq_subgroupOf_rootSpan_C3Set, Subgroup.mem_subgroupOf, coe_yV]
-  exact mul_mem (pinnedX_mem_rootSpan h28 1) (pinnedX_mem_rootSpan h32 1)
 
 end Coe
 
@@ -250,24 +233,6 @@ theorem exists_conj_mem_frameReps [Finite K] [CharP K 2] {y : adjointGroup .F4 K
   rw [e]
   exact hw
 
-theorem not_conj_frameT_frameU [CharP K 2] (g : adjointGroup .F4 K) :
-    g * frameT K * g⁻¹ ≠ frameU K := fun h =>
-  conj_f4x_47_ne_f4x_44 g.2 (by
-    have h' := congrArg Subtype.val h
-    simp only [Subgroup.coe_mul, Subgroup.coe_inv] at h'
-    exact h')
-
-theorem not_conj_yRep_t_u [CharP K 2] (g : adjointGroup .F4 K) :
-    g * yRep K .t * g⁻¹ ≠ yRep K .u := by
-  intro h
-  obtain ⟨hT, hU, -, -⟩ := weylEltC_conj_frame (K := K)
-  set n := weylEltC K weylWordT
-  apply not_conj_frameT_frameU (n⁻¹ * g * n)
-  rw [← hT, ← hU] at h
-  calc n⁻¹ * g * n * frameT K * (n⁻¹ * g * n)⁻¹ = n⁻¹ * (g * (n * frameT K * n⁻¹) * g⁻¹) * n := by
-        group
-    _ = n⁻¹ * (n * frameU K * n⁻¹) * n := by rw [h]
-    _ = frameU K := by group
 
 end ClassList
 

@@ -112,9 +112,6 @@ theorem squarefree_of_dvd_X_pow_sub_one {p : ℕ} [hp : Fact p.Prime]
   ((X_pow_sub_one_separable_iff.2 (natCast_ne_zero_of_not_dvd hnd)).of_dvd hdvd).squarefree
 
 
-theorem isCyclic_units_of_finite (L : Type*) [Field L] [Finite L] : IsCyclic Lˣ := by
-  infer_instance
-
 theorem minpoly_irreducible_natDegree_eq {p n : ℕ} [hp : Fact p.Prime] (hn : 2 ≤ n)
     (hord : orderOf ((Fintype.card K : ℕ) : ZMod p) = n)
     {M : Matrix (Fin n) (Fin n) K} (hM : M ^ p = 1) (hM1 : M ≠ 1) :

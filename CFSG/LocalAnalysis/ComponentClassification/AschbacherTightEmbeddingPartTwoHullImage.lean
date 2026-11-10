@@ -38,8 +38,6 @@ theorem point_hull_map_le (f : G →* K) (z : G) :
     (involutionPointHull (f z)) (fun x =>
       point_hull_map_le f z (Subgroup.mem_map_of_mem f x.property))
 
-theorem pointHullHom_apply (f : G →* K) (z : G) (x : involutionPointHull z) :
-    (pointHullHom f z x : K) = f (x : G) := rfl
 
 theorem pointHullHom_surjective (f : G →* K) (hf : Function.Surjective f) (z : G) :
     Function.Surjective (pointHullHom f z) := by
@@ -48,20 +46,6 @@ theorem pointHullHom_surjective (f : G →* K) (hf : Function.Surjective f) (z :
   obtain ⟨x, hx, hfx⟩ := Subgroup.mem_map.mp hy
   exact ⟨⟨x, hx⟩, Subtype.ext hfx⟩
 
-theorem pointHullHom_ker (f : G →* K) (z : G) :
-    (pointHullHom f z).ker = f.ker.subgroupOf (involutionPointHull z) := by
-  ext x
-  change (pointHullHom f z x = 1) ↔ f (x : G) = 1
-  exact Subtype.ext_iff
-
-theorem pointHullHom_odd_ker (f : G →* K) (hodd : Odd (Nat.card f.ker)) (z : G) :
-    Odd (Nat.card (pointHullHom f z).ker) := by
-  rw [pointHullHom_ker]
-  have hcard : Nat.card (f.ker.subgroupOf (involutionPointHull z)) =
-      Nat.card (f.ker ⊓ involutionPointHull z : Subgroup G) := by
-    rw [← Subgroup.subgroupOf_map_subtype, Subgroup.card_subtype]
-  rw [hcard]
-  exact hodd.of_dvd_nat (Subgroup.card_dvd_of_le inf_le_left)
 
 variable [Finite G]
 

@@ -178,12 +178,5 @@ theorem false_of_index_two_t131_of_data {B C S' : Subgroup S} {m : ℕ} {hm : 3 
   generalize w - -4 * F * y' - 4 * F * (-1 + K) * z' = W at hxeven
   omega
 
-theorem false_of_index_two_t131 {B C S' : Subgroup S} {m : ℕ} {hm : 3 ≤ m}
-    (hB : HasStrothType B (StrothTypeIndex.t131 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_t131_of_data hB.data hBC hC hrel hL hH hcS
 
 end CFSG.CGT.Stroth77

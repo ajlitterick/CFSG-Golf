@@ -130,12 +130,6 @@ theorem cyclicTimesTwoAut_isPGroup (n : ℕ) (hn : 2 ≤ n) :
     IsPGroup 2 (MulAut (Multiplicative (ZMod (2 ^ n)) × Multiplicative (ZMod 2))) :=
   IsPGroup.of_card (cyclicTimesTwoAut_card n hn)
 
-theorem cyclicTimesTwoAut_card_of_equiv {G : Type u} [Group G]
-    (n : ℕ) (hn : 2 ≤ n)
-    (e : G ≃* Multiplicative (ZMod (2 ^ n)) × Multiplicative (ZMod 2)) :
-    Nat.card (MulAut G) = 2 ^ (n + 1) := by
-  rw [Nat.card_congr (MulAut.congr e).toEquiv]
-  exact cyclicTimesTwoAut_card n hn
 
 theorem cyclicTimesTwoAut_isPGroup_of_equiv {G : Type u} [Group G]
     (n : ℕ) (hn : 2 ≤ n)

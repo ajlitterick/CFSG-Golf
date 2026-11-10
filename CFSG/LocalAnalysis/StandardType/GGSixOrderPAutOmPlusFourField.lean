@@ -252,8 +252,6 @@ section Family
 theorem ggOrdPFieldConjPOmegaPlusRest_holds : GGOrdPFieldConjPOmegaPlusRest :=
   ggOrdPFieldConjPOmegaPlusRest_of_fourDiagField ggOmegaPlusFourDiagFieldInput_holds
 
-theorem ggOrdPFieldConjAt_POmegaPlus : GGOrdPFieldConjAt .POmegaPlus :=
-  ggOrdPFieldConjAt_POmegaPlus_of_fourDiagField ggOmegaPlusFourDiagFieldInput_holds
 
 end Family
 

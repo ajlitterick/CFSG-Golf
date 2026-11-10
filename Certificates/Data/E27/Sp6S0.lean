@@ -8,11 +8,6 @@ namespace CFSG.HardMathSupport.Foote.E27.Sp6S0
 
 open CFSG.HardMathSupport.Foote.E27
 
-@[expose] def data : S0Data where
-  n := 81
-  h := 3
-  m := 4
-  gensStr := "0100011010100001010101101011100110110100100001011010000101011101110000010100100111101010010101011011
 00011010101111010100101010011001111001100011"
   parStr := "0 0 0 0 0 1 0 2 0 3 1 0 1 1 1 2 1 3 2 1 2 2 2 3 3 2 3 3 4 1 4 2 4 3 5 1 5 2 5 3 6 1 6 2 6 3 7 2 7 3
 8 2 8 3 9 2 9 3 10 2 11 1 11 2 11 3 12 3 13 1 13 2 13 3 14 1 14 2 14 3 15 2 15 3 16 1 16 2 17 1 17 2
@@ -33,7 +28,6 @@ open CFSG.HardMathSupport.Foote.E27
   bsStr := "1 1 1"
   g3 := (1, 3, 10)
 
-@[expose] def check (_ : Unit := ()) : Bool := data.baseOK && data.gen3OK
 
 end CFSG.HardMathSupport.Foote.E27.Sp6S0
 

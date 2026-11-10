@@ -31,23 +31,6 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
       (GGResXDatum p Bs K → GGResRowAt (fun p J X => ggRowTwoNode p J X ∧ 10 ≤ X.rank) p J K →
         GGResTwoNodeSideDatum p Bs K J)
 
-theorem ggTBTorANarrow_of_all (h : GGTBTorAll) : GGTBTorANarrow :=
-  fun p hp hp2 lab hlab htag h6 hdvd hM =>
-    h.1 p hp hp2 lab hlab htag (by omega) hdvd hM (by rintro ⟨-, h5, -⟩; omega)
-
-theorem ggTBTorLiftADepRows_of_rows (h : GGTBTorLiftRows) : GGTBTorLiftADepRows :=
-  fun p hp hp2 lab hlab htag h6 hdvd hM =>
-    h p lab (lab.rank - 1 - ggTorEnn p lab) (ggTorM lab) lab.rank (CartanMatrix.A lab.rank)
-      (CoxeterMatrix.A lab.rank) hp hp2 hlab
-      (GGTBTorRowAt.aDep htag (by omega) hdvd hM (by rintro ⟨-, h5, -⟩; omega))
-
-theorem ggTBJTwoNodeLargeInput_of_input (h : GGTBJTwoNodeInput) : GGTBJTwoNodeLargeInput := by
-  intro G _ _ p B Bs x L D J y K hH hp
-  refine ⟨fun hX hrow => ?_, fun hX hrow => ?_⟩
-  · obtain ⟨labJ, labX, hJΛ, hXΛ, hJl, hXl, hr⟩ := hrow
-    exact (h G p B Bs x L D J y K hH).1 hX ⟨labJ, labX, hJΛ, hXΛ, hJl, hXl, hr.1⟩
-  · obtain ⟨labJ, labX, hJΛ, hXΛ, hJl, hXl, hr⟩ := hrow
-    exact (h G p B Bs x L D J y K hH).2 hX ⟨labJ, labX, hJΛ, hXΛ, hJl, hXl, hr.1⟩
 
 end CFSG.StandardType
 

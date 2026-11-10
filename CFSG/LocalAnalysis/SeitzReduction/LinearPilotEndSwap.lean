@@ -20,7 +20,5 @@ theorem false_of_simple_of_swapFactors {G : Type*} [Group G] [Finite G] [IsSimpl
   subst hsup
   exact F4Pilot.false_of_simple_of_swap_of_isQuasisimple ht hq h₁₂ rfl huniq
 
-variable {G : Type*} [Group G] [Finite G] [IsSimpleGroup G] {L : Subgroup G} {K : Type}
-  [Field K] [Finite K] [CharP K 2]
 
 end CFSG.SeitzReduction.LinearPilot

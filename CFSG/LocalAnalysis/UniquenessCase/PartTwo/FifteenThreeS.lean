@@ -71,11 +71,6 @@ theorem s15_Three_pRank_MBar11 {D : Data G} {V₀ V : Subgroup G} (hV : IsElemAb
   simp only [CFSG.SectionRank.pRank_coe_eq_openPRank] at h1
   exact h1
 
-theorem s15_Three_card_MBar11 {D : Data G} {V₀ V : Subgroup G} (hV : IsElemAbelian 2 V)
-    (hMs : D.M ≤ stabTil V₀ V) [((F11.CTilde D.M V₀ V).subgroupOf D.M).Normal] :
-    Nat.card (F11.MBar11 D.M V₀ V) = Nat.card ↥(Mbar D.M V₀ V hV) :=
-  Nat.card_congr (s15BarEquiv D hV hMs).toEquiv
-
 
 section RsOne
 
@@ -128,10 +123,6 @@ theorem s15_Three_le_normalizer {D : Data G} {V₀ V : Subgroup G} {hV : IsElemA
       simpa [MulAut.conj_apply, mul_assoc] using this
     rwa [← this]
 
-theorem s15_Three_nBar_eq {D : Data G} {V₀ V : Subgroup G} {hV : IsElemAbelian 2 V}
-    {L : Subgroup G} (hs : s15 D.M V₀ V hV L = 1) :
-    s15NBar D V₀ V hV L = Mbar D.M V₀ V hV :=
-  inf_eq_left.2 (s15_Three_le_normalizer hs)
 
 theorem s15_Three_lBar_eq {D : Data G} {V₀ V : Subgroup G} {hV : IsElemAbelian 2 V}
     {L K₀ : Subgroup G} (hshape : s15Shape D V₀ V hV L K₀) (hrs : s15Rs D V₀ V hV L K₀ = 1) :
@@ -234,23 +225,6 @@ theorem s15_Three_wStar_eq_top (D : Data G) (h1217 : R1217 D) (h : Hyp151 D V₀
   rw [hmem]
   exact hspan
 
-
-theorem s15_Three_natural_lStar (D : Data G) (h1217 : R1217 D) (h : Hyp151 D V₀ V L)
-    {K₀ : Subgroup G} (hshape : s15Shape D V₀ V h.isElemAbelian L K₀)
-    (hrs : s15Rs D V₀ V h.isElemAbelian L K₀ = 1) :
-    s15KNat ↥(lBar V₀ V h.isElemAbelian L) (lStar D.M V₀ V h.isElemAbelian L)
-      (wStar D.M V₀ V h.isElemAbelian L) := by
-  have hLK := s15_Three_lBar_eq hshape hrs
-  have hstar : lStar D.M V₀ V h.isElemAbelian L =
-      barSub (v1Sub D.M V₀ V h.isElemAbelian L) V h.isElemAbelian K₀ :=
-    (s15_Three_barSub_star_iff D h1217 h h.le (hshape.1.trans h.le)).1 hLK
-  have hW : commSub ⊤ (barSub (v1Sub D.M V₀ V h.isElemAbelian L) V h.isElemAbelian K₀) =
-      wStar D.M V₀ V h.isElemAbelian L := by
-    rw [← hstar]
-    exact s15_Three_commSub_top_lStar h h.isElemAbelian
-  have hnat := hshape.2.2.2.1
-  rw [hW, ← hstar, ← hLK] at hnat
-  exact hnat
 
 private theorem s15_Three_commute_star (D : Data G) (h1217 : R1217 D) (h : Hyp151 D V₀ V L)
     (hV : IsElemAbelian 2 V) {a b : G} (ha : a ∈ D.M) (hb : b ∈ D.M)

@@ -15,9 +15,6 @@ variable {K : Type*} [Field K]
 theorem matrixUnit_det (i j : Fin 2) : (matrixUnit (K := K) i j).det = 0 := by
   fin_cases i <;> fin_cases j <;> simp [matrixUnit, Matrix.single, Matrix.det_fin_two]
 
-theorem matrixUnit_sum_diag : matrixUnit (K := K) 0 0 + matrixUnit 1 1 = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [matrixUnit, Matrix.single]
 
 theorem determinant_polar_one (X : Matrix (Fin 2) (Fin 2) K) :
     polar (determinantForm K) 1 X = X.trace := by

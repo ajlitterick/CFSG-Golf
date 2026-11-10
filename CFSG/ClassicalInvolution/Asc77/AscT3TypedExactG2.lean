@@ -213,26 +213,5 @@ theorem QuotViol.mem_dstarComp_of_g2 {R S : Subgroup (D.model i).K} (hR : R ∈ 
 
 end Consequences
 
-theorem QuotViol.dstarConnected_of_split {X : Type} [Group X] [Finite X] {p f : ℕ} [Fact p.Prime]
-    {Φ : Set (Subgroup X)} {z j a : X} (hgen : G2CentralizersGenerate p)
-    (hD4 : D4NormalizerMax p) (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΦ : HypOmegaMod p f Φ)
-    (D : OmegaLie p f Φ) {K J : Subgroup X} (h : QuotViol Φ K J z j a) : DStarConnected Φ := by
-  obtain ⟨i, R, S, hR, hS, rfl, rfl⟩ := h.exists_components D
-  have hG2 : D.tag i = .G2 := by
-    by_contra hne
-    by_cases hD : D.tag i = .trialityD4
-    · exact h.false_of_trialityD4 hD4 hp hq hΦ D hD hR hS
-    · exact h.false_of_classical hp hq hΦ D hne hD hR hS
-  refine dstarConnected_of_pivot h.mem_left fun M hMΦ => ?_
-  obtain ⟨i', R', hR'f, hMR'⟩ := D.fundamental M hMΦ
-  by_cases hii : i' = i
-  · subst hii
-    have hR'cls : R' ∈ D.cls i' := ⟨hR'f, hMR' ▸ hMΦ⟩
-    rw [hMR']
-    exact h.mem_dstarComp_of_g2 hgen hp hq hΦ D hG2 hR hR'cls
-  · refine mem_dstarComp_of_commutes hp hΦ hMΦ ?_
-    rw [hMR']
-    rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩
-    exact D.commute i' i hii x y
 
 end CFSG.ClassicalInvolution.Asc77.T3Typed

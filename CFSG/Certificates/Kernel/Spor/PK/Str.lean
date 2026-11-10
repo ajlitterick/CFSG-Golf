@@ -21,9 +21,6 @@ theorem strL_append (a b : List Nat) : strL (a ++ b) = strL a ++ strL b := by
 private theorem toList_strL' (l : List Nat) : (strL l).toList = l.map Char.ofNat := by
   simp [strL]
 
-theorem toList_strL {l : List Nat} (hl : ∀ c ∈ l, c < 128) : (strL l).toList = l.map Char.ofNat := by
-  clear hl
-  exact toList_strL' l
 
 private theorem valid_of_lt {n : Nat} (h : n < 128) : n.isValidChar := Or.inl (by omega)
 
@@ -46,20 +43,6 @@ private theorem ofNat_inj {a b : Nat} (ha : a < 128) (hb : b < 128) :
   have := congrArg Char.toNat h
   rwa [toNat_ofNat ha, toNat_ofNat hb] at this
 
-theorem strL_inj {a b : List Nat} (ha : ∀ c ∈ a, c < 128) (hb : ∀ c ∈ b, c < 128)
-    (h : strL a = strL b) : a = b := by
-  have h1 : a.map Char.ofNat = b.map Char.ofNat := String.ofList_injective h
-  have e : ∀ l : List Nat, (∀ c ∈ l, c < 128) → (l.map Char.ofNat).map Char.toNat = l := by
-    intro l
-    induction l with
-    | nil => intro _; rfl
-    | cons x xs ih =>
-      intro hl
-      simp only [List.map_cons]
-      rw [toNat_ofNat (hl x List.mem_cons_self), ih (fun c hc => hl c (List.mem_cons_of_mem _ hc))]
-  calc a = (a.map Char.ofNat).map Char.toNat := (e a ha).symm
-    _ = (b.map Char.ofNat).map Char.toNat := by rw [h1]
-    _ = b := e b hb
 
 theorem strL_eq_empty_iff (l : List Nat) : strL l = "" ↔ l = [] := by
   simp [strL]
@@ -269,13 +252,6 @@ theorem splitOn_newline_strL {l : List Nat} (hl : ∀ c ∈ l, c < 128) :
   rw [this]
   exact splitOn_strL_gen hl (by decide)
 
-theorem splitOn_comma_strL {l : List Nat} (hl : ∀ c ∈ l, c < 128) :
-    (strL l).splitOn "," = (l.splitOn 44).map strL := by
-  have : ("," : String) = strL [44] := by
-    apply String.toList_injective
-    simp [toList_strL']
-  rw [this]
-  exact splitOn_strL_gen hl (by decide)
 
 private theorem forIn_digits : ∀ (cs : List Char) (st : Bool), cs ≠ [] →
     (∀ c ∈ cs, c.isDigit = true) →
@@ -364,8 +340,6 @@ private theorem slice_toNat! {t : String.Slice} {l : List Nat} (hl : IsDigits l)
   rw [foldl_digits l 0 hl.2]
   rfl
 
-theorem toNat?_strL {l : List Nat} (hl : IsDigits l) : (strL l).toNat? = some (decVal l) :=
-  slice_toNat? hl String.copy_toSlice
 
 theorem toNat!_strL {l : List Nat} (hl : IsDigits l) : (strL l).toNat! = decVal l :=
   slice_toNat! hl String.copy_toSlice
@@ -430,16 +404,6 @@ theorem toInt?_strL_neg {l : List Nat} (hl : IsDigits l) :
     (strL (45 :: l)).toInt? = some (-(decVal l : Int)) :=
   slice_toInt?_neg hl String.copy_toSlice
 
-theorem toInt!_strL {l : List Nat} (hl : IsDigits l) : (strL l).toInt! = (decVal l : Int) := by
-  show (strL l).toSlice.toInt! = _
-  unfold String.Slice.toInt!
-  rw [slice_toInt?_pos hl String.copy_toSlice]
-
-theorem toInt!_strL_neg {l : List Nat} (hl : IsDigits l) :
-    (strL (45 :: l)).toInt! = -(decVal l : Int) := by
-  show (strL (45 :: l)).toSlice.toInt! = _
-  unfold String.Slice.toInt!
-  rw [slice_toInt?_neg hl String.copy_toSlice]
 
 end CFSG.KS.PK
 

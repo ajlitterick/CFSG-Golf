@@ -82,14 +82,6 @@ private theorem one_le_pRank_of_isPGroup_ne_bot {G : Type} [Group G] [Finite G]
     (Subgroup.zpowers_le.mpr w.2) hE ?_
   rw [Nat.card_zpowers, Subgroup.orderOf_coe, hw, pow_one]
 
-private theorem eq_three_of_dvd_fortyEight {m : ℕ} (hdvd : m ∣ 48) (hodd : Odd m) (h3 : 3 ∣ m) :
-    m = 3 := by
-  have hcop : m.Coprime (2 ^ 4) :=
-    (Nat.coprime_pow_right_iff (by norm_num) m 2).mpr (Nat.coprime_two_right.mpr hodd)
-  have hm3 : m ∣ 3 := by
-    refine hcop.dvd_of_dvd_mul_left ?_
-    rwa [show 2 ^ 4 * 3 = 48 by norm_num]
-  exact Nat.dvd_antisymm hm3 h3
 
 private theorem natCard_griessHopfMultiplier_psl3_2_2
     (hgr : CFSG.Open.GriessAllModelsStatement) {Y : Type} [Group Y]

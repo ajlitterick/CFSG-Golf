@@ -93,29 +93,6 @@ theorem wLong_not_mem_lineStab : (wLong : antiSp k) ∉ lineStab k := by
 
 variable [CharP k 2]
 
-theorem isUpper_of_commute_zl_zs {g : antiSp k} {a b : k} (ha : a ≠ 0) (hb : b ≠ 0)
-    (hl : g * uElt 0 0 a 0 = uElt 0 0 a 0 * g) (hs : g * uElt 0 b 0 0 = uElt 0 b 0 0 * g) :
-    IsUpper g := by
-  have hl' : glMat (g : GL (Fin 4) k) * uMat 0 0 a 0 =
-      uMat 0 0 a 0 * glMat (g : GL (Fin 4) k) := by
-    have := congrArg (fun x : antiSp k => glMat (x : GL (Fin 4) k)) hl
-    simpa [glMat_uElt] using this
-  have hs' : glMat (g : GL (Fin 4) k) * uMat 0 b 0 0 =
-      uMat 0 b 0 0 * glMat (g : GL (Fin 4) k) := by
-    have := congrArg (fun x : antiSp k => glMat (x : GL (Fin 4) k)) hs
-    simpa [glMat_uElt] using this
-  have e13 := congrFun (congrFun hl' 1) 3
-  have e23 := congrFun (congrFun hl' 2) 3
-  have e33 := congrFun (congrFun hl' 3) 3
-  have e01 := congrFun (congrFun hl' 0) 1
-  have f23 := congrFun (congrFun hs' 2) 3
-  simp [Matrix.mul_apply, Fin.sum_univ_four, uMat] at e13 e23 e33 e01 f23
-  refine isUpper_of_flag ?_ ?_ ?_ ?_ ?_
-  · simpa [ha] using e13
-  · simpa [ha] using e23
-  · simpa [ha] using e33
-  · simpa [hb] using f23
-  · simpa [ha] using e01
 
 theorem isUpper_of_commute_of_spansCenter {W : Subgroup (antiSp k)}
     (hWZ : W ≤ antiUnipotentCenter k) (hsp : SpansCenter W) {g : antiSp k}

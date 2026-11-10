@@ -149,19 +149,6 @@ theorem principalProjection_eq_on_centralInvolutionSection {G : Type*} [Group G]
   rw [← hG, ← hC, ← hsymm, ← hT]
   rfl
 
-theorem characterSubsetProjection_eq_sum_blocksInnerProduct {E : Type} [Group E] [Fintype E]
-    (basis : FiniteIrreducibleCharacterBasis E) (support : Finset basis.index) (f : E → ℂ) :
-    characterSubsetProjection basis support f =
-      ∑ label ∈ support, BlocksInnerProduct f (basis.representation label).character •
-        (basis.representation label).character := by
-  change (∑ label ∈ support, characterPairing f (basis.representation label).character •
-    (basis.representation label).character) = _
-  apply Finset.sum_congr rfl
-  intro label _
-  have hmem : (basis.representation label).character ∈ BlocksIrr E := by
-    rw [blocksIrr_eq_irreducible_characters]
-    exact ⟨basis.representation label, basis.irreducible label, rfl⟩
-  rw [blocksInnerProduct_eq_characterPairing f (AddSubgroup.subset_closure hmem)]
 
 theorem central_involution_section_principal_block_transport {G : Type} [Group G] [Fintype G]
     (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]

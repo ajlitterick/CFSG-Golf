@@ -53,16 +53,6 @@ theorem InvolutionCriterion.noNormalZ4OrZ2xZ4 {C : Type*} [Group C]
     rw [Subgroup.orderOf_coe, hβ4] at hdvd
     exact absurd hdvd (by norm_num)
 
-theorem InvolutionCriterion.innerCentralizerCriterion {C : Type*} [Group C]
-    (hinj : Function.Injective (MulAut.conj : C →* MulAut C)) {t : C}
-    (h : InvolutionCriterion (MulAut.conj t)) : InnerCentralizerCriterion t := by
-  refine innerCentralizerCriterion_of_fix hinj fun β hβt hβc => h β ?_ fun c hc hco => ?_
-  · have h1 := mul_conj_mul_inv_eq_conj β t
-    rw [hβt, mul_inv_eq_iff_eq_mul] at h1
-    exact h1
-  · refine hβc c ?_ hco
-    rw [MulAut.conj_apply, mul_inv_eq_iff_eq_mul] at hc
-    exact hc.symm
 
 theorem InvolutionCriterion.conj {C : Type*} [Group C] {x : MulAut C}
     (h : InvolutionCriterion x) (ψ : MulAut C) : InvolutionCriterion (ψ * x * ψ⁻¹) := by

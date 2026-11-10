@@ -48,8 +48,6 @@ open CFSG.Sporadic.SmallF2.Native CFSG.Sporadic.Co1Schreier CFSG.Monster.B.Co2
 @[expose] noncomputable def certP : Subgroup (Equiv.Perm (Fin 98280)) :=
   Subgroup.closure {certGen 0, certGen 1}
 
-theorem certBasisIdx_lt : ∀ t < 24, certBasisIdx.getD t 0 < 98280 := by
-  decide
 
 theorem certBasisRows_size (V : Array ℕ) : (certBasisRows V).size = 24 := by
   simp [certBasisRows, certBasisIdx]
@@ -60,13 +58,6 @@ theorem certBasisRows_get (V : Array ℕ) {t : ℕ} (ht : t < 24) :
   rw [certBasisRows, getElem!_pos _ t (by simpa using hl)]
   simp [List.getElem?_eq_getElem hl]
 
-theorem rowsMatrix_certBasisRows_row (t : Fin 24) :
-    (rowsMatrix 24 (certBasisRows certVecs)).row t = certVec (certBasisIdx.getD t 0) := by
-  funext j
-  have hs : (t : ℕ) < (certBasisRows certVecs).size := by rw [certBasisRows_size]; exact t.2
-  rw [Matrix.row_apply, rowsMatrix_apply, certVec, ← certBasisRows_get certVecs t.2,
-    Array.getElem?_eq_getElem hs, Option.getD_some,
-    getElem!_pos (certBasisRows certVecs) (t : ℕ) hs]
 
 theorem val_A₁_eq :
     ((A₁ : GL24) : Matrix (Fin 24) (Fin 24) (ZMod 2)) =

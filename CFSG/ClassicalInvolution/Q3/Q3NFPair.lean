@@ -58,21 +58,6 @@ section Section
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem mul_mem_oddCoreIn_of_modOddIn_eq3_in {X K K' : Subgroup G} {z z' : G}
-    (hK : IsClassicalMember3In X K z) (hK' : IsClassicalMember3In X K' z')
-    (h : modOddIn X K = modOddIn X K') : z * z' ∈ oddCoreIn X := by
-  obtain ⟨hzX, hK0⟩ := hK
-  obtain ⟨hz'X, hK0'⟩ := hK'
-  have h1 := hK0.map_oddQuotient
-  have h2 := hK0'.map_oddQuotient
-  unfold modOddIn at h
-  rw [← h] at h2
-  have h3 := involution_unique3 h1 h2
-  have h4 := QuotientGroup.eq.mp h3
-  refine ⟨_, h4, ?_⟩
-  have hsq : (⟨z, hzX⟩ : ↥X) * ⟨z, hzX⟩ = 1 := hK0.isCentralInvolution.sq
-  have hz : z⁻¹ = z := inv_eq_of_mul_eq_one_right (congrArg Subtype.val hsq)
-  simp only [Subgroup.coe_subtype, Subgroup.coe_mul, Subgroup.coe_inv, hz]
 
 end Section
 
@@ -179,45 +164,6 @@ end M11
 
 section Pair
 
-
-variable {X : Type} [Group X] {ι : Type} {Φ : Set (Subgroup X)}
-
-theorem range_le_of_pair_weak (D : LieSystemData3 ι X Φ) {k : ι} (hk : D.kind k ≠ CompData.sl23)
-    {K J : Subgroup X} (hK : K ∈ Φ) (hJ : J ∈ Φ) {ζ ξ : X} (hζK : ζ ∈ K) (hξJ : ξ ∈ J)
-    (hζ2 : ζ * ζ = 1) (hξ2 : ξ * ξ = 1) (hζ1 : ζ ≠ 1) (hξ1 : ξ ≠ 1) (hζξ : ζ ≠ ξ)
-    (hζK' : ∀ y ∈ K, ζ * y = y * ζ) (hξJ' : ∀ y ∈ J, ξ * y = y * ξ)
-    (hζJ : ∀ y ∈ J, ζ * y = y * ζ) (hξK : ∀ y ∈ K, ξ * y = y * ξ)
-    (hζnc : ¬ ∀ q ∈ (D.hom k).range, ζ * q = q * ζ)
-    (hξnc : ¬ ∀ q ∈ (D.hom k).range, ξ * q = q * ξ) :
-    (D.hom k).range ≤ (Subgroup.centralizer ({ζ} : Set X) ⊓ (D.hom k).range) ⊔
-      (Subgroup.centralizer ({ξ} : Set X) ⊓ (D.hom k).range) ⊔
-      (Subgroup.centralizer ({ζ * ξ} : Set X) ⊓ (D.hom k).range) := by
-  obtain ⟨i, R, hR, hKR⟩ := D.fundamental K hK
-  obtain ⟨j, R', hR', hJR⟩ := D.fundamental J hJ
-  have hcommc : ∀ {c d : ι}, c ≠ d → ∀ {a b : X}, a ∈ (D.hom c).range → b ∈ (D.hom d).range →
-      a * b = b * a := by
-    rintro c d h _ _ ⟨x, rfl⟩ ⟨y, rfl⟩
-    exact D.commute c d h x y
-  have hik : i = k := by
-    by_contra h
-    refine hζnc fun q hq => hcommc h ?_ hq
-    rw [hKR] at hζK
-    exact Subgroup.map_le_range _ _ hζK
-  have hjk : j = k := by
-    by_contra h
-    refine hξnc fun q hq => hcommc h ?_ hq
-    rw [hJR] at hξJ
-    exact Subgroup.map_le_range _ _ hξJ
-  subst hik
-  subst hjk
-  subst hKR
-  subst hJR
-  rcases D.valid j with ⟨t, n, hfund, hadm, hc⟩ | hc | hc
-  · exact range_le_of_pair_model (D.hom j) (D.ker_le_center j) hfund hadm hc hR hR' hζK hξJ hζ2
-      hξ2 hζ1 hξ1 hζξ hζK' hξJ' hζJ hξK
-  · exact absurd hc hk
-  · exact (false_of_pair_m11_weak (D.hom j) (D.ker_le_center j) hc hR hR' hζK hξJ hζ2 hξ2 hζ1
-      hξ1 hζξ hζK' hξJ' hζJ).elim
 
 end Pair
 

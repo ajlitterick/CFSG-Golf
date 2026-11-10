@@ -14,14 +14,6 @@ open CFSG.ClassicalInvolution.Balance (oddCoreIn odd_card_oddCoreIn oddCoreIn_le
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {A : Subgroup G} {S : Set (Subgroup G)}
 
-omit [Finite G] in
-theorem SingleClassComponents.of_tags {X : Type} [Group X] {Φ : Set (Subgroup X)}
-    (D : LieSystemData p f X Φ)
-    (hD : ∀ i, D.tag i ≠ .G2 ∧ D.tag i ≠ .trialityD4)
-    (hmodel : ∀ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n e : ℕ), IsFundTag t → t ≠ .G2 →
-      t ≠ .trialityD4 → FundamentalSingleClass t (modelUniv t n p e Fact.out).D) :
-    SingleClassComponents p f D :=
-  fun i => hmodel (D.tag i) (D.rank i) (D.exp i) (D.isFundTag i) (hD i).1 (hD i).2
 
 theorem odd_card_galoisField (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) :
     Odd (Nat.card (GaloisField p f)) := by
@@ -119,13 +111,5 @@ theorem FrameSide.of_cover (hL : LocalHypotheses p f Ω A) (hA : IsElemAbelian 2
     obtain ⟨K, hKS, hK⟩ := hfa
     exact involutionLink_of_lie hL ha hK.ne_one hS hinv (hcover a ha ⟨K, hKS, hK⟩)
 
-theorem fusionGenerated_of_lie (hL : LocalHypotheses p f Ω A) (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hS : S ⊆ Ω) (hne : S.Nonempty)
-    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
-    (hgen : ∀ a ∈ A, IsFrameInvolution p f S a → CentralizerGenerationModO Ω A a)
-    (hcover : ∀ a ∈ A, IsFrameInvolution p f S a → FrameCoversModO Ω S a)
-    (hconn : OmegaConnected Ω) : CFSG.ClassicalInvolution.Balance.FusionGenerated A :=
-  fusionGenerated_of_deltaClosure hL.inClass
-    (FrameSide.of_cover hL hA h16 hS hne hinv hgen hcover) hconn
 
 end CFSG.ClassicalInvolution.Generic.DeltaClosure

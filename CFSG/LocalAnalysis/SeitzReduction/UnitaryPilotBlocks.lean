@@ -95,19 +95,6 @@ theorem map_conj_permSU_unitaryBlock (ρ : Equiv.Perm (Fin n)) (I : Finset (Fin 
       unitaryBlock h (I.map ρ.toEmbedding) :=
   map_conj_unitaryBlock_of_mul_eq h _ (blockComplProj_mul_permSU h ρ I)
 
-theorem exists_conj_blockSU (ρ : Equiv.Perm (Fin n)) : ∃ w : unitaryPSU h n,
-    ∀ I : Finset (Fin n),
-      (blockSU h I).map (MulAut.conj w).toMonoidHom = blockSU h (I.map ρ.toEmbedding) :=
-  ⟨unitaryProj h n (permSU h ρ.symm), fun I =>
-    map_conj_blockSU_of_mul_eq h _ (blockComplProj_mul_permSU h ρ I)⟩
-
-theorem exists_conj_rootSU2 {a b c d : Fin n} (hab : a ≠ b) (hcd : c ≠ d) :
-    ∃ w : unitaryPSU h n, (rootSU2 h a b).map (MulAut.conj w).toMonoidHom = rootSU2 h c d := by
-  obtain ⟨σ, hσa, hσb⟩ := LinearPilot.exists_perm_apply_eq_apply_eq hab hcd
-  obtain ⟨w, hw⟩ := exists_conj_blockSU h σ
-  refine ⟨w, ?_⟩
-  rw [rootSU2, hw, rootSU2, Finset.map_insert, Finset.map_singleton, Equiv.coe_toEmbedding, hσa,
-    hσb]
 
 end Monomial
 
@@ -364,10 +351,6 @@ theorem toPSL_injective : Function.Injective (toPSL h n) := by
   rw [← MonoidHom.mem_ker, ker_unitaryProj]
   exact hA
 
-theorem map_blockSU_le_blockSL (I : Finset (Fin n)) :
-    (blockSU h I).map (toPSL h n) ≤ LinearPilot.blockSL I := by
-  rintro _ ⟨_, ⟨A, hA, rfl⟩, rfl⟩
-  exact LinearPilot.proj_mem_blockSL hA
 
 end PSL
 

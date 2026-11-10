@@ -27,9 +27,6 @@ private theorem presentation_eq : SporadicName.He.presentation = Sporadic.hePres
 theorem generatorCount_eq : Sporadic.hePresentation.generatorCount = 2 := by
   simp [GroupPresentation.generatorCount]
 
-theorem rep_alpha_inv : Rep 8330 CFSG.Sporadic.He.orb.alpha a⁻¹ := by
-  rw [a_inv]
-  exact rep_alpha
 
 theorem relators_eval :
     ∀ v ∈ Sporadic.hePresentation.relatorLetters, wordProd (img2 a b) v = 1 :=

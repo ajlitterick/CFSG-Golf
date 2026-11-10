@@ -55,18 +55,6 @@ theorem fixedOrbitComplementRoots_eq (j : Fin t.fixedOrbitCount) :
       {α : Fin t.tag.rank → ℤ | IsRoot t.tag α ∧ 0 < height α} \ t.fixedOrbitRoots j :=
   rfl
 
-theorem ree_fixed_Weyl_data :
-    (∀ (w : WeylGroup t.tag) (β : Fin t.tag.rank → ℤ), IsRoot t.tag β →
-      t.weylPerm w • β = t.dualRoot (w • t.dualRoot β)) ∧
-    (∀ w : WeylGroup t.tag, w ∈ t.relWeylRee ↔ t.weylPerm w = w) ∧
-    (∀ j, t.fixedOrbitWeyl j = Subgroup.closure (simple t.tag '' t.fixedOrbitSet j)) ∧
-    (∀ j, t.fixedOrbitElement j = (coxeterSystem t.tag).wordProd (t.fixedOrbitWord j)) ∧
-    (∀ j (α : Fin t.tag.rank → ℤ), α ∈ t.fixedOrbitRoots j ↔
-      (IsRoot t.tag α ∧ 0 < height α) ∧ ∀ i ∉ t.fixedOrbitSet j, α i = 0) ∧
-    ∀ j, t.fixedOrbitComplementRoots j =
-      {α : Fin t.tag.rank → ℤ | IsRoot t.tag α ∧ 0 < height α} \ t.fixedOrbitRoots j :=
-  ⟨fun w _ hβ => t.weylPerm_smul_eq_dualRoot w hβ, fun _ => Iff.rfl, fun _ => rfl,
-    fun _ => rfl, fun _ _ => t.mem_fixedOrbitRoots, t.fixedOrbitComplementRoots_eq⟩
 
 end ReeTag
 

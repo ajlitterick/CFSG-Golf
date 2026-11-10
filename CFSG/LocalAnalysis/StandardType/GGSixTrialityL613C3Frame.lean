@@ -46,11 +46,6 @@ theorem omega_sq_mul_sq_ne_one (hω : ω ^ 2 + ω + 1 = 0) : ω ^ 2 * ω ^ 2 ≠
   apply omega_ne_one hω
   linear_combination h - ω * omega_cube hω
 
-omit [CharP K 2] in
-theorem omega_ne_zero (hω : ω ^ 2 + ω + 1 = 0) : ω ≠ 0 := by
-  intro h
-  rw [h] at hω
-  norm_num at hω
 
 omit [CharP K 2] in
 theorem omega_inv (hω : ω ^ 2 + ω + 1 = 0) : ω⁻¹ = ω ^ 2 :=

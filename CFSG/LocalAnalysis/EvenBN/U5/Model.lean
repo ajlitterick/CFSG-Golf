@@ -212,16 +212,6 @@ theorem patSub_mono {S S' : Finset (HypIndex 2 1 × HypIndex 2 1)} (hS : IsPatte
     (hS' : IsPattern S') (hSS : S' ⊆ S) : patSub h S hS ≤ patSub h S' hS' :=
   fun _ ⟨hg, hgS⟩ => ⟨hg, fun p hp => hgS p (hSS hp)⟩
 
-theorem patSub_inf {S S' : Finset (HypIndex 2 1 × HypIndex 2 1)} (hS : IsPattern S)
-    (hS' : IsPattern S') (hSS : IsPattern (S ∪ S')) :
-    patSub h S hS ⊓ patSub h S' hS' = patSub h (S ∪ S') hSS := by
-  ext g
-  simp only [mem_inf, mem_patSub, Finset.mem_union]
-  constructor
-  · rintro ⟨⟨hg, h1⟩, -, h2⟩
-    exact ⟨hg, fun p hp => hp.elim (h1 p) (h2 p)⟩
-  · rintro ⟨hg, h1⟩
-    exact ⟨⟨hg, fun p hp => h1 p (Or.inl hp)⟩, hg, fun p hp => h1 p (Or.inr hp)⟩
 
 theorem eq_of_U_entries {g g' : hypSU h 2 1} (hg : g ∈ hypUnitriangular h 2 1)
     (hg' : g' ∈ hypUnitriangular h 2 1)
@@ -233,13 +223,6 @@ theorem eq_of_U_entries {g g' : hypSU h 2 1} (hg : g ∈ hypUnitriangular h 2 1)
   · rw [fullPos_injective hab, U_diag hg, U_diag hg']
   · rw [U_lower hg hab, U_lower hg' hab]
 
-theorem patSub_eq_bot {S : Finset (HypIndex 2 1 × HypIndex 2 1)} (hS : IsPattern S)
-    (hall : ∀ a b : HypIndex 2 1, fullPos a < fullPos b → (a, b) ∈ S) : patSub h S hS = ⊥ := by
-  refine (Subgroup.eq_bot_iff_forall _).2 fun g ⟨hg, hgS⟩ => eq_of_U_entries hg (one_mem _)
-    fun a b hab => ?_
-  rw [hgS (a, b) (hall a b hab), mat_one, one_apply_ne]
-  intro e
-  exact hab.ne (congrArg fullPos e)
 
 section Torus
 
@@ -371,10 +354,6 @@ theorem isPattern_sA₂ : IsPattern sA₂ := ⟨by decide, by decide, by decide�
 
 theorem isPattern_sZP : IsPattern sZP := ⟨by decide, by decide, by decide⟩
 
-example (g : hypSU h 2 1) : g ∈ patSub h sZP isPattern_sZP ↔ g ∈ hypUnitriangular h 2 1 ∧
-    mat g ιe₁ ιe₂ = 0 ∧ mat g ιf₂ ιf₁ = 0 ∧ mat g ιe₁ ιz = 0 ∧ mat g ιz ιf₁ = 0 ∧ mat g ιe₂ ιz = 0 ∧
-    mat g ιz ιf₂ = 0 ∧ mat g ιe₁ ιf₂ = 0 ∧ mat g ιe₂ ιf₁ = 0 ∧ mat g ιe₂ ιf₂ = 0 := by
-  simp [mem_patSub, sZP]
 
 theorem isUnitriangular_unip (a : K) :
     IsUnitriangular (!![1, a; 0, 1] : Matrix (Fin 2) (Fin 2) K) := by
@@ -1023,11 +1002,6 @@ theorem z₂SU_ne_one : z₂SU h ≠ 1 := fun e => by
   rw [e, mat_one, one_apply_ne (by decide)] at this
   exact zero_ne_one this
 
-theorem orderOf_z₁SU : orderOf (z₁SU h) = 2 :=
-  orderOf_eq_prime (by rw [sq]; exact Vsub_sq (vSU_mem_Vsub _)) z₁SU_ne_one
-
-theorem orderOf_z₂SU : orderOf (z₂SU h) = 2 :=
-  orderOf_eq_prime (by rw [sq]; exact Vsub_sq (vSU_mem_Vsub _)) z₂SU_ne_one
 
 theorem exists_scalar_of_mem_hypScalars {g : hypSU h 2 1} (hg : g ∈ hypScalars h 2 1) :
     ∃ c : K, c ≠ 0 ∧ ∀ a b, mat g a b = if a = b then c else 0 := by
@@ -1141,24 +1115,6 @@ theorem Z₂p_le_A₁ : d.Z₂p ≤ d.A₁ := d.pull_mono Z₂Psub_le_Vsub
 
 theorem Z₂p_le_A₂ : d.Z₂p ≤ d.A₂ := d.pull_mono Z₂Psub_le_A₂sub
 
-theorem z₁_mem_Zp : d.z₁ ∈ d.Zp := ⟨_, z₁SU_mem_ZPsub, rfl⟩
-
-theorem z₂_mem_Z₂p : d.z₂ ∈ d.Z₂p := ⟨_, z₂SU_mem_Z₂Psub, rfl⟩
-
-theorem orderOf_z₁ : orderOf d.z₁ = 2 := by
-  have hU : z₁SU h ∈ hypUnitriangular h 2 1 := ZPsub_le_U z₁SU_mem_ZPsub
-  refine orderOf_eq_prime
-    (by rw [sq, z₁, ← map_mul, Vsub_sq (ZPsub_le_Vsub z₁SU_mem_ZPsub), map_one]) ?_
-  intro e
-  exact z₁SU_ne_one (d.η_injOn hU (one_mem _) (by rw [← z₁, e, map_one]))
-
-theorem orderOf_z₂ : orderOf d.z₂ = 2 := by
-  have hU : z₂SU h ∈ hypUnitriangular h 2 1 :=
-    (Z₂Psub_le_A₂sub.trans A₂sub_le_U) z₂SU_mem_Z₂Psub
-  refine orderOf_eq_prime
-    (by rw [sq, z₂, ← map_mul, Vsub_sq (Z₂Psub_le_Vsub z₂SU_mem_Z₂Psub), map_one]) ?_
-  intro e
-  exact z₂SU_ne_one (d.η_injOn hU (one_mem _) (by rw [← z₂, e, map_one]))
 
 theorem r_mem_N₁ : d.r ∈ d.N₁ := ⟨_, rSU_mem_N₁sub, rfl⟩
 

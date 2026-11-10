@@ -208,8 +208,6 @@ theorem stabilizer_mem_iff {B : Finset (Fin 22)} (g : stabilizer M22 B) (x : Fin
     ext
     rfl
 
-theorem coe_resHexad_apply {B : Finset (Fin 22)} (g : stabilizer M22 B) (x : B) :
-    ((resHexad B g x : B) : Fin 22) = (g.1 : Equiv.Perm (Fin 22)) x := rfl
 
 theorem kernelSubgroup_le_stabilizer (B : Finset (Fin 22)) :
     kernelSubgroup B ≤ stabilizer M22 B := by

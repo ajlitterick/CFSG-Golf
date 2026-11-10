@@ -66,9 +66,6 @@ set_option Elab.async false
   fixCount (transposeRows 24 S) == a &&
     fixCountQ (transposeRows 24 S) (transposeRows 24 qRows) == b
 
-@[expose] def conjCheck (G Gi : Array (Array ℕ)) (S : Array ℕ) (n : ℕ) : Bool :=
-  let c := conjBFS G Gi S n
-  ctOK G Gi S c && decide (n ≤ c.pts.size)
 
 @[expose] def witOK (w : List Bool) (S T : Array ℕ) (n : ℕ) : Bool :=
   mulRows 24 (wordRows w) (invRows (wordRows w)) == idRows 24 &&

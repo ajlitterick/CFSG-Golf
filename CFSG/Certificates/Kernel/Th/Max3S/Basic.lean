@@ -44,14 +44,10 @@ theorem wf_nfAt (hA : WfRows A) (hB : WfRows B) (k : Fin 512) : WfRows (nfAt A B
 theorem wf_conj (hA : WfRows A) (hB : WfRows B) (k : Fin 512) : WfRows (conj A B k) :=
   wfRows_wordRows (wf_x hA hB) (wf_y hA hB) _
 
-theorem wf_d (hA : WfRows A) (hB : WfRows B) : WfRows (d A B) :=
-  wfRows_wordRows (wf_x hA hB) (wf_y hA hB) _
 
 theorem wf_xNf (hA : WfRows A) (hB : WfRows B) (k : Fin 512) : WfRows (xNf A B k) :=
   wfRows_mulRows (wf_x hA hB) (wf_nfAt hA hB k)
 
-theorem wf_dNf (hA : WfRows A) (hB : WfRows B) (k : Fin 512) : WfRows (dNf A B k) :=
-  wfRows_mulRows (wf_d hA hB) (wf_nfAt hA hB k)
 
 end Wf
 

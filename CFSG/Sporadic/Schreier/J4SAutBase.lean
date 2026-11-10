@@ -33,9 +33,6 @@ open CFSG.OrderReductions.FrattiniAutomorphisms
 
 section Generic
 
-variable {P : Type*} [Group P] {f : P →* Multiplicative (Fin 5 → ZMod 2)}
-
-
 
 end Generic
 

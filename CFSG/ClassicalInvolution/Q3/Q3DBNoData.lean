@@ -23,54 +23,6 @@ theorem mem_conjClass_conjSub {K M : Subgroup G} (hM : M ∈ CoreAssembly.conjCl
   have hx' : conjSub x K = M := hx
   exact ⟨g * x, by rw [← hx']; exact conjSub_mul g x K⟩
 
-theorem omegaConnected_of_le {K K' : Subgroup G} (hle : K ≤ K')
-    (h : OmegaConnected (CoreAssembly.conjClass K'))
-    (hex : ∃ P ∈ CoreAssembly.conjClass K', Commutes K' P) :
-    OmegaConnected (CoreAssembly.conjClass K) := by
-  have lift : ∀ {x y : G}, Commutes (conjSub x K') (conjSub y K') →
-      Commutes (conjSub x K) (conjSub y K) := fun hxy p hp q hq =>
-    hxy p (conjSub_mono hle hp) q (conjSub_mono hle hq)
-  have mem : ∀ y : G, conjSub y K ∈ CoreAssembly.conjClass K := fun y => ⟨y, rfl⟩
-  have key : ∀ A B : Subgroup G, Relation.ReflTransGen
-      (fun M N : Subgroup G => N ∈ CoreAssembly.conjClass K' ∧ Commutes M N) A B → A ≠ B →
-      ∀ x y : G, conjSub x K' = A → conjSub y K' = B →
-        Relation.ReflTransGen (fun M N : Subgroup G =>
-          N ∈ CoreAssembly.conjClass K ∧ Commutes M N) (conjSub x K) (conjSub y K) := by
-    intro A B hAB
-    induction hAB with
-    | refl => exact fun hne => absurd rfl hne
-    | @tail b c hAb hbc ih =>
-      intro _ x y hx hy
-      by_cases hAb' : A = b
-      · subst hAb'
-        refine Relation.ReflTransGen.single ⟨mem y, lift ?_⟩
-        rw [hx, hy]
-        exact hbc.2
-      · have hbmem : b ∈ CoreAssembly.conjClass K' := by
-          rcases hAb.cases_tail with h1 | ⟨c', -, hc'⟩
-          · exact absurd h1.symm hAb'
-          · exact hc'.1
-        obtain ⟨y', hy'⟩ := hbmem
-        have hy'' : conjSub y' K' = b := hy'
-        refine (ih hAb' x y' hx hy'').tail ⟨mem y, lift ?_⟩
-        rw [hy'', hy]
-        exact hbc.2
-  intro L hL L' hL'
-  obtain ⟨g, hg⟩ := hL
-  obtain ⟨g', hg'⟩ := hL'
-  have hg1 : conjSub g K = L := hg
-  have hg2 : conjSub g' K = L' := hg'
-  rw [← hg1, ← hg2]
-  by_cases hQ : conjSub g K' = conjSub g' K'
-  · obtain ⟨P, ⟨p, hp⟩, hP⟩ := hex
-    have hp' : conjSub p K' = P := hp
-    have h1 : Commutes (conjSub g K') (conjSub (g * p) K') := by
-      rw [conjSub_mul, hp']
-      exact hP.conjSub g
-    refine (Relation.ReflTransGen.single ⟨mem (g * p), lift h1⟩).tail ⟨mem g', lift ?_⟩
-    rw [← hQ]
-    exact h1.symm
-  · exact key _ _ (h _ ⟨g, rfl⟩ _ ⟨g', rfl⟩) hQ g g' rfl rfl
 
 end Lift
 
@@ -205,64 +157,8 @@ theorem omegaConnected_of_dConnected_of_not_a2 [IsSimpleGroup G]
       · exact ih.2.tail ⟨hbc.1, commutes_of_not_a2 hK hA2 ih.1 hbc.1 hab hac hne hcomm⟩
   exact (key L' (hD L hL L' hL')).2
 
-theorem exists_commuting_partner_of_not_a2 [IsSimpleGroup G]
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hK : IsClassicalMember3 K z)
-    (hint : IsIntrinsicU (.sl2 3 1) K z) (hA2 : ¬ A2Configuration z K)
-    (hD : DConnected (CoreAssembly.conjClass K)) :
-    ∃ P ∈ CoreAssembly.conjClass K, Commutes K P := by
-  obtain ⟨M, N, a, u, hM, hN, ha, hu, hne, hcomm⟩ :=
-    exists_distinct_commuting_involutions hnab hK hint hD
-  have hMN := commutes_of_not_a2 hK hA2 hM hN ha hu hne hcomm
-  obtain ⟨x, hx⟩ := hM
-  have hx' : conjSub x K = M := hx
-  refine ⟨conjSub x⁻¹ N, mem_conjClass_conjSub hN x⁻¹, ?_⟩
-  have h1 := hMN.conjSub x⁻¹
-  rwa [← hx', conjSub_inv_conjSub] at h1
-
-theorem deltaConnected_of_dConnected_sat_of_not_a2 [IsSimpleGroup G]
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hz : IsClassicalMemberU (.sl2 3 1) K z)
-    (hA2 : ¬ A2Configuration z (satU (.sl2 3 1) K z))
-    (hD : DConnected (CoreAssembly.conjClass (satU (.sl2 3 1) K z))) :
-    CFSG.ClassicalInvolution.DeltaConnected K := by
-  have hS : IsClassicalMember3 (satU (.sl2 3 1) K z) z := (hz.satU_member).toQ3 (by norm_num)
-  have hint := isIntrinsicU_satU (.sl2 3 1) K z
-  exact deltaConnected_of_omegaConnected
-    (omegaConnected_of_le le_satU (omegaConnected_of_dConnected_of_not_a2 hnab hS hint hA2 hD)
-      (exists_commuting_partner_of_not_a2 hnab hS hint hA2 hD))
 
 end TypeC
 
-@[expose] def NoDataA2D3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMemberU (.sl2 3 1) K z →
-      CITBelowT (.sl2 3 1) (Nat.card G) → 3 ≤ CFSG.Open.twoRank G →
-      ¬ TwoSubgroupsFourGenerated G →
-      DConnected (CoreAssembly.conjClass (satU (.sl2 3 1) K z)) →
-      ¬ BootData3 (conjClass3 (satU (.sl2 3 1) K z)) →
-      A2Configuration z (satU (.sl2 3 1) K z) →
-      CFSG.ClassicalInvolution.DeltaConnected K
-
-theorem noDataD3_of_noDataA2D3 (h : NoDataA2D3) : NoDataD3 :=
-  fun G _ _ _ hnab K z hz hBelow hr hlarge hD hdata => by
-    by_cases hA2 : A2Configuration z (satU (.sl2 3 1) K z)
-    · exact h G hnab K z hz hBelow hr hlarge hD hdata hA2
-    · exact deltaConnected_of_dConnected_sat_of_not_a2 hnab hz hA2 hD
-
-theorem dBridgeU_three_of_ED_A2 (h1 : BootTriple3ED) (h2 : BootNoTriple3ED) (h3 : NoDataA2D3) :
-    DBridgeU 3 1 :=
-  dBridgeU_three_of_ED h1 h2 (noDataD3_of_noDataA2D3 h3)
-
-@[expose] def SmallA2EmptyD3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMemberU (.sl2 3 1) K z →
-      CITBelowT (.sl2 3 1) (Nat.card G) → 3 ≤ CFSG.Open.twoRank G →
-      ¬ TwoSubgroupsFourGenerated G →
-      DConnected (CoreAssembly.conjClass (satU (.sl2 3 1) K z)) →
-      A2Configuration z (satU (.sl2 3 1) K z) →
-      BootData3 (conjClass3 (satU (.sl2 3 1) K z))
-
-theorem noDataA2D3_of_smallA2EmptyD3 (h : SmallA2EmptyD3) : NoDataA2D3 :=
-  fun G _ _ _ hnab K z hz hBelow hr hlarge hD hdata hA2 =>
-    absurd (h G hnab K z hz hBelow hr hlarge hD hA2) hdata
 
 end CFSG.ClassicalInvolution.Q3.Q3DB

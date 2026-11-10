@@ -15,9 +15,6 @@ open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
     ∀ J : Subgroup G, GLAPComponent p (K ⊓ Subgroup.centralizer (A : Set G)) J →
       IsChevSimple q (PSimple p J)
 
-theorem chevClosureAt_of_chevClosureQAt {G : Type} [Group G] [Finite G] {p : ℕ}
-    (h : ChevClosureQAt G p) : ChevClosureAt G p :=
-  fun hp hp2 X K A hX hK hKc hA hAK J hJ => h hp hp2 p hp X K A hX hK hKc hA hAK J hJ
 
 @[expose] def I2019At (G : Type) [Group G] [Finite G] (p : ℕ) : Prop :=
   p.Prime → p ≠ 2 → ∀ q : ℕ, q.Prime → q ≠ 2 → q ≠ p →

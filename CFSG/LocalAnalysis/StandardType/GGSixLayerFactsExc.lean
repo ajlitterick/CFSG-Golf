@@ -62,18 +62,6 @@ section Split
     ∃ g : ↥(adjointGroup τ K), ∀ x ∈ A,
       ((g * x * g⁻¹ : ↥(adjointGroup τ K)) : ModGL τ K) ∈ torusGroup τ K)
 
-theorem ggExcSplitCase_F4 {K : Type} [Field K] {p : ℕ} (hp : p.Prime) (hp3 : 3 < p)
-    {A : Subgroup ↥(adjointGroup .F4 K)} (hexp : ∀ x ∈ A, x ^ p = 1) (g : ↥(adjointGroup .F4 K))
-    (hg : ∀ x ∈ A, ((g * x * g⁻¹ : ↥(adjointGroup .F4 K)) : ModGL .F4 K) ∈ torusGroup .F4 K) :
-    GGExcSplitCase .F4 K p A :=
-  Or.inr ⟨CFSG.RankThree.PartOne.KE.not_dvd_card_weylGroup_F4 hp hp3, hexp, g, hg⟩
-
-theorem ggExcSplitCase_E {τ : Tag} (hτ : τ = .E7 ∨ τ = .E8) {K : Type} [Field K] {p : ℕ}
-    (hp : p.Prime) (hp7 : 7 < p) {A : Subgroup ↥(adjointGroup τ K)} (hexp : ∀ x ∈ A, x ^ p = 1)
-    (g : ↥(adjointGroup τ K))
-    (hg : ∀ x ∈ A, ((g * x * g⁻¹ : ↥(adjointGroup τ K)) : ModGL τ K) ∈ torusGroup τ K) :
-    GGExcSplitCase τ K p A :=
-  Or.inr ⟨CFSG.RankThree.PartOne.KE.not_dvd_card_weylGroup_E hp hp7 (Or.inr hτ), hexp, g, hg⟩
 
 theorem LayerExc.exists_subCoreFamily_of_splitCase {τ : Tag} {K : Type} [Field K] [Finite K]
     [CharP K 2] (hq : CFSG.IsQuasisimple ↥(adjointGroup τ K)) {p : ℕ} (hp : p.Prime)

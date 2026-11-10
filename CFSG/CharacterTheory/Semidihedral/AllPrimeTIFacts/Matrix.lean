@@ -115,17 +115,6 @@ theorem trace_sq_eq_four (a : Fˣ) (Y : SL F) (hY : Y.1 0 1 = (a : F) * Y.1 1 0)
   rw [hY] at hdet
   linear_combination hdisc + 4 * hdet
 
-theorem one_add_nilpotent_pow {N : Matrix (Fin 2) (Fin 2) F} (hN : N * N = 0) (k : ℕ) :
-    (1 + N) ^ k = 1 + (k : F) • N := by
-  induction k with
-  | zero => simp
-  | succ k ih =>
-    rw [pow_succ, ih]
-    simp only [Matrix.add_mul, Matrix.mul_add, Matrix.one_mul, Matrix.mul_one, Matrix.smul_mul,
-      hN, smul_zero, add_zero]
-    push_cast
-    rw [add_smul, one_smul]
-    abel
 
 theorem nilpotent_sub_one_pow {N : Matrix (Fin 2) (Fin 2) F} (hN : N * N = 0) (k : ℕ) :
     (N - 1) ^ k = (-1 : F) ^ k • (1 - (k : F) • N) := by
@@ -590,20 +579,6 @@ theorem torus_pow_four (a : Fˣ) {τ : SL F} (hτ : τ ∈ Torus F a)
   · linear_combination (τ.1 0 0 ^ 2 + (a : F) * τ.1 1 0 ^ 2 + 1) * hdet -
       8 * (a : F) * (τ.1 0 0 * τ.1 1 0) * hxy
 
-theorem mem_torus_of_commute (a : Fˣ) {w : SL F} (hw : w ∈ Torus F a) (hw0 : w.1 1 0 ≠ 0)
-    {Y : SL F} (hYw : Y * w = w * Y) : Y ∈ Torus F a := by
-  obtain ⟨h01, h11⟩ := (mem_torus_iff F a w).mp hw
-  have e00 := congrArg (fun X : SL F => X.1 0 0) hYw
-  have e01 := congrArg (fun X : SL F => X.1 0 1) hYw
-  simp only [sl_mul_val, h01, h11] at e00 e01
-  rw [mem_torus_iff]
-  constructor
-  · have : w.1 1 0 * (Y.1 0 1 + (a : F) * Y.1 1 0) = 0 := by linear_combination e00
-    have h := (mul_eq_zero.mp this).resolve_left hw0
-    linear_combination h
-  · have : ((a : F) * w.1 1 0) * (Y.1 1 1 - Y.1 0 0) = 0 := by linear_combination e01
-    have h := (mul_eq_zero.mp this).resolve_left (mul_ne_zero a.ne_zero hw0)
-    linear_combination h
 
 theorem torus_or_anticomm_of_conj (a : Fˣ) (h2 : (2 : F) ≠ 0) {w w' g : SL F}
     (hw : w ∈ Torus F a) (hw' : w' ∈ Torus F a) (hw0 : w.1 1 0 ≠ 0) (hg : g * w' = w * g) :

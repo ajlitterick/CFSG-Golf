@@ -212,18 +212,6 @@ private theorem ker_comp_mulEquiv {G Q Q' : Type*} [Group G] [Group Q] [Group Q'
   ext x
   simp
 
-theorem exists_cover_SL_three_four :
-    ∃ (E : Type) (_ : Group E) (_ : Finite E)
-      (p : E →* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)),
-      commutator E = ⊤ ∧ Function.Surjective p ∧ p.ker ≤ center E ∧
-        Nonempty (p.ker ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 4)) := by
-  set e := slEquiv (Fin 3) F4.equivGaloisField
-  refine ⟨Cover, inferInstance, inferInstance, e.toMonoidHom.comp pSL, commutator_cover,
-    e.surjective.comp pSL_surjective, ?_, ?_⟩
-  · rw [ker_comp_mulEquiv]
-    exact ker_pSL_le_ker_piX.trans ker_piX_le_center
-  · rw [ker_comp_mulEquiv]
-    exact nonempty_ker_pSL_mulEquiv
 
 theorem nonempty_mulEquiv_PSL3 {X : Type} [Group X] {K : Type} [Field K] [Finite K]
     (hK : Nat.card K = 2 ^ 2)
@@ -260,27 +248,5 @@ theorem exists_cover_of_lieModel (X : Type) [Group X]
     exact exists_cover_of_mulEquiv ψ
   all_goals exact absurd h0 (by norm_num)
 
-theorem exists_cover_of_models_lieModel (X : Type) [Group X]
-    (h : CFSG.Models.LieModel X .PSL 3 2 2) :
-    ∃ (E : Type) (_ : Group E) (_ : Finite E) (f : E →* X),
-      commutator E = ⊤ ∧ Function.Surjective f ∧ f.ker ≤ center E ∧
-        Nonempty (f.ker ≃* Multiplicative (ZMod 3) × Multiplicative (ZMod 4) ×
-          Multiplicative (ZMod 4)) := by
-  obtain ⟨-, ⟨-, K, _, _, hK, ⟨e⟩⟩ | ⟨h0, -⟩⟩ := h
-  · obtain ⟨ψ⟩ := nonempty_mulEquiv_PSL3 hK e
-    exact exists_cover_of_mulEquiv ψ
-  · exact absurd h0 (by norm_num)
-
-theorem four_four_cover_existence :
-    (∃ (E : Type) (_ : Group E) (_ : Finite E)
-      (p : E →* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)),
-      commutator E = ⊤ ∧ Function.Surjective p ∧ p.ker ≤ center E ∧
-        Nonempty (p.ker ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 4))) ∧
-    ∀ (X : Type) [Group X], CFSG.Blueprint.LieModel X .PSL 3 2 2 →
-      ∃ (E : Type) (_ : Group E) (_ : Finite E) (f : E →* X),
-        commutator E = ⊤ ∧ Function.Surjective f ∧ f.ker ≤ center E ∧
-          Nonempty (f.ker ≃* Multiplicative (ZMod 3) × Multiplicative (ZMod 4) ×
-            Multiplicative (ZMod 4)) :=
-  ⟨exists_cover_SL_three_four, exists_cover_of_lieModel⟩
 
 end CFSG.LieType.Multipliers.L34

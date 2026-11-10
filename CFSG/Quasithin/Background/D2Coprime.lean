@@ -60,16 +60,6 @@ theorem avgMap_of_mem_fixV {P : Subgroup (MulAut V)} (hP : Odd (Nat.card P))
   obtain ⟨k, hk⟩ := hP
   rw [hk, pow_succ, pow_mul, hV w, one_pow, one_mul]
 
-theorem avgMap_commutator {P : Subgroup (MulAut V)} {c : V} (hc : c ∈ commV P) :
-    avgMap P c = 1 := by
-  refine Subgroup.closure_induction (p := fun c _ => avgMap P c = 1) ?_ ?_ ?_ ?_ hc
-  · rintro _ ⟨g, hg, v, rfl⟩
-    rw [map_mul, avgMap_smul P hg, map_inv, mul_inv_cancel]
-  · exact map_one _
-  · intro a b _ _ ha hb
-    rw [map_mul, ha, hb, mul_one]
-  · intro a _ ha
-    rw [map_inv, ha, inv_one]
 
 theorem mul_avgMap_mem_commV {P : Subgroup (MulAut V)} (hP : Odd (Nat.card P))
     (hV : ∀ v : V, v ^ 2 = 1) (v : V) : v * avgMap P v ∈ commV P := by

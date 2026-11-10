@@ -99,8 +99,6 @@ theorem conjγ_inv' (g : Subgroup.normalizer (P : Set E)) (i : ℕ) (x : γ P i)
     change ((g : E) * h) * x * ((g : E) * h)⁻¹ = (g : E) * ((h : E) * x * (h : E)⁻¹) * (g : E)⁻¹
     group
 
-theorem γAut_apply (i : ℕ) (g : Subgroup.normalizer (P : Set E)) (x : γ P i) :
-    ((γAut P i g x : γ P i) : E) = g * x * (g : E)⁻¹ := rfl
 
 theorem layerConj_inv (g : Subgroup.normalizer (P : Set E)) (i : ℕ) (x : LayerQ P i) :
     layerConj ((g⁻¹ : Subgroup.normalizer (P : Set E)) : E) (g⁻¹).2 i
@@ -135,8 +133,6 @@ theorem layerConj_inv' (g : Subgroup.normalizer (P : Set E)) (i : ℕ) (x : Laye
     ext x
     exact layerConj_mul (P := P) g.2 h.2 i x
 
-theorem layerAut_apply (i : ℕ) (g : Subgroup.normalizer (P : Set E)) (x : LayerQ P i) :
-    layerAut P i g x = layerConj (g : E) g.2 i x := rfl
 
 end Aut
 

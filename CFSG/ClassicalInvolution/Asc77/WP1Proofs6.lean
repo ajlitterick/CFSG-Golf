@@ -109,10 +109,5 @@ theorem inf_sup_centers_eq {Δ : Set (Subgroup G)}
   rw [hxr, hZsplit]
   exact Subgroup.mul_mem _ (Subgroup.mem_sup_left hrZ) (Subgroup.mem_sup_right hz')
 
-variable (p f : ℕ) [Fact p.Prime]
-
-theorem l6_5 : L6_5 p f := by
-  intro _ _ G _ _ Ω _ Δ _ hcomm R hR
-  exact inf_sup_centers_eq hcomm hR
 
 end CFSG.ClassicalInvolution.Asc77

@@ -25,11 +25,6 @@ theorem link_T3 : KB.linkOk T4.amap T3.words = true := by quickRfl
 
 theorem t_pow : KB.powOk (KB.idAmap (nat_lit 5)) [[(4, true)]] tOrd CFSG.KC.HNA.rels = true := by quickRfl
 
-theorem t_conj_a : KB.relIn (KB.idAmap (nat_lit 5)) [(0, false), (4, true), (0, true), (4, true), (4, true)] CFSG.KC.HNA.rels = true := by quickRfl
-
-theorem t_conj_c : KB.relIn (KB.idAmap (nat_lit 5)) [(2, false), (4, true), (2, true), (4, false), (4, false)] CFSG.KC.HNA.rels = true := by quickRfl
-
-theorem t_conj_b : KB.relIn (KB.idAmap (nat_lit 5)) [(4, false), (1, false), (4, true), (1, true)] CFSG.KC.HNA.rels = true := by quickRfl
 
 theorem nord : Nat.beq CFSG.KD.HNA.NORD (Nat.mul (Nat.mul tOrd T3.N) T4.N) = true := by quickRfl
 

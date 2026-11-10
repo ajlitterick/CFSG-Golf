@@ -78,22 +78,11 @@ theorem actionHom_injective [Nontrivial V] (T : Module.End K V) (lambda : K)
     obtain ⟨x, hx⟩ := hy
     exact ⟨x, Subtype.ext hx⟩⟩
 
-theorem actionAdjoinEquiv_apply [Nontrivial V] (T : Module.End K V) (lambda : K)
-    [Fact (¬ IsSquare lambda)]
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) (x : extension lambda) :
-    (actionAdjoinEquiv T lambda hsq x : Module.End K V) = actionHom T lambda hsq x :=
-  rfl
 
 @[expose, instance_reducible] def actionModule (T : Module.End K V) (lambda : K)
     (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) : Module (extension lambda) V :=
   Module.compHom V (actionHom T lambda hsq).toRingHom
 
-theorem actionModule_smul (T : Module.End K V) (lambda : K)
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda)
-    (x : extension lambda) (v : V) :
-    letI := actionModule T lambda hsq
-    x • v = actionHom T lambda hsq x v :=
-  rfl
 
 theorem actionModule_root_smul (T : Module.End K V) (lambda : K)
     (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) (v : V) :

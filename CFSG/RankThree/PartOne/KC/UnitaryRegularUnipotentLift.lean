@@ -145,9 +145,6 @@ theorem unitaryAdjoint_zero : unitaryAdjoint h C (0 : Matrix (Fin n) (Fin n) K) 
   have := KCUnitaryLog.unitaryAdjoint_smul h C (0 : K) (0 : Matrix (Fin n) (Fin n) K)
   simpa using this
 
-theorem unitaryAdjoint_one' : unitaryAdjoint h C (1 : Matrix (Fin n) (Fin n) K) = 1 :=
-  KCUnitaryLog.unitaryAdjoint_one h C
-
 
 theorem commute_sub_smul_one (M : Matrix (Fin n) (Fin n) K) (a b : K) :
     Commute (M - a • (1 : Matrix (Fin n) (Fin n) K)) (M - b • (1 : Matrix (Fin n) (Fin n) K)) := by

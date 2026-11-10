@@ -50,11 +50,6 @@ omit [Finite G] in
 theorem P_pgroup (h : M4 O FA SD z S K₁ K₂) : IsPGroup 2 ↥(Pm S K₁ K₂) :=
   h.S_pgroup.to_inf_left
 
-omit [Finite G] in
-theorem Pm_le_S : Pm S K₁ K₂ ≤ S := inf_le_left
-
-omit [Finite G] in
-theorem Pm_le_K : Pm S K₁ K₂ ≤ K₁ ⊔ K₂ := inf_le_right
 
 theorem P_syl (h : M4 O FA SD z S K₁ K₂) : Syl2In (Pm S K₁ K₂) (K₁ ⊔ K₂) :=
   h.S_syl.inf_normal h.K_le_C (fun _ hc _ hk => h.C_norm_K hc hk)

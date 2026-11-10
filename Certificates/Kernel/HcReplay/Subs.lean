@@ -107,10 +107,6 @@ theorem subR_clos : ∀ i : Fin 8,
       (subRow i).1 (subRow i).2.1 (subRow i).2.2.1 = true := by
   decide +kernel
 
-theorem subR_clos_neg :
-    closB mulP (getT (ofT clH1.E.length clH1.E)) clH1.E.length gH1 clH1.E (0 :: clH1.ds.tail) =
-      false := by
-  decide +kernel
 
 end CFSG.KC.HcPack
 

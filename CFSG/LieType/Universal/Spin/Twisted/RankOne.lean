@@ -181,27 +181,6 @@ theorem spinAction_shortTorusElt_planeVec (i : Fin (n - 1)) {a : Fin 2 → K} (h
     wVec_eq_iff]
   simp
 
-theorem spinAction_shortTorusElt_inv_planeVec (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0)
-    (p : Fin 2 → K) :
-    spinAction (quadMinus n K b c) (shortTorusElt n hirr i a)⁻¹ (planeVec n p) =
-      planeVec n (planeRefl b c planeOne (planeRefl b c a p)) := by
-  refine spinAction_inv_apply_of_apply _ _ ?_
-  rw [spinAction_shortTorusElt_planeVec n hirr i ha, planeRefl_planeRefl planeNorm_planeOne_ne_zero,
-    planeRefl_planeRefl (planeNorm_ne_zero hirr ha)]
-
-theorem spinAction_shortTorusElt_inv_eVec (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0) :
-    spinAction (quadMinus n K b c) (shortTorusElt n hirr i a)⁻¹ (eVec n i) =
-      (planeNorm b c a)⁻¹ • eVec n i := by
-  refine spinAction_inv_apply_of_apply _ _ ?_
-  rw [map_smul, spinAction_shortTorusElt_eVec n hirr i ha, smul_smul,
-    inv_mul_cancel₀ (planeNorm_ne_zero hirr ha), one_smul]
-
-theorem spinAction_shortTorusElt_inv_fVec (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0) :
-    spinAction (quadMinus n K b c) (shortTorusElt n hirr i a)⁻¹ (fVec n i) =
-      planeNorm b c a • fVec n i := by
-  refine spinAction_inv_apply_of_apply _ _ ?_
-  rw [map_smul, spinAction_shortTorusElt_fVec n hirr i ha, smul_smul,
-    mul_inv_cancel₀ (planeNorm_ne_zero hirr ha), one_smul]
 
 theorem spinAction_shortWeyl_eVec (i : Fin (n - 1)) :
     spinAction (quadMinus n K b c) (shortWeyl n hirr i) (eVec n i) = -fVec n i := by
@@ -218,23 +197,6 @@ theorem spinAction_shortWeyl_planeVec (i : Fin (n - 1)) (p : Fin 2 → K) :
       planeVec n (planeRefl b c planeOne p) :=
   spinAction_shortWeylElt_planeVec n hirr i planeOne_ne_zero p
 
-theorem spinAction_shortWeyl_inv_eVec (i : Fin (n - 1)) :
-    spinAction (quadMinus n K b c) (shortWeyl n hirr i)⁻¹ (eVec n i) = -fVec n i := by
-  rw [← wVec_eVec, spinAction_shortWeyl_inv_wVec, ← wVec_fVec, ← neg_one_smul K (wVec n i _ _ _),
-    wVec_smul, wVec_eq_iff]
-  simp [planeRefl_zero]
-
-theorem spinAction_shortWeyl_inv_fVec (i : Fin (n - 1)) :
-    spinAction (quadMinus n K b c) (shortWeyl n hirr i)⁻¹ (fVec n i) = -eVec n i := by
-  rw [← wVec_fVec, spinAction_shortWeyl_inv_wVec, ← wVec_eVec, ← neg_one_smul K (wVec n i _ _ _),
-    wVec_smul, wVec_eq_iff]
-  simp [planeRefl_zero]
-
-theorem spinAction_shortWeyl_inv_planeVec (i : Fin (n - 1)) (p : Fin 2 → K) :
-    spinAction (quadMinus n K b c) (shortWeyl n hirr i)⁻¹ (planeVec n p) =
-      planeVec n (planeRefl b c planeOne p) := by
-  rw [← wVec_planeVec n i p, spinAction_shortWeyl_inv_wVec, ← wVec_planeVec, wVec_eq_iff]
-  simp
 
 theorem spinAction_shortTorusElt_eVec_of_ne {i j : Fin (n - 1)} (hij : j ≠ i) (a : Fin 2 → K) :
     spinAction (quadMinus n K b c) (shortTorusElt n hirr i a) (eVec n j) = eVec n j := by
@@ -274,13 +236,6 @@ theorem conj_shortNegHom_of_fVec (g : spinGroup (quadMinus n K b c)) (j : Fin (n
   rw [Submonoid.coe_mul, Submonoid.coe_mul, coe_shortNegHom, coe_conj_one_add_ι_mul_ι, hf, hp,
     coe_shortNegHom, planeVec_smul, map_smul, map_smul, smul_mul_assoc, mul_smul_comm]
 
-theorem conj_shortNegHom_of_eVec (g : spinGroup (quadMinus n K b c)) (j : Fin (n - 1))
-    {p q : Fin 2 → K} {r : K} (hf : spinAction (quadMinus n K b c) g (fVec n j) = r • eVec n j)
-    (hp : spinAction (quadMinus n K b c) g (planeVec n p) = planeVec n q) :
-    g * shortNegHom n hirr j (.ofAdd p) * g⁻¹ = shortPosHom n hirr j (.ofAdd (r • q)) := by
-  apply Subtype.ext
-  rw [Submonoid.coe_mul, Submonoid.coe_mul, coe_shortNegHom, coe_conj_one_add_ι_mul_ι, hf, hp,
-    coe_shortPosHom, planeVec_smul, map_smul, map_smul, smul_mul_assoc, mul_smul_comm]
 
 theorem shortWeylElt_mem (i : Fin (n - 1)) (a : Fin 2 → K) :
     shortWeylElt n hirr i a ∈ (shortPosHom n hirr i).range ⊔ (shortNegHom n hirr i).range :=
@@ -303,57 +258,6 @@ theorem shortWeyl_sq_mem (i : Fin (n - 1)) : shortWeyl n hirr i ^ 2 ∈ shortTor
   rw [h]
   exact inv_mem (shortTorusElt_mem n hirr i (neg_ne_zero.2 planeOne_ne_zero))
 
-theorem shortWeyl_conj_shortPosHom (i : Fin (n - 1)) (p : Fin 2 → K) :
-    shortWeyl n hirr i * shortPosHom n hirr i (.ofAdd p) * (shortWeyl n hirr i)⁻¹ =
-      shortNegHom n hirr i (.ofAdd (-planeRefl b c planeOne p)) := by
-  rw [conj_shortPosHom_of_fVec n hirr _ i (r := -1)
-    (by rw [spinAction_shortWeyl_eVec, neg_one_smul]) (spinAction_shortWeyl_planeVec n hirr i p),
-    neg_one_smul]
-
-theorem shortWeyl_conj_shortNegHom (i : Fin (n - 1)) (p : Fin 2 → K) :
-    shortWeyl n hirr i * shortNegHom n hirr i (.ofAdd p) * (shortWeyl n hirr i)⁻¹ =
-      shortPosHom n hirr i (.ofAdd (-planeRefl b c planeOne p)) := by
-  rw [conj_shortNegHom_of_eVec n hirr _ i (r := -1)
-    (by rw [spinAction_shortWeyl_fVec, neg_one_smul]) (spinAction_shortWeyl_planeVec n hirr i p),
-    neg_one_smul]
-
-theorem shortWeyl_inv_conj_shortPosHom (i : Fin (n - 1)) (p : Fin 2 → K) :
-    (shortWeyl n hirr i)⁻¹ * shortPosHom n hirr i (.ofAdd p) * (shortWeyl n hirr i)⁻¹⁻¹ =
-      shortNegHom n hirr i (.ofAdd (-planeRefl b c planeOne p)) := by
-  rw [conj_shortPosHom_of_fVec n hirr _ i (r := -1)
-    (by rw [spinAction_shortWeyl_inv_eVec, neg_one_smul])
-    (spinAction_shortWeyl_inv_planeVec n hirr i p), neg_one_smul]
-
-theorem shortWeyl_inv_conj_shortNegHom (i : Fin (n - 1)) (p : Fin 2 → K) :
-    (shortWeyl n hirr i)⁻¹ * shortNegHom n hirr i (.ofAdd p) * (shortWeyl n hirr i)⁻¹⁻¹ =
-      shortPosHom n hirr i (.ofAdd (-planeRefl b c planeOne p)) := by
-  rw [conj_shortNegHom_of_eVec n hirr _ i (r := -1)
-    (by rw [spinAction_shortWeyl_inv_fVec, neg_one_smul])
-    (spinAction_shortWeyl_inv_planeVec n hirr i p), neg_one_smul]
-
-private theorem shortTorusElt_conj_mem_pos (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0)
-    (x : spinGroup (quadMinus n K b c)) (hx : x ∈ (shortPosHom n hirr i).range) :
-    shortTorusElt n hirr i a * x * (shortTorusElt n hirr i a)⁻¹ ∈ (shortPosHom n hirr i).range ∧
-      (shortTorusElt n hirr i a)⁻¹ * x * (shortTorusElt n hirr i a)⁻¹⁻¹ ∈
-        (shortPosHom n hirr i).range := by
-  obtain ⟨p, rfl⟩ := hx
-  rw [← ofAdd_toAdd p]
-  exact ⟨⟨_, (conj_shortPosHom_of_eVec n hirr _ i (spinAction_shortTorusElt_eVec n hirr i ha)
-    (spinAction_shortTorusElt_planeVec n hirr i ha _)).symm⟩,
-    ⟨_, (conj_shortPosHom_of_eVec n hirr _ i (spinAction_shortTorusElt_inv_eVec n hirr i ha)
-    (spinAction_shortTorusElt_inv_planeVec n hirr i ha _)).symm⟩⟩
-
-private theorem shortTorusElt_conj_mem_neg (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0)
-    (x : spinGroup (quadMinus n K b c)) (hx : x ∈ (shortNegHom n hirr i).range) :
-    shortTorusElt n hirr i a * x * (shortTorusElt n hirr i a)⁻¹ ∈ (shortNegHom n hirr i).range ∧
-      (shortTorusElt n hirr i a)⁻¹ * x * (shortTorusElt n hirr i a)⁻¹⁻¹ ∈
-        (shortNegHom n hirr i).range := by
-  obtain ⟨p, rfl⟩ := hx
-  rw [← ofAdd_toAdd p]
-  exact ⟨⟨_, (conj_shortNegHom_of_fVec n hirr _ i (spinAction_shortTorusElt_fVec n hirr i ha)
-    (spinAction_shortTorusElt_planeVec n hirr i ha _)).symm⟩,
-    ⟨_, (conj_shortNegHom_of_fVec n hirr _ i (spinAction_shortTorusElt_inv_fVec n hirr i ha)
-    (spinAction_shortTorusElt_inv_planeVec n hirr i ha _)).symm⟩⟩
 
 private theorem closure_le_normalizer {G : Type*} [Group G] {T : Set G} {S : Subgroup G}
     (h : ∀ g ∈ T, ∀ x ∈ S, g * x * g⁻¹ ∈ S ∧ g⁻¹ * x * g⁻¹⁻¹ ∈ S) :
@@ -366,15 +270,6 @@ private theorem closure_le_normalizer {G : Type*} [Group G] {T : Set G} {S : Sub
   simpa only [inv_inv, mul_assoc, inv_mul_cancel_left, inv_mul_cancel, mul_one] using
     (h g hg _ hx).2
 
-theorem shortTorus_le_normalizer_pos (i : Fin (n - 1)) :
-    shortTorus n hirr i ≤
-      Subgroup.normalizer ((shortPosHom n hirr i).range : Set (spinGroup (quadMinus n K b c))) :=
-  closure_le_normalizer fun _ ⟨_, ha, hg⟩ x hx => hg ▸ shortTorusElt_conj_mem_pos n hirr i ha x hx
-
-theorem shortTorus_le_normalizer_neg (i : Fin (n - 1)) :
-    shortTorus n hirr i ≤
-      Subgroup.normalizer ((shortNegHom n hirr i).range : Set (spinGroup (quadMinus n K b c))) :=
-  closure_le_normalizer fun _ ⟨_, ha, hg⟩ x hx => hg ▸ shortTorusElt_conj_mem_neg n hirr i ha x hx
 
 theorem shortPos_eq_one_of_mem_normalizer (i : Fin (n - 1)) {u : spinGroup (quadMinus n K b c)}
     (hu : u ∈ (shortPosHom n hirr i).range)
@@ -627,17 +522,6 @@ theorem shortWeyl_conj_mem_shortTorus [Finite K] (i : Fin (n - 1))
     mul_inv_cancel_right]
   exact shortRels_h_mem n hirr i (inv_ne_zero ht)
 
-theorem shortWeyl_inv_conj_mem_shortTorus [Finite K] (i : Fin (n - 1))
-    {g : spinGroup (quadMinus n K b c)} (hg : g ∈ shortTorus n hirr i) :
-    (shortWeyl n hirr i)⁻¹ * g * shortWeyl n hirr i ∈ shortTorus n hirr i := by
-  have := fact_shortField hirr
-  have := finite_shortField (b := b) (c := c)
-  set R := shortRels n hirr i
-  obtain ⟨a, ha, rfl⟩ := (mem_shortTorus_iff n hirr i).1 hg
-  obtain ⟨t, ht, he⟩ := exists_shortRels_h_eq n hirr i ha
-  rw [← he, ← shortRels_w_one n hirr i, mul_assoc,
-    R.h_mul_w_one (fun s t hs ht => R.h_mul hs ht) ht, inv_mul_cancel_left]
-  exact shortRels_h_mem n hirr i (inv_ne_zero ht)
 
 @[expose] noncomputable def shortTorusHom [Finite K] (i : Fin (n - 1)) :
     (ShortField b c)ˣ →* spinGroup (quadMinus n K b c) where
@@ -667,19 +551,6 @@ theorem range_shortTorusHom [Finite K] (i : Fin (n - 1)) :
     have ht : t ≠ 0 := fun h => ha (by rw [h]; ext k; fin_cases k <;> rfl)
     exact ⟨Units.mk0 t ht, rfl⟩
 
-theorem shortWeyl_conj_shortPosHom_of_ne {i j : Fin (n - 1)} (hij : j ≠ i) (p : Fin 2 → K) :
-    shortWeyl n hirr i * shortPosHom n hirr j (.ofAdd p) * (shortWeyl n hirr i)⁻¹ =
-      shortPosHom n hirr j (.ofAdd (planeRefl b c planeOne p)) := by
-  rw [conj_shortPosHom_of_eVec n hirr _ j (r := 1)
-    (by rw [one_smul]; exact spinAction_shortWeylElt_eVec_of_ne n hirr hij planeOne)
-    (spinAction_shortWeyl_planeVec n hirr i p), one_smul]
-
-theorem shortWeyl_conj_shortNegHom_of_ne {i j : Fin (n - 1)} (hij : j ≠ i) (p : Fin 2 → K) :
-    shortWeyl n hirr i * shortNegHom n hirr j (.ofAdd p) * (shortWeyl n hirr i)⁻¹ =
-      shortNegHom n hirr j (.ofAdd (planeRefl b c planeOne p)) := by
-  rw [conj_shortNegHom_of_fVec n hirr _ j (r := 1)
-    (by rw [one_smul]; exact spinAction_shortWeylElt_fVec_of_ne n hirr hij planeOne)
-    (spinAction_shortWeyl_planeVec n hirr i p), one_smul]
 
 theorem shortTorusElt_conj_shortPosHom (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0)
     (p : Fin 2 → K) :
@@ -689,13 +560,6 @@ theorem shortTorusElt_conj_shortPosHom (i : Fin (n - 1)) {a : Fin 2 → K} (ha :
   conj_shortPosHom_of_eVec n hirr _ i (spinAction_shortTorusElt_eVec n hirr i ha)
     (spinAction_shortTorusElt_planeVec n hirr i ha p)
 
-theorem shortTorusElt_conj_shortNegHom (i : Fin (n - 1)) {a : Fin 2 → K} (ha : a ≠ 0)
-    (p : Fin 2 → K) :
-    shortTorusElt n hirr i a * shortNegHom n hirr i (.ofAdd p) * (shortTorusElt n hirr i a)⁻¹ =
-      shortNegHom n hirr i
-        (.ofAdd ((planeNorm b c a)⁻¹ • planeRefl b c a (planeRefl b c planeOne p))) :=
-  conj_shortNegHom_of_fVec n hirr _ i (spinAction_shortTorusElt_fVec n hirr i ha)
-    (spinAction_shortTorusElt_planeVec n hirr i ha p)
 
 theorem shortTorusElt_conj_shortPosHom_of_ne {i j : Fin (n - 1)} (hij : j ≠ i) {a : Fin 2 → K}
     (ha : a ≠ 0) (p : Fin 2 → K) :

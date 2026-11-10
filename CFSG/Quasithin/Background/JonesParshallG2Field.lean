@@ -122,37 +122,5 @@ theorem g2Act_zornConj [CharP F 2] [CharP F' 2] (g : ↥(cayleyGroup F)) (w : Ix
 
 end RingEquiv
 
-variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
-
-theorem finrank_H1_G2Derived_two
-    {F : Type} [Field F] [Fintype F] (hF : Fintype.card F = 2)
-    {ρ : Representation (ZMod 2) Γ W} (h : Explicit.G2Natural ρ F .derived) :
-    Module.finrank (ZMod 2) (H1 ρ) = 1 := by
-  have : CharP F 2 := charP_of_card_eq_prime_pow (f := 1) (by rw [hF, pow_one])
-  obtain ⟨θ, β, hβ⟩ := G2Natural.intertwiner h
-  set e : F ≃+* ZMod 2 := (ZMod.ringEquivOfPrime F Nat.prime_two hF).symm
-  let θ' : Γ ≃* ↥subG2 := θ.trans (((zornConj e).subgroupMap _).trans
-    (MulEquiv.subgroupCongr ((map_cayley_commutator e).trans g2Two_commutator_eq)))
-  let β' : W ≃+ (Ix3 → ZMod 2) := β.trans (RingEquiv.piCongrRight fun _ : Ix3 => e).toAddEquiv
-  have hβ' : ∀ γ w, β' (ρ γ w) = muK (θ' γ) (β' w) := fun γ w => by
-    change (RingEquiv.piCongrRight fun _ : Ix3 => e) (β (ρ γ w)) =
-      muK (θ' γ) ((RingEquiv.piCongrRight fun _ : Ix3 => e) (β w))
-    rw [hβ, g2Act_zornConj]
-    rfl
-  have : Finite Γ := Finite.of_equiv _ θ'.toEquiv.symm
-  have : Finite W := Finite.of_equiv _ β'.toEquiv.symm
-  apply finrank_H1_of_card
-  rw [card_H1_eq_of_card ρ hβ' card_Z1A_K, pow_one]
-
-theorem finrank_H1_G2Derived
-    {F : Type} [Field F] [Fintype F] {a : ℕ}
-    (hF : Fintype.card F = 2 ^ a) (ha : 0 < a) {ρ : Representation (ZMod 2) Γ W}
-    (h : Explicit.G2Natural ρ F .derived) : Module.finrank (ZMod 2) (H1 ρ) = a := by
-  have : CharP F 2 := charP_of_card_eq_prime_pow hF
-  rcases Nat.lt_or_ge 1 a with h1 | h1
-  · exact finrank_H1_G2Derived_of_one_lt hF h1 h
-  · have ha1 : a = 1 := le_antisymm h1 ha
-    subst ha1
-    exact finrank_H1_G2Derived_two (by rw [hF, pow_one]) h
 
 end CFSG.Quasithin.JonesParshall

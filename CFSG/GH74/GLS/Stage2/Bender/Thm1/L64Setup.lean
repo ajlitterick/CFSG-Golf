@@ -285,8 +285,6 @@ theorem isPGroup_P1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
     IsPGroup r ↥(P1 z M N r) :=
   (isPGroup_Op r h.prime M).to_le (P1_le_Op ctx.z_mem)
 
-theorem P1_le_Fm (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) : P1 z M N r ≤ Fm M :=
-  (P1_le_Op ctx.z_mem).trans (Op_le_Fm r h.prime M)
 
 theorem sig4Sub (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
     Sig4Sub G z N r (P1 z M N r) := by
@@ -300,13 +298,6 @@ theorem sig4Sub (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
         ⟨le_normalizer_Op r M ctx.z_mem, Subgroup.le_normalizer h.z_mem⟩
     exact commutator_zpowers_idem ctx.orderOf_z h.prime hr2 hP hz
 
-theorem inf_Cen_le_normalizer_P1 (ctx : Ctx6 G z k S M p) :
-    N ⊓ Cen z ≤ normalizer ((P1 z M N r : Subgroup G) : Set G) :=
-  fun _ hc => mem_normalizer_P1 (ctx.cen_le hc.2) hc.1 hc.2
-
-theorem inf_Cen_le_normalizer_E1 (ctx : Ctx6 G z k S M p) :
-    N ⊓ Cen z ≤ normalizer ((E1 M N r : Subgroup G) : Set G) :=
-  fun _ hc => mem_normalizer_E1 (ctx.cen_le hc.2) hc.1
 
 theorem E1_le_centralizer_P1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
     E1 M N r ≤ centralizer ((P1 z M N r : Subgroup G) : Set G) := by
@@ -315,17 +306,11 @@ theorem E1_le_centralizer_P1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
   refine Subgroup.le_centralizer_iff.mp ?_
   exact (P1_le_Op ctx.z_mem).trans (h1.trans (Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr E1_le_Ep)))
 
-theorem B_le_centralizer_P1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
-    B ≤ centralizer ((P1 z M N r : Subgroup G) : Set G) :=
-  (B_le_E1 h).trans (E1_le_centralizer_P1 ctx h)
 
 theorem E1_le_inf_centralizer_P1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) {H : Subgroup G}
     (hEH : E1 M N r ≤ H) : E1 M N r ≤ H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G) :=
   le_inf hEH (E1_le_centralizer_P1 ctx h)
 
-theorem E1_le_cen_N (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
-    E1 M N r ≤ N ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G) :=
-  E1_le_inf_centralizer_P1 ctx h E1_le_N
 
 theorem normal_E1_of_le (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) {H : Subgroup G}
     (hEH : E1 M N r ≤ H) (hHN : H ≤ N) :
@@ -333,9 +318,6 @@ theorem normal_E1_of_le (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) {H : Su
   (Subgroup.normal_subgroupOf_iff_le_normalizer (E1_le_inf_centralizer_P1 ctx h hEH)).mpr
     (inf_centralizer_P1_le_normalizer_E1 h hHN)
 
-theorem normal_E1 (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
-    ((E1 M N r).subgroupOf (N ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G))).Normal :=
-  normal_E1_of_le ctx h E1_le_N le_rfl
 
 theorem coprime_card_Ep (hr : r.Prime) : Nat.Coprime r (Nat.card ↥(Ep r M)) := by
   have : Fact r.Prime := ⟨hr⟩
@@ -351,30 +333,6 @@ theorem odd_card_E1 (ctx : Ctx6 G z k S M p) :
     Odd (Nat.card ↥(E1 M N r)) :=
   Odd.of_dvd_nat (odd_card_Fm ctx.hyp ctx.mem) (Subgroup.card_dvd_of_le E1_le_Fm)
 
-theorem E1_le_pPrimeCoreOf_of_le (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) {H : Subgroup G}
-    (hEH : E1 M N r ≤ H) (hHN : H ≤ N) :
-    E1 M N r ≤ pPrimeCoreOf r (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)) := by
-  have hn := normal_E1_of_le ctx h hEH hHN
-  have hle0 := E1_le_inf_centralizer_P1 ctx h hEH
-  have hc : Nat.Coprime r (Nat.card ↥((E1 M N r).subgroupOf
-      (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)))) := by
-    have : Nat.card ↥((E1 M N r).subgroupOf (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G))) =
-        Nat.card ↥(E1 M N r) :=
-      Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle0).toEquiv
-    rw [this]
-    exact coprime_card_E1 h
-  have hle : (E1 M N r).subgroupOf (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)) ≤
-      pPrimeCore r ↥(H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)) :=
-    le_sSup ⟨hn, hc⟩
-  calc E1 M N r = ((E1 M N r).subgroupOf
-        (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G))).map
-          (H ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)).subtype :=
-        (Subgroup.map_subgroupOf_eq_of_le hle0).symm
-    _ ≤ _ := Subgroup.map_mono hle
-
-theorem E1_le_pPrimeCoreOf (ctx : Ctx6 G z k S M p) (h : Hyp62 z M N A B r) :
-    E1 M N r ≤ pPrimeCoreOf r (N ⊓ centralizer ((P1 z M N r : Subgroup G) : Set G)) :=
-  E1_le_pPrimeCoreOf_of_le ctx h E1_le_N le_rfl
 
 end WithCtx
 

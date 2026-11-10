@@ -8,11 +8,6 @@ namespace CFSG.QuasithinUnique.Vol2Native
 
 open CFSG.Open CFSG.Quasithin
 
-@[expose] def Lemma2_3_9_7_listed : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
-    ∀ (H S T' : Subgroup G) (z : G), IsGamma0 M H → IsSylowTwoOf S (H ⊓ M) →
-      IsSylowTwoOf T' M → S ≤ T' → z ∈ T' ⊓ Subgroup.centralizer (T' : Set G) → z ≠ 1 →
-      z ^ 2 = 1 → ∀ L : Subgroup G, IsComponentIn L H → IsListedComponent M S L z
 
 theorem inducesInner_of_inducesTwoCentralInner {G : Type} [Group G] {z : G} {L : Subgroup G}
     (h : Ch1.InducesTwoCentralInner z L) : Ch1.InducesInner z L := by
@@ -37,10 +32,5 @@ theorem lemma2_3_9_7_inner_of_list (hlist : Lemma115_3_List) :
   · exact hE.2
   · exact inducesInner_of_inducesTwoCentralInner hF.2
 
-theorem lemma2_3_9_7_of_listed (hlist : Lemma115_3_List) (hlisted : Lemma2_3_9_7_listed) :
-    Lemma2_3_9_7 := by
-  intro G _ _ T M h H S T' z hH hS hT' hST' hz hz1 hz2 L hL
-  exact ⟨lemma2_3_9_7_inner_of_list hlist G T M h H S T' z hH hS hT' hST' hz hz1 hz2 L hL,
-    hlisted G T M h H S T' z hH hS hT' hST' hz hz1 hz2 L hL⟩
 
 end CFSG.QuasithinUnique.Vol2Native

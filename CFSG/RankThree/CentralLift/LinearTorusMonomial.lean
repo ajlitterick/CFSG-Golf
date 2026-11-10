@@ -197,12 +197,6 @@ theorem hLin_eq {i j : Fin n} (hij : i ≠ j) (a : kˣ) :
     hLin π i j a = rhoLift π i j (sl2Diag a) := by
   rw [hLin, wLift_eq hk hπ hij, wLift_eq hk hπ hij, ← map_mul, wSL_mul_wSL_neg_one]
 
-theorem hLin_mul {i j : Fin n} (hij : i ≠ j) (a b : kˣ) :
-    hLin π i j (a * b) = hLin π i j a * hLin π i j b := by
-  rw [hLin_eq hk hπ hij, hLin_eq hk hπ hij, hLin_eq hk hπ hij, map_mul, map_mul]
-
-theorem hLin_one {i j : Fin n} (hij : i ≠ j) : hLin π i j 1 = 1 := by
-  rw [hLin_eq hk hπ hij, map_one, map_one]
 
 theorem hLin_inv {i j : Fin n} (hij : i ≠ j) (a : kˣ) : hLin π i j a⁻¹ = (hLin π i j a)⁻¹ := by
   rw [hLin_eq hk hπ hij, hLin_eq hk hπ hij, map_inv, map_inv]
@@ -234,13 +228,6 @@ theorem commute_hLin {i j k' l : Fin n} (hij : i ≠ j) (hkl : k' ≠ l) (a b : 
   simp only [Equiv.Perm.one_apply] at h
   exact (mul_inv_eq_iff_eq_mul.1 h).symm
 
-theorem torusLin_commute {x y : E} (hx : x ∈ torusLin π) (hy : y ∈ torusLin π) :
-    Commute x y := by
-  have hcomm := Subgroup.isMulCommutative_closure
-    (k := {x | ∃ (i j : Fin n) (a : kˣ), i ≠ j ∧ hLin π i j a = x}) (by
-      rintro _ ⟨i, j, a, hij, rfl⟩ _ ⟨k', l, b, hkl, rfl⟩ _
-      exact commute_hLin hk hπ hij hkl a b)
-  exact congrArg Subtype.val (hcomm.is_comm.comm (⟨x, hx⟩ : torusLin π) ⟨y, hy⟩)
 
 theorem hLin_trans {i j k' : Fin n} (hij : i ≠ j) (hjk : j ≠ k') (hik : i ≠ k') (a : kˣ) :
     hLin π i k' a = hLin π i j a * hLin π j k' a := by
@@ -576,10 +563,6 @@ theorem isLinePerm_coordPerm (A : monomialSL k n) :
     IsLinePerm (coordPerm k n A) ((A : SpecialLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k) :=
   isLinePerm_linePerm _
 
-theorem coordPerm_eq {A : monomialSL k n} {σ : Equiv.Perm (Fin n)}
-    (h : IsLinePerm σ ((A : SpecialLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k)) :
-    coordPerm k n A = σ :=
-  (isLinePerm_coordPerm A).unique h
 
 end Monomial
 
@@ -898,21 +881,6 @@ theorem ker_weylPerm : (weylPerm hk hπ).ker = (torusLin π).subgroupOf (monoLin
   rw [hχ (h1.trans (map_one _).symm), map_one] at hw
   exact (QuotientGroup.eq_one_iff g).1 hw.symm
 
-theorem injective_monoLin : Function.Injective (π.comp (monoLin π).subtype) := by
-  rw [injective_iff_map_eq_one]
-  intro g hg
-  have hg' : π g = 1 := hg
-  have h1 : g ∈ (weylPerm hk hπ).ker := by
-    refine MonoidHom.mem_ker.2 (weylPerm_eq hk hπ ?_)
-    rw [hg', Matrix.SpecialLinearGroup.coe_one]
-    exact isLinePerm_one
-  rw [ker_weylPerm hk hπ] at h1
-  have h2 : (π.comp (torusLin π).subtype) ⟨g, Subgroup.mem_subgroupOf.1 h1⟩ =
-      (π.comp (torusLin π).subtype) 1 := by
-    rw [map_one]
-    exact hg'
-  have h3 := congrArg Subtype.val (injective_torusLin hk hπ 0 h2)
-  exact Subtype.ext h3
 
 theorem map_monoLin : (monoLin π).map π = monomialSL k (m + 1) := by
   refine le_antisymm (Subgroup.map_le_iff_le_comap.2 (monoLin_le_comap hk hπ)) fun A hA => ?_
@@ -933,47 +901,6 @@ theorem map_monoLin : (monoLin π).map π = monomialSL k (m + 1) := by
 
 end Coxeter
 
-theorem odd_field_linear_central_large_prime_faithful_torus_and_monomial_lift {p ℓ f : ℕ}
-    (hp : p.Prime) (hp3 : 3 < p) (hℓ : ℓ.Prime) (hℓodd : Odd ℓ) (_hf : 1 ≤ f) {k : Type}
-    [Field k] (hk : Nat.card k = ℓ ^ f) {n : ℕ} (hn : 2 ≤ n) {E : Type*} [Group E] [Finite E]
-    (π : E →* SpecialLinearGroup (Fin n) k) (hπ : Function.Surjective π)
-    (hC : π.ker ≤ Subgroup.center E) (hCp : IsPGroup p π.ker) :
-    (∀ x ∈ torusLin π, ∀ y ∈ torusLin π, x * y = y * x) ∧
-    (∀ i j : Fin n, i ≠ j → ∀ a b : kˣ, hLin π i j (a * b) = hLin π i j a * hLin π i j b) ∧
-    (∀ i j : Fin n, i ≠ j → ∀ a : kˣ, hLin π j i a = hLin π i j a⁻¹) ∧
-    (∀ i j l : Fin n, i ≠ j → j ≠ l → i ≠ l → ∀ a : kˣ,
-      hLin π i l a = hLin π i j a * hLin π j l a) ∧
-    (Function.Injective (π.comp (torusLin π).subtype) ∧ (torusLin π).map π = diagonalSL k n) ∧
-    (Function.Injective (π.comp (monoLin π).subtype) ∧ (monoLin π).map π = monomialSL k n) ∧
-    (torusLin π ≤ monoLin π ∧ ((torusLin π).subgroupOf (monoLin π)).Normal ∧
-      ∃ φ : monoLin π →* Equiv.Perm (Fin n),
-        (∀ g : monoLin π, IsLinePerm (φ g)
-          ((π g : SpecialLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k)) ∧
-        Function.Surjective φ ∧ φ.ker = (torusLin π).subgroupOf (monoLin π)) ∧
-    (∀ (i : Fin n) (h : i.val + 1 < n), wAdj π i * wAdj π i = hLin π i ⟨i.val + 1, h⟩ (-1)) ∧
-    (∀ (g : E) (σ : Equiv.Perm (Fin n)) (c : Fin n → kˣ),
-      ((π g : SpecialLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k) =
-        signedPerm σ (fun x => (c x : k)) →
-      ∀ i j : Fin n, i ≠ j →
-        (∀ a : k, g * xLift π i j a * g⁻¹ = xLift π (σ i) (σ j) ((c i : k) / c j * a)) ∧
-        ∀ a : kˣ, g * hLin π i j a * g⁻¹ = hLin π (σ i) (σ j) a) := by
-  have : Finite k := Nat.finite_of_card_ne_zero (by rw [hk]; exact pow_ne_zero f hℓ.ne_zero)
-  have hk2 := ringChar_ne_two_of_card hℓ hℓodd hk
-  have hπ' : IsLargeCentralExt π := ⟨hπ, hC, p, hp, hp3, hCp⟩
-  obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 := ⟨n - 1, by omega⟩
-  refine ⟨fun x hx y hy => (torusLin_commute hk2 hπ' hx hy).eq,
-    fun i j hij a b => hLin_mul hk2 hπ' hij a b,
-    fun i j hij a => hLin_swap hk2 hπ' hij a,
-    fun i j l hij hjl hil a => hLin_trans hk2 hπ' hij hjl hil a,
-    ⟨injective_torusLin hk2 hπ' 0, map_torusLin hk2 hπ' 0⟩,
-    ⟨injective_monoLin hk2 hπ', map_monoLin hk2 hπ'⟩,
-    ⟨torusLin_le_monoLin π, normal_torusLin_subgroupOf hk2 hπ', weylPerm hk2 hπ',
-      isLinePerm_weylPerm hk2 hπ', weylPerm_surjective hk2 hπ', ker_weylPerm hk2 hπ'⟩,
-    fun i h => ?_, fun g σ c hg i j hij =>
-      ⟨fun a => conj_xLift_of_signedPerm hk2 hπ' hij hg a,
-        fun a => conj_hLin_of_signedPerm hk2 hπ' hij hg a⟩⟩
-  rw [wAdj, dite_eq_left h]
-  exact wLift_one_mul_self hk2 hπ' (ne_fin_succ i h)
 
 end LinearRoots
 

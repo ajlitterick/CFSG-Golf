@@ -137,13 +137,6 @@ variable {Y : Type} [Group Y] [Finite Y] {O : Subgroup Y} [O.Normal]
     θ.ker ≤ Subgroup.center (CFSG.Assembly.LowTwoRank.StatedSp 2 F) ∧
       (longBlock F 2 1).range.map θ = U
 
-theorem symplecticLongBlockImage_of_standardPair {F : Type} [Field F] {X : Type} [Group X]
-    {W U V : Subgroup X} (h : SymplecticBlockStandardPair F W U V) :
-    SymplecticLongBlockImage F U := by
-  obtain ⟨θ, c, -, hker, -, -, hU, -⟩ := h
-  refine ⟨θ.comp (MulAut.conj c⁻¹).toMonoidHom, WeakCT.ker_comp_mulEquiv_le_center hker _, ?_⟩
-  rw [WeakCT.map_comp_mulEquiv]
-  exact hU
 
 theorem comp_longBlock_injective {F : Type} [Field F] {X : Type} [Group X]
     {θ : CFSG.Assembly.LowTwoRank.StatedSp 2 F →* X}
@@ -172,14 +165,6 @@ theorem nonempty_equiv_sl2_of_symplecticLongBlockImage {F : Type} [Field F] [Fin
   exact nonempty_equiv_of_block hX₀ hOc hOodd (longBlock F 2 1) θ hker
     (comp_longBlock_injective hker) hK hU.symm
 
-theorem nonempty_equiv_sl2_of_symplecticBlockStandardPair {F : Type} [Field F] [Finite F]
-    {p f : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) (hF : Nat.card F = p ^ f) (h5 : 5 ≤ p ^ f)
-    (hOc : O ≤ Subgroup.center Y) (hOodd : Odd (Nat.card O)) {K : Subgroup Y}
-    (hK : K ≤ ⁅K, K⁆) {W V : Subgroup (Y ⧸ O)}
-    (h : SymplecticBlockStandardPair F W (K.map (QuotientGroup.mk' O)) V) :
-    Nonempty (K ≃* SL(2, F)) :=
-  nonempty_equiv_sl2_of_symplecticLongBlockImage hp2 hF h5 hOc hOodd hK
-    (symplecticLongBlockImage_of_standardPair h)
 
 end Symplectic
 

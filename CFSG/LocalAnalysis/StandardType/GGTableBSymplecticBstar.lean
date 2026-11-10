@@ -218,16 +218,6 @@ theorem ggBstarBound_symplectic [Finite K] [CharP K 2] {p : ℕ} (hp : p.Prime) 
     have := (Nat.pow_le_pow_iff_right hp.one_lt).mp h5
     omega
 
-theorem recipeSymplectic_torusLift_bstarBound {l n p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpn : p ∣ 2 ^ n - 1) (hl : 1 ≤ l) {Q : LargeEvenRawCont}
-    (h : LargeEvenRecipeSymplectic l (2 ^ n) false Q) :
-    LargeEvenRecipeSymplectic l (2 ^ n) false fun R _ I F =>
-      Q R I F ∧ ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I := by
-  obtain ⟨K, _, _, hK, hQ⟩ := h
-  have := charP_two_of_card hK
-  exact ⟨K, inferInstance, inferInstance, hK, hQ, l,
-    ggTorusLift_symplectic hp hp2 (by rw [hK]; exact hpn) hl,
-    ggBstarBound_symplectic hp hp2 (by rw [hK]; exact hpn) hl⟩
 
 end TableBSymp
 

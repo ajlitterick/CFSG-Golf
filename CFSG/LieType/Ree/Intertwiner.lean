@@ -177,18 +177,6 @@ theorem range_lengthMap : LinearMap.range (t.lengthMap R) = t.shortModule R := b
     shortModule_eq_supported]
   rfl
 
-theorem lengthMap_mul_self : t.lengthMap R * t.lengthMap R = 0 := by
-  rw [lengthMap_eq_signedSwap]
-  exact signedSwap_mul_self isShortLabel_dualLabel labelSign_mul_self
-
-theorem exists_shortModule_equiv :
-    ∃ (f : Fin t.shortDim ≃ t.shortLabels) (e : t.shortModule R ≃ₗ[R] (Fin t.shortDim → R)),
-      ∀ k, (e.symm (Pi.single k 1) : RootModule t.tag R) = Finsupp.single (f k).1 1 := by
-  let f : Fin t.shortDim ≃ t.shortLabels :=
-    (finCongr (card_shortLabels t).symm).trans (Finite.equivFin _).symm
-  refine ⟨f, ((t.shortBasis R).reindex f.symm).equivFun, fun k => ?_⟩
-  rw [Module.Basis.equivFun_symm_apply]
-  simp [Pi.single_apply, coe_shortBasis]
 
 theorem xOp_mem_shortModule (hp : (t.prime : R) = 0) (i : Fin t.tag.rank) (c : R)
     {v : RootModule t.tag R} (hv : v ∈ t.shortModule R) :
@@ -224,23 +212,5 @@ end ReeTag
 
 open ReeTag
 
-theorem exceptional_polynomial_intertwiner (t : ReeTag) (R : Type*) [CommRing R]
-    (hp : (t.prime : R) = 0) :
-    (∃ (f : Fin t.shortDim ≃ t.shortLabels) (e : t.shortModule R ≃ₗ[R] (Fin t.shortDim → R)),
-      ∀ k, (e.symm (Pi.single k 1) : RootModule t.tag R) = Finsupp.single (f k).1 1) ∧
-    LinearMap.ker (t.lengthMap R) = t.shortModule R ∧
-    LinearMap.range (t.lengthMap R) = t.shortModule R ∧
-    t.lengthMap R * t.lengthMap R = 0 ∧
-    (∀ (i : Fin t.tag.rank) (c : R),
-      (t.shortModule R).map (xOp t.tag R i c) = t.shortModule R ∧
-        (t.shortModule R).map (yOp t.tag R i c) = t.shortModule R) ∧
-    ∀ (i : Fin t.tag.rank) (c : R),
-      t.lengthMap R * xOp t.tag R i c =
-          xOp t.tag R (t.perm i) (c ^ t.exponent i) * t.lengthMap R ∧
-        t.lengthMap R * yOp t.tag R i c =
-          yOp t.tag R (t.perm i) (c ^ t.exponent i) * t.lengthMap R :=
-  ⟨exists_shortModule_equiv R, ker_lengthMap R, range_lengthMap R, lengthMap_mul_self R,
-    fun i c => ⟨map_xOp_shortModule R hp i c, map_yOp_shortModule R hp i c⟩,
-    fun i c => ⟨lengthMap_mul_xOp R hp i c, lengthMap_mul_yOp R hp i c⟩⟩
 
 end CFSG.LieType.Ree

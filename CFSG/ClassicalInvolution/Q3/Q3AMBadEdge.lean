@@ -51,15 +51,6 @@ section Edge
 
 variable {G : Type} [Group G] [Finite G] {K : Subgroup G} {z : G} {M N : Subgroup G} {a t : G}
 
-theorem ne_of_not_centralizes (ht : IsClassicalMember3 N t)
-    (hbad : ¬ ∀ x ∈ oddCoreOf N, a * x = x * a) : a ≠ t := by
-  intro hat
-  apply hbad
-  intro x hx
-  have hxN : x ∈ N := oddCoreIn_le N hx
-  have hxc : x ∈ Subgroup.centralizer ({t} : Set G) := isSubnormal_le ht.subnormal hxN
-  rw [hat]
-  exact (Subgroup.mem_centralizer_singleton_iff.mp hxc).symm
 
 namespace EdgeSetup
 
@@ -77,10 +68,6 @@ theorem intrinsic' (h : EdgeSetup K z M N a t) :
     oddCoreIn (Subgroup.centralizer ({z} : Set G)) ≤ K :=
   h.intrinsic (MemberType.isSolvableType_sl2.mpr (by norm_num))
 
-theorem oddCoreIn_M (h : EdgeSetup K z M N a t) :
-    oddCoreIn M = oddCoreIn (Subgroup.centralizer ({a} : Set G)) :=
-  oddCoreIn_eq_of_intrinsic3 h.invM
-    (oddCoreIn_centralizer_le_of_mem_conjClass h.member h.intrinsic' h.memM h.invM)
 
 theorem oddCoreIn_N (h : EdgeSetup K z M N a t) :
     oddCoreIn N = oddCoreIn (Subgroup.centralizer ({t} : Set G)) :=
@@ -190,18 +177,6 @@ theorem symm (h : EdgeSetup K z M N a t) : EdgeSetup K z N M t a := by
     ⟨h.memM, h.ne_MN.symm, R', mem_RSet_of_isSylow2In h.memM hp.syl_R', hp.syl_R'.1,
       hp.norm_R'⟩)
 
-theorem theta_le_centralizer (h : EdgeSetup K z M N a t) :
-    N ⊔ M ⊓ Subgroup.centralizer ({t} : Set G) ≤ Subgroup.centralizer ({t} : Set G) :=
-  sup_le (isSubnormal_le h.invN.subnormal) inf_le_right
-
-theorem theta_le_normalizer_oddCore (h : EdgeSetup K z M N a t) :
-    N ⊔ M ⊓ Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (oddCoreOf N : Set G) := by
-  have h1 : Subgroup.normalizer (oddCoreOf N : Set G) =
-      Subgroup.normalizer (oddCoreIn (Subgroup.centralizer ({t} : Set G)) : Set G) := by
-    show Subgroup.normalizer (oddCoreIn N : Set G) = _
-    rw [h.oddCoreIn_N]
-  rw [h1]
-  exact h.theta_le_centralizer.trans (normalizer_oddCoreIn _)
 
 end EdgeSetup
 
@@ -293,96 +268,11 @@ theorem commutator_centM_le_oddCore (h : EdgeSetup K z M N a t)
     (fun y hy => h.conjSub_eq_of_mem_centM hnab hBelow y hy)
     (fun r hr v hv => hp.commutator_centM_mem_oddCore h hnab hBelow v hv r hr) n hn x hx
 
-theorem conjSub_eq_of_mem_centN (h : EdgeSetup K z M N a t) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hBelow : CIT3Below (Nat.card G)) :
-    ∀ x ∈ N ⊓ Subgroup.centralizer ({a} : Set G), conjSub x M = M :=
-  h.symm.conjSub_eq_of_mem_centM hnab hBelow
-
-theorem commutator_centN_le_oddCore (h : EdgeSetup K z M N a t)
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hBelow : CIT3Below (Nat.card G)) :
-    ∀ x ∈ N ⊓ Subgroup.centralizer ({a} : Set G), ∀ m ∈ M, ⁅x, m⁆ ∈ oddCoreOf M :=
-  h.symm.commutator_centM_le_oddCore hnab hBelow
-
-theorem theta_le_normalizer (h : EdgeSetup K z M N a t) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hBelow : CIT3Below (Nat.card G)) :
-    N ⊔ M ⊓ Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (N : Set G) :=
-  sup_le Subgroup.le_normalizer
-    (fun x hx => mem_normalizer_iff_conjSub_eq.mpr (h.conjSub_eq_of_mem_centM hnab hBelow x hx))
 
 theorem exists_mul_centM (h : EdgeSetup K z M N a t) :
     ∀ x ∈ M, ∃ i ∈ M ⊓ Subgroup.centralizer ({t} : Set G), ∃ n ∈ oddCoreOf M, x = i * n :=
   eq_mul_of_mem_omegaNbr h.member h.intrinsic h.symm.nbr h.invN h.invM
 
-theorem oddCore_inf_eq (h : EdgeSetup K z M N a t) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hBelow : CIT3Below (Nat.card G)) :
-    oddCoreOf M ⊓ oddCoreOf N = oddCoreOf M ⊓ Subgroup.centralizer ({t} : Set G) ∧
-      oddCoreOf M ⊓ oddCoreOf N = oddCoreOf N ⊓ Subgroup.centralizer ({a} : Set G) := by
-  have hNc : N ≤ Subgroup.centralizer ({t} : Set G) := isSubnormal_le h.invN.subnormal
-  have hMc : M ≤ Subgroup.centralizer ({a} : Set G) := isSubnormal_le h.invM.subnormal
-  have hAM : oddCoreOf M ≤ M := oddCoreIn_le M
-  have hTN : oddCoreOf N ≤ N := oddCoreIn_le N
-  refine ⟨le_antisymm (le_inf inf_le_left (inf_le_right.trans (hTN.trans hNc))) ?_,
-    le_antisymm (le_inf inf_le_right (inf_le_left.trans (hAM.trans hMc))) ?_⟩
-  · intro x hx
-    have hxm : x ∈ Subgroup.centralizer ({t} : Set G) ⊓ oddCoreIn M := ⟨hx.2, hx.1⟩
-    have h1 := centralizer_inf_oddCoreIn_le_of_mem_omegaNbr hnab h.member h.intrinsic hBelow
-      h.symm.nbr h.invN h.invM hxm
-    refine ⟨hx.1, ?_⟩
-    have h2 : x ∈ oddCoreIn N := by
-      rw [h.oddCoreIn_N]
-      exact h1
-    exact h2
-  · intro x hx
-    have hxm : x ∈ Subgroup.centralizer ({a} : Set G) ⊓ oddCoreIn N := ⟨hx.2, hx.1⟩
-    have h1 := centralizer_inf_oddCoreIn_le_of_mem_omegaNbr hnab h.member h.intrinsic hBelow
-      h.nbr h.invM h.invN hxm
-    refine ⟨?_, hx.1⟩
-    have h2 : x ∈ oddCoreIn M := by
-      rw [h.oddCoreIn_M]
-      exact h1
-    exact h2
-
-theorem card_oddCore_eq (h : EdgeSetup K z M N a t) :
-    Nat.card ↥(oddCoreOf M) = Nat.card ↥(oddCoreOf N) := by
-  obtain ⟨g, hg0⟩ := h.memM
-  obtain ⟨g', hg0'⟩ := h.memN
-  have hg : conjSub g K = M := hg0
-  have hg' : conjSub g' K = N := hg0'
-  have hcard : ∀ (g : G) (X : Subgroup G), Nat.card ↥(conjSub g X) = Nat.card ↥X := fun g X =>
-    (Nat.card_congr (Subgroup.equivMapOfInjective X (MulAut.conj g).toMonoidHom
-      (MulAut.conj g).injective).toEquiv).symm
-  show Nat.card ↥(oddCoreIn M) = Nat.card ↥(oddCoreIn N)
-  rw [← hg, ← hg', Bootstrap.oddCoreIn_conjSub_eq, Bootstrap.oddCoreIn_conjSub_eq,
-    hcard, hcard]
-
-theorem centralizes_iff_oddCore_eq (h : EdgeSetup K z M N a t) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hBelow : CIT3Below (Nat.card G)) :
-    (∀ x ∈ oddCoreOf N, a * x = x * a) ↔ oddCoreOf M = oddCoreOf N := by
-  refine (oddCoreIn_le_oddCoreIn_iff hnab h.member h.intrinsic hBelow h.memM h.nbr h.invM
-    h.invN).symm.trans ?_
-  constructor
-  · intro hle
-    exact (Subgroup.eq_of_le_of_card_ge hle (le_of_eq h.card_oddCore_eq)).symm
-  · intro heq
-    exact heq.symm.le
-
-theorem not_le_of_not_centralizes (h : EdgeSetup K z M N a t) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hBelow : CIT3Below (Nat.card G)) (hbad : ¬ ∀ x ∈ oddCoreOf N, a * x = x * a) :
-    ¬ oddCoreOf N ≤ oddCoreOf M ∧ ¬ oddCoreOf M ≤ oddCoreOf N ∧
-      ∃ x ∈ oddCoreOf M, t * x ≠ x * t := by
-  have h1 : ¬ oddCoreOf N ≤ oddCoreOf M := fun hle =>
-    hbad ((oddCoreIn_le_oddCoreIn_iff hnab h.member h.intrinsic hBelow h.memM h.nbr h.invM
-      h.invN).mp hle)
-  have h2 : ¬ oddCoreOf M ≤ oddCoreOf N := by
-    intro hle
-    have heq : oddCoreOf M = oddCoreOf N :=
-      Subgroup.eq_of_le_of_card_ge hle (le_of_eq h.card_oddCore_eq.symm)
-    exact h1 heq.symm.le
-  refine ⟨h1, h2, ?_⟩
-  by_contra hcon
-  push Not at hcon
-  exact h2 ((oddCoreIn_le_oddCoreIn_iff hnab h.member h.intrinsic hBelow h.symm.memM
-    h.symm.nbr h.invN h.invM).mpr hcon)
 
 end EdgeSetup
 

@@ -197,29 +197,6 @@ The equivariance condition is stated pointwise in the usual direction.
     exact LinearMap.congr_fun (hf h) x
 
 
-/-- The action of a group element as a linear equivalence. -/
-@[expose] noncomputable def rhoLinearEquiv {H : Type v} [Group H]
-    (σ : FDRep k H) (h : H) :
-    σ.V.obj ≃ₗ[k] σ.V.obj :=
-  { toLinearMap := σ.ρ h
-    invFun := fun v => σ.ρ h⁻¹ v
-    left_inv := by
-      intro v
-      calc
-        σ.ρ h⁻¹ (σ.ρ h v)
-            = σ.ρ (h⁻¹ * h) v := by
-                rw [map_mul]
-                rfl
-        _ = v := by simp
-    right_inv := by
-      intro v
-      calc
-        σ.ρ h (σ.ρ h⁻¹ v)
-            = σ.ρ (h * h⁻¹) v := by
-                rw [map_mul]
-                rfl
-        _ = v := by simp }
-
 end HomExt
 
 section quotient
@@ -338,10 +315,6 @@ theorem subsingleton_of_IsZero {V : FDRep k G} (hV : IsZero V) :
     Subsingleton V :=
   (isZero_iff_subsingleton V).mp hV
 
-/-- A representation with subsingleton underlying vector space is a zero object. -/
-theorem isZero_of_subsingleton (V : FDRep k G) [Subsingleton V] :
-    IsZero V :=
-  (isZero_iff_subsingleton V).mpr inferInstance
 
 end zero
 
@@ -489,106 +462,10 @@ The canonical inclusion of a stable submodule representation.
     (ofSubmoduleIncl X K hK).hom x = (x : X) := by
   rfl
 
-/--
-In `FDRep`, a morphism is mono iff its underlying linear map is injective.
--/
-lemma mono_iff_injective
-    {V W : FDRep k G} (f : V ⟶ W) :
-    Mono f ↔ Function.Injective (homToLinearMap f) := by
-  constructor
-  · intro hf
-    let K : Submodule k V := LinearMap.ker (homToLinearMap f)
-
-    have hK : ∀ g : G, K ≤ K.comap (V.ρ g) := by
-      intro g x hx
-      change homToLinearMap f (V.ρ g x) = 0
-      calc
-        homToLinearMap f (V.ρ g x)
-            = W.ρ g (homToLinearMap f x) := homToLinearMap_comm f g x
-        _ = W.ρ g 0 := by
-                rw [LinearMap.mem_ker.mp hx]
-        _ = 0 := by
-                simp
-
-    let Krep : FDRep k G := ofSubmodule V K hK
-    let i : Krep ⟶ V := ofSubmoduleIncl V K hK
-
-    have hcomp : i ≫ f = 0 := by
-      apply hom_ext
-      intro x
-      dsimp [Krep, ofSubmodule] at x
-      have hxker :
-          homToLinearMap f (((x : K) : V)) = 0 :=
-        LinearMap.mem_ker.mp (x : K).2
-      exact LinearMap.mem_ker.mp hxker
-
-    have hi_zero : i = 0 := zero_of_comp_mono f hcomp
-
-    have hker : K = ⊥ := by
-      refine eq_bot_iff.mpr ?_
-      intro x hx
-      let xK : K := ⟨x, hx⟩
-      have hx0 : (x : V) = 0 := by
-        have hzero :
-            homToLinearMap (ofSubmoduleIncl V K hK) xK = 0 := by
-          change homToLinearMap i xK = 0
-          rw [hi_zero]
-          rfl
-        have hincl :
-            homToLinearMap (ofSubmoduleIncl V K hK) xK = (xK : V) :=
-          ofSubmoduleIncl_apply V K hK xK
-        exact hincl.symm.trans hzero
-      exact (Submodule.mem_bot k).mpr hx0
-
-    exact LinearMap.ker_eq_bot.mp hker
-
-  · intro hinj
-    refine ⟨fun {Z} g h hgh => ?_⟩
-    apply hom_ext
-    intro x
-    apply hinj
-    have hpoint :=
-      congrArg (fun q : Z ⟶ W => homToLinearMap q x) hgh
-    exact LinearMap.congr_arg (hinj hpoint)
-
-lemma hom_injective_of_mono
-    {V W : FDRep k G} (f : V ⟶ W) [Mono f] :
-    Function.Injective f.hom :=
-  (mono_iff_injective (f := f)).1 inferInstance
-
-lemma cancel_hom_of_mono
-    {V W : FDRep k G} (f : V ⟶ W) [Mono f]
-    {x y : V}
-    (h : f.hom x = f.hom y) :
-    x = y :=
-  (hom_injective_of_mono (f := f)) h
 
 end Submodule
 
 section misc
-
-/--
-Postcomposition with an isomorphism gives a linear equivalence on morphism
-spaces.
--/
-@[expose] noncomputable def postcompIsoLinearEquiv
-    {k : Type u} [CommRing k]
-    {G : Type v} [Monoid G]
-    {X Y Z : FDRep k G}
-    (e : Y ≅ Z) :
-    (X ⟶ Y) ≃ₗ[k] (X ⟶ Z) where
-  toFun f := f ≫ e.hom
-  invFun f := f ≫ e.inv
-  left_inv f := by
-    simp [Category.assoc]
-  right_inv f := by
-    simp [Category.assoc]
-  map_add' f g := by
-    ext x
-    simp
-  map_smul' c f := by
-    ext x
-    simp
 
 
 /-- The finite-dimensional left regular representation as a Mathlib `FDRep`. -/

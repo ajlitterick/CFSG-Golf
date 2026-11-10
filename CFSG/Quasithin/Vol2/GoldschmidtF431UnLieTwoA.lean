@@ -43,15 +43,6 @@ theorem mem_Ln_iff {x : Xg h} :
     x ∈ Ln h ↔ (x : GL (Fin 4) K) ∈ Subgroup.normalizer (miyamotoA1 h : Set (GL (Fin 4) K)) :=
   mem_normalizer_sg_iff h (miyamotoUnipotent_le_SU h true false)
 
-theorem mem_Pt_iff_levi {x : Xg h} :
-    x ∈ Pt h ↔ (x : GL (Fin 4) K) ∈ miyamotoA2 h ⊔ (miyamotoI2 h ⊔ miyamotoN2 h) := by
-  rw [mem_Pt_iff, ← normalizer_miyamotoA2 h]
-  exact ⟨fun hx => ⟨x.2, hx⟩, fun hx => hx.2⟩
-
-theorem mem_Ln_iff_levi {x : Xg h} :
-    x ∈ Ln h ↔ (x : GL (Fin 4) K) ∈ miyamotoA1 h ⊔ (miyamotoI1 h ⊔ miyamotoN1 h) := by
-  rw [mem_Ln_iff, ← normalizer_miyamotoA1 h]
-  exact ⟨fun hx => ⟨x.2, hx⟩, fun hx => hx.2⟩
 
 theorem cls_Xg (x : Xg h) (hx : orderOf x = 2) : IsConj (z1X h) x ∨ IsConj (z2X h) x := by
   have hxGL : orderOf (x : GL (Fin 4) K) = 2 :=

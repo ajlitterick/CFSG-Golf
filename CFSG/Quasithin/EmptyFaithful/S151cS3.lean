@@ -154,16 +154,6 @@ theorem block_card_centralizer (h : Setting151c X Tb Xc) {r : ℚ}
   have hcard : Nat.card ↥(commV L) = 16 := hS.card_commV h.sq
   exact S3mod_card_centralizer_of_equiv hUsq hcard e (block_hfix h hr hr2 hI hL e)
 
-theorem block_isOmegaFourPlus (h : Setting151c X Tb Xc) {r : ℚ}
-    (hr : qhatOf X = (r : WithTop ℚ)) (hr2 : r ≤ 2) {I : Finset (Subgroup (MulAut V))}
-    (hI : IsBlocks216 (Jhat X) I) {L : Subgroup (MulAut V)} (hL : L ∈ I) (hS : S3Block L) :
-    IsOmegaFourPlus (autSub L (commV L) ⊔
-      Subgroup.centralizer (autSub L (commV L) : Set (MulAut ↥(commV L)))) := by
-  have hs := suppData_block h hI hL
-  obtain ⟨⟨e⟩, -⟩ := (S3Block_iff hs).mp hS
-  have hUsq : ∀ v : ↥(commV L), v ^ 2 = 1 := fun v => Subtype.ext (h.sq v)
-  have hcard : Nat.card ↥(commV L) = 16 := hS.card_commV h.sq
-  exact isOmegaFourPlus_of_S3_centralizer hUsq hcard e (block_hfix h hr hr2 hI hL e)
 
 theorem eq_of_order_three_commute (h : Setting151c X Tb Xc) {I : Finset (Subgroup (MulAut V))}
     (hI : IsBlocks216 (Jhat X) I) {L₁ : Subgroup (MulAut V)} (hL₁ : L₁ ∈ I)

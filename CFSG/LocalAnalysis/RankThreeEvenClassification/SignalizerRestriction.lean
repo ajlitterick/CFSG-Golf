@@ -79,22 +79,6 @@ theorem restrictedSignalizer_isSolvableSignalizerFunctor
           congrArg (fun value : signalizer element => (value : G)) heq
         exact Subtype.ext (Subtype.ext hvalue))
 
-theorem subgroup_map_subtype_inf_centralizer_singleton
-    {G : Type u} [Group G] (overgroup : Subgroup G) (subgroup : Subgroup overgroup)
-    (element : overgroup) :
-    (subgroup ⊓ Subgroup.centralizer ({element} : Set overgroup)).map overgroup.subtype =
-      subgroup.map overgroup.subtype ⊓ Subgroup.centralizer ({(element : G)} : Set G) := by
-  ext other
-  constructor
-  · rintro ⟨preimage, hpreimage, rfl⟩
-    refine ⟨Subgroup.mem_map_of_mem overgroup.subtype hpreimage.1,
-      Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-    exact congrArg (fun value : overgroup => (value : G))
-      (Subgroup.mem_centralizer_singleton_iff.mp hpreimage.2)
-  · rintro ⟨⟨preimage, hpreimage, rfl⟩, hcentralizer⟩
-    refine ⟨preimage, ⟨hpreimage, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩, rfl⟩
-    apply Subtype.ext
-    exact Subgroup.mem_centralizer_singleton_iff.mp hcentralizer
 
 theorem signalizer_compatible_restriction_iff
     {G : Type u} [Group G] [Finite G]

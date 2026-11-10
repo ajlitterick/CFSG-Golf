@@ -54,13 +54,6 @@ theorem isPGroup_closure {G : Type*} [Group G] {s : Set G}
   intro g
   exact ⟨1, Subtype.ext (by simpa using hc g g.2)⟩
 
-theorem conj_eq (g w : WeylGroup Tag.E6) : w = g * (g⁻¹ * w * g) * g⁻¹ := by group
-
-theorem conj_pow' (g w : WeylGroup Tag.E6) (n : ℕ) :
-    w ^ n = g * (g⁻¹ * w * g) ^ n * g⁻¹ := by
-  have e := conj_pow (a := g) (b := g⁻¹ * w * g) (i := n)
-  rwa [← conj_eq] at e
-
 
 noncomputable def yI (gw wd : List (List ℕ)) (i : ℕ) : WeylGroup Tag.E6 :=
   ((wd.getD i []).map fun k => wordW (gw.getD k [])).prod
@@ -118,11 +111,6 @@ theorem yI_zero (hF : QFacts gw wd lt) : yI gw wd 0 = 1 := by
   rw [hF.zero] at h
   exact RootCertificate.represents_unique h (RootCertificate.represents_one e6Certificate_check)
 
-theorem yI_mem (gw wd : List (List ℕ)) (i : ℕ) : yI gw wd i ∈ qSub gw := by
-  unfold yI
-  refine list_prod_mem fun x hx => ?_
-  obtain ⟨k, -, rfl⟩ := List.mem_map.1 hx
-  exact wordW_getD_mem gw k
 
 theorem exists_yI (hF : QFacts gw wd lt) {y : WeylGroup Tag.E6} (hy : y ∈ qSub gw) :
     ∃ i < 81, yI gw wd i = y := by

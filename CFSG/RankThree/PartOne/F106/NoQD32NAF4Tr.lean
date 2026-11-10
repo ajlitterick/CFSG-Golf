@@ -244,10 +244,6 @@ def preSX0 : List (List ℕ) := [[12], [30], [21], [36], [29], [41]]
 def zsSX0 : List ℕ := [1048576, 4194304, 268435456, 2147483648, 34359738368, 137438953472]
 theorem certSX0 : certOK (fSX 0) pivSX0 preSX0 zsSX0 = true := by decide +kernel
 
-def pivSX1 : List ℕ := [12, 13, 21, 23, 40, 41]
-def preSX1 : List (List ℕ) := [[6], [22], [14], [31], [35], [45]]
-def zsSX1 : List ℕ := [4096, 8192, 2097152, 8388608, 1099511627776, 2199023255552]
-theorem certSX1 : certOK (fSX 1) pivSX1 preSX1 zsSX1 = true := by decide +kernel
 
 def pivSX2 : List ℕ := [2, 6, 14, 15, 29, 31, 35, 36, 44, 45]
 def preSX2 : List (List ℕ) := [[3, 13], [3], [7], [23], [21], [37], [28], [41], [40], [49]]
@@ -255,11 +251,6 @@ def zsSX2 : List ℕ := [4, 64, 16384, 32768, 536870912, 2147483648,
   34359738368, 68719476736, 17592186044416, 35184372088832]
 theorem certSX2 : certOK (fSX 2) pivSX2 preSX2 zsSX2 = true := by decide +kernel
 
-def pivSX3 : List ℕ := [3, 7, 13, 14, 21, 22, 28, 30, 48, 49]
-def preSX3 : List (List ℕ) := [[2, 15], [2], [23], [6], [12], [31], [20], [36], [44], [51]]
-def zsSX3 : List ℕ := [8, 128, 8192, 16384, 2097152, 4194304, 268435456,
-  1073741824, 281474976710656, 562949953421312]
-theorem certSX3 : certOK (fSX 3) pivSX3 preSX3 zsSX3 = true := by decide +kernel
 
 noncomputable def shortMap (i : Fin Tag.F4.rank) : Module.End K (RootModule Tag.F4 K) :=
   (xOp Tag.F4 K i 1 - 1).comp (shortProj (K := K))
@@ -333,20 +324,6 @@ theorem finrank_shortMap_zero :
   simpa [pivSX0] using finrank_range_of_certOK
     (shortMap (K := K) ⟨0, by decide⟩) (fSX 0) hf pivSX0 preSX0 zsSX0 certSX0
 
-theorem finrank_shortMap_one :
-    finrank K (LinearMap.range (shortMap (K := K) ⟨1, by decide⟩)) = 6 := by
-  have hf : ∀ L : List ℕ, (∀ l ∈ L, l < 52) →
-      shortMap (K := K) ⟨1, by decide⟩ (lvec K L) = lvec K (fSX 1 L) := by
-    intro L hL
-    unfold shortMap
-    rw [LinearMap.comp_apply, shortProj_lvec L hL]
-    exact sub_one_lvec (f := xOp Tag.F4 K ⟨1, by decide⟩ 1)
-      (fIdx := fun L => applyX 1 L)
-      (xOp_one_lvec (R := K) ⟨1, by decide⟩ (by
-        intro l hl
-        exact hL l (List.mem_of_mem_filter hl)))
-  simpa [pivSX1] using finrank_range_of_certOK
-    (shortMap (K := K) ⟨1, by decide⟩) (fSX 1) hf pivSX1 preSX1 zsSX1 certSX1
 
 theorem finrank_shortMap_two :
     finrank K (LinearMap.range (shortMap (K := K) ⟨2, by decide⟩)) = 10 := by
@@ -363,20 +340,6 @@ theorem finrank_shortMap_two :
   simpa [pivSX2] using finrank_range_of_certOK
     (shortMap (K := K) ⟨2, by decide⟩) (fSX 2) hf pivSX2 preSX2 zsSX2 certSX2
 
-theorem finrank_shortMap_three :
-    finrank K (LinearMap.range (shortMap (K := K) ⟨3, by decide⟩)) = 10 := by
-  have hf : ∀ L : List ℕ, (∀ l ∈ L, l < 52) →
-      shortMap (K := K) ⟨3, by decide⟩ (lvec K L) = lvec K (fSX 3 L) := by
-    intro L hL
-    unfold shortMap
-    rw [LinearMap.comp_apply, shortProj_lvec L hL]
-    exact sub_one_lvec (f := xOp Tag.F4 K ⟨3, by decide⟩ 1)
-      (fIdx := fun L => applyX 3 L)
-      (xOp_one_lvec (R := K) ⟨3, by decide⟩ (by
-        intro l hl
-        exact hL l (List.mem_of_mem_filter hl)))
-  simpa [pivSX3] using finrank_range_of_certOK
-    (shortMap (K := K) ⟨3, by decide⟩) (fSX 3) hf pivSX3 preSX3 zsSX3 certSX3
 
 omit [CharP K 2] in
 theorem rankSubOne_xUnit (i : Fin Tag.F4.rank) :

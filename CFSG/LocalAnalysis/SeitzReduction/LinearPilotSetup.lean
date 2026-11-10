@@ -96,11 +96,6 @@ theorem hypothesisOne_quotient_center (hset : SeitzSetting G L) {n f : ℕ} {K :
     (hypothesisOne_projectiveSL hn hK fun h =>
       ne_four_one_of_mulEquiv hset e hK (by rw [h.1, h.2]))
 
-theorem card_sylow_eq_two (hset : SeitzSetting G L) {n f : ℕ} {K : Type} [Field K]
-    (e : L ≃* projectiveSL n K) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
-    (S : Sylow 2 (centralizer (L : Set G))) : Nat.card S = 2 :=
-  card_sylow_eq_two_of_standard_of_center_eq_bot hset.standardSetting hset.center_eq_bot
-    (hypothesisOne_quotient_center hset e hK hn) S
 
 theorem inf_centralizer_eq_zpowers (hset : SeitzSetting G L) {n f : ℕ} {K : Type} [Field K]
     (e : L ≃* projectiveSL n K) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n) {t : G}
@@ -156,12 +151,6 @@ section ZStar
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
-theorem exists_conj_ne_commute (hset : SeitzSetting G L) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ g : G, g⁻¹ * t * g ≠ t ∧ (g⁻¹ * t * g) * t = t * (g⁻¹ * t * g) ∧
-      g⁻¹ * t * g ∈ normalizer (L : Set G) ∧ g⁻¹ * t * g ∉ centralizer (L : Set G) :=
-  F4Pilot.exists_conj_mem_normalizer_not_mem_centralizer hset.standardSetting
-    (mem_centralizer_of_inf_eq_zpowers hKt) ht hKt
 
 end ZStar
 
@@ -190,14 +179,6 @@ theorem normalizerAut_eq_one_of_mem_centralizer (e : L ≃* projectiveSL n K) {x
   rw [← MonoidHom.mem_ker, ker_normalizerAut, mem_subgroupOf]
   exact hx
 
-theorem normalizerAut_coe (e : L ≃* projectiveSL n K) (l : L) :
-    normalizerAut e ⟨l, le_normalizer l.2⟩ = MulAut.conj (e l) := by
-  ext y
-  obtain ⟨m, rfl⟩ := e.surjective y
-  rw [MulAut.conj_apply, ← map_mul, ← map_inv, ← map_mul]
-  simp only [normalizerAut, MonoidHom.coe_comp, Function.comp_apply, MulEquiv.coe_toMonoidHom,
-    MulAut.congr_apply, MulEquiv.trans_apply, MulEquiv.symm_apply_apply]
-  congr 1
 
 theorem ker_normalizerAut_comp_inclusion (e : L ≃* projectiveSL n K) {t : G}
     (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
@@ -212,11 +193,6 @@ theorem ker_normalizerAut_comp_inclusion (e : L ≃* projectiveSL n K) {t : G}
     mem_inf, coe_inclusion]
   exact ⟨fun h => ⟨h, x.2⟩, fun h => h.1⟩
 
-theorem exists_normalizerAut_eq [Finite K] (hn : 3 ≤ n) (e : L ≃* projectiveSL n K)
-    (x : normalizer (L : Set G)) :
-    ∃ (A : GL (Fin n) K) (σ : K ≃+* K) (ε : ℕ), ε ≤ 1 ∧
-      normalizerAut e x = conjAut n K A * fieldAut n K σ * dualAut n K ^ ε :=
-  (CFSG.LocalAnalysis.ComponentInitial.LinearFlag.automorphism_generation hn).2 _
 
 end Automizer
 
@@ -255,21 +231,5 @@ theorem seitzExclusion_highPSL_of_forall
   obtain ⟨hnf, K, _, _, _, hK, ⟨e⟩, -, t, ht, -, -, -, hKt, -⟩ := exists_setup hset hn hL
   exact h G L hset n f K hK hn hnf e t ht hKt
 
-theorem seitzExclusion_highPSL_of_cases
-    (h4 : ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-      ∀ (n f : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2], Nat.card K = 2 ^ f → 2 ≤ f →
-        4 ≤ n → ∀ (_ : L ≃* projectiveSL n K) (t : G), orderOf t = 2 →
-          centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t → False)
-    (h2 : ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-      ∀ (n : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2], Nat.card K = 2 → 5 ≤ n →
-        ∀ (_ : L ≃* projectiveSL n K) (t : G), orderOf t = 2 →
-          centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t → False) :
-    SeitzExclusion HighPSL := by
-  refine seitzExclusion_highPSL_of_forall fun G _ _ L hset n f K _ _ _ hK hn hnf e t ht hKt => ?_
-  rcases card_eq_two_or_four_le hK with ⟨rfl, hK2⟩ | ⟨hf, -⟩
-  · refine h2 G L hset n K hK2 ?_ e t ht hKt
-    by_contra hn5
-    exact hnf (by rw [show n = 4 by omega])
-  · exact h4 G L hset n f K hK hf hn e t ht hKt
 
 end CFSG.SeitzReduction.LinearPilot

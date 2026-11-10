@@ -276,27 +276,5 @@ theorem solvable_quaternion_oddCore_quotient {X : Type u} [Group X] [Finite X]
       (QuotientGroup.mk'_surjective (Subgroup.center (X ⧸ oddCore X))).nontrivial
     exact (Group.IsSolvable.commutator_lt_top_of_nontrivial (X ⧸ oddCore X)).ne hperf
 
-theorem solvable_quaternion_classification {X : Type u} [Group X] [Finite X]
-    [Group.IsSolvable X] (hO : oddCore X = ⊥) (S : Sylow 2 X) {r : ℕ} (hr : 3 ≤ r)
-    (hS : Nonempty ((S : Subgroup X) ≃* QuaternionGroup (2 ^ (r - 2)))) :
-    Nonempty (X ≃* QuaternionGroup (2 ^ (r - 2))) ∨
-      (r = 3 ∧ Nonempty (X ≃* SL(2, ZMod 3))) ∨
-      (r = 4 ∧ Nat.card X = 48 ∧
-        ∃ J : Subgroup X, J.Normal ∧ J.index = 2 ∧ Nonempty (J ≃* SL(2, ZMod 3))) := by
-  have hinj : Function.Injective (QuotientGroup.mk' (oddCore X)) := by
-    rw [← MonoidHom.ker_eq_bot_iff, QuotientGroup.ker_mk', hO]
-  let π : X ≃* X ⧸ oddCore X :=
-    MulEquiv.ofBijective (QuotientGroup.mk' (oddCore X)) ⟨hinj, QuotientGroup.mk'_surjective _⟩
-  rcases solvable_quaternion_oddCore_quotient S hr hS with
-    h | ⟨h3, h⟩ | ⟨h4, hcard, J, hJn, hJi, ⟨eJ⟩⟩
-  · obtain ⟨e⟩ := h
-    exact Or.inl ⟨π.trans e⟩
-  · obtain ⟨e⟩ := h
-    exact Or.inr (Or.inl ⟨h3, ⟨π.trans e⟩⟩)
-  · refine Or.inr (Or.inr ⟨h4, ?_, J.map π.symm.toMonoidHom, ?_, ?_, ?_⟩)
-    · rw [Nat.card_congr π.toEquiv]; exact hcard
-    · exact Subgroup.Normal.map hJn _ π.symm.surjective
-    · exact (Subgroup.index_map_equiv J π.symm).trans hJi
-    · exact ⟨(MulEquiv.subgroupMap π.symm J).symm.trans eJ⟩
 
 end CFSG.ClassicalInvolution

@@ -14,9 +14,6 @@ variable {p f : ℕ} {K : Type} [Field K] (h : UnitaryFieldData p f K)
 
 @[expose] def hypGramTwo (K : Type) [Field K] : Matrix (Fin 2) (Fin 2) K := !![0, 1; 1, 0]
 
-theorem gramForm_hypGramTwo (x y : Fin 2 → K) :
-    gramForm h (hypGramTwo K) x y = h.bar (x 0) * y 1 + h.bar (x 1) * y 0 := by
-  simp [gramForm_apply, hypGramTwo, dotProduct, mulVec, Fin.sum_univ_two]
 
 theorem hypGramTwo_isometry_entries (A : Matrix (Fin 2) (Fin 2) K) :
     (A.map h.bar)ᵀ * hypGramTwo K * A =
@@ -110,14 +107,6 @@ theorem entries_of_mem (g : gramSU h (hypGramTwo K)) :
     ⟨_, inv_mul_mem_fixedField_of_mem_traceZero hτ (entries_of_mem g).2.2.2.1⟩,
       ⟨_, (entries_of_mem g).2.1⟩]
 
-include hτ0 in
-theorem map_toFixedMat (g : gramSU h (hypGramTwo K)) :
-    (toFixedMat hτ g).map (Subtype.val : h.fixedField → K) =
-      diagonal ![τ, 1] * ((g : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) *
-        diagonal ![τ⁻¹, 1] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [toFixedMat, Matrix.mul_apply, Fin.sum_univ_two] <;>
-    field_simp
 
 include hτ0 in
 theorem det_toFixedMat (g : gramSU h (hypGramTwo K)) : (toFixedMat hτ g).det = 1 := by
@@ -136,15 +125,6 @@ theorem det_toFixedMat (g : gramSU h (hypGramTwo K)) : (toFixedMat hτ g).det = 
     τ * ((A : Matrix (Fin 2) (Fin 2) h.fixedField) 1 0 : K),
       ((A : Matrix (Fin 2) (Fin 2) h.fixedField) 1 1 : K)]
 
-include hτ0 in
-omit hτ in
-theorem ofFixedMat_eq (A : SpecialLinearGroup (Fin 2) h.fixedField) :
-    ofFixedMat (τ := τ) A = diagonal ![τ⁻¹, 1] *
-      (A : Matrix (Fin 2) (Fin 2) h.fixedField).map (Subtype.val : h.fixedField → K) *
-        diagonal ![τ, 1] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [ofFixedMat, Matrix.mul_apply, Fin.sum_univ_two] <;>
-    field_simp
 
 include hτ0 in
 omit hτ in
@@ -229,27 +209,8 @@ theorem ofSL_toSL (g : gramSU h (hypGramTwo K)) : ofSL hτ hτ0 (toSL hτ hτ0 g
   right_inv := toSL_ofSL hτ hτ0
   map_mul' := (toSL hτ hτ0).map_mul
 
-theorem coe_hypSLEquiv (g : gramSU h (hypGramTwo K)) :
-    ((hypSLEquiv hτ hτ0 g : Matrix (Fin 2) (Fin 2) h.fixedField)).map
-        (Subtype.val : h.fixedField → K) =
-      diagonal ![τ, 1] * ((g : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) *
-        diagonal ![τ⁻¹, 1] :=
-  map_toFixedMat hτ hτ0 g
-
-theorem coe_hypSLEquiv_symm (A : SpecialLinearGroup (Fin 2) h.fixedField) :
-    (((hypSLEquiv hτ hτ0).symm A : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) =
-      !![((A : Matrix (Fin 2) (Fin 2) h.fixedField) 0 0 : K),
-          τ⁻¹ * ((A : Matrix (Fin 2) (Fin 2) h.fixedField) 0 1 : K);
-        τ * ((A : Matrix (Fin 2) (Fin 2) h.fixedField) 1 0 : K),
-          ((A : Matrix (Fin 2) (Fin 2) h.fixedField) 1 1 : K)] :=
-  rfl
 
 end Iso
 
-theorem hyperbolic_two_transvection_generation {V : Type*} [AddCommGroup V] [Module K V]
-    {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm) (hBl : B.SeparatingLeft)
-    (hV : Module.finrank K V = 2) :
-    Subgroup.closure (unitaryTransvections h B) = sesqSpecialUnitaryGroup B :=
-  unitary_transvection_generation h hB hBl (by omega) (by rw [hV]; simp)
 
 end CFSG.RankThree.CentralLiftU

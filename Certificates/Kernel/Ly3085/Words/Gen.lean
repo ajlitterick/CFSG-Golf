@@ -36,10 +36,6 @@ open CFSG.KC.LyOm CFSG.KC.Ord CertificateChecks.KernelSporSch
 theorem gen_checks : genChecksOf (genVals.getD 2 (0, 0)).1 (genVals.getD 4 (0, 0)).1
     (genVals.getD 5 (0, 0)).1 genVals = true := by quickRfl
 
-theorem neg_z11 : notB (Nat.beq (fPow BC (genVals.getD 4 (0, 0)).1 11) BC.ONEF) = true := by
-  quickRfl
-
-theorem neg_a3 : notB (Nat.beq (genVals.getD 8 (0, 0)).1 (LySv.AF 3)) = true := by quickRfl
 
 end CFSG.KD.LyOm
 

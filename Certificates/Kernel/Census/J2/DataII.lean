@@ -19,8 +19,6 @@ open CFSG.KC.Census
 @[expose] noncomputable def cNLII : Array ArrCertP :=
   Array.mk (j2IINodes.toList.map fun nd => pmaskCert 315 9 nd.basis)
 
-@[expose] noncomputable def nodeIIF (i : Nat) : Bool :=
-  pnodeOK 315 9 [0, 4, 3] inP inP false true false j2IICS j2IINodes cNLII j2IIWCS i
 
 end CertificateChecks.KernelCensus.J2K
 

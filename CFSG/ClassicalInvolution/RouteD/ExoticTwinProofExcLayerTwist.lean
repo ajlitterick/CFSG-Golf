@@ -343,7 +343,6 @@ theorem e6a3_ne_e6a5 : e6a3 ≠ e6a5 := fun h => absurd (congrArg List.ofFn h) (
 
 theorem e6a4_ne_e6a3 : e6a4 ≠ e6a3 := fun h => absurd (congrArg List.ofFn h) (by decide)
 
-theorem e6a4_ne_e6a5 : e6a4 ≠ e6a5 := fun h => absurd (congrArg List.ofFn h) (by decide)
 
 include hDθ in
 theorem thetaOrbit_a3_ncard : (thetaOrbit D.θ e6a3).ncard = 2 := by

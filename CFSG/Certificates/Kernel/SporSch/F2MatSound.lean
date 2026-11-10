@@ -97,10 +97,6 @@ theorem unpack_get (d X : Nat) {j : Nat} (hj : j < d) : (unpack d d X)[j]?.getD 
   simp [unpack, hj]
   rfl
 
-theorem unpack_get! (d X : Nat) {j : Nat} (hj : j < d) : (unpack d d X)[j]! = rowP d X j := by
-  rw [getElem!_pos _ j (by simpa [unpack] using hj)]
-  simp [unpack]
-  rfl
 
 theorem vmP_testBit (d M v i : Nat) :
     (vmP d M v).testBit i = xs (fun j => v.testBit j && (rowP d M j).testBit i) (List.range d) := by
@@ -308,27 +304,6 @@ theorem diagK_eq_proved (t : Nat) : diagK t = diagVec t := by
 
 end Proofs
 
-theorem mulP_eq (d X Y : Nat) : mulRows d (unpack d d X) (unpack d d Y) = unpack d d (mulP d X Y) :=
-  mulP_eq_proved d X Y
-
-theorem idP_eq (d : Nat) : idRows d = unpack d d (idP d) :=
-  idP_eq_proved d
-
-theorem powP_eq (d M e : Nat) : powRows d (unpack d d M) e = unpack d d (powP d M e) :=
-  powP_eq_proved d M e
-
-theorem unpack_packR {d : Nat} {f : Nat → Nat} (h : ∀ i < d, f i < 2 ^ d) :
-    unpack d d (packR d f) = Array.ofFn (n := d) fun i => f i.val :=
-  unpack_packR_proved h
-
-theorem pullK_sound {A t t' : Nat} (h : pullK A t t' = true) : pullOK (unpack 22 22 A) t t' = true :=
-  pullK_sound_proved h
-
-theorem offK_sound {t t' : Nat} (h : offK t t' = true) : offDiagOK t t' = true :=
-  offK_sound_proved h
-
-theorem diagK_eq (t : Nat) : diagK t = diagVec t :=
-  diagK_eq_proved t
 
 end CFSG.KS.SporSch
 

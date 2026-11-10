@@ -25,13 +25,6 @@ namespace HermForm
 
 variable {σ : K →+* K} {X : Type v} [AddCommGroup X] [Module K X]
 
-theorem zero_right (h : HermForm σ X) (u : X) : h.B u 0 = 0 := by
-  have := h.smul_right (0 : K) u 0
-  simpa using this
-
-theorem zero_left (h : HermForm σ X) (w : X) : h.B 0 w = 0 := by
-  have := h.smul_left (0 : K) 0 w
-  simpa using this
 
 theorem neg_right (h : HermForm σ X) (u w : X) : h.B u (-w) = -h.B u w := by
   have := h.smul_right (-1 : K) u w

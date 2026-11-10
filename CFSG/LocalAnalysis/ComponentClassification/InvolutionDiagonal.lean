@@ -112,14 +112,6 @@ theorem injective {G : Type*} [Group G] (factor : Subgroup G)
       MonoidHom.rangeRestrict_surjective _⟩).trans
       (MulEquiv.subgroupCongr (fixed_range factor automorphism hinvolutive hcommutes hdisjoint))
 
-theorem fixed_simple {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    [IsSimpleGroup factor] (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hdisjoint : Disjoint factor (factor.map automorphism.toMonoidHom)) :
-    IsSimpleGroup ↥((factor ⊔ factor.map automorphism.toMonoidHom) ⊓
-      FixedCommutingProduct.fixedSubgroup automorphism) :=
-  (equivalence factor automorphism hinvolutive hcommutes hdisjoint).symm.isSimpleGroup
 
 theorem fixed_quasisimple {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
     [IsSimpleGroup factor] [Group.IsPerfect factor] (automorphism : MulAut G)

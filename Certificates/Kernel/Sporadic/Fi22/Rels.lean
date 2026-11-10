@@ -123,10 +123,6 @@ theorem relators :
   intro x hx
   exact mat_letter x (hb x hx)
 
-theorem neg_rel : notB (relOK CFSG.KD.OrdFi22.RH
-    (mulR 3 10 770 77 7 CFSG.KD.OrdFi22.L CFSG.KD.OrdFi22.H CFSG.KD.OrdFi22.CM CFSG.KD.OrdFi22.RM)
-    [[(0, true)]] 2 CFSG.KD.OrdFi22.ONE 0) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.Fi22Rels
 

@@ -268,53 +268,6 @@ end Kernel
 
 section ActE
 
-variable [Finite K]
-
-theorem spSemilinAct_eq_one_of_psi_eq_one (hr : 1 ≤ r) (g : SemiGSp r K)
-    (hg : spPsi r K g = 1) : spSemilinAct r K g = 1 := by
-  obtain ⟨A, σ⟩ := g
-  obtain ⟨hσ, c, hc⟩ := (spPsi_eq_one_iff hr ⟨A, σ⟩).mp hg
-  change σ = 1 at hσ
-  change (A : GL (Fin r ⊕ Fin r) K) = _ at hc
-  subst hσ
-  refine RingEquiv.ext fun Y => ?_
-  rw [spSemilinAct_mk]
-  change _ * Y.map (RingEquiv.refl K) * _ = Y
-  rw [show Y.map (RingEquiv.refl K) = Y from by ext; rfl]
-  have hAc : Commute ((A : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) Y := by
-    rw [hc, GeneralLinearGroup.coe_scalar]
-    exact Matrix.scalar_commute _ (fun r => Commute.all _ r) _
-  rw [hAc.eq, mul_assoc, ← Units.val_mul, mul_inv_cancel, Units.val_one, mul_one]
-
-variable (r K) in
-@[expose] noncomputable def spActE (hr : 1 ≤ r) :
-    ↥(spPsi r K).range →* RingAut (Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) :=
-  MonoidHom.liftOfRightInverse (spPsi r K).rangeRestrict
-    (Function.surjInv (spPsi r K).rangeRestrict_surjective)
-    (Function.rightInverse_surjInv (spPsi r K).rangeRestrict_surjective)
-    ⟨spSemilinAct r K, fun g hg => by
-      rw [MonoidHom.ker_rangeRestrict, MonoidHom.mem_ker] at hg
-      exact (MonoidHom.mem_ker).mpr (spSemilinAct_eq_one_of_psi_eq_one hr g hg)⟩
-
-theorem spActE_spPsi (hr : 1 ≤ r) (g : SemiGSp r K) :
-    spActE r K hr ⟨spPsi r K g, MonoidHom.mem_range.mpr ⟨g, rfl⟩⟩ = spSemilinAct r K g :=
-  MonoidHom.liftOfRightInverse_comp_apply _ _ _ _ g
-
-theorem spActE_eq_of_commute {p : ℕ} (hr : 1 ≤ r) (hp : Odd p) {X : gsp r K}
-    (hX : (X : GL (Fin r ⊕ Fin r) K) ∈ StatedSp r K) (hXp : X ^ p = 1)
-    (α : ↥(spPsi r K).range)
-    (hα : (α : MulAut (StatedProj (StatedSp r K))) * conjAut r K X =
-      conjAut r K X * (α : MulAut (StatedProj (StatedSp r K)))) :
-    spActE r K hr α ((X : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) =
-      ((X : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) := by
-  obtain ⟨⟨M, σ⟩, hg⟩ := α.2
-  have hαeq : α = ⟨spPsi r K ⟨M, σ⟩, ⟨⟨M, σ⟩, rfl⟩⟩ := Subtype.ext hg.symm
-  have hcomm : spPsi r K ⟨M, σ⟩ * conjAut r K X * (spPsi r K ⟨M, σ⟩)⁻¹ = conjAut r K X := by
-    rw [hg, hα, mul_inv_cancel_right]
-  have h1 := sp_semilin_conj_eq_self hr hp hX hXp ⟨M, σ⟩ hcomm
-  rw [hαeq, spActE_spPsi hr ⟨M, σ⟩, ← coe_spSemilinGAct, spSemilinGAct_mk]
-  exact congrArg (fun g : gsp r K => ((g : GL (Fin r ⊕ Fin r) K) :
-    Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K)) h1
 
 end ActE
 

@@ -125,8 +125,6 @@ theorem lnElim_eq (m : ℕ) (SS : List (List ℕ)) (Y CE : ℕ) :
   rw [forceB_apply, forceB_apply, forceB_apply, forceB_apply, forceB_apply]
   exact lnElimK_eq _ _ _ _ _ SS Y CE
 
-theorem lnIn_nil (ONE MQ SM0 MASK LMr S : ℕ) (K : ℕ → ℕ → ℕ → ℕ) (sh Y CE bad : ℕ) :
-    lnIn ONE MQ SM0 MASK LMr S K [] sh Y CE bad = K Y CE bad := rfl
 
 theorem lnIn_cons (ONE MQ SM0 MASK LMr S : ℕ) (K : ℕ → ℕ → ℕ → ℕ) (p : ℕ) (ps : List ℕ)
     (sh Y CE bad : ℕ) :

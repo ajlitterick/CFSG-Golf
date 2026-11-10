@@ -238,12 +238,6 @@ theorem inf_eq_inf_normalizer_twoCore (h : AGLPair p M H R) :
     H ⊓ M = M ⊓ Subgroup.normalizer (pCoreOf 2 H : Set G) :=
   h.toTwoLocalPair.inf_eq_inf_normalizer_twoCore
 
-theorem twoCore_inf_normalizer (h : AGLPair p M H R) :
-    pCoreOf 2 (M ⊓ Subgroup.normalizer (pCoreOf 2 H : Set G)) = pCoreOf 2 H :=
-  h.toTwoLocalPhaseThree.twoCore_inf_normalizer
-
-theorem twoCore_H_ne_bot (h : AGLPair p M H R) : pCoreOf 2 H ≠ ⊥ :=
-  h.toTwoLocalPair.twoCore_H_ne_bot
 
 theorem asc81bHyp (h : AGLPair p M H R) : Asc81bHyp M (pCoreOf 2 H) :=
   h.toTwoLocalPhaseThree.asc81bHyp

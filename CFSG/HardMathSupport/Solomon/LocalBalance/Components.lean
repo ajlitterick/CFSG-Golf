@@ -95,19 +95,6 @@ private theorem barX_commutatorAux (p : ℕ) {X A B : Subgroup G} (hA : A ≤ X)
   unfold barX
   rw [subgroupOf_commutatorAux hA hB, Subgroup.map_commutator]
 
-private theorem glaPComponent_perfectAux {p : ℕ} {X K : Subgroup G} (hK : GLAPComponent p X K) :
-    ⁅K, K⁆ = K := by
-  obtain ⟨hKX, hsn, hcomp, hmin⟩ := hK
-  have hJK : ⁅K, K⁆ ≤ K := commutator_le_of_leAux le_rfl le_rfl
-  by_contra hne
-  have hlt : ⁅K, K⁆ < K := lt_of_le_of_ne hJK hne
-  have hnorm : (⁅K, K⁆.subgroupOf K).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hJK).2
-      (Subgroup.le_normalizer_iff_commutator_le_left.2 (Subgroup.commutator_mono hJK le_rfl))
-  have hperf : ⁅barX p X K, barX p X K⁆ = barX p X K := Subgroup.isPerfect_iff.1 ⟨hcomp.2.2.1⟩
-  exact hmin _ hlt (IsSubnormal.step hJK hnorm hsn)
-    (by show barX p X ⁅K, K⁆ = barX p X K
-        rw [barX_commutatorAux p hKX hKX, hperf])
 
 private def preimBarXAux (p : ℕ) (X K : Subgroup G) : Subgroup G :=
   ((barX p X K).comap (QuotientGroup.mk' (GLAPPrimeCore p ↥X))).map X.subtype

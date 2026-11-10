@@ -25,12 +25,6 @@ open CFSG CFSG.CGT.Timmesfeld75 CFSG.Assembly.LowTwoRank CFSG.Blueprint
   (∃ s : TauCeti.SporadicName, s ∈ ({.M11, .M12, .M24, .J2, .J3, .J4, .Co2, .Co1, .HS, .Suz, .He,
     .Fi24Prime, .HN, .Th, .B, .M} : Set TauCeti.SporadicName) ∧ NativeSporadic.IsSporadic G s)
 
-@[expose] def GF2TypeStatement : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    ∀ t : G, orderOf t = 2 →
-      CFSG.Open.GLASymplecticType
-        (inSubgroup generalizedFitting (Subgroup.centralizer ({t} : Set G))) →
-      GF2TypeList G
 
 @[expose] def Tim81UnitaryStatement : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →

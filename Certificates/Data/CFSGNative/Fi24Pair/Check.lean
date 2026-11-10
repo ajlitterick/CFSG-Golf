@@ -150,11 +150,6 @@ structure ChainData where
   ntw : Nat
 deriving Inhabited
 
-@[expose] def ChainData.Q (D : ChainData) : Array Nat :=
-  CFSG.Sporadic.Fi24.Native.chainBase ++ D.base
-
-@[expose] def ChainData.qb (D : ChainData) : Array Nat :=
-  (Array.range D.base.size).map (· + CFSG.Sporadic.Fi24.Native.chainBase.size)
 
 @[expose] def chainT : ChainData where
   sel :=
@@ -199,14 +194,6 @@ deriving Inhabited
   sizes := [306936, 275264, 218400, 93312, 243, 3]
   ntw := 0
 
-@[expose] def selLetters (L : Array Table) (sel : Array Nat) : Array Table :=
-  Array.ofFn (n := 2 * sel.size) fun i => L[2 * sel[i.val / 2]! + i.val % 2]!
-
-@[expose] def selNestOK (W : Array (List Int)) (sel starts : Array Nat) : Bool :=
-  allIn 1 (starts.size - 1) fun i => allIn starts[i]! starts[i + 1]! fun k =>
-    W[sel[k]!]!.all fun z => decide (3 ≤ z.natAbs) &&
-      (List.range' starts[i - 1]! (starts[i]! - starts[i - 1]!)).any fun k' =>
-        sel[k']! + 3 == z.natAbs
 
 @[expose] def shiftWord (w : List Int) : List Int := w.map fun l => if 0 < l then l + 2 else l - 2
 
@@ -219,33 +206,6 @@ deriving Inhabited
   decide (lineNB < t) && W[g]!.all (fun z => decide (3 ≤ z.natAbs ∧ z.natAbs ≤ 15)) &&
     W[t]! == W[g]!.map twistZ
 
-@[expose] def twistsOK (W : Array (List Int)) (D : ChainData) : Bool :=
-  D.starts[1]! == 2 * D.ntw && allIn 0 D.ntw fun k => twistOK W D.sel[k]! D.sel[k + D.ntw]!
-
-@[expose] def exactOK (L : Array Table) (W : Array (List Int)) (D : ChainData) : Bool :=
-  let LX := selLetters L D.sel
-  let T := levelTrees (nPts ()) LX D.starts D.base
-  D.sel.all (· < W.size) && selNestOK W D.sel D.starts &&
-    levelChainOK (nPts ()) LX D.starts D.ords D.base D.Q D.qb T 3 && orbitSizes T == D.sizes
-
-@[expose] def lowerOK (L : Array Table) (W : Array (List Int)) (D : ChainData) : Bool :=
-  let LX := selLetters L D.sel
-  let T := levelTrees (nPts ()) LX D.starts D.base
-  let m := D.base.size
-  D.sel.all (· < W.size) && selNestOK W D.sel D.starts && D.starts.size == m + 1 &&
-    LX.size == 2 * D.starts[m]! && allIn 0 m (fun i => D.starts[i]! ≤ D.starts[i + 1]!) &&
-    allIn 0 m (fun i => treeOK (nPts ()) D.base[i]! T[i]! LX (levelLv D.starts i)) &&
-    allIn 1 m (fun i => allIn D.starts[i]! D.starts[i + 1]! fun j =>
-      ap LX[2 * j]! D.base[i - 1]! == D.base[i - 1]!) &&
-    orbitSizes T == D.sizes
-
-@[expose] def asch54Fi24Check (_ : Unit := ()) : Bool :=
-  let O := orbitData ()
-  let W := pairWords ()
-  let L := slpLetters (nPts ()) (genTables O) W
-  slpOK W && allIn 0 W.size (fun j => invOK (nPts ()) L[2 * j]! L[2 * j + 1]!) &&
-    twistsOK W chainT && twistsOK W chainA && twistsOK W chainB &&
-    exactOK L W chainT && exactOK L W chainA && exactOK L W chainB && lowerOK L W chainH
 
 end CFSG.Sporadic.Fi24Pair.Native
 

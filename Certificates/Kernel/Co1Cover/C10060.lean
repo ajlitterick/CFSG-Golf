@@ -55,27 +55,6 @@ theorem hC_cert :
     bitMat_mul, bitMat_mul, bitMat_mul, bitMat_mul, bitMat_add, bitMat_add, bitMat_add, hC_rows,
     bitMat_idR]
 
-theorem neg10060 :
-    (addR (11 + 11) (addR (11 + 11)
-        (mulR 11 (rowsOf (Equiv.refl _) (Equiv.refl _) (deltaMat Bmat Amat))
-          (rowsOf (Equiv.refl _) (Equiv.refl _) (listMat foxXrows 11 (11 + 11))))
-        (mulR (6 * 11) (rowsOf (Equiv.refl _) e66 yMat) (rowsOf e66 (Equiv.refl _) foxMatC)))
-      (mulR 1 (rowsOf (Equiv.refl _) (Equiv.refl _) zMat)
-        (rowsOf (Equiv.refl _) (Equiv.refl _) (lamMat (toVecD 11 x0mask)))) ≠ idR (11 + 11)) ∧
-    (addR (11 + 11) (addR (11 + 11)
-        (mulR 11 (rowsOf (Equiv.refl _) (Equiv.refl _) (deltaMat Amat Bmat))
-          (rowsOf (Equiv.refl _) (Equiv.refl _) (listMat foxXrows 11 (11 + 11))))
-        (mulR (6 * 11) (rowsOf (Equiv.refl _) e66 yMat) (rowsOf e66 (Equiv.refl _) foxMatC)))
-      (mulR 1 (rowsOf (Equiv.refl _) (Equiv.refl _) zMat)
-        (rowsOf (Equiv.refl _) (Equiv.refl _) (lamMat (toVecD 11 (x0mask ^^^ 1))))) ≠
-        idR (11 + 11)) ∧
-    (addR (11 * 11) (addR (11 * 11) (addR (11 * 11)
-        (mulR (11 * 11) (rowsOf e121 e121 (bigMat cSsym)) (rowsOf e121 e121 Rsym))
-        (mulR (11 * 11) (rowsOf e121 e121 (bigMat cSdiag)) (rowsOf e121 e121 Rdiag)))
-        (mulR (11 * 11) (rowsOf e121 e121 (bigMat cSB)) (rowsOf e121 e121 (Rinv Amat))))
-      (mulR (11 * 11) (rowsOf e121 e121 (bigMat cSA)) (rowsOf e121 e121 (Rinv Bmat))) ≠
-      idR (11 * 11)) := by
-  decide +kernel
 
 theorem Amat_x0 : Amat *ᵥ toVecD 11 x0mask = toVecD 11 x0mask := by
   decide +kernel

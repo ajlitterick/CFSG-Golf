@@ -11,7 +11,5 @@ namespace Certificates
 
 open CertificateChecks
 
-open CFSG CFSG.ASVolI in
-theorem certificate7555 : burnsideF48s_u42eCheckCand () = true := KernelF48S.checkCand
 
 end Certificates

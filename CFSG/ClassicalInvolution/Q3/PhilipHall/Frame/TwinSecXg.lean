@@ -573,6 +573,5 @@ end TwinLift
 
 end TwinSecXg
 
-variable {G : Type} [Group G] [Finite G] {K₀ : Subgroup G}
 
 end CFSG.ClassicalInvolution.Q3.PhilipHall.Frame

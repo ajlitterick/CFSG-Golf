@@ -50,13 +50,6 @@ end character_def
 
 variable {k : Type u} {G : Type v} [Field k] [Group G]
 
-/--
-Character value on a product is unchanged when the two factors are swapped:
-`χ(hg) = χ(gh)`.
--/
-theorem char_mul_comm (V : FDRep k G) (g : G) (h : G) :
-    ClassFun.character V (h * g) = ClassFun.character V (g * h) :=
-      Representation.char_mul_comm V.ρ g h
 
 @[simp]
 lemma char_one (V : FDRep k G) :

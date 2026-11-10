@@ -43,9 +43,6 @@ variable {G : Type u} [Group G]
     rw [← he, inv_mul_cancel_left]
     exact hx
 
-theorem normalProductCosetEquiv_mk (R X : Subgroup G) [R.Normal] (r : R) :
-    normalProductCosetEquiv R X (QuotientGroup.mk r) =
-      QuotientGroup.mk (Subgroup.inclusion (le_sup_left : R ≤ R ⊔ X) r) := rfl
 
 theorem relIndex_normal_product (R X : Subgroup G) [R.Normal] :
     X.relIndex (R ⊔ X) = X.relIndex R :=
@@ -526,17 +523,6 @@ theorem covering_involution_centralizer_factorization
   exact Subgroup.mul_mem_sup hr ⟨b.property, hbx⟩
 
 
-@[expose] def ambientCentralizerEquiv (H0 : Subgroup A) (x : A) (hx : x ∈ H0) :
-    (Subgroup.centralizer {x}).subgroupOf H0 ≃*
-      Subgroup.centralizer ({(⟨x, hx⟩ : H0)} : Set H0) where
-  toFun c := ⟨c.val, Subgroup.mem_centralizer_singleton_iff.mpr
-    (Subtype.ext (Subgroup.mem_centralizer_singleton_iff.mp c.property))⟩
-  invFun c := ⟨c.val, Subgroup.mem_centralizer_singleton_iff.mpr
-    (congrArg Subtype.val (Subgroup.mem_centralizer_singleton_iff.mp c.property))⟩
-  left_inv _ := rfl
-  right_inv _ := rfl
-  map_mul' _ _ := rfl
-
 theorem quotient_involution_central_of_factorization
     (O : Subgroup A) [O.Normal] (x : A)
     (hfactor : O ⊔ Subgroup.centralizer {x} = ⊤) :
@@ -580,26 +566,6 @@ theorem original_Sylow_normalizer_involution_factorization [Finite A]
     ((Subgroup.orderOf_coe _).symm.trans hx2) hxW hcover
     (quotient_involution_central_of_factorization (CFSG.oddCore H0) ⟨x, hx⟩ hfactor')
 
-theorem original_centralizer_intersection_factorization
-    (H0 : Subgroup A) (O K : Subgroup H0) [O.Normal] (x : A)
-    (hfactor : O ⊔ K = ⊤)
-    (hK : K ≤ (Subgroup.centralizer {x}).subgroupOf H0) :
-    (Subgroup.centralizer {x}).subgroupOf H0 =
-      (O ⊓ (Subgroup.centralizer {x}).subgroupOf H0) ⊔ K := by
-  apply le_antisymm
-  · intro c hc
-    have hcprod : c ∈ O ⊔ K := hfactor ▸ Subgroup.mem_top c
-    obtain ⟨o, ho, k, hk, hprod⟩ := Subgroup.mem_sup_of_normal_left.mp hcprod
-    have hoc : o ∈ (Subgroup.centralizer {x}).subgroupOf H0 := by
-      have hoeq : o = c * k⁻¹ := by
-        rw [← hprod]
-        simp [mul_assoc]
-      rw [hoeq]
-      exact ((Subgroup.centralizer {x}).subgroupOf H0).mul_mem hc
-        (((Subgroup.centralizer {x}).subgroupOf H0).inv_mem (hK hk))
-    rw [← hprod]
-    exact Subgroup.mul_mem_sup ⟨ho, hoc⟩ hk
-  · exact sup_le inf_le_right hK
 
 theorem actual_perfect_lift_normalizes_local_Sylow [Finite A]
     (H0 : Subgroup A) (x : A) (hx : x ∈ H0) (hx2 : orderOf x = 2)

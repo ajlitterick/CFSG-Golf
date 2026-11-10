@@ -31,20 +31,6 @@ theorem A2sub_comm_fix {A : Subgroup (MulAut V)} (hc : ∀ a ∈ A, ∀ b ∈ A,
     a (b v * v⁻¹) = b v * v⁻¹ :=
   apply_mul_inv_eq_of_comm (hc b (A2sub_le A hb) a ha) v (A2sub_fix_comm hc hb ha v)
 
-theorem A2sub_eq_inf_centSub {A : Subgroup (MulAut V)} (hc : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a) :
-    A2sub A = A ⊓ centSub (commV A) := by
-  ext b
-  rw [mem_A2sub, Subgroup.mem_inf, mem_centSub]
-  constructor
-  · rintro ⟨hb, h⟩
-    refine ⟨hb, fun u hu => ?_⟩
-    have hle : commV A ≤ MonoidHom.eqLocus b.toMonoidHom (MonoidHom.id V) :=
-      G6.commV_le_iff.2 fun a ha v => A2sub_fix_comm hc (mem_A2sub.2 ⟨hb, h⟩) ha v
-    exact hle hu
-  · rintro ⟨hb, h⟩
-    refine ⟨hb, fun v a ha => ?_⟩
-    rw [cv_eq]
-    exact apply_mul_inv_eq_of_comm (hc b hb a ha) v (h _ (G6.mem_commV_of_mem ha v))
 
 theorem commSub_commV_zpowers_eq_bot {A : Subgroup (MulAut V)}
     (hc : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a) {b : MulAut V} (hb : b ∈ A2sub A) :

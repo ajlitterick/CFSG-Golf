@@ -26,26 +26,6 @@ variable {I : Type v} [Group I]
 @[simp] theorem subgroupCosetInclusion_mk (K H : Subgroup I) (x : H) :
     subgroupCosetInclusion K H (QuotientGroup.mk x) = QuotientGroup.mk (x : I) := rfl
 
-theorem subgroupCosetInclusion_range (K H : Subgroup I) :
-    Set.range (subgroupCosetInclusion K H) =
-      (QuotientGroup.mk : I → I ⧸ K) '' (H : Set I) := by
-  ext q
-  constructor
-  · rintro ⟨p, rfl⟩
-    induction p using Quotient.inductionOn'
-    case h x => exact ⟨x, x.property, rfl⟩
-  · rintro ⟨x, hx, rfl⟩
-    exact ⟨QuotientGroup.mk (⟨x, hx⟩ : H), rfl⟩
-
-theorem subgroup_coset_image_card (K H : Subgroup I) :
-    Nat.card ((QuotientGroup.mk : I → I ⧸ K) '' (H : Set I)) = K.relIndex H := by
-  rw [← subgroupCosetInclusion_range]
-  exact (Nat.card_congr (Equiv.ofInjective (subgroupCosetInclusion K H)
-    (subgroupCosetInclusion K H).injective)).symm
-
-theorem subgroup_product_card (K H : Subgroup I) :
-    Nat.card ((H : Set I) * (K : Set I)) = Nat.card K * K.relIndex H := by
-  rw [K.card_mul_eq_card_subgroup_mul_card_quotient, subgroup_coset_image_card]
 
 theorem subgroup_product_cover_of_index_eq [Finite I] (K H : Subgroup I)
     (hindex : K.index = K.relIndex H) (x : I) :

@@ -83,16 +83,6 @@ theorem normalSubgroupAverage_mapDomain {ring source target : Type*}
   change ((cardUnit⁻¹ : ringˣ) : ring) • ((cardUnit : ring) • (1 : MonoidAlgebra ring target)) = 1
   rw [smul_smul, Units.inv_mul, one_smul]
 
-theorem normalAverageQuotientSection_rightInverse {ring source target : Type*}
-    [CommRing ring] [Group source] [Fintype source] [Group target]
-    (quotient : source →* target) (hsurjective : Function.Surjective quotient)
-    [Fintype quotient.ker] (cardUnit : ringˣ) (hcard : (cardUnit : ring) = Nat.card quotient.ker) :
-    Function.RightInverse (normalAverageQuotientSection quotient hsurjective cardUnit)
-      (MonoidAlgebra.mapDomainRingHom ring quotient) := by
-  intro value
-  obtain ⟨preimage, rfl⟩ := groupAlgebra_mapDomain_surjective quotient hsurjective value
-  rw [normalAverageQuotientSection_mapDomain, map_mul, normalSubgroupAverage_mapDomain quotient cardUnit hcard,
-    one_mul]
 
 theorem normal_average_idempotent_eq_zero_or_average {ring source target : Type*}
     [CommRing ring] [IsLocalRing ring] [Group source] [Fintype source] [Group target] [Finite target]

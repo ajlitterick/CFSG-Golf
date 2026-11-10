@@ -22,7 +22,6 @@ theorem smat_mul {n : ℕ} (g h : SU σ n) : smat (g * h) = smat g * smat h := r
 
 theorem smat_inj {n : ℕ} {g h : SU σ n} (e : smat g = smat h) : g = h := Subtype.ext (Units.ext e)
 
-theorem smat_one {n : ℕ} : smat (1 : SU σ n) = 1 := rfl
 
 theorem antidiag_four : (antidiag 4 : Matrix (Fin 4) (Fin 4) K) =
     !![0, 0, 0, 1; 0, 0, 1, 0; 0, 1, 0, 0; 1, 0, 0, 0] := by
@@ -53,10 +52,6 @@ theorem antidiag_four : (antidiag 4 : Matrix (Fin 4) (Fin 4) K) =
         calc σ (d i) * 1 * d (Fin.rev i) = σ (d i) * d (Fin.rev i) := by ring
           _ = 1 := hiso i
       · simp [antidiag, hij]⟩
-
-theorem smat_diagSU {n : ℕ} (d d' : Fin n → K) (h1 : ∀ i, d i * d' i = 1)
-    (hdet : ∏ i, d i = 1) (hiso : ∀ i, σ (d i) * d (Fin.rev i) = 1) :
-    smat (diagSU (σ := σ) d d' h1 hdet hiso) = Matrix.diagonal d := rfl
 
 
 @[expose] noncomputable def XelU (σ : K ≃+* K) : SU σ 4 :=

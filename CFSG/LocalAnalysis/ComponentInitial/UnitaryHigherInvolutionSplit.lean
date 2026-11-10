@@ -79,13 +79,6 @@ variable {h : UnitaryFieldData p f E} {B : V →ₛₗ[h.bar] V →ₗ[E] E}
   map_one' := Units.ext (LinearMap.ext fun _ => rfl)
   map_mul' _ _ := Units.ext (LinearMap.ext fun _ => rfl)
 
-theorem coe_glRestrictHom_apply {C : Subgroup (sesqUnitaryGroup B)} (W : Submodule E V)
-    (hW : ∀ g ∈ C, ∀ v ∈ W,
-      (((g : sesqUnitaryGroup B) : LinearMap.GeneralLinearGroup E V) : Module.End E V) v ∈ W)
-    (g : C) (v : W) :
-    ((((glRestrictHom W hW g : LinearMap.GeneralLinearGroup E W) : Module.End E W) v : W) : V) =
-      (((g : sesqUnitaryGroup B) : LinearMap.GeneralLinearGroup E V) : Module.End E V) v :=
-  rfl
 
 theorem glRestrictHom_mem {C : Subgroup (sesqUnitaryGroup B)} (W : Submodule E V)
     (hW : ∀ g ∈ C, ∀ v ∈ W,

@@ -20,9 +20,6 @@ structure BenderHyp (G : Type) [Group G] [Finite G] (L : Subgroup G) : Prop wher
   rank : 2 ≤ Open.pRank 2 (centralizer (L : Set G))
   bender : RankTwoBenderType (rankTwoQuot L)
 
-@[expose] def BenderConclusion {G : Type} [Group G] (L : Subgroup G) : Prop :=
-  CFSG.Blueprint.SuzukiModel (rankTwoQuot L) 2 3 ∧
-    CFSG.Blueprint.NativeSporadic.IsSporadic (rankTwoX L) .Ru
 
 section Standard
 

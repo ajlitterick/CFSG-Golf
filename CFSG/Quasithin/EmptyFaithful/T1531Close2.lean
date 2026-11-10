@@ -10,18 +10,6 @@ namespace CFSG.Quasithin
 open CFSG.Open CFSG.QuasithinUnique
 open scoped Pointwise
 
-@[expose] def Stage1531InspectB : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t s : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-    LineData153 T M V₁ V₂ E → Res15366B T Mc M V₁ V₂ E → Res15367 T Mc M V₁ V₂ E →
-    GoldLine153 T V₁ E s → Res15368 T Mc M E s →
-    F6.F618Conclusion
-      (((G1_153 T Mc M E s).subgroupOf (G0_153 T Mc M E s)).map
-        (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s))))
-      (((G2_153 T E).subgroupOf (G0_153 T Mc M E s)).map
-        (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s)))) →
-    XE153 E = oTwoUpper (thompsonJ (G0_153 T Mc M E s)) ∨
-      ¬ Group.IsSolvable ↥(thompsonJ (G0_153 T Mc M E s) ⊓ Subgroup.normalizer (V₁ : Set G))
 
 section Geometry
 
@@ -224,31 +212,6 @@ theorem false_of_XE_eqB (c : Ctx153 G T Mc M V₁ V₂ t) (r46 : Res15346 T M V�
       (Subgroup.mem_centralizer_iff.mp (hle hw) x (Set.mem_singleton x)).symm
   exact r67.XE_not_le (fun x hx => normalizer_EF_leB c r46 L r66 gl (hXN hx))
 
-theorem closing_153B (hF : F6.TheoremF618) (hI : Stage1531InspectB)
-    (c : Ctx153 G T Mc M V₁ V₂ t) (r45 : Res15345 T Mc M V₁ V₂) (r46 : Res15346 T M V₁ V₂)
-    (r49 : Res15349 T Mc M V₁) (L : LineData153 T M V₁ V₂ E) (r66 : Res15366B T Mc M V₁ V₂ E)
-    (r67 : Res15367 T Mc M V₁ V₂ E) (gl : GoldLine153 T V₁ E s) (r68 : Res15368 T Mc M E s) :
-    False := by
-  have hne : pCoreOf 2 (G0_153 T Mc M E s) ≠ ⊥ := by
-    intro hbot
-    have h0 : VZ T M ≤ ⊥ := hbot ▸ r68.V_le_pCore
-    have h16 := c.hyp.card_VZ
-    rw [le_bot_iff.mp h0, Subgroup.card_bot] at h16
-    omega
-  have hq := stronglyQuasithin_of_pCoreOf_ne_bot c.hyp.qtfe.qtke hne
-  have hk := kGroup_of_pCoreOf_ne_bot c.hyp.qtfe.qtke c.hyp.qtfe.simple c.hyp.qtfe.nonabelian hne
-  rcases r68.triple.f6_18 hF hq hk with ⟨-, -, -, hconc⟩ | ⟨-, -, -, -, hcyc⟩
-  · rcases hI G T Mc M V₁ V₂ E t s c r45 r46 r49 L r66 r67 gl r68 hconc with hA | hB
-    · exact false_of_XE_eqB c r46 L r66 r67 gl hA
-    · exact false_of_nonsolvable c r45 r49 r67 hB
-  · apply hcyc
-    have hpc : Open.pCore 2 ↥(G0_153 T Mc M E s) = CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s) :=
-      Subgroup.map_injective (G0_153 T Mc M E s).subtype_injective r68.pCore_eq
-    have hbot : (CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s)).map
-        (QuotientGroup.mk' (Open.pCore 2 ↥(G0_153 T Mc M E s))) = ⊥ := by
-      rw [Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk', hpc]
-    rw [hbot]
-    infer_instance
 
 end Geometry
 

@@ -91,21 +91,6 @@ theorem spe_conclusion_A1 (hp5 : 5 ≤ p) (S : Subgroup H) [S.Normal]
   have := l2_charP hp5 q.exponent_pos.ne' S e' hSc hP hcard
   exact Or.inl ⟨q, rfl, this, hv, ⟨e⟩⟩
 
-theorem spe_conclusion_of_seitz (hSeitz : ExtSeitz) (hBridge : SeitzBridge)
-    (hSchr : SchreierFor CFSG.Assembly.InCatalog) (hp5 : 5 ≤ p) (S : Subgroup H) [S.Normal]
-    (hhyp : Census3.TheoremThreeHyp ↥S) (hSc : Subgroup.centralizer (S : Set H) = ⊥)
-    {Y : Subgroup H} (hY : IsStronglyPEmbedded p Y) {E : Subgroup H} (hEY : E ≤ Y)
-    [IsElementaryAbelian p E] (hE : Nat.card E = p ^ 2) {d : TauCeti.LieTypeIndex}
-    (hiso : IsoLie ↥S d) (hne : d.characteristic ≠ p) : SPEConclusion p ↥S := by
-  obtain ⟨t, n, r, f, hadm, hmodel, hr, hT, hSz⟩ := hBridge ↥S d hiso
-  have := hhyp.isSimpleGroup
-  have : Group.IsSolvable (Outer ↥S) := hSchr ↥S hhyp.nonabelian hhyp.exists_index
-  obtain ⟨hp5', hexc⟩ := seitz_stronglyPEmbedded hSeitz hp5 S hadm hmodel
-    (fun h => hne (hr ▸ h.symm)) hSc hY hEY hE
-  refine Or.inr ⟨hp5', ?_⟩
-  rcases hexc with h | h
-  · exact Or.inr (Or.inl (hT h ▸ hiso))
-  · exact Or.inr (Or.inr (hSz h ▸ hiso))
 
 end Cases
 

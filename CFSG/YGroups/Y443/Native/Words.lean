@@ -88,19 +88,5 @@ theorem wordLin_eq_one
     (hw : wordLin w (interp (wV ())) = interp (wV ())) : wordLin w = 1 :=
   separation_witnesses _ (wordLin_mem_Gmat w) ha hb hw
 
-theorem wordLin_eq_one_of_fixAll
-    {ws : List (List Native.Gen)}
-    (ha : fixAll ws (aV ()) = true) (hb : fixAll ws (bV ()) = true)
-    (hw : fixAll ws (wV ()) = true) : ∀ w ∈ ws, wordLin w = 1 := fun w hmem =>
-  wordLin_eq_one (fixAll_sound ha w hmem) (fixAll_sound hb w hmem) (fixAll_sound hw w hmem)
-
-theorem pairRel_of_fixAll
-    {ks : List ℕ} (ha : fixAll (pairWords ks) (aV ()) = true)
-    (hb : fixAll (pairWords ks) (bV ()) = true) (hw : fixAll (pairWords ks) (wV ()) = true)
-    {k l : ℕ} (hk : k ∈ ks) (hkl : k < l) (hl : l < 11) :
-    (M k * M l ^ (ordI l - 1)) ^ mI k l = 1 := by
-  have h := wordLin_eq_one_of_fixAll ha hb hw (pairWord k l) (mem_pairWords hk hkl hl)
-  rw [pairWord, wordLin_powL, wordLin_append, wordLin_powL] at h
-  exact h
 
 end CFSG.YGroups.Y443

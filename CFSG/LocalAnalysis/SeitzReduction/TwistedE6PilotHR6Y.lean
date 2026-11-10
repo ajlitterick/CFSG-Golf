@@ -223,10 +223,6 @@ variable {K : Type} [Field K]
 
 @[expose] def shortRootU' : Fin Tag.E6.rank → ℤ := (![1, 1, 2, 2, 1, 1] : Fin 6 → ℤ)
 
-theorem shortRootU_eq : (shortRootU : Fin TwistTag.E6.tag.rank → ℤ) = twistedE6ClassRootU := rfl
-
-theorem shortRootU'_eq : (shortRootU' : Fin TwistTag.E6.tag.rank → ℤ) = twistedE6ClassRootU' :=
-  rfl
 
 theorem shortRoots_check :
     shortRootU ∈ rootFinset .E6 ∧ shortRootU' ∈ rootFinset .E6 ∧
@@ -268,61 +264,6 @@ end RootTorus
 
 section Complement
 
-variable {f : ℕ} {k K : Type} [Field k] [Field K] [Algebra k K]
-
-theorem centralizer_omegaMinusLevi_inf_eq (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    centralizer (omegaMinusLevi σ : Set (ModGL TwistTag.E6.tag K)) ⊓
-        (centralizer (shortRootTorus (algebraMap k K) : Set (ModGL TwistTag.E6.tag K)) ⊓
-          graphFixedRootGroup TwistTag.E6 K σ) = w1Complement σ := by
-  have hf : 1 ≤ f := by omega
-  obtain ⟨hC, hYc, hdisj, -, -⟩ := centralizer_w1Torus_inf_eq hf2 hk hK hσ
-  rw [hC]
-  refine le_antisymm (fun g hg => ?_) (le_inf hYc le_sup_left)
-  obtain ⟨hgc, hgYL⟩ := mem_inf.1 hg
-  obtain ⟨⟨y, l⟩, ⟨hy, hl, rfl⟩, -⟩ := E6GraphLevi.existsUnique_mul_of_commute
-    (disjoint_iff.1 hdisj) (fun y hy l hl => (mem_centralizer_iff.1 (hYc hy) l hl).symm) g hgYL
-  dsimp only at hy hl ⊢
-  have := finite_of_card hK
-  have := charP_two_of_card hf hK
-  obtain ⟨σE, rfl⟩ := exists_ringEquiv_toRingHom_eq σ
-  have hσσ : ∀ c, σE (σE c) = c := apply_apply_eq hK hσ
-  obtain ⟨ω, hω⟩ := exists_apply_ne hf hK hσ
-  have : IsSimpleGroup (omegaMinusLevi σE.toRingHom) := isSimpleGroup_omegaMinusLevi hf hK hσ
-  have : Group.IsPerfect (omegaMinusLevi σE.toRingHom) := by
-    have hP : Group.IsPerfect ↥(subsystemGroup TwistTag.E6.tag K setD ⊓
-        twistedFixedGroup TwistTag.E6 K (σE : K →+* K)) := isPerfect_d4Fixed hσσ (ω := ω) hω
-    exact Group.IsPerfect.ofSurjective (f := (MulEquiv.subgroupCongr
-      (omegaMinusLevi_eq hσσ (ω := ω) hω).symm).toMonoidHom) (MulEquiv.surjective _)
-  have hlc : (⟨l, hl⟩ : omegaMinusLevi σE.toRingHom) ∈ center (omegaMinusLevi σE.toRingHom) := by
-    rw [mem_center_iff]
-    intro m
-    refine Subtype.ext ?_
-    have h1 := mem_centralizer_iff.1 hgc m m.2
-    have h2 := mem_centralizer_iff.1 (hYc hy) m m.2
-    change (m : ModGL TwistTag.E6.tag K) * l = l * m
-    have e : y * ((m : ModGL TwistTag.E6.tag K) * l) = y * (l * m) := by
-      calc y * ((m : ModGL TwistTag.E6.tag K) * l) = (y * m) * l := by group
-        _ = (m * y) * l := by rw [h2]
-        _ = m * (y * l) := by group
-        _ = (y * l) * m := h1
-        _ = y * (l * m) := by group
-    exact mul_left_cancel e
-  rw [center_eq_bot_of_isSimpleGroup_of_isPerfect, mem_bot] at hlc
-  have hl1 : l = 1 := congrArg Subtype.val hlc
-  rw [hl1, mul_one]
-  exact hy
-
-theorem centralizer_shortTorus_inf_eq (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    ∃ Y₁ : Subgroup (ModGL TwistTag.E6.tag K),
-      centralizer (shortRootTorus (algebraMap k K) : Set (ModGL TwistTag.E6.tag K)) ⊓
-          graphFixedRootGroup TwistTag.E6 K σ = Y₁ ⊔ omegaMinusLevi σ ∧
-        Y₁ ≤ centralizer (omegaMinusLevi σ : Set (ModGL TwistTag.E6.tag K)) ∧
-        Disjoint Y₁ (omegaMinusLevi σ) ∧ ¬ 2 ∣ Nat.card Y₁ ∧
-        Y₁ ≤ graphFixedRootGroup TwistTag.E6 K σ := by
-  obtain ⟨hC, hYc, hdisj, hodd, -⟩ := centralizer_w1Torus_inf_eq hf2 hk hK hσ
-  exact ⟨w1Complement σ, hC, hYc, hdisj, hodd, w1Complement_le_C0 σ⟩
 
 end Complement
 

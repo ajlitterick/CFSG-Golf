@@ -108,9 +108,6 @@ variable (t K) in
     conv_lhs => rw [← hg v hv]
     rw [← Module.End.mul_apply, ← map_mul, inv_mul_cancel, map_one, Module.End.one_apply]
 
-theorem mem_shortKernel {g : adjointGroup t.tag K} :
-    g ∈ t.shortKernel K ↔ ∀ v ∈ t.shortModule K, glRep _ g v = v :=
-  Iff.rfl
 
 theorem shortKernel_normal (hp : (t.prime : K) = 0) : (t.shortKernel K).Normal := by
   refine ⟨fun g hg x v hv => ?_⟩

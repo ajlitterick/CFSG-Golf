@@ -29,7 +29,6 @@ theorem stated_model_psu_of_lowTwoRank {G : Type} [Group G] {n p f : ℕ}
     (h : CFSG.Assembly.LowTwoRank.StatedClassicalModel G .PSU n p f) :
     CFSG.Open.StatedClassicalModel G .PSU n p f := h
 
-theorem statedM11_lowTwoRank_eq : CFSG.Assembly.LowTwoRank.StatedM11 = CFSG.Open.StatedM11 := rfl
 
 theorem semidihedral_recognition_of_local_theorems
     (hB : StationaryCoverageStatement)
@@ -55,20 +54,5 @@ theorem semidihedral_recognition_of_local_theorems
   · exact Or.inr (Or.inl ⟨l, a, hl, hodd l hlo, ha, hq, stated_model_psu_of_lowTwoRank hm⟩)
   · exact Or.inr (Or.inr hM)
 
-theorem semidihedral_catalogue_of_local_theorems
-    (hB : StationaryCoverageStatement)
-    (hF : FieldFactorOneStatement) (hA : FixedCoreNontrivialStatement)
-    (hU : UnitaryBranchStatement) (h5 : ParameterFiveRecognitionStatement)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (P : Sylow 2 G)
-    (hsd : ∃ n : ℕ, 4 ≤ n ∧ Nonempty ((P : Subgroup G) ≃* SemidihedralGroup n)) :
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 3 ∧
-        Nonempty (G ≃* Matrix.ProjectiveSpecialLinearGroup (Fin 3) (GaloisField p k))) ∨
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 1 ∧
-        Nonempty (G ≃* CFSG.Open.PSU3 p k)) ∨
-    Nonempty (G ≃* CFSG.Open.M11) := by
-  obtain ⟨n, hn, he⟩ := hsd
-  exact CFSG.Adapters.RankTwoModelTransports.semidihedral_catalogue_of_stated G
-    (semidihedral_recognition_of_local_theorems hB hF hA hU h5 G hnonab ⟨P, n, hn, he⟩)
 
 end CFSG.Semidihedral.RecognitionFromGaps

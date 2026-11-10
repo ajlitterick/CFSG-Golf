@@ -131,17 +131,4 @@ theorem exists_B_of_goodAction {G : Type} [Group G] [Finite G] {p : ℕ} {A : Su
       exact (HNB.commutator_double_eq_self_of_coprime_solvable B R hBR hcop inferInstance).symm
 
 
-theorem KF133ResMaxAt.of_good {P : (X : Type) → [Group X] → Prop}
-    (hP : ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-      P X → ∀ p : ℕ, p.Prime → 5 ≤ p → Good p X) :
-    KF133ResMaxAt P := by
-  intro G _ _ p A c L E h hF hF13 hT hEA t ht htL K hK b hb hb1 J hJ hKJ hmax hD hc hPJ
-  have hp := h.prime
-  have h5 := Sec12Three.five_le h
-  obtain ⟨hEJ, hEl, hcard3⟩ := simpleQuotAction_image h hF hEA hb hb1 hJ hD
-  have hq := isQuasisimple_thetaQuotient_of_mem_thetaComponentsAt hp hJ
-  have : IsSimpleGroup (SimpleQuot p J) := hq.2.1
-  exact exists_B_of_goodAction h hF hEA hb hb1 hJ hD hEJ hcard3
-    (hP _ hq.2.2 hPJ p hp h5 _ hEl hcard3)
-
 end CFSG.RankThree.PartOne.K133

@@ -235,20 +235,6 @@ theorem mat_conjSU_diagJ (d : Fin n → F) (hd : ∀ s, σ (d s) * d (Fin.rev s)
   rw [mat_apply, coe_conjSU, Units.val_mul, Units.val_mul, coe_diagJ, coe_diagJ_inv,
     mul_diagonal, diagonal_mul, mat_apply]
 
-theorem conjSU_diagJ_eq_self (d : Fin n → F) (hd : ∀ s, σ (d s) * d (Fin.rev s) = 1)
-    (x : SU σ n) (h : ∀ a b, a ≠ b → mat σ n x a b ≠ 0 → d a = d b) :
-    conjSU (diagJ d hd) (isJUnitary_diagJ d hd) x = x := by
-  apply mat_injective
-  ext a b
-  rw [mat_conjSU_diagJ]
-  have h0 := ne_zero_of_unitary hd
-  by_cases hab : a = b
-  · rw [hab]
-    field_simp [h0 b]
-  · by_cases hx : mat σ n x a b = 0
-    · rw [hx, mul_zero, zero_mul]
-    · rw [h a b hab hx]
-      field_simp [h0 b]
 
 theorem conj_eq_conjSU_diagJ {h : SU σ n} {t : Fin n → F}
     (hh : mat σ n h = diagonal t) (ht : ∀ s, σ (t s) * t (Fin.rev s) = 1) (z : SU σ n) :

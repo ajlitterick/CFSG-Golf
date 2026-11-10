@@ -41,8 +41,5 @@ variable (G : Type) [Group G] [Finite G]
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
     IsKProper G → IsCharTwoType G → 4 ≤ evenRank G → GLBPreuniqueness G → AlmostStrongAtCore G
 
-@[expose] def E2Rank4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    IsKProper G → IsCharTwoType G → 4 ≤ evenRank G → GLBPreuniqueness G → ConfinementAtCore G
 
 end CFSG.LocalAnalysis.RankFourTheoremC

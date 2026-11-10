@@ -48,8 +48,6 @@ theorem ruLGens_getD_eq {g : Equiv.Perm (Fin 4060)} (hg : g ∈ ruLGens) :
 
 theorem ruRepZ_mem (k : ℕ) : ruRepZ k ∈ ruZP := ruTZ_mem _
 
-theorem ruReps_lt {k : ℕ} (hk : k < 19) : ruReps.getD k 0 < 593775 := by
-  interval_cases k <;> decide
 
 theorem ruOrb_sub (k : ℕ) : ruOrb k ⊆ ruZP := by
   rintro t ⟨l, hl, rfl⟩

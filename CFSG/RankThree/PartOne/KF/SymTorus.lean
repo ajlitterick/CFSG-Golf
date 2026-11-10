@@ -22,8 +22,6 @@ variable {n p : ℕ} {K : Type} [Field K]
 
 theorem torusEltHom_apply (i j : Fin n) (u : Kˣ) : torusEltHom i j u = torusElt i j u := rfl
 
-theorem torusElt_swap (i j : Fin n) (u : Kˣ) : torusElt j i u = torusElt i j u⁻¹ := by
-  simp [torusElt, mul_comm]
 
 @[expose] def torusEltV (p : ℕ) {i j : Fin n} (hij : i ≠ j) :
     rootsOfUnity p K →* torusVec p n K where

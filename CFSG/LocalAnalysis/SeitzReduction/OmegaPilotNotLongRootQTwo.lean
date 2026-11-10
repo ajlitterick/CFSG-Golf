@@ -232,35 +232,6 @@ theorem exists_conj_eq_mul_longRoot_twoSided_plus_of_habel_of_five_le (hset : Se
   · exact isLongRoot_of_commute_sylow_plus_of_mulEquiv ((conjugateMulEquiv L x).symm.trans e)
       (by omega) U' (fun h1 => hz1 (congrArg Subtype.val h1)) fun u hu => Subtype.ext (hU' u hu)
 
-theorem exists_conj_eq_mul_longRoot_plus_or_residual_of_five_le (hset : SeitzSetting G L)
-    {n f : ℕ} (hn : 5 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ f)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    (∃ (g : G) (z : L), IsLongRoot _ (e z) ∧ g⁻¹ * t * g = t * (z : G)) ∨
-      (Even f ∧ ∃ S : Sylow 2 G, (S : Subgroup G) ≤ centralizer ({t} : Set G) ∧
-        ∃ y ∈ (S : Subgroup G), ∃ w ∈ (S : Subgroup G), y * w * y⁻¹ * w⁻¹ ∉ L) := by
-  by_cases habel : ∀ S : Sylow 2 G, (S : Subgroup G) ≤ centralizer ({t} : Set G) →
-      ∀ y ∈ (S : Subgroup G), ∀ z ∈ (S : Subgroup G), y * z * y⁻¹ * z⁻¹ ∈ L
-  · left
-    obtain ⟨x, z, -, hxz, ⟨hzL, hzl⟩, -, -⟩ :=
-      exists_conj_eq_mul_longRoot_twoSided_plus_of_habel_of_five_le hset hn hK e ht hKt habel
-    exact ⟨x, ⟨z, hzL⟩, hzl, hxz⟩
-  · right
-    refine ⟨?_, ?_⟩
-    · by_contra hfe
-      exact habel (habel_plus_of_odd hset hn (Nat.not_even_iff_odd.mp hfe) hK e ht hKt)
-    · push Not at habel
-      obtain ⟨S, hS, y, hy, w, hw, hyw⟩ := habel
-      exact ⟨S, hS, y, hy, w, hw, hyw⟩
-
-theorem exists_conj_eq_mul_longRoot_plus_of_odd (hset : SeitzSetting G L) {n f : ℕ} (hn : 5 ≤ n)
-    (hf : Odd f) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ f)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ (g : G) (z : L), IsLongRoot _ (e z) ∧ g⁻¹ * t * g = t * (z : G) := by
-  rcases exists_conj_eq_mul_longRoot_plus_or_residual_of_five_le hset hn hK e ht hKt with h | h
-  · exact h
-  · exact absurd h.1 (Nat.not_even_iff_odd.mpr hf)
 
 end Setting
 

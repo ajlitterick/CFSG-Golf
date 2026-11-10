@@ -184,14 +184,5 @@ theorem goldschmidtB1_simple
     intro g
     exact (mem_centralizer_iff.mp (hC ▸ mem_top g) b hb).symm
 
-theorem goldschmidtB1_simple_not_mem
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (S : Sylow 2 G) {B : Subgroup G} (hBS : B ≤ S) (hB : B ≠ ⊥)
-    (hBsc : fusionStronglyClosed (B : Set G) S) {z : G} (hz : orderOf z = 2) :
-    z ∉ (CFSG.perfectResidual (centralizer (B : Set G))).map (centralizer (B : Set G)).subtype := by
-  rw [goldschmidtB1_simple hnonab S hBS hB hBsc, mem_bot]
-  intro h
-  rw [h, orderOf_one] at hz
-  exact absurd hz (by norm_num)
 
 end CFSG.Goldschmidt75

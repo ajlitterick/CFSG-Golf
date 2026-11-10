@@ -62,13 +62,6 @@ theorem projective_small_no_pComponent (K : Type u) [Field K] [Finite K]
     (projective_pComponent_classification n K hn p M hM).2.2.2.1).trans
       (pslRangeEquiv n K).symm
 
-theorem projectivePComponentEquivPSL_toPGL
-    (n : ℕ) (K : Type u) [Field K] [Finite K] (hn : 1 ≤ n)
-    (p : ℕ) [Fact p.Prime] (M : Subgroup (ProjGenLinGroup (Fin n) K))
-    (hM : CFSG.IsPComponent p M) (x : M) :
-    ProjectiveSpecialLinearGroup.toPGL (projectivePComponentEquivPSL n K hn p M hM x) =
-      x.val :=
-  pslRangeEquiv_symm_toPGL n K _
 
 end
 

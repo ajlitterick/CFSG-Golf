@@ -131,13 +131,6 @@ theorem pRank_top_quot_center_eq [Finite G] {M L : Subgroup G} (hLM : L ≤ M)
   rw [← pRank_barM_eq Nat.prime_three (by norm_num) M L hLM,
     CFSG.SectionRank.pRank_eq_pRank_top_subgroup (barM M L), h1]
 
-theorem tightKP_quot_of_alt {X : Type} [Group X] {N : ℕ} (hN : N = 6 ∨ N = 7 ∨ N = 8)
-    (e : X ≃* alternatingGroup (Fin N)) : CFSG.AGLEmbeddingD2.McLaughlin.TightKP
-      (X ⧸ Subgroup.center X) := by
-  have hbot := center_eq_bot_of_alt (by omega) e
-  refine Or.inl ⟨N, hN, ⟨?_⟩⟩
-  exact (QuotientGroup.quotientMulEquivOfEq hbot).trans
-    ((QuotientGroup.quotientBot (G := X)).trans e)
 
 omit [Finite G] in
 theorem quotCenterEquivAlt {X : Type} [Group X] {N : ℕ} (hN : 5 ≤ N)
@@ -157,14 +150,6 @@ theorem quotCenterEquivAlt {X : Type} [Group X] {N : ℕ} (hN : 5 ≤ N)
   Nonempty (↥(barM M L) ⧸ Subgroup.center ↥(barM M L) ≃* alternatingGroup (Fin 8)) ∨
   IsUThreeThree (↥(barM M L) ⧸ Subgroup.center ↥(barM M L))
 
-omit [Finite G] in
-theorem TightRow.tightKP {M L : Subgroup G} (h : TightRow M L) :
-    CFSG.AGLEmbeddingD2.McLaughlin.TightKP (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)) := by
-  rcases h with h | ⟨-, h⟩ | h | ⟨d, hd, he⟩
-  · exact Or.inl ⟨6, by omega, h⟩
-  · exact Or.inl ⟨7, by omega, h⟩
-  · exact Or.inl ⟨8, by omega, h⟩
-  · exact Or.inr ⟨d, hd, he⟩
 
 omit [Finite G] in
 theorem TightRow.of_alt {M L : Subgroup G} {N : ℕ} (hN : N = 6 ∨ N = 8)
@@ -276,16 +261,5 @@ theorem tightRow_or_L5Two_of_block (hLF : LargeFieldParabolic) (h418 : Agl418)
       omega
   · exact absurd h8 (fun h => not_nineThreeEight h hsolv)
 
-theorem tightKP_or_L5Two_of_block (hLF : LargeFieldParabolic) (h418 : Agl418)
-    (hL27 : L2SevenRankOne) {M S L : Subgroup G} (hL : IsWeakSBlock M S L)
-    (hconc : NineThreeConclusion M S L) (hnot1 : ¬ NineThreeOne L)
-    (hSyl : NineThreeTwo M S L → ¬ IsSylowTwoOf (barM M (S ⊓ L)) (barM M L))
-    (hsolv : BlockPLThreeSolv M S L) (hr : Open.pRank 3 L = 2)
-    (hZ : ¬ 3 ∣ Nat.card (barM M L ⊓
-      Subgroup.centralizer (barM M L : Set (↥M ⧸ CFSG.pCore 2 ↥M)) : Subgroup _)) :
-    CFSG.AGLEmbeddingD2.McLaughlin.TightKP (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)) ∨
-      IsL5Two (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)) :=
-  (tightRow_or_L5Two_of_block hLF h418 hL27 hL hconc hnot1 hSyl hsolv hr hZ).imp
-    TightRow.tightKP id
 
 end CFSG.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData

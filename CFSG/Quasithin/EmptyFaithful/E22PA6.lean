@@ -90,22 +90,5 @@ theorem nParam_le_one_of_alt6 {G : Type} [Group G] [Finite G]
     rw [hO2G, Subgroup.map_bot] at this
     exact this.symm
 
-@[expose] def TypeOneNoA6 (Y : Type) [Group Y] : Prop :=
-  IsPSL 3 2 1 Y ∨ (∃ p e : ℕ, p.Prime ∧ p ≠ 2 ∧ 5 < p ^ e ∧ IsPSL 2 p e Y) ∨
-    ∃ (s : Bool) (p : ℕ), p.Prime ∧ p ≠ 2 ∧ IsPSLEps3 s p 1 Y
-
-@[expose] def E114OneNoA6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T : Subgroup G), SQTKGroup G →
-    IsSimpleGroup (ASInputs.FStar G) → quasithinIsSylowTwo T →
-    CFSG.generalizedFitting G ⊔ T = ⊤ →
-      TypeOneNoA6 (ASInputs.FStar G) → E1.nParam (⊤ : Subgroup G) ≤ 1
-
-theorem e114One_of_noA6 (h : E114OneNoA6) : E114One := by
-  intro G _ _ T hSQ hFs hT hFT hty
-  rcases hty with h1 | h6 | h2 | h3
-  · exact h G T hSQ hFs hT hFT (Or.inl h1)
-  · exact nParam_le_one_of_alt6 h6
-  · exact h G T hSQ hFs hT hFT (Or.inr (Or.inl h2))
-  · exact h G T hSQ hFs hT hFT (Or.inr (Or.inr h3))
 
 end CFSG.Quasithin.E2.E22N

@@ -21,26 +21,6 @@ theorem of_le {H E : Subgroup G} (h : GGControlsStrongFusion H E) {E' : Subgroup
   rw [ggControlsStrongFusion_iff] at h ⊢
   exact ⟨hE'.trans h.1, fun e he he1 g hg => h.2 e (hE' he) he1 g hg⟩
 
-theorem conj_zpowers {H : Subgroup G} {f m : G} (h : GGControlsStrongFusion H (Subgroup.zpowers f))
-    (hm : m ∈ H) : GGControlsStrongFusion H (Subgroup.zpowers (m * f * m⁻¹)) := by
-  rw [ggControlsStrongFusion_iff] at h ⊢
-  refine ⟨Subgroup.zpowers_le.mpr ?_, fun y hy hy1 g hg => ?_⟩
-  · exact H.mul_mem (H.mul_mem hm (h.1 (Subgroup.mem_zpowers f))) (H.inv_mem hm)
-  · obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hy
-    have hk : (m * f * m⁻¹) ^ k = m * f ^ k * m⁻¹ := by
-      have := map_zpow (MulAut.conj m) f k
-      simpa only [MulAut.conj_apply] using this.symm
-    have hfk : f ^ k ≠ 1 := by
-      intro h1
-      apply hy1
-      rw [hk, h1, mul_one, mul_inv_cancel]
-    have hg' : (m⁻¹ * g)⁻¹ * f ^ k * (m⁻¹ * g) ∈ H := by
-      have : (m⁻¹ * g)⁻¹ * f ^ k * (m⁻¹ * g) = g⁻¹ * (m * f * m⁻¹) ^ k * g := by
-        rw [hk]; group
-      rw [this]
-      exact hg
-    have := H.mul_mem hm (h.2 (f ^ k) (Subgroup.zpow_mem_zpowers f k) hfk (m⁻¹ * g) hg')
-    simpa using this
 
 end GGControlsStrongFusion
 

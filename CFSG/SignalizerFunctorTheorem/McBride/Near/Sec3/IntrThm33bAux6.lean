@@ -13,9 +13,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride.Near.Thm33b
 
 open CFSG.SignalizerFunctorTheorem.McBride.Nonsolv Thm33a
 
-@[expose] def Thm33bBelow.{v} (p n : ℕ) : Prop :=
-  ∀ (Γ : Type v) [Group Γ] [Finite Γ] (A X Y : Subgroup Γ), Nat.card ↥X < n →
-    NearAsolvAction p A X → (iPairsY A X Y).Nonempty → Concl A X Y
 
 variable {Γ : Type u} [Group Γ] [Finite Γ] {p : ℕ} {A X Y : Subgroup Γ}
 

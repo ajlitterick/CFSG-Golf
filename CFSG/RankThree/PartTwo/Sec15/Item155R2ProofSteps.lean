@@ -93,7 +93,6 @@ theorem le_normalizer_of_commutator_le {R K : Subgroup G} (hR2 : IsPGroup 2 R)
         exact (Subgroup.commutator_mono le_sup_left le_rfl).trans hWE
       exact hER (Subgroup.mem_zpowers g)
 
-variable {A : Subgroup G} {c : G} {L : Subgroup G}
 
 end Proof155R2
 

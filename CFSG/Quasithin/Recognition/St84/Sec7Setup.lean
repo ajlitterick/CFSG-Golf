@@ -116,12 +116,6 @@ theorem n_three : X.n 3 = X.n 1 := by
 theorem n_neg_one : X.n (-1) = X.n 1 := by
   rw [show (-1 : ℤ) = 1 + 2 * (-1) by norm_num, X.n_add]
 
-theorem n_eq_or (i : ℤ) : X.n i = X.n 0 ∨ X.n i = X.n 1 := by
-  obtain ⟨m, hm | hm⟩ := Int.even_or_odd' i
-  · left
-    rw [hm, show 2 * m = 0 + 2 * m by omega, X.n_add]
-  · right
-    rw [hm, show 2 * m + 1 = 1 + 2 * m by omega, X.n_add]
 
 theorem Q_le_Gi_adj (i : ℤ) : X.Q i ≤ X.Gi (i - 1) ⊓ X.Gi (i + 1) := by
   have hleft : Γ.Adj (X.vert i) (X.vert (i - 1)) := by

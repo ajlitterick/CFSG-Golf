@@ -19,15 +19,6 @@ section PSL
 
 variable {n : ℕ} {K : Type} [Field K]
 
-theorem fieldAut_mul_dualAut_comm (σ : K ≃+* K) :
-    fieldAut n K σ * dualAut n K = dualAut n K * fieldAut n K σ := by
-  have htrans := standard_automorphism_transport (K := K) (n := n)
-  have h1 := htrans.2.2.2.2.2.1 σ
-  have h2 := htrans.2.2.2.1
-  calc fieldAut n K σ * dualAut n K
-      = dualAut n K * fieldAut n K σ * dualAut n K * dualAut n K := by rw [h1]
-    _ = dualAut n K * fieldAut n K σ * (dualAut n K * dualAut n K) := by group
-    _ = dualAut n K * fieldAut n K σ := by rw [h2, mul_one]
 
 variable [Finite K]
 

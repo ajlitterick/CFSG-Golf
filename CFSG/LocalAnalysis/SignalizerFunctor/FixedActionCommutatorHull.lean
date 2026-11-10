@@ -58,28 +58,6 @@ theorem fixed_action_commutator_hull_second_invariant
     exact invariant_action_commutator_invariant _ _ secondActor original original_member
   exact image_le (Subgroup.mem_map_of_mem _ member)
 
-theorem fixed_action_commutator_hull_first_invariant
-    (commuting : ∀ firstActor : ActorType, ∀ secondActor : SecondActorType, ∀ element : GroupType,
-      firstActor • (secondActor • element) = secondActor • (firstActor • element)) :
-    ∀ firstActor : ActorType, ∀ element ∈ fixedActionCommutatorHull commuting,
-      firstActor • element ∈ fixedActionCommutatorHull commuting := by
-  intro firstActor element member
-  have image_le : (fixedActionCommutatorHull commuting).map
-      (MulDistribMulAction.toMonoidHom GroupType firstActor) ≤ fixedActionCommutatorHull commuting := by
-    unfold fixedActionCommutatorHull
-    rw [Subgroup.map_iSup]
-    apply iSup_le
-    intro actorSubgroup
-    rw [Subgroup.map_iSup]
-    apply iSup_le
-    intro cyclic
-    apply le_trans _ (le_iSup_of_le actorSubgroup (le_iSup_of_le cyclic le_rfl))
-    rintro _ ⟨original, original_member, rfl⟩
-    exact invariant_action_commutator_invariant_of_commuting
-      (fun secondActor actorElement original => (commuting actorElement secondActor original).symm)
-      _ _ (fixed_subgroup_invariant_of_commutative_actor actorSubgroup)
-      firstActor original original_member
-  exact image_le (Subgroup.mem_map_of_mem _ member)
 
 theorem commuting_subgroup_actions (parent : Subgroup GroupType)
     (first_invariant : ∀ actorElement : ActorType, ∀ element ∈ parent, actorElement • element ∈ parent)

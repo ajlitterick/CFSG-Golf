@@ -101,9 +101,6 @@ theorem mem_subOf {S : Submodule (ZMod 2) (Additive A)} {g : G} :
 
 theorem subOf_le (S : Submodule (ZMod 2) (Additive A)) : subOf S ≤ A := fun _ ⟨hg, _⟩ => hg
 
-theorem ofMul_mem_iff {S : Submodule (ZMod 2) (Additive A)} (a : A) :
-    Additive.ofMul a ∈ S ↔ (a : G) ∈ subOf S :=
-  ⟨fun h => ⟨a.2, h⟩, fun ⟨_, h⟩ => h⟩
 
 theorem mem_iff_mem_subOf {S : Submodule (ZMod 2) (Additive A)} (v : Additive A) :
     v ∈ S ↔ ((Additive.toMul v : A) : G) ∈ subOf S :=

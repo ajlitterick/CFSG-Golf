@@ -141,9 +141,6 @@ theorem normal_map_subgroupOf_range (σ : I₀ →* Y) {N : Subgroup I₀} (hN :
     rw [map_mul, map_mul, hx, map_inv]
     group
 
-theorem oUpperTwo_map_le {Y₀ : Subgroup Y} (σ : I₀ →* Y) (hσY : σ.range ≤ Y₀) :
-    (CFSG.ComponentClassification.AS76b.oUpperTwo (⊤ : Subgroup I₀)).map σ ≤ Y₀ :=
-  (Subgroup.map_le_range σ _).trans hσY
 
 theorem normal_oUpperTwo_top :
     (CFSG.ComponentClassification.AS76b.oUpperTwo (⊤ : Subgroup I₀)).Normal := by

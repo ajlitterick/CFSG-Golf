@@ -116,23 +116,5 @@ theorem catalog_bar (h : Config G p w v L K) :
 
 end Config
 
-theorem identFact_of_rows (hAlt : RowFor N36.IsAlt) (hCl : RowFor Milestones.ClassicalRep)
-    (hEx : RowFor Blueprint.ExceptionalRep) (hSp : RowFor Blueprint.NativeSporadic.SporadicRep) :
-    Harris81Lemma35IdentFact := by
-  intro G _ _ hs hnonab hK hcat p hp hp2 w v hw hv2 hvw hvM L hL hM k hk hs5 hLsl hwL K hKeq hLK
-    hKc hwK hKM hKv
-  have hc : Config G p w v L K :=
-    ⟨hs, hnonab, hK, hcat, hp, hp2, hw, hv2, hvw, hvM, hL, hM, ⟨k, hk, hs5, hLsl⟩, hwL, hKeq, hLK,
-      hKc, hwK, hKM, hKv⟩
-  rcases hc.catalog_bar with ⟨q, -, ⟨e⟩⟩ | ⟨n, hn, ⟨e⟩⟩ | hcl | hex | hsp
-  · exfalso
-    obtain ⟨a, b, hab⟩ := hc.nonabelian_bar
-    apply hab
-    apply e.injective
-    rw [map_mul, map_mul, mul_comm]
-  · exact hAlt G p w v L K hc ⟨n, hn, ⟨e⟩⟩
-  · exact hCl G p w v L K hc hcl
-  · exact hEx G p w v L K hc hex
-  · exact hSp G p w v L K hc hsp
 
 end CFSG.ComponentClassification.HarrisLit.L35

@@ -325,13 +325,5 @@ theorem odd_higher_linear_all_involution_fixed_four_group (L : Type) [Group L] {
   · rw [Subgroup.card_map_of_injective ψ.symm.injective]
     exact hVcard
 
-theorem odd_higher_linear_all_involution_fixed_four_group_of_classicalModel (L : Type)
-    [Group L] {p f n : ℕ} [Fact p.Prime] (hp : p ≠ 2) (hn : 3 ≤ n)
-    (hL : CFSG.Assembly.ComponentType.ClassicalModel L .PSL n p f) (α : MulAut L)
-    (hα : α ^ 2 = 1) :
-    ∃ V : Subgroup L, V ≤ fixedSubgroup α ∧ CFSG.IsElementaryAbelian 2 V ∧ Nat.card V = 4 :=
-  odd_higher_linear_all_involution_fixed_four_group L hp hn
-    (CFSG.ComponentClassification.ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel
-      .PSL n p f hL) α hα
 
 end CFSG.LocalAnalysis.ComponentInitial.OddHigherLinear

@@ -105,9 +105,6 @@ theorem mem_kerK {K : Subgroup G} (eK : ↥K ⧸ CFSG.pCore 2 ↥K ≃* alternat
   · rintro ⟨hg, h1⟩
     exact ⟨⟨g, hg⟩, h1, rfl⟩
 
-theorem kerK_le_normalizer {K : Subgroup G}
-    (eK : ↥K ⧸ CFSG.pCore 2 ↥K ≃* alternatingGroup (Fin 5)) :
-    kerK eK ≤ normalizer (K : Set G) := map_subtype_le _
 
 theorem conj_mem_kerK {K : Subgroup G} (eK : ↥K ⧸ CFSG.pCore 2 ↥K ≃* alternatingGroup (Fin 5))
     {g y : G} (hg : g ∈ normalizer (K : Set G)) (hy : y ∈ kerK eK) :

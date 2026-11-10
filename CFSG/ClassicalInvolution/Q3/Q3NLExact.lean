@@ -106,9 +106,6 @@ theorem exactCore3_cover : ∀ x ∈ K, ∃ i ∈ exactCore3 c K, ∃ n ∈ oddC
 theorem mem_exactCore3 : z ∈ exactCore3 c K :=
   (axisResidual_exactCore3 hK hc2 hcK).mem
 
-theorem mul_comm_of_mem_trivialOnQuot : c * z = z * c :=
-  (Subgroup.mem_centralizer_singleton_iff.mp (exactCore3_le_centralizer c K
-    (mem_exactCore3 hK hc2 hcK))).symm
 
 theorem oddCoreIn_exactCore3 : oddCoreIn (exactCore3 c K) = exactCore3 c K ⊓ oddCoreIn K :=
   (axisResidual_exactCore3 hK hc2 hcK).oddCoreIn_eq
@@ -172,10 +169,6 @@ theorem le_trivialOnQuot_exactCore3 (hK : IsClassicalMember3 K z)
     B ≤ trivialOnQuot (exactCore3 c K) := fun _ hb =>
   mem_trivialOnQuot_exactCore3 hK hc2 hcK (hB hb) (hBc hb)
 
-theorem mem_trivialOnQuot_exactCore3_self (c : G) (K : Subgroup G) :
-    c ∈ trivialOnQuot (exactCore3 c K) :=
-  mem_trivialOnQuot_of_centralizes fun _ hx =>
-    (Subgroup.mem_centralizer_singleton_iff.mp (exactCore3_le_centralizer c K hx)).symm
 
 end Action
 
@@ -189,10 +182,6 @@ variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {c : G} {K K' :
 @[expose] def exactFamily3 (Ω : Set (Subgroup G)) (c : G) : Set (Subgroup G) :=
   {K' | ∃ K ∈ tqMembers3 Ω c, K' = exactCore3 c K}
 
-theorem mem_tqMembers3_iff : K ∈ tqMembers3 Ω c ↔ K ∈ Ω ∧ c ∈ trivialOnQuot K := Iff.rfl
-
-theorem mem_exactFamily3_iff :
-    K' ∈ exactFamily3 Ω c ↔ ∃ K ∈ tqMembers3 Ω c, K' = exactCore3 c K := Iff.rfl
 
 theorem exactCore3_mem_exactFamily3 (hK : K ∈ tqMembers3 Ω c) :
     exactCore3 c K ∈ exactFamily3 Ω c :=
@@ -270,9 +259,6 @@ namespace SecData3
 variable (h : SecData3 a Φ)
 include h
 
-theorem centralizingMembers_eq : centralizingMembers Φ {a} = Φ := by
-  ext K
-  exact ⟨fun hK => hK.1, fun hK => ⟨hK, h.le K hK⟩⟩
 
 theorem inClass3 :
     InClass3 (restrictFamily (centralizingMembers Φ {a}) (centralizingLayer Φ {a})) := by
@@ -356,11 +342,6 @@ theorem lieSystemMod3_exactPair3 (hΩ : InClass3 Ω) (hc2 : IsPGroup 2 (Subgroup
       inferInstance
     exact LieSystem3.of_empty (by rw [hrf]; simp [oddQuotientFamily])
 
-theorem exactLocalLieSystems3_of_cit3Below (hΩ : InClass3 Ω)
-    (hBelow : CIT3Below (Nat.card G)) :
-    ∀ c : G, IsPGroup 2 (Subgroup.zpowers c) → ¬ ({c} : Set G) ⊆ Subgroup.center G →
-      LieSystemMod3 (exactPair3 Ω c) :=
-  fun _ hc2 hnc => lieSystemMod3_exactPair3 hΩ hc2 hBelow hnc
 
 end Pair
 
@@ -368,18 +349,6 @@ section Compare
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {c : G}
 
-theorem centralizingMembers_subset_tqMembers3 :
-    centralizingMembers Ω {c} ⊆ tqMembers3 Ω c :=
-  fun _ hK => mem_tqMembers3_of_le_centralizer hK.1 hK.2
-
-theorem centralizingMembers_subset_exactFamily3 :
-    centralizingMembers Ω {c} ⊆ exactFamily3 Ω c :=
-  fun _ hK => mem_exactFamily3_of_le_centralizer hK.1 hK.2
-
-theorem centralizingLayer_le_exactLayer3 : centralizingLayer Ω {c} ≤ exactLayer3 Ω c :=
-  iSup₂_le fun _ hK => le_centralizingLayer
-    (⟨centralizingMembers_subset_exactFamily3 hK, hK.2⟩ :
-      _ ∈ centralizingMembers (exactFamily3 Ω c) {c})
 
 theorem tqMembers3_eq_centralizingMembers_of_exact (hex : ExactMembers3 Ω) :
     tqMembers3 Ω c = centralizingMembers Ω {c} := by
@@ -393,24 +362,6 @@ theorem tqMembers3_eq_centralizingMembers_of_exact (hex : ExactMembers3 Ω) :
   exact Subgroup.mem_centralizer_singleton_iff.mpr
     (commutatorElement_eq_one_iff_mul_comm.mp h).symm
 
-theorem exactFamily3_eq_centralizingMembers_of_exact (hex : ExactMembers3 Ω) :
-    exactFamily3 Ω c = centralizingMembers Ω {c} := by
-  ext K'
-  refine ⟨?_, fun hK => centralizingMembers_subset_exactFamily3 hK⟩
-  rintro ⟨K, hK, rfl⟩
-  have hK' : K ∈ centralizingMembers Ω {c} := by
-    rwa [← tqMembers3_eq_centralizingMembers_of_exact hex]
-  rw [exactCore3_eq_self hK'.2]
-  exact hK'
-
-theorem exactLayer3_eq_centralizingLayer_of_exact (hex : ExactMembers3 Ω) :
-    exactLayer3 Ω c = centralizingLayer Ω {c} := by
-  have hfam : centralizingMembers (exactFamily3 Ω c) {c} = centralizingMembers Ω {c} := by
-    rw [exactFamily3_eq_centralizingMembers_of_exact hex]
-    ext K
-    exact ⟨fun h => h.1, fun h => ⟨h, h.2⟩⟩
-  unfold exactLayer3 centralizingLayer
-  rw [hfam]
 
 end Compare
 

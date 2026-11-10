@@ -25,13 +25,6 @@ theorem gensG : GensG GT := by
   rw [bAnd_iff] at h2
   exact ⟨unpack_eq_of_bindArrK h2.1, h2.2⟩
 
-theorem dec_mul {x y : ℕ} (hx : x < 1024) (hy : y < 1024) :
-    dec (mulC T1X.F x y) = mulM (dec x) (dec y) := dec_mulC t1Of hx hy
-
-theorem dec_inv {x : ℕ} (hx : x < 1024) : dec (invC T1X.F x) = invM (dec x) := dec_invC t1Of hx
-
-theorem dec_beta {t i x : ℕ} (ht : t < 64) (hi : i < 36) (hx : x < 1024) :
-    dec (betaC T1X.F AlX.F t i x) = betaYM t i (dec x) := dec_betaC t1Of alOf bounds_k ht hi hx
 
 theorem yTab_eq (t : ℕ) {i : ℕ} (hi : i < 36) :
     Cn (yK GT t i) ∧ yTab t i = unpack 42 6 (yK GT t i) := yK_eq gensG t hi

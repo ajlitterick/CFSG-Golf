@@ -194,40 +194,6 @@ theorem genSection_layerHull (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMo
       gen := omegaGen_quotFamily_of_gen _ N₀ (omegaGen_restrictFamily_layerHull Y)
       aEmpty := aEmpty_quotFamily hp hq hΛ hΛ' hN₀odd hΛA }
 
-theorem sectionLie_of_thm6' {n : ℕ} (h6 : Thm6SectBelow' p f n) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmegaMod p f Ω) (hA : ∀ L ∈ Ω, AEmpty Ω L) (Y : Subgroup G)
-    (hlt : Nat.card (↥(layerHull Ω Y) ⧸ classicalInvolutionOddCore ↥(layerHull Ω Y)) < n)
-    (hne : (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y))).Nonempty)
-    (htop : (⊤ : Subgroup (↥(layerHull Ω Y) ⧸ classicalInvolutionOddCore ↥(layerHull Ω Y))) ∉
-      oddQuotientFamily (restrictFamily Ω (layerHull Ω Y)))
-    (hDE : DEdgeless (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y)))) :
-    SectionLieType p f Ω (layerHull Ω Y) .PSL 3 ∨ SectionLieType p f Ω (layerHull Ω Y) .PSU 3 ∨
-      SectionLieType p f Ω (layerHull Ω Y) .G2 0 ∨
-        SectionLieType p f Ω (layerHull Ω Y) .trialityD4 0 := by
-  have hS := genSection_layerHull hp hq hΩ hA Y
-  rcases h6 hp hq _ hlt _ hS hne htop hDE with h | h | h | h
-  · exact Or.inl (sectionLieType_of_hasLieType hS.gen h)
-  · exact Or.inr (Or.inl (sectionLieType_of_hasLieType hS.gen h))
-  · exact Or.inr (Or.inr (Or.inl (sectionLieType_of_hasLieType hS.gen h)))
-  · exact Or.inr (Or.inr (Or.inr (sectionLieType_of_hasLieType hS.gen h)))
-
-theorem sectionOrth_of_thm8' {n : ℕ} (h8 : Thm8SectBelow' p f n) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmegaMod p f Ω) (hA : ∀ L ∈ Ω, AEmpty Ω L) (Y : Subgroup G)
-    (hlt : Nat.card (↥(layerHull Ω Y) ⧸ classicalInvolutionOddCore ↥(layerHull Ω Y)) < n)
-    (hne : (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y))).Nonempty)
-    (hNE : ¬ DEdgeless (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y))))
-    (hNC : ¬ DConnected (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y)))) :
-    ∃ d : ℕ, ∃ ε : Bool, 5 ≤ d ∧ d ≤ 8 ∧ SectionOrthType p f Ω (layerHull Ω Y) d ε := by
-  have hS := genSection_layerHull hp hq hΩ hA Y
-  obtain ⟨d, ε, hd, hd8, h⟩ := h8 hp hq _ hlt _ hS hne hNE hNC
-  exact ⟨d, ε, hd, hd8, sectionOrthType_of_hasOrthType hS.gen h⟩
-
-theorem layerSection_dichotomy {n : ℕ} (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (h4 : Thm4Below p f n)
-    (hΩ : HypOmegaMod p f Ω) (hA : ∀ L ∈ Ω, AEmpty Ω L) (Y : Subgroup G)
-    (hlt : Nat.card (↥(layerHull Ω Y) ⧸ classicalInvolutionOddCore ↥(layerHull Ω Y)) < n) :
-    DConnected (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y))) ∨
-      TransSection p f (oddQuotientFamily (restrictFamily Ω (layerHull Ω Y))) :=
-  transSection_or_dConnected hp hq h4 hlt (genSection_layerHull hp hq hΩ hA Y)
 
 end Layer
 

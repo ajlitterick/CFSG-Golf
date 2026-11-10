@@ -355,8 +355,6 @@ theorem d43_comm24 (s t : K) :
       simp only [c1, c2, c3, c4, c5, c6, c7, c8, c9] <;>
       first | exact one_mem _ | exact xPar_mem (isRoot_d4Root (by decide)) _
 
-omit [CharP K 2] in
-theorem coe_fixedField_mul (s t : fixedField σ) : ((s * t : fixedField σ) : K) = s * t := rfl
 
 theorem d43_comm15 (s t : fixedField σ) :
     ⁅𝕩 (d4Root 19) (s : K), 𝕩 (d4Root 2) (t : K)⁆ = 𝕩 (d4Root 22) ((s * t : fixedField σ) : K) :=

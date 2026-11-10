@@ -221,31 +221,6 @@ theorem burnsideC134w_corrOneWeak
   burnsideC134w_corrOneWeak_of_ms93ASOrdW_of_simple rankTwoLieSimple_holds
     burnsideC134w_ms93ASOrdW_holds
 
-theorem burnsideC134w_c134W
-    (hsl : S4L.NoNonlinSLGt4) : ASVolI.burnsideC135_C134W := by
-  intro G _ _ G₀ R L hMS hL hG hsl3
-  obtain ⟨n, F, iF, fF, α, hF, hα⟩ := hsl3
-  have hLX : L ≤ G₀ := MS93.le_of_coe_eq_mul_left hG
-  have hXL : G₀ ≤ Subgroup.normalizer (L : Set G) := by
-    have h' := MS93.le_normalizer_oddGen G₀
-    rwa [← MS93.isMSPair_eq_oddGen hMS hL hG] at h'
-  by_cases hn : 2 ≤ n
-  · obtain ⟨i, hi⟩ := burnsideC134w_corrBig hsl G G₀ R L hMS hL hG ⟨n, F, iF, fF, α, hn, hF, hα⟩
-    exact ⟨i, burnsideC134w_caseWeak_of_corr hLX hXL hi⟩
-  · have h1 : 1 < Fintype.card F := Fintype.one_lt_card
-    have hn1 : n = 1 := by
-      rcases n with _ | _ | n
-      · rw [hF, pow_zero] at h1
-        exact absurd h1 (lt_irrefl 1)
-      · rfl
-      · omega
-    have hF2 : Fintype.card F = 2 := by rw [hF, hn1, pow_one]
-    obtain ⟨i, hi⟩ := burnsideC134w_corrOneWeak G G₀ R L hMS hL hG ⟨F, iF, fF, α, hF2, hα⟩
-    exact ⟨i, hi⟩
-
-theorem burnsideC134w_c134W_holds
-    : ASVolI.burnsideC135_C134W :=
-  burnsideC134w_c134W S4L.burnsideMag568_noNonlinSLGt4
 
 end Holds
 

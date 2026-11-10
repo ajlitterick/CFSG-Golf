@@ -135,27 +135,5 @@ theorem fi22_outerCentre
       rw [this]
       exact hz
 
-theorem exists_commuting_rep_fi22
-    {i j : ℕ} (hi : i < 3) (hj : j < 6) :
-    ∃ x ∈ fi22P, (x * fi22ExtRep i * x⁻¹) * fi22ExtRep j =
-      fi22ExtRep j * (x * fi22ExtRep i * x⁻¹) := by
-  have h := Certificates.certificate25612
-  simp only [fi22UmovData, List.all_eq_true, List.mem_range] at h
-  exact umovWit_spec (fun T g hT hs => (siftP_iff hT).1 hs) (rep_tT (by omega))
-    (rep_tT hj) (h i hi j hj)
-
-theorem exists_commuting_fi22 :
-    ∀ u ∈ fi22P, orderOf u = 2 → ∀ w ∈ fi22R, w * w = 1 →
-      ∃ x ∈ fi22P, (x * u * x⁻¹) * w = w * (x * u * x⁻¹) :=
-  exists_commuting_conj_of_cover (P := fi22P) (R := fi22R) ((List.range 3).map fi22ExtRep)
-    ((List.range 6).map fi22ExtRep) cover_P cover_R
-    (fun r hr c hc => by
-      obtain ⟨k, hk, rfl⟩ := List.mem_map.1 hr
-      exact exists_fi22P_conj (k := k) (by have := List.mem_range.1 hk; omega) hc)
-    (fun r hr r' hr' => by
-      obtain ⟨k, hk, rfl⟩ := List.mem_map.1 hr
-      obtain ⟨j, hj, rfl⟩ := List.mem_map.1 hr'
-      exact exists_commuting_rep_fi22 (List.mem_range.1 hk) (List.mem_range.1 hj))
-    fi22P_le_R
 
 end CFSG.EvenSporadicStandard.Solomon78

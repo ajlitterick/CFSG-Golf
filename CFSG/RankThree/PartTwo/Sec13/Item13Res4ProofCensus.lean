@@ -25,9 +25,6 @@ variable {X : Type*} [Group X]
     intro x hx β hβ
     rw [map_inv, hx β hβ]
 
-theorem mem_fixedSubgroup_iff {B : Subgroup (MulAut X)} {x : X} :
-    x ∈ fixedSubgroup B ↔ ∀ β ∈ B, β x = x :=
-  Iff.rfl
 
 theorem exists_orderOf_eq_three_forall_fixed [Finite X] {B : Subgroup (MulAut X)}
     (hB : ∀ β ∈ B, β ^ 3 = 1) (h3 : 3 ∣ Nat.card X) :

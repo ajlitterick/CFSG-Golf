@@ -230,10 +230,6 @@ private theorem linePerm_inl_self (m : Fin r) :
   rw [linePerm, weylPerm_swapSet_inl]
   simp
 
-private theorem linePerm_inr_inr_self (m : Fin r) :
-    linePerm (ε := ε) m (.inr (.inr m)) = .inl m := by
-  rw [linePerm, weylPerm_swapSet_inr_inr]
-  simp
 
 private theorem linePerm_inl_of_ne {m i : Fin r} (h : i ≠ m) :
     linePerm (ε := ε) m (.inl i) = .inl i := by
@@ -245,9 +241,6 @@ private theorem linePerm_inr_inr_of_ne {m i : Fin r} (h : i ≠ m) :
   rw [linePerm, weylPerm_swapSet_inr_inr]
   simp [h]
 
-private theorem linePerm_inr_inl (m : Fin r) (k : Fin ε) :
-    linePerm (ε := ε) m (.inr (.inl k)) = .inr (.inl k) := by
-  rw [linePerm, weylPerm_inr_inl]
 
 private theorem linePerm_hypPartner (m : Fin r) (a : HypIndex r ε) :
     linePerm (ε := ε) m (hypPartner a) = hypPartner (linePerm (ε := ε) m a) :=
@@ -267,9 +260,6 @@ private theorem pairPerm_inr_inl (i j : Fin r) (k : Fin ε) :
     pairPerm (ε := ε) i j (.inr (.inl k)) = .inr (.inl k) := by
   rw [pairPerm, weylPerm_inr_inl]
 
-private theorem pairPerm_hypPartner (i j : Fin r) (a : HypIndex r ε) :
-    pairPerm (ε := ε) i j (hypPartner a) = hypPartner (pairPerm (ε := ε) i j a) :=
-  weylPerm_hypPartner (sumCongr_mem_hypWeyl (Equiv.swap i j)) a
 
 private theorem signedPerm_one_inv (π : Equiv.Perm (HypIndex r ε)) :
     (signedPerm π (fun _ => (1 : K)) : Matrix (HypIndex r ε) (HypIndex r ε) K)⁻¹ =

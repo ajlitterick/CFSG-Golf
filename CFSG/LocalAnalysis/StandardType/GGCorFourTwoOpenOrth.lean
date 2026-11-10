@@ -94,10 +94,6 @@ theorem ggInnerDiagBound_of_elt [Finite R] (hp : p.Prime) {I : Set (MulAut R)}
   rw [← h1]
   exact ⟨u, hu, rfl⟩
 
-theorem ggInnerDiagBound_of_pow {I : Set (MulAut R)}
-    (h : ∀ φ : MulAut R, φ ^ p = 1 → φ ∈ I) : GGInnerDiagBound p r R I := by
-  intro Eb Eh _ _ _ _ _ hEh _ hnot
-  exact (hnot fun φ hφ => h φ (hEh.2 φ hφ)).elim
 
 theorem ggCenterCoprime_of_centerPrime (h : GGCenterPrime p R) : GGCenterCoprime p R := by
   intro L' _ _ ψ hψ hker hperf hdvd

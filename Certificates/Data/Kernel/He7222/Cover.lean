@@ -52,10 +52,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KC.OrbRow
       walkK w m nf kt k1 ncl CK t0 c Ls (pg w m t0 b0) List.nil (getLs Cov i)
         (fun st => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) st))))))
 
-@[expose] noncomputable def setLs (L : List (List Nat)) (i : Nat) (x : List Nat) : List (List Nat) :=
-  List.rec (motive := fun _ => Nat → List (List Nat)) (fun _ => List.nil)
-    (fun y t ih j => Nat.rec (motive := fun _ => List (List Nat)) (List.cons x t)
-      (fun j' _ => List.cons y (ih j')) j) L i
 
 end CFSG.KC.HeChain
 

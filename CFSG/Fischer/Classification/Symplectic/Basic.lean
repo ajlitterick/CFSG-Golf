@@ -18,8 +18,6 @@ theorem zmod_two_add_add_self (v w : M) : v + (v + w) = w := by
 theorem zmod_two_neg (v : M) : -v = v :=
   neg_eq_of_add_eq_zero_left (zmod_two_add_self v)
 
-theorem zmod_two_sub (v w : M) : v - w = v + w := by
-  rw [sub_eq_add_neg, zmod_two_neg]
 
 theorem zmod_two_eq_of_add_eq_zero {u v : M} (h : u + v = 0) : u = v := by
   have := congrArg (· + v) h

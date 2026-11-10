@@ -677,10 +677,6 @@ theorem Xdiff_le_V4 : Xdiff hr ≤ V4 r := by
   rintro _ ⟨s, hs, rfl⟩
   exact mem_V4.2 (gmul_axis_xdiffVec hr hs)
 
-theorem Xdiff_le_range : Xdiff hr ≤ LinearMap.range inXLin := by
-  rw [Xdiff, Submodule.span_le]
-  rintro _ ⟨s, -, rfl⟩
-  exact ⟨_, rfl⟩
 
 theorem V4_le_sup : V4 r ≤ Across hr ⊔ Xdiff hr ⊔ Tplus hr := by
   intro v hv
@@ -725,39 +721,6 @@ theorem bform_eq_zero_of_blocks {u v : SpaceB} (h1 : Am u = 0 ∨ Am v = 0)
     · simp [show v.2.2 = 0 from h]
   rw [e1, e2, e3, add_zero, add_zero]
 
-theorem bform_Across_Xdiff {x y : SpaceB} (hx : x ∈ Across hr) (hy : y ∈ Xdiff hr) :
-    bform x y = 0 := by
-  obtain ⟨w, -, rfl⟩ := hx
-  obtain ⟨z, rfl⟩ := Xdiff_le_range hr hy
-  exact bform_eq_zero_of_blocks (.inr rfl) (.inl rfl) (.inl rfl)
-
-theorem bform_Across_Tplus {x y : SpaceB} (hx : x ∈ Across hr) (hy : y ∈ Tplus hr) :
-    bform x y = 0 := by
-  obtain ⟨w, -, rfl⟩ := hx
-  obtain ⟨q, -, rfl⟩ := hy
-  exact bform_eq_zero_of_blocks (.inr rfl) (.inl rfl) (.inl rfl)
-
-theorem bform_Xdiff_Tplus {x y : SpaceB} (hx : x ∈ Xdiff hr) (hy : y ∈ Tplus hr) :
-    bform x y = 0 := by
-  obtain ⟨z, rfl⟩ := Xdiff_le_range hr hx
-  obtain ⟨q, -, rfl⟩ := hy
-  exact bform_eq_zero_of_blocks (.inl rfl) (.inr rfl) (.inl rfl)
-
-theorem eq_zero_of_bform_self {v : SpaceB} (h : bform v v = 0) : v = 0 := by
-  by_contra hv
-  exact (bform_self_pos hv).ne' h
-
-theorem disjoint_Across_Xdiff : Disjoint (Across hr) (Xdiff hr) := by
-  rw [Submodule.disjoint_def]
-  intro x hx hy
-  exact eq_zero_of_bform_self (bform_Across_Xdiff hr hx hy)
-
-theorem disjoint_sup_Tplus : Disjoint (Across hr ⊔ Xdiff hr) (Tplus hr) := by
-  rw [Submodule.disjoint_def]
-  intro x hx hT
-  obtain ⟨y, hy, z, hz, rfl⟩ := Submodule.mem_sup.1 hx
-  apply eq_zero_of_bform_self
-  rw [LinearMap.map_add₂, bform_Across_Tplus hr hy hT, bform_Xdiff_Tplus hr hz hT, add_zero]
 
 include hr in
 theorem coordOf_mul_ne (s : Q) : coordOf (r * s) ≠ coordOf s := by
@@ -873,31 +836,5 @@ theorem xdiff_representatives {ι : Type*} (s : ι → Q) (hs : ∀ i, IsPartner
 
 end Main
 
-theorem short_axis_four_eigenspace_summands (hr : IsShortCoord (coordOf r)) :
-    V4 r = Across hr ⊔ Xdiff hr ⊔ Tplus hr ∧
-    (∀ x ∈ Across hr, ∀ y ∈ Xdiff hr, bform x y = 0) ∧
-    (∀ x ∈ Across hr, ∀ y ∈ Tplus hr, bform x y = 0) ∧
-    (∀ x ∈ Xdiff hr, ∀ y ∈ Tplus hr, bform x y = 0) ∧
-    Disjoint (Across hr) (Xdiff hr) ∧ Disjoint (Across hr ⊔ Xdiff hr) (Tplus hr) ∧
-    (∀ s : Q, IsPartner hr s →
-      r * s = s * r ∧ IsShortCoord (coordOf (r * s)) ∧ IsPartner hr (r * s) ∧
-      coordOf (r * s) ≠ coordOf s ∧
-      gmul (axis r) (inX (Xlift s)) = (2 : ℚ) • inX (Xlift s) + (-2 : ℚ) • inX (Xlift (r * s)) ∧
-      gmul (axis r) (inX (Xlift (r * s))) =
-        (-2 : ℚ) • inX (Xlift s) + (2 : ℚ) • inX (Xlift (r * s))) ∧
-    (∀ (ι : Type) (s : ι → Q), (∀ i, IsPartner hr (s i)) →
-      (∀ d : ShortIdx, PartnerCls hr d →
-        ∃! i, coordOf (s i) = d.1 ∨ coordOf (r * s i) = d.1) →
-      LinearIndependent ℚ (fun i => xdiffVec r (s i)) ∧
-      Submodule.span ℚ (Set.range fun i => xdiffVec r (s i)) = Xdiff hr ∧
-      Pairwise fun i j => bform (xdiffVec r (s i)) (xdiffVec r (s j)) = 0) := by
-  refine ⟨V4_eq_sup hr, fun x hx y hy => bform_Across_Xdiff hr hx hy,
-    fun x hx y hy => bform_Across_Tplus hr hx hy, fun x hx y hy => bform_Xdiff_Tplus hr hx hy,
-    disjoint_Across_Xdiff hr, disjoint_sup_Tplus hr, fun s hs => ?_,
-    fun ι s hs huniq => xdiff_representatives hr s hs huniq⟩
-  refine ⟨mul_comm_of_partner hr hs, isShortCoord_mul_of_partner hr hs, isPartner_mul hr hs,
-    coordOf_mul_ne hr s, ?_, gmul_axis_Xlift_mul_partner hr hs⟩
-  rw [gmul_axis_Xlift_partner hr hs]
-  module
 
 end CFSG.Monster.B

@@ -43,12 +43,6 @@ theorem commuting_of_forall_conjSet_eq {B X : Subgroup G} (hB : B ∈ lambdaStar
   refine hS.eq_of_deltaSet_eq (conjSub_mem_lambdaStar_of_mem_levi hR hB hxV) hB ?_
   rw [← conjSet_deltaSet hR hxV, hXN x hx]
 
-theorem setOf_commuting_eq {B : Subgroup G} (hB : B ∈ lambdaStar R A A₀) :
-    {X | X ∈ leviSet R A A₀ ∧ Commuting X B} =
-      {X | X ∈ leviSet R A A₀ ∧ ∀ x ∈ X, conjSet (deltaSet R A A₀ B) x = deltaSet R A A₀ B} := by
-  ext X
-  exact ⟨fun ⟨hX, hXB⟩ => ⟨hX, fun x hx => conjSet_deltaSet_eq_of_commuting hS.hyp.root hX hXB hx⟩,
-    fun ⟨hX, hXN⟩ => ⟨hX, hS.commuting_of_forall_conjSet_eq hB hX hXN⟩⟩
 
 theorem commuting_of_forall_commuting {B X : Subgroup G} (hB : B ∈ lambdaStar R A A₀)
     (hX : X ∈ leviSet R A A₀) (hXΔ : ∀ Y ∈ deltaSet R A A₀ B, Commuting X Y) :

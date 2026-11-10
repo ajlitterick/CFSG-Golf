@@ -194,17 +194,6 @@ theorem Pair.center_localQuotient (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
   exact Subgroup.mem_center_iff.2 fun l =>
     Subtype.ext (commute_of_mem_localGroup (fun g hg => key g hg) l.2)
 
-theorem Pair.bijective_starImage (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
-    (hS : IsSimpleGroup (commutator X)) {d : X} (hd : d ∈ E) :
-    Function.Bijective fun f : LocalClass E d =>
-      (⟨starImage E d f, range_starImage (E := E) d ▸ ⟨f, rfl⟩⟩ : LocalImages E d) := by
-  refine ⟨fun f g h => Pair.starImage_injective_of_simple hP hZ hS hd (congrArg Subtype.val h),
-    fun q => ?_⟩
-  have hq : (q : LocalQuotient E d) ∈ Set.range (starImage E d) := by
-    rw [range_starImage]
-    exact q.2
-  obtain ⟨f, hf⟩ := hq
-  exact ⟨f, Subtype.ext hf⟩
 
 theorem Pair.card_localQuotient_lt (hP : Pair X E) (hZ : Subgroup.center X = ⊥) {d : X}
     (hd : d ∈ E) : Nat.card (LocalQuotient E d) < Nat.card X := by
@@ -286,23 +275,6 @@ theorem Pair.eq_one_or_eq_of_centralizes (hP : Pair X E) (hZ : Subgroup.center X
     rw [← Pair.inv_eq hP hd]
     exact eq_inv_of_mul_eq_one_right hdy
 
-theorem Pair.centralizer_insert_localClass (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
-    (hS : IsSimpleGroup (commutator X)) (hna : ∃ a b : commutator X, a * b ≠ b * a)
-    (hT : TripleProperty E) {d : X} (hd : d ∈ E) :
-    Subgroup.centralizer (insert d (LocalClass E d)) = Subgroup.zpowers d := by
-  apply le_antisymm
-  · intro y hy
-    have hyd : y * d = d * y := (Subgroup.mem_centralizer_iff.1 hy d (Or.inl rfl)).symm
-    have hyD : ∀ f ∈ LocalClass E d, y * f = f * y := fun f hf =>
-      (Subgroup.mem_centralizer_iff.1 hy f (Or.inr hf)).symm
-    rcases Pair.eq_one_or_eq_of_centralizes hP hZ hS hna hT hd hyd hyD with rfl | rfl
-    · exact one_mem _
-    · exact Subgroup.mem_zpowers _
-  · rw [Subgroup.zpowers_le]
-    rw [Subgroup.mem_centralizer_iff]
-    rintro f (rfl | hf)
-    · rfl
-    · exact hf.2.2
 
 theorem Pair.center_localGroup_le (hP : Pair X E) (hZ : Subgroup.center X = ⊥)
     (hS : IsSimpleGroup (commutator X)) (hna : ∃ a b : commutator X, a * b ≠ b * a)

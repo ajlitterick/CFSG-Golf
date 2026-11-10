@@ -285,12 +285,6 @@ theorem ggD4TrialityCentralInput_of_layer (h2 : GGD4SemilinearLayerInput)
     (h4 : GGD4ClassThreeLayerInput) : GGD4TrialityCentralInput :=
   ggD4TrialityCentralInput_of_om8 ggD4OuterSylowInput_holds h2 ggD4CentralClassThreeInput_holds h4
 
-theorem ggSixTrialityInput_of_layer (h611 : GGSixLSixElevenInput)
-    (h2 : GGD4SemilinearLayerInput) (h4 : GGD4ClassThreeLayerInput)
-    (h5 : GGD4ClassThreeCentralInput) (h6 : GGSixTrialityDClassThreeInput) :
-    GGSixTrialityInput :=
-  ggSixTrialityInput_of_lSixEleven_central h611 (ggD4TrialityCentralInput_of_layer h2 h4)
-    (ggSixTrialityDCentralInput_of_om8 h6 h5)
 
 end Main
 

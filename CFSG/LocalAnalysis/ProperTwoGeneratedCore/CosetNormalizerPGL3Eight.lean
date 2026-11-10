@@ -91,14 +91,5 @@ local instance scalarRangeNormal (n : Type*) [Fintype n] [DecidableEq n] (R : Ty
   rw [← GeneralLinearGroup.center_eq_range_scalar]
   infer_instance
 
-theorem projective_linear_three_eight_small_order_exclusion_scalars (hK : Nat.card K = 8) :
-    ¬ ∃ H : Subgroup (GL (Fin 3) K ⧸ (GeneralLinearGroup.scalar (Fin 3) : Kˣ →* GL (Fin 3) K).range),
-      Nat.card H = 2 ^ 9 * 73 * 9 := by
-  rintro ⟨H, hH⟩
-  let e : GL (Fin 3) K ⧸ (GeneralLinearGroup.scalar (Fin 3) : Kˣ →* GL (Fin 3) K).range ≃*
-      ProjGenLinGroup (Fin 3) K :=
-    QuotientGroup.quotientMulEquivOfEq GeneralLinearGroup.center_eq_range_scalar.symm
-  exact projective_linear_three_eight_small_order_exclusion hK
-    ⟨H.map e.toMonoidHom, by rw [Subgroup.card_map_of_injective e.injective, hH]⟩
 
 end CFSG.ProperTwoGeneratedCore.CosetNormalizer

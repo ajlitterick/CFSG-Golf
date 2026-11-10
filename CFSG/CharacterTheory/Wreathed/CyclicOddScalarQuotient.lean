@@ -31,23 +31,6 @@ variable (A : Type*) [Group A] [IsMulCommutative A]
 theorem mem_oddElements {A : Type*} [Group A] [IsMulCommutative A] {a : A} :
     a ∈ oddElements A ↔ Odd (orderOf a) := Iff.rfl
 
-theorem oddElements_characteristic : (oddElements A).Characteristic := by
-  apply Subgroup.characteristic_iff_map_eq.mpr
-  intro e
-  ext a
-  constructor
-  · rintro ⟨b, hb, rfl⟩
-    rw [mem_oddElements, orderOf_injective e.toMonoidHom e.injective]
-    exact hb
-  · intro ha
-    refine Subgroup.mem_map.mpr ⟨e.symm a, ?_, e.apply_symm_apply a⟩
-    change Odd (orderOf (e.symm.toMonoidHom a))
-    rw [orderOf_injective e.symm.toMonoidHom e.symm.injective]
-    exact ha
-
-theorem oddElements_le_center : oddElements A ≤ Subgroup.center A := by
-  rw [Subgroup.center_eq_top]
-  exact le_top
 
 theorem oddElements_odd_card [Finite A] : Odd (Nat.card (oddElements A)) := by
   apply Nat.not_even_iff_odd.mp
@@ -62,8 +45,6 @@ theorem oddElements_odd_card [Finite A] : Odd (Nat.card (oddElements A)) := by
 
 variable [Finite A] [IsCyclic A]
 
-omit [Finite A] in
-theorem oddElements_isCyclic : IsCyclic (oddElements A) := inferInstance
 
 theorem oddElements_card : Nat.card (oddElements A) = ordCompl[2] (Nat.card A) := by
   have hodd := oddElements_odd_card A
@@ -243,18 +224,6 @@ theorem quotient_oddCore_card (kappa : A →* B) (hkappa : Function.Injective ka
   rw [quotient_oddCore_eq kappa hkappa hcenter phi hphi hkerodd hker hnormal]
   exact oddScalarQuotient_card kappa hkappa phi hkerodd hker
 
-theorem mem_quotient_oddCore_iff (kappa : A →* B) (hkappa : Function.Injective kappa)
-    (hcenter : kappa.range ≤ Subgroup.center B) (phi : B →* H)
-    (hphi : Function.Surjective phi) (hkerodd : Odd (Nat.card phi.ker))
-    (hker : phi.ker ≤ kappa.range)
-    (hnormal : ∀ R : Subgroup B, R.Normal → Odd (Nat.card R) → R ≤ kappa.range) {h : H} :
-    h ∈ CFSG.oddCore H ↔ ∃ a : A, Odd (orderOf a) ∧ phi (kappa a) = h := by
-  rw [quotient_oddCore_eq kappa hkappa hcenter phi hphi hkerodd hker hnormal]
-  constructor
-  · rintro ⟨b, ⟨a, ha, rfl⟩, heq⟩
-    exact ⟨a, ha, heq⟩
-  · rintro ⟨a, ha, heq⟩
-    exact Subgroup.mem_map.mpr ⟨kappa a, Subgroup.mem_map.mpr ⟨a, ha, rfl⟩, heq⟩
 
 theorem quotient_oddCore_structure (kappa : A →* B) (hkappa : Function.Injective kappa)
     (hcenter : kappa.range ≤ Subgroup.center B) (phi : B →* H)
@@ -269,48 +238,6 @@ theorem quotient_oddCore_structure (kappa : A →* B) (hkappa : Function.Injecti
     quotient_oddCore_isCyclic kappa hkappa hcenter phi hphi hkerodd hker hnormal,
     quotient_oddCore_card kappa hkappa hcenter phi hphi hkerodd hker hnormal⟩
 
-omit [IsMulCommutative A] [Finite A] [IsCyclic A] [Finite B] [Finite H] in
-@[expose] def scalarKernelEquiv (kappa : A →* B) (hkappa : Function.Injective kappa)
-    (phi : B →* H) (D : Subgroup A) (hD : D.map kappa = phi.ker) : D ≃* phi.ker :=
-  MulEquiv.ofBijective ((kappa.comp D.subtype).codRestrict phi.ker (by
-    intro a
-    rw [← hD]
-    exact Subgroup.mem_map.mpr ⟨a, a.property, rfl⟩)) (by
-      constructor
-      · intro a b hab
-        exact Subtype.ext (hkappa (congrArg Subtype.val hab))
-      · intro b
-        have hb : (b : B) ∈ D.map kappa := by
-          simpa only [hD] using b.property
-        obtain ⟨a, ha, hab⟩ := hb
-        exact ⟨⟨a, ha⟩, Subtype.ext hab⟩)
-
-omit [IsMulCommutative A] [Finite A] [IsCyclic A] [Finite B] [Finite H] in
-theorem scalarKernelEquiv_apply (kappa : A →* B) (hkappa : Function.Injective kappa)
-    (phi : B →* H) (D : Subgroup A) (hD : D.map kappa = phi.ker) (a : D) :
-    (scalarKernelEquiv kappa hkappa phi D hD a : B) = kappa a := rfl
-
-omit [IsMulCommutative A] [Finite A] [IsCyclic A] [Finite B] [Finite H] in
-theorem scalarKernel_card (kappa : A →* B) (hkappa : Function.Injective kappa)
-    (phi : B →* H) (D : Subgroup A) (hD : D.map kappa = phi.ker) :
-    Nat.card phi.ker = Nat.card D :=
-  (Nat.card_congr (scalarKernelEquiv kappa hkappa phi D hD).toEquiv).symm
-
-theorem quotient_oddCore_structure_of_scalarKernel (kappa : A →* B)
-    (hkappa : Function.Injective kappa) (hcenter : kappa.range ≤ Subgroup.center B)
-    (phi : B →* H) (hphi : Function.Surjective phi) (D : Subgroup A)
-    (hDodd : Odd (Nat.card D)) (hD : D.map kappa = phi.ker)
-    (hnormal : ∀ R : Subgroup B, R.Normal → Odd (Nat.card R) → R ≤ kappa.range) :
-    CFSG.oddCore H = ((oddElements A).map kappa).map phi ∧
-      CFSG.oddCore H ≤ Subgroup.center H ∧ IsCyclic (CFSG.oddCore H) ∧
-      Nat.card (CFSG.oddCore H) = ordCompl[2] (Nat.card A) / Nat.card D := by
-  have hc := scalarKernel_card kappa hkappa phi D hD
-  have ho : Odd (Nat.card phi.ker) := hc ▸ hDodd
-  have hker : phi.ker ≤ kappa.range := by
-    rw [← hD]
-    exact Subgroup.map_le_range _ _
-  simpa only [hc] using
-    quotient_oddCore_structure kappa hkappa hcenter phi hphi ho hker hnormal
 
 end ScalarQuotient
 end CFSG.Wreathed.CyclicOddScalarQuotient

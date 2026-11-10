@@ -73,13 +73,5 @@ theorem subnormal_pSubgroup_le_pCoreOf {G : Type u} [Group G] (prime : ℕ)
   exact (normal_pSubgroup_le_pCoreOf prime smaller smaller le_rfl hself hpgroup).trans
     (pCoreOf_le_pCoreOf_of_subnormal prime hsubnormal)
 
-theorem charTwoType_subnormal_local_odd_subgroup_eq_bot {G : Type u} [Group G]
-    (hchar : IsCharTwoType G) (localSubgroup : Subgroup G) (hlocal : IsTwoLocal localSubgroup)
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2) (subgroup : Subgroup G)
-    (hsubnormal : IsSubnormal subgroup localSubgroup) (hpgroup : IsPGroup prime subgroup) :
-    subgroup = ⊥ := by
-  have hcore := subnormal_pSubgroup_le_pCoreOf prime hsubnormal hpgroup
-  rw [charTwoType_local_odd_coreOf_eq_bot hchar localSubgroup hlocal prime hprime hodd] at hcore
-  exact le_antisymm hcore bot_le
 
 end CFSG.RankThreeEvenClassification.Helpers

@@ -318,29 +318,6 @@ lemma nuStar_add [Finite G]
   rw [nu_ext_add (hf i) (hg i)]
   simp
 
-lemma nuStar_smul_char [Finite G]
-    (B : ClassFun.IrrepCharBasis k G)
-    {a : k} (ha : a ∈ ClassFun.Lambda k G)
-    (U : FDRep k G) :
-    nuStar B (a • ClassFun.character U) =
-      nu_ext (k := k) (G := G) a • ClassFun.character U := by
-  apply B.b.repr.injective
-  ext i
-  rw [repr_nuStar_apply]
-  have hcoord :
-      B.b.repr (a • ClassFun.character U) i =
-        a * B.b.repr (ClassFun.character U) i := by
-    rw [LinearEquiv.map_smul]
-    rfl
-  rw [hcoord]
-  obtain ⟨m, hm⟩ := ClassFun.char_coeffs_int B U i
-  rw [hm]
-  have hmul : a * (m : k) = (m : k) * a := by ring
-  rw [hmul]
-  rw [nu_ext_int_mul (k := k) (G := G) ha m]
-  rw [LinearEquiv.map_smul]
-  simp only [Finsupp.coe_smul, Pi.smul_apply, hm, smul_eq_mul]
-  ring
 
 /--
 `nuStar` commutes with integral scalar multiplication on class functions whose

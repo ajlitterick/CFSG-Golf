@@ -236,17 +236,4 @@ theorem exists_conj_mem_odd_relIndex_of_transfer {G : Type*} [Group G] [Finite G
     exact Nat.odd_iff.2 (Nat.two_dvd_ne_zero.1 fun h => S.not_dvd_index (h.trans hdvd))
 
 
-theorem exists_conj_mem_odd_relIndex_of_isSimpleGroup {G : Type*} [Group G] [Finite G]
-    [IsSimpleGroup G] (hG2 : Nat.card G ≠ 2) (T : Sylow 2 G) {M : Subgroup G}
-    (hMidx : M.relIndex T = 2) {t : G} (ht : t ^ 2 = 1) :
-    ∃ g : G, g * t * g⁻¹ ∈ M ∧
-      Odd ((T : Subgroup G).relIndex (Subgroup.centralizer {g * t * g⁻¹})) :=
-  exists_conj_mem_odd_relIndex_of_transfer T hMidx ht fun K hK => by
-    have hN := Subgroup.normal_of_index_eq_two hK
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal K with h | h
-    · rw [h, Subgroup.index_bot] at hK
-      exact absurd hK hG2
-    · rw [h, Subgroup.index_top] at hK
-      exact absurd hK (by norm_num)
-
 end CFSG.Monster.B.Recog

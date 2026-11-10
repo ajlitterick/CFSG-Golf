@@ -130,8 +130,6 @@ theorem prod_cons_foldl {M : Type*} [Monoid M] (a : M) (l : List M) :
 
 section Ts
 
-variable {D : TsData} (L : TsLeaves D) {RA RB : Array V4} (hA : WfRows RA) (hB : WfRows RB)
-  (hSA : pkMat D.ThSeed_SA = rowsMatrix RA) (hSB : pkMat D.ThSeed_SB = rowsMatrix RB)
 
 end Ts
 

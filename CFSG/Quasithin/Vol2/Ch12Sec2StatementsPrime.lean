@@ -28,12 +28,5 @@ open CFSG.Open CFSG.Blueprint CFSG.QuasithinUnique
         Odd (Nat.card C) → (∃ k : ℕ, C.relIndex (H ⊓ Subgroup.normalizer (L : Set G)) = 2 ^ k) →
         C ≠ ⊥ ∧ IsPGroup 3 C)
 
-theorem stmt12_2_11'_of (h : Stmt12_2_11) : Stmt12_2_11' := by
-  intro G _ _ T L V H U hH hHs hU hUV hHU hcase
-  refine h G T L V H U hH hHs hU hUV hHU ?_
-  rcases hcase with h5 | ⟨hp, hZ, he, -, hv⟩ | h3
-  · exact Or.inl h5
-  · exact Or.inr (Or.inl ⟨hp, hZ, he, hv⟩)
-  · exact Or.inr (Or.inr h3)
 
 end CFSG.Quasithin.H13

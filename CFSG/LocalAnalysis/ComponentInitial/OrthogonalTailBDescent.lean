@@ -51,9 +51,6 @@ variable (r)
 
 end Defs
 
-theorem mem_weylGroupB {w : (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)} :
-    w ∈ weylGroupB r ↔ ∃ (σ : Equiv.Perm (Fin r)) (δ : Fin r → ℤˣ), w = signedPermAut r σ δ :=
-  Iff.rfl
 
 theorem signedPermAut_mem_weylGroupB (σ : Equiv.Perm (Fin r)) (δ : Fin r → ℤˣ) :
     signedPermAut r σ δ ∈ weylGroupB r :=
@@ -102,9 +99,6 @@ theorem mem_rootsB_iff_sign {α : Fin r → ℤ} :
 theorem sign_eps_mem_rootsB (a : Fin r) {s : ℤ} (hs : IsSign s) : s • eps r a ∈ rootsB r :=
   mem_rootsB_iff_sign.2 (Or.inl ⟨a, s, hs, rfl⟩)
 
-theorem sign_vec_mem_rootsB {a b : Fin r} (hab : a ≠ b) {s t : ℤ} (hs : IsSign s)
-    (ht : IsSign t) : s • eps r a + t • eps r b ∈ rootsB r :=
-  Or.inr (sign_vec_mem_roots hab hs ht)
 
 theorem eps_mem_posRootsB (a : Fin r) : eps r a ∈ posRootsB r :=
   Or.inl ⟨a, rfl⟩
@@ -563,24 +557,5 @@ theorem bijOn_simpleReflB (i : Fin r) :
 
 end Descent
 
-theorem orthogonal_geometry_tail_B_signed_descent (r : ℕ) :
-    (∀ i, simpleReflB r i ∈ weylGroupB r) ∧
-      Subgroup.closure (Set.range (simpleReflB r)) = weylGroupB r ∧
-      (∀ α ∈ shortRootsB r, ∀ β ∈ shortRootsB r, ∃ w ∈ weylGroupB r, w α = β) ∧
-      (∀ α ∈ roots r, ∀ β ∈ roots r, ∃ w ∈ weylGroupB r, w α = β) ∧
-      (∀ i, simpleReflB r i (simpleRootB r i) = -simpleRootB r i ∧
-        Set.BijOn (simpleReflB r i) (posRootsB r \ {simpleRootB r i})
-          (posRootsB r \ {simpleRootB r i})) ∧
-      (∀ β ∈ posRootsB r, ∃ c : Fin r → ℕ, β = ∑ i, c i • simpleRootB r i) ∧
-      (∀ w ∈ weylGroupB r, w ≠ 1 → ∃ i, -(w⁻¹ (simpleRootB r i)) ∈ posRootsB r) ∧
-      (∀ w ∈ weylGroupB r, ∀ i, -(w⁻¹ (simpleRootB r i)) ∈ posRootsB r →
-        weylLengthB r (simpleReflB r i * w) = weylLengthB r w - 1) :=
-  ⟨simpleReflB_mem, closure_simpleReflB,
-    fun _ hα _ hβ => exists_weylB_apply_eq_short hα hβ,
-    fun _ hα _ hβ => exists_weylB_apply_eq_long hα hβ,
-    fun i => ⟨simpleReflB_simpleRootB i, bijOn_simpleReflB i⟩,
-    fun _ hβ => exists_nonneg_combB hβ,
-    fun _ hw hne => exists_simpleRootB_neg hw hne,
-    fun _ hw _ hi => weylLengthB_simpleReflB_mul hw hi⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

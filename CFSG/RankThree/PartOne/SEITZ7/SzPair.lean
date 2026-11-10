@@ -42,10 +42,6 @@ theorem isRoot_of_mem_szRootsA
   obtain ⟨m, hm, rfl⟩ := szRootsA_pos γ h
   exact RootWalk.isRoot_rootCertificate_root hm
 
-theorem isRoot_of_mem_szRootsB
-    {γ : Fin Tag.F4.rank → ℤ} (h : γ ∈ szRootsB) : IsRoot Tag.F4 γ := by
-  obtain ⟨m, hm, rfl⟩ := szRootsB_pos γ h
-  exact RootWalk.isRoot_rootCertificate_root hm
 
 theorem szW_smul
     {γ : Fin F4.tag.rank → ℤ} (hγ : γ ∈ szRootsA) : szW • γ ∈ szRootsB := by

@@ -34,20 +34,5 @@ theorem m22_center_card_odd_cases {L : Type*} [Group L] [Finite L]
     hodd' h27 hr).1
   rwa [hker] at this
 
-theorem odd_card_center_of_irr' {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
-    {L : Subgroup (GLV V)} (hL : IsIrr L ⊤) : Odd (Nat.card (Subgroup.center ↥L)) := by
-  have hodd := OrdinaryProofs.centralizer_card_odd hL
-  have hle : (Subgroup.center ↥L).map L.subtype ≤ Subgroup.centralizer (L : Set (GLV V)) := by
-    rintro _ ⟨z, hz, rfl⟩
-    rw [Subgroup.mem_centralizer_iff]
-    intro g hg
-    have := congrArg Subtype.val (Subgroup.mem_center_iff.1 hz ⟨g, hg⟩)
-    simpa using this
-  have hdvd : Nat.card ((Subgroup.center ↥L).map L.subtype) ∣
-      Nat.card (Subgroup.centralizer (L : Set (GLV V))) := Subgroup.card_dvd_of_le hle
-  rw [Subgroup.card_map_of_injective L.subtype_injective] at hdvd
-  exact hodd.of_dvd_nat hdvd
-
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
 
 end CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds

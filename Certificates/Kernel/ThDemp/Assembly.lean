@@ -24,19 +24,6 @@ namespace CertificateChecks.KernelThDemp
 
 open CFSG.KC.ThDemp CFSG.KC.Th CFSG.Certificates.ThDemp CFSG.Sporadic.Th
 
-theorem dempwolff_card :
-    ∃ d : J, ((d : GL (Fin 248) (ZMod 2)) : Matrix (Fin 248) (Fin 248) (ZMod 2)) =
-        CFSG.KC.Th.Spec.pkMat (dempData.RB (BigS.regAt dempData.rd 1)) ∧
-      Nat.card (Subgroup.closure ({a, d} : Set J)) = 319979520 := by
-  have hF := dempChk_facts dempData demp_chk
-  obtain ⟨d₀, d₁, h₀, h₁, hc⟩ := card_closure_eq hF (a := a) (b := b)
-    (by rw [a_val, pkMat_SA]) (by rw [b_val, pkMat_SB])
-  have e : d₀ = a := by
-    apply Subtype.ext
-    apply Units.ext
-    rw [h₀, rd_zero, hF.rb1, pkMat_SA, a_val]
-  subst e
-  exact ⟨d₁, h₁, hc⟩
 
 end CertificateChecks.KernelThDemp
 

@@ -189,22 +189,6 @@ theorem primeFormConjHom_eq_primeFormPsi (A : primeFormUnitary h (idGram K n)) :
       primeFormPsi h (isPrimeFormGram_idGram (K := K) (n := n)) ⟨A, 1⟩ := by
   rw [primeFormPsi_apply, map_one, mul_one]
 
-theorem idAct_primeFormConjHom (A : primeFormUnitary h (idGram K n))
-    (Y : Matrix (Fin n) (Fin n) K) :
-    idAct h n hn hq (primeFormConjHom h (idGram K n) A) Y =
-      ((A : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) * Y *
-        (((A : GL (Fin n) K)⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) := by
-  rw [primeFormConjHom_eq_primeFormPsi, idAct_primeFormPsi, idMatAction_mk]
-  congr 2
-
-theorem idAct_primeFormFieldHom (σ : K ≃+* K) (Y : Matrix (Fin n) (Fin n) K) :
-    idAct h n hn hq (primeFormFieldHom h (isPrimeFormGram_idGram (K := K) (n := n)) σ) Y =
-      Y.map σ := by
-  have : primeFormFieldHom h (isPrimeFormGram_idGram (K := K) (n := n)) σ =
-      primeFormPsi h (isPrimeFormGram_idGram (K := K) (n := n)) ⟨1, σ⟩ := by
-    rw [primeFormPsi_apply, map_one, one_mul]
-  rw [this, idAct_primeFormPsi, idMatAction_mk]
-  simp
 
 theorem coe_idActU (α : MulAut (primeFormP h (idGram K n))) (A : primeFormUnitary h (idGram K n)) :
     (((idActU h n hn hq α A : primeFormUnitary h (idGram K n)) : GL (Fin n) K) :

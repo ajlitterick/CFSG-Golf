@@ -75,30 +75,6 @@ theorem largeEvenLabelAll_torusNbr_typeA {p : ℕ} (hp : p.Prime) {lab : LargeEv
 theorem ggTableBNbrInnerInputOn_typeA : GGTableBNbrInnerInputOn GGTypeALabel :=
   ggTableBNbrInnerInputOn_of_labels fun _ _ hp hlab h => largeEvenLabelAll_torusNbr_typeA hp hlab h
 
-theorem ggTableBNbrInnerInput_of_rest (h : GGTableBNbrInnerInputOn GGCorFourTwoRestLabel) :
-    GGTableBNbrInnerInput :=
-  (ggTableBNbrInnerInputOn_typeA.or h).of_cover fun p lab _ _ => em (GGTypeALabel p lab)
-
-theorem ggTableBNbrInnerInput_of_labels
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      GGCorFourTwoRestLabel p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGTorusNbr p r R I) :
-    GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_rest (ggTableBNbrInnerInputOn_of_labels h)
-
-theorem ggL44iiiNotInnerInput_of_rest (hL : GGLBalanceInput) (hJp : GGStdSubPrimeInput)
-    (hI2 : GGStdSubBstarMeetInput) (hTBK : GGTableBNbrInnerInputOn GGCorFourTwoRestLabel) :
-    GGL44iiiNotInnerInput :=
-  ggL44iiiNotInnerInput_of_tableB hL hJp hI2 (ggTableBNbrInnerInput_of_rest hTBK)
-
-theorem ggL44iiiMarkingInput_of_rest (hBN : GGBstarNbrNormalInput) (hgr : GGNbrGraphInput)
-    (hraw : GGRawInnFieldInput) (hcen : GGRawFieldCentralInput) (hlang : GGRawFieldConjInput)
-    (hL : GGLBalanceInput) (hJp : GGStdSubPrimeInput) (hI2 : GGStdSubBstarMeetInput)
-    (hTB : GGTableBCxInput) (hNN : GGXNotNormalInput) (hTBM : GGTableBModuleInput)
-    (hTBA : GGTableBActionInput) (hTBK : GGTableBNbrInnerInputOn GGCorFourTwoRestLabel)
-    (hlax : GGNbrLangAxisInput) : GGL44iiiMarkingInput :=
-  ggL44iiiMarkingInput_of_tableB hBN hgr hraw hcen hlang hL hJp hI2 hTB hNN hTBM hTBA
-    (ggTableBNbrInnerInput_of_rest hTBK) hlax
 
 end CFSG.StandardType
 

@@ -35,8 +35,5 @@ theorem e8Data_checkPairs : e8Data.checkPairs = true := by
     e8Data_checkPairs_4, e8Data_checkPairs_5, e8Data_checkPairs_6, e8Data_checkPairs_7,
     e8Data_checkPairs_8, e8Data_checkPairs_9, e8Data_checkPairs_10, e8Data_checkPairs_11]
 
-theorem e8Data_check : e8Data.checkTables = true ∧ e8Data.checkSimple = true ∧
-    e8Data.checkWeyl = true ∧ e8Data.checkPairs = true :=
-  ⟨e8Data_checkTables, e8Data_checkSimple, e8Data_checkWeyl, e8Data_checkPairs⟩
 
 end CFSG.LieType.Steinberg.Adjoint

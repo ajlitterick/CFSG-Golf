@@ -17,8 +17,6 @@ variable {G : Type} [Group G] [Finite G] {T M H K1 : Subgroup G}
 @[expose] def IsHallOdd (B X : Subgroup G) : Prop :=
   B ≤ X ∧ Odd (Nat.card B) ∧ ∃ k : ℕ, B.relIndex X = 2 ^ k
 
-@[expose] def BorelNormalizesK1 (M H K1 : Subgroup G) : Prop :=
-  M ⊓ oTwoUpper H ≤ Subgroup.normalizer (K1 : Set G)
 
 theorem relIndex_oTwoUpper_two_pow (H : Subgroup G) :
     ∃ k : ℕ, (oTwoUpper H).relIndex H = 2 ^ k := by
@@ -126,127 +124,6 @@ theorem le_normalizer_inf_centralizer {M V : Subgroup G}
   have := key m⁻¹ (M.inv_mem hm) _ hd
   simpa [mul_assoc] using this
 
-theorem exists_mul_of_mem_inf (st : Setting1427 T M H K1) {B : Subgroup G}
-    (hB : IsHallOdd B (M ⊓ oTwoUpper H)) {x : G} (hx : x ∈ M ⊓ H) :
-    ∃ b ∈ B, ∃ t ∈ T, x = b * t := by
-  have hTM : T ≤ M := st.hyp.m_max.1.2
-  have hTH : T ≤ H := st.hStar.1.1
-  have hTN : T ≤ Subgroup.normalizer (oTwoUpper H : Set G) := hTH.trans (le_normalizer_oTwoUpper H)
-  have hxKT : x ∈ oTwoUpper H ⊔ T := by
-    rw [sup_oTwoUpper_eq st]
-    exact hx.2
-  rw [← SetLike.mem_coe, Subgroup.coe_mul_of_right_le_normalizer_left _ _ hTN] at hxKT
-  obtain ⟨k, hk, t, ht, hxe0⟩ := hxKT
-  have hxe : k * t = x := hxe0
-  have hkx : k = x * t⁻¹ := by rw [← hxe]; group
-  have hkM : k ∈ M := hkx ▸ M.mul_mem hx.1 (M.inv_mem (hTM ht))
-  have hCBP : B ⊔ (T ⊓ oTwoUpper H) = M ⊓ oTwoUpper H := by
-    refine sup_eq_of_relIndex_two_pow_of_odd hB.1 (inf_le_inf_right _ hTM) hB.2.2 ?_
-    exact Nat.not_even_iff_odd.mp fun he =>
-      (isSylowTwoOf_inf_oTwoUpper st).2.2 (even_iff_two_dvd.mp he)
-  have hBN : B ≤ Subgroup.normalizer ((T ⊓ oTwoUpper H : Subgroup G) : Set G) :=
-    hB.1.trans st.notation_.borel_inf
-  have hkC : k ∈ B ⊔ (T ⊓ oTwoUpper H) := by
-    rw [hCBP]
-    exact ⟨hkM, hk⟩
-  rw [← SetLike.mem_coe, Subgroup.coe_mul_of_left_le_normalizer_right _ _ hBN] at hkC
-  obtain ⟨b, hb, p, hp, hkb0⟩ := hkC
-  have hkb : b * p = k := hkb0
-  refine ⟨b, hb, p * t, T.mul_mem hp.1 ht, ?_⟩
-  rw [← hxe, ← hkb, mul_assoc]
-
-omit [Finite G] in
-theorem lemma_14_2_11_normalizes (hBor : BorelNormalizesK1 M H K1) {B : Subgroup G}
-    (hB : IsHallOdd B (M ⊓ oTwoUpper H)) : B ≤ Subgroup.normalizer (K1 : Set G) :=
-  hB.1.trans hBor
-
-theorem lemma_14_2_11_comm (st : Setting1427 T M H K1) {B : Subgroup G}
-    (hB : IsHallOdd B (M ⊓ oTwoUpper H)) : (B : Set G) * (T : Set G) = (T : Set G) * (B : Set G) := by
-  have hTM : T ≤ M := st.hyp.m_max.1.2
-  have hTH : T ≤ H := st.hStar.1.1
-  have hBX : B ≤ M ⊓ H := hB.1.trans (inf_le_inf_left _ (oTwoUpper_le H))
-  have hTX : T ≤ M ⊓ H := le_inf hTM hTH
-  have h1 : ∀ x ∈ T, ∀ y ∈ B, ∃ b ∈ B, ∃ t ∈ T, x * y = b * t := fun x hx y hy =>
-    exists_mul_of_mem_inf st hB ((M ⊓ H).mul_mem (hTX hx) (hBX hy))
-  ext z
-  constructor
-  · rintro ⟨b, hb, t, ht, rfl⟩
-    obtain ⟨b', hb', t', ht', hy⟩ := exists_mul_of_mem_inf st hB
-      ((M ⊓ H).inv_mem ((M ⊓ H).mul_mem (hBX hb) (hTX ht)))
-    refine ⟨t'⁻¹, T.inv_mem ht', b'⁻¹, B.inv_mem hb', ?_⟩
-    have := congrArg (fun w => w⁻¹) hy
-    simpa [mul_inv_rev] using this.symm
-  · rintro ⟨t, ht, b, hb, rfl⟩
-    obtain ⟨b', hb', t', ht', hy⟩ := h1 t ht b hb
-    exact ⟨b', hb', t', ht', hy.symm⟩
-
-theorem lemma_14_2_11_comm_s (st : Setting1427 T M H K1) (hBor : BorelNormalizesK1 M H K1)
-    {B : Subgroup G} (hB : IsHallOdd B (M ⊓ oTwoUpper H)) :
-    (B : Set G) * (sOf T K1 : Set G) = (sOf T K1 : Set G) * (B : Set G) := by
-  have hBN := lemma_14_2_11_normalizes hBor hB
-  have hcomm := lemma_14_2_11_comm st hB
-  have hSB : ∀ s ∈ sOf T K1, ∀ b ∈ B, ∃ b' ∈ B, ∃ s' ∈ sOf T K1, s * b = b' * s' := by
-    intro s hs b hb
-    have hmem : s * b ∈ (B : Set G) * (T : Set G) := by
-      rw [hcomm]
-      exact ⟨s, hs.1, b, hb, rfl⟩
-    obtain ⟨b', hb', t', ht', hst0⟩ := hmem
-    have hst : b' * t' = s * b := hst0
-    refine ⟨b', hb', t', ⟨ht', ?_⟩, hst.symm⟩
-    have hN : t' = b'⁻¹ * s * b :=
-      calc t' = b'⁻¹ * (b' * t') := by group
-        _ = b'⁻¹ * (s * b) := by rw [hst]
-        _ = b'⁻¹ * s * b := by group
-    rw [hN]
-    exact (Subgroup.normalizer (K1 : Set G)).mul_mem
-      ((Subgroup.normalizer (K1 : Set G)).mul_mem ((Subgroup.normalizer (K1 : Set G)).inv_mem
-        (hBN hb')) hs.2) (hBN hb)
-  ext z
-  constructor
-  · rintro ⟨b, hb, s, hs, rfl⟩
-    obtain ⟨b', hb', s', hs', hy⟩ := hSB s⁻¹ ((sOf T K1).inv_mem hs) b⁻¹ (B.inv_mem hb)
-    refine ⟨s'⁻¹, (sOf T K1).inv_mem hs', b'⁻¹, B.inv_mem hb', ?_⟩
-    have := congrArg (fun w => w⁻¹) hy
-    simpa [mul_inv_rev] using this.symm
-  · rintro ⟨s, hs, b, hb, rfl⟩
-    obtain ⟨b', hb', s', hs', hy⟩ := hSB s hs b hb
-    exact ⟨b', hb', s', hs', hy.symm⟩
-
-theorem lemma_14_2_11_le_centralizer (st : Setting1427 T M H K1) {B : Subgroup G}
-    (hB : IsHallOdd B (M ⊓ oTwoUpper H)) : B ≤ Subgroup.centralizer (VZ T M : Set G) := by
-  intro b hb
-  have hHMc : H ≤ mcOf T := (st.hyp.isUniqueM_centralizer st.hStar.1 st.hStar.2.1).1.2
-  have hbX : b ∈ M ⊓ oTwoUpper H := hB.1 hb
-  have hbW : b ∈ M ⊓ mcOf T := ⟨hbX.1, hHMc (oTwoUpper_le H hbX.2)⟩
-  have hMV : M ≤ Subgroup.normalizer (VZ T M : Set G) :=
-    ((lemma_14_2_4 st.hyp st.facts).isTwoReducedIn).1.2.1
-  have hDM : M ≤ Subgroup.normalizer ((M ⊓ Subgroup.centralizer (VZ T M : Set G) : Subgroup G) :
-      Set G) := le_normalizer_inf_centralizer hMV
-  have hmmc := st.facts.mmc_eq
-  have hbDR : b ∈ (M ⊓ Subgroup.centralizer (VZ T M : Set G)) ⊔ pCoreOf 2 (M ⊓ mcOf T) := by
-    rw [← hmmc]
-    exact hbW
-  have hDW : (M ⊓ Subgroup.centralizer (VZ T M : Set G)) ≤
-      Subgroup.normalizer (pCoreOf 2 (M ⊓ mcOf T) : Set G) := by
-    refine le_trans ?_ (le_normalizer_pCoreOf 2 (M ⊓ mcOf T))
-    rw [hmmc]
-    exact le_sup_left
-  rw [← SetLike.mem_coe, Subgroup.coe_mul_of_left_le_normalizer_right _ _ hDW] at hbDR
-  obtain ⟨c, hc, r, hr, hbcr⟩ := hbDR
-  have hr2 : IsPGroup 2 (pCoreOf 2 (M ⊓ mcOf T)) := pCoreOf_isPGroup 2 _
-  obtain ⟨k, hk⟩ := hr2 ⟨r, hr⟩
-  have hrk : r ^ 2 ^ k = 1 := by simpa using congrArg Subtype.val hk
-  have hrM : r ∈ M := ((pCoreOf_le 2 _) hr).1
-  obtain ⟨x', hx', hpow⟩ := A4.exists_pow_mul_eq hc (hDM hrM) (2 ^ k)
-  have hbk : b ^ 2 ^ k ∈ M ⊓ Subgroup.centralizer (VZ T M : Set G) := by
-    rw [← hbcr, hpow, hrk, mul_one]
-    exact hx'
-  have hodd : Odd (orderOf b) :=
-    hB.2.1.of_dvd_nat (Subgroup.orderOf_dvd_natCard B hb)
-  have hcop : Nat.Coprime (2 ^ k) (orderOf b) :=
-    Nat.Coprime.pow_left k (Nat.coprime_two_left.mpr hodd)
-  have hz := A4.mem_zpowers_pow_of_coprime hcop
-  exact ((Subgroup.zpowers_le.mpr hbk) hz).2
 
 end S1421
 

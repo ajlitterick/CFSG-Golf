@@ -166,13 +166,6 @@ theorem input15120MLC_of_locB (hloc : Input15120CentLocB) : Input15120MLC := by
     CompTypeDHardB15120 L → Lemma15118Extra T Mc M Z₁ →
     mZ1516 Mc Z₁ ⊓ L ≤ L ⊓ Subgroup.centralizer (centerOf (s1516 T Z₁ ⊓ L) : Set G)
 
-theorem input15120MLDHardB_of_hard (h : Input15120MLDHard) : Input15120MLDHardB := by
-  intro G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp hD hH _
-  refine h G T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp hD ?_
-  rcases hH with h1 | h1 | h1
-  · exact Or.inl h1
-  · exact Or.inr (Or.inl h1)
-  · exact Or.inr (Or.inr (Or.inl h1))
 
 theorem input15120MLD_of_locB (hloc : Input15120CentLocB) (hhard : Input15120MLDHardB) :
     Input15120MLD := by

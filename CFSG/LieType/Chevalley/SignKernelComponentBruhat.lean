@@ -235,10 +235,6 @@ theorem componentRootSpan_le_of
   rw [e']
   exact mul_mem (mul_mem (hN hgN) hb) (inv_mem (hN hgN))
 
-theorem componentRootSpan_eq_sup :
-    componentRootSpan K χ i = componentBorel K χ i ⊔ componentMonomial K χ i v j :=
-  le_antisymm (componentRootSpan_le_of hvj le_sup_left le_sup_right)
-    (sup_le componentBorel_le_componentRootSpan (componentMonomial_le_componentRootSpan hvj))
 
 theorem coe_componentRootSpan_eq_iUnion :
     (componentRootSpan K χ i : Set (ModGL τ K)) =
@@ -297,51 +293,5 @@ theorem coe_componentRootSpan_eq_iUnion :
     ⟨1, one_mem _, 1, one_mem_componentLifts, 1, one_mem _, by group⟩⟩
   simpa using (hSSt hg).1 1 h1
 
-omit hvj in
-variable (τ K χ i v j) in
-theorem sign_kernel_root_component_Bruhat_structure
-    (hvj : ∀ β ∈ simpleRoots (componentRoots χ i),
-      v β • (Pi.single (j β) 1 : Fin τ.rank → ℤ) = β) :
-    (∀ x ∈ componentTorus K χ i, ∀ y ∈ componentTorus K χ i, x * y = y * x) ∧
-    Group.IsNilpotent (componentUnipotent K χ i) ∧
-    componentTorus K χ i ≤ Subgroup.normalizer (componentUnipotent K χ i : Set (ModGL τ K)) ∧
-    componentTorus K χ i ⊓ componentUnipotent K χ i = ⊥ ∧
-    (componentBorel K χ i : Set (ModGL τ K)) =
-      (componentTorus K χ i : Set (ModGL τ K)) * (componentUnipotent K χ i : Set (ModGL τ K)) ∧
-    componentBorel K χ i ≤ componentRootSpan K χ i ∧
-    ((componentUnipotent K χ i).subgroupOf (componentBorel K χ i)).Normal ∧
-    componentBorel K χ i ⊓ componentMonomial K χ i v j = componentTorus K χ i ∧
-    componentTorus K χ i ≤ componentMonomial K χ i v j ∧
-    (componentWeylHom K χ i v j).ker =
-      (componentTorus K χ i).subgroupOf (componentMonomial K χ i v j) ∧
-    (componentWeylHom K χ i v j).range = componentWeylGroup (componentRoots χ i) ∧
-    (∀ w ∈ componentWeylGroup (componentRoots χ i), ∀ g (hg : g ∈ componentMonomial K χ i v j),
-      componentWeylHom K χ i v j ⟨g, hg⟩ = w →
-        (componentBorel K χ i : Set (ModGL τ K)) * {g} *
-          (componentBorel K χ i : Set (ModGL τ K)) = componentCell K χ i v j w) ∧
-    componentRootSpan K χ i = componentBorel K χ i ⊔ componentMonomial K χ i v j ∧
-    (componentRootSpan K χ i : Set (ModGL τ K)) =
-      ⋃ w ∈ componentWeylGroup (componentRoots χ i), componentCell K χ i v j w ∧
-    (∀ w ∈ componentWeylGroup (componentRoots χ i), ∀ w' ∈ componentWeylGroup (componentRoots χ i),
-      w ≠ w' → Disjoint (componentCell K χ i v j w) (componentCell K χ i v j w')) ∧
-    (∀ β ∈ simpleRoots (componentRoots χ i), ∀ w ∈ componentWeylGroup (componentRoots χ i),
-      componentLength (componentRoots χ i) (rootReflection β * w) =
-        componentLength (componentRoots χ i) w + 1 →
-      componentCell K χ i v j (rootReflection β) * componentCell K χ i v j w =
-        componentCell K χ i v j (rootReflection β * w)) ∧
-    ∀ β ∈ simpleRoots (componentRoots χ i), ∀ w ∈ componentWeylGroup (componentRoots χ i),
-      componentLength (componentRoots χ i) (rootReflection β * w) =
-        componentLength (componentRoots χ i) w - 1 →
-      componentCell K χ i v j (rootReflection β) * componentCell K χ i v j w =
-        componentCell K χ i v j (rootReflection β * w) ∪ componentCell K χ i v j w :=
-  ⟨fun _ hx _ hy => mul_comm_of_mem_componentTorus hx hy, isNilpotent_componentUnipotent,
-    componentTorus_le_normalizer, componentTorus_inf_componentUnipotent, coe_componentBorel,
-    componentBorel_le_componentRootSpan, componentUnipotent_subgroupOf_normal,
-    componentBorel_inf_componentMonomial, componentTorus_le_componentMonomial,
-    ker_componentWeylHom hvj, range_componentWeylHom hvj,
-    fun _ _ _ hg h => doubleCoset_eq_componentCell hvj ⟨hg, h⟩, componentRootSpan_eq_sup hvj,
-    coe_componentRootSpan_eq_iUnion hvj, fun _ _ _ _ h => disjoint_componentCell h,
-    fun _ hβ _ hw h => componentCell_mul_of_length_eq_add_one hvj hβ hw h,
-    fun _ hβ _ hw h => componentCell_mul_of_length_eq_sub_one hvj hβ hw h⟩
 
 end CFSG.LieType.Chevalley

@@ -166,14 +166,5 @@ theorem exists_mem_normalizer_conj_eq [Finite G] {p : ℕ} [Fact p.Prime] {T : S
       _ = c * y * (c : G)⁻¹ := by rw [hg]
       _ = y := by rw [hcy, mul_inv_cancel_right]
 
-theorem exists_mem_normalizer_conj_eq_of_mem_center [Finite G] {p : ℕ} [Fact p.Prime]
-    {T : Subgroup G} (hT : IsPGroup p T) {x y : G}
-    (_hx : x ∈ T ⊓ Subgroup.centralizer (T : Set G))
-    (_hy : y ∈ T ⊓ Subgroup.centralizer (T : Set G))
-    (hTx : T ≤ Subgroup.centralizer {x}) (hTy : T ≤ Subgroup.centralizer {y})
-    (hpx : ¬ p ∣ T.relIndex (Subgroup.centralizer {x}))
-    (_hpy : ¬ p ∣ T.relIndex (Subgroup.centralizer {y})) (hxy : IsConj x y) :
-    ∃ n ∈ Subgroup.normalizer (T : Set G), n * x * n⁻¹ = y :=
-  exists_mem_normalizer_conj_eq hT hTx hTy hpx hxy
 
 end CFSG.Monster.B.Recog

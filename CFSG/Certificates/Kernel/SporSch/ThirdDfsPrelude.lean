@@ -17,8 +17,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certifi
 
 section Count
 
-variable (h : ThirdFactsH)
-include h
 
 end Count
 

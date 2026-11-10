@@ -105,14 +105,6 @@ theorem isSylowOf_map_hom {G' : Type*} [Group G'] {p : ℕ} [Fact p.Prime] {P K 
   rw [Sylow.coe_mapSurjective, Subgroup.map_map, Subgroup.map_map]
   rfl
 
-theorem pRank_eq_of_isSylowOf_two {R H : Subgroup G} (hR : IsSylowOf 2 R H) :
-    CFSG.Open.pRank 2 R = CFSG.Open.pRank 2 H := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  refine le_antisymm (CFSG.SectionRank.pRank_mono one_lt_two hR.le) ?_
-  obtain ⟨E, hEH, hE, hEc⟩ := CFSG.SectionRank.exists_pRank one_lt_two H
-  obtain ⟨c, -, hc⟩ := exists_mem_map_conj_le_of_isSylowOf hR hEH (IsPGroup.of_card hEc)
-  exact CFSG.SectionRank.le_pRank one_lt_two hc (CFSG.SectionRank.isElemAbelian_map hE _)
-    (by rw [card_map_of_injective (MulAut.conj c).injective, hEc])
 
 end Sylow
 

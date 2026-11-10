@@ -25,12 +25,5 @@ open Subgroup CFSG CFSG.Blueprint CFSG.Assembly.LowTwoRank CFSG.GH74.GLS
     (p' f' : ℕ) : Prop :=
   IsKGroupNative H ∧ pPrimeCore 2 H = ⊥ ∧ Hyp94Loc H Gs z t p' f'
 
-@[expose] def Concl94 (H : Type) [Group H] (z : H) (t : StatedLieTag) (p' f' : ℕ) : Prop :=
-  oPrimeResidual 2 H = layer H ∧ LieModel ↥(layer H) t 0 p' f' ∧
-    centralizer ({z} : Set H) ⊓ layer H = oPrimeResidualOf 2 (centralizer ({z} : Set H))
-
-@[expose] def IVK_9_4 : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (Gs : Type) [Group Gs] (z : H) (t : StatedLieTag) (p' f' : ℕ),
-    Hyp94 H Gs z t p' f' → Concl94 H z t p' f'
 
 end CFSG.GH74.GLS.IVK

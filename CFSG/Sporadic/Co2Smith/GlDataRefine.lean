@@ -54,8 +54,5 @@ theorem ArcComm.apply {p : Array ℕ} (h : ArcComm σ p) {A : Equiv.Perm (Fin 23
   rw [hB.unique hA] at hc
   rw [hA (σ x), ← Equiv.Perm.mul_apply, ← hc, Equiv.Perm.mul_apply]
 
-variable {nbr : Array (List ℕ)} (hnbr : ∀ x : Fin 2300, PointList 2300 nbr[(x : ℕ)]!)
-  (hσ : NbrInv nbr σ)
-include hnbr hσ
 
 end CFSG.Sporadic.Co2Smith

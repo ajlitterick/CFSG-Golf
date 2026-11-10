@@ -118,6 +118,5 @@ end SteinbergCD
 open Subgroup Matrix SteinbergCD
 open CFSG.LocalAnalysis.ComponentInitial.LinearFlag
   CFSG.LocalAnalysis.ComponentInitial.LinearFlag.BinaryParabolic
-open CFSG.RankThree.GroupTheory.SteinbergBY (map_conj_eq_of_mem_normalizer)
 
 end CFSG.Quasithin

@@ -78,56 +78,8 @@ theorem oddCoreOf_le_centralizer_of_alphaOf_bot {u : G} (hu : u ∈ K ⊔ K') (h
   have h := d.sup_le_centralizer_of_alphaOf_bot hu hu2 hu1 huz hα (Subgroup.mem_sup_left hk)
   exact (Subgroup.mem_centralizer_iff.mp h n (Subgroup.mem_sup_left hn)).symm
 
-theorem oddCoreOf_le_centralizer_of_alphaOf_bot' {u : G} (hu : u ∈ K ⊔ K') (hu2 : u * u = 1)
-    (hu1 : u ≠ 1) (huz : u ≠ z) (hα : alphaOf (Subgroup.closure ({u, z} : Set G)) = ⊥) :
-    oddCoreOf K' ≤ Subgroup.centralizer (K' : Set G) := by
-  intro n hn
-  rw [Subgroup.mem_centralizer_iff]
-  intro k hk
-  have h := d.sup_le_centralizer_of_alphaOf_bot hu hu2 hu1 huz hα (Subgroup.mem_sup_right hk)
-  exact (Subgroup.mem_centralizer_iff.mp h n (Subgroup.mem_sup_right hn)).symm
-
-omit [Finite G] in
-theorem isQuasisimple_of_oddCoreOf_le_centralizer
-    (hc : oddCoreOf K ≤ Subgroup.centralizer (K : Set G)) : CFSG.Open.IsQuasisimple K := by
-  obtain ⟨z₀, hz₀⟩ := d.hyp.classical K d.mem
-  obtain ⟨e⟩ := hz₀.nonempty_equiv
-  have hKq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K) :=
-    Components.quasisimple_of_equiv e d.isQuasisimple_sl2
-  have : Group.IsPerfect K := hz₀.perfect
-  refine CentralExtensions.quasisimple_of_surjective hKq (QuotientGroup.mk' _)
-    (QuotientGroup.mk'_surjective _) ?_
-  rw [QuotientGroup.ker_mk']
-  intro o ho
-  rw [Subgroup.mem_center_iff]
-  intro k
-  exact Subtype.ext (Subgroup.mem_centralizer_iff.mp (hc ⟨o, ho, rfl⟩) k k.2)
-
-theorem isQuasisimple_of_alphaOf_bot {u : G} (hu : u ∈ K ⊔ K') (hu2 : u * u = 1)
-    (hu1 : u ≠ 1) (huz : u ≠ z) (hα : alphaOf (Subgroup.closure ({u, z} : Set G)) = ⊥) :
-    CFSG.Open.IsQuasisimple K :=
-  d.isQuasisimple_of_oddCoreOf_le_centralizer
-    (d.oddCoreOf_le_centralizer_of_alphaOf_bot hu hu2 hu1 huz hα)
 
 end TwinPair
 
-theorem exactMembers_of_alphaOf_twin [Finite G] (d : TwinPair p f Ω K K' z) (h9 : p ^ f ≠ 9)
-    (hΩ : InClass p f Ω) (hsingle : ∃ L ∈ Ω, ∀ M ∈ Ω, ∃ g : G, M = conjSub g L) {u : G}
-    (hu : u ∈ K ⊔ K') (hu2 : u * u = 1) (hu1 : u ≠ 1) (huz : u ≠ z)
-    (hα : alphaOf (Subgroup.closure ({u, z} : Set G)) = ⊥) : ExactMembers Ω := by
-  have hf : 0 < f := Nat.pos_of_ne_zero (by rintro rfl; simpa using d.five)
-  exact Balance.exactMembers_of_isQuasisimple d.odd hf h9 hΩ hsingle d.mem
-    (d.isQuasisimple_of_alphaOf_bot hu hu2 hu1 huz hα)
-
-theorem exactMembers_of_alphaOf_twin_stand [Finite G] (hst : AscStand p f Ω K) (h9 : p ^ f ≠ 9)
-    (hz : IsUniqueInvolution K z) (hK' : K' ∈ twinSet Ω K) (hne : K' ≠ K) {u : G}
-    (hu : u ∈ K ⊔ K') (hu2 : u * u = 1) (hu1 : u ≠ 1) (huz : u ≠ z)
-    (hα : alphaOf (Subgroup.closure ({u, z} : Set G)) = ⊥) : ExactMembers Ω :=
-  exactMembers_of_alphaOf_twin
-    (TwinPair.of_twinSet hst.odd hst.five hst.hyp hst.mem hz hK' hne.symm) h9
-    ⟨⟨K, hst.mem⟩, hst.hyp.conjInvariant, hst.gen, hst.hyp.classical⟩
-    ⟨K, hst.mem, fun M hM => by
-      obtain ⟨g, hg⟩ := hst.trans M hM
-      exact ⟨g, hg.symm⟩⟩ hu hu2 hu1 huz hα
 
 end CFSG.ClassicalInvolution.Asc77.ExactD

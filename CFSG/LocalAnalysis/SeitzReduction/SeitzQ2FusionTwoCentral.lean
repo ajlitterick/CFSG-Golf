@@ -154,22 +154,6 @@ theorem commutator_eq_top_of_standardSetting {L : Subgroup G} (hset : StandardSe
     exact absurd hc hab
   · exact h
 
-theorem exists_conj_eq_mul_twoCentral_of_card_outer_le_two {L : Subgroup G}
-    (hset : StandardSetting G L) (hOut : Nat.card (Outer L) ≤ 2) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (hnot : ∀ (U : Sylow 2 L) (g : G), g⁻¹ * t * g ∈ L →
-      ¬ ∀ u ∈ (U : Subgroup L), (u : G) * (g⁻¹ * t * g) = (g⁻¹ * t * g) * u)
-    (hAutU : ∀ (U : Sylow 2 L) (β : MulAut L), (∀ u ∈ (U : Subgroup L), β u = u) →
-      β ∈ (MulAut.conj : L →* MulAut L).range) :
-    ∃ g : G, ∃ z ∈ L, g⁻¹ * t * g = t * z ∧ z ≠ 1 ∧
-      ∃ U : Sylow 2 L, ∀ u ∈ (U : Subgroup L), (u : G) * z = z * u := by
-  have htC : t ∈ centralizer (L : Set G) :=
-    (show t ∈ centralizer (L : Set G) ⊓ centralizer ({t} : Set G) from hKt ▸ mem_zpowers t).1
-  have hCN := centralizer_le_normalizer_of_standard hset.standard htC ht
-  exact LinearPilot.exists_conj_eq_mul_of_commutator_eq_top
-    (commutator_eq_top_of_standardSetting hset) ht
-    (le_centralizer_singleton_of_mem_centralizer htC) hCN
-    hKt hnot hAutU (commutator_mem_of_sylow_le_centralizer_of_card_outer_le_two htC ht hCN hKt hOut)
 
 end OneSided
 

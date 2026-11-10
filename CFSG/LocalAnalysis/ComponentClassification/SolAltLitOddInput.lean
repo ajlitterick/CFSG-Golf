@@ -17,9 +17,5 @@ open CFSG Subgroup
       L ≤ centralizer ({x} : Set X) ∧ IsPComponent 2 (L.subgroupOf (centralizer ({x} : Set X))) ∧
       Nonempty (L ⧸ pPrimeCore 2 L ≃* alternatingGroup (Fin n))
 
-theorem solomonAlternatingOddInput_of_full (h : GSLit.SolomonAlternatingInput) :
-    SolomonAlternatingOddInput := by
-  rintro X _ _ _ hnonab hK hz hU ⟨x, L, n, hx, -, hn, hLC, hLP, he⟩
-  exact h X hnonab hK hz hU ⟨x, L, n, hx, by omega, hLC, hLP, he⟩
 
 end CFSG.ComponentClassification.SolAltLit

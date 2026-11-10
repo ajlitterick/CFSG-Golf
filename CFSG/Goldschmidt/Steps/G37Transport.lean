@@ -166,11 +166,6 @@ theorem comap_goldschmidtOddCore_eq (φ : P →* P') (hφ : Function.Surjective 
       ((QuotientGroup.mk' (goldschmidtOddCore P')).comp φ)
       ((QuotientGroup.mk'_surjective _).comp hφ))
 
-theorem oddCoreQuotientEquiv_mk (φ : P →* P') (hφ : Function.Surjective φ)
-    (hker : Odd (Nat.card φ.ker)) (x : P) :
-    oddCoreQuotientEquiv φ hφ hker (QuotientGroup.mk x) =
-      (QuotientGroup.mk (φ x) : P' ⧸ goldschmidtOddCore P') :=
-  rfl
 
 theorem map_oddCoreQuotientEquiv (φ : P →* P') (hφ : Function.Surjective φ)
     (hker : Odd (Nat.card φ.ker)) (B : Subgroup P) :
@@ -493,25 +488,6 @@ theorem isSStarIn_barOf {H A : Subgroup G} (hS : IsSStarIn H A) :
     IsSStarIn (⊤ : Subgroup (H ⧸ goldschmidtOddCore H)) (barOf H A) :=
   isSStarIn_quotient hS _ (odd_card_goldschmidtOddCore H)
 
-theorem isSStarIn_map_of_injective {H A : Subgroup G} (hS : IsSStarIn H A) (φ : G →* G')
-    (hφ : Function.Injective φ) : IsSStarIn (H.map φ) (A.map φ) := by
-  have hker : (φ.subgroupMap H).ker = ⊥ := by
-    rw [eq_bot_iff]
-    intro x hx
-    rw [MonoidHom.mem_ker] at hx
-    have h1 : φ (x : G) = φ 1 := by
-      rw [map_one]
-      exact congrArg Subtype.val hx
-    exact Subtype.ext (hφ h1)
-  refine isSStarIn_of_surjective hS (φ.subgroupMap H) (φ.subgroupMap_surjective H)
-    (by rw [hker, Subgroup.card_bot]; exact odd_one) (Subgroup.map_mono hS.1) ?_
-  ext ⟨y, hy⟩
-  constructor
-  · rintro ⟨a, ha, hay⟩
-    have : φ (a : G) = y := congrArg Subtype.val hay
-    exact ⟨a, ha, this⟩
-  · rintro ⟨a, ha, hay⟩
-    exact ⟨⟨a, hS.1 ha⟩, ha, Subtype.ext hay⟩
 
 omit [Finite G'] in
 theorem isSStarIn_subgroupOf {H A X : Subgroup G} (hS : IsSStarIn H A) (hHX : H ≤ X) :

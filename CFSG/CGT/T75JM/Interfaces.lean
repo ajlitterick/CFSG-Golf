@@ -35,12 +35,6 @@ open CFSG.CosetTable CFSG.CGT.Timmesfeld75 CFSG.CGT.T75I
     [(1, true), (1, true), (0, true), (1, false), (0, true), (2, true), (1, true), (0, true),
       (1, true), (1, true)]]
 
-@[expose] def eGen : Fin 3 → List (Fin 6 × Bool) :=
-  ![[(2, true), (3, true), (4, true)],
-    [(0, true), (1, true), (0, true), (1, true), (0, true), (1, false), (0, true), (1, true),
-      (0, true), (1, true)],
-    [(0, true), (1, true), (1, true), (0, true), (1, false), (0, true), (1, true), (1, true),
-      (0, true), (1, false), (0, true), (1, true), (0, true), (1, false)]]
 
 @[expose] def vGen : Fin 2 → List (Fin 6 × Bool) :=
   ![[(0, true), (1, true), (0, true), (1, true), (1, true), (0, true), (1, false)],

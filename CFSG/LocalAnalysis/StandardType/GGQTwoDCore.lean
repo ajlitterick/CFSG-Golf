@@ -55,9 +55,6 @@ private lemma ggQ2xD1_dot_full {n : ℕ} {a b : GGBCV n}
   exact (sub_eq_add_neg _ _).symm
 
 
-
-
-
 private lemma ggQ2xD1_scalar_a (x y : ZMod 3) : y + (x + y) * 2 = -x := by
   revert x y; decide
 private lemma ggQ2xD1_scalar_b (x y : ZMod 3) : x + (x + y) * 2 = -y := by
@@ -131,8 +128,6 @@ private lemma ggQ2xD1_mem_pair {n : ℕ} {Z : Set (GGBCV n)}
   exact h2mem
 
 
-
-
 private lemma ggQ2xD1_flipS_union {n : ℕ} (S T : Finset (Fin n)) (h : Disjoint S T)
     (v : GGBCV n) :
     ggQ2xD1_flipS (S ∪ T) v = ggQ2xD1_flipS S (ggQ2xD1_flipS T v) := by
@@ -193,8 +188,6 @@ private lemma ggQ2xD1_mem_flipS {n : ℕ} {Z : Set (GGBCV n)}
       rw [hins, ggQ2xD1_flipS_union _ _ hdisj]
       exact ggQ2xD1_mem_pair hZroots hZcl
         (ih ((S.erase a).erase b) hUsub hUeven hv) hab
-
-
 
 
 private lemma ggQ2xD1_zero_coord_le_two {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z : Set (GGBCV n))
@@ -364,8 +357,6 @@ private lemma ggQ2xD1_zero_coord_le_two {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z :
     omega
 
 
-
-
 private lemma ggQ2xD1_ne_neg_self : ∀ x : ZMod 3, x ≠ 0 → x ≠ -x := by decide
 
 private lemma ggQ2xD1_flipS_full {n : ℕ} (S : Finset (Fin n)) {v : GGBCV n}
@@ -389,8 +380,6 @@ private lemma ggQ2xD1_dist_flipS_self {n : ℕ} (S : Finset (Fin n)) {v : GGBCV 
     exact ⟨fun _ => hk, fun _ => ggQ2xD1_ne_neg_self (v k) (hv k)⟩
   · rw [if_neg hk]
     exact ⟨fun h => absurd rfl h, fun h => absurd h hk⟩
-
-
 
 
 private lemma ggQ2xD1_flipS_of_notMem {n : ℕ} (S : Finset (Fin n)) (v : GGBCV n) {k : Fin n}
@@ -470,8 +459,6 @@ private lemma ggQ2xD1_full_nmod1_false {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z : 
   omega
 
 
-
-
 private lemma ggQ2xD1_full_nmod2_le_eight {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z : Set (GGBCV n))
     (hZ0 : ∀ z ∈ Z, z ⬝ᵥ z ≠ 0) (hZroots : ggDRoots n ⊆ Z)
     (hZcl : ∀ z ∈ Z, ∀ w ∈ Z, ∀ hz : z ⬝ᵥ z ≠ 0, ggBCRefl z hz w ∈ Z)
@@ -524,8 +511,6 @@ private lemma ggQ2xD1_full_nmod2_le_eight {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z
     exact Finset.card_le_card hcompl
   have hle := hstep1 w hwZ hzero
   omega
-
-
 
 
 private lemma ggQ2xD1_eq_neg_of_ne : ∀ x y : ZMod 3, x ≠ 0 → y ≠ 0 → x ≠ y → y = -x := by decide
@@ -628,8 +613,6 @@ private lemma ggQ2xD1_dist3_false {n : ℕ} [NeZero n] (Z : Set (GGBCV n))
   omega
 
 
-
-
 private lemma ggQ2xD1_full_parity {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z : Set (GGBCV n))
     (hZ0 : ∀ z ∈ Z, z ⬝ᵥ z ≠ 0) (hZroots : ggDRoots n ⊆ Z)
     (hZcl : ∀ z ∈ Z, ∀ w ∈ Z, ∀ hz : z ⬝ᵥ z ≠ 0, ggBCRefl z hz w ∈ Z)
@@ -666,8 +649,6 @@ private lemma ggQ2xD1_full_parity {n : ℕ} [NeZero n] (hn : 6 ≤ n) (Z : Set (
     rw [← ggQ2xD1_flipS_diff hwfull hcfull]
     exact ggQ2xD1_mem_flipS (Z := Z) hZroots hZcl _ hTw_even hw
   exact ggQ2xD1_dist3_false Z hZ0 hZroots hZcl hHL heq hz hcZ hzfull hcfull hdist_zc
-
-
 
 
 private lemma ggQ2xD1_zmod3_trichotomy : ∀ a : ZMod 3, a = 0 ∨ a = 1 ∨ a = 2 := by decide
@@ -716,15 +697,6 @@ private lemma ggQ2xD2_sum_single {n : ℕ} (i : Fin n) (a : ZMod 3) :
   · intro j _ hj; rw [Pi.single_eq_of_ne hj]
   · intro hi; exact absurd (Finset.mem_univ i) hi
 
-private lemma ggQ2xD2_wt_eq_zero_iff {n : ℕ} (v : GGBCV n) : ggBCWt v = 0 ↔ v = 0 := by
-  rw [ggBCWt, Finset.card_eq_zero, Finset.filter_eq_empty_iff]
-  constructor
-  · intro h
-    funext i
-    exact not_not.mp (h (Finset.mem_univ i))
-  · intro h i _
-    rw [h]
-    simp
 
 private lemma ggQ2xD2_scalar_i : ∀ x y : ZMod 3, -x = y + (x + y) * 2 := by decide
 
@@ -757,20 +729,6 @@ private lemma ggQ2xD2_sum_diff {n : ℕ} (i m : Fin n) (him : i ≠ m) :
   rw [Finset.sum_add_distrib, ggQ2xD2_sum_single, ggQ2xD2_sum_single]
   decide
 
-private lemma ggQ2xD2_add_single_self {n : ℕ} {i j : Fin n} (hij : i ≠ j) :
-    (Pi.single i (1 : ZMod 3) + Pi.single j 1 : GGBCV n) i = 1 := by
-  rw [Pi.add_apply, Pi.single_eq_same,
-    Pi.single_eq_of_ne (M := fun _ => ZMod 3) hij, add_zero]
-
-private lemma ggQ2xD2_add_single_other {n : ℕ} {i j : Fin n} (hij : i ≠ j) :
-    (Pi.single i (1 : ZMod 3) + Pi.single j 1 : GGBCV n) j = 1 := by
-  rw [Pi.add_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hij), Pi.single_eq_same,
-    zero_add]
-
-private lemma ggQ2xD2_add_single_ne {n : ℕ} {i j k : Fin n} (hki : k ≠ i) (hkj : k ≠ j) :
-    (Pi.single i (1 : ZMod 3) + Pi.single j 1 : GGBCV n) k = 0 := by
-  rw [Pi.add_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) hki,
-    Pi.single_eq_of_ne (M := fun _ => ZMod 3) hkj, add_zero]
 
 private def ggQ2xD2_negOn {n : ℕ} (S : Finset (Fin n)) (v : GGBCV n) : GGBCV n :=
   fun k => if k ∈ S then -v k else v k

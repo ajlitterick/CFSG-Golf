@@ -39,11 +39,5 @@ public section
 
 namespace CFSG.ASVolI.ChH
 
-@[expose] def IsElemAb2 {G : Type*} [Group G] (E : Subgroup G) : Prop :=
-  (∀ a ∈ E, ∀ b ∈ E, a * b = b * a) ∧ ∀ a ∈ E, a ^ 2 = 1
-
-open Classical in
-@[expose] noncomputable def orbitSizesOf (B : Subgroup (Equiv.Perm (Fin 8))) : Multiset ℕ :=
-  (Finset.univ.image fun i : Fin 8 => (MulAction.orbit B i : Set (Fin 8))).val.map Set.ncard
 
 end CFSG.ASVolI.ChH

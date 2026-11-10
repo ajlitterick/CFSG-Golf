@@ -97,10 +97,6 @@ section Transport
       ∀ i j, i ≠ j → ∀ x ∈ L i, ∀ y ∈ L j, x * y = y * x) ∧
   ∀ (g : G) (p : ℕ), p.Prime → 3 < p → orderOf g = p → g ∈ commutator G
 
-theorem derivedCoverage_iff_group {K : Type*} [Field K] {W : Type*} [AddCommGroup W]
-    [Module K W] (Q : QuadraticForm K W) :
-    DerivedCoverage Q ↔ DerivedCoverageGroup ↥(TauCeti.QuadraticMap.orthogonalGroup Q) :=
-  Iff.rfl
 
 theorem DerivedCoverageGroup.of_mulEquiv {G G' : Type*} [Group G] [Group G'] (e : G ≃* G')
     (h : DerivedCoverageGroup G) : DerivedCoverageGroup G' := by

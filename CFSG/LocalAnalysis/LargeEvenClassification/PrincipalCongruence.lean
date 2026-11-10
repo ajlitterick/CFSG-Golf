@@ -22,14 +22,6 @@ theorem binary_one_add_double_isUnit {CoefficientRing : Type ringUniverse} [Ring
     IsUnit (1 + 2 * element) :=
   (binary_nilpotent_multiple hcharacteristic element).isUnit_one_add
 
-theorem finite_binary_ring_characteristic {CoefficientRing : Type ringUniverse}
-    [Ring CoefficientRing] [Finite CoefficientRing]
-    (hpgroup : IsPGroup 2 (Multiplicative CoefficientRing)) :
-    ∃ exponent : ℕ, (2 : CoefficientRing) ^ exponent = 0 := by
-  obtain ⟨exponent, hpow⟩ := hpgroup.exists_pow_pow_eq_one (Multiplicative.ofAdd (1 : CoefficientRing))
-  have hsmul : (2 ^ exponent : ℕ) • (1 : CoefficientRing) = 0 := hpow
-  refine ⟨exponent, ?_⟩
-  simpa only [nsmul_eq_mul, mul_one, Nat.cast_pow, Nat.cast_ofNat] using hsmul
 
 theorem principal_square_eq_iff_double_sub {CoefficientRing : Type ringUniverse}
     [Ring CoefficientRing] {exponent : ℕ} (hcharacteristic : (2 : CoefficientRing) ^ exponent = 0)
@@ -128,21 +120,6 @@ theorem principalInvolutionSubgroup_central {CoefficientRing : Type ringUniverse
   exact principal_involution_central hcharacteristic element other
     (hprincipal element) (hprincipal other) (congrArg Subtype.val helement) |>.symm
 
-theorem principalInvolutionSubgroup_elementary {CoefficientRing : Type ringUniverse}
-    [Ring CoefficientRing] {exponent : ℕ} (hcharacteristic : (2 : CoefficientRing) ^ exponent = 0)
-    (Principal : Subgroup CoefficientRingˣ)
-    (hprincipal : ∀ element : Principal,
-      ∃ entry : CoefficientRing, (element.val : CoefficientRing) = 1 + 4 * entry) :
-    CFSG.Open.IsElemAbelian 2
-      (principalInvolutionSubgroup hcharacteristic Principal hprincipal) := by
-  constructor
-  · apply isMulCommutative_iff.mpr
-    intro first second
-    apply Subtype.ext
-    exact Subgroup.mem_center_iff.mp
-      (principalInvolutionSubgroup_central hcharacteristic Principal hprincipal first.property) second |>.symm
-  · intro element helement
-    exact helement
 
 theorem principal_square_fiber {CoefficientRing : Type ringUniverse} [Ring CoefficientRing]
     {exponent : ℕ} (hcharacteristic : (2 : CoefficientRing) ^ exponent = 0)
@@ -248,55 +225,6 @@ theorem principal_pGeneratorRank_le_involutions {CoefficientRing : Type ringUniv
       _ = 1 - 4 * ((element⁻¹ : CoefficientRingˣ).val * entry) := eq_sub_of_add_eq hinverse
       _ = _ := by noncomm_ring }
 
-def fourAdditiveRange (CoefficientRing : Type ringUniverse) [Ring CoefficientRing] :
-    AddSubgroup CoefficientRing := {
-  carrier := {element | ∃ entry : CoefficientRing, element = 4 * entry}
-  zero_mem' := ⟨0, by simp⟩
-  add_mem' := by
-    rintro first second ⟨firstEntry, rfl⟩ ⟨secondEntry, rfl⟩
-    exact ⟨firstEntry + secondEntry, (mul_add _ _ _).symm⟩
-  neg_mem' := by
-    rintro element ⟨entry, rfl⟩
-    exact ⟨-entry, (mul_neg _ _).symm⟩ }
-
-theorem principal_four_card_eq_additive_range {CoefficientRing : Type ringUniverse}
-    [Ring CoefficientRing] {exponent : ℕ} (hcharacteristic : (2 : CoefficientRing) ^ exponent = 0) :
-    Nat.card (principalFourSubgroup CoefficientRing) = Nat.card (fourAdditiveRange CoefficientRing) := by
-  let forward : principalFourSubgroup CoefficientRing → fourAdditiveRange CoefficientRing :=
-    fun element => ⟨(element.val : CoefficientRing) - 1, by
-      obtain ⟨entry, hentry⟩ := element.property
-      exact ⟨entry, by rw [hentry]; simp⟩⟩
-  have hinjective : Function.Injective forward := by
-    intro first second heq
-    apply Subtype.ext
-    apply Units.ext
-    exact sub_left_injective (congrArg Subtype.val heq)
-  have hsurjective : Function.Surjective forward := by
-    intro element
-    obtain ⟨entry, hentry⟩ := element.property
-    have hisUnit : IsUnit (1 + element.val) := by
-      rw [hentry]
-      have hfour : (4 : CoefficientRing) * entry = 2 * (2 * entry) := by noncomm_ring
-      rw [hfour]
-      exact binary_one_add_double_isUnit hcharacteristic (2 * entry)
-    refine ⟨⟨hisUnit.unit, ?_⟩, ?_⟩
-    · exact ⟨entry, by rw [hisUnit.unit_spec, hentry]⟩
-    · apply Subtype.ext
-      change (hisUnit.unit : CoefficientRing) - 1 = element.val
-      rw [hisUnit.unit_spec]
-      simp
-  exact Nat.card_congr (Equiv.ofBijective forward ⟨hinjective, hsurjective⟩)
-
-theorem principal_four_isPGroup {CoefficientRing : Type ringUniverse} [Ring CoefficientRing]
-    [Finite CoefficientRing] (hpgroup : IsPGroup 2 (Multiplicative CoefficientRing)) :
-    IsPGroup 2 (principalFourSubgroup CoefficientRing) := by
-  obtain ⟨exponent, hcharacteristic⟩ := finite_binary_ring_characteristic hpgroup
-  let AdditiveRange := (fourAdditiveRange CoefficientRing).toSubgroup
-  have hpRange := hpgroup.to_subgroup AdditiveRange
-  obtain ⟨rank, hrankCard⟩ := hpRange.exists_card_eq
-  apply IsPGroup.of_card (n := rank)
-  rw [principal_four_card_eq_additive_range hcharacteristic]
-  exact hrankCard
 
 theorem principal_four_normal (CoefficientRing : Type ringUniverse) [Ring CoefficientRing] :
     (principalFourSubgroup CoefficientRing).Normal := by

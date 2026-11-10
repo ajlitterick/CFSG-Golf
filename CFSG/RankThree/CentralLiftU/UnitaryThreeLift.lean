@@ -237,11 +237,6 @@ theorem eq_su3Lift_large {α : gramSU h G₀ →* G} {β : gramSU h G₀ →* E}
     (hβ : π.comp β = α) : β = su3Lift h π α :=
   (existsUnique_su3Lift_large h hℓ hG hdet hπ α).unique hβ (comp_su3Lift_large h hℓ hG hdet hπ α)
 
-theorem su3Lift_injective_large {α : gramSU h G₀ →* G} (hα : Function.Injective α) :
-    Function.Injective (su3Lift h π α) := by
-  intro x y hxy
-  apply hα
-  rw [← map_su3Lift_large h hℓ hG hdet hπ α, ← map_su3Lift_large h hℓ hG hdet hπ α, hxy]
 
 theorem conj_su3Lift_large (α : gramSU h G₀ →* G) (e : E) :
     (MulAut.conj e).toMonoidHom.comp (su3Lift h π α) =

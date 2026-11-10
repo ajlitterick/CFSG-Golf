@@ -104,39 +104,6 @@ theorem RootSubgroups.U_le_gradedKernel {v₀ : RootSpace τ}
 @[expose] noncomputable def RootSubgroups.Uneg : Subgroup (adjointGroup τ K) :=
   ⨆ (α : Root τ) (_ : height α.1 < 0), F.X α
 
-theorem RootSubgroups.Uneg_le_gradedKernel {v₀ : RootSpace τ}
-    (hv₀ : ∀ α : Root τ, 0 < height α.1 → 0 < ⟪ofLattice α.1, v₀⟫) :
-    F.Uneg ≤
-      gradedKernel Finsupp.basisSingleOne labelWeight (glRep (adjointGroup τ K)) (-v₀) := by
-  refine iSup₂_le fun α hα x hx => ?_
-  have hpos : 0 < ⟪ofLattice α.1, -v₀⟫ := by
-    have := hv₀ (-α) (by change 0 < height (-α.1); rw [height_neg]; omega)
-    rw [inner_neg_right]
-    change 0 < ⟪ofLattice (-α.1), v₀⟫ at this
-    rw [ofLattice_neg, inner_neg_left] at this
-    exact this
-  exact ⟨_, hpos, F.raises_of_mem hx hpos.le⟩
-
-theorem eq_one_of_mem_gradedKernel_neg {v₀ : RootSpace τ} {x : adjointGroup τ K}
-    (h₁ : x ∈ gradedKernel Finsupp.basisSingleOne labelWeight (glRep (adjointGroup τ K)) v₀)
-    (h₂ : x ∈ gradedKernel Finsupp.basisSingleOne labelWeight (glRep (adjointGroup τ K)) (-v₀)) :
-    x = 1 := by
-  obtain ⟨c₁, hc₁, H₁⟩ := h₁
-  obtain ⟨c₂, hc₂, H₂⟩ := h₂
-  have hzero : glRep (adjointGroup τ K) x - 1 = 0 := by
-    refine eq_zero_of_repr_eq_zero Finsupp.basisSingleOne fun i j => ?_
-    by_contra hij
-    have e1 := H₁ i j hij
-    have e2 := H₂ i j hij
-    rw [inner_neg_right, inner_neg_right] at e2
-    linarith
-  exact glRep_injective _ (by rw [map_one]; exact sub_eq_zero.mp hzero)
-
-theorem RootSubgroups.eq_one_of_mem_U_of_mem_Uneg {x : adjointGroup τ K}
-    (hU : x ∈ F.toRootGroupData.U) (hUneg : x ∈ F.Uneg) : x = 1 :=
-  eq_one_of_mem_gradedKernel_neg
-    (F.U_le_gradedKernel (fun _ hα => IsRoot.inner_heightVector_pos hα) hU)
-    (F.Uneg_le_gradedKernel (fun _ hα => IsRoot.inner_heightVector_pos hα) hUneg)
 
 theorem RootSubgroups.isPGroup_U (p : ℕ) [Fact p.Prime] [CharP K p] :
     IsPGroup p F.toRootGroupData.U :=

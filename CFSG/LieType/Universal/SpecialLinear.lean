@@ -116,43 +116,6 @@ theorem iSup_fundamentalRootSubgroup_eq_top :
   rintro _ ⟨⟨i, j, hij, c⟩, rfl⟩
   exact transvection_mem_iSup_fundamental hij c
 
-theorem iSup_levi_eq_top :
-    ⨆ J : {J : Finset (Fin m) // J.card ≤ 2}, levi m F J.1 = ⊤ := by
-  rw [eq_top_iff, ← iSup_fundamentalRootSubgroup_eq_top, iSup_le_iff]
-  intro k
-  have hk : ({k} : Finset (Fin m)).card ≤ 2 := by simp
-  refine le_trans ?_ (le_iSup (fun J : {J : Finset (Fin m) // J.card ≤ 2} => levi m F J.1)
-    ⟨{k}, hk⟩)
-  simp only [levi, Finset.mem_singleton, iSup_iSup_eq_left, le_refl]
-
-variable (m F) in
-theorem levi_eq_curtisTitsLevi (J : Finset (Fin m)) :
-    levi m F J = CFSG.Open.curtisTitsLevi m F J := by
-  apply le_antisymm
-  · simp only [levi, iSup_le_iff]
-    intro k hk s x hx
-    apply Subgroup.subset_closure
-    cases s
-    · obtain ⟨c, rfl⟩ := (mem_rootSubgroup _ x).mp hx
-      exact ⟨k, hk, c, .inr (by rw [SpecialLinearGroup.transvection_coe]; rfl)⟩
-    · obtain ⟨c, rfl⟩ := (mem_rootSubgroup _ x).mp hx
-      exact ⟨k, hk, c, .inl (by rw [SpecialLinearGroup.transvection_coe]; rfl)⟩
-  · rw [CFSG.Open.curtisTitsLevi, Subgroup.closure_le]
-    rintro A ⟨k, hk, c, hA | hA⟩
-    · have hAeq : A = SpecialLinearGroup.transvection
-          (show k.castSucc < k.succ from Fin.castSucc_lt_succ).ne c := by
-        ext1
-        rw [hA, SpecialLinearGroup.transvection_coe, Matrix.transvection]
-      rw [hAeq]
-      exact Subgroup.mem_iSup_of_mem k (Subgroup.mem_iSup_of_mem hk
-        (Subgroup.mem_iSup_of_mem true (transvection_mem_rootSubgroup _ c)))
-    · have hAeq : A = SpecialLinearGroup.transvection
-          (show k.castSucc < k.succ from Fin.castSucc_lt_succ).ne' c := by
-        ext1
-        rw [hA, SpecialLinearGroup.transvection_coe, Matrix.transvection]
-      rw [hAeq]
-      exact Subgroup.mem_iSup_of_mem k (Subgroup.mem_iSup_of_mem hk
-        (Subgroup.mem_iSup_of_mem false (transvection_mem_rootSubgroup _ c)))
 
 variable (m F) in
 theorem isQuasisimple (hm : 2 ≤ m) : IsQuasisimple (SpecialLinearGroup (Fin (m + 1)) F) := by

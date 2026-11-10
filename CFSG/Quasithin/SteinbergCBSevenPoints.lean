@@ -276,10 +276,5 @@ theorem sevenA_sup_sevenB : sevenA ⊔ sevenB = ⊤ := by
       Subgroup.mem_sup_right (mem_sevenB.2 flip_mem_sevenB)
     exact mul_mem (mul_mem hb hA06) (inv_mem hb)
 
-theorem A7_two_solvable_overgroups_generate_S7 :
-    Group.IsSolvable sevenA ∧ Group.IsSolvable sevenB ∧ Nat.card sevenA = 144 ∧
-      Nat.card sevenB = 48 ∧ sevenA ⊓ sevenB = sevenP ∧ sevenA ⊔ sevenB = ⊤ :=
-  ⟨isSolvable_sevenA, isSolvable_sevenB, nat_card_sevenA, nat_card_sevenB, sevenA_inf_sevenB,
-    sevenA_sup_sevenB⟩
 
 end CFSG.Quasithin.SteinbergCB

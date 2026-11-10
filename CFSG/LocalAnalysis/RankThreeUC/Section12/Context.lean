@@ -8,12 +8,6 @@ namespace CFSG.LocalAnalysis.RankThreeUC
 
 namespace Section12
 
-variable {G : Type} [Group G] [Finite G]
-
-structure Context (G : Type) [Group G] [Finite G] (M T : Subgroup G) : Prop where
-  uc : SourceSetting.InUC G
-  mSigma : SourceSetting.IsInMSigma G M
-  sylow : CFSG.ABGLocalTools.IsSylowOf 2 T M
 
 end Section12
 

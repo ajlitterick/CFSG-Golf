@@ -48,22 +48,6 @@ private def p9uONrm_conjHom {K : Type*} [Field K] {V W : Type*} [AddCommGroup V]
     simp only [LinearEquiv.trans_apply, LinearEquiv.coe_one, id, LinearEquiv.symm_apply_apply]
   map_mul' f g := p9uONrm_trans_conj_mul e f g
 
-private theorem p9uONrm_commSpace_conj {K : Type*} [Field K] {V W : Type*}
-    [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W] (e : V ≃ₗ[K] W)
-    (g : W ≃ₗ[K] W) :
-    commSpace (e.trans (g.trans e.symm)) = (commSpace g).map (e.symm : W →ₗ[K] V) := by
-  ext x
-  rw [mem_commSpace, Submodule.mem_map]
-  constructor
-  · rintro ⟨v, rfl⟩
-    refine ⟨g (e v) - e v, sub_mem_commSpace g _, ?_⟩
-    simp only [map_sub, LinearEquiv.trans_apply, LinearEquiv.coe_coe,
-      LinearEquiv.apply_symm_apply, LinearEquiv.symm_apply_apply]
-  · rintro ⟨y, hy, rfl⟩
-    obtain ⟨w, rfl⟩ := mem_commSpace.mp hy
-    refine ⟨e.symm w, ?_⟩
-    simp only [map_sub, LinearEquiv.trans_apply, LinearEquiv.coe_coe,
-      LinearEquiv.symm_apply_apply, LinearEquiv.apply_symm_apply]
 
 private theorem p9uONrm_commSpace_conj_symm {K : Type*} [Field K] {V W : Type*}
     [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W] (e : V ≃ₗ[K] W)
@@ -125,38 +109,6 @@ theorem qtwoDL1_oChart_finrank (Φ : OrthTorus.OrthFrameCore p Bs L)
   rw [C.χ.finrank_eq, Module.finrank_pi_fintype]
   simp [C.E.finrank_eq, Nat.mul_comm]
 
-theorem qtwoDL1_oChart_witness (Φ : OrthTorus.OrthFrameCore p Bs L)
-    [Algebra Φ.F (GaloisField 2 2)] (C : QTwoDL1ONormChart Φ) :
-    ∃ s ∈ TauCeti.QuadraticMap.orthogonalGroup Φ.Q,
-      s ∉ omegaGroup Φ.Q (qtwoDL1_oChart_nondeg Φ C) := by
-  have hr : 0 < Φ.r := by have := Φ.hr; omega
-  let i₀ : Fin Φ.r := ⟨0, hr⟩
-  let s : Φ.V ≃ₗ[Φ.F] Φ.V := C.χ.trans ((tauAt C.E i₀).trans C.χ.symm)
-  have hsO : s ∈ TauCeti.QuadraticMap.orthogonalGroup Φ.Q := by
-    refine TauCeti.QuadraticMap.mem_orthogonalGroup_iff.mpr fun v => ?_
-    simp only [s, LinearEquiv.trans_apply]
-    rw [← C.isometry (C.χ.symm (tauAt C.E i₀ (C.χ v))), ← C.isometry v,
-      LinearEquiv.apply_symm_apply]
-    exact TauCeti.QuadraticMap.map_app_of_mem_orthogonalGroup
-      (tauAt_mem_orthogonalGroup C.E i₀) (C.χ v)
-  refine ⟨s, hsO, ?_⟩
-  intro hsΩ
-  rw [mem_omegaGroup] at hsΩ
-  have hfin : finrank Φ.F (commSpace s) = 1 := by
-    have hconj : commSpace s = (commSpace (tauAt C.E i₀)).map
-        (C.χ.symm : (Fin Φ.r → GaloisField 2 2) →ₗ[Φ.F] Φ.V) := by
-      rw [show s = C.χ.trans ((tauAt C.E i₀).trans C.χ.symm) from rfl]
-      exact p9uONrm_commSpace_conj C.χ (tauAt C.E i₀)
-    rw [hconj, LinearEquiv.finrank_map_eq]
-    haveI : Invertible (Qn C.E Φ.r (Pi.single i₀ 1)) :=
-      invertibleOfNonzero (by rw [Qn_single_one C.E i₀]; exact one_ne_zero)
-    have hrefl : tauAt C.E i₀ =
-        TauCeti.QuadraticMap.reflection (Qn C.E Φ.r) (Pi.single i₀ 1) := by
-      rw [tauAt_eq_reflect C.E i₀, CFSG.ClassicalGroups.Orthogonal.reflect_eq_reflection]
-    rw [hrefl]
-    exact finrank_commSpace_reflection (Qn_polarBilin_nondegenerate C.E Φ.r) (Pi.single i₀ 1)
-  rw [hfin] at hsΩ
-  exact Nat.not_even_one hsΩ.2
 
 theorem qtwoDL1_oChart_block (Φ : OrthTorus.OrthFrameCore p Bs L) [Fact p.Prime]
     (hF : Nat.card Φ.F = 2) [Algebra Φ.F (GaloisField 2 2)] (C : QTwoDL1ONormChart Φ)

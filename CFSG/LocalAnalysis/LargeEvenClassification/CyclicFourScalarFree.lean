@@ -339,21 +339,5 @@ theorem rank_two_cyclic_times_four_scalar_free_four_generators {S : Type*} [Grou
   exact abelian_kernel_three_action_primitive_square_four_generators (hpgroup.to_subgroup U)
     (hpgroup.to_subgroup A) quotient action.rangeRestrict_surjective embedding hinjective hArank hQrank hcritical
 
-theorem rank_two_cyclic_times_four_scalar_free_ambient_four_generators {S : Type*} [Group S] [Finite S]
-    (hpgroup : IsPGroup 2 S) (A : Subgroup S) [A.Normal]
-    (hcommutative : IsMulCommutative A)
-    (hselfCentralizing : Subgroup.centralizer (A : Set S) = A)
-    (hnoEight : ∀ E : Subgroup S, E.Normal → CFSG.Open.IsElemAbelian 2 E → Nat.card E ≠ 8)
-    (n : ℕ) (coordinates : Additive A ≃+ CyclicFourSpace n)
-    (hdelta : cyclicFourDelta n ∉
-      ((cyclicFourAutomorphismEquiv hcommutative n coordinates).toMonoidHom.comp
-        (MulAut.conjNormal (H := A))).range)
-    (U : Subgroup S) : ∃ X : Finset S, X.card ≤ 4 ∧ Subgroup.closure (X : Set S) = U := by
-  classical
-  obtain ⟨X, hX, hcard⟩ := rank_two_cyclic_times_four_scalar_free_four_generators hpgroup A hcommutative
-    hselfCentralizing hnoEight n coordinates hdelta U
-  refine ⟨X.image U.subtype, Finset.card_image_le.trans hcard, ?_⟩
-  rw [Finset.coe_image, ← MonoidHom.map_closure, hX, Subgroup.map_top]
-  exact U.range_subtype
 
 end CFSG.LargeEvenClassification.Helpers

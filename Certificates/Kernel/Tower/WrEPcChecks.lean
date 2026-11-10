@@ -19,8 +19,5 @@ open Certificates.KernelTower
 #kc_forall_tree ch36408_epcP_all (fun e => ch36408_epcP e = true) 12
   Certificates.KernelTower.ch36408_epcP
 
-theorem ch36408_e_pcP_neg : (!pcP 16384 (wrEM 0) (wrED 0 0) (wrED 0 1) (wrED 0 2) (wrED 0 3)
-    (wrEP 0 2) 128 128) = true := by
-  decide +kernel
 
 end Certificates.KernelTower

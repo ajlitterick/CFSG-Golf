@@ -262,9 +262,5 @@ theorem lemma316ProductInputFor_of_steps (h32 : Lemma32InputFor 𝒜)
   fun _ _ _ hG _ hN _ hK _ hbK hb2 _ hJ hJs hJH =>
     mem_kStarComponents_of_steps h32 h315a h315c hbal hG hN hK hbK hb2 hJ hJs hJH
 
-theorem lemma316InputFor_of_steps (h32 : Lemma32InputFor 𝒜) (h315a : Lemma315aInputFor 𝒜)
-    (h315c : Lemma315cInputFor 𝒜) (hbal : Lemma316BalancedInputFor 𝒜) : Lemma316InputFor 𝒜 :=
-  lemma316InputFor_of_inputs h32 h315a h315c hbal
-    (lemma316ProductInputFor_of_steps h32 h315a h315c hbal)
 
 end CFSG.ComponentClassification.Sol76T13

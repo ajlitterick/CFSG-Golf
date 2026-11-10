@@ -61,7 +61,6 @@ theorem ord5Pi_iff (x : Wr n) : ord5Pi x = true ↔ orderOf (mkQ n x) = 5 := by
 
 theorem indL_nil : indL ([] : List (Fin n)) = 0 := funext fun i => by simp [indL]
 
-theorem one_eq_mk : (1 : Wr 4) = ⟨vec4 [], 1⟩ := Wr.ext (funext fun i => by simp [vec4]; rfl) rfl
 
 theorem embedVec_vec4 (ι : Fin 4 ↪ Fin n) (s : List (Fin 4)) :
     embedVec ι (vec4 s) = indL (s.map ι) := by

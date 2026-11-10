@@ -215,33 +215,6 @@ theorem mem_e1EBar_of_forall_commute {s : G ⧸ Z} (hs : s ∈ S.map (QuotientGr
   rw [← hb.caseC3Word_inj, ← hb.caseC3Word_mul, ← hb.caseC3Word_mul]
   exact hc _ (hb.caseC3Word_mem_e1EBar_iff.mpr hw)
 
-theorem e1EBar_eq_closure : e1EBar Z u m y x = Subgroup.closure
-    {(u : G ⧸ Z), ((x * u * x⁻¹ : G) : G ⧸ Z), (y : G ⧸ Z)} := by
-  apply le_antisymm
-  · intro s hs
-    obtain ⟨v, hv, rfl⟩ := hb.mem_e1EBar_iff.mp hs
-    have hmem : ∀ w : Fin 64, (w = 0 ∨ w = 32 ∨ w = 8 ∨ w = 2) → caseC3Word Z u m y x w ∈
-        Subgroup.closure {(u : G ⧸ Z), ((x * u * x⁻¹ : G) : G ⧸ Z), (y : G ⧸ Z)} := by
-      rintro w (rfl | rfl | rfl | rfl)
-      · rw [caseC3Word_zero]
-        exact Subgroup.one_mem _
-      · rw [caseC3Word_thirtytwo]
-        exact Subgroup.subset_closure (by simp)
-      · rw [caseC3Word_eight]
-        exact Subgroup.subset_closure (by simp)
-      · rw [caseC3Word_two]
-        exact Subgroup.subset_closure (by simp)
-    rw [e1E_eq_mul v hv, ← hb.caseC3Word_mul, ← hb.caseC3Word_mul]
-    refine Subgroup.mul_mem _ (Subgroup.mul_mem _ (hmem _ ?_) (hmem _ ?_)) (hmem _ ?_) <;>
-      split_ifs <;> simp
-  · rw [Subgroup.closure_le]
-    rintro s (rfl | rfl | rfl)
-    · rw [← caseC3Word_thirtytwo (Z := Z) (m := m) (y := y) (x := x)]
-      exact hb.caseC3Word_mem_e1EBar_iff.mpr e1E_gens.1
-    · rw [← caseC3Word_eight (Z := Z) (m := m) (y := y)]
-      exact hb.caseC3Word_mem_e1EBar_iff.mpr e1E_gens.2.1
-    · rw [← caseC3Word_two (Z := Z) (u := u) (m := m) (x := x)]
-      exact hb.caseC3Word_mem_e1EBar_iff.mpr e1E_gens.2.2.1
 
 end CaseC3BCD
 

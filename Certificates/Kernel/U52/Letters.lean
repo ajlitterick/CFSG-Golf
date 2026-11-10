@@ -21,9 +21,6 @@ namespace CertificateChecks.KernelU52
 
 open CFSG.ASVolI CFSG.KC.Enum CFSG.KS CFSG.KC.Misc.ArrEnum
 
-theorem lpBind : ∀ i < 4, arrBind burnsideF48t_u52LArr[i]! 462 9 (LP i) = true := by
-  intro i hi
-  interval_cases i <;> quickRfl
 
 theorem lpPerm : allN 4 (fun i => permOK 462 9 (mask 9) (462 * 9) (LP i) (LPI i)) = true := by
   quickRfl

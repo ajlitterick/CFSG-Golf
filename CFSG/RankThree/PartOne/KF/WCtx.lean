@@ -158,19 +158,6 @@ theorem ofCentralQuot (hVexp : ∀ d : V, d ^ p = 1) (SM : WCtx act (⊤ : Subgr
     obtain ⟨σ, hσ⟩ := SM.induced m hmN (Subgroup.mem_top _)
     exact ⟨σ, haction ⟨g, hgL⟩ m hmN hm.symm σ hσ⟩
 
-theorem ofIso (hVexp : ∀ d : V, d ^ p = 1) (SM : WCtx act (⊤ : Subgroup M) T) (ψ : M ≃* ↥L)
-    (hFL : F ≤ L) (hFexp : ∀ f ∈ F, f ^ p = 1) (hψ : ∀ m : M, (ψ m : G) ∈ F ↔ m ∈ T) :
-    Nonempty (WCtx act L F) := by
-  refine ofCentralQuot (P := ↥L) hVexp SM ψ.toMonoidHom
-    (SymCtx.isCentralPQuot_of_bijective _ ψ.bijective p) (MonoidHom.id ↥L)
-    (SymCtx.isCentralPQuot_of_bijective _ Function.bijective_id p) hFL hFexp
-    (fun t ht => ⟨⟨(ψ t : G), (hψ t).mpr ht⟩, rfl⟩)
-    (fun f => ⟨ψ.symm (Subgroup.inclusion hFL f), ?_, ?_⟩)
-  · rw [← hψ]
-    show ((ψ (ψ.symm (Subgroup.inclusion hFL f)) : ↥L) : G) ∈ F
-    rw [MulEquiv.apply_symm_apply]
-    exact f.2
-  · exact (MulEquiv.apply_symm_apply ψ _).symm
 
 variable (S : WCtx act L F)
 

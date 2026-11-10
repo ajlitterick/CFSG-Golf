@@ -30,9 +30,6 @@ theorem quotBotEquiv_symm_apply (X : Subgroup G) [((⊥ : Subgroup G).subgroupOf
   right_inv w := Subtype.ext (by simp [mul_assoc])
   map_mul' x y := Subtype.ext (by simp [mul_assoc])
 
-theorem conjugateEquiv_apply (W : Subgroup G) (s : G) (y : ↥(CFSG.conjugate W s)) :
-    ((conjugateEquiv W s y : ↥W) : G) = s * y * s⁻¹ :=
-  rfl
 
 variable [Finite G] {T L I : Subgroup G}
 

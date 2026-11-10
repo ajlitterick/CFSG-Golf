@@ -126,21 +126,12 @@ variable (p r : ℕ) (R : Type) [Group R] (I : Set (MulAut R))
     (∀ a ∈ A, ∃ φ ∈ I, ∀ l : L', φ (ψ l) = ψ (a l)) ∧ p ^ r ≤ Nat.card A ∧
     p ^ 3 ≤ Nat.card A ∧ GGTorusSelfCent p A
 
-@[expose] def GGTorusReflGenSCr : Prop :=
-  ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R) (A : Subgroup (MulAut L')),
-    GGTorusTBGroup p r R I L' ψ A →
-      GGReflGenerated p (ggAutomizer (MulAut.conj : L' →* MulAut L').range A)
 
 @[expose] def GGTorusReflGenW : Prop :=
   ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R) (A : Subgroup (MulAut L')),
     GGTorusTBGroup p r R I L' ψ A →
       ggAutomizer (MulAut.conj : L' →* MulAut L').range A ≤ Subgroup.closure (ggTorusReflSet p A)
 
-@[expose] def GGTorusTypeASCr : Prop :=
-  ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R) (A : Subgroup (MulAut L')),
-    GGTorusTBGroup p r R I L' ψ A → ∀ m : ℕ,
-      GGWeylOfType p (CoxeterMatrix.A m) (ggAutomizer (MulAut.conj : L' →* MulAut L').range A) →
-      ∃ lab : LargeEvenLabel, (lab.tag = .A ∨ lab.tag = .twA) ∧ lab.rank = m ∧ GGHasLabel lab R
 
 @[expose] def GGTorusAutCardSCr (N : ℕ) : Prop :=
   ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R) (A : Subgroup (MulAut L')),
@@ -149,15 +140,6 @@ variable (p r : ℕ) (R : Type) [Group R] (I : Set (MulAut R))
 
 end TorusForms
 
-theorem GGTorusReflGenW.toSCr {p r : ℕ} {R : Type} [Group R] {I : Set (MulAut R)}
-    (h : GGTorusReflGenW p r R I) : GGTorusReflGenSCr p r R I := by
-  intro L' _ _ ψ A hA
-  refine le_antisymm ((h L' ψ A hA).trans (Subgroup.closure_mono ?_)) ?_
-  · rintro φ ⟨n, hn, -, rfl, hrefl⟩
-    exact show _ ∧ _ from
-      ⟨ggConjAut_mem_ggAutomizer (H := (MulAut.conj : L' →* MulAut L').range)
-        (MonoidHom.mem_range.mpr ⟨n, rfl⟩) hn, hrefl⟩
-  · exact (Subgroup.closure_le _).mpr fun φ hφ => hφ.1
 
 theorem ggNbrLabelAll_mono {lab : LargeEvenLabel} {P₁ P₂ : LargeEvenRawCont}
     (h : ∀ (R : Type) [Group R] (I F : Set (MulAut R)), P₁ R I F → P₂ R I F)
@@ -170,13 +152,6 @@ theorem ggNbrLabelAll_mono {lab : LargeEvenLabel} {P₁ P₂ : LargeEvenRawCont}
     LargeEvenHalfSplit p lab True → GGNbrSplitLabel p lab →
       LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGTorusReflGenW p r R I
 
-theorem GGNbrTableBWeylInput.toTableB (h : GGNbrTableBWeylInput) :
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →
-      LargeEvenHalfSplit p lab True → GGNbrSplitLabel p lab →
-        LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGTorusReflGenSCr p r R I :=
-  fun p hp hp2 lab hlab hhs hsp =>
-    ggNbrLabelAll_mono (fun _ _ _ _ ⟨r, hl, hW⟩ => ⟨r, hl, hW.toSCr⟩)
-      (h p hp hp2 lab hlab hhs hsp)
 
 @[expose] def GGNbrTableBCardInput : Prop :=
   ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ n f : ℕ, LargeEvenInLambda2 ⟨.A, n, f⟩ → p ∣ 2 ^ f - 1 →

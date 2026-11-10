@@ -28,20 +28,6 @@ private lemma coeff_eq_of_bilin_expansion [Fintype K] [CharP K 2] {n : ℕ}
   funext i j
   exact sub_eq_zero.mp (congrFun (congrFun hzero i) j)
 
-private lemma coeff_eq_of_linearized_expansion [Fintype K] [CharP K 2] {n : ℕ}
-    (hlt : 2 ^ (n - 1) < Fintype.card K) {a b : Fin n → K}
-    (h : ∀ x : K, (∑ i, a i * x ^ 2 ^ (i : ℕ)) = ∑ i, b i * x ^ 2 ^ (i : ℕ)) : a = b := by
-  have hz : ∀ x : K, (∑ i, (a i - b i) * x ^ 2 ^ (i : ℕ)) = 0 := by
-    intro x
-    calc
-      ∑ i, (a i - b i) * x ^ 2 ^ (i : ℕ)
-          = (∑ i, a i * x ^ 2 ^ (i : ℕ)) - ∑ i, b i * x ^ 2 ^ (i : ℕ) := by
-            simp only [sub_mul, Finset.sum_sub_distrib]
-      _ = 0 := by rw [h x, sub_self]
-  have hzero := CFSG.LocalAnalysis.ComponentInitial.eq_zero_of_forall_sum_mul_pow_eq_zero
-    (p := 2) hlt (a := fun i => a i - b i) hz
-  funext i
-  exact sub_eq_zero.mp (congrFun hzero i)
 
 private lemma mul_sum_frob_expand [NeZero n] (d : Fin n → K) (x y : K) :
     y * (∑ k : Fin n, d k * x ^ 2 ^ (k : ℕ)) =

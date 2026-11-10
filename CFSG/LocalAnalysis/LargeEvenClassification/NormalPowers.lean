@@ -26,9 +26,6 @@ theorem normalPowerSubgroup_mem {Ambient : Type groupUniverse} [Group Ambient]
   · rintro ⟨entry, rfl⟩
     exact Subgroup.mem_map.mpr ⟨entry ^ prime, ⟨entry, rfl⟩, rfl⟩
 
-theorem normalPowerSubgroup_le {Ambient : Type groupUniverse} [Group Ambient]
-    (Normal : Subgroup Ambient) (hcommutative : IsMulCommutative Normal) (prime : ℕ) :
-    normalPowerSubgroup Normal hcommutative prime ≤ Normal := Subgroup.map_subtype_le _
 
 theorem normalPowerSubgroup_normal {Ambient : Type groupUniverse} [Group Ambient]
     (Normal : Subgroup Ambient) [Normal.Normal] (hcommutative : IsMulCommutative Normal)
@@ -51,12 +48,5 @@ theorem normalPowerSubgroup_eq_frattini_image {Ambient : Type groupUniverse} [Gr
   change (powMonoidHom prime : Normal →* Normal).range.map Normal.subtype = _
   rw [commutative_frattini_eq_power_range hprime (hpgroup.to_subgroup Normal)]
 
-theorem normalPowerSubgroup_le_frattini {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] {prime : ℕ} (hprime : prime.Prime) (hpgroup : IsPGroup prime Ambient)
-    (Normal : Subgroup Ambient) (hcommutative : IsMulCommutative Normal) :
-    normalPowerSubgroup Normal hcommutative prime ≤ frattini Ambient := by
-  intro element helement
-  obtain ⟨entry, rfl⟩ := (normalPowerSubgroup_mem Normal hcommutative prime element).mp helement
-  exact pGroup_pow_mem_frattini hprime hpgroup entry
 
 end CFSG.LargeEvenClassification.Helpers

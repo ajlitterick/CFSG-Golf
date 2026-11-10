@@ -13,16 +13,11 @@ variable {G : Type*} [Group G]
 @[expose] def IsTwoRadicalIn (H R : Subgroup G) : Prop :=
   R ≤ H ∧ R ≠ ⊥ ∧ R = pCoreOf 2 (H ⊓ Subgroup.normalizer (R : Set G))
 
-@[expose] def SatisfiesPU (H R : Subgroup G) : Prop :=
-  IsTwoRadicalIn H R ∧ ∀ C : Subgroup G, C ≤ R → C ≠ ⊥ → (C.subgroupOf R).Characteristic →
-    ¬ H ≤ Subgroup.normalizer (C : Set G)
 
 @[expose] def cgsIn (H S : Subgroup G) : Subgroup G :=
   ⨆ (C : Subgroup G) (_ : C ≤ S) (_ : C ≠ ⊥) (_ : (C.subgroupOf S).Characteristic),
     H ⊓ Subgroup.normalizer (C : Set G)
 
-@[expose] def SatisfiesCPU (H R M : Subgroup G) : Prop :=
-  cgsIn H R ≤ M ∧ M < H ∧ IsTwoRadicalIn H R ∧ ¬ 2 ∣ R.relIndex (conjClosure R M)
 
 theorem cgsIn_top (S : Subgroup G) : cgsIn ⊤ S = CGS S := by
   unfold cgsIn CGS
@@ -70,23 +65,6 @@ theorem isTwoRadicalIn_of_sylow {H R : Subgroup G} (hRH : R ≤ H) (hR : IsPGrou
         hdvd
   exact Subgroup.relIndex_eq_one.mp h1
 
-theorem exists_isTwoRadicalIn_ge {H R : Subgroup G} (hRH : R ≤ H) (hR : IsPGroup 2 R)
-    (hR1 : R ≠ ⊥) :
-    ∃ B : Subgroup G, IsTwoRadicalIn H B ∧ R ≤ B ∧
-      H ⊓ Subgroup.normalizer (R : Set G) ≤ H ⊓ Subgroup.normalizer (B : Set G) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨B, ⟨hBH, hBp, hRB, hNB⟩, hmax⟩ := Set.exists_max_image
-    {B : Subgroup G | B ≤ H ∧ IsPGroup 2 B ∧ R ≤ B ∧
-      H ⊓ Subgroup.normalizer (R : Set G) ≤ H ⊓ Subgroup.normalizer (B : Set G)}
-    (fun B => Nat.card B) (Set.toFinite _) ⟨R, hRH, hR, le_rfl, le_rfl⟩
-  refine ⟨B, ⟨hBH, fun h => hR1 (le_bot_iff.mp (h ▸ hRB)), ?_⟩, hRB, hNB⟩
-  set N := H ⊓ Subgroup.normalizer (B : Set G)
-  have hle : B ≤ pCoreOf 2 N := le_pCoreOf_inf_normalizer hBH hBp
-  have hPH : pCoreOf 2 N ≤ H := (pCoreOf_le 2 N).trans inf_le_left
-  have hNP : N ≤ H ⊓ Subgroup.normalizer (pCoreOf 2 N : Set G) :=
-    le_inf inf_le_left (le_normalizer_pCoreOf 2 N)
-  have hcard := hmax (pCoreOf 2 N) ⟨hPH, pCoreOf_isPGroup 2 N, hRB.trans hle, hNB.trans hNP⟩
-  exact Subgroup.eq_of_le_of_card_ge hle hcard
 
 omit [Finite G] in
 theorem isTwoRadicalIn_of_le_of_normalizer_le {H K R : Subgroup G} (hHK : H ≤ K)

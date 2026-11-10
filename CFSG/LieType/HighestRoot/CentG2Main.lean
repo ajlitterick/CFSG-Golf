@@ -248,11 +248,6 @@ theorem g2_eq_or_eq_datum
     exact hback h
   · exact Or.inr (hback h)
 
-theorem highestRootCZ_G2
-    (hK : ringChar K ≠ 2) (h3 : Nat.card K ≠ 3) :
-    HighestRootCZ (g2Datum K) K :=
-  ⟨g2e0, (g2_e0_isLongest K).1, (g2_e0_isLongest K).2, fun _ hz h2 =>
-    ⟨g2_centralizer_le_normalizer hK hz h2, fun h => absurd h h3⟩⟩
 
 theorem map_conj_subgroupOf {G : Type*} [Group G] {H X : Subgroup G} (n : H) :
     (X.subgroupOf H).map (MulAut.conj n).toMonoidHom =
@@ -262,96 +257,6 @@ theorem map_conj_subgroupOf {G : Type*} [Group G] {H X : Subgroup G} (n : H) :
     Subgroup.mem_map_equiv]
   simp [MulAut.conj_symm_apply]
 
-theorem g2_exists_smul_eq
-    {γ : Fin (Tag.rank .G2) → ℤ} (hγ : γ ∈ (g2Datum K).roots)
-    (hlong : ∀ δ ∈ (g2Datum K).roots, rootForm (g2Datum K) δ δ ≤ rootForm (g2Datum K) γ γ) :
-    ∃ w : WeylGroup .G2, w • g2e0 = γ := by
-  rcases hγ with ⟨w, i, rfl⟩ | ⟨w, i, hi, -⟩
-  · refine ⟨w, ?_⟩
-    have h := hlong g2e0 (g2_e0_isLongest K).1
-    change CFSG.ClassicalInvolution.ModelFacts.lenSq (isFiniteType_cartan .G2)
-        (Pi.single g2l 1) ≤ CFSG.ClassicalInvolution.ModelFacts.lenSq (isFiniteType_cartan .G2)
-        (CFSG.LieType.RootSystem.weylAction (isFiniteType_cartan .G2) w (Pi.single i 1)) at h
-    rw [CFSG.ClassicalInvolution.ModelFacts.lenSq_weylAction,
-      CFSG.ClassicalInvolution.ModelFacts.lenSq_single,
-      CFSG.ClassicalInvolution.ModelFacts.lenSq_single] at h
-    fin_cases i
-    · rfl
-    · exfalso
-      have hs := CFSG.ClassicalInvolution.ModelFacts.symmetrizer_mul_apply
-        (isFiniteType_cartan .G2) g2l g2s
-      rw [show Tag.cartan .G2 g2l g2s = -1 by decide,
-        show Tag.cartan .G2 g2s g2l = -3 by decide] at hs
-      have hpos := CFSG.LieType.RootSystem.symmetrizer_pos (isFiniteType_cartan .G2) g2s
-      push_cast at hs
-      change 2 * CFSG.LieType.RootSystem.symmetrizer (isFiniteType_cartan .G2) g2l ≤
-        2 * CFSG.LieType.RootSystem.symmetrizer (isFiniteType_cartan .G2) g2s at h
-      linarith
-  · exact absurd hi (Set.notMem_empty i)
-
-theorem not_highestRootCZ_G2_three
-    (hK : ringChar K ≠ 2) (h3 : Nat.card K = 3) :
-    ¬ HighestRootCZ (g2Datum K) K := by
-  rintro ⟨γ, hγ, hlong, hCZ⟩
-  obtain ⟨w, rfl⟩ := g2_exists_smul_eq hγ hlong
-  set n : adjointGroup .G2 K :=
-    ⟨canonicalRep (coxeterSystem .G2) K w, canonicalRep_mem_adjointGroup _ K w⟩
-  set φ : MulAut (adjointGroup .G2 K) := MulAut.conj n
-  have hJ : rankOneGroup (g2Datum K) (w • g2e0) =
-      (rankOneGroup (g2Datum K) g2e0).map φ.toMonoidHom := by
-    rw [rankOneGroup_adjDatum _ (isRoot_single .G2 g2l), map_conj_subgroupOf,
-      rankOneGroup_adjDatum _ (IsRoot.smul (isRoot_single .G2 g2l) w), Subgroup.map_sup,
-      (canonical_weyl_root_transport .G2 K).2.1 w _ (isRoot_single .G2 g2l),
-      (canonical_weyl_root_transport .G2 K).2.1 w _ (IsRoot.neg (isRoot_single .G2 g2l)),
-      smul_neg]
-  set z : adjointGroup .G2 K := g2z
-  have hzJ : z ∈ rankOneGroup (g2Datum K) g2e0 := by
-    rw [rankOneGroup_adjDatum _ (isRoot_single .G2 g2l)]
-    exact Subgroup.mem_subgroupOf.2 (g2_rootDiagUnit_mem_long hK).1
-  have hz2 : orderOf z = 2 := by
-    rw [← Subgroup.orderOf_coe]
-    exact (g2_rootDiagUnit_mem_long hK).2
-  have hL₀C : g2L₀ K ≤ Subgroup.centralizer ({z} : Set (adjointGroup .G2 K)) := fun l hl =>
-    Subgroup.mem_centralizer_singleton_iff.2 (Subtype.ext (by
-      rw [Subgroup.coe_mul, Subgroup.coe_mul]
-      exact (g2_commute hK (g2_rootDiagUnit_mem_long hK).1 (Subgroup.mem_subgroupOf.1 hl)).eq.symm))
-  have hCL₀ : Subgroup.centralizer ({z} : Set (adjointGroup .G2 K)) ≤
-      Subgroup.normalizer (g2L₀ K : Set (adjointGroup .G2 K)) :=
-    centralizer_le_normalizer_subgroupOf rfl (g2_toralCentralizer_le_normalizer hK (Or.inr rfl))
-  obtain ⟨eL₀⟩ := g2L₀_equiv hK
-  have hzL₀ : z ∈ g2L₀ K := Subgroup.mem_subgroupOf.2 (g2_rootDiagUnit_mem_short hK)
-  have hφz : φ z ∈ rankOneGroup (g2Datum K) (w • g2e0) :=
-    hJ ▸ Subgroup.mem_map_of_mem φ.toMonoidHom hzJ
-  have hφz2 : orderOf (φ z) = 2 := by
-    rw [MulEquiv.orderOf_eq]
-    exact hz2
-  have hL := (hCZ (φ z) hφz hφz2).2 h3 ((g2L₀ K).map φ.toMonoidHom) ?_ ?_
-    ⟨(Subgroup.equivMapOfInjective _ φ.toMonoidHom φ.injective).symm.trans eL₀⟩
-    (Subgroup.mem_map_of_mem φ.toMonoidHom hzL₀)
-  ·
-    rw [hJ] at hL
-    have hL' := Subgroup.map_injective φ.injective hL
-    obtain ⟨x, y, hxy⟩ := exists_not_commute_sl2 (K := K)
-    apply hxy
-    have ha : ((eL₀.symm x : g2L₀ K) : adjointGroup .G2 K) ∈ rankOneGroup (g2Datum K) g2e0 :=
-      hL' ▸ (eL₀.symm x).2
-    rw [rankOneGroup_adjDatum _ (isRoot_single .G2 g2l)] at ha
-    have hc := g2_commute hK (Subgroup.mem_subgroupOf.1 ha)
-      (Subgroup.mem_subgroupOf.1 (eL₀.symm y).2)
-    have e : eL₀.symm x * eL₀.symm y = eL₀.symm y * eL₀.symm x := Subtype.ext (Subtype.ext hc.eq)
-    simpa using congrArg eL₀ e
-  · rintro _ ⟨l, hl, rfl⟩
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have h := Subgroup.mem_centralizer_singleton_iff.1 (hL₀C hl)
-    simp only [MulEquiv.coe_toMonoidHom]
-    rw [← map_mul, ← map_mul, h]
-  · rw [← Subgroup.map_equiv_normalizer_eq]
-    intro g hg
-    rw [Subgroup.mem_map_equiv]
-    apply hCL₀
-    rw [Subgroup.mem_centralizer_singleton_iff] at hg ⊢
-    apply φ.injective
-    rw [map_mul, map_mul, MulEquiv.apply_symm_apply, hg]
 
 theorem g2InvolutionData
     [Finite K] (hK : ringChar K ≠ 2) : G2InvolutionData (g2Datum K) K := by

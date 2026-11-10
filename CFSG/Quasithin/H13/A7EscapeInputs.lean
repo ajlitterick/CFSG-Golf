@@ -23,7 +23,6 @@ end Escape
 
 section Minimal
 
-variable {G : Type} [Group G]
 
 end Minimal
 

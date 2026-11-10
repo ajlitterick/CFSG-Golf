@@ -42,8 +42,6 @@ theorem mul_def (x y : Tr) : x * y = ⟨x.v + act x.g y.v, x.g + y.g⟩ := rfl
 theorem one_def : (1 : Tr) = ⟨0, 0⟩ := rfl
 theorem inv_def (x : Tr) : x⁻¹ = ⟨act x.g (-x.v), x.g⟩ := rfl
 
-theorem act_neg : ∀ (g : Fin 2 × Fin 2) (v : Fin 4 × Fin 4), act g (-v) = -act g v := by
-  decide +kernel
 
 theorem act_self : ∀ g : Fin 2 × Fin 2, g + g = 0 := by decide +kernel
 
@@ -212,7 +210,6 @@ instance (x : Tr) : Decidable (inN x) := by unfold inN; infer_instance
 
 theorem mem_Q1r {x : Tr} : x ∈ Q1r ↔ inQ1 x := Iff.rfl
 theorem mem_Q2r {x : Tr} : x ∈ Q2r ↔ inQ2 x := Iff.rfl
-theorem mem_Nr {x : Tr} : x ∈ Nr ↔ inN x := Iff.rfl
 
 @[expose] def rT0 : Tr := ⟨(1, 0), (0, 1)⟩
 
@@ -220,7 +217,6 @@ theorem Q1_or : ∀ x : Tr, inQ1 x ∨ inQ1 (x * rS⁻¹) := by decide +kernel
 
 theorem Q2_or : ∀ x : Tr, inQ2 x ∨ inQ2 (x * rT0⁻¹) := by decide +kernel
 
-theorem Q2_pow_four : ∀ x : Tr, inQ2 x → x ^ 4 = 1 := by decide +kernel
 
 theorem Q2_normal : ∀ g x : Tr, inQ2 x → inQ2 (g * x * g⁻¹) := by decide +kernel
 
@@ -341,8 +337,6 @@ instance (u : Tr × Tr × Tr × Tr) : Decidable (FPF u) := by unfold FPF; infer_
   (t * Fq u (t⁻¹ * cR * t) * t⁻¹, t * Fq u (t⁻¹ * pR * t) * t⁻¹,
     t * Fq u (t⁻¹ * rS * t) * t⁻¹, t * Fq u (t⁻¹ * rR * t) * t⁻¹)
 
-theorem alpha5_rels : Rels4 alpha5.1 alpha5.2.1 alpha5.2.2.1 alpha5.2.2.2 := by decide +kernel
-theorem alpha5_cube : Cube4 alpha5 := by decide +kernel
 theorem alpha5_mem : ∀ w : Tr, inQ2 w → inQ2 (Fq alpha5 w) := by decide +kernel
 
 theorem alpha5_inverted : ∀ w : Tr, inQ2 w →
@@ -477,7 +471,6 @@ theorem zR_sq : zR * zR = 1 := by decide +kernel
 
 theorem alpha5_zR : Fq alpha5 zR = zR := by decide +kernel
 
-theorem alpha5_one : Fq alpha5 1 = 1 := by decide +kernel
 
 theorem zR_mem_Q1 : inQ1 zR := by decide +kernel
 

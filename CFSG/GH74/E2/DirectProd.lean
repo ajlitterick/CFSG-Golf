@@ -24,8 +24,6 @@ theorem mul_mem_sup_of_commute {A B : Subgroup G} {a b : G} (ha : a ∈ A) (hb :
       _ = (p.1 : G) * (p.2 * q.1) * q.2 := by rw [hcomm q.1 q.1.2 p.2 p.2.2]
       _ = ((p.1 : G) * p.2) * (q.1 * q.2) := by simp only [mul_assoc])
 
-theorem prodSupHom_apply (A B : Subgroup G) (hcomm : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
-    (p : ↥A × ↥B) : ((prodSupHom A B hcomm p : ↥(A ⊔ B)) : G) = p.1 * p.2 := rfl
 
 theorem prodSupHom_bijective (A B : Subgroup G) (hcomm : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
     (hdisj : A ⊓ B = ⊥) : Function.Bijective (prodSupHom A B hcomm) := by

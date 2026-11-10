@@ -44,9 +44,6 @@ theorem centerQuotHom_surjective (D : LieSystemData3 ι Y Λ) (j : ι) :
     Function.Surjective (centerQuotHom D j) :=
   (QuotientGroup.mk'_surjective _).comp (D.hom j).rangeRestrict_surjective
 
-theorem centerQuotHom_apply (D : LieSystemData3 ι Y Λ) (j : ι) (g : (D.kind j).G) :
-    centerQuotHom D j g = QuotientGroup.mk' (Subgroup.center (D.hom j).range)
-      ((D.hom j).rangeRestrict g) := rfl
 
 theorem centerQuotHom_ker_le_center (D : LieSystemData3 ι Y Λ) (j : ι)
     (hq : CFSG.Open.IsQuasisimple (D.kind j).G) :

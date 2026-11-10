@@ -17,14 +17,12 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
 
 @[expose] def gXiU : GL (Fin 24) ℚ := ⟨gXi, gXiᵀ, gXi_mul_transpose_self, gXi_transpose_mul_self⟩
 
-theorem coe_gXiU : (gXiU : Matrix (Fin 24) (Fin 24) ℚ) = gXi := rfl
 
 theorem gXiU_mem_latticeO : gXiU ∈ latticeO :=
   ⟨(mem_orthogonalGroup_iff _ _).2 gXi_mul_transpose_self, Xi.image_latticeQ⟩
 
 @[expose] def xiO : latticeO := ⟨gXiU, gXiU_mem_latticeO⟩
 
-theorem mat_xiO : mat xiO = gXi := rfl
 
 theorem isDyadicSpinNormalizer_XiU : IsDyadicSpinNormalizer XiU :=
   ⟨(mem_orthogonalGroup_iff _ _).2 Ximat_mul_transpose_self, Ximat_mem_dyadic,
@@ -98,7 +96,6 @@ private theorem four_smul_mem {x : Fin 24 → ℤ} (hx : (∑ i, x i) % 2 = 0) :
 
 @[expose] def lamTL : C →ₗ[ZMod 2] L2 := AddMonoidHom.toZModLinearMap 2 lamTHom
 
-theorem lamTL_apply (a : C) : lamTL a = lamT a := rfl
 
 private theorem greyVec_single : ∀ j : Fin 6, greyVec (Pi.single j 1) = 0 := by decide
 
@@ -324,68 +321,5 @@ theorem isCompatible_XiU : IsCompatible XiU xiO := fun r r' hr' =>
 
 @[expose] def xiPair : Pvis := ⟨(XiU, xiO), isDyadicSpinNormalizer_XiU, isCompatible_XiU⟩
 
-theorem coe_xiPair :
-    (xiPair : GL SpinIdx ℚ × latticeO) = (XiU, ⟨gXiU, gXiU_mem_latticeO⟩) := rfl
-
-theorem XiU_pow_three : XiU ^ 3 = 1 :=
-  Units.ext (by rw [Units.val_pow_eq_pow_val, coe_XiU, Ximat_pow_three, Units.val_one])
-
-theorem xiO_pow_three : xiO ^ 3 = 1 :=
-  mat_injective (by
-    show (((xiO ^ 3 : latticeO) : GL (Fin 24) ℚ) : Matrix (Fin 24) (Fin 24) ℚ) = mat 1
-    rw [Subgroup.coe_pow, Units.val_pow_eq_pow_val, mat_one]
-    exact gXi_pow_three)
-
-theorem xiPair_pow_three : xiPair ^ 3 = 1 :=
-  Subtype.ext (by
-    rw [Subgroup.coe_pow, Subgroup.coe_one]
-    exact Prod.ext XiU_pow_three xiO_pow_three)
-
-theorem thetaEquiv_pow (p : Pvis) (n : ℕ) : thetaEquiv (p ^ n) = thetaEquiv p ^ n := by
-  induction n with
-  | zero => rw [pow_zero, pow_zero, thetaEquiv_one]
-  | succ n ih => rw [pow_succ, thetaEquiv_mul, ih, pow_succ']
-
-theorem thetaEquiv_xiPair_ne_one : thetaEquiv xiPair ≠ 1 := by
-  intro h1
-  have hA : vecMulVec (Pi.single 0 1 : Fin 24 → ℚ) (Pi.single 0 1) ∈ symMat := by
-    rw [mem_symMat, transpose_vecMulVec]
-  have h2 : theta xiPair (⟨_, hA⟩, 0, 0) = (⟨_, hA⟩, 0, 0) := by
-    rw [← thetaEquiv_apply, h1]
-    rfl
-  rw [theta_symMat] at h2
-  have h3 := congrArg (fun x : SpaceB => ((x.1 : symMat) : Matrix (Fin 24) (Fin 24) ℚ) 0 0) h2
-  simp only [coe_thetaA] at h3
-  rw [Matrix.mul_assoc, vecMulVec_mul, mul_vecMulVec, vecMulVec_apply, vecMulVec_apply,
-    mulVec_transpose, single_one_vecMul, row_apply, Pi.single_eq_same] at h3
-  change gXi 0 0 * gXi 0 0 = 1 * 1 at h3
-  have hg : gXi 0 0 = -1 / 2 := by
-    change gXi (coord 0 0) (coord 0 0) = -1 / 2
-    rw [gXi_coord, C4_eq]
-    simp
-  rw [hg] at h3
-  norm_num at h3
-
-theorem orderOf_thetaEquiv_xiPair : orderOf (thetaEquiv xiPair) = 3 := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  refine orderOf_eq_prime ?_ thetaEquiv_xiPair_ne_one
-  rw [← thetaEquiv_pow, xiPair_pow_three, thetaEquiv_one]
-
-theorem xi_spin_lattice_compatibility :
-    ((XiU : Matrix SpinIdx SpinIdx ℚ) = Ximat ∧
-      ((XiU⁻¹ : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) = Ximatᵀ) ∧
-    ((gXiU : Matrix (Fin 24) (Fin 24) ℚ) = gXi ∧
-      ((gXiU⁻¹ : GL (Fin 24) ℚ) : Matrix (Fin 24) (Fin 24) ℚ) = gXiᵀ) ∧
-    gXiU ∈ latticeO ∧
-    IsDyadicSpinNormalizer XiU ∧
-    IsCompatible XiU ⟨gXiU, gXiU_mem_latticeO⟩ ∧
-    (∀ r r' : Q, (r' : GL SpinIdx ℚ) = XiU⁻¹ * r * XiU →
-      Multiplicative.toAdd (phi (QuotientGroup.mk r')) =
-        modTwoEnd ⟨gXiU, gXiU_mem_latticeO⟩ (Multiplicative.toAdd (phi (QuotientGroup.mk r)))) ∧
-    ((XiU, ⟨gXiU, gXiU_mem_latticeO⟩) : GL SpinIdx ℚ × latticeO) ∈ Pvis ∧
-    (xiPair : GL SpinIdx ℚ × latticeO) = (XiU, ⟨gXiU, gXiU_mem_latticeO⟩) ∧
-    thetaEquiv xiPair ∈ Gvis ∧ orderOf (thetaEquiv xiPair) = 3 :=
-  ⟨⟨rfl, rfl⟩, ⟨rfl, rfl⟩, gXiU_mem_latticeO, isDyadicSpinNormalizer_XiU, isCompatible_XiU,
-    isCompatible_XiU, xiPair.2, rfl, ⟨xiPair, rfl⟩, orderOf_thetaEquiv_xiPair⟩
 
 end CFSG.Monster.Visible

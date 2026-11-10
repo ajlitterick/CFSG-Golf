@@ -40,6 +40,5 @@ theorem mem_UA_of_fix {π : Equiv.Perm (Fin 693)}
   rw [autPerm_normAut, UAloc_eq_UA hj] at hU
   exact hU
 
-variable {A : SMod20.V ≃ₗ[ZMod 2] SMod20.V} {π : Equiv.Perm (Fin 693)}
 
 end CFSG.LargeExtraspecial.S14.SMK

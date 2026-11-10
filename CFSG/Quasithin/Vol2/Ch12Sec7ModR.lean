@@ -28,7 +28,6 @@ theorem zs6_nodup : zs6.Nodup := by decide
 
 theorem two_zs6 : ∀ g ∈ zs6, two6 g = true → g ∈ [B6.id] := by decide
 
-theorem id_mem_zs6 : B6.id ∈ zs6 := by decide
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} [IsMulCommutative ↥V]
 

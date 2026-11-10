@@ -200,10 +200,6 @@ theorem item434CharThreeU3Large_of_centerFree (hU : CharThreeU3CenterFree) :
   obtain ⟨e, he2, he3, ⟨e₀⟩⟩ := hL
   exact (false_of_projSU_three_large hU hc he2 he3 e₀).elim
 
-theorem item434CharThreeU3Large_of_griess
-    (hGA : CFSG.ComponentClassification.TBLit.GriessMultipliersAllModels) :
-    Item434CharThreeU3Large :=
-  item434CharThreeU3Large_of_centerFree (charThreeU3CenterFree_of_griess hGA)
 
 end Families
 

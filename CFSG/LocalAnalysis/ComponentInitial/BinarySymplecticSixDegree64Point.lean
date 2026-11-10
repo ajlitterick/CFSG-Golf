@@ -28,8 +28,6 @@ variable (e) in
     ↥(pairOrth b (e (Sum.inl 0)) (e (Sum.inr 0))) →ₗ[ZMod 2] ZMod 2 :=
   (e.coord i).comp (pairOrth b (e (Sum.inl 0)) (e (Sum.inr 0))).subtype
 
-theorem ptCoord_apply (i : Fin 3 ⊕ Fin 3) (w : 𝔼) : ptCoord e i w = e.repr w i :=
-  rfl
 
 variable (e) in
 @[expose] def ptQuad : QuadraticForm (ZMod 2) ↥(pairOrth b (e (Sum.inl 0)) (e (Sum.inr 0))) :=
@@ -283,10 +281,6 @@ theorem coe_ptLabel_symm (hinf : L ⊓ zpowers z = ⊥)
     (ptSub φ z hb e).subgroupOf M ≃* Multiplicative ((𝔼 × ZMod 2) × ZMod 2) :=
   (subgroupOfEquivOfLe hBM).trans (ptLabel he hb φ hzC hz hinf)
 
-theorem coe_ptLabelOf_symm (hinf : L ⊓ zpowers z = ⊥) {M : Subgroup G}
-    (hBM : ptSub φ z hb e ≤ M) (x : Multiplicative ((𝔼 × ZMod 2) × ZMod 2)) :
-    (((ptLabelOf he hb φ hzC hz hinf hBM).symm x : M) : G) = ptHom he hb φ hzC hz x :=
-  rfl
 
 @[expose] def ptLevi :
     bilinIsometryGroup (b.restrict (pairOrth b (e (Sum.inl 0)) (e (Sum.inr 0)))) →* G :=

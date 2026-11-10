@@ -127,30 +127,6 @@ theorem rankOneImage_eq_map {D : UniversalRootDatum K} (ψ : K →* X) (g : K)
   unfold rankOneImage rankOneRoot
   rw [Subgroup.map_map]
 
-theorem actsAs_automorphism_of_diagonal {D : UniversalRootDatum K} {k : Type*} [Field k]
-    {x : (Fin D.rank → ℤ) → k → K}
-    {C : (Fin D.rank → ℤ) → (Fin D.rank → ℤ) → ℕ × ℕ → ℤ}
-    {O : CommOrder (RootSystem.ofCartan D.isFiniteType D.divisible)}
-    (hX : ChevalleyExtras D k x C O)
-    (hgen : ⨆ i : Fin D.rank, rankOne D.rootGroup i = ⊤)
-    (ψ : K →* X) (g : K) (e : X) (b : Fin D.rank → kˣ)
-    (hb : ∀ i, ActsDiagonallyOnSimple x ψ g i e (b i)) (δ : K ≃* K)
-    (hδx : ∀ i c, δ (x (Pi.single i 1) c) = x (Pi.single i 1) ((b i : k) * c))
-    (hδy : ∀ i c, δ (x (-Pi.single i 1) c) = x (-Pi.single i 1) (((b i)⁻¹ : kˣ) * c))
-    (y : K) : e * ψ (g * y * g⁻¹) * e⁻¹ = ψ (g * δ y * g⁻¹) := by
-  set Ψ : K →* X := ψ.comp (MulAut.conj g).toMonoidHom with hΨ
-  have hle : (⊤ : Subgroup K) ≤ MonoidHom.eqLocus ((MulAut.conj e).toMonoidHom.comp Ψ)
-      (Ψ.comp δ.toMonoidHom) := by
-    rw [← hgen]
-    refine iSup_le fun i => sup_le (fun z hz => ?_) (fun z hz => ?_)
-    · obtain ⟨c, rfl⟩ := ((hX.param _ (single_mem_roots D i)).1 z).mp hz
-      show e * ψ (g * x (Pi.single i 1) c * g⁻¹) * e⁻¹ = ψ (g * δ (x (Pi.single i 1) c) * g⁻¹)
-      rw [(hb i).1 c, hδx]
-    · obtain ⟨c, rfl⟩ := ((hX.param _ ((RootSystem.ofCartan D.isFiniteType D.divisible).neg_mem _
-        (single_mem_roots D i))).1 z).mp hz
-      show e * ψ (g * x (-Pi.single i 1) c * g⁻¹) * e⁻¹ = ψ (g * δ (x (-Pi.single i 1) c) * g⁻¹)
-      rw [(hb i).2 c, hδy]
-  exact hle (Subgroup.mem_top y)
 
 end Transport
 

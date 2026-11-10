@@ -78,14 +78,6 @@ theorem map_mk_eq_top_of_isPGroup [Finite X] {p : ℕ} [Fact p.Prime] (P : Sylow
 
 end Residual
 
-theorem forall_isEmpty_iff_not_exists {Q W : Type*} [Group Q] [Group W] :
-    (∀ (K : Subgroup Q) [K.Normal], IsEmpty (Q ⧸ K ≃* W)) ↔
-      ¬ ∃ (K : Subgroup Q) (_ : K.Normal), Nonempty (Q ⧸ K ≃* W) := by
-  constructor
-  · rintro h ⟨K, hK, ⟨e⟩⟩
-    exact (h K).false e
-  · intro h K _
-    exact ⟨fun e => h ⟨K, inferInstance, ⟨e⟩⟩⟩
 
 variable {G : Type*} [Group G]
 
@@ -163,11 +155,6 @@ theorem le_commutator_of_oResidual_eq_top (hG : oResidual p G = ⊤) :
   have := oResidual_le_ker_of_isPGroup (QuotientGroup.mk' K) hK
   rwa [QuotientGroup.ker_mk'] at this
 
-theorem yoshida_inf_commutator_eq
-    (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
-      IsEmpty ((↥(P : Subgroup G) ⧸ K) ≃* (Multiplicative (ZMod p) ≀ᵣ Multiplicative (ZMod p)))) :
-    (P : Subgroup G) ⊓ commutator G = (P : Subgroup G) ⊓ (commutator N).map (Subgroup.subtype N) :=
-  inf_commutator_eq_inf_map_commutator_normalizer P hW
 
 theorem yoshida_bijective_abelianPQuotientMap
     (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
@@ -175,19 +162,6 @@ theorem yoshida_bijective_abelianPQuotientMap
     Function.Bijective (abelianPQuotientMap p N) :=
   bijective_abelianPQuotientMap_of_inf_eq P (inf_commutator_eq_inf_map_commutator_normalizer P hW)
 
-@[expose] noncomputable def yoshidaAbelianPQuotientEquiv
-    (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
-      IsEmpty ((↥(P : Subgroup G) ⧸ K) ≃* (Multiplicative (ZMod p) ≀ᵣ Multiplicative (ZMod p)))) :
-    N ⧸ (commutator N ⊔ oResidual p N) ≃* G ⧸ (commutator G ⊔ oResidual p G) :=
-  MulEquiv.ofBijective (abelianPQuotientMap p N) (yoshida_bijective_abelianPQuotientMap P hW)
-
-theorem yoshidaAbelianPQuotientEquiv_apply
-    (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
-      IsEmpty ((↥(P : Subgroup G) ⧸ K) ≃* (Multiplicative (ZMod p) ≀ᵣ Multiplicative (ZMod p))))
-    (x : N) :
-    yoshidaAbelianPQuotientEquiv P hW (x : N ⧸ (commutator N ⊔ oResidual p N)) =
-      ((x : G) : G ⧸ (commutator G ⊔ oResidual p G)) :=
-  rfl
 
 theorem yoshida_eq_commutator_normalizer_of_oResidual_eq_top
     (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
@@ -198,17 +172,6 @@ theorem yoshida_eq_commutator_normalizer_of_oResidual_eq_top
     ← inf_commutator_eq_inf_map_commutator_normalizer P hW,
     inf_eq_left.mpr (le_commutator_of_oResidual_eq_top P hG)]
 
-theorem yoshida_transfer_theorem
-    (hW : ∀ (K : Subgroup (P : Subgroup G)) [K.Normal],
-      IsEmpty ((↥(P : Subgroup G) ⧸ K) ≃* (Multiplicative (ZMod p) ≀ᵣ Multiplicative (ZMod p)))) :
-    ((P : Subgroup G) ⊓ commutator G =
-        (P : Subgroup G) ⊓ (commutator N).map (Subgroup.subtype N) ∧
-      (P : Subgroup G) ⊓ (commutator N).map (Subgroup.subtype N) = ⁅(P : Subgroup G), N⁆) ∧
-    Function.Bijective (abelianPQuotientMap p N) ∧
-    (oResidual p G = ⊤ → (P : Subgroup G) = ⁅(P : Subgroup G), N⁆) :=
-  ⟨⟨yoshida_inf_commutator_eq P hW, inf_map_commutator_normalizer_eq_commutator P⟩,
-    yoshida_bijective_abelianPQuotientMap P hW,
-    yoshida_eq_commutator_normalizer_of_oResidual_eq_top P hW⟩
 
 end CFSG.RankThree.Transfer
 

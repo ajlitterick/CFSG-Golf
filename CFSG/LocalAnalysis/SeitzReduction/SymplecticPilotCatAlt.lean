@@ -165,8 +165,5 @@ theorem catSp2mAlternating : CatSp2mAlternating := by
     apply ordBC_two_pow_ne_factorial_div_two hm hf (k := Fintype.card Ω)
     rw [← hcardD, Nat.card_congr eA.toEquiv, nat_card_alternatingGroup, Nat.card_eq_fintype_card]
 
-theorem catSp6Alternating_of_catSp2mAlternating (h : CatSp2mAlternating) :
-    F4Pilot.CatSp6Alternating :=
-  fun S _ _ hS hna hA σ hσ f D hD hD6 => h S hS hna hA σ hσ 3 f D hD hD6
 
 end CFSG.SeitzReduction.SymplecticPilot

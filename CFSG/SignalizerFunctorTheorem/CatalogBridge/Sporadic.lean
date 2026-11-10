@@ -154,19 +154,6 @@ theorem noOddOuter_Ru :
     Sporadic.RuSchreier.card_outer_ruP]
   norm_num
 
-theorem noOddOuter_Co1 :
-    NoOddOuter (NativeSporadic.Carrier .Co1) := by
-  have := finite_carrier .Co1
-  have h := (Sporadic.Co1Schreier.catalog_schreier_of_inputs.{0}
-    fun K _ e => Sporadic.Co2Schreier.AT_Co2_model_Schreier K e).2.2.1
-  exact NoOddOuter.of_isPGroup_two h
-
-theorem noOddOuter_Co2
-    : NoOddOuter (NativeSporadic.Carrier .Co2) := by
-  have := finite_carrier .Co2
-  obtain ⟨e⟩ : Nonempty (NativeSporadic.Carrier .Co2 ≃* NativeSporadic.Co2) :=
-    ⟨MulEquiv.refl _⟩
-  exact NoOddOuter.of_isPGroup_two (Sporadic.Co2Schreier.AT_Co2_model_Schreier _ e).2.1
 
 theorem noOddOuter_Co3 :
     NoOddOuter (NativeSporadic.Carrier .Co3) := by

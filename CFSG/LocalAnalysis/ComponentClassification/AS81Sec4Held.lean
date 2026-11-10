@@ -10,12 +10,6 @@ open Subgroup CFSG.Open CFSG.Blueprint.NativeSporadic CFSG.LargeExtraspecial
 open Matrix
 open scoped MatrixGroups
 
-@[expose] def HeldTypeRecognition : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (z : G), orderOf z = 2 →
-    Nonempty (centralizer ({z} : Set G) ≃*
-      centralizer ({DW.cornerTransvection (N := 5) (by norm_num)} : Set (SL(5, ZMod 2)))) →
-    (∃ g : G, g⁻¹ * z * g ∈ pCoreOf 2 (centralizer ({z} : Set G)) ∧ g⁻¹ * z * g ≠ z) →
-      Nonempty (G ≃* PSL(5, ZMod 2)) ∨ IsSporadic G .M24 ∨ IsSporadic G .He
 
 theorem pCoreOf_two_eq_QG {G : Type*} [Group G] (S : Setting G) :
     pCoreOf 2 (centralizer ({S.z} : Set G)) = S.QG := by

@@ -290,19 +290,6 @@ theorem mem_or_mul_inv_mem {Q : Subgroup G} {b : G} (hb : b ∈ normalizer (Q : 
     rw [e]
     exact mul_mem hb2k hbq
 
-theorem isSolvable_of_conj_le {H : Subgroup G} {g : G} {L : Subgroup G}
-    (hL : Group.IsSolvable ↥L) (hH : ∀ h ∈ H, g⁻¹ * h * g ∈ L) : Group.IsSolvable ↥H := by
-  let f : ↥H →* ↥L :=
-    { toFun := fun h => ⟨g⁻¹ * (h : G) * g, hH h h.2⟩
-      map_one' := by apply Subtype.ext; simp
-      map_mul' := fun a b => by apply Subtype.ext; simp [mul_assoc] }
-  have hinj : Function.Injective f := by
-    intro a b hab
-    have := congrArg Subtype.val hab
-    simp only [f, MonoidHom.coe_mk, OneHom.coe_mk] at this
-    apply Subtype.ext
-    exact mul_left_cancel (mul_right_cancel this)
-  exact Group.isSolvable_of_isSolvable_injective hinj
 
 theorem exists_mem_normalizer_not_mem [Finite G] {T W : Subgroup G} (hT : IsPGroup 2 ↥T)
     (hWT : W ≤ T) (hne : W ≠ T) :

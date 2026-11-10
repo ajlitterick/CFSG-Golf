@@ -169,9 +169,6 @@ theorem tab64Perm_inj (hT : tab64OK tab = true) {n m : ℕ} (hn : n < 64) (hm : 
   have hzero : n ^^^ m = 0 := hinj.1 (by rw [heq, (tab64OK_spec hT).1])
   exact xor_eq_zero_iff.mp hzero
 
-theorem tab64Perm_mem_M24g (hT : tab64OK tab = true) {n : ℕ} (hn : n < 64) :
-    tab64Perm tab n ∈ M24g :=
-  permOfArrD_mem_M24g ((tab64OK_spec hT).2 n hn).1
 
 theorem tab64Perm_comm (hT : tab64OK tab = true) {n m : ℕ} (hn : n < 64) (hm : m < 64) :
     tab64Perm tab n * tab64Perm tab m = tab64Perm tab m * tab64Perm tab n := by
@@ -208,20 +205,6 @@ theorem card_tab64Sub (hT : tab64OK tab = true) : Nat.card ↥(tab64Sub tab hT) 
         (Nat.card_congr (Equiv.ofBijective f hf)).symm
     _ = 64 := Nat.card_fin 64
 
-theorem isElemAbelian_tab64Sub (hT : tab64OK tab = true) : IsElemAbelian 2 (tab64Sub tab hT) := by
-  rw [IsElemAbelian, isMulCommutative_iff]
-  refine ⟨?_, ?_⟩
-  · intro x y
-    obtain ⟨n, hn, heq⟩ := x.2
-    obtain ⟨m, hm, heq'⟩ := y.2
-    exact Subtype.ext (by
-      show (x : S24) * (y : S24) = (y : S24) * (x : S24)
-      rw [heq, heq']
-      exact tab64Perm_comm hT hn hm)
-  · intro x hx
-    obtain ⟨n, hn, heq⟩ := hx
-    rw [heq]
-    simpa [pow_two] using tab64Perm_mul_self hT hn
 
 theorem isPGroup_tab64Sub (hT : tab64OK tab = true) : IsPGroup 2 (tab64Sub tab hT) :=
   IsPGroup.of_card (n := 6) (by rw [card_tab64Sub hT]; norm_num)

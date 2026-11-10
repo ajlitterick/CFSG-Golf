@@ -75,67 +75,6 @@ theorem rootSet_eq_image_wRoots {n : ℕ} {X : Subgroup (Equiv.Perm (Fin n))} {t
     rw [hcg, tablePerm_eq hrr] at hmem
     exact ⟨hmem.1, (tblEq_iff_eq (Rep.compT hrr hrr) ht).1 h2⟩
 
-@[expose] def wAutCheck (n m capW : ℕ) (tT : Table) (cg : Array Table) : Bool :=
-  let WE := mulClosureS n m cg capW
-  let rts := wRoots n tT WE.1
-  let EE := mulClosureS n m rts 40
-  permOK n tT && enumOK n m cg WE 1920 && enumOK n m rts EE 32 && tblClosedOK n EE.1 &&
-    autECheck 32 (tblMulIdx n EE.1)
-
-theorem autEFact_of_wAutCheck {n m capW : ℕ} (hn : n < 2 ^ 32)
-    {X : Subgroup (Equiv.Perm (Fin n))} {tT : Table} {cg : Array Table}
-    (htX : tp n tT ∈ X)
-    (hcg : closure (tp n '' {x | x ∈ cg}) =
-      X ⊓ centralizer ({tp n tT} : Set (Equiv.Perm (Fin n))))
-    (hchk : wAutCheck n m capW tT cg = true) :
-    AutEFact ↥(rootGroup ↥X ⟨tp n tT, htX⟩) := by
-  classical
-  simp only [wAutCheck, Bool.and_eq_true] at hchk
-  obtain ⟨⟨⟨⟨hperm, hWchk⟩, hEchk⟩, hclosed⟩, haut⟩ := hchk
-  obtain ⟨hWs, -⟩ := enumOK_spec hn hWchk
-  obtain ⟨hEs, hEsize⟩ := enumOK_spec hn hEchk
-  set W := (mulClosureS n m cg capW).1 with hWdef
-  set rts := wRoots n tT W with hrtsdef
-  set El := (mulClosureS n m rts 40).1 with hEldef
-  have hRs : rootSet X (tp n tT) = tp n '' {x | x ∈ rts} :=
-    rootSet_eq_image_wRoots hperm hWs hEs.perm hcg
-  set K := closure (tp n '' {x | x ∈ rts}) with hK
-  have hmap : (rootGroup ↥X ⟨tp n tT, htX⟩).map X.subtype = K := by
-    rw [map_rootGroup htX, hRs]
-  let e : ↥(rootGroup ↥X ⟨tp n tT, htX⟩) ≃* ↥K :=
-    ((rootGroup ↥X ⟨tp n tT, htX⟩).equivMapOfInjective X.subtype X.subtype_injective).trans
-      (MulEquiv.subgroupCongr hmap)
-  refine AutEFact.of_mulEquiv e.symm ?_
-  let elt : ℕ → ↥K := fun k => if h : k < El.size then ⟨tablePerm n El[k]!, hEs.mem k h⟩ else 1
-  have helt : ∀ k (h : k < El.size), (elt k : Equiv.Perm (Fin n)) = tablePerm n El[k]! := by
-    intro k h
-    simp [elt, h]
-  refine autEFact_of_table (n := 32) (elt := elt) (mul := tblMulIdx n El) ?_ ?_ ?_ ?_ ?_
-    (by norm_num) haut
-  · intro a b ha hb
-    have := (tblClosedOK_spec hclosed (a := a) (b := b) (by omega) (by omega)).1
-    omega
-  · intro a b ha hb
-    have ha' : a < El.size := by omega
-    have hb' : b < El.size := by omega
-    obtain ⟨hc, hceq⟩ := tblClosedOK_spec hclosed ha' hb'
-    apply Subtype.ext
-    rw [helt _ hc, Subgroup.coe_mul, helt _ ha', helt _ hb']
-    exact ((tblEq_iff_eq (Rep.compT (hEs.rep a ha') (hEs.rep b hb')) (hEs.rep _ hc)).1 hceq).symm
-  · intro a b ha hb hab
-    have ha' : a < El.size := by omega
-    have hb' : b < El.size := by omega
-    rw [Subtype.ext_iff, helt _ ha', helt _ hb'] at hab
-    exact hEs.inj ha' hb' hab
-  · intro y
-    obtain ⟨k, hk, hrep⟩ := hEs.cover y.1 y.2
-    refine ⟨k, by omega, Subtype.ext ?_⟩
-    rw [helt k hk]
-    exact tablePerm_eq hrep
-  · obtain ⟨hpos, h0⟩ := tablePerm_zero_of_enumOK hn hEchk
-    apply Subtype.ext
-    rw [helt 0 hpos, Subgroup.coe_one]
-    exact h0
 
 @[expose] def AutEClass (X : Type*) [Group X] : Prop :=
   ∀ t : X, orderOf t = 2 → (∃ g : X, g * g = t) → AutEFact ↥(rootGroup X t)

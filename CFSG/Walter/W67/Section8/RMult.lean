@@ -100,19 +100,5 @@ theorem three_not_dvd
 
 end RMult3
 
-open RMult3 in
-theorem rMult_of_of₃
-    (h82 : S_lemma_8_2) (h83 : S_prop_8_3) : S_rMult_of := by
-  intro hR L _ _ hL hq5 hq3 E _ _ Z _ hZc hZo hperf ⟨e⟩
-  have h3 := three_not_dvd Z hZc hL hq5 hq3 hperf e
-  by_contra hZ
-  obtain ⟨h1, h2, -, h4, -⟩ := hR L hL hq5
-  obtain ⟨hII, hE⟩ := h82 E hL hq3 ⟨h1, h2, h4⟩ Z hZc hZo hZ hperf e
-  exact hZ (hE ▸ h83 E hII (hE ▸ h3))
-
-theorem rMult_of_of₃'
-    (hM : S_psl2_three_oddMultiplier) (h43ab : S_prop_4_3_ab)
-    (h83 : S_prop_8_3) : S_rMult_of :=
-  rMult_of_of₃ (lemma_8_2_of hM h43ab) h83
 
 end CFSG.Walter.W67

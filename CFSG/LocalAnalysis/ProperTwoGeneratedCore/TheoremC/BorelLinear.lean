@@ -43,8 +43,5 @@ theorem benderBorelFacts_psl2Model {n : ℕ} (hn : 2 ≤ n) (U : Sylow 2 (PSL2Mo
 theorem psl2BorelFacts : PSL2BorelFacts := fun _ hn =>
   ⟨Classical.arbitrary _, benderBorelFacts_psl2Model hn _⟩
 
-theorem benderBorelFactsHold_of_suzuki_unitary (hS : SuzukiBorelFacts)
-    (hU : UnitaryBorelFacts) : BenderBorelFactsHold :=
-  benderBorelFactsHold_of_models psl2BorelFacts hS hU
 
 end CFSG.ProperTwoGeneratedCore.TheoremC

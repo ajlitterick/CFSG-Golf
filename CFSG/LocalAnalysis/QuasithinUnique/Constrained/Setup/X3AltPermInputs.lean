@@ -23,12 +23,5 @@ set_option maxRecDepth 100000
 instance {n : ℕ} (b : Fin n → ℕ) : DecidablePred (· ∈ relStab b) := fun σ =>
   decidable_of_iff (∀ i j, b i = b j ↔ b (σ i) = b (σ j)) Iff.rfl
 
-@[expose] def blkX7 (i : Fin 7) : ℕ := if i.val < 6 then 0 else 1
-
-@[expose] def blkY7 (i : Fin 7) : ℕ := if i.val < 4 then 0 else 1
-
-@[expose] def blkX8 (i : Fin 8) : ℕ := i.val / 4
-
-@[expose] def blkY8 (i : Fin 8) : ℕ := i.val / 2
 
 end CFSG.QuasithinUnique.Setup.X3

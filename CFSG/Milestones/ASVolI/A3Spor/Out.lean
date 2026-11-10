@@ -47,10 +47,6 @@ theorem burnsideA315s_oddInner_M11
     ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
   burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_M11 e hp hp2
 
-theorem burnsideA315s_oddInner_M12
-    {L : Type} [Group L] [Finite L] (e : L ≃* NativeSporadic.Carrier .M12) :
-    ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
-  burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_M12 e hp hp2
 
 theorem burnsideA315s_oddInner_M22
     {L : Type} [Group L] [Finite L]
@@ -64,11 +60,6 @@ theorem burnsideA315s_oddInner_M23
     ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
   burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_M23 e hp hp2
 
-theorem burnsideA315s_oddInner_M24
-    {L : Type} [Group L] [Finite L]
-    (e : L ≃* NativeSporadic.Carrier .M24) :
-    ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
-  burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_M24 e hp hp2
 
 theorem burnsideA315s_oddInner_J2
     {L : Type} [Group L] [Finite L]
@@ -88,11 +79,6 @@ theorem burnsideA315s_oddInner_He
     ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
   burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_He e hp hp2
 
-theorem burnsideA315s_oddInner_Ru
-    {L : Type} [Group L] [Finite L]
-    (e : L ≃* NativeSporadic.Carrier .Ru) :
-    ∀ α : MulAut L, Odd (orderOf α) → ∃ l : L, α = MulAut.conj l :=
-  burnsideA315s_oddInner_of_not_dvd fun _ hp hp2 => CFSG.Quasithin.A318P.not_dvd_outer_Ru e hp hp2
 
 theorem burnsideA315s_oddInner_J4
     {L : Type} [Group L] [Finite L] (e : L ≃* NativeSporadic.Carrier .J4) :

@@ -396,38 +396,5 @@ theorem centralizer_proj_involution_solvable (K : Type) [Field K] [Finite K] [Ch
     exact hmap_sol
   simpa [P] using hCsol_b
 
-theorem involutionCentralizerSolvable : InvolutionCentralizerSolvable := by
-  intro K _ _ _ b hb
-  let P := projectiveSL 3 K
-  let Q := CFSG.Open.StatedProj (CFSG.Open.StatedSL 3 K)
-  let e : P ≃* Q := projectiveSLEquivStated 3 K
-  let b' : P := e.symm b
-  have hb' : orderOf b' = 2 := by
-    dsimp [b']
-    rw [MulEquiv.orderOf_eq e.symm b, hb]
-  have hsol' : Group.IsSolvable ↥(Subgroup.centralizer ({b'} : Set P)) :=
-    centralizer_proj_involution_solvable K hb'
-  have hmap : (Subgroup.centralizer ({b'} : Set P)).map e.toMonoidHom =
-      Subgroup.centralizer ({b} : Set Q) := by
-    apply le_antisymm
-    · have h := Subgroup.map_centralizer_le_centralizer_image
-        ({b'} : Set P) e.toMonoidHom
-      have heb : e b' = b := by simp [b']
-      simpa [heb] using h
-    · have hle2 : (Subgroup.centralizer ({b} : Set Q)).map e.symm.toMonoidHom ≤
-          Subgroup.centralizer ({b'} : Set P) := by
-        have h := Subgroup.map_centralizer_le_centralizer_image
-          ({b} : Set Q) e.symm.toMonoidHom
-        have hes : e.symm b = b' := rfl
-        simpa [hes] using h
-      intro x hx
-      have hx' : e.symm x ∈ Subgroup.centralizer ({b'} : Set P) :=
-        hle2 (Subgroup.mem_map.mpr ⟨x, hx, rfl⟩)
-      exact Subgroup.mem_map.mpr ⟨e.symm x, hx', by simp⟩
-  have eC : ↥(Subgroup.centralizer ({b'} : Set P)) ≃*
-      ↥(Subgroup.centralizer ({b} : Set Q)) :=
-    hmap ▸ Subgroup.equivMapOfInjective
-      (Subgroup.centralizer ({b'} : Set P)) e.toMonoidHom e.injective
-  exact Group.isSolvable_of_surjective (f := eC.toMonoidHom) eC.surjective
 
 end CFSG.ComponentClassification.GrSLit.L34Sec5S

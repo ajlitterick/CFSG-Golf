@@ -187,26 +187,6 @@ theorem shortBlock_mulVec_inr_right (hij : i ≠ j) (A : SL(2, K)) :
         simp [blockMat, hij.symm]
       · simp [blockMat, ha, hb, Matrix.one_apply]
 
-theorem blockMat_neg_one (hij : i ≠ j) :
-    blockMat i j (-1 : Matrix (Fin 2) (Fin 2) K) =
-      Matrix.diagonal (fun a : Fin n => if a = i ∨ a = j then (-1 : K) else 1) := by
-  ext a b
-  simp only [blockMat, Matrix.of_apply, Matrix.diagonal_apply, Matrix.neg_apply,
-    Matrix.one_apply]
-  split_ifs <;> simp_all
-
-theorem shortBlock_neg_one (hij : i ≠ j) :
-    shortBlock K hij (-1) = longInv K n i * longInv K n j := by
-  refine mat_injective ?_
-  rw [map_mul, mat_longInv, mat_longInv, mat_shortBlock, Matrix.diagonal_mul_diagonal,
-    inv_neg_one]
-  simp only [Matrix.SpecialLinearGroup.coe_neg, Matrix.SpecialLinearGroup.coe_one]
-  rw [blockMat_neg_one hij, Matrix.diagonal_transpose]
-  ext r t
-  rcases r with a | a <;> rcases t with b | b <;>
-    simp [Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₁₂, Matrix.fromBlocks_apply₂₁,
-      Matrix.fromBlocks_apply₂₂, Matrix.diagonal_apply, coords]
-  all_goals (split_ifs <;> simp_all)
 
 end Short
 

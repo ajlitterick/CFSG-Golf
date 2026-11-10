@@ -41,10 +41,5 @@ theorem exists_of_symplP {p r : ℕ} {M : MP p (r + r)}
   rw [GLSymplecticFin.mem_iff']
   exact h
 
-theorem toMat_trA' (p d : ℕ) (X : AM) : toMat p d (trA d X) = (toMat p d X)ᵀ := by
-  ext i j
-  rw [toMat_apply, Matrix.transpose_apply, toMat_apply]
-  unfold trA
-  rw [getElem!_ofFn _ i.isLt, getElem!_ofFn _ j.isLt]
 
 end CFSG.HardMathSupport.Foote.E27

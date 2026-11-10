@@ -42,36 +42,12 @@ theorem fixes_pow_smul_of_mem_centralizer {x c : G} (hc : c ∈ centralizer ({x}
     (hb : c • b = b) (j : ℕ) : c • (x ^ j • b) = x ^ j • b := by
   rw [smul_pow_smul_of_mem_centralizer hc, hb]
 
-theorem smul_mem_profileSet {Y : Type*} (ρ : X → X → Y)
-    (hρ : ∀ (g : G) (u w : X), ρ (g • u) (g • w) = ρ u w) (x : G) (b : X) (ks : Finset ℕ)
-    (O : Finset X) (hO : ∀ (g : G), ∀ u ∈ O, g • u ∈ O) (hb : b ∈ O)
-    [DecidablePred fun u => ∀ k ∈ ks, ρ u (x ^ k • u) = ρ b (x ^ k • b)] {c : G}
-    (hc : c ∈ centralizer ({x} : Set G)) :
-    c • b ∈ O.filter fun u => ∀ k ∈ ks, ρ u (x ^ k • u) = ρ b (x ^ k • b) := by
-  refine Finset.mem_filter.2 ⟨hO c b hb, fun k _ => ?_⟩
-  rw [← smul_pow_smul_of_mem_centralizer hc k b, hρ]
 
 theorem stabilizer_inf_centralizer_le {x : G} {b : X} {K : Subgroup G}
     (hK : ∀ g : G, (∀ j < orderOf x, g • (x ^ j • b) = x ^ j • b) → g ∈ K) :
     MulAction.stabilizer G b ⊓ centralizer ({x} : Set G) ≤ K := fun g hg =>
   hK g fun j _ => fixes_pow_smul_of_mem_centralizer hg.2 (MulAction.mem_stabilizer_iff.1 hg.1) j
 
-theorem ncard_orbit_centralizer_le {x : G} {b : X} {S : Finset X}
-    (hS : ∀ c ∈ centralizer ({x} : Set G), c • b ∈ S) :
-    (MulAction.orbit (centralizer ({x} : Set G)) b).ncard ≤ S.card := by
-  rw [← Set.ncard_coe_finset S]
-  refine Set.ncard_le_ncard ?_ (Finset.finite_toSet S)
-  rintro _ ⟨c, rfl⟩
-  exact hS c c.2
-
-theorem card_centralizer_le_of_orbitBase [Finite G] (x : G) (b : X) (S : Finset X) (K : Subgroup G)
-    (hS : ∀ c ∈ centralizer ({x} : Set G), c • b ∈ S)
-    (hK : ∀ g : G, (∀ j < orderOf x, g • (x ^ j • b) = x ^ j • b) → g ∈ K) :
-    Nat.card (centralizer ({x} : Set G)) ≤
-      S.card * Nat.card ↥(K ⊓ centralizer ({x} : Set G)) := by
-  rw [card_eq_ncard_orbit_mul (centralizer ({x} : Set G)) b]
-  refine Nat.mul_le_mul (ncard_orbit_centralizer_le hS) (Subgroup.card_le_of_le ?_)
-  exact fun g hg => ⟨stabilizer_inf_centralizer_le hK ⟨hg.2, hg.1⟩, hg.1⟩
 
 theorem card_centralizer_eq_of_sifting [Finite G] (x : G) (b : X) (S : Finset X) (K : Subgroup G)
     (hS : ∀ c ∈ centralizer ({x} : Set G), c • b ∈ S) (hKb : K ≤ MulAction.stabilizer G b)
@@ -96,42 +72,6 @@ theorem card_centralizer_eq_of_sifting [Finite G] (x : G) (b : X) (S : Finset X)
       exact ⟨⟨c, hc⟩, rfl⟩
   rw [hinf, horb, Set.ncard_coe_finset]
 
-theorem card_centralizer_eq_of_cover [Finite G] (x : G) (b : X) (S : Finset X) (K : Subgroup G)
-    (hS : ∀ c ∈ centralizer ({x} : Set G), c • b ∈ S) (hKb : K ≤ MulAction.stabilizer G b)
-    (hK : ∀ g : G, (∀ j < orderOf x, g • (x ^ j • b) = x ^ j • b) → g ∈ K)
-    (hcov : ∀ u ∈ S, ∃ c ∈ centralizer ({x} : Set G), c • b = u) :
-    Nat.card (centralizer ({x} : Set G)) = S.card * Nat.card ↥(K ⊓ centralizer ({x} : Set G)) := by
-  classical
-  have h := card_centralizer_eq_of_sifting x b S K hS hKb hK (fun _ => True)
-    (fun u hu => ⟨fun _ => hcov u hu, fun _ => trivial⟩)
-  rwa [Finset.filter_true_of_mem fun _ _ => trivial] at h
-
-theorem le_card_centralizer_of_orbit [Finite G] (x : G) (b : X) (T : Finset X) (K : Subgroup G)
-    (hKb : K ≤ MulAction.stabilizer G b)
-    (hT : ∀ u ∈ T, ∃ c ∈ centralizer ({x} : Set G), c • b = u) :
-    T.card * Nat.card ↥(K ⊓ centralizer ({x} : Set G)) ≤ Nat.card (centralizer ({x} : Set G)) := by
-  rw [card_eq_ncard_orbit_mul (centralizer ({x} : Set G)) b]
-  refine Nat.mul_le_mul ?_ (Subgroup.card_le_of_le fun g hg => ⟨hg.2, hKb hg.1⟩)
-  rw [← Set.ncard_coe_finset T]
-  refine Set.ncard_le_ncard ?_ (Set.finite_range _)
-  intro u hu
-  obtain ⟨c, hc, rfl⟩ := hT u hu
-  exact ⟨⟨c, hc⟩, rfl⟩
-
-theorem card_centralizer_eq_of_le [Finite G] {x : G} {p : ℕ} (hx : orderOf x = p)
-    (h : Nat.card (centralizer ({x} : Set G)) ≤ p) :
-    Nat.card (centralizer ({x} : Set G)) = p := by
-  have hmem : x ∈ centralizer ({x} : Set G) := mem_centralizer_singleton_iff.2 rfl
-  have hdvd := Subgroup.orderOf_dvd_natCard _ hmem
-  rw [hx] at hdvd
-  exact le_antisymm h (Nat.le_of_dvd Nat.card_pos hdvd)
-
-theorem card_inf_centralizer_eq_card_filter (x : G) (K : Subgroup G) (L : Finset G)
-    (hL : ∀ g, g ∈ K ↔ g ∈ L) [DecidablePred fun g : G => g * x = x * g] :
-    Nat.card ↥(K ⊓ centralizer ({x} : Set G)) = (L.filter fun g => g * x = x * g).card := by
-  rw [← Fintype.card_coe, ← Nat.card_eq_fintype_card]
-  exact Nat.card_congr (Equiv.subtypeEquivRight fun g => by
-    rw [Subgroup.mem_inf, hL, Finset.mem_filter, mem_centralizer_singleton_iff])
 
 end Centralizer
 
@@ -212,12 +152,6 @@ theorem card_centralizer_eq_of_sylow_prime [Finite G] {p : ℕ} [Fact p.Prime]
   have hord : orderOf (g⁻¹ * y * g) = orderOf x := by rw [orderOf_inv_mul_mul, hx, hy]
   rw [← card_centralizer_eq_of_isConj hconj, centralizer_singleton_eq_of_mem_zpowers hg hord]
 
-theorem card_centralizer_dvd_of_sylow_prime [Finite G] {p D : ℕ} [Fact p.Prime]
-    (hp2 : ¬ p ^ 2 ∣ Nat.card G) {x : G} (hx : orderOf x = p)
-    (hD : Nat.card (centralizer ({x} : Set G)) ∣ D) :
-    ∀ y : G, orderOf y = p → Nat.card (centralizer ({y} : Set G)) ∣ D := fun y hy => by
-  rw [card_centralizer_eq_of_sylow_prime hp2 hx hy]
-  exact hD
 
 end Sylow
 
@@ -244,8 +178,6 @@ variable {G : Type*} [Group G]
     refine ⟨-a, -b, ?_⟩
     rw [mul_inv_rev, ← zpow_neg, ← zpow_neg, hc]
 
-theorem mem_commProd {x₀ y₀ : G} {h : Commute x₀ y₀} {g : G} :
-    g ∈ commProd x₀ y₀ h ↔ ∃ a b : ℤ, g = x₀ ^ a * y₀ ^ b := Iff.rfl
 
 theorem isPGroup_commProd {p : ℕ} {x₀ y₀ : G} (h : Commute x₀ y₀) (hx : x₀ ^ p = 1)
     (hy : y₀ ^ p = 1) : IsPGroup p (commProd x₀ y₀ h) := by

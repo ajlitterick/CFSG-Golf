@@ -23,8 +23,6 @@ theorem C3Hyp.pRank_eq_four {G : Type} [Group G] [Finite G] (h : C3Hyp G) : pRan
     Nonempty (G ≃* alternatingGroup (Fin 9)) ∨ Nonempty (G ≃* alternatingGroup (Fin 10)) ∨
       Nonempty (G ≃* alternatingGroup (Fin 11))
 
-theorem S_C3_gen4_of_S_C3 (h : S_C3) : S_C3_gen4 :=
-  fun G _ _ hG => h G hG.kproper hG.lt2o hG.notRE
 
 theorem c23List_of_lb2_branch_gen4 {G : Type} [Group G] [Finite G] (hG : IsKProperSimple G)
     (hgen : Gen4 G) (hK : KGH G) (hSO : IsSpecialOddType G) (hC3 : S_C3_gen4)
@@ -46,25 +44,5 @@ theorem c23List_of_lb2_branch_gen4 {G : Type} [Group G] [Finite G] (hG : IsKProp
     · exact C23List.of_alt10 h
     · exact C23List.of_alt11 h
 
-theorem specialOdd_of_gls6_gen4'
-    (hSUS : S_SUS) (hC3 : S_C3_gen4)
-    (hP27 : S_prop27) (hTT : S_twoThinOfB2) (hS4 : S_stage4) (hS5 : S_C2starFour)
-    (h161M12 : S_sixteenOne .M12) : S_specialOdd := by
-  intro G _ _ hs hnonab hrank hgen hK _ _ hSO
-  have hG := isKProperSimple_of_kgh hs hnonab hK
-  have h3 : 3 ≤ pRank 2 G := by
-    rw [pRank_two_eq_twoRank]
-    exact hrank
-  have h4 : pRank 2 G ≤ 4 := hgen.pRank_two_le
-  exact c23List_of_lb2_branch_gen4 hG hgen hK hSO hC3 fun hLB =>
-    c23List_of_isLB2Type_rank34_gen4 hSUS hP27 hTT hS4 hS5 h161M12 hgen hG h3 h4 hLB
-
-theorem specialOdd_of_gls6_stages_gen4'
-    (hSUS : S_SUS) (hC3 : S_C3_gen4)
-    (hP27 : S_prop27) (hTT : S_twoThinOfB2) (hS4 : S_stage4) (hS2 : S_stage2Four)
-    (hSP : S_stage5_SP) (hLU : S_stage5_LU) (h161M12 : S_sixteenOne .M12)
-    (h161McL : S_sixteenOne .McL) (h161Ly : S_sixteenOne .Ly) : S_specialOdd :=
-  specialOdd_of_gls6_gen4' hSUS hC3 hP27 hTT hS4
-    (S_C2starFour_of_stage5 hS2 hSP hLU h161McL h161Ly) h161M12
 
 end CFSG.GH74.GLS

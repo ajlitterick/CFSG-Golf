@@ -68,26 +68,5 @@ theorem isSolvable_outer_of_simple_M
   obtain ⟨ε⟩ := mulEquiv_Gmat_of_simple e
   exact CFSG.ComponentClassification.BMCase.isSolvable_outer_of_mulEquiv ε allInner_Gmat
 
-@[expose] def MonsterPresentationIsNative : Prop :=
-  Nonempty (NativeSporadic.Carrier .M ≃* Gmat)
-
-theorem monsterPresentationIsNative_of_injective
-    (hinj : Function.Injective CFSG.YGroups.Y443.fM) : MonsterPresentationIsNative :=
-  ⟨CFSG.Sporadic.Bridge.Y443.commutatorMulEquiv.trans
-    (MulEquiv.ofBijective CFSG.YGroups.Y443.fM ⟨hinj, fM_surjective⟩)⟩
-
-theorem allInner_M_of_isNative
-    (h : MonsterPresentationIsNative) :
-    ∀ α : MulAut (NativeSporadic.Carrier .M), ∃ g : NativeSporadic.Carrier .M,
-      α = MulAut.conj g := by
-  obtain ⟨e⟩ := h
-  exact CFSG.ComponentClassification.BMCase.inner_of_equiv e allInner_Gmat
-
-theorem card_outer_M_of_isNative
-    (h : MonsterPresentationIsNative) :
-    Nat.card (Outer (NativeSporadic.Carrier .M)) = 1 := by
-  have hsub := CFSG.ComponentClassification.BMCase.subsingleton_outer_of_inner
-    (allInner_M_of_isNative h)
-  exact Nat.card_eq_one_iff_unique.2 ⟨hsub, inferInstance⟩
 
 end CFSG.RankThree.PartOne.SPOR

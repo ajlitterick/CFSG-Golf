@@ -95,16 +95,6 @@ theorem exists_mem_lambdaStar_forall_commuting_of_height_le {ι : Type*} [Finite
       · exact hE''b
       · exact hE''S _ ⟨a, rfl, Or.inr ha⟩
 
-theorem exists_mem_lambdaStar_forall_commuting_of_height {ι : Type*} [Finite ι]
-    (N : ι → Subgroup G) (hN : ∀ a, N a ∈ leviSet R A A₀) (ht : ι → ℕ)
-    (hcl : ∀ a b, Commuting (N a) (N b) ∨ ∃ c, ⁅N a, N b⁆ = N c ∧ ht a < ht c ∧ ht b < ht c) :
-    ∃ E ∈ lambdaStar R A A₀, ∀ a, Commuting E (N a) := by
-  refine exists_mem_lambdaStar_forall_commuting_of_height_le h hA hAne hA₀ N hN ht
-    fun a b => (hcl a b).imp_right fun ⟨c, hc, hac, hbc⟩ => ⟨{c}, ?_, ?_⟩
-  · rintro _ rfl
-    exact ⟨hac, hbc⟩
-  · rw [hc]
-    exact le_iSup₂_of_le (f := fun c' (_ : c' ∈ ({c} : Set ι)) => N c') c rfl le_rfl
 
 end Height
 
@@ -113,19 +103,6 @@ namespace Sec13
 variable {A A₀ : Subgroup G} (hS : Sec13 R A A₀)
 include hS
 
-theorem exists_mem_lambdaStar_commuting_step {E X : Subgroup G} (hE : E ∈ lambdaStar R A A₀)
-    (hX : X ∈ leviSet R A A₀) (S : Set (Subgroup G))
-    (hES : ∀ Y ∈ S, Commuting E Y) (hXS : ∀ Y ∈ S, Commuting X Y ∨ Commuting E ⁅X, Y⁆) :
-    ∃ E' ∈ lambdaStar R A A₀, Commuting E' X ∧ ∀ Y ∈ S, Commuting E' Y :=
-  _root_.CFSG.Timmesfeld.ARS.exists_mem_lambdaStar_commuting_step hS.hyp hS.mem hS.sec8.2 hS.opp
-    hE hX S hES hXS
-
-theorem exists_mem_lambdaStar_forall_commuting_of_height {ι : Type*} [Finite ι]
-    (N : ι → Subgroup G) (hN : ∀ a, N a ∈ leviSet R A A₀) (ht : ι → ℕ)
-    (hcl : ∀ a b, Commuting (N a) (N b) ∨ ∃ c, ⁅N a, N b⁆ = N c ∧ ht a < ht c ∧ ht b < ht c) :
-    ∃ E ∈ lambdaStar R A A₀, ∀ a, Commuting E (N a) :=
-  _root_.CFSG.Timmesfeld.ARS.exists_mem_lambdaStar_forall_commuting_of_height hS.hyp hS.mem
-    hS.sec8.2 hS.opp N hN ht hcl
 
 theorem exists_mem_lambdaStar_forall_commuting_of_height_le {ι : Type*} [Finite ι]
     (N : ι → Subgroup G) (hN : ∀ a, N a ∈ leviSet R A A₀) (ht : ι → ℕ)

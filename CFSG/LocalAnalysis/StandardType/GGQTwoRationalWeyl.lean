@@ -78,13 +78,6 @@ theorem fullThreeTorus_le_torus (S : LangSetup τ L p) : fullThreeTorus S ≤ S.
 theorem fullThreeTorus_pow_three (S : LangSetup τ L p) {t : ModGL τ L}
     (ht : t ∈ fullThreeTorus S) : t ^ 3 = 1 := ht.2
 
-theorem fullThreeTorus_one (S : LangSetup τ L p) : (1 : ModGL τ L) ∈ fullThreeTorus S :=
-  ⟨S.D.torus.one_mem, by simp⟩
-
-theorem fullThreeTorus_comm (S : LangSetup τ L p) {a b : ModGL τ L}
-    (ha : a ∈ fullThreeTorus S) (hb : b ∈ fullThreeTorus S) : a * b = b * a :=
-  torusGroup_mul_comm ((inf_le_left : S.D.torus ≤ torusGroup τ L) ha.1)
-    ((inf_le_left : S.D.torus ≤ torusGroup τ L) hb.1)
 
 theorem torus_pow_three_eq_one_of_rho_neg (hq : S.D.q = 2)
     (hρ : ∀ γ, IsRoot τ γ → S.ρ γ = -γ) {b : Fin τ.rank → Lˣ}
@@ -822,121 +815,6 @@ theorem map_eqLocus_le_rationalComponent_of_frame
   map_eqLocus_le_commutator_of_frame S (Ψ := rationalRoots S.ρ (rootCharHom a) i) hψ
     (fun γ hγ => ⟨0, γ, hsub hγ, by simp⟩) hkercenter hodd F' hcomm hperf hg hgfix hg2
 
-theorem exists_A_frame_and_weyl_mem
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : S.D.q = 2) (hAlg : S.IsAlgebraic)
-    (hρ : ∀ γ, IsRoot τ γ → S.ρ γ = -γ) {a : Fin τ.rank → Lˣ}
-    (hd3 : rootDiagUnit τ a ^ 3 = 1) (i : KernelComponent (rootCharHom a))
-    (h2 : 2 ≤ compRank (componentRoots (rootCharHom a) i))
-    (h3 : 3 ≤ compRank (componentRoots (rootCharHom a) i))
-    (hn : (componentRoots (rootCharHom a) i).ncard =
-      compRank (componentRoots (rootCharHom a) i) *
-        (compRank (componentRoots (rootCharHom a) i) + 1)) :
-    ∃ (ν : ℕ) (ψ : SL(ν, L) →* ModGL τ L) (σ : Fin ν → Fin ν → Fin τ.rank → ℤ),
-      4 ≤ ν ∧ IsSLFrame ψ σ ∧
-        (∀ a b, a ≠ b → iform (σ a b) (σ a b) = 2 * 1) ∧
-        componentRoots (rootCharHom a) i = frameRoots σ ∧
-        ∀ γ ∈ frameRoots σ,
-          rootSL2 τ L γ WSL ∈ rationalComponent S.ρ S.Γ (rootCharHom a) i := by
-  classical
-  haveI : CharP L 2 := charP_two_of_langSetup_q_eq_two_pow S (f := 1) (by rw [hq]; norm_num)
-  have hΨ := isRootComponent_componentRoots (χ := rootCharHom a) i
-  have hpL : (3 : L) ≠ 0 := by
-    have h2L : (2 : L) = 0 := CharP.cast_eq_zero L 2
-    have h3L : (3 : L) = 1 := by
-      have h3 : (3 : L) = (2 : L) + 1 := by norm_num
-      rw [h3, h2L, zero_add]
-    rw [h3L]
-    exact one_ne_zero
-  obtain ⟨ν, ψ, σ, hν, hψ, hnorm, hΨeq⟩ : ∃ (ν : ℕ) (ψ : SL(ν, L) →* ModGL τ L)
-      (σ : Fin ν → Fin ν → Fin τ.rank → ℤ), 3 ≤ ν ∧ IsSLFrame ψ σ ∧
-      (∀ a b, a ≠ b → iform (σ a b) (σ a b) = 2 * 1) ∧
-      componentRoots (rootCharHom a) i = frameRoots σ := by
-    rcases hτ with rfl | rfl | rfl
-    · exact exists_frame_of_typeA_E6_T_of_prime S Nat.prime_three hpL hd3 i h2 hn
-    · exact exists_frame_of_typeA_E7_T_of_prime S Nat.prime_three hpL hd3 i h2 hn
-    · exact exists_frame_of_typeA_E8_T_of_prime S Nat.prime_three hpL hd3 i h2 hn
-  have hν4 : 4 ≤ ν := by
-    rcases Nat.eq_or_lt_of_le hν with h3' | h4
-    · subst h3'
-      have himg : frameRoots σ = (fun p : Fin 3 × Fin 3 => σ p.1 p.2) ''
-          ((Finset.univ : Finset (Fin 3)).offDiag : Set (Fin 3 × Fin 3)) := by
-        ext r
-        constructor
-        · rintro ⟨i, j, hij, rfl⟩
-          exact ⟨(i, j), by simp [hij], rfl⟩
-        · rintro ⟨⟨i, j⟩, hp, rfl⟩
-          simp only [Finset.coe_offDiag, Set.mem_offDiag, Finset.coe_univ, Set.mem_univ,
-            true_and] at hp
-          exact ⟨i, j, hp, rfl⟩
-      have h6 : (frameRoots σ).ncard ≤ 6 := by
-        rw [himg]
-        calc ((fun p : Fin 3 × Fin 3 => σ p.1 p.2) ''
-              ((Finset.univ : Finset (Fin 3)).offDiag : Set (Fin 3 × Fin 3))).ncard
-            ≤ ((Finset.univ : Finset (Fin 3)).offDiag : Set (Fin 3 × Fin 3)).ncard :=
-              Set.ncard_image_le
-          _ = 6 := by
-              rw [Set.ncard_coe_finset, Finset.offDiag_card]
-              decide
-      rw [← hΨeq, hn] at h6
-      have h12 : 12 ≤ compRank (componentRoots (rootCharHom a) i) *
-          (compRank (componentRoots (rootCharHom a) i) + 1) := by nlinarith
-      omega
-    · omega
-  have hker : ψ.ker ≠ ⊤ := frame_ker_ne_top_of_isSLFrame (by omega) hψ
-  have hkercenter : ψ.ker ≤ Subgroup.center SL(ν, L) := by
-    intro X hX
-    refine mem_center_SL_of_commute hν ψ hker (fun Y => ?_)
-    rw [MonoidHom.mem_ker.mp hX, one_mul, mul_one]
-  have hodd : Odd (Nat.card ψ.ker) := odd_card_ker_of_frame_of_isSLFrame hν hker
-  have hfin : (componentRoots (rootCharHom a) i).Finite :=
-    (finite_setOf_isRoot τ).subset fun γ hγ => hγ.1.1
-  have hstable : ∀ γ ∈ componentRoots (rootCharHom a) i,
-      S.ρ γ ∈ componentRoots (rootCharHom a) i := by
-    intro γ hγ
-    rw [hρ γ hγ.1.1]
-    exact hΨ.neg_mem γ hγ
-  have hs1 : componentOrbitLength S.ρ (componentRoots (rootCharHom a) i) = 1 :=
-    componentOrbitLength_eq_one hfin hstable
-  have hπ : ∀ x y, x ≠ y → (S.ρ : (Fin τ.rank → ℤ) → _)^[componentOrbitLength S.ρ
-      (componentRoots (rootCharHom a) i)] (σ x y) = σ y x := by
-    intro x y hxy
-    rw [hs1, Function.iterate_one, hρ _ (hψ.isRoot x y hxy), hψ.neg x y]
-  obtain ⟨K, hKfield, hKfin, hKalg, hKcard⟩ := S.exists_fixedField
-  letI : Field K := hKfield
-  letI : Finite K := hKfin
-  letI : Algebra K L := hKalg
-  have hKclos : IsAlgClosure K L := ⟨inferInstance, ⟨fun c => by
-    obtain ⟨n, hnpos, hc⟩ := hAlg c
-    refine ⟨Polynomial.X ^ (S.D.q ^ n) - Polynomial.X, ?_, ?_⟩
-    · have hq1 : 1 < S.D.q ^ n := Nat.one_lt_pow hnpos.ne' S.hqpow.1.one_lt
-      exact FiniteField.X_pow_card_sub_X_ne_zero K hq1
-    · simp only [map_sub, map_pow, Polynomial.aeval_X]
-      rw [hc, sub_self]⟩⟩
-  letI : IsAlgClosure K L := hKclos
-  obtain ⟨F', hcomm, hperf⟩ := exists_unitary_source_perfect_of_frame S i hν hψ 1 hπ hs1
-    (k' := K) (r := 2) (e := 1) Nat.prime_two (by norm_num) (by rw [hq]; norm_num) (by
-      intro hconj
-      have hfst : ν = 3 := by simpa using congrArg Prod.fst hconj
-      omega)
-  refine ⟨ν, ψ, σ, hν4, hψ, hnorm, hΨeq, ?_⟩
-  intro γ hγ
-  have hγroot : IsRoot τ γ := hψ.frameRoots_isRoot γ hγ
-  have hgframe : rootSL2 τ L γ WSL ∈ rootSpan τ L (frameRoots σ) := by
-    refine rootSpan_mono ?_ (rootSL2_mem_rootSpan_pair (L := L) hγroot WSL)
-    intro δ hδ
-    rcases hδ with rfl | rfl
-    · exact hγ
-    · obtain ⟨j, k, hjk, rfl⟩ := hγ
-      exact ⟨k, j, hjk.symm, (hψ.neg j k).symm⟩
-  have hmodel : rootSL2 τ L γ WSL ∈ S.D.model :=
-    rootSL2_WSL_mem_model_of_rho S hγroot (Or.inr (hρ γ hγroot))
-  have hgfix : S.D.step (rootSL2 τ L γ WSL) = rootSL2 τ L γ WSL :=
-    (S.D.mem_model.1 hmodel).2
-  have hg2 : rootSL2 τ L γ WSL ^ 2 = 1 := by
-    rw [pow_two]
-    exact rootSL2_WSL_mul_self γ
-  exact map_eqLocus_le_rationalComponent_of_frame S i hψ
-    (by intro γ hγ; rw [hΨeq]; exact hγ) hkercenter hodd F' hcomm hperf hgframe hgfix hg2
 
 theorem exists_orthogonal_weyl_pair_of_subframe
     (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : S.D.q = 2) (hAlg : S.IsAlgebraic)
@@ -1048,43 +926,6 @@ theorem four_dvd_aut_of_subframe
   obtain ⟨α, β, hα, hβ, horth, hαmem, hβmem⟩ :=
     exists_orthogonal_weyl_pair_of_subframe S hτ hq hAlg hρ i hν4 hψ hnorm hsub
   exact four_dvd_aut_fullThreeTorus_of_weyl_mem S hτ hq hρ i hα.1.1 hβ.1.1 horth hαmem hβmem
-
-theorem four_dvd_aut_of_A_component
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : S.D.q = 2) (hAlg : S.IsAlgebraic)
-    (hρ : ∀ γ, IsRoot τ γ → S.ρ γ = -γ) {a : Fin τ.rank → Lˣ}
-    (hd3 : rootDiagUnit τ a ^ 3 = 1) (i : KernelComponent (rootCharHom a))
-    (h2 : 2 ≤ compRank (componentRoots (rootCharHom a) i))
-    (h3 : 3 ≤ compRank (componentRoots (rootCharHom a) i))
-    (hn : (componentRoots (rootCharHom a) i).ncard =
-      compRank (componentRoots (rootCharHom a) i) *
-        (compRank (componentRoots (rootCharHom a) i) + 1)) :
-    4 ∣ Nat.card (ggAutomizer (rationalComponent S.ρ S.Γ (rootCharHom a) i)
-      (fullThreeTorus S)) := by
-  obtain ⟨ν, ψ, σ, hν4, hψ, hnorm, hΨeq, hmem⟩ :=
-    exists_A_frame_and_weyl_mem S hτ hq hAlg hρ hd3 i h2 h3 hn
-  let i0 : Fin ν := ⟨0, by omega⟩
-  let i1 : Fin ν := ⟨1, by omega⟩
-  let i2 : Fin ν := ⟨2, by omega⟩
-  let i3 : Fin ν := ⟨3, by omega⟩
-  have h01 : i0 ≠ i1 := by
-    intro h; have := congrArg Fin.val h; simp [i0, i1] at this
-  have h23 : i2 ≠ i3 := by
-    intro h; have := congrArg Fin.val h; simp [i2, i3] at this
-  have hα : IsRoot τ (σ i0 i1) := hψ.isRoot i0 i1 h01
-  have hβ : IsRoot τ (σ i2 i3) := hψ.isRoot i2 i3 h23
-  have hαmem : rootSL2 τ L (σ i0 i1) WSL ∈
-      rationalComponent S.ρ S.Γ (rootCharHom a) i :=
-    hmem (σ i0 i1) ⟨i0, i1, h01, rfl⟩
-  have hβmem : rootSL2 τ L (σ i2 i3) WSL ∈
-      rationalComponent S.ρ S.Γ (rootCharHom a) i :=
-    hmem (σ i2 i3) ⟨i2, i3, h23, rfl⟩
-  have hff : framePairForm i0 i1 i2 i3 = 0 := by
-    simp [framePairForm, i0, i1, i2, i3]
-  have horth : iform (σ i0 i1) (σ i2 i3) = 0 := by
-    have h := hψ.iform_eq hnorm i0 i1 i2 i3
-    rw [hff, mul_zero] at h
-    exact h
-  exact four_dvd_aut_fullThreeTorus_of_weyl_mem S hτ hq hρ (a := a) i hα hβ horth hαmem hβmem
 
 
 theorem iform_simpleRoots_eq_zero_or_eq_neg_one_of_simplyLaced
@@ -1506,21 +1347,6 @@ section DE
 
 variable {τ : Tag} {L : Type} [Field L] [IsAlgClosed L] {p : ℕ}
 
-theorem four_dvd_aut_of_DE_component
-    (S : CFSG.HardMathSupport.Timmesfeld.LangTorus.LangSetup τ L p)
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : S.D.q = 2) (hAlg : S.IsAlgebraic)
-    (hρ : ∀ γ, IsRoot τ γ → S.ρ γ = -γ) {a : Fin τ.rank → Lˣ}
-    (hd3 : rootDiagUnit τ a ^ 3 = 1) (i : KernelComponent (rootCharHom a))
-    (h3 : 3 ≤ compRank (componentRoots (rootCharHom a) i)) :
-    4 ∣ Nat.card (ggAutomizer (rationalComponent S.ρ S.Γ (rootCharHom a) i)
-      (fullThreeTorus S)) := by
-  rcases hτ with rfl | rfl | rfl
-  · obtain ⟨ψ, σ, hψ, hnorm, hsub⟩ := exists_A3_subframe_E6 S hq hd3 i (by omega)
-    exact four_dvd_aut_of_subframe S (Or.inl rfl) hq hAlg hρ i (by norm_num) hψ hnorm hsub
-  · obtain ⟨ψ, σ, hψ, hnorm, hsub⟩ := exists_A3_subframe_E7 S hq hd3 i (by omega)
-    exact four_dvd_aut_of_subframe S (Or.inr (Or.inl rfl)) hq hAlg hρ i (by norm_num) hψ hnorm hsub
-  · obtain ⟨ψ, σ, hψ, hnorm, hsub⟩ := exists_A3_subframe_E8 S hq hd3 i (by omega)
-    exact four_dvd_aut_of_subframe S (Or.inr (Or.inr rfl)) hq hAlg hρ i (by norm_num) hψ hnorm hsub
 
 end DE
 

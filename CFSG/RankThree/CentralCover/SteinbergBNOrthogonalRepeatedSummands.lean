@@ -129,8 +129,6 @@ variable (m) in
   MonoidHom.pi fun i => (zmodPowHom h hh).comp
     (AddMonoidHom.toMultiplicative (Pi.evalAddMonoidHom (fun _ => ZMod p) i))
 
-theorem powPi_apply (h : W ≃ₗ[K] W) (hh : h ^ p = 1) (a : Multiplicative (Fin m → ZMod p))
-    (i : Fin m) : powPi m h hh a i = h ^ (Multiplicative.toAdd a i).val := rfl
 
 end Torus
 

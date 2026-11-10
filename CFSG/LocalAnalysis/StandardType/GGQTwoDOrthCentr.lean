@@ -339,35 +339,6 @@ theorem qtwoOrth_centr_window (E : QuadExt F K (unitaryInvolution K 2 1)) (hF : 
   intro v
   exact hwin_apply v
 
-theorem qtwoOrth_centr_coordBlockSU (E : QuadExt F K (unitaryInvolution K 2 1))
-    (hF : Nat.card F = 2) {n : ℕ} (T : Finset (Fin n))
-    (ζ : normOne (unitaryInvolution K 2 1)) (hζ : ζ ≠ 1)
-    (g : (Fin n → K) ≃ₗ[F] (Fin n → K))
-    (hg : g ∈ TauCeti.QuadraticMap.orthogonalGroup (Qn E n))
-    (h2 : ∃ e : ℕ, g ^ (2 ^ e) = 1)
-    (hglob : g * diagHom F (unitaryInvolution K 2 1) n (fun _ => ζ) =
-      diagHom F (unitaryInvolution K 2 1) n (fun _ => ζ) * g)
-    (hout : ∀ l ∉ T,
-      g * diagHom F (unitaryInvolution K 2 1) n (Pi.mulSingle l ζ) =
-        diagHom F (unitaryInvolution K 2 1) n (Pi.mulSingle l ζ) * g) :
-    g ∈ (coordBlockSU K 2 1 T).map (suEndN (F := F) (unitaryInvolution K 2 1) n) := by
-  classical
-  obtain ⟨M, hM_apply, hisoM, hdetM, hrow, hcol, hdiag⟩ :=
-    pmoc_matrix E hF (fun l => l ∉ T) ζ hζ g hg h2 hglob hout
-  refine ⟨mkSU (unitaryInvolution K 2 1) M hdetM hisoM, ?_, ?_⟩
-  · refine (mem_coordBlockSU_iff (K := K) (p := 2) (f := 1) (J := T)).mpr fun i j hij => ?_
-    change M i j = if i = j then 1 else 0
-    by_cases hij' : i = j
-    · subst hij'
-      rw [if_pos rfl]
-      exact hdiag i (hij.elim id id)
-    · rw [if_neg hij']
-      rcases hij with hi | hj
-      · exact hrow i hi j (Ne.symm hij')
-      · exact hcol j hj i hij'
-  · refine LinearEquiv.ext fun v => ?_
-    rw [suEndN_apply, mkSU_smul]
-    exact hM_apply v
 
 end Centr
 

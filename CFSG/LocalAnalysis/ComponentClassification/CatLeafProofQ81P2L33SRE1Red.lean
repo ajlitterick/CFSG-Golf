@@ -21,15 +21,6 @@ variable {τ : Tag} {p : ℕ} [Fact p.Prime] {k : Type} [Field k] [IsAlgClosed k
     (J' : Set.range D'.classOrbit) (w : ModGL τ k) : Subgroup (ModGL τ k) :=
   ((D'.withOrbit J').orbitGroupC.map (adjointGroup τ k).subtype).map (MulAut.conj w).toMonoidHom
 
-theorem conjOrbitGroup_eq_closure (D' : OrthogonalSemilinearFixedRootDatum τ p k)
-    (J' : Set.range D'.classOrbit) (w : ModGL τ k) :
-    conjOrbitGroup D' J' w = closure ((fun g => w * g * w⁻¹) ''
-      {g | ∃ O ∈ (D'.withOrbit J').orbits, ∃ c : (D'.withOrbit J').orbitField O,
-        g = (D'.withOrbit J').orbitX O c ∨ g = (D'.withOrbit J').orbitY O c}) := by
-  rw [conjOrbitGroup, orbitGroupC,
-    map_subgroupOf_eq_of_le (D'.withOrbit J').orbitGroup_le_adjointGroup, orbitGroup,
-    MonoidHom.map_closure]
-  rfl
 
 section Reduction
 

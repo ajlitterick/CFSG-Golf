@@ -39,11 +39,6 @@ theorem natAut_conjHom (Γ : Subgroup (GL ι K)) (g : ↥(natNorm Γ)) (γ : ↥
     (g : MulAut (StdMod ι K))⁻¹ = _
   rw [coe_natEquiv]
 
-theorem conjHom_natAut (Γ : Subgroup (GL ι K)) (s : ↥Γ) (hs : natAut Γ s ∈ natNorm Γ) :
-    conjHom Γ ⟨natAut Γ s, hs⟩ = MulAut.conj s := by
-  refine MulEquiv.ext fun γ => ?_
-  apply natAut_injective Γ
-  rw [natAut_conjHom, MulAut.conj_apply, map_mul, map_mul, map_inv]
 
 theorem exists_smul_of_conjHom_eq {Γ : Subgroup (GL ι K)} (hΓ : HasScalarCommutant Γ)
     (g : ↥(natNorm Γ)) (s : ↥Γ) (h : conjHom Γ g = MulAut.conj s) :

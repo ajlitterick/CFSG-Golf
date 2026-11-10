@@ -36,8 +36,5 @@ theorem modelChecks_of_certificate : ModelChecks :=
   ⟨tabCheck_eq_true, coverCheck_eq_true, structCheck_eq_true, cp1Check_eq_true,
     invCheck_eq_true, markCheck_eq_true, cp3Fact_of_certificate⟩
 
-variable {G : Type} [Group G] [Finite G] {t : G}
-  {ρ : ↥(centralizer ({t} : Set G)) →* Perm (Fin 11)}
-  {x₁ x₂ x₃ : ↥(centralizer ({t} : Set G))}
 
 end CFSG.Sporadic.Recognition.LyonsSims.Ly0

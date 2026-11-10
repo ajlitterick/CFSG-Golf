@@ -219,7 +219,6 @@ private theorem o8mMN_castLE_eq_iff (i : Fin 3) (r : Fin (i + 1)) :
     subst h
     rfl
 
-private theorem o8mMN_e_ilast (i : Fin 3) : o8mMN_e i (o8mMN_ilast i) = Sum.inl i := rfl
 
 omit [Finite K] [CharP K 2] in
 private theorem o8mMN_row_longRoot_inl {i : Fin 3} (hi' : i.val + 1 < 3) (r : Fin 3) :

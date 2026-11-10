@@ -106,16 +106,6 @@ theorem classD4_pinnedX_mul_self
   IsRoot τ a ∧ IsRoot τ b ∧ IsRoot τ c ∧ IsRoot τ d ∧ iform a c = -1 ∧ iform b c = -1 ∧
     iform d c = -1 ∧ iform a b = 0 ∧ iform a d = 0 ∧ iform b d = 0
 
-@[expose] def isD4PatternB (τ : Tag) (a b c d : Fin τ.rank → ℤ) : Bool :=
-  isRootB τ a && isRootB τ b && isRootB τ c && isRootB τ d && decide (iform a c = -1) &&
-    decide (iform b c = -1) && decide (iform d c = -1) && decide (iform a b = 0) &&
-    decide (iform a d = 0) && decide (iform b d = 0)
-
-theorem isD4Pattern_of_isD4PatternB
-    {a b c d : Fin τ.rank → ℤ} (h : isD4PatternB τ a b c d = true) : IsD4Pattern τ a b c d := by
-  simp only [isD4PatternB, Bool.and_eq_true, decide_eq_true_eq, isRootB_iff] at h
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨ha, hb⟩, hc⟩, hd⟩, h1⟩, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩ := h
-  exact ⟨ha, hb, hc, hd, h1, h2, h3, h4, h5, h6⟩
 
 theorem IsD4Pattern.smul
     {a b c d : Fin τ.rank → ℤ} (h : IsD4Pattern τ a b c d) (w : WeylGroup τ) :
@@ -125,29 +115,6 @@ theorem IsD4Pattern.smul
     by rw [iform_smul]; exact h1, by rw [iform_smul]; exact h2, by rw [iform_smul]; exact h3,
     by rw [iform_smul]; exact h4, by rw [iform_smul]; exact h5, by rw [iform_smul]; exact h6⟩
 
-theorem isD4Pattern_D4 :
-    IsD4Pattern .D4 (![1, 0, 0, 0] : Fin 4 → ℤ) ![0, 1, 0, 0] ![0, 0, 1, 0] ![0, 0, 0, 1] :=
-  isD4Pattern_of_isD4PatternB (by decide +kernel)
-
-theorem isD4Pattern_E6 :
-    IsD4Pattern .E6 (![0, 1, 0, 0, 0, 0] : Fin 6 → ℤ) ![0, 0, 1, 0, 0, 0] ![0, 0, 0, 1, 0, 0]
-      ![0, 0, 0, 0, 1, 0] :=
-  isD4Pattern_of_isD4PatternB (by decide +kernel)
-
-theorem isD4Pattern_E7 :
-    IsD4Pattern .E7 (![0, 1, 0, 0, 0, 0, 0] : Fin 7 → ℤ) ![0, 0, 1, 0, 0, 0, 0]
-      ![0, 0, 0, 1, 0, 0, 0] ![0, 0, 0, 0, 1, 0, 0] :=
-  isD4Pattern_of_isD4PatternB (by decide +kernel)
-
-theorem isD4Pattern_E8 :
-    IsD4Pattern .E8 (![0, 1, 0, 0, 0, 0, 0, 0] : Fin 8 → ℤ) ![0, 0, 1, 0, 0, 0, 0, 0]
-      ![0, 0, 0, 1, 0, 0, 0, 0] ![0, 0, 0, 0, 1, 0, 0, 0] :=
-  isD4Pattern_of_isD4PatternB (by decide +kernel)
-
-theorem isD4Pattern_E6_cascade :
-    IsD4Pattern .E6 (![1, 0, 1, 1, 1, 1] : Fin 6 → ℤ) ![0, 0, 1, 1, 1, 0] ![0, 1, 0, 0, 0, 0]
-      ![0, 0, 0, 1, 0, 0] :=
-  isD4Pattern_of_isD4PatternB (by decide +kernel)
 
 theorem IsD4Pattern.isRoot_add
     (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {a b c d : Fin τ.rank → ℤ}
@@ -176,18 +143,6 @@ theorem IsD4Pattern.isRoot_add
     rw [iform_add_left, iform_add_left, iform_add_left, hac, hbc, hcc, hdc]; norm_num)).1
   rwa [show a + b + c + d + c = a + b + 2 • c + d by abel] at this
 
-theorem IsD4Pattern.iform_highest
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {a b c d : Fin τ.rank → ℤ}
-    (hp : IsD4Pattern τ a b c d) :
-    iform a (a + b + 2 • c + d) = 0 ∧ iform b (a + b + 2 • c + d) = 0 ∧
-      iform d (a + b + 2 • c + d) = 0 := by
-  obtain ⟨ra, rb, -, rd, hac, hbc, hdc, hab, had, hbd⟩ := hp
-  have hba : iform b a = 0 := by rw [iform_comm]; exact hab
-  have hda : iform d a = 0 := by rw [iform_comm]; exact had
-  have hdb : iform d b = 0 := by rw [iform_comm]; exact hbd
-  simp only [iform_add_right, two_nsmul, classD4_iform_self hτ ra, classD4_iform_self hτ rb,
-    classD4_iform_self hτ rd, hab, hac, had, hba, hbc, hbd, hda, hdb, hdc]
-  norm_num
 
 section Sound
 
@@ -315,103 +270,6 @@ theorem classD4_conj_frame (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E
       (g * t * g⁻¹) * (g * z * g⁻¹) from fun g t z => by group, classD4_conj_eq hτ h2 hp,
     hcomm.mul_inv_cancel]
 
-variable {K : Type} [Field K]
-
-theorem exists_conj_frame_prod_of_isD4Pattern [Finite K] [CharP K 2]
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {a b c d θ : Fin τ.rank → ℤ}
-    (hp : IsD4Pattern τ a b c d) (hθ : a + b + 2 • c + d = θ) {P : List (Fin τ.rank → ℤ)}
-    (hPr : ∀ ρ ∈ P, IsRoot τ ρ)
-    (horth : (a :: b :: d :: θ :: P).Pairwise fun σ σ' => iform σ σ' = 0)
-    (e : (Fin τ.rank → ℤ) → K) (he : ∀ σ ∈ a :: b :: d :: θ :: P, e σ ≠ 0) :
-    ∃ g ∈ adjointGroup τ K,
-      g * ((a :: b :: d :: θ :: P).map fun σ => pinnedX τ K σ (e σ)).prod * g⁻¹ =
-        ((a :: b :: d :: P).map fun σ => pinnedX τ K σ 1).prod := by
-  subst hθ
-  have h2 : (2 : K) = 0 := by rw [← Nat.cast_two, CharP.cast_eq_zero]
-  obtain ⟨ra, rb, -, rd, -⟩ := id hp
-  have rθ := (IsD4Pattern.isRoot_add hτ hp).2.2.2.2.2.2.2
-  have hF : ∀ σ ∈ a :: b :: d :: (a + b + 2 • c + d) :: P, IsRoot τ σ := by
-    simp only [List.mem_cons, forall_eq_or_imp]
-    exact ⟨ra, rb, rd, rθ, hPr⟩
-  obtain ⟨h, hhC, -, -, hh⟩ := exists_torus_conj_frame_prod (classD4_noG2 hτ) hF horth e he
-  have hP : ∀ ρ ∈ P, IsRoot τ ρ ∧ iform ρ a = 0 ∧ iform ρ b = 0 ∧ iform ρ d = 0 ∧
-      iform ρ (a + b + 2 • c + d) = 0 := by
-    simp only [List.pairwise_cons, List.mem_cons, forall_eq_or_imp] at horth
-    obtain ⟨⟨-, -, -, hPa⟩, ⟨-, -, hPb⟩, ⟨-, hPd⟩, hPθ, -⟩ := horth
-    intro ρ hρ
-    refine ⟨hPr ρ hρ, ?_, ?_, ?_, ?_⟩ <;> rw [iform_comm]
-    exacts [hPa ρ hρ, hPb ρ hρ, hPd ρ hρ, hPθ ρ hρ]
-  have key := classD4_conj_frame hτ h2 hp rfl hP fun _ => (1 : K)
-  have hg : pinnedX τ K (c + d) 1 * pinnedX τ K (b + c) 1 * pinnedX τ K (a + c) 1 *
-      pinnedX τ K (b + c + d) 1 ∈ adjointGroup τ K :=
-    mul_mem (mul_mem (mul_mem (pinnedX_mem_adjointGroup _ _) (pinnedX_mem_adjointGroup _ _))
-      (pinnedX_mem_adjointGroup _ _)) (pinnedX_mem_adjointGroup _ _)
-  refine ⟨_ * h, mul_mem hg hhC, ?_⟩
-  rw [show ∀ g h' L : ModGL τ K, g * h' * L * (g * h')⁻¹ = g * (h' * L * h'⁻¹) * g⁻¹ from
-    fun g h' L => by group, hh]
-  simp only [List.map_cons, List.prod_cons] at key ⊢
-  simpa only [mul_assoc] using key
-
-theorem exists_conj_frame_prod_of_perm [Finite K] [CharP K 2]
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {a b c d θ : Fin τ.rank → ℤ}
-    (hp : IsD4Pattern τ a b c d) (hθ : a + b + 2 • c + d = θ) {F P : List (Fin τ.rank → ℤ)}
-    (hFP : F.Perm (a :: b :: d :: θ :: P)) (hF : ∀ σ ∈ F, IsRoot τ σ)
-    (horth : F.Pairwise fun σ σ' => iform σ σ' = 0) (e : (Fin τ.rank → ℤ) → K)
-    (he : ∀ σ ∈ F, e σ ≠ 0) :
-    ∃ g ∈ adjointGroup τ K, g * (F.map fun σ => pinnedX τ K σ (e σ)).prod * g⁻¹ =
-      ((a :: b :: d :: P).map fun σ => pinnedX τ K σ 1).prod := by
-  have horth' := hFP.pairwise horth fun h => by rw [iform_comm]; exact h
-  rw [classD4_frame_prod_perm hτ hF horth hFP e]
-  exact exists_conj_frame_prod_of_isD4Pattern hτ hp hθ
-    (fun ρ hρ => hF ρ (hFP.mem_iff.2 (List.mem_cons_of_mem _ (List.mem_cons_of_mem _
-      (List.mem_cons_of_mem _ (List.mem_cons_of_mem _ hρ)))))) horth' e
-    fun σ hσ => he σ (hFP.mem_iff.2 hσ)
-
-theorem exists_conj_cascade_prod_E6 [Finite K] [CharP K 2] (e : (Fin Tag.E6.rank → ℤ) → K)
-    (he : ∀ σ ∈ ([![1, 0, 1, 1, 1, 1], ![0, 0, 1, 1, 1, 0], ![0, 0, 0, 1, 0, 0],
-      ![1, 2, 2, 3, 2, 1]] : List (Fin 6 → ℤ)), e σ ≠ 0) :
-    ∃ g ∈ adjointGroup .E6 K,
-      g * (([![1, 0, 1, 1, 1, 1], ![0, 0, 1, 1, 1, 0], ![0, 0, 0, 1, 0, 0],
-          ![1, 2, 2, 3, 2, 1]] : List (Fin 6 → ℤ)).map fun σ => pinnedX .E6 K σ (e σ)).prod *
-        g⁻¹ =
-      (([![1, 0, 1, 1, 1, 1], ![0, 0, 1, 1, 1, 0], ![0, 0, 0, 1, 0, 0]] : List (Fin 6 → ℤ)).map
-        fun σ => pinnedX .E6 K σ 1).prod :=
-  exists_conj_frame_prod_of_isD4Pattern (Or.inr (Or.inl rfl)) isD4Pattern_E6_cascade
-    (by funext i; fin_cases i <;> rfl) (fun _ h => by cases h) (by decide +kernel) e he
-
-theorem exists_conj_cascade_prod_E7 [Finite K] [CharP K 2] (e : (Fin Tag.E7.rank → ℤ) → K)
-    (he : ∀ σ ∈ ([![0, 1, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0],
-      ![0, 1, 1, 2, 1, 0, 0], ![2, 2, 3, 4, 3, 2, 1], ![0, 1, 1, 2, 2, 2, 1],
-      ![0, 0, 0, 0, 0, 0, 1]] : List (Fin 7 → ℤ)), e σ ≠ 0) :
-    ∃ g ∈ adjointGroup .E7 K,
-      g * (([![0, 1, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0],
-          ![0, 1, 1, 2, 1, 0, 0], ![2, 2, 3, 4, 3, 2, 1], ![0, 1, 1, 2, 2, 2, 1],
-          ![0, 0, 0, 0, 0, 0, 1]] : List (Fin 7 → ℤ)).map fun σ => pinnedX .E7 K σ (e σ)).prod *
-        g⁻¹ =
-      (([![0, 1, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0],
-          ![2, 2, 3, 4, 3, 2, 1], ![0, 1, 1, 2, 2, 2, 1], ![0, 0, 0, 0, 0, 0, 1]] :
-            List (Fin 7 → ℤ)).map fun σ => pinnedX .E7 K σ 1).prod :=
-  exists_conj_frame_prod_of_isD4Pattern (Or.inr (Or.inr (Or.inl rfl))) isD4Pattern_E7
-    (by funext i; fin_cases i <;> rfl)
-    (fun ρ hρ => isRootB_iff.1 (List.all_eq_true.1 (by decide +kernel) ρ hρ))
-    (by decide +kernel) e he
-
-theorem exists_conj_cascade_prod_E8 [Finite K] [CharP K 2] (e : (Fin Tag.E8.rank → ℤ) → K)
-    (he : ∀ σ ∈ ([![0, 1, 0, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0, 0],
-      ![0, 1, 1, 2, 1, 0, 0, 0], ![2, 3, 4, 6, 5, 4, 3, 2], ![2, 2, 3, 4, 3, 2, 1, 0],
-      ![0, 1, 1, 2, 2, 2, 1, 0], ![0, 0, 0, 0, 0, 0, 1, 0]] : List (Fin 8 → ℤ)), e σ ≠ 0) :
-    ∃ g ∈ adjointGroup .E8 K,
-      g * (([![0, 1, 0, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0, 0],
-          ![0, 1, 1, 2, 1, 0, 0, 0], ![2, 3, 4, 6, 5, 4, 3, 2], ![2, 2, 3, 4, 3, 2, 1, 0],
-          ![0, 1, 1, 2, 2, 2, 1, 0], ![0, 0, 0, 0, 0, 0, 1, 0]] : List (Fin 8 → ℤ)).map
-            fun σ => pinnedX .E8 K σ (e σ)).prod * g⁻¹ =
-      (([![0, 1, 0, 0, 0, 0, 0, 0], ![0, 0, 1, 0, 0, 0, 0, 0], ![0, 0, 0, 0, 1, 0, 0, 0],
-          ![2, 3, 4, 6, 5, 4, 3, 2], ![2, 2, 3, 4, 3, 2, 1, 0], ![0, 1, 1, 2, 2, 2, 1, 0],
-          ![0, 0, 0, 0, 0, 0, 1, 0]] : List (Fin 8 → ℤ)).map fun σ => pinnedX .E8 K σ 1).prod :=
-  exists_conj_frame_prod_of_isD4Pattern (Or.inr (Or.inr (Or.inr rfl))) isD4Pattern_E8
-    (by funext i; fin_cases i <;> rfl)
-    (fun ρ hρ => isRootB_iff.1 (List.all_eq_true.1 (by decide +kernel) ρ hρ))
-    (by decide +kernel) e he
 
 end Sound
 

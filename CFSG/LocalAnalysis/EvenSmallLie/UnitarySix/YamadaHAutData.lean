@@ -68,16 +68,5 @@ open CFSG.EvenSmallLie.UnitarySix.YamadaSec3
   let cs := l1Cands.filter fun y => eqA 693 (compA 693 y a) (compA 693 a y)
   allLt 693 fun p => cs.any fun y => y[p]! != p
 
-@[expose] def l1Check : Bool :=
-  allLt eA4.pts.size fun i =>
-    eqA 693 eA4.pts[i]! (idA 693) ||
-      (List.range 5).any (fun k =>
-        validA 693 (wA qF[k]!) && eqA 693 eA4.pts[i]! (conjInvA 693 (wA qF[k]!) (gA 14))) ||
-      noCommonFix eA4.pts[i]!
-
-@[expose] def p4Check : Bool :=
-  allLt eK1.pts.size fun i =>
-    !(chA4.O.all fun a => siftA 693 lvA4 chA4.B 0 (conjA 693 eK1.pts[i]! a)) ||
-      siftA 693 lvP2 chP2.B 0 eK1.pts[i]!
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaHAut

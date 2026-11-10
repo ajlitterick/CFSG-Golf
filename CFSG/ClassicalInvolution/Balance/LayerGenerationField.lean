@@ -49,21 +49,6 @@ theorem pow_exp_ne_three_of_ne_27 {p f e : ℕ} (hq : 5 ≤ p ^ f) (h27 : p ^ f 
     rw [pow_mul' p 3 e, h3]
     norm_num
 
-theorem exception_of_pow_exp_eq_three {p f e : ℕ} (hp : p.Prime) (hq : 5 ≤ p ^ f)
-    (he : e = f ∨ 3 * e = f) (h3 : p ^ e = 3) : 3 * e = f ∧ p = 3 ∧ e = 1 ∧ p ^ f = 27 := by
-  rcases he with rfl | h3e
-  · omega
-  · have he0 : e ≠ 0 := by
-      rintro rfl
-      simp at h3
-    have hp3 : p = 3 :=
-      (Nat.prime_dvd_prime_iff_eq hp Nat.prime_three).mp (h3 ▸ dvd_pow_self p he0)
-    subst hp3
-    have he1 : e = 1 :=
-      Nat.pow_right_injective (by norm_num : 2 ≤ 3) (show 3 ^ e = 3 ^ 1 by simpa using h3)
-    subst he1
-    subst h3e
-    exact ⟨rfl, rfl, rfl, by norm_num⟩
 
 @[expose] def LieDecomposition.Big {X : Type} [Group X] {Ψ : Set (Subgroup X)} {Y : Subgroup X}
     (D : LieDecomposition Ψ Y) : Prop :=
@@ -205,13 +190,6 @@ theorem lieDecomposition_of_lieSystemData_comp (hp2 : p ≠ 2) (h0 : ModelClause
     · exact Or.inl (hA₁ i hr)
     · exact Or.inr ((hlie i hr).2 (hF3 i))
 
-theorem lieDecomposition_of_lieSystemData_big (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) {X Yb : Type} [Group X] [Group Yb]
-    {Φ : Set (Subgroup Yb)} (D : LieSystemData p f Yb Φ) (hF3 : ∀ i, p ^ D.exp i ≠ 3)
-    (θ : Yb →* X) (hθ : Function.Injective θ) (hnc : ∀ L ∈ Φ, ¬ L ≤ Subgroup.center Yb) :
-    ∃ D' : LieDecomposition (Subgroup.map θ '' Φ) θ.range, D'.Big := by
-  obtain ⟨D', -, hbig⟩ := lieDecomposition_of_lieSystemData_comp hp2 h0 hA1 hq D θ hθ hnc
-  exact ⟨D', hbig hF3⟩
 
 end Abstract
 

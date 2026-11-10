@@ -17,17 +17,6 @@ namespace CFSG.RankThree.PartTwo.Sec16
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
   CFSG.RankThree.PartTwo.Sec13 CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.PartTwo.Sec15
 
-@[expose] def Step163A7Hyp162 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec15R G A c L →
-    Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* alternatingGroup (Fin 7)) →
-    WStarS4 A → TransOmegaThree A c →
-    ∀ Y ∈ scriptY0Star A (lB A), Nonempty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃* alternatingGroup (Fin 7)) →
-    ∀ (a : G) (La : Subgroup G), Subgroup.zpowers a ∈ omegaA A → La ∈ lA A a → La ≤ Y →
-      Subgroup.zpowers a ≠ Subgroup.zpowers c →
-      ∀ w ∈ Subgroup.normalizer (A : Set G),
-        Subgroup.zpowers c = (Subgroup.zpowers a).map (MulAut.conj w).toMonoidHom →
-          QTwoNe A Y (Y.map (MulAut.conj w).toMonoidHom)
 
 @[expose] def Step163A7Claim : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),

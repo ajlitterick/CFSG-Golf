@@ -24,9 +24,6 @@ theorem hyp51In_of_hyp51At {B : Subgroup G} {c : G} (h : Hyp51At B c) :
     Hyp51In (modOdd c B) (modOdd c (Subgroup.zpowers c)) :=
   ⟨h.1, h.2⟩
 
-theorem hyp51At_of_hyp51In {B : Subgroup G} {c : G}
-    (h : Hyp51In (modOdd c B) (modOdd c (Subgroup.zpowers c))) : Hyp51At B c :=
-  ⟨h.uniq, h.alpha⟩
 
 theorem le_centralizer_of_mem {B : Subgroup G} (hB : IsElemAbelian 2 B) {c : G} (hcB : c ∈ B) :
     B ≤ Subgroup.centralizer ({c} : Set G) := fun b hb =>
@@ -179,14 +176,6 @@ theorem card_modOdd_eq_eight {B : Subgroup G} (hB : IsElemAbelian 2 B) (hB8 : Na
   (card_modOdd_of_exponent_two (le_centralizer_of_mem hB hcB)
     (fun _ hf => mul_self_eq_one_of_mem hB hf)).trans hB8
 
-theorem not_isComponent_of_comm {Q : Type} [Group Q] (hQ : ∀ x y : Q, x * y = y * x)
-    {L : Subgroup Q} : ¬ IsComponent L := by
-  rintro ⟨⟨-, -, a, b, hab⟩, -⟩
-  obtain ⟨x, rfl⟩ := QuotientGroup.mk_surjective a
-  obtain ⟨y, rfl⟩ := QuotientGroup.mk_surjective b
-  apply hab
-  rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul]
-  exact congrArg _ (Subtype.ext (hQ x y))
 
 end Transport
 
@@ -266,18 +255,6 @@ theorem twoBalancedWrt_of_hyp51 {B : Subgroup G} (hB : Hyp51 B) : TwoBalancedWrt
 theorem lemma52 : Lemma52 := fun _ _ _ _ hB =>
   ⟨hB.1, hB.2.1, weakBalanced_of_hyp51 hB, twoBalancedWrt_of_hyp51 hB⟩
 
-omit [Finite G] in
-theorem hyp51_of_forall_commute (hG : ∀ x y : G, x * y = y * x) {B : Subgroup G}
-    (hB : IsElemAbelian 2 B) (hB8 : Nat.card B = 8) : Hyp51 B := by
-  refine ⟨hB, hB8, fun c _ _ => ?_⟩
-  have hQ : ∀ x y : OddQuot c, x * y = y * x := by
-    intro x y
-    obtain ⟨k₁, rfl⟩ := QuotientGroup.mk_surjective x
-    obtain ⟨k₂, rfl⟩ := QuotientGroup.mk_surjective y
-    rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul]
-    exact congrArg _ (Subtype.ext (hG k₁ k₂))
-  exact ⟨fun L₁ _ h₁ => (not_isComponent_of_comm hQ h₁).elim,
-    fun L hL => (not_isComponent_of_comm hQ hL).elim⟩
 
 end Assembly
 

@@ -28,14 +28,6 @@ private theorem e3_elemAb_B (h : Hyp G L A T z t) : IsElementaryAbelian 2 ↥(B 
     IsElementaryAbelian.zpowers_of_pow_eq_one (p := 2) (by rw [pow_two]; exact h.set.z_sq)
   exact IsElementaryAbelian.sup_of_le_centralizer (e3_zpows_le_centralizer_A h)
 
-private theorem e3_card_B (h : Hyp G L A T z t) : Nat.card (B A z) = 2 ^ 11 := by
-  have hd : Disjoint A (zpowers z) := h.set.disjoint.mono_left h.jc.le
-  have hcard := Nat.card_congr (mulEquivProdSup (e3_zpows_le_centralizer_A h) hd).toEquiv
-  rw [Nat.card_prod, h.jc.module.card, Nat.card_zpowers,
-    orderOf_eq_prime (by rw [pow_two]; exact h.set.z_sq) h.set.z_ne] at hcard
-  change Nat.card ↥(A ⊔ zpowers z) = 2 ^ 11
-  rw [← hcard]
-  norm_num
 
 private theorem e3_z_mem_B (h : Hyp G L A T z t) : z ∈ B A z :=
   mem_sup_right (mem_zpowers z)
@@ -166,19 +158,6 @@ private theorem e3tauG_mul (h : Hyp G L A T z t) {b c : G} (hb : b ∈ B A z)
         exact mul_mem ha₁ ha₂
       simp [e3tauG, hbA, hcA, hbcA, e3g_mul_self]
 
-private noncomputable def e3tau (h : Hyp G L A T z t) :
-    ↥(B A z) →* Multiplicative (ZMod 2) where
-  toFun b := e3tauG h b
-  map_one' := by
-    show e3tauG h (1 : G) = 1
-    exact (e3tauG_eq_one_iff h (one_mem (B A z))).mpr (one_mem A)
-  map_mul' b c := e3tauG_mul h b.2 c.2
-
-private theorem e3tau_apply (h : Hyp G L A T z t) (b : ↥(B A z)) :
-    e3tau h b = e3tauG h b := rfl
-
-private theorem e3tau_eq_one_iff (h : Hyp G L A T z t) (b : ↥(B A z)) :
-    e3tau h b = 1 ↔ (b : G) ∈ A := e3tauG_eq_one_iff h b.2
 
 private theorem e3_conj_R₀_B_mem_B (h : Hyp G L A T z t) (h2 : E2Facts L A z) {r b : G}
     (hr : r ∈ R₀ A z) (hb : b ∈ B A z) : r * b * r⁻¹ ∈ B A z := by
@@ -873,16 +852,6 @@ private theorem e3psiConj_mul (h : Hyp G L A T z t)
   unfold e3psiConj
   rw [e3conjR_mul, e3psi_mul]
 
-private theorem e3psiConj_A (h : Hyp G L A T z t)
-    (φ : ↥(R₀ A z) →* Multiplicative (ZMod 2))
-    (hφA : ∀ a : ↥A, φ ⟨a, e3_A_le_R₀ h a.2⟩ = 1)
-    (x : ↥(L ⊓ normalizer (A : Set G))) {c : G} (hc : c ∈ A) :
-    e3psiConj h φ x ⟨c, e3_A_le_R₀ h hc⟩ = 0 := by
-  unfold e3psiConj
-  have hc' : (x : G)⁻¹ * c * (x : G) ∈ A := by
-    simpa only [Subgroup.coe_inv, inv_inv] using
-      (mem_normalizer_iff.1 (inv_mem x.2.2) c).1 hc
-  exact e3psi_A h φ hφA hc'
 
 private noncomputable def e3gammaAt (h : Hyp G L A T z t)
     (φ : ↥(R₀ A z) →* Multiplicative (ZMod 2))

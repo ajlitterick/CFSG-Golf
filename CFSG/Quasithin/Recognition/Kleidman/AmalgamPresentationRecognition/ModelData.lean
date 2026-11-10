@@ -21,22 +21,5 @@ open CFSG.CosetTable CFSG.Sporadic.J3.Native CFSG.Sporadic.Th.Native
 
 @[expose] def wbWord : List ℤ := [2, 5, 6, 7, -6, -7, -6, -5, -1, 3, 5, 2, 3, 6, 1, -5, 7, 2, -7, 1, -5, -1, -6, -7, -6, 5, -1]
 
-@[expose] def encodeWord (r : List (Fin 7 × Bool)) : List ℤ :=
-  r.map fun x => if x.2 then (x.1.val : ℤ) + 1 else -((x.1.val : ℤ) + 1)
-
-@[expose] def uTab (n : ℕ) (tA tB : Table) (k : ℕ) : Table := wordT n (genT n tA tB) (uWord k)
-
-@[expose] def letTab (Tu Tui : Array Table) (z : ℤ) : Table :=
-  if 0 < z then Tu[(z - 1).toNat]! else Tui[(-z - 1).toNat]!
-
-@[expose] def modelCheck : Bool :=
-  let n := j3Data.n
-  let tA := j3Data.tA
-  let tB := j3Data.tB
-  let Tu : Array Table := (Array.range 7).map (uTab n tA tB)
-  let Tui : Array Table := Tu.map (invT n)
-  (List.range 7).all (fun k => invOK n Tu[k]! Tui[k]!) &&
-    j3Words.all (fun r => wordT n (letTab Tu Tui) (encodeWord r) == idT n) &&
-    Tu[3]! == tA && wordT n (letTab Tu Tui) wbWord == tB
 
 end CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition

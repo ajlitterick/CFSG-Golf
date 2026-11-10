@@ -37,7 +37,6 @@ theorem pa_mem : pa ∈ P3 := Subgroup.subset_closure (Set.mem_insert _ _)
 
 theorem pb_mem : pb ∈ P3 := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
 
-theorem abArr_size : abArr.size = 2 := rfl
 
 theorem abArr_rep : ∀ h < 2, Rep 20520 abArr[h]! (permOfArr 20520 abArr[h]!) := fun h hh =>
   (rep_permOfArr (ab_check h hh)).1
@@ -51,10 +50,6 @@ theorem ab_mem : ∀ h < 2, permOfArr 20520 abArr[h]! ∈ P3 := by
   · exact pa_mem
   · exact pb_mem
 
-theorem mem_of_lt {α : Type*} [Inhabited α] (l : List α) {i : ℕ} (hi : i < l.length) :
-    l[i]! ∈ l := by
-  rw [getElem!_pos l i hi]
-  exact List.getElem_mem hi
 
 theorem getElem!_map_toArray {α β : Type} [Inhabited α] [Inhabited β] (f : α → β) (l : List α)
     {i : ℕ} (hi : i < l.length) : (l.map f).toArray[i]! = f l[i]! := by
@@ -203,9 +198,6 @@ theorem card_sChain : Nat.card sChain.originalSubgroup = 128 := by
   rw [sChain, ofArrays_card (by norm_num) sChain_ok]
   exact (congrArg List.prod sChain_check.2).trans (by norm_num)
 
-theorem sGen_rep (i : ℕ) (hi : i < 4) :
-    Rep 20520 sStrong[i]! (permOfArr 20520 sStrong[i]!) :=
-  rep_permOfArr_of_chainOK sChain_ok (by rw [sStrong_size]; exact hi)
 
 theorem sGen_mem_K (i : ℕ) (hi : i < 4) :
     permOfArr 20520 sStrong[i]! ∈ kChain.originalSubgroup := by

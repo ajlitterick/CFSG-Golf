@@ -65,9 +65,6 @@ theorem sixQuotientKappaImage_index_dvd_two (delta : K) [Fact (¬ IsSquare delta
   rw [sixQuotientKappaImage_index]
   exact six_kappa_range_index_dvd_two delta h2
 
-theorem sixQuotientKappaImage_index_le_two (delta : K) [Fact (¬ IsSquare delta)]
-    (h2 : (2 : K) ≠ 0) : (sixQuotientKappaImage delta h2).index ≤ 2 :=
-  Nat.le_of_dvd (by decide) (sixQuotientKappaImage_index_dvd_two delta h2)
 
 instance sixQuotientByKappaImageCyclic (delta : K) [Fact (¬ IsSquare delta)]
     (h2 : (2 : K) ≠ 0) :
@@ -79,12 +76,5 @@ instance sixSpecialQuotientSolvable (delta : K) [Fact (¬ IsSquare delta)]
     (h2 : (2 : K) ≠ 0) : Group.IsSolvable (SixSpecialQuotient delta h2) :=
   Group.isSolvable_of_subgroup_quotient (sixQuotientKappaImage delta h2)
 
-theorem six_full_isometry_quotient_structure (delta : K) [Fact (¬ IsSquare delta)]
-    (h2 : (2 : K) ≠ 0) :
-    ∃ A : Subgroup (SixSpecialQuotient delta h2),
-      A.Normal ∧ IsMulCommutative A ∧ A.index ≤ 2 ∧
-        Group.IsSolvable (SixSpecialQuotient delta h2) :=
-  ⟨sixQuotientKappaImage delta h2, inferInstance, inferInstance,
-    sixQuotientKappaImage_index_le_two delta h2, inferInstance⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalSix

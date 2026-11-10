@@ -158,9 +158,6 @@ include L in
   map_mul' Y₁ Y₂ := Subtype.ext (map_mul (idActU h n L.three_le L.four_le
     (α : MulAut (primeFormP h (idGram K n)))) _ _)
 
-theorem LiftData.coe_actZ (α : ↥(idStab x)) (Y : ↥(idCenterUnits h x)) :
-    ((L.actZ α Y : ↥(idCenterUnits h x)) : primeFormUnitary h (idGram K n)) =
-      idActU h n L.three_le L.four_le (α : MulAut (primeFormP h (idGram K n))) Y := rfl
 
 include L in
 theorem LiftData.conj_eq_of_fix [DecidableEq (primaryFactors (idEnd x))] (hp2 : p ≠ 2)

@@ -41,28 +41,5 @@ variable {G : Type} [Group G]
           ¬ (T.subgroupOf H).Normal ∧ IsUniqueMaxOvergroup T (normalizer (L : Set G)) H ∧
           6 ≤ CFSG.pRank 2 (↥H ⧸ CFSG.pCore 2 ↥H)
 
-@[expose] def ExcludedMinimalOvergroupTwoRankBound : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G), IsSimpleGroup G →
-    (∃ a b : G, a * b ≠ b * a) → quasithinIsQTKECat G → quasithinIsSylowTwo T →
-    ¬ QT13Excluded G → centralizer (quasithinOmegaOneCenter T : Set G) ≤ M → T ≤ H →
-    ¬ Group.IsSolvable H → pCoreOf 2 H ≠ ⊥ → ¬ (T.subgroupOf H).Normal → ¬ H ≤ M →
-    IsUniqueMaxOvergroup T M H → CFSG.pRank 2 (↥H ⧸ CFSG.pCore 2 ↥H) ≤ 4
-
-theorem u3_local_uniqueness_and_escape_producer (hD : LocalDoubleEmbeddingExclusion)
-    (h137 : Stmt13_1_7) (h1323 : Stmt13_1_2_three) (hord : FiveQuotientExactOrders)
-    (hgrow : LocalTwoCoreQuotientStrictGrowth)
-    (hA7 : SylowNormalizedMaximalLocalUniqueNormalizer)
-    (hconf : U3ConfinedCentralizerOvergroup) (hexcl : ExcludedMinimalOvergroupTwoRankBound) :
-    U3LocalUniquenessEscapeProducer := by
-  intro G _ _ T L V z hH hU3 hF
-  obtain ⟨hMtop, hVM, hTI, -, -⟩ :=
-    u3_selected_local_normalizer_and_TI hD h137 h1323 hord hgrow hA7 hH hU3 hF
-  refine ⟨hMtop, hVM, fun m hm => hTI m hm, fun hz => ?_⟩
-  obtain ⟨-, -, -, -, -, -, hZM, -, ⟨H, ⟨hTH, hR, hHM⟩, hleast⟩, hmin⟩ :=
-    hconf G T L V z hH hU3 hF hz
-  obtain ⟨-, hns, -, -, hTn, huniq, h6⟩ := hmin H hTH hR hHM hleast
-  have h4 := hexcl G T _ H hH.simple hH.nonabelian hH.qtke hH.sylow hH.not_excluded hZM hTH hns
-    hR hTn hHM huniq
-  omega
 
 end CFSG.Quasithin.H13.U3

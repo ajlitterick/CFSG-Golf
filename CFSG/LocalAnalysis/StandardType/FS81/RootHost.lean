@@ -95,12 +95,6 @@ theorem RootHost.le_of_perfect {G : Type} [Group G] {x : G} {L : Subgroup G} (h 
     (hgen : P ≤ Subgroup.closure {y : G | y ∈ P ∧ y ^ 3 = 1}) : P ≤ L :=
   le_of_perfect_of h.le_centralizer h.mem_of_cube hP hperf hgen
 
-private theorem pow_val_neg_one {G : Type} [Group G] {a : G} (ha : a ^ 3 = 1) :
-    a ^ ((-1 : ZMod 3)).val = a⁻¹ := by
-  have hv : ((-1 : ZMod 3)).val = 2 := by decide
-  rw [hv, pow_two]
-  exact eq_inv_iff_mul_eq_one.mpr (by
-    rw [← pow_two, ← pow_succ, show 2 + 1 = 3 by norm_num, ha])
 
 theorem rootHost_D6 {G : Type} [Group G] [Finite G] {b₀ : G} {K E : Subgroup G}
     (hstd : StdLoc b₀ K E Row.D6) {B : Basis3 G 7} (hB : Adapted B b₀ K E)

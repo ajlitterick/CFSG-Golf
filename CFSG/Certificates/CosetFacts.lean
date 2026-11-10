@@ -236,16 +236,6 @@ theorem walk_mem_iff {H : Subgroup G} {f t o s : ℕ}
 
 end Walk
 
-@[expose] def allTrivial (L : ℕ) (inv : ℕ → ℕ) (ws : List (List ℕ)) : Bool :=
-  ws.all fun w => and (freelyTrivial L inv w) (w.all fun c => Nat.blt c (Nat.succ L))
-
-theorem evalWord_eq_one_of_allTrivial {gen : ℕ → G} {L : ℕ} {inv : ℕ → ℕ} (hε : gen L = 1)
-    (hinv : ∀ c < L, gen (inv c) = (gen c)⁻¹) {ws : List (List ℕ)}
-    (h : allTrivial L inv ws = true) : ∀ w ∈ ws, evalWord gen w = 1 := by
-  intro w hw
-  simp only [allTrivial, List.all_eq_true, Bool.and_eq_true, Nat.blt_eq] at h
-  obtain ⟨h1, h2⟩ := h w hw
-  exact evalWord_eq_one_of_freelyTrivial hε hinv (fun c hc => Nat.lt_succ_iff.mp (h2 c hc)) h1
 
 @[expose] def stripEps (L : ℕ) (w : List ℕ) : List ℕ := w.filter fun c => !(Nat.beq c L)
 

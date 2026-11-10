@@ -42,9 +42,6 @@ theorem zG_inv : S.z⁻¹ = S.z :=
 theorem zc {x : G} (hx : x ∈ S.H) : x * S.z = S.z * x :=
   Subgroup.mem_centralizer_singleton_iff.mp hx
 
-theorem tG_mem_H : (c.t : G) ∈ S.H := c.t.2
-theorem aG_mem_H : (c.a : G) ∈ S.H := c.a.2
-theorem bG_mem_H : (c.b : G) ∈ S.H := c.b.2
 
 theorem cj_a_t : cj (c.a : G) (c.t : G) = (c.b : G) := by
   have h := congrArg Subtype.val c.t_conj_a
@@ -60,15 +57,6 @@ theorem cj_b_t : cj (c.b : G) (c.t : G) = (c.a : G) := by
   rw [c.tG_inv] at h'
   exact h'
 
-theorem a_comm_b : (c.a : G) * (c.b : G) = (c.b : G) * (c.a : G) := by
-  have := congrArg Subtype.val c.hab
-  simpa using this
-
-theorem aG_cube' : (c.a : G) ^ 3 = 1 := c.aG_cube
-
-theorem bG_cube : (c.b : G) ^ 3 = 1 := by
-  have := congrArg Subtype.val c.hb3
-  simpa using this
 
 @[expose] def a2 (a₁ : G) : G := cj a₁ (c.t : G)
 

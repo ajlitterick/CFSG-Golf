@@ -233,27 +233,6 @@ private theorem triality_dC (i : Fin Tag.D4.rank) (t : Kˣ) :
   rw [twistC_torusElement (t := TwistTag.D4) (K := K) (σ := RingHom.id K) i t]
   rfl
 
-omit [CharP K 2] in
-private theorem triality_xC_mul_nC (i : Fin Tag.D4.rank) (c : K) :
-    triality K (xC .D4 K i c * nC .D4 K i) =
-      xC .D4 K (TwistTag.D4.perm i) c * nC .D4 K (TwistTag.D4.perm i) := by
-  rw [map_mul]
-  congr 1
-  · simp only [triality]
-    exact twistC_xElement (t := TwistTag.D4) (K := K) (σ := RingHom.id K) i c
-  · simp only [triality]
-    exact twistC_weylElement (t := TwistTag.D4) (K := K) (σ := RingHom.id K) i
-
-private theorem heckeT_comp_triality {k W : Type*} [Field k] [AddCommGroup W] [Module k W]
-    {ρ : Representation k (adjointGroup .D4 K) W} (i : Fin Tag.D4.rank) (y : W) :
-    (chevDatum .D4 K 2 hw).heckeT (ρ.comp (triality K).toMonoidHom) i y
-      = (chevDatum .D4 K 2 hw).heckeT ρ (TwistTag.D4.perm i) y := by
-  have : Fintype K := Fintype.ofFinite K
-  rw [heckeT_chevDatum (V := W) (ρ := ρ.comp (triality K).toMonoidHom) (i := i) (v := y),
-    heckeT_chevDatum (V := W) (ρ := ρ) (i := TwistTag.D4.perm i) (v := y)]
-  refine Finset.sum_congr rfl fun c _ => ?_
-  rw [← triality_xC_mul_nC i c]
-  rfl
 
 private abbrev trialityPerm : Equiv.Perm (Fin Tag.D4.rank) := TwistTag.D4.perm
 

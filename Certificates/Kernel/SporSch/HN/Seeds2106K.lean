@@ -55,15 +55,9 @@ theorem can1 : allBlk 21 (canonAll HNT.MT) 21 = true := by quickRfl
 theorem can2 : allBlk 42 (canonAll HNT.MT) 21 = true := by quickRfl
 theorem can3 : allBlk 63 (canonAll HNT.MT) 20 = true := by quickRfl
 
-theorem sAB : allN 21 (fun u => bAnd(Nat.beq (HNT.OP (Nat.add 9 u)) 0,
-    bAnd(Nat.beq (HNT.L (Nat.add 9 u)) (Nat.add 8 u), Nat.beq (HNT.R (Nat.add 9 u)) 7))) = true := by
-  quickRfl
 theorem sG : allN 11 (fun u => bAnd(Nat.beq (HNT.OP (Nat.add 31 u)) 0,
     bAnd(Nat.beq (HNT.L (Nat.add 31 u)) (Nat.add 30 u),
       Nat.beq (HNT.R (Nat.add 31 u)) (ltc (gWord.getD (Nat.succ u) 0))))) = true := by quickRfl
-theorem sGi : allN 17 (fun u => bAnd(Nat.beq (HNT.OP (Nat.add 43 u)) 0,
-    bAnd(Nat.beq (HNT.L (Nat.add 43 u)) (Nat.add 42 u),
-      Nat.beq (HNT.R (Nat.add 43 u)) (ltc (gInvWord.getD (Nat.succ u) 0))))) = true := by quickRfl
 theorem sX : allN 18 (fun u => bAnd(Nat.beq (HNT.OP (Nat.add 65 u)) 0,
     bAnd(Nat.beq (HNT.L (Nat.add 65 u)) (Nat.add 64 u), Nat.beq (HNT.R (Nat.add 65 u)) 63))) = true := by
   quickRfl

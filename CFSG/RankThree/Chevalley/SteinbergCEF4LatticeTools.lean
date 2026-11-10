@@ -55,20 +55,6 @@ theorem weylMatrix_f4Coxeter : weylMatrix f4Coxeter = f4CoxeterMatrix := by
   rw [f4Coxeter, weylMatrix_f4WordProd]
   decide
 
-theorem weylMatrix_simple_F4 (i : Fin Tag.F4.rank) :
-    weylMatrix (simple .F4 i) = (reflT i).transpose := by
-  ext k l
-  rw [weylMatrix_apply, simple_smul, Matrix.transpose_apply, reflect]
-  simp only [reflT, Matrix.of_apply, Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.single_apply,
-    mul_ite, mul_one, mul_zero, Finset.sum_ite_eq', Finset.mem_univ, ite_true]
-  by_cases hkl : k = l
-  · subst hkl
-    by_cases hki : k = i <;> simp [hki]
-  · have hlk : l ≠ k := Ne.symm hkl
-    by_cases hki : k = i
-    · subst hki
-      simp [hkl, hlk]
-    · simp [hkl, hlk, hki]
 
 theorem inv_f4WordProd_pair (i j : Fin 4) : (f4WordProd [i, j])⁻¹ = f4WordProd [j, i] := by
   simp only [f4WordProd, List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one,
@@ -184,10 +170,6 @@ theorem restrCols_mem_colChoices
   · rw [colChoices, ite_eq_right hi, restrCols, ite_eq_right hi]
     exact List.mem_singleton_self _
 
-theorem eq_vecCons_cols (c : Fin Tag.F4.rank → Fin Tag.F4.rank → ℤ) :
-    c = ![c (f4Index 0), c (f4Index 1), c (f4Index 2), c (f4Index 3)] := by
-  funext i
-  fin_cases i <;> rfl
 
 @[expose] def cols4 (c₀ c₁ c₂ c₃ : Fin Tag.F4.rank → ℤ) :
     Fin Tag.F4.rank → Fin Tag.F4.rank → ℤ :=

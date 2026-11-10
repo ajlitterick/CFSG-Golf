@@ -179,12 +179,6 @@ variable (E : QuadExt F K (unitaryInvolution K 2 1))
     (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) : normOmega E 3 :=
   suEmb E 3 (CFSG.AGLEmbedding.fourierElt hσ hs)
 
-theorem threePlaneFourier_mem_normAnchorFixing {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) :
-    threePlaneFourier E hσ hs ∈ normAnchorFixing E 3 := by
-  rw [mem_normAnchorFixing_iff]
-  intro w
-  simp [threePlaneFourier, suEmb_apply]
 
 @[expose] noncomputable def hypExtHom (m : ℕ) :
     ((Fin m → K) ≃ₗ[F] (Fin m → K)) →*
@@ -899,89 +893,6 @@ theorem isSimpleGroup_normAnchorFixing_three (hF : Nat.card F = 2) :
       (MulEquiv.subgroupCongr hrange)
   exact e.symm.isSimpleGroup
 
-open NormThreeFourier in
-theorem normAnchorFixing_three_eq_sup_fourier (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) :
-    normAnchorFixing E 3 = normDecompositionStabilizer E 3 ⊔
-      Subgroup.zpowers (threePlaneFourier E hσ hs) := by
-  let H := normDecompositionStabilizer E 3 ⊔ Subgroup.zpowers (threePlaneFourier E hσ hs)
-  let T := (H.map (normOmega E 3).subtype).comap (hypExtHom (F := F) (K := K) 3)
-  have hTO : T ≤ TauCeti.QuadraticMap.orthogonalGroup (Qn E 3) :=
-    hypExt_pullback_le_orthogonal (E := E) H
-  have hdiag : ∀ a : Fin 3 → Kˣ, diagonal (F := F) a ∈ T := by
-    intro a
-    obtain ⟨g, hg, heq⟩ := exists_diagonal_mem_decomp (E := E) hF a
-    change hypExt (diagonal (F := F) a) ∈ H.map (normOmega E 3).subtype
-    exact Subgroup.mem_map.mpr ⟨g,
-      (show normDecompositionStabilizer E 3 ≤ H from le_sup_left) hg, heq⟩
-  have htau : ∀ i j : Fin 3, i ≠ j → tauAt E i * tauAt E j ∈ T := by
-    intro i j _
-    obtain ⟨g, hg, heq⟩ := exists_pair_tau_mem_decomp (E := E) i j
-    change hypExt (tauAt E i * tauAt E j) ∈ H.map (normOmega E 3).subtype
-    exact Subgroup.mem_map.mpr ⟨g,
-      (show normDecompositionStabilizer E 3 ≤ H from le_sup_left) hg, heq⟩
-  have hf : fourier (F := F) hσ hs ∈ T := by
-    change hypExt (fourier (F := F) hσ hs) ∈ H.map (normOmega E 3).subtype
-    refine Subgroup.mem_map.mpr ⟨threePlaneFourier E hσ hs,
-      (show Subgroup.zpowers (threePlaneFourier E hσ hs) ≤ H from le_sup_right)
-        (Subgroup.mem_zpowers _), ?_⟩
-    apply LinearEquiv.ext
-    intro v
-    change (suEmb E 3 (CFSG.AGLEmbedding.fourierElt hσ hs)).1 v =
-      hypExt (fourier (F := F) hσ hs) v
-    rw [suEmb_apply, hypExt_apply]
-    rfl
-  have hderived := derived_le_of_generators (E := E) hF hσ hs T hTO hdiag htau hf
-  apply le_antisymm
-  · intro g hg
-    obtain ⟨t, ht, heq⟩ := exists_pure_of_anchor (E := E) g hg
-    have ht' := hderived ht
-    change hypExt t ∈ H.map (normOmega E 3).subtype at ht'
-    obtain ⟨g', hg', heq'⟩ := Subgroup.mem_map.mp ht'
-    have hgg : g' = g := Subtype.ext (heq'.trans heq.symm)
-    rwa [hgg] at hg'
-  · refine sup_le (fun g hg => hg.1) ?_
-    exact Subgroup.zpowers_le.mpr (threePlaneFourier_mem_normAnchorFixing E hσ hs)
-
-theorem map_normAnchorFixing_three_eq_sup_fourier {G : Type*} [Group G]
-    (κ : normOmega E 3 →* G) (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) :
-    (normAnchorFixing E 3).map κ = (normDecompositionStabilizer E 3).map κ ⊔
-      Subgroup.zpowers (κ (threePlaneFourier E hσ hs)) := by
-  rw [normAnchorFixing_three_eq_sup_fourier E hF hσ hs, Subgroup.map_sup,
-    MonoidHom.map_zpowers]
-
-theorem map_normAnchorFixing_three_le {G : Type*} [Group G]
-    (κ : normOmega E 3 →* G) (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0)
-    {A : Subgroup G} (hN : (normDecompositionStabilizer E 3).map κ ≤ A)
-    (hFou : κ (threePlaneFourier E hσ hs) ∈ A) : (normAnchorFixing E 3).map κ ≤ A := by
-  rw [map_normAnchorFixing_three_eq_sup_fourier E κ hF hσ hs]
-  exact sup_le hN (Subgroup.zpowers_le.mpr hFou)
-
-theorem normPureBlock_univ_three_eq_sup_fourier (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) :
-    normPureBlock E 3 Finset.univ = normDecompositionStabilizer E 3 ⊔
-      Subgroup.zpowers (threePlaneFourier E hσ hs) := by
-  rw [normPureBlock_univ_three_eq_normAnchorFixing]
-  exact normAnchorFixing_three_eq_sup_fourier E hF hσ hs
-
-theorem map_normPureBlock_univ_three_eq_sup_fourier {G : Type*} [Group G]
-    (κ : normOmega E 3 →* G) (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0) :
-    (normPureBlock E 3 Finset.univ).map κ = (normDecompositionStabilizer E 3).map κ ⊔
-      Subgroup.zpowers (κ (threePlaneFourier E hσ hs)) := by
-  rw [normPureBlock_univ_three_eq_normAnchorFixing]
-  exact map_normAnchorFixing_three_eq_sup_fourier E κ hF hσ hs
-
-theorem map_normPureBlock_univ_three_le {G : Type*} [Group G]
-    (κ : normOmega E 3 →* G) (hF : Nat.card F = 2) {ω : K}
-    (hσ : unitaryInvolution K 2 1 ω = ω ^ 2) (hs : 1 + ω + ω ^ 2 = 0)
-    {A : Subgroup G} (hN : (normDecompositionStabilizer E 3).map κ ≤ A)
-    (hFou : κ (threePlaneFourier E hσ hs) ∈ A) :
-    (normPureBlock E 3 Finset.univ).map κ ≤ A := by
-  rw [normPureBlock_univ_three_eq_normAnchorFixing]
-  exact map_normAnchorFixing_three_le E κ hF hσ hs hN hFou
 
 open NormThreeFourier in
 theorem map_normAnchorFixing_three_le_of_pairs {G : Type*} [Group G]

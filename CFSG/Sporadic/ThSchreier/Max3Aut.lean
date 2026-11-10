@@ -160,10 +160,5 @@ theorem max3_aut_eq_conj
   have : Finite ↥(max3Data.Q) := finite_QM
   exact max3Data.allInner α
 
-theorem ctuc_Th_max3_automorphisms_inner :
-    MonoidHom.range (MulAut.conj (G := ↥M)) = ⊤ := by
-  refine eq_top_iff.2 fun α _ => ?_
-  obtain ⟨m, rfl⟩ := max3_aut_eq_conj α
-  exact ⟨m, rfl⟩
 
 end CFSG.Sporadic.ThSchreier

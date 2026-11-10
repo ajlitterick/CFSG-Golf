@@ -66,12 +66,5 @@ theorem H1_core_even {n : ℕ} (hn : n = 6 ∨ n = 8) :
   · exact twoClass_of_chk (Or.inr (Or.inr (Or.inr rfl))) (Or.inl rfl) chkH1_eight_u0
       chkNP_eight_u0
 
-theorem card_H1_natural_odd {n : ℕ} (hn : n = 5 ∨ n = 7) :
-    Nat.card (H1 (actL n Mod.ut0)) = 1 :=
-  (H1_natural_odd hn).card_H1
-
-theorem card_H1_natural_even {n : ℕ} (hn : n = 6 ∨ n = 8) :
-    Nat.card (H1 (actL n Mod.ut0)) = 2 :=
-  (H1_natural_even hn).card_H1 (V_sq' _)
 
 end CFSG.Quasithin.B3

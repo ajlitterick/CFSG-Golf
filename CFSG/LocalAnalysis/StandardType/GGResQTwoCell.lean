@@ -17,32 +17,6 @@ inductive GGResQTwoResidual where
   | C3b0c2 | C3b2c0 | C3b2c0w12 | C3b2c0w21 | C3b2c1 | C3b2c1w12 | C3b2c1w21
   deriving DecidableEq, Repr
 
-@[expose] def ggResQTwoResidualUV : GGResQTwoResidual → ZMod 3 × ZMod 3
-  | .A3b0c1w12 => (2, 1)
-  | .A3b0c1w21 => (1, 2)
-  | .A3b0c2w12 => (2, 1)
-  | .A3b0c2w21 => (1, 2)
-  | .A3b2c0w12 => (2, 1)
-  | .A3b2c0w21 => (1, 2)
-  | .A3b2c1w12 => (2, 1)
-  | .A3b2c1w21 => (1, 2)
-  | .B3b0c2 => (2, 1)
-  | .B3b2c0 => (1, 2)
-  | .B3b2c0w12 => (2, 2)
-  | .B3b2c0w21 => (1, 1)
-  | .B3b2c1 => (1, 2)
-  | .B3b2c1w12 => (0, 0)
-  | .B3b2c1w21 => (0, 0)
-  | .C3b0c2 => (1, 2)
-  | .C3b2c0 => (2, 1)
-  | .C3b2c0w12 => (1, 1)
-  | .C3b2c0w21 => (2, 2)
-  | .C3b2c1 => (2, 1)
-  | .C3b2c1w12 => (0, 0)
-  | .C3b2c1w21 => (0, 0)
-
-@[expose] def ggResQTwoResidualCheck (tag : GGResQTwoResidual) (u v : ZMod 3) : Bool :=
-  decide (ggResQTwoResidualUV tag = (u, v))
 
 structure GGResQTwoResidualData where
   C : Matrix (Fin 3) (Fin 3) ℤ
@@ -149,44 +123,6 @@ theorem ggResQTwoResidualShape_three (tag : GGResQTwoResidual)
         v = (ggResQTwoResidualData tag).v :=
   Iff.rfl
 
-theorem ggResQTwoResidualShapeCheck_n_eq_three (tag : GGResQTwoResidual) (n : ℕ)
-    (C : Matrix (Fin n) (Fin n) ℤ) (ib ic : Fin n) (e₁ e₂ : ℤ) (u v : ZMod 3)
-    (h : ggResQTwoResidualShapeCheck tag n C ib ic e₁ e₂ u v = true) : n = 3 :=
-  ggResQTwoResidualShape_n_eq_three tag n C ib ic e₁ e₂ u v
-    ((ggResQTwoResidualShapeCheck_spec tag n C ib ic e₁ e₂ u v).mp h)
-
-theorem ggResQTwoResidualShapeCheck_three (tag : GGResQTwoResidual)
-    (C : Matrix (Fin 3) (Fin 3) ℤ) (ib ic : Fin 3) (e₁ e₂ : ℤ) (u v : ZMod 3)
-    (h : ggResQTwoResidualShapeCheck tag 3 C ib ic e₁ e₂ u v = true) :
-    C = (ggResQTwoResidualData tag).C ∧
-      ib = (ggResQTwoResidualData tag).ib ∧
-      ic = (ggResQTwoResidualData tag).ic ∧
-      e₁ = (ggResQTwoResidualData tag).e₁ ∧
-      e₂ = (ggResQTwoResidualData tag).e₂ ∧
-      u = (ggResQTwoResidualData tag).u ∧
-      v = (ggResQTwoResidualData tag).v := by
-  simpa [ggResQTwoResidualShape_three] using
-    (ggResQTwoResidualShapeCheck_spec tag 3 C ib ic e₁ e₂ u v).mp h
-
-theorem ggResQTwoResidualShapeCheck_imp_residualCheck (tag : GGResQTwoResidual) (n : ℕ)
-    (C : Matrix (Fin n) (Fin n) ℤ) (ib ic : Fin n) (e₁ e₂ : ℤ) (u v : ZMod 3)
-    (h : ggResQTwoResidualShapeCheck tag n C ib ic e₁ e₂ u v = true) :
-    ggResQTwoResidualCheck tag u v = true := by
-  rw [ggResQTwoResidualShapeCheck_spec] at h
-  have hn := ggResQTwoResidualShape_n_eq_three tag n C ib ic e₁ e₂ u v h
-  subst hn
-  rw [ggResQTwoResidualShape_three] at h
-  obtain ⟨-, -, -, -, -, hu, hv⟩ := h
-  rw [ggResQTwoResidualCheck]
-  rw [hu, hv]
-  cases tag <;> rfl
-
-theorem ggResQTwoResidualShapeCheck_literal (tag : GGResQTwoResidual) :
-    ggResQTwoResidualShapeCheck tag 3 (ggResQTwoResidualData tag).C
-      (ggResQTwoResidualData tag).ib (ggResQTwoResidualData tag).ic
-      (ggResQTwoResidualData tag).e₁ (ggResQTwoResidualData tag).e₂
-      (ggResQTwoResidualData tag).u (ggResQTwoResidualData tag).v = true := by
-  cases tag <;> decide +kernel
 
 @[expose] def ggResQTwoReuseOk {n : ℕ} : GGCellWitI n → Bool
   | .tv _ _ _ _ => true

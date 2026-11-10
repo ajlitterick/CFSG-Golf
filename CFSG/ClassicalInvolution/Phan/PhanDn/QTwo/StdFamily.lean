@@ -106,15 +106,6 @@ theorem coe_qTwoStdIota_castSucc (m : ℕ) (hm : 3 ≤ m) (k : Fin m) (a : Su K 
   rw [coe_qTwoStdIota, stdFamilyV_ι_castSucc]
   rfl
 
-theorem coe_qTwoStdIota_last (m : ℕ) (hm : 3 ≤ m) (a : Su K 2 1 2) :
-    ((qTwoStdIota E m hm (Fin.last m) a :
-        ↥(CFSG.RankThree.Classical2.orthDerived (Qn E (m + 1)))) :
-      (Fin (m + 1) → K) ≃ₗ[F] (Fin (m + 1) → K)) =
-      stdConj E m
-        (suEndN (F := F) (unitaryInvolution K 2 1) (m + 1)
-          (blockEmb2 K 2 1 m ⟨m - 1, by omega⟩ a)) := by
-  rw [coe_qTwoStdIota, stdFamilyV_ι_last]
-  rfl
 
 theorem coe_qTwoStdTheta_chain (m : ℕ) (hm : 3 ≤ m) {i : Fin (m + 1)} {j : Fin m}
     (h : i.val + 1 = j.val) (b : Su K 2 1 3) :
@@ -131,22 +122,6 @@ theorem coe_qTwoStdTheta_chain (m : ℕ) (hm : 3 ≤ m) {i : Fin (m + 1)} {j : F
   rw [coe_qTwoStdTheta_of_lt E m hm hij, stdFamilyV_θ, stdTheta_castSucc]
   unfold stdThetaAt
   rw [dif_pos h]
-  rfl
-
-theorem coe_qTwoStdTheta_fork (m : ℕ) (hm : 3 ≤ m) (b : Su K 2 1 3) :
-    ((qTwoStdTheta E m hm ⟨m - 2, by omega⟩ (Fin.last m) b :
-        ↥(CFSG.RankThree.Classical2.orthDerived (Qn E (m + 1)))) :
-      (Fin (m + 1) → K) ≃ₗ[F] (Fin (m + 1) → K)) =
-      stdConj E m
-        (suEndN (F := F) (unitaryInvolution K 2 1) (m + 1)
-          (blockEmb3 K 2 1 m ⟨m - 2, by omega⟩
-            (by simp only; omega) b)) := by
-  have hij : (⟨m - 2, by omega⟩ : Fin (m + 1)) < Fin.last m := by
-    rw [Fin.lt_def]
-    simp only [Fin.val_last]
-    omega
-  rw [coe_qTwoStdTheta_of_lt E m hm hij, stdFamilyV_θ, stdTheta_last]
-  unfold stdForkTheta stdChainTheta
   rfl
 
 

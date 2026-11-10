@@ -740,7 +740,6 @@ private lemma card_le_twentyfour_of_simplyLaced_rank_three
     omega
 
 
-
 section ExactTwoAtEitherBase
 
 open CFSG.Monster.B.Geometry
@@ -878,121 +877,6 @@ theorem ggResF4ExactTwo_either_false
 
 end ExactTwoAtEitherBase
 
-theorem GGResHyp.false_of_F4_L_label_of_A3
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLineJDatum 3 Bs J .A3)
-    {labL : LargeEvenLabel} (hΛL : LargeEvenInLambda2 labL)
-    (hLab : GGHasLabel labL (↥L ⧸ Subgroup.center ↥L))
-    (htag : labL.tag = .F4) : False := by
-  classical
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨tag, rank, n⟩ := labL
-  cases htag
-  have hrank : rank = 0 := by simpa [LargeEvenInLambda2] using hΛL.2
-  subst hrank
-  have hLperf : commutator ↥L = ⊤ := (GGConfig.data_L hH.1).2.2.2
-  haveI : Group.IsPerfect ↥L := Group.IsPerfect.mk hLperf
-  have hRig : GGLabelRigidInput := ggLabelRigidInput_holds
-  have hInn : GGInnerDiagOn Bs L := hH.2.2.1.1
-  have hBsN : Bs ≤ Subgroup.normalizer (L : Set G) := ggInnerDiagOn_le_normalizer hInn
-  have hF4 : GGInnerDiagOnLabel (fun p lab => p = 3 ∧ lab.tag = .F4) 3 Bs L :=
-    largeEvenMarking_mono (fun lab R _ I F θ hP =>
-      ⟨⟨rfl, by rw [hP.1]⟩, hP.2⟩) (ggInnerDiagOn_relabel hRig hInn hΛL hLab)
-  have hInnL : ∀ b ∈ Bs, ∃ k ∈ L, ∀ l ∈ L, b * l * b⁻¹ = k * l * k⁻¹ :=
-    ggResF4_innerOnL_of_label (p := 3) hF4 hLperf
-  have hZcard : ¬ 3 ∣ Nat.card (Subgroup.center ↥L) :=
-    not_three_dvd_card_center_of_ggHasLabel_F4 (f := n) hLab
-  have hZL : ∀ g ∈ Subgroup.center ↥L, Nat.Coprime 3 (orderOf g) := by
-    intro g hg
-    rw [Nat.Prime.coprime_iff_not_dvd (by norm_num : Nat.Prime 3)]
-    intro h3
-    apply hZcard
-    haveI : Fintype ↥(Subgroup.center ↥L) := Fintype.ofFinite _
-    have hdvd : orderOf g ∣ Nat.card (Subgroup.center ↥L) := by
-      rw [Nat.card_eq_fintype_card]
-      have h := orderOf_dvd_card (x := (⟨g, hg⟩ : Subgroup.center ↥L))
-      simpa using h
-    exact dvd_trans h3 hdvd
-  obtain ⟨E, hE, hEea, hEcard, hEbot⟩ :=
-    GGResLineJDatum.exists_coroot_subgroup_of_A3 (GGResHyp.Bs_le_normalizer_J hH) hD
-  have hEbs : E ≤ Bs := hE.trans inf_le_left
-  have hEJ : E ≤ J := hE.trans inf_le_right
-  obtain ⟨hDB, hDea, hDcard9, hxD, hJD, hJc, hDeq⟩ := hH.1.2.2.1
-  have hDbs : D ≤ Bs := hDB.trans hH.1.2.1.1
-  have hDcent : D ≤ Subgroup.centralizer (J : Set G) := by
-    rw [hDeq]
-    exact inf_le_right
-  have hEDcent : E ≤ Subgroup.centralizer (D : Set G) := by
-    intro e he d hd
-    exact (Subgroup.mem_centralizer_iff.mp (hDcent hd) e (hEJ he)).symm
-  have hDcentE : D ≤ Subgroup.centralizer (E : Set G) :=
-    Subgroup.le_centralizer_iff.mp hEDcent
-  have hDnormE : D ≤ Subgroup.normalizer (E : Set G) :=
-    hDcentE.trans (Subgroup.centralizer_le_normalizer (E : Set G))
-  have hDE : D ⊓ E = ⊥ := by
-    refine le_antisymm ?_ bot_le
-    rintro g ⟨hgD, hgE⟩
-    have hgC : g ∈ Subgroup.centralizer (J : Set G) := hDcent hgD
-    have hmem : g ∈ E ⊓ Subgroup.centralizer (J : Set G) := ⟨hgE, hgC⟩
-    rw [hEbot, Subgroup.mem_bot] at hmem
-    exact hmem
-  have hcardSup : Nat.card (E ⊔ D : Subgroup G) = Nat.card E * Nat.card D :=
-    CFSG.GorensteinWalter.card_sup_eq_mul_of_disjoint_of_le_normalizer E D hDnormE
-      (disjoint_iff.mpr (by simpa [inf_comm] using hDE))
-  have hlower : 3 ^ 5 ≤ Nat.card Bs := by
-    calc
-      3 ^ 5 = Nat.card E * Nat.card D := by rw [hEcard, hDcard9]; norm_num
-      _ = Nat.card (E ⊔ D : Subgroup G) := hcardSup.symm
-      _ ≤ Nat.card Bs := Subgroup.card_le_of_le (sup_le hEbs hDbs)
-  have hupper : Nat.card Bs ≤ 3 ^ 5 :=
-    ggResF4_card_Bs_le_five_of_label (fld := n) hH.1 hLperf hBsN hInnL hLab
-  have hCard : Nat.card Bs = 3 ^ 5 := le_antisymm hupper hlower
-  obtain ⟨hJL, z, hz1, hz3, hJlayer, hJcomp, hBsLz, hBsLea, hcardBsL⟩ :=
-    ggR4Meet_data hH.1 hCard hZL hInnL
-  have hC3L : GGHasLabel ⟨.C, 3, n⟩
-      (↥(J.subgroupOf L) ⧸ Subgroup.center ↥(J.subgroupOf L)) :=
-    ggF4OrderThree_layer_label (f := n) hLab hz1 hz3 hJlayer hJcomp
-  let eJ : ↥(J.subgroupOf L) ≃* ↥J := Subgroup.subgroupOfEquivOfLe hJL
-  have hJperfSubClass : Group.IsPerfect ↥(J.subgroupOf L) :=
-    Group.isPerfect_def.mpr hJcomp.2.2.1
-  have hJperfClass : Group.IsPerfect ↥J :=
-    Group.IsPerfect.ofSurjective (f := eJ.toMonoidHom) eJ.surjective
-  have hJperf : commutator ↥J = ⊤ := Group.isPerfect_def.mp hJperfClass
-  have hC3J : GGHasLabel ⟨.C, 3, n⟩ (↥J ⧸ Subgroup.center ↥J) := by
-    apply ggHasLabel_of_mulEquiv (QuotientGroup.congr
-      (Subgroup.center ↥(J.subgroupOf L)) (Subgroup.center ↥J) eJ
-      (Subgroup.map_center_eq eJ))
-    exact hC3L
-  have hZJ : ∀ g ∈ Subgroup.center ↥J, Nat.Coprime 3 (orderOf g) := by
-    have hZ3 : ¬ 3 ∣ Nat.card (Subgroup.center ↥J) :=
-      (exists_elemAbelian_of_ggHasLabel_C_three (f := n) hJperf hC3J).1
-    intro g hg
-    rw [Nat.Prime.coprime_iff_not_dvd (by norm_num : Nat.Prime 3)]
-    intro h3
-    apply hZ3
-    haveI : Fintype ↥(Subgroup.center ↥J) := Fintype.ofFinite _
-    have hdvd : orderOf g ∣ Nat.card (Subgroup.center ↥J) := by
-      rw [Nat.card_eq_fintype_card]
-      have h := orderOf_dvd_card (x := (⟨g, hg⟩ : Subgroup.center ↥J))
-      simpa using h
-    exact dvd_trans h3 hdvd
-  have hE3 : 3 ^ 3 ≤ Nat.card (Bs ⊓ J : Subgroup G) := by
-    calc
-      3 ^ 3 = Nat.card E := by rw [hEcard]; norm_num
-      _ ≤ Nat.card (Bs ⊓ J : Subgroup G) :=
-        Nat.card_le_card_of_injective (fun e : E => (⟨e, hE e.2⟩ : (Bs ⊓ J : Subgroup G)))
-          (fun a b h => Subtype.ext (congrArg (fun x : (Bs ⊓ J : Subgroup G) => (x : G)) h))
-  have hInnJ : ∀ b ∈ Bs, ∃ k ∈ J, ∀ l ∈ J, b * l * b⁻¹ = k * l * k⁻¹ := by
-    intro b hb
-    refine ggR4J_inn_of_meet (p := 3) hH.1.tableB_facts.2.1
-      hDbs hDcard9 hDcent hZJ (le_of_eq hCard) hE3 b hb
-  have h48 : 48 ≤ Nat.card (ggAutomizer J Bs) :=
-    ggR4J_card_ge_c3 hH.1.tableB_facts.2.1 hH.1.2.1.2.2.2 hJperf hZJ hInnJ hC3J
-  have h24 : Nat.card (ggAutomizer J Bs) = 24 :=
-    ggAutomizer_card_of_lineJDatum_A3 (p := 3) rfl hD
-  omega
 
 private theorem rawDatumLegacy_torusLift_F4
     {rank n : ℕ} {Q : LargeEvenRawCont} (hminus : 3 ∣ 2 ^ n - 1)
@@ -1169,42 +1053,6 @@ theorem GGResHyp.actual_J_not_F4_for_A3
       ggAutomizer_card_of_lineJDatum_A3 rfl hD
     omega
 
-theorem GGResHyp.actual_J_not_F4_for_A2
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLineJDatum 3 Bs J .A2)
-    (hmark : GGInnerDiagOnLabel (fun _ lab => lab.tag = .F4) 3 Bs J) : False := by
-  classical
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨hJperf, lab, hΛ, hraw⟩ := hmark
-  obtain ⟨tag, rank, n⟩ := lab
-  have htag : tag = .F4 := by
-    obtain ⟨R, _, I, _, hQR⟩ := largeEvenRawDatum_exists hraw
-    obtain ⟨-, -, θ, hP⟩ := hQR
-    exact hP.1
-  subst tag
-  have hmarkSplit : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .F4 ∧ lab.n = n) 3 Bs J := by
-    refine ⟨hJperf, ⟨.F4, rank, n⟩, hΛ, ?_⟩
-    refine rawDatumLegacy_mono_F4 (fun R _ I F hP => ?_) hraw
-    obtain ⟨hSimple, hNonab, θ, hPmark⟩ := hP
-    exact ⟨hSimple, hNonab, θ, ⟨⟨hPmark.1, rfl⟩, hPmark.2.1, hPmark.2.2⟩⟩
-  by_cases hplus : 3 ∣ 2 ^ n + 1
-  ·
-    obtain ⟨c₁, hc₁, c₂, hc₂, hr₁, hr₂, h4⟩ :=
-      GGResHyp.exists_F4_framePair_of_marking_nonsplit hH hmarkSplit hplus
-    have h6 : Nat.card ↥(ggAutomizer J Bs) = 6 :=
-      ggAutomizer_card_of_lineJDatum_A2 (p := 3) rfl hD
-    have h4dvd : 4 ∣ Nat.card ↥(ggAutomizer J Bs) :=
-      dvd_trans h4 (Subgroup.orderOf_dvd_natCard (ggAutomizer J Bs) (mul_mem hc₁ hc₂))
-    rw [h6] at h4dvd
-    norm_num at h4dvd
-  ·
-    have h1152 := GGResHyp.actual_J_card_eq_1152_of_split_F4 hH hmarkSplit hplus
-    have h6 : Nat.card ↥(ggAutomizer J Bs) = 6 :=
-      ggAutomizer_card_of_lineJDatum_A2 (p := 3) rfl hD
-    omega
 
 theorem GGResHyp.actual_J_not_F4_for_all_lines
     {G : Type} [Group G] [Finite G]

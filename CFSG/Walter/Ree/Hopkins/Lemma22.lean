@@ -280,16 +280,5 @@ theorem lemma22_i {m n : ℕ} (hmn : m < n) {a b : ℤ}
     (ha0 : 0 < a) (haq : a < (3 : ℤ) ^ n - 1) : a % 3 = 2 :=
   (Lemma22.all n m hmn).1 a b h hn ha ha0 haq
 
-theorem lemma22_ii {m n : ℕ} (hmn : m < n) {a b : ℤ}
-    (h : ((3 : ℤ) ^ m - 1) * a = 2 + ((3 : ℤ) ^ n + 1) * b) (hm : Odd m)
-    (h4 : Odd n → a % 4 = 1) (ha : Odd a) (ha0 : 0 < a) (haq : a < (3 : ℤ) ^ n + 1) :
-    a % 3 = 1 :=
-  (Lemma22.all n m hmn).2.1 a b h hm h4 ha ha0 haq
-
-theorem lemma22_iii {m n : ℕ} (hmn : m < n) {a b : ℤ}
-    (h : ((3 : ℤ) ^ m + 1) * a = 2 + ((3 : ℤ) ^ n + 1) * b) (hmn2 : m % 2 ≠ n % 2)
-    (h4 : Odd n → a % 4 = 3) (ha : Odd a) (ha0 : 0 < a) (haq : a < (3 : ℤ) ^ n + 1) :
-    a % 3 = 0 :=
-  (Lemma22.all n m hmn).2.2 a b h hmn2 h4 ha ha0 haq
 
 end CFSG.Walter.Ree.Hopkins

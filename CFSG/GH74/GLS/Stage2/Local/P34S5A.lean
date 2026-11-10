@@ -124,32 +124,6 @@ end Fus
 
 section Choice
 
-variable {G : Type} [Group G] [Finite G] {z : G}
-
-omit [Finite G] in
-theorem exists_prop27_x (h : ∃ x₀ ∈ Cen z, IsNonCentralInvolution x₀) :
-    ∃ x ∈ Cen z, IsNonCentralInvolution x ∧
-      (Ixz z x ≠ ⊥ ∨ ∀ x' ∈ Cen z, IsNonCentralInvolution x' → Ixz z x' = ⊥) := by
-  by_cases hex : ∃ x' ∈ Cen z, IsNonCentralInvolution x' ∧ Ixz z x' ≠ ⊥
-  · obtain ⟨x', hx'C, hx'nc, hI⟩ := hex
-    exact ⟨x', hx'C, hx'nc, Or.inl hI⟩
-  · push Not at hex
-    obtain ⟨x₀, hx₀C, hx₀nc⟩ := h
-    exact ⟨x₀, hx₀C, hx₀nc, Or.inr hex⟩
-
-omit [Finite G] in
-theorem exists_sylow_T {x : G} (hx : x ∈ Cen z) (hz2 : orderOf z = 2) :
-    ∃ T : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 2 T (centralizer ({x} : Set G)) ∧ z ∈ T := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hzC : z ∈ centralizer ({x} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (Subgroup.mem_centralizer_singleton_iff.1 hx).symm
-  have hz' : orderOf (⟨z, hzC⟩ : ↥(centralizer ({x} : Set G))) = 2 := by
-    rw [← hz2]
-    exact (Subgroup.orderOf_coe _).symm
-  obtain ⟨Q, hQ⟩ := (isPGroup_zpowers_of_orderOf_eq_two hz').exists_le_sylow
-  refine ⟨(Q : Subgroup ↥(centralizer ({x} : Set G))).map (centralizer ({x} : Set G)).subtype, ⟨Q, rfl⟩, ?_⟩
-  exact ⟨⟨z, hzC⟩, hQ (mem_zpowers _), rfl⟩
 
 end Choice
 

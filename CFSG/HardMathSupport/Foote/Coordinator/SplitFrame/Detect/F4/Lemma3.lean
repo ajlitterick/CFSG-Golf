@@ -24,8 +24,6 @@ theorem f4ShortList_cases : ∀ γ ∈ f4ShortList,
 theorem reflect_two_single_three : reflect Tag.F4 2 (Pi.single 3 1) = Pi.single 2 1 + Pi.single 3 1 := by
   decide +kernel
 
-theorem isRoot_reflect_two_single_three : IsRoot Tag.F4 (reflect Tag.F4 2 (Pi.single 3 1)) :=
-  IsRoot.reflect 2 (isRoot_single Tag.F4 3)
 
 theorem pinnedX_mem_Lθ_S2 {γ : Fin Tag.F4.rank → ℤ} (hγ : γ ∈ f4ShortList) (t : K) :
     pinnedX Tag.F4 K γ t ∈ Lθ Tag.F4 K := by

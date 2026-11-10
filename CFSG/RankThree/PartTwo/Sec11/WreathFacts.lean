@@ -118,6 +118,5 @@ theorem right_eq_one_of_abelian_of_card {S : Subgroup W33}
   have := card_le_nine_of_abelian_of_not_le_base hab hy hq
   omega
 
-variable {P : Type*} [Group P]
 
 end CFSG.RankThree.PartTwo.Sec11

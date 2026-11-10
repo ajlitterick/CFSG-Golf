@@ -111,9 +111,5 @@ theorem ggCoxeterLabelInput_of_fork (hF : GGCoxeterForkLabelInput)
     · exact ggWeylReflectionGroup_of_stdDatum hp2 hNT hstd
     · exact hR G p B Bs x L D J hcfg hOp hID hNT y K hnbr hrefl hsc hfork hstd
 
-theorem ggCoxeterLabelResidualInput_of_coxeterLabelInput (hd : GGCoxeterLabelInput) :
-    GGCoxeterLabelResidualInput := by
-  intro G _ _ p B Bs x L D J hcfg hOp hID hNT y K hnbr hrefl hsc _ _ _
-  exact hd G p B Bs x L D J hcfg hOp hID hNT y K hnbr hrefl hsc
 
 end CFSG.StandardType

@@ -46,9 +46,6 @@ theorem outerFusion (hs : Std8Core Ω K J S R T W z t)
     (hXs : Loc26 Ω J K S T R t z Q') : OuterFusion K J S R T z t := by
   exact outerFusion_of hs.toFrame (conj_zt_of_mem_sylow hs hX) (eq_of_mem_conj_sylow hs hX hXs)
 
-theorem false_of_loc26 [IsSimpleGroup G] (hs : Std8Core Ω K J S R T W z t)
-    (hX : Loc26 Ω K J S R T z t Q) (hXs : Loc26 Ω J K S T R t z Q') : False :=
-  false_of_loc hs hX hXs (extraTrans hs hX hXs) (extraTrans hs.symm' hXs hX) (outerFusion hs hX hXs)
 
 end T8R.Loc
 

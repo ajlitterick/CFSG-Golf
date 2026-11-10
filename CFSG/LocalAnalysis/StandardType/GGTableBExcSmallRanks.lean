@@ -91,48 +91,10 @@ theorem largeEvenLabelAll_card_lt_smallRanksDone {p : ℕ} {lab : LargeEvenLabel
   · exact largeEvenLabelAll_card_lt_twF4_of_ne_three hp3 hp hlab ht hs
 
 
-theorem largeEvenLabelAll_card_lt_smallRanks (hF3 : GGTwF4ThreeRankInput)
-    (hT : GGTitsThreeRankInput) {p : ℕ} {lab : LargeEvenLabel} (hp : p.Prime)
-    (hlab : LargeEvenInLambda2 lab) (h : GGTableBExcSmallRestLabel p lab)
-    (hs : LargeEvenSplit p lab) :
-    LargeEvenLabelAll lab fun R _ I _ => ∀ X : Subgroup (MulAut R),
-      (X : Set (MulAut R)) ⊆ I → IsElemAbelian p X → Nat.card X < p ^ 3 :=
-  largeEvenLabelAll_card_lt_smallRest ggTriD4ThreeRankInput_holds (ggTwF4RankInput_of_three hF3)
-    hT hp hlab h hs
-
 end Labels
 
 section Inputs
 
-
-theorem ggBstarInputOn_smallRanksDone : GGBstarInputOn GGTableBExcSmallRanksDoneLabel :=
-  ggBstarInputOn_of_labelAll_card_lt fun _ _ hp hlab h hs =>
-    largeEvenLabelAll_card_lt_smallRanksDone hp hlab h hs
-
-theorem ggStdSubPreInputOn_smallRanksDone : GGStdSubPreInputOn GGTableBExcSmallRanksDoneLabel :=
-  ggStdSubPreInputOn_of_labelAll_card_lt fun _ _ hp hlab h hs =>
-    largeEvenLabelAll_card_lt_smallRanksDone hp hlab h hs
-
-
-theorem ggBstarInputOn_smallRest_of_three (hF3 : GGTwF4ThreeRankInput)
-    (hT : GGTitsThreeRankInput) : GGBstarInputOn GGTableBExcSmallRestLabel :=
-  ggBstarInputOn_smallRest ggTriD4ThreeRankInput_holds (ggTwF4RankInput_of_three hF3) hT
-
-theorem ggStdSubPreInputOn_smallRest_of_three (hF3 : GGTwF4ThreeRankInput)
-    (hT : GGTitsThreeRankInput) : GGStdSubPreInputOn GGTableBExcSmallRestLabel :=
-  ggStdSubPreInputOn_smallRest ggTriD4ThreeRankInput_holds (ggTwF4RankInput_of_three hF3) hT
-
-theorem ggBstarInputOn_rest4NoF4_of_noSmall_three (hF3 : GGTwF4ThreeRankInput)
-    (hT : GGTitsThreeRankInput) (h : GGBstarInputOn GGTableBOtherRestNoSmall) :
-    GGBstarInputOn GGTableBOtherRest4NoF4 :=
-  ggBstarInputOn_rest4NoF4_of_noSmall ggTriD4ThreeRankInput_holds (ggTwF4RankInput_of_three hF3)
-    hT h
-
-theorem ggStdSubPreInputOn_rest4NoF4_of_noSmall_three (hF3 : GGTwF4ThreeRankInput)
-    (hT : GGTitsThreeRankInput) (h : GGStdSubPreInputOn GGTableBOtherRestNoSmall) :
-    GGStdSubPreInputOn GGTableBOtherRest4NoF4 :=
-  ggStdSubPreInputOn_rest4NoF4_of_noSmall ggTriD4ThreeRankInput_holds
-    (ggTwF4RankInput_of_three hF3) hT h
 
 end Inputs
 

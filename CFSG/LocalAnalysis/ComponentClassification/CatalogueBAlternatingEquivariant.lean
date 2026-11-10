@@ -115,48 +115,6 @@ theorem equivariantNormalizerHom_surjective {P Ω : Type*} [Group P] [MulAction 
   rw [mul_smul, ha,
     (mem_equivariantSubgroup c.val).mp c.property]
 
-theorem equivariantNormalizerHom_ker {P Ω : Type*} [Group P] [MulAction P Ω]
-    [MulAction.IsPretransitive P Ω] (x : Ω) :
-    (equivariantNormalizerHom P Ω x).ker =
-      (MulAction.stabilizer P x).op.subgroupOf
-        (Subgroup.normalizer (MulAction.stabilizer P x : Set P)).op := by
-  ext a
-  change equivariantNormalizerHom P Ω x a = 1 ↔
-    a.val.unop ∈ MulAction.stabilizer P x
-  rw [← (equivariant_evaluation_injective x).eq_iff]
-  change equivariantRightHom P Ω x a x = x ↔ a.val.unop • x = x
-  have happly := equivariantRightHom_apply x a 1
-  simp only [one_smul, one_mul] at happly
-  rw [happly]
-
-theorem transitive_equivariant_card {P Ω : Type*} [Group P] [Finite P]
-    [MulAction P Ω] [MulAction.IsPretransitive P Ω] (x : Ω) :
-    Nat.card (equivariantSubgroup P Ω) =
-      (MulAction.stabilizer P x).relIndex
-        (Subgroup.normalizer (MulAction.stabilizer P x : Set P)) := by
-  let H := MulAction.stabilizer P x
-  let N := Subgroup.normalizer (H : Set P)
-  let f := equivariantNormalizerHom P Ω x
-  let : Finite N.op := Finite.of_equiv N N.equivOp
-  let : Finite f.ker := inferInstance
-  have hkerCard : Nat.card f.ker = Nat.card H := by
-    rw [equivariantNormalizerHom_ker]
-    exact (Nat.card_congr (Subgroup.subgroupOfEquivOfLe
-      (Subgroup.op_le_op_iff.mpr H.le_normalizer)).toEquiv).trans
-        (Nat.card_congr H.equivOp).symm
-  have hnormalizerCard : Nat.card N.op = Nat.card N :=
-    (Nat.card_congr N.equivOp).symm
-  have hsubgroupCard : Nat.card (H.subgroupOf N) = Nat.card H :=
-    Nat.card_congr (Subgroup.subgroupOfEquivOfLe H.le_normalizer).toEquiv
-  calc
-    Nat.card (equivariantSubgroup P Ω) = Nat.card (N.op ⧸ f.ker) :=
-      (Nat.card_congr (QuotientGroup.quotientKerEquivOfSurjective f
-        (equivariantNormalizerHom_surjective x)).toEquiv).symm
-    _ = Nat.card N.op / Nat.card f.ker := f.ker.index_eq_card_div
-    _ = Nat.card N / Nat.card H := by rw [hnormalizerCard, hkerCard]
-    _ = H.relIndex N := by
-      change _ = (H.subgroupOf N).index
-      rw [Subgroup.index_eq_card_div, hsubgroupCard]
 
 theorem transitive_equivariant_isPGroup {P Ω : Type*} [Group P] [Finite P]
     [MulAction P Ω] [MulAction.IsPretransitive P Ω] (p : ℕ) [Fact p.Prime]

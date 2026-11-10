@@ -12,32 +12,6 @@ namespace T81
 
 variable {G : Type*} [Group G] [Finite G]
 
-theorem eq_sSup_of_refines {M : Subgroup G} {Ω Ω' : Set (Subgroup G)}
-    (hΩ : IsDirectProduct Ω M) (hΩ' : IsDirectProduct Ω' M)
-    (href : ∀ X ∈ Ω, ∃ Y ∈ Ω', X ≤ Y) {Y : Subgroup G} (hY : Y ∈ Ω') :
-    Y = sSup {X | X ∈ Ω ∧ X ≤ Y} := by
-  refine le_antisymm ?_ (sSup_le fun X hX => hX.2)
-  set Q : Subgroup G := sSup {X | X ∈ Ω ∧ X ≤ Y}
-  let f : ↥M →* G := Y.subtype.comp (hΩ'.coord hY)
-  have hf : ∀ m : M, f m ∈ Q := by
-    refine hom_mem_of_forall_mem hΩ f Q fun X hX x hx => ?_
-    obtain ⟨Y', hY', hXY'⟩ := href X hX
-    by_cases hYY : Y' = Y
-    · subst hYY
-      have h1 : f ⟨x, hΩ.le hX hx⟩ = x := hΩ'.coord_of_mem hY' (hXY' hx)
-      rw [h1]
-      exact le_sSup (show X ∈ {X | X ∈ Ω ∧ X ≤ Y'} from ⟨hX, hXY'⟩) hx
-    · have h1 : f ⟨x, hΩ.le hX hx⟩ = 1 := by
-        have h2 := hΩ'.coord_of_mem_ne hY hY' hYY (hXY' hx)
-        simp only [f, MonoidHom.comp_apply, Subgroup.subtype_apply]
-        rw [h2]
-        rfl
-      rw [h1]
-      exact one_mem Q
-  intro y hy
-  have h1 := hf ⟨y, hΩ'.le hY hy⟩
-  have h2 : f ⟨y, hΩ'.le hY hy⟩ = y := hΩ'.coord_of_mem hY hy
-  rwa [h2] at h1
 
 theorem projIn_le_iSup_projIn_of_refines {M D : Subgroup G} {Ω Ω' : Set (Subgroup G)}
     (hΩ : IsDirectProduct Ω M) (hΩ' : IsDirectProduct Ω' M)

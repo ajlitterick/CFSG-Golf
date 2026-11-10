@@ -40,21 +40,5 @@ decreasing_by exact _h
           i' != 0 &&
           tabPowIdx P L i' p == 0 && lab[i']! == c' && decide (depth[c']! < depth[c]!))
 
-@[expose] def genIdx (L : Array (Array Nat)) (j : Nat) : Nat := (L[j]!)[0]!
-
-@[expose] def wordIdx (n : Nat) (P : Array (Nat × Nat)) (L : Array (Array Nat))
-    (v : Array Nat) : Nat :=
-  (List.range n).foldr (fun k acc => tabMul P L (tabPowIdx P L (genIdx L k) v[k]!) acc) 0
-
-@[expose] def idxWordOK (p n : Nat) (P : Array (Nat × Nat)) (L : Array (Array Nat))
-    (idxs : Array Nat) : Bool :=
-  idxs.all fun i => decide (i < p ^ n) && wordIdx n P L (digitsOf p n i) == i
-
-@[expose] def repIdxOK (p n : Nat) (P : Array (Nat × Nat)) (L : Array (Array Nat))
-    (rep targets repIdx : Array Nat) : Bool :=
-  targets.size == repIdx.size &&
-    (List.range targets.size).all (fun m =>
-      decide (targets[m]! < rep.size) && rep[targets[m]!]! == repIdx[m]!) &&
-    idxWordOK p n P L repIdx
 
 end Timmesfeld.PcFus

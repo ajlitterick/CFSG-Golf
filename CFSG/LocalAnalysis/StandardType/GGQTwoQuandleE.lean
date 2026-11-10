@@ -11,8 +11,6 @@ open CFSG CFSG.Assembly Module QTwoLin
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-@[expose] def GGQ2Lin.reflections {p : ℕ} [Fact p.Prime] (D : GGQ2Lin p) :
-    Set (D.V ≃ₗ[ZMod p] D.V) := {t | t ∈ D.weyl ∧ IsReflLin t}
 
 section Refl
 

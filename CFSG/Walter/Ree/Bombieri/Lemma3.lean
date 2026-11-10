@@ -27,28 +27,6 @@ theorem eval_frob {k t : ℕ} {σ : K ≃+* K} (hσ : ∀ x, σ x = x ^ 3 ^ t)
   congr 1
   refine Finset.sum_congr rfl fun i _ => by ring
 
-theorem one_le_expo {k t : ℕ} {α : Fin (k + 1) →₀ ℕ} (hα : α ≠ 0) : 1 ≤ expo t α := by
-  obtain ⟨i, hi⟩ : ∃ i, α i ≠ 0 := by
-    by_contra h; push Not at h; exact hα (Finsupp.ext h)
-  calc 1 ≤ α i * 3 ^ (t * i) := Nat.one_le_iff_ne_zero.mpr (mul_ne_zero hi (by positivity))
-    _ ≤ expo t α := Finset.single_le_sum (f := fun j => α j * 3 ^ (t * j))
-        (fun _ _ => Nat.zero_le _) (Finset.mem_univ i)
-
-omit [Fintype K] in
-theorem coeff_zero_eq_zero {k t : ℕ} {σ : K ≃+* K} (hσ : ∀ x, σ x = x ^ 3 ^ t)
-    {H : MvPolynomial (Fin (k + 1)) (ZMod 3)}
-    (hvan : ∀ z : K, eval₂ (castThree K) (fun i : Fin (k + 1) => (σ ^ (i : ℕ)) z) H = 0) :
-    H.coeff 0 = 0 := by
-  have h := hvan 0
-  rw [eval_frob hσ] at h
-  by_cases h0 : (0 : Fin (k + 1) →₀ ℕ) ∈ H.support
-  · rw [Finset.sum_eq_single 0 (fun α _ hα => by
-      rw [zero_pow (by have := one_le_expo (t := t) hα; omega), mul_zero])
-      (fun h' => absurd h0 h')] at h
-    simp only [expo, Finsupp.coe_zero, Pi.zero_apply, zero_mul, Finset.sum_const_zero,
-      pow_zero, mul_one] at h
-    exact (castThree K).injective (by rw [h, map_zero])
-  · simpa using h0
 
 theorem exists_collision {m k t : ℕ} (hK : Fintype.card K = 3 ^ m) {σ : K ≃+* K}
     (hσ : ∀ x, σ x = x ^ 3 ^ t) {H : MvPolynomial (Fin (k + 1)) (ZMod 3)} (hH : H ≠ 0)

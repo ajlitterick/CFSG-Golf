@@ -31,11 +31,6 @@ abbrev spOp (g : sesqUnitaryGroup B) : Module.End K V :=
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem centralizerSimEquiv_coe (T : sesqUnitaryGroup B) (x : Subgroup.centralizer {T}) :
-    ((centralizerSimEquiv T x : similitudeCentralizer B (T : LinearMap.GeneralLinearGroup K V)) :
-      LinearMap.GeneralLinearGroup K V) =
-      ((x : sesqUnitaryGroup B) : LinearMap.GeneralLinearGroup K V) :=
-  rfl
 
 @[expose] def symplecticSummandSet (B : LinearMap.BilinForm K V) (A W : Submodule K V) :
     Set (sesqUnitaryGroup B) :=

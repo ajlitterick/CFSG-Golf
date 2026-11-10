@@ -187,25 +187,6 @@ theorem QSetting.mono_left (h : QSetting p R A G) {A' : Subgroup Γ} (hA' : A' �
   le_nrm_G := h.le_nrm_G
   le_nrm_A := hA'.trans h.le_nrm_A
 
-theorem le_normalizer_kUp_iff (h : QSetting p R A G) {X : Subgroup Γ} (hX : X ≤ G) :
-    qimg R X ≤ Subgroup.normalizer (kUp (qimg R G) (qimg R A) : Set (QG R)) ↔
-      X ≤ Subgroup.normalizer (kUp G A : Set Γ) := by
-  rw [kUp_qimg h]
-  by_cases hne : (mcalA G A).Nonempty
-  · obtain ⟨M, hM⟩ := hne
-    have hRM : G ⊓ R ≤ kUp G A :=
-      (inf_le_sol h.solvable h.le_nrm_G).trans (hM.1.2.1.trans (le_iSup₂_of_le M hM le_rfl))
-    exact qimg_le_normalizer_iff (kUp_le G A) hRM h.le_nrm_G hX
-  · have hbot : kUp G A = ⊥ := by
-      unfold kUp
-      rw [Set.not_nonempty_iff_eq_empty.mp hne]
-      simp
-    have h1 : Subgroup.normalizer ((⊥ : Subgroup Γ) : Set Γ) = ⊤ :=
-      Subgroup.normalizer_eq_top_iff.mpr inferInstance
-    have h2 : Subgroup.normalizer ((⊥ : Subgroup (QG R)) : Set (QG R)) = ⊤ :=
-      Subgroup.normalizer_eq_top_iff.mpr inferInstance
-    rw [hbot, qimg_bot, h1, h2]
-    exact iff_of_true le_top le_top
 
 theorem exists_mem_kUp_of_qimg (h : QSetting p R A G) (hRG : R ≤ sol G) {X : Subgroup Γ}
     (hX : X ≤ G)

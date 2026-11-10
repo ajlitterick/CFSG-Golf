@@ -64,14 +64,6 @@ theorem t131_uv_fixes_a_half (m : ℕ) (hm : 3 ≤ m) :
         rw [pow_succ]; ring]
     ring
 
-theorem t131_u_b_half (m : ℕ) (hm : 3 ≤ m) :
-    (StrothTypeIndex.t131 m hm).action.φu
-        ((2 ^ m : ℕ) • Torus.b (k := (StrothTypeIndex.t131 m hm).k)) =
-      (2 ^ m : ℕ) • Torus.a (k := (StrothTypeIndex.t131 m hm).k) := by
-  have h1 := DFunLike.congr_fun (StrothTypeIndex.t131 m hm).action.rels.u_sq
-    ((2 ^ m : ℕ) • Torus.a (k := (StrothTypeIndex.t131 m hm).k))
-  rw [← t131_u_a_half m hm]
-  simpa using h1
 
 theorem t131_uv_fixes_b_half (m : ℕ) (hm : 3 ≤ m) :
     (StrothTypeIndex.t131 m hm).action.φuv
@@ -128,7 +120,6 @@ theorem t131_u_ab_half (m : ℕ) (hm : 3 ≤ m) :
   fin_cases i <;> simp [Type131.k]
   rw [Int.modEq_iff_dvd, hQ2, hQ1]
   exact ⟨-(4 * Type120.FV (m + 1) * (Q - 1)), by ring⟩
-
 
 
 theorem t131_uv_preimage (m : ℕ) (hm : 3 ≤ m) :

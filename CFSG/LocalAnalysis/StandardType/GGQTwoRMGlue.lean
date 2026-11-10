@@ -137,23 +137,6 @@ theorem qTwo_rm2
   · exact ggRM_of_witness hcfg.2.2.2 (qTwo_witness_main hcfg hm hLM (hWeyl hC))
   · exact qTwo_rm_fixed hcfg hLM hC
 
-theorem qTwoGlobLin_rm2
-    {B Bs L D J : Subgroup G} {x : G} {𝒦 : Finset (Subgroup G)}
-    {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    {ι : Additive ↥Bs ≃+ V}
-    {U : Submodule (ZMod 3) V} {Abar : Subgroup (↥U ≃ₗ[ZMod 3] ↥U)}
-    {ρ : ↥(ggAInf 3 B Bs x L D J) ≃* ↥Abar}
-    (hcfg : GGSecFiveRouteCfg 3 B Bs x L D J 𝒦)
-    {m N : ℕ} (hm : 5 ≤ m) (hN1 : m + 1 ≤ N) (hN2 : N ≤ m + 2)
-    (hA : GGWeylOfType 3 (CoxeterMatrix.A (N - 1)) (ggAutomizerJoin L Bs 𝒦))
-    (hLM : QTwoLocalModel m Bs L x)
-    (hD : GGSecFiveBarData 3 B Bs x L D J ι U Abar ρ)
-    (hdim : Module.finrank (ZMod 3) U = m ∨ Module.finrank (ZMod 3) U + 1 = m)
-    (hFam : ZS.Family 3 Abar) :
-    ∀ (y : G) (K' : Subgroup G), GGNbr 3 B x D J y K' →
-      ggAutomizer K' Bs ≤ ggAutomizerJoin L Bs 𝒦 :=
-  qTwo_rm2 hcfg hm hLM (fun _ =>
-    qTwoGlobLin_ainf_weyl hcfg hm hN1 hN2 hA hLM hD hdim hFam)
 
 end CFSG.StandardType.QTwo
 

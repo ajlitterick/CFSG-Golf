@@ -11,50 +11,6 @@ open CFSG.OrderReductions.InvolutionGraph
 open CFSG.OrderReductions.TwoPointInvolutions
 open CFSG.OrderReductions.NormalizerAuxiliary
 
-theorem maximal_contained_centralizer_auxiliary_of_no_fixed_two
-    {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)]
-    (even_point_rule : CFSG.OrderReductions.EmptyRegularity.EvenPointRule (group := group) prime)
-    (point : Component group) (subgroup : Subgroup group)
-    (maximal : Maximal (CFSG.OrderReductions.PointMaximal.PointThreePointPrime prime point) subgroup)
-    (no_two : ∀ prime_subgroup : Subgroup group, IsPGroup prime prime_subgroup →
-      Nat.card (MulAction.fixedPoints prime_subgroup (Component group)) ≠ 2)
-    (inside : Involution group) (inside_mem : inside.val ∈ componentStabilizer point)
-    (normalizes : inside.val ∈ Subgroup.normalizer (subgroup : Set group))
-    (centralizer_le : Subgroup.centralizer (inversionSet subgroup inside) ≤ componentStabilizer point) :
-    AuxiliaryData point (inversionSet subgroup inside) inside prime
-      (Subgroup.normalizer (subgroup : Set group)) := by
-  obtain ⟨global_maximal, other, distinct, sylow, image_eq⟩ :=
-    CFSG.OrderReductions.PointMaximal.point_maximal_global_of_no_fixed_two prime point subgroup maximal no_two
-  exact maximal_contained_centralizer_auxiliary prime even_point_rule subgroup global_maximal
-    point other distinct sylow (image_eq ▸ le_rfl) point
-    (MulAction.mem_fixedPoints.mpr fun element => maximal.prop.2 element.property)
-    inside inside_mem normalizes centralizer_le
-
-theorem maximal_auxiliary_of_regular_pair_and_solvable_centralizer
-    {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (odd_prime : Odd prime)
-    (even_point_rule : CFSG.OrderReductions.EmptyRegularity.EvenPointRule (group := group) prime)
-    (point : Component group) (strong : StronglyEmbedded (componentStabilizer point))
-    (subgroup : Subgroup group)
-    (maximal : Maximal (CFSG.OrderReductions.PointMaximal.PointThreePointPrime prime point) subgroup)
-    (first second : Component group) (distinct : first ≠ second)
-    (regular : CFSG.OrderReductions.PrimeRegular.PRegular prime (pairSubgroup first second) (componentStabilizer first))
-    (inside : Involution group) (inside_mem : inside.val ∈ componentStabilizer point)
-    (normalizes : inside.val ∈ Subgroup.normalizer (subgroup : Set group))
-    (centralizer_solvable : ¬ Subgroup.centralizer (inversionSet subgroup inside) ≤ componentStabilizer point →
-      Group.IsSolvable (Subgroup.centralizer (inversionSet subgroup inside))) :
-    ∃ extension : Subgroup group, AuxiliaryData point (inversionSet subgroup inside) inside prime extension := by
-  classical
-  by_cases centralizer_le : Subgroup.centralizer (inversionSet subgroup inside) ≤ componentStabilizer point
-  · exact ⟨Subgroup.normalizer (subgroup : Set group),
-      maximal_contained_centralizer_auxiliary_of_no_fixed_two prime even_point_rule point subgroup maximal
-        (CFSG.OrderReductions.PointMaximal.no_fixed_two_of_regular prime odd_prime even_point_rule
-          first second distinct regular) inside inside_mem normalizes centralizer_le⟩
-  · have : Group.IsSolvable (Subgroup.centralizer (inversionSet subgroup inside)) :=
-      centralizer_solvable centralizer_le
-    exact CFSG.OrderReductions.OutsideAuxiliary.outside_centralizer_auxiliary_of_solvable prime point strong
-      subgroup maximal.prop.1.1 maximal.prop.2 inside inside_mem normalizes centralizer_le
 
 theorem maximal_contained_centralizer_auxiliary
     {group : Type*} [Group group] [Finite group]

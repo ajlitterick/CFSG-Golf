@@ -258,11 +258,6 @@ theorem map_B23 : (B23 K).map T.theta = T.frame12.swap.La.range := by
   ext A : 1
   exact T.theta_blockSL_one A
 
-theorem range_theta :
-    T.theta.range = T.frame01.swap.La.range ⊔ T.frame12.swap.La.range := by
-  rw [← map_B12, ← map_B23, ← Subgroup.map_sup, MonoidHom.range_eq_map, ← B12_sup_B23 (K := K)]
-
-@[expose] def frame02 : Frame Q := ⟨T.a, T.c, T.ac⟩
 
 @[expose] noncomputable def outerElt (A : SL(2, K)) : SL(3, K) :=
   ⟨!![(A : Matrix (Fin 2) (Fin 2) K) 0 0, 0, (A : Matrix (Fin 2) (Fin 2) K) 0 1;
@@ -304,36 +299,6 @@ theorem coe_outerBlock (A : SL(2, K)) :
         0, 1, 0; (A : Matrix (Fin 2) (Fin 2) K) 1 0, 0, (A : Matrix (Fin 2) (Fin 2) K) 1 1] :=
   rfl
 
-theorem Tmap_outerBlock (A : SL(2, K)) (z : (Fin 3 → K) × (Fin 3 → K)) :
-    Tmap K (outerBlock K A) z =
-      (![(A : Matrix (Fin 2) (Fin 2) K) 0 0 * z.1 0 + (A : Matrix (Fin 2) (Fin 2) K) 0 1 * z.1 2,
-        z.1 1,
-        (A : Matrix (Fin 2) (Fin 2) K) 1 0 * z.1 0 + (A : Matrix (Fin 2) (Fin 2) K) 1 1 * z.1 2],
-       ![(A : Matrix (Fin 2) (Fin 2) K) 1 1 * z.2 0 - (A : Matrix (Fin 2) (Fin 2) K) 1 0 * z.2 2,
-        z.2 1,
-        -(A : Matrix (Fin 2) (Fin 2) K) 0 1 * z.2 0 +
-          (A : Matrix (Fin 2) (Fin 2) K) 0 0 * z.2 2]) := by
-  have hinv : ((outerBlock K A)⁻¹ : SL(3, K)) = outerBlock K A⁻¹ := (map_inv _ A).symm
-  have h1 : Tmap K (outerBlock K A) z =
-      (Matrix.mulVec ((outerBlock K A : SL(3, K)) : Matrix (Fin 3) (Fin 3) K) z.1,
-        Matrix.mulVec (((outerBlock K A⁻¹ : SL(3, K)) : Matrix (Fin 3) (Fin 3) K))ᵀ z.2) := by
-    simp only [Tmap, MonoidHom.coe_mk, OneHom.coe_mk, LinearMap.prodMap_apply,
-      Matrix.mulVecLin_apply]
-    rw [hinv]
-  rw [h1, coe_outerBlock, coe_outerBlock]
-  ext i <;> fin_cases i
-  all_goals simp [Matrix.SpecialLinearGroup.coe_inv, Matrix.adjugate_fin_two, Matrix.mulVec,
-    dotProduct, Fin.sum_univ_three]
-  ring
-
-theorem theta_outerBlock (A : SL(2, K)) :
-    T.theta (outerBlock K A) = T.frame02.swap.La A := by
-  refine LinearEquiv.ext fun x => ?_
-  rw [theta_apply, Tmap_outerBlock, Frame.La_apply]
-  congr 1
-  simp [incl, coords, Frame.incl_apply, Frame.coords_apply, Frame.swap, frame02, e, f,
-    Matrix.mul_apply, Fin.sum_univ_two, Matrix.vecHead, Matrix.vecTail]
-  module
 
 theorem coe_neg_one_sl2 : (((-1 : SL(2, K)) : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = -1 := by
   simp [Matrix.SpecialLinearGroup.coe_neg]
@@ -365,15 +330,9 @@ theorem orth_swapPair_right {P P' : HypPair Q} (h : P.Orth P') : P.Orth (swapPai
 
 theorem flipA_frame01_swap : T.flipA.frame01.swap = T.frame01.flip := rfl
 
-theorem flipA_frame12 : T.flipA.frame12 = T.frame12 := rfl
-
-theorem flipB_frame01_swap : T.flipB.frame01.swap = T.frame01 := rfl
 
 theorem flipB_frame12_swap : T.flipB.frame12.swap = T.frame12.flip := rfl
 
-theorem flipC_frame01_swap : T.flipC.frame01.swap = T.frame01.swap := rfl
-
-theorem flipC_frame12_swap : T.flipC.frame12.swap = T.frame12 := rfl
 
 theorem exists_triple_theta {L₁ L₂ : Subgroup (V ≃ₗ[K] V)}
     (h₁ : L₁ = T.frame01.La.range ∨ L₁ = T.frame01.swap.La.range)
@@ -396,14 +355,6 @@ theorem exists_theta {L₁ L₂ : Subgroup (V ≃ₗ[K] V)}
   refine ⟨T'.theta, T'.theta_injective, ?_, e1, e2⟩
   rw [← e1, ← e2, ← Subgroup.map_sup, MonoidHom.range_eq_map, ← B12_sup_B23 (K := K)]
 
-theorem La_neg_one_mul_eq :
-    T.frame01.swap.La (-1) * T.frame12.swap.La (-1) = T.frame02.swap.La (-1) := by
-  rw [← T.theta_blockSL_zero, ← T.theta_blockSL_one, ← map_mul, blockSL_neg_one_mul,
-    theta_outerBlock]
-
-theorem La_range_le_range_theta : T.frame02.swap.La.range ≤ T.theta.range := by
-  rintro _ ⟨A, rfl⟩
-  exact ⟨outerBlock K A, T.theta_outerBlock A⟩
 
 end Triple
 

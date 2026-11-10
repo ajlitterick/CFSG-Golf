@@ -183,14 +183,6 @@ theorem isNilpotent_projIn (hL : IsDirectProduct S L) {J : Subgroup Γ} (hJ : J 
     Group.IsNilpotent (projIn S J X) :=
   Group.nilpotent_of_surjective _ (projInHom_surjective hL hJ hXL)
 
-theorem isMulCommutative_projIn (hL : IsDirectProduct S L) {J : Subgroup Γ} (hJ : J ∈ S)
-    {X : Subgroup Γ} (hXL : X ≤ L) (hX : IsMulCommutative X) :
-    IsMulCommutative (projIn S J X) := by
-  rw [isMulCommutative_iff]
-  intro a b
-  obtain ⟨a', rfl⟩ := projInHom_surjective hL hJ hXL a
-  obtain ⟨b', rfl⟩ := projInHom_surjective hL hJ hXL b
-  rw [← map_mul, ← map_mul, mul_comm' a' b']
 
 theorem projIn_conj_mem (hL : IsDirectProduct S L) {J : Subgroup Γ} (hJ : J ∈ S)
     {Y X : Subgroup Γ} (hYX : ∀ y ∈ Y, ∀ x ∈ X, y * x * y⁻¹ ∈ X) :

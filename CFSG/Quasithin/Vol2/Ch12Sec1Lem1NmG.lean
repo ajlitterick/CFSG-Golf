@@ -36,10 +36,6 @@ variable [CharP F 2]
 @[expose] def swapW : SpecialLinearGroup (Fin 2) F :=
   ⟨!![0, 1; 1, 0], by simp [det_fin_two, CharTwo.neg_eq]⟩
 
-omit [CharP F 2] in
-theorem coe_swapW' (h : ((!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) F)).det = 1) :
-    ((⟨!![0, 1; 1, 0], h⟩ : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
-      !![0, 1; 1, 0] := rfl
 
 theorem coe_swapW : ((swapW : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
     !![0, 1; 1, 0] := rfl

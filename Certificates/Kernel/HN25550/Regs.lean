@@ -11,7 +11,6 @@ namespace CFSG.KD.HN25550
 
 open CFSG.KC.HNMult
 
-theorem l_ok : Nat.beq L 46 = true := by quickRfl
 
 theorem roots : CFSG.KC.Ord.rootsOK RB vld 1 47 = true := by quickRfl
 

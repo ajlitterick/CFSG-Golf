@@ -912,25 +912,6 @@ set_option compiler.extract_closed false
 
 @[expose] def suzATab (k : ℕ) : Tab := hexTable 3 1782 (1782 * k) suzAGHex
 
-@[expose] def suzAGens : Array Tab := Array.ofFn (n := 5) fun j => suzATab j.val
-
-@[expose] def suzAEnum (_ : Unit := ()) : Enum := enumBFS 1782 suzAGens 243
-
-@[expose] def suzAGCheck (_ : Unit := ()) : Bool :=
-  let E := suzAEnum ()
-  let idx := indexOf E.tabs
-  let g := suzATab 5
-  let gi := invCand 1782 g
-  (allBelow 6 fun k => permOK 1782 (suzATab k) && inM (suzATab k)) &&
-    enumOK 1782 suzAGens E && E.tabs.size == 243 &&
-    (allBelow 243 fun i =>
-      comp 1782 E.tabs[i]! (comp 1782 E.tabs[i]! E.tabs[i]!) == idTab 1782) &&
-    (allBelow 5 fun j => allBelow 5 fun j' =>
-      comp 1782 (suzATab j) (suzATab j') == comp 1782 (suzATab j') (suzATab j)) &&
-    gi.size == 1782 && comp 1782 gi g == idTab 1782 &&
-    eqA 1782 (powA 1782 g 11) (idA 1782) &&
-    (allBelow 5 fun j => found idx E.tabs (conjTab 1782 g gi (suzATab j))) &&
-    !(conjTab 1782 g gi (suzATab 0) == suzATab 0)
 
 @[expose] def pairUp : List ℕ → List (ℕ × ℕ)
   | a :: b :: l => (a, b) :: pairUp l
@@ -939,25 +920,6 @@ set_option compiler.extract_closed false
 @[expose] def suzProg (s : String) : List (ℕ × ℕ) :=
   pairUp (hexTable 3 (s.utf8ByteSize / 3) 0 s).toList
 
-@[expose] def slpArr (n : ℕ) (init : Array (Array ℕ)) (prog : List (ℕ × ℕ)) : Array (Array ℕ) :=
-  prog.foldl (fun R p => R.push (compA n (R.getD (p.1 - 1) (idA n)) (R.getD (p.2 - 1) (idA n)))) init
-
-@[expose] def suzGenOK (i : ℕ) (wg wh : List ℤ) (prog : List (ℕ × ℕ)) (r₀ r₁ : ℕ) : Bool :=
-  let t := tArr i
-  let g := wordA 1782 bTriple bTripleInv wg
-  let gi := invCand 1782 g
-  let h := wordA 1782 bTriple bTripleInv wh
-  let hi := invCand 1782 h
-  let R := slpArr 1782 #[t, compA 1782 (compA 1782 g t) gi, compA 1782 (compA 1782 h t) hi] prog
-  lettersOK 3 wg && lettersOK 3 wh && decide (i < 4) &&
-    isInvA 1782 g gi && isInvA 1782 h hi && inM g && inM h &&
-    eqA 1782 (R.getD (r₀ - 1) (idA 1782)) b0Arr && eqA 1782 (R.getD (r₁ - 1) (idA 1782)) b1Arr
-
-@[expose] def suzGenCheck (_ : Unit := ()) : Bool :=
-  suzGenOK 0 suzGenWords0.1 suzGenWords0.2 (suzProg suzGenHex0) suzGenRoots0.1 suzGenRoots0.2 &&
-  suzGenOK 1 suzGenWords1.1 suzGenWords1.2 (suzProg suzGenHex1) suzGenRoots1.1 suzGenRoots1.2 &&
-  suzGenOK 2 suzGenWords2.1 suzGenWords2.2 (suzProg suzGenHex2) suzGenRoots2.1 suzGenRoots2.2 &&
-  suzGenOK 3 suzGenWords3.1 suzGenWords3.2 (suzProg suzGenHex3) suzGenRoots3.1 suzGenRoots3.2
 
 @[expose] def suzInvTabs (_ : Unit := ()) : Array Tab := sylowEnum.tabs.filter isInvTab
 

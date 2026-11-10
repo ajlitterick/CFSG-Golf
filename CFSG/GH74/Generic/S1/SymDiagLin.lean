@@ -255,21 +255,4 @@ theorem exists_diag_frame_lin {F : Type} [Field F] [Finite F] (h2 : (2 : F) ≠ 
   · simp [had]
 
 
-theorem exists_diag_frame_lin_perm {F : Type} [Field F] [Finite F] (h2 : (2 : F) ≠ 0)
-    (ρ : Fin 4 → GL (Fin 4) F) (hρ2 : ∀ j, ρ j * ρ j = 1)
-    (hdet : ∀ j, ((ρ j : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F).det = -1)
-    (hcomm : ∀ j k, ∃ c : F,
-      ((ρ j : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) *
-          ((ρ k : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) =
-        c • (((ρ k : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) *
-          ((ρ j : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F)))
-    (hne : ∀ j k, j ≠ k → ∀ c : F,
-      ((ρ j : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) ≠
-        c • ((ρ k : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F)) :
-    ∃ (P : GL (Fin 4) F) (σ : Equiv.Perm (Fin 4)) (ε : Fin 4 → F), (∀ j, ε j = 1 ∨ ε j = -1) ∧
-      ∀ j, ((P⁻¹ * ρ j * P : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) =
-        ε j • ((reflDiag F (σ j) : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F) := by
-  obtain ⟨P, ε, hε, h⟩ := exists_diag_frame_lin h2 ρ hρ2 hdet hcomm hne
-  exact ⟨P, 1, ε, hε, h⟩
-
 end CFSG.GH74.Generic.S1

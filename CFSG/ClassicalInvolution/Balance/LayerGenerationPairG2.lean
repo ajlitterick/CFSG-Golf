@@ -310,19 +310,6 @@ theorem layerGenerationPairAt_g2 (hp2 : p ≠ 2) (hq : 5 ≤ p ^ e) {n : ℕ}
   · exact absurd h hn₂
   · exact h.symm
 
-theorem LayerGenerationHybrid.of_commuting_remaining
-    (hB : ∀ (t : StatedLieTag) (n e : ℕ), t ≠ .G2 → t ≠ .trialityD4 → Generic.IsFundTag t →
-      StatedLieAdmissible t n p e → p ≠ 2 → 5 ≤ p ^ e →
-        ModelFacts.CommutingFundamentalGeneration p t n e) :
-    LayerGenerationHybrid p := by
-  intro t n e hfund hadm hp2 h5
-  by_cases h1 : t = .G2
-  · subst h1
-    exact Or.inl (layerGenerationPairAt_g2 hp2 h5 hadm)
-  by_cases h2 : t = .trialityD4
-  · subst h2
-    exact Or.inl (layerGenerationPairAt_trialityD4 Fact.out hp2 h5 hadm)
-  exact Or.inr ⟨h1, h2, hB t n e h1 h2 hfund hadm hp2 h5⟩
 
 end Main
 

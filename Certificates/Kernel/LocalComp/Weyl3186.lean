@@ -316,9 +316,6 @@ theorem bIf_true_iff (c t : Bool) : Bool.rec (motive := fun _ => Bool) true t c 
     (c = true → t = true) := by
   cases c <;> simp
 
-theorem bIf_true_left_iff (c e : Bool) : Bool.rec (motive := fun _ => Bool) e true c = true ↔
-    (c = false → e = true) := by
-  cases c <;> simp
 
 theorem notB'_iff (b : Bool) : notB' b = true ↔ b = false := by cases b <;> decide
 

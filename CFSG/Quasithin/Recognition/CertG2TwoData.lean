@@ -65,8 +65,6 @@ namespace CFSG.Quasithin
 @[expose] def g2ConjStrings : List String :=
   ["b", "a", "s", "X", "aYA", "YAy", "sya", "aa", "Ayxy", "Y", "BYxYXY", "AsYXYXY", "AYxaY", "xyBxyXy", "AYXYBXY", "bys", "asy", "s", "yaxAY", "Y"]
 
-@[expose] def g2CommStrings : List String :=
-  ["", "bbs", "yaxAY", "", "aas", "", "", "Y", "aYAXY", "", "", "yaxAYX", "", "y", "AxYbXY", ""]
 
 @[expose] def g2CPres : String := "ysXY"
 

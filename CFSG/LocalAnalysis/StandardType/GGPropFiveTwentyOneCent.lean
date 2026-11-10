@@ -163,31 +163,5 @@ theorem typeALevi_hcent_of_swaps (h2 : (2 : F) = 0) {k : ℕ}
       rwa [map_inv, inv_inv] at h3
   exact (hZiff (ρ w)).mp (key π (mem_closure_swap_of_fix hπa hπb) w hπ)
 
-theorem ggSecFiveTypeA_of_swaps {G : Type} [Group G] [Finite G] {p : ℕ} {B : Subgroup G} {x : G}
-    {L D J : Subgroup G} {m k f : ℕ} (hf : 1 ≤ f)
-    (φ : ggSub (rootDatum m (GaloisField 2 f)) (ggSupp (rootDatum m (GaloisField 2 f))
-      (typeALeviJ m k)) →* G) (ρ : (coxeterMatrix (isFiniteType_A m)).Group →* G)
-    (hρ : Function.Injective ρ)
-    (hspecial : ∀ j ∈ typeALeviJ m k, ggExt φ (weylRep m (GaloisField 2 f) j) =
-      ρ ((coxeterMatrix (isFiniteType_A m)).toCoxeterSystem.simple j))
-    (hswap : ∀ (w : (coxeterMatrix (isFiniteType_A m)).Group) (c d : Fin (m + 1)),
-      TypeARealizes m w (Equiv.swap c d) → c ≠ d → k ≤ d.val →
-      ∀ α ∈ ggSupp (rootDatum m (GaloisField 2 f)) (typeALeviJ m k),
-        weylAction (isFiniteType_A m) w α = α → ∀ z ∈ rootGroup m (GaloisField 2 f) α,
-          ρ w * ggExt φ z * (ρ w)⁻¹ = ggExt φ z)
-    (hnt : ∃ γ ∈ ggSupp (rootDatum m (GaloisField 2 f)) (typeALeviJ m k),
-      ∃ z ∈ rootGroup m (GaloisField 2 f) γ, ggExt φ z ≠ 1)
-    (hφG : φ.range ≤ ggG0 p B x L D J) (hρG : ρ.range ≤ ggG0 p B x L D J)
-    (hL : L ≤ ggClosure (rootDatum m (GaloisField 2 f))
-      (fun _ : Unit => ggSupp (rootDatum m (GaloisField 2 f)) (typeALeviJ m k)) (fun _ => φ)
-        ρ.range)
-    (hK : ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K →
-      K ≤ ggClosure (rootDatum m (GaloisField 2 f))
-        (fun _ : Unit => ggSupp (rootDatum m (GaloisField 2 f)) (typeALeviJ m k)) (fun _ => φ)
-          ρ.range) :
-    GGSecFiveTypeA p B x L D J m k f :=
-  ⟨φ, ρ, hρ, hspecial, typeALevi_hcent_of_swaps
-    (two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf) φ ρ hspecial hswap, hnt, hφG,
-    hρG, hL, hK⟩
 
 end CFSG.StandardType

@@ -106,9 +106,6 @@ theorem pCoreOf_inf_le_ROf_of_le (h : Hyp11 G T L I n) {V₁ H₁ : Subgroup G}
     le_sup_right
     (le_inf (sup_le_sup_right ((perfectCore_le _).trans inf_le_left) T) hLT)
 
-theorem pCoreOf_inf_le_ROf (h : Hyp11 G T L I n) (V₁ : Subgroup G) :
-    pCoreOf 2 ((L ⊔ T) ⊓ (KOf L V₁ V₁ ⊔ T)) ≤ ROf T L V₁ :=
-  pCoreOf_inf_le_ROf_of_le h (sup_le_sup_right (le_conjClosure _ _) T)
 
 theorem pCoreOf_le_ROf_of_le (h : Hyp11 G T L I n) {V₁ H₁ : Subgroup G}
     (hLT : LOf L V₁ ⊔ T ≤ H₁) : pCoreOf 2 H₁ ≤ ROf T L V₁ :=
@@ -148,9 +145,6 @@ theorem fsuV_le_pCoreOf_of_le (h1157 : Stmt11_5_7) (h : Hyp11 G T L I n) {V₁ H
     (le_normalizer_conjClosure _ _)
     (F7.isPGroup_of_isElemAbelian (isElemAbelian_U_of_le h1157 h hV₁ hHN)))
 
-theorem fsuV_le_pCoreOf_kt (h1157 : Stmt11_5_7) (h : Hyp11 G T L I n) {V₁ : Subgroup G}
-    (hV₁ : IsVi T L I n 1 V₁) : fsuV T I ≤ pCoreOf 2 (KOf L V₁ V₁ ⊔ T) :=
-  fsuV_le_pCoreOf_of_le h1157 h hV₁ le_sup_right (kt_le_normalizer hV₁)
 
 theorem amalgamHypV_of_inH (h331 : Stmt3_3_1) (h3228 : Ch10.TmpL6_3_2_2_eight)
     (h : Hyp11 G T L I n) {V₁ H₁ : Subgroup G} (hinH : InH (LOf L V₁ ⊔ T) H₁)
@@ -158,11 +152,6 @@ theorem amalgamHypV_of_inH (h331 : Stmt3_3_1) (h3228 : Ch10.TmpL6_3_2_2_eight)
     AmalgamHypV (L ⊔ T ⊔ H₁) (L ⊔ T) H₁ T (fsuV T I) :=
   SecB.amalgamHypV_of h331 h3228 h ⟨le_sup_right.trans hinH.1, hinH.2⟩ hHM
 
-theorem amalgamHypV_kt (h331 : Stmt3_3_1) (h3228 : Ch10.TmpL6_3_2_2_eight)
-    (h1110 : Stmt11_1_0) (h1112 : Stmt11_1_2) (h : Hyp11 G T L I n) {V₁ : Subgroup G}
-    (hV₁ : IsVi T L I n 1 V₁) (hne : KOf L V₁ V₁ ≠ LOf L V₁) :
-    AmalgamHypV (L ⊔ T ⊔ (KOf L V₁ V₁ ⊔ T)) (L ⊔ T) (KOf L V₁ V₁ ⊔ T) T (fsuV T I) :=
-  amalgamHypV_of_inH h331 h3228 h (inH_kt h hV₁) (not_kt_le_M h1110 h1112 h hV₁ hne)
 
 theorem centralizer_le_normalizer_kOf (hTI : SecD.PointsTIFact) (h1102 : Stmt11_0_2)
     (h1141 : Stmt11_4_1) (h1142 : Stmt11_4_2) (h : Hyp11 G T L I n) {V₁ : Subgroup G}

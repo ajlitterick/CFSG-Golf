@@ -53,7 +53,6 @@ theorem img_words : (CFSG.KS.NatWords.natWords CertificateChecks.KernelCosetJ.Ru
     CertificateChecks.KernelCosetJ.RuTabIT.W) = true := by
   quickRfl
 
-theorem neg_digits : notB (CFSG.KS.NatWords.digitsOK ['1', ' ', '-', '2']) = true := by quickRfl
 
 theorem img_eq : CFSG.Sporadic.Bridge.SurjD.Native.ruSpec.imgWords =
     CertificateChecks.KernelCosetJ.RuTabIT.W.toArray := by

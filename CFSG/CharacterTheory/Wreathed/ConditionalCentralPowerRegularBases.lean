@@ -158,33 +158,6 @@ theorem centralizerOddCoreQuotient_principal_regular_integral_basis_of_layerNonc
     push_cast
     rfl
 
-theorem centralizerOddCoreQuotient_principal_regular_integral_basis
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {p f : ℕ} (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (F : Type) [Field F] [Finite F] (hcard : Nat.card F = p ^ f)
-    (sigmaGroup : Subgroup (F ≃+* F)) (ρ : centralizerFullQuotient n hn S e →* coordinateE F)
-    (hρ : Function.Injective ρ)
-    (hlayer : (centralizerSimpleLayer n hn S e).map ρ = specialLayer F)
-    (hrange : ρ.range = CFSG.Semidihedral.OddFieldLift.Gamma F sigmaGroup)
-    [Fintype (centralizerOddCoreQuotient n S e)] (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2]
-    (basis : FiniteIrreducibleCharacterBasis (centralizerOddCoreQuotient n S e))
-    (principal : basis.index) (hprincipal : (basis.representation principal).character = 1) :
-    PrincipalRegularIntegralBasisData basis ideal principal
-      (fun h => (Nat.card {x : Omega F // ((ρ (centralizerFullQuotientMap n hn S e h) :
-        coordinateE F) : Equiv.Perm (Omega F)) x = x} : ℂ) - 1)
-      (if Nat.card F % 4 = 1 then 1 else -1) (Nat.card F)
-      ((2 ^ n : ℤ) • !![4, -2; -2, ((2 ^ n / 2 + 1 : ℕ) : ℤ)]) :=
-  by
-  obtain ⟨-, -, -, -, -, hSylow, -⟩ :=
-    centralizerFullQuotient_simple_layer_of_not_symmetric_four hnonab n hn S e hfour
-  let U : Sylow 2 (centralizerSimpleLayer n hn S e) := Classical.choice Sylow.nonempty
-  obtain ⟨eU⟩ := hSylow U
-  exact centralizerOddCoreQuotient_principal_regular_integral_basis_of_layerNoncyclic n hn S e
-    ⟨U, dihedral_sylow_not_isCyclic n hn eU⟩ hp hpodd hf F hcard sigmaGroup ρ hρ hlayer hrange
-    ideal basis principal hprincipal
 
 end Quotient
 

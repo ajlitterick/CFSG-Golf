@@ -232,19 +232,6 @@ theorem of_mulEquiv (e : X ≃* Y) {q : ℕ} (h : SuzukiTorusData Y q) :
   inf_normalizer_free := inf_normalizer_free_of_mulEquiv e h
   card_frattini := card_frattini_of_mulEquiv e h
 
-theorem inf_eq_bot_of_ne {q : ℕ} (h : SuzukiTorusData X q) {U V : Sylow 2 X}
-    (hne : U ≠ V) : (U : Subgroup X) ⊓ (V : Subgroup X) = ⊥ := by
-  refine le_antisymm ?_ bot_le
-  intro x hx
-  have hxU : x ∈ (U : Subgroup X) := hx.1
-  have hxV : x ∈ (V : Subgroup X) := hx.2
-  have hfix : (⟨x, hxU⟩ : U) • V = V :=
-    (Sylow.smul_eq_iff_mem_normalizer).mpr (Subgroup.le_normalizer hxV)
-  obtain ⟨u, hu, huniq⟩ := h.regular U V V hne.symm hne.symm
-  have hx1 : (⟨x, hxU⟩ : U) = 1 := by
-    calc (⟨x, hxU⟩ : U) = u := huniq ⟨x, hxU⟩ hfix
-      _ = 1 := (huniq 1 (by simp)).symm
-  simpa using congrArg Subtype.val hx1
 
 end SuzukiTorusData
 

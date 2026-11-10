@@ -116,13 +116,6 @@ theorem commute_of_odd_of_conj_typeD {g : G ⧸ Z} {k : ℕ} (hk : Odd k) (hgk :
   · exact Or.inl (by rw [← ht, h])
   · exact Or.inr (by rw [← ht, h, hb.caseC3Word_mul])
 
-theorem conj_ne_of_odd_typeD {g : G ⧸ Z} {k : ℕ} (hk : Odd k) (hgk : g ^ k = 1)
-    (hgR : ∀ s ∈ e1RBar Z u m y x, g * s * g⁻¹ ∈ e1RBar Z u m y x)
-    (hgc : ¬ ∀ s ∈ e1RBar Z u m y x, g * s = s * g) {s : G ⧸ Z} (hs : s ∈ e1RBar Z u m y x)
-    (hs1 : s ≠ 1) (hsz : s ≠ caseC3Word Z u m y x 40) :
-    g * s * g⁻¹ ≠ s ∧ g * s * g⁻¹ ≠ s * caseC3Word Z u m y x 40 :=
-  ⟨fun h => hgc (hb.commute_of_odd_of_conj_typeD htype hk hgk hgR hs hs1 hsz (Or.inl h)),
-    fun h => hgc (hb.commute_of_odd_of_conj_typeD htype hk hgk hgR hs hs1 hsz (Or.inr h))⟩
 
 theorem mem_e1KBar_of_conj_typeD (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S) {n : G ⧸ Z}
     (hn : n ∈ e1NBar Z u m y x) {s : G ⧸ Z} (hs : s ∈ e1RBar Z u m y x) (hs1 : s ≠ 1)

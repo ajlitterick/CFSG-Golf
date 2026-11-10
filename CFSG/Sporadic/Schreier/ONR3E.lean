@@ -143,10 +143,6 @@ theorem d_enumerates :
     rw [dConj_size] at hj
     exact ⟨_, ⟨j, hj, rfl⟩, tabRep_dConj hj⟩
 
-theorem card_onD :
-    Nat.card onD = 144 := by
-  rw [d_enumerates.card, Array.length_toList]
-  exact r3e_enum_cert.2.2.1
 
 theorem q_cases
     {x : Equiv.Perm (Fin N)} (hx : x ∈ onQ) :
@@ -242,28 +238,6 @@ theorem onv_mem_M :
   have h := mFacts.mem prep_v onv_mem_P h5
   rwa [onMChain_sub] at h
 
-theorem onv_ne_one :
-    onv ≠ 1 := by
-  obtain ⟨-, -, -, -, -, -, h7, -⟩ := r3e_elem_cert
-  intro h
-  rw [(peq_iff prep_v prep_pid).2 h] at h7
-  exact absurd h7 (by decide)
-
-theorem onv_ne_z :
-    onv ≠ onz := by
-  obtain ⟨-, -, -, -, -, -, -, h8, -⟩ := r3e_elem_cert
-  intro h
-  rw [(peq_iff prep_v prep_z).2 h] at h8
-  exact absurd h8 (by decide)
-
-theorem onv_sq :
-    onv * onv = 1 := by
-  rw [onv, show onc⁻¹ * onz * onc * (onc⁻¹ * onz * onc) = onc⁻¹ * (onz * onz) * onc by group,
-    onz_sq, mul_one, inv_mul_cancel]
-
-theorem orderOf_onv :
-    orderOf onv = 2 :=
-  orderOf_eq_prime (by rw [sq]; exact onv_sq) onv_ne_one
 
 theorem onv_comm_dhPerm
     {j : ℕ} (hj : j < 4) : onv * dhPerm j = dhPerm j * onv := by
@@ -285,38 +259,6 @@ theorem onv_not_comm_h :
   rw [(peq_iff (prep_pcomp prep_v prep_h) (prep_pcomp prep_h prep_v)).2 h] at h10
   exact absurd h10 (by decide)
 
-abbrev cMD :
-    Subgroup (Equiv.Perm (Fin N)) :=
-  onM ⊓ Subgroup.centralizer (onD : Set (Equiv.Perm (Fin N)))
-
-theorem rhoM_dhPerm
-    {j : ℕ} (hj : j < 4) :
-    rhoM ⟨dhPerm j, dhPerm_mem_M j⟩ = permOfArr 120 Data.D120Generators[j]! := by
-  have hd := prep_dhGens (j := j) (by omega)
-  rw [dhGens_get (by omega), ite_eq_left hj] at hd
-  exact (prep_rhoM (g := ⟨dhPerm j, dhPerm_mem_M j⟩) hd (allBelowN_spec d0_cert.2.2.1 hj)).unique
-    (prep_delta hj)
-
-@[expose] def rhoMD :
-    cMD →* Equiv.Perm (Fin 120) := rhoM.comp (Subgroup.inclusion inf_le_left)
-
-theorem rhoMD_range_le :
-    rhoMD.range ≤ deltaCent ⊓ onM120Chain.originalSubgroup := by
-  rintro _ ⟨y, rfl⟩
-  refine Subgroup.mem_inf.2 ⟨?_, ?_⟩
-  · rw [deltaCent, Subgroup.mem_centralizer_iff]
-    rintro _ ⟨j, rfl⟩
-    show permOfArr 120 Data.D120Generators[j.val]! * rhoMD y =
-      rhoMD y * permOfArr 120 Data.D120Generators[j.val]!
-    rw [← rhoM_dhPerm j.isLt]
-    show rhoM ⟨dhPerm j, dhPerm_mem_M j⟩ * rhoM (Subgroup.inclusion inf_le_left y) =
-      rhoM (Subgroup.inclusion inf_le_left y) * rhoM ⟨dhPerm j, dhPerm_mem_M j⟩
-    rw [← map_mul, ← map_mul]
-    congr 1
-    apply Subtype.ext
-    exact Subgroup.mem_centralizer_iff.1 (Subgroup.mem_inf.1 y.2).2 _ (dhPerm_mem_D j.isLt)
-  · rw [← rhoM_range]
-    exact ⟨_, rfl⟩
 
 theorem mem_ker_cases
     {x : Equiv.Perm (Fin N)} (hxM : x ∈ onM)
@@ -325,88 +267,6 @@ theorem mem_ker_cases
   rw [rhoM_ker, Subgroup.mem_subgroupOf] at this
   exact this
 
-theorem card_rhoMD_ker_le :
-    Nat.card rhoMD.ker ≤ 2 := by
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, h13, -⟩ := r3e_elem_cert
-  have hmem : ∀ y ∈ rhoMD.ker, ((y : cMD) : Equiv.Perm (Fin N)) ∈ ({1, onz} : Finset _) := by
-    intro y hy
-    have hQ := mem_ker_cases _ hy
-    have hc : ∀ j < 4, ((y : cMD) : Equiv.Perm (Fin N)) * dhPerm j =
-        dhPerm j * ((y : cMD) : Equiv.Perm (Fin N)) := fun j hj =>
-      (Subgroup.mem_centralizer_iff.1 (Subgroup.mem_inf.1 y.2).2 _ (dhPerm_mem_D hj)).symm
-    have hg : ∀ j < 4, PRep N dConj[j]! (dhPerm j) := fun j hj => by
-      have hd := prep_dhGens (j := j) (by omega)
-      rwa [dhGens_get (by omega), ite_eq_left hj] at hd
-    rcases q_cases hQ with h | h | h | h
-    · simp [h]
-    · obtain ⟨j, hj, hne⟩ := q13_fail (gs := fun j => dConj[j]!) hg h13 (Or.inl h)
-      exact absurd (hc j hj) (by rw [h] at hne ⊢; exact hne)
-    · simp [h, ← onz_eq_q2]
-    · obtain ⟨j, hj, hne⟩ := q13_fail (gs := fun j => dConj[j]!) hg h13 (Or.inr h)
-      exact absurd (hc j hj) (by rw [h] at hne ⊢; exact hne)
-  calc Nat.card rhoMD.ker ≤ Nat.card ({1, onz} : Finset (Equiv.Perm (Fin N))) :=
-        Nat.card_le_card_of_injective (fun y => ⟨((y : cMD) : Equiv.Perm (Fin N)), hmem y y.2⟩)
-          fun a b h => by
-            apply Subtype.ext; apply Subtype.ext
-            simpa using congrArg Subtype.val h
-    _ = ({1, onz} : Finset (Equiv.Perm (Fin N))).card := Nat.card_eq_finsetCard _
-    _ ≤ 2 := Finset.card_le_two
-
-theorem mem_cMD
-    {x : Equiv.Perm (Fin N)} (hxM : x ∈ onM)
-    (hx : ∀ j < 4, x * dhPerm j = dhPerm j * x) :
-    x ∈ cMD := by
-  refine Subgroup.mem_inf.2 ⟨hxM, ?_⟩
-  rw [Subgroup.mem_centralizer_iff, onD_eq]
-  intro g hg
-  rw [SetLike.mem_coe] at hg
-  show Commute g x
-  induction hg using Subgroup.closure_induction with
-  | mem y hy =>
-    obtain ⟨j, hj, rfl⟩ := hy
-    exact (hx j hj).symm
-  | one => exact Commute.one_left x
-  | mul a b _ _ ha hb => exact Commute.mul_left ha hb
-  | inv a _ ha => exact Commute.inv_left ha
-
-theorem card_cMD :
-    Nat.card cMD = 4 := by
-  apply le_antisymm
-  · rw [card_range_mul_ker rhoMD]
-    calc Nat.card rhoMD.range * Nat.card rhoMD.ker ≤ 2 * 2 :=
-          Nat.mul_le_mul ((Subgroup.card_le_of_le rhoMD_range_le).trans card_deltaCent.le)
-            card_rhoMD_ker_le
-      _ = 4 := rfl
-  · have hz : onz ∈ cMD := mem_cMD onz_mem_M fun j _ => (onz_comm_M (dhPerm_mem_M j)).symm
-    have hv : onv ∈ cMD := mem_cMD onv_mem_M fun j hj => onv_comm_dhPerm hj
-    have hzv : onz * onv ∈ cMD := mul_mem hz hv
-    have hzne : onz ≠ 1 := onz_ne_one
-    have hzv1 : onz * onv ≠ 1 := fun h => onv_ne_z (by
-      calc onv = onz * (onz * onv) := by rw [← mul_assoc, onz_sq, one_mul]
-        _ = onz := by rw [h, mul_one])
-    have hzvz : onz * onv ≠ onz := fun h => onv_ne_one (mul_left_cancel (h.trans (mul_one _).symm))
-    have hzvv : onz * onv ≠ onv := fun h => hzne (mul_right_cancel (h.trans (one_mul _).symm))
-    have h4 : ({1, onz, onv, onz * onv} : Finset (Equiv.Perm (Fin N))).card = 4 := by
-      rw [Finset.card_insert_of_notMem, Finset.card_insert_of_notMem, Finset.card_pair hzvv.symm]
-      · simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
-        exact ⟨onv_ne_z.symm, hzvz.symm⟩
-      · simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
-        exact ⟨hzne.symm, onv_ne_one.symm, hzv1.symm⟩
-    have hsub : ∀ x ∈ ({1, onz, onv, onz * onv} : Finset (Equiv.Perm (Fin N))), x ∈ cMD := by
-      intro x hx
-      simp only [Finset.mem_insert, Finset.mem_singleton] at hx
-      rcases hx with rfl | rfl | rfl | rfl
-      · exact one_mem _
-      · exact hz
-      · exact hv
-      · exact hzv
-    calc 4 = ({1, onz, onv, onz * onv} : Finset (Equiv.Perm (Fin N))).card := h4.symm
-      _ = Nat.card ({1, onz, onv, onz * onv} : Finset (Equiv.Perm (Fin N))) :=
-          (Nat.card_eq_finsetCard _).symm
-      _ ≤ Nat.card cMD := Nat.card_le_card_of_injective (fun x => ⟨x.1, hsub x.1 x.2⟩)
-          fun a b h => by
-            apply Subtype.ext
-            simpa using congrArg Subtype.val h
 
 theorem evalWord_dh_mem
     {K : Subgroup (Equiv.Perm (Fin N))} (hK : ∀ j < 5, dhPerm j ∈ K)
@@ -448,9 +308,6 @@ theorem pword_size (n : ℕ) (S Sinv : Array (Array ℕ)) : ∀ w, (pword n S Si
   | [] => by simp [pword, pid]
   | _ :: _ => by simp [pword, pcomp]
 
-theorem hArr_size : hArr.size = nPts := by
-  rw [hArr, wordArrs, pwords_eq, getElem!_map' _ _ (by decide)]
-  exact pword_size _ _ _ _
 
 theorem tabRep_conj
     {t hi : Array ℕ} {g : Equiv.Perm (Fin N)} (ht : TabRep t g)
@@ -508,10 +365,6 @@ theorem a_enumerates :
   rw [onA, inf_comm, aTabs, Array.toList_filter]
   exact hE
 
-theorem card_onA :
-    Nat.card onA = 4 := by
-  rw [a_enumerates.card, Array.length_toList]
-  exact r3e_enum_cert.2.2.2.1
 
 theorem q_pow_cases
     {x : Equiv.Perm (Fin N)} (hx : x ∈ onQ) : ∃ k < 4, x = onq ^ k := by
@@ -931,21 +784,5 @@ theorem conj_v_ne_one :
   calc onv * onh = onv * onh * onv⁻¹ * onv := by group
     _ = onh * onv := by rw [this]
 
-theorem r3e_on_local_intersection_pointwise_automorphisms :
-    onD ≤ onM ∧ Nat.card onD = 144 ∧ CFSG.centerIn onM = Subgroup.zpowers onz ∧
-      Nat.card (CFSG.centerIn onM) = 2 ∧ onv ∈ onM ∧ orderOf onv = 2 ∧
-      Nat.card (onM ⊓ Subgroup.centralizer (onD : Set (Equiv.Perm (Fin N))) :
-        Subgroup (Equiv.Perm (Fin N))) = 4 ∧
-      onM = Subgroup.closure ((onD : Set (Equiv.Perm (Fin N))) ∪ {onh}) ∧
-      Nat.card (onD ⊓ onD.map (MulAut.conj onh⁻¹).toMonoidHom : Subgroup (Equiv.Perm (Fin N))) =
-        4 ∧
-      Nat.card (onM ⊓ Subgroup.centralizer ((onD ⊓ onD.map (MulAut.conj onh⁻¹).toMonoidHom :
-        Subgroup (Equiv.Perm (Fin N))) : Set (Equiv.Perm (Fin N))) :
-          Subgroup (Equiv.Perm (Fin N))) = 144 ∧
-      {β : MulAut onM | ∀ d : onM, (d : Equiv.Perm (Fin N)) ∈ onD → β d = d} =
-        {1, MulAut.conj (⟨onv, onv_mem_M⟩ : onM)} ∧
-      MulAut.conj (⟨onv, onv_mem_M⟩ : onM) ≠ 1 :=
-  ⟨onD_le_M, card_onD, onM_centerIn, card_onM_centerIn, onv_mem_M, orderOf_onv, card_cMD,
-    onM_eq_closure, card_onA, card_cMA, pointwise_eq, conj_v_ne_one⟩
 
 end CFSG.ONSchreier

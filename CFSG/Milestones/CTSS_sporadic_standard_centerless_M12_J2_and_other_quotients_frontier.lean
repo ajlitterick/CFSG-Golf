@@ -427,43 +427,6 @@ universe u v w
 
 namespace CFSG.Open
 
-theorem _root_.CFSG.Milestones.ctss_sporadic_standard_centerless_m12_j2_and_other_quotients_frontier
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
-    (L : Subgroup G) (hL : standardComponentIsStandard L)
-    (hcore : ∀ t : G, orderOf t = 2 →
-      standardComponentOddCore (Subgroup.centralizer ({t} : Set G)) = ⊥)
-    (S : Sylow 2 (Subgroup.centralizer (L : Set G)))
-    (hS : IsCyclic (S : Subgroup (Subgroup.centralizer (L : Set G))))
-    (htype : Blueprint.Recognition.Exact.EvenStandardType (L ⧸ Subgroup.center L))
-    (hexc : ¬ Blueprint.Recognition.Exact.EvenStandardException (L ⧸ Subgroup.center L))
-    (hres : Blueprint.Recognition.Exact.EvenStandardResidual L)
-    (hspor : Blueprint.NativeSporadic.SporadicRep (L ⧸ Subgroup.center L))
-    (hMJ : Blueprint.NativeSporadic.IsSporadic (L ⧸ Subgroup.center L) .M12 ∨
-      Blueprint.NativeSporadic.IsSporadic (L ⧸ Subgroup.center L) .J2 → Subgroup.center L = ⊥) :
-    Nat.card G ∈ standardComponentEvenSporadicOrders :=
-  CFSG.Yardstones.M1442643da6f2.ctss_order_of_yardstones
-    CFSG.Yardstones.M1442643da6f2.conwayStandardInputs_holds
-    CFSG.Yardstones.M1442643da6f2.egawaHarrisSolomonInputs_holds
-    CFSG.Yardstones.M1442643da6f2.catalogueFixedComponentFacts_holds
-    CFSG.Yardstones.M1442643da6f2.finkelstein76bOuterCase_holds
-    CFSG.Yardstones.M1442643da6f2.involutionCentralizerTheorems_holds
-    CFSG.Yardstones.M1442643da6f2.onanInputs_holds
-    CFSG.Yardstones.M1442643da6f2.catalogueCentralizerFacts_holds
-    CFSG.Yardstones.M1442643da6f2.alternatingStandardFormInputs_holds
-    CFSG.Yardstones.M1442643da6f2.solomon2AnInput_holds
-    CFSG.Yardstones.M1442643da6f2.charTwoLieStandardFormInputs_holds
-    CFSG.Yardstones.M1442643da6f2.hnRecognitionInputs_holds
-    CFSG.Yardstones.M1442643da6f2.componentTheoryLiterature_holds
-    CFSG.Yardstones.M1442643da6f2.solomon78StandardFormLiterature_holds
-    CFSG.Yardstones.M1442643da6f2.fischerThompsonRowInputs_holds
-    CFSG.Yardstones.M1442643da6f2.twoFi22RecognitionInputs_holds
-    CFSG.Yardstones.M1442643da6f2.oddStandardL34HeChildren_holds
-    @CFSG.Milestones.cl_lit_gh74_sectional_two_rank_four_models
-    @CFSG.Milestones.cl_lit_classical_involution_theorem_models
-    CFSG.EvenSporadicStandard.Induction.ctEvenResidualStatement_of_milestone
-    G hnonab hK L hL hcore S hS htype hexc hres hspor hMJ
 
 end CFSG.Open
 

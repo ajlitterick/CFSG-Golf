@@ -29,13 +29,6 @@ section Defs
           ∃ (β : Type) (S : β → Subgroup ↥(adjointGroup .E6 K)),
             LayerCores.IsSubCoreFamily (LayerSixE.autFix A) S
 
-theorem ggExcAdjCoreNonToralSylowRestInput_of_rest {τ : Tag}
-    (h : GGExcAdjCoreNonToralRestInput τ) : GGExcAdjCoreNonToralSylowRestInput τ :=
-  fun K _ _ _ p hp hp2 _ => h K p hp hp2
-
-theorem ggE6InndiagCoreNonToralSylowRestInput_of_rest (h : GGE6InndiagCoreNonToralRestInput) :
-    GGE6InndiagCoreNonToralSylowRestInput :=
-  fun K _ _ _ p hp hp2 _ => h K p hp hp2
 
 end Defs
 
@@ -79,12 +72,6 @@ theorem ggLayerTagsPilotRestSix_of_sylow (h : GGLayerTagsPilotRestSixSylow) :
       h.2.2.1.2⟩,
     ⟨h.2.2.2.1.1, ggE6InndiagCoreNonToralRestInput_of_sylowRest h.2.2.2.1.2⟩, h.2.2.2.2⟩
 
-theorem ggLayerTagsPilotRestSixSylow_of_six (h : GGLayerTagsPilotRestSix) :
-    GGLayerTagsPilotRestSixSylow :=
-  ⟨ggExcAdjCoreNonToralSylowRestInput_of_rest h.1,
-    ⟨h.2.1.1, ggExcAdjCoreNonToralSylowRestInput_of_rest h.2.1.2⟩,
-    ⟨h.2.2.1.1, ggExcAdjCoreNonToralSylowRestInput_of_rest h.2.2.1.2⟩,
-    ⟨h.2.2.2.1.1, ggE6InndiagCoreNonToralSylowRestInput_of_rest h.2.2.2.1.2⟩, h.2.2.2.2⟩
 
 end Removal
 

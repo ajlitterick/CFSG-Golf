@@ -54,6 +54,5 @@ theorem mulVec_mem_of_fix
   change _ ∈ rowSpan 253 (form p).rows at this
   unfold rowSpan at this; rwa [matW_rows_eq] at this
 
-theorem mat_inv_mul' (g : J) : mat g⁻¹ * mat g = 1 := mat_inv_mul g
 
 end CFSG.Sporadic.Fi24

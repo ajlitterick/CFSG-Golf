@@ -16,7 +16,6 @@ theorem model_check :
       gM 0 * gM 1 ≠ gM 1 * gM 0 ∧ gM 7 ≠ 1 :=
   Certificates.certificate8143
 
-theorem coverRels_length : (coverRels 1 1 1).length = 37 := by decide
 
 theorem lift_gM_relator :
     ∀ r ∈ {r : FreeGroup (Fin 8) | r ∈ (coverRels 1 1 1).map FreeGroup.mk},

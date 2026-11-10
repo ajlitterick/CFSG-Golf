@@ -62,7 +62,6 @@ theorem val_zero_zmod5 : (0 : ZMod 5).val = 0 := rfl
 
 theorem val_two_zmod5 : (2 : ZMod 5).val = 2 := rfl
 
-theorem val_neg_one_zmod5 : (-1 : ZMod 5).val = 4 := rfl
 
 section PhiMap
 

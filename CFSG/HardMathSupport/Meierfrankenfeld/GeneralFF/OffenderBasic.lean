@@ -70,10 +70,6 @@ theorem IsElemAbelianOn.comm_top (h : IsElemAbelianOn ρ A ⊤) {a b : G} (ha : 
   rw [e1, e2] at h1
   exact h1
 
-theorem IsElemAbelianOn.isInvariant_fixSub (h : IsElemAbelianOn ρ A ⊤) (hB : B ≤ A) :
-    IsInvariant ρ A (fixSub ρ B) := by
-  intro a ha u hu b hb
-  rw [h.comm_top (hB hb) ha, hu b hb]
 
 theorem IsBestOffenderOn.isOffenderOn (h : IsBestOffenderOn ρ A U) : IsOffenderOn ρ A U := by
   refine ⟨h.1, ?_⟩
@@ -125,21 +121,6 @@ theorem IsBestOffenderOn.forall_isInvariant_isOffenderOn [Finite V]
     ∀ U : Submodule (ZMod 2) V, IsInvariant ρ A U → IsOffenderOn ρ A U :=
   fun U _ => h.isOffenderOn_of_le U
 
-theorem isBestOffenderOn_top_of_forall [Finite G] (hA : IsElemAbelianOn ρ A ⊤)
-    (h : ∀ U : Submodule (ZMod 2) V, IsInvariant ρ A U → IsOffenderOn ρ A U) :
-    IsBestOffenderOn ρ A ⊤ := by
-  refine ⟨hA, fun B hB => ?_⟩
-  have hoff := (h (fixSub ρ B) (hA.isInvariant_fixSub hB)).2
-  have hBc : B ≤ cenOn ρ A (fixSub ρ B) := fun b hb => ⟨hB hb, fun u hu => hu b hb⟩
-  have hfix : fixOn ρ A (fixSub ρ B) = fixSub ρ A :=
-    inf_eq_right.mpr (fixSub_antitone hB)
-  rw [hfix] at hoff
-  rw [fixOn_top, fixOn_top]
-  calc Nat.card B * Nat.card (fixSub ρ B)
-      ≤ Nat.card (cenOn ρ A (fixSub ρ B)) * Nat.card (fixSub ρ B) :=
-        Nat.mul_le_mul_right _ (Subgroup.card_le_of_le hBc)
-    _ = Nat.card (fixSub ρ B) * Nat.card (cenOn ρ A (fixSub ρ B)) := mul_comm _ _
-    _ ≤ Nat.card A * Nat.card (fixSub ρ A) := hoff
 
 theorem isElemAbelianOn_top_iff (hfaith : ∀ a ∈ A, (∀ v, ρ a v = v) → a = 1) :
     CFSG.IsElementaryAbelian 2 A ↔ IsElemAbelianOn ρ A ⊤ := by
@@ -242,15 +223,6 @@ theorem jInv_denom_pos (ρ : Representation (ZMod 2) G V) (A : Subgroup G)
   have h2 : 0 < Nat.card (cenOn ρ A U) := Nat.card_pos
   positivity
 
-theorem jInv_eq_div (ρ : Representation (ZMod 2) G V) (A : Subgroup G)
-    (U : Submodule (ZMod 2) V) :
-    jInv ρ A U = ((Nat.card A : ℚ) / Nat.card (cenOn ρ A U)) /
-      ((Nat.card U : ℚ) / Nat.card (fixOn ρ A U)) := by
-  have h1 : (Nat.card U : ℚ) ≠ 0 := by exact_mod_cast Nat.card_pos.ne'
-  have h2 : (Nat.card (cenOn ρ A U) : ℚ) ≠ 0 := by exact_mod_cast Nat.card_pos.ne'
-  have h3 : (Nat.card (fixOn ρ A U) : ℚ) ≠ 0 := by exact_mod_cast Nat.card_pos.ne'
-  unfold jInv
-  field_simp
 
 theorem isOffenderOn_iff_one_le_jInv :
     IsOffenderOn ρ A U ↔ IsElemAbelianOn ρ A U ∧ 1 ≤ jInv ρ A U := by
@@ -364,43 +336,6 @@ end J
 
 section Join
 
-variable [Finite G] [Finite V]
-
-theorem card_sup_inf_ge (A B : Subgroup G) :
-    Nat.card A * Nat.card (fixSub ρ A) * (Nat.card B * Nat.card (fixSub ρ B)) ≤
-      Nat.card ↥(A ⊔ B) * Nat.card (fixSub ρ (A ⊔ B)) *
-        (Nat.card ↥(A ⊓ B) * Nat.card (fixSub ρ (A ⊓ B))) := by
-  have h1 := card_mul_card_le_sup_inf A B
-  have hsub : fixSub ρ A ⊔ fixSub ρ B ≤ fixSub ρ (A ⊓ B) :=
-    sup_le (fixSub_antitone inf_le_left) (fixSub_antitone inf_le_right)
-  have hle : Nat.card ↥(fixSub ρ A ⊔ fixSub ρ B) ≤ Nat.card (fixSub ρ (A ⊓ B)) :=
-    card_le_of_le_submodule hsub
-  have hCC := card_inf_mul_card_sup (fixSub ρ A) (fixSub ρ B)
-  rw [← fixSub_sup] at hCC
-  have h2 : Nat.card (fixSub ρ A) * Nat.card (fixSub ρ B) ≤
-      Nat.card (fixSub ρ (A ⊔ B)) * Nat.card (fixSub ρ (A ⊓ B)) := by
-    rw [← hCC]; exact Nat.mul_le_mul_left _ hle
-  calc Nat.card A * Nat.card (fixSub ρ A) * (Nat.card B * Nat.card (fixSub ρ B))
-      = (Nat.card A * Nat.card B) * (Nat.card (fixSub ρ A) * Nat.card (fixSub ρ B)) := by ring
-    _ ≤ (Nat.card ↥(A ⊔ B) * Nat.card ↥(A ⊓ B)) *
-          (Nat.card (fixSub ρ (A ⊔ B)) * Nat.card (fixSub ρ (A ⊓ B))) :=
-        Nat.mul_le_mul h1 h2
-    _ = _ := by ring
-
-theorem jInv_mul_jInv_le (A B : Subgroup G) (hfaith : cenOn ρ (A ⊔ B) ⊤ = ⊥) :
-    jInv ρ A ⊤ * jInv ρ B ⊤ ≤ jInv ρ (A ⊔ B) ⊤ * jInv ρ (A ⊓ B) ⊤ := by
-  have hc : ∀ X : Subgroup G, X ≤ A ⊔ B → cenOn ρ X ⊤ = ⊥ := fun X hX =>
-    eq_bot_iff.mpr (hfaith ▸ cenOn_mono_left hX)
-  have hA := hc A le_sup_left
-  have hB := hc B le_sup_right
-  have hAB := hc (A ⊓ B) (inf_le_left.trans le_sup_left)
-  unfold jInv
-  rw [hA, hB, hfaith, hAB, fixOn_top, fixOn_top, fixOn_top, fixOn_top, Subgroup.card_bot,
-    div_mul_div_comm, div_mul_div_comm]
-  have hT : (0 : ℚ) < Nat.card (⊤ : Submodule (ZMod 2) V) := by
-    exact_mod_cast Nat.card_pos
-  refine div_le_div_of_nonneg_right ?_ (by positivity)
-  exact_mod_cast card_sup_inf_ge (ρ := ρ) A B
 
 end Join
 

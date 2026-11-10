@@ -109,10 +109,6 @@ theorem shortWeyl_mul_self (i : Fin n) (s : Bool) :
     F.shortWeyl i s * F.shortWeyl i s = F.shortTorus i s (-1) := by
   rw [shortWeyl, ← map_mul, weylSL2_one_mul_self, shortTorus_apply]
 
-theorem shortWeyl_mul_shortTorus_mul_inv (i : Fin n) (s : Bool) (τ : Kˣ) :
-    F.shortWeyl i s * F.shortTorus i s τ * (F.shortWeyl i s)⁻¹ = F.shortTorus i s τ⁻¹ := by
-  rw [shortWeyl, shortTorus_apply, shortTorus_apply, ← map_inv, ← map_mul, ← map_mul,
-    weylSL2_mul_diagSL2_mul_inv]
 
 theorem spinAction_shortSL2_weylSL2 (i : Fin n) (s : Bool) (τ : Kˣ) (v : V) :
     spinAction Q (F.shortSL2 i s (weylSL2 τ)) v =

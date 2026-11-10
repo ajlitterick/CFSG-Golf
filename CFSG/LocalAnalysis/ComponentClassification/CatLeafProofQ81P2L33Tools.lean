@@ -127,15 +127,5 @@ theorem orderOf_congr {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y') (a : Mu
     orderOf (MulAut.congr e a) = orderOf a :=
   MulEquiv.orderOf_eq _ a
 
-theorem isTwoNilpExc_of_mulEquiv {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y')
-    (h : IsTwoNilpExc Y') : IsTwoNilpExc Y := by
-  rcases h with ⟨p, f, h⟩ | ⟨p, f, hp, a, ha, K, _, _, hf, hK, ⟨e'⟩⟩ | h | h | h
-  · exact Or.inl ⟨p, f, GSThmB.OddQuot.lieModel_of_equiv e.symm h⟩
-  · exact Or.inr (Or.inl ⟨p, f, hp, a, ha, K, inferInstance, inferInstance, hf, hK,
-      ⟨e.trans e'⟩⟩)
-  · exact Or.inr (Or.inr (Or.inl (GSThmB.OddQuot.lieModel_of_equiv e.symm h)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl (GSThmB.OddQuot.lieModel_of_equiv e.symm h))))
-  · obtain ⟨e'⟩ := h
-    exact Or.inr (Or.inr (Or.inr (Or.inr ⟨e.trans e'⟩)))
 
 end CFSG.ComponentClassification.HarrisLit.L33

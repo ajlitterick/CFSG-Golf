@@ -39,21 +39,6 @@ variable (K : Type) [Field K] [Finite K] [CharP K 2]
 
 variable {K}
 
-theorem coe_d4PsiEquiv (g : d4Levi K) :
-    (d4PsiEquiv K g : (Fin 4 ⊕ Fin 4 → K) ≃ₗ[K] (Fin 4 ⊕ Fin 4 → K)) = d4Psi K g :=
-  rfl
-
-theorem d4PsiEquiv_xUnit (k : Fin 4) (c : K) :
-    (d4PsiEquiv K ⟨xUnit Tag.E6 K (jD k) c, xUnit_mem_d4Levi k c⟩ :
-      (Fin 4 ⊕ Fin 4 → K) ≃ₗ[K] (Fin 4 ⊕ Fin 4 → K)) =
-        rootElt 4 K (OrthogonalSplit.simpleRoot 4 k) c :=
-  d4Psi_xUnit k c
-
-theorem d4PsiEquiv_yUnit (k : Fin 4) (c : K) :
-    (d4PsiEquiv K ⟨yUnit Tag.E6 K (jD k) c, yUnit_mem_d4Levi k c⟩ :
-      (Fin 4 ⊕ Fin 4 → K) ≃ₗ[K] (Fin 4 ⊕ Fin 4 → K)) =
-        rootElt 4 K (-OrthogonalSplit.simpleRoot 4 k) c :=
-  d4Psi_yUnit k c
 
 theorem lieModel_d4Levi {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) :
     LieModel (d4Levi K) .POmegaPlus 4 2 f :=

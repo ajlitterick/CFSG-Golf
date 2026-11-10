@@ -88,7 +88,6 @@ theorem betaP_smul_right (p : AutPerm) (c : ZMod 2) (a b : C) :
 
 theorem betaBilin_apply (p : AutPerm) (a b : C) : betaBilin p a b = betaP p a b := rfl
 
-theorem betaBilin_isAlt (p : AutPerm) : (betaBilin p).IsAlt := betaP_self p
 
 theorem betaP_ΩC (p : AutPerm) (a : C) : betaP p a ΩC = 0 := by
   unfold betaP
@@ -155,8 +154,6 @@ theorem kappaP_add_ΩC (p : AutPerm) (c : C) :
     (Fin 24 → ZMod 2) →ₗ[ZMod 2] (Fin 24 → ZMod 2) :=
   LinearMap.funLeft (ZMod 2) (ZMod 2) ⇑p⁻¹
 
-theorem permWordLin_apply (p : Equiv.Perm (Fin 24)) (x : Fin 24 → ZMod 2) :
-    permWordLin p x = permWord p x := rfl
 
 @[expose] def permD (p : AutPerm) : Cocode →ₗ[ZMod 2] Cocode :=
   C.mapQ C (permWordLin p) fun _ hx => permWord_mem_of_mem_AutPerm p.2 hx

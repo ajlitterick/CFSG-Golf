@@ -273,14 +273,6 @@ theorem mem_of_frame_inner {p : ℕ} {B Bs : Subgroup G} (hBs : GGBstar p B Bs)
   calc b * φ d = b * φ d * b⁻¹ * b := by group
     _ = φ d * b := by rw [h1]
 
-theorem mem_of_frameDiag {p : ℕ} {B Bs : Subgroup G} (hBs : GGBstar p B Bs)
-    {φ : ↥(unitarySU 2 f F n) →* G} (h : UnitaryFieldData 2 f F)
-    (hcent : Subgroup.centralizer (φ.range : Set G) = ⊥) (hframe : ∀ b ∈ Bs, GGFrameDiagU φ b)
-    {g : G} (hg : GGFrameDiagU φ g) (hgp : g ^ p = 1) : g ∈ Bs := by
-  refine hBs.2.2.2 _ (Subgroup.mem_centralizer_iff.mpr fun b hb => ?_) hgp
-  obtain ⟨τ, hτ⟩ := hg
-  obtain ⟨τ', hτ'⟩ := hframe b hb
-  exact commute_of_frameActs h hcent hτ' hτ
 
 theorem card_le_of_frameU [Finite F] {p : ℕ} (hp : p.Prime) (hpF : p ∣ Nat.card F - 1)
     (h : UnitaryFieldData 2 f F) (hn : 3 ≤ n) {φ : ↥(unitarySU 2 f F n) →* G}

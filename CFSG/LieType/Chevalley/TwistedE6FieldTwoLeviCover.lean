@@ -38,23 +38,6 @@ theorem isPerfect_minusGroup : Group.IsPerfect minusGroup := by
   (MonoidHom.ofInjective rhoMinus_injective).trans
     (MulEquiv.subgroupCongr (range_rhoMinus.trans (by rw [Qminus_eq])))
 
-theorem isPerfect_stdLevi_fourthJ
-    : Group.IsPerfect (stdLevi fourthJ) :=
-  have := isPerfect_minusGroup
-  Group.IsPerfect.ofSurjective (f := leviEquiv.symm.toMonoidHom) leviEquiv.symm.surjective
-
-@[expose] def statedMinusEquiv :
-    StatedProj (StatedOmega (StatedQuadMinus 4 (ZMod 2) 1 1)) ≃* minusGroup :=
-  (tailProjEquiv (minusTailIsometry 4 (ZMod 2) 1 1) (coe_quadMinus 4 (ZMod 2) 1 1)
-    (commutator_orthogonalGroup_quadMinus (by norm_num) (by decide))).trans
-    ((QuotientGroup.quotientMulEquivOfEq (elemScalars_quadTail_eq_bot (by norm_num))).trans
-      QuotientGroup.quotientBot)
-
-theorem lieModel_stdLevi_fourthJ
-    : LieModel (stdLevi fourthJ) .POmegaMinus 4 2 1 :=
-  Or.inl ⟨by decide, ⟨Nat.prime_two, le_rfl, le_rfl⟩, ZMod 2, inferInstance, inferInstance,
-    by rw [Nat.card_zmod, pow_one], 1, 1, by decide,
-    ⟨leviEquiv.trans statedMinusEquiv.symm⟩⟩
 
 theorem ker_eq_bot_of_minusGroup {E : Type*} [Group E] [Finite E] [Group.IsPerfect E]
     (θ : E →* minusGroup) (hθ : Function.Surjective θ) (hC : θ.ker ≤ Subgroup.center E)
@@ -161,23 +144,6 @@ theorem relRootGroup_le_leviT
   rw [stdLevi_fourthJ]
   exact ⟨rootSpan_le_groupD (relFibre_subset_parabolicRoots h3) hx.1, hx.2⟩
 
-theorem f4Euclid_apply_zero (r : Fin Tag.F4.rank → ℤ) :
-    f4Euclid r 0 = (r ⟨3, by decide⟩ : ℚ) / 2 := by
-  have key : ∀ v : Fin 4 → ℤ, (∑ i, (v i : ℚ) • f4SimpleEuclid i) 0 = (v 3 : ℚ) / 2 := by
-    intro v
-    rw [Finset.sum_apply, Fin.sum_univ_four]
-    simp [f4SimpleEuclid]
-    ring
-  exact key r
-
-theorem relRootGroup_le_leviT_of_euclid
-    {r : Fin Tag.F4.rank → ℤ} (h : f4Euclid r 0 = 0) :
-    relRootGroup r ≤ leviT := by
-  refine relRootGroup_le_leviT ?_
-  have h' := f4Euclid_apply_zero r
-  rw [h] at h'
-  have h'' : (r ⟨3, by decide⟩ : ℚ) = 0 := by linarith
-  exact_mod_cast h''
 
 theorem simple_two_simple_three_single_two :
     simple .F4 ⟨2, by decide⟩ • simple .F4 ⟨3, by decide⟩ •

@@ -13,6 +13,5 @@ open CFSG.Open CFSG.ComponentClassification CFSG.ClassicalInvolution
 
 local notation "𝒞" => Generic.CoreAssembly.conjClass
 
-variable {p f : ℕ} [Fact p.Prime]
 
 end CFSG.ClassicalInvolution.NDB

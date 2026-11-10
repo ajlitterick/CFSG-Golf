@@ -67,9 +67,6 @@ theorem specialUnitary_eq_subgroupOf (sigma : K ≃+* K) (n : ℕ) :
   (MulEquiv.subgroupCongr (specialUnitary_eq_subgroupOf sigma n)).trans
     (Subgroup.subgroupOfEquivOfLe (SUid_le_Uid sigma n))
 
-theorem specialUnitaryEquivSUid_val (sigma : K ≃+* K) (n : ℕ)
-    (A : specialUnitary sigma n) :
-    (specialUnitaryEquivSUid sigma n A).val = A.val.val := rfl
 
 instance determinantQuotientComm (sigma : K ≃+* K) (n : ℕ) :
     IsMulCommutative (Uid sigma n ⧸ specialUnitary sigma n) := by

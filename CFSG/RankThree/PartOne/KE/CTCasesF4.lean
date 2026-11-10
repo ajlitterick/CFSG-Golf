@@ -131,47 +131,5 @@ theorem F4_twelve_cyclic_sylow (hmainF4 : CyclicTorusTheoremF4) (K : Type) [Fiel
   rw [f4W12_charpoly, coeff_zero_eq_eval_zero]
   simp
 
-theorem F4_twelve_n0_odd (q : ℕ) : Odd (q ^ 4 - q ^ 2 + 1) := by
-  rcases lt_or_ge q 2 with hq | hq
-  · interval_cases q <;> decide
-  · rw [← Int.odd_coe_nat, cast_f12 hq, ← ZMod.intCast_eq_one_iff_odd]
-    have key : ∀ y : ZMod 2, y ^ 4 - y ^ 2 + 1 = 1 := by decide
-    push_cast
-    exact key _
-
-theorem F4_eight_n0_odd_of_even {q : ℕ} (hq : Even q) : Odd (q ^ 4 + 1) :=
-  (hq.pow_of_ne_zero (by norm_num)).add_one
-
-theorem F4_eight_n0_two_part {q : ℕ} (hq : Odd q) : ∃ m : ℕ, Odd m ∧ q ^ 4 + 1 = 2 * m := by
-  obtain ⟨k, rfl⟩ := hq
-  refine ⟨8 * k ^ 4 + 16 * k ^ 3 + 12 * k ^ 2 + 4 * k + 1, ?_, by ring⟩
-  exact ⟨4 * k ^ 4 + 8 * k ^ 3 + 6 * k ^ 2 + 2 * k, by ring⟩
-
-theorem F4_eight_prime_ge {p q : ℕ} (hp : p.Prime) (hord : orderOf (q : ZMod p) = 8) :
-    17 ≤ p := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hq0 : (q : ZMod p) ≠ 0 := by
-    intro h
-    rw [h, orderOf_zero] at hord
-    omega
-  have h8 := ZMod.orderOf_dvd_card_sub_one hq0
-  rw [hord] at h8
-  by_contra hlt
-  obtain ⟨k, hk⟩ := h8
-  have hp2 := hp.two_le
-  interval_cases p <;> first | omega | (revert hp; decide)
-
-theorem F4_twelve_prime_ge {p q : ℕ} (hp : p.Prime) (hord : orderOf (q : ZMod p) = 12) :
-    13 ≤ p := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hq0 : (q : ZMod p) ≠ 0 := by
-    intro h
-    rw [h, orderOf_zero] at hord
-    omega
-  have h12 := ZMod.orderOf_dvd_card_sub_one hq0
-  rw [hord] at h12
-  have hp2 := hp.two_le
-  have := Nat.le_of_dvd (by omega) h12
-  omega
 
 end CFSG.RankThree.PartOne.KE

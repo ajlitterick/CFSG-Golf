@@ -106,62 +106,6 @@ theorem simple_commutative_binary_module_prime_kernel_order_cost
     change (Ideal.Quotient.mk ideal) (hom scalar) * equivalence member = equivalence member
     rw [hquotient, one_mul]
 
-theorem simple_commutative_binary_module_prime_kernel_cost
-    {coefficient : Type u} {space : Type v} {acting : Type w}
-    [CommRing coefficient] [AddCommGroup space] [Module coefficient space]
-    [IsSimpleModule coefficient space] [Finite space]
-    [Module (ZMod 2) space] [Group acting] [Finite acting]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (hom : acting →* coefficient) (hpow : ∀ scalar : acting, scalar ^ prime = 1) :
-    ∃ kernel : Subgroup acting, kernel.Normal ∧
-      (kernel.index = 1 ∨ kernel.index = prime) ∧
-        (kernel.index = prime → 2 ≤ Module.finrank (ZMod 2) space) ∧
-          ∀ scalar ∈ kernel, ∀ member : space, hom scalar • member = member := by
-  obtain ⟨ideal, hideal, ⟨equivalence⟩⟩ := isSimpleModule_iff_quot_maximal.mp
-    (inferInstance : IsSimpleModule coefficient space)
-  let : ideal.IsMaximal := hideal
-  let : Field (coefficient ⧸ ideal) := Ideal.Quotient.field ideal
-  let : Finite (coefficient ⧸ ideal) := Finite.of_equiv space equivalence.toEquiv
-  let unitHom := ((Ideal.Quotient.mk ideal).toMonoidHom.comp hom).toHomUnits
-  have hindex : unitHom.ker.index = Nat.card unitHom.range :=
-    Nat.card_congr (QuotientGroup.quotientKerEquivRange unitHom).toEquiv
-  let : IsCyclic unitHom.range := inferInstance
-  have hdivides : Nat.card unitHom.range ∣ prime := by
-    rw [← IsCyclic.exponent_eq_card]
-    apply Monoid.exponent_dvd_of_forall_pow_eq_one
-    intro member
-    obtain ⟨scalar, hscalar⟩ := member.property
-    apply Subtype.ext
-    change member.val ^ prime = 1
-    rw [← hscalar, ← map_pow, hpow, map_one]
-  refine ⟨unitHom.ker, inferInstance, ?_, ?_, ?_⟩
-  · rw [hindex]
-    exact (Nat.dvd_prime Fact.out).mp hdivides
-  · intro hlarge
-    have hbound : prime ≤ Nat.card space - 1 := by
-      rw [hindex] at hlarge
-      have hcardLe := Nat.card_le_card_of_injective unitHom.range.subtype Subtype.val_injective
-      rw [Nat.card_units, ← Nat.card_congr equivalence.toEquiv, hlarge] at hcardLe
-      exact hcardLe
-    have hspaceCard : Nat.card space = 2 ^ Module.finrank (ZMod 2) space := by
-      simpa only [Nat.card_eq_fintype_card, ZMod.card] using
-        (Module.natCard_eq_pow_finrank (K := ZMod 2) (V := space))
-    have hprimeLarge : 3 ≤ prime := by have := (Fact.out : prime.Prime).two_le; omega
-    by_contra hsmall
-    have hdimension : Module.finrank (ZMod 2) space = 0 ∨ Module.finrank (ZMod 2) space = 1 := by omega
-    rcases hdimension with hzero | hone
-    · rw [hzero] at hspaceCard
-      norm_num at hspaceCard
-      omega
-    · rw [hone] at hspaceCard
-      norm_num at hspaceCard
-      omega
-  · intro scalar hscalar member
-    apply equivalence.injective
-    rw [map_smul]
-    have hquotient : (Ideal.Quotient.mk ideal) (hom scalar) = 1 := congrArg Units.val hscalar
-    change (Ideal.Quotient.mk ideal) (hom scalar) * equivalence member = equivalence member
-    rw [hquotient, one_mul]
 
 theorem separating_prime_index_kernels_with_cost
     {acting : Type u} {index : Type v} [Group acting] [Finite acting] [Fintype index]
@@ -207,16 +151,6 @@ theorem separating_prime_index_kernels_with_cost
     _ = ∑ position, perKernel * width position := Finset.mul_sum _ _ _
     _ ≤ ∑ position, cost position := Finset.sum_le_sum fun position _ => hcostLe position
 
-theorem separating_prime_index_kernels_dimension_cost
-    {acting : Type u} {index : Type v} [Group acting] [Finite acting] [Fintype index]
-    (prime rank : ℕ) (hprime : prime.Prime) (hcard : Nat.card acting = prime ^ rank)
-    (kernel : index → Subgroup acting) [∀ position, (kernel position).Normal]
-    (cost : index → ℕ)
-    (hindex : ∀ position, (kernel position).index = 1 ∨ (kernel position).index = prime)
-    (hcost : ∀ position, (kernel position).index = prime → 2 ≤ cost position)
-    (hseparating : ∀ scalar : acting, (∀ position, scalar ∈ kernel position) → scalar = 1) :
-    2 * rank ≤ ∑ position, cost position := by
-  exact separating_prime_index_kernels_with_cost prime rank 2 hprime hcard kernel cost hindex hcost hseparating
 
 theorem faithful_binary_elementary_representation_order_dimension_bound
     {acting : Type u} {space : Type v}
@@ -276,18 +210,6 @@ theorem faithful_binary_elementary_representation_order_dimension_bound
   rw [hdimension]
   exact hrankBound
 
-theorem faithful_binary_elementary_representation_dimension_bound
-    {acting : Type u} {space : Type v}
-    [CommGroup acting] [Finite acting] [AddCommGroup space] [Finite space]
-    [Module (ZMod 2) space] [NeZero (Nat.card acting : ZMod 2)]
-    (prime rank : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (hcard : Nat.card acting = prime ^ rank)
-    (representation : Representation (ZMod 2) acting space)
-    (hpow : ∀ scalar : acting, scalar ^ prime = 1)
-    (hfaithful : Function.Injective representation) :
-    2 * rank ≤ Module.finrank (ZMod 2) space := by
-  exact (Nat.mul_le_mul_right rank (binary_prime_order_at_least_two prime hodd)).trans
-    (faithful_binary_elementary_representation_order_dimension_bound prime rank hcard representation hpow hfaithful)
 
 theorem faithful_binary_elementary_linear_action_order_dimension_bound
     {acting : Type u} {space : Type v}
@@ -413,25 +335,6 @@ theorem local_twoCore_frattini_dimension_bound
   exact (Nat.mul_le_mul_right _ (binary_prime_order_at_least_two prime hodd)).trans
     (local_twoCore_frattini_order_dimension_bound prime hprime hodd hchar localGroup hlocal)
 
-theorem rank_four_local_small_frattini_dimension_forces_prime_three
-    {ambient : Type u} [Group ambient] [Finite ambient]
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (hchar : IsCharTwoType ambient) (localGroup : Subgroup ambient) (hlocal : IsTwoLocal localGroup)
-    (hrank : 4 ≤ pRank prime localGroup) :
-    letI : IsMulCommutative (pCoreOf 2 localGroup ⧸ frattini (pCoreOf 2 localGroup)) :=
-      pGroup_frattini_quotient_isMulCommutative 2 (pCoreOf_isPGroup 2 localGroup)
-    letI : CommGroup (pCoreOf 2 localGroup ⧸ frattini (pCoreOf 2 localGroup)) := IsMulCommutative.instCommGroup
-    letI := pGroup_binary_frattini_quotient_module (pCoreOf_isPGroup 2 localGroup)
-    Module.finrank (ZMod 2) (Additive (pCoreOf 2 localGroup ⧸ frattini (pCoreOf 2 localGroup))) ≤ 11 →
-      prime = 3 := by
-  let : Fact prime.Prime := ⟨hprime⟩
-  intro hdimension
-  by_contra hthree
-  have hminimum := binary_prime_order_at_least_three_of_ne_three prime hodd hthree
-  have hcost := local_twoCore_frattini_order_dimension_bound prime hprime hodd hchar localGroup hlocal
-  have hlower : 3 * 4 ≤ orderOf (2 : ZMod prime) * pRank prime localGroup :=
-    Nat.mul_le_mul hminimum hrank
-  omega
 
 theorem local_twoCore_frattini_cardinality_bound
     {ambient : Type u} [Group ambient] [Finite ambient]
@@ -474,91 +377,5 @@ theorem rank_four_local_twoCore_cardinality_at_least_256
   exact hminimum.trans
     (local_twoCore_cardinality_bound prime hprime hodd hchar localGroup hlocal)
 
-theorem faithful_odd_action_cyclic_center_quotient_order_dimension_bound
-    {acting : Type u} {source : Type v}
-    [Group acting] [Finite acting] [Group source] [Finite source] [MulDistribMulAction acting source]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (hacting : IsPGroup prime acting) (hsource : IsPGroup 2 source)
-    (hcenter : IsCyclic (Subgroup.center source))
-    (hcommutator : commutator source ≤ Subgroup.center source)
-    (hsquares : ∀ member : source, member ^ 2 ∈ Subgroup.center source)
-    (hfaithful : Function.Injective (MulDistribMulAction.toMulAut acting source)) :
-    letI : IsMulCommutative (source ⧸ Subgroup.center source) :=
-      Subgroup.Normal.quotient_commutative_iff_commutator_le.mpr hcommutator
-    letI : CommGroup (source ⧸ Subgroup.center source) := IsMulCommutative.instCommGroup
-    letI := class_two_binary_center_quotient_module hsquares
-    orderOf (2 : ZMod prime) * pRank prime (⊤ : Subgroup acting) ≤
-      Module.finrank (ZMod 2) (Additive (source ⧸ Subgroup.center source)) := by
-  let : IsMulCommutative (source ⧸ Subgroup.center source) :=
-    Subgroup.Normal.quotient_commutative_iff_commutator_le.mpr hcommutator
-  let : CommGroup (source ⧸ Subgroup.center source) := IsMulCommutative.instCommGroup
-  let := class_two_binary_center_quotient_module hsquares
-  let := characteristic_quotient_mulDistribMulAction (acting := acting) (Subgroup.center source)
-  exact faithful_binary_multiplicative_action_order_rank_bound prime hodd
-    (faithful_odd_pGroup_action_on_cyclic_center_quotient prime Fact.out hodd hacting hsource hcenter hfaithful)
-
-theorem faithful_odd_action_cyclic_center_quotient_dimension_bound
-    {acting : Type u} {source : Type v}
-    [Group acting] [Finite acting] [Group source] [Finite source] [MulDistribMulAction acting source]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (hacting : IsPGroup prime acting) (hsource : IsPGroup 2 source)
-    (hcenter : IsCyclic (Subgroup.center source))
-    (hcommutator : commutator source ≤ Subgroup.center source)
-    (hsquares : ∀ member : source, member ^ 2 ∈ Subgroup.center source)
-    (hfaithful : Function.Injective (MulDistribMulAction.toMulAut acting source)) :
-    letI : IsMulCommutative (source ⧸ Subgroup.center source) :=
-      Subgroup.Normal.quotient_commutative_iff_commutator_le.mpr hcommutator
-    letI : CommGroup (source ⧸ Subgroup.center source) := IsMulCommutative.instCommGroup
-    letI := class_two_binary_center_quotient_module hsquares
-    2 * pRank prime (⊤ : Subgroup acting) ≤
-      Module.finrank (ZMod 2) (Additive (source ⧸ Subgroup.center source)) := by
-  exact (Nat.mul_le_mul_right _ (binary_prime_order_at_least_two prime hodd)).trans
-    (faithful_odd_action_cyclic_center_quotient_order_dimension_bound prime hodd hacting hsource hcenter
-      hcommutator hsquares hfaithful)
-
-theorem faithful_odd_action_critical_cyclic_center_quotient_dimension_bound
-    {acting : Type u} {source : Type v}
-    [Group acting] [Finite acting] [Group source] [Finite source] [MulDistribMulAction acting source]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (hacting : IsPGroup prime acting) (hsource : IsPGroup 2 source)
-    (critical : Subgroup source) [critical.Characteristic]
-    (hcritical : Subgroup.centralizer (critical : Set source) ≤ critical)
-    (hfrattini : (frattini critical).map critical.subtype ≤ (Subgroup.center critical).map critical.subtype)
-    (hcenter : IsCyclic (Subgroup.center critical))
-    (hfaithful : Function.Injective (MulDistribMulAction.toMulAut acting source)) :
-    ∃ hcommutator : commutator critical ≤ Subgroup.center critical,
-      ∃ hsquares : ∀ member : critical, member ^ 2 ∈ Subgroup.center critical,
-        letI : IsMulCommutative (critical ⧸ Subgroup.center critical) :=
-          Subgroup.Normal.quotient_commutative_iff_commutator_le.mpr hcommutator
-        letI : CommGroup (critical ⧸ Subgroup.center critical) := IsMulCommutative.instCommGroup
-        letI := class_two_binary_center_quotient_module hsquares
-        2 * pRank prime (⊤ : Subgroup acting) ≤
-          Module.finrank (ZMod 2) (Additive (critical ⧸ Subgroup.center critical)) := by
-  let : Fact (Nat.Prime 2) := ⟨by norm_num⟩
-  have hfrattiniLocal : frattini critical ≤ Subgroup.center critical :=
-    (Subgroup.map_le_map_iff_of_injective (f := critical.subtype) Subtype.val_injective).mp hfrattini
-  have hcommutator : commutator critical ≤ Subgroup.center critical :=
-    (pGroup_commutator_le_frattini 2 (hsource.to_subgroup critical)).trans hfrattiniLocal
-  have hsquares : ∀ member : critical, member ^ 2 ∈ Subgroup.center critical :=
-    fun member => hfrattiniLocal (pGroup_pow_mem_frattini 2 (hsource.to_subgroup critical) member)
-  let := characteristic_subgroup_mulDistribMulAction (acting := acting) critical
-  have hcriticalFaithful := faithful_coprime_pGroup_action_on_characteristic_critical_subgroup
-    prime 2 hodd hacting hsource critical hcritical hfaithful
-  refine ⟨hcommutator, hsquares, ?_⟩
-  exact faithful_odd_action_cyclic_center_quotient_dimension_bound prime hodd hacting
-    (hsource.to_subgroup critical) hcenter hcommutator hsquares hcriticalFaithful
-
-theorem faithful_binary_linear_action_order_rank_bound
-    {acting : Type u} {space : Type v}
-    [Group acting] [Finite acting] [AddCommGroup space] [Finite space] [Module (ZMod 2) space]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2)
-    (embedding : acting →* (space ≃ₗ[ZMod 2] space)) (hinjective : Function.Injective embedding) :
-    orderOf (2 : ZMod prime) * pRank prime (⊤ : Subgroup acting) ≤ Module.finrank (ZMod 2) space := by
-  obtain ⟨elementary, _, helementary, hcard⟩ := pRank_attained prime Fact.out (⊤ : Subgroup acting)
-  let : IsMulCommutative elementary := helementary.1
-  let : CommGroup elementary := IsMulCommutative.instCommGroup
-  exact faithful_binary_elementary_linear_action_order_dimension_bound prime _ hodd hcard
-    (fun scalar => Subtype.ext (helementary.2 scalar scalar.property))
-    (embedding.comp elementary.subtype) (hinjective.comp Subtype.val_injective)
 
 end CFSG.PreuniquenessRankFour.Helpers

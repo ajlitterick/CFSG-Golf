@@ -107,21 +107,6 @@ theorem kWit : bAnd(Nat.beq (ELf 0) 0, bAnd(Nat.beq (ELf 1) 1, bAnd(Nat.beq (ELf
 
 @[expose] noncomputable def FR (i : Nat) : Nat := Q7305F.F i
 
-@[expose] noncomputable def fOK (i : Nat) : Bool :=
-  bAnd(permOK 4060 12 (mask 12) (4060 * 12) (FR i) (pinvS 4060 12 (mask 12) (FR i)),
-  bAnd(Nat.beq (Nat.shiftRight (FR i) (4060 * 12)) 0,
-  bAnd(allN 4060 (fun x => Nat.blt (pg 12 (mask 12) (FR i) x) 4060),
-  bAnd(siftK 4060 12 (mask 12) (4060 * 12) (pidn 4060 12) RuJS.LR RuJS.TRI RuJS.BP 4 0 (FR i),
-  bAnd(Nat.beq (pg 12 (mask 12) (FR i) 0) 0,
-  bAnd(Nat.beq (pg 12 (mask 12) (FR i) 2808) 2808, Nat.beq (pg 12 (mask 12) (FR i) 2) 2))))))
-
-theorem kF0 : fOK 0 = true := by quickRfl
-theorem kF1 : fOK 1 = true := by quickRfl
-
-theorem kPow : bAnd(Nat.beq (powK (FR 0) 5) pid, bAnd(bIf(Nat.beq (FR 0) pid, false, true),
-    bAnd(Nat.beq (powK (FR 1) 4) pid, bAnd(bIf(Nat.beq (powK (FR 1) 2) pid, false, true),
-      Nat.beq (conjK (FR 1) (FR 0)) (powK (FR 0) 2))))) = true := by
-  quickRfl
 
 theorem neg : bAnd(bIf(Nat.beq (powK (FR 0) 4) pid, false, true),
     bAnd(bIf(Nat.beq (conjK (FR 1) (FR 0)) (FR 0), false, true),

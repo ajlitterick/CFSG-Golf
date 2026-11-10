@@ -15,44 +15,6 @@ namespace CFSG.GorensteinWalter
 
 universe u
 
-public theorem secondCase_a7_fitting_centralizes_component
-    {G : Type u} [Group G] [Finite G]
-    (E M F : Subgroup G)
-    (hEcomp : IsComponentOf E M)
-    (hEnorm : IsNormalIn E M)
-    (hFleM : F ≤ M)
-    (hFodd : Odd (Nat.card F))
-    (SE : Sylow 2 E)
-    (hFcentSE : F ≤ Subgroup.centralizer
-      (((SE : Subgroup E).map E.subtype : Subgroup G) : Set G))
-    (eQ : Nonempty ((E ⧸ Subgroup.center E) ≃*
-      alternatingGroup (Fin 7))) :
-    F ≤ Subgroup.centralizer (E : Set G) := by
-  let S : Subgroup G := (SE : Subgroup E).map E.subtype
-  let SQ : Sylow 2 (E ⧸ Subgroup.center E) :=
-    SE.mapSurjective (QuotientGroup.mk'_surjective (Subgroup.center E))
-  let Sbar : Sylow 2 (alternatingGroup (Fin 7)) :=
-    SQ.mapSurjective (f := eQ.some.toMonoidHom) eQ.some.surjective
-  have hSsub : S.subgroupOf E = (SE : Subgroup E) := by
-    ext x
-    change (x : G) ∈ (SE : Subgroup E).map E.subtype ↔ x ∈ (SE : Subgroup E)
-    constructor
-    · rintro ⟨y, hy, hxy⟩
-      have : y = x := E.subtype_injective hxy
-      subst y
-      exact hy
-    · intro hx
-      exact ⟨x, hx, rfl⟩
-  have hSmap :
-      ((S.subgroupOf E).map (QuotientGroup.mk' (Subgroup.center E))).map
-          eQ.some.toMonoidHom = (Sbar : Subgroup (alternatingGroup (Fin 7))) := by
-    rw [hSsub]
-    rw [← Sylow.coe_mapSurjective
-      (QuotientGroup.mk'_surjective (Subgroup.center E)) SE]
-    exact Sylow.coe_mapSurjective (f := eQ.some.toMonoidHom)
-      eQ.some.surjective SQ
-  apply secondCase_a7_odd_subgroup_centralizes_component E M F S hEcomp hEnorm hFleM hFodd
-    (by simpa [S] using hFcentSE) eQ Sbar hSmap
 
 /-! Equation-(3) wrapper.  The fitting subgroup is contained in `U`, hence
 centralizes `t`; its membership in the equation-(3) fixed part supplies

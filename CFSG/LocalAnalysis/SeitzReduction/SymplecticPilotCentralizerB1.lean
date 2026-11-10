@@ -156,11 +156,6 @@ variable (K) in
 
 variable {p : Fin n}
 
-theorem mem_transvRadical {g : StatedSp n K} :
-    g ∈ transvRadical K p ↔ (∀ r, mat n K g r (Sum.inl p) =
-      (1 : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) r (Sum.inl p)) ∧
-    ∀ t, t ∉ coords p → ∀ r, r ≠ Sum.inl p →
-      mat n K g r t = (1 : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) r t := Iff.rfl
 
 theorem transvRadical_le_centralizer [CharP K 2] :
     transvRadical K p ≤ centralizer ({siegDiag K p 1} : Set (StatedSp n K)) :=
@@ -772,24 +767,6 @@ theorem spRep_b1_eq_siegDiag (n : ℕ) : spRep (K := K) n .b1 = siegDiag K 1 1 :
     rw [siegPair, ← upperUnipotentSp_zero (m := n + 3) (K := K)]
     exact upperUnipotentSp_congr _ _ (by rw [single_zero, single_zero, add_zero]), mul_one]
 
-theorem perfectCore_centralizer_spRep_b1 (hK : 4 ≤ Nat.card K) (n : ℕ) :
-    ∃ Q M S : Subgroup (StatedSp (n + 3) K), IsPGroup 2 Q ∧
-      M ≤ normalizer (Q : Set (StatedSp (n + 3) K)) ∧ Disjoint Q M ∧
-      perfectCore (centralizer ({spRep n .b1} : Set (StatedSp (n + 3) K))) = Q ⊔ M ∧
-      (∀ N : Subgroup M, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      spRep n .b1 ∈ perfectCore (centralizer ({spRep n .b1} : Set (StatedSp (n + 3) K))) ∧
-      longRootSp2 K (n + 3) 0 ≤ S ∧ S = perfectCore M ∧
-      Nonempty (S ≃* StatedSp (n + 2) K) := by
-  have h10 : (0 : Fin (n + 3)) ≠ 1 := by simp
-  have hperf := commutator_centralizer_siegDiag (K := K) (m := n + 2) hK (p := 1) (by omega)
-  have hMperf := commutator_complSp (K := K) (m := n + 2) hK 1
-  refine ⟨transvRadical K 1, complSp K 1, complSp K 1, isPGroup_transvRadical,
-    complSp_le_normalizer_transvRadical, disjoint_transvRadical_complSp, ?_,
-    fun N hN hN2 => @eq_bot_of_normal_of_isPGroup_complSp K _ (n + 2) _ _ hK (by omega) 1 N hN hN2,
-    spRep_mem_perfectCore_centralizer hK n .b1, longRootSp2_le_complSp (Ne.symm h10),
-    (CFSG.Quasithin.perfectCore_eq_self_of_perfect hMperf).symm, ⟨(complSpEquiv 1).symm⟩⟩
-  rw [spRep_b1_eq_siegDiag, CFSG.Quasithin.perfectCore_eq_self_of_perfect hperf,
-    centralizer_siegDiag_eq_sup]
 
 end SA7
 

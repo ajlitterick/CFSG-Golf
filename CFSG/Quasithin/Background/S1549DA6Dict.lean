@@ -105,7 +105,6 @@ theorem n6RepHom_ker : n6RepHom.ker =
   (QuotientGroup.quotientMulEquivOfEq n6RepHom_ker.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective n6RepHom n6RepHom_surjective)
 
-theorem psiN6_mk (m : ↥(G6.coreMod 6)) : psiN6 (QuotientGroup.mk m) = n6Rep m := rfl
 
 theorem n6Rep_permAct (σ : Equiv.Perm (Fin 6)) (m : ↥(G6.coreMod 6)) :
     n6Rep ⟨G6.permAct 6 σ (m : G6.PermMod 6), G6.permAct_mem_coreMod σ m.2⟩ = n6Act σ (n6Rep m) := by

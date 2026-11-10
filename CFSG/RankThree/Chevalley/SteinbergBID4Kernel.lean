@@ -533,13 +533,6 @@ theorem mem_center_of_d4Res_eq_one {g : subsystemGroup Tag.E6 K d4Support}
   exact torusRootChar_eq_of_apply (isRoot_d4Lat_iff.2 hβ)
     (by rw [apply_rootVec_d4Lat_of_d4Res_eq_one hg β, one_smul])
 
-theorem d4Sign_injective {a b d a' b' d' : Kˣ}
-    (h : torusElt Tag.E6 K 1 a * torusElt Tag.E6 K 2 b * torusElt Tag.E6 K 4 d =
-      torusElt Tag.E6 K 1 a' * torusElt Tag.E6 K 2 b' * torusElt Tag.E6 K 4 d') :
-    a = a' ∧ b = b' ∧ d = d' := by
-  rw [← d4TorusHom_sign, ← d4TorusHom_sign] at h
-  have e := d4TorusHom_injective h
-  exact ⟨congrFun e 0, congrFun e 1, congrFun e 3⟩
 
 theorem eq_one_of_sq_eq_one_of_ringChar_eq_two (h2 : ringChar K = 2) {x : Kˣ} (hx : x ^ 2 = 1) :
     x = 1 := by

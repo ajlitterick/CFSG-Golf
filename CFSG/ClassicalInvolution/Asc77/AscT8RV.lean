@@ -34,15 +34,6 @@ variable {G : Type} [Group G] [Finite G] {p f : ℕ} [Fact p.Prime] {Ω : Set (S
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
 
-theorem sylow_inf_omegaNbrGen (hs : Std8 p f Ω K J S R T W z t)
-    (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) :
-    (S : Subgroup G) ⊓ omegaNbrGen Ω K = T := by
-  have hp : p ≠ 2 := hs.stand.odd
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  obtain ⟨hTΩ, hTJ, hTS⟩ := hs.hT
-  exact sylow_inf_omegaNbrGen_gen hs.hJ hTJ hTS
-    (T3.isSylow2In_of_mem_RSet_of_le hp hΩ hs.hJ.1 hTΩ hTJ) hX
-
 theorem not_mem_omegaNbr_of_four_le (hs : Std8 p f Ω K J S R T W z t)
     (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) {M : Subgroup G} (hM : M ∈ Ω)
     (h4 : 4 ≤ Nat.card ↥(M ⊓ (S : Subgroup G))) (hMJ : M ≠ J) : M ∉ omegaNbr Ω K := by

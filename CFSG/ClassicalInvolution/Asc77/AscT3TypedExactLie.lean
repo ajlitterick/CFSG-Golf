@@ -188,11 +188,6 @@ theorem thm3Lie_of_violation (hgen : G2CentralizersGenerate p) (hD4 : D4Normaliz
     Relation.ReflTransGen.single ⟨hv.mem, Or.inl ⟨zK, zJ, hv⟩⟩
   exact sectionLieType_of_violation hp hq hΦ D hgen hG2 hR hQ hJ
 
-theorem thm3LieBelowExact_of_citBelowU (hgen : G2CentralizersGenerate p)
-    (hD4 : D4NormalizerMax p) {n : ℕ} (hn : CITBelowU p f n) : Thm3LieBelowExact p f n := by
-  intro hp hq G _ _ hlt hO Ω hΩ K hK hnA
-  obtain ⟨D⟩ := ih8_exists_omegaLie hn hΩ.conjInvariant hΩ.classical ⟨K, hK⟩ hO hlt
-  exact thm3Lie_of_violation hgen hD4 hp hq hΩ D hK hnA
 
 end Lie
 

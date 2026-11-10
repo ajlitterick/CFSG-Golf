@@ -111,50 +111,5 @@ theorem Hyp4_4_1.toOrbit {G : Type} [Group G] [Finite G] {T M L B Tp VB : Subgro
         (LieModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 3 2 1 ∧
           ∃ _ : IsMulCommutative ↥VB, FanoCoreModule (V := ↥VB) (autOn L VB) ⊤ ⊥)))
 
-@[expose] def Stmt4_4_3Orbit : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G), IsSimpleGroup G →
-    (∃ a b : G, a * b ≠ b * a) → QuasithinUnique.quasithinIsQTKECat G →
-    quasithinIsSylowTwo T → quasithinIsMaxTwoLocal M → T ≤ M →
-    quasithinIsMaximalLocal T L → quasithinIsFaithfulLocal T L → L ≤ M →
-    CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) →
-    B ≤ M → B ≠ ⊥ → IsMulCommutative ↥B → Odd (Nat.card B) →
-    ⁅conjClosure L T, B⁆ ≤ pCoreOf 2 (conjClosure L T) →
-    Tp ≤ T → (B : Set G) * (Tp : Set G) = (Tp : Set G) * (B : Set G) →
-    (∀ t ∈ T, ∃ s ∈ Tp, CFSG.conjugate L t = CFSG.conjugate L s) →
-    VB ≤ quasithinOmegaOneCenter (pCoreOf 2 (conjClosure L T ⊔ T)) →
-    conjClosure L T ⊔ T ≤ Subgroup.normalizer (VB : Set G) →
-    VB = ⁅VB, conjClosure L T⁆ → VB ≠ ⊥ → ⁅VB, B⁆ = ⊥ →
-      Concl4_4_3 G T M L B VB
-
-theorem stmt4_4_3_iff : Stmt4_4_3 ↔
-    ∀ (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G),
-      Hyp4_4_1 G T M L B Tp VB → Concl4_4_3 G T M L B VB := by
-  constructor
-  · intro h G _ _ T M L B Tp VB hH
-    exact h G T M L B Tp VB hH.simple hH.nonabelian hH.qtke hH.sylow hH.maxTwoLocal hH.T_le
-      hH.maximal hH.faithful hH.L_le hH.quasisimple hH.B_le hH.B_ne_bot hH.B_comm hH.B_odd
-      hH.commutator_le hH.Tp_le hH.mul_comm_Tp hH.mul_Tp hH.VB_le hH.VB_normalized hH.VB_eq
-      hH.VB_ne_bot hH.VB_centralizes
-  · intro h G _ _ T M L B Tp VB hs hnab hK hT hM hTM hL hLf hLM hq hBM hB1 hBc hBo hcomm hTp
-      hBT hLT hVB hVBn hVBe hVB1 hVBc
-    exact h G T M L B Tp VB ⟨⟨⟨hs, hnab, hK, hT, hM, hTM, hL, hLf, hLM, hq, hBM, hB1, hBc, hBo,
-      hcomm, hTp, hBT⟩, hLT⟩, ⟨hVB, hVBn, hVBe, hVB1, hVBc⟩⟩
-
-theorem stmt4_4_3Orbit_iff : Stmt4_4_3Orbit ↔
-    ∀ (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G),
-      Hyp4_4_1Orbit G T M L B Tp VB → Concl4_4_3 G T M L B VB := by
-  constructor
-  · intro h G _ _ T M L B Tp VB hH
-    exact h G T M L B Tp VB hH.simple hH.nonabelian hH.qtke hH.sylow hH.maxTwoLocal hH.T_le
-      hH.maximal hH.faithful hH.L_le hH.quasisimple hH.B_le hH.B_ne_bot hH.B_comm hH.B_odd
-      hH.commutator_le hH.Tp_le hH.mul_comm_Tp hH.orbit_Tp hH.VB_le hH.VB_normalized hH.VB_eq
-      hH.VB_ne_bot hH.VB_centralizes
-  · intro h G _ _ T M L B Tp VB hs hnab hK hT hM hTM hL hLf hLM hq hBM hB1 hBc hBo hcomm hTp
-      hBT hLT hVB hVBn hVBe hVB1 hVBc
-    exact h G T M L B Tp VB ⟨⟨⟨hs, hnab, hK, hT, hM, hTM, hL, hLf, hLM, hq, hBM, hB1, hBc, hBo,
-      hcomm, hTp, hBT⟩, hLT⟩, ⟨hVB, hVBn, hVBe, hVB1, hVBc⟩⟩
-
-theorem stmt4_4_3_of_orbit (h : Stmt4_4_3Orbit) : Stmt4_4_3 :=
-  stmt4_4_3_iff.2 fun G _ _ T M L B Tp VB hH => stmt4_4_3Orbit_iff.1 h G T M L B Tp VB hH.toOrbit
 
 end CFSG.Quasithin.H13

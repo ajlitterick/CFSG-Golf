@@ -26,11 +26,6 @@ theorem U_le_T : U ≤ T := by
   rw [F.T_eq]
   exact le_sup_right
 
-theorem Mo_le_T : Mo ≤ T := F.Mo_le_P.trans (P_le_T F)
-
-theorem Mo_le_S2 : Mo ≤ S2 := (Mo_le_T F).trans F.T_le_S2
-
-theorem Mo_sup_U_le_T : Mo ⊔ U ≤ T := sup_le (Mo_le_T F) (U_le_T F)
 
 theorem T_le_normalizer_L : T ≤ normalizer (L : Set X) := F.T_sylow.le
 
@@ -67,18 +62,6 @@ theorem eq_one_of_mem_P_of_mem_U {x : X} (hxP : x ∈ P) (hxU : x ∈ U) : x = 1
   rw [F.L_inf_J] at h
   exact mem_bot.mp h
 
-theorem eq_one_of_mem_Mo_of_mem_U {x : X} (hxM : x ∈ Mo) (hxU : x ∈ U) : x = 1 :=
-  eq_one_of_mem_P_of_mem_U F (F.Mo_le_P hxM) hxU
-
-theorem P_inf_U : P ⊓ U = ⊥ := by
-  rw [eq_bot_iff]
-  intro x hx
-  exact mem_bot.mpr (eq_one_of_mem_P_of_mem_U F (mem_inf.mp hx).1 (mem_inf.mp hx).2)
-
-theorem Mo_inf_U : Mo ⊓ U = ⊥ := by
-  rw [eq_bot_iff]
-  intro x hx
-  exact mem_bot.mpr (eq_one_of_mem_Mo_of_mem_U F (mem_inf.mp hx).1 (mem_inf.mp hx).2)
 
 theorem U_le_normalizer_P : U ≤ normalizer (P : Set X) := fun _ hu =>
   centralizer_le_normalizer _ (mem_centralizer_iff.mpr fun _ hx => comm_P_U F hx hu)
@@ -92,8 +75,6 @@ theorem exists_mul_of_mem_T {x : X} (hx : x ∈ T) : ∃ p ∈ P, ∃ u ∈ U, x
   obtain ⟨p, hp, u, hu, rfl⟩ := hx
   exact ⟨p, hp, u, hu, rfl⟩
 
-theorem mul_mem_T {p u : X} (hp : p ∈ P) (hu : u ∈ U) : p * u ∈ T :=
-  mul_mem (P_le_T F hp) (U_le_T F hu)
 
 theorem decomp_unique {p p' u u' : X} (hp : p ∈ P) (hp' : p' ∈ P) (hu : u ∈ U) (hu' : u' ∈ U)
     (h : p * u = p' * u') : p = p' ∧ u = u' := by
@@ -135,36 +116,6 @@ theorem mul_self_eq_one_of_mem_Mo_sup_U {z : X} (hz : z ∈ Mo ⊔ U) : z * z = 
     _ = (m * m) * (u * u) := by group
     _ = 1 := by rw [F.Mo_sq m hm, F.U_sq u hu, mul_one]
 
-theorem mem_Mo_sup_U_of_mul_self_eq_one {x : X} (hx : x ∈ T) (h : x * x = 1) : x ∈ Mo ⊔ U := by
-  obtain ⟨p, hp, u, hu, rfl⟩ := exists_mul_of_mem_T F hx
-  rw [mul_mul_self_PU F hp hu] at h
-  have hpM : p ∈ Mo := by
-    by_contra hpM
-    exact F.P_sq_ne p hp hpM h
-  exact mul_mem (mem_sup_left hpM) (mem_sup_right hu)
-
-theorem comm_T_Mo {x m : X} (hx : x ∈ T) (hm : m ∈ Mo) : x * m = m * x := by
-  obtain ⟨p, hp, u, hu, rfl⟩ := exists_mul_of_mem_T F hx
-  calc p * u * m = p * (u * m) := by rw [mul_assoc]
-    _ = p * (m * u) := by rw [← comm_Mo_U F hm hu]
-    _ = (p * m) * u := by rw [mul_assoc]
-    _ = (m * p) * u := by rw [F.Mo_central p hp m hm]
-    _ = m * (p * u) := by rw [mul_assoc]
-
-theorem mem_Mo_sup_U_of_central {x : X} (hx : x ∈ T) (hc : ∀ y ∈ T, x * y = y * x) :
-    x ∈ Mo ⊔ U := by
-  obtain ⟨p, hp, u, hu, rfl⟩ := exists_mul_of_mem_T F hx
-  have hpc : ∀ y ∈ P, p * y = y * p := by
-    intro y hy
-    have h := hc y (P_le_T F hy)
-    have h' : p * y * u = y * p * u := by
-      calc p * y * u = p * (y * u) := by rw [mul_assoc]
-        _ = p * (u * y) := by rw [comm_P_U F hy hu]
-        _ = p * u * y := by rw [mul_assoc]
-        _ = y * (p * u) := h
-        _ = y * p * u := by rw [mul_assoc]
-    exact mul_right_cancel h'
-  exact mul_mem (mem_sup_left (F.center_P p hp hpc)) (mem_sup_right hu)
 
 theorem K_le_normalizer_P : K ≤ normalizer (P : Set X) := (K_le_D F).trans F.D_norm_P
 

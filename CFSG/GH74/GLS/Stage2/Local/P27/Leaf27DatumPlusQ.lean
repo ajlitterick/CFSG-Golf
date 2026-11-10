@@ -12,12 +12,6 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.GLS.Stage12 CFSG.GH74.GLS.S
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def P27DatumPlusQ (z : G) (S : Subgroup G) (k : Kind) : Prop :=
-  (k = Kind.psp4 → ∀ (q : ℕ) (L₁ L₂ : Subgroup (CentralizerBar z)), Stage1PSp4 G z S q L₁ L₂ →
-      ∃ x : G, DatumPlusQ z x q) ∧
-    (∀ ε : Bool, k = Kind.l4 ε → ∀ (q : ℕ) (L₁ L₂ : Subgroup (CentralizerBar z)),
-      Stage1L4 G z S ε q L₁ L₂ → (∃ x₀ ∈ Cen z, IsNonCentralInvolution x₀) →
-        ∃ x : G, DatumPlusQ z x q)
 
 @[expose] def P27DatumPlusQL4 (z : G) (S : Subgroup G) (k : Kind) : Prop :=
   ∀ ε : Bool, k = Kind.l4 ε → ∀ (q : ℕ) (L₁ L₂ : Subgroup (CentralizerBar z)),

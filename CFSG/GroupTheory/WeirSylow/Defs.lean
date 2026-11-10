@@ -23,12 +23,6 @@ instance instGroupWreathTower (p : ℕ) (P : Type u) [Group P] (i : ℕ) :
     Group (wreathTower p P i) :=
   (wreathTowerBundle p P i).2
 
-theorem wreathTower_zero (p : ℕ) (P : Type u) [Group P] : wreathTower p P 0 = P :=
-  rfl
-
-theorem wreathTower_succ (p : ℕ) (P : Type u) [Group P] (i : ℕ) :
-    wreathTower p P (i + 1) = (wreathTower p P i ≀ᵣ Multiplicative (ZMod p)) :=
-  rfl
 
 instance instFiniteWreathTower (p : ℕ) [NeZero p] (P : Type u) [Group P] [Finite P] :
     (i : ℕ) → Finite (wreathTower p P i)

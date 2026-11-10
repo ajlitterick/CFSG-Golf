@@ -11,14 +11,6 @@ open CFSG.Open CFSG.LocalAnalysis.GLTheoremB CFSG.HardMathSupport.Solomon.Coordi
 
 variable {G : Type} [Group G]
 
-theorem layer_eq_lambdaOf_sup_phiOf (p : ℕ) (B : Subgroup G) (b : G) :
-    GLAPLayer p (Subgroup.centralizer ({b} : Set G)) = lambdaOf p B b ⊔ phiOf p B b := by
-  apply le_antisymm
-  · refine sSup_le fun L hL => ?_
-    by_cases h : IsStronglyLocallyOneBalanced p B b L
-    · exact le_sup_of_le_right (le_sSup ⟨hL, h⟩)
-    · exact le_sup_of_le_left (le_sSup ⟨hL, h⟩)
-  · exact sup_le (sSup_le_sSup fun L hL => hL.1) (sSup_le_sSup fun L hL => hL.1)
 
 @[expose] def Lemma31 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (m p : ℕ), GLStanding G m p →

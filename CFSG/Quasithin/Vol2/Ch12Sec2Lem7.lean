@@ -62,12 +62,6 @@ theorem exists_maximalLocal_ge {T X : Subgroup G} (hX : quasithinIsLocal T X) :
   exact ⟨Y, hXY, hY, fun K hK hYK =>
     (Subgroup.eq_of_le_of_card_ge hYK (hmax K ⟨hK, hXY.trans hYK⟩)).symm⟩
 
-omit [Finite G] in
-theorem isLocal_of_mem_cComp {T X H : Subgroup G} (hT : quasithinIsSylowTwo T) (hHT : InH T H)
-    (hX : X ∈ cComp H) (hHX : H = X ⊔ T) : quasithinIsLocal T X := by
-  have hsyl := (isSylowTwoOf_of_isSylowTwo hT hHT.1).2.2
-  subst hHX
-  exact ⟨hT.1, hX, hsyl, hHT.2⟩
 
 theorem oTwoUpper_eq {T X H : Subgroup G} (hT : IsPGroup 2 T) (hX : X ∈ cComp H)
     (hHX : H = X ⊔ T) (hTX : T ≤ Subgroup.normalizer (X : Set G)) : oTwoUpper H = X := by

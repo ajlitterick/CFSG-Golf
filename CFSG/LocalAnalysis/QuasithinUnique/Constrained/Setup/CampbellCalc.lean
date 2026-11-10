@@ -33,9 +33,6 @@ open scoped commutatorElement in
     rw [h1]
     exact hNV x⁻¹ (inv_mem hxN) _ (inv_mem (hx f hf))
 
-open scoped commutatorElement in
-theorem mem_commModIn {F V N : Subgroup G} {hNV : ∀ n ∈ N, ∀ v ∈ V, n * v * n⁻¹ ∈ V} {x : G} :
-    x ∈ commModIn F V N hNV ↔ x ∈ N ∧ ∀ f ∈ F, ⁅f, x⁆ ∈ V := Iff.rfl
 
 theorem commutator_iSup_le {ι : Sort*} (X : ι → Subgroup G) {F V N : Subgroup G}
     (hNV : ∀ n ∈ N, ∀ v ∈ V, n * v * n⁻¹ ∈ V) (hX : ∀ i, X i ≤ N)
@@ -73,19 +70,6 @@ instance commModIn_top_normal (F V : Subgroup G) [F.Normal] [V.Normal] :
     simpa using this
   exact (inferInstance : V.Normal).conj_mem _ (hn.2 _ h2) g
 
-theorem pPrimeGen_top_le_of_sup_eq_top {p : ℕ} [Fact p.Prime] [Finite G] {N P : Subgroup G}
-    [N.Normal] (hP : IsPGroup p P) (htop : N ⊔ P = ⊤) :
-    CFSG.Quasithin.BlueprintB2.pPrimeGen p (⊤ : Subgroup G) ≤ N := by
-  refine CFSG.Quasithin.BlueprintB2.pPrimeGen_le_of_pow_mem fun x _ => ?_
-  have hx : x ∈ N ⊔ P := htop ▸ Subgroup.mem_top x
-  obtain ⟨n, hn, q, hq, rfl⟩ := Subgroup.mem_sup_of_normal_left.mp hx
-  obtain ⟨j, hj⟩ := hP ⟨q, hq⟩
-  refine ⟨j, ?_⟩
-  have hj' : q ^ p ^ j = 1 := by simpa using congrArg Subtype.val hj
-  have hn1 : QuotientGroup.mk' N n = 1 := (QuotientGroup.eq_one_iff n).mpr hn
-  have : QuotientGroup.mk' N ((n * q) ^ p ^ j) = 1 := by
-    rw [map_pow, map_mul, hn1, one_mul, ← map_pow, hj', map_one]
-  exact (QuotientGroup.eq_one_iff _).mp this
 
 end Calc
 

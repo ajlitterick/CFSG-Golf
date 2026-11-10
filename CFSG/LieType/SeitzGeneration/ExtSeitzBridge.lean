@@ -54,22 +54,5 @@ theorem planeGen_of_extSeitzAtOuterFor {d : TauCeti.ValidLieTypeIndex} [Finite (
   · exact h'
   · exact absurd (Or.inr h') hex
 
-theorem seitzPlanes_inner_of_extSeitz {F : TauCeti.LieTypeIndex → Prop}
-    {R : TauCeti.LieTypeIndex → ℕ → Prop}
-    (hfs : ∀ d : TauCeti.ValidLieTypeIndex, F d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d))
-    (h : ∀ d : TauCeti.ValidLieTypeIndex, F d.1 → ExtSeitzAtInnerFor d.1 (R d.1)) :
-    SeitzPlanes fun d p E => InnerPlane d p E ∧ F d.1 ∧ 5 ≤ p ∧ R d.1 p := by
-  rintro d p hp hp2 hpd hex E hE hc ⟨hin, hF, hp5, hR⟩
-  obtain ⟨hfin, hsimple⟩ := hfs d hF
-  exact planeGen_of_extSeitzAtInnerFor (h d hF) hp hp5 hpd hex hR hE hc hin
-
-theorem seitzPlanes_outer_of_extSeitz {F : TauCeti.LieTypeIndex → Prop}
-    {R : TauCeti.LieTypeIndex → ℕ → Prop}
-    (hfs : ∀ d : TauCeti.ValidLieTypeIndex, F d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d))
-    (h : ∀ d : TauCeti.ValidLieTypeIndex, F d.1 → ExtSeitzAtOuterFor d.1 (R d.1)) :
-    SeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ F d.1 ∧ 5 ≤ p ∧ R d.1 p := by
-  rintro d p hp hp2 hpd hex E hE hc ⟨hout, hF, hp5, hR⟩
-  obtain ⟨hfin, hsimple⟩ := hfs d hF
-  exact planeGen_of_extSeitzAtOuterFor (h d hF) hp hp5 hpd hex hR hE hc hout
 
 end CFSG.LieType.SeitzGeneration

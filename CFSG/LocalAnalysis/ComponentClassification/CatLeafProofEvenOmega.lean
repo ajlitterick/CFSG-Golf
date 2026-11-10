@@ -212,17 +212,6 @@ theorem even_omega_field_actual (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
   exact (M.equivMapOfInjective (fixedInnerEquiv hcj α).toMonoidHom
     (fixedInnerEquiv hcj α).injective).isSimpleGroup
 
-theorem even_omega_field_evenLieConclusion (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) {α : MulAut (matrixProjectiveDerived Q)}
-    (hα : α ∈ matrixProjectiveImage Q) (hα2 : orderOf α = 2)
-    (hout : α ∉ OuterAutomorphisms.inner (matrixProjectiveDerived Q)) {S : similarityPairs Q}
-    (hS : S ∈ unitMultiplierPairs Q) (hSα : matrixProjectiveConjugationHom Q S = α)
-    (hσ1 : S.val.right ≠ 1) (M : Subgroup (fixedSubgroup α)) (hM : IsPComponent 2 M) :
-    EvenLieConclusion M :=
-  (even_omega_field_actual hf hK hn hQ hT hE hα hα2 hout hS hSα hσ1 M hM).1
 
 theorem even_omega_outer_actual_cases (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
     {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
@@ -307,29 +296,6 @@ theorem even_omega_outer_fixed_cases (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (h
   · exact Or.inr (Or.inl ⟨Φ⟩)
   · exact Or.inr (Or.inr ⟨hσ, fun M hM => (h M hM).2⟩)
 
-
-
-theorem even_omega_outer_evenLieConclusion (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
-    {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q)
-    (hconj : ∀ α : MulAut (matrixProjectiveDerived Q), α * α = 1 →
-      ∃ β, β⁻¹ * α * β ∈ matrixProjectiveImage Q)
-    (α : MulAut (matrixProjectiveDerived Q)) (hα : orderOf α = 2)
-    (hout : α ∉ OuterAutomorphisms.inner (matrixProjectiveDerived Q))
-    (M : Subgroup (fixedSubgroup α)) (hM : IsPComponent 2 M) : EvenLieConclusion M := by
-  have : CharP K 2 :=
-    LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  have := finite_mulAut_matrixProjectiveDerived Q
-  have : Finite (GL (Fin (n - 1) ⊕ Fin (n - 1)) K) :=
-    Finite.of_injective Units.val Units.val_injective
-  rcases even_omega_outer_fixed_cases hf hK hn hQ hT hE hconj α hα hout with
-    hch | ⟨⟨Φ⟩⟩ | ⟨-, h⟩
-  · exact absurd hM (not_isPComponent_of_isCharacteristicP hch M)
-  · exact evenLieConclusion_of_mulEquiv Φ
-      (fun M' hM' => evenLieConclusion_statedSp hf hK (by omega) M' hM') hM
-  · exact h M hM
 
 theorem evenOrthogonal_outer_fixed_cases {t : StatedLieTag}
     (ht : t = .POmegaPlus ∨ t = .POmegaMinus) {J : Type} [Group J]

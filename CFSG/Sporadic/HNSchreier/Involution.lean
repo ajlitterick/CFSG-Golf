@@ -46,8 +46,6 @@ theorem matG_sU : matG sU = matS := by
   show matJ dJ⁻¹ * matJ dJ * matS = matS
   rw [matJ_inv_mul, one_mul]
 
-theorem isUnit_matS :
-    IsUnit matS := ⟨sU, matG_sU⟩
 
 abbrev wJ : JH := (aJ * bJ ^ 2) ^ 8
 
@@ -146,14 +144,6 @@ theorem matJ_conjC
 theorem conjC_conjC
     (g : JH) : conjC (conjC g) = g := conjC.left_inv g
 
-theorem conj_matJ_range :
-    {M | ∃ g : JH, M = matCx * matJ g * matCx} = Set.range matJ := by
-  ext M
-  constructor
-  · rintro ⟨g, rfl⟩
-    exact ⟨conjC g, matJ_conjC g⟩
-  · rintro ⟨g, rfl⟩
-    exact ⟨conjC g, by rw [← matJ_conjC, conjC_conjC]⟩
 
 theorem conjC_mem_HJ
     {h : JH} (hh : h ∈ HJ) : conjC h ∈ HJ := by
@@ -166,10 +156,6 @@ theorem conjC_mem_HJ
 theorem matJ_conjCH
     (h : HJ) : matJ (conjCH h : JH) = matCx * matJ h * matCx := matJ_conjC h
 
-theorem tauF_tauF
-    (k : Fin 462) : tauF (tauF k) = k := by
-  apply labPart_injective
-  rw [labPart_tauF, labPart_tauF, ← mul_smul, Equiv.swap_mul_self, one_smul]
 
 theorem conjCH_xVec
     (h : HJ) (k : Fin 462) :
@@ -189,30 +175,6 @@ theorem thetaJ_conjCH
   apply xVec_injective
   rw [← HJ_xVec, conjCH_xVec]
 
-theorem closure_h1J_h2J :
-    Subgroup.closure ({⟨h1J, h1J_mem⟩, ⟨h2J, h2J_mem⟩} : Set HJ) = ⊤ := by
-  apply Subgroup.map_injective HJ.subtype_injective
-  rw [MonoidHom.map_closure, Set.image_pair, ← MonoidHom.range_eq_map, Subgroup.range_subtype]
-  rfl
-
-theorem eq_thetaJ
-    (θ : HJ ≃* alternatingGroup (Fin 12))
-    (h1 : (θ ⟨h1J, h1J_mem⟩ : Perm (Fin 12)) = natPerm1)
-    (h2 : (θ ⟨h2J, h2J_mem⟩ : Perm (Fin 12)) = natPerm2) : θ = thetaJ := by
-  have key : ∀ h : HJ, θ h = thetaJ h := by
-    intro h
-    have hh : h ∈ Subgroup.closure ({⟨h1J, h1J_mem⟩, ⟨h2J, h2J_mem⟩} : Set HJ) := by
-      rw [closure_h1J_h2J]
-      trivial
-    induction hh using Subgroup.closure_induction with
-    | mem x hx =>
-      rcases hx with rfl | rfl
-      · exact Subtype.ext (h1.trans thetaJ_h1.symm)
-      · exact Subtype.ext (h2.trans thetaJ_h2.symm)
-    | one => rw [map_one, map_one]
-    | mul x y _ _ hx hy => rw [map_mul, map_mul, hx, hy]
-    | inv x _ hx => rw [map_inv, map_inv, hx]
-  exact MulEquiv.ext key
 
 theorem tau_not_mem : swap (0 : Fin 12) 1 ∉ alternatingGroup (Fin 12) := by
   rw [Equiv.Perm.mem_alternatingGroup, Equiv.Perm.sign_swap (by decide)]
@@ -261,39 +223,5 @@ theorem matCx_not_range
   rw [this]
   exact (thetaJ ⟨g, hgH⟩).2
 
-theorem matB_sq : matB ^ 2 = matB * matB := pow_two matB
-
-theorem ctuc_hn_explicit_normalizing_involution :
-    IsUnit matS ∧ matS * matA = matA * matS ∧
-    matS * matB = ((matA * matB ^ 2) ^ 8)⁻¹ * matB * (matA * matB ^ 2) ^ 8 * matS ∧
-    matCx = matCpin ∧ matCx * matCx = 1 ∧ matCx *ᵥ fixedVector = fixedVector ∧
-    {M | ∃ g : JH, M = matCx * matJ g * matCx} = Set.range matJ ∧
-    (∀ h ∈ HJ, ∃ h' ∈ HJ, matJ h' = matCx * matJ h * matCx) ∧
-    (∀ θ : HJ ≃* alternatingGroup (Fin 12), (θ ⟨h1J, h1J_mem⟩ : Perm (Fin 12)) = natPerm1 →
-      (θ ⟨h2J, h2J_mem⟩ : Perm (Fin 12)) = natPerm2 → ∀ h h' : HJ,
-        matJ h' = matCx * matJ h * matCx →
-          (θ h' : Perm (Fin 12)) = swap 0 1 * (θ h : Perm (Fin 12)) * swap 0 1) ∧
-    (∀ k : Fin 462, ∃ k' : Fin 462,
-      matCx *ᵥ xVec k = xVec k' ∧ labPart k' = swap (0 : Fin 12) 1 • labPart k) ∧
-    matCx ≠ 1 ∧ ∀ g : JH, matJ g ≠ matCx := by
-  refine ⟨isUnit_matS, matS_comm_A, ?_, matCx_eq_matC, matCx_sq, matCx_fix, conj_matJ_range,
-    fun h hh => ⟨conjC h, conjC_mem_HJ hh, matJ_conjC h⟩, ?_,
-    fun k => ⟨tauF k, matCx_xVec k, labPart_tauF k⟩, matCx_ne_one, matCx_not_range⟩
-  · have hW : ((matA * matB ^ 2) ^ 8)⁻¹ * (matA * matB ^ 2) ^ 8 = 1 := by
-      rw [matB_sq, ← matJ_wJ]
-      exact Matrix.nonsing_inv_mul _ ((Matrix.isUnit_iff_isUnit_det _).1
-        ⟨⟨_, _, matJ_mul_inv wJ, matJ_inv_mul wJ⟩, rfl⟩)
-    calc matS * matB = ((matA * matB ^ 2) ^ 8)⁻¹ * (matA * matB ^ 2) ^ 8 * (matS * matB) := by
-          rw [hW, one_mul]
-      _ = ((matA * matB ^ 2) ^ 8)⁻¹ * ((matA * matB ^ 2) ^ 8 * (matS * matB)) := by
-          rw [mul_assoc]
-      _ = ((matA * matB ^ 2) ^ 8)⁻¹ * matB * (matA * matB ^ 2) ^ 8 * matS := by
-          rw [matB_sq, matS_conj_B]
-          simp only [mul_assoc]
-  · intro θ h1 h2 h h' hh'
-    rw [eq_thetaJ θ h1 h2]
-    have e : h' = conjCH h := Subtype.ext (matJ_injective (hh'.trans (matJ_conjCH h).symm))
-    rw [e]
-    exact thetaJ_conjCH h
 
 end CFSG.Sporadic.HNSchreier

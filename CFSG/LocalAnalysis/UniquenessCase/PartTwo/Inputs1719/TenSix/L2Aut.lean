@@ -182,28 +182,5 @@ theorem exists_not_le_pCoreOf_of_card_eight (hF : L2Field F) (h9 : 9 < Nat.card 
   rw [hcenter_bot, Subgroup.mem_bot] at hbcenter
   exact hb1 (congrArg Subtype.val hbcenter)
 
-theorem card_le_eight_of_isElemAbelian_eight (hF : Nat.card F = 8) (e : K ≃* L2 F)
-    {A : Subgroup (MulAut K)} (hA : IsElemAbelian 2 A) : Nat.card A ≤ 8 := by
-  have : Finite K := Finite.of_injective (e : K → L2 F) e.injective
-  have hAdm : StatedLieAdmissible .PSL 2 2 3 := by
-    rw [StatedLieAdmissible]; norm_num
-  have hLM : CFSG.Blueprint.LieModel K .PSL 2 2 3 :=
-    Or.inl ⟨by simp [CFSG.Blueprint.classicalTags],
-      ⟨hAdm, F, inferInstance, inferInstance, hF, ⟨e⟩⟩⟩
-  have hcard : Nat.card (MulAut K) = 1512 :=
-    CFSG.LocalAnalysis.GLTheoremA.small_card_psl28 hLM
-  obtain ⟨k, hk⟩ := (IsPGroup.iff_card).mp hA.isPGroup
-  have hdvd : 2 ^ k ∣ 1512 := by
-    rw [← hk, ← hcard]
-    exact Subgroup.card_subgroup_dvd_card A
-  have h189 : (1512 : ℕ) = 189 * 2 ^ 3 := by norm_num
-  rw [h189] at hdvd
-  have hcop : Nat.Coprime (2 ^ k) 189 := Nat.Coprime.pow_left _ (by norm_num)
-  have h23 : 2 ^ k ∣ 2 ^ 3 := Nat.Coprime.dvd_of_dvd_mul_right hcop hdvd
-  have hk3 : k ≤ 3 :=
-    (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp (Nat.le_of_dvd (by norm_num) h23)
-  calc Nat.card A = 2 ^ k := hk
-    _ ≤ 2 ^ 3 := Nat.pow_le_pow_right (by norm_num) hk3
-    _ = 8 := by norm_num
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.TenSix

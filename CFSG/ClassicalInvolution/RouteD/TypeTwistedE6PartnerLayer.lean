@@ -29,8 +29,6 @@ abbrev TE6Layer (p f : ℕ) [Fact p.Prime] : Type :=
   | some _, none => True
   | some R, some R' => Commutes R.1 R'.1
 
-@[expose] def TE6PerpTable (p f : ℕ) [Fact p.Prime] : Prop :=
-  PerpTable p (TE6Layer.rel (p := p) (f := f)) .POmegaMinus 5
 
 section Visible
 

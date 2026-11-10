@@ -96,61 +96,6 @@ theorem exists_conj_into_e6F4_two (K : Type) [Field K] [Finite K] (hK : Nat.card
 
 section Glue
 
-theorem e6HighInF4_of_inputs {ε : ℕ}
-    (hConj : ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = ε →
-      ∀ E₀ : Subgroup (adjointGroup .E6 K), (∀ x ∈ E₀, x ^ 3 = 1) → Nat.card E₀ = 3 ^ 2 →
-        ¬ NormalizesRNative .E6 K E₀ →
-        ∃ g : adjointGroup .E6 K, ∀ x ∈ E₀, g * x * g⁻¹ ∈ (e6F4Embed K).range)
-    (hMax : ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = ε →
-      ∀ M : Subgroup (adjointGroup .E6 K), (e6F4Embed K).range ≤ M →
-        M = (e6F4Embed K).range ∨ M = ⊤)
-    (hOut : ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = ε →
-      ∀ E₃ : Subgroup (adjointGroup .F4 K), (∀ x ∈ E₃, x ^ 3 = 1) → Nat.card E₃ = 3 ^ 2 →
-        ¬ NormalizesRNative .F4 K E₃ →
-        ∃ e ∈ E₃, e ≠ 1 ∧
-          ¬ Subgroup.centralizer ({e6F4Embed K e} : Set (adjointGroup .E6 K)) ≤
-            (e6F4Embed K).range) :
-    E6HighInF4 ε := by
-  intro K _ _ hK E₀ hexp hcard hn
-  obtain ⟨g, hg⟩ := hConj K hK E₀ hexp hcard hn
-  set E₁ : Subgroup (adjointGroup .E6 K) := E₀.map (MulAut.conj g).toMonoidHom with hE₁def
-  have hE₁le : E₁ ≤ (e6F4Embed K).range := by
-    rintro _ ⟨x, hx, rfl⟩
-    exact hg x hx
-  have hι := e6F4Embed_injective K
-  set E₃ : Subgroup (adjointGroup .F4 K) := E₁.comap (e6F4Embed K) with hE₃def
-  have hE₃map : E₃.map (e6F4Embed K) = E₁ := Subgroup.map_comap_eq_self hE₁le
-  have hcardE₁ : Nat.card E₁ = 3 ^ 2 := by
-    rw [hE₁def, Subgroup.card_map_of_injective (MulAut.conj g).injective, hcard]
-  have hcardE₃ : Nat.card E₃ = 3 ^ 2 := by
-    have h1 : Nat.card (E₃.map (e6F4Embed K)) = Nat.card E₃ :=
-      Subgroup.card_map_of_injective hι
-    rw [← h1, hE₃map, hcardE₁]
-  have hexp₃ : ∀ x ∈ E₃, x ^ 3 = 1 := by
-    intro x hx
-    have hmem : (e6F4Embed K) x ∈ E₀.map (MulAut.conj g).toMonoidHom := hx
-    obtain ⟨y, hy, hyx⟩ := hmem
-    apply hι
-    rw [map_pow, map_one, ← hyx, ← map_pow, hexp y hy, map_one]
-  have hnF : ¬ NormalizesRNative .F4 K E₃ :=
-    not_normalizesRIn_comap_of_map (e6F4Embed K) hι g hn E₃ hE₃map
-  obtain ⟨e, he, he1, hout⟩ := hOut K hK E₃ hexp₃ hcardE₃ hnF
-  refine ⟨g, e6F4Embed K, E₃, hι, hE₃map, e, he, he1, ?_⟩
-  exact closure_union_centralizer_eq_top_of_maximal (hMax K hK) hout
-
-theorem e6HighInF4_two_of_inputs
-    (hMax : ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = 2 →
-      ∀ M : Subgroup (adjointGroup .E6 K), (e6F4Embed K).range ≤ M →
-        M = (e6F4Embed K).range ∨ M = ⊤)
-    (hOut : ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = 2 →
-      ∀ E₃ : Subgroup (adjointGroup .F4 K), (∀ x ∈ E₃, x ^ 3 = 1) → Nat.card E₃ = 3 ^ 2 →
-        ¬ NormalizesRNative .F4 K E₃ →
-        ∃ e ∈ E₃, e ≠ 1 ∧
-          ¬ Subgroup.centralizer ({e6F4Embed K e} : Set (adjointGroup .E6 K)) ≤
-            (e6F4Embed K).range) :
-    E6HighInF4 2 :=
-  e6HighInF4_of_inputs
-    (fun K _ _ hK E₀ hexp _ _ => exists_conj_into_e6F4_two K hK hexp) hMax hOut
 
 end Glue
 

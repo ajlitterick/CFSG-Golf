@@ -68,9 +68,6 @@ theorem mem_smear_iff {X A : Subgroup G} {x : G} :
   refine and_congr_right fun _ => forall_congr' fun a => forall_congr' fun _ => ?_
   rw [mul_inv_eq_iff_eq_mul, eq_comm]
 
-theorem smear_mono_left {X Y : Subgroup G} (h : X ≤ Y) (A : Subgroup G) :
-    smear X A ≤ smear Y A :=
-  inf_le_inf_right _ (iSup₂_mono fun _ _ => Subgroup.map_mono h)
 
 theorem isMulCommutative_congr {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
     IsMulCommutative A ↔ IsMulCommutative B := by
@@ -143,10 +140,6 @@ theorem map_mem_lcalOf_iff {H H' : Type*} [Group H] [Group H'] (e : H ≃* H') {
     exact ⟨hsub.map (f := e.toMonoidHom) e.surjective, e'.symm.isSimpleGroup,
       fun h => hnc ((isMulCommutative_congr e').mpr h)⟩
 
-theorem mem_mcal_iff {X M : Subgroup G} :
-    M ∈ mcal X ↔ M ≤ X ∧ sol X ≤ M ∧
-      (M.subgroupOf X).map (QuotientGroup.mk' (CFSG.solvableRadical ↥X)) ∈
-        lcalOf (↥X ⧸ CFSG.solvableRadical ↥X) := Iff.rfl
 
 theorem mcal_eq_lcal_of_sol_eq_bot {X : Subgroup G} (h : sol X = ⊥) : mcal X = lcal X := by
   have hR : CFSG.solvableRadical ↥X = ⊥ := (sol_eq_bot_iff X).mp h
@@ -178,7 +171,6 @@ theorem mcal_eq_empty_of_isSolvable {X : Subgroup G} (h : Group.IsSolvable X) : 
       (QuotientGroup.mk'_surjective _)
   exact isMulCommutative_iff.mpr ((IsSimpleGroup.comm_iff_isSolvable).mpr inferInstance)
 
-theorem mcal_le {X M : Subgroup G} (hM : M ∈ mcal X) : M ≤ X := hM.1
 
 theorem sol_le_of_mem_mcal {X M : Subgroup G} (hM : M ∈ mcal X) : sol X ≤ M := hM.2.1
 
@@ -259,16 +251,6 @@ theorem sol_le_kDown (X A : Subgroup G) : sol X ≤ kDown X A := by
   have h := hnorm.conj_mem ⟨s⁻¹, X.inv_mem hsX⟩ (inv_mem hs) ⟨k, hkX⟩
   exact h
 
-theorem kDown_eq_of_mcalA_eq_empty {X A : Subgroup G} (h : mcalA X A = ∅) : kDown X A = X := by
-  have hbot : kUp X A = ⊥ := by
-    unfold kUp
-    rw [h]
-    simp
-  refine le_antisymm (kDown_le X A) fun g hg => ?_
-  refine mem_kDown_iff.mpr ⟨hg, fun k hk => ?_⟩
-  rw [hbot, Subgroup.mem_bot] at hk
-  subst hk
-  simp [one_mem]
 
 theorem IsDirectProduct.le {S : Set (Subgroup G)} {K : Subgroup G} (hK : IsDirectProduct S K)
     {J : Subgroup G} (hJ : J ∈ S) : J ≤ K :=

@@ -24,16 +24,6 @@ theorem minimalLocalFailurePairActionPointHull_le_point (H : Subgroup G)
   rintro a ⟨g, rfl⟩
   exact H.mul_mem (H.mul_mem (H.inv_mem g.property) hz) g.property
 
-theorem minimalLocalFailurePairActionClassCommutators_le_pointHull
-    (H : Subgroup G) (z : G) :
-    minimalLocalFailureProperPairClassCommutators H z ≤
-      minimalLocalFailurePairActionPointHull H z := by
-  apply (Subgroup.closure_le _).mpr
-  rintro c ⟨a, ha, b, hb, rfl⟩
-  let Q := minimalLocalFailurePairActionPointHull H z
-  have haQ : a ∈ Q := Subgroup.subset_closure ha
-  have hbQ : b ∈ Q := Subgroup.subset_closure hb
-  exact Q.mul_mem (Q.mul_mem (Q.mul_mem (Q.inv_mem haQ) (Q.inv_mem hbQ)) haQ) hbQ
 
 private theorem pointHull_conj_le (H : Subgroup G) (z : G) {g : G} (hg : g ∈ H) :
     (minimalLocalFailurePairActionPointHull H z).map (MulAut.conj g).toMonoidHom ≤

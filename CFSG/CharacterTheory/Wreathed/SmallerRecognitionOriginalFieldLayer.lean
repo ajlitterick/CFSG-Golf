@@ -135,45 +135,5 @@ abbrev coveringSimpleReducedCentralizer
   let B := Subgroup.centralizer ({coveringQuotientInvolution n hn S e K hSK L hodd} : Set L)
   B ⧸ CFSG.oddCore B
 
-theorem covering_simple_full_center_layer_identification
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔ K.subgroupOf (involutionCentralizer n S e) = ⊤)
-    (L : Subgroup (K ⧸ CFSG.oddCore K)) [L.Normal] (hodd : Odd L.index) :
-    let H_L := coveringSimpleReducedCentralizer n hn S e K hSK L hodd
-    let i := simpleReducedCentralizerInclusion n hn S e K hSK hcover L hodd
-    (Subgroup.center H_L).map i = Subgroup.center (centralizerOddCoreQuotient n S e) ∧
-      ∃ E : CFSG.generalizedFitting (H_L ⧸ Subgroup.center H_L) ≃*
-        centralizerSimpleLayer n hn S e,
-        ∀ a : CFSG.generalizedFitting (H_L ⧸ Subgroup.center H_L),
-          ∀ hcenter : (Subgroup.center H_L).map i =
-            Subgroup.center (centralizerOddCoreQuotient n S e),
-          (E a : centralizerFullQuotient n hn S e) =
-            originalFullCenterQuotientEquiv n hn S e
-              (injectiveFullCenterMap i hcenter (a : H_L ⧸ Subgroup.center H_L)) := by
-  let H_L := coveringSimpleReducedCentralizer n hn S e K hSK L hodd
-  let i : H_L →* centralizerOddCoreQuotient n S e :=
-    simpleReducedCentralizerInclusion n hn S e K hSK hcover L hodd
-  obtain ⟨hMN, hM, heven, htwo, hc⟩ :=
-    original_centralizer_layer_inputs hnonab n hn S e hfour
-  let : (CFSG.layer (centralizerOddCoreQuotient n S e)).Normal := hMN
-  have hi : Function.Injective i :=
-    simpleReducedCentralizerInclusion_injective n hn S e K hSK hcover L hodd
-  have hnormal : i.range.Normal :=
-    simpleReducedCentralizerInclusion_normal n hn S e K hSK hcover L hodd
-  have hodd' : Odd i.range.index :=
-    simpleReducedCentralizerInclusion_odd_index n hn S e K hSK hcover L hodd
-  have h := injective_normal_odd_index_full_center_layer
-    i hi hnormal hodd' (CFSG.layer (centralizerOddCoreQuotient n S e)) hM heven htwo hc
-  obtain ⟨hcenter, hrest⟩ := h
-  obtain ⟨hcenter', _, _, _, _, _, ⟨E, hE⟩, _, _, _⟩ := hrest
-  let E₀ := originalFullCenterLayerEquiv hnonab n hn S e hfour
-  refine ⟨hcenter, E.trans E₀, ?_⟩
-  intro a hcenter''
-  change (E₀ (E a) : centralizerFullQuotient n hn S e) = _
-  rw [originalFullCenterLayerEquiv_coe, hE]
-  rfl
 
 end CFSG.Wreathed.SmallerRecognitionOriginalField

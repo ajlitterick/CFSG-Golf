@@ -21,11 +21,6 @@ theorem centralizerPerfectCore_eq_of_le {Y T : Subgroup G} (h : Y ≤ T) :
       perfectCore (centralizerPerfectCore Y ⊓ centralizer (T : Set G)) := by
   rw [← centralizerPerfectCore_sup, sup_eq_right.mpr h]
 
-theorem perfectCore_neighbour_eq_of_le_of_le {Y₁ Y₂ T : Subgroup G} (h₁ : Y₁ ≤ T)
-    (h₂ : Y₂ ≤ T) :
-    perfectCore (centralizerPerfectCore Y₁ ⊓ centralizer (T : Set G)) =
-      perfectCore (centralizerPerfectCore Y₂ ⊓ centralizer (T : Set G)) := by
-  rw [← centralizerPerfectCore_eq_of_le h₁, ← centralizerPerfectCore_eq_of_le h₂]
 
 end Abstract
 
@@ -131,9 +126,6 @@ theorem pieceCore_def (J : Finset (Fin (Tag.rank .F4))) :
     pieceCore e J = centralizerPerfectCore (modelToG e (leviTorus K J)) :=
   rfl
 
-theorem pieceCore_mono {I J : Finset (Fin (Tag.rank .F4))} (h : I ⊆ J) :
-    pieceCore e I ≤ pieceCore e J :=
-  centralizerPerfectCore_anti (modelToG_mono e (leviTorus_anti h))
 
 theorem modelToG_le_pieceCore {J : Finset (Fin (Tag.rank .F4))} {H : Subgroup (ModGL .F4 K)}
     (hH : H ≤ centralizer (leviTorus K J : Set (ModGL .F4 K)))
@@ -145,14 +137,6 @@ theorem le_normalizer_pieceCore {t : G} (ht : t ∈ centralizer (L : Set G))
   normalizer_le_normalizer_centralizerPerfectCore _
     (mem_normalizer_modelToG_of_mem_centralizer e ht _)
 
-theorem normalizer_modelToG_le_normalizer_pieceCore (J : Finset (Fin (Tag.rank .F4))) :
-    normalizer (modelToG e (leviTorus K J) : Set G) ≤ normalizer (pieceCore e J : Set G) :=
-  normalizer_le_normalizer_centralizerPerfectCore _
-
-theorem symm_mem_normalizer_pieceCore {J : Finset (Fin (Tag.rank .F4))} {x : adjointGroup .F4 K}
-    (hx : (x : ModGL .F4 K) ∈ normalizer (leviTorus K J : Set (ModGL .F4 K))) :
-    ((e.symm x : L) : G) ∈ normalizer (pieceCore e J : Set G) :=
-  normalizer_modelToG_le_normalizer_pieceCore e J (symm_mem_normalizer_modelToG e hx)
 
 section Neighbour
 
@@ -164,9 +148,6 @@ theorem neighbourCore_X :
     neighbourCore e .X = centralizerPerfectCore (modelToG e (torusLineR K)) :=
   rfl
 
-theorem neighbourCore_Y :
-    neighbourCore e .Y = centralizerPerfectCore (modelToG e (torusLineS K)) :=
-  rfl
 
 theorem neighbourCore_X' :
     neighbourCore e .X' = centralizerPerfectCore (modelToG e (torusLine1242 K)) :=
@@ -213,10 +194,6 @@ theorem perfectCore_neighbourCore_inf_eq {N N' : AmalgamNeighbour}
       perfectCore (neighbourCore e N' ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) := by
   rw [← pieceCore_eq e N hJ, ← pieceCore_eq e N' hJ']
 
-theorem perfectCore_neighbourCore_X_eq_Y :
-    perfectCore (neighbourCore e .X ⊓ centralizer (modelToG e (leviTorus K {1, 2}) : Set G)) =
-      perfectCore (neighbourCore e .Y ⊓ centralizer (modelToG e (leviTorus K {1, 2}) : Set G)) :=
-  perfectCore_neighbourCore_inf_eq e (by decide) (by decide)
 
 end Finite
 

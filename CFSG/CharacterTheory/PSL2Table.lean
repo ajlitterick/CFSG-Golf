@@ -192,15 +192,5 @@ theorem psl2_character_values (hF : ringChar F ≠ 2) {ν : F}
   · intro h
     exact nonsplitQuadChar_spec hF hν (fun h' => by have := hsq.mp h'; omega)
 
-theorem galoisField_hypotheses (p f : ℕ) [Fact p.Prime] [Fintype (GaloisField p f)]
-    (hp : p ≠ 2) (hf : f ≠ 0) (hq : 5 ≤ p ^ f) :
-    ringChar (GaloisField p f) ≠ 2 ∧ Fintype.card (GaloisField p f) = p ^ f ∧
-      5 ≤ Fintype.card (GaloisField p f) ∧ ∃ ν : GaloisField p f, ¬ IsSquare ν := by
-  have hchar : ringChar (GaloisField p f) ≠ 2 := by
-    rw [ringChar.eq (GaloisField p f) p]
-    exact hp
-  have hcard : Fintype.card (GaloisField p f) = p ^ f := by
-    rw [← Nat.card_eq_fintype_card, GaloisField.card p f hf]
-  exact ⟨hchar, hcard, hcard ▸ hq, FiniteField.exists_nonsquare hchar⟩
 
 end CFSG.PSL2Table

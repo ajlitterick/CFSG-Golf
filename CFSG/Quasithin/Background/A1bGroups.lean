@@ -46,71 +46,6 @@ private theorem exists_of_pair {X : Subgroup G} (a b : G) (hne : conjSub b X ≠
   · rw [← conjSub_le_conjSub_iff a, conjSub_normalizer, hab]
     exact h2
 
-private theorem exists_pair_of_not_normal [Finite G] {p : ℕ} [Fact p.Prime] {T Z : Subgroup G}
-    (hT : IsPGroup p T) (hZT : Z ≤ T) (hZn : ¬ T ≤ Subgroup.normalizer (Z : Set G)) :
-    ∃ t ∈ T, conjSub t Z ≠ Z ∧ conjSub t Z ≤ Subgroup.normalizer (Z : Set G) ∧
-      Z ≤ Subgroup.normalizer (conjSub t Z : Set G) := by
-  have hnil : Group.IsNilpotent T := hT.isNilpotent
-  set S : Subgroup G := T ⊓ Subgroup.normalizer (Z : Set G) with hS
-  have hSt : S.subgroupOf T < ⊤ := by
-    refine lt_top_iff_ne_top.2 fun h => hZn ?_
-    intro x hx
-    have : (⟨x, hx⟩ : T) ∈ S.subgroupOf T := h ▸ Subgroup.mem_top _
-    exact (Subgroup.mem_subgroupOf.1 this).2
-  obtain ⟨t', ht'N, ht'S⟩ :=
-    IsConcreteLE.exists_of_lt (Group.normalizerCondition_of_isNilpotent _ hSt)
-  have hnormS : (t' : G) ∈ Subgroup.normalizer (S : Set G) := by
-    rw [Subgroup.mem_normalizer_iff]
-    intro x
-    constructor
-    · intro hx
-      have hxT : x ∈ T := hx.1
-      have := (Subgroup.mem_normalizer_iff.1 ht'N ⟨x, hxT⟩).1
-        (by simpa [Subgroup.mem_subgroupOf] using hx)
-      simpa [Subgroup.mem_subgroupOf] using this
-    · intro hx
-      have hxT : (t' : G) * x * (t' : G)⁻¹ ∈ T := hx.1
-      have hxT' : x ∈ T := by
-        have := T.mul_mem (T.mul_mem (T.inv_mem t'.2) hxT) t'.2
-        simpa [mul_assoc] using this
-      have := (Subgroup.mem_normalizer_iff.1 ht'N ⟨x, hxT'⟩).2
-        (by simpa [Subgroup.mem_subgroupOf] using hx)
-      simpa [Subgroup.mem_subgroupOf] using this
-  have hconjS : conjSub (t' : G) S = S := conjSub_eq_iff_mem_normalizer.2 hnormS
-  have hZS : Z ≤ S := le_inf hZT Subgroup.le_normalizer
-  refine ⟨t', t'.2, ?_, ?_, ?_⟩
-  · intro h
-    have hmem : (t' : G) ∈ Subgroup.normalizer (Z : Set G) := conjSub_eq_iff_mem_normalizer.1 h
-    exact ht'S (Subgroup.mem_subgroupOf.2 ⟨t'.2, hmem⟩)
-  · calc conjSub (t' : G) Z ≤ conjSub (t' : G) S := conjSub_mono _ hZS
-      _ = S := hconjS
-      _ ≤ Subgroup.normalizer (Z : Set G) := inf_le_right
-  · calc Z ≤ S := hZS
-      _ = conjSub (t' : G) S := hconjS.symm
-      _ ≤ conjSub (t' : G) (Subgroup.normalizer (Z : Set G)) := conjSub_mono _ inf_le_right
-      _ = Subgroup.normalizer (conjSub (t' : G) Z : Set G) := conjSub_normalizer _ _
-
-private theorem exists_conj_core [Finite G] {p : ℕ} [Fact p.Prime] {X : Subgroup G}
-    (hX : IsPGroup p X) {g₀ : G} (hg₀N : conjSub g₀ X ≤ Subgroup.normalizer (X : Set G))
-    (hg₀ne : conjSub g₀ X ≠ X) :
-    ∃ g : G, conjSub g X ≠ X ∧ conjSub g X ≤ Subgroup.normalizer (X : Set G) ∧
-      X ≤ Subgroup.normalizer (conjSub g X : Set G) := by
-  have hXN : X ≤ Subgroup.normalizer (X : Set G) := Subgroup.le_normalizer
-  have hcp : IsPGroup p (conjSub g₀ X) := hX.map _
-  obtain ⟨T, hT, hXgT⟩ := exists_isSylowIn_ge p hg₀N hcp
-  have hXT : X ≤ T := hT.le_of_normal hXN Subgroup.normal_in_normalizer hX
-  by_cases hall : ∀ h : G, conjSub h X ≤ T → T ≤ Subgroup.normalizer (conjSub h X : Set G)
-  · exact ⟨g₀, hg₀ne, hg₀N, hXT.trans (hall g₀ hXgT)⟩
-  · push Not at hall
-    obtain ⟨h, hhT, hhn⟩ := hall
-    obtain ⟨t, htT, hne, h1, h2⟩ := exists_pair_of_not_normal hT.isPGroup hhT hhn
-    refine exists_of_pair h (t * h) ?_ ?_ ?_
-    · rw [conjSub_mul]
-      exact hne
-    · rw [conjSub_mul]
-      exact h1
-    · rw [conjSub_mul]
-      exact h2
 
 theorem conjSubgroup_eq_conjSub (A : Subgroup G) (g : G) :
     conjSubgroup A g = conjSub g⁻¹ A := by
@@ -118,17 +53,6 @@ theorem conjSubgroup_eq_conjSub (A : Subgroup G) (g : G) :
   rw [mem_conjSubgroup_iff, mem_conjSub_iff]
   simp
 
-theorem exists_conjSubgroup_of_not_isWeaklyClosedIn [Finite G] {p : ℕ} [Fact p.Prime]
-    {X : Subgroup G} (hX : IsPGroup p X)
-    (h : ¬ IsWeaklyClosedIn X (Subgroup.normalizer (X : Set G))) :
-    ∃ g : G, conjSubgroup X g ≠ X ∧ conjSubgroup X g ≤ Subgroup.normalizer (X : Set G) ∧
-      X ≤ Subgroup.normalizer (conjSubgroup X g : Set G) := by
-  unfold IsWeaklyClosedIn at h
-  push Not at h
-  obtain ⟨g₀, hg₀N, hg₀ne⟩ := h
-  rw [conjSubgroup_eq_conjSub] at hg₀N hg₀ne
-  obtain ⟨g, h1, h2, h3⟩ := exists_conj_core hX hg₀N hg₀ne
-  refine ⟨g⁻¹, ?_, ?_, ?_⟩ <;> simpa [conjSubgroup_eq_conjSub] using ‹_›
 
 section A116
 

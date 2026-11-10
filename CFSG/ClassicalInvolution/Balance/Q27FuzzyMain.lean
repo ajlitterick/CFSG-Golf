@@ -66,8 +66,6 @@ theorem fuzzyEdgeInFrame_canonClass_free :
       hcl
     exact ⟨B, hB, haB, huB⟩
 
-theorem fuzzyVertexConn_canonClass_free : FuzzyVertexConn p f (canonClass p f) :=
-  fuzzyVertexConn_canonClass fuzzyEdgeInFrame_canonClass_free
 
 theorem fuzzyLinkConn_canonClass_free (hMFC : ModelFacts.CommutingFundamentalFactsFive p) :
     FuzzyLinkConn p f (canonClass p f) := by
@@ -98,14 +96,6 @@ theorem fuzzyLinkConn_canonClass_free (hMFC : ModelFacts.CommutingFundamentalFac
   · exact frames_link_of_cross_free ld hp2 hq hinv hcan hMFC hb hb' hb'.memJ hb'.clsJ hb'.tB hb'.tqJ
       hb'.ta h1 hcJ hcJ' hcl
 
-theorem bootTriple_canonClass_free (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_fuzzyFrames (canonClass p f) hlay
-    (fun _ _ _ K => conjInvariant_canonClass K) (fuzzyFrameBalance_of_hybrid_free hmodel)
-    (fuzzyAxisExact_canonClass p f) fuzzyVertexConn_canonClass_free
-    (fuzzyLinkConn_canonClass_free hMFC) hcov9 hexotic
 
 end Canon
 
@@ -136,15 +126,6 @@ theorem fuzzyLinkConn_conjMembers_free (hMFC : ModelFacts.CommutingFundamentalFa
   exact fuzzyLinkConn_canonClass_free hMFC G hnab hp2 hq K z hz hBelow hconn hind a A hA A' hA'
     haA haA'
 
-theorem bootTriple_conjMembers_free (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_fuzzyFrames conjMembers hlay
-    (fun _ _ _ K => conjInvariant_conjMembers K) (fuzzyFrameBalance_of_hybrid_free hmodel)
-    fuzzyAxisExact_conjMembers
-    (fuzzyVertexConn_of_adj fuzzyMemberConn_conjMembers fuzzyEdgeInFrame_conjMembers_free)
-    (fuzzyLinkConn_conjMembers_free hMFC) hcov9 hexotic
 
 end Conj
 
@@ -175,12 +156,6 @@ theorem fuzzyFramesConnected_conjMembers_free (hMFC : ModelFacts.CommutingFundam
     (fun a A hA A' hA' ha ha' =>
       hlink G hnab hp2 hq K z hz hBelow hconn hind a A hA A' hA' ha ha')
 
-theorem triangleConnectedAll_conjMembers_free (hlay : TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    TriangleConnectedAll p f :=
-  triangleConnectedAll_of_bootTriple (bootTriple_conjMembers_free hlay hmodel hMFC hcov9 hexotic)
-    (fuzzyFramesConnected_conjMembers_free hMFC)
 
 theorem productOfTwoP1_of_indepTriple_free (hlay : TriangleLayers p f)
     (hMFC : ModelFacts.CommutingFundamentalFactsFive p) :

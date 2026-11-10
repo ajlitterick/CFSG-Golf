@@ -181,18 +181,6 @@ theorem La_fix (h3 : (3 : K) = 0) (A : SL(2, K)) {v : V} (h₀ : polar Q v w₀ 
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Frame.f₁, Frame.f₂, Frame.e₁, Frame.e₂, frame, hc]
 
-theorem La_neg_one_comb (h3 : (3 : K) = 0) (c₀ c₁ c₂ c₃ : K) :
-    (h.frame h3).La (-1) (comb4 w₀ w₁ w₂ w₃ c₀ c₁ c₂ c₃) = -comb4 w₀ w₁ w₂ w₃ c₀ c₁ c₂ c₃ := by
-  have h1 : comb4 w₀ w₁ w₂ w₃ c₀ c₁ c₂ c₃ = (h.frame h3).incl (c₀ • 1 +
-      c₁ • ((sl2I : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) +
-      c₂ • ((sl2J h3 : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) +
-      c₃ • (((sl2I : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) *
-        ((sl2J h3 : SL(2, K)) : Matrix (Fin 2) (Fin 2) K))) := by
-    rw [map_add, map_add, map_add, map_smul, map_smul, map_smul, map_smul, h.incl_one h3,
-      h.incl_sl2I h3, h.incl_sl2J h3, h.incl_sl2IJ h3]
-    rfl
-  rw [h1, Frame.La_apply_incl, Matrix.SpecialLinearGroup.coe_neg,
-    Matrix.SpecialLinearGroup.coe_one, Matrix.neg_mul, Matrix.one_mul, map_neg]
 
 theorem span_le (h3 : (3 : K) = 0) {W : Submodule K V} (h₀ : w₀ ∈ W) (h₁ : w₁ ∈ W)
     (h₂ : w₂ ∈ W) (h₃ : w₃ ∈ W) : (h.frame h3).span ≤ W := by

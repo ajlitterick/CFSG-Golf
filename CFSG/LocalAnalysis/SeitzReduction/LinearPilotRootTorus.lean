@@ -221,25 +221,6 @@ theorem commutator_mem_blockSL_of_mem_centralizer_split (hn : 4 ≤ n) (hh : IsR
   have := proj_mem_blockSL (commutator_mem_of_mem_centralizer_split hh hA hB)
   simpa only [map_mul, map_inv] using this
 
-theorem layer_centralizer_of_split_of_le_centralizer [Finite K] (hn : 4 ≤ n)
-    (hh : IsRootSplit a b h) {X : Subgroup (LinearFlag.projectiveSL n K)}
-    (hDX : blockSL (({a, b} : Finset (Fin n))ᶜ) ≤
-      Subgroup.centralizer (X : Set (LinearFlag.projectiveSL n K)))
-    (hhX : LinearFlag.proj n K h ∈ X) :
-    inSubgroup layer (Subgroup.centralizer (X : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a, b} : Finset (Fin n))ᶜ) := by
-  have hcard : (({a, b} : Finset (Fin n))ᶜ).card = n - 2 := by
-    rw [Finset.card_compl, Fintype.card_fin, Finset.card_pair hh.ne]
-  exact inSubgroup_layer_eq_of_commutator_mem hDX
-    (fun g hg g' hg' => commutator_mem_blockSL_of_mem_centralizer_split hn hh hhX hg hg')
-    (isQuasisimple_blockSL (by omega) (by omega) (Or.inr hh.four_le_card))
-
-theorem layer_centralizer_of_split [Finite K] (hn : 4 ≤ n) (hh : IsRootSplit a b h)
-    {X : Subgroup (LinearFlag.projectiveSL n K)} (hX : X ≤ rootSL2 a b)
-    (hhX : LinearFlag.proj n K h ∈ X) :
-    inSubgroup layer (Subgroup.centralizer (X : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a, b} : Finset (Fin n))ᶜ) :=
-  layer_centralizer_of_split_of_le_centralizer hn hh (blockSL_compl_le_centralizer hX) hhX
 
 end Split
 
@@ -331,12 +312,6 @@ theorem eq_one_of_two_group_fix_split (hn : 5 ≤ n) (hh : IsRootSplit a b h)
   have : A = 1 := Units.ext hA1
   rw [this, map_one]
 
-theorem eq_one_of_isPGroup_fix_split (hn : 5 ≤ n) (hh : IsRootSplit a b h)
-    {β : MulAut (LinearFlag.projectiveSL n K)} (hβ2 : IsPGroup 2 (Subgroup.zpowers β))
-    (hβh : β (LinearFlag.proj n K h) = LinearFlag.proj n K h)
-    (hβD : ∀ d ∈ blockSL (({a, b} : Finset (Fin n))ᶜ), β d = d) : β = 1 := by
-  obtain ⟨k, hk⟩ := hβ2 ⟨β, Subgroup.mem_zpowers β⟩
-  exact eq_one_of_two_group_fix_split hn hh hβh hβD (k := k) (congrArg Subtype.val hk)
 
 end Hsyl
 
@@ -407,28 +382,6 @@ theorem exists_isRootSplit_proj_mem_rootTorus [Finite K] (hq : 4 ≤ Nat.card K)
   obtain ⟨κ, hκ⟩ := exists_units_mul_self_ne_one hq
   exact ⟨_, isRootSplit_torusDiagSL_rootTorusHom hab hκ, proj_torusDiagSL_rootTorusHom_mem hab κ⟩
 
-theorem layer_centralizer_rootTorus [Finite K] (hn : 4 ≤ n) (hq : 4 ≤ Nat.card K)
-    (hab : a ≠ b) :
-    inSubgroup layer
-        (Subgroup.centralizer (rootTorus (K := K) hab : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a, b} : Finset (Fin n))ᶜ) := by
-  obtain ⟨h, hh, hhX⟩ := exists_isRootSplit_proj_mem_rootTorus (n := n) hq hab
-  exact layer_centralizer_of_split hn hh (rootTorus_le_rootSL2 hab) hhX
-
-theorem eq_one_of_two_group_fix_rootTorus [Finite K] [CharP K 2] (hn : 5 ≤ n)
-    (hq : 4 ≤ Nat.card K) (hab : a ≠ b) {β : MulAut (LinearFlag.projectiveSL n K)}
-    (hβX : ∀ x ∈ rootTorus (K := K) hab, β x = x)
-    (hβD : ∀ d ∈ blockSL (({a, b} : Finset (Fin n))ᶜ), β d = d) {k : ℕ} (hβk : β ^ 2 ^ k = 1) :
-    β = 1 := by
-  obtain ⟨h, hh, hhX⟩ := exists_isRootSplit_proj_mem_rootTorus (n := n) hq hab
-  exact eq_one_of_two_group_fix_split hn hh (hβX _ hhX) hβD hβk
-
-theorem eq_one_of_isPGroup_fix_rootTorus [Finite K] [CharP K 2] (hn : 5 ≤ n)
-    (hq : 4 ≤ Nat.card K) (hab : a ≠ b) {β : MulAut (LinearFlag.projectiveSL n K)}
-    (hβ2 : IsPGroup 2 (Subgroup.zpowers β)) (hβX : ∀ x ∈ rootTorus (K := K) hab, β x = x)
-    (hβD : ∀ d ∈ blockSL (({a, b} : Finset (Fin n))ᶜ), β d = d) : β = 1 := by
-  obtain ⟨k, hk⟩ := hβ2 ⟨β, Subgroup.mem_zpowers β⟩
-  exact eq_one_of_two_group_fix_rootTorus hn hq hab hβX hβD (k := k) (congrArg Subtype.val hk)
 
 end Torus
 

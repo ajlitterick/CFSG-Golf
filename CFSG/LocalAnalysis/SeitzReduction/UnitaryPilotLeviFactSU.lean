@@ -24,20 +24,6 @@ theorem mem_unitaryTorusSU {I : Finset (Fin n)} {x : unitarySU p f K n} :
       c.1 ∈ unitaryTorusParam h I ∧ torusDiagSU h c = x := by
   simp only [unitaryTorusSU, mem_map, mem_subgroupOf]
 
-theorem map_unitaryTorusSU_unitaryProj (I : Finset (Fin n)) :
-    (unitaryTorusSU h I).map (unitaryProj h n) = unitaryBlockTorus h I :=
-  rfl
-
-theorem map_unitaryTorusSU_toSL (I : Finset (Fin n)) :
-    (unitaryTorusSU h I).map (toSL h n) = unitaryTorusSL h I := by
-  rw [unitaryTorusSU, Subgroup.map_map]
-  rfl
-
-theorem unitaryTorusSU_anti {I I' : Finset (Fin n)} (hII' : I ⊆ I') :
-    unitaryTorusSU h I' ≤ unitaryTorusSU h I := by
-  intro x hx
-  obtain ⟨c, hc, rfl⟩ := (mem_unitaryTorusSU h).1 hx
-  exact (mem_unitaryTorusSU h).2 ⟨c, unitaryTorusParam_anti h hII' hc, rfl⟩
 
 theorem torusDiagSU_mem_normalizer_unitaryBlock (N : Finset (Fin n))
     (c : unitaryTorusParam h (∅ : Finset (Fin n))) :
@@ -165,10 +151,6 @@ theorem commutator_unitaryBlock_eq_of_three_le {I : Finset (Fin n)} (hI3 : 3 ≤
     (Group.IsPerfect.ofSurjective (f := (unitaryBlockEquiv h I).toMonoidHom)
       (unitaryBlockEquiv h I).surjective)
 
-theorem commutator_unitaryBlock_eq_of_four_le {I : Finset (Fin n)} (hI4 : 4 ≤ I.card) :
-    ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I :=
-  commutator_unitaryBlock_eq_of_three_le h (by omega)
-    (fun h3 => by have := congrArg Prod.fst h3; simp only at this; omega)
 
 end Levi
 
@@ -176,40 +158,6 @@ section Even
 
 variable {f : ℕ} {K : Type} [Field K] (h : UnitaryFieldData 2 f K) {n : ℕ}
 
-theorem perfectCore_unitaryBlock_inf_centralizer_unitaryTorusSU {N I : Finset (Fin n)}
-    (hIN : I ⊆ N) (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I) :
-    perfectCore (unitaryBlock h N ⊓
-        centralizer (unitaryTorusSU h I : Set (unitarySU 2 f K n))) =
-      unitaryBlock h I := by
-  refine perfectCore_unitaryBlock_inf_centralizer_of_diag h hIN hI2 _
-    (fun d hd i j hij => ?_) (fun d hd i hi j hj => ?_) (fun i _ j _ hij hIJ => ?_) hperf
-  · obtain ⟨c, -, rfl⟩ := (mem_unitaryTorusSU h).1 hd
-    rw [coe_torusDiagSU, diagonal_apply_ne _ hij]
-  · obtain ⟨c, hc, rfl⟩ := (mem_unitaryTorusSU h).1 hd
-    rw [coe_torusDiagSU, diagonal_apply_eq, diagonal_apply_eq, hc.2.2 i hi j hj]
-  · obtain ⟨c, hc, hcij⟩ := exists_mem_unitaryTorusParam_ne h hIc hij hIJ
-    refine ⟨torusDiagSU h ⟨c, unitaryTorusParam_anti h (Finset.empty_subset I) hc⟩,
-      (mem_unitaryTorusSU h).2 ⟨_, hc, rfl⟩, ?_⟩
-    rw [coe_torusDiagSU, diagonal_apply_eq, diagonal_apply_eq]
-    exact fun h' => hcij (Units.ext h')
-
-theorem perfectCore_unitaryBlock_compl_pair_inf_centralizer {a b : Fin n} (hab : a ≠ b)
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI2 : 2 ≤ I.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I) :
-    perfectCore (unitaryBlock h ({a, b}ᶜ : Finset (Fin n)) ⊓
-        centralizer (unitaryTorusSU h I : Set (unitarySU 2 f K n))) =
-      unitaryBlock h I :=
-  perfectCore_unitaryBlock_inf_centralizer_unitaryTorusSU h hI hI2
-    (two_le_card_compl_of_subset_compl_pair hab hI) hperf
-
-theorem perfectCore_unitaryBlock_inf_centralizer_unitaryTorusSU_of_four_le
-    {N I : Finset (Fin n)} (hIN : I ⊆ N) (hI4 : 4 ≤ I.card) (hIc : 2 ≤ Iᶜ.card) :
-    perfectCore (unitaryBlock h N ⊓
-        centralizer (unitaryTorusSU h I : Set (unitarySU 2 f K n))) =
-      unitaryBlock h I :=
-  perfectCore_unitaryBlock_inf_centralizer_unitaryTorusSU h hIN (by omega) hIc
-    (commutator_unitaryBlock_eq_of_four_le h hI4)
 
 theorem perfectCore_fixAll_conjTorusSU_unitaryBlockTorusLift {N I : Finset (Fin n)}
     (hIN : I ⊆ N) (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)

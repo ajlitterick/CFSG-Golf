@@ -42,18 +42,6 @@ theorem normalizer_preserves_pointFixedSet {H M : Subgroup G}
       simp only [mul_assoc, inv_mul_cancel, mul_one]
     _ = pointRightCosetMul H omega n := by rw [homega _ hconj]
 
-@[expose] def pointFixedSetNormalizerEquiv (H M : Subgroup G)
-    (n : Subgroup.normalizer (M : Set G)) : pointFixedSet H M ≃ pointFixedSet H M where
-  toFun omega := ⟨pointRightCosetMul H omega.val n.val,
-    normalizer_preserves_pointFixedSet n.property omega.property⟩
-  invFun omega := ⟨pointRightCosetMul H omega.val n.val⁻¹,
-    normalizer_preserves_pointFixedSet n⁻¹.property omega.property⟩
-  left_inv omega := by
-    apply Subtype.ext
-    simp only [pointRightCosetMul_mul, mul_inv_cancel, pointRightCosetMul_one]
-  right_inv omega := by
-    apply Subtype.ext
-    simp only [pointRightCosetMul_mul, inv_mul_cancel, pointRightCosetMul_one]
 
 theorem class_centralizer_has_pointFixedSet_point [Finite G]
     {H M : Subgroup G} {z s : G} (h : InvolutionPointLocalEmbedding H z)

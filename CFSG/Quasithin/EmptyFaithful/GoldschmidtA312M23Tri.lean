@@ -54,7 +54,5 @@ theorem not_member_of_triFacts {G : Type} [Group G] [Finite G] {α : Type} [MulA
   obtain ⟨pt, hpt, hYp, x, hx, k, hk, hxk, hmov⟩ := hF
   exact no_member_of_action hS hB hY rfl pt hpt hYp hx hk hxk hmov
 
-variable {Γ : Type} [Group Γ] [Finite Γ] {n : ℕ} [MulAction Γ (Fin n)]
-  {Lab : Type} [DecidableEq Lab] [Hashable Lab] [Inhabited Lab]
 
 end CFSG.Quasithin.A312M23

@@ -17,8 +17,6 @@ open CFSG.RankThree.PartTwo.Sec4 CFSG.RankThree.PartTwo.KFacts CFSG.LocalAnalysi
 
 section Core
 
-@[deprecated (since := "2026-10-15")]
-alias l514vinn_innerAut_le_commutator := innerAut_le_commutator_of_perfect
 
 variable {π : Bool} {p f : ℕ} {K : Type} [Field K] {Y : Type} [Group Y] [Finite Y]
 

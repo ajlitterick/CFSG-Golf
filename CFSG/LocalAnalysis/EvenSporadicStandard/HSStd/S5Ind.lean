@@ -12,13 +12,6 @@ open Subgroup CFSG.Open CFSG.Blueprint CFSG.Blueprint.NativeSporadic CFSG.OddSta
 open CFSG.EvenSporadicStandard.Induction
 open CFSG.SignalizerFunctorTheorem (IsSectionOf)
 
-@[expose] def HSMainA8 : GroupPred := fun H _ _ =>
-  CFSG.oddCore H = ⊥ →
-    ∀ A : Subgroup H, standardComponentIsStandard A →
-      Nonempty (↥A ≃* alternatingGroup (Fin 8)) →
-      Open.pRank 2 (centralizer (A : Set H)) = 1 →
-      (∀ t : H, orderOf t = 2 → CFSG.oddCore (centralizer ({t} : Set H)) = ⊥) →
-        SolomonAltOutcome H A 8
 
 @[expose] def HSMainHiS : GroupPred := fun H _ _ =>
   CFSG.oddCore H = ⊥ →
@@ -29,7 +22,6 @@ open CFSG.SignalizerFunctorTheorem (IsSectionOf)
           IsSporadic (K₁ ⧸ center K₁) .HS ∧ IsSporadic (K₂ ⧸ center K₂) .HS ∧
           A ≤ K₁ ⊔ K₂ ∧ (K₁ ⊔ K₂).Normal
 
-@[expose] def HSInductionA8 (G : Type) [Group G] [Finite G] : Prop := BelowSec HSMainA8 G
 
 @[expose] def HSMainHiSKP : GroupPred := fun H _ _ =>
   CFSG.Assembly.KProper CFSG.Blueprint.Catalog H → HSMainHiS H

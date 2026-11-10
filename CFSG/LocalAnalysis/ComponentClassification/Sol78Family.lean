@@ -48,19 +48,6 @@ variable (G) in
 @[expose] def solomonKStar : Set (Subgroup G) :=
   {L | IsSolomonMaximal L ∧ IsSolomonWide L}
 
-@[expose] def kStarOf (H : Subgroup G) : Subgroup G :=
-  sSup {K | IsPCompIn 2 H K ∧ K ∈ solomonKStar G}
-
-@[expose] def MaximalComponentTheoremInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    ∀ L : Subgroup G, FooteLit.IsSolomonMaximal L → 3 ≤ CFSG.pRank 2 L →
-      (∀ g : G, (L : Set G) * (CFSG.conjugate L g : Set G) =
-          (CFSG.conjugate L g : Set G) * (L : Set G) →
-        ⁅L, CFSG.conjugate L g⁆ ≠
-          (pPrimeCore 2 ↥(L ⊔ CFSG.conjugate L g)).map (L ⊔ CFSG.conjugate L g).subtype) ∧
-      ∀ H : Subgroup G, CFSG.IsPLocal 2 H → L ≤ H →
-        Even (Nat.card ↥(H ⊓ UnbalancedLayer.coreActionKernel L)) →
-        H ≤ normalizer ((pPrimeCoreOf 2 H ⊔ L : Subgroup G) : Set G)
 
 @[expose] def MaximalityLemmaInput : Prop :=
   ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →

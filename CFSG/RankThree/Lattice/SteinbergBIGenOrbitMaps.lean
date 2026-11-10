@@ -320,16 +320,6 @@ theorem orbitMap_mem_fixedGroup {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.or
     (⟨D.orbitMap O A, D.orbitMap_mem_adjointGroup O A⟩ : adjointGroup τ k) ∈ D.fixedGroup :=
   ⟨Subgroup.mem_subgroupOf.2 (D.orbitMap_mem_rootSpanJ hO A), D.F_orbitMap hO A rfl⟩
 
-@[expose] def orbitFixedHom {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
-    SL2 (D.orbitField O) →* D.fixedGroup where
-  toFun A := ⟨⟨D.orbitMap O A, D.orbitMap_mem_adjointGroup O A⟩, D.orbitMap_mem_fixedGroup hO A⟩
-  map_one' := Subtype.ext (Subtype.ext (D.orbitMap_one O))
-  map_mul' A B := Subtype.ext (Subtype.ext (D.orbitMap_mul hO A B))
-
-theorem coe_orbitFixedHom {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits)
-    (A : SL2 (D.orbitField O)) :
-    (((D.orbitFixedHom hO A : D.fixedGroup) : adjointGroup τ k) : ModGL τ k) = D.orbitMap O A :=
-  rfl
 
 theorem map_subtype_injective (O : Set (Fin τ.rank → ℤ)) :
     Function.Injective (Matrix.SpecialLinearGroup.map (n := Fin 2) (D.orbitField O).subtype) := by
@@ -391,9 +381,6 @@ theorem orbitX_add {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) (c c' :
     D.orbitX O (c + c') = D.orbitX O c * D.orbitX O c' := by
   rw [orbitX, orbitX, orbitX, uSL_add_eq_mul, D.orbitMap_mul hO]
 
-theorem orbitY_add {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) (c c' : D.orbitField O) :
-    D.orbitY O (c + c') = D.orbitY O c * D.orbitY O c' := by
-  rw [orbitY, orbitY, orbitY, vSL_add_eq_mul, D.orbitMap_mul hO]
 
 theorem orbitMap_eq_one_of_eq {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits)
     {A B C : SL2 (D.orbitField O)} (hA : A = B * C) (h : D.orbitMap O A = D.orbitMap O C) :
@@ -408,12 +395,6 @@ theorem orbitX_injective {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
   exact sub_eq_zero.1 (eq_zero_of_uSL_eq_one_or_neg_one
     (D.eq_one_or_neg_one_of_orbitMap_eq_one hO h1))
 
-theorem orbitY_injective {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
-    Function.Injective (D.orbitY O) := by
-  intro c c' h
-  have h1 := D.orbitMap_eq_one_of_eq hO (by rw [← vSL_add_eq_mul, sub_add_cancel]) h
-  exact sub_eq_zero.1 (eq_zero_of_vSL_eq_one_or_neg_one
-    (D.eq_one_or_neg_one_of_orbitMap_eq_one hO h1))
 
 @[expose] def fixedRootSpan (S : Set (Fin τ.rank → ℤ)) : Subgroup (adjointGroup τ k) :=
   (rootSpan τ k S).subgroupOf (adjointGroup τ k) ⊓ D.F.toMonoidHom.eqLocus (MonoidHom.id _)

@@ -132,8 +132,6 @@ theorem smat_mulL (A B : SpMat) : smat (mulL A B) = smat A * smat B := by
       · simp
     · simp
 
-theorem kval_nil (k : ℕ) : kval [] k = 0 :=
-  rfl
 
 theorem kval_cons (x : ℕ × ℤ) (v : List (ℕ × ℤ)) (k : ℕ) :
     kval (x :: v) k = (if x.1 = k then x.2 else 0) + kval v k := by

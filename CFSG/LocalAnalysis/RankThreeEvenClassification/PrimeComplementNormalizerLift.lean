@@ -47,17 +47,5 @@ theorem prime_complement_normal_image_normalizer_sup {G : Type u} [Group G] [Fin
   · rw [hovergroup]
     exact sup_le (Subgroup.le_normalizer.trans le_sup_right) le_sup_left
 
-theorem prime_complement_normal_image_normalizer_product {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (normal subgroup : Subgroup G) [normal.Normal]
-    (hcomplement : ¬prime ∣ Nat.card normal) (hpgroup : IsPGroup prime subgroup)
-    (himageNormal : (subgroup.map (QuotientGroup.mk' normal)).Normal) :
-    ∀ member : G, ∃ first ∈ normal, ∃ second ∈ Subgroup.normalizer (subgroup : Set G),
-      first * second = member := by
-  have hsup := prime_complement_normal_image_normalizer_sup prime hprime normal subgroup
-    hcomplement hpgroup himageNormal
-  intro member
-  apply Subgroup.mem_sup_of_normal_left.mp
-  rw [hsup]
-  exact Subgroup.mem_top member
 
 end CFSG.RankThreeEvenClassification.Helpers

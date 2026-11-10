@@ -24,27 +24,6 @@ theorem transPair_left_of_right {Q Q' : QuadraticForm K (Fin d → K)} (S : GL (
   refine ⟨?_, hg⟩
   rw [transPair_left, hg, map_one, MulAut.one_apply]
 
-theorem oκ_eq_pair {Q : QuadraticForm K (Fin d → K)} (hker : OKer Q) {g g' : similarityPairs Q}
-    (hg' : g'.val.right = 1) (h : oκ Q g = oκ Q g') :
-    g.val.right = 1 ∧ ∃ c : Kˣ, g.val.left = GeneralLinearGroup.scalar (Fin d) c * g'.val.left := by
-  have h1 : oκ Q (g * g'⁻¹) = 1 := by rw [map_mul, map_inv, h, mul_inv_cancel]
-  obtain ⟨hr, c, hc⟩ := hker _ h1
-  have hinvl : (g'⁻¹).val.left = g'.val.left⁻¹ := by
-    change (g'.val⁻¹).left = _
-    rw [SemidirectProduct.inv_left, hg', inv_one, map_one, MulAut.one_apply]
-  have hinvr : (g'⁻¹).val.right = 1 := by
-    change (g'.val⁻¹).right = 1
-    rw [SemidirectProduct.inv_right, hg', inv_one]
-  have hgr : g.val.right = 1 := by
-    have : (g * g'⁻¹).val.right = g.val.right * (g'⁻¹).val.right := rfl
-    rw [hinvr, mul_one] at this
-    rw [← this]
-    exact hr
-  refine ⟨hgr, c, ?_⟩
-  have hl : (g * g'⁻¹).val.left = g.val.left * g'.val.left⁻¹ := by
-    change (g.val * (g'⁻¹).val).left = _
-    rw [SemidirectProduct.mul_left, hgr, map_one, MulAut.one_apply, hinvl]
-  rw [hc, hl, inv_mul_cancel_right]
 
 theorem exists_model {R : GL (Fin d) K} (hker : OKer (oQ R)) {X : Type} [Group X] [Finite X]
     (hsimple : IsSimpleGroup (GeneralizedFitting.subgroup X))

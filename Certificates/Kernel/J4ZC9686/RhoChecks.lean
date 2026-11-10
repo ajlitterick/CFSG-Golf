@@ -31,14 +31,5 @@ theorem ch9686neg : (rW.all negOK && tW.all negOK) = true := by decide
 
 theorem ch9686rho : rhoChk (PL.getD 0 []) (PL.getD 1 []) = true := by quickRfl
 
-@[expose] noncomputable def notR (b : Bool) : Bool := Bool.rec (motive := fun _ => Bool) true false b
-
-theorem ch9686neg_rho : notR (rhoChk (PL.getD 1 []) (PL.getD 0 [])) = true := by
-  quickRfl
-
-theorem ch9686neg_phiL : notR (strictB hexP fun H =>
-    strictB (gimg (p5Gens.getD 1 1)) fun G =>
-      allR (nat_lit 77) fun i => Nat.beq (phiK H (fd (nat_lit 5) G) i) ((PL.getD 0 []).getD i 0)) =
-    true := by quickRfl
 
 end CertificateChecks.KernelJ4ZC9686

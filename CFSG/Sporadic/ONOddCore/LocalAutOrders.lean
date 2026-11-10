@@ -34,15 +34,6 @@ theorem recK_injective
     List.getD_eq_getElem _ _ (by simpa [tripleList] using hk')] at h
   exact (tripleList_nodup.getElem_inj_iff).1 h
 
-theorem tauAut_inj
-    {k k' : ℕ} (hk : k < 12) (hk' : k' < 12) (h : tauAut k = tauAut k') :
-    k = k' := by
-  have hs := congrArg resX h
-  rw [resX_tauAut hk, resX_tauAut hk'] at hs
-  obtain ⟨hd, hf, hg⟩ := recK_bounds hk
-  obtain ⟨hd', hf', hg'⟩ := recK_bounds hk'
-  obtain ⟨e1, e2, e3⟩ := sigmaX_outer_injective hd hd' hf hf' hg hg' (congrArg _ hs)
-  exact recK_injective hk hk' (by rw [e1, e2, e3])
 
 abbrev AllLifts :
     Type := Σ k : Fin 12, liftSet k
@@ -168,52 +159,5 @@ theorem card_outer_M :
     rw [← h]
   exact Nat.eq_of_mul_eq_mul_right (by norm_num) h'
 
-@[expose] def liftTriples : List (ℕ × ℕ × ℕ) := [(0, 0, 0), (0, 1, 1), (2, 0, 1), (2, 1, 0)]
-
-theorem ncard_liftSet_triple
-    {k : ℕ} (hk : k < 12) :
-    (liftSet k).ncard = if ((recK k).diag, (recK k).field, (recK k).graph) ∈ liftTriples
-      then 4 else 0 := by
-  rw [ncard_liftSet hk, recK_lifts_length hk, recK_triple hk]
-  interval_cases k <;> decide
-
-theorem descend_iff
-    {k : ℕ} (β : MulAut onM) :
-    (∀ m, piR (β m) = tauAut k (piR m)) ↔ β ∈ liftSet k := by
-  constructor
-  · intro h
-    refine MulEquiv.ext fun r => ?_
-    obtain ⟨m, rfl⟩ := piR_surjective r
-    rw [descendAut_piR, h]
-  · intro h m
-    rw [← descendAut_piR, show descendAut β = tauAut k from h]
-
-theorem r3e_on_local_automorphism_and_outer_orders :
-    (onQ.subgroupOf onM).Characteristic ∧
-      (∀ k < 12, ∀ β : MulAut onM, (∀ m, piR (β m) = tauAut k (piR m)) ↔ β ∈ liftSet k) ∧
-      (∀ k < 12, (liftSet k).ncard =
-        if ((recK k).diag, (recK k).field, (recK k).graph) ∈ liftTriples then 4 else 0) ∧
-      (∀ k < 12, liftSet k = {β : MulAut onM | ∃ e ∈ (recK k).lifts, ⇑β = liftFun e}) ∧
-      (∀ k < 12, ∀ e ∈ (recK k).lifts,
-        ∃ β ∈ liftSet k, ⇑β = liftFun e ∧ β qM = qM ^ e.power) ∧
-      (∀ l : onX → onL, (∀ x, piM (lM l x) = x) → Function.Bijective (decompose l)) ∧
-      Nat.card (MulAut onM) = 322560 ∧
-      Nat.card (CFSG.ComponentClassification.OuterAutomorphisms.inner onM) = 80640 ∧
-      Nat.card (Outer onM) = 4 := by
-  refine ⟨Q_characteristic, fun k _ β => descend_iff β, fun k hk => ncard_liftSet_triple hk,
-    fun k hk => ?_, fun k hk e he => ⟨liftAut hk he, liftAut_mem hk he,
-      liftAut_eq_liftFun hk he, liftAut_q hk he⟩, fun l hl => decompose_bijective hl,
-    card_mulAut_M, card_inner_M, card_outer_M⟩
-  ext β
-  rw [mem_liftSet_iff hk]
-  constructor
-  · rintro ⟨i, hi, rfl⟩
-    exact ⟨_, getD_mem hi default, liftAut_eq_liftFun hk _⟩
-  · rintro ⟨e, he, hβ⟩
-    obtain ⟨i, hi, rfl⟩ := mem_lifts_iff.1 he
-    refine ⟨i, hi, MulEquiv.ext fun m => ?_⟩
-    have := congrFun hβ m
-    rw [← liftAut_eq_liftFun hk he] at this
-    exact this
 
 end CFSG.Sporadic.ONOddCore

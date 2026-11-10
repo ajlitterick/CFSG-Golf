@@ -273,7 +273,6 @@ theorem plusSignedLevelCore_le_plusNeighbourCore
     (hk : k ∉ J) (P : Finset (Fin n)) : plusSignedLevelCore e J P ≤ plusNeighbourCore e k :=
   centralizerPerfectCore_anti (modelToG_mono e (pairTorus_le_plusSignedLevelTorus hk P))
 
-variable {hn : 1 ≤ n} {b c : K}
 
 end SignedCores
 

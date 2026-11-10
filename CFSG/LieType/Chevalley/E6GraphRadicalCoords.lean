@@ -311,41 +311,6 @@ theorem radCoord_mul
   intro β hβ
   exact (radCoord_eq_of_mul (mul_mem hq hq') he.symm β hβ).symm
 
-theorem list_prod_ite_eq_one
-    {L : List (Fin TwistTag.E6.tag.rank → ℤ)}
-    {γ : Fin TwistTag.E6.tag.rank → ℤ} (hγ : γ ∉ L) (t : E) :
-    (L.map fun α => pinnedX TwistTag.E6.tag E α (if α = γ then t else 0)).prod = 1 := by
-  induction L with
-  | nil => rfl
-  | cons α L ih =>
-    rw [List.map_cons, List.prod_cons, ih (fun h => hγ (List.mem_cons_of_mem _ h)),
-      ite_eq_right (fun h : α = γ => hγ (h ▸ List.mem_cons_self ..)), pinnedX_zero, one_mul]
-
-theorem list_prod_ite
-    {L : List (Fin TwistTag.E6.tag.rank → ℤ)} (hL : L.Nodup)
-    {γ : Fin TwistTag.E6.tag.rank → ℤ} (hγ : γ ∈ L) (t : E) :
-    (L.map fun α => pinnedX TwistTag.E6.tag E α (if α = γ then t else 0)).prod =
-      pinnedX TwistTag.E6.tag E γ t := by
-  induction L with
-  | nil => simp at hγ
-  | cons α L ih =>
-    rw [List.map_cons, List.prod_cons]
-    obtain ⟨hαL, hL'⟩ := List.nodup_cons.1 hL
-    by_cases h : α = γ
-    · subst h
-      rw [ite_eq_left rfl, list_prod_ite_eq_one hαL, mul_one]
-    · rw [ite_eq_right h, pinnedX_zero, one_mul,
-        ih hL' ((List.mem_cons.1 hγ).resolve_left (Ne.symm h))]
-
-theorem radCoord_pinnedX
-    {γ : Fin TwistTag.E6.tag.rank → ℤ} (hγ : γ ∈ degOneList) (t : E) :
-    ∀ β ∈ degOneList, radCoord (pinnedX TwistTag.E6.tag E γ t) β = if β = γ then t else 0 := by
-  have h := list_prod_ite (E := E) radList_nodup (degOneList_sub hγ) t
-  have h' : (radList.map fun α => pinnedX TwistTag.E6.tag E α (if α = γ then t else 0)).prod *
-      pinnedX TwistTag.E6.tag E e6HighestRoot 0 = pinnedX TwistTag.E6.tag E γ t := by
-    rw [pinnedX_zero, mul_one, h]
-  intro β hβ
-  exact (radCoord_eq_of_mul (pinnedX_mem_parabolicRadical (degOneList_sub hγ) t) h' β hβ).symm
 
 theorem radCoord_one
     : ∀ β ∈ degOneList, radCoord (1 : ModGL TwistTag.E6.tag E) β = 0 := by

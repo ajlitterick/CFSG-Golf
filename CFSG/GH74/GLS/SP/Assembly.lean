@@ -25,18 +25,5 @@ theorem sp_of_glueData {G : Type} [Group G] [IsSimpleGroup G] {F : Type} [Field 
     {hF : 4 ≤ Nat.card F} (h : SPGlueData G F hF) : Nonempty (G ≃* StatedProj (StatedSp 2 F)) :=
   sp_of_rankTwoData hF (spRankTwoData_of_glueData h)
 
-@[expose] def SPLocalGlue : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G →
-    ∀ (Gs : Type) [Group Gs] (F : Type) [Field F] [Finite F] (hF : 4 ≤ Nat.card F),
-      Odd (Nat.card F) → Nonempty (Gs ≃* StatedProj (StatedSp 2 F)) →
-        IsTwoCentralClassicalType G Gs → SPGlueData G F hF
-
-theorem spLocal_of_glue (h : SPLocalGlue) : SPLocal := by
-  intro G _ _ hK Gs _ F _ _ hF hodd e hT
-  have := hK.1
-  exact spRankTwoData_of_glueData (h G hK Gs F hF hodd e hT)
-
-theorem S_stage5_SP_of_localGlue (h : SPLocalGlue) : S_stage5_SP :=
-  S_stage5_SP_of_local (spLocal_of_glue h)
 
 end CFSG.GH74.GLS.SP

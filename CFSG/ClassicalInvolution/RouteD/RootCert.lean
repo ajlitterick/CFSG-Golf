@@ -41,7 +41,6 @@ instance {n : ℕ} (A : Matrix (Fin n) (Fin n) ℤ) (P T : List (List ℕ)) (par
   unfold Cert
   infer_instance
 
-variable {n : ℕ}
 
 end RootCert
 

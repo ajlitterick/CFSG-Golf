@@ -255,10 +255,6 @@ variable {Y : Type*} [Group Y]
       _ = j⁻¹ * (j * (y⁻¹ * x * y) * j⁻¹) * j := by group
       _ = j⁻¹ * x * j⁻¹⁻¹ := by rw [← h1, inv_inv]
 
-theorem mem_actingAs {L J : Subgroup Y} (hJL : J ≤ L) {y : Y} :
-    y ∈ actingAs L J hJL ↔ y ∈ Subgroup.normalizer (L : Set Y) ∧
-      ∃ j ∈ J, ∀ x ∈ L, y * x * y⁻¹ = j * x * j⁻¹ :=
-  Iff.rfl
 
 theorem eq_of_conj_eq_of_center_eq_bot {L : Subgroup Y} (hZ : Subgroup.center L = ⊥)
     {a b : Y} (ha : a ∈ L) (hb : b ∈ L) (h : ∀ x ∈ L, a * x * a⁻¹ = b * x * b⁻¹) : a = b := by

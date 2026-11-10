@@ -59,10 +59,6 @@ theorem blocks_eq_of_common_member (m : Ideal BlocksAlgInt) {G : Type*} [Group G
   exact (block_eq_blockOf_member m hleft hcharacterLeft).trans
     (block_eq_blockOf_member m hright hcharacterRight).symm
 
-theorem principal_eq_of_trivial_mem (m : Ideal BlocksAlgInt) {G : Type*} [Group G]
-    {block : Set (G → ℂ)} (hblock : BlocksIsBlock m G block)
-    (htrivial : (fun _ => (1 : ℂ)) ∈ block) : block = BlocksPrincipalBlock m G := by
-  exact block_eq_blockOf_member m hblock htrivial
 
 theorem trivial_mem_principal (m : Ideal BlocksAlgInt) (G : Type*) [Group G] :
     (fun _ => (1 : ℂ)) ∈ BlocksPrincipalBlock m G := by
@@ -72,12 +68,5 @@ theorem principal_isBlock (m : Ideal BlocksAlgInt) (G : Type*) [Group G] :
     BlocksIsBlock m G (BlocksPrincipalBlock m G) := by
   exact ⟨fun _ => 1, trivial_mem_irr G, rfl⟩
 
-theorem block_principal_iff_trivial_mem (m : Ideal BlocksAlgInt) {G : Type*} [Group G]
-    {block : Set (G → ℂ)} (hblock : BlocksIsBlock m G block) :
-    block = BlocksPrincipalBlock m G ↔ (fun _ => (1 : ℂ)) ∈ block := by
-  constructor
-  · rintro rfl
-    exact trivial_mem_principal m G
-  · exact principal_eq_of_trivial_mem m hblock
 
 end CFSG.BrauerThirdMainTheorem.Helpers

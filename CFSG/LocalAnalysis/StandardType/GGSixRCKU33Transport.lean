@@ -15,26 +15,6 @@ section Transport
 open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup mem_fixSubgroup map_fixSubgroup_le
   normal_map_fixSubgroup)
 
-theorem not_le_of_le_center {K : Type*} [Group K] {J N : Subgroup K}
-    (hJ : CFSG.Open.IsQuasisimple ↥J) (hN : N ≤ Subgroup.center K) : ¬ J ≤ N := by
-  intro hle
-  obtain ⟨hperf, hs⟩ := hJ
-  have hab : ∀ a b : ↥J, a * b = b * a := fun a b =>
-    Subtype.ext (Subgroup.mem_center_iff.1 (hN (hle a.2)) b).symm
-  have hbot : commutator ↥J = ⊥ := by
-    rw [eq_bot_iff, commutator_def]
-    refine Subgroup.commutator_le.2 fun a _ b _ => ?_
-    rw [Subgroup.mem_bot, commutatorElement_eq_one_iff_mul_comm]
-    exact hab a b
-  have htop : (⊤ : Subgroup ↥J) = ⊥ := hperf ▸ hbot
-  haveI := hs
-  obtain ⟨q, hq⟩ := exists_ne (1 : ↥J ⧸ Subgroup.center ↥J)
-  obtain ⟨j, rfl⟩ := QuotientGroup.mk'_surjective (Subgroup.center ↥J) q
-  have : j = 1 := by
-    have hj : j ∈ (⊤ : Subgroup ↥J) := Subgroup.mem_top j
-    rw [htop] at hj
-    exact hj
-  exact hq (by rw [this, map_one])
 
 theorem nonempty_centerQuot_map {K Q : Type*} [Group K] [Group Q] (π : K →* Q)
     (hker : π.ker ≤ Subgroup.center K) {J : Subgroup K} (hJ : Group.IsPerfect ↥J) :

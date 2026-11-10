@@ -60,8 +60,6 @@ variable [NeZero m]
 noncomputable def torusParam (m : ℕ) [NeZero m] (ζ : Fˣ) : Fin m → Fˣ :=
   Pi.mulSingle (0 : Fin m) ζ * Pi.mulSingle (1 : Fin m) ζ
 
-private noncomputable def torusParamTwo (m : ℕ) [NeZero m] (ζ : Fˣ) : Fin m → Fˣ :=
-  Pi.mulSingle (2 : Fin m) ζ
 
 theorem one_ne_zero_fin (hm : 4 ≤ m) : (1 : Fin m) ≠ 0 := by
   intro h
@@ -94,12 +92,6 @@ theorem torusParam_apply (hm : 4 ≤ m) (ζ : Fˣ) (k : Fin m) :
       Pi.mulSingle_eq_of_ne (M := fun _ => Fˣ) h0, Pi.mulSingle_eq_of_ne (M := fun _ => Fˣ) h1,
       one_mul]
 
-private theorem torusParam_apply_two (ζ : Fˣ) (k : Fin m) :
-    torusParamTwo m ζ k = if k = 2 then ζ else 1 := by
-  by_cases h2 : k = 2
-  · subst h2
-    rw [if_pos rfl, torusParamTwo, Pi.mulSingle_eq_same]
-  · rw [if_neg h2, torusParamTwo, Pi.mulSingle_eq_of_ne (M := fun _ => Fˣ) h2]
 
 theorem frameEntry_torusParam_ne (hm : 4 ≤ m) (h : IsHypFrame (coordinateQuadPlus m F)
     (plusFrameLeft m) (plusFrameRight m)) {ζ : Fˣ} (hζ1 : ζ ≠ 1) (hζinv : ζ⁻¹ ≠ ζ)
@@ -141,9 +133,6 @@ variable [NeZero m]
 @[expose] noncomputable def framePair (k : Fin m) : HypPair (coordinateQuadPlus m F) :=
   (isHypCoord_coordinateQuadPlus (K := F) k).hypPair
 
-private theorem framePair_e (k : Fin m) : (framePair (F := F) k).e = frameE m k := rfl
-
-private theorem framePair_f (k : Fin m) : (framePair (F := F) k).f = frameF m k := rfl
 
 private theorem frameE_apply_self (k : Fin m) : frameE (K := F) m k (plusFrameLeft m k) = 1 :=
   Pi.single_eq_same ..
@@ -313,11 +302,6 @@ section LeviFix
 
 variable [NeZero m]
 
-noncomputable def planeE : Submodule F (Fin (2 * m) → F) :=
-  Submodule.span F {frameE (K := F) m 0, frameE (K := F) m 1}
-
-noncomputable def planeF' : Submodule F (Fin (2 * m) → F) :=
-  Submodule.span F {frameF (K := F) m 0, frameF (K := F) m 1}
 
 theorem polar_planes (horth : (framePair (F := F) (m := m) 0).Orth
     (framePair (F := F) (m := m) 1)) {a b γ δ : F} :
@@ -659,17 +643,6 @@ end Normal
 
 section Order
 
-variable [NeZero m]
-
-theorem isQuasisimple_leviFix (hm : 4 ≤ m) (hF4 : 4 ≤ Nat.card F) :
-    CFSG.IsQuasisimple ↥(leviFix (orthDerived (coordinateQuadPlus m F))
-      (framePair (F := F) (m := m) 0) (framePair (F := F) (m := m) 1)) := by
-  have horth := framePair_orth (F := F) hm
-  obtain ⟨hQ, hT⟩ := regular_coordinateQuadPlus (K := F) (n := m) (by omega)
-  exact CFSG.LocalCores.isQuasisimple_of_mulEquiv
-    (leviFixEquiv (framePair (F := F) (m := m) 0) (framePair (F := F) (m := m) 1) horth
-      (fun u w => eichler_mem_orthDerived hQ hT u w)).symm
-    (CFSG.LieType.HighestRoot.isQuasisimple_SL2_of_four_le (K := F) hF4)
 
 end Order
 

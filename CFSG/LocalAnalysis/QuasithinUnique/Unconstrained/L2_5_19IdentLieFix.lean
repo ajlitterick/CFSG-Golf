@@ -247,20 +247,6 @@ theorem mulAut_congr_apply_self {H H' : Type*} [Group H] [Group H'] (e : H ≃* 
   show e (a (e.symm (e y))) = e (a y)
   rw [MulEquiv.symm_apply_apply]
 
-theorem IdentSetting.hasKComponent_fix_congr [Finite G] (hs : IdentSetting X K t) {Γ : Type*}
-    [Group Γ] (e : ↥X ≃* Γ) :
-    HasKComponent ↥(fixSubgroup (MulAut.congr e (hs.conjAut : MulAut ↥X))) :=
-  hasKComponent_fixSubgroup_of_intertwine e _ _
-    (mulAut_congr_apply_self e _) hs.hasKComponent_fix
-
-theorem IdentSetting.conjAut_mem_inner_of_congr_mem (hs : IdentSetting X K t) {Γ : Type*}
-    [Group Γ] (e : ↥X ≃* Γ)
-    (hmem : MulAut.congr e (hs.conjAut : MulAut ↥X) ∈ OuterAutomorphisms.inner Γ) :
-    (hs.conjAut : MulAut ↥X) ∈ OuterAutomorphisms.inner ↥X := by
-  rw [← OuterAutomorphisms.inner_map_congr e] at hmem
-  obtain ⟨β, hβ, hβe⟩ := hmem
-  have : β = hs.conjAut := (MulAut.congr e).injective hβe
-  rwa [this] at hβ
 
 theorem IdentSetting.conjAut_mul_self (hs : IdentSetting X K t) :
     (hs.conjAut : MulAut ↥X) * hs.conjAut = 1 :=

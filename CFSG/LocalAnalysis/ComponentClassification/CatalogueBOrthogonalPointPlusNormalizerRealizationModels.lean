@@ -60,13 +60,6 @@ theorem coordinate_normalizer_eq_of_geometry
     exact coordinate_polar_perm_mem_similarityPointImage hn phi hperp.1
   · exact similarityPointImage_le_normalizer (coordinateQuadPlus n K)
 
-theorem coordinate_plus_normalizer_eq
-    (n : ℕ) (K : Type) [Field K] [Finite K] (hn : 3 ≤ n) :
-    projectivePointNormalizer (coordinateQuadPlus n K) =
-      similarityPointImage (coordinateQuadPlus n K) := by
-  have hreg := regular_coordinateQuadPlus n K hn
-  exact coordinate_normalizer_eq_of_geometry hn hreg.1 hreg.2
-    (coordinate_plus_point_action_properties n K hn)
 
 theorem model_plus_projective_normalizer_eq
     {H : Type} [Group H] {n p f : ℕ}

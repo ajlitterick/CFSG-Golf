@@ -161,17 +161,6 @@ theorem layerInclusionEquiv_coe [Finite H] (M D : Subgroup H) [M.Normal]
     (layerInclusionEquiv M D hM hMD hcentralizer a : H ⧸ Subgroup.center H) =
       fullCenterInclusion M D hMD hcentralizer (a : D ⧸ Subgroup.center D) := rfl
 
-theorem layerInclusionEquiv_mk [Finite H] (M D : Subgroup H) [M.Normal]
-    (hM : CFSG.IsQuasisimple M) (hMD : M ≤ D)
-    (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H)
-    (d : D) (hd : QuotientGroup.mk' (Subgroup.center D) d ∈
-      CFSG.generalizedFitting (D ⧸ Subgroup.center D)) :
-    (layerInclusionEquiv M D hM hMD hcentralizer
-      (⟨QuotientGroup.mk' (Subgroup.center D) d, hd⟩ :
-        CFSG.generalizedFitting (D ⧸ Subgroup.center D)) : H ⧸ Subgroup.center H) =
-      QuotientGroup.mk' (Subgroup.center H) (d : H) := by
-  rw [layerInclusionEquiv_coe]
-  exact fullCenterInclusion_mk M D hMD hcentralizer d
 
 theorem projectiveImage_simple (M : Subgroup H) (hM : CFSG.IsQuasisimple M)
     (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H) :
@@ -202,59 +191,5 @@ theorem local_layer_centralizer [Finite H] (M D : Subgroup H) [M.Normal]
   rw [generalizedFitting_map M D hM hMD hcentralizer]
   exact ambient_layer_centralizer M hM hcentralizer
 
-theorem normal_odd_index_subgroup_preserves_full_center_quasisimple_layer [Finite H]
-    (M D : Subgroup H) [M.Normal] [D.Normal] (hM : CFSG.IsQuasisimple M)
-    (heven : Even (Nat.card (M ⧸ Subgroup.center M)))
-    (htwo : IsPGroup 2 (Subgroup.center H))
-    (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H)
-    (hodd : Odd D.index) :
-    Subgroup.center H ⊔ M ≤ D ∧
-      (Subgroup.center D).map D.subtype = Subgroup.center H ∧
-      ∃ i : D ⧸ Subgroup.center D →* H ⧸ Subgroup.center H,
-        Function.Injective i ∧ i.range.Normal ∧ Odd i.range.index ∧
-        (∀ d : D, i (QuotientGroup.mk' (Subgroup.center D) d) =
-          QuotientGroup.mk' (Subgroup.center H) (d : H)) ∧
-        (∃ e : M ⧸ Subgroup.center M ≃*
-          M.map (QuotientGroup.mk' (Subgroup.center H)),
-          ∀ m : M, (e (QuotientGroup.mk' (Subgroup.center M) m) :
-            H ⧸ Subgroup.center H) = QuotientGroup.mk' (Subgroup.center H) (m : H)) ∧
-        IsSimpleGroup (M.map (QuotientGroup.mk' (Subgroup.center H))) ∧
-        (∃ a b : M.map (QuotientGroup.mk' (Subgroup.center H)), a * b ≠ b * a) ∧
-        CFSG.generalizedFitting (H ⧸ Subgroup.center H) =
-          M.map (QuotientGroup.mk' (Subgroup.center H)) ∧
-        CFSG.generalizedFitting (D ⧸ Subgroup.center D) =
-          (M.subgroupOf D).map (QuotientGroup.mk' (Subgroup.center D)) ∧
-        (CFSG.generalizedFitting (D ⧸ Subgroup.center D)).map i =
-          CFSG.generalizedFitting (H ⧸ Subgroup.center H) ∧
-        (∃ e : CFSG.generalizedFitting (D ⧸ Subgroup.center D) ≃*
-          CFSG.generalizedFitting (H ⧸ Subgroup.center H),
-          ∀ a : CFSG.generalizedFitting (D ⧸ Subgroup.center D),
-            (e a : H ⧸ Subgroup.center H) = i (a : D ⧸ Subgroup.center D)) ∧
-        Subgroup.centralizer (CFSG.generalizedFitting (H ⧸ Subgroup.center H) :
-          Set (H ⧸ Subgroup.center H)) = ⊥ ∧
-        Subgroup.centralizer (CFSG.generalizedFitting (D ⧸ Subgroup.center D) :
-          Set (D ⧸ Subgroup.center D)) = ⊥ := by
-  have hMD := quasisimple_le_normal_of_odd_index M D hM heven hodd
-  have hAD := center_le_normal_of_odd_index D htwo hodd
-  let i := fullCenterInclusion M D hMD hcentralizer
-  have hi := fullCenterInclusion_injective M D hMD hcentralizer
-  have hrange := fullCenterInclusion_range M D hMD hcentralizer
-  have hnormal : i.range.Normal := by
-    rw [hrange]
-    infer_instance
-  have hindex : Odd i.range.index := by
-    rw [hrange]
-    exact hodd.of_dvd_nat (Subgroup.index_map_dvd D (QuotientGroup.mk'_surjective _))
-  have hsimple := projectiveImage_simple M hM hcentralizer
-  exact ⟨sup_le hAD hMD, center_map_eq M D hMD hAD hcentralizer, i,
-    hi, hnormal, hindex, fullCenterInclusion_mk M D hMD hcentralizer,
-    ⟨projectiveImageEquiv M hcentralizer, projectiveImageEquiv_mk M hcentralizer⟩,
-    hsimple.1, hsimple.2, ambient_generalizedFitting M hM hcentralizer,
-    local_generalizedFitting M D hM hMD hcentralizer,
-    generalizedFitting_map M D hM hMD hcentralizer,
-    ⟨layerInclusionEquiv M D hM hMD hcentralizer,
-      layerInclusionEquiv_coe M D hM hMD hcentralizer⟩,
-    ambient_layer_centralizer M hM hcentralizer,
-    local_layer_centralizer M D hM hMD hcentralizer⟩
 
 end CFSG.Wreathed.NormalOddIndexFullCenterLayer

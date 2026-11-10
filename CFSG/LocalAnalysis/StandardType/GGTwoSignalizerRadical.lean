@@ -267,21 +267,6 @@ theorem exists_two_signalizers_of_count [Finite G] {p : ℕ} (hp : p.Prime) (hp2
     (forall_map_conj_mem_ggOppositeRadicals hEG₀ hEQ) hk
   exact ⟨Q, V, hQ.le, hV.1.le, hQ.isPGroup, hV.1.isPGroup, hEQ, hEV, hgen V hV⟩
 
-theorem exists_two_signalizers [Finite G] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    {G₀ E T : Subgroup G} (hEp : IsPGroup p E) (hEG₀ : E ≤ Subgroup.normalizer (G₀ : Set G))
-    (hTG₀ : T ≤ G₀) (hT : T ≠ ⊥) (hT2 : IsPGroup 2 T)
-    (hET : E ≤ Subgroup.normalizer (T : Set G))
-    (hex : ∀ Q : Subgroup G, Q ≠ ⊥ → GGRadicalTwo G₀ Q →
-      ∃ V ∈ ggOppositeRadicals G₀ Q, Q ⊔ V = G₀)
-    (hconj : ∀ Q : Subgroup G, Q ≠ ⊥ → GGRadicalTwo G₀ Q →
-      ∀ V ∈ ggOppositeRadicals G₀ Q, ∀ V' ∈ ggOppositeRadicals G₀ Q,
-        ∃ u ∈ Q, V' = V.map (MulAut.conj u).toMonoidHom) :
-    ∃ Q₁ Q₂ : Subgroup G, Q₁ ≤ G₀ ∧ Q₂ ≤ G₀ ∧ IsPGroup 2 Q₁ ∧ IsPGroup 2 Q₂ ∧
-      E ≤ Subgroup.normalizer (Q₁ : Set G) ∧ E ≤ Subgroup.normalizer (Q₂ : Set G) ∧
-      Q₁ ⊔ Q₂ = G₀ := by
-  refine exists_two_signalizers_of_count hp hp2 hEp hEG₀ hTG₀ hT hT2 hET fun Q hQne hQ => ?_
-  obtain ⟨V₀, hV₀, hgen⟩ := hex Q hQne hQ
-  exact count_of_conj hQ hV₀ hgen (hconj Q hQne hQ V₀ hV₀)
 
 end GGTwoSig
 

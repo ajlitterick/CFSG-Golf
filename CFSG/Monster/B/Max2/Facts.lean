@@ -40,19 +40,6 @@ theorem isUnit_wordTwo (ha : IsUnit a) (hb : IsUnit b) : ∀ w : List Bool, IsUn
     · rw [if_pos rfl]
       exact ha
 
-theorem commute_wordTwo {x : M} (ha : Commute x a) (hb : Commute x b) :
-    ∀ w : List Bool, Commute x (wordTwo a b w)
-  | [] => by
-    rw [wordTwo_nil]
-    exact Commute.one_right x
-  | l :: w => by
-    rw [wordTwo_cons]
-    refine Commute.mul_right ?_ (commute_wordTwo ha hb w)
-    cases l
-    · rw [if_neg Bool.false_ne_true]
-      exact hb
-    · rw [if_pos rfl]
-      exact ha
 
 theorem map_wordTwo {N : Type*} [Monoid N] (f : M →* N) (w : List Bool) :
     f (wordTwo a b w) = wordTwo (f a) (f b) w := by
@@ -103,8 +90,6 @@ variable (Qf : ℕ → Matrix (Fin 4370) (Fin 4370) (ZMod 2))
 @[expose] noncomputable def G2m : Matrix (Fin 4370) (Fin 4370) (ZMod 2) :=
   C0m Qf Tm cm dm * dm * (C0m Qf Tm cm dm)⁻¹
 
-@[expose] noncomputable def rowProdM (r : ℕ) : Matrix (Fin 4370) (Fin 4370) (ZMod 2) :=
-  ((List.range 22).reverse.map fun j => if r.testBit j then Em Qf j else 1).prod
 
 @[expose] noncomputable def Km : Matrix (Fin 4370) (Fin 4370) (ZMod 2) :=
   (G2m Qf Tm cm dm * G1m Qf Tm cm dm * G1m Qf Tm cm dm * G2m Qf Tm cm dm * G2m Qf Tm cm dm *

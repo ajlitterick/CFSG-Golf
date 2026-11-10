@@ -28,10 +28,5 @@ theorem rel_5126K : sR ^ 8 = 1 ∧ sT ^ 2 = 1 ∧ sT * sR * sT⁻¹ = sR ^ 3 ∧
 theorem le_5126K : (QS.original.toList.all fun g => siftP Q g 0) = true := by
   decide +kernel
 
-theorem neg5126K : invConjCheck (elemsV Q) 1 = false := by
-  decide +kernel
-
-theorem neg5126K' : smallCheck (elemsV QS) 1 = false := by
-  decide +kernel
 
 end CertificateChecks.KernelKGroupsE

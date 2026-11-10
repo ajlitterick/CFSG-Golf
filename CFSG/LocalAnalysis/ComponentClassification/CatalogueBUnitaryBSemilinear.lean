@@ -49,15 +49,6 @@ theorem semiConjEnd_apply (g : V →ₗ[E] V) (v : V) :
     rw [AddEquiv.apply_symm_apply, AddEquiv.apply_symm_apply])
   map_mul' := map_mul _
 
-theorem coe_semiConjGL (g : LinearMap.GeneralLinearGroup E V) :
-    ((semiConjGL h τ hτ g : LinearMap.GeneralLinearGroup E V) : V →ₗ[E] V) =
-      semiConjEnd h τ hτ (g : V →ₗ[E] V) :=
-  rfl
-
-theorem coe_semiConjGL_symm (g : LinearMap.GeneralLinearGroup E V) :
-    (((semiConjGL h τ hτ).symm g : LinearMap.GeneralLinearGroup E V) : V →ₗ[E] V) =
-      semiConjEnd h τ.symm (symm_map_smul h τ hτ) (g : V →ₗ[E] V) :=
-  rfl
 
 theorem semiConjEnd_smul_one (c : E) :
     semiConjEnd h τ hτ (c • 1) = h.bar c • (1 : Module.End E V) :=

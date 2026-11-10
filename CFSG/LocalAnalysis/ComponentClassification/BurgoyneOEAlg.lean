@@ -34,11 +34,6 @@ theorem eq_of_commute_jMat {c : K} (hc : c ≠ 0) {M : Matrix (Fin 2) (Fin 2) K}
   ext i j
   fin_cases i <;> fin_cases j <;> simp [h11, h01]
 
-theorem commute_jMat (c x y : K) :
-    (x • (1 : Matrix (Fin 2) (Fin 2) K) + y • jMat c) * jMat c =
-      jMat c * (x • (1 : Matrix (Fin 2) (Fin 2) K) + y • jMat c) := by
-  simp only [Matrix.add_mul, Matrix.mul_add, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
-    Matrix.mul_one]
 
 @[expose] def wMat (a b : K) : Matrix (Fin 2) (Fin 2) K := diagonal ![a, b]
 

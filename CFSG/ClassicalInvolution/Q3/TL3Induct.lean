@@ -126,32 +126,6 @@ theorem tightInductive_of_step (h : ∀ n, TightStep n) (N : ℕ) : TightInducti
       ¬ TightInO2 t → TightFStarQuasisimple Y →
         TwoSubgroupsFourGenerated (genFittingFStar Y) → TightEx Y R S t ∨ GoodThreeElement R t
 
-@[expose] def TightLargeEdge (n : ℕ) : Prop :=
-  CIT3Below n → TightBelow n → ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y = n →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), TightDatum R S t → TightCls Y R S t →
-      ¬ TightInO2 t → TightFStarQuasisimple Y →
-        ¬ TwoSubgroupsFourGenerated (genFittingFStar Y) → ¬ TightEdgeless R
-
-@[expose] def TightLargeLift (n : ℕ) : Prop :=
-  CIT3Below n → TightBelow n → ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y = n →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), TightDatum R S t → TightCls Y R S t →
-      ¬ TightInO2 t → TightFStarQuasisimple Y →
-        ¬ TwoSubgroupsFourGenerated (genFittingFStar Y) → ¬ TightEdgeless R →
-          GoodThreeElement R t
-
-theorem tightStep_of_parts (h0 : ∀ n, TightDichotomy n) (htw : ∀ n, TightTwistStep n)
-    (h1 : TightSmallBase) (h2 : ∀ n, TightLargeEdge n) (h3 : ∀ n, TightLargeLift n) :
-    ∀ n, TightStep n := by
-  intro n hA hb Y _ _ hn R S t hd hc
-  by_cases hE2 : TightInO2 t
-  · exact Or.inl (Or.inl hE2)
-  rcases (h0 n Y hn R S t hd hc).resolve_left hE2 with hQ | htw'
-  swap
-  · exact htw n hA hb Y hn R S t hd hc hE2 htw'
-  by_cases hsmall : TwoSubgroupsFourGenerated (genFittingFStar Y)
-  · exact h1 Y (by rw [hn]; exact hA) R S t hd hc hE2 hQ hsmall
-  · exact Or.inr (h3 n hA hb Y hn R S t hd hc hE2 hQ hsmall
-      (h2 n hA hb Y hn R S t hd hc hE2 hQ hsmall))
 
 @[expose] def TightR4 : Prop :=
   ∀ n : ℕ, CIT3Below n → ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup (genFittingFStar G)],

@@ -39,52 +39,5 @@ public section
 
 namespace CFSG.DihedralTIFusion
 
-theorem natCard_range_eq_index {N α : Type*} [Group N] (K : Subgroup N) (f : N → α)
-    (hf : ∀ n m : N, f n = f m ↔ n⁻¹ * m ∈ K) : Nat.card (Set.range f) = K.index := by
-  let g : N ⧸ K → α := Quotient.lift f fun a b hab =>
-    (hf a b).mpr (QuotientGroup.leftRel_apply.mp hab)
-  have hg : Function.Injective g := by
-    intro a b hab
-    induction a using QuotientGroup.induction_on
-    induction b using QuotientGroup.induction_on
-    exact QuotientGroup.eq.mpr ((hf _ _).mp hab)
-  have hrange : Set.range f = Set.range g := by
-    ext x
-    constructor
-    · rintro ⟨n, rfl⟩
-      exact ⟨(n : N ⧸ K), rfl⟩
-    · rintro ⟨q, rfl⟩
-      induction q using QuotientGroup.induction_on with
-      | H n => exact ⟨n, rfl⟩
-  rw [hrange, Nat.card_range_of_injective hg]
-  rfl
-
-theorem natCard_orbits_mul {α : Type*} {S : Set α} [Finite S] (orb : α → Set α) (e : ℕ)
-    (hsub : ∀ s ∈ S, orb s ⊆ S) (hself : ∀ s ∈ S, s ∈ orb s)
-    (hsame : ∀ s ∈ S, ∀ t ∈ orb s, orb t = orb s) (hcard : ∀ s ∈ S, Nat.card (orb s) = e) :
-    Nat.card {O : Set α | ∃ s ∈ S, O = orb s} * e = Nat.card S := by
-  set B := {O : Set α | ∃ s ∈ S, O = orb s}
-  let π : S → B := fun s => ⟨orb s, s, s.2, rfl⟩
-  have hπ : Function.Surjective π := by
-    rintro ⟨O, s, hs, rfl⟩
-    exact ⟨⟨s, hs⟩, rfl⟩
-  have : Finite B := Finite.of_surjective π hπ
-  have : Fintype B := Fintype.ofFinite _
-  have hfiber : ∀ O : B, Nat.card {s : S // π s = O} = e := by
-    rintro ⟨O, s₀, hs₀, rfl⟩
-    rw [← hcard s₀ hs₀]
-    refine Nat.card_congr
-      { toFun := fun s => ⟨s.1.1, ?_⟩
-        invFun := fun t => ⟨⟨t.1, hsub s₀ hs₀ t.2⟩, Subtype.ext (hsame s₀ hs₀ t.1 t.2)⟩
-        left_inv := fun s => rfl
-        right_inv := fun t => rfl }
-    have h : orb s.1.1 = orb s₀ := congrArg Subtype.val s.2
-    have hmem : s.1.1 ∈ orb s.1.1 := hself _ s.1.2
-    rwa [h] at hmem
-  calc Nat.card B * e = ∑ _O : B, e := by
-        rw [Finset.sum_const, Finset.card_univ, smul_eq_mul, Nat.card_eq_fintype_card]
-    _ = ∑ O : B, Nat.card {s : S // π s = O} := Finset.sum_congr rfl fun O _ => (hfiber O).symm
-    _ = Nat.card (Σ O : B, {s : S // π s = O}) := Nat.card_sigma.symm
-    _ = Nat.card S := Nat.card_congr (Equiv.sigmaFiberEquiv π)
 
 end CFSG.DihedralTIFusion

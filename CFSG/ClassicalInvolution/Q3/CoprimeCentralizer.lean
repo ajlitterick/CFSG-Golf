@@ -377,7 +377,6 @@ private theorem sl23_sq_one : ∀ s : SL(2, ZMod 3), s * s = 1 → s = 1 ∨ s =
 private theorem sl23_neg_central : ∀ s : SL(2, ZMod 3), s * (-1) = (-1) * s := by
   decide +kernel
 
-private theorem sl23_one_ne_neg : (1 : SL(2, ZMod 3)) ≠ -1 := by decide +kernel
 
 private def elemT3 : SL(2, ZMod 3) := ⟨!![1, 1; 0, 1], by simp [Matrix.det_fin_two_of]⟩
 
@@ -503,67 +502,6 @@ theorem pow_four_mem_of_isSubnormal_centralizer_sl2Three {U : Subgroup Y} [U.Nor
   rw [← h7]
   exact huU
 
-private theorem eq_one_of_odd_orderOf_of_pow_two {T : Type*} [Group T] {w : T}
-    (hw : Odd (orderOf w)) {k : ℕ} (h : w ^ 2 ^ k = 1) : w = 1 := by
-  have h2 : orderOf w ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one h
-  exact orderOf_eq_one_iff.mp (Nat.Coprime.eq_one_of_dvd
-    ((Nat.coprime_two_right.mpr hw).pow_right k) h2)
-
-theorem involution_mem_of_isSubnormal_centralizer_sl2Three {U : Subgroup Y} [U.Normal]
-    (hU : IsPGroup 2 U) (hC : Subgroup.centralizer (U : Set Y) ≤ U) {z : Y} (hz : z * z = 1)
-    {J : Subgroup Y} (hJ : IsSubnormal J (Subgroup.centralizer ({z} : Set Y))) (hzJ : z ∈ J)
-    (ψ : ↥J →* SL(2, ZMod 3)) (hψ : Function.Surjective ψ) (hker : Odd (Nat.card ψ.ker)) :
-    z ∈ U := by
-  have hz4 : (⟨z, hzJ⟩ : ↥J) ^ 4 = 1 := by
-    apply Subtype.ext
-    show z ^ 4 = 1
-    calc z ^ 4 = (z * z) * (z * z) := by simp [pow_succ, mul_assoc]
-      _ = 1 := by rw [hz, mul_one]
-  obtain ⟨u, huU, hu⟩ := exists_mem_inf_of_isSubnormal_centralizer_sl2Three hU hC hz hJ ψ hψ hker
-    ⟨z, hzJ⟩ (by rw [← map_pow, hz4, map_one])
-  set o : ↥J := u⁻¹ * ⟨z, hzJ⟩ with ho
-  have hoker : o ∈ ψ.ker := by
-    rw [MonoidHom.mem_ker, ho, map_mul, map_inv, hu]
-    simp
-  have hodd : ∀ w ∈ ψ.ker, Odd (orderOf w) := fun w hw =>
-    Odd.of_dvd_nat hker (Subgroup.orderOf_dvd_natCard _ hw)
-  have hkerU : ∀ w ∈ ψ.ker, ((w : ↥J) : Y) ∈ U → w = 1 := by
-    intro w hw hwU
-    obtain ⟨k, hk⟩ := hU ⟨_, hwU⟩
-    have : w ^ 2 ^ k = 1 := Subtype.ext (by simpa using congrArg Subtype.val hk)
-    exact eq_one_of_odd_orderOf_of_pow_two (hodd w hw) this
-  have hcomm : u * o = o * u := by
-    have h1 : ⁅u, o⁆ ∈ ψ.ker := by
-      rw [MonoidHom.mem_ker, map_commutatorElement, show ψ o = 1 from hoker]
-      simp
-    have h2 : ((⁅u, o⁆ : ↥J) : Y) ∈ U := by
-      have : ((⁅u, o⁆ : ↥J) : Y) = (u : Y) * ((o : Y) * (u : Y)⁻¹ * (o : Y)⁻¹) := by
-        simp only [commutatorElement_def]
-        simp
-        group
-      rw [this]
-      exact U.mul_mem huU (Subgroup.Normal.conj_mem inferInstance _ (U.inv_mem huU) _)
-    exact commutatorElement_eq_one_iff_mul_comm.mp (hkerU _ h1 h2)
-  have hzuo : (⟨z, hzJ⟩ : ↥J) = u * o := by rw [ho]; group
-  have hsq : u * u * (o * o) = 1 := by
-    have h1 : (⟨z, hzJ⟩ : ↥J) * ⟨z, hzJ⟩ = 1 := Subtype.ext hz
-    rw [hzuo] at h1
-    calc u * u * (o * o) = u * (u * o) * o := by group
-      _ = u * (o * u) * o := by rw [hcomm]
-      _ = (u * o) * (u * o) := by group
-      _ = 1 := h1
-  have hu2 : u * u = 1 := by
-    have h1 : u * u = (o * o)⁻¹ := eq_inv_of_mul_eq_one_left hsq
-    have hmem : u * u ∈ ψ.ker := by
-      rw [h1]; exact ψ.ker.inv_mem (ψ.ker.mul_mem hoker hoker)
-    exact hkerU _ hmem (U.mul_mem huU huU)
-  have ho2 : o * o = 1 := by rw [hu2, one_mul] at hsq; exact hsq
-  have ho1 : o = 1 :=
-    eq_one_of_odd_orderOf_of_pow_two (hodd o hoker) (k := 1) (by simpa [sq] using ho2)
-  have hzu : (⟨z, hzJ⟩ : ↥J) = u := by rw [hzuo, ho1, mul_one]
-  have h7 : z = (u : Y) := congrArg Subtype.val hzu
-  rw [h7]
-  exact huU
 
 end SL23
 

@@ -57,14 +57,6 @@ theorem IsGamma0.exists_central_involution (h : UniqueSetting G T M) {H S : Subg
     GammaExtra.exists_involution_of_ne_bot (hT'.isPGroup.to_le inf_le_left) hZ
   exact ⟨T', z, hT', hST', hzZ, hz1, hz2⟩
 
-theorem IsGamma0.exists_sylow_center_le_lt (h : UniqueSetting G T M) {H S : Subgroup G}
-    (hH : IsGamma0 M H) (hS : IsSylowTwoOf S (H ⊓ M)) :
-    ∃ T' : Subgroup G, IsSylowTwoOf T' M ∧ S ≤ T' ∧ S < T' ∧
-      T' ⊓ Subgroup.centralizer (T' : Set G) ≤ S ⊓ Subgroup.centralizer (S : Set G) := by
-  obtain ⟨-, hSc, -⟩ := IsGamma.sylow_properties h hH.isGamma hS
-  obtain ⟨T', hST', hT'⟩ := exists_isSylowTwoOf_of_le hSc.1 hS.isPGroup
-  obtain ⟨hcentre, hlt, -⟩ := hH.center_le_of_le_sylow h hS hT' hST'
-  exact ⟨T', hT', hST', hlt, hcentre⟩
 
 theorem IsGamma0.lemma115Hyp (h : UniqueSetting G T M) {H S : Subgroup G} {z : G}
     (hH : IsGamma0 M H) (hS : IsSylowTwoOf S (H ⊓ M))

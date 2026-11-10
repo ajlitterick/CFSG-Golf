@@ -21,23 +21,6 @@ open scoped IsMulCommutative
 
 universe u
 
-private theorem lemma1_finite_A
-    {P : Type u} [Group P] (hP : IsSuzukiTwoGroup P) (A : Subgroup P) :
-    Finite A := by
-  letI : Finite P := finite_of_isSuzukiTwoGroup hP
-  infer_instance
-
-private theorem lemma1_involutions_of_A_transitive
-    {X P : Type u} [Group X] [Group P] [MulDistribMulAction X P]
-    (hXtrans : ∀ x : P, x ∈ involutions P →
-      ∀ y : P, y ∈ involutions P → ∃ k : X, y = k • x)
-    {A : Subgroup P} {x y : A} (hx : IsInvolution x) (hy : IsInvolution y) :
-    ∃ k : X, (y : P) = k • (x : P) := by
-  apply hXtrans x
-  · exact ⟨fun h => hx.ne_one (Subtype.ext h), by
-      simpa using congrArg Subtype.val hx.sq_eq_one⟩
-  · exact ⟨fun h => hy.ne_one (Subtype.ext h), by
-      simpa using congrArg Subtype.val hy.sq_eq_one⟩
 
 private theorem lemma1_abelian_two_group_decomposition
     {P : Type u} [Group P] [Finite P] (hP : IsPGroup 2 P)

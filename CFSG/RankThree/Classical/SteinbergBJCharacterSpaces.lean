@@ -230,11 +230,6 @@ theorem charIdem_mul_charIdem_eq_smul (hζ : ζ ^ p = 1) (χ ψ : Additive Γ �
     Finset.sum_congr rfl fun g _ => by rw [smul_mul_assoc, mul_charIdem hζ, smul_smul],
     ← Finset.sum_smul, smul_smul, hc]
 
-theorem charIdem_mul_self (hζ : ζ ^ p = 1) (hΓ : (Fintype.card Γ : F) ≠ 0)
-    (χ : Additive Γ →+ ZMod p) : charIdem ρ ζ χ * charIdem ρ ζ χ = charIdem ρ ζ χ := by
-  rw [charIdem_mul_charIdem_eq_smul hζ, sub_self]
-  simp only [AddMonoidHom.zero_apply, ZMod.val_zero, pow_zero, Finset.sum_const,
-    Finset.card_univ, nsmul_eq_mul, mul_one, inv_mul_cancel₀ hΓ, one_smul]
 
 theorem charIdem_mul_charIdem_of_ne (hζ : IsPrimitiveRoot ζ p) {χ ψ : Additive Γ →+ ZMod p}
     (h : χ ≠ ψ) : charIdem ρ ζ χ * charIdem ρ ζ ψ = 0 := by

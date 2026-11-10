@@ -93,8 +93,6 @@ variable {k : Type} [Field k] {E : Type} [CommRing E] [Algebra k E]
       (g : Matrix (Fin n) (Fin n) E) *ᵥ ((h : Matrix (Fin n) (Fin n) E) *ᵥ v)
     rw [Units.val_mul, Matrix.mulVec_mulVec]
 
-theorem glRestrict_apply (n : ℕ) (g : GL (Fin n) E) (v : Fin n → E) :
-    glRestrict (k := k) n g v = (g : Matrix (Fin n) (Fin n) E) *ᵥ v := rfl
 
 end Action
 

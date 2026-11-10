@@ -115,9 +115,6 @@ theorem leviProj_mem_stdLeviBorel
   rw [e, leviProj_mul hJ hq (stdLeviBorel_le_stdLevi hJ hc)]
   exact hc
 
-theorem leviProj_surjective
-    (hJ : (2 : Fin 4) ∈ J) : Function.Surjective (leviProj hJ) :=
-  fun l => ⟨⟨l, stdLevi_le_nativeParabolic hJ l.2⟩, leviProj_of_mem hJ l.2 _⟩
 
 theorem mem_stdBorel_iff
     (hJ : (2 : Fin 4) ∈ J) (p : nativeParabolic J) :
@@ -150,11 +147,6 @@ theorem residueMap_mk
     residueMap hJ (QuotientGroup.mk p) = QuotientGroup.mk (leviProj hJ p) :=
   rfl
 
-theorem residueMap_mk_mul
-    (hJ : (2 : Fin 4) ∈ J) {q l : ModGL Tag.E6 K} (hq : q ∈ stdRadical J)
-    (hl : l ∈ stdLevi J) (hql : q * l ∈ nativeParabolic J) :
-    residueMap hJ (QuotientGroup.mk ⟨q * l, hql⟩) = QuotientGroup.mk ⟨l, hl⟩ := by
-  rw [residueMap_mk, leviProj_mul hJ hq hl hql]
 
 theorem residueMap_bijective
     (hJ : (2 : Fin 4) ∈ J) : Function.Bijective (residueMap hJ) := by
@@ -169,11 +161,6 @@ theorem residueMap_bijective
     exact ⟨QuotientGroup.mk ⟨l, stdLevi_le_nativeParabolic hJ l.2⟩, by
       rw [residueMap_mk, leviProj_of_mem hJ l.2]⟩
 
-theorem residueMap_mk_mul_left
-    (hJ : (2 : Fin 4) ∈ J) (p x : nativeParabolic J) :
-    residueMap hJ (QuotientGroup.mk (p * x)) =
-      QuotientGroup.mk (leviProj hJ p * leviProj hJ x) := by
-  rw [residueMap_mk, map_mul]
 
 @[expose] def leviParabolic
     (J I : Set (Fin 4)) : Subgroup (ModGL Tag.E6 K) :=
@@ -228,38 +215,6 @@ theorem adjacent_iff
       (((leviProj hJ x)⁻¹ * leviProj hJ y : stdLevi J) : ModGL Tag.E6 K) ∈ leviParabolic J I := by
   rw [mem_nativeParabolic_iff hJ hIJ, map_mul, map_inv]
 
-theorem image_residueMap_subresidue
-    (hJ : (2 : Fin 4) ∈ J) {I : Set (Fin 4)} (hIJ : I ⊆ J) :
-    residueMap hJ '' {x | ∃ p : nativeParabolic J, (p : ModGL Tag.E6 K) ∈ nativeParabolic I ∧
-        x = QuotientGroup.mk p} =
-      {y | ∃ l : stdLevi J, (l : ModGL Tag.E6 K) ∈ leviParabolic J I ∧ y = QuotientGroup.mk l} := by
-  ext y
-  constructor
-  · rintro ⟨_, ⟨p, hp, rfl⟩, rfl⟩
-    exact ⟨leviProj hJ p, (mem_nativeParabolic_iff hJ hIJ p).mp hp, rfl⟩
-  · rintro ⟨l, hl, rfl⟩
-    refine ⟨QuotientGroup.mk ⟨l, stdLevi_le_nativeParabolic hJ l.2⟩,
-      ⟨⟨l, stdLevi_le_nativeParabolic hJ l.2⟩, leviParabolic_le_nativeParabolic J I hl, rfl⟩, ?_⟩
-    rw [residueMap_mk, leviProj_of_mem hJ l.2]
-
-theorem stdLevi_eq_closure
-    (hJ : (2 : Fin 4) ∈ J) :
-    stdLevi J = Subgroup.closure ((stdTorus : Set (ModGL Tag.E6 K)) ∪ stdLeviUnipotent J ∪
-      nativeRep '' J) := by
-  refine le_antisymm (fun l hl => ?_) ((Subgroup.closure_le _).2 ?_)
-  · have hlP := stdLevi_le_nativeParabolic hJ hl
-    have h := (mem_nativeParabolic_iff hJ subset_rfl ⟨l, hlP⟩).mp hlP
-    rw [leviProj_of_mem hJ hl] at h
-    refine (Subgroup.closure_le _).2 ?_ h
-    rintro x (hx | ⟨i, hi, rfl⟩)
-    · refine (sup_le ?_ ?_ : stdLeviBorel J ≤ _) hx
-      · exact fun y hy => Subgroup.subset_closure (Or.inl (Or.inl hy))
-      · exact fun y hy => Subgroup.subset_closure (Or.inl (Or.inr hy))
-    · exact Subgroup.subset_closure (Or.inr ⟨i, hi, rfl⟩)
-  · rintro x ((hx | hx) | ⟨i, hi, rfl⟩)
-    · exact stdLeviBorel_le_stdLevi hJ (Subgroup.mem_sup_left hx)
-    · exact stdLeviBorel_le_stdLevi hJ (Subgroup.mem_sup_right hx)
-    · exact nativeRep_mem_stdLevi hi
 
 theorem leviProj_betaGL
     (hJ : (2 : Fin 4) ∈ J) (p : nativeParabolic J) :
@@ -283,67 +238,5 @@ theorem residueMap_betaGL
   congr 1
   exact Subtype.ext (leviProj_betaGL hJ p)
 
-theorem stdRadical_normal_stdBorel
-    (J : Set (Fin 4)) :
-    ((stdRadical J).subgroupOf stdBorel).Normal := by
-  refine ⟨fun n hn g => ?_⟩
-  have h := (stdRadical_normal J).conj_mem ⟨n, stdBorel_le_nativeParabolic J n.2⟩ hn
-    ⟨g, stdBorel_le_nativeParabolic J g.2⟩
-  exact h
-
-theorem standard_parabolic_Levi_residue_quotients
-    (J : Set (Fin 4)) (hJ : (2 : Fin 4) ∈ J) :
-    ((stdRadical J).subgroupOf (nativeParabolic J)).Normal ∧
-    stdRadical J ≤ nativeParabolic J ∧ stdLevi J ≤ nativeParabolic J ∧
-    stdRadical J ⊓ stdLevi J = ⊥ ∧
-    (∀ g ∈ nativeParabolic J, ∃! ql : ModGL Tag.E6 K × ModGL Tag.E6 K,
-      ql.1 ∈ stdRadical J ∧ ql.2 ∈ stdLevi J ∧ g = ql.1 * ql.2) ∧
-    stdRadical J ≤ stdBorel ∧ stdLeviBorel J ≤ stdBorel ∧
-    ((stdRadical J).subgroupOf stdBorel).Normal ∧
-    (∀ b ∈ stdBorel, ∃! qc : ModGL Tag.E6 K × ModGL Tag.E6 K,
-      qc.1 ∈ stdRadical J ∧ qc.2 ∈ stdLeviBorel J ∧ b = qc.1 * qc.2) ∧
-    (stdLeviBorel J : Set (ModGL Tag.E6 K)) =
-      (stdTorus : Set (ModGL Tag.E6 K)) * (stdLeviUnipotent J : Set (ModGL Tag.E6 K)) ∧
-    stdLevi J ⊓ stdBorel = stdLeviBorel J ∧
-    stdLevi J = Subgroup.closure ((stdTorus : Set (ModGL Tag.E6 K)) ∪ stdLeviUnipotent J ∪
-      nativeRep '' J) ∧
-    Function.Surjective (leviProj hJ) ∧
-    (∀ p : nativeParabolic J, leviProj hJ p = 1 ↔ (p : ModGL Tag.E6 K) ∈ stdRadical J) ∧
-    (∀ q l : ModGL Tag.E6 K, q ∈ stdRadical J → ∀ (hl : l ∈ stdLevi J)
-      (hql : q * l ∈ nativeParabolic J),
-      leviProj hJ ⟨q * l, hql⟩ = ⟨l, hl⟩ ∧
-        residueMap hJ (QuotientGroup.mk ⟨q * l, hql⟩) = QuotientGroup.mk ⟨l, hl⟩) ∧
-    Function.Bijective (residueMap hJ) ∧
-    (∀ p x : nativeParabolic J, residueMap hJ (QuotientGroup.mk (p * x)) =
-      QuotientGroup.mk (leviProj hJ p * leviProj hJ x)) ∧
-    (∀ I ⊆ J, ∀ x y : nativeParabolic J,
-      ((x⁻¹ * y : nativeParabolic J) : ModGL Tag.E6 K) ∈ nativeParabolic I ↔
-        (((leviProj hJ x)⁻¹ * leviProj hJ y : stdLevi J) : ModGL Tag.E6 K) ∈ leviParabolic J I) ∧
-    (∀ I ⊆ J, residueMap hJ '' {x | ∃ p : nativeParabolic J,
-        (p : ModGL Tag.E6 K) ∈ nativeParabolic I ∧ x = QuotientGroup.mk p} =
-      {y | ∃ l : stdLevi J, (l : ModGL Tag.E6 K) ∈ leviParabolic J I ∧ y = QuotientGroup.mk l}) ∧
-    (stdRadical J).map betaGL = stdRadical J ∧ (stdLevi J).map betaGL = stdLevi J ∧
-    (stdLeviBorel J).map betaGL = stdLeviBorel J ∧
-    (stdLeviUnipotent J).map betaGL = stdLeviUnipotent J ∧
-    stdTorus.map betaGL = stdTorus ∧ stdBorel.map betaGL = stdBorel ∧
-    (nativeParabolic J).map betaGL = nativeParabolic J ∧
-    (∀ p : nativeParabolic J,
-      ((leviProj hJ ⟨betaGL p, betaGL_mem_nativeParabolic p.2⟩ : stdLevi J) : ModGL Tag.E6 K) =
-        betaGL ((leviProj hJ p : stdLevi J) : ModGL Tag.E6 K) ∧
-      residueMap hJ (QuotientGroup.mk ⟨betaGL p, betaGL_mem_nativeParabolic p.2⟩) =
-        QuotientGroup.mk ⟨betaGL ((leviProj hJ p : stdLevi J) : ModGL Tag.E6 K),
-          betaGL_mem_stdLevi (leviProj hJ p).2⟩) :=
-  ⟨stdRadical_normal J, stdRadical_le_nativeParabolic J, stdLevi_le_nativeParabolic hJ,
-    stdRadical_inf_stdLevi J, fun _ hg => existsUnique_stdRadical_mul_stdLevi hJ hg,
-    stdRadical_le_stdBorel J, stdLeviBorel_le_stdBorel J, stdRadical_normal_stdBorel J,
-    fun _ hb => existsUnique_stdRadical_mul_stdBorel J hb, coe_stdLeviBorel J,
-    stdLevi_inf_stdBorel hJ, stdLevi_eq_closure hJ, leviProj_surjective hJ,
-    leviProj_eq_one_iff hJ,
-    fun _ _ hq hl hql => ⟨leviProj_mul hJ hq hl hql, residueMap_mk_mul hJ hq hl hql⟩,
-    residueMap_bijective hJ, residueMap_mk_mul_left hJ, fun _ hIJ => adjacent_iff hJ hIJ,
-    fun _ hIJ => image_residueMap_subresidue hJ hIJ, map_betaGL_stdRadical J,
-    map_betaGL_stdLevi J, map_betaGL_stdLeviBorel J, map_betaGL_stdLeviUnipotent J,
-    map_betaGL_stdTorus, map_betaGL_stdBorel, map_betaGL_nativeParabolic J,
-    fun p => ⟨leviProj_betaGL hJ p, residueMap_betaGL hJ p⟩⟩
 
 end CFSG.LieType.Chevalley.C2E6Std

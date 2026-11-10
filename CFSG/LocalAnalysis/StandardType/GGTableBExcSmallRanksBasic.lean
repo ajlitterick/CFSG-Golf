@@ -58,9 +58,6 @@ variable {G : Type*} [Group G]
   one_mem' := ⟨T.one_mem, one_pow p⟩
   inv_mem' {x} hx := ⟨T.inv_mem hx.1, by rw [inv_pow, hx.2, inv_one]⟩
 
-theorem mem_omegaSub {T : Subgroup G} {hTc : ∀ x ∈ T, ∀ y ∈ T, x * y = y * x} {p : ℕ} {x : G} :
-    x ∈ omegaSub T hTc p ↔ x ∈ T ∧ x ^ p = 1 :=
-  Iff.rfl
 
 theorem commute_of_zpow {p : ℕ} (hp : p.Prime) {n h : G} {i : ℤ} (hi : ¬ (p : ℤ) ∣ i)
     (h1 : Commute (n ^ i) h) (h2 : Commute (n ^ p) h) : Commute n h := by

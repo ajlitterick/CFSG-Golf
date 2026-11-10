@@ -497,8 +497,6 @@ end Elt
 
 section TypeL2
 
-alias l514y0_nonempty_barEquiv_of_surjective := l514vinn_nonempty_barEquiv_of_surjective
-alias l514y0_exists_slPiTwo_proj := l514vinn_exists_slPiTwo_proj
 alias l514y0_isTypeL2_of_range_slPiTwo := l514vinn_isTypeL2_of_range_slPiTwo
 
 end TypeL2
@@ -529,8 +527,6 @@ theorem l514y0_cover (hq : ModThree π (p ^ f)) (d : FrobData hK σ)
     (isQuasisimple_quotient_of_glaPComponent ((hcomp _).2 rfl))
 
 end Cover
-
-
 
 
 end CFSG.HardMathSupport.Solomon.Coordinator

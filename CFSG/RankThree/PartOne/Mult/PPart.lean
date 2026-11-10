@@ -55,8 +55,6 @@ def centralTorsion (K : Type*) [Group K] (m : ℕ) : Subgroup K where
     rintro x ⟨hx, hxm⟩
     exact ⟨inv_mem hx, by rw [inv_pow, hxm, inv_one]⟩
 
-theorem mem_centralTorsion {K : Type*} [Group K] {m : ℕ} {x : K} :
-    x ∈ centralTorsion K m ↔ x ∈ center K ∧ x ^ m = 1 := Iff.rfl
 
 theorem exists_central_p_complement {K : Type*} [Group K] [Finite K] (p : ℕ) [hp : Fact p.Prime] :
     ∃ N : Subgroup K, N ≤ center K ∧ ¬ p ∣ Nat.card N ∧

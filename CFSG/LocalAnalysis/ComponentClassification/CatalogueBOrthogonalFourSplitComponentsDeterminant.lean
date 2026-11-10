@@ -73,9 +73,5 @@ theorem determinant_three_solvable (hcard : Nat.card K = 3) :
   let : Group.IsSolvable (specialImage K) := specialImage_three_solvable hcard
   exact Group.isSolvable_of_subgroup_quotient (specialImage K)
 
-theorem determinant_three_no_pComponent (hcard : Nat.card K = 3) (p : ℕ)
-    (L : Subgroup (DeterminantIsometries K)) : ¬ CFSG.IsPComponent p L := by
-  let : Group.IsSolvable (DeterminantIsometries K) := determinant_three_solvable hcard
-  exact CatalogueBGeneralLinear.no_pComponent_of_solvable p L
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalFourSplitComponents

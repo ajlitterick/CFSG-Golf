@@ -224,16 +224,6 @@ end Config
       Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D ∧
         ∃ b ∈ Bs ⊓ J, b ∉ Subgroup.centralizer (J : Set G)
 
-theorem ggStdSubSmallInputOn_of_labels {S : ℕ → LargeEvenLabel → Prop}
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab → S p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGStdSubTwoTorus p r R I) :
-    GGStdSubSmallInputOn S := by
-  intro G _ _ p B Bs x L D J hcfg hM _
-  have hp : p.Prime := hcfg.1.2.2.2.2.2.1.1
-  have hM' := largeEvenMarking_and_labelAll (S := fun lab => S p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hM
-  exact ggStdSubInputs_of_twoTorus hcfg
-    (largeEvenMarking_mono (fun _ _ _ _ _ _ hP => ⟨⟨hP.1.2.2.1, hP.1.2.2.2⟩, hP.2⟩) hM')
 
 theorem GGStdSubSmallInputOn.or {S T : ℕ → LargeEvenLabel → Prop} (hS : GGStdSubSmallInputOn S)
     (hT : GGStdSubSmallInputOn T) : GGStdSubSmallInputOn fun p lab => S p lab ∨ T p lab := by

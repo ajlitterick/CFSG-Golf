@@ -12,42 +12,6 @@ open scoped MatrixGroups
 
 variable (p f : ℕ) [Fact p.Prime]
 
-theorem sl2_isClassicalMember (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) :
-    IsClassicalMember p f (⊤ : Subgroup SL(2, GaloisField p f)) (-1) := by
-  have hf : f ≠ 0 := by rintro rfl; simp at hq
-  have hcard : Nat.card (GaloisField p f) = p ^ f := GaloisField.card p f hf
-  have hodd : Odd (Nat.card (GaloisField p f)) := by
-    rw [hcard]; exact (Nat.Prime.odd_of_ne_two (Fact.out) hp2).pow
-  have h4 : 4 ≤ Nat.card (GaloisField p f) := by rw [hcard]; omega
-  have h3 : 3 ≤ Nat.card (GaloisField p f) := by omega
-  have hO : classicalInvolutionOddCore (↥(⊤ : Subgroup SL(2, GaloisField p f))) = ⊥ := by
-    refine le_bot_iff.mp (sSup_le fun N hN => ?_)
-    exact (normal_odd_of_equiv_sl2 hodd h3 (Subgroup.topEquiv (G := SL(2, GaloisField p f))) N
-      hN.1 hN.2).le
-  refine ⟨sl2_orderOf_neg_one hodd, Subgroup.mem_top _, ?_, ?_, ?_⟩
-  · exact isPerfect_of_equiv_sl2 h4 (Subgroup.topEquiv (G := SL(2, GaloisField p f)))
-  · have : Subgroup.centralizer ({(-1 : SL(2, GaloisField p f))} : Set SL(2, GaloisField p f)) =
-        ⊤ := by
-      rw [Subgroup.centralizer_eq_top_iff_subset]
-      rintro x rfl
-      exact (mem_center_sl2_iff _).mpr (Or.inr rfl)
-    rw [this]
-    exact IsSubnormal.refl _
-  · exact ⟨((QuotientGroup.quotientMulEquivOfEq hO).trans QuotientGroup.quotientBot).trans
-      (Subgroup.topEquiv (G := SL(2, GaloisField p f)))⟩
-
-theorem sl2_inClass (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) :
-    InClass p f ({⊤} : Set (Subgroup SL(2, GaloisField p f))) where
-  nonempty := ⟨⊤, rfl⟩
-  conjInvariant := by
-    rintro n K rfl
-    show conjSub n ⊤ = ⊤
-    ext x
-    simp [mem_conjSub_iff]
-  generated := by simp
-  classical := by
-    rintro L rfl
-    exact ⟨-1, sl2_isClassicalMember p f hp2 hq⟩
 
 theorem blockMat_two_zero {F : Type} [Field F] (A : Matrix (Fin 2) (Fin 2) F) :
     CFSG.ClassicalInvolution.Phan.blockMat 2 0 A = A := by

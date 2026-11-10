@@ -345,32 +345,6 @@ theorem IsProductDisconnected.conj_mem_conjSet (hZ : IsInvariantInvolutionSet Z)
     _ = a * (c * k⁻¹ * c⁻¹) * t * (c * k * c⁻¹) * a⁻¹ := by rw [e]
     _ = ((c * k * c⁻¹) * a⁻¹)⁻¹ * t * ((c * k * c⁻¹) * a⁻¹) := by group
 
-theorem IsProductDisconnected.le_normalizer_closure_conjSet (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {t : X} (ht : t ∈ Z) (htM : t ∉ M) :
-    M ⊓ conjugate M t ≤ normalizer ((Subgroup.closure
-      {y : X | ∃ k ∈ pPrimeCoreIn (M ⊓ conjugate M t), y = k⁻¹ * t * k} : Subgroup X) : Set X) := by
-  set T := {y : X | ∃ k ∈ pPrimeCoreIn (M ⊓ conjugate M t), y = k⁻¹ * t * k} with hT
-  have hmap : ∀ d ∈ M ⊓ conjugate M t, ∀ x ∈ Subgroup.closure T,
-      d⁻¹ * x * d ∈ Subgroup.closure T := by
-    intro d hd x hx
-    have : Subgroup.closure T ≤ (Subgroup.closure T).comap (MulAut.conj d⁻¹).toMonoidHom := by
-      rw [Subgroup.closure_le]
-      intro y hy
-      rw [SetLike.mem_coe, Subgroup.mem_comap]
-      have e : (MulAut.conj d⁻¹).toMonoidHom y = d⁻¹ * y * d := by simp
-      rw [e]
-      exact Subgroup.subset_closure (h.conj_mem_conjSet hZ ht htM hd hy)
-    simpa [MulAut.conj_apply] using this hx
-  intro d hd
-  rw [Subgroup.mem_normalizer_iff]
-  intro x
-  constructor
-  · intro hx
-    have := hmap d⁻¹ ((M ⊓ conjugate M t).inv_mem hd) x hx
-    simpa using this
-  · intro hx
-    have := hmap d hd _ hx
-    simpa [mul_assoc] using this
 
 omit [Finite X] in
 theorem IsProductDisconnected.zHull_lSubgroup (hZ : IsInvariantInvolutionSet Z) {t z : X}

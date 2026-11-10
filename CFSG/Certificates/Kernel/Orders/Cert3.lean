@@ -41,14 +41,6 @@ open CFSG.KC.Loop
             ih2) (Nat.add (Nat.mul leaf lb) (Nat.sub (Nat.sub lb (nat_lit 1)) q)))
         lb St) ih) Cs
 
-@[expose] noncomputable def flagOK3 (mul : Nat → Nat → Nat) (vld : Nat → Bool) (ONE Cm Ci : Nat) : Bool :=
-  andB (vld Cm) (andB (vld Ci) (Nat.beq (mul Cm Ci) ONE))
-
-@[expose] noncomputable def uniOK3 (RB : Nat → Nat) (mul : Nat → Nat → Nat) (N LO ONE UP Cm Ci PR lo hi : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true (fun k ih => andB ih (Bool.rec (motive := fun _ => Bool) true
-    ((fun M => andB (Nat.beq (Nat.land (Nat.lor (Nat.land M LO) (Nat.shiftRight M N)) UP) (nat_lit 0))
-        (Nat.beq (Nat.land M ONE) ONE))
-      (mul (mul Cm (RB (at16 PR k))) Ci)) (Nat.ble lo k))) hi
 
 end CFSG.KC.Ord
 

@@ -90,10 +90,6 @@ theorem coe_coe_diagSU {m : ℕ} (d : Fin m → normOne σ) (hd : d ∈ detKer �
       Matrix.diagonal fun a => ((d a : normOne σ) : Fˣ).val :=
   rfl
 
-theorem coe_inv_diagSU {m : ℕ} (d : Fin m → normOne σ) (hd : d ∈ detKer σ m) :
-    ((((diagSU σ d hd)⁻¹ : SUid σ m) : GL (Fin m) F) : Matrix (Fin m) (Fin m) F) =
-      Matrix.diagonal fun a => (((d a : normOne σ) : Fˣ)⁻¹).val :=
-  rfl
 
 variable (σ)
 
@@ -562,18 +558,6 @@ theorem exists_torusTwo_of_mem_torus (k : Fin n)
   · simp
   · simp [h1]
 
-theorem torus_inf_range_blockEmb2 (k : Fin n) :
-    torus (unitaryInvolution K p f) (n + 1) ⊓ (blockEmb2 K p f n k).range =
-      ((blockEmb2 K p f n k).comp (torusTwo (unitaryInvolution K p f))).range := by
-  ext t
-  constructor
-  · rintro ⟨ht, hk⟩
-    obtain ⟨u, hu⟩ := exists_torusTwo_of_mem_torus k ht hk
-    exact ⟨u, hu⟩
-  · rintro ⟨u, rfl⟩
-    refine ⟨?_, ⟨_, rfl⟩⟩
-    rw [MonoidHom.comp_apply, ← coe_torusEquiv_mulSingle]
-    exact (torusEquiv (unitaryInvolution K p f) n (Pi.mulSingle k u)).2
 
 end TorusEquivSU
 

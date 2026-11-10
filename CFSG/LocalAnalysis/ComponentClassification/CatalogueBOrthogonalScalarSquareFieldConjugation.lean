@@ -57,10 +57,6 @@ theorem conjugationHom_involutive [Nontrivial V] (T : Module.End K V) (d : K)
     (AlgHom.ext (conjugationHom_involutive T d hns hsquare))
     (AlgHom.ext (conjugationHom_involutive T d hns hsquare))
 
-theorem conjugation_apply [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (z : scalarAlgebra T) :
-    conjugation T d hns hsquare z = conjugationHom T d hns hsquare z := rfl
 
 theorem conjugation_generator [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d) :
@@ -78,11 +74,6 @@ theorem conjugation_involutive [Nontrivial V] (T : Module.End K V) (d : K)
     Function.Involutive (conjugation T d hns hsquare) :=
   conjugationHom_involutive T d hns hsquare
 
-theorem conjugation_symm [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d) :
-    (conjugation T d hns hsquare).symm = conjugation T d hns hsquare := by
-  ext z
-  rfl
 
 theorem conjugation_square [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d) :
@@ -91,13 +82,6 @@ theorem conjugation_square [Nontrivial V] (T : Module.End K V) (d : K)
   intro z
   exact conjugation_involutive T d hns hsquare z
 
-theorem generator_ne_zero [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d) :
-    generator T ≠ 0 := by
-  intro hz
-  have h := (coordinateElement_eq_zero_iff T d hns hsquare 0 1).mp
-    ((coordinateElement_generator T).trans hz)
-  exact one_ne_zero h.2
 
 theorem conjugation_ne_one [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
@@ -130,12 +114,5 @@ theorem conjugation_fixed_iff [Nontrivial V] (T : Module.End K V) (d : K)
   · rintro ⟨a, rfl⟩
     exact (conjugation T d hns hsquare).commutes a
 
-theorem conjugation_val_coordinates [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (a b : K) :
-    (conjugation T d hns hsquare (coordinateElement T a b)).val =
-      algebraMap K (Module.End K V) a - b • T := by
-  rw [conjugation_coordinates, coordinateElement_val, neg_smul]
-  simp only [sub_eq_add_neg]
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareField

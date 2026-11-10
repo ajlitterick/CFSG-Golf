@@ -78,9 +78,6 @@ section Symplectic
 
 open CFSG.Assembly.LowTwoRank
 
-theorem projSp_eq_map_statedSp (n : ℕ) (F : Type) [Field F] :
-    projSp n F = (StatedSp n F).map (ProjGenLinGroup.mk : GL (Fin n ⊕ Fin n) F →* _) :=
-  rfl
 
 @[expose] noncomputable def projSpEquivStatedProj (n : ℕ) (F : Type) [Field F] :
     projSp n F ≃* StatedProj (StatedSp n F) :=

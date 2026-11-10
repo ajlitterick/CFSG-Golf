@@ -37,12 +37,6 @@ theorem inv_apply_11 (M : SL(2, F)) :
     ((M⁻¹ : SL(2, F)) : Matrix (Fin 2) (Fin 2) F) 1 1 = (M : Matrix (Fin 2) (Fin 2) F) 0 0 := by
   simp [Matrix.adjugate_fin_two]
 
-theorem sq_ne_one_of_ne {a : Fˣ} (h1 : a ≠ 1) (hm1 : a ≠ -1) : (a : F) ^ 2 ≠ 1 := by
-  intro h
-  rw [sq] at h
-  rcases mul_self_eq_one_iff.mp h with h | h
-  · exact h1 (Units.ext h)
-  · exact hm1 (Units.ext (by rw [h, Units.val_neg, Units.val_one]))
 
 theorem inv_ne_self_of_sq_ne_one {a : Fˣ} (ha : (a : F) ^ 2 ≠ 1) : (a : F)⁻¹ - a ≠ 0 := by
   intro h

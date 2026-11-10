@@ -54,16 +54,6 @@ theorem x3p_pow_three : x3p ^ 3 = 1 := by decide
 theorem y12p_pow_three : y12p ^ 3 = 1 := by decide
 theorem u123p_pow_three : u123p ^ 3 = 1 := by decide
 
-theorem x1p_pow_apply_zero {k : ℕ} (h : (x1p ^ k) 0 = 0) : x1p ^ k = 1 := by
-  have hk : x1p ^ k = x1p ^ (k % 3) := by
-    conv_lhs => rw [← Nat.mod_add_div k 3, pow_add, pow_mul, x1p_pow_three, one_pow, mul_one]
-  rw [hk] at h ⊢
-  have hlt : k % 3 < 3 := Nat.mod_lt _ (by decide)
-  generalize k % 3 = r at h hlt ⊢
-  interval_cases r
-  · rfl
-  · exact absurd h (by decide)
-  · exact absurd h (by decide)
 
 theorem two_mul_card_CA {σ τ : Perm (Fin 11)} (hτ : τ * σ = σ * τ) (hodd : sign τ = -1) :
     2 * Nat.card ↥(CA σ) = Nat.card ↥(centralizer ({σ} : Set (Perm (Fin 11)))) := by
@@ -248,27 +238,6 @@ theorem E8_even {σ : Perm (Fin 11)} (h : σ ∈ E8) : sign σ = 1 := by
   have hall : E8List.all (fun a => decide (sign a = 1)) = true := by decide
   exact of_decide_eq_true (List.all_eq_true.1 hall σ h)
 
-theorem E8_eq_closure : E8 = closure ({ea, eb, ec} : Set (Perm (Fin 11))) := by
-  have ha : ea ∈ closure ({ea, eb, ec} : Set (Perm (Fin 11))) := subset_closure (by simp)
-  have hb : eb ∈ closure ({ea, eb, ec} : Set (Perm (Fin 11))) := subset_closure (by simp)
-  have hc : ec ∈ closure ({ea, eb, ec} : Set (Perm (Fin 11))) := subset_closure (by simp)
-  refine le_antisymm (fun σ hσ => ?_) ((closure_le _).2 ?_)
-  · simp only [mem_E8_iff, E8List, List.mem_cons, List.not_mem_nil, or_false] at hσ
-    rcases hσ with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-    · exact one_mem _
-    · exact ha
-    · exact hb
-    · exact hc
-    · exact mul_mem ha hb
-    · exact mul_mem ha hc
-    · exact mul_mem hb hc
-    · exact mul_mem (mul_mem ha hb) hc
-  · intro σ hσ
-    have hmem : ea ∈ E8List ∧ eb ∈ E8List ∧ ec ∈ E8List := by decide
-    rcases hσ with rfl | rfl | rfl
-    · exact mem_E8_iff.2 hmem.1
-    · exact mem_E8_iff.2 hmem.2.1
-    · exact mem_E8_iff.2 hmem.2.2
 
 @[expose] def s0a : Perm (Fin 11) := swap 0 3 * swap 1 4 * swap 2 5 * swap 6 7
 
@@ -320,28 +289,5 @@ theorem S0_center {c : Perm (Fin 11)} (hc : c ∈ S0) (hcen : ∀ s ∈ S0, s * 
   · exact h
   · exact absurd (hcen s hs) hne
 
-theorem S0_eq_closure : S0 = closure ({s0a, s0c} : Set (Perm (Fin 11))) := by
-  have ha : s0a ∈ closure ({s0a, s0c} : Set (Perm (Fin 11))) := subset_closure (by simp)
-  have hc : s0c ∈ closure ({s0a, s0c} : Set (Perm (Fin 11))) := subset_closure (by simp)
-  have hb : s0b ∈ closure ({s0a, s0c} : Set (Perm (Fin 11))) := by
-    have : s0b = (s0a * s0c) ^ 2 := by decide
-    rw [this]
-    exact pow_mem (mul_mem ha hc) 2
-  refine le_antisymm (fun σ hσ => ?_) ((closure_le _).2 ?_)
-  · simp only [mem_S0_iff, S0List, List.mem_cons, List.not_mem_nil, or_false] at hσ
-    rcases hσ with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-    · exact one_mem _
-    · exact ha
-    · exact hb
-    · exact hc
-    · exact mul_mem ha hb
-    · exact mul_mem ha hc
-    · exact mul_mem hb hc
-    · exact mul_mem (mul_mem ha hb) hc
-  · intro σ hσ
-    have hmem : s0a ∈ S0List ∧ s0c ∈ S0List := by decide
-    rcases hσ with rfl | rfl
-    · exact mem_S0_iff.2 hmem.1
-    · exact mem_S0_iff.2 hmem.2
 
 end CFSG.Sporadic.Recognition.LyonsSims

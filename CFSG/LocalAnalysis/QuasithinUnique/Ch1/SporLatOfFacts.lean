@@ -520,17 +520,6 @@ variable (A : LabAct Lab) (valid : Lab → Prop) (hlaw : LabLawful Γ n A valid)
       Z = memberOrTop D0.mw.size
         (fun j => Subgroup.closure {x | x ∈ sg ++ (D0.mw[j]!).map (wordElt a b)}) j)
 
-theorem LatCtx.ofFacts_Om : (LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D0 sg k hsg hSk
-    N hΓ hM hstab hcomp).D.Om = D0.Om := rfl
-
-theorem LatCtx.ofFacts_mw : (LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D0 sg k hsg hSk
-    N hΓ hM hstab hcomp).D.mw = D0.mw := rfl
-
-theorem LatCtx.ofFacts_mt : (LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D0 sg k hsg hSk
-    N hΓ hM hstab hcomp).D.mt = D0.mt := rfl
-
-theorem LatCtx.ofFacts_sTabs : (LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D0 sg k hsg
-    hSk N hΓ hM hstab hcomp).D.sTabs = D0.sTabs := rfl
 
 theorem LatCtx.ofFacts_O_size : (LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D0 sg k hsg
     hSk N hΓ hM hstab hcomp).D.O.lbl.size = N :=

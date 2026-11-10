@@ -64,8 +64,6 @@ namespace Idx
 @[expose] def ofCoord (n : Fin 12) : Idx :=
   ![.i3, .i1, .i2, .i4, .i8, .i6, .i11, .i5, .i12, .i7, .i9, .i10] n
 
-theorem coord_ofCoord (n : Fin 12) : (ofCoord n).coord = n := by
-  fin_cases n <;> rfl
 
 theorem ofCoord_coord (i : Idx) : ofCoord i.coord = i := by
   cases i <;> rfl
@@ -583,21 +581,6 @@ theorem sylowVec_eq_prod_rootElt (hK : Nat.card K = 2 ^ (2 * a + 1)) (x : Fin 12
     sylowH_eq, sylowH_eq, sylowH_eq, fourCoordG_eq_mul hK (f := 3)]
   simp only [mul_assoc]
 
-theorem bijOn_prod_rootElt (hK : Nat.card K = 2 ^ (2 * a + 1)) :
-    Set.BijOn (fun x : Fin 12 → K => rootElt K a .i3 (x 0) * rootElt K a .i1 (x 1) *
-      rootElt K a .i2 (x 2) * rootElt K a .i4 (x 3) * rootElt K a .i8 (x 4) *
-      rootElt K a .i6 (x 5) * rootElt K a .i11 (x 6) * rootElt K a .i5 (x 7) *
-      rootElt K a .i12 (x 8) * rootElt K a .i7 (x 9) * rootElt K a .i9 (x 10) *
-      rootElt K a .i10 (x 11))
-      Set.univ (F4.reeFixedPosUnipotent K a : Set (ModGL F4.tag K)) := by
-  have e : (fun x : Fin 12 → K => rootElt K a .i3 (x 0) * rootElt K a .i1 (x 1) *
-      rootElt K a .i2 (x 2) * rootElt K a .i4 (x 3) * rootElt K a .i8 (x 4) *
-      rootElt K a .i6 (x 5) * rootElt K a .i11 (x 6) * rootElt K a .i5 (x 7) *
-      rootElt K a .i12 (x 8) * rootElt K a .i7 (x 9) * rootElt K a .i9 (x 10) *
-      rootElt K a .i10 (x 11)) = sylowVec a K :=
-    funext fun x => (sylowVec_eq_prod_rootElt hK x).symm
-  rw [e]
-  exact bijOn_sylowVec hK
 
 theorem rootJoin_le_of_coe (hK : Nat.card K = 2 ^ (2 * a + 1)) {I : Finset Idx}
     {Z : Finset (Fin 12)} {H : Subgroup (ModGL F4.tag K)}

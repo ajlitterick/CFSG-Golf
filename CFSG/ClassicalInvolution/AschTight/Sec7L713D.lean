@@ -26,12 +26,6 @@ abbrev bar {W : Subgroup G} {g : G} (hg : g ∈ Subgroup.normalizer (W : Set G))
 
 variable {W : Subgroup G}
 
-theorem bar_mul {g h : G} (hg : g ∈ Subgroup.normalizer (W : Set G))
-    (hh : h ∈ Subgroup.normalizer (W : Set G)) :
-    bar (Subgroup.mul_mem _ hg hh) = bar hg * bar hh := rfl
-
-theorem bar_inv {g : G} (hg : g ∈ Subgroup.normalizer (W : Set G)) :
-    bar (Subgroup.inv_mem _ hg) = (bar hg)⁻¹ := rfl
 
 theorem bar_eq_one_iff {g : G} (hg : g ∈ Subgroup.normalizer (W : Set G)) :
     bar hg = 1 ↔ g ∈ W ⊔ OCW W := by
@@ -90,67 +84,5 @@ theorem le_sup_of_bar_eq (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) (h611 : EtaMe
     exact Subgroup.mem_sup_right h
   · exact mem_sup_of_bar_eq hrR (hR.2 hrR) (hT.2 hτ) (h.trans he).symm
 
-theorem bar_mem_closure (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) (h611 : EtaMeets Ω)
-    (hW : W ∈ WSet Ω) {R R' T : Subgroup G} (hR : R ∈ DSet Ω W) (hR' : R' ∈ DSet Ω W) {r r' : G}
-    (hrR : r ∈ R) (hrW : r ∉ W) (hr'R' : r' ∈ R') (hr'W : r' ∉ W)
-    (hT : T ≤ Subgroup.normalizer (W : Set G)) (hle : T ≤ R ⊔ R' ⊔ W ⊔ OCW W) {τ : G}
-    (hτ : τ ∈ T) :
-    bar (hT hτ) ∈ Subgroup.closure ({bar (hR.2 hrR), bar (hR'.2 hr'R')} : Set (NBar W)) := by
-  set C := Subgroup.closure ({bar (hR.2 hrR), bar (hR'.2 hr'R')} : Set (NBar W)) with hC
-  set P : Subgroup G := (C.comap (QuotientGroup.mk' ((W ⊔ OCW W).subgroupOf
-    (Subgroup.normalizer (W : Set G))))).map (Subgroup.normalizer (W : Set G)).subtype with hP
-  have hmemP : ∀ g (hg : g ∈ Subgroup.normalizer (W : Set G)), bar hg ∈ C → g ∈ P :=
-    fun g hg h => ⟨⟨g, hg⟩, h, rfl⟩
-  have hgen : ∀ {R₁ : Subgroup G} (hR₁ : R₁ ∈ DSet Ω W) {r₁ : G} (hr₁ : r₁ ∈ R₁), r₁ ∉ W →
-      bar (hR₁.2 hr₁) ∈ C → R₁ ≤ P := by
-    intro R₁ hR₁ r₁ hr₁ hr₁W hC₁ ρ hρ
-    refine hmemP ρ (hR₁.2 hρ) ?_
-    rcases (bar_of_mem_DSet hp hΩ h611 hW hR₁ hr₁ hr₁W).1 ρ hρ with h | h
-    · rw [h]
-      exact C.one_mem
-    · rw [h]
-      exact hC₁
-  have hRP := hgen hR hrR hrW (Subgroup.subset_closure (by simp))
-  have hR'P := hgen hR' hr'R' hr'W (Subgroup.subset_closure (by simp))
-  have hHP : W ⊔ OCW W ≤ P := fun g hg => hmemP g ((sup_le Subgroup.le_normalizer
-    (OCW_le_normalizer W)) hg) (by rw [(bar_eq_one_iff _).mpr hg]; exact C.one_mem)
-  have hle' : R ⊔ R' ⊔ W ⊔ OCW W ≤ P := by
-    rw [sup_assoc]
-    exact sup_le (sup_le hRP hR'P) hHP
-  obtain ⟨n, hn, hnτ⟩ := hle' (hle hτ)
-  have e : n = ⟨τ, hT hτ⟩ := Subtype.ext hnτ
-  subst e
-  exact hn
-
-theorem bar_eq_xyx (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) (h611 : EtaMeets Ω)
-    (hW : W ∈ WSet Ω) {R R' T : Subgroup G} (hR : R ∈ DSet Ω W) (hR' : R' ∈ DSet Ω W)
-    (hT : T ∈ DSet Ω W) {r s : G} (hrR : r ∈ R) (hrW : r ∉ W) (hsR' : s ∈ R') (hsW : s ∉ W)
-    (h3 : (bar (hR.2 hrR) * bar (hR'.2 hsR')) ^ 3 = 1)
-    (hne : bar (hR.2 hrR) * bar (hR'.2 hsR') ≠ 1) (hle : T ≤ R ⊔ R' ⊔ W ⊔ OCW W)
-    (hTR : ¬ T ≤ R ⊔ W ⊔ OCW W) (hTR' : ¬ T ≤ R' ⊔ W ⊔ OCW W) {t : G} (htT : t ∈ T)
-    (htW : t ∉ W) :
-    bar (hT.2 htT) = bar (hR.2 hrR) * bar (hR'.2 hsR') * bar (hR.2 hrR) := by
-  obtain ⟨-, -, hx2⟩ := bar_of_mem_DSet hp hΩ h611 hW hR hrR hrW
-  obtain ⟨-, -, hy2⟩ := bar_of_mem_DSet hp hΩ h611 hW hR' hsR' hsW
-  obtain ⟨-, ht1, ht2⟩ := bar_of_mem_DSet hp hΩ h611 hW hT htT htW
-  have hcl := bar_mem_closure hp hΩ h611 hW hR hR' hrR hrW hsR' hsW hT.2 hle htT
-  set x := bar (hR.2 hrR)
-  set y := bar (hR'.2 hsR')
-  have hsq : (x * y) * (x * y) ≠ 1 := by
-    intro h
-    apply hne
-    calc x * y = (x * y) ^ 3 * ((x * y) * (x * y))⁻¹ := by rw [pow_three]; group
-      _ = 1 := by rw [h3, h]; group
-  rcases s3_cases hx2 hy2 h3 hcl with h | h | h | h | h | h
-  · exact absurd h ht1
-  · exact absurd (le_sup_of_bar_eq hp hΩ h611 hW hR hT hrR htT htW h) hTR
-  · exact absurd (le_sup_of_bar_eq hp hΩ h611 hW hR' hT hsR' htT htW h) hTR'
-  · rw [h] at ht2
-    exact absurd ht2 hsq
-  · rw [h] at ht2
-    apply absurd _ hsq
-    calc x * y * (x * y) = x * (y * x * (y * x)) * x⁻¹ := by group
-      _ = 1 := by rw [ht2]; group
-  · exact h
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Sec7

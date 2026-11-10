@@ -39,16 +39,5 @@ theorem perfect_central_quotient_prime_support [Finite L] [Group.IsPerfect L] {p
   obtain P : Sylow p L := default
   exact P.ne_bot_of_dvd_card hdvd (sylow_eq_bot_of_not_dvd_card_quotient_center P h)
 
-theorem perfect_central_quotient_primeFactors_eq [Finite L] [Group.IsPerfect L] :
-    (Nat.card L).primeFactors = (Nat.card (L ⧸ center L)).primeFactors := by
-  ext p
-  simp only [Nat.mem_primeFactors]
-  constructor
-  · rintro ⟨hp, hdvd, -⟩
-    refine ⟨hp, ?_, Nat.card_pos.ne'⟩
-    by_contra hnd
-    exact perfect_central_quotient_prime_support hp hnd hdvd
-  · rintro ⟨hp, hdvd, -⟩
-    exact ⟨hp, hdvd.trans (Subgroup.card_quotient_dvd_card _), Nat.card_pos.ne'⟩
 
 end CFSG.RankThree.PerfectCover

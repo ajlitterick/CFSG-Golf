@@ -292,25 +292,6 @@ theorem exists_psl_three_four
 
 end E22Fam
 
-theorem e22Cases_fam {Γ : Type} [Group Γ] {H T M K : Subgroup Γ} (h : E2.E22Cases H T M K) :
-    E22Fam ↥(E2.star M H K) := by
-  unfold E2.E22Cases at h
-  dsimp only at h
-  rcases h with ⟨-, t, -, -, -, h1⟩ | ⟨-, -, h2⟩
-  · rcases h1 with ⟨n, -, h1 | h1, -⟩ | ⟨p, -, -, h1, -⟩
-    · exact Or.inl ⟨2, n, h1⟩
-    · exact Or.inr (Or.inl ⟨n, h1⟩)
-    · exact Or.inl ⟨p, 1, h1⟩
-  · rcases h2 with ⟨n, ⟨-, h2 | h2 | h2⟩, -⟩ | ⟨n, hn, h2 | h2, -⟩ | ⟨p, e, -, -, -, -, h2, -⟩ |
-        ⟨p, -, hp2, h2 | h2, -⟩
-    · exact Or.inl ⟨2, n, h2⟩
-    · exact Or.inr (Or.inl ⟨n, h2⟩)
-    · exact Or.inr (Or.inr (Or.inl ⟨n, h2⟩))
-    · exact Or.inr (Or.inr (Or.inr (Or.inl ⟨n, hn, h2⟩)))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨n, hn, h2⟩))))
-    · exact Or.inl ⟨p, e, h2⟩
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨p, hp2, h2.2⟩)))))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr ⟨p, hp2, h2.2.1⟩)))))
 
 end B69
 

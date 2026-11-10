@@ -92,10 +92,6 @@ theorem hypCoordSymm_surjective (hP : ∀ i j, i ≠ j → (P i).Orth (P j)) :
   (LinearEquiv.ofBijective (hypCoordSymm P)
     ⟨hypCoordSymm_injective hP, hypCoordSymm_surjective hP⟩).symm
 
-theorem hypCoordEquiv_symm_apply (hP : ∀ i j, i ≠ j → (P i).Orth (P j))
-    (w : (Fin r ⊕ Fin r → K) × ↥(pairsPerp P)) :
-    (hypCoordEquiv hP).symm w = hypCoordSymm P w :=
-  rfl
 
 theorem hypCoordEquiv_apply_eq (hP : ∀ i j, i ≠ j → (P i).Orth (P j)) (v : V)
     (w : (Fin r ⊕ Fin r → K) × ↥(pairsPerp P)) :

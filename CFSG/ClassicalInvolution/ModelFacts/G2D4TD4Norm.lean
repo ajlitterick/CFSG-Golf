@@ -49,10 +49,6 @@ theorem proj_eq_of_mem_td4Orb {γ δ : Fin d4.rank → ℤ} (h : δ ∈ td4Orb �
   · exact proj_rho γ
   · rw [proj_rho, proj_rho]
 
-theorem rho_mem_td4Orb_of_mem {γ δ : Fin d4.rank → ℤ} (h : δ ∈ td4Orb γ) :
-    rho δ ∈ td4Orb γ := by
-  rw [← td4Orb_eq_of_mem h]
-  exact Set.mem_insert_of_mem _ (Set.mem_insert _ _)
 
 theorem rho_neg (v : Fin d4.rank → ℤ) : rho (-v) = -rho v := by
   funext l

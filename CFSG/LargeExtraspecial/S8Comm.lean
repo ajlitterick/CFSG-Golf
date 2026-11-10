@@ -18,51 +18,6 @@ section Group
 
 variable {X : Type*} [Group X]
 
-theorem conj_comm_eq_of_mem {C : Subgroup X} (hC : ∀ c ∈ C, ∀ d ∈ C, c * d = d * c)
-    {a b n : X} (hca : ∀ c ∈ C, c * a = a * c) (hcb : ∀ c ∈ C, c * b = b * c)
-    (ha : a * n * a⁻¹ * n⁻¹ ∈ C) (hb : b * n * b⁻¹ * n⁻¹ ∈ C) :
-    (a * b * a⁻¹ * b⁻¹) * n * (a * b * a⁻¹ * b⁻¹)⁻¹ = n := by
-  set ca := a * n * a⁻¹ * n⁻¹ with hca'
-  set cb := b * n * b⁻¹ * n⁻¹ with hcb'
-  have e1 : ∀ {x c : X}, c * x = x * c → ∀ m : X, x * (c * m) * x⁻¹ = c * (x * m * x⁻¹) := by
-    intro x c hx m
-    calc x * (c * m) * x⁻¹ = (x * c) * m * x⁻¹ := by group
-      _ = (c * x) * m * x⁻¹ := by rw [hx]
-      _ = c * (x * m * x⁻¹) := by group
-  have e2 : ∀ {x c : X}, c * x = x * c → ∀ m : X, x⁻¹ * (c * m) * x = c * (x⁻¹ * m * x) := by
-    intro x c hx m
-    have hx' : c * x⁻¹ = x⁻¹ * c := by
-      calc c * x⁻¹ = x⁻¹ * (x * c) * x⁻¹ := by group
-        _ = x⁻¹ * (c * x) * x⁻¹ := by rw [hx]
-        _ = x⁻¹ * c := by group
-    calc x⁻¹ * (c * m) * x = (x⁻¹ * c) * m * x := by group
-      _ = (c * x⁻¹) * m * x := by rw [hx']
-      _ = c * (x⁻¹ * m * x) := by group
-  have ea : a * n * a⁻¹ = ca * n := by rw [hca']; group
-  have eb : b * n * b⁻¹ = cb * n := by rw [hcb']; group
-  have ea' : a⁻¹ * n * a = ca⁻¹ * n := by
-    have h1 : a⁻¹ * (ca * n) * a = n := by rw [← ea]; group
-    rw [e2 (hca _ ha)] at h1
-    calc a⁻¹ * n * a = ca⁻¹ * (ca * (a⁻¹ * n * a)) := by group
-      _ = ca⁻¹ * n := by rw [h1]
-  have eb' : b⁻¹ * n * b = cb⁻¹ * n := by
-    have h1 : b⁻¹ * (cb * n) * b = n := by rw [← eb]; group
-    rw [e2 (hcb _ hb)] at h1
-    calc b⁻¹ * n * b = cb⁻¹ * (cb * (b⁻¹ * n * b)) := by group
-      _ = cb⁻¹ * n := by rw [h1]
-  have hcbi : cb⁻¹ ∈ C := C.inv_mem hb
-  have hcai : ca⁻¹ ∈ C := C.inv_mem ha
-  calc (a * b * a⁻¹ * b⁻¹) * n * (a * b * a⁻¹ * b⁻¹)⁻¹ =
-        a * (b * (a⁻¹ * (b⁻¹ * n * b) * a) * b⁻¹) * a⁻¹ := by group
-    _ = a * (b * (a⁻¹ * (cb⁻¹ * n) * a) * b⁻¹) * a⁻¹ := by rw [eb']
-    _ = a * (b * (cb⁻¹ * (ca⁻¹ * n)) * b⁻¹) * a⁻¹ := by rw [e2 (hca _ hcbi), ea']
-    _ = a * (cb⁻¹ * (ca⁻¹ * (cb * n))) * a⁻¹ := by
-        rw [e1 (hcb _ hcbi), e1 (hcb _ hcai), eb]
-    _ = cb⁻¹ * (ca⁻¹ * (cb * (ca * n))) := by
-        rw [e1 (hca _ hcbi), e1 (hca _ hcai), e1 (hca _ hb), ea]
-    _ = n := by
-        rw [← mul_assoc ca⁻¹ cb, hC _ hcai _ hb]
-        group
 
 end Group
 

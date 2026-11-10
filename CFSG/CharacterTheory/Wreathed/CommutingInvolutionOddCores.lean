@@ -44,11 +44,6 @@ instance centralizerOddCoreRestriction_normal (y : G) :
     ((CFSG.pPrimeCore 2 G).comap (Subgroup.centralizer ({y} : Set G)).subtype).Normal :=
   Subgroup.normal_comap _
 
-theorem centralizerOddCoreRestriction_map_eq (y : G)
-    (hcentral : CFSG.pPrimeCore 2 G ≤ Subgroup.centralizer ({y} : Set G)) :
-    ((CFSG.pPrimeCore 2 G).comap (Subgroup.centralizer ({y} : Set G)).subtype).map
-        (Subgroup.centralizer ({y} : Set G)).subtype = CFSG.pPrimeCore 2 G :=
-  Subgroup.map_subgroupOf_eq_of_le hcentral
 
 theorem centralizerOddCoreRestriction_map (e : G ≃* H) (x : G) (y : H) (hxy : e x = y) :
     ((CFSG.pPrimeCore 2 G).comap (Subgroup.centralizer ({x} : Set G)).subtype).map
@@ -89,16 +84,6 @@ structure InvolutionOddCoreLocalHypotheses (x : G) : Prop where
           (Subgroup.centralizer
             ({y} : Set (Subgroup.centralizer ({x} : Set G)))).subtype))
 
-theorem InvolutionOddCoreLocalHypotheses.coreRestriction_map_eq
-    {x : G} (hlocal : InvolutionOddCoreLocalHypotheses x)
-    (y : Subgroup.centralizer ({x} : Set G)) (hy : orderOf y = 2) :
-    ((CFSG.pPrimeCore 2 (Subgroup.centralizer ({x} : Set G))).comap
-      (Subgroup.centralizer
-        ({y} : Set (Subgroup.centralizer ({x} : Set G)))).subtype).map
-          (Subgroup.centralizer
-            ({y} : Set (Subgroup.centralizer ({x} : Set G)))).subtype =
-      CFSG.pPrimeCore 2 (Subgroup.centralizer ({x} : Set G)) :=
-  centralizerOddCoreRestriction_map_eq y (hlocal.centralizes y hy)
 
 theorem InvolutionOddCoreLocalHypotheses.transport
     {x : G} {x' : H} (hlocal : InvolutionOddCoreLocalHypotheses x)

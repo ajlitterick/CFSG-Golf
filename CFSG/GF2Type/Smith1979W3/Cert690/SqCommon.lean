@@ -25,20 +25,10 @@ theorem v_inv_apply_of {φ : Q0 ≃* Q0} {g : V₀ ≃ₗ[ZMod 2] V₀}
   rw [h]
   simp
 
-theorem v_inn_apply (e x : Q0) : (inn e x).v = x.v := by
-  rw [inn, MulAut.conj_apply, inv_inv]
-  show e.v + x.v + e.v = x.v
-  rw [add_comm e.v x.v, add_assoc, CharTwo.add_self_eq_zero, add_zero]
 
 theorem one_mem_thetaOver : (1 : Q0 ≃* Q0) ∈ ThetaOver K :=
   ⟨1, K.one_mem, by simp, fun _ => by simp⟩
 
-theorem inn_mul_mem_thetaOver {θ : Q0 ≃* Q0} (hθ : θ ∈ ThetaOver K) (e : Q0) :
-    inn e * θ ∈ ThetaOver K := by
-  obtain ⟨g, hgK, hgg, hg⟩ := hθ
-  exact ⟨g, hgK, hgg, fun x => by
-    rw [v_mul_apply_of (g := 1) (h := g) (fun y => by rw [v_inn_apply]; simp) hg x,
-      one_mul]⟩
 
 theorem conj_mem_thetaOver {θ ψ : Q0 ≃* Q0} (hθ : θ ∈ ThetaOver K) (hψ : ψ ∈ XOver K) :
     ψ * θ * ψ⁻¹ ∈ ThetaOver K := by

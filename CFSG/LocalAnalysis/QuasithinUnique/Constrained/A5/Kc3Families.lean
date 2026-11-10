@@ -17,7 +17,6 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.QuasithinUnique.DoubleA3
     ∃ X S₁ : Subgroup G, CharTwo X ∧ L ⊔ S₀ ≤ X ∧ X ≤ K ⊔ T₀ ∧ IsSylowTwoOf S₁ X ∧ S₀ ≤ S₁ ∧
       ¬ quasithinIsLocal S₁ L
 
-theorem kc3Inspection_iff : Kc3Inspection ↔ Kc3For Kc3Group := Iff.rfl
 
 theorem Kc3For.mono {P Q : ∀ (X : Type) [Group X], Prop}
     (hPQ : ∀ (X : Type) [Group X], P X → Q X) (h : Kc3For Q) : Kc3For P :=

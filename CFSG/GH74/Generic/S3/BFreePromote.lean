@@ -102,6 +102,5 @@ theorem not_isAltQuot_of_inG2Depth_seven (K : Type) [Group K] (h : InG2Depth 7 K
   obtain ⟨p, f, -, -, -, hmod⟩ := hL3
   exact fun hA => hA.2 (ofLieType_of_lieModel_L3 hG.1.1 hmod)
 
-variable {G : Type} [Group G] [Finite G] {x : G} {K : Subgroup (CentralizerBar x)}
 
 end CFSG.GH74.Generic.S3

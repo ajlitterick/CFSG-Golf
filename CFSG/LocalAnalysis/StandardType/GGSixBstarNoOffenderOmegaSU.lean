@@ -307,8 +307,6 @@ theorem ggSixBstarMonoFrameOn_PSUNonsplit : GGSixBstarMonoFrameOn GGPSUNonsplit 
 theorem ggSixBstarNoOffenderOn_PSUNonsplit : GGSixBstarNoOffenderOn GGPSUNonsplit :=
   ggNoOffender_of_monoFrameOn ggSixBstarMonoFrameOn_PSUNonsplit
 
-theorem ggSixBstarNoOffenderAt_PSU : GGSixBstarNoOffenderAt .PSU :=
-  ggSixBstarNoOffenderAt_PSU_of_nonsplit ggSixBstarNoOffenderOn_PSUNonsplit
 
 end Final
 

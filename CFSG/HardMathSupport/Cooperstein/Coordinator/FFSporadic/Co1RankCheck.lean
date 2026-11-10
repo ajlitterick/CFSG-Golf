@@ -92,25 +92,10 @@ open CFSG.Sporadic.Co1Block CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.Small
 
 @[expose] def rankBIdx : List Nat := [54, 55, 56, 57, 58, 59]
 
-@[expose] def rankBGens : Array (Array Nat) :=
-  let D := dag [aR, bR] rankBD
-  (rankBIdx.map fun j => D.1.getD j one).toArray
 
 @[expose, irreducible] def rankCD2 : List (List Int) := twoCD2 ++ rankCLifts
 
 @[expose] def rankCIdx : List Nat := twoCQGens ++ [42, 43, 44]
 
-@[expose] def rankCGens : Array (Array Nat) :=
-  let D₁ := Native.brayRows iotaCRows twoCD1
-  let D₂ := dag (Native.brayElts D₁ twoCBray) rankCD2
-  (rankCIdx.map fun j => D₂.1.getD j one).toArray
-
-@[noinline, expose] def rankBCheck (_ : Unit := ()) : Bool :=
-  (dag [aR, bR] rankBD).2.2 && rankCheckOf rankBGens 32768 certVecs aR
-
-@[noinline, expose] def rankCCheck (_ : Unit := ()) : Bool :=
-  let D₁ := Native.brayRows iotaCRows twoCD1
-  D₁.2.2 && (dag (Native.brayElts D₁ twoCBray) rankCD2).2.2 &&
-    rankCheckOf rankCGens 262144 certVecs iotaCRows
 
 end CFSG.HardMathSupport.Cooperstein.Coordinator.FFSporadic

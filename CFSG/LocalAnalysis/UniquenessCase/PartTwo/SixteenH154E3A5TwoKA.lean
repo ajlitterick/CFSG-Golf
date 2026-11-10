@@ -695,17 +695,6 @@ private lemma s16h_matrixHom_injective {Q : Type} [CommGroup Q] (hQ : ∀ x : Q,
   rw [mul_inv_eq_one] at h3
   exact h3
 
-private lemma s16h_prime_dvd_168 {q : ℕ} (hq : q.Prime) (hq2 : q ≠ 2) (h : q ∣ 168) :
-    q = 3 ∨ q = 7 := by
-  have h168 : (168 : ℕ) = 2 ^ 3 * 3 * 7 := by norm_num
-  rw [h168] at h
-  rcases hq.dvd_mul.mp h with h1 | h7
-  · rcases hq.dvd_mul.mp h1 with h2 | h3
-    · have h2' : q ∣ 2 := hq.dvd_of_dvd_pow h2
-      have : q = 2 := (Nat.prime_dvd_prime_iff_eq hq Nat.prime_two).mp h2'
-      exact absurd this hq2
-    · exact Or.inl ((Nat.prime_dvd_prime_iff_eq hq (by norm_num : Nat.Prime 3)).mp h3)
-  · exact Or.inr ((Nat.prime_dvd_prime_iff_eq hq (by norm_num : Nat.Prime 7)).mp h7)
 
 variable {W : Type} [CommGroup W]
 

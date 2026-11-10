@@ -226,20 +226,6 @@ theorem notIsGB_of_I269 (hc : S9Ctx G 3) (hLB : LBalanceAt G 3) (h269 : I269At G
     hLE.trans (hbal.trans (hlayX.trans hLD.le))
   exact hLay (le_bot_iff.1 hL0)
 
-private theorem l94_card_le_of_normalizes_coprime_even {Q Y : Subgroup G} (hQ : IsElemAbelian 3 Q)
-    (hQY : Q ≤ Subgroup.normalizer (Y : Set G)) (hY3 : ¬ 3 ∣ Nat.card Y)
-    (hY2 : 2 ∣ Nat.card Y) : Nat.card Q ≤ 3 ^ GLATwoLocalRank 3 G := by
-  obtain ⟨R, ⟨S, rfl⟩, -, hQR⟩ :=
-    CFSG.ABGLocalTools.exists_invariant_isSylowOf_ge_of_coprime (q := 3) (r := 2)
-      Nat.prime_three Nat.prime_two (isPGroup_of_isElemAbelian hQ) hQY hY3 bot_le
-      IsPGroup.of_bot (fun g _ => Subgroup.mem_normalizer_iff.2 fun h => by
-        simp only [SetLike.mem_coe, Subgroup.mem_bot]
-        constructor <;> intro hh <;> simp_all)
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hS : (S : Subgroup Y) ≠ ⊥ := S.ne_bot_of_dvd_card hY2
-  refine card_le_pow_glaTwoLocalRank Nat.prime_three hQ ?_ (S.isPGroup'.map _) hQR
-  intro h
-  exact hS ((Subgroup.map_eq_bot_iff_of_injective _ Y.subtype_injective).1 h)
 
 theorem decomp_of_inner (hc : S9Ctx G 3) {B : Subgroup G} {x : G} {L : Subgroup G} (h : H92 3 B x L)
     (hess : IsEssential 3 B x) (hodd : Odd (Nat.card (GLAPPrimeCoreOf 3 (cx x))))

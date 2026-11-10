@@ -31,15 +31,6 @@ theorem pow_three_eq_one (hF : Fintype.card F = 4) {x : F} (hx : x ≠ 0) : x ^ 
   have h := FiniteField.pow_card_sub_one_eq_one (K := F) x hx
   rwa [hF] at h
 
-theorem exists_sq_eq (hF : Fintype.card F = 4) (x : F) : ∃ y : F, y ^ 2 = x := by
-  have hinj : Function.Injective (fun y : F => y ^ 2) := by
-    intro y z hyz
-    have h : (y - z) * (y + z) = 0 := by linear_combination hyz
-    rcases mul_eq_zero.mp h with h' | h'
-    · exact sub_eq_zero.mp h'
-    · have hy : y = -z := by linear_combination h'
-      rw [hy, CharTwo.neg_eq]
-  exact (Finite.surjective_of_injective hinj) x
 
 theorem one_add_add_sq_eq_zero (hF : Fintype.card F = 4) {μ : Fˣ} (hμ : μ ≠ 1) :
     1 + (μ : F) + (μ : F) ^ 2 = 0 := by
@@ -58,16 +49,12 @@ section Main
 
 variable {Q Z K : Subgroup G} {τ : G}
 
-theorem mul_comm_mem_Q (hQe : IsElemAbelian 2 Q) (x y : ↥Q) : x * y = y * x :=
-  hQe.1.is_comm.comm x y
 
 theorem mul_self_mem_Q (hQe : IsElemAbelian 2 Q) (x : ↥Q) : x * x = 1 := by
   have h : (x : G) ^ 2 = 1 := hQe.2 x x.2
   rw [pow_two] at h
   exact Subtype.ext h
 
-theorem inv_eq_self_mem_Q (hQe : IsElemAbelian 2 Q) (x : ↥Q) : x⁻¹ = x :=
-  inv_eq_of_mul_eq_one_right (mul_self_mem_Q hQe x)
 
 @[expose] def betaAdd (β : ↥Q →* Multiplicative (Fin 2 → F)) (q : ↥Q) : Fin 2 → F :=
   Multiplicative.toAdd (β q)
@@ -489,8 +476,6 @@ noncomputable def mu0 (hF : Fintype.card F = 4) : Fˣ := Classical.choose (exist
 theorem mu0_ne_one (hF : Fintype.card F = 4) : mu0 hF ≠ 1 :=
   Classical.choose_spec (exists_unit_ne_one hF)
 
-theorem mu0_val_ne_zero (hF : Fintype.card F = 4) : ((mu0 hF : Fˣ) : F) ≠ 0 :=
-  Units.ne_zero _
 
 theorem one_add_mu0_add_mu0_sq (hF : Fintype.card F = 4) :
     1 + ((mu0 hF : Fˣ) : F) + ((mu0 hF : Fˣ) : F) ^ 2 = 0 :=
@@ -644,11 +629,6 @@ theorem weylSL_mul_unipotent (t : F) :
       = weylSL * (weylSL⁻¹ * lowerUni t * weylSL) * weylSL⁻¹ := by rw [h]
     _ = lowerUni t := by group
 
-theorem weylSL_mul_diagSL (l : Fˣ) :
-    weylSL * diagSL l * weylSL⁻¹ = diagSL l⁻¹ := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [coe_weylSL, coe_diagSL, Matrix.mul_apply, Fin.sum_univ_two, CharTwo.neg_eq]
 
 end ModHyp
 
@@ -671,16 +651,6 @@ theorem normHom_eq_self_of_mem_Z (hF : Fintype.card F = 4) {z : ↥Q}
     conjHom_eq_self_of_mem_Z D hF hz, conjHom_eq_self_of_mem_Z D hF hz]
   rw [mul_self_mem_Q D.elem z, one_mul]
 
-theorem Q1_inf_Z (hF : Fintype.card F = 4) :
-    Q1 D.elem D.norm_Q α hF ⊓ Z.subgroupOf Q = ⊥ := by
-  refine le_antisymm ?_ bot_le
-  intro q hq
-  rw [Subgroup.mem_bot]
-  obtain ⟨hq1, hqZ⟩ := Subgroup.mem_inf.mp hq
-  have hz : ((q : ↥Q) : G) ∈ Z := Subgroup.mem_subgroupOf.mp hqZ
-  have hker : normHom D.elem D.norm_Q (hElt α hF) q = 1 := MonoidHom.mem_ker.mp hq1.2
-  rw [normHom_eq_self_of_mem_Z D hF hz] at hker
-  exact hker
 
 theorem Q1_beta_surj (hF : Fintype.card F = 4) (a : F) :
     ∃ q ∈ Q1 D.elem D.norm_Q α hF, betaAdd β q = ![a, 0] := by
@@ -701,53 +671,11 @@ theorem Q1_beta_surj (hF : Fintype.card F = 4) (a : F) :
 noncomputable def q1 (hF : Fintype.card F = 4) (a : F) : ↥Q :=
   Classical.choose (Q1_beta_surj D hF a)
 
-theorem q1_mem (hF : Fintype.card F = 4) (a : F) :
-    q1 D hF a ∈ Q1 D.elem D.norm_Q α hF :=
-  (Classical.choose_spec (Q1_beta_surj D hF a)).1
 
 theorem q1_beta (hF : Fintype.card F = 4) (a : F) :
     betaAdd β (q1 D hF a) = ![a, 0] :=
   (Classical.choose_spec (Q1_beta_surj D hF a)).2
 
-theorem q1_mem_Cplus (hF : Fintype.card F = 4) (a : F) :
-    ((q1 D hF a : ↥Q) : G) ∈ Cplus α Q :=
-  Subgroup.mem_subgroupOf.mp (Subgroup.mem_inf.mp (q1_mem D hF a)).1
-
-theorem q1_unique (hF : Fintype.card F = 4) {a : F} {q : ↥Q}
-    (hq : q ∈ Q1 D.elem D.norm_Q α hF) (h : betaAdd β q = ![a, 0]) : q = q1 D hF a := by
-  have hmem : q * (q1 D hF a)⁻¹ ∈ Q1 D.elem D.norm_Q α hF ⊓ Z.subgroupOf Q := by
-    refine Subgroup.mem_inf.mpr ⟨Subgroup.mul_mem _ hq (Subgroup.inv_mem _ (q1_mem D hF a)), ?_⟩
-    rw [Subgroup.mem_subgroupOf]
-    refine (betaAdd_eq_zero_iff D.ker _).mp ?_
-    rw [betaAdd_mul, h, show betaAdd β (q1 D hF a)⁻¹ = -betaAdd β (q1 D hF a) from by
-      simp [betaAdd], q1_beta]
-    ext i
-    fin_cases i <;> simp
-  rw [Q1_inf_Z D hF, Subgroup.mem_bot] at hmem
-  calc q = q * (q1 D hF a)⁻¹ * q1 D hF a := by group
-    _ = q1 D hF a := by rw [hmem]; simp
-
-theorem q1_add (hF : Fintype.card F = 4) (a b : F) :
-    q1 D hF (a + b) = q1 D hF a * q1 D hF b := by
-  refine (q1_unique D hF ?_ ?_).symm
-  · exact Subgroup.mul_mem _ (q1_mem D hF a) (q1_mem D hF b)
-  · rw [betaAdd_mul, q1_beta, q1_beta]
-    ext i
-    fin_cases i <;> simp
-
-theorem q1_zero (hF : Fintype.card F = 4) : q1 D hF 0 = 1 := by
-  refine (q1_unique D hF (Subgroup.one_mem _) ?_).symm
-  rw [betaAdd_one]
-  ext i
-  fin_cases i <;> rfl
-
-theorem conjHom_x_q1 (hF : Fintype.card F = 4) (t a : F) :
-    conjHom D.norm_Q (xElt α t) (q1 D hF a) = q1 D hF a := by
-  refine Subtype.ext ?_
-  show ((xElt α t : ↥K) : G) * (q1 D hF a : G) * ((xElt α t : ↥K) : G)⁻¹ = (q1 D hF a : G)
-  have hc := mem_Cplus_iff.mp (q1_mem_Cplus D hF a)
-  rw [hc.2 t]
-  group
 
 noncomputable def yElt (α : ↥K ≃* SL₂ F) (t : F) : ↥K :=
   α.symm (lowerUni t)
@@ -805,10 +733,6 @@ theorem q2_beta (hF : Fintype.card F = 4) (b : F) :
 noncomputable def q2 (hF : Fintype.card F = 4) (b : F) : ↥Q :=
   conjHom D.norm_Q (wElt α) (q1 D hF b)
 
-theorem conjHom_w_q2 (hF : Fintype.card F = 4) (b : F) :
-    conjHom D.norm_Q (wElt α) (q2 D hF b) = q1 D hF b := by
-  rw [q2, ← conjHom_mul (α := α) (β := β) (D := D), wElt_mul_self,
-    conjHom_one (α := α) (β := β) (D := D)]
 
 theorem betaAdd_inv {β : ↥Q →* Multiplicative (Fin 2 → F)} (x : ↥Q) :
     betaAdd β x⁻¹ = -betaAdd β x := by
@@ -826,15 +750,6 @@ theorem exists_decomp (hF : Fintype.card F = 4) (q : ↥Q) :
   rw [betaAdd_mul, betaAdd_inv, betaAdd_mul, q1_beta, q2_beta]
   exact hkey _
 
-theorem betaAdd_eq_pair (q : ↥Q) : betaAdd β q = ![betaAdd β q 0, betaAdd β q 1] := by
-  ext i
-  fin_cases i <;> rfl
-
-noncomputable abbrev mu0sq (hF : Fintype.card F = 4) : F := ((mu0 hF : Fˣ) : F) ^ 2
-
-theorem mu0_cube (hF : Fintype.card F = 4) : mu0 hF ^ 3 = 1 := by
-  have h := pow_card_eq_one (x := mu0 hF)
-  rwa [card_units_of_card_four hF] at h
 
 theorem units_inv_mul_inv (hF : Fintype.card F = 4) (μ : Fˣ) : μ⁻¹ * μ⁻¹ = μ := by
   apply Units.ext
@@ -842,8 +757,6 @@ theorem units_inv_mul_inv (hF : Fintype.card F = 4) (μ : Fˣ) : μ⁻¹ * μ⁻
   calc ((μ : Fˣ) : F) ^ 2 * ((μ : Fˣ) : F) ^ 2 = ((μ : Fˣ) : F) ^ 4 := by ring
     _ = ((μ : Fˣ) : F) := pow_four_eq_self hF _
 
-theorem mu0_inv_mul_inv (hF : Fintype.card F = 4) : (mu0 hF)⁻¹ * (mu0 hF)⁻¹ = mu0 hF :=
-  units_inv_mul_inv hF _
 
 theorem diagSL_inv (l : Fˣ) : (diagSL l)⁻¹ = diagSL l⁻¹ :=
   inv_eq_of_mul_eq_one_right (by rw [← diagSL_mul, mul_inv_cancel, diagSL_one])
@@ -861,15 +774,6 @@ noncomputable def hOf (α : ↥K ≃* SL₂ F) (μ : Fˣ) : ↥K :=
 theorem alpha_hOf (α : ↥K ≃* SL₂ F) (μ : Fˣ) : α (hOf α μ) = diagSL μ :=
   α.apply_symm_apply _
 
-theorem hOf_cube (α : ↥K ≃* SL₂ F) (hF : Fintype.card F = 4) (μ : Fˣ) :
-    (hOf α μ) ^ 3 = 1 := by
-  have hμ : μ ^ 3 = 1 := by
-    have h := pow_card_eq_one (x := μ)
-    rwa [card_units_of_card_four hF] at h
-  apply α.injective
-  rw [map_pow, map_one, alpha_hOf]
-  rw [show diagSL μ ^ 3 = diagSL (μ ^ 3) from by
-    rw [pow_three, pow_three, diagSL_mul, diagSL_mul], hμ, diagSL_one]
 
 theorem conj_hOf_x (α : ↥K ≃* SL₂ F) (μ : Fˣ) (s : F) :
     hOf α μ * xElt α s * (hOf α μ)⁻¹ = xElt α ((μ : F) ^ 2 * s) := by
@@ -877,16 +781,6 @@ theorem conj_hOf_x (α : ↥K ≃* SL₂ F) (μ : Fˣ) (s : F) :
   rw [map_mul, map_mul, map_inv, alpha_hOf, alpha_xElt, alpha_xElt]
   rw [CFSG.CGT.PushingUpLit.CGT6.TwoThree.diagSL_mul_unipotent]
 
-theorem conj_hOf_x_inv (α : ↥K ≃* SL₂ F) (μ : Fˣ) (t : F) :
-    (hOf α μ)⁻¹ * xElt α t * (hOf α μ) = xElt α (((μ : F) ^ 2)⁻¹ * t) := by
-  have hμ2 : (μ : F) ^ 2 ≠ 0 := pow_ne_zero 2 (Units.ne_zero μ)
-  have h := conj_hOf_x α μ (((μ : F) ^ 2)⁻¹ * t)
-  rw [show (μ : F) ^ 2 * (((μ : F) ^ 2)⁻¹ * t) = t from by
-    rw [← mul_assoc, mul_inv_cancel₀ hμ2, one_mul]] at h
-  calc (hOf α μ)⁻¹ * xElt α t * (hOf α μ)
-      = (hOf α μ)⁻¹ * (hOf α μ * xElt α (((μ : F) ^ 2)⁻¹ * t) * (hOf α μ)⁻¹) *
-          (hOf α μ) := by rw [h]
-    _ = xElt α (((μ : F) ^ 2)⁻¹ * t) := by group
 
 theorem conj_hOf_w (α : ↥K ≃* SL₂ F) (hF : Fintype.card F = 4) (μ : Fˣ) :
     hOf α μ * wElt α * (hOf α μ)⁻¹ = wElt α * hOf α μ := by
@@ -894,17 +788,11 @@ theorem conj_hOf_w (α : ↥K ≃* SL₂ F) (hF : Fintype.card F = 4) (μ : Fˣ)
   simp only [map_mul, map_inv, alpha_hOf, alpha_wElt, diagSL_inv]
   rw [diagSL_mul_weylSL hF, mul_assoc, ← diagSL_mul, units_inv_mul_inv hF]
 
-theorem hOf_mul_hElt (α : ↥K ≃* SL₂ F) (hF : Fintype.card F = 4) (μ : Fˣ) :
-    hOf α μ * hElt α hF = hElt α hF * hOf α μ := by
-  apply α.injective
-  simp only [map_mul, alpha_hOf, alpha_hElt, ← diagSL_mul, mul_comm]
 
 end ModHyp
 
 namespace ModHyp
 
-variable {α : ↥K ≃* SL₂ F} {β : ↥Q →* Multiplicative (Fin 2 → F)}
-variable (D : ModHyp Q Z K τ α β)
 
 end ModHyp
 

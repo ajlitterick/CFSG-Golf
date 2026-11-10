@@ -48,7 +48,6 @@ variable (c : Conf16 Z M)
 
 theorem u_mem_M : c.u ∈ M := (Subgroup.mem_inf.mp c.hu).1
 
-theorem u_mem_Mt : c.u ∈ conjugate M c.t := (Subgroup.mem_inf.mp c.hu).2
 
 theorem u_mul_self : c.u * c.u = 1 := by
   have := pow_orderOf_eq_one c.u
@@ -87,7 +86,6 @@ theorem Q_le_P : c.Q ≤ c.P := (Subgroup.closure_le _).mpr fun _ hx => hx.1
 
 theorem Q_le_B0 : c.Q ≤ c.B0 := (Q_le_P c).trans (P_le_B0 c)
 
-theorem u_mem_T1 : c.u ∈ c.T1 := mem_of_isSylowOf_centralizer (u_mem_M c) c.hu2 c.hT1
 
 theorem u_mem_J : c.u ∈ c.J := by
   rw [Subgroup.mem_centralizer_iff]

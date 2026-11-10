@@ -31,14 +31,6 @@ variable {G : Type u} [Group G]
 @[expose] def localFixedGroup (W : Subgroup G) (i : G) : Subgroup G :=
   W ⊓ Subgroup.centralizer ({i} : Set G)
 
-@[expose] def subgroupNormalizerAction (J W : Subgroup G)
-    (hJW : J ≤ Subgroup.normalizer (W : Set G)) : J →* MulAut W :=
-  W.normalizerMonoidHom.comp (Subgroup.inclusion hJW)
-
-theorem subgroupNormalizerAction_value (J W : Subgroup G)
-    (hJW : J ≤ Subgroup.normalizer (W : Set G)) (j : J) (w : W) :
-    (subgroupNormalizerAction J W hJW j w : G) = (j : G) * w * (j : G)⁻¹ := by
-  exact Subgroup.normalizerMonoidHom_apply_apply_coe W (Subgroup.inclusion hJW j) w
 
 theorem two_power_element_in_normal_factor
     (J N0 : Subgroup G) [J.Normal] (hNodd : Odd (Nat.card N0))
@@ -77,18 +69,6 @@ theorem positive_eigensubgroup_ambient_image (W : Subgroup G) [IsMulCommutative 
     rw [Subgroup.normalizerMonoidHom_apply_apply_coe]
     exact (StationaryOddLocalization.conj_fixed_iff i w).mpr hi
 
-theorem odd_subgroup_intersection_kernel_join_involution
-    (N0 W : Subgroup G) [N0.Normal] (hWodd : Odd (Nat.card W))
-    (i : G) (hi : orderOf i = 2) :
-    W ⊓ (N0 ⊔ Subgroup.zpowers i) = W ⊓ N0 := by
-  apply le_antisymm
-  · rintro w ⟨hw, hker⟩
-    refine ⟨hw, ?_⟩
-    have hwodd : Odd (orderOf w) :=
-      hWodd.of_dvd_nat (Subgroup.orderOf_dvd_natCard W hw)
-    exact PerfectLayerNormalization.odd_element_in_kernel_join_involution
-      N0 i w hi hwodd hker
-  · exact inf_le_inf_left W le_sup_left
 
 @[expose] def stationaryCoveredLocalSylow (t s : G) {ell : ℕ} (P : Sylow ell (N t)) : Prop :=
   let Pa := LocalSylowNormalizerFactorization.localSylowAmbient t P
@@ -753,35 +733,6 @@ variable {G : Type} [Group G] [Finite G] [IsSimpleGroup G]
 include hGnonab hn f0 ht hs hsC hts hnonab hcentral hnc hp hpodd hf hq hmodel hcov
 
 
-theorem original_all_stationary_covers_produce_complete_ordered_pair_transport :
-    ∀ i : G, i = s ∨ i = t * s →
-      ∃ g : G, OrderedPairLocalTransport.OriginalOrderedPairTransport t s i g p f ∧
-        allLocalPrimeStationaryCovers i t := by
-  let : Group.IsPerfect G := Principal.isPerfect_of_isSimpleGroup hGnonab
-  have hcomm : Commute t s := (Subgroup.mem_centralizer_singleton_iff.mp hsC).symm
-  have hprimes := (all_original_stationary_cover_predicates_equivalent t s).mp hcov
-  intro i hi
-  obtain ⟨g, hg⟩ := OrderedPairLocalTransport.original_ordered_pair_complete_local_transport
-    n hn S0 f0 t s ht hs hcomm hts hnonab hcentral hnc p f hp hpodd hf hq hmodel hprimes i hi
-  exact ⟨g, hg, (all_original_stationary_cover_predicates_equivalent i t).mpr
-    hg.2.2.2.2.2.2.2.2.2.2.2.1⟩
-
-theorem original_all_stationary_covers_produce_both_complete_ordered_pair_transports :
-    ∃ gs gts : G,
-      OrderedPairLocalTransport.OriginalOrderedPairTransport t s s gs p f ∧
-      allLocalPrimeStationaryCovers s t ∧
-      OrderedPairLocalTransport.OriginalOrderedPairTransport t s (t * s) gts p f ∧
-      allLocalPrimeStationaryCovers (t * s) t := by
-  obtain ⟨gs, hgs, hsprime⟩ :=
-    original_all_stationary_covers_produce_complete_ordered_pair_transport
-      hGnonab n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-      s (Or.inl rfl)
-  obtain ⟨gts, hgts, htsprime⟩ :=
-    original_all_stationary_covers_produce_complete_ordered_pair_transport
-      hGnonab n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-      (t * s) (Or.inr rfl)
-  exact ⟨gs, gts, hgs, hsprime, hgts, htsprime⟩
-
 end OriginalOrderedPairData
 
 theorem original_all_stationary_covers_produce_same_parameter_local_data
@@ -914,195 +865,6 @@ theorem escaping_local_odd_sylow_fixed_factors_lie_in_original_layer_preimages
     i hiorder hnonab' hcentral' hnc' p f hp' hpodd' hf' hq' hmodel'
     (localFixedGroup Wa i) inf_le_right hWiodd t hti (fun w hw => hinv w hw.1)
 
-@[expose] def originalIntrinsicInvertedSubgroup (i : G) (U : Subgroup G) :
-    Subgroup (N i) :=
-  U.comap ((C i).subtype.comp (N i).subtype)
-
-theorem originalIntrinsicInvertedSubgroup_ambient (i : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype) :
-    LocalProjectiveKernelQuotients.originalAmbientInverted i
-      (originalIntrinsicInvertedSubgroup i U) = U := by
-  change ((U.comap ((C i).subtype.comp (N i).subtype)).map (N i).subtype).map
-    (C i).subtype = U
-  rw [Subgroup.map_map, Subgroup.map_comap_eq, MonoidHom.range_comp,
-    Subgroup.range_subtype, inf_eq_right.mpr hUN]
-
-theorem originalIntrinsicInvertedSubgroup_mem (i t : G) (U : Subgroup G)
-    (hU : ∀ x : G, x ∈ U ↔ x ∈ (N i).map (C i).subtype ∧ t * x * t⁻¹ = x⁻¹)
-    (x : N i) :
-    x ∈ originalIntrinsicInvertedSubgroup i U ↔
-      t * ((x : C i) : G) * t⁻¹ = (((x : C i) : G))⁻¹ := by
-  change ((x : C i) : G) ∈ U ↔ _
-  rw [hU]
-  exact and_iff_right (Subgroup.mem_map_of_mem (C i).subtype x.property)
-
-theorem characteristic_comap_of_original_isomorphism {A : Type u} {B : Type v}
-    [Group A] [Group B] (e : A ≃* B) (U : Subgroup B) (hU : U.Characteristic) :
-    (U.comap e.toMonoidHom).Characteristic := by
-  apply Subgroup.characteristic_iff_le_comap.mpr
-  intro a x hx
-  have h := (Subgroup.characteristic_iff_le_comap.mp hU)
-    ((e.symm.trans a).trans e) hx
-  change e (a (e.symm (e x))) ∈ U at h
-  change e (a x) ∈ U
-  simpa only [MulEquiv.symm_apply_apply] using h
-
-theorem originalIntrinsicInvertedSubgroup_characteristic (i : G) (U : Subgroup G)
-    (hU : (U.subgroupOf ((N i).map (C i).subtype)).Characteristic) :
-    (originalIntrinsicInvertedSubgroup i U).Characteristic := by
-  let e := (N i).equivMapOfInjective (C i).subtype (C i).subtype_injective
-  have h := characteristic_comap_of_original_isomorphism e
-    (U.subgroupOf ((N i).map (C i).subtype)) hU
-  exact h
-
-@[expose] def originalIntrinsicInvertedSubgroupEquiv (i : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype) :
-    originalIntrinsicInvertedSubgroup i U ≃* U :=
-  ((originalIntrinsicInvertedSubgroup i U).equivMapOfInjective
-    ((C i).subtype.comp (N i).subtype)
-    ((C i).subtype_injective.comp (N i).subtype_injective)).trans
-      (MulEquiv.subgroupCongr (by
-        simpa only [Subgroup.map_map] using
-          originalIntrinsicInvertedSubgroup_ambient i U hUN))
-
-theorem originalIntrinsicInvertedSubgroupEquiv_apply (i : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype) (x : originalIntrinsicInvertedSubgroup i U) :
-    (originalIntrinsicInvertedSubgroupEquiv i U hUN x : G) = ((x : N i) : C i) := rfl
-
-theorem originalIntrinsicInvertedSubgroup_card (i : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype) :
-    Nat.card (originalIntrinsicInvertedSubgroup i U) = Nat.card U :=
-  Nat.card_congr (originalIntrinsicInvertedSubgroupEquiv i U hUN).toEquiv
-
-theorem originalIntrinsicInvertedSubgroup_index (i : G) (U : Subgroup G) :
-    (originalIntrinsicInvertedSubgroup i U).index = U.relIndex ((N i).map (C i).subtype) := by
-  rw [originalIntrinsicInvertedSubgroup, Subgroup.index_comap,
-    MonoidHom.range_comp, Subgroup.range_subtype]
-
-theorem originalIntrinsicInvertedSubgroup_hall (i : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype)
-    (hHall : Nat.Coprime (Nat.card U) (U.relIndex ((N i).map (C i).subtype))) :
-    Nat.Coprime (Nat.card (originalIntrinsicInvertedSubgroup i U))
-      (originalIntrinsicInvertedSubgroup i U).index := by
-  rw [originalIntrinsicInvertedSubgroup_card i U hUN, originalIntrinsicInvertedSubgroup_index]
-  exact hHall
-
-theorem originalIntrinsicInvertedSubgroup_abelian (i : G) (U : Subgroup G)
-    (hU : IsMulCommutative U) : IsMulCommutative (originalIntrinsicInvertedSubgroup i U) := by
-  let : IsMulCommutative U := hU
-  exact U.comap_injective_isMulCommutative
-    ((C i).subtype_injective.comp (N i).subtype_injective)
-
-@[expose] def originalIntrinsicFixedSubgroup (i t : G) : Subgroup (N i) :=
-  (Subgroup.centralizer ({t} : Set G)).comap ((C i).subtype.comp (N i).subtype)
-
-theorem originalIntrinsicFixedSubgroup_map (i t : G) :
-    (originalIntrinsicFixedSubgroup i t).map ((C i).subtype.comp (N i).subtype) =
-      (N i).map (C i).subtype ⊓ Subgroup.centralizer ({t} : Set G) := by
-  rw [originalIntrinsicFixedSubgroup, Subgroup.map_comap_eq, MonoidHom.range_comp,
-    Subgroup.range_subtype]
-
-theorem originalIntrinsicFixedSubgroup_mem (i t : G) (x : N i) :
-    x ∈ originalIntrinsicFixedSubgroup i t ↔
-      t * ((x : C i) : G) * t⁻¹ = ((x : C i) : G) := by
-  change ((x : C i) : G) ∈ Subgroup.centralizer ({t} : Set G) ↔ _
-  exact (StationaryOddLocalization.conj_fixed_iff t _).symm
-
-theorem original_intrinsic_inverted_complement_semidirect (i t : G) (U : Subgroup G)
-    (hUN : U ≤ (N i).map (C i).subtype)
-    (hchar : (U.subgroupOf ((N i).map (C i).subtype)).Characteristic)
-    (hgen : U ⊔ ((N i).map (C i).subtype ⊓ Subgroup.centralizer ({t} : Set G)) =
-      (N i).map (C i).subtype)
-    (hdisj : U ⊓ ((N i).map (C i).subtype ⊓ Subgroup.centralizer ({t} : Set G)) = ⊥) :
-    let Ui := originalIntrinsicInvertedSubgroup i U
-    let Ai := originalIntrinsicFixedSubgroup i t
-    Ui ⊔ Ai = ⊤ ∧ Ui ⊓ Ai = ⊥ ∧ Ui.Normal ∧
-    ∃ phi : Ai →* MulAut Ui,
-      (∀ a : Ai, ∀ x : Ui,
-        ((phi a x : N i) : C i) = (a : N i) * (x : N i) * (a : N i)⁻¹) ∧
-      ∃ e : Ui ⋊[phi] Ai ≃* N i,
-        (∀ x : Ui ⋊[phi] Ai, e x = (x.left : N i) * x.right) ∧
-        (∀ z : N i, ∃ x : Ui, ∃ a : Ai, e ⟨x, a⟩ = z) := by
-  let Ui := originalIntrinsicInvertedSubgroup i U
-  let Ai := originalIntrinsicFixedSubgroup i t
-  let f := (C i).subtype.comp (N i).subtype
-  have hf : Function.Injective f := (C i).subtype_injective.comp (N i).subtype_injective
-  have hUi : Ui.map f = U := by
-    simpa only [Subgroup.map_map] using originalIntrinsicInvertedSubgroup_ambient i U hUN
-  have hAi : Ai.map f =
-      (N i).map (C i).subtype ⊓ Subgroup.centralizer ({t} : Set G) :=
-    originalIntrinsicFixedSubgroup_map i t
-  have htop : (⊤ : Subgroup (N i)).map f = (N i).map (C i).subtype := by
-    rw [Subgroup.map_top, MonoidHom.range_comp, Subgroup.range_subtype]
-  have hgen' : Ui ⊔ Ai = ⊤ := by
-    apply Subgroup.map_injective hf
-    rw [Subgroup.map_sup, hUi, hAi, htop, hgen]
-  have hdisj' : Ui ⊓ Ai = ⊥ := by
-    apply Subgroup.map_injective hf
-    rw [Subgroup.map_inf _ _ _ hf, hUi, hAi, hdisj, Subgroup.map_bot]
-  let : Ui.Characteristic := originalIntrinsicInvertedSubgroup_characteristic i U hchar
-  have hnormal : Ui.Normal := inferInstance
-  let : Ui.Normal := hnormal
-  have hnormal' : (Ui.subgroupOf (⊤ : Subgroup (N i))).Normal := inferInstance
-  obtain ⟨phi, hphi, e, he, -⟩ :=
-    LocalInvertedHallSubgroups.original_normal_complement_literal_semidirect
-      (⊤ : Subgroup (N i)) Ui Ai le_top le_top hnormal' hgen' hdisj'
-  let e' := e.trans Subgroup.topEquiv
-  refine ⟨hgen', hdisj', hnormal, phi, ?_, e', he, ?_⟩
-  · intro a x
-    exact congrArg (fun z : N i => (z : C i)) (hphi a x)
-  · intro z
-    exact ⟨(e'.symm z).left, (e'.symm z).right, e'.apply_symm_apply z⟩
-
-@[expose] def OriginalFixedFactorProjectiveData (t i : G) (Wi : Subgroup G) (p f : ℕ) : Prop :=
-  ∃ (_ : orderOf i = 2), ∃ (_ : t ∈ C i),
-    IsSimpleGroup (CFSG.generalizedFitting (Gamma i)) ∧
-    (∃ a b : CFSG.generalizedFitting (Gamma i), a * b ≠ b * a) ∧
-    Subgroup.centralizer (CFSG.generalizedFitting (Gamma i) : Set (Gamma i)) = ⊥ ∧
-    (∀ P : Sylow 2 (CFSG.generalizedFitting (Gamma i)), ¬ IsCyclic P) ∧
-    p.Prime ∧ Odd p ∧ 1 ≤ f ∧ 5 ≤ p ^ f ∧
-    (CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma i) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F))) ∧
-    allLocalPrimeStationaryCovers i t ∧
-    ∃ U : Subgroup G,
-      (∀ x : G, x ∈ U ↔ x ∈ (N i).map (C i).subtype ∧ t * x * t⁻¹ = x⁻¹) ∧
-      U ≤ (N i).map (C i).subtype ∧ IsMulCommutative U ∧
-      let Ui := originalIntrinsicInvertedSubgroup i U
-      let Ai := originalIntrinsicFixedSubgroup i t
-      (∀ x : N i, x ∈ Ui ↔
-        t * ((x : C i) : G) * t⁻¹ = (((x : C i) : G))⁻¹) ∧
-      LocalProjectiveKernelQuotients.originalAmbientInverted i Ui = U ∧
-      IsMulCommutative Ui ∧ Ui.Characteristic ∧
-      Nat.Coprime (Nat.card Ui) Ui.index ∧ Ui ⊔ Ai = ⊤ ∧ Ui ⊓ Ai = ⊥ ∧ Ui.Normal ∧
-      (∃ phi : Ai →* MulAut Ui,
-        (∀ a : Ai, ∀ x : Ui,
-          ((phi a x : N i) : C i) = (a : N i) * (x : N i) * (a : N i)⁻¹) ∧
-        ∃ e : Ui ⋊[phi] Ai ≃* N i,
-          (∀ x : Ui ⋊[phi] Ai, e x = (x.left : N i) * x.right) ∧
-          (∀ z : N i, ∃ x : Ui, ∃ a : Ai, e ⟨x, a⟩ = z)) ∧
-      ∃ (hWC : Wi ≤ C i)
-        (hWY : Wi ≤ LocalProjectiveKernelQuotients.originalAmbientLayerPreimage i),
-        ∃ hnormal : (LocalProjectiveKernelQuotients.originalInvertedKernel i Wi Ui).Normal,
-          letI := hnormal
-          (∀ w : Wi, LocalProjectiveKernelQuotients.originalProjectiveRestriction i Wi hWC w =
-            barKappa i (nu i (Subgroup.inclusion hWC w))) ∧
-          (LocalProjectiveKernelQuotients.originalProjectiveRestriction i Wi hWC).ker =
-            (N i).comap (Subgroup.inclusion hWC) ∧
-          (LocalProjectiveKernelQuotients.originalProjectiveRestriction i Wi hWC).ker.map
-            Wi.subtype = Wi ⊓ LocalProjectiveKernelQuotients.originalAmbientOddCore i ∧
-          Wi ⊓ LocalProjectiveKernelQuotients.originalAmbientOddCore i =
-            Wi ⊓ LocalProjectiveKernelQuotients.originalAmbientInverted i Ui ∧
-          (LocalProjectiveKernelQuotients.originalLayerRestriction i Wi hWC hWY).ker =
-            (Wi ⊓ LocalProjectiveKernelQuotients.originalAmbientInverted i Ui).comap Wi.subtype ∧
-          (∃ q : Wi ⧸ LocalProjectiveKernelQuotients.originalInvertedKernel i Wi Ui →*
-              CFSG.generalizedFitting (Gamma i),
-            Function.Injective q ∧ ∀ w : Wi, (q (QuotientGroup.mk w) : Gamma i) =
-              barKappa i (nu i (Subgroup.inclusion hWC w))) ∧
-          (Wi ⊓ LocalProjectiveKernelQuotients.originalAmbientInverted i Ui = ⊥ →
-            Function.Injective (LocalProjectiveKernelQuotients.originalLayerRestriction
-              i Wi hWC hWY))
 
 section OriginalExactKernels
 
@@ -1133,96 +895,6 @@ variable (hGnonab : ∃ a b : G, a * b ≠ b * a)
 include hGnonab hrecognition hn f0 ht hs hsC hts hnonab hcentral hnc
   hp hpodd hf hq hmodel hcov hVH hJH hR hell hdiv hVW hescape
 
-theorem escaping_local_odd_sylow_fixed_factors_have_exact_original_projective_kernels :
-    ∀ i : G, i = s ∨ i = t * s →
-      ∃ g : G, OrderedPairLocalTransport.OriginalLocalDataTransport (MulAut.conj g) t i ∧
-        OrderedPairLocalTransport.OriginalAllPrimeTransport (MulAut.conj g) t s i t ∧
-        OriginalFixedFactorProjectiveData t i
-          (localFixedGroup (coveringOddSylowAmbient H W) i) p f := by
-  let : Fact ell.Prime := ⟨hell⟩
-  let Wa := coveringOddSylowAmbient H W
-  obtain ⟨-, -, hinv, -, -⟩ :=
-    escaping_local_odd_sylow_is_normalized_abelian_and_inverted
-      hGnonab hrecognition n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc
-      p f hp hpodd hf hq hmodel hcov H hVH hJH hR hell hdiv W hVW hescape
-  have hellodd : Odd ell :=
-    (Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := H))).of_dvd_nat hdiv
-  have hWp : IsPGroup ell Wa := W.isPGroup'.map
-    (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)
-  have hWaodd : Odd (Nat.card Wa) :=
-    StationaryOddLocalization.odd_card_of_pgroup hell hellodd Wa hWp
-  intro i hi
-  obtain ⟨g, -, -, -, hiorder, hti, hine, hsimple, hnonab', hcentral', hnc',
-      hp', hpodd', hf', hq', hmodel', hlocal, hprime, hcov'⟩ :=
-    original_all_stationary_covers_produce_same_parameter_local_data
-      hGnonab n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc
-      p f hp hpodd hf hq hmodel hcov i hi
-  let : IsSimpleGroup (CFSG.generalizedFitting (Gamma i)) := hsimple
-  have hprimes := (all_original_stationary_cover_predicates_equivalent i t).mp hcov'
-  obtain ⟨-, -, -, -, U, hU, -, -, hUN, hUab, hUchar, hHall, -, hgen, hdisj,
-      -, -, -, -, -, -, -, -, -⟩ :=
-    LocalInvertedHallSubgroups.original_all_prime_stationary_local_inverted_hall_subgroup
-      hGnonab hrecognition n hn S0 f0 i t hiorder ht hti hine hnonab' hcentral' hnc'
-      p f hp' hpodd' hf' hq' hmodel' hprimes
-  let Ui := originalIntrinsicInvertedSubgroup i U
-  have hUi : ∀ x : N i, x ∈ Ui ↔
-      t * ((x : C i) : G) * t⁻¹ = (((x : C i) : G))⁻¹ :=
-    originalIntrinsicInvertedSubgroup_mem i t U hU
-  have hambient := originalIntrinsicInvertedSubgroup_ambient i U hUN
-  obtain ⟨hgen', hdisj', hnormal', hsemidirect⟩ :=
-    original_intrinsic_inverted_complement_semidirect i t U hUN hUchar hgen hdisj
-  let Wi := localFixedGroup Wa i
-  have hWC : Wi ≤ C i := inf_le_right
-  have hWY : Wi ≤ LocalProjectiveKernelQuotients.originalAmbientLayerPreimage i :=
-    escaping_local_odd_sylow_fixed_factors_lie_in_original_layer_preimages
-      hGnonab hrecognition n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc
-      p f hp hpodd hf hq hmodel hcov H hVH hJH hR hell hdiv W hVW hescape i hi
-  have hWiodd : Odd (Nat.card Wi) :=
-    hWaodd.of_dvd_nat (Subgroup.card_dvd_of_le inf_le_left)
-  have hWiinv : ∀ w : Wi, t * (w : G) * t⁻¹ = (w : G)⁻¹ :=
-    fun w => hinv w w.property.1
-  let ti : C i := ⟨t, hti⟩
-  have hnormal := LocalProjectiveKernelQuotients.originalInvertedKernel_normal
-    i hiorder ti Wi hWC hWiodd Ui hUi hWiinv
-  let := hnormal
-  have htoolkit := LocalProjectiveKernelQuotients.original_local_projective_kernel_quotient_toolkit
-    i hiorder ti Wi hWC hWiodd Ui hUi hWiinv hWY
-  refine ⟨g, hlocal, hprime, hiorder, hti, hsimple, hnonab', hcentral', hnc',
-    hp', hpodd', hf', hq', hmodel', hcov', U, hU, hUN, hUab, hUi, hambient,
-    originalIntrinsicInvertedSubgroup_abelian i U hUab,
-    originalIntrinsicInvertedSubgroup_characteristic i U hUchar,
-    originalIntrinsicInvertedSubgroup_hall i U hUN hHall,
-    hgen', hdisj', hnormal', hsemidirect, hWC, hWY, hnormal, ?_⟩
-  exact ⟨htoolkit.1, htoolkit.2.1, htoolkit.2.2.1, htoolkit.2.2.2.1,
-    htoolkit.2.2.2.2.1, htoolkit.2.2.2.2.2,
-    LocalProjectiveKernelQuotients.originalLayerRestriction_injective_of_inter_eq_bot
-      i hiorder ti Wi hWC hWiodd Ui hUi hWiinv hWY⟩
-
-theorem escaping_local_odd_sylow_eigensubgroups_have_exact_projective_kernels :
-    let Wa := coveringOddSylowAmbient H W
-    ((localCentralizingLayer t).map (C t).subtype ≤ Subgroup.normalizer (Wa : Set G) ∧
-      IsMulCommutative Wa ∧ (∀ w ∈ Wa, t * w * t⁻¹ = w⁻¹) ∧
-      Wa ⊓ C t = ⊥ ∧ Wa ≠ ⊥ ∧
-      ∃ d : G, d ∈ (localCentralizingLayer t).map (C t).subtype ∧
-        orderOf d = 4 ∧ d ^ 2 = t ∧ d * s * d⁻¹ = t * s ∧
-        d ∈ Subgroup.normalizer (Wa : Set G) ∧
-        (localFixedGroup Wa s).map (MulAut.conj d).toMonoidHom = localFixedGroup Wa (t * s) ∧
-        localFixedGroup Wa s ≠ ⊥ ∧ localFixedGroup Wa (t * s) ≠ ⊥ ∧
-        Nat.card (localFixedGroup Wa s) = Nat.card (localFixedGroup Wa (t * s)) ∧
-        Disjoint (localFixedGroup Wa s) (localFixedGroup Wa (t * s)) ∧
-        localFixedGroup Wa s ⊔ localFixedGroup Wa (t * s) = Wa ∧
-        ∃ e : localFixedGroup Wa s × localFixedGroup Wa (t * s) ≃* Wa,
-          ∀ x, (e x : G) = (x.1 : G) * (x.2 : G)) ∧
-    ∀ i : G, i = s ∨ i = t * s →
-      ∃ g : G, OrderedPairLocalTransport.OriginalLocalDataTransport (MulAut.conj g) t i ∧
-        OrderedPairLocalTransport.OriginalAllPrimeTransport (MulAut.conj g) t s i t ∧
-        OriginalFixedFactorProjectiveData t i (localFixedGroup Wa i) p f := by
-  exact ⟨escaping_local_odd_sylow_has_original_exchanged_fixed_eigensubgroups
-      hGnonab hrecognition n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc
-      p f hp hpodd hf hq hmodel hcov H hVH hJH hR hell hdiv W hVW hescape,
-    escaping_local_odd_sylow_fixed_factors_have_exact_original_projective_kernels
-      hGnonab hrecognition n hn S0 f0 t s ht hs hsC hts hnonab hcentral hnc
-      p f hp hpodd hf hq hmodel hcov H hVH hJH hR hell hdiv W hVW hescape⟩
 
 end OriginalExactKernels
 
@@ -1643,7 +1315,6 @@ theorem original_local_data_transport_preserves_same_field_scalar_models
     exact hetaz y hzt
 
 
-
 section OriginalTrivialFactor
 
 variable {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]
@@ -1758,7 +1429,6 @@ theorem original_escaping_trivial_odd_intersection_forces_defining_square_orders
     (W.isPGroup'.map (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)) hWC hWY ei hpiinj
 
 end OriginalTrivialFactor
-
 
 
 open CFSG.Semidihedral.LocalInvertedLiftContainment

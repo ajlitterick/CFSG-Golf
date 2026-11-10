@@ -150,14 +150,6 @@ theorem aE_acts :
       group
     rw [← eg, idx_mul, ← e, idx_inv_idx]
 
-theorem cr_conj_aE :
-    ∀ q < 198, ∃ c : Fin 4, IsConj (((nwR 13 (f32 CR q)).map aE).prod) (t3 c) :=
-  cr_conj aE aE_acts
-
-theorem conj_t3_aE
-    {q : ℕ} (hq : q < 198) {x w : CFSG.Sporadic.Fi23.J}
-    (h : x * w = w * ((nwR 13 (f32 CR q)).map aE).prod) : ∃ c : Fin 4, IsConj x (t3 c) :=
-  conj_t3_of aE aE_acts hq h
 
 end CertificateChecks.KernelFi23Q
 

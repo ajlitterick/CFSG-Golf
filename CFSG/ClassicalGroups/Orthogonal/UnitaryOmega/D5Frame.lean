@@ -36,17 +36,6 @@ theorem d5Tau_add_sigma : d5Tau E + unitaryInvolution K 2 f (d5Tau E) = 1 :=
     (0, d5PlaneVec 0 1 (d5Tau E * unitaryInvolution K 2 f (d5Tau E)) (d5Tau E ^ 2)),
     ((0, 1), 0)]
 
-private theorem d5Tau_sigma :
-    unitaryInvolution K 2 f (d5Tau E) = 1 + d5Tau E := by
-  have h := d5Tau_add_sigma E
-  rw [← CharTwo.sub_eq_add]
-  linear_combination h
-
-private theorem d5Tau_mul_sigma :
-    d5Tau E * unitaryInvolution K 2 f (d5Tau E) = d5Tau E ^ 2 + d5Tau E := by
-  calc d5Tau E * unitaryInvolution K 2 f (d5Tau E)
-      = d5Tau E * (1 + d5Tau E) := by rw [d5Tau_sigma E]
-    _ = d5Tau E ^ 2 + d5Tau E := by ring
 
 private theorem d5Tau_sq_add_sigma_sq :
     d5Tau E ^ 2 + (unitaryInvolution K 2 f (d5Tau E)) ^ 2 = 1 := by
@@ -395,7 +384,6 @@ private theorem d5Frame_finrank_eq :
   rw [Module.finrank_prod, Module.finrank_prod, Module.finrank_self, Module.finrank_pi_fintype]
   rw [E.finrank_eq]
   norm_num
-
 
 
 noncomputable def d5Frame : (quadPlus 5 F).IsometryEquiv (normHypForm E 4) :=

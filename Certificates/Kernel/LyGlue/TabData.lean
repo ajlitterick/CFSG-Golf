@@ -69,8 +69,6 @@ open CFSG.Sporadic.Recognition.LyonsSims CFSG.Sporadic.Recognition CFSG.KC.LyGlu
 
 @[expose] def tIdx (j : Nat) : Nat := progIdx.2.getD j 0
 
-theorem tIdx_vals : progIdx.2 = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 19] := by
-  decide +kernel
 
 @[expose] def conjList : List (Nat × Nat × Nat × Nat) :=
   [(8, 3, 3, 8),

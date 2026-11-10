@@ -32,7 +32,6 @@ theorem mem_U {x : G} : x ∈ C.U ↔ ∃ β : k, x = C.ι (pp σ 0 β 0) := by
 
 theorem ι_pp_mem_U (β : k) : C.ι (pp σ 0 β 0) ∈ C.U := C.mem_U.mpr ⟨β, rfl⟩
 
-theorem T_mem_U : C.T ∈ C.U := C.ι_pp_mem_U 1
 
 theorem U_comm {x y : G} (hx : x ∈ C.U) (hy : y ∈ C.U) : x * y = y * x := by
   obtain ⟨β, rfl⟩ := C.mem_U.mp hx

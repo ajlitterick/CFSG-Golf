@@ -166,16 +166,6 @@ theorem card_centralizer_le {a : G} (ha : a ∈ d.NV) {k : ℕ} (hak : a ^ (3 ^ 
   rw [h2n] at h9
   exact Nat.le_of_mul_le_mul_right h9 (by norm_num)
 
-theorem factorization_three_CV : (Nat.card d.CV).factorization 3 = 2 * d.n := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  apply le_antisymm
-  · obtain ⟨T⟩ := (inferInstance : Nonempty (Sylow 3 d.CV))
-    have hT := d.sylow_centralizer ((T : Subgroup d.CV).map d.CV.subtype) (T.isPGroup'.map _)
-      (Subgroup.map_subtype_le _)
-    rw [Subgroup.card_map_of_injective d.CV.subtype_injective, Sylow.card_eq_multiplicity] at hT
-    exact (Nat.pow_le_pow_iff_right (by norm_num)).mp hT
-  · have hdvd : 3 ^ (2 * d.n) ∣ Nat.card d.CV := d.card_V ▸ Subgroup.card_dvd_of_le d.V_le_CV
-    exact (Nat.Prime.pow_dvd_iff_le_factorization Nat.prime_three Nat.card_pos.ne').mp hdvd
 
 theorem inf_CV_eq {X : Subgroup G} (hX : IsPGroup 3 X) (hVX : d.V ≤ X) : X ⊓ d.CV = d.V := by
   have h := d.sylow_centralizer (X ⊓ d.CV) (hX.to_le inf_le_left) inf_le_right

@@ -2107,9 +2107,5 @@ theorem gl83P3A6_of_case2 {G : Type} [Group G] [Finite G] (hS : Setting G) (hD1 
       exact (hC2 3 hp P M hM hfail hIH x hgen rfl J hJC hCJ hperf hlt hmin hnot Q ψ hψ hker hQ h34
         hnwc hC1 _ hU Y hY2 hYM hUY hYO hYN hbig).elim
 
-theorem gl83P3A6_holds :
-    ∀ (G : Type) [Group G] [Finite G], Setting G → TheoremD1 G → FullCoreLocal G →
-      A6VICase2 G → GL83GenericPrimeThreeA6Lemma43VI G :=
-  fun _ _ _ hS hD1 hU0 hC2 => gl83P3A6_of_case2 hS hD1 hU0 hC2
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

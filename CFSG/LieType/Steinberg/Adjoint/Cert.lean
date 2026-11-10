@@ -42,8 +42,5 @@ theorem e8Data_checkTables : e8Data.checkTables = true := by
 theorem e8Data_checkSimple : e8Data.checkSimple = true := by
   exact Certificates.certificate117.2.2.2.2.2
 
-theorem f4Data_check : f4Data.checkTables = true ∧ f4Data.checkSimple = true ∧
-    f4Data.checkWeyl = true ∧ f4Data.checkPairs = true :=
-  ⟨f4Data_checkTables, f4Data_checkSimple, f4Data_checkWeyl, f4Data_checkPairs⟩
 
 end CFSG.LieType.Steinberg.Adjoint

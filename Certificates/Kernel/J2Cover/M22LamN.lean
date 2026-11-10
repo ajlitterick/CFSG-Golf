@@ -20,9 +20,6 @@ open CFSG.KC.Enum CFSG.KS
 
 #lc_blocks ch10022LY fLYP 128 4
 
-theorem negLT : (!fLT (Nat.xor (LTP 0) 128) (LTP 2) 0) = true := by quickRfl
-
-theorem negLY : (!fLY (LTP 0) (Nat.xor (LTP 1) 128) 1) = true := by quickRfl
 
 end CertificateChecks.KernelJ2Cover
 

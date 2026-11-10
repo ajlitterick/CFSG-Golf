@@ -17,29 +17,6 @@ variable {G : Type*} [Group G] {L : Subgroup G} {f : ℕ} {K : Type} [Field K]
 
 namespace SwapNeighbourParam
 
-theorem map_prod_eq_map_prod [Finite G] {X' : Subgroup G} {N' : Finset (Fin n)}
-    (P : SwapNeighbourParam e t X N) (P' : SwapNeighbourParam e t X' N')
-    {I : Finset (Fin n)} (hIN : I ⊆ N) (hIN' : I ⊆ N') (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I)
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I))
-    (hXI' : X' ≤ modelToG e (unitaryBlockTorus h I)) :
-    (((unitaryBlock h I).subgroupOf (unitaryBlock h N)).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h N))).map P.Ψ =
-      (((unitaryBlock h I).subgroupOf (unitaryBlock h N')).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h N'))).map P'.Ψ := by
-  rw [← P.pieceCore_eq_map hIN hI2 hIc hperf hXI, ← P'.pieceCore_eq_map hIN' hI2 hIc hperf hXI']
-
-theorem map_prod_eq_map_prod_rootTorus [Finite G] {a b c d : Fin n} (hab : a ≠ b) (hcd : c ≠ d)
-    (P : SwapNeighbourParam e t (modelToG e (unitaryRootTorus h hab)) ({a, b}ᶜ : Finset (Fin n)))
-    (P' : SwapNeighbourParam e t (modelToG e (unitaryRootTorus h hcd)) ({c, d}ᶜ : Finset (Fin n)))
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI' : I ⊆ {c, d}ᶜ) (hI2 : 2 ≤ I.card)
-    (hperf : ⁅unitaryBlock h I, unitaryBlock h I⁆ = unitaryBlock h I) :
-    (((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ)).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h {a, b}ᶜ))).map P.Ψ =
-      (((unitaryBlock h I).subgroupOf (unitaryBlock h {c, d}ᶜ)).prod
-        ((unitaryBlock h I).subgroupOf (unitaryBlock h {c, d}ᶜ))).map P'.Ψ := by
-  rw [← P.pieceCore_eq_map_rootTorus hab hI hI2 hperf,
-    ← P'.pieceCore_eq_map_rootTorus hcd hI' hI2 hperf]
 
 theorem conj [Finite G] (P : SwapNeighbourParam e t X N) (htC : t ∈ centralizer (L : Set G))
     (ρ : Equiv.Perm (Fin n)) :
@@ -122,22 +99,6 @@ theorem conj [Finite G] (P : SwapNeighbourParam e t X N) (htC : t ∈ centralize
 
 end SwapNeighbourParam
 
-theorem nonempty_swapNeighbourParam_rootTorus_of_nonempty [Finite G]
-    (htC : t ∈ centralizer (L : Set G)) {a b : Fin n} (hab : a ≠ b)
-    (hP : Nonempty (SwapNeighbourParam e t (modelToG e (unitaryRootTorus h hab))
-      ({a, b}ᶜ : Finset (Fin n))))
-    {a' b' : Fin n} (hab' : a' ≠ b') :
-    Nonempty (SwapNeighbourParam e t (modelToG e (unitaryRootTorus h hab'))
-      ({a', b'}ᶜ : Finset (Fin n))) := by
-  obtain ⟨P⟩ := hP
-  obtain ⟨ρ, rfl, rfl⟩ := LinearPilot.exists_perm_apply_eq_apply_eq hab hab'
-  have hX : (modelToG e (unitaryRootTorus h hab)).map
-      (MulAut.conj ((e.symm (unitaryProj h n (permSU h ρ.symm)) : L) : G)).toMonoidHom =
-        modelToG e (unitaryRootTorus h hab') := by
-    rw [← modelToG_map_conj, map_conj_unitaryRootTorus h ρ hab]
-  have hP' := P.conj htC ρ
-  rw [hX, map_compl_pair] at hP'
-  exact hP'
 
 end Swap
 

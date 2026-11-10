@@ -61,10 +61,5 @@ theorem E187C.exists_v_sq_centralizes_of (h8R : ∀ {Q : Subgroup G}, Q ∈ RSet
       _ = v := h2
   exact (mul_inv_eq_iff_eq_mul.mp e)
 
-theorem exists_v_sq_centralizes (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) {K₁ : Subgroup G} {t x : G}
-    (hK₁ : K₁ ∈ Ω) (ht : IsUniqueInvolution K₁ t) (hx : IsPGroup 2 (Subgroup.zpowers x))
-    (hxK : conjSub x K₁ = K₁) :
-    ∃ v ∈ K₁, orderOf v = 4 ∧ (x * x) * v = v * (x * x) :=
-  E187C.exists_v_sq_centralizes_of (fun hQ => hΩ.eight_le_of_mem_RSet hp hQ) hK₁ ht hx hxK
 
 end CFSG.ClassicalInvolution.Asc77

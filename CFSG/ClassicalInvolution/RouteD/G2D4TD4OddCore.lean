@@ -60,7 +60,5 @@ theorem td4ThreeOddCoreOne_proved : TD4ThreeOddCoreOne := by
 theorem td4ThreeOddCore_proved : TD4ThreeOddCore :=
   td4ThreeOddCore_of_one td4ThreeOddCoreOne_proved
 
-theorem d4ThreeCentralizerFacts_proved : D4ThreeCentralizerFacts :=
-  d4ThreeCentralizerFacts_of_oddCore td4ThreeOddCore_proved
 
 end CFSG.ClassicalInvolution.G2D4Models

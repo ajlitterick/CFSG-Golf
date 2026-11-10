@@ -10,17 +10,6 @@ namespace CFSG.ShultStronglyClosedTI
 open CFSG.Open
 open scoped commutatorElement
 
-theorem central_lift_derived_series_stable {A B : Type*} [Group A] [Group B]
-    [Group.IsPerfect B] (f : A →* B) (hsurj : Function.Surjective f)
-    (hcentral : f.ker ≤ Subgroup.center A) (n : ℕ) :
-    derivedSeries A (n + 1) = commutator A := by
-  let : Group.IsPerfect (commutator A) :=
-    CFSG.ComponentClassification.CentralExtensions.derived_perfect f hsurj hcentral
-  induction n with
-  | zero => exact derivedSeries_one (G := A)
-  | succ n ih =>
-      rw [derivedSeries_succ, ih]
-      exact Subgroup.commutator_eq_self
 
 theorem central_lift_subgroup_map_kernel {G Q : Type*} [Group G] [Group Q]
     (f : G →* Q) (L : Subgroup G) :

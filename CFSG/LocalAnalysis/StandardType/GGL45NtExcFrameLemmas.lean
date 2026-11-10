@@ -65,29 +65,6 @@ section LatticeLang
 
 open Matrix
 
-@[expose] def zact {n : Type*} [Fintype n] {D : Type*} [AddCommGroup D] (B : Matrix n n ℤ) (x : n → D) :
-    n → D :=
-  fun i => ∑ j, B i j • x j
-
-theorem zact_mul {n : Type*} [Fintype n] {D : Type*} [AddCommGroup D] (B C : Matrix n n ℤ)
-    (x : n → D) : zact (B * C) x = zact B (zact C x) := by
-  funext i
-  simp only [zact, Matrix.mul_apply, Finset.sum_smul, Finset.smul_sum, mul_smul]
-  exact Finset.sum_comm
-
-theorem zact_smul_one {n : Type*} [Fintype n] [DecidableEq n] {D : Type*} [AddCommGroup D]
-    (c : ℤ) (x : n → D) : zact (c • (1 : Matrix n n ℤ)) x = c • x := by
-  funext i
-  simp [zact, Matrix.smul_apply, Matrix.one_apply, ite_smul]
-
-theorem zact_surjective_of_det_ne_zero {n : Type*} [Fintype n] [DecidableEq n] {D : Type*}
-    [AddCommGroup D] (hD : ∀ c : ℤ, c ≠ 0 → ∀ y : D, ∃ x : D, c • x = y) (B : Matrix n n ℤ)
-    (hB : B.det ≠ 0) (y : n → D) : ∃ x : n → D, zact B x = y := by
-  choose y' hy' using fun i => hD B.det hB (y i)
-  refine ⟨zact B.adjugate y', ?_⟩
-  rw [← zact_mul, Matrix.mul_adjugate, zact_smul_one]
-  funext i
-  exact hy' i
 
 theorem det_smul_sub_one_ne_zero {n : Type*} [Fintype n] [DecidableEq n] (C : Matrix n n ℤ)
     {N : ℕ} (hN : C ^ N = 1) (c : ℤ) (hc : c ^ N ≠ 1) : (c • C - 1).det ≠ 0 := by
@@ -347,9 +324,6 @@ theorem lemma45_frame
 theorem lemma46_frame_gen
 
 
-
-
-
     {τ : Tag} {L : Type} [Field L] [IsAlgClosed L] [CharP L 2] {ι : Type}
     {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
     (a : ι → Fin τ.rank → Lˣ) (ha : ∀ i j, a i j ^ p = 1) (e : ℕ) (he : 1 ≤ e) (Q : ModGL τ L)
@@ -460,9 +434,6 @@ theorem lemma46_frame_gen
 theorem familyKernel_pSaturated
 
 
-
-
-
     {τ : Tag} {ι : Type} {K : Type} [Field K] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
     (h3 : τ = .F4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8 → p ≠ 3) (h5 : τ = .E8 → p ≠ 5)
     (hG2 : τ = .G2 → p ≠ 3) (a : ι → Fin τ.rank → Kˣ) (v : Fin τ.rank → ℤ)
@@ -471,10 +442,6 @@ theorem familyKernel_pSaturated
   CFSG.HardMathSupport.C14PSat.familyKernel_pSaturated hp hp2 h3 h5 hG2 a v hv
 
 theorem familyKernel_empty_G2_three
-
-
-
-
 
 
     {K : Type} [Field K] {ι : Type}

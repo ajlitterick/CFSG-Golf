@@ -49,6 +49,5 @@ theorem le_center_of_isCyclic_normal {X : Type*} [Group X] [Group.IsPerfect X] {
   simp only [MulAut.conjNormal_apply, MonoidHom.one_apply, MulAut.one_apply] at h2
   exact mul_inv_eq_iff_eq_mul.1 h2
 
-variable {X : Type} [Group X]
 
 end CFSG.Quasithin.A36B

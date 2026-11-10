@@ -63,9 +63,6 @@ theorem blkGL_mem (X : GL (Fin 2) F) (hX : X ∈ gramSU h (1 : Matrix (Fin 2) (F
   ((Units.map (blkMon (F := F))).comp (gramSU h (1 : Matrix (Fin 2) (Fin 2) F)).subtype).codRestrict
     _ (fun X => blkGL_mem h X.1 X.2)
 
-theorem coe_blkHom (X : ↥(gramSU h (1 : Matrix (Fin 2) (Fin 2) F))) :
-    (((blkHom h X : unitarySU 2 s F 3) : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      blk01 ((X : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) := rfl
 
 theorem blkHom_injective : Function.Injective (blkHom h) := by
   intro X Y hXY

@@ -61,8 +61,6 @@ theorem LA_cosArr (a b : Array ℕ) (ws : List (List Bool)) :
     LA (cosArr a b ws) = ws.map (wordL a.toList b.toList) := by
   simp [LA, cosArr, wordArr_eq, Function.comp_def]
 
-theorem findIdx?_arr {α : Type} (q : α → Bool) (xs : Array α) : xs.findIdx? q = xs.toList.findIdx? q := by
-  rw [← List.findIdx?_toArray, Array.toArray_toList]
 
 theorem piArr_eq (ts : Array (Array ℕ)) (g : Array ℕ) (p : ℕ) :
     (piArr ts g p).toList = piL (LA ts) g.toList p := by

@@ -34,8 +34,6 @@ variable {K : Type} [Field K] {d : ℕ} {w : Fin d → K} (hw : ∀ i, w i ≠ 0
 abbrev tBlockP (I : Finset (Fin d)) : Subgroup (StatedProj (matrixDerived (oQ (diagGL hw)))) :=
   ((oIsoBlock K hw I).subgroupOf (matrixDerived (oQ (diagGL hw)))).map (projH _)
 
-theorem blockP_le_tBlockP (I : Finset (Fin d)) : blockP K hw I ≤ tBlockP hw I :=
-  map_mono fun _ hg => oBlock_le_oIsoBlock hw I hg
 
 theorem tBlockP_le_centralizer (J I : Finset (Fin d)) (hI : I = J ∨ I = Jᶜ)
     (hJ : signGL K J ∈ matrixDerived (oQ (diagGL hw))) :

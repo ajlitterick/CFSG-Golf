@@ -106,19 +106,6 @@ theorem s2Fix_Z : ∀ n ∈ (zCert 1).pts.toList,
     (∀ k < 3, (s2Arrs[k]!)[1046 + n]! = 1046 + n) → n = 1 ∨ n = 277 :=
   Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem sArrs_size : ∀ k < 4, (sArrs[k]!).size = 3510 :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem s2Arrs_size : ∀ k < 3, (s2Arrs[k]!).size = 3510 :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem indSigma_spec :
-    ∀ p ∈ indSigma, p.1 ∈ (wCert 7).pts.toList ∧ sigmaFun p.1 = p.2 :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem indTau_spec :
-    ∀ p ∈ indTau, p.1 ∈ (zCert 1).pts.toList ∧ tauFun p.1 = p.2 :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem sigma_check : sigmaFun 7 = 24 ∧ (∀ u ∈ (wCert 7).pts.toList,
     sigmaFun u ∈ (zCert 24).pts.toList ∧ ∀ g < 2, sigmaFun (linW g u) = zAct g (sigmaFun u)) ∧
@@ -131,16 +118,5 @@ theorem tau_check : tauFun 1 = 277 ∧ ∀ n ∈ (zCert 1).pts.toList,
       ∀ g < 2, tauFun (zAct g n) = zAct g (tauFun n) :=
   Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem indSigma_graph :
-    ∀ u ∈ (wCert 7).pts.toList, (u, sigmaFun u) ∈ indSigma :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem indTau_graph :
-    ∀ n ∈ (zCert 1).pts.toList, (n, tauFun n) ∈ indTau :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem hexMask_lt : ∀ i < 76,
-    hexMask ((hexCat (hCat i)).map jEmb) < hexMask ((hexCat (hCat (i + 1))).map jEmb) :=
-  Certificates.certificate3035.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
 
 end CFSG.Monster.B.Fischer

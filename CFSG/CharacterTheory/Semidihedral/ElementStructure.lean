@@ -57,16 +57,6 @@ theorem quaternion_unique_involution (n : ℕ) (hn : 3 ≤ n)
     simp only [ZMod.val_one_eq_one_mod, show (1 % 2 : ℕ) = 1 by decide] at hQ
     omega
 
-theorem quaternion_involution_iff (n : ℕ) (hn : 3 ≤ n)
-    (g : quaternionSubgroup n) :
-    orderOf g = 2 ↔ (g : SemidihedralGroup n) = z n := by
-  rw [← orderOf_injective (quaternionSubgroup n).subtype Subtype.val_injective]
-  change orderOf (g : SemidihedralGroup n) = 2 ↔ (g : SemidihedralGroup n) = z n
-  constructor
-  · exact quaternion_unique_involution n hn g g.property
-  · intro h
-    rw [h]
-    exact orderOf_z n hn
 
 theorem negative_quarter_eq_element (n : ℕ) (hn : 4 ≤ n) :
     r n ^ (-((2 ^ (n - 3) : ℕ) : ℤ)) =
@@ -104,37 +94,5 @@ theorem modulus_div_four (n : ℕ) (hn : 4 ≤ n) :
     ring
   omega
 
-theorem index_two_and_element_structure (n : ℕ) (hn : 4 ≤ n) :
-    Subgroup.center (SemidihedralGroup n) = Subgroup.zpowers (z n) ∧
-    Nat.card (Subgroup.center (SemidihedralGroup n)) = 2 ∧
-    commutator (SemidihedralGroup n) = Subgroup.zpowers (r n ^ 2) ∧
-    (∀ H : Subgroup (SemidihedralGroup n), H.index = 2 ↔
-      H = rotationSubgroup n ∨ H = dihedralSubgroup n ∨ H = quaternionSubgroup n) ∧
-    (rotationSubgroup n).Normal ∧ (dihedralSubgroup n).Normal ∧
-    (quaternionSubgroup n).Normal ∧ IsCyclic (rotationSubgroup n) ∧
-    Nat.card (rotationSubgroup n) = modulus n ∧
-    Nonempty (dihedralSubgroup n ≃* DihedralGroup (modulus n / 2)) ∧
-    Nat.card (dihedralSubgroup n) = modulus n ∧
-    Nat.card (quaternionSubgroup n) = modulus n ∧
-    z n ∈ quaternionSubgroup n ∧ orderOf (z n) = 2 ∧
-    (∀ g : quaternionSubgroup n, orderOf g = 2 ↔ (g : SemidihedralGroup n) = z n) ∧
-    (∀ i : ℤ, (r n ^ i * s n) ^ 2 = z n ^ i) ∧
-    (∀ g : SemidihedralGroup n, orderOf g = 2 ↔
-      g = z n ∨ ∃ j : Fin (modulus n / 2), g = r n ^ (2 * j.val) * s n) ∧
-    (∀ j : ℤ, orderOf (r n ^ (2 * j + 1) * s n) = 4) ∧
-    (∀ g : SemidihedralGroup n, orderOf g = 2 → g ∈ dihedralSubgroup n) ∧
-    (∀ g : SemidihedralGroup n, g ∈ dihedralSubgroup n →
-      (orderOf g = 4 ↔ g = r n ^ (modulus n / 4) ∨
-        g = r n ^ (-((modulus n / 4 : ℕ) : ℤ)))) := by
-  rw [modulus_div_two n (by omega), modulus_div_four n hn]
-  exact ⟨center_eq_zpowers n hn, center_card n hn, commutator_eq_zpowers_r_sq n hn,
-    index_eq_two_iff n (by omega), rotationSubgroup_normal n (by omega),
-    dihedralSubgroup_normal n (by omega), quaternionSubgroup_normal n (by omega),
-    rotationSubgroup_cyclic n, rotationSubgroup_natCard n (by omega),
-    ⟨(dihedralEquiv n hn).symm⟩, dihedralSubgroup_card n hn, quaternionSubgroup_card n hn,
-    z_mem_quaternionSubgroup n (by omega), orderOf_z n (by omega),
-    quaternion_involution_iff n (by omega), reflection_zpow_square n (by omega),
-    involution_iff n (by omega), odd_reflection_order n (by omega),
-    involution_mem_dihedralSubgroup n (by omega), dihedral_order_four_iff n hn⟩
 
 end CFSG.Semidihedral

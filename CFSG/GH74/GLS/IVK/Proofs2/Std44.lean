@@ -84,8 +84,6 @@ variable {K X : Type} [Group K] [Group X]
       rw [map_mul, map_mul, φ.apply_symm_apply]
       exact hx'))
 
-theorem centralizerEquiv_coe (φ : K ≃* X) (u : K) (y : ↥(centralizer ({u} : Set K))) :
-    ((centralizerEquiv φ u y : ↥(centralizer ({φ u} : Set X))) : X) = φ (y : K) := rfl
 
 theorem comp_centralizerEquiv (φ : K ≃* X) (u : K) :
     φ.toMonoidHom.comp (centralizer ({u} : Set K)).subtype =

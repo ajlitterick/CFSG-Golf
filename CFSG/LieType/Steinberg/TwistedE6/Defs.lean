@@ -142,21 +142,6 @@ theorem sigmaGL_xu (θ : k →+* k) {γ : Fin (Tag.rank .E6) → ℤ} (hγ : IsR
     rw [hbit]
     rfl
 
-theorem sigmaGL_xu_single (θ : k →+* k) (i : Fin (Tag.rank .E6)) (c : k) :
-    sigmaGL k θ (e6Data_valid.xu k (Pi.single i 1) c) =
-      e6Data_valid.xu k (Pi.single (rhoPerm i) 1) (θ c) := by
-  obtain ⟨ε, -, hε, h⟩ := sigmaGL_xu θ (isRoot_single .E6 i)
-  have hi : (i : ℕ) < (Tag.rootCertificate .E6).roots.length :=
-    lt_of_lt_of_le i.2 MinData.rank_le_length
-  rw [h, hε i hi (MinData.root_basis i) (epsBit_single i), one_mul, rho_single]
-
-theorem sigmaGL_xu_neg_single (θ : k →+* k) (i : Fin (Tag.rank .E6)) (c : k) :
-    sigmaGL k θ (e6Data_valid.xu k (-Pi.single i 1) c) =
-      e6Data_valid.xu k (-Pi.single (rhoPerm i) 1) (θ c) := by
-  obtain ⟨ε, -, hε, h⟩ := sigmaGL_xu θ (isRoot_neg_single .E6 i)
-  have hi : (Tag.rootCertificate .E6).image i i < (Tag.rootCertificate .E6).roots.length :=
-    MinData.image_lt (lt_of_lt_of_le i.2 MinData.rank_le_length) i
-  rw [h, hε _ hi (MinData.root_image_self i) (epsBit_image_self i), one_mul, rho_neg_single]
 
 theorem sigmaGL_mem (θ : k →+* k) {g : (Module.End k (Fin e6Data.d →₀ k))ˣ}
     (hg : g ∈ e6Data_valid.minGroup k) : sigmaGL k θ g ∈ e6Data_valid.minGroup k := by
@@ -174,9 +159,6 @@ variable (k)
   ((sigmaGL k θ).domRestrict (e6Data_valid.minGroup k)).codRestrict (e6Data_valid.minGroup k)
     fun g => sigmaGL_mem θ g.2
 
-theorem coe_sigma (θ : k →+* k) (g : e6Data_valid.minGroup k) :
-    ((sigma k θ g : e6Data_valid.minGroup k) : (Module.End k (Fin e6Data.d →₀ k))ˣ) =
-      sigmaGL k θ g := rfl
 
 @[expose] def fixedGroup (θ : k →+* k) : Subgroup (e6Data_valid.minGroup k) :=
   MonoidHom.eqLocus (sigma k θ) (MonoidHom.id _)

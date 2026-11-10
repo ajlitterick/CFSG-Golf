@@ -14,11 +14,6 @@ theorem original_involution_fixing_conjugator_mem_centralizer
   apply Subgroup.mem_centralizer_singleton_iff.mpr
   exact mul_inv_eq_iff_eq_mul.mp hfix
 
-theorem original_centralizer_conjugation_ambient
-    (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (g b : involutionCentralizer n S e) :
-    ((MulAut.conj g b : involutionCentralizer n S e) : G) =
-      (g : G) * (b : G) * (g : G)⁻¹ := rfl
 
 theorem original_component_image_conjugation
     {G : Type} [Group G] (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))

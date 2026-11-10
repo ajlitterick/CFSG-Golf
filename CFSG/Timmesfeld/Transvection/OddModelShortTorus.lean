@@ -29,19 +29,6 @@ theorem shortWeyl_inv_eq_shortWeyl_neg {a b : Fin n} (hab : a ≠ b) (ha : a ≠
   rw [mul_assoc]
   simp only [inv_neg, neg_neg]
 
-theorem shortTorus_mul {a b : Fin n} (hab : a ≠ b) (ha : a ≠ Fin.rev a) (hb : b ≠ Fin.rev b)
-    (hba : b ≠ Fin.rev a) {c c' : F} (hc : c ≠ 0) (hc' : c' ≠ 0) :
-    shortTorus σ hσ hab ha hb (c * c') =
-      shortTorus σ hσ hab ha hb c * shortTorus σ hσ hab ha hb c' := by
-  apply mat_injective
-  rw [map_mul, mat_apply, mat_apply, mat_apply,
-    coe_shortTorus σ hσ hab ha hb hba (mul_ne_zero hc hc'),
-    coe_shortTorus σ hσ hab ha hb hba hc, coe_shortTorus σ hσ hab ha hb hba hc',
-    diagonal_mul_diagonal]
-  congr 1
-  funext s
-  simp only [shortTorusFun]
-  split_ifs <;> (try simp only [map_mul]) <;> ring
 
 private theorem shortSign_shortTorusFun {a b : Fin n} (hab : a ≠ b) (ha : a ≠ Fin.rev a)
     (hb : b ≠ Fin.rev b) (hba : b ≠ Fin.rev a) {κ c : F} (hκ : κ ≠ 0) (hc : c ≠ 0) :

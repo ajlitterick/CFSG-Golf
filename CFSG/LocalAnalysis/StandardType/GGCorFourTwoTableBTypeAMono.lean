@@ -23,11 +23,6 @@ theorem rootT_right (ζ : K) {i j : Fin d} (hij : i ≠ j) : rootT ζ i j j = ζ
 theorem rootT_other (ζ : K) {i j k : Fin d} (hki : k ≠ i) (hkj : k ≠ j) : rootT ζ i j k = 1 := by
   simp [rootT, hki, hkj]
 
-theorem rootT_comp {f : K →* K} (ζ : K) (i j : Fin d) (hf : ∀ x : K, f x⁻¹ = (f x)⁻¹) :
-    (fun k => f (rootT ζ i j k)) = rootT (f ζ) i j := by
-  funext k
-  unfold rootT
-  split_ifs <;> simp [hf]
 
 theorem eq_of_mul_rootT {ζ : K} (hζ : ζ ≠ ζ⁻¹) (A : Matrix (Fin d) (Fin d) K)
     (hA : ∀ i j : Fin d, i ≠ j → ∃ D : Fin d → K, A * diagonal (rootT ζ i j) = diagonal D * A)

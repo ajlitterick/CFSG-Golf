@@ -49,11 +49,6 @@ theorem rootChar_aShortTD4 (v : Fin d4.rank → ℤ) :
     show aShortTD4 K (nd 2) = -1 from rfl, show aShortTD4 K (nd 3) = 1 from rfl, one_zpow,
     one_zpow, one_zpow, one_mul, one_mul, mul_one]
 
-theorem rootChar_aLongTD4 (v : Fin d4.rank → ℤ) :
-    rootChar (aLongTD4 K) v = (-1 : Kˣ) ^ (v (nd 0) + v (nd 1) + v (nd 3)) := by
-  rw [rootChar_four, show aLongTD4 K (nd 0) = -1 from rfl, show aLongTD4 K (nd 1) = -1 from rfl,
-    show aLongTD4 K (nd 2) = 1 from rfl, show aLongTD4 K (nd 3) = -1 from rfl, one_zpow,
-    mul_one, zpow_add, zpow_add]
 
 theorem tdNhat_inv_smul_zero :
     tdNhat⁻¹ • (Pi.single (nd 0) 1 : Fin d4.rank → ℤ) = vd4 (-1) 0 (-1) 0 := by

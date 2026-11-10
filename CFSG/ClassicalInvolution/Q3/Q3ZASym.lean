@@ -26,7 +26,6 @@ variable {G : Type} [Group G] {Ω : Set (Subgroup G)} (T : SymTri G Ω)
 theorem sw_mul_self : T.sw * T.sw = 1 := by
   rw [sw, ← map_mul, swapElt_mul_self, map_one]
 
-theorem sw_inv : T.sw⁻¹ = T.sw := inv_eq_of_mul_eq_one_right T.sw_mul_self
 
 theorem sw_mem_range : T.sw ∈ T.Θ₀₁.range := ⟨swapElt, rfl⟩
 
@@ -59,9 +58,6 @@ theorem sw_conj_rL (u : F3) : T.sw * rL T.Θ₀₁ u * T.sw⁻¹ = rU T.Θ₀₁
   show T.sw * T.Θ₀₁ (sb (lsl u)) * T.sw⁻¹ = T.Θ₀₁ (sb (usl u))
   rw [sw_conj, mul_inv_eq_iff_eq_mul.2 (swap_mul_sbL u)]
 
-theorem Θ₀₁_lb0_mem (x : SL(2, F3)) : T.Θ₀₁ (longBlock F3 2 0 x) ∈ T.K₀ := by
-  rw [← T.blk₀₁₀]
-  exact ⟨_, mem_planeGroup_lb 0 x, rfl⟩
 
 theorem Θ₀₁_lb1_mem (x : SL(2, F3)) : T.Θ₀₁ (longBlock F3 2 1 x) ∈ T.K₁ := by
   rw [← T.blk₀₁₁]

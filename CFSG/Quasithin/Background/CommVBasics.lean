@@ -65,33 +65,5 @@ theorem commV_zpowers_conj_eq (x g : MulAut V) :
   rw [← commV_map_conj_eq, MonoidHom.map_zpowers]
   rfl
 
-theorem commV_le_fixV_of_perfect {L₁ L₂ : Subgroup (MulAut V)}
-    (hcomm : ∀ a ∈ L₁, ∀ b ∈ L₂, a * b = b * a) (hperf : Group.IsPerfect ↥L₂)
-    {C W₁ W₂ : Subgroup V} (hC : C ≤ fixV L₂) (hW₁ : commV L₁ ≤ W₁) (hW₂ : commV L₂ ≤ W₂)
-    (hCW : W₁ ⊓ W₂ ≤ C) : commV L₁ ≤ fixV L₂ := by
-  intro u hu
-  have hmem : ∀ b ∈ L₂, (b : MulAut V) u * u⁻¹ ∈ C := by
-    intro b hb
-    refine hCW ⟨hW₁ ?_, hW₂ (Subgroup.subset_closure ⟨b, hb, u, rfl⟩)⟩
-    exact mul_mem (commV_apply_mem_of_commute hcomm hb hu) (inv_mem hu)
-  let f : ↥L₂ →* V :=
-    { toFun := fun b => (b : MulAut V) u * u⁻¹
-      map_one' := by simp
-      map_mul' := fun b b' => by
-        have hc : (b' : MulAut V) u * u⁻¹ ∈ fixV L₂ := hC (hmem b' b'.2)
-        have h1 : (b : MulAut V) ((b' : MulAut V) u * u⁻¹) = (b' : MulAut V) u * u⁻¹ := hc b b.2
-        rw [map_mul, map_inv] at h1
-        have h2 : (b : MulAut V) ((b' : MulAut V) u) =
-            (b' : MulAut V) u * u⁻¹ * (b : MulAut V) u := mul_inv_eq_iff_eq_mul.1 h1
-        show ((b : MulAut V) * (b' : MulAut V)) u * u⁻¹ = _
-        rw [MulAut.mul_apply, h2]
-        ac_rfl }
-  have hker : ∀ b : ↥L₂, f b = 1 := by
-    intro b
-    have : b ∈ commutator ↥L₂ := by rw [hperf.commutator_eq_top]; trivial
-    exact MonoidHom.mem_ker.1 (Abelianization.commutator_subset_ker f this)
-  intro b hb
-  have := hker ⟨b, hb⟩
-  exact mul_inv_eq_one.1 this
 
 end CFSG.Quasithin

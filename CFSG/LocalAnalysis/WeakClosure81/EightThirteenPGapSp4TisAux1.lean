@@ -29,10 +29,6 @@ lemma wcgapst_coe_permGL (σ : Equiv.Perm ι) :
     ((wcgapst_permGL (F := F) σ : GL ι F) : Matrix ι ι F) = Equiv.Perm.permMatrix F σ := by
   rw [wcgapst_permGL]
 
-lemma wcgapst_coe_permGL_inv (σ : Equiv.Perm ι) :
-    (((wcgapst_permGL (F := F) σ)⁻¹ : GL ι F) : Matrix ι ι F) =
-      Equiv.Perm.permMatrix F σ.symm := by
-  simp [wcgapst_permGL]
 
 lemma wcgapst_permMatrix_mul_left (σ : Equiv.Perm ι) (N : Matrix ι ι F) :
     Equiv.Perm.permMatrix F σ.symm * N = N.submatrix σ.symm id :=

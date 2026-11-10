@@ -54,12 +54,6 @@ theorem mk_monoAO_sq
     modTwoUnit_mul]
   exact (monomial_involution_classes.2.2.2.2.2.2.1 i hi1 hi).2
 
-theorem cosetRep_sq_mem
-    {i : ℕ} (hi1 : 1 ≤ i) (hi : i < 7) :
-    ((cosetRep i * cosetRep i : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) ∈ rhoQ := by
-  refine mem_rhoQ_of_piVis_eq_one ?_
-  rw [map_mul, piVis_cosetRep, ← MulOpposite.op_mul, ← QuotientGroup.mk_mul, mk_monoAO_sq hi1 hi,
-    MulOpposite.op_one]
 
 theorem cosetRep_not_mem
     {i : ℕ} (hi1 : 1 ≤ i) (hi : i < 7) :
@@ -84,29 +78,5 @@ theorem mem_cosetR_iff_exists
   · rw [hr, Subgroup.coe_mul, Subgroup.coe_inv, mul_inv_cancel_left]
   · rw [Subgroup.coe_mul, Subgroup.coe_inv, hr, inv_mul_cancel_left]
 
-theorem visible_involution_coset_representatives_data :
-    ∀ i ∈ ({1, 2, 6} : Finset ℕ),
-      ((cosetCode i : C) : Fin 24 → ZMod 2) = bvec 24 (monoSign.getD i 0) ∧
-      (seedAut (monoSeed.getD i 0) : Equiv.Perm (Fin 24)) = decode (seedA (monoSeed.getD i 0)) ∧
-      (YU ⟨cosetCode i, 0⟩, gO (cosetCode i)) ∈ Pvis ∧
-      (sU (seedAut (monoSeed.getD i 0)), PO (seedAut (monoSeed.getD i 0))) ∈ Pvis ∧
-      (cosetPair i : GL SpinIdx ℚ × latticeO) =
-        (YU ⟨cosetCode i, 0⟩ * sU (seedAut (monoSeed.getD i 0)), monoAO i) ∧
-      monoAO i = gO (cosetCode i) * PO (seedAut (monoSeed.getD i 0)) ∧
-      mat (monoAO i) = monoA i ∧
-      (cosetRep i : SpaceB ≃ₗ[ℚ] SpaceB) = thetaEquiv (cosetPair i) ∧
-      piVis (cosetRep i) = MulOpposite.op (QuotientGroup.mk (monoAO i)) ∧
-      ((cosetRep i * cosetRep i : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) ∈ rhoQ ∧
-      ((cosetRep i : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) ∉ rhoQ ∧
-      (∀ f : Gvis, f ∈ cosetR i ↔
-        ∃ r : Q, (f : SpaceB ≃ₗ[ℚ] SpaceB) = cosetRep i * rhoEquiv r) ∧
-      (∀ f : Gvis, f ∈ cosetR i ↔ piVis f = piVis (cosetRep i)) := by
-  intro i hi
-  have hi' : 1 ≤ i ∧ i < 7 := by
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
-    omega
-  exact ⟨rfl, coe_seedAut_eq (monoSeed_lt i), YU_gO_mem_Pvis _, sU_PO_mem_Pvis _, rfl, rfl,
-    mat_monoAO i, rfl, piVis_cosetRep i, cosetRep_sq_mem hi'.1 hi'.2,
-    cosetRep_not_mem hi'.1 hi'.2, mem_cosetR_iff_exists i, mem_cosetR_iff i⟩
 
 end CFSG.Monster.B.TwoA.Census

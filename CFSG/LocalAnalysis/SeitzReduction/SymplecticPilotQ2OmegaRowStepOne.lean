@@ -162,14 +162,6 @@ theorem mul_self_map_conj_eq_one {M : Subgroup G} {X : Type*} [Group X] (φ : M 
 
 end Global
 
-@[expose] def OmegaTwoHighTypeAO2Input : Prop :=
-  ∀ (F : Type) [Field F] [Finite F] [CharP F 2] (V : Type) [AddCommGroup V] [Module F V]
-    [FiniteDimensional F V] (Q : QuadraticForm F V), Nat.card F = 2 →
-    (polarBilin Q).Nondegenerate → 10 ≤ finrank F V →
-    ∀ s : V ≃ₗ[F] V, s ∈ ⁅TauCeti.QuadraticMap.orthogonalGroup Q,
-      TauCeti.QuadraticMap.orthogonalGroup Q⁆ → s * s = 1 → OmegaTwoHighTypeA Q s →
-      ¬ (2 * finrank F (omegaInvSpace s) = finrank F V ∧ finrank F (omegaInvSpace s) % 4 = 2) →
-        s ∈ omegaO2Cent Q s
 
 @[expose] def SpTwoOmegaLagrangianATwoInput (κ : Sp2mKind) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →

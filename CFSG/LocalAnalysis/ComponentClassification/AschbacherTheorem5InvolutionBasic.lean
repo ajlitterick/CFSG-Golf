@@ -121,38 +121,6 @@ omit [Finite G] in
 theorem two_power_of_sq {u : G} (hu : u ^ 2 = 1) : ∃ k : ℕ, u ^ (2 ^ k) = 1 :=
   ⟨1, by rw [pow_one]; exact hu⟩
 
-@[expose] def factorCentralizer (D : Subgroup G) (Ā : Subgroup (D ⧸ aschbacherThm5OddCore D)) :
-    Subgroup G :=
-  ((Subgroup.centralizer (Ā : Set (D ⧸ aschbacherThm5OddCore D))).comap
-    (QuotientGroup.mk' (aschbacherThm5OddCore D))).map D.subtype
-
-omit [Finite G] in
-theorem mem_factorCentralizer_iff (Ā : Subgroup (D ⧸ aschbacherThm5OddCore D)) (y : G) :
-    y ∈ factorCentralizer D Ā ↔ y ∈ D ∧
-      aschbacherThm5Centralizes (aschbacherThm5Core D) (aschbacherThm5Preimage D Ā) y := by
-  rw [factorCentralizer, Subgroup.mem_map]
-  constructor
-  · rintro ⟨d, hd, rfl⟩
-    refine ⟨d.2, (centralizes_iff_quotient_commutes D Ā d).mpr fun a ha => ?_⟩
-    exact ((Subgroup.mem_centralizer_iff.mp hd) a ha).symm
-  · rintro ⟨hy, hcent⟩
-    refine ⟨⟨y, hy⟩, ?_, rfl⟩
-    rw [Subgroup.mem_comap, Subgroup.mem_centralizer_iff]
-    intro a ha
-    exact ((centralizes_iff_quotient_commutes D Ā ⟨y, hy⟩).mp hcent a ha).symm
-
-omit [Finite G] in
-theorem factorCentralizer_le_D (Ā : Subgroup (D ⧸ aschbacherThm5OddCore D)) :
-    factorCentralizer D Ā ≤ D :=
-  Subgroup.map_subtype_le _
-
-omit [Finite G] in
-theorem factor_le_factorCentralizer
-    (hcomm : ∀ i j, i ≠ j → ∀ x ∈ Abar i, ∀ y ∈ Abar j, x * y = y * x) {i j : Fin r}
-    (hij : i ≠ j) :
-    aschbacherThm5Preimage D (Abar j) ≤ factorCentralizer D (Abar i) := fun y hy =>
-  (mem_factorCentralizer_iff (Abar i) y).mpr
-    ⟨preimage_le D _ hy, cross_factor_centralizes D Abar hcomm i j hij y hy⟩
 
 theorem factor_even (hyp : Hyp61 G D r Abar) (i : Fin r) :
     Even (Nat.card (aschbacherThm5Preimage D (Abar i))) := by
@@ -185,12 +153,6 @@ theorem pRank_le_one_of_conjugate (hin : SectionSevenBase) (hC : Counterexample 
   intro u hu hne
   exact hgood u (hEX hu) hne (two_power_of_sq (hE.2 u hu))
 
-theorem lemma_7_2_left (hin : SectionSevenBase) (hC : Counterexample G D r Abar) {t g : G}
-    (h : Hyp71 D t g) (i : Fin r) :
-    pRank 2 (factorCentralizer D (Abar i) ⊓ Subgroup.centralizer ({t} : Set G)) ≤ 1 :=
-  pRank_le_one_of_conjugate hin hC (h.not_mem hC.hyp) (inf_le_right.trans h.centralizer_le)
-    fun x hx hne htwo => centralizer_le_of_centralizes hC i htwo hne
-      ((mem_factorCentralizer_iff (Abar i) x).mp hx.1).2
 
 omit [Finite G] in
 theorem card_fixedPoints_eq {X : Subgroup G} {t : G}

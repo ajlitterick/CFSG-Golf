@@ -48,9 +48,6 @@ variable {G : Type} [Group G]
     rw [e]
     exact inv_mem h1
 
-theorem mem_commTo {X Y : Subgroup G} {g : G} :
-    g ∈ commTo X Y ↔ g ∈ normalizer (X : Set G) ∧ g ∈ normalizer (Y : Set G) ∧
-      ∀ x ∈ X, x * g * x⁻¹ * g⁻¹ ∈ Y := Iff.rfl
 
 theorem commutator_le_of_le_commTo {X Y L : Subgroup G} (h : L ≤ commTo X Y) : ⁅X, L⁆ ≤ Y := by
   rw [commutator_le]

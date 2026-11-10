@@ -53,13 +53,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw
     (j : Nat) : Bool :=
   Nat.beq (cntBT n w LR TR SP (Nat.sub m (nat_lit 3)) (nat_lit 3) (keyProd n w LR TR (KJ j))) (VT j)
 
-@[expose] noncomputable def btSetK (n w BP m SP : Nat) (L : List Nat) : Bool :=
-  bAnd(Nat.beq (CFSG.KS.Mathieu.lenN L) m, bAnd(CFSG.KS.Mathieu.allLtN n L,
-  bAnd(Nat.beq (List.rec (motive := fun _ => Nat) (nat_lit 0)
-      (fun x _ acc => Nat.lor acc (Nat.shiftLeft (nat_lit 1) x)) L) SP,
-  bAnd(allN m (fun i => inS SP (pg w (mask w) BP i)),
-    allN m (fun i => allN i (fun j =>
-      bIf(Nat.beq (pg w (mask w) BP i) (pg w (mask w) BP j), false, true)))))))
 
 end CFSG.KS.SporSch
 

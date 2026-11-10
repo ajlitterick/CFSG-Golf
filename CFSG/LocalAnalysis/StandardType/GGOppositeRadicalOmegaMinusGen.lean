@@ -31,10 +31,6 @@ omit [Finite K] in
 theorem mpr_mIdx (i : Fin (n - 1)) (s : Bool) : mpr (mIdx (n := n) i s) = mIdx i (!s) := by
   cases s <;> rfl
 
-omit [Finite K] in
-theorem mIdx_eq_iff {i j : Fin (n - 1)} {s t : Bool} :
-    mIdx (n := n) i s = mIdx j t ↔ i = j ∧ s = t := by
-  cases s <;> cases t <;> simp [mIdx]
 
 omit [Finite K] in
 theorem polar_single_minusVec [CharP K 2] (b' : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2)

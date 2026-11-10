@@ -477,15 +477,6 @@ theorem injOn_posSet_lift' (hD : D.divisible = ∅) (hE : ChevalleyExtras D k x 
       exact le_iSup₂_of_le (f := fun v (_ : v ∈ L) => ⨆ (_ : f a < f v ∨ v = b), chevRoot X v)
         _ hL (le_iSup_of_le (Or.inl hf) le_rfl)
 
-theorem injOn_posSet_lift (hD : D.divisible = ∅) (hE : ChevalleyExtras D k x C O)
-    (hXadd : ∀ γ ∈ D.roots, ∀ c d, X γ (c + d) = X γ c * X γ d)
-    (hπX : ∀ γ ∈ D.roots, ∀ c, π (X γ c) = x γ c)
-    (hT : ∀ j, ∀ γ ∈ D.roots, ∀ c, tor j * X γ c * (tor j)⁻¹ = X γ (χ j γ * c))
-    (hsep : ∀ γ ∈ D.roots, ∀ δ ∈ D.roots, LinIndepPair γ δ → ∃ j, χ j γ = 1 ∧ χ j δ ≠ 1)
-    (f : (Fin D.rank → ℤ) →+ ℤ) :
-    Set.InjOn π ((chevSub X (posSet D.roots f) : Subgroup E) : Set E) :=
-  injOn_posSet_lift' hcen hD hE hXadd hπX hT
-    (fun γ hγ δ hδ hli => Or.inl (hsep γ hγ δ hδ hli)) f
 
 theorem commutatorFormula_lift' (hD : D.divisible = ∅) (hE : ChevalleyExtras D k x C O)
     (hXadd : ∀ γ ∈ D.roots, ∀ c d, X γ (c + d) = X γ c * X γ d)
@@ -518,14 +509,6 @@ theorem commutatorFormula_lift' (hD : D.divisible = ∅) (hE : ChevalleyExtras D
     refine congrArg List.prod (List.map_congr_left fun p hp => ?_)
     exact (hπX _ (hpos p hp).1 _).symm
 
-theorem commutatorFormula_lift (hD : D.divisible = ∅) (hE : ChevalleyExtras D k x C O)
-    (hXadd : ∀ γ ∈ D.roots, ∀ c d, X γ (c + d) = X γ c * X γ d)
-    (hπX : ∀ γ ∈ D.roots, ∀ c, π (X γ c) = x γ c)
-    (hT : ∀ j, ∀ γ ∈ D.roots, ∀ c, tor j * X γ c * (tor j)⁻¹ = X γ (χ j γ * c))
-    (hsep : ∀ γ ∈ D.roots, ∀ δ ∈ D.roots, LinIndepPair γ δ → ∃ j, χ j γ = 1 ∧ χ j δ ≠ 1) :
-    CommutatorFormula X O C :=
-  commutatorFormula_lift' hcen hD hE hXadd hπX hT
-    fun γ hγ δ hδ hli => Or.inl (hsep γ hγ δ hδ hli)
 
 theorem exists_section_of_lift' (hD : D.divisible = ∅) (hE : ChevalleyExtras D k x C O)
     (hB : PresentationB (Φ := RootSystem.ofCartan D.isFiniteType D.divisible) x)

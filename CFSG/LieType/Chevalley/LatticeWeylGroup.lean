@@ -76,27 +76,6 @@ theorem weylEquivLattice_simple
     weylEquivLattice τ (simple τ i) = latticeSimple τ i :=
   Subtype.ext (weylToAut_simple i)
 
-variable (τ) in
-theorem borel_monomial_data
-    (R : Type*) [CommRing R] :
-    latticeWeylGroup τ = Subgroup.closure (Set.range (reflectUnit τ)) ∧
-    (∀ i v, (reflectUnit τ i : Module.End ℤ (Fin τ.rank → ℤ)) v = reflect τ i v) ∧
-    (∃ e : WeylGroup τ ≃* latticeWeylGroup τ, (∀ i, e (simple τ i) = latticeSimple τ i) ∧
-      ∀ w v, ((e w : (Module.End ℤ (Fin τ.rank → ℤ))ˣ) : Module.End ℤ (Fin τ.rank → ℤ)) v =
-        w • v) ∧
-    torusGroup τ R = Subgroup.closure (Set.range fun p : Fin τ.rank × Rˣ => torusElt τ R p.1 p.2) ∧
-    monomialSubgroup τ R = Subgroup.closure
-      ((torusGroup τ R : Set (Module.End R (RootModule τ R))ˣ) ∪
-        Set.range fun i : Fin τ.rank => weylElt τ R i 1) ∧
-    borelGroup τ R = Subgroup.closure
-      ((torusGroup τ R : Set (Module.End R (RootModule τ R))ˣ) ∪ (posUnipotent τ R : Set _)) ∧
-    τ.symmetrizedCartan = τ.symmetrizer * τ.cartan ∧ τ.symmetrizedCartan.IsSymm := by
-  refine ⟨rfl, fun i v => rfl, ⟨weylEquivLattice τ, weylEquivLattice_simple, fun w v => rfl⟩,
-    rfl, ?_, ?_, rfl, symmetrizedCartan_isSymm τ⟩
-  · rw [Subgroup.closure_union, Subgroup.closure_eq]
-    rfl
-  · rw [Subgroup.closure_union, Subgroup.closure_eq, Subgroup.closure_eq]
-    rfl
 
 theorem orderOf_simple_eq_two
     (i : Fin τ.rank) : orderOf (simple τ i) = 2 :=

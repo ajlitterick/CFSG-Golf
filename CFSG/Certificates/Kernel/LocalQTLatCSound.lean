@@ -119,10 +119,6 @@ theorem ok_bfsM {C : List Lvl} {F : ℕ} (G : List ℕ) (Q : ℕ → Prop) (h1 :
   rw [bfsM_eq]
   exact (key d).1
 
-theorem inC_closure {C : List Lvl} {MG : List (Perm (Fin n))}
-    (hM : ∀ σ, InC n C σ ↔ σ ∈ Subgroup.closure {g | g ∈ MG}) {σ τ : Perm (Fin n)}
-    (hσ : InC n C σ) (hτ : InC n C τ) : InC n C (σ * τ) :=
-  (hM _).2 (Subgroup.mul_mem _ ((hM σ).1 hσ) ((hM τ).1 hτ))
 
 theorem member_spec (hn : n ≤ 32) {C : List Lvl} (hok : chainOK n C = true)
     (hI : chainInj n C = true) {d : ℕ} (L : List (Perm (Fin n))) (full : Bool)

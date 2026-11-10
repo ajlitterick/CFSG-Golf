@@ -50,8 +50,6 @@ variable {M V : Type} (O : Ops M V)
 @[expose] def conjMemOK [Inhabited M] (E : Array M) (H X : M) : Bool :=
   (List.range E.size).any fun j => O.conjOK H X E[j]!
 
-@[expose] def notMemOK [Inhabited M] (E : Array M) (X : M) (t : Nat) : Bool :=
-  (List.range E.size).all fun j => O.vne (O.vmul (O.unit t) X) (O.vmul (O.unit t) E[j]!)
 
 end Ops
 
@@ -87,9 +85,6 @@ namespace Ops
 
 variable {M V : Type} (O : Ops M V)
 
-@[expose] def genFacts (D : LocDetData) (K1 K2 : M) : Bool :=
-  decide (0 < D.ok1) && decide (0 < D.ok2) && O.eq (O.pow K1 D.ok1) O.one &&
-    O.eq (O.pow K2 D.ok2) O.one
 
 @[expose] def qFacts [Inhabited M] [Inhabited V] (E : Array M) (X Y : M) (t : Nat) : Bool :=
   O.memOK E X && O.memOK E Y && O.eq (O.pow X 3) O.one && O.eq (O.pow Y 3) O.one &&
@@ -100,28 +95,6 @@ variable {M V : Type} (O : Ops M V)
     O.conjOK H X (O.mul (O.pow X D.a) (O.pow Y D.c)) &&
     O.conjOK H Y (O.mul (O.pow X D.b) (O.pow Y D.d))
 
-@[expose] def cFacts [Inhabited M] (E : Array M) (K1 K2 C : M) (t : Nat) : Bool :=
-  O.eq (O.pow C 3) O.one && O.vne (O.vmul (O.unit t) C) (O.unit t) &&
-    O.eq (O.mul C K1) (O.mul K1 C) && O.eq (O.mul C K2) (O.mul K2 C) && O.notMemOK E C t &&
-    O.notMemOK E (O.mul C C) t
-
-@[expose] def perfFacts [Inhabited M] (E : Array M) (K U W : M) : Bool :=
-  O.memOK E U && O.memOK E W && O.eq (O.mul U W) (O.mul (O.mul K W) U)
-
-@[expose] def localDetFacts [Inhabited M] [Inhabited V] (D : LocDetData) (R E : Array M)
-    (par lab : Array Nat) (cl : Array (Array Nat)) : Bool :=
-  O.genFacts D R[D.rk1]! R[D.rk2]! &&
-    O.enumOK #[R[D.rk1]!, R[D.rk2]!] D.nK D.t E par lab cl &&
-    O.qFacts E R[D.rx]! R[D.ry]! D.t &&
-    O.hFacts D E R[D.rk1]! R[D.rk2]! R[D.rx]! R[D.ry]! R[D.rh]! &&
-    O.cFacts E R[D.rk1]! R[D.rk2]! R[D.rc]! D.t &&
-    O.perfFacts E R[D.rk1]! R[D.ru1]! R[D.rv1]! && O.perfFacts E R[D.rk2]! R[D.ru2]! R[D.rv2]!
-
-@[expose] def localDetCheck [Inhabited M] [Inhabited V] (D : LocDetData) : Bool :=
-  let R := O.regsOf D.seedA D.seedB D.nregs D.prog
-  let En := O.enumBFS #[R[D.rk1]!, R[D.rk2]!] D.nK
-  decide (2 ≤ D.nregs) && D.prog.all (Op.lt D.nregs) && D.regsLt &&
-    O.localDetFacts D R En.1 En.2.1 En.2.2.1 En.2.2.2
 
 end Ops
 

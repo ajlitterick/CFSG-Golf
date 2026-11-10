@@ -385,23 +385,6 @@ theorem model_base_contains_focal_of_v_order_two [Finite G]
   rw [modelSwapProjection_ker] at hdiff
   exact hdiff
 
-theorem modelBaseSylowQuotient_conjugate_eq_of_v_order_two [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hcard : Nat.card (Subgroup.normalizer (modelV S e : Set G) ⧸
-      modelVInnerCentralizer S e) = 2)
-    (x y : S) (hxy : IsConj (x : G) (y : G)) :
-    QuotientGroup.mk' ((modelBase S e).subgroupOf (S : Subgroup G)) x =
-      QuotientGroup.mk' ((modelBase S e).subgroupOf (S : Subgroup G)) y := by
-  have hpres : modelSwapProjection S e x = modelSwapProjection S e y := by
-    have H := modelSwapValue_conjugate_eq_of_v_order_two n hn S e hcard x y
-      x.property y.property hxy
-    rw [modelSwapValue_eq_projection S e _ x.property,
-      modelSwapValue_eq_projection S e _ y.property] at H
-    convert H using 1
-  apply QuotientGroup.eq_iff_div_mem.mpr
-  rw [← modelSwapProjection_ker]
-  change modelSwapProjection S e (x / y) = 1
-  rw [div_eq_mul_inv, map_mul, map_inv, hpres, mul_comm, modelSwap_inv_mul_cancel]
 
 theorem commutator_eq_top_of_nonabelian_simple [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a) : commutator G = ⊤ := by

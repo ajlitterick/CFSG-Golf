@@ -49,14 +49,6 @@ theorem odd_false_of {m b : ℕ} (L : List ℕ) (hL : ∀ q ∈ L, q.Prime) (hm 
   have h2 : 2 ^ b ∣ A * (p ^ 2 - 1) := h ▸ hb.mul_right _
   exact hbad p hpL hp5 ((coprime_two_pow_of_odd b hA).dvd_of_dvd_mul_left h2)
 
-theorem false_of_odd_parts {m c0 N k a b o0 o1 : ℕ} (hm : m = 2 ^ b * o1) (hc : c0 = 2 ^ a * o0)
-    (ho0 : Odd o0) (ho1 : Odd o1) (hN : Odd N) (h : m * 2 ^ k = N * c0) (hne : o1 ≠ N * o0) :
-    False := by
-  have e : 2 ^ (b + k) * o1 = 2 ^ a * (N * o0) := by
-    calc 2 ^ (b + k) * o1 = m * 2 ^ k := by rw [hm, pow_add]; ring
-      _ = N * c0 := h
-      _ = 2 ^ a * (N * o0) := by rw [hc]; ring
-  exact hne (two_pow_mul_odd_inj ho1 (hN.mul ho0) e).2
 
 theorem fixShape_m11 : FixShape 7920 where
   fin := not_fin_of_odd (a := 4) (o := 495) (by norm_num) (by decide) (by decide)

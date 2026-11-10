@@ -56,10 +56,6 @@ theorem swapAt_left (t : ℕ → ZMod 2) (i : ℕ) : swapAt t i i = t (i + 1) :=
 theorem swapAt_right (t : ℕ → ZMod 2) (i : ℕ) : swapAt t i (i + 1) = t i := by
   simp [swapAt]
 
-theorem swapAt_swapAt (t : ℕ → ZMod 2) (i : ℕ) : swapAt (swapAt t i) i = t := by
-  funext k
-  simp only [swapAt]
-  split_ifs <;> first | rfl | omega | simp_all
 
 theorem Sw.mono {m m' : ℕ} (h : m ≤ m') {t t' : ℕ → ZMod 2} (hs : Sw m t t') : Sw m' t t' := by
   obtain ⟨i, hi, e⟩ := hs

@@ -18,12 +18,6 @@ open scoped Pointwise
         ∃ (n : ℕ) (F : Type) (_ : Field F) (_ : Fintype F) (α : ↥L →* ↥(StatedSL 3 F)),
           Fintype.card F = 2 ^ n ∧ IsModO2Surj L α
 
-@[expose] def AS_C_1_34 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (G₀ R L : Subgroup G), IsMSPair G₀ R → L ∈ cComp G₀ →
-    (G₀ : Set G) = (L : Set G) * (R : Set G) →
-    (∃ (n : ℕ) (F : Type) (_ : Field F) (_ : Fintype F) (α : ↥L →* ↥(StatedSL 3 F)),
-      Fintype.card F = 2 ^ n ∧ IsModO2Surj L α) →
-      ∃ i : ℕ, IsC134Case i G₀ R L
 
 @[expose] def AS_A_1_12 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
@@ -60,16 +54,6 @@ open scoped Pointwise
     U ⊓ (V ⊓ Subgroup.centralizer (T : Set G)) ≠ ⊥ →
       CharTwo (Subgroup.centralizer (U : Set G))
 
-@[expose] def AS_E_6_7_one : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M V U K : Subgroup G), E6.HypE61 T M V →
-    GammaE64 M V U → T ⊓ Subgroup.centralizer (V : Set G) ≤ K →
-    K ≤ Subgroup.centralizer (U : Set G) → CharTwo K →
-      ∃ (s : ℕ) (Lb : Fin s → Subgroup G), s ≤ 2 ∧
-        (∀ i, IsBlock2 K (Lb i) ∧
-          ((∃ n : ℕ, IsLin2Type (Lb i) n) ∨ IsAltType (Lb i) 3 ∨ IsAltType (Lb i) 5) ∧
-          Lb i = ⁅Lb i, thompsonJ (T ⊓ Subgroup.centralizer (V : Set G))⁆) ∧
-        (∀ i j, i ≠ j → ⁅Lb i, Lb j⁆ = ⊥) ∧
-        (K : Set G) = ((K ⊓ M : Subgroup G) : Set G) * ((⨆ i, Lb i : Subgroup G) : Set G)
 
 @[expose] def AS_E_6_14 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M V W M₀ : Subgroup G), E6.HypE61 T M V → W ≠ ⊥ →

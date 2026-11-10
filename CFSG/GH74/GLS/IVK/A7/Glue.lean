@@ -107,10 +107,6 @@ theorem ivk_1_1b : IVK_1_1b := by
   rw [hf, hz]
   exact A7.cycleType_fz g
 
-theorem ivk_1_1c_a : IVK_1_1c_a := by
-  intro T f hsplit
-  obtain ⟨-, hcyc, -⟩ := hsplit
-  exact A7.centralizer_A7_swap_equiv (Equiv.Perm.isSwap_iff_cycleType.mpr hcyc)
 
 theorem ivk_1_1d : IVK_1_1d := by
   refine ⟨?_, ?_⟩
@@ -167,9 +163,6 @@ theorem ivk_1_1g : IVK_1_1g := by
   show sSup {r : ℕ | ∃ E : Subgroup ↥H, IsElementaryAbelian 2 ↥E ∧ Nat.card ↥E = 2 ^ r} = 2
   exact le_antisymm (csSup_le ⟨2, hmem⟩ (fun r hr => hub r hr)) (le_csSup hbdd hmem)
 
-theorem ivk_1_1h : IVK_1_1h := by
-  intro T f hsplit z hzT hz2 hzc
-  exact A7.centralizer_A7_two_two_two_equiv (ivk_1_1b T f hsplit z hzT hz2 hzc)
 
 theorem ivk_1_1f : IVK_1_1f := by
   intro U hUA hU4

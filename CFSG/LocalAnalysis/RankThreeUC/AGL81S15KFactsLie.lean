@@ -93,11 +93,6 @@ open scoped commutatorElement
   Nat.card R = 3 ^ 5 ∧ (∀ x : R, x ^ 3 = 1) ∧ Nat.card (Subgroup.center R) = 3 ∧
     commutator R ≤ Subgroup.center R
 
-@[expose] def K4143Classical : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (L : Subgroup X), L.Normal → CFSG.Open.IsQuasisimple L →
-    Subgroup.center ↥L = ⊥ → IsClassicalTwoOrG2 (↥L ⧸ Subgroup.center ↥L) →
-    CFSG.Open.pRank 3 L = 3 → CFSG.Open.pRank 3 (⊤ : Subgroup X) = 3 →
-      pElementSubgroup 3 (⊤ : Subgroup X) ≤ L
 
 @[expose] def K4143ShapeIdx : TauCeti.LieTypeIndex → Prop
   | .B 3 Q => Q.p = 2
@@ -129,29 +124,6 @@ theorem k4143ShapeIdx_cases {d : TauCeti.LieTypeIndex} (h : K4143ShapeIdx d) :
   · exact Or.inr (Or.inr (Or.inr ⟨_, rfl, h⟩))
   · exact h.elim
 
-theorem isClassicalOrG2Index_of_k4143ShapeIdx {d : TauCeti.LieTypeIndex} (h : K4143ShapeIdx d) :
-    IsClassicalOrG2Index d := by
-  rcases k4143ShapeIdx_cases h with ⟨Q, rfl, hQ⟩ | ⟨Q, rfl, hQ⟩ | ⟨Q, rfl, hQc⟩ | ⟨Q, rfl, hQc⟩
-  · exact hQ
-  · exact hQ
-  · have h2 : Q.p ^ Q.exponent = 2 := by
-      rw [← TauCeti.PrimePower.card_def]
-      exact hQc
-    exact ((Nat.Prime.pow_eq_iff Nat.prime_two).mp h2).1
-  · have h2 : Q.p ^ Q.exponent = 2 := by
-      rw [← TauCeti.PrimePower.card_def]
-      exact hQc
-    exact ((Nat.Prime.pow_eq_iff Nat.prime_two).mp h2).1
-
-theorem isClassicalTwoOrG2_of_isK4143Shape {S : Type} [Group S] (h : IsK4143Shape S)
-    (hZ : Subgroup.center S = ⊥) : IsClassicalTwoOrG2 (S ⧸ Subgroup.center S) := by
-  obtain ⟨d, hd, ⟨e⟩⟩ := h
-  exact Or.inl ⟨d, isClassicalOrG2Index_of_k4143ShapeIdx hd,
-    ⟨(QuotientGroup.quotientMulEquivOfEq hZ).trans (QuotientGroup.quotientBot.trans e)⟩⟩
-
-theorem K4143_of_classical (h : K4143Classical) : K4143 := by
-  intro X _ _ L hn hq hZ hshape h3L h3X
-  exact h X L hn hq hZ (isClassicalTwoOrG2_of_isK4143Shape hshape hZ) h3L h3X
 
 @[expose] def K7145 : Prop :=
   ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → ∀ p : ℕ, p.Prime → p ≠ 2 →
@@ -723,135 +695,6 @@ theorem KOut_holds : KOut := by
 
 end OutProofs
 
-@[expose] def Is421Index : TauCeti.LieTypeIndex → Prop
-  | .B 3 Q => Q.p = 2
-  | .twistedD 4 Q => Q.p = 2
-  | .A 5 Q => Q.card = 2
-  | .A 6 Q => Q.card = 2
-  | _ => False
-
-@[expose] def Is421Group (L : Type) [Group L] : Prop :=
-  ∃ d : TauCeti.ValidLieTypeIndex, Is421Index d.1 ∧ Nonempty (L ≃* (TauCeti.CFSGIndex.lie d).Group)
-
-@[expose] def jElementary (p : ℕ) {G : Type} [Group G] [Finite G] (R : Subgroup G) : Subgroup G :=
-  Subgroup.closure {x : G | ∃ E : Subgroup G, E ≤ R ∧ CFSG.Open.IsElemAbelian p E ∧
-    Nat.card E = p ^ CFSG.Open.pRank p R ∧ x ∈ E}
-
-@[expose] def wConjClass {G : Type} [Group G] (W H : Subgroup G) : Set (Subgroup G) :=
-  {K | ∃ w ∈ W, K = H.map (MulAut.conj w).toMonoidHom}
-
-@[expose] def HasThreeWClasses {G : Type} [Group G] (W A : Subgroup G) (k : ℕ)
-    (H₁ H₂ H₃ : Subgroup G) : Prop :=
-  (H₁ ≤ A ∧ Nat.card H₁ = k) ∧ (H₂ ≤ A ∧ Nat.card H₂ = k) ∧ (H₃ ≤ A ∧ Nat.card H₃ = k) ∧
-  (wConjClass W H₁).ncard = 3 ∧ (wConjClass W H₂).ncard = 6 ∧ (wConjClass W H₃).ncard = 4 ∧
-  ∀ H : Subgroup G, H ≤ A → Nat.card H = k →
-    H ∈ wConjClass W H₁ ∨ H ∈ wConjClass W H₂ ∨ H ∈ wConjClass W H₃
-
-@[expose] noncomputable def wClassCount {G : Type} [Group G] (W B H : Subgroup G) : ℕ :=
-  {K : Subgroup G | K ≤ B ∧ Nat.card K = 3 ∧ K ∈ wConjClass W H}.ncard
-
-@[expose] def K421 : Prop :=
-  ∀ (L : Type) [Group L] [Finite L], Is421Group L → ∀ (R : Sylow 3 L) (A : Subgroup L),
-    A = jElementary 3 (R : Subgroup L) →
-      (CFSG.Open.IsElemAbelian 3 A ∧ Nat.card A = 27) ∧
-      (∀ E : Subgroup L, CFSG.Open.IsElemAbelian 3 E →
-        ∃ g : L, E.map (MulAut.conj g).toMonoidHom ≤ A) ∧
-      ∃ A₁ A₂ A₃ B₁ B₂ B₃ : Subgroup L,
-        HasThreeWClasses (Subgroup.normalizer (A : Set L)) A 3 A₁ A₂ A₃ ∧
-        HasThreeWClasses (Subgroup.normalizer (A : Set L)) A 9 B₁ B₂ B₃ ∧
-        (wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₁ = 2 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₂ = 2 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₁ A₃ = 0) ∧
-        (wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₁ = 1 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₂ = 1 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₂ A₃ = 2) ∧
-        (wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₁ = 0 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₂ = 3 ∧
-          wClassCount (Subgroup.normalizer (A : Set L)) B₃ A₃ = 1)
-
-@[expose] def K421R : Prop :=
-  ∀ (L : Type) [Group L] [Finite L] (Q : TauCeti.PrimePower), Q.p = 2 → Q.card % 3 = 1 →
-    ∀ d : TauCeti.ValidLieTypeIndex, d.1 = .B 3 Q →
-      Nonempty (L ≃* (TauCeti.CFSGIndex.lie d).Group) → ∀ R : Sylow 3 L,
-        Nonempty (↥R ≃* (Multiplicative (ZMod (3 ^ padicValNat 3 (Q.card - 1))) ≀ᵣ
-          Multiplicative (ZMod 3)))
-
-@[expose] def GUThreeModel (q : ℕ) (K : Type) [Field K] : Subgroup (GL (Fin 3) K) :=
-  Subgroup.closure {A : GL (Fin 3) K |
-    Matrix.transpose ((A : Matrix (Fin 3) (Fin 3) K).map (· ^ q)) *
-      (A : Matrix (Fin 3) (Fin 3) K) = 1}
-
-@[expose] def Table421 (C : Type) [Group C] : TauCeti.LieTypeIndex → ℕ → Prop
-  | .B 3 Q, 1 =>
-      (Even Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card - 1)) ×
-        ↥(CFSG.Open.StatedSp 2 (GaloisField 2 Q.exponent))))) ∧
-      (Odd Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card + 1)) ×
-        ↥(CFSG.Open.StatedSp 2 (GaloisField 2 Q.exponent)))))
-  | .B 3 Q, 2 =>
-      (Even Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card - 1)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent))))) ∧
-      (Odd Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card + 1)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent)))))
-  | .B 3 Q, 3 =>
-      (Even Q.exponent → Nonempty (C ≃* GL (Fin 3) (GaloisField 2 Q.exponent))) ∧
-      (Odd Q.exponent → Nonempty (C ≃* ↥(GUThreeModel Q.card (GaloisField 2 (2 * Q.exponent)))))
-  | .twistedD 4 Q, 1 =>
-      (Even Q.exponent → ∃ b c : GaloisField 2 Q.exponent, (∀ s, s ^ 2 + b * s + c ≠ 0) ∧
-        Nonempty (C ≃* (Multiplicative (ZMod (Q.card - 1)) ×
-          ↥(CFSG.Open.StatedOmega (CFSG.Open.StatedQuadMinus 3 (GaloisField 2 Q.exponent) b c))))) ∧
-      (Odd Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card + 1)) ×
-        ↥(CFSG.Open.StatedOmega (CFSG.Open.StatedQuadPlus 3 (GaloisField 2 Q.exponent))))))
-  | .twistedD 4 Q, 2 =>
-      (Even Q.exponent → ∃ b c : GaloisField 2 Q.exponent, (∀ s, s ^ 2 + b * s + c ≠ 0) ∧
-        Nonempty (C ≃* (Multiplicative (ZMod (Q.card - 1)) ×
-          ↥(CFSG.Open.StatedOmega (CFSG.Open.StatedQuadMinus 2 (GaloisField 2 Q.exponent) b c)) ×
-          ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent))))) ∧
-      (Odd Q.exponent → ∃ b c : GaloisField 2 Q.exponent, (∀ s, s ^ 2 + b * s + c ≠ 0) ∧
-        Nonempty (C ≃* (Multiplicative (ZMod (Q.card + 1)) ×
-          ↥(CFSG.Open.StatedOmega (CFSG.Open.StatedQuadMinus 2 (GaloisField 2 Q.exponent) b c)) ×
-          ↥(CFSG.Open.StatedSL 2 (GaloisField 2 Q.exponent)))))
-  | .twistedD 4 Q, 3 =>
-      (Even Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card + 1)) ×
-        GL (Fin 3) (GaloisField 2 Q.exponent)))) ∧
-      (Odd Q.exponent → Nonempty (C ≃* (Multiplicative (ZMod (Q.card - 1)) ×
-        ↥(GUThreeModel Q.card (GaloisField 2 (2 * Q.exponent))))))
-  | .A 5 _, 1 =>
-      Nonempty (C ≃* (Multiplicative (ZMod 3) × ↥(CFSG.Open.StatedSL 4 (GaloisField 2 1))))
-  | .A 5 _, 2 =>
-      Nonempty (C ≃* (Multiplicative (ZMod 3) × ↥(CFSG.Open.StatedSL 2 (GaloisField 2 1)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 2))))
-  | .A 5 _, 3 => Nonempty (C ≃* GL (Fin 3) (GaloisField 2 2))
-  | .A 6 _, 1 =>
-      Nonempty (C ≃* (Multiplicative (ZMod 3) × ↥(CFSG.Open.StatedSL 5 (GaloisField 2 1))))
-  | .A 6 _, 2 =>
-      Nonempty (C ≃* (Multiplicative (ZMod 3) × ↥(CFSG.Open.StatedSL 3 (GaloisField 2 1)) ×
-        ↥(CFSG.Open.StatedSL 2 (GaloisField 2 2))))
-  | .A 6 _, 3 => Nonempty (C ≃* GL (Fin 3) (GaloisField 2 2))
-  | _, _ => False
-
-@[expose] def K421Table : Prop :=
-  ∀ (L : Type) [Group L] [Finite L] (d : TauCeti.ValidLieTypeIndex), Is421Index d.1 →
-    Nonempty (L ≃* (TauCeti.CFSGIndex.lie d).Group) →
-    ∀ (R : Sylow 3 L) (A H : Subgroup L), A = jElementary 3 (R : Subgroup L) → H ≤ A →
-      Nat.card H = 3 →
-      ((wConjClass (Subgroup.normalizer (A : Set L)) H).ncard = 3 →
-        Table421 ↥(Subgroup.centralizer (H : Set L)) d.1 1) ∧
-      ((wConjClass (Subgroup.normalizer (A : Set L)) H).ncard = 6 →
-        Table421 ↥(Subgroup.centralizer (H : Set L)) d.1 2) ∧
-      ((wConjClass (Subgroup.normalizer (A : Set L)) H).ncard = 4 →
-        Table421 ↥(Subgroup.centralizer (H : Set L)) d.1 3)
-
-open scoped MatrixGroups in
-@[expose] def K62 : Prop :=
-  ∀ r : ℕ, r.Prime → r ≠ 2 → ∀ (Q : Type) [Group Q] [Finite Q], IsPGroup r Q →
-    CFSG.Open.pRank r (⊤ : Subgroup Q) ≤ 2 → ∀ E : Subgroup (MulAut Q), ⁅E, E⁆ = E →
-    ∀ H N : Subgroup (MulAut Q), CFSG.Open.IsSubnormal H E → N ≤ H →
-      ∀ (_ : (N.subgroupOf H).Normal), IsSimpleGroup (↥H ⧸ N.subgroupOf H) →
-        ¬ IsMulCommutative (↥H ⧸ N.subgroupOf H) →
-      Nonempty ((↥H ⧸ N.subgroupOf H) ≃* PSL(2, ZMod r)) ∨
-        Nonempty ((↥H ⧸ N.subgroupOf H) ≃* alternatingGroup (Fin 5))
 
 open scoped MatrixGroups in
 @[expose] def K63_three : Prop :=
@@ -868,19 +711,5 @@ open scoped MatrixGroups in
 
 @[expose] def K63 : Prop := K63_three
 
-structure KFactsLie : Prop where
-  k4143 : K4143
-  k7145 : K7145
-  kOut : KOut
-  k420 : K420
-  ksmU4 : KSMU4
-  ksmL3 : KSML3
-  ksmAlt : KSMAlt
-  ksmOdd : KSMOdd
-  k421 : K421
-  k421R : K421R
-  k421Table : K421Table
-  k62 : K62
-  k63 : K63
 
 end CFSG.LocalAnalysis.RankThreeUC.S15

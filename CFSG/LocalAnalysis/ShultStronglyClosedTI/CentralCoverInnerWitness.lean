@@ -11,10 +11,6 @@ open CFSG.Open CFSG.BenderSuzuki.External
 
 variable {G : Type*} [Group G]
 
-theorem normal_subgroup_conjugation_of_member (L : Subgroup G) [L.Normal]
-    (w a : L) : MulAut.conjNormal (w : G) a = MulAut.conj w a := by
-  apply Subtype.ext
-  rfl
 
 variable [Finite G]
 

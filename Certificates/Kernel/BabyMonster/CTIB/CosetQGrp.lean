@@ -65,8 +65,6 @@ theorem piQ_hom {A : Array ℕ} (hA : RelOK G A) (a : QC G) :
 
 @[expose] def xQ : QC G := ⟨2 ^ 22, by decide⟩
 
-theorem xQ_bit {i : ℕ} (hi : i < 22) : (xQ : QC G).1.testBit i = false :=
-  Nat.testBit_two_pow_of_ne (by omega)
 
 theorem corr_x_left (a : ℕ) : corr G (2 ^ 22) a = false := by
   rw [corr_congr G (a' := 0) (b' := a) (fun j hj => by
@@ -96,9 +94,6 @@ theorem xQ_sq : (xQ : QC G) * xQ = 1 := by
 
 theorem xQ_inv : (xQ : QC G)⁻¹ = xQ := inv_eq_of_mul_eq_one_right xQ_sq
 
-theorem piQ_x : piQ (xQ : QC G) = 0 := by
-  rw [piQ]
-  exact Nat.mod_self _
 
 theorem hom_x {A : Array ℕ} (hA : RelOK G A) : homOf G A hA xQ = xQ :=
   QC.ext' (by rw [homOf_val]; exact autApply_x G A)

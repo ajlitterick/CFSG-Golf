@@ -86,22 +86,6 @@ theorem Wt1_eq_bot (H : Hyp4 S g) {t : S.O} (hVQ : ¬ V S g t ≤ S.Qa g) :
   have := (mem_Wt1.mp hv).2 1 (one_mem _)
   simpa using this
 
-theorem mem_W_inf_Qa_mul (H : Hyp4 S g) {t : S.O} (hVQ : ¬ V S g t ≤ S.Qa g) {x : G}
-    (hxW : x ∈ W S g t)
-    (hx : ∀ k : S.M, S.ρ k ∈ Rbar S g t → x ∈ S.Qa ((k : G) * g)) : x = 1 ∨ x = S.z := by
-  have hxQ : x ∈ S.QG := hxW.1
-  rw [← S.cl_eq_zero_iff hxQ]
-  have hmem : S.cl x ∈ Wt1 S g t := by
-    rw [mem_Wt1]
-    refine ⟨clSub_W (S := S) ▸ S.cl_mem_clSub hxW hxQ, fun y hy => ?_⟩
-    obtain ⟨k, rfl⟩ := MonoidHom.mem_range.mp (Rbar_le_Mbar hy)
-    have hxk := hx k hy
-    rw [← map_inv, S.ρ_cl k⁻¹ hxQ]
-    refine S.cl_mem_clSub ⟨S.conj_mem_QG (k⁻¹).2 hxQ, ?_⟩ (S.conj_mem_QG (k⁻¹).2 hxQ)
-    rw [mem_Qa_mul_iff] at hxk
-    simpa using hxk
-  rw [Wt1_eq_bot H hVQ, Submodule.mem_bot] at hmem
-  exact hmem
 
 theorem inv_apply_t_sub_mem (H : Hyp4 S g) (H11 : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar g)
     {v : S.Qt} (hv : v ∈ Wt S g t) {x : S.O} (hx : x ∈ Rbar S g t) :
@@ -168,27 +152,6 @@ theorem isTypeA_t (H : Hyp4 S g) (H11 : Cons311 S g) {t : S.O} (ht : t ∈ S.Lba
   · rw [hc] at hv
     exact q_eq_zero_of_mem_Vt H ht1 hv
 
-theorem Nbar_apply_sub_mem_Wt (H : Hyp4 S g) (H11 : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar g)
-    (ht1 : t ≠ 1) (hVQ : ¬ V S g t ≤ S.Qa g) {x : S.O} (hx : x ∈ Nbar S g t) (v : S.Qt) :
-    (x : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v ∈ Wt S g t := by
-  rw [← (commSpace_t_eq H H11 ht ht1 hVQ).2, mem_fixSpace]
-  have htv : (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v ∈ Vt S g t := by
-    rw [← (commSpace_t_eq H H11 ht ht1 hVQ).1]
-    exact sub_mem_commSpace _ v
-  have hxt : (x : S.Qt ≃ₗ[ZMod 2] S.Qt) ((t : S.Qt ≃ₗ[ZMod 2] S.Qt) v) =
-      (t : S.Qt ≃ₗ[ZMod 2] S.Qt) ((x : S.Qt ≃ₗ[ZMod 2] S.Qt) v) := by
-    rw [← coe_mul_apply, ← coe_mul_apply, commute_of_mem_Rbar H.conj_mem hx.1]
-  have h1 := hx.2 _ htv
-  rw [map_sub, hxt] at h1
-  rw [map_sub]
-  calc (t : S.Qt ≃ₗ[ZMod 2] S.Qt) ((x : S.Qt ≃ₗ[ZMod 2] S.Qt) v) -
-        (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v =
-      ((t : S.Qt ≃ₗ[ZMod 2] S.Qt) ((x : S.Qt ≃ₗ[ZMod 2] S.Qt) v) -
-        (x : S.Qt ≃ₗ[ZMod 2] S.Qt) v) + ((x : S.Qt ≃ₗ[ZMod 2] S.Qt) v -
-          (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v) := by abel
-    _ = ((t : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v) + ((x : S.Qt ≃ₗ[ZMod 2] S.Qt) v -
-          (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v) := by rw [h1]
-    _ = (x : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v := by abel
 
 @[expose] noncomputable def chi (H : Hyp4 S g) (H11 : Cons311 S g) {t : S.O}
     (ht : t ∈ S.Lbar g) (ht1 : t ≠ 1) (hVQ : ¬ V S g t ≤ S.Qa g) :

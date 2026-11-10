@@ -245,27 +245,6 @@ end Model
 section Statements
 
 
-@[expose] def TriOddXNoGCent : Prop :=
-  ∀ (ℓ f : ℕ), ℓ.Prime → ℓ ≠ 2 → ℓ ≠ 3 → 1 ≤ f → ∀ (K : Type) [Field K] [Finite K],
-    Nat.card K = (ℓ ^ f) ^ 3 → ∀ σ : K ≃+* K, (∀ c, σ c = c ^ (ℓ ^ f)) →
-    ∀ (E : Subgroup (MulAut (C0 σ))) (x : C0 σ), CFSG.IsElementaryAbelian 3 E →
-      Nat.card E = 3 ^ 2 → ¬ E ≤ innerAut (C0 σ) → ¬ TriOddHasGLine σ E →
-      (∀ β : MulAut (C0 σ), TriOddIsGLine σ β → ¬ ∀ α ∈ E, α * β = β * α) →
-      x ^ 3 = 1 → x ≠ 1 → MulAut.conj x ∈ E → TriOddIsClassX σ x →
-      Subgroup.closure (fixUnion E) = ⊤
-
-theorem triOddXNoG_of_cent (h : TriOddXNoGCent) : TriOddXNoG := by
-  intro ℓ f hℓ hℓ2 hℓ3 hf K _ _ hK σ hσ E x hE hcard hout hng hx3 hx1 hcx hX
-  by_cases hc : ∃ β : MulAut (C0 σ), TriOddIsGLine σ β ∧ ∀ α ∈ E, α * β = β * α
-  · obtain ⟨β, hβ, hβc⟩ := hc
-    exact triOdd_closure_fixUnion_eq_top_of_central_gline σ hℓ hℓ2 hℓ3 hf hK hσ E hE hcard hout β
-      hβ hβc (fun hβE => hng ⟨β, hβE, hβ⟩)
-  · exact h ℓ f hℓ hℓ2 hℓ3 hf K hK σ hσ E x hE hcard hout hng
-      (fun β hβ hall => hc ⟨β, hβ, hall⟩) hx3 hx1 hcx hX
-
-theorem trialityThreePlanesOdd_of_cent (h : TriOddXNoGCent) : TrialityThreePlanesOdd :=
-  trialityThreePlanesOdd_of_X (triOddXNoG_of_cent h)
-
 end Statements
 
 end CFSG.LieType.SeitzGeneration.ExcWideThree

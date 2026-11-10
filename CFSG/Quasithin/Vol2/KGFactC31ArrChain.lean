@@ -114,11 +114,6 @@ theorem arrChainArrays (hn : 1 ≤ n) {S : Array (Array ℕ)} {m : ℕ} (hm : m 
     rfl
   deriv _ _ := rfl
 
-theorem arrChain_valid (hn : 1 ≤ n) {S : Array (Array ℕ)} {m : ℕ} (hm : m ≤ S.size)
-    {base : Vector (Fin n) k} (hb : base.toList.Nodup) {W : Array (List ℤ)} {chunks : ℕ}
-    (hc : 0 < chunks) (h : rawChainOK n (arrO S m) S (arrBase base) W chunks = true) :
-    ValidSchreier (arrChain hn S m hm base hb W) :=
-  (validSchreier_of_chainOK (arrChainArrays hn hm hb (chainCheckFacts h)) hc h).1
 
 theorem card_arrChain (hn : 1 ≤ n) {S : Array (Array ℕ)} {m : ℕ} (hm : m ≤ S.size)
     {base : Vector (Fin n) k} (hb : base.toList.Nodup) {W : Array (List ℤ)} {chunks : ℕ}

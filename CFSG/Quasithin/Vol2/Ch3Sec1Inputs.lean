@@ -37,17 +37,6 @@ structure HypE28 {G : Type} [Group G] [Finite G] (H T M V : Subgroup G) : Prop w
   ∀ (G : Type) [Group G] [Finite G] (H T M V : Subgroup G) (h : HypE28 H T M V),
     CharTwo H → IsTISetIn V M → qhatInt H V h.elemAbelian < 2
 
-@[expose] def AS316Sylow : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M M₀ H V : Subgroup G), IsSimpleGroup G →
-    (∃ a b : G, a * b ≠ b * a) → quasithinIsQTKECat G → quasithinIsSylowTwo T → InM T M →
-    ∀ h : Hyp315 T M M₀ H V, V ≠ ⊥ →
-      (¬ ∃ R₀ : Subgroup G, R₀ ≠ ⊥ ∧ R₀ ≤ pCoreOf 2 M₀ ∧
-        M₀ ⊔ H ≤ Subgroup.normalizer (R₀ : Set G)) →
-      ¬ qInt M₀ V h.reduced.2.2.1 ≤ 1 → ¬ IsDualFFInt M₀ V h.reduced.2.2.1 →
-      V ≤ pCoreOf 2 H →
-      ((pCoreOf 2 M₀ ⊓ pCoreOf 2 H).subgroupOf H).Normal →
-      IsElemAbelian 2 (conjClosure V H) →
-      IsSylowTwoOf (pCoreOf 2 M₀) (oTwoUpper H ⊔ pCoreOf 2 M₀)
 
 @[expose] def AS317Sylow : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M M₀ H V : Subgroup G), IsSimpleGroup G →

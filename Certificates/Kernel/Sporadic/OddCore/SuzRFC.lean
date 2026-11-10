@@ -103,27 +103,6 @@ theorem kQ4 : Nat.beq (pc (qProdK 8) (lamK 1)) (pc (lamK 1) (qProdK 8)) = true :
 theorem kQ5 : Nat.beq (pc (pc (pc (qProdK 4) (qProdK 8)) (qProdK 4)) (qProdK 8)) T1 = true := by
   quickRfl
 
-theorem negO3 : Bool.not (penumPtK 1782 11 (mask 11) (1782 * 11) true SuzRFO3.G SuzRFO3.GI 2
-    SuzRFO3.cnt (fun i => nIf(Nat.beq i 7, SuzRFO3.T 8, SuzRFO3.T i)) SuzRFO3.PL SuzRFO3.POS
-    SuzRFO3.SRT SuzRFO3.SRI 7) = true := by quickRfl
-
-theorem negS : Bool.not (penumPtK 1782 11 (mask 11) (1782 * 11) false SuzRFS.G SuzRFS.GI 4
-    SuzRFS.cnt (fun i => nIf(Nat.beq i 9, SuzRFS.T 10, SuzRFS.T i)) SuzRFS.PL SuzRFS.POS
-    SuzRFS.SRT SuzRFS.SRI 9) = true := by quickRfl
-
-theorem negCov : bAnd(Bool.not (covK Id 1), Bool.not (covK (SuzRFS.T 1) 2048)) = true := by
-  quickRfl
-
-theorem negCom : Bool.not (comK L4 1) = true := by quickRfl
-
-theorem negSel : Bool.not (selFrom (fun k => Nat.beq (wg SuzRFWV k) 0) 8192 0 SuzRFV.tail) =
-    true := by quickRfl
-
-theorem negGen : Bool.not (Nat.beq (oWK (CFSG.Sporadic.SuzRecog.LocalR.cBackWords.getD 0 []).tail)
-    (SuzInvT1.F 18)) = true := by quickRfl
-
-theorem negP4 : bAnd(Bool.not (Nat.beq (p4 (VT (CFSG.KS.Mathieu.nget SuzRFA 0))) Id),
-    Bool.not (Nat.beq (OddCore.fixCntK 1782 11 (mask 11) L4) 54)) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzRF
 

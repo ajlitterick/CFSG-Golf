@@ -36,29 +36,6 @@ noncomputable def statedProjSLEquiv (m : ℕ) (K : Type) [Field K] [Finite K]
     (QuotientGroup.quotientMulEquivOfEq (sl_center_eq_bot_of_card_two hK))).trans
     QuotientGroup.quotientBot).trans (slEquiv (ringEquivZModTwo K hK))
 
-theorem nonempty_mulEquiv_of_statedClassicalModel {X : Type} [Group X] {m : ℕ}
-    (h : StatedClassicalModel X .PSL m 2 1) :
-    3 ≤ m ∧ Nonempty (X ≃* Matrix.SpecialLinearGroup (Fin m) (ZMod 2)) := by
-  obtain ⟨⟨-, -, hm2, hne, -⟩, K, _, _, hK, ⟨e⟩⟩ := h
-  refine ⟨?_, ⟨e.trans (statedProjSLEquiv m K (by rw [hK, pow_one]))⟩⟩
-  by_contra hlt
-  exact hne (by rw [show m = 2 by omega]; rfl)
-
-theorem nonempty_mulEquiv_of_lieModel {X : Type} [Group X] {m : ℕ}
-    (h : CFSG.Blueprint.LieModel X .PSL m 2 1) :
-    3 ≤ m ∧ Nonempty (X ≃* Matrix.SpecialLinearGroup (Fin m) (ZMod 2)) := by
-  rcases h with ⟨-, hc⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩
-  · exact nonempty_mulEquiv_of_statedClassicalModel hc
-  · exact absurd ht (by decide)
-  · exact absurd ht (by decide)
-  · exact absurd ht (by decide)
-
-theorem nonempty_mulEquiv_of_modelsLieModel {X : Type} [Group X] {m : ℕ}
-    (h : CFSG.Models.LieModel X .PSL m 2 1) :
-    3 ≤ m ∧ Nonempty (X ≃* Matrix.SpecialLinearGroup (Fin m) (ZMod 2)) := by
-  obtain ⟨⟨-, -, hm2, -⟩, hc | ⟨hm0, -⟩⟩ := h
-  · exact nonempty_mulEquiv_of_statedClassicalModel hc
-  · omega
 
 theorem statedLieAdmissible_PSL_two_one {m : ℕ} (hm : 3 ≤ m) : StatedLieAdmissible .PSL m 2 1 :=
   ⟨Nat.prime_two, le_rfl, by omega, fun h => by simp [Prod.ext_iff] at h; omega,
@@ -74,9 +51,6 @@ theorem lieModel_of_mulEquiv {X : Type} [Group X] {m : ℕ} (hm : 3 ≤ m)
     (e : X ≃* Matrix.SpecialLinearGroup (Fin m) (ZMod 2)) : CFSG.Blueprint.LieModel X .PSL m 2 1 :=
   .inl ⟨by decide, statedClassicalModel_of_mulEquiv hm e⟩
 
-theorem modelsLieModel_of_mulEquiv {X : Type} [Group X] {m : ℕ} (hm : 3 ≤ m)
-    (e : X ≃* Matrix.SpecialLinearGroup (Fin m) (ZMod 2)) : CFSG.Models.LieModel X .PSL m 2 1 :=
-  ⟨statedLieAdmissible_PSL_two_one hm, .inl (statedClassicalModel_of_mulEquiv hm e)⟩
 
 open CFSG.LieType.Universal in
 theorem map_slEquiv_rootGroup {F F' : Type} [Field F] [Field F'] (e : F ≃+* F') (m : ℕ)

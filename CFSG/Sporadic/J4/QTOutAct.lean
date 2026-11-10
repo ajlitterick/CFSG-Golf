@@ -130,7 +130,6 @@ end AMap
 
 @[expose] def Cl (c d : ℕ) : Prop := ∃ h ∈ Hj, h * eta uJ 11 c * h⁻¹ = eta uJ 11 d
 
-theorem cl_refl (c : ℕ) : Cl c c := ⟨1, Hj.one_mem, by simp⟩
 
 theorem cl_symm {c d : ℕ} (h : Cl c d) : Cl d c := by
   obtain ⟨g, hg, e⟩ := h

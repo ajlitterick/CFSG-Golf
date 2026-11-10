@@ -35,10 +35,6 @@ theorem isConj_of_sq_eq_one_of_odd_orderOf_mul {s y : G} (hs : s ^ 2 = 1) (hy : 
     _ = z⁻¹ * s := by rw [hw2]
     _ = y := by rw [hz, mul_inv_rev, mul_assoc, inv_mul_cancel, mul_one, hy']
 
-theorem isConj_of_mul_mem_of_odd {Z : Subgroup G} (hZ : Odd (Nat.card Z)) {s y : G}
-    (hs : s ^ 2 = 1) (hy : y ^ 2 = 1) (hsy : s * y ∈ Z) : IsConj s y :=
-  isConj_of_sq_eq_one_of_odd_orderOf_mul hs hy
-    (Odd.of_dvd_nat hZ (Subgroup.orderOf_dvd_natCard Z hsy))
 
 theorem exists_normal_index_two_of_unique_of_quotientSub [Finite G] {M : Subgroup G}
     (H : Subgroup M) [H.Normal] {t : G} (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) {x : G}

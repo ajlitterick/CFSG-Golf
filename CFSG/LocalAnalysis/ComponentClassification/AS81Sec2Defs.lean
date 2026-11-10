@@ -155,14 +155,6 @@ structure Sec2Q (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G)
       IsElemQuot (sec2S A R E F ⊓ sec2P E) E 4 ∧
       IsElemQuot (sec2S A R E F) E 16
 
-@[expose] def Step22 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
-    Sec2Setting G A R g E F →
-      (sec2P E ⊔ sec2S A R E F) ⊓ normalizer (F : Set G) = sec2S A R E F ∧
-      Nat.card (conjSet F (sec2P E)) = 4 ∧
-      IsSylowOf 2 (sec2S A R E F)
-        (centralizer (sec2Z A E F : Set G) ⊓ centralizerMod ⊤ (R ⊔ sec2Z A E F) (sec2Z A E F) ⊓
-          normalizer (E : Set G) ⊓ normalizer (F : Set G))
 
 @[expose] def Step22iv : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
@@ -360,9 +352,5 @@ structure Sec2Q (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G)
       ∀ c ∈ centralizer ({z} : Set G), rightConjugate Q c ≤ normalizer (Q : Set G) →
         rightConjugate Q c = Q
 
-@[expose] def SuzRecognition : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (S : LargeExtraspecial.Setting G),
-    S.width = 3 → (¬ ∃ U : Subgroup G, U ≤ S.QG ∧ IsElemAbelian 2 U ∧ Nat.card U = 16) →
-    S.Mbar.map S.O.subtype = timmesfeldOmega S.q → IsSporadic G .Suz
 
 end CFSG.ComponentClassification.AS81

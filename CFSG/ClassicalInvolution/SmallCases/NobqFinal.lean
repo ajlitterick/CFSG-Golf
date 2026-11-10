@@ -71,35 +71,5 @@ namespace CFSG.ClassicalInvolution.Nobq
 open CFSG.Open CFSG.Assembly.LowTwoRank CFSG.Blueprint
   CFSG.ComponentClassification.OuterAutomorphisms
 
-structure SmallRemainingFacts : Prop where
-  ly_out : Nat.card (Outer NativeSporadic.Ly) = 1
-
-theorem noDatum_Ly (hOut : Nat.card (Outer NativeSporadic.Ly) = 1) (F : Type) [Group F]
-    (h : NativeSporadic.IsSporadic F .Ly) : NoDatum F := by
-  obtain ⟨e⟩ := h
-  have : Finite NativeSporadic.Ly := Finite.of_equiv _ CFSG.Sporadic.Ly.lyEquivJ.symm.toEquiv
-  exact NoDatum.of_mulEquiv e (noDatum_of_noUniqueInvNormal noUniqueInvNormal_Ly
-    (OutTwoCyclic.of_card_le_two (F := NativeSporadic.Ly) (by rw [hOut]; norm_num)))
-
-theorem SmallRemainingFacts.smallNoDatum (h : SmallRemainingFacts) : SmallNoDatum where
-  a7 := noDatum_alternating_seven
-  psu34 := noDatum_of_statedPSU
-  psl28 := fun F _ hF => noDatum_of_lieModel_psl_two_even F hF
-  psl216 := fun F _ hF => noDatum_of_lieModel_psl_two_even F hF
-  psl34 := fun F _ hF => noDatum_of_lieModel_psl_three_two F hF
-  sz8 := fun F _ hF => noDatum_of_lieModel_twistedB2 F hF
-  alt := noDatum_alternating
-  m22 := noDatum_M22
-  m23 := noDatum_M23
-  j1 := noDatum_J1
-  j2 := noDatum_J2
-  j3 := noDatum_J3
-  mcl := noDatum_McL
-  ly := noDatum_Ly h.ly_out
-
-theorem normalOddByQuaternionSmall_of_remaining (hGH : GH74SectionalModels)
-    (h : SmallRemainingFacts) :
-    NormalOddByQuaternionUnder fun {G} _ _ _ => TwoSubgroupsFourGenerated (genFittingFStar G) :=
-  normalOddByQuaternionSmall_of_gh74 hGH h.smallNoDatum
 
 end CFSG.ClassicalInvolution.Nobq

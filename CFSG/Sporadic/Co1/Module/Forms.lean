@@ -110,22 +110,6 @@ theorem commutant_matrix
   · right
     rw [hN, h, one_smul]
 
-theorem commutant_linearMap
-    {f : Vec24 →ₗ[ZMod 2] Vec24}
-    (hA : ∀ v, f (matA *ᵥ v) = matA *ᵥ f v) (hB : ∀ v, f (matB *ᵥ v) = matB *ᵥ f v) :
-    f = 0 ∨ f = LinearMap.id := by
-  have hN : ∀ M : Matrix (Fin 24) (Fin 24) (ZMod 2), (∀ v, f (M *ᵥ v) = M *ᵥ f v) →
-      M * LinearMap.toMatrix' f = LinearMap.toMatrix' f * M := by
-    intro M hM
-    apply matrix_ext_mulVec
-    intro v
-    rw [← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec, LinearMap.toMatrix'_mulVec,
-      LinearMap.toMatrix'_mulVec, hM]
-  rcases commutant_matrix (hN _ hA) (hN _ hB) with h | h
-  · left
-    rw [← Matrix.toLin'_toMatrix' f, h, map_zero]
-  · right
-    rw [← Matrix.toLin'_toMatrix' f, h, Matrix.toLin'_one]
 
 theorem invariant_form_matrix
     (F : Matrix (Fin 24) (Fin 24) (ZMod 2)) :
@@ -193,46 +177,6 @@ theorem invariant_biadditive
     rw [hexp, h]
     rfl
 
-theorem invariant_bilinForm
-    {B : LinearMap.BilinForm (ZMod 2) Vec24}
-    (hA : ∀ u v, B (matA *ᵥ u) (matA *ᵥ v) = B u v)
-    (hB : ∀ u v, B (matB *ᵥ u) (matB *ᵥ v) = B u v) : B = 0 ∨ B = Matrix.toBilin' F₀ := by
-  rcases invariant_biadditive (B := fun u v => B u v) (fun u u' v => by simp)
-    (fun u v v' => by simp) hA hB with h | h
-  · left
-    refine LinearMap.ext fun u => LinearMap.ext fun v => ?_
-    exact congrFun (congrFun h u) v
-  · right
-    refine LinearMap.ext fun u => LinearMap.ext fun v => ?_
-    rw [Matrix.toBilin'_apply']
-    exact congrFun (congrFun h u) v
-
-theorem invariant_biadditive_Jmat
-    {B : Vec24 → Vec24 → ZMod 2}
-    (h1 : ∀ u u' v, B (u + u') v = B u v + B u' v) (h2 : ∀ u v v', B u (v + v') = B u v + B u v')
-    (hinv : ∀ (g : Jmat) (u v : Vec24), B (g • u) (g • v) = B u v) : B = 0 ∨ B = bil₀ := by
-  have hA : ∀ u v, B (matA *ᵥ u) (matA *ᵥ v) = B u v := by
-    intro u v
-    have := hinv genA u v
-    rwa [smul_eq_mulVec, smul_eq_mulVec, genA_val] at this
-  have hB : ∀ u v, B (matB *ᵥ u) (matB *ᵥ v) = B u v := by
-    intro u v
-    have := hinv genB u v
-    rwa [smul_eq_mulVec, smul_eq_mulVec, genB_val] at this
-  exact invariant_biadditive h1 h2 hA hB
-
-theorem co1_invariant_biadditive
-    {B : Vec24 → Vec24 → ZMod 2}
-    (h1 : ∀ u u' v, B (u + u') v = B u v + B u' v) (h2 : ∀ u v v', B u (v + v') = B u v + B u v')
-    (hinv : ∀ (g : NativeSporadic.Co1) (u v : Vec24), B (co1Act g u) (co1Act g v) = B u v) :
-    B = 0 ∨ B = bil₀ := by
-  obtain ⟨a, ha⟩ := exists_co1_matA
-  obtain ⟨b, hb⟩ := exists_co1_matB
-  refine invariant_biadditive h1 h2 (fun u v => ?_) (fun u v => ?_)
-  · have := hinv a u v
-    rwa [co1Act, co1Act, ha] at this
-  · have := hinv b u v
-    rwa [co1Act, co1Act, hb] at this
 
 theorem invariant_quadratic
     {q : Vec24 → ZMod 2}
@@ -272,23 +216,6 @@ theorem invariant_quadratic
     rw [h4]
     exact CharTwo.neg_eq _
 
-theorem invariant_quadraticForm
-    {Q : QuadraticForm (ZMod 2) (Fin 24 → ZMod 2)}
-    (hA : ∀ v, Q (matA *ᵥ v) = Q v) (hB : ∀ v, Q (matB *ᵥ v) = Q v) : Q = 0 ∨ Q = q₀Form := by
-  rcases invariant_quadratic (q := fun x => Q x) (polar_add_left_form Q) hA hB with h | h
-  · left
-    ext v
-    exact congrFun h v
-  · right
-    ext v
-    rw [q₀Form_apply]
-    exact congrFun h v
-
-theorem invariant_quadratic_Jmat
-    {q : Vec24 → ZMod 2}
-    (hbil : ∀ u u' v, polar q (u + u') v = polar q u v + polar q u' v)
-    (hinv : ∀ (g : Jmat) (v : Vec24), q (g • v) = q v) : q = 0 ∨ q = q₀ :=
-  invariant_quadratic hbil (invariant_gen_of_Jmat hinv).1 (invariant_gen_of_Jmat hinv).2
 
 theorem co1_invariant_quadratic
     {q : Vec24 → ZMod 2}
@@ -298,41 +225,8 @@ theorem co1_invariant_quadratic
 
 section Generic
 
-variable {D : VecData} (hD : BaseFacts D)
-include hD
 
 end Generic
 
-theorem ncard_q₀_eq_one :
-    {v : Vec24 | q₀ v = 1}.ncard = 8386560 := by
-  have h : {v : Vec24 | q₀ v = 1} = MulAction.orbit Jmat v₃ := Set.ext q₀_eq_one_iff_mem_orbit
-  rw [h]
-  exact orbit_ncard_v₃
-
-theorem ncard_singular :
-    {v : Vec24 | q₀ v = 0 ∧ v ≠ 0}.ncard = 8390655 := by
-  rw [singular_eq_union, Set.ncard_union_eq disjoint_orbit_v₂_v₄, orbit_ncard_v₂, orbit_ncard_v₄]
-
-theorem commutant_Jmat_matrix
-    {N : Matrix (Fin 24) (Fin 24) (ZMod 2)}
-    (h : ∀ g : Jmat, ((g : GL (Fin 24) (ZMod 2)) : Matrix (Fin 24) (Fin 24) (ZMod 2)) * N =
-      N * ((g : GL (Fin 24) (ZMod 2)) : Matrix (Fin 24) (Fin 24) (ZMod 2))) : N = 0 ∨ N = 1 := by
-  refine commutant_matrix ?_ ?_
-  · have := h genA
-    rwa [genA_val] at this
-  · have := h genB
-    rwa [genB_val] at this
-
-theorem co1_commutant_matrix
-    {N : Matrix (Fin 24) (Fin 24) (ZMod 2)}
-    (h : ∀ g : NativeSporadic.Co1, (g.val.val : Matrix (Fin 24) (Fin 24) (ZMod 2)) * N =
-      N * (g.val.val : Matrix (Fin 24) (Fin 24) (ZMod 2))) : N = 0 ∨ N = 1 := by
-  obtain ⟨a, ha⟩ := exists_co1_matA
-  obtain ⟨b, hb⟩ := exists_co1_matB
-  refine commutant_matrix ?_ ?_
-  · have := h a
-    rwa [ha] at this
-  · have := h b
-    rwa [hb] at this
 
 end CFSG.Sporadic.Co1.Module

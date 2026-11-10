@@ -74,36 +74,6 @@ theorem aa (h : SplitInv Q S T a) (x : V) : a (a x) = x := by
   obtain ⟨s, hs, t, ht, rfl⟩ := h.exists_decomp x
   rw [map_add, h.negS s hs, h.fixT t ht, map_add, map_neg, h.negS s hs, h.fixT t ht, neg_neg]
 
-theorem mem_T_iff_perp (h : SplitInv Q S T a) {x : V} :
-    x ∈ T ↔ ∀ y ∈ S, polar Q x y = 0 := by
-  constructor
-  · intro hx y hy
-    rw [polar_comm]
-    exact h.orth y hy x hx
-  · intro hx
-    obtain ⟨s, hs, t, ht, rfl⟩ := h.exists_decomp x
-    have hs0 : s = 0 := by
-      refine h.ndS s hs fun y hy => ?_
-      have h1 := hx y hy
-      rw [polar_add_left, polar_comm Q t y, h.orth y hy t ht, add_zero] at h1
-      exact h1
-    rw [hs0, zero_add]
-    exact ht
-
-theorem mem_S_iff_perp (h : SplitInv Q S T a) {x : V} :
-    x ∈ S ↔ ∀ y ∈ T, polar Q x y = 0 := by
-  constructor
-  · intro hx y hy
-    exact h.orth x hx y hy
-  · intro hx
-    obtain ⟨s, hs, t, ht, rfl⟩ := h.exists_decomp x
-    have ht0 : t = 0 := by
-      refine h.ndT t ht fun y hy => ?_
-      have h1 := hx y hy
-      rw [polar_add_left, h.orth s hs y hy, zero_add] at h1
-      exact h1
-    rw [ht0, add_zero]
-    exact hs
 
 theorem preserves_of_comm (h : SplitInv Q S T a) (h2 : (2 : F) ≠ 0) {g : V ≃ₗ[F] V}
     (hg : ∀ x, g (a x) = a (g x)) :

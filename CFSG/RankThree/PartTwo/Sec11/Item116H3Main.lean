@@ -52,23 +52,6 @@ theorem prop84_theta_odd (hB : KFacts.BlackburnRankTwo) (hFC : FactFieldCentrali
     · exact hd'
     · exact hd
 
-theorem prop84_theta_odd_of_ge_four (hB : KFacts.BlackburnRankTwo)
-    (hFC : FactFieldCentralizerL2Odd) (h : Sec11StdLocal G A c L a R Y) {p e : ℕ} [Fact p.Prime]
-    (hp : 3 < p) (he : 4 ≤ e)
-    (hL : Nonempty (L ⧸ aschbacherSolvableCore 3 L ≃* projSL 2 (GaloisField p (3 * e)))) :
-    Odd (Nat.card (thetaCent a)) := by
-  have hpp : p.Prime := Fact.out
-  have hp5 : 5 ≤ p := by
-    have h4 : p ≠ 4 := by
-      rintro rfl
-      exact absurd hpp (by norm_num)
-    omega
-  have hd := pRankData_of_l2Odd hFC h hp (by omega) hL
-  have hYa : Y ∈ thetaComponentsAt 3 a := h.mem_thetaComponentsAt_Y
-  have hloc := h.localRank_lt p hpp hp
-  exact odd_card_theta_of_components hB hp5 hloc (ι := Unit) (fun _ => Y)
-    (fun _ _ _ => Subsingleton.elim _ _) (fun _ => hYa) (fun _ => e) (by simp; omega)
-    (fun _ => hd)
 
 theorem theta_odd_of_swap_l3 (hB : KFacts.BlackburnRankTwo) (hFC : FactFieldCentralizerL3)
     (h : Sec11StdLocal G A c L a R Y) {m : ℕ} (hm : 2 ≤ m)
@@ -138,32 +121,6 @@ end Certified
 
 section Glue
 
-
-@[expose] def ResidueOddCharGe2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R Y : Subgroup G) (d : G), ResidueConfig G A c L a R Y d → A ∉ partTwoT G →
-      ∀ (p e : ℕ) (_ : Fact p.Prime), 3 < p → 2 ≤ e →
-        Nonempty (L ⧸ aschbacherSolvableCore 3 L ≃* projSL 2 (GaloisField p (3 * e))) → False
-
-@[expose] def ResidueOddCharOne : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R Y : Subgroup G) (d : G), ResidueConfig G A c L a R Y d → A ∉ partTwoT G →
-      ∀ (p : ℕ) (_ : Fact p.Prime), 3 < p →
-        Nonempty (L ⧸ aschbacherSolvableCore 3 L ≃* projSL 2 (GaloisField p (3 * 1))) → False
-
-theorem residueOddChar_of_split (h2 : ResidueOddCharGe2) (h1 : ResidueOddCharOne) :
-    ResidueOddChar := by
-  intro G _ _ A c L a R Y d h hT hodd
-  obtain ⟨p, e, hp, hp3, he, hL⟩ := hodd
-  by_cases he1 : e = 1
-  · subst he1
-    exact h1 G A c L a R Y d h hT p hp hp3 hL
-  · exact h2 G A c L a R Y d h hT p e hp hp3 (by omega) hL
-
-theorem residueOddCharGe2_of (hB : KFacts.BlackburnRankTwo) (hFC : FactFieldCentralizerL2Odd)
-    (h45 : Sec4.Item4_5) (h113 : Item113) (hcore : Item116P2bCore) : ResidueOddCharGe2 := by
-  intro G _ _ A c L a R Y d h hT p e hp hp3 he hL
-  exact theorem85 hB hFC h45 h113 hcore h hT hp3 he hL
 
 end Glue
 

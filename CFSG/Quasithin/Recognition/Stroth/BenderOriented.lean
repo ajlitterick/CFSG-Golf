@@ -19,10 +19,6 @@ private theorem isSzU3Quot_oTwoQuot_congr {H K : Subgroup G} (hHK : H = K) {q : 
   subst hHK
   exact h
 
-private theorem pCoreOf_sup_pCoreOf_right {L1 L2 S : Subgroup G} (hF : Hyp111 L1 L2 S) :
-    pCoreOf 2 (L2 ⊔ Q2 L1 L2 S) = Q2 L1 L2 S := by
-  have h := pCoreOf_sup_pCoreOf (L1 := L2) (L2 := L1) (S := S) hF.symm
-  simpa [Q1, Q2, P1, P2, bigB_comm] using h
 
 private theorem sup_eq_one_of_S_eq {L1 L2 S : Subgroup G}
     (hS1 : S = (S ⊓ L1) ⊔ Q1 L1 L2 S) : L1 ⊔ S = L1 ⊔ Q1 L1 L2 S := by
@@ -219,113 +215,6 @@ structure OrientedBenderPair (L1 L2 S : Subgroup G) (q r : ℕ) : Prop where
 
 namespace OrientedBenderPair
 
-variable {L1 L2 S : Subgroup G} {q r : ℕ}
-
-theorem sup_eq₁ (h : OrientedBenderPair L1 L2 S q r) : L1 ⊔ S = L1 ⊔ Q1 L1 L2 S := by
-  have h1 : L1 ⊔ S = L1 ⊔ ((S ⊓ L1) ⊔ Q1 L1 L2 S) := by
-    conv_lhs => rw [h.s1]
-  rw [h1]
-  conv_lhs => rw [← sup_assoc]
-  rw [show L1 ⊔ (S ⊓ L1) = L1 from le_antisymm (sup_le le_rfl inf_le_right) le_sup_left]
-
-theorem sup_eq₂ (h : OrientedBenderPair L1 L2 S q r) : L2 ⊔ S = L2 ⊔ Q2 L1 L2 S := by
-  have h1 : L2 ⊔ S = L2 ⊔ ((S ⊓ L2) ⊔ Q2 L1 L2 S) := by
-    conv_lhs => rw [h.s2]
-  rw [h1]
-  conv_lhs => rw [← sup_assoc]
-  rw [show L2 ⊔ (S ⊓ L2) = L2 from le_antisymm (sup_le le_rfl inf_le_right) le_sup_left]
-
-theorem pCoreOf_sup₁ (h : OrientedBenderPair L1 L2 S q r) : pCoreOf 2 (L1 ⊔ S) = Q1 L1 L2 S := by
-  conv_lhs => rw [sup_eq₁ h]
-  exact pCoreOf_sup_pCoreOf h.hyp
-
-theorem pCoreOf_sup₂ (h : OrientedBenderPair L1 L2 S q r) : pCoreOf 2 (L2 ⊔ S) = Q2 L1 L2 S := by
-  conv_lhs => rw [sup_eq₂ h]
-  exact pCoreOf_sup_pCoreOf_right h.hyp
-
-theorem isSylowTwoOf₁
-    (h : OrientedBenderPair L1 L2 S q r) : IsSylowTwoOf S (L1 ⊔ S) := by
-  have hR : Hyp111R L1 L2 S := Hyp111R.of_hyp111 rankOneListedFacts h.hyp
-  have hP : IsSylowTwoOf S (P1 L1 L2 S) := F112W.isSylowTwoOf_parabolic hR
-  refine F7.isSylowTwoOf_mono_right hP le_sup_right ?_
-  exact sup_le le_sup_left
-    ((le_sup_right : S ≤ bigB L1 L2 S).trans le_sup_right)
-
-theorem isSylowTwoOf₂
-    (h : OrientedBenderPair L1 L2 S q r) : IsSylowTwoOf S (L2 ⊔ S) := by
-  have hR : Hyp111R L1 L2 S := Hyp111R.of_hyp111 rankOneListedFacts h.hyp
-  have hP : IsSylowTwoOf S (P2 L1 L2 S) := F112W.isSylowTwoOf_parabolic' hR
-  refine F7.isSylowTwoOf_mono_right hP le_sup_right ?_
-  exact sup_le le_sup_left
-    ((le_sup_right : S ≤ bigB L1 L2 S).trans le_sup_right)
-
-theorem bender_sup₁ (h : OrientedBenderPair L1 L2 S q r) : IsSzU3Quot (oTwoQuot ↥(L1 ⊔ S)) q :=
-  isSzU3Quot_oTwoQuot_congr (sup_eq₁ h).symm
-    (IsSzU3Quot.of_mulEquiv (oTwoQuotSupEquiv h.hyp) h.bender1)
-
-theorem bender_sup₂ (h : OrientedBenderPair L1 L2 S q r) : IsSzU3Quot (oTwoQuot ↥(L2 ⊔ S)) r := by
-  have h' : IsSzU3Quot (oTwoQuot ↥(L2 ⊔ Q1 L2 L1 S)) r :=
-    IsSzU3Quot.of_mulEquiv (oTwoQuotSupEquiv h.hyp.symm) h.bender2
-  have hQ : L2 ⊔ Q1 L2 L1 S = L2 ⊔ Q2 L1 L2 S := by
-    simp [Q1, Q2, P1, P2, bigB_comm]
-  exact isSzU3Quot_oTwoQuot_congr (hQ.trans (sup_eq₂ h).symm) h'
-
-theorem relIndex_le_q
-    (h : OrientedBenderPair L1 L2 S q r) {A : Subgroup G} (hAS : A ≤ S)
-    (hA : ∀ a ∈ A, a ^ 2 ∈ Q1 L1 L2 S) :
-    (A ⊓ Q1 L1 L2 S).relIndex A ≤ q := by
-  have hA' : ∀ a ∈ A, a ^ 2 ∈ pCoreOf 2 (L1 ⊔ S) := by
-    intro a ha
-    rw [pCoreOf_sup₁ h]
-    exact hA a ha
-  have hle := relIndex_inf_pCoreOf_le h.bender_sup₁ (isSylowTwoOf₁ h) hAS hA'
-  rwa [pCoreOf_sup₁ h] at hle
-
-theorem relIndex_le_r
-    (h : OrientedBenderPair L1 L2 S q r) {A : Subgroup G} (hAS : A ≤ S)
-    (hA : ∀ a ∈ A, a ^ 2 ∈ Q2 L1 L2 S) :
-    (A ⊓ Q2 L1 L2 S).relIndex A ≤ r := by
-  have hA' : ∀ a ∈ A, a ^ 2 ∈ pCoreOf 2 (L2 ⊔ S) := by
-    intro a ha
-    rw [pCoreOf_sup₂ h]
-    exact hA a ha
-  have hle := relIndex_inf_pCoreOf_le h.bender_sup₂ (isSylowTwoOf₂ h) hAS hA'
-  rwa [pCoreOf_sup₂ h] at hle
-
-theorem v2b (h : OrientedBenderPair L1 L2 S q r)
-    {f : G} (hf : f ∈ S) (hf2 : f * f ∈ Q2 L1 L2 S) (hfQ : f ∉ Q2 L1 L2 S) :
-    r ^ 2 ≤ (Z2 L1 L2 S ⊓ Subgroup.centralizer ({f} : Set G)).relIndex (Z2 L1 L2 S) := by
-  have hHleP2 : L2 ⊔ S ≤ P2 L1 L2 S :=
-    sup_le le_sup_left ((le_sup_right : S ≤ bigB L1 L2 S).trans le_sup_right)
-  have hV : ∀ v ∈ Z2 L1 L2 S, v * v = 1 := by
-    intro v hv
-    simpa [pow_two] using (SmithC27.isElemAbelian_omegaOneCenterOf (Q2 L1 L2 S)).2 v hv
-  have hHV : L2 ⊔ S ≤ Subgroup.normalizer (Z2 L1 L2 S : Set G) :=
-    hHleP2.trans (SmithC27.le_normalizer_omegaOneCenterOf_pCoreOf (P2 L1 L2 S))
-  have hHc : ¬ L2 ⊔ S ≤
-      ((L2 ⊔ S) ⊓ Subgroup.centralizer (Z2 L1 L2 S : Set G)) ⊔ pCoreOf 2 (L2 ⊔ S) := by
-    intro hle
-    have hQ2C : pCoreOf 2 (L2 ⊔ S) ≤
-        Subgroup.centralizer (Z2 L1 L2 S : Set G) := by
-      rw [pCoreOf_sup₂ h]
-      exact SmithC27.pCoreOf_le_centralizer_omegaOneCenterOf (P2 L1 L2 S)
-    have hHleC : L2 ⊔ S ≤ Subgroup.centralizer (Z2 L1 L2 S : Set G) :=
-      hle.trans (sup_le inf_le_right hQ2C)
-    exact h.not_central (by rwa [sup_eq₂ h] at hHleC)
-  have htH : f ∈ L2 ⊔ S := (le_sup_right : S ≤ L2 ⊔ S) hf
-  have ht : f * f ∈ pCoreOf 2 (L2 ⊔ S) := by
-    rwa [pCoreOf_sup₂ h]
-  have htO : f ∉ pCoreOf 2 (L2 ⊔ S) := by
-    rwa [pCoreOf_sup₂ h]
-  exact sq_le_relIndex_centralizer_of_sq_mem h.bender_sup₂ hV hHV hHc htH ht htO
-
-theorem false_of_commutator_le (h : OrientedBenderPair L1 L2 S q r)
-    {Y : Subgroup G} (hYQ : Y ≤ Q1 L1 L2 S)
-    (hYn : L1 ⊔ S ≤ Subgroup.normalizer (Y : Set G))
-    (hYc : ⁅Y, oTwoUpper (L1 ⊔ S)⁆ = ⊥) {s : G} (hs : s ∈ S)
-    (hsQ : s ∉ Q1 L1 L2 S)
-    (hc : ∀ x ∈ Q1 L1 L2 S, x * s * x⁻¹ * s⁻¹ ∈ Y) : False :=
-  false_of_commutator_le_of_bender h.hyp h.sB h.s1 h.bender1 hYQ hYn hYc hs hsQ hc
 
 end OrientedBenderPair
 

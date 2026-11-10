@@ -69,13 +69,6 @@ theorem hstar_u42Mat (hσι : ∀ a : ZMod 2, σ (ι a) = ι a) (hσσ : ∀ x, 
   unfold u42Mat
   rw [hstar_add, hstar_one, hstar_u42N, hσι, hσι, hσσ]
 
-theorem u42Mat_injective (hι : Function.Injective ι) : Function.Injective (u42Mat ι σ) := by
-  intro v w h
-  have h00 := congrFun (congrFun h 0) 1
-  have h02 := congrFun (congrFun h 0) 2
-  have h23 := congrFun (congrFun h 2) 3
-  simp [u42Mat, u42N] at h00 h02 h23
-  exact Prod.ext (hι h00) (Prod.ext (hι h23) h02)
 
 end U42
 

@@ -19,13 +19,6 @@ variable {τ : Tag} {L : Type} [Field L]
 @[expose] noncomputable def fixModel (Φ : ModGL τ L →* ModGL τ L) : Subgroup (ModGL τ L) :=
   adjointGroup τ L ⊓ Φ.eqLocus (MonoidHom.id _)
 
-theorem mem_fixModel {Φ : ModGL τ L →* ModGL τ L} {y : ModGL τ L} :
-    y ∈ fixModel Φ ↔ y ∈ adjointGroup τ L ∧ Φ y = y :=
-  Iff.rfl
-
-theorem twModel_eq_fixModel (n : ModGL τ L) (Fr : L →+* L) :
-    twModel n Fr = fixModel ((MulAut.conj n).toMonoidHom.comp (Units.map (entrywiseHom Fr))) :=
-  rfl
 
 theorem twistedTorusOf_le_fixModel
     (n : ModGL τ L) (Φ : ModGL τ L →* ModGL τ L) :
@@ -72,11 +65,6 @@ variable {L : Type} [Field L]
 
 theorem twFrob_apply (t : TwistTag) (n : ModGL t.tag L) (Fr : L →+* L) (g : ModGL t.tag L) :
     twFrob t n Fr g = n * twistHom t L Fr g * n⁻¹ :=
-  rfl
-
-theorem fixModel_twFrob (t : TwistTag) (n : ModGL t.tag L) (Fr : L →+* L) :
-    fixModel (twFrob t n Fr) =
-      fixModel ((MulAut.conj n).toMonoidHom.comp (twistHom t L Fr)) :=
   rfl
 
 

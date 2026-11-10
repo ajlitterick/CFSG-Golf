@@ -88,18 +88,6 @@ theorem primePart_mul (prime first second : ℕ) (first_ne : first ≠ 0) (secon
   unfold primePart
   rw [Nat.factorization_mul first_ne second_ne, Finsupp.add_apply, pow_add]
 
-theorem primePart_card_mul_index {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) (subgroup : Subgroup group) :
-    primePart prime (Nat.card subgroup) * primePart prime subgroup.index =
-      primePart prime (Nat.card group) := by
-  have subgroup_ne := ne_of_gt (Nat.card_pos (α := subgroup))
-  have index_ne : subgroup.index ≠ 0 := by
-    intro zero_index
-    have card_eq := subgroup.card_mul_index
-    rw [zero_index, mul_zero] at card_eq
-    exact ne_of_gt (Nat.card_pos (α := group)) card_eq.symm
-  rw [← primePart_mul prime (Nat.card subgroup) subgroup.index subgroup_ne index_ne,
-    subgroup.card_mul_index]
 
 theorem eq_top_of_contains_sylow_for_every_prime {group : Type*}
     [Group group] [Finite group] (subgroup : Subgroup group)

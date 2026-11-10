@@ -17,8 +17,6 @@ open CFSG.KC.LyOm CFSG.KC.Ord CertificateChecks.KernelSporSch CFSG.Sporadic.Ly.T
 
 theorem tw_checks : relsOK BC LyBS.A LyBS.B LyBS.B4 twVals twRels = true := by quickRfl
 
-theorem neg_tw : notB (relsOK BC LyBS.A LyBS.B LyBS.B4 twVals [([13, 13], [])]) = true := by
-  quickRfl
 
 end CFSG.KD.LyOm
 

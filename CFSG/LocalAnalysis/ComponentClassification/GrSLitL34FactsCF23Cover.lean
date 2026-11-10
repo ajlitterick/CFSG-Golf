@@ -28,6 +28,5 @@ theorem sq1M_of {t i : ℕ} (hi : i < 36)
   have hy := (tabRep_wordTab (tg t)).comp (tabRep_repTab hi)
   exact ((hy.comp hy).beq_iff TabRep.idTab).2 h
 
-variable {E : Type*} [Group E] {q : E →* Equiv.Perm (Fin 42)} {l : Cover →* E}
 
 end CFSG.ComponentClassification.GrSLit.L34Facts.Real

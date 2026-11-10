@@ -48,7 +48,6 @@ open CFSG.KC.TS8WrK
       (Nat.beq (f8 SI (f8 SO a)) a)))
     (CFSG.KC.TS8WrK.allN 255 fun j => Nat.blt (E (f8 SO j)) (E (f8 SO (Nat.succ j))))
 
-@[expose] noncomputable def letK (L : Nat → Nat) (l : Nat) : Nat := L l
 
 @[expose] noncomputable def wordK (L : Nat → Nat) (w : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) pidK (fun l _ ih => pc (L l) ih) w

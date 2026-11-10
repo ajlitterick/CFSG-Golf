@@ -99,61 +99,15 @@ theorem simpleDiffTailCheck_eq_true : ∀ τ : Tag,
   | .E7 => by decide +kernel
   | .E8 => by decide +kernel
 
-@[expose] def tailRootList (τ : Tag) (h : ℤ) : List (Fin τ.rank → ℤ) :=
-  ((List.range τ.rootCertificate.roots.length).map τ.rootCertificate.root).filter
-    fun v => decide (h ≤ height v)
-
-@[expose] def notSimpleDiffTailCheck (τ : Tag) (h : ℤ) (i : Fin τ.rank) : Bool :=
-  (tailRootList τ h).all fun γ => (tailRootList τ h).all fun δ =>
-    !(List.ofFn (γ - δ) == List.ofFn (Pi.single i 1 : Fin τ.rank → ℤ))
-
-theorem not_simpleDiffTail_of_check {τ : Tag} {h : ℤ}
-    (i : Fin τ.rank) (hc : notSimpleDiffTailCheck τ h i = true) : ¬SimpleDiffTail τ h := by
-  intro hd
-  obtain ⟨γ, δ, hγ, hδ, hγh, hδh, he⟩ := hd i
-  have hmem : ∀ v, IsRoot τ v → h ≤ height v → v ∈ tailRootList τ h := by
-    intro v hv hvh
-    obtain ⟨k, hk, rfl⟩ := RootCertificate.exists_root_eq τ.rootCertificate_check hv
-    simp only [tailRootList, List.mem_filter, List.mem_map, List.mem_range, decide_eq_true_eq]
-    exact ⟨⟨k, hk, rfl⟩, hvh⟩
-  simp only [notSimpleDiffTailCheck, List.all_eq_true] at hc
-  have h1 := hc γ (hmem γ hγ hγh) δ (hmem δ hδ hδh)
-  rw [← he] at h1
-  simp at h1
-
-@[expose] def simpleDiffTailMaxIdx : (τ : Tag) → Fin τ.rank
-  | .G2 => ⟨1, by decide⟩
-  | .F4 => ⟨3, by decide⟩
-  | .D4 => ⟨0, by decide⟩
-  | .E6 => ⟨0, by decide⟩
-  | .E7 => ⟨6, by decide⟩
-  | .E8 => ⟨0, by decide⟩
-
-theorem notSimpleDiffTailCheck_eq_true : ∀ τ : Tag,
-    notSimpleDiffTailCheck τ (simpleDiffTailMax τ + 1) (simpleDiffTailMaxIdx τ) = true
-  | .G2 => by decide +kernel
-  | .F4 => by decide +kernel
-  | .D4 => by decide +kernel
-  | .E6 => by decide +kernel
-  | .E7 => by decide +kernel
-  | .E8 => by decide +kernel
-
 
 theorem simpleDiffTail_of_le {τ : Tag} {h : ℤ} (hh : h ≤ simpleDiffTailMax τ) :
     SimpleDiffTail τ h :=
   (simpleDiffTail_of_check (simpleDiffTailCheck_eq_true τ)).mono hh
 
-theorem simpleDiffTail_iff {τ : Tag} {h : ℤ} : SimpleDiffTail τ h ↔ h ≤ simpleDiffTailMax τ := by
-  refine ⟨fun hd => ?_, simpleDiffTail_of_le⟩
-  by_contra hlt
-  exact not_simpleDiffTail_of_check _ (notSimpleDiffTailCheck_eq_true τ) (hd.mono (by omega))
 
 theorem simpleDiffTail_one (τ : Tag) : SimpleDiffTail τ 1 :=
   simpleDiffTail_of_le (by cases τ <;> decide)
 
-theorem simpleDiffTail_E6_4 : SimpleDiffTail .E6 4 := simpleDiffTail_of_le (by decide)
-
-theorem simpleDiffTail_E6_5 : SimpleDiffTail .E6 5 := simpleDiffTail_of_le (by decide)
 
 theorem simpleDiffTail_E7_5 : SimpleDiffTail .E7 5 := simpleDiffTail_of_le (by decide)
 
@@ -167,7 +121,6 @@ theorem simpleDiffTail_E8_11 : SimpleDiffTail .E8 11 := simpleDiffTail_of_le (by
 
 theorem simpleDiffTail_E8_13 : SimpleDiffTail .E8 13 := simpleDiffTail_of_le (by decide)
 
-theorem simpleDiffTail_F4_3 : SimpleDiffTail .F4 3 := simpleDiffTail_of_le (by decide)
 
 theorem mem_borelGroup_of_normalizes_heightSeries {τ : Tag} {h : ℤ} (h1 : 1 ≤ h)
     (hd : SimpleDiffTail τ h) {g : ModGL τ K} (hg : g ∈ adjointGroup τ K)

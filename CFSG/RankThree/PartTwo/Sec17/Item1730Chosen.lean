@@ -286,11 +286,6 @@ theorem step1730Chosen_of (h131 : Item131) (hspor : SporadicModels131) (hSLC : S
     have := Subgroup.orderOf_dvd_natCard L' heL'
     rwa [hDe.orderOf_eq] at this
 
-theorem rank3II_17_30_of_inputs (h1728 : Item1728) (h131 : Item131)
-    (hspor : SporadicModels131) (hSLC : SLTwoCenter) (h134 : Item134) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15) (hJs : IsSimpleGroup CFSG.Blueprint.NativeSporadic.J2)
-    (hJ2 : KFacts.KS17J2NotList) (hconj : KFacts.KS17HJConjugacy) : Item1730 :=
-  rank3II_17_30_of h1728 hconj (step1730Chosen_of h131 hspor hSLC h134 h48 h415 hJs hJ2)
 
 end Chosen
 

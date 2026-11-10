@@ -110,50 +110,6 @@ theorem tauOf_map_le [Finite G] {Q : Type*} [Group Q] (f : G →* Q) {H T A : Su
   rw [← map_commutatorElement]
   exact map_pCoreOf_le f H (Subgroup.mem_map_of_mem _ (ht.2.2 a ha))
 
-theorem inf_eq_pCoreOf_of_isSylowIn [Finite G] {T Y : Subgroup G} [Y.Normal]
-    (hT : IsSylowIn 2 T ⊤) (hY : IsSylowIn 2 (pCoreOf 2 (⊤ : Subgroup G)) Y) :
-    T ⊓ Y = pCoreOf 2 (⊤ : Subgroup G) := by
-  have h1 : IsSylowIn 2 (T ⊓ Y) Y := hT.inf_normal le_top inferInstance
-  have hle : pCoreOf 2 (⊤ : Subgroup G) ≤ T ⊓ Y :=
-    le_inf (pCoreOf_two_le_of_isSylowIn hT) hY.le
-  refine (Subgroup.eq_of_le_of_card_ge hle ?_).symm
-  rw [h1.card_eq, hY.card_eq]
-
-theorem eight_three [Finite G] {T A Y : Subgroup G} [Y.Normal] (hT : IsSylowIn 2 T ⊤)
-    (hA : A ≤ T) (hY : IsSylowIn 2 (pCoreOf 2 (⊤ : Subgroup G)) Y) :
-    T ⊓ (Subgroup.centralizer ((A.map (QuotientGroup.mk' Y) : Subgroup (G ⧸ Y)) :
-        Set (G ⧸ Y))).comap (QuotientGroup.mk' Y) = tauOf ⊤ T A ∧
-      (tauOf ⊤ T A).map (QuotientGroup.mk' Y) ≤
-        tauOf (⊤ : Subgroup (G ⧸ Y)) (T.map (QuotientGroup.mk' Y)) (A.map (QuotientGroup.mk' Y)) := by
-  have hTY := inf_eq_pCoreOf_of_isSylowIn hT hY
-  have hOY : pCoreOf 2 (⊤ : Subgroup G) ≤ Y := hY.le
-  have key : T ⊓ (Subgroup.centralizer ((A.map (QuotientGroup.mk' Y) : Subgroup (G ⧸ Y)) :
-        Set (G ⧸ Y))).comap (QuotientGroup.mk' Y) = tauOf ⊤ T A := by
-    ext t
-    rw [mem_tauOf_of_le le_top, Subgroup.mem_inf, Subgroup.mem_comap,
-      Subgroup.mem_centralizer_iff]
-    refine and_congr_right fun htT => ?_
-    constructor
-    · intro h a ha
-      have hc := h (QuotientGroup.mk' Y a) (Subgroup.mem_map_of_mem _ ha)
-      have hcomm : QuotientGroup.mk' Y ⁅t, a⁆ = 1 := by
-        rw [map_commutatorElement, commutatorElement_eq_one_iff_mul_comm]
-        exact hc.symm
-      have hY' : ⁅t, a⁆ ∈ Y := (QuotientGroup.eq_one_iff _).mp hcomm
-      have hT' : ⁅t, a⁆ ∈ T := by
-        rw [commutatorElement_def]
-        exact T.mul_mem (T.mul_mem (T.mul_mem htT (hA ha)) (T.inv_mem htT)) (T.inv_mem (hA ha))
-      rw [← hTY]
-      exact ⟨hT', hY'⟩
-    · intro h x hx
-      obtain ⟨a, ha, rfl⟩ := hx
-      have h1 : ⁅t, a⁆ ∈ Y := hOY (h a ha)
-      have h2 : QuotientGroup.mk' Y ⁅t, a⁆ = 1 := (QuotientGroup.eq_one_iff _).mpr h1
-      rw [map_commutatorElement, commutatorElement_eq_one_iff_mul_comm] at h2
-      exact h2.symm
-  refine ⟨key, ?_⟩
-  have := tauOf_map_le (QuotientGroup.mk' Y) (H := ⊤) (T := T) (A := A) le_top
-  rwa [Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective Y)] at this
 
 end E1
 

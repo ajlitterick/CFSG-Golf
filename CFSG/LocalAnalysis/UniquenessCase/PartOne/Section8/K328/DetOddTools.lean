@@ -321,11 +321,6 @@ private theorem k328de8_ptm_det {K : Type} [Field K] [CharP K 2]  (c : K) : (k32
   ring_nf
   simp [CharTwo.add_self_eq_zero]
 
-private theorem k328de8_pN_sq {K : Type} [Field K] [CharP K 2]  : (k328de8_pN : Matrix (Fin 3) (Fin 3) K) * k328de8_pN = 0 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [k328de8_pN, k328de8_pv, Matrix.mul_apply, Fin.sum_univ_three, Matrix.zero_apply,
-      CharTwo.add_self_eq_zero]
 
 private theorem k328de8_ptm_mul {K : Type} [Field K] [CharP K 2]  (c d : K) : k328de8_ptm c * k328de8_ptm d = k328de8_ptm (c + d) := by
   ext i j
@@ -582,39 +577,6 @@ private theorem k328dr_det_eq_mul_det_of_isCompl {E : Type*} [Field E] {V : Type
     _ = (LinearMap.prodMap (f.restrict h₁) (f.restrict h₂)).det := by rw [hconj]
     _ = (f.restrict h₁).det * (f.restrict h₂).det := LinearMap.det_prodMap _ _
 
-private theorem k328dr_det_eq_neg_one_pow {E : Type*} [Field E] {V : Type*} [AddCommGroup V] [Module E V]
-    [FiniteDimensional E V] (h2 : (2 : E) ≠ 0) (f : Module.End E V) (hf : f * f = 1) :
-    f.det = (-1) ^ Module.finrank E (↥(f.eigenspace (-1))) := by
-  have hc := k328dr_eigenspace_isCompl h2 f hf
-  have h₁ : f.eigenspace 1 ≤ (f.eigenspace 1).comap f := by
-    intro x hx
-    have hx' : f x = x := by simpa using Module.End.mem_eigenspace_iff.mp hx
-    rw [Submodule.mem_comap, hx']
-    exact hx
-  have h₂ : f.eigenspace (-1) ≤ (f.eigenspace (-1)).comap f := by
-    intro x hx
-    have hx' : f x = -x := by
-      simpa [neg_one_smul] using Module.End.mem_eigenspace_iff.mp hx
-    rw [Submodule.mem_comap, hx', Module.End.mem_eigenspace_iff, map_neg, hx']
-    simp
-  rw [k328dr_det_eq_mul_det_of_isCompl hc f h₁ h₂]
-  have hr₁ : (f.restrict h₁ : ↥(f.eigenspace 1) →ₗ[E] ↥(f.eigenspace 1)) = 1 := by
-    ext x
-    change f (x : V) = (x : V)
-    simpa using Module.End.mem_eigenspace_iff.mp x.2
-  have hr₂ : (f.restrict h₂ : ↥(f.eigenspace (-1)) →ₗ[E] ↥(f.eigenspace (-1))) = -1 := by
-    ext x
-    change f (x : V) = -(x : V)
-    simpa [neg_one_smul] using Module.End.mem_eigenspace_iff.mp x.2
-  have hd₂ : (-1 : Module.End E ↥(f.eigenspace (-1))) =
-      (-1 : E) • (1 : Module.End E ↥(f.eigenspace (-1))) := by
-    ext x
-    simp
-  rw [hr₁, hr₂, hd₂, LinearMap.det_smul]
-  simp
-
-
-
 
 private theorem k328dr_mapsTo_eigenspace_of_comm {E : Type*} [Field E] {V : Type*} [AddCommGroup V] [Module E V]
     {f g : Module.End E V} (h : Commute f g) (μ : E) :
@@ -743,9 +705,6 @@ private theorem k328dr_eq_one_or_neg_one_of_involution_finrank_two {E : Type*} [
     have hx : x ∈ g.eigenspace (-1) := by rw [htop]; exact Submodule.mem_top
     have := Module.End.mem_eigenspace_iff.mp hx
     simpa [neg_one_smul] using this
-
-
-
 
 
 private theorem k328dr_apply_apply_eq_of_mul_self {E : Type*} [Field E] {V : Type*} [AddCommGroup V] [Module E V]
@@ -924,10 +883,6 @@ private theorem k328dr_involution_add_eq_neg_one {E : Type*} [Field E] (h2 : (2 
     simpa using h
   rw [show f + g + f * g = f * g + f + g by abel]
   exact hsum
-
-
-
-
 
 
 private def k328dr_natRep {E : Type*} [Field E] (Y : Subgroup (Matrix.SpecialLinearGroup (Fin 3) E)) :
@@ -1157,10 +1112,6 @@ private theorem k328dr_eq_of_commute_involutions {E : Type*} [Field E] (Y : Subg
   · exact absurd h hw0
 
 
-
-
-
-
 private abbrev k328dr_toEnd {E : Type*} [Field E] (t : Matrix.SpecialLinearGroup (Fin 3) E) : Module.End E (Fin 3 → E) :=
   Matrix.toLin' (t : Matrix (Fin 3) (Fin 3) E)
 
@@ -1184,10 +1135,6 @@ private theorem k328dr_toEnd_det {E : Type*} [Field E] (a : Matrix.SpecialLinear
   rw [k328dr_toEnd, LinearMap.det_toLin']
   exact a.2
 
-private theorem k328dr_smul_one_mul {E : Type*} [Field E] {V : Type*} [AddCommGroup V] [Module E V]
-    (c : E) (f : Module.End E V) : ((c • (1 : Module.End E V)) * f) = c • f := by
-  rw [Module.End.mul_eq_comp, LinearMap.smul_comp]
-  congr 1
 
 private theorem k328dr_nsmul_one_mul {E : Type*} [Field E] {V : Type*} [AddCommGroup V] [Module E V]
     (n : ℕ) (f : Module.End E V) : ((n • (1 : Module.End E V)) * f) = n • f := by
@@ -1391,8 +1338,6 @@ private theorem k328dr_false_of_elemAbelian_card_eight {E : Type*} [Field E] {T 
   exact k328dr_false_of_three_involutions h2 hf2 hg2 hh2 hf1' hg1' hh1' hfg' hfh' hgh' hfgne' hhf' hhg' hhfg'
 
 
-
-
 theorem k328det_e8OfPos :
     ∀ (Y : Type) [Group Y] [Finite Y], (LieModel Y .PSL 3 2 2 ∨ LieModel Y .PSU 3 2 3) →
       ∃ A : Subgroup Y, (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧ (∀ a ∈ A, a ^ 2 = 1) ∧
@@ -1523,36 +1468,6 @@ private theorem k328dr_isCyclic_of_unique_involution {H : Type} [CommGroup H] [F
       have hpos : 0 < 2 ^ k := by positivity
       omega
 
-private theorem k328dr_closure_pair_comm {G : Type} [Group G] {a b : G} (hab : a * b = b * a) :
-    ∀ x ∈ Subgroup.closure ({a, b} : Set G),
-      ∀ y ∈ Subgroup.closure ({a, b} : Set G), x * y = y * x := by
-  intro x hx y hy
-  induction hx, hy using Subgroup.closure_induction₂ with
-  | mem p q hp hq =>
-      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hp hq
-      rcases hp with rfl | rfl <;> rcases hq with rfl | rfl <;> simp [hab]
-  | one_left q hq => simp
-  | one_right q hq => simp
-  | mul_left p q z hp hq hz hpz hqz =>
-      calc (p * q) * z = p * (q * z) := by group
-        _ = p * (z * q) := by rw [hqz]
-        _ = (p * z) * q := by group
-        _ = (z * p) * q := by rw [hpz]
-        _ = z * (p * q) := by group
-  | mul_right y z x hy hz hx hxy hxz =>
-      calc x * (y * z) = (x * y) * z := by group
-        _ = (y * x) * z := by rw [hxy]
-        _ = y * (x * z) := by group
-        _ = y * (z * x) := by rw [hxz]
-        _ = (y * z) * x := by group
-  | inv_left p q hp hq hpq =>
-      calc p⁻¹ * q = p⁻¹ * (q * p) * p⁻¹ := by group
-        _ = p⁻¹ * (p * q) * p⁻¹ := by rw [hpq]
-        _ = q * p⁻¹ := by group
-  | inv_right p q hp hq hpq =>
-      calc p * q⁻¹ = q⁻¹ * (q * p) * q⁻¹ := by group
-        _ = q⁻¹ * (p * q) * q⁻¹ := by rw [hpq]
-        _ = q⁻¹ * p := by group
 
 private theorem k328dr_finite_of_lieModel (W : Type) [Group W]
     (hW : LieModel W .PSL 3 2 2 ∨ LieModel W .PSU 3 2 3) : Finite W := by
@@ -1993,7 +1908,6 @@ private theorem k328dr_central_ext_false {E : Type} [Field E] [Finite E] (h2 : (
       · right; exact hθinj h
     exact k328dr_false_of_unique_involution_cover T.isPGroup' C2 hC2center hcardTQ hsqTB hcommTB
       c hcC2 hc2 hc1 huniqTB
-
 
 
 private theorem k328dr_W_isPerfect {W : Type} [Group W]

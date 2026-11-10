@@ -60,18 +60,6 @@ theorem reducedTargetHom_full_center_comap [Finite F] (hF : 4 ≤ Nat.card F)
   fullCenterQuotientEquiv (reducedTargetHom phi) (reducedTargetHom_surjective phi hphi)
     (scalarSubgroup B) (reducedTargetHom_full_center_comap hF i b B hSB phi hphi hker hcore)
 
-theorem reducedTargetFullCenterEquiv_mk [Finite F] (hF : 4 ≤ Nat.card F)
-    (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    {C : Type w} [Group C] (phi : B →* C) (hphi : Function.Surjective phi)
-    (hker : phi.ker ≤ oddScalarSubgroup B)
-    (hcore : CFSG.oddCore C = (oddScalarSubgroup B).map phi) (g : B) :
-    reducedTargetFullCenterEquiv hF i b B hSB phi hphi hker hcore
-      (QuotientGroup.mk' (scalarSubgroup B) g) =
-        QuotientGroup.mk' (Subgroup.center (C ⧸ CFSG.oddCore C))
-          (QuotientGroup.mk' (CFSG.oddCore C) (phi g)) := by
-  unfold reducedTargetFullCenterEquiv
-  exact fullCenterQuotientEquiv_mk _ _ _ _ g
 
 theorem reducedTargetHom_full_center_comap_of_two_power
     (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
@@ -99,19 +87,6 @@ theorem reducedTargetHom_full_center_comap_of_two_power
     (scalarSubgroup B)
     (reducedTargetHom_full_center_comap_of_two_power i b B hSB k hZ phi hphi hker hcore)
 
-theorem reducedTargetFullCenterEquivOfTwoPower_mk
-    (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    [Finite (scalarSubgroup B)] (k : ℕ) (hZ : Nat.card (scalarSubgroup B) = 2 ^ k)
-    {C : Type w} [Group C] (phi : B →* C) (hphi : Function.Surjective phi)
-    (hker : phi.ker ≤ oddScalarSubgroup B)
-    (hcore : CFSG.oddCore C = (oddScalarSubgroup B).map phi) (g : B) :
-    reducedTargetFullCenterEquivOfTwoPower i b B hSB k hZ phi hphi hker hcore
-      (QuotientGroup.mk' (scalarSubgroup B) g) =
-        QuotientGroup.mk' (Subgroup.center (C ⧸ CFSG.oddCore C))
-          (QuotientGroup.mk' (CFSG.oddCore C) (phi g)) := by
-  unfold reducedTargetFullCenterEquivOfTwoPower
-  exact fullCenterQuotientEquiv_mk _ _ _ _ g
 
 end MatrixReducedTarget
 

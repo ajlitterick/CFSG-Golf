@@ -78,7 +78,6 @@ instance (d : RankTwoIndex) : Group (α.X d) := by
   map_comp {d e f} h₁ h₂ x := by
     cases d <;> cases e <;> cases f <;> first | rfl | exact h₁.elim | exact h₂.elim
 
-@[expose] def IsInjective : Prop := Function.Injective α.α1 ∧ Function.Injective α.α2
 
 section OfSubgroups
 
@@ -91,9 +90,6 @@ variable {X : Type u} [Group X]
   α1 := Subgroup.inclusion (inf_le_left : P1 ⊓ P2 ≤ P1)
   α2 := Subgroup.inclusion (inf_le_right : P1 ⊓ P2 ≤ P2)
 
-theorem ofSubgroups_isInjective (P1 P2 : Subgroup X) : (ofSubgroups P1 P2).IsInjective :=
-  ⟨Subgroup.inclusion_injective (inf_le_left : P1 ⊓ P2 ≤ P1),
-    Subgroup.inclusion_injective (inf_le_right : P1 ⊓ P2 ≤ P2)⟩
 
 end OfSubgroups
 
@@ -116,8 +112,6 @@ structure Iso (α β : RankTwoAmalgam.{u}) where
 @[expose] def ParabolicIso (α β : RankTwoAmalgam.{u}) : Prop :=
   Nonempty (α.G1 ≃* β.G1) ∧ Nonempty (α.G12 ≃* β.G12) ∧ Nonempty (α.G2 ≃* β.G2)
 
-theorem Iso.parabolicIso {α β : RankTwoAmalgam.{u}} (e : Iso α β) : ParabolicIso α β :=
-  ⟨⟨e.φ1⟩, ⟨e.φ12⟩, ⟨e.φ2⟩⟩
 
 structure Completion (α : RankTwoAmalgam.{u}) (Y : Type w) [Group Y] where
   φ1 : α.G1 →* Y

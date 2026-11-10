@@ -48,31 +48,11 @@ theorem ggRootDetect_all (h : GGRootDetectRest) : ∀ t, GGRootDetect t := by
   · exact ggRootDetect_of_rank_lt fun _ _ => Nat.zero_lt_two
   · exact ggRootDetect_of_rank_lt fun _ _ => Nat.zero_lt_two
 
-theorem ggHypSixV2Input_of_rest (hR : GGInnerDiagBridgeInput) (hC : GGCompatNbrInput)
-    (hrest : GGRootDetectRest) (hD4 : GGHypSixD4Input) : GGHypSixV2Input :=
-  ggHypSixV2Input_of_detect hR hC (ggRootDetect_all hrest) hD4
 
 end Families
 
 section Assembly
 
-theorem lc_gl_std_of_v2_steps_six (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (he : GGPropFiveTwentyOneV2Input) (hC : GGCompatNbrInput)
-    (hrest : GGRootDetectRest) (hD4 : GGHypSixD4Input)
-    (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput) (hR : GGInnerDiagBridgeInput)
-    (h1 : GGSixStepOneV2Input) (h2 : GGSixStepTwoV2Input) (h3a : GGSixStepThreeAInput)
-    (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_v2_steps_rev hHolt ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd he
-    (ggHypSixV2Input_of_rest hR hC hrest hD4) hg₁ hg₂ hR h1 h2 h3a h3b h3c h3d hKG G hnonab hK
-    hchar he4 p hp B x L hS hst
 
 end Assembly
 

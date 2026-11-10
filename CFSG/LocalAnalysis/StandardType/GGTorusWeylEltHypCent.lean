@@ -290,18 +290,6 @@ theorem exists_two_pow_ggConjAut [Finite L'] {A : Subgroup (MulAut L')} {m : L'}
     ext x
     rw [coe_ggConjAut_pow, ggConjAut_apply, map_pow]
 
-theorem ggTorusWeylElt_of_two_pow [Finite L'] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    {A : Subgroup (MulAut L')} (hA : IsElemAbelian p A)
-    (hZ : ∀ z ∈ Subgroup.center L', Odd (orderOf z)) {m : L'}
-    (hm : MulAut.conj m ∈ Subgroup.normalizer (A : Set (MulAut L')))
-    (hφ : GGIsReflection p (ggConjAut A hm)) :
-    ∃ (n : L') (hn : MulAut.conj n ∈ Subgroup.normalizer (A : Set (MulAut L'))) (k : ℕ),
-      n ^ 2 ^ k = 1 ∧ ggConjAut A hn = ggConjAut A hm ∧ n ∈ ggHypCent A n ∧
-        GGTorusWeylElt p A n := by
-  obtain ⟨n, hn, k, hnk, hnφ⟩ := exists_two_pow_ggConjAut hm hφ.1
-  have hH := mem_ggHypCent_of_pow_two_pow A hZ hnk
-  exact ⟨n, hn, k, hnk, hnφ, hH,
-    ggTorusWeylElt_of_mem_ggHypCent hp hp2 hA hn (hnφ ▸ hφ) hH⟩
 
 theorem prime_dvd_card_of_isSubnormal_ggHypCent_of_mem [Finite L'] {p : ℕ}
     (hp : p.Prime) (hp2 : p ≠ 2) {A : Subgroup (MulAut L')}

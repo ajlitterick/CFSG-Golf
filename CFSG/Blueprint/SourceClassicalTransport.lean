@@ -19,19 +19,6 @@ section FieldChange
 
 variable {K L : Type} [Field K] [Field L] (φ : K ≃+* L)
 
-theorem glCongr_matrixIsometry {ι : Type} [Fintype ι] [DecidableEq ι] (G : Matrix ι ι K) :
-    (matrixIsometry G).map (glCongr (ι := ι) φ).toMonoidHom = matrixIsometry (G.map φ) := by
-  ext B
-  rw [Subgroup.mem_map_equiv, mem_matrixIsometry, mem_matrixIsometry, glCongr_symm_coe]
-  constructor
-  · intro h
-    have := congrArg (fun M : Matrix ι ι K => M.map φ) h
-    simp only [Matrix.map_mul, transpose_map, Matrix.map_map] at this
-    rwa [show (⇑φ ∘ ⇑φ.symm) = id from funext φ.apply_symm_apply, Matrix.map_id] at this
-  · intro h
-    have := congrArg (fun M : Matrix ι ι L => M.map φ.symm) h
-    simp only [Matrix.map_mul, transpose_map, Matrix.map_map] at this
-    rwa [show (⇑φ.symm ∘ ⇑φ) = id from funext φ.symm_apply_apply, Matrix.map_id] at this
 
 theorem statedQuadPlus_map (n : ℕ) (v : Fin n ⊕ Fin n → K) :
     StatedQuadPlus n L (φ ∘ v) = φ (StatedQuadPlus n K v) := by
@@ -105,32 +92,5 @@ theorem nonempty_mulEquiv_of_statedClassicalModel {X Y : Type} [Group X] [Group 
           rfl)) (glCongr_statedScalars φ)).trans (e₃.trans e₂.symm))⟩
   all_goals exact hX.2.elim
 
-theorem even_native_classical_source_model_transport (X : Type) [Group X] (t : StatedLieTag)
-    (n p f : ℕ) :
-    (StatedClassicalModel X t n p f ↔ SourceClassicalModel X t n p f) ∧
-    (∀ (Y : Type) [Group Y], SourceClassicalModel X t n p f → SourceClassicalModel Y t n p f →
-      Nonempty (X ≃* Y)) ∧
-    (∀ (Y : Type) [Group Y], SourceClassicalModel X t n p f → StatedClassicalModel Y t n p f →
-      Nonempty (X ≃* Y)) := by
-  have hiff : ∀ (Z : Type) [Group Z],
-      StatedClassicalModel Z t n p f ↔ SourceClassicalModel Z t n p f := by
-    intro Z _
-    cases t
-    case PSL => exact ⟨sourceClassicalModel_of_stated_PSL, stated_of_sourceClassicalModel_PSL⟩
-    case PSU => exact ⟨sourceClassicalModel_of_stated_PSU, stated_of_sourceClassicalModel_PSU⟩
-    case PSp => exact ⟨sourceClassicalModel_of_stated_PSp, stated_of_sourceClassicalModel_PSp⟩
-    case POmegaOdd =>
-      exact ⟨sourceClassicalModel_of_stated_POmegaOdd, stated_of_sourceClassicalModel_POmegaOdd⟩
-    case POmegaPlus =>
-      exact ⟨sourceClassicalModel_of_stated_POmegaPlus, stated_of_sourceClassicalModel_POmegaPlus⟩
-    case POmegaMinus =>
-      exact ⟨sourceClassicalModel_of_stated_POmegaMinus,
-        stated_of_sourceClassicalModel_POmegaMinus⟩
-    all_goals
-      refine ⟨fun h => h.2.elim, fun h => ?_⟩
-      obtain ⟨-, -, -, -, -, -, -, -, -, -, ⟨⟩⟩ := h
-  refine ⟨hiff X, fun Y _ hX hY => ?_, fun Y _ hX hY => ?_⟩
-  · exact nonempty_mulEquiv_of_statedClassicalModel ((hiff X).mpr hX) ((hiff Y).mpr hY)
-  · exact nonempty_mulEquiv_of_statedClassicalModel ((hiff X).mpr hX) hY
 
 end CFSG.Blueprint.EvenSource

@@ -53,14 +53,6 @@ theorem exists_label_of_mem_irr {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) :
   obtain ⟨data, hirr, rfl⟩ := hχ
   exact finiteIrreducibleCharacterBasis_contains_irreducible basis data hirr
 
-theorem irr_eq_range_basis :
-    BlocksIrr G = Set.range fun l : basis.index => (basis.representation l).character := by
-  ext χ
-  constructor
-  · intro hχ
-    exact exists_label_of_mem_irr basis hχ
-  · rintro ⟨l, rfl⟩
-    exact basis_character_mem_irr basis l
 
 theorem characterSubsetIdempotent_coeff (S : Finset basis.index) (g : G) :
     (characterSubsetIdempotent basis S).coeff g =
@@ -153,12 +145,6 @@ theorem centralCharacterResidueHom_eq_zero_iff (m : Ideal BlocksAlgInt) [m.IsMax
   rw [localizedComplexIntegerResidue_eq_zero_iff, localCentralCharacterHom_coe,
     centralCharacterScalar_eq]
 
-theorem centralCharacterResidueHom_eq_iff (m : Ideal BlocksAlgInt) [m.IsMaximal]
-    (l l' : basis.index) :
-    centralCharacterResidueHom basis m l = centralCharacterResidueHom basis m l' ↔
-      (basis.representation l').character ∈
-        BlocksBlockOf m G (basis.representation l).character := by
-  rw [← sameCoefficientBlock_iff_centralCharacterResidueHom_eq, sameCoefficientBlock_iff]
 
 end Blocks
 
@@ -175,10 +161,6 @@ theorem classDefect_iff (p : ℕ) (C : ConjClasses G) (D : Subgroup G) :
   · rintro ⟨x, hx, P, hP⟩
     exact ⟨x, hx, P, hP.symm⟩
 
-theorem subgroupSubconjugate_iff (D E : Subgroup G) :
-    CFSG.TwoRankLowerBound.Helpers.subgroupSubconjugate D E ↔
-      CFSG.BrauerThirdMainTheorem.Helpers.subgroupSubconjugate D E :=
-  Iff.rfl
 
 variable [Fintype G]
 

@@ -30,22 +30,6 @@ theorem centric_eq_base_of_le {m : ℕ} (P : Subgroup (Wreath m))
   rw [hP] at hcentral
   exact hcentral.trans (Subgroup.map_subtype_le _)
 
-theorem nonabelian_centric_iff_contains_center (m : ℕ) (hm : 1 < m)
-    (P : Subgroup (Wreath m)) (hP : ∃ u v : P, u * v ≠ v * u) :
-    IsCentric P ↔ Subgroup.center (Wreath m) ≤ P := by
-  constructor
-  · exact center_le_of_centric P
-  · intro hcenter
-    unfold IsCentric
-    rw [nonabelian_subgroup_centralizer_eq_center m hm P hP,
-      nonabelian_subgroup_center m hm P hP, inf_eq_right.mpr hcenter]
-
-theorem abelian_centric_eq_centralizer {m : ℕ} (P : Subgroup (Wreath m))
-    (hP : IsCentric P) (habelian : IsMulCommutative P) :
-    P = Subgroup.centralizer (P : Set (Wreath m)) := by
-  rw [hP]
-  let : IsMulCommutative P := habelian
-  rw [Subgroup.center_eq_top, Subgroup.map_top, Subgroup.range_subtype]
 
 theorem abelian_centric_base_intersection (m : ℕ) (hm : 1 < m)
     (P : Subgroup (Wreath m)) (hP : IsCentric P) (habelian : IsMulCommutative P)
@@ -116,30 +100,5 @@ theorem subgroup_base_cosets (m : ℕ) (P : Subgroup (Wreath m))
     · exact h.1
     · exact P.mul_mem hb.1 hw
 
-theorem abelian_centric_generated_by_center_outside (m : ℕ) (hm : 1 < m)
-    (P : Subgroup (Wreath m)) (hP : IsCentric P) (habelian : IsMulCommutative P)
-    (i j : ZMod m) (hw : element m i j 1 ∈ P) :
-    P = Subgroup.closure {Original.a m, element m i j 1} := by
-  have hout : element m i j 1 ∉ baseSubgroup m := by simp
-  have hbase := abelian_centric_base_intersection m hm P hP habelian _ hw hout
-  let H := Subgroup.closure {Original.a m, element m i j 1}
-  have ha : Original.a m ∈ H := Subgroup.subset_closure (by simp)
-  have hwH : element m i j 1 ∈ H := Subgroup.subset_closure (by simp)
-  have hcenter : Subgroup.center (Wreath m) ≤ H := by
-    rw [center_eq_zpowers m hm, ← Original.a_eq]
-    exact Subgroup.zpowers_le_of_mem ha
-  apply le_antisymm
-  · intro g hg
-    rcases (subgroup_base_cosets m P i j hw g).mp hg with hb | ⟨b, hb, rfl⟩
-    · exact hcenter (hbase ▸ hb)
-    · exact H.mul_mem (hcenter (hbase ▸ hb)) hwH
-  · rw [Subgroup.closure_le]
-    intro g hg
-    rcases Set.mem_insert_iff.mp hg with h | h
-    · rw [h]
-      apply center_le_of_centric P hP
-      rw [Original.a_eq, element_mem_center_iff m hm]
-      exact ⟨rfl, rfl⟩
-    · exact Set.mem_singleton_iff.mp h ▸ hw
 
 end CFSG.Wreathed

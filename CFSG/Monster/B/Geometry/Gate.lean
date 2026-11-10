@@ -363,10 +363,6 @@ theorem range_eq_of_isApartmentMap {x d : C} (hxd : δ x d = longest cs Set.univ
   · rintro ⟨v, rfl⟩
     exact ⟨u₀ * v, key v⟩
 
-theorem eq_oppChamber_of_mem {x d c : C} (hxd : δ x d = longest cs Set.univ)
-    (hc : c ∈ Set.range (oppChamber cs δ x d)) : c = oppChamber cs δ x d (δ x c) := by
-  obtain ⟨u, rfl⟩ := hc
-  rw [(oppChamber_spec hδ hxd u).1]
 
 theorem isProjection_oppChamber_longest {x d : C} (hxd : δ x d = longest cs Set.univ)
     (J : Set ι) :

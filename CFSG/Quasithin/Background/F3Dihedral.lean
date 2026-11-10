@@ -30,14 +30,6 @@ theorem rot_pow_eq_inv (hs : s * s = 1) (ht : t * t = 1) (n : ℕ) :
     (t * s) ^ n = ((s * t) ^ n)⁻¹ := by
   rw [← inv_pow, mul_inv_rev, inv_eq_self_of_mul_self hs, inv_eq_self_of_mul_self ht]
 
-theorem t_mul_zpow (hs : s * s = 1) (ht : t * t = 1) (j : ℤ) :
-    t * (t * s) ^ j = (t * s) ^ (-j) * t := by
-  have h1 : t * (t * s) * t⁻¹ = (t * s)⁻¹ := by
-    rw [inv_eq_self_of_mul_self ht, ← mul_assoc, ht, one_mul,
-      mul_inv_rev, inv_eq_self_of_mul_self hs, inv_eq_self_of_mul_self ht]
-  have h2 : t * (t * s) ^ j * t⁻¹ = (t * s) ^ (-j) := by
-    rw [← conj_zpow, h1, inv_zpow']
-  rw [← h2, inv_mul_cancel_right]
 
 theorem mem_closure_iff (hs : s * s = 1) (ht : t * t = 1) (w : H) :
     w ∈ Subgroup.closure {s, t} ↔ ∃ j : ℤ, w = (t * s) ^ j ∨ w = (t * s) ^ j * s := by

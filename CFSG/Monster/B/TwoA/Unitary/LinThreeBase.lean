@@ -35,74 +35,16 @@ theorem j_bijective : Function.Bijective j := Ωproj.bijective.comp jIdx_bijecti
 
 @[expose] noncomputable def jEquiv : NativeCoord ≃ PlanePoint := Equiv.ofBijective j j_bijective
 
-theorem jEquiv_apply (i : NativeCoord) : jEquiv i = j i := rfl
 
 @[expose] def nlMask : Fin 21 → ℕ :=
   ![248, 3848, 61448, 15728648, 983048, 2392336, 1589776, 4331536, 8463376, 4276512, 8552992,
     2631712, 1315872, 8917376, 4465280, 1149056, 2245760, 1188160, 2167360, 8669248, 4752448]
 
-theorem blockMasks_lines : ∀ bm ∈ CFSG.Monster.B.Classical.Mog22.blockMasks,
-    2 ∈ (ofMask (bm + 3) : Finset (Fin 24)) → bm - 4 ∈ List.ofFn nlMask ∧
-      (ofMask (bm + 3) : Finset (Fin 24)) \ {0, 1, 2} = ofMask (bm - 4) := by
-  decide +kernel
-
-theorem nlMask_blocks : ∀ b : Fin 21, nlMask b + 4 ∈ CFSG.Monster.B.Classical.Mog22.blockMasks ∧
-    (({0, 1, 2} : Finset (Fin 24)) ⊆ ofMask (nlMask b + 4 + 3)) ∧
-      (ofMask (nlMask b + 4 + 3) : Finset (Fin 24)) \ {0, 1, 2} = ofMask (nlMask b) := by
-  decide +kernel
-
-theorem nlMask_ge : ∀ b : Fin 21, ∀ i ∈ (ofMask (nlMask b) : Finset (Fin 24)), 3 ≤ (i : ℕ) := by
-  decide +kernel
 
 theorem nlMask_line : ∀ b t : Fin 21,
     (nlMask b).testBit (t + 3) = decide (∑ k, Ω b k * Ω (jIdxTbl t) k = 0) := by
   decide +kernel
 
-theorem ofMask_nlMask_inj : ∀ a b : Fin 21,
-    (ofMask (nlMask a) : Finset (Fin 24)) = ofMask (nlMask b) → a = b := by
-  decide +kernel
-
-theorem mem_nativeLines {d : Finset (Fin 24)} :
-    d ∈ nativeLines ↔ ∃ b : Fin 21, d = ofMask (nlMask b) := by
-  rw [nativeLines, Finset.mem_image]
-  constructor
-  · rintro ⟨O, hO, rfl⟩
-    rw [Finset.mem_filter] at hO
-    obtain ⟨hO, h012⟩ := hO
-    have h0 : (0 : Fin 24) ∈ O := h012 (by simp)
-    have h1 : (1 : Fin 24) ∈ O := h012 (by simp)
-    have h2 : (2 : Fin 24) ∈ O := h012 (by simp)
-    have hO' : O ∈ CFSG.Monster.B.Classical.Mog22.octads01 := by
-      rw [CFSG.Monster.B.Classical.Mog22.octads01_eq, Finset.mem_filter]
-      exact ⟨hO, h0, h1⟩
-    simp only [CFSG.Monster.B.Classical.Mog22.octads01, List.mem_toFinset, List.mem_map] at hO'
-    obtain ⟨bm, hbm, rfl⟩ := hO'
-    obtain ⟨hmem, heq⟩ := blockMasks_lines bm hbm h2
-    obtain ⟨b, hb⟩ := List.mem_ofFn.1 hmem
-    exact ⟨b, heq.trans (by rw [← hb])⟩
-  · rintro ⟨b, rfl⟩
-    obtain ⟨hmem, hsub, heq⟩ := nlMask_blocks b
-    refine ⟨ofMask (nlMask b + 4 + 3), Finset.mem_filter.2 ⟨?_, hsub⟩, heq⟩
-    have h : (ofMask (nlMask b + 4 + 3) : Finset (Fin 24)) ∈
-        CFSG.Monster.B.Classical.Mog22.octads01 := by
-      simp only [CFSG.Monster.B.Classical.Mog22.octads01, List.mem_toFinset, List.mem_map]
-      exact ⟨_, hmem, rfl⟩
-    rw [CFSG.Monster.B.Classical.Mog22.octads01_eq, Finset.mem_filter] at h
-    exact h.1
-
-theorem nativeLines_eq :
-    nativeLines = Finset.univ.image fun b => (ofMask (nlMask b) : Finset (Fin 24)) := by
-  ext d
-  rw [mem_nativeLines, Finset.mem_image]
-  exact ⟨fun ⟨b, hb⟩ => ⟨b, Finset.mem_univ b, hb.symm⟩, fun ⟨b, _, hb⟩ => ⟨b, hb.symm⟩⟩
-
-theorem card_nativeLines : nativeLines.card = 21 := by
-  rw [nativeLines_eq, Finset.card_image_of_injective _ fun a b h => ofMask_nlMask_inj a b h,
-    Finset.card_univ, Fintype.card_fin]
-
-theorem nativeLines_ge {d : Finset (Fin 24)} (hd : d ∈ nativeLines) : ∀ i ∈ d, 3 ≤ (i : ℕ) := by
-  obtain ⟨b, rfl⟩ := mem_nativeLines.1 hd
-  exact nlMask_ge b
 
 @[expose] noncomputable def lineSet (b : Fin 21) : Set PlanePoint := Ωproj '' ↑(projLine b)
 
@@ -192,30 +134,6 @@ theorem kernel_eq_lineSet (f : Module.Dual F4 (Fin 3 → F4)) (hf : f ≠ 0) :
   conv_lhs => rw [hf']
   rw [LinearMap.smul_apply, smul_eq_mul, mul_eq_zero, or_iff_right hc]
 
-theorem image_nativeLines :
-    (fun d : Finset (Fin 24) => j '' {i : NativeCoord | (i : Fin 24) ∈ d}) '' ↑nativeLines =
-      {S | ∃ f : Module.Dual F4 (Fin 3 → F4), f ≠ 0 ∧ S = {p : PlanePoint | f p.rep = 0}} := by
-  ext S
-  constructor
-  · rintro ⟨d, hd, rfl⟩
-    obtain ⟨b, rfl⟩ := mem_nativeLines.1 hd
-    exact ⟨dotForm (Ω b), dotForm_ne_zero (Ω_ne_zero b),
-      (image_nlMask b).trans (lineSet_eq_kernel b)⟩
-  · rintro ⟨f, hf, rfl⟩
-    exact ⟨ofMask (nlMask (normIdx fun k => f (Pi.single k 1))), mem_nativeLines.2 ⟨_, rfl⟩,
-      (image_nlMask _).trans (kernel_eq_lineSet f hf).symm⟩
-
-theorem injOn_image_nativeLines :
-    Set.InjOn (fun d : Finset (Fin 24) => j '' {i : NativeCoord | (i : Fin 24) ∈ d})
-      ↑nativeLines := by
-  intro d hd d' hd' h
-  have h' : {i : NativeCoord | (i : Fin 24) ∈ d} = {i : NativeCoord | (i : Fin 24) ∈ d'} :=
-    j_bijective.1.image_injective h
-  ext x
-  by_cases hx : 3 ≤ (x : ℕ)
-  · exact iff_of_eq (congrArg (fun S : Set NativeCoord => (⟨x, hx⟩ : NativeCoord) ∈ S) h')
-  · exact ⟨fun hm => absurd (nativeLines_ge hd x hm) hx,
-      fun hm => absurd (nativeLines_ge hd' x hm) hx⟩
 
 theorem image_pair_iff (p : Equiv.Perm (Fin 24)) :
     p '' {0, 1} = ({0, 1} : Set (Fin 24)) ↔ (p 0 = 0 ∧ p 1 = 1) ∨ (p 0 = 1 ∧ p 1 = 0) := by
@@ -394,9 +312,6 @@ theorem eq_one_of_smul_eq (x : SigmaL3) (h : ∀ p : PlanePoint, x • p = p) : 
 
 theorem card_F4 : Fintype.card F4 = 4 := F4.card
 
-theorem natCard_GL3 : Nat.card (GL (Fin 3) F4) = 181440 := by
-  rw [Matrix.card_GL_field, card_F4, Fin.prod_univ_three]
-  rfl
 
 theorem natCard_SL3 : Nat.card SL(3, F4) = 60480 := by
   rw [Matrix.card_SL_field, card_F4, Fin.prod_univ_three]
@@ -480,10 +395,5 @@ theorem rhoN_genP (k : Fin 6) : rhoN (genP k) = rhoS (genElt k) := by
 theorem natCard_range_rhoS : Nat.card rhoS.range = 40320 := by
   rw [← Nat.card_congr (MonoidHom.ofInjective rhoS_injective).toEquiv, natCard_SigmaL3]
 
-theorem frob_smul (p : PlanePoint) :
-    (⟨1, Multiplicative.ofAdd 1⟩ : SigmaL3) • p = frobP p := by
-  rw [CFSG.Monster.B.Classical.ThreePlane.smul_def, sigmaAct]
-  change (1 : PSL(3, F4)) • barPowP 1 p = frobP p
-  rw [one_smul, barPowP, ite_eq_right (by decide)]
 
 end CFSG.Monster.B.TwoA.Unitary.LinThree

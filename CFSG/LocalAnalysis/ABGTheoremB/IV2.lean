@@ -826,15 +826,6 @@ theorem stationary_iff_forall {r : ℕ} (hr : r.Prime) :
     obtain ⟨R, hR⟩ := exists_isSylowOf r σ.ON
     exact ⟨R, hR, h R hR⟩
 
-theorem exists_T_invariant_sylow (hσ : σ.IsValid) {r : ℕ} (hr : r.Prime) :
-    ∃ R : Subgroup G, IsSylowOf r R σ.ON ∧ σ.T ≤ Subgroup.normalizer (R : Set G) :=
-  exists_isSylowOf_normalized_of_odd hr (σ.isPGroup_two_of_le_S (σ.T_le_S hσ))
-    (σ.T_le_normalizer_ON hσ) σ.odd_card_ON
-
-theorem exists_D_invariant_sylow (hσ : σ.IsValid) {r : ℕ} (hr : r.Prime) :
-    ∃ R : Subgroup G, IsSylowOf r R σ.ON ∧ σ.D ≤ Subgroup.normalizer (R : Set G) :=
-  exists_isSylowOf_normalized_of_odd hr (σ.isPGroup_two_of_le_S σ.D_le_S)
-    ((σ.D_le_N hσ).trans σ.N_le_normalizer_ON) σ.odd_card_ON
 
 theorem centralized_or_inverted_of_T_invariant (hσ : σ.IsValid) {r : ℕ} (hr : r.Prime)
     {R : Subgroup G} (hR : IsSylowOf r R σ.ON) (hTR : σ.T ≤ Subgroup.normalizer (R : Set G)) :

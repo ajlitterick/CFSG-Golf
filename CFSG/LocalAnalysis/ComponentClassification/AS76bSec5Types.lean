@@ -43,8 +43,6 @@ theorem img_img_inv (x : X) (T : AddSubgroup V) : img x (img x⁻¹ T) = T := by
 theorem img_le_img {x : X} {S T : AddSubgroup V} (hST : S ≤ T) : img x S ≤ img x T :=
   AddSubgroup.map_mono hST
 
-theorem img_le_img_iff {x : X} {S T : AddSubgroup V} : img x S ≤ img x T ↔ S ≤ T :=
-  ⟨fun hST => by simpa [img_inv_img] using img_le_img (x := x⁻¹) hST, img_le_img⟩
 
 theorem img_inf (x : X) (S T : AddSubgroup V) : img x (S ⊓ T) = img x S ⊓ img x T := by
   ext v

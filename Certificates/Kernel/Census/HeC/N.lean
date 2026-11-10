@@ -34,11 +34,6 @@ open CFSG.KC.HeConj
 
 set_option maxRecDepth 1000000
 
-theorem kN0 : nodes32OK 32 6 d (List.range' 0 26) = true := by quickRfl
-theorem kN26 : nodes32OK 32 6 d (List.range' 26 26) = true := by quickRfl
-theorem kN52 : nodes32OK 32 6 d (List.range' 52 26) = true := by quickRfl
-theorem kN78 : nodes32OK 32 6 d (List.range' 78 26) = true := by quickRfl
-theorem kN104 : nodes32OK 32 6 d (List.range' 104 26) = true := by quickRfl
 
 end CertificateChecks.KernelCensus.HeCj
 

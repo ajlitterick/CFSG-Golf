@@ -245,29 +245,6 @@ theorem perfectCore_a2Levi_inf_centralizer_wCenter [Finite K] [CharP K 2]
   rw [a2Levi_inf_centralizer_wCenter,
     CFSG.Quasithin.perfectCore_eq_self_of_perfect (commutator_spCompl12 n hK)]
 
-theorem perfectCore_centralizer_spRep_a2_intrinsic [Finite K] [CharP K 2]
-    (hK : 4 ≤ Nat.card K) :
-    ∃ Q M S : Subgroup (StatedSp (n + 3) K), IsPGroup 2 Q ∧
-      M ≤ normalizer (Q : Set (StatedSp (n + 3) K)) ∧ Disjoint Q M ∧
-      perfectCore (centralizer ({spRep n .a2} : Set (StatedSp (n + 3) K))) = Q ⊔ M ∧
-      (∀ N : Subgroup M, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      spRep n .a2 ∈ perfectCore (centralizer ({spRep n .a2} : Set (StatedSp (n + 3) K))) ∧
-      longRootSp2 K (n + 3) 0 ≤ S ∧
-      S = perfectCore (M ⊓ centralizer (((center Q).map Q.subtype : Subgroup _) :
-        Set (StatedSp (n + 3) K))) ∧
-      Nonempty (S ≃* StatedSp (n + 1) K) := by
-  have h12 := one_ne_two_fin (n := n)
-  have hML : a2Levi K n ≤ (leviHom h12 0 (one_ne_zero (α := K))).range :=
-    sup_le (range_shortBlock_le_range_leviHom one_ne_zero)
-      (spCompl12_le_range_leviHom one_ne_zero)
-  refine ⟨wRadical K (1 : Fin (n + 3)) 2, a2Levi K n, spCompl12 K n, isPGroup_wRadical h12,
-    hML.trans (range_leviHom_le_normalizer_wRadical h12 one_ne_zero),
-    (disjoint_wRadical_range_leviHom h12 one_ne_zero).mono_right hML, ?_,
-    fun N hN hN2 => eq_bot_of_normal_of_isPGroup_a2Levi hK N hN2,
-    spRep_mem_perfectCore_centralizer hK n .a2, longRootSp2_le_spCompl12 n,
-    (perfectCore_a2Levi_inf_centralizer_wCenter hK).symm, ⟨(spCompl12Equiv K n).symm⟩⟩
-  rw [spRep_a2_eq]
-  exact (perfectCore_centralizer_a2 hK).1
 end Center
 
 section Uniform
@@ -279,36 +256,6 @@ section Uniform
   | .a2 => (center Q).map Q.subtype
   | .c2 => ⊥
 
-@[expose] def spLeviRank (κ : SpTwoCentral) (n : ℕ) : ℕ :=
-  match κ with
-  | .b1 => n + 2
-  | .a2 => n + 1
-  | .c2 => n + 1
-
-theorem perfectCore_centralizer_spRep [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
-    (κ : SpTwoCentral) :
-    ∃ Q M S : Subgroup (StatedSp (n + 3) K), IsPGroup 2 Q ∧
-      M ≤ normalizer (Q : Set (StatedSp (n + 3) K)) ∧ Disjoint Q M ∧
-      perfectCore (centralizer ({spRep n κ} : Set (StatedSp (n + 3) K))) = Q ⊔ M ∧
-      (∀ N : Subgroup M, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      spRep n κ ∈ perfectCore (centralizer ({spRep n κ} : Set (StatedSp (n + 3) K))) ∧
-      longRootSp2 K (n + 3) 0 ≤ S ∧
-      S = perfectCore (M ⊓ centralizer (spIntrinsic κ Q : Set (StatedSp (n + 3) K))) ∧
-      Nonempty (S ≃* StatedSp (spLeviRank κ n) K) := by
-  have hbot : ∀ M : Subgroup (StatedSp (n + 3) K),
-      M ⊓ centralizer (((⊥ : Subgroup (StatedSp (n + 3) K)) : Set (StatedSp (n + 3) K))) = M := by
-    intro M
-    rw [Subgroup.coe_bot, Subgroup.centralizer_eq_top_iff_subset.2 (by simp), inf_top_eq]
-  cases κ with
-  | b1 =>
-    obtain ⟨Q, M, S, h1, h2, h3, h4, h5, h6, h7, h8, h9⟩ :=
-      perfectCore_centralizer_spRep_b1 (K := K) hK n
-    exact ⟨Q, M, S, h1, h2, h3, h4, h5, h6, h7, by simp only [spIntrinsic, hbot]; exact h8, h9⟩
-  | a2 => exact perfectCore_centralizer_spRep_a2_intrinsic hK
-  | c2 =>
-    obtain ⟨Q, M, S, h1, h2, h3, h4, h5, h6, h7, h8, h9⟩ :=
-      perfectCore_centralizer_spRep_c2 (K := K) (n := n) hK
-    exact ⟨Q, M, S, h1, h2, h3, h4, h5, h6, h7, by simp only [spIntrinsic, hbot]; exact h8, h9⟩
 
 end Uniform
 

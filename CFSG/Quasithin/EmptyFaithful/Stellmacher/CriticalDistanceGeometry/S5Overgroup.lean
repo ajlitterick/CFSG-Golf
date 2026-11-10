@@ -127,31 +127,5 @@ theorem exists_overgroup_of_klein (P R : Subgroup (Perm (Fin 5))) (hP : Nat.card
       omega
   · rw [← hPmap, ← Subgroup.map_sup, hK'top, Subgroup.map_top_of_surjective _ (fun x => ⟨ψ x, hφψ x⟩)]
 
-theorem exponent_two_or_cyclic_of_card_four {X : Type*} [Group X] (h : Nat.card X = 4) :
-    (∀ x : X, x ^ 2 = 1) ∨ ∃ x : X, orderOf x = 4 := by
-  by_cases hall : ∀ x : X, x ^ 2 = 1
-  · exact Or.inl hall
-  · right
-    push Not at hall
-    obtain ⟨x, hx⟩ := hall
-    have hd : orderOf x ∣ 4 := h ▸ orderOf_dvd_natCard x
-    refine ⟨x, ?_⟩
-    have h2 : ¬ orderOf x ∣ 2 := fun hh => hx (orderOf_dvd_iff_pow_eq_one.mp hh)
-    have hp : orderOf x ∣ 2 ^ 2 := by simpa using hd
-    obtain ⟨k, hk, hk'⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp hp
-    interval_cases k
-    · simp at hk'; rw [hk'] at h2; simp at h2
-    · simp at hk'; rw [hk'] at h2; simp at h2
-    · simpa using hk'
 
-theorem sq_ne_one_of_orderOf_four {n : ℕ} {r : Perm (Fin n)} (h : orderOf r = 4) :
-    r ^ 2 ≠ 1 ∧ (r ^ 2) ^ 2 = 1 ∧ r ^ 2 ∈ alternatingGroup (Fin n) := by
-  refine ⟨?_, ?_, ?_⟩
-  · intro h1
-    have := orderOf_dvd_of_pow_eq_one h1
-    rw [h] at this
-    omega
-  · rw [← pow_mul, show 2 * 2 = 4 by rfl, ← h]; exact pow_orderOf_eq_one r
-  · rw [Perm.mem_alternatingGroup, map_pow]
-    rcases Int.units_eq_one_or (Perm.sign r) with h | h <;> simp [h]
 end CFSG.Quasithin.F53

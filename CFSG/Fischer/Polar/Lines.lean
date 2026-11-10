@@ -151,11 +151,6 @@ theorem lineList_facts {i : ℕ} (hi : i < 6237) :
   · exact absurd h2 hne
   · exact h2
 
-theorem lineList_size : (LL).size = 6237 := by
-  have h := polarLinesFacts.list
-  unfold lineListOK at h
-  simp only [Bool.and_eq_true, beq_iff_eq] at h
-  exact h.1.1.1
 
 theorem lineSet_eq
     {i : ℕ} (hi : i < 6237) :
@@ -230,19 +225,6 @@ theorem IsLine.exists_lineSet
   obtain ⟨hlt, he⟩ := lineThru_eq_lineSet hxy h
   exact ⟨_, hlt, he⟩
 
-theorem setOf_isLine :
-    {L | IsLine L} = lineSet '' Set.Iio 6237 := by
-  ext L
-  constructor
-  · intro hL
-    obtain ⟨i, hi, rfl⟩ := IsLine.exists_lineSet hL
-    exact ⟨i, Set.mem_Iio.2 hi, rfl⟩
-  · rintro ⟨i, hi, rfl⟩
-    exact isLine_lineSet (Set.mem_Iio.1 hi)
-
-theorem ncard_setOf_isLine :
-    {L | IsLine L}.ncard = 6237 := by
-  rw [setOf_isLine, lineSet_injOn.ncard_image, Set.ncard_Iio_nat]
 
 theorem IsLine.ncard
     {L : Set (Fin 693)} (hL : IsLine L) : L.ncard = 5 := by
@@ -265,11 +247,6 @@ theorem IsLine.eq_lineThru
   obtain ⟨-, he⟩ := lineThru_eq_lineSet hab (hL.perp_of_mem ha hb)
   rw [he, lineSet_eq_of_mem hi ha hb hab]
 
-theorem existsUnique_line
-    {p x : Fin 693} (h : perp p x) (hx : x ≠ p) :
-    ∃! L, IsLine L ∧ p ∈ L ∧ x ∈ L :=
-  ⟨lineThru p x, ⟨isLine_lineThru hx.symm h, left_mem_lineThru p x, right_mem_lineThru p x⟩,
-    fun _ ⟨hL, hp, hx'⟩ => hL.eq_lineThru hp hx' hx.symm⟩
 
 theorem ncard_lines_through
     (p : Fin 693) : {L | IsLine L ∧ p ∈ L}.ncard = 45 := by

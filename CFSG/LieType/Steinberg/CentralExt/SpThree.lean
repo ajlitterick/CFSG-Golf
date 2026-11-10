@@ -284,9 +284,6 @@ theorem ofStd_spec {v : Fin n → ℤ} (h : ∃ γ ∈ roots (isFiniteType_carta
   rw [ofStd, dite_eq_left h]
   exact h.choose_spec
 
-theorem ofStd_toStd {γ : Fin n → ℤ} (hγ : γ ∈ roots (isFiniteType_cartanC n) ∅) :
-    ofStd (toStd n γ) = γ :=
-  toStd_inj (ofStd_spec ⟨γ, hγ, rfl⟩).2
 
 noncomputable abbrev sR (i j : Fin n) (s t : ℤ) : Fin n → ℤ :=
   ofStd (Pi.single i s + Pi.single j t)
@@ -321,8 +318,6 @@ theorem sR_add_sR {i j : Fin n} (hij : i ≠ j) {s : ℤ} (hs : s = 1 ∨ s = -1
     simp only [Pi.add_apply, Pi.single_apply]
     split_ifs <;> ring)
 
-theorem sign_cases {s : ℤ} (hs : s = 1 ∨ s = -1) : s * s = 1 := by
-  rcases hs with rfl | rfl <;> norm_num
 
 theorem neg_sign {s : ℤ} (hs : s = 1 ∨ s = -1) : -s = 1 ∨ -s = -1 := by
   rcases hs with rfl | rfl <;> norm_num

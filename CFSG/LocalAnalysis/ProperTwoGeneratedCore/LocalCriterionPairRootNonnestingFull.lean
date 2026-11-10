@@ -83,25 +83,5 @@ theorem original_pair_generated_four_group_root_centralizer_nonnesting
     (orderOf_eq_prime_iff.mp h.distinguished_order).2 (orderOf_eq_prime_iff.mp hu).2
     htt hIU htI hgen hUcentral htu
 
-theorem original_pair_generated_four_group_root_centralizer_nonnesting_literal
-    [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta)
-    (hgen : Subgroup.zpowers z ⊔ Subgroup.zpowers t ⊔ pairOddCore H beta = ⊤)
-    (W : Subgroup G) [IsElementaryAbelian 2 W] (hcardW : Nat.card W = 4)
-    (u v : G) (hW : W = Subgroup.closure ({u, v} : Set G))
-    (hWB : W ≤ pairPointStabilizer H beta)
-    (hzW : z ∈ Subgroup.centralizer (W : Set G))
-    (htW : t ∈ Subgroup.centralizer (W : Set G)) :
-    ¬ conjugacyWithin H z ∩ (Subgroup.centralizer ({v} : Set G) : Set G) ⊆
-        conjugacyWithin H z ∩ (Subgroup.centralizer ({u} : Set G) : Set G) ∨
-      ¬ conjugacyWithin H z ∩ (Subgroup.centralizer ({u * v} : Set G) : Set G) ⊆
-        conjugacyWithin H z ∩ (Subgroup.centralizer ({u} : Set G) : Set G) :=
-  original_pair_generated_four_group_root_centralizer_nonnesting hnonab h S hzS hzcenter
-    hbeta ht hgen W hcardW u v hW hWB hzW htW
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionPairRootNonnesting

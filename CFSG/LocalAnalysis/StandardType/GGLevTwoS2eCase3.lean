@@ -14,12 +14,6 @@ theorem levTwoS2e_neg_sigma_pm {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n)
     -(levTwoS2d_sigma n hn c c₀ a) = 1 ∨ -(levTwoS2d_sigma n hn c c₀ a) = -1 :=
   levTwoS2d_neg_sign (levTwoS2d_sigma_pm n hn c c₀ a)
 
-theorem levTwoS2e_ofCoord_swap (n : ℕ) {i j : Fin n} (hij : i ≠ j) {s t : ℤ}
-    (hs : s = 1 ∨ s = -1) (ht : t = 1 ∨ t = -1) :
-    levTwoS2d_ofCoord n i j s t hij hs ht =
-      levTwoS2d_ofCoord n j i t s (Ne.symm hij) ht hs := by
-  apply toStdD_injective n
-  rw [levTwoS2d_ofCoord_toStdD, levTwoS2d_ofCoord_toStdD, add_comm]
 
 theorem levTwoS2e_mem_Phi_sub {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n) (hp2 : p ≠ 2)
     (c : Fin n → ZMod p) {Φ : Set (Fin n → ℤ)}

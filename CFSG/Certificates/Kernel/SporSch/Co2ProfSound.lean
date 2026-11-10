@@ -20,7 +20,6 @@ theorem strictB_eq (y : ℕ) (k : ℕ → Bool) : strictB y k = k y := by
 theorem nIf_eq (c : Bool) (t e : ℕ) : Bool.rec (motive := fun _ => ℕ) e t c = if c then t else e := by
   cases c <;> rfl
 
-theorem fiK_zero (p : ℕ → Bool) (X : ℕ) : fiK p 0 X = 0 := rfl
 
 theorem fiK_succ (p : ℕ → Bool) (n X : ℕ) :
     fiK p (n + 1) X = if p X then 0 else fiK p n (mw X X) + 1 := by

@@ -26,7 +26,6 @@ theorem letters_size : letters.size = 2 * sel.size := by simp [letters, lettersO
 
 theorem chainBase_size : chainBase.size = 3 := rfl
 
-theorem trees_size : trees.size = 3 := by simp [trees, chainTrees, chainBase_size]
 
 theorem chainBase_zero : chainBase[0]! = 0 := rfl
 

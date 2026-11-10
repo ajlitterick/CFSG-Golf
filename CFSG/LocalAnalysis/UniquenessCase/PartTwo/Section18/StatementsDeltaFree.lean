@@ -76,6 +76,5 @@ theorem P18_6_3e.toP18_6_3 {D : Data G} {V₀ V : Subgroup G} {p : ℕ} {L : Sub
   · exact ⟨f, Or.inr (Or.inr ⟨h0, h1, I, hI1, hI2, hI3,
       fun i => ⟨⟨2, rfl⟩, K, hKf, hKfin, b, c, hK, hbc, π, hI4 i⟩⟩)⟩
 
-variable {D : Data G} {V₀ V : Subgroup G} {p : ℕ} {L : Subgroup G}
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.S18

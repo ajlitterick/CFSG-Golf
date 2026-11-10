@@ -30,17 +30,6 @@ structure CoreSetting (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (H : Subgr
 @[expose] def IsCentralInvolution {G : Type} [Group G] (S : Subgroup G) (z : G) : Prop :=
   z ∈ S ∧ orderOf z = 2 ∧ ∀ s ∈ S, s * z = z * s
 
-@[expose] def CentralCentralizerStep : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (H : Subgroup G) (z : G),
-    CoreSetting G S H → IsCentralInvolution (S : Subgroup G) z →
-      Subgroup.centralizer ({z} : Set G) ≤ H ∨ Nonempty (CFSG.Walter.J1Props.JankoHyp₀ G)
-
-@[expose] def GeneratedCentralizerStep : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (z : G),
-    IsSimpleGroup G → (∃ a b : G, a * b ≠ b * a) → 3 ≤ CFSG.Open.pRank 2 (S : Subgroup G) →
-    properTwoGenCoreGamma (S : Subgroup G) 2 ≠ ⊤ → IsCentralInvolution (S : Subgroup G) z →
-    properTwoGenCoreGamma (S : Subgroup G) 2 ⊔ Subgroup.centralizer ({z} : Set G) = ⊤ →
-      Nonempty (CFSG.Walter.J1Props.JankoHyp₀ G)
 
 @[expose] def EscapingCentralizerStep : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (H : Subgroup G) (z : G),
@@ -295,77 +284,5 @@ theorem gamma_one_le_of_stronglyEmbedded (S : Sylow 2 G) {H : Subgroup G}
     hEeven.trans ((Subgroup.card_dvd_of_le hEQ).trans (Subgroup.card_dvd_of_le hQle))
   exact (Nat.not_even_iff_odd.mpr (hH.2.2 g hgH)) (even_iff_two_dvd.mpr hdvd)
 
-theorem canonical_of_steps (h2 : TheoremTwo) (hA : CentralCentralizerStep)
-    (hB : EscapingCentralizerStep)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (S : Sylow 2 G) (hrank : 3 ≤ CFSG.Open.pRank 2 (S : Subgroup G))
-    (hcore : properTwoGenCoreGamma (S : Subgroup G) 2 ≠ ⊤) :
-    properTwoGenCoreGamma (S : Subgroup G) 1 ≠ ⊤ ∨ Nonempty (G ≃* properTwoGenCoreJ1) := by
-  set H := properTwoGenCoreGamma (S : Subgroup G) 2 with hHdef
-  have hset : CoreSetting G S H :=
-    ⟨inferInstance, hnonab, hrank, hcore, sylow_le_gamma S (by omega), le_rfl⟩
-  obtain ⟨z, hz⟩ := exists_centralInvolution S (by omega)
-  rcases hA G S H z hset hz with hzC | hJne
-  · left
-    have hloc := localEmbedding_of_steps hB S H z hset hz hzC
-    have hstrong := h2 G H z hloc (centralSylow_of_isCentralInvolution S hz)
-    have hz1 : z ≠ 1 := by
-      intro h
-      have := hz.2.1
-      rw [h, orderOf_one] at this
-      norm_num at this
-    rw [involutionPointHull_eq_top hz1] at hstrong
-    have hH := fusionStronglyEmbedded_of_subgroupOf_top hstrong
-    intro hΓ
-    apply hset.proper
-    exact top_unique (hΓ ▸ gamma_one_le_of_stronglyEmbedded S hset.sylow_le hH)
-  · right
-    obtain ⟨hJ⟩ := hJne
-    obtain ⟨e⟩ := hJ.nonempty_mulEquiv_walterJ1
-    exact ⟨e.trans (MulEquiv.subgroupCongr CFSG.Walter.walterJ1_eq_properTwoGenCoreJ1)⟩
-
-theorem generatedCentralizerStep_of_central (hA : CentralCentralizerStep) :
-    GeneratedCentralizerStep := by
-  intro G _ _ S z hsimple hnonab hrank hcore hz hjoin
-  have hset : CoreSetting G S (properTwoGenCoreGamma (S : Subgroup G) 2) :=
-    ⟨hsimple, hnonab, hrank, hcore, sylow_le_gamma S (by omega), le_rfl⟩
-  rcases hA G S _ z hset hz with hzC | hJ
-  · exact absurd (by rw [← hjoin, sup_eq_left.mpr hzC]) hcore
-  · exact hJ
-
-theorem canonical_of_generated_steps (h2 : TheoremTwo) (hA : GeneratedCentralizerStep)
-    (hB : EscapingCentralizerStep)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (S : Sylow 2 G) (hrank : 3 ≤ CFSG.Open.pRank 2 (S : Subgroup G))
-    (hcore : properTwoGenCoreGamma (S : Subgroup G) 2 ≠ ⊤) :
-    properTwoGenCoreGamma (S : Subgroup G) 1 ≠ ⊤ ∨ Nonempty (G ≃* properTwoGenCoreJ1) := by
-  obtain ⟨z, hz⟩ := exists_centralInvolution S (by omega)
-  by_cases hjoin : properTwoGenCoreGamma (S : Subgroup G) 2 ⊔
-      Subgroup.centralizer ({z} : Set G) = ⊤
-  · right
-    obtain ⟨hJ⟩ := hA G S z inferInstance hnonab hrank hcore hz hjoin
-    obtain ⟨e⟩ := hJ.nonempty_mulEquiv_walterJ1
-    exact ⟨e.trans (MulEquiv.subgroupCongr CFSG.Walter.walterJ1_eq_properTwoGenCoreJ1)⟩
-  · left
-    set H := properTwoGenCoreGamma (S : Subgroup G) 2 ⊔ Subgroup.centralizer ({z} : Set G)
-      with hHdef
-    have hset : CoreSetting G S H :=
-      ⟨inferInstance, hnonab, hrank, hjoin,
-        (sylow_le_gamma S (by omega)).trans le_sup_left, le_sup_left⟩
-    have hzC : Subgroup.centralizer ({z} : Set G) ≤ H := le_sup_right
-    have hloc := localEmbedding_of_steps hB S H z hset hz hzC
-    have hstrong := h2 G H z hloc (centralSylow_of_isCentralInvolution S hz)
-    have hz1 : z ≠ 1 := by
-      intro h
-      have := hz.2.1
-      rw [h, orderOf_one] at this
-      norm_num at this
-    rw [involutionPointHull_eq_top hz1] at hstrong
-    have hH := fusionStronglyEmbedded_of_subgroupOf_top hstrong
-    intro hΓ
-    apply hset.proper
-    exact top_unique (hΓ ▸ gamma_one_le_of_stronglyEmbedded S hset.sylow_le hH)
 
 end CFSG.ProperTwoGeneratedCore.Assembly

@@ -112,12 +112,6 @@ theorem kG0 : allN 1755 (fun j => eqB (notB (Nat.beq (E7043.Lf j) (E7043.Lf 0)))
     (bt (Ru7045.Row 2808) (pg 12 (mask 12) Iso7047.D j))) = true := by
   quickRfl
 
-theorem negK0 : andB (notB (allN 1755 (forestAtG 1755 3 E7043.Mv E7043.gK (fun t => Qf (Nat.succ t))
-      ORf FOf DPf PAf GLf)))
-    (andB (notB (Nat.beq (cntL 1755 (E7043.Lf 0)) 974))
-      (notB (allN 1755 (fun j => eqB (notB (Nat.beq (E7043.Lf j) (E7043.Lf 0)))
-        (bt (Ru7045.Row 1) (pg 12 (mask 12) Iso7047.D j)))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.K07045
 

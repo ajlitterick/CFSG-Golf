@@ -579,11 +579,5 @@ theorem isSylowOf_sec2S
 
 end Frame
 
-theorem step22_of (h11 : Step11)
-    {d : L34E16Cert} (hE16 : RankTwoL3Four.HypII.l34CheckWE16 d = true) : Step22 := by
-  intro G _ _ A R g E F hS
-  exact ⟨sec2P_sup_sec2S_inf_normalizer h11 hE16 hS.frame hS.type hS.odd,
-    card_conjSet_sec2P h11 hE16 hS.frame hS.type hS.odd,
-    isSylowOf_sec2S h11 hE16 hS.frame hS.type hS.odd⟩
 
 end CFSG.ComponentClassification.AS81

@@ -93,7 +93,6 @@ theorem uA_mul_self : uA K p f * uA K p f = 1 := by
 theorem uB_mul_self : uB K p f * uB K p f = 1 := by
   rw [uB, ← map_mul, negOneSU_mul_self, map_one]
 
-theorem uA_inv : (uA K p f)⁻¹ = uA K p f := inv_eq_of_mul_eq_one_right uA_mul_self
 
 theorem uB_inv : (uB K p f)⁻¹ = uB K p f := inv_eq_of_mul_eq_one_right uB_mul_self
 
@@ -105,12 +104,6 @@ theorem uA_mul_uB : uA K p f * uB K p f = uB K p f * uA K p f := by
   funext i
   fin_cases i <;> simp
 
-theorem uA_ne_one (h2 : (2 : K) ≠ 0) : uA K p f ≠ 1 := by
-  intro h
-  have := congrFun (congrFun (congrArg suMat h) 0) 0
-  rw [suMat_uA, suMat_one] at this
-  simp at this
-  exact neg_one_ne_one_of_two_ne_zero h2 this
 
 theorem uA_conj (hK : Nat.card K = (p ^ f) ^ 2) (x : Su K p f 3) :
     uA K p f * x * (uA K p f)⁻¹ =

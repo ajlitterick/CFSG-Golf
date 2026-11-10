@@ -34,21 +34,6 @@ theorem pCoreOf_top_eq_pCore
     pCoreOf prime (⊤ : Subgroup G) = pCore prime G :=
   pCore_map_mulEquiv prime (Subgroup.topEquiv (G := G))
 
-theorem cfsg_subnormal_internal_pCore_le_center_of_core_centralizing
-    {G : Type*} [Group G] (prime : ℕ) (subgroup : Subgroup G)
-    (hsubnormal : IsSubnormal subgroup ⊤)
-    (hcentralizes : subgroup ≤ Subgroup.centralizer (pCore prime G : Set G)) :
-    pCore prime subgroup ≤ Subgroup.center subgroup := by
-  have hcoreLe := cfsg_subnormal_pCoreOf_le prime hsubnormal
-  rw [pCoreOf_top_eq_pCore] at hcoreLe
-  intro element helement
-  have hambient : element.val ∈ pCore prime G :=
-    hcoreLe (Subgroup.mem_map_of_mem subgroup.subtype helement)
-  apply Subgroup.mem_center_iff.mpr
-  intro other
-  apply Subtype.ext
-  exact (Subgroup.mem_centralizer_iff.mp (hcentralizes other.property)
-    element.val hambient).symm
 
 theorem primeComplementCore_map_mulEquiv_le
     {G Image : Type*} [Group G] [Finite G] [Group Image] [Finite Image]

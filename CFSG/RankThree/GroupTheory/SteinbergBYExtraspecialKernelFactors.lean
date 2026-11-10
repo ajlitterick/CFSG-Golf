@@ -22,9 +22,6 @@ open scoped IsMulCommutative
 
 variable {K : Type*} [Group K] [CFSG.IsElementaryAbelian 2 (K ⧸ center K)]
 
-@[expose] noncomputable def subgroupEquiv :
-    Subgroup (K ⧸ center K) ≃o Submodule (ZMod 2) (Additive (K ⧸ center K)) :=
-  Subgroup.toAddSubgroup.trans (AddSubgroup.toZModSubmodule 2)
 
 @[expose] noncomputable def autLin (σ : MulAut K) :
     Additive (K ⧸ center K) ≃ₗ[ZMod 2] Additive (K ⧸ center K) :=

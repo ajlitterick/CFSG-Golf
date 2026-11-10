@@ -200,12 +200,6 @@ theorem reflection_perpIncl_apply (u w : Fin 1 ⊕ Fin 1 ⊕ Unit → K) [Invert
     LinearEquiv.coe_coe, map_sub]
   abel
 
-omit hν in
-theorem reflection_incl_perpIncl (X : Matrix (Fin 2) (Fin 2) K)
-    [Invertible (quadOdd 3 K ((frame01 K).incl X))] (w : Fin 1 ⊕ Fin 1 ⊕ Unit → K) :
-    TauCeti.QuadraticMap.reflection (quadOdd 3 K) ((frame01 K).incl X) (perpIncl w) =
-      perpIncl w :=
-  TauCeti.QuadraticMap.reflection_apply_of_polar_eq_zero _ _ (polar_incl_perpIncl X w)
 
 theorem perpTransport_spinTau [Invertible (quadOdd 1 K (tauW₃ ν))]
     [Invertible (quadOdd 1 K (tauW₄ K))] (w : Fin 1 ⊕ Fin 1 ⊕ Unit → K) :

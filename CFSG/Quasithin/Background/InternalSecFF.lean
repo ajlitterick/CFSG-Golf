@@ -196,8 +196,6 @@ theorem isFFModule_sec (hFF : IsFFModule (autOn Y U)) :
     IsFFModule (autSec (autOn Y U) ⊤ (Cg.subgroupOf U)) :=
   h.qsec.isFFModule_autSec hFF
 
-theorem qOf_sec_le : qOf (autSec (autOn Y U) ⊤ (Cg.subgroupOf U)) ≤ qOf (autOn Y U) :=
-  h.qsec.qOf_autSec_le h.elem'
 
 theorem qhatOf_sec_le : qhatOf (autSec (autOn Y U) ⊤ (Cg.subgroupOf U)) ≤ qhatOf (autOn Y U) :=
   h.qsec.qhatOf_autSec_le h.elem'

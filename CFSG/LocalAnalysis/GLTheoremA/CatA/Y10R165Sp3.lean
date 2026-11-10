@@ -203,13 +203,6 @@ noncomputable def pointwiseStabEquiv (hB : B.IsAlt) {U : Submodule F V}
     refine LinearMap.ext fun x => ?_
     rfl
 
-private theorem pointwiseStabEquiv_apply_coe (hB : B.IsAlt) {U : Submodule F V}
-    (hU : (B.restrict U).Nondegenerate) (g : pointwiseStab (linIsometryGroup B) U)
-    (x : B.orthogonal U) :
-    ((pointwiseStabEquiv hB hU g :
-        LinearMap.GeneralLinearGroup F (B.orthogonal U)) :
-        B.orthogonal U →ₗ[F] B.orthogonal U) x = (g : V ≃ₗ[F] V) x :=
-  rfl
 
 theorem isQuasisimple_pointwiseStab (hB : B.IsAlt) (hBn : B.Nondegenerate) {U : Submodule F V}
     (hU : (B.restrict U).Nondegenerate) (h2 : 2 ≤ Module.finrank F (B.orthogonal U))

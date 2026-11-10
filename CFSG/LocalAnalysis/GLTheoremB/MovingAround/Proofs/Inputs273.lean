@@ -115,15 +115,6 @@ theorem input27_4Core_of_cases (hA : Input27_4Alt) (hP : Input27_4ChevP) (hS : I
   · exact hS p hp hp2 X hXK hO K hK hKh h E A hE hA' hEA hEAp hr hc hKs hKΓ hN hC1 hAut hA2
   · exact hQ p hp hp2 X hXK hO K hK hKh h E A hE hA' hEA hEAp hr hc hKs hKΓ hN hC1 hAut hA2
 
-theorem input27_3On_of_core (T : ℕ → (S : Type) → [Group S] → Prop) (h : Inputs27.Input27_3Core) :
-    Input27_3On T := by
-  intro p hp hp2 X _ _ hXK hO K hK hKh _ E A hE hA' hEA hEAp hr hc hKΓ hN hC1 hAut hA2
-  exact h p hp hp2 X hXK hO K hK hKh E A hE hA' hEA hEAp hr hc hKΓ hN hC1 hAut hA2
-
-theorem input27_4On_of_core (T : ℕ → (S : Type) → [Group S] → Prop) (h : Inputs27.Input27_4Core) :
-    Input27_4On T := by
-  intro p hp hp2 X _ _ hXK hO K hK hKh _ E A hE hA' hEA hEAp hr hc hKs hKΓ hN hC1 hAut hA2
-  exact h p hp hp2 X hXK hO K hK hKh E A hE hA' hEA hEAp hr hc hKs hKΓ hN hC1 hAut hA2
 
 section Common
 
@@ -2004,68 +1995,6 @@ theorem isLocallyOTwoBalancedWrtP_of_abs {S : Type} [Group S] [Finite S] (hp : p
   fun _ _ D hD H hH hDH => le_bot_iff.1 ((localDeltaTwoIn_le_localDeltaIn hp hp2 H D).trans
     (h D hD.2.1 hD.2.2 H hH hDH).le)
 
-@[expose] def Input27_4SporDown : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
-    ∀ s : TauCeti.SporadicName, Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ α : MulAut S, α ^ p = 1 → α ≠ 1 →
-      ∀ I : Subgroup S, GLAPComponent p (fixSubgroup α) I →
-        IsLocallyOTwoBalancedWrtP p 1 (PSimple p I) ∨
-          (CFSG.Open.pRank p (⊤ : Subgroup (MulAut S)) ≤ 2 ∧ (p = 3 ∨ ¬ p ^ 3 ∣ Nat.card S))
-
-theorem input27_4Spor_of (hOne : SporadicLocalOneData) (hCube : SporOneBalanceCube) (hOut : SporadicOuterLeTwo)
-    (hSpM : CFSG.HardMathSupport.Timmesfeld.Tables.Multiplier.SporadicMultipliers) (hDown : Input27_4SporDown) :
-    Input27_4Spor := by
-  intro p hp hp2 X _ _ _ hO K hK hKh hT E A _ hA' _ _ _ _ _ _ _ _ _ hA2
-  haveI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨-, hOK⟩ := comp_facts hO hK
-  obtain ⟨s, ⟨e⟩⟩ := hT
-  have hq : CFSG.Open.IsQuasisimple ↥K := hKh.1
-  have hA2' : CFSG.Open.pRank p (⊤ : Subgroup (MulAut ↥K)) ≤ 2 →
-      5 ≤ p ∧ (p ∣ (innerAut ↥K).index ∨ ∃ P : Sylow p ↥K, ¬ IsMulCommutative ↥(P : Subgroup ↥K)) :=
-    fun h => ⟨(hA2 h).1, (hA2 h).2.2.2⟩
-  have hO2K : IsLocallyOTwoBalancedWrtP p 1 (↥K ⧸ Subgroup.center ↥K) :=
-    isLocallyOTwoBalancedWrtP_of_abs hp hp2 (spor_balanced hOne hCube hOut hSpM hp hp2 hq hOK e hA2')
-  refine Or.inr (Or.inr (Or.inl fun a ha ha1 J hJ => Or.inl ?_))
-  have hqJ : CFSG.Open.IsQuasisimple (barOf p J) :=
-    CFSG.LocalAnalysis.GLTheoremA.isQuasisimple_pQuot_of_glaPComponent hp hJ
-  refine Inputs123a.isLocallyOTwoBalancedWrtP_of_quot hqJ.1 ?_
-  by_cases haN : a ∈ Subgroup.normalizer (K : Set X)
-  · obtain ⟨g, -, haL, hJL⟩ := exists_conj_of_mem_normalizer hp hO hK hA'.2.1 ha haN hJ
-    have hLc := glaPComponent_conj hK g
-    obtain ⟨-, hOL⟩ := comp_facts hO hLc
-    obtain ⟨eLK⟩ := nonempty_conj_center_quot K g
-    have eS : PSimple p (GLBConj g K) ≃* ↥K ⧸ Subgroup.center ↥K :=
-      (Lemma1315b.centerQuotEquiv (barOfEquivOfCore hOL)).trans eLK
-    obtain ⟨hSs, hSna⟩ := CFSG.LocalAnalysis.GLTheoremA.chev_pSimple_simple_nonabelian hp hLc
-    haveI : IsSimpleGroup (PSimple p (GLBConj g K)) := hSs
-    have hap3 : a ^ p = 1 := hA'.2.1.2 a ha
-    have hap := isPGroup_zpowers_of_pow hap3
-    have hI := CFSG.LocalAnalysis.GLTheoremA.glaPComponent_chevTransfer hp haL hap hJL
-    obtain ⟨eJI⟩ := CFSG.LocalAnalysis.GLTheoremA.nonempty_pSimple_equiv_chevTransfer hp haL hap hJL
-    refine (Inputs123a.isLocallyOTwoBalancedWrtP_congr eJI).2 ?_
-    by_cases hα1 : chevAut p (GLBConj g K) ⟨a, haL⟩ = 1
-    · have hfix : fixSubgroup (chevAut p (GLBConj g K) ⟨a, haL⟩) = ⊤ := by
-        rw [hα1]
-        ext x
-        simp [mem_fixSubgroup]
-      rw [hfix] at hI
-      obtain ⟨e1⟩ := CFSG.LocalAnalysis.GLTheoremA.chevQ_pSimple_top_equiv hp hSna hI
-      exact (Inputs123a.isLocallyOTwoBalancedWrtP_congr (e1.trans eS)).2 hO2K
-    · rcases hDown _ hSs hSna s ⟨eS.trans e⟩ p hp hp2 _
-          (CFSG.LocalAnalysis.GLTheoremA.chevAut_pow_eq_one p _ haL hap3) hα1 _ hI with hbal | ⟨hrk, h3⟩
-      · exact hbal
-      · exfalso
-        have hrk' : CFSG.Open.pRank p (⊤ : Subgroup (MulAut (↥K ⧸ Subgroup.center ↥K))) ≤ 2 := by
-          rw [← CFSG.SectionRank.pRank_top_eq_of_mulEquiv hp.one_lt (MulAut.congr eS)]
-          exact hrk
-        have hcS : Nat.card (PSimple p (GLBConj g K)) = Nat.card (↥K ⧸ Subgroup.center ↥K) :=
-          Nat.card_congr eS.toEquiv
-        refine spor_false_of_rank hOut hSpM hp hq hOK e hrk' (fun hp5 => ?_) hA2'
-        rcases h3 with h3 | h3
-        · omega
-        · rwa [← hcS]
-  · obtain ⟨e'⟩ := nonempty_pSimple_equiv_of_not_mem_normalizer hp hp2 hO hK hA'.2.1 ha ha1 haN hJ
-    exact (Inputs123a.isLocallyOTwoBalancedWrtP_congr e').2 hO2K
 
 end Spor4
 

@@ -94,9 +94,6 @@ theorem KGroupAllSimple.of_mulEquiv (hC : IsoInvariant C) (hY : KGroupAllSimple 
     (e : X ≃* Y) : KGroupAllSimple C X :=
   hY.of_injective hC e.toMonoidHom e.injective
 
-theorem kGroupAllSimple_congr (hC : IsoInvariant C) (e : X ≃* Y) :
-    KGroupAllSimple C X ↔ KGroupAllSimple C Y :=
-  ⟨fun h => h.of_mulEquiv hC e.symm, fun h => h.of_mulEquiv hC e⟩
 
 theorem KGroupAllSimple.of_surjective (hC : IsoInvariant C) (hX : KGroupAllSimple C X)
     (f : X →* Y) (hf : Function.Surjective f) : KGroupAllSimple C Y := by
@@ -140,9 +137,6 @@ theorem KProperAllSimple.of_mulEquiv (hC : IsoInvariant C) (hY : KProperAllSimpl
     (e : X ≃* Y) : KProperAllSimple C X :=
   hY.of_injective hC e.toMonoidHom e.injective
 
-theorem kProperAllSimple_congr (hC : IsoInvariant C) (e : X ≃* Y) :
-    KProperAllSimple C X ↔ KProperAllSimple C Y :=
-  ⟨fun h => h.of_mulEquiv hC e.symm, fun h => h.of_mulEquiv hC e⟩
 
 end AllSimple
 
@@ -265,9 +259,6 @@ theorem KProperNonab.of_mulEquiv (hC : IsoInvariant C) (hY : KProperNonab C Y) (
     KProperNonab C X :=
   hY.of_injective hC e.toMonoidHom e.injective
 
-theorem kProperNonab_congr (hC : IsoInvariant C) (e : X ≃* Y) :
-    KProperNonab C X ↔ KProperNonab C Y :=
-  ⟨fun h => h.of_mulEquiv hC e.symm, fun h => h.of_mulEquiv hC e⟩
 
 end Nonab
 
@@ -289,9 +280,6 @@ theorem KGroupNonab.kGroupAllSimple [Finite X] (hC : IsoInvariant C)
     exact hX.catalogue_of_surjective hC H hcomm (QuotientGroup.mk' N)
       (QuotientGroup.mk'_surjective N)
 
-theorem kGroupNonab_iff_kGroupAllSimple [Finite X] (hC : IsoInvariant C)
-    (hab : ContainsAbelianSimple C) : KGroupNonab C X ↔ KGroupAllSimple C X :=
-  ⟨fun h => h.kGroupAllSimple hC hab, fun h => h.kGroupNonab⟩
 
 theorem KProperAllSimple.kProperNonab (hC : IsoInvariant C) (hX : KProperAllSimple C X) :
     KProperNonab C X := by

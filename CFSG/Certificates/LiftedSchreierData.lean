@@ -21,32 +21,12 @@ variable {n : ℕ} {K : Type*}
 @[expose] def toPerm (q : LiftedOrbitState n K) : SchreierOrbitState n :=
   ⟨q.entries.map fun e => (e.1, e.2.1), q.queue⟩
 
-theorem lookup_map_snd {α β γ : Type*} [DecidableEq α] (f : β → γ) (l : List (α × β)) (a : α) :
-    (l.map fun e => (e.1, f e.2)).lookup a = (l.lookup a).map f := by
-  induction l with
-  | nil => rfl
-  | cons e l ih =>
-    obtain ⟨k, b⟩ := e
-    by_cases h : a = k
-    · subst h
-      simp [List.lookup]
-    · have hk : (a == k) = false := beq_eq_false_iff_ne.2 h
-      simp [List.lookup, hk, ih]
-
-theorem toPerm_transversal? (q : LiftedOrbitState n K) (x : Fin n) :
-    q.toPerm.transversal? x = (q.transversal? x).map Prod.fst :=
-  lookup_map_snd Prod.fst q.entries x
 
 @[expose] def discover (q : LiftedOrbitState n K) (y : Fin n)
     (t : Equiv.Perm (Fin n) × K) : LiftedOrbitState n K :=
   if (q.transversal? y).isSome then q
   else ⟨q.entries ++ [(y, t)], q.queue ++ [y]⟩
 
-theorem toPerm_discover (q : LiftedOrbitState n K) (y : Fin n) (t : Equiv.Perm (Fin n) × K) :
-    (q.discover y t).toPerm = q.toPerm.discover y t.1 := by
-  unfold discover SchreierOrbitState.discover
-  rw [toPerm_transversal?, Option.isSome_map]
-  split <;> simp [toPerm]
 
 variable [Group K]
 
@@ -65,46 +45,6 @@ variable [Group K]
   | 0, q => q
   | fuel + 1, q => run steps fuel (step steps q)
 
-theorem toPerm_initial (b : Fin n) :
-    (initial b : LiftedOrbitState n K).toPerm = SchreierOrbitState.initial b := rfl
-
-theorem toPerm_foldl (steps : List (Equiv.Perm (Fin n) × K)) (q : LiftedOrbitState n K)
-    (x : Fin n) (tx : Equiv.Perm (Fin n) × K) :
-    (steps.foldl (fun state s => state.discover (s.1 x) (s * tx)) q).toPerm =
-      (steps.map Prod.fst).foldl
-        (fun state (s : Equiv.Perm (Fin n)) => state.discover (s x) (s * tx.1)) q.toPerm := by
-  induction steps generalizing q with
-  | nil => rfl
-  | cons s steps ih =>
-    rw [List.foldl_cons, ih, List.map_cons, List.foldl_cons, toPerm_discover]
-    rfl
-
-theorem toPerm_step (steps : List (Equiv.Perm (Fin n) × K)) (q : LiftedOrbitState n K) :
-    (step steps q).toPerm = SchreierOrbitState.step (steps.map Prod.fst) q.toPerm := by
-  unfold step SchreierOrbitState.step
-  change _ = match q.queue with
-    | [] => q.toPerm
-    | x :: pending =>
-      let tx := (q.toPerm.transversal? x).getD 1
-      (steps.map Prod.fst).foldl
-        (fun state (s : Equiv.Perm (Fin n)) => state.discover (s x) (s * tx))
-        ⟨q.toPerm.entries, pending⟩
-  cases q.queue with
-  | nil => rfl
-  | cons x pending =>
-    simp only
-    rw [toPerm_foldl, toPerm_transversal?]
-    have hfst : ((q.transversal? x).getD 1).1 = ((q.transversal? x).map Prod.fst).getD 1 := by
-      cases q.transversal? x <;> rfl
-    rw [hfst]
-    rfl
-
-theorem toPerm_run (steps : List (Equiv.Perm (Fin n) × K)) (fuel : ℕ)
-    (q : LiftedOrbitState n K) :
-    (run steps fuel q).toPerm = SchreierOrbitState.run (steps.map Prod.fst) fuel q.toPerm := by
-  induction fuel generalizing q with
-  | zero => rfl
-  | succ fuel ih => rw [run, SchreierOrbitState.run, ih, toPerm_step]
 
 end LiftedOrbitState
 
@@ -189,14 +129,6 @@ theorem mem_levelIndices_iff (Q : RawSchreierDatum n) (i : ℕ) (j : Fin Q.stron
     j ∈ Q.levelIndices i ↔ ∀ b ∈ Q.base.toList.take i, Q.strong.get j b = b := by
   simp [levelIndices, List.all_eq_true]
 
-theorem strong_toList_eq_map (Q : RawSchreierDatum n) :
-    Q.strong.toList = (List.finRange Q.strongCount).map Q.strong.get := by
-  apply List.ext_getElem <;> simp [Vector.get]
-
-theorem levelIndices_map_strong (Q : RawSchreierDatum n) (i : ℕ) :
-    (Q.levelIndices i).map Q.strong.get = Q.levelGenerators i := by
-  rw [levelGenerators, strong_toList_eq_map, List.filter_map]
-  rfl
 
 @[expose] def liftedLevelGenerators (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
     (i : ℕ) : List K :=
@@ -207,21 +139,11 @@ theorem levelIndices_map_strong (Q : RawSchreierDatum n) (i : ℕ) :
   let forward := (Q.levelIndices i).map fun j => (Q.strong.get j, Q.lift U j)
   forward ++ forward.map fun p => p⁻¹
 
-theorem liftedLevelSteps_map_fst (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : ℕ) : (Q.liftedLevelSteps U i).map Prod.fst = Q.levelSteps i := by
-  simp only [liftedLevelSteps, levelSteps, List.map_append, List.map_map,
-    ← levelIndices_map_strong]
-  rfl
 
 @[expose] def liftedOrbitSearch (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
     (i : Fin Q.baseCount) : LiftedOrbitState n K :=
   LiftedOrbitState.run (Q.liftedLevelSteps U i.val) n (LiftedOrbitState.initial (Q.base.get i))
 
-theorem liftedOrbitSearch_toPerm (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) : (Q.liftedOrbitSearch U i).toPerm = Q.orbitSearch i := by
-  rw [liftedOrbitSearch, LiftedOrbitState.toPerm_run, LiftedOrbitState.toPerm_initial,
-    liftedLevelSteps_map_fst]
-  rfl
 
 @[expose] def liftedOrbitTables (Q : RawSchreierDatum n) (U : Vector K Q.originalCount) :
     Vector (LiftedOrbitState n K) Q.baseCount :=
@@ -235,16 +157,6 @@ theorem liftedOrbitTables_get (Q : RawSchreierDatum n) (U : Vector K Q.originalC
     (i : Fin Q.baseCount) (x : Fin n) : Option K :=
   ((Q.liftedOrbitSearch U i).transversal? x).map Prod.snd
 
-theorem transversal?_eq_map_fst (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) :
-    Q.transversal? i x = ((Q.liftedOrbitSearch U i).transversal? x).map Prod.fst := by
-  rw [transversal?, ← Q.liftedOrbitSearch_toPerm U i, LiftedOrbitState.toPerm_transversal?]
-
-theorem liftedTransversal?_isSome_iff (Q : RawSchreierDatum n) (U : Vector K Q.originalCount)
-    (i : Fin Q.baseCount) (x : Fin n) :
-    (Q.liftedTransversal? U i x).isSome = true ↔ x ∈ Q.orbitPoints i := by
-  change _ ↔ (Q.transversal? i x).isSome = true
-  rw [liftedTransversal?, Q.transversal?_eq_map_fst U i x, Option.isSome_map, Option.isSome_map]
 
 @[expose] def liftedSiftLevels (Q : RawSchreierDatum n)
     (tables : Vector (LiftedOrbitState n K) Q.baseCount) (i : ℕ) :

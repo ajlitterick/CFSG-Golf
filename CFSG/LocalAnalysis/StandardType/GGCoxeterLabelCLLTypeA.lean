@@ -122,19 +122,6 @@ theorem GGChainPairing.sum_ja (hP : GGChainPairing m hJ αJ ha αa) (hm : 1 ≤ 
   · intro h
     exact absurd (Finset.mem_Ico.mpr ⟨Nat.zero_le _, by omega⟩) h
 
-theorem GGChainPairing.sum_aj' (hP : GGChainPairing m hJ αJ ha αa) (hm : 1 ≤ m) :
-    ∑ j ∈ Finset.Ico 0 m, αa (hJ j) = -1 := by
-  rw [Finset.sum_eq_single (m - 1)]
-  · rw [hP.aj (m - 1) (by omega)]
-    simp [show m - 1 + 1 = m by omega]
-  · intro j hj hjm
-    rw [Finset.mem_Ico] at hj
-    rw [hP.aj j hj.2]
-    simp only [ite_eq_right_iff]
-    intro h
-    omega
-  · intro h
-    exact absurd (Finset.mem_Ico.mpr ⟨Nat.zero_le _, by omega⟩) h
 
 end Chain
 
@@ -244,78 +231,8 @@ theorem ggNearEnd_reflection (ι : Additive ↥Bs ≃+ V) {m : ℕ} {φJ : ℕ �
   rw [map_mul, map_mul, map_inv, map_ggChainProd]
   exact ggChainConj_apply hP _ hlinJ _ hlina 0 (Nat.zero_le _) z
 
-theorem ggTypeA_cross_iff (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs) (ι : Additive ↥Bs ≃+ V)
-    {m : ℕ} (hm : 1 ≤ m) {φJ : ℕ → MulAut ↥Bs} {φa φb : MulAut ↥Bs}
-    (hφJ : ∀ j < m, φJ j ∈ ggInduced ⊤ Bs) (hφa : φa ∈ ggInduced ⊤ Bs)
-    (hφb : φb ∈ ggInduced ⊤ Bs) {hJ : ℕ → V} {αJ : ℕ → Module.Dual (ZMod p) V} {ha hb : V}
-    {αa αb : Module.Dual (ZMod p) V} (hPa : GGChainPairing m hJ αJ ha αa)
-    (hPb : GGChainPairing m hJ αJ hb αb)
-    (hlinJ : ∀ j < m, ∀ w, ggLin (p := p) ι (φJ j) w = w - αJ j w • hJ j)
-    (hlina : ∀ w, ggLin (p := p) ι φa w = w - αa w • ha)
-    (hlinb : ∀ w, ggLin (p := p) ι φb w = w - αb w • hb) :
-    (αa hb = 0 ↔ αb ha = 0) ∧ (αa hb = 1 ↔ αb ha = 1) := by
-  have hLa : ggLin (p := p) ι φa = reflection hPa.aa := ggLin_eq_reflection ι hPa.aa hlina
-  have hLb : ggLin (p := p) ι φb = reflection hPb.aa := ggLin_eq_reflection ι hPb.aa hlinb
-  obtain ⟨hψ, hlinψ⟩ := ggNearEnd_reflection ι hφJ hφa hPa hlinJ hlina
-  have hθ := hPa.chainRoot_chainCoroot 0 (Nat.zero_le _)
-  have hLψ := ggLin_eq_reflection ι hθ hlinψ
-  have hθb : ggChainRoot m αJ αa 0 hb = αa hb - 1 := by
-    rw [ggChainRoot, LinearMap.add_apply, LinearMap.sum_apply, hPb.sum_ja hm]
-    ring
-  have hbθ : αb (ggChainCoroot m hJ ha 0) = αb ha - 1 := by
-    rw [ggChainCoroot, map_add, map_sum, hPb.sum_aj' hm]
-    ring
-  refine ⟨⟨fun h => ggCross_eq_zero_of_noTransvection hp2 hNT ι hφa hφb hPa.aa hPb.aa hLa hLb h,
-      fun h => ggCross_eq_zero_of_noTransvection hp2 hNT ι hφb hφa hPb.aa hPa.aa hLb hLa h⟩,
-    ⟨fun h => ?_, fun h => ?_⟩⟩
-  · have h0 : ggChainRoot m αJ αa 0 hb = 0 := by rw [hθb, h, sub_self]
-    have := ggCross_eq_zero_of_noTransvection hp2 hNT ι hψ hφb hθ hPb.aa hLψ hLb h0
-    rw [hbθ] at this
-    exact sub_eq_zero.mp this
-  · have h0 : αb (ggChainCoroot m hJ ha 0) = 0 := by rw [hbθ, h, sub_self]
-    have := ggCross_eq_zero_of_noTransvection hp2 hNT ι hφb hψ hPb.aa hθ hLb hLψ h0
-    rw [hθb] at this
-    exact sub_eq_zero.mp this
-
-theorem ggTypeA_label_cases (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs) (ι : Additive ↥Bs ≃+ V)
-    {m : ℕ} (hm : 1 ≤ m) {φJ : ℕ → MulAut ↥Bs} {φa φb : MulAut ↥Bs}
-    (hφJ : ∀ j < m, φJ j ∈ ggInduced ⊤ Bs) (hφa : φa ∈ ggInduced ⊤ Bs)
-    (hφb : φb ∈ ggInduced ⊤ Bs) {hJ : ℕ → V} {αJ : ℕ → Module.Dual (ZMod p) V} {ha hb : V}
-    {αa αb : Module.Dual (ZMod p) V} (hPa : GGChainPairing m hJ αJ ha αa)
-    (hPb : GGChainPairing m hJ αJ hb αb)
-    (hlinJ : ∀ j < m, ∀ w, ggLin (p := p) ι (φJ j) w = w - αJ j w • hJ j)
-    (hlina : ∀ w, ggLin (p := p) ι φa w = w - αa w • ha)
-    (hlinb : ∀ w, ggLin (p := p) ι φb w = w - αb w • hb) (hu : αa hb = 0 ∨ αa hb = 1) :
-    (αa hb = 0 ∧ αb ha = 0) ∨
-      (ggChainRoot m αJ αa 0 hb = 0 ∧ αb (ggChainCoroot m hJ ha 0) = 0) := by
-  obtain ⟨h0, h1⟩ := ggTypeA_cross_iff hp2 hNT ι hm hφJ hφa hφb hPa hPb hlinJ hlina hlinb
-  have hθb : ggChainRoot m αJ αa 0 hb = αa hb - 1 := by
-    rw [ggChainRoot, LinearMap.add_apply, LinearMap.sum_apply, hPb.sum_ja hm]
-    ring
-  have hbθ : αb (ggChainCoroot m hJ ha 0) = αb ha - 1 := by
-    rw [ggChainCoroot, map_add, map_sum, hPb.sum_aj' hm]
-    ring
-  rcases hu with hu | hu
-  · exact Or.inl ⟨hu, h0.mp hu⟩
-  · exact Or.inr ⟨by rw [hθb, hu, sub_self], by rw [hbθ, h1.mp hu, sub_self]⟩
 
 end GG
 
-@[expose] def GGTypeACrossLabelInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → GGOpAutTrivial p Bs → GGInnerDiagAll p B Bs x L D J →
-      GGNoTransvection p Bs → ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K →
-      GGScalarsOrWeyl' p B Bs x D J →
-        ∀ [Fact p.Prime] (V : Type) [AddCommGroup V] [Module (ZMod p) V]
-      (ι : Additive ↥Bs ≃+ V) (m : ℕ), 2 ≤ m → ∀ (φJ : ℕ → MulAut ↥Bs) (φa φb : MulAut ↥Bs)
-      (hJ : ℕ → V) (αJ : ℕ → Module.Dual (ZMod p) V) (ha hb : V)
-      (αa αb : Module.Dual (ZMod p) V),
-      GGChainPairing m hJ αJ ha αa → GGChainPairing m hJ αJ hb αb →
-      (∀ j < m, ∀ w, ggLin (p := p) ι (φJ j) w = w - αJ j w • hJ j) →
-      (∀ w, ggLin (p := p) ι φa w = w - αa w • ha) →
-      (∀ w, ggLin (p := p) ι φb w = w - αb w • hb) →
-      ggAutomizer L Bs = Subgroup.closure ((φJ '' Set.Iio m) ∪ {φb}) →
-      ggAutomizer K Bs = Subgroup.closure ((φJ '' Set.Iio m) ∪ {φa}) →
-      αa hb = 0 ∨ αa hb = 1
 
 end CFSG.StandardType

@@ -85,8 +85,6 @@ theorem d4X_comm : d4X * d4Y = d4Y * d4X := by
 theorem d4X_ne_one : d4X ≠ 1 := fun h =>
   wX_ne_one (by simpa [coe_d4X] using congrArg Units.val h)
 
-theorem d4Y_ne_one : d4Y ≠ 1 := fun h =>
-  wY_ne_one (by simpa [coe_d4Y] using congrArg Units.val h)
 
 theorem d4X_pow_ne (n : ℕ) : d4X ^ n ≠ d4Y := by
   intro h

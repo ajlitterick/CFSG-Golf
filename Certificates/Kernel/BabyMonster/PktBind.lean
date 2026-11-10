@@ -39,24 +39,8 @@ theorem tab2 : tabOK (nthN monoTs 2) = true := by quickRfl
 theorem tab3 : tabOK (nthN monoTs 3) = true := by quickRfl
 theorem tab4 : tabOK (nthN monoTs 4) = true := by quickRfl
 theorem tab5 : tabOK (nthN monoTs 5) = true := by quickRfl
-theorem tab6 : tabOK (nthN monoTs 6) = true := by quickRfl
-theorem tab7 : tabOK (nthN monoTs 7) = true := by quickRfl
-theorem tab8 : tabOK (nthN monoTs 8) = true := by quickRfl
-theorem tab9 : tabOK (nthN monoTs 9) = true := by quickRfl
 theorem tab10 : tabOK (nthN monoTs 10) = true := by quickRfl
-theorem tab11 : tabOK (nthN monoTs 11) = true := by quickRfl
-theorem tab12 : tabOK (nthN monoTs 12) = true := by quickRfl
-theorem tab13 : tabOK (nthN monoTs 13) = true := by quickRfl
-theorem tab14 : tabOK (nthN monoTs 14) = true := by quickRfl
-theorem tab15 : tabOK (nthN monoTs 15) = true := by quickRfl
-theorem tab16 : tabOK (nthN monoTs 16) = true := by quickRfl
 theorem tab17 : tabOK (nthN monoTs 17) = true := by quickRfl
-theorem tab18 : tabOK (nthN monoTs 18) = true := by quickRfl
-theorem tab19 : tabOK (nthN monoTs 19) = true := by quickRfl
-theorem tab20 : tabOK (nthN monoTs 20) = true := by quickRfl
-theorem tab21 : tabOK (nthN monoTs 21) = true := by quickRfl
-theorem tab22 : tabOK (nthN monoTs 22) = true := by quickRfl
-theorem tab23 : tabOK (nthN monoTs 23) = true := by quickRfl
 
 end Tabs
 

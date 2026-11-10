@@ -93,20 +93,9 @@ theorem mulAutConj_injective (hZ : Subgroup.center G = ⊥) :
   calc x * g = g * x * g⁻¹ * g := by rw [this]
     _ = g * x := by group
 
-theorem commutator_mulAut_eq (hperf : commutator G = ⊤) (hidx : (innerAut G).index = 2) :
-    commutator (MulAut G) = innerAut G := by
-  apply le_antisymm (commutator_le_of_index_two hidx)
-  rw [innerAut, MonoidHom.range_eq_map, ← hperf, commutator_def, Subgroup.map_commutator,
-    commutator_def]
-  exact Subgroup.commutator_mono le_top le_top
 
 @[expose] noncomputable def innerAutEquiv (hZ : Subgroup.center G = ⊥) : G ≃* innerAut G :=
   MonoidHom.ofInjective (mulAutConj_injective hZ)
 
-theorem isSimpleGroup_commutator_mulAut [IsSimpleGroup G] (hZ : Subgroup.center G = ⊥)
-    (hperf : commutator G = ⊤) (hidx : (innerAut G).index = 2) :
-    IsSimpleGroup (commutator (MulAut G)) :=
-  ((MulEquiv.subgroupCongr (commutator_mulAut_eq hperf hidx)).trans
-    (innerAutEquiv hZ).symm).isSimpleGroup
 
 end CFSG.Fischer

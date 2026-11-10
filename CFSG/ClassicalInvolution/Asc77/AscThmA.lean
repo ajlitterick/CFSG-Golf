@@ -134,9 +134,6 @@ theorem thmA_on [Finite G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod 
       (Subgroup.mem_centralizer_iff.mp (hKc hy) w (component_le_layer hL hw)).symm
     exact conjSub_eq_of_mem_of_commutes hk hKL
 
-theorem thmAOn_of_comm613On [Finite G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (h613 : Comm613On Ω) : ThmAOn Ω :=
-  fun _ hK _ hL _ hk => thmA_on hp hq hΩ h613 hK hL hk
 
 end AscThmA
 

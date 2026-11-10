@@ -410,10 +410,6 @@ include hS
   ((orthElementaryGroup (quadPlus r k)).subtype.comp (π.comp (liftWeyl π).subtype)).codRestrict
     (torusWeyl r k) fun v => coe_pi_mem_torusWeyl hS hr v.2
 
-theorem coe_piWeyl (hr : 2 ≤ r) (v : liftWeyl π) :
-    ((piWeyl hS hr v : torusWeyl r k) : (Fin r ⊕ Fin r → k) ≃ₗ[k] (Fin r ⊕ Fin r → k)) =
-      ((π v : orthElementaryGroup (quadPlus r k)) : (Fin r ⊕ Fin r → k) ≃ₗ[k] _) :=
-  rfl
 
 @[expose] noncomputable def weylHom (hr : 2 ≤ r) : liftWeyl π →* weylGroup r :=
   (torusWeylNu r k hr).comp (piWeyl hS hr)
@@ -729,29 +725,6 @@ theorem ker_weylHom_le (hr : 2 ≤ r) :
 theorem ker_weylHom (hr : 2 ≤ r) : (weylHom hS hr).ker = (liftTorus π).subgroupOf (liftWeyl π) :=
   le_antisymm (ker_weylHom_le hS hr) (liftTorus_le_ker_weylHom hS hr)
 
-theorem injective_pi_liftWeyl (hr : 3 ≤ r) : Function.Injective (π.comp (liftWeyl π).subtype) := by
-  rw [injective_iff_map_eq_one]
-  intro n hn
-  have hn' : π n = 1 := hn
-  have hw : weylHom hS (by omega) n = 1 := by
-    have hpi : piWeyl hS (by omega) n = 1 := Subtype.ext (by rw [coe_piWeyl, hn']; rfl)
-    rw [weylHom_apply, hpi, map_one]
-  have hH : (n : E) ∈ liftTorus π := Subgroup.mem_subgroupOf.1 (ker_weylHom_le hS _ hw)
-  have h1 : (⟨n, hH⟩ : liftTorus π) = 1 :=
-    injective_pi_liftTorus hS hr (by rw [map_one]; exact hn')
-  have h2 : (n : E) = 1 := congrArg Subtype.val h1
-  exact Subtype.ext h2
-
-@[expose] noncomputable def weylQuotientEquiv (hr : 2 ≤ r) (hr3 : 3 ≤ r)
-    [((liftTorus π).subgroupOf (liftWeyl π)).Normal] :
-    liftWeyl π ⧸ (liftTorus π).subgroupOf (liftWeyl π) ≃* weylGroup r :=
-  (QuotientGroup.quotientMulEquivOfEq (ker_weylHom hS hr).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective (weylHom hS hr) (weylHom_surjective hS hr hr3))
-
-theorem weylQuotientEquiv_mk (hr : 2 ≤ r) (hr3 : 3 ≤ r)
-    [((liftTorus π).subgroupOf (liftWeyl π)).Normal] (n : liftWeyl π) :
-    weylQuotientEquiv hS hr hr3 n = weylHom hS hr n :=
-  rfl
 
 end Kernel
 

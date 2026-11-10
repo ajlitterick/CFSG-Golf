@@ -38,13 +38,6 @@ theorem nativeCarrier_E8
       (DynkinType.E8.geckPoints DynkinType.valid_E8 (ValidLieTypeIndex.Closure ⟨_, hv⟩))).trans
     (MulEquiv.subgroupCongr (nativeCarrier_E8 q hv hp2))
 
-theorem coe_geckGroupEquiv_E8
-    (hp2 : q.p ≠ 2)
-    (g : ↥(DynkinType.E8.geckPoints DynkinType.valid_E8 (ValidLieTypeIndex.Closure ⟨_, hv⟩))) :
-    (geckGroupEquiv_E8 q hv hp2 g : ModGL .E8 (ValidLieTypeIndex.Closure ⟨_, hv⟩)) =
-      (geckMatchE8.toGeck _).symm (g : Matrix.GeneralLinearGroup
-        (Fin (DynkinType.E8.geckDim DynkinType.valid_E8)) (ValidLieTypeIndex.Closure ⟨_, hv⟩)) :=
-  rfl
 
 theorem untwistedBridge_E8 :
     UntwistedBridge .E8 LieTypeIndex.E8 := by

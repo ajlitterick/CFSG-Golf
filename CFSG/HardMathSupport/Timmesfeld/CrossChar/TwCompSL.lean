@@ -274,63 +274,6 @@ theorem conj_entrywise_injective (n : ModGL τ L) (Fr : L →+* L) :
   (MulAut.conj n).injective.comp
     (Units.map_injective (f := entrywiseHom Fr) (entrywise_injective Fr))
 
-theorem range_inf_fixModel (h : IsSLFrame ρ σ) (Ψ : ModGL τ L →* ModGL τ L) :
-    ρ.range ⊓ fixModel Ψ = ρ.range ⊓ Ψ.eqLocus (MonoidHom.id _) := by
-  rw [fixModel, ← inf_assoc, inf_eq_left.2 h.range_le_adjointGroup]
-
-theorem fixModel_unitary (h : IsSLFrame ρ σ) (hinj : Function.Injective ρ) {ℓ f : ℕ}
-    (hℓ : ℓ.Prime) (hf : 1 ≤ f) {k : Type} [Field k] [Algebra k L] [IsAlgClosure k L]
-    (hk : Nat.card k = ℓ ^ f) (hν : 3 ≤ ν) (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ (ℓ ^ f))
-    (Ψ : ModGL τ L →* ModGL τ L) (hΨinj : Function.Injective Ψ) (π : Equiv.Perm (Fin ν))
-    (hΨ : ∀ i j, i ≠ j → ∃ b : Lˣ, ∀ c : L,
-      Ψ (pinnedX τ L (σ i j) c) = pinnedX τ L (σ (π j) (π i)) ((b : L) * Fr c)) :
-    Finite ↥(ρ.range ⊓ fixModel Ψ) ∧
-    ((ν, ℓ ^ f) ≠ (3, 2) → CFSG.IsQuasisimple ↥(ρ.range ⊓ fixModel Ψ) ∧
-      Nat.card (Subgroup.center ↥(ρ.range ⊓ fixModel Ψ)) = Nat.gcd ν (ℓ ^ f + 1)) := by
-  rw [h.range_inf_fixModel Ψ]
-  obtain ⟨-, hfin, hq⟩ := h.fix_unitary hinj hℓ hf hk hν Fr hFr Ψ hΨinj π hΨ
-  exact ⟨hfin, hq⟩
-
-theorem fixModel_split (h : IsSLFrame ρ σ) (hinj : Function.Injective ρ) {ℓ f : ℕ}
-    (hℓ : ℓ.Prime) (hf : 1 ≤ f) {k : Type} [Field k] [Algebra k L] [IsAlgClosure k L]
-    (hk : Nat.card k = ℓ ^ f) (hν : 3 ≤ ν) (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ (ℓ ^ f))
-    (Ψ : ModGL τ L →* ModGL τ L) (hΨinj : Function.Injective Ψ) (π : Equiv.Perm (Fin ν))
-    (hΨ : ∀ i j, i ≠ j → ∃ b : Lˣ, ∀ c : L,
-      Ψ (pinnedX τ L (σ i j) c) = pinnedX τ L (σ (π i) (π j)) ((b : L) * Fr c)) :
-    Finite ↥(ρ.range ⊓ fixModel Ψ) ∧ CFSG.IsQuasisimple ↥(ρ.range ⊓ fixModel Ψ) ∧
-      Nat.card (Subgroup.center ↥(ρ.range ⊓ fixModel Ψ)) = Nat.gcd ν (ℓ ^ f - 1) := by
-  rw [h.range_inf_fixModel Ψ]
-  obtain ⟨-, hfin, hq, hc⟩ := h.fix_split hinj hℓ hf hk hν Fr hFr Ψ hΨinj π hΨ
-  exact ⟨hfin, hq, hc⟩
-
-theorem twModel_unitary (h : IsSLFrame ρ σ) (hinj : Function.Injective ρ) {ℓ f : ℕ}
-    (hℓ : ℓ.Prime) (hf : 1 ≤ f) {k : Type} [Field k] [Algebra k L] [IsAlgClosure k L]
-    (hk : Nat.card k = ℓ ^ f) (hν : 3 ≤ ν) (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ (ℓ ^ f))
-    {n : ModGL τ L} (hn : n ∈ monomialSubgroup τ L) (π : Equiv.Perm (Fin ν))
-    (hw : ∀ i j, i ≠ j → weylQuotientHom τ L ⟨n, hn⟩ • σ i j = σ (π j) (π i)) :
-    Finite ↥(ρ.range ⊓ twModel n Fr) ∧
-    ((ν, ℓ ^ f) ≠ (3, 2) → CFSG.IsQuasisimple ↥(ρ.range ⊓ twModel n Fr) ∧
-      Nat.card (Subgroup.center ↥(ρ.range ⊓ twModel n Fr)) = Nat.gcd ν (ℓ ^ f + 1)) := by
-  rw [twModel_eq_fixModel]
-  refine h.fixModel_unitary hinj hℓ hf hk hν Fr hFr _ (conj_entrywise_injective n Fr) π
-    fun i j hij => ?_
-  obtain ⟨μ, hμ⟩ := conj_entrywise_pinnedX hn Fr (h.isRoot i j hij)
-  exact ⟨μ, fun c => by rw [hμ c, hw i j hij]⟩
-
-theorem twModel_neg (h : IsSLFrame ρ σ) (hinj : Function.Injective ρ) {ℓ f : ℕ}
-    (hℓ : ℓ.Prime) (hf : 1 ≤ f) {k : Type} [Field k] [Algebra k L] [IsAlgClosure k L]
-    (hk : Nat.card k = ℓ ^ f) (hν : 3 ≤ ν) (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ (ℓ ^ f))
-    {n : ModGL τ L} (hn : n ∈ monomialSubgroup τ L)
-    (hw : ∀ i j, i ≠ j → weylQuotientHom τ L ⟨n, hn⟩ • σ i j = -σ i j) :
-    Finite ↥(ρ.range ⊓ twModel n Fr) ∧
-    ((ν, ℓ ^ f) ≠ (3, 2) → CFSG.IsQuasisimple ↥(ρ.range ⊓ twModel n Fr) ∧
-      Nat.card (Subgroup.center ↥(ρ.range ⊓ twModel n Fr)) = Nat.gcd ν (ℓ ^ f + 1)) :=
-  h.twModel_unitary hinj hℓ hf hk hν Fr hFr hn (Equiv.refl _) fun i j hij => by
-    rw [hw i j hij, Equiv.refl_apply, Equiv.refl_apply, h.neg j i, neg_neg]
-
-theorem inf_eq_of_le {G : Type*} [Group G] {X A M : Subgroup G} (hAM : A ≤ M)
-    (hle : X ⊓ M ≤ A) : X ⊓ A = X ⊓ M :=
-  le_antisymm (inf_le_inf_left _ hAM) (le_inf inf_le_left hle)
 
 end IsSLFrame
 

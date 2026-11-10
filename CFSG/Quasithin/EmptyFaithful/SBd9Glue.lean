@@ -42,20 +42,6 @@ theorem prefix38_of_psl (h113 : StageLemma14113) (h37 : A37ForSQTK) (h38 : A38Fo
   exact ⟨hmodel, hY, ⟨borel_stage h37 h38 c hL0 hLie, borel_le_MI h37 h38 c hL0 hLie,
     sylow_le_centralizer_V h37 h38 c hL0 hLie⟩, hcase⟩
 
-@[expose] def Input15338Mid : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
-    CtxComp2 T Mc M V₁ V₂ Yp I L t → L = conjClosure L (Sgp153 T V₁) →
-      IsPSL 3 2 2 (↥L ⧸ Subgroup.center ↥L) → oTwoUpper (Yp ⊓ L) ≠ ⊥ →
-      (∃ y ∈ Yp, orderOf y = 3 ∧ y ∉ L ⊔ Subgroup.centralizer (L : Set G) ∧
-        Yp = oTwoUpper (Yp ⊓ L) ⊔ Subgroup.zpowers y ⊔ pCoreOf 2 Yp) → ¬ Yp ≤ L →
-      I ≤ Subgroup.normalizer (L : Set G) → Yp = Y153 Mc M →
-      Yp ⊔ Sgp153 T V₁ ≤ Subgroup.normalizer ((Sgp153 T V₁ ⊓ L : Subgroup G) : Set G) →
-      L ⊓ Subgroup.normalizer ((Sgp153 T V₁ ⊓ L : Subgroup G) : Set G) ≤ M ⊓ I →
-      Sgp153 T V₁ ⊓ L ≤ Subgroup.centralizer (VZ T M : Set G) →
-      V₁ ≤ Subgroup.centralizer (L : Set G) →
-      (∀ y ∈ oTwoUpper (Yp ⊓ L), ∀ v ∈ V₁, y * v = v * y) → V₂ ≤ oTwoUpper (Yp ⊓ L) →
-      (¬ ∀ y ∈ oTwoUpper (Yp ⊓ L), ∀ v ∈ V₂, y * v = v * y) →
-        V₁ = centerOf L ∧ I = Subgroup.normalizer (V₁ : Set G)
 
 @[expose] def Input15338Rest : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),

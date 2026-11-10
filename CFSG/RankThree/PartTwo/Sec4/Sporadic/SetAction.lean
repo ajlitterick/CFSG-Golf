@@ -91,9 +91,6 @@ theorem actFun_unique (hF : Function.Injective F)
     rw [Subgroup.coe_mul, map_mul, Equiv.Perm.coe_mul, ← Finset.image_image,
       image_actFun himg h i, image_actFun himg g]
 
-theorem setAct_apply (hF : Function.Injective F)
-    (himg : ∀ h ∈ H, ∀ i, ∃ j, (F i).image (ρ h) = F j) (h : H) (i : Fin m) :
-    setAct hF himg h i = actFun himg h i := rfl
 
 theorem image_setAct (hF : Function.Injective F)
     (himg : ∀ h ∈ H, ∀ i, ∃ j, (F i).image (ρ h) = F j) (h : H) (i : Fin m) :

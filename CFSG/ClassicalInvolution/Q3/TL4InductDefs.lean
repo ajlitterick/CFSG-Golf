@@ -20,14 +20,10 @@ structure ThmDGenRBelow (r n : ℕ) : Prop where
   d1 : ThmD1RBelow r n
   d2 : TC.Thin.ThmDAbsBelow r n
 
-theorem thmDAbs_of_below {r : ℕ} (h : ∀ n, ThmDGenRBelow r n) : TC.Thin.ThmDAbs r :=
-  fun G _ _ => (h (Nat.card G + 1)).d2 G (Nat.lt_succ_self _)
 
 theorem thmDGenBelow_of_gen {r n : ℕ} (h : ThmDGenRBelow r n) : TC.Thin.ThmDGenBelow r n :=
   TC.Thin.thmDGenBelow_of_absBelow h.d2
 
-theorem thmD1RBelow_of_gen {r n : ℕ} (h : ThmDGenRBelow r n) : ThmD1RBelow r n :=
-  h.d1
 
 abbrev FStarQuot (Y : Type) [Group Y] : Type :=
   ↥(genFittingFStar Y) ⧸ Subgroup.center ↥(genFittingFStar Y)
@@ -46,18 +42,6 @@ abbrev FStarQuot (Y : Type) [Group Y] : Type :=
     TightDatum R S t → TightClsR r Y R S t → ¬ TightInO2 t → TightFStarQuasisimple Y →
       TightEdgeless R → GoodThreeElement R t ∨ Thm6Exit Y
 
-@[expose] def Thm8RBelow (r n : ℕ) : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], Nat.card X < n → ∀ Φ : Set (Subgroup X), TypeRFam r Φ →
-    classicalInvolutionOddCore X = ⊥ → omegaGen Φ = ⊤ →
-    (∀ L ∈ Φ, ∀ M ∈ Φ, ∃ g : X, conjSub g L = M) →
-    IsSimpleGroup ↥(genFittingFStar X) → (∃ a b : ↥(genFittingFStar X), a * b ≠ b * a) →
-    ¬ Disconnected.DEdgeless Φ → Disconnected.DConnected Φ
-
-@[expose] def Thm5RBelow (r n : ℕ) : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], Nat.card X < n → ∀ Φ : Set (Subgroup X), TypeRFam r Φ →
-    classicalInvolutionOddCore X = ⊥ → (∀ L ∈ Φ, AEmpty Φ L) →
-    ∀ K ∈ Φ, ∀ J ∈ omegaNbr Φ K, ∀ z t : X, IsUniqueInvolution K z → IsUniqueInvolution J t →
-      alphaOf (Subgroup.closure ({z, t} : Set X)) = ⊥
 
 @[expose] def Thm5RBelowF (r n : ℕ) : Prop :=
   ∀ (X : Type) [Group X] [Finite X], Nat.card X < n → ∀ Φ : Set (Subgroup X), TypeRFam r Φ →
@@ -88,11 +72,6 @@ theorem thmDGenRBelow_mono (hmn : m ≤ n) (h : ThmDGenRBelow r n) : ThmDGenRBel
 theorem thm6RBelow_mono (hmn : m ≤ n) (h : Thm6RBelow r n) : Thm6RBelow r m :=
   fun Y _ _ hY => h Y (lt_of_lt_of_le hY hmn)
 
-theorem thm5RBelow_mono (hmn : m ≤ n) (h : Thm5RBelow r n) : Thm5RBelow r m :=
-  fun X _ _ hX => h X (lt_of_lt_of_le hX hmn)
-
-theorem thm8RBelow_mono (hmn : m ≤ n) (h : Thm8RBelow r n) : Thm8RBelow r m :=
-  fun X _ _ hX => h X (lt_of_lt_of_le hX hmn)
 
 theorem thm5RBelowF_mono (hmn : m ≤ n) (h : Thm5RBelowF r n) : Thm5RBelowF r m :=
   fun X _ _ hX => h X (lt_of_lt_of_le hX hmn)
@@ -115,8 +94,6 @@ theorem TightBelowRPlus.zero (r : ℕ) : TightBelowRPlus r 0 where
   thm5 := fun _ _ _ h => absurd h (Nat.not_lt_zero _)
   twin := fun _ => PhilipHall.Frame.thm1RTwinLiftSetEBelow_zero
 
-theorem tightBelowR_of_plus {r n : ℕ} (h : TightBelowRPlus r n) : TightBelowR r n :=
-  h.tbelow
 
 theorem tightBelow_of_plus {n : ℕ} (h : TightBelowRPlus 3 n) : TightBelow n :=
   tightBelowR_three_iff.mp h.tbelow
@@ -137,9 +114,6 @@ theorem tightBelowRPlus_of_step {r : ℕ} (h : ∀ n, TightPlusStep r n) :
     have hA' : CIT3Below k := fun Y _ _ hY => hA Y (Nat.lt_succ_of_lt hY)
     exact h k hA' (ih hA')
 
-theorem tightInductive_of_plus (h : ∀ n, CIT3Below n → TightBelowRPlus 3 n) (N : ℕ) :
-    TightInductive N :=
-  fun hA => tightBelow_of_plus (h N hA)
 
 theorem thmD_step {r n : ℕ}
     (h2 : CIT3Below n → TightBelowRPlus r n → TC.Thin.ThmDAbsBelow r (n + 1))

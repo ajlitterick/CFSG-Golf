@@ -21,11 +21,6 @@ theorem ggSUCentralizerCoreInput_holds : GGSUCentralizerCoreInput :=
 
 section Tags
 
-theorem ggLayerTags_PSp : GGLayerCentreOddTag .PSp ∧ GGLayerPerfectTag .PSp :=
-  ggLayerTags_PSp_of_core ggSpCentralizerCoreInput_holds
-
-theorem ggLayerTags_PSU : GGLayerCentreOddTag .PSU ∧ GGLayerPerfectTag .PSU :=
-  ggLayerTags_PSU_of_core ggSUCentralizerCoreInput_holds
 
 theorem ggLayerInputs_of_remaining_seven
     (hPlus : GGLayerCentreOddTag .POmegaPlus ∧ GGLayerPerfectTag .POmegaPlus)

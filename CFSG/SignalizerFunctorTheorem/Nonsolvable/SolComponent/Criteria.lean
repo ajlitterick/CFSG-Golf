@@ -50,13 +50,6 @@ namespace IsSolComponent
 
 variable [Finite G] {K : Subgroup G}
 
-theorem isSimpleGroup_map (hK : IsSolComponent K) :
-    IsSimpleGroup (K.map (QuotientGroup.mk' (CFSG.solvableRadical G))) := by
-  have hZ := center_eq_bot_of_solvableRadical_eq_bot solvableRadical_quotient
-    hK.isComponent_map.2
-  have := hK.isComponent_map.1.2.1
-  exact (((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot).symm
-    ).isSimpleGroup
 
 end IsSolComponent
 
@@ -78,24 +71,6 @@ theorem isSolComponent_of_isSimpleGroup_map [Finite G] {K : Subgroup G} (hp : Gr
   exact ⟨hp, hs, (CFSG.LocalCores.isQuasisimple_of_isSimpleGroup hnc).1,
     hs.map (QuotientGroup.mk'_surjective _)⟩
 
-theorem isSolComponent_iff_isSimpleGroup_map [Finite G] {K : Subgroup G} :
-    IsSolComponent K ↔ Group.IsPerfect K ∧ K.IsSubnormal ∧
-      IsSimpleGroup (K.map (QuotientGroup.mk' (CFSG.solvableRadical G))) :=
-  ⟨fun h => ⟨h.isPerfect, h.isSubnormal, h.isSimpleGroup_map⟩,
-    fun ⟨hp, hs, hsimple⟩ => isSolComponent_of_isSimpleGroup_map hp hs hsimple⟩
-
-theorem isSolComponent_iff_isSimpleGroup_quotient [Finite G] {K : Subgroup G} :
-    IsSolComponent K ↔ K.IsSubnormal ∧ Group.IsPerfect K ∧
-      IsSimpleGroup (↥K ⧸ CFSG.solvableRadical K) := by
-  constructor
-  · intro h
-    obtain ⟨e⟩ := nonempty_quotient_solvableRadical_mulEquiv h.isSubnormal
-    have := h.isSimpleGroup_map
-    exact ⟨h.isSubnormal, h.isPerfect, e.isSimpleGroup⟩
-  · rintro ⟨hs, hp, hsimple⟩
-    obtain ⟨e⟩ := nonempty_quotient_solvableRadical_mulEquiv hs
-    have := hsimple
-    exact isSolComponent_of_isSimpleGroup_map hp hs e.symm.isSimpleGroup
 
 theorem isSolComponent_iff_minimal [Finite G] {K : Subgroup G} :
     IsSolComponent K ↔

@@ -38,15 +38,6 @@ theorem map_symm_map (θ : G ≃* G') (Q : Subgroup G) :
   have : θ.symm.toMonoidHom.comp θ.toMonoidHom = MonoidHom.id G := by ext x; simp
   rw [this, Subgroup.map_id]
 
-theorem isSylowTwoOf_bot_of_odd {G : Type*} [Group G] [Finite G] (H : Subgroup G)
-    (hodd : Odd (Nat.card H)) : IsSylowTwoOf (⊥ : Subgroup G) H := by
-  refine ⟨bot_le, IsPGroup.of_card (n := 0) (by simp), ?_⟩
-  have h := Subgroup.relIndex_mul_card (⊥ : Subgroup G) H
-  rw [inf_eq_left.2 bot_le] at h
-  simp only [Subgroup.card_bot, mul_one] at h
-  change ¬ 2 ∣ (⊥ : Subgroup G).relIndex H
-  rw [h]
-  exact fun hd => Nat.not_even_iff_odd.2 hodd (even_iff_two_dvd.2 hd)
 
 end Subgroups
 

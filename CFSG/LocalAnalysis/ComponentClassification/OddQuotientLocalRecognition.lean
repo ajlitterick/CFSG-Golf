@@ -97,31 +97,6 @@ theorem local_twoComponent_quasisimple_of_core_image_of_twoLayer {G : Type*} [Gr
   exact ⟨hleLayer, CentralExtensions.quasisimple_of_surjective hquasisimple restriction
     hsurjective hkernel⟩
 
-theorem local_twoComponent_quasisimple_of_core_image {G : Type*} [Group G] [Finite G]
-    [Group.IsSolvable (componentClassificationOddCore G)]
-    (element : G) (horder : orderOf element = 2)
-    (component : Subgroup G) (hcentralizes : component ≤ Subgroup.centralizer ({element} : Set G))
-    (htwoComponent : TwoComponents.IsTwoComponent
-      (component.subgroupOf (Subgroup.centralizer ({element} : Set G))))
-    (hnotBad : ¬ component ≤ TwoComponents.badSubgroup G)
-    (hlocal : IsComponentOf
-      ((component.map (QuotientGroup.mk' (componentClassificationOddCore G))).subgroupOf
-        (Subgroup.centralizer
-          ({(QuotientGroup.mk' (componentClassificationOddCore G)) element} :
-            Set (G ⧸ componentClassificationOddCore G)))) ⊤)
-    (houter : ∀ ambientComponent : Subgroup (G ⧸ componentClassificationOddCore G),
-      IsComponentOf ambientComponent ⊤ →
-        Group.IsSolvable (OuterAutomorphisms.Outer
-          (ambientComponent ⧸ Subgroup.center ambientComponent))) :
-    component ≤ Layer.subgroup G ∧ IsQuasisimple component := by
-  let : Group.IsPerfect (component.subgroupOf (Subgroup.centralizer ({element} : Set G))) :=
-    ⟨TwoComponents.perfect htwoComponent⟩
-  let : Group.IsPerfect component := Group.IsPerfect.ofSurjective
-    (f := (Subgroup.subgroupOfEquivOfLe hcentralizes).toMonoidHom)
-    (Subgroup.subgroupOfEquivOfLe hcentralizes).surjective
-  exact local_twoComponent_quasisimple_of_core_image_of_twoLayer element horder component hcentralizes
-    htwoComponent hnotBad hlocal
-      (perfect_in_core_local_enters_twoLayer element horder component hlocal hcentralizes houter)
 
 theorem perfect_in_core_local_enters_twoLayer_of_proper_outer {G : Type*} [Group G] [Finite G]
     [Group.IsSolvable (componentClassificationOddCore G)]
@@ -244,42 +219,6 @@ theorem core_local_image_of_odd_quotient {G : Type*} [Group G] [Finite G]
   rw [helement] at htransport
   exact htransport
 
-theorem perfect_in_odd_local_enters_twoLayer {G : Type*} [Group G] [Finite G]
-    [Group.IsSolvable (componentClassificationOddCore G)]
-    (oddNormal : Subgroup G) [oddNormal.Normal] (hodd : Odd (Nat.card oddNormal))
-    (element : G) (horder : orderOf element = 2)
-    (perfectSubgroup : Subgroup G) [Group.IsPerfect perfectSubgroup]
-    (hcentralizes : perfectSubgroup ≤ Subgroup.centralizer ({element} : Set G))
-    (hlocal : IsComponentOf
-      ((perfectSubgroup.map (QuotientGroup.mk' oddNormal)).subgroupOf
-        (Subgroup.centralizer ({(QuotientGroup.mk' oddNormal) element} : Set (G ⧸ oddNormal)))) ⊤)
-    (houter : ∀ component : Subgroup (G ⧸ componentClassificationOddCore G),
-      IsComponentOf component ⊤ →
-        Group.IsSolvable (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component))) :
-    perfectSubgroup ≤ TwoLayer.subgroup G :=
-  perfect_in_core_local_enters_twoLayer element horder perfectSubgroup
-    (core_local_image_of_odd_quotient oddNormal hodd element horder perfectSubgroup hcentralizes hlocal)
-    hcentralizes houter
-
-theorem local_twoComponent_quasisimple_of_odd_image {G : Type*} [Group G] [Finite G]
-    [Group.IsSolvable (componentClassificationOddCore G)]
-    (oddNormal : Subgroup G) [oddNormal.Normal] (hodd : Odd (Nat.card oddNormal))
-    (element : G) (horder : orderOf element = 2)
-    (component : Subgroup G) (hcentralizes : component ≤ Subgroup.centralizer ({element} : Set G))
-    (htwoComponent : TwoComponents.IsTwoComponent
-      (component.subgroupOf (Subgroup.centralizer ({element} : Set G))))
-    (hnotBad : ¬ component ≤ TwoComponents.badSubgroup G)
-    (hlocal : IsComponentOf
-      ((component.map (QuotientGroup.mk' oddNormal)).subgroupOf
-        (Subgroup.centralizer ({(QuotientGroup.mk' oddNormal) element} : Set (G ⧸ oddNormal)))) ⊤)
-    (houter : ∀ ambientComponent : Subgroup (G ⧸ componentClassificationOddCore G),
-      IsComponentOf ambientComponent ⊤ →
-        Group.IsSolvable (OuterAutomorphisms.Outer
-          (ambientComponent ⧸ Subgroup.center ambientComponent))) :
-    component ≤ Layer.subgroup G ∧ IsQuasisimple component :=
-  local_twoComponent_quasisimple_of_core_image element horder component hcentralizes htwoComponent
-    hnotBad (core_local_image_of_odd_quotient oddNormal hodd element horder component hcentralizes hlocal)
-    houter
 
 theorem local_twoComponent_quasisimple_of_odd_image_of_proper_outer
     {G : Type*} [Group G] [Finite G] [Group.IsSolvable (componentClassificationOddCore G)]

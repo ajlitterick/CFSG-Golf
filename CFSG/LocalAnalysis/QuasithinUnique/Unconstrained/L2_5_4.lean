@@ -289,10 +289,6 @@ theorem SC_sylow : IsSylowTwoOf N.SC (N.H ⊓ Subgroup.centralizer (N.K0 : Set G
 theorem SK_sylow : IsSylowTwoOf N.SK N.K :=
   RankOneRecog.isSylowTwoOf_inf_of_subnormal N.tuple.sylow N.K_le_H N.isComp.2.2
 
-theorem SK0_sylow : IsSylowTwoOf N.SK0 N.K0 := by
-  have hn : (N.K0.subgroupOf N.H).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer N.K0_le_H).mpr N.H_le_normalizer_K0
-  exact RankOneRecog.isSylowTwoOf_inf_of_subnormal N.tuple.sylow N.K0_le_H hn.isSubnormal
 
 theorem SC_ne_bot : N.SC ≠ ⊥ := by
   rw [N.SC_eq]

@@ -121,47 +121,6 @@ theorem mem_V_iff (F : Frame A V K) {x : G} : x ∈ V ↔ ∃ u, F.ψ u = x := b
 
 theorem ψ_mem_V (F : Frame A V K) (u : unipAll K) : F.ψ u ∈ V := F.mem_V_iff.2 ⟨u, rfl⟩
 
-theorem inf_centralizer_V₀ [Finite K] [CharP K 2] (F : Frame A V K) :
-    V ⊓ centralizer (((projRad K 0).map F.φ : Subgroup G) : Set G) = (projRad K 0).map F.φ := by
-  apply le_antisymm
-  · rintro x ⟨hxV, hxC⟩
-    obtain ⟨u, rfl⟩ := F.mem_V_iff.1 hxV
-    have h1 : F.ψ (uelt 1 0 0) ∈ (projRad K 0).map F.φ := by
-      rw [← F.map_radOne_ψ]
-      exact ⟨_, (mem_radOne _).2 (coordB_uelt 1 0 0), rfl⟩
-    have hu : u ∈ centralizer {(uelt 1 0 0 : unipAll K)} := by
-      rw [mem_centralizer_singleton_iff]
-      refine F.ψ_injective ?_
-      rw [map_mul, map_mul]
-      exact (mem_centralizer_iff.1 hxC _ h1).symm
-    rw [CFSG.OddStandard.Seitz77.centralizer_radOne (coordB_uelt 1 0 0)
-      (by rw [coordA_uelt]; exact one_ne_zero)] at hu
-    rw [← F.map_radOne_ψ]
-    exact ⟨u, hu, rfl⟩
-  · intro x hx
-    exact ⟨F.radicals.le₁ hx, mem_centralizer_iff.2 fun y hy =>
-      comm_of_isElemAbelian F.radicals.elem₁ hy hx⟩
-
-theorem inf_centralizer_V₁ [Finite K] [CharP K 2] (F : Frame A V K) :
-    V ⊓ centralizer (((projRad K 1).map F.φ : Subgroup G) : Set G) = (projRad K 1).map F.φ := by
-  apply le_antisymm
-  · rintro x ⟨hxV, hxC⟩
-    obtain ⟨u, rfl⟩ := F.mem_V_iff.1 hxV
-    have h1 : F.ψ (uelt 0 1 0) ∈ (projRad K 1).map F.φ := by
-      rw [← F.map_radTwo_ψ]
-      exact ⟨_, (mem_radTwo _).2 (coordA_uelt 0 1 0), rfl⟩
-    have hu : u ∈ centralizer {(uelt 0 1 0 : unipAll K)} := by
-      rw [mem_centralizer_singleton_iff]
-      refine F.ψ_injective ?_
-      rw [map_mul, map_mul]
-      exact (mem_centralizer_iff.1 hxC _ h1).symm
-    rw [CFSG.OddStandard.Seitz77.centralizer_radTwo (coordA_uelt 0 1 0)
-      (by rw [coordB_uelt]; exact one_ne_zero)] at hu
-    rw [← F.map_radTwo_ψ]
-    exact ⟨u, hu, rfl⟩
-  · intro x hx
-    exact ⟨F.radicals.le₂ hx, mem_centralizer_iff.2 fun y hy =>
-      comm_of_isElemAbelian F.radicals.elem₂ hy hx⟩
 
 theorem eq_bot_or_eq_bot (F : Frame A V K) {P Q : Subgroup G}
     (hc : ∀ x ∈ P, ∀ y ∈ Q, x * y = y * x) (hinf : P ⊓ Q = ⊥) (hsup : P ⊔ Q = V) :
@@ -298,12 +257,6 @@ theorem lev_zero_HSL_conj (F : Frame A V K) (l : Kˣ) (a b c : K) :
     ← map_inv, ← map_mul, ← map_mul, ← map_inv, ← map_mul, ← map_mul, leviOne_HSL_mul_unipU,
     mul_inv_cancel_right]
 
-theorem lev_zero_HSL_conj_mem_V (F : Frame A V K) (l : Kˣ) {v : G} (hv : v ∈ V) :
-    (F.leviData 0).lev (HSL l) * v * ((F.leviData 0).lev (HSL l))⁻¹ ∈ V := by
-  obtain ⟨u, rfl⟩ := F.mem_V_iff.1 hv
-  obtain ⟨a, b, c, rfl⟩ := exists_uelt u
-  rw [lev_zero_HSL_conj]
-  exact F.ψ_mem_V _
 
 theorem lev_zero_HSL_conj_mem_V₁ (F : Frame A V K) (l : Kˣ) {v : G}
     (hv : v ∈ (projRad K 1).map F.φ) :

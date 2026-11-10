@@ -155,33 +155,6 @@ theorem oddResidualIn_eq_self_of_isPComponent {K W : Subgroup G} (hKW : K ≤ W)
     exact mem_oddResidualIn y.2 ⟨j, hj⟩
   exact hle ⟨⟨x, hx⟩, hxtop, rfl⟩
 
-theorem exists_mem_inf_centralizer_of_mem_sup {p : ℕ} [Fact p.Prime] {P Y N : Subgroup G}
-    (hP : IsPGroup p P) (hN : ¬ p ∣ Nat.card N) (hPY : P ≤ normalizer (Y : Set G))
-    (hPN : P ≤ normalizer (N : Set G)) (hYN : Y ≤ normalizer (N : Set G)) {g : G}
-    (hg : g ∈ Y ⊔ N) (hgP : g ∈ centralizer (P : Set G)) :
-    ∃ y ∈ Y ⊓ centralizer (P : Set G), y⁻¹ * g ∈ N ⊓ centralizer (P : Set G) := by
-  rw [← SetLike.mem_coe, coe_mul_of_left_le_normalizer_right Y N hYN] at hg
-  obtain ⟨y₀, hy₀, n₀, hn₀, rfl⟩ := hg
-  have hYNn : ¬ p ∣ Nat.card ↥(Y ⊓ N) := fun h => hN (h.trans (card_dvd_of_le inf_le_right))
-  have hPYN : P ≤ normalizer ((Y ⊓ N : Subgroup G) : Set G) := by
-    intro u hu
-    rw [mem_normalizer_iff]
-    intro z
-    simp only [mem_inf]
-    exact and_congr (mem_normalizer_iff.mp (hPY hu) z) (mem_normalizer_iff.mp (hPN hu) z)
-  obtain ⟨m, hm, hym⟩ := exists_mul_mem_centralizer hP hYNn hPYN (y := y₀) (fun u hu => by
-    refine mem_inf.mpr ⟨mul_mem (inv_mem hy₀) ((mem_normalizer_iff.mp (hPY hu) y₀).mp hy₀), ?_⟩
-    have hcu : u * (y₀ * n₀) = y₀ * n₀ * u := (mem_centralizer_iff.mp hgP) u hu
-    have e : y₀⁻¹ * (u * y₀ * u⁻¹) = n₀ * (u * n₀⁻¹ * u⁻¹) := by
-      calc y₀⁻¹ * (u * y₀ * u⁻¹) = y₀⁻¹ * (u * (y₀ * n₀)) * n₀⁻¹ * u⁻¹ := by group
-        _ = y₀⁻¹ * (y₀ * n₀ * u) * n₀⁻¹ * u⁻¹ := by rw [hcu]
-        _ = n₀ * (u * n₀⁻¹ * u⁻¹) := by group
-    rw [e]
-    exact mul_mem hn₀ ((mem_normalizer_iff.mp (hPN hu) _).mp (inv_mem hn₀)))
-  refine ⟨y₀ * m, mem_inf.mpr ⟨mul_mem hy₀ (mem_inf.mp hm).1, hym⟩, mem_inf.mpr ⟨?_, ?_⟩⟩
-  · rw [show (y₀ * m)⁻¹ * (y₀ * n₀) = m⁻¹ * n₀ by group]
-    exact mul_mem (inv_mem (mem_inf.mp hm).2) hn₀
-  · exact mul_mem (inv_mem hym) hgP
 
 omit [Finite G] in
 theorem mem_normalizer_inf' {A B : Subgroup G} {g : G} (hA : g ∈ normalizer (A : Set G))
@@ -251,9 +224,6 @@ theorem oddCoreOfCentralizer_inf_le_normalizer (hLB : FooteLBalanceInput) {b c :
   obtain ⟨x', hx', rfl⟩ := mem_map.mp (oddCoreOfCentralizer_inf_le _ b' hx)
   exact mem_normalizer_of_subgroupOf hYc (hN hx')
 
-omit [Finite G] in
-theorem coreActionKernel_facts {L : Subgroup G} {t : G} (ht : t ∈ coreActionKernel L) :
-    t ∈ normalizer (L : Set G) ∧ ∀ x ∈ L, x⁻¹ * t⁻¹ * x * t ∈ oddCoreIn L := ht
 
 theorem exists_mem_centralizer_of_le_coreActionKernel {L P : Subgroup G} (hP : IsPGroup 2 P)
     (hPL : P ≤ coreActionKernel L) {x : G} (hx : x ∈ L) :
@@ -272,10 +242,6 @@ theorem exists_mem_centralizer_of_le_coreActionKernel {L P : Subgroup G} (hP : I
   rw [show (x * n)⁻¹ * x = n⁻¹ by group]
   exact inv_mem hn
 
-omit [Finite G] in
-theorem footeFixed_le_centralizer (L : Subgroup G) (t : G) :
-    footeFixed L t ≤ centralizer ({t} : Set G) :=
-  (oddResidualIn_le _).trans (sup_le inf_le_right (oddCoreOfCentralizer_le_centralizer t))
 
 theorem odd_card_oddCoreOfCentralizer (t : G) : Odd (Nat.card (oddCoreOfCentralizer t)) := by
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
@@ -351,68 +317,6 @@ theorem oddResidualIn_inf_oddCoreIn_le {t : G} {L : Subgroup G}
   intro u hu
   exact hOLt (hW (mem_inf.mpr ⟨mem_sup_left hu, hMLt (mem_inf.mp hu).1⟩))
 
-theorem footeFixed_footeFixed_le (hLB : FooteLBalanceInput) {b c : G} {L : Subgroup G}
-    (hb : orderOf b = 2) (hc : orderOf c = 2) (hbc : b * c = c * b)
-    (hcL : c ∈ normalizer (L : Set G)) (hLc : IsTwoComponentAt c (footeFixed L c)) :
-    footeFixed (footeFixed L b) c ≤ footeFixed L c := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set Ob := oddCoreOfCentralizer b with hOb
-  set Oc := oddCoreOfCentralizer c with hOc
-  set Lc := footeFixed L c with hLcdef
-  set X := Ob ⊓ centralizer ({c} : Set G) with hX
-  set A := L ⊓ centralizer ({b} : Set G) ⊓ centralizer ({c} : Set G) with hA
-  have hcb : c ∈ centralizer ({b} : Set G) := mem_centralizer_singleton_iff.mpr hbc.symm
-  have hObodd : ¬ 2 ∣ Nat.card Ob := (odd_card_oddCoreOfCentralizer b).not_two_dvd_nat
-  have hXodd : Odd (Nat.card X) :=
-    Odd.of_dvd_nat (odd_card_oddCoreOfCentralizer b) (card_dvd_of_le inf_le_left)
-  have hcp : IsPGroup 2 (zpowers c) :=
-    IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hc, pow_one])
-  have hAC : A ≤ (L ⊓ centralizer ({c} : Set G)) ⊔ Oc := fun u hu =>
-    mem_sup_left (mem_inf.mpr ⟨(mem_inf.mp (mem_inf.mp hu).1).1, (mem_inf.mp hu).2⟩)
-  have hALc : A ≤ normalizer (Lc : Set G) := fun u hu =>
-    mem_normalizer_oddResidualIn (le_normalizer (hAC hu))
-  have hPY : zpowers c ≤ normalizer ((L ⊓ centralizer ({b} : Set G) : Subgroup G) : Set G) :=
-    zpowers_le.mpr (mem_normalizer_inf' hcL (mem_normalizer_centralizer_singleton hbc.symm))
-  have hPN : zpowers c ≤ normalizer (Ob : Set G) :=
-    zpowers_le.mpr (mem_normalizer_oddCoreOfCentralizer hcb)
-  have hYN : L ⊓ centralizer ({b} : Set G) ≤ normalizer (Ob : Set G) := fun u hu =>
-    mem_normalizer_oddCoreOfCentralizer (mem_inf.mp hu).2
-  have hLbc : footeFixed L b ⊓ centralizer ({c} : Set G) ≤ A ⊔ X := by
-    intro h hh
-    obtain ⟨hhLb, hhc⟩ := mem_inf.mp hh
-    have hh1 : h ∈ (L ⊓ centralizer ({b} : Set G)) ⊔ Ob := oddResidualIn_le _ hhLb
-    have hhP : h ∈ centralizer ((zpowers c : Subgroup G) : Set G) := by
-      rw [centralizer_zpowers_eq]; exact hhc
-    obtain ⟨y, hy, hyh⟩ := exists_mem_inf_centralizer_of_mem_sup hcp hObodd hPY hPN hYN hh1 hhP
-    rw [centralizer_zpowers_eq] at hy hyh
-    rw [show h = y * (y⁻¹ * h) by group]
-    exact mul_mem (mem_sup_left hy) (mem_sup_right hyh)
-  refine (closure_le _).mpr fun g hg => ?_
-  obtain ⟨hgmem, hg2⟩ := hg
-  have hg1 : g ∈ A ⊔ ((Lc ⊔ Oc) ⊔ X) := by
-    have hle : (footeFixed L b ⊓ centralizer ({c} : Set G)) ⊔ Oc ≤ A ⊔ ((Lc ⊔ Oc) ⊔ X) :=
-      sup_le (hLbc.trans (sup_le le_sup_left (le_sup_of_le_right le_sup_right)))
-        (le_sup_of_le_right (le_sup_of_le_left le_sup_right))
-    exact hle hgmem
-  have hAN1 : A ≤ normalizer (((Lc ⊔ Oc) ⊔ X : Subgroup G) : Set G) := fun u hu =>
-    mem_normalizer_sup (mem_normalizer_sup (hALc hu)
-        (mem_normalizer_oddCoreOfCentralizer (mem_inf.mp hu).2))
-      (mem_normalizer_inf' (mem_normalizer_oddCoreOfCentralizer (mem_inf.mp (mem_inf.mp hu).1).2)
-        (le_normalizer (mem_inf.mp hu).2))
-  have hRA : oddResidualIn A ≤ (Lc ⊔ Oc) ⊔ X :=
-    (oddResidualIn_mono hAC).trans (le_sup_of_le_left le_sup_left)
-  have hg3 := mem_of_two_element_of_mem_sup hAN1 hRA hg1 hg2
-  have hXN : X ≤ normalizer ((Lc ⊔ Oc : Subgroup G) : Set G) := fun u hu =>
-    mem_normalizer_sup (oddCoreOfCentralizer_inf_le_normalizer hLB hb hbc hLc.2.1 hLc.2.2 hu)
-      (mem_normalizer_oddCoreOfCentralizer (mem_inf.mp hu).2)
-  have hg4 := mem_of_two_element_of_mem_sup hXN
-    (by rw [oddResidualIn_eq_bot_of_odd hXodd]; exact bot_le)
-    (show g ∈ X ⊔ (Lc ⊔ Oc) by rw [sup_comm]; exact hg3) hg2
-  have hOcN : Oc ≤ normalizer (Lc : Set G) :=
-    pPrimeCore_le_normalizer_of_isPComponent hLc.2.1 hLc.2.2
-  exact mem_of_two_element_of_mem_sup hOcN
-    (by rw [oddResidualIn_eq_bot_of_odd (odd_card_oddCoreOfCentralizer c)]; exact bot_le)
-    (show g ∈ Oc ⊔ Lc by rw [sup_comm]; exact hg4) hg2
 
 omit [Finite G] in
 theorem isPGroup_closure_pair {b c : G} (hb : orderOf b = 2) (hc : orderOf c = 2)
@@ -449,54 +353,6 @@ theorem isPGroup_closure_pair {b c : G} (hb : orderOf b = 2) (hc : orderOf c = 2
   intro x
   exact ⟨1, Subtype.ext (by rw [pow_one, sq]; exact (key x x.2).1)⟩
 
-theorem footeFixed_le_footeFixed_footeFixed {a b c : G} {L : Subgroup G}
-    (hL : IsTwoComponentAt a L) (hb : orderOf b = 2) (hc : orderOf c = 2) (hbc : b * c = c * b)
-    (hbL : b ∈ coreActionKernel L) (hcL : c ∈ coreActionKernel L)
-    (hLc : IsTwoComponentAt c (footeFixed L c)) :
-    footeFixed L c ≤ footeFixed (footeFixed L b) c := by
-  set Oc := oddCoreOfCentralizer c with hOc
-  set Mc := oddResidualIn (L ⊓ centralizer ({c} : Set G)) with hMc
-  set V := closure ({b, c} : Set G) with hV
-  set MV := oddResidualIn (L ⊓ centralizer (V : Set G)) with hMV
-  have hVp := isPGroup_closure_pair hb hc hbc
-  have hVL : V ≤ coreActionKernel L :=
-    (closure_le _).mpr (Set.insert_subset_iff.mpr ⟨hbL, Set.singleton_subset_iff.mpr hcL⟩)
-  have hCV : centralizer (V : Set G) = centralizer ({b, c} : Set G) := centralizer_closure _
-  have hCVb : centralizer (V : Set G) ≤ centralizer ({b} : Set G) := by
-    rw [hCV]; exact centralizer_le (by simp)
-  have hCVc : centralizer (V : Set G) ≤ centralizer ({c} : Set G) := by
-    rw [hCV]; exact centralizer_le (by simp)
-  have hMVL : MV ≤ L := (oddResidualIn_le _).trans inf_le_left
-  have hMVOL : MV ≤ normalizer ((oddCoreIn L : Subgroup G) : Set G) := fun m hm =>
-    mem_normalizer_oddCoreIn (le_normalizer (hMVL hm))
-  have hLMV := le_oddResidualIn_sup_oddCoreIn hL hVp hVL
-  have hMVMc : MV ≤ Mc := oddResidualIn_mono (inf_le_inf_left _ hCVc)
-  have hMcle : Mc ≤ MV ⊔ Oc := by
-    intro m hm
-    have hmL : m ∈ L := ((oddResidualIn_le _).trans inf_le_left) hm
-    have h1 := hLMV hmL
-    rw [← SetLike.mem_coe, coe_mul_of_left_le_normalizer_right _ _ hMVOL] at h1
-    obtain ⟨m', hm', o, ho, rfl⟩ := h1
-    have hoMc : o ∈ Mc := by
-      rw [show o = m'⁻¹ * (m' * o) by group]
-      exact mul_mem (inv_mem (hMVMc hm')) hm
-    exact mul_mem (mem_sup_left hm')
-      (mem_sup_right (oddResidualIn_inf_oddCoreIn_le hLc (mem_inf.mpr ⟨hoMc, ho⟩)))
-  have hMVLb : MV ≤ footeFixed L b ⊓ centralizer ({c} : Set G) := by
-    refine le_inf ?_ ((oddResidualIn_le _).trans (inf_le_right.trans hCVc))
-    exact (oddResidualIn_mono (inf_le_inf_left _ hCVb)).trans (oddResidualIn_mono le_sup_left)
-  refine (closure_le _).mpr fun g hg => ?_
-  rw [SetLike.mem_coe, footeFixed_eq_oddResidualIn]
-  apply mem_oddResidualIn _ hg.2
-  have hAN : L ⊓ centralizer ({c} : Set G) ≤ normalizer ((Mc ⊔ Oc : Subgroup G) : Set G) :=
-    fun u hu => mem_normalizer_sup (mem_normalizer_oddResidualIn (le_normalizer hu))
-      (mem_normalizer_oddCoreOfCentralizer (mem_inf.mp hu).2)
-  have hle : (L ⊓ centralizer ({c} : Set G)) ⊔ Oc ≤ (L ⊓ centralizer ({c} : Set G)) ⊔ (Mc ⊔ Oc) :=
-    sup_le_sup_left le_sup_right _
-  have h1 := mem_of_two_element_of_mem_sup hAN le_sup_left (hle hg.1) hg.2
-  have hle2 : Mc ⊔ Oc ≤ (footeFixed L b ⊓ centralizer ({c} : Set G)) ⊔ Oc :=
-    sup_le (hMcle.trans (sup_le (hMVLb.trans le_sup_left) le_sup_right)) le_sup_right
-  exact hle2 h1
 
 theorem footeFixed_le_oddResidualIn_sup_oddCoreIn {b : G} {L : Subgroup G}
     (hLb : IsTwoComponentAt b (footeFixed L b)) :
@@ -631,22 +487,5 @@ theorem exists_quotient_mulEquiv_footeFixed {a b : G} {L : Subgroup G}
     exact (mem_normalizer_iff.mp (mem_normalizer_oddCoreIn hdLb) _).mp hmy
   rw [hx'm, hφ1 _ (hMbL hm') (hMbLb hm') hm', hy'm]
 
-theorem foote_lemma_2_2 (hLB : FooteLBalanceInput) {a b c : G} {L : Subgroup G}
-    (hL : IsTwoComponentAt a L) (hb : orderOf b = 2) (hc : orderOf c = 2) (hbc : b * c = c * b)
-    (hbL : b ∈ coreActionKernel L) (hcL : c ∈ coreActionKernel L)
-    (hLb : IsTwoComponentAt b (footeFixed L b)) (hLc : IsTwoComponentAt c (footeFixed L c)) :
-    c ∈ coreActionKernel (footeFixed L b) ∧
-      footeFixed (footeFixed L b) c = footeFixed L c ∧
-      ∃ φ : L ⧸ pPrimeCore 2 L ≃* footeFixed L b ⧸ pPrimeCore 2 (footeFixed L b),
-        (∀ (m : G) (hmL : m ∈ L) (hmb : m ∈ footeFixed L b),
-          m ∈ oddResidualIn (L ⊓ centralizer ({b} : Set G)) →
-            φ (⟨m, hmL⟩ : L) = (⟨m, hmb⟩ : footeFixed L b)) ∧
-        ∀ d ∈ normalizer (L : Set G) ⊓ centralizer ({b} : Set G),
-          ∀ (x x' : L) (y y' : footeFixed L b), (x' : G) = d * x * d⁻¹ →
-            (y' : G) = d * y * d⁻¹ → φ x = y → φ x' = y' :=
-  ⟨mem_coreActionKernel_footeFixed hbc hcL hLb,
-    le_antisymm (footeFixed_footeFixed_le hLB hb hc hbc hcL.1 hLc)
-      (footeFixed_le_footeFixed_footeFixed hL hb hc hbc hbL hcL hLc),
-    exists_quotient_mulEquiv_footeFixed hL hb hbL hLb⟩
 
 end CFSG.ComponentClassification.FooteLit

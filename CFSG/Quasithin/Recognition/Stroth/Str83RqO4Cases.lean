@@ -921,23 +921,6 @@ theorem residue_facts {a f : ℕ} (hfr : Frame L1 L2 S a f)
     sup_centerOf_le_centerOf_PX t hfr hQ hnat hP hEP,
     Zv_zero_le_centerOf_PX t hZ0⟩
 
-private theorem exists_ne_one_D2 {a f : ℕ}
-    (hfr : Frame L1 L2 S a f) : ∃ k ∈ t.D2, k ≠ 1 := by
-  have hcard : Nat.card t.D2 = 2 ^ f - 1 := t.card_D2 hfr
-  have hgt : 1 < Nat.card t.D2 := by
-    rw [hcard]
-    have h4 : 4 ≤ 2 ^ f := by
-      calc 4 = 2 ^ 2 := by norm_num
-        _ ≤ 2 ^ f := Nat.pow_le_pow_right (by norm_num) hfr.hf
-    omega
-  have hne : t.D2 ≠ ⊥ := by
-    intro hbot
-    rw [hbot] at hgt
-    have h1 : Nat.card ↥(⊥ : Subgroup G) = 1 := by simp
-    rw [h1] at hgt
-    omega
-  obtain ⟨k, hk⟩ := Subgroup.ne_bot_iff_exists_ne_one.mp hne
-  exact ⟨(k : G), k.2, fun h => hk (Subtype.ext h)⟩
 
 private theorem D2_fixed_points {a f : ℕ}
     (hfr : Frame L1 L2 S a f)

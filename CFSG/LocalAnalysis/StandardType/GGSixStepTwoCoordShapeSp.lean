@@ -241,17 +241,11 @@ section Model
 
 open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem
 
-theorem ggSpCoordContraryInput_holds : GGSpCoordContraryInput :=
-  ggSpCoordContraryInput_of_compShape ggSpCoordCompShapeInput_holds
 
 theorem ggStepTwoCoordModelOn_PSp_of_nonsplit (hns : GGSpCoordModelNonsplitInput) :
     GGStepTwoCoordModelOn .PSp :=
   ggStepTwoCoordModelOn_PSp_of_compShape ggSpCoordCompInput_holds ggSpCoordCompShapeInput_holds hns
 
-theorem ggStepTwoToralWitnessOn_PSp_of_nonsplit (hns : GGSpCoordModelNonsplitInput) :
-    GGStepTwoToralWitnessOn .PSp :=
-  ggStepTwoToralWitnessOn_PSp_of_compShape ggSpCoordCompInput_holds ggSpCoordCompShapeInput_holds
-    hns
 
 end Model
 

@@ -68,8 +68,6 @@ theorem diagEquiv_apply (g : monomial) (i : Fin 4) :
 theorem diagPerm_apply (g : monomial) (i : Fin 4) :
     diagPerm g i = diagMap ((g : GL (Fin 3) (ZMod 3)) : Mat3) i := rfl
 
-theorem diagPerm_mk (x : GL (Fin 3) (ZMod 3)) (hx : x ∈ monomial) (i : Fin 4) :
-    diagPerm ⟨x, hx⟩ i = diagMap (x : Mat3) i := rfl
 
 @[expose] def signProd (M : Mat3) : ZMod 3 := ∏ j, ∑ i, M i j
 
@@ -105,8 +103,6 @@ theorem toSign_mul : ∀ a b : ZMod 3, a ≠ 0 → b ≠ 0 → toSign (a * b) = 
     rw [Subgroup.coe_mul, signProd_mul g.2 h.2, toSign_mul _ _ (signProd_ne_zero g.2)
       (signProd_ne_zero h.2)]
 
-theorem signChar_apply (g : monomial) :
-    signChar g = toSign (signProd ((g : GL (Fin 3) (ZMod 3)) : Mat3)) := rfl
 
 theorem signChar_mk (x : GL (Fin 3) (ZMod 3)) (hx : x ∈ monomial) :
     signChar ⟨x, hx⟩ = toSign (signProd (x : Mat3)) := rfl
@@ -172,15 +168,6 @@ theorem negOne_not_mem_closure :
   rw [signChar_negOne] at this
   exact absurd this (by decide)
 
-theorem not_mem_closure_swapRefl {x : GL (Fin 3) (ZMod 3)} (hx : x ∈ diagRefl) :
-    x ∉ Subgroup.closure swapRefl := by
-  intro h
-  have hxm : x ∈ monomial := monoRefl_subset_monomial (Or.inl hx)
-  have := signChar_of_mem_closure (g := ⟨x, hxm⟩) h
-  rw [signChar_mk] at this
-  revert this
-  simp only [diagRefl, Set.mem_insert_iff, Set.mem_singleton_iff] at hx
-  rcases hx with rfl | rfl | rfl <;> decide +kernel
 
 @[expose] def swapReflPerm : Subgroup.closure swapRefl →* Equiv.Perm (Fin 4) :=
   diagPerm.comp (Subgroup.inclusion swapRefl_le)
@@ -274,13 +261,6 @@ theorem swapReflPerm_surjective : Function.Surjective swapReflPerm := by
 @[expose] noncomputable def swapReflEquiv : Subgroup.closure swapRefl ≃* Equiv.Perm (Fin 4) :=
   MulEquiv.ofBijective swapReflPerm ⟨swapReflPerm_injective, swapReflPerm_surjective⟩
 
-theorem swapReflEquiv_apply (k : Subgroup.closure swapRefl) :
-    swapReflEquiv k = swapReflPerm k := rfl
-
-theorem card_closure_swapRefl : Nat.card (Subgroup.closure swapRefl) = 24 := by
-  rw [Nat.card_congr swapReflEquiv.toEquiv, Nat.card_eq_fintype_card, Fintype.card_perm,
-    Fintype.card_fin]
-  rfl
 
 theorem theta_surjective : Function.Surjective theta := by
   rintro ⟨u, σ⟩
@@ -298,7 +278,6 @@ theorem theta_surjective : Function.Surjective theta := by
 @[expose] noncomputable def monomialEquiv : monomial ≃* ℤˣ × Equiv.Perm (Fin 4) :=
   MulEquiv.ofBijective theta ⟨theta_injective, theta_surjective⟩
 
-theorem monomialEquiv_apply (g : monomial) : monomialEquiv g = (signChar g, diagPerm g) := rfl
 
 theorem card_monomial : Nat.card monomial = 48 := by
   rw [Nat.card_congr monomialEquiv.toEquiv, Nat.card_prod, Nat.card_eq_fintype_card,
@@ -411,70 +390,5 @@ theorem swapRefl_commute_or_cube {x y : GL (Fin 3) (ZMod 3)} (hx : x ∈ swapRef
       map_one])
     simpa [X, Y] using congrArg Subtype.val this
 
-@[expose] def thetaRefl : List (ℤˣ × Equiv.Perm (Fin 4)) :=
-  [(-1, Equiv.swap 0 3 * Equiv.swap 1 2), (-1, Equiv.swap 0 2 * Equiv.swap 1 3),
-   (-1, Equiv.swap 0 1 * Equiv.swap 2 3), (1, Equiv.swap 2 3), (1, Equiv.swap 0 1),
-   (1, Equiv.swap 1 2), (1, Equiv.swap 0 3), (1, Equiv.swap 1 3), (1, Equiv.swap 0 2)]
-
-theorem theta_eq_of (x : GL (Fin 3) (ZMod 3)) (hx : x ∈ monomial) (u : ℤˣ)
-    (σ : Equiv.Perm (Fin 4)) (hu : toSign (signProd (x : Mat3)) = u)
-    (hσ : ∀ i, diagMap (x : Mat3) i = σ i) : theta ⟨x, hx⟩ = (u, σ) :=
-  Prod.ext hu (Equiv.ext hσ)
-
-theorem theta_mem_thetaRefl {x : GL (Fin 3) (ZMod 3)} (hx : x ∈ monoRefl) :
-    theta ⟨x, monoRefl_subset_monomial hx⟩ ∈ thetaRefl := by
-  have h := monoRefl_subset_monomial hx
-  revert h
-  simp only [monoRefl, diagRefl, swapRefl, Set.mem_union, Set.mem_insert_iff,
-    Set.mem_singleton_iff] at hx
-  rcases hx with (rfl | rfl | rfl) | (rfl | rfl | rfl | rfl | rfl | rfl) <;> intro h
-  · rw [theta_eq_of _ h (-1) (Equiv.swap 0 3 * Equiv.swap 1 2) (by decide +kernel)
-      (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h (-1) (Equiv.swap 0 2 * Equiv.swap 1 3) (by decide +kernel)
-      (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h (-1) (Equiv.swap 0 1 * Equiv.swap 2 3) (by decide +kernel)
-      (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 2 3) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 0 1) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 1 2) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 0 3) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 1 3) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-  · rw [theta_eq_of _ h 1 (Equiv.swap 0 2) (by decide +kernel) (by decide +kernel)]
-    decide +kernel
-
-theorem thetaRefl_mul : ∀ a ∈ thetaRefl, ∀ b ∈ thetaRefl,
-    a * b = b * a ∨ (a * b) ^ 3 = 1 ∨ (a * b) ^ 4 = 1 := by
-  decide +kernel
-
-theorem monoRefl_commute_or_cube_or_four {x y : GL (Fin 3) (ZMod 3)} (hx : x ∈ monoRefl)
-    (hy : y ∈ monoRefl) : x * y = y * x ∨ (x * y) ^ 3 = 1 ∨ (x * y) ^ 4 = 1 := by
-  set X : monomial := ⟨x, monoRefl_subset_monomial hx⟩
-  set Y : monomial := ⟨y, monoRefl_subset_monomial hy⟩
-  rcases thetaRefl_mul _ (theta_mem_thetaRefl hx) _ (theta_mem_thetaRefl hy) with h | h | h
-  · left
-    have : X * Y = Y * X := theta_injective (by rw [map_mul, map_mul, h])
-    exact congrArg Subtype.val this
-  · right; left
-    have : (X * Y) ^ 3 = 1 := theta_injective (by rw [map_pow, map_mul, h, map_one])
-    simpa [X, Y] using congrArg Subtype.val this
-  · right; right
-    have : (X * Y) ^ 4 = 1 := theta_injective (by rw [map_pow, map_mul, h, map_one])
-    simpa [X, Y] using congrArg Subtype.val this
-
-theorem exists_swapRefl_mul_order_four {s : GL (Fin 3) (ZMod 3)} (hs : s ∈ diagRefl) :
-    ∃ r ∈ swapRefl, (s * r) ^ 2 ≠ 1 ∧ (s * r) ^ 4 = 1 := by
-  simp only [diagRefl, Set.mem_insert_iff, Set.mem_singleton_iff] at hs
-  rcases hs with rfl | rfl | rfl
-  · exact ⟨p01, by simp [swapRefl], by decide +kernel, by decide +kernel⟩
-  · exact ⟨p01, by simp [swapRefl], by decide +kernel, by decide +kernel⟩
-  · exact ⟨p12, by simp [swapRefl], by decide +kernel, by decide +kernel⟩
 
 end CFSG.RankThree.PartTwo.KFacts.KP14

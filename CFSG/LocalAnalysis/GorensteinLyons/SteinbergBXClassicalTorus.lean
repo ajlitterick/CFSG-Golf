@@ -187,19 +187,6 @@ theorem torus_weyl_hypotheses (A : Subgroup (Fin n → M))
 
 end Abstract
 
-theorem torus_weyl_commute {S : Type*} [Group S] {M : Type*} [CommGroup M] {n : ℕ}
-    (A : Subgroup (Fin n → M))
-    (hAperm : ∀ (σ : Perm (Fin n)) (v : Fin n → M), v ∈ A → v ∘ σ ∈ A) (δ : A →* S)
-    (W : Fin n → Fin n → S)
-    (hW : ∀ (a b : Fin n) (v : A), W a b * δ v * (W a b)⁻¹ =
-      δ ⟨v ∘ swap a b, hAperm (swap a b) v v.2⟩)
-    {ζ : M} {i d a b : Fin n} (hai : a ≠ i) (had : a ≠ d) (hbi : b ≠ i) (hbd : b ≠ d)
-    (hτ : torusVec ζ i d ∈ A) : Commute (W a b) (δ ⟨_, hτ⟩) := by
-  have h := hW a b ⟨_, hτ⟩
-  have h2 : (⟨torusVec ζ i d ∘ swap a b, hAperm (swap a b) _ hτ⟩ : A) = ⟨_, hτ⟩ :=
-    Subtype.ext (torusVec_comp_swap_of_ne ζ hai had hbi hbd)
-  rw [h2, mul_inv_eq_iff_eq_mul] at h
-  exact h
 
 section SignedPerm
 
@@ -253,24 +240,6 @@ theorem sign_diagonal_mul_self (w : Perm (Fin n)) :
   · rw [← Int.cast_mul, ← Units.val_mul, Int.units_mul_self, Units.val_one, Int.cast_one]
   · rw [mul_one]
 
-theorem signedPermMatrix_mul_self {w : Perm (Fin n)} (hw : w * w = 1)
-    (hw0 : ∀ a : Fin n, (a : ℕ) = 0 → w a = a) :
-    signedPermMatrix n K w * signedPermMatrix n K w = 1 := by
-  have hwinv : w⁻¹ = w := inv_eq_of_mul_eq_one_left hw
-  have hww : ∀ x, w (w x) = x := fun x => by rw [← Perm.mul_apply, hw, Perm.one_apply]
-  have hD : (fun a : Fin n => (if ((w⁻¹ a : Fin n) : ℕ) = 0 then ((Perm.sign w : ℤ) : K)
-      else 1)) = fun a : Fin n => if (a : ℕ) = 0 then ((Perm.sign w : ℤ) : K) else 1 := by
-    funext a
-    rw [hwinv]
-    by_cases ha : (a : ℕ) = 0
-    · rw [hw0 a ha]
-    · have : ((w a : Fin n) : ℕ) ≠ 0 := fun h0 => ha (by rw [← hww a, hw0 _ h0]; exact h0)
-      rw [ite_eq_right this, ite_eq_right ha]
-  rw [signedPermMatrix_eq, Matrix.mul_assoc, ← Matrix.mul_assoc (permMatrix n K w),
-    permMatrix_mul_diagonal', hD, Matrix.mul_assoc, ← Matrix.mul_assoc (diagonal _),
-    sign_diagonal_mul_self, Matrix.one_mul, permMatrix_mul_permMatrix, hw]
-  ext a b
-  rw [permMatrix_apply, Perm.one_apply, one_apply]
 
 theorem transpose_permMatrix_mul_self (w : Perm (Fin n)) :
     (permMatrix n K w)ᵀ * permMatrix n K w = 1 := by
@@ -330,11 +299,6 @@ variable (F n)
     rw [diagonal_mul_diagonal]
     rfl)
 
-@[expose] def linearDelta : prodOneUnits F n →* ProjectiveSpecialLinearGroup (Fin n) F :=
-  (QuotientGroup.mk' _).comp (diagSLHom F n)
-
-@[expose] def linearWeyl (a b : Fin n) : ProjectiveSpecialLinearGroup (Fin n) F :=
-  QuotientGroup.mk (signedPermutation n F (swap a b))
 
 variable {F n}
 
@@ -342,17 +306,6 @@ theorem coe_diagSLHom (v : prodOneUnits F n) :
     (diagSLHom F n v : Matrix (Fin n) (Fin n) F) = diagonal fun j => ((v : Fin n → Fˣ) j : F) :=
   rfl
 
-theorem linearDelta_eq_one {v : prodOneUnits F n} (hv : linearDelta F n v = 1) (j k : Fin n) :
-    (v : Fin n → Fˣ) j = (v : Fin n → Fˣ) k := by
-  have hv' : diagSLHom F n v ∈ center (SpecialLinearGroup (Fin n) F) :=
-    (QuotientGroup.eq_one_iff _).mp hv
-  obtain ⟨r, -, hr⟩ := Matrix.SpecialLinearGroup.mem_center_iff.mp hv'
-  have h : ∀ x : Fin n, ((v : Fin n → Fˣ) x : F) = r := by
-    intro x
-    have := congrArg (fun M : Matrix (Fin n) (Fin n) F => M x x) hr
-    simp only [coe_diagSLHom, diagonal_apply_eq, scalar_apply] at this
-    exact this.symm
-  exact Units.ext ((h j).trans (h k).symm)
 
 theorem signedPermutation_mul_diagSLHom (a b : Fin n) (v : prodOneUnits F n) :
     signedPermutation n F (swap a b) * diagSLHom F n v =
@@ -363,44 +316,10 @@ theorem signedPermutation_mul_diagSLHom (a b : Fin n) (v : prodOneUnits F n) :
     coe_diagSLHom, coe_signedPermutation, signedPermMatrix_mul_diagonal, swap_inv]
   rfl
 
-theorem signedPermutation_mul_self {a b : Fin n} (ha : (a : ℕ) ≠ 0) (hb : (b : ℕ) ≠ 0) :
-    signedPermutation n F (swap a b) * signedPermutation n F (swap a b) = 1 := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_signedPermutation, Matrix.SpecialLinearGroup.coe_one]
-  refine signedPermMatrix_mul_self (swap_mul_self a b) fun x hx => ?_
-  exact swap_apply_of_ne_of_ne (fun h => ha (h ▸ hx)) fun h => hb (h ▸ hx)
-
-theorem linearWeyl_conj (a b : Fin n) (v : prodOneUnits F n) :
-    linearWeyl F n a b * linearDelta F n v * (linearWeyl F n a b)⁻¹ =
-      linearDelta F n ⟨v ∘ swap a b, comp_mem_prodOneUnits _ v.2⟩ := by
-  rw [linearWeyl, linearDelta, MonoidHom.comp_apply, MonoidHom.comp_apply, QuotientGroup.mk'_apply,
-    QuotientGroup.mk'_apply, ← QuotientGroup.mk_inv, ← QuotientGroup.mk_mul,
-    ← QuotientGroup.mk_mul, signedPermutation_mul_diagSLHom, mul_inv_cancel_right]
-
-theorem linearWeyl_mul_self {a b : Fin n} (ha : (a : ℕ) ≠ 0) (hb : (b : ℕ) ≠ 0) :
-    linearWeyl F n a b * linearWeyl F n a b = 1 := by
-  rw [linearWeyl, ← QuotientGroup.mk_mul, signedPermutation_mul_self ha hb, QuotientGroup.mk_one]
-
-theorem linearWeyl_ne_one {a b : Fin n} (hab : a ≠ b) : linearWeyl F n a b ≠ 1 := by
-  intro h1
-  have h : signedPermutation n F (swap a b) ∈ center (SpecialLinearGroup (Fin n) F) :=
-    (QuotientGroup.eq_one_iff _).mp h1
-  obtain ⟨r, hr1, hr⟩ := Matrix.SpecialLinearGroup.mem_center_iff.mp h
-  have h2 := congrArg (fun M : Matrix (Fin n) (Fin n) F => M a a) hr
-  simp only [coe_signedPermutation, signedPermMatrix_apply, scalar_apply, diagonal_apply_eq,
-    swap_apply_left] at h2
-  rw [ite_eq_right hab, mul_zero] at h2
-  rw [h2, zero_pow] at hr1
-  · exact zero_ne_one hr1
-  · rw [Fintype.card_fin]
-    exact (Fin.pos a).ne'
 
 theorem torusVec_mem_prodOneUnits (ζ : Fˣ) (i d : Fin n) : torusVec ζ i d ∈ prodOneUnits F n :=
   mem_prodOneUnits.mpr (prod_torusVec ζ i d)
 
-variable (F n) in
-@[expose] def linearTorusClass (ζ : Fˣ) (i d : Fin n) : ProjectiveSpecialLinearGroup (Fin n) F :=
-  linearDelta F n ⟨torusVec ζ i d, torusVec_mem_prodOneUnits ζ i d⟩
 
 end Linear
 
@@ -515,27 +434,6 @@ theorem unitaryWeyl_conj (a b : Fin n) (v : normOneProdOne h n) :
   rw [unitaryWeyl, unitaryDelta, MonoidHom.comp_apply, MonoidHom.comp_apply, ← map_inv,
     ← map_mul, ← map_mul, key, mul_inv_cancel_right]
 
-theorem unitaryWeyl_mul_self {a b : Fin n} (ha : (a : ℕ) ≠ 0) (hb : (b : ℕ) ≠ 0) :
-    unitaryWeyl h n a b * unitaryWeyl h n a b = 1 := by
-  have key : unitarySignedSwap h n a b * unitarySignedSwap h n a b = 1 := by
-    apply Subtype.ext
-    change Matrix.SpecialLinearGroup.toGL (signedPermutation n K (swap a b)) *
-      Matrix.SpecialLinearGroup.toGL (signedPermutation n K (swap a b)) = 1
-    rw [← map_mul, signedPermutation_mul_self ha hb, map_one]
-  rw [unitaryWeyl, ← map_mul, key, map_one]
-
-theorem unitaryWeyl_ne_one {a b : Fin n} (hab : a ≠ b) : unitaryWeyl h n a b ≠ 1 := by
-  intro h1
-  have h2 : unitarySignedSwap h n a b ∈ unitaryScalars h n := by
-    rw [← ker_unitaryProj, MonoidHom.mem_ker]
-    exact h1
-  obtain ⟨c, -, -, hc⟩ := mem_unitaryScalars.mp h2
-  have h3 := congrArg (fun A : GL (Fin n) K => (A : Matrix (Fin n) (Fin n) K) a a) hc
-  change signedPermMatrix n K (swap a b) a a = _ at h3
-  simp only [signedPermMatrix_apply, swap_apply_left, GeneralLinearGroup.coe_scalar,
-    scalar_apply, diagonal_apply_eq] at h3
-  rw [ite_eq_right hab, mul_zero] at h3
-  exact c.ne_zero h3.symm
 
 theorem torusVec_mem_normOneProdOne {ζ : Kˣ} (hζ : h.norm (ζ : K) = 1) (i d : Fin n) :
     torusVec ζ i d ∈ normOneProdOne h n := by

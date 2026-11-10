@@ -209,7 +209,6 @@ theorem exists_invariant_of_pair [Fintype F] (hF : ringChar F ≠ 2) (hn : 3 ≤
 
 end Field
 
-variable {F : Type} [Field F] [Finite F] {n : ℕ}
 
 end LinSeitz
 

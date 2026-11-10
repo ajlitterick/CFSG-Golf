@@ -412,40 +412,5 @@ theorem c2_10_four (h : HypC28 H R M L V) : HypC23 H R M := by
   exact ⟨h.sqtk, (c2_9_two h).2, h.le_H, h.cgs,
     A4.isSylowTwoOf_mono h.sylow (le_conjClosure R M) hcl⟩
 
-theorem c2_10_five (h : HypC28 H R M L V) :
-    {S : Subgroup G | IsMaxSignalizer (H ⊓ Subgroup.normalizer (R : Set G))
-      (conjClosure L M) S} = {R} := by
-  have hM0M := conjClosure_le_M h
-  have hNM := inf_normalizer_le_M h
-  have hM0N : conjClosure L M ≤ H ⊓ Subgroup.normalizer (R : Set G) :=
-    le_inf (hM0M.trans h.le_H) (c2_9_two h).1
-  have hNn : ((conjClosure L M).subgroupOf (H ⊓ Subgroup.normalizer (R : Set G))).Normal :=
-    Subgroup.normal_subgroupOf_of_le_normalizer (hNM.trans (le_normalizer_conjClosure L M))
-  have hup : conjClosure L M = oTwoUpper (conjClosure L M) :=
-    (oTwoUpper_eq_of_perfect (perfect_conjClosure_of_hyp h)).symm
-  have hsub : IsSubnormal (conjClosure L M) (H ⊓ Subgroup.normalizer (R : Set G)) :=
-    A4.subnormal_of_normal hM0N hNn
-  have hmax := (A4.isSylowTwoOf_iff_maximal.mp h.sylow).2.2
-  have hRN : R ≤ H ⊓ Subgroup.normalizer (R : Set G) :=
-    le_inf (h.le_M.trans h.le_H) Subgroup.le_normalizer
-  have hRK : R ≤ centralizerSection (H ⊓ Subgroup.normalizer (R : Set G)) (conjClosure L M)
-      (pCoreOf 2 (conjClosure L M)) := fun r hr => ⟨hRN hr, (h.sylow.1 hr).2⟩
-  have hKC : centralizerSection (H ⊓ Subgroup.normalizer (R : Set G)) (conjClosure L M)
-      (pCoreOf 2 (conjClosure L M)) ≤
-      centralizerSection M (conjClosure L M) (pCoreOf 2 (conjClosure L M)) :=
-    centralizerSection_mono hNM _ _
-  ext S
-  simp only [Set.mem_ofPred_eq, Set.mem_singleton_iff]
-  rw [a4_2_4 hup hsub S]
-  constructor
-  · intro hS
-    have hKN : centralizerSection (H ⊓ Subgroup.normalizer (R : Set G)) (conjClosure L M)
-        (pCoreOf 2 (conjClosure L M)) ≤ Subgroup.normalizer (R : Set G) :=
-      (centralizerSection_le_left _ _ _).trans inf_le_right
-    have hRS : R ≤ S := A4.le_of_normal_of_isSylowTwoOf hS hRK
-      (Subgroup.normal_subgroupOf_of_le_normalizer hKN) h.pgroup
-    exact le_antisymm (hmax S (hS.1.trans hKC) hS.2.1 hRS) hRS
-  · rintro rfl
-    exact A4.isSylowTwoOf_mono h.sylow hRK hKC
 
 end CFSG.Quasithin

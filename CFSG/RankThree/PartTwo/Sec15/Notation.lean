@@ -21,10 +21,6 @@ variable {G : Type*} [Group G]
     Set (Subgroup G) :=
   {Y | Maximal (· ∈ scriptY0 A LB) Y}
 
-theorem mem_scriptY4_iff {A Y : Subgroup G} {LB : Subgroup G → Subgroup G} :
-    Y ∈ scriptY4 A LB ↔ Y ∈ scriptY A ∧ Y = oPrimeResidualOf 3 Y ∧ Y = delta A LB Y ∧
-      CFSG.IsQuasisimple (↥Y ⧸ CFSG.pCore 2 ↥Y) :=
-  Iff.rfl
 
 theorem scriptY0Star_subset (A : Subgroup G) (LB : Subgroup G → Subgroup G) :
     scriptY0Star A LB ⊆ scriptY0 A LB :=

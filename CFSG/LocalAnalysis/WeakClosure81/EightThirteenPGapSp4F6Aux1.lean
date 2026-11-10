@@ -120,15 +120,6 @@ private theorem wcgaps6_torus_mul_Z_mul_inv (t : Fin 2 → Fˣ) (b c : F) :
 private theorem wcgaps6_lam_sq [CharP F 2] (a : F) : lam a * lam a = 1 := by
   rw [lam_mul, CharTwo.add_self_eq_zero, lam_zero]
 
-private theorem wcgaps6_lam_mul_tau (a : F) {C : Matrix (Fin 2) (Fin 2) F} (hC : Cᵀ = C) :
-    lam a * tau hC =
-      tau (C := unitri a * C * (unitri a)ᵀ)
-        (by rw [transpose_mul, transpose_mul, transpose_transpose, hC, Matrix.mul_assoc]) *
-        lam a := by
-  calc lam a * tau hC = lam a * tau hC * (lam a)⁻¹ * lam a := by group
-    _ = tau (C := unitri a * C * (unitri a)ᵀ)
-          (by rw [transpose_mul, transpose_mul, transpose_transpose, hC, Matrix.mul_assoc]) *
-          lam a := by rw [lam_mul_tau_mul_inv]
 
 private theorem wcgaps6_mul_tau_lam {C C' : Matrix (Fin 2) (Fin 2) F}
     (hC : Cᵀ = C) (hC' : C'ᵀ = C') (a a' : F) :

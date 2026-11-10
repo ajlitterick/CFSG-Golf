@@ -26,10 +26,6 @@ theorem classicalMemberParametersExc : ClassicalMemberParametersExc p f :=
 theorem classicalMemberParameters : ClassicalMemberParameters p f :=
   classicalMemberParameters_of_exc classicalMemberParametersExc
 
-theorem smallUpgrade_of_fundamentalExc
-    (hexc : CFSG.ClassicalInvolution.ModelFacts.ClassicalMembersFundamentalExc p f) :
-    CoreAssembly.SmallUpgrade p f :=
-  smallUpgrade_of_exc hexc classicalMemberParametersExc
 
 theorem smallUpgrade_of_fundamentalExc2
     (hexc : CFSG.ClassicalInvolution.ModelFacts.ClassicalMembersFundamentalExc2 p f) :

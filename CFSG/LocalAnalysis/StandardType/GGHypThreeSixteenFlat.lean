@@ -56,8 +56,6 @@ variable {W : Type} [Group W]
 
 variable [Finite W] {p : ℕ} {H E : Subgroup W}
 
-theorem GGHypRestIII.flat (h : GGHypRestIII p H E) : GGHypRestIIIFlat p H E :=
-  ⟨h.1, h.2.1, h.2.2.1, h.2.2.2.2⟩
 
 theorem ggHypThreeSixteenRestFlat_of_parts (h2 : GGHypRestII W) (h3 : GGHypRestIIIFlat p H E)
     (h4 : GGHypRestIVFlat p E) : GGHypThreeSixteenRestFlat p H E :=

@@ -121,11 +121,6 @@ theorem all512_nodup : all512.Nodup := by
   rw [beq_iff_eq.1 all512_idx]
   exact List.nodup_range
 
-theorem forall_toM (p : M3K → Prop) : (∀ t : M3K, p t) ↔ ∀ x : B9, p (toM x) :=
-  ⟨fun h x => h _, fun h t => toM_ofM t ▸ h (ofM t)⟩
-
-theorem exists_toM (p : M3K → Prop) : (∃ t : M3K, p t) ↔ ∃ x : B9, p (toM x) :=
-  ⟨fun ⟨t, ht⟩ => ⟨ofM t, (toM_ofM t).symm ▸ ht⟩, fun ⟨x, hx⟩ => ⟨_, hx⟩⟩
 
 theorem card_filter_toM (p : M3K → Prop) [DecidablePred p] (q : B9 → Bool)
     (h : ∀ x, p (toM x) ↔ q x = true) :
@@ -172,13 +167,6 @@ theorem centB_iff (t x : B9) :
     centB t x = true ↔ toM x * toM t = toM t * toM x ∧ (toM x).det ≠ 0 := by
   rw [centB, Bool.and_eq_true, eqB_iff, toM_mulB, toM_mulB, det_toM_ne_zero]
 
-@[expose] def normB (c x : B9) : Bool :=
-  (eqB (mulB x c) (mulB c x) || eqB (mulB x c) (mulB (mulB c c) x)) && detB x
-
-theorem normB_iff (c x : B9) : normB c x = true ↔
-    (toM x * toM c = toM c * toM x ∨ toM x * toM c = toM c * toM c * toM x) ∧ (toM x).det ≠ 0 := by
-  rw [normB, Bool.and_eq_true, Bool.or_eq_true, eqB_iff, eqB_iff, toM_mulB, toM_mulB, toM_mulB,
-    toM_mulB, det_toM_ne_zero]
 
 @[expose] def chkCent : Bool :=
   all512.all fun t => !invB t || (all512.filter (centB t)).length == 8
@@ -191,10 +179,6 @@ theorem chkCent_ok : chkCent = true := by decide +kernel
 
 theorem chkCenter_ok : chkCenter = true := by decide +kernel
 
-@[expose] def chkNorm : Bool :=
-  all512.all fun c => !ord3B c || (all512.filter (normB c)).length == 6
-
-theorem chkNorm_ok : chkNorm = true := by decide +kernel
 
 @[expose] def chkInv : Bool :=
   all512.all fun c => !ord3B c ||

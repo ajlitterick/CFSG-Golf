@@ -823,8 +823,6 @@ theorem conj_H_mem_F (h : FCHyp L K n φ t) {x : G} (hx : x ∈ 𝐇) {f : G} (h
   rw [F_eq_S h hj] at hf ⊢
   exact conj_H_mem_S h hj hx hf
 
-theorem F_normal_H (h : FCHyp L K n φ t) : (𝐅.subgroupOf 𝐇).Normal :=
-  ⟨fun _ hf x => mem_subgroupOf.mpr (conj_H_mem_F h x.2 (mem_subgroupOf.mp hf))⟩
 
 theorem H_le_normalizer_F (h : FCHyp L K n φ t) : 𝐇 ≤ normalizer (𝐅 : Set G) := fun _ hx =>
   RootAxisTwoCore.mem_normalizer_of_conj_le fun _ hf => conj_H_mem_F h hx hf
@@ -834,10 +832,6 @@ theorem t_not_mem_F (h : FCHyp L K n φ t) : t ∉ 𝐅 := by
   rw [F_eq_S h hj]
   exact t_not_mem_S h hj
 
-theorem F_inf_tZ (h : FCHyp L K n φ t) : 𝐅 ⊓ (zpowers t ⊔ 𝐙) = 𝐙 := by
-  obtain ⟨j₀, hj⟩ := exists_goodTorus h
-  rw [F_eq_S h hj]
-  exact S_inf_tZ h hj
 
 theorem C_inf_F (h : FCHyp L K n φ t) : 𝐂 ⊓ 𝐅 = 𝐙 := by
   obtain ⟨j₀, hj⟩ := exists_goodTorus h
@@ -848,11 +842,6 @@ theorem mem_ZP_of_mem_F (h : FCHyp L K n φ t) {x : G} (hx : x ∈ 𝐅) (hxC : 
   rw [← C_inf_F h]
   exact mem_inf.mpr ⟨hxC, hx⟩
 
-theorem exists_kappa_eq_F (h : FCHyp L K n φ t) {z : G} (hz : z ∈ 𝐙) :
-    ∃ f ∈ 𝐅, t⁻¹ * (f⁻¹ * t * f) = z := by
-  obtain ⟨j₀, hj⟩ := exists_goodTorus h
-  rw [F_eq_S h hj]
-  exact exists_kappa_eq_S h hj hz
 
 theorem card_F (h : FCHyp L K n φ t) : Nat.card 𝐅 = Nat.card K ^ 4 := by
   obtain ⟨j₀, hj⟩ := exists_goodTorus h
@@ -864,8 +853,6 @@ theorem F_sup_t (h : FCHyp L K n φ t) : 𝐅 ⊓ zpowers t = ⊥ ∧ 𝐅 ⊔ z
   rw [F_eq_S h hj]
   exact S_sup_t h hj
 
-theorem F_normal_E0 (h : FCHyp L K n φ t) : (𝐅.subgroupOf 𝐄₀).Normal :=
-  ⟨fun _ hf x => mem_subgroupOf.mpr (conj_H_mem_F h (E0_le_H h x.2) (mem_subgroupOf.mp hf))⟩
 
 theorem exists_kappa_quotient (h : FCHyp L K n φ t) {X Y U : Subgroup G} (hXH : X ≤ 𝐇)
     (hU : ∀ x ∈ X, t⁻¹ * (x⁻¹ * t * x) ∈ U) (hUZ : U ≤ 𝐙) (hker : ∀ x ∈ X, x ∈ 𝐂 ↔ x ∈ Y)
@@ -889,15 +876,6 @@ theorem exists_kappa_quotient (h : FCHyp L K n φ t) {X Y U : Subgroup G} (hXH :
   refine ⟨hn, θ, hθ, fun j hj x => ⟨⟨_, hJ j hj x x.2⟩, rfl, ?_⟩⟩
   rw [hθ, hθ]
   exact kappa_conj_torus h hj x
-
-theorem quotient_F (h : FCHyp L K n φ t) :
-    ∃ _ : (𝐙.subgroupOf 𝐅).Normal, ∃ θ : (↥𝐅 ⧸ 𝐙.subgroupOf 𝐅) ≃* ↥𝐙,
-      (∀ x : 𝐅, (θ x : G) = t⁻¹ * ((x : G)⁻¹ * t * x)) ∧
-      ∀ j ∈ 𝐉, ∀ x : 𝐅, ∃ x' : 𝐅, (x' : G) = j⁻¹ * x * j ∧ (θ x' : G) = j⁻¹ * θ x * j :=
-  exists_kappa_quotient h (F_le_H h) (fun _ hx => kappa_mem h (F_le_H h hx)) le_rfl
-    (fun _ hx => ⟨fun hxC => mem_ZP_of_mem_F h hx hxC, fun hxZ =>
-      h.setup.Q_le_C (mem_sup_left (Setup.ZP_le_PG hxZ))⟩)
-    (fun _ hz => exists_kappa_eq_F h hz) (fun _ hj _ hx => conj_torus_mem_F h hj hx)
 
 
 omit [Finite G] [Finite K] in
@@ -980,24 +958,6 @@ theorem card_Fi (h : FCHyp L K n φ t) (i : Axis) :
 theorem ZP_le_Fi (h : FCHyp L K n φ t) (i : Axis) : 𝐙 ≤ 𝐅 ⊓ 𝐃[i] :=
   le_inf (ZP_le_F h) ((ZP_le_B i).trans (h.B_le_D i))
 
-theorem Fi_inf_B (h : FCHyp L K n φ t) (i : Axis) : (𝐅 ⊓ 𝐃[i]) ⊓ 𝐁[i] = 𝐙 := by
-  refine le_antisymm (fun x hx => ?_) (le_inf (ZP_le_Fi h i) (ZP_le_B i))
-  obtain ⟨⟨hxF, -⟩, hxB⟩ := hx
-  exact mem_ZP_of_mem_F h hxF (h.setup.Q_le_C (FCHyp.B_le_Q i hxB))
-
-theorem Fi_mul_B (h : FCHyp L K n φ t) (i : Axis) :
-    ((𝐅 ⊓ 𝐃[i] : Subgroup G) : Set G) * (𝐁[i] : Set G) = 𝐃[i] := by
-  have hN : 𝐅 ⊓ 𝐃[i] ≤ normalizer (𝐁[i] : Set G) := fun x hx =>
-    h.twoCore.M_le_normalizer_B φ i (map_subtype_le _ (mem_inf.mp hx).2)
-  have h1 := card_sup_mul_card_inf 𝐁[i] (𝐅 ⊓ 𝐃[i]) hN
-  rw [inf_comm 𝐁[i] (𝐅 ⊓ 𝐃[i]), Fi_inf_B h i, FCHyp.card_ZP, h.card_B, card_Fi h] at h1
-  have hsup : 𝐅 ⊓ 𝐃[i] ⊔ 𝐁[i] = 𝐃[i] := by
-    refine eq_of_le_of_card_ge (sup_le inf_le_right (h.B_le_D i)) ?_
-    have hq : 0 < Nat.card K ^ 2 := by have : 0 < Nat.card K := Nat.card_pos; positivity
-    have h2 : Nat.card (𝐁[i] ⊔ (𝐅 ⊓ 𝐃[i]) : Subgroup G) = 2 * Nat.card K ^ 4 :=
-      Nat.eq_of_mul_eq_mul_right hq (by rw [h1]; ring)
-    rw [sup_comm (𝐅 ⊓ 𝐃[i]) 𝐁[i], h2, h.card_D]
-  rw [← coe_mul_of_left_le_normalizer_right _ _ hN, hsup]
 
 omit [Finite G] [Finite K] in
 theorem kappa_mem_U (h : FCHyp L K n φ t) (i : Axis) {x : G} (hx : x ∈ 𝐃[i]) :
@@ -1022,20 +982,6 @@ theorem Fi_inf_Fi (h : FCHyp L K n φ t) : (𝐅 ⊓ 𝐃[Axis.one]) ⊓ (𝐅 �
     mem_inf.mpr ⟨kappa_mem_U h _ hx1, kappa_mem_U h _ hx2⟩
   rw [hinf, mem_bot] at hκ
   exact mem_ZP_of_mem_F h hxF (kappa_eq_one_iff.mp hκ)
-
-theorem quotient_Fi (h : FCHyp L K n φ t) (i : Axis) :
-    ∃ _ : (𝐙.subgroupOf (𝐅 ⊓ 𝐃[i])).Normal,
-      ∃ θ : (↥(𝐅 ⊓ 𝐃[i]) ⧸ 𝐙.subgroupOf (𝐅 ⊓ 𝐃[i])) ≃* ↥𝐔[i],
-      (∀ x : ↥(𝐅 ⊓ 𝐃[i]), (θ x : G) = t⁻¹ * ((x : G)⁻¹ * t * x)) ∧
-      ∀ j ∈ 𝐉, ∀ x : ↥(𝐅 ⊓ 𝐃[i]), ∃ x' : ↥(𝐅 ⊓ 𝐃[i]), (x' : G) = j⁻¹ * x * j ∧
-        (θ x' : G) = j⁻¹ * θ x * j :=
-  exists_kappa_quotient h (inf_le_left.trans (F_le_H h))
-    (fun _ hx => kappa_mem_U h i (mem_inf.mp hx).2) (pull_mono φ (rootU_le_center i))
-    (fun _ hx => ⟨fun hxC => mem_ZP_of_mem_F h (mem_inf.mp hx).1 hxC, fun hxZ =>
-      h.setup.Q_le_C (mem_sup_left (Setup.ZP_le_PG hxZ))⟩)
-    (fun _ hu => exists_kappa_eq_Fi h i hu)
-    (fun _ hj _ hx => mem_inf.mpr ⟨conj_torus_mem_F h hj (mem_inf.mp hx).1,
-      conj_torus_mem_D h i hj (mem_inf.mp hx).2⟩)
 
 
 omit [Finite G] [Finite K] [CharP K 2] in
@@ -1350,7 +1296,6 @@ theorem W_mul_W (h : FCHyp L K n φ t) :
   rw [← coe_mul_of_left_le_normalizer_right _ _ (le_normalizer_of_commute hc), hsup]
 
 end Kappa
-
 
 
 end FullCenterTorus

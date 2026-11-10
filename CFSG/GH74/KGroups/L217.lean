@@ -124,13 +124,6 @@ theorem equiv_of_lieModel
   obtain ⟨e2⟩ := equiv_psl_P
   exact ⟨e1.trans e2⟩
 
-theorem equiv_of_stated {K : Type} [Group K]
-    (h : CFSG.Assembly.LowTwoRank.StatedClassicalModel K .PSL 2 17 1) :
-    Nonempty (K ≃* QP.originalSubgroup) := by
-  have : Fact (Nat.Prime 17) := ⟨by norm_num⟩
-  obtain ⟨e1⟩ := PSL2.psl2_equiv_of_stated (F := (PF 17)) 17 1 (by norm_num) card_F h
-  obtain ⟨e2⟩ := equiv_psl_P
-  exact ⟨e1.trans e2⟩
 
 theorem autModel
     {K : Type} [Group K] (e : K ≃* QP.originalSubgroup) :
@@ -147,7 +140,6 @@ variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
 
 include e
 
-theorem finite_K : Finite K := Finite.of_equiv QP.originalSubgroup e.symm.toEquiv
 
 theorem finite_mulAut : Finite (MulAut K) := by
   obtain ⟨M, -, -⟩ := autModel e

@@ -240,16 +240,6 @@ theorem isComponentOf_centralizer_of_no_four_group (ha : orderOf a = 2)
   rwa [map_conj_eq_of_mem_centralizer (inv_mem hcC), map_centralizer_singleton,
     MulAut.conj_apply, inv_inv, hct] at h
 
-theorem no_four_group_witness_universal_component (ha : orderOf a = 2)
-    (hJ : IsComponentOf J (centralizer {a}))
-    (hE : ∀ E : Subgroup G, E ≤ centralizer (J : Set G) → IsElemAbelian 2 E → a ∈ E →
-      Nat.card E ≤ 2) :
-    pRank 2 (centralizer (J : Set G)) = 1 ∧
-      ∀ t ∈ centralizer (J : Set G), orderOf t = 2 →
-        (∃ c ∈ centralizer (J : Set G), c⁻¹ * a * c = t) ∧ IsComponentOf J (centralizer {t}) :=
-  ⟨pRank_centralizer_eq_one_of_no_four_group ha hJ hE, fun _ htC ht =>
-    ⟨exists_conj_eq_of_component_no_four_group ha hJ hE htC ht,
-      isComponentOf_centralizer_of_no_four_group ha hJ hE htC ht⟩⟩
 
 theorem pRank_centralizer_eq_pRank {A : Subgroup G} (hAJ : A ≤ centralizer (J : Set G))
     (hA : IsElemAbelian 2 A) (hA1 : A ≠ ⊥)

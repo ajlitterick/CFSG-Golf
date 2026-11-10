@@ -70,21 +70,5 @@ theorem original_local_hull_internal_class
     exact ⟨Subgroup.subset_closure hx,
       order_two_of_mem_pointClass h.distinguished_order hx.1⟩
 
-theorem original_pair_full_local_involution_class
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (b : pointRightCosetSpace H) (hb : b ≠ rightCosetMk H 1)
-    (u t : G) (hu : orderOf u = 2) (huz : Commute u z) (hut : Commute u t)
-    (htclass : t ∈ involutionPointClass z)
-    (hflip : pointRightCosetMul H (rightCosetMk H 1) t = b) :
-    let L := localInvolutionPointHull z u
-    let zL : L := ⟨z, distinguished_mem_localInvolutionPointHull huz⟩
-    involutionPointClass zL = {x : L | orderOf x = 2} ∧
-      (Subtype.val '' involutionPointClass zL : Set G) =
-        involutionPointClass z ∩ (Subgroup.centralizer ({u} : Set G) : Set G) ∧
-      {x : G | x ∈ L ∧ orderOf x = 2} =
-        involutionPointClass z ∩ (Subgroup.centralizer ({u} : Set G) : Set G) := by
-  obtain ⟨_, _, _, _, hP⟩ :=
-    original_pair_local_hull_inputs h b hb u t hu huz hut htclass hflip
-  exact original_local_hull_internal_class h u huz hP
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

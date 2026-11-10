@@ -167,15 +167,5 @@ theorem rank_two_strongEmbedding_conjugate (hrank : TwoRankAtLeastTwo G)
     (hH.map_mulEquiv (MulAut.conj g)) hK hevenInf
   exact ⟨g⁻¹, by simpa only [inv_inv] using heq⟩
 
-theorem rank_two_strongEmbedding_maximality_and_conjugacy
-    (hrank : TwoRankAtLeastTwo G) :
-    (∀ H : Subgroup G, fusionStronglyEmbedded H → IsCoatom H) ∧
-      (∀ H K : Subgroup G, fusionStronglyEmbedded H → fusionStronglyEmbedded K →
-        Even (Nat.card ↥(H ⊓ K)) → H = K) ∧
-      (∀ H K : Subgroup G, fusionStronglyEmbedded H → fusionStronglyEmbedded K →
-        ∃ g : G, H.map (MulAut.conj g⁻¹).toMonoidHom = K) :=
-  ⟨rank_two_strongEmbedding_isCoatom hrank,
-    rank_two_strongEmbedding_eq_of_even_inf hrank,
-    rank_two_strongEmbedding_conjugate hrank⟩
 
 end CFSG.ShultStronglyClosedTI

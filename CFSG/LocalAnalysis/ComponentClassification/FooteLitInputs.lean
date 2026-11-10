@@ -77,8 +77,5 @@ variable {G : Type*} [Group G]
           (HasStronglyEmbedded ↥(K ⟨0, by omega⟩) ∨ HasStronglyEmbedded ↥(K ⟨1, h⟩) →
             IsTwoDisconnected ↥(K ⟨0, by omega⟩) ∧ IsTwoDisconnected ↥(K ⟨1, h⟩))))
 
-@[expose] def SolomonThm13Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (N : Subgroup G), IsKBalanced N →
-    solomonKStarOf N ≤ solomonKStarOf (⊤ : Subgroup G)
 
 end CFSG.ComponentClassification.FooteLit

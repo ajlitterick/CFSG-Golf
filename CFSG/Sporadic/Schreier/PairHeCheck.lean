@@ -21,7 +21,6 @@ open CFSG.Sporadic.Schreier.PairNative CFSG.Certificates.Native CFSG.Monster.B.C
 
 @[expose] def t1Arr : Array Nat := Array.ofFn fun p : Fin 8330 => evR wT p.val
 
-@[expose] def wT1 : List (Array Nat) := [t1Arr]
 
 theorem word_orders :
     ordB bs wA 2 = true ∧ ordB bs wB 7 = true ∧ ordB bs (patW wA wB [false, true]) 17 = true ∧
@@ -29,8 +28,6 @@ theorem word_orders :
       ordB bs (patW wA wB pat15) 15 = true :=
   Certificates.certificate2223.1
 
-theorem block_sizes : heBlocks.map Array.size = [8330, 4480, 108] :=
-  Certificates.certificate2223.2.1
 
 theorem classes :
     (∀ c ∈ cl, ordB bs c.1 2 = true) ∧

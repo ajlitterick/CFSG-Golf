@@ -10,10 +10,6 @@ open SymplecticFlag SymplecticTorusWeyl
 
 variable {r : ℕ}
 
-theorem epsAct_add (σ : Equiv.Perm (Fin r ⊕ Fin r)) (e e' : Fin r → ℤ) :
-    epsAct σ (e + e') = epsAct σ e + epsAct σ e' := by
-  funext j
-  exact lineVal_add e e' _
 
 theorem epsAct_sub (σ : Equiv.Perm (Fin r ⊕ Fin r)) (e e' : Fin r → ℤ) :
     epsAct σ (e - e') = epsAct σ e - epsAct σ e' := by

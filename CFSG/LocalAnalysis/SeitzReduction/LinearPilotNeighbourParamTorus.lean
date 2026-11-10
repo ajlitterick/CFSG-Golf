@@ -310,26 +310,6 @@ theorem proj_torusDiagSL_mem_normalizer_torus (Nb : Neighbour n)
   obtain ⟨c', -, rfl⟩ := mem_blockTorus.1 (Nb.torus_le_blockTorus subset_rfl hx)
   rw [← map_mul, ← map_mul, ← map_mul, ← map_mul, mul_comm c' c]
 
-theorem nonempty_fieldNeighbourParam_neighbour [Finite G] [Finite K] [CharP K 2] [Finite F]
-    (e : L ≃* LinearFlag.projectiveSL n K) {t : G} (htL : t ∈ centralizer (L : Set G))
-    (ι : K →+* F) {σ : F ≃+* F} (hσ : σ * σ = 1) (hfix : ∀ x : F, σ x = x ↔ x ∈ Set.range ι)
-    (Nb : Neighbour n) {m : ℕ} (eN : Nb.index ≃ Fin m) (hm : 3 ≤ m) (hF : 5 ≤ Nat.card F)
-    (p : neighbourCore e Nb →* LinearFlag.projectiveSL m F) (hp : Function.Surjective p)
-    (hpker : p.ker ≤ center (neighbourCore e Nb))
-    (h1 : ∀ (x : SpecialLinearGroup (Fin m) K)
-      (hx : ((e.symm (LinearFlag.proj n K (blockSLEquiv Nb.index eN x)) : L) : G) ∈
-        neighbourCore e Nb),
-      p ⟨_, hx⟩ = LinearFlag.proj m F (SpecialLinearGroup.map ι x))
-    (h3 : ∀ y, p ((neighbourCore e Nb).normalizerMonoidHom ⟨t, le_normalizer_neighbourCore e htL Nb⟩
-      y) = LinearFlag.fieldAut m F σ (p y)) :
-    Nonempty (FieldNeighbourParam e t ι σ (modelToG e (Nb.torus K)) Nb.index) := by
-  have hcard : 3 ≤ Nb.index.card := by
-    rw [← Fintype.card_coe, Fintype.card_congr eN, Fintype.card_fin]
-    exact hm
-  exact nonempty_fieldNeighbourParam_of_proj_of_fixedField e t ι hσ hfix eN hm hF p hp hpker
-    (modelToG_blockSL_index_le_neighbourCore e Nb (commutator_blockSL_eq_of_three_le hcard))
-    (fun x => h1 x _) (le_normalizer_neighbourCore e htL Nb) h3
-    fun c => symm_mem_normalizer_neighbourCore e (proj_torusDiagSL_mem_normalizer_torus Nb c)
 
 end Param
 

@@ -31,9 +31,6 @@ variable [CharP F 2]
 
 theorem pi13_inv : (pi13 Ψ)⁻¹ = pi13 Ψ := inv_eq_of_mul_eq_one_left pm13_mul_self
 
-theorem pi13_conj_xs {i j : Fin 4} (hij : i ≠ j) (s : F) :
-    pi13 Ψ * xs Ψ hij s * (pi13 Ψ)⁻¹ = xs Ψ ((Equiv.swap 1 3).injective.ne hij) s :=
-  pm13_conj_xs hij s
 
 end Pi
 
@@ -57,10 +54,6 @@ theorem xN_add (s t : F) : xN R Ψ ι (s + t) = xN R Ψ ι s * xN R Ψ ι t := b
   rw [xN, xN, xN, xU_add hι]
   group
 
-omit h hS hP in
-theorem xN'_add (s t : F) : xN' R Ψ ι (s + t) = xN' R Ψ ι s * xN' R Ψ ι t := by
-  rw [xN', xN', xN', xU'_add hι]
-  group
 
 theorem commutator_13_xU (s t : F) :
     ⁅xs Ψ ne13 s, xU R Ψ ι t⁆ = xs Ψ ne02 (s * t) * xN R Ψ ι (s ^ 2 * t) := by

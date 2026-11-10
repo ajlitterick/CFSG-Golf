@@ -1139,17 +1139,6 @@ theorem dvd_short_exponent_of_scalar_trivial {e C : ℕ} (hK : Nat.card K = 2 ^ 
   rw [hK] at hc
   exact Nat.modEq_zero_iff_dvd.mp hc
 
-include ht in
-omit [CharP k 2] in
-theorem chi_shortTorus_one_eq_two
-    (hlong : ∀ a : Kˣ,
-      χ ((minusFrame 4 b c).longTorus (show (1 : Fin 3) ≠ 2 by decide) true false a) = 1)
-    (t : (ShortField b c)ˣ) :
-    χ (shortTorusHom 4 hirrQ 1 t) = χ (shortTorusHom 4 hirrQ 2 t) := by
-  have heq := (mul_inv_eq_iff_eq_mul).mp
-    (SmallO8mTorus.shortTorusHom_mul_inv hirrQ (show (1 : Fin 3) ≠ 2 by decide) t)
-  rw [heq, ht.chi_mul (longTorus_true_mem_H hirrQ _ false _)
-    (SmallO8mTorus.shortTorusHom_mem_H hirrQ 2 t), hlong, one_mul]
 
 end QuadraticCharacters
 

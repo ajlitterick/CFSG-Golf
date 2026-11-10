@@ -102,9 +102,6 @@ variable (k G) in
   groupAlgebraLinearMap (X := DualMod k G Y) (Y := DualMod k G X) (dualModMapLinear k G f)
     (dualModMapLinear_comm f)
 
-theorem dualModMap_apply (f : X →ₗ[MonoidAlgebra k G] Y) (φ : DualMod k G Y) (x : X) :
-    DualMod.toDual (dualModMap k G f φ) x = DualMod.toDual φ (f x) :=
-  rfl
 
 theorem toDual_dualModMap (f : X →ₗ[MonoidAlgebra k G] Y) (φ : DualMod k G Y) :
     DualMod.toDual (dualModMap k G f φ) = (f.restrictScalars k).dualMap (DualMod.toDual φ) :=

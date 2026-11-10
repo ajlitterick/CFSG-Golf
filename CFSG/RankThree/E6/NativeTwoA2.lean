@@ -532,27 +532,6 @@ theorem a2Mat₂_baseChangeGL {L : Type} [Field L] (σ : K →+* L) {g : ModGL T
     Matrix.transpose_map, ← RingHom.mapMatrix_apply, ← RingHom.map_adjugate,
     RingHom.mapMatrix_apply]
 
-theorem apply_a3Vec_castSucc {g : ModGL Tag.E6 K} (hg : g ∈ subsystemGroup Tag.E6 K support13)
-    (j : Fin 3) :
-    (g : Module.End K (RootModule Tag.E6 K)) (a3Vec K (Fin.castSucc j)) =
-      ∑ i : Fin 3, a2Mat₁ g i j • a3Vec K (Fin.castSucc i) := by
-  rw [apply_a3Vec (subsystemGroup13_le hg), Fin.sum_univ_castSucc (n := 3)]
-  have h0 : a3Mat g (Fin.last 3) (Fin.castSucc j) = 0 := by
-    rw [((isA2Block_a3Mat hg) _).1, Matrix.one_apply_ne (Fin.castSucc_lt_last j).ne']
-  rw [h0, zero_smul, add_zero]
-  rfl
-
-theorem mem_Q₁_inf_torusGroup {g : ModGL Tag.E6 K} :
-    g ∈ subsystemGroup Tag.E6 K support13 ⊓ torusGroup Tag.E6 K ↔
-      ∃ a b : Kˣ, g = e6TorusPair (e6Index 0) (e6Index 2) a b := by
-  rw [subsystemGroup_inf_torusGroup]
-  exact mem_subsystemTorus_pair (i := e6Index 0) (j := e6Index 2)
-
-theorem mem_Q₂_inf_torusGroup {g : ModGL Tag.E6 K} :
-    g ∈ subsystemGroup Tag.E6 K support56 ⊓ torusGroup Tag.E6 K ↔
-      ∃ a b : Kˣ, g = e6TorusPair (e6Index 4) (e6Index 5) a b := by
-  rw [subsystemGroup_inf_torusGroup]
-  exact mem_subsystemTorus_pair (i := e6Index 4) (j := e6Index 5)
 
 theorem pairing_support13_support56 : ∀ i j : Fin 6, (i = 0 ∨ i = 2) → (j = 4 ∨ j = 5) →
     (Pi.single (e6Index i) 1 : Fin Tag.E6.rank → ℤ) ⬝ᵥ
@@ -605,18 +584,6 @@ theorem commute_Q₁_Q₂ {g h : ModGL Tag.E6 K} (hg : g ∈ subsystemGroup Tag.
   | mul y z _ _ hy hz => exact hy.mul_right hz
   | inv y _ hy => exact hy.inv_right
 
-theorem Q₁_mul_Q₂_comm :
-    (subsystemGroup Tag.E6 K support13 : Set (ModGL Tag.E6 K)) *
-        subsystemGroup Tag.E6 K support56 =
-      (subsystemGroup Tag.E6 K support56 : Set (ModGL Tag.E6 K)) *
-        subsystemGroup Tag.E6 K support13 := by
-  ext x
-  simp only [Set.mem_mul, SetLike.mem_coe]
-  constructor
-  · rintro ⟨a, ha, b, hb, rfl⟩
-    exact ⟨b, hb, a, ha, (commute_Q₁_Q₂ ha hb).eq.symm⟩
-  · rintro ⟨b, hb, a, ha, rfl⟩
-    exact ⟨a, ha, b, hb, (commute_Q₁_Q₂ ha hb).eq⟩
 
 theorem torusElt_apply_rootVec_single (i k : Fin Tag.E6.rank) (t : Kˣ) :
     (torusElt Tag.E6 K i t : Module.End K (RootModule Tag.E6 K))
@@ -852,33 +819,6 @@ theorem twoA2Mul_eq_one_iff (A B : SpecialLinearGroup (Fin 3) K) :
     rw [twoA2Mul_apply, a2Equiv₁_symm_scalar hl A hA, a2Equiv₂_symm_scalar hl B hB]
     exact e6TorusPair_center_mul (cubeUnit_pow hl)
 
-theorem exists_center_Q₁ {l : K} (hl : l ^ 3 = 1) :
-    ∃ g ∈ Subgroup.center (subsystemGroup Tag.E6 K support13),
-      (a2Rep₁ K g : Matrix (Fin 3) (Fin 3) K) = scalar (Fin 3) l := by
-  have hdet : (scalar (Fin 3) l).det = 1 := by
-    rw [scalar_apply, det_diagonal, Finset.prod_const, Finset.card_univ, Fintype.card_fin, hl]
-  set s : SpecialLinearGroup (Fin 3) K := ⟨scalar (Fin 3) l, hdet⟩
-  obtain ⟨g, hg⟩ := a2Rep₁_bijective.2 s
-  refine ⟨g, Subgroup.mem_center_iff.2 fun h => a2Rep₁_bijective.1 ?_, by rw [hg]⟩
-  rw [map_mul, map_mul, hg]
-  refine Subtype.ext ?_
-  change (a2Rep₁ K h : Matrix (Fin 3) (Fin 3) K) * scalar (Fin 3) l =
-    scalar (Fin 3) l * (a2Rep₁ K h : Matrix (Fin 3) (Fin 3) K)
-  exact (Matrix.scalar_commute l (fun r => Commute.all l r) _).eq.symm
-
-theorem exists_center_Q₂ {l : K} (hl : l ^ 3 = 1) :
-    ∃ g ∈ Subgroup.center (subsystemGroup Tag.E6 K support56),
-      (a2Rep₂ K g : Matrix (Fin 3) (Fin 3) K) = scalar (Fin 3) l := by
-  have hdet : (scalar (Fin 3) l).det = 1 := by
-    rw [scalar_apply, det_diagonal, Finset.prod_const, Finset.card_univ, Fintype.card_fin, hl]
-  set s : SpecialLinearGroup (Fin 3) K := ⟨scalar (Fin 3) l, hdet⟩
-  obtain ⟨g, hg⟩ := a2Rep₂_bijective.2 s
-  refine ⟨g, Subgroup.mem_center_iff.2 fun h => a2Rep₂_bijective.1 ?_, by rw [hg]⟩
-  rw [map_mul, map_mul, hg]
-  refine Subtype.ext ?_
-  change (a2Rep₂ K h : Matrix (Fin 3) (Fin 3) K) * scalar (Fin 3) l =
-    scalar (Fin 3) l * (a2Rep₂ K h : Matrix (Fin 3) (Fin 3) K)
-  exact (Matrix.scalar_commute l (fun r => Commute.all l r) _).eq.symm
 
 theorem diagonal_conj_one_add_single {d d' : Fin 3 → K} (hd : ∀ k, d k * d' k = 1)
     (p q : Fin 3) (c : K) :
@@ -1082,98 +1022,5 @@ theorem mem_center_Q₂_iff (g : subsystemGroup Tag.E6 K support56) :
       · rw [coe_a2Rep₂, hg, a2Mat₂_center hu]
     exact (Subgroup.mem_center_iff.1 hs _)
 
-theorem E6_native_two_A2_full_central_product_and_torus_action (K : Type) [Field K] :
-    Function.Bijective (a2Rep₁ K) ∧ Function.Bijective (a2Rep₂ K) ∧
-    (∀ t : K, a2Mat₁ (xUnit Tag.E6 K (e6Index 0) t) = 1 + single 0 1 t) ∧
-    (∀ t : K, a2Mat₁ (xUnit Tag.E6 K (e6Index 2) t) = 1 + single 1 2 t) ∧
-    (∀ t : K, a2Mat₁ (yUnit Tag.E6 K (e6Index 0) t) = 1 + single 1 0 t) ∧
-    (∀ t : K, a2Mat₁ (yUnit Tag.E6 K (e6Index 2) t) = 1 + single 2 1 t) ∧
-    (∀ t : K, a2Mat₂ (xUnit Tag.E6 K (e6Index 4) t) = 1 + single 0 1 t) ∧
-    (∀ t : K, a2Mat₂ (xUnit Tag.E6 K (e6Index 5) t) = 1 + single 1 2 t) ∧
-    (∀ t : K, a2Mat₂ (yUnit Tag.E6 K (e6Index 4) t) = 1 + single 1 0 t) ∧
-    (∀ t : K, a2Mat₂ (yUnit Tag.E6 K (e6Index 5) t) = 1 + single 2 1 t) ∧
-    (∀ (L : Type) [Field L] (σ : K →+* L) (g : ModGL Tag.E6 K),
-      g ∈ subsystemGroup Tag.E6 K support13 →
-        baseChangeGL σ g ∈ subsystemGroup Tag.E6 L support13 ∧
-          a2Mat₁ (baseChangeGL σ g) = (a2Mat₁ g).map σ) ∧
-    (∀ (L : Type) [Field L] (σ : K →+* L) (g : ModGL Tag.E6 K),
-      g ∈ subsystemGroup Tag.E6 K support56 →
-        baseChangeGL σ g ∈ subsystemGroup Tag.E6 L support56 ∧
-          a2Mat₂ (baseChangeGL σ g) = (a2Mat₂ g).map σ) ∧
-    subsystemGroup Tag.E6 K support13 = rootSpan Tag.E6 K (parabolicRoots Tag.E6 support13) ∧
-    subsystemGroup Tag.E6 K support56 = rootSpan Tag.E6 K (parabolicRoots Tag.E6 support56) ∧
-    (∀ g₁ ∈ subsystemGroup Tag.E6 K support13, ∀ g₂ ∈ subsystemGroup Tag.E6 K support56,
-      g₁ * g₂ = g₂ * g₁) ∧
-    (subsystemGroup Tag.E6 K support13 : Set (ModGL Tag.E6 K)) *
-        subsystemGroup Tag.E6 K support56 =
-      (subsystemGroup Tag.E6 K support56 : Set (ModGL Tag.E6 K)) *
-        subsystemGroup Tag.E6 K support13 ∧
-    (∀ A B : Matrix.SpecialLinearGroup (Fin 3) K, twoA2Mul K (A, B) =
-      ((a2Equiv₁ K).symm A : ModGL Tag.E6 K) * ((a2Equiv₂ K).symm B : ModGL Tag.E6 K)) ∧
-    Set.range (twoA2Mul K) = (subsystemGroup Tag.E6 K support13 : Set (ModGL Tag.E6 K)) *
-      subsystemGroup Tag.E6 K support56 ∧
-    (∀ A B : Matrix.SpecialLinearGroup (Fin 3) K, twoA2Mul K (A, B) = 1 ↔
-      ∃ l : K, l ^ 3 = 1 ∧ (A : Matrix (Fin 3) (Fin 3) K) = scalar (Fin 3) l ∧
-        (B : Matrix (Fin 3) (Fin 3) K) = scalar (Fin 3) l) ∧
-    (∀ A : Matrix.SpecialLinearGroup (Fin 3) K, twoA2Mul K (A, 1) = 1 → A = 1) ∧
-    (∀ B : Matrix.SpecialLinearGroup (Fin 3) K, twoA2Mul K (1, B) = 1 → B = 1) ∧
-    (∀ g : subsystemGroup Tag.E6 K support13, g ∈ Subgroup.center _ ↔
-      ∃ u : Kˣ, u ^ 3 = 1 ∧ (g : ModGL Tag.E6 K) = e6TorusPair (e6Index 0) (e6Index 2) u (u ^ 2)) ∧
-    (∀ g : subsystemGroup Tag.E6 K support56, g ∈ Subgroup.center _ ↔
-      ∃ u : Kˣ, u ^ 3 = 1 ∧ (g : ModGL Tag.E6 K) = e6TorusPair (e6Index 4) (e6Index 5) u (u ^ 2)) ∧
-    (∀ u : Kˣ, u ^ 3 = 1 →
-      a2Mat₁ (e6TorusPair (e6Index 0) (e6Index 2) u (u ^ 2)) = scalar (Fin 3) (u : K) ∧
-        a2Mat₂ (e6TorusPair (e6Index 4) (e6Index 5) u (u ^ 2)) = scalar (Fin 3) (u : K)) ∧
-    (∀ h ∈ torusGroup Tag.E6 K, ∃ χ : Fin Tag.E6.rank → Kˣ,
-      (∀ i c, h * xUnit Tag.E6 K i c * h⁻¹ = xUnit Tag.E6 K i (χ i * c)) ∧
-        ∀ i c, h * yUnit Tag.E6 K i c * h⁻¹ = yUnit Tag.E6 K i (((χ i)⁻¹ : Kˣ) * c)) ∧
-    (∀ h ∈ torusGroup Tag.E6 K, ∀ s t : Kˣ,
-      (∀ c : K, h * xUnit Tag.E6 K (e6Index 0) c * h⁻¹ = xUnit Tag.E6 K (e6Index 0) (s * c)) →
-      (∀ c : K, h * xUnit Tag.E6 K (e6Index 2) c * h⁻¹ = xUnit Tag.E6 K (e6Index 2) (t * c)) →
-      ∀ g ∈ subsystemGroup Tag.E6 K support13, h * g * h⁻¹ ∈ subsystemGroup Tag.E6 K support13 ∧
-        a2Mat₁ (h * g * h⁻¹) = diagonal ![((s * t : Kˣ) : K), (t : K), 1] * a2Mat₁ g *
-          diagonal ![(((s * t)⁻¹ : Kˣ) : K), ((t⁻¹ : Kˣ) : K), 1]) ∧
-    (∀ h ∈ torusGroup Tag.E6 K, ∀ s t : Kˣ,
-      (∀ c : K, h * xUnit Tag.E6 K (e6Index 4) c * h⁻¹ = xUnit Tag.E6 K (e6Index 4) (s * c)) →
-      (∀ c : K, h * xUnit Tag.E6 K (e6Index 5) c * h⁻¹ = xUnit Tag.E6 K (e6Index 5) (t * c)) →
-      ∀ g ∈ subsystemGroup Tag.E6 K support56, h * g * h⁻¹ ∈ subsystemGroup Tag.E6 K support56 ∧
-        a2Mat₂ (h * g * h⁻¹) = diagonal ![((s * t : Kˣ) : K), (t : K), 1] * a2Mat₂ g *
-          diagonal ![(((s * t)⁻¹ : Kˣ) : K), ((t⁻¹ : Kˣ) : K), 1]) ∧
-    (∀ a b : Kˣ, a2Mat₁ (e6TorusPair (e6Index 0) (e6Index 2) a b) =
-      diagonal ![(a : K), ((a⁻¹ * b : Kˣ) : K), ((b⁻¹ : Kˣ) : K)]) ∧
-    (∀ a b : Kˣ, a2Mat₂ (e6TorusPair (e6Index 4) (e6Index 5) a b) =
-      diagonal ![(a : K), ((a⁻¹ * b : Kˣ) : K), ((b⁻¹ : Kˣ) : K)]) ∧
-    (∀ g : ModGL Tag.E6 K, g ∈ subsystemGroup Tag.E6 K support13 ⊓ torusGroup Tag.E6 K ↔
-      ∃ a b : Kˣ, g = e6TorusPair (e6Index 0) (e6Index 2) a b) ∧
-    (∀ g : ModGL Tag.E6 K, g ∈ subsystemGroup Tag.E6 K support56 ⊓ torusGroup Tag.E6 K ↔
-      ∃ a b : Kˣ, g = e6TorusPair (e6Index 4) (e6Index 5) a b) := by
-  have hker := twoA2Mul_eq_one_iff (K := K)
-  refine ⟨a2Rep₁_bijective, a2Rep₂_bijective, a2Mat₁_x1, a2Mat₁_x3, a2Mat₁_y1, a2Mat₁_y3,
-    a2Mat₂_x5, a2Mat₂_x6, a2Mat₂_y5, a2Mat₂_y6,
-    fun L _ σ g hg => ⟨baseChangeGL_mem_subsystemGroupE6 σ hg, a2Mat₁_baseChangeGL σ hg⟩,
-    fun L _ σ g hg => ⟨baseChangeGL_mem_subsystemGroupE6 σ hg, a2Mat₂_baseChangeGL σ hg⟩,
-    subsystemGroup_eq_rootSpan support13, subsystemGroup_eq_rootSpan support56,
-    fun g₁ h₁ g₂ h₂ => (commute_Q₁_Q₂ h₁ h₂).eq, Q₁_mul_Q₂_comm, twoA2Mul_apply,
-    range_twoA2Mul, hker, fun A hA => ?_, fun B hB => ?_, mem_center_Q₁_iff, mem_center_Q₂_iff,
-    fun u hu => ⟨a2Mat₁_center hu, a2Mat₂_center hu⟩,
-    fun h hh => exists_simple_root_characters hh,
-    fun h hh s t hs ht g hg => a2Mat₁_conj_torus hh hs ht hg,
-    fun h hh s t hs ht g hg => a2Mat₂_conj_torus hh hs ht hg,
-    a2Mat₁_torus, a2Mat₂_torus, fun g => mem_Q₁_inf_torusGroup,
-    fun g => mem_Q₂_inf_torusGroup⟩
-  · obtain ⟨l, -, hlA, hl1⟩ := (hker A 1).1 hA
-    have hl : l = 1 := by
-      have e := congrFun (congrFun hl1 0) 0
-      simpa using e.symm
-    refine Subtype.ext ?_
-    rw [hlA, hl, map_one]
-    rfl
-  · obtain ⟨l, -, hl1, hlB⟩ := (hker 1 B).1 hB
-    have hl : l = 1 := by
-      have e := congrFun (congrFun hl1 0) 0
-      simpa using e.symm
-    refine Subtype.ext ?_
-    rw [hlB, hl, map_one]
-    rfl
 
 end CFSG.RankThree.E6

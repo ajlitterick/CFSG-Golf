@@ -9,13 +9,6 @@ namespace CFSG.AGLEmbedding
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.PreuniquenessRankFour.Helpers
 open CFSG.RankThreeCoreUniqueness.Helpers
 
-@[expose] def D1SmallSPLZeroIbRest : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (P : Sylow p G) (M H R : Subgroup G)
-    (Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p))
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)), D1OneSmallData p P M H R Rbar K →
-    D1UniqueOver H R (nclIn H (d1LiftX p H R K)) → ∀ z : G, D1SmallCZElt p H R K z →
-    IsSPLFamily p K → D1CzSP p z → D1CzOutside p z → d1MapPCore p M H = ⊥ →
-    (p = 3 ∨ ¬ D1SmallIa p H K) → (p = 3 ∨ p = 5 ∨ IsSmallUnitary p K) → False
 
 @[expose] def D1SmallSPLZeroIbRest2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (P : Sylow p G) (M H R : Subgroup G)

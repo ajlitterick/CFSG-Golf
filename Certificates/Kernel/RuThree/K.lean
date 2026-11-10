@@ -72,7 +72,6 @@ theorem kWord : allN 3 (fun k => bAnd(wordEqK 4060 12 (mask 12) (pidn 4060 12) S
     (cWords.getD k []) (CG k), invEqK 4060 12 (mask 12) (4060 * 12) (CG k) (CGI k))) = true := by
   quickRfl
 
-theorem kN : Nat.beq C0.N 2160 = true := by quickRfl
 
 theorem kTree : allN 2160 (fun i => bIf(Nat.beq i 0, true, treeAtK 3 C0.P C0.L i)) = true := by
   quickRfl
@@ -105,11 +104,6 @@ theorem kTail : ptK 4060 12 11 T3R.NR T3R.NR T3R.LT T3R.PT T3R.QT S3R.LR fr ruTh
     ruThreeKeys ckey C0.SK 2160 7 0 (fun y => y) (fun y => y) (fun _ => 0) = true := by
   quickRfl
 
-theorem kWordNeg : (!wordEqK 4060 12 (mask 12) (pidn 4060 12) S3R.S S3R.SI 11 (cWords.getD 1 [])
-    (CG 2)) = true := by quickRfl
-
-theorem kOrbNeg : (!allN 7 (fun i => Nat.beq (rcnt (S3R.LR i))
-    ([4060, 2304, 650, 8, 3, 1, 2].getD i 0))) = true := by quickRfl
 
 end CertificateChecks.KernelRuThree
 

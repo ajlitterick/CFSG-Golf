@@ -475,26 +475,6 @@ private lemma sylow_cyclic_or_dihedral {G : Type u} [Group G] [Finite G]
     exact ⟨(eSM.trans eS').trans (eS''.trans eS''k.some)⟩
 
 -- the proper-subgroups clause of the minimal counterexample
-private theorem properSubgroups_areDGroups_test
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (M : Subgroup G) (hM : M ≠ ⊤) :
-    IsDGroup M := by
-  have hIH := hmin.2.2
-  have hcardM : Nat.card (↥M) < Nat.card G := by
-    have hcard : Nat.card (↥M) * M.index = Nat.card G := Subgroup.card_mul_index M
-    have hind1 : M.index ≠ 1 := (Subgroup.index_eq_one.not.mpr hM)
-    have hindpos : 1 ≤ M.index := by
-      rw [Subgroup.index_eq_card]
-      exact Nat.card_pos
-    have hind : 2 ≤ M.index := by omega
-    have hposM : 1 ≤ Nat.card (↥M) := Nat.card_pos
-    rw [← hcard]
-    nlinarith
-  have hSylowM : HasCyclicOrDihedralSylowTwo (↥M) := by
-    intro S
-    exact sylow_cyclic_or_dihedral hmin.1 M S
-  exact hIH (↥M) hcardM hSylowM
 
 public theorem properSubgroups_areDGroups
     {G : Type u} [Group G] [Finite G]
@@ -1157,28 +1137,6 @@ public lemma hasDihedralSylowTwo_of_mulEquiv {G : Type u} {H : Type v} [Group G]
   refine ⟨m, hm, ⟨?_⟩⟩
   simpa [T, T', Sylow.coe_ofCard] using (eST.some).trans eTD
 
-private lemma isPGroup_of_isDGroup_quotient_twoGroup
-    {G : Type u} [Group G] [Finite G]
-    (hOH : pPrimeCore 2 G = ⊥) (hQ : IsPGroup 2 (G ⧸ pPrimeCore 2 G)) :
-    IsPGroup 2 G := by
-  have e : G ≃* (G ⧸ pPrimeCore 2 G) := by
-    exact ((QuotientGroup.quotientMulEquivOfEq (G := G) hOH).trans
-      (QuotientGroup.quotientBot (G := G))).symm
-  exact IsPGroup.of_equiv hQ e.symm
-
-public lemma quotient_center_embed_aut
-    {G : Type u} [Group G] (H : Subgroup G) [H.Normal] :
-    Nonempty ((G ⧸ Subgroup.centralizer (H : Set G)) →* MulAut (↥H)) := by
-  refine ⟨QuotientGroup.lift (Subgroup.centralizer (H : Set G)) (MulAut.conjNormal (H := H)) ?_⟩
-  intro x hx
-  rw [MonoidHom.mem_ker]
-  ext h
-  rw [MulAut.conjNormal_apply]
-  have hx' : (h : G) * x = x * (h : G) :=
-    (Subgroup.mem_centralizer_iff.mp hx) (h : G) h.2
-  rw [← hx']
-  group
-  simpa
 
 private lemma hasCyclicOrDihedral_of_hasDihedral {G : Type u} [Group G]
     (h : HasDihedralSylowTwo G) : HasCyclicOrDihedralSylowTwo G := by
@@ -1186,11 +1144,6 @@ private lemma hasCyclicOrDihedral_of_hasDihedral {G : Type u} [Group G]
   rcases (h S) with ⟨m, hm1, hd⟩
   exact Or.inr ⟨m, hm1, hd⟩
 
-private lemma isDGroup_of_isPGroup_two {G : Type u} [Group G] [Finite G]
-    (hSylow : HasCyclicOrDihedralSylowTwo G) (hG2 : IsPGroup 2 G) :
-    IsDGroup G := by
-  refine IsDGroup.quotientIsTwoGroup hSylow ?_
-  exact IsPGroup.to_quotient hG2 (pPrimeCore 2 G)
 
 public lemma hasDihedralSylowTwo_alternatingGroupSeven :
     HasDihedralSylowTwo (alternatingGroup (Fin 7)) := by
@@ -1253,44 +1206,6 @@ public lemma isDGroup_of_mulEquiv_aSeven
   exact (QuotientGroup.quotientMulEquivOfEq (G := G) hcoreG).trans
     ((QuotientGroup.quotientBot (G := G)).trans e)
 
-/-- The quotient by the odd core is functorial under a group isomorphism.
-This local equivalence is kept private because callers should normally use
-`isDGroup_of_mulEquiv`; it is nevertheless useful for transporting the three
-constructors of `IsDGroup` without unfolding `pPrimeCore`. -/
-private def quotientOddCoreMulEquiv
-    {G H : Type u} [Group G] [Group H]
-    (e : G ≃* H) (N : Subgroup G) (M : Subgroup H)
-    [N.Normal] [M.Normal]
-    (hNM : N.map e.toMonoidHom = M) :
-    G ⧸ N ≃* H ⧸ M := by
-  have hcomap : M.comap e.toMonoidHom = N := by
-    apply le_antisymm
-    · intro x hx
-      have hx' : e x ∈ N.map e.toMonoidHom := by
-        rw [hNM]
-        exact hx
-      rcases Subgroup.mem_map.mp hx' with ⟨y, hy, hyeq⟩
-      have hxy : x = y := e.injective (hyeq.symm)
-      simpa [hxy] using hy
-    · intro x hx
-      have hx' : e x ∈ N.map e.toMonoidHom :=
-        Subgroup.mem_map.mpr ⟨x, hx, rfl⟩
-      rw [hNM] at hx'
-      exact hx'
-  let φ : G →* (H ⧸ M) := (QuotientGroup.mk' M).comp e.toMonoidHom
-  have hker : φ.ker = N := by
-    have hker' : φ.ker = M.comap e.toMonoidHom := by
-      ext x
-      change QuotientGroup.mk' M (e x) = 1 ↔ x ∈ M.comap e.toMonoidHom
-      rw [QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff]
-      rfl
-    exact hker'.trans hcomap
-  have hsurj : Function.Surjective φ := by
-    intro y
-    rcases QuotientGroup.mk'_surjective M y with ⟨z, rfl⟩
-    rcases e.surjective z with ⟨x, rfl⟩
-    exact ⟨x, rfl⟩
-  exact QuotientGroup.liftEquiv N hsurj hker.symm
 
 /-- Transport the cyclic-or-dihedral Sylow condition across a group
 isomorphism, including across universe levels. -/
@@ -1312,66 +1227,11 @@ public lemma hasCyclicOrDihedralSylowTwo_of_mulEquiv
   · exact Or.inl (eST.some.isCyclic.mpr hcyc)
   · exact Or.inr ⟨m, hm, ⟨eST.some.trans hd.some⟩⟩
 
-/-- `IsDGroup` is invariant under same-universe group isomorphism.  The
-quotient-is-two-group, `A₇`, and linear-normal-subgroup constructors are all
-transported explicitly; in particular, no quotient or core definitions are
-left opaque to downstream modules. -/
-public lemma isDGroup_of_mulEquiv
-    {G H : Type u} [Group G] [Group H]
-    [Finite G] [Finite H] (e : G ≃* H) (hH : IsDGroup H) :
-    IsDGroup G := by
-  have hSylowH : HasCyclicOrDihedralSylowTwo H := by
-    rcases hH with ⟨h, _⟩ | ⟨h, _⟩ | ⟨h, _, _, _, _, _, _⟩
-    · exact h
-    · exact h
-    · exact h
-  have hSylow : HasCyclicOrDihedralSylowTwo G :=
-    hasCyclicOrDihedralSylowTwo_of_mulEquiv e hSylowH
-  have hmap := pPrimeCore_map_iso 2 e
-  let N : Subgroup G := pPrimeCore 2 G
-  let M : Subgroup H := pPrimeCore 2 H
-  have hNM : N.map e.toMonoidHom = M := by simpa [N, M] using hmap
-  let : N.Normal := pPrimeCore_normal
-  let : M.Normal := pPrimeCore_normal
-  let qE : (G ⧸ N) ≃* (H ⧸ M) := quotientOddCoreMulEquiv e N M hNM
-  rcases hH with ⟨_hSylowH, htwo⟩ | ⟨_hSylowH, e7⟩ |
-      ⟨_hSylowH, K, hKprime, L, hLnormal, hLindex, hLmodel⟩
-  · refine IsDGroup.quotientIsTwoGroup hSylow ?_
-    exact IsPGroup.of_equiv htwo qE.symm
-  · refine IsDGroup.quotientIsASeven hSylow ?_
-    exact ⟨qE.trans e7.some⟩
-  · let L' : Subgroup (G ⧸ N) := L.map qE.symm.toMonoidHom
-    have hL'normal : L'.Normal := by
-      simpa [L'] using (hLnormal.map qE.symm.toMonoidHom qE.symm.surjective)
-    have hL'index : Odd L'.index := by
-      change Odd (L.map qE.symm.toMonoidHom).index
-      rw [Subgroup.index_map]
-      have hker : qE.symm.toMonoidHom.ker = ⊥ :=
-        MonoidHom.ker_eq_bot qE.symm.toMonoidHom qE.symm.injective
-      have hrange : qE.symm.toMonoidHom.range = ⊤ :=
-        MonoidHom.range_eq_top.mpr qE.symm.surjective
-      rw [hker, hrange, Subgroup.index_top, mul_one, sup_bot_eq]
-      exact hLindex
-    have eL : L ≃* L' := by
-      simpa [L'] using
-        (Subgroup.equivMapOfInjective L qE.symm.toMonoidHom qE.symm.injective)
-    rcases hLmodel with hLpsl | hLpgl
-    · refine IsDGroup.quotientHasLinearNormalSubgroup hSylow K hKprime L'
-        hL'normal hL'index ?_
-      left
-      exact ⟨eL.symm.trans hLpsl.some⟩
-    · refine IsDGroup.quotientHasLinearNormalSubgroup hSylow K hKprime L'
-        hL'normal hL'index ?_
-      right
-      exact ⟨eL.symm.trans hLpgl.some⟩
-
 
 -- NOTE: `minimalCounterexample_isSimple` moved to
 -- `GorensteinWalter/MinimalCounterexample.lean` (above GW1965): its S3 body
 -- needs the [10]-Prop-9 dGroup-quotient supplies that live in GW1965, and
 -- this module sits below GW1965. Consumers import the new module.
-
-
 
 
 end CFSG.GorensteinWalter

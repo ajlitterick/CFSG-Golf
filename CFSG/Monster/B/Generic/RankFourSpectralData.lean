@@ -122,14 +122,5 @@ theorem not_equitable_spectralQ (Γ : SimpleGraph V) [DecidableRel Γ.Adj] (hcon
   rw [natDegree_spectralF_rat, card_eq_of_spectralQ Γ v (cell v) (hcell v) (hQ v)] at hdvd
   exact not_three_dvd_card_sub_one hdvd
 
-theorem not_rank_four_spectralQ {G : Type*} [Group G] [MulAction G V]
-    [MulAction.IsPretransitive G V] (Γ : SimpleGraph V) [DecidableRel Γ.Adj]
-    (hΓ : ∀ (g : G) (y z : V), Γ.Adj (g • y) (g • z) ↔ Γ.Adj y z) (hconn : Γ.Connected)
-    (v : V) (O : Fin 4 → Set V) (hO : ∀ y, ∃! i, y ∈ O i) (hO0 : O 0 = {v})
-    (hQ : ∀ i j, ∀ y ∈ O i, {z | Γ.Adj y z ∧ z ∈ O j}.ncard = spectralQ i j) : False := by
-  obtain ⟨cell, hcell, hcQ⟩ := exists_cell_of_partition Γ v O hO 0 hO0 spectralQ hQ
-  obtain ⟨cell', hcell', hQ'⟩ := exists_equitable_of_vertexTransitive Γ v
-    (exists_iso_of_mulAction Γ hΓ v) cell 0 hcell spectralQ fun y j => (hcQ y 0).2 j
-  exact not_equitable_spectralQ Γ hconn cell' hcell' hQ'
 
 end CFSG.Monster.B.Generic

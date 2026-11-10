@@ -51,18 +51,6 @@ theorem mem_actionStabilizerOrbit_normalizer_iff
       change φ (ρ g (φ.symm (φ M))) = φ X
       rw [φ.symm_apply_apply, hgM]
 
-theorem actionStabilizerOrbit_normalizer_image
-    (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q) :
-    φ '' actionStabilizerOrbit Q ρ L M =
-      actionStabilizerOrbit Q ρ (φ L) (φ M) := by
-  ext X
-  constructor
-  · rintro ⟨Y, hY, rfl⟩
-    exact (mem_actionStabilizerOrbit_normalizer_iff Q ρ φ hφ L M Y).mpr hY
-  · intro hX
-    refine ⟨φ.symm X, ?_, φ.apply_symm_apply X⟩
-    apply (mem_actionStabilizerOrbit_normalizer_iff Q ρ φ hφ L M (φ.symm X)).mp
-    simpa only [φ.apply_symm_apply] using hX
 
 @[expose] def actionStabilizerOrbitNormalizerEquiv
     (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q) :
@@ -75,28 +63,6 @@ theorem actionStabilizerOrbit_normalizer_image
   left_inv X := Subtype.ext (φ.symm_apply_apply X.val)
   right_inv X := Subtype.ext (φ.apply_symm_apply X.val)
 
-theorem actionStabilizerOrbitNormalizerEquiv_apply
-    (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q)
-    (X : actionStabilizerOrbit Q ρ L M) :
-    (actionStabilizerOrbitNormalizerEquiv Q ρ φ hφ L M X).val = φ X.val := rfl
-
-theorem actionStabilizerOrbitNormalizerEquiv_symm_apply
-    (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q)
-    (X : actionStabilizerOrbit Q ρ (φ L) (φ M)) :
-    ((actionStabilizerOrbitNormalizerEquiv Q ρ φ hφ L M).symm X).val =
-      φ.symm X.val := rfl
-
-theorem actionStabilizerOrbit_normalizer_bijOn
-    (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q) :
-    Set.BijOn φ (actionStabilizerOrbit Q ρ L M)
-      (actionStabilizerOrbit Q ρ (φ L) (φ M)) := by
-  refine ⟨?_, φ.injective.injOn, ?_⟩
-  · intro X hX
-    exact (mem_actionStabilizerOrbit_normalizer_iff Q ρ φ hφ L M X).mpr hX
-  · intro X hX
-    refine ⟨φ.symm X, ?_, φ.apply_symm_apply X⟩
-    apply (mem_actionStabilizerOrbit_normalizer_iff Q ρ φ hφ L M (φ.symm X)).mp
-    simpa only [φ.apply_symm_apply] using hX
 
 theorem actionStabilizerOrbit_normalizer_card
     (hφ : φ ∈ Subgroup.normalizer ρ.range) (L M : Points Q) :

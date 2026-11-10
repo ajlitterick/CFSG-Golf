@@ -264,16 +264,6 @@ theorem ELabels.P_zero (hE : D.ELabels x y) {χ : ι} (hχ : χ ∈ D.B) (h0 : �
   by_contra hP
   rcases hE.cover χ hχ hP with h' | h' | h' | h' <;> contradiction
 
-theorem Valid.sum_P (h : D.Valid) (hE : D.ELabels x y) (f : ι → ℤ) :
-    ∑ χ ∈ D.B, D.P χ * f χ = f D.p₀ + D.P D.β₁ * f D.β₁ + D.P x * f x + D.P y * f y := by
-  rw [sum_eq_sum_of_vanish D.B {D.p₀, D.β₁, x, y} _ ?_ ?_, sum_four hE.nodup, h.P_p, one_mul]
-  · intro χ hχ
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hχ
-    rcases hχ with rfl | rfl | rfl | rfl
-    exacts [h.p_mem, h.β_mem, hE.x_mem, hE.y_mem]
-  · intro χ hχ hS
-    simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hS
-    rw [hE.P_zero hχ hS.1 hS.2.1 hS.2.2.1 hS.2.2.2, zero_mul]
 
 theorem Valid.sum_L₁ (h : D.Valid) (hE : D.ELabels x y) (f : ι → ℤ) :
     ∑ χ ∈ D.B, D.L₁ χ * f χ = -f D.p₀ - D.P D.β₁ * f D.β₁ + D.P x * f x + D.P y * f y +

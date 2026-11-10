@@ -48,10 +48,6 @@ theorem qimg_iThetaU_le (h : NearAsolvAction p A X) (hX : X ≤ AChief.nrm N)
   rw [SolQuot.qimg_biSup (S := fun Z => Z) (s := iUset A X Y) fun Z hZ => hZ.1.1.trans hX]
   exact iSup₂_le fun Z hZ => le_iThetaU (qimg_mem_iUset h hX hA hYA hYD hZ)
 
-@[expose] def Below.{v} (p n : ℕ) : Prop :=
-  ∀ (Γ : Type v) [Group Γ] [Finite Γ] (A X Y : Subgroup Γ), Nat.card ↥X < n →
-    NearAsolvAction p A X → (iPairsY A X Y).Nonempty →
-      Admits (iThetaU A X Y) (iThetaL A X Y)
 
 theorem iThetaL_eq_bot_of_key
     (h : NearAsolvAction p A X) (hP : (X₁, X₂) ∈ iPairsY A X Y)

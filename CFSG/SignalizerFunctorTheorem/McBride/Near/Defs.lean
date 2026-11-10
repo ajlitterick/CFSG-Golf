@@ -109,8 +109,6 @@ variable (Y X : Subgroup G)
 @[expose] def uset : Set (Subgroup G) :=
   {Z | Z ∈ mtil p A θ ∧ orbitClosure Y Z ⊓ dsub A θ = Y}
 
-@[expose] def usetX : Set (Subgroup G) :=
-  {Z | Z ∈ uset p A θ Y ∧ Z ≤ X}
 
 @[expose] def eset : Set (Subgroup G) :=
   {Z | Z ∈ mhat p A θ ∧ Z ⊓ dsub A θ = Y}
@@ -121,8 +119,6 @@ variable (Y X : Subgroup G)
 @[expose] def thetaY : Subgroup G :=
   ⨆ Z ∈ esetX p A θ Y X, Z
 
-@[expose] def thetaU : Subgroup G :=
-  ⨆ Z ∈ usetX p A θ Y X, Z
 
 @[expose] def thetaL : Subgroup G :=
   ⨆ P ∈ pairsYX p A θ Y X, P.2

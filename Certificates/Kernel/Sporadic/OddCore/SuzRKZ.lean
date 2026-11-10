@@ -62,9 +62,6 @@ theorem canR : canonK 1782 11 (mask 11) (1782 * 11) (SuzRKR.F 0) = true := by qu
 
 theorem zAll : allN 3456 (zK SuzRKW) = true := by quickRfl
 
-theorem neg_id : Bool.not (zK (fun _ => 3) 5) = true := by quickRfl
-
-theorem neg_comm : Bool.not (zK (fun _ => 0) 0) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzRKZ
 

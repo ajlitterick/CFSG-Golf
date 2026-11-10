@@ -72,11 +72,6 @@ theorem mem_dZero_of_isConj
     (hdx : IsConj d x) : x ∈ dZero Φ.range d :=
   hDM ▸ (⟨hdx, hx⟩ : x ∈ conjugatesOf d ∩ (Φ.range : Set G))
 
-include hd hΦ in
-theorem isConj_map_of_isConj_cV0
-    {a : Shat} (ha : IsConj (cV0 : Shat) a) : IsConj d (Φ a) := by
-  have h := Φ.map_isConj ha
-  rwa [map_cV0_of_psiInvHom hd ψ hΦ] at h
 
 end Completion
 

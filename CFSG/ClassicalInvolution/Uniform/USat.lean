@@ -46,11 +46,6 @@ theorem oddCoreIn_le_satU (hs : t.IsSolvableType) :
 theorem isIntrinsicU_satU (t : MemberType) (K : Subgroup Y) (z : Y) :
     IsIntrinsicU t (satU t K z) z := fun hs => oddCoreIn_le_satU hs
 
-theorem mem_satU_of_mem (h : z ∈ K) : z ∈ satU t K z := le_satU h
-
-theorem satU_satU (t : MemberType) (K : Subgroup Y) (z : Y) :
-    satU t (satU t K z) z = satU t K z :=
-  satU_eq_of_isIntrinsicU (isIntrinsicU_satU t K z)
 
 end Basic
 
@@ -80,14 +75,6 @@ theorem satU_conj (t : MemberType) (K : Subgroup Y) (z g : Y) :
     exact (Subgroup.map_sup _ _ _).symm
   · rw [satU_of_not_isSolvableType hs, satU_of_not_isSolvableType hs]
 
-theorem mem_conjClass_satU_iff {J : Subgroup Y} :
-    J ∈ CoreAssembly.conjClass (satU t K z) ↔
-      ∃ g : Y, J = satU t (conjSub g K) (g * z * g⁻¹) := by
-  constructor
-  · rintro ⟨g, rfl⟩
-    exact ⟨g, (satU_conj t K z g).symm⟩
-  · rintro ⟨g, rfl⟩
-    exact ⟨g, (satU_conj t K z g).symm⟩
 
 end Conj
 

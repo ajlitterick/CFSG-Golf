@@ -22,13 +22,6 @@ theorem Qg_le : Qg ≤ co2P := Certificates.certificate13636.1
 
 theorem card_Qg : Nat.card Qg = 729 := Certificates.certificate13636.2.1
 
-theorem qPts_size : (qCert2 ()).pts.size = 729 := Certificates.certificate13636.2.2.1
-
-theorem qPts_valid : ∀ k < 729, validA 2300 (qCert2 ()).pts[k]! = true :=
-  Certificates.certificate13636.2.2.2.1
-
-theorem mem_Qg_iff_qPts : ∀ x, x ∈ Qg ↔ ∃ k < 729, permOfArr 2300 (qCert2 ()).pts[k]! = x :=
-  Certificates.certificate13636.2.2.2.2.1
 
 theorem dGenP_facts :
     ∀ i < 4, validA 2300 (dGens ())[i]! = true ∧ dGenP i ∈ co2P ∧ dGenP i ^ 3 = 1 :=
@@ -133,12 +126,6 @@ theorem Dg_le : Dg ≤ co2P := by
   exact co2P.mul_mem (co2P.pow_mem (h 0) _) (co2P.mul_mem (co2P.pow_mem (h 1) _)
     (co2P.mul_mem (co2P.pow_mem (h 2) _) (co2P.pow_mem (h 3) _)))
 
-theorem mem_Dg_of_inD {a : Array ℕ} {A : Equiv.Perm (Fin 2300)} (ha : Rep 2300 a A)
-    (h : inD (dElts ()) a = true) : A ∈ Dg := by
-  unfold inD at h
-  obtain ⟨i, hi, hai⟩ := anyLt_true h
-  rw [(eqA_iff ha (rep_dElts hi)).1 hai]
-  exact ⟨_, rfl⟩
 
 theorem dEltP_mem_Dg {k : ℕ} (hk : k < 81) : dEltP k ∈ Dg := by
   rw [← φ_vec_eq hk]

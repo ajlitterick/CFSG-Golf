@@ -42,9 +42,6 @@ theorem congruenceImage_index_dvd_two (h2 : (2 : K) ≠ 0) :
   · exact Or.inl (by simpa only [mul_assoc, gamma_mul_gamma, mul_one] using
       (show rho delta h2 A ∈ congruenceImage delta h2 from ⟨A, rfl⟩))
 
-theorem congruenceImage_index_le_two (h2 : (2 : K) ≠ 0) :
-    (congruenceImage delta h2).index ≤ 2 :=
-  Nat.le_of_dvd (by decide) (congruenceImage_index_dvd_two delta h2)
 
 instance congruenceImageNormal (h2 : (2 : K) ≠ 0) : (congruenceImage delta h2).Normal := by
   obtain h | h := Nat.prime_two.eq_one_or_self_of_dvd _

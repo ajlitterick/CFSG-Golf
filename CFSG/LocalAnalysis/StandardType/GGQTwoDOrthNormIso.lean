@@ -26,10 +26,6 @@ section Span
 variable {K : Type} [Field K] [Finite K] [CharP K 2] {V : Type} [AddCommGroup V] [Module K V]
   [FiniteDimensional K V]
 
-theorem iSup_pieces_eq_top {Q : QuadraticForm K V} {p : ℕ} {A : Subgroup (V ≃ₗ[K] V)} {r : ℕ}
-    (Δ : TBJOmData Q p A r) (hfix : ∀ v : V, (∀ a ∈ A, a v = v) → v = 0) :
-    ⨆ j, Δ.F.U j = ⊤ :=
-  Δ.iSup_U_eq_top hfix
 
 end Span
 

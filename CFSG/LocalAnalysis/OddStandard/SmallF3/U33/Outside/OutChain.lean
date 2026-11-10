@@ -34,6 +34,5 @@ open Subgroup
       conv_lhs => rw [← h]
       exact α.symm_apply_apply z
 
-variable {Q : Type*} [Group Q]
 
 end CFSG.OddStandard.SmallF3.HarrisU33.Outside

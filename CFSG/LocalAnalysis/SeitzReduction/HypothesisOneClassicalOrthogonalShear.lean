@@ -615,52 +615,6 @@ theorem exists_shear_mem_closure_of_partner [Finite K] [CharP K 2]
   rw [neg_vec_eq K (y (y w)), add_comm]
   exact e
 
-theorem exists_shear_mem_closure_add [CharP K 2] (hQ : Q.polarBilin.Nondegenerate)
-    {s : matrixIsometries Q} (hss : s * s = 1) {w₁ w₂ u : Fin d → K}
-    (hw₁ : w₁ ∈
-      CFSG.RankThree.OrthogonalInvolutions.commSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-    (hw₂ : w₂ ∈
-      CFSG.RankThree.OrthogonalInvolutions.commSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-    (hu : u ∈ CFSG.RankThree.OrthogonalInvolutions.fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-    (h₁ : ∃ A ∈ Subgroup.closure {A : GL (Fin d) K | A ∈ matrixDerived Q ∧
-        A * (s : GL (Fin d) K) = s * A ∧ Odd (orderOf A)},
-      IsShear Q (CFSG.RankThree.OrthogonalInvolutions.commSpace
-          (matrixLinearEquiv (s : GL (Fin d) K)))
-        (CFSG.RankThree.OrthogonalInvolutions.fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-        w₁ u (matrixLinearEquiv A))
-    (h₂ : ∃ A ∈ Subgroup.closure {A : GL (Fin d) K | A ∈ matrixDerived Q ∧
-        A * (s : GL (Fin d) K) = s * A ∧ Odd (orderOf A)},
-      IsShear Q (CFSG.RankThree.OrthogonalInvolutions.commSpace
-          (matrixLinearEquiv (s : GL (Fin d) K)))
-        (CFSG.RankThree.OrthogonalInvolutions.fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-        w₂ u (matrixLinearEquiv A)) :
-    ∃ A ∈ Subgroup.closure {A : GL (Fin d) K | A ∈ matrixDerived Q ∧
-        A * (s : GL (Fin d) K) = s * A ∧ Odd (orderOf A)},
-      IsShear Q (CFSG.RankThree.OrthogonalInvolutions.commSpace
-          (matrixLinearEquiv (s : GL (Fin d) K)))
-        (CFSG.RankThree.OrthogonalInvolutions.fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-        (w₁ + w₂) u (matrixLinearEquiv A) := by
-  open CFSG.RankThree.OrthogonalInvolutions in
-  set t := matrixLinearEquiv (s : GL (Fin d) K) with htdef
-  have ht : t ∈ TauCeti.QuadraticMap.orthogonalGroup Q := s.2
-  have htt : t * t = 1 := by
-    rw [htdef, ← matrixLinearEquiv_mul, ← Subgroup.coe_mul, hss, Subgroup.coe_one]
-    ext v
-    simp [matrixLinearEquiv_apply]
-  have hL : ∀ v, v ∈ fixSpace t ↔ ∀ w ∈ commSpace t, polar Q w v = 0 := fun v => by
-    rw [fixSpace_eq_orthogonal_commSpace hQ ht htt, LinearMap.BilinForm.mem_orthogonal_iff]
-    rfl
-  obtain ⟨A₁, hA₁, hs₁⟩ := h₁
-  obtain ⟨A₂, hA₂, hs₂⟩ := h₂
-  refine ⟨A₁ * A₂, mul_mem hA₁ hA₂, ?_⟩
-  have hfun : ⇑(matrixLinearEquiv (A₁ * A₂)) =
-      ⇑(matrixLinearEquiv A₁) ∘ ⇑(matrixLinearEquiv A₂) := by
-    funext v
-    rw [matrixLinearEquiv_mul, LinearEquiv.mul_apply]
-    rfl
-  rw [hfun]
-  exact IsShear.comp (commSpace_le_fixSpace htt)
-    (fun x hx y hy => polar_commSpace_eq_zero ht htt hx hy) hL hw₁ hw₂ hu hs₁ hs₂
 
 theorem exists_shear_mem_closure [Finite K] [CharP K 2] (hQ : Q.polarBilin.Nondegenerate)
     (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
@@ -777,25 +731,6 @@ theorem pow_two_eq_one_of_kappa_of_wall [Finite K] [CharP K 2] (hQ : Q.polarBili
   exact (semilinear_shear_rigidity_quadratic_of_commute Q hQn hL hWL' (fun v => Iff.rfl) hW2' hLW
     hNV hNW hb' T hTsm hTQ hTL hTN hsh).2.2.2
 
-theorem involutionCriterion_kappa_of_wall [Finite K] [CharP K 2] (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤) {s : matrixIsometries Q}
-    (hss : s * s = 1)
-    (hWL : CFSG.RankThree.OrthogonalInvolutions.commSpace (matrixLinearEquiv (s : GL (Fin d) K)) ≠
-      CFSG.RankThree.OrthogonalInvolutions.fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-    (hb : ∀ y, (∀ w ∈ CFSG.RankThree.OrthogonalInvolutions.commSpace
-        (matrixLinearEquiv (s : GL (Fin d) K)), Q w = 0 → polar Q y w = 0) →
-      Q (matrixLinearEquiv (s : GL (Fin d) K) y - y) = 0 →
-        matrixLinearEquiv (s : GL (Fin d) K) y - y = 0)
-    (hW2 : ∃ w₁ ∈ CFSG.RankThree.OrthogonalInvolutions.commSpace
-        (matrixLinearEquiv (s : GL (Fin d) K)),
-      ∃ w₂ ∈ CFSG.RankThree.OrthogonalInvolutions.commSpace
-        (matrixLinearEquiv (s : GL (Fin d) K)),
-        Q w₁ = 0 ∧ Q w₂ = 0 ∧ LinearIndependent K ![w₁, w₂]) :
-    InvolutionCriterion (matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s)) :=
-  fun β hβx hβc => pow_two_eq_one_of_kappa_of_wall hQ hT hE hss hWL hb hW2 β
-    (htop ▸ Subgroup.mem_top β) hβx hβc
 
 end Model
 
@@ -849,20 +784,6 @@ theorem pow_two_eq_one_of_kappa_of_ne_ab [Finite K] [CharP K 2] (hQ : Q.polarBil
         exists_pair_of_two_le_finrank (S := singularSubspace Q (commSpace t) hWiso) (by omega)
       exact ⟨w₁, hw₁.1, w₂, hw₂.1, hw₁.2, hw₂.2, hind⟩
 
-theorem involutionCriterion_kappa_of_ne_ab [Finite K] [CharP K 2]
-    (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤) {s : matrixIsometries Q}
-    (hss : s * s = 1) (hs1 : s ≠ 1)
-    (hWL : commSpace (matrixLinearEquiv (s : GL (Fin d) K)) ≠
-      fixSpace (matrixLinearEquiv (s : GL (Fin d) K)))
-    (hab : (∀ x ∈ commSpace (matrixLinearEquiv (s : GL (Fin d) K)), Q x = 0) ∨
-      (Odd (finrank K (commSpace (matrixLinearEquiv (s : GL (Fin d) K)))) ∧
-        3 ≤ finrank K (commSpace (matrixLinearEquiv (s : GL (Fin d) K))))) :
-    InvolutionCriterion (matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s)) :=
-  fun β hβx hβc => pow_two_eq_one_of_kappa_of_ne_ab hQ hT hE hss hs1 hWL hab β
-    (htop ▸ Subgroup.mem_top β) hβx hβc
 
 end TypesAB
 
@@ -872,58 +793,6 @@ open CFSG.ClassicalGroups.Orthogonal CFSG.ComponentClassification.CatalogueBOrth
 open CFSG.ComponentClassification.CatalogueBOrthogonalPointData
 open CFSG.RankThree.OrthogonalInvolutions
 
-variable {K : Type} [Field K] [Finite K] [CharP K 2] {n : ℕ}
-
-theorem pow_two_eq_one_of_kappa_of_ne_ab_plus (hn : 3 ≤ n)
-    {s : matrixIsometries (coordinateQuadPlus n K)} (hss : s * s = 1) (hs1 : s ≠ 1)
-    (hWL : commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)) ≠
-      fixSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))
-    (hab : (∀ x ∈ commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)),
-        coordinateQuadPlus n K x = 0) ∨
-      (Odd (finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))) ∧
-        3 ≤ finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K))))) :
-    ∀ β ∈ matrixProjectiveImage (coordinateQuadPlus n K),
-      β * matrixProjectiveConjugationHom _ (matrixIsometryInclusion _ s) =
-        matrixProjectiveConjugationHom _ (matrixIsometryInclusion _ s) * β →
-      (∀ c, matrixProjectiveConjugationHom _ (matrixIsometryInclusion _ s) c = c →
-        Odd (orderOf c) → β c = c) → β ^ 2 = 1 := by
-  have hreg := regular_coordinateQuadPlus n K hn
-  exact pow_two_eq_one_of_kappa_of_ne_ab hreg.1 hreg.2 (commutator_coordinateQuadPlus n K hn)
-    hss hs1 hWL hab
-
-theorem involutionCriterion_kappa_of_ne_ab_plus (hn : 5 ≤ n)
-    {s : matrixIsometries (coordinateQuadPlus n K)} (hss : s * s = 1) (hs1 : s ≠ 1)
-    (hWL : commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)) ≠
-      fixSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))
-    (hab : (∀ x ∈ commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)),
-        coordinateQuadPlus n K x = 0) ∨
-      (Odd (finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))) ∧
-        3 ≤ finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K))))) :
-    InvolutionCriterion (matrixProjectiveConjugationHom (coordinateQuadPlus n K)
-      (matrixIsometryInclusion _ s)) := by
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  exact involutionCriterion_kappa_of_ne_ab hreg.1 hreg.2
-    (commutator_coordinateQuadPlus n K (by omega))
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_plus K n hn) hss hs1 hWL
-    hab
-
-theorem involutionCriterion_kappa_of_ne_ab_minus (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {s : matrixIsometries (coordinateQuadMinus n K (by omega) b c)} (hss : s * s = 1)
-    (hs1 : s ≠ 1)
-    (hWL : commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)) ≠
-      fixSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))
-    (hab : (∀ x ∈ commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)),
-        coordinateQuadMinus n K (by omega) b c x = 0) ∨
-      (Odd (finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K)))) ∧
-        3 ≤ finrank K (commSpace (matrixLinearEquiv (s : GL (Fin (2 * n)) K))))) :
-    InvolutionCriterion (matrixProjectiveConjugationHom (coordinateQuadMinus n K (by omega) b c)
-      (matrixIsometryInclusion _ s)) := by
-  have hreg := regular_coordinateQuadMinus n K b c hn hirr
-  exact involutionCriterion_kappa_of_ne_ab hreg.1 hreg.2
-    (commutator_coordinateQuadMinus n K b c hn hirr)
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr)
-    hss hs1 hWL hab
 
 end Coordinate
 

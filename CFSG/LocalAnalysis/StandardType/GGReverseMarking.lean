@@ -53,15 +53,10 @@ theorem largeEvenMarking_of_lieModel_centerQuot {X : Type} [Group X] (hX : commu
   rintro R _ I F ⟨e⟩
   exact ⟨e.symm.isSimpleGroup, nonabelian_of_mulEquiv e hnab, e, ht, hn, hp, hf⟩
 
-theorem ggLieModelMarkingInput_holds : GGLieModelMarkingInput := by
-  intro X _ _ t n f _ hX h
-  exact largeEvenMarking_mono (fun _ _ _ _ _ _ _ => trivial)
-    (largeEvenMarking_of_lieModel_centerQuot hX h)
 
 namespace Legacy
 abbrev largeEvenMarking_of_lieModel_centerQuot :=
   @CFSG.StandardType.largeEvenMarking_of_lieModel_centerQuot
-abbrev ggLieModelMarkingInput_holds := @CFSG.StandardType.ggLieModelMarkingInput_holds
 end Legacy
 
 namespace Canonical
@@ -72,10 +67,6 @@ theorem largeEvenMarking_of_lieModel_centerQuot {X : Type} [Group X] (hX : commu
   exact CFSG.Assembly.largeEvenMarkingLegacy_to_canonical_carrier
     (CFSG.StandardType.largeEvenMarking_of_lieModel_centerQuot hX h)
 
-theorem ggLieModelMarkingInput_holds : GGLieModelMarkingInput := by
-  intro X _ _ t n f _ hX h
-  exact largeEvenMarking_mono (fun _ _ _ _ _ _ _ => trivial)
-    (largeEvenMarking_of_lieModel_centerQuot hX h)
 end Canonical
 
 end Main

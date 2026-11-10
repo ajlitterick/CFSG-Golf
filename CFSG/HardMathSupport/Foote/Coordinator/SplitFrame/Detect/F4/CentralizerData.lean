@@ -22,8 +22,6 @@ theorem perp_inter_F4 : ∀ β ∈ rootFinset .F4, (β 0 = 0 ∧ 0 < height β) 
       0 < height (leviWord.reverse.foldr (reflect .F4) β)) →
     β ∈ f4ShortList ∧ 0 < height β := by decide +kernel
 
-theorem S2_eq_supp : ∀ β ∈ rootFinset .F4, (β 0 = 0 ∧ β 1 = 0) → β ∈ f4ShortList := by
-  decide +kernel
 
 theorem theta_mem_S1set : theta ∈ S1set := by
   show theta ∈ f4LongList

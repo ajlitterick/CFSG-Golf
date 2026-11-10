@@ -32,8 +32,6 @@ variable {G : Type} [Group G]
     rw [e]
     exact hN _ (P.inv_mem ha) _ (N.inv_mem (ha' h hh))
 
-theorem mem_relCen {P H N : Subgroup G} {hN : ∀ g ∈ P, ∀ n ∈ N, g * n * g⁻¹ ∈ N} {g : G} :
-    g ∈ relCen P H N hN ↔ g ∈ P ∧ ∀ h ∈ H, g * h * g⁻¹ * h⁻¹ ∈ N := Iff.rfl
 
 theorem conj_mem_relCen {P H N : Subgroup G} {hN : ∀ g ∈ P, ∀ n ∈ N, g * n * g⁻¹ ∈ N}
     {r g : G} (hrP : ∀ x ∈ P, r * x * r⁻¹ ∈ P) (hrH : ∀ x ∈ H, r⁻¹ * x * r ∈ H)

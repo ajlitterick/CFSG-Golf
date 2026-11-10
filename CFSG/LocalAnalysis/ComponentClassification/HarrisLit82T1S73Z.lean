@@ -239,26 +239,5 @@ theorem lemma410c_three {X : Type} [Group X] [Finite X] {p f : ℕ} (h3 : p ^ f 
       show φ.symm (φ x) = x
       exact φ.symm_apply_apply x
 
-theorem harris82Lemma410RestThree_holds :
-    ∀ (X : Type) [Group X] [Finite X] (p f : ℕ), p.Prime → p ^ f = 3 →
-      IsCoverOf .POmegaOdd 3 p f 2 X → ∀ z ∈ center X, z ≠ 1 →
-      (∀ S₀ : Subgroup X, IsSylowIn 2 S₀ ⊤ →
-        ∀ x ∈ S₀, (∀ y ∈ S₀, x * y = y * x) → x = 1 ∨ x = z) ∧
-      ∀ t : X, orderOf t = 2 → t ∉ center X →
-        (∀ J : Subgroup X, ¬ IsTwoComponentIn J (centralizer {t})) ∧
-        (∀ J : Subgroup X, IsSolvableTwoComponentIn J (centralizer {t}) →
-          IsSLTwoOver (p ^ f) (↥J ⧸ pPrimeCore 2 ↥J) ∧ (z ∈ J ∨ t ∈ J ∨ z * t ∈ J)) ∧
-        (∀ J J' : Subgroup X, IsSolvableTwoComponentIn J (centralizer {t}) →
-          IsSolvableTwoComponentIn J' (centralizer {t}) → ∀ e ∈ ({z, t, z * t} : Set X),
-            e ∈ J → e ∈ J' → J = J') ∧
-        (∀ e ∈ ({z, t, z * t} : Set X), ∃ J : Subgroup X,
-          IsSolvableTwoComponentIn J (centralizer {t}) ∧
-            (J.subgroupOf (centralizer {t})).Normal ∧ e ∈ J) ∧
-        ∀ T₀ : Subgroup X, IsSylowIn 2 T₀ (centralizer {t}) →
-          closure {x | x ∈ T₀ ∧ x * x = 1} = T₀ := by
-  intro X _ _ p f _ h3 hX z hz hz1
-  refine ⟨fun S₀ hS₀ x hx hxc => lemma410a_three h3 hX hz hz1 hS₀ hx hxc, fun t ht htZ => ?_⟩
-  obtain ⟨c0, c1, c2, c3⟩ := lemma410c_three h3 hX hz hz1 ht htZ
-  exact ⟨c0, c1, c2, c3, fun T₀ hT₀ => lemma410f_three h3 hX ht htZ hT₀⟩
 
 end CFSG.ComponentClassification.HarrisLit.T1

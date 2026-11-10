@@ -38,10 +38,6 @@ variable {G : Type} [Group G] [Finite G]
         calMOf K = {D.M}) →
     (mBar D.M V₀ V h.hyp125.isElemAbelian : ℕ∞) ≤ fIndexMax Δ + 1
 
-@[expose] def R18_3At (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G) : Prop :=
-  IsAlt (Bar2 L) 5 → V₀ = ⊥ →
-    UniqueMax D.M (D.M ⊓ normalizer (F12.Wi 1 D.T V : Set G)) →
-    UniqueMax D.M (L ⊔ F12.Wi 1 D.T V)
 
 @[expose] def R18_4At (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G) : Prop :=
   ¬ IsAlt (Bar2 L) 5

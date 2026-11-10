@@ -45,7 +45,6 @@ abbrev AutExt := G ⋊[A.subtype] A
 
 variable {S A}
 
-theorem mem_hSub {B : Subgroup A} {q : AutExt A} : q ∈ hSub A B ↔ q.right ∈ B := Iff.rfl
 
 theorem mem_tSub {hA : ∀ α ∈ A, ∀ s ∈ S, α s = s} {B : Subgroup A} {q : AutExt A} :
     q ∈ tSub S A hA B ↔ q.left ∈ S ∧ q.right ∈ B := Iff.rfl

@@ -126,15 +126,5 @@ theorem involution_component_normalizes (a : G) (ha : orderOf a = 2)
   rw [hconj, ← Subgroup.map_map]
   exact heq
 
-theorem involution_layer_normalizes (a : G) (ha : orderOf a = 2)
-    (L : Subgroup G) (hL : IsComponentOf L ⊤) :
-    (Layer.subgroup (Subgroup.centralizer ({a} : Set G))).map
-      (Subgroup.centralizer ({a} : Set G)).subtype ≤ Subgroup.normalizer (L : Set G) := by
-  apply Subgroup.map_le_iff_le_comap.mpr
-  apply sSup_le
-  intro K hK
-  apply Subgroup.map_le_iff_le_comap.mp
-  exact involution_component_normalizes a ha (K.map (Subgroup.centralizer ({a} : Set G)).subtype)
-    (Subgroup.map_subtype_le _) (OrdinaryComponentTransport.subtype_image_component _ K hK) L hL
 
 end CFSG.ComponentClassification.AschbacherComponentInvolution

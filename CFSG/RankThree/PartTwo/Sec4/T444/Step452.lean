@@ -86,98 +86,9 @@ end General
 
 section Exclusion
 
-theorem exists_exponent_three_card_nine :
-    ∃ E : Subgroup (projSL 3 (GaloisField 2 2)), Monoid.exponent E ∣ 3 ∧ Nat.card E = 9 := by
-  set e := (KFacts.L34.projSLEquivProjectiveSL 3 (GaloisField 2 2)).symm
-  set E₀ := KFacts.L34.eZero (GaloisField 2 2)
-  have hk := KFacts.L34.card_galoisField_two_two
-  have := KFacts.L34.isElementaryAbelian_eZero hk
-  refine ⟨E₀.map e.toMonoidHom, ?_, ?_⟩
-  · rw [← Monoid.exponent_eq_of_mulEquiv (E₀.equivMapOfInjective e.toMonoidHom e.injective)]
-    exact CFSG.IsElementaryAbelian.exponent_dvd_p 3 E₀
-  · rw [Subgroup.card_map_of_injective e.injective, KFacts.L34.card_eZero hk]
 
 variable {X : Type} [Group X] [Finite X]
 
-theorem quasisimple_of_item4_4 (h44 : Item4_4) (hres : Item4_52Residual) (hX : SectionFourHyp X)
-    [Group.IsPerfect X] {K : Subgroup X} [K.Normal] (hK : Group.IsSolvable K)
-    (h9 : ¬ 9 ∣ Nat.card K) (ψ : X ⧸ K ≃* projSL 3 (GaloisField 2 2)) :
-    IsQuasisimple (X ⧸ CFSG.pCore 2 X) := by
-  have : IsSimpleGroup (projSL 3 (GaloisField 2 2)) := isSimpleGroup_projSL
-  have : IsSimpleGroup (X ⧸ K) := ψ.isSimpleGroup
-  have hcardK : K.index = 20160 := by
-    change Nat.card (X ⧸ K) = 20160
-    rw [Nat.card_congr ψ.toEquiv, KFacts.L34.card_projSL]
-  have hdvd : ∀ N : Subgroup X, N.Normal → Group.IsSolvable N → 20160 ∣ Nat.card (X ⧸ N) := by
-    intro N hN hNs
-    have hle : N ≤ K := Census.le_of_isSolvable_of_normal hN hNs
-    rw [← hcardK]
-    exact Subgroup.index_dvd_of_le hle
-  rcases h44 X hX inferInstance K hK this with h1 | he2 | ⟨p, hp, hp3, he3⟩ | (he4 | h4b) |
-    ⟨hO2, -⟩
-  · exact h1
-  ·
-    exfalso
-    obtain ⟨e2⟩ := he2
-    have : Fact (Nat.Prime 5) := ⟨by norm_num⟩
-    have h := hdvd _ inferInstance isSolvable_oTwoFitting
-    rw [Nat.card_congr e2.toEquiv, Census.card_SL2] at h
-    norm_num at h
-  ·
-    exfalso
-    obtain ⟨e3⟩ := he3
-    have : Fact p.Prime := ⟨hp⟩
-    have hle : oTwoP p X ≤ K :=
-      Census.le_of_isSolvable_of_normal inferInstance (isSolvable_oTwoP p)
-    set F : SL(2, ZMod p) →* projSL 3 (GaloisField 2 2) :=
-      ψ.toMonoidHom.comp ((QuotientGroup.map (oTwoP p X) K (MonoidHom.id X) hle).comp
-        e3.symm.toMonoidHom) with hF
-    have hFs : Function.Surjective F := by
-      intro y
-      obtain ⟨q, rfl⟩ := ψ.surjective y
-      obtain ⟨x, rfl⟩ := QuotientGroup.mk'_surjective K q
-      refine ⟨e3 (x : X ⧸ oTwoP p X), ?_⟩
-      rw [hF, MonoidHom.comp_apply, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-        MulEquiv.coe_toMonoidHom, MulEquiv.symm_apply_apply]
-      rfl
-    have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    obtain ⟨E, hE, hEc⟩ := exists_exponent_three_card_nine
-    exact false_of_surjective_of_isCyclic_sylow F hFs
-      (Census.isCyclic_sylow_SL2 (p := p) (by norm_num) (by omega)) hE hEc
-  ·
-    exfalso
-    obtain ⟨e4⟩ := he4
-    have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    have h := hdvd _ inferInstance (isSolvable_oTwoP 3)
-    rw [Nat.card_congr e4.toEquiv, ← Nat.card_congr Census.sl3EquivProjSL.toEquiv,
-      Census.card_SL3_three] at h
-    norm_num at h
-  ·
-    exfalso
-    have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    have h := hdvd _ inferInstance (isSolvable_oTwoP 3)
-    have hc := KFacts.L34.card_of_isExtOf h4b
-    have hQ : Nat.card Q8D8 ≤ 64 := by
-      have h1 : Nat.card Q8D8 ∣ Nat.card (QuaternionGroup 2 × DihedralGroup 4) :=
-        Subgroup.card_quotient_dvd_card _
-      have h2 : Nat.card (QuaternionGroup 2 × DihedralGroup 4) = 64 := by
-        rw [Nat.card_prod, Nat.card_eq_fintype_card (α := QuaternionGroup 2), QuaternionGroup.card,
-          DihedralGroup.nat_card]
-      rw [h2] at h1
-      exact Nat.le_of_dvd (by norm_num) h1
-    have hA5 : Nat.card (alternatingGroup (Fin 5)) = 60 := by
-      rw [nat_card_alternatingGroup, Nat.card_fin]
-      rfl
-    rw [hc, hA5] at h
-    have hpos : 0 < 60 * Nat.card Q8D8 := Nat.pos_of_ne_zero (by
-      rw [← hA5, ← hc]
-      exact Nat.card_pos.ne')
-    have := Nat.le_of_dvd hpos h
-    omega
-  ·
-    have hq := hres X hX inferInstance hO2 K hK h9 ⟨ψ⟩
-    exact LocalCores.isQuasisimple_of_mulEquiv
-      ((QuotientGroup.quotientMulEquivOfEq hO2).trans QuotientGroup.quotientBot).symm hq
 
 end Exclusion
 
@@ -229,17 +140,6 @@ theorem Ctx444.isZ3L34OrHeisSL34_map_starQuot (h434 : Item4_34Sec) (h45 : Item4_
     isSolvable_sup_of_le_normalizer (isSolvable_of_isPGroup hA3) (isSolvable_of_isPGroup hRp) hAS
   exact isZ3L34OrHeisSL34_of_item4_34Sec h434 h hL h3L hLM hAL (hRQ.trans hQL) hAS hR3 hs hSne
 
-theorem rank3II_4_52_of (h434 : Item4_34Sec) (h45 : Item4_5) (h44 : Item4_4)
-    (hres : Item4_52Residual) : Item4_52 := by
-  intro G _ _ A M h _ L hL hQL hcomm hLM
-  have hA3 : IsPGroup 3 A := h.isE27.isPGroup
-  have hAL := h.le_normalizer_of_mem_thetaComponents h45 hL
-  have h3L := h.three_dvd_card_of_not_le h45 hL hLM
-  have hZ := h.isZ3L34OrHeisSL34_map_starQuot h434 h45 hL hQL hcomm hLM
-  obtain ⟨K, _, hKs, h9, ⟨ψ⟩⟩ := exists_solvable_quotient_projSL hA3 hL h3L hAL hZ
-  have : Group.IsPerfect L := hL.1
-  exact ⟨hL.1, hL.2.1,
-    quasisimple_of_item4_4 h44 hres (sectionFourHyp_subgroup h.sectionFourHyp L) hKs h9 ψ⟩
 
 end Main
 

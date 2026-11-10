@@ -16,8 +16,6 @@ theorem sH0 : LceS.wordsOK selWT selRT selST INV INV8 (nat_lit 512) HS = true :=
 theorem sH1 : LceS.invOK INV INV8 (nat_lit 4) = true := by
   quickRfl
 
-theorem sH3 : Nat.beq nC (nat_lit 2783) = true := by
-  quickRfl
 
 theorem sH6 : HSK.hintsLt selWT (nat_lit 512) (nat_lit 1) HS = true := by
   quickRfl

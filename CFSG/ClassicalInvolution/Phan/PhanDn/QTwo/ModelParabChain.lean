@@ -152,17 +152,6 @@ theorem nextCut_exists (hlast : Fin.last m ∉ C) (i : Fin (m + 1)) :
 noncomputable def nextCut (hlast : Fin.last m ∉ C) (i : Fin (m + 1)) : ℕ :=
   Nat.find (nextCut_exists (C := C) hlast i)
 
-theorem blockIndex_pos (i : Fin (m + 1)) : 0 < blockIndex C i := by
-  rw [blockIndex, Finset.card_pos]
-  exact ⟨0, Finset.mem_filter.mpr ⟨zero_mem_cutSet, by omega⟩⟩
-
-theorem blockIndex_mono {i j : Fin (m + 1)} (hij : i ≤ j) :
-    blockIndex C i ≤ blockIndex C j := by
-  rw [blockIndex, blockIndex]
-  apply Finset.card_le_card
-  intro c hc
-  rw [Finset.mem_filter] at hc ⊢
-  exact ⟨hc.1, hc.2.trans (by simpa using hij)⟩
 
 theorem nextCut_mem (hlast : Fin.last m ∉ C) (i : Fin (m + 1)) :
     nextCut (C := C) hlast i ∈ cutSet C :=
@@ -379,9 +368,6 @@ theorem starts_le {c : ℕ} (hc : c ∈ starts C hlast) : c ≤ m := by
 theorem starts_lt {c : ℕ} (hc : c ∈ starts C hlast) : c < m + 1 := by
   have := starts_le (C := C) hlast hc; omega
 
-theorem zero_mem_starts : 0 ∈ starts C hlast := by
-  rw [mem_starts_iff]
-  exact ⟨zero_mem_cutSet, by omega⟩
 
 noncomputable def blockLen (c : ℕ) (hc : c < m + 1) : ℕ :=
   nextCut (C := C) hlast ⟨c, hc⟩ - c
@@ -445,55 +431,6 @@ theorem blockStart_lt_next (i : Fin (m + 1)) :
   simp only [Fin.val_mk] at hle hgt
   omega
 
-theorem blockStart_eq_of_mem {c : ℕ} (hc : c ∈ starts C hlast) {i : Fin (m + 1)}
-    (hi1 : c ≤ i.val)
-    (hi2 : i.val < nextCut (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩) :
-    blockStart (C := C) i = c := by
-  have hmem : c ∈ (cutSet C).filter (fun d => d ≤ i.val) :=
-    Finset.mem_filter.mpr ⟨starts_mem_cut (C := C) hlast hc, hi1⟩
-  have hcle : c ≤ blockStart (C := C) i := Finset.le_max' _ _ hmem
-  by_contra hne
-  have hlt : c < blockStart (C := C) i := lt_of_le_of_ne hcle (Ne.symm hne)
-  have hmin := nextCut_min (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩
-    (blockStart_mem_cut (C := C) i) hlt
-  have hble := blockStart_le (C := C) i
-  omega
-
-theorem blockStart_ne_of_not_mem {c : ℕ} (hc : c ∈ starts C hlast) {i : Fin (m + 1)}
-    (hi : i.val < c ∨
-      nextCut (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩ ≤ i.val) :
-    blockStart (C := C) i ≠ c := by
-  rcases hi with hi | hi
-  · have := blockStart_le (C := C) i; omega
-  · have hmem : nextCut (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩ ∈
-        (cutSet C).filter (fun d => d ≤ i.val) :=
-      Finset.mem_filter.mpr ⟨nextCut_mem (C := C) hlast _, hi⟩
-    have hle : nextCut (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩ ≤
-        blockStart (C := C) i := by
-      simpa [blockStart] using Finset.le_max' _ _ hmem
-    have hgt := nextCut_gt (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩
-    simp only [Fin.val_mk] at hle hgt
-    omega
-
-theorem blockIndex_eq_of_interval {c : ℕ} (hc : c ∈ starts C hlast)
-    {i : Fin (m + 1)} (hi1 : c ≤ i.val)
-    (hi2 : i.val < nextCut (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩) :
-    blockIndex C ⟨c, starts_lt (C := C) hlast hc⟩ = blockIndex C i := by
-  rw [blockIndex_eq, blockIndex_eq]
-  congr 1
-  apply Finset.ext
-  intro d
-  rw [Finset.mem_filter, Finset.mem_filter]
-  constructor
-  · rintro ⟨hd, hdi⟩
-    have hcv : (⟨c, starts_lt (C := C) hlast hc⟩ : Fin (m + 1)).val = c := rfl
-    exact ⟨hd, by omega⟩
-  · rintro ⟨hd, hdi⟩
-    refine ⟨hd, ?_⟩
-    by_contra hdc
-    rw [not_le] at hdc
-    have hmin := nextCut_min (C := C) hlast ⟨c, starts_lt (C := C) hlast hc⟩ hd (by omega)
-    omega
 
 theorem blockIndex_lt_of_cut {i j : Fin (m + 1)} {d : ℕ} (hd : d ∈ cutSet C)
     (hi : i.val < d) (hj : d ≤ j.val) : blockIndex C i < blockIndex C j := by
@@ -529,21 +466,10 @@ theorem blockIndex_ne_of_not_interval {c : ℕ} (hc : c ∈ starts C hlast)
     omega
 
 
-theorem nextCut_congr {c : ℕ} (h1 h2 : c < m + 1) :
-    nextCut (C := C) hlast ⟨c, h1⟩ = nextCut (C := C) hlast ⟨c, h2⟩ := by
-  congr 1
-
-theorem blockLen_congr {c : ℕ} (h1 h2 : c < m + 1) :
-    blockLen (C := C) hlast c h1 = blockLen (C := C) hlast c h2 := by
-  unfold blockLen
-  rw [nextCut_congr (C := C) hlast h1 h2]
-
-
 abbrev blockKappa (C : Set (Fin (m + 1))) (hlast : Fin.last m ∉ C) :=
   {c : ℕ // c ∈ starts C hlast}
 
 end ChainAssembly
-
 
 
 theorem bcLin_suEndN_stdE_apply (s : SUid (unitaryInvolution K 2 1) (m + 1))
@@ -647,7 +573,6 @@ theorem matrix_eq_zero_of_blockIndex_ne (hm : 3 ≤ m) (hlast : Fin.last m ∉ C
     rw [hcoe, hinv, conjTr_apply] at hzero
     exact (unitaryInvolution K 2 1).injective (by simpa using hzero)
   · exact blockTriangular_of_fixes (E := E) (C := C) hm hlast s hfix (i := i) (j := j) hgt
-
 
 
 theorem isKLinear_of_mem_qTwoParab_of_last_not_mem

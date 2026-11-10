@@ -75,18 +75,5 @@ theorem theorem_3_3
       (normStatement_all himp hcov _),
     productUniqueContainment_of_pointHullStrongSplit hz huniq⟩
 
-theorem theorem_3_3_tfae
-    (himp : ∀ (G : Type) [Group G] [Finite G] (H : Subgroup G) (z : G),
-      ¬ MinimalInvolutionPointLocalFailure H z)
-    (hcov : BenderDoubleCoverRigidity)
-    {G : Type} [Group G] [Finite G] (H : Subgroup G) (z : G) (hz : orderOf z = 2)
-    (hH : H ≠ ⊤) (huniq : ∀ g : G, z ∈ rightConjugate H g ↔ g ∈ H) :
-    [ProductUniqueContainment H z, CentralProductCentralizer H z,
-      PointHullStrongSplit H z].TFAE := by
-  obtain ⟨h12, h23, h31⟩ := theorem_3_3 himp hcov H z hz hH huniq
-  tfae_have 1 → 2 := h12
-  tfae_have 2 → 3 := h23
-  tfae_have 3 → 1 := h31
-  tfae_finish
 
 end CFSG.ComponentClassification.AschbacherStrongEmbedding

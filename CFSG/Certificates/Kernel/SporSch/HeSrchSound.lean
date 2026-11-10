@@ -13,10 +13,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Sporadic.Schreier
 
 variable {n : Nat}
 
-theorem schreierOK_zero (levels : Array Level) (base : Array Nat) (i : Nat)
-    (steps : Array (Array Nat)) (L : Level) :
-    CFSG.Monster.B.Co2.Native.schreierOK n levels base i steps L 0 = true := by
-  simp [CFSG.Monster.B.Co2.Native.schreierOK, parLt]
 
 theorem stab0_sound {w kS BP NS CH NR NL NT BT NQ BQ : Nat} {PS PSI LR Ts LT PT QT : Nat → Nat}
     {S : Array (Array Nat)} {base : Array Nat} {b0 : Nat} {bs : List Nat}

@@ -30,10 +30,6 @@ open scoped IsMulCommutative Pointwise
         ((∃ n : ℕ, LieModel ↥(autOn L (vPlus L T)) .PSL 2 2 n) ∨
           IsPSL 3 2 1 ↥(autOn L (vPlus L T)))
 
-theorem stmt3_3_8OneGroup_of (h : Stmt3_3_8One) : Stmt3_3_8OneGroup := by
-  intro G _ _ T M L D hyp hT
-  obtain ⟨_, t, ht, htn, hMp, hc, hinf, hty, -⟩ := h G T M L D hyp hT
-  exact ⟨t, ht, htn, hMp, hc, hinf, hty⟩
 
 variable {G : Type} [Group G] [Finite G] {T M L D : Subgroup G}
 

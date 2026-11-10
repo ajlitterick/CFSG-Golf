@@ -15,8 +15,6 @@ open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin CFSG.Quasithin.A5Model
 
 instance : DecidablePred IsSing := fun x => inferInstanceAs (Decidable (wt x % 4 = 0))
 
-theorem isSing_pact : ∀ (σ : Equiv.Perm (Fin 5)) (x : W5), IsSing (pact σ x) ↔ IsSing x := by
-  decide +kernel
 
 @[expose] def AltReach (x y : W5) : Prop := ∃ σ : Equiv.Perm (Fin 5), σ.sign = 1 ∧ pact σ x = y
 
@@ -53,40 +51,6 @@ theorem mem_normalizer_conjSub_iff {X : Subgroup G} {g x : G} :
       g * x * g⁻¹ ∈ Subgroup.normalizer (X : Set G) := by
   rw [conjSub_normalizer, mem_conjSub, inv_inv]
 
-omit [Finite G] S in
-theorem mem_centralizer_conjSub_iff {X : Subgroup G} {g x : G} :
-    x ∈ Subgroup.centralizer (conjSub g⁻¹ X : Set G) ↔
-      g * x * g⁻¹ ∈ Subgroup.centralizer (X : Set G) := by
-  rw [conjSub_centralizer, mem_conjSub, inv_inv]
-
-theorem mem_centralizer_conj_of_V3 {g x : G}
-    (hxN : x ∈ Subgroup.normalizer (conjSub g⁻¹ V : Set G))
-    (hx : x ∈ Subgroup.centralizer (conjSub g⁻¹ S.V3 : Set G)) :
-    x ∈ Subgroup.centralizer (conjSub g⁻¹ V : Set G) := by
-  rw [mem_centralizer_conjSub_iff] at hx ⊢
-  rw [mem_normalizer_conjSub_iff] at hxN
-  exact S.mem_centralizer_V_of_V3 hxN hx
-
-theorem conj_comm_of_comm_V3 (h1323 : Input1323Two) {g : G}
-    (hg : ⁅S.V3, conjSub g⁻¹ S.V3⁆ = ⊥) : ⁅V, conjSub g⁻¹ V⁆ = ⊥ := by
-  have hNV3 := h1323 G T L V S
-  have h1 : conjSub g⁻¹ S.V3 ≤ Subgroup.centralizer (S.V3 : Set G) := by
-    rw [← Subgroup.commutator_eq_bot_iff_le_centralizer, Subgroup.commutator_comm]
-    exact hg
-  have h2 : conjSub g⁻¹ S.V3 ≤ Subgroup.centralizer (V : Set G) := fun x hx =>
-    S.mem_centralizer_V_of_V3 (hNV3 (Subgroup.centralizer_le_normalizer _ (h1 hx))) (h1 hx)
-  have h3 : V ≤ Subgroup.centralizer (conjSub g⁻¹ S.V3 : Set G) := by
-    rw [← Subgroup.commutator_eq_bot_iff_le_centralizer, Subgroup.commutator_comm,
-      Subgroup.commutator_eq_bot_iff_le_centralizer]
-    exact h2
-  have hNV3g : Subgroup.normalizer (conjSub g⁻¹ S.V3 : Set G) ≤
-      Subgroup.normalizer (conjSub g⁻¹ V : Set G) := by
-    rw [conjSub_normalizer, conjSub_normalizer]
-    exact conjSub_mono _ hNV3
-  have h4 : V ≤ Subgroup.centralizer (conjSub g⁻¹ V : Set G) := fun x hx =>
-    S.mem_centralizer_conj_of_V3 (hNV3g (Subgroup.centralizer_le_normalizer _ (h3 hx))) (h3 hx)
-  rw [Subgroup.commutator_eq_bot_iff_le_centralizer]
-  exact h4
 
 theorem exists_centralizer_conj (h1326 : Input1326Two) {v g : G} (hv : v ∈ V) (hv1 : v ≠ 1)
     (hvg : v ∈ conjSub g⁻¹ V) :

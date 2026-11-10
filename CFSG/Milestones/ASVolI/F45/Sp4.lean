@@ -216,30 +216,6 @@ section Facts
 open CFSG.GH74.BNPair CFSG.Assembly.LowTwoRank CFSG.Quasithin.H13.F431.BN
 
 
-theorem burnsideF45_facts45L_Sp4 {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
-    (hyp : HypF_4_4 .Sp4 p f Gp M₁ M₂) (hp : p.Prime) (hm : 3 ≤ GLKind.Sp4.m) :
-    (burnsideF45_setting hyp hp hm).Facts45L := by
-  obtain ⟨chart, -⟩ := hyp.toHypF_4_4g.lie_amalgam
-  rcases chart.coordinates with
-    ⟨c', hk, marking, -⟩ | ⟨hk, -⟩ | ⟨hk, -⟩ | ⟨hk, -⟩ |
-    ⟨-, exponent, K', fK', finK', charK', scope, ⟨hk, -⟩ | ⟨hk, -⟩⟩
-  · have hc : c' = .Sp4 := by
-      cases c' <;> first | rfl | exact absurd hk (by decide)
-    subst hc
-    haveI : Fact p.Prime := ⟨hp⟩
-    have hK : Nat.card marking.field = p ^ f := by simpa using marking.field_card
-    haveI : CharP marking.field p :=
-      CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic hp
-        marking.exponent_pos hK
-    haveI : Finite (StatedProj (StatedSp 2 marking.field)) :=
-      CFSG.ClassicalGroups.Symplectic.finite_statedProj_statedSp 2 marking.field
-    let θ₀ : StatedProj (StatedSp 2 marking.field) ≃* ↥Gp := marking.identification
-    have hU := burnsideF45_sp4System_isSylow marking.field hp
-    exact burnsideF45_facts45L_of_system hyp hp hm (burnsideF45_parabolics hyp.toHypF_4_4g) θ₀
-      (burnsideF45_sp4System marking.field) rfl hU
-      (fun i => burnsideF45_bn_modelBase (burnsideF45_sp4System marking.field) hp hU i)
-  all_goals exact absurd hk (by decide)
-
 end Facts
 
 end CFSG.ASVolI

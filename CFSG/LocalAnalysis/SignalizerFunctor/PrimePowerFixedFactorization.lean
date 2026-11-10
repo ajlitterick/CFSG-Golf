@@ -200,36 +200,5 @@ theorem prime_power_order_fixed_factorization
       rw [mul_assoc, ← mul_assoc centralLeft, central_product, ← mul_assoc]
       exact reordered
 
-theorem nontrivial_fixed_center_subgroup (prime groupPrime : ℕ)
-    (prime_prime : prime.Prime) (groupPrime_prime : groupPrime.Prime)
-    (exponent : ∀ element : ActorType, element ^ prime = 1)
-    (large : prime ^ 2 ≤ Nat.card ActorType)
-    (coprime : Nat.Coprime prime (Nat.card GroupType))
-    (pgroup : IsPGroup groupPrime GroupType) [Nontrivial GroupType] :
-    ∃ actorSubgroup : Subgroup ActorType, Nat.card actorSubgroup = prime ∧
-      Subgroup.center GroupType ⊓ FixedPoints.subgroup actorSubgroup GroupType ≠ ⊥ := by
-  simpa only [pow_one] using nontrivial_fixed_center_subgroup_order prime 1 groupPrime
-    prime_prime groupPrime_prime exponent large coprime pgroup
-
-theorem prime_power_fixed_factorization
-    (prime groupPrime : ℕ) (prime_prime : prime.Prime) (groupPrime_prime : groupPrime.Prime)
-    (exponent : ∀ element : ActorType, element ^ prime = 1)
-    (large : prime ^ 2 ≤ Nat.card ActorType)
-    (coprime : Nat.Coprime prime (Nat.card GroupType)) (pgroup : IsPGroup groupPrime GroupType)
-    (first second : Subgroup GroupType)
-    (first_invariant : ∀ actorElement : ActorType, ∀ element ∈ first, actorElement • element ∈ first)
-    (second_invariant : ∀ actorElement : ActorType, ∀ element ∈ second, actorElement • element ∈ second)
-    (first_fixed_normalized : FixedPoints.subgroup ActorType GroupType ≤
-      Subgroup.normalizer (first : Set GroupType))
-    (local_factorization : ∀ actorSubgroup : Subgroup ActorType, Nat.card actorSubgroup = prime →
-      ∀ element ∈ FixedPoints.subgroup actorSubgroup GroupType,
-        ∃ firstElement ∈ first ⊓ FixedPoints.subgroup actorSubgroup GroupType,
-          ∃ secondElement ∈ second ⊓ FixedPoints.subgroup actorSubgroup GroupType,
-            firstElement * secondElement = element) :
-    ∀ element : GroupType, ∃ firstElement ∈ first, ∃ secondElement ∈ second,
-      firstElement * secondElement = element := by
-  exact prime_power_order_fixed_factorization prime 1 groupPrime prime_prime groupPrime_prime exponent
-    large coprime pgroup first second first_invariant second_invariant first_fixed_normalized
-    (by simpa only [pow_one] using local_factorization)
 
 end CFSG.SignalizerFunctor.Helpers

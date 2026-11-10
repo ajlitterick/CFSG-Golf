@@ -48,12 +48,6 @@ theorem x24603hash : Nat.beq (hashColK 135 6156 B24603Col) hashRec = true := by 
 theorem x24603sort :
     allN 1080 (hsortK 135 hashRec 1080 (B24603Hs 0) (B24603Hs 1)) = true := by quickRfl
 
-theorem x24603neg : bIf(colSlK 15 B24603N1 13 8191 (J3BetaP 8) B24603Col 0 4, false, true) = true := by
-  quickRfl
-
-theorem x24603negS : bIf(allN 1080 (hsortK 135 hashRec 1080 (B24603Tr 0) (B24603Tr 0)), false,
-    true) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.B24603
 

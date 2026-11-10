@@ -81,22 +81,6 @@ private theorem not_isPGroup_two_perm_four :
   have h32 : 3 ∣ 2 := Nat.prime_three.dvd_of_dvd_pow h3
   norm_num at h32
 
-/-- Every normal `2`-subgroup of `A₄` lies in the characteristic Klein
-four subgroup. -/
-public theorem normal_two_subgroup_le_kleinFour_of_alternatingGroup_four
-    (N : Subgroup (alternatingGroup (Fin 4)))
-    (hNnormal : N.Normal) (hN2 : IsPGroup 2 N) :
-    N ≤ alternatingGroup.kleinFour (Fin 4) := by
-  let : N.Normal := hNnormal
-  let : Fact (Nat.Prime 2) := ⟨by decide⟩
-  obtain ⟨S : Sylow 2 (alternatingGroup (Fin 4))⟩ :=
-    Sylow.nonempty (G := alternatingGroup (Fin 4))
-  have hNleS : N ≤ (S : Subgroup (alternatingGroup (Fin 4))) :=
-    hN2.le_sylow_of_normal S
-  have hS_eq : (S : Subgroup (alternatingGroup (Fin 4))) =
-      alternatingGroup.kleinFour (Fin 4) :=
-    alternatingGroup.two_sylow_eq_kleinFour_of_card_eq_four (by simp) S
-  simpa [hS_eq] using hNleS
 
 /-- Every normal `2`-subgroup of `S₄` lies in `A₄`. -/
 public theorem normal_two_subgroup_le_alternating_of_perm_four

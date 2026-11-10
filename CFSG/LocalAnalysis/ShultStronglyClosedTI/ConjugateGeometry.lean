@@ -89,22 +89,6 @@ theorem conjugates_eq_of_common_nonidentity (U : Subgroup G) (hTI : fusionIsTI U
 
 variable [Finite G]
 
-omit [Finite G] in
-theorem conjugateInvolutions_inter_sylow (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G))
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G)) :
-    conjugateInvolutions U ∩ (T : Set G) = (U : Set G) \ {1} := by
-  ext x
-  constructor
-  · rintro ⟨hx, hxT⟩
-    obtain ⟨g, hxg, hxne⟩ := (mem_conjugateInvolutions_iff U).mp hx
-    obtain ⟨u, hu, rfl⟩ := Subgroup.mem_map.mp hxg
-    refine ⟨?_, by simpa only [Set.mem_singleton_iff] using hxne⟩
-    have hmem : g * u * g⁻¹ ∈ (T : Subgroup G) := hxT
-    change g * u * g⁻¹ ∈ (U : Set G)
-    simpa only [inv_inv] using hclosed u hu g⁻¹ (by simpa only [inv_inv] using hmem)
-  · rintro ⟨hxU, hxne⟩
-    exact ⟨Group.subset_conjugatesOfSet ⟨hxU, hxne⟩, hUT hxU⟩
 
 theorem conjugates_eq_of_normalizing_member (T : Sylow 2 G) (U : Subgroup G)
     (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
@@ -133,27 +117,6 @@ theorem conjugates_eq_of_normalizing_member (T : Sylow 2 G) (U : Subgroup G)
   rw [map_conj_map_conj, map_conj_map_conj, inv_mul_cancel]
   simpa only [map_conj_one] using heq.symm
 
-theorem conjugateInvolutions_inter_normalizer (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) :
-    conjugateInvolutions U ∩ Subgroup.normalizer (U : Set G) = (U : Set G) \ {1} := by
-  ext x
-  constructor
-  · rintro ⟨hxD, hxN⟩
-    obtain ⟨g, hxg, hxne⟩ := (mem_conjugateInvolutions_iff U).mp hxD
-    have hxN' : x ∈ Subgroup.normalizer
-        (U.map (MulAut.conj (1 : G)).toMonoidHom : Set G) := by
-      rw [map_conj_one]
-      exact hxN
-    have heq := conjugates_eq_of_normalizing_member T U hUT hUel hclosed hTI g 1
-      hxg hxne hxN'
-    have hxU : x ∈ U := by
-      rw [heq] at hxg
-      simpa only [map_conj_one] using hxg
-    exact ⟨hxU, by simpa only [Set.mem_singleton_iff] using hxne⟩
-  · rintro ⟨hxU, hxne⟩
-    exact ⟨Group.subset_conjugatesOfSet ⟨hxU, hxne⟩, U.le_normalizer hxU⟩
 
 theorem conjugates_eq_of_commuting_members (T : Sylow 2 G) (U : Subgroup G)
     (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
@@ -265,57 +228,6 @@ theorem conjugateCommutingGraph_reachable_iff (T : Sylow 2 G) (U : Subgroup G)
         ((conjugateCommutingGraph_adj_iff T U hUT hUel hclosed hTI x y).mpr
           ⟨hxy, g, hxg, hyg⟩)
 
-theorem conjugateCommutingGraph_component_support (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (x : conjugateInvolutions U) (g : G)
-    (hxg : (x : G) ∈ U.map (MulAut.conj g).toMonoidHom) :
-    ((conjugateCommutingGraph U hUel).connectedComponentMk x).supp =
-      {y : conjugateInvolutions U | (y : G) ∈ U.map (MulAut.conj g).toMonoidHom} := by
-  ext y
-  rw [SimpleGraph.ConnectedComponent.mem_supp_iff]
-  constructor
-  · intro heq
-    have hreach := SimpleGraph.ConnectedComponent.exact heq
-    obtain ⟨a, hya, hxa⟩ :=
-      (conjugateCommutingGraph_reachable_iff T U hUT hUel hclosed hTI y x).mp hreach
-    have hxne := ((mem_conjugateInvolutions_iff U).mp x.property).choose_spec.2
-    have heqg := conjugates_eq_of_common_nonidentity U hTI a g hxne hxa hxg
-    exact heqg ▸ hya
-  · intro hyg
-    exact SimpleGraph.ConnectedComponent.sound
-      ((conjugateCommutingGraph_reachable_iff T U hUT hUel hclosed hTI y x).mpr
-        ⟨g, hyg, hxg⟩)
-
-theorem conjugateCommutingGraph_all_components (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (C : (conjugateCommutingGraph U hUel).ConnectedComponent) :
-    ∃ g : G, C.supp =
-      {y : conjugateInvolutions U | (y : G) ∈ U.map (MulAut.conj g).toMonoidHom} := by
-  induction C using SimpleGraph.ConnectedComponent.ind with
-  | h x =>
-    obtain ⟨g, hxg, _⟩ := (mem_conjugateInvolutions_iff U).mp x.property
-    exact ⟨g, conjugateCommutingGraph_component_support T U hUT hUel hclosed hTI x g hxg⟩
-
-theorem normalizer_in_distinct_conjugate_eq_bot (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (g : G) (hg : U.map (MulAut.conj g).toMonoidHom ≠ U) :
-    (Subgroup.normalizer (U : Set G)).subgroupOf
-      (U.map (MulAut.conj g).toMonoidHom) = ⊥ := by
-  apply le_antisymm _ bot_le
-  intro x hx
-  apply Subgroup.mem_bot.mpr
-  apply Subtype.ext
-  by_contra hne
-  have hxN : (x : G) ∈ Subgroup.normalizer
-      (U.map (MulAut.conj (1 : G)).toMonoidHom : Set G) := by
-    rw [map_conj_one]
-    exact hx
-  have heq := conjugates_eq_of_normalizing_member T U hUT hUel hclosed hTI g 1
-    x.property hne hxN
-  exact hg (by simpa only [map_conj_one] using heq)
 
 theorem conjugateCommutingGraph_not_preconnected (T : Sylow 2 G) (U : Subgroup G)
     (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥) (hUel : IsElemAbelian 2 U)

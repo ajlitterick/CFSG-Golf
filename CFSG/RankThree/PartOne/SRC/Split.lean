@@ -15,11 +15,6 @@ theorem noLowTwoRankSectionFor_or {P Q : CFSGIndex → Prop} (hP : NoLowTwoRankS
     hi.elim (fun h => hP L hK he H M hM π hπ hU ⟨i, h, e⟩)
       (fun h => hQ L hK he H M hM π hπ hU ⟨i, h, e⟩)
 
-@[expose] def IsHardRankTwoLargeIndex : CFSGIndex → Prop
-  | .lie ⟨.A r q, _⟩ => r = 3 ∧ q.p ≠ 2 ∧ 4 ≤ q.exponent
-  | .lie ⟨.twistedA r q, _⟩ => r = 3 ∧ q.p ≠ 2 ∧ 4 ≤ q.exponent
-  | .lie ⟨.B r q, _⟩ => r = 2 ∧ q.p ≠ 2 ∧ 4 ≤ q.exponent
-  | _ => False
 
 @[expose] def IsHardG2LargeIndex : CFSGIndex → Prop
   | .lie ⟨.G2 q, _⟩ => q.p ≠ 2 ∧ 4 ≤ q.exponent

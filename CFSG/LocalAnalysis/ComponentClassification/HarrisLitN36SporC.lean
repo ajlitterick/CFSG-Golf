@@ -57,43 +57,6 @@ theorem card_bar_dvd (h : Config G p m τ K) :
     Nat.card ↥(K.map (QuotientGroup.mk' (center G))) ∣ Nat.card ↥(fixedPoints (quotAut τ)) :=
   Subgroup.card_dvd_of_le h.isTwoComponentIn_bar.1
 
-theorem card_bar_lt (h : Config G p m τ K) (hO : pPrimeCore 2 ↥(fixedPoints (quotAut τ)) = ⊥)
-    {t : G ⧸ center G} (ht : quotAut τ = MulAut.conj t) :
-    Nat.card ↥(K.map (QuotientGroup.mk' (center G))) <
-      Nat.card ↥(fixedPoints (quotAut τ)) := by
-  have hle := h.isTwoComponentIn_bar.1
-  have htC : t ∈ fixedPoints (quotAut τ) := by
-    rw [mem_fixedPoints, ht, MulAut.conj_apply]
-    group
-  have ht1 : t ≠ 1 := by
-    rintro rfl
-    have h2 := h.orderOf_bar
-    rw [ht, map_one, orderOf_one] at h2
-    exact absurd h2 (by norm_num)
-  have htK : t ∉ K.map (QuotientGroup.mk' (center G)) := by
-    intro htK
-    obtain ⟨hB, hL⟩ := h.isComponent_bar hO
-    have := isSimpleGroup_of_lieModel_psl2 hL
-    have hZ := CatLeaf.center_eq_bot_of_simple (nonabelian_of_lieModel_psl2 hL)
-    have hc : (⟨⟨t, htC⟩, htK⟩ : ↥((K.map (QuotientGroup.mk' (center G))).subgroupOf
-        (fixedPoints (quotAut τ)))) ∈ center _ := by
-      rw [mem_center_iff]
-      intro w
-      apply Subtype.ext
-      apply Subtype.ext
-      have hw : t * ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) * t⁻¹ =
-          ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) := by
-        rw [← MulAut.conj_apply, ← ht]
-        exact ((w : ↥(fixedPoints (quotAut τ)))).2
-      change ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) * t =
-        t * ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G)
-      calc ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) * t
-          = t * ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) * t⁻¹ * t := by rw [hw]
-        _ = t * ((w : ↥(fixedPoints (quotAut τ))) : G ⧸ center G) := by group
-    rw [hZ, mem_bot] at hc
-    have h2 := congrArg Subtype.val (congrArg Subtype.val hc)
-    exact ht1 (by simpa using h2)
-  exact Subgroup.card_lt_of_lt (lt_of_le_of_ne hle fun heq => htK (heq ▸ htC))
 
 end Config
 

@@ -93,15 +93,6 @@ theorem centralizer_v1_eq {g : GJ} (hg : Rep 315 v1Arr g.1) :
     exact (commute_of_commA (rep_gElt _ _ k hk) hg (gensCv_comm k hk)).eq
   · rw [card_centralizer_v1 hg, card_subOf keyPts_lt enumCv gensCv_spec, sizeCv]
 
-theorem centralizer_eltOf_x :
-    Nat.card (Subgroup.centralizer ({eltOf xArr J2C3.okx} : Set GJ)) = 36 ∧
-      Subgroup.centralizer ({eltOf xArr J2C3.okx} : Set GJ) = subOf gensCaArr :=
-  ⟨card_centralizer_x (rep_eltOf _), centralizer_x_eq (rep_eltOf _)⟩
-
-theorem centralizer_eltOf_v1 :
-    Nat.card (Subgroup.centralizer ({eltOf v1Arr okv1} : Set GJ)) = 240 ∧
-      Subgroup.centralizer ({eltOf v1Arr okv1} : Set GJ) = subOf gensCvArr :=
-  ⟨card_centralizer_v1 (rep_eltOf _), centralizer_v1_eq (rep_eltOf _)⟩
 
 end CertificateChecks.KernelMisc.J2Cent
 

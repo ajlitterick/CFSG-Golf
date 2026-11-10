@@ -39,11 +39,6 @@ theorem ggRootMatch_comp_of_conj {ψ : U →* G} {ι : U' →* U} {δ : Fin Δ'.
     simp only [MonoidHom.comp_apply, map_mul, map_inv, one_mul, inv_one, mul_one] at heq e1 ⊢
     rw [e1, heq]
 
-theorem ggRootMatch_comp {ψ : U →* G} {ι : U' →* U} {δ : Fin Δ'.rank → ℤ} {γ : Fin Δ.rank → ℤ}
-    (hroot : ∀ z ∈ Δ.rootGroup γ, ∃ z' ∈ Δ'.rootGroup δ, ι z' = z)
-    (htorus : ∀ h' ∈ ggTorus Δ', ι h' ∈ ggTorus Δ) :
-    GGRootMatch Δ Δ' ψ (ψ.comp ι) δ γ 1 :=
-  ggRootMatch_comp_of_conj Δ Δ' hroot fun h' hh' => ⟨ι h', htorus h' hh', fun _ _ => rfl⟩
 
 end Abstract
 

@@ -189,13 +189,6 @@ theorem mem_normalizer_thompsonJ {T : Subgroup G} {g : G}
   rw [map_conj_eq_self_of_mem_normalizer hg] at h
   exact mem_normalizer_of_map_conj_eq h
 
-omit [Finite G] in
-theorem mem_normalizer_omegaCenter {T : Subgroup G} {g : G}
-    (hg : g ∈ Subgroup.normalizer (T : Set G)) :
-    g ∈ Subgroup.normalizer (omegaCenter q T : Set G) := by
-  have h := cj_omegaCenter q g T
-  rw [map_conj_eq_self_of_mem_normalizer hg] at h
-  exact mem_normalizer_of_map_conj_eq h
 
 theorem thompsonJ_le_of_isSylowOf (hq : q.Prime) {U S : Subgroup G} (hS : IsSylowOf q S U) :
     thompsonJ q S ≤ thompsonJ q U := by
@@ -223,10 +216,5 @@ theorem thompsonJ_le_of_isSylowOf (hq : q.Prime) {U S : Subgroup G} (hS : IsSylo
       (Subgroup.card_map_of_injective (MulAut.conj (u : G)).injective).symm
     _ ≤ Nat.card E := hE.2.2 _ hconj (isElemAbelian_map q _ hE'a)
 
-omit [Finite G] in
-theorem le_thompsonJ {U E : Subgroup G} (hE : E ≤ U) (hEa : IsElemAbelian q E)
-    (hmax : ∀ E' : Subgroup G, E' ≤ U → IsElemAbelian q E' → Nat.card E' ≤ Nat.card E) :
-    E ≤ thompsonJ q U :=
-  le_sSup ⟨hE, hEa, hmax⟩
 
 end CFSG.SignalizerFunctorTheorem.Quadratic

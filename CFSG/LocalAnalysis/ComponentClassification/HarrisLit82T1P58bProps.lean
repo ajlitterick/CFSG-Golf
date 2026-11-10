@@ -38,15 +38,5 @@ open CFSG Subgroup Assembly.LowTwoRank
     (Q L : Subgroup X), Lemma58bConfig X p k c t Q → IsTwoComponentIn L (centralizer {t}) →
       t ∈ L → Lemma58bConclusion X p k L
 
-theorem harris82Lemma58bRow_of_noConfig {τ : StatedLieTag} {n : ℕ}
-    (h : Harris82Lemma58bNoConfig τ n) : Harris82Lemma58bRow τ n :=
-  fun X _ _ hX hO p f hp hp2 hm k c t Q _ hcfg _ _ =>
-    (h X hX hO p f hp hp2 hm k c t Q hcfg).elim
-
-theorem harris82Lemma58bCover_of_row (h : ∀ τ n, Harris82Lemma58bRow τ n) :
-    Harris82Lemma58bCover := by
-  intro X _ _ hX hO p hp hp2 hChev k c t Q L hcfg hL htL
-  obtain ⟨τ, n, f, hm⟩ := hChev
-  exact h τ n X hX hO p f hp hp2 hm k c t Q L hcfg hL htL
 
 end CFSG.ComponentClassification.HarrisLit.T1

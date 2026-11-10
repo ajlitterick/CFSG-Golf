@@ -86,15 +86,6 @@ theorem wreathModelHom_generators [Finite (Wreath (2 ^ 2))] (S : Sylow 2 G)
   · rw [← map_inv, ← map_mul, ← map_mul, z_inv_mul_s_mul_z]
   · rw [← map_inv, ← map_mul, ← map_mul, z_inv_mul_t_mul_z]
 
-theorem commute_x_of_mem (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ 2)) {g : G}
-    (hg : g ∈ (S : Subgroup G)) :
-    g * wreathModelHom S e (Original.x (2 ^ 2)) = wreathModelHom S e (Original.x (2 ^ 2)) * g := by
-  rw [← wreathModelHom_range S e] at hg
-  obtain ⟨w, rfl⟩ := hg
-  have hx : Original.x (2 ^ 2) ∈ Subgroup.center (Wreath (2 ^ 2)) := by
-    rw [← Original.Z_eq _ (by norm_num)]
-    exact ⟨2 ^ 2 / 2, rfl⟩
-  rw [← map_mul, ← map_mul, (Subgroup.mem_center_iff.mp hx w)]
 
 theorem card_sylow (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ 2)) : Nat.card (S : Subgroup G) = 32 := by
   rw [Nat.card_congr e.toEquiv, card_wreath]

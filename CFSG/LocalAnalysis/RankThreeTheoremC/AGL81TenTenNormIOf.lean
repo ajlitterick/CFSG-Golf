@@ -16,12 +16,6 @@ open Subgroup
 
 variable (G : Type) [Group G] [Finite G]
 
-@[expose] def AGL81TenEightCfg : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    AGL81CfgData p P M H Q K → ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L →
-    ∀ m ∈ M, ∀ Q₀ : Subgroup G, IsAGLQ p M Q₀ → ∀ N : Subgroup G, GLBIsMaxTwoLocal N →
-        L.map (MulAut.conj m).toMonoidHom ≤ N → Q₀ ≤ N → N = M
 
 @[expose] def AGL81TenTenClaimCfg : Prop :=
   Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)

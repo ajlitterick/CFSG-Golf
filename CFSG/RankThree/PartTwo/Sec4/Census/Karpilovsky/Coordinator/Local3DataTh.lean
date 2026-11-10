@@ -2848,10 +2848,6 @@ open CFSG.SectionRank.Native CFSG.Sporadic.Recognition.CoverRecipe
     000000000000000000000000000000000000000000000000"
   n := 236196
 
-@[expose] def thURoot : Nat := 173491494895165118713822292649314407266466344769084323597730936063656818174
-
-@[noinline, expose] def thUCheck : Bool :=
-  local3Check (ops2 248) (fun v => v % 2 ^ 248) thULocal3 thURoot
 
 @[expose] def thUCover : List (List (Fin 3 × Bool)) :=
   cover₃Words thULocal3.rels (fun i => [(i, true)]) (fun i => thULocal3.ords.getD i 0)

@@ -22,12 +22,6 @@ variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {A : Subgroup G
     (∀ i, J i ∈ Ω ∧ IsClassicalMember3 (J i) (z i)) ∧ A = Subgroup.closure (Set.range z) ∧
       IsElemAbelian 2 A ∧ Nat.card A = 8 ∧ ∀ i, A ≤ trivialOnQuot (J i)
 
-@[expose] def fuzzyVertices3 (Ω : Set (Subgroup G)) (A : Subgroup G) : Set G :=
-  {z | z ∈ A ∧ ∃ J ∈ Ω, IsClassicalMember3 J z ∧ A ≤ trivialOnQuot J}
-
-theorem FuzzyFrame3.exists_vertex (h : FuzzyFrame3 Ω A) : ∃ z, z ∈ fuzzyVertices3 Ω A := by
-  obtain ⟨J, z, hJ, hA, -, -, htriv⟩ := h
-  exact ⟨z 0, hA ▸ Subgroup.subset_closure ⟨0, rfl⟩, J 0, (hJ 0).1, (hJ 0).2, htriv 0⟩
 
 theorem isPGroup_zpowers_of_mem_isElemAbelian3 {B : Subgroup G} (hB : IsElemAbelian 2 B) {c : G}
     (hc : c ∈ B) : IsPGroup 2 (Subgroup.zpowers c) := by
@@ -36,17 +30,6 @@ theorem isPGroup_zpowers_of_mem_isElemAbelian3 {B : Subgroup G} (hB : IsElemAbel
   obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.mp hx
   rw [← (Commute.refl c).mul_zpow, hsq, one_zpow]
 
-theorem IndepTriple3.fuzzyFrame3 (h : IndepTriple3 Ω) : ∃ A : Subgroup G, FuzzyFrame3 Ω A := by
-  obtain ⟨K, z, hmem, hcomm, hA, hcard⟩ := h
-  refine ⟨Subgroup.closure (Set.range z), K, z, hmem, rfl, hA, hcard, fun i => ?_⟩
-  refine (Subgroup.closure_le _).mpr ?_
-  rintro _ ⟨j, rfl⟩
-  refine mem_trivialOnQuot_of_centralizes fun x hx => ?_
-  by_cases hji : j = i
-  · subst hji
-    exact (Subgroup.mem_centralizer_singleton_iff.mp
-      (isSubnormal_le (hmem j).2.subnormal hx)).symm
-  · exact (hcomm i j (Ne.symm hji) x hx _ (hmem j).2.mem).symm
 
 theorem FuzzyFrame3.conj (hΩ : ConjInvariant Ω) (h : FuzzyFrame3 Ω A) (g : G) :
     FuzzyFrame3 Ω (conjSub g A) := by

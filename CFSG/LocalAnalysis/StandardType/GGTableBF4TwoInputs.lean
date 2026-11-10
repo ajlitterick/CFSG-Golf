@@ -96,9 +96,6 @@ theorem ggF4TwoLocalEndNodeInput_holds : TableBF4Two.GGF4TwoLocalEndNodeInput :=
   rw [hmap] at h
   exact ⟨_, h.1, h.2.1, h.2.2.1, h.2.2.2⟩
 
-theorem ggF4TwoEndNodeAdmInput_holds : GGF4TwoEndNodeAdmInput :=
-  TableBF4Two.ggF4TwoEndNodeAdmInput_of_inputs ggF4TwoLocalEndNodeInput_holds
-    ggF4TwoOuterRankInput_holds
 
 end Main
 
@@ -106,16 +103,6 @@ end TableBF4TwoInputs
 
 section Holds
 
-set_option linter.unusedSectionVars false
-
-
-theorem ggStdSubPreInputOn_F4Two_holds : GGStdSubPreInputOn GGTableBF4TwoLabel :=
-  ggStdSubPreInputOn_F4Two_of_inputs TableBF4TwoInputs.ggF4TwoLocalEndNodeInput_holds
-    TableBF4TwoInputs.ggF4TwoOuterRankInput_holds
-
-theorem ggStdSubPreInputOn_F4_all_holds : GGStdSubPreInputOn GGTableBF4AllLabel :=
-  ggStdSubPreInputOn_F4_all_of_inputs TableBF4TwoInputs.ggF4TwoLocalEndNodeInput_holds
-    TableBF4TwoInputs.ggF4TwoOuterRankInput_holds
 
 end Holds
 

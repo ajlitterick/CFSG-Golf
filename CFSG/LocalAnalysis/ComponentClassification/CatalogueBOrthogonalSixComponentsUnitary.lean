@@ -105,13 +105,6 @@ theorem six_hermitian_isometry_iff_matrix (A : Matrix (Fin 4) (Fin 4) (extension
     apply LinearEquiv.toLinearMap_injective
     exact Matrix.toLin'_mul A.val.val B.val.val
 
-theorem sixSpecialUnitarySpaceEquiv_apply (A : sixSpecialUnitary delta)
-    (x : Fin 4 → extension delta) :
-    (sixSpecialUnitarySpaceEquiv delta A).val.val x = A.val.val *ᵥ x := rfl
-
-theorem sixSpecialUnitarySpaceEquiv_symm_val (g : specialIsometry (sixHermitianForm delta)) :
-    ((sixSpecialUnitarySpaceEquiv delta).symm g).val.val =
-      LinearMap.toMatrix' g.val.val.toLinearMap := rfl
 
 variable [Finite K]
 

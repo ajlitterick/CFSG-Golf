@@ -42,9 +42,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo CFSG.Ra
       ∃ b ∈ B, b ≠ 1 ∧ ∃ L ∈ lZeroAt A b,
         ¬ ⁅L, T⁆ ≤ inSubgroup (aschbacherSolvableCore 3) L
 
-@[expose] def Item6_10 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], PartTwoStanding G → ∀ A ∈ partTwoS G,
-    ∀ E ∈ collectionIn (partTwoE G) A, (lZero E).Nonempty
 
 @[expose] def Item6_11_1 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], PartTwoStanding G → ∀ A ∈ partTwoF G,

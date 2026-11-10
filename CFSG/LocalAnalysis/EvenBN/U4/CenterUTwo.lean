@@ -19,7 +19,6 @@ variable {G : Type} [Group G] [Finite G] {f : ℕ} {K : Type} [Field K]
 
 local notation "𝓦" => miyamotoRG h L η t Q ⊓ centralizer (miyamotoI1G h L η : Set G)
 
-variable {k : Type} [Field k] {ψ : miyamotoM1G h L η t ≃* SL(2, k) × SL(2, k)}
 
 end Setting
 

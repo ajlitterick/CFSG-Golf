@@ -162,29 +162,5 @@ theorem qon_base_get_l0 :
   rw [cert_on_schreier_action_data.2.2.2.2.2.2.2.2.1]
   rfl)
 
-theorem at_on_three_point_separating_base :
-    Pv ⊓ fixingSubgroup (Equiv.Perm (Fin N)) threeBase = ⊥ ∧
-      (∀ H : Subgroup (Equiv.Perm (Fin N)), H ≤ Pv →
-        H ⊓ fixingSubgroup (Equiv.Perm (Fin N)) threeBase = ⊥) ∧
-      Nat.card (Pv ⊓ fixingSubgroup (Equiv.Perm (Fin N)) {x0} : Subgroup _) = 1876896 ∧
-      Nat.card (QON.orbitPoints (PairDecomp.l1 QON qon_three)) = 52136 ∧
-      Nat.card (QON.orbitPoints (PairDecomp.l2 QON qon_three)) = 36 ∧
-      ∀ g ∈ Pv ⊓ fixingSubgroup (Equiv.Perm (Fin N)) {x0},
-        ∃! yw : QON.orbitPoints (PairDecomp.l1 QON qon_three) ×
-            QON.orbitPoints (PairDecomp.l2 QON qon_three),
-          g = QON.orbitTransversal (PairDecomp.l1 QON qon_three) yw.1 *
-            QON.orbitTransversal (PairDecomp.l2 QON qon_three) yw.2 := by
-  refine ⟨pv_inf_fixing_three, fun H hH => eq_bot_iff.2 fun g hg => ?_, card_Pv_stab_zero,
-    by rw [qon_card_orbit]; rfl, by rw [qon_card_orbit]; rfl, fun g hg => ?_⟩
-  · rw [← pv_inf_fixing_three]
-    exact ⟨hH hg.1, hg.2⟩
-  · obtain ⟨hgP, hgfix⟩ := Subgroup.mem_inf.1 hg
-    have hg0 : g x0 = x0 := by
-      have := (mem_fixingSubgroup_iff (Equiv.Perm (Fin N))).1 hgfix x0 rfl
-      rwa [Equiv.Perm.smul_def] at this
-    refine PairDecomp.exists_unique_pair QON qon_three qon_valid qon_singleton
-      (by rw [qon_originalSubgroup]; exact hgP) ?_
-    rw [qon_base_get_l0]
-    exact hg0
 
 end CFSG.ONSchreier

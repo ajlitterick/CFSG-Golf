@@ -49,11 +49,6 @@ theorem g2v_eq_add : g2v = g2a + (g2r + g2r) := List.ofFn_injective (by decide +
 theorem g2b_eq_add : g2b = g2a + (g2r + g2r + g2r) := List.ofFn_injective (by decide +kernel)
 theorem g2c_eq_add : g2c = g2a + g2a + (g2r + g2r + g2r) := List.ofFn_injective (by decide +kernel)
 
-theorem g2Pair_g2a : g2Pair g2a = (1, 0) := rfl
-theorem g2Pair_g2r : g2Pair g2r = (0, 1) := rfl
-theorem g2Pair_g2u : g2Pair g2u = (1, 1) := rfl
-theorem g2Pair_g2v : g2Pair g2v = (1, 2) := rfl
-theorem g2Pair_g2b : g2Pair g2b = (1, 3) := rfl
 theorem g2Pair_g2c : g2Pair g2c = (2, 3) := rfl
 
 theorem eq_of_g2Pair {v w : Fin Tag.G2.rank → ℤ} (h : g2Pair v = g2Pair w) : v = w :=

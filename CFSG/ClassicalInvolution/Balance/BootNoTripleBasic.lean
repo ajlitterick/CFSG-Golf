@@ -107,19 +107,6 @@ theorem weakBalanced_of_pairs [IsSimpleGroup G]
       ha ha1 hb hb1 hgen
   · exact hbad a ha ha1 b hb hb1 hgen
 
-theorem weakBalanced_of_pairs_members [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω)
-    {A : Subgroup G} (hA : IsElemAbelian 2 A) {S : Set G}
-    (hS : ∀ z ∈ S, z ∈ A ∧ ∃ K ∈ Ω, IsClassicalMember p f K z ∧
-      K ≤ Subgroup.centralizer (A : Set G))
-    (hbad : ∀ a ∈ A, a ≠ 1 → ∀ b ∈ A, b ≠ 1 → A ≠ Subgroup.closure (S ∪ {a, b}) →
-      ⁅involutionOddCore a ⊓ Subgroup.centralizer {b}, A⁆ ≤ involutionOddCore b) :
-    WeakBalanced A := by
-  intro a ha ha1 b hb hb1
-  by_cases hgen : A = Subgroup.closure (S ∪ {a, b})
-  · exact commutator_le_of_closure_members hnab hp2 hq h0 hA1 hΩ hIH hA hS ha ha1 hb hb1 hgen
-  · exact hbad a ha ha1 b hb hb1 hgen
 
 theorem exists_ne_one_mem_inf_of_card {A F D : Subgroup G} (hA : IsMulCommutative A) (hFA : F ≤ A)
     (hDA : D ≤ A) (hF4 : Nat.card F = 4) (hD4 : 4 ≤ Nat.card D) (hA8 : Nat.card A = 8) :
@@ -164,57 +151,6 @@ theorem exists_mem_ne_one_centralizes_of_large {A : Subgroup G}
   intro h
   exact hf1 (congrArg Subtype.val (eq_one_of_oddQuotMk_eq_one hsq h))
 
-theorem largeCentralizerOn_of_indexTwo (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {A : Subgroup G} {S : Set (Subgroup G)}
-    (hSΩ : S ⊆ Ω) (hSA : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
-    (hidx : ∀ b ∈ A, b ≠ 1 → 4 ≤ Nat.card (Subgroup.closure
-      {z : G | ∃ K ∈ S, K ≤ Subgroup.centralizer ({b} : Set G) ∧ IsClassicalMember p f K z}))
-    {a : G} (ha : a ∈ A) (ha1 : a ≠ 1)
-    {L : Subgroup (OddQuot a)} (hL : OmegaFreeAt Ω a L ∨ RankOneAt Ω a L) :
-    LargeCentralizerOn A a L := by
-  have hf : 0 < f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  set Z : Set G := {z : G | ∃ K ∈ S, K ≤ Subgroup.centralizer ({a} : Set G) ∧
-    IsClassicalMember p f K z} with hZ
-  have hDA : Subgroup.closure Z ≤ A := by
-    rw [Subgroup.closure_le]
-    rintro z ⟨K, hKS, -, hz⟩
-    obtain ⟨z', hz'A, hz'⟩ := hSA K hKS
-    have : z = z' := hz'.eq_of_isCentralInvolution hp2 hf hz.isCentralInvolution
-    rw [this]
-    exact hz'A
-  refine ⟨Subgroup.closure Z, hDA, hidx a ha ha1, ?_⟩
-  intro y hy
-  refine Subgroup.closure_induction
-    (p := fun y _ => ∃ hy : y ∈ Subgroup.centralizer ({a} : Set G),
-      ∀ w ∈ L, oddQuotMk a ⟨y, hy⟩ * w = w * oddQuotMk a ⟨y, hy⟩) ?_ ?_ ?_ ?_ hy
-  · rintro z ⟨K, hKS, hKC, hz⟩
-    have hzC : z ∈ Subgroup.centralizer ({a} : Set G) := hKC hz.mem
-    refine ⟨hzC, fun w hw => ?_⟩
-    exact oddQuotMk_centralizes_of_isCentralInvolution (hSΩ hKS) hKC hz.isCentralInvolution
-      hzC hL w hw
-  · refine ⟨one_mem _, fun w _ => ?_⟩
-    have h1 : (⟨1, one_mem _⟩ : ↥(Subgroup.centralizer ({a} : Set G))) = 1 := rfl
-    rw [h1, map_one, one_mul, mul_one]
-  · rintro y₁ y₂ - - ⟨h₁, c₁⟩ ⟨h₂, c₂⟩
-    refine ⟨mul_mem h₁ h₂, fun w hw => ?_⟩
-    have : oddQuotMk a ⟨y₁ * y₂, mul_mem h₁ h₂⟩ =
-        oddQuotMk a ⟨y₁, h₁⟩ * oddQuotMk a ⟨y₂, h₂⟩ := by
-      rw [← map_mul]; rfl
-    rw [this, mul_assoc, c₂ w hw, ← mul_assoc, c₁ w hw, mul_assoc]
-  · rintro y - ⟨h, c⟩
-    refine ⟨inv_mem h, fun w hw => ?_⟩
-    have : oddQuotMk a ⟨y⁻¹, inv_mem h⟩ = (oddQuotMk a ⟨y, h⟩)⁻¹ := by
-      rw [← map_inv]; rfl
-    rw [this]
-    have := c w hw
-    calc (oddQuotMk a ⟨y, h⟩)⁻¹ * w = (oddQuotMk a ⟨y, h⟩)⁻¹ * (w * oddQuotMk a ⟨y, h⟩) *
-        (oddQuotMk a ⟨y, h⟩)⁻¹ := by group
-      _ = (oddQuotMk a ⟨y, h⟩)⁻¹ * (oddQuotMk a ⟨y, h⟩ * w) * (oddQuotMk a ⟨y, h⟩)⁻¹ := by
-        rw [this]
-      _ = w * (oddQuotMk a ⟨y, h⟩)⁻¹ := by group
 
 theorem twoBalancedWrt_of_member_of_layers {A : Subgroup G} (hA : IsElemAbelian 2 A)
     {L₀ : Subgroup G} {z₀ : G} (hL₀Ω : L₀ ∈ Ω) (hz₀ : IsClassicalMember p f L₀ z₀)
@@ -375,13 +311,5 @@ theorem commutator_le_of_centralizes {A : Subgroup G} {a b : G}
   rw [this]
   exact bot_le
 
-omit [Finite G] in
-theorem badPairs_of_strongBalance {A : Subgroup G} {z₀ : G}
-    (h : ∀ b ∈ A, b ≠ 1 → A ≤ Subgroup.centralizer (involutionOddCore b : Set G)) :
-    ∀ b ∈ A, b ≠ 1 → ∀ c ∈ A, c ≠ 1 → A ≠ Subgroup.closure ({z₀, b, c} : Set G) →
-      ⁅involutionOddCore b ⊓ Subgroup.centralizer {c}, A⁆ ≤ involutionOddCore c :=
-  fun b hb hb1 _ _ _ _ =>
-    commutator_le_of_centralizes
-      ((h b hb hb1).trans (Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr inf_le_left)))
 
 end CFSG.ClassicalInvolution.Balance.BootRank3

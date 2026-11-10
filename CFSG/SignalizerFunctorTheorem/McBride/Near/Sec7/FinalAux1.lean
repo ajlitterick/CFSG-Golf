@@ -43,8 +43,6 @@ theorem cj_eq_of_mem_normalizer {a : G} {X : Subgroup G}
 
 theorem cj_bot (a : G) : cj a (⊥ : Subgroup G) = ⊥ := Subgroup.map_bot _
 
-theorem cj_eq_bot_iff {a : G} {X : Subgroup G} : cj a X = ⊥ ↔ X = ⊥ :=
-  Subgroup.map_eq_bot_iff_of_injective _ (MulAut.conj a).injective
 
 theorem cj_le_iff {a : G} {X Y : Subgroup G} : cj a X ≤ cj a Y ↔ X ≤ Y :=
   Subgroup.map_le_map_iff_of_injective (MulAut.conj a).injective
@@ -184,12 +182,6 @@ theorem Data.isDirectProduct_lcal
     {b : G} (hbA : b ∈ A) (hbE : b ∉ E) : IsDirectProduct (lcal (θ b)) (kOf (θ b)) :=
   isDirectProduct_lcal_kOf (D.sol_apply hbA hbE)
 
-omit [Finite G] in
-theorem lcal_ne_bot {X L : Subgroup G} (hL : L ∈ lcal X) : L ≠ ⊥ := by
-  intro hbot
-  obtain ⟨-, -, -, hnc⟩ := mem_lcal_iff.mp hL
-  rw [hbot] at hnc
-  exact hnc inferInstance
 
 theorem Data.lcal_nonempty
     {h : Counterexample p A θ} {E : Subgroup G} (D : Data h E) {b : G}

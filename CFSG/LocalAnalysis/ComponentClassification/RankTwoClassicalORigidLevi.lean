@@ -16,8 +16,6 @@ variable {K : Type} [Field K] {ι₂ ι : Type} [Fintype ι₂] [DecidableEq ι�
 
 @[expose] def avec₂ (g : Matrix ι ι K) : Fin 2 → ι₂ → K := fun t a => g (ou oe a) (oy oe t)
 
-@[expose] def fBlk (g : Matrix ι ι K) : Matrix (Fin 2) (Fin 2) K :=
-  fun r t => g (oy oe r) (oy oe t)
 
 variable {oe}
 
@@ -35,15 +33,6 @@ theorem avec₂_mul {g : Matrix ι ι K} (hg : ∀ a r, g (ou oe a) (ox oe r) = 
   refine Finset.sum_congr rfl fun r _ => ?_
   ring
 
-omit [DecidableEq ι₂] [DecidableEq ι] in
-theorem fBlk_mul {g : Matrix ι ι K} (hg : IsEShape oe g) (h : Matrix ι ι K) :
-    fBlk oe (g * h) = fBlk oe g * fBlk oe h := by
-  ext r t
-  have h1 : ∀ a, g (oy oe r) (ou oe a) = 0 := fun a => hg.2 _ (ou_ne_oy oe a) r
-  have h2 : ∀ s, g (oy oe r) (ox oe s) = 0 := fun s => hg.2 _ (ox_ne_oy oe s) r
-  simp only [fBlk, Matrix.mul_apply]
-  rw [sum_oe oe]
-  simp [h1, h2]
 
 omit [Fintype ι₂] [DecidableEq ι₂] in
 theorem avec₂_qE (Q₂ : QuadraticForm K (ι₂ → K)) (u : Fin 2 → ι₂ → K) (c : K) :
@@ -52,12 +41,6 @@ theorem avec₂_qE (Q₂ : QuadraticForm K (ι₂ → K)) (u : Fin 2 → ι₂ �
   rw [avec₂, qE_apply, qE_mulVec_ou]
   simp [Pi.single_apply]
 
-omit [Fintype ι₂] [DecidableEq ι₂] in
-theorem fBlk_qE (Q₂ : QuadraticForm K (ι₂ → K)) (u : Fin 2 → ι₂ → K) (c : K) :
-    fBlk oe (qE oe Q₂ u c) = 1 := by
-  ext r t
-  rw [fBlk, qE_apply, qE_mulVec_oy, Matrix.one_apply]
-  simp [Pi.single_apply]
 
 end Avec
 
@@ -76,10 +59,6 @@ theorem oblk_ou_inr (Y : Matrix ι₂ ι₂ K) (X : Matrix (Fin 2 ⊕ Fin 2) (Fi
   rw [oblk_apply]
   rfl
 
-theorem oblk_inr_ou (Y : Matrix ι₂ ι₂ K) (X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)
-    (c : Fin 2 ⊕ Fin 2) (a : ι₂) : oblk oe Y X (oe (.inr c)) (ou oe a) = 0 := by
-  rw [oblk_apply]
-  rfl
 
 theorem oblk_inr_inr (Y : Matrix ι₂ ι₂ K) (X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)
     (c d : Fin 2 ⊕ Fin 2) : oblk oe Y X (oe (.inr c)) (oe (.inr d)) = X c d := by

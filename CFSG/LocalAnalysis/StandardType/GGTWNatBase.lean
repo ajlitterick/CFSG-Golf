@@ -122,9 +122,6 @@ theorem ggTWNInJ_iff {N : ℕ} (pos : GGTWPos) (c : ℕ) :
   cases pos <;>
     simp [ggTWNInJ, ggTWInJ, ggTWPosNat, Bool.and_eq_true, decide_eq_true_iff]
 
-theorem ggTWNPlace_eq {N : ℕ} (pos : GGTWPos) (c : ℕ) :
-    ggTWNPlace (ggTWPosNat pos) c = ggTWPlace pos c := by
-  cases pos <;> simp [ggTWNPlace, ggTWPlace, ggTWPosNat]
 
 theorem ggTWPat1_mn {N c0 : ℕ} {pos : GGTWPos} {m n : ℤ} (h : GGTWPat1 N pos c0 m n) :
     (m = -1 ∨ m = -2) ∧ (n = -1 ∨ n = -2) := by

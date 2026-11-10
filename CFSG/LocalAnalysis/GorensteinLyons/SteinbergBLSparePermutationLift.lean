@@ -28,7 +28,6 @@ theorem torusVec_inv (ζ : M) (b d : Fin n) : (torusVec ζ b d)⁻¹ = torusVec 
   simp only [torusVec, Pi.mulSingle_inv]
   group
 
-variable {S : Type*} [Group S]
 
 end Torus
 

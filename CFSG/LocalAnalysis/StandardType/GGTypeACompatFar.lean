@@ -22,9 +22,6 @@ open CFSG.Assembly CFSG.LieType.Universal.SpecialLinear Matrix
       ∀ i j : Fin n, i.val = 0 → j.val + 1 = n →
         Commute (φ₂ (weylRep n (GaloisField 2 f) j)) (φ₁ (weylRep n (GaloisField 2 f) i))
 
-theorem ggTypeACompatFarExInput_of_cfg (h : GGTypeACompatFarExCfgInput) :
-    GGTypeACompatFarExInput :=
-  fun G _ _ p B Bs x L D J n f y K hN => h G p B Bs x L D J n f y K hN.toNbrCfg
 
 section ActsDiag
 
@@ -147,56 +144,6 @@ theorem weylRep_mem_normalizer_of_actsDiag (h2 : (2 : F) = 0) {p : ℕ} {Bs : Su
 
 end ActsDiag
 
-@[expose] def GGTypeACompatDiagInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeANbrCfg p B Bs x L D J n f y K →
-    ∃ φ₁ φ₂ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ₁.range = L ∧
-      φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) ∧
-      φ₂.range = K ∧
-      φ₂.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) ∧
-      (φ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range = J ∧
-      φ₁.comp (slLowerBlockHom n (GaloisField 2 f)) =
-        φ₂.comp (slUpperBlockHom n (GaloisField 2 f)) ∧
-      ∀ c ∈ Subgroup.centralizer (Bs : Set G), GGActsDiag φ₁ c ∧ GGActsDiag φ₂ c
-
-@[expose] def GGTypeABstarFarInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeANbrCfg p B Bs x L D J n f y K →
-    ∀ φ₁ φ₂ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ₁.range = L →
-      φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) →
-      φ₂.range = K →
-      φ₂.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) →
-      (φ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range = J →
-      φ₁.comp (slLowerBlockHom n (GaloisField 2 f)) =
-        φ₂.comp (slUpperBlockHom n (GaloisField 2 f)) →
-      (∀ c ∈ Subgroup.centralizer (Bs : Set G), GGActsDiag φ₁ c ∧ GGActsDiag φ₂ c) →
-      ∀ i j : Fin n, i.val = 0 → j.val + 1 = n →
-        φ₁ (weylRep n (GaloisField 2 f) i) * φ₂ (weylRep n (GaloisField 2 f) j) *
-            φ₁ (weylRep n (GaloisField 2 f) i) * φ₂ (weylRep n (GaloisField 2 f) j) ∈
-          Subgroup.centralizer (Bs : Set G)
-
-@[expose] def GGBstarCentralizerOddInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeANbrCfg p B Bs x L D J n f y K →
-    Odd (Nat.card (Subgroup.centralizer (Bs : Set G)))
-
-theorem weylRep_mem_normalizer_of_cfg {G : Type} [Group G] [Finite G] {p : ℕ}
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {n f : ℕ} {y : G} {K : Subgroup G}
-    (hN : GGTypeANbrCfg p B Bs x L D J n f y K)
-    {φ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G}
-    (hk : φ.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)))
-    (hdiag : ∀ c ∈ Subgroup.centralizer (Bs : Set G), GGActsDiag φ c) (k : Fin n) :
-    φ (weylRep n (GaloisField 2 f) k) ∈ Subgroup.normalizer (Bs : Set G) := by
-  obtain ⟨⟨-, hBs, -⟩, -, -, -, hmod, -⟩ := id hN
-  have hf : 1 ≤ f := hmod.1.2.1
-  have h2 : (2 : GaloisField 2 f) = 0 :=
-    two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf
-  have hBC : ∀ b ∈ Bs, b ∈ Subgroup.centralizer (Bs : Set G) := fun b hb => by
-    rw [Subgroup.mem_centralizer_iff]
-    intro g hg
-    exact congrArg Subtype.val (hBs.2.1.1.is_comm.comm ⟨g, hg⟩ ⟨b, hb⟩)
-  exact weylRep_mem_normalizer_of_actsDiag h2 hBs.2.1.2 hBs.2.2.2 hk
-    (fun b hb => hdiag b (hBC b hb)) k
 
 theorem odd_natCard_units_of_charTwo {K : Type} [Field K] [Finite K] [CharP K 2] :
     Odd (Nat.card Kˣ) := by
@@ -208,70 +155,5 @@ theorem odd_natCard_units_of_charTwo {K : Type} [Field K] [Finite K] [CharP K 2]
   have : 1 ≤ 2 ^ j := Nat.one_le_two_pow
   exact ⟨2 ^ j - 1, by omega⟩
 
-theorem eq_one_of_mul_self_of_odd {X : Type*} [Group X] {H : Subgroup X}
-    (hH : Odd (Nat.card H)) {g : X} (hg : g ∈ H) (h : g * g = 1) : g = 1 := by
-  have h1 : (⟨g, hg⟩ : H) ^ 2 = 1 := Subtype.ext (by rw [pow_two]; exact h)
-  have h2 : orderOf (⟨g, hg⟩ : H) ∣ Nat.gcd 2 (Nat.card H) :=
-    Nat.dvd_gcd (orderOf_dvd_of_pow_eq_one h1) (orderOf_dvd_natCard _)
-  have hcop : Nat.gcd 2 (Nat.card H) = 1 := (Odd.coprime_two_right hH).symm
-  rw [hcop, Nat.dvd_one, orderOf_eq_one_iff] at h2
-  exact congrArg Subtype.val h2
-
-theorem ggTypeACompatFarExCfgInput_of_diag (hD : GGTypeACompatDiagInput)
-    (hF : GGTypeABstarFarInput) (hO : GGBstarCentralizerOddInput) :
-    GGTypeACompatFarExCfgInput := by
-  intro G _ _ p B Bs x L D J n f y K hN
-  obtain ⟨-, -, -, -, hmod, -, hn, -⟩ := id hN
-  have hf : 1 ≤ f := hmod.1.2.1
-  have h2 : (2 : GaloisField 2 f) = 0 :=
-    two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf
-  obtain ⟨φ₁, φ₂, hL, hk₁, hK, hk₂, hJ, hc, hdiag⟩ := hD G p B Bs x L D J n f y K hN
-  refine ⟨φ₁, φ₂, hL, hk₁, hK, hk₂, hJ, hc, fun i j hi hj => ?_⟩
-  have hu := hF G p B Bs x L D J n f y K hN φ₁ φ₂ hL hk₁ hK hk₂ hJ hc hdiag i j hi hj
-  obtain ⟨h, hh⟩ := (hdiag _ hu).1
-  obtain ⟨h', hh'⟩ := (hdiag _ hu).2
-  exact commute_of_ggDiagConj h2 odd_natCard_units_of_charTwo hn hk₁ hk₂ hc hi hj rfl hh hh'
-    (fun _ => eq_one_of_mul_self_of_odd (hO G p B Bs x L D J n f y K hN) hu)
-
-theorem ggTypeACompatFarExInput_of_diag (hD : GGTypeACompatDiagInput)
-    (hF : GGTypeABstarFarInput) (hO : GGBstarCentralizerOddInput) :
-    GGTypeACompatFarExInput :=
-  ggTypeACompatFarExInput_of_cfg (ggTypeACompatFarExCfgInput_of_diag hD hF hO)
-
-theorem ggTypeAFarCommute_of_bstarFar (hF : GGTypeABstarFarInput)
-    (hO : GGBstarCentralizerOddInput) {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {n f : ℕ} {y : G} {K : Subgroup G}
-    (hN : GGTypeANbrCfg p B Bs x L D J n f y K)
-    {φ₁ φ₂ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G} (hL : φ₁.range = L)
-    (hk₁ : φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)))
-    (hK : φ₂.range = K)
-    (hk₂ : φ₂.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)))
-    (hJ : (φ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range = J)
-    (hc : φ₁.comp (slLowerBlockHom n (GaloisField 2 f)) =
-      φ₂.comp (slUpperBlockHom n (GaloisField 2 f)))
-    (hdiag : ∀ c ∈ Subgroup.centralizer (Bs : Set G), GGActsDiag φ₁ c ∧ GGActsDiag φ₂ c)
-    {i j : Fin n} (hi : i.val = 0) (hj : j.val + 1 = n) :
-    Commute (φ₂ (weylRep n (GaloisField 2 f) j)) (φ₁ (weylRep n (GaloisField 2 f) i)) := by
-  obtain ⟨-, -, -, -, hmod, -, hn, -⟩ := id hN
-  have hf : 1 ≤ f := hmod.1.2.1
-  have h2 : (2 : GaloisField 2 f) = 0 :=
-    two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf
-  have hu := hF G p B Bs x L D J n f y K hN φ₁ φ₂ hL hk₁ hK hk₂ hJ hc hdiag i j hi hj
-  obtain ⟨h, hh⟩ := (hdiag _ hu).1
-  obtain ⟨h', hh'⟩ := (hdiag _ hu).2
-  exact commute_of_ggDiagConj h2 odd_natCard_units_of_charTwo hn hk₁ hk₂ hc hi hj rfl hh hh'
-    (fun _ => eq_one_of_mul_self_of_odd (hO G p B Bs x L D J n f y K hN) hu)
-
-theorem ggTypeAEndBlockLExGenInput_of_diag (hD : GGTypeACompatDiagInput) :
-    GGTypeAEndBlockLExGenInput := by
-  intro G _ _ p B Bs x L D J n f y K hN
-  obtain ⟨φ₁, -, hL, hk₁, -, -, hJ, -, -⟩ := hD G p B Bs x L D J n f y K hN
-  exact ⟨φ₁, hL, hk₁, hJ⟩
-
-theorem ggTypeAEndBlockKGenInput_of_diag (hD : GGTypeACompatDiagInput) :
-    GGTypeAEndBlockKGenInput := by
-  intro G _ _ p B Bs x L D J n f y K hN
-  obtain ⟨φ₁, φ₂, -, -, hK, hk₂, hJ, hc, -⟩ := hD G p B Bs x L D J n f y K hN
-  exact ⟨φ₂, hK, hk₂, by rw [← hc]; exact hJ⟩
 
 end CFSG.StandardType

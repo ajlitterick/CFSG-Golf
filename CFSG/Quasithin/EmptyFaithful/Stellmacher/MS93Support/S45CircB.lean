@@ -27,19 +27,6 @@ open CFSG.Open hiding StatedSL StatedSp StatedSU StatedOmega StatedQuadMinus Sta
 
 section Card
 
-variable {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Fintype F]
-variable {M T L : Subgroup G} {φ : ↥M →* ↥(StatedSL 3 F)}
-
-theorem four_le_card_of_ne_two (c : Ctx M T L φ) (hF : Fintype.card F ≠ 2) :
-    4 ≤ Fintype.card F := by
-  obtain ⟨n, hn⟩ := c.via.1
-  have h1 : 1 < Fintype.card F := Fintype.one_lt_card
-  rw [hn] at h1 hF ⊢
-  rcases n with _ | _ | n
-  · simp at h1
-  · simp at hF
-  · calc 4 = 2 ^ 2 := rfl
-      _ ≤ 2 ^ (n + 2) := Nat.pow_le_pow_right (by norm_num) (by omega)
 
 end Card
 

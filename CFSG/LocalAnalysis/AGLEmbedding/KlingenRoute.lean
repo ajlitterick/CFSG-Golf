@@ -196,14 +196,5 @@ theorem D1Extremal.centralizerInput_of_klingen {G : Type} [Group G] [Finite G] {
       ¬ HasKlingenData p Rbar
         (((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore p))) → False
 
-theorem d1CaseThree_of_notKlingen (hβ : KFactBeta) (hα : KFactAlpha)
-    (h : D1CaseThreeNotKlingen) : D1CaseThree := by
-  intro G _ _ p P M H R Rbar hcfg K hK huniq hnc hcent
-  have : Fact p.Prime := ⟨hcfg.ext.prime⟩
-  by_cases hKD : HasKlingenData p Rbar
-      (((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore p)))
-  · obtain ⟨z, hz⟩ := hcfg.ext.centralizerInput_of_klingen hcfg.loc Rbar hcfg.rbar hKD
-    exact false_of_centralizerInput hβ hα hcfg.glob.simple hcfg.glob.nonab hcfg.glob.kProper hz
-  · exact h G p P M H R Rbar hcfg K hK huniq hnc hcent hKD
 
 end CFSG.AGLEmbedding

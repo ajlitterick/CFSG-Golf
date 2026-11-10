@@ -173,8 +173,6 @@ theorem pRank_le_three_of_not_le [Fact p.Prime] (P : Sylow p X) {Y D : Subgroup 
     L.Normal → Open.pRank 3 L = 2 → Open.pRank 3 (⊤ : Subgroup X) ≤ 3 →
       IsPClosedMod 3 (L ⊔ Subgroup.centralizer (L : Set X))
 
-theorem sevenOneThreeRankTwo_of (h : SevenOneThree) : SevenOneThreeRankTwo :=
-  fun X _ _ hK L hL hLn _ h3 => h X hK 3 Nat.prime_three (by norm_num) L hL hLn (Or.inr (Or.inr h3))
 
 theorem top_le_of_three (h713 : SevenOneThreeRankTwo) (hX : CatalogSimpleSections X)
     (P : Sylow 3 X) {Y L : Subgroup X} (hL : CFSG.IsComponent L) (hLn : L.Normal)

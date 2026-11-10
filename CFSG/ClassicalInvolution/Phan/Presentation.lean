@@ -161,18 +161,5 @@ theorem isUniversalCompletion_of_recognition [Finite X]
   exact isUniversalCompletion_of_isPresentedByAmalgam
     (isPresentedByAmalgam_of_surjective (iSup_family_eq_top U h.gen) back hback)
 
-theorem recognition_of_unmarked [Finite X] (h : WeakPhanSL F p f M U W)
-    (hX : IsQuasisimple X)
-    (hrecognize : ∀ {Y : Type} [Group Y] (V : ι → Subgroup Y) (Z : ι → ι → Subgroup Y),
-      WeakPhanSL F p f M V Z → ∃ θ : X →* Y, Function.Surjective θ)
-    {G : Type} [Group G] (φ : ∀ P, family U P →* G)
-    (hφ : IsCompatible (family U) φ) (hgen : (⨆ P, (φ P).range) = ⊤)
-    (hnt : ∃ P, ∃ x : family U P, φ P x ≠ 1) :
-    ∃ Ψ : X →* G, (∀ P (x : family U P), Ψ x = φ P x) ∧
-      Function.Surjective Ψ ∧ Ψ.ker ≤ center X := by
-  obtain ⟨Ψ, hΨ, hsurj, hker, _⟩ := recognition_of_isUniversalCompletion
-    (iSup_family_eq_top U h.gen) hX (isUniversalCompletion_of_recognition U h hrecognize)
-    φ hφ hgen hnt
-  exact ⟨Ψ, hΨ, hsurj, hker⟩
 
 end CFSG.ClassicalInvolution.Phan.PhanPresentation

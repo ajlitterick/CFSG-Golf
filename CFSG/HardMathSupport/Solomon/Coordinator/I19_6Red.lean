@@ -180,9 +180,6 @@ end Models
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
     Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic name).Group) → IsLocallyBalancedAbs 3 2 S
 
-@[expose] def SporadicOneBalanceThree (name : TauCeti.SporadicName) : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic name).Group) → IsLocallyBalancedAbs 3 1 S
 
 @[expose] def LocalTwoBalanceSporadicThree : Prop :=
   ∀ name : TauCeti.SporadicName, SporadicTwoBalanceThree name
@@ -191,35 +188,9 @@ section OneToTwo
 
 variable {K : Type*} [Group K] {p : ℕ}
 
-theorem i196_exists_line_le_of_card_eq_sq {G : Type*} [Group G] (hp : p.Prime) {D : Subgroup G}
-    (hD : IsElemAbelian p D) (hcard : Nat.card D = p ^ 2) :
-    ∃ E : Subgroup G, E ≤ D ∧ IsElemAbelian p E ∧ Nat.card E = p ^ 1 := by
-  have : Fact p.Prime := ⟨hp⟩
-  have : Finite D := Nat.finite_of_card_ne_zero (by rw [hcard]; exact pow_ne_zero 2 hp.ne_zero)
-  obtain ⟨E', hE'⟩ := Sylow.exists_subgroup_card_pow_prime (G := D) p (n := 1)
-    (by rw [hcard]; exact pow_dvd_pow p (by norm_num))
-  refine ⟨E'.map D.subtype, Subgroup.map_subtype_le _, ⟨⟨⟨fun a b => ?_⟩⟩, ?_⟩, ?_⟩
-  · obtain ⟨_, ⟨x, -, rfl⟩⟩ := a
-    obtain ⟨_, ⟨y, -, rfl⟩⟩ := b
-    apply Subtype.ext
-    change (x : G) * y = y * x
-    exact congrArg (fun z : D => (z : G)) (hD.1.is_comm.comm x y)
-  · rintro _ ⟨x, -, rfl⟩
-    exact hD.2 x x.2
-  · rw [Subgroup.card_map_of_injective D.subtype_injective, hE']
-
-theorem i196_two_of_one (hp : p.Prime) (h : IsLocallyBalancedAbs p 1 K) :
-    IsLocallyBalancedAbs p 2 K := by
-  intro D hD hcard H hH hDH
-  obtain ⟨E, hED, hE, hEc⟩ := i196_exists_line_le_of_card_eq_sq hp hD hcard
-  exact le_bot_iff.1 ((localDeltaIn_antitone H hED).trans
-    (h E hE hEc H hH (hED.trans hDH)).le)
 
 end OneToTwo
 
-theorem SporadicTwoBalanceThree.of_one {name : TauCeti.SporadicName}
-    (h : SporadicOneBalanceThree name) : SporadicTwoBalanceThree name :=
-  fun S _ _ hS hnab he => i196_two_of_one Nat.prime_three (h S hS hnab he)
 
 theorem localTwoBalanceSimpleThree_of_families (hD : LocalTwoBalanceDefCharThree)
     (hC : LocalTwoBalanceCrossCharThree) (hSp : LocalTwoBalanceSporadicThree) :

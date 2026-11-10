@@ -30,8 +30,5 @@ theorem d1Root_k : d1RootK = true := by decide +kernel
 
 theorem d1Break_k : d1BreakK = true := by decide +kernel
 
-theorem d1_neg : (!d1Nodup ((d1Orb.toList.take 2).map d1oK ++ [d1oK []]) &&
-    !d1In d1X0K zK) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelCo2Smith

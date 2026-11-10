@@ -359,33 +359,19 @@ theorem W_comm
   W_comm_lift w' (fun j hj y hy => (W_comm_lift y (fun j' hj' z hz =>
     L.long_comm_deep j' j hj' hj z y hz hy) w' hw').symm) w hw
 
-theorem b5_comm0 (s t s' : K) : Commute ⁅L.L0.A s, L.L3.A t⁆ (L.L0.A s') :=
-  L.comm0 4 (Or.inl rfl) _ (L.b5_mem s t) s'
 
 theorem b5_comm3 (s t t' : K) : Commute ⁅L.L0.A s, L.L3.A t⁆ (L.L3.A t') :=
   L.comm3 4 (by decide) _ (L.b5_mem s t) t'
 
-theorem b6_comm2 (s t s' : K) : Commute ⁅L.L2.A s, L.L3.A t⁆ (L.L2.A s') :=
-  L.comm2 5 (by decide) _ (L.b6_mem s t) s'
 
 theorem b6_comm3 (s t t' : K) : Commute ⁅L.L2.A s, L.L3.A t⁆ (L.L3.A t') :=
   L.comm3 5 (by decide) _ (L.b6_mem s t) t'
 
-theorem b5_add_left
-    (s s' t : K) :
-    ⁅L.L0.A (s + s'), L.L3.A t⁆ = ⁅L.L0.A s, L.L3.A t⁆ * ⁅L.L0.A s', L.L3.A t⁆ := by
-  rw [L.L0.add, commutatorElement_mul_left', (L.b5_comm0 s' t s).symm.eq, mul_inv_cancel_right]
-  exact (D.long_lift_comm (by decide) _ _ (L.b5_mem s' t) (L.b5_mem s t))
 
 theorem b5_add_right (s t t' : K) :
     ⁅L.L0.A s, L.L3.A (t + t')⁆ = ⁅L.L0.A s, L.L3.A t⁆ * ⁅L.L0.A s, L.L3.A t'⁆ := by
   rw [L.L3.add, commutatorElement_mul_right', (L.b5_comm3 s t' t).symm.eq, mul_inv_cancel_right]
 
-theorem b6_add_left
-    (s s' t : K) :
-    ⁅L.L2.A (s + s'), L.L3.A t⁆ = ⁅L.L2.A s, L.L3.A t⁆ * ⁅L.L2.A s', L.L3.A t⁆ := by
-  rw [L.L2.add, commutatorElement_mul_left', (L.b6_comm2 s' t s).symm.eq, mul_inv_cancel_right]
-  exact (D.long_lift_comm (by decide) _ _ (L.b6_mem s' t) (L.b6_mem s t))
 
 theorem b6_add_right (s t t' : K) :
     ⁅L.L2.A s, L.L3.A (t + t')⁆ = ⁅L.L2.A s, L.L3.A t⁆ * ⁅L.L2.A s, L.L3.A t'⁆ := by

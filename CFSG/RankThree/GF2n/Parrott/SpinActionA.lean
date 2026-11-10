@@ -71,7 +71,6 @@ theorem Mf_conj_My : Mf * My * Mf = matWord (toSpinWord conjWordY) :=
 @[expose] def MfUnit : GL8 :=
   ⟨Mf, Mf, Mf_mul_Mf, Mf_mul_Mf⟩
 
-theorem MfUnit_val : (MfUnit : Matrix (Fin 8) (Fin 8) (ZMod 2)) = Mf := rfl
 
 theorem MfUnit_mul_MfUnit : MfUnit * MfUnit = 1 := by
   apply Units.ext
@@ -343,20 +342,6 @@ theorem toQA_mul (p q : QAct) : toQA (p * q) = toQA p * toQA q := by
   map_one' := toQA_one
   map_mul' := toQA_mul
 
-theorem toQA_x :
-    toQA (⟨⟨x45, x45_mem_Q⟩, C2.e⟩ : QAct) = ⟨x45, Q45_le_A45 x45_mem_Q⟩ := by
-  apply Subtype.ext
-  simp [toQA_apply, fpow_e, fpow_t]
-
-theorem toQA_y :
-    toQA (⟨⟨y45, y45_mem_Q⟩, C2.e⟩ : QAct) = ⟨y45, Q45_le_A45 y45_mem_Q⟩ := by
-  apply Subtype.ext
-  simp [toQA_apply, fpow_e, fpow_t]
-
-theorem toQA_f :
-    toQA (⟨1, C2.t⟩ : QAct) = ⟨f45, f45_mem_A⟩ := by
-  apply Subtype.ext
-  simp [toQA_apply, fpow_e, fpow_t]
 
 theorem toQA_injective : Function.Injective toQA := by
   rintro ⟨p, bp⟩ ⟨q, bq⟩ h
@@ -400,11 +385,6 @@ theorem toQA_surjective : Function.Surjective toQA := toQA_bijective.2
 
 theorem QAEquiv_apply (p : QAct) : QAEquiv p = toQA p := rfl
 
-theorem QAEquiv_symm_inl (q : Q45) :
-    QAEquiv.symm ⟨q, Q45_le_A45 q.2⟩ = SemidirectProduct.inl q := by
-  rw [MulEquiv.symm_apply_eq]
-  apply Subtype.ext
-  simp [QAEquiv_apply, toQA_apply, fpow]
 
 theorem QAEquiv_symm_inr (b : C2) :
     QAEquiv.symm ⟨fpow b, fpow_mem_A b⟩ = SemidirectProduct.inr b := by
@@ -575,8 +555,6 @@ theorem actA_add (a : A45) (v w : V) : actA a (v + w) = actA a v + actA a w := b
 theorem actA_neg (a : A45) (v : V) : actA a (-v) = -actA a v := by
   exact Matrix.mulVec_neg v ((rhoA a : GL8) : Matrix (Fin 8) (Fin 8) (ZMod 2))
 
-theorem actA_zero (a : A45) : actA a 0 = 0 := by
-  simp [actA]
 
 @[ext]
 structure SpinExtA where
@@ -629,14 +607,9 @@ noncomputable instance : Group SpinExtA where
 
 theorem mul_apply (p q : SpinExtA) : p * q = ⟨p.v + actA p.a q.v, p.a * q.a⟩ := rfl
 
-theorem inv_apply (p : SpinExtA) : p⁻¹ = ⟨actA p.a⁻¹ (-p.v), p.a⁻¹⟩ := rfl
 
 theorem one_apply : (1 : SpinExtA) = ⟨0, 1⟩ := rfl
 
-def proj : SpinExtA →* A45 where
-  toFun p := p.a
-  map_one' := rfl
-  map_mul' p q := rfl
 
 def inl : Multiplicative V →* SpinExtA where
   toFun v := ⟨v.toAdd, 1⟩
@@ -651,46 +624,6 @@ def inl : Multiplicative V →* SpinExtA where
     · change (1 : A45) = 1 * 1
       simp
 
-theorem inl_apply (v : V) : inl (Multiplicative.ofAdd v) = ⟨v, 1⟩ := by
-  apply SpinExtA.ext
-  · rfl
-  · rfl
-
-theorem inl_injective : Function.Injective inl := by
-  intro v w h
-  simpa [inl] using congrArg SpinExtA.v h
-
-theorem range_inl_eq_ker_proj : inl.range = proj.ker := by
-  ext p
-  constructor
-  · rintro ⟨v, rfl⟩
-    change (inl v).a = 1
-    rfl
-  · intro hp
-    have ha : p.a = 1 := hp
-    refine ⟨Multiplicative.ofAdd p.v, ?_⟩
-    apply SpinExtA.ext
-    · rfl
-    · change 1 = p.a
-      rw [ha]
-
-theorem proj_surjective : Function.Surjective proj := fun a => ⟨⟨0, a⟩, rfl⟩
-
-def kerEquivV : proj.ker ≃ V where
-  toFun p := p.1.v
-  invFun v := ⟨⟨v, 1⟩, by change (⟨v, 1⟩ : SpinExtA).a = 1; rfl⟩
-  left_inv p := by
-    apply Subtype.ext
-    apply SpinExtA.ext
-    · rfl
-    · change 1 = p.1.a
-      have hp : p.1.a = 1 := p.2
-      rw [hp]
-  right_inv v := rfl
-
-theorem card_ker : Nat.card proj.ker = 2 ^ 8 := by
-  rw [Nat.card_congr kerEquivV, Nat.card_fun, Nat.card_zmod]
-  norm_num
 
 def equivProd : SpinExtA ≃ V × A45 where
   toFun p := (p.v, p.a)

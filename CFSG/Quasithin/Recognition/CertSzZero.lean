@@ -104,8 +104,6 @@ private noncomputable def szzSylow (x : ↥(Sz 0)) (hx : orderOf x = 4) : Sylow 
     have h5 : (Subgroup.zpowers x).index = 5 := by omega
     rw [h5]; norm_num)
 
-private theorem szzSylow_coe (x : ↥(Sz 0)) (hx : orderOf x = 4) :
-    (szzSylow x hx : Subgroup ↥(Sz 0)) = Subgroup.zpowers x := rfl
 
 private theorem szz_zpowers_inf : Subgroup.zpowers szzx ⊓ Subgroup.zpowers szzy = ⊥ := by
   classical

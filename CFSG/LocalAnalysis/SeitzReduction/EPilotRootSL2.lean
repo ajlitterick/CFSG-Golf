@@ -70,19 +70,6 @@ theorem centralizer_highRootSL2_subgroupOf [Finite K] [CharP K 2]
     exact congrArg Subtype.val this
   · exact Subtype.ext (Subgroup.mem_centralizer_iff.1 h.2 y (Subgroup.mem_subgroupOf.1 hy))
 
-theorem centralizer_perpLevi_subgroupOf [Finite K] [CharP K 2]
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : 4 ≤ Nat.card K) :
-    centralizer ((rootSpan τ K (perpRoots τ)).subgroupOf (adjointGroup τ K) :
-        Set (adjointGroup τ K)) =
-      (highRootSL2 τ K).subgroupOf (adjointGroup τ K) := by
-  ext g
-  rw [Subgroup.mem_subgroupOf, ← centralizer_perpLevi_eq hτ hq, Subgroup.mem_inf]
-  refine ⟨fun h => ⟨g.2, Subgroup.mem_centralizer_iff.2 fun y hy => ?_⟩,
-    fun h => Subgroup.mem_centralizer_iff.2 fun y hy => ?_⟩
-  · have := Subgroup.mem_centralizer_iff.1 h ⟨y, rootSpan_le_adjointGroup' _ hy⟩
-      (Subgroup.mem_subgroupOf.2 hy)
-    exact congrArg Subtype.val this
-  · exact Subtype.ext (Subgroup.mem_centralizer_iff.1 h.2 y (Subgroup.mem_subgroupOf.1 hy))
 
 end Full
 

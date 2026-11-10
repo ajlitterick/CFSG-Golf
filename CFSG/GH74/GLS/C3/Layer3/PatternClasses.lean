@@ -9,26 +9,6 @@ namespace CFSG.GH74.GLS.Layer3
 
 open Subgroup
 
-theorem exists_centralizer_mulEquiv_of_sameCentralizerOfInvolutionPattern
-    {G G' : Type*} [Group G] [Finite G] [Group G']
-    (hP : SameCentralizerOfInvolutionPattern G G') {z : G} (hz : orderOf z = 2) :
-    ∃ w : G', orderOf w = 2 ∧
-      Nonempty (centralizer ({z} : Set G) ≃* centralizer ({w} : Set G')) := by
-  obtain ⟨S, S', φ, -, hcent⟩ := hP
-  obtain ⟨g, hg⟩ := exists_conj_mem_sylow_two S hz
-  have hconj : IsConj z (g * z * g⁻¹) := isConj_iff.2 ⟨g, rfl⟩
-  have hz' : orderOf (g * z * g⁻¹) = 2 := by
-    rw [← orderOf_eq_of_isConj' hconj]
-    exact hz
-  let u : ↥(S : Subgroup G) := ⟨g * z * g⁻¹, hg⟩
-  have hu : orderOf u = 2 := by
-    rw [← Subgroup.orderOf_coe]
-    exact hz'
-  refine ⟨(φ u : G'), ?_, ?_⟩
-  · rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq φ u]
-    exact hu
-  · obtain ⟨e⟩ := hcent u hu
-    exact ⟨(nonempty_centralizer_mulEquiv_of_isConj hconj).some.trans e⟩
 
 theorem pattern_two_classes {G G' : Type*} [Group G] [Finite G] [Group G'] [Finite G']
     (hP : SameCentralizerOfInvolutionPattern G G') {a b : G'} (ha : orderOf a = 2)

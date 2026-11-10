@@ -52,10 +52,6 @@ theorem summandGL_apply_fst {W : Type*} [AddCommGroup W] [Module k W]
     ((summandGL k A W g : A × W →ₗ[k] A × W) x).1 = (g : A →ₗ[k] A) x.1 :=
   rfl
 
-theorem summandGL_apply_snd {W : Type*} [AddCommGroup W] [Module k W]
-    (g : LinearMap.GeneralLinearGroup k A) (x : A × W) :
-    ((summandGL k A W g : A × W →ₗ[k] A × W) x).2 = x.2 :=
-  rfl
 
 @[expose] def summandSpecialUnitary (hA : A →ₛₗ[σ] A →ₗ[k] k) (W : Type*) [AddCommGroup W]
     [Module k W] : Subgroup (LinearMap.GeneralLinearGroup k (A × W)) :=

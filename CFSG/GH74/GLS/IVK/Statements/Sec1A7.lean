@@ -28,20 +28,6 @@ open Subgroup CFSG CFSG.GH74.GLS
       (∀ x ∈ (T : Subgroup (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7), x * z = z * x) →
         (f * z).cycleType = {2, 2, 2}
 
-@[expose] def IVK_1_1c_a : Prop :=
-  ∀ (T : Sylow 2 (Equiv.Perm (Fin 7))) (f : Equiv.Perm (Fin 7)), IsA7SylowSplit T f →
-    Nonempty (↥(centralizer ({f} : Set (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7)) ≃*
-        Equiv.Perm (Fin 5))
-
-@[expose] def IVK_1_1c_b : Prop :=
-  ∀ (T : Sylow 2 (Equiv.Perm (Fin 7))) (f : Equiv.Perm (Fin 7)), IsA7SylowSplit T f →
-    ∀ (Khat : Type) [Group Khat], IsDoubleCoverOfAlt Khat 7 →
-      ∀ (φ : Khat ⧸ center Khat ≃* alternatingGroup (Fin 7)) (α : MulAut Khat),
-        (∀ x : Khat, ((φ (QuotientGroup.mk (α x)) : alternatingGroup (Fin 7)) : Equiv.Perm (Fin 7)) =
-          f * (φ (QuotientGroup.mk x) : Equiv.Perm (Fin 7)) * f⁻¹) →
-        HasSL2Model ↥(fixedSubgroup Khat α) (fun q => q = 5)
-
-@[expose] def IVK_1_1c : Prop := IVK_1_1c_a ∧ IVK_1_1c_b
 
 @[expose] def IVK_1_1d : Prop :=
   (∀ x y : Equiv.Perm (Fin 7), x ∈ alternatingGroup (Fin 7) → y ∈ alternatingGroup (Fin 7) →
@@ -69,11 +55,5 @@ open Subgroup CFSG CFSG.GH74.GLS
   ∀ u : Equiv.Perm (Fin 7), orderOf u = 2 →
     pRank 2 ↥(centralizer ({u} : Set (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7)) = 2
 
-@[expose] def IVK_1_1h : Prop :=
-  ∀ (T : Sylow 2 (Equiv.Perm (Fin 7))) (f : Equiv.Perm (Fin 7)), IsA7SylowSplit T f →
-    ∀ z ∈ (T : Subgroup (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7), orderOf z = 2 →
-      (∀ x ∈ (T : Subgroup (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7), x * z = z * x) →
-        Nonempty (↥(centralizer ({f * z} : Set (Equiv.Perm (Fin 7))) ⊓ alternatingGroup (Fin 7)) ≃*
-          Equiv.Perm (Fin 4))
 
 end CFSG.GH74.GLS.IVK

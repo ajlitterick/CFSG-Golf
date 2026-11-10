@@ -143,26 +143,6 @@ theorem ggStepTwoLinearFusionEqInput_of_frame (hT : GGUnitaryBstarFrameInput)
   · exact ggStepTwoUnitaryFusionEqInput_of_frame hT hCmp G p B Bs x L D J n f ψ hctx s1 hp hDJ b
       L₁ hpair
 
-@[expose] def GGUnitaryBstarCentralizerInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (ψ : (ggU .PSU n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU .PSU n f).D .PSU n f ψ → GGSixStepOne p B Bs x L D J →
-    p ∣ 2 ^ f + 1 → 2 ≤ f → Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D
-
-@[expose] def GGStepTwoUnitaryFusionLargeInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (ψ : (ggU .PSU n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU .PSU n f).D .PSU n f ψ → GGSixStepOne p B Bs x L D J →
-    p ∣ 2 ^ f + 1 → 2 ≤ f →
-      ∀ (b : G) (L₁ : Subgroup G), GGStepTwoPair p B Bs x L D J b L₁ →
-        ∃ m ∈ Subgroup.normalizer (Bs : Set G), m⁻¹ * b * m ∈ D
-
-theorem ggStepTwoUnitaryFusionLargeInput_of_frame (hT : GGUnitaryBstarFrameInput)
-    (hCmp : GGUnitarySemisimpleComponentInput) (hI1 : GGUnitaryBstarCentralizerInput) :
-    GGStepTwoUnitaryFusionLargeInput := by
-  intro G _ _ p B Bs x L D J n f ψ hctx s1 hp hf b L₁ hpair
-  exact ggStepTwoUnitaryFusionEqInput_of_frame hT hCmp G p B Bs x L D J n f ψ hctx s1 hp
-    (hI1 G p B Bs x L D J n f ψ hctx s1 hp hf) b L₁ hpair
 
 end Inputs
 

@@ -32,9 +32,6 @@ variable (J) in
 
 theorem tPerm_apply (k : Kˣ) (c : Coord J) : tPerm J k c = hermitianTorusAction J k c := rfl
 
-theorem tPerm_eq_iff {k k' : Kˣ} :
-    tPerm J k = tPerm J k' ↔ ∀ c, hermitianTorusAction J k c = hermitianTorusAction J k' c :=
-  Equiv.ext_iff
 
 namespace CoordHyp
 

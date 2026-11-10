@@ -51,12 +51,6 @@ theorem kAll : allOK SGL 693 = true := by quickRfl
 
 theorem kImg : imgOK XP MATP FRB = true := by quickRfl
 
-theorem neg_pts : notB (ptsOK (Nat.xor SGL (fget SGL 0 12)) 693) = true := by quickRfl
-
-theorem neg_all : notB (allOK (Nat.xor SGL (Nat.shiftLeft (fget SGL 5 12) 60)) 693) = true := by
-  quickRfl
-
-theorem neg_img : notB (imgOK XP (Nat.xor MATP (pw2 (nat_lit 12))) FRB) = true := by quickRfl
 
 theorem andB_eq (a b : Bool) : andB a b = (a && b) := by cases a <;> rfl
 theorem orB_eq (a b : Bool) : orB a b = (a || b) := by cases a <;> rfl

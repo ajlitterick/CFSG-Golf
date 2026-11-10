@@ -208,11 +208,6 @@ private theorem castTo_mem (_E : QuadExt F K (unitaryInvolution K 2 f)) {k n : �
   have hj' : ¬ (j : ℕ) < k := fun hlt => hj ((mem_castSupport_iff h j).mpr hlt)
   simp [castTo_apply, hj']
 
-private theorem castTo_injective (_E : QuadExt F K (unitaryInvolution K 2 f)) {k n : ℕ}
-    (h : k ≤ n) : Function.Injective (castTo _E h) := by
-  intro v w hvw
-  have h := congrArg (castRestr h) hvw
-  simpa [castRestr_castTo] using h
 
 private theorem castTo_castRestr (_E : QuadExt F K (unitaryInvolution K 2 f)) {k n : ℕ}
     (h : k ≤ n) {v : (F × F) × (Fin n → K)} (hv : v ∈ castSupport _E h) :

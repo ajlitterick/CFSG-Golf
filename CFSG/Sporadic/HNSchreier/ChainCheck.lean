@@ -17,9 +17,5 @@ theorem card_J_cert :
     Nat.card (CFSG.Sporadic.F5.J hnsData) = 273030912000000 :=
   Certificates.certificate2096
 
-@[irreducible, expose] def hnStrongArrs : Array (Array Nat) := strongOf (hnsData.orbit ())
-
-theorem hnStrongArrs_eq : hnStrongArrs = strongOf (hnsData.orbit ()) := by
-  unfold hnStrongArrs; rfl
 
 end CFSG.Sporadic.HNSchreier.Native

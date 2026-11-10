@@ -27,7 +27,6 @@ open CFSG.KC.YModel CFSG.KC.MonsterConv.Perm
 @[expose] noncomputable def U5 : Nat := N5
 @[expose] noncomputable def U6 : Nat := N6
 @[expose] noncomputable def U7 : Nat := N7
-@[expose] noncomputable def U8 : Nat := N8
 #kc_select CFSG.KD.YMS432C GP GP 60
 #kc_select CFSG.KD.YMS432C GL GL 60
 #kc_benes CFSG.KD.YMS432C U 9 51 15 fun T j =>

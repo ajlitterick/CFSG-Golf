@@ -8,27 +8,6 @@ namespace CFSG.Wreathed.BrauerWong
 
 open CFSG.Wreathed
 
-theorem swap_isConj_iff (m : ℕ) (a b c d : ZMod m) :
-    IsConj (element m a b 1) (element m c d 1) ↔ a + b = c + d := by
-  rw [isConj_iff]
-  constructor
-  · rintro ⟨g, hg⟩
-    obtain ⟨⟨u, v, f⟩, rfl⟩ := (coordinateEquiv m).symm.surjective g
-    change element m u v f * element m a b 1 * (element m u v f)⁻¹ = element m c d 1 at hg
-    rcases swap_exponent_cases f with rfl | rfl
-    · rw [conjugate_swap_by_base, element_eq_iff] at hg
-      obtain ⟨h1, h2, -⟩ := hg
-      rw [← h1, ← h2]
-      abel
-    · rw [conjugate_swap_by_swap, element_eq_iff] at hg
-      obtain ⟨h1, h2, -⟩ := hg
-      rw [← h1, ← h2]
-      abel
-  · intro h
-    refine ⟨element m (c - a) 0 0, ?_⟩
-    rw [conjugate_swap_by_base, element_eq_iff]
-    refine ⟨by abel, ?_, rfl⟩
-    linear_combination h
 
 theorem element_swap_sq_mem_Z (n : ℕ) (hn : 1 ≤ n) (a b : ZMod (2 ^ n)) :
     element (2 ^ n) a b 1 ^ 2 ∈ Original.Z (2 ^ n) := by
@@ -179,30 +158,6 @@ theorem V_inf_base (n : ℕ) (hn : 2 ≤ n) (v : Wreath (2 ^ n)) (hv : v ∈ Ori
     rw [← h]
     abel
 
-theorem V_orderOf_ne (n : ℕ) (hn : 2 ≤ n) (v : Wreath (2 ^ n)) (hv : v ∈ Original.V (2 ^ n)) :
-    orderOf v ≠ 2 * 2 ^ n := by
-  obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by omega⟩
-  obtain ⟨⟨a, b, e⟩, rfl⟩ := (coordinateEquiv (2 ^ (k + 1))).symm.surjective v
-  change element _ a b e ∈ _ at hv
-  change orderOf (element _ a b e) ≠ _
-  intro hord
-  obtain ⟨-, hodd⟩ := (element_maximal_order_iff k a b e).mp hord
-  rw [mem_V_iff _ (four_dvd_two_pow (k + 1) hn)] at hv
-  have heven : Even (a + b).val := by
-    rw [← half_modulus_smul_eq_zero_iff]
-    have hab : a + b = (a - b) + (b + b) := by abel
-    have hhalf : 2 ^ (k + 1) / 2 = 2 ^ k := by rw [pow_succ, Nat.mul_div_cancel _ two_pos]
-    rw [hhalf] at hv
-    have hbb : (2 ^ k) • (b + b) = 0 := by
-      rw [← two_nsmul, smul_smul, show 2 ^ k * 2 = 2 ^ (k + 1) by ring, nsmul_eq_mul,
-        Nat.cast_pow, Nat.cast_ofNat, show ((2 : ZMod (2 ^ (k + 1))) ^ (k + 1)) =
-          ((2 ^ (k + 1) : ℕ) : ZMod _) by push_cast; ring, ZMod.natCast_self, zero_mul]
-    rw [hab, smul_add, hbb, add_zero]
-    rcases hv with h | h
-    · rw [h, smul_zero]
-    · rw [h, nsmul_eq_mul, ← Nat.cast_mul, ← pow_add, ZMod.natCast_eq_zero_iff]
-      exact pow_dvd_pow 2 (by omega)
-  exact (Nat.not_even_iff_odd.mpr hodd) heven
 
 theorem swap_conj_base (m : ℕ) (a b : ZMod m) :
     (Original.z m)⁻¹ * element m a b 0 * Original.z m = element m b a 0 := by
@@ -245,13 +200,6 @@ theorem mem_modelCenter_iff (w : Wreath (2 ^ n)) :
   · intro hw
     exact ⟨w, hw, rfl⟩
 
-theorem mem_modelV_iff (w : Wreath (2 ^ n)) :
-    wreathModelHom S e w ∈ modelV S e ↔ w ∈ Original.V (2 ^ n) := by
-  constructor
-  · rintro ⟨w', hw', heq⟩
-    rwa [← wreathModelHom_injective S e heq]
-  · intro hw
-    exact ⟨w, hw, rfl⟩
 
 theorem modelCenter_eq_zpowers :
     modelCenter S e = Subgroup.zpowers (wreathModelHom S e (Original.a (2 ^ n))) := by
@@ -268,10 +216,6 @@ theorem modelCenter_le_modelBase (hn : 1 ≤ n) : modelCenter S e ≤ modelBase 
   rw [element_mem_base]
   exact hw.1
 
-theorem modelCenter_le_modelV (hn : 2 ≤ n) : modelCenter S e ≤ modelV S e := by
-  apply Subgroup.map_mono
-  rw [(wreath_center_involution_and_quaternion_coordinates n hn).central_product]
-  exact le_sup_left
 
 theorem modelCenter_le_sylow : modelCenter S e ≤ (S : Subgroup G) := by
   rintro _ ⟨w, -, rfl⟩

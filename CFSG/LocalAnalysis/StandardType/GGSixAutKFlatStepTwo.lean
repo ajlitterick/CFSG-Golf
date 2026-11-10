@@ -13,17 +13,6 @@ open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem
 
 section Inputs
 
-@[expose] def GGAutKCanonIIIFlatInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      ∀ (b : G) (L₁ K : Subgroup G) (m : G), GGAutKConjConfig p B Bs x L D J b L₁ K m →
-      ∀ [((ggAutKV D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).Normal],
-        GGHypRestIIIFlat p
-          (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map
-            (ggAutKPi D K (ggM p B x L D J) m))
-          (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map
-            (ggAutKPi D K (ggM p B x L D J) m))
 
 @[expose] def GGAutKCanonIVCompInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -35,23 +24,6 @@ section Inputs
           (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map
             (ggAutKPi D K (ggM p B x L D J) m))
 
-@[expose] def GGSixAutKHypRestAtFlatInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      ∀ b ∈ Bs, b ≠ 1 → ∀ L₁ : Subgroup G,
-      IsComponentOf L₁ (ggG0 p B x L D J ⊓ Subgroup.centralizer {b}) →
-      ∀ K : Subgroup G, IsComponentOf K (Subgroup.centralizer {b}) → L₁ ≤ K →
-        ¬ K ≤ ggM p B x L D J →
-        ∀ m ∈ ggM p B x L D J,
-          D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} →
-          ∃ (W' : Type) (_ : Group W') (_ : Finite W') (π : ↥(ggAutKW D K m) →* W'),
-            Function.Surjective π ∧
-            π.ker ≤ (ggAutKH D K (ggM p B x L D J) m ⊓
-              Subgroup.centralizer (K : Set G)).subgroupOf (ggAutKW D K m) ∧
-            GGHypThreeSixteenRestFlat p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π)
 
 @[expose] def GGStepTwoAutKRestFlatInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)

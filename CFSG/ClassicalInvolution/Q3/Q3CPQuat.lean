@@ -31,11 +31,6 @@ theorem cen_mul (h : QuatPair x y ζ) (u v : X) : (ζ * u) * (ζ * v) = (ζ * ζ
     _ = ζ * (ζ * u) * v := by rw [h.cen u]
     _ = (ζ * ζ) * (u * v) := by group
 
-theorem xy_ne (h : QuatPair x y ζ) : x * y ≠ y * x := by
-  intro hc
-  apply h.ne
-  have h1 : ζ * (y * x) = 1 * (y * x) := by rw [← h.xy, hc, one_mul]
-  exact mul_right_cancel h1
 
 end QuatPair
 

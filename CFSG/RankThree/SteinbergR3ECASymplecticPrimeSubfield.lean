@@ -146,17 +146,6 @@ theorem subfieldSpProj_injective (hr : 1 ≤ r) (k : Subfield K) :
     simp
   · simp [diagonal_apply_ne _ hab]
 
-theorem subfieldSpHom_upperUnipotentSp (k : Subfield K) {B : Matrix (Fin r) (Fin r) k}
-    (hB : Bᵀ = B) :
-    subfieldSpHom r k (SymplecticFlag.upperUnipotentSp r k hB) =
-      SymplecticFlag.upperUnipotentSp r K
-        (show (B.map k.subtype)ᵀ = B.map k.subtype by rw [← transpose_map, hB]) := by
-  refine Subtype.ext (Units.ext ?_)
-  change ((SymplecticFlag.upperUnipotentSp r k hB : GL (Fin r ⊕ Fin r) k) :
-    Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) k).map k.subtype = _
-  rw [SymplecticFlag.coe_upperUnipotentSp, SymplecticFlag.coe_upperUnipotentSp, fromBlocks_map,
-    Matrix.map_one _ (map_zero k.subtype) (map_one k.subtype),
-    Matrix.map_zero _ (map_zero k.subtype)]
 
 theorem primeFieldSp_le_range (k : Subfield K) {g : GL (Fin r ⊕ Fin r) K}
     (hg : g ∈ UnitaryHigher.primeFieldSp r K) :

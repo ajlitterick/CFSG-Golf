@@ -119,8 +119,5 @@ open CFSG.EvenSmallLie.UnitarySix.YamadaPar
     bxor 9 (bmul 9 9 (genABits (Fin.ofNat 12 s)) (unpackN 9 v 0))
       (bmul 9 9 (unpackN 9 v 0) (genABits (Fin.ofNat 12 s)))
 
-@[expose] def h1Check9 : Bool :=
-  certCheck (12 * (9 * 9)) 81 (44 * (9 * 9)) (linBits (12 * (9 * 9)) (44 * (9 * 9)) h1Fb9)
-    (Array.ofFn (n := 81) fun j => cobFb9 (2 ^ (j : ℕ)))
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaN2

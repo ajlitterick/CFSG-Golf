@@ -42,10 +42,6 @@ theorem two_subgroup_conjugate_into_original_sylow
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem originalComponentInclusion_coe {G : Type} [Group G]
-    (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G)
-    (d : originalComponentPreimage n S e K) :
-    (originalComponentInclusion n S e K d : G) = d.val.val := rfl
 
 theorem originalComponentInclusion_injective {G : Type} [Group G]
     (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G) :

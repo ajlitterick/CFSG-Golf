@@ -103,7 +103,6 @@ theorem b0_inv : bmul (wcols tcM v0) b0inv = bone := by decide +kernel
 
 theorem b0inv_bnd : bnd b0inv = true := by decide +kernel
 
-@[expose] def sj : List B8 := [bM1, bM2, bM3]
 
 @[expose] def okWit (w₀ : Nat) : Bool :=
   decide (bpow (xc w₀) 3 = bone) &&

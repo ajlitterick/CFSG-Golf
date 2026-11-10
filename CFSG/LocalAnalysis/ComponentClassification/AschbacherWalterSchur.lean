@@ -16,8 +16,5 @@ theorem walter_schur_two_part_holds :
         Nat.card Z₀ ≤ 2 ∧ (8 ≤ Nat.card P → Z₀ = ⊥) :=
   walter_schur_two_part_of_simpleCaseHyp (Walter.simpleCaseHyp_of_benderHyp Walter.benderHyp)
 
-theorem theorem48Inputs_of_goldschmidt (hG : CFSG.Goldschmidt.TopStatement) :
-    AschbacherTheorem3.Theorem48Inputs :=
-  ⟨GoldschmidtFour.goldschmidt_theorem_four_holds, walter_schur_two_part_holds, hG⟩
 
 end CFSG.ComponentClassification.WalterSchur

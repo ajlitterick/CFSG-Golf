@@ -22,8 +22,6 @@ open CFSG.QuasithinUnique
     funext i
     rfl
 
-theorem permWeightHom_apply (σ : Equiv.Perm (Fin 6)) (x : ↥(evenWeight 6)) :
-    permWeightHom σ x = permWeight 6 σ x := rfl
 
 theorem permWeightHom_mul (σ τ : Equiv.Perm (Fin 6)) (x : ↥(evenWeight 6)) :
     permWeightHom (σ * τ) x = permWeightHom σ (permWeightHom τ x) := by

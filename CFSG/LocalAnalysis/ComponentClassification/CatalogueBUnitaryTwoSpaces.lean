@@ -49,9 +49,6 @@ variable {E : Type u} [Field E] (sigma : E ≃+* E)
     apply Subtype.ext
     exact LinearMap.toMatrix'_mul g.val.val.toLinearMap j.val.val.toLinearMap
 
-theorem hyperbolicSpaceSLEquiv_val (g : specialIsometry (hyperbolicForm sigma)) :
-    (hyperbolicSpaceSLEquiv sigma g).val.val = LinearMap.toMatrix' g.val.val.toLinearMap :=
-  rfl
 
 variable {V : Type v} [AddCommGroup V] [Module E V]
   (h : V →ₛₗ[sigma.toRingHom] V →ₗ[E] E)
@@ -107,17 +104,6 @@ theorem specialIsometrySLEquiv_inverse (B : (Fin 2 → E) ≃ₗ[E] V)
   rw [heq]
   exact hyperbolicSLEquiv_inverse sigma t ht N
 
-theorem specialIsometrySLEquiv_inverse_apply (B : (Fin 2 → E) ≃ₗ[E] V)
-    (hB : ∀ x y, h (B x) (B y) = hyperbolicForm sigma x y)
-    (t : Eˣ) (ht : sigma (t : E) = -(t : E))
-    (N : SpecialLinearGroup (Fin 2) (CatalogueBLinearTwoDescent.fixedSubfield E sigma))
-    (v : V) :
-    ((specialIsometrySLEquiv sigma h B hB t ht).symm N).val.val v =
-      B (((diagonalGL t).val * (fixedSLMap sigma N).val * (diagonalGL t)⁻¹.val) *ᵥ
-        B.symm v) := by
-  rw [← specialIsometrySLEquiv_inverse sigma h B hB t ht N,
-    LinearMap.toMatrix'_mulVec]
-  simp
 
 theorem exists_unitary_two_special_linear_isomorphism [Finite E] [FiniteDimensional E V]
     (hsym : h.IsSymm) (hnd : h.Nondegenerate)

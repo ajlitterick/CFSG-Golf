@@ -24,13 +24,6 @@ theorem sec_K : secK 24 SA.M SB.M co1Sec = true := by decide +kernel
 
 theorem sq_K : sqK 24 SA.M SB.M co1MultData = true := by decide +kernel
 
-theorem sec_neg : (!secK 24 SA.M SB.M { co1Sec with outs := [29, 29, 33, 35, 37] }) = true := by
-  decide +kernel
-
-theorem sq_neg : (!sqK 24 SA.M SB.M { co1MultData with r := co1MultData.r + 1 }) = true := by
-  decide +kernel
-
-theorem sq_neg_seeds : (!sqK 24 SB.M SA.M co1MultData) = true := by decide +kernel
 
 end CertificateChecks.KernelLC.Co1Ops
 

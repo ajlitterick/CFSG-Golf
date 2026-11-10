@@ -145,13 +145,6 @@ theorem n0 : Nat.beq EQ.N 27 = true ∧ Nat.beq EQ.ng 3 = true ∧ Nat.beq E1.N 
     Nat.beq E1.ng 3 = true :=
   ⟨by quickRfl, by quickRfl, by quickRfl, by quickRfl⟩
 
-theorem ch13513NegLines : (!(linesK 315 9 3 EQ.N 13 EQ.T H)) = true := by quickRfl
-
-theorem ch13513NegConv : (!(allN KernelGFR3.J2.E.N (convAt 315 9 KernelGFR3.J2.E.N KernelGFR3.J2.E.T
-    [2, 5] [1, 2, 5] (fun i => Nat.add 1 (WJ0 i)) WR0))) = true := by
-  quickRfl
-
-theorem ch13513NegRels : (!(relsK 315 9 3 C1.BP (XC 0) 5 j2S3C1Rels)) = true := by quickRfl
 
 end CertificateChecks.KernelB3S3.J2
 

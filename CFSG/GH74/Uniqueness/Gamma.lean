@@ -20,11 +20,6 @@ theorem isStronglyEmbeddedOrder_of_isStronglyEmbedded {M : Subgroup X}
   have := h.2.2 g⁻¹ (fun hginv => hg (M.inv_mem_iff.mp hginv))
   simpa only [CFSG.conjugate, inv_inv] using this
 
-theorem isStronglyEmbedded_of_isStronglyEmbeddedOrder {M : Subgroup X}
-    (h : CFSG.BenderSuzuki.IsStronglyEmbeddedOrder M) : IsStronglyEmbedded M := by
-  refine ⟨h.1, h.2.1, fun g hg => ?_⟩
-  have := h.2.2 g⁻¹ (fun hginv => hg (M.inv_mem_iff.mp hginv))
-  simpa only [CFSG.conjugate, inv_inv] using this
 
 end Embedded
 
@@ -40,10 +35,6 @@ theorem gammaElem_le_gammaZero (S : Subgroup G) : gammaElem S ≤ gammaZero S :=
   exact h3.trans (CFSG.RankThreeCoreUniqueness.Helpers.pRank_mono 2 (by decide)
     (le_sup_right : centralizer (E : Set G) ⊓ S ≤ E ⊔ (centralizer (E : Set G) ⊓ S)))
 
-theorem gammaZero_le_gamma_two (S : Subgroup G) :
-    gammaZero S ≤ Open.properTwoGenCoreGamma S 2 := by
-  refine iSup_le fun Q => iSup_le fun hQS => iSup_le fun h2 => iSup_le fun _ => ?_
-  exact le_iSup_of_le Q (le_iSup_of_le hQS (le_iSup_of_le h2 le_rfl))
 
 theorem odd_card_of_pRank_two_eq_zero (H : Subgroup G) (h : Open.pRank 2 H = 0) :
     Odd (Nat.card H) := by

@@ -111,8 +111,6 @@ theorem word_packW (f : ℕ → ℕ) {k : ℕ} (hk : k < 17) :
 theorem lane_eq (a : W17) (i : ℕ) : a.lane i = dgt (a.word (i / 8)).toNat (i % 8) :=
   lane_toNat _ (Nat.mod_lt _ (by norm_num))
 
-theorem lane_lt (a : W17) (i : ℕ) : a.lane i < 256 := by
-  rw [lane_eq]; exact dgt_lt _ _
 
 theorem lane_zero (i : ℕ) : W17.zero.lane i = 0 := by
   rw [lane_eq, word_zero]; exact dgt_zero_left _

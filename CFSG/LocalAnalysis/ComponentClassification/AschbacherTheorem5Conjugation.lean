@@ -70,27 +70,5 @@ theorem preimage_conjugate {G : Type*} [Group G] (D : Subgroup G)
   rw [Subgroup.map_map, ← onD_equivariant, ← Subgroup.map_map, hpreimage]
   rfl
 
-theorem permutation_of_canonical_hypothesis {G : Type*} [Group G]
-    (D : Subgroup G) (r : ℕ) (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (hdistinct : Function.Injective Abar)
-    (hperm : ∀ h ∈ Subgroup.normalizer (D : Set G), ∀ i, ∃ j,
-      (aschbacherThm5Preimage D (Abar i)).map (MulAut.conj h).toMonoidHom =
-        aschbacherThm5Preimage D (Abar j)) (h : Subgroup.normalizer (D : Set G)) :
-    ∃ permutation : Equiv.Perm (Fin r), ∀ i,
-      (Abar i).map (onQuotient D h).toMonoidHom = Abar (permutation i) := by
-  classical
-  let image := fun i => Classical.choose (hperm h.val h.property i)
-  have himage : ∀ i, (Abar i).map (onQuotient D h).toMonoidHom = Abar (image i) := by
-    intro i
-    apply preimage_injective D
-    rw [← preimage_conjugate]
-    exact Classical.choose_spec (hperm h.val h.property i)
-  have hinjective : Function.Injective image := by
-    intro i j hij
-    apply hdistinct
-    exact Subgroup.map_injective (f := (onQuotient D h).toMonoidHom)
-      (onQuotient D h).injective
-      ((himage i).trans ((congrArg Abar hij).trans (himage j).symm))
-  exact ⟨Equiv.ofBijective image ⟨hinjective, Finite.surjective_of_injective hinjective⟩, himage⟩
 
 end CFSG.ComponentClassification.AschbacherTheorem5

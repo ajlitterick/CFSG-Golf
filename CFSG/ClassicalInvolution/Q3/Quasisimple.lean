@@ -135,31 +135,6 @@ theorem IsClassicalMember3.map_centerQuotient (hO : classicalInvolutionOddCore Y
       CFSG.ComponentClassification.OddCore.equiv_invariant eL
     exact ⟨(QuotientGroup.congr _ _ eL hO').symm.trans e'⟩
 
-theorem inClass3_centerQuotient (hO : classicalInvolutionOddCore Y = ⊥) {Λ : Set (Subgroup Y)}
-    (hΛ : InClass3 Λ)
-    (hz : ∀ L ∈ Λ, ∀ z, IsClassicalMember3 L z → z ∉ Subgroup.center Y) :
-    InClass3 (Subgroup.map (QuotientGroup.mk' (Subgroup.center Y)) '' Λ) where
-  nonempty := hΛ.nonempty.image _
-  conjInvariant := by
-    rintro n _ ⟨L, hL, rfl⟩
-    obtain ⟨y, rfl⟩ := QuotientGroup.mk'_surjective _ n
-    exact ⟨conjSub y L, hΛ.conjInvariant y L hL, (conjSub_map (QuotientGroup.mk' _) y L).symm⟩
-  generated := by
-    set π := QuotientGroup.mk' (Subgroup.center Y)
-    have h : ⨆ M ∈ Subgroup.map π '' Λ, M = (⨆ L ∈ Λ, L).map π := by
-      refine le_antisymm (iSup₂_le fun M hM => ?_) ?_
-      · obtain ⟨L, hL, rfl⟩ := hM
-        exact Subgroup.map_mono (le_iSup₂ (f := fun (L : Subgroup Y) (_ : L ∈ Λ) => L) L hL)
-      · rw [Subgroup.map_le_iff_le_comap]
-        refine iSup₂_le fun L hL => ?_
-        exact Subgroup.map_le_iff_le_comap.mp (le_iSup₂
-          (f := fun (M : Subgroup (Y ⧸ Subgroup.center Y)) (_ : M ∈ Subgroup.map π '' Λ) => M)
-          (L.map π) ⟨L, hL, rfl⟩)
-    rw [h, hΛ.generated, Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  classical := by
-    rintro _ ⟨L, hL, rfl⟩
-    obtain ⟨z, hzL⟩ := hΛ.classical L hL
-    exact ⟨_, hzL.map_centerQuotient hO (hz L hL z hzL)⟩
 
 theorem IsClassicalMember3.not_mem_center_of_quasisimple (hqs : CFSG.Open.IsQuasisimple Y)
     {L : Subgroup Y} {z : Y} (h : IsClassicalMember3 L z) : z ∉ Subgroup.center Y := by

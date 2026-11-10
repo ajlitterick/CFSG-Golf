@@ -60,23 +60,6 @@ theorem smallCover_alternating {K : Type} [Group K] [Finite K]
     · rw [Nat.card_eq_fintype_card, card_alternatingGroup]
       simp [Nat.factorial]
 
-theorem smallCover_M22
-    (hSpor : SporadicMultipliers) {K : Type} [Group K] [Finite K] (hK : Open.IsQuasisimple K)
-    (hZp : IsPGroup 3 (Subgroup.center K)) (hZ : Subgroup.center K ≠ ⊥)
-    (e : K ⧸ Subgroup.center K ≃* (CFSGIndex.sporadic .M22).Group) :
-    KGenTwoModAb 3 K ∧ Nat.card (Subgroup.center K) = 3 ∧ KOutNormalSylow 3 K := by
-  have hdvd := card_center_dvd_hopfMultiplier (isQuasisimple_of_open hK) e
-  rw [hSpor.1 .M22] at hdvd
-  obtain ⟨b⟩ := CFSG.Sporadic.Bridge.M22.nonempty_mulEquiv
-  have hcard : Nat.card (CFSGIndex.sporadic .M22).Group = 443520 := by
-    rw [← Nat.card_congr b.toEquiv]
-    exact CFSG.Sporadic.Mathieu.card_M22
-  have hout : Nat.card (Outer NativeSporadic.M22) = 2 :=
-    CFSG.Monster.B.TwoA.Fischer.catalog_M22_full_automorphism_order.2.1
-  have hOut : IsPGroup 2 (Outer (CFSGIndex.sporadic .M22).Group) :=
-    (IsPGroup.of_card (n := 1) (by rw [hout, pow_one])).of_equiv (equivalence b)
-  exact smallCover_conclusion hK hZp hZ e hdvd (by norm_num [sporadicMultiplierOrder])
-    (by rw [hcard]; norm_num) (by rw [hcard]; norm_num) hOut
 
 theorem coverWeakGen_ONan_three
     [Finite (NativeSporadic.Carrier .ONan)] :

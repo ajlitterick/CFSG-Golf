@@ -28,12 +28,6 @@ theorem mem_lineSet {L : Option F4 × F4} {p : F4 × F4} : p ∈ lineSet L ↔ v
 theorem val_add : ∀ (s : Option F4) (p q : F4 × F4), val s (p + q) = val s p + val s q := by
   decide
 
-theorem val_smul : ∀ (s : Option F4) (l : F4) (p : F4 × F4), val s (l • p) = l * val s p := by
-  decide
-
-theorem eq_of_val_eq_val : ∀ s s' : Option F4, s ≠ s' → ∀ p q : F4 × F4, val s p = val s q →
-    val s' p = val s' q → p = q := by
-  decide
 
 theorem exists_val_eq_val : ∀ s s' : Option F4, s ≠ s' → ∀ c c' : F4,
     ∃ p : F4 × F4, val s p = c ∧ val s' p = c' := by
@@ -78,10 +72,6 @@ theorem slope_eq {L L' : Option F4 × F4}
     rw [inv_inv]
     exact ⟨(hg ℓ hℓ).2, (hg ℓ hℓ).1⟩
 
-theorem mem_coll {g : Perm (F4 × F4)} : g ∈ coll ↔ ∀ ℓ ∈ agLines,
-    (g : F4 × F4 → F4 × F4) '' ℓ ∈ agLines ∧
-      ((g⁻¹ : Perm (F4 × F4)) : F4 × F4 → F4 × F4) '' ℓ ∈ agLines :=
-  Iff.rfl
 
 @[expose] noncomputable def imgCode (g : Perm (F4 × F4)) (L : Option F4 × F4) : Option F4 × F4 :=
   if h : ∃ L', lineSet L' = (g : F4 × F4 → F4 × F4) '' lineSet L then h.choose else L
@@ -228,8 +218,6 @@ theorem exists_eq_smul_add {g : coll} (hg : slopePerm g = 1) :
     rintro _ ⟨v, rfl⟩
     exact ⟨-v, Equiv.ext fun p => rfl⟩
 
-theorem mem_transGroup {t : Perm (F4 × F4)} : t ∈ transGroup ↔ ∃ v, Equiv.addRight v = t :=
-  Iff.rfl
 
 theorem addRight_apply' (v p : F4 × F4) : Equiv.addRight v p = p + v := rfl
 

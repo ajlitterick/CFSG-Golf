@@ -1891,23 +1891,6 @@ theorem ae8c_classes (H : End18.Hyp Ω) (hu : SectData Ω u) {c : Chart Ω u} (c
       obtain ⟨w, hw', hwv⟩ := (hQk (wt v) hlt).mpr hw
       exact ae8c_Ds_class co H hwv ((hDmem w).mp hw')
 
-theorem z_odd_cases (H : End18.Hyp Ω) (hu : SectData Ω u) :
-    (∀ x : ↥(zGroup Ω), Odd (wt (co.e x).toAdd) →
-      ((∃ L ∈ Ω, IsUniqueInvolution L (x : G)) ↔ wt (co.e x).toAdd = 3)) ∨
-    (∀ x : ↥(zGroup Ω), Odd (wt (co.e x).toAdd) →
-      ((∃ L ∈ Ω, IsUniqueInvolution L (x : G)) ↔
-        wt (co.e x).toAdd = 1 ∨ wt (co.e x).toAdd = 5)) := by
-  left
-  intro x hx
-  have hcl := (ae8c_classes H hu co).1 (co.e x).toAdd
-  rw [ae8c_xv_co co x] at hcl
-  obtain ⟨k, hk⟩ := hx
-  constructor
-  · intro h
-    have h3 := hcl.mp h
-    omega
-  · intro h
-    exact hcl.mpr (by omega)
 
 end Coords
 
@@ -2197,12 +2180,6 @@ private lemma ae8c_e89_conjEquiv_adj (k : G) (a b : ↥(Delta u)) :
     group]
   exact ae8c_e89_conj_iff k _
 
-theorem Delta.ncard_eq (H : End18.Hyp Ω) {c : Chart Ω u} {co : Coords c} (cl : Classes co) :
-    (Delta u).ncard = 28 := by
-  classical
-  letI : Fintype ↥(Delta u) := Fintype.ofFinite _
-  rw [← Nat.card_coe_set_eq, Nat.card_eq_fintype_card, ← Finset.card_univ]
-  exact ae8c_e89_card_delta cl
 
 theorem exists_pairs (H : End18.Hyp Ω) {c : Chart Ω u} {co : Coords c} (cl : Classes co) :
     ∃ E : ↥(Delta u) ≃ {s : Finset (Fin 8) // s.card = 2},

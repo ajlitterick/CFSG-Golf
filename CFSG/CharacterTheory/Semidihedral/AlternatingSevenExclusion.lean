@@ -27,12 +27,6 @@ theorem factorization_5040_two : (5040 : ℕ).factorization 2 = 4 := by
     Nat.factorization_pow_self Nat.prime_two,
     Nat.factorization_eq_zero_of_not_dvd (by decide : ¬ 2 ∣ 315), Nat.add_zero]
 
-theorem symmetric_seven_sylow_card (S : Sylow 2 (Equiv.Perm (Fin 7))) :
-    Nat.card S = 16 := by
-  rw [S.card_eq_multiplicity, Nat.card_perm]
-  norm_num only [Nat.card_eq_fintype_card, Fintype.card_fin, Nat.factorial]
-  rw [factorization_5040_two]
-  norm_num
 
 theorem symmetric_seven_card : Nat.card (Equiv.Perm (Fin 7)) = 5040 := by
   rw [Nat.card_perm]

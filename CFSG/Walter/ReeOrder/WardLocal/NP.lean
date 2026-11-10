@@ -177,18 +177,6 @@ theorem inf_WW : P ⊓ WW S = ⊥ :=
   disjoint_iff.mp (Subgroup.disjoint_of_coprime_natCard
     (by rw [hPc, card_WW hq hK]; exact coprime_q3 hq))
 
-include hq hK hcT hG hA hC1 hP1P hPc hPn hN1c in
-theorem sup_WW : P ⊔ WW S = Subgroup.normalizer (P : Set G) := by
-  have hle : P ⊔ WW S ≤ Subgroup.normalizer (P : Set G) :=
-    sup_le Subgroup.le_normalizer (WW_le_normalizer hq hK hcT hG hA hC1 hP1P hPc hPn hN1c)
-  apply Subgroup.eq_of_le_of_card_ge hle
-  rw [card_normalizer hq hK hcT hG hA hC1 hP1P hPc hPn hN1c]
-  have h1 : Nat.card P ∣ Nat.card (P ⊔ WW S : Subgroup G) := Subgroup.card_dvd_of_le le_sup_left
-  have h2 : Nat.card (WW S) ∣ Nat.card (P ⊔ WW S : Subgroup G) :=
-    Subgroup.card_dvd_of_le le_sup_right
-  rw [hPc] at h1
-  rw [card_WW hq hK] at h2
-  exact Nat.le_of_dvd Nat.card_pos ((coprime_q3 hq).mul_dvd_of_dvd_of_dvd h1 h2)
 
 include hq hK hcT hP1P hPc in
 theorem inf_centralizer_J : P ⊓ Subgroup.centralizer ({S.J} : Set G) = FF S := by

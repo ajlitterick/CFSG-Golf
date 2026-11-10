@@ -121,9 +121,6 @@ theorem idPlane_SX {b : ℕ} (hb : b < 17) (p : ℕ) :
     (idPlane SX b).testBit p = (decide (p < SX) && p.testBit b) :=
   Benes.idPlane_testBit (k := 17) hb p
 
-theorem idPlane_SX_lt (b : ℕ) (hb : b < 17) : idPlane SX b < 2 ^ SX :=
-  Nat.lt_pow_two_of_testBit _ fun i hi => by
-    rw [idPlane_SX hb, decide_eq_false (by omega), Bool.false_and]
 
 theorem testBit_valW (p : ℕ) : valW.testBit p = decide (p < SX ∧ p % 32 < 24) := by
   change (ones SX ^^^ (idPlane SX 3 &&& idPlane SX 4)).testBit p = _
@@ -163,14 +160,6 @@ theorem xorSel_key {K k q : ℕ} (hq : q < 98280)
   rw [testBit_xorSel (InitAux.xposK_lt' hq), pairN_xorSum]
   exact xorSum_congr fun i hi => by rw [hK i hi, Bool.and_comm]
 
-theorem xorSel_pad {K p : ℕ} (hp : p < SX) (hK : ∀ b < 12, K.testBit (b * SX + p) = false)
-    (m : ℕ) : (xorSel SX K m).testBit p = false := by
-  rw [testBit_xorSel hp]
-  refine (xorSum_congr (g := fun _ => false) fun i hi => by rw [hK i hi, Bool.and_false]).trans ?_
-  clear hK
-  induction 12 with
-  | zero => rfl
-  | succ n ih => simp [xorSum, ih]
 
 theorem xor_split (i a b a' b' : ℕ) (hb : b < 2 ^ i) (hb' : b' < 2 ^ i) :
     (2 ^ i * a + b) ^^^ (2 ^ i * a' + b') = 2 ^ i * (a ^^^ a') + (b ^^^ b') := by

@@ -262,11 +262,6 @@ theorem coe_diagGenOdd (t : Fˣ) (hm : 4 ≤ m) (i : Fin 3)
       diagGLOddHom m F (Pi.mulSingle (threeToFinOrth hm i) t) :=
   rfl
 
-@[expose] noncomputable def omegaActOdd (m : ℕ) (F : Type) [Field F] :
-    StatedOmega (StatedQuadOdd m F) →*
-      ((Fin m ⊕ Fin m ⊕ Unit → F) ≃ₗ[F] (Fin m ⊕ Fin m ⊕ Unit → F)) :=
-  (toLinEquiv (Fin m ⊕ Fin m ⊕ Unit) F).toMonoidHom.comp
-    (Subgroup.subtype (StatedOmega (StatedQuadOdd m F)))
 
 @[expose] def minusDiagHom (m : ℕ) (F : Type) [Field F] :
     (Fin (m - 1) → Fˣ) →* (Fin (m - 1) ⊕ Fin (m - 1) ⊕ Fin 2 → Fˣ) where

@@ -154,13 +154,5 @@ theorem exists_e7Embed_eq_of_mem_perpRoots {γ : Fin (Tag.rank .E8) → ℤ}
     (hγ : γ ∈ perpRoots .E8) : ∃ v, IsRoot .E7 v ∧ e7Embed v = γ :=
   ⟨e8Restrict γ, isRoot_e8Restrict hγ.1 hγ.2, e7Embed_e8Restrict hγ.2⟩
 
-theorem perpRoots_eq_image : perpRoots .E8 = e7Embed '' {v | IsRoot .E7 v} := by
-  ext γ
-  constructor
-  · intro hγ
-    obtain ⟨v, hv, rfl⟩ := exists_e7Embed_eq_of_mem_perpRoots hγ
-    exact ⟨v, hv, rfl⟩
-  · rintro ⟨v, hv, rfl⟩
-    exact e7Embed_mem_perpRoots hv
 
 end CFSG.SeitzReduction.E8Pilot

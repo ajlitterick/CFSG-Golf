@@ -25,9 +25,6 @@ theorem sixteen_twentyEight_of (D : Data G) (hr : R16_28_r D) (hm : R16_28_m D) 
   have h := succ_le_deltaInf_of_mBarGT D hS.setting.hyp16.hyp125 (hm V₀ V L hV hS h8)
   exact lt_of_lt_of_le (by norm_num) h
 
-@[expose] def R16_58_r (D : Data G) : Prop :=
-  ∀ (V₀ V L : Subgroup G) (hV : IsElemAbelian 2 V), Sect16 D V₀ V L hV →
-    Case167_7 D V₀ V hV L → ((mSub V₀ + 3 : ℕ) : ℕ∞) ≤ rMV D.M V
 
 @[expose] def R16_58_m (D : Data G) : Prop :=
   ∀ (V₀ V L : Subgroup G) (hV : IsElemAbelian 2 V), Sect16 D V₀ V L hV →

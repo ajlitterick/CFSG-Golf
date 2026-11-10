@@ -138,29 +138,6 @@ theorem eq_of_perfect_subnormal_of_isQuasisimple {F : Type*} [Group F] {Q P : Su
     exact hz1 (hbot z hzP)
   · exact le_antisymm hPQ (Subgroup.subgroupOf_eq_top.mp htop)
 
-theorem false_of_isQuasisimple_normal_solvable_quotient {F : Type*} [Group F] [Finite F]
-    (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (Q : Subgroup F) (hQC : Q ≤ Subgroup.centralizer {z})
-    (hQn : (Q.subgroupOf (Subgroup.centralizer {z})).Normal)
-    (hsolv : Group.IsSolvable
-      (↥(Subgroup.centralizer {z}) ⧸ Q.subgroupOf (Subgroup.centralizer {z})))
-    (hQ : CFSG.Open.IsQuasisimple Q) (hnw : ¬ classicalInvolutionWitness Q) : False := by
-  have hz1 : z ≠ 1 := by
-    rintro rfl
-    rw [orderOf_one] at hz
-    exact absurd hz (by norm_num)
-  refine false_of_unique_perfect_subnormal z hz K hzK hK hw hns Q ?_ hnw
-  intro P hperf hsub hzP
-  have hPC : P ≤ Subgroup.centralizer {z} := isSubnormal_le hsub
-  have hPQ : P ≤ Q := fun x hx =>
-    Subgroup.mem_subgroupOf.mp ((QuotientGroup.eq_one_iff _).mp
-      (map_eq_one_of_perfect_of_solvable hPC hperf
-        (QuotientGroup.mk' (Q.subgroupOf (Subgroup.centralizer {z}))) hx))
-  have hsubQ : IsSubnormal P Q := by
-    have := isSubnormal_inf hsub Q
-    rwa [inf_eq_left.mpr hPQ, inf_eq_right.mpr hQC] at this
-  exact eq_of_perfect_subnormal_of_isQuasisimple hQ hPQ hsubQ hperf hzP hz1
 
 theorem false_of_isQuasisimple_centralizer {F : Type*} [Group F] [Finite F]
     (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
@@ -312,113 +289,6 @@ theorem classicalConfig_map {F F' : Type*} [Group F] [Group F'] (e : F ≃* F') 
     exact hns (Group.isSolvable_of_surjective (f := (e.subgroupMap K).symm.toMonoidHom)
       (e.subgroupMap K).symm.surjective)
 
-theorem false_of_isSolvable_centralizer_of_mulEquiv {F F' : Type*} [Group F] [Group F']
-    [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (hsolv : Group.IsSolvable ↥(Subgroup.centralizer {e z})) :
-    False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_isSolvable_centralizer (e z) h1 _ h2 h3 h4 h5 hsolv
-
-theorem false_of_normal_pGroup_centralizer_solvable_of_mulEquiv {F F' : Type*} [Group F]
-    [Group F'] [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F)
-    (hzK : z ∈ K) (hK : IsSubnormal K (Subgroup.centralizer {z}))
-    (hw : classicalInvolutionWitness K) (hns : ¬ Group.IsSolvable K) (U : Subgroup F')
-    (hU : IsPGroup 2 U) (hUC : U ≤ Subgroup.centralizer {e z})
-    (hUn : Subgroup.centralizer {e z} ≤ Subgroup.normalizer (U : Set F'))
-    (hsolv : Group.IsSolvable ↥(Subgroup.centralizer {e z} ⊓ Subgroup.centralizer (U : Set F'))) :
-    False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_normal_pGroup_centralizer_solvable (e z) h1 _ h2 h3 h4 h5 U hU hUC hUn hsolv
-
-theorem false_of_normal_pGroup_self_centralizing_of_mulEquiv {F F' : Type*} [Group F]
-    [Group F'] [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F)
-    (hzK : z ∈ K) (hK : IsSubnormal K (Subgroup.centralizer {z}))
-    (hw : classicalInvolutionWitness K) (hns : ¬ Group.IsSolvable K) (U : Subgroup F')
-    (hU : IsPGroup 2 U) (hUC : U ≤ Subgroup.centralizer {e z})
-    (hUn : Subgroup.centralizer {e z} ≤ Subgroup.normalizer (U : Set F'))
-    (hcon : Subgroup.centralizer {e z} ⊓ Subgroup.centralizer (U : Set F') ≤ U) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_normal_pGroup_self_centralizing (e z) h1 _ h2 h3 h4 h5 U hU hUC hUn hcon
-
-theorem false_of_twoConstrained_of_mulEquiv {F F' : Type*} [Group F] [Group F'] [Finite F']
-    (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K)
-    (hcon : Subgroup.centralizer {e z} ⊓
-        Subgroup.centralizer (pCoreOf 2 (Subgroup.centralizer {e z}) : Set F') ≤
-          pCoreOf 2 (Subgroup.centralizer {e z})) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_twoConstrained (e z) h1 _ h2 h3 h4 h5 hcon
-
-theorem false_of_no_perfect_subnormal_of_mulEquiv {F F' : Type*} [Group F] [Group F']
-    [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K)
-    (hno : ∀ P : Subgroup F', ⁅P, P⁆ = P → IsSubnormal P (Subgroup.centralizer {e z}) →
-      e z ∉ P) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_no_perfect_subnormal (e z) h1 _ h2 h3 h4 h5 hno
-
-theorem false_of_solvable_hom_of_mulEquiv {F F' : Type*} [Group F] [Group F'] [Finite F']
-    (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) {S : Type*} [Group S] [Group.IsSolvable S]
-    (f : Subgroup.centralizer ({e z} : Set F') →* S)
-    (hf : ∀ h : e z ∈ Subgroup.centralizer ({e z} : Set F'), f ⟨e z, h⟩ ≠ 1) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_solvable_hom (e z) h1 _ h2 h3 h4 h5 f hf
-
-theorem false_of_solvable_quotient_of_mulEquiv {F F' : Type*} [Group F] [Group F'] [Finite F']
-    (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (N : Subgroup F')
-    (hNn : (N.subgroupOf (Subgroup.centralizer {e z})).Normal)
-    (hsolv : Group.IsSolvable
-      (↥(Subgroup.centralizer {e z}) ⧸ N.subgroupOf (Subgroup.centralizer {e z})))
-    (hzN : e z ∉ N) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_solvable_quotient (e z) h1 _ h2 h3 h4 h5 N hNn hsolv hzN
-
-theorem false_of_index_two_of_mulEquiv {F F' : Type*} [Group F] [Group F'] [Finite F']
-    (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (N : Subgroup F')
-    (hNn : (N.subgroupOf (Subgroup.centralizer {e z})).Normal)
-    (hidx : (N.subgroupOf (Subgroup.centralizer {e z})).index = 2) (hzN : e z ∉ N) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_index_two (e z) h1 _ h2 h3 h4 h5 N hNn hidx hzN
-
-theorem false_of_unique_perfect_subnormal_of_mulEquiv {F F' : Type*} [Group F] [Group F']
-    [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (Q : Subgroup F')
-    (hQ : ∀ P : Subgroup F', ⁅P, P⁆ = P → IsSubnormal P (Subgroup.centralizer {e z}) →
-      e z ∈ P → P = Q)
-    (hnw : ¬ classicalInvolutionWitness Q) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_unique_perfect_subnormal (e z) h1 _ h2 h3 h4 h5 Q hQ hnw
-
-theorem false_of_isQuasisimple_normal_solvable_quotient_of_mulEquiv {F F' : Type*} [Group F]
-    [Group F'] [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F)
-    (hzK : z ∈ K) (hK : IsSubnormal K (Subgroup.centralizer {z}))
-    (hw : classicalInvolutionWitness K) (hns : ¬ Group.IsSolvable K) (Q : Subgroup F')
-    (hQC : Q ≤ Subgroup.centralizer {e z})
-    (hQn : (Q.subgroupOf (Subgroup.centralizer {e z})).Normal)
-    (hsolv : Group.IsSolvable
-      (↥(Subgroup.centralizer {e z}) ⧸ Q.subgroupOf (Subgroup.centralizer {e z})))
-    (hQ : CFSG.Open.IsQuasisimple Q) (hnw : ¬ classicalInvolutionWitness Q) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_isQuasisimple_normal_solvable_quotient (e z) h1 _ h2 h3 h4 h5 Q hQC hQn hsolv hQ
-    hnw
-
-theorem false_of_isQuasisimple_centralizer_of_mulEquiv {F F' : Type*} [Group F] [Group F']
-    [Finite F'] (e : F ≃* F') (z : F) (hz : orderOf z = 2) (K : Subgroup F) (hzK : z ∈ K)
-    (hK : IsSubnormal K (Subgroup.centralizer {z})) (hw : classicalInvolutionWitness K)
-    (hns : ¬ Group.IsSolvable K) (hC : CFSG.Open.IsQuasisimple ↥(Subgroup.centralizer {e z}))
-    (hnw : ¬ classicalInvolutionWitness (Subgroup.centralizer {e z})) : False := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := classicalConfig_map e hz hzK hK hw hns
-  exact false_of_isQuasisimple_centralizer (e z) h1 _ h2 h3 h4 h5 hC hnw
 
 @[expose] def NoNonsolvableClassicalAt {F : Type*} [Group F] (z : F) : Prop :=
   orderOf z = 2 → ∀ K : Subgroup F, z ∈ K → IsSubnormal K (Subgroup.centralizer {z}) →
@@ -483,16 +353,6 @@ theorem NoNonsolvableClassicalAt.of_normal_pGroup_self_centralizing {F : Type*} 
   fun hz K hzK hK hw hns =>
     false_of_normal_pGroup_self_centralizing z hz K hzK hK hw hns U hU hUC hUn hcon
 
-theorem NoNonsolvableClassicalAt.of_no_perfect_subnormal {F : Type*} [Group F] [Finite F] {z : F}
-    (hno : ∀ P : Subgroup F, ⁅P, P⁆ = P → IsSubnormal P (Subgroup.centralizer {z}) → z ∉ P) :
-    NoNonsolvableClassicalAt z :=
-  fun hz K hzK hK hw hns => false_of_no_perfect_subnormal z hz K hzK hK hw hns hno
-
-theorem NoNonsolvableClassicalAt.of_solvable_hom {F : Type*} [Group F] [Finite F] {z : F}
-    {S : Type*} [Group S] [Group.IsSolvable S] (f : Subgroup.centralizer ({z} : Set F) →* S)
-    (hf : ∀ h : z ∈ Subgroup.centralizer ({z} : Set F), f ⟨z, h⟩ ≠ 1) :
-    NoNonsolvableClassicalAt z :=
-  fun hz K hzK hK hw hns => false_of_solvable_hom z hz K hzK hK hw hns f hf
 
 theorem NoNonsolvableClassicalAt.of_index_two {F : Type*} [Group F] [Finite F] {z : F}
     (N : Subgroup F) (hNn : (N.subgroupOf (Subgroup.centralizer {z})).Normal)
@@ -500,12 +360,6 @@ theorem NoNonsolvableClassicalAt.of_index_two {F : Type*} [Group F] [Finite F] {
     NoNonsolvableClassicalAt z :=
   fun hz K hzK hK hw hns => false_of_index_two z hz K hzK hK hw hns N hNn hidx hzN
 
-theorem NoNonsolvableClassicalAt.of_unique_perfect_subnormal {F : Type*} [Group F] [Finite F]
-    {z : F} (Q : Subgroup F)
-    (hQ : ∀ P : Subgroup F, ⁅P, P⁆ = P → IsSubnormal P (Subgroup.centralizer {z}) → z ∈ P →
-      P = Q)
-    (hnw : ¬ classicalInvolutionWitness Q) : NoNonsolvableClassicalAt z :=
-  fun hz K hzK hK hw hns => false_of_unique_perfect_subnormal z hz K hzK hK hw hns Q hQ hnw
 
 theorem NoNonsolvableClassicalAt.of_isQuasisimple_centralizer {F : Type*} [Group F] [Finite F]
     {z : F} (hC : CFSG.Open.IsQuasisimple ↥(Subgroup.centralizer {z}))

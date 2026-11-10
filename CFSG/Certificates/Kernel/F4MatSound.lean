@@ -48,9 +48,6 @@ theorem xorN_spec (f : ℕ → ℕ) (hf : ∀ k, f k < 4) :
     change cF4 (Nat.xor (f n) (xorN n f)) = _
     rw [cF4_xor (hf n) h1, h2, Finset.sum_range_succ, add_comm]
 
-theorem cF4_zero : cF4 0 = 0 := rfl
-
-theorem cF4_one : cF4 1 = 1 := rfl
 
 theorem testBit_mod4 (x n : ℕ) : (x % 4).testBit n = (decide (n < 2) && x.testBit n) := by
   rw [show (4 : ℕ) = 2 ^ 2 from rfl, Nat.testBit_mod_two_pow]

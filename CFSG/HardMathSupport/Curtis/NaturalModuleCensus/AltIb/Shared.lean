@@ -267,18 +267,5 @@ noncomputable def centerQuotientEquiv (hA : Group.IsPerfect A) (f : A →* B)
 
 end CentralQuotient
 
-theorem isQuasisimple_map_of_ker_le_center {S G : Type*} [Group S] [Group G] {π : S →* G}
-    (hker : π.ker ≤ Subgroup.center S) {B : Subgroup S} (hB : CFSG.Open.IsQuasisimple ↥B) :
-    CFSG.Open.IsQuasisimple ↥(B.map π) := by
-  have hBp : Group.IsPerfect ↥B := Group.isPerfect_def.mpr hB.1
-  have hf := MonoidHom.subgroupMap_surjective π B
-  have hk : (π.subgroupMap B).ker ≤ Subgroup.center ↥B := fun b hb => by
-    rw [Subgroup.mem_center_iff]
-    intro g
-    exact Subtype.ext (Subgroup.mem_center_iff.1 (hker (congrArg Subtype.val hb)) (g : S))
-  have : Group.IsPerfect ↥(B.map π) := Group.IsPerfect.ofSurjective hf
-  have : IsSimpleGroup (↥B ⧸ Subgroup.center ↥B) := hB.2
-  exact ⟨Group.IsPerfect.commutator_eq_top,
-    (centerQuotientEquiv hBp (π.subgroupMap B) hf hk).symm.isSimpleGroup⟩
 
 end CFSG.HardMathSupport.Curtis.NaturalModuleCensus.AltIb

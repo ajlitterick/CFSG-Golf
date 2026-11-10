@@ -18,27 +18,6 @@ section List
 
 variable {X : Type} [Group X]
 
-private theorem card_statedProj_of_eq_bot {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type}
-    [Field K] (H : Subgroup (GL ι K))
-    (h : (CFSG.Assembly.LowTwoRank.StatedScalars ι K).subgroupOf H = ⊥) :
-    Nat.card (CFSG.Assembly.LowTwoRank.StatedProj H) = Nat.card H :=
-  Nat.card_congr
-    ((QuotientGroup.quotientMulEquivOfEq h).trans QuotientGroup.quotientBot).toEquiv
-
-private theorem statedScalars_subgroupOf_statedSL_eq_bot {K : Type} [Field K]
-    (hK : Nat.card K = 2) :
-    (CFSG.Assembly.LowTwoRank.StatedScalars (Fin 3) K).subgroupOf
-      (CFSG.Assembly.LowTwoRank.StatedSL 3 K) = ⊥ := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; norm_num)
-  have hu : Nat.card Kˣ = 1 := by
-    rw [CFSG.SectionRank.OddCover.card_units_eq, hK]
-  have : Subsingleton Kˣ := (Nat.card_eq_one_iff_unique.mp hu).1
-  rw [Subgroup.eq_bot_iff_forall]
-  intro x hx
-  obtain ⟨c, hc⟩ := (Subgroup.mem_subgroupOf.mp hx)
-  apply Subtype.ext
-  rw [← hc, Subsingleton.elim c 1, map_one]
-  rfl
 
 theorem card_of_isPSL_three_two (h : IsPSL 3 2 1 X) : Nat.card X = 168 :=
   CFSG.Open.StatedAPI.card_of_statedClassicalModel_psl_three_two h

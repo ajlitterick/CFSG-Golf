@@ -23,7 +23,6 @@ theorem twoF4Lattice_S : twoF4Lattice.S = twoF4TT := by
 
 theorem twoF4Lattice_P₁' : twoF4Lattice.P₁ = twoF4M1 := twoF4Lattice_P₁
 
-theorem twoF4Lattice_P₂' : twoF4Lattice.P₂ = twoF4M2 := twoF4Lattice_P₂
 
 theorem sylow_model : IsSylowTwoOf twoF4TT ⊤ := by
   have := twoF4Lattice.isSylowTwoOf_top

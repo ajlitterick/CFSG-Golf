@@ -338,32 +338,6 @@ theorem commute_of_swap_lift (hk : Nat.card k = 3) {G : Type*} [Group G] {π : E
   · rw [MonoidHom.mem_ker, map_mul, map_inv, map_mul, map_mul, map_inv, hπY, hπY₁, hñ, h2,
       inv_mul_cancel]
 
-theorem commute_of_conj_lift {G : Type*} [Group G] {π : E →* G}
-    (hcen : π.ker ≤ Subgroup.center E) (hπ : Function.Surjective π) {x x₁ x₂ x₃ : k → G}
-    {Y Y₁ Y₂ Y₃ : k → E} (hπY : ∀ s, π (Y s) = x s) (hπY₁ : ∀ s, π (Y₁ s) = x₁ s)
-    (hπY₂ : ∀ s, π (Y₂ s) = x₂ s) (hπY₃ : ∀ s, π (Y₃ s) = x₃ s)
-    (hYY : ∀ s t, Y s * Y₁ t = Y₁ t * Y s) {g : G} {a b : k} (ha : a ≠ 0) (hb : b ≠ 0)
-    (h1 : ∀ s, g * x s * g⁻¹ = x₂ (a * s)) (h2 : ∀ t, g * x₁ t * g⁻¹ = x₃ (b * t)) (s t : k) :
-    Y₂ s * Y₃ t = Y₃ t * Y₂ s := by
-  obtain ⟨ñ, hñ⟩ := hπ g
-  have hz1 : (Y₂ s)⁻¹ * (ñ * Y (a⁻¹ * s) * ñ⁻¹) ∈ Subgroup.center E := hcen (by
-    rw [MonoidHom.mem_ker, map_mul, map_inv, map_mul, map_mul, map_inv, hπY, hπY₂, hñ, h1,
-      ← mul_assoc, mul_inv_cancel₀ ha, one_mul, inv_mul_cancel])
-  have hz2 : (Y₃ t)⁻¹ * (ñ * Y₁ (b⁻¹ * t) * ñ⁻¹) ∈ Subgroup.center E := hcen (by
-    rw [MonoidHom.mem_ker, map_mul, map_inv, map_mul, map_mul, map_inv, hπY₁, hπY₃, hñ, h2,
-      ← mul_assoc, mul_inv_cancel₀ hb, one_mul, inv_mul_cancel])
-  have h := hYY (a⁻¹ * s) (b⁻¹ * t)
-  have hc : ⁅ñ * Y (a⁻¹ * s) * ñ⁻¹, ñ * Y₁ (b⁻¹ * t) * ñ⁻¹⁆ = 1 := by
-    have e : ⁅ñ * Y (a⁻¹ * s) * ñ⁻¹, ñ * Y₁ (b⁻¹ * t) * ñ⁻¹⁆ =
-        ñ * ⁅Y (a⁻¹ * s), Y₁ (b⁻¹ * t)⁆ * ñ⁻¹ := by
-      simp only [commutatorElement_def]
-      group
-    rw [e, (commutatorElement_eq_one_iff_mul_comm).2 h, mul_one, mul_inv_cancel]
-  have e1 : ñ * Y (a⁻¹ * s) * ñ⁻¹ = Y₂ s * ((Y₂ s)⁻¹ * (ñ * Y (a⁻¹ * s) * ñ⁻¹)) := by group
-  have e2 : ñ * Y₁ (b⁻¹ * t) * ñ⁻¹ = Y₃ t * ((Y₃ t)⁻¹ * (ñ * Y₁ (b⁻¹ * t) * ñ⁻¹)) := by group
-  rw [e1, e2, TorusLift.commutatorElement_mul_central_left hz1,
-    TorusLift.commutatorElement_mul_central_right hz2, commutatorElement_eq_one_iff_mul_comm] at hc
-  exact hc
 
 end Swap
 

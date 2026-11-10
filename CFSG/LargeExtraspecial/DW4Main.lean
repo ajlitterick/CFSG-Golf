@@ -28,8 +28,6 @@ variable {X : Type*} [Group X]
     exact ⟨l⁻¹ * u⁻¹ * l⁻¹⁻¹, (mem_normalizer_iff.mp (hL (L.inv_mem hl)) u⁻¹).mp (U.inv_mem hu),
       l⁻¹, L.inv_mem hl, by group⟩
 
-theorem mem_mulSub {U L : Subgroup X} {hL : L ≤ normalizer (U : Set X)} {g : X} :
-    g ∈ mulSub U L hL ↔ ∃ u ∈ U, ∃ l ∈ L, u * l = g := Iff.rfl
 
 theorem card_mulSub [Finite X] {U L : Subgroup X} (hL : L ≤ normalizer (U : Set X))
     (hUL : ∀ g ∈ U, g ∈ L → g = 1) : Nat.card (mulSub U L hL) = Nat.card U * Nat.card L := by

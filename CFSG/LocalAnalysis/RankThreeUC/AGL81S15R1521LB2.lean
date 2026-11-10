@@ -78,17 +78,6 @@ theorem pRank_normalizer_lift_le_one_gen (hT : LieOddRankTable) (hKSML3 : KSML3)
       have := hO1211 r hr h5 hrσ (E.map M.subtype) hEM hEab hEcard hΓ H₀ hH₀max.1 hEH
       exact hH₀ne (hH₀max.2 M ctx.maxLocal.1 this).symm
 
-theorem pRank_normalizer_lift_le_one (o1211 : O1211) (o1217 : O1217) (o1521 : O1521)
-    (hT : LieOddRankTable) (hKSML3 : KSML3) {G : Type} [Group G] [Finite G] {M T : Subgroup G}
-    {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂) (h11 : Row1511 G M T T₁ T₂)
-    (h20 : Row1520 G M T T₁ T₂) (h21 : Row1521 G M T T₁ T₂)
-    {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    {Ti : Subgroup ↥M} (hTi : Ti = T₁ ∨ Ti = T₂) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    CFSG.Open.pRank r (Subgroup.normalizer (Ti : Set ↥M) ⊓ L) ≤ 1 :=
-  pRank_normalizer_lift_le_one_gen hT hKSML3 (O1211At.of_ctx2 o1211 ctx)
-    (O1217At.of_ctx2 o1217 ctx) (O1521At.of_ctx2 o1521 ctx) (S15CtxGen.of_ctx2 ctx)
-    (liftRankBound_of_ctx2 ctx) h11 h20 h21 hLs hL hTi hr hr2
 
 section Row1522
 
@@ -108,17 +97,6 @@ theorem isCentralProdA6Z3_gnImg_gen (hT : LieOddRankTable) (hKSML3 : KSML3) {G :
     (pRank_normalizer_lift_le_one_gen hT hKSML3 hO1211 hO1217 hO1521 ctx hR h11 h20 h21 hLs hL
       (Or.inl rfl) Nat.prime_three (by norm_num))
 
-theorem isCentralProdA6Z3_gnImg (o1211 : O1211) (o1217 : O1217) (o1521 : O1521)
-    (hT : LieOddRankTable) (hKSML3 : KSML3) {G : Type} [Group G] [Finite G] {M T : Subgroup G}
-    {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂) (h11 : Row1511 G M T T₁ T₂)
-    (h20 : Row1520 G M T T₁ T₂) (h21 : Row1521 G M T T₁ T₂)
-    {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    (hcp : IsCentralProdA6Z3 ↥(barO2 (Subgroup.normalClosure (L : Set ↥M)))) :
-    IsCentralProdA6Z3 ↥(gnImg (T.subgroupOf M) (Subgroup.normalClosure (L : Set ↥M))) :=
-  isCentralProdA6Z3_gnImg_gen hT hKSML3 (O1211At.of_ctx2 o1211 ctx) (O1217At.of_ctx2 o1217 ctx)
-    (O1521At.of_ctx2 o1521 ctx) (S15CtxGen.of_ctx2 ctx) (liftRankBound_of_ctx2 ctx) h11 h20 h21
-    hLs hL hcp
 
 theorem small_of_normal_gen (hT : LieOddRankTable)
     (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3) (k517_4b : K517_4b)
@@ -138,16 +116,6 @@ theorem small_of_normal_gen (hT : LieOddRankTable)
     hL hTi hr hr2
   omega
 
-theorem small_of_normal (o1211 : O1211) (o1217 : O1217) (o1521 : O1521) (hT : LieOddRankTable)
-    (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3) (k517_4b : K517_4b)
-    (hSix : GNSixAll) {G : Type} [Group G] [Finite G] {M T : Subgroup G} {T₁ T₂ : Subgroup ↥M}
-    (ctx : S15Ctx2 G M T T₁ T₂) (h11 : Row1511 G M T T₁ T₂) (h20 : Row1520 G M T T₁ T₂)
-    (h21 : Row1521 G M T T₁ T₂) {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    (hLn : L.Normal) : Small1522 ↥Ls :=
-  small_of_normal_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 k517_4b hSix
-    (O1211At.of_ctx2 o1211 ctx) (O1217At.of_ctx2 o1217 ctx) (O1521At.of_ctx2 o1521 ctx)
-    (S15CtxGen.of_ctx2 ctx) (liftRankBound_of_ctx2 ctx) h11 h20 h21 hLs hL hLn
 
 theorem row1522_gen (hT : LieOddRankTable)
     (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3) (k517_4b : K517_4b)

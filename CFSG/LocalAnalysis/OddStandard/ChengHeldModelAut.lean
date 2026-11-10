@@ -154,20 +154,6 @@ theorem isInvolAut_iff (R : Rep M H) {a : Array ℕ} (σ : H → H)
       obtain ⟨y, rfl⟩ := R.pt_surj y hy
       simp only [← R.pt_mul, ha, H2]
 
-theorem isHom_iff (R : Rep M H) {a : Array ℕ} (σ : H → H)
-    (ha : ∀ h, a[R.pt h]! = R.pt (σ h)) (hs : a.size = M.N) :
-    M.isHom a = true ↔ ∀ x y, σ (x * y) = σ x * σ y := by
-  unfold RegModel.isHom
-  simp only [Bool.and_eq_true, beq_iff_eq, hs, List.all_eq_true, List.mem_range, true_and]
-  constructor
-  · intro H x y
-    have := H (R.pt x) (R.pt_lt x) (R.pt y) (R.pt_lt y)
-    simp only [← R.pt_mul, ha] at this
-    exact R.pt_inj this
-  · intro H x hx y hy
-    obtain ⟨x, rfl⟩ := R.pt_surj x hx
-    obtain ⟨y, rfl⟩ := R.pt_surj y hy
-    simp only [← R.pt_mul, ha, H]
 
 theorem isBij_iff (R : Rep M H) {a : Array ℕ} (σ : H → H)
     (ha : ∀ h, a[R.pt h]! = R.pt (σ h)) :
@@ -245,9 +231,6 @@ theorem permOrd_eq_iff (R : Rep M H) {a : Array ℕ} (σ : H → H)
     obtain ⟨h, hh⟩ := h2 j hj hjk
     exact hh (hc h)
 
-theorem conjArr_size (R : Rep M H) (s : ℕ) : (M.conjArr s).size = M.N := by
-  have _ := R.pt_one
-  simp [RegModel.conjArr]
 
 theorem conjArr_spec (R : Rep M H) (s h : H) :
     (M.conjArr (R.pt s))[R.pt h]! = R.pt (s⁻¹ * h * s) := by

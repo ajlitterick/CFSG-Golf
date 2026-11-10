@@ -44,12 +44,6 @@ theorem eq_toPermHom_of_apply
   change ((rho g z : IsoPoint J) : ℙ K (Fin 3 → K)) = ((g • z : IsoPoint J) : ℙ K (Fin 3 → K))
   rw [hrho g z ⟨M, hM⟩ hMg, coe_smul_eq_toLin J g z ⟨M, hM⟩ hMg]
 
-theorem comap_toPermHom_stabilizer (x : IsoPoint J) :
-    (MulAction.stabilizer (Equiv.Perm (IsoPoint J)) x).comap
-        (MulAction.toPermHom (ProjectiveSpecialUnitaryMatrixGroup J) (IsoPoint J)) =
-      MulAction.stabilizer (ProjectiveSpecialUnitaryMatrixGroup J) x := by
-  ext g
-  rfl
 
 end Action
 
@@ -93,15 +87,6 @@ theorem rootGroup_disjoint_inf_rightConjugate_weyl :
   rw [rightConjugate_stabilizer_pinf_weyl]
   exact (rootGroup_disjoint_stabilizer_pzero J hJ).mono_right inf_le_right
 
-theorem weyl_smul_rankOneCoordinate (z : Coord J) (hz : z ≠ 1) :
-    weyl J hJ • CFSG.BenderSuzuki.PFchapter4section1.rankOneCoordinate (rootGroup J hJ)
-        (weyl J hJ) (pinf J hJ) (some (rootCoord J hJ z)) =
-      CFSG.BenderSuzuki.PFchapter4section1.rankOneCoordinate (rootGroup J hJ) (weyl J hJ)
-        (pinf J hJ) (some (rootCoord J hJ (weylCoordRight J z))) := by
-  rw [CFSG.BenderSuzuki.PFchapter4section1.rankOneCoordinate_some,
-    CFSG.BenderSuzuki.PFchapter4section1.rankOneCoordinate_some, coe_rootCoord, coe_rootCoord,
-    weyl_smul_pinf]
-  exact weyl_smul_root_inv_smul_pzero J hJ z hz
 
 @[expose] def rootCoordOf (x : ProjectiveSpecialUnitaryMatrixGroup J) : Coord J := by
   classical
@@ -137,23 +122,11 @@ theorem rootCoordOf_ne_one {x : ProjectiveSpecialUnitaryMatrixGroup J} (hx : x �
   classical
   exact if h : (rootCoordOf J hJ x).1.2 = 0 then 1 else torus J hJ (Units.mk0 _ h)
 
-theorem bruhatLeft_root (z : Coord J) :
-    bruhatLeft J hJ (root J hJ z) = root J hJ (weylCoord J z) := by
-  rw [bruhatLeft, rootCoordOf_root]
 
 theorem bruhatRight_root (z : Coord J) :
     bruhatRight J hJ (root J hJ z) = root J hJ (weylCoordRight J z) := by
   rw [bruhatRight, rootCoordOf_root]
 
-theorem bruhatTorus_root (z : Coord J) (hz : z ≠ 1) :
-    bruhatTorus J hJ (root J hJ z) = torus J hJ (Units.mk0 z.1.2 (coord_snd_ne_zero J hz)) := by
-  unfold bruhatTorus
-  split_ifs with h
-  · rw [rootCoordOf_root] at h
-    exact absurd h (coord_snd_ne_zero J hz)
-  · congr 1
-    ext
-    simp [rootCoordOf_root]
 
 theorem bruhatLeft_mem (x : ProjectiveSpecialUnitaryMatrixGroup J) (hx : x ∈ rootGroup J hJ)
     (hx1 : x ≠ 1) : bruhatLeft J hJ x ∈ rootGroup J hJ ∧ bruhatLeft J hJ x ≠ 1 := by
@@ -394,17 +367,6 @@ theorem rootGroup_sup_inf_rightConjugate_weyl :
       MulAction.stabilizer (ProjectiveSpecialUnitaryMatrixGroup J) (pinf J hJ) := by
   rw [stabilizer_inf_rightConjugate_weyl J hJ q hK hfix, rootGroup_sup_torusGroup J hJ q hK hfix]
 
-theorem exists_rankOneCoordinateEquiv_model :
-    ∃ c : Option (rootGroup J hJ) ≃ IsoPoint J, ∀ z : Option (rootGroup J hJ),
-      c z = CFSG.BenderSuzuki.PFchapter4section1.rankOneCoordinate (rootGroup J hJ) (weyl J hJ)
-        (pinf J hJ) z :=
-  CFSG.BenderSuzuki.PFchapter4section1.exists_rankOneCoordinateEquiv
-    (MulAction.stabilizer (ProjectiveSpecialUnitaryMatrixGroup J) (pinf J hJ)) (rootGroup J hJ) _
-    (weyl J hJ) (pinf J hJ) (isMultiplyPretransitive_two J hJ q hK hfix) rfl
-    (isInvolution_weyl J hJ) (weyl_not_mem_stabilizer J hJ) rfl
-    (rootGroup_subgroupOf_stabilizer_normal J hJ q hK hfix)
-    (rootGroup_disjoint_inf_rightConjugate_weyl J hJ)
-    (rootGroup_sup_inf_rightConjugate_weyl J hJ q hK hfix)
 
 omit hJ in
 theorem isSimpleGroup_psu (hq : 2 < q) : IsSimpleGroup (ProjectiveSpecialUnitaryMatrixGroup J) :=

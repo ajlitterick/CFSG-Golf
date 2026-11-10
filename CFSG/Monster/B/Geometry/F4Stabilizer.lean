@@ -45,9 +45,6 @@ theorem mem_residue_iff_of_mem_typeAut {g : Equiv.Perm C} (hg : g ∈ typeAut cs
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem pairStabRestrict_apply (J : Set ι) {c d : C} (t : pairStab cs δ c d)
-    (y : residue cs δ J c) : ((pairStabRestrict hδ J c d t y : residue cs δ J c) : C) = t.1 y :=
-  rfl
 
 theorem pairStabRestrict_mem (J : Set ι) {c d p : C}
     (hp : IsProjection cs δ (residue cs δ J c) d p) (t : pairStab cs δ c d) :

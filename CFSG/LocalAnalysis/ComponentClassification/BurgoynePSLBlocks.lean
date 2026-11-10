@@ -256,9 +256,6 @@ theorem range_blockSL (J : Finset (Fin n)) : (blockSL K J).range = coordBlock K 
   (MonoidHom.ofInjective (blockSL_injective (K := K) J)).trans
     (MulEquiv.subgroupCongr (range_blockSL J))
 
-theorem coe_coordBlockEquiv (J : Finset (Fin n)) (X : SpecialLinearGroup (Fin J.card) K) :
-    ((coordBlockEquiv J X : coordBlock K J) : SpecialLinearGroup (Fin n) K) = blockSL K J X :=
-  rfl
 
 theorem isQuasisimple_coordBlock [Finite K] {J : Finset (Fin n)} (hJ : 2 ≤ J.card)
     (hq : 3 ≤ J.card ∨ 4 ≤ Nat.card K) : IsQuasisimple (coordBlock K J) := by

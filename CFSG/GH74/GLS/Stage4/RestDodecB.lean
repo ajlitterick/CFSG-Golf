@@ -24,10 +24,6 @@ theorem conjBy_sup' (m : G) (A B : Subgroup G) : conjBy m (A ⊔ B) = conjBy m A
   unfold BNPair.conjBy
   exact Subgroup.map_sup _ _ _
 
-theorem mem_conjBy_conjBy_of_mem {m x : G} {A : Subgroup G} (hx : x ∈ A) :
-    m⁻¹ * x * m ∈ conjBy m A := by
-  rw [mem_conjBy_iff]
-  simpa [mul_assoc] using hx
 
 theorem six_mem_mul {A₁ A₂ A₃ A₄ A₅ A₆ : Subgroup G} {x₁ x₂ x₃ x₄ x₅ x₆ : G} (h₁ : x₁ ∈ A₁)
     (h₂ : x₂ ∈ A₂) (h₃ : x₃ ∈ A₃) (h₄ : x₄ ∈ A₄) (h₅ : x₅ ∈ A₅) (h₆ : x₆ ∈ A₆) :

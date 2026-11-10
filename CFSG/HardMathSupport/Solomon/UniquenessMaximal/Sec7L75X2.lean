@@ -75,11 +75,6 @@ theorem barX_sup {N A B : Subgroup G} (hA : A ≤ N) (hB : B ≤ N) :
     barX 3 N (A ⊔ B) = barX 3 N A ⊔ barX 3 N B := by
   simp only [barX, Subgroup.subgroupOf_sup hA hB, Subgroup.map_sup]
 
-private theorem mkN_mul' {N : Subgroup G} {a b : G} (ha : a ∈ N) (hb : b ∈ N) :
-    mkN N (a * b) (N.mul_mem ha hb) = mkN N a ha * mkN N b hb := rfl
-
-private theorem mkN_inv' {N : Subgroup G} {a : G} (ha : a ∈ N) :
-    mkN N a⁻¹ (N.inv_mem ha) = (mkN N a ha)⁻¹ := rfl
 
 private theorem mkN_zpow' {N : Subgroup G} {a : G} (ha : a ∈ N) (k : ℤ) :
     mkN N (a ^ k) (N.zpow_mem ha k) = mkN N a ha ^ k := rfl

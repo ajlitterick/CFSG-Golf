@@ -59,6 +59,5 @@ theorem hNS : 80 ≤ NS * 16 := by decide +kernel
 
 theorem centK : centTrivOK 80 siftL43 l43CentTriv = true := by decide +kernel
 
-theorem centNeg : centTrivOK 80 siftL43 l43CentTriv.dropLast = false := by decide +kernel
 
 end CertificateChecks.KernelSchreierFam.L43

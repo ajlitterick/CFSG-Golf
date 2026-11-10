@@ -23,7 +23,6 @@ variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
 @[expose] def outerGen (Ω : Set (Subgroup G)) (N : Subgroup G) : Subgroup G :=
   ⨆ L ∈ outerSet Ω N, L
 
-theorem cnbhd_subset (Ω : Set (Subgroup G)) (N : Subgroup G) : cnbhd Ω N ⊆ Ω := fun _ h => h.1
 
 theorem self_mem_cnbhd {N : Subgroup G} (hN : N ∈ Ω) : N ∈ cnbhd Ω N := ⟨hN, Or.inl rfl⟩
 
@@ -105,7 +104,6 @@ theorem outerGen_conj (g : G) (N : Subgroup G) :
     rwa [conjSub_conjSub_inv] at this
 
 end Conj
-
 
 
 theorem mem_closedNbhd_iff {v u : ↥Ω} :

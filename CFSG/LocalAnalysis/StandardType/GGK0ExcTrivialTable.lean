@@ -20,8 +20,6 @@ private lemma ltrk0t1_smul_set (n i p : ℕ) :
   rw [ltrk0t1_smul, List.map_set, List.map_replicate, Nat.mul_one]
   rfl
 
-private lemma ltrk0t1_mul_cancel {p a b : ℕ} (hp : 0 < p) (h : p * a = p * b) : a = b :=
-  Nat.mul_left_cancel hp h
 
 private lemma ltrk0t1_smul_inj {p : ℕ} (hp : 0 < p) :
     Function.Injective (ltrk0t1_smul p) := by

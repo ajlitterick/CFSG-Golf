@@ -33,13 +33,6 @@ variable (p f : ℕ) [Fact p.Prime]
         KPerp Ω K = KPerp Ω L ∧
           omegaStarNbr Ω K \ omegaNbr Ω K = omegaStarNbr Ω L \ omegaNbr Ω L
 
-@[expose] def L6_5 : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod p f Ω →
-      ∀ Δ : Set (Subgroup G), Δ ⊆ RSet Ω →
-        (∀ R ∈ Δ, ∀ R' ∈ Δ, R ≠ R' → Commutes R R') →
-          ∀ R ∈ Δ, (R ⊔ ⨆ R' ∈ Δ, centerIn R') ⊓
-            ((⨆ R' ∈ Δ, centerIn R') ⊔ ⨆ R' ∈ Δ, ⨆ (_ : R' ≠ R), R') = ⨆ R' ∈ Δ, centerIn R'
 
 @[expose] def L6_6 : Prop :=
   p ≠ 2 → 5 ≤ p ^ f →

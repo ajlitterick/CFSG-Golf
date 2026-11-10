@@ -311,17 +311,6 @@ theorem almostSpecialHyp_V2 (h13315 : Stmt13_3_15) :
       rw [e]
       exact W.mul_mem (W.mul_mem this (W.inv_mem hxw)) (W.inv_mem hwW)
 
-theorem V_le_pCoreOf_G2 (h13315 : Stmt13_3_15) :
-    V ≤ pCoreOf 2 (Subgroup.normalizer (S.V2 : Set G)) := by
-  have hA := S.almostSpecialHyp_V2 h13315
-  have hU := hA.G22_one.2
-  have hcc := hA.conjClosure_le_N
-  intro v hv
-  have hvU : v ∈ conjClosure V (Subgroup.normalizer (S.V2 : Set G)) := le_conjClosure _ _ hv
-  have hQ : tmk S.V2 ⟨v, hcc hvU⟩ ∈
-      tildeOf S.V2 (pCoreOf 2 (Subgroup.normalizer (S.V2 : Set G))) :=
-    omegaOneCenterOf_le _ ((secImg_le_iff.1 hU) ⟨v, hcc hvU⟩ hvU)
-  exact (secMk_mem_secImg_iff hA.V₁_le_pCoreOf).1 hQ
 
 theorem comm_mem_V2 (h13315 : Stmt13_3_15) {u u' : G}
     (hu : u ∈ conjClosure V (Subgroup.normalizer (S.V2 : Set G)))

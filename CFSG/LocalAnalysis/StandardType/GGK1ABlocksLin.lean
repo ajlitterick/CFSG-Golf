@@ -28,16 +28,6 @@ private theorem ggK1Abl_x_coe {N : ℕ} {K : Type} [Field K]
     ((ggK1Abl_x xhat : LinearMap.GeneralLinearGroup K (Fin N → K)) :
         Module.End K (Fin N → K)) = ggK1A_glEnd xhat.1 := rfl
 
-private theorem ggK1Abl_det {N : ℕ} {K : Type} [Field K]
-    (xhat : ↥(LargeEvenSLGroup (Fin N) K)) :
-    LinearMap.det ((ggK1Abl_x xhat : LinearMap.GeneralLinearGroup K (Fin N → K)) :
-      Module.End K (Fin N → K)) = 1 := by
-  have hdet : ((xhat.1 : GL (Fin N) K) : Matrix (Fin N) (Fin N) K).det = 1 := by
-    have h : (Matrix.GeneralLinearGroup.det xhat.1 : Kˣ) = 1 := xhat.2
-    have h2 := congrArg Units.val h
-    simpa using h2
-  change LinearMap.det (Matrix.toLin' ((xhat.1 : GL (Fin N) K) : Matrix (Fin N) (Fin N) K)) = 1
-  rw [LinearMap.det_toLin', hdet]
 
 private noncomputable def ggK1Abl_slEquivG (N : ℕ) (K : Type) [Field K] :
     Matrix.SpecialLinearGroup (Fin N) K ≃* ↥(LargeEvenSLGroup (Fin N) K) :=

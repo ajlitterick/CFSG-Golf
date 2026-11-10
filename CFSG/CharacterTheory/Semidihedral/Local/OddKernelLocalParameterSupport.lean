@@ -61,8 +61,6 @@ variable (K : Subgroup G) [K.Normal] (t : G)
       QuotientGroup.mk' K t * QuotientGroup.mk' K (x : G)
     rw [← map_mul, ← map_mul, Subgroup.mem_centralizer_singleton_iff.mp x.2]
 
-theorem centralizerMap_apply (x : C t) :
-    (centralizerMap K t x : G ⧸ K) = QuotientGroup.mk' K x := rfl
 
 theorem centralizerMap_tInC :
     centralizerMap K t (tInC t) = tInC (QuotientGroup.mk' K t) := rfl
@@ -137,9 +135,6 @@ theorem gammaMap_ker [Finite G] (hK : Odd (Nat.card K)) (ht : orderOf t = 2) :
   (QuotientGroup.quotientMulEquivOfEq (gammaMap_ker K t hK ht).symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective _ (gammaMap_surjective K t hK ht))
 
-theorem gammaEquiv_kappa [Finite G] (hK : Odd (Nat.card K)) (ht : orderOf t = 2) (x : C t) :
-    gammaEquiv K t hK ht (kappa t x) = kappa (QuotientGroup.mk' K t) (centralizerMap K t x) :=
-  rfl
 
 end Centralizer
 

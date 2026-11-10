@@ -12,11 +12,6 @@ variable {X : Type} [Group X] {E : Set X}
 
 @[expose] def muSet (E : Set X) (d c : X) : Set X := LocalClass E d ∩ LocalClass E c
 
-theorem mem_muSet {d c s : X} : s ∈ muSet E d c ↔ s ∈ LocalClass E d ∧ s ∈ LocalClass E c :=
-  Iff.rfl
-
-theorem muSet_comm (d c : X) : muSet E d c = muSet E c d :=
-  Set.inter_comm _ _
 
 theorem Pair.image_conj_muSet (hP : Pair X E) (g d c : X) :
     (fun s => g * s * g⁻¹) '' muSet E d c = muSet E (g * d * g⁻¹) (g * c * g⁻¹) := by
@@ -144,14 +139,6 @@ theorem Pair.exists_nu {g : X} (hg : g ∈ LocalClass E c) (hgd : g * d ≠ d * 
     rw [← hfg]
     exact (Pair.nu_commute_left_iff hP hd hc hcd _).2 hfm.2.2.2
 
-theorem Pair.nu_bijOn :
-    Set.BijOn (fun f => d * c * f * c * d) (LocalClass E d \ muSet E d c)
-      {g | g ∈ LocalClass E c ∧ g * d ≠ d * g} := by
-  refine ⟨fun f hf => ⟨Pair.nu_mem_localClass hP hd hc hcd hf.1,
-    Pair.nu_not_commute hP hd hc hcd hf.1 hf.2⟩, fun f _ f' _ h => ?_, fun g hg => ?_⟩
-  · exact nu_injective d c h
-  · obtain ⟨f, hf, hfm, rfl⟩ := Pair.exists_nu hP hd hc hcd hg.1 hg.2
-    exact ⟨f, ⟨hf, hfm⟩, rfl⟩
 
 theorem Pair.muSet_nu {f : X} (hf : f ∈ LocalClass E d) (hfc : f ∉ muSet E d c) :
     muSet E d (d * c * f * c * d) = (fun s => f * s * f) '' muSet E d c := by

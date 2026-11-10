@@ -31,8 +31,6 @@ variable {G : Type*} [Group G]
     simp only [Subgroup.coe_mul]
     group)
 
-theorem normalizerConjOn_apply {V A : Subgroup G} (hA : A ≤ normalizer (V : Set G)) (a : A)
-    (v : V) : ((normalizerConjOn V A hA a v : V) : G) = a * v * (a : G)⁻¹ := rfl
 
 @[expose] def autFixed (V : Subgroup G) (S : Subgroup (MulAut V)) : Subgroup G where
   carrier := {x | ∃ hx : x ∈ V, ∀ σ ∈ S, σ ⟨x, hx⟩ = ⟨x, hx⟩}

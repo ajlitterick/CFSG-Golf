@@ -171,13 +171,6 @@ section Replacement
 
 variable {X : Type*} [Group X] [Finite X]
 
-theorem card_le_maxAbelianOrder {S : Type*} [Group S] [Finite S] (A : Subgroup S)
-    (hA : IsMulCommutative A) : Nat.card A ≤ GlaubermanReplacement.maxAbelianOrder S :=
-  CFSG.card_le_maxAbelianOrder_of_isMulCommutative hA
-
-theorem exists_card_eq_maxAbelianOrder (S : Type*) [Group S] [Finite S] :
-    ∃ A : Subgroup S, IsMulCommutative A ∧ Nat.card A = GlaubermanReplacement.maxAbelianOrder S :=
-  CFSG.maxOrderAbelianFamily_nonempty
 
 theorem mem_maxOrderAbelianSubgroups_iff {P : Subgroup X} {A : Subgroup P} :
     A ∈ GlaubermanReplacement.maxOrderAbelianSubgroups P ↔

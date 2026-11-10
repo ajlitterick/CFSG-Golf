@@ -409,12 +409,6 @@ theorem diagPow_zero (ℓ : K) : diagPow ℓ 0 0 0 = 1 := by
   ext i
   fin_cases i <;> simp
 
-omit [Finite K] [CharP K 2] in
-theorem diagPow_mod {ℓ : K} {p : ℕ} (hℓp : ℓ ^ p = 1) (a b c : ℕ) :
-    diagPow ℓ (a + p) b c = diagPow ℓ a b c ∧ diagPow ℓ a (b + p) c = diagPow ℓ a b c ∧
-      diagPow ℓ a b (c + p) = diagPow ℓ a b c := by
-  refine ⟨?_, ?_, ?_⟩ <;> rw [diagPow, diagPow] <;> congr 1 <;> ext i <;>
-    fin_cases i <;> simp [pow_add, hℓp]
 
 omit [Finite K] [CharP K 2] in
 theorem det_diagPow (ℓ : K) (a b c : ℕ) : (diagPow ℓ a b c).det = ℓ ^ (a + b + c) := by

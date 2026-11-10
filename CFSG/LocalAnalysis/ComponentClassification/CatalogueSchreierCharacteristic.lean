@@ -46,38 +46,6 @@ theorem innerSubgroup_le_restrictionInner (D : Subgroup H) [D.Characteristic] :
   rintro automorphism ⟨element, rfl⟩
   exact ⟨element, (restrict_conj D element).symm⟩
 
-@[expose] def restrictionOuterHom (D : Subgroup H) [D.Characteristic] :
-    MulAut H →* Outer D := (QuotientGroup.mk' (inner D)).comp (restrict D)
-
-theorem restrictionOuterHom_ker (D : Subgroup H) [D.Characteristic] :
-    (restrictionOuterHom D).ker = (inner D).comap (restrict D) := by
-  ext automorphism
-  exact QuotientGroup.eq_one_iff (restrict D automorphism)
-
-theorem restrictionOuterHom_ker_eq_sup (D : Subgroup H) [D.Characteristic] :
-    (restrictionOuterHom D).ker = pointwiseKernel D ⊔ innerSubgroup D := by
-  rw [restrictionOuterHom_ker]
-  apply le_antisymm
-  · intro automorphism hautomorphism
-    obtain ⟨element, helement⟩ := hautomorphism
-    let fixing := automorphism * (MulAut.conj (element : H))⁻¹
-    have hfixing : fixing ∈ pointwiseKernel D := by
-      change restrict D (automorphism * (MulAut.conj (element : H))⁻¹) = 1
-      rw [map_mul, map_inv, restrict_conj, ← helement, mul_inv_cancel]
-    have hinner : MulAut.conj (element : H) ∈ innerSubgroup D := ⟨element, rfl⟩
-    have hproduct : fixing * MulAut.conj (element : H) = automorphism := by
-      dsimp [fixing]
-      group
-    rw [← hproduct]
-    exact (pointwiseKernel D ⊔ innerSubgroup D).mul_mem
-      (Subgroup.mem_sup_left hfixing) (Subgroup.mem_sup_right hinner)
-  · apply sup_le
-    · intro automorphism hautomorphism
-      have hrestriction : restrict D automorphism = 1 := hautomorphism
-      change restrict D automorphism ∈ OuterAutomorphisms.inner D
-      rw [hrestriction]
-      exact (inner D).one_mem
-    · exact innerSubgroup_le_restrictionInner D
 
 abbrev innerQuotient (D : Subgroup H) [D.Characteristic] :=
   MulAut H ⧸ innerSubgroup D

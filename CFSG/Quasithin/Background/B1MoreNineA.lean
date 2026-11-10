@@ -105,9 +105,6 @@ theorem odd_orderOf_of_mem_fittingOf [Finite V] {G : Subgroup (MulAut V)}
   rw [hy0, orderOf_one] at hy
   exact absurd hy (by norm_num)
 
-theorem fittingOf_conj {G : Subgroup (MulAut V)} {g f : MulAut V} (hg : g ∈ G)
-    (hf : f ∈ fittingOf G) : g * f * g⁻¹ ∈ fittingOf G :=
-  conj_mem_fittingOf hg hf
 
 end Fitting
 

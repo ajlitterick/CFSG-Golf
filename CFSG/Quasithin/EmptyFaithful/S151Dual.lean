@@ -191,23 +191,6 @@ theorem qOn_eq_two_of_lemma1518 {T Mc M : Subgroup G} (h : Lemma1518Concl T Mc M
   · exact h'.2
   · exact h'.2.2
 
-theorem notDualFF1512_of (h1416 : StageLemma1416) (h1515 : StageLemma1515)
-    (h158 : StageLemma1518) (h159 : StageLemma1519) : NotDualFF1512 := by
-  intro G _ _ T Mc M h hM hCE
-  have hred : IsTwoReducedIn M (V154 T Mc M) := (h1515 G T Mc M h hM).reduced
-  have hsix : autOn (M ⊓ Subgroup.normalizer
-      ((T ⊓ Subgroup.centralizer (V154 T Mc M : Set G) : Subgroup G) : Set G)) (V154 T Mc M) =
-      autOn M (V154 T Mc M) := (h159 G T Mc M h hM hCE).six_autOn
-  have hsolv : Group.IsSolvable ↥(autOn M (V154 T Mc M)) :=
-    isSolvable_autOn_of_perfectCore_le hred.2.1 ((h1416 G T Mc h).1 M _ hM.1.1 hred)
-  rintro ⟨hV, hd⟩
-  refine not_isDualFFInt_of_one_lt_qInt hV (by rw [hsix]; exact hsolv)
-    (by rw [hsix]; exact autOn_pCore_trivial hred) ?_ hd
-  have hq2 : qInt M (V154 T Mc M) hV = 2 := by
-    rw [← qOn_eq hV]
-    exact qOn_eq_two_of_lemma1518 (h158 G T Mc M h hM hCE)
-  rw [qInt_congr hV hsix, hq2]
-  norm_num
 
 end Internal
 

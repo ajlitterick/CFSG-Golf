@@ -355,17 +355,6 @@ private noncomputable def lemma_2_2_tH (c : Hyp11 G) : Fin 2 → ↥c.H :=
     · have hi1 : (i : ℕ) = 1 := by omega
       simpa [hi1] using t2_mem_H c⟩
 
-/-- The type of elements of `S0` viewed inside `S` is equivalent to `S0` itself. -/
-private def S0_subgroupOf_equiv (c : Hyp11 G) :
-    ↥((c.S0 : Subgroup G).subgroupOf (c.S : Subgroup G)) ≃ ↥(c.S0 : Subgroup G) where
-  toFun x := ⟨(x.1 : G), (Subgroup.mem_subgroupOf.mp x.2)⟩
-  invFun y := ⟨⟨(y : G), c.S0_le_S y.2⟩, Subgroup.mem_subgroupOf.mpr y.2⟩
-  left_inv x := by
-    ext
-    rfl
-  right_inv y := by
-    ext
-    rfl
 
 /-- Conjugation by any element of `S` fixes the unique involution `t` of `S0`. -/
 private lemma S_conj_t' (c : Hyp11 G) {g : G} (hg : g ∈ (c.S : Subgroup G)) :
@@ -592,55 +581,6 @@ private lemma conj_r_sr (n : ℕ) [NeZero n] (a c : ZMod n) :
   congr 1
   ring
 
-/-- In the dihedral model, if `r (b − a)` generates the rotation subgroup
-`⟨r 1⟩` (i.e. `S0 = ⟨t1·t2⟩` maps to it), then the reflections `sr a` and
-`sr b` are not conjugate: conjugation by a rotation sends `sr a` to
-`sr (a − 2c)` and by a reflection to `sr (2c − a)`, so `b − a = 2·d` lands in
-`⟨r 2⟩`, whose elements have order dividing `n/2 < n`. -/
-private lemma dihedral_sr_not_conj (n : ℕ) [NeZero n] (hn2 : 2 ∣ n) {a b : ZMod n}
-    (hgen : (r 1 : DihedralGroup n) ∈ Subgroup.zpowers (r (b - a) : DihedralGroup n))
-    (hconj : ∃ w : DihedralGroup n, w * (sr a : DihedralGroup n) * w⁻¹ = sr b) :
-    False := by
-  rcases hconj with ⟨w, hw⟩
-  rcases w with ⟨c⟩ | ⟨c⟩
-  · -- w = r c: sr b = sr (a - 2c)
-    have hmem : (r (b - a) : DihedralGroup n) ∈ Subgroup.zpowers (r 2 : DihedralGroup n) := by
-      have hb : b = a - 2 * c := by
-        have h' : (sr b : DihedralGroup n) = sr (a - 2 * c) := by
-          calc
-            (sr b : DihedralGroup n) = (r c : DihedralGroup n) * sr a * (r c)⁻¹ := hw.symm
-            _ = sr (a - 2 * c) := by rw [conj_r_sr]
-        injection h' with hb
-      have hd : b - a = -(2 * c) := by rw [hb]; ring
-      rw [Subgroup.mem_zpowers_iff]
-      refine ⟨-c.val, ?_⟩
-      rw [r_zpow]
-      congr 1
-      rw [hd]
-      rw [Int.cast_neg, Int.cast_natCast]
-      rw [ZMod.natCast_zmod_val c]
-      ring
-    exact dihedral_sr_not_conj_of_rotation_sq n hn2 hgen hmem
-  · -- w = sr c: sr b = sr (2c - a)
-    have hmem : (r (b - a) : DihedralGroup n) ∈ Subgroup.zpowers (r 2 : DihedralGroup n) := by
-      have hb : b = 2 * c - a := by
-        have h' : (sr b : DihedralGroup n) = sr (2 * c - a) := by
-          calc
-            (sr b : DihedralGroup n) = (sr c : DihedralGroup n) * sr a * (sr c)⁻¹ := hw.symm
-            _ = sr (2 * c - a) := by
-              rw [inv_sr, sr_mul_sr, r_mul_sr]
-              congr 1
-              ring
-        injection h' with hb
-      have hd : b - a = 2 * (c - a) := by rw [hb]; ring
-      rw [Subgroup.mem_zpowers_iff]
-      refine ⟨(c - a).val, ?_⟩
-      rw [r_zpow]
-      congr 1
-      rw [hd]
-      rw [Int.cast_natCast]
-      rw [ZMod.natCast_zmod_val (c - a)]
-    exact dihedral_sr_not_conj_of_rotation_sq n hn2 hgen hmem
 
 /-- Every rotation `r a` lies in `⟨r 1⟩`. -/
 private lemma mem_r_one_zpowers (n : ℕ) [NeZero n] (a : ZMod n) :
@@ -653,39 +593,6 @@ private lemma mem_r_one_zpowers (n : ℕ) [NeZero n] (a : ZMod n) :
   rw [ZMod.natCast_zmod_val a]
   simp
 
-/-- `DihedralGroup 2` (the Klein four group) is commutative. -/
-private lemma dihedral2_comm (w1 w2 : DihedralGroup 2) : w1 * w2 = w2 * w1 := by
-  rcases w1 with ⟨a⟩ | ⟨a⟩ <;> rcases w2 with ⟨b⟩ | ⟨b⟩ <;>
-    fin_cases a <;> fin_cases b <;> decide
-
-/-- `DihedralGroup n` is commutative when `n = 2`. -/
-private lemma dihedral_comm_of_two {n : ℕ} (hn : n = 2) (w1 w2 : DihedralGroup n) :
-    w1 * w2 = w2 * w1 := by
-  subst hn
-  exact dihedral2_comm w1 w2
-
-/-- An element of `ZMod n` (`2 ∣ n`) that is twice something has even
-canonical representative. -/
-private lemma zmod_two_mul_even_val {n : ℕ} [NeZero n] (hn2 : 2 ∣ n) {x : ZMod n}
-    (h : ∃ c : ZMod n, 2 * c = x) : 2 ∣ x.val := by
-  rcases h with ⟨c, hc⟩
-  have hxval : x.val = (2 * c.val) % n := by
-    calc
-      x.val = (2 * c : ZMod n).val := by rw [hc]
-      _ = (2 * (c.val : ZMod n) : ZMod n).val := by
-        congr 1
-        conv_lhs => rw [← ZMod.natCast_zmod_val c]
-      _ = (2 * c.val : ZMod n).val := by
-        congr 1
-      _ = (2 * c.val) % n := by
-        have hcast : (2 * (c.val : ZMod n) : ZMod n) = ((2 * c.val : ℕ) : ZMod n) := by
-          norm_num
-        rw [hcast]
-        exact ZMod.val_natCast n (2 * c.val)
-  rw [hxval]
-  rw [Nat.dvd_iff_mod_eq_zero]
-  rw [Nat.mod_mod_of_dvd (2 * c.val) hn2]
-  exact Nat.mod_eq_zero_of_dvd (dvd_mul_right 2 c.val)
 
 /-- In `ZMod n` with `2 ∣ n`, an element with even canonical representative is
 twice something. -/
@@ -1092,24 +999,6 @@ private lemma involution_H_not_H0_conj_to_t1_or_t2 (c : Hyp11 G) (h12 : Hyp12 c)
         _ = g * s * g⁻¹ := by group
         _ = c.t2 := hg2
 
-/-- The induced function vanishes outside `H0` (no index hypothesis needed;
-`H0 ⊴ H` suffices). -/
-private lemma inducedFromSub_eq_zero_of_not_mem' {H0 H : Subgroup G}
-    (hH0 : H0 ≤ H) (hH0normal : IsNormalIn H0 H)
-    {φ : ClassFunction (↥H0)} {x : ↥H} (hx : (x : G) ∉ H0) :
-    inducedFromSub hH0 φ x = 0 := by
-  classical
-  have hnot : ∀ y : ↥H, ¬ y⁻¹ * x * y ∈ H0.subgroupOf H := by
-    intro y hy
-    apply hx
-    have hmem : (y : G) * (((y⁻¹ * x * y : ↥H) : G)) * (y : G)⁻¹ ∈ H0 :=
-      (hH0normal).2 y y.2 ((y⁻¹ * x * y : ↥H) : G) (Subgroup.mem_subgroupOf.mp hy)
-    have hEq : (y : G) * (((y⁻¹ * x * y : ↥H) : G)) * (y : G)⁻¹ = (x : G) := by
-      change (y : G) * ((y : G)⁻¹ * (x : G) * (y : G)) * (y : G)⁻¹ = (x : G)
-      group
-    rwa [hEq] at hmem
-  unfold inducedFromSub inducedClassFunction
-  simp [hnot]
 
 /-- The conjugacy class of `x` has size `|G : C_G(x)|`. -/
 private lemma card_conjClass_eq_index {G : Type u} [Group G] [Finite G] (x : G) :
@@ -1227,35 +1116,6 @@ private lemma card_t2_class_eq_k2 (c : Hyp11 G) :
     apply Subtype.ext
     simpa using hxG
 
-/-- Linearity of the scalar product in a double sum. -/
-private lemma scalarProduct_double_sum {G : Type u} [Group G] [Fintype G]
-    {ι κ : Type u} [Fintype ι] [Fintype κ]
-    (f : ι → κ → ClassFunction G) (δ : ClassFunction G) :
-    scalarProduct G (fun g : G => ∑ i : ι, ∑ j : κ, f i j g) δ =
-      ∑ i : ι, ∑ j : κ, scalarProduct G (f i j) δ := by
-  classical
-  unfold scalarProduct
-  calc
-    (Nat.card G : ℂ)⁻¹ * ∑ g : G, (∑ i : ι, ∑ j : κ, f i j g) * star (δ g)
-        = (Nat.card G : ℂ)⁻¹ * ∑ g : G, (∑ i : ι, ∑ j : κ, f i j g * star (δ g)) := by
-            congr 1
-            refine Finset.sum_congr rfl ?_
-            intro g hg
-            rw [Finset.sum_mul]
-            refine Finset.sum_congr rfl ?_
-            intro i hi
-            rw [Finset.sum_mul]
-    _ = (Nat.card G : ℂ)⁻¹ * ∑ i : ι, ∑ j : κ, ∑ g : G, f i j g * star (δ g) := by
-            congr 1
-            rw [Finset.sum_comm]
-            congr 1
-            funext i
-            rw [Finset.sum_comm]
-    _ = ∑ i : ι, ∑ j : κ, (Nat.card G : ℂ)⁻¹ * ∑ g : G, f i j g * star (δ g) := by
-            rw [Finset.mul_sum]
-            refine Finset.sum_congr rfl ?_
-            intro i hi
-            rw [Finset.mul_sum]
 
 /-- An element of `U = O(H)` with square `1` is `1` (the odd core has odd
 order). -/
@@ -1588,12 +1448,6 @@ private lemma lemma_2_2_f_isClassFunction (c : Hyp11 G) :
   unfold lemma_2_2_f
   exact classSumPairCountMul_isClassFunction (ConjClasses.mk c.t) (ConjClasses.mk c.t)
 
-/-- Its restriction to `H` is a class function. -/
-private lemma lemma_2_2_f_restrict_isClassFunction (c : Hyp11 G) :
-    IsClassFunction (fun x : ↥c.H => lemma_2_2_f c (x : G)) := by
-  intro x g
-  change lemma_2_2_f c ((g : G) * (x : G) * (g : G)⁻¹) = lemma_2_2_f c (x : G)
-  exact lemma_2_2_f_isClassFunction c (x : G) (g : G)
 
 /-- Every element of `t^G` is an involution. -/
 private lemma tG_mem_involution (c : Hyp11 G) {z : G} (hz : z ∈ (ConjClasses.mk c.t).carrier) :
@@ -1681,16 +1535,6 @@ private lemma tH_carrier_disjoint' (c : Hyp11 G) (h12 : Hyp12 c) {i j : Fin 2} (
     exact tH_carrier_disjoint c h12
   · exact False.elim (hij rfl)
 
-/-- An element of `H` lying in both `t_i^H` and `t_j^H` forces `i = j`. -/
-private lemma tH_class_unique (c : Hyp11 G) (h12 : Hyp12 c) {i j : Fin 2}
-    {z : ↥c.H} (hzi : z ∈ (ConjClasses.mk (lemma_2_2_tH c i)).carrier)
-    (hzj : z ∈ (ConjClasses.mk (lemma_2_2_tH c j)).carrier) : i = j := by
-  by_contra hij
-  have hdisj := tH_carrier_disjoint' c h12 hij
-  have hz : z ∈ (ConjClasses.mk (lemma_2_2_tH c i)).carrier ∩
-      (ConjClasses.mk (lemma_2_2_tH c j)).carrier := ⟨hzi, hzj⟩
-  rw [hdisj] at hz
-  simpa using hz
 
 set_option backward.isDefEq.respectTransparency false in
 /-- For involutions `x, y` with `x·y = g ∈ T`, the TI property of `T` gives
@@ -1795,62 +1639,6 @@ private lemma pair_mem_T_in_H (c : Hyp11 G) (h12 : Hyp12 c)
   rcases (involution_H_not_H0_conj_to_t1_or_t2 c h12 hyH hy2 hyH0) with ⟨j, gy, hgym, hgy⟩
   exact ⟨i, j, gx, hgxm, hgx, gy, hgym, hgy⟩
 
-/-- `x ∈ H` for a pair `x·y = g ∈ T` (from `pair_mem_T_in_H`). -/
-private lemma pair_mem_T_x_mem_H (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : x ∈ c.H :=
-  (pair_mem_T_in_H c h12 hx hy hg hxy).1
-
-/-- `y ∈ H` for a pair `x·y = g ∈ T` (from `pair_mem_T_in_H`). -/
-private lemma pair_mem_T_y_mem_H (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : y ∈ c.H :=
-  (pair_mem_T_in_H c h12 hx hy hg hxy).2.1
-
-/-- The index `i` with `x ∈ t_i^H` for a pair `x·y = g ∈ T`. -/
-private noncomputable def pair_mem_T_i (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : Fin 2 :=
-  Classical.choose (pair_mem_T_in_H c h12 hx hy hg hxy).2.2.2.2
-
-/-- The index `j` with `y ∈ t_j^H` for a pair `x·y = g ∈ T`. -/
-private noncomputable def pair_mem_T_j (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : Fin 2 :=
-  Classical.choose (Classical.choose_spec (pair_mem_T_in_H c h12 hx hy hg hxy).2.2.2.2)
-
-/-- The conjugating element for `x` (see `pair_mem_T_gx_spec`). -/
-private noncomputable def pair_mem_T_gx (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : G :=
-  Classical.choose (Classical.choose_spec
-    (Classical.choose_spec (pair_mem_T_in_H c h12 hx hy hg hxy).2.2.2.2))
-
-/-- The specification of `pair_mem_T_gx`. -/
-private lemma pair_mem_T_gx_spec (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) :
-    pair_mem_T_gx c h12 hx hy hg hxy ∈ c.H ∧
-      pair_mem_T_gx c h12 hx hy hg hxy * x * (pair_mem_T_gx c h12 hx hy hg hxy)⁻¹ =
-        (lemma_2_2_tH c (pair_mem_T_i c h12 hx hy hg hxy) : G) ∧
-      ∃ gy : G, gy ∈ c.H ∧ gy * y * gy⁻¹ = (lemma_2_2_tH c (pair_mem_T_j c h12 hx hy hg hxy) : G) :=
-  Classical.choose_spec (Classical.choose_spec
-    (Classical.choose_spec (pair_mem_T_in_H c h12 hx hy hg hxy).2.2.2.2))
-
-/-- The conjugating element for `y` (see `pair_mem_T_gy_spec`). -/
-private noncomputable def pair_mem_T_gy (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) : G :=
-  Classical.choose (pair_mem_T_gx_spec c h12 hx hy hg hxy).2.2
-
-/-- The specification of `pair_mem_T_gy`. -/
-private lemma pair_mem_T_gy_spec (c : Hyp11 G) (h12 : Hyp12 c)
-    {x y : G} (hx : x ∈ (ConjClasses.mk c.t).carrier) (hy : y ∈ (ConjClasses.mk c.t).carrier)
-    {g : G} (hg : g ∈ c.T) (hxy : x * y = g) :
-    pair_mem_T_gy c h12 hx hy hg hxy ∈ c.H ∧
-      pair_mem_T_gy c h12 hx hy hg hxy * y * (pair_mem_T_gy c h12 hx hy hg hxy)⁻¹ =
-        (lemma_2_2_tH c (pair_mem_T_j c h12 hx hy hg hxy) : G) :=
-  Classical.choose_spec (pair_mem_T_gx_spec c h12 hx hy hg hxy).2.2
 
 /-- The pair count `classSumPairCountMul (mk t) (mk t)` is the cardinal of
 the pair subtype. -/
@@ -3232,14 +3020,6 @@ private lemma lambdaTwo_t12_eq_neg_one (c : Hyp11 G) (h12 : Hyp12 c) :
     · apply Units.ext
       exact hc2
 
-/-- The value of the `ε`-extension at `t1·t2` is `κ(t1·t2)` (the product
-lies in `H0`). -/
-private lemma tauExt_apply_t1t2 (c : Hyp11 G) (h12 : Hyp12 c) (ε : ℂ)
-    {κ : ClassFunction (↥c.H0)} (hκlin : IsLinearCharacter κ) :
-    tauExt c h12 ε hκlin
-      ⟨c.t1 * c.t2, (h12.H0_normal_in_H).1 (S0_le_H0 c (t1t2_mem_S0 c))⟩ =
-      κ ⟨c.t1 * c.t2, S0_le_H0 c (t1t2_mem_S0 c)⟩ := by
-  exact tauExt_apply_H0 c h12 ε hκlin (S0_le_H0 c (t1t2_mem_S0 c))
 
 /-- `c(τ_ε) = (k1 + x·k2)²` where `x = τ_ε(t1·t2)`: `τ_ε(t1)² = 1`,
 `τ_ε(t2) = x·τ_ε(t1)` by multiplicativity, so

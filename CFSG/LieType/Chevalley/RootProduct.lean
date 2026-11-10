@@ -16,17 +16,6 @@ variable {τ : Tag}
   | [] => []
   | i :: ω => ((coxeterSystem τ).wordProd ω)⁻¹ • simpleRoot τ i :: wordRoots ω
 
-@[expose] def wordRootVecs : List (Fin τ.rank) → List (Fin τ.rank → ℤ)
-  | [] => []
-  | i :: ω => ω.reverse.foldr (reflect τ) (Pi.single i 1) :: wordRootVecs ω
-
-theorem wordRoots_val : ∀ ω : List (Fin τ.rank),
-    (wordRoots ω).map Subtype.val = wordRootVecs (τ := τ) ω
-  | [] => rfl
-  | i :: ω => by
-    rw [wordRoots, List.map_cons, wordRootVecs, wordRoots_val ω, coe_smul_root,
-      ← CoxeterSystem.wordProd_reverse, wordProd_smul]
-    rfl
 
 theorem wordRoots_spec : ∀ ω : List (Fin τ.rank), (coxeterSystem τ).IsReduced ω →
     ∀ β ∈ wordRoots ω, 0 < height β.1 ∧ height ((coxeterSystem τ).wordProd ω • β).1 < 0

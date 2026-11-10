@@ -75,7 +75,6 @@ open CertificateChecks.KernelSporSch
 
 theorem tieA : allN 133 (fun i => Nat.beq (sg 0 i) (HNStrong.ss 0 i)) = true := by quickRfl
 theorem tieB : allN 133 (fun i => Nat.beq (sg 1 i) (HNStrong.ss 1 i)) = true := by quickRfl
-theorem tieI : allN 133 (fun i => Nat.beq (sg 2 i) (idRow5 i)) = true := by quickRfl
 
 theorem tieF : allN 17 (fun j => allN 133 (fun i =>
     Nat.beq (sg (Nat.add 3 j) i) (HNStrong.ss (Nat.add 13 j) i))) = true := by quickRfl

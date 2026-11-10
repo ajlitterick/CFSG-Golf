@@ -208,41 +208,6 @@ public theorem BrauerSuzukiWallHypotheses.exists_linearCharacters_of_four_lt_car
   · exact isLinearCharacter_of_hom ρ
   · exact isLinearCharacter_of_hom σ
 
-/-- Conjugation by the distinguished involution preserves `K`. -/
-public theorem BrauerSuzukiWallHypotheses.s_normalizes_K
-    {G : Type u} [Group G] [Finite G]
-    (h : BrauerSuzukiWallHypotheses G) :
-    ∀ x : h.K, h.s * (x : G) * h.s⁻¹ ∈ h.K := by
-  intro x
-  rw [h.s_inverts_K (x : G) x.2]
-  exact h.K.inv_mem x.2
-
-/-- A linear character whose square is nontrivial is not fixed by the
-`conjChar` action of `s`.  This is the exact non-fixed hypothesis consumed by
-the index-two induction lemmas. -/
-public theorem BrauerSuzukiWallHypotheses.conjChar_ne_of_sq_ne_one
-    {G : Type u} [Group G] [Finite G]
-    (h : BrauerSuzukiWallHypotheses G)
-    (χ : h.K →* ℂˣ) (hχsq : χ ^ 2 ≠ 1) :
-    conjChar h.K h.s_normalizes_K (LambdaChar χ) ≠ LambdaChar χ := by
-  intro hfix
-  apply hχsq
-  apply MonoidHom.ext
-  intro x
-  have hconj :
-      conjMonoidHom h.K h.s h.s_normalizes_K x = x⁻¹ := by
-    apply Subtype.ext
-    exact h.s_inverts_K (x : G) x.2
-  have hval := congrFun hfix x
-  change ((χ (conjMonoidHom h.K h.s h.s_normalizes_K x) : ℂˣ) : ℂ) =
-    ((χ x : ℂˣ) : ℂ) at hval
-  rw [hconj] at hval
-  have hunit : χ x⁻¹ = χ x := Units.ext hval
-  have hxmul : χ x * χ x = 1 := by
-    nth_rw 1 [← hunit]
-    rw [map_inv]
-    exact inv_mul_cancel (χ x)
-  simpa [pow_two] using hxmul
 
 end
 

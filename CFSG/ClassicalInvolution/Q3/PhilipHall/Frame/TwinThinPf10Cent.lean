@@ -16,8 +16,6 @@ theorem ofVec_mul_self (u : Fin n → ZMod 2) : ofVec u * ofVec u = 1 := by
     exact zmod_two_add_self _
   · rfl
 
-theorem zOf_mul_self (ι : Fin 4 ↪ Fin n) : zOf ι * zOf ι = 1 := by
-  rw [zOf_eq_ofVec, ofVec_mul_self]
 
 theorem zOf_perm (ι : Fin 4 ↪ Fin n) : (zOf ι).perm = 1 := by
   rw [zOf_eq_ofVec]; rfl

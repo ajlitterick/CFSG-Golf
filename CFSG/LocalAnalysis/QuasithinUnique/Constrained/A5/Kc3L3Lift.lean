@@ -28,9 +28,6 @@ omit [CharP F 2] in
 theorem mat_injective : Function.Injective (mat : S3 F → Matrix (Fin 3) (Fin 3) F) :=
   fun _ _ e => Subtype.ext (Units.ext e)
 
-omit [CharP F 2] in
-theorem mat_inv_mul (g : S3 F) : mat g⁻¹ * mat g = 1 := by
-  rw [← mat_mul, inv_mul_cancel, mat_one]
 
 omit [CharP F 2] in
 theorem mat_mul_inv (g : S3 F) : mat g * mat g⁻¹ = 1 := by
@@ -213,10 +210,6 @@ theorem Nm_mk {e : S3 F} (he : e * e = 1) : Nm (QuotientGroup.mk e : X3 F) = mat
     rw [this]
   · exact absurd ⟨e, he, rfl⟩ hh
 
-theorem Nm_one : Nm (1 : X3 F) = 0 := by
-  have := Nm_mk (F := F) (e := 1) (mul_one 1)
-  rw [QuotientGroup.mk_one, mat_one, sub_self] at this
-  exact this
 
 omit [CharP F 2] in
 theorem mat_sq {e : S3 F} (he : e * e = 1) : mat e * mat e = 1 := by

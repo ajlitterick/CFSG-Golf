@@ -105,10 +105,6 @@ theorem matC_skew (v : Fin 6 → ZMod 2) : matC h ω v + ((matC h ω v).map h.ba
 @[expose] noncomputable def elt (v : Fin 6 → ZMod 2) : hypUnitriangular h 2 0 :=
   evenUnitriangularElt (matA_isUnitriangular h ω v) (matC_skew h ω v)
 
-theorem coe_elt (v : Fin 6 → ZMod 2) :
-    ((((elt h ω v : hypUnitriangular h 2 0) : hypSU h 2 0) : GL (HypIndex 2 0) K) :
-      Matrix (HypIndex 2 0) (HypIndex 2 0) K) = evenMat h (matA h ω v) (matC h ω v) :=
-  rfl
 
 theorem inv_matA (v : Fin 6 → ZMod 2) : (matA h ω v)⁻¹ = !![1, -tPar h ω v; 0, 1] := by
   refine inv_eq_right_inv ?_
@@ -150,11 +146,6 @@ theorem vec_u4c : vec u4c = ![0, 0, 1, 0, 0, 0] := by
   funext k
   fin_cases k <;> rfl
 
-theorem coe_U4_mul (g X : U4) :
-    (((g * X : U4) : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) =
-      ((g : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) *
-        ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) :=
-  rfl
 
 theorem coe_u4a : ((u4a : SpecialLinearGroup (Fin 4) (ZMod 2)) :
     Matrix (Fin 4) (Fin 4) (ZMod 2)) = mA := rfl
@@ -277,27 +268,6 @@ theorem elt_zero : elt h ω 0 = 1 := by
     fin_cases i <;> fin_cases j <;> simp [matC, cPar, sPar]
   rw [hA, hC, evenMat_one_zero]
 
-include hω in
-theorem ι_add_mul_omega_eq_zero {x y : ZMod 2} (hxy : ι h x + ι h y * ω = 0) : x = 0 ∧ y = 0 := by
-  have hι1 : ι h 1 = 1 := map_one _
-  have hι0 : ι h 0 = 0 := map_zero _
-  have hω0 : ω ≠ 0 := by
-    rintro rfl
-    simp at hω
-  have hω1 : (1 : K) + ω ≠ 0 := by
-    intro h1
-    have : ω = -1 := by linear_combination h1
-    rw [this] at hω
-    norm_num at hω
-  have h01 : ∀ z : ZMod 2, z = 0 ∨ z = 1 := by decide
-  rcases h01 x with rfl | rfl <;> rcases h01 y with rfl | rfl
-  · exact ⟨rfl, rfl⟩
-  · rw [hι0, hι1, zero_add, one_mul] at hxy
-    exact absurd hxy hω0
-  · rw [hι0, hι1, zero_mul, add_zero] at hxy
-    exact absurd hxy one_ne_zero
-  · rw [hι1, one_mul] at hxy
-    exact absurd hxy hω1
 
 @[expose] noncomputable def toU : U4 →* hypUnitriangular h 2 0 where
   toFun X := elt h ω (vec X)
@@ -311,105 +281,10 @@ theorem ι_add_mul_omega_eq_zero {x y : ZMod 2} (hxy : ι h x + ι h y * ω = 0)
       · exact elt_u4b_mul h hω X
       · exact elt_u4c_mul h X)
 
-theorem toU_apply (X : U4) : toU h hω X = elt h ω (vec X) :=
-  rfl
-
-theorem toU_injective : Function.Injective (toU h hω) := by
-  rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-  intro X hX
-  rw [MonoidHom.mem_ker, toU_apply] at hX
-  have hmat : evenMat h (matA h ω (vec X)) (matC h ω (vec X)) =
-      evenMat h (1 : Matrix (Fin 2) (Fin 2) K) 0 := by
-    rw [evenMat_one_zero, ← coe_elt, hX]
-    rfl
-  obtain ⟨hA, hC⟩ := evenMat_inj (matA_isUnitriangular h ω _).isUnit_det hmat
-  have ht : ι h (vec X 0) + ι h (vec X 2) * ω = 0 := by
-    have := congrFun (congrFun hA 0) 1
-    simpa [matA, tPar] using this
-  have hs : ι h (vec X 3 + vec X 0 * vec X 1) + ι h (vec X 4) * ω = 0 := by
-    have := congrFun (congrFun hC 0) 1
-    simpa [matC, sPar] using this
-  have hc : ι h (vec X 5 + vec X 4 * vec X 0 + vec X 3 + vec X 0 * vec X 1 + vec X 4) = 0 := by
-    have := congrFun (congrFun hC 0) 0
-    simpa [matC, cPar] using this
-  have hj : ι h (vec X 1) = 0 := by
-    have := congrFun (congrFun hC 1) 1
-    simpa [matC] using this
-  obtain ⟨h0, h2⟩ := ι_add_mul_omega_eq_zero h hω ht
-  obtain ⟨h3, h4⟩ := ι_add_mul_omega_eq_zero h hω hs
-  have h1 : vec X 1 = 0 := ι_injective h (by rw [hj, map_zero])
-  have h5 : vec X 5 + vec X 4 * vec X 0 + vec X 3 + vec X 0 * vec X 1 + vec X 4 = 0 :=
-    ι_injective h (by rw [hc, map_zero])
-  rw [h0, h1, mul_zero, add_zero] at h3
-  simp only [h0, h1, h3, h4, mul_zero, add_zero] at h5
-  obtain ⟨hl, hd⟩ := mem_unitriangular.mp X.2
-  rw [Subgroup.mem_bot]
-  apply U4_ext
-  ext i j
-  have e0 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 0 1 = 0 :=
-    h0
-  have e1 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 1 2 = 0 :=
-    h1
-  have e2 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 2 3 = 0 :=
-    h2
-  have e3 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 0 2 = 0 :=
-    h3
-  have e4 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 1 3 = 0 :=
-    h4
-  have e5 : ((X : SpecialLinearGroup (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) 0 3 = 0 :=
-    h5
-  fin_cases i <;> fin_cases j <;>
-    simp [e0, e1, e2, e3, e4, e5, hd, hl 1 0 (by decide), hl 2 0 (by decide), hl 3 0 (by decide),
-      hl 2 1 (by decide), hl 3 1 (by decide), hl 3 2 (by decide)]
-
-theorem card_U4 : Nat.card U4 = 64 := by
-  rw [card_unitriangular, Nat.card_zmod]
-  norm_num
-
-include h in
-theorem card_hypUnitriangular_two : Nat.card (hypUnitriangular h 2 0) = 64 := by
-  rw [card_hypUnitriangular h (Nat.zero_le 1)]
-  norm_num
-
-@[expose] noncomputable def u4Equiv : U4 ≃* hypUnitriangular h 2 0 :=
-  MulEquiv.ofBijective (toU h hω)
-    ((toU_injective h hω).bijective_of_nat_card_le (by rw [card_U4, card_hypUnitriangular_two h]))
 
 end UnitaryFourCover
 
 open UnitaryFourCover CFSG.ClassicalGroups.UnitaryFlag LinearCover
 
-theorem exists_sylow_mulEquiv_U4_of_lieModel_PSU {Q : Type} [Group Q] [Finite Q]
-    (hQ : CFSG.Blueprint.LieModel Q .PSU 4 2 1) :
-    ∃ S : Sylow 2 Q, Nonempty ((S : Subgroup Q) ≃* U4) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rcases hQ with ⟨-, -, K, _, _, hcard, ⟨e⟩⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩
-  · have h : UnitaryFieldData 2 1 K := ⟨Nat.prime_two, le_rfl, by rw [hcard]; norm_num⟩
-    obtain ⟨ω, hω⟩ := exists_omega h
-    obtain ⟨R, hR⟩ := exists_isHypTransport (r := 2) (ε := 0) h
-    let f : hypPSU h 2 0 ≃* Q := (hypPSUEquivStatedProj h hR (by norm_num)).trans e.symm
-    obtain ⟨-, -, -, ⟨eU, -⟩, ⟨P₀, hP₀⟩, -, -⟩ :=
-      unitary_order_and_Sylow h (r := 2) (ε := 0) (by norm_num) (by norm_num)
-    let S : Sylow 2 Q := Sylow.mapSurjective (f := (f : hypPSU h 2 0 →* Q)) f.surjective P₀
-    refine ⟨S, ⟨?_⟩⟩
-    have hS : (S : Subgroup Q) = (hypProjUnitriangular h 2 0).map (f : hypPSU h 2 0 →* Q) := by
-      rw [Sylow.coe_mapSurjective, hP₀]
-    exact ((((MulEquiv.subgroupCongr hS).trans
-      ((hypProjUnitriangular h 2 0).equivMapOfInjective _ f.injective).symm).trans
-        eU.symm).trans (u4Equiv h hω).symm)
-  · exact absurd ht (by decide)
-  · exact absurd ht (by decide)
-  · exact absurd ht (by decide)
-
-theorem unitary_four_field_two_binary_unitriangular_Sylow_and_cover_bound {Q : Type} [Group Q]
-    [Finite Q] (hQ : CFSG.Blueprint.LieModel Q .PSU 4 2 1) :
-    (∀ S : Sylow 2 Q, Nonempty ((S : Subgroup Q) ≃* U4)) ∧
-    ∀ {P : Type*} [Group P] [Finite P] [Group.IsPerfect P] (η : P →* Q),
-      Function.Surjective η → η.ker ≤ Subgroup.center P → IsPGroup 2 η.ker →
-        IsElementaryAbelian 2 η.ker ∧ Nat.card η.ker ≤ 16 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨S₀, ⟨e₀⟩⟩ := exists_sylow_mulEquiv_U4_of_lieModel_PSU hQ
-  exact ⟨fun S => ⟨(Sylow.equiv S S₀).trans e₀⟩,
-    fun η hη hK h2 => perfect_cover_kernel_bound_of_sylow η hη hK h2 S₀ e₀⟩
 
 end CFSG.LocalAnalysis.ComponentInitial

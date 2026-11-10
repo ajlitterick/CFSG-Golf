@@ -223,9 +223,6 @@ theorem proj_transvection_mem_rootSL2 {a b : Fin n} (hab : a ≠ b) (c : K) :
     LinearFlag.proj n K (SpecialLinearGroup.transvection hab c) ∈ rootSL2 a b :=
   proj_transvection_mem_blockSL hab (by simp) (by simp) c
 
-theorem proj_transvection_mem_rootSL2' {a b : Fin n} (hab : a ≠ b) (c : K) :
-    LinearFlag.proj n K (SpecialLinearGroup.transvection hab.symm c) ∈ rootSL2 a b :=
-  proj_transvection_mem_blockSL hab.symm (by simp) (by simp) c
 
 @[expose] def reindexSpecialLinear {ι κ : Type*} [Fintype ι] [DecidableEq ι] [Fintype κ]
     [DecidableEq κ] (e : ι ≃ κ) : SpecialLinearGroup ι K ≃* SpecialLinearGroup κ K where
@@ -428,14 +425,6 @@ theorem exists_perm_apply_eq_apply_eq {a b c d : Fin n} (hab : a ≠ b) (hcd : c
   · rw [Equiv.trans_apply, Equiv.swap_apply_left, Equiv.swap_apply_of_ne_of_ne h1.symm hcd]
   · rw [Equiv.trans_apply, Equiv.swap_apply_left]
 
-theorem exists_conj_rootSL2 (a b c d : Fin n) (hab : a ≠ b) (hcd : c ≠ d) :
-    ∃ g : LinearFlag.projectiveSL n K,
-      (rootSL2 a b).map (MulAut.conj g).toMonoidHom = rootSL2 c d := by
-  obtain ⟨σ, hσa, hσb⟩ := exists_perm_apply_eq_apply_eq hab hcd
-  obtain ⟨g, hg⟩ := exists_conj_blockSL (K := K) σ {a, b}
-  refine ⟨g, ?_⟩
-  rw [rootSL2, hg, rootSL2, Finset.map_insert, Finset.map_singleton, Equiv.coe_toEmbedding, hσa,
-    hσb]
 
 theorem blockEmbed_transvection (I : Finset (Fin n)) {i j : I} (hij : i ≠ j) (c : K) :
     blockEmbed I (SpecialLinearGroup.transvection hij c) =
@@ -487,9 +476,6 @@ theorem blockSL_eq_closure (I : Finset (Fin n)) :
     rw [Finset.mem_insert, Finset.mem_singleton] at hx
     rcases hx with rfl | rfl <;> simp [hab.symm]
 
-theorem pairEquiv_symm_apply {a b : Fin n} (hab : a ≠ b) (x : ({a, b} : Finset (Fin n))) :
-    (pairEquiv hab).symm x = if (x : Fin n) = a then 0 else 1 :=
-  rfl
 
 @[expose] def pairEmbed {a b : Fin n} (hab : a ≠ b) :
     SpecialLinearGroup (Fin 2) K →* SpecialLinearGroup (Fin n) K :=
@@ -545,15 +531,6 @@ theorem range_pairEmbed {a b : Fin n} (hab : a ≠ b) :
     MonoidHom.range_eq_top.2 (MulEquiv.surjective (reindexSpecialLinear (pairEquiv hab))),
     ← MonoidHom.range_eq_map, range_blockEmbed]
 
-theorem rootSL2_eq_range_pairEmbed {a b : Fin n} (hab : a ≠ b) :
-    rootSL2 (K := K) a b = ((LinearFlag.proj n K).comp (pairEmbed hab)).range := by
-  rw [MonoidHom.range_comp, range_pairEmbed]
-  rfl
-
-theorem proj_pairEmbed_mem_rootSL2 {a b : Fin n} (hab : a ≠ b) (A : SpecialLinearGroup (Fin 2) K) :
-    LinearFlag.proj n K (pairEmbed hab A) ∈ rootSL2 a b := by
-  rw [rootSL2_eq_range_pairEmbed hab]
-  exact ⟨A, rfl⟩
 
 theorem proj_comp_pairEmbed_injective {a b : Fin n} (hab : a ≠ b) (hn : 3 ≤ n) :
     Function.Injective ((LinearFlag.proj n K).comp (pairEmbed hab)) :=

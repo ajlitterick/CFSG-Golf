@@ -248,8 +248,6 @@ theorem ggBstarToralPSLInput_holds : GGBstarToralPSLInput := by
       _ = Nat.card B := hBcard.symm
       _ ≤ Nat.card Bs := hBBs
 
-theorem ggRootPlaneInputOn_pslSplit_holds : GGRootPlaneInputOn GGPSLSplit :=
-  ggRootPlaneInputOn_pslSplit ggBstarToralPSLInput_holds
 
 theorem ggRootPlaneInput_of_notPSLSplit
     (hrest : GGRootPlaneInputOn fun t n f p => ¬ GGPSLSplit t n f p) : GGRootPlaneInput :=

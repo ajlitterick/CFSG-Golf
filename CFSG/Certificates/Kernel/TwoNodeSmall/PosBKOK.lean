@@ -237,8 +237,6 @@ theorem vecEq_of_vec (P : Pt) {a b : Vec} (h : P.vec a = P.vec b) : P.vecEq a b 
   simp only [Pt.ent, beq_iff_eq]
   exact this
 
-theorem dot_add (P : Pt) (f x y : P.V) : P.dot f (x + y) = P.dot f x + P.dot f y := by
-  simp only [Pt.dot, Pi.add_apply, mul_add, Finset.sum_add_distrib]
 
 theorem dot_sub (P : Pt) (f x y : P.V) : P.dot f (x - y) = P.dot f x - P.dot f y := by
   simp only [Pt.dot, Pi.sub_apply, mul_sub, Finset.sum_sub_distrib]
@@ -267,7 +265,6 @@ theorem dot_comm' (P : Pt) (f x : P.V) : P.dot f x = P.dot x f := by
 theorem dot_single (P : Pt) (f : P.V) (i : Fin P.D) : P.dot f (Pi.single i 1) = f i := by
   simp [Pt.dot, Pi.single_apply]
 
-theorem applyWord_nil (P : Pt) (v : Vec) : P.applyWord [] v = v := rfl
 
 theorem applyWord_append (P : Pt) (a b : Word) (v : Vec) :
     P.applyWord (a ++ b) v = P.applyWord a (P.applyWord b v) := by

@@ -195,12 +195,6 @@ theorem weylTuple_move_paired (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
   simp only [move_inv, ← weylMatrix_apply, weylMatrix_move]
   fin_cases j <;> decide +kernel
 
-theorem weylTuple_move_multiplicity (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
-    weylTuple move (cubeChar ζ multiplicityExp) = cubeChar ζ multiplicityExp := by
-  apply weylTuple_cubeChar_of_mod ζ hζ
-  intro j
-  simp only [move_inv, ← weylMatrix_apply, weylMatrix_move]
-  fin_cases j <;> decide +kernel
 
 theorem weylTuple_gamma_scalar (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
     weylTuple gamma (cubeChar ζ scalarExp) = cubeChar ζ scalarExp := by
@@ -237,12 +231,6 @@ theorem weylTuple_a5Cycle_paired (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
   simp only [a5Cycle_inv, ← weylMatrix_apply, weylMatrix_pow, weylMatrix_a5Cycle]
   fin_cases j <;> decide +kernel
 
-theorem weylTuple_a5Cycle_multiplicity (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
-    weylTuple a5Cycle (cubeChar ζ multiplicityExp) = cubeChar ζ multiplicityExp := by
-  apply weylTuple_cubeChar_of_mod ζ hζ
-  intro j
-  simp only [a5Cycle_inv, ← weylMatrix_apply, weylMatrix_pow, weylMatrix_a5Cycle]
-  fin_cases j <;> decide +kernel
 
 theorem move_conj_scalar (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
     canonicalRep (coxeterSystem .E7) K move * rootDiagUnit .E7 (cubeChar ζ scalarExp) *
@@ -254,10 +242,6 @@ theorem move_conj_paired (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
       (canonicalRep (coxeterSystem .E7) K move)⁻¹ = rootDiagUnit .E7 (cubeChar ζ (-scalarExp)) := by
   rw [CFSG.LieType.Chevalley.canonicalRep_conj_rootDiagUnit, weylTuple_move_paired ζ hζ]
 
-theorem move_conj_multiplicity (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
-    canonicalRep (coxeterSystem .E7) K move * rootDiagUnit .E7 (cubeChar ζ multiplicityExp) *
-      (canonicalRep (coxeterSystem .E7) K move)⁻¹ = rootDiagUnit .E7 (cubeChar ζ multiplicityExp) := by
-  rw [CFSG.LieType.Chevalley.canonicalRep_conj_rootDiagUnit, weylTuple_move_multiplicity ζ hζ]
 
 theorem gamma_conj_scalar (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
     canonicalRep (coxeterSystem .E7) K gamma * rootDiagUnit .E7 (cubeChar ζ scalarExp) *

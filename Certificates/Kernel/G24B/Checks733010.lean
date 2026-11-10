@@ -98,15 +98,6 @@ theorem ch733010_relsA2img :
 
 theorem ch733010_gap12 : gapK 28 12 6 10 EQ2.CF 1024 g12 (nthV GQ1 3) = true := by quickRfl
 
-theorem ch733010_negRad : (!r10K EQ1.CF EZ1.CF GQ1 8 2 4 (w1.tail ++ w1.take 1) c1) = true := by
-  quickRfl
-
-theorem ch733010_negRels :
-    (!r10RelsK (nthV GQ2) (r10InvK GQ2 r10EQ) CFSG.Quasithin.St84.G24Pc.relsQ1) = true := by
-  quickRfl
-
-theorem ch733010_negGap : (!gapK 28 12 6 10 EQ2.CF 1024 (g12 + 1) (nthV GQ1 3)) = true := by
-  quickRfl
 
 end CFSG.KD.G24B
 

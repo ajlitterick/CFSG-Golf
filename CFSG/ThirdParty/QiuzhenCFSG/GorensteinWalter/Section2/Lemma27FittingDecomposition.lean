@@ -48,25 +48,6 @@ public theorem piCore_normal_local {G : Type u} [Group G] [Finite G]
     simpa [mul_assoc, mul_left_comm, mul_right_comm] using
       (piCore π G).mul_mem ha hb
 
-/-- `O_q(H) ≤ O_π(F(H))` whenever `q ∈ π`. -/
-public theorem qCoreOf_le_piCoreOf_fittingSubgroupOf
-    {G : Type u} [Group G] [Finite G]
-    (H : Subgroup G) (π : Set ℕ) (q : ℕ)
-    (hq : q.Prime) (hqπ : q ∈ π) :
-    qCoreOf H q ≤ piCoreOf (fittingSubgroupOf H) π := by
-  classical
-  let F : Subgroup G := fittingSubgroupOf H
-  have hQleF : qCoreOf H q ≤ F := qCoreOf_le_fittingSubgroupOf H q hq
-  have hFH : F ≤ H := by
-    simpa [F] using (fittingSubgroupOf_isNormalIn H).1
-  have hQnormF : ((qCoreOf H q).subgroupOf F).Normal := by
-    apply (Subgroup.normal_subgroupOf_iff hQleF).2
-    intro x hx f hf
-    exact (qCoreOf_normal_in H q).2 hx (hFH hf) x f
-  have hQleQF : qCoreOf H q ≤ qCoreOf F q :=
-    le_qCoreOf_of_normal_isPGroup F (qCoreOf H q) q hQleF hQnormF
-      (qCoreOf_isPGroup H q)
-  exact hQleQF.trans (qCoreOf_le_piCoreOf F π q hqπ hq)
 
 /-- `F(G) ≤ O_π(G) ⊔ O_{πᶜ}(G)`: every prime part of the Fitting subgroup
 lies in exactly one of the two Hall parts. -/

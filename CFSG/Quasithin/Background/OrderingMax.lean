@@ -251,7 +251,6 @@ theorem exists_mul_of_sylow {M C R : Subgroup G} (hCM : C ≤ M)
 @[expose] def IsOrdMaximalIn (T : Subgroup G) (𝓕 : Subgroup G → Prop) (H : Subgroup G) : Prop :=
   𝓕 H ∧ ∀ H' : Subgroup G, 𝓕 H' → OrdLE T H H' → H' = H
 
-@[expose] def InHv (T H : Subgroup G) : Prop := InH T H ∧ IsHv T H
 
 theorem exists_isOrdMaximalIn_ge {T : Subgroup G} {𝓕 : Subgroup G → Prop}
     (h𝓕 : ∀ K, 𝓕 K → IsHv T K) {H : Subgroup G} (hH : 𝓕 H) :
@@ -276,29 +275,6 @@ theorem isUniqueM_of_isOrdMaximalIn {T M X : Subgroup G}
   obtain ⟨x, hx, c, hc, rfl⟩ := hcov m hm
   exact ⟨x, ⟨hXM hx, hM₂.2 hx⟩, c, hc, rfl⟩
 
-theorem isOrdMaximalIn_inHv_iff (hEven : quasithinEvenCharacteristic G) (T : Sylow 2 G)
-    {H : Subgroup G} :
-    IsOrdMaximalIn (T : Subgroup G) (InHv (T : Subgroup G)) H ↔
-      IsOrdMaximalIn (T : Subgroup G) (InM (T : Subgroup G)) H := by
-  have hMv : ∀ M, InM (T : Subgroup G) M → InHv (T : Subgroup G) M := fun M hM =>
-    ⟨inH_of_inM hM, isHv_of_inM hEven T hM⟩
-  have hforward : ∀ K, IsOrdMaximalIn (T : Subgroup G) (InHv (T : Subgroup G)) K →
-      InM (T : Subgroup G) K := by
-    rintro K ⟨hHv, hmax⟩
-    obtain ⟨M₂, hM₂⟩ := exists_inM_of_pCoreOf_ne_bot hHv.1.2
-    have hM₂T : InM (T : Subgroup G) M₂ := ⟨hM₂.1, hHv.1.1.trans hM₂.2⟩
-    have heq : M₂ = K := hmax M₂ (hMv M₂ hM₂T) (ordLE_of_le hM₂.2)
-    rw [heq] at hM₂T
-    exact hM₂T
-  constructor
-  · intro h
-    exact ⟨hforward H h, fun M' hM' hle => h.2 M' (hMv M' hM') hle⟩
-  · intro h
-    obtain ⟨K, hK, hHK⟩ := exists_isOrdMaximalIn_ge (T := (T : Subgroup G))
-      (𝓕 := InHv (T : Subgroup G)) (fun _ hK => hK.2) (hMv H h.1)
-    have hKH : K = H := h.2 K (hforward K hK) hHK
-    rw [hKH] at hK
-    exact hK
 
 namespace A57
 
@@ -526,10 +502,6 @@ end A57
 omit [Finite G] in
 theorem VZ_mem_VFamily {T H : Subgroup G} (hH : InH T H) : VZ T H ∈ VFamily T := ⟨H, hH, rfl⟩
 
-omit [Finite G] in
-theorem VZ_eq_of_ordLE_of_ordLE {T H K : Subgroup G} (h₁ : OrdLE T H K) (h₂ : OrdLE T K H) :
-    VZ T H = VZ T K :=
-  le_antisymm (VZ_le_of_ordLE h₁) (VZ_le_of_ordLE h₂)
 
 namespace A510
 
@@ -573,30 +545,6 @@ theorem isUniqueM_normalizer (hEven : quasithinEvenCharacteristic G) (T : Sylow 
   · rw [hN]
     exact hM₂.2
 
-theorem isOrdMaximalIn_normalizer (hEven : quasithinEvenCharacteristic G) (T : Sylow 2 G)
-    {H : Subgroup G} (hH : InH (T : Subgroup G) H)
-    (hmax : Maximal (· ∈ VFamily (T : Subgroup G)) (VZ (T : Subgroup G) H)) :
-    IsOrdMaximalIn (T : Subgroup G) (InM (T : Subgroup G))
-      (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G)) := by
-  have h3 := isUniqueM_normalizer hEven T hH hmax
-  have hNM : InM (T : Subgroup G) (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G)) :=
-    ⟨h3.1.1, hH.1.trans h3.1.2⟩
-  have hNH := inH_of_inM hNM
-  have hHN : OrdLE (T : Subgroup G) H (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G)) :=
-    ordLE_of_le h3.1.2
-  have hVV : VZ (T : Subgroup G) (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G)) =
-      VZ (T : Subgroup G) H :=
-    le_antisymm (hmax.2 (VZ_mem_VFamily hNH) (VZ_le_of_ordLE hHN)) (VZ_le_of_ordLE hHN)
-  have hmaxN : Maximal (· ∈ VFamily (T : Subgroup G))
-      (VZ (T : Subgroup G) (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G))) := by
-    rw [hVV]
-    exact hmax
-  refine ⟨hNM, fun M hM hle => ?_⟩
-  have hMN : M ≤ Subgroup.normalizer
-      (VZ (T : Subgroup G) (Subgroup.normalizer (VZ (T : Subgroup G) H : Set G)) : Set G) :=
-    le_normalizer_of_ordLE (inH_of_inM hM) hmaxN hle
-  rw [hVV] at hMN
-  exact (hM.1.2 _ h3.1.1.1 hMN).symm
 
 end A510
 

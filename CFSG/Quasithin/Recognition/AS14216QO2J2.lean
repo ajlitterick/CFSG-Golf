@@ -88,6 +88,5 @@ theorem pCoreOf_le_pCoreOf_of_isQ8D8 {X K1 : Subgroup G} (hKX : K1 ≤ X)
   have hQK : Q ≤ K1 := hWQ ▸ (inf_le_right : Q ⊓ K1 ≤ K1)
   exact le_pCoreOf_of_le_normalizer 2 hQK (hKX.trans hXQ) (pCoreOf_isPGroup 2 X)
 
-variable {T M H K1 : Subgroup G}
 
 end CFSG.Quasithin.AS14216

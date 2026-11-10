@@ -24,15 +24,5 @@ open Subgroup CFSG CFSG.RankThree.GroupTheory
     (∃ S : Subgroup G, S ≠ ⊥ ∧ IsPGroup 2 S ∧ A ≤ normalizer (S : Set G)) ∧
     ((∃ r ∈ sectionTenPrimeSet G, 7 < r) → 7 < p)
 
-theorem sectionTenPrimeSet_subset_sigmaA (G : Type*) [Group G] [Finite G] :
-    sectionTenPrimeSet G ⊆ CFSG.Assembly.RankThreeEven.sigmaA G :=
-  fun _ hr => hr.2.2.1
-
-theorem sectionTenPrimeSet_finite (G : Type*) [Group G] [Finite G] :
-    (sectionTenPrimeSet G).Finite ∧ ∀ r ∈ sectionTenPrimeSet G, r.Prime ∧ r ∣ Nat.card G := by
-  have hsig := (aschbacher_prime_selector G).2.2.2.2.2.2.2.2.2
-  refine ⟨(Set.finite_Iic (Nat.card G)).subset fun r hr =>
-      Nat.le_of_dvd Nat.card_pos (hsig r (sectionTenPrimeSet_subset_sigmaA G hr)).2.2,
-    fun r hr => ⟨hr.1, (hsig r hr.2.2.1).2.2⟩⟩
 
 end CFSG.RankThree.GroupTheory.SteinbergBM

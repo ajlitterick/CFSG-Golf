@@ -112,11 +112,6 @@ theorem slTranspose_mul (A B : SL(3, F)) :
   apply Subtype.ext
   simp [Matrix.SpecialLinearGroup.coe_transpose, Matrix.transpose_mul]
 
-theorem slTranspose_inv (A : SL(3, F)) : (A⁻¹).transpose = (A.transpose)⁻¹ := by
-  apply eq_inv_of_mul_eq_one_left
-  rw [← slTranspose_mul, mul_inv_cancel]
-  apply Subtype.ext
-  simp [Matrix.SpecialLinearGroup.coe_transpose]
 
 @[expose] noncomputable def slGraph : SL(3, F) ≃* SL(3, F) where
   toFun A := (A⁻¹).transpose

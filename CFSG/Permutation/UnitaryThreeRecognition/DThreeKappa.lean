@@ -35,15 +35,6 @@ theorem t_sigma_snd (k : Kˣ) (X : Coord J) :
     map_mul, map_inv₀, conj_conj, H.conj_sgn]
   rcases H.sgn_eq k with e | e <;> rw [e] <;> field_simp
 
-theorem t_sigma_fst (k : Kˣ) (X : Coord J) :
-    (hermitianTorusAction J (σ k) X).1.1 =
-      sgn (J := J) σ k * (X.1.1 * (J.conj (k : K))⁻¹ * (k : K) ^ 2) := by
-  have hk := k.ne_zero
-  have hck : J.conj (k : K) ≠ 0 := (map_ne_zero J.conj).2 hk
-  have hs := H.sgn_ne k
-  rw [H.t_sigma k X, torus_fst, Units.val_mul, Units.val_mk0, Units.val_inv_eq_inv_val, cj_val,
-    map_mul, map_inv₀, conj_conj, H.conj_sgn]
-  rcases H.sgn_eq k with e | e <;> rw [e] <;> field_simp
 
 theorem exists_F_center : ∃ κ : K, κ ≠ 0 ∧ J.conj κ = κ ∧
     ∀ z : Coord J, z ≠ 1 → z.1.1 = 0 → (F z).1.1 = 0 ∧ (F z).1.2 * z.1.2 = κ := by

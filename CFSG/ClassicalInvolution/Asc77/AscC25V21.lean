@@ -97,47 +97,6 @@ end Group
 
 section Hyp
 
-variable {G : Type} [Group G] [Finite G] [IsSimpleGroup G] {p f : ℕ} [Fact p.Prime]
-  {Ω : Set (Subgroup G)} {K K' W : Subgroup G} {S : Sylow 2 G} {R R' : Subgroup G}
-  {z t u₁ u₂ t' : G}
-
-
-theorem false_of_conj_normalizer (h : T7F2.Hyp25T p f Ω K K' W S R R' z t u₁ u₂ t')
-    (h9 : p ^ f ≠ 9) {a b g : G} (haS : a ∈ (S : Subgroup G)) (ha2 : a * a = 1)
-    (hF : IsFAut R' a) (hbg : b = g * z * g⁻¹) (hbz : b ≠ z) (hba : b * a = a * b)
-    (hbc : b * z = z * b)
-    (hnoswap : ¬ ∃ c : G, c * a = a * c ∧ c * z = z * c ∧ conjSub c K' = K) : False := by
-  have hp : p ≠ 2 := h.hp
-  have hq : 5 ≤ p ^ f := h.hs.stand.five
-  have hfix := fix_of_isFAut h haS hF
-  have haK' : a ∈ Subgroup.normalizer (K' : Set G) :=
-    mem_normalizer_iff_conjSub_eq.mpr hfix.2.2.2
-  have d' := twinCtx'_of_hyp25 h
-  have hbK' : conjSub b K' = K' := by
-    rcases d'.conj_K hbc with h1 | h1
-    · exact h1
-    · exact absurd ⟨b, hba, hbc, h1⟩ hnoswap
-  have hbN : b ∈ Subgroup.normalizer (K' : Set G) := mem_normalizer_iff_conjSub_eq.mpr hbK'
-  have hb2 : b * b = 1 := by
-    rw [hbg]
-    calc g * z * g⁻¹ * (g * z * g⁻¹) = g * (z * z) * g⁻¹ := by group
-      _ = 1 := by rw [h.hz'.sq]; group
-  obtain ⟨e⟩ := h.hΩ.nonempty_equiv_sl2 h.hK'
-  have hσa : fieldChar hp hq e ⟨a, haK'⟩ ≠ 1 :=
-    fieldChar_ne_one_of_isFAut hp hq e h.hR'syl.1 h.hqR' h.hzR' hF ha2 haK'
-  have key : ∃ y₀ ∈ K', orderOf y₀ = 4 ∧ y₀ * b = b * y₀ := by
-    by_cases hχ : fieldChar hp hq e ⟨b, hbN⟩ = 1
-    · exact exists_comm_order_four_of_commute hp hq e haK' hbN ha2 hb2 hba.symm hσa hχ
-    · obtain ⟨Q, hQ, ⟨k, hk, ⟨eQ⟩⟩, -⟩ := fs_sylow_fixed hp hq h9 e hbN hb2 hχ h.hR'syl
-      have : NeZero (2 ^ k) := ⟨pow_ne_zero k two_ne_zero⟩
-      refine ⟨((eQ.symm (QuaternionGroup.xa 0) : Q) : G), (hQ.1 (eQ.symm _).2).1, ?_, ?_⟩
-      · rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq]
-        exact QuaternionGroup.orderOf_xa 0
-      · exact Subgroup.mem_centralizer_singleton_iff.mp (hQ.1 (eQ.symm _).2).2
-  obtain ⟨y₀, hy₀K, hy₀4, hy₀c⟩ := key
-  have hbz' := eq_conj_z_of_commute_order_four h (c := 1) (g := g) (y₀ := y₀)
-    (by rwa [conjSub_one]) hy₀4 (by rw [← hbg]; exact hy₀c.symm)
-  exact hbz (by rw [hbg, hbz']; group)
 
 end Hyp
 

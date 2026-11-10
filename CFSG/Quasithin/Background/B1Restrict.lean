@@ -251,12 +251,6 @@ theorem rk_eq_rkIdx_of_rAV_eq_one [Finite V] {X A : Subgroup (MulAut V)} (hA : I
   rw [div_eq_one_iff_eq hr] at h
   exact_mod_cast h.symm
 
-theorem rAV_eq_one_of_rk_eq_rkIdx [Finite V] {X A : Subgroup (MulAut V)} (hA : IsA2 X A)
-    (h : rk A = rkIdx (fixV A)) : rAV A = 1 := by
-  have hr : (rk A : ℚ) ≠ 0 := by exact_mod_cast hA.rk_pos.ne'
-  unfold rAV
-  rw [div_eq_one_iff_eq hr]
-  exact_mod_cast h.symm
 
 end B1
 
@@ -347,63 +341,5 @@ theorem B1_5_2 [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)
         W ⊔ fixV A = ⊤ ∧ A ⊓ centSub W = ⊥) :=
   ⟨B7_1_2_min hA hW hWA, fun hns => (B7_1_2_of_not_strong hV hA hW hWA hns).symm⟩
 
-theorem B1_5_6 [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)}
-    (hA : IsFFStarOffender X A) {W : Subgroup V} (hW : ∀ a ∈ A, ∀ w ∈ W, a w ∈ W)
-    (hWA : commSub W A ≠ ⊥) (hm : rk (autSub A W) = rkIdx (fixV (autSub A W))) :
-    A ⊓ centSub W = ⊥ ∨ IsFFStarOffender X (A ⊓ centSub W) := by
-  rcases B7_1_3 hV hA hW hWA hm with h | ⟨hB, -⟩
-  · exact Or.inl h.1
-  · exact Or.inr hB
-
-theorem B1_5_5 [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)} (hA : IsFFStarMin X A)
-    {W : Subgroup V} (hW : ∀ a ∈ A, ∀ w ∈ W, a w ∈ W) (hWA : commSub W A ≠ ⊥)
-    (hq : qOf (autSub X W) = 1) :
-    IsFFStarMin (autSub X W) (autSub A W) ∧ W ⊔ fixV A = ⊤ ∧ A ⊓ centSub W = ⊥ := by
-  have hmin := B7_1_2_min hA hW hWA
-  have hW2 := B1.sq_eq_one_sub hV W
-  have hr := rAV_eq_one_of_one_le_qOf hW2 (hq ▸ le_rfl : (1 : WithTop ℚ) ≤ qOf (autSub X W))
-    hmin.1
-  obtain ⟨h1, h2⟩ := B7_1_2_faithful hV hA hW hWA
-    (B1.rk_eq_rkIdx_of_rAV_eq_one hmin.1.isA2 hr)
-  exact ⟨hmin, h2, h1⟩
-
-theorem B1_5_7 [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)}
-    (hA : IsFFStarOffender X A) {W : Subgroup V} (hW : ∀ a ∈ A, ∀ w ∈ W, a w ∈ W)
-    (hWA : commSub W A ≠ ⊥) (hfaith : A ⊓ centSub W = ⊥)
-    (hq : qOf (autSub X W) = 1) : W ⊔ fixV A = ⊤ ∧ commV A ≤ W := by
-  have hst : A ≤ stabSub W := B1.le_stabSub_of_invariant hW
-  have hAut := B7_1_1 hA hW hWA
-  have hW2 := B1.sq_eq_one_sub hV W
-  have hr := rAV_eq_one_of_one_le_qOf hW2 (hq ▸ le_rfl : (1 : WithTop ℚ) ≤ qOf (autSub X W)) hAut
-  have hcardW : Nat.card W = Nat.card (autSub A W) * Nat.card (fixV (autSub A W)) :=
-    (rAV_eq_one_iff hW2 hAut.isA2).1 hr
-  have htr := B1.card_transfer hst (le_refl (autSub A W))
-  rw [B1.preB_autSub hst, hfaith, Subgroup.card_bot, mul_one, ← hcardW] at htr
-  have hsup := card_sup_mul_card_inf W (fixV A)
-  have hle : Nat.card V ≤ Nat.card A * Nat.card (fixV A) := by
-    have := hA.card_le (bot_le : (⊥ : Subgroup (MulAut V)) ≤ A)
-    rwa [B1.card_bot_mul_card_fixV] at this
-  have hpos : 0 < Nat.card ↥(W ⊓ fixV A) := Nat.card_pos
-  have hcardsup : Nat.card ↥(W ⊔ fixV A) = Nat.card A * Nat.card (fixV A) := by
-    refine Nat.eq_of_mul_eq_mul_right hpos ?_
-    rw [hsup, htr]
-    ring
-  have htop : W ⊔ fixV A = ⊤ := by
-    refine Subgroup.eq_top_of_card_eq _ ?_
-    refine le_antisymm (Nat.card_le_card_of_injective _ Subtype.val_injective) ?_
-    rw [hcardsup]
-    exact hle
-  refine ⟨htop, ?_⟩
-  unfold commV
-  rw [Subgroup.closure_le]
-  rintro _ ⟨x, hx, v, rfl⟩
-  have hv : v ∈ W ⊔ fixV A := by rw [htop]; trivial
-  obtain ⟨w, hw, c, hc, rfl⟩ := Subgroup.mem_sup.1 hv
-  have hxc : x c = c := hc x hx
-  have : x (w * c) * (w * c)⁻¹ = x w * w⁻¹ := by
-    rw [map_mul, hxc]
-    group
-  rw [this]
-  exact W.mul_mem (hW x hx w hw) (W.inv_mem hw)
 
 end CFSG.Quasithin

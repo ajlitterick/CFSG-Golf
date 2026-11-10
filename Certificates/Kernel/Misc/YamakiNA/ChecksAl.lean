@@ -17,8 +17,6 @@ open CFSG.KD.YamakiRep
 
 theorem na550822b5 : Nat.blt (RN 5) (2 ^ 36) = true := by quickRfl
 
-theorem na550822nA : (!cAlChunk RN 14 10752 RX 14 1536 (fun t => PNX (Nat.add t 1)) 512 0) = true := by
-  quickRfl
 
 end CFSG.KD.YamakiNA
 

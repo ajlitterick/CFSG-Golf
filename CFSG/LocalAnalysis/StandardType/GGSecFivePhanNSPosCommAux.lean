@@ -66,18 +66,6 @@ private theorem ggNSPosPF_one_le_f {K : Type} [Field K] [Finite K] {f : ℕ}
     omega
   · exact hf
 
-private theorem ggNSPosPF_conjTr_inv {K : Type} [Field K] {σ : K ≃+* K} {n : ℕ}
-    (g : GL (Fin n) K) :
-    conjTr σ (((g⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)) =
-      (conjTr σ ((g : GL (Fin n) K) : Matrix (Fin n) (Fin n) K))⁻¹ := by
-  have h : conjTr σ (((g⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)) *
-      conjTr σ ((g : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) = 1 := by
-    rw [← conjTr_mul]
-    have h1 : ((g : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *
-        ((g⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) = 1 := by
-      rw [← Units.val_mul, mul_inv_cancel, Units.val_one]
-    rw [h1, conjTr_one]
-  exact (Matrix.inv_eq_left_inv h).symm
 
 private theorem ggNSPosPF_ggIsUnitaryMat_mul {K : Type} [Field K] [Finite K] [CharP K 2]
     {f n : ℕ} {g₁ g₂ : GL (Fin n) K}

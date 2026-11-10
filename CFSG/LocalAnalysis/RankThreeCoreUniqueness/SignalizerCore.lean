@@ -142,27 +142,6 @@ theorem rankTwo_full_sylow_normalizer_signalizer_branch
     (hrank.trans (pRank_mono prime hprime.one_lt
       (le_inf (hsylow.trans hnormalizer) hsylowLocal))))
 
-theorem rankTwo_escaping_normalizer_full_sylow_has_escaping_signalizer
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (sylowGroup : Sylow prime G) (maximalLocal actingGroup : Subgroup G)
-    (hmaximal : rankThreeIsMaxTwoLocal maximalLocal)
-    (hacting : actingGroup ≤ maximalLocal)
-    (hsylow : (sylowGroup : Subgroup G) ≤ Subgroup.normalizer (actingGroup : Set G))
-    (hsylowLocal : (sylowGroup : Subgroup G) ≤ maximalLocal)
-    (hrank : 3 ≤ pRank prime (sylowGroup : Subgroup G))
-    (hlocalConfinement : ∀ localGroup : Subgroup G, IsTwoLocal localGroup →
-      3 ≤ pRank prime (localGroup ⊓ maximalLocal) → localGroup ≤ maximalLocal)
-    (hescape : ¬ Subgroup.normalizer (actingGroup : Set G) ≤ maximalLocal) :
-    ∃ signalGroup : Subgroup G, Nat.Coprime prime (Nat.card signalGroup) ∧
-      actingGroup ≤ Subgroup.normalizer (signalGroup : Set G) ∧ ¬ signalGroup ≤ maximalLocal := by
-  classical
-  have hsignals : ¬ ∀ signalGroup : Subgroup G, Nat.Coprime prime (Nat.card signalGroup) →
-      actingGroup ≤ Subgroup.normalizer (signalGroup : Set G) → signalGroup ≤ maximalLocal := by
-    intro hconfined
-    exact hescape (rankTwo_full_sylow_normalizer_signalizer_branch prime hprime hodd sylowGroup
-      maximalLocal actingGroup hmaximal hacting hsylow hsylowLocal hrank hconfined hlocalConfinement)
-  push Not at hsignals
-  exact hsignals
 
 @[expose] def rankTwoMaximalInvariantTwoSubgroup (actingGroup twoGroup : Subgroup G) : Prop :=
   IsPGroup 2 twoGroup ∧ actingGroup ≤ Subgroup.normalizer (twoGroup : Set G) ∧
@@ -217,19 +196,5 @@ theorem rankTwo_normalizer_le_of_signalizer_transitivity
   simpa only [inv_mul_cancel_left] using
     overgroup.mul_mem (overgroup.inv_mem (hcentralizer hcentralizing)) hproduct
 
-omit [Finite G] in
-theorem rankTwo_normalizer_le_of_signalizer_transitivity_and_central_line
-    (actingGroup overgroup twoGroup centralLine : Subgroup G)
-    (hline : centralLine ≤ actingGroup)
-    (hlineNormalizer : Subgroup.normalizer (centralLine : Set G) ≤ overgroup)
-    (hmaximal : rankTwoMaximalInvariantTwoSubgroup actingGroup twoGroup)
-    (hnormalizer : Subgroup.normalizer (twoGroup : Set G) ≤ overgroup)
-    (htransitivity : ∀ other : Subgroup G, rankTwoMaximalInvariantTwoSubgroup actingGroup other →
-      ∃ centralizingElement : G, centralizingElement ∈ Subgroup.centralizer (actingGroup : Set G) ∧
-        other.map (MulAut.conj centralizingElement).toMonoidHom = twoGroup) :
-    Subgroup.normalizer (actingGroup : Set G) ≤ overgroup := by
-  exact rankTwo_normalizer_le_of_signalizer_transitivity actingGroup overgroup twoGroup hmaximal
-    ((Subgroup.centralizer_le hline).trans
-      ((Subgroup.centralizer_le_normalizer _).trans hlineNormalizer)) hnormalizer htransitivity
 
 end CFSG.RankThreeCoreUniqueness.Helpers

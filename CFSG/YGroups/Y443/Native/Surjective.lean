@@ -83,15 +83,5 @@ theorem fM_surjective_of_order
   obtain ⟨g, hgK, hgx, hg1, hg2⟩ := bray_element_image (Cgen_le_imgConj hN)
   exact fM_surjective_of hN Co2.Kstab_v0_eq_or_eq_top hgK hgx hg1 hg2
 
-theorem fam_m_simplicity_of_order
-    (hN : Q343N ≤ Nat.card (y443H.map fM))
-    (hinj : Set.InjOn fM y443H) (hxL : fM y443X ∉ y443H.map fM)
-    (hedge : ∀ h ∈ y443H.map fM, fM y443X * h * fM y443X ∈ y443H.map fM →
-      ∃ k ∈ y443H, y443X * k * y443X ∈ y443H ∧ fM k = h)
-    (htri : ∀ (v : Quotient (QuotientGroup.rightRel (y443H.map fM)))
-      (p : (rcGraph (y443H.map fM) (fM y443X)).Walk v v),
-      MarkedHomotopic (yTri (y443H.map fM) (fM y443X) (fM y443Y)) p SimpleGraph.Walk.nil) :
-    IsSimpleGroup MonsterY443Derived :=
-  fam_m_simplicity_of hinj hxL hedge htri (fM_surjective_of_order hN)
 
 end CFSG.YGroups.Y443

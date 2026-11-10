@@ -36,22 +36,6 @@ theorem ggOrdPGraphAt_of_orthogonal (hP : GGOrdPGraphAt .POmegaPlus)
   | twistedF4 => exact ggOrdPGraphAt_of_small (by simp [GGOrdPSmallTag])
   | Tits => exact ggOrdPGraphAt_of_small (by simp [GGOrdPSmallTag])
 
-theorem ggSixLSixElevenKGInput_of_rest_orth (h1 : ∀ t, ¬ GGOrdPSmallTag t → GGOrdPInnerConjAt t)
-    (h2 : ∀ t, ¬ GGOrdPSmallTag t → GGOrdPFieldConjAt t)
-    (h3 : ∀ t, (t = .PSL ∨ t = .PSU ∨ t = .E6 ∨ t = .twistedE6) → GGOrdPOutdiagAt t)
-    (hP : GGOrdPGraphAt .POmegaPlus) (hM : GGOrdPGraphAt .POmegaMinus)
-    (h5 : GGOrdPTrialityInput) : GGSixLSixElevenKGInput :=
-  ggSixLSixElevenKGInput_of_rest h1 h2 h3
-    (fun t _ _ => ggOrdPGraphAt_of_orthogonal hP hM t) h5
-
-theorem ggSixLSixElevenKGInput_of_rest_orth_model
-    (h1 : ∀ t, ¬ GGOrdPSmallTag t → GGOrdPInnerConjAt t)
-    (h2 : ∀ t, ¬ GGOrdPSmallTag t → GGOrdPFieldConjAt t)
-    (h3 : ∀ t, (t = .PSL ∨ t = .PSU ∨ t = .E6 ∨ t = .twistedE6) → GGOrdPOutdiagAt t)
-    (hP : GGOrdPGraphModelAt .POmegaPlus) (hM : GGOrdPGraphModelAt .POmegaMinus)
-    (h5 : GGOrdPTrialityInput) : GGSixLSixElevenKGInput :=
-  ggSixLSixElevenKGInput_of_rest_orth h1 h2 h3 (ggOrdPGraphAt_of_model hP)
-    (ggOrdPGraphAt_of_model hM) h5
 
 end Assembly
 

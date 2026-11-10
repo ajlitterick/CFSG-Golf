@@ -192,24 +192,6 @@ theorem unitary_pair_centralizer_hulls_have_involutory_kernels
   · rw [hB]
     exact centralizer_root_solvable hCz hzU hHu hRu hKu
 
-theorem unitary_pair_hull_oddCore_eq_bot
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta)
-    (hrank : twoRank (pairPointStabilizer H beta) = 1)
-    {w : G} (hwB : w ∈ pairPointStabilizer H beta) (hw : orderOf w = 2) (hwz : Commute w z)
-    (hwt : Commute w t)
-    (hdeg : Nat.card (elementFixedSet H w) =
-      Nat.card ({1} ∪ distinguishedRoots H z w : Set G) ^ 3 + 1) :
-    CFSG.oddCore (localInvolutionPointHull z w) = ⊥ ∧
-      CFSG.oddCore (localInvolutionPointHull z (w * z)) = ⊥ := by
-  obtain ⟨R⟩ : Nonempty (Sylow 2 ↥(localInvolutionPointHull z w ⊓ H)) := inferInstance
-  obtain ⟨Rv⟩ : Nonempty (Sylow 2 ↥(localInvolutionPointHull z (w * z) ⊓ H)) := inferInstance
-  obtain ⟨T₁⟩ : Nonempty (Sylow 2 ↥(H ⊓ Subgroup.centralizer ({w} : Set G))) := inferInstance
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, hodd, hoddv, -⟩ :=
-    unitary_pair_centralizer_hulls_have_involutory_kernels h hbeta ht hrank hwB hw hwz hwt hdeg
-      R Rv T₁
-  exact ⟨hodd, hoddv⟩
 
 theorem unitaryInvolutoryKernelsConclusion
     (G : Type) [Group G] [Finite G] :

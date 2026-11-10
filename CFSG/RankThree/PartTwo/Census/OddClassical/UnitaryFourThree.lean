@@ -472,10 +472,6 @@ theorem localRankThreeU43 : LocalRankThreeU43 := by
   exact localRank_three_le_two_of (fun s hs R hR => not_dvd_card_of_le_centralizer h hs hR)
     (fun K hK Q hQ hQK => card_le_two_of_le_centralizer h hK hQ hQK)
 
-theorem excluded433_twistedA_three_three_of (q : TauCeti.PrimePower)
-    (hv : (TauCeti.LieTypeIndex.twistedA 3 q).Valid) (hq : q.p = 3) (hf : q.exponent = 1) :
-    Excluded433 (.lie ⟨.twistedA 3 q, hv⟩) :=
-  excluded433_twistedA_three_three localRankThreeU43 q hv hq hf
 
 theorem item433Case_twistedA_of_odd (r : ℕ) (q : TauCeti.PrimePower)
     (hv : (TauCeti.LieTypeIndex.twistedA r q).Valid) (hq : q.p ≠ 2) :

@@ -118,8 +118,6 @@ theorem map_get {L : Array (Array Nat)} {f : Array Nat → Array Nat} {j : Nat} 
     (L.map f)[j]! = f L[j]! := by
   rw [getElem!_pos _ j (by simpa using hj), Array.getElem_map, getElem!_pos L j hj]
 
-theorem rl_get {F : Nat → Nat} {o x : Nat} (hx : x < 22880) :
-    (rowArr 22880 15 F o)[x]! = rl F o x := rowArr_get hx
 
 theorem rowArr_congr {F F' : Nat → Nat} {o o' : Nat} (h : ∀ r < 715, F (o + r) = F' (o' + r)) :
     rowArr 22880 15 F o = rowArr 22880 15 F' o' := by
@@ -134,9 +132,6 @@ theorem rowArr_congr {F F' : Nat → Nat} {o o' : Nat} (h : ∀ r < 715, F (o + 
   simp only [Nat.add_eq] at e ⊢
   rw [e]
 
-theorem cert_get {k x : Nat} (hk : k < 12) (hx : x < 22880) : (certArr k)[x]! = cgk k x := by
-  rw [certArr_eq hk, rowArr_get hx]
-  rfl
 
 theorem cert_inv {k : Nat} (hk : k < 12) :
     invCand 22880 (certArr k) = rowArr 22880 15 SuzCertI (ofs k) := by

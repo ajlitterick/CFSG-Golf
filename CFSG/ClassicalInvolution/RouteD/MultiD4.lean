@@ -93,12 +93,6 @@ private theorem longTorus_neg_one_mul_flip {i j : Fin n} (hij : i ≠ j) (s t : 
         rw [h4, hee]
         module
 
-private theorem longTorus_congr {i j i' j' : Fin n} (hij : i ≠ j) (hij' : i' ≠ j') (hi : i = i')
-    (hj : j = j') {s t s' t' : Bool} (hs : s = s') (ht : t = t') (τ : Kˣ) :
-    F.longTorus hij s t τ = F.longTorus hij' s' t' τ := by
-  subst hi hj hs ht
-  rfl
-
 
 end CFSG.LieType.Universal.Spin.HypFrame
 

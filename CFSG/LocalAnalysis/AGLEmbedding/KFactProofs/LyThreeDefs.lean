@@ -80,8 +80,6 @@ deriving Inhabited
 @[expose] def certOK {M V : Type} [Inhabited M] (O : Ops M V) (R : Array M) (C : MCert) : Bool :=
   decide (2 ≤ C.nregs) && C.prog.all (Op.lt C.nregs) && C.facts.all (factOK O R C.nregs)
 
-theorem mcertCheck_eq_certOK {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String)
-    (C : MCert) : mcertCheck O sA sB C = certOK O (O.regsOf sA sB C.nregs C.prog) C := rfl
 
 @[expose] def lyCheck {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String) (c0 c1 : M)
     (nregs : Nat) (prog : List Op) (Dz : LZSpec) (Dc : LCSpec) : Bool :=

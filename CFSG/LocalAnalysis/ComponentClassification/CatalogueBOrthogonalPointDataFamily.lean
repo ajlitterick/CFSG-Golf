@@ -34,9 +34,6 @@ theorem similarity_projective_covariance (Q : QuadraticForm K (Fin d → K))
     (L : Points Q) : Subgroup (matrixProjectiveDerived Q) :=
   pointStabilizer (projectivePointAction Q) L
 
-theorem mem_projectivePointStabilizer_iff (Q : QuadraticForm K (Fin d → K))
-    (L : Points Q) (x : matrixProjectiveDerived Q) :
-    x ∈ projectivePointStabilizer Q L ↔ projectivePointAction Q x L = L := Iff.rfl
 
 @[expose] def projectivePointFamily (Q : QuadraticForm K (Fin d → K)) :
     Set (Subgroup (matrixProjectiveDerived Q)) := family (projectivePointAction Q)
@@ -70,9 +67,6 @@ theorem projective_image_le_pointFamilyAut (Q : QuadraticForm K (Fin d → K)) :
 @[expose] def similarityPointImage (Q : QuadraticForm K (Fin d → K)) :
     Subgroup (Equiv.Perm (Points Q)) := (similarityPointAction Q).range
 
-theorem projective_image_le_similarityPointImage (Q : QuadraticForm K (Fin d → K)) :
-    (projectivePointAction Q).range ≤ similarityPointImage Q :=
-  projectivePointAction_range_le_similarity Q
 
 theorem similarityPointImage_le_normalizer (Q : QuadraticForm K (Fin d → K)) :
     similarityPointImage Q ≤
@@ -80,16 +74,5 @@ theorem similarityPointImage_le_normalizer (Q : QuadraticForm K (Fin d → K)) :
   compatible_perm_range (projectivePointAction Q) (matrixProjectiveConjugationHom Q)
     (similarityPointAction Q) (similarity_projective_covariance Q)
 
-theorem orthogonal_geometry_point_data (hd : 1 ≤ d)
-    (Q : QuadraticForm K (Fin d → K)) (hQ : Q ≠ 0) :
-    OuterAutomorphisms.inner (matrixProjectiveDerived Q) ≤ projectivePointFamilyAut Q ∧
-    matrixProjectiveImage Q ≤ projectivePointFamilyAut Q ∧
-    (projectivePointAction Q).range ≤ similarityPointImage Q ∧
-    similarityPointImage Q ≤
-      Subgroup.normalizer ((projectivePointAction Q).range : Set (Equiv.Perm (Points Q))) := by
-  have _hd := hd
-  have _hQ := hQ
-  exact ⟨projective_inner_le_pointFamilyAut Q, projective_image_le_pointFamilyAut Q,
-    projective_image_le_similarityPointImage Q, similarityPointImage_le_normalizer Q⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

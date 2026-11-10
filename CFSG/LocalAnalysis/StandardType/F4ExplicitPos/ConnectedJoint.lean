@@ -270,18 +270,6 @@ theorem exists_frobTwist_eq_mul_torus_sup_rootSpan_no117 {k : Type} [Field k] [I
   obtain ⟨z, hz, hzy⟩ := hlang y hy
   exact ⟨z, hz, by rw [← hzy]; group⟩
 
-theorem exists_frobTwistGL_F4_eq_mul_torus_sup_kernelRoots_no117 {Ω M : Type} [Field Ω]
-    [IsAlgClosed Ω] [CharP Ω 2] [CommGroup M]
-    (χ : Multiplicative (Fin Tag.F4.rank → ℤ) →* M) (f : ℕ) (hf : 1 ≤ f)
-    (Q : ModGL Tag.F4 Ω)
-    (hQ : ∀ g ∈ (torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω (kernelRoots χ)),
-      frobTwistGL Tag.F4 Ω 2 f Q g ∈
-        (torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω (kernelRoots χ))) :
-    ∀ y ∈ (torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω (kernelRoots χ)),
-      ∃ z ∈ (torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω (kernelRoots χ)),
-        frobTwistGL Tag.F4 Ω 2 f Q z = z * y :=
-  exists_frobTwist_eq_mul_torus_sup_rootSpan_no117 (τ := Tag.F4) (k := Ω) (p := 2)
-    (S := kernelRoots χ) f hf Q hQ
 
 end CFSG.StandardType.F4ExplicitPos.ConnectedJoint
 

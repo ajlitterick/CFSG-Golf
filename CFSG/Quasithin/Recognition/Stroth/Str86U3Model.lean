@@ -173,28 +173,6 @@ theorem uJMat_mulVec [Finite F] [CharP F 2] {k : ℕ} (a b : F) (v : Fin 3 → F
     simp [CFSG.Quasithin.H.SU3.uJMat, Matrix.mulVec, Fin.sum_univ_three, vecHead, vecTail,
       add_assoc]
 
-theorem uJMat_mulVec_single_zero [Finite F] [CharP F 2] {k : ℕ} (a b c : F) :
-    (CFSG.Quasithin.H.SU3.uJMat k a b) *ᵥ (Pi.single 0 c : Fin 3 → F) =
-      Pi.single 0 c := by
-  rw [uJMat_mulVec]
-  ext i
-  fin_cases i <;> simp [vecHead, vecTail]
-
-theorem uJMat_mulVec_single_one [Finite F] [CharP F 2] {k : ℕ} (a b c : F) :
-    (CFSG.Quasithin.H.SU3.uJMat k a b) *ᵥ (Pi.single 1 c : Fin 3 → F) =
-      (a * c) • (Pi.single 0 1 : Fin 3 → F) + c • (Pi.single 1 1 : Fin 3 → F) := by
-  rw [uJMat_mulVec]
-  ext i
-  fin_cases i <;> simp [vecHead, vecTail, add_comm, add_left_comm, add_assoc]
-
-theorem uJMat_mulVec_single_two [Finite F] [CharP F 2] {k : ℕ} (a b c : F) :
-    (CFSG.Quasithin.H.SU3.uJMat k a b) *ᵥ (Pi.single 2 c : Fin 3 → F) =
-      (b * c) • (Pi.single 0 1 : Fin 3 → F) +
-        (CFSG.Quasithin.H.SU3.bar k a * c) • (Pi.single 1 1 : Fin 3 → F) +
-          c • (Pi.single 2 1 : Fin 3 → F) := by
-  rw [uJMat_mulVec]
-  ext i
-  fin_cases i <;> simp [vecHead, vecTail, add_comm, add_left_comm, add_assoc]
 
 theorem uJMat_mul [Finite F] [CharP F 2] {k : ℕ} (a b a' b' : F) :
     CFSG.Quasithin.H.SU3.uJMat k a b * CFSG.Quasithin.H.SU3.uJMat k a' b' =

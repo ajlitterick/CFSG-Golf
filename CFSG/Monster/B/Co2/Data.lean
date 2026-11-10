@@ -84,7 +84,6 @@ theorem permutations_size : Native.permutations.size = 24 := by simp [Native.per
 
 theorem vectors_size : Native.vectors.size = 2300 := by simp [Native.vectors, Native.hexTable]
 
-theorem pairPerms_size : Native.pairPerms.size = 2 := by simp [Native.pairPerms]
 
 theorem dataCheck_parts :
     Native.genRecords.size = 24 ∧ Native.quotientBasis.size = 22 ∧ Native.pairWords.size = 2 ∧

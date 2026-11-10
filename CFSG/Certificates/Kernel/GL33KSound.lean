@@ -11,7 +11,6 @@ open CFSG.GL33 CFSG.GL33.Native
 
 theorem mulK_eq_mulC (a b : ℕ) : mulK a b = mulC a b := rfl
 
-theorem oneK_eq : oneK = oneC := rfl
 
 theorem good_mulK {a b : ℕ} (ha : Good a) (hb : Good b) : Good (mulK a b) := by
   rw [mulK_eq_mulC, ← mulF_eq_mulC]

@@ -366,11 +366,6 @@ section Model
     ProjectiveSpecialLinearGroup (Fin 2) K ≃* StatedProj (StatedSL 2 K) :=
   projectiveSpecialLinearGroupEquivStatedProj 2 K
 
-omit [Finite K] in
-theorem pslEquiv_pslMk (A : SpecialLinearGroup (Fin 2) K) :
-    pslEquiv K (pslMk A) =
-      (QuotientGroup.mk (specialLinearGroupEquivStatedSL 2 K A) : StatedProj (StatedSL 2 K)) :=
-  rfl
 
 @[expose] noncomputable def stU (K : Type) [Field K] :
     Multiplicative K →* StatedProj (StatedSL 2 K) :=
@@ -379,29 +374,6 @@ theorem pslEquiv_pslMk (A : SpecialLinearGroup (Fin 2) K) :
 @[expose] noncomputable def stD (a : Kˣ) : StatedProj (StatedSL 2 K) :=
   pslEquiv K (pslMk (slD a))
 
-omit [Finite K] in
-theorem stU_apply (t : K) :
-    stU K (Multiplicative.ofAdd t) =
-      (QuotientGroup.mk (specialLinearGroupEquivStatedSL 2 K (slU t)) :
-        StatedProj (StatedSL 2 K)) :=
-  rfl
-
-omit [Finite K] in
-theorem coe_specialLinearGroupEquivStatedSL_slU (t : K) :
-    ((specialLinearGroupEquivStatedSL 2 K (slU t) : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) =
-      !![1, t; 0, 1] :=
-  rfl
-
-omit [Finite K] in
-theorem coe_specialLinearGroupEquivStatedSL_slD (a : Kˣ) :
-    ((specialLinearGroupEquivStatedSL 2 K (slD a) : GL (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) =
-      !![(a : K), 0; 0, ((a⁻¹ : Kˣ) : K)] :=
-  rfl
-
-omit [Finite K] in
-theorem stD_def (a : Kˣ) : stD a = (QuotientGroup.mk (specialLinearGroupEquivStatedSL 2 K (slD a)) :
-      StatedProj (StatedSL 2 K)) :=
-  rfl
 
 omit [Finite K] in
 theorem det_eq_one_of_mem_statedSL {n : ℕ} {x : GL (Fin n) K} (hx : x ∈ StatedSL n K) :

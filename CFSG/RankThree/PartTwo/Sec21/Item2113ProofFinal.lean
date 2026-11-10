@@ -10,22 +10,6 @@ namespace CFSG.RankThree.PartTwo.Sec21
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.Blueprint
 
-@[expose] def Item218FinalD : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L U₀ : Subgroup G) (b : G)
-    (K : Subgroup G),
-    Sec21Pair G A E U c L → IsList218 L → U₀ ∈ fourGroupsMinus E → U₀ ≤ L →
-    Sec21Pair G A E U₀ b K → IsList218 K → b ∈ E ⊓ Subgroup.centralizer (U₀ : Set G) →
-    b ∉ Subgroup.zpowers c →
-    (Nonempty (starOf A L ≃* DihedralGroup 6) ∨ Nonempty (starOf A L ≃* Equiv.Perm (Fin 3))) →
-    (Nonempty (starOf A K ≃* DihedralGroup 6) ∨ Nonempty (starOf A K ≃* Equiv.Perm (Fin 3))) →
-    Subgroup.normalizer (A : Set G) ≤
-      Subgroup.normalizer ((Subgroup.zpowers c : Subgroup G) : Set G) →
-    Subgroup.normalizer (A : Set G) ≤
-      Subgroup.normalizer ((Subgroup.zpowers b : Subgroup G) : Set G) →
-    IsCentral218 L b → IsCentral218 K c →
-    (∃ t ∈ starOf A L, IsTransvectionOn t ∧ (commOf t).map A.subtype = Subgroup.zpowers b) →
-    (∃ t ∈ starOf A K, IsTransvectionOn t ∧ (commOf t).map A.subtype = Subgroup.zpowers c) →
-    False
 
 namespace Item2113Proof
 

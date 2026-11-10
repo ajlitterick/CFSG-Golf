@@ -32,17 +32,5 @@ theorem coreStatement_of_propH_compType
     (N24_of N11a) (N25_of N11a) B2setup (N26_of N11a) (N27_of N11a N11c N13) (N28_of N11b)
     (N29_of N11a N11b) N30 N31_exists N31 N39 (N40_of N15) hH
 
-theorem topStatement_of_propH_compType
-    (hH : S_propH_compType) : TopStatement :=
-  topStatement_of_coreStatement (coreStatement_of_propH_compType hH)
-
-theorem coreStatement_of_open
-    (hZ : S_caseZ) (h1 : S_HC1) (h2 : S_HC2) : CoreStatement :=
-  coreStatement_of_propH_compType
-    (propH_compType_of lemmaX (corX_of (N37_of N36) lemmaX) hZ h1 h2)
-
-theorem topStatement_of_open
-    (hZ : S_caseZ) (h1 : S_HC1) (h2 : S_HC2) : TopStatement :=
-  topStatement_of_coreStatement (coreStatement_of_open hZ h1 h2)
 
 end CFSG.Goldschmidt

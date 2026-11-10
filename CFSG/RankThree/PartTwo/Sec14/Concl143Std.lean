@@ -328,9 +328,6 @@ theorem concl143_at_of_lB_eq_bot (hbal : Step143Balance) (h : Sec14Std G A c L) 
   fun _ hQ => mem_scriptQ_of_delta_eq_sup h.isE27' h.maximal_isElemAbelian ha
     (delta_eq_sup_of_lB_eq_bot hbal h ha ha1 hΩ hLB) hQ.prop
 
-theorem concl143_of_lB_eq_bot (hbal : Step143Balance) (h : Sec14Std G A c L)
-    (hLB : ∀ B : Subgroup G, IsHyperplane A B → lB A B = ⊥) : Concl143 A (lB A) :=
-  fun _ ha ha1 hΩ => concl143_at_of_lB_eq_bot hbal h ha ha1 hΩ fun B hB _ => hLB B hB
 
 end Std
 

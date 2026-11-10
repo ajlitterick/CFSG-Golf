@@ -55,14 +55,6 @@ theorem largeReeBlockTable_cover : ∀ m < F4.tag.rootCertificate.roots.length,
     ∃ i : Fin 16, F4.tag.rootCertificate.root m ∈ largeReeBlockTable i := by
   decide +kernel
 
-theorem largeReeBlockTable_card :
-    (Finset.univ.filter fun i : Fin 16 => (largeReeBlockTable i).length = 2).card = 8 ∧
-    (Finset.univ.filter fun i : Fin 16 => (largeReeBlockTable i).length = 4).card = 8 ∧
-    (Finset.univ.filter fun i : Fin 16 =>
-      (∀ x ∈ largeReeBlockTable i, 0 < height x) ∧ (largeReeBlockTable i).length = 2).card = 4 ∧
-    (Finset.univ.filter fun i : Fin 16 =>
-      (∀ x ∈ largeReeBlockTable i, 0 < height x) ∧ (largeReeBlockTable i).length = 4).card = 4 := by
-  decide +kernel
 
 theorem dualRoot_mem_fixedOrbitRootList_F4 : ∀ j : Fin F4.fixedOrbitCount,
     ∀ α ∈ F4.fixedOrbitRootList j, F4.dualRoot α ∈ F4.fixedOrbitRootList j := by

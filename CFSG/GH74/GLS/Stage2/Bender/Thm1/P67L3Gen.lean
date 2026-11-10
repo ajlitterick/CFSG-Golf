@@ -227,37 +227,11 @@ theorem exists_ne_one_fix_rootElt {r : ℕ} (hr : 1 < r)
     simpa using this
   exact ⟨w, hwV, hw1, fun t => by rw [hl t, hl1, one_mul]⟩
 
-theorem generation_of_toral {r : ℕ} (hr : 1 < r)
-    {V : Subgroup (MulAut (projectiveSL 3 K))} (hVc : Nat.card V = r ^ 2)
-    (hVe : ∀ v ∈ V, v ^ r = 1) (B : GL (Fin 3) K)
-    (hV : ∀ v ∈ V, ∃ (x : GL (Fin 3) K) (d : Fin 3 → K), v = conjAut 3 K x ∧
-      (x : Matrix (Fin 3) (Fin 3) K) * (B : Matrix (Fin 3) (Fin 3) K) =
-        (B : Matrix (Fin 3) (Fin 3) K) * Matrix.diagonal d) :
-    (⨆ v ∈ V, ⨆ (_ : v ≠ 1), fixSub v) = ⊤ := by
-  apply eq_top_of_rootElt_mem B
-  intro i j hij t
-  obtain ⟨w, hwV, hw1, hwt⟩ := exists_ne_one_fix_rootElt hr hVc hVe B hV hij
-  have hle : fixSub w ≤ ⨆ v ∈ V, ⨆ (_ : v ≠ 1), fixSub v :=
-    le_iSup₂_of_le w hwV (le_iSup (fun _ : w ≠ 1 => fixSub w) hw1)
-  exact hle (mem_fixSub.2 (hwt t))
 
 end Gen
 
 section Main
 
-variable {K : Type} [Field K] [Finite K]
-
-theorem false_of_toral {r : ℕ} {V Z : Subgroup (MulAut (projectiveSL 3 K))}
-    (h2 : N2Cfg (projectiveSL 3 K) r V Z) (h3 : N3Full (projectiveSL 3 K) V Z) (B : GL (Fin 3) K)
-    (hV : ∀ v ∈ V, ∃ (x : GL (Fin 3) K) (d : Fin 3 → K), v = conjAut 3 K x ∧
-      (x : Matrix (Fin 3) (Fin 3) K) * (B : Matrix (Fin 3) (Fin 3) K) =
-        (B : Matrix (Fin 3) (Fin 3) K) * Matrix.diagonal d) : False := by
-  have h2' := h2
-  obtain ⟨hr, -, hVe, hVc, -⟩ := h2'
-  have : IsElementaryAbelian r ↥V := hVe
-  have hVe' : ∀ v ∈ V, v ^ r = 1 := fun v hv => elemPow_eq_one_of_isElementaryAbelian v hv
-  exact false_of_generation isSimpleGroup_projectiveSL_three exists_noncomm_projectiveSL_three h2 h3
-    (generation_of_toral hr.one_lt hVc hVe' B hV)
 
 end Main
 

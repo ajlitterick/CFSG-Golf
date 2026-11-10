@@ -169,37 +169,5 @@ theorem mem_centralizer_map_iff {Y V : Subgroup G} {N : Subgroup ↥Y} [N.Normal
       simp)
     exact (quotient_commute_iff v h).mpr (hn' ▸ hn)
 
-omit [Finite G] in
-theorem map_inf_centralizer_eq_bot {Y V : Subgroup G} {N : Subgroup ↥Y} [N.Normal]
-    (hVY : V ≤ Y) (hV : ⁅V, V⁆ = V)
-    (hVN : V ⊓ N.map Y.subtype = (CFSG.Open.fusionZStar ↥V).map V.subtype) :
-    (V.subgroupOf Y).map (QuotientGroup.mk' N) ⊓ centralizer (((V.subgroupOf Y).map
-      (QuotientGroup.mk' N) : Subgroup (↥Y ⧸ N)) : Set (↥Y ⧸ N)) = ⊥ := by
-  have : Group.IsPerfect ↥V := Subgroup.isPerfect_iff.mpr hV
-  rw [eq_bot_iff]
-  rintro _ ⟨⟨v, hv, rfl⟩, hc⟩
-  rw [mem_bot]
-  have hvZ : (⟨v, hv⟩ : V) ∈ CFSG.Open.fusionZStar ↥V := by
-    apply mem_fusionZStar_of_commutator_mem
-    intro u
-    have h1 : QuotientGroup.mk' N ⟨u, hVY u.2⟩ ∈ (V.subgroupOf Y).map (QuotientGroup.mk' N) :=
-      mem_map_of_mem _ (show (⟨u, hVY u.2⟩ : Y) ∈ V.subgroupOf Y from u.2)
-    have h2 := (mem_centralizer_iff.mp hc) _ h1
-    have h3 := (quotient_commute_iff (N := N) v ⟨u, hVY u.2⟩).mp h2.symm
-    have h4 : (v : G)⁻¹ * (u : G)⁻¹ * v * u ∈ V ⊓ N.map Y.subtype :=
-      mem_inf.mpr ⟨mul_mem (mul_mem (mul_mem (inv_mem hv) (inv_mem u.2)) hv) u.2, ⟨_, h3, rfl⟩⟩
-    rw [hVN] at h4
-    obtain ⟨w, hw, hwu⟩ := h4
-    have hw' : w = (⟨v, hv⟩ : V)⁻¹ * u⁻¹ * ⟨v, hv⟩ * u := Subtype.ext (by
-      rw [show ((w : V) : G) = V.subtype w from rfl, hwu]
-      simp)
-    rwa [hw'] at hw
-  have hvN : (v : G) ∈ V ⊓ N.map Y.subtype := by
-    rw [hVN]
-    exact ⟨⟨v, hv⟩, hvZ, rfl⟩
-  obtain ⟨n, hn, hnv⟩ := (mem_inf.mp hvN).2
-  have hn' : n = v := Subtype.ext hnv
-  rw [← hn']
-  exact (QuotientGroup.eq_one_iff _).mpr hn
 
 end CFSG.ComponentClassification.UnbalancedCorr

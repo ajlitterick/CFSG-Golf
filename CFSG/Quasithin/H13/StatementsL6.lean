@@ -25,25 +25,11 @@ section Vocabulary
 
 variable {G : Type} [Group G]
 
-@[expose] def oTwoFrattini (X : Subgroup G) : Subgroup G :=
-  ((frattini (↥X ⧸ CFSG.pCore 2 ↥X)).comap (QuotientGroup.mk' (CFSG.pCore 2 ↥X))).map X.subtype
 
 @[expose] def oTwoP (p : ℕ) (X : Subgroup G) : Subgroup G :=
   ((CFSG.pCore p (↥X ⧸ CFSG.pCore 2 ↥X)).comap (QuotientGroup.mk' (CFSG.pCore 2 ↥X))).map
     X.subtype
 
-@[expose] def IsIrrSecIn (X C J : Subgroup G) : Prop :=
-  C < J ∧ ∀ K : Subgroup G, C ≤ K → K ≤ J → X ≤ Subgroup.normalizer (K : Set G) → K = C ∨ K = J
-
-@[expose] def IsSemisimpleSecIn (X C V : Subgroup G) : Prop :=
-  ∀ J : Subgroup G, C ≤ J → J ≤ V → X ≤ Subgroup.normalizer (J : Set G) →
-    ∃ K : Subgroup G, C ≤ K ∧ K ≤ V ∧ X ≤ Subgroup.normalizer (K : Set G) ∧ J ⊓ K = C ∧
-      J ⊔ K = V
-
-@[expose] def IsHomCompSecIn (X C V W : Subgroup G) : Prop :=
-  ∃ J₀ : Subgroup G, J₀ ≤ V ∧ X ≤ Subgroup.normalizer (J₀ : Set G) ∧ IsIrrSecIn X C J₀ ∧
-    W = C ⊔ ⨆ (J : Subgroup G) (_ : J ≤ V ∧ X ≤ Subgroup.normalizer (J : Set G) ∧
-      IsIrrSecIn X C J ∧ IsXSectionIso₂ X J C J₀ C), J
 
 @[expose] def IsTISetUnder (V M : Subgroup G) : Prop :=
   ∀ g ∈ M, g ∉ Subgroup.normalizer (V : Set G) → V ⊓ CFSG.conjugate V g = ⊥
@@ -93,20 +79,6 @@ variable {G : Type} [Group G]
 
 end Blocks
 
-structure Hyp3_2_2 (G : Type) [Group G] [Finite G] (T M Mp V₀ : Subgroup G) : Prop where
-  simple : IsSimpleGroup G
-  nonabelian : ∃ a b : G, a * b ≠ b * a
-  qtke : QuasithinUnique.quasithinIsQTKECat G
-  sylow : quasithinIsSylowTwo T
-  maxTwoLocal : quasithinIsMaxTwoLocal M
-  T_le : T ≤ M
-  Mp_le : Mp ≤ M
-  Mp_normal : M ≤ Subgroup.normalizer (Mp : Set G)
-  Mp_residual : oTwoUpper Mp = Mp
-  cases_i_ii : (∃ L : Subgroup G, quasithinIsFaithfulLocal T L ∧
-      CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) ∧ Mp = conjClosure L T) ∨
-    ∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Mp = oTwoP p Mp ∧ IsIrrSecIn T (oTwoFrattini Mp) Mp
-  irrPlus : IsIrrPlusIn Mp (reducedAggregate (Mp ⊔ T)) T V₀
 
 @[expose] def Case3_2_6_iii {G : Type} [Group G] (T L V₀ : Subgroup G) : Prop :=
   ∃ _ : IsMulCommutative ↥(conjClosure (conjClosure V₀ T)
@@ -139,101 +111,6 @@ structure Hyp3_2_2 (G : Type) [Group G] [Finite G] (T M Mp V₀ : Subgroup G) : 
               (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G))) :
                 Subgroup _) : Set _)), x ^ 5 = 1))
 
-@[expose] def Stmt3_2_6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L V₀ : Subgroup G), FSU G T L V₀ →
-    L ≠ conjClosure L T →
-      (∃ _ : IsMulCommutative ↥(conjClosure V₀ T),
-        qhatOf (V := ↥(conjClosure V₀ T)) (autOn (conjClosure L T ⊔ T) (conjClosure V₀ T)) ≤ 2) ∧
-      ∃ _ : IsMulCommutative ↥(conjClosure (conjClosure V₀ T)
-          (Subgroup.normalizer (conjClosure L T : Set G))),
-        qhatOf (V := ↥(conjClosure (conjClosure V₀ T)
-            (Subgroup.normalizer (conjClosure L T : Set G))))
-          (autOn (Subgroup.normalizer (conjClosure L T : Set G))
-            (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)))) ≤ 2 ∧
-        ((∃ (n : ℕ) (K : Type) (_ : Field K) (_ : Finite K), Nat.card K = 2 ^ n ∧
-            LieModel ↥(autOn L (conjClosure (conjClosure V₀ T)
-              (Subgroup.normalizer (conjClosure L T : Set G)))) .PSL 2 2 n ∧
-            V₀ = conjClosure V₀ T ∧
-            conjClosure V₀ T =
-              conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ∧
-            (tensorNatModel 2 K).Realizes
-              (V := ↥(conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G))))
-              (autOn (conjClosure L T) (conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G)))) ⊤ ⊥) ∨
-          (LieModel ↥(autOn L (conjClosure (conjClosure V₀ T)
-              (Subgroup.normalizer (conjClosure L T : Set G)))) .PSL 3 2 1 ∧
-            V₀ = conjClosure V₀ T ∧
-            conjClosure V₀ T =
-              conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ∧
-            (tensorNatModel 3 (ZMod 2)).Realizes
-              (V := ↥(conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G))))
-              (autOn (conjClosure L T) (conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G)))) ⊤ ⊥) ∨
-          ((∀ t ∈ T, t ∉ Subgroup.normalizer (L : Set G) →
-              ⁅conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ ⊔
-                  CFSG.conjugate ⁅conjClosure (conjClosure V₀ T)
-                    (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ t ⊔
-                  (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ⊓
-                    Subgroup.centralizer (conjClosure L T : Set G)) =
-                conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ∧
-              (⁅conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ ⊔
-                  (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ⊓
-                    Subgroup.centralizer (conjClosure L T : Set G))) ⊓
-                (CFSG.conjugate ⁅conjClosure (conjClosure V₀ T)
-                    (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ t ⊔
-                  (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ⊓
-                    Subgroup.centralizer (conjClosure L T : Set G))) =
-                conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ⊓
-                  Subgroup.centralizer (conjClosure L T : Set G) ∧
-              ⁅conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ ≤
-                Subgroup.centralizer (CFSG.conjugate L t : Set G)) ∧
-            (∀ A ∈ QhatStar (V := ↥(conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G))))
-                (autOn (Subgroup.normalizer (conjClosure L T : Set G))
-                  (conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)))),
-              ∀ a ∈ A, ∀ u : ↥(conjClosure (conjClosure V₀ T)
-                  (Subgroup.normalizer (conjClosure L T : Set G))),
-                (u : G) ∈ ⁅conjClosure (conjClosure V₀ T)
-                  (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ →
-                ((a u : ↥(conjClosure (conjClosure V₀ T)
-                  (Subgroup.normalizer (conjClosure L T : Set G)))) : G) ∈
-                  ⁅conjClosure (conjClosure V₀ T)
-                    (Subgroup.normalizer (conjClosure L T : Set G)), L⁆) ∧
-            (∃ _ : IsMulCommutative ↥⁅conjClosure (conjClosure V₀ T)
-                (Subgroup.normalizer (conjClosure L T : Set G)), L⁆,
-              qhatOf (V := ↥⁅conjClosure (conjClosure V₀ T)
-                  (Subgroup.normalizer (conjClosure L T : Set G)), L⁆)
-                (autOn (conjClosure L T ⊔ T) ⁅conjClosure (conjClosure V₀ T)
-                  (Subgroup.normalizer (conjClosure L T : Set G)), L⁆) ≤ 2) ∧
-            ((⁅conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ =
-                  V₀ ∧
-                conjClosure V₀ T =
-                  conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G))) ∨
-              (Nonempty (↥(autOn (autOn (Subgroup.normalizer (conjClosure L T : Set G))
-                    (conjClosure (conjClosure V₀ T)
-                      (Subgroup.normalizer (conjClosure L T : Set G))))
-                  (autOn L (conjClosure (conjClosure V₀ T)
-                    (Subgroup.normalizer (conjClosure L T : Set G))))) ≃*
-                  MulAut ↥(StatedSL 3 (ZMod 2))) ∧
-                conjClosure V₀ T =
-                  conjClosure (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ∧
-                (∃ s ∈ T ⊓ Subgroup.normalizer (L : Set G),
-                  s ∉ L ⊔ pCoreOf 2 (L ⊔ (T ⊓ Subgroup.normalizer (L : Set G)))) ∧
-                (∀ s ∈ T ⊓ Subgroup.normalizer (L : Set G),
-                  s ∉ L ⊔ pCoreOf 2 (L ⊔ (T ⊓ Subgroup.normalizer (L : Set G))) →
-                  ⁅conjClosure (conjClosure V₀ T)
-                      (Subgroup.normalizer (conjClosure L T : Set G)), L⁆ =
-                    V₀ ⊔ CFSG.conjugate V₀ s ∧ V₀ ⊓ CFSG.conjugate V₀ s = ⊥) ∧
-                Nat.card V₀ = 2 ^ 3) ∨
-              Case3_2_6_iii T L V₀)))
-
-@[expose] def Stmt3_2_7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L V₀ : Subgroup G), FSU G T L V₀ →
-    IsTISetUnder (conjClosure V₀ T) (Subgroup.normalizer (conjClosure L T : Set G)) ∨
-      (LieModel ↥(autOn L (conjClosure V₀ T)) .PSL 3 2 1 ∧ L ≠ conjClosure L T ∧
-        Case3_2_6_iii T L V₀)
 
 @[expose] def Case326Four {G : Type} [Group G] (T L V₀ : Subgroup G)
     [IsMulCommutative ↥(conjClosure (conjClosure V₀ T)

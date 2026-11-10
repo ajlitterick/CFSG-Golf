@@ -14,10 +14,6 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.Sporadic.Schreier
     OneClassDoubleCover G 8 →
       ∃ H : Subgroup G, Nonempty (↥H ≃* Blueprint.NativeSporadic.McL)
 
-theorem card_centralizer_involution_of_oneClass {G : Type} [Group G] [Finite G]
-    (hG : OneClassDoubleCover G 8) {u : G} (hu : orderOf u = 2) :
-    Nat.card (centralizer ({u} : Set G)) = 40320 :=
-  card_centralizer_involution_of_coverFacts coverFacts_eight hG hu
 
 theorem exists_mulEquiv_of_subgroup
     {G : Type} [Group G] [Finite G] (hs : IsSimpleGroup G)

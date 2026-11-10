@@ -140,37 +140,6 @@ open Section1 Section2 Section3 Section4
         α x = β ⟨x, hx.1⟩) →
         τ α = σ β
 
-@[expose] public def tau_isometry_on_a0_statement
-    {L : Type u} [Group L] [Finite L]
-    {G : Type v} [Group G] [Finite G]
-    (W2 W : Subgroup L) (A : Set L)
-    (τ : ClassFunction L →ₗ[ℂ] ClassFunction G) : Prop :=
-  ∀ α β : ClassFunction L,
-    Section1.IsClassFunction α →
-      Section1.IsClassFunction β →
-        Section1.supportedOn α (a0Set W2 W A) →
-          Section1.supportedOn β (a0Set W2 W A) →
-            Section1.scalarProduct G (τ α) (τ β) =
-              Section1.scalarProduct L α β
-
-@[expose] public def tau_maps_a0_to_punctured_statement
-    {L : Type u} [Group L] [Finite L]
-    {G : Type v} [Group G] [Finite G]
-    (W2 W : Subgroup L) (A : Set L)
-    (τ : ClassFunction L →ₗ[ℂ] ClassFunction G) : Prop :=
-  ∀ α : ClassFunction L,
-    Section1.supportedOn α (a0Set W2 W A) →
-      Section1.supportedOn (τ α) puncturedSet
-
-@[expose] public def tau_maps_a0_to_virtual_statement
-    {L : Type u} [Group L] [Finite L]
-    {G : Type v} [Group G] [Finite G]
-    (W2 W : Subgroup L) (A : Set L)
-    (τ : ClassFunction L →ₗ[ℂ] ClassFunction G) : Prop :=
-  ∀ α : ClassFunction L,
-    Theory.Character.IsVirtualCharacter α →
-      Section1.supportedOn α (a0Set W2 W A) →
-        Theory.Character.IsVirtualCharacter (τ α)
 
 /-- Isometry on the exact prime-Dade carrier `A ∪ Vᴸ`. -/
 @[expose] public def tau_isometry_on_primeDadeA0_statement
@@ -258,50 +227,6 @@ irreducible characters. -/
       σ (Section1.conjugateCharacter η) =
         Section1.conjugateCharacter (σ η)
 
-@[expose] public def hypothesis_4_6_full_statement
-    {G : Type v} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    (K W1 W2 W H : Subgroup L)
-    (A : Set L)
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    (i0 : I) (j0 : J)
-    (ω : I → J → ClassFunction W)
-    (σL : ClassFunction W →ₗ[ℂ] ClassFunction L)
-    (σ : ClassFunction W →ₗ[ℂ] ClassFunction G)
-    (piChar : I → J → ClassFunction L)
-    (xChar : J → ClassFunction K)
-    (deltaSign : J → ℂ)
-    (τ : ClassFunction L →ₗ[ℂ] ClassFunction G)
-    (H_A H_A0 : G → Subgroup G) : Prop :=
-  hypothesis_4_6_statement K W1 W2 W H A ∧
-    W2 ≤ K ∧
-    Section3.hypothesis_3_1_statement
-      (subgroupImage L W1) (subgroupImage L W2) (subgroupImage L W) ∧
-    Section3.IsCFLinearIsometry σ ∧
-    Section3.MapsVirtualCharacters σ ∧
-    Section3.MapsClassFunctions σ ∧
-    σ (Section1.principalCharacter W) = Section1.principalCharacter G ∧
-    Section2.hypothesis_2_2_statement (subgroupImageSet L A) L H_A ∧
-    Section2.hypothesis_2_2_statement (subgroupImageSet L (a0Set W2 W A)) L H_A0 ∧
-    (∀ hA0 : Section2.Hypothesis2 (subgroupImageSet L (a0Set W2 W A)) L H_A0,
-      ∀ α : ClassFunction L,
-        τ α = Section2.dadeTransform H_A0 hA0.subset_L α) ∧
-    ∃ hω : Section3.notation_3_3_statement W1 W2 W I J i0 j0 ω,
-      Section4.theorem_4_3_b_statement
-          W1 W2 W I J i0 j0 ω σL piChar deltaSign hω ∧
-        Section4.theorem_4_3_c_statement W2 W I J piChar deltaSign ω ∧
-        Section4.theorem_4_3_d_statement W1 I J piChar deltaSign ∧
-        theorem_4_5_a_statement K piChar xChar ∧
-        theorem_4_5_b_statement K piChar xChar ∧
-        tau_agrees_on_cyclicTI_induced_statement W1 W2 W σ τ ∧
-        tau_agrees_on_a0_extension_statement W2 W A σ τ ∧
-        tau_isometry_on_a0_statement W2 W A τ ∧
-        tau_maps_a0_to_punctured_statement W2 W A τ ∧
-        tau_maps_a0_to_virtual_statement W2 W A τ ∧
-        ambientRelativePF39BaseColumnData (Nat.card W1) W i0 j0 ω σ ∧
-        ambientRelativePF39BaseRowConjugateData W i0 j0 ω σ ∧
-        ambientRelativePF39ConjugateData W σ
 
 /-- Supported variant of the full Section `(4.6)` package.
 

@@ -99,12 +99,5 @@ theorem reflGL_support (i : Fin n) {x y : Fin n}
   change signMat K {i} x y = 0
   rw [signMat, diagonal_apply_ne _ hxy]
 
-theorem permGL_swap_support {i j : Fin n} {x y : Fin n}
-    (h : ((permGL K n (Equiv.swap i j) : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) x y ≠ 0) :
-    y = Equiv.swap i j x := by
-  rw [coe_permGL, Equiv.swap_inv, permMatrix_apply'] at h
-  split_ifs at h with hc
-  · exact hc.symm
-  · exact absurd rfl h
 
 end CFSG.ComponentClassification.Burgoyne.O

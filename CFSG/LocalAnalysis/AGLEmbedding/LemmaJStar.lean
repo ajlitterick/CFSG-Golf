@@ -91,11 +91,5 @@ theorem eq_of_maxTwoLocal (h : D1JConfig p P M H R X) (hcomp : D1JCompetitors p 
 
 end D1JConfig
 
-theorem false_of_d1JConfig (hcomp : D1JCompetitors p P M R X) (h : D1JConfig p P M H R X)
-    (hCGT : AschbacherLocalCGTBlock) (hD2 : D1NoXBlock) : False := by
-  obtain ⟨H₀, h₀, hmax⟩ := h.exists_max
-  exact h₀.phaseThree.false_of_unique_over h₀.le_R h₀.normal_sup h₀.commutator_le
-    h₀.centralizer_le h₀.commutator_nclIn_le
-    (fun _ hH' hJH' hRH' => h₀.eq_of_maxTwoLocal hcomp hmax hH' hJH' hRH') hCGT hD2
 
 end CFSG.AGLEmbedding

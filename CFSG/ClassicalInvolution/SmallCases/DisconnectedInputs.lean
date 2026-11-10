@@ -18,17 +18,6 @@ structure TightBranch {G : Type} [Group G] [Finite G] (K : Subgroup G) (z : G) :
   control : ControlC K
   edgeless : DeltaEdgeless K
 
-@[expose] def TightCSM : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    TightBranch p f K z → CommutingSylowForcesCommuting K
-
-@[expose] def TightE2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    TightBranch p f K z → CentralizerTwoRankOne K
-
-@[expose] def TightE3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    TightBranch p f K z → NormalizerQuotientTwoGenerated K
 
 @[expose] def TightControlled : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
@@ -57,12 +46,6 @@ structure DisconnectedInputs : Prop where
 
 variable {p f}
 
-theorem tightControlled_of_sylow (hcsm : TightCSM p f) (he2 : TightE2 p f) (he3 : TightE3 p f) :
-    TightControlled p f := by
-  intro G _ _ _ K z ht
-  exact absurd (twoSubgroupsFourGenerated_of_edgeless ht.branch.odd ht.branch.five
-    ht.branch.member ht.control ht.edgeless (hcsm G K z ht) (he2 G K z ht) (he3 G K z ht))
-    ht.branch.notFourGenerated
 
 theorem smallDisconnectedControlled_of_inputs (ht : TightControlled p f)
     (he : ControlledWithEdge p f) : SmallDisconnectedControlled p f := by

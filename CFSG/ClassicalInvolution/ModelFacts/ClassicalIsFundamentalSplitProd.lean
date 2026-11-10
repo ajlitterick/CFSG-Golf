@@ -35,9 +35,6 @@ variable {G : Type*} [Group G]
     rw [this]
     exact A.inv_mem ham
 
-theorem mem_projSub {N₁ N₂ A : Subgroup G} {hcomm : ∀ x ∈ N₁, ∀ y ∈ N₂, x * y = y * x} {n : G} :
-    n ∈ projSub N₁ N₂ A hcomm ↔ n ∈ N₁ ∧ ∃ m ∈ N₂, n * m ∈ A :=
-  Iff.rfl
 
 theorem projSub_le {N₁ N₂ A : Subgroup G} {hcomm : ∀ x ∈ N₁, ∀ y ∈ N₂, x * y = y * x} :
     projSub N₁ N₂ A hcomm ≤ N₁ := fun _ h => h.1

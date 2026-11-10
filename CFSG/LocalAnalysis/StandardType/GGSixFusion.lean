@@ -117,13 +117,6 @@ theorem mem_of_conj_eq_conj {H : Subgroup G} {e g h : G} (hC : Subgroup.centrali
   have := H.mul_mem (hC hc) hH
   rwa [inv_mul_cancel_right] at this
 
-theorem ggControlsStrongFusion_zpowers_of_fusion {H : Subgroup G} {e : G}
-    (he : (orderOf e).Prime) (heH : e ∈ H) (hC : Subgroup.centralizer {e} ≤ H)
-    (hfus : ∀ g : G, g⁻¹ * e * g ∈ H → ∃ h ∈ H, g⁻¹ * e * g = h⁻¹ * e * h) :
-    GGControlsStrongFusion H (Subgroup.zpowers e) := by
-  refine (ggControlsStrongFusion_zpowers_iff he).mpr ⟨heH, fun g hg => ?_⟩
-  obtain ⟨h, hH, heq⟩ := hfus g hg
-  exact mem_of_conj_eq_conj hC hH heq
 
 theorem mem_of_sq_eq_one_of_odd_relIndex {G₀ M : Subgroup G} (hN : (G₀.subgroupOf M).Normal)
     (hodd : Odd (G₀.relIndex M)) {t : G} (htM : t ∈ M) (ht : t ^ 2 = 1) : t ∈ G₀ := by

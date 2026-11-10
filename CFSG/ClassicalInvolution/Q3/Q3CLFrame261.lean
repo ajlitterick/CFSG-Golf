@@ -827,13 +827,6 @@ section Cert
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
-theorem sylow_inf_omegaNbrGen (hs : Std8Frame Ω K J S R T W z t)
-    (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) :
-    (S : Subgroup G) ⊓ omegaNbrGen Ω K = T := by
-  have hΩ : HypOmegaGen Ω := hs.hyp
-  obtain ⟨hTΩ, hTJ, hTS⟩ := hs.hT
-  exact CFSG.ClassicalInvolution.Asc77.T8R.sylow_inf_omegaNbrGen_gen hs.hJ hTJ hTS
-    (Q3CL.T3.isSylow2In_of_mem_RSet_of_le hΩ hs.hJ.1 hTΩ hTJ) hX
 
 theorem not_mem_omegaNbr_of_four_le (hs : Std8Frame Ω K J S R T W z t)
     (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) {M : Subgroup G} (hM : M ∈ Ω)
@@ -994,7 +987,6 @@ end
 
 section
 
-set_option linter.unusedSectionVars false
 open CFSG.ClassicalInvolution.Asc77
 open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
     CFSG.ClassicalInvolution.Disconnected CFSG.ClassicalInvolution.Asc77.Thompson
@@ -1003,8 +995,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 namespace T8R
 open CFSG.ClassicalInvolution.Asc77.T8R
 section Cert
-variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
-  {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
 
 end Cert

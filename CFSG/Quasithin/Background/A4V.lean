@@ -179,11 +179,6 @@ theorem A48Hyp.of_self {X M S : Subgroup G} (hXc : IsXClass X) (hXM : IsSubnorma
 
 variable {X M R S : Subgroup G}
 
-theorem a4_8_1 (h : A48Hyp X M R S) :
-    pCoreOf 2 X ≤ Subgroup.centralizer (VY X : Set G) ∧
-      autOn R (VY X) ≤ Subgroup.centralizer (autOn X (VY X) : Set (MulAut (VY X))) :=
-  ⟨pCoreOf_le_centralizer_VY X, autOn_le_centralizer_autOn
-    ((a4_2_3 h.xclass.2.1 h.subnormal h.signalizerR).trans (pCoreOf_le_centralizer_VY X))⟩
 
 theorem a4_8_2_center (h : A48Hyp X M R S) (hchief : NoncentralTwoChiefFactorsInO2 X) :
     pCoreOf 2 (autOn X (VY X)) ≤ centerOf (autOn X (VY X)) :=

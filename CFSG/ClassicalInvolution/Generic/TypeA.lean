@@ -76,50 +76,6 @@ section PairSup
 
 variable {F : Type} [Field F] {G : Type} [Group G]
 
-theorem LinearA2Pair.linearBlockStandardPair_sup {E K L : Subgroup G} (h : LinearA2Pair F E K L) :
-    WeakCT.LinearBlockStandardPair F (K ⊔ L) K L := by
-  obtain ⟨θ, hker, hK, hL, -, -⟩ := h
-  have e : ∀ B : Subgroup SL(3, F),
-      B.map (MulAut.conj (1 : SL(3, F))⁻¹).toMonoidHom = B := fun B => by
-    rw [inv_one]
-    exact conjSub_one B
-  refine ⟨θ, 1, ?_, hker, Or.inl ⟨?_, ?_⟩⟩
-  · rw [MonoidHom.range_eq_map, ← WeakCT.B12_sup_B23 (K := F), Subgroup.map_sup, hK, hL]
-  · rw [e, hK]
-  · rw [e, hL]
-
-theorem LinearPair.linearBlockStandardPair_sup {E K L : Subgroup G} (h : LinearPair F E K L) :
-    WeakCT.LinearBlockStandardPair F (K ⊔ L) K L := by
-  rcases h with h | h
-  · exact h.linearBlockStandardPair_sup
-  · rw [sup_comm]
-    exact linearBlockStandardPair_symm h.linearBlockStandardPair_sup
-
-theorem LinearA2Pair.nonempty_equiv_left {E K L : Subgroup G} (h : LinearA2Pair F E K L) :
-    Nonempty (SL(2, F) ≃* ↥K) := by
-  obtain ⟨θ, hker, hK, -, -, -⟩ := h
-  have hinj := WeakCT.comp_blockSL_injective (K := F) hker (i := 0) (k := 2) (by omega)
-    (by omega)
-  have hrange : (θ.comp (WeakCT.blockSL F 3 2 0 (by omega))).range = K := by
-    rw [MonoidHom.range_comp]
-    exact hK
-  exact ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)⟩
-
-theorem LinearA2Pair.nonempty_equiv_right {E K L : Subgroup G} (h : LinearA2Pair F E K L) :
-    Nonempty (SL(2, F) ≃* ↥L) := by
-  obtain ⟨θ, hker, -, hL, -, -⟩ := h
-  have hinj := WeakCT.comp_blockSL_injective (K := F) hker (i := 1) (k := 2) (by omega)
-    (by omega)
-  have hrange : (θ.comp (WeakCT.blockSL F 3 2 1 (by omega))).range = L := by
-    rw [MonoidHom.range_comp]
-    exact hL
-  exact ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)⟩
-
-theorem LinearPair.nonempty_equiv_fst {E K L : Subgroup G} (h : LinearPair F E K L) :
-    Nonempty (SL(2, F) ≃* ↥K) := by
-  rcases h with h | h
-  · exact h.nonempty_equiv_left
-  · exact h.nonempty_equiv_right
 
 variable {K' : Type} [Field K'] [Finite K'] {p f : ℕ} [Fact p.Prime] [CharP K' p]
 
@@ -144,31 +100,6 @@ theorem UnitaryPair.unitaryBlockStandardPair_sup (hK : Nat.card K' = (p ^ f) ^ 2
   · rw [sup_comm]
     exact unitaryBlockStandardPair_symm (h.unitaryBlockStandardPair_sup hK hq)
 
-theorem UnitaryA2Pair.nonempty_equiv_left (hK : Nat.card K' = (p ^ f) ^ 2) {E P Q : Subgroup G}
-    (h : UnitaryA2Pair K' p f E P Q) : Nonempty (Phan.Su K' p f 2 ≃* ↥P) := by
-  obtain ⟨θ, hker, hP, -, -, -⟩ := h
-  have hinj := Phan.comp_embSUid_injective hK hker 2
-  have hrange : (θ.comp (CFSG.LieType.Steinberg.embSUid
-      (CFSG.LieType.BorelTits.unitaryInvolution K' p f) 2)).range = P := by
-    rw [MonoidHom.range_comp]
-    exact hP
-  exact ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)⟩
-
-theorem UnitaryA2Pair.nonempty_equiv_right (hK : Nat.card K' = (p ^ f) ^ 2) {E P Q : Subgroup G}
-    (h : UnitaryA2Pair K' p f E P Q) : Nonempty (Phan.Su K' p f 2 ≃* ↥Q) := by
-  obtain ⟨θ, hker, -, hQ, -, -⟩ := h
-  have hinj := Phan.comp_embSUid_injective hK hker 0
-  have hrange : (θ.comp (CFSG.LieType.Steinberg.embSUid
-      (CFSG.LieType.BorelTits.unitaryInvolution K' p f) 0)).range = Q := by
-    rw [MonoidHom.range_comp]
-    exact hQ
-  exact ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)⟩
-
-theorem UnitaryPair.nonempty_equiv_fst (hK : Nat.card K' = (p ^ f) ^ 2) {E P Q : Subgroup G}
-    (h : UnitaryPair K' p f E P Q) : Nonempty (Phan.Su K' p f 2 ≃* ↥P) := by
-  rcases h with h | h
-  · exact h.nonempty_equiv_left hK
-  · exact h.nonempty_equiv_right hK
 
 end PairSup
 
@@ -234,12 +165,6 @@ theorem adjSwap_not_comm {n : ℕ} {i j : Fin n} (h : (j : ℕ) = i + 1) :
   simp at this
   omega
 
-theorem adjSwap_exists_not_comm {n : ℕ} (hn : 2 ≤ n) (i : Fin n) :
-    ∃ j : Fin n, adjSwap n i * adjSwap n j ≠ adjSwap n j * adjSwap n i := by
-  by_cases hi : (i : ℕ) + 1 < n
-  · exact ⟨⟨i + 1, hi⟩, adjSwap_not_comm (by simp)⟩
-  · exact ⟨⟨i - 1, by omega⟩,
-      Ne.symm (adjSwap_not_comm (i := ⟨i - 1, by omega⟩) (j := i) (by simp; omega))⟩
 
 theorem swap_eq_swap_of_moved {α : Type*} [DecidableEq α] {σ : Perm α} (hσ : σ.IsSwap) {x : α}
     (hx : σ x ≠ x) : σ = swap x (σ x) := by
@@ -318,9 +243,6 @@ theorem TypeAData.base_eq {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr
     (i : Fin n) : (T.toWeylData hn).base i = T.base i :=
   rfl
 
-theorem TypeAData.iSup_base {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr n) (hn : 1 ≤ n) :
-    ⨆ i, (T.base i : Subgroup G) = sSup S :=
-  (T.toWeylData hn).span_eq_sSup
 
 theorem TypeAData.exists_conj {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr n) (hn : 1 ≤ n)
     (K : ↥S) : ∃ (i : Fin n) (g : Subgroup.normalizer (E : Set G)),
@@ -329,65 +251,6 @@ theorem TypeAData.exists_conj {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeADat
       Fr.act g (T.base i) = K :=
   (T.toWeylData hn).exists_conj K
 
-theorem TypeAData.nonCommConnected {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr n) :
-    NonCommConnected S := by
-  obtain ⟨K₀, hK₀, -⟩ := Fr.exists_ne
-  have : Nonempty ↥S := ⟨⟨K₀, hK₀⟩⟩
-  refine SimpleGraph.Connected.mk (fun K L => ?_)
-  by_cases hKL : K = L
-  · subst hKL
-    exact SimpleGraph.Reachable.refl K
-  by_cases hc : Commutes (K : Subgroup G) (L : Subgroup G)
-  · have hd := (T.comm_iff K L hKL).mp hc
-    obtain ⟨a, b, hab, hKe⟩ := (T.β K).2
-    obtain ⟨c, d, hcd, hLe⟩ := (T.β L).2
-    have h1 := hd b
-    rw [hKe, hLe, swap_apply_right] at h1
-    have hLb : swap c d b = b := h1.resolve_left hab
-    have hbc : b ≠ c := by
-      rintro rfl
-      rw [swap_apply_left] at hLb
-      exact hcd hLb.symm
-    have h2 := hd c
-    rw [hKe, hLe, swap_apply_left] at h2
-    have hKc : swap a b c = c := h2.resolve_right hcd.symm
-    have hac : a ≠ c := by
-      rintro rfl
-      rw [swap_apply_left] at hKc
-      exact hab hKc.symm
-    set M : ↥S := T.β.symm ⟨swap b c, ⟨b, c, hbc, rfl⟩⟩ with hM
-    have hβM : (T.β M : Perm (Fin (n + 1))) = swap b c := by
-      rw [hM, Equiv.apply_symm_apply]
-    have hKM : K ≠ M := by
-      intro h
-      have := congrArg (fun K' : ↥S => (T.β K' : Perm (Fin (n + 1))) a) h
-      simp only [hKe, hβM, swap_apply_left] at this
-      rw [swap_apply_of_ne_of_ne hab.symm.symm hac] at this
-      exact hab this.symm
-    have hKM' : ¬ Commutes (K : Subgroup G) (M : Subgroup G) := by
-      intro hcm
-      rcases (T.comm_iff K M hKM).mp hcm b with h | h
-      · rw [hKe, swap_apply_right] at h
-        exact hab h
-      · rw [hβM, swap_apply_left] at h
-        exact hbc h.symm
-    have hML : M ≠ L := by
-      intro h
-      have := congrArg (fun K' : ↥S => (T.β K' : Perm (Fin (n + 1))) b) h
-      simp only [hLe, hβM, swap_apply_left] at this
-      have hbd : b ≠ d := fun h' => by rw [h'] at hLb; exact hcd (by simpa using hLb)
-      rw [swap_apply_of_ne_of_ne hbc hbd] at this
-      exact hbc this.symm
-    have hML' : ¬ Commutes (M : Subgroup G) (L : Subgroup G) := by
-      intro hcm
-      rcases (T.comm_iff M L hML).mp hcm c with h | h
-      · rw [hβM, swap_apply_right] at h
-        exact hbc h
-      · rw [hLe, swap_apply_left] at h
-        exact hcd h.symm
-    exact (SimpleGraph.Adj.reachable (nonCommGraph_adj.mpr ⟨hKM, hKM'⟩)).trans
-      (SimpleGraph.Adj.reachable (nonCommGraph_adj.mpr ⟨hML, hML'⟩))
-  · exact SimpleGraph.Adj.reachable (nonCommGraph_adj.mpr ⟨hKL, hc⟩)
 
 end TypeAData
 
@@ -397,36 +260,6 @@ variable {F : Type} [Field F] [Finite F] {G : Type} [Group G] {Ω : Set (Subgrou
   {E : Subgroup G} {S : Set (Subgroup G)} {Fr : ToralFrame F Ω E S} {ι W : Type} [Group W]
   (WD : WeylData Fr ι W)
 
-theorem WeylData.linearPair_base {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    LinearPair F E (WD.base i : Subgroup G) (WD.base j : Subgroup G) := by
-  obtain ⟨hne, hnc⟩ := WD.base_not_commutes h
-  rcases hA2 _ (WD.base i).2 _ (WD.base j).2 (fun h => hne (Subtype.ext h)) with hc | hp
-  · exact absurd hc hnc
-  · exact hp
-
-theorem WeylData.linearBlockStandardPair {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    WeakCT.LinearBlockStandardPair F (WD.baseIn i ⊔ WD.baseIn j) (WD.baseIn i) (WD.baseIn j) := by
-  have := linearBlockStandardPair_subgroupOf (J := WD.span)
-    (sup_le (WD.base_le_span i) (WD.base_le_span j))
-    (WD.linearPair_base h hA2).linearBlockStandardPair_sup
-  have h2 : WD.baseIn i ⊔ WD.baseIn j =
-      ((WD.base i : Subgroup G) ⊔ (WD.base j : Subgroup G)).subgroupOf WD.span :=
-    (Subgroup.subgroupOf_sup (WD.base_le_span i) (WD.base_le_span j)).symm
-  rw [h2]
-  exact this
-
-theorem WeylData.exists_pair_linear {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    ∃ W', WeakCT.LinearBlockStandardPair F W' (WD.baseIn i) (WD.baseIn j) :=
-  ⟨_, WD.linearBlockStandardPair h hA2⟩
-
-theorem WeylData.nonempty_equiv_linear {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    Nonempty (SL(2, F) ≃* ↥(WD.baseIn i)) := by
-  obtain ⟨e⟩ := (WD.linearPair_base h hA2).nonempty_equiv_fst
-  exact ⟨e.trans (Subgroup.subgroupOfEquivOfLe (WD.base_le_span i)).symm⟩
 
 variable {K' : Type} [Field K'] [Finite K'] {p f : ℕ} [Fact p.Prime] [CharP K' p]
 
@@ -452,12 +285,6 @@ theorem WeylData.unitaryBlockStandardPair {i j : ι} (hK : Nat.card K' = (p ^ f)
   rw [h2]
   exact this
 
-theorem WeylData.nonempty_equiv_unitary {i j : ι} (hK : Nat.card K' = (p ^ f) ^ 2)
-    (h : WD.s i * WD.s j ≠ WD.s j * WD.s i)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ UnitaryPair K' p f E K L) :
-    Nonempty (Phan.Su K' p f 2 ≃* ↥(WD.baseIn i)) := by
-  obtain ⟨e⟩ := (WD.unitaryPair_base h hA2).nonempty_equiv_fst hK
-  exact ⟨e.trans (Subgroup.subgroupOfEquivOfLe (WD.base_le_span i)).symm⟩
 
 end Glue
 
@@ -466,67 +293,6 @@ section Recognition
 variable {F : Type} [Field F] [Finite F] {G : Type} [Group G] {Ω : Set (Subgroup G)}
   {E : Subgroup G} {S : Set (Subgroup G)}
 
-theorem TypeAData.weakCTSystem {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr n)
-    (hn : 2 ≤ n) (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    WeakCT.WeakCTSystem F n (T.toWeylData (by omega : 1 ≤ n)).baseIn
-      (fun i j => (T.toWeylData (by omega : 1 ≤ n)).baseIn i ⊔
-        (T.toWeylData (by omega : 1 ≤ n)).baseIn j) :=
-  { iso := fun i => by
-      obtain ⟨j, hj⟩ := adjSwap_exists_not_comm hn i
-      exact (T.toWeylData (by omega : 1 ≤ n)).nonempty_equiv_linear hj hA2
-    join := fun _ _ _ => rfl
-    comm := fun i j hij => (T.toWeylData (by omega : 1 ≤ n)).baseIn_commute
-      ((T.toWeylData (by omega : 1 ≤ n)).base_commutes (adjSwap_injective n)
-        (fun h => by subst h; omega) (adjSwap_comm hij))
-    pair := fun i j hij => (T.toWeylData (by omega : 1 ≤ n)).linearBlockStandardPair
-      (adjSwap_not_comm hij) hA2
-    gen := (T.toWeylData (by omega : 1 ≤ n)).iSup_baseIn }
-
-theorem TypeAData.weakPhanA {K' : Type} [Field K'] [Finite K'] {p f : ℕ} [Fact p.Prime]
-    [CharP K' p] {Fr : ToralFrame F Ω E S} {n : ℕ} (T : TypeAData Fr n) (hn : 2 ≤ n)
-    (hK : Nat.card K' = (p ^ f) ^ 2) (hq : p ^ f ≠ 2)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ UnitaryPair K' p f E K L) :
-    Phan.WeakPhanA K' p f n (T.toWeylData (by omega : 1 ≤ n)).baseIn
-      (fun i j => (T.toWeylData (by omega : 1 ≤ n)).baseIn i ⊔
-        (T.toWeylData (by omega : 1 ≤ n)).baseIn j) :=
-  { iso := fun i => by
-      obtain ⟨j, hj⟩ := adjSwap_exists_not_comm hn i
-      exact (T.toWeylData (by omega : 1 ≤ n)).nonempty_equiv_unitary hK hj hA2
-    join := fun _ _ _ => rfl
-    comm := fun i j hij => (T.toWeylData (by omega : 1 ≤ n)).baseIn_commute
-      ((T.toWeylData (by omega : 1 ≤ n)).base_commutes (adjSwap_injective n)
-        (fun h => by subst h; omega) (adjSwap_comm hij))
-    pair := fun i j hij => (T.toWeylData (by omega : 1 ≤ n)).unitaryBlockStandardPair hK hq
-      (adjSwap_not_comm hij) hA2
-    gen := (T.toWeylData (by omega : 1 ≤ n)).iSup_baseIn }
-
-theorem typeA_linear (Fr : ToralFrame F Ω E S) {n : ℕ} (hn : 3 ≤ n) (T : TypeAData Fr n)
-    {p f : ℕ} (hp : p.Prime) (hF : Nat.card F = p ^ f)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    ∃ ψ : SL(n + 1, F) →* ↥(sSup S), Function.Surjective ψ ∧
-      ψ.ker ≤ Subgroup.center SL(n + 1, F) ∧ CFSG.IsQuasisimple ↥(sSup S) ∧
-      CFSG.Blueprint.LieModel (↥(sSup S) ⧸ Subgroup.center ↥(sSup S))
-        CFSG.Assembly.LowTwoRank.StatedLieTag.PSL (n + 1) p f := by
-  have hq : 4 ≤ p ^ f := by
-    have := Fr.five
-    omega
-  have key := WeakCT.weakCT_recognition F p f hp hF hq hn (T.weakCTSystem (by omega) hA2)
-  rw [(T.toWeylData (by omega : 1 ≤ n)).span_eq_sSup] at key
-  exact key
-
-theorem typeA_unitary {K' : Type} [Field K'] [Finite K'] {p f : ℕ} [Fact p.Prime] [CharP K' p]
-    (Fr : ToralFrame F Ω E S) {n : ℕ} (hn : 3 ≤ n) (T : TypeAData Fr n)
-    (hK : Nat.card K' = (p ^ f) ^ 2) (hF : Nat.card F = p ^ f)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ UnitaryPair K' p f E K L) :
-    ∃ θ : Phan.Su K' p f (n + 1) →* ↥(sSup S), Function.Surjective θ ∧
-      θ.ker ≤ Subgroup.center (Phan.Su K' p f (n + 1)) := by
-  have hq5 : 5 ≤ p ^ f := by
-    have := Fr.five
-    omega
-  have key := Phan.weakPhan_recognition K' p f hK hq5 hn
-    (T.weakPhanA (by omega) hK (by omega) hA2)
-  rw [(T.toWeylData (by omega : 1 ≤ n)).span_eq_sSup] at key
-  exact key
 
 theorem exists_prime_pow_card (F : Type*) [Field F] [Finite F] :
     ∃ p f : ℕ, p.Prime ∧ Nat.card F = p ^ f := by
@@ -534,39 +300,6 @@ theorem exists_prime_pow_card (F : Type*) [Field F] [Finite F] :
   obtain ⟨n, hp, hcard⟩ := FiniteField.card F (ringChar F)
   exact ⟨ringChar F, n, hp, by rw [Nat.card_eq_fintype_card, hcard]⟩
 
-theorem typeA_linear_exists (Fr : ToralFrame F Ω E S) {n : ℕ} (hn : 3 ≤ n) (T : TypeAData Fr n)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → Commutes K L ∨ LinearPair F E K L) :
-    ∃ p f : ℕ, p.Prime ∧ Nat.card F = p ^ f ∧
-      ∃ ψ : SL(n + 1, F) →* ↥(sSup S), Function.Surjective ψ ∧
-        ψ.ker ≤ Subgroup.center SL(n + 1, F) ∧ CFSG.IsQuasisimple ↥(sSup S) ∧
-        CFSG.Blueprint.LieModel (↥(sSup S) ⧸ Subgroup.center ↥(sSup S))
-          CFSG.Assembly.LowTwoRank.StatedLieTag.PSL (n + 1) p f := by
-  obtain ⟨p, f, hp, hF⟩ := exists_prime_pow_card F
-  exact ⟨p, f, hp, hF, typeA_linear Fr hn T hp hF hA2⟩
-
-theorem typeA_end_to_end {K' : Type} [Field K'] [Finite K'] {p f : ℕ} [Fact p.Prime] [CharP K' p]
-    (Fr : ToralFrame F Ω E S) {n : ℕ} (hn : 3 ≤ n) (T : TypeAData Fr n)
-    (hK : Nat.card K' = (p ^ f) ^ 2) (hF : Nat.card F = p ^ f)
-    (hA2 : ∀ K ∈ S, ∀ L ∈ S, K ≠ L →
-      Commutes K L ∨ LinearPair F E K L ∨ UnitaryPair K' p f E K L) :
-    ((∀ K ∈ S, Nat.card (centPart K E) = Nat.card F - 1) ∧
-        ∃ ψ : SL(n + 1, F) →* ↥(sSup S), Function.Surjective ψ ∧
-          ψ.ker ≤ Subgroup.center SL(n + 1, F) ∧ CFSG.IsQuasisimple ↥(sSup S) ∧
-          CFSG.Blueprint.LieModel (↥(sSup S) ⧸ Subgroup.center ↥(sSup S))
-            CFSG.Assembly.LowTwoRank.StatedLieTag.PSL (n + 1) p f) ∨
-      ((∀ K ∈ S, Nat.card (centPart K E) = Nat.card F + 1) ∧
-        ∃ θ : Phan.Su K' p f (n + 1) →* ↥(sSup S), Function.Surjective θ ∧
-          θ.ker ≤ Subgroup.center (Phan.Su K' p f (n + 1))) := by
-  have hpair : ∀ K ∈ S, ∀ L ∈ S, K ≠ L → ¬ Commutes K L →
-      LinearPair F E K L ∨ UnitaryPair K' p f E K L := fun K hK' L hL hKL hnc => by
-    rcases hA2 K hK' L hL hKL with h | h
-    · exact absurd h hnc
-    · exact h
-  rcases Fr.sign_constant_pairs T.nonCommConnected hK hF hpair with ⟨hc, hl⟩ | ⟨hc, hu⟩
-  · exact Or.inl ⟨hc, typeA_linear Fr hn T (Fact.out : p.Prime) hF fun K hK' L hL hKL =>
-      (em (Commutes K L)).imp_right fun hnc => hl K hK' L hL hKL hnc⟩
-  · exact Or.inr ⟨hc, typeA_unitary Fr hn T hK hF fun K hK' L hL hKL =>
-      (em (Commutes K L)).imp_right fun hnc => hu K hK' L hL hKL hnc⟩
 
 end Recognition
 

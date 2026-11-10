@@ -260,10 +260,6 @@ theorem map_conj_le_map_conj_iff {X Y : Subgroup G} (c : G) :
     X.map (MulAut.conj c).toMonoidHom ≤ Y.map (MulAut.conj c).toMonoidHom ↔ X ≤ Y :=
   Subgroup.map_le_map_iff_of_injective (MulAut.conj c).injective
 
-omit [Finite G] in
-theorem le_map_conj_iff {X Y : Subgroup G} (c : G) :
-    X ≤ Y.map (MulAut.conj c).toMonoidHom ↔ X.map (MulAut.conj c⁻¹).toMonoidHom ≤ Y := by
-  rw [← map_conj_le_map_conj_iff c⁻¹, map_conj_inv_map_conj]
 
 omit [Finite G] in
 theorem isIota_map_conj (hcMm : c ∈ Subgroup.normalizer (Mm : Set G))

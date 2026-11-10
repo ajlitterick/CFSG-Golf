@@ -20,6 +20,5 @@ theorem distinctBlocksCommuteStatement {G : Type} [Group G] [Finite G] :
       exact C1Pack.commutator_eq_bot_of_quasisimple hB₂ hq₂ hB₁ hne.symm
     · exact C1Pack.commutator_eq_bot_of_card_three hH hB₁ h₁ hB₂ h₂ hne
 
-theorem theoremC19 : TheoremC19 := fun _ _ _ => distinctBlocksCommuteStatement
 
 end CFSG.Quasithin

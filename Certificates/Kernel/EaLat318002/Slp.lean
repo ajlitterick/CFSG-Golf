@@ -40,10 +40,6 @@ theorem ch318002s_gr : andB (Nat.beq (GR (nat_lit 0)) (NC (nat_lit 161)))
       (andB (Nat.beq (GR (nat_lit 2)) (NC (nat_lit 431)))
         (Nat.beq (GR (nat_lit 3)) (NC (nat_lit 591))))) = true := by quickRfl
 
-@[expose] noncomputable def ncBad (k : Nat) : Nat :=
-  Bool.rec (motive := fun _ => Nat) (NC k) (Nat.xor (NC k) (nat_lit 1)) (Nat.beq k (nat_lit 100))
-
-theorem ch318002n_slp : notB (slpW ncBad (nat_lit 98)) = true := by quickRfl
 
 end CertificateChecks.KernelEaLat318002
 

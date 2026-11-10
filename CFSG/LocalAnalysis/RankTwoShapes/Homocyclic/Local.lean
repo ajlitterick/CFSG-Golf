@@ -806,21 +806,6 @@ theorem homocyclic_card_normalizer_quotient (hn : 1 ≤ n) {g₀ : G}
     simp only [Subgroup.mem_subgroupOf, Subgroup.coe_mul, Subgroup.coe_inv]
     exact homocyclic_normalizer_trichotomy S e hn hg₀ hg₀C h.property
 
-include e in
-theorem homocyclic_normalizer_inf_centralizer (hn : 1 ≤ n) {s : G}
-    (hs : s ∈ (S : Subgroup G)) (hs1 : s ≠ 1) :
-    Subgroup.normalizer ((S : Subgroup G) : Set G) ⊓ Subgroup.centralizer {s} =
-      Subgroup.centralizer ((S : Subgroup G) : Set G) := by
-  ext h
-  rw [Subgroup.mem_inf, Subgroup.mem_centralizer_singleton_iff]
-  constructor
-  · rintro ⟨hN, hcomm⟩
-    apply homocyclic_mem_centralizer_of_fixed S e hn hN hs hs1
-    rw [hcomm]
-    group
-  · intro hC
-    exact ⟨Subgroup.centralizer_le_normalizer _ hC,
-      (Subgroup.mem_centralizer_iff.mp hC s hs).symm⟩
 
 include e in
 theorem homocyclic_centralizer_normalizer_le (hn : 1 ≤ n) {s : G}
@@ -857,109 +842,6 @@ theorem homocyclic_centralizer_zpowers_complement (hn : 1 ≤ n) {s : G}
   obtain ⟨k, hk⟩ := (IsPGroup.iff_card).mp S.isPGroup'
   exact IsPGroup.of_card (n := k) (hquot.trans hk)
 
-include e in
-theorem homocyclic_involutions_conjugate (hn : 1 ≤ n) {g₀ : G}
-    (hg₀ : g₀ ∈ Subgroup.normalizer ((S : Subgroup G) : Set G))
-    (hg₀C : g₀ ∉ Subgroup.centralizer ((S : Subgroup G) : Set G))
-    {x y : G} (hx : x ∈ (S : Subgroup G)) (hy : y ∈ (S : Subgroup G)) (hx1 : x ≠ 1) (hy1 : y ≠ 1)
-    (hx2 : x ^ 2 = 1) (hy2 : y ^ 2 = 1) : IsConj x y := by
-  rw [homocyclic_isConj_iff S e hn hg₀ hg₀C hx hy]
-  obtain ⟨v, rfl⟩ := exists_homocyclicEmbed e x hx
-  obtain ⟨w, rfl⟩ := exists_homocyclicEmbed e y hy
-  have hv0 : v ≠ 0 := fun h => hx1 (by rw [h, homocyclicEmbed_zero])
-  have hw0 : w ≠ 0 := fun h => hy1 (by rw [h, homocyclicEmbed_zero])
-  have hv2 : v + v = 0 := by
-    rw [← homocyclicEmbed_eq_one_iff e, homocyclicEmbed_add, ← pow_two, hx2]
-  have hw2 : w + w = 0 := by
-    rw [← homocyclicEmbed_eq_one_iff e, homocyclicEmbed_add, ← pow_two, hy2]
-  set T := homocyclicConj e g₀ hg₀
-  obtain ⟨m, hm, hT⟩ := homocyclicConj_odd_iterate S e g₀ hg₀
-  have hTne : ∃ v, T v ≠ v := by
-    by_contra hall
-    push Not at hall
-    exact hg₀C ((homocyclicConj_eq_id_iff e g₀ hg₀).mp hall)
-  obtain ⟨hTv2, hTv0, hTvv, hTTv⟩ := vector_odd_endomorphism_square hn T hm hT hTne v hv2 hv0
-  by_cases hwv : w = v
-  · left
-    rw [hwv]
-  · right
-    rcases vector_klein hn w v (T v) hw2 hv2 hTv2 hv0 hTv0 hTvv hw0 hwv with h1 | h2
-    · left
-      rw [h1, homocyclicEmbed_conj]
-    · right
-      rw [h2, ← hTTv, homocyclicEmbed_conj, homocyclicEmbed_conj]
-
-include e in
-theorem homocyclic_sylow_normalizer_local_complements (hn : 1 ≤ n)
-    (hNC : Subgroup.normalizer ((S : Subgroup G) : Set G) ≠
-      Subgroup.centralizer ((S : Subgroup G) : Set G)) :
-    Nat.card (Subgroup.normalizer ((S : Subgroup G) : Set G) ⧸
-      (Subgroup.centralizer ((S : Subgroup G) : Set G)).subgroupOf
-        (Subgroup.normalizer ((S : Subgroup G) : Set G))) = 3 ∧
-    (∀ g ∈ Subgroup.normalizer ((S : Subgroup G) : Set G),
-      g ∉ Subgroup.centralizer ((S : Subgroup G) : Set G) →
-        ∀ s ∈ (S : Subgroup G), g * s * g⁻¹ = s → s = 1) ∧
-    (∀ s ∈ (S : Subgroup G), s ≠ 1 →
-      ((S : Set G) ∩ {t | IsConj s t} =
-        {t | ∃ g ∈ Subgroup.normalizer ((S : Subgroup G) : Set G), t = g * s * g⁻¹}) ∧
-      ((S : Set G) ∩ {t | IsConj s t}).ncard = 3 ∧
-      Subgroup.normalizer ((S : Subgroup G) : Set G) ⊓ Subgroup.centralizer {s} =
-        Subgroup.centralizer ((S : Subgroup G) : Set G) ∧
-      ∃ K : Subgroup (Subgroup.centralizer {s}),
-        (K.Normal ∧ Odd (Nat.card K) ∧ K.index = Nat.card S) ∧
-        (∀ K' : Subgroup (Subgroup.centralizer {s}),
-          K'.Normal → Odd (Nat.card K') → K'.index = Nat.card S → K' = K) ∧
-        K.Characteristic ∧
-        K ⊔ (S : Subgroup G).subgroupOf (Subgroup.centralizer {s}) = ⊤ ∧
-        K ⊓ (S : Subgroup G).subgroupOf (Subgroup.centralizer {s}) = ⊥) ∧
-    (∀ x ∈ (S : Subgroup G), ∀ y ∈ (S : Subgroup G), x ≠ 1 → y ≠ 1 → x ^ 2 = 1 → y ^ 2 = 1 →
-      IsConj x y) := by
-  obtain ⟨g₀, hg₀, hg₀C⟩ := exists_normalizer_not_centralizer (S : Subgroup G) hNC
-  refine ⟨homocyclic_card_normalizer_quotient S e hn hg₀ hg₀C,
-    fun g hg hgC s hs hfix => homocyclic_normalizer_fixed_point_free S e hn hg hgC hs hfix,
-    fun s hs hs1 => ?_,
-    fun x hx y hy hx1 hy1 hx2 hy2 =>
-      homocyclic_involutions_conjugate S e hn hg₀ hg₀C hx hy hx1 hy1 hx2 hy2⟩
-  have horbit : (S : Set G) ∩ {t | IsConj s t} =
-      {t | ∃ g ∈ Subgroup.normalizer ((S : Subgroup G) : Set G), t = g * s * g⁻¹} := by
-    ext t
-    simp only [Set.mem_inter_iff, Set.mem_ofPred_eq, SetLike.mem_coe]
-    constructor
-    · rintro ⟨ht, hconj⟩
-      obtain ⟨g, hg, hgt⟩ := (homocyclic_isConj_iff_normalizer S e hs ht).mp hconj
-      exact ⟨g, hg, hgt.symm⟩
-    · rintro ⟨g, hg, rfl⟩
-      exact ⟨conj_mem_of_mem_normalizer hg hs, isConj_iff.mpr ⟨g, rfl⟩⟩
-  have hthree : (S : Set G) ∩ {t | IsConj s t} =
-      {s, g₀ * s * g₀⁻¹, g₀ * (g₀ * s * g₀⁻¹) * g₀⁻¹} := by
-    ext t
-    simp only [Set.mem_inter_iff, Set.mem_ofPred_eq, SetLike.mem_coe, Set.mem_insert_iff,
-      Set.mem_singleton_iff]
-    constructor
-    · rintro ⟨ht, hconj⟩
-      exact (homocyclic_isConj_iff S e hn hg₀ hg₀C hs ht).mp hconj
-    · intro ht
-      have htS : t ∈ (S : Subgroup G) := by
-        rcases ht with rfl | rfl | rfl
-        · exact hs
-        · exact conj_mem_of_mem_normalizer hg₀ hs
-        · exact conj_mem_of_mem_normalizer hg₀ (conj_mem_of_mem_normalizer hg₀ hs)
-      exact ⟨htS, (homocyclic_isConj_iff S e hn hg₀ hg₀C hs htS).mpr ht⟩
-  obtain ⟨hd1, hd2, hd3⟩ := homocyclic_orbit_distinct S e hn hg₀ hg₀C hs hs1
-  have hcard : ((S : Set G) ∩ {t | IsConj s t}).ncard = 3 := by
-    rw [hthree, Set.ncard_eq_three]
-    exact ⟨_, _, _, hd1, hd3, hd2, rfl⟩
-  refine ⟨horbit, hcard, homocyclic_normalizer_inf_centralizer S e hn hs hs1, ?_⟩
-  have hSH : (S : Subgroup G) ≤ Subgroup.centralizer {s} := by
-    intro x hx
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact homocyclic_mul_comm e x s hx hs
-  obtain ⟨K, hKn, hK⟩ := exists_normal_complement_in_subgroup S (Subgroup.centralizer {s}) hSH
-    (homocyclic_centralizer_normalizer_le S e hn hs hs1 _
-      (fun h hh => Subgroup.mem_centralizer_singleton_iff.mp hh))
-  obtain ⟨⟨hodd, hindex⟩, huniq, hchar, hsup, hinf⟩ :=
-    normal_complement_structure S _ hSH K hKn hK
-  exact ⟨K, ⟨hKn, hodd, hindex⟩, huniq, hchar, hsup, hinf⟩
 
 include e in
 theorem homocyclic_normalizer_ne_centralizer_of_simple [IsSimpleGroup G] (hn : 1 ≤ n)

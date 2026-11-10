@@ -214,6 +214,5 @@ theorem zm_smul_le_vStar (d : X3Data c α β γ ψ) {g : (puAmalgam c.pu.le).Uni
         ¬ ZM (puAmalgam c.pu.le) ρ ≤ Bloc c.pu.le L α}) => ZM (puAmalgam c.pu.le) ρ)
       (g • γ) ⟨hadj, hnB⟩ le_rfl)
 
-variable [CharP F 2]
 
 end CFSG.Quasithin.MS93.S46.KC2

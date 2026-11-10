@@ -75,12 +75,6 @@ theorem suppliedSuzukiOvoidInfinity_not_mem_range :
     · exact ⟨none, Subtype.ext (Set.mem_singleton_iff.mp hp).symm⟩
     · exact ⟨some z, Subtype.ext hz⟩
 
-theorem suppliedSuzukiOvoid_card [Finite K] :
-    Nat.card {p : ℙ K (Fin 4 → K) // p ∈ suppliedSuzukiOvoidSet a K} =
-      (Nat.card K) ^ 2 + 1 := by
-  let := Fintype.ofFinite K
-  rw [← Nat.card_congr (suppliedSuzukiOvoidParametrization a K)]
-  simp [Nat.card_eq_fintype_card, pow_two]
 
 instance suppliedSuzukiOvoid_finite [Finite K] :
     Finite {p : ℙ K (Fin 4 → K) // p ∈ suppliedSuzukiOvoidSet a K} :=

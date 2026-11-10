@@ -142,25 +142,6 @@ theorem additive_expand {f : ℕ → ℕ} (hf : ∀ u < 2 ^ 22, ∀ v < 2 ^ 22, 
       · rw [h0]
   rw [← key 22 (Nat.le_refl 22), Nat.mod_eq_of_lt hc]
 
-theorem xorFields_xsum (T : ℕ) {c : ℕ} (hc : c < 2 ^ 22) :
-    xorFields T c = xsum (fld32 T) c 22 := by
-  rw [additive_expand (fun u hu v hv => xorFields_xor T hu hv) (xorFields_zero T) hc]
-  have : ∀ m, xsum (fun m => xorFields T (2 ^ m)) c m = xsum (fld32 T) c m := by
-    intro m
-    induction m with
-    | zero => rfl
-    | succ m ih =>
-      rw [xsum, xsum, ih]
-      by_cases hm : m < 22
-      · rw [xorFields_two_pow T hm]
-      · have : c.testBit m = false := Nat.testBit_lt_two_pow
-          (lt_of_lt_of_le hc (Nat.pow_le_pow_right (by decide) (by omega)))
-        simp [this]
-  exact this 22
-
-theorem xsum_two_pow (c : ℕ) : ∀ m, xsum (fun m => 2 ^ m) c m = c % 2 ^ m
-  | 0 => by rw [Nat.pow_zero, Nat.mod_one]; rfl
-  | m + 1 => by rw [xsum, xsum_two_pow c m, mod_succ_xor]
 
 theorem xsum_congr {g g' : ℕ → ℕ} (c : ℕ) (h : ∀ m < 22, g m = g' m) :
     ∀ m ≤ 22, xsum g c m = xsum g' c m
@@ -211,12 +192,6 @@ theorem mv_xor (G A : Array ℕ) (u v : ℕ) : mv G A (u ^^^ v) = mv G A u ^^^ m
 theorem mv_zero (G A : Array ℕ) : mv G A 0 = 0 := by
   rw [mv, autApply_zero, Nat.zero_mod]
 
-theorem mv_two_pow (G A : Array ℕ) {t : ℕ} (ht : t < 22) : mv G A (2 ^ t) = A.getD t 0 % 2 ^ 22 := by
-  apply Nat.eq_of_testBit_eq
-  intro i
-  rw [mv_bit, Nat.testBit_mod_two_pow]
-  simp only [Nat.testBit_two_pow]
-  rw [bx_single (fun s => (A.getD s 0).testBit i), decide_eq_true ht, Bool.true_and]
 
 theorem mv_lt (G A : Array ℕ) (v : ℕ) : mv G A v < 2 ^ 22 := Nat.mod_lt _ (Nat.two_pow_pos 22)
 

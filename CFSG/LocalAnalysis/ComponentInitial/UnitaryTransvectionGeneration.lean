@@ -142,10 +142,5 @@ theorem unitary_transvection_generation (h : UnitaryFieldData p f K)
       GL (Fin (Module.finrank K V)) K) = g := Ψ.apply_symm_apply g
   rwa [hΨ] at hg'
 
-theorem unitary_four_transvection_generation (h : UnitaryFieldData p f K) (hq : p ^ f = 2)
-    {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm) (hBl : B.SeparatingLeft)
-    (hn : Module.finrank K V = 4) :
-    Subgroup.closure (unitaryTransvections h B) = sesqSpecialUnitaryGroup B :=
-  unitary_transvection_generation h hB hBl (by omega) (by rw [hn, hq]; decide)
 
 end CFSG.LocalAnalysis.ComponentInitial

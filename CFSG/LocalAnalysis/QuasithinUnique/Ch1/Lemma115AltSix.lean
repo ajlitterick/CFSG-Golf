@@ -28,7 +28,6 @@ theorem epsPerm_injective : Function.Injective epsPerm := by
     simpa [epsPerm_apply] using this
   rw [act_total_epsFun, this]
 
-theorem flat_eq (σ : Perm (Fin 6)) : flat σ = σ := Equiv.ext fun i => tabOf_getD σ i
 
 theorem epsFast_eq : ∀ a : Perm (Fin 6), epsFast a = epsPerm a :=
   Certificates.certificate4099.2.1

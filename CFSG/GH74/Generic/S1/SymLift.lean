@@ -65,8 +65,6 @@ theorem liftL_normal {x : G} {K : Subgroup (CentralizerBar x)} [K.Normal] :
 @[expose] noncomputable def piL (x : G) (K : Subgroup (CentralizerBar x)) : ↥(liftL x K) →* ↥K :=
   ((proj x).comp (liftL x K).subtype).codRestrict K fun l => liftL_le x K l.2
 
-theorem piL_apply (x : G) (K : Subgroup (CentralizerBar x)) (l : ↥(liftL x K)) :
-    ((piL x K l : ↥K) : CentralizerBar x) = proj x (l : ↥(centralizer ({x} : Set G))) := rfl
 
 theorem piL_surjective [Finite G] {x : G} {K : Subgroup (CentralizerBar x)} (hK : ⁅K, K⁆ = K) :
     Function.Surjective (piL x K) := by

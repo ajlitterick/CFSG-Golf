@@ -190,9 +190,6 @@ theorem map_liftGL (g : G) :
     Matrix.GeneralLinearGroup.map S.subtype (liftGL S φ hφ g) = φ g :=
   Units.ext (map_liftMat S φ hφ g)
 
-theorem coe_liftGL_apply (g : G) (i j : ι) :
-    (((liftGL S φ hφ g : GL ι S) : Matrix ι ι S) i j : L) = (φ g : Matrix ι ι L) i j :=
-  rfl
 
 theorem liftGL_injective (h : Function.Injective φ) : Function.Injective (liftGL S φ hφ) := by
   intro g g' hg

@@ -38,6 +38,5 @@ theorem gomi_TwE6_outer_false
   rw [hc] at h5
   exact gomi_not_pow_five_dvd hodd (Nat.one_lt_pow (by omega) hp.one_lt) (h5.trans hLd)
 
-variable {X : Type} [Group X] [Finite X] {J D E : Subgroup X} {a : X}
 
 end CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo

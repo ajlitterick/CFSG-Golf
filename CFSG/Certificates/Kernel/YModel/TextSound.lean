@@ -224,7 +224,6 @@ theorem decRun_step {w lines sgn : Nat} {C : Nat → List Nat} {E : Nat → Nat}
     exact Or.inl ⟨hdig, h⟩
 
 theorem not_dig_10 : ¬ IsDig 10 := by unfold IsDig; omega
-theorem not_dig_32 : ¬ IsDig 32 := by unfold IsDig; omega
 
 theorem no_nl {w lines sgn : Nat} {C : Nat → List Nat} {E : Nat → Nat} :
     ∀ (bs : List Nat) (L e t v ng cur j : Nat) (rest : List Nat), lines ≤ L →

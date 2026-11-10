@@ -62,13 +62,6 @@ theorem q2RowFits_orthogonalPlus_three {p Q : ℕ} {lab : LargeEvenLabel}
   have hpge : 2 ≤ p := hp.two_le
   omega
 
-theorem q2RowFits_orthogonalPlus_four_impossible {p Q : ℕ} {lab : LargeEvenLabel}
-    (hrow : q2RowFits .orthogonalPlus p 4 Q lab) : False := by
-  have hp : p.Prime := hrow.1
-  have hp2 : p ≠ 2 := hrow.2.1
-  have hpd : p ∣ 2 ^ 2 := by simpa using hrow.2.2.1
-  have hple : p ≤ 2 := Nat.le_of_dvd (by decide) (hp.dvd_of_dvd_pow hpd)
-  exact hp2 (Nat.le_antisymm hple hp.two_le)
 
 @[expose] def Q2ResidualCensusInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -89,11 +82,6 @@ theorem q2RowFits_orthogonalPlus_four_impossible {p Q : ℕ} {lab : LargeEvenLab
         IsMulCommutative
           ((((ggBsAut hN).range).map (kgInducedAut θ)).comap (TableB.linConjAut (Fin d) K))
 
-theorem ggBstarAbelianPreimageJLinResInput_of_census_and_rows (hc : Q2ResidualCensusInput)
-    (hs : ∀ kind, Q2RowSolverInput kind) : GGBstarAbelianPreimageJLinResInput := by
-  intro G instG instFin p B Bs x L D J hcfg hInner hN d K instK instFinK θ hpd hpq
-  obtain ⟨kind, hkind⟩ := hc G p B Bs x L D J hcfg hInner hN d K θ hpd hpq
-  exact hs kind G p B Bs x L D J hcfg hInner hN d K θ hpd hpq hkind
 
 @[expose] def GGBstarAbelianPreimageJLinResNotOrthogonalPlusInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -124,6 +112,5 @@ theorem ggBstarAbelianPreimageJLinInput_of_orthogonalPlus_and_rest
   ggBstarAbelianPreimageJLinInput_of_res
     (ggBstarAbelianPreimageJLinResInput_of_orthogonalPlus_and_rest hplus hrest)
 
-theorem q2RowKind_card : Fintype.card Q2RowKind = 8 := by decide
 
 end CFSG.StandardType

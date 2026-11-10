@@ -14,11 +14,6 @@ open scoped Pointwise
 
 variable {τ : Tag} {K : Type} [Field K]
 
-theorem bruhatCell_eq_doubleCoset
-    (w : WeylGroup τ) :
-    bruhatCell τ K w = DoubleCoset.doubleCoset (canonicalRep (coxeterSystem τ) K w)
-      (borelGroup τ K : Set (ModGL τ K)) (borelGroup τ K) :=
-  rfl
 
 theorem canonicalRep_mem_bruhatCell
     (w : WeylGroup τ) :

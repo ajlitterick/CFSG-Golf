@@ -408,11 +408,6 @@ theorem bar_add_fixed (a c : F4) (ha : bar a = a) (hc : bar c = c) : bar (a + c)
 
 @[expose] def X₃zsub : Subgroup SU52 := x₃Sub (fun a => bar a = a) (map_zero bar) bar_add_fixed
 
-@[expose] def X₁starSub : Subgroup SU52 :=
-  x₁Sub (fun a => bar a = a) (map_zero bar) bar_add_fixed
-
-@[expose] def X₄starSub : Subgroup SU52 :=
-  x₄Sub (fun a => bar a = a) (map_zero bar) bar_add_fixed
 
 theorem mem_X₁sub {g : SU52} : g ∈ X₁sub ↔ ∃ a b : F4, mat g = x₁Mat a b := by
   simp [X₁sub, mem_x₁Sub]
@@ -436,23 +431,6 @@ theorem x₃SU_mem (a : F4) : x₃SU a ∈ X₃sub := mem_X₃sub.2 ⟨a, rfl⟩
 theorem x₄SU_mem (a b : F4) (h : a * bar a = b + bar b) : x₄SU a b h ∈ X₄sub :=
   mem_X₄sub.2 ⟨a, b, rfl⟩
 
-theorem mem_X₁sub_iff {g : SU52} :
-    g ∈ X₁sub ↔ ∃ (a b : F4) (h : a * bar a = b + bar b), g = x₁SU a b h := by
-  rw [mem_X₁sub]
-  constructor
-  · rintro ⟨a, b, hg⟩
-    exact ⟨a, b, x₁_coord_rel hg, ext_mat hg⟩
-  · rintro ⟨a, b, h, rfl⟩
-    exact ⟨a, b, rfl⟩
-
-theorem mem_X₄sub_iff {g : SU52} :
-    g ∈ X₄sub ↔ ∃ (a b : F4) (h : a * bar a = b + bar b), g = x₄SU a b h := by
-  rw [mem_X₄sub]
-  constructor
-  · rintro ⟨a, b, hg⟩
-    exact ⟨a, b, x₄_coord_rel hg, ext_mat hg⟩
-  · rintro ⟨a, b, h, rfl⟩
-    exact ⟨a, b, rfl⟩
 
 theorem card_X₁sub : Nat.card X₁sub = 8 := by
   rw [X₁sub, card_x₁Sub]
@@ -486,13 +464,6 @@ theorem card_X₃zsub : Nat.card X₃zsub = 2 := by
   rw [X₃zsub, card_x₃Sub]
   decide
 
-theorem card_X₁starSub : Nat.card X₁starSub = 4 := by
-  rw [X₁starSub, card_x₁Sub]
-  decide
-
-theorem card_X₄starSub : Nat.card X₄starSub = 4 := by
-  rw [X₄starSub, card_x₄Sub]
-  decide
 
 theorem x₁Mat_x₂Mat_comm : ∀ {a b : F4} (c : F4), a * bar a = b + bar b →
     x₁Mat a (b + a * bar a) * x₂Mat c * x₁Mat a b * x₂Mat c =
@@ -810,9 +781,6 @@ theorem mat_pow_two (g : SU52) : mat (g ^ 2) = mat g * mat g := by rw [pow_two, 
 theorem mat_pow_three (g : SU52) : mat (g ^ 3) = mat g * mat g * mat g := by
   rw [pow_succ, pow_two, mat_mul, mat_mul]
 
-theorem orderOf_uSU : orderOf uSU = 2 :=
-  orderOf_eq_prime (ext_mat (by rw [mat_pow_two, mat_uSU, mat_one]; decide))
-    fun h => absurd (congrArg mat h) (by rw [mat_uSU, mat_one]; decide)
 
 theorem orderOf_vSU : orderOf vSU = 2 :=
   orderOf_eq_prime (ext_mat (by rw [mat_pow_two, mat_vSU, mat_one]; decide))
@@ -1156,9 +1124,6 @@ theorem fld_e₂SU : fld e₂SU = e₂SU⁻¹ := ext_mat (by rw [mat_fld, mat_in
 
 theorem mem_CfldSub {g : SU52} : g ∈ CfldSub ↔ fld g = g := Iff.rfl
 
-@[expose] def B₁sub : Subgroup SU52 := A₁sub ⊓ CfldSub
-
-@[expose] def B₂sub : Subgroup SU52 := A₂sub ⊓ CfldSub
 
 @[expose] def wittMat : Matrix (Fin 5) (Fin 5) F4 :=
   !![1, 0, 0, 0, F4.ω; 1, 0, 0, 0, F4.ω + 1; 0, 1, 0, F4.ω, 0; 0, 1, 0, F4.ω + 1, 0;
@@ -1214,14 +1179,6 @@ variable {K : Type} [Field K]
 @[expose] noncomputable def wittTransport (φ : K ≃+* F4) : GL (Fin 5) K ≃* GL (Fin 5) F4 :=
   (Units.mapEquiv (RingEquiv.mapMatrix φ).toMulEquiv).trans (MulAut.conj wittGL⁻¹)
 
-theorem coe_wittTransport (φ : K ≃+* F4) (A : GL (Fin 5) K) :
-    ((wittTransport φ A : GL (Fin 5) F4) : Matrix (Fin 5) (Fin 5) F4) =
-      wittInv * (A : Matrix (Fin 5) (Fin 5) K).map φ * wittMat := rfl
-
-theorem map_map_bar (φ : K ≃+* F4) (A : Matrix (Fin 5) (Fin 5) K) :
-    (A.map φ).map bar = (A.map fun x => x ^ 2 ^ 1).map φ := by
-  ext i j
-  simp only [Matrix.map_apply, bar_apply, pow_one, map_pow]
 
 theorem map_wittTransport (hK : Nat.card K = (2 ^ 1) ^ 2) (φ : K ≃+* F4) :
     (StatedSU 5 (2 ^ 1) K).map (wittTransport φ).toMonoidHom = SU52 := by
@@ -1304,9 +1261,5 @@ theorem modelEquiv {J : Type} [Group J] (hJ : CFSG.Blueprint.LieModel J .PSU 5 2
   · exact absurd ht (by decide)
   · exact absurd ht (by decide)
 
-theorem lieModel_SU52 : CFSG.Blueprint.LieModel SU52 .PSU 5 2 1 :=
-  Or.inl ⟨by decide, ⟨Nat.prime_two, le_rfl, by norm_num, by decide⟩, F4, inferInstance,
-    inferInstance, by rw [Nat.card_eq_fintype_card, F4.card]; norm_num,
-    ⟨(statedProjEquiv (by rw [Nat.card_eq_fintype_card, F4.card]; norm_num)).symm⟩⟩
 
 end CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo

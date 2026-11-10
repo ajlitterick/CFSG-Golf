@@ -166,20 +166,6 @@ theorem invertedByTwoA_data (hE : MonsterExistenceStatement G) {p : ℕ} (hp : p
   rw [← this]
   exact hsh
 
-theorem orderOf_eq_three_or_five_of_invertedByTwoA (hE : MonsterExistenceStatement G) {p : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) {s : G} (hs : orderOf s = p) (hinv : InvertedByTwoA s) :
-    p = 3 ∨ p = 5 := by
-  obtain ⟨-, α, -, -, -, i, hi, -⟩ := invertedByTwoA_data hE hp hp2 hs hinv
-  fin_cases i <;> simp [suborbitClassOrder] at hi
-  · exact absurd hi hp.one_lt.ne
-  · exact absurd hi.symm hp2
-  · exact absurd hi.symm hp2
-  · exact Or.inl hi.symm
-  · exact Or.inl hi.symm
-  · exact absurd (hi ▸ hp) (by norm_num)
-  · exact absurd (hi ▸ hp) (by norm_num)
-  · exact Or.inr hi.symm
-  · exact absurd (hi ▸ hp) (by norm_num)
 
 theorem gLAPPrimeCoreOf_eq_bot_of_invertedByTwoA
     (hE : MonsterExistenceStatement G) {p : ℕ} (hp : p.Prime)
@@ -190,13 +176,6 @@ theorem gLAPPrimeCoreOf_eq_bot_of_invertedByTwoA
   exact gLAPPrimeCoreOf_centralizer_eq_bot_of_inverting_involution hp hp2 hαα hs
     (by simpa using hαs) (gLAPPrimeCoreOf_eq_bot_of_twoPointShape hp hp2 hi hsh) hbd
 
-theorem not_invertedByTwoA_of_ne (hE : MonsterExistenceStatement G) {p : ℕ} (hp : p.Prime)
-    (hp2 : p ≠ 2) (hp3 : p ≠ 3) (hp5 : p ≠ 5) {s : G} (hs : orderOf s = p) :
-    ¬ InvertedByTwoA s := by
-  intro hinv
-  rcases orderOf_eq_three_or_five_of_invertedByTwoA hE hp hp2 hs hinv with h | h
-  · exact hp3 h
-  · exact hp5 h
 
 theorem oPrimeCoreTrivialAt_of_uninverted
     (hE : MonsterExistenceStatement G) {p : ℕ} (hp : p.Prime)

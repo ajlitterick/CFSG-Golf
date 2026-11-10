@@ -76,25 +76,6 @@ section Criterion
 
 variable {X : Type} [Group X] [Finite X]
 
-theorem le_layers_of_indexTwoFamily {L Ē F : Subgroup X} (hL : CFSG.IsComponent L)
-    (hlie : IsOddLieComponent L) (hĒ2 : ∀ x ∈ Ē, x * x = 1) (hFĒ : F ≤ Ē) (hF4 : Nat.card F = 4)
-    (hFN : F ≤ Subgroup.normalizer (L : Set X)) {𝓡 : Set (Subgroup X)}
-    (hgen : L ≤ ⨆ R ∈ 𝓡, R) (hRL : ∀ R ∈ 𝓡, R ≤ L)
-    (hidx : ∀ R ∈ 𝓡, IndexTwoCentralizes Ē R)
-    (hlay : ∀ R ∈ 𝓡, ¬ IsInvolutionMember R → ∀ f ∈ F, f ≠ 1 → (∀ r ∈ R, f * r = r * f) →
-      R ≤ centralizerLayer f) :
-    L ≤ ⨆ f ∈ F, ⨆ (_ : f ≠ 1), centralizerLayer f := by
-  have hLopen := (CFSG.isComponent_iff_open L).mp hL
-  have hB := involutionCentralizerB_of_isOddLieComponent hLopen.2.2 hlie
-  refine hgen.trans (iSup₂_le fun R hR => ?_)
-  obtain ⟨f, hfF, hf1, hfR⟩ := exists_ne_one_centralizes_of_indexTwo hĒ2 hFĒ hF4 (hidx R hR)
-  have hRlayer : R ≤ centralizerLayer f := by
-    by_cases hm : IsInvolutionMember R
-    · exact hm.le_centralizerLayer l2PrimeBalance hLopen.2.1 (hRL R hR)
-        (fun r hr => Subgroup.mem_centralizer_singleton_iff.mpr (hfR r hr).symm)
-        (hB f hf1 (hĒ2 f (hFĒ hfF)) (hFN hfF))
-    · exact hlay R hR hm f hfF hf1 hfR
-  exact le_iSup₂_of_le f hfF (le_iSup_of_le hf1 hRlayer)
 
 end Criterion
 
@@ -107,26 +88,6 @@ theorem modOdd_mono {a : G} {K K' : Subgroup G} (h : K ≤ K') : modOdd a K ≤ 
   rintro _ ⟨k, hk, rfl⟩
   exact ⟨k, h hk, rfl⟩
 
-theorem LayerGenerationLie.of_indexTwoFamily (hE2 : ∀ x ∈ E, x * x = 1) {a : G} (ha : a ∈ E)
-    (hfam : ∀ L : Subgroup (OddQuot a), CFSG.IsComponent L → IsOddLieComponent L →
-      L ≤ memberJoin Ω a → ∀ F₀ : Subgroup G, IsFaithfulFourGroupAt E a L F₀ →
-        ∃ 𝓡 : Set (Subgroup (OddQuot a)), L ≤ ⨆ R ∈ 𝓡, R ∧ (∀ R ∈ 𝓡, R ≤ L) ∧
-          (∀ R ∈ 𝓡, IndexTwoCentralizes (modOdd a E) R) ∧
-          ∀ R ∈ 𝓡, ¬ IsInvolutionMember R → ∀ f ∈ modOdd a F₀, f ≠ 1 →
-            (∀ r ∈ R, f * r = r * f) → R ≤ centralizerLayer f) :
-    LayerGenerationLie Ω E a := by
-  intro L hL hlie hjoin F₀ hF
-  obtain ⟨𝓡, hgen, hRL, hidx, hlay⟩ := hfam L hL hlie hjoin F₀ hF
-  obtain ⟨hF₀E, h4, hFn, -⟩ := hF
-  have hFC : F₀ ≤ Subgroup.centralizer ({a} : Set G) := by
-    intro f hf
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (comm_of_sq_eq_one hE2 ha (hF₀E hf)).symm
-  have hF2 : ∀ f ∈ F₀, f * f = 1 := fun f hf => hE2 f (hF₀E hf)
-  exact OddCentralizerFree.of_le_layers
-    (le_layers_of_indexTwoFamily hL hlie
-      (modOdd_sq_eq_one hE2 le_rfl) (modOdd_mono hF₀E)
-      (by rw [card_modOdd_of_exponent_two hFC hF2, h4]) hFn hgen hRL hidx hlay)
 
 end Frame
 

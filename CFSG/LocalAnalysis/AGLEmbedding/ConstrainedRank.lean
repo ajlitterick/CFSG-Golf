@@ -148,17 +148,5 @@ theorem pRank_le_three_of_escape_of_hasPrimeConstraint
     (fun N _ hNp => escaping_rank_three_primeCore_quotient_normal_primeSubgroup_rank_le_two p hp P
       hPM hWM hrank hescape N hNp) C hC hfrat hcent hcyc
 
-theorem le_of_four_le_pRank_of_hasPrimeConstraint
-    {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (P : Sylow p G) {M H : Subgroup G}
-    (hPM : (P : Subgroup G) ≤ M) (hWM : GLBWeakCore p (P : Subgroup G) ≤ M)
-    (hrank : 4 ≤ pRank p (H ⊓ M))
-    (hcon : HasPrimeConstraint (G := H) p) :
-    H ≤ M := by
-  by_contra hescape
-  have hle := pRank_le_three_of_escape_of_hasPrimeConstraint hp hp2 P hPM hWM (by omega)
-    hescape hcon
-  have hmono := pRank_mono p hp (inf_le_left : H ⊓ M ≤ H)
-  omega
 
 end CFSG.AGLEmbedding

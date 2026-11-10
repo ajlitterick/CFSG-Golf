@@ -28,8 +28,6 @@ theorem two_pow_two_mul_add_one (a : ℕ) :
   rw [pow_succ, pow_mul, ← pow_mul, ← pow_mul, mul_comm a 2]
   ring
 
-theorem odd_modulus (θ : ℤ) : Odd (2 * θ ^ 2 - 1) :=
-  ⟨θ ^ 2 - 1, by ring⟩
 
 theorem isCoprime_two_pow (θ : ℤ) (i : ℕ) : IsCoprime (2 * θ ^ 2 - 1) (2 ^ i) := by
   refine IsCoprime.pow_right ?_

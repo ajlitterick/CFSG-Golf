@@ -234,33 +234,6 @@ theorem jProjective_outer_involution [Finite F] (a : Fˣ) (ha : ¬IsSquare a) :
   have hG := (coordinateG F).one_mem
   exact hout (by simpa only [h, Subgroup.coe_one] using hG)
 
-theorem projective_nonsquare_involutions_single_class [Finite F]
-    (hF : IsOddPrimePower (Nat.card F)) (a : Fˣ) (ha : ¬IsSquare a) :
-    (jProjective F a : Equiv.Perm (Omega F)) ∉ coordinateG F ∧
-    orderOf (jProjective F a) = 2 ∧
-    ∀ v : coordinateD F, (v : Equiv.Perm (Omega F)) ∉ coordinateG F →
-      orderOf v = 2 → ∃ d : coordinateD F, d * v * d⁻¹ = jProjective F a := by
-  exact ⟨(jProjective_outer_involution F a ha).1,
-    (jProjective_outer_involution F a ha).2,
-    projective_nonsquare_involutions_are_conjugate F hF a ha⟩
-
-theorem projective_nonsquare_involutions_original_field
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f)
-    (hcard : Nat.card F = p ^ f) (a : Fˣ) (ha : ¬IsSquare a)
-    (v : Equiv.Perm (Omega F)) (hvD : v ∈ coordinateD F)
-    (hvG : v ∉ coordinateG F) (hv : orderOf v = 2) :
-    (jProjective F a : Equiv.Perm (Omega F)) ∉ coordinateG F ∧
-    orderOf (jProjective F a) = 2 ∧
-    ∃ d : Equiv.Perm (Omega F), d ∈ coordinateD F ∧
-      d * v * d⁻¹ = (jProjective F a : Equiv.Perm (Omega F)) := by
-  let : Finite F := Nat.finite_of_card_ne_zero (hcard ▸ pow_ne_zero _ hp.ne_zero)
-  have hF : IsOddPrimePower (Nat.card F) := by
-    exact ⟨p, f, hp, hpodd, hf, hcard⟩
-  obtain ⟨d, hd⟩ := projective_nonsquare_involutions_are_conjugate F hF a ha
-    ⟨v, hvD⟩ hvG (by simpa only [Subgroup.orderOf_mk] using hv)
-  exact ⟨(jProjective_outer_involution F a ha).1,
-    (jProjective_outer_involution F a ha).2, d, d.property,
-    congrArg Subtype.val hd⟩
 
 end
 

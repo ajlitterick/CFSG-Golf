@@ -32,7 +32,6 @@ theorem mem_inner_of_not_three_dvd {S : Type*} [Group S] (hS : ¬ 3 ∣ Nat.card
   rw [ho, QuotientGroup.eq_one_iff] at ho1
   exact ho1
 
-variable {G : Type} [Group G] [Finite G]
 
 end Item21Res7Proof
 

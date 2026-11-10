@@ -23,6 +23,5 @@ theorem input14610Four_proved :
     · exact ModE.case_bound hGT.symm h (Or.inl rfl) hAG hAel hAnorm h13
   omega
 
-variable {G : Type} [Group G] [Finite G] {T M : Subgroup G}
 
 end CFSG.Quasithin

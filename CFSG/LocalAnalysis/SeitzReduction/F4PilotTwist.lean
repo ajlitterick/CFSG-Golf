@@ -525,17 +525,6 @@ theorem eq_one_or_eq_of_forall_fixSubfield {K : Type} [Field K] [Finite K] {σ �
     rw [Nat.cast_ofNat, h, zpow_one]
 
 
-theorem exists_eq_one_or_eq_of_forall_B2Levi {K : Type} [Field K] [Finite K] [CharP K 2]
-    {σ : K ≃+* K} (hσ : orderOf σ = 2) (θ : MulAut (B2Levi K))
-    (hθ : ∀ (x : B2Levi (fixSubfield σ)) (y : B2Levi K), ((y : adjointGroup .F4 K) : ModGL .F4 K) =
-      baseChangeGL (fixSubfield σ).subtype
-        ((x : adjointGroup .F4 (fixSubfield σ)) : ModGL .F4 (fixSubfield σ)) → θ y = y) :
-    ∃ ρ : K ≃+* K, (ρ = 1 ∨ ρ = σ) ∧ ∀ y : B2Levi K,
-      (((θ y : B2Levi K) : adjointGroup .F4 K) : ModGL .F4 K) =
-        baseChangeGL (ρ : K →+* K) ((y : adjointGroup .F4 K) : ModGL .F4 K) := by
-  obtain ⟨ρ, hρ, hθρ⟩ := exists_ringEquiv_of_forall_B2Levi (fixSubfield σ).subtype θ hθ
-  exact ⟨ρ, eq_one_or_eq_of_forall_fixSubfield hσ hρ, hθρ⟩
-
 end Galois
 
 end CFSG.SeitzReduction.F4Pilot

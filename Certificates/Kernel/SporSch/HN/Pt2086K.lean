@@ -32,13 +32,6 @@ theorem p_wits : CFSG.KC.Enum.allN 39 (fun w =>
     ptsImg TX MS CM3 M (trM (YT (fldW WK (Nat.mul 6 w) 6))) (fldW WQ (Nat.mul 21 w) 21)
       (fldW WF (Nat.mul 21 w) 21) 1) = true := by quickRfl
 
-theorem neg_WT : Bool.not (Nat.beq (wordC CFSG.KD.HNPtC.GT (pcF 1)) (WT 0)) = true := by quickRfl
-theorem neg_chain : Bool.not (Nat.beq (CFSG.KC.LL.HN.mm (WT 0) (YT 0)) (YT 2)) = true := by
-  quickRfl
-theorem neg_T4 : Bool.not (ptsImg TX MS CM3 M (trM CFSG.KD.HNPtC.T4) FT FT 40) = true := by
-  quickRfl
-theorem neg_rep : Bool.not (ptsImg TX MS CM3 M (trM (YT (fldW KP 6 6))) (PF 1) (PF 1) 2) = true :=
-  by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2086
 

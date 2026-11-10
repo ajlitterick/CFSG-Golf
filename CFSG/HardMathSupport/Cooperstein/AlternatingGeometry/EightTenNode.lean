@@ -19,16 +19,6 @@ open CFSG.HardMathSupport.Cooperstein.Coordinator
 
 variable {G : Type} [Group G] {S L : Subgroup G}
 
-@[expose] def NaturalSection (S L : Subgroup G) (d : ℕ) : Prop :=
-  ∃ (π : ↥⁅blockV S L, L⁆ →* Multiplicative (altHeart d)) (θ : ↥L →* Equiv.Perm (Fin d)),
-    Function.Surjective π ∧
-    π.ker = (⁅blockV S L, L⁆ ⊓ Subgroup.centralizer ((L ⊔ S : Subgroup G) : Set G)).subgroupOf
-      ⁅blockV S L, L⁆ ∧
-    alternatingGroup (Fin d) ≤ θ.range ∧
-    ∀ (l : ↥L) (t t' : ↥⁅blockV S L, L⁆), (t' : G) = (l : G) * t * (l : G)⁻¹ →
-      ∀ x : evenWeight d, Multiplicative.toAdd (π t) = (QuotientAddGroup.mk x : altHeart d) →
-        Multiplicative.toAdd (π t') =
-          (QuotientAddGroup.mk (evenWeightPerm (θ l) x) : altHeart d)
 
 @[expose] def NaturalSectionL (S L : Subgroup G) (d : ℕ) : Prop :=
   ∃ (π : ↥⁅blockV S L, L⁆ →* Multiplicative (altHeart d)) (θ : ↥L →* Equiv.Perm (Fin d)),

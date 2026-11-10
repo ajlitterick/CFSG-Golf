@@ -121,11 +121,6 @@ theorem aEmptyChain_of_hypOmega (hΩall : HypOmegaModAll p f) : AEmptyChain p f 
   exact aEmpty_of_twinSet_subset hp2 hq hΩ hM
     (fun M' hM' => noTwinsChain_of_hypOmega hΩall G hnab hp2 hq K z hz hBelow hshape M hM M' hM')
 
-theorem chainFrame_exists_on_of_lemma52'' (hΩ : HypOmegaModAll p f) (hGen : ChainFrameGenT p f)
-    (h51t : ChainFrameHyp51t p f) (h51zt : ChainFrameHyp51zt p f) :
-    FrameExistsOnE p f (ChainShapePred (p := p) (f := f)) :=
-  chainFrame_exists_on_of_lemma52' hΩ (aEmptyChain_of_hypOmega hΩ) (noTwinsChain_of_hypOmega hΩ)
-    hGen h51t h51zt lemma52
 
 end Chain
 

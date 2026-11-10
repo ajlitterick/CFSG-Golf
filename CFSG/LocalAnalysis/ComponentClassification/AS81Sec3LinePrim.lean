@@ -738,9 +738,6 @@ theorem exists_isometry_model :
     (by rw [h8]) hplus
   exact ⟨e.toLinearEquiv, e.map_app⟩
 
-theorem card_omegaGroup_of_plus : Nat.card (omegaGroup Q hQ) = 174182400 := by
-  obtain ⟨L, hL⟩ := exists_isometry_model hQ h8 hplus
-  exact card_omegaGroup' hQ hL
 
 theorem isCoatom_omegaStab
     {W : Submodule (ZMod 2) V} (hW : Module.finrank (ZMod 2) W = 2)

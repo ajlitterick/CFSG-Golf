@@ -103,53 +103,5 @@ theorem primeComplementCore_characteristic (Ambient : Type groupUniverse) [Group
     (primeComplementCore prime Ambient).Characteristic :=
   Subgroup.characteristic_iff_map_eq.mpr (primeComplementCore_map_mulEquiv hprime)
 
-@[expose] noncomputable def primeComplementCoreOf {Ambient : Type groupUniverse} [Group Ambient]
-    (prime : ℕ) (Local : Subgroup Ambient) : Subgroup Ambient :=
-  (primeComplementCore prime Local).map Local.subtype
-
-theorem primeComplementCoreOf_le {Ambient : Type groupUniverse} [Group Ambient]
-    (prime : ℕ) (Local : Subgroup Ambient) : primeComplementCoreOf prime Local ≤ Local := by
-  intro element helement
-  obtain ⟨source, _, rfl⟩ := helement
-  exact source.property
-
-theorem primeComplementCoreOf_order {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] {prime : ℕ} (hprime : prime.Prime) (Local : Subgroup Ambient) :
-    ¬prime ∣ Nat.card (primeComplementCoreOf prime Local) := by
-  unfold primeComplementCoreOf
-  rw [← Nat.card_congr (Subgroup.equivMapOfInjective (primeComplementCore prime Local)
-    Local.subtype Local.subtype_injective).toEquiv]
-  exact primeComplementCore_order Local hprime
-
-theorem primeComplementCoreOf_map_mulEquiv {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] {Target : Type targetUniverse} [Group Target] [Finite Target]
-    {prime : ℕ} (hprime : prime.Prime) (coordinates : Ambient ≃* Target)
-    (Local : Subgroup Ambient) :
-    (primeComplementCoreOf prime Local).map coordinates.toMonoidHom =
-      primeComplementCoreOf prime (Local.map coordinates.toMonoidHom) := by
-  let localCoordinates := Subgroup.equivMapOfInjective Local coordinates.toMonoidHom
-    coordinates.injective
-  have hcomposition : (Local.map coordinates.toMonoidHom).subtype.comp
-      localCoordinates.toMonoidHom = coordinates.toMonoidHom.comp Local.subtype := by
-    ext element
-    rfl
-  unfold primeComplementCoreOf
-  rw [← primeComplementCore_map_mulEquiv hprime localCoordinates,
-    Subgroup.map_map, Subgroup.map_map, hcomposition]
-
-theorem centralizer_set_map_mulEquiv {Ambient : Type groupUniverse} [Group Ambient]
-    {Target : Type targetUniverse} [Group Target] (coordinates : Ambient ≃* Target)
-    (elements : Set Ambient) :
-    (Subgroup.centralizer elements).map coordinates.toMonoidHom =
-      Subgroup.centralizer (coordinates '' elements) := by
-  apply le_antisymm (Subgroup.map_centralizer_le_centralizer_image elements coordinates.toMonoidHom)
-  have hinverse := Subgroup.map_mono (f := coordinates.toMonoidHom)
-    (Subgroup.map_centralizer_le_centralizer_image (coordinates '' elements)
-      coordinates.symm.toMonoidHom)
-  have himage : coordinates.symm '' (coordinates '' elements) = elements := by
-    ext element
-    simp
-  simpa only [subgroup_map_forward_inverse_mulEquiv, MulEquiv.coe_toMonoidHom,
-    himage] using hinverse
 
 end CFSG.LargeEvenClassification.Helpers

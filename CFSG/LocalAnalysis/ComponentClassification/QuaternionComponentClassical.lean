@@ -182,35 +182,5 @@ theorem classicalModel_of_statedClassicalModel {X : Type} [Group X]
     rw [map_add, map_add, map_mul, map_pow, σ.apply_symm_apply, map_zero]
     exact hs
 
-theorem oddLieType_of_statedClassicalModel {X : Type} [Group X] {t : StatedLieTag} {n p f : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) (h : StatedClassicalModel X t n p f) :
-    Assembly.ComponentType.OddLieType X := by
-  have hfact : Fact p.Prime := ⟨hp⟩
-  have key : ∀ t' : Assembly.ComponentType.ClassicalTag,
-      ClassicalModelStatedBridge.ClassicalTag.toStated t' = t →
-        Assembly.ComponentType.OddLieType X := by
-    rintro t' rfl
-    exact Or.inl ⟨t', n, p, f, hfact, hp2, classicalModel_of_statedClassicalModel t' n p f h⟩
-  cases t
-  case PSL => exact key .PSL rfl
-  case PSU => exact key .PSU rfl
-  case PSp => exact key .PSp rfl
-  case POmegaOdd => exact key .POmegaOdd rfl
-  case POmegaPlus => exact key .POmegaPlus rfl
-  case POmegaMinus => exact key .POmegaMinus rfl
-  all_goals exact (h.2 : False).elim
-
-theorem oddLieType_of_blueprint_of_exceptional {X : Type} [Group X]
-    (hExc : ∀ (t : StatedLieTag) (p f : ℕ), p.Prime → p ≠ 2 → StatedLieAdmissible t 0 p f →
-      (t ∈ Blueprint.chevalleyExceptionalTags ∧ Blueprint.ChevalleyExceptionalModel X t p f) ∨
-        (t ∈ Blueprint.reeTitsTags ∧ Blueprint.ReeTitsModel X t p f) →
-      Assembly.ComponentType.OddLieType X)
-    (h : Blueprint.OddLieType X) : Assembly.ComponentType.OddLieType X := by
-  obtain ⟨t, n, p, f, hp, hp2, hadm, hmodel⟩ := h
-  rcases hmodel with ⟨-, hc⟩ | ⟨rfl, ht, he⟩ | ⟨rfl, ht, he⟩ | ⟨-, -, hs⟩
-  · exact oddLieType_of_statedClassicalModel hp hp2 hc
-  · exact hExc t p f hp hp2 hadm (Or.inl ⟨ht, he⟩)
-  · exact hExc t p f hp hp2 hadm (Or.inr ⟨ht, he⟩)
-  · exact absurd hs.1 hp2
 
 end CFSG.ComponentClassification.QuaternionComponent

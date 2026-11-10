@@ -121,10 +121,6 @@ theorem isPGroup_two_quaternionGroup_two_pow (k : ℕ) : IsPGroup 2 (QuaternionG
   rw [Nat.card_eq_fintype_card, QuaternionGroup.card]
   ring
 
-theorem quaternionGroup_a_mem_of_ne_bot (k : ℕ) {H : Subgroup (QuaternionGroup (2 ^ k))}
-    (hH : H ≠ ⊥) : QuaternionGroup.a ((2 ^ k : ℕ) : ZMod (2 * 2 ^ k)) ∈ H :=
-  mem_of_isPGroup_of_unique_involution (isPGroup_two_quaternionGroup_two_pow k)
-    (fun _ hx => (quaternionGroup_orderOf_eq_two_iff _ _).mp hx) hH
 
 theorem isPGroup_two_of_mulEquiv_quaternionGroup {P : Type*} [Group P] {k : ℕ}
     (e : P ≃* QuaternionGroup (2 ^ k)) : IsPGroup 2 P :=
@@ -333,23 +329,6 @@ theorem centralizer_eq_normalizer_of_tightlyEmbedded [Finite G] (hzJ : z ∈ J) 
     ((tightlyEmbedded_iff_centralizer_le_normalizer_of_unique_involution hzJ hz hU).mp hTE)
     (normalizer_le_centralizer_of_unique_involution hzJ hz hU)
 
-theorem conj_eq_iff_map_conj_eq_of_tightlyEmbedded [Finite G] (hzJ : z ∈ J) (hz : orderOf z = 2)
-    (hU : ∀ t ∈ J, orderOf t = 2 → t = z) (hTE : classicalInvolutionTightlyEmbedded J)
-    (g h : G) :
-    g * z * g⁻¹ = h * z * h⁻¹ ↔
-      J.map (MulAut.conj g).toMonoidHom = J.map (MulAut.conj h).toMonoidHom := by
-  rw [map_conj_eq_map_conj_iff, ← centralizer_eq_normalizer_of_tightlyEmbedded hzJ hz hU hTE,
-    Subgroup.mem_centralizer_iff]
-  simp only [Set.mem_singleton_iff, forall_eq]
-  constructor
-  · intro e
-    calc z * (h⁻¹ * g) = h⁻¹ * (h * z * h⁻¹) * g := by group
-      _ = h⁻¹ * (g * z * g⁻¹) * g := by rw [e]
-      _ = h⁻¹ * g * z := by group
-  · intro e
-    calc g * z * g⁻¹ = h * (h⁻¹ * g * z) * g⁻¹ := by group
-      _ = h * (z * (h⁻¹ * g)) * g⁻¹ := by rw [e]
-      _ = h * z * h⁻¹ := by group
 
 theorem tightlyEmbedded_iff_centralizer_le_normalizer [Finite G] (hzJ : z ∈ J)
     (hz : orderOf z = 2) (hcent : J ≤ Subgroup.centralizer ({z} : Set G)) (S : Sylow 2 J)
@@ -359,17 +338,6 @@ theorem tightlyEmbedded_iff_centralizer_le_normalizer [Finite G] (hzJ : z ∈ J)
   tightlyEmbedded_iff_centralizer_le_normalizer_of_unique_involution hzJ hz
     (fun _ htJ ht => eq_of_orderOf_eq_two_of_quaternion_sylow hzJ hz hcent S hS htJ ht)
 
-theorem conj_of_tightlyEmbedded [Finite G] (hzJ : z ∈ J) (hz : orderOf z = 2)
-    (hcent : J ≤ Subgroup.centralizer ({z} : Set G)) (S : Sylow 2 J)
-    (hS : ∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup J) ≃* QuaternionGroup (2 ^ (r - 2))))
-    (hTE : classicalInvolutionTightlyEmbedded J) :
-    (∀ g h : G, g * z * g⁻¹ = h * z * h⁻¹ ↔
-        J.map (MulAut.conj g).toMonoidHom = J.map (MulAut.conj h).toMonoidHom) ∧
-      ∀ g : G, g ∉ Subgroup.normalizer (J : Set G) →
-        Odd (Nat.card (J ⊓ J.map (MulAut.conj g).toMonoidHom : Subgroup G)) :=
-  ⟨conj_eq_iff_map_conj_eq_of_tightlyEmbedded hzJ hz
-      (fun _ htJ ht => eq_of_orderOf_eq_two_of_quaternion_sylow hzJ hz hcent S hS htJ ht) hTE,
-    hTE⟩
 
 end TightlyEmbedded
 

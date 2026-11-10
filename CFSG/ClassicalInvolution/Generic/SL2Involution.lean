@@ -198,8 +198,6 @@ namespace DiagData
 
 variable {φ : SL(2, F) →* G} {E : Subgroup G}
 
-theorem centSub_le_normSub : centSub φ E ≤ normSub φ E :=
-  Subgroup.comap_mono (Subgroup.centralizer_le_normalizer _)
 
 theorem exists_mem_normSub_not_mem_centSub [Finite F] (hD : DiagData φ E)
     (hodd : Odd (Nat.card F)) (h5 : 5 ≤ Nat.card F) :
@@ -241,24 +239,6 @@ theorem inv_mul_mem_centSub [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.car
   exact IsInvolDiag.fixed_of_anticomm_inv_mul (A := W.g) (Witness.anticomm_of_mem hD h2 hs hs')
     (Witness.anticomm_of_mem hD h2 ht ht')
 
-theorem relIndex_centSub_normSub [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.card F))
-    (h5 : 5 ≤ Nat.card F) : (centSub φ E).relIndex (normSub φ E) = 2 := by
-  obtain ⟨w, hw, hw'⟩ := hD.exists_mem_normSub_not_mem_centSub hodd h5
-  refine Subgroup.relIndex_eq_two_iff.mpr ⟨w, hw, fun b hb => ?_⟩
-  by_cases hbC : b ∈ centSub φ E
-  · refine Or.inr ⟨hbC, fun h => hw' ?_⟩
-    have := (centSub φ E).mul_mem ((centSub φ E).inv_mem hbC) h
-    simpa using this
-  · refine Or.inl ⟨?_, hbC⟩
-    have hbinv : b⁻¹ ∈ normSub φ E := (normSub φ E).inv_mem hb
-    have hbinv' : b⁻¹ ∉ centSub φ E := fun h => hbC (by simpa using (centSub φ E).inv_mem h)
-    simpa using hD.inv_mul_mem_centSub hodd hbinv hbinv' hw hw'
-
-theorem natCard_normSub [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.card F))
-    (h5 : 5 ≤ Nat.card F) : Nat.card (normSub φ E) = 2 * Nat.card (centSub φ E) := by
-  have h := Subgroup.relIndex_mul_card (H := centSub φ E) (K := normSub φ E)
-  rw [hD.relIndex_centSub_normSub hodd h5, inf_eq_left.mpr centSub_le_normSub] at h
-  exact h.symm
 
 theorem orderOf_phi_eq_four [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.card F))
     {s : SL(2, F)} (hs : s ∈ normSub φ E) (hs' : s ∉ centSub φ E) : orderOf (φ s) = 4 := by
@@ -277,10 +257,6 @@ theorem orderOf_phi_eq_four [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.car
     orderOf_eq_prime_pow (p := 2) (n := 1) (by simpa [h2] using hne) h4
   exact (orderOf_injective φ hD.inj s).trans (hord.trans (by norm_num))
 
-theorem conj_mem_axis {x : G} (hx : x ∈ axisSub E φ.range) (s : SL(2, F)) :
-    φ s * x * (φ s)⁻¹ = x := by
-  rw [Witness.axis_comm hx s]
-  simp
 
 theorem conj_not_mem_axis [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.card F))
     {s : SL(2, F)} (hs : s ∈ normSub φ E) (hs' : s ∉ centSub φ E) {x : G} (hx : x ∈ E)
@@ -302,10 +278,6 @@ theorem conj_not_mem_axis [Finite F] (hD : DiagData φ E) (hodd : Odd (Nat.card 
     group
   rw [h4, h3, ← hcomm, hx2, mul_assoc]
 
-theorem mem_axis_or_mul_mem [Finite F] (hD : DiagData φ E) {x : G} (hx : x ∈ E) :
-    ∃ a ∈ E, a ∉ axisSub E φ.range ∧ (x ∈ axisSub E φ.range ∨ x * a ∈ axisSub E φ.range) := by
-  obtain ⟨W⟩ := hD.nonempty_witness
-  exact ⟨W.a, W.ha, W.na, W.split x hx⟩
 
 end DiagData
 

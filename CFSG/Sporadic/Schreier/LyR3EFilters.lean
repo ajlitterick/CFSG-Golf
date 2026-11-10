@@ -109,9 +109,6 @@ private theorem lyf_ne_one :
 theorem lyf_ne_lyz :
     lyf ≠ lyz := repM_fM.ne_of_diff repM_matA r3e_parts.2.2.2.1
 
-private theorem orderOf_lyf :
-    orderOf lyf = 2 :=
-  orderOf_eq_prime (by rw [pow_two]; exact lyf_sq) lyf_ne_one
 
 theorem lyz_mul_lyf :
     lyz * lyf = lyf * lyz :=
@@ -147,10 +144,6 @@ theorem r3e_pow_f :
   (((repM_cM.mul repM_fM).mul repM_gM).pow 18).ne_of_diff repM_id
     r3e_parts.2.2.2.2.2.2.2.2.2.1
 
-theorem r3e_pow_zf :
-    (r3eC * (lyz * lyf) * r3eG) ^ 18 = 1 :=
-  (((repM_cM.mul (repM_matA.mul repM_fM)).mul repM_gM).pow 18).eq_of_beq repM_id
-    r3e_parts.2.2.2.2.2.2.2.2.2.2
 
 theorem lyf_mem_lyC :
     lyf ∈ lyC := by
@@ -352,54 +345,6 @@ theorem mem_centralizer_r3eD0
       calc x = x * lyf * lyf := by rw [mul_assoc, hff, mul_one]
         _ = lyz * lyf := by rw [this]
 
-theorem lyz_mem_centralizer_r3eD0 :
-    lyz ∈ Subgroup.centralizer (r3eD0 : Set J) := by
-  rw [Subgroup.mem_centralizer_iff]
-  intro y hy
-  have hyC : y ∈ lyC := (r3eD0_le hy).1
-  rw [lyC_eq_centralizer, Subgroup.mem_centralizer_singleton_iff] at hyC
-  exact hyC
-
-theorem lyf_mem_centralizer_r3eD0 :
-    lyf ∈ Subgroup.centralizer (r3eD0 : Set J) := by
-  have : r3eD0 ≤ Subgroup.centralizer ({lyf} : Set J) := by
-    rw [r3eD0, Subgroup.closure_le]
-    intro y hy
-    rw [SetLike.mem_coe, Subgroup.mem_centralizer_singleton_iff]
-    exact gen_mul_lyf hy
-  rw [Subgroup.mem_centralizer_iff]
-  intro y hy
-  have := this hy
-  rw [Subgroup.mem_centralizer_singleton_iff] at this
-  exact this
-
-theorem centralizer_r3eD0_eq :
-    (Subgroup.centralizer (r3eD0 : Set J) : Set J) = {1, lyz, lyf, lyz * lyf} := by
-  ext x
-  constructor
-  · intro hx
-    rcases mem_centralizer_r3eD0 hx with h | h | h | h <;> simp [h]
-  · intro hx
-    rcases hx with rfl | rfl | rfl | rfl
-    · exact (Subgroup.centralizer _).one_mem
-    · exact lyz_mem_centralizer_r3eD0
-    · exact lyf_mem_centralizer_r3eD0
-    · exact (Subgroup.centralizer _).mul_mem lyz_mem_centralizer_r3eD0 lyf_mem_centralizer_r3eD0
-
-theorem centralizer_r3eD0_eq_closure :
-    Subgroup.centralizer (r3eD0 : Set J) = Subgroup.closure {lyz, lyf} := by
-  apply le_antisymm
-  · intro x hx
-    rcases mem_centralizer_r3eD0 hx with rfl | rfl | rfl | rfl
-    · exact Subgroup.one_mem _
-    · exact Subgroup.subset_closure (Set.mem_insert _ _)
-    · exact Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
-    · exact Subgroup.mul_mem _ (Subgroup.subset_closure (Set.mem_insert _ _))
-        (Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl))
-  · rw [Subgroup.closure_le]
-    rintro _ (rfl | rfl)
-    · exact lyz_mem_centralizer_r3eD0
-    · exact lyf_mem_centralizer_r3eD0
 
 private theorem lyz_ne_one : lyz ≠ 1 := by
   obtain ⟨-, -, -, hord, -⟩ := centralizer_double_cover
@@ -407,30 +352,5 @@ private theorem lyz_ne_one : lyz ≠ 1 := by
   rw [h, orderOf_one] at hord
   exact absurd hord (by norm_num)
 
-
-theorem involution_intersection_centralizer_and_filters :
-    r3eFusion = lyf ∧ orderOf lyf = 2 ∧ lyf ≠ 1 ∧ lyf ≠ lyz ∧ ⁅lyz, lyf⁆ = 1 ∧
-    r3eG * lyz * r3eG⁻¹ = lyf ∧
-    r3eD0 ≤ lyC ⊓ lyC.map (MulAut.conj r3eG).toMonoidHom ∧
-    Subgroup.centralizer (r3eD0 : Set J) = Subgroup.closure {lyz, lyf} ∧
-    (Subgroup.centralizer (r3eD0 : Set J) : Set J) = {1, lyz, lyf, lyz * lyf} ∧
-    ∀ δ ∈ ({1, lyz, lyf, lyz * lyf} : Set J),
-      (r3eC * δ * r3eG) ^ 18 = 1 ↔ δ = 1 ∨ δ = lyz * lyf := by
-  refine ⟨r3eFusion_eq, orderOf_lyf, lyf_ne_one, lyf_ne_lyz,
-    (by exact commutatorElement_eq_one_iff_mul_comm.2 lyz_mul_lyf), r3eG_conj_lyz,
-    (by exact r3eD0_le), (by exact centralizer_r3eD0_eq_closure), (by exact centralizer_r3eD0_eq),
-    ?_⟩
-  intro δ hδ
-  rcases hδ with rfl | rfl | rfl | rfl
-  · exact ⟨fun _ => Or.inl rfl, fun _ => r3e_pow_one⟩
-  · refine ⟨fun h => absurd h r3e_pow_z, fun h => ?_⟩
-    rcases h with h | h
-    · exact absurd h lyz_ne_one
-    · exact absurd (by simpa using h) lyf_ne_one
-  · refine ⟨fun h => absurd h r3e_pow_f, fun h => ?_⟩
-    rcases h with h | h
-    · exact absurd h lyf_ne_one
-    · exact absurd (by simpa using h) lyz_ne_one
-  · exact ⟨fun _ => Or.inr rfl, fun _ => r3e_pow_zf⟩
 
 end CFSG.Sporadic.LySchreier

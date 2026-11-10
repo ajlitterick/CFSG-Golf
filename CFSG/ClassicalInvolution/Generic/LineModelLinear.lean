@@ -184,15 +184,6 @@ theorem LinearA2Pair.isLine [Finite F] {E K L : Subgroup G} (h : LinearA2Pair F 
     (fun d hd => om23_conj_D23 hd) (fun d hd => om23_inv_conj_D23 hd) om12_not_mem_D12
     om23_not_mem_D23 conjSub_om12_B23 om12_mul_om23_pow_three
 
-theorem a2Dichotomy_of_linear {Ω : Set (Subgroup G)} {E : Subgroup G} {S : Set (Subgroup G)}
-    [Finite F] (Fr : ToralFrame F Ω E S)
-    (h : ∀ K ∈ S, ∀ L ∈ S, K ≠ L →
-      Commutes K L ∨ LinearA2Pair F E K L ∨ LinearA2Pair F E L K) : A2Dichotomy E S := by
-  intro K hK L hL hKL
-  rcases h K hK L hL hKL with hc | hp | hp
-  · exact Or.inl hc
-  · exact Or.inr (hp.isLine (Fr.inSigma hK) (Fr.inSigma hL) Fr.odd Fr.five).1
-  · exact Or.inr (hp.isLine (Fr.inSigma hL) (Fr.inSigma hK) Fr.odd Fr.five).2
 
 @[expose] def DiagAction (θ : SL(3, F) →* G) (E : Subgroup G) : Prop :=
   ∀ e ∈ E, ∃ a b : Fˣ, ∀ x : SL(3, F), e * θ x * e⁻¹ = θ (diagConj3 a b x)

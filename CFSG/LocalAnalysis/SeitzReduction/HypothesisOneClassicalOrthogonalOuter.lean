@@ -112,15 +112,6 @@ theorem field_pow_two_eq_one {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) 
   exact pow_two_eq_one_of_inner_perfect (conj_injective_of_regular hQ hT hE (by omega)) hα2'
     hinner (hle.trans inf_le_right) hNp hcent.le hβ hβα hβc
 
-theorem involutionCriterion_field_of_image_eq_top {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤)
-    {α : MulAut (matrixProjectiveDerived Q)} (hα2 : orderOf α = 2) {S : similarityPairs Q}
-    (hS : S ∈ unitMultiplierPairs Q) (hSα : matrixProjectiveConjugationHom Q S = α)
-    (hσ : S.val.right ≠ 1) : InvolutionCriterion α := fun β hβα hβc =>
-  field_pow_two_eq_one hf hK hn hQ hT hE hα2 hS hSα hσ β (htop ▸ mem_top β) hβα hβc
 
 end Field
 
@@ -180,13 +171,6 @@ theorem symmetryAut_pow_two_eq_one {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2
   exact pow_two_eq_one_of_inner_perfect (conj_injective_of_regular hQ hT hE (by omega)) hα2
     inf_le_left inf_le_right hNp hcent hβ hβα hβc
 
-theorem involutionCriterion_symmetryAut_of_image_eq_top {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n) (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤) {v : Fin (2 * n) → K}
-    (hv : Q v = 1) : InvolutionCriterion (symmetryAut Q v) := fun β hβα hβc =>
-  symmetryAut_pow_two_eq_one hf hK hn hQ hT hE hv β (htop ▸ mem_top β) hβα hβc
 
 theorem reflection_pow_two_eq_one {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
     (hQ : Q.polarBilin.Nondegenerate)
@@ -215,48 +199,6 @@ section Coordinate
 
 open CFSG.ComponentClassification.CatalogueBOrthogonalPointData
 
-theorem involutionCriterion_field_plus [Finite K] {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 5 ≤ n) {α : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))}
-    (hα2 : orderOf α = 2) {S : similarityPairs (coordinateQuadPlus n K)}
-    (hS : S ∈ unitMultiplierPairs (coordinateQuadPlus n K))
-    (hSα : matrixProjectiveConjugationHom (coordinateQuadPlus n K) S = α)
-    (hσ : S.val.right ≠ 1) : InvolutionCriterion α := by
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  exact involutionCriterion_field_of_image_eq_top hf hK (by omega) hreg.1 hreg.2
-    (commutator_coordinateQuadPlus n K (by omega))
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_plus K n hn) hα2 hS hSα
-    hσ
-
-theorem involutionCriterion_symmetryAut_plus [Finite K] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) (hn : 5 ≤ n) {v : Fin (2 * n) → K}
-    (hv : coordinateQuadPlus n K v = 1) :
-    InvolutionCriterion (symmetryAut (coordinateQuadPlus n K) v) := by
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  exact involutionCriterion_symmetryAut_of_image_eq_top hf hK (by omega) hreg.1 hreg.2
-    (commutator_coordinateQuadPlus n K (by omega))
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_plus K n hn) hv
-
-theorem involutionCriterion_field_minus [Finite K] {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {α : MulAut (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))}
-    (hα2 : orderOf α = 2) {S : similarityPairs (coordinateQuadMinus n K (by omega) b c)}
-    (hS : S ∈ unitMultiplierPairs (coordinateQuadMinus n K (by omega) b c))
-    (hSα : matrixProjectiveConjugationHom (coordinateQuadMinus n K (by omega) b c) S = α)
-    (hσ : S.val.right ≠ 1) : InvolutionCriterion α := by
-  have hreg := regular_coordinateQuadMinus n K b c hn hirr
-  exact involutionCriterion_field_of_image_eq_top hf hK hn hreg.1 hreg.2
-    (commutator_coordinateQuadMinus n K b c hn hirr)
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr)
-    hα2 hS hSα hσ
-
-theorem involutionCriterion_symmetryAut_minus [Finite K] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {v : Fin (2 * n) → K} (hv : coordinateQuadMinus n K (by omega) b c v = 1) :
-    InvolutionCriterion (symmetryAut (coordinateQuadMinus n K (by omega) b c) v) := by
-  have hreg := regular_coordinateQuadMinus n K b c hn hirr
-  exact involutionCriterion_symmetryAut_of_image_eq_top hf hK hn hreg.1 hreg.2
-    (commutator_coordinateQuadMinus n K b c hn hirr)
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr) hv
 
 end Coordinate
 

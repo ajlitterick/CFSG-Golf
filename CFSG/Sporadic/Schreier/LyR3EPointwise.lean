@@ -79,16 +79,5 @@ theorem conj_lyz_ne_one :
   apply lyf_ne_lyz
   rw [← r3eG_conj_lyz, hc, mul_inv_cancel_right]
 
-theorem involution_centralizer_pointwise_automorphisms_inner :
-    {α : MulAut J | ∀ c ∈ lyC, α c = c} = {1, MulAut.conj lyz} ∧
-      (1 : MulAut J) ≠ MulAut.conj lyz := by
-  refine ⟨?_, fun h => conj_lyz_ne_one h.symm⟩
-  ext α
-  simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
-  refine ⟨fixes_C_cases, ?_⟩
-  rintro (rfl | rfl)
-  · intro c _
-    rfl
-  · exact conj_lyz_fixes_C
 
 end CFSG.Sporadic.LySchreier

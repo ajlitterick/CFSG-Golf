@@ -85,9 +85,6 @@ theorem spListedProduct_eq (x : StatedSp r K) :
   rw [Subgroup.map_iSup]
   rfl
 
-theorem spPullAll_le (x : StatedSp r K) :
-    spPullAll x ≤ Subgroup.centralizer ({x} : Set (StatedSp r K)) :=
-  iSup_le fun _ => iSup_le fun _ => spPull_le_centralizer x _
 
 theorem spPullAll_normalizes (x : StatedSp r K) :
     Normalizes (Subgroup.centralizer ({x} : Set (StatedSp r K))) (spPullAll x) :=
@@ -97,13 +94,6 @@ theorem commutator_le_self {S : Type*} [Group S] (F : Subgroup S) : ⁅F, F⁆ �
   Subgroup.commutator_le.mpr fun _ hg _ hh =>
     F.mul_mem (F.mul_mem (F.mul_mem hg hh) (F.inv_mem hg)) (F.inv_mem hh)
 
-theorem spFixedLayerS_le (x : StatedSp r K) :
-    spFixedLayerS x ≤ Subgroup.centralizer ({x} : Set (StatedSp r K)) := by
-  unfold spFixedLayerS
-  split_ifs
-  · exact (commutator_le_self _).trans (spFixedFactor_le_centralizer x)
-  · exact spFixedFactor_le_centralizer x
-  · exact bot_le
 
 theorem spFixedLayerS_normalizes (x : StatedSp r K) :
     Normalizes (Subgroup.centralizer ({x} : Set (StatedSp r K))) (spFixedLayerS x) := by

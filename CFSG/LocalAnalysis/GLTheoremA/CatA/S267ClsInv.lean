@@ -153,18 +153,6 @@ theorem invol_isometry (I : Finset (Hyperplane A p)) (x y : V) :
     smul_eq_mul]
   ring
 
-include hρ in
-theorem exists_involution (I : Finset (Hyperplane A p)) :
-    ∃ z : V ≃ₗ[K] V, (∀ x y, β (z x) (z y) = β x y) ∧ (∀ v, z (z v) = v) ∧
-      (∀ H ∈ I, ∀ v ∈ weightSpace ρ H.1, z v = -v) ∧
-      (∀ i : Option (Hyperplane A p), (∀ H ∈ I, i ≠ some H) →
-        ∀ v ∈ weightFamily (p := p) ρ i, z v = v) ∧
-      ∀ f : V →+ V, (∀ i, ∀ v ∈ weightFamily (p := p) ρ i, f v ∈ weightFamily (p := p) ρ i) →
-        ∀ v, z (f v) = f (z v) :=
-  ⟨invol ρ hp hA hpK I, invol_isometry ρ hp hA hpK β hρ I, invol_invol ρ hp hA hpK I,
-    fun _ hH _ hv => invol_apply_of_mem ρ hp hA hpK hH hv,
-    fun _ hi _ hv => invol_apply_of_not_mem ρ hp hA hpK hi hv,
-    fun f hf v => invol_comm ρ hp hA hpK I f hf v⟩
 
 omit hρ β
 

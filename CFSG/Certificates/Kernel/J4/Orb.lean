@@ -39,7 +39,6 @@ namespace CFSG.KJ4
 
 @[expose] noncomputable def chkFix (v g : Nat) : Bool := Nat.beq (vecmul v g) v
 
-@[expose] noncomputable def chkVec (w v g : Nat) : Bool := Nat.beq (vecmul v g) w
 
 end CFSG.KJ4
 

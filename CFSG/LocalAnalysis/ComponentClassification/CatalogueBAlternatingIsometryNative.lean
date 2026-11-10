@@ -28,13 +28,6 @@ open CFSG.Assembly.LowTwoRank
     simp
   map_mul' := (TauCeti.GLSymplectic.map (Fin m) e.toRingHom).map_mul
 
-theorem symplecticRingEquiv_apply {K F : Type*} [Field K] [Field F]
-    (m : ℕ) (e : K ≃+* F) (A : TauCeti.GLSymplectic (Fin m) K)
-    (i j : Fin m ⊕ Fin m) :
-    (symplecticRingEquiv m e A).val.val i j = e (A.val.val i j) := by
-  change (TauCeti.GLSymplectic.map (Fin m) e.toRingHom A).val.val i j = _
-  rw [TauCeti.GLSymplectic.coe_map]
-  rfl
 
 private theorem symplectic_quasisimple_typeZero (K : Type) [Field K]
     (m : ℕ) (hm : 1 ≤ m)

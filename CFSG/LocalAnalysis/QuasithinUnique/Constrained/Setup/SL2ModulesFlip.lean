@@ -78,8 +78,6 @@ theorem invQuot_mk_eq {x y : X} :
     (Quotient.mk (invSetoid τ hτ) x = Quotient.mk (invSetoid τ hτ) y) ↔ (y = x ∨ y = τ x) :=
   Quotient.eq (r := invSetoid τ hτ)
 
-theorem finite_invQuot [Finite X] : Finite (InvQuot τ hτ) :=
-  Finite.of_surjective (Quotient.mk (invSetoid τ hτ)) Quotient.mk_surjective
 
 theorem two_mul_card_invQuot [Finite X] :
     2 * Nat.card (InvQuot τ hτ) = Nat.card X + Nat.card {x // τ x = x} := by
@@ -359,9 +357,6 @@ end FlipOp
        obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp (hJs.symm.subset hj)
        exact ⟨⟨i, hi⟩, rfl⟩⟩
 
-theorem shiftPerm_apply {s : ℕ} (hs : 1 ≤ s) {J : Finset ℕ} (hJ : ∀ i ∈ J, i < 2 * s)
-    (hJs : J.image (shiftExp s) = J) (i : J) :
-    ((shiftPerm hs hJ hJs i : J) : ℕ) = shiftExp s (i : ℕ) := rfl
 
 section Main2
 

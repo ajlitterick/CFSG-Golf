@@ -39,8 +39,6 @@ theorem map_centralizer_conj (x g : G) :
   (MulEquiv.subgroupMap (MulAut.conj g) (centralizer ({x} : Set G))).trans
     (MulEquiv.subgroupCongr (map_centralizer_conj x g))
 
-theorem cenConj_val (x g : G) (u : ↥(centralizer ({x} : Set G))) :
-    ((cenConj x g u : ↥(centralizer ({g * x * g⁻¹} : Set G))) : G) = g * (u : G) * g⁻¹ := rfl
 
 @[expose] noncomputable def barConj (x g : G) : CentralizerBar x ≃* CentralizerBar (g * x * g⁻¹) :=
   QuotientGroup.congr (pPrimeCore 2 ↥(centralizer ({x} : Set G)))

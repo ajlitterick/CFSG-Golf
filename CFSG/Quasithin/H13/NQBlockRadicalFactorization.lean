@@ -121,6 +121,5 @@ theorem coe_eq_mul_of_mul_eq_univ {V : Subgroup G} {P Q : Subgroup ↥V} {P' Q' 
 
 end Transport
 
-variable [Finite G]
 
 end CFSG.Quasithin.H13.NQBlock

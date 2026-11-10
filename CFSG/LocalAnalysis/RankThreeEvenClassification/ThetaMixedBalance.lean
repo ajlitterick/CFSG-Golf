@@ -70,18 +70,6 @@ theorem theta_mixed_commutator_le_local_alpha {G : Type u} [Group G] [Finite G]
   exact le_iSup_of_le (⟨element, helement⟩ : larger) (le_iSup_of_le hmem
     (le_iSup_of_le (fun heq => hne (congrArg Subtype.val heq)) le_rfl))
 
-theorem theta_mixed_balance_of_local_alpha {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (plane : Subgroup G) (hcomm : IsMulCommutative plane)
-    (first second : G) (hfirst : first ∈ plane) (hsecond : second ∈ plane) (hsecondNe : second ≠ 1)
-    (hlocal : thetaPlaneAlpha prime
-      (plane.subgroupOf (Subgroup.centralizer ({first} : Set G))) ≤
-        solvablePrimeComplementCore (Subgroup.centralizer ({first} : Set G)) prime) :
-    ⁅Subgroup.centralizer ({first} : Set G) ⊓
-      thetaCoreOf prime (Subgroup.centralizer ({second} : Set G)), plane⁆ ≤
-        thetaCoreOf prime (Subgroup.centralizer ({first} : Set G)) := by
-  have hle := commutative_plane_le_element_centralizer plane hcomm first hfirst
-  exact (theta_mixed_commutator_le_local_alpha prime hprime plane _ hle second hsecond hsecondNe).trans
-    (Subgroup.map_mono (f := (Subgroup.centralizer ({first} : Set G)).subtype) hlocal)
 
 theorem thetaPlaneIntersection_fixed_le_local_intersection
     {G : Type u} [Group G] [Finite G] (prime : ℕ) (hprime : prime.Prime)

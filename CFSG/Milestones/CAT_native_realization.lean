@@ -109,19 +109,5 @@ theorem cat_native_realization_sporadic
       Sporadic.B.fam_b_simplicity.toNontrivial, Sporadic.B.fam_b_simplicity⟩
   · exact native_carrier_finite_simple_of_ne_B s hs
 
-open CFSG.Blueprint.NativeSporadic in
-theorem cat_native_realization :
-    (∀ p : ℕ, p.Prime → Finite (Multiplicative (ZMod p)) ∧ Nontrivial (Multiplicative (ZMod p)) ∧
-      IsSimpleGroup (Multiplicative (ZMod p))) ∧
-    (∀ n : ℕ, 5 ≤ n → Finite (alternatingGroup (Fin n)) ∧ Nontrivial (alternatingGroup (Fin n)) ∧
-      IsSimpleGroup (alternatingGroup (Fin n))) ∧
-    (∀ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n p f : ℕ),
-      CFSG.Assembly.LowTwoRank.StatedLieAdmissible t n p f →
-      ∃ (G : Type) (_ : Group G), Finite G ∧ Nontrivial G ∧ IsSimpleGroup G ∧
-        CFSG.Blueprint.LieModel G t n p f) ∧
-    (∀ s : TauCeti.SporadicName, Finite (nativeCarrier s) ∧ Nontrivial (nativeCarrier s) ∧
-      IsSimpleGroup (nativeCarrier s)) :=
-  ⟨cat_native_realization_cyclic', cat_native_realization_alternating', cat_native_realization_lie,
-    cat_native_realization_sporadic⟩
 
 end CFSG.Milestones

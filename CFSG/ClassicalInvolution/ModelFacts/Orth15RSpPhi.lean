@@ -23,12 +23,8 @@ variable {F : Type} [Field F]
 
 theorem PhiFun_apply_ll (N : Matrix (Fin 2) (Fin 2) (QE F)) (k l : Fin 2) :
     PhiFun N (Sum.inl k) (Sum.inl l) = (N k l).re := rfl
-theorem PhiFun_apply_lr (N : Matrix (Fin 2) (Fin 2) (QE F)) (k l : Fin 2) :
-    PhiFun N (Sum.inl k) (Sum.inr l) = -(N k l).im := rfl
 theorem PhiFun_apply_rl (N : Matrix (Fin 2) (Fin 2) (QE F)) (k l : Fin 2) :
     PhiFun N (Sum.inr k) (Sum.inl l) = (N k l).im := rfl
-theorem PhiFun_apply_rr (N : Matrix (Fin 2) (Fin 2) (QE F)) (k l : Fin 2) :
-    PhiFun N (Sum.inr k) (Sum.inr l) = (N k l).re := rfl
 
 @[expose] def PhiS :
     Matrix (Fin 2) (Fin 2) (QE F) →+* Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F where

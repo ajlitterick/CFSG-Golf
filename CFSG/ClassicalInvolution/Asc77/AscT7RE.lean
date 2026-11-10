@@ -67,10 +67,5 @@ theorem c21_15_of_normCent (hC3 : C21_3 p f) (hN : C21_NormCent p f) : C21_15 p 
     ((Subgroup.centralizer ({t * z} : Set G)).mul_mem hx hy')
     ((Subgroup.centralizer ({t * z} : Set G)).inv_mem hx)
 
-theorem c21_normCent_of_c21_15 (hC3 : C21_3 p f) (h15 : C21_15 p f) : C21_NormCent p f := by
-  intro G _ _ _ Ω K K' z u J t W h hα hD
-  have hne : dComp Ω K ≠ dstarComp Ω K := fun heq =>
-    hD (h.rLayer_tz_le_sigmaGen_of_eq hC3 hα heq)
-  exact h.normalizer_le_centralizer_tz hne (h15 G Ω K K' z u J t W h hα hD)
 
 end CFSG.ClassicalInvolution.Asc77

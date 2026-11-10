@@ -164,9 +164,6 @@ theorem pairSet_props {n : ℕ} {T : Finset (Fin n)} (h : T.Nonempty ∧ Tᶜ.No
   rw [Finset.mem_compl, mem_pairSet]
   exact Finset.mem_compl.1 hy
 
-theorem kronGL_signGL (n : ℕ) (T : Finset (Fin n)) :
-    kronGL K n (signGL K T) = signGL K (pairSet T) :=
-  Units.ext (by rw [coe_kronGL, coe_signGL, coe_signGL, kronI_signMat])
 
 theorem e8Triple_kron_sign (h2 : (2 : K) ≠ 0) {n : ℕ} {Q : QuadraticForm K (Fin (2 * n) → K)}
     (hn : 5 ≤ n) {i j k l : Fin n} (hij : i ≠ j) (hik : i ≠ k) (hil : i ≠ l) (hjk : j ≠ k)

@@ -50,12 +50,6 @@ theorem nonempty_mulEquiv_zmod_prod {p : ℕ} [hp : Fact p.Prime] {X : Type*} [G
   exact @nonempty_mulEquiv_zmod_prod_aux p hp X (IsPGroup.commGroupOfCardEqPrimeSq hcard) _
     (AddCommGroup.zmodModule hA) hcard
 
-private theorem twoResidual_eq_oTwoUpper_bridge {D : Type*} [Group D] [Finite D]
-    (X : Subgroup D) : twoResidual X = oTwoUpper X := by
-  unfold twoResidual
-  exact le_antisymm (iInf₂_le _ ⟨oTwoUpper_le X, le_normalizer_oTwoUpper X,
-    fun _ hx => exists_pow_mem_oTwoUpper X hx⟩)
-    (le_iInf₂ fun _ hN => oTwoUpper_le_of_pow_mem hN.2.2)
 
 theorem two_le_of_lieModel_psl_two {X : Type} [Group X] {n : ℕ} (h : LieModel X .PSL 2 2 n) :
     2 ≤ n := by
@@ -67,10 +61,6 @@ theorem two_le_of_lieModel_psl_two {X : Type} [Group X] {n : ℕ} (h : LieModel 
     exact h2 rfl
   all_goals exact absurd h0 (by norm_num)
 
-private theorem nonempty_mulEquiv_SL32_of_lieModel {X : Type} [Group X]
-    (h : LieModel X .PSL 3 2 1) :
-    Nonempty (X ≃* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) :=
-  CFSG.Blueprint.LieModel.nonempty_mulEquiv_SL_three_two h
 
 variable {G : Type} [Group G]
 
@@ -128,36 +118,5 @@ theorem fsuVM_le_normalizer_fsuCVM {T L I : Subgroup G} [IsMulCommutative ↥(fs
     rw [hc, mul_inv_cancel_right] at hh
     exact hh
 
-theorem tmpL6_3_2_6_of_stmt3_2_6 (h326 : Stmt3_2_6) : Vol2.Ch10.TmpL6_3_2_6 := by
-  intro G _ _ T L I hfsu hlt
-  obtain ⟨⟨hcV, hqV⟩, hcVM, hqVM, hcases⟩ := h326 G T L I hfsu hlt.ne
-  refine ⟨⟨hcV, hqV⟩, ⟨hcVM, hqVM⟩, ?_⟩
-  rcases hcases with ⟨n, K, _, _, hcard, hlie, hV0, hVVM, hreal⟩ | ⟨-, hV0, hVVM, hreal⟩ | h3
-  ·
-    refine Or.inl ⟨hcV, hV0, hVVM, Or.inl ⟨n, hlt, two_le_of_lieModel_psl_two hlie, K,
-      inferInstance, inferInstance, hcard, ?_⟩⟩
-    rw [← tensorNatModel_eq]
-    exact realizesMod_of_eq hVVM _ _ hreal
-  ·
-    refine Or.inl ⟨hcV, hV0, hVVM, Or.inr ⟨hlt, ?_⟩⟩
-    rw [← tensorNatModel_eq]
-    exact realizesMod_of_eq hVVM _ _ hreal
-  ·
-    obtain ⟨ha, hb, hb', hc⟩ := h3
-    refine Or.inr ⟨hcVM, isElemAbelian_fsuVM hfsu, fsuVM_le_normalizer_fsuCVM, ha, hb, hb', ?_⟩
-    rcases hc with hi | ⟨⟨e⟩, hVVM, ⟨s, hsT, hsn⟩, hall, hcard⟩ | ⟨_, hlie, hsum, h5⟩
-    · exact Or.inl hi
-    · obtain ⟨hU, hUs⟩ := hall s hsT hsn
-      exact Or.inr (Or.inl ⟨⟨e.trans (MulAut.congr
-        (specialLinearGroupEquivStatedSL 3 (ZMod 2))).symm⟩, hVVM, hcard, s, hsT.1, hsT.2, hsn,
-        hU, hUs⟩)
-    · refine Or.inr (Or.inr ⟨nonempty_mulEquiv_SL32_of_lieModel hlie, hsum, ?_⟩)
-      have : Finite (MulAut ↥(fsuVM T L I)) := MulEquiv.finite_left
-      have : Fact (Nat.Prime 5) := ⟨by norm_num⟩
-      rw [twoResidual_eq_oTwoUpper_bridge]
-      rcases h5 with h5 | ⟨h25, hexp⟩
-      · exact Or.inl ⟨mulEquivOfPrimeCardEq h5 (by simp)⟩
-      · exact Or.inr (nonempty_mulEquiv_zmod_prod (p := 5) (by rw [h25]; norm_num)
-          (fun x => Subtype.ext (by simpa using hexp x.1 x.2)))
 
 end CFSG.Quasithin.H13

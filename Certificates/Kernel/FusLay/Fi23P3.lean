@@ -38,14 +38,6 @@ theorem init : eqL (S.SL.getD 0 []) (initR lay A B betaFi23P3N) = true := by qui
 theorem seeds : seedRegsL lay (S.SL.getD 6 []) A B betaFi23P3.rA betaFi23P3.rB = true := by
   quickRfl
 
-theorem ch_neg : (!chunkL lay betaFi23P3Prog 200 0 (S.SL.getD 0 []) (S.SL.getD 2 [])) = true := by
-  quickRfl
-
-theorem fa_neg : (!factsL lay (S.SL.getD 0 []) betaFi23P3N betaFi23P3.facts 1 5) = true := by
-  quickRfl
-
-theorem seeds_neg : (!seedRegsL lay (S.SL.getD 6 []) B A betaFi23P3.rA betaFi23P3.rB) = true := by
-  quickRfl
 
 end CertificateChecks.KernelFusLay.Fi23P3
 

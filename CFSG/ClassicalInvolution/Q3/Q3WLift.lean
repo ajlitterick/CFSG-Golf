@@ -51,52 +51,6 @@ theorem commutes_derived_left {A B : Subgroup Y} (h : ⁅A, B⁆ ≤ Subgroup.ce
   exact Subgroup.mem_centralizer_iff.mp (Subgroup.commutator_eq_bot_iff_le_centralizer.mp h3 hα)
     w hw
 
-theorem commutes_of_perfect_image (π : Y →* X) (hker : π.ker ≤ Subgroup.center Y)
-    {A B : Subgroup Y} (hB : ⁅B.map π, B.map π⁆ = B.map π)
-    (hc : ∀ a ∈ A, ∀ b ∈ B, π a * π b = π b * π a) :
-    ∀ a ∈ A, ∀ b ∈ B, a * b = b * a := by
-  have hAB : ⁅A, B⁆ ≤ Subgroup.center Y := commutator_le_center_of_map_commute π hker hc
-  have hBA : ⁅B, A⁆ ≤ Subgroup.center Y := by rwa [Subgroup.commutator_comm]
-  intro a ha b hb
-  have hbm : π b ∈ ⁅B.map π, B.map π⁆ := by rw [hB]; exact ⟨b, hb, rfl⟩
-  rw [← Subgroup.map_commutator] at hbm
-  obtain ⟨b', hb', hbb'⟩ := hbm
-  have hn : b'⁻¹ * b ∈ π.ker := by
-    rw [MonoidHom.mem_ker, map_mul π b'⁻¹ b, map_inv, hbb', inv_mul_cancel]
-  have hnc := Subgroup.mem_center_iff.mp (hker hn)
-  have hab' : a * b' = b' * a := commutes_derived_left hBA b' hb' a ha
-  have hb_eq : b = b' * (b'⁻¹ * b) := by group
-  calc a * b = a * (b' * (b'⁻¹ * b)) := by rw [← hb_eq]
-    _ = (a * b') * (b'⁻¹ * b) := by simp only [mul_assoc]
-    _ = (b' * a) * (b'⁻¹ * b) := by rw [hab']
-    _ = b' * ((b'⁻¹ * b) * a) := by rw [mul_assoc, hnc a]
-    _ = (b' * (b'⁻¹ * b)) * a := by simp only [mul_assoc]
-    _ = b * a := by rw [← hb_eq]
-
-theorem commutes_of_map_le_perfect (π : Y →* X) (hπ : Function.Surjective π)
-    (hker : π.ker ≤ Subgroup.center Y) {M : Subgroup X} (hM : ⁅M, M⁆ = M) {A L : Subgroup Y}
-    (hA : ∀ a ∈ A, ∀ m ∈ M, π a * m = m * π a) (hL : ∀ l ∈ L, π l ∈ M) :
-    ∀ a ∈ A, ∀ l ∈ L, a * l = l * a := by
-  have hNM : (M.comap π).map π = M := Subgroup.map_comap_eq_self_of_surjective hπ M
-  have hBM : ⁅M.comap π, M.comap π⁆.map π = M := by
-    rw [Subgroup.map_commutator, hNM, hM]
-  have hc : ∀ a ∈ A, ∀ b ∈ ⁅M.comap π, M.comap π⁆, π a * π b = π b * π a := fun a ha b hb =>
-    hA a ha (π b) (hBM ▸ ⟨b, hb, rfl⟩)
-  have key := commutes_of_perfect_image π hker (A := A) (B := ⁅M.comap π, M.comap π⁆)
-    (by rw [hBM]; exact hM) hc
-  intro a ha l hl
-  have hlM : π l ∈ ⁅M.comap π, M.comap π⁆.map π := by rw [hBM]; exact hL l hl
-  obtain ⟨b, hb, hbl⟩ := hlM
-  have hn : b⁻¹ * l ∈ π.ker := by
-    rw [MonoidHom.mem_ker, map_mul π b⁻¹ l, map_inv, hbl, inv_mul_cancel]
-  have hnc := Subgroup.mem_center_iff.mp (hker hn)
-  have hab := key a ha b hb
-  calc a * l = a * (b * (b⁻¹ * l)) := by group
-    _ = (a * b) * (b⁻¹ * l) := by simp only [mul_assoc]
-    _ = (b * a) * (b⁻¹ * l) := by rw [hab]
-    _ = b * ((b⁻¹ * l) * a) := by rw [mul_assoc, hnc a]
-    _ = (b * (b⁻¹ * l)) * a := by simp only [mul_assoc]
-    _ = l * a := by group
 
 theorem commutator_pow_of_central' {x y : Y} (hc : ∀ k : ℕ, ⁅x ^ k, y⁆ ∈ Subgroup.center Y)
     (n : ℕ) : ⁅x ^ n, y⁆ = ⁅x, y⁆ ^ n := by
@@ -137,66 +91,6 @@ theorem commutes_of_map_commute_exponent3 (π : Y →* X) (hker : π.ker ≤ Sub
     · exact (hcop _ hmem (dvd_of_eq h.symm)).elim
   exact (commutatorElement_eq_one_iff_mul_comm.mp (orderOf_eq_one_iff.mp h1)).symm
 
-theorem commutes_of_swap (π : Y →* X) (hker : π.ker ≤ Subgroup.center Y)
-    (hodd : ∀ n ∈ π.ker, Odd (orderOf n)) {A B : Subgroup Y} {x y : Y} (hx : x ∈ A)
-    (hy : y ∈ B) (hA : ∀ a ∈ A, ∃ (i : ℤ) (α : Y), α ∈ ⁅A, A⁆ ∧ a = x ^ i * α)
-    (hB : ∀ b ∈ B, ∃ (j : ℤ) (β : Y), β ∈ ⁅B, B⁆ ∧ b = y ^ j * β)
-    (hc : ∀ a ∈ A, ∀ b ∈ B, π a * π b = π b * π a) {g : Y}
-    (hgx : π (g * x * g⁻¹) = π y) (hgy : π (g * y * g⁻¹) = π x) :
-    ∀ a ∈ A, ∀ b ∈ B, a * b = b * a := by
-  have hAB : ⁅A, B⁆ ≤ Subgroup.center Y := commutator_le_center_of_map_commute π hker hc
-  have hBA : ⁅B, A⁆ ≤ Subgroup.center Y := by rwa [Subgroup.commutator_comm]
-  have hAA : ⁅A, A⁆ ≤ A := by
-    rw [Subgroup.commutator_le]
-    intro g₁ h₁ g₂ h₂
-    rw [commutatorElement_def]
-    exact A.mul_mem (A.mul_mem (A.mul_mem h₁ h₂) (A.inv_mem h₁)) (A.inv_mem h₂)
-  have hα : ∀ α ∈ ⁅A, A⁆, ∀ w ∈ B, w * α = α * w := commutes_derived_left hAB
-  have hβ : ∀ β ∈ ⁅B, B⁆, ∀ w ∈ A, w * β = β * w := commutes_derived_left hBA
-  have hxy : x * y = y * x := by
-    have hcker : ⁅x, y⁆ ∈ π.ker := by
-      rw [MonoidHom.mem_ker, commutatorElement_def]
-      simp only [map_mul, map_inv]
-      rw [hc x hx y hy]
-      group
-    have hccen := hker hcker
-    have hk1 : y⁻¹ * (g * x * g⁻¹) ∈ π.ker := by
-      rw [MonoidHom.mem_ker, map_mul π y⁻¹ (g * x * g⁻¹), map_inv, hgx, inv_mul_cancel]
-    have hk2 : x⁻¹ * (g * y * g⁻¹) ∈ π.ker := by
-      rw [MonoidHom.mem_ker, map_mul π x⁻¹ (g * y * g⁻¹), map_inv, hgy, inv_mul_cancel]
-    have hconj : ⁅g * x * g⁻¹, g * y * g⁻¹⁆ = ⁅x, y⁆ := by
-      have h1 : ⁅g * x * g⁻¹, g * y * g⁻¹⁆ = g * ⁅x, y⁆ * g⁻¹ := by
-        simp only [commutatorElement_def]; group
-      have h2 := Subgroup.mem_center_iff.mp hccen g
-      rw [h1, h2]
-      group
-    have hx' : g * x * g⁻¹ = y * (y⁻¹ * (g * x * g⁻¹)) := (mul_inv_cancel_left y _).symm
-    have hy' : g * y * g⁻¹ = x * (x⁻¹ * (g * y * g⁻¹)) := (mul_inv_cancel_left x _).symm
-    have hinv : ⁅g * x * g⁻¹, g * y * g⁻¹⁆ = ⁅x, y⁆⁻¹ := by
-      rw [hx', hy', commutatorElement_mul_central_left (hker hk1),
-        commutatorElement_mul_central_right (hker hk2), commutatorElement_inv]
-    have hsq : ⁅x, y⁆ * ⁅x, y⁆ = 1 := by
-      have : ⁅x, y⁆ = ⁅x, y⁆⁻¹ := hconj.symm.trans hinv
-      exact mul_eq_one_iff_eq_inv.mpr this
-    have hord : orderOf ⁅x, y⁆ ∣ 2 := orderOf_dvd_of_pow_eq_one (by rw [pow_two]; exact hsq)
-    have h1 : orderOf ⁅x, y⁆ = 1 := by
-      have hodd' := hodd _ hcker
-      rcases (Nat.dvd_prime Nat.prime_two).mp hord with h | h
-      · exact h
-      · rw [h] at hodd'
-        exact absurd hodd' (by decide)
-    exact commutatorElement_eq_one_iff_mul_comm.mp (orderOf_eq_one_iff.mp h1)
-  intro a ha b hb
-  obtain ⟨i, α, hαm, rfl⟩ := hA a ha
-  obtain ⟨j, β, hβm, rfl⟩ := hB b hb
-  have hxyz : x ^ i * y ^ j = y ^ j * x ^ i := (Commute.zpow_zpow hxy i j).eq
-  calc x ^ i * α * (y ^ j * β) = x ^ i * (α * y ^ j) * β := by simp only [mul_assoc]
-    _ = x ^ i * (y ^ j * α) * β := by rw [← hα α hαm (y ^ j) (B.zpow_mem hy j)]
-    _ = (x ^ i * y ^ j) * (α * β) := by simp only [mul_assoc]
-    _ = (y ^ j * x ^ i) * (β * α) := by rw [hxyz, hβ β hβm α (hAA hαm)]
-    _ = y ^ j * (x ^ i * β) * α := by simp only [mul_assoc]
-    _ = y ^ j * (β * x ^ i) * α := by rw [hβ β hβm (x ^ i) (A.zpow_mem hx i)]
-    _ = y ^ j * β * (x ^ i * α) := by simp only [mul_assoc]
 
 theorem orderOf_coprime_six {O : Subgroup Y} (hodd : Odd (Nat.card O)) (h3 : ¬ 3 ∣ Nat.card O)
     {n : Y} (hn : n ∈ O) : Nat.Coprime (orderOf n) 6 := by

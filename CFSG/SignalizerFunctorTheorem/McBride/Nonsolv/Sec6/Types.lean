@@ -114,8 +114,6 @@ theorem mem_sSet_one_iff
     F ∈ sSet p A θ 1 ↔ Nat.card (bN A θ F) = p ^ 2 := by
   rw [h.mem_sSet_iff hF (by norm_num)]
 
-omit [Finite G] in
-theorem sSet_subset (i : ℕ) : sSet p A θ i ⊆ signalizerFunctorEk p 1 A := fun _ hF => hF.1
 
 end Counterexample
 

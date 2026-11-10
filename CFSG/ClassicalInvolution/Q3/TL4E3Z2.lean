@@ -69,13 +69,6 @@ theorem E3Frame.exists_std8 {J : Subgroup Y} {u : Y} (hF : E3Frame n R S t J u) 
     TightLargeHypR.exists_std8 hLd.toR hK₀ hd.isUniqueInvolution_core
   exact ⟨g, Sd, S', R', T, W, hgJ, hu, hs⟩
 
-@[expose] def TightE3MuPass (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y) (J : Subgroup Y)
-    (u : Y), E3Frame n R S t J u → TightEdgeless (secR R u) →
-      (∀ W ∈ WSet (E3.secΩ R u), MuIsoZ2 (E3.secΩ R u) W) →
-        ∀ W ∈ WSet (CoreAssembly.conjClass (tightCore R)),
-          MuIsoE4 (CoreAssembly.conjClass (tightCore R)) W ∨
-            MuIsoS4 (CoreAssembly.conjClass (tightCore R)) W
 
 @[expose] def TightE3Z2Fin (n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y) (J : Subgroup Y)

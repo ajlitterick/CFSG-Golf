@@ -47,10 +47,5 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
       ggAutomizer J Bs = Subgroup.closure (Set.range fun j : {j : Λ // j ≠ b} => φ j) ∧
       GGReflConjSimple p (ggAutomizer J Bs) (fun j : {j : Λ // j ≠ b} => φ j)
 
-@[expose] def GGTBJInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (y : G) (K : Subgroup G), GGResHyp p B Bs x L D J y K → ∀ [Fact p.Prime],
-    (GGResXDatum p Bs L → GGResSideDatum p Bs L J ∨ GGResRowAt ggRowNonLevi p J L) ∧
-      (GGResXDatum p Bs K → GGResSideDatum p Bs K J ∨ GGResRowAt ggRowNonLevi p J K)
 
 end CFSG.StandardType

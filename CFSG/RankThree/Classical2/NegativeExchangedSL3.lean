@@ -412,10 +412,6 @@ theorem μ_mem_range_iff (hn : 1 ≤ n) {A B : SL(n, Ω)} (hfix : L.μ (A, B) �
       _ = a₁⁻¹ * negFrobSL k Ω n a₂ * b₁⁻¹ * negFrobSL k Ω n b₂ := by rw [hc]
       _ = _ := by group
 
-theorem coe_discrepancy (x : (fixSubgroup L.θ).comap L.μ) :
-    ((L.discrepancy x : Subgroup.center SL(n, Ω)) : SL(n, Ω)) =
-      (x : SL(n, Ω) × SL(n, Ω)).1⁻¹ * negFrobSL k Ω n (x : SL(n, Ω) × SL(n, Ω)).2 :=
-  rfl
 
 @[expose] noncomputable def discrepancyRoot (hn : 1 ≤ n) :
     (fixSubgroup L.θ).comap L.μ →* rootsOfUnity n Ω :=

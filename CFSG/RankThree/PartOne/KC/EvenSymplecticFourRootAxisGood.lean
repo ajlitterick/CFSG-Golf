@@ -130,9 +130,6 @@ theorem mem_normalizer_map (φ : G ≃* G') (H : Subgroup G) (g : G') :
   right_inv y := Subtype.ext (φ.apply_symm_apply _)
   map_mul' x y := Subtype.ext (map_mul φ _ _)
 
-theorem subgroupEquiv_apply_coe (φ : G ≃* G') {C : Subgroup G} {C' : Subgroup G'}
-    (h : ∀ g, g ∈ C ↔ φ g ∈ C') (x : C) : ((subgroupEquiv φ h x : C') : G') = φ x :=
-  rfl
 
 theorem isPerfect_of_mulEquiv (e : G ≃* G') (h : Group.IsPerfect G) : Group.IsPerfect G' := by
   refine ⟨?_⟩

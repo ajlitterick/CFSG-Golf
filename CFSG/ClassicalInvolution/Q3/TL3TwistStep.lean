@@ -26,64 +26,6 @@ theorem mem_zpowers_of_orderOf_two {c m : Y} (hc : orderOf c = 2)
   · right
     rw [h, zpow_one]
 
-theorem TightDatum.not_acts3_of_index_two (hd : TightDatum R S t)
-    (hq8 : Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2)) (hgen : TightSelfGen R)
-    {M : Subgroup Y} (hMn : M.Normal) (htM : t ∈ M) (hM : M ≠ ⊤)
-    (h2 : ∀ a b : Y, a ∉ M → b ∉ M → a * b ∈ M) : ¬ TightActs3 R t := by
-  intro h3
-  have hfus := (hd.threeAct_iff_fusion hq8).mp h3
-  set S₀ : Subgroup Y := (S : Subgroup R).map R.subtype with hS₀
-  have ht1 : t ≠ 1 := by
-    intro h
-    have := hd.order
-    rw [h, orderOf_one] at this
-    exact absurd this (by norm_num)
-  have hcyc : ∀ s ∈ S₀, s * s = t → IsCyclic ↥(Subgroup.zpowers s) ∧
-      Nat.card ↥(Subgroup.zpowers s) = 4 := by
-    intro s _ hss
-    refine ⟨inferInstance, ?_⟩
-    rw [Nat.card_zpowers]
-    have h4 : s ^ 4 = 1 := by
-      calc s ^ 4 = (s * s) * (s * s) := by simp only [pow_succ, pow_zero, one_mul, mul_assoc]
-        _ = 1 := by rw [hss, t_mul_t hd]
-    have e : orderOf s = 2 ^ (1 + 1) := by
-      refine orderOf_eq_prime_pow ?_ ?_
-      · rw [pow_one, pow_two, hss]
-        exact ht1
-      · show s ^ 4 = 1
-        exact h4
-    rw [e]
-    norm_num
-  obtain ⟨r₁, hr₁, r₂, hr₂, h1, h2', h12⟩ := hd.exists_S₀_pair hq8
-  have hu : ∃ u ∈ S₀, u * u = t ∧ u ∈ M := by
-    by_cases hm1 : r₁ ∈ M
-    · exact ⟨r₁, hr₁, h1, hm1⟩
-    by_cases hm2 : r₂ ∈ M
-    · exact ⟨r₂, hr₂, h2', hm2⟩
-    exact ⟨r₁ * r₂, S₀.mul_mem hr₁ hr₂, h12, h2 _ _ hm1 hm2⟩
-  obtain ⟨u, huS, huu, huM⟩ := hu
-  have hSM : S₀ ≤ M := by
-    intro s hs
-    rcases hd.S₀_cases hq8 hs with h | h | h
-    · rw [h]
-      exact M.one_mem
-    · rw [h]
-      exact htM
-    · obtain ⟨cu, hcu⟩ := hcyc u huS huu
-      obtain ⟨cs, hcs⟩ := hcyc s hs h
-      obtain ⟨g, -, hg⟩ := hfus _ _ (Subgroup.zpowers_le.mpr huS) (Subgroup.zpowers_le.mpr hs)
-        cu hcu cs hcs
-      have hsg : s ∈ (Subgroup.zpowers u).map (MulAut.conj g).toMonoidHom := by
-        rw [hg]
-        exact Subgroup.mem_zpowers s
-      obtain ⟨v, hv, rfl⟩ := hsg
-      have hvM : v ∈ M := (Subgroup.zpowers_le.mpr huM) hv
-      exact hMn.conj_mem v hvM g
-  apply hM
-  exact hd.eq_top_of_conj hgen fun y x hx => by
-    rw [mem_conjSub_iff] at hx
-    have := hMn.conj_mem _ (hSM hx) y
-    rwa [show y * (y⁻¹ * x * y) * y⁻¹ = x by group] at this
 
 theorem TightDatum.not_edgeless_of_twin (hd : TightDatum R S t) {c y : Y}
     (hcZ : c ∈ Subgroup.center Y) (hc1 : c ≠ 1) (hy : y * t * y⁻¹ = t * c) :
@@ -212,9 +154,6 @@ theorem tightTwistStep_of_allTwin (h : ∀ n, TightTwistAllTwin n) (n : ℕ) : T
   obtain ⟨c, hcZ, hc2, hnt⟩ := hall
   exact tightExOrGood_of_central hb hn hd hc hE2 hcZ hc2 hnt
 
-theorem tightStep_of_parts₃ (htw : ∀ n, TightTwistAllTwin n) (h1 : TightSmallBase)
-    (h2 : ∀ n, TightLargeEdge n) (h3 : ∀ n, TightLargeLift n) : ∀ n, TightStep n :=
-  tightStep_of_parts₂ (tightTwistStep_of_allTwin htw) h1 h2 h3
 
 end Cit3
 

@@ -461,26 +461,6 @@ theorem ker_weylHomU :
     (weylHomU h hS hc hc0 hT).ker = H.subgroupOf (liftWeylU h π hc hc0 H) :=
   le_antisymm (ker_weylHomU_le h hS hc hc0 hT) (le_ker_weylHomU h hS hc hc0 hT)
 
-theorem injective_pi_liftWeylU (hinj : Set.InjOn π H) :
-    Function.Injective (π.comp (liftWeylU h π hc hc0 H).subtype) := by
-  rw [injective_iff_map_eq_one]
-  intro n hn
-  have hn' : π n = 1 := hn
-  have hw : weylHomU h hS hc hc0 hT n = 1 := Subtype.ext (weylHomU_eq h hS hc hc0 hT (w := 1) (by
-    rw [hn', weylPerm_one, Subgroup.coe_one, Units.val_one]
-    exact isLinePerm_one))
-  have hH : (n : R) ∈ H := Subgroup.mem_subgroupOf.1 (ker_weylHomU_le h hS hc hc0 hT hw)
-  exact Subtype.ext (hinj hH (one_mem H) (hn'.trans (map_one π).symm))
-
-@[expose] noncomputable def weylQuotEquivU [(H.subgroupOf (liftWeylU h π hc hc0 H)).Normal] :
-    liftWeylU h π hc hc0 H ⧸ H.subgroupOf (liftWeylU h π hc hc0 H) ≃* hypWeyl r :=
-  (QuotientGroup.quotientMulEquivOfEq (ker_weylHomU h hS hc hc0 hT).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective _ (weylHomU_surjective h hS hc hc0 hT))
-
-theorem weylQuotEquivU_mk [(H.subgroupOf (liftWeylU h π hc hc0 H)).Normal]
-    (n : liftWeylU h π hc hc0 H) :
-    weylQuotEquivU h hS hc hc0 hT n = weylHomU h hS hc hc0 hT n :=
-  rfl
 
 end Coxeter
 

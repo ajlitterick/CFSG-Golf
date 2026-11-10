@@ -338,8 +338,6 @@ variable {G : Type*} [Group G]
   map_one' := MulEquiv.ext fun x => Subtype.ext (by simp)
   map_mul' n m := MulEquiv.ext fun x => Subtype.ext (by simp [mul_assoc])
 
-theorem coe_normConj_apply (P : Subgroup G) (n : Subgroup.normalizer (P : Set G)) (x : P) :
-    ((normConj P n x : P) : G) = n * x * n⁻¹ := rfl
 
 theorem map_symm_map (σ : MulAut G) (B : Subgroup G) :
     (B.map σ.toMonoidHom).map σ.symm.toMonoidHom = B := by
@@ -701,18 +699,5 @@ theorem degree_three_coprime_automizer_solvable {k V : Type*} [Field k] {p : ℕ
   exact ⟨hsol, fun hab => (isSolvable_normalizer_of_not_comm L hV P hP hPchar hab).2,
     fun H hHN hH => le_of_perfect_of_isSolvable_quotient hsol hHN hH⟩
 
-theorem cross_characteristic_two_group_degree_three_automizer_solvable {k V : Type*} [Field k]
-    {p : ℕ} [Fact p.Prime] [CharP k p] (hp2 : p ≠ 2) [AddCommGroup V] [Module k V]
-    (hV : finrank k V = 3) (P : Subgroup (LinearMap.GeneralLinearGroup k V)) [Finite P]
-    (hP : IsPGroup 2 P) :
-    Group.IsSolvable (↥(Subgroup.normalizer (P : Set (LinearMap.GeneralLinearGroup k V))) ⧸
-      (Subgroup.centralizer (P : Set (LinearMap.GeneralLinearGroup k V))).subgroupOf
-        (Subgroup.normalizer (P : Set (LinearMap.GeneralLinearGroup k V)))) ∧
-    ∀ H : Subgroup (LinearMap.GeneralLinearGroup k V),
-      H ≤ Subgroup.normalizer (P : Set (LinearMap.GeneralLinearGroup k V)) → ⁅H, H⁆ = H →
-        H ≤ Subgroup.centralizer (P : Set (LinearMap.GeneralLinearGroup k V)) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨h1, -, h3⟩ := degree_three_coprime_automizer_solvable hV (Ne.symm hp2) P hP
-  exact ⟨h1, h3⟩
 
 end CFSG.Quasithin.SteinbergBQ

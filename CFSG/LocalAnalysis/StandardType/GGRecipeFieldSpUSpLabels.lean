@@ -131,17 +131,5 @@ theorem ggRawFieldCentralOn_symplecticFour : GGRawFieldCentralOn GGSymplecticFou
     have : CharP K 2 := charP_two_of_card hK
     exact ggRawFieldCentral_symplecticFour
 
-theorem ggRawFieldCentralOn_symplectic : GGRawFieldCentralOn GGSymplecticRecipeLabel := by
-  intro lab hlab hS
-  by_cases h3 : 3 ≤ lab.rank
-  · exact ggRawFieldCentralOn_symplecticHigh lab hlab ⟨hS, h3⟩
-  · refine ggRawFieldCentralOn_symplecticFour lab hlab ⟨hS, ?_⟩
-    obtain ⟨t, l, n⟩ := lab
-    dsimp only at h3 ⊢
-    rcases hS with ht | ht <;> dsimp only at ht <;> subst ht
-    · have hl2 : 2 ≤ l := hlab.2.1
-      omega
-    · have hl2 : 2 ≤ l := hlab.2.1
-      omega
 
 end CFSG.StandardType

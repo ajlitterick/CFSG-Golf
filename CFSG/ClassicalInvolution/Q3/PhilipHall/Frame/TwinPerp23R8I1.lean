@@ -368,14 +368,6 @@ theorem i1_six {n : ℕ} {R : Subgroup Y} {S : Sylow 2 R} {t e : Y}
     exact Sp62Rec.I1.odd_index_centralizer_zOf (emb β hβ) hmz
   exact ⟨hEB, hBC, hEn, heE, hEB htE, φ, hφs, hφk, hφE, hφe, hodd⟩
 
-theorem i1_pkg {n : ℕ} {R : Subgroup Y} {S : Sylow 2 R} {t e : Y}
-    (hP : PerpHypS n Y R S t) {Z : Subgroup Y} {T : Sylow 2 Y} {A X : Subgroup Y}
-    (hAE : SecAE R e 6) (hI : I1In R t e Z)
-    (hN : E8ZPkgNoHat t e (rLayer (Om R) e) (Z ⊔ rLayer (Om R) e) T A X)
-    (Θ : ↥Sp62Rec.I1.Wsub ≃* ↥Hhat)
-    (hΘ : Θ ⟨allOnes 6, Sp62Rec.I1.allOnes_mem_Wsub⟩ = ⟨alpha, alpha_mem_Hhat⟩) :
-    E8ZPkg t e (rLayer (Om R) e) (Z ⊔ rLayer (Om R) e) T A X :=
-  hN.toPkg' (i1_six hP hAE hI Θ hΘ)
 
 end Core
 

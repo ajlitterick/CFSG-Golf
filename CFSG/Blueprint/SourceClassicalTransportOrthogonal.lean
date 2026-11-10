@@ -65,14 +65,8 @@ theorem map_sourceOmega (b : Basis ι K V) {Q : V → K} {Q₀ : (ι → K) → 
       StatedOmega Q₀ := by
   rw [Subgroup.map_commutator, map_sourceOrthogonal b hQ, statedOmega_eq_commutator]
 
-theorem sourceOrthogonal_smul (Q : V → K) {d : K} (hd : d ≠ 0) :
-    sourceOrthogonal (fun x => d * Q x) = sourceOrthogonal Q := by
-  ext g
-  exact forall_congr' fun x => mul_right_inj' hd
 
 end OrthGroups
-
-
 
 
 theorem nonempty_statedProj_statedOmega_equiv {K : Type} [Field K] {ι : Type} [Fintype ι]
@@ -86,89 +80,6 @@ theorem nonempty_statedProj_statedOmega_equiv {K : Type} [Field K] {ι : Type} [
   · rw [← map_sourceScalars_sourceGLEquiv (Pi.basisFun K ι), Subgroup.map_map]
     simp
 
-theorem sourceClassicalModel_of_stated_POmegaPlus {X : Type} [Group X] {n p f : ℕ}
-    (h : StatedClassicalModel X .POmegaPlus n p f) : SourceClassicalModel X .POmegaPlus n p f := by
-  obtain ⟨hadm, K, _, _, hK, ⟨e⟩⟩ := h
-  obtain ⟨e'⟩ := nonempty_statedProj_statedOmega_equiv (StatedQuadPlus n K)
-  have hnd := CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadPlus n K
-  refine ⟨hadm, K, inferInstance, inferInstance, Fin n ⊕ Fin n → K, inferInstance, inferInstance,
-    inferInstance, _, ⟨e.trans e'⟩, hK, ?_, StatedQuadPlus n K, ?_,
-    sourceWittIndex_statedQuadPlus n K, rfl⟩
-  · rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_fin, two_mul]
-  · rw [← coe_quadPlus]
-    exact isSourceQuadratic_of_nondegenerate _ hnd
-
-theorem sourceClassicalModel_of_stated_POmegaOdd {X : Type} [Group X] {n p f : ℕ}
-    (h : StatedClassicalModel X .POmegaOdd n p f) : SourceClassicalModel X .POmegaOdd n p f := by
-  obtain ⟨hadm, K, _, _, hK, ⟨e⟩⟩ := h
-  obtain ⟨e'⟩ := nonempty_statedProj_statedOmega_equiv (StatedQuadOdd n K)
-  have : Fact p.Prime := ⟨hadm.1⟩
-  have := Fintype.ofFinite K
-  have : CharP K p := charP_of_card_eq_prime_pow (f := f) (by rw [← Nat.card_eq_fintype_card, hK])
-  have h2 : (2 : K) ≠ 0 := by
-    intro h0
-    have := (CharP.cast_eq_zero_iff K p 2).mp (by exact_mod_cast h0)
-    exact hadm.2.2.2 ((Nat.prime_dvd_prime_iff_eq hadm.1 Nat.prime_two).mp this)
-  have hnd := CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadOdd n K h2
-  refine ⟨hadm, K, inferInstance, inferInstance, Fin n ⊕ Fin n ⊕ Unit → K, inferInstance,
-    inferInstance, inferInstance, _, ⟨e.trans e'⟩, hK, ?_, StatedQuadOdd n K, ?_,
-    sourceWittIndex_statedQuadOdd n K h2, rfl⟩
-  · rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_sum, Fintype.card_fin,
-      Fintype.card_unit]
-    ring
-  · rw [← coe_quadOdd]
-    exact isSourceQuadratic_of_nondegenerate _ hnd
-
-theorem sourceClassicalModel_of_stated_POmegaMinus {X : Type} [Group X] {n p f : ℕ}
-    (h : StatedClassicalModel X .POmegaMinus n p f) :
-    SourceClassicalModel X .POmegaMinus n p f := by
-  obtain ⟨hadm, K, _, _, hK, b, c, hirr, ⟨e⟩⟩ := h
-  have hn : 1 ≤ n := by have := hadm.2.2; omega
-  obtain ⟨e'⟩ := nonempty_statedProj_statedOmega_equiv (StatedQuadMinus n K b c)
-  have hnd := CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadMinus_of_finite n K hirr
-  refine ⟨hadm, K, inferInstance, inferInstance, Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2 → K,
-    inferInstance, inferInstance, inferInstance, _, ⟨e.trans e'⟩, hK, ?_, StatedQuadMinus n K b c,
-    ?_, sourceWittIndex_statedQuadMinus n K hn hirr, rfl⟩
-  · rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_sum, Fintype.card_fin,
-      Fintype.card_fin]
-    omega
-  · rw [← coe_quadMinus]
-    exact isSourceQuadratic_of_nondegenerate _ hnd
-
-theorem stated_of_sourceClassicalModel_POmegaPlus {X : Type} [Group X] {n p f : ℕ}
-    (h : SourceClassicalModel X .POmegaPlus n p f) : StatedClassicalModel X .POmegaPlus n p f := by
-  obtain ⟨hadm, K, _, _, V, _, _, _, H, ⟨e⟩, hK, hV, Q, hQ, hw, rfl⟩ := h
-  have hnd := hQ.nondegenerate (Or.inr ⟨n, by omega⟩)
-  obtain ⟨iso⟩ := CFSG.GroupTheory.WeirSylow.nonempty_isometry_quadPlus hnd hV
-    (hQ.isPlusType hV hw)
-  let bs : Basis (Fin n ⊕ Fin n) K V := Basis.ofEquivFun iso.toLinearEquiv
-  have hQb : ∀ x, Q x = StatedQuadPlus n K (bs.equivFun x) := fun x => by
-    rw [Basis.equivFun_ofEquivFun, ← coe_quadPlus]
-    exact (iso.map_app x).symm
-  exact ⟨hadm, K, inferInstance, inferInstance, hK, ⟨e.trans (quotientInfCongr (sourceGLEquiv bs)
-    (map_sourceOmega bs hQb) (map_sourceScalars_sourceGLEquiv bs))⟩⟩
-
-theorem stated_of_sourceClassicalModel_POmegaOdd {X : Type} [Group X] {n p f : ℕ}
-    (h : SourceClassicalModel X .POmegaOdd n p f) : StatedClassicalModel X .POmegaOdd n p f := by
-  obtain ⟨hadm, K, _, _, V, _, _, _, H, ⟨e⟩, hK, hV, Q, hQ, -, rfl⟩ := h
-  have : Fact p.Prime := ⟨hadm.1⟩
-  have := Fintype.ofFinite K
-  have : CharP K p := charP_of_card_eq_prime_pow (f := f) (by rw [← Nat.card_eq_fintype_card, hK])
-  have h2 : ringChar K ≠ 2 := by
-    rw [ringChar.eq K p]
-    exact hadm.2.2.2
-  have hnd := hQ.nondegenerate (Or.inl h2)
-  obtain ⟨d, hd, ⟨iso⟩⟩ := CFSG.GroupTheory.WeirSylow.exists_smul_isometry_quadOdd h2
-    hQ.toQuadraticForm hnd hV
-  let bs : Basis (Fin n ⊕ Fin n ⊕ Unit) K V := Basis.ofEquivFun iso.toLinearEquiv
-  have hQb : ∀ x, d * Q x = StatedQuadOdd n K (bs.equivFun x) := fun x => by
-    rw [Basis.equivFun_ofEquivFun, ← coe_quadOdd]
-    exact (iso.map_app x).symm
-  have hH : ⁅sourceOrthogonal Q, sourceOrthogonal Q⁆.map (sourceGLEquiv bs).toMonoidHom =
-      StatedOmega (StatedQuadOdd n K) := by
-    rw [← map_sourceOmega bs (Q := fun x => d * Q x) hQb, sourceOrthogonal_smul Q hd]
-  exact ⟨hadm, K, inferInstance, inferInstance, hK, ⟨e.trans (quotientInfCongr (sourceGLEquiv bs)
-    hH (map_sourceScalars_sourceGLEquiv bs))⟩⟩
 
 theorem nonempty_sourceOmega_equiv_minus {K : Type} [Field K] [Finite K] {V : Type}
     [AddCommGroup V] [Module K V] [FiniteDimensional K V] {n : ℕ} (hn : 1 ≤ n)
@@ -187,14 +98,6 @@ theorem nonempty_sourceOmega_equiv_minus {K : Type} [Field K] [Finite K] {V : Ty
   exact ⟨quotientInfCongr (sourceGLEquiv bs) (map_sourceOmega bs hQb)
     (map_sourceScalars_sourceGLEquiv bs)⟩
 
-theorem stated_of_sourceClassicalModel_POmegaMinus {X : Type} [Group X] {n p f : ℕ}
-    (h : SourceClassicalModel X .POmegaMinus n p f) :
-    StatedClassicalModel X .POmegaMinus n p f := by
-  obtain ⟨hadm, K, _, _, V, _, _, _, H, ⟨e⟩, hK, hV, Q, hQ, hw, rfl⟩ := h
-  have hn : 1 ≤ n := by have := hadm.2.2; omega
-  obtain ⟨b, c, hirr⟩ := CFSG.LieType.Universal.exists_irreducible_quadratic K
-  obtain ⟨e'⟩ := nonempty_sourceOmega_equiv_minus hn hV hQ hw hirr
-  exact ⟨hadm, K, inferInstance, inferInstance, hK, b, c, hirr, ⟨e.trans e'⟩⟩
 
 theorem nonempty_statedOmegaMinus_equiv {K : Type} [Field K] [Finite K] {n : ℕ} (hn : 1 ≤ n)
     {b c b' c' : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)

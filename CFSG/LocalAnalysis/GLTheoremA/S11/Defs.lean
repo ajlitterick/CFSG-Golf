@@ -64,11 +64,5 @@ structure Hyp111 (G : Type) [Group G] [Finite G] (m p : ℕ) (B : Subgroup G) (x
   A ≤ L ∧ IsElemAbelian p A ∧
     ∀ g ∈ L ⊓ Subgroup.centralizer (A : Set G), orderOf g = p → g ∈ A
 
-@[expose] noncomputable def weakCoreK (k q : ℕ) (P : Subgroup G) : Subgroup G :=
-  sSup {N | ∃ X : Subgroup G, X ≤ P ∧ k ≤ CFSG.Open.pRank q X ∧
-    k + 1 ≤ CFSG.Open.pRank q (X ⊔ (P ⊓ Subgroup.centralizer (X : Set G))) ∧
-    N = Subgroup.normalizer (X : Set G)}
-
-theorem weakCoreK_two (q : ℕ) (P : Subgroup G) : weakCoreK 2 q P = GLAWeakCore q P := rfl
 
 end CFSG.LocalAnalysis.GLTheoremA

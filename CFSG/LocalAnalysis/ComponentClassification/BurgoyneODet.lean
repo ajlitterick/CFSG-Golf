@@ -118,8 +118,6 @@ theorem leftMul_apply (g : SL(2, K)) (M : Matrix (Fin 2) (Fin 2) K) :
   rw [specialRho_apply]
   simp
 
-theorem leftMul_hom : (fun g : SL(2, K) => leftMul g) = (specialRho (K := K)).comp
-    (MonoidHom.inl _ _) := rfl
 
 @[expose] def conjSL (A : GL (Fin 2) K) (g : SL(2, K)) : SL(2, K) :=
   ⟨(A : Matrix (Fin 2) (Fin 2) K) * (g : Matrix (Fin 2) (Fin 2) K) *

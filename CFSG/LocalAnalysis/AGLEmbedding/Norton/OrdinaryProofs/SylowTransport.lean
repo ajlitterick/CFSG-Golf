@@ -80,19 +80,6 @@ theorem centralizer_map_equiv {G G' : Type*} [Group G] [Group G'] (e : G ≃* G'
   rw [Subgroup.coe_map]
   exact centralizer_image_equiv e (Q : Set G)
 
-theorem normalizer_map_equiv {G G' : Type*} [Group G] [Group G'] (e : G ≃* G')
-    (Q : Subgroup G) :
-    Subgroup.normalizer ((Q.map e.toMonoidHom : Subgroup G') : Set G') =
-      (Subgroup.normalizer (Q : Set G)).map e.toMonoidHom :=
-  (Subgroup.map_normalizer_eq_of_bijective Q e.bijective).symm
-
-theorem weakJoin_map {G G' : Type*} [Group G] [Group G'] (e : G ≃* G') (P Q : Subgroup G) :
-    Q.map e.toMonoidHom ⊔ (P.map e.toMonoidHom ⊓
-        Subgroup.centralizer ((Q.map e.toMonoidHom : Subgroup G') : Set G')) =
-      (Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G))).map e.toMonoidHom := by
-  rw [centralizer_map_equiv e Q,
-    ← Subgroup.map_inf_eq P (Subgroup.centralizer (Q : Set G)) e.toMonoidHom e.injective,
-    ← Subgroup.map_sup]
 
 end Basic
 
@@ -129,45 +116,6 @@ theorem GLBCore_map_equiv {G G' : Type*} [Group G] [Group G'] [Finite G] [Finite
   unfold GLBCore
   rw [hset, (Subgroup.gc_map_comap e.toMonoidHom).l_sSup_eq_sSup_image]
 
-theorem GLBWeakCore_map_equiv {G G' : Type*} [Group G] [Group G'] [Finite G] [Finite G']
-    (e : G ≃* G') (P : Subgroup G) :
-    GLBWeakCore p (P.map e.toMonoidHom) = (GLBWeakCore p P).map e.toMonoidHom := by
-  have hset : {N : Subgroup G' | ∃ Q : Subgroup G', Q ≤ P.map e.toMonoidHom ∧
-      2 ≤ pRank p Q ∧ 3 ≤ pRank p (Q ⊔ (P.map e.toMonoidHom ⊓
-        Subgroup.centralizer (Q : Set G'))) ∧ N = Subgroup.normalizer (Q : Set G')} =
-      Subgroup.map e.toMonoidHom '' {N : Subgroup G | ∃ Q : Subgroup G, Q ≤ P ∧
-        2 ≤ pRank p Q ∧ 3 ≤ pRank p (Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G))) ∧
-        N = Subgroup.normalizer (Q : Set G)} := by
-    ext N'
-    simp only [Set.mem_ofPred_eq, Set.mem_image]
-    constructor
-    · rintro ⟨Q', hQ'P, h2, h3, rfl⟩
-      have hQ'eq : (Q'.comap e.toMonoidHom).map e.toMonoidHom = Q' :=
-        Subgroup.map_comap_eq_self_of_surjective (f := e.toMonoidHom) e.surjective Q'
-      have hQP : Q'.comap e.toMonoidHom ≤ P := by
-        rw [← Subgroup.map_le_map_iff_of_injective (f := e.toMonoidHom) e.injective, hQ'eq]
-        exact hQ'P
-      refine ⟨Subgroup.normalizer ((Q'.comap e.toMonoidHom : Subgroup G) : Set G),
-        ⟨Q'.comap e.toMonoidHom, hQP, ?_, ?_, rfl⟩, ?_⟩
-      · rw [← pRank_map_equiv e, hQ'eq]
-        exact h2
-      · have h3' : 3 ≤ pRank p ((Q'.comap e.toMonoidHom).map e.toMonoidHom ⊔
-            (P.map e.toMonoidHom ⊓ Subgroup.centralizer
-              (((Q'.comap e.toMonoidHom).map e.toMonoidHom : Subgroup G') : Set G'))) := by
-          rw [hQ'eq]
-          exact h3
-        rw [weakJoin_map e, pRank_map_equiv e] at h3'
-        exact h3'
-      · rw [Subgroup.map_normalizer_eq_of_bijective (f := e.toMonoidHom) _ e.bijective, hQ'eq]
-    · rintro ⟨N, ⟨Q, hQP, h2, h3, rfl⟩, rfl⟩
-      refine ⟨Q.map e.toMonoidHom, Subgroup.map_mono hQP, ?_, ?_, ?_⟩
-      · rw [pRank_map_equiv e]
-        exact h2
-      · rw [weakJoin_map e, pRank_map_equiv e]
-        exact h3
-      · exact Subgroup.map_normalizer_eq_of_bijective Q e.bijective
-  unfold GLBWeakCore CFSG.Open.rankThreeAschCore
-  rw [hset, (Subgroup.gc_map_comap e.toMonoidHom).l_sSup_eq_sSup_image]
 
 theorem GLBCore_map_conj {G : Type*} [Group G] [Finite G] (g : G) (P : Subgroup G) :
     GLBCore p k (P.map (MulAut.conj g : G ≃* G).toMonoidHom) =

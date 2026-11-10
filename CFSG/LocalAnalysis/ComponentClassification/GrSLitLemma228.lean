@@ -338,27 +338,5 @@ theorem oddCore_le_center_of_wGroup_eq_bot {t : G} {L E : Subgroup G}
     rw [hCL, mem_subgroupOf, mem_centralizer_iff] at h1
     exact h1 x hx
 
-theorem oddCore_le_center_of_wGroup_eq_bot_of_fusionZStar {t : G} {L E : Subgroup G}
-    (hLt : L ≤ centralizer ({t} : Set G))
-    (hL : IsPComponent 2 (L.subgroupOf (centralizer ({t} : Set G))))
-    (hEt : E ≤ centralizer ({t} : Set G)) (hEab : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x)
-    (hE2 : ∀ x ∈ E, x * x = 1) (hE4 : 4 ≤ Nat.card E)
-    (hEL : E ≤ normalizer (L : Set G))
-    (hEcen : ∀ e ∈ E, ∀ l ∈ L, e * l * e⁻¹ * l⁻¹ ∈ (Open.fusionZStar L).map L.subtype)
-    (hW : wGroup E = ⊥)
-    (hbal : ∀ e ∈ E, e ≠ 1 →
-      ⁅(pPrimeCore 2 L).map L.subtype ⊓ centralizer ({e} : Set G),
-        (pLayer ↥(L ⊓ centralizer ({e} : Set G)) 2).map
-          (L ⊓ centralizer ({e} : Set G)).subtype⁆ ≤
-      (pPrimeCore 2 (centralizer ({e} : Set G))).map (centralizer ({e} : Set G)).subtype)
-    (hcase : E ≤ centralizer (L : Set G) ∨ 8 ≤ Nat.card E) :
-    ∀ x ∈ (pPrimeCore 2 L).map L.subtype, ∀ l ∈ L, x * l = l * x := by
-  have hperf : Group.IsPerfect L := by
-    have h := ClassicalInvolution.LBalanceProof.isPerfect_of_isPComponent hL
-    exact Group.IsPerfect.ofSurjective (f := (subgroupOfEquivOfLe hLt).toMonoidHom)
-      (subgroupOfEquivOfLe hLt).surjective
-  exact oddCore_le_center_of_wGroup_eq_bot hLt hL hEt hEab hE2 hE4 hEL
-    (fun e he => commutator_mem_oddCore_of_mem_fusionZStar hperf (hEL he) (hEcen e he)) hW hbal
-    hcase
 
 end CFSG.ComponentClassification.GrSLit

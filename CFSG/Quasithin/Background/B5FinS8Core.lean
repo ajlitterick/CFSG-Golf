@@ -75,10 +75,6 @@ theorem alpha_surjective : Function.Surjective alpha :=
 
 @[expose] def qform (x : Fin 8 → ZMod 2) : Fin 6 → ZMod 2 := qmat *ᵥ x
 
-theorem qform_add (x y : Fin 8 → ZMod 2) : qform (x + y) = qform x + qform y :=
-  Matrix.mulVec_add _ _ _
-
-theorem qform_zero : qform 0 = 0 := Matrix.mulVec_zero _
 
 theorem qform_eq_zero_iff : ∀ x : Fin 8 → ZMod 2, ∑ i, x i = 0 →
     (qform x = 0 ↔ (x = 0 ∨ x = fun _ => 1)) := by

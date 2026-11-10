@@ -37,8 +37,6 @@ abbrev GL3 : Type := Matrix.GeneralLinearGroup (Fin 3) F4
     exact Matrix.inv_eq_right_inv (by
       rw [smul_mul_smul_comm, one_mul, mul_inv_cancel₀ hc0, one_smul])
 
-theorem mem_scalars {g : GL3} : g ∈ scalars ↔ ∃ c : F4, (g : Matrix (Fin 3) (Fin 3) F4) = c • 1 :=
-  Iff.rfl
 
 theorem scalar_ne_zero {g : GL3} {c : F4} (hc : (g : Matrix (Fin 3) (Fin 3) F4) = c • 1) :
     c ≠ 0 := by
@@ -231,8 +229,6 @@ theorem actP_one_pts {p : ℕ} (hp : p ∈ pts Γ x₀) : actP 1 p = p :=
     show actP (γ : GL3) (actP (γ⁻¹ : GL3) p) = p
     rw [← actP_mul _ _ (decV_ne_zero_of_pts h0 p.2), mul_inv_cancel, actP_one_pts p.2]
 
-theorem permOf_apply (h0 : x₀ ≠ 0) (γ : ↥Γ) (p : ↥(pts Γ x₀)) :
-    ((permOf Γ h0 γ p : ↥(pts Γ x₀)) : ℕ) = actP γ p := rfl
 
 @[expose] noncomputable def piP (Γ : Subgroup GL3) (h0 : x₀ ≠ 0) :
     ↥Γ →* Equiv.Perm ↥(pts Γ x₀) where

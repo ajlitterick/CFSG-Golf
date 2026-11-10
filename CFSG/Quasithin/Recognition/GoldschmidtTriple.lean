@@ -82,27 +82,6 @@ end IsGoldschmidtTriple
 
 section Bound
 
-variable {D : Type*} [Group D] [Finite D] {G₁ G₂ : Subgroup D}
-
-theorem IsGoldschmidtTriple.isFaithful_ofSubgroupPair_iff (h : IsGoldschmidtTriple G₁ G₂) :
-    (GoldAmalgam.ofSubgroupPair G₁ G₂).IsFaithful ↔ pCore 2 D = ⊥ := by
-  rw [GoldAmalgam.ofSubgroupPair_isFaithful_iff G₁ G₂ h.gen]
-  constructor
-  · intro hf
-    exact hf _ (pCore_normal 2) h.pCore_le_inf
-  · intro hO N hN hle
-    have := h.le_pCore_of_normal_le_inf hle
-    rw [hO] at this
-    exact le_bot_iff.mp this
-
-theorem card_inf_le_of_goldschmidtEdgeBound (hb : GoldschmidtEdgeBoundSubgroups.{u}) {D : Type u}
-    [Group D] [Finite D] {G₁ G₂ : Subgroup D} (h : IsGoldschmidtAmalgam G₁ G₂) :
-    Nat.card ↥(G₁ ⊓ G₂) ≤ 2 ^ 7 :=
-  hb D G₁ G₂ h.gen h.toIsGoldschmidtTriple.relIndex_inf_left
-    h.toIsGoldschmidtTriple.relIndex_inf_right (fun N hN hle => by
-      have := h.toIsGoldschmidtTriple.le_pCore_of_normal_le_inf hle
-      rw [h.pCore_eq_bot] at this
-      exact le_bot_iff.mp this)
 
 end Bound
 

@@ -93,6 +93,5 @@ theorem theta_eq_pCore_two_of_mult (hmult : KFacts.KS18Mult) {I : Type} [Group I
   rw [hZ, Subgroup.map_eq_bot_iff, hf, QuotientGroup.ker_mk'] at hZ1
   exact hZ1
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec19

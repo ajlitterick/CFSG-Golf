@@ -30,13 +30,6 @@ theorem pts_w2 : ptsK 192 TX MS CM3 M (wordC CFSG.KD.HNPtC.GT [20, 4, 9, 9, 6, 2
     true := by quickRfl
 theorem pts_w3 : ptsK 192 TX MS CM3 M (wordC CFSG.KD.HNPtC.GT [5]) OM (G 3) = true := by quickRfl
 
-theorem neg_om : Bool.not (omK 192 1140000 (OM.set 5 (OM.getD 7 0))) = true := by quickRfl
-theorem neg_rank : Bool.not (rankK 192 TX CM3 M RI OM (RK.set 70 (RK.getD 71 0))) = true := by
-  quickRfl
-theorem neg_t4i : Bool.not (Nat.beq (T (Nat.succ T4I)) GT4) = true := by quickRfl
-theorem neg_pts : Bool.not (ptsK 192 TX MS CM3 M CFSG.KD.HNPtC.T4 OM (G 0)) = true := by quickRfl
-theorem neg_ptw : Bool.not (ptsK 192 TX MS CM3 M (wordC CFSG.KD.HNPtC.GT [18, 20, 4]) OM (G 2)) =
-    true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNT0
 

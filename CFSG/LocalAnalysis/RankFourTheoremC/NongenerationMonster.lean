@@ -10,17 +10,6 @@ namespace CFSG.LocalAnalysis.RankFourTheoremC
 
 open CFSG.Open CFSG.AGLEmbedding Subgroup
 
-@[expose] def GL83Type24Source (p : ℕ) (i : TauCeti.CFSGIndex) : Prop :=
-  GL83Type24 p i ∨ ((p = 11 ∨ p = 13) ∧ i = .sporadic .M)
-
-@[expose] def GL83NongenerationListSource : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CatalogSimpleSections X → ∀ (p : ℕ) (R : Sylow p X)
-    (K : Subgroup X), p.Prime → p ≠ 2 → 3 ≤ Open.pRank p (R : Subgroup X) →
-    IsComponentOf K ⊤ → K.Normal → (R : Subgroup X) ⊓ centralizer (K : Set X) ≠ ⊥ →
-    ¬ K ≤ GLBCore p 2 (R : Subgroup X) →
-    ∃ i : TauCeti.CFSGIndex, Nonempty (K ⧸ center K ≃* i.Group) ∧ GL83Type24Source p i ∧
-      (GL83OuterType24 p i ∨
-        ∀ g ∈ (R : Subgroup X), g ^ p = 1 → g ∈ K ⊔ centralizer (K : Set X))
 
 theorem exists_mem_orderOf_eq_of_isPGroup_ne_bot {G : Type*} [Group G] [Finite G] {p : ℕ}
     [Fact p.Prime] {A : Subgroup G} (hA : IsPGroup p A) (hne : A ≠ ⊥) :
@@ -222,27 +211,6 @@ theorem le_glbCore_two_of_central_cover [Nontrivial M] (R : Sylow p X) {K : Subg
   have : (⟨k, hk⟩ : K) ∈ B' := hB'top ▸ Subgroup.mem_top _
   exact this
 
-open RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster in
-theorem le_glbCore_two_of_gamma_one_of_kernelTrivial (R : Sylow p X) {K : Subgroup X}
-    (hK : IsComponentOf K ⊤) [K.Normal]
-    (hRK : (R : Subgroup X) ⊓ centralizer (K : Set X) ≠ ⊥) (e : K ⧸ center K ≃* M)
-    (hkt : KernelTrivialAt M p) (hΓ : ∀ T : Sylow p M, GLBCore p 1 (T : Subgroup M) = ⊤) :
-    K ≤ GLBCore p 2 (R : Subgroup X) := by
-  have hq : Open.IsQuasisimple K := hK.2.2
-  have : Group.IsPerfect K := ⟨hq.1⟩
-  have : IsSimpleGroup (K ⧸ center K) := hq.2
-  haveI : Nontrivial M := e.injective.nontrivial
-  let ρ : K →* M := e.toMonoidHom.comp (QuotientGroup.mk' (center K))
-  have hρ : Function.Surjective ρ := e.surjective.comp (QuotientGroup.mk'_surjective _)
-  have hker : ρ.ker = center K := by
-    ext x
-    simp [ρ]
-  haveI : Group.IsPerfect M := Group.IsPerfect.ofSurjective hρ
-  have hZ : ¬ p ∣ Nat.card (center K) := by
-    have h1 := card_ker_dvd_card_hopfMultiplier ρ hρ hker.le
-    rw [hker] at h1
-    exact fun h => not_dvd_card_hopfMultiplier_of_kernelTrivialAt hkt (h.trans h1)
-  exact le_glbCore_two_of_central_cover R ρ hρ hker hZ hRK hΓ
 
 end Cover
 
@@ -251,34 +219,6 @@ section Certified
 
 open CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.UniversalCoverMonster
 
-theorem le_glbCore_of_monster {X : Type} [Group X] [Finite X] {p : ℕ}
-    (hp : p = 11 ∨ p = 13) (R : Sylow p X) {K : Subgroup X} (hK : IsComponentOf K ⊤)
-    (hKn : K.Normal) (hRK : (R : Subgroup X) ⊓ centralizer (K : Set X) ≠ ⊥)
-    (e : K ⧸ center K ≃* (TauCeti.CFSGIndex.sporadic .M).Group) :
-    K ≤ GLBCore p 2 (R : Subgroup X) := by
-  have hpp : p.Prime := by rcases hp with rfl | rfl <;> norm_num
-  haveI : Fact p.Prime := ⟨hpp⟩
-  haveI : Finite (TauCeti.CFSGIndex.sporadic .M).Group := Finite.of_equiv _ e.toEquiv
-  obtain ⟨b⟩ := CFSG.Sporadic.Bridge.Y443.nonempty_mulEquiv
-  have hkt : KernelTrivialAt (TauCeti.CFSGIndex.sporadic .M).Group p := by
-    rcases hp with rfl | rfl
-    · exact (kernelTrivialAt_iff_of_mulEquiv b 11).1 kernelTrivialAt_carrier_M_eleven_of_amalgam
-    · exact (kernelTrivialAt_iff_of_mulEquiv b 13).1 kernelTrivialAt_carrier_M_thirteen_of_amalgam
-  have hΓ : SporGammaOneAt .M p := by
-    rcases hp with rfl | rfl
-    · exact Norton.sporGammaOneAt_M_eleven_holds
-    · exact Norton.sporGammaOneAt_M_thirteen_holds
-  exact le_glbCore_two_of_gamma_one_of_kernelTrivial R hK hRK e hkt fun T =>
-    hΓ _ ⟨MulEquiv.refl _⟩ T
-
-theorem gl83NongenerationList_of_source (h : GL83NongenerationListSource) :
-    GL83NongenerationList := by
-  intro X _ _ hcat p R K hp hp2 hrk hK hKn hC hnot
-  obtain ⟨i, hi, hty | ⟨hp11, hiM⟩, hout⟩ := h X hcat p R K hp hp2 hrk hK hKn hC hnot
-  · exact ⟨i, hi, hty, hout⟩
-  · subst hiM
-    obtain ⟨e⟩ := hi
-    exact absurd (le_glbCore_of_monster hp11 R hK hKn hC e) hnot
 
 end Certified
 

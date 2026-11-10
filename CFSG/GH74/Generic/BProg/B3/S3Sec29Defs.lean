@@ -11,10 +11,6 @@ open CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.Generic CFSG.GH74.Generic.BProg CFSG
   CFSG.ABGLocalTools
 open scoped commutatorElement
 
-@[expose] def Tab52 (G : Type) [Group G] [Finite G] : Prop :=
-  ∀ (x : G) (K A B : Subgroup G) (b : G) (D J : Subgroup G), Hyp2 G → NoAltJ2 G → IsJ2Circ x K →
-    B1.QShape3SD (↥K ⧸ pPrimeCore 2 ↥K) → IsSource2 x K A → IsExtSource2 x K A B → pRank 2 ↥B = 4 →
-    Obs52 B b D J → IsA7Bar J ∨ IsL2OddNonSquare J
 
 @[expose] def NTrans (G : Type) [Group G] [Finite G] : Prop :=
   ∀ (x : G) (K A B E : Subgroup G) (y a₀ : G), IsTwoTerminal x K → QShape3 (↥K ⧸ pPrimeCore 2 ↥K) →

@@ -18,9 +18,6 @@ open CFSG Subgroup CFSG.ComponentClassification.FooteLit CFSG.ComponentClassific
         oddCoreIn (twoLayerIn (centralizer ({b} : Set G))) ⊔
           twoLayerIn (K' ⊓ centralizer ({b} : Set G))
 
-theorem lemma32InputFor_of_full {𝒜 : Thm13Ambient} (h : Lemma32FullFor 𝒜) :
-    Lemma32InputFor 𝒜 :=
-  fun G _ _ hG N hN K hK K' hK' hne b hbK hb2 _ => h G hG N hN K hK K' hK' hne b hbK hb2
 
 theorem lemma32FullFor_of_twoPart {𝒜 : Thm13Ambient} (hq : QuasisimpleTwoPartInput)
     (h𝒜 : ∀ (G : Type) [Group G] [Finite G], 𝒜 G → KStarKProper G)

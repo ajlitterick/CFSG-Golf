@@ -77,9 +77,6 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
-theorem narrowTriangle_of_noAllA1Narrow (h : NoAllA1Narrow p f) : NarrowTriangle p f :=
-  fun G _ _ _ hnab hp2 hq K z hz hBelow hconn hno D hall N hN n hn hnz =>
-    (h G hnab hp2 hq K z hz hBelow hconn hno D hall N hN n hn hnz).2.1
 
 theorem false_of_triangle_of_c3 {G : Type} [Group G] [Finite G] [IsSimpleGroup G]
     (hnab : ∃ x y : G, x * y ≠ y * x) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) {K : Subgroup G} {z : G}

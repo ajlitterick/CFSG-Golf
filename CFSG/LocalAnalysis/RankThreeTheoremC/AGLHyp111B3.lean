@@ -183,20 +183,6 @@ theorem b3_of_normal (hNo2 : KFactCaseTwoNoTwo) {Q : Subgroup G}
   obtain ⟨hU, hqU⟩ := img_facts (p := p) hS hQS hqQ
   exact le_centralizer_of_noTwo_of_normal hNo2 hL hU hqL hqp hqU
 
-theorem b3_of_normal_of_aut {Q : Subgroup G}
-    {L : Subgroup (H ⧸ primeComplementCore (G := H) p)} [L.Normal]
-    (hK : ∀ V : Subgroup (MulAut L), IsPGroup 2 V →
-      (∀ x : L, (x : H ⧸ primeComplementCore (G := H) p) ∈
-          (Q.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) →
-        MulAut.conj x ∈ Subgroup.normalizer (V : Set (MulAut L))) → V = ⊥) :
-    Hyp111B3 p H Q L := by
-  refine b3_of_img Q fun S hS _ hQS => ?_
-  have hU : IsPGroup 2 (imgBar p H S) := hS.comap_subtype.map _
-  refine le_centralizer_of_aut (T := (Q.subgroupOf H).map
-    (QuotientGroup.mk' (primeComplementCore (G := H) p)) ⊓ L) inf_le_right
-    (fun V hV hT => hK V hV fun x hx => hT x ⟨hx, x.2⟩) hU ?_
-  rintro _ ⟨⟨q, hq, rfl⟩, -⟩
-  exact (img_facts (p := p) hS hQS (Subgroup.mem_subgroupOf.mp hq)).2
 
 omit [Finite G] in
 theorem exists_mem_of_isFieldOmegaA (hp : p.Prime)

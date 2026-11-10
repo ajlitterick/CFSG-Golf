@@ -108,16 +108,6 @@ namespace CFSG.LieType.Chevalley
 
 open CFSG.Blueprint.Chevalley
 
-theorem baseChangeGL_mem_torusGroup
-    {R S : Type} [Field R] [Field S] (f : R →+* S) {τ : Tag}
-    {g : ModGL τ R} (hg : g ∈ torusGroup τ R) : baseChangeGL f g ∈ torusGroup τ S := by
-  have hle : torusGroup τ R ≤ (torusGroup τ S).comap (baseChangeGL f) := by
-    refine (Subgroup.closure_le _).2 ?_
-    rintro _ ⟨⟨i, t⟩, rfl⟩
-    show baseChangeGL f (torusElt τ R i t) ∈ torusGroup τ S
-    rw [baseChangeGL_torusElt]
-    exact torusElt_mem_torusGroup i _
-  exact hle hg
 
 end CFSG.LieType.Chevalley
 

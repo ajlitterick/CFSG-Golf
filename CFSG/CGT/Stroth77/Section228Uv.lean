@@ -38,38 +38,6 @@ theorem isConj_uv_xyuv_of_d2 (h : F.IsD D dD) {d2 : G}
     refine isConj_iff.2 ⟨(dD.ofTorus (-v))⁻¹, ?_⟩
     simpa [huv] using hconj'
 
-theorem IsD.omegaIn_one_eq_closure_w_a_sq_b_sq (h : F.IsD D dD) :
-    omegaIn 1 D = Subgroup.closure ({(F.dA.c : G), ((F.dA.a : G) ^ 2),
-      ((F.dA.b : G) ^ 2)} : Set G) := by
-  rw [h.omegaIn_one_eq, omegaIn_one_t100 F.dA]
-  simp
-
-theorem t100_uv_not_fixes_w (F : StrothFrame G) :
-    F.dA.uv⁻¹ * (F.dA.c : G) * F.dA.uv ≠ (F.dA.c : G) := by
-  intro hw
-  have hφ : (StrothTypeIndex.t100 1).action.φuv
-      (Torus.c (k := (StrothTypeIndex.t100 1).k)) =
-        Torus.c + (2 : ℕ) • Torus.a + (2 : ℕ) • Torus.b := by
-    show (Type100.action 1).φuv (Torus.c (k := Type100.k 1)) =
-      Torus.c + (2 : ℕ) • Torus.a + (2 : ℕ) • Torus.b
-    rw [Type100.uv_c 1]
-    funext i
-    fin_cases i <;> simp [Torus.c, Torus.a, Torus.b, gen, Pi.single_apply, zsmul_eq_mul]
-    all_goals decide
-  have h := F.dA.conj_ofTorus F.dA.uv_mem F.dA.uv_conj
-    (Torus.c (k := (StrothTypeIndex.t100 1).k))
-  rw [hφ, show F.dA.ofTorus (Torus.c (k := (StrothTypeIndex.t100 1).k)) =
-    ((F.dA.c : F.A) : G) from rfl] at h
-  rw [hw] at h
-  have hc : (Torus.c : Torus (StrothTypeIndex.t100 1).k) +
-      (2 : ℕ) • Torus.a + (2 : ℕ) • Torus.b = Torus.c := by
-    exact F.dA.ofTorus_inj (by
-      simpa [show F.dA.ofTorus (Torus.c (k := (StrothTypeIndex.t100 1).k)) =
-        ((F.dA.c : F.A) : G) from rfl] using h.symm)
-  have hcoord := congrFun hc 1
-  simp [Torus.c, Torus.a, Torus.b, gen, Pi.single_apply] at hcoord
-  change (2 : ZMod 4) = 0 at hcoord
-  exact (by decide : ¬ ((2 : ZMod 4) = 0)) hcoord
 
 theorem t100_uv_fixed_torus :
     {v : Torus (StrothTypeIndex.t100 1).k |

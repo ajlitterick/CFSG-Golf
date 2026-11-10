@@ -98,12 +98,6 @@ theorem four_point_residual_card [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b 
     centralizerFullQuotient n hn S e ≃* Equiv.Perm (Omega (ZMod 3)) :=
   alpha.trans b.permCongrHom
 
-theorem coordinateAction_apply (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (alpha : centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))
-    (b : Fin 4 ≃ Omega (ZMod 3)) (g : centralizerFullQuotient n hn S e)
-    (x : Omega (ZMod 3)) :
-    coordinateAction n hn S e alpha b g x = b (alpha g (b.symm x)) := rfl
 
 theorem coordinateAction_range (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -465,17 +459,6 @@ theorem residualCentralProductEquiv_mk (hnonab : ∃ a b : G, a * b ≠ b * a)
         (QuotientGroup.mk' (Subgroup.zpowers (residualCentralProductDiagonal hnonab n hn S e)) p) =
       residualCentralProductMap n hn S e eta p := rfl
 
-theorem residualCentralProductEquiv_mk_coe (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (eta : centralizerResidualImage n hn S e ≃* SpecialLinearGroup (Fin 2) (ZMod 3))
-    (heta : eta (centralizerResidualInvolution hnonab n hn S e) =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity (ZMod 3))
-    (a : centralizerFullCenterImage n hn S e) (B : SpecialLinearGroup (Fin 2) (ZMod 3)) :
-    (residualCentralProductEquiv hnonab n hn S e eta heta
-        (QuotientGroup.mk' (Subgroup.zpowers (residualCentralProductDiagonal hnonab n hn S e))
-          (a, B)) : centralizerOddCoreQuotient n S e) =
-      (a : centralizerOddCoreQuotient n S e) *
-        (eta.symm B : centralizerOddCoreQuotient n S e) := rfl
 
 omit [IsSimpleGroup G] in
 theorem four_point_center_card (n : ℕ) (hn : 2 ≤ n)

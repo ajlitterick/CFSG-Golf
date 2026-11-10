@@ -50,9 +50,6 @@ variable {S : Type u} [Group S]
 theorem hopfCoverMap_mk (d : commutator (FreeGroup S)) :
     hopfCoverMap S (d : HopfCover S) = hopfEval S d := rfl
 
-theorem mk_mem_hopfMultiplier_iff (d : commutator (FreeGroup S)) :
-    (d : HopfCover S) ∈ hopfMultiplier S ↔ (d : FreeGroup S) ∈ hopfRelations S :=
-  Iff.rfl
 
 theorem hopfMultiplier_le_center : hopfMultiplier S ≤ center (HopfCover S) := by
   intro m hm

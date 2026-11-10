@@ -16,10 +16,6 @@ variable {K : Type*} [Field K] {W : Type*} [AddCommGroup W]
     ext y
     exact hadd₁ x x' y
 
-theorem biaddHom_apply (b : K → K → W) (hadd₁ : ∀ x x' y, b (x + x') y = b x y + b x' y)
-    (hadd₂ : ∀ x y y', b x (y + y') = b x y + b x y') (x y : K) :
-    biaddHom b hadd₁ hadd₂ x y = b x y :=
-  rfl
 
 theorem nsmul_nsmul_of_biadd (b : K → K → W) (hadd₁ : ∀ x x' y, b (x + x') y = b x y + b x' y)
     (hadd₂ : ∀ x y y', b x (y + y') = b x y + b x y') (m n : ℕ) (x y : K) :

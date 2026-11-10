@@ -1064,10 +1064,6 @@ theorem leviShortRep_bijective : Function.Bijective d.leviShortRep := by
 @[expose] def leviShortEquiv : d.leviShort ≃* Matrix.SpecialLinearGroup (Fin 2) d.Γ :=
   MulEquiv.ofBijective d.leviShortRep d.leviShortRep_bijective
 
-theorem yamada_three_six_iso : Nat.card d.Γ = q ^ 3 ∧ Nat.card d.Γ₀ = q ∧
-    Nonempty (d.leviShort ≃* Matrix.SpecialLinearGroup (Fin 2) d.Γ) ∧
-    Nonempty (d.leviLong ≃* Matrix.SpecialLinearGroup (Fin 2) d.Γ₀) :=
-  ⟨d.card_Γ, d.card_Γ₀, ⟨d.leviShortEquiv⟩, ⟨d.leviLongEquiv⟩⟩
 
 end TrialityD4Data
 

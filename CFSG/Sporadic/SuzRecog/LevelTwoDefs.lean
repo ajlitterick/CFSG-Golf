@@ -24,11 +24,6 @@ theorem a_check : aOK = true :=
 theorem v_check : vOK = true :=
   Certificates.certificate15090.2.2.2.1
 
-theorem graph_check : graphOK = true :=
-  Certificates.certificate15090.2.2.2.2.1
-
-theorem elim_check : elimOK = true :=
-  Certificates.certificate15090.2.2.2.2.2.1
 
 theorem loc_check : locOK = true :=
   Certificates.certificate15090.2.2.2.2.2.2.1
@@ -63,11 +58,6 @@ theorem rep_gens {s : ℕ} (hs : s < 2) :
     Rep 1782 gens[s]! (permC 1782 gens[s]!) ∧ Rep 1782 gensInv[s]! (permC 1782 gens[s]!)⁻¹ :=
   rep_permC (basicOK_parts.2.2.2.2.1 s hs).1
 
-theorem rep_x1 : Rep 1782 gens[0]! x1 :=
-  (rep_gens (s := 0) (by norm_num)).1
-
-theorem rep_x2 : Rep 1782 gens[1]! x2 :=
-  (rep_gens (s := 1) (by norm_num)).1
 
 theorem rep_rho1 : Rep 1782 rhoArr Model.rho1 :=
   (rep_permC basicOK_parts.1).1

@@ -141,9 +141,6 @@ theorem actual_matrix_layer_properties {G : Type} [Group G]
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem subgroupCentralizerEquiv_coe {G : Type*} [Group G]
-    (U : Subgroup G) (t : U) (x : C t) :
-    ((subgroupCentralizerEquiv U t x : C (t : G)) : G) = ((x : U) : G) := rfl
 
 theorem subgroupCentralizerEquiv_oddCore {G : Type*} [Group G]
     (U : Subgroup G) (t : U) :

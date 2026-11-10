@@ -91,17 +91,6 @@ theorem countOrd_proved (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS
   refine congrArg Finset.card (Finset.filter_congr fun y _ => ?_)
   simp
 
-theorem countPair_sound (hQ : ChainS n w PS PSI LR TR TRI kS 2 nb BP S base D NS CH)
-    (hA : imageList gA = (unpack n w (PS 0)).toList)
-    (hB : imageList gB = (unpack n w (PS 1)).toList) (hnd : base.toList.Nodup) {bs : List Nat}
-    (hbs : bs = base.toList) {groups : List (List Nat)} (hg : groups.flatten = List.range nb)
-    (x : gen2 gA gB) {X : Nat}
-    (hX : imageList (x : Equiv.Perm (Fin n)) = (unpack n w X).toList) {my : Nat} (hmy : 0 < my)
-    {conds : List (List Bool × Nat)} (hpos : ∀ c ∈ conds, 0 < c.2) :
-    countPair bs my [unpack n w X] conds (blocksOf n (rawLevels n S base) groups) =
-      #(univ.filter fun y : gen2 gA gB =>
-        orderOf y = my ∧ ∀ c ∈ conds, orderOf (patP x y c.1) = c.2) :=
-  countPair_proved hQ hA hB hnd hbs hg x hX hmy hpos
 
 end CFSG.KS.SporSch.MBT
 

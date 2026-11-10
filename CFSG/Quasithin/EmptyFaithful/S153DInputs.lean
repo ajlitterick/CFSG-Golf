@@ -67,10 +67,6 @@ structure Ctx15316 {G : Type} [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Su
     Ctx15316 T Mc M V₁ V₂ Yp I L t → Concl15317 T V₁ Yp I L → ¬ IsLin2Block I L →
       ¬ IsLin2Quot L
 
-@[expose] def Input15320 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
-    Ctx15316 T Mc M V₁ V₂ Yp I L t → Concl15317 T V₁ Yp I L → ¬ IsLin2Block I L →
-      ¬ IsLin2Quot L → ¬ IsSL3Quot L ∧ ¬ IsSp4Quot L
 
 @[expose] def Input15321 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
@@ -83,9 +79,5 @@ structure Ctx15316 {G : Type} [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Su
   ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
     Ctx15316 T Mc M V₁ V₂ Yp I L t → ¬ IsLnTwoQuot L 3
 
-@[expose] def Input15324 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ Yp I L : Subgroup G) (t : G),
-    Ctx15316 T Mc M V₁ V₂ Yp I L t → Concl15317 T V₁ Yp I L →
-      ¬ IsLnTwoQuot L 4 ∧ ¬ IsLnTwoQuot L 5
 
 end CFSG.Quasithin

@@ -76,16 +76,5 @@ theorem component_le_centralizer {G : Type*} [Group G] [Finite G]
     member * lift.val = (lift.val * member * lift.val⁻¹) * lift.val := by rw [hvalue]
     _ = lift.val * member := by group
 
-theorem bad_le_centralizer {G : Type*} [Group G] [Finite G]
-    (twoSubgroup normalTwo : Subgroup G) (htwo : IsPGroup 2 twoSubgroup)
-    [normalTwo.Normal] (hnormalTwo : IsPGroup 2 normalTwo) :
-    (TwoComponents.badSubgroup (Subgroup.normalizer (twoSubgroup : Set G))).map
-        (Subgroup.normalizer (twoSubgroup : Set G)).subtype ≤
-      Subgroup.centralizer (normalTwo : Set G) := by
-  apply Subgroup.map_le_iff_le_comap.mpr
-  apply sSup_le
-  intro component hbad
-  exact Subgroup.map_le_iff_le_comap.mp
-    (component_le_centralizer twoSubgroup normalTwo htwo hnormalTwo component hbad.1)
 
 end CFSG.ComponentClassification.LocalAmbientTwoCentralizers

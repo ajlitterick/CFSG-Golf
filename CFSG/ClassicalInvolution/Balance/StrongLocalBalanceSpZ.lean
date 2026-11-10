@@ -125,7 +125,6 @@ theorem conjSp_eq_of_mul_eq (A : gsp 2 F) {y z : StatedSp 2 F}
   refine mat_injective ?_
   rw [mat_conjSp, h, mul_assoc, simMat_mul, mul_one]
 
-theorem formJ_eq_gram : formJ 2 F = gram F 2 := rfl
 
 theorem fieldSp_eq_self {σ : F ≃+* F} (hσ : ∀ c, σ c = c) (y : StatedSp 2 F) :
     fieldSp 2 F σ y = y := by

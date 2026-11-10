@@ -16,13 +16,6 @@ open CFSG.ClassicalInvolution.Balance.Theorem5
 
 variable {p f : ℕ} [Fact p.Prime]
 
-theorem bootTriple_canonClass_free_exotic (hlay : TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hexotic : ExoticLeviBlock p f) : CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_fuzzyFrames_exotic (canonClass p f) hlay
-    (fun _ _ _ K => conjInvariant_canonClass K) (fuzzyFrameBalance_of_hybrid_free hmodel)
-    (fuzzyAxisExact_canonClass p f) fuzzyVertexConn_canonClass_free
-    (fuzzyLinkConn_canonClass_free hMFC) hexotic
 
 theorem bootTriple_conjMembers_free_exotic (hlay : TriangleLayers p f)
     (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
@@ -39,10 +32,5 @@ theorem triangleConnectedAll_conjMembers_free_exotic (hlay : TriangleLayers p f)
   triangleConnectedAll_of_bootTriple (bootTriple_conjMembers_free_exotic hlay hmodel hMFC hexotic)
     (fuzzyFramesConnected_conjMembers_free hMFC)
 
-theorem connectedFramesExist_conjMembers_free_exotic (hlay : TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hexotic : ExoticLeviBlock p f) : Theorem5.ConnectedFramesExist p f :=
-  connectedFramesExist_of_bootTriple (bootTriple_conjMembers_free_exotic hlay hmodel hMFC hexotic)
-    (fuzzyFramesConnected_conjMembers_free hMFC)
 
 end CFSG.ClassicalInvolution.Balance.Q27

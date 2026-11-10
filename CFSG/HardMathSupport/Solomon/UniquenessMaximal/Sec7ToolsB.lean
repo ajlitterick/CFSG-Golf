@@ -38,9 +38,6 @@ theorem card_eq_of_isLThreeFour {X : Type} [Group X] (h : IsLThreeFour X) :
   rw [Nat.card_congr e.toEquiv]
   exact CFSG.LocalAnalysis.ComponentInitial.GL3TwoFixedModel.card_projectiveSL_three_four hcard
 
-theorem isLThreeFour_card_eq {X Y : Type} [Group X] [Group Y] (hX : IsLThreeFour X)
-    (hY : IsLThreeFour Y) : Nat.card X = Nat.card Y := by
-  rw [card_eq_of_isLThreeFour hX, card_eq_of_isLThreeFour hY]
 
 theorem isSimpleGroup_of_isLThreeFour {X : Type} [Group X] (h : IsLThreeFour X) :
     IsSimpleGroup X ∧ ∃ a b : X, a * b ≠ b * a := by

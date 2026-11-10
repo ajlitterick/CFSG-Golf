@@ -46,12 +46,5 @@ theorem strongly_embedded_preimage_of_odd_kernel (f : G →* K)
     (strong_embedding_preimage_of_odd_kernel f hf hodd Y
       (native_strong_embedding_of_order_conditions hY))
 
-theorem strongly_embedded_of_odd_kernel_image (f : G →* K)
-    (hf : Function.Surjective f) (hodd : Odd (Nat.card f.ker))
-    (A : Subgroup G) (hker : f.ker ≤ A)
-    (himage : fusionStronglyEmbedded (A.map f)) :
-    fusionStronglyEmbedded A := by
-  have h := strongly_embedded_preimage_of_odd_kernel f hf hodd (A.map f) himage
-  rwa [Subgroup.comap_map_eq_self hker] at h
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

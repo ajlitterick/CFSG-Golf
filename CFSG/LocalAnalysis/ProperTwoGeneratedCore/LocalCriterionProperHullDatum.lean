@@ -49,9 +49,6 @@ theorem distinguished_mem_properHull (Y : Subgroup G) (z : G) :
   ((involutionPointHull (⟨z, hzY⟩ : Y)).equivMapOfInjective
     Y.subtype Y.subtype_injective).trans (MulEquiv.subgroupCongr (internal_hull_map Y hzY))
 
-theorem properHullEquiv_coe (Y : Subgroup G) {z : G} (hzY : z ∈ Y)
-    (x : involutionPointHull (⟨z, hzY⟩ : Y)) :
-    (properHullEquiv Y hzY x : G) = (x.val : G) := rfl
 
 theorem properHullEquiv_point_map (H Y : Subgroup G) {z : G} (hzY : z ∈ Y) :
     ((H.subgroupOf Y).subgroupOf (involutionPointHull (⟨z, hzY⟩ : Y))).map

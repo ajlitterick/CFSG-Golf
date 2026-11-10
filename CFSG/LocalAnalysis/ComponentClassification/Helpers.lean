@@ -89,19 +89,6 @@ theorem simple_quotient_order_of_surjective (G : Type*) [Group G]
   CFSG.KCore.KProperNonab.catalogue_of_surjective_transfer CFSG.Open.knownSimpleOrders_isoTransfer hK
     subgroup hproper hnonab quotient hsurjective
 
-theorem simple_section_order_of_surjective (G : Type*) [Group G]
-    (hK : IsKProperByOrder G) (subgroup : Subgroup G) (hproper : subgroup ≠ ⊤)
-    (quotientType : Type*) [Group quotientType]
-    (quotient : subgroup →* quotientType) (hsurjective : Function.Surjective quotient)
-    (quotientSubgroup : Subgroup quotientType) (simple : Type*) [Group simple]
-    [IsSimpleGroup simple] (hnonab : ∃ a b : simple, a * b ≠ b * a)
-    (sectionQuotient : quotientSubgroup →* simple)
-    (hsectionSurjective : Function.Surjective sectionQuotient) :
-    Nat.card simple ∈ knownSimpleOrders :=
-  ((CFSG.KCore.KProperNonab.kGroupNonab CFSG.Open.knownSimpleOrders_isoInvariant hK subgroup hproper
-    ).of_surjective_transfer CFSG.Open.knownSimpleOrders_isoTransfer quotient hsurjective
-    ).catalogue_of_surjective_transfer CFSG.Open.knownSimpleOrders_isoTransfer quotientSubgroup hnonab
-    sectionQuotient hsectionSurjective
 
 theorem quasisimple_central_quotient_nonabelian (G : Type*) [Group G]
     (hquasisimple : IsQuasisimple G) :
@@ -111,22 +98,6 @@ theorem quasisimple_central_quotient_nonabelian (G : Type*) [Group G]
   have hnoncomm := Group.IsPerfect.not_isMulCommutative (G ⧸ Subgroup.center G)
   simpa only [isMulCommutative_iff, not_forall] using hnoncomm
 
-theorem component_central_quotient_order (G : Type*) [Group G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : IsKProperByOrder G)
-    (involution : G) (hinvolution : orderOf involution = 2)
-    (component : Subgroup (Subgroup.centralizer ({involution} : Set G) ⧸
-      componentClassificationOddCore (Subgroup.centralizer ({involution} : Set G))))
-    (hcomponent : IsComponentOf component ⊤) :
-    Nat.card (component ⧸ Subgroup.center component) ∈ knownSimpleOrders := by
-  let : IsSimpleGroup (component ⧸ Subgroup.center component) := hcomponent.2.2.2
-  exact simple_section_order_of_surjective G hK
-    (Subgroup.centralizer ({involution} : Set G))
-    (centralizer_ne_top_of_involution G hnonab involution hinvolution) _
-    (QuotientGroup.mk' (componentClassificationOddCore
-      (Subgroup.centralizer ({involution} : Set G))))
-    (QuotientGroup.mk'_surjective _) component _
-    (quasisimple_central_quotient_nonabelian component hcomponent.2.2)
-    (QuotientGroup.mk' (Subgroup.center component)) (QuotientGroup.mk'_surjective _)
 
 theorem twoRank_witness (G : Type*) [Group G] [Finite G] :
     ∃ elementary : Subgroup G,
@@ -150,26 +121,5 @@ theorem twoRank_witness (G : Type*) [Group G] [Finite G] :
   obtain ⟨elementary, _, helementary, hcard⟩ := Nat.sSup_mem hnonempty hbounded
   exact ⟨elementary, helementary, hcard⟩
 
-theorem eight_dvd_card_of_twoRank (G : Type*) [Group G] [Finite G]
-    (hrank : 3 ≤ twoRank G) : 8 ∣ Nat.card G := by
-  obtain ⟨elementary, _, hcard⟩ := twoRank_witness G
-  have hdiv : 2 ^ twoRank G ∣ Nat.card G := by
-    rw [← hcard]
-    exact elementary.card_subgroup_dvd_card
-  have hsmall : (2 : ℕ) ^ 3 ∣ 2 ^ twoRank G := pow_dvd_pow 2 hrank
-  norm_num at hsmall
-  exact hsmall.trans hdiv
-
-theorem componentType_known_local_order (G : Type*) [Group G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : IsKProperByOrder G)
-    (hcomp : componentClassificationComponentType G) :
-    ∃ (involution : G) (_ : orderOf involution = 2)
-      (component : Subgroup (Subgroup.centralizer ({involution} : Set G) ⧸
-        componentClassificationOddCore (Subgroup.centralizer ({involution} : Set G)))),
-      IsComponentOf component ⊤ ∧
-        Nat.card (component ⧸ Subgroup.center component) ∈ knownSimpleOrders := by
-  obtain ⟨involution, hinvolution, component, hcomponent⟩ := hcomp
-  exact ⟨involution, hinvolution, component, hcomponent,
-    component_central_quotient_order G hnonab hK involution hinvolution component hcomponent⟩
 
 end CFSG.ComponentClassification.Helpers

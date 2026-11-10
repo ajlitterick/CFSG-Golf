@@ -451,24 +451,5 @@ end Obstruction
 
 end BenderBranch
 
-theorem three_commuting_local_factors_obstruction {G : Type} [Group G] [Finite G]
-    (he : CFSG.Assembly.evenRank G ≤ 2) {L₁ L₂ L₃ A₁ A₂ A₃ : Subgroup G}
-    (hs₁ : IsSimpleGroup L₁) (hna₁ : ∃ a b : L₁, a * b ≠ b * a)
-    (hs₂ : IsSimpleGroup L₂) (hna₂ : ∃ a b : L₂, a * b ≠ b * a)
-    (_hs₃ : IsSimpleGroup L₃) (_hna₃ : ∃ a b : L₃, a * b ≠ b * a)
-    (h₁₂ : ⁅L₁, L₂⁆ = ⊥) (h₁₃ : ⁅L₁, L₃⁆ = ⊥) (h₂₃ : ⁅L₂, L₃⁆ = ⊥)
-    (hA₁ : A₁ ≤ L₁) (_hA₂ : A₂ ≤ L₂) (_hA₃ : A₃ ≤ L₃)
-    (hA₁0 : A₁ ≠ ⊥) (_hA₂0 : A₂ ≠ ⊥) (_hA₃0 : A₃ ≠ ⊥)
-    (hA₁2 : IsPGroup 2 A₁) (_hA₂2 : IsPGroup 2 A₂) (_hA₃2 : IsPGroup 2 A₃)
-    {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (hd₁ : p ∣ Nat.card ↥(L₁ ⊓ Subgroup.normalizer (A₁ : Set G)))
-    (hd₂ : p ∣ Nat.card ↥(L₂ ⊓ Subgroup.normalizer (A₂ : Set G)))
-    (hd₃ : p ∣ Nat.card ↥(L₃ ⊓ Subgroup.normalizer (A₃ : Set G))) : False :=
-  BenderBranch.three_commuting_factors_obstruction he
-    (fun _ hx hc => BenderBranch.eq_one_of_commute_of_simple hs₁ hna₁ hx hc)
-    (fun _ hx hc => BenderBranch.eq_one_of_commute_of_simple hs₂ hna₂ hx hc)
-    h₁₂ h₁₃ h₂₃ hA₁ hA₁0 hA₁2 hp hp2 hd₁
-    (hd₂.trans (Subgroup.card_dvd_of_le inf_le_left))
-    (hd₃.trans (Subgroup.card_dvd_of_le inf_le_left))
 
 end CFSG.QuasithinUnique

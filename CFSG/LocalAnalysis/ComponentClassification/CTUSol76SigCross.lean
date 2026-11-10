@@ -61,21 +61,6 @@ theorem component_dichotomy_of_le_pump_sup (hq : QuasisimpleTwoPartInput)
         (S := zpowers b) (zpowers_le.mpr hbQ) (zpowers_le.mpr hba) h1)
   exact component_dichotomy_of_pump_swap hab hold
 
-theorem le_oddCoreIn_of_le_pump_sup (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hG : SimpleAmbient G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) {K₁ K₂ : Subgroup G}
-    (hK₁ : K₁ ∈ kStarComponents N) (hK₂ : K₂ ∈ kStarComponents N) (hK₁K : K₁ ≠ K)
-    (hK₂K : K₂ ≠ K) {a b : G} (haK : a ∈ K) (ha2 : orderOf a = 2) (hbK : b ∈ K)
-    (hb2 : orderOf b = 2) (hab : a * b = b * a) {R X : Subgroup G}
-    (hRa : R ≤ centralizer ({a} : Set G))
-    (hRK : R ≤ twoLayerIn (K₁ ⊓ centralizer ({a} : Set G)) ⊔
-      twoLayerIn (K₂ ⊓ centralizer ({a} : Set G)))
-    (hX : X ≤ oddCoreIn (centralizer ({b} : Set G)) ⊓ centralizer ({a} : Set G))
-    (hXR : ⁅X, R⁆ = X) :
-    X ≤ oddCoreIn (centralizer ({a} : Set G)) :=
-  le_oddCoreIn_of_component_dichotomy ha2 hb2 hab hRa hX hXR
-    (component_dichotomy_of_le_pump_sup hq hR1 hG hN hK hK₁ hK₂ hK₁K hK₂K haK ha2 hbK hab
-      hRK)
 
 theorem theta_inf_centralizer_le_of_bound (hK : K ∈ kStarComponents N) {V : Subgroup G}
     (hV : IsKleinFour V) (hVQ : V ≤ coreActionKernel K)
@@ -219,75 +204,6 @@ theorem le_pump_sup_of_cross {K' K₃ : Subgroup G} (hK : K ∈ kStarComponents 
   · exact mem_sup_right hu'A
   · exact mul_mem (mem_sup_left huA) (mem_sup_right hu'A)
 
-theorem inf_inf_le_oddCoreIn_cross (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hG : SimpleAmbient G)
-    (hN : IsSolomonChoice N) {K' : Subgroup G} (hK : K ∈ kStarComponents N)
-    (hK' : K' ∈ kStarComponents N) (hKK' : K ≠ K') {V : Subgroup G} (hV : IsKleinFour V)
-    (hVQ : V ≤ coreActionKernel K) {u : G} (huV : u ∈ V) (huK' : u ∈ K') (hu1 : u ≠ 1)
-    {a b : G} (haK : a ∈ K) (ha2 : orderOf a = 2) (hbK : b ∈ K) (hb2 : orderOf b = 2)
-    (hab : a * b = b * a) (haV : V ≤ centralizer ({a} : Set G))
-    (hbV : V ≤ centralizer ({b} : Set G)) :
-    oddCoreIn (centralizer ({b} : Set G)) ⊓ oddCoreIn (centralizer (V : Set G)) ⊓
-        centralizer ({a} : Set G) ≤ oddCoreIn (centralizer ({a} : Set G)) := by
-  have h32 := lemma32FullFor_simple_of_twoPart hq hR1
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hu2 := orderOf_eq_two_of_isKleinFour hV huV hu1
-  have hVc := comm_of_isKleinFour hV
-  set Y₁ := oddCoreIn (centralizer ({b} : Set G)) ⊓ oddCoreIn (centralizer (V : Set G)) ⊓
-    centralizer ({a} : Set G) with hY₁
-  have hzu : IsPGroup 2 (zpowers u) :=
-    IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hu2, pow_one])
-  have huN : u ∈ normalizer (Y₁ : Set G) :=
-    mem_normalizer_inf (mem_normalizer_inf (le_normalizer_oddCoreIn _ (hbV huV))
-      (le_normalizer_oddCoreIn _ (le_centralizer_of_le_of_comm le_rfl hVc huV)))
-      (le_normalizer (haV huV))
-  have hY₁N : zpowers u ≤ normalizer (Y₁ : Set G) := zpowers_le.mpr huN
-  have hY₁cop : Nat.Coprime 2 (Nat.card Y₁) := Nat.Coprime.coprime_dvd_right
-    (Subgroup.card_dvd_of_le (inf_le_left.trans inf_le_left)) (coprime_card_oddCoreIn _)
-  have hfac := CFSG.SignalizerFunctor.Helpers.coprime_normalized_commutator_factorization 2
-    Nat.prime_two (zpowers u) Y₁ hzu hY₁N hY₁cop
-  rw [← hfac]
-  refine sup_le ?_ ?_
-  ·
-    set X := ⁅Y₁, zpowers u⁆ with hX
-    have hXY : X ≤ Y₁ := CFSG.SignalizerFunctor.Helpers.commutator_le_of_normalizing Y₁ _ hY₁N
-    have hXX : ⁅X, zpowers u⁆ = X :=
-      CFSG.ClassicalInvolution.Balance.commutator_commutator_eq_of_isPGroup hzu
-        (Nat.coprime_two_left.mp hY₁cop) hY₁N
-    have huA : u ∈ twoLayerIn (K' ⊓ centralizer ({a} : Set G)) :=
-      mem_pump_of_two hK' (mem_coreActionKernel_of_ne hK hK' hKK' haK) ha2 ⟨huK', haV huV⟩
-        (k := 1) (by rw [hu2, pow_one])
-    exact le_oddCoreIn_of_le_pump_sup hq hR1 hG hN hK hK' hK' hKK'.symm hKK'.symm haK ha2 hbK
-      hb2 hab (zpowers_le.mpr (haV huV)) (zpowers_le.mpr (mem_sup_left huA))
-      (le_inf (hXY.trans (inf_le_left.trans inf_le_left)) (hXY.trans inf_le_right)) hXX
-  ·
-    intro y hy
-    have hyu : y ∈ centralizer ({u} : Set G) := by
-      have := hy.2
-      rwa [centralizer_zpowers_eq] at this
-    have hbu : b ∈ centralizer ({u} : Set G) := mem_centralizer_singleton_iff.mpr
-      ((mem_centralizer_singleton_iff.mp (hbV huV))).symm
-    have hVu : V ≤ centralizer ({u} : Set G) := fun w hw =>
-      mem_centralizer_singleton_iff.mpr (hVc w hw u huV)
-    have hV1 : V ≠ ⊥ := fun h => by
-      have := hV.card_four
-      rw [h, Subgroup.card_bot] at this
-      norm_num at this
-    have h1 := inf_inf_le_oddCoreIn h32 hG hN hK hK' hKK' huK' hu2
-      (zpowers_ne_bot_of_orderOf_eq_two hb2) (isElemAbelian_zpowers
-        (sq_eq_one_of_orderOf_eq_two hb2)) (zpowers_le.mpr hbK) (zpowers_le.mpr hbu) hV1
-      (isElemAbelian_of_isKleinFour hV) hVQ hVu
-    rw [centralizer_zpowers_eq] at h1
-    have hyOu : y ∈ oddCoreIn (centralizer ({u} : Set G)) := h1 ⟨⟨hy.1.1.1, hy.1.1.2⟩, hyu⟩
-    have hba : b ∈ centralizer ({a} : Set G) := mem_centralizer_singleton_iff.mpr hab.symm
-    have h2 := inf_inf_le_oddCoreIn h32 hG hN hK' hK hKK'.symm haK ha2
-      (zpowers_ne_bot_of_orderOf_eq_two hu2) (isElemAbelian_zpowers
-        (sq_eq_one_of_orderOf_eq_two hu2)) (zpowers_le.mpr huK') (zpowers_le.mpr (haV huV))
-      (zpowers_ne_bot_of_orderOf_eq_two hb2) (isElemAbelian_zpowers
-        (sq_eq_one_of_orderOf_eq_two hb2))
-      (zpowers_le.mpr (mem_coreActionKernel_of_ne hK hK' hKK' hbK)) (zpowers_le.mpr hba)
-    rw [centralizer_zpowers_eq, centralizer_zpowers_eq] at h2
-    exact h2 ⟨⟨hyOu, hy.1.1.1⟩, hy.1.2⟩
 
 theorem theta_inf_le_theta_cross (hq : QuasisimpleTwoPartInput)
     (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hG : SimpleAmbient G)
@@ -658,34 +574,5 @@ theorem le_normalizer_wGroup_of_third_right (hq : QuasisimpleTwoPartInput)
       (oddCoreIn_le_normalizer_wGroup_of_mem hq hR1 hG hN hK hK' hne hV hVK' hBQ hBV hB hB8 hE hEB
         hEK hBN)
 
-@[expose] def Lemma39TwoRestFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      ((∀ E : Subgroup G, IsKleinFour E → E ≤ B → E ≤ K →
-          ¬ ∀ F : Subgroup G, IsKleinFour F → F ≤ K ⊓ centralizer (V : Set G) →
-            Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (V : Set G))) E F) →
-        K ≤ normalizer (wGroup B V : Set G)) ∧
-      ((∀ E : Subgroup G, IsKleinFour E → E ≤ B → E ≤ K →
-          ¬ (CFSG.Assembly.involutionGraph ↥(K' ⊓ centralizer (E : Set G))).Preconnected) →
-        K' ≤ normalizer (wGroup B V : Set G))
-
-theorem lemma39RestFor_of_two (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (h : Lemma39TwoRestFor) :
-    Lemma39RestFor := by
-  intro G _ _ hG N hN K K' V B hP hW
-  by_cases h2 : (kStarComponents N).ncard = 2
-  · exact ⟨fun _ => (h G hG N hN h2 K K' V B hP hW).1, (h G hG N hN h2 K K' V B hP hW).2⟩
-  obtain ⟨K₃, hK₃, hK₃K, hK₃K'⟩ := exists_third_kStar_of_ncard_ne_two hP.1 hP.2.1 hP.2.2.1 h2
-  exact ⟨fun h2' => absurd h2' h2,
-    fun _ => le_normalizer_wGroup_of_third_right hq hR1 hG hN hP hK₃ hK₃K hK₃K'⟩
-
-theorem lemma315bInputFor_simple_of_two_residues (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (h39 : Lemma39TwoRestFor) (hgood : GoodInvolutionsTwoFor)
-    (hsingle : SingleComponentExcludedFor) (hpair : SigPairExistsTwoFor) :
-    Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_residues hq hR1 hF (lemma39RestFor_of_two hq hR1 h39) hgood hsingle
-    hpair
 
 end CFSG.ComponentClassification.Sol76.Sig

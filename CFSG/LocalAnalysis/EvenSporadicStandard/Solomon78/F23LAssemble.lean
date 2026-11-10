@@ -23,6 +23,5 @@ theorem card_map_conj (E : Subgroup G) (g : G) :
 
 end Conj
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {t : G}
 
 end CFSG.EvenSporadicStandard.Solomon78

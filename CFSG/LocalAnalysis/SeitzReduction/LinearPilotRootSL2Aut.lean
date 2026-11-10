@@ -180,14 +180,6 @@ theorem map_rootSL2_of_mulAut {m : ℕ} (hm : 3 ≤ m) (β : MulAut (projectiveS
       (rootSL2 a b).map (MulAut.conj g).toMonoidHom :=
   exists_map_blockSL_of_mulAut hm β {a, b}
 
-theorem exists_map_rootSL2_eq_conj_rootSL2 {m : ℕ} (hm : 3 ≤ m) (β : MulAut (projectiveSL m K))
-    {a b c d : Fin m} (hab : a ≠ b) (hcd : c ≠ d) :
-    ∃ g : projectiveSL m K, (rootSL2 (K := K) a b).map β.toMonoidHom =
-      (rootSL2 c d).map (MulAut.conj g).toMonoidHom := by
-  obtain ⟨g, hg⟩ := map_rootSL2_of_mulAut (K := K) hm β a b
-  obtain ⟨h, hh⟩ := exists_conj_rootSL2 (K := K) c d a b hcd hab
-  refine ⟨g * h, ?_⟩
-  rw [hg, map_mul, map_mul_mulAut, hh]
 
 end Automorphisms
 
@@ -257,37 +249,6 @@ theorem commute_transvection_of_commute_proj {a b j : Fin n} (hab : a ≠ b) (hj
 private def ScalarBlock (a b : Fin n) (s : K) (A : Matrix (Fin n) (Fin n) K) : Prop :=
   ∀ i j, (i = a ∨ i = b ∨ j = a ∨ j = b) → A i j = if i = j then s else 0
 
-private theorem entries_of_commute_single {a b : Fin n} {A : Matrix (Fin n) (Fin n) K}
-    (h : A * single a b 1 = single a b 1 * A) :
-    (∀ i, i ≠ a → A i a = 0) ∧ A a a = A b b ∧ ∀ j, j ≠ b → A b j = 0 := by
-  refine ⟨fun i hi => ?_, ?_, fun j hj => ?_⟩
-  · have := congrFun (congrFun h i) b
-    rwa [mul_single_apply_same, mul_one, single_mul_apply_of_ne _ _ _ _ _ hi] at this
-  · have := congrFun (congrFun h a) b
-    rwa [mul_single_apply_same, mul_one, single_mul_apply_same, one_mul] at this
-  · have := congrFun (congrFun h a) j
-    rw [mul_single_apply_of_ne _ _ _ _ _ hj, single_mul_apply_same, one_mul] at this
-    exact this.symm
-
-private theorem scalarBlock_of_commute {a b : Fin n} {A : Matrix (Fin n) (Fin n) K}
-    (h₁ : A * single a b 1 = single a b 1 * A) (h₂ : A * single b a 1 = single b a 1 * A) :
-    ScalarBlock a b (A a a) A := by
-  obtain ⟨h1a, h1ab, h1b⟩ := entries_of_commute_single h₁
-  obtain ⟨h2b, -, h2a⟩ := entries_of_commute_single h₂
-  intro i j hij
-  rcases hij with rfl | rfl | rfl | rfl
-  · by_cases hj : i = j
-    · subst hj; simp
-    · rw [ite_eq_right hj, h2a j (Ne.symm hj)]
-  · by_cases hj : i = j
-    · subst hj; simp [h1ab]
-    · rw [ite_eq_right hj, h1b j (Ne.symm hj)]
-  · by_cases hi : i = j
-    · subst hi; simp
-    · rw [ite_eq_right hi, h1a i hi]
-  · by_cases hi : i = j
-    · subst hi; simp [h1ab]
-    · rw [ite_eq_right hi, h2b i hi]
 
 private theorem ScalarBlock.mul {a b : Fin n} {s t : K} {A B : Matrix (Fin n) (Fin n) K}
     (hA : ScalarBlock a b s A) (hB : ScalarBlock a b t B) :
@@ -305,80 +266,6 @@ private theorem ScalarBlock.mul {a b : Fin n} {s t : K} {A B : Matrix (Fin n) (F
         hB j j (by tauto), ite_eq_left rfl, hA i j (by tauto)]
        split_ifs <;> simp)
 
-private theorem scalarBlock_of_proj_mem_centralizer (hn : 3 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    {g : SpecialLinearGroup (Fin n) K}
-    (hg : proj n K g ∈ centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))) :
-    ScalarBlock a b ((g : Matrix (Fin n) (Fin n) K) a a) (g : Matrix (Fin n) (Fin n) K) := by
-  obtain ⟨j, hja, hjb⟩ := Fin.exists_ne_and_ne_of_two_lt a b (by omega)
-  have key : ∀ {i k : Fin n} (hik : i ≠ k), j ≠ i →
-      proj n K (SpecialLinearGroup.transvection hik 1) ∈ rootSL2 (K := K) a b →
-      (g : Matrix (Fin n) (Fin n) K) * single i k 1 =
-        single i k 1 * (g : Matrix (Fin n) (Fin n) K) := by
-    intro i k hik hji hmem
-    have hc : Commute (proj n K g) (proj n K (SpecialLinearGroup.transvection hik 1)) :=
-      (hg _ hmem).symm
-    have h := (commute_transvection_of_commute_proj hik hji (1 : K) hc).eq
-    have h' := congrArg (fun x : SpecialLinearGroup (Fin n) K => (x : Matrix (Fin n) (Fin n) K)) h
-    simp only [Matrix.SpecialLinearGroup.coe_mul, SpecialLinearGroup.transvection_coe,
-      Matrix.mul_add, Matrix.add_mul, Matrix.mul_one, Matrix.one_mul] at h'
-    exact add_left_cancel h'
-  exact scalarBlock_of_commute (key hab hja (proj_transvection_mem_rootSL2 hab 1))
-    (key hab.symm hjb (proj_transvection_mem_rootSL2' hab 1))
-
-theorem commutatorElement_mem_blockSpecialLinear_compl (hn : 3 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    {g h : SpecialLinearGroup (Fin n) K}
-    (hg : proj n K g ∈ centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)))
-    (hh : proj n K h ∈ centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))) :
-    ⁅g, h⁆ ∈ blockSpecialLinear ({a, b}ᶜ : Finset (Fin n)) := by
-  have hinv : ∀ {x : SpecialLinearGroup (Fin n) K},
-      proj n K x ∈ centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)) →
-      proj n K x⁻¹ ∈ centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)) := by
-    intro x hx
-    rw [map_inv]
-    exact Subgroup.inv_mem _ hx
-  have Bg := scalarBlock_of_proj_mem_centralizer hn hab hg
-  have Bh := scalarBlock_of_proj_mem_centralizer hn hab hh
-  have Bgi := scalarBlock_of_proj_mem_centralizer hn hab (hinv hg)
-  have Bhi := scalarBlock_of_proj_mem_centralizer hn hab (hinv hh)
-  have hunit : ∀ {x : SpecialLinearGroup (Fin n) K} {s s' : K},
-      ScalarBlock a b s (x : Matrix (Fin n) (Fin n) K) →
-      ScalarBlock a b s' ((x⁻¹ : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) →
-      s * s' = 1 := by
-    intro x s s' hx hx'
-    have h1 := (hx.mul hx') a a (Or.inl rfl)
-    rw [← Matrix.SpecialLinearGroup.coe_mul, mul_inv_cancel, Matrix.SpecialLinearGroup.coe_one,
-      Matrix.one_apply_eq, ite_eq_left rfl] at h1
-    exact h1.symm
-  have hB := ((Bg.mul Bh).mul Bgi).mul Bhi
-  have hsc : (g : Matrix (Fin n) (Fin n) K) a a * (h : Matrix (Fin n) (Fin n) K) a a *
-      ((g⁻¹ : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) a a *
-      ((h⁻¹ : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) a a = 1 := by
-    have e1 := hunit Bg Bgi
-    have e2 := hunit Bh Bhi
-    calc _ = ((g : Matrix (Fin n) (Fin n) K) a a *
-            ((g⁻¹ : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) a a) *
-          ((h : Matrix (Fin n) (Fin n) K) a a *
-            ((h⁻¹ : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) a a) := by ring
-      _ = 1 := by rw [e1, e2, one_mul]
-  rw [hsc] at hB
-  intro i j hij
-  have hi : i = a ∨ i = b ∨ j = a ∨ j = b := by
-    simp only [Finset.mem_compl, Finset.mem_insert, Finset.mem_singleton, not_not] at hij
-    tauto
-  rw [commutatorElement_def]
-  simp only [Matrix.SpecialLinearGroup.coe_mul]
-  rw [hB i j hi, Matrix.one_apply]
-
-theorem commutator_centralizer_rootSL2_le (hn : 3 ≤ n) {a b : Fin n} (hab : a ≠ b) :
-    ⁅centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)),
-      centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))⁆ ≤
-      blockSL (K := K) ({a, b}ᶜ : Finset (Fin n)) := by
-  rw [Subgroup.commutator_le]
-  intro x hx y hy
-  obtain ⟨g, rfl⟩ := proj_surjective n K x
-  obtain ⟨h, rfl⟩ := proj_surjective n K y
-  rw [← map_commutatorElement]
-  exact proj_mem_blockSL (commutatorElement_mem_blockSpecialLinear_compl hn hab hx hy)
 
 theorem blockSL_le_centralizer_blockSL_of_disjoint {I J : Finset (Fin n)} (hIJ : Disjoint I J) :
     blockSL (K := K) I ≤ centralizer (blockSL (K := K) J : Set (projectiveSL n K)) :=
@@ -439,45 +326,6 @@ theorem commutator_blockSL_eq_of_card_two [Finite K] {I : Finset (Fin n)} (hI : 
     ⁅blockSL (K := K) I, blockSL (K := K) I⁆ = blockSL (K := K) I := by
   rw [blockSL, ← Subgroup.map_commutator, commutator_blockSpecialLinear_eq_of_card_two hI hK]
 
-theorem perfectCore_centralizer_rootSL2_of_perfect (hn : 3 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    (hperf : ⁅blockSL (K := K) ({a, b}ᶜ : Finset (Fin n)),
-      blockSL (K := K) ({a, b}ᶜ : Finset (Fin n))⁆ = blockSL (K := K) ({a, b}ᶜ : Finset (Fin n))) :
-    perfectCore (centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))) =
-      blockSL (K := K) ({a, b}ᶜ : Finset (Fin n)) := by
-  apply le_antisymm
-  · calc perfectCore (centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)))
-        _ ≤ CFSG.Quasithin.derivedSeriesOf
-            (centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))) 1 :=
-          perfectCore_le_derivedSeriesOf _ 1
-        _ = ⁅centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K)),
-            centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))⁆ :=
-          derivedSeriesOf_succ _ 0
-        _ ≤ _ := commutator_centralizer_rootSL2_le hn hab
-  · exact le_perfectCore_of_perfect
-      (blockSL_le_centralizer_blockSL_of_disjoint disjoint_compl_left) hperf
-
-theorem perfectCore_centralizer_rootSL2 (hn : 5 ≤ n) {a b : Fin n} (hab : a ≠ b) :
-    perfectCore (centralizer (rootSL2 (K := K) a b : Set (projectiveSL n K))) =
-      blockSL (K := K) ({a, b}ᶜ : Finset (Fin n)) :=
-  perfectCore_centralizer_rootSL2_of_perfect (by omega) hab (commutator_blockSL_eq_of_three_le (by
-    rw [Finset.card_compl, Finset.card_pair hab, Fintype.card_fin]
-    omega))
-
-theorem perfectCore_centralizer_rootSL2_four [Finite K] (hK : 4 ≤ Nat.card K) {a b : Fin 4}
-    (hab : a ≠ b) :
-    perfectCore (centralizer (rootSL2 (K := K) a b : Set (projectiveSL 4 K))) =
-      blockSL (K := K) ({a, b}ᶜ : Finset (Fin 4)) :=
-  perfectCore_centralizer_rootSL2_of_perfect (by norm_num) hab
-    (commutator_blockSL_eq_of_card_two (by
-      rw [Finset.card_compl, Finset.card_pair hab, Fintype.card_fin]) hK)
-
-theorem perfectCore_centralizer_map_rootSL2 [Finite K] (hn : 5 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    (φ : MulAut (projectiveSL n K)) :
-    perfectCore (centralizer ((rootSL2 (K := K) a b).map φ.toMonoidHom :
-        Set (projectiveSL n K))) =
-      (blockSL (K := K) ({a, b}ᶜ : Finset (Fin n))).map φ.toMonoidHom := by
-  rw [← map_centralizer_mulAut, ← CFSG.Quasithin.map_perfectCore,
-    perfectCore_centralizer_rootSL2 hn hab]
 
 theorem exists_map_blockSpecialLinear_pair_of_mulAut [Finite K] {m : ℕ} (hm : 3 ≤ m)
     (hK : 4 ≤ Nat.card K) (β : MulAut (SpecialLinearGroup (Fin m) K)) {a b : Fin m}
@@ -544,11 +392,6 @@ theorem exists_map_blockSpecialLinear_pair_eq_conj_of_mulEquiv [Finite K] {m : �
     ((MonoidHom.ofInjective (proj_comp_blockEmbed_injective (K := K) hI)).trans
       (MulEquiv.subgroupCongr (blockSL_eq_range I).symm))
 
-theorem coe_blockSLEquivOfEquiv {I : Finset (Fin n)} (hI : I.card < n) {m : ℕ}
-    (e : I ≃ Fin m) (A : SpecialLinearGroup (Fin m) K) :
-    ((blockSLEquivOfEquiv hI e A : blockSL (K := K) I) : projectiveSL n K) =
-      proj n K (blockEmbed I (reindexSpecialLinear e.symm A)) :=
-  rfl
 
 theorem map_blockSLEquivOfEquiv_pair {I : Finset (Fin n)} (hI : I.card < n) {m : ℕ}
     (e : I ≃ Fin m) {a b : Fin n} (ha : a ∈ I) (hb : b ∈ I) :

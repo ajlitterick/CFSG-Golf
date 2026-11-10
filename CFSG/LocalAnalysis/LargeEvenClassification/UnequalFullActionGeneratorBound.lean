@@ -129,31 +129,5 @@ theorem rank_two_unequal_full_action_generator_bound
   rw [Nat.card_congr eqv]
   exact hbound
 
-theorem rank_two_unequal_full_action_minimum_generators
-    {Abelian : Type*} [AddCommGroup Abelian] (upper lower : ℕ)
-    (hunequal : lower < upper) (hlarge : 3 ≤ lower)
-    (coordinates : Abelian ≃+ (ZMod (2 ^ upper) × ZMod (2 ^ lower)))
-    (Action : Subgroup (AddMonoid.End Abelian)ˣ) (hpgroup : IsPGroup 2 Action) :
-    ∃ finiteAction : Finite Action,
-      let _ := finiteAction
-      ∃ T : Subgroup Action, T.Normal ∧ CFSG.Open.IsElemAbelian 2 T ∧
-        (∀ u : Action, u ∈ T ↔ u.val ∈ principalFourSubgroup (AddMonoid.End Abelian) ∧ u ^ 2 = 1) ∧
-        Group.rank Action ≤ Nat.log 2 (Nat.card T) + 2 := by
-  let : Finite Abelian := Finite.of_equiv _ coordinates.symm.toEquiv
-  let : Finite (AddMonoid.End Abelian) := Finite.of_injective
-    (fun f : AddMonoid.End Abelian => (fun x : Abelian => f x)) (by
-      intro f g h
-      apply AddMonoid.End.ext
-      exact congrFun h)
-  let finiteAction : Finite Action := Finite.of_injective (fun u : Action => u.val.val) (by
-    intro u v h
-    exact Subtype.ext (Units.ext h))
-  let := finiteAction
-  refine ⟨finiteAction, ?_⟩
-  dsimp only
-  obtain ⟨T, hTnormal, hTelem, hTmem, hbound⟩ :=
-    rank_two_unequal_full_action_generator_bound upper lower hunequal hlarge coordinates Action hpgroup
-  rw [pGeneratorRank_eq_group_rank Nat.prime_two hpgroup] at hbound
-  exact ⟨T, hTnormal, hTelem, hTmem, hbound⟩
 
 end CFSG.LargeEvenClassification.Helpers

@@ -86,13 +86,6 @@ theorem center_eq_bot_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* 
   rw [← map_center_eq e] at hY
   exact (map_eq_bot_iff_of_injective _ e.injective).mp hY
 
-theorem center_eq_bot_of_mulEquiv_quotient_center {X D : Type*} [Group X] [Group D]
-    (e : X ≃* D ⧸ center D) (hX : commutator X = ⊤) : center X = ⊥ := by
-  have : Group.IsPerfect X := ⟨hX⟩
-  have hQ : Group.IsPerfect (D ⧸ center D) :=
-    Group.IsPerfect.ofSurjective (f := (e : X →* D ⧸ center D)) e.surjective
-  exact center_eq_bot_of_mulEquiv e
-    (center_quotient_center_eq_bot_of_commutator_eq_top hQ.commutator_eq_top)
 
 theorem center_specialLinearGroup_fin_two_eq_bot {F : Type*} [Field F] [CharP F 2] :
     center (Matrix.SpecialLinearGroup (Fin 2) F) = ⊥ := by

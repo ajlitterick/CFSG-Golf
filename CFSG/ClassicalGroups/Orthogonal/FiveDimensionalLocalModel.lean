@@ -376,25 +376,6 @@ theorem q_e1_sub_e3 : Q (F.e 1 - F.e 3) = 2 := by
   rw [h, F.norm 1 (by norm_num), F.norm 3 (by norm_num), F.orth 1 3 (by norm_num)]
   norm_num
 
-theorem polar_e0sub_e2_e0 : polar Q (F.e 0 - F.e 2) (F.e 0) = 2 := by
-  rw [QuadraticMap.polar_sub_left, CFSG.ClassicalGroups.Orthogonal.polar_self_eq_two_mul,
-    F.norm 0 (by norm_num), F.orth 2 0 (by norm_num)]
-  norm_num
-
-theorem polar_e0sub_e2_e2 : polar Q (F.e 0 - F.e 2) (F.e 2) = -2 := by
-  rw [QuadraticMap.polar_sub_left, CFSG.ClassicalGroups.Orthogonal.polar_self_eq_two_mul,
-    F.orth 0 2 (by norm_num), F.norm 2 (by norm_num)]
-  norm_num
-
-theorem polar_e1sub_e3_e1 : polar Q (F.e 1 - F.e 3) (F.e 1) = 2 := by
-  rw [QuadraticMap.polar_sub_left, CFSG.ClassicalGroups.Orthogonal.polar_self_eq_two_mul,
-    F.norm 1 (by norm_num), F.orth 3 1 (by norm_num)]
-  norm_num
-
-theorem polar_e1sub_e3_e3 : polar Q (F.e 1 - F.e 3) (F.e 3) = -2 := by
-  rw [QuadraticMap.polar_sub_left, CFSG.ClassicalGroups.Orthogonal.polar_self_eq_two_mul,
-    F.orth 1 3 (by norm_num), F.norm 3 (by norm_num)]
-  norm_num
 
 theorem reflect_e_zero_two_zero : reflect Q (F.e 0 - F.e 2) (F.e 0) = F.e 2 := by
   let _ : Invertible (Q (F.e 0 - F.e 2)) :=
@@ -568,10 +549,6 @@ theorem q_e0sub_e1 : Q (F.e 0 - F.e 1) = 2 := by
   rw [h, F.norm 0 (by norm_num), F.norm 1 (by norm_num), F.orth 0 1 (by norm_num)]
   norm_num
 
-theorem polar_e0sub_e1_e0 : polar Q (F.e 0 - F.e 1) (F.e 0) = 2 := by
-  rw [QuadraticMap.polar_sub_left, CFSG.ClassicalGroups.Orthogonal.polar_self_eq_two_mul,
-    F.norm 0 (by norm_num), F.orth 1 0 (by norm_num)]
-  norm_num
 
 theorem reflect_e0sub_e1_e0 : reflect Q (F.e 0 - F.e 1) (F.e 0) = F.e 1 := by
   let _ : Invertible (Q (F.e 0 - F.e 1)) :=
@@ -974,7 +951,6 @@ abbrev betaSO (F : FrameData Q) (d1 d2 : O2 K) : Q.specialOrthogonalWithin :=
   ⟨F.betaO d1 d2, F.beta_so d1 d2⟩
 
 
-
 theorem beta_mul (d1 d2 e1 e2 : O2 K) :
     F.beta d1 d2 * F.beta e1 e2 = F.beta (d1 * e1) (d2 * e2) := by
   apply LinearEquiv.ext
@@ -1150,7 +1126,6 @@ theorem betaO_diag_mem_commutator (F : FrameData Q) (d : O2 K) :
     exact Subgroup.mul_mem _ F.betaO_diag_sigma (F.betaO_diag_rotation r hd)
 
 
-
 @[expose] def betaHom : (O2 K × O2 K) →* TauCeti.QuadraticMap.orthogonalGroup Q where
   toFun p := F.betaO p.1 p.2
   map_one' := F.betaO_one
@@ -1159,10 +1134,6 @@ theorem betaO_diag_mem_commutator (F : FrameData Q) (d : O2 K) :
 
 theorem betaHom_apply (p : O2 K × O2 K) : F.betaHom p = F.betaO p.1 p.2 := rfl
 
-theorem betaHom_injective : Function.Injective F.betaHom := by
-  intro p q h
-  apply F.beta_injective
-  exact congrArg Subtype.val h
 
 end FrameData
 

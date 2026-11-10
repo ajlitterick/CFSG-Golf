@@ -27,10 +27,5 @@ open Subgroup Blueprint Assembly.LowTwoRank
         Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∣
           Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z'} : Set Gs))))
 
-@[expose] def S_stage5_LU_compat : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G →
-    ∀ (Gs : Type) [Group Gs], (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 5 ≤ p ^ f ∧
-        ((p ^ f % 8 ≠ 1 ∧ LieModel Gs .PSL 4 p f) ∨ (p ^ f % 8 ≠ 7 ∧ LieModel Gs .PSU 4 p f))) →
-      IsTwoCentralClassicalTypeCompat G Gs → Nonempty (G ≃* Gs)
 
 end CFSG.GH74.GLS.LU

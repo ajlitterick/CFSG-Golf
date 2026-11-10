@@ -27,26 +27,6 @@ section Models
 
 variable {m : ℕ}
 
-theorem chainBound_plusDatum (hp2 : p ≠ 2) (hm : 5 ≤ m) (hm3 : 3 ≤ m) (hq : 5 ≤ p ^ f) :
-    ChainBound (Subgroup.center (spinGroup (quadPlus m (GaloisField p f))))
-      (fundamentalSubgroups .POmegaPlus (plusDatum m (GaloisField p f) hm3)) (2 * m) := by
-  obtain ⟨hf, hK⟩ := RouteD.card_galoisField_of_four_le (p := p) (f := f) (by omega)
-  have hodd : Odd (Nat.card (GaloisField p f)) := by
-    rw [hK]
-    exact (Nat.Prime.odd_of_ne_two Fact.out hp2).pow
-  have hdim : 9 ≤ Module.finrank (GaloisField p f) (Fin m ⊕ Fin m → GaloisField p f) := by
-    rw [finrank_plus]
-    omega
-  have hb := chainBound_model hodd (nondegenerate_polarBilin_quadPlus m (GaloisField p f)) hdim
-  rw [finrank_plus] at hb
-  exact (centralQuot_plus hp2 (by omega) hm3 hq).chainBound hb
-
-theorem chainBound_plus (hp2 : p ≠ 2) (hm : 5 ≤ m) (hq : 5 ≤ p ^ f) :
-    ChainBound (Subgroup.center (modelUniv .POmegaPlus m p f Fact.out).K)
-      (fundamentalSubgroups .POmegaPlus (modelUniv .POmegaPlus m p f Fact.out).D) (2 * m) := by
-  have e := RouteD.modelUniv_POmegaPlus_eq (p := p) (f := f) (by omega : 3 ≤ m)
-  rw [e]
-  exact chainBound_plusDatum hp2 hm (by omega) hq
 
 theorem chainBound_oddDatum (hp2 : p ≠ 2) (hm : 4 ≤ m) (hm3 : 3 ≤ m) (hq : 5 ≤ p ^ f) :
     ChainBound (Subgroup.center (spinGroup (quadOdd m (GaloisField p f))))

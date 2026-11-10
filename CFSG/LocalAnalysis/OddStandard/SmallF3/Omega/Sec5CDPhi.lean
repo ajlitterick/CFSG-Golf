@@ -179,14 +179,6 @@ theorem phi_single : sec5c_phi L B r i fr φc (Pi.single i 1) = r := by
     funext fun j => CharTwo.add_self_eq_zero _, sec5c_supp_zero, fr.signChange_empty, h.liftL_one]
   simp
 
-theorem phi_single' (j : Fin 6) :
-    sec5c_phi L B r i fr φc (Pi.single j 1) =
-      r * (sec5c_liftL L B φc (fr.signChange (symmDiff {j} {i})) : G) := by
-  have hodd : ¬ IsEvenVec (Pi.single j 1 : Fin 6 → ZMod 2) := by
-    unfold IsEvenVec
-    rw [Finset.sum_pi_single']
-    simp
-  rw [h.phi_odd hodd, sec5c_supp_add, sec5c_supp_single, sec5c_supp_single]
 
 theorem mem_A_iff {x : G} :
     x ∈ zpowers r ⊔ B ↔ ∃ v, sec5c_phi L B r i fr φc v = x := by
@@ -208,14 +200,6 @@ theorem mem_A_iff {x : G} :
   · rintro ⟨v, rfl⟩
     exact h.phi_mem_A v
 
-theorem A_sq {x : G} (hx : x ∈ zpowers r ⊔ B) : x * x = 1 := by
-  obtain ⟨v, rfl⟩ := (h.mem_A_iff).mp hx
-  exact h.phi_sq v
-
-theorem A_comm {x y : G} (hx : x ∈ zpowers r ⊔ B) (hy : y ∈ zpowers r ⊔ B) : x * y = y * x := by
-  obtain ⟨v, rfl⟩ := (h.mem_A_iff).mp hx
-  obtain ⟨w, rfl⟩ := (h.mem_A_iff).mp hy
-  rw [← h.phi_add, ← h.phi_add, add_comm]
 
 theorem A_inf_L {x : G} (hx : x ∈ zpowers r ⊔ B) (hxL : x ∈ L) : x ∈ B := by
   obtain ⟨v, rfl⟩ := (h.mem_A_iff).mp hx

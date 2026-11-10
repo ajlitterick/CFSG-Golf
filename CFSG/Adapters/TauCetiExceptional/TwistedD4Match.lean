@@ -73,17 +73,6 @@ theorem d4_rootSubgroupPoints_inr
   rw [D4Tripled.coe_rootSubgroupPoints_inr, toAdd_ofAdd, D4Tripled.loweringMatrix_def]
   exact (d4Match.toMat_rootUnit_neg_single d4tData_valid A i c).symm
 
-theorem d4_toMat_mem_points
-    (K : Type*) [Field K] (g : d4tData_valid.minGroup K) :
-    toMat d4Match.lab K g ∈ D4Tripled.points K := by
-  refine toMat_mem_of_simple d4tData_valid d4Match.lab K (P := D4Tripled.points K)
-    (fun i c => ?_) g
-  obtain ⟨i, rfl⟩ := d4Match.node.surjective i
-  constructor
-  · rw [← rootUnit_eq_xu, ← d4_rootSubgroupPoints_inl]
-    exact (D4Tripled.rootSubgroupPoints (.inl i) K (Multiplicative.ofAdd c)).2
-  · rw [← rootUnit_eq_xu, ← d4_rootSubgroupPoints_inr]
-    exact (D4Tripled.rootSubgroupPoints (.inr i) K (Multiplicative.ofAdd c)).2
 
 @[expose] def d4RatPoints :
     Subgroup (WithConv (GeneralLinear.coordinateHopfAlgebra ℤ 24 →ₐ[ℤ] ℚ)) :=
@@ -162,9 +151,6 @@ theorem d4_evalMat_eq_zero_of_root_subgroups
   rwa [GeneralLinear.pointsMulEquiv_symm_apply,
     GeneralLinear.generalLinearToPoint_coordinateRingMap, aeval_eq_evalMat] at hzero
 
-theorem d4tData_degOrdered : DegOrdered d4tData := by
-  unfold DegOrdered MinData.deg
-  decide +kernel
 
 theorem cartan_D4_eq_submatrix :
     Tag.cartan .D4 = (CartanMatrix.D 4).submatrix d4Node.symm d4Node.symm := by

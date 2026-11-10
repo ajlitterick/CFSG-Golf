@@ -36,9 +36,6 @@ namespace U35Pk
   List.rec (motive := fun _ => Nat → Nat) (fun _ => 0)
     (fun x _ ih i => Nat.rec (motive := fun _ => Nat) x (fun j _ => ih j) i) L
 
-@[expose] noncomputable def getLL (L : List (List Nat)) : Nat → List Nat :=
-  List.rec (motive := fun _ => Nat → List Nat) (fun _ => [])
-    (fun x _ ih i => Nat.rec (motive := fun _ => List Nat) x (fun j _ => ih j) i) L
 
 @[expose] noncomputable def lenK (L : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) 0 (fun _ _ ih => Nat.succ ih) L

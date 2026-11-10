@@ -282,32 +282,6 @@ theorem Good.members_in_Q (hG : D.Good) {Q M : Subgroup G}
   refine hG.TI (x := y) ?_ hy hy1
   rw [mem_conjSub]; simpa using hmZ
 
-theorem Good.mem_of_normalizes_Q (hG : D.Good) {Q M : Subgroup G}
-    (hcov : ∀ x ∈ Q, x ≠ 1 → ∃ m ∈ M, m * x * m⁻¹ ∈ D.Z) (hZQ : D.Z ≤ Q)
-    (hHM : M₁ ⊓ M₂ ≤ M) {n : G} (hn : ∀ x ∈ Q, n * x * n⁻¹ ∈ Q) : n ∈ M := by
-  have hle : conjSub n D.Z ≤ Q := by
-    intro x hx
-    have := hn _ (hZQ (mem_conjSub.mp hx))
-    simpa [mul_assoc] using this
-  obtain ⟨m, hm, hmeq⟩ := hG.members_in_Q hcov hle
-  have h1 : conjSub (m⁻¹ * n) D.Z = D.Z := by
-    rw [conjSub_mul, ← hmeq, conjSub_conjSub_inv]
-  have h2 : m⁻¹ * n ∈ M₁ ⊓ M₂ := by
-    apply hG.normalizer_Z
-    intro x hx
-    have : m⁻¹ * n * x * (m⁻¹ * n)⁻¹ ∈ conjSub (m⁻¹ * n) D.Z := mul_mem_conjSub hx
-    rwa [h1] at this
-  have : n = m * (m⁻¹ * n) := by group
-  rw [this]
-  exact M.mul_mem hm (hHM h2)
-
-theorem Good.normalizer_Q₁ (hG : D.Good) {n : G} (hn : ∀ x ∈ D.Q₁, n * x * n⁻¹ ∈ D.Q₁) :
-    n ∈ M₁ :=
-  hG.mem_of_normalizes_Q D.cov₁ D.Z_le_Q₁ (fun _ hh => hh.1) hn
-
-theorem Good.normalizer_Q₂ (hG : D.Good) {n : G} (hn : ∀ x ∈ D.Q₂, n * x * n⁻¹ ∈ D.Q₂) :
-    n ∈ M₂ :=
-  hG.mem_of_normalizes_Q D.cov₂ D.Z_le_Q₂ (fun _ hh => hh.2) hn
 
 theorem Good.Q_not_conj (hG : D.Good) (x : G) : conjSub x D.Q₁ ≠ D.Q₂ := by
   intro h

@@ -92,27 +92,6 @@ structure Setting46 (t : X) (L : Subgroup X) (p f : ℕ) (S : Subgroup X) (w z :
       pCore 2 (MBar (w ^ (orderOf w / 2) * t ^ i * z ^ j)) ⊓ centralizer {setup.tBar i j} ≤
         closure {setup.tBar i j, betaBar (w ^ (orderOf w / 2) * t ^ i * z ^ j)}
 
-@[expose] def Harris413Input46 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-    Assembly.KProper Blueprint.Catalog X → ¬ Blueprint.Catalog X →
-    ∀ (t : X) (L : Subgroup X) (p f : ℕ) (S : Subgroup X) (w z : X) (V : Subgroup X) (i j : ℕ),
-      Setting46 t L p f S w z V i j →
-        ¬ IsSimpleGroup ↥(layer (MBar (w ^ (orderOf w / 2) * t ^ i * z ^ j)))
-
-@[expose] def Harris414Input46 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-    Assembly.KProper Blueprint.Catalog X → ¬ Blueprint.Catalog X →
-    ∀ (t : X) (L : Subgroup X) (p f : ℕ) (S : Subgroup X) (w z : X) (V : Subgroup X) (i j : ℕ),
-      Setting46 t L p f S w z V i j →
-        ¬ IsSimpleGroup ↥(layer (MBar (w ^ (orderOf w / 2) * t ^ i * z ^ j))) →
-        ¬ IsQuasisimple ↥(layer (MBar (w ^ (orderOf w / 2) * t ^ i * z ^ j)))
-
-@[expose] def Harris415Input46 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-    Assembly.KProper Blueprint.Catalog X → ¬ Blueprint.Catalog X →
-    ∀ (t : X) (L : Subgroup X) (p f : ℕ) (S : Subgroup X) (w z : X) (V : Subgroup X) (i j : ℕ),
-      Setting46 t L p f S w z V i j →
-        IsQuasisimple ↥(layer (MBar (w ^ (orderOf w / 2) * t ^ i * z ^ j)))
 
 omit [Finite X] in
 theorem setting46_of [IsSimpleGroup X] [Finite X] (hnonab : ∃ a b : X, a * b ≠ b * a)
@@ -159,27 +138,5 @@ theorem setting46_of [IsSimpleGroup X] [Finite X] (hnonab : ∃ a b : X, a * b �
   lemma46b := hσ.lemma46b hFC hKC i j
   lemma46f := hσ.lemma46f hnonab hK hSch hFC hKC i j
 
-theorem sectionFourAfter411_of_46 (hFC : AutPSL2FieldCentralizerInput)
-    (hKC : AutPSL2CentralizerInput) (hKF : AutPSL2FusionInput) (hI : AutPSL2InvolutionInput)
-    (hSch : LocalAnalysis.ComponentInitial.SchreierFor Blueprint.Catalog)
-    (h413 : Harris413Input46) (h414 : Harris414Input46) (h415 : Harris415Input46) :
-    SectionFourAfter411 := by
-  intro X _ _ _ hnonab hK hcat t L p f h hmax S hS w z hσ V hV hSV β hβ hβmax hu
-  obtain ⟨i, j, rfl⟩ := hσ.mem_X_not_tD hβ.mem_X hβ.not_mem
-  have hset := setting46_of hnonab hK hFC hKC hKF hI hSch h hmax hS hσ hV hSV hβ hβmax hu
-  exact h414 X hnonab hK hcat t L p f S w z V i j hset
-    (h413 X hnonab hK hcat t L p f S w z V i j hset)
-    (h415 X hnonab hK hcat t L p f S w z V i j hset)
-
-theorem harrislit_of_inputs_46 (hCU : CatalogueU.CatalogAlmostSimpleUnbalancedOutcome)
-    (hGH : UFrontier.GH74ModelsInput) (hHSF : GSLit.HarrisSolomonFritzInput)
-    (hHS : HarrisSolomonDihedralInput) (hKG : AutPSL2SylowInput)
-    (hKC : AutPSL2CentralizerInput) (hKF : AutPSL2FusionInput)
-    (hFC : AutPSL2FieldCentralizerInput) (hI : AutPSL2InvolutionInput)
-    (hSch : LocalAnalysis.ComponentInitial.SchreierFor Blueprint.Catalog)
-    (h413 : Harris413Input46) (h414 : Harris414Input46) (h415 : Harris415Input46) :
-    GSLit.HarrisInput :=
-  harrislit_of_inputs_411 hCU hGH hHSF hHS hKG hKC hKF
-    (sectionFourAfter411_of_46 hFC hKC hKF hI hSch h413 h414 h415)
 
 end CFSG.ComponentClassification.HarrisLit

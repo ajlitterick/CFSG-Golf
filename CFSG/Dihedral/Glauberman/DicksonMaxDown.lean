@@ -518,29 +518,6 @@ theorem rotation_of_mulEquiv {G X : Type*} [Group G] [Group X] {K : Subgroup G} 
 
 variable {F : Type} [Field F] [Finite F] {p f : ℕ} [hp : Fact p.Prime]
 
-theorem eq_prime_of_pow_eq_prime {p f n : ℕ} (hp : p.Prime) (hn : n.Prime) (h : p ^ f = n) :
-    p = n ∧ f = 1 := by
-  have hf0 : f ≠ 0 := by
-    rintro rfl
-    simp at h
-    exact hn.one_lt.ne' h.symm
-  have hpn : p = n := by
-    have hdvd : p ∣ n := h ▸ dvd_pow_self p hf0
-    exact (Nat.prime_dvd_prime_iff_eq hp hn).mp hdvd
-  subst hpn
-  have h' : p ^ f = p ^ 1 := by rw [h, pow_one]
-  exact ⟨rfl, Nat.pow_right_injective hp.two_le h'⟩
-
-theorem eq_three_two_of_pow_eq_nine {p f : ℕ} (hp : p.Prime) (h : p ^ f = 9) : p = 3 ∧ f = 2 := by
-  have hf0 : f ≠ 0 := by
-    rintro rfl
-    simp at h
-  have hp3 : p = 3 := by
-    have hdvd : p ∣ 3 ^ 2 := by rw [show 3 ^ 2 = 9 by norm_num, ← h]; exact dvd_pow_self p hf0
-    exact (Nat.prime_dvd_prime_iff_eq hp Nat.prime_three).mp (hp.dvd_of_dvd_pow hdvd)
-  subst hp3
-  have h' : 3 ^ f = 3 ^ 2 := by rw [h]; norm_num
-  exact ⟨rfl, Nat.pow_right_injective (by norm_num) h'⟩
 
 end CFSG.Glauberman.Dickson.MaxDown
 

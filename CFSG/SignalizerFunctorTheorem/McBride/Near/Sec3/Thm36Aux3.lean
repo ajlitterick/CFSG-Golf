@@ -13,13 +13,6 @@ universe u
 
 namespace CFSG.SignalizerFunctorTheorem.McBride.Near.Thm36
 
-@[expose] def Thm36Below.{v} (p n : ℕ) : Prop :=
-  ∀ (Γ : Type v) [Group Γ] [Finite Γ] (A W Y X₁ X₂ : Subgroup Γ),
-    Nat.card ↥W + Nat.card ↥X₁ < n → NearAsolvAction p A W → (iPairsY A W Y).Nonempty →
-    IsDAIn A W X₁ → IsDAIn A W X₂ →
-    IsChiefFactorOf (X₁ ⊔ cenIn W (A : Set Γ) ⊔ A) X₁ X₂ → ¬ IsSolvableSection X₁ X₂ →
-    X₂ ⊓ cenIn W (A : Set Γ) ≤ Y →
-    X₁ ⊓ cenIn W (A : Set Γ) ≤ Y ∨ secCenIn (cenIn W (A : Set Γ)) X₁ X₂ = Y
 
 variable {Γ : Type u} [Group Γ]
 

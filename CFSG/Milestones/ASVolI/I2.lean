@@ -80,19 +80,6 @@ variable {G : Type} [Group G]
   t ^ 2 = 1 ∧ t ≠ 1 ∧
     ∃ T : Sylow 2 G, t ∈ (T : Subgroup G) ∧ ∀ x ∈ (T : Subgroup G), x * t = t * x
 
-@[expose] def IsMaxParabolicTwo (P : Subgroup G) : Prop :=
-  P ≠ ⊤ ∧ ∃ S : Sylow 2 G, Subgroup.normalizer ((S : Subgroup G) : Set G) ≤ P ∧
-    ∀ Q : Subgroup G, Subgroup.normalizer ((S : Subgroup G) : Set G) ≤ Q → Q ≠ ⊤ → P ≤ Q → Q = P
-
-@[expose] def IsZ4StarQ8Sq (X : Type) [Group X] : Prop :=
-  ∃ A B C : Subgroup X, Nonempty (A ≃* Multiplicative (ZMod 4)) ∧
-    Nonempty (B ≃* QuaternionGroup 2) ∧ Nonempty (C ≃* QuaternionGroup 2) ∧
-    A ⊔ B ⊔ C = ⊤ ∧ (∀ a ∈ A, ∀ b ∈ B, a * b = b * a) ∧ (∀ a ∈ A, ∀ c ∈ C, a * c = c * a) ∧
-    (∀ b ∈ B, ∀ c ∈ C, b * c = c * b) ∧ Nat.card ↥(A ⊓ B) = 2 ∧ A ⊓ B = A ⊓ C ∧ A ⊓ B = B ⊓ C
-
-@[expose] def IsS5OverE16 (J : Subgroup G) : Prop :=
-  ∃ (V : Subgroup G) (_ : (V.subgroupOf J).Normal), V ≤ J ∧ IsElemAbelian 2 V ∧
-    Nat.card ↥V = 16 ∧ Nonempty (↥J ⧸ V.subgroupOf J ≃* Equiv.Perm (Fin 5))
 
 @[expose] def frattiniOf (R : Subgroup G) : Subgroup G := (frattini ↥R).map R.subtype
 
@@ -106,8 +93,6 @@ section Quasisimple
 
 variable (K : Type) [Group K]
 
-@[expose] def preimageStar (Js : Subgroup (K ⧸ Subgroup.center K)) : Subgroup K :=
-  Subgroup.comap (QuotientGroup.mk' (Subgroup.center K)) Js
 
 @[expose] def InvolutionsLift : Prop :=
   ∀ t : K ⧸ Subgroup.center K, t ^ 2 = 1 → t ≠ 1 →
@@ -131,15 +116,6 @@ variable (K : Type) [Group K]
   ∃! v : K, (∃ z ∈ Subgroup.center K, v = u * z) ∧
     ∃ x ∈ pCoreOf 2 (twoResidual (Subgroup.centralizer ({u} : Set K))), x ^ 2 = v
 
-@[expose] def centralizerOfFrattiniOfCore (u : K) : Subgroup K :=
-  pCoreOf 2 (twoResidual (Subgroup.centralizer ({u} : Set K))) ⊓
-    Subgroup.centralizer
-      (frattiniOf (pCoreOf 2 (twoResidual (Subgroup.centralizer ({u} : Set K)))) : Set K)
-
-@[expose] def preimageLayerCentralizer (i : K ⧸ Subgroup.center K) : Subgroup K :=
-  preimageStar K
-    ((CFSG.layer ↥(Subgroup.centralizer ({i} : Set (K ⧸ Subgroup.center K)))).map
-      (Subgroup.centralizer ({i} : Set (K ⧸ Subgroup.center K))).subtype)
 
 end Quasisimple
 
@@ -222,45 +198,6 @@ variable {G : Type} [Group G]
 @[expose] def IsWeaklyClosedIn (A B : Subgroup G) : Prop :=
   ∀ g : G, CFSG.conjugate A g ≤ B → CFSG.conjugate A g = A
 
-@[expose] def FusionStep (𝒟 : Set (Subgroup G)) (Q R : Subgroup G) : Prop :=
-  ∃ D ∈ 𝒟, ∃ x ∈ Subgroup.normalizer (D : Set G), Q ⊔ R ≤ D ∧ CFSG.conjugate Q x = R
-
-@[expose] def IsConjugationFamily (P : Subgroup G) (𝒟 : Set (Subgroup G)) : Prop :=
-  (∀ D ∈ 𝒟, D ≤ P) ∧ ∀ Q R : Subgroup G, Q ≤ P → R ≤ P → ∀ g : G,
-    CFSG.conjugate Q g = R → Relation.ReflTransGen (FusionStep 𝒟) Q R
-
-theorem conj_mem_of_normalIn {Q N : Subgroup G} (h : IsNormalIn Q N)
-    {q x : G} (hq : q ∈ Q) (hx : x ∈ N) : x * q * x⁻¹ ∈ Q := by
-  have := h.2.conj_mem ⟨q, h.1 hq⟩ (Subgroup.mem_subgroupOf.2 hq) ⟨x, hx⟩
-  exact Subgroup.mem_subgroupOf.1 this
-
-theorem conj_eq_of_normalIn {Q N : Subgroup G} (h : IsNormalIn Q N)
-    {x : G} (hx : x ∈ N) : CFSG.conjugate Q x = Q := by
-  ext y
-  simp only [CFSG.conjugate, Subgroup.mem_map, MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-  constructor
-  · rintro ⟨q, hq, rfl⟩
-    have := conj_mem_of_normalIn h hq (N.inv_mem hx)
-    simpa using this
-  · intro hy
-    refine ⟨x * y * x⁻¹, conj_mem_of_normalIn h hy hx, by group⟩
-
-theorem weaklyClosed_of_fusion {P : Subgroup G} {𝒟 : Set (Subgroup G)}
-    (hfam : IsConjugationFamily P 𝒟) {Q : Subgroup G} (hQP : Q ≤ P)
-    (hn : ∀ D ∈ 𝒟, Q ≤ D → IsNormalIn Q (Subgroup.normalizer (D : Set G))) :
-    IsWeaklyClosedIn Q P := by
-  intro g hg
-  have hchain := hfam.2 Q (CFSG.conjugate Q g) hQP hg g rfl
-  have key : ∀ R, Relation.ReflTransGen (FusionStep 𝒟) Q R → R = Q := by
-    intro R hR
-    induction hR with
-    | refl => rfl
-    | tail _ hstep ih =>
-      subst ih
-      obtain ⟨D, hD, x, hx, hle, hconj⟩ := hstep
-      rw [← hconj]
-      exact conj_eq_of_normalIn (hn D hD (le_sup_left.trans hle)) hx
-  exact key _ hchain
 
 end Fusion
 
@@ -2488,48 +2425,6 @@ section I2b
 
 variable {V : Type} [CommGroup V]
 
-@[expose] def SpDerivedNatural (H : Subgroup (MulAut V)) (U Z : Subgroup V) (a : ℕ) : Prop :=
-  ∃ (K : Type) (_ : Field K) (_ : Finite K), Nat.card K = 2 ^ a ∧
-    (FFModel.nat ⁅StatedSp 2 K, StatedSp 2 K⁆).Realizes H U Z
-
-@[expose] def zornO0F (F : Type) [Field F] : Submodule F (quasithinZorn F) where
-  carrier := {x | x.1 + x.2.2.2 = 0}
-  add_mem' := fun {x y} hx hy => by
-    simp only [Set.mem_ofPred_eq, Prod.fst_add, Prod.snd_add] at hx hy ⊢
-    rw [add_add_add_comm, hx, hy, add_zero]
-  zero_mem' := by simp
-  smul_mem' := fun c x hx => by
-    simp only [Set.mem_ofPred_eq, Prod.smul_fst, Prod.smul_snd, smul_eq_mul] at hx ⊢
-    rw [← mul_add, hx, mul_zero]
-
-@[expose] def IsEndStableMod (L : Subgroup (MulAut V)) (W0 U : Subgroup V) : Prop :=
-  ∀ φ : (V ⧸ W0) →* (V ⧸ W0),
-    (∀ g ∈ L, ∀ v w : V, φ (QuotientGroup.mk v) = QuotientGroup.mk w →
-      φ (QuotientGroup.mk (g v)) = QuotientGroup.mk (g w)) →
-    ∀ u ∈ U, ∃ w ∈ U, φ (QuotientGroup.mk u) = QuotientGroup.mk w
-
-@[expose] def IsTInvFSub (L T : Subgroup (MulAut V)) (W0 : Subgroup V) (n i : ℕ) (U : Subgroup V) : Prop :=
-  W0 ≤ U ∧ (∀ t ∈ T, ∀ u ∈ U, t u ∈ U) ∧ IsEndStableMod L W0 U ∧
-    Nat.card ↥U = Nat.card ↥W0 * (2 ^ n) ^ i
-
-abbrev I23Holomorph (V : Type) [CommGroup V] :=
-  SemidirectProduct V (MulAut V) (MonoidHom.id (MulAut V))
-
-@[expose] def i23ModuleSubgroup (U : Subgroup V) : Subgroup (I23Holomorph V) :=
-  U.map (SemidirectProduct.inl : V →* I23Holomorph V)
-
-@[expose] def i23Extension (G : Subgroup (MulAut V)) : Subgroup (I23Holomorph V) :=
-  G.comap (SemidirectProduct.rightHom : I23Holomorph V →* MulAut V)
-
-@[expose] def I23LiteralCentralCore (G : Subgroup (MulAut V)) (U : Subgroup V) : Prop :=
-  i23ModuleSubgroup U ≤
-    centerOf (pCoreOf 2
-      (i23Extension G ⊓ Subgroup.normalizer (i23ModuleSubgroup U : Set (I23Holomorph V))))
-
-@[expose] def I23CentralCoreCompatibility : Prop :=
-  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-    ∀ (G : Subgroup (MulAut V)) (U : Subgroup V),
-      I23LiteralCentralCore G U ↔ pCoreOf 2 (G ⊓ stabSub U) ≤ centSub U
 
 @[expose] def i23NaturalModel (m : ℕ) (F : Type) [Field F] : FFModel :=
   match m with
@@ -2538,22 +2433,6 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
   | 2 => FFModel.nat ⁅StatedSp 2 F, StatedSp 2 F⁆
   | _ + 3 => FFModel.zornQ ⁅quasithinG2 F, quasithinG2 F⁆
 
-@[expose] def i23NaturalScalar (m : ℕ) (F : Type) [Field F] :
-    F → (i23NaturalModel m F).Amb → (i23NaturalModel m F).Amb := by
-  match m with
-  | 0 =>
-      change F → Multiplicative (quasithinZorn F) → Multiplicative (quasithinZorn F)
-      exact fun scalar vector => Multiplicative.ofAdd (scalar • Multiplicative.toAdd vector)
-  | 1 =>
-      change F → Multiplicative (Fin 2 → F) → Multiplicative (Fin 2 → F)
-      exact fun scalar vector => Multiplicative.ofAdd (scalar • Multiplicative.toAdd vector)
-  | 2 =>
-      change F → Multiplicative ((Fin 2 ⊕ Fin 2) → F) →
-        Multiplicative ((Fin 2 ⊕ Fin 2) → F)
-      exact fun scalar vector => Multiplicative.ofAdd (scalar • Multiplicative.toAdd vector)
-  | _ + 3 =>
-      change F → Multiplicative (quasithinZorn F) → Multiplicative (quasithinZorn F)
-      exact fun scalar vector => Multiplicative.ofAdd (scalar • Multiplicative.toAdd vector)
 
 @[expose] def I23SectionMap (D : FFModel) (L : Subgroup (MulAut V)) (W0 : Subgroup V)
     (π : D.Gam →* ↥L) (β : V →* ↥D.sec ⧸ D.ker.subgroupOf D.sec) : Prop :=
@@ -2566,60 +2445,6 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
         β ((π γ : MulAut V) vector) =
           QuotientGroup.mk ⟨D.act γ (native : D.Amb), hNative⟩
 
-@[expose] def IsI23MarkedSubspace (m n i : ℕ) (F : Type) [Field F]
-    (T : Subgroup (MulAut V)) (W0 U : Subgroup V)
-    (β : V →* ↥(i23NaturalModel m F).sec ⧸
-      (i23NaturalModel m F).ker.subgroupOf (i23NaturalModel m F).sec) : Prop :=
-  W0 ≤ U ∧ (∀ t ∈ T, ∀ vector ∈ U, t vector ∈ U) ∧
-    Nat.card ↥U = Nat.card ↥W0 * (2 ^ n) ^ i ∧
-    ∀ (scalar : F) (vector : V), vector ∈ U →
-      ∀ native : ↥(i23NaturalModel m F).sec,
-        β vector = QuotientGroup.mk native →
-          ∃ image : V, image ∈ U ∧
-            ∃ hNative : i23NaturalScalar m F scalar native ∈ (i23NaturalModel m F).sec,
-              β image = QuotientGroup.mk ⟨i23NaturalScalar m F scalar native, hNative⟩
-
-@[expose] def i23TransvectionRoot (L : Subgroup (MulAut V)) (W0 U : Subgroup V) :
-    Subgroup (MulAut V) :=
-  Subgroup.closure {root | root ∈ L ∧
-    (∀ vector : V, root vector * vector⁻¹ ∈ U) ∧
-    (∀ vector ∈ U, root vector * vector⁻¹ ∈ W0) ∧
-    ∃ vector : V, root vector * vector⁻¹ ∉ W0}
-
-@[expose] def I23ScalarCompatibility (m : ℕ) (F : Type) [Field F]
-    {W : Type} [AddCommGroup W] [Module F W] (ψ : V ≃* Multiplicative W)
-    (β : V →* ↥(i23NaturalModel m F).sec ⧸
-      (i23NaturalModel m F).ker.subgroupOf (i23NaturalModel m F).sec) : Prop :=
-  ∀ (scalar : F) (vector : V) (native : ↥(i23NaturalModel m F).sec),
-    β vector = QuotientGroup.mk native →
-      ∃ hNative : i23NaturalScalar m F scalar native ∈ (i23NaturalModel m F).sec,
-        β (ψ.symm (Multiplicative.ofAdd (scalar • Multiplicative.toAdd (ψ vector)))) =
-          QuotientGroup.mk ⟨i23NaturalScalar m F scalar native, hNative⟩
-
-@[expose] def i23G2HighestLongRoot (F : Type) [Field F] :
-    Subgroup ↥⁅quasithinG2 F, quasithinG2 F⁆ :=
-  Subgroup.closure {γ | ∃ c : F, ∀ x : quasithinZorn F,
-    (γ : quasithinZorn F ≃ₗ[F] quasithinZorn F) x =
-      (x.1,
-        (fun i => x.2.1 i + if i = 1 then c * x.2.1 2 else 0),
-        (fun i => x.2.2.1 i - if i = 2 then c * x.2.2.1 1 else 0),
-        x.2.2.2)}
-
-@[expose] def i23NativeHighestLongRoot (m : ℕ) (F : Type) [Field F] :
-    Subgroup (i23NaturalModel m F).Gam :=
-  match m with
-  | 0 => i23G2HighestLongRoot F
-  | 1 => ⊥
-  | 2 => ⊥
-  | _ + 3 => i23G2HighestLongRoot F
-
-@[expose] def IsI23MarkedLongRoot (m : ℕ) (F : Type) [Field F]
-    (L : Subgroup (MulAut V))
-    (marking : (i23NaturalModel m F).Gam →* ↥L)
-    (S : Subgroup (MulAut V)) : Prop :=
-  ∃ γ : (i23NaturalModel m F).Gam,
-    S = (CFSG.conjugate (i23NativeHighestLongRoot m F) γ).map
-      (L.subtype.comp marking)
 
 @[expose] def IsUniversalCovering (G : Subgroup (MulAut V)) (W0 : Subgroup V) : Prop :=
   W0 ≤ fixV G ∧ commV G = ⊤ ∧
@@ -2633,85 +2458,6 @@ abbrev I23Holomorph (V : Type) [CommGroup V] :=
     ∃ θ : V →* V', Function.Surjective θ ∧ (∀ (g : ↥G) (v : V), θ ((g : MulAut V) v) = ρ' g (θ v)) ∧
       ∀ v : V, ψ' (θ v) = QuotientGroup.mk v
 
-@[expose] def I23RelativeUniversalLift (G L : Subgroup (MulAut V))
-    (W0 : Subgroup V) : Prop :=
-  ∃ (hLG : L ≤ G) (U : Type) (_ : CommGroup U) (_ : Finite U)
-    (ρ : ↥G →* MulAut U) (K : Subgroup U) (θ : U →* V),
-    (∀ u : U, u ^ 2 = 1) ∧
-    IsUniversalCovering (ρ.comp (Subgroup.inclusion hLG)).range K ∧
-    Function.Surjective θ ∧ K = W0.comap θ ∧
-    ∀ (g : ↥G) (u : U), θ (ρ g u) = (g : MulAut V) (θ u)
-
-@[expose] def I23Case (m n : ℕ) (L : Subgroup (MulAut V)) (W0 : Subgroup V) : Prop :=
-  (m = 1 ∧ 1 < n ∧ BinaryNaturalSL L ⊤ W0 2 n) ∨ (m = 2 ∧ SpDerivedNatural L ⊤ W0 n) ∨
-    (m = 3 ∧ G2NaturalDerived L ⊤ W0 n)
-
-@[expose] def IsFSubspaceVia {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W]
-    (ψ : V ≃* Multiplicative W) (U : Subgroup V) (k : ℕ) : Prop :=
-  ∃ S : Submodule F W, Module.finrank F ↥S = k ∧ ∀ v : V, v ∈ U ↔ Multiplicative.toAdd (ψ v) ∈ S
-
-@[expose] def polarOf {F : Type} [Field F] {W : Type} [AddCommGroup W] (Q : W → F) (x y : W) : F :=
-  Q (x + y) - Q x - Q y
-
-@[expose] def I23SmallSymplecticConcl {F : Type} [Field F]
-    {W : Type} [AddCommGroup W] [Module F W] (Q : W → F)
-    (ψ : V ≃* Multiplicative W) (L T : Subgroup (MulAut V))
-    (V1 V2 : Subgroup V) : Prop :=
-  Nat.card ↥(omegaOne (centerOf (T ⊓ L))) = 2 ∧
-  ∀ z ∈ omegaOne (centerOf (T ⊓ L)), z ≠ 1 →
-    let D := commV (Subgroup.zpowers z)
-    IsFSubspaceVia (F := F) ψ D 2 ∧
-    D ≤ fixV (Subgroup.zpowers z) ∧ D ⊓ fixV L = ⊥ ∧ D ⊔ fixV L = V2 ∧
-    (∀ x ∈ D, ∀ y ∈ D,
-      polarOf Q (Multiplicative.toAdd (ψ x)) (Multiplicative.toAdd (ψ y)) = 0) ∧
-    (∃ x ∈ D, Q (Multiplicative.toAdd (ψ x)) ≠ 0) ∧
-    IsFSubspaceVia (F := F) ψ (D ⊓ V1) 1 ∧
-    (∀ x ∈ D ⊓ V1, Q (Multiplicative.toAdd (ψ x)) = 0) ∧
-    V1 = (D ⊓ V1) ⊔ fixV L
-
-@[expose] def OrthConcl {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W] (Q : W → F)
-    (m n : ℕ) (ψ : V ≃* Multiplicative W) (L T R : Subgroup (MulAut V)) (V1 V2 : Subgroup V) : Prop :=
-  ((∀ v : V, v ∈ fixV L ↔ ∀ w : W, polarOf Q (Multiplicative.toAdd (ψ v)) w = 0) ∧
-      Nat.card ↥(fixV L) = 2 ^ n) ∧
-  (V1 = fixV (T ⊓ L) ∧
-    ∃! P : Subgroup V, IsFSubspaceVia (F := F) ψ P 1 ∧
-      (∀ v ∈ P, Q (Multiplicative.toAdd (ψ v)) = 0) ∧ V1 = P ⊔ fixV L ∧ P ⊓ fixV L = ⊥) ∧
-  (m ≠ 3 ∧ (m ≠ 2 ∨ n ≠ 1) →
-    (∀ r ∈ R, r ≠ 1 →
-      (IsFSubspaceVia (F := F) ψ (commV (Subgroup.zpowers r)) 1 ∧
-        (∃ v ∈ commV (Subgroup.zpowers r), Q (Multiplicative.toAdd (ψ v)) ≠ 0) ∧
-        commV (Subgroup.zpowers r) ≤ V1 ∧ commV (Subgroup.zpowers r) ≠ fixV L) ∧
-      (1 < n → ∀ s ∈ R, s ∉ Subgroup.zpowers r →
-        commV (Subgroup.zpowers r) ⊓ commV (Subgroup.zpowers s) = ⊥)) ∧
-    (1 < n → V1 = commV R ∧ commV R ≤ fixV R)) ∧
-  (m = 2 ∧ n = 1 → R = ⊥ ∧ I23SmallSymplecticConcl Q ψ L T V1 V2) ∧
-  (m = 3 →
-    (IsFSubspaceVia (F := F) ψ (commV (omegaOne (centerOf (T ⊓ L)))) 2 ∧
-      (∀ v ∈ commV (omegaOne (centerOf (T ⊓ L))), Q (Multiplicative.toAdd (ψ v)) = 0) ∧
-      commV (omegaOne (centerOf (T ⊓ L))) ⊓ fixV L = ⊥ ∧
-      commV (omegaOne (centerOf (T ⊓ L))) ⊔ fixV L = V2))
-
-@[expose] def OrthConclMarked {F : Type} [Field F] {W : Type} [AddCommGroup W] [Module F W] (Q : W → F)
-    (m n : ℕ) (ψ : V ≃* Multiplicative W) (L T R S : Subgroup (MulAut V)) (V1 V2 : Subgroup V) : Prop :=
-  ((∀ v : V, v ∈ fixV L ↔ ∀ w : W, polarOf Q (Multiplicative.toAdd (ψ v)) w = 0) ∧
-      Nat.card ↥(fixV L) = 2 ^ n) ∧
-  (V1 = fixV (T ⊓ L) ∧
-    ∃! P : Subgroup V, IsFSubspaceVia (F := F) ψ P 1 ∧
-      (∀ v ∈ P, Q (Multiplicative.toAdd (ψ v)) = 0) ∧ V1 = P ⊔ fixV L ∧ P ⊓ fixV L = ⊥) ∧
-  (m ≠ 3 ∧ (m ≠ 2 ∨ n ≠ 1) →
-    (∀ r ∈ R, r ≠ 1 →
-      (IsFSubspaceVia (F := F) ψ (commV (Subgroup.zpowers r)) 1 ∧
-        (∃ v ∈ commV (Subgroup.zpowers r), Q (Multiplicative.toAdd (ψ v)) ≠ 0) ∧
-        commV (Subgroup.zpowers r) ≤ V1 ∧ commV (Subgroup.zpowers r) ≠ fixV L) ∧
-      (1 < n → ∀ s ∈ R, s ∉ Subgroup.zpowers r →
-        commV (Subgroup.zpowers r) ⊓ commV (Subgroup.zpowers s) = ⊥)) ∧
-    (1 < n → V1 = commV R ∧ commV R ≤ fixV R)) ∧
-  (m = 2 ∧ n = 1 → R = ⊥ ∧ I23SmallSymplecticConcl Q ψ L T V1 V2) ∧
-  (m = 3 →
-    (IsFSubspaceVia (F := F) ψ (commV (S)) 2 ∧
-      (∀ v ∈ commV (S), Q (Multiplicative.toAdd (ψ v)) = 0) ∧
-      commV (S) ⊓ fixV L = ⊥ ∧
-      commV (S) ⊔ fixV L = V2))
 
 end I2b
 
@@ -2724,191 +2470,17 @@ namespace CFSG.ASVolI
 open CFSG.Open CFSG.Blueprint CFSG.ASVolI.ChIJK
 open scoped MatrixGroups
 
-@[expose] def I_2_1 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Gs : Type) [Group Gs] (φ : G →* Gs),
-    Function.Surjective φ → Group.IsPerfect G → φ.ker ≤ Subgroup.center G →
-    IsPGroup 3 (Subgroup.center G) →
-    (StatedClassicalModel Gs .PSU 4 3 1 ∨ ChevalleyExceptionalModel Gs .G2 3 1 ∨
-      StatedClassicalModel Gs .POmegaOdd 3 3 1 ∨ NativeSporadic.IsSporadic Gs .ONan ∨
-      NativeSporadic.IsSporadic Gs .J3 ∨ NativeSporadic.IsSporadic Gs .McL) →
-    2 < CFSG.pRank 3 G
 
 section BurnsideI2b
 
-private theorem burnsideI2a_two_lt_pRank_of_central_quotient {G Gs : Type} [Group G] [Finite G]
-    [Group Gs] [Finite Gs] (φ : G →* Gs) (hφ : Function.Surjective φ)
-    (hker : φ.ker ≤ Subgroup.center G)
-    (h4 : 4 ≤ CFSG.Open.pRank 3 (⊤ : Subgroup Gs)) : 2 < CFSG.pRank 3 G := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  by_contra hcon
-  have hG : CFSG.Open.pRank 3 (⊤ : Subgroup G) ≤ 2 := by
-    rw [← CFSG.SectionRank.pRank_eq_open_pRank_top]
-    omega
-  have h3 := CFSG.SectionRank.pRank_quotient_le_three (by norm_num) hG φ.ker hker
-  have h5 := CFSG.SectionRank.pRank_top_eq_of_mulEquiv (by norm_num : 1 < 3)
-    (QuotientGroup.quotientKerEquivOfSurjective φ hφ)
-  omega
-
-private theorem burnsideI2a_four_le_pRank_of_elem {Gs T : Type} [Group Gs] [Finite Gs] [Group T]
-    (e : Gs ≃* T) (hT : ∃ E : Subgroup T, CFSG.Open.IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 4) :
-    4 ≤ CFSG.Open.pRank 3 (⊤ : Subgroup Gs) := by
-  haveI : Finite T := Finite.of_equiv _ e.toEquiv
-  obtain ⟨E, hE, hcard⟩ := hT
-  have h := CFSG.SectionRank.le_pRank (by norm_num : 1 < 3) (le_top : E ≤ ⊤) hE hcard
-  rw [← CFSG.SectionRank.pRank_top_eq_of_mulEquiv (by norm_num) e] at h
-  exact h
-
-private theorem burnsideI2a_chevalleyG2_of_mulEquiv {X Y : Type} [Group X] [Group Y] (e : X ≃* Y)
-    {p f : ℕ} (h : CFSG.Blueprint.ChevalleyExceptionalModel Y .G2 p f) :
-    CFSG.Blueprint.ChevalleyExceptionalModel X .G2 p f := by
-  obtain ⟨hadm, K, hK, hKfin, hcard, ⟨e'⟩⟩ := h
-  exact ⟨hadm, K, hK, hKfin, hcard, ⟨e.trans e'⟩⟩
 
 end BurnsideI2b
 
 section
 
-theorem as_I_2_1 : I_2_1 := by
-  intro G _ _ Gs _ φ hφ _ hker hcen hmod
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  haveI : Finite Gs := Finite.of_surjective φ hφ
-  rcases hmod with hU | hG2 | hO | hON | hJ3 | hMcL
-  ·
-    obtain ⟨-, -, hrk⟩ := CFSG.SectionRank.classical_model_rank (by norm_num) hU
-    refine burnsideI2a_two_lt_pRank_of_central_quotient φ hφ hker ?_
-    rcases hrk with ⟨h, -⟩ | ⟨-, ⟨h, -⟩ | h⟩ | ⟨h, -⟩ | h
-    · exact absurd h (by decide)
-    · exact absurd h (by norm_num)
-    · exact h
-    · exact absurd h (by decide)
-    · exact h
-  ·
-    exact (CFSG.SectionRank.g2_odd_central_cover_rank_three φ.ker hker Nat.prime_three
-      (by norm_num) (burnsideI2a_chevalleyG2_of_mulEquiv
-        (QuotientGroup.quotientKerEquivOfSurjective φ hφ) hG2)).1
-  ·
-    obtain ⟨-, -, hrk⟩ := CFSG.SectionRank.classical_model_rank (by norm_num) hO
-    refine burnsideI2a_two_lt_pRank_of_central_quotient φ hφ hker ?_
-    rcases hrk with ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | h
-    · exact absurd h (by decide)
-    · exact absurd h (by decide)
-    · exact absurd h (by decide)
-    · exact h
-  ·
-    obtain ⟨e⟩ := hON
-    exact burnsideI2a_two_lt_pRank_of_central_quotient φ hφ hker
-      (burnsideI2a_four_le_pRank_of_elem e CFSG.SectionRank.ON_elementary_three_rank_four)
-  ·
-    obtain ⟨e⟩ := hJ3
-    obtain ⟨K, hKp, Q, x, y, h, cc, a, b, c, d, -, hQ, hQcard, hcyc, hhK, hgen, hx, hy, hdet, hcK,
-      hcc, hcK1⟩ := CFSG.SectionRank.J3_perfect_local_det_witness
-    haveI : Finite CFSG.Blueprint.NativeSporadic.J3 := Finite.of_equiv _ e.toEquiv
-    let π : G →* CFSG.Blueprint.NativeSporadic.J3 := e.toMonoidHom.comp φ
-    have hπ : Function.Surjective π := e.surjective.comp hφ
-    have hπker : π.ker ≤ Subgroup.center G := fun g hg => hker (by
-      have h1 : e (φ g) = 1 := hg
-      rw [MonoidHom.mem_ker]
-      exact e.injective (by rw [h1, map_one]))
-    obtain ⟨n, hn⟩ := IsPGroup.iff_card.1 (hcen.to_le hπker)
-    have hodd : Odd (Nat.card π.ker) := by
-      rw [hn]
-      exact Odd.pow (by decide)
-    obtain ⟨E3, hE3, hcard⟩ := CFSG.SectionRank.perfect_local_det_cover_rank K Q hQ hQcard hcyc h
-      hhK hgen hx hy hdet cc hcK hcc hcK1 π hπ hπker hodd
-    have h3 : 3 ≤ CFSG.Open.pRank 3 (⊤ : Subgroup G) :=
-      CFSG.SectionRank.le_pRank (by norm_num) le_top hE3 hcard
-    rw [CFSG.SectionRank.pRank_eq_open_pRank_top]
-    omega
-  ·
-    obtain ⟨e⟩ := hMcL
-    exact burnsideI2a_two_lt_pRank_of_central_quotient φ hφ hker
-      (burnsideI2a_four_le_pRank_of_elem e CFSG.SectionRank.McL_elementary_three_rank_four)
 
 end
 
-@[expose] def I_2_2 : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], CFSG.IsQuasisimple K → Subgroup.center K ≠ ⊥ →
-    (IsPGroup 2 (Subgroup.center K) →
-      (Nonempty (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin 5)) →
-        Nonempty (K ≃* Matrix.SpecialLinearGroup (Fin 2) (ZMod 5))) ∧
-      (Nonempty (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin 6)) →
-        Nonempty (K ≃* Matrix.SpecialLinearGroup (Fin 2) (GaloisField 3 2)))) ∧
-    ((Nonempty (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin 6)) ∨
-        Nonempty (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin 7))) →
-      CFSG.pRank 3 K = 2) ∧
-    ((StatedClassicalModel (K ⧸ Subgroup.center K) .PSL 3 2 2 ∧ IsPGroup 2 (Subgroup.center K)) →
-      ∀ Ps : Subgroup (K ⧸ Subgroup.center K), IsMaxParabolicTwo Ps →
-        (frattini ↥(Subgroup.center K) ≠ ⊥ →
-          (∀ S : Sylow 2 K,
-            (Subgroup.center ↥(S : Subgroup K)).map (S : Subgroup K).subtype =
-              Subgroup.center K) ∧
-          ∃ a ∈ pCoreOf 2 (preimageStar K Ps), ∃ b ∈ pCoreOf 2 (preimageStar K Ps),
-            a * b ≠ b * a) ∧
-        (frattini ↥(Subgroup.center K) = ⊥ →
-          InvolutionsLift K ∧ frattiniOf (pCoreOf 2 (preimageStar K Ps)) = ⊥ ∧
-          ⁅pCoreOf 2 (preimageStar K Ps), preimageStar K Ps⁆ = pCoreOf 2 (preimageStar K Ps) ∧
-          ∃ β : K ≃* K, IsGraphFieldAut β ∧ ∀ z ∈ Subgroup.center K, β z = z)) ∧
-    (SuzukiModel (K ⧸ Subgroup.center K) 2 3 →
-      InvolutionsLift K ∧ ∀ S : Sylow 2 K,
-        Subgroup.center K = (Subgroup.center ↥(S : Subgroup K)).map (S : Subgroup K).subtype) ∧
-    ((ChevalleyExceptionalModel (K ⧸ Subgroup.center K) .G2 2 2 ∨
-        NativeSporadic.IsSporadic (K ⧸ Subgroup.center K) .J2 ∨
-        NativeSporadic.IsSporadic (K ⧸ Subgroup.center K) .M12 ∨
-        NativeSporadic.IsSporadic (K ⧸ Subgroup.center K) .HS) →
-      TwoCentralInvolutionsLift K ∧
-      (NonTwoCentralInvolutionsLiftToOrderFour K ∧ OuterInvolutionsInvertOrderFour K) ∧
-      (¬ ChevalleyExceptionalModel (K ⧸ Subgroup.center K) .G2 2 2 →
-        ∀ u : K, u ∉ Subgroup.center K → u ^ 2 = 1 → UniqueSquareInCoset K u)) ∧
-    ((NativeSporadic.IsSporadic (K ⧸ Subgroup.center K) .M22 ∧ IsPGroup 2 (Subgroup.center K)) →
-      (∀ Js : Subgroup (K ⧸ Subgroup.center K), IsS5OverE16 Js →
-        Subgroup.center K ≤ twoResidual (preimageStar K Js) ∧
-        (Nat.card (Subgroup.center K) = 2 → frattiniOf (pCoreOf 2 (preimageStar K Js)) = ⊥) ∧
-        (Nat.card (Subgroup.center K) = 4 → IsZ4StarQ8Sq ↥(pCoreOf 2 (preimageStar K Js)))) ∧
-      (Nat.card (Subgroup.center K) = 2 →
-        ∀ u : K, u ∉ Subgroup.center K → u ^ 2 = 1 → UniqueSquareInCoset K u)) ∧
-    (NativeSporadic.IsSporadic (K ⧸ Subgroup.center K) .Ru →
-      ∀ i : K ⧸ Subgroup.center K, i ^ 2 = 1 → i ≠ 1 → ¬ IsTwoCentralInvolution i →
-        (∃ L : Subgroup K, L ≤ preimageLayerCentralizer K i ∧ L ⊓ Subgroup.center K = ⊥ ∧
-          L ⊔ Subgroup.center K = preimageLayerCentralizer K i) ∧
-        ((∃ k : K, orderOf k = 4 ∧ (k : K ⧸ Subgroup.center K) = i) ∧
-          TwoCentralInvolutionsLift K ∧ 6 ≤ CFSG.pRank 2 K) ∧
-        ∀ u : K, u ∉ Subgroup.center K → u ^ 2 = 1 →
-          Nat.card ↥⁅centralizerOfFrattiniOfCore K u, centralizerOfFrattiniOfCore K u⁆ = 2 ∧
-          (⁅centralizerOfFrattiniOfCore K u, centralizerOfFrattiniOfCore K u⁆).map
-              (QuotientGroup.mk' (Subgroup.center K)) =
-            Subgroup.zpowers (u : K ⧸ Subgroup.center K))
-
-@[expose] def I_2_4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime → ∀ P : Sylow p G,
-    ∀ 𝒟 : Set (Subgroup G), IsConjugationFamily (P : Subgroup G) 𝒟 →
-      ∀ Q : Subgroup G, Q ≤ (P : Subgroup G) →
-        ((∀ D ∈ 𝒟, Q ≤ D → IsNormalIn Q (Subgroup.normalizer (D : Set G))) →
-          IsWeaklyClosedIn Q (P : Subgroup G)) ∧
-        ((∀ D ∈ 𝒟, ∀ E ∈ 𝒟, D ≤ E →
-            Subgroup.normalizer (E : Set G) ≤ Subgroup.normalizer (D : Set G)) →
-          ∀ D ∈ 𝒟, IsWeaklyClosedIn D (P : Subgroup G))
-
-theorem as_I_2_4 : I_2_4 := by
-  intro G _ _ p hp P 𝒟 hfam Q hQP
-  refine ⟨fun hn => weaklyClosed_of_fusion hfam hQP hn, fun hE D hD => ?_⟩
-  refine weaklyClosed_of_fusion hfam (hfam.1 D hD) (fun D' hD' hDD' => ?_)
-  refine ⟨hDD'.trans Subgroup.le_normalizer, ?_⟩
-  refine ⟨fun n hn g => ?_⟩
-  have hgD : (g : G) ∈ Subgroup.normalizer (D : Set G) := hE D hD D' hD' hDD' g.2
-  rw [Subgroup.mem_subgroupOf] at hn ⊢
-  have := (Subgroup.mem_normalizer_iff.1 hgD (n : G)).1 hn
-  simpa using this
-
-@[expose] def IsRankOneNormal {G : Type} [Group G] (p : ℕ) (B N : Subgroup G) : Prop :=
-  ∀ U : Subgroup G, U ≤ B → (U.subgroupOf B).Normal → IsPGroup p U → ¬ p ∣ U.index →
-  ∀ s ∈ N, s ∉ B → (∀ b ∈ B, s * b * s ∈ B ∨ ∃ b₁ ∈ B, ∃ b₂ ∈ B, s * b * s = b₁ * s * b₂) →
-    ∀ u ∈ U, ∀ c ∈ U, s⁻¹ * c * s ∈ B → s⁻¹ * (u * c * u⁻¹) * s ∈ B
-
-@[expose] def I_2_5 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime →
-    (∃ B N : Subgroup G, IsSplitBNPair p B N ∧ IsRankOneNormal p B N) →
-    ∀ P : Subgroup G, (∃ U : Sylow p G, Subgroup.normalizer ((U : Subgroup G) : Set G) ≤ P) →
-      ∀ S : Subgroup G, IsPGroup p S → pCoreOf p P ≤ S → IsWeaklyClosedIn (pCoreOf p P) S
 
 section I2bProps
 
@@ -2917,94 +2489,6 @@ open CFSG.Quasithin CFSG.QuasithinUnique
 open CFSG.ASVolI.ChIJK CFSG.Quasithin CFSG.QuasithinUnique CFSG.Open
 open scoped MatrixGroups
 
-@[expose] def I_2_3_legacyUnmarked : Prop :=
-  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-  ∀ (G L T : Subgroup (MulAut V)) (W0 : Subgroup V) (m n : ℕ),
-    L = quasithinGenFitting G → G = L ⊔ T → IsSylowTwoOf T G →
-    (∀ g ∈ G, ∀ w ∈ W0, g w ∈ W0) → W0 ≤ fixV L → commV L = ⊤ →
-    I23Case m n L W0 →
-    ∀ V1 V2 : Subgroup V, IsTInvFSub L T W0 n 1 V1 → IsTInvFSub L T W0 n 2 V2 →
-    (∀ U : Subgroup V, IsTInvFSub L T W0 n 1 U → U = V1) →
-    (∀ U : Subgroup V, IsTInvFSub L T W0 n 2 U → U = V2) →
-    ∀ R : Subgroup (MulAut V), R = i23TransvectionRoot L W0 V1 →
-      (IsUniversalCovering L W0 →
-        ∀ (F : Type) [Field F] [Finite F], Nat.card F = 2 ^ n →
-          ((m = 1 ∨ m = 2) →
-            ∃ (ψ : V ≃* Multiplicative (Fin m ⊕ Fin m ⊕ Unit → F))
-              (π : ↥(StatedOmega (StatedQuadOdd m F)) →* ↥L),
-              Function.Surjective π ∧
-              (∀ (γ : ↥(StatedOmega (StatedQuadOdd m F))) (v : V),
-                ψ ((π γ : MulAut V) v) = Multiplicative.ofAdd
-                  (((γ : Matrix.GeneralLinearGroup (Fin m ⊕ Fin m ⊕ Unit) F) :
-                    Matrix (Fin m ⊕ Fin m ⊕ Unit) (Fin m ⊕ Fin m ⊕ Unit) F).mulVec
-                    (Multiplicative.toAdd (ψ v)))) ∧
-              OrthConcl (StatedQuadOdd m F) m n ψ L T R V1 V2) ∧
-          (m = 3 →
-            ∃ (ψ : V ≃* Multiplicative ↥(zornO0F F))
-              (π : ↥⁅quasithinG2 F, quasithinG2 F⁆ →* ↥L),
-              Function.Surjective π ∧
-              (∀ (γ : ↥⁅quasithinG2 F, quasithinG2 F⁆) (v : V),
-                ((Multiplicative.toAdd (ψ ((π γ : MulAut V) v)) : ↥(zornO0F F)) : quasithinZorn F) =
-                  (γ : quasithinZorn F ≃ₗ[F] quasithinZorn F)
-                    ((Multiplicative.toAdd (ψ v) : ↥(zornO0F F)) : quasithinZorn F)) ∧
-              OrthConcl (fun x : ↥(zornO0F F) => zornNorm F (x : quasithinZorn F)) m n ψ L T R V1 V2)) ∧
-      (¬ (fixV T ⊓ V1 ≤ fixV L) ∧
-        pCoreOf 2 (G ⊓ stabSub V1) ≤ centSub V1 ∧ pCoreOf 2 (G ⊓ stabSub V2) ≤ centSub V2) ∧
-      (1 < n → fixV L ≤ V1 ∧ (m ≠ 3 → V1 = commV R ∧ commV R ≤ fixV R))
-
-@[expose] def I_2_3 : Prop :=
-  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-  ∀ (G L T : Subgroup (MulAut V)) (W0 : Subgroup V) (m n : ℕ),
-    L = quasithinGenFitting G → G = L ⊔ T → IsSylowTwoOf T G →
-    (∀ g ∈ G, ∀ w ∈ W0, g w ∈ W0) → W0 ≤ fixV L → commV L = ⊤ →
-    ((m = 1 ∧ 1 < n) ∨ (m = 2 ∧ 0 < n) ∨ (m = 3 ∧ 0 < n)) →
-    ∀ (F : Type) [Field F] [Finite F], Nat.card F = 2 ^ n →
-    ∀ (marking : (i23NaturalModel m F).Gam →* ↥L)
-      (β : V →* ↥(i23NaturalModel m F).sec ⧸
-        (i23NaturalModel m F).ker.subgroupOf (i23NaturalModel m F).sec),
-      I23SectionMap (i23NaturalModel m F) L W0 marking β →
-      ∃ V1 V2 : Subgroup V,
-        IsI23MarkedSubspace m n 1 F T W0 V1 β ∧
-        IsI23MarkedSubspace m n 2 F T W0 V2 β ∧
-        (∀ U : Subgroup V, IsI23MarkedSubspace m n 1 F T W0 U β → U = V1) ∧
-        (∀ U : Subgroup V, IsI23MarkedSubspace m n 2 F T W0 U β → U = V2) ∧
-        let R := i23TransvectionRoot L W0 V1
-        ∃ S : Subgroup (MulAut V),
-          (m = 3 → IsI23MarkedLongRoot m F L marking S ∧
-            S = ChIJK.omegaOne (ChIJK.centerOf (T ⊓ L)) ∧
-            (1 < n → S = ChIJK.centerOf (T ⊓ L))) ∧
-          (m = 2 ∧ n = 1 → R = ⊥) ∧
-      (IsUniversalCovering L W0 →
-          ((m = 1 ∨ m = 2) →
-            ∃ (ψ : V ≃* Multiplicative (Fin m ⊕ Fin m ⊕ Unit → F))
-              (π : ↥(StatedOmega (StatedQuadOdd m F)) →* ↥L),
-              Function.Surjective π ∧
-              (∀ (γ : ↥(StatedOmega (StatedQuadOdd m F))) (v : V),
-                ψ ((π γ : MulAut V) v) = Multiplicative.ofAdd
-                  (((γ : Matrix.GeneralLinearGroup (Fin m ⊕ Fin m ⊕ Unit) F) :
-                    Matrix (Fin m ⊕ Fin m ⊕ Unit) (Fin m ⊕ Fin m ⊕ Unit) F).mulVec
-                    (Multiplicative.toAdd (ψ v)))) ∧
-              I23ScalarCompatibility m F ψ β ∧
-              OrthConclMarked (StatedQuadOdd m F) m n ψ L T R S V1 V2) ∧
-          (m = 3 →
-            ∃ (ψ : V ≃* Multiplicative ↥(zornO0F F))
-              (π : ↥⁅quasithinG2 F, quasithinG2 F⁆ →* ↥L),
-              Function.Surjective π ∧
-              (∀ (γ : ↥⁅quasithinG2 F, quasithinG2 F⁆) (v : V),
-                ((Multiplicative.toAdd (ψ ((π γ : MulAut V) v)) : ↥(zornO0F F)) : quasithinZorn F) =
-                  (γ : quasithinZorn F ≃ₗ[F] quasithinZorn F)
-                    ((Multiplicative.toAdd (ψ v) : ↥(zornO0F F)) : quasithinZorn F)) ∧
-              I23ScalarCompatibility m F ψ β ∧
-              OrthConclMarked (fun x : ↥(zornO0F F) => zornNorm F (x : quasithinZorn F)) m n ψ L T R S V1 V2)) ∧
-      (¬ (fixV T ⊓ V1 ≤ fixV L) ∧
-        I23LiteralCentralCore G V1 ∧ I23LiteralCentralCore G V2) ∧
-      (1 < n → fixV L ≤ V1 ∧ (m ≠ 3 → V1 = commV R ∧ commV R ≤ fixV R))
-
-@[expose] def I_1_7b : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →
-    ∀ (G L : Subgroup (MulAut W)) (V : Subgroup W) (n : ℕ),
-      L = quasithinGenFitting G → (∀ g ∈ G, ∀ v ∈ V, g v ∈ V) → G2NaturalDerived L V ⊥ n →
-      commV G ≤ V → fixV G = ⊥ → IsFFModule G → V = ⊤
 
 end I2bProps
 

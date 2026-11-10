@@ -71,40 +71,6 @@ section Desc
 
 variable {K L : Type} [Field K] [Field L]
 
-theorem desc_mem {V : Type*} [AddCommGroup V] [Module L V] (ι : K →+* L) (Fr : L →+* L)
-    (σ : V → V) (hσadd : ∀ a b, σ (a + b) = σ a + σ b)
-    (hσsmul : ∀ (c : L) (v : V), σ (c • v) = Fr c • σ v)
-    (hfix : ∀ c, Fr c = c → ∃ a, ι a = c)
-    (S : AddSubgroup V) (hS : ∀ s ∈ S, σ s = s) (hSK : ∀ (a : K) (s : V), s ∈ S → ι a • s ∈ S)
-    {u : V} (hu : u ∈ Submodule.span L (S : Set V)) (hσu : σ u = u) : u ∈ S := by
-  classical
-  obtain ⟨b, hbS, hbspan, hbli⟩ := exists_linearIndependent L (S : Set V)
-  rw [← hbspan] at hu
-  obtain ⟨l, hl⟩ := (Finsupp.mem_span_iff_linearCombination L b u).1 hu
-  have hσσ : ∀ l : b →₀ L, σ (Finsupp.linearCombination L (fun x : b => (x : V)) l) =
-      Finsupp.linearCombination L (fun x : b => (x : V)) (l.mapRange Fr Fr.map_zero) := by
-    intro l
-    induction l using Finsupp.induction_linear with
-    | zero => simp [show σ 0 = 0 from by
-        have := hσadd 0 0
-        simpa using this]
-    | add f g hf hg =>
-      rw [map_add, hσadd, hf, hg, Finsupp.mapRange_add (fun x y => Fr.map_add x y), map_add]
-    | single x c =>
-      simp only [Finsupp.linearCombination_single, Finsupp.mapRange_single]
-      rw [hσsmul, hS _ (hbS x.2)]
-  have h1 : Finsupp.linearCombination L (fun x : b => (x : V)) (l.mapRange Fr Fr.map_zero) =
-      Finsupp.linearCombination L (fun x : b => (x : V)) l := by
-    rw [← hσσ, hl, hσu]
-  have h2 : l.mapRange Fr Fr.map_zero = l := hbli h1
-  have h3 : ∀ x : b, ∃ a : K, ι a = l x := fun x => hfix _ (by
-    have := congrArg (fun f => f x) h2
-    simpa using this)
-  rw [← hl, Finsupp.linearCombination_apply, Finsupp.sum]
-  refine S.sum_mem fun x _ => ?_
-  obtain ⟨a, ha⟩ := h3 x
-  rw [← ha]
-  exact hSK a _ (hbS x.2)
 
 end Desc
 

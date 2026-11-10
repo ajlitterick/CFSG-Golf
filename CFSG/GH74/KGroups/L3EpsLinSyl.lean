@@ -26,7 +26,6 @@ theorem swapSL_mul_self : (swapSL : SL(3, F)) * swapSL = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_succ]
 
-theorem swapSL_sq : (swapSL : SL(3, F)) ^ 2 = 1 := by rw [sq]; exact swapSL_mul_self
 
 theorem swapSL_inv : (swapSL : SL(3, F))⁻¹ = swapSL := inv_eq_of_mul_eq_one_right swapSL_mul_self
 
@@ -83,10 +82,6 @@ variable {F : Type} [Field F]
 @[expose] def torusMu (r : ℕ) : mu r F × mu r F →* SL(3, F) :=
   (torus : Fˣ × Fˣ →* SL(3, F)).comp ((mu r F).subtype.prodMap (mu r F).subtype)
 
-theorem torusMu_injective (r : ℕ) : Function.Injective (torusMu r : mu r F × mu r F →* SL(3, F)) := by
-  intro a b h
-  have := torus_injective (F := F) h
-  exact Prod.ext (Subtype.ext (congrArg Prod.fst this)) (Subtype.ext (congrArg Prod.snd this))
 
 @[expose] def thetaMu (r : ℕ) : mu r F × mu r F →* projectiveSL 3 F :=
   (proj 3 F).comp (torusMu r)

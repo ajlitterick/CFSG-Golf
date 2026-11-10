@@ -168,9 +168,6 @@ theorem statedLieAdmissible_of_lieModel {X : Type} [Group X] {t : StatedLieTag} 
     (h : LieModel X t n p f) : StatedLieAdmissible t n p f :=
   CFSG.Blueprint.LieModel.admissible h
 
-theorem not_lieModel_POmegaOdd_two {X : Type} [Group X] {n f : ℕ} :
-    ¬ LieModel X .POmegaOdd n 2 f :=
-  fun h => (statedLieAdmissible_of_lieModel h).2.2.2 rfl
 
 theorem not_lieModel_twistedG2_two {X : Type} [Group X] {n f : ℕ} :
     ¬ LieModel X .twistedG2 n 2 f :=
@@ -230,22 +227,6 @@ theorem lieModel_PSp_three_two_unique_classicalOrSuzuki
     t = .PSp ∧ n = 3 ∧ f' = f :=
   lieModel_PSp_three_two_unique_classicalOrSuzuki_of_card_eq h6 ht h rfl
 
-theorem lieModel_PSL_six_two_unique_classicalOrSuzuki_of_card_eq
-    {X Y : Type} [Group X] [Group Y] {f : ℕ} (h6 : LieModel X .PSL 6 2 f) {t : StatedLieTag}
-    {n f' : ℕ} (ht : t ∈ classicalTags ∨ t = .twistedB2) (h : LieModel Y t n 2 f')
-    (hcard : Nat.card Y = Nat.card X) : t = .PSL ∧ n = 6 ∧ f' = f := by
-  refine evenLieOrder_eq_ordA_five (statedLieAdmissible_of_lieModel h)
-    (statedLieAdmissible_of_lieModel h6).2.1 ?_
-  rw [← card_eq_evenLieOrder_of_classicalOrSuzuki ht h, hcard,
-    card_eq_evenLieOrder_of_mem_classicalTags (by decide) h6]
-  rfl
-
-theorem lieModel_PSL_six_two_unique_classicalOrSuzuki
-    (X : Type) [Group X] (f : ℕ) (t : StatedLieTag) (n f' : ℕ)
-    (ht : t ∈ classicalTags ∨ t = .twistedB2) (h6 : LieModel X .PSL 6 2 f)
-    (_hadm : StatedLieAdmissible t n 2 f') (h : LieModel X t n 2 f') :
-    t = .PSL ∧ n = 6 ∧ f' = f :=
-  lieModel_PSL_six_two_unique_classicalOrSuzuki_of_card_eq h6 ht h rfl
 
 section Orders
 
@@ -291,18 +272,6 @@ theorem card_eq_evenLieOrder {X : Type} [Group X] {t : StatedLieTag} {n f : ℕ}
     · exact absurd hsz (by decide)
   all_goals exact card_eq_evenLieOrder_of_mem_classicalTags (by decide) h
 
-theorem lieModel_PSp_three_two_unique_of_card_eq {X Y : Type} [Group X] [Group Y] {f : ℕ}
-    (h6 : LieModel X .PSp 3 2 f) {t : StatedLieTag} {n f' : ℕ} (h : LieModel Y t n 2 f')
-    (hcard : Nat.card Y = Nat.card X) : t = .PSp ∧ n = 3 ∧ f' = f := by
-  refine evenLieOrder_eq_ordBC_three (statedLieAdmissible_of_lieModel h)
-    (statedLieAdmissible_of_lieModel h6).2.1 ?_
-  rw [← card_eq_evenLieOrder h, hcard, card_eq_evenLieOrder h6]
-  rfl
-
-theorem lieModel_PSp_three_two_unique {X : Type} [Group X] {f : ℕ}
-    (h6 : LieModel X .PSp 3 2 f) {t : StatedLieTag} {n f' : ℕ} (h : LieModel X t n 2 f') :
-    t = .PSp ∧ n = 3 ∧ f' = f :=
-  lieModel_PSp_three_two_unique_of_card_eq h6 h rfl
 
 theorem lieModel_PSL_six_two_unique_of_card_eq {X Y : Type} [Group X] [Group Y] {f : ℕ}
     (h6 : LieModel X .PSL 6 2 f) {t : StatedLieTag} {n f' : ℕ} (h : LieModel Y t n 2 f')

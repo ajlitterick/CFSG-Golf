@@ -52,13 +52,6 @@ theorem p_eq_three
   h.p_eq_three_of_cube_dvd hp CFSG.Walter.suzukiFourGroupTheorem
     CFSG.Walter.huppertMetacyclicTheorem fun hp3 => h51.cube_dvd hp3
 
-theorem jt_theoremA
-    (hp : h.p ≠ 2) (h51 : h.Lemma51) :
-    h.p = 3 ∧ Odd h.f ∧ 1 < h.f ∧
-      (∀ x ∈ Subgroup.centralizer ({h.t} : Set G), x ≠ 1 → Nat.Coprime (orderOf x) 6 →
-        Subgroup.centralizer ({x} : Set G) ≤ Subgroup.centralizer ({h.t} : Set G)) ∧
-      Nonempty (Ward.ReeTypeHyp G) :=
-  ⟨h.p_eq_three hp h51, h.jt_theoremA_of_three (h.p_eq_three hp h51)⟩
 
 theorem p_eq_three_of_ne_two
     (hp : h.p ≠ 2) : h.p = 3 :=

@@ -38,21 +38,6 @@ section General
 
 variable {G : Type} [Group G]
 
-theorem E22CasesC.exists_field {H T M K : Subgroup G} (hc : E2.E22CasesC H T M K)
-    (h1 : 1 < E1.nParam H) : ∃ k : ℕ, (2 ≤ k ∧ E1.nParam H ≤ k) ∧ E22FieldCases H T M K k := by
-  dsimp only [E2.E22CasesC] at hc
-  dsimp only [E22FieldCases]
-  rcases hc with ⟨hJ, t, ht, hne, hM, h1'⟩ | ⟨hTK, hJ, h2⟩
-  · rcases h1' with ⟨k, hk2, hty, hB, hle⟩ | ⟨-, -, -, -, -, -, hnH⟩
-    · exact ⟨k, ⟨hk2, hle⟩, Or.inl ⟨hJ, t, ht, hne, hM, hk2, hty, hB⟩⟩
-    · exact absurd h1 (by rw [hnH]; exact lt_irrefl 1)
-  · rcases h2 with ⟨k, hBen, hB, hle, -⟩ | ⟨k, -, hty, hD, hB, hle, -⟩ |
-      ⟨_, _, _, _, _, _, _, _, _, hnH⟩ | ⟨_, _, _, _, _, hnH⟩
-    · exact ⟨k, ⟨hBen.1, hle⟩, Or.inr ⟨hTK, hJ, Or.inl ⟨hBen, hB⟩⟩⟩
-    · have hk2 := E2.E22A.two_le_of_one_lt_of_le h1 hle
-      exact ⟨k, ⟨hk2, hle⟩, Or.inr ⟨hTK, hJ, Or.inr ⟨hk2, hty, hD, hB⟩⟩⟩
-    · exact absurd h1 (by rw [hnH]; exact lt_irrefl 1)
-    · exact absurd h1 (by rw [hnH]; exact lt_irrefl 1)
 
 theorem E22CasesC.exists_field_of_lie [Finite G]
     {H T M K : Subgroup G} (hTH : T ≤ H) (hT : IsPGroup 2 T) (hK : K ∈ cComp H)

@@ -356,16 +356,6 @@ theorem mem_normalizer_commutator {H K : Subgroup G} {g : G}
         exact ((Subgroup.ext_iff.1 hC (l : G)).2 ⟨l.2, hl⟩).2)).trans
       (QuotientGroup.quotientKerEquivOfSurjective _ (actL_surjective hLV)))
 
-theorem autOnEquiv_actL {L V W : Subgroup G}
-    (hLV : L ≤ Subgroup.normalizer (V : Set G)) (hLW : L ≤ Subgroup.normalizer (W : Set G))
-    (hC : L ⊓ Subgroup.centralizer (W : Set G) = L ⊓ Subgroup.centralizer (V : Set G))
-    (l : ↥L) : autOnEquiv hLV hLW hC (actL L W hLW l) = actL L V hLV l := by
-  have h1 : (QuotientGroup.quotientKerEquivOfSurjective _ (actL_surjective hLW)).symm
-      (actL L W hLW l) = (QuotientGroup.mk l : ↥L ⧸ (actL L W hLW).ker) := by
-    rw [MulEquiv.symm_apply_eq]
-    rfl
-  simp only [autOnEquiv, MulEquiv.trans_apply, h1]
-  rfl
 
 variable [Finite G] {T M L D : Subgroup G}
 

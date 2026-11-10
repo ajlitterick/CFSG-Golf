@@ -180,11 +180,6 @@ theorem tW_s_comm : ∀ x ∈ Subgroup.zpowers t ⊔ W, x * s = s * x := by
     exact h.W_comm_s w hw
   · rw [mul_assoc, h.W_comm_s w hw, ← mul_assoc, h.ts, mul_assoc]
 
-theorem tW_le_C : Subgroup.zpowers t ⊔ W ≤ Subgroup.centralizer ({t} : Set G) := by
-  refine sup_le ?_ ?_
-  · rw [Subgroup.zpowers_le]
-    exact Subgroup.mem_centralizer_singleton_iff.mpr rfl
-  · exact h.W_le_J.trans h.J_le
 
 theorem tW_sq_cases {x : G} (hx : x ∈ Subgroup.zpowers t ⊔ W) (hx2 : x * x = 1) :
     x = 1 ∨ x = t := by

@@ -180,10 +180,6 @@ theorem ggSpBlockWitnessInputOn_nonsplit_rest :
   fun G _ _ p B Bs x L D J n f ψ hP =>
     ggSpBlockWitnessInputOn_nonsplit_all G p B Bs x L D J n f ψ hP.1
 
-theorem ggSixRootFusionWitnessOn_PSpNonsplit_blk :
-    GGSixRootFusionWitnessOn fun t _ f p => t = .PSp ∧ ¬ p ∣ 2 ^ f - 1 :=
-  ggSixRootFusionWitnessOn_PSp_of_blockWitness ggSpBlockWitnessInputOn_nonsplit_all
-    spBlockFixOrSwapInput_holds
 
 theorem ggSixRootFusionWitClRest2_of_omega
     (hPlus : GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaPlus))
@@ -191,11 +187,6 @@ theorem ggSixRootFusionWitClRest2_of_omega
     GGSixRootFusionWitClRest2 :=
   ⟨ggSpBlockWitnessInputOn_nonsplit_rest, spBlockFixOrSwapInput_holds, hPlus, hMinus⟩
 
-theorem ggSixRootFusionWitClRest_of_omega
-    (hPlus : GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaPlus))
-    (hMinus : GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaMinus)) :
-    GGSixRootFusionWitClRest :=
-  ggSixRootFusionWitClRest_of_rest2 (ggSixRootFusionWitClRest2_of_omega hPlus hMinus)
 
 theorem ggSixRootFusionWitnessInputFor_otherClassical_of_omega
     (hPlus : GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaPlus))

@@ -181,9 +181,6 @@ theorem smul_baseFlag_eq_of_cols (s : SU6)
   have := hs j hj i (by omega)
   rwa [suLin_apply, mulVec_uVec] at this
 
-theorem smul_baseFlag_eq_iff_sub (h : SU6) :
-    h • baseFlag = baseFlag ↔ ∀ k, (h • baseFlag).sub k = baseFlag.sub k :=
-  ⟨fun e k => by rw [e], fun H => IsoFlag6.ext (funext H)⟩
 
 theorem weylPerm_lt : ∀ d k : Fin 3, k ≠ d → ∀ j : Fin 6, (j : ℕ) ≤ k →
     ((weylPerm d j : Fin 6) : ℕ) < k + 1 := by

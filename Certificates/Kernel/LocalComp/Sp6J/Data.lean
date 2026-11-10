@@ -69,7 +69,6 @@ namespace CertificateChecks.KernelLC.Sp6J
 
 @[expose] noncomputable def One36 : Nat := CFSG.KC.Enum.pidn 36 6
 
-@[expose] def xCS : List Nat := 763 :: List.replicate 35 124
 
 end CertificateChecks.KernelLC.Sp6J
 

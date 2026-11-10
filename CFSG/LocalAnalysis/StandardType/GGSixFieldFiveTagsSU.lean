@@ -401,11 +401,6 @@ theorem ggFieldFiveNbrTag_PSU : GGFieldFiveNbrTag .PSU := by
   exact FieldFiveSU.fieldFive_su h hn hker₁ hDel hDcard (fun d hd => hpair d (hDdiag d hd)) hxD
     hL hLmark hJ
 
-theorem ggSixFieldFiveInput_of_rest_PSU (hPlus : GGFieldFiveNbrTag .POmegaPlus)
-    (hMinus : GGFieldFiveNbrTag .POmegaMinus) (hE8 : GGFieldFiveNbrTag .E8)
-    (hF4 : GGFieldFiveRankTag .F4) (hE6 : GGFieldFiveRankTag .E6) (hE7 : GGFieldFiveRankTag .E7)
-    (hTwE6 : GGFieldFiveRankTag .twistedE6) : GGSixFieldFiveInput :=
-  ggSixFieldFiveInput_of_rest ggFieldFiveNbrTag_PSU hPlus hMinus hE8 hF4 hE6 hE7 hTwE6
 
 end Tag
 

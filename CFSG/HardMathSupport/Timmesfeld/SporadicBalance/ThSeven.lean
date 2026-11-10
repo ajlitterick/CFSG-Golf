@@ -77,14 +77,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sect
   CFSG.HardMathSupport.Timmesfeld.SporadicBalance.CommutingPair
 
 
-theorem centChecks_eq (st : BFSState) (n p0 bound c : ℕ) (Z X Y Z0 Z1 : Array V4)
-    (zT xT yT yiT z0T z1T alphaT betaInvT gpl : Table) (q0 : Table × Table × Table) :
-    centChecks st n p0 bound c Z X Y Z0 Z1 zT xT yT yiT z0T z1T alphaT betaInvT gpl q0
-        (smallBFS (stripZ zT gpl alphaT betaInvT q0.2.1 q0.2.2 xT yiT p0).2[2]! 60 z0T z1T) =
-      (centTableChecks st n c Z X Y Z0 Z1 zT xT yT yiT z0T z1T q0 &&
-        centPlaneChecks n p0 bound zT xT yiT z0T z1T alphaT betaInvT gpl q0) := by
-  simp only [centChecks, centTableChecks, centPlaneChecks, Bool.and_assoc]
-
 local notation "regs7" => slpRows (rowsOf seedA) (rowsOf seedB) 43 prog7
 
 local notation "R7" => slpJ a b prog7

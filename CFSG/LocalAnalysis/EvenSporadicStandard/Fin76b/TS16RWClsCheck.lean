@@ -84,8 +84,5 @@ theorem eqNatB_iff {a b : ℕ} : eqNatB a b = true ↔ a = b := by
   [4, 7, 8].all fun j =>
     decide (fusTab[j]! < 128) && ((repArrs[j]!)[fusTab[j]!]! == mulC fusTab[j]! tC)
 
-@[expose] def check27821 : Bool := repCheck && fpDistinct && sumCheck && centCheck && involCheck
-
-@[expose] def check27822 : Bool := x45Check && zetaCheck && twistCheck && fusCheck
 
 end CFSG.EvenSporadicStandard.Fin76b.W16

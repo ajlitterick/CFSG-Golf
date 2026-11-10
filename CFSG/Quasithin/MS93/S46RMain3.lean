@@ -21,8 +21,5 @@ theorem s468Deg_of_degN (h32 : S32) (h39 : S39) (h42 : S42) (h43 : S43) (h14 : M
   have h467 := i467_of_transv h461 h463 h464 h465 h466a
   exact s468Deg_of_s468DegN h43 h464 h465 h466a h467 hN
 
-theorem s46_of_degN (h32 : S32) (h39 : S39) (h42 : S42) (h43 : S43) (h14 : MS14AS)
-    (hSQ : SQTKQuot) (hN : S468DegN) : S46 :=
-  s46_of_deg h32 h39 h42 h43 h14 hSQ (s468Deg_of_degN h32 h39 h42 h43 h14 hSQ hN)
 
 end CFSG.Quasithin.MS93.S46R

@@ -164,16 +164,6 @@ theorem mem_C_of_two_pow {x : G} (hx3 : x ^ 3 = 1)
       rw [this, zpow_neg, hx3', inv_one, mul_one]
       exact Subgroup.zpow_mem _ hyC 2
 
-omit s in
-theorem pCoreOf_Nx_le {x : G} (hx3 : x ^ 3 = 1)
-    (hxN : x ∈ Subgroup.normalizer (V1 T L V : Set G))
-    (hxC : x ∉ Subgroup.centralizer (V1 T L V : Set G)) :
-    pCoreOf 2 (Nx T L V x) ≤ Subgroup.centralizer (V1 T L V : Set G) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  intro g hg
-  obtain ⟨m, hm⟩ := (CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 _) ⟨g, hg⟩
-  exact mem_C_of_two_pow hx3 hxN hxC ((CFSG.LieType.BorelTits.pCoreOf_le 2 _) hg) (m := m)
-    (by simpa using congrArg Subtype.val hm)
 
 theorem V1_le_pCoreOf_Nx
     (h1222 : Stmt12_2_2) {x : G} (hxN : x ∈ Subgroup.normalizer (V1 T L V : Set G)) :

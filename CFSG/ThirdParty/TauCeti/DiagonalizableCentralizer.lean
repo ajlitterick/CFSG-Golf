@@ -103,15 +103,6 @@ theorem map_apply_eq_map {R A B C D : Type*} [CommSemiring R] [Semiring A] [Semi
   rw [← AlgHom.toLinearMap_apply, Algebra.TensorProduct.toLinearMap_map,
     TensorProduct.AlgebraTensorModule.map_eq]
 
-/-- A tensor product of linear maps applied after a tensor product of algebra maps is the tensor
-product of the two composites. Ported from `TauCeti/Algebra/TensorProduct/MapLinear.lean`. -/
-theorem map_algebraTensorProduct_map {R A B C D M N : Type*} [CommSemiring R] [Semiring A]
-    [Semiring B] [Semiring C] [Semiring D] [Algebra R A] [Algebra R B] [Algebra R C] [Algebra R D]
-    [AddCommMonoid M] [Module R M] [AddCommMonoid N] [Module R N]
-    (f₂ : C →ₗ[R] M) (g₂ : D →ₗ[R] N) (f₁ : A →ₐ[R] C) (g₁ : B →ₐ[R] D) (z : A ⊗[R] B) :
-    _root_.TensorProduct.map f₂ g₂ (Algebra.TensorProduct.map f₁ g₁ z) =
-      _root_.TensorProduct.map (f₂ ∘ₗ f₁.toLinearMap) (g₂ ∘ₗ g₁.toLinearMap) z := by
-  rw [map_apply_eq_map, ← LinearMap.comp_apply, ← _root_.TensorProduct.map_comp]
 
 variable {R : Type u} {H : Type v} {X : Type w}
 variable [CommRing R] [CommRing H] [HopfAlgebra R H] [CommGroup X]
@@ -128,24 +119,12 @@ noncomputable def centralizerDefect (x : H) : H ⊗[R] MonoidAlgebra R X :=
       (HopfAlgebra.conjugationAlgHom (R := R) (H := H) x) -
     1 ⊗ₜ[R] π x
 
-/-- The defining formula of the conjugation defect. -/
-theorem centralizerDefect_def (x : H) :
-    centralizerDefect π x =
-      Algebra.TensorProduct.map (AlgHom.id R H) π.toAlgHom
-          (HopfAlgebra.conjugationAlgHom (R := R) (H := H) x) -
-        1 ⊗ₜ[R] π x := by
-  rfl
 
 /-- The coefficient of the conjugation defect of `x` at the character `χ`, in the canonical basis
 of `R[X]`. These coefficients generate the centralizer ideal. -/
 noncomputable def centralizerCoefficient (x : H) (χ : X) : H :=
   LinearMap.tensorComponent (Comodule.monoidCoeff R X χ) (centralizerDefect π x)
 
-/-- The defining formula of a coefficient of the conjugation defect. -/
-theorem centralizerCoefficient_def (x : H) (χ : X) :
-    centralizerCoefficient π x χ =
-      LinearMap.tensorComponent (Comodule.monoidCoeff R X χ) (centralizerDefect π x) := by
-  rfl
 
 /-- A linear map out of `H` kills every coefficient of a conjugation defect exactly when it kills
 the defect itself, after tensoring with the identity of `R[X]`. -/
@@ -253,193 +232,17 @@ theorem centralizerHopfIdeal_le_ker_iff_commute_of_injective {A : Type x} {B : T
   rw [centralizerHopfIdeal_toIdeal]
   exact centralizerIdeal_le_ker_iff_commute_of_injective π g ψ hψ
 
-/-- **The universal-point test.** An `A`-valued point `x` of `G` kills the centralizer ideal
-exactly when, over `R[X] ⊗[R] A`, it commutes with the universal point of `D(X)`. -/
-theorem centralizerHopfIdeal_le_ker_iff_commute_universal {A : Type x} [CommRing A]
-    [Algebra R A] (x : H →ₐ[R] A) :
-    (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker x ↔
-      Commute (toConv ((Algebra.TensorProduct.includeLeft :
-          MonoidAlgebra R X →ₐ[R] MonoidAlgebra R X ⊗[R] A).comp π.toAlgHom))
-        (toConv ((Algebra.TensorProduct.includeRight :
-          A →ₐ[R] MonoidAlgebra R X ⊗[R] A).comp x)) := by
-  have h := centralizerHopfIdeal_le_ker_iff_commute_of_injective π (toConv x)
-    (Algebra.TensorProduct.comm R A (MonoidAlgebra R X)).toAlgHom
-    (Algebra.TensorProduct.comm R A (MonoidAlgebra R X)).injective
-  have hleft : AlgHom.mapValue
-      ((Algebra.TensorProduct.comm R A (MonoidAlgebra R X)).toAlgHom.comp
-        Algebra.TensorProduct.includeLeft) (toConv x) =
-      toConv ((Algebra.TensorProduct.includeRight :
-        A →ₐ[R] MonoidAlgebra R X ⊗[R] A).comp x) := by
-    apply ofConv_injective
-    ext a
-    simp [AlgHom.mapValue_apply]
-  have hright : AlgHom.mapDomain π (toConv
-      ((Algebra.TensorProduct.comm R A (MonoidAlgebra R X)).toAlgHom.comp
-        Algebra.TensorProduct.includeRight)) =
-      toConv ((Algebra.TensorProduct.includeLeft :
-        MonoidAlgebra R X →ₐ[R] MonoidAlgebra R X ⊗[R] A).comp π.toAlgHom) := by
-    apply ofConv_injective
-    ext a
-    simp [AlgHom.mapDomain_apply]
-  rw [hleft, hright, ofConv_toConv] at h
-  exact h.trans (Commute.symm_iff)
-
-/-- A point of `G` killing the centralizer ideal commutes with every point of `D(X)` over every
-extension of its value algebra. -/
-theorem commute_mapValue_mapDomain_of_centralizerHopfIdeal_le_ker {A : Type x} {B : Type y}
-    [CommRing A] [Algebra R A] [CommRing B] [Algebra R B] {g : WithConv (H →ₐ[R] A)}
-    (hg : (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker g.ofConv) (φ : A →ₐ[R] B)
-    (t : WithConv (MonoidAlgebra R X →ₐ[R] B)) :
-    Commute (AlgHom.mapValue φ g) (AlgHom.mapDomain π t) := by
-  have h := ((centralizerHopfIdeal_le_ker_iff_commute_of_injective π g (AlgHom.id _ _)
-    Function.injective_id).mp hg).map
-    (AlgHom.mapValue (H := H) (Algebra.TensorProduct.productMap φ t.ofConv))
-  have hleft : AlgHom.mapValue (H := H) (Algebra.TensorProduct.productMap φ t.ofConv)
-      (AlgHom.mapValue ((AlgHom.id R _).comp Algebra.TensorProduct.includeLeft) g) =
-      AlgHom.mapValue φ g := by
-    apply ofConv_injective
-    ext x
-    simp [AlgHom.mapValue_apply]
-  have hright : AlgHom.mapValue (H := H) (Algebra.TensorProduct.productMap φ t.ofConv)
-      (AlgHom.mapDomain π (toConv ((AlgHom.id R _).comp Algebra.TensorProduct.includeRight))) =
-      AlgHom.mapDomain π t := by
-    apply ofConv_injective
-    ext x
-    simp [AlgHom.mapValue_apply, AlgHom.mapDomain_apply]
-  rwa [hleft, hright] at h
-
-/-- **A point of `G` kills the centralizer ideal exactly when it commutes with every point of
-`D(X)` over every extension of its value algebra.** Quantifying over extensions is what makes
-the condition functorial: the universal extension `A ⊗[R] R[X]` carries the universal point of
-`D(X)`. -/
-theorem centralizerHopfIdeal_le_ker_iff {A : Type x} [CommRing A] [Algebra R A]
-    (g : WithConv (H →ₐ[R] A)) :
-    (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker g.ofConv ↔
-      ∀ ⦃B : Type (max u w x)⦄ [CommRing B] [Algebra R B] (φ : A →ₐ[R] B)
-        (t : WithConv (MonoidAlgebra R X →ₐ[R] B)),
-        Commute (AlgHom.mapValue φ g) (AlgHom.mapDomain π t) := by
-  constructor
-  · intro hg B _ _ φ t
-    exact commute_mapValue_mapDomain_of_centralizerHopfIdeal_le_ker π hg φ t
-  · intro h
-    have hu := h (Algebra.TensorProduct.includeLeft : A →ₐ[R] A ⊗[R] MonoidAlgebra R X)
-      (toConv (Algebra.TensorProduct.includeRight :
-        MonoidAlgebra R X →ₐ[R] A ⊗[R] MonoidAlgebra R X))
-    rw [centralizerHopfIdeal_le_ker_iff_commute_of_injective π g (AlgHom.id R _)
-      Function.injective_id, AlgHom.id_comp, AlgHom.id_comp]
-    exact hu
-
-/-- The subgroup of `A`-valued points of `G` cut out by the centralizer ideal. -/
-noncomputable abbrev centralizerPointsSubgroup (A : CommAlgCat.{x} R) :
-    Subgroup (WithConv (H →ₐ[R] A)) :=
-  CommHopfAlgCat.quotientPointsSubgroup (_root_.CommHopfAlgCat.of R H) (centralizerHopfIdeal π) A
-
-/-- The points of the centralizer are the points of `G` commuting with every point of `D(X)`
-over every extension of the value algebra. -/
-theorem mem_centralizerPointsSubgroup_iff (A : CommAlgCat.{x} R) (g : WithConv (H →ₐ[R] A)) :
-    g ∈ centralizerPointsSubgroup π A ↔
-      ∀ ⦃B : Type (max u w x)⦄ [CommRing B] [Algebra R B] (φ : A →ₐ[R] B)
-        (t : WithConv (MonoidAlgebra R X →ₐ[R] B)),
-        Commute (AlgHom.mapValue φ g) (AlgHom.mapDomain π t) := by
-  rw [CommHopfAlgCat.mem_quotientPointsSubgroup_iff, ← centralizerHopfIdeal_le_ker_iff]
-  exact ⟨fun h x hx ↦ RingHom.mem_ker.mpr (h x (HopfIdeal.mem_toIdeal.mp hx)),
-    fun h x hx ↦ RingHom.mem_ker.mp (h (HopfIdeal.mem_toIdeal.mpr hx))⟩
 
 /-! ## Rational points -/
 
-/-- **A rational point lies in the centralizer exactly when conjugation by it fixes the
-coordinate map of the diagonalizable subgroup.** -/
-theorem centralizerHopfIdeal_le_ker_iff_comp_pointConjugationAlgHom_eq
-    (g : WithConv (H →ₐ[R] R)) :
-    (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker g.ofConv ↔
-      π.toAlgHom.comp (HopfAlgebra.pointConjugationAlgHom g) = π.toAlgHom := by
-  rw [centralizerHopfIdeal_le_ker_iff_commute_of_injective π g
-    (Algebra.TensorProduct.lid R (MonoidAlgebra R X)).toAlgHom
-    (Algebra.TensorProduct.lid R (MonoidAlgebra R X)).injective]
-  have hleft : AlgHom.mapValue (H := H)
-      ((Algebra.TensorProduct.lid R (MonoidAlgebra R X)).toAlgHom.comp
-        Algebra.TensorProduct.includeLeft) g =
-      AlgHom.mapValue (Algebra.ofId R (MonoidAlgebra R X)) g := by
-    apply ofConv_injective
-    ext x
-    simp only [AlgHom.mapValue_apply, ofConv_toConv, AlgHom.comp_apply, AlgEquiv.coe_toAlgHom,
-      Algebra.TensorProduct.includeLeft_apply, Algebra.TensorProduct.lid_tmul,
-      Algebra.ofId_apply, Algebra.algebraMap_eq_smul_one]
-  have hright : AlgHom.mapDomain π (toConv
-      ((Algebra.TensorProduct.lid R (MonoidAlgebra R X)).toAlgHom.comp
-        Algebra.TensorProduct.includeRight)) = toConv π.toAlgHom := by
-    apply ofConv_injective
-    ext x
-    simp [AlgHom.mapDomain_apply]
-  have hconj := HopfAlgebra.comp_pointConjugationAlgHom g (toConv π.toAlgHom)
-  rw [ofConv_toConv] at hconj
-  rw [hleft, hright, ← toConv_injective.eq_iff, hconj, commute_iff_eq, ← mul_inv_eq_iff_eq_mul]
 
 /-! ## Comparison with the diagonalizable subgroup -/
 
-/-- **A diagonalizable subgroup lies in its own centralizer**, being commutative. -/
-theorem centralizerHopfIdeal_le_kerOfSurjective (hπ : Function.Surjective π) :
-    centralizerHopfIdeal π ≤ HopfIdeal.kerOfSurjective π hπ := by
-  intro x hx
-  have hle : (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker (toConv π.toAlgHom).ofConv := by
-    rw [centralizerHopfIdeal_le_ker_iff]
-    intro B _ _ φ t
-    have hφ : AlgHom.mapValue φ (toConv π.toAlgHom) = AlgHom.mapDomain π (toConv φ) := by
-      rw [AlgHom.mapValue_apply, AlgHom.mapDomain_apply, ofConv_toConv, ofConv_toConv]
-    rw [hφ]
-    exact (Commute.all (toConv φ) t).map (AlgHom.mapDomain π)
-  rw [HopfIdeal.mem_kerOfSurjective]
-  exact RingHom.mem_ker.mp (hle (HopfIdeal.mem_toIdeal.mpr hx))
 
 /-! ## Composites `D(Y) → D(X) → G` -/
 
 section Smaller
 
-variable {Y : Type*} [CommGroup Y]
-
-/-- **A smaller diagonalizable subgroup has a larger centralizer.** If `D(Y) → G` factors through
-`D(X) → G` along the homomorphism `D(Y) → D(X)` with coordinate map `ψ`, then every point of `G`
-centralizing `D(X)` centralizes `D(Y)`. -/
-theorem centralizerHopfIdeal_comp_le (ψ : MonoidAlgebra R X →ₐc[R] MonoidAlgebra R Y) :
-    centralizerHopfIdeal (ψ.comp π) ≤ centralizerHopfIdeal π := by
-  -- Test on the quotient point of `H` by the centralizer ideal of `D(X)`.
-  let g : WithConv (H →ₐ[R] H ⧸ (centralizerHopfIdeal π).toIdeal) :=
-    toConv (Ideal.Quotient.mkₐ R (centralizerHopfIdeal π).toIdeal)
-  have hker : RingHom.ker g.ofConv = (centralizerHopfIdeal π).toIdeal :=
-    Ideal.Quotient.mkₐ_ker R _
-  have hg : (centralizerHopfIdeal π).toIdeal ≤ RingHom.ker g.ofConv := hker.ge
-  have hg' : (centralizerHopfIdeal (ψ.comp π)).toIdeal ≤ RingHom.ker g.ofConv := by
-    rw [centralizerHopfIdeal_le_ker_iff]
-    intro B _ _ φ t
-    rw [AlgHom.mapDomain_comp, MonoidHom.comp_apply]
-    exact commute_mapValue_mapDomain_of_centralizerHopfIdeal_le_ker π hg φ _
-  rwa [hker, HopfIdeal.toIdeal_le_toIdeal] at hg'
-
-/-- A split injective map of character groups does not change the centralizer of a
-composite diagonalizable subgroup. -/
-theorem centralizerHopfIdeal_mapDomainBialgHom_comp_eq_of_leftInverse
-    (f : X →* Y) (g : Y →* X) (hgf : g.comp f = MonoidHom.id X) :
-    centralizerHopfIdeal ((MonoidAlgebra.mapDomainBialgHom R f).comp π) =
-      centralizerHopfIdeal π := by
-  refine le_antisymm (centralizerHopfIdeal_comp_le _ _) ?_
-  have hπ : (MonoidAlgebra.mapDomainBialgHom R g).comp
-      ((MonoidAlgebra.mapDomainBialgHom R f).comp π) = π := by
-    rw [← BialgHom.comp_assoc, ← MonoidAlgebra.mapDomainBialgHom_comp, hgf,
-      MonoidAlgebra.mapDomainBialgHom_id]
-    exact BialgHom.id_comp _
-  calc
-    centralizerHopfIdeal π = centralizerHopfIdeal
-        ((MonoidAlgebra.mapDomainBialgHom R g).comp
-          ((MonoidAlgebra.mapDomainBialgHom R f).comp π)) :=
-      congrArg centralizerHopfIdeal hπ.symm
-    _ ≤ _ := centralizerHopfIdeal_comp_le _ _
-
-/-- **The diagonalizable subgroup `D(X)` lies in the centralizer of any composite
-`D(Y) → D(X) → G`**, being commutative. -/
-theorem centralizerHopfIdeal_comp_le_kerOfSurjective (hπ : Function.Surjective π)
-    (ψ : MonoidAlgebra R X →ₐc[R] MonoidAlgebra R Y) :
-    centralizerHopfIdeal (ψ.comp π) ≤ HopfIdeal.kerOfSurjective π hπ :=
-  (centralizerHopfIdeal_comp_le π ψ).trans (centralizerHopfIdeal_le_kerOfSurjective π hπ)
 
 end Smaller
 

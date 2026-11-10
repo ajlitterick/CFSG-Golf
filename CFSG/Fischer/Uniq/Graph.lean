@@ -145,9 +145,6 @@ theorem Pair.conjAut_apply (hP : Pair X E) (g : X) (a : E) :
     (Pair.conjAut hP g a : X) = g * a * g⁻¹ :=
   rfl
 
-theorem Pair.conjAut_toEquiv (hP : Pair X E) (g : X) :
-    (Pair.conjAut hP g).toEquiv = Pair.conjPerm hP g :=
-  rfl
 
 @[simp]
 theorem tauE_coe (hP : Pair X E) (e f : E) : (tauE hP e f : X) = e * f * e :=
@@ -159,10 +156,6 @@ theorem tauE_coe (hP : Pair X E) (e f : E) : (tauE hP e f : X) = e * f * e :=
 theorem Pair.tauAut_apply (hP : Pair X E) (e f : E) : Pair.tauAut hP e f = tauE hP e f :=
   conjPerm_eq_tau hP e f
 
-theorem Pair.tau_adj_iff (hP : Pair X E) (e : E) {f g : E} :
-    (commGraph E).Adj (tauE hP e f) (tauE hP e g) ↔ (commGraph E).Adj f g := by
-  rw [← Pair.tauAut_apply, ← Pair.tauAut_apply]
-  exact (Pair.tauAut hP e).map_adj_iff
 
 @[simp]
 theorem Pair.tauE_tauE (hP : Pair X E) (e f : E) : tauE hP e (tauE hP e f) = f :=

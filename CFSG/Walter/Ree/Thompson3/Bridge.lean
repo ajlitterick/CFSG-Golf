@@ -47,10 +47,6 @@ theorem gf3C : Alg.GF3C d S := by
 theorem t81C1 :
     Alg.T81C1 σ S := fun _ _ _ hz hy hE => (R.components_thm81 hS hz hy hE).1
 
-theorem t81C2 :
-    ∀ z y u : k, z ≠ 0 → y ≠ 0 → (z, y, u) ∈ hopkinsE σ →
-      (S u).2.1 * (z * σ z) = (S (-u)).2.1 * (y * σ y) + (S (-u)).1 * y - σ ((S (-u)).1 * y) :=
-  fun _ _ _ hz hy hE => (R.components_thm81 hS hz hy hE).2.1
 
 theorem t81C3 :
     Alg.T81C3 σ d S := fun _ _ _ hz hy hE => (R.components_thm81 hS hz hy hE).2.2

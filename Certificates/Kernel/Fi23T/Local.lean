@@ -22,7 +22,6 @@ open CFSG.Sporadic.Th.Native (ap Table none32 allIn parAll)
 open CFSG.Sporadic.Th (Rep idx_of_lt allIn_eq_true ap_ofFn parAll_eq_true_of)
 open CFSG.Perm.Native (treeBFS treeOK)
 
-theorem cGens_eq : cGens = #[1, 32, 37, 39, 49, 52, 53, 59, 64] := rfl
 
 theorem cGens_size : cGens.size = 9 := rfl
 

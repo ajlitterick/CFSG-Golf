@@ -29,10 +29,6 @@ theorem rank3II_4_36 (h : Ctx434Core G A M Q) :
     inSubgroup generalizedFitting (Subgroup.centralizer (layer G : Set G)) = CFSG.pCore 3 G :=
   generalizedFitting_centralizer_layer h.theta_eq_bot
 
-theorem rank3II_4_37 (h : Ctx434Core G A M Q) {H : Subgroup G} (hAH : A ≤ H)
-    (hH : CFSG.HallHigman.IsPSolvable 3 H) :
-    maxInvariantPiSubgroups H A (piCompl 3) = {inSubgroup (CFSG.pPrimeCore 3) H} :=
-  maxInvariantPiSubgroups_eq_pPrimeCore hAH hH h.isE27.1 fun _ hx hx3 => h.rank3II_4_35 hx hx3
 
 theorem card_inf_centralizer_layer_le (h : Ctx434Core G A M Q) :
     Nat.card (A ⊓ Subgroup.centralizer (layer G : Set G) : Subgroup G) ≤ 3 := by

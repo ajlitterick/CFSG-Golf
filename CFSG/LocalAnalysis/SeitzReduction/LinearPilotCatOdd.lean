@@ -54,8 +54,5 @@ theorem catSLmOddLieAt_of_inputs (hGLS : GLS3OddLieAutComponentsInput) {m : ℕ}
     obtain ⟨hdvd, -, -⟩ := ordA_two_pow_bounds (by omega : 1 ≤ m - 1) hf
     exact eq_three_one_of_two_pow_dvd hm hf (hdvd.trans hdvd') (by decide)
 
-theorem catSLmOddLie_of_inputs (hGLS : GLS3OddLieAutComponentsInput) (hX : SLmNotOddLieInput) :
-    CatSLmOddLie :=
-  fun m hm => catSLmOddLieAt_of_inputs hGLS hm (hX m hm)
 
 end CFSG.SeitzReduction.LinearPilot

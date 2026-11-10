@@ -31,13 +31,6 @@ variable (Q : QuadraticForm K V)
   right_inv L := Subtype.ext
     ((Submodule.map_comap_subtype W L.val).trans (inf_of_le_right L.property.1))
 
-theorem restrictedPointCountEquiv_submodule (W : Submodule K V)
-    (L : singularLinesIn (Q.restrict W) ⊤) :
-    (restrictedPointCountEquiv Q W L).val = L.val.map W.subtype := rfl
-
-theorem restrictedPointCountEquiv_symm_submodule (W : Submodule K V)
-    (L : singularLinesIn Q W) :
-    ((restrictedPointCountEquiv Q W).symm L).val = L.val.comap W.subtype := rfl
 
 theorem restricted_point_count (W : Submodule K V) :
     Nat.card (singularLinesIn (Q.restrict W) ⊤) = Nat.card (singularLinesIn Q W) :=
@@ -53,21 +46,6 @@ variable {Q}
   Q_f := P.Q_f
   polar_ef := by rw [polar_restrict]; exact P.polar_ef
 
-theorem restricted_pair_e (P : HypPair Q) {W : Submodule K V}
-    (he : P.e ∈ W) (hf : P.f ∈ W) :
-    (restrictedPair P he hf).e = ⟨P.e, he⟩ := rfl
-
-theorem restricted_pair_f (P : HypPair Q) {W : Submodule K V}
-    (he : P.e ∈ W) (hf : P.f ∈ W) :
-    (restrictedPair P he hf).f = ⟨P.f, hf⟩ := rfl
-
-theorem restricted_pair_perp_submodule (P : HypPair Q) {W : Submodule K V}
-    (he : P.e ∈ W) (hf : P.f ∈ W) :
-    (restrictedPair P he hf).perp = (W ⊓ P.perp).comap W.subtype := by
-  ext x
-  rw [HypPair.mem_perp, restricted_pair_e, restricted_pair_f, polar_restrict,
-    polar_restrict, Submodule.mem_comap, Submodule.mem_inf, HypPair.mem_perp]
-  exact ⟨fun h => ⟨x.property, h⟩, fun h => h.2⟩
 
 theorem orthogonal_pair_mem_perp {P R : HypPair Q} (h : P.Orth R) :
     R.e ∈ P.perp ∧ R.f ∈ P.perp :=
@@ -115,20 +93,6 @@ theorem exists_adapted_three_pairs (hQ : Q.polarBilin.Nondegenerate)
     quadratic_three_hyperbolic_pairs hQ hT hQx hx
   exact ⟨P, R, S, by rw [pointMk_submodule, hPe], hPR, hPS, hRS⟩
 
-theorem exists_adapted_regular_complements (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K V, Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (L : Points Q) :
-    ∃ P R S : HypPair Q, L.val = K ∙ P.e ∧ P.Orth R ∧ P.Orth S ∧ R.Orth S ∧
-      R.e ∈ P.perp ∧ R.f ∈ P.perp ∧ PolarNondegOn Q P.perp ∧
-      PolarNondegOn Q (P.perp ⊓ R.perp) ∧
-      2 ≤ Module.finrank K (P.perp ⊓ R.perp : Submodule K V) ∧
-      4 ≤ Module.finrank K P.perp := by
-  obtain ⟨P, R, S, hL, hPR, hPS, hRS⟩ := exists_adapted_three_pairs hQ hT L
-  have hmem := orthogonal_pair_mem_perp hPR
-  have hreg := HypPair.polarNondegOn_perp hQ P
-  exact ⟨P, R, S, hL, hPR, hPS, hRS, hmem.1, hmem.2, hreg,
-    hreg.inf_perp R hmem.1 hmem.2, nested_complement_finrank P R S hPS hRS,
-    first_complement_finrank P R S hPR hPS hRS⟩
 
 variable [Finite K]
 

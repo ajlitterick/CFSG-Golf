@@ -39,6 +39,5 @@ theorem input14610PermTuOutS_holds :
     exact ModC.out_of_module (n := 7) (by norm_num) ModC.modelOut7 (o := 315) ⟨157, by norm_num⟩ hcardA c hK
       hsyl hLT hshort Φ hΦ hTu hne huW
 
-variable {G : Type} [Group G] [Finite G] {T M : Subgroup G}
 
 end CFSG.Quasithin

@@ -69,22 +69,6 @@ theorem eq_sup_of_inf_eq (h : Hyp1281Two G T M L)
     (hT : M ⊓ Subgroup.normalizer (quasithinOmegaOneCenter T : Set G) = T) : M = L ⊔ T := by
   rw [← h.sup_inf_normalizer_eq, hT]
 
-theorem inf_eq_inf_normalizer (h : Hyp1281Two G T M L) (H : Subgroup G) :
-    H ⊓ M = H ⊓ Subgroup.normalizer (VZ T M : Set G) := by
-  rw [h.normalizer_VZ]
-
-theorem conjSub_VZ_eq (h : Hyp1281Two G T M L) {m : G} (hm : m ∈ M) :
-    (VZ T M).map (MulAut.conj m).toMonoidHom = VZ T M := by
-  obtain ⟨hVred, -⟩ := h.isTwoReducedIn
-  have hmN : m ∈ Subgroup.normalizer (VZ T M : Set G) := hVred.2.1 hm
-  ext u
-  constructor
-  · rintro ⟨v, hv, rfl⟩
-    exact (Subgroup.mem_normalizer_iff.mp hmN v).mp hv
-  · intro hu
-    refine ⟨m⁻¹ * u * m, ?_, by simp [mul_assoc]⟩
-    have := (Subgroup.mem_normalizer_iff.mp (Subgroup.inv_mem _ hmN) u).mp hu
-    simpa using this
 
 end Hyp1281Two
 

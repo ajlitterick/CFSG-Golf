@@ -143,7 +143,6 @@ theorem frob_add (e e' : S.A) : (e + e') ^ p ^ f = e ^ p ^ f + e' ^ p ^ f := by
     (by rw [S.frob_add, S.LinvFun_frob, S.LinvFun_frob, neg_add])
     (by rw [map_add, S.beta_LinvFun, S.beta_LinvFun]; rfl)
 
-theorem Linv_apply (z : S.Zs) : S.Linv z = S.LinvFun z := rfl
 
 theorem beta_Linv (z : S.Zs) : S.beta 1 (S.Linv z) = z := S.beta_LinvFun z
 

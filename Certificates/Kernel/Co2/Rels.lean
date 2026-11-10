@@ -59,7 +59,6 @@ theorem gen_ge {r : ℕ} (h : 6 ≤ r) : Co2K.gen r = 0 := by
     beq_false (r := r) (i := nat_lit 3) (Nat.lt_of_lt_of_le (by decide) h), beq_false (r := r) (i := nat_lit 4) (Nat.lt_of_lt_of_le (by decide) h),
     beq_false (r := r) (i := nat_lit 5) (Nat.lt_of_lt_of_le (by decide) h)]
 
-theorem bval_nil {G : Type*} [Group G] (gen : ℕ → G) : bval gen (wWord 0) (wLen 0) = 1 := rfl
 
 theorem rel_norm : relsNorm Co2B.rel (nat_lit 10) = true := by quickRfl
 

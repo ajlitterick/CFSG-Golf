@@ -132,24 +132,6 @@ theorem wSL_mul_unipotent_mul_wSL (c : F) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [coe_wSL, coe_unipotent, Matrix.mul_apply, Fin.sum_univ_two]
 
-theorem eq_unipotent_of_comm {g : SpecialLinearGroup (Fin 2) F}
-    (h : g * unipotent 1 = unipotent 1 * g) :
-    g = unipotent ((g : Matrix (Fin 2) (Fin 2) F) 0 1) := by
-  have h10 := entry_one_zero_of_comm h
-  have h01 := congrArg
-    (fun A : SpecialLinearGroup (Fin 2) F => (A : Matrix (Fin 2) (Fin 2) F) 0 1) h
-  simp [coe_unipotent, Matrix.mul_apply, Fin.sum_univ_two] at h01
-  have hdet := Matrix.SpecialLinearGroup.det_coe g
-  rw [det_fin_two, h10, mul_zero, sub_zero] at hdet
-  have h00 : (g : Matrix (Fin 2) (Fin 2) F) 0 0 = 1 := by
-    apply eq_of_sq_eq_sq
-    rw [one_pow, sq]
-    nth_rewrite 2 [show (g : Matrix (Fin 2) (Fin 2) F) 0 0 = (g : Matrix (Fin 2) (Fin 2) F) 1 1 by
-      linear_combination h01]
-    exact hdet
-  have h11 : (g : Matrix (Fin 2) (Fin 2) F) 1 1 = 1 := by linear_combination -h01 + h00
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [coe_unipotent, h00, h10, h11]
 
 theorem exists_eq_conj_of_fix [Finite F] (hF : 2 < Nat.card F)
     (α : SpecialLinearGroup (Fin 2) F →* SpecialLinearGroup (Fin 2) F)

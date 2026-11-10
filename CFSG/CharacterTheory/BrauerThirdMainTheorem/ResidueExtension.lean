@@ -43,42 +43,5 @@ public section
 
 namespace CFSG.BrauerThirdMainTheorem.Helpers
 
-theorem finiteCoordinate_residue_extension (ring : Type*) [CommRing ring]
-    (field : Type*) [Field field] [Algebra ring field]
-    (index : Type*) [Fintype index] (subalgebra : Subalgebra ring (index → ring))
-    (residue : subalgebra →ₐ[ring] field) :
-    ∃ coordinate : index, ∀ value : subalgebra,
-      residue value = algebraMap ring field (value.val coordinate) := by
-  classical
-  by_contra hnone
-  have hseparating : ∀ coordinate : index, ∃ value : subalgebra,
-      residue value ≠ algebraMap ring field (value.val coordinate) := by
-    simpa only [not_exists, not_forall] using hnone
-  choose witnesses hwitnesses using hseparating
-  let factors : index → subalgebra := fun coordinate =>
-    witnesses coordinate - algebraMap ring subalgebra ((witnesses coordinate).val coordinate)
-  have hnonzero (coordinate : index) : residue (factors coordinate) ≠ 0 := by
-    simp only [factors, map_sub, AlgHom.commutes, sub_ne_zero]
-    exact hwitnesses coordinate
-  have hzero : (∏ coordinate : index, factors coordinate) = 0 := by
-    apply Subtype.ext
-    apply funext
-    intro coordinate
-    change subalgebra.val (∏ entry : index, factors entry) coordinate = 0
-    rw [map_prod]
-    change (Pi.evalRingHom (fun _ : index => ring) coordinate)
-      (∏ entry : index, subalgebra.val (factors entry)) = 0
-    rw [map_prod]
-    apply Finset.prod_eq_zero (Finset.mem_univ coordinate)
-    change subalgebra.val (witnesses coordinate -
-      algebraMap ring subalgebra ((witnesses coordinate).val coordinate)) coordinate = 0
-    rw [map_sub, AlgHom.commutes]
-    simp only [Pi.sub_apply, Subalgebra.val_apply, Pi.algebraMap_apply,
-      Algebra.algebraMap_self, RingHom.id_apply, sub_self]
-  have hproduct : residue (∏ coordinate : index, factors coordinate) ≠ 0 := by
-    rw [map_prod]
-    exact Finset.prod_ne_zero_iff.mpr (fun coordinate _ => hnonzero coordinate)
-  rw [hzero, map_zero] at hproduct
-  exact hproduct rfl
 
 end CFSG.BrauerThirdMainTheorem.Helpers

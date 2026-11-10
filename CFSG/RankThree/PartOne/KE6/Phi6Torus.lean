@@ -106,11 +106,6 @@ theorem odd_phi6_order (q : ℕ) : Odd ((q ^ 2 - q + 1) ^ 2 * (q ^ 2 + q + 1)) :
       rw [← hb]
       exact x.2⟩
 
-theorem coe_phi6TorusEquiv [IsAlgClosed L] {q : ℕ}
-    (hFr : ∀ c, Fr c = c ^ q) (b : (monomialHom (G := Lˣ) (phi6Matrix q)ᵀ).ker) :
-    ((phi6TorusEquiv hFr b : twistedTorus (phi6N L) Fr) : ModGL Tag.E6 L) =
-      rootDiagUnit Tag.E6 b.1 :=
-  rfl
 
 theorem natCard_phi6Torus [IsAlgClosed L] {q : ℕ}
     (hFr : ∀ c, Fr c = c ^ q) (hq : (q : L) = 0) :

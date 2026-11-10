@@ -25,14 +25,6 @@ theorem map_valHom_commSub_le_of {A : Subgroup G} {W : Subgroup (IntMod V hV)}
 
 theorem valHom_injective : Function.Injective (valHom hV) := IntMod.val_injective
 
-theorem commSeries_two_autI_eq_bot {A : Subgroup G} (h : ⁅⁅V, A⁆, A⁆ = ⊥) :
-    commSeries (autI hV A) 2 = ⊥ := by
-  have h1 : (commSub (⊤ : Subgroup (IntMod V hV)) (autI hV A)).map (valHom hV) ≤ ⁅V, A⁆ :=
-    map_valHom_commSub_le_of map_valHom_top.le
-  have h2 : (commSub (commSub (⊤ : Subgroup (IntMod V hV)) (autI hV A)) (autI hV A)).map
-      (valHom hV) ≤ ⁅⁅V, A⁆, A⁆ := map_valHom_commSub_le_of h1
-  rw [h] at h2
-  exact (Subgroup.map_eq_bot_iff_of_injective _ valHom_injective).1 (le_bot_iff.1 h2)
 
 theorem commSeries_autI_eq_bot_of_cubic {A : Subgroup G} (h : ⁅⁅⁅V, A⁆, A⁆, A⁆ = ⊥) :
     commSeries (autI hV A) 3 = ⊥ := by
@@ -82,20 +74,6 @@ theorem ratio_lt_two {x y k l : ℕ} (hx : x ∣ 2 ^ k) (hy : y ∣ 2 ^ l) (hy1 
   rw [div_lt_iff₀ (by exact_mod_cast hα)]
   exact_mod_cast hβ
 
-omit [Finite G] in
-theorem ratio_le_one {x y k l : ℕ} (hx : x ∣ 2 ^ k) (hy : y ∣ 2 ^ l) (hy1 : 1 < y)
-    (hxy : x ≤ y) : (padicValNat 2 x : ℚ) / (padicValNat 2 y : ℚ) ≤ 1 := by
-  obtain ⟨β, -, rfl⟩ := (Nat.dvd_prime_pow Nat.prime_two).1 hx
-  obtain ⟨α, -, rfl⟩ := (Nat.dvd_prime_pow Nat.prime_two).1 hy
-  rw [padicValNat.prime_pow, padicValNat.prime_pow]
-  have hα : 0 < α := by
-    rcases Nat.eq_zero_or_pos α with h0 | h0
-    · rw [h0, pow_zero] at hy1
-      exact absurd hy1 (lt_irrefl 1)
-    · exact h0
-  have hβ : β ≤ α := (Nat.pow_le_pow_iff_right (by norm_num)).1 hxy
-  rw [div_le_one (by exact_mod_cast hα)]
-  exact_mod_cast hβ
 
 omit [Finite G] in
 theorem relIndex_dvd_card (X Y : Subgroup G) (hXY : X ≤ Y) : X.relIndex Y ∣ Nat.card Y := by

@@ -10,9 +10,6 @@ variable {X Y : Type} {A : Set X} {A' : Set Y}
 
 @[expose] def imgIn (φ : A ≃ A') (U : Set X) : Set Y := {y | ∃ x : A, (x : X) ∈ U ∧ (φ x : Y) = y}
 
-theorem mem_imgIn {φ : A ≃ A'} {U : Set X} {y : Y} :
-    y ∈ imgIn φ U ↔ ∃ x : A, (x : X) ∈ U ∧ (φ x : Y) = y :=
-  Iff.rfl
 
 theorem imgIn_subset (φ : A ≃ A') (U : Set X) : imgIn φ U ⊆ A' := by
   rintro _ ⟨x, -, rfl⟩

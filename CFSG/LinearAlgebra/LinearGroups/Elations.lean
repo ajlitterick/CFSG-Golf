@@ -49,11 +49,6 @@ instance scalarSubgroup_normal : (scalarSubgroup n K).Normal := by
       ProjectiveSpecialLinearGroup (Fin n) K :=
   QuotientGroup.quotientMulEquivOfEq scalarSubgroup_eq_center
 
-theorem scalarQuotientEquivPSL_mk (A : SpecialLinearGroup (Fin n) K) :
-    scalarQuotientEquivPSL
-        (QuotientGroup.mk A : SpecialLinearGroup (Fin n) K ⧸ scalarSubgroup n K) =
-      QuotientGroup.mk A :=
-  rfl
 
 @[expose] def elationGenerators (L : Submodule K (Fin n → K)) :
     Set (SpecialLinearGroup (Fin n) K) :=

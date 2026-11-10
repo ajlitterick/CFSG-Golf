@@ -18,26 +18,6 @@ section Levi4
 
 variable {K : Type} [Field K]
 
-@[expose] def leviMat4 (A : Matrix (Fin 2) (Fin 2) K) : Matrix (Fin 4) (Fin 4) K :=
-  !![A 0 0, A 0 1, 0, 0; A 1 0, A 1 1, 0, 0; 0, 0, 1, 0; 0, 0, 0, 1]
-
-theorem leviMat4_mul (A B : Matrix (Fin 2) (Fin 2) K) :
-    leviMat4 (A * B) = leviMat4 A * leviMat4 B := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [leviMat4, Matrix.mul_apply, Fin.sum_univ_two, Fin.sum_univ_four]
-
-theorem leviMat4_one : leviMat4 (1 : Matrix (Fin 2) (Fin 2) K) = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [leviMat4]
-
-@[expose] noncomputable def blockGL4 : GL (Fin 2) K →* GL (Fin 4) K where
-  toFun A := ⟨leviMat4 (A : Matrix (Fin 2) (Fin 2) K), leviMat4 ((A⁻¹ : GL (Fin 2) K) :
-      Matrix (Fin 2) (Fin 2) K), by
-    rw [← leviMat4_mul, ← Units.val_mul, mul_inv_cancel, Units.val_one, leviMat4_one], by
-    rw [← leviMat4_mul, ← Units.val_mul, inv_mul_cancel, Units.val_one, leviMat4_one]⟩
-  map_one' := Units.ext (by simp [leviMat4_one])
-  map_mul' A B := Units.ext (by simp [leviMat4_mul])
 
 @[expose] def negDiag4 (K : Type*) [Field K] : GL (Fin 4) K :=
   ⟨diagonal ![-1, -1, 1, 1], diagonal ![-1, -1, 1, 1], by
@@ -76,11 +56,6 @@ variable {K : Type} [Field K]
 @[expose] noncomputable def negDiagSU4 {q : ℕ} (hq : Odd q) : StatedSU 4 q K :=
   ⟨negDiag4 K, negDiag4_mem_statedSU hq⟩
 
-@[expose] noncomputable def leviSU4 (q : ℕ) : Subgroup (StatedSU 4 q K) :=
-  ((StatedSU 2 q K).map blockGL4).subgroupOf (StatedSU 4 q K)
-
-@[expose] noncomputable def leviPSU4 (q : ℕ) : Subgroup (StatedProj (StatedSU 4 q K)) :=
-  (leviSU4 q).map (QuotientGroup.mk' _)
 
 @[expose] noncomputable def negDiagPSU4 {q : ℕ} (hq : Odd q) : StatedProj (StatedSU 4 q K) :=
   QuotientGroup.mk' _ (negDiagSU4 (K := K) hq)

@@ -31,7 +31,6 @@ theorem bnot_iff (b : Bool) : Bool.rec (motive := fun _ => Bool) true false b = 
 
 theorem brec_true {α : Sort*} (a b : α) : Bool.rec (motive := fun _ => α) a b true = b := rfl
 
-theorem brec_false {α : Sort*} (a b : α) : Bool.rec (motive := fun _ => α) a b false = a := rfl
 
 @[expose] noncomputable def bitsG (J o x : ℕ) : ℕ :=
   Nat.land (Nat.shiftRight J o) (Nat.sub (Nat.shiftLeft (nat_lit 1) x) (nat_lit 1))

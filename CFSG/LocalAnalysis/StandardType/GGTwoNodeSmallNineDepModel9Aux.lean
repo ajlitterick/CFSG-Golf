@@ -222,16 +222,6 @@ private lemma pk4_val_hH {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
   rw [ZMod.val_cast_of_lt]
   split <;> omega
 
-private lemma pk4_val_hA {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (αa : Module.Dual (ZMod 3) V) (h : Fin 8 → V) (s : ℕ) (o : ℕ × ℕ × ℕ)
-    (ho2 : o.2.2 < 3)
-    (hA : ∀ j : Fin 8, s ≤ (j : ℕ) → (j : ℕ) < s + 6 →
-      αa (h j) = (((if (j : ℕ) - s = o.1 then o.2.2 else 0 : ℕ)) : ZMod 3))
-    (j : Fin 8) (h1 : s ≤ (j : ℕ)) (h2 : (j : ℕ) < s + 6) :
-    (αa (h j)).val = (if (j : ℕ) - s = o.1 then o.2.2 else 0) := by
-  rw [hA j h1 h2]
-  rw [ZMod.val_cast_of_lt]
-  split <;> omega
 
 lemma pk4_hjj_mem (s : ℕ) (jj : ℕ × ℕ) (h : jj ∈ (embJ s).zipIdx) :
     jj.1 = s + jj.2 ∧ jj.2 < 6 := by
@@ -250,15 +240,6 @@ lemma pk4_hjj_mem (s : ℕ) (jj : ℕ × ℕ) (h : jj ∈ (embJ s).zipIdx) :
     (α : Fin 8 → Module.Dual (ZMod 3) V) (ha : V) (k : ℕ) : ZMod 3 :=
   if h : k < 8 then α ⟨k, h⟩ ha else 0
 
-private lemma pk4_alphaNat_val_hH {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (α : Fin 8 → Module.Dual (ZMod 3) V) (ha : V) (s : ℕ) (o : ℕ × ℕ × ℕ)
-    (ho1 : o.2.1 < 3)
-    (hH : ∀ j : Fin 8, s ≤ (j : ℕ) → (j : ℕ) < s + 6 →
-      α j ha = (((if (j : ℕ) - s = o.1 then o.2.1 else 0 : ℕ)) : ZMod 3))
-    (k : ℕ) (hk : k < 8) (h1 : s ≤ k) (h2 : k < s + 6) :
-    (pk4_alphaNat α ha k).val = (if k - s = o.1 then o.2.1 else 0) := by
-  rw [pk4_alphaNat, dif_pos hk]
-  exact pk4_val_hH α ha s o ho1 hH ⟨k, hk⟩ h1 h2
 
 lemma pk4_u_eq {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
     (α : Fin 8 → Module.Dual (ZMod 3) V) (ha : V) (s : ℕ) (hs : s ≤ 2) (o : ℕ × ℕ × ℕ)

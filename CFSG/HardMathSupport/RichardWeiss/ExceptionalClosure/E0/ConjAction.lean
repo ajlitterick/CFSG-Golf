@@ -36,7 +36,5 @@ variable {G : Type*} [Group G] {V M : Subgroup G}
       (m : G) * ((n : G) * ((Additive.toMul v : V) : G) * (n : G)⁻¹) * (m : G)⁻¹
     simp only [Subgroup.coe_mul, mul_inv_rev, mul_assoc]
 
-theorem conjEnd_apply (hMV : ∀ m ∈ M, ∀ v ∈ V, m * v * m⁻¹ ∈ V) (m : M) (v : V) :
-    (((conjEnd hMV m) (Additive.ofMul v) : Additive V).toMul : G) = (m : G) * v * (m : G)⁻¹ := rfl
 
 end CFSG.HardMathSupport.RichardWeiss.ExceptionalClosure.E0

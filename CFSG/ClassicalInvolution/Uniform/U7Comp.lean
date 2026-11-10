@@ -40,7 +40,6 @@ namespace G2Comp
 
 variable (C : G2Comp Ω)
 
-theorem members_subset : C.members ⊆ Ω := fun _ h => h.1
 
 theorem commutes_of_not_mem {M K : Subgroup G} (hM : M ∈ Ω) (hMi : M ∉ C.members)
     (hK : K ∈ C.members) : Commutes M K := by

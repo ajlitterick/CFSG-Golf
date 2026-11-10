@@ -28,7 +28,6 @@ end CFSG.KD.M7.c716100
 
 namespace CFSG.KD.M7.c716100
 
-@[expose] noncomputable def CHI (k : Nat) : Nat := CH (IXf k)
 
 @[expose] noncomputable def u (g : Nat) : Bool := CFSG.KD.M7L.grpRP P CH PRf Gf g
 

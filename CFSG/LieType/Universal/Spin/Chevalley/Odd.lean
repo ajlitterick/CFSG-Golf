@@ -115,10 +115,6 @@ theorem rankOneB_lowerSL2 (k : Fin n) (c : K) :
   · rw [OddFrame.shortSL2_lowerSL2]
     rfl
 
-theorem weylB_eq (k : Fin n) :
-    weylB K k = rootB K k (.ofAdd 1) * negRootB K k (.ofAdd (-1)) * rootB K k (.ofAdd 1) := by
-  rw [weylB, weylSL2_eq, map_mul, map_mul, rankOneB_upperSL2, rankOneB_lowerSL2]
-  simp
 
 theorem torusB_apply (k : Fin n) (τ : Kˣ) : torusB K k τ = rankOneB K k (diagSL2 τ) := rfl
 
@@ -136,29 +132,6 @@ theorem weylB_of_not_lt {k : Fin n} (hk : ¬k.val + 1 < n) :
   rw [weylB, rankOneB, dite_eq_right hk]
   rfl
 
-theorem spinAction_weylB_vec_of_lt {k : Fin n} (hk : k.val + 1 < n) (m : Fin n) (r : Bool) :
-    spinAction (quadOdd n K) (weylB K k) (oddVec n K m r) =
-      (longWeylSign k m : K) • oddVec n K (Equiv.swap k ⟨k.val + 1, hk⟩ m)
-        (longWeylBool k ⟨k.val + 1, hk⟩ true false m r) := by
-  rw [weylB_of_lt K hk (j := ⟨k.val + 1, hk⟩) rfl (Fin.ne_of_val_ne (by simp))]
-  exact HypFrame.spinAction_longWeyl_vec _ _ _ _ m r
-
-theorem spinAction_weylB_vec_of_not_lt {k : Fin n} (hk : ¬k.val + 1 < n) (m : Fin n) (r : Bool) :
-    spinAction (quadOdd n K) (weylB K k) (oddVec n K m r) =
-      (longWeylSign k m : K) • oddVec n K m (shortWeylBool k m r) := by
-  rw [weylB_of_not_lt K hk]
-  exact OddFrame.spinAction_shortWeyl_vec _ _ _ m r
-
-theorem spinAction_weylB_z (k : Fin n) :
-    spinAction (quadOdd n K) (weylB K k) (oddZ n K) =
-      if k.val + 1 < n then oddZ n K else -oddZ n K := by
-  by_cases hk : k.val + 1 < n
-  · rw [weylB_of_lt K hk (j := ⟨k.val + 1, hk⟩) rfl (Fin.ne_of_val_ne (by simp)),
-      ite_eq_left hk]
-    exact (oddFrame n K).spinAction_longWeyl_of_polar _ _ _
-      (fun r => (oddFrame n K).polar_z_vec _ r) (fun r => (oddFrame n K).polar_z_vec _ r)
-  · rw [weylB_of_not_lt K hk, ite_eq_right hk]
-    exact (oddFrame n K).spinAction_shortWeyl_z k true
 
 theorem torusB_of_lt {k : Fin n} (hk : k.val + 1 < n) {j : Fin n} (hj : j.val = k.val + 1)
     (hkj : k ≠ j) : torusB K k = (oddFrame n K).longTorus hkj true false := by
@@ -171,10 +144,6 @@ theorem torusB_of_not_lt {k : Fin n} (hk : ¬k.val + 1 < n) :
   rw [torusB, rankOneB, dite_eq_right hk]
   rfl
 
-theorem weylB_mul_torusB_mul_inv (k : Fin n) (τ : Kˣ) :
-    weylB K k * torusB K k τ * (weylB K k)⁻¹ = torusB K k τ⁻¹ := by
-  rw [weylB, torusB_apply, torusB_apply, ← map_inv, ← map_mul, ← map_mul,
-    weylSL2_mul_diagSL2_mul_inv]
 
 theorem commute_torusB (k l : Fin n) (τ σ : Kˣ) : Commute (torusB K k τ) (torusB K l σ) := by
   by_cases hk : k.val + 1 < n

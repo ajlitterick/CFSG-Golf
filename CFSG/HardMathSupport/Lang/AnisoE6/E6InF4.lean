@@ -108,37 +108,6 @@ theorem exists_f4_fixed_in_e6_field (K : Type) [Field K] :
   rw [graphAut_fixed_iff]
   rfl
 
-theorem exists_f4_fixed_in_e6 (q : PrimePower) (hvE : (LieTypeIndex.E6 q).Valid)
-    (hvF : (LieTypeIndex.F4 q).Valid) :
-    ∃ (H : Subgroup (Cat ⟨.E6 q, hvE⟩)) (_ : Cat ⟨.F4 q, hvF⟩ ≃* H)
-      (γ : MulAut (Cat ⟨.E6 q, hvE⟩)), ∀ g, g ∈ H ↔ γ g = g := by
-  obtain ⟨K₂, _, _, hK₂, -, ⟨eE⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.e6 q hvE
-  obtain ⟨K₁, _, _, hK₁, -, ⟨eF⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.f4 q hvF
-  haveI : Finite K₁ := Nat.finite_of_card_ne_zero (by rw [hK₁, PrimePower.card_def]; exact pow_ne_zero _ q.prime_p.ne_zero)
-  haveI : Finite K₂ := Nat.finite_of_card_ne_zero (by rw [hK₂, PrimePower.card_def]; exact pow_ne_zero _ q.prime_p.ne_zero)
-  haveI : Fintype K₁ := Fintype.ofFinite K₁
-  haveI : Fintype K₂ := Fintype.ofFinite K₂
-  have hcard : Fintype.card K₁ = Fintype.card K₂ := by
-    rw [← Nat.card_eq_fintype_card, ← Nat.card_eq_fintype_card, hK₁, hK₂]
-  obtain ⟨H₀, φ₀, γ₀, hγ₀⟩ := exists_f4_fixed_in_e6_field K₂
-  let H : Subgroup (adjointGroup Tag.E6 K₂) := H₀
-  let φ : adjointGroup Tag.F4 K₂ ≃* H := φ₀
-  let γ : MulAut (adjointGroup Tag.E6 K₂) := γ₀
-  have hγ : ∀ g, g ∈ H ↔ γ g = g := hγ₀
-  let ψ : Cat ⟨.F4 q, hvF⟩ ≃* adjointGroup Tag.F4 K₂ :=
-    eF.trans (adjointGroupCongr (FiniteField.ringEquivOfCardEq hcard))
-  have key : ∀ g, g ∈ H.map eE.symm.toMonoidHom ↔ eE g ∈ H := fun g => by
-    rw [Subgroup.mem_map_equiv]
-    rfl
-  refine ⟨H.map eE.symm.toMonoidHom, ψ.trans (φ.trans (MulEquiv.subgroupMap eE.symm H)),
-    MulAut.congr eE.symm γ, fun g => ?_⟩
-  rw [key, hγ]
-  constructor
-  · intro h
-    have := congrArg eE.symm h
-    simpa using this
-  · intro h
-    simpa using congrArg eE h
 
 end Cat
 

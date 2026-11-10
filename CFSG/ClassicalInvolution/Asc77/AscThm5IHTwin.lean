@@ -194,17 +194,6 @@ theorem t5BaseAt_twin_of_twinInnerAlpha {t : StatedLieTag} {k e : ℕ} (hG2 : t 
   exact t5Base_twin_of_twinInnerAlpha hp2 hq hfund hadm hef' hG2 hD4 (hTI hp2 hq' hadm) ψ hker hR
     hR' eK eJ hne hcomm hz hzJ hA hAKJ hzA
 
-theorem t5BaseAt_twin_odd {k e : ℕ} : T5BaseAt p f .POmegaOdd k e id :=
-  t5BaseAt_twin_of_twinInnerAlpha (by decide) (by decide) fun hp2 hq hadm =>
-    twinInnerAlpha_odd hp2 hq hadm
-
-theorem t5BaseAt_twin_plus {k e : ℕ} (hk : 5 ≤ k) : T5BaseAt p f .POmegaPlus k e id :=
-  t5BaseAt_twin_of_twinInnerAlpha (by decide) (by decide) fun hp2 hq hadm =>
-    twinInnerAlpha_plus hp2 hq hadm hk
-
-theorem t5BaseAt_twin_minus {k e : ℕ} : T5BaseAt p f .POmegaMinus k e id :=
-  t5BaseAt_twin_of_twinInnerAlpha (by decide) (by decide) fun hp2 hq hadm =>
-    twinInnerAlpha_minus hp2 hq hadm
 
 end Bridge
 

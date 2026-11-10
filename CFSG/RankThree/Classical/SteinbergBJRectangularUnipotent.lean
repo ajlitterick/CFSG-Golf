@@ -37,9 +37,6 @@ theorem rectSum_apply_self (c : R → k) (α : R) : rectSum R c α.1.1 α.1.2 = 
     refine ite_eq_right fun h => hδ (Subtype.ext (Prod.ext h.1 h.2))
   · exact fun h => absurd (Finset.mem_univ α) h
 
-theorem sum_single_eq_rectSum (c : Fin n × Fin n → k) :
-    ∑ ij ∈ R, Matrix.single ij.1 ij.2 (c ij) = rectSum R (fun α => c α.1) :=
-  (Finset.sum_coe_sort R (fun ij => Matrix.single ij.1 ij.2 (c ij))).symm
 
 theorem diagonal_mul_rectSum (d : Fin n → k) (hd : ∀ x, d x ≠ 0) (c : R → k) :
     Matrix.diagonal d * rectSum R c =
@@ -119,37 +116,6 @@ variable (k) in
 @[expose] def rectUnipotent : Subgroup (LinearFlag.projectiveSL n k) :=
   ((LinearFlag.proj n k).comp (rectHom k hIJ hR)).range
 
-theorem det_one_add_sum_single (c : Fin n × Fin n → k) :
-    (1 + ∑ ij ∈ R, Matrix.single ij.1 ij.2 (c ij)).det = 1 := by
-  rw [sum_single_eq_rectSum]
-  exact det_rectMat hIJ hR _
-
-theorem mem_rectUnipotent {x : LinearFlag.projectiveSL n k} :
-    x ∈ rectUnipotent k hIJ hR ↔ ∃ c : Fin n × Fin n → k,
-      x = LinearFlag.proj n k ⟨1 + ∑ ij ∈ R, Matrix.single ij.1 ij.2 (c ij),
-        det_one_add_sum_single hIJ hR c⟩ := by
-  classical
-  constructor
-  · rintro ⟨c, rfl⟩
-    refine ⟨fun ij => if h : ij ∈ R then c.toAdd ⟨ij, h⟩ else 0, ?_⟩
-    change LinearFlag.proj n k (rectSL hIJ hR c.toAdd) = _
-    congr 1
-    apply Subtype.ext
-    rw [coe_rectSL]
-    change 1 + rectSum R c.toAdd = 1 + ∑ ij ∈ R, _
-    rw [sum_single_eq_rectSum]
-    congr 2
-    funext α
-    simp
-  · rintro ⟨c, rfl⟩
-    refine ⟨Multiplicative.ofAdd (fun α => c α.1), ?_⟩
-    change LinearFlag.proj n k (rectSL hIJ hR _) = _
-    congr 1
-    apply Subtype.ext
-    rw [coe_rectSL]
-    change _ = 1 + ∑ ij ∈ R, _
-    rw [sum_single_eq_rectSum]
-    rfl
 
 theorem proj_comp_rectHom_injective :
     Function.Injective ((LinearFlag.proj n k).comp (rectHom k hIJ hR)) := by

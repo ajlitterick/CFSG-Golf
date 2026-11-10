@@ -142,14 +142,6 @@ theorem idAct'_primeFormConjHom (A : primeFormUnitary h (idGram K n))
   rw [primeFormConjHom_eq_primeFormPsi, idAct'_primeFormPsi, idMatAction_mk]
   congr 2
 
-theorem idAct'_primeFormFieldHom (σ : K ≃+* K) (Y : Matrix (Fin n) (Fin n) K) :
-    idAct' h n hn hne (primeFormFieldHom h (isPrimeFormGram_idGram (K := K) (n := n)) σ) Y =
-      Y.map σ := by
-  have : primeFormFieldHom h (isPrimeFormGram_idGram (K := K) (n := n)) σ =
-      primeFormPsi h (isPrimeFormGram_idGram (K := K) (n := n)) ⟨1, σ⟩ := by
-    rw [primeFormPsi_apply, map_one, one_mul]
-  rw [this, idAct'_primeFormPsi, idMatAction_mk]
-  simp
 
 theorem coe_idActU' (α : MulAut (primeFormP h (idGram K n))) (A : primeFormUnitary h (idGram K n)) :
     (((idActU' h n hn hne α A : primeFormUnitary h (idGram K n)) : GL (Fin n) K) :
@@ -223,17 +215,6 @@ theorem PlaneData.idAct'_eq_of_conj_eq (α : MulAut (primeFormP h (idGram K n)))
   exact congrArg (fun z : gramSU h (idGram K n) => ((z : GL (Fin n) K) :
     Matrix (Fin n) (Fin n) K)) hyx
 
-theorem idAct'_eq_idAct (hn : 3 ≤ n) (hq : 3 < ℓ ^ f) :
-    idAct' h n hn (not_three_two hq) = idAct h n hn hq := by
-  refine MonoidHom.ext fun α => ?_
-  obtain ⟨g, rfl⟩ := surjective_primeFormPsi hn hq α
-  rw [idAct'_primeFormPsi, idAct_primeFormPsi]
-
-theorem idActU'_eq_idActU (hn : 3 ≤ n) (hq : 3 < ℓ ^ f) :
-    idActU' h n hn (not_three_two hq) = idActU h n hn hq := by
-  refine MonoidHom.ext fun α => ?_
-  obtain ⟨g, rfl⟩ := surjective_primeFormPsi hn hq α
-  rw [idActU'_primeFormPsi, idActU_primeFormPsi]
 
 end Act
 

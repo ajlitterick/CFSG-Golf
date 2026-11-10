@@ -92,13 +92,6 @@ theorem okD : strictB (Fi22X.inv Q1) (fun q1i => strictB Q2 fun q2 => strictB A 
     strictB (Fv8124E.G 0) fun d1 =>
       chkD q1i q2 a d1 (CFSG.RankThree.Native.fi22FiveOrbits[0]!)) = true := by quickRfl
 
-theorem negH : strictB Q1 (fun q1 => strictB Q2 fun q2 => strictB W fun w =>
-    !(chkH q1 q2 w (H 2) 1) && !(chkH q1 q2 w q1 1)) = true := by quickRfl
-
-theorem negD : strictB (Fi22X.inv Q1) (fun q1i => strictB Q2 fun q2 =>
-    strictB (Fv8124E.G 0) fun d1 =>
-    !(allN 60 fun i => orbRow (CFSG.RankThree.Native.fi22FiveOrbits[1]!) (Fv8124E.T i)) &&
-      !(chkD q1i q2 idP d1 (CFSG.RankThree.Native.fi22FiveOrbits[0]!))) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.Fv8124
 

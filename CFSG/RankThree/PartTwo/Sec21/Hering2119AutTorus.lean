@@ -121,8 +121,6 @@ theorem eq_diag_of_intertwine {p : ℕ} (hp : p.Prime) (hp3 : p ≠ 3) {ζ ζ' :
 end Matrices
 
 
-
-
 section Model
 
 variable {F : Type} [Field F]
@@ -759,10 +757,6 @@ theorem conjAut_scalar (l : Fˣ) :
   unfold conjAut
   rw [MonoidHom.comp_apply,
     CFSG.ComponentClassification.CatalogueBHigherLinearAction.slConjugation_scalar, map_one]
-
-theorem conjAut_scalar_mul (l : Fˣ) (y : GL (Fin 3) F) :
-    conjAut 3 F (GeneralLinearGroup.scalar (Fin 3) l * y) = conjAut 3 F y := by
-  rw [map_mul, conjAut_scalar, one_mul]
 
 
 theorem conj_of_fix_transport [Finite F] {p : ℕ} (hp : p.Prime) (hp3 : p ≠ 3)

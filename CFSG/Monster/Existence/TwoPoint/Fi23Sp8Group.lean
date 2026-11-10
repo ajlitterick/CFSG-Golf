@@ -168,12 +168,6 @@ theorem actV_vecV
   unfold actV
   rw [ite_eq_right (vecV_ne_zero hp), ptOfV_vecV hp]
 
-theorem actV_one
-    (v : V8) : actV 1 v = v := by
-  by_cases hv : v = 0
-  · rw [hv, actV_zero]
-  · obtain ⟨p, hp, rfl⟩ := exists_vecV hv
-    rw [actV_vecV 1 hp, one_smul]
 
 def MapsSg
     (n : J) : Prop := ∀ p ∈ Sg, n • p ∈ Sg
@@ -382,51 +376,6 @@ theorem eq_spL_of_le
     exact C.mul_mem (C.mul_mem hc (hC (tr_mem_spL hp))) (C.inv_mem hc)
   exact h8 ((gen_all hC hx hxC) ▸ Subgroup.mem_top _)
 
-theorem piF_eq_smul
-    (k : ℕ) : piF k = wordG genG (prefWord k) • (0 : Pt) :=
-  Fin.ext (by
-    rw [smul_val]
-    exact piPt_eq k)
-
-theorem img_eight_not_mem_spL :
-    img 8 ∉ spL := by
-  intro h8
-  have htop : spL = ⊤ := by
-    rw [eq_top_iff, ← closure_img_eq_top, Subgroup.closure_le]
-    rintro _ ⟨k, hk, rfl⟩
-    by_cases h8k : k = 8
-    · subst h8k
-      exact h8
-    · refine img_mem_spL ?_
-      simp only [gIdx, List.mem_cons, List.not_mem_nil, or_false]
-      omega
-  set n : J := wordG genG (prefWord 8) * (wordG genG (prefWord 0))⁻¹ with hn
-  have hnmem : n ∈ spL := by
-    rw [htop]
-    exact Subgroup.mem_top _
-  have hnp : n • piF 0 = piF 8 := by
-    rw [hn, piF_eq_smul 0, piF_eq_smul 8, mul_smul, inv_smul_smul]
-  have h1 : LbF (piF 0) = 0 := LbF_piF (by simp [gIdx])
-  have h2 : LbF (piF 8) = 1 := by
-    rw [← rootF_one]
-    exact LbF_rootF 1
-  have h3 := LbF_smul hnmem (piF 0)
-  rw [hnp, h1, h2] at h3
-  exact absurd h3 (by decide)
-
-theorem isCoatom_spL :
-    IsCoatom spL := by
-  refine ⟨fun h => img_eight_not_mem_spL (h ▸ Subgroup.mem_top _), fun C hC => ?_⟩
-  by_cases h8 : img 8 ∈ C
-  · rw [eq_top_iff, ← closure_img_eq_top, Subgroup.closure_le]
-    rintro _ ⟨k, hk, rfl⟩
-    by_cases h8k : k = 8
-    · subst h8k
-      exact h8
-    · refine hC.le (img_mem_spL ?_)
-      simp only [gIdx, List.mem_cons, List.not_mem_nil, or_false]
-      omega
-  · exact absurd (eq_spL_of_le hC.le h8) hC.ne'
 
 noncomputable def bilinEquiv : bilinIsometryGroup Bf ≃* TauCeti.BilinForm.isometryGroup Bf :=
   ((LinearMap.GeneralLinearGroup.generalLinearEquiv (ZMod 2) V8).subgroupMap
@@ -472,8 +421,5 @@ theorem lieModel_of_mulEquiv {G : Type} [Group G] (e : G ≃* StatedSp 4 (ZMod 2
   simp only at this
   omega
 
-theorem lieModel_spL :
-    CFSG.Blueprint.LieModel ↥spL .PSp 4 2 1 :=
-  lieModel_of_mulEquiv spEquivStated
 
 end CFSG.Monster.Existence.Fi23Sp8

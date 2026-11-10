@@ -121,11 +121,6 @@ theorem isQuasisimple_simpleRootSL2' [Finite F] (hF : 4 ≤ Nat.card F) (j : Fin
   exact CFSG.LocalCores.isQuasisimple_of_mulEquiv e.symm
     (CFSG.LieType.Universal.Symplectic.isQuasisimple 1 F le_rfl (Or.inl (Or.inr hF)))
 
-theorem isQuasisimple_simpleRootSL2 [Finite F] (hF : 4 ≤ Nat.card F) (j : Fin n) :
-    CFSG.Open.IsQuasisimple (simpleRootSL2 F j) := by
-  have hq := isQuasisimple_simpleRootSL2' hF j
-  have := hq.1
-  exact ⟨Group.IsPerfect.commutator_eq_top, hq.2.1⟩
 
 theorem isQuasisimple_simpleRootSL2_subgroupOf [Finite F] (hF : 4 ≤ Nat.card F) {j : Fin n}
     {S : Subgroup (StatedSp n F)} (hS : simpleRootSL2 F j ≤ S) :

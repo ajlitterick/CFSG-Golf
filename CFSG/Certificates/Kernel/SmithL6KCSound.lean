@@ -182,11 +182,6 @@ theorem fP_conjF (p q : Nat) : fP (conjF p q) = (tvMat p)ᵀ *ᵥ fP q := by
   rw [fP, (conjF_parts p q).2, dec6_ite, bit_form, tvMat_tr_mulVec, dotProduct_comm]
   rfl
 
-theorem conjF_lt {p q : Nat} (hp : p < 4096) (hq : q < 4096) : conjF p q < 4096 := by
-  have hA := lt64_ite (form (p % 64) (q / 64)) (show q / 64 < 64 by omega) (show p / 64 < 64 by omega)
-  have hB := lt64_ite (form (q % 64) (p / 64)) (Nat.mod_lt q (by decide)) (Nat.mod_lt p (by decide))
-  rw [conjF_eq, conjC]
-  omega
 
 @[expose] noncomputable def psiV : List Nat → Nat → Matrix (Fin 6) (Fin 6) (ZMod 2)
   | [], _ => 1
@@ -209,16 +204,6 @@ theorem uaWC_act (G : List Nat) : ∀ a c, vP (uaWC G a c) = psiV G a *ᵥ vP c 
       rw [vP_conjF, fP_conjF, (ih (a / 2) c).1, (ih (a / 2) c).2, mulVec_mulVec, mulVec_mulVec]
       exact ⟨rfl, rfl⟩
 
-theorem uaWC_lt {G : List Nat} (hG : ∀ g ∈ G, g < 4096) : ∀ a {c}, c < 4096 → uaWC G a c < 4096 := by
-  induction G with
-  | nil => intro a c hc; exact hc
-  | cons g G ih =>
-    intro a c hc
-    rw [uaWC_cons]
-    have h := ih (fun g' hg' => hG g' (List.mem_cons_of_mem _ hg')) (a / 2) hc
-    cases a.testBit 0
-    · exact h
-    · exact conjF_lt (hG g (List.mem_cons_self ..)) h
 
 theorem psiF_psiV {G : List Nat} (hG : ∀ g ∈ G, form (g % 64) (g / 64) = false) :
     ∀ a, (psiF G a)ᵀ * psiV G a = 1 := by
@@ -329,18 +314,6 @@ theorem liftC4_act (L : List Nat) {c : Nat} (hc : c < 4096) :
   rw [vP, fP, vP, fP, e1, e2, dec6_trSw (Nat.mod_lt c (by decide)), dec6_trSw (by omega)]
   exact ⟨rfl, rfl⟩
 
-theorem liftC_lt {L : List Nat} (hL : ∀ i, L.getD i 0 < 4096) {j c : Nat} (hc : c < 4096) :
-    liftC L j c < 4096 := by
-  match j with
-  | 0 => exact hc
-  | 1 => exact conjF_lt (hL 0) hc
-  | 2 => exact conjF_lt (hL 1) hc
-  | 3 => exact conjF_lt (hL 0) (conjF_lt (hL 1) hc)
-  | _ + 4 =>
-    have h1 := (trSw_apK (c % 64) (Nat.mod_lt c (by decide))).2
-    have h2 := (trSw_apK (c / 64) (by omega)).2
-    show 64 * _ + _ < 4096
-    omega
 
 theorem candC_act {U L : List Nat} (hU : ∀ g ∈ U, form (g % 64) (g / 64) = false)
     (hL : ∀ i, form (L.getD i 0 % 64) (L.getD i 0 / 64) = false) {j : Nat} (hj : j < 5)
@@ -367,9 +340,6 @@ theorem candC_act {U L : List Nat} (hU : ∀ g ∈ U, form (g % 64) (g / 64) = f
         Matrix.mul_one]
       exact ⟨rfl, rfl⟩
 
-theorem candC_lt {U L : List Nat} (hU : ∀ g ∈ U, g < 4096) (hL : ∀ i, L.getD i 0 < 4096)
-    (j a : Nat) {c : Nat} (hc : c < 4096) : candC U L j a c < 4096 :=
-  uaWC_lt hU a (liftC_lt hL hc)
 
 section Codes
 
@@ -657,20 +627,6 @@ theorem indep6_sound {vs : List Nat} (h : indep6 vs = true) :
   have := h.2 (m - 1) (by omega)
   rwa [Nat.sub_add_cancel hm0] at this
 
-theorem mem_pairsOf : ∀ {l : List Nat} {p : Nat × Nat}, p ∈ pairsOf l →
-    ∃ s, 2 * s + 1 < l.length ∧ l.getD (2 * s) 0 = p.1 ∧ l.getD (2 * s + 1) 0 = p.2
-  | i :: i' :: l, p, h => by
-    rcases List.mem_cons.1 h with rfl | h
-    · exact ⟨0, by simp, rfl, rfl⟩
-    · obtain ⟨s, hs, h1, h2⟩ := mem_pairsOf h
-      refine ⟨s + 1, by simp; omega, ?_, ?_⟩
-      · rw [show 2 * (s + 1) = 2 * s + 1 + 1 by omega, List.getD_cons_succ, List.getD_cons_succ]
-        exact h1
-      · rw [show 2 * (s + 1) + 1 = 2 * s + 1 + 1 + 1 by omega, List.getD_cons_succ,
-          List.getD_cons_succ]
-        exact h2
-  | [], _, h => by simp [pairsOf] at h
-  | [_], _, h => by simp [pairsOf] at h
 
 theorem repOK_sound {U L : List Nat} {W M A k : Nat} {e : List Nat}
     (h : repOK U L W M A k e = true) :

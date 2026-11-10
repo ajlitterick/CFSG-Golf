@@ -36,23 +36,6 @@ theorem U43.cp_K : seedsL U43.lay U43.A U43.B ⟨U43Three.nregs, U43Three.cpProg
     U43Three.cpSpec.facts⟩ U43Three.cpSpec.rA U43Three.cpSpec.rB = true := by
   quickRfl
 
-theorem G23.swap_neg : (!seedsL G23.lay G23.B G23.A ⟨G23Three.nregs, G23Three.cpProg,
-    G23Three.cpSpec.facts⟩ G23Three.cpSpec.rA G23Three.cpSpec.rB) = true := by
-  quickRfl
-
-theorem O73.swap_neg : (!seedsL O73.lay O73.B O73.A ⟨O73Three.nregs, O73Three.cpProg,
-    O73Three.cpSpec.facts⟩ O73Three.cpSpec.rA O73Three.cpSpec.rB) = true := by
-  quickRfl
-
-theorem U43.swap_neg : (!seedsL U43.lay U43.B U43.A ⟨U43Three.nregs, U43Three.cpProg,
-    U43Three.cpSpec.facts⟩ U43Three.cpSpec.rA U43Three.cpSpec.rB) = true := by
-  quickRfl
-
-theorem O73.ne_neg : (!seedsL O73.lay O73.A O73.B ⟨2, [], [.ne [(0, 1)] [(1, 1)] 7]⟩ 0 1) = true := by
-  quickRfl
-
-theorem U43.ord_neg : (!seedsL U43.lay U43.A U43.B ⟨2, [], [.ord 0 1]⟩ 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelTc
 

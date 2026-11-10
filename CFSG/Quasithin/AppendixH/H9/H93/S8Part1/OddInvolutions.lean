@@ -39,21 +39,5 @@ theorem cycleType_swap_triple :
     Perm.isSwap_iff_cycleType.mp (Perm.swap_isSwap_iff.mpr (by decide))]
   rfl
 
-theorem orderOf_swap_zero_one : orderOf (Equiv.swap (0 : Fin 8) 1) = 2 :=
-  Perm.IsSwap.orderOf (Perm.swap_isSwap_iff.mpr (by decide))
-
-theorem orderOf_swap_triple :
-    orderOf (Equiv.swap (0 : Fin 8) 1 * Equiv.swap 2 3 * Equiv.swap 4 5) = 2 := by
-  rw [← Perm.lcm_cycleType, cycleType_swap_triple]
-  rfl
-
-theorem sign_swap_zero_one : Perm.sign (Equiv.swap (0 : Fin 8) 1) = -1 :=
-  Perm.sign_swap (by decide)
-
-theorem sign_swap_triple :
-    Perm.sign (Equiv.swap (0 : Fin 8) 1 * Equiv.swap 2 3 * Equiv.swap 4 5) = -1 := by
-  rw [map_mul, map_mul, Perm.sign_swap (by decide), Perm.sign_swap (by decide),
-    Perm.sign_swap (by decide)]
-  decide
 
 end CFSG.ASVolI.ChH

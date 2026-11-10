@@ -18,17 +18,6 @@ variable {K : Type u} [Field K]
 variable {V : Type v} [AddCommGroup V] [Module K V]
 variable (Q : QuadraticForm K V)
 
-@[expose] def pointCountEquiv : Points Q ≃ singularLinesIn Q ⊤ where
-  toFun L := ⟨L.val, le_top, L.property⟩
-  invFun L := ⟨L.val, L.property.2⟩
-  left_inv L := Subtype.ext (show L.val = L.val from rfl)
-  right_inv L := Subtype.ext (show L.val = L.val from rfl)
-
-theorem pointCountEquiv_submodule (L : Points Q) :
-    (pointCountEquiv Q L).val = L.val := rfl
-
-theorem pointCountEquiv_symm_submodule (L : singularLinesIn Q ⊤) :
-    ((pointCountEquiv Q).symm L).val = L.val := rfl
 
 variable {Q}
 
@@ -57,9 +46,6 @@ theorem pointPerp_hyperbolic_line (P : HypPair Q) (L M : Points Q)
   left_inv M := Subtype.ext (Subtype.ext (show M.val.val = M.val.val from rfl))
   right_inv M := Subtype.ext (show M.val = M.val from rfl)
 
-theorem perpendicularCountEquiv_submodule (P : HypPair Q) (L : Points Q)
-    (hL : L.val = K ∙ P.e) (M : perpendicularPoints Q L) :
-    (perpendicularCountEquiv P L hL M).val = M.val.val := rfl
 
 @[expose] def nonperpendicularCountEquiv (P : HypPair Q) (L : Points Q)
     (hL : L.val = K ∙ P.e) :
@@ -80,9 +66,6 @@ theorem perpendicularCountEquiv_submodule (P : HypPair Q) (L : Points Q)
     obtain ⟨x, hx, hne⟩ := M.property.2
     exact hne ((pointPerp_hyperbolic_line P L ⟨M.val, M.property.1.2⟩ hL).mp h x hx)
 
-theorem nonperpendicularCountEquiv_submodule (P : HypPair Q) (L : Points Q)
-    (hL : L.val = K ∙ P.e) (M : nonperpendicularPoints Q L) :
-    (nonperpendicularCountEquiv P L hL M).val = M.val.val := rfl
 
 variable [FiniteDimensional K V]
 
@@ -95,11 +78,6 @@ theorem hyperbolic_perp_finrank (P : HypPair Q) :
 
 variable [Finite K]
 
-theorem point_count_recurrence (P : HypPair Q) :
-    Nat.card (Points Q) = 1 + Nat.card K * Nat.card (singularLinesIn Q P.perp) +
-      Nat.card K ^ (Module.finrank K V - 2) := by
-  rw [Nat.card_congr (pointCountEquiv Q),
-    (orthogonal_geometry_hyperbolic_point_count P).1, hyperbolic_perp_finrank P]
 
 theorem perpendicular_point_count (P : HypPair Q) (L : Points Q)
     (hL : L.val = K ∙ P.e) :
@@ -114,9 +92,5 @@ theorem nonperpendicular_point_count (P : HypPair Q) (L : Points Q)
   rw [Nat.card_congr (nonperpendicularCountEquiv P L hL)]
   rw [(orthogonal_geometry_hyperbolic_point_count P).2.2.1, hyperbolic_perp_finrank P]
 
-theorem point_count_congruence (P : HypPair Q) (hP : 1 ≤ Module.finrank K P.perp) :
-    Nat.card (Points Q) ≡ 1 [MOD Nat.card K] := by
-  rw [Nat.card_congr (pointCountEquiv Q)]
-  exact (orthogonal_geometry_hyperbolic_point_count P).2.2.2 hP
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointCount

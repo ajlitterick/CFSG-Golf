@@ -113,26 +113,6 @@ theorem odd_kernel_cover_preserves_two_subgroup_normalizer_actions [Finite G]
     ⟨(b : G)⁻¹ * x * b, hbx⟩) = ((q.comp V.subtype) ⟨g⁻¹ * x * g, hgx⟩) from heq))
 
 
-@[expose] def internalNormalizerAction (B V : Subgroup G) :
-    ↥(B ⊓ Subgroup.normalizer (V : Set G)) →* MulAut V :=
-  V.normalizerMonoidHom.comp (Subgroup.inclusion inf_le_right)
-
-theorem odd_kernel_cover_normalizer_action_range [Finite G]
-    (R B V : Subgroup G) [R.Normal] (hR : Odd (Nat.card R))
-    (hcover : R ⊔ B = ⊤) (hVB : V ≤ B) (hV : IsPGroup 2 V) :
-    (internalNormalizerAction B V).range = V.normalizerMonoidHom.range := by
-  apply le_antisymm
-  · rintro _ ⟨b, rfl⟩
-    exact ⟨Subgroup.inclusion inf_le_right b, rfl⟩
-  · rintro _ ⟨g, rfl⟩
-    obtain ⟨b, hb, haction⟩ := odd_kernel_cover_preserves_two_subgroup_normalizer_actions
-      R B V hR hcover hVB hV (g : G)⁻¹
-      ((Subgroup.normalizer (V : Set G)).inv_mem g.property)
-    refine ⟨⟨b⁻¹, (B ⊓ Subgroup.normalizer (V : Set G)).inv_mem hb⟩, ?_⟩
-    ext x
-    change b⁻¹ * (x : G) * (b⁻¹)⁻¹ = (g : G) * (x : G) * (g : G)⁻¹
-    simpa only [inv_inv] using haction x x.property
-
 open BenderSuzuki.External BenderSuzuki.PFchapter1section1
 
 theorem covering_odd_core_eq_kernel_intersection [Finite G]
@@ -162,23 +142,6 @@ theorem covering_odd_core_eq_kernel_intersection [Finite G]
     exact (CFSG.ComponentClassification.OddCore.odd_card G).of_dvd_nat
       (Subgroup.card_comap_dvd_of_injective R B.subtype B.subtype_injective)
 
-theorem covering_odd_core_quotient_equiv [Finite G]
-    (B : Subgroup G) (hcover : CFSG.oddCore G ⊔ B = ⊤) :
-    ∃ E : B ⧸ CFSG.oddCore B ≃* G ⧸ CFSG.oddCore G,
-      ∀ b : B, E ((QuotientGroup.mk' (CFSG.oddCore B)) b) =
-        (QuotientGroup.mk' (CFSG.oddCore G)) b := by
-  let f := (QuotientGroup.mk' (CFSG.oddCore G)).comp B.subtype
-  have hf : Function.Surjective f :=
-    covering_quotient_restriction_surjective (CFSG.oddCore G) B hcover
-  have hker : f.ker = CFSG.oddCore B := by
-    rw [covering_odd_core_eq_kernel_intersection B hcover]
-    ext b
-    exact QuotientGroup.eq_one_iff (b : G)
-  let E := (QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective f hf)
-  refine ⟨E, ?_⟩
-  intro b
-  rfl
 
 @[expose] def subgroupSylow (S : Sylow 2 G) (K : Subgroup G)
     (hSK : (S : Subgroup G) ≤ K) : Sylow 2 K := S.subtype hSK
@@ -209,31 +172,6 @@ theorem subgroupModelBase_eq {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m)
   rw [modelBase, Subgroup.map_map, subgroupModelHom_comp,
     Subgroup.map_subgroupOf_eq_of_le ((modelBase_le_sylow S e).trans hSK)]
   rfl
-
-theorem covering_action_inside_overgroup [Finite G]
-    (N K V : Subgroup G) (R : Subgroup N) [R.Normal]
-    (hR : Odd (Nat.card R)) (hcover : R ⊔ K.subgroupOf N = ⊤)
-    (hVK : V ≤ K) (hVN : V ≤ N) (hV : IsPGroup 2 V)
-    (hNV : Subgroup.normalizer (V : Set G) ≤ N)
-    (g : G) (hg : g ∈ Subgroup.normalizer (V : Set G)) :
-    ∃ b ∈ K ⊓ Subgroup.normalizer (V : Set G),
-      ∀ v ∈ V, b⁻¹ * v * b = g⁻¹ * v * g := by
-  let W := V.subgroupOf N
-  let B := K.subgroupOf N
-  let gN : N := ⟨g, hNV hg⟩
-  have hgn : gN ∈ Subgroup.normalizer (W : Set N) := by
-    rw [← Subgroup.subgroupOf_normalizer_eq hVN]
-    exact hg
-  have hWB : W ≤ B := Subgroup.comap_mono hVK
-  obtain ⟨b, hb, hact⟩ := odd_kernel_cover_preserves_two_subgroup_normalizer_actions
-    R B W hR hcover hWB hV.comap_subtype gN hgn
-  have hbn : (b : G) ∈ Subgroup.normalizer (V : Set G) := by
-    have ht := hb.2
-    rw [← Subgroup.subgroupOf_normalizer_eq hVN] at ht
-    exact ht
-  refine ⟨b, ⟨hb.1, hbn⟩, ?_⟩
-  intro v hv
-  exact congrArg Subtype.val (hact ⟨v, hVN hv⟩ hv)
 
 
 theorem modelCenter_weakly_closed_of_base_order_two [Finite G]
@@ -348,71 +286,6 @@ theorem subgroupVQuotientAction_eq {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath 
   rw [subgroupVAction_eq]
   rfl
 
-theorem covering_subgroupVAction_range [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔
-      K.subgroupOf (involutionCentralizer n S e) = ⊤) :
-    (modelVAction (subgroupSylow S K hSK) (subgroupCoordinates S e K hSK)).range =
-      (modelVAction S e).range := by
-  apply le_antisymm
-  · rintro _ ⟨g, rfl⟩
-    exact ⟨subgroupVNormalizerInclusion S e K hSK g, (subgroupVAction_eq S e K hSK g).symm⟩
-  · rintro _ ⟨g, rfl⟩
-    have hVK := (modelV_le_sylow S e).trans hSK
-    have hVN := (modelV_le_sylow S e).trans (sylow_le_involutionCentralizer n hn S e)
-    have hV : IsPGroup 2 (modelV S e) :=
-      S.isPGroup'.of_injective (Subgroup.inclusion (modelV_le_sylow S e))
-        (Subgroup.inclusion_injective _)
-    obtain ⟨b, hb, hact⟩ := covering_action_inside_overgroup
-      (involutionCentralizer n S e) K (modelV S e) (centralizerOddCore n S e)
-      (centralizerOddCore_card_odd n S e) hcover hVK hVN hV
-      (modelVNormalizer_le_involutionCentralizer n hn S e) (g : G)⁻¹
-      ((Subgroup.normalizer (modelV S e : Set G)).inv_mem g.property)
-    let bK : K := ⟨b⁻¹, K.inv_mem hb.1⟩
-    have hbn : bK ∈ Subgroup.normalizer (modelV (subgroupSylow S K hSK)
-        (subgroupCoordinates S e K hSK) : Set K) := by
-      rw [subgroupModelV_eq, ← Subgroup.subgroupOf_normalizer_eq hVK]
-      exact (Subgroup.normalizer (modelV S e : Set G)).inv_mem hb.2
-    refine ⟨⟨bK, hbn⟩, ?_⟩
-    apply MulEquiv.ext
-    intro v
-    apply Subtype.ext
-    apply wreathModelHom_injective S e
-    rw [subgroupVAction_eq, modelVAction_coe, modelVAction_coe,
-      subgroupVNormalizerInclusion_coe]
-    have hv : wreathModelHom S e v.val ∈ modelV S e :=
-      Subgroup.mem_map_of_mem (wreathModelHom S e) v.property
-    simpa only [bK, inv_inv] using hact _ hv
-
-theorem covering_subgroupVQuotientAction_range [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔
-      K.subgroupOf (involutionCentralizer n S e) = ⊤) :
-    (modelVQuotientAction (subgroupSylow S K hSK)
-      (subgroupCoordinates S e K hSK)).range = (modelVQuotientAction S e).range := by
-  change ((CFSG.FiveTransitive.CharacteristicAutomorphism.quotient
-      (Subgroup.center (Original.V (2 ^ n)))).comp
-      (modelVAction (subgroupSylow S K hSK) (subgroupCoordinates S e K hSK))).range = _
-  rw [MonoidHom.range_comp, covering_subgroupVAction_range n hn S e K hSK hcover]
-  exact (MonoidHom.range_comp _ _).symm
-
-theorem covering_subgroupVNormalizerQuotient_sym3 [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔
-      K.subgroupOf (involutionCentralizer n S e) = ⊤) :
-    Nonempty (Subgroup.normalizer (modelV (subgroupSylow S K hSK)
-      (subgroupCoordinates S e K hSK) : Set K) ⧸
-      modelVInnerCentralizer (subgroupSylow S K hSK) (subgroupCoordinates S e K hSK) ≃*
-        Equiv.Perm (Fin 3)) := by
-  obtain ⟨e3⟩ := modelVNormalizerQuotient_sym3_of_simple hnonab n hn S e
-  exact ⟨(modelVNormalizerQuotientEquiv n hn _ _).trans
-    ((MulEquiv.subgroupCongr
-      (covering_subgroupVQuotientAction_range n hn S e K hSK hcover)).trans
-      ((modelVNormalizerQuotientEquiv n hn S e).symm.trans e3))⟩
 
 theorem differences_eq_top_of_frattini_quotient
     {P : Type u} [Group P] [Finite P] {p : ℕ}
@@ -503,48 +376,6 @@ theorem modelBase_le_commutator_of_sym3 [Finite G]
     (baseSubgroup (2 ^ n)) (a : MulAut _)) = 3 at hred
   simpa only [← hg] using hred
 
-def intersectionInclusionEquiv (K N : Subgroup G) :
-    K.subgroupOf N ≃* N.subgroupOf K where
-  toFun b := ⟨⟨b.val.val, b.property⟩, b.val.property⟩
-  invFun b := ⟨⟨b.val.val, b.property⟩, b.val.property⟩
-  left_inv _ := rfl
-  right_inv _ := rfl
-  map_mul' _ _ := rfl
-
-theorem intersection_odd_core_mem_iff {K N : Subgroup G}
-    {b : K.subgroupOf N} :
-    b ∈ CFSG.oddCore (K.subgroupOf N) ↔
-      intersectionInclusionEquiv K N b ∈ CFSG.oddCore (N.subgroupOf K) := by
-  have h : (CFSG.oddCore (K.subgroupOf N)).map
-      (intersectionInclusionEquiv K N).toMonoidHom = CFSG.oddCore (N.subgroupOf K) :=
-    CFSG.ComponentClassification.OddCore.equiv_invariant (intersectionInclusionEquiv K N)
-  rw [← h]
-  exact Subgroup.mem_map_iff_mem (intersectionInclusionEquiv K N).injective |>.symm
-
-theorem covering_factorization_core_intersection [Finite G] (K N : Subgroup G)
-    (hN : CFSG.oddCore N ⊔ K.subgroupOf N = ⊤)
-    (hK : CFSG.oddCore K ⊔ N.subgroupOf K = ⊤) :
-    (CFSG.oddCore K).map K.subtype ⊓ N = (CFSG.oddCore N).map N.subtype ⊓ K := by
-  have hcoreN := covering_odd_core_eq_kernel_intersection (K.subgroupOf N) hN
-  have hcoreK := covering_odd_core_eq_kernel_intersection (N.subgroupOf K) hK
-  ext g
-  constructor
-  · rintro ⟨⟨k, hk, rfl⟩, hn⟩
-    let b : K.subgroupOf N := ⟨⟨k.val, hn⟩, k.property⟩
-    have hmem : intersectionInclusionEquiv K N b ∈ CFSG.oddCore (N.subgroupOf K) := by
-      rw [hcoreK]
-      exact hk
-    have hb := (intersection_odd_core_mem_iff (K := K) (N := N) (b := b)).mpr hmem
-    rw [hcoreN] at hb
-    exact ⟨⟨b.val, hb, rfl⟩, k.property⟩
-  · rintro ⟨⟨v, hv, rfl⟩, hk⟩
-    let b : K.subgroupOf N := ⟨v, hk⟩
-    have hb : b ∈ CFSG.oddCore (K.subgroupOf N) := by
-      rw [hcoreN]
-      exact hv
-    have hmem := (intersection_odd_core_mem_iff (K := K) (N := N) (b := b)).mp hb
-    rw [hcoreK] at hmem
-    exact ⟨⟨(intersectionInclusionEquiv K N b).val, hmem, rfl⟩, v.property⟩
 
 theorem subgroupInvolutionCentralizer_eq (n : ℕ) (S : Sylow 2 G)
     (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K) :
@@ -561,87 +392,6 @@ theorem subgroupInvolutionCentralizer_eq (n : ℕ) (S : Sylow 2 G)
   · intro h
     exact Subtype.ext h
 
-theorem covering_base_order_two_core_intersection [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔ K.subgroupOf (involutionCentralizer n S e) = ⊤)
-    (hcard : Nat.card (Subgroup.normalizer (modelBase (subgroupSylow S K hSK)
-      (subgroupCoordinates S e K hSK) : Set K) ⧸
-      (Subgroup.centralizer (modelBase (subgroupSylow S K hSK)
-        (subgroupCoordinates S e K hSK) : Set K)).subgroupOf
-        (Subgroup.normalizer (modelBase (subgroupSylow S K hSK)
-          (subgroupCoordinates S e K hSK) : Set K))) = 2) :
-    (CFSG.oddCore K).map K.subtype ⊓ involutionCentralizer n S e =
-      (centralizerOddCore n S e).map (involutionCentralizer n S e).subtype ⊓ K := by
-  have hK := (base_order_two_original_involution_factorization n hn
-    (subgroupSylow S K hSK) (subgroupCoordinates S e K hSK) hcard).1
-  rw [subgroupInvolutionCentralizer_eq] at hK
-  exact covering_factorization_core_intersection K (involutionCentralizer n S e) hcover hK
-
-def ambientIntersectionEquiv (K N : Subgroup G) : ↥(K ⊓ N) ≃* K.subgroupOf N where
-  toFun b := ⟨⟨b.val, b.property.2⟩, b.property.1⟩
-  invFun b := ⟨b.val.val, ⟨b.property, b.val.property⟩⟩
-  left_inv _ := rfl
-  right_inv _ := rfl
-  map_mul' _ _ := rfl
-
-def ambientCoveringQuotientMap (K N : Subgroup G) :
-    ↥(K ⊓ N) →* N ⧸ CFSG.oddCore N :=
-  (QuotientGroup.mk' (CFSG.oddCore N)).comp (Subgroup.inclusion inf_le_right)
-
-theorem ambientCoveringQuotientMap_surjective (K N : Subgroup G)
-    (hcover : CFSG.oddCore N ⊔ K.subgroupOf N = ⊤) :
-    Function.Surjective (ambientCoveringQuotientMap K N) := by
-  have hcomp : ambientCoveringQuotientMap K N =
-      ((QuotientGroup.mk' (CFSG.oddCore N)).comp (K.subgroupOf N).subtype).comp
-        (ambientIntersectionEquiv K N).toMonoidHom := rfl
-  rw [hcomp]
-  exact (covering_quotient_restriction_surjective (CFSG.oddCore N) (K.subgroupOf N)
-    hcover).comp (ambientIntersectionEquiv K N).surjective
-
-theorem ambientCoveringQuotientMap_ker (K N : Subgroup G) :
-    (ambientCoveringQuotientMap K N).ker =
-      ((CFSG.oddCore N).map N.subtype).subgroupOf (K ⊓ N) := by
-  ext b
-  change (QuotientGroup.mk' (CFSG.oddCore N))
-    (Subgroup.inclusion inf_le_right b) = 1 ↔ _
-  change ((Subgroup.inclusion inf_le_right b : N) : N ⧸ CFSG.oddCore N) = 1 ↔ _
-  rw [QuotientGroup.eq_one_iff]
-  constructor
-  · intro hb
-    exact ⟨Subgroup.inclusion inf_le_right b, hb, rfl⟩
-  · rintro ⟨v, hv, heq⟩
-    exact (Subtype.ext heq : v = Subgroup.inclusion inf_le_right b) ▸ hv
-
-theorem ambient_covering_odd_core_eq [Finite G] (K N : Subgroup G)
-    (hcover : CFSG.oddCore N ⊔ K.subgroupOf N = ⊤) :
-    CFSG.oddCore ↥(K ⊓ N) = ((CFSG.oddCore N).map N.subtype).subgroupOf (K ⊓ N) := by
-  let E := ambientIntersectionEquiv K N
-  have heq : (CFSG.oddCore ↥(K ⊓ N)).map E.toMonoidHom = CFSG.oddCore (K.subgroupOf N) :=
-    CFSG.ComponentClassification.OddCore.equiv_invariant E
-  rw [covering_odd_core_eq_kernel_intersection (K.subgroupOf N) hcover] at heq
-  ext b
-  rw [← Subgroup.mem_map_iff_mem (f := E.toMonoidHom) E.injective, heq]
-  change E b ∈ (CFSG.oddCore N).subgroupOf (K.subgroupOf N) ↔ _
-  constructor
-  · intro hb
-    exact ⟨(E b).val, hb, rfl⟩
-  · rintro ⟨v, hv, heqv⟩
-    change (E b).val ∈ CFSG.oddCore N
-    exact (Subtype.ext heqv : v = (E b).val) ▸ hv
-
-theorem ambient_covering_odd_core_quotient_equiv [Finite G] (K N : Subgroup G)
-    (hcover : CFSG.oddCore N ⊔ K.subgroupOf N = ⊤) :
-    ∃ E : ↥(K ⊓ N) ⧸ CFSG.oddCore ↥(K ⊓ N) ≃* N ⧸ CFSG.oddCore N,
-      ∀ b : ↥(K ⊓ N), E ((QuotientGroup.mk' (CFSG.oddCore ↥(K ⊓ N))) b) =
-        (QuotientGroup.mk' (CFSG.oddCore N)) (Subgroup.inclusion inf_le_right b) := by
-  let f := ambientCoveringQuotientMap K N
-  have hf := ambientCoveringQuotientMap_surjective K N hcover
-  have hker : f.ker = CFSG.oddCore ↥(K ⊓ N) := by
-    rw [ambientCoveringQuotientMap_ker, ambient_covering_odd_core_eq K N hcover]
-  let E := (QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective f hf)
-  exact ⟨E, fun _ => rfl⟩
 
 theorem internal_odd_core_factorization_iff_ambient_product {K N : Subgroup G} :
     CFSG.oddCore K ⊔ N.subgroupOf K = ⊤ ↔
@@ -866,21 +616,6 @@ theorem nonfactorization_of_full_base_action [Finite G]
   exact (wreath_center_involution_and_quaternion_coordinates n hn).distinct_classes.1
     (hmodel ▸ IsConj.refl _)
 
-theorem base_quotient_two_and_sym3_exclusive
-    (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ¬ (Nat.card (Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G))) = 2 ∧
-      Nonempty (Subgroup.normalizer (modelBase S e : Set G) ⧸
-        (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-          (Subgroup.normalizer (modelBase S e : Set G)) ≃* Equiv.Perm (Fin 3))) := by
-  rintro ⟨htwo, ⟨E⟩⟩
-  have hsix : Nat.card (Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G))) = 6 := by
-    rw [Nat.card_congr E.toEquiv, Nat.card_perm]
-    norm_num
-  omega
 
 @[expose] def coveringBaseQuotient {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m)
     (K : Subgroup G) : Type u :=
@@ -978,14 +713,6 @@ theorem covering_base_quotient_alternatives [Finite G]
   · obtain ⟨E⟩ := hsix
     exact Or.inr ⟨(subgroupBaseQuotientEquiv S e K hSK).symm.trans E⟩
 
-theorem covering_v_quotient_sym3 [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔ K.subgroupOf (involutionCentralizer n S e) = ⊤) :
-    Nonempty (coveringVQuotient S e K ≃* Equiv.Perm (Fin 3)) := by
-  obtain ⟨E⟩ := covering_subgroupVNormalizerQuotient_sym3 hnonab n hn S e K hSK hcover
-  exact ⟨(subgroupVQuotientEquiv S e K hSK).symm.trans E⟩
 
 @[expose] def coveringInvolution (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
     (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K) : K :=
@@ -1001,30 +728,6 @@ theorem coveringInvolution_centralizer (n : ℕ) (S : Sylow 2 G)
       (involutionCentralizer n S e).subgroupOf K :=
   subgroupInvolutionCentralizer_eq n S e K hSK
 
-theorem covering_order_two_factorization [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔ K.subgroupOf (involutionCentralizer n S e) = ⊤)
-    (hcard : Nat.card (coveringBaseQuotient S e K) = 2) :
-    (K : Set G) = ((CFSG.oddCore K).map K.subtype : Set G) *
-      (K ⊓ involutionCentralizer n S e : Set G) ∧
-    (QuotientGroup.mk' (CFSG.oddCore K)) (coveringInvolution n S e K hSK) ∈
-      Subgroup.center (K ⧸ CFSG.oddCore K) ∧
-    (CFSG.oddCore K).map K.subtype ⊓ involutionCentralizer n S e =
-      (centralizerOddCore n S e).map (involutionCentralizer n S e).subtype ⊓ K := by
-  have hcard' : Nat.card (Subgroup.normalizer (modelBase (subgroupSylow S K hSK)
-      (subgroupCoordinates S e K hSK) : Set K) ⧸
-      (Subgroup.centralizer (modelBase (subgroupSylow S K hSK)
-        (subgroupCoordinates S e K hSK) : Set K)).subgroupOf
-        (Subgroup.normalizer (modelBase (subgroupSylow S K hSK)
-          (subgroupCoordinates S e K hSK) : Set K))) = 2 := by
-    exact (Nat.card_congr (subgroupBaseQuotientEquiv S e K hSK).toEquiv).trans hcard
-  have hf := base_order_two_original_involution_factorization n hn
-    (subgroupSylow S K hSK) (subgroupCoordinates S e K hSK) hcard'
-  have hfK := hf.1
-  rw [subgroupInvolutionCentralizer_eq] at hfK
-  exact ⟨internal_odd_core_factorization_iff_ambient_product.mp hfK, hf.2,
-    covering_base_order_two_core_intersection n hn S e K hSK hcover hcard'⟩
 
 theorem covering_typeI_obstruction [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -1086,17 +789,6 @@ theorem covering_v_denominator_product {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wre
   apply Subgroup.coe_mul_of_right_le_normalizer_left
   exact Subgroup.centralizer_le_normalizer _
 
-theorem ambient_covering_odd_core_map_eq [Finite G] (K N : Subgroup G)
-    (hcover : CFSG.oddCore N ⊔ K.subgroupOf N = ⊤) :
-    (CFSG.oddCore ↥(K ⊓ N)).map (K ⊓ N).subtype =
-      (CFSG.oddCore N).map N.subtype ⊓ (K ⊓ N) := by
-  rw [ambient_covering_odd_core_eq K N hcover]
-  ext g
-  constructor
-  · rintro ⟨b, hb, rfl⟩
-    exact ⟨hb, b.property⟩
-  · rintro ⟨hgR, hgB⟩
-    exact ⟨⟨g, hgB⟩, hgR, rfl⟩
 
 structure CoveringFactorizationBranch (n : ℕ) (S : Sylow 2 G)
     (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K) : Prop where
@@ -1125,89 +817,5 @@ theorem covering_branches_mutually_exclusive (n : ℕ) (S : Sylow 2 G)
   rintro ⟨hf, hi⟩
   exact hi.nonfactorization hf.factorization
 
-structure FullSylowCoveringConclusion (n : ℕ) (S : Sylow 2 G)
-    (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K) : Prop where
-  actual_intersection : K ⊓ involutionCentralizer n S e =
-    (Subgroup.centralizer ({(coveringInvolution n S e K hSK)} : Set K)).map K.subtype
-  odd_core : CFSG.oddCore ↥(K ⊓ involutionCentralizer n S e) =
-    ((centralizerOddCore n S e).map (involutionCentralizer n S e).subtype).subgroupOf
-      (K ⊓ involutionCentralizer n S e)
-  ambient_odd_core : (CFSG.oddCore ↥(K ⊓ involutionCentralizer n S e)).map
-      (K ⊓ involutionCentralizer n S e).subtype =
-    (centralizerOddCore n S e).map (involutionCentralizer n S e).subtype ⊓
-      (K ⊓ involutionCentralizer n S e)
-  inclusion_quotient :
-    ∃ E : ↥(K ⊓ involutionCentralizer n S e) ⧸
-        CFSG.oddCore ↥(K ⊓ involutionCentralizer n S e) ≃*
-          involutionCentralizer n S e ⧸ centralizerOddCore n S e,
-      ∀ b : ↥(K ⊓ involutionCentralizer n S e),
-        E ((QuotientGroup.mk' (CFSG.oddCore ↥(K ⊓ involutionCentralizer n S e))) b) =
-          (QuotientGroup.mk' (centralizerOddCore n S e)) (Subgroup.inclusion inf_le_right b)
-  v_sym3 : Nonempty (coveringVQuotient S e K ≃* Equiv.Perm (Fin 3))
-  alternatives : CoveringFactorizationBranch n S e K hSK ∨ CoveringTypeIObstruction n S e K
-  mutually_exclusive :
-    ¬ (CoveringFactorizationBranch n S e K hSK ∧ CoveringTypeIObstruction n S e K)
-
-theorem full_Sylow_covering_subgroup_conclusion_of_internal_covering
-    [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : centralizerOddCore n S e ⊔ K.subgroupOf (involutionCentralizer n S e) = ⊤) :
-    FullSylowCoveringConclusion n S e K hSK := by
-  have hv := covering_v_quotient_sym3 hnonab n hn S e K hSK hcover
-  refine ⟨covering_intersection_eq_centralizer n S e K hSK,
-    ambient_covering_odd_core_eq K (involutionCentralizer n S e) hcover,
-    ambient_covering_odd_core_map_eq K (involutionCentralizer n S e) hcover,
-    ambient_covering_odd_core_quotient_equiv K (involutionCentralizer n S e) hcover,
-    hv, ?_, covering_branches_mutually_exclusive n S e K hSK⟩
-  rcases covering_base_quotient_alternatives n hn S e K hSK with htwo | hsix
-  · obtain ⟨hfactor, hcentral, hintersection⟩ :=
-      covering_order_two_factorization n hn S e K hSK hcover htwo
-    exact Or.inl ⟨htwo, hfactor, hcentral, hintersection⟩
-  · obtain ⟨hS, hindex, hclass, hnonfactor⟩ :=
-      covering_typeI_obstruction n hn S e K hSK hsix hv
-    exact Or.inr ⟨hsix, hS, hindex, hclass, hnonfactor⟩
-
-theorem actual_odd_core_covering_iff_product {K N : Subgroup G} :
-    CFSG.oddCore N ⊔ K.subgroupOf N = ⊤ ↔
-      (N : Set G) = ((CFSG.oddCore N).map N.subtype : Set G) * (K ⊓ N : Set G) := by
-  simpa only [inf_comm] using
-    (internal_odd_core_factorization_iff_ambient_product (K := N) (N := K))
-
-theorem full_Sylow_covering_subgroup_has_factorization_or_exact_typeI_obstruction
-    [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : (involutionCentralizer n S e : Set G) =
-      ((centralizerOddCore n S e).map (involutionCentralizer n S e).subtype : Set G) *
-        (K ⊓ involutionCentralizer n S e : Set G)) :
-    FullSylowCoveringConclusion n S e K hSK :=
-  full_Sylow_covering_subgroup_conclusion_of_internal_covering hnonab n hn S e K hSK
-    (actual_odd_core_covering_iff_product.mpr hcover)
-
-structure ProperCoveringTypeIObstruction (n : ℕ) (S : Sylow 2 G)
-    (e : S ≃* Wreath (2 ^ n)) (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K) : Prop where
-  proper : K < ⊤
-  nontrivial_odd_core : CFSG.oddCore K ≠ ⊥
-  full_covering : FullSylowCoveringConclusion n S e K hSK
-  typeI : CoveringTypeIObstruction n S e K
-
-theorem proper_full_Sylow_covering_typeI_obstruction [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : (involutionCentralizer n S e : Set G) =
-      ((centralizerOddCore n S e).map (involutionCentralizer n S e).subtype : Set G) *
-        (K ⊓ involutionCentralizer n S e : Set G))
-    (hproper : K < ⊤) (hcore : CFSG.oddCore K ≠ ⊥)
-    (hnonfactor : (K : Set G) ≠ ((CFSG.oddCore K).map K.subtype : Set G) *
-      (K ⊓ involutionCentralizer n S e : Set G)) :
-    ProperCoveringTypeIObstruction n S e K hSK := by
-  have hfull := full_Sylow_covering_subgroup_has_factorization_or_exact_typeI_obstruction
-    hnonab n hn S e K hSK hcover
-  refine ⟨hproper, hcore, hfull, ?_⟩
-  rcases hfull.alternatives with hf | hi
-  · exact False.elim (hnonfactor hf.factorization)
-  · exact hi
 
 end CFSG.Wreathed.FullSylowCoveringObstruction

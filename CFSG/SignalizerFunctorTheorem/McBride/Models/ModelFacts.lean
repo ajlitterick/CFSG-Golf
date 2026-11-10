@@ -97,21 +97,6 @@ theorem NearSimple.fixedNormalizer_eq_of_psl3
     rw [fixedFitting_congr, Subgroup.card_map_of_injective e.injective] at h4
     exact h4
 
-omit [Finite J] in
-theorem NearSimple.fixedSubgroup_mulEquiv_a4 (h : NearSimple p J) {f : MulAut J}
-    (hf : orderOf f = p)
-    (hJ : Nonempty (J ≃* Matrix.ProjectiveSpecialLinearGroup (Fin 2) (GaloisField 3 p))) :
-    Nonempty (↥(signalizerFixedSubgroup f) ≃* alternatingGroup (Fin 4)) := by
-  obtain ⟨e⟩ := hJ
-  have hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)) := by
-    rw [← Nat.card_congr e.toEquiv]; exact h.coprime
-  have hf' : orderOf (MulAut.congr e f) = p := by rw [orderOf_congr, hf]
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨e'⟩ := CFSG.SignalizerFunctorTheorem.NearModels.psl2_fixedSubgroup_mulEquiv 3 h.prime
-    hcop _ hf'
-  exact ⟨(Subgroup.equivMapOfInjective _ e.toMonoidHom e.injective).trans
-    ((MulEquiv.subgroupCongr (signalizerFixedSubgroup_congr e f).symm).trans
-      (e'.trans CFSG.GorensteinWalter.psl2_three_equiv_alternatingGroup))⟩
 
 theorem NearSimple.exists_involution_fpf
     (h : NearSimple p J) {f : MulAut J}
@@ -147,24 +132,6 @@ theorem NearSimple.exists_involution_fpf
       (by rw [orderOf_congr, hf])]
     norm_num
 
-omit [Finite J] in
-theorem NearSimple.fixedCore1_eq
-    (h : NearSimple p J) {f : MulAut J} (hf : orderOf f = p)
-    (hJ : ¬ Nonempty (J ≃* PSU3 2 p)) : fixedCore1 f = signalizerFixedSubgroup f := by
-  rcases h.model with ⟨⟨e⟩⟩ | ⟨⟨e⟩⟩ | ⟨n, rfl, ⟨e⟩⟩ | ⟨⟨e⟩⟩
-  · have hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 2 p)) := by
-      rw [← Nat.card_congr e.toEquiv]; exact h.coprime
-    exact Extra.fixedCore1_eq_of_congr e
-      (fixedCore1_psl2Even h.prime hcop _ (by rw [orderOf_congr, hf]))
-  · have hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)) := by
-      rw [← Nat.card_congr e.toEquiv]; exact h.coprime
-    exact Extra.fixedCore1_eq_of_congr e
-      (fixedCore1_psl2Three h.prime hcop _ (by rw [orderOf_congr, hf]))
-  · have hcop : Nat.Coprime (2 * n + 1) (Nat.card (Sz n)) := by
-      rw [← Nat.card_congr e.toEquiv]; exact h.coprime
-    exact Extra.fixedCore1_eq_of_congr e
-      (fixedCore1_sz h.prime hcop _ (by rw [orderOf_congr, hf]))
-  · exact absurd ⟨e⟩ hJ
 
 theorem NearSimple.sylow_le_conj_fixedNormalizer
     (h : NearSimple p J) {f : MulAut J}

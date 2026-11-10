@@ -15,19 +15,6 @@ universe u v
 
 variable {G : Type u} [Group G] {X : Type v}
 
-theorem family_eq_conjugacy_of_transitive (rho : G →* Equiv.Perm X) (x : X)
-    (htrans : ∀ y : X, ∃ g : G, rho g x = y) :
-    family rho =
-      CatalogueBOrthogonalSmallFamilyOrbit.conjugacyFamily (pointStabilizer rho x) := by
-  ext U
-  constructor
-  · rintro ⟨y, rfl⟩
-    obtain ⟨g, hg⟩ := htrans y
-    refine ⟨g, ?_⟩
-    change (pointStabilizer rho x).map (MulAut.conj g).toMonoidHom = pointStabilizer rho y
-    rw [pointStabilizer_conj, hg]
-  · rintro ⟨g, rfl⟩
-    exact ⟨rho g x, (pointStabilizer_conj rho g x).symm⟩
 
 theorem familyAut_eq_conjugacyStabilizer (rho : G →* Equiv.Perm X) (x : X)
     (hfamily : family rho =
@@ -52,15 +39,6 @@ theorem familyAut_eq_conjugacyStabilizer (rho : G →* Equiv.Perm X) (x : X)
     (B := CatalogueBOrthogonalSmallFamilyOrbit.familyStabilizer (pointStabilizer rho x))
     rfl (familyAut_eq_conjugacyStabilizer rho x hfamily)
 
-theorem familyConjugacyOuterEquiv_mk (rho : G →* Equiv.Perm X) (x : X)
-    (hfamily : family rho =
-      CatalogueBOrthogonalSmallFamilyOrbit.conjugacyFamily (pointStabilizer rho x))
-    (alpha : familyAut rho) :
-    familyConjugacyOuterEquiv rho x hfamily ((QuotientGroup.mk' (familyInner rho)) alpha) =
-      (QuotientGroup.mk'
-        (CatalogueBOrthogonalSmallFamilyOrbit.familyInner (pointStabilizer rho x)))
-        (Subgroup.inclusion (familyAut_eq_conjugacyStabilizer rho x hfamily).le alpha) :=
-  rfl
 
 theorem familyConjugacyOuter_derived_eq_bot (rho : G →* Equiv.Perm X) (x : X)
     (hfamily : family rho =

@@ -39,8 +39,6 @@ theorem chiefCyclic_of_outSectionsCyclic {p : ℕ} {X : Subgroup Γ} (hOut : Out
     ChiefCyclic p X := fun M N hMN _ P hP =>
   hOut X ⊥ M N (isCharIn_self X) (isCharIn_bot X) bot_le hMN bot_le P hP
 
-omit [Finite Γ] in
-theorem wOf_eq_wSub (A B X : Subgroup Γ) : wOf A B X = wSub A B X := rfl
 
 end Lemma27
 
@@ -55,17 +53,5 @@ theorem eq_or_eq_of_chief {p : ℕ} (hp : p.Prime) {A B X : Subgroup Γ} (hA : I
   · exact Or.inl (le_antisymm h (wSub_le A B X))
   · exact Or.inr (le_antisymm h (cenIn_le_left _ _))
 
-theorem mul_eq_of_outSectionsCyclic {p : ℕ} (hp : p.Prime) {A B X : Subgroup Γ}
-    (hA : IsElemAbelian p A) (hAX : Admits A X) (hcop : Nat.Coprime p (Nat.card X))
-    (hOut : OutSectionsCyclic p X) (hB : B ≤ A) :
-    (wOf A B X : Set Γ) * (cenIn X B : Set Γ) = X ∧
-      (cenIn X B : Set Γ) * (wOf A B X : Set Γ) = X := by
-  obtain ⟨h1, h2⟩ := subset_mul_of_chiefCyclic hp hA hAX hcop hB
-    (chiefCyclic_of_outSectionsCyclic hOut)
-  refine ⟨Set.Subset.antisymm ?_ h1, Set.Subset.antisymm ?_ h2⟩
-  · rintro _ ⟨w, hw, z, hz, rfl⟩
-    exact mul_mem (wSub_le A B X hw) (cenIn_le_left _ _ hz)
-  · rintro _ ⟨z, hz, w, hw, rfl⟩
-    exact mul_mem (cenIn_le_left _ _ hz) (wSub_le A B X hw)
 
 end CFSG.SignalizerFunctorTheorem.McBride.Near

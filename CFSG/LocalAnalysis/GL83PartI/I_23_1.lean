@@ -45,9 +45,6 @@ theorem cyc3_apply_left {a b c : Ω} (h : a ≠ b ∧ a ≠ c ∧ b ≠ c) : cyc
   obtain ⟨hab, hac, hbc⟩ := h
   simp [cyc3, swap_apply_of_ne_of_ne hab.symm hbc]
 
-theorem cyc3_apply_mid {a b c : Ω} (h : a ≠ b ∧ a ≠ c ∧ b ≠ c) : cyc3 a b c b = c := by
-  obtain ⟨hab, hac, hbc⟩ := h
-  simp [cyc3]
 
 theorem cyc3_apply_right {a b c : Ω} (h : a ≠ b ∧ a ≠ c ∧ b ≠ c) : cyc3 a b c c = a := by
   obtain ⟨hab, hac, hbc⟩ := h
@@ -218,14 +215,6 @@ theorem iSup_altOn_eq_alternatingGroup [Nonempty Ω] (hS3 : ∀ i, 3 ≤ (S i).n
 
 end Family
 
-theorem I_23_1_1_proved :
-    ∀ (Ω : Type) [Fintype Ω] [DecidableEq Ω], 5 ≤ Fintype.card Ω →
-      ∀ (ι : Type) [Finite ι] (S : ι → Set Ω), (⋃ i, S i) = Set.univ → (∀ i, 3 ≤ (S i).ncard) →
-        (∀ i j, Relation.ReflTransGen (fun a b => (S a ∩ S b).Nonempty) i j) →
-          (⨆ i, altOn (S i)) = alternatingGroup Ω := by
-  intro Ω _ _ hn ι _ S hcover hS3 hconn
-  have : Nonempty Ω := Fintype.card_pos_iff.1 (by omega)
-  exact iSup_altOn_eq_alternatingGroup hS3 hcover hconn
 
 end Main
 

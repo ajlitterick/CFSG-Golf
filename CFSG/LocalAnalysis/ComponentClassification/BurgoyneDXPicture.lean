@@ -34,7 +34,6 @@ theorem congr_trans {A B C : Type*} [Group A] [Group B] [Group C] (e₁ : A ≃*
   ext x
   rfl
 
-variable (F : Type) [Field F] [Finite F] {p : ℕ} [Fact p.Prime] [CharP F p]
 
 end Picture
 

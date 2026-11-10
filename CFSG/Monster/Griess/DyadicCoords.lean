@@ -25,7 +25,6 @@ open CFSG.Monster Matrix
     ⟨fun i j => mul_mem c.2 (hu.1 i j), fun d => mul_mem c.2 (hu.2.1 d),
       fun j i => mul_mem c.2 (hu.2.2 j i)⟩
 
-theorem mem_dyadicVecs {u : SpaceB} : u ∈ dyadicVecs ↔ IsDyadicVec u := Iff.rfl
 
 private theorem ite_mem_dyadic (p : Prop) [Decidable p] : (if p then (1 : ℚ) else 0) ∈ dyadic := by
   split_ifs

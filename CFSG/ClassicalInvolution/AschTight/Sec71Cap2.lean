@@ -22,10 +22,6 @@ theorem mem_normalizer_UV {u v g : G}
     AscL62.conjSub_zpowers_eq]
   exact sup_le (Subgroup.zpowers_le.mpr hu) (Subgroup.zpowers_le.mpr hv)
 
-omit [Finite G] in
-theorem u_mem_Y₀ (u v : G) (W : Subgroup G) :
-    u ∈ Subgroup.zpowers u ⊔ Subgroup.zpowers v ⊔ OCW W :=
-  Subgroup.mem_sup_left (Subgroup.mem_sup_left (Subgroup.mem_zpowers u))
 
 omit [Finite G] in
 theorem U_le_Y₀ (u v : G) (W : Subgroup G) :

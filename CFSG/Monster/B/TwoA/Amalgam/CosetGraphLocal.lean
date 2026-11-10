@@ -15,13 +15,6 @@ namespace CFSG.Monster.B.TwoA.Amalgam
 open CFSG.Monster CFSG.Monster.B CFSG.Monster.B.TwoA CFSG.Monster.B.TwoA.Sp8
 open scoped Pointwise
 
-theorem Eam_inf_Xgrp :
-    Eam ⊓ Xgrp = P4 := by
-  apply le_antisymm
-  · rintro x ⟨hE, hX⟩
-    exact ⟨hX, Eam_le_centralizer hE⟩
-  · intro x hx
-    exact ⟨Pc_le_Eam 3 hx, hx.1⟩
 
 @[expose] def a0 :
     Dfull := exists_mem_Ehat_not_mem_N1.choose
@@ -47,8 +40,6 @@ theorem toS_mul
 theorem toS_one :
     toS 1 = 1 := rfl
 
-theorem a0_not_mem_Eam :
-    a0 ∉ Eam := not_mem_Eam_of a0_mem_Ehat a0_not_mem_N1
 
 theorem cvOf_toS_mul
     (e : Eam) (g : Shat) : cvOf (toS e * g) = cvOf g := by
@@ -243,26 +234,6 @@ theorem cvMul_edge_transitive
     rw [mul_inv_cancel_left, hu₁, hu₂] at e3
     rw [cvMul_mul, cvMul_mul, ← e3, cvMul_inv_cancel]
 
-theorem cvMul_faithful
-    (s : Shat) (h : ∀ v, cvMul v s = v) : s = 1 := by
-  have hK : s ∈ (Eam.subgroupOf Shat).normalCore := fun g => by
-    have h1 := h (cvOf g)
-    rw [cvMul_cvOf, cvOf_eq_iff] at h1
-    rw [Subgroup.mem_subgroupOf]
-    have e1 : ((g * (g * s)⁻¹ : Shat) : Dfull) = ((g * s * g⁻¹ : Shat) : Dfull)⁻¹ := by
-      simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      group
-    rw [e1] at h1
-    have h2 := Eam.inv_mem h1
-    rwa [inv_inv] at h2
-  rcases (Subgroup.normalCore_normal (Eam.subgroupOf Shat)).eq_bot_or_eq_top with hb | ht
-  · rw [hb] at hK
-    exact hK
-  · exfalso
-    have ha : a0S ∈ (Eam.subgroupOf Shat).normalCore := by
-      rw [ht]
-      exact Subgroup.mem_top a0S
-    exact a0_not_mem_Eam (Subgroup.mem_subgroupOf.1 (Subgroup.normalCore_le _ ha))
 
 theorem clabel_nbr
     {a : Dfull} (ha : a ∈ Ehat) (hn : a ∉ N1) (e : Eam) :
@@ -363,46 +334,6 @@ theorem clabel_adj
     rw [hprod, Subgroup.coe_mul, ht, coe_toS, hy]
     group
 
-theorem natCard_fiber
-    (v : CVert) : Nat.card (clabel ⁻¹' {clabel v}) = EinC.index := by
-  obtain ⟨s, hs⟩ := cvMul_transitive cv0 v
-  rw [← natCard_fiber_cQ]
-  refine Nat.card_congr (Equiv.subtypeEquiv (cvIso s⁻¹).toEquiv fun w => ?_)
-  show clabel w = clabel v ↔ clabel (cvMul w s⁻¹) = cQ
-  rw [clabel_cvMul, ← hs, clabel_cvMul, clabel_cv0]
-  constructor
-  · intro h
-    rw [h]
-    simp only [Subgroup.coe_inv, inv_inv]
-    group
-  · intro h
-    have h2 : (s : Dfull)⁻¹ * (((s⁻¹ : Shat) : Dfull)⁻¹ * clabel w * (s⁻¹ : Shat)) * s =
-        (s : Dfull)⁻¹ * cQ * s := by rw [h]
-    simp only [Subgroup.coe_inv, inv_inv] at h2
-    rw [← h2]
-    group
-
-theorem ncard_cSigma :
-    (cSigma 1).ncard = 120 := by
-  have hinj : Set.InjOn clabel (cSigma 1) := by
-    intro v hv w hw h
-    obtain ⟨x₁, hx₁, rfl⟩ := mem_cSigma_one.1 hv
-    obtain ⟨x₂, hx₂, rfl⟩ := mem_cSigma_one.1 hw
-    rw [clabel_cvOf, clabel_cvOf] at h
-    exact (cvOf_eq_iff_of_X hx₁ hx₂).2 h
-  have himg : clabel '' cSigma 1 = cOrbit := by
-    ext y
-    constructor
-    · rintro ⟨v, hv, rfl⟩
-      obtain ⟨x, hx, rfl⟩ := mem_cSigma_one.1 hv
-      rw [clabel_cvOf]
-      exact mem_cOrbit_conj hx
-    · rintro ⟨x, hx, rfl⟩
-      refine ⟨cvOf ⟨x⁻¹, Xgrp_le_Shat (Xgrp.inv_mem hx)⟩,
-        mem_cSigma_one.2 ⟨_, Xgrp.inv_mem hx, rfl⟩, ?_⟩
-      rw [clabel_cvOf]
-      simp only [inv_inv]
-  rw [← hinj.ncard_image, himg, cOrbit, ncard_orbit_cQ]
 
 theorem cSigma_isClique
     {v w : CVert} (hv : v ∈ cSigma 1) (hw : w ∈ cSigma 1) (hne : v ≠ w) :

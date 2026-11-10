@@ -27,9 +27,6 @@ section Forms
 
 variable {W : Type*} [CommGroup W] {X : Subgroup (MulAut W)} {p n N : ℕ}
 
-theorem s16n9bGood_mono {n' N' : ℕ} (h : s16n9bGood X p n' N') (hn : n ≤ n') (hN : N ≤ N') :
-    s16n9bGood X p n N :=
-  fun φ hφ h2 hrk U hU hUφ => h φ hφ h2 (hrk.trans hN) U (hU.trans hn) hUφ
 
 theorem s16n9b_exists_commOn {φ : MulAut W} {U : Subgroup W}
     (h : ¬ U ≤ fixV (Subgroup.zpowers φ)) :

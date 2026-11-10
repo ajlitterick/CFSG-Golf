@@ -31,9 +31,6 @@ variable {p : ℕ}
 
 def avgCoeff (D : Subgroup ↥A) : F := (((Fintype.card ↥D : ℕ) : F))⁻¹
 
-private theorem avgCoeff_mul_card (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelian p A)
-    (D : Subgroup ↥A) : avgCoeff A D * ((Fintype.card ↥D : ℕ) : F) = 1 :=
-  inv_mul_cancel₀ (natCast_card_subgroup_ne_zero' A hp hpF hA D)
 
 private theorem actionEnd_mul_sumOp {q : ℕ} (hA : IsElemAbelian q A) (D : Subgroup ↥A) (a : ↥A) :
     actionEnd A a * sumOp (actionEnd A) D = sumOp (actionEnd A) D * actionEnd A a := by
@@ -215,11 +212,6 @@ theorem blockEnd_apply_of_ker (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemA
     (⟨r, hr⟩ : ↥(LinearMap.ker (projBlock A hp hpF hA D)))
   simpa using h
 
-theorem blockEnd_apply_fixed (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelian p A)
-    (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1) (D : Hyperplane A p) {c : V}
-    (hc : c ∈ fixedSpaceOf A) : blockEnd A hp hpF hA t ht D c = c :=
-  blockEnd_apply_of_ker A hp hpF hA t ht D (by
-    rw [LinearMap.mem_ker]; exact projBlock_apply_fixed A hp hpF hA D hc)
 
 theorem blockEnd_apply_of_mem_block (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelian p A)
     (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1) {D E : Hyperplane A p} (hDE : E ≠ D)
@@ -285,6 +277,4 @@ theorem blockEnd_commute (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelia
     _ = (t D : V ≃ₗ[F] V) ((a : V ≃ₗ[F] V) (u : V)) := LinearEquiv.mul_apply ..
 
 end CFSG.LocalAnalysis.GLTheoremA.Y10F.HypBlocks
-
-
 

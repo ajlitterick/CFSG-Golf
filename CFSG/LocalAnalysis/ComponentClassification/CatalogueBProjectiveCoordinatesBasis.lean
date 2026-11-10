@@ -43,10 +43,6 @@ theorem basisAutomorphismMatrixEquiv_scalar (b : Module.Basis ι K V) (c : Kˣ) 
   change c.val • v = b.equivFun.symm (c.val • b.equivFun v)
   rw [map_smul, LinearEquiv.symm_apply_apply]
 
-theorem basisAutomorphismMatrixEquiv_symm_scalar (b : Module.Basis ι K V) (c : Kˣ) :
-    (basisAutomorphismMatrixEquiv b).symm (Matrix.GeneralLinearGroup.scalar ι c) =
-      LinearEquiv.smulOfUnit c := by
-  rw [← basisAutomorphismMatrixEquiv_scalar b c, MulEquiv.symm_apply_apply]
 
 variable (K V) [FiniteDimensional K V]
 
@@ -54,26 +50,5 @@ variable (K V) [FiniteDimensional K V]
     (V ≃ₗ[K] V) ≃* Matrix.GeneralLinearGroup (Fin (Module.finrank K V)) K :=
   basisAutomorphismMatrixEquiv (Module.finBasis K V)
 
-theorem automorphismMatrixEquiv_action (B : V ≃ₗ[K] V) (v : V) :
-    (Module.finBasis K V).equivFun.symm
-        (matrixActionEquiv (automorphismMatrixEquiv K V B)
-          ((Module.finBasis K V).equivFun v)) = B v :=
-  basisAutomorphismMatrixEquiv_action (Module.finBasis K V) B v
-
-theorem automorphismMatrixEquiv_mulVec (B : V ≃ₗ[K] V) (v : V) :
-    (automorphismMatrixEquiv K V B).val.mulVec ((Module.finBasis K V).equivFun v) =
-      (Module.finBasis K V).equivFun (B v) :=
-  basisAutomorphismMatrixEquiv_mulVec (Module.finBasis K V) B v
-
-theorem automorphismMatrixEquiv_scalar (c : Kˣ) :
-    automorphismMatrixEquiv K V (LinearEquiv.smulOfUnit c) =
-      Matrix.GeneralLinearGroup.scalar (Fin (Module.finrank K V)) c :=
-  basisAutomorphismMatrixEquiv_scalar (Module.finBasis K V) c
-
-theorem automorphismMatrixEquiv_symm_scalar (c : Kˣ) :
-    (automorphismMatrixEquiv K V).symm
-        (Matrix.GeneralLinearGroup.scalar (Fin (Module.finrank K V)) c) =
-      LinearEquiv.smulOfUnit c :=
-  basisAutomorphismMatrixEquiv_symm_scalar (Module.finBasis K V) c
 
 end CFSG.ComponentClassification.CatalogueBProjectiveCoordinates

@@ -12,14 +12,6 @@ open CFSG CFSG.GH74 CFSG.GH74.L5U5 CFSG.Blueprint CFSG.Assembly.LowTwoRank Subgr
   CFSG.ClassicalInvolution.WeakCT CFSG.ClassicalInvolution.Phan CFSG.LocalCores
 open scoped MatrixGroups commutatorElement
 
-@[expose] def S1LeafAHigh : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (x : G) (K : Subgroup (CentralizerBar x)), S1Setup G x K →
-    S1Front G x K → S1LargeModel K → ∀ (u : Fin 4 → G) (hu : ∀ i, u i ∈ centralizer ({x} : Set G)),
-      S1Frame x K u hu → S1SymFrame x u →
-        ∀ c ∈ symJ (symX x u) 3, orderOf c = 2 → (∀ a ∈ symJ (symX x u) 3, a * c = c * a) →
-          layer ↥(centralizer ({c} : Set G)) =
-            ((symJ (symX x u) 0 ⊔ symJ (symX x u) 1) ⊔ symJ (symX x u) 3).subgroupOf
-              (centralizer ({c} : Set G))
 
 variable {G : Type} [Group G] [Finite G]
 

@@ -14,21 +14,6 @@ open scoped LinearAlgebra.Projectivization Pointwise
 
 variable {F : Type*} [Field F]
 
-theorem eleven_nine_sl2_submodule_eq_of_ne_bot_of_smul
-    {p : Projectivization F (Fin 2 → F)} {S : Submodule F (Fin 2 → F)}
-    (hSp : S ≤ p.submodule) (hS : S ≠ ⊥)
-    (hsmul : ∀ a : F, a ≠ 0 → ∀ w ∈ S, a • w ∈ S) : S = p.submodule := by
-  obtain ⟨w₀, hw₀S, hw₀⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hS
-  have hw₀p : w₀ ∈ p.submodule := hSp hw₀S
-  have hp : p = Projectivization.mk F w₀ hw₀ := eq_mk_of_mem_submodule hw₀ hw₀p
-  refine le_antisymm hSp ?_
-  intro w hw
-  have hw' : w ∈ (Projectivization.mk F w₀ hw₀).submodule := by rwa [← hp]
-  rw [Projectivization.submodule_mk, Submodule.mem_span_singleton] at hw'
-  obtain ⟨c, rfl⟩ := hw'
-  rcases eq_or_ne c 0 with rfl | hc
-  · simpa using S.zero_mem
-  · exact hsmul c hc w₀ hw₀S
 
 theorem eleven_nine_sl2_addSubgroup_eq_of_ne_bot_of_smul
     {p : Projectivization F (Fin 2 → F)} {S : AddSubgroup (Fin 2 → F)}
@@ -250,17 +235,5 @@ theorem eleven_nine_sl2_scalarHom_injective {p : Projectivization F (Fin 2 → F
     rw [← orderOf_eq_one_iff, hj, hj0, pow_zero]
   exact inv_mul_eq_one.mp hone'
 
-theorem eleven_nine_sl2_isCyclic_of_le_normalizer {p : Projectivization F (Fin 2 → F)}
-    {D' : Subgroup (SpecialLinearGroup (Fin 2) F)}
-    (hD : D' ≤ Subgroup.normalizer (rootGrp p : Set (SpecialLinearGroup (Fin 2) F)))
-    {n : ℕ} (hcard : Nat.card F = 2 ^ n) (hodd : Odd (Nat.card D')) : IsCyclic D' := by
-  haveI : Fintype F := Fintype.ofFinite F
-  haveI : Finite D' := Subtype.finite
-  refine isCyclic_of_injective_ringHom
-    ((Units.coeHom F).comp (eleven_nine_sl2_scalarHom hD)) ?_
-  intro g h hgh
-  exact eleven_nine_sl2_scalarHom_injective hD hcard hodd
-    (Units.ext (show (((eleven_nine_sl2_scalarHom hD) g : Fˣ) : F) =
-      (((eleven_nine_sl2_scalarHom hD) h : Fˣ) : F) from hgh))
 
 end CFSG.LocalAnalysis.WeakClosure81

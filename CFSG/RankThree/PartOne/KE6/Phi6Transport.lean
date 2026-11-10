@@ -26,10 +26,6 @@ theorem phi6Theta_apply
     phi6Theta L Fr g = phi6N L * Units.map (entrywiseHom Fr) g * (phi6N L)⁻¹ :=
   rfl
 
-theorem twistedFixedPoints_phi6N :
-    twistedFixedPoints (phi6N L) (Units.map (entrywiseHom Fr)) =
-      (phi6Theta L Fr).eqLocus (MonoidHom.id _) :=
-  rfl
 
 theorem phi6Theta_injective :
     Function.Injective (phi6Theta L Fr) := by

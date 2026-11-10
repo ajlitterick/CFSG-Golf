@@ -159,8 +159,6 @@ theorem sgnZ_mul_sgnX : sgnZ * sgnX = sgnY := by
 theorem sgnX_mul_sgnZ : sgnX * sgnZ = sgnY := by
   funext k; fin_cases k <;> norm_num [sgnX, sgnY, sgnZ]
 
-theorem sgnX_mul_sgnX : sgnX * sgnX = fun _ => 1 := by
-  funext k; fin_cases k <;> norm_num [sgnX]
 
 theorem sgnY_mul_sgnY : sgnY * sgnY = fun _ => 1 := by
   funext k; fin_cases k <;> norm_num [sgnY]

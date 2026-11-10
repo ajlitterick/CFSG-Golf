@@ -100,20 +100,6 @@ theorem commute_or_eq_of_normalized {A N : Subgroup X} (hA : CFSG.Open.IsQuasisi
   · right
     exact le_antisymm hNA (subgroupOf_eq_top.mp h)
 
-theorem map_timmesfeldLayer (K : Subgroup X) :
-    (timmesfeldLayer K).map K.subtype = sSup {A : Subgroup X | IsComponentOf A K} := by
-  apply le_antisymm
-  · rw [map_le_iff_le_comap]
-    refine sSup_le fun L hL => ?_
-    rw [← map_le_iff_le_comap]
-    refine le_sSup ((isComponentOf_iff_subgroupOf (map_subtype_le L)).mpr ?_)
-    have e : (L.map K.subtype).subgroupOf K = L :=
-      comap_map_eq_self_of_injective K.subtype_injective L
-    rw [e]
-    exact hL
-  · refine sSup_le fun A hA => ?_
-    rw [← map_subgroupOf_eq_of_le hA.1]
-    exact map_mono (le_sSup ((isComponentOf_iff_subgroupOf hA.1).mp hA))
 
 theorem timmesfeldLayer_eq_bot_or_isQuasisimple {H : Type*} [Group H]
     (h : ∀ A B : Subgroup H, IsComponentOf A ⊤ → IsComponentOf B ⊤ → A = B) :

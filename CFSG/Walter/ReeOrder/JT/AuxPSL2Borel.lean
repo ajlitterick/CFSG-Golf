@@ -159,7 +159,6 @@ theorem pslU_injective : Function.Injective (pslU (K := K)) := by
     refine ⟨-b, ?_⟩
     rw [eq_inv_iff_mul_eq_one, pslU_mul, neg_add_cancel, pslU, slU_zero, QuotientGroup.mk_one]
 
-theorem mem_pslE {x : PSL(2, K)} : x ∈ pslE K ↔ ∃ b, pslU b = x := Iff.rfl
 
 theorem pslE_comm : ∀ x ∈ pslE K, ∀ y ∈ pslE K, x * y = y * x := by
   rintro _ ⟨b, rfl⟩ _ ⟨c, rfl⟩

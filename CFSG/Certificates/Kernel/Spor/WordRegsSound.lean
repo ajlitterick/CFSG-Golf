@@ -19,7 +19,6 @@ variable {G : Type*} [Group G] (ρ : ℕ → G)
 
 variable {ρ}
 
-theorem wordEl_nil : wordEl ρ [] = 1 := rfl
 
 theorem wordEl_cons (c : ℕ) (w : List ℕ) : wordEl ρ (c :: w) = codeEl ρ c * wordEl ρ w := by
   simp [wordEl]

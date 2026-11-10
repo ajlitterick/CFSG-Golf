@@ -58,15 +58,6 @@ theorem mem_preOn {M V : Subgroup G} {L : Subgroup (MulAut V)} {x : G} :
 omit [Finite G] in
 theorem preOn_le (M V : Subgroup G) (L : Subgroup (MulAut V)) : preOn M V L ≤ M := inf_le_left
 
-omit [Finite G] in
-theorem centralizer_le_preOn (M V : Subgroup G) (L : Subgroup (MulAut V)) :
-    M ⊓ Subgroup.centralizer (V : Set G) ≤ preOn M V L := by
-  intro x hx
-  have hxN : x ∈ Subgroup.normalizer (V : Set G) := Subgroup.centralizer_le_normalizer _ hx.2
-  refine mem_preOn.mpr ⟨hx.1, hxN, ?_⟩
-  have : conjAct V ⟨x, hxN⟩ = 1 := A4.conjAct_eq_one_iff.mpr hx.2
-  rw [this]
-  exact L.one_mem
 
 omit [Finite G] in
 theorem autOn_preOn {M V : Subgroup G} {L : Subgroup (MulAut V)} (hL : L ≤ autOn M V) :

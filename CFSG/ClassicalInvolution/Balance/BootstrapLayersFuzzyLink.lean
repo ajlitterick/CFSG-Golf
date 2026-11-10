@@ -81,13 +81,6 @@ theorem conjSub_mem_linkMembers {n : G} (hn : n ∈ Subgroup.centralizer ({a} : 
   have h := trivialOnQuot_conjSub haJ n
   rwa [conj_eq_of_mem_centralizer_singleton hn] at h
 
-theorem secData_linkMembers {M : Subgroup G} (hM : IsClassicalMember p f M a) :
-    SecData p f a (residualFamily a (linkMembers p f a)) := by
-  have cM := isCentralInvolution_of_isClassicalMember hM
-  have hMl : M ∈ linkMembers p f a :=
-    ⟨⟨a, hM⟩, mem_trivialOnQuot_of_centralizes fun j hj => cM.central j hj⟩
-  exact secData_residualFamily cM.sq ⟨M, hMl⟩ (fun J hJ => hJ.1) (fun J hJ => hJ.2)
-    fun n hn J hJ => conjSub_mem_linkMembers hn hJ
 
 end Family
 
@@ -121,10 +114,6 @@ theorem eq_of_le (D' : LieDecomposition (memberImages Φ a) (memberJoin Φ a)) (
     exact D'.commute i j hij x (hi hx) y (hj hy)
   rw [← hs.modOdd_perfect hK, hcomm]
 
-theorem exists_unique_component (D' : LieDecomposition (memberImages Φ a) (memberJoin Φ a))
-    (hK : K ∈ Φ) : ∃! i : D'.ι, modOdd a K ≤ D'.Q i := by
-  obtain ⟨i, hi⟩ := D'.exists_le (modOdd a K) ⟨K, ⟨hK, hs.le K hK⟩, rfl⟩
-  exact ⟨i, hi, fun j hj => hs.eq_of_le D' hK hj hi⟩
 
 omit [Finite G] in
 theorem commutator_mem_oddCore (D' : LieDecomposition (memberImages Φ a) (memberJoin Φ a))
@@ -172,30 +161,6 @@ theorem eq_of_map_eq (D : LocalLieSystemAt p f Φ a) (hK : K ∈ Φ) {i j : Fin 
     rw [← this]
     exact Subgroup.map_le_range _ _
 
-theorem commutator_mem_oddCore_of_fundamental (D : LocalLieSystemAt p f Φ a) {i j : Fin D.card}
-    (hij : i ≠ j) (hK : K ∈ Φ) (hK' : K' ∈ Φ) {R : Subgroup (compModel D i).K}
-    {R' : Subgroup (compModel D j).K}
-    (hR : R.map (secComponentHom hs.normalizes D i) = modOdd a K)
-    (hR' : R'.map (secComponentHom hs.normalizes D j) = modOdd a K') :
-    ∀ x ∈ K, ∀ y ∈ K', ⁅x, y⁆ ∈ involutionOddCore a := by
-  intro x hx y hy
-  rw [involutionOddCore_eq_oddCoreIn]
-  have hxC := hs.le K hK hx
-  have hyC := hs.le K' hK' hy
-  have h1 : oddQuotMk a ⟨x, hxC⟩ ∈ R.map (secComponentHom hs.normalizes D i) :=
-    hR ▸ oddQuotMk_mem_modOdd hx hxC
-  have h2 : oddQuotMk a ⟨y, hyC⟩ ∈ R'.map (secComponentHom hs.normalizes D j) :=
-    hR' ▸ oddQuotMk_mem_modOdd hy hyC
-  obtain ⟨r, -, hrx⟩ := Subgroup.mem_map.mp h1
-  obtain ⟨r', -, hry⟩ := Subgroup.mem_map.mp h2
-  refine (mk_comm_eq_iff (Y := Subgroup.centralizer ({a} : Set G)) hxC hyC).mp ?_
-  show oddQuotMk a ⟨x, hxC⟩ * oddQuotMk a ⟨y, hyC⟩ =
-    oddQuotMk a ⟨y, hyC⟩ * oddQuotMk a ⟨x, hxC⟩
-  rw [← hrx, ← hry]
-  have key := D.commute i j hij r r'
-  exact (map_mul (sectionQuotientHom hs.normalizes) (D.hom i r) (D.hom j r')).symm.trans
-    ((congrArg (sectionQuotientHom hs.normalizes) key).trans
-      (map_mul (sectionQuotientHom hs.normalizes) (D.hom j r') (D.hom i r)))
 
 end SecData
 
@@ -228,45 +193,6 @@ theorem centralizes_of_commutator_mem_center_of_perfect {K : Type*} [Group K] {R
   have h1 : ⁅s, q⁆ = 1 := congrArg Subtype.val (MonoidHom.mem_ker.mp hmem)
   exact commutatorElement_eq_one_iff_mul_comm.mp h1
 
-theorem SecData.commutator_mem_oddCore_iff (hs : SecData p f a Φ) (D : LocalLieSystemAt p f Φ a)
-    (j : Fin D.card) {K K' : Subgroup G} (hK : K ∈ Φ) (hK' : K' ∈ Φ)
-    {R R' : Subgroup (compModel D j).K}
-    (hR : R.map (secComponentHom hs.normalizes D j) = modOdd a K)
-    (hR' : R'.map (secComponentHom hs.normalizes D j) = modOdd a K') (hRp : ⁅R, R⁆ = R) :
-    (∀ x ∈ K, ∀ y ∈ K', ⁅x, y⁆ ∈ involutionOddCore a) ↔ Commutes R R' := by
-  set ψ := secComponentHom hs.normalizes D j with hψ
-  set C : Subgroup G := Subgroup.centralizer ({a} : Set G) with hC
-  constructor
-  · intro h r hr r' hr'
-    have himg : ∀ r ∈ R, ∀ r' ∈ R', ψ r * ψ r' = ψ r' * ψ r := by
-      intro r hr r' hr'
-      have h1 : ψ r ∈ modOdd a K := hR ▸ Subgroup.mem_map_of_mem ψ hr
-      have h2 : ψ r' ∈ modOdd a K' := hR' ▸ Subgroup.mem_map_of_mem ψ hr'
-      obtain ⟨x, hx, hxr⟩ := mem_modOdd_iff.mp h1
-      obtain ⟨y, hy, hyr⟩ := mem_modOdd_iff.mp h2
-      rw [← hxr, ← hyr]
-      refine (mk_comm_eq_iff (Y := C) x.2 y.2).mpr ?_
-      have := h (x : G) hx (y : G) hy
-      rw [involutionOddCore_eq_oddCoreIn] at this
-      exact this
-    have hcen : ∀ q ∈ R, ⁅r', q⁆ ∈ Subgroup.center (compModel D j).K := by
-      intro q hq
-      refine secComponentHom_ker_le_center hs.normalizes D j ?_
-      rw [MonoidHom.mem_ker, map_commutatorElement]
-      exact commutatorElement_eq_one_iff_mul_comm.mpr (himg q hq r' hr').symm
-    exact (centralizes_of_commutator_mem_center_of_perfect hRp hcen r hr).symm
-  · intro h x hx y hy
-    have hxC := hs.le K hK hx
-    have hyC := hs.le K' hK' hy
-    have h1 : oddQuotMk a ⟨x, hxC⟩ ∈ R.map ψ := hR ▸ oddQuotMk_mem_modOdd hx hxC
-    have h2 : oddQuotMk a ⟨y, hyC⟩ ∈ R'.map ψ := hR' ▸ oddQuotMk_mem_modOdd hy hyC
-    obtain ⟨r, hr, hrx⟩ := Subgroup.mem_map.mp h1
-    obtain ⟨r', hr', hry⟩ := Subgroup.mem_map.mp h2
-    rw [involutionOddCore_eq_oddCoreIn]
-    refine (mk_comm_eq_iff (Y := C) hxC hyC).mp ?_
-    show oddQuotMk a ⟨x, hxC⟩ * oddQuotMk a ⟨y, hyC⟩ =
-      oddQuotMk a ⟨y, hyC⟩ * oddQuotMk a ⟨x, hxC⟩
-    rw [← hrx, ← hry, ← map_mul, ← map_mul, h r hr r' hr']
 
 end Component
 
@@ -294,44 +220,6 @@ theorem exists_axisTriangle_of_residuals_commute_indep {M J N : Subgroup G} {a t
   · rw [← h]
     simp
 
-omit [Finite G] in
-theorem oddQuotMk_conj_of_mem_oddCoreIn {a x u : G}
-    (hx : x ∈ oddCoreIn (Subgroup.centralizer ({a} : Set G)))
-    (hu : u ∈ Subgroup.centralizer ({a} : Set G))
-    (hxu : x * u * x⁻¹ ∈ Subgroup.centralizer ({a} : Set G)) :
-    oddQuotMk a ⟨x * u * x⁻¹, hxu⟩ = oddQuotMk a ⟨u, hu⟩ := by
-  have hxC : x ∈ Subgroup.centralizer ({a} : Set G) := oddCoreIn_le _ hx
-  have hx1 : oddQuotMk a ⟨x, hxC⟩ = 1 := oddQuotMk_eq_one_of_mem_oddCoreIn hx hxC
-  have e : (⟨x * u * x⁻¹, hxu⟩ : ↥(Subgroup.centralizer ({a} : Set G))) =
-      ⟨x, hxC⟩ * ⟨u, hu⟩ * ⟨x, hxC⟩⁻¹ := rfl
-  rw [e, map_mul, map_mul, map_inv, hx1]
-  simp
-
-omit [Finite G] in
-theorem conj_notMem_of_oddQuotMk_ne {a t u : G} (haC : a ∈ Subgroup.centralizer ({a} : Set G))
-    (htC : t ∈ Subgroup.centralizer ({a} : Set G)) (huC : u ∈ Subgroup.centralizer ({a} : Set G))
-    (hua : oddQuotMk a ⟨u, huC⟩ ≠ oddQuotMk a ⟨a, haC⟩)
-    (hut : oddQuotMk a ⟨u, huC⟩ ≠ oddQuotMk a ⟨t, htC⟩)
-    (huat : oddQuotMk a ⟨u, huC⟩ ≠ oddQuotMk a ⟨a, haC⟩ * oddQuotMk a ⟨t, htC⟩) :
-    ∀ x ∈ involutionOddCore a, x * u * x⁻¹ ∉ ({a, t, a * t} : Set G) := by
-  intro x hx hmem
-  rw [involutionOddCore_eq_oddCoreIn] at hx
-  have hxC : x ∈ Subgroup.centralizer ({a} : Set G) := oddCoreIn_le _ hx
-  have hxu : x * u * x⁻¹ ∈ Subgroup.centralizer ({a} : Set G) :=
-    mul_mem (mul_mem hxC huC) (inv_mem hxC)
-  have key := oddQuotMk_conj_of_mem_oddCoreIn hx huC hxu
-  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hmem
-  rcases hmem with h | h | h
-  · refine hua (key.symm.trans ?_)
-    simp only [h]
-  · refine hut (key.symm.trans ?_)
-    simp only [h]
-  · refine huat (key.symm.trans ?_)
-    have hat' : a * t ∈ Subgroup.centralizer ({a} : Set G) := mul_mem haC htC
-    have e : oddQuotMk a ⟨x * u * x⁻¹, hxu⟩ = oddQuotMk a ⟨a * t, hat'⟩ := by
-      simp only [h]
-    rw [e]
-    exact map_mul (oddQuotMk a) ⟨a, haC⟩ ⟨t, htC⟩
 
 end Frame
 

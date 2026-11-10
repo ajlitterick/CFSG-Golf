@@ -169,10 +169,6 @@ theorem deltaStar_le_deltaStarCompletion {A : Subgroup G} {a : G} (ha : a ∈ A)
     deltaStar A a ≤ deltaStarCompletion A :=
   le_iSup₂_of_le a ha (le_iSup_of_le ha1 le_rfl)
 
-omit [Finite G] in
-theorem centralOddCore_le_deltaStarCompletion {A : Subgroup G} {a : G} (ha : a ∈ A)
-    (ha1 : a ≠ 1) : centralOddCore A ≤ deltaStarCompletion A :=
-  le_sup_right.trans (deltaStar_le_deltaStarCompletion ha ha1)
 
 theorem deltaStar_isCompletion {A : Subgroup G} (hA : IsElemAbelian 2 A) (h8 : 8 ≤ Nat.card A)
     (hW : WeakBalanced A) :
@@ -187,29 +183,6 @@ theorem deltaStar_isCompletion {A : Subgroup G} (hA : IsElemAbelian 2 A) (h8 : 8
     (fun _ ha _ => odd_card_deltaStar ha) (fun _ ha _ => le_normalizer_deltaStar hA.1 ha)
     (fun _ ha ha1 _ hb hb1 => deltaStar_inf_centralizer_le hA hW ha ha1 hb hb1)
 
-theorem deltaCore_le_deltaStarCompletion {A F : Subgroup G} (hA : IsElemAbelian 2 A)
-    (h8 : 8 ≤ Nat.card A) (hW : WeakBalanced A) (hFA : F ≤ A) {d : G} (hd : d ∈ F)
-    (hd1 : d ≠ 1)
-    (hF : ∀ a ∈ A, a ≠ 1 → ⁅deltaCore F ⊓ Subgroup.centralizer {a}, A⁆ ≤ involutionOddCore a) :
-    deltaCore F ≤ deltaStarCompletion A := by
-  obtain ⟨-, -, -, hmax, -⟩ := deltaStar_isCompletion hA h8 hW
-  have hodd := odd_card_deltaCore hd hd1
-  have hnorm := normalizer_deltaCore hA.1 hFA
-  refine hmax _ hnorm fun a ha ha1 => ?_
-  refine inf_centralizer_le_deltaStar hA ha hnorm hodd ?_ (hF a ha ha1)
-  refine inf_centralizer_le_centralOddCore hodd fun y hy => ?_
-  rw [Subgroup.mem_normalizer_iff]
-  intro z
-  have hyF : ∀ f ∈ F, y * f = f * y := fun f hf =>
-    (Subgroup.mem_centralizer_iff.mp hy f (hFA hf)).symm
-  have hyF' : ∀ f ∈ F, y⁻¹ * f = f * y⁻¹ := fun f hf => by
-    have := hyF f hf
-    calc y⁻¹ * f = y⁻¹ * (f * y) * y⁻¹ := by group
-      _ = y⁻¹ * (y * f) * y⁻¹ := by rw [this]
-      _ = f * y⁻¹ := by group
-  refine ⟨fun hz => conj_mem_deltaCore hyF hz, fun hz => ?_⟩
-  have := conj_mem_deltaCore hyF' hz
-  simpa [mul_assoc] using this
 
 theorem odd_card_iSup_involutionOddCore {A F : Subgroup G} (hA : IsElemAbelian 2 A)
     (h8 : 8 ≤ Nat.card A) (hW : WeakBalanced A) (hFA : F ≤ A) :

@@ -546,19 +546,5 @@ theorem sl_hopfMultiplier_mulEquiv_ker_of_split (hm : 2 ≤ m)
   exact ⟨MulEquiv.ofBijective _ (SL2Closed.hopfMultiplierToKer_bijective q hq hker
     fun π hπ hcen => hsplit _ π hπ hcen)⟩
 
-theorem sl_hopfMultiplier_mulEquiv_ker_of_separating [Finite F] (hm : 2 ≤ m)
-    (hsep : Separating m F) {X : Type} [Group X] (q : SpecialLinearGroup (Fin (m + 1)) F →* X)
-    (hq : Function.Surjective q)
-    (hker : q.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (m + 1)) F)) :
-    Nonempty (CFSG.RankThree.PerfectCover.hopfMultiplier X ≃* q.ker) :=
-  sl_hopfMultiplier_mulEquiv_ker_of_split hm
-    (fun _ _ _ hπ hcen => sl_exists_section_of_separating hm hsep hπ hcen) q hq hker
-
-theorem sl_hopfMultiplier_mulEquiv_ker [Finite F] (hm : 2 ≤ m) (hF : 5 ≤ Nat.card F)
-    {X : Type} [Group X] (q : SpecialLinearGroup (Fin (m + 1)) F →* X)
-    (hq : Function.Surjective q)
-    (hker : q.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (m + 1)) F)) :
-    Nonempty (CFSG.RankThree.PerfectCover.hopfMultiplier X ≃* q.ker) :=
-  sl_hopfMultiplier_mulEquiv_ker_of_separating hm (separating_of_five_le hF) q hq hker
 
 end CFSG.LieType.Steinberg.CentralExt.SLClosed

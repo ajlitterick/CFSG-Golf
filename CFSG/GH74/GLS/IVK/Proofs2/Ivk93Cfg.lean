@@ -166,7 +166,6 @@ theorem perfect₁ (h : Ivk93Cfg x q L₁ L₂) : Group.IsPerfect ↥L₁ := by
   exact Group.IsPerfect.ofSurjective (f := (Subgroup.subgroupOfEquivOfLe h.le₁).toMonoidHom)
     (Subgroup.subgroupOfEquivOfLe h.le₁).surjective
 
-theorem perfect₂ (h : Ivk93Cfg x q L₁ L₂) : Group.IsPerfect ↥L₂ := h.symm.perfect₁
 
 theorem card₁ (h : Ivk93Cfg x q L₁ L₂) :
     Nat.card ↥L₁ = q * (q ^ 2 - 1) * Nat.card ↥(pPrimeCore 2 ↥L₁) := by
@@ -216,16 +215,6 @@ theorem false_of_card_group (h : Ivk93Cfg x q L₁ L₂) {N : ℕ} (hJ : Nat.car
   have h2 : q * (q ^ 2 - 1) ∣ Nat.card ↥L₁ := ⟨_, h.card₁⟩
   exact hN q h.five (h2.trans (h1.trans hJ))
 
-theorem false_of_derived_le (h : Ivk93Cfg x q L₁ L₂) {F : Subgroup J} (hF : Nat.card ↥F < 120)
-    (hD : ∀ a ∈ centralizer ({x} : Set J), ∀ b ∈ centralizer ({x} : Set J), ⁅a, b⁆ ∈ F) :
-    False := by
-  have hKF : L₁ ≤ F := by
-    have hp : ⁅L₁, L₁⁆ = L₁ := Subgroup.isPerfect_iff.mp h.perfect₁
-    rw [← hp]
-    exact Subgroup.commutator_le.mpr fun a ha b hb => hD a (h.le₁ ha) b (h.le₁ hb)
-  have h1 : Nat.card ↥L₁ ≤ Nat.card ↥F := Subgroup.card_le_of_le hKF
-  have h2 := h.card_ge₁
-  omega
 
 theorem exists_nonabelian_two₁ (h : Ivk93Cfg x q L₁ L₂) :
     ∃ P : Subgroup J, P ≤ L₁ ∧ IsPGroup 2 ↥P ∧ ∃ a ∈ P, ∃ b ∈ P, a * b ≠ b * a := by

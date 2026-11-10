@@ -55,18 +55,6 @@ theorem ggDepELpair (i j : Fin 6) :
   rw [CartanMatrix.E_six_eq]
   fin_cases i <;> fin_cases j <;> decide +kernel
 
-theorem ggDepELα_x (i : Fin 6) : ggDepAdot (ggDepELα i) ggDepELx = 0 := by
-  fin_cases i <;> decide
-
-theorem ggDepELz_ker (c : Fin 6) (hc : GGDepED4In c) : ggDepAdot (ggDepELα c) ggDepELz = 0 := by
-  obtain ⟨h0, h5⟩ := hc
-  fin_cases c
-  · exact absurd rfl h0
-  · decide
-  · decide
-  · decide
-  · decide
-  · exact absurd rfl h5
 
 @[expose] noncomputable def ggDepELrefl (i : Fin 6) : Module.End (ZMod 3) (GGDepAE 3 6) :=
   ggDepARefl (ggDepELh i) (ggDepELα i)

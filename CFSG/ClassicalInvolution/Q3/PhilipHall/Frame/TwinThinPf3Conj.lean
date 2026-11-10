@@ -23,11 +23,6 @@ theorem Into.trans {g g' : Wr 8} {P M N : Subgroup (AEQ 8)} (h1 : Into g P M) (h
   convert this using 1
   group
 
-theorem memBar_true (α : Finset (Fin 8)) (h : α.card = 4) :
-    memBar α h true = (memK (emb α h)).map (mkQ 8) := rfl
-
-theorem memBar_false (α : Finset (Fin 8)) (h : α.card = 4) :
-    memBar α h false = (memKStar (emb α h)).map (mkQ 8) := rfl
 
 theorem into_flip {ι : Fin 4 ↪ Fin 8} {j : Fin 8} (hj : j ∉ Set.range ι) :
     Into (twinVec ι j) ((memK ι).map (mkQ 8)) ((memKStar ι).map (mkQ 8)) ∧

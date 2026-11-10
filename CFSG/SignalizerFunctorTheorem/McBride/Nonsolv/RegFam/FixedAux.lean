@@ -11,8 +11,6 @@ variable {G : Type*} [Group G]
 @[expose] def conjOrbit (L F : Subgroup G) : Set (Subgroup G) :=
   {K | ∃ f ∈ F, K = L.map (MulAut.conj f).toMonoidHom}
 
-theorem mem_conjOrbit {L F K : Subgroup G} :
-    K ∈ conjOrbit L F ↔ ∃ f ∈ F, K = L.map (MulAut.conj f).toMonoidHom := Iff.rfl
 
 theorem self_mem_conjOrbit (L F : Subgroup G) : L ∈ conjOrbit L F :=
   ⟨1, one_mem F, (Near.Thm210.map_conj_one L).symm⟩

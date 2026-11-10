@@ -15,8 +15,6 @@ variable (p f : ℕ) [Fact p.Prime]
 theorem l6_6ii_proved : L6_6ii p f :=
   l6_6ii_of_core66 p f fun hp hq _ _ _ _ hΩ => AscL62.core66 hp hq hΩ
 
-theorem l6_6iiAEmpty_proved : L6_6iiAEmpty p f :=
-  l6_6iiAEmpty_of_l6_6ii p f (l6_6ii_proved p f)
 
 theorem l6_6_proved : L6_6 p f :=
   l6_6_of_i_ii p f (l6_6i p f (l6_2 p f)) (l6_6ii_proved p f)

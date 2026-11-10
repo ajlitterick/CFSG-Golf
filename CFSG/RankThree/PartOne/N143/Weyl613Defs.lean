@@ -9,7 +9,6 @@ namespace CFSG.RankThree.PartOne.N143
 open CFSG CFSG.Assembly CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.GroupTheory
 open CFSG.LocalAnalysis.ComponentInitial (SchreierFor)
 
-@[expose] def EvenQ (X : Type) [Group X] : Prop := CFSG.Blueprint.EvenLieType X
 
 @[expose] def KF64WWith (Q : (X : Type) → [Group X] → Prop) : Prop :=
   ∀ (H : Type) [Group H] [Finite H], CFSG.IsKGroup H → CFSG.Assembly.evenRank H ≤ 3 →
@@ -31,8 +30,5 @@ open CFSG.LocalAnalysis.ComponentInitial (SchreierFor)
         E ≤ Subgroup.normalizer (S : Set H) ∧ ⁅S, E⁆ = S) →
       Q ((L ⧸ aschbacherSolvableCore p L) ⧸ Subgroup.center (L ⧸ aschbacherSolvableCore p L))
 
-theorem item613_iff_with : Item613 ↔ Item613With EvenQ := Iff.rfl
-
-theorem kf64w_iff_with : KF64W ↔ KF64WWith EvenQ := Iff.rfl
 
 end CFSG.RankThree.PartOne.N143

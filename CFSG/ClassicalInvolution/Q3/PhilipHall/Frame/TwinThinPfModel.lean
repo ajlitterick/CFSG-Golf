@@ -187,8 +187,6 @@ end Center
 
 section Fix
 
-@[expose] def OddAutInner {m : ℕ} (H : Subgroup (AEQ m)) : Prop :=
-  ∀ σ : ↥H →* ↥H, (∃ a : ℕ, ∀ r, (⇑σ)^[3 ^ a] r = r) → ∃ h : ↥H, ∀ r, σ r = h * r * h⁻¹
 
 @[expose] def FixTrivial {m : ℕ} (H : Subgroup (AEQ m)) (𝒜 : Set (Finset (Fin m))) : Prop :=
   ∀ α ∈ 𝒜, ∀ (h4 : α.card = 4) (b : Bool), ∀ σ : ↥H →* ↥H,

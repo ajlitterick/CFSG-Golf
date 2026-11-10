@@ -612,8 +612,6 @@ theorem layout_of {s : String} {cs : List Char} {n w lines : Nat} {F : Nat → N
   subst e
   exact hexBind_layout hb rfl
 
-theorem ruLayoutOK_eq (b : ByteArray) (n m : Nat) :
-    ruLayoutOK b n m = CFSG.Sporadic.Schreier.Co3.Native.layoutOK b 3 n m := rfl
 
 theorem forall_of_blocks {f : Nat → Bool} {K Q : Nat}
     (h : ∀ q < Q, allN K (fun d => f (Nat.add (Nat.mul K q) d)) = true) :

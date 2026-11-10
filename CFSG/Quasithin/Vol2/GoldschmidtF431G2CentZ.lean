@@ -37,8 +37,6 @@ variable (K : Type) [Field K]
 
 variable {K}
 
-theorem mem_XcScalars {p : ModGL Tag.G2 K} :
-    p ∈ XcScalars K ↔ ∃ l : K, l ≠ 0 ∧ ∀ s : K, p * gX rC s * p⁻¹ = gX rC (l * s) := Iff.rfl
 
 end Scalars
 

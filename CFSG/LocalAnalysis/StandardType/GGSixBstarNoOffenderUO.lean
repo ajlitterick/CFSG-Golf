@@ -56,13 +56,6 @@ theorem ggNoOffender_of_projFrameOn {P : StatedLieTag → ℕ → ℕ → ℕ �
   exact NoOffUO.noOffender_of_projRep hctx.1.2.2.2.2.2.1.1 hctx.1.2.2.2.2.2.1.2.1 hm
     hctx.2.1.2.1 κ hinj hsurj hrep
 
-theorem ggSixBstarNoOffenderAt_PSU_of_frames (hS : GGSixBstarProjFrameOn GGPSUSplit)
-    (hN : GGSixBstarMonoFrameOn GGPSUNonsplit) : GGSixBstarNoOffenderAt .PSU :=
-  ggSixBstarNoOffenderAt_of_on .PSU (ggNoOffender_of_projFrameOn hS)
-    (ggNoOffender_of_monoFrameOn hN) fun _ f p => by
-      by_cases hp : p ∣ 2 ^ f + 1
-      · exact Or.inl ⟨rfl, hp⟩
-      · exact Or.inr ⟨rfl, hp⟩
 
 theorem ggSixBstarNoOffenderAt_POmegaPlus_of_frame
     (hM : GGSixBstarMonoFrameOn GGPOmegaPlusNotD4Three)

@@ -5424,20 +5424,5 @@ namespace CFSG.LargeEvenClassification.Helpers
 @[expose] def c8FourRecordChunk13 : Array C8FourSubgroupRecord :=
   #[c8FourRecordData832, c8FourRecordData833, c8FourRecordData834, c8FourRecordData835, c8FourRecordData836, c8FourRecordData837, c8FourRecordData838, c8FourRecordData839, c8FourRecordData840, c8FourRecordData841, c8FourRecordData842, c8FourRecordData843, c8FourRecordData844, c8FourRecordData845, c8FourRecordData846, c8FourRecordData847, c8FourRecordData848, c8FourRecordData849, c8FourRecordData850, c8FourRecordData851, c8FourRecordData852, c8FourRecordData853, c8FourRecordData854, c8FourRecordData855, c8FourRecordData856, c8FourRecordData857, c8FourRecordData858, c8FourRecordData859, c8FourRecordData860, c8FourRecordData861, c8FourRecordData862, c8FourRecordData863, c8FourRecordData864, c8FourRecordData865, c8FourRecordData866, c8FourRecordData867, c8FourRecordData868, c8FourRecordData869, c8FourRecordData870, c8FourRecordData871, c8FourRecordData872, c8FourRecordData873, c8FourRecordData874, c8FourRecordData875, c8FourRecordData876, c8FourRecordData877, c8FourRecordData878, c8FourRecordData879, c8FourRecordData880, c8FourRecordData881, c8FourRecordData882, c8FourRecordData883, c8FourRecordData884, c8FourRecordData885, c8FourRecordData886, c8FourRecordData887, c8FourRecordData888, c8FourRecordData889, c8FourRecordData890, c8FourRecordData891, c8FourRecordData892, c8FourRecordData893, c8FourRecordData894, c8FourRecordData895]
 
-@[expose] def c8FourSubgroupRecords : Array C8FourSubgroupRecord :=
-  c8FourRecordChunk0 ++
-  c8FourRecordChunk1 ++
-  c8FourRecordChunk2 ++
-  c8FourRecordChunk3 ++
-  c8FourRecordChunk4 ++
-  c8FourRecordChunk5 ++
-  c8FourRecordChunk6 ++
-  c8FourRecordChunk7 ++
-  c8FourRecordChunk8 ++
-  c8FourRecordChunk9 ++
-  c8FourRecordChunk10 ++
-  c8FourRecordChunk11 ++
-  c8FourRecordChunk12 ++
-  c8FourRecordChunk13
 
 end CFSG.LargeEvenClassification.Helpers

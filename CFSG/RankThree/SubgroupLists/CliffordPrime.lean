@@ -83,9 +83,6 @@ theorem finrank_translate (g : GL (σ) K) (W : Submodule K (σ → K)) :
     rw [← gl_inv_mulVec_mulVec g a, hab, gl_inv_mulVec_mulVec]
   exact LinearEquiv.finrank_eq (Submodule.equivMapOfInjective _ hinj W).symm
 
-theorem translate_mono {g : GL (σ) K} {A B : Submodule K (σ → K)} (h : A ≤ B) :
-    translate g A ≤ translate g B :=
-  Submodule.map_mono h
 
 theorem translate_finsetSup_le {ι : Type*} {g : GL (σ) K} {s : Finset ι}
     {A : ι → Submodule K (σ → K)} {X : Submodule K (σ → K)}
@@ -100,15 +97,6 @@ theorem translate_inv_translate (g : GL (σ) K) (W : Submodule K (σ → K)) :
 theorem translate_bot (g : GL (σ) K) : translate g (⊥ : Submodule K (σ → K)) = ⊥ :=
   Submodule.map_bot _
 
-theorem translate_inf (g : GL (σ) K) (A B : Submodule K (σ → K)) :
-    translate g (A ⊓ B) = translate g A ⊓ translate g B := by
-  apply le_antisymm (le_inf (translate_mono inf_le_left) (translate_mono inf_le_right))
-  intro u ⟨hA, hB⟩
-  obtain ⟨a, ha, rfl⟩ := mem_translate.mp hA
-  obtain ⟨b, hb, hab⟩ := mem_translate.mp hB
-  have : b = a := by rw [← gl_inv_mulVec_mulVec g b, hab, gl_inv_mulVec_mulVec]
-  subst this
-  exact mulVec_mem_translate ⟨ha, hb⟩
 
 section Normalized
 

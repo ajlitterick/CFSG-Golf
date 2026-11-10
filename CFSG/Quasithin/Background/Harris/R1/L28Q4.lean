@@ -194,16 +194,12 @@ theorem bQ_c : cQ ∈ bQ := by decide +kernel
 theorem bQ_nodup : bQ.Nodup := by decide +kernel
 theorem bQ_length : bQ.length = 56 := by decide +kernel
 theorem eQ_length : eQ.length = 8 := by decide +kernel
-theorem eQ_sub : ∀ e ∈ eQ, e ∈ bQ := by decide +kernel
 theorem eQ_mul : ∀ x ∈ eQ, ∀ y ∈ eQ, x.mul y ∈ eQ := by decide +kernel
 theorem eQ_normal : ∀ x ∈ bQ, ∀ e ∈ eQ, (x.mul e).mul x.adj ∈ eQ := by decide +kernel
 theorem normaliser_eQ : ∀ a ∈ allG, ∀ b ∈ allG, ∀ c ∈ allG, ∀ d ∈ allG,
     a * d + b * c = 1 → (∀ e ∈ eQ, ((⟨a, b, c, d⟩ : Q4).mul e).mul (⟨a, b, c, d⟩ : Q4).adj ∈ eQ) →
     (⟨a, b, c, d⟩ : Q4) ∈ bQ := by decide +kernel
 theorem gAq_not_mem : gAq ∉ bQ := by decide +kernel
-theorem hQ_words : D4Vert.l28H.map (fun w => wordQ ![gAq, gBq] w) = hQ := by decide +kernel
-theorem hQ_nodup : hQ.Nodup := by decide +kernel
-theorem hQ_coset : ∀ x ∈ hQ, ∀ y ∈ hQ, x ≠ y → x.adj.mul y ∉ bQ := by decide +kernel
 
 theorem eQ_adj : ∀ e ∈ eQ, e.adj ∈ eQ := by decide +kernel
 theorem one_mem_eQ : Q4.one ∈ eQ := by decide +kernel

@@ -282,14 +282,5 @@ public theorem firstCase_hhat_quotient_U_s4_of_U_card_three
     Nonempty ((c.Hhat ⧸ pPrimeCore 2 c.Hhat) ≃* Equiv.Perm (Fin 4)) :=
   firstCase_hhat_quotient_U_s4_of_U3 hmin c hfirst hklein hU3
 
-public theorem firstCase_hhat_quotient_U_s4
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (hfirst : FirstCase c)
-    (d : FirstCaseCountData c) :
-    Nonempty ((c.Hhat ⧸ pPrimeCore 2 c.Hhat) ≃* Equiv.Perm (Fin 4)) := by
-  exact firstCase_hhat_quotient_U_s4_of_U_card_three hmin c hfirst
-    (by exact firstCase_twoCore_isKleinFour hmin c hfirst)
-    (firstCase_U_card_three hmin c hfirst d)
 
 end CFSG.GorensteinWalter

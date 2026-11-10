@@ -14,15 +14,6 @@ theorem fiveCase (prime rank : ℕ) (prime_prime : prime.Prime) : FiveCase prime
     complete_of_locallyComplete_of_five_le prime rank q prime_prime hq.1 hq5 actor elementary
       large values conditions locally_complete hq
 
-theorem complete_of_le_three (prime rank : ℕ) (prime_prime : prime.Prime) (hp3 : prime ≤ 3)
-    (G : Type) [Group G] [Finite G] (actor : Subgroup G) (elementary : IsElemAbelian prime actor)
-    (large : prime ^ (rank + 2) ≤ Nat.card actor) (values : Subgroup G → Subgroup G)
-    (conditions : SolvableSignalizerConditions prime rank actor values) :
-    solvableSignalizerCompatible prime rank actor values
-      (⨆ selected ∈ signalizerFunctorEk prime rank actor, values selected) :=
-  complete_of_twoThreeCase prime rank prime_prime (fiveCase prime rank prime_prime)
-    (twoThreeCase_of_le_three prime rank prime_prime hp3) G actor elementary large values
-    conditions
 
 theorem solvableRankOneTheoremAt_of_le_three (p : ℕ) (hp : p.Prime) (hp3 : p ≤ 3) :
     SolvableRankOneTheoremAt p :=

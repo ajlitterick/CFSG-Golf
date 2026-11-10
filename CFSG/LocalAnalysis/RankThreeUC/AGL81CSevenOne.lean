@@ -24,12 +24,6 @@ open Subgroup
       ∃ N : Subgroup X, N.Normal ∧ L ⊔ centralizer (L : Set X) ≤ N ∧
         (∃ k : ℕ, (L ⊔ centralizer (L : Set X)).relIndex N = p ^ k) ∧ ¬ p ∣ N.index
 
-@[expose] def SevenOneFourChev : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → ∀ p : ℕ, p.Prime → p ≠ 2 →
-    ∀ L : Subgroup X, CFSG.IsComponent L → L.Normal → CFSG.Open.pRank p L ≤ 1 →
-      (∃ x : X, (∃ k : ℕ, orderOf x = p ^ k) ∧ x ∉ L ⊔ centralizer (L : Set X)) →
-      ∃ d : TauCeti.ValidLieTypeIndex,
-        Nonempty (↥L ⧸ center ↥L ≃* (TauCeti.CFSGIndex.lie d).Group)
 
 @[expose] def SevenOneFourField : Prop :=
   ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → ∀ p : ℕ, p.Prime → p ≠ 2 →

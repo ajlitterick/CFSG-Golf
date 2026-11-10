@@ -84,20 +84,5 @@ theorem character_rat_of_pow_prime_pow (ρ : Representation ℂ G V) {m : ℕ} (
   rw [show ρ.character x = LinearMap.trace ℂ V f from rfl]
   simpa [hcdef] using this.symm
 
-theorem character_rat_of_forall_mem_cyclotomic (ρ : Representation ℂ G V) {m : ℕ} (hm : 0 < m)
-    (hχ : ∀ g, ρ.character g ∈ ℚ⟮Complex.exp (2 * Real.pi * Complex.I / m)⟯) {p : ℕ}
-    (hp : p.Prime) (hpm : ¬ p ∣ m) {x : G} {e : ℕ} (hx : x ^ p ^ e = 1) :
-    ∃ q : ℚ, ρ.character x = q :=
-  character_rat_of_pow_prime_pow ρ hm (Complex.isPrimitiveRoot_exp m hm.ne').pow_eq_one hp hpm hx
-    (hχ x)
-
-theorem character_rat_of_isPGroup (ρ : Representation ℂ G V) {m : ℕ} (hm : 0 < m) {ξ : ℂ}
-    (hξ : ξ ^ m = 1) (hχ : ∀ g, ρ.character g ∈ ℚ⟮ξ⟯) {p : ℕ} (hp : p.Prime) (hpm : ¬ p ∣ m)
-    {P : Subgroup G} (hP : IsPGroup p P) {y : G} (hy : y ∈ P) : ∃ q : ℚ, ρ.character y = q := by
-  obtain ⟨e, he⟩ := hP ⟨y, hy⟩
-  have hy' : y ^ p ^ e = 1 := by
-    have := congrArg Subtype.val he
-    simpa using this
-  exact character_rat_of_pow_prime_pow ρ hm hξ hp hpm hy' (hχ y)
 
 end CFSG.LyonsUnitaryFour

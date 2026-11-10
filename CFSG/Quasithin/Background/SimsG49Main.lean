@@ -44,33 +44,5 @@ public section
 
 namespace CFSG.Quasithin.SimsG4
 
-theorem g49 {F : Type} [Field F]
-    [Finite F] [CharP F 2]
-    (n : ℕ) (hn : Nat.card F = 2 ^ n)
-    {V : Type} [AddCommGroup V] [Module F V] (B : LinearMap.BilinForm F V)
-    (halt : ∀ x, B x x = 0) (hnd : ∀ x, (∀ y, B x y = 0) → x = 0) (hdim : Module.finrank F V = 4)
-    (G₀ : Subgroup (V ≃ₗ[F] V)) (hSp : G₀ ≤ spGroup B) (hirr : IsIrredOnV G₀)
-    (hD : (transvSet G₀).Nonempty) (hconn : (advGraph G₀).Connected) :
-    (IsSimpleGroup ↥(fStarOf (transvGen G₀)) ∧
-        (∃ x ∈ fStarOf (transvGen G₀), ∃ y ∈ fStarOf (transvGen G₀), x * y ≠ y * x) ∧
-        (∃ i ∈ invSet B G₀, i ∈ fStarOf (transvGen G₀)) ∧
-        IsIrredOnV (fStarOf (transvGen G₀))) ∨
-      (∃ k : ℕ, 1 < k ∧ k ∣ n ∧
-        Nonempty (↥(fStarOf (transvGen G₀)) ≃*
-          (Matrix.SpecialLinearGroup (Fin 2) (GaloisField 2 k) ×
-            Matrix.SpecialLinearGroup (Fin 2) (GaloisField 2 k))) ∧
-        G41Case2AtExponent n k B G₀) := by
-  obtain ⟨hirrG, hprimG⟩ := transvGen_irred_prim_of_connected B halt hnd hdim G₀ hSp hirr hD
-    (transv_orderOf_two_or_odd B halt hnd hdim G₀ hSp) hconn
-  rcases weak_form n hn B halt hnd hdim G₀ hSp hirr hD with
-    ⟨b, F₀, hb, hmem⟩ | ⟨Q, hQB, hQ⟩ | ⟨V₁, V₂, h1, h2, h3, hperm⟩
-  ·
-    have hT : transvGen G₀ = G₀ := (case1_of_subfield n hn B halt hnd hdim G₀ b F₀ hb hmem).1
-    exact Or.inl (g49_case1 n hn B halt hnd hdim G₀ hSp hirr (hT ▸ hprimG) hD b F₀ hb hmem)
-  ·
-    exact G49.orth_case n hn B halt hnd hdim G₀ hSp hirr hD hirrG hprimG Q hQB hQ
-  ·
-    exact absurd hconn (not_connected_of_imprimitive B halt hnd hdim G₀ hSp hirr hD
-      (imprimitive_of_decW B hdim G₀ V₁ V₂ h1 h2 h3 hperm))
 
 end CFSG.Quasithin.SimsG4

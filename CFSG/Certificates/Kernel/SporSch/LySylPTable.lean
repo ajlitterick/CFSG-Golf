@@ -200,13 +200,6 @@ private theorem nodup_of_popN {L : List Nat} {M n : Nat}
     fun x hx => (hmem x).1 (List.mem_filter.1 hx).2
   exact ((hF.subperm hsub).perm_of_length_le (by omega)).nodup_iff.1 hF
 
-private theorem ite_true_iff (c : Bool) (t : Bool) :
-    ((if c = true then t else true) = true) ↔ (c = true → t = true) := by
-  cases c <;> simp
-
-private theorem ite_false_iff (c : Bool) (t : Bool) :
-    ((if c = true then true else t) = true) ↔ (c = false → t = true) := by
-  cases c <;> simp
 
 private theorem beq_iff {a b : Nat} : Nat.beq a b = true ↔ a = b :=
   ⟨Nat.eq_of_beq_eq_true, fun h => h ▸ Nat.beq_refl a⟩

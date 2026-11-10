@@ -142,44 +142,5 @@ theorem c8Four_action_exhaustion (H : Subgroup C8FourCode)
   obtain ⟨g, h, hg, hh, hlines, _⟩ := hfour h4
   exact ⟨g, h, hg, hh, hlines⟩
 
-theorem c8Four_action_exhaustion_for_extension (H : Subgroup C8FourCode)
-    (hH : c8FourActionAdmissible H) (Q : Subgroup C8FourCode) (hQH : Q ≤ H) :
-    pGeneratorRank 2 Q ≤ 4 ∧
-      (pGeneratorRank 2 Q = 3 → ∃ g : C8FourCode,
-        g ∈ Q ∧ g ^ 2 = 1 ∧ g ≠ 1 ∧ c8FourNormKernel g ∧ c8FourNormDoubles g ∧
-          ∀ h ∈ H, Commute g h) ∧
-      (pGeneratorRank 2 Q = 4 → ∃ g h : C8FourCode,
-        g ∈ Q ∧ h ∈ Q ∧ g ^ 2 = 1 ∧ g ≠ 1 ∧ h ^ 2 = 1 ∧ h ≠ 1 ∧
-          c8FourNormKernel g ∧ c8FourNormDoubles g ∧
-          c8FourNormKernel h ∧ c8FourNormDoubles h ∧
-          (∀ k ∈ H, Commute g k) ∧ (∀ k ∈ H, Commute h k) ∧
-          ∀ x y : CyclicPair 2 4, c8FourApply g x = x → c8FourApply h y = y →
-            c8FourBinaryCoordinates x ≠ 0 → c8FourBinaryCoordinates y ≠ 0 →
-            c8FourBinaryCoordinates x ≠ c8FourBinaryCoordinates y) := by
-  obtain ⟨i, hi⟩ := c8FourAction_admissible_container H hH
-  obtain ⟨hbound, hthree, hfour⟩ := c8FourAction_container_conclusions H Q i hi hQH
-  refine ⟨hbound, ?_, ?_⟩
-  · intro h3
-    obtain ⟨g, hmem, hcentral, hinvolution, hkernel, himage⟩ := hthree h3
-    exact ⟨g, hmem, hinvolution.2, hinvolution.1, hkernel,
-      c8FourActionNormImage_doubles himage, fun h hh => hcentral.2 h hh⟩
-  · intro h4
-    obtain ⟨g, h, hg, hh, _, hparity⟩ := hfour h4
-    exact ⟨g, h, hg.1, hh.1, hg.2.2.1.2, hg.2.2.1.1,
-      hh.2.2.1.2, hh.2.2.1.1, hg.2.2.2.1, c8FourActionNormImage_doubles hg.2.2.2.2,
-      hh.2.2.2.1, c8FourActionNormImage_doubles hh.2.2.2.2,
-      fun k hk => hg.2.1.2 k hk, fun k hk => hh.2.1.2 k hk, hparity⟩
-
-theorem c8Four_action_exhaustion_fixed_subspaces (H : Subgroup C8FourCode)
-    (hH : c8FourActionAdmissible H) (Q : Subgroup C8FourCode) (hQH : Q ≤ H)
-    (h4 : pGeneratorRank 2 Q = 4) :
-    ∃ g h : C8FourCode, c8FourActionPrimitive H Q g ∧ c8FourActionPrimitive H Q h ∧
-      Module.finrank (ZMod 2) ((AddSubgroup.toZModSubmodule 2) (c8FourActionFixedParity g)) = 1 ∧
-      Module.finrank (ZMod 2) ((AddSubgroup.toZModSubmodule 2) (c8FourActionFixedParity h)) = 1 ∧
-      (AddSubgroup.toZModSubmodule 2) (c8FourActionFixedParity g) ≠
-        (AddSubgroup.toZModSubmodule 2) (c8FourActionFixedParity h) := by
-  obtain ⟨g, h, hg, hh, hlines⟩ := (c8Four_action_exhaustion H hH Q hQH).2.2 h4
-  have hsubspaces := binary_addSubgroup_distinct_lines _ _ hlines.1 hlines.2.1 hlines.2.2
-  exact ⟨g, h, hg, hh, hsubspaces⟩
 
 end CFSG.LargeEvenClassification.Helpers

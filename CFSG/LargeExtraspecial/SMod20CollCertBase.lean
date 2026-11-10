@@ -109,13 +109,6 @@ theorem collP_adm_iff {s : Array ℕ} (hs : collAdm s = true) (hinv : ∀ k < 21
   have := collP_adm hs (hlt z hz) (hlt a ha) (hlt b hb) h
   rwa [hinv z hz, hinv a ha, hinv b hb] at this
 
-theorem collOn_adm_iff {s : Array ℕ} (hs : collAdm s = true) (hinv : ∀ k < 21, s[s[k]!]! = k)
-    {z a b : ℕ} (hz : z < 21) (ha : a < 21) (hb : b < 21) :
-    collOn collS2 s[z]! s[a]! s[b]! = true ↔ collOn collS2 z a b = true := by
-  obtain ⟨-, hlt, -, -⟩ := collAdm_parts hs
-  refine ⟨fun h => ?_, collOn_adm hs hz ha hb⟩
-  have := collOn_adm hs (hlt z hz) (hlt a ha) (hlt b hb) h
-  rwa [hinv z hz, hinv a ha, hinv b hb] at this
 
 theorem collMeet_get {a b c d : ℕ} (ha : a < 21) (hb : b < 21) (hc : c < 21) (hd : d < 21) :
     (collMeet collS2)[a * 9261 + b * 441 + c * 21 + d]! = collSearch collS2 a b c d := by

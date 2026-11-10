@@ -295,11 +295,6 @@ theorem ggOrdPFieldConjPSLNonsplit_holds : GGOrdPFieldConjPSLNonsplit := by
   have hyp : y ^ p = 1 := hyo ▸ pow_orderOf_eq_one y
   exact OrdPNS.exists_conj_mem_centralizer_field (F := GaloisField 2 f) hS hpF hyM hyp hyI
 
-theorem ggOrdPInnerConjAt_PSL : GGOrdPInnerConjAt .PSL :=
-  ggOrdPInnerConjAt_PSL_of_nonsplit ggOrdPInnerConjPSLNonsplit_holds
-
-theorem ggOrdPFieldConjAt_PSL : GGOrdPFieldConjAt .PSL :=
-  ggOrdPFieldConjAt_PSL_of_nonsplit ggOrdPFieldConjPSLNonsplit_holds
 
 theorem ggSixLSixElevenKGInput_of_rest_PSL_holds
     (h1 : ∀ t, ¬ GGOrdPSmallTag t → t ≠ .PSL → GGOrdPInnerConjAt t)

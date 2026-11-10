@@ -23,9 +23,6 @@ theorem five_lt_q : 5 < C.h.q := by
 @[expose] noncomputable def jt₀ :
     JT.JTHyp G := C.h.toJRGroup.toJTHyp C.five_lt_q
 
-theorem jt₀_p : C.jt₀.p = C.h.p := rfl
-
-theorem jt₀_f : C.jt₀.f = C.h.f := rfl
 
 include C in
 theorem centralizer_sylow (S : Sylow 2 G) :
@@ -50,12 +47,6 @@ theorem exists_conj_J :
 theorem jt_t :
     C.jt.t = C.J := Classical.choose_spec C.exists_conj_J
 
-theorem jt_p : C.jt.p = C.h.p := rfl
-
-theorem jt_f : C.jt.f = C.h.f := rfl
-
-theorem jt_q :
-    C.jt.p ^ C.jt.f = C.h.q := rfl
 
 @[expose] noncomputable def L :
     Subgroup G := C.jt.F
@@ -64,8 +55,6 @@ theorem L_le_centralizer :
     C.L ≤ Subgroup.centralizer ({C.J} : Set G) := by
   rw [← C.jt_t]; exact C.jt.le_centralizer
 
-theorem J_not_mem_L : C.J ∉ C.L := by
-  rw [← C.jt_t]; exact C.jt.t_not_mem
 
 theorem commute_J_of_mem_L
     {x : G} (hx : x ∈ C.L) : x * C.J = C.J * x :=

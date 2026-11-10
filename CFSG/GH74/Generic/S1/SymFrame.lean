@@ -65,37 +65,6 @@ end Defs
 
 variable [Finite G]
 
-theorem sym_at {x : G} {K : Subgroup (CentralizerBar x)} [K.Normal] (hset : S1Setup G x K)
-    (hfront : S1Front G x K) {F : Type} [Field F] {S : Subgroup (GL (Fin 4) F)}
-    (ops : ModelOps F S) (e : ↥K ≃* ↥S)
-    (reflOf : ∀ (y : G) (K' : Subgroup (CentralizerBar y)) [K'.Normal], S1Setup G y K' →
-      S1Front G y K' → ∀ (e' : ↥K' ≃* ↥S) {v : G} (hv : v ∈ centralizer ({y} : Set G)),
-        IsConj y v → v ≠ y → v * v = 1 → barOf hv ∉ K' →
-          IsReflection S (MulAut.congr e' (MulAut.conjNormal (barOf hv) : MulAut ↥K')))
-    {y : G} (hy : IsConj x y) (w : Fin 4 → G) (hw : ∀ j, w j ∈ centralizer ({y} : Set G))
-    (hw2 : ∀ j, w j * w j = 1) (hwc : ∀ j k, w j * w k = w k * w j)
-    (hwconj : ∀ j, IsConj y (w j)) (hwne : ∀ j, w j ≠ y)
-    (hind2 : ∀ j k, j ≠ k → w j * w k ≠ 1) (hind3 : ∀ j k, j ≠ k → w j * w k * y ≠ 1)
-    (hprod : w 0 * w 1 * w 2 * w 3 = y) :
-    ∃ K' : Subgroup (CentralizerBar y), S1Setup G y K' ∧ S1Front G y K' ∧
-      (∀ j, IsConj y (w j) ∧ w j * w j = 1 ∧ barOf (hw j) ∉ K') ∧
-        (∀ j k, w j * w k = w k * w j) ∧ w 0 * w 1 * w 2 * w 3 = y ∧
-          (∀ j k, j ≠ k → w j ≠ w k) ∧
-            ∃ e'' : ↥K' ≃* ↥S, ∀ j, ActsAsReflOn e'' (barOf (hw j)) (reflDiag F j) := by
-  obtain ⟨g, rfl⟩ := isConj_iff.1 hy
-  have hset' := hset.conj g
-  have hfront' := hfront.conj g
-  have hKn : (K.map (barConj x g).toMonoidHom).Normal := normal_of_layer_eq hfront'.layer_eq
-  let e' : ↥(K.map (barConj x g).toMonoidHom) ≃* ↥S :=
-    (K.equivMapOfInjective (barConj x g).toMonoidHom (barConj x g).injective).symm.trans e
-  have hnotK : ∀ j, barOf (hw j) ∉ K.map (barConj x g).toMonoidHom := fun j =>
-    barOf_notMem hset' hfront' (hw j) (hw2 j) (hwconj j) (hwne j)
-  have hR : ∀ j, IsReflection S (MulAut.congr e'
-      (MulAut.conjNormal (barOf (hw j)) : MulAut ↥(K.map (barConj x g).toMonoidHom))) := fun j =>
-    reflOf _ _ hset' hfront' e' (hw j) (hwconj j) (hwne j) (hw2 j) (hnotK j)
-  obtain ⟨h1, h2, h3, h4, e'', h5⟩ :=
-    sym_local hset' hfront' ops e' w hw hw2 hwc hwconj hwne hind2 hind3 hprod hR
-  exact ⟨_, hset', hfront', h1, h2, h3, h4, e'', h5⟩
 
 omit [Finite G] in
 theorem symX_facts {x : G} {K : Subgroup (CentralizerBar x)} (hxK : xbar x ∈ K)

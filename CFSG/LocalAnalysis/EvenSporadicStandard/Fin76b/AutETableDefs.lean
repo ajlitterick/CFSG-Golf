@@ -60,48 +60,5 @@ namespace CFSG.EvenSporadicStandard.Fin76b.AutETable
     | some k => (st.1 ++ [k], closeFuel n M (st.1 ++ [k]) n st.2))
     ([], (Array.replicate n (none : Option (List ℕ))).setIfInBounds 0 (some []))
 
-@[expose] def gensOk (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ)) : Bool :=
-  gens.all (fun g => decide (g < n)) &&
-    (List.range n).all fun k => ev M (fun i => gens.getD i 0) (wd W k) == k
-
-@[expose] def lvlOk (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ)) (d : ℕ)
-    (q : List ℕ) : Bool :=
-  let X := tab n fun k => if inLv W d k then ev M (fun i => q.getD i 0) (wd W k) else 0
-  (List.range n).all fun k => !inLv W d k || (k == 0 || ix X k != 0) &&
-    (List.range (d + 1)).all fun i =>
-      !inLv W d (mt M k (gens.getD i 0)) ||
-        ix X (mt M k (gens.getD i 0)) == mt M (ix X k) (q.getD i 0)
-
-@[expose] def extendLv (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ))
-    (d : ℕ) (ps : List (List ℕ)) : List (List ℕ) :=
-  ps.flatMap fun p => (List.range n).filterMap fun c =>
-    if lvlOk n M gens W d (p ++ [c]) then some (p ++ [c]) else none
-
-@[expose] def tuples (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ)) :
-    List (List ℕ) :=
-  (List.range gens.length).foldl (fun ps d => extendLv n M gens W d ps) [[]]
-
-@[expose] def autArrs (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ)) :
-    List (Array ℕ) :=
-  (tuples n M gens W).map fun q => tab n fun k => ev M (fun i => q.getD i 0) (wd W k)
-
-@[expose] def isOrd3 (n : ℕ) (B : Array ℕ) : Bool :=
-  (List.range n).all (fun k => ix B (ix B (ix B k)) == k) &&
-    (List.range n).any fun k => ix B k != k
-
-@[expose] def conclOk (n : ℕ) (M : Array (Array ℕ)) (A : Array ℕ) (d : ℕ) (r : ℕ → ℕ) : Bool :=
-  (List.range n).all fun e => mt M (ix A e) d == mt M d (r e)
-
-@[expose] def pairOk (n : ℕ) (M : Array (Array ℕ)) (B A : Array ℕ) : Bool :=
-  !((List.range n).all fun k => ix A (ix B k) == ix B (ix A k)) ||
-  !((List.range n).any fun d => ix B d == d &&
-      (List.range n).all fun e => ix B e != e || mt M (ix A e) d == mt M d e) ||
-  (List.range n).any fun d => ix B d == d &&
-    (conclOk n M A d id || conclOk n M A d (ix B) || conclOk n M A d (fun e => ix B (ix B e)))
-
-@[expose] def autChk (n : ℕ) (M : Array (Array ℕ)) (gens : List ℕ) (W : Array (List ℕ)) : Bool :=
-  gensOk n M gens W &&
-    let autos := autArrs n M gens W
-    autos.all fun B => !isOrd3 n B || autos.all fun A => pairOk n M B A
 
 end CFSG.EvenSporadicStandard.Fin76b.AutETable

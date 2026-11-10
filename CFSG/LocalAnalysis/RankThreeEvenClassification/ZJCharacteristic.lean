@@ -32,14 +32,6 @@ theorem thompsonCenterOf_map_equiv {G : Type u} {H : Type v} [Group G] [Group H]
   rw [hcompose] at hmapped
   exact hmapped.symm
 
-theorem thompsonCenterOf_sylow_eq_of_normal {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) [Fact prime.Prime] (first second : Sylow prime G)
-    [(thompsonCenterOf (first : Subgroup G)).Normal] :
-    thompsonCenterOf (second : Subgroup G) = thompsonCenterOf (first : Subgroup G) := by
-  obtain ⟨member, heq⟩ := MulAction.exists_smul_eq G first second
-  rw [← heq, Sylow.coe_subgroup_smul, Subgroup.pointwise_smul_def]
-  change thompsonCenterOf ((first : Subgroup G).map (MulAut.conj member : G →* G)) = _
-  rw [thompsonCenterOf_map_equiv, Subgroup.Normal.map_conj_eq]
 
 theorem thompsonCenterOf_characteristic_of_normal {G : Type u} [Group G] [Finite G]
     (prime : ℕ) [Fact prime.Prime] (sylow : Sylow prime G)

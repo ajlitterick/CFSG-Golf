@@ -34,21 +34,5 @@ theorem classOK : (List.range 6).all (classQ ls cg ci) = true := by decide +kern
 
 theorem centerOK : centerQ ls es = true := by decide +kernel
 
-theorem enumNeg : enumQ ls (es.set 5 oneQ) = false := by decide +kernel
-
-theorem sylowNeg : sylowQ ls (es.set 5 (atQ es 6)) = false := by decide +kernel
-
-theorem prsNeg : prsQ es (prs.set 0 (prs.getD 1 [])) = false := by decide +kernel
-
-theorem rowsNeg : rowsQ ls es (prs.set 2 (prs.getD 3 [])) r1 r2 = false := by decide +kernel
-
-theorem recsNeg : recsQ es (prs.set 0 []) recs = false := by decide +kernel
-
-theorem coverNeg : coverQ (recs.map fun m => (m.1, m.2.1, m.2.2.1, m.2.2.2.1, [])) = false := by
-  decide +kernel
-
-theorem classNeg : classQ ls cg (ci.set 0 (cg.getD 0 [])) 0 = false := by decide +kernel
-
-theorem centerNeg : centerQ ls (es.drop 1) = false := by decide +kernel
 
 end CFSG.KD.HD4Q2

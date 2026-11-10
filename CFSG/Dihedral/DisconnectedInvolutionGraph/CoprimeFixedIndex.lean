@@ -18,6 +18,5 @@ theorem relIndex_mul_card_inf (subgroup ambient : Subgroup G) :
   rw [← card_subgroupOf_eq_inf]
   exact (subgroup.subgroupOf ambient).index_mul_card
 
-variable {A : Type*} [Group A] [MulDistribMulAction A G]
 
 end CFSG.DisconnectedInvolutionGraph.Helpers

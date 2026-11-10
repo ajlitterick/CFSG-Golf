@@ -36,8 +36,5 @@ theorem CFSG.KD.ThS.fixW : CFSG.KC.Th.BigS.fixWOK CFSG.KD.ThS.RBf CFSG.KD.ThS.rm
     CFSG.KD.ThS.w1 CFSG.KD.ThS.w2 (nat_lit 7) = true := by
   quickRfl
 
-theorem CFSG.KD.ThS.rgf : CFSG.KC.Th.andB (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.GRf (nat_lit 8)
-    (nat_lit 1004)) (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.IRf (nat_lit 8) (nat_lit 1004)) = true := by
-  quickRfl
 
 end

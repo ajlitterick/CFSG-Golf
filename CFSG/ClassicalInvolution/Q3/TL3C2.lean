@@ -17,9 +17,6 @@ variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   P ≤ Subgroup.centralizer ({z} : Set G) ∧ IsPGroup 2 P ∧
     ∀ c ∈ Subgroup.centralizer ({z} : Set G), ∀ p ∈ P, c * p * c⁻¹ ∈ P
 
-@[expose] def UCond (Ω : Set (Subgroup G)) (K : Subgroup G) : Prop :=
-  ∀ z : G, IsUniqueInvolution K z → ∀ J ∈ KPerp Ω K, ∃ U ∈ USet Ω, U ≤ J ∧
-    ∃ P : Subgroup G, IsNormalTwoIn P z ∧ U ≤ P
 
 @[expose] def etaSpan (η : Set (Subgroup G)) : Subgroup G := ⨆ U ∈ η, U
 
@@ -121,43 +118,5 @@ theorem normalizes_w_of_le_twoNormal (hΩ : HypOmegaGen Ω) (h2 : ∀ J ∈ Ω, 
   refine ⟨fun j hj V hV => ?_, u, hu, hWu⟩
   exact (Sec6Gen.l6_10Gen G Ω hΩ S'' η hη hηS'').1 J hJR (le_sup_right.trans hS'') j hj V hV
 
-@[expose] def UCondOn (Ω : Set (Subgroup G)) (K : Subgroup G) : Prop :=
-  ∀ L : Subgroup G, Relation.ReflTransGen (fun M N : Subgroup G =>
-    N ∈ Ω ∧ Disconnected.dAdj Ω M N) K L → UCond Ω L
-
-theorem normalizes_w_of_reach (hΩ : HypOmegaGen Ω) (h2 : ∀ J ∈ Ω, IsPGroup 2 J)
-    {K : Subgroup G} (hK : K ∈ Ω) {z : G} (hz : IsUniqueInvolution K z)
-    {η : Set (Subgroup G)} (hη : η ∈ etaG Ω)
-    (hWz : etaSpan η ≤ Subgroup.centralizer ({z} : Set G)) (hU : UCondOn Ω K)
-    {L : Subgroup G} (hL : Relation.ReflTransGen (fun M N : Subgroup G =>
-      N ∈ Ω ∧ Disconnected.dAdj Ω M N) K L) :
-    L ∈ Ω ∧ (∀ l ∈ L, ∀ V ∈ η, conjSub l V ∈ η) ∧
-      ∃ u : G, IsUniqueInvolution L u ∧ etaSpan η ≤ Subgroup.centralizer ({u} : Set G) := by
-  have key : ∀ M : Subgroup G, Relation.ReflTransGen (fun M N : Subgroup G =>
-      N ∈ Ω ∧ Disconnected.dAdj Ω M N) K M →
-      M ∈ Ω ∧ ∃ u : G, IsUniqueInvolution M u ∧
-        etaSpan η ≤ Subgroup.centralizer ({u} : Set G) := by
-    intro M hM
-    induction hM with
-    | refl => exact ⟨hK, z, hz, hWz⟩
-    | tail hKM hMN ih =>
-      rename_i M N
-      obtain ⟨hMΩ, uM, huM, hWuM⟩ := ih
-      obtain ⟨hNΩ, hadj⟩ := hMN
-      have hNM : N ∈ KPerp Ω M := by
-        refine Set.mem_insert_of_mem _ ?_
-        rcases hadj with h | h
-        · exact h
-        · exact Q3CL.T3.omegaNbr_symm Sec6Gen.l6_2Gen hΩ hNΩ hMΩ h
-      obtain ⟨U₀, hU₀, hU₀N, P, hP, hU₀P⟩ := hU M hKM uM huM N hNM
-      obtain ⟨-, uN, huN, hWuN⟩ :=
-        normalizes_w_of_le_twoNormal hΩ h2 hη hWuM hNΩ hU₀ hU₀N hP hU₀P
-      exact ⟨hNΩ, uN, huN, hWuN⟩
-  have hLΩ : L ∈ Ω := (key L hL).1
-  refine ⟨hLΩ, ?_, (key L hL).2⟩
-  obtain ⟨-, uL, huL, hWuL⟩ := key L hL
-  have hLL : L ∈ KPerp Ω L := Set.mem_insert L _
-  obtain ⟨U₀, hU₀, hU₀L, P, hP, hU₀P⟩ := hU L hL uL huL L hLL
-  exact (normalizes_w_of_le_twoNormal hΩ h2 hη hWuL hLΩ hU₀ hU₀L hP hU₀P).1
 
 end CFSG.ClassicalInvolution.Q3.TC

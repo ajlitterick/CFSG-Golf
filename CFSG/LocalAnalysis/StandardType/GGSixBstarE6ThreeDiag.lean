@@ -207,11 +207,6 @@ theorem twoLocal_vAd [CharP K 2] (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
   rw [h1]
   exact hv
 
-theorem twoLocal_vHyp [CharP K 2] (ζ : Kˣ) (hζ : ζ ^ 3 = 1) :
-    ∃ U : Subgroup (adjointGroup .E6 K), U ≠ ⊥ ∧ IsPGroup 2 U ∧
-      ∀ φ ∈ vHyp (K := K) ζ hζ, ∀ u ∈ U, φ u ∈ U := by
-  obtain ⟨U, hU, hU2, hUn⟩ := twoLocal_vAd (K := K) ζ hζ
-  exact ⟨U, hU, hU2, fun φ hφ => hUn φ (vHyp_le_vAd ζ hζ hφ)⟩
 
 end TwoLocal
 

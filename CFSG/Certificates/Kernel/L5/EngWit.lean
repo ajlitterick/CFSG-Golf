@@ -105,29 +105,6 @@ theorem feasible_false_of_witOK {e : Eng n}
       exact h.1
     rw [scpOK_false (hctx _ hk) h, Bool.and_false]
 
-theorem survivors_nil {e : Eng n}
-    (hctx : ∀ k < e.reps.length, e.ctxs.getD k default = mkHomCtx (e.reps.getD k 1))
-    {ws : List (List Nat)} (h : allWit e ws = true) : survivors e = [] := by
-  simp only [allWit, Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at h
-  obtain ⟨hlen, hall⟩ := h
-  unfold survivors
-  rw [List.filter_eq_nil_iff]
-  intro ld hld
-  obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem hld
-  have hz : ((leaders e.reps.length)[j], ws[j]'(by omega)) ∈ (leaders e.reps.length).zip ws := by
-    rw [List.mem_iff_getElem]
-    exact ⟨j, by simp only [List.length_zip]; omega, by simp only [List.getElem_zip]⟩
-  rw [feasible_false_of_witOK hctx (hall _ hz)]
-  exact Bool.false_ne_true
-
-theorem allWit_congr {e e' : Eng n} (hr : e.reps = e'.reps) (hc : e.ciA = e'.ciA)
-    (hs : e.cszA = e'.cszA) (hi : e.invs = e'.invs) (hm : e.maxSubs = e'.maxSubs)
-    (hx : e.x = e'.x) (ws : List (List Nat)) : allWit e ws = allWit e' ws := by
-  cases e
-  cases e'
-  simp only at hr hc hs hi hm hx
-  subst hr hc hs hi hm hx
-  rfl
 
 end CFSG.GH74.GLS.C3.Layer2.L5.Fus
 

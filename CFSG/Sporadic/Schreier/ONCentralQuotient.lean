@@ -375,7 +375,6 @@ theorem prep_rhoL_gen :
     exact prep_onLgens j hjl
   exact prep_rhoM_of_le onL_le_M hg (allBelowN_spec block_cert.2.2.1 hj2)
 
-theorem l120_gens_size : Data.L120Chain.generators.size = 2 := by decide
 
 theorem rhoL_range :
     rhoL.range = onL120Chain.originalSubgroup := by

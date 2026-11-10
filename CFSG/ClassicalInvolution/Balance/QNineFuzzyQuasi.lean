@@ -352,30 +352,6 @@ theorem localOddCentral_of_indepTriple_pair_of_isQuasisimple [IsSimpleGroup G]
       obtain ⟨K'', z'', hK'', hcomm'', hdef'', hel'', hcard''⟩ := hA'
       exact ⟨A', hdef'' ▸ hel'', hdef'' ▸ hcard'', hΔ, hxA', L, hLΩ, zL, hzLA, hzL, hLA, hcc⟩
 
-theorem triangleFramesMeetAt_of_indepTriple_pair_of_isQuasisimple [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hf : 0 < f) (hΩ : InClass p f Ω)
-    (hIH : LocalLieSystems p f Ω) (hqs : ∀ J ∈ Ω, CFSG.Open.IsQuasisimple J)
-    {K : Fin 3 → Subgroup G} {z : Fin 3 → G}
-    (hK : ∀ i, K i ∈ Ω ∧ IsClassicalMember p f (K i) (z i))
-    (hcomm : ∀ i j, i ≠ j → ∀ x ∈ K i, ∀ y ∈ K j, x * y = y * x) {A : Subgroup G}
-    (hAdef : A = Subgroup.closure (Set.range z)) (hel : IsElemAbelian 2 A)
-    (hcard : Nat.card A = 8) {i j : Fin 3} (hij : i ≠ j) {x : G}
-    (hx : x ∈ Subgroup.closure ({z i, z j} : Set G)) (hx1 : x ≠ 1) :
-    TriangleFramesMeetAt p f Ω x := by
-  have hA : IndepTripleOn p f Ω A := ⟨K, z, hK, hcomm, hAdef, hel, hcard⟩
-  have hzA : ∀ m, z m ∈ A := fun m => hAdef ▸ Subgroup.subset_closure ⟨m, rfl⟩
-  have hFA : Subgroup.closure ({z i, z j} : Set G) ≤ A := by
-    rw [Subgroup.closure_le]
-    rintro _ (rfl | hy)
-    · exact hzA i
-    · rw [Set.mem_singleton_iff.mp hy]
-      exact hzA j
-  intro K' hK'
-  rcases exists_covering_frame_of_indepTriple_pair_of_isQuasisimple hp2 hf hΩ hIH hqs hK hcomm
-      hAdef hel hcard hij (hFA hx) (not_subset_center_of_ne_one hnab hx1) hK' with
-    hcc | ⟨A', hA', hFA', -, hcc⟩
-  · exact ⟨A, hA, hFA hx, hcc⟩
-  · exact ⟨A', hA', hFA' hx, hcc⟩
 
 end Frames
 

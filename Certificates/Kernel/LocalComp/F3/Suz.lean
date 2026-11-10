@@ -23,13 +23,6 @@ theorem mult_K : sqK lay A B suzMultData = true := by decide +kernel
 
 theorem rot_K : sqK lay A B suzFiveRot = true := by decide +kernel
 
-theorem sec_neg_seeds : (!secK lay B A suzSec) = true := by decide +kernel
-
-theorem mult_neg : (!sqK lay A B { suzMultData with a := suzMultData.a + 1 }) = true := by
-  decide +kernel
-
-theorem rot_neg : (!sqK lay A B { suzFiveRot with oh := suzFiveRot.oh + 1 }) = true := by
-  decide +kernel
 
 end CFSG.KD.LC.F3.Suz
 

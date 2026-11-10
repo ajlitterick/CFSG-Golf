@@ -141,6 +141,5 @@ theorem isCyclic_of_le_of_sup_cyclic_of_inf_eq_bot
   exact isCyclic_of_injective (Subgroup.subgroupOfEquivOfLe hYP).symm.toMonoidHom
     (Subgroup.subgroupOfEquivOfLe hYP).symm.injective
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

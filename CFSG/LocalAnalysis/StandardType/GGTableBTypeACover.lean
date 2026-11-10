@@ -175,31 +175,6 @@ theorem comap_center_eq_of_scalarKernel (hd : 3 ≤ d)
   exact CFSG.LocalCores.comap_center_eq_of_perfect hperf χ hχ
     (hker.trans (scalars_le_center (n := d) (K := K)))
 
-theorem ker_mk_center_comp_of_scalarKernel (hd : 3 ≤ d)
-    (χ : SpecialLinearGroup (Fin d) K →* L) (hχ : Function.Surjective χ)
-    (hker : χ.ker ≤ scalars d K) :
-    ((QuotientGroup.mk' (Subgroup.center L)).comp χ).ker = scalars d K := by
-  rw [← MonoidHom.comap_ker, QuotientGroup.ker_mk',
-    comap_center_eq_of_scalarKernel hd χ hχ hker, scalars_eq_center]
-
-@[expose] noncomputable def centerQuotEquivOfScalarKernel (hd : 3 ≤ d)
-    (χ : SpecialLinearGroup (Fin d) K →* L) (hχ : Function.Surjective χ)
-    (hker : χ.ker ≤ scalars d K) :
-    projectiveSL d K ≃* L ⧸ Subgroup.center L :=
-  (QuotientGroup.quotientMulEquivOfEq
-      (ker_mk_center_comp_of_scalarKernel hd χ hχ hker).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective _
-      ((QuotientGroup.mk'_surjective (Subgroup.center L)).comp hχ))
-
-theorem centerQuotEquivOfScalarKernel_proj (hd : 3 ≤ d)
-    (χ : SpecialLinearGroup (Fin d) K →* L) (hχ : Function.Surjective χ)
-    (hker : χ.ker ≤ scalars d K) (g : SpecialLinearGroup (Fin d) K) :
-    centerQuotEquivOfScalarKernel hd χ hχ hker (proj d K g) =
-      QuotientGroup.mk' (Subgroup.center L) (χ g) := by
-  rw [centerQuotEquivOfScalarKernel, MulEquiv.trans_apply,
-    show proj d K g = QuotientGroup.mk g from rfl,
-    QuotientGroup.quotientMulEquivOfEq_mk]
-  exact TauCeti.QuotientGroup.quotientKerEquivOfSurjective_apply_mk _ _ g
 
 end ScalarKernel
 

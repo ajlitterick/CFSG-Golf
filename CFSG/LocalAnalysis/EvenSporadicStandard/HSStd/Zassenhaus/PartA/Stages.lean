@@ -468,27 +468,5 @@ theorem PA14.nonempty_configC (hb : PAB G L t E W z) (a : PA14 L t E z)
 
 end Assembly
 
-theorem hsInnerPartA_of_steps
-    (h0 : StepS0) (h2 : StepS2) (h3 : StepS3) (h4 : StepS4)
-    (h5 : StepS5) (h6 : StepS6) (h7 : StepS7) (h8 : StepS8) (h9 : StepS9) (h10 : StepS10)
-    (h11 : StepS11) (h12 : StepS12) (h14 : StepS14) (h15 : StepS15) : HSInnerPartA := by
-  intro G _ _ L hset _ hHiS t htL ht2 hin S z n hf E hEL hzE hEab hE16 hφ htr hfus W _ hWN hWn
-    hEW htW hWab hW hN hC
-  have hb : PAB G L t E W z :=
-    PAB.of_hyps hset htL ht2 hin hf hEL hzE hEab hE16 hφ htr hfus hWN hWn hEW htW hWab hW hN hC
-  obtain ⟨a0⟩ := h0 G L t E W z hb
-  obtain ⟨a2⟩ := h2 G L t E W z hb a0
-  obtain ⟨a3⟩ := h3 G L t E W z hb a2
-  obtain ⟨a4⟩ := h4 G L t E W z hb a3
-  obtain ⟨a5⟩ := h5 G L t E W z hb a4
-  obtain ⟨a6⟩ := h6 G L t E W z hb a5
-  obtain ⟨a7⟩ := h7 G L t E W z hHiS.uHered hb a6
-  obtain ⟨a8⟩ := h8 G L t E W z hb a7
-  obtain ⟨a9⟩ := h9 G L t E W z hb a8
-  obtain ⟨a10⟩ := h10 G L t E W z hb a9
-  obtain ⟨a11⟩ := h11 G L t E W z hb a10
-  obtain ⟨a12⟩ := h12 G L t E W z hb a11
-  obtain ⟨a14⟩ := h14 G L t E W z hb a12
-  exact PA14.nonempty_configC hb a14 (h15 G L t E W z hb a14)
 
 end CFSG.EvenSporadicStandard.HSStd.Zassenhaus.PartA

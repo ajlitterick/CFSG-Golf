@@ -33,11 +33,6 @@ open scoped commutatorElement
     E ≤ Subgroup.normalizer (L : Set X) →
       L = ⨆ (e : X) (_ : e ∈ E) (_ : e ≠ 1), GLAPLayer 3 (L ⊓ Subgroup.centralizer ({e} : Set X))
 
-@[expose] def Input14_5Two : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → ∀ p : ℕ, p.Prime → p ≠ 2 →
-    GLAPPrimeCore p X = ⊥ → ∀ P : Subgroup X, P ≠ ⊥ → IsPGroup p P →
-      ⁅GLAPLayer p (Subgroup.normalizer (P : Set X)),
-        GLAPPrimeCoreOf p (Subgroup.normalizer (P : Set X))⁆ = ⊥
 
 @[expose] def Input14_5Three : Prop :=
   ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → GLAPPrimeCore 3 X = ⊥ →
@@ -45,8 +40,6 @@ open scoped commutatorElement
       ⁅GLAPLayer 3 (Subgroup.normalizer (P : Set X)),
         GLAPPrimeCoreOf 3 (Subgroup.normalizer (P : Set X))⁆ = ⊥
 
-theorem input14_5Three_of_two (h : Input14_5Two) : Input14_5Three :=
-  fun X _ _ hK hcore P hP hPp => h X hK 3 Nat.prime_three (by decide) hcore P hP hPp
 
 @[expose] def InputUpsilonType : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (m : ℕ), GLStanding G m 3 → GLCaseFour G 3 →
@@ -706,9 +699,6 @@ section TwoGroupLift
 
 variable {G : Type} [Group G] [Finite G]
 
-omit [Finite G] in
-private theorem t6_normalizerMonoidHom_coe {L : Subgroup G} (γ : ↥(Subgroup.normalizer (L : Set G)))
-    (x : ↥L) : ((L.normalizerMonoidHom γ x : ↥L) : G) = (γ : G) * x * (γ : G)⁻¹ := rfl
 
 omit [Finite G] in
 private theorem t6_conj_mem_core {L : Subgroup G} (γ : ↥(Subgroup.normalizer (L : Set G))) {n : G}

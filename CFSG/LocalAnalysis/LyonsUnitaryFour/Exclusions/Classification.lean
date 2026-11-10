@@ -53,10 +53,5 @@ theorem lyons_signedDegree_U_or_V (hD : LyonsSignedDegreeData B row f p N P)
   | U => exact Or.inl hc.symm
   | V => exact Or.inr hc.symm
 
-theorem lyons_signedDegree_endpoint (hD : LyonsSignedDegreeData B row f p N P)
-    (hmem : B.val.map row ∈ lyonsConfigurations) :
-    P = 128 / 195 ∧ ∃ χ ∈ B, row χ = (0, 0, 1, 1, 1, 1) ∧ |f χ| = 12 ∧
-      ∀ ψ ∈ B, row ψ = row χ → ψ = χ :=
-  lyons_signedDegree_UV_endpoint hD (lyons_signedDegree_U_or_V hD hmem)
 
 end CFSG.LyonsUnitaryFour

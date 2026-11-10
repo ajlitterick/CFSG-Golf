@@ -130,9 +130,6 @@ theorem lift_mk_congr {H : Type*} [Group H] {g g' : Fin m → H} {r : List (Fin 
     List (Fin k × Bool) :=
   w.flatMap fun l => if l.2 then W l.1 else invW (W l.1)
 
-theorem substW_append (W : Fin m → List (Fin k × Bool)) (w₁ w₂ : List (Fin m × Bool)) :
-    substW W (w₁ ++ w₂) = substW W w₁ ++ substW W w₂ := by
-  simp [substW]
 
 theorem lift_comp_substW {K H : Type*} [Group K] [Group H] (φ : K →* H)
     (W : Fin m → List (Fin k × Bool)) (f : Fin k → K) (r : List (Fin m × Bool)) :

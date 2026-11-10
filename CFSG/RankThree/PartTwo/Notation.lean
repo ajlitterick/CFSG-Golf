@@ -69,13 +69,6 @@ theorem bot_mem_invariantPiSubgroups (H A : Subgroup G) (π : Set Nat.Primes) :
   · rw [Subgroup.normalizer_eq_top ⊥]
     exact le_top
 
-theorem invariantPiSubgroups_mono {H K A : Subgroup G} {π : Set Nat.Primes} (h : H ≤ K) :
-    invariantPiSubgroups H A π ⊆ invariantPiSubgroups K A π :=
-  fun _ hX => ⟨hX.1.trans h, hX.2.1, hX.2.2⟩
-
-theorem invariantPiSubgroups_anti {H A B : Subgroup G} {π : Set Nat.Primes} (h : A ≤ B) :
-    invariantPiSubgroups H B π ⊆ invariantPiSubgroups H A π :=
-  fun _ hX => ⟨hX.1, hX.2.1, h.trans hX.2.2⟩
 
 theorem mem_maxInvariantPiSubgroups_iff {H A X : Subgroup G} {π : Set Nat.Primes} :
     X ∈ maxInvariantPiSubgroups H A π ↔
@@ -142,26 +135,6 @@ theorem scriptM_nonempty_iff [Finite G] {X : Set G} :
 @[expose] def scriptN (X : Set G) : Set (Subgroup G) :=
   {N | IsCoatom N ∧ X ⊆ N}
 
-theorem mem_scriptN_iff {X : Set G} {N : Subgroup G} : N ∈ scriptN X ↔ IsCoatom N ∧ X ⊆ N :=
-  Iff.rfl
-
-theorem mem_scriptN_empty_iff {N : Subgroup G} : N ∈ scriptN (∅ : Set G) ↔ IsCoatom N :=
-  ⟨fun h => h.1, fun h => ⟨h, Set.empty_subset _⟩⟩
-
-theorem scriptN_anti {X Y : Set G} (h : X ⊆ Y) : scriptN Y ⊆ scriptN X :=
-  fun _ hN => ⟨hN.1, h.trans hN.2⟩
-
-theorem scriptN_nonempty [Finite G] {X : Set G} (hX : Subgroup.closure X ≠ ⊤) :
-    (scriptN X).Nonempty := by
-  obtain ⟨N, hN, hXN⟩ := (IsCoatomic.eq_top_or_exists_le_coatom (Subgroup.closure X)).resolve_left
-    hX
-  exact ⟨N, hN, Subgroup.subset_closure.trans hXN⟩
-
-theorem map_mem_scriptN {G' : Type*} [Group G'] (φ : G ≃* G') {X : Set G} {N : Subgroup G}
-    (hN : N ∈ scriptN X) : N.map φ.toMonoidHom ∈ scriptN (φ '' X) := by
-  refine ⟨((MulEquiv.mapSubgroup φ).isCoatom_iff N).mpr hN.1, ?_⟩
-  rintro _ ⟨x, hx, rfl⟩
-  exact Subgroup.mem_map_of_mem φ.toMonoidHom (hN.2 hx)
 
 section Gamma
 
@@ -190,8 +163,6 @@ theorem gammaIn_le_iff {k : ℕ} {A H M : Subgroup G} :
 theorem gammaIn_le (k : ℕ) (A H : Subgroup G) : gammaIn k A H ≤ H :=
   gammaIn_le_iff.mpr fun _ _ _ => inf_le_left
 
-theorem gammaIn_top (k : ℕ) (A : Subgroup G) : gammaIn k A ⊤ = gamma k A := by
-  simp only [gammaIn, gamma, CFSG.Open.rankThreeGamma, CFSG.Open.GLBCore, top_inf_eq]
 
 theorem normalizer_le_gamma {k : ℕ} {A B : Subgroup G} (hBA : B ≤ A)
     (hk : k ≤ CFSG.Open.pRank 3 B) : Subgroup.normalizer (B : Set G) ≤ gamma k A :=
@@ -278,30 +249,6 @@ end Gamma
       (QuotientGroup.mk' (centralLine a))) ≤
     aschbacherSolvableCore 3 (Subgroup.centralizer ({a} : Set G) ⧸ centralLine a)
 
-@[expose] def StarCondition (A : Subgroup G) : Prop :=
-  ∀ a ∈ A, a ≠ 1 → StarConditionAt A a
-
-@[expose] noncomputable def elemTwoFamily (i : ℕ) (H : Type*) [Group H] : Set (Subgroup H) :=
-  {A | IsElementaryAbelian 2 A ∧ i ≤ CFSG.pRank 2 H ∧ Nat.card A = 2 ^ (CFSG.pRank 2 H - i)}
-
-@[expose] noncomputable def elemTwoThompson (i : ℕ) (H : Type*) [Group H] : Subgroup H :=
-  sSup (elemTwoFamily i H)
-
-theorem mem_elemTwoFamily_iff {i : ℕ} {H : Type*} [Group H] {A : Subgroup H} :
-    A ∈ elemTwoFamily i H ↔
-      IsElementaryAbelian 2 A ∧ i ≤ CFSG.pRank 2 H ∧ Nat.card A = 2 ^ (CFSG.pRank 2 H - i) :=
-  Iff.rfl
-
-theorem elemTwoFamily_zero (H : Type*) [Group H] : elemTwoFamily 0 H = elemThompsonFamily H 2 := by
-  ext A
-  simp [elemTwoFamily, elemThompsonFamily]
-
-theorem elemTwoThompson_zero (H : Type*) [Group H] : elemTwoThompson 0 H = elemThompson H 2 := by
-  rw [elemTwoThompson, elemTwoFamily_zero, elemThompson]
-
-theorem le_elemTwoThompson {i : ℕ} {H : Type*} [Group H] {A : Subgroup H}
-    (hA : A ∈ elemTwoFamily i H) : A ≤ elemTwoThompson i H :=
-  le_sSup hA
 
 @[expose] def thetaComponentsIn (H : Subgroup G) : Set (Subgroup G) :=
   (fun L => L.map H.subtype) '' thetaComponents 3 H
@@ -384,25 +331,10 @@ theorem map_mulEquiv_mem_oTwoComponents {H H' : Type*} [Group H] [Group H'] (σ 
 @[expose] def lStarAt (A : Subgroup G) (a : G) : Set (Subgroup G) :=
   lStar A ∩ thetaComponentsAt 3 a
 
-theorem mem_lStar_iff {A L : Subgroup G} :
-    L ∈ lStar A ↔
-      L ∈ thetaComponentFamily 3 A ∧ ∀ K ∈ thetaComponentFamily 3 A, llRel L K → llRel K L :=
-  Iff.rfl
 
 theorem lStar_subset (A : Subgroup G) : lStar A ⊆ thetaComponentFamily 3 A :=
   fun _ hL => hL.1
 
-theorem lStarOf_subset_lStar (A E : Subgroup G) : lStarOf A E ⊆ lStar A :=
-  Set.inter_subset_right
-
-theorem lStarOf_subset (A E : Subgroup G) : lStarOf A E ⊆ thetaComponentFamily 3 E :=
-  Set.inter_subset_left
-
-theorem lStarAt_subset_lStar (A : Subgroup G) (a : G) : lStarAt A a ⊆ lStar A :=
-  Set.inter_subset_left
-
-theorem lStarAt_subset (A : Subgroup G) (a : G) : lStarAt A a ⊆ thetaComponentsAt 3 a :=
-  Set.inter_subset_right
 
 theorem llRel_self_of_isPerfect [Finite G] {L : Subgroup G} (hL : Group.IsPerfect L) :
     llRel L L := by
@@ -438,27 +370,11 @@ theorem mem_lZeroUnion_iff {A L : Subgroup G} :
     L ∈ lZeroUnion A ↔ ∃ E ∈ partTwoE G, E ≤ A ∧ L ∈ lZero E := by
   simp only [lZeroUnion, Set.mem_iUnion, collectionIn, Set.mem_ofPred_eq, exists_prop, and_assoc]
 
-theorem lZero_subset (E : Subgroup G) : lZero E ⊆ thetaComponentFamily 3 E :=
-  fun _ hL => hL.1
 
 theorem lZero_subset_lZeroUnion {A E : Subgroup G} (hE : E ∈ partTwoE G) (hEA : E ≤ A) :
     lZero E ⊆ lZeroUnion A :=
   fun _ hL => mem_lZeroUnion_iff.mpr ⟨E, hE, hEA, hL⟩
 
-theorem lZeroUnion_eq_lZero [Finite G] {A : Subgroup G} (hA : A ∈ partTwoE G) :
-    lZeroUnion A = lZero A := by
-  ext L
-  rw [mem_lZeroUnion_iff]
-  constructor
-  · rintro ⟨E, hE, hEA, hL⟩
-    rwa [Subgroup.eq_of_le_of_card_ge hEA (by rw [hE.2.1, hA.2.1])] at hL
-  · exact fun hL => ⟨A, hA, le_rfl, hL⟩
-
-theorem lZeroAt_subset_lZeroUnion (A : Subgroup G) (a : G) : lZeroAt A a ⊆ lZeroUnion A :=
-  Set.inter_subset_left
-
-theorem lZeroAt_subset (A : Subgroup G) (a : G) : lZeroAt A a ⊆ thetaComponentsAt 3 a :=
-  Set.inter_subset_right
 
 theorem lZeroStar_subset_lZeroUnion (A : Subgroup G) : lZeroStar A ⊆ lZeroUnion A :=
   Set.inter_subset_left
@@ -473,11 +389,6 @@ theorem lZeroStarAt_subset_lZeroStar (A : Subgroup G) (a : G) :
     lZeroStarAt A a ⊆ lZeroStar A :=
   Set.inter_subset_right
 
-theorem lZeroStarAt_eq (A : Subgroup G) (a : G) :
-    lZeroStarAt A a = lZeroAt A a ∩ lStarAt A a := by
-  ext L
-  simp only [lZeroStarAt, lZeroStar, lZeroAt, lStarAt, Set.mem_inter_iff]
-  tauto
 
 @[expose] def fourGroups (E : Subgroup G) : Set (Subgroup G) :=
   {U | U ∈ invariantPiSubgroups ⊤ E (piOf 2) ∧ CFSG.Assembly.IsElemAbelian 2 U ∧ Nat.card U = 4}
@@ -498,8 +409,6 @@ theorem mem_fourGroups_iff [Finite G] {E U : Subgroup G} :
   · rintro ⟨hN, hab, hcard⟩
     exact ⟨⟨le_top, IsPGroup.of_card (n := 2) (by rw [hcard]; norm_num), hN⟩, hab, hcard⟩
 
-theorem fourGroupsPlus_subset (E : Subgroup G) : fourGroupsPlus E ⊆ fourGroups E :=
-  fun _ hU => hU.1
 
 theorem fourGroupsMinus_subset (E : Subgroup G) : fourGroupsMinus E ⊆ fourGroups E :=
   fun _ hU => hU.1
@@ -524,15 +433,6 @@ theorem map_mem_fourGroups {G' : Type*} [Group G'] (φ : G ≃* G') {E U : Subgr
   have h := map_mem_invariantPiSubgroups φ hU.1
   rwa [Subgroup.map_top_of_surjective _ φ.surjective] at h
 
-theorem map_mem_fourGroupsPlus {G' : Type*} [Group G'] (φ : G ≃* G') {E U : Subgroup G}
-    (hU : U ∈ fourGroupsPlus E) :
-    U.map φ.toMonoidHom ∈ fourGroupsPlus (E.map φ.toMonoidHom) :=
-  ⟨map_mem_fourGroups φ hU.1, by rw [← Subgroup.map_commutator, hU.2, Subgroup.map_bot]⟩
-
-theorem map_mem_fourGroupsMinus {G' : Type*} [Group G'] (φ : G ≃* G') {E U : Subgroup G}
-    (hU : U ∈ fourGroupsMinus E) :
-    U.map φ.toMonoidHom ∈ fourGroupsMinus (E.map φ.toMonoidHom) :=
-  ⟨map_mem_fourGroups φ hU.1, by rw [← Subgroup.map_commutator, ← hU.2]⟩
 
 section Transport
 
@@ -628,14 +528,6 @@ theorem map_mem_lStar [Finite G] [Finite G'] (φ : G ≃* G') {A L : Subgroup G}
   rw [← map_map_symm φ K'] at hLK' ⊢
   exact llRel_map φ (hL.2 _ hK ((llRel_map_iff φ).mp hLK'))
 
-theorem map_mem_lStarOf [Finite G] [Finite G'] (φ : G ≃* G') {A E L : Subgroup G}
-    (hL : L ∈ lStarOf A E) :
-    L.map φ.toMonoidHom ∈ lStarOf (A.map φ.toMonoidHom) (E.map φ.toMonoidHom) :=
-  ⟨map_mem_thetaComponentFamily φ hL.1, map_mem_lStar φ hL.2⟩
-
-theorem map_mem_lStarAt [Finite G] [Finite G'] (φ : G ≃* G') {A L : Subgroup G} {a : G}
-    (hL : L ∈ lStarAt A a) : L.map φ.toMonoidHom ∈ lStarAt (A.map φ.toMonoidHom) (φ a) :=
-  ⟨map_mem_lStar φ hL.1, map_mem_thetaComponentsAt φ hL.2⟩
 
 theorem map_mem_partTwoE (φ : G ≃* G') {E : Subgroup G} (hE : E ∈ partTwoE G) :
     E.map φ.toMonoidHom ∈ partTwoE G' := by
@@ -647,16 +539,6 @@ theorem map_mem_partTwoE (φ : G ≃* G') {E : Subgroup G} (hE : E ∈ partTwoE 
   rw [← Subgroup.map_equiv_normalizer_eq]
   exact Subgroup.map_mono hEU
 
-theorem map_mem_partTwoF (φ : G ≃* G') {A : Subgroup G} (hA : A ∈ partTwoF G) :
-    A.map φ.toMonoidHom ∈ partTwoF G' := by
-  obtain ⟨hab, hmax, E, hE, hEA⟩ := hA
-  refine ⟨CFSG.RankThreeEvenClassification.Helpers.isElemAbelian_map 3 φ.toMonoidHom A hab,
-    fun B hB hAB => ?_, E.map φ.toMonoidHom, map_mem_partTwoE φ hE, Subgroup.map_mono hEA⟩
-  have hB' := hmax _ (CFSG.RankThreeEvenClassification.Helpers.isElemAbelian_map 3
-    φ.symm.toMonoidHom B hB) (by
-      rw [← CFSG.RankThreeEvenClassification.Helpers.subgroup_map_equiv_symm φ A]
-      exact Subgroup.map_mono hAB)
-  rw [← hB', map_map_symm]
 
 theorem map_mem_lZero [Finite G] (φ : G ≃* G') {E L : Subgroup G} (hL : L ∈ lZero E) :
     L.map φ.toMonoidHom ∈ lZero (E.map φ.toMonoidHom) := by
@@ -672,9 +554,6 @@ theorem map_mem_lZeroUnion [Finite G] (φ : G ≃* G') {A L : Subgroup G}
   exact mem_lZeroUnion_iff.mpr ⟨E.map φ.toMonoidHom, map_mem_partTwoE φ hE,
     Subgroup.map_mono hEA, map_mem_lZero φ hLE⟩
 
-theorem map_mem_lZeroAt [Finite G] (φ : G ≃* G') {A L : Subgroup G} {a : G}
-    (hL : L ∈ lZeroAt A a) : L.map φ.toMonoidHom ∈ lZeroAt (A.map φ.toMonoidHom) (φ a) :=
-  ⟨map_mem_lZeroUnion φ hL.1, map_mem_thetaComponentsAt φ hL.2⟩
 
 theorem map_mem_lZeroStar [Finite G] [Finite G'] (φ : G ≃* G') {A L : Subgroup G}
     (hL : L ∈ lZeroStar A) : L.map φ.toMonoidHom ∈ lZeroStar (A.map φ.toMonoidHom) :=

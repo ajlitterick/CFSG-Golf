@@ -270,9 +270,6 @@ theorem ggEndNode_F4_of_input [Finite K] (hK : ringChar K = 2) {p : ℕ} (hp : p
     (ggEndNodeElt_of_mulEquiv (recipeEquiv K)
       (ggEndNodeElt_adjointF4_of_input hK hp hp2 hpq hT))
 
-theorem ggEndNode_F4 [Finite K] (hK : ringChar K = 2) {p : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p)
-    (hpq : p ∣ Nat.card K - 1) : GGEndNode p 4 (RecipeGroup K) (RecipeID K) :=
-  ggEndNode_F4_of_input hK hp (by omega) hpq (ggF4ToralRankInput_of_five_le hp hp5 hpq)
 
 end F4
 

@@ -39,14 +39,6 @@ namespace CFSG.EvenSporadicStandard.TwoSuz
 
 @[expose] def wz : List ℕ := parseLetters (sylowLines.getD (ngS + 3) "")
 
-@[expose] def noS : ℕ := sylowNat (ngS + 4)
-
-@[expose] def orbRep (k : ℕ) : List ℕ := parseLetters (sylowLines.getD (ngS + 5 + 3 * k) "")
-
-@[expose] def orbConj (k : ℕ) : List ℕ :=
-  (parseNats (sylowLines.getD (ngS + 6 + 3 * k) "")).map (2 * ·)
-
-@[expose] def orbTgt (k : ℕ) : ℕ := sylowNat (ngS + 7 + 3 * k)
 
 @[expose] def treeText : String := include_str "SylowTree.txt"
 
@@ -101,85 +93,9 @@ namespace CFSG.EvenSporadicStandard.TwoSuz
     E := E.push (mulM (E.getD (par.getD i (0, 0)).1 oneM) (gens.getD (par.getD i (0, 0)).2 oneM))
   return E
 
-@[expose] def distinctGo : List Mt → Std.HashSet Mt → Bool
-  | [], _ => true
-  | a :: l, s => !s.contains a && distinctGo l (s.insert a)
-
-@[expose] def distinctB (E : Array Mt) : Bool := distinctGo E.toList ∅
-
-@[expose] def closedB (gens E : Array Mt) : Bool :=
-  let S : Std.HashSet Mt := Std.HashSet.ofList E.toList
-  E.all fun e => gens.all fun g => S.contains (mulM e g)
-
-@[expose] def treeB (gens E : Array Mt) (par : Array (ℕ × ℕ)) : Bool :=
-  E.size == par.size && E.getD 0 oneM == oneM && 0 < E.size &&
-    (List.range E.size).all fun i =>
-      i == 0 || ((par.getD i (0, 0)).1 < i && (par.getD i (0, 0)).2 < gens.size &&
-        E.getD i oneM ==
-          mulM (E.getD (par.getD i (0, 0)).1 oneM) (gens.getD (par.getD i (0, 0)).2 oneM))
-
-@[expose] def sqCount (sqs : Array Mt) (c : Mt) : ℕ :=
-  Nat.count (fun i => sqs.getD i oneM == c) sqs.size
-
-@[expose] def conjGen (k : ℕ) (m : Mt) : Mt :=
-  mulM (mulM (jGS.mats.getD k oneM) m) (jGS.invs.getD k oneM)
-
-@[expose] def bfsOrbit (r : Mt) : Array Mt × Array (ℕ × ℕ) := Id.run do
-  let mut elems : Array Mt := #[r]
-  let mut par : Array (ℕ × ℕ) := #[(0, 0)]
-  let mut seen : Std.HashSet Mt := (∅ : Std.HashSet Mt).insert r
-  let mut i := 0
-  while i < elems.size do
-    for k in [0:ngS] do
-      let m := conjGen k elems[i]!
-      if !seen.contains m then
-        seen := seen.insert m
-        elems := elems.push m
-        par := par.push (i, k)
-    i := i + 1
-  return (elems, par)
-
-@[expose] def orbTreeB (r : Mt) (O : Array Mt) (par : Array (ℕ × ℕ)) : Bool :=
-  O.size == par.size && O.getD 0 oneM == r && 0 < O.size &&
-    (List.range O.size).all fun i =>
-      i == 0 || ((par.getD i (0, 0)).1 < i && (par.getD i (0, 0)).2 < ngS &&
-        O.getD i oneM == conjGen (par.getD i (0, 0)).2 (O.getD (par.getD i (0, 0)).1 oneM))
-
-@[expose] def tgtM (i : ℕ) : Mt := if i = 1 then x1M else x2M
-
-@[expose] def orbitB (k : ℕ) : Bool :=
-  let r := jGS.eval (orbRep k)
-  let g := abGS.eval (orbConj k)
-  let ob := bfsOrbit r
-  (orbTgt k == 1 || orbTgt k == 2) && mulM r g == mulM g (tgtM (orbTgt k)) &&
-    orbTreeB r ob.1 ob.2
-
-@[expose] def orbitSet : Std.HashSet Mt :=
-  Std.HashSet.ofList ((List.range noS).flatMap fun k => (bfsOrbit (jGS.eval (orbRep k))).1.toList)
 
 @[expose] def lettersLt (n : ℕ) (w : List ℕ) : Bool := w.all fun c => decide (c / 2 < n)
 
-@[noinline, expose] def sylowCheck : Bool :=
-  let par := treePar
-  let E := buildE sMats par
-  let sqs := E.map fun e => mulM e e
-  abGS.valid && jGS.valid && ngS == 4 && jMats.size == 5 &&
-    lettersLt 4 wx1 && lettersLt 4 wx2 && lettersLt 4 wz &&
-    (List.range noS).all (fun k => lettersLt 4 (orbRep k)) &&
-    treeB sMats E par && distinctB E && closedB sMats E && E.size == 16384 &&
-    sqCount sqs zM == 1056 && sqCount sqs x1M == 384 && sqCount sqs x2M == 352 &&
-    (List.range ngS).all (fun k => mulM (sMats.getD k oneM) x1M == mulM x1M (sMats.getD k oneM) &&
-      mulM (sMats.getD k oneM) x2M == mulM x2M (sMats.getD k oneM) &&
-      mulM (sMats.getD k oneM) zM == mulM zM (sMats.getD k oneM)) &&
-    zM == negM && x2M == mulM zM x1M &&
-    (List.range noS).all orbitB &&
-    (List.range E.size).all fun i =>
-      !(sqs.getD i oneM == oneM && E.getD i oneM != oneM && E.getD i oneM != zM) ||
-        orbitSet.contains (E.getD i oneM)
-
-@[expose] def commUM (j : ℕ) : Mt := jGS.eval (commU j)
-
-@[expose] def commVM (j : ℕ) : Mt := jGS.eval (commV j)
 
 @[expose] def commM (j : ℕ) : Mt :=
   jGS.eval (commU j ++ commV j ++ invWord (commU j) ++ invWord (commV j))

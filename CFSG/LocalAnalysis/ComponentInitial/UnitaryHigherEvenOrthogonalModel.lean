@@ -137,27 +137,5 @@ theorem evenOrthogonalRealization_of_regular {f : ℕ} (hf : 1 ≤ f) (hK : Nat.
         rw [← hcard, even_iff_two_dvd, ← hord]
         exact orderOf_dvd_natCard _
 
-theorem even_orthogonal_semilinear_isometry_realization (G : Type) [Group G] (t : StatedLieTag)
-    (ht : t = .POmegaPlus ∨ t = .POmegaMinus) (n f : ℕ) (h : StatedClassicalModel G t n 2 f) :
-    match t with
-    | .POmegaPlus => ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadPlus n K)),
-          EvenOrthogonalRealization (coordinateQuadPlus n K) f
-    | .POmegaMinus => ∀ (hn : 1 ≤ n) (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ b c : K, (∀ s : K, s ^ 2 + b * s + c ≠ 0) →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadMinus n K b c)),
-          EvenOrthogonalRealization (coordinateQuadMinus n K hn b c) f
-    | _ => False := by
-  rcases ht with rfl | rfl
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro K _ _ hK _
-    have hreg := regular_coordinateQuadPlus n K (by omega)
-    exact evenOrthogonalRealization_of_regular hf hK (by omega) _ hreg.1 hreg.2
-      (commutator_coordinateQuadPlus n K (by omega))
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro hn1 K _ _ hK b c hirr _
-    have hreg := regular_coordinateQuadMinus n K b c hn hirr
-    exact evenOrthogonalRealization_of_regular hf hK (by omega) _ hreg.1 hreg.2
-      (commutator_coordinateQuadMinus n K b c hn hirr)
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

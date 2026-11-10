@@ -106,9 +106,6 @@ theorem weight_bot (ρ : A →* (V ≃ₗ[k] V)) : weight ρ ⊥ = Nat.card V :=
   rw [weight, fixSub_bot, Subgroup.card_bot, one_mul]
   exact Nat.card_congr (Submodule.topEquiv (R := k) (M := V)).toEquiv
 
-theorem weight_pos [Finite A] [Finite V] (ρ : A →* (V ≃ₗ[k] V)) (B : Subgroup A) :
-    0 < weight ρ B :=
-  Nat.mul_pos Nat.card_pos Nat.card_pos
 
 theorem map_mem_fixSub_iff (ρ : A →* (V ≃ₗ[k] V)) {B : Subgroup A} {a : A} (ha : a ∈ B) (x : V) :
     ρ a x ∈ fixSub ρ B ↔ x ∈ fixSub ρ B := by
@@ -333,22 +330,6 @@ theorem orbitDiff_centralizer [Finite A] [Finite V] (ρ : A →* (V ≃ₗ[k] V)
     (hmem c hc).2 (by rw [hvfix c hc, sub_self]; exact zero_mem _)
   exact hB (le_bot_iff.1 (hbot ▸ hBle))
 
-theorem orbitDifference_centralizer [Finite A] [Finite V] [Nontrivial A]
-    (ρ : A →* (V ≃ₗ[k] V)) (hab : ∀ x y : A, x * y = y * x) (hp : IsPGroup p A)
-    (hmax : ∀ D : Subgroup A, weight ρ D ≤ weight ρ ⊤) (v : V) :
-    centSub ρ (orbitDiff ρ ⊤ v) ≠ ⊥ ∧
-      weight ρ (centSub ρ (orbitDiff ρ ⊤ v)) = weight ρ ⊤ ∧
-      (∀ a : A, ρ a v - v ∈ fixSub ρ (centSub ρ (orbitDiff ρ ⊤ v))) ∧
-      (∀ a a' : A, ((ρ a' v - v) - (ρ a v - v) ∈ fixSub ρ ⊤ ↔
-          a⁻¹ * a' ∈ centSub ρ (orbitDiff ρ ⊤ v))) ∧
-      (∀ x ∈ fixSub ρ (centSub ρ (orbitDiff ρ ⊤ v)),
-          ∃ a : A, x - (ρ a v - v) ∈ fixSub ρ ⊤) := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := orbitDiff_centralizer ρ ⊤ top_ne_bot (fun x _ y _ => hab x y)
-    (fun x _ => hp x) (fun D _ => hmax D) v
-  simp only [top_inf_eq] at h1 h2 h3 h4 h5
-  refine ⟨h1, h2, fun a => h3 a trivial, fun a a' => h4 a trivial a' trivial, fun x hx => ?_⟩
-  obtain ⟨a, -, ha⟩ := h5 x hx
-  exact ⟨a, ha⟩
 
 theorem abelian_prime_offender_quadratic_replacement [Finite A] [Finite V] [Nontrivial A]
     (ρ : A →* (V ≃ₗ[k] V)) (hab : ∀ x y : A, x * y = y * x) (hp : IsPGroup p A)
@@ -395,10 +376,6 @@ theorem ker_resHom (ρ : A →* (V ≃ₗ[k] V)) (W : Submodule k V) (hW : ∀ a
     ext w
     simp [coe_resHom_apply, h w w.2]
 
-theorem card_range_resHom (ρ : A →* (V ≃ₗ[k] V)) (W : Submodule k V)
-    (hW : ∀ a, ∀ w ∈ W, ρ a w ∈ W) :
-    Nat.card (resHom ρ W hW).range = (centSub ρ W).index := by
-  rw [← ker_resHom ρ W hW, Subgroup.index_ker]
 
 theorem commSub_eq_bot_iff (ρ : A →* (V ≃ₗ[k] V)) (B : Subgroup A) (U : Submodule k V) :
     commSub ρ B U = ⊥ ↔ ∀ b ∈ B, ∀ u ∈ U, ρ b u = u := by

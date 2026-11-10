@@ -429,41 +429,6 @@ end Core
 section Centralizer
 
 
-variable {f : ℕ} {k K : Type} [Field k] [Field K] [Algebra k K]
-
-theorem mem_d4CentralTorus_of_mem_centralizer_omegaMinusLevi (hf2 : 2 ≤ f)
-    (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}
-    (hσ : ∀ c, σ c = c ^ 2 ^ f) {g : ModGL .E6 K} (hgA : g ∈ adjointGroup .E6 K)
-    (hgD : ∀ x : ModGL .E6 K, x ∈ omegaMinusLevi σ → g * x = x * g) : g ∈ d4CentralTorus K := by
-  obtain ⟨-, hgZ⟩ := core_Y (k := k) hf2 hk hK hσ hgA 1 (RingEquiv.refl K) (fun x hx => by
-    have e1 : Units.map (entrywiseHom (RingEquiv.refl K).toRingHom) x = x :=
-      Units.ext (entrywise_id _)
-    rw [rootDiagUnit_one, e1, one_mul, inv_one, mul_one, hgD x hx, mul_inv_cancel_right])
-    (Or.inl fun _ => rfl)
-  rwa [rootDiagUnit_one, mul_one] at hgZ
-
-theorem centralizer_omegaMinusLevi_inf_C0_eq (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    centralizer (omegaMinusLevi σ : Set (ModGL TwistTag.E6.tag K)) ⊓
-        graphFixedRootGroup TwistTag.E6 K σ = w1Complement σ ∧
-      ¬ 2 ∣ Nat.card (w1Complement σ) ∧
-      w1Complement σ ≤ centralizer (w1Complement σ : Set (ModGL TwistTag.E6.tag K)) ∧
-      shortRootTorus (algebraMap k K) ≤ w1Complement σ := by
-  obtain ⟨-, hYc, -, hodd, hW1⟩ := centralizer_w1Torus_inf_eq hf2 hk hK hσ
-  refine ⟨le_antisymm (fun g hg => ?_) (le_inf hYc (w1Complement_le_C0 σ)), hodd, ?_, hW1⟩
-  · obtain ⟨hgc, hgC⟩ := mem_inf.1 hg
-    have hgA : g ∈ adjointGroup TwistTag.E6.tag K := (graphFixedRootGroup_le _ _ _ hgC).1
-    exact ⟨mem_d4CentralTorus_of_mem_centralizer_omegaMinusLevi (k := k) (g := g) hf2 hk hK hσ hgA
-      fun x hx => (mem_centralizer_iff.1 hgc x hx).symm, hgC⟩
-  · intro z hz
-    rw [mem_centralizer_iff]
-    intro z' hz'
-    obtain ⟨μ, ν, rfl⟩ := mem_d4CentralTorus.1 (mem_inf.1 hz).1
-    obtain ⟨μ', ν', rfl⟩ := mem_d4CentralTorus.1 (mem_inf.1 hz').1
-    change rootDiagUnit .E6 (d4CentralDiag μ' ν') * rootDiagUnit .E6 (d4CentralDiag μ ν) =
-      rootDiagUnit .E6 (d4CentralDiag μ ν) * rootDiagUnit .E6 (d4CentralDiag μ' ν')
-    rw [← rootDiagUnit_mul, ← rootDiagUnit_mul, mul_comm]
-
 end Centralizer
 
 end CFSG.SeitzReduction.TwistedE6Pilot

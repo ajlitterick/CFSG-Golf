@@ -49,7 +49,6 @@ theorem memS_iff {H : Nat → Nat} {s c x : Nat} : memS H s c x = true ↔ tb H 
   unfold memS
   exact blt_iff
 
-theorem wJ_nil (G : Nat → Nat) (x : Nat) : wJ G [] x = x := rfl
 
 theorem wJ_cons (G : Nat → Nat) (p : Nat) (w : List Nat) (x : Nat) :
     wJ G (p :: w) x = lJ G p (wJ G w x) := rfl

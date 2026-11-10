@@ -55,22 +55,6 @@ theorem ggKacGenericCl_lanes {lab : LargeEvenLabel} {p : ℕ} (hlab : LargeEvenI
     · exact Or.inr (Or.inr ⟨hgen, Or.inr h, h4⟩)
     · exact Or.inl ⟨hgen, Or.inr (Or.inr (Or.inr ⟨h, by omega⟩))⟩
 
-theorem ggK0Main_cl_of_lanes (hA : GGK0Main GGKacGenericClA GGKacValidCl)
-    (hC : GGK0Main GGKacGenericClC GGKacValidCl) (hD : GGK0Main GGKacGenericClD GGKacValidCl) :
-    GGK0Main GGKacGenericCl GGKacValidCl := by
-  intro p lab hlab hgen
-  rcases ggKacGenericCl_lanes hlab hgen with h | h | h
-  · exact hA p lab hlab h
-  · exact hC p lab hlab h
-  · exact hD p lab hlab h
-
-theorem ggK0Schur_cl_of_lanes (hA : GGK0Schur GGKacGenericClA) (hC : GGK0Schur GGKacGenericClC)
-    (hD : GGK0Schur GGKacGenericClD) : GGK0Schur GGKacGenericCl := by
-  intro p lab hlab hgen
-  rcases ggKacGenericCl_lanes hlab hgen with h | h | h
-  · exact hA p lab hlab h
-  · exact hC p lab hlab h
-  · exact hD p lab hlab h
 
 end CFSG.StandardType
 

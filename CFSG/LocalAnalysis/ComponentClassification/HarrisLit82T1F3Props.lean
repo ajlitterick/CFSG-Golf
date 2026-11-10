@@ -73,16 +73,6 @@ open scoped MatrixGroups
   ∀ (X : Type) [Group X] [Finite X] (m : ℕ), 4 ≤ m → IsCoverOf .POmegaOdd m 3 1 2 X →
     Lemma412ConclThree X
 
-@[expose] def Aschbacher75Theorem2 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (z : X), orderOf z = 2 → ∀ L : Subgroup X,
-    IsTwoComponentIn L ⊤ →
-    (∀ K : Subgroup X, IsSolvableTwoComponentIn K (centralizer {z}) →
-      K ≤ normalizer (L : Set X) → z ∈ normalizer (L : Set X) →
-      GH74.GLS.oPrimeResidualOf 2 K ≤ L ∨
-        ⁅L, GH74.GLS.oPrimeResidualOf 2 K⁆ ≤ pPrimeCore 2 X) ∧
-    ∀ K : Subgroup X, (IsTwoComponentIn K (centralizer {z}) ∨
-        IsSolvableTwoComponentIn K (centralizer {z})) → z ∈ K →
-      ⁅K, L⁆ ≤ pPrimeCore 2 X ∨ GH74.GLS.oPrimeResidualOf 2 K ≤ L
 
 @[expose] def IsThetaBalanced (K : Type) [Group K] : Prop :=
   ∀ (H : Type) [Group H] [Finite H], Nonempty (↥(Open.genFittingFStar H) ≃* K) →

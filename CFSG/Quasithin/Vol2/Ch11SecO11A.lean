@@ -19,6 +19,5 @@ theorem exists_orderOf_five_sl2 {F : Type} [Field F] [Finite F] (hF : Nat.card F
     norm_num
   exact exists_prime_orderOf_dvd_card' 5 (by rw [hcard]; norm_num)
 
-variable {Q : Type} [Group Q] [Finite Q]
 
 end CFSG.Quasithin.Vol2.Ch11.SecS.O11

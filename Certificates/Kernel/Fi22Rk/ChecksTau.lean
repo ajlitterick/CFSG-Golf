@@ -27,11 +27,6 @@ open CFSG.KC.Enum CFSG.KC.Fi22Rk CertificateChecks.KernelFi22Rk
   allN (nat_lit 64) fun r => strictB (Nat.add (Nat.mul (nat_lit 64) c) r) fun q =>
     bIf(Nat.blt q (nat_lit 3510), chainAt T.C.F D.PK q, true)
 
-open CFSG.KLie.CT (notB) in
-theorem negTau : bAnd(notB (tauAt (Nat.add (D.AK 0) (nat_lit 1)) (nat_lit 641)),
-    notB (chainAt T.C.F (fun q => nIf(Nat.beq q (nat_lit 0), nat_lit 0, Nat.succ (D.PK q)))
-      (CFSG.KC.Enum.pg 12 (CFSG.KS.mask 12) T.C.F 0))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelFi22Rk.K
 

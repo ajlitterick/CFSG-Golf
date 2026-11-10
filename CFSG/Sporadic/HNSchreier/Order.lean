@@ -19,48 +19,6 @@ namespace CFSG.Sporadic.HNSchreier
 open CFSG.Sporadic.F5 CFSG.Sporadic.F5.Native CFSG.Sporadic.HNSchreier.Native
 open CFSG.ONSchreier CFSG.ONSchreier.Native CFSG.Certificates CFSG.Sporadic.Th.Native
 
-theorem baseArr_size : Data.baseList.toArray.size = 22 := by simp [base_facts.1]
-
-theorem qhn_originalSubgroup : QHN.originalSubgroup = PH := by
-  rw [RawSchreierDatum.originalSubgroup, cert_hn_schreier_action_data.2.2.2.1, PH]
-  congr 1
-  ext x
-  simp
-
-theorem qhn_base_set : {b | b ∈ QHN.base.toList} = baseSet := by
-  have h22 : QHN.baseCount = 22 := baseFin_length
-  ext x
-  show x ∈ QHN.base.toList ↔ ∃ k : Fin 22, x = baseX k
-  constructor
-  · intro hx
-    obtain ⟨i, hi⟩ := (schreier_vector_mem_toList_iff_get QHN.base x).1 hx
-    refine ⟨⟨i.val, by have := i.isLt; omega⟩, Fin.ext ?_⟩
-    rw [← hi, cert_hn_schreier_action_data.2.2.2.2.2.2.2.2.1 i]
-  · rintro ⟨k, rfl⟩
-    apply (schreier_vector_mem_toList_iff_get QHN.base _).2
-    refine ⟨⟨k.val, by omega⟩, Fin.ext ?_⟩
-    rw [cert_hn_schreier_action_data.2.2.2.2.2.2.2.2.1]
-
-theorem qhn_stab :
-    QHN.originalSubgroup ⊓
-    fixingSubgroup (Equiv.Perm X) {b | b ∈ QHN.base.toList} = ⊥ := by
-  rw [qhn_originalSubgroup, qhn_base_set]
-  exact ph_inf_fixing_base
-
-theorem qhn_baseCount : QHN.baseCount = 22 := baseFin_length
-
-theorem levelsOf_qhn_size :
-    (levelsOf hnsData.n hnStrongArrs Data.baseList.toArray).size = 22 := by
-  rw [CArrays.levelsOf_size, baseArr_size]
-
-theorem qhn_base_take_one :
-    {b | b ∈ QHN.base.toList.take 1} = ({x0} : Set X) := by
-  ext x
-  have h0 : QHN.base.toList.take 1 = [x0] := by
-    have hb : QHN.base.toList = baseFin := by simp [QHN, RawSchreierDatum.ofWords]
-    rw [hb, baseFin]
-    decide
-  simp [h0]
 
 theorem card_JH :
     Nat.card JH = 273030912000000 := card_J_cert
@@ -103,10 +61,5 @@ theorem card_HN :
     Nat.card Blueprint.NativeSporadic.HN = 273030912000000 := by
   rw [Nat.card_congr hnEquivP.toEquiv, card_PH]
 
-theorem fam_hn_certified_order :
-    Nat.card PH = 273030912000000 ∧
-      Nat.card (PH ⊓ fixingSubgroup (Equiv.Perm X) {x0} : Subgroup _) = 239500800 ∧
-      Nat.card Blueprint.NativeSporadic.HN = 273030912000000 ∧ Nat.card JH = 273030912000000 :=
-  ⟨card_PH, card_PH_stab_zero, card_HN, card_JH⟩
 
 end CFSG.Sporadic.HNSchreier

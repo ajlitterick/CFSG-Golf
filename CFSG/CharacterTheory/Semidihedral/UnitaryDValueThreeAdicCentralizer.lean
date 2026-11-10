@@ -82,18 +82,6 @@ theorem exists_of_mem_CQ {v : G} (hv : v ∈ D.QT) (hvP : v ∉ D.primaryPart 3)
     · refine ⟨-1, s * v, hZ _ h (hc.mul_left (Commute.refl v)).eq, ?_⟩
       rw [zpow_neg_one, hsv, ← mul_assoc, inv_mul_cancel, one_mul]
 
-include E in
-theorem CQ_comm {v : G} (hv : v ∈ D.QT) (hvP : v ∉ D.primaryPart 3) {a b : G}
-    (ha : a ∈ D.CQ v) (hb : b ∈ D.CQ v) : a * b = b * a := by
-  obtain ⟨i, z, hz, rfl⟩ := E.exists_of_mem_CQ hv hvP ha
-  obtain ⟨j, w, hw, rfl⟩ := E.exists_of_mem_CQ hv hvP hb
-  have hvz : Commute v z := (E.Z_comm_QT hz hv)
-  have hvw : Commute v w := (E.Z_comm_QT hw hv)
-  have hzw : Commute z w := D.C_comm z (E.Z_le_C hz) w (E.Z_le_C hw)
-  have h1 : Commute (v ^ i * z) (v ^ j * w) :=
-    ((Commute.zpow_zpow_self v i j).mul_right (hvw.zpow_left i)).mul_left
-      ((hvz.zpow_left j).symm.mul_right hzw)
-  exact h1.eq
 
 theorem le_factorization_card_CQ {v : G} (hv : v ∈ D.QT) (hvP : v ∉ D.primaryPart 3) :
     ∃ a : ℕ, Nat.card (D.CQ v) = 3 ^ a ∧ E.h ≤ a := by

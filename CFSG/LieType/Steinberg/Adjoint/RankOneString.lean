@@ -427,11 +427,6 @@ theorem strRestrictHom_y
   rw [MonoidHom.ofInjective_apply, coe_sym3SL]
   exact strRestrict_y F hk c
 
-@[expose] def strRestrictEquiv :
-    CurtisTits.rankOne (rootGroup F K) i ≃* Matrix.SpecialLinearGroup (Fin 2) K :=
-  MulEquiv.ofBijective (strRestrictHom F hk)
-    ⟨rankOne_injective_of_hom F _ (strRestrictHom_x F hk) (strRestrictHom_y F hk),
-      rankOne_surjective_of_hom F _ (strRestrictHom_x F hk) (strRestrictHom_y F hk)⟩
 
 theorem exists_sl2_hom_of_cartan_eq_neg_three :
     ∃ φ : Matrix.SpecialLinearGroup (Fin 2) K →* adjointGroup τ K, Function.Injective φ ∧

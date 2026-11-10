@@ -59,30 +59,6 @@ theorem isComponent_star {H X L : Subgroup G} (hXH : X ≤ H)
   exact isComponent_of_mem_cComp_top
     (solvableRadical_quotient_eq_bot_of_le _ hJs' hR) h3
 
-omit [Finite G] in
-theorem star_cjSub {H X L : Subgroup G} {s : G} (hs : s ∈ H) :
-    E2.star X H (cjSub s L) = (E2.star X H L).map
-      (MulAut.conj (QuotientGroup.mk' ((kerIn X H).subgroupOf H) ⟨s, hs⟩)).toMonoidHom := by
-  set π := QuotientGroup.mk' ((kerIn X H).subgroupOf H) with hπ
-  apply le_antisymm
-  · rintro _ ⟨y, hy, rfl⟩
-    have hy' : s⁻¹ * (y : G) * s ∈ L := mem_cjSub.mp (Subgroup.mem_subgroupOf.mp hy)
-    have hz : s⁻¹ * (y : G) * s ∈ H := H.mul_mem (H.mul_mem (H.inv_mem hs) y.2) hs
-    have hmem : π ⟨_, hz⟩ ∈ E2.star X H L := ⟨⟨_, hz⟩, Subgroup.mem_subgroupOf.mpr hy', rfl⟩
-    refine ⟨π ⟨_, hz⟩, hmem, ?_⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, ← map_mul, ← map_inv]
-    congr 1
-    apply Subtype.ext
-    simp [mul_assoc]
-  · rintro _ ⟨_, ⟨y, hy, rfl⟩, rfl⟩
-    have hy' : (y : G) ∈ L := Subgroup.mem_subgroupOf.mp hy
-    have hz : s * (y : G) * s⁻¹ ∈ H := H.mul_mem (H.mul_mem hs y.2) (H.inv_mem hs)
-    have hz' : s * (y : G) * s⁻¹ ∈ cjSub s L := by
-      rw [mem_cjSub]
-      simpa [mul_assoc] using hy'
-    refine ⟨⟨_, hz⟩, Subgroup.mem_subgroupOf.mpr hz', ?_⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, ← map_inv]
-    congr 1
 
 omit [Finite G] in
 theorem le_sup_of_star_le {H X L₁ L₂ : Subgroup G} (hL₁ : L₁ ≤ H)

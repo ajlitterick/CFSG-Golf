@@ -74,8 +74,5 @@ theorem pComponent_equiv_iff {G H : Type*} [Group G] [Group H]
   ((Subgroup.normalizer (S : Set G)).equivMapOfInjective e.toMonoidHom e.injective).trans
     (MulEquiv.subgroupCongr (Subgroup.map_equiv_normalizer_eq S e))
 
-theorem normalizerEquiv_coe {G H : Type*} [Group G] [Group H]
-    (e : G ≃* H) (S : Subgroup G) (g : Subgroup.normalizer (S : Set G)) :
-    (normalizerEquiv e S g).val = e g.val := rfl
 
 end CFSG.ComponentClassification.CatalogueBAlternating

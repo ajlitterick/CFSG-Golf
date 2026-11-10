@@ -412,10 +412,6 @@ theorem ggTorusIrredSC_of_evenSignedEltSC (hp : p.Prime) (hp2 : p ≠ 2)
       rw [← h1]
       rfl
 
-theorem ggTorusNbrSC_of_evenSignedEltSC (hp : p.Prime) (hp2 : p ≠ 2)
-    (hI : I ⊆ Set.range (MulAut.conj : R →* MulAut R)) (hZ : Subgroup.center R = ⊥)
-    (hcp : GGCenterPrime p R) (h : GGTorusEvenSignedEltSC p R) : GGTorusNbrSC p R I :=
-  ggTorusNbrSC_of_ggTorusIrredSC hp (ggTorusIrredSC_of_evenSignedEltSC hp hp2 hI hZ hcp h)
 
 end Transfer
 

@@ -15,12 +15,6 @@ namespace CFSG.StandardType
 
 open CFSG CFSG.Assembly
 
-@[expose] def KGCentCompNotE8F4Cont (p : ℕ) : LargeEvenRawCont := fun R _ I _ =>
-  ∀ h ∈ I, h ≠ 1 → h ^ p = 1 →
-    ∀ J₀ : Subgroup R, IsComponentOf J₀ (MonoidHom.eqLocus (h : R →* R) (MonoidHom.id R)) →
-      ∀ labJ : LargeEvenLabel, LargeEvenInLambda2 labJ →
-        GGHasLabel labJ (↥J₀ ⧸ Subgroup.center ↥J₀) →
-          labJ.tag ≠ .E8 ∧ labJ.tag ≠ .F4 ∧ labJ.tag ≠ .twF4 ∧ labJ.tag ≠ .twF4der
 
 @[expose] def KGLangAxisS1LinCont (p : ℕ) : LargeEvenRawCont := fun R _ I F =>
   ∀ (K : Type) [Group K] [Finite K] (θ : K ⧸ Subgroup.center K ≃* R), commutator K = ⊤ →

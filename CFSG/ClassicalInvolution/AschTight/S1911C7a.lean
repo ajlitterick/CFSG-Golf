@@ -25,11 +25,6 @@ theorem isSL2ModOdd_member (hd : Sec19Data p f K z S W) : IsSL2ModOdd K (p ^ f) 
 
 variable [IsSimpleGroup G]
 
-theorem sup_member_eq (hd : Sec19DataT p f K z S W L t V) : W ⊔ K = K ⊔ V := by
-  conv_lhs => rw [sup_eq_inf_sup hd]
-  apply le_antisymm
-  · exact sup_le (sup_le (inf_le_left.trans le_sup_left) le_sup_right) le_sup_left
-  · exact sup_le le_sup_right (le_sup_right.trans le_sup_left)
 
 theorem exists_eq_zpowers_V (hd : Sec19DataT p f K z S W L t V) :
     ∃ v ∈ V, V = Subgroup.zpowers v := by
@@ -38,23 +33,6 @@ theorem exists_eq_zpowers_V (hd : Sec19DataT p f K z S W L t V) :
   obtain ⟨a, ha⟩ := hVcyc.exists_generator
   exact ⟨a, a.2, Hall196.eq_zpowers_of_generator ha⟩
 
-theorem isSL2Three_sup_member (hd : Sec19DataT p f K z S W L t V) :
-    IsSL2Three (W ⊔ K) K (p ^ f) where
-  le := le_sup_right
-  normal := sup_le (fun w hw => mem_normalizer_of_mem_W hd.toSec19Data hw)
-    Subgroup.le_normalizer
-  sl2 := isSL2ModOdd_member hd.toSec19Data
-  cyclic := by
-    obtain ⟨v, hvV, hV⟩ := exists_eq_zpowers_V hd
-    refine ⟨v, (le_sup_left : W ≤ W ⊔ K) (hd.leW hvV), ?_, ?_⟩
-    · exact S.isPGroup'.to_le (Subgroup.zpowers_le.mpr (hd.hWS (hd.leW hvV)))
-    · rw [sup_member_eq hd, hV]
-  wreathed := fun P hP => by
-    have h₀ : IsSylow2In ((S : Subgroup G) ⊓ K ⊔ V) (W ⊔ K) := by
-      rw [sup_member_eq hd]
-      exact Hall196.isSylow2In_sup_of_sec19DataT hd (isSylow2In_inf hd.toSec19Data)
-        (fun v hv => le_normalizer_inf hd.toSec19Data (hd.hWS (hd.leW hv)))
-    exact Hall196.IsWreathed.of_isSylow2In h₀ (Hall196.isWreathed_inf_sup hd) hP
 
 omit [Finite G] [IsSimpleGroup G] in
 theorem exists_pow_eq_mul {N : Subgroup G} (hNK : N ≤ Subgroup.normalizer (K : Set G))

@@ -28,12 +28,6 @@ variable {F : Type} [Field F] {a : Fˣ} {A : Subgroup (F ≃+* F)}
 theorem slIn_injective : Function.Injective (originalSlInH F a A hfix) :=
   SemidirectProduct.inl_injective.comp (MatrixCoverData.inclusion_injective F a)
 
-theorem slIn_left_left (Y : SL F) : (originalSlInH F a A hfix Y).left.left = Y := rfl
-
-theorem slIn_left_right (Y : SL F) :
-    (originalSlInH F a A hfix Y).left.right = 1 := rfl
-
-theorem slIn_right (Y : SL F) : (originalSlInH F a A hfix Y).right = 1 := rfl
 
 theorem decomp (m : OriginalH F a A hfix) :
     m = originalSlInH F a A hfix m.left.left *
@@ -178,7 +172,6 @@ theorem layerM_inf_cenU :
     change (x.left * originalFieldAction F a A hfix x.right y.left).right = _
     rw [SemidirectProduct.mul_right, originalFieldAction_pair]
 
-theorem c2Hom_apply (m : OriginalH F a A hfix) : c2Hom m = m.left.right := rfl
 
 theorem mem_layerM_of_odd (m : OriginalH F a A hfix) (hodd : Odd (orderOf m))
     (hr : m.right = 1) : m ∈ layerM F a A hfix := by

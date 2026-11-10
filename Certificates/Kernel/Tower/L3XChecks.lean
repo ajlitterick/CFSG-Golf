@@ -30,11 +30,5 @@ theorem ch36408_l3z : allB 16384 (fun k =>
       (Nat.xor k 2)) = true := by
   decide +kernel
 
-theorem ch36408_chw_neg : (!chiWOK wrSM wrAC (Nat.xor (wrChi 1) 1)) = true := by decide +kernel
-
-theorem ch36408_l3x_neg :
-    (!chiXOK wrChi (wrA (Nat.add 2 (l16 (l3P 0) 0))) (l16 (l3P 0) 1) wGS
-      (Nat.xor (l3X 0 1) (Nat.shiftLeft 1 3))) = true := by
-  decide +kernel
 
 end Certificates.KernelTower

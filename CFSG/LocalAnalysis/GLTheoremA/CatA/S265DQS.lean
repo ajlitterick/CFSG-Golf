@@ -50,13 +50,6 @@ private theorem s265d_tyU38_imp_tyF (i : TauCeti.CFSGIndex) (h : tyU38 i) : tyF 
     | _ => exact (h : False).elim
   · exact (h : False).elim
 
-theorem qsFamDU38_of_qsFamF3 (h : QSFamF3) : QSFamDU38 := by
-  intro p Ω _ _ S B T x D K hN hp3 hU
-  subst hp3
-  exact h 3 Ω S B T x D K hN rfl (catalogIs_imp s265d_tyU38_imp_tyF hU)
-
-theorem qsFamD_of_L28_of_qsFamF3 (hL : QSFamDL28) (h : QSFamF3) : QSFamD :=
-  qsFamD_of_parts hL (qsFamDU38_of_qsFamF3 h)
 
 theorem qsFamDU38_of_qsFamF (h : QSFamF) : QSFamDU38 := by
   intro p Ω _ _ S B T x D K hN hp3 hU

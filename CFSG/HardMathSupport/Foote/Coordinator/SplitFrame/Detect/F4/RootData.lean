@@ -35,8 +35,6 @@ theorem deg_eq_two : ∀ β ∈ rootFinset .F4, β 0 = 2 → β = theta := by de
 
 theorem deg_eq_neg_two : ∀ β ∈ rootFinset .F4, β 0 = -2 → β = -theta := by decide +kernel
 
-theorem deg_eq_pairing : ∀ β ∈ rootFinset .F4,
-    2 * iform β theta = iform theta theta * β 0 := by decide +kernel
 
 theorem commCandidates_theta_data : ∀ β ∈ rootFinset .F4, (β 0 = 0 ∨ β 0 = 1) →
     ∀ p ∈ commCandidates, p.1 • theta + p.2 • β ∉ rootFinset .F4 := by decide +kernel

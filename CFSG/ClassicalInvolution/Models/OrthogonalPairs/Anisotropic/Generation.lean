@@ -134,11 +134,6 @@ theorem herm_insZero (c : Fin 3) (v w : Fin 2 → K) :
 theorem insZero_self (c : Fin 3) (v : Fin 2 → K) : insZero c v c = 0 := by
   fin_cases c <;> simp [insZero]
 
-theorem smul_insZero (c : Fin 3) (A : SUid σ 2) (v : Fin 2 → K) :
-    embSUid σ c A • insZero c v = insZero c (A • v) := by
-  rw [smul_def, coe_embSUid, smul_def]
-  fin_cases c <;> ext i <;> fin_cases i <;>
-    simp [embPair, insZero, Matrix.mulVec, dotProduct, Fin.sum_univ_two, Fin.sum_univ_three]
 
 theorem embSUid_tv (hσ : ∀ c, σ (σ c) = c) (c : Fin 3) {a : Fin 2 → K} (ha : herm σ a a = 0)
     {x : K} (hx : x + σ x = 0) :

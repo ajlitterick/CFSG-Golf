@@ -12,17 +12,6 @@ open CFSG.Assembly CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalle
 @[expose] def GGTableBE6LabelThree (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   lab.tag = .E6 ∧ p = 3 ∧ (3 ∣ 2 ^ lab.n - 1 ∨ lab.n = 1)
 
-@[expose] def GGTableBOtherRest5NoE6Three (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  GGTableBOtherRest5 p lab ∧ ¬ (lab.tag = .E6 ∧ p = 3)
-
-theorem ggTableBOtherRest5NoE6Three_cases {p : ℕ} {lab : LargeEvenLabel} (hp : p.Prime)
-    (hlab : LargeEvenInLambda2 lab) (h : GGTableBOtherRest5NoE6Three p lab)
-    (hs : LargeEvenSplit p lab) :
-    lab.tag = .twE6 ∨ lab.tag = .triD4 ∨ lab.tag = .twF4 ∨ lab.tag = .G2der ∨
-      lab.tag = .twF4der ∨ ((lab.tag = .F4 ∨ lab.tag = .E7 ∨ lab.tag = .E8) ∧ p = 3) := by
-  rcases ggTableBOtherRest5_cases hp hlab h.1 hs with h1 | h1
-  · exact absurd h1 h.2
-  · exact h1
 
 theorem ggTableBE6LabelThree_of_split {p : ℕ} {lab : LargeEvenLabel} (htag : lab.tag = .E6)
     (hp3 : p = 3) (hs : LargeEvenSplit p lab) : GGTableBE6LabelThree p lab := by
@@ -101,31 +90,5 @@ theorem ggStdSubPreInputOn_E6_three (hE : GGE6ThreeEndNodeInput) (hT : GGE6TwoEn
     intro Q hQ
     exact TableBExc.E6Three.recipeChevalleyE6_endNode_three hE hT h3 hQ
 
-theorem ggBstarInputOn_rest5_of_noE6Three (h : GGBstarInputOn GGTableBOtherRest5NoE6Three) :
-    GGBstarInputOn GGTableBOtherRest5 := by
-  refine GGBstarInputOn.mono_split (ggBstarInputOn_E6_three.or h) fun p lab hR hs => ?_
-  by_cases hE : lab.tag = .E6 ∧ p = 3
-  · exact Or.inl (ggTableBE6LabelThree_of_split hE.1 hE.2 hs)
-  · exact Or.inr ⟨hR, hE⟩
-
-theorem ggStdSubPreInputOn_rest5_of_noE6Three (hE : GGE6ThreeEndNodeInput)
-    (hT : GGE6TwoEndNodeInput) (h : GGStdSubPreInputOn GGTableBOtherRest5NoE6Three) :
-    GGStdSubPreInputOn GGTableBOtherRest5 := by
-  refine GGStdSubPreInputOn.mono_split ((ggStdSubPreInputOn_E6_three hE hT).or h)
-    fun p lab hR hs => ?_
-  by_cases hE6 : lab.tag = .E6 ∧ p = 3
-  · exact Or.inl (ggTableBE6LabelThree_of_split hE6.1 hE6.2 hs)
-  · exact Or.inr ⟨hR, hE6⟩
-
-
-theorem ggBstarInputOn_other_of_rest5NoE6Three
-    (h : GGBstarInputOn GGTableBOtherRest5NoE6Three) :
-    GGBstarInputOn (GGTableBRest3 GGTableBOtherLabel) :=
-  ggBstarInputOn_other_of_rest5 (ggBstarInputOn_rest5_of_noE6Three h)
-
-theorem ggStdSubPreInputOn_other_of_rest5NoE6Three (hE : GGE6ThreeEndNodeInput)
-    (hT : GGE6TwoEndNodeInput) (h : GGStdSubPreInputOn GGTableBOtherRest5NoE6Three) :
-    GGStdSubPreInputOn (GGTableBRest3 GGTableBOtherLabel) :=
-  ggStdSubPreInputOn_other_of_rest5 (ggStdSubPreInputOn_rest5_of_noE6Three hE hT h)
 
 end CFSG.StandardType

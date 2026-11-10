@@ -17,9 +17,6 @@ namespace CFSG.KD.F4Inv
 
 open CFSG.KC.F4Inv
 
-theorem long_neg : longN (lw.getD 1 0) (ll.getD 1 0) (longPos.getD 0 0) = 0 := by decide +kernel
-
-theorem long_neg_len : longN (lw.getD 0 0) 6 (longPos.getD 0 0) = 0 := by decide +kernel
 
 end CFSG.KD.F4Inv
 

@@ -47,10 +47,6 @@ open CFSG.KC.E64F
   | _ + 1, [] => []
   | k + 1, a :: l => a :: takeN k l
 
-@[expose] def dropN {α : Type} : Nat → List α → List α
-  | 0, l => l
-  | _ + 1, [] => []
-  | k + 1, _ :: l => dropN k l
 
 @[expose] def allIdx {α : Type} (f : Nat → α → Bool) : Nat → List α → Bool
   | _, [] => true

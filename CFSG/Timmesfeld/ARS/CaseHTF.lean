@@ -29,10 +29,6 @@ theorem N_zero : c.N 0 = 0 := by
   rw [this, map_one]
   rfl
 
-theorem T_zero_left (r : E) : c.T 0 r = 0 := by
-  have := S.hyp.finite
-  apply c.x2_injective (S.hyp.root.card_eq S.hA S.hP'.2.1)
-  rw [c.x2_T, c.x1_zero, commutatorElement_one_left, c.x2_zero]
 
 omit [CharP E 2] in
 theorem F2_zero_left (w : E) : c.F2 0 w = 0 := by

@@ -36,6 +36,5 @@ theorem kFactCompParabFieldIndexWAt_of_griess (p : ℕ) [OddPrime p]
     (fieldIndexOnPW_symp p hGA) (fieldIndexOnPW_orthPlus p hGA) (fieldIndexOnPW_orthMinus p hGA)
     (fieldIndexOnPW_g2 p hGA) (fieldIndexOnPW_small p hGA)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.FieldIndexW

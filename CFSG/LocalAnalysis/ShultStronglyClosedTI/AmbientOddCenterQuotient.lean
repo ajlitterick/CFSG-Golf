@@ -18,8 +18,6 @@ variable {G : Type*} [Group G]
 instance ambientOddCenter_normal (L : Subgroup G) [L.Normal] :
     (ambientOddCenter L).Normal := ConjAct.normal_of_characteristic_of_normal
 
-theorem ambientOddCenter_le (L : Subgroup G) : ambientOddCenter L ≤ L :=
-  Subgroup.map_subtype_le _
 
 theorem ambientOddCenter_subgroupOf (L : Subgroup G) :
     (ambientOddCenter L).subgroupOf L = oddCenterSubgroup L := by
@@ -31,10 +29,6 @@ theorem ambientOddCenter_subgroupOf (L : Subgroup G) :
   · intro hl
     exact Subgroup.mem_map.mpr ⟨l, hl, rfl⟩
 
-theorem ambientOddCenter_odd_card [Finite G] (L : Subgroup G) :
-    Odd (Nat.card (ambientOddCenter L)) := by
-  rw [ambientOddCenter, Subgroup.card_map_of_injective L.subtype_injective]
-  exact oddCenterSubgroup_odd_card L
 
 theorem ambientOddCenter_restriction_kernel (L : Subgroup G) [L.Normal] :
     ((QuotientGroup.mk' (ambientOddCenter L)).subgroupMap L).ker =
@@ -49,10 +43,6 @@ theorem ambientOddCenter_restriction_kernel (L : Subgroup G) [L.Normal] :
     ((QuotientGroup.mk' (ambientOddCenter L)).subgroupMap_surjective L)
     (ambientOddCenter_restriction_kernel L).symm
 
-theorem ambientOddCenterHullEquiv_mk (L : Subgroup G) [L.Normal] (l : L) :
-    ambientOddCenterHullEquiv L (QuotientGroup.mk' (oddCenterSubgroup L) l) =
-      (QuotientGroup.mk' (ambientOddCenter L)).subgroupMap L l :=
-  QuotientGroup.liftEquiv_mk _ _ _ l
 
 theorem ambientOddCenter_center_image (L : Subgroup G) [L.Normal]
     [Group.IsPerfect L] :
@@ -88,31 +78,6 @@ theorem ambient_odd_center_hull_structure [Finite G] (L : Subgroup G) [L.Normal]
   exact central_lift_model_transport
     (centralLiftCenterQuotientEquiv f (q.subgroupMap_surjective L) hcentral).symm hmodel
 
-theorem ambient_odd_center_subgroup_images [Finite G] (L : Subgroup G) [L.Normal]
-    (T : Sylow 2 G) (U : Subgroup G) (hUL : U ≤ L)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G)) :
-    let q := QuotientGroup.mk' (ambientOddCenter L)
-    let T₁ := T.mapSurjective (QuotientGroup.mk'_surjective (ambientOddCenter L))
-    IsElemAbelian 2 (U.map q) ∧ Nat.card (U.map q) = Nat.card U ∧
-      U.map q ≤ (T₁ : Subgroup (G ⧸ ambientOddCenter L)) ∧
-      U.map q ≤ L.map q ∧
-      fusionStronglyClosed (U.map q : Set (G ⧸ ambientOddCenter L))
-        (T₁ : Subgroup (G ⧸ ambientOddCenter L)) := by
-  let q := QuotientGroup.mk' (ambientOddCenter L)
-  have hinj := odd_quotient_injective_on_elementary U (ambientOddCenter L)
-    hUel (ambientOddCenter_odd_card L)
-  have hcard : Nat.card (U.map q) = Nat.card U := by
-    apply (Nat.card_congr (MulEquiv.ofBijective (q.subgroupMap U)
-      ⟨?_, q.subgroupMap_surjective U⟩).toEquiv).symm
-    intro a b hab
-    exact hinj (congrArg Subtype.val hab)
-  refine ⟨CFSG.TwoRankLowerBound.Helpers.isElemAbelian_map U hUel q, hcard,
-    ?_, Subgroup.map_mono hUL, ?_⟩
-  · rw [Sylow.coe_mapSurjective]
-    exact Subgroup.map_mono hUT
-  · exact stronglyClosed_map_surjective q (QuotientGroup.mk'_surjective _)
-      T U hUT hclosed
 
 theorem ambient_odd_center_witness_image [Finite G] (L : Subgroup G) [L.Normal]
     (T : Sylow 2 G) (U : Subgroup G) (hUL : U ≤ L) {w : G} (hwU : w ∈ U)

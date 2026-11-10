@@ -160,10 +160,6 @@ theorem H_le_centralizer : d.H ≤ Subgroup.centralizer ({d.J} : Set G) :=
 theorem V_le_CV : d.V ≤ d.CV := fun _ hx =>
   Subgroup.mem_centralizer_iff.mpr fun _ hy => (d.V_comm hx hy).symm
 
-theorem CV_normal_NV : (d.CV.subgroupOf d.NV).Normal :=
-  ⟨fun x hx g => by
-    rw [Subgroup.mem_subgroupOf] at hx ⊢
-    exact (Subgroup.mem_normalizer_iff.mp (Sec54.mem_normalizer_centralizer g.2) x).mp hx⟩
 
 theorem mem_normalizer_CV {g : G} (hg : g ∈ d.NV) :
     g ∈ Subgroup.normalizer (d.CV : Set G) :=

@@ -17,17 +17,6 @@ open CFSG.RankThree.PartTwo.Sec4.Item434D42 CFSG.Monster.B.Co2.Native CFSG.Certi
 
 @[expose] def f0Arr (_ : Unit := ()) : Array ℕ := rowArr 0
 
-@[expose] def invArr (_ : Unit := ()) : Array (Array ℕ) :=
-  Array.ofFn fun j : Fin 48 => rowArr (1 + j.val)
-
-@[expose] def witArr (_ : Unit := ()) : Array (Array ℕ) :=
-  Array.ofFn fun j : Fin 4 => rowArr (49 + j.val)
-
-@[expose] def bData : Array (ℕ × ℕ × ℕ) :=
-  #[(1, 3, 5), (1, 4, 5), (1, 13, 17), (1, 16, 5), (1, 18, 17), (1, 40, 52), (1, 43, 17),
-    (1, 45, 52), (1, 47, 52), (1, 51, 5)]
-
-@[expose] def x0Fix : ℕ := 11
 
 @[expose] def frobCode (v : Array ℕ) : Array ℕ := v.map fun c => GF8.mulNat c c
 
@@ -42,12 +31,6 @@ open CFSG.RankThree.PartTwo.Sec4.Item434D42 CFSG.Monster.B.Co2.Native CFSG.Certi
   let φ := phiArr ()
   compA 2457 φ φ
 
-@[expose] def modelOK (φ : Array ℕ) : Bool :=
-  isInvA 2457 φ (compA 2457 φ φ) &&
-    allLt 18 fun k =>
-      eqA 2457 (compA 2457 φ (piArr lineCert k)) (compA 2457 (piArr lineCert (sg k)) φ)
-
-@[expose] def modelCheck (_ : Unit := ()) : Bool := modelOK (phiArr ())
 
 @[expose] def s0Gens (_ : Unit := ()) : Array (Array ℕ) := d4QGens.push (f0Arr ())
 
@@ -68,8 +51,6 @@ open CFSG.RankThree.PartTwo.Sec4.Item434D42 CFSG.Monster.B.Co2.Native CFSG.Certi
       isIdA (compA 2457 T[j]! T[j]!) && !isIdA T[j]!) &&
     allLt 243 fun i => siftP c.pts[i]! || !isIdA (cubeA c.pts[i]!) || T.any (commuteA c.pts[i]!)
 
-@[expose] def liftCheck (_ : Unit := ()) : Bool :=
-  liftOK (f0Arr ()) (phiInvArr ()) (s0Gens ()) (s0Cert ()) (invArr ())
 
 @[expose] def spanA (u v z : Array ℕ) : Array (Array ℕ) := Array.ofFn fun p : Fin 27 =>
   compA 2457 (compA 2457 (powArr 2457 u (p.val / 9)) (powArr 2457 v (p.val / 3 % 3)))
@@ -108,7 +89,5 @@ open CFSG.RankThree.PartTwo.Sec4.Item434D42 CFSG.Monster.B.Co2.Native CFSG.Certi
         eqA 2457 pts[j]! (compA 2457 pts[i]! pts[i]!) ||
         allLt pts.size fun k => tripleOK inQ ord3 comm memB bs.size i j k
 
-@[expose] def fieldCheck (_ : Unit := ()) : Bool :=
-  fieldOK (s0Cert ()).pts bData (witArr ()) && (d4Lines[0]!)[x0Fix]! == x0Fix
 
 end CFSG.StandardType.TriD4TwoRow

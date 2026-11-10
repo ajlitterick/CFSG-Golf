@@ -38,10 +38,6 @@ variable (Q : QuadraticForm K V) (T : Module.End K V) (d : K) (hd : d ≠ 0)
   (bar : scalarAlgebra T ≃ₐ[K] scalarAlgebra T) (hbar : bar (generator T) = -generator T)
   (hadj : ∀ x y, Q.polarBilin (T x) y = -Q.polarBilin x (T y))
 
-theorem hermitianWithConjugation_formula (x y : V) :
-    hermitianWithConjugation Q.polarBilin T d hd hns hsquare bar hbar hadj x y =
-      algebraMap K (scalarAlgebra T) (Q.polarBilin x y) +
-        algebraMap K (scalarAlgebra T) (d⁻¹ * Q.polarBilin x (T y)) * generator T := rfl
 
 theorem hermitianWithConjugation_isSymm :
     letI := scalarField T d hns hsquare

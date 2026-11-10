@@ -124,8 +124,6 @@ theorem frameGL_mulVec (M : X ≃ₗ[K] X) (x : X) :
   rw [frameUnit_apply, Matrix.mulVecLin_apply] at h2
   exact h2.symm
 
-theorem frameGL_mul (M N : X ≃ₗ[K] X) : frameGL Φ M * frameGL Φ N = frameGL Φ (N.trans M) := by
-  rw [frameGL, frameGL, frameGL, ← map_mul, frameUnit_mul]
 
 theorem frameGL_conj {M N N' : X ≃ₗ[K] X} (h : ∀ x, M (N x) = N' (M x)) :
     frameGL Φ M * frameGL Φ N * (frameGL Φ M)⁻¹ = frameGL Φ N' := by

@@ -35,37 +35,6 @@ end Local
       (¬ ((p ^ n : ℕ) : ℤ) ≡ ε [ZMOD 4] → ∃ m : ℕ, IsSemidihedralTwoGroup ↥S m) ∧
       (((p ^ n : ℕ) : ℤ) ≡ ε [ZMOD 4] → ∃ m : ℕ, 2 ≤ m ∧ Nonempty (↥S ≃* Open.WreathedTwoGroup m))
 
-@[expose] def IVK_4_8a : Prop :=
-  ∀ (F : Type) [Field F] [Finite F], Odd (Nat.card F) → 3 < Nat.card F →
-    ∀ (H : Type) [Group H] [Finite H] (K : Subgroup H) [K.Normal]
-      (e : ↥K ≃* StatedProj (StatedSp 2 F)) (Fh : Subgroup H), K ⊓ Fh = ⊥ → K ⊔ Fh = ⊤ →
-      Odd (Nat.card ↥Fh) →
-      (∀ x ∈ Fh, (MulAut.conjNormal x : MulAut ↥K) ∈ fieldAutSubOf (StatedSp 2 F)
-        (fieldStable_statedSp 2) e) →
-        2 * Nat.card H = Nat.card F ^ 4 * (Nat.card F ^ 2 - 1) * (Nat.card F ^ 4 - 1) * Nat.card ↥Fh
-
-@[expose] def IVK_4_8b : Prop :=
-  ∀ (F : Type) [Field F] [Finite F], Odd (Nat.card F) → 3 < Nat.card F →
-    ∀ (H : Type) [Group H] [Finite H] (K : Subgroup H) [K.Normal]
-      (e : ↥K ≃* StatedProj (StatedSp 2 F)) (Fh : Subgroup H), K ⊓ Fh = ⊥ → K ⊔ Fh = ⊤ →
-      Odd (Nat.card ↥Fh) →
-      (∀ x ∈ Fh, (MulAut.conjNormal x : MulAut ↥K) ∈ fieldAutSubOf (StatedSp 2 F)
-        (fieldStable_statedSp 2) e) →
-      ∀ ε : ℤ, (ε = 1 ∨ ε = -1) → (Nat.card F : ℤ) ≡ ε [ZMOD 4] →
-      ∀ d : ℕ, (d : ℤ) = Nat.card F - ε →
-        ∃ z t : H, z ∈ K ∧ t ∈ K ∧ IsCentralInvolution z ∧ orderOf t = 2 ∧
-          (∀ x : H, orderOf x = 2 → IsConj z x ∨ IsConj t x) ∧ ¬ IsConj z t ∧
-          (∃ K₁ : Subgroup H, K₁ ≤ K ∧ HasSL2Model ↥K₁ (fun q => q = Nat.card F) ∧
-            K₁ ⊓ K₁.map (MulAut.conj t).toMonoidHom = zpowers z ∧
-            (∀ φ ∈ Fh, ∀ x ∈ K₁, φ * x * φ⁻¹ ∈ K₁) ∧
-            centralizer ({z} : Set H) = K₁ ⊔ K₁.map (MulAut.conj t).toMonoidHom ⊔ zpowers t ⊔ Fh) ∧
-          (∃ (E J : Subgroup H) (y : H), E ≤ K ∧ J ≤ K ∧ orderOf y = 2 ∧
-            (∀ a ∈ E, ∀ b ∈ J, a * b = b * a) ∧ E ⊓ J = ⊥ ∧
-            IsDihedralOrder ↥E d ∧ IsL2 ↥J (fun q => q = Nat.card F) ∧
-            IsDihedralOrder ↥(E ⊔ zpowers y) (2 * d) ∧
-            IsPGL2 ↥(J ⊔ zpowers y) (fun q => q = Nat.card F) ∧
-            (∀ φ ∈ Fh, ∀ x ∈ E, φ * x * φ⁻¹ ∈ E) ∧ (∀ φ ∈ Fh, ∀ x ∈ J, φ * x * φ⁻¹ ∈ J) ∧
-            centralizer ({t} : Set H) = (E ⊔ J) ⊔ zpowers y ⊔ Fh)
 
 @[expose] def IVK_4_10 : Prop :=
   ∀ (K : Type) [Group K] [Finite K] (q : ℕ), Odd q → 5 ≤ q → IsSp4L4U4 K q →
@@ -90,8 +59,5 @@ end Local
             ∀ x ∈ (P : Subgroup K) ⊓ Ez z, orderOf (x * w) = 2 → IsConj z (x * w)) ∧
           ∀ y : K, IsCentralInvolution y → IsConj z y
 
-@[expose] def IsG2Sp4L4U4 (K : Type) [Group K] (q : ℕ) : Prop :=
-  (∃ p f : ℕ, p.Prime ∧ q = p ^ f ∧ LieModel K .G2 0 p f) ∨ IsPSp4 K q ∨ IsLnEps 4 K 1 q ∨
-    IsLnEps 4 K (-1) q
 
 end CFSG.GH74.GLS.IVK

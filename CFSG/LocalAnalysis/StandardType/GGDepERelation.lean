@@ -32,16 +32,6 @@ private theorem lr7er_ker :
       (∀ j, ∑ i, (lr7er_C j i : ZMod 3) * c i = 0) ↔ ∃ a : ZMod 3, c = a • lr7er_k := by
   decide +kernel
 
-private theorem lr7er_ker_zero (c : Fin 6 → ZMod 3)
-    (hc : ∀ j, ∑ i, (lr7er_C j i : ZMod 3) * c i = 0) (h0 : c 0 = 0) : c = 0 := by
-  obtain ⟨a, ha⟩ := (lr7er_ker c).mp hc
-  have ha0 : a = 0 := by
-    have h1 : c 0 = a * lr7er_k 0 := by
-      rw [ha]
-      simp only [Pi.smul_apply, smul_eq_mul]
-    rw [h0] at h1
-    simpa [lr7er_k] using h1.symm
-  rw [ha, ha0, zero_smul]
 
 theorem ggDepE_relation {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
     {h : Fin 6 → V} {α : Fin 6 → Module.Dual (ZMod p) V} {x : V} (F : GGDepEFrame p h α x) :

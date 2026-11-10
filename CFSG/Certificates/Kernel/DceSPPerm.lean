@@ -58,7 +58,6 @@ theorem fld_lt (X i : ℕ) : fld X i < 64 := by
   Nat.rec (motive := fun _ => ℕ) (nat_lit 0)
     (fun i acc => Nat.lor acc (Nat.shiftLeft (f i) (Nat.mul (nat_lit 6) i))) k
 
-theorem mulP_eq (X Y : ℕ) : mulP X Y = pack (fun i => fld Y (fld X i)) 55 := rfl
 
 theorem pack_spec (f : ℕ → ℕ) : ∀ k, (∀ i < k, f i < 64) →
     pack f k < 2 ^ (6 * k) ∧ ∀ j < k, fld (pack f k) j = f j

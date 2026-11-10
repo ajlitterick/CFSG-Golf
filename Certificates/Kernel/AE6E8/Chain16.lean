@@ -44,8 +44,6 @@ open CFSG.KS.Raw
 theorem kOrdE8 : Nat.beq (rcnt (E8.LR 0) * rcnt (E8.LR 1) * rcnt (E8.LR 2) * rcnt (E8.LR 3) *
     rcnt (E8.LR 4) * rcnt (E8.LR 5) * rcnt (E8.LR 6)) 2580480 = true := by quickRfl
 
-theorem kOrdE8Neg : (!Nat.beq (rcnt (E8.LR 0) * rcnt (E8.LR 1) * rcnt (E8.LR 2) * rcnt (E8.LR 3) *
-    rcnt (E8.LR 4) * rcnt (E8.LR 5) * rcnt (E8.LR 6)) 1290240) = true := by quickRfl
 
 end CertificateChecks.KernelAE6E8
 

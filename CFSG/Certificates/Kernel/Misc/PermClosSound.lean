@@ -213,12 +213,6 @@ theorem forall_of_chunks (s m : ℕ) (f : ℕ → Bool) (h : ∀ c < m, allR (s 
     rw [Nat.mul_comm] at this
     exact this
 
-theorem forall_lt_of_chunks {P : ℕ → Prop} {lo hi : ℕ} (h₁ : ∀ i, 0 ≤ i → i < lo → P i)
-    (h₂ : ∀ i, lo ≤ i → i < hi → P i) : ∀ i, 0 ≤ i → i < hi → P i := by
-  intro i _ hi'
-  rcases Nat.lt_or_ge i lo with h | h
-  · exact h₁ i (Nat.zero_le _) h
-  · exact h₂ i h hi'
 
 theorem word_mem {n : ℕ} (hn : n ≤ 32) (gs : List (Perm (Fin n))) {A : ℕ → ℕ}
     (hA : ∀ a < gs.length, A a = pcode (gs.getD a 1)) {w : List ℕ}

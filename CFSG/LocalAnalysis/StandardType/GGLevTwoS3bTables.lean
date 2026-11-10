@@ -106,13 +106,6 @@ theorem levTwoS3t_testBit_foldl_or : ∀ (l : List ℕ) (acc i : ℕ),
             exact h'')))
       · exact Or.inr (List.mem_cons_of_mem b h')
 
-@[expose] def levTwoS3t_idxOf {ι : Type} [DecidableEq ι] (roots : List ι) (β : ι) : ℕ :=
-  roots.findIdx (· = β)
-
-@[expose] def levTwoS3t_clsOf {ι : Type} [DecidableEq ι] (roots : List ι) (cl : List (ℕ × ℕ))
-    (hpos : 0 < cl.length) (β : ι) : Fin cl.length :=
-  if h : cl.findIdx (fun p => p.2.testBit (levTwoS3t_idxOf roots β)) < cl.length then ⟨_, h⟩
-  else ⟨0, hpos⟩
 
 @[expose] def levTwoS3t_coversWith {ι : Type} (reflPerm : (ι → ℤ) → List ℕ)
     (cl : List (ℕ × ℕ)) (rep : Fin cl.length → ι → ℤ) (perms : List (List ℕ))

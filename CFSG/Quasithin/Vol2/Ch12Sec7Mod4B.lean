@@ -28,8 +28,6 @@ theorem matOf_mulVec {B : B6} (hB : B ∈ gm6) {c : ℕ}
   obtain ⟨A, hA, rfl⟩ := List.mem_map.1 hB
   rw [matOf_toB6, Mc.toMat_mulVec A (cert_gmList_mem A hA).1, toB6_app A hc]
 
-theorem matOf_apply (B : B6) (i j : Fin 3) :
-    matOf B i j = decV (![B.c0, B.c2, B.c4] j) i := rfl
 
 theorem matOf_col0 {B : B6} (h : B.c0 < 4) : matOf B 1 0 = 0 ∧ matOf B 2 0 = 0 := by
   have e1 : B.c0 >>> 2 = 0 := by

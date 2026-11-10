@@ -315,12 +315,6 @@ theorem s_not_mem_quaternionSubgroup (n : ℕ) (hn : 3 ≤ n) :
   rw [ZMod.val_zero, ZMod.val_one_eq_one_mod]
   decide
 
-theorem rotationSubgroup_ne_dihedralSubgroup (n : ℕ) (hn : 3 ≤ n) :
-    rotationSubgroup n ≠ dihedralSubgroup n := by
-  intro h
-  apply r_not_mem_dihedralSubgroup n hn
-  rw [← h]
-  exact Subgroup.mem_zpowers _
 
 theorem rotationSubgroup_ne_quaternionSubgroup (n : ℕ) (hn : 3 ≤ n) :
     rotationSubgroup n ≠ quaternionSubgroup n := by
@@ -496,38 +490,5 @@ theorem commutator_index (n : ℕ) (hn : 4 ≤ n) :
     (commutator (SemidihedralGroup n)).index = 4 :=
   abelianization_natCard n hn
 
-theorem element_mem_commutator_iff (n : ℕ) (hn : 4 ≤ n)
-    (i : ZMod (modulus n)) (e : ZMod 2) :
-    element n (by omega) i e ∈ commutator (SemidihedralGroup n) ↔
-      i.val % 2 = 0 ∧ e = 0 := by
-  rw [← abelianizationProjection_ker_eq_commutator n hn]
-  change abelianizationProjection n (by omega) (element n (by omega) i e) = 1 ↔ _
-  rw [abelianizationProjection_element]
-  change (Multiplicative.ofAdd (rotationReduction n (by omega) i),
-    Multiplicative.ofAdd e) = (1, 1) ↔ _
-  rw [Prod.mk.injEq]
-  change rotationReduction n (by omega) i = 0 ∧ e = 0 ↔ _
-  rw [rotationReduction_eq_zero_iff]
-
-theorem derived_and_index_two (n : ℕ) (hn : 4 ≤ n) :
-    commutator (SemidihedralGroup n) = Subgroup.zpowers (r n ^ 2) ∧
-    (∀ H : Subgroup (SemidihedralGroup n), H.index = 2 ↔
-      H = rotationSubgroup n ∨ H = dihedralSubgroup n ∨ H = quaternionSubgroup n) ∧
-    rotationSubgroup n ≠ dihedralSubgroup n ∧
-    rotationSubgroup n ≠ quaternionSubgroup n ∧
-    dihedralSubgroup n ≠ quaternionSubgroup n ∧
-    (rotationSubgroup n).Normal ∧ (dihedralSubgroup n).Normal ∧
-    (quaternionSubgroup n).Normal ∧
-    Nat.card (rotationSubgroup n) = modulus n ∧
-    Nat.card (dihedralSubgroup n) = modulus n ∧
-    Nat.card (quaternionSubgroup n) = modulus n ∧ IsCyclic (rotationSubgroup n) := by
-  exact ⟨commutator_eq_zpowers_r_sq n hn, index_eq_two_iff n (by omega),
-    rotationSubgroup_ne_dihedralSubgroup n (by omega),
-    rotationSubgroup_ne_quaternionSubgroup n (by omega),
-    dihedralSubgroup_ne_quaternionSubgroup n (by omega),
-    rotationSubgroup_normal n (by omega), dihedralSubgroup_normal n (by omega),
-    quaternionSubgroup_normal n (by omega), rotationSubgroup_natCard n (by omega),
-    dihedralSubgroup_natCard n (by omega), quaternionSubgroup_natCard n (by omega),
-    rotationSubgroup_cyclic n⟩
 
 end CFSG.Semidihedral

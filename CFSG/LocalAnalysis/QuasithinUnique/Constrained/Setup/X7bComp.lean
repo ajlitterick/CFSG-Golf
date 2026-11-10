@@ -235,55 +235,6 @@ section Main
 
 open CFSG.QuasithinUnique.Setup.X7 (matRep matMap MatIso)
 
-theorem finite_module_composition_multisets_and_fixed_codimension
-    {k G : Type} [Field k] [Group G] {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]
-    (ρ : Representation k G V) :
-    (∃ s : CompositionSeries (Submodule k[G] ρ.asModule), s.head = ⊥ ∧ s.last = ⊤) ∧
-    (∀ s₁ s₂ : CompositionSeries (Submodule k[G] ρ.asModule), s₁.head = ⊥ → s₁.last = ⊤ →
-      s₂.head = ⊥ → s₂.last = ⊤ → s₁.Equivalent s₂) ∧
-    (∀ s : CompositionSeries (Submodule k[G] ρ.asModule), s.head = ⊥ → s.last = ⊤ →
-      ∀ {E : Type} [AddCommGroup E] [Module k E] (σ : Representation k G E),
-        repMultiplicity ρ σ = factorCount k[G] s σ.asModule) ∧
-    (∀ (W : Subrepresentation ρ) {E : Type} [AddCommGroup E] [Module k E]
-      (σ : Representation k G E),
-      repMultiplicity ρ σ = repMultiplicity W.toRepresentation σ + repMultiplicity W.quotient σ) ∧
-    (∀ (A : Set G) (s : CompositionSeries (Submodule k[G] ρ.asModule)), s.head = ⊥ →
-      s.last = ⊤ → ∑ i : Fin s.length, fixedCodim k ((MonoidAlgebra.of k G) '' A)
-          (↥(s i.succ) ⧸ (s i.castSucc).comap (s i.succ).subtype) ≤
-        Module.finrank k V - Module.finrank k (repFixedSpace ρ A)) ∧
-    (∀ (α : G ≃* G) {E : Type} [AddCommGroup E] [Module k E] (σ : Representation k G E),
-      repMultiplicity (ρ.comp α.toMonoidHom) (σ.comp α.toMonoidHom) = repMultiplicity ρ σ) ∧
-    (∀ {k' : Type} [Field k'] (τ : k ≃+* k') {ι κ E : Type} [Fintype ι] [DecidableEq ι]
-      [Fintype κ] [DecidableEq κ] [AddCommGroup E] [Module k E] (b : Module.Basis ι k V)
-      (c : Module.Basis κ k E) (σ : Representation k G E),
-      repMultiplicity (matRep (matMap (τ : k →+* k') (toMatRep ρ b)))
-        (matRep (matMap (τ : k →+* k') (toMatRep σ c))) = repMultiplicity ρ σ) ∧
-    (∀ {k' : Type} [Field k'] (τ : k ≃+* k') {ι ι' : Type} [Fintype ι] [DecidableEq ι]
-      [Fintype ι'] [DecidableEq ι'] (b : Module.Basis ι k V) (b' : Module.Basis ι' k V),
-      Nonempty (Representation.Equiv (matRep (matMap (τ : k →+* k') (toMatRep ρ b)))
-        (matRep (matMap (τ : k →+* k') (toMatRep ρ b'))))) := by
-  have hN : IsNoetherian k[G] ρ.asModule := isNoetherian_of_finiteDimensional k
-  have hA : IsArtinian k[G] ρ.asModule := isArtinian_of_finiteDimensional k
-  refine ⟨exists_compositionSeries_of_isNoetherian_isArtinian k[G] ρ.asModule,
-    fun s₁ s₂ h1 h2 h3 h4 => CompositionSeries.jordan_holder s₁ s₂ (h1.trans h3.symm)
-      (h2.trans h4.symm),
-    fun s h1 h2 {E} _ _ σ => compositionMultiplicity_eq_factorCount s h1 h2 σ.asModule,
-    fun W {E} _ _ σ => repMultiplicity_sub_quot ρ W σ,
-    fun A s h1 h2 => ?_,
-    fun α {E} _ _ σ => repMultiplicity_comp_surjective α.toMonoidHom α.surjective ρ σ,
-    fun {k'} _ τ {ι κ E} _ _ _ _ _ _ b c σ => ?_,
-    fun {k'} _ τ {ι ι'} _ _ _ _ b b' => ?_⟩
-  · rw [← fixedCodim_asModule ρ A]
-    exact sum_fixedCodim_factor_le k _ s h1 h2
-  · calc repMultiplicity (matRep (matMap (τ : k →+* k') (toMatRep ρ b)))
-          (matRep (matMap (τ : k →+* k') (toMatRep σ c)))
-        = repMultiplicity (matRep (toMatRep ρ b)) (matRep (toMatRep σ c)) :=
-          repMultiplicity_matMap τ _ _
-      _ = repMultiplicity ρ (matRep (toMatRep σ c)) :=
-          (repMultiplicity_congr_left (matRepEquiv ρ b) _).symm
-      _ = repMultiplicity ρ σ := (repMultiplicity_congr_right ρ (matRepEquiv σ c)).symm
-  · obtain ⟨P, Q, h⟩ := MatIso.exists_of_equiv ((matRepEquiv ρ b).symm.trans (matRepEquiv ρ b'))
-    exact (h.map (τ : k →+* k')).equiv
 
 end Main
 

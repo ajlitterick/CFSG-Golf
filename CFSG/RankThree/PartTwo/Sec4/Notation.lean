@@ -102,14 +102,6 @@ theorem compAction_ker (L : Subgroup G) :
 @[expose] def oTwoP (p : ℕ) (X : Type*) [Group X] : Subgroup X :=
   (CFSG.pCore p (X ⧸ CFSG.pCore 2 X)).comap (QuotientGroup.mk' (CFSG.pCore 2 X))
 
-@[expose] def oOddTwo (X : Type*) [Group X] : Subgroup X :=
-  (CFSG.pCore 2 (X ⧸ CFSG.oddCore X)).comap (QuotientGroup.mk' (CFSG.oddCore X))
-
-theorem pCore_two_le_oTwoFitting (X : Type*) [Group X] : CFSG.pCore 2 X ≤ oTwoFitting X :=
-  fun x hx => by
-    rw [oTwoFitting, Subgroup.mem_comap, QuotientGroup.mk'_apply,
-      (QuotientGroup.eq_one_iff x).mpr hx]
-    exact Subgroup.one_mem _
 
 theorem pCore_two_le_oTwoP (p : ℕ) (X : Type*) [Group X] : CFSG.pCore 2 X ≤ oTwoP p X :=
   fun x hx => by
@@ -117,11 +109,6 @@ theorem pCore_two_le_oTwoP (p : ℕ) (X : Type*) [Group X] : CFSG.pCore 2 X ≤ 
       (QuotientGroup.eq_one_iff x).mpr hx]
     exact Subgroup.one_mem _
 
-theorem oddCore_le_oOddTwo (X : Type*) [Group X] : CFSG.oddCore X ≤ oOddTwo X :=
-  fun x hx => by
-    rw [oOddTwo, Subgroup.mem_comap, QuotientGroup.mk'_apply,
-      (QuotientGroup.eq_one_iff x).mpr hx]
-    exact Subgroup.one_mem _
 
 structure Ctx434 (G : Type) [Group G] [Finite G] (A M Q : Subgroup G) : Prop where
   sectionFourHyp : SectionFourHyp G

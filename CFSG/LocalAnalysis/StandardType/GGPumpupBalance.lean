@@ -168,9 +168,6 @@ theorem ggPumpupInput_of_lBalance (hL : GGLBalanceInput) : GGPumpupInput := by
   · right
     exact ⟨A, hAW', hxA, hKeq.trans (GGPumpup.orbitJoinLT_eq_iSup_map_conj hp.pos hxp)⟩
 
-theorem ggPumpupInput_of_catalogueSchreier (hS : CatalogueRelativeB.CatalogueSchreier) :
-    GGPumpupInput :=
-  ggPumpupInput_of_lBalance (ggLBalanceInput_of_catalogueSchreier hS)
 
 end Main
 

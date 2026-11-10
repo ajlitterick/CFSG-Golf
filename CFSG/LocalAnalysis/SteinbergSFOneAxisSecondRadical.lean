@@ -687,27 +687,6 @@ theorem orbit_eq [Finite G] [Finite K] (h : SecondHyp L K n φ t) :
     rw [qgPoint_zero, coord_qgT, zero_add] at h1
     rw [inv_inv, h1]
 
-theorem mul_eq [Finite G] [Finite K] (h : SecondHyp L K n φ t) :
-    (𝐃 : Set G) * ((𝐂 ⊓ 𝐍 : Subgroup G) : Set G) = 𝐍 := by
-  ext m
-  simp only [Set.mem_mul, SetLike.mem_coe]
-  constructor
-  · rintro ⟨d, hd, c, hc, rfl⟩
-    exact mul_mem (D_le_N hd) hc.2
-  · intro hm
-    have hx : m * t * m⁻¹ ∈ {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁} :=
-      ⟨⟨m⁻¹, by group⟩, (mem_normalizer_iff.mp hm t).mp t_mem_B⟩
-    obtain ⟨u, hu⟩ := h.mem_fus_iff.mp hx
-    obtain ⟨d, hd, hdu⟩ := h.exists_D_transl u
-    have hdt : d * t * d⁻¹ = m * t * m⁻¹ := by
-      have h1 := hdu 0
-      rw [qgPoint_zero, coord_qgT, zero_add] at h1
-      rw [h1, hu]
-    refine ⟨d, hd, d⁻¹ * m, mem_inf.mpr ⟨?_, mul_mem (inv_mem (D_le_N hd)) hm⟩, by group⟩
-    rw [mem_centralizer_singleton_iff]
-    calc d⁻¹ * m * t = d⁻¹ * (m * t * m⁻¹) * m := by group
-      _ = d⁻¹ * (d * t * d⁻¹) * m := by rw [hdt]
-      _ = t * (d⁻¹ * m) := by group
 
 theorem inf_eq [Finite G] [Finite K] (h : SecondHyp L K n φ t) : 𝐃 ⊓ (𝐂 ⊓ 𝐍) = 𝐁 := by
   apply le_antisymm
@@ -888,43 +867,6 @@ theorem exists_mulEquiv [Finite G] [Finite K] (h : SecondHyp L K n φ t) :
     · rw [map_pow, map_one]
       exact hsq _
 
-theorem transitive_D [Finite G] [Finite K] (h : SecondHyp L K n φ t) :
-    ∀ x ∈ {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁},
-      ∀ y ∈ {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁}, ∃ d ∈ 𝐃, d⁻¹ * x * d = y := by
-  intro x hx y hy
-  obtain ⟨v, rfl⟩ := h.mem_fus_iff.mp hx
-  obtain ⟨w, rfl⟩ := h.mem_fus_iff.mp hy
-  obtain ⟨m, hm, hmv⟩ := h.exists_D_transl (v + w)
-  refine ⟨m⁻¹, inv_mem hm, ?_⟩
-  rw [inv_inv, hmv, ← add_assoc, vec_add_self, zero_add]
-
-theorem free_D [Finite G] [Finite K] (h : SecondHyp L K n φ t) :
-    ∀ x ∈ {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁}, ∀ d d' : 𝐃,
-      (d : G)⁻¹ * x * d = (d' : G)⁻¹ * x * d' → (d : ↥𝐃 ⧸ 𝐁.subgroupOf 𝐃) = d' := by
-  intro x hx d d' hdd'
-  obtain ⟨v, rfl⟩ := h.mem_fus_iff.mp hx
-  have hk : (d' : G) * (d : G)⁻¹ ∈ 𝐃 := mul_mem d'.2 (inv_mem d.2)
-  have hkx : ((d' : G) * (d : G)⁻¹)⁻¹ * coord φ t (qgPoint v) * ((d' : G) * (d : G)⁻¹) =
-      coord φ t (qgPoint v) := by
-    calc ((d' : G) * (d : G)⁻¹)⁻¹ * coord φ t (qgPoint v) * ((d' : G) * (d : G)⁻¹)
-        = d * ((d' : G)⁻¹ * coord φ t (qgPoint v) * d') * (d : G)⁻¹ := by group
-      _ = d * ((d : G)⁻¹ * coord φ t (qgPoint v) * d) * (d : G)⁻¹ := by rw [hdd']
-      _ = coord φ t (qgPoint v) := by group
-  obtain ⟨u, -, hu⟩ := h.conj_t_eq hk
-  have hu0 : u = 0 := by
-    have h1 := hu v
-    rw [hkx] at h1
-    have h2 := qgPoint_injective (coord_injective φ h.two.t_mul_t h.comm h.two.t_not_mem h1)
-    have h3 : v + u = v + 0 := by rw [add_zero]; exact h2.symm
-    exact add_left_cancel h3
-  have hkB : ((d' : G) * (d : G)⁻¹)⁻¹ ∈ 𝐁 := h.mem_B_of_fix (inv_mem (D_le_N hk)) fun w => by
-    rw [inv_inv, hu w, hu0, add_zero]
-  have hkB' : (d' : G) * (d : G)⁻¹ ∈ 𝐁 := by simpa using inv_mem hkB
-  have h1 := (mem_normalizer_iff''.mp (D_le_N d.2) _).mp hkB'
-  rw [QuotientGroup.eq, mem_subgroupOf]
-  simp only [coe_mul, coe_inv]
-  convert h1 using 1
-  group
 
 end SecondHyp
 
@@ -934,75 +876,5 @@ open Subgroup GomiFusion RootAxisTwoCore OneAxisRadical OneAxisSecond
 open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.RankThree.PartOne.KCRootAxis
 open scoped Pointwise
 
-theorem standard_symplectic_four_one_axis_second_radical_two_core
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) (φ : L ≃* antiSp K)
-    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) :
-    let C := centralizer ({(t : G)} : Set G)
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    let U₁ := ((rootU K Axis.one).comap φ.toMonoidHom).map L.subtype
-    let U₂ := ((rootU K Axis.two).comap φ.toMonoidHom).map L.subtype
-    let A₂ := ((rootA K Axis.two).comap φ.toMonoidHom).map L.subtype
-    let B₂ := zpowers (t : G) ⊔ A₂
-    let N₂ := normalizer (B₂ : Set G)
-    let D₂ := (CFSG.pCore 2 N₂).map N₂.subtype
-    let Ω := {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ B₂}
-    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ u ∈ U₁, x = t * u} →
-      centralizer (B₂ : Set G) = B₂ ∧
-      (A₂ ≤ N₂ ∧ (A₂.subgroupOf N₂).Normal) ∧ (U₂ ≤ N₂ ∧ (U₂.subgroupOf N₂).Normal) ∧
-      {x : G | ∃ m ∈ N₂, x = m⁻¹ * t * m} = Ω ∧
-      Ω = {x | ∃ a b : K, x = t * ((φ.symm (uElt a b 0 0) : L) : G)} ∧
-      (D₂ : Set G) * ((C ⊓ N₂ : Subgroup G) : Set G) = N₂ ∧
-      D₂ ⊓ (C ⊓ N₂) = B₂ ∧
-      ∃ _ : (B₂.subgroupOf D₂).Normal, ∃ _ : (U₂.subgroupOf A₂).Normal,
-      ∃ e : (↥D₂ ⧸ B₂.subgroupOf D₂) ≃* (↥A₂ ⧸ U₂.subgroupOf A₂),
-        (∀ d : D₂, ∃ a : A₂, (a : G) = (t : G)⁻¹ * ((d : G)⁻¹ * t * d) ∧ e d = a) ∧
-        (∀ h ∈ C ⊓ N₂, ∀ d : D₂, ∀ a : A₂, e d = a → ∃ d' : D₂, ∃ a' : A₂,
-          (d' : G) = h⁻¹ * d * h ∧ (a' : G) = h⁻¹ * a * h ∧ e d' = a') ∧
-        Nat.card (↥D₂ ⧸ B₂.subgroupOf D₂) = (2 ^ n) ^ 2 ∧
-        IsElementaryAbelian 2 (↥D₂ ⧸ B₂.subgroupOf D₂) ∧
-        (∀ x ∈ Ω, ∀ y ∈ Ω, ∃ d ∈ D₂, d⁻¹ * x * d = y) ∧
-        ∀ x ∈ Ω, ∀ d d' : D₂, (d : G)⁻¹ * x * d = (d' : G)⁻¹ * x * d' →
-          (d : ↥D₂ ⧸ B₂.subgroupOf D₂) = d' := by
-  intro C TG PG Q U₁ U₂ A₂ B₂ N₂ D₂ Ω hone
-  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
-  have hT' := hS.T_eq_zpowers hO hLn
-  have hS2 : TwoCoreSetup L K n (t : G) :=
-    { two_le := hn
-      card_K := hK
-      t_mul_t := hS.t_mul_t
-      L_le := hS.L_le
-      cent_le := hS.cent_le
-      cent_inf := hS.cent_inf.trans hT'
-      not_conj := hS.conj_not_mem_L hO hLn }
-  have hPG : PG = pull φ (antiUnipotent K) := by
-    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
-    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
-  have hQ : Q = pull φ (antiUnipotent K) ⊔ TG := by
-    show PG ⊔ TG = _
-    rw [hPG]
-  have hH : Hyp L K n φ TG t := ⟨hS, hS2, hT', by rw [← hQ]; exact hone⟩
-  have hNQ := hH.normalizer_Q_le
-  have hNC := (hS.orbits hO hLn).2.2.2.2
-  have hmove : ∃ g ∈ N₂, g * t ≠ t * g := by
-    obtain ⟨m, hm, hmC⟩ := Set.not_subset.mp hNC
-    exact ⟨m, (hNQ hm).2, fun hmt => hmC (mem_centralizer_singleton_iff.mpr hmt)⟩
-  have h2 : SecondHyp L K n φ (t : G) := ⟨hS2, hH.fus_two.1, hmove⟩
-  obtain ⟨hBD, hUA, e, he1, he2, he3, he4⟩ := h2.exists_mulEquiv
-  have hAN : A₂ ≤ N₂ := le_sup_right.trans SecondHyp.B_le_N
-  have hUN : U₂ ≤ N₂ := (pull_mono φ rootU₂_le_radA2).trans hAN
-  refine ⟨centralizer_B_eq φ hS2, ⟨hAN, ⟨fun x hx g => mem_subgroupOf.mpr
-    (h2.conj_mem_A g.2 (mem_subgroupOf.mp hx))⟩⟩, ⟨hUN, ⟨fun x hx g => mem_subgroupOf.mpr
-    (h2.conj_mem_U g.2 (mem_subgroupOf.mp hx))⟩⟩, h2.orbit_eq, hH.fus_two.1, h2.mul_eq,
-    h2.inf_eq, hBD, hUA, e, he1, he2, he3.trans (by rw [hK]), he4, h2.transitive_D,
-    h2.free_D⟩
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

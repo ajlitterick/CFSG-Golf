@@ -18,10 +18,6 @@ theorem irreducible_isClassFunction {G : Type*} [Group G] {character : G → ℂ
   rcases hcharacter with ⟨space, hAdd, hModule, hFinite, representation, hIrr, rfl⟩
   exact representation.char_conj
 
-theorem block_subset_irreducibles (m : Ideal BlocksAlgInt) (G : Type*) [Group G]
-    {block : Set (G → ℂ)} (hblock : BlocksIsBlock m G block) : block ⊆ BlocksIrr G := by
-  rcases hblock with ⟨character, hcharacter, rfl⟩
-  exact fun _ hmember => hmember.1
 
 theorem block_nonempty (m : Ideal BlocksAlgInt) (G : Type*) [Group G]
     {block : Set (G → ℂ)} (hblock : BlocksIsBlock m G block) : block.Nonempty := by
@@ -86,8 +82,5 @@ theorem irreducibles_finite (G : Type*) [Group G] [Finite G] : (BlocksIrr G).Fin
   have hFinite := (irreducibles_linearIndependent G).finite_of_isNoetherian
   exact Set.toFinite (BlocksIrr G)
 
-theorem block_finite (m : Ideal BlocksAlgInt) (G : Type*) [Group G] [Finite G]
-    {block : Set (G → ℂ)} (hblock : BlocksIsBlock m G block) : block.Finite :=
-  (irreducibles_finite G).subset (block_subset_irreducibles m G hblock)
 
 end CFSG.BlockSectionOrthogonality.Helpers

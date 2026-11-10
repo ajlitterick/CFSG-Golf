@@ -64,17 +64,5 @@ theorem no_solvable_normal_of_proper_outer {G : Type*} [Group G] [Finite G]
   exact hnotQuasisimple (OddQuotientLocalRecognition.local_twoComponent_quasisimple_of_odd_image_of_proper_outer
     oddNormal hodd element horder component hcentralizes hlocalTwo hnotBad hlocal houter).2
 
-theorem no_solvable_normal {G : Type*} [Group G] [Finite G]
-    (hsmaller : ∀ (subgroup : Subgroup G) (_ : subgroup.Normal),
-      Nat.card (G ⧸ subgroup) < Nat.card G → CentralTwoBInclusion.Property (G ⧸ subgroup))
-    (hproper : ∀ subgroup : Subgroup G, subgroup ≠ ⊤ → CentralTwoBInclusion.Property subgroup)
-    (hfailure : ¬ CentralTwoBInclusion.Property G)
-    [Group.IsSolvable (componentClassificationOddCore G)]
-    (houter : ∀ component : Subgroup (G ⧸ componentClassificationOddCore G),
-      IsComponentOf component ⊤ →
-        Group.IsSolvable (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component))) :
-    SolvableRadical.Free G :=
-  no_solvable_normal_of_proper_outer hsmaller hproper hfailure
-    (fun component hcomponent _ => houter component hcomponent)
 
 end CFSG.ComponentClassification.MinimalBRadical

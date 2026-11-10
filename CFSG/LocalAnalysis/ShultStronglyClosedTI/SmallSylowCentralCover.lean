@@ -8,17 +8,6 @@ open scoped commutatorElement IsMulCommutative
 
 namespace CFSG.ShultStronglyClosedTI
 
-theorem central_kernel_sylow_unique {E J : Type*} [Group E] [Finite E] [Group J]
-    {p : ℕ} [Fact p.Prime] (f : E →* J)
-    (hcentral : f.ker ≤ Subgroup.center E) (C D : Sylow p f.ker) :
-    C = D := by
-  have hcomm : IsMulCommutative f.ker := by
-    exact ⟨⟨fun a b => Subtype.ext ((Subgroup.mem_center_iff.mp
-      (hcentral a.property) b.val).symm)⟩⟩
-  let : IsMulCommutative f.ker := hcomm
-  let : Unique (Sylow p f.ker) :=
-    Sylow.unique_of_normal C (Subgroup.normal_of_isMulCommutative _)
-  exact Subsingleton.elim _ _
 
 theorem central_kernel_sylow_restriction {E J : Type*} [Group E] [Finite E] [Group J]
     {p : ℕ} [Fact p.Prime] (f : E →* J)

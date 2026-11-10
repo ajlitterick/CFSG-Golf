@@ -329,25 +329,6 @@ theorem frame_two_of_three_le (hNR : LangPlaneKillsRoot Tag.F4) (hT : E6TwistedT
     intro hF
     exact hnotX₀ (normalizer_le_of_map_conj _ _ (fixE6 K) hkF hF)
 
-@[expose] def E6FrameAtTwo : Prop :=
-  ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 →
-    ∀ E₃ : Subgroup (adjointGroup .F4 K), (∀ x ∈ E₃, x ^ 3 = 1) → Nat.card E₃ = 3 ^ 2 →
-      ¬ NormalizesRNative .F4 K E₃ →
-      ∃ e ∈ E₃, e ≠ 1 ∧ ∃ X : Subgroup (adjointGroup .E6 K),
-        X ≤ Subgroup.centralizer ({embE6F4 K e} : Set (adjointGroup .E6 K)) ∧
-        (∀ H : Subgroup (adjointGroup .E6 K), X ≤ H →
-          ¬ H ≤ Subgroup.normalizer (X : Set (adjointGroup .E6 K)) → H = ⊤) ∧
-        ¬ (fixE6 K ≤ Subgroup.normalizer (X : Set (adjointGroup .E6 K)))
-
-theorem twistedFrameTwo_of (hNR : LangPlaneKillsRoot Tag.F4) (hT : E6TwistedTransport)
-    (hC : E6FrameCentral) (hTwo : E6FrameAtTwo) :
-    TwistedFrameTwo := by
-  unfold TwistedFrameTwo
-  intro K _ _ hK E₃ hexp hcard hnF
-  by_cases h2 : Nat.card K = 2
-  · exact hTwo K h2 E₃ hexp hcard hnF
-  · have h1 : 1 < Nat.card K := Finite.one_lt_card
-    exact frame_two_of_three_le hNR hT hC K hK (by omega) E₃ hexp hcard hnF
 
 end CFSG.LieType.SeitzGeneration.ExcHighThree
 

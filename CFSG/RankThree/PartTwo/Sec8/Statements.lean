@@ -31,23 +31,12 @@ open CFSG.Assembly.RankThreeEven (projSL projSU projSp)
       Nonempty (X ≃* projSU 3 2 (3 * n)) ∨
       Sec4.IsSLThreePiAt X (2 ^ (3 * n)))
 
-@[expose] def Item82 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G),
-    Hyp81 G A c L a →
-      (Nat.card A = 27 ∧ IsList82One (L ⧸ aschbacherSolvableCore 3 L)) ∨
-        (Nat.card A = 81 ∧ IsList82Two (L ⧸ aschbacherSolvableCore 3 L))
 
 @[expose] def Item82One :
     Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G),
     Hyp81 G A c L a → Nat.card A = 27 → IsList82One (L ⧸ aschbacherSolvableCore 3 L)
 
-theorem item82One_of_item82
-    (h82 : Item82) : Item82One := by
-  intro G _ _ A c L a h h27
-  rcases h82 G A c L a h with ⟨-, h1⟩ | ⟨h81, -⟩
-  · exact h1
-  · exact absurd (h27.symm.trans h81) (by norm_num)
 
 @[expose] def Item812 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G),

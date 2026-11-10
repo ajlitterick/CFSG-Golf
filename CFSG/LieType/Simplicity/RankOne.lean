@@ -65,16 +65,5 @@ theorem le_center_of_inf_eq_bot {B U C : Subgroup Γ} [hC : C.Normal] (hCB : C �
   have hg : g ∈ Subgroup.centralizer (C : Set Γ) := hle ▸ Subgroup.mem_top g
   exact (Subgroup.mem_centralizer_iff.1 hg c hc).symm
 
-theorem isSimpleGroup_quotient_center_of_rankOne [Nontrivial Γ] {B U : Subgroup Γ} {n : Γ}
-    (hbruhat : ∀ g, g ∈ B ∨ ∃ b₁ ∈ B, ∃ b₂ ∈ B, g = b₁ * n * b₂) (hperf : Group.IsPerfect Γ)
-    (hB : Group.IsSolvable B) (hUB : ∀ b ∈ B, ∀ u ∈ U, b * u * b⁻¹ ∈ U)
-    (hCU : B.normalCore ⊓ U = ⊥) (hgen : Subgroup.normalClosure (U : Set Γ) = ⊤) :
-    IsSimpleGroup (Γ ⧸ Subgroup.center Γ) := by
-  have hcore : B.normalCore ≤ Subgroup.center Γ :=
-    le_center_of_inf_eq_bot (Subgroup.normalCore_le B) hUB hCU hgen
-  refine isSimpleGroup_quotient_center_of_forall hperf fun M hM => ?_
-  rcases le_normalCore_or_eq_top_of_rankOne hbruhat hperf hB M with h | h
-  · exact .inl (h.trans hcore)
-  · exact .inr h
 
 end CFSG.LieType.Simplicity

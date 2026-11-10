@@ -57,28 +57,6 @@ namespace CFSG.KC.BM
         (Nat.land (Nat.shiftRight b (nat_lit 16)) (dyMask (nat_lit 128))))))
     (Nat.land b (nat_lit 65535))
 
-@[expose] noncomputable def dyElim32 (m : Nat) (Bs : List (List Nat)) (k v : Nat) : Nat :=
-  List.rec (motive := fun _ => Nat → Nat → Nat → Nat)
-    (fun v out _ => Bool.rec (motive := fun _ => Nat) dyFail out (Nat.beq v (nat_lit 0)))
-    (fun blk _ ih v out j =>
-      List.rec (motive := fun _ => Nat → Nat → Nat → Nat) (fun v out j => ih v out j)
-        (fun b _ ih2 v out j =>
-          Bool.rec (motive := fun _ => Nat)
-            ((fun x => Bool.rec (motive := fun _ => Nat)
-                ((fun p => Bool.rec (motive := fun _ => Nat) dyFail
-                    ((fun q => forceB (Nat.shiftRight (Nat.add v (Nat.mul (Nat.sub m q) b)) (nat_lit 32))
-                        (fun v' => forceB (Nat.lor out (Nat.shiftLeft (Nat.land q (nat_lit 1)) j))
-                          (fun out' => ih2 v' out' (Nat.succ j))))
-                      (Nat.div x p))
-                    (Nat.beq (Nat.land x (Nat.sub p (nat_lit 1))) (nat_lit 0)))
-                  (Nat.land b (nat_lit 4294967295)))
-                (forceB (Nat.shiftRight v (nat_lit 32)) (fun v' => ih2 v' out (Nat.succ j)))
-                (Nat.beq x (nat_lit 0)))
-              (Nat.mod (Nat.land v (nat_lit 4294967295)) m))
-            (ih2 v out (Nat.succ j))
-            (Nat.blt j k))
-        blk v out j)
-    Bs v (nat_lit 0) (nat_lit 0)
 
 @[expose] noncomputable def labels0 (N : Nat) : Nat :=
   Nat.div (Nat.add (nat_lit 65536) (Nat.mul (Nat.shiftLeft (nat_lit 1) (Nat.mul (nat_lit 16) N))

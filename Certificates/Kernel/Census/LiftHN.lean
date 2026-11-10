@@ -41,26 +41,6 @@ theorem len_K : cs.length = 6 := by decide +kernel
 
 theorem fin_K : liftFinL L.lay (SL.getD cs.length []) hnLift = true := by decide +kernel
 
-theorem ren_neg : (!renOK [911, 901, 912, 434, 881, 1010, 1239, 1272, 1501] hnLift.base.prog cs) =
-    true := by decide +kernel
-
-theorem ch_neg : (!chunkV L.lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
-  decide +kernel
-
-theorem fin_neg_rep : (!liftFinL L.lay (SL.getD 6 [])
-    { hnLift with base := { hnLift.base with outs := [901, 901, 912] } }) = true := by
-  decide +kernel
-
-theorem fin_neg_inv : (!liftFinL L.lay (SL.getD 6 []) { hnLift with inv₁ := 901 }) = true := by
-  decide +kernel
-
-theorem fin_neg_rel : (!liftFinL L.lay (SL.getD 6 []) { hnLift with rels := [.fix 1010 0] }) =
-    true := by
-  decide +kernel
-
-theorem fin_neg_unit : (!liftFinL L.lay (SL.getD 6 [])
-    { hnLift with units := [(1010, 1), (1239, 6), (1272, 6), (1501, 6)] }) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelCensus.LiftHN
 

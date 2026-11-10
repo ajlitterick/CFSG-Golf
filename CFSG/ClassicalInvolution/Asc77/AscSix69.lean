@@ -23,8 +23,6 @@ theorem conjSub_inf (A B : Subgroup G) (g : G) :
   ext x
   simp only [mem_conjSub_iff, Subgroup.mem_inf]
 
-theorem conjSub_eq_of_le_of_mem {A : Subgroup G} {g : G} (hg : g ∈ A) : conjSub g A = A :=
-  conjSub_eq_self_of_mem hg
 
 theorem exists_invariant_mem_USet [Finite G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
     {K T P : Subgroup G} (hK : K ∈ Ω) (hT : IsSylow2In T K) (hP : IsPGroup 2 P) (hTP : T ≤ P)
@@ -234,19 +232,5 @@ theorem l6_9_of_l6_6ii (h : L6_6ii p f) : L6_9 p f := by
 theorem l6_9 (h : L6_6 p f) : L6_9 p f :=
   l6_9_of_l6_6ii p f (l6_6ii_of_l6_6 p f h)
 
-@[expose] def L6_9AEmpty : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod p f Ω →
-      (∀ K ∈ Ω, AEmpty Ω K) →
-      ∀ S : Sylow 2 G,
-        (∃ η ∈ etaSet Ω (S : Subgroup G), ∀ s ∈ (S : Subgroup G), ∀ U ∈ η, conjSub s U ∈ η) ∧
-        ∀ η ∈ etaSet Ω (S : Subgroup G), (∀ s ∈ (S : Subgroup G), ∀ U ∈ η, conjSub s U ∈ η) →
-          (∀ x ∈ ⨆ U ∈ η, U, ∀ y ∈ ⨆ U ∈ η, U, x * y = y * x) ∧
-            {U | U ∈ USet Ω ∧ U ≤ ⨆ V ∈ η, V} = η
-
-theorem l6_9AEmpty (h : L6_6iiAEmpty p f) : L6_9AEmpty p f := by
-  intro hp hq G _ _ Ω hΩ hA S
-  exact ⟨exists_invariant_mem_etaSet hp hq hΩ S,
-    fun η hη hinv => eta_abelian_of_cyc66 hp hq hΩ (h hp hq G Ω hΩ hA) hη hinv⟩
 
 end CFSG.ClassicalInvolution.Asc77

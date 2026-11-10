@@ -8,12 +8,6 @@ namespace CFSG.Quasithin.H13.QTESylow
 
 open CFSG.QuasithinUnique.Setup.X1
 
-@[expose] def threeCheck (ROm : List (Array Nat)) (N : Nat) (Aa Ab par gen : Array Nat)
-    (reps : List Nat) : Bool :=
-  reps.all fun x => x == 0 ||
-    (let G := ROm ++ [omegaOf N Aa Ab par gen x x]
-     let V := bfsVis N G 0
-     blkSize N V % 3 == 0 && decide (ClosedOK N G 0 V))
 
 @[inline, expose] def b64Val (c : UInt8) : Nat :=
   if c.toNat = 43 then 62 else if c.toNat = 47 then 63
@@ -54,19 +48,5 @@ structure DecSt where
 @[expose] def invArr (n : Nat) (t : Array Nat) : Array Nat :=
   (List.range n).foldl (fun acc i => acc.set! (t.getD i 0) i) (Array.replicate n 0)
 
-@[expose] def orbLoop (ROm : List (Array Nat)) (N r : Nat) :
-    Nat → Array Nat → List Nat → Array Nat
-  | 0, rep, _ => rep
-  | _ + 1, rep, [] => rep
-  | f + 1, rep, x :: q =>
-    let st := ROm.foldl (fun (acc : Array Nat × List Nat) t =>
-      let y := arrImg t x
-      if acc.1.getD y 0 == N then (acc.1.set! y r, y :: acc.2) else acc) (rep, q)
-    orbLoop ROm N r f st.1 st.2
-
-@[expose] def orbitReps (ROm : List (Array Nat)) (N : Nat) : Array Nat :=
-  (List.range N).foldl (fun rep i =>
-    if rep.getD i 0 == N then orbLoop ROm N i (N + 1) (rep.set! i i) [i] else rep)
-    (Array.replicate N N)
 
 end CFSG.Quasithin.H13.QTESylow

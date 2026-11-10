@@ -26,10 +26,6 @@ theorem rankThree46Sporadic :
 section Item46
 
 
-theorem rank3II_4_6_of_cover (h41 : Item4_1) (hmult : TripleCoverInputs)
-    (hsl : CoverSLThree46) (hcen : CoverCenterThree) : Item4_6 :=
-  rank3II_4_6_of_open_narrow h41 hmult hsl hcen rankThree46Sporadic
-
 end Item46
 
 end CFSG.RankThree.PartTwo.Sec4.Census

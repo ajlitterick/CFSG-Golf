@@ -621,59 +621,6 @@ theorem mem_rootSpan_annRoots_of_commute {τ : Tag} (hτ : τ = .D4 ∨ τ = .E6
   rcases ((simply_laced_root_commutator_unit.{0} τ hτ hγ hδr hne hne').1 hadd).1 with h | h <;>
     rw [h] <;> simp
 
-theorem commConst_cast_ne_zero_annih {τ : Tag} {γ δ : Fin τ.rank → ℤ} (hγ : IsRoot τ γ)
-    (hδ : IsRoot τ δ) (hne : γ ≠ δ) (hne' : γ ≠ -δ) (hr : IsRoot τ (γ + δ)) (h2 : (2 : K) ≠ 0)
-    (h3 : (3 : K) ≠ 0) : (commConst τ γ δ (1, 1) : K) ≠ 0 := by
-  obtain ⟨-, hmem, -, hC, -⟩ := root_commutator_formula.{0} τ hγ hδ hne hne'
-  obtain ⟨hl, hu⟩ := hC (1, 1) ((hmem (1, 1)).2 ⟨one_pos, one_pos, by simpa using hr⟩)
-  have hcases : commConst τ γ δ (1, 1) = 1 ∨ commConst τ γ δ (1, 1) = -1 ∨
-      commConst τ γ δ (1, 1) = 2 ∨ commConst τ γ δ (1, 1) = -2 ∨
-      commConst τ γ δ (1, 1) = 3 ∨ commConst τ γ δ (1, 1) = -3 := by
-    rcases abs_cases (commConst τ γ δ (1, 1)) with ⟨h, -⟩ | ⟨h, -⟩ <;> omega
-  rcases hcases with h | h | h | h | h | h <;> rw [h] <;> simp [h2, h3]
-
-theorem mem_rootSpan_annRoots_of_commute_of_two_three {τ : Tag} (h2 : (2 : K) ≠ 0)
-    (h3 : (3 : K) ≠ 0) {S : Set (Fin τ.rank → ℤ)} (hS : ∀ δ ∈ S, IsRoot τ δ ∧ 0 < height δ)
-    {z : ModGL τ K} (hz : z ∈ posUnipotent τ K)
-    (hc : ∀ δ ∈ S, z * pinnedX τ K δ 1 = pinnedX τ K δ 1 * z) :
-    z ∈ rootSpan τ K (annRoots τ S) := by
-  refine mem_rootSpan_of_commute_of_lead hS (fun γ hγ δ hδ c =>
-    pinnedX_commute_of_mem_annRoots hγ (hS δ hδ).1 (hS δ hδ).2 hδ c 1) (fun γ hγ hγp hA => ?_)
-    hz hc
-  obtain ⟨δ, hδS, hδ⟩ : ∃ δ ∈ S, ∃ a b : ℕ, 1 ≤ a ∧ 1 ≤ b ∧ IsRoot τ (a • γ + b • δ) := by
-    by_contra hcon
-    exact hA ⟨hγ, hγp, fun δ hδ a b ha hb hr => hcon ⟨δ, hδ, a, b, ha, hb, hr⟩⟩
-  obtain ⟨a, b, ha, hb, hr⟩ := hδ
-  obtain ⟨hδr, hδp⟩ := hS δ hδS
-  obtain ⟨hne, hadd⟩ := ne_and_isRoot_add_of_isRoot_nsmul_add_nsmul hγ hδr hγp hδp ha hb hr
-  have hne' : γ ≠ -δ := by
-    rintro rfl
-    have : height (-δ) = -height δ := by simp [height]
-    linarith
-  exact ⟨δ, hδS, hne, hadd, commConst_cast_ne_zero_annih hγ hδr hne hne' hadd h2 h3⟩
-
-theorem sq_eq_one_of_commute_of_annRoots_pairwise [CharP K 2] {τ : Tag}
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {S : Set (Fin τ.rank → ℤ)}
-    (hS : ∀ δ ∈ S, IsRoot τ δ ∧ 0 < height δ)
-    (hpair : ∀ γ ∈ annRoots τ S, ∀ γ' ∈ annRoots τ S, ∀ a b : ℕ, 1 ≤ a → 1 ≤ b →
-      ¬ IsRoot τ (a • γ + b • γ'))
-    {z : ModGL τ K} (hz : z ∈ posUnipotent τ K)
-    (hc : ∀ δ ∈ S, z * pinnedX τ K δ 1 = pinnedX τ K δ 1 * z) :
-    z ^ 2 = 1 :=
-  sq_eq_one_of_mem_rootSpan_annih (fun γ hγ γ' hγ' c d =>
-    pinnedX_commute_of_forall_not_isRoot_annih hγ.1 hγ'.1 hγ.2.1 hγ'.2.1 (hpair γ hγ γ' hγ') c d)
-    (mem_rootSpan_annRoots_of_commute hτ hS hz hc)
-
-theorem sq_eq_one_of_commute_of_annRoots_add [CharP K 2] {τ : Tag}
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {S : Set (Fin τ.rank → ℤ)}
-    (hS : ∀ δ ∈ S, IsRoot τ δ ∧ 0 < height δ)
-    (hpair : ∀ γ ∈ annRoots τ S, ∀ γ' ∈ annRoots τ S, ¬ IsRoot τ (γ + γ'))
-    {z : ModGL τ K} (hz : z ∈ posUnipotent τ K)
-    (hc : ∀ δ ∈ S, z * pinnedX τ K δ 1 = pinnedX τ K δ 1 * z) :
-    z ^ 2 = 1 :=
-  sq_eq_one_of_commute_of_annRoots_pairwise hτ hS (fun γ hγ γ' hγ' _ _ ha hb hr => hpair γ hγ γ'
-    hγ' (ne_and_isRoot_add_of_isRoot_nsmul_add_nsmul hγ.1 hγ'.1 hγ.2.1 hγ'.2.1 ha hb hr).2)
-    hz hc
 
 theorem mem_rootSpan_of_commute_of_annListCheck {τ : Tag}
     (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {S L : List (Fin τ.rank → ℤ)}
@@ -711,16 +658,10 @@ theorem sq_eq_one_of_commute_heightSeries_of_annListCheck [CharP K 2] {τ : Tag}
 
 end Main
 
-theorem annListCheck_E6_simple :
-    annListCheck .E6 11 (List.ofFn fun i => Pi.single i 1) [![1, 2, 2, 3, 2, 1]] = true := by
-  decide +kernel
 
 theorem annListCheck_E7_simple :
     annListCheck .E7 17 (List.ofFn fun i => Pi.single i 1) [![2, 2, 3, 4, 3, 2, 1]] = true := by
   decide +kernel
 
-theorem annListCheck_E8_simple :
-    annListCheck .E8 29 (List.ofFn fun i => Pi.single i 1) [![2, 3, 4, 6, 5, 4, 3, 2]] = true := by
-  decide +kernel
 
 end CFSG.SeitzReduction

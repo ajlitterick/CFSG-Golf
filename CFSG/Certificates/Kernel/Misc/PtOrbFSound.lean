@@ -135,14 +135,6 @@ theorem closedF_spec {f : Nat → Nat → Nat} {k n S : Nat} (h : closedF f k n 
   rw [← e, h1] at h3
   exact h3
 
-theorem bitsIs_spec {S n : Nat} {t : Nat → Bool} (h : bitsIs S n t = true) :
-    ∀ y < n, S.testBit y = t y := by
-  intro y hy
-  unfold bitsIs at h
-  rw [strictB_eq', allF_iff] at h
-  have h1 := h y hy
-  rw [bitP_eq] at h1
-  cases e1 : S.testBit y <;> cases e2 : t y <;> simp_all
 
 theorem popF_succ (s n : Nat) : popF s (n + 1) = popF s n + if bitP s n then 1 else 0 := by
   change Nat.add (popF s n) (Bool.rec (motive := fun _ => Nat) 0 1 (bitP s n)) = _
@@ -156,10 +148,6 @@ theorem card_bits (S n : Nat) : Nat.card {y : Fin n | S.testBit y = true} = popF
   | zero => rfl
   | succ n ih => rw [Finset.sum_range_succ, ih, popF_succ, bitP_eq]
 
-theorem popIs_spec {S n c : Nat} (h : popIs S n c = true) : popF S n = c := by
-  unfold popIs at h
-  rw [strictB_eq', Nat.beq_eq] at h
-  exact h
 
 variable {n : Nat}
 
@@ -221,31 +209,6 @@ theorem card_orbit {k : Nat} {f : Nat → Nat → Nat} {G : Subgroup (Equiv.Perm
     Set.ext fun y => mem_orbit_iff hG hf hx hc y
   rw [e, card_bits]
 
-theorem arrGen_gens {w k : Nat} {O : Array (Array Nat)} {Q QI : Nat → Nat} (hO : O.size = k)
-    (hQ : ∀ j < k, O[j]! = unpack n w (Q j))
-    (hp : ∀ j < k, permOK n w (mask w) (n * w) (Q j) (QI j) = true) :
-    CFSG.Sporadic.HNOddCore.arrGen n O = Subgroup.closure
-        {h | ∃ j < k, CFSG.Monster.B.Co2.permOfArr n O[j]! = h} ∧
-      ∀ j < k, ∀ x : Fin n, pg w (mask w) (Q j) x = CFSG.Monster.B.Co2.permOfArr n O[j]! x := by
-  refine ⟨by rw [CFSG.Sporadic.HNOddCore.arrGen, hO], fun j hj x => ?_⟩
-  have hr := (CFSG.Monster.B.Co2.rep_permOfArr (Orb.isInvA_unpack (hp j hj))).1 x
-  rw [hQ j hj, ← hr, Orb.unpack_get x.2]
-
-theorem mem_orbit_arrGen_iff {w k : Nat} {O : Array (Array Nat)} {Q QI : Nat → Nat}
-    (hO : O.size = k) (hQ : ∀ j < k, O[j]! = unpack n w (Q j))
-    (hp : ∀ j < k, permOK n w (mask w) (n * w) (Q j) (QI j) = true) {r x : Nat} (hx : x < n)
-    (hc : orbClosed (fun j => pg w (mask w) (Q j)) k n r x = true) (y : Fin n) :
-    y ∈ MulAction.orbit (CFSG.Sporadic.HNOddCore.arrGen n O) (⟨x, hx⟩ : Fin n) ↔
-      (closeF (fun j => pg w (mask w) (Q j)) k n r (Nat.shiftLeft 1 x)).testBit y = true :=
-  mem_orbit_iff (arrGen_gens hO hQ hp).1 (arrGen_gens hO hQ hp).2 hx hc y
-
-theorem card_orbit_arrGen {w k : Nat} {O : Array (Array Nat)} {Q QI : Nat → Nat}
-    (hO : O.size = k) (hQ : ∀ j < k, O[j]! = unpack n w (Q j))
-    (hp : ∀ j < k, permOK n w (mask w) (n * w) (Q j) (QI j) = true) {r x : Nat} (hx : x < n)
-    (hc : orbClosed (fun j => pg w (mask w) (Q j)) k n r x = true) :
-    Nat.card (MulAction.orbit (CFSG.Sporadic.HNOddCore.arrGen n O) (⟨x, hx⟩ : Fin n)) =
-      popF (closeF (fun j => pg w (mask w) (Q j)) k n r (Nat.shiftLeft 1 x)) n :=
-  card_orbit (arrGen_gens hO hQ hp).1 (arrGen_gens hO hQ hp).2 hx hc
 
 end CFSG.KC.PtOrb
 

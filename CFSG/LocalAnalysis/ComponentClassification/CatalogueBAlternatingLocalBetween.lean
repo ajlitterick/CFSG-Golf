@@ -38,20 +38,6 @@ theorem normalizerSubtypeHom_injective {Ω : Type*} (K : Subgroup (Equiv.Perm Ω
   exact congrArg (fun x : Subgroup.normalizer (P.map K.subtype : Set (Equiv.Perm Ω)) =>
     x.val) heq
 
-theorem normalizerSubtypeHom_range {Ω : Type*} (K : Subgroup (Equiv.Perm Ω))
-    (P : Subgroup K) :
-    (normalizerSubtypeHom K P).range = K.subgroupOf
-      (Subgroup.normalizer (P.map K.subtype : Set (Equiv.Perm Ω))) := by
-  ext g
-  constructor
-  · rintro ⟨h, rfl⟩
-    exact h.val.property
-  · intro hg
-    let k : K := ⟨g.val, hg⟩
-    have hk : k ∈ Subgroup.normalizer (P : Set K) := by
-      rw [← normalizerSubtype_comap K P]
-      exact g.property
-    exact ⟨⟨k, hk⟩, Subtype.ext rfl⟩
 
 @[expose] def normalizerSubtypeEquiv {Ω : Type*} (K : Subgroup (Equiv.Perm Ω))
     (P : Subgroup K) :
@@ -65,9 +51,6 @@ theorem normalizerSubtypeHom_range {Ω : Type*} (K : Subgroup (Equiv.Perm Ω))
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem normalizerSubtypeEquiv_coe {Ω : Type*} (K : Subgroup (Equiv.Perm Ω))
-    (P : Subgroup K) (g : Subgroup.normalizer (P : Set K)) :
-    (normalizerSubtypeEquiv K P g).val = normalizerSubtypeHom K P g := rfl
 
 theorem fixedPoints_subtype_map {Ω : Type*} (K : Subgroup (Equiv.Perm Ω))
     (P : Subgroup K) :

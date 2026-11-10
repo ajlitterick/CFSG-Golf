@@ -18,11 +18,6 @@ variable {K : Type u} [Field K] {d : ℕ}
     (Fin d → K) ≃ₛₗ[g.right.toRingHom] (Fin d → K) :=
   { coordinateSemilinearMap g, coordinateSemilinearLinearMap g with }
 
-theorem coordinateSemilinearEquiv_apply (g : coordinateSemilinearGroup d K)
-    (v : Fin d → K) : coordinateSemilinearEquiv g v = coordinateSemilinearMap g v := rfl
-
-theorem coordinateSemilinearEquiv_toLinearMap (g : coordinateSemilinearGroup d K) :
-    (coordinateSemilinearEquiv g).toLinearMap = coordinateSemilinearLinearMap g := rfl
 
 theorem coordinateSemilinearEquiv_symm_apply (g : coordinateSemilinearGroup d K)
     (v : Fin d → K) :

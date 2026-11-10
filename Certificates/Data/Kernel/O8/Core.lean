@@ -28,10 +28,6 @@ open CFSG.KLie.CT CFSG.KC.Loop CFSG.KC.F4M
 @[expose] noncomputable def bvecK (A v : Nat) : Nat :=
   orN (nat_lit 6) fun i => Nat.shiftLeft (par6 (Nat.land (frow A i) v)) i
 
-@[expose] noncomputable def btraceK (M : Nat) : Nat :=
-  xorN (nat_lit 6) fun i => bitN (frow M i) i
-
-@[expose] noncomputable def antiK (Z A : Nat) : Nat := Nat.xor (bmulK Z A) (bmulK A Z)
 
 @[expose] noncomputable def ent4 (A i j : Nat) : Nat := ent A i j
 

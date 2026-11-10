@@ -34,7 +34,6 @@ namespace CFSG.KC
   Bool.rec (nat_lit 0) (Nat.lor (fx R) (Nat.shiftLeft (Nat.shiftRight st (nat_lit 28)) (nat_lit 20)))
     (Nat.beq (Nat.land st (nat_lit 268435455)) (fyic R))
 
-@[expose] noncomputable def fWalk (INV nC R E st : Nat) : Bool := andB (recOK INV nC R) (Nat.beq st E)
 
 @[expose] noncomputable def fTree (INV nC L R k : Nat) : Bool :=
   andB (recOK INV nC R) (andB (Nat.beq (fy R) k) (andB (Nat.blt (fx R) k) (Nat.blt (fc R) L)))

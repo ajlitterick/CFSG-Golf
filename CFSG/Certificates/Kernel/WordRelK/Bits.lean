@@ -129,7 +129,6 @@ private theorem idx_spec (ℓ : XLetter) : ∀ L : List XLetter,
     · simp only [cond_true, List.getD_cons_zero]
       exact (letterEq_sound he).symm
 
-theorem tLetters_length : tLetters.length = 9 := rfl
 
 theorem tLetters_getD_tIdx {ℓ : XLetter} (h : tIdx ℓ < 9) : tLetters.getD (tIdx ℓ) (.lift 0) = ℓ :=
   idx_spec ℓ tLetters h

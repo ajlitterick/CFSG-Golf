@@ -28,33 +28,5 @@ theorem hom_to_pGroup_image_on_sylow
   obtain ⟨q, hq, heq⟩ := Subgroup.mem_map.mp hn
   exact ⟨q, hq, congrArg Subtype.val heq⟩
 
-theorem dihedral_extremal_normalizer_step_replacement
-    {G : Type u} [Group G] [Finite G]
-    (S : Sylow 2 G) {m : ℕ} (hm : 1 ≤ m)
-    (e : S ≃* DihedralGroup (2 ^ m))
-    (U : Subgroup G) (hUext : HuppertExtremal S U)
-    (hU : ¬ IsKleinFour U) (h : G)
-    (hh : h ∈ Subgroup.normalizer (U : Set G)) :
-    ∃ s : G, s ∈ (S : Subgroup G) ∧
-      s ∈ Subgroup.normalizer (U : Set G) ∧
-      ∀ x ∈ U, s⁻¹ * x * s = h⁻¹ * x * h := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨Q, hQ⟩ := hUext.exists_sylow_normalizer
-  let N := Subgroup.normalizer (U : Set G)
-  have hAut : IsPGroup 2 (MulAut U) :=
-    dihedral_subgroup_automorphism_isTwoGroup S hm e U hUext.1 hU
-  obtain ⟨q, hq, hqeq⟩ := hom_to_pGroup_image_on_sylow hAut
-    U.normalizerMonoidHom Q (⟨h, hh⟩ : N)
-  have hqS : (q : G) ∈ (S : Subgroup G) := by
-    have hmem : (q : G) ∈ (Q : Subgroup N).map N.subtype :=
-      Subgroup.mem_map.mpr ⟨q, hq, rfl⟩
-    rw [hQ] at hmem
-    exact hmem.1
-  refine ⟨q, hqS, q.property, ?_⟩
-  intro x hx
-  have heq := DFunLike.congr_fun
-    (congrArg MulEquiv.symm hqeq) (⟨x, hx⟩ : U)
-  have hval := congrArg Subtype.val heq
-  simpa only [Subgroup.normalizerMonoidHom_apply_symm_apply_coe] using hval
 
 end CFSG.GorensteinWalter

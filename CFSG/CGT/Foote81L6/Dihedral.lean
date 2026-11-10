@@ -188,12 +188,6 @@ theorem comm_sr_r_eq {a : ℕ} :
   congr 1
   ring
 
-theorem comm_sr_r_ne_one {a : ℕ} (ha : 2 ≤ a) :
-    (sr 0 : DihedralGroup (2 ^ a))⁻¹ * (r 1)⁻¹ * sr 0 * r 1 ≠ 1 := by
-  rw [comm_sr_r_eq, one_def]
-  intro h
-  rw [DihedralGroup.r.injEq] at h
-  exact two_ne_zero_zmod ha h
 
 theorem comm_sr_r_pow {a : ℕ} (ha : 2 ≤ a) :
     ((sr 0 : DihedralGroup (2 ^ a))⁻¹ * (r 1)⁻¹ * sr 0 * r 1) ^ (2 ^ (a - 2)) = zc a := by

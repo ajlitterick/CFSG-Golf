@@ -73,9 +73,6 @@ theorem fixed_nonsquare_retained [Finite F] (A : Subgroup (F ≃+* F))
     simp [SpecialLinearGroup.map_apply_coe]
   map_mul' := (SpecialLinearGroup.map sigma.toRingHom).map_mul
 
-theorem slFieldEquiv_apply (sigma : F ≃+* F) (X : SL F) :
-    (slFieldEquiv F sigma X : Matrix (Fin 2) (Fin 2) F) =
-      sigma.toRingHom.mapMatrix (X : Matrix (Fin 2) (Fin 2) F) := rfl
 
 theorem slFieldEquiv_mul (sigma tau : F ≃+* F) :
     slFieldEquiv F (sigma * tau) = slFieldEquiv F sigma * slFieldEquiv F tau := by
@@ -282,8 +279,6 @@ theorem layerLift_injective {H : Type v} [Group H] (N : Subgroup H) (eta : N ≃
 @[expose] def involutionFactor {H : Type v} [Group H] (t : H) (ht : t ^ 2 = 1) : C2 →* H :=
   QuaternionAutomorphismLifting.coordinatePowerHom 2 t ht
 
-theorem involutionFactor_apply {H : Type v} [Group H] (t : H) (ht : t ^ 2 = 1) (e : C2) :
-    involutionFactor t ht e = t ^ exponent e := rfl
 
 @[expose] def pairLift {H : Type v} [Group H]
     (N : Subgroup H) (eta : N ≃* SL F) (a : Fˣ) (t : H) (ht : t ^ 2 = 1)
@@ -477,19 +472,6 @@ theorem pairLift_range [Finite F] {H : Type v} [Group H]
         obtain ⟨x, hx⟩ := hm
         exact ⟨x, Subtype.ext hx⟩)
 
-theorem pairEquiv_coe [Finite F] {H : Type v} [Group H]
-    (hF : CFSG.GorensteinWalter.IsOddPrimePower (Nat.card F))
-    (A : Subgroup (F ≃+* F)) (pi : H →* OddFieldLift.Gamma F A)
-    (eta : OddFieldLift.Lambda F A pi ≃* SL F) (a : Fˣ) (ha : ¬IsSquare a)
-    (t : H) (ht : t ^ 2 = 1) (hout : t ∉ OddFieldLift.Lambda F A pi)
-    (hconj : ∀ X : SL F, layerLift F (OddFieldLift.Lambda F A pi) eta (beta F a X) =
-      t * layerLift F (OddFieldLift.Lambda F A pi) eta X * t⁻¹)
-    (heta : ∀ x : OddFieldLift.Lambda F A pi, OddFieldLift.slCoordinateAction F (eta x) =
-      OddFieldLift.coordinateProjection F A pi x)
-    (himage : OddFieldLift.coordinateProjection F A pi t =
-      (jProjective F a : Equiv.Perm (Omega F))) (x : M F a) :
-    (pairEquiv F hF A pi eta a ha t ht hout hconj heta himage x : H) =
-      (eta.symm x.left : H) * t ^ exponent x.right := rfl
 
 @[expose] def originalFieldLift [Finite F] {H : Type v} [Group H]
     (A : Subgroup (F ≃+* F)) (pi : H →* OddFieldLift.Gamma F A)
@@ -599,23 +581,6 @@ theorem pairLift_field_conjugation [Finite F] {H : Type v} [Group H]
         (OddFieldLift.coordinateProjection F A pi) heta _ sigma
         (OddFieldLift.eSigma_projective F A pi hpi z hz hzc hker hd sigma)
         (hcentral (OddFieldLift.eSigma F A pi hpi z hz hzc hker hd sigma)) x)
-
-theorem Phi_formula [Finite F] {H : Type v} [Group H]
-    (p : ℕ) [CharP F p] (hp : Odd p)
-    (A : Subgroup (F ≃+* F)) (pi : H →* OddFieldLift.Gamma F A)
-    (hpi : Function.Surjective pi) (z : H) (hz : orderOf z = 2)
-    (hzc : z ∈ Subgroup.center H) (hker : pi.ker = Subgroup.zpowers z)
-    (hd : Odd (Nat.card A)) (eta : OddFieldLift.Lambda F A pi ≃* SL F)
-    (heta : ∀ x : OddFieldLift.Lambda F A pi, OddFieldLift.slCoordinateAction F (eta x) =
-      OddFieldLift.coordinateProjection F A pi x)
-    (a : (FixedField F A)ˣ) (t : H) (ht : t ^ 2 = 1)
-    (hconj : ∀ X : SL F, layerLift F (OddFieldLift.Lambda F A pi) eta
-      (beta F (fixedUnit F A a) X) = t * layerLift F (OddFieldLift.Lambda F A pi) eta X * t⁻¹)
-    (hcentral : ∀ e : OddFieldLift.E F A pi z hzc hker, Commute (e : H) t)
-    (x : MatrixFieldModel F A a) :
-    Phi F p hp A pi hpi z hz hzc hker hd eta heta a t ht hconj hcentral x =
-      (eta.symm x.left.left : H) * t ^ exponent x.left.right *
-        (OddFieldLift.eSigma F A pi hpi z hz hzc hker hd x.right : H) := rfl
 
 
 section FullMap

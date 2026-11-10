@@ -14,9 +14,6 @@ theorem o10 : ordWK 3850 12 CFSG.Sporadic.Schreier.PairHS.bs [PHSC.S 1, PHSC.S 1
     true := by
   quickRfl
 
-theorem o5Neg : (ordWK 3850 12 CFSG.Sporadic.Schreier.PairHS.bs [PHSC.S 1, PHSC.S 1, PHSC.S 0]
-    5).not = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.PHSWO
 

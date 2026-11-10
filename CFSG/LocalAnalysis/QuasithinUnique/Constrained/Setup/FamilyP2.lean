@@ -27,21 +27,6 @@ theorem p2_card {p : ℕ} [hpf : Fact p.Prime] (hp2 : p ≠ 2) :
   rw [Nat.card_congr (p2Equiv (ZMod p)).toEquiv,
     GorensteinWalter.psl2_card_formula (ZMod p) (isOddPrimePower_prime hp hp2), Nat.card_zmod]
 
-theorem inverting_pair_transport {G G' : Type*} [Group G] [Group G'] (e : G ≃* G')
-    {C : Subgroup G} {w : G} (hC : IsCyclic C) (hw : w ∉ C) (hw2 : w * w = 1)
-    (hinv : ∀ c ∈ C, w * c * w⁻¹ = c⁻¹) :
-    ∃ (C' : Subgroup G') (w' : G'), IsCyclic C' ∧ Nat.card C' = Nat.card C ∧ w' ∉ C' ∧
-      w' * w' = 1 ∧ ∀ c ∈ C', w' * c * w'⁻¹ = c⁻¹ := by
-  have hequiv : C ≃* C.map e.toMonoidHom := Subgroup.equivMapOfInjective C e.toMonoidHom e.injective
-  refine ⟨C.map e.toMonoidHom, e w, ?_, ?_, ?_, ?_, ?_⟩
-  · exact isCyclic_of_surjective hequiv.toMonoidHom hequiv.surjective
-  · exact (Nat.card_congr hequiv.toEquiv).symm
-  · rintro ⟨c, hc, hce⟩
-    exact hw (by rw [← e.injective hce]; exact hc)
-  · rw [← map_mul, hw2, map_one]
-  · rintro _ ⟨c, hc, rfl⟩
-    show e w * e c * (e w)⁻¹ = (e c)⁻¹
-    rw [← map_mul, ← map_inv, ← map_mul, hinv c hc, map_inv]
 
 theorem two_dvd_sub_one_of_odd {p : ℕ} (hp : Odd p) : 2 ∣ p - 1 :=
   (Nat.Odd.sub_odd hp odd_one).two_dvd
@@ -52,27 +37,6 @@ theorem two_dvd_sq_sub_one_of_odd {p : ℕ} (hp : Odd p) : 2 ∣ p ^ 2 - 1 :=
 theorem gcd_sub_one_two_of_odd' {p : ℕ} (hp : Odd p) : Nat.gcd (p - 1) 2 = 2 :=
   Nat.gcd_eq_right (two_dvd_sub_one_of_odd hp)
 
-theorem p2_split_torus_data {p : ℕ} [hpf : Fact p.Prime] (hp2 : p ≠ 2) :
-    Nat.card (projectiveSL 2 (ZMod p)) = p * (p ^ 2 - 1) / 2 ∧
-    (∃ U : Subgroup (projectiveSL 2 (ZMod p)), IsCyclic U ∧ Nat.card U = p) ∧
-    ∃ (C : Subgroup (projectiveSL 2 (ZMod p))) (w : projectiveSL 2 (ZMod p)),
-      IsCyclic C ∧ Nat.card C = (p - 1) / 2 ∧ w ∉ C ∧ w * w = 1 ∧
-        ∀ c ∈ C, w * c * w⁻¹ = c⁻¹ := by
-  have hp : p.Prime := hpf.out
-  have hodd : Odd p := hp.odd_of_ne_two hp2
-  refine ⟨p2_card hp2, ?_, ?_⟩
-  · have hdvd : p ∣ Nat.card (projectiveSL 2 (ZMod p)) := by
-      rw [p2_card hp2, Nat.mul_div_assoc _ (two_dvd_sq_sub_one_of_odd hodd)]
-      exact Dvd.intro _ rfl
-    obtain ⟨g, hg⟩ := exists_prime_orderOf_dvd_card' p hdvd
-    exact ⟨Subgroup.zpowers g, inferInstance, by rw [Nat.card_zpowers, hg]⟩
-  · obtain ⟨U, w, hUc, hUcard, -, hwU, hw2, hinv, -, -⟩ :=
-      BenderSuzuki.External.huppert_II_8_3_split_torus_reflection_data (F := ZMod p) (p := p)
-        (f := 1) (by rw [Nat.card_zmod, pow_one])
-    obtain ⟨C, w', hC, hCcard, hw', hw2', hinv'⟩ :=
-      inverting_pair_transport (p2Equiv (ZMod p)).symm hUc hwU hw2 hinv
-    refine ⟨C, w', hC, ?_, hw', hw2', hinv'⟩
-    rw [hCcard, hUcard, Nat.card_zmod, gcd_sub_one_two_of_odd' hodd]
 
 theorem dihedral_two_reflections_generate (n : ℕ) [NeZero n] :
     Subgroup.closure ({DihedralGroup.sr 0, DihedralGroup.sr 1} : Set (DihedralGroup n)) = ⊤ := by
@@ -255,19 +219,6 @@ theorem p2_involution_structure {p : ℕ} [hpf : Fact p.Prime] (hp5 : 5 ≤ p) :
     rw [← h2]
     exact h1
 
-
-theorem p2_nonsplit_torus_data {p : ℕ} [hpf : Fact p.Prime] (hp2 : p ≠ 2) :
-    ∃ (C : Subgroup (projectiveSL 2 (ZMod p))) (w : projectiveSL 2 (ZMod p)),
-      IsCyclic C ∧ Nat.card C = (p + 1) / 2 ∧ w ∉ C ∧ w * w = 1 ∧
-        ∀ c ∈ C, w * c * w⁻¹ = c⁻¹ := by
-  have hodd : Odd p := hpf.out.odd_of_ne_two hp2
-  obtain ⟨S, hS, hScard, -, ⟨w, -, hwS, hw2, hinv, -, -⟩, -⟩ :=
-    Glauberman.Dickson.h84_nonsplit_torus_data (F := ZMod p) (p := p) (f := 1)
-      (by rw [Nat.card_zmod, pow_one])
-  obtain ⟨C, w', hC, hCcard, hw', hw2', hinv'⟩ :=
-    inverting_pair_transport (p2Equiv (ZMod p)).symm hS hwS hw2 hinv
-  refine ⟨C, w', hC, ?_, hw', hw2', hinv'⟩
-  rw [hCcard, hScard, Nat.card_zmod, gcd_sub_one_two_of_odd' hodd]
 
 theorem p2_central_kernel_bound {s : ℕ} [hsf : Fact s.Prime] (hs5 : 5 ≤ s) {E : Type*} [Group E]
     [Finite E] [Group.IsPerfect E] (f : E →* projectiveSL 2 (ZMod s))

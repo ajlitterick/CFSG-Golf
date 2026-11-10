@@ -25,9 +25,6 @@ theorem ne_bot_of_mem_E2 (h : Counterexample p A θ) {B : Subgroup G}
   rw [Subgroup.card_bot] at h1
   exact absurd h1.symm (Nat.one_lt_pow (by norm_num) h.prime.one_lt).ne'
 
-theorem isElemAbelian_of_mem_E2 (h : Counterexample p A θ) {B : Subgroup G}
-    (hB : B ∈ signalizerFunctorEk p 2 A) : IsElemAbelian p B :=
-  h.isElemAbelian_of_le hB.1
 
 end Counterexample
 

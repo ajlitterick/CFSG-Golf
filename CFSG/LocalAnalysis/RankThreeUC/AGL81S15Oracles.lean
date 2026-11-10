@@ -120,13 +120,6 @@ structure L34Config {G : Type} [Group G] [Finite G] (M A T R H' : Subgroup G) : 
             ∃ S : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 2 S H ∧ S ≤ M ∧
               Subgroup.normalizer (S : Set G) ⊓ H ≤ M
 
-@[expose] def K89S : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X →
-    ∀ N L : Subgroup X, CFSG.RankThree.PartOne.IsStronglyPEmbedded 3 N →
-      CFSG.Open.pRank 3 N ≤ 1 → L ≤ N → CFSG.IsPComponent 3 (L.subgroupOf N) →
-      IsLThreeTwoPow (↥L ⧸ CFSG.pPrimeCore 3 ↥L) →
-      ∃ S : Subgroup X, CFSG.ABGLocalTools.IsSylowOf 2 S ⊤ ∧ S ≤ N ∧
-        Subgroup.normalizer (S : Set X) ≤ N
 
 @[expose] def O812six : Prop :=
   ∀ (G : Type) [Group G] [Finite G], Standing G → rankThreeUC G →

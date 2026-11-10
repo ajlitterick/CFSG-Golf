@@ -64,13 +64,6 @@ theorem inClassU_three_iff : InClassU (.sl2 3 1) Λ ↔ Q3.InClass3 Λ := by
   · obtain ⟨z, hz⟩ := h.classical L hL
     exact ⟨z, IsClassicalMemberU.ofQ3 hz⟩
 
-theorem inClassU_twoA7_iff : InClassU .twoA7 Λ ↔ Hat2A7.InClass2A7 Λ := by
-  refine ⟨fun h => ⟨h.nonempty, h.conjInvariant, h.generated, fun L hL => ?_⟩,
-    fun h => ⟨h.nonempty, h.conjInvariant, h.generated, fun L hL => ?_⟩⟩
-  · obtain ⟨z, hz⟩ := h.classical L hL
-    exact ⟨z, hz.to2A7⟩
-  · obtain ⟨z, hz⟩ := h.classical L hL
-    exact ⟨z, IsClassicalMemberU.of2A7 hz⟩
 
 end Facades
 
@@ -98,7 +91,6 @@ theorem lieSystemModU_sl2_of_eq_three {p f : ℕ} [Fact p.Prime] (h3 : p ^ f = 3
   simp only [LieSystemModU, h3, ite_true]
   exact ⟨fun ⟨_, h⟩ => h, fun h => ⟨inferInstance, h⟩⟩
 
-theorem lieSystemModU_twoA7 : LieSystemModU .twoA7 Λ ↔ Hat2A7.A7SystemMod Λ := Iff.rfl
 
 end Conclusion
 
@@ -108,27 +100,11 @@ section Induction
   ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y < n →
     ∀ Λ : Set (Subgroup Y), InClassU t Λ → LieSystemModU t Λ
 
-@[expose] def CITInductiveT (t : MemberType) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (Λ : Set (Subgroup Y)), InClassU t Λ → LieSystemModU t Λ
-
-@[expose] def CITStepT (t : MemberType) (n : ℕ) : Prop :=
-  CITBelowT t n → ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y = n →
-    ∀ Λ : Set (Subgroup Y), InClassU t Λ → LieSystemModU t Λ
 
 theorem CITBelowT.mono {t : MemberType} {m n : ℕ} (h : m ≤ n) (hn : CITBelowT t n) :
     CITBelowT t m :=
   fun Y _ _ hY Λ hΛ => hn Y (lt_of_lt_of_le hY h) Λ hΛ
 
-theorem citInductiveT_of_step {t : MemberType} (h : ∀ n, CITStepT t n) : CITInductiveT t := by
-  have key : ∀ n, ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y = n →
-      ∀ Λ : Set (Subgroup Y), InClassU t Λ → LieSystemModU t Λ := by
-    intro n
-    induction n using Nat.strong_induction_on with
-    | _ n ih =>
-      intro Y _ _ hY Λ hΛ
-      exact h n (fun Y' _ _ hlt Λ' hΛ' => ih _ hlt Y' rfl Λ' hΛ') Y hY Λ hΛ
-  intro Y _ _ Λ hΛ
-  exact key _ Y rfl Λ hΛ
 
 theorem citBelowT_iff_citBelowU {p f : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
     (n : ℕ) : CITBelowT (.sl2 p f) n ↔ CITBelowU p f n := by
@@ -144,10 +120,6 @@ theorem citBelowT_three_iff {p f : ℕ} [Fact p.Prime] (h3 : p ^ f = 3) (n : ℕ
   · exact (lieSystemModU_sl2_of_eq_three h3).mp (h Y hY Λ (inClassU_three_iff.mpr hΛ))
   · exact (lieSystemModU_sl2_of_eq_three h3).mpr (h Y hY Λ (inClassU_three_iff.mp hΛ))
 
-theorem citBelowT_twoA7_iff (n : ℕ) : CITBelowT .twoA7 n ↔ Hat2A7.CITBelow2A7 n := by
-  refine ⟨fun h Y _ _ hY Λ hΛ => ?_, fun h Y _ _ hY Λ hΛ => ?_⟩
-  · exact (h Y hY Λ (inClassU_twoA7_iff.mpr hΛ))
-  · exact (h Y hY Λ (inClassU_twoA7_iff.mp hΛ))
 
 @[expose] def CITBelowAllT (p : ℕ) (n : ℕ) : Prop :=
   ∀ e : ℕ, 3 ≤ p ^ e → CITBelowT (.sl2 p e) n

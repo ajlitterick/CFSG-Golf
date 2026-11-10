@@ -114,13 +114,6 @@ theorem twA5X_ne_one : twA5X h ≠ 1 := by
     exact h6c
   exact pow_six_twA5Lambda_ne_one h h6
 
-theorem twA5X_pow_three : (twA5X h) ^ 3 = 1 := by
-  change ((unitaryProj h 6) (twA5Hom h (twA5XParam (F := F)))) ^ 3 = 1
-  rw [← map_pow]
-  have hmem : (twA5Hom h (twA5XParam (F := F))) ^ 3 ∈ (unitaryProj h 6).ker := by
-    rw [ker_unitaryProj]
-    exact twA5Hom_pow_three_mem h (twA5XParam (F := F))
-  exact MonoidHom.mem_ker.mp hmem
 
 theorem isQuasisimple_blockSU_five :
     CFSG.IsQuasisimple ↥(blockSU h suFiveIndex) := by

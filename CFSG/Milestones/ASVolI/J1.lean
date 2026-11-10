@@ -29,9 +29,6 @@ variable {G : Type} [Group G]
 @[expose] def IsSylowIn (p : ℕ) (B X : Subgroup G) : Prop :=
   B ≤ X ∧ IsPGroup p B ∧ ¬ p ∣ (B.subgroupOf X).index
 
-@[expose] def involutionsOf (X : Subgroup G) : Set G := {i | i ∈ X ∧ i ^ 2 = 1 ∧ i ≠ 1}
-
-@[expose] def conjClass (z : G) : Set G := {x | ∃ g : G, x = g⁻¹ * z * g}
 
 @[expose] def ZRu (T : Subgroup G) : Subgroup G := centerOf T
 
@@ -43,34 +40,11 @@ variable {G : Type} [Group G]
 
 @[expose] def SRu (L : Subgroup G) : Subgroup G := pCoreOf 2 L
 
-@[expose] def KRu (T : Subgroup G) : Subgroup G := twoResidual (HRu T)
-
-@[expose] def L1Ru (L T : Subgroup G) : Subgroup G :=
-  twoResidual (Subgroup.centralizer (ZRu T : Set G) ⊓ L)
-
-@[expose] def R1Ru (L T : Subgroup G) : Subgroup G := pCoreOf 2 (L1Ru L T)
-
-@[expose] def HCRu (V T : Subgroup G) : Subgroup G :=
-  HRu T ⊓ Subgroup.centralizer (URu V T : Set G)
-
-@[expose] def LsRu (s : G) : Subgroup G := twoResidual (Subgroup.centralizer ({s} : Set G))
-
-@[expose] def LBRu (B : Subgroup G) : Subgroup G :=
-  (CFSG.perfectResidual ↥(Subgroup.centralizer (B : Set G))).map
-    (Subgroup.centralizer (B : Set G)).subtype
-
-@[expose] def IsSuzukiTwoGroup (X : Type) [Group X] : Prop :=
-  IsPGroup 2 X ∧
-    (∃ C : Subgroup (MulAut X), IsCyclic C ∧
-      ∀ i j : X, i ^ 2 = 1 → i ≠ 1 → j ^ 2 = 1 → j ≠ 1 → ∃ c ∈ C, c i = j)
 
 @[expose] def IsSigmaL24Map (g : (Fin 2 → F4) ≃ₗ[ZMod 2] (Fin 2 → F4)) : Prop :=
   ∃ (A : Matrix.SpecialLinearGroup (Fin 2) F4) (i : ℕ), ∀ x : Fin 2 → F4,
     g x = (A : Matrix (Fin 2) (Fin 2) F4).mulVec (fun j => (frobenius F4 2)^[i] (x j))
 
-@[expose] def InducesOuterAutomorphisms (X B : Subgroup G) : Prop :=
-  X ≤ Subgroup.normalizer (B : Set G) ∧
-    ∀ b ∈ X, b ≠ 1 → ∀ l ∈ B, ∃ x ∈ B, b⁻¹ * x * b ≠ l⁻¹ * x * l
 
 end Ru
 

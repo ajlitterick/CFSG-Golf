@@ -39,28 +39,6 @@ theorem pieceCore_eq_map_of_compl [Finite G] (P : GraphFieldNeighbourParam e t X
     pieceCore e I = ((blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear N)).map P.Φ :=
   P.pieceCore_eq_map hIN hI2 (hN.trans (card_compl_le_card_compl_of_subset hIN)) hXI
 
-theorem pieceCore_index_eq_range [Finite G] (P : GraphFieldNeighbourParam e t X N)
-    (hN : 2 ≤ N.card) (hXN : X ≤ modelToG e (unitaryBlockTorus h N)) :
-    pieceCore e N = centralizerPerfectCore X := by
-  rw [pieceCore_eq_range_of_conjTorus e (commutator_blockSpecialLinear_eq_of_unitaryFieldData h hN)
-    hXN P.Φ P.ker_le P.range_eq (TorusEquivariant.mono e (Finset.empty_subset N) P.N2),
-    P.range_eq]
-
-theorem nonempty_mulEquiv_pieceCore [Finite G] (P : GraphFieldNeighbourParam e t X N)
-    {I : Finset (Fin n)} (hIN : I ⊆ N) (hne : I ≠ N) (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I)) :
-    Nonempty (SpecialLinearGroup (Fin I.card) K ≃* pieceCore e I) :=
-  nonempty_mulEquiv_pieceCore_of_conjTorus e hIN hne hI2 hIc hXI P.Φ P.ker_le P.range_eq
-    (TorusEquivariant.mono e (Finset.empty_subset I) P.N2)
-
-theorem map_eq_map [Finite G] {X' : Subgroup G} {N' : Finset (Fin n)}
-    (P : GraphFieldNeighbourParam e t X N) (P' : GraphFieldNeighbourParam e t X' N')
-    {I : Finset (Fin n)} (hIN : I ⊆ N) (hIN' : I ⊆ N') (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card)
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I))
-    (hXI' : X' ≤ modelToG e (unitaryBlockTorus h I)) :
-    ((blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear N)).map P.Φ =
-      ((blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear N')).map P'.Φ := by
-  rw [← P.pieceCore_eq_map hIN hI2 hIc hXI, ← P'.pieceCore_eq_map hIN' hI2 hIc hXI']
 
 theorem pieceCore_le_centralizer_of_disjoint [Finite G] (P : GraphFieldNeighbourParam e t X N)
     {I J : Finset (Fin n)} (hIN : I ⊆ N) (hJN : J ⊆ N) (hIJ : Disjoint I J) (hI2 : 2 ≤ I.card)
@@ -88,33 +66,6 @@ theorem modelToG_blockSU_le_pieceCore [Finite G] (P : GraphFieldNeighbourParam e
   rw [P.pieceCore_eq_map hIN hI2 hIc hXI]
   exact P.modelToG_blockSU_le_map hIN
 
-theorem map_eq_map_rootTorus [Finite G] {a b c d : Fin n} (hab : a ≠ b) (hcd : c ≠ d)
-    (P : GraphFieldNeighbourParam e t (modelToG e (unitaryRootTorus h hab))
-      ({a, b}ᶜ : Finset (Fin n)))
-    (P' : GraphFieldNeighbourParam e t (modelToG e (unitaryRootTorus h hcd))
-      ({c, d}ᶜ : Finset (Fin n)))
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI' : I ⊆ {c, d}ᶜ) (hI2 : 2 ≤ I.card) :
-    ((blockSpecialLinear (K := K) I).subgroupOf
-        (blockSpecialLinear ({a, b}ᶜ : Finset (Fin n)))).map P.Φ =
-      ((blockSpecialLinear (K := K) I).subgroupOf
-        (blockSpecialLinear ({c, d}ᶜ : Finset (Fin n)))).map P'.Φ := by
-  rw [← P.pieceCore_eq_map_rootTorus hab hI hI2, ← P'.pieceCore_eq_map_rootTorus hcd hI' hI2]
-
-theorem nonempty_mulEquiv_pieceCore_pair_rootTorus [Finite G] (hn : 5 ≤ n) {a b : Fin n}
-    (hab : a ≠ b)
-    (P : GraphFieldNeighbourParam e t (modelToG e (unitaryRootTorus h hab))
-      ({a, b}ᶜ : Finset (Fin n)))
-    {i j : Fin n} (hij : i ≠ j) (hI : ({i, j} : Finset (Fin n)) ⊆ {a, b}ᶜ) :
-    Nonempty (SpecialLinearGroup (Fin 2) K ≃* pieceCore e ({i, j} : Finset (Fin n))) := by
-  have hcard : ({i, j} : Finset (Fin n)).card = 2 := Finset.card_pair hij
-  have hne : ({i, j} : Finset (Fin n)) ≠ {a, b}ᶜ := by
-    intro heq
-    have := card_compl_pair hab
-    rw [← heq, hcard] at this
-    omega
-  obtain ⟨φ⟩ := P.nonempty_mulEquiv_pieceCore hI hne hcard.ge
-    (two_le_card_compl_of_subset_compl_pair hab hI) (modelToG_unitaryRootTorus_le e hab hI)
-  exact ⟨(LinearPilot.reindexSpecialLinear (finCongr hcard)).symm.trans φ⟩
 
 end GraphFieldNeighbourParam
 
@@ -256,13 +207,6 @@ theorem graphFieldNeighbourCover_rootTorus
     modelToG_unitaryRootTorus_le e hab hSab, hparam a b hab⟩
   rw [compl_compl, Finset.card_pair hab]
 
-theorem graphFieldNeighbourCover_rootTorus_of_nonempty [Finite G]
-    (htC : t ∈ centralizer (L : Set G)) {a b : Fin n} (hab : a ≠ b)
-    (hP : Nonempty (GraphFieldNeighbourParam e t (modelToG e (unitaryRootTorus h hab))
-      ({a, b}ᶜ : Finset (Fin n))))
-    {s : ℕ} (hs : s + 2 ≤ n) : GraphFieldNeighbourCover e t s :=
-  graphFieldNeighbourCover_rootTorus
-    (fun _ _ hab' => nonempty_graphFieldNeighbourParam_rootTorus_of_nonempty htC hab hP hab') hs
 
 theorem pieceCore_le_centralizer_of_graphFieldNeighbourCover [Finite G] {s : ℕ}
     (hcov : GraphFieldNeighbourCover e t s) {I J : Finset (Fin n)} (hIJ : Disjoint I J)
@@ -284,12 +228,6 @@ theorem exists_pieceCore_eq_map_of_graphFieldNeighbourCover [Finite G] {s : ℕ}
   obtain ⟨X, N, hIN, hN, hX, ⟨P⟩⟩ := hcov I hs
   exact ⟨X, N, P, hIN, hN, hX, P.pieceCore_eq_map_of_compl hIN hI hN hX⟩
 
-theorem modelToG_blockSU_le_pieceCore_of_graphFieldNeighbourCover [Finite G] {s : ℕ}
-    (hcov : GraphFieldNeighbourCover e t s) {I : Finset (Fin n)} (hI : 2 ≤ I.card)
-    (hs : I.card ≤ s) : modelToG e (blockSU h I) ≤ pieceCore e I := by
-  obtain ⟨X, N, hIN, hN, hX, ⟨P⟩⟩ := hcov I hs
-  exact P.modelToG_blockSU_le_pieceCore hIN hI
-    (hN.trans (card_compl_le_card_compl_of_subset hIN)) hX
 
 end Cover
 

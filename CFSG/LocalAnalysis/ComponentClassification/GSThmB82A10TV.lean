@@ -92,10 +92,6 @@ theorem map_D : (c.s.h.D.subgroupOf (c.s.h.secSub c.s.y)).map c.φ = D0 := by
     Subgroup.map_inf_eq _ _ _ c.ι_injective, c.map_S, c.map_J, inf_assoc, inf_eq_right.mpr h]
   rfl
 
-theorem φ_comm_sigmaTwo {g : X} (hga : g ∈ centralizer ({c.s.h.a} : Set X))
-    (hgH : g ∈ c.s.h.secSub c.s.y) : c.φ ⟨g, hgH⟩ * sigmaTwo = sigmaTwo * c.φ ⟨g, hgH⟩ := by
-  rw [← c.φ_a, ← map_mul, ← map_mul]
-  exact congrArg c.φ (Subtype.ext (mem_centralizer_singleton_iff.mp hga))
 
 private theorem φ_mul' {u₁ u₂ : X} (h₁ : u₁ ∈ c.s.h.secSub c.s.y)
     (h₂ : u₂ ∈ c.s.h.secSub c.s.y) (h : u₁ * u₂ ∈ c.s.h.secSub c.s.y) :

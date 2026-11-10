@@ -115,12 +115,6 @@ theorem ggLayerTags_E7_of_core (hcore : GGExcAdjCoreInput .E7) :
     | exact h.1
     | exact h.2
 
-theorem ggLayerInputs_of_exc_cores (hF4 : GGExcAdjCoreInput .F4) (hE7 : GGExcAdjCoreInput .E7)
-    (hE8 : GGExcAdjCoreInput .E8) (hE6 : GGLayerCentreOddTag .E6 ∧ GGLayerPerfectTag .E6)
-    (hTwE6 : GGLayerCentreOddTag .twistedE6 ∧ GGLayerPerfectTag .twistedE6) :
-    GGLayerCentreOddInput ∧ GGLayerPerfectInput :=
-  ggLayerInputs_of_remaining_five (ggLayerTags_F4_of_core hF4) hE6 (ggLayerTags_E7_of_core hE7)
-    (ggLayerTags_E8_of_core hE8) hTwE6
 
 end Tags
 

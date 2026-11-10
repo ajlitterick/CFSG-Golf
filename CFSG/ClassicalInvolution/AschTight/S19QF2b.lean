@@ -52,7 +52,5 @@ theorem conj_injective_of_simple {X : Type} [Group X] [IsSimpleGroup X]
     calc a * b = b * a * b⁻¹ * b := by rw [this]
       _ = b * a := by group
 
-variable [Finite G] {p f : ℕ} [Fact p.Prime] {K : Subgroup G} {z : G}
-  {S : Sylow 2 G} {W : Subgroup G}
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S19Q

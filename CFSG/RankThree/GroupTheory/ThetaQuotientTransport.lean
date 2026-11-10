@@ -388,29 +388,5 @@ theorem theta_quotient_component_structure {L : Subgroup G}
           Subgroup (G ⧸ aschbacherSolvableCore 3 G)) : Set (G ⧸ aschbacherSolvableCore 3 G)) :=
   theta_component_quotient_structure Nat.prime_three hL
 
-theorem theta_quotient_component_action {L : Subgroup G} (hL : L ∈ thetaComponents 3 G)
-    (U : Subgroup G) (hU : U ≤ Subgroup.normalizer (L : Set G)) :
-    ∃ (η : (L ⧸ aschbacherSolvableCore 3 L) ≃*
-        L.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G)))
-      (a : U →* MulAut (L ⧸ aschbacherSolvableCore 3 L))
-      (b : U.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G)) →*
-        MulAut (L.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G)))),
-      (∀ l : L, (η (l : L ⧸ aschbacherSolvableCore 3 L) : G ⧸ aschbacherSolvableCore 3 G) =
-        QuotientGroup.mk' (aschbacherSolvableCore 3 G) (l : G)) ∧
-      (∀ (u : U) (l l' : L), (l' : G) = u * l * (u : G)⁻¹ →
-        a u (l : L ⧸ aschbacherSolvableCore 3 L) = (l' : L ⧸ aschbacherSolvableCore 3 L)) ∧
-      (∀ (v : U.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G)))
-        (k : L.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G))),
-        (b v k : G ⧸ aschbacherSolvableCore 3 G) = v * k * (v : G ⧸ aschbacherSolvableCore 3 G)⁻¹) ∧
-      (∀ u : U, a u = 1 ↔ ((u : G) ∈ Subgroup.normalizer (L : Set G) ∧ ∀ l ∈ L,
-        ((u : G) * l * (u : G)⁻¹) • (inSubgroup (aschbacherSolvableCore 3) L : Set G) =
-          l • (inSubgroup (aschbacherSolvableCore 3) L : Set G))) ∧
-      (∀ u : U, a u = 1 ↔ QuotientGroup.mk' (aschbacherSolvableCore 3 G) u ∈
-        Subgroup.centralizer ((L.map (QuotientGroup.mk' (aschbacherSolvableCore 3 G)) :
-          Subgroup (G ⧸ aschbacherSolvableCore 3 G)) : Set (G ⧸ aschbacherSolvableCore 3 G))) ∧
-      (∀ u : U, MulAut.congr η (a u) =
-        b ⟨QuotientGroup.mk' (aschbacherSolvableCore 3 G) u, Subgroup.mem_map_of_mem _ u.2⟩) ∧
-      a.range.map (MulAut.congr η).toMonoidHom = b.range :=
-  theta_component_quotient_action Nat.prime_three hL U hU
 
 end CFSG.RankThree

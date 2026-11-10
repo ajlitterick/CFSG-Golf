@@ -77,9 +77,6 @@ theorem tdWB_smul_single_three :
   simp only [tdWB_eq, mul_smul, simple_smul]
   decide +kernel
 
-theorem sum_univ_d4 {M : Type*} [AddCommMonoid M] (f : Fin d4.rank → M) :
-    ∑ j, f j = f (nd 0) + f (nd 1) + f (nd 2) + f (nd 3) :=
-  Fin.sum_univ_four (fun j : Fin 4 => f j)
 
 theorem vec_eq_sum_single_td4 (v : Fin d4.rank → ℤ) :
     v = ∑ j, v j • (Pi.single j 1 : Fin d4.rank → ℤ) := by

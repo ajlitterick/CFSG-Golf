@@ -284,10 +284,6 @@ theorem inf_F_eq : (((X.S : Subgroup G) ⊓ X.F : Subgroup G) : Set G) =
       exact ⟨X.e_ne (by norm_num) (by norm_num), X.e_ne (by norm_num) (by norm_num)⟩),
     Set.ncard_pair (X.e_ne (by norm_num) (by norm_num))]
 
-theorem e3_mem_F : X.e 3 ∈ X.F := by
-  have : X.e 3 ∈ (((X.S : Subgroup G) ⊓ X.F : Subgroup G) : Set G) := by
-    rw [X.inf_F_eq]; simp
-  exact this.2
 
 theorem e5_mem_F : X.e 5 ∈ X.F := by
   have : X.e 5 ∈ (((X.S : Subgroup G) ⊓ X.F : Subgroup G) : Set G) := by

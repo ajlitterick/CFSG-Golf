@@ -37,18 +37,6 @@ theorem gOf_a2Idx (fA : Fin 6 → G) (fC : Fin 8 → G) : gOf fA fC ∘ a2Idx = 
   funext j
   fin_cases j <;> rfl
 
-theorem gOf_c2Idx (fA : Fin 6 → G) (fC : Fin 8 → G) (h45 : fA 4 = fC 5) (h56 : fA 5 = fC 6) :
-    gOf fA fC ∘ c2Idx = fC := by
-  funext j
-  fin_cases j
-  · rfl
-  · rfl
-  · rfl
-  · rfl
-  · rfl
-  · exact h45
-  · exact h56
-  · rfl
 
 variable [Group G]
 
@@ -70,16 +58,6 @@ theorem relsHold_commWords (g : Fin 12 → G) (h42 : g 4 * g 2 = g 2 * g 4)
   · simpa [evalW] using key _ _ h52
   · simpa [evalW] using key _ _ h53
 
-theorem relsHold_v6 (fA : Fin 6 → G) (fC : Fin 8 → G) (hA : RelsHold fA a2Words)
-    (hC : RelsHold fC c2Words) (h45 : fA 4 = fC 5) (h56 : fA 5 = fC 6)
-    (h42 : fA 0 * fC 2 = fC 2 * fA 0) (h43 : fA 0 * fC 3 = fC 3 * fA 0)
-    (h52 : fA 1 * fC 2 = fC 2 * fA 1) (h53 : fA 1 * fC 3 = fC 3 * fA 1) :
-    RelsHold (gOf fA fC) v6Words := by
-  unfold v6Words
-  rw [relsHold_append, relsHold_append]
-  refine ⟨⟨relsHold_a2Part fA fC hA, ?_⟩, ?_⟩
-  · exact relsHold_map_mapWord c2Idx _ _ (by rw [gOf_c2Idx fA fC h45 h56]; exact hC)
-  · exact relsHold_commWords _ h42 h43 h52 h53
 
 theorem relsHold_v6Glued (fA : Fin 6 → G) (fC : Fin 8 → G) (hA : RelsHold fA a2Words)
     (hC : RelsHold fC c2Words) (a b : List (Fin 12 × Bool))

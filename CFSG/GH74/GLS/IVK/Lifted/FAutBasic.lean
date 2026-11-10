@@ -60,9 +60,6 @@ theorem not_fixedCond_of_comm {Q : Type} [Group Q] (φ : MulAut Q)
     have h2 := congrArg iso h1
     simpa using h2
 
-theorem not_isFAutomorphism_of_comm {Q : Type} [Group Q] (φ : MulAut Q)
-    (hcomm : ∀ a ∈ fixedSubgroup Q φ, ∀ b ∈ fixedSubgroup Q φ, a * b = b * a) :
-    ¬ IsFAutomorphism Q φ := fun h => not_fixedCond_of_comm φ hcomm h.2.2.2.2
 
 theorem exists_pow_two_orderOf {Q : Type} [Group Q] {φ : MulAut Q} (h : φ * φ = 1) :
     ∃ k : ℕ, orderOf φ = 2 ^ k := by

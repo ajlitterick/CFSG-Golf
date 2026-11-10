@@ -14,13 +14,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 @[expose] def IsT6Tag (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (k : ℕ) : Prop :=
   (t = .PSL ∧ k = 3) ∨ (t = .PSU ∧ k = 3) ∨ (t = .G2 ∧ k = 0) ∨ (t = .trialityD4 ∧ k = 0)
 
-@[expose] def FactM0 : Prop :=
-  ∀ (p e : ℕ) [Fact p.Prime], p ≠ 2 → 5 ≤ p ^ e →
-    ∀ (E : Type) [Group E] [Finite E] [IsSimpleGroup E] (Ω : Set (Subgroup E))
-      (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (k e' : ℕ), IsT6Tag t k →
-        Nonempty (Ih8Model p e Ω t k e') →
-        ∀ φ : MulAut E, φ * φ = 1 → (∀ L ∈ Ω, L.map φ.toMonoidHom ∈ Ω) →
-          ∃ L ∈ Ω, L.map φ.toMonoidHom = L
 
 @[expose] def FactM1 : Prop :=
   ∀ (p e : ℕ) [Fact p.Prime], p ≠ 2 → 5 ≤ p ^ e →

@@ -148,19 +148,6 @@ theorem lemma37_core_of_le (h4 : Asc75Theorem4) (h32 : Lemma32) (h34 : Asc08Lemm
     exact normalizer_le_of_le_of_even hKte hK'K hK'te.1 hxN
   exact hNL ⟨hxA, hxW⟩
 
-theorem lemma37_core (h4 : Asc75Theorem4) (h32 : Lemma32) (h34 : Asc08Lemma34)
-    {A W R : Subgroup G} (hA : Hyp31 A) (hR : IsSylowOf 2 R (centralizer (A : Set G)))
-    (hWA : W ≤ A) (hL : CFSG.Open.IsQuasisimple ↥(layerCentralizer A W))
-    (hRL : IsSylowOf 2 R (centralizer (W : Set G) ⊓
-      centralizer (layerCentralizer A W : Set G) ⊓ normalizer (R : Set G))) :
-    standardComponentIsStandard ((layerCentralizer A W).subgroupOf (centralizer (W : Set G))) ∨
-      ∃ c ∈ centralizer (W : Set G),
-        conj (layerCentralizer A W) c ≤ centralizer (layerCentralizer A W : Set G) ∧
-        centralizer (W : Set G) ⊓ centralizer (layerCentralizer A W : Set G) ≤
-          normalizer (conj (layerCentralizer A W) c : Set G) ∧
-        IsSylowOf 2 (R ⊓ conj (layerCentralizer A W) c) (conj (layerCentralizer A W) c) :=
-  lemma37_core_of_le h4 h32 h34 hA hR hWA hL (layerCentralizer_le A W)
-    (normalizer_inf_le_normalizer_layerCentralizer A W) hRL
 
 end Hyp31
 

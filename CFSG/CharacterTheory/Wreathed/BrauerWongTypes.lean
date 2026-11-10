@@ -272,25 +272,6 @@ theorem typeI_of_base_sym3 (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* 
   rw [hidx] at hdvd
   exact S.not_dvd_index hdvd
 
-theorem not_typeI_of_typeII {S : Subgroup G} {n : ℕ} (hn : 1 ≤ n)
-    (hII : IsTypeII G S n) : ¬ IsTypeI G := by
-  intro hI
-  obtain ⟨G₀, hG₀, hidx, -⟩ := hII
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hcard : Nat.card (G ⧸ G₀) = 2 ^ n := by rw [← Subgroup.index_eq_card]; exact hidx
-  obtain ⟨H, hH⟩ := Sylow.exists_subgroup_card_pow_prime 2 (n := n - 1)
-    (G := G ⧸ G₀) (by rw [hcard]; exact pow_dvd_pow 2 (by omega))
-  have hHidx : H.index = 2 := by
-    have h := H.card_mul_index
-    rw [hH, hcard] at h
-    have h2 : 2 ^ n = 2 ^ (n - 1) * 2 := by
-      rw [← pow_succ]
-      congr 1
-      omega
-    exact Nat.eq_of_mul_eq_mul_left (pow_pos two_pos _) (h.trans h2)
-  refine hI ⟨H.comap (QuotientGroup.mk' G₀),
-    (Subgroup.normal_of_index_eq_two hHidx).comap _, ?_⟩
-  rw [Subgroup.index_comap_of_surjective _ (QuotientGroup.mk'_surjective G₀), hHidx]
 
 theorem typeII_subgroup_spec (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
     (G₀ : Subgroup G) [G₀.Normal] (hidx : G₀.index = 2 ^ n)
@@ -343,51 +324,5 @@ theorem typeII_subgroup_spec (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃
     exact ⟨w, QuotientGroup.lift_mk _ _ _⟩
   exact isCyclic_of_surjective ψ' hψ'
 
-theorem types_of_vSym3 (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hsix : Nonempty (Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e ≃*
-      Equiv.Perm (Fin 3))) :
-    (Nonempty (Subgroup.normalizer (modelBase S e : Set G) ⧸
-        (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-          (Subgroup.normalizer (modelBase S e : Set G)) ≃* Equiv.Perm (Fin 3)) →
-        IsTypeI G ∧ ¬ IsTypeII G (S : Subgroup G) n) ∧
-    (Nat.card (Subgroup.normalizer (modelBase S e : Set G) ⧸
-        (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-          (Subgroup.normalizer (modelBase S e : Set G))) = 2 →
-        ¬ IsTypeI G ∧ IsTypeII G (S : Subgroup G) n) := by
-  refine ⟨fun hbase => ?_, fun hcard => ?_⟩
-  · have hI := typeI_of_base_sym3 n hn S e hbase hsix
-    exact ⟨hI, fun hII => not_typeI_of_typeII (by omega) hII hI⟩
-  · have hII := typeII_of_base_order_two n hn S e hcard hsix
-    exact ⟨not_typeI_of_typeII (by omega) hII, hII⟩
-
-theorem exactly_one_type (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hsix : Nonempty (Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e ≃*
-      Equiv.Perm (Fin 3))) :
-    (IsTypeI G ∧ ¬ IsTypeII G (S : Subgroup G) n) ∨
-      (¬ IsTypeI G ∧ IsTypeII G (S : Subgroup G) n) := by
-  obtain ⟨h1, h2⟩ := types_of_vSym3 n hn S e hsix
-  rcases modelBaseNormalizerQuotient_alternatives n (by omega) S e with htwo | hsixB
-  · exact Or.inr (h2 htwo)
-  · exact Or.inl (h1 hsixB)
-
-theorem base_order_two_of_typeII (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hsix : Nonempty (Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e ≃*
-      Equiv.Perm (Fin 3))) (hII : IsTypeII G (S : Subgroup G) n) :
-    Nat.card (Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G))) = 2 := by
-  rcases modelBaseNormalizerQuotient_alternatives n (by omega) S e with htwo | hsixB
-  · exact htwo
-  · exact absurd hII ((types_of_vSym3 n hn S e hsix).1 hsixB).2
-
-theorem base_sym3_of_typeI (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hsix : Nonempty (Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e ≃*
-      Equiv.Perm (Fin 3))) (hI : IsTypeI G) :
-    Nonempty (Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G)) ≃* Equiv.Perm (Fin 3)) := by
-  rcases modelBaseNormalizerQuotient_alternatives n (by omega) S e with htwo | hsixB
-  · exact absurd hI ((types_of_vSym3 n hn S e hsix).2 htwo).1
-  · exact hsixB
 
 end CFSG.Wreathed.BrauerWong

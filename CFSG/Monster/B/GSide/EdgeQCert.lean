@@ -65,8 +65,6 @@ theorem mul_mem_N1_of_not_mem
     _ = cQ * (xhat * xhat) * (a * b) := by rw [hxa]; group
     _ = cQ * (a * b) := by rw [xhat_mul_self, mul_one]
 
-theorem mul_not_mem_N1 {a b : Dfull} (ha : a ∈ N1) (hbn : b ∉ N1) : a * b ∉ N1 := fun h =>
-  hbn (by simpa using N1.mul_mem (N1.inv_mem ha) h)
 
 theorem cw0_eq_cvOf :
     cw0 = cvOf (elS a0_mem_Ehat) := by
@@ -107,9 +105,6 @@ theorem mem_edgeQ
     {e : Dfull} (he : e ∈ Ehat) : cEdgeStab :=
   ⟨elS he, mem_cEdgeStab_of_mem_Ehat he⟩
 
-theorem coe_edgeQOf
-    {e : Dfull} (he : e ∈ Ehat) : (((edgeQOf he : cEdgeStab) : Shat) : Dfull) = e :=
-  rfl
 
 theorem edgeQOf_mem
     {e : Dfull} (he : e ∈ Ehat) : edgeQOf he ∈ edgeQ := he
@@ -141,10 +136,6 @@ theorem lamV0_mem_edgeQ :
   rw [coe_lamV0]
   exact cQ_mem_Ehat
 
-theorem edgeXhat_mem_edgeQ :
-    edgeXhat ∈ edgeQ := by
-  rw [mem_edgeQ, coe_edgeXhat]
-  exact xhat_mem_Ehat
 
 theorem edgeXhat_comm
     (b : cEdgeStab) : b * edgeXhat = edgeXhat * b := by

@@ -35,8 +35,5 @@ theorem classicalMemberParameters3_of_rest (h : ClassicalMemberParametersRest3) 
   · exact hPlus
   · exact hMinus
 
-theorem smallUpgrade3_of_rest (hfund : ClassicalIsFundamental3)
-    (h : ClassicalMemberParametersRest3) : SmallUpgrade3 :=
-  smallUpgrade3_of_model hfund (classicalMemberParameters3_of_rest h)
 
 end CFSG.ClassicalInvolution.Q3

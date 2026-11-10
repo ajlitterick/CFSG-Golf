@@ -299,9 +299,6 @@ theorem coe_layerConj (hΩ : ConjInvariant Ω) (g z : G) (y : ↥(centralizingLa
   QuotientGroup.congr _ _ (layerConj hΩ g z)
     (CFSG.ComponentClassification.OddCore.equiv_invariant _)
 
-omit [Finite G] in
-theorem locConj_mk (hΩ : ConjInvariant Ω) (g z : G) (y : ↥(centralizingLayer Ω {z})) :
-    locConj hΩ g z (QuotientGroup.mk' _ y) = QuotientGroup.mk' _ (layerConj hΩ g z y) := rfl
 
 omit [Finite G] in
 theorem locImg_conj (hΩ : ConjInvariant Ω) (g z : G) (L : Subgroup G) :

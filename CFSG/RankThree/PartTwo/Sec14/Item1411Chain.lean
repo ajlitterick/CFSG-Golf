@@ -307,26 +307,6 @@ theorem rank3II_14_16_false (h : Sec14Std G A c L)
   rw [eq_bot_iff, ← hbot]
   exact (inf_le_inf hUT₁ hUT₂).trans (inf_comm T₁ T₂).le
 
-theorem rank3II_14_11_3_of_steps {LB : Subgroup G → Subgroup G} (hA : IsE27 A)
-    (h2 : Item1411_2 A LB)
-    (hset : ∀ c : G, Subgroup.zpowers c ∈ omegaA A → ∃ L' : Subgroup G, L' ∈ lA A c)
-    (h1421 : Fail1411 A LB → ∀ c : G, Subgroup.zpowers c ∈ gammaA A LB → ∀ L' ∈ lA A c,
-      Nonempty (↥L' ⧸ LocalRank.aschbacherSolvableCore 3 ↥L' ≃*
-        CFSG.Blueprint.NativeSporadic.M22))
-    (h1422 : Fail1411 A LB → ∀ c : G, Subgroup.zpowers c ∈ gammaA A LB → ∀ L' ∈ lA A c,
-      IsEmpty (↥L' ⧸ LocalRank.aschbacherSolvableCore 3 ↥L' ≃*
-        CFSG.Blueprint.NativeSporadic.M22)) :
-    Item1411_3 A LB := by
-  intro hX
-  by_contra hno
-  have hfail : Fail1411 A LB := ⟨hX, fun Y hYΔ hY hO hres => by
-    by_contra hT
-    exact hno ⟨Y, hYΔ, hY, hO, hres, hT⟩⟩
-  obtain ⟨F, hFΓ⟩ := rank3II_14_12_nonempty hA h2 hX
-  obtain ⟨-, -, c, rfl, -⟩ := hFΓ.1
-  obtain ⟨L', hL'⟩ := hset c hFΓ.1
-  obtain ⟨e⟩ := h1421 hfail c hFΓ L' hL'
-  exact (h1422 hfail c hFΓ L' hL').false e
 
 end Steps
 

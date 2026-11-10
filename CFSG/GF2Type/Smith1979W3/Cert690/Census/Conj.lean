@@ -222,13 +222,6 @@ theorem isTypeA_conj {minus : Bool} {t g : V₀ ≃ₗ[ZMod 2] V₀} (h : IsType
     rw [hgm]
     exact hvan y hy
 
-theorem conjVec_ne_zero {b : V₀} {g : V₀ ≃ₗ[ZMod 2] V₀} (hb : b ≠ 0) : g b ≠ 0 := by
-  intro h
-  exact hb (by simpa using congrArg g.symm h)
-
-theorem conjVec_qModel {minus : Bool} {b : V₀} {g : V₀ ≃ₗ[ZMod 2] V₀}
-    (hg : g ∈ O₀ minus) : qModel minus (g b) = qModel minus b :=
-  TauCeti.QuadraticMap.mem_orthogonalGroup_iff.mp hg b
 
 theorem conj_mem_omega₀ {minus : Bool} {g x : V₀ ≃ₗ[ZMod 2] V₀}
     (hg : g ∈ O₀ minus) (hx : x ∈ Ω₀ minus) : g * x * g⁻¹ ∈ Ω₀ minus := by

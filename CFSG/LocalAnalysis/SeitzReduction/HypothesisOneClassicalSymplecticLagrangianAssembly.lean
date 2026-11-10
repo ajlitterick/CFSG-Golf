@@ -17,31 +17,6 @@ section Model
 
 variable {r : ℕ} {K : Type} [Field K]
 
-theorem involutionCriterion_spInner_of_eq_orthogonal {f : ℕ} (hr : 3 ≤ r)
-    (hK : Nat.card K = 2 ^ f) :
-    ∀ s : StatedSp r K, s * s = 1 → s ≠ 1 →
-      displacement s = (pairedSympForm K r).orthogonal (displacement s) →
-      InvolutionCriterion (spInner r K s) := by
-  intro s hs _ hW
-  have hf := one_le_of_nontrivial_of_natCard_eq_two_pow hK
-  have : CharP K 2 := finite_field_prime_power_characteristic Nat.prime_two hf hK
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  exact involutionCriterion_spInner_of_eq hr hs hW
-
-theorem hypothesisOne_statedSp_of_ne {f : ℕ} (hr : 3 ≤ r) (hK : Nat.card K = 2 ^ f)
-    (hne : ∀ s : StatedSp r K, s * s = 1 → s ≠ 1 →
-      displacement s ≠ (pairedSympForm K r).orthogonal (displacement s) →
-      InvolutionCriterion (spInner r K s)) :
-    HypothesisOne (StatedProj (StatedSp r K)) :=
-  hypothesisOne_statedSp hr hK hne (involutionCriterion_spInner_of_eq_orthogonal hr hK)
-
-theorem hypothesisOne_statedSp_of_three_le {f : ℕ} (hr : 3 ≤ r) (hK : Nat.card K = 2 ^ f) :
-    HypothesisOne (StatedProj (StatedSp r K)) := by
-  have hf := one_le_of_nontrivial_of_natCard_eq_two_pow hK
-  have : CharP K 2 := finite_field_prime_power_characteristic Nat.prime_two hf hK
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  exact hypothesisOne_statedSp_of_ne hr hK fun _ hs hs1 hW =>
-    involutionCriterion_spInner_of_ne hr hs hs1 hW
 
 end Model
 

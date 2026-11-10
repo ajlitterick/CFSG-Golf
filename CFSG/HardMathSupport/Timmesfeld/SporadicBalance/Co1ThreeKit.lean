@@ -114,18 +114,6 @@ theorem isPGroup_of_coprime_eq_one [Finite S] (hp : p.Prime) {H : Subgroup S}
   have := h _ (H.pow_mem g.2 _) hcop
   simpa using this
 
-theorem list_sum_pow_two_pow {R : Type*} [Ring R] [CharP R 2] (k : ℕ) :
-    ∀ l : List R, l.Pairwise Commute → l.sum ^ 2 ^ k = (l.map (· ^ 2 ^ k)).sum
-  | [], _ => by
-    simp only [List.sum_nil, List.map_nil]
-    exact zero_pow (pow_ne_zero k two_ne_zero)
-  | x :: l, hl => by
-    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    rw [List.pairwise_cons] at hl
-    have hc : Commute x l.sum := Commute.list_sum_right x l fun y hy => hl.1 y hy
-    rw [List.sum_cons,
-      add_pow_char_pow_of_commute (R := R) (p := 2) (n := k) (x := x) (y := l.sum) hc,
-      list_sum_pow_two_pow k l hl.2, List.map_cons, List.sum_cons]
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Co1T
 

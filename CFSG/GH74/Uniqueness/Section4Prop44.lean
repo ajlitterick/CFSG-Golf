@@ -25,9 +25,6 @@ variable {X : Type} [Group X] [Finite X]
   right_inv l := by apply Subtype.ext; simp [mul_assoc]
   map_mul' a b := by apply Subtype.ext; simp [mul_assoc]
 
-omit [Finite X] in
-theorem conjEquivOfMemNormalizer_apply (L : Subgroup X) (g : X) (hg : g ∈ normalizer (L : Set X))
-    (l : ↥L) : ((conjEquivOfMemNormalizer L g hg l : ↥L) : X) = g * (l : X) * g⁻¹ := rfl
 
 theorem pPrimeCore_map_le (G : Type*) [Group G] [Finite G] (θ : G ≃* G) :
     (pPrimeCore 2 G).map θ.toMonoidHom ≤ pPrimeCore 2 G := by

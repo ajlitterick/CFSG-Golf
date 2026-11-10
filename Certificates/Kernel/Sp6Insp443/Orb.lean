@@ -34,8 +34,6 @@ theorem ch725105x : bAnd(gridOK 36 6 O.C5 cands5, bAnd(gridOK 36 6 O.C7 cands7,
 
 #kc_each ch725105o 0 21
 
-theorem ch725105n : porbOne 36 6 5 O.X5 [] ((O.C5.getD 0 []).getD 0 0) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelS6I
 

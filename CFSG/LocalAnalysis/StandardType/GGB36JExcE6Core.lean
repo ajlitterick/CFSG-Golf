@@ -245,18 +245,6 @@ private theorem ltqE6c_classify_one_true :
     exact Or.inr (Or.inr (Or.inr ⟨rfl, by norm_num,
       Or.inr (Or.inr (Or.inr (Or.inl rfl)))⟩))
 
-private theorem ltqE6c_shape_eq {n k : ℕ} {o : GGKacOrbit} {tag : LargeEvenLieTag} {rank : ℕ}
-    (h : ggKacShapeLabel n o.lab = (tag, rank, k)) (htag : tag ≠ .C) :
-    o.lab.tag = tag ∧ o.lab.rank = rank ∧ o.lab.n / n = k := by
-  obtain ⟨⟨t, r, nn⟩, q⟩ := o
-  simp only [ggKacShapeLabel] at h
-  split at h
-  · simp only [Prod.mk.injEq] at h
-    obtain ⟨h1, h2, h3⟩ := h
-    exact absurd h1.symm htag
-  · simp only [Prod.mk.injEq] at h
-    obtain ⟨h1, h2, h3⟩ := h
-    exact ⟨h1, h2, h3⟩
 
 private theorem ltqE6c_shape_lab {n : ℕ} {o : GGKacOrbit} {tag : LargeEvenLieTag} {rank k : ℕ}
     (h : ggKacShapeLabel n o.lab = (tag, rank, k)) (htag : tag ≠ .C) (hdvd : n ∣ o.lab.n) :
@@ -468,15 +456,6 @@ private theorem ltqE6c_row_twA2_twE6 {n : ℕ} (h : 3 ∣ 2 ^ (3 * n) + 1) :
   right; right; right; right; right; right; right; left
   exact ⟨rfl, h, by norm_num, Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨rfl, rfl⟩))))))))⟩
 
-private theorem ltqE6c_rig {labX : LargeEvenLabel} (htag : labX.tag = .E6 ∨ labX.tag = .twE6) :
-    ∀ l : LargeEvenLabel, LargeEvenInLambda2 l → GGLabelIso labX l → l = labX := by
-  intro l _ hiso
-  obtain ⟨tx, rx, nx⟩ := labX
-  obtain ⟨t, r, n⟩ := l
-  rcases htag with h | h <;>
-    (subst h
-     unfold GGLabelIso at hiso
-     rcases hiso with h | h | h | h | h | h | h | h <;> simp_all)
 
 private theorem ltqE6c_three_dvd (n : ℕ) : 3 ∣ 2 ^ n - 1 ∨ 3 ∣ 2 ^ n + 1 := by
   induction n with

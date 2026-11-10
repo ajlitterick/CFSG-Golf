@@ -114,11 +114,6 @@ theorem stmt4_4_3Orbit_iff' : Stmt4_4_3Orbit' ↔
     exact h G T M L B Tp VB ⟨⟨⟨hs, hnab, hK, hT, hM, hTM, hL, hLf, hLM, hq, hBM, hB1, hBc, hBo,
       hcomm, hTp, hBT⟩, hLT⟩, ⟨hVB, hVBn, hVBe, hVB1, hVBc⟩⟩
 
-theorem stmt4_4_3Orbit'_of (h : Stmt4_4_3Orbit) : Stmt4_4_3Orbit' :=
-  fun G _ _ T M L B Tp VB hs hnab hK hT hM hTM hL hLf hLM hq hBM hB1 hBc hBo hcomm hTp hBT hLT
-    hVB hVBn hVBe hVB1 hVBc =>
-    Concl4_4_3.toPrime (h G T M L B Tp VB hs hnab hK hT hM hTM hL hLf hLM hq hBM hB1 hBc hBo
-      hcomm hTp hBT hLT hVB hVBn hVBe hVB1 hVBc)
 
 theorem stmt4_4_3_of_orbit' (h : Stmt4_4_3Orbit') : Stmt4_4_3' :=
   stmt4_4_3_iff'.2 fun G _ _ T M L B Tp VB hH => stmt4_4_3Orbit_iff'.1 h G T M L B Tp VB hH.toOrbit

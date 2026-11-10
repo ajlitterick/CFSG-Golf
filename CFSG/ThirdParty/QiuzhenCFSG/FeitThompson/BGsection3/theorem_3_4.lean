@@ -1768,32 +1768,6 @@ theorem CFSG.isExtraspecial_of_commutator_le_center_of_exponent_eq_of_faithful_i
         isElementaryAbelian_quotient_center_of_commutator_le_center_of_exponent_eq hcomm hexp
       quotient_nontrivial := quotient_center_nontrivial_of_not_isMulCommutative hcommK }
 
-private theorem CFSG.center_le_of_normal_ne_bot_of_commutator_le_center_of_prime_center_local
-    {K : Type*} [Group K] [Finite K] {q : ℕ} [Fact q.Prime]
-    (hcomm : commutator K ≤ Subgroup.center K)
-    (hcenter : Nat.card (Subgroup.center K) = q)
-    {N : Subgroup K} [N.Normal] (hN_ne_bot : N ≠ ⊥) :
-    Subgroup.center K ≤ N := by
-  by_cases hN_center : N ≤ Subgroup.center K
-  · exact
-      center_le_of_le_center_ne_bot_of_prime_center_local hcenter hN_center hN_ne_bot
-  · let C : Subgroup K := ⁅N, (⊤ : Subgroup K)⁆
-    have hC_le_N : C ≤ N := by
-      exact Subgroup.commutator_le_left (H₁ := N) (H₂ := (⊤ : Subgroup K))
-    have hC_le_center : C ≤ Subgroup.center K := by
-      exact (Subgroup.commutator_mono (show N ≤ (⊤ : Subgroup K) by exact le_top) le_rfl).trans
-        hcomm
-    have hC_ne_bot : C ≠ ⊥ := by
-      intro hC_eq_bot
-      have hN_le_center : N ≤ Subgroup.center K := by
-        have hN_le_centralizer : N ≤ Subgroup.centralizer ((⊤ : Subgroup K) : Set K) := by
-          exact (Subgroup.commutator_eq_bot_iff_le_centralizer).1 hC_eq_bot
-        simpa [Subgroup.centralizer_univ] using hN_le_centralizer
-      exact hN_center hN_le_center
-    exact
-      le_trans
-        (center_le_of_le_center_ne_bot_of_prime_center_local hcenter hC_le_center hC_ne_bot)
-        hC_le_N
 
 private lemma CFSG.commutatorElement_mem_center_of_commutator_le_center_local
     {G : Type*} [Group G] (hcomm : commutator G ≤ Subgroup.center G) (x y : G) :

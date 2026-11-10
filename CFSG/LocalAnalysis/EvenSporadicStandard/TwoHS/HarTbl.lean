@@ -17,8 +17,6 @@ open CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.Recognition.HSMultiplier
 @[expose] def tComm (n : ℕ) (a b : Table) : Table :=
   compT n (compT n a b) (compT n (invT n a) (invT n b))
 
-@[expose] def sqCnt (n : ℕ) (E : Array Table) (x : Table) : ℕ :=
-  E.toList.countP fun y => tblEq n (compT n y y) x
 
 @[expose] def harHex : String := include_str "HarModelTbl.txt"
 
@@ -81,23 +79,5 @@ open CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.Recognition.HSMultiplier
 
 @[expose] def harZ2 : Table := compT 11200 harC0 harZ1
 
-@[expose] def harSylowOK : Bool :=
-  let n := 11200
-  let E := (mulClosureH n harU.toArray 2000).1
-  let C := (mulClosureH n harCgens.toArray 400).1
-  let W := (mulClosureH n harWgens.toArray 800).1
-  harU.all (permOK n) && enumOK n 2000 1024 harU &&
-  harYs.all (commTT n harC0) && !tblEq n harC0 (idT n) && tblEq n (compT n harC0 harC0) (idT n) &&
-  involOK n harZ1 && harU.all (commTT n harZ1) &&
-  sqCnt n E harC0 == 80 && sqCnt n E harZ1 == 64 && sqCnt n E harZ2 == 48 &&
-  centCount n 2000 harU harU == 4 &&
-  !tblEq n harZ1 harC0 && !tblEq n harZ2 harZ1 && !tblEq n harZ1 (idT n) &&
-  !tblEq n harZ2 harC0 && !tblEq n harZ2 (idT n) &&
-  harCgens.all (permOK n) && enumOK n 400 128 harCgens &&
-  harCgens.all (fun c => harU.all fun g => memT n C (compT n (compT n g c) (invT n g))) &&
-  memT n C harC0 && sqCnt n C harC0 == 16 && sqCnt n C harZ1 == 32 && sqCnt n C harZ2 == 16 &&
-  harWgens.all (permOK n) && enumOK n 800 512 harWgens &&
-  E.all (fun y => !tblEq n (compT n y y) (idT n) || memT n W y) &&
-  sqCnt n W harC0 == 48 && sqCnt n W harZ2 == 16
 
 end CFSG.EvenSporadicStandard.TwoHS

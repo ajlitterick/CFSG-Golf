@@ -149,12 +149,6 @@ theorem x0_mem_S : h.x0 ∈ h.S := by
     exact h.x_mem
   · exact (mem_inf.mp (h.isX0_x0 hBP).1).1
 
-theorem x0_sq_mem_T : h.x0 ^ 2 ∈ h.T := by
-  by_cases hBP : h.P ≤ normalizer (h.B : Set H)
-  · rw [h.x0_eq hBP]
-    obtain ⟨⟨hS, hC⟩, hN⟩ := mem_inf.mp h.x_sq_mem
-    exact mem_inf.mpr ⟨mem_inf.mpr ⟨hS, hN⟩, mem_inf.mpr ⟨hS, hC⟩⟩
-  · exact (h.isX0_x0 hBP).2.2.1
 
 @[expose] def B0 : Subgroup H := h.B ⊓ conjugate h.B h.x0
 
@@ -166,7 +160,6 @@ theorem x0_sq_mem_T : h.x0 ^ 2 ∈ h.T := by
 
 abbrev G0 : Subgroup H := normalizer (h.B0 : Set H)
 
-abbrev G0bar : Type := ↥h.G0 ⧸ h.B0.subgroupOf h.G0
 
 theorem B0_le_B : h.B0 ≤ h.B := inf_le_left
 
@@ -199,22 +192,6 @@ theorem a_mem_G0 : h.a ∈ h.G0 := by
     rw [mem_centralizer_singleton_iff.mp hx, mul_inv_cancel_right]]
   exact h.a_mem_normalizer
 
-theorem x0_mem_G0 : h.x0 ∈ h.G0 := by
-  have hx2 : h.x0 ^ 2 ∈ normalizer (h.B : Set H) := (mem_inf.mp (mem_inf.mp h.x0_sq_mem_T).1).2
-  rw [mem_normalizer_iff]
-  intro y
-  rw [B0, mem_inf, mem_inf, mem_conjugate_iff, mem_conjugate_iff]
-  constructor
-  · rintro ⟨hy1, hy2⟩
-    refine ⟨hy2, ?_⟩
-    rw [show h.x0 * (h.x0 * y * h.x0⁻¹) * h.x0⁻¹ = h.x0 ^ 2 * y * (h.x0 ^ 2)⁻¹ by
-      rw [pow_two]; group]
-    exact (mem_normalizer_iff.mp hx2 y).mp hy1
-  · rintro ⟨hy1, hy2⟩
-    refine ⟨?_, hy1⟩
-    rw [show h.x0 * (h.x0 * y * h.x0⁻¹) * h.x0⁻¹ = h.x0 ^ 2 * y * (h.x0 ^ 2)⁻¹ by
-      rw [pow_two]; group] at hy2
-    exact (mem_normalizer_iff.mp hx2 y).mpr hy2
 
 theorem conj_x0_mem (hBP : ¬ h.P ≤ normalizer (h.B : Set H)) {g : H} (hg : g ∈ h.S) :
     h.x0 * g * h.x0⁻¹ ∈ h.T ⊔ zpowers g ∧ (g ∈ h.T → h.x0 * g * h.x0⁻¹ ∈ h.T) ∧
@@ -241,8 +218,6 @@ theorem B_le_G0 : h.B ≤ h.G0 := by
     have hbT : b ∈ h.T := B5a.B_le_T h hb
     exact (mem_inf.mp (mem_inf.mp ((h.conj_x0_mem hBP hbT.1.1).2.1 hbT)).1).2
 
-theorem a_mem_S0 : h.a ∈ h.S0 :=
-  mem_inf.mpr ⟨B5a.a_mem_S h, h.a_mem_G0⟩
 
 end Hyp52
 

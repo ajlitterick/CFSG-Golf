@@ -121,17 +121,6 @@ theorem commute_inl_inr_of_fixed (d : D) (k : S ⋊[MulDistribMulAction.toMulAut
         SemidirectProduct.inr k := by rw [← h1]
     _ = SemidirectProduct.inr k * SemidirectProduct.inl d := by group
 
-theorem commute_inr_inl_of_smul_eq (c : B) (u : S) (h : c • u = u) :
-    Commute (SemidirectProduct.inr c : S ⋊[MulDistribMulAction.toMulAut B S] B)
-      (SemidirectProduct.inl u) := by
-  have h1 := SemidirectProduct.inl_aut (φ := MulDistribMulAction.toMulAut B S) c u
-  change (SemidirectProduct.inl (c • u) : S ⋊[MulDistribMulAction.toMulAut B S] B) = _ at h1
-  rw [h, map_inv] at h1
-  change _ * _ = _ * _
-  calc SemidirectProduct.inr c * SemidirectProduct.inl u
-      = (SemidirectProduct.inr c * SemidirectProduct.inl u * (SemidirectProduct.inr c)⁻¹) *
-        SemidirectProduct.inr c := by group
-    _ = SemidirectProduct.inl u * SemidirectProduct.inr c := by rw [← h1]
 
 theorem mem_normalizer_of_commutes {G : Type*} [Group G] {U : Subgroup G} {x : G}
     (h : ∀ u ∈ U, x * u = u * x) : x ∈ Subgroup.normalizer (U : Set G) := by
@@ -157,9 +146,6 @@ theorem zpow_apply_eq_of_apply_eq {G D : Type*} [Group G] [Group D] (φ : G →*
   rw [map_zpow]
   exact (MulAction.stabilizer (MulAut D) d).zpow_mem hmem m
 
-theorem zpow_smul_eq_of_smul_eq (c : B) {u : S} (h : c • u = u) (m : ℤ) : (c ^ m) • u = u := by
-  have hmem : c ∈ MulAction.stabilizer B u := h
-  exact (MulAction.stabilizer B u).zpow_mem hmem m
 
 theorem conj_inr_inr_inr_inl (g : B) (u : S) :
     (SemidirectProduct.inr (SemidirectProduct.inr g) :

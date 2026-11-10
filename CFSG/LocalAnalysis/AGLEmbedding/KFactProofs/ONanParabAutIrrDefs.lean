@@ -9,8 +9,6 @@ namespace CFSG.AGLEmbedding.ParabAutIrr
 @[expose] def inn (Y : Type*) [Group Y] : Subgroup (MulAut Y) :=
   (MulAut.conj : Y →* MulAut Y).range
 
-theorem mem_inn {Y : Type*} [Group Y] {α : MulAut Y} : α ∈ inn Y ↔ ∃ x : Y, MulAut.conj x = α :=
-  Iff.rfl
 
 @[expose] def OutPTwoGen (Y : Type*) [Group Y] (p : ℕ) : Prop :=
   ∀ P : Subgroup (MulAut Y), IsPGroup p P → ∃ a ∈ P, ∃ b ∈ P, P ≤ Subgroup.closure {a, b} ⊔ inn Y
@@ -18,9 +16,6 @@ theorem mem_inn {Y : Type*} [Group Y] {α : MulAut Y} : α ∈ inn Y ↔ ∃ x :
 @[expose] def OutPInner (Y : Type*) [Group Y] (p : ℕ) : Prop :=
   ∀ P : Subgroup (MulAut Y), IsPGroup p P → P ≤ inn Y
 
-theorem OutPInner.outPTwoGen {Y : Type*} [Group Y] {p : ℕ} (h : OutPInner Y p) :
-    OutPTwoGen Y p := fun P hP =>
-  ⟨1, P.one_mem, 1, P.one_mem, (h P hP).trans le_sup_right⟩
 
 @[expose] def AutScalarTorus (Y : Type*) [Group Y] : Prop :=
   ∀ (S₀ : Sylow 2 Y) (α : MulAut Y), (S₀ : Subgroup Y).map α.toMonoidHom = S₀ →

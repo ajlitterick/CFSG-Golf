@@ -166,26 +166,6 @@ theorem eq_tetOct_of_mem_C {x : Fin 24 → ZMod 2} (hx : x ∈ C) (h8 : hammingN
   · exact ⟨3, rfl⟩
   · exact ⟨4, rfl⟩
 
-theorem suppFin_tetOct : ∀ k : Fin 5,
-    suppFin (tetOct k) = {0, 1, 2, 3} ∪ tetrad k := by decide
-
-theorem tetrads_eq (S : Finset (Fin 24)) :
-    (∃ d ∈ C, hammingNorm d = 8 ∧ ({0, 1, 2, 3} : Finset (Fin 24)) ⊆ suppFin d ∧
-      S = suppFin d \ {0, 1, 2, 3}) ↔ ∃ k, S = tetrad k := by
-  have hsub : ∀ k : Fin 5, ({0, 1, 2, 3} : Finset (Fin 24)) ⊆ suppFin (tetOct k) := by decide
-  have hdiff : ∀ k : Fin 5, suppFin (tetOct k) \ {0, 1, 2, 3} = tetrad k := by decide
-  constructor
-  · rintro ⟨d, hd, h8, h4, rfl⟩
-    have hi : ∀ i : Fin 24, i ∈ ({0, 1, 2, 3} : Finset (Fin 24)) → d i = 1 := by
-      intro i hi
-      have := mem_suppFin.1 (h4 hi)
-      have hc : ∀ t : ZMod 2, t ≠ 0 → t = 1 := by decide
-      exact hc _ this
-    obtain ⟨k, rfl⟩ := eq_tetOct_of_mem_C hd h8 (hi 0 (by decide)) (hi 1 (by decide))
-      (hi 2 (by decide)) (hi 3 (by decide))
-    exact ⟨k, hdiff k⟩
-  · rintro ⟨k, rfl⟩
-    exact ⟨tetOct k, tetOct_mem k, hammingNorm_tetOct k, hsub k, (hdiff k).symm⟩
 
 theorem permWord_tetOct_mem {p : AutPerm} (hp : p ∈ Ftwo) (k : Fin 5) :
     ∃ k', permWord p (tetOct k) = tetOct k' := by
@@ -251,33 +231,6 @@ theorem tetIdx_one (k : Fin 5) : tetIdx 1 k = k := by
 
 theorem alpha_apply (p : Ftwo) (k : Fin 5) : alpha p k = tetIdx p k := rfl
 
-theorem mem_tetrad_iff (p : Ftwo) (k : Fin 5) (i : Fin 24) :
-    i ∈ tetrad k ↔ ((p : AutPerm) : Equiv.Perm (Fin 24)) i ∈ tetrad (alpha p k) := by
-  rw [alpha_apply]
-  have h := congrFun (permWord_tetOct p.2 k) (((p : AutPerm) : Equiv.Perm (Fin 24)) i)
-  rw [permWord_apply, tetOct_apply, tetOct_apply] at h
-  have hlt : (i : ℕ) < 4 ↔ (((p : AutPerm) : Equiv.Perm (Fin 24)) i : ℕ) < 4 :=
-    ⟨Ftwo_apply_lt p.2, fun h' => by
-      by_contra h''
-      have := Ftwo_apply_ge p.2 (not_lt.1 h'')
-      omega⟩
-  have hdisj : ∀ (k : Fin 5) (j : Fin 24), j ∈ tetrad k → ¬ (j : ℕ) < 4 := by decide
-  by_cases hi : (i : ℕ) < 4
-  · have hp := hlt.1 hi
-    exact ⟨fun h' => absurd hi (hdisj _ _ h'), fun h' => absurd hp (hdisj _ _ h')⟩
-  · have hp : ¬ (((p : AutPerm) : Equiv.Perm (Fin 24)) i : ℕ) < 4 := fun h' => hi (hlt.2 h')
-    simp only [hi, hp, false_or] at h
-    constructor
-    · intro hm
-      rw [ite_eq_left hm] at h
-      by_contra hm'
-      rw [ite_eq_right hm'] at h
-      exact absurd h (by decide)
-    · intro hm
-      rw [ite_eq_left hm] at h
-      by_contra hm'
-      rw [ite_eq_right hm'] at h
-      exact absurd h (by decide)
 
 @[expose] def pF : Equiv.Perm (Fin 24) where
   toFun := ![0, 1, 2, 3, 8, 9, 10, 11, 16, 18, 19, 17, 20, 23, 21, 22, 12, 13, 14, 15, 4, 5, 6, 7]
@@ -297,11 +250,6 @@ theorem pF_mem : pF ∈ AutPerm :=
 theorem qF_mem : qF ∈ AutPerm :=
   mem_AutPerm_of_basis (by decide +kernel) (by decide +kernel)
 
-theorem permWord_pF_B : (List.finRange 12).map (fun j => permWord pF (B j)) =
-    [1, 4, 16, 32, 8, 2, 576, 896, 1792, 2304, 256, 512].map coeffWord := by decide +kernel
-
-theorem permWord_qF_B : (List.finRange 12).map (fun j => permWord qF (B j)) =
-    [1, 2, 4, 8, 32, 16, 64, 192, 256, 768, 1024, 3072].map coeffWord := by decide +kernel
 
 theorem pF_mem_Ftwo : (⟨pF, pF_mem⟩ : AutPerm) ∈ Ftwo :=
   (mem_Ftwo_iff _).2 ⟨mem_Ppair_of_fix _ rfl rfl, .inl ⟨rfl, rfl⟩⟩
@@ -400,24 +348,11 @@ theorem ker_alpha : alpha.ker = CFSG.pCore 2 Ftwo := by
     rw [← Subgroup.map_eq_bot_iff]
     exact hmap
 
-theorem natCard_pCore_Ftwo : Nat.card (CFSG.pCore 2 Ftwo) = 32 := by
-  rw [← ker_alpha, natCard_ker_alpha]
 
 @[expose] noncomputable def quotPCoreEquiv :
     Ftwo ⧸ CFSG.pCore 2 Ftwo ≃* Equiv.Perm (Fin 5) :=
   (QuotientGroup.quotientMulEquivOfEq ker_alpha.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective alpha alpha_surjective)
 
-theorem native_two_pair_stabilizer_five_tetrad_quotient :
-    (∀ S : Finset (Fin 24), (∃ d ∈ C, hammingNorm d = 8 ∧
-      ({0, 1, 2, 3} : Finset (Fin 24)) ⊆ suppFin d ∧ S = suppFin d \ {0, 1, 2, 3}) ↔
-      ∃ k, S = tetrad k) ∧
-    (∀ (p : Ftwo) (k : Fin 5) (i : Fin 24),
-      i ∈ tetrad k ↔ ((p : AutPerm) : Equiv.Perm (Fin 24)) i ∈ tetrad (alpha p k)) ∧
-    Function.Surjective alpha ∧ Nat.card Ftwo = 3840 ∧ alpha.ker = CFSG.pCore 2 Ftwo ∧
-    Nat.card (CFSG.pCore 2 Ftwo) = 32 ∧
-    Nonempty (Ftwo ⧸ CFSG.pCore 2 Ftwo ≃* Equiv.Perm (Fin 5)) :=
-  ⟨tetrads_eq, mem_tetrad_iff, alpha_surjective, natCard_Ftwo, ker_alpha, natCard_pCore_Ftwo,
-    ⟨quotPCoreEquiv⟩⟩
 
 end CFSG.Monster.B.TwoA

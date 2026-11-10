@@ -15,8 +15,6 @@ variable {X : Type*} [Group X] {Z : Set X} {M : Subgroup X}
 @[expose] def omegaFix (M : Subgroup X) (Y : Set X) : Set (Subgroup X) :=
   {β | β ∈ omega M ∧ ∀ g ∈ Y, conjugate β g = β}
 
-theorem mem_omegaFix {Y : Set X} {β : Subgroup X} :
-    β ∈ omegaFix M Y ↔ β ∈ omega M ∧ ∀ g ∈ Y, conjugate β g = β := Iff.rfl
 
 theorem omegaFix_subset_omega (Y : Set X) : omegaFix M Y ⊆ omega M := fun _ h => h.1
 
@@ -88,11 +86,6 @@ theorem conjugate_mem_omegaFix_of_mem_normalizer {P : Subgroup X} {n : X}
   rw [h2]
   exact ⟨β, hβ, rfl⟩
 
-theorem conjugate_mem_omegaFix_conjugate_iff (P : Subgroup X) (g : X) (β : Subgroup X) :
-    conjugate β g ∈ omegaFix M ((conjugate P g : Subgroup X) : Set X) ↔
-      β ∈ omegaFix M (P : Set X) := by
-  rw [omegaFix_conjugate]
-  exact ⟨fun ⟨β', hβ', hβ'g⟩ => by rwa [← conjugate_injective g hβ'g], fun h => ⟨β, h, rfl⟩⟩
 
 end OmegaFix
 

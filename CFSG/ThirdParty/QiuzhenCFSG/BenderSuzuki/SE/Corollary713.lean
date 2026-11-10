@@ -928,24 +928,5 @@ public theorem corollary713_borel_of_source_endpoints
       hcore_le_center hbender hfrattiniNormalizer htwo_core
     exact ⟨hsolv, hnonsolvable, hBorel⟩
 
-/-- Corollary 7.13 from its source-level endpoints.  This is the exact
-numbered statement; the stronger helper above merely retains a Borel witness
-already constructed in its nonsolvable proof. -/
-public theorem corollary713_of_source_endpoints
-    {X : Type u} [Group X] [Finite X]
-    (M F : Subgroup X) (hM : IsStronglyEmbedded M)
-    (h4b : Theorem4bAtBase M)
-    (hFnotle : ¬ F ≤ M)
-    (hFproper : F ≠ ⊤)
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (N : Subgroup H), IsStronglyEmbedded N →
-        TheoremSEConclusion N)
-    {u : X} (huFM : u ∈ F ⊓ M) (hu : IsInvolution u) :
-    Corollary713Conclusion M F := by
-  rcases corollary713_borel_of_source_endpoints
-      M F hM h4b hFnotle hFproper hinduction huFM hu with
-    ⟨hnotle, hsolv | ⟨_hnonsolvable, hnonsolvable, _hBorel⟩⟩
-  · exact ⟨hnotle, Or.inl hsolv⟩
-  · exact ⟨hnotle, Or.inr hnonsolvable⟩
 
 end CFSG.BenderSuzuki

@@ -339,18 +339,6 @@ theorem coordPermHom_mem_supportedDerived_of_fixing_compl
   exact CFSG.Perm.fixingSubgroup_compl_le_of_swap_mem
     (S : Set (Fin (n - 1))) H hswap hfix
 
-theorem coordPermHom_mem_supportedDerived_erase
-    (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) (hcard : 2 < Nat.card F)
-    (d : Fin (n - 1)) (σ : Equiv.Perm (Fin (n - 1))) (hσ : σ d = d) :
-    coordPermHom (minusPlaneCoordinates (n := n) (F := F)) σ ∈
-      supportedDerived (quadMinus n F b c) (anchoredSupport F n (Finset.univ.erase d)) := by
-  refine coordPermHom_mem_supportedDerived_of_fixing_compl hirr hcard
-    (Finset.univ.erase d) σ ?_
-  intro k hk
-  have hkd : k = d := by
-    by_contra hne
-    exact hk (Finset.mem_erase.mpr ⟨hne, Finset.mem_univ k⟩)
-  rw [hkd, hσ]
 
 end Finite
 

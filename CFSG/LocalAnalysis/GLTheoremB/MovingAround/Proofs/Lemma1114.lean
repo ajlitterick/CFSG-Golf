@@ -202,11 +202,6 @@ theorem card_eq_27_of_pRank {A : Subgroup G} (hA : IsElemAbelian 3 A)
   rw [card_eq_pow_of_pRank hA, hr]
   norm_num
 
-theorem card_of_index_three {A D : Subgroup G} (hDA : D ≤ A) (hA27 : Nat.card A = 27)
-    (hD : (D.subgroupOf A).index = 3) : Nat.card D = 9 := by
-  have h1 := Subgroup.card_mul_index (D.subgroupOf A)
-  rw [hD, hA27, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hDA).toEquiv] at h1
-  omega
 
 theorem le_normalizer_inf_centralizer {A T : Subgroup G} {e : G}
     (hAT : A ≤ Subgroup.normalizer (T : Set G)) (hAc : ∀ x ∈ A, x * e = e * x) :
@@ -338,11 +333,6 @@ theorem le_normalizer_inf_centralizer_set {A T : Subgroup G} {S : Set G}
     convert h2 using 1
     group
 
-theorem mem_centralizer_of_comm {A : Subgroup G} (hA : IsElemAbelian 3 A) {S : Set G} (hS : S ⊆ A)
-    {x : G} (hx : x ∈ A) : x ∈ Subgroup.centralizer S := by
-  rw [Subgroup.mem_centralizer_iff]
-  intro h hh
-  exact elemAb_comm hA (hS hh) hx
 
 theorem exists_inter_nontrivial {A A₀ D : Subgroup G} (hA : IsElemAbelian 3 A)
     (hA27 : Nat.card A = 27) (hA₀A : A₀ ≤ A) (hA₀card : Nat.card A₀ = 9)

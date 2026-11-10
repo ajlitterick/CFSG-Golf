@@ -184,9 +184,6 @@ private theorem kleinLine_finset_sup_right (S : Finset (Fin 4))
   | empty => rw [Finset.sup_empty, Finset.sup_empty, kleinLine_bot_right]
   | insert i S hi ih => rw [Finset.sup_insert, Finset.sup_insert, kleinLine_sup_right, ih]
 
-omit [CharP K 2] in
-private theorem dFlip_zero : dFlip σ (0 : Fin 3 ⊕ Fin 3 → K) = 0 := by
-  simpa using dFlip_smul (0 : K) (0 : Fin 3 ⊕ Fin 3 → K)
 
 private theorem dFlip_kleinWedge_orthonormal_apply {b : Fin 4 → Fin 4 → K}
     (hb : ∀ j k, herm σ (b j) (b k) = if j = k then 1 else 0) {i j k l : Fin 4}

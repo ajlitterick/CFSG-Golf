@@ -78,11 +78,6 @@ theorem codesOf_mul (C : Coding ↥V) {K : Subgroup G}
     exact (hall B' hB').1
   rw [C.cB_mul, hac, hbc, toB6_mul hAv hBv]
 
-theorem presv_mul_toB6 {l : List ℕ} {A B : Mc} (hA : A.Valid) (hB : B.Valid)
-    (hAp : presv l A.toB6 = true) (hBp : presv l B.toB6 = true) :
-    presv l (A.mul B).toB6 = true := by
-  rw [toB6_mul hA hB]
-  exact presv_comp hAp hBp
 
 theorem codes_all_of
     {P : Mc → Prop} (hone : P Mc.one) (hmul : ∀ x y, P x → P y → P (x.mul y))

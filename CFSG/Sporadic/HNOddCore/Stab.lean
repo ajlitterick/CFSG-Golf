@@ -22,7 +22,6 @@ theorem jR_mul_cR_mem_RV_iff
     (g : JH) : jR g * cR ∈ RV ↔ g ∈ HJ := by
   rw [MulAction.mem_stabilizer_iff, mul_smul, cR_smul_x0, jR_smul, mem_HJ_iff_fix]
 
-abbrev HR : Subgroup RH := HJ.map jR
 
 theorem mem_RV_iff
     (r : RH) :
@@ -36,18 +35,6 @@ theorem mem_RV_iff
     · exact (jR_mem_RV_iff h).2 hh
     · exact (jR_mul_cR_mem_RV_iff h).2 hh
 
-theorem RV_eq_sup :
-    RV = HR ⊔ Subgroup.zpowers cR := by
-  apply le_antisymm
-  · intro r hr
-    rcases (mem_RV_iff r).1 hr with ⟨h, hh, rfl⟩ | ⟨h, hh, rfl⟩
-    · exact Subgroup.mem_sup_left ⟨h, hh, rfl⟩
-    · exact Subgroup.mul_mem _ (Subgroup.mem_sup_left ⟨h, hh, rfl⟩)
-        (Subgroup.mem_sup_right (Subgroup.mem_zpowers cR))
-  · rw [sup_le_iff, Subgroup.zpowers_le]
-    refine ⟨?_, cR_mem_RV⟩
-    rintro _ ⟨h, hh, rfl⟩
-    exact (jR_mem_RV_iff h).2 hh
 
 @[expose] def IsOuter
     (r : RH) : Prop := (r : GL (Fin hnsData.d) (ZMod 5)) ∉ JH

@@ -169,46 +169,10 @@ lemma finrank_hom_simple
       rw [hf0, hg0]
     exact Module.finrank_zero_iff.mpr hsub
 
-open Classical in
-/--
-The dimension of maps from a simple representation into a finite biproduct of
-simple representations is the number of summands isomorphic to it.
--/
-lemma finrank_hom_to_biproduct_simple
-    {k : Type u} [Field k] [IsAlgClosed k]
-    {G : Type v} [Monoid G]
-    {ι : Type w} [Fintype ι]
-    (S : FDRep k G) [Simple S]
-    (f : ι → FDRep k G) [HasBiproduct f]
-    (hf : ∀ i, Simple (f i)) :
-    Module.finrank k (S ⟶ ⨁ f) =
-      ∑ i, (if Nonempty (S ≅ f i) then 1 else 0) := by
-  haveI : ∀ i, Simple (f i) := hf
-  calc
-    Module.finrank k (S ⟶ ⨁ f)
-        = ∑ i, Module.finrank k (S ⟶ f i) :=
-          finrank_hom_to_biproduct_eq_sum (S := S) (f := f)
-    _ = ∑ i, (if Nonempty (S ≅ f i) then 1 else 0) := by
-          apply Finset.sum_congr rfl
-          intro i _
-          exact finrank_hom_simple S (f i)
 
 end Schur
 
 section homSpace
-/--
-There are no nonzero morphisms between nonisomorphic simple FD representations.
--/
-lemma hom_eq_zero_of_not_iso_simple
-    {k : Type u} [Field k]
-    {G : Type v} [Monoid G]
-    {S T : FDRep k G} [Simple S] [Simple T]
-    (h : IsEmpty (S ≅ T)) :
-    ∀ f : S ⟶ T, f = 0 := by
-  intro f
-  by_contra hf
-  haveI : IsIso f := isIso_of_hom_simple hf
-  exact h.false (asIso f)
 
 /--
 There are no nonzero morphisms between nonisomorphic simple FD representations.
@@ -284,126 +248,6 @@ lemma finrank_end_cast_ne_zero_of_simple
 
 section QuotientLift
 
-lemma lift_simple_of_simple
-    {k : Type u} [Field k]
-    {G : Type u} [Group G]
-    [Finite G] [IsAlgClosed k] [CharZero k]
-    (ρ : FDRep k G) (K : Subgroup G) [K.Normal]
-    (h_triv : ∀ x ∈ K, ρ.ρ x = 1) [Simple ρ] :
-    Simple (FDRep.lift ρ K h_triv) := by
-  let ρ' : FDRep k (G ⧸ K) := FDRep.lift ρ K h_triv
-  have hρ'_mk :
-      ∀ g : G, ρ'.ρ (QuotientGroup.mk' K g) = ρ.ρ g := by
-    intro g
-    dsimp [ρ', FDRep.lift]
-    rfl
-
-  have hρ'_lift :
-      ∀ q : G ⧸ K, ρ'.ρ q = (QuotientGroup.lift K ρ.ρ (by
-        intro x hx
-        exact h_triv x hx)) q := by
-    intro q
-    dsimp [ρ', FDRep.lift]
-    rfl
-
-  let toEnd : (ρ' ⟶ ρ') →ₗ[k] (ρ ⟶ ρ) :=
-  { toFun := fun f =>
-      FDRep.forget₂HomLinearEquiv ρ ρ
-        (Rep.ofHom
-          { toLinearMap := by
-              change ρ →ₗ[k] ρ
-              exact FDRep.homToLinearMap (H := G ⧸ K) f
-            isIntertwining' := by
-              intro g
-              ext x
-              change
-                FDRep.homToLinearMap (H := G ⧸ K) f ((ρ.ρ g) x)
-                  =
-                (ρ.ρ g) (FDRep.homToLinearMap (H := G ⧸ K) f x)
-              have h :=
-                FDRep.homToLinearMap_comm f (QuotientGroup.mk' K g) x
-              rw [← hρ'_mk g]
-              exact h })
-    map_add' := by
-      intro f g
-      apply FDRep.hom_ext
-      intro x
-      rfl
-    map_smul' := by
-      intro c f
-      apply FDRep.hom_ext
-      intro x
-      rfl }
-
-  let fromEnd : (ρ ⟶ ρ) →ₗ[k] (ρ' ⟶ ρ') :=
-  { toFun := fun f =>
-      FDRep.forget₂HomLinearEquiv ρ' ρ'
-        (Rep.ofHom
-          { toLinearMap := by
-              change ρ' →ₗ[k] ρ'
-              exact FDRep.homToLinearMap (H := G) f
-            isIntertwining' := by
-              intro q
-              refine Quotient.inductionOn q ?_
-              intro g
-              ext x
-              change
-                FDRep.homToLinearMap (H := G) f ((ρ'.ρ (QuotientGroup.mk' K g)) x)
-                  =
-                (ρ'.ρ (QuotientGroup.mk' K g)) (FDRep.homToLinearMap f x)
-              rw [hρ'_mk g]
-              exact FDRep.homToLinearMap_comm (G := G) f g x })
-    map_add' := by
-      intro f g
-      apply FDRep.hom_ext
-      intro x
-      rfl
-    map_smul' := by
-      intro c f
-      apply FDRep.hom_ext
-      intro x
-      rfl }
-
-  let eEnd : (ρ' ⟶ ρ') ≃ₗ[k] (ρ ⟶ ρ) :=
-  { toFun := toEnd
-    invFun := fromEnd
-    left_inv := by
-      intro f
-      apply FDRep.hom_ext
-      intro x
-      rfl
-    right_inv := by
-      intro f
-      apply FDRep.hom_ext
-      intro x
-      rfl
-    map_add' := by
-      intro f g
-      rfl
-    map_smul' := by
-      intro c f
-      rfl }
-
-  haveI : NeZero (Nat.card G : k) := by
-    exact ⟨by
-      exact_mod_cast One.natCard_ne_zero_of_finite G⟩
-
-  have hρ : Module.finrank k (ρ ⟶ ρ) = 1 := by
-    exact finrank_endomorphism_simple_eq_one k ρ
-
-  have hEq :
-      Module.finrank k (ρ' ⟶ ρ') =
-        Module.finrank k (ρ ⟶ ρ) := by
-    simpa using LinearEquiv.finrank_eq eEnd
-
-  have hρ' : Module.finrank k (ρ' ⟶ ρ') = 1 := by
-    simpa [hρ] using hEq
-
-  haveI : NeZero (Nat.card (G ⧸ K) : k) := by
-    exact ⟨by
-      exact_mod_cast One.natCard_ne_zero_of_finite (G ⧸ K)⟩
-
-  exact (FDRep.simple_iff_end_is_rank_one (V := ρ')).2 hρ'
 
 end QuotientLift
 

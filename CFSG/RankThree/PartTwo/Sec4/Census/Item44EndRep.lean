@@ -26,9 +26,6 @@ open scoped IsMulCommutative Matrix
   map_one' := LinearMap.ext fun _ => rfl
   map_mul' _ _ := LinearMap.ext fun _ => rfl
 
-theorem autToEndP_apply (p : ℕ) [Fact p.Prime] {A : Type*} [Group A] [IsElementaryAbelian p A]
-    (σ : MulAut A) (x : A) : autToEndP p A σ (Additive.ofMul x) = Additive.ofMul (σ x) :=
-  rfl
 
 theorem map_eq_one_of_isPerfect_comm {G M : Type*} [Group G] [Group.IsPerfect G] [CommGroup M]
     (f : G →* M) (g : G) : f g = 1 := by

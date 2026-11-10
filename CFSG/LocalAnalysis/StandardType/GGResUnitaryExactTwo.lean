@@ -46,119 +46,6 @@ open CFSG.Assembly
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-private abbrev suPermSubgroup {p m : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] (b : Module.Basis (Fin m) (ZMod p) V) : Subgroup (V ≃ₗ[ZMod p] V) where
-  carrier := {a | SUPerm p b a}
-  one_mem' := ⟨1, by intro i; simp⟩
-  mul_mem' := by
-    rintro a c ⟨σ, hσ⟩ ⟨τ, hτ⟩
-    refine ⟨σ * τ, fun i => ?_⟩
-    rw [LinearEquiv.mul_apply, hτ i, hσ (τ i)]
-    rfl
-  inv_mem' := by
-    rintro a ⟨σ, hσ⟩
-    refine ⟨σ⁻¹, fun i => ?_⟩
-    have h := congrArg (fun v => a⁻¹ v) (hσ (σ⁻¹ i))
-    simpa using h.symm
-
-private lemma mem_suPermSubgroup {p m : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] (b : Module.Basis (Fin m) (ZMod p) V)
-    {a : V ≃ₗ[ZMod p] V} : a ∈ suPermSubgroup (p := p) b ↔ SUPerm p b a := Iff.rfl
-
-private noncomputable def permEquivSuPerm {p m : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] (b : Module.Basis (Fin m) (ZMod p) V) :
-    Equiv.Perm (Fin m) ≃* suPermSubgroup (p := p) b where
-  toFun σ := ⟨b.equiv b σ, by
-    change SUPerm p b (b.equiv b σ)
-    exact ⟨σ, fun i => by rw [Module.Basis.equiv_apply]⟩⟩
-  invFun a := Classical.choose ((mem_suPermSubgroup (p := p) b).mp a.2)
-  left_inv σ := by
-    apply Equiv.ext
-    intro i
-    have h1 : b.equiv b σ (b i) = b (σ i) := by rw [Module.Basis.equiv_apply]
-    have h2 := Classical.choose_spec
-      (show SUPerm p b (b.equiv b σ) from ⟨σ, fun i => by rw [Module.Basis.equiv_apply]⟩) i
-    exact b.injective (h2.symm.trans h1)
-  right_inv a := by
-    apply Subtype.ext
-    change b.equiv b (Classical.choose
-      ((mem_suPermSubgroup (p := p) b).mp a.2)) = (a : V ≃ₗ[ZMod p] V)
-    apply LinearEquiv.toLinearMap_injective
-    apply b.ext
-    intro i
-    change (b.equiv b (Classical.choose
-      ((mem_suPermSubgroup (p := p) b).mp a.2))) (b i) = (a : V ≃ₗ[ZMod p] V) (b i)
-    rw [Module.Basis.equiv_apply]
-    exact (Classical.choose_spec
-      ((mem_suPermSubgroup (p := p) b).mp a.2) i).symm
-  map_mul' σ τ := by
-    apply Subtype.ext
-    change b.equiv b (σ * τ) = b.equiv b σ * b.equiv b τ
-    apply LinearEquiv.toLinearMap_injective
-    apply b.ext
-    intro i
-    simp [Module.Basis.equiv_apply, Equiv.Perm.mul_apply]
-
-theorem su_fullWeylRank_of_model
-    {p : ℕ} [Fact p.Prime] {m : ℕ} {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {b : Module.Basis (Fin m) (ZMod p) V} {A : Subgroup (V ≃ₗ[ZMod p] V)}
-    (hA : ∀ a, a ∈ A ↔ SUPerm p b a)
-    {Λ : Type} [Fintype Λ] [DecidableEq Λ] (ML : CoxeterMatrix Λ) (hWM : GGIsWeylMatrix ML)
-    (f : ML.Group ≃* ↥A) (hm : 2 ≤ m) :
-    Fintype.card Λ = m - 1 := by
-  classical
-  have hAeq : A = suPermSubgroup (p := p) b := by
-    apply Subgroup.ext
-    intro a
-    exact hA a
-  let eA : ↥A ≃* ↥(suPermSubgroup (p := p) b) := MulEquiv.subgroupCongr hAeq
-  let ePerm : ↥(suPermSubgroup (p := p) b) ≃* Equiv.Perm (Fin m) :=
-    (permEquivSuPerm (p := p) b).symm
-  obtain ⟨eType0, -⟩ := ggCoxeterA_mulEquivPerm (m - 1)
-  have hsub : m - 1 + 1 = m := Nat.sub_add_cancel (by omega : 1 ≤ m)
-  let eType : (CoxeterMatrix.A (m - 1)).Group ≃* Equiv.Perm (Fin m) := by
-    rw [hsub] at eType0
-    exact eType0
-  let e : ML.Group ≃* (CoxeterMatrix.A (m - 1)).Group :=
-    (f.trans eA).trans (ePerm.trans eType.symm)
-  have hm1 : 1 ≤ m - 1 := by omega
-  have hAweyl : GGIsWeylMatrix (CoxeterMatrix.A (m - 1)) :=
-    ggHLT_weyl_A (n := m - 1) hm1
-  have hrank := ggWeylTypeData_rank_eq_of_mulEquiv hWM hAweyl e
-  simpa [Nat.card_eq_fintype_card] using hrank
-
-theorem su_exact2_left_weylRank
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {_B Bs L _D J K : Subgroup G} {x : G} {m : ℕ}
-    {τ : (Fin m → Multiplicative (ZMod p)) ≃* ↥Bs}
-    (hcm : SUCoordModel p Bs L m τ) (_hp3 : p = 3) (hm7 : 7 ≤ m) (_hm3 : ¬ 3 ∣ m)
-    (hx : x ∈ Bs) (hτ : τ (fun _ => Multiplicative.ofAdd (1 : ZMod p)) = ⟨x, hx⟩)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    ∃ (Λ : Type) (_ : Fintype Λ) (_ : DecidableEq Λ) (S : Finset Λ) (_ML : CoxeterMatrix Λ),
-      S.card = 2 ∧ Fintype.card Λ = m - 1 ∧
-        Fintype.card {i : Λ // i ∉ S} = m - 3 := by
-  classical
-  obtain ⟨V, hV, hVp, ι, b, hb, hperm⟩ :=
-    su_linearModel_of_coord hcm hx hτ
-  obtain ⟨Λ, hΛF, hΛD, S, Λa, hΛaF, hΛaD, ML, CL, MK, CK, V', hV', hV'p, ι', φ, h', α,
-    hS, hΛa1, hΛa3, hWM, hCL, hWMK, hCK, htyp, hlin, hrefl, hCLmat, hCKmat, hsel, hfL,
-    hfK, hgenL, hgenK, hdel, hgenJ⟩ := hD
-  obtain ⟨fL, -⟩ := hfL
-  let eLin : ↥(ggAutomizer L Bs) ≃*
-      ↥((ggAutomizer L Bs).map (ggLin (p := p) ι)) :=
-    Subgroup.equivMapOfInjective _ _ (ggLin_injective (p := p) ι)
-  have hfull : Fintype.card Λ = m - 1 :=
-    su_fullWeylRank_of_model (p := p) (m := m) (V := V) (b := b)
-      (A := (ggAutomizer L Bs).map (ggLin (p := p) ι)) (hA := hperm)
-      (ML := ML) (hWM := hWM) (f := fL.trans eLin) (by omega)
-  have hsurv : Fintype.card {i : Λ // i ∉ S} = Fintype.card Λ - S.card := by
-    rw [Fintype.card_subtype_compl (fun i : Λ => i ∈ S)]
-    have hsub : Fintype.card {i : Λ // i ∈ S} = S.card := by
-      rw [Fintype.card_subtype]
-      simp
-    rw [hsub]
-  refine ⟨Λ, hΛF, hΛD, S, ML, hS, hfull, ?_⟩
-  rw [hsurv, hfull, hS, Nat.sub_sub]
 
 private theorem unitaryExact2_labL_of_innerDiag {G : Type} [Group G] [Finite G] {p : ℕ}
     {Bs L : Subgroup G}
@@ -171,54 +58,6 @@ private theorem unitaryExact2_labL_of_innerDiag {G : Type} [Group G] [Finite G] 
   obtain ⟨hp3, htag, hn, h6, hndvd⟩ := hS
   exact ⟨lab, hlab, hhas, hp3, htag, hn, h6, hndvd⟩
 
-theorem su_exact2_left_weylRank_of_marking
-    {G : Type} [Group G] [Finite G]
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧ 6 ≤ lab.rank ∧
-        ¬ 3 ∣ lab.rank + 1) p Bs L)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    ∃ (m : ℕ) (_τ : (Fin m → Multiplicative (ZMod p)) ≃* ↥Bs)
-      (Λ : Type) (_ : Fintype Λ) (_ : DecidableEq Λ) (S : Finset Λ) (_ML : CoxeterMatrix Λ),
-      p = 3 ∧ 7 ≤ m ∧ ¬ 3 ∣ m ∧ S.card = 2 ∧ Fintype.card Λ = m - 1 ∧
-        Fintype.card {i : Λ // i ∉ S} = m - 3 := by
-  obtain ⟨labL, hlabL, hhasL, hp3, htag, hn, h6, h3m⟩ := unitaryExact2_labL_of_innerDiag hM
-  obtain ⟨m, hx, τ, -, hm7, hm3, hτ, hcm⟩ :=
-    hdRo7SULCoordAux_modelCfg (hdRo7SULCoordAux_hyp_of_resHyp hH) hRig
-      ⟨labL, hlabL, hhasL, hp3, htag, hn, h6, h3m⟩
-  obtain ⟨Λ, hΛF, hΛD, S, ML, hS, hfull, hsurv⟩ :=
-    su_exact2_left_weylRank (p := p) (m := m) (τ := τ) (_B := B) (_D := D)
-      hcm hp3 hm7 hm3 hx hτ hD
-  exact ⟨m, τ, Λ, hΛF, hΛD, S, ML, hp3, hm7, hm3, hS, hfull, hsurv⟩
-
-theorem ggResRowAt_SUCorank2_of_label_lieModel
-    {G : Type} [Group G] {p : ℕ} {_Bs L J _K : Subgroup G}
-    (labL : LargeEvenLabel) (hΛL : LargeEvenInLambda2 labL)
-    (hHasL : GGHasLabel labL (↥L ⧸ Subgroup.center ↥L))
-    (hp3 : p = 3) (htag : labL.tag = .twA) (hn : labL.n = 1)
-    (h6 : 6 ≤ labL.rank) (h3m : ¬ 3 ∣ labL.rank + 1)
-    (hJLie : CFSG.Blueprint.LieModel
-      (↥J ⧸ Subgroup.center ↥J) .PSU (labL.rank - 1) 2 1) :
-    GGResRowAt ggRowSUCorank2 p J L := by
-  let labJ : LargeEvenLabel := ⟨.twA, labL.rank - 2, 1⟩
-  have hr4 : 2 ≤ labL.rank - 2 := by omega
-  have hJΛ : LargeEvenInLambda2 labJ := by
-    dsimp [labJ, LargeEvenInLambda2]
-    refine ⟨by norm_num, hr4, ?_⟩
-    intro h
-    omega
-  have hJHas : GGHasLabel labJ (↥J ⧸ Subgroup.center ↥J) := by
-    have hdim : labL.rank - 2 + 1 = labL.rank - 1 := by omega
-    have hmodel : CFSG.Blueprint.LieModel
-        (↥J ⧸ Subgroup.center ↥J) .PSU (labL.rank - 2 + 1) 2 1 := by
-      simpa [hdim] using hJLie
-    have hcomp := CFSG.StandardType.TableCRes.ggCompLabelAt_twA
-      (r := labL.rank - 2) (f := 1) hr4 (by norm_num) (by intro h; omega) hmodel
-    exact hcomp.2.2.1
-  refine ⟨labJ, labL, hJΛ, hΛL, hJHas, hHasL, ?_⟩
-  exact ⟨hp3, rfl, rfl, htag, hn, by dsimp [labJ]; omega, h6, h3m⟩
 
 end CFSG.StandardType.HdRo7SU
 
@@ -422,7 +261,6 @@ private theorem su_diagModel_of_data
     LineU.exists_diagModel_coprime hFcard (by norm_num) (by omega) Nat.prime_three
       (by norm_num) hm3 hcov hψsurj hψker hcommL hAel hAI
   exact ⟨φ, hφsurj, hφker, hdiag⟩
-
 
 
 private lemma diag_conj_mem_blockSU {F : Type} [Field F] {m : ℕ} {I : Finset (Fin m)}
@@ -737,8 +575,6 @@ public theorem su_left_block_component_of_marking
     by simpa [ψ] using hJeq, hI4, hNJ, ⟨ρ, hρsurj, hρker⟩, hJLie⟩
   · omega
   · omega
-
-
 
 
 private theorem ker_le_center_of_unitaryModel
@@ -1318,146 +1154,6 @@ theorem su_exact2_left_row_ggRowTwoNode_six
       norm_num
     · rfl
 
-theorem su_exact2_left_row_ggRowTwoNode_large
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧ 6 ≤ lab.rank ∧
-        3 ∣ lab.rank + 1) p Bs L)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    GGResRowAt ggRowTwoNode p J L := by
-  classical
-  obtain ⟨labL, hlabL, hhasL, R, instR, I, F₀, θ, hP⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  obtain ⟨hS, -⟩ := hP
-  obtain ⟨hp3, htagL, hnL, h6L, h3L⟩ := hS
-  obtain ⟨tagL, rankL, nL⟩ := labL
-  simp only at htagL hnL
-  cases htagL
-  cases hnL
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  have hpd : p ∣ rankL + 1 := by simpa [hp3] using h3L
-  change 6 ≤ rankL at h6L
-  change 3 ∣ rankL + 1 at h3L
-  have hr4 : 4 ≤ rankL := by omega
-  have hr5 : rankL ≠ 5 := by omega
-  have hr3L : 3 ≤ rankL := by omega
-  obtain ⟨Fld, hField, hFinite, hChar, hN, φ, hFcard, hModel, hdiag⟩ :=
-    exists_diagonal_cover_of_large_unitary_L (r := rankL) (f := 1) hRig hH hr4 hr5 hpq hpd
-      hhasL hlabL
-  letI : Field Fld := hField
-  letI : Finite Fld := hFinite
-  letI : CharP Fld 2 := hChar
-  have hF4 : Nat.card Fld = (2 ^ 1) ^ 2 := hFcard
-  have hBsP : IsElemAbelian p Bs := hH.1.2.1.2.1
-  have hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs :=
-    hH.1.2.1.2.2.2
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, -, ⟨eL, -⟩, -⟩ :=
-    exists_weyl_datum_of_diagonal_unitary_cover (f := 1) (r := rankL) hF4 (by norm_num)
-      hp2 hpq hr3L hBsP hSC hN hModel hdiag
-  have hWL : GGWeylTypeData rankL (Nat.card ↥(ggAutomizer L Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer L Bs))) := by
-    have h0 : GGWeylTypeData rankL (Nat.card (CoxeterMatrix.A rankL).Group)
-        (Nat.card ↥(Subgroup.center (CoxeterMatrix.A rankL).Group)) := by
-      simpa using (ggWeylTypeData_of_isWeylMatrix
-        (ggHLT_weyl_A (n := rankL) (by omega)))
-    have hc := Nat.card_congr eL.toEquiv
-    have hz := Nat.card_congr (Subgroup.centerCongr eL).toEquiv
-    simpa [hc, hz] using h0
-  have hdiagH : ∀ a ∈ (ggGamma L hH.2.2.1.1.le_normalizer).range,
-      ∃ t : Fin (rankL + 1) → Fld, LineU.ActsDiagU φ a t := by
-    simpa using hdiag
-  obtain ⟨mJ, hmJ2, ψJ, hψJ, hψJdiag⟩ :=
-    hH.exists_unitaryModel_J_of_L hModel hdiagH
-  have hmJ4 : 4 ≤ mJ := hH.unitaryModel_J_degree_ge_four_qTwo hmJ2 hψJ
-  obtain ⟨rJ, rfl⟩ : ∃ rJ : ℕ, mJ = rJ + 1 := ⟨mJ - 1, by omega⟩
-  have hrJ3 : 3 ≤ rJ := by omega
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, -, ⟨eJ, -⟩, -⟩ :=
-    exists_weyl_datum_of_diagonal_unitary_cover (f := 1) (r := rJ) hF4 (by norm_num)
-      hp2 hpq hrJ3 hBsP hSC hH.Bs_le_normalizer_J hψJ hψJdiag
-  have hWJ : GGWeylTypeData rJ (Nat.card ↥(ggAutomizer J Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer J Bs))) := by
-    have h0 : GGWeylTypeData rJ (Nat.card (CoxeterMatrix.A rJ).Group)
-        (Nat.card ↥(Subgroup.center (CoxeterMatrix.A rJ).Group)) := by
-      simpa using (ggWeylTypeData_of_isWeylMatrix (ggHLT_weyl_A (n := rJ) (by omega)))
-    have hc := Nat.card_congr eJ.toEquiv.symm
-    have hz := Nat.card_congr (Subgroup.centerCongr eJ).toEquiv
-    simpa [hc, hz] using h0
-  have hcardA : 1 < Nat.card (CoxeterMatrix.A rJ).Group := by
-    obtain ⟨ePerm, -⟩ := ggCoxeterA_mulEquivPerm rJ
-    rw [Nat.card_congr ePerm.toEquiv, Nat.card_perm]
-    simp only [Nat.card_fin]
-    exact Nat.one_lt_factorial.mpr (by omega)
-  have hJne : ggAutomizer J Bs ≠ ⊥ := by
-    intro hbot
-    have h1 : Nat.card ↥(ggAutomizer J Bs) = 1 := by
-      rw [hbot, Subgroup.card_bot]
-    have h2 : Nat.card ↥(ggAutomizer J Bs) =
-        Nat.card (CoxeterMatrix.A rJ).Group := Nat.card_congr eJ.toEquiv.symm
-    omega
-  obtain ⟨r0, hfull, hsurv⟩ := ggResLeviDatumCard_weylTypeData hD hJne
-  have hLrank : rankL = r0 + 2 := ggWeylTypeData_rank_eq hWL hfull
-  have hJrank : rJ = r0 := ggWeylTypeData_rank_eq hWJ hsurv
-  let labJ : LargeEvenLabel := ⟨.twA, rJ, 1⟩
-  let labX : LargeEvenLabel := ⟨.twA, rankL, 1⟩
-  have hXHas : GGHasLabel labX (↥L ⧸ Subgroup.center ↥L) := hhasL
-  have hJHas : GGHasLabel labJ (↥J ⧸ Subgroup.center ↥J) := by
-    have h := ggHasLabel_of_unitaryModel hψJ (by omega : 3 ≤ rJ + 1)
-      (by
-        intro hc
-        have := congrArg Prod.fst hc
-        omega)
-    simpa [labJ] using h
-  have hJΛ : LargeEvenInLambda2 labJ := by
-    dsimp [labJ, LargeEvenInLambda2]
-    refine ⟨by norm_num, by omega, ?_⟩
-    intro h
-    omega
-  have hXΛ : LargeEvenInLambda2 labX := by
-    dsimp [labX]
-    exact hlabL
-  refine ⟨labJ, labX, hJΛ, hXΛ, hJHas, hXHas, ?_⟩
-  refine Or.inr (Or.inl ⟨rfl, ?_, ?_, ?_⟩)
-  · dsimp [labJ]
-    simpa using hpq
-  · dsimp [labJ]
-    have h : rJ + 3 = rankL + 1 := by omega
-    rw [h]
-    simpa [hp3] using h3L
-  · dsimp [labJ, labX]
-    have h : rJ + 2 = rankL := by omega
-    simp [h]
-
-theorem su_exact2_left_singular_row
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧
-        3 ∣ lab.rank + 1) p Bs L)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    GGResRowAt ggRowTwoNode p J L := by
-  obtain ⟨lab, hlab, hhas, R, instR, I, F, θ, hP⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  obtain ⟨hp3, htag, hn, hdiv⟩ := hP.1
-  have hr : 3 ≤ lab.rank := by
-    have hLambda := hlab
-    unfold LargeEvenInLambda2 at hLambda
-    rw [htag, hn] at hLambda
-    omega
-  have hmark := ggInnerDiagOn_relabel hRig hH.2.2.1.1 hlab hhas
-  by_cases h5 : lab.rank = 5
-  · apply su_exact2_left_row_ggRowTwoNode_six hH hRig _ hD
-    exact largeEvenMarking_mono (fun lab' _ _ _ _ _ hP' => by
-      obtain ⟨rfl, hN, hI⟩ := hP'
-      exact ⟨⟨hp3, htag, hn, h5⟩, hN, hI⟩) hmark
-  · have h6 : 6 ≤ lab.rank := by omega
-    apply su_exact2_left_row_ggRowTwoNode_large hH hRig _ hD
-    exact largeEvenMarking_mono (fun lab' _ _ _ _ _ hP' => by
-      obtain ⟨rfl, hN, hI⟩ := hP'
-      exact ⟨⟨hp3, htag, hn, h6, hdiv⟩, hN, hI⟩) hmark
 
 theorem su_exact2_right_row_ggRowTwoNode_large
     {p : ℕ} [Fact p.Prime]
@@ -1572,57 +1268,9 @@ theorem su_exact2_right_row_ggRowTwoNode_large
 section LabelRigidity
 
 
-public theorem su_exact2_left_row_of_marking
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧ 6 ≤ lab.rank ∧
-        ¬ 3 ∣ lab.rank + 1) p Bs L)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    GGResRowAt ggRowSUCorank2 p J L := by
-  obtain ⟨_, _, _, hp3, _⟩ := unitaryExact2_labL_of_innerDiag hM
-  exact su_exact2_left_row_of_exact2 hH ggLabelRigidInput_holds hM hp3 hD
-
-public theorem su_not_exact2_left_of_not_row
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧ 6 ≤ lab.rank ∧
-        ¬ 3 ∣ lab.rank + 1) p Bs L)
-    (hR : ¬ GGResRowAt ggRowSUCorank2 p J L) :
-    ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny :=
-  fun hD => hR (su_exact2_left_row_of_marking hH hM hD)
-
-public theorem su_not_exact2_left_of_singular_not_row
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧
-        3 ∣ lab.rank + 1) p Bs L)
-    (hR : ¬ GGResRowAt ggRowTwoNode p J L) :
-    ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny :=
-  fun hD => hR (su_exact2_left_singular_row hH ggLabelRigidInput_holds hM hD)
-
-
-public theorem su_not_exact2_right_large_of_singular_not_row
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .twA ∧ lab.n = 1 ∧ 6 ≤ lab.rank ∧
-        3 ∣ lab.rank + 1) p Bs K)
-    (hLB : GGLBalanceInput)
-    (hR : ¬ GGResRowAt ggRowTwoNode p J K) :
-    ¬ GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny :=
-  fun hD => hR (su_exact2_right_row_ggRowTwoNode_large hH ggLabelRigidInput_holds hM hLB hD)
-
 end LabelRigidity
 
 section Q1Certificates
-
 
 
 theorem su_exact2_right_row_ggRowTwoNode_six

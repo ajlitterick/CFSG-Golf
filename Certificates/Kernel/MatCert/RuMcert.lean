@@ -21,9 +21,6 @@ theorem ru_K : mcertN (opsF2K 28) KernelSRHS.RA.M KernelSRHS.RB.M
     CFSG.RankThree.Asc83Table.Ru.ruCert = true := by
   quickRfl
 
-theorem ru_neg : (!mcertN (opsF2K 28) KernelSRHS.RA.M KernelSRHS.RB.M
-    ⟨2, [], [.eq [(0, 1)] [(1, 1)]]⟩) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

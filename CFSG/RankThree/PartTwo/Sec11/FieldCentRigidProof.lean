@@ -297,40 +297,11 @@ section Covers
 
 variable {X : Type} [Group X]
 
-theorem isFieldCentClassical_of_mulEquiv_sl3 {K : Type} [Field K] [Finite K]
-    (hK : Nat.card K % 3 = 2) (e : X ≃* Matrix.SpecialLinearGroup (Fin 3) K) :
-    IsFieldCentClassical X :=
-  Or.inr (Or.inl ⟨K, inferInstance, inferInstance, hK,
-    ⟨e.trans (MulEquiv.ofBijective (proj 3 K) ⟨proj_three_injective hK, proj_surjective 3 K⟩)⟩⟩)
-
-theorem isFieldCentClassical_of_mulEquiv_su3 {p f : ℕ} {K : Type} [Field K]
-    (h : UnitaryFieldData p f K) (hq : p ^ f % 3 = 1) (hq2 : 2 < p ^ f)
-    (e : X ≃* unitarySU p f K 3) : IsFieldCentClassical X :=
-  Or.inr (Or.inr ⟨p, f, K, inferInstance, h, hq, hq2,
-    ⟨e.trans (MulEquiv.ofBijective (unitaryProj h 3)
-      ⟨unitaryProj_three_injective h hq, unitaryProj_surjective h 3⟩)⟩⟩)
 
 end Covers
 
 section Main
 
-
-@[expose] def FieldCentRigidVacuous : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Y K : Subgroup G) (c t : G),
-    KFacts.InducesStdKind Y c .field →
-    ¬ IsFieldCentClassical (Y ⧸ aschbacherSolvableCore 3 Y) → c ^ 3 = 1 →
-    K ∈ thetaComponentsIn (Y ⊓ Subgroup.centralizer ({c} : Set G)) →
-    IsType424 (K ⧸ aschbacherSolvableCore 3 K) →
-    t ∈ Subgroup.normalizer (Y : Set G) → (∃ k : ℕ, t ^ 3 ^ k = 1) → t * c = c * t →
-    (∀ k ∈ K, t * k * t⁻¹ * k⁻¹ ∈ inSubgroup (aschbacherSolvableCore 3) K) →
-      ∃ i : ℕ, t * c ^ i ∈ Sec4.thetaQuotCentralizer Y
-
-theorem fieldCentRigid_of (hvac : FieldCentRigidVacuous) : FieldCentRigid := by
-  intro G _ _ Y K c t hf hc3 hK hT htN ht3 htc htK
-  by_cases hY : IsFieldCentClassical (Y ⧸ aschbacherSolvableCore 3 Y)
-  · exact exists_mul_pow_mem_thetaQuotCentralizer_of_classical hY
-      (KFacts.InducesStdKind.inducesOuterTheta Y hf (by decide)) hc3 hK htN htK
-  · exact hvac G Y K c t hf hY hc3 hK hT htN ht3 htc htK
 
 theorem not_inducesKindTriality_field_of_pow_three {G : Type} [Group G] [Finite G] {f : ℕ}
     (hf : 1 ≤ f) {K : Type} [Field K] [Finite K] (hK : Nat.card K = (2 ^ f) ^ 3)

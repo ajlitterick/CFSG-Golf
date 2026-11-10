@@ -46,14 +46,6 @@ theorem conj (h : IsIntrinsicU t K z) (g : Y) :
     oddCoreIn_conjSub]
   exact Subgroup.map_mono (h hs)
 
-theorem conj_centralizer (h : IsIntrinsicU t K z) {g : Y}
-    (hg : g ∈ Subgroup.centralizer ({z} : Set Y)) : IsIntrinsicU t (conjSub g K) z := by
-  have hgz : g * z * g⁻¹ = z := by
-    have := Subgroup.mem_centralizer_iff.mp hg z (Set.mem_singleton z)
-    rw [mul_inv_eq_iff_eq_mul]
-    exact this.symm
-  have := h.conj g
-  rwa [hgz] at this
 
 end IsIntrinsicU
 

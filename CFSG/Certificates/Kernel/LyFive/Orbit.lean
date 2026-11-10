@@ -135,11 +135,6 @@ theorem card_cls_mul (K : Subgroup (M)ˣ) (X : M) :
     Nat.card_congr (MulAction.orbitProdStabilizerEquivGroup (cK K) X)]
   exact Subgroup.card_map_of_injective (ConjAct.toConjAct : (M)ˣ ≃* ConjAct (M)ˣ).injective
 
-theorem cls_mono {K L : Subgroup (M)ˣ} (h : K ≤ L) (X : M) : cls K X ⊆ cls L X := by
-  rintro _ ⟨g, hg, rfl⟩
-  exact ⟨g, h hg, rfl⟩
-
-theorem cls_finite (K : Subgroup (M)ˣ) (X : M) : (cls K X).Finite := Set.toFinite _
 
 theorem conjBFS_reach {r : Array ℕ} (hr : Red r) (cap : ℕ) :
     ∀ k < (conjBFS r (hGenPairs asArr) cap).1.size, Reach r (conjBFS r (hGenPairs asArr) cap).1[k]! :=

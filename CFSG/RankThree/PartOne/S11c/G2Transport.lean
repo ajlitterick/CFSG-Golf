@@ -15,27 +15,6 @@ open scoped MatrixGroups
 
 universe u
 
-theorem xlevel_largePrime_map {M M' : Type*} [Group M] [Group M'] (θ : M →* M')
-    (hθ : Function.Injective θ) {k : Type u} [Field k] (hk : ringChar k ≠ 2) (X : Subgroup M)
-    (μ : SL(2, k) × SL(2, k) →* M)
-    (hμ : ∀ z ∈ μ.ker, z.1 ∈ Subgroup.center SL(2, k) ∧ z.2 ∈ Subgroup.center SL(2, k))
-    (hSn : ∀ g ∈ X, ∀ s ∈ μ.range, g * s * g⁻¹ ∈ μ.range) (hsq : ∀ g ∈ X, g ^ 2 ∈ μ.range)
-    {p : ℕ} (hp : p.Prime) (hp3 : 3 < p) {P U : Subgroup M'} [Finite U] (hPX : P ≤ X.map θ)
-    (hUX : U ≤ X.map θ) (hPp : IsPGroup p P) (hU2 : IsPGroup 2 U)
-    (hPU : ∀ a ∈ P, ∀ u ∈ U, a * u * a⁻¹ ∈ U) : ∀ a ∈ P, ∀ u ∈ U, a * u = u * a := by
-  refine xlevel_largePrime hk (X.map θ) (θ.comp μ) ?_ ?_ ?_ hp hp3 hPX hUX hPp hU2 hPU
-  · intro z hz
-    have : μ z = 1 := hθ (by simpa using hz)
-    exact hμ z this
-  · intro g' hg' s' hs'
-    obtain ⟨g, hg, rfl⟩ := Subgroup.mem_map.1 hg'
-    obtain ⟨w, rfl⟩ := hs'
-    obtain ⟨w', hw'⟩ := hSn g hg (μ w) ⟨w, rfl⟩
-    exact ⟨w', by simp [hw']⟩
-  · intro g' hg'
-    obtain ⟨g, hg, rfl⟩ := Subgroup.mem_map.1 hg'
-    obtain ⟨w, hw⟩ := hsq g hg
-    exact ⟨w, by simp [← map_pow, ← hw]⟩
 
 variable {K : Type} [Field K]
 

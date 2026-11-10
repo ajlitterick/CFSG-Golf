@@ -8,11 +8,6 @@ universe u
 
 namespace CFSG.Milestones
 
-theorem lc_generalized_fitting_self_centralizing (G : Type u) [Group G] [Finite G] :
-    Subgroup.centralizer
-      (CFSG.GorensteinWalter.generalizedFittingSubgroupOf (⊤ : Subgroup G) : Set G) ≤
-      CFSG.GorensteinWalter.generalizedFittingSubgroupOf (⊤ : Subgroup G) :=
-  CFSG.Adapters.centralizer_generalizedFittingSubgroupOf_top_le
 
 end CFSG.Milestones
 

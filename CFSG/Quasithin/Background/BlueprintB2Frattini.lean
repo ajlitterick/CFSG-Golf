@@ -181,20 +181,6 @@ theorem conjugate_le_normalClosure (J : Subgroup G) (g : G) :
   have := (Subgroup.normalClosure_normal (s := (J : Set G))).conj_mem _ h1 g⁻¹
   simpa [mul_assoc] using this
 
-theorem sup_eq_top_iff_forall_mul {L R : Subgroup G} [L.Normal] :
-    L ⊔ R = ⊤ ↔ ∀ g : G, ∃ l ∈ L, ∃ r ∈ R, g = l * r := by
-  constructor
-  · intro h g
-    have hg : g ∈ (↑(L ⊔ R) : Set G) := by
-      rw [h]
-      exact Subgroup.mem_top g
-    rw [Subgroup.normal_mul] at hg
-    obtain ⟨l, hl, r, hr, rfl⟩ := Set.mem_mul.mp hg
-    exact ⟨l, hl, r, hr, rfl⟩
-  · intro h
-    refine eq_top_iff.mpr fun g _ => ?_
-    obtain ⟨l, hl, r, hr, rfl⟩ := h g
-    exact Subgroup.mul_mem_sup hl hr
 
 theorem forall_exists_conjugate_eq {J L R Q I : Subgroup G} [L.Normal] (hLR : L ⊔ R = ⊤)
     (hR : ∀ r ∈ R, conjugate J r = J) (hQR : Q ≤ R)
@@ -241,20 +227,6 @@ theorem mem_centralizer_of_conjNormal_eq_one {V : Subgroup G} [V.Normal] {g : G}
 
 end Conj
 
-theorem map_subtype_eq_self_iff {G : Type*} [Group G] {X : Subgroup G} (K : Subgroup X) :
-    K.map X.subtype = X ↔ K = ⊤ := by
-  constructor
-  · intro h
-    rw [eq_top_iff]
-    intro x _
-    have hx : (x : G) ∈ K.map X.subtype := by
-      rw [h]
-      exact x.2
-    obtain ⟨y, hy, hyx⟩ := hx
-    have hyx' : y = x := Subtype.ext hyx
-    rwa [hyx'] at hy
-  · rintro rfl
-    rw [← MonoidHom.range_eq_map, Subgroup.range_subtype]
 
 section Thompson
 

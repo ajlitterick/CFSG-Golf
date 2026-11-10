@@ -624,54 +624,6 @@ theorem pCore_two_centOne : (CFSG.pCore 2 centOne).map centOne.subtype = vOne :=
     intro x hx
     exact ⟨⟨x, vOne_le_centOne hx⟩, hle hx, rfl⟩
 
-theorem pCore_two_centTwo : (CFSG.pCore 2 centTwo).map centTwo.subtype = vTwo := by
-  apply le_antisymm
-  · have : (CFSG.pCore 2 centTwo).Normal := CFSG.pCore_normal
-    refine map_le_vTwo_of_normal _ fun h => ?_
-    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    obtain ⟨k, hk⟩ := IsPGroup.iff_card.1 (CFSG.pCore_isPGroup (p := 2) (G := centTwo))
-    rw [hk] at h
-    exact absurd (Nat.Prime.dvd_of_dvd_pow Nat.prime_three h) (by norm_num)
-  · have hle : vTwo.subgroupOf centTwo ≤ CFSG.pCore 2 centTwo := le_sSup ⟨inferInstance, by
-      refine IsPGroup.of_card (n := 2) ?_
-      rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe vTwo_le_centTwo).toEquiv, card_vTwo]
-      norm_num⟩
-    intro x hx
-    exact ⟨⟨x, vTwo_le_centTwo hx⟩, hle hx, rfl⟩
-
-theorem eNineF_commute_vOne : ∀ i j : Fin 3,
-    (∀ m : Fin 4, eNineF i j * vOneF m = vOneF m * eNineF i j) ↔ j = 0 := by
-  decide +kernel
-
-theorem eNineF_commute_vTwo : ∀ i j : Fin 3,
-    (∀ m : Fin 4, eNineF i j * vTwoF m = vTwoF m * eNineF i j) ↔ i = 0 := by
-  decide +kernel
-
-theorem commute_vOne_iff {x : Perm (Fin 7)} (hx : x ∈ eNine) :
-    (∀ v ∈ vOne, x * v = v * x) ↔ ∃ i : Fin 3, x = cOne ^ (i : ℕ) := by
-  obtain ⟨i, j, rfl⟩ := hx
-  constructor
-  · intro h
-    have hj := (eNineF_commute_vOne i j).1 fun m => h _ ⟨m, rfl⟩
-    exact ⟨i, by rw [hj]; simp [eNineF]⟩
-  · rintro ⟨k, hk⟩ _ ⟨m, rfl⟩
-    have hj : j = 0 := by
-      have := eNineF_injective (i, j) (k, 0) (by rw [hk]; simp [eNineF])
-      exact (Prod.mk.inj this).2
-    exact (eNineF_commute_vOne i j).2 hj m
-
-theorem commute_vTwo_iff {x : Perm (Fin 7)} (hx : x ∈ eNine) :
-    (∀ v ∈ vTwo, x * v = v * x) ↔ ∃ j : Fin 3, x = cTwo ^ (j : ℕ) := by
-  obtain ⟨i, j, rfl⟩ := hx
-  constructor
-  · intro h
-    have hi := (eNineF_commute_vTwo i j).1 fun m => h _ ⟨m, rfl⟩
-    exact ⟨j, by rw [hi]; simp [eNineF]⟩
-  · rintro ⟨k, hk⟩ _ ⟨m, rfl⟩
-    have hi : i = 0 := by
-      have := eNineF_injective (i, j) (0, k) (by rw [hk]; simp [eNineF])
-      exact (Prod.mk.inj this).1
-    exact (eNineF_commute_vTwo i j).2 hi m
 
 theorem tInv_spec : Perm.sign tInv = 1 ∧
     (∀ i j : Fin 3, tInv * eNineF i j * tInv⁻¹ = (eNineF i j)⁻¹) ∧
@@ -769,15 +721,6 @@ theorem exists_rFour_pow_of_mem_normalizer {g : Perm (Fin 7)}
     rw [map_mul, autRep_spec.2.1 d hd, eNineF_sign] at h1
     exact absurd h1 (by decide)
 
-theorem pow_four_mem_eNine_of_mem_normalizer {g : Perm (Fin 7)}
-    (hg : g ∈ normalizer (eNine : Set (Perm (Fin 7)))) : g ^ 4 ∈ eNine := by
-  obtain ⟨d, i, j, rfl⟩ := exists_autRep_of_mem_normalizer hg
-  obtain ⟨i', j', h⟩ := autRep_spec.2.2 d i j
-  exact ⟨i', j', h⟩
-
-theorem swap_zero_one_spec :
-    sw 0 1 * cOne * (sw 0 1)⁻¹ = cOne⁻¹ ∧ sw 0 1 * cTwo * (sw 0 1)⁻¹ = cTwo := by
-  decide +kernel
 
 theorem cycleType_of_orderOf_eq_three {σ : Perm (Fin 7)} (h : orderOf σ = 3) :
     σ.cycleType = {3} ∨ σ.cycleType = {3, 3} := by

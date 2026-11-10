@@ -66,8 +66,5 @@ theorem s1OuterClassification_of_native (hL : LinClassify) (hU : UniClassify) :
     · right; right
       exact Or.inr ⟨q, F, inferInstance, inferInstance, e, hF, hq, hG⟩
 
-theorem s1_shapeCase_of_native (hL : LinClassify) (hU : UniClassify) (hExo : S1ExoticExcluded)
-    (hNbhd : S1Nbhd) (hE : S1LevelE) : S_shapeCaseMaxNT @ShapeS1 :=
-  s1_shapeCase_of_props (s1OuterClassification_of_native hL hU) hExo hNbhd hE
 
 end CFSG.GH74.Generic.S1

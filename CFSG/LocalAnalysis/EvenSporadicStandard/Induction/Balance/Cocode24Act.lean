@@ -18,7 +18,6 @@ open Equiv
 theorem permW_mul (σ τ : Perm (Fin 24)) (v : Word) :
     permW (σ * τ) v = permW σ (permW τ v) := rfl
 
-theorem permW_one (v : Word) : permW 1 v = v := rfl
 
 theorem permW_permW_inv (σ : Perm (Fin 24)) (v : Word) : permW σ (permW σ⁻¹ v) = v := by
   ext i
@@ -39,8 +38,6 @@ theorem permW_single (σ : Perm (Fin 24)) (i : Fin 24) :
     intro σ hσ v
     rw [← hσ (permW σ⁻¹ v), permW_permW_inv]
 
-theorem mem_aut_iff (σ : Perm (Fin 24)) :
-    σ ∈ aut ↔ ∀ v, permW σ v ∈ golay ↔ v ∈ golay := Iff.rfl
 
 @[expose] def act (σ : Perm (Fin 24)) : Syn →ₗ[ZMod 2] Syn :=
   ∑ j, (LinearMap.proj j : Syn →ₗ[ZMod 2] ZMod 2).smulRight (col (σ (pivot j)))
@@ -53,9 +50,6 @@ theorem act_single (σ : Perm (Fin 24)) (j : Fin 12) :
   rw [act_apply]
   simp [Pi.single_apply]
 
-theorem sum_smul_col_pivot (s : Syn) : ∑ j, s j • col (pivot j) = s := by
-  ext k
-  simp [col_pivot, Finset.sum_apply, Pi.single_apply]
 
 theorem act_col {σ : Perm (Fin 24)} (hσ : σ ∈ aut) (i : Fin 24) :
     act σ (col i) = col (σ i) := by

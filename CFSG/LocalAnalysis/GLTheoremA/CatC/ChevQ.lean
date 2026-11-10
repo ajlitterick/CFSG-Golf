@@ -29,7 +29,6 @@ variable {G : Type} [Group G] [Finite G] {p q : ℕ}
     IsChevSimple q S → ∀ α : MulAut S, α ^ p = 1 →
       ∀ I : Subgroup S, GLAPComponent p (fixSubgroup α) I → IsChevSimple q (PSimple p I)
 
-theorem kdChevDownQ_self_iff (p : ℕ) : KDChevDownQ p p ↔ KDChevDown p := Iff.rfl
 
 theorem chevQ_step (hp : p.Prime) (hD : KDChevDownQ p q) {X K : Subgroup G}
     (hK : GLAPComponent p X K) (hchev : IsChevSimple q (PSimple p K)) {a : G}
@@ -1056,10 +1055,6 @@ theorem chevClosureQAt_of_lieComps (hLC : ∀ F, LieCompsOn p F)
     kdChevDownQ_of_lieComps hp hLC (fun _ => hInner) (kdAmbDownQ_holds hp hp2 hInner hAmbSolv))
     hp hp2
 
-theorem chevClosureAt_of_lieComps (hLC : ∀ F, LieCompsOn p F)
-    (hLQ : CFSG.HardMathSupport.Solomon.Coordinator.YS08.LieQ.LieQConstrainedInner p) :
-    ChevClosureAt G p :=
-  chevClosureAt_of_chevClosureQAt (chevClosureQAt_of_lieComps hLC hLQ)
 
 end Final
 

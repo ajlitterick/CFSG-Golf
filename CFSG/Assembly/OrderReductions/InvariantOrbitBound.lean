@@ -104,26 +104,6 @@ theorem invariant_sylow_index_mul_fixed_part {group : Type*} [Group group] [Fini
     sylow invariant, sylow_map_card_eq_primePart] at card_eq
   exact card_eq
 
-theorem invariant_prime_index_le {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (automorphism : MulAut group)
-    (involutive : Function.Involutive automorphism) (subgroup : Subgroup group)
-    (odd_subgroup : Odd (Nat.card subgroup))
-    (prime_subgroup : Subgroup group) (prime_group : IsPGroup prime prime_subgroup)
-    (contains : prime_subgroup ≤ subgroup)
-    (invariant : prime_subgroup.map automorphism.toMonoidHom = prime_subgroup) :
-    fixedIndex automorphism prime_subgroup ≤ primePart prime (fixedIndex automorphism subgroup) := by
-  obtain ⟨sylow, image_contains, image_invariant⟩ := exists_invariant_intersection_sylow_containing
-    prime automorphism involutive subgroup odd_subgroup prime_subgroup prime_group contains invariant
-  apply (fixedIndex_mono automorphism _ _ image_contains).trans
-  have image_product := invariant_sylow_index_mul_fixed_part prime automorphism involutive subgroup
-    odd_subgroup sylow image_invariant
-  have full_product := primePart_fixedIndex_mul_fixed_part prime automorphism subgroup
-  have parts_le := primePart_subgroup_le prime (intersection automorphism subgroup) subgroup inf_le_left
-  apply Nat.le_of_mul_le_mul_right (c := primePart prime
-    (Nat.card ↥(subgroup ⊓ CFSG.OrderReductions.OddInversion.fixedSubgroup automorphism)))
-  · rw [image_product, full_product]
-    exact parts_le
-  · exact pow_pos (Fact.out : Nat.Prime prime).pos _
 
 theorem invariant_prime_index_ge_extends_sylow {group : Type*}
     [Group group] [Finite group] (prime : ℕ) [Fact (Nat.Prime prime)]

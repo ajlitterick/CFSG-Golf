@@ -166,18 +166,6 @@ public theorem bot_lt_fixedPoints {p : ℕ} [Fact p.Prime] {V : Type*} [AddCommG
     simpa using this
   exact hbne hb1.symm
 
-/-- Glauberman, Lemma 3.4 ([6], §3, p. 1106): let `p` be a prime and let `G` be a group
-of linear transformations on a finite vector space `V` over a field of characteristic
-`p` (formalised: `G` acts faithfully on the additive group of `V` via `φ`, and the
-additive group of `V` is a finite `p`-group).  If `P` is a non-identity `p`-subgroup of
-`G`, then `1 < C_V(P) < V`. -/
-public theorem lemma3_4 {p : ℕ} [Fact p.Prime] {V : Type*} [AddCommGroup V] [Finite V]
-    {G : Type*} [Group G] (φ : G →* MulAut (Multiplicative V)) (hφ : Function.Injective φ)
-    [Nontrivial V] (hVp : IsPGroup p (Multiplicative V)) (P : Subgroup G)
-    (hPp : IsPGroup p P) (hPne : P ≠ ⊥) :
-    (⊥ : Subgroup (Multiplicative V)) < fixedPoints φ P ∧
-      fixedPoints φ P < (⊤ : Subgroup (Multiplicative V)) :=
-  ⟨bot_lt_fixedPoints φ hVp P hPp, fixedPoints_lt_top hφ P hPne⟩
 
 /-- Irreducibility of the action of `G` on the additive group of `V`: no proper
 non-trivial `G`-invariant additive subgroup exists. -/

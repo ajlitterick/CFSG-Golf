@@ -137,49 +137,6 @@ theorem mem_centralizer_of_alphaCore_eq_bot {J : Subgroup G} {z₁ z₂ : G}
     _ = h * (n * z₂) := by rw [← hcomm]
     _ = x * z₂ := by rw [← mul_assoc, ← hxhn]
 
-theorem exactMembers_of_alphaCore_eq_bot_edge [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h9 : p ^ f ≠ 9)
-    (hΩ : InClass p f Ω) (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K)
-    (hIH : LocalLieSystems p f Ω) {J : Subgroup G} {z₁ z₂ : G} (hJΩ : J ∈ Ω)
-    (hJ : IsClassicalMember p f J z₁) (hz₂ : z₂ ∈ trivialOnQuot J) (hz₂sq : z₂ * z₂ = 1)
-    (hz₁z₂ : z₁ * z₂ = z₂ * z₁) (hα : alphaCore (Subgroup.closure ({z₁, z₂} : Set G)) = ⊥) :
-    ExactMembers Ω := by
-  have hc := hJ.isCentralInvolution
-  have hz₁ne : z₁ ≠ 1 := hc.ne_one
-  have hcent := mem_centralizer_of_alphaCore_eq_bot hJ hz₂ hz₂sq hz₁ne hα
-  have hF : IsElemAbelian 2 (Subgroup.closure ({z₁, z₂} : Set G)) :=
-    isElemAbelian_closure_of_commuting_involutions (by
-      rintro s (rfl | hs)
-      · exact hc.sq
-      · rw [Set.mem_singleton_iff.mp hs]
-        exact hz₂sq) (by
-      rintro s (rfl | hs) t (rfl | ht)
-      · rfl
-      · rw [Set.mem_singleton_iff.mp ht]
-        exact hz₁z₂
-      · rw [Set.mem_singleton_iff.mp hs]
-        exact hz₁z₂.symm
-      · rw [Set.mem_singleton_iff.mp hs, Set.mem_singleton_iff.mp ht])
-  have hKF : J ≤ Subgroup.centralizer ((Subgroup.closure ({z₁, z₂} : Set G) : Subgroup G) :
-      Set G) := by
-    intro x hx
-    rw [Subgroup.mem_centralizer_iff]
-    intro g hg
-    have hle : Subgroup.closure ({z₁, z₂} : Set G) ≤ Subgroup.centralizer ({x} : Set G) := by
-      rw [Subgroup.closure_le]
-      rintro s (rfl | hs)
-      · rw [SetLike.mem_coe, Subgroup.mem_centralizer_singleton_iff]
-        exact hc.central x hx
-      · rw [Set.mem_singleton_iff.mp hs, SetLike.mem_coe,
-          Subgroup.mem_centralizer_singleton_iff]
-        exact hcent x hx
-    exact Subgroup.mem_centralizer_singleton_iff.mp (hle hg)
-  have hΔ : deltaCore (Subgroup.closure ({z₁, z₂} : Set G)) = ⊥ := by
-    have := deltaCore_le_alphaCore (F := Subgroup.closure ({z₁, z₂} : Set G))
-    rw [hα] at this
-    exact le_bot_iff.mp this
-  exact exactMembers_of_deltaCore_eq_bot hnab hp2 hq h9 ModelFacts.modelClauseZero
-    fundamentalWholeA1 hΩ hsingle hIH hJΩ hJ hF hKF hΔ
 
 end Bridge
 
@@ -240,21 +197,6 @@ theorem reflTransGen_frameAdj_of_adj (hp2 : p ≠ 2) (hf : 0 < f) (E : Subgroup 
       · exact (hb zb hzb).tail (hedge b hbΩ c hstep.1 zb z hzb hz hstep.2 hzz)
   exact (key M' (hconn M hM M' hM')).2 a' ha'
 
-theorem shareFour_connected_of_local (hp2 : p ≠ 2) (hf : 0 < f) (hΩ : InClass p f Ω)
-    (hconn : OmegaConnected Ω) {𝒯 : Set (Subgroup G)} (cl : Subgroup G → Set G)
-    (hcl : ∀ A ∈ 𝒯, ∀ z ∈ cl A, ∃ J ∈ Ω, IsClassicalMember p f J z)
-    (hne : ∀ A ∈ 𝒯, (cl A).Nonempty)
-    (hedge : ∀ M ∈ Ω, ∀ N ∈ Ω, ∀ zM zN : G, IsClassicalMember p f M zM →
-      IsClassicalMember p f N zN → Commutes M N → zM ≠ zN →
-        ∃ A ∈ 𝒯, zM ∈ cl A ∧ zN ∈ cl A)
-    (hlink : ∀ a : G, ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, a ∈ cl A → a ∈ cl A' →
-      Relation.ReflTransGen (ShareFourIn 𝒯) A A') :
-    ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, Relation.ReflTransGen (ShareFourIn 𝒯) A A' :=
-  shareFour_connected_of_vertexGraph cl hne (fun A hA A' hA' a ha a' ha' => by
-    obtain ⟨M, hMΩ, hMa⟩ := hcl A hA a ha
-    obtain ⟨M', hM'Ω, hM'a'⟩ := hcl A' hA' a' ha'
-    exact reflTransGen_frameAdj_of_adj hp2 hf Commutes (fun b hb => hΩ.classical b hb) hconn cl
-      hedge hMΩ hM'Ω hMa hM'a') hlink
 
 theorem reflTransGen_shareFour_map_of_mem_oddCoreIn {𝒯 : Set (Subgroup G)}
     (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯) {A : Subgroup G}
@@ -308,75 +250,6 @@ theorem shareFour_connected_of_vertexGraph_modOdd {𝒯 : Set (Subgroup G)}
   shareFour_connected_of_vertexGraph cl hne hvert fun a A hA A' hA' ha ha' =>
     reflTransGen_shareFourIn_of_linkMove hinv hfr cl hclA (hlink a A hA A' hA' ha ha')
 
-theorem shareFour_connected_of_local_modOdd (hp2 : p ≠ 2) (hf : 0 < f) (hΩ : InClass p f Ω)
-    (hconn : OmegaConnected Ω) {𝒯 : Set (Subgroup G)}
-    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
-    (hfr : ∀ A ∈ 𝒯, IsElemAbelian 2 A ∧ Nat.card A = 8) (cl : Subgroup G → Set G)
-    (hclA : ∀ A ∈ 𝒯, ∀ z ∈ cl A, z ∈ A)
-    (hcl : ∀ A ∈ 𝒯, ∀ z ∈ cl A, ∃ J ∈ Ω, IsClassicalMember p f J z)
-    (hne : ∀ A ∈ 𝒯, (cl A).Nonempty)
-    (hedge : ∀ M ∈ Ω, ∀ N ∈ Ω, ∀ zM zN : G, IsClassicalMember p f M zM →
-      IsClassicalMember p f N zN → Commutes M N → zM ≠ zN →
-        ∃ A ∈ 𝒯, zM ∈ cl A ∧ zN ∈ cl A)
-    (hlink : ∀ a : G, ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, a ∈ cl A → a ∈ cl A' →
-      Relation.ReflTransGen (LinkMove 𝒯 cl a) A A') :
-    ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, Relation.ReflTransGen (ShareFourIn 𝒯) A A' :=
-  shareFour_connected_of_local hp2 hf hΩ hconn cl hcl hne hedge fun a A hA A' hA' ha ha' =>
-    reflTransGen_shareFourIn_of_linkMove hinv hfr cl hclA (hlink a A hA A' hA' ha ha')
-
-omit [Finite G] in
-theorem linkMove_connected_of_graph {𝒯 : Set (Subgroup G)} (cl : Subgroup G → Set G) {a : G}
-    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
-    (hclmap : ∀ A ∈ 𝒯, ∀ z ∈ cl A, ∀ g : G,
-      g * z * g⁻¹ ∈ cl (A.map (MulAut.conj g).toMonoidHom))
-    (hfix : ∀ y ∈ oddCoreIn (Subgroup.centralizer ({a} : Set G)), y * a * y⁻¹ = a)
-    {V : Type*} (four : V → Subgroup G) (hfour : ∀ v, Nat.card (four v) = 4)
-    (Adj : V → V → Prop) (hcover : ∀ A ∈ 𝒯, a ∈ cl A → ∃ v, four v ≤ A)
-    (hadj : ∀ v w, Adj v w → ∃ B ∈ 𝒯, ∃ y ∈ oddCoreIn (Subgroup.centralizer ({a} : Set G)),
-      a ∈ cl B ∧ four v ≤ B ∧ conjSub y (four w) ≤ B)
-    (hconn : ∀ v w, Relation.ReflTransGen Adj v w) :
-    ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, a ∈ cl A → a ∈ cl A' →
-      Relation.ReflTransGen (LinkMove 𝒯 cl a) A A' := by
-  have hshare : ∀ {X Y : Subgroup G} {F : Subgroup G}, X ∈ 𝒯 → Y ∈ 𝒯 → a ∈ cl X → a ∈ cl Y →
-      F ≤ X → F ≤ Y → Nat.card F = 4 → Relation.ReflTransGen (LinkMove 𝒯 cl a) X Y := by
-    intro X Y F hX hY hXa hYa hFX hFY hF
-    refine Relation.ReflTransGen.single ⟨hX, hY, hXa, hYa, Or.inl ⟨F, ⟨hFX, ?_⟩, ⟨hFY, ?_⟩⟩⟩
-    · rw [hF]; norm_num
-    · rw [hF]; norm_num
-  have hconjmove : ∀ {X : Subgroup G}, X ∈ 𝒯 → a ∈ cl X →
-      ∀ y ∈ oddCoreIn (Subgroup.centralizer ({a} : Set G)),
-        Relation.ReflTransGen (LinkMove 𝒯 cl a) X (X.map (MulAut.conj y).toMonoidHom) := by
-    intro X hX hXa y hy
-    have hya := hclmap X hX a hXa y
-    rw [hfix y hy] at hya
-    exact Relation.ReflTransGen.single ⟨hX, hinv X hX y, hXa, hya, Or.inr ⟨y, hy, rfl⟩⟩
-  have hstep : ∀ v w, Adj v w → ∃ B ∈ 𝒯, a ∈ cl B ∧ four v ≤ B ∧
-      ∀ Y ∈ 𝒯, a ∈ cl Y → four w ≤ Y → Relation.ReflTransGen (LinkMove 𝒯 cl a) B Y := by
-    intro v w hvw
-    obtain ⟨B, hB, y, hy, hBa, hvB, hwB⟩ := hadj v w hvw
-    refine ⟨B, hB, hBa, hvB, fun Y hY hYa hwY => ?_⟩
-    have hy' : y⁻¹ ∈ oddCoreIn (Subgroup.centralizer ({a} : Set G)) := inv_mem hy
-    have hB'a : a ∈ cl (B.map (MulAut.conj y⁻¹).toMonoidHom) := by
-      have h := hclmap B hB a hBa y⁻¹
-      rwa [hfix y⁻¹ hy'] at h
-    have hwB' : four w ≤ B.map (MulAut.conj y⁻¹).toMonoidHom := by
-      have h := conjSub_mono (n := y⁻¹) hwB
-      rwa [conjSub_inv_conjSub] at h
-    exact (hconjmove hB hBa y⁻¹ hy').trans
-      (hshare (hinv B hB y⁻¹) hY hB'a hYa hwB' hwY (hfour w))
-  intro A hA A' hA' haA haA'
-  obtain ⟨v, hv⟩ := hcover A hA haA
-  obtain ⟨w, hw⟩ := hcover A' hA' haA'
-  have key : ∀ u, Relation.ReflTransGen Adj v u →
-      ∀ Z ∈ 𝒯, a ∈ cl Z → four u ≤ Z → Relation.ReflTransGen (LinkMove 𝒯 cl a) A Z := by
-    intro u hu
-    induction hu with
-    | refl => exact fun Z hZ hZa hvZ => hshare hA hZ haA hZa hv hvZ (hfour v)
-    | @tail b c _ hbc ih =>
-      intro Z hZ hZa hcZ
-      obtain ⟨B, hB, hBa, hbB, hBZ⟩ := hstep b c hbc
-      exact (ih B hB hBa hbB).trans (hBZ Z hZ hZa hcZ)
-  exact key w (hconn v w) A' hA' haA' hw
 
 end Connectivity
 
@@ -487,20 +360,6 @@ theorem FuzzyFrameOn.exists_axisTriangle {A : Subgroup G} (h : FuzzyFrameOn p f 
       exact Subgroup.mul_mem _ (m0 0 1) (m1 0 1)
   · rw [triangleAxis, hAdef, hrange]
 
-theorem rankThreeBalance_of_fuzzyFrameOn
-    [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hBelow : CITBelowU p f (Nat.card G)) {A : Subgroup G}
-    (hA : FuzzyFrameOn p f Ω A)
-    (hI : ∀ (J₁ J₂ J₃ : Subgroup G) (z₁ z₂ z₃ : G), J₁ ∈ Ω → J₂ ∈ Ω → J₃ ∈ Ω →
-      AxisTriangle p f J₁ J₂ J₃ z₁ z₂ z₃ → triangleAxis z₁ z₂ z₃ = A →
-        ∀ b ∈ A, b ≠ 1 → FuzzyInputs p f (triangleSecFamily J₁ J₂ J₃ b) b) :
-    RankThreeBalance A := by
-  obtain ⟨J₁, J₂, J₃, z₁, z₂, z₃, h1, h2, h3, hT, hne12, hne13, hne23, hind, hax⟩ :=
-    hA.exists_axisTriangle
-  have hB := hT.rankThreeBalance hnab hp2 hq ModelFacts.modelClauseZero fundamentalWholeA1 hBelow
-    hne12 hne13 hne23 hind fun b hb hb1 =>
-      hI J₁ J₂ J₃ z₁ z₂ z₃ h1 h2 h3 hT hax b (hax ▸ hb) hb1
-  rwa [hax] at hB
 
 end AxisFrames
 
@@ -518,15 +377,6 @@ theorem conjInvariant_conjMembers (K : Subgroup G) : ConjInvariant (conjMembers 
   rintro n _ ⟨g, rfl⟩
   exact ⟨n * g, conjSub_mul n g K⟩
 
-@[expose] def FuzzyModelInputs (p f : ℕ) [Fact p.Prime] (𝒞 : MemberClass) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
-      RouteD.DeltaConnected (CoreAssembly.conjClass K) →
-        CoreAssembly.IndepTriple p f (CoreAssembly.conjClass K) →
-        ∀ (J₁ J₂ J₃ : Subgroup G) (z₁ z₂ z₃ : G), J₁ ∈ 𝒞 K → J₂ ∈ 𝒞 K → J₃ ∈ 𝒞 K →
-          AxisTriangle p f J₁ J₂ J₃ z₁ z₂ z₃ → ∀ b ∈ triangleAxis z₁ z₂ z₃, b ≠ 1 →
-            FuzzyInputs p f (triangleSecFamily J₁ J₂ J₃ b) b
 
 @[expose] def FuzzyFrameBalance (p f : ℕ) [Fact p.Prime] (𝒞 : MemberClass) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -536,13 +386,6 @@ theorem conjInvariant_conjMembers (K : Subgroup G) : ConjInvariant (conjMembers 
         CoreAssembly.IndepTriple p f (CoreAssembly.conjClass K) →
         ∀ A ∈ fuzzyFrames p f (𝒞 K), RankThreeBalance A
 
-theorem fuzzyFrameBalance_of_modelInputs
-    {𝒞 : MemberClass} (hin : FuzzyModelInputs p f 𝒞) :
-    FuzzyFrameBalance p f 𝒞 := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind A hA
-  exact rankThreeBalance_of_fuzzyFrameOn hnab hp2 hq hBelow hA fun J₁ J₂ J₃ z₁ z₂ z₃ h1 h2 h3 hT hax
-    b hb hb1 => hin G hnab hp2 hq K z hz hBelow hconn hind J₁ J₂ J₃ z₁ z₂ z₃ h1 h2 h3 hT b
-      (hax ▸ hb) hb1
 
 @[expose] def FuzzyAxisExact (p f : ℕ) [Fact p.Prime] (𝒞 : MemberClass) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -620,55 +463,6 @@ end Inputs
 
 section BootTriple
 
-theorem bootTriple_of_fuzzyFrames (𝒞 : MemberClass) (hlay : TriangleLayers p f)
-    (hinv : ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G), ConjInvariant (𝒞 K))
-    (hbal : FuzzyFrameBalance p f 𝒞) (hexact : FuzzyAxisExact p f 𝒞)
-    (hvert : FuzzyVertexConn p f 𝒞) (hlink : FuzzyLinkConn p f 𝒞)
-    (hcov9 : p ^ f = 9 → ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    CoreAssembly.BootTriple p f := by
-  by_cases h9 : p ^ f = 9
-  · exact bootTriple_of_triangleLayers hlay (hcov9 h9) hexotic
-  · intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
-    have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
-    have hIH := localLieSystems_of_citBelowU hΩ hBelow
-    have hind' := hind
-    obtain ⟨K', z', hK', hcomm, hel, hcard⟩ := hind
-    have hAex : IndepTripleOn p f (CoreAssembly.conjClass K) (Subgroup.closure (Set.range z')) :=
-      ⟨K', z', hK', hcomm, rfl, hel, hcard⟩
-    have hA : Subgroup.closure (Set.range z') ∈ fuzzyFrames p f (𝒞 K) :=
-      hexact G hnab hp2 hq K z hz hBelow hconn _ hAex
-    have hf : 0 < f := by
-      rcases Nat.eq_zero_or_pos f with rfl | h
-      · simp at hq
-      · exact h
-    have hmap : ∀ A ∈ fuzzyFrames p f (𝒞 K), ∀ g : G,
-        A.map (MulAut.conj g).toMonoidHom ∈ fuzzyFrames p f (𝒞 K) := fun A hA g =>
-      FuzzyFrameOn.map (hinv G K) hA g
-    have hcon := shareFour_connected_of_vertexGraph_modOdd (𝒯 := fuzzyFrames p f (𝒞 K)) hmap
-      (fun A hA => by
-        obtain ⟨J, z, -, -, hel, hcard, -⟩ := hA
-        exact ⟨hel, hcard⟩)
-      (fuzzyVertices p f (𝒞 K)) (fun A _ z hz => hz.1) (fun A hA => hA.exists_vertex)
-      (fun A _ A' _ a ha a' ha' =>
-        hvert G hnab hp2 hq K z hz hBelow hconn hind' a a'
-          (by obtain ⟨-, J, hJ, hJa, -⟩ := ha; exact ⟨J, hJ, hJa⟩)
-          (by obtain ⟨-, J, hJ, hJa, -⟩ := ha'; exact ⟨J, hJ, hJa⟩))
-      (fun a A hA A' hA' ha ha' =>
-        hlink G hnab hp2 hq K z hz hBelow hconn hind' a A hA A' hA' ha ha')
-    obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_balancedFamily hnab hp2 hq h9 hΩ
-      (CoreAssembly.exists_single_class K) hIH
-      (fun A' hA' => hlay G hnab hp2 hq K z hz hBelow hconn A' hA')
-      (fun A hA => hbal G hnab hp2 hq K z hz hBelow hconn hind' A hA) hmap hcon hK' hcomm rfl hel
-      hcard hA
-    exact ⟨hex, hP1 K (CoreAssembly.mem_conjClass_self K) z hz⟩
-
-theorem bootTriple_of_fuzzyConjFrames (hlay : TriangleLayers p f)
-    (hin : FuzzyModelInputs p f conjMembers) (hedge : FuzzyEdgeInFrame p f conjMembers commuteAdj)
-    (hlink : FuzzyLinkConn p f conjMembers) (hcov9 : p ^ f = 9 → ConnectedFramesExist p f)
-    (hexotic : ExoticLeviBlock p f) : CoreAssembly.BootTriple p f :=
-  bootTriple_of_fuzzyFrames conjMembers hlay (fun _ _ _ K => conjInvariant_conjMembers K)
-    (fuzzyFrameBalance_of_modelInputs hin) fuzzyAxisExact_conjMembers
-    (fuzzyVertexConn_of_adj fuzzyMemberConn_conjMembers hedge) hlink hcov9 hexotic
 
 end BootTriple
 

@@ -227,10 +227,6 @@ theorem tightDichotomy_holds (n : ℕ) : TightDichotomy n :=
 section Cit3
 
 
-theorem tightStep_of_parts₂ (htw : ∀ n, TightTwistStep n) (h1 : TightSmallBase)
-    (h2 : ∀ n, TightLargeEdge n) (h3 : ∀ n, TightLargeLift n) : ∀ n, TightStep n :=
-  tightStep_of_parts tightDichotomy_holds htw h1 h2 h3
-
 end Cit3
 
 end CFSG.ClassicalInvolution.Q3

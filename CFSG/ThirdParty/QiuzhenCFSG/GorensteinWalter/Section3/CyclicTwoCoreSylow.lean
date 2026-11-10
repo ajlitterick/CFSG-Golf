@@ -142,46 +142,6 @@ private theorem mem_centralizerIn_iff_local {G : Type u} [Group G]
     rw [hzs]
     exact mul_inv_eq_iff_eq_mul.mp (by simpa [mul_assoc] using hxfix)
 
-/-- Conjugation by `s ∈ S` preserves `F(U)`. -/
-private theorem s_normalizes_fittingSubgroupOf
-    {G : Type u} [Group G] [Finite G]
-    (bg : BenderGlauberman.Hyp11 G) {s : G} (hs : s ∈ (bg.S : Subgroup G)) :
-    ∀ f : G, f ∈ fittingSubgroupOf bg.U → s * f * s⁻¹ ∈ fittingSubgroupOf bg.U := by
-  classical
-  let : Fintype G := Fintype.ofFinite G
-  intro f hf
-  rcases (Subgroup.mem_map).1 hf with ⟨fU, hfCore, rfl⟩
-  let φ : ↥bg.U ≃* ↥bg.U := {
-    toFun := fun u => ⟨s * (u : G) * s⁻¹,
-      BenderGlauberman.S_normalizes_U bg s hs (u : G) u.2⟩
-    invFun := fun u => ⟨s⁻¹ * (u : G) * s, by
-      have h := BenderGlauberman.S_normalizes_U bg s⁻¹
-        ((bg.S : Subgroup G).inv_mem hs) (u : G) u.2
-      simpa [mul_assoc, inv_inv] using h⟩
-    left_inv := by
-      intro u
-      apply Subtype.ext
-      change s⁻¹ * (s * (u : G) * s⁻¹) * s = (u : G)
-      group
-    right_inv := by
-      intro u
-      apply Subtype.ext
-      change s * (s⁻¹ * (u : G) * s) * s⁻¹ = (u : G)
-      group
-    map_mul' := by
-      intro u v
-      apply Subtype.ext
-      change s * ((u : G) * (v : G)) * s⁻¹ =
-        (s * (u : G) * s⁻¹) * (s * (v : G) * s⁻¹)
-      group
-  }
-  have hconj : φ fU ∈ fittingSubgroup bg.U :=
-    Subgroup.mem_comap.mp (by
-      rw [(inferInstance : (fittingSubgroup bg.U).Characteristic).fixed φ]
-      exact hfCore)
-  exact Subgroup.mem_map.mpr ⟨φ fU, hconj, by
-    change s * (fU : G) * s⁻¹ = s * (fU : G) * s⁻¹
-    rfl⟩
 
 private theorem B_le_centralizerIn_U_of_mem_S
     {G : Type u} [Group G] [Finite G]

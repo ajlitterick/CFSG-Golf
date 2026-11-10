@@ -36,13 +36,6 @@ theorem units_pow_three (hF : Nat.card F = 4) (u : Fˣ) : u ^ 3 = 1 := by
   have h : u ^ Nat.card Fˣ = 1 := pow_card_eq_one'
   rwa [card_units_eq_three hF] at h
 
-private theorem units_eq_one_of_pow_four (hF : Nat.card F = 4) {u : Fˣ} (hu : u ^ 4 = 1) :
-    u = 1 := by
-  have h3 := units_pow_three hF u
-  have h4 : u ^ 4 = u := by
-    rw [show (4 : ℕ) = 3 + 1 by norm_num, pow_succ, h3, one_mul]
-  rw [← h4]
-  exact hu
 
 theorem exists_units_order_three (hF : Nat.card F = 4) :
     ∃ ω : Fˣ, orderOf ω = 3 := by
@@ -59,14 +52,6 @@ noncomputable def diagSL {n : ℕ} (d : Fin n → F) (h : ∏ i, d i = 1) :
 private theorem coe_diagSL {n : ℕ} (d : Fin n → F) (h : ∏ i, d i = 1) :
     (diagSL d h : Matrix (Fin n) (Fin n) F) = Matrix.diagonal d := rfl
 
-private theorem diagSL_mul {n : ℕ} (d d' : Fin n → F) (h : ∏ i, d i = 1)
-    (h' : ∏ i, d' i = 1) :
-    diagSL d h * diagSL d' h' =
-      diagSL (d * d') (by rw [show (d * d') = (fun i => d i * d' i) from rfl,
-        Finset.prod_mul_distrib, h, h', one_mul]) := by
-  apply Subtype.ext
-  change (Matrix.diagonal d) * (Matrix.diagonal d') = Matrix.diagonal (d * d')
-  rw [Matrix.diagonal_mul_diagonal, show (d * d') = (fun i => d i * d' i) from rfl]
 
 @[expose]
 def phiUnits (a u v w : Fˣ) : Fin 6 → Fˣ :=
@@ -144,14 +129,6 @@ private theorem phi_inv (hF : Nat.card F = 4) (a u v w : Fˣ) :
     _ = (phi hF a u v w)⁻¹ * (phi hF a u v w * phi hF a⁻¹ u⁻¹ v⁻¹ w⁻¹) := by rw [h]
     _ = phi hF a⁻¹ u⁻¹ v⁻¹ w⁻¹ := by group
 
-private theorem phi_pow (hF : Nat.card F = 4) (a u v w : Fˣ) (n : ℕ) :
-    phi hF a u v w ^ n = phi hF (a ^ n) (u ^ n) (v ^ n) (w ^ n) := by
-  induction n with
-  | zero => simpa using (phi_one hF).symm
-  | succ n ih =>
-    rw [pow_succ, ih, phi_mul]
-    congr 1
-    all_goals rw [pow_succ]
 
 @[expose]
 noncomputable def psi (hF : Nat.card F = 4) :

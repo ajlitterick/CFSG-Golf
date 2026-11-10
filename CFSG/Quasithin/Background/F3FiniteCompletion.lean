@@ -60,11 +60,6 @@ private theorem finite_Ghat2 {Y : Type w} [Group Y] [Finite Y] {c₀ : α.Comple
     (fun g : α.G2 => (⟨Amalgam.ξ α.toAmalgam RankTwoIndex.two g, ⟨g, rfl⟩⟩ : ↥α.Ghat2))
     (by rintro ⟨y, g, rfl⟩; exact ⟨g, rfl⟩)
 
-private def embedGhat1 (g : ↥α.Ghat1) : ↥(Gsub α) :=
-  ⟨(g : α.Ghat), Subgroup.mem_sup_left g.2⟩
-
-private def embedGhat2 (g : ↥α.Ghat2) : ↥(Gsub α) :=
-  ⟨(g : α.Ghat), Subgroup.mem_sup_right g.2⟩
 
 private theorem finite_nbrs_γ₀ {Y : Type w} [Group Y] [Finite Y] {c₀ : α.Completion Y}
     (hc₀ : c₀.IsFaithful) :
@@ -179,10 +174,6 @@ private theorem free_action_vertices {Y : Type w} [Group Y] {c₀ : α.Completio
   have h1 : (f : Gsub α) = 1 := (c₀.stabIso hc₀ v).inj (f : Gsub α) h hθ
   exact Subtype.ext h1
 
-private theorem free_action_eq_one {Y : Type w} [Group Y] {c₀ : α.Completion Y}
-    (hc₀ : c₀.IsFaithful) {f : ↥(thetaSub c₀).ker} {v : α.Γhat}
-    (h : (f : Gsub α) • v = v) : f = 1 :=
-  free_action_vertices hc₀ f v h
 
 private theorem no_inversions {Y : Type w} [Group Y] {c₀ : α.Completion Y}
     (hc₀ : c₀.IsFaithful) (f : ↥(thetaSub c₀).ker) {a b : α.Γhat}
@@ -490,7 +481,6 @@ private noncomputable def toGsub : α.Ghat →* ↥(Gsub α) where
   map_one' := Subtype.ext rfl
   map_mul' _ _ := Subtype.ext rfl
 
-private theorem toGsub_val (x : α.Ghat) : (toGsub x : α.Ghat) = x := rfl
 
 private theorem toGsub_xi1 (g : α.G1) : toGsub (Amalgam.ξ α.toAmalgam RankTwoIndex.one g) =
     iota1 g := Subtype.ext rfl
@@ -986,29 +976,5 @@ theorem exists_faithful_finite_completion_lt_egirth {α : RankTwoAmalgam.{u}} {Y
       quotientPi_comp_φ2 c₀ hc₀ N hNle⟩
   · exact quotientCompletion_egirth_gt c₀ hc₀ (N := N) hNle m hR
 
-theorem ofSubgroups_exists_faithful_finite_completion_lt_egirth {X : Type u} [Group X] [Finite X]
-    (P1 P2 : Subgroup X) (m : ℕ) :
-    ∃ (Y : Type u) (_ : Group Y) (_ : Finite Y) (c : (ofSubgroups P1 P2).Completion Y),
-      c.IsFaithful ∧ (∃ π : Y →* X, (∀ g : ↥P1, π (c.φ1 g) = (g : X)) ∧
-        ∀ g : ↥P2, π (c.φ2 g) = (g : X)) ∧
-      (m : ℕ∞) < c.graph.egirth := by
-  let c₀ := RankTwoAmalgam.inclusionCompletion P1 P2 (P1 ⊔ P2) rfl
-  have hc₀ : c₀.IsFaithful :=
-    RankTwoAmalgam.inclusionCompletion_isFaithful P1 P2 (P1 ⊔ P2) rfl
-  obtain ⟨Y, hY, hFin, c, hc, ⟨π, hπ1, hπ2⟩, hgirth⟩ :=
-    exists_faithful_finite_completion_lt_egirth c₀ hc₀ m
-  letI : Group Y := hY
-  letI : Finite Y := hFin
-  refine ⟨Y, hY, hFin, c, hc, ⟨(P1 ⊔ P2).subtype.comp π, ?_, ?_⟩, hgirth⟩
-  · intro g
-    have h : π (c.φ1 g) = c₀.φ1 g := DFunLike.congr_fun hπ1 g
-    change ((P1 ⊔ P2).subtype (π (c.φ1 g)) : X) = (g : X)
-    rw [h]
-    rfl
-  · intro g
-    have h : π (c.φ2 g) = c₀.φ2 g := DFunLike.congr_fun hπ2 g
-    change ((P1 ⊔ P2).subtype (π (c.φ2 g)) : X) = (g : X)
-    rw [h]
-    rfl
 
 end CFSG.Quasithin.RankTwoAmalgam

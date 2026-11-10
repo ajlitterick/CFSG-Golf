@@ -167,31 +167,6 @@ theorem not_exists_inner_of_two_pow_dvd_centralizer {t : G} (ht : orderOf t = 2)
   rw [card_map_of_injective hφinj] at h
   exact hB ((hA _ hw').trans h)
 
-theorem not_exists_inner_E6_field (hset : StandardSetting G L)
-    {f : ℕ} {K : Type} [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .E6 K) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) {M : Subgroup G}
-    {K₂ : Type} [Field K₂] (hK₂ : Nat.card K₂ = 2 ^ (2 * f)) (eM : M ≃* adjointGroup .E6 K₂) :
-    ¬ ∃ m ∈ M, ∀ x ∈ M, t * x * t⁻¹ = m * x * m⁻¹ := by
-  have := F4Pilot.finite_of_natCard_eq_two_pow hK₂
-  have := F4Pilot.charP_two_of_natCard_eq_two_pow hK₂
-  have hf := F4Pilot.one_le_of_natCard_eq_two_pow hK
-  refine not_exists_inner_of_two_pow_dvd_centralizer ht eM (center_adjointGroup_eq_bot_field _ K₂)
-    (orderOf_pinnedX_one_adjointGroup (τ := .E6) (Pi.single (0 : Fin 6) 1)) (a := 26 * (2 * f))
-    (fun w hw => two_pow_dvd_card_centralizer_E6 hK₂ hw) fun hdvd => ?_
-  have hb := factorization_card_le_of_le_centralizer_E6 hset.standard hK e ht hKt
-    (le_refl (centralizer ({t} : Set G)))
-  have h1 := (Nat.Prime.pow_dvd_iff_le_factorization Nat.prime_two Nat.card_pos.ne').1 hdvd
-  have hlt : f.factorization 2 < f := Nat.factorization_lt 2 (by omega)
-  omega
-
-theorem not_mem_E6_field (hset : StandardSetting G L) {f : ℕ}
-    {K : Type} [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .E6 K) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) {M : Subgroup G}
-    {K₂ : Type} [Field K₂] (hK₂ : Nat.card K₂ = 2 ^ (2 * f)) (eM : M ≃* adjointGroup .E6 K₂) :
-    t ∉ M :=
-  fun htM => not_exists_inner_E6_field hset hK e ht hKt hK₂ eM ⟨t, htM, fun _ _ => rfl⟩
 
 end Inner
 

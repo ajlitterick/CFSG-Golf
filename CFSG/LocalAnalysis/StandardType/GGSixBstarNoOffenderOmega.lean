@@ -30,13 +30,6 @@ theorem ggSixBstarNoOffenderRestPSL_of_restOm (h : GGSixBstarNoOffenderRestOm) :
     ggSixBstarNoOffenderAt_POmegaPlus_of_d4OrthFrame hD4, ggSixBstarNoOffenderAt_POmegaMinus, hF4,
     hE6, hE7, hE8, hTwE6⟩
 
-theorem ggSixBstarNoOffenderRestUO_of_restOm (h : GGSixBstarNoOffenderRestOm) :
-    GGSixBstarNoOffenderRestUO :=
-  ggSixBstarNoOffenderRestUO_of_restPSL (ggSixBstarNoOffenderRestPSL_of_restOm h)
-
-theorem ggSixBstarNoOffenderInput_of_restOm (h : GGSixBstarNoOffenderRestOm) :
-    GGSixBstarNoOffenderInput :=
-  ggSixBstarNoOffenderInput_of_restPSL (ggSixBstarNoOffenderRestPSL_of_restOm h)
 
 theorem ggSixBstarUniqueV2Input_of_restOm (h : GGSixBstarNoOffenderRestOm) :
     GGSixBstarUniqueV2Input :=

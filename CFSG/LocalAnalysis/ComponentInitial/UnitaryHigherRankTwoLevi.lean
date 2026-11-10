@@ -486,9 +486,6 @@ theorem xyPerm_mem_xyPointStab (g : xyStab h r ε) : xyPerm h r ε g ∈ xyPoint
     fun _ => smul_le_iff_of_smul_eq ((mem_xyStab h).mp g.2).1 _,
     fun _ => smul_le_iff_of_smul_eq ((mem_xyStab h).mp g.2).2 _⟩
 
-theorem xyPerm_leviXY (A : SpecialLinearGroup (Fin r) K) :
-    xyPerm h r ε (leviXY h ε A) = hypProjLineAction h r ε (hypProj h r ε (leviSU h ε A)) :=
-  rfl
 
 theorem leviPointGroup_le : leviPointGroup h r ε ≤ xyPointStab h r ε := by
   rintro _ ⟨A, rfl⟩

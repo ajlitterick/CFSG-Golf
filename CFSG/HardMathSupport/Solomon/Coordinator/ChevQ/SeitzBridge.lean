@@ -12,17 +12,6 @@ namespace CFSG.HardMathSupport.Solomon.Coordinator.ChevQ
 open CFSG.LieType.Seitz CFSG.LieType.SeitzGeneration CFSG.Open CFSG.AGLEmbedding
   CFSG.LocalAnalysis.GLTheoremB
 
-@[expose] def SeitzHyperGood : Prop :=
-  ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (Y : Type) [Group Y] [Finite Y] (K E : Subgroup Y), K.Normal →
-    CFSG.Open.IsQuasisimple K → ∀ d : TauCeti.ValidLieTypeIndex,
-    Nonempty (K ⧸ Subgroup.center K ≃* (TauCeti.CFSGIndex.lie d).Group) →
-    p ≠ d.1.characteristic → ¬ P1ThreeLieList p d →
-    ¬ (p = 3 ∧ ∃ q : TauCeti.PrimePower, q.p = 2 ∧ q.exponent = 2 ∧ d.1 = .A 2 q) →
-    IsElemAbelian p E → Nat.card E = p ^ 3 →
-    (∀ c ∈ E ⊓ Subgroup.centralizer (K : Set Y), orderOf c = p →
-      c ∈ (Subgroup.center K).map K.subtype) →
-    (¬ ExcIndex p d.1 ∨ (IsSixIndex d.1 ∧ E ≤ K ⊔ Subgroup.centralizer (K : Set Y))) →
-    HyperGen p K E
 
 @[expose] def Seitz2310CubeSimple : Prop :=
   ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S →

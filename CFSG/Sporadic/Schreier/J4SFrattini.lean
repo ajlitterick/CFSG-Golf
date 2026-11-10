@@ -314,40 +314,5 @@ theorem card_fiber
   rw [Nat.card_congr e, card_ker_fS0]
   norm_num
 
-theorem fS0_unique
-    (g : S0 →* Multiplicative (Fin 5 → ZMod 2))
-    (hg : ∀ i, g (gensS i) = fS0 (gensS i)) : g = fS0 :=
-  MonoidHom.eq_of_eqOn_dense closure_gensS fun _ ⟨i, hi⟩ => hi ▸ hg i
-
-theorem R3E_J4_exact_Sylow_two_Frattini_coordinates :
-    ∃ f : S0 →* Multiplicative (Fin 5 → ZMod 2),
-      (f ⟨vS, vS_mem_S0⟩ = Multiplicative.ofAdd (toVecD 5 1) ∧
-        ∀ i : Fin 4, f ⟨kgen i, kgen_mem_S0 i⟩ =
-          Multiplicative.ofAdd (toVecD 5 (2 ^ (i.val + 1)))) ∧
-      (∀ g : S0 →* Multiplicative (Fin 5 → ZMod 2),
-        g ⟨vS, vS_mem_S0⟩ = Multiplicative.ofAdd (toVecD 5 1) →
-        (∀ i : Fin 4, g ⟨kgen i, kgen_mem_S0 i⟩ =
-          Multiplicative.ofAdd (toVecD 5 (2 ^ (i.val + 1)))) → g = f) ∧
-      Function.Surjective f ∧ f.ker = frattini S0 ∧
-      (∀ a, Nat.card {s : S0 // f s = a} = 65536) ∧
-      Nonempty (S0 ⧸ frattini S0 ≃* Multiplicative (Fin 5 → ZMod 2)) := by
-  have hv : fS0 ⟨vS, vS_mem_S0⟩ = Multiplicative.ofAdd (toVecD 5 1) := fS0_gensS 0
-  have hk : ∀ i : Fin 4, fS0 ⟨kgen i, kgen_mem_S0 i⟩ =
-      Multiplicative.ofAdd (toVecD 5 (2 ^ (i.val + 1))) := by
-    intro i
-    fin_cases i
-    · exact fS0_gensS 1
-    · exact fS0_gensS 2
-    · exact fS0_gensS 3
-    · exact fS0_gensS 4
-  refine ⟨fS0, ⟨hv, hk⟩, fun g hgv hgk => fS0_unique g fun i => ?_, fS0_surjective, ker_fS0,
-    card_fiber, ⟨(QuotientGroup.quotientMulEquivOfEq ker_fS0.symm).trans
-      (QuotientGroup.quotientKerEquivOfSurjective fS0 fS0_surjective)⟩⟩
-  fin_cases i
-  · exact hgv.trans hv.symm
-  · exact (hgk 0).trans (hk 0).symm
-  · exact (hgk 1).trans (hk 1).symm
-  · exact (hgk 2).trans (hk 2).symm
-  · exact (hgk 3).trans (hk 3).symm
 
 end CFSG.Sporadic.J4Schreier

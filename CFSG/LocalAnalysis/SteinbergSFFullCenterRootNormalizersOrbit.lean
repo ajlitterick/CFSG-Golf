@@ -555,8 +555,6 @@ theorem Y_index (h : FCHyp L K n φ t) :
     ∃ a ∈ normalizer (𝐐 : Set G), ∀ b ∈ normalizer (𝐐 : Set G), b * a ∈ 𝐘 ∨ b ∈ 𝐘 :=
   exists_index_two fun _ hg => h.conj_B hg
 
-theorem relIndex_Y (h : FCHyp L K n φ t) : 𝐘.relIndex (normalizer (𝐐 : Set G)) ≤ 2 :=
-  relIndex_le_two h.Y_index
 
 theorem orbit_eq_of_index_two (h : FCHyp L K n φ t) {Z N : Subgroup G} (hJZ : 𝐉 ≤ Z)
     (hZN : Z ≤ N) (hNQ : N ≤ normalizer (𝐐 : Set G))
@@ -796,16 +794,6 @@ theorem orbit_N (h : FCHyp L K n φ t) (i : Axis) :
     obtain ⟨g, hg, hgt⟩ := h.exists_conj_eq_t_mul i ha
     exact ⟨g, hg.1, hgt.symm⟩
 
-theorem orbit_N_eq_inter (h : FCHyp L K n φ t) (i : Axis) :
-    {x : G | ∃ g ∈ normalizer ((𝐁[i] : Subgroup G) : Set G), x = g⁻¹ * t * g} =
-      {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁[i]} := by
-  ext x
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    exact ⟨⟨g, rfl⟩, (mem_normalizer_iff''.mp hg t).mp (mem_sup_left (mem_zpowers t))⟩
-  · rintro ⟨hx, hxB⟩
-    rw [h.orbit_N i]
-    exact ⟨_, h.conj_t_mem_tA i hxB hx, by rw [← mul_assoc, h.setup.t_mul_t, one_mul]⟩
 
 theorem N_le_normalizer_U (h : FCHyp L K n φ t) (i : Axis) :
     normalizer ((𝐁[i] : Subgroup G) : Set G) ≤ normalizer (𝐔[i] : Set G) := by
@@ -848,25 +836,6 @@ theorem N_le_normalizer_A (h : FCHyp L K n φ t) (i : Axis) :
     rw [e]
     exact pull_le φ _ ha
 
-theorem relIndex_M_N (h : FCHyp L K n φ t) (i : Axis) :
-    (normalizer ((𝐕[i] : Subgroup G) : Set G)).relIndex
-      (normalizer ((𝐁[i] : Subgroup G) : Set G)) = Nat.card K ^ 2 := by
-  have hMN := h.twoCore.M_le_normalizer_B φ i
-  have hN : (centralizer ({t} : Set G)).relIndex (normalizer ((𝐁[i] : Subgroup G) : Set G)) =
-      Nat.card K ^ 3 := by
-    rw [relIndex_centralizer_eq_card, h.orbit_N i, card_mul_set, card_pull, card_rootA]
-  have hM : (centralizer ({t} : Set G)).relIndex (normalizer ((𝐕[i] : Subgroup G) : Set G)) =
-      Nat.card K := by
-    rw [relIndex_centralizer_eq_card, h.orbit_M i, card_mul_set, card_U]
-  have key := relIndex_mul_relIndex (𝐂 ⊓ normalizer ((𝐕[i] : Subgroup G) : Set G))
-    (normalizer ((𝐕[i] : Subgroup G) : Set G)) (normalizer ((𝐁[i] : Subgroup G) : Set G))
-    inf_le_right hMN
-  rw [inf_relIndex_right, hM, h.twoCore.inf_normalizer_eq φ i, inf_relIndex_right, hN] at key
-  have hq : 0 < Nat.card K := Nat.card_pos
-  have : Nat.card K * (normalizer ((𝐕[i] : Subgroup G) : Set G)).relIndex
-      (normalizer ((𝐁[i] : Subgroup G) : Set G)) = Nat.card K * Nat.card K ^ 2 := by
-    rw [key]; ring
-  exact Nat.eq_of_mul_eq_mul_left hq this
 
 omit [Finite G] in
 theorem centralizer_B (h : FCHyp L K n φ t) (i : Axis) :
@@ -995,8 +964,6 @@ theorem card_D (h : FCHyp L K n φ t) (i : Axis) : Nat.card 𝐃[i] = 2 * Nat.ca
   ring
 
 end Radical
-
-
 
 
 end FCHyp

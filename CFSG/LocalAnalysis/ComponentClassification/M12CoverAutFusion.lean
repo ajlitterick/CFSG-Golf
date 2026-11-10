@@ -109,9 +109,6 @@ theorem permS_mem : permS ∈ fixedDQ.originalSubgroup := fourGroupPerm_le 0
 
 @[expose] def elemS : NativeSporadic.M12 := ⟨permS, fixedDQ_le permS_mem⟩
 
-theorem permH_word : permH = m12gA * m12gB * m12gB * m12gA * m12gB * m12gA * m12gB * m12gB *
-    m12gA * m12gB * m12gA * m12gB * m12gA * m12gB * m12gA * m12gB :=
-  Certificates.certificate11002.2.2.1
 
 theorem permH_word_list : permH = ([1, 2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2].map
     fun k : ℕ => if k = 1 then m12gA else m12gB).prod :=

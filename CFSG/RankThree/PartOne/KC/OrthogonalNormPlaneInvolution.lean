@@ -33,9 +33,6 @@ theorem reflectPair_sq (hu : Q u = 1) (hv : Q v = 1) (huv : polar Q u v = 0) :
   have hc : Commute (reflect Q u) (reflect Q v) := reflectPair_comm hu hv huv
   rw [hc.mul_pow, pow_two, pow_two, reflect_mul_self, reflect_mul_self, one_mul]
 
-theorem reflectPair_mem :
-    reflect Q u * reflect Q v ∈ TauCeti.QuadraticMap.orthogonalGroup Q :=
-  mul_mem (reflect_mem_orthogonalGroup Q u) (reflect_mem_orthogonalGroup Q v)
 
 theorem reflectPair_fix (hu : Q u = 1) (hv : Q v = 1) (huv : polar Q u v = 0) {x : V}
     (hxu : polar Q u x = 0) (hxv : polar Q v x = 0) : (reflect Q u * reflect Q v) x = x := by

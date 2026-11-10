@@ -38,14 +38,6 @@ open Module Matrix CFSG.ClassicalGroups.UnitaryFlag CFSG.LocalAnalysis.Component
   CFSG.LinearGroups SUTB NoOffOm NsFrameComp
   CFSG.RankThree.PartOne.KCUnitaryPlane
 
-theorem two_le_of_three_dvd_two_pow_sub_one {f : ℕ} {K : Type} [Field K]
-    (hK : UnitaryFieldData 2 f K) (h : 3 ∣ 2 ^ f - 1) : 2 ≤ f := by
-  rcases Nat.lt_or_ge f 2 with hf | hf
-  · interval_cases f
-    · have h1 := hK.one_le
-      omega
-    · norm_num at h
-  · exact hf
 
 theorem not_three_dvd_two_pow_add_one {f : ℕ} (h : 3 ∣ 2 ^ f - 1) :
     ¬ 3 ∣ 2 ^ f + 1 := by
@@ -56,69 +48,6 @@ theorem not_three_dvd_two_pow_add_one {f : ℕ} (h : 3 ∣ 2 ^ f - 1) :
     rwa [show 2 ^ f + 1 - (2 ^ f - 1) = 2 by omega] at hsub
   norm_num at h2
 
-theorem finrank_rng_eq_two_of_three_dvd_sub_one {f n : ℕ} {K : Type} [Field K] [Finite K]
-    (h : UnitaryFieldData 2 f K) {A : Subgroup ↥(unitarySU 2 f K n)}
-    (hA : MaxElemAb 3 A) (hpq : 3 ∣ 2 ^ f - 1)
-    (F : NsFrameComp.PieceFrame f n K h 3 A) (i : Fin F.r) :
-    finrank K (rng (F.y i)) = 2 := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have : CharP K 2 := h.charP
-  have he : ordNegQ 2 f 3 = 2 :=
-    CFSG.RankThree.PartOne.CTP.ordNegQ_eq_two_of_dvd_sub_one
-      Nat.prime_two Nat.prime_three (by norm_num) hpq
-  have hpow : (F.y i) ^ 3 = 1 := hA.pow _ (F.y_mem i)
-  have hdvd : ordNegQ 2 f 3 ∣ finrank K (rng (F.y i)) :=
-    OrdPNsU.ordNegQ_dvd_finrank_rng h hA.prime hA.ne_two hpow
-  have hU0 : rng (F.y i) ≠ ⊥ := rng_ne_bot (F.y_ne_one i)
-  have hUnd : NondegOn (stdHermForm h n) (rng (F.y i)) := nondegOn_rng hA (F.y_mem i)
-  have hmin : ∀ W : Submodule K (Fin n → K), W ≤ rng (F.y i) → W ≠ ⊥ →
-      NondegOn (stdHermForm h n) W → (∀ w ∈ W, lin (F.y i) w ∈ W) → W = rng (F.y i) := by
-    intro W hWle hW0 hWnd hWy
-    refine F.minimal i W hWle hW0 hWnd ?_
-    intro a ha w hw
-    obtain ⟨k, hk⟩ := F.cyc i a ha
-    have hiter : ∀ k : ℕ, ∀ w ∈ W, lin (F.y i ^ k) w ∈ W := by
-      intro k
-      induction k with
-      | zero => intro w hw; rw [pow_zero, lin_one, Module.End.one_apply]; exact hw
-      | succ k ih =>
-          intro w hw
-          rw [pow_succ', lin_mul, Module.End.mul_apply]
-          exact hWy _ (ih w hw)
-    rw [hk w (hWle hw)]
-    exact hiter k w hw
-  have hle : finrank K (rng (F.y i)) ≤ ordNegQ 2 f 3 :=
-    OrdPNsU.finrank_le_ordNegQ_of_minimal h hA.prime hA.ne_two hpow le_rfl hU0 hUnd
-      (fun u hu => rng_inv (A := A) (y := F.y i) (a := F.y i) hA (F.y_mem i) (F.y_mem i) u hu)
-      hmin
-  have hpos : 0 < finrank K (rng (F.y i)) := by
-    rw [Nat.pos_iff_ne_zero, Ne, Submodule.finrank_eq_zero]
-    exact hU0
-  have hdvd2 : 2 ∣ finrank K (rng (F.y i)) := by simpa [he] using hdvd
-  have hge : 2 ≤ finrank K (rng (F.y i)) := Nat.le_of_dvd hpos hdvd2
-  omega
-
-theorem exists_two_plane_pieces_of_card_nine {f n : ℕ} {K : Type} [Field K] [Finite K]
-    (h : UnitaryFieldData 2 f K) {A : Subgroup ↥(unitarySU 2 f K n)}
-    (hA : MaxElemAb 3 A) (hpq : 3 ∣ 2 ^ f - 1) (h9 : 9 ≤ Nat.card A) :
-    ∃ (r : ℕ) (F : NsFrameComp.PieceFrame f n K h 3 A),
-      F.r = r ∧ 2 ≤ r ∧ (∀ i, finrank K (rng (F.y i)) = 2) ∧
-      (∀ i j, i ≠ j → ∀ u ∈ rng (F.y i), ∀ v ∈ rng (F.y j),
-        stdHermForm h n u v = 0) := by
-  classical
-  obtain ⟨F⟩ := NsFrameComp.exists_pieceFrame' (h := h) (A := A) hA
-  have hcard : Nat.card A = 3 ^ F.r := by
-    have h1 : Nat.card A = Nat.card F.ι.range := by rw [F.ι_range]
-    have h2 : Nat.card F.ι.range = Nat.card (Multiplicative (Fin F.r → ZMod 3)) :=
-      (Nat.card_congr (MonoidHom.ofInjective F.ι_injective).toEquiv).symm
-    rw [h1, h2]
-    simp
-  have h9' : 3 ^ 2 ≤ 3 ^ F.r := by simpa [hcard] using h9
-  have hr : 2 ≤ F.r := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 3)).mp h9'
-  exact ⟨F.r, F, rfl, hr,
-    fun i => finrank_rng_eq_two_of_three_dvd_sub_one h hA hpq F i,
-    fun i j hij => F.orth i j hij⟩
 
 theorem exists_maxElemAb_of_normalizedFamily {G : Type} [Group G] [Finite G]
     {f n : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2]
@@ -182,96 +111,10 @@ theorem exists_maxElemAb_of_normalizedFamily {G : Type} [Group G] [Finite G]
     Nat.card_le_card_of_surjective _ hsurj
   exact ⟨P, hPmax, hUP, le_trans hA9 (le_trans hcard (Subgroup.card_le_of_le hQ_le_P))⟩
 
-theorem exists_maxElemAb_of_actualActors {G : Type} [Group G] [Finite G]
-    {f n : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2]
-    (hK : UnitaryFieldData 2 f K)
-    {Bs J : Subgroup G} (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (φ : ↥(unitarySU 2 f K n) →* ↥J) (hφ : Function.Surjective φ)
-    (hPerf : Group.IsPerfect ↥(unitarySU 2 f K n))
-    (hBs : CFSG.Open.IsElemAbelian 3 Bs)
-    (hker : ∀ g : ↥(unitarySU 2 f K n), φ g = 1 →
-      ∃ a : K, (((g : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K) = a • 1)
-    (Y : ↥Bs → GL (Fin n) K)
-    (hYiso : ∀ b, ∀ x y, stdHermForm hK n (((Y b : Matrix (Fin n) (Fin n) K)) *ᵥ x)
-      ((Y b : Matrix (Fin n) (Fin n) K) *ᵥ y) = stdHermForm hK n x y)
-    (hYact : ∀ (b : ↥Bs) (g : ↥(unitarySU 2 f K n)),
-      (b : G) * ((φ g : ↥J) : G) * (b : G)⁻¹ =
-        ((φ (CFSG.StandardType.ResJUnitaryActor.conjSU hK (Y b) (hYiso b) g) : ↥J) : G))
-    (hpq : 3 ∣ 2 ^ f - 1)
-    (hA9 : 9 ≤ Nat.card (ggGamma J hN).range)
-    (hSC : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
-    (hn3 : 3 ≤ n) :
-    ∃ P : Subgroup ↥(unitarySU 2 f K n), MaxElemAb 3 P ∧
-      9 ≤ Nat.card P ∧ (∀ p ∈ P, ((φ p : ↥J) : G) ∈ Bs) ∧
-        (∀ p ∈ P, φ p = 1 → p = 1) := by
-  classical
-  have hn : 1 ≤ n := by omega
-  have hpq' : ¬ 3 ∣ 2 ^ f + 1 := not_three_dvd_two_pow_add_one hpq
-  obtain ⟨U, hpow, hcomm, hactU⟩ :=
-    CFSG.StandardType.ResJUnitaryActor.exists_normalizedFamily_of_commuting_actors
-      (f := f) (n := n) (K := K) hK hPerf hBs φ hker Y hYiso hYact hpq' hn hn3
-  obtain ⟨P, hPmax, hUP, hcard⟩ :=
-    exists_maxElemAb_of_normalizedFamily (G := G) (f := f) (n := n) (K := K)
-      hK hN φ hφ U hpow hcomm hactU hpq hA9
-  refine ⟨P, hPmax, hcard, ?_, ?_⟩
-  · intro p hp
-    apply hSC ((φ p : ↥J) : G)
-    · rw [Subgroup.mem_centralizer_iff]
-      intro b hb
-      let bs : ↥Bs := ⟨b, hb⟩
-      have hpcomm : p * U bs = U bs * p := hPmax.comm p hp (U bs) (hUP bs)
-      have h := hactU bs p
-      have hconj : U bs * p * (U bs)⁻¹ = p := by
-        rw [← hpcomm]; group
-      rw [hconj] at h
-      calc (b : G) * ((φ p : ↥J) : G)
-          = ((b : G) * ((φ p : ↥J) : G) * (b : G)⁻¹) * (b : G) := by group
-        _ = ((φ p : ↥J) : G) * (b : G) := by rw [h]
-    · have hpowJ : (φ p : ↥J) ^ 3 = 1 := by
-        rw [← map_pow, hPmax.pow p hp, map_one]
-      simpa using congrArg (fun z : ↥J => (z : G)) hpowJ
-  · intro p hp hφp
-    obtain ⟨a, ha⟩ := hker p hφp
-    exact CFSG.StandardType.ResJUnitaryActor.eq_one_of_scalar_cube_of_mem_unitarySU
-      hK hpq' hn (hPmax.pow p hp) ⟨a, ha⟩
-
-theorem exists_two_plane_pieces_of_actualActors {G : Type} [Group G] [Finite G]
-    {f n : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2]
-    (hK : UnitaryFieldData 2 f K)
-    {Bs J : Subgroup G} (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (φ : ↥(unitarySU 2 f K n) →* ↥J) (hφ : Function.Surjective φ)
-    (hPerf : Group.IsPerfect ↥(unitarySU 2 f K n))
-    (hBs : CFSG.Open.IsElemAbelian 3 Bs)
-    (hker : ∀ g : ↥(unitarySU 2 f K n), φ g = 1 →
-      ∃ a : K, (((g : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K) = a • 1)
-    (Y : ↥Bs → GL (Fin n) K)
-    (hYiso : ∀ b, ∀ x y, stdHermForm hK n (((Y b : Matrix (Fin n) (Fin n) K)) *ᵥ x)
-      ((Y b : Matrix (Fin n) (Fin n) K) *ᵥ y) = stdHermForm hK n x y)
-    (hYact : ∀ (b : ↥Bs) (g : ↥(unitarySU 2 f K n)),
-      (b : G) * ((φ g : ↥J) : G) * (b : G)⁻¹ =
-        ((φ (CFSG.StandardType.ResJUnitaryActor.conjSU hK (Y b) (hYiso b) g) : ↥J) : G))
-    (hpq : 3 ∣ 2 ^ f - 1)
-    (hA9 : 9 ≤ Nat.card (ggGamma J hN).range)
-    (hSC : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
-    (hn3 : 3 ≤ n) :
-    ∃ P : Subgroup ↥(unitarySU 2 f K n), MaxElemAb 3 P ∧
-      9 ≤ Nat.card P ∧ (∀ p ∈ P, ((φ p : ↥J) : G) ∈ Bs) ∧
-        (∀ p ∈ P, φ p = 1 → p = 1) ∧
-        ∃ (r : ℕ) (F : NsFrameComp.PieceFrame f n K hK 3 P),
-          F.r = r ∧ 2 ≤ r ∧ (∀ i, finrank K (rng (F.y i)) = 2) ∧
-          (∀ i j, i ≠ j → ∀ u ∈ rng (F.y i), ∀ v ∈ rng (F.y j),
-            stdHermForm hK n u v = 0) := by
-  obtain ⟨P, hPmax, hPcard, hPBs, hPinj⟩ :=
-    exists_maxElemAb_of_actualActors (G := G) (f := f) (n := n) (K := K)
-      hK hN φ hφ hPerf hBs hker Y hYiso hYact hpq hA9 hSC hn3
-  obtain ⟨r, F, hFr, hr, hplane, horth⟩ :=
-    exists_two_plane_pieces_of_card_nine (h := hK) (A := P) hPmax hpq hPcard
-  exact ⟨P, hPmax, hPcard, hPBs, hPinj, r, F, hFr, hr, hplane, horth⟩
 
 end ResJUnitaryPaired
 
 section A3OppositeRecognition
-
 
 
 open CFSG.Open CFSG.Assembly CFSG.ClassicalGroups.UnitaryFlag CFSG.LocalAnalysis.ComponentInitial

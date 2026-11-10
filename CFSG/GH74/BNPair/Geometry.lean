@@ -55,8 +55,6 @@ theorem isTypeTwo_iff (v : D.Vertex) :
 theorem polyHyp : PolyHyp D.graph n :=
   D.rank2.polyHyp
 
-theorem lemma30_6_i : D.graph.Connected :=
-  D.polyHyp.connected
 
 theorem lemma30_6_iv : ∀ v : D.Vertex, 3 ≤ (D.graph.neighborSet v).encard :=
   D.polyHyp.valency
@@ -86,34 +84,6 @@ theorem lemma30_6_iii :
 
 end RankTwoSystem
 
-@[expose] def Lemma30_6_ii : Prop :=
-  ∀ (X : Type u) [Group X] (n : ℕ) (D : RankTwoSystem X n),
-    D.graphMinusTop.IsTree ∧
-      ∀ (i j : ℕ), ∀ v ∈ D.sideOne i, ∀ v' ∈ D.sideTwo j, ∀ l : List D.Vertex,
-        IsGLSPath D.graph l → l.head? = some v → l.getLast? = some v' →
-          (∃ a b : D.Vertex, [a, b] <:+: l ∧ (a : Set X) ∩ (b : Set X) ⊆ dc D.B D.N D.w₀) ∨
-            (([D.vertex₁, D.vertex₂] <:+: l ∨ [D.vertex₂, D.vertex₁] <:+: l) ∧
-              l.length = i + j + 2)
-
-theorem lemma30_6_of_ii (h : Lemma30_6_ii.{u}) : Lemma30_6.{u} := by
-  intro X _ n D
-  obtain ⟨h1, h2⟩ := h X n D
-  exact ⟨D.lemma30_6_i, ⟨h1, h2⟩, D.lemma30_6_iii, D.lemma30_6_iv⟩
-
-theorem lemma30_7 : Lemma30_7.{u} := by
-  intro X _ n D
-  have h := D.polyHyp
-  refine ⟨fun v v' => (h.reach_dist v v').2, fun v v' hd => h.exists_unique_path_of_dist_lt hd,
-    ?_, fun v v' hd => h.exists_bijOn hd, ?_, ?_⟩
-  · intro v v' hd v₁ hadj
-    obtain ⟨l, hl, hh, hla, hlen, h1⟩ := h.exists_path_through hd hadj
-    refine ⟨l, ⟨hl, hh, hla, hlen, h1⟩, ?_⟩
-    rintro l' ⟨hl', hh', hla', hlen', h1'⟩
-    exact h.path_through_unique hl' hl hh' hh hla' hla hlen' hlen h1' h1
-  · intro v v' l hl hh hla hlen
-    exact h.dist_eq_of_path hl hh hla hlen
-  · intro a p hp _ v
-    exact h.exists_far_cycle p hp v
 
 theorem lemma30_8 : Lemma30_8.{u} := by
   intro X _ n D j hj l l' hl hl' hlen hlen' htype
@@ -161,8 +131,5 @@ theorem lemma30_8 : Lemma30_8.{u} := by
       rw [List.getElem?_map, h1, h2]
       rfl
 
-theorem lemma30_10 : Lemma30_10.{u} := by
-  intro X _ n D π π' hπ hπ' hlen hlen' hpre g hg hfix hfixΓ
-  exact D.polyHyp.eq_one_of_fix hπ' hlen hlen' hpre hg hfix hfixΓ
 
 end CFSG.GH74.BNPair

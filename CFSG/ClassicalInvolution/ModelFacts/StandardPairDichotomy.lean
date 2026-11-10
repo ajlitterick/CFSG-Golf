@@ -46,9 +46,6 @@ end Longest
         (∃ W, LinearBlockStandardPair (GaloisField p e) W R₁ R₂) ∨
         ∃ W, UnitaryBlockStandardPair (GaloisField p (2 * e)) p e W R₁ R₂
 
-@[expose] def StandardPairDichotomyFacts (p : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (t : StatedLieTag) (n e : ℕ), Generic.IsFundTag t → StatedLieAdmissible t n p e →
-    StandardPairDichotomy p t n e
 
 section Map
 

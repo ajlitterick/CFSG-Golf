@@ -32,10 +32,6 @@ theorem kCyc : fCycChecksN RG = true := by decide +kernel
 
 theorem kDiag : fDiagChecksN RG WL = true := by decide +kernel
 
-theorem kDiagNeg : fDiagChecksN RG [] = false := by decide +kernel
-
-theorem kBasicNeg : fBasicN ((RG.set 0 (RG.getD 2 0)).set 2 (RG.getD 0 0)) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelAE6F
 

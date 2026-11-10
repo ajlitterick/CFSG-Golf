@@ -62,8 +62,6 @@ variable {G : Type} [Group G] [Finite G] {p : ℕ} {A : Subgroup G} {c : G} {L :
   inv_mem' := fun {g} hg =>
     ⟨(torusNormalizer A).inv_mem hg.1, by rw [piAut_inv hg.1]; exact P.inv_mem hg.2⟩
 
-omit [Finite G] in
-theorem mem_Tbar {g : G} : g ∈ Tbar A P ↔ g ∈ torusNormalizer A ∧ piAut A g ∈ P := Iff.rfl
 
 theorem HessSetup.cube_of_mem_Tbar (hS : HessSetup p A c L f P z) {g : G} (hg : g ∈ Tbar A P) :
     piAut A g ^ 3 = 1 := by

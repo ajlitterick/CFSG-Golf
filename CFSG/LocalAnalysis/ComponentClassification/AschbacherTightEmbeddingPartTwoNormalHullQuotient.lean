@@ -70,21 +70,6 @@ theorem normal_hull_odd_quotient_Q_odd_normalizer_overlaps (Q : Subgroup G)
     (normal_hull_Q_odd_normalizer_overlaps Q htight hodd)
     (normal_hull_odd_quotient_ker_le_normalizer Q htight hodd hrank)
 
-theorem normal_hull_odd_quotient_Q_normalizer_map (Q : Subgroup G)
-    (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q)
-    (hrank : 2 ≤ twoRank Q) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let q := QuotientGroup.mk' (oddCore J)
-    ((Subgroup.normalizer (Q : Set G)).subgroupOf J).map q =
-      Subgroup.normalizer ((Q.subgroupOf J).map q : Set (J ⧸ oddCore J)) := by
-  dsimp only
-  let J := Subgroup.normalClosure (Q : Set G)
-  rw [← normal_hull_Q_normalizer Q htight hodd]
-  exact odd_kernel_normalizer_map (QuotientGroup.mk' (oddCore J))
-    (normal_hull_odd_quotient_surjective Q) (normal_hull_odd_quotient_ker_odd Q)
-    (Q.subgroupOf J) (normal_hull_Q_tightly_embedded Q htight hodd)
-    (normal_hull_Q_odd_normalizer_overlaps Q htight hodd)
-    (normal_hull_odd_quotient_ker_le_normalizer Q htight hodd hrank)
 
 theorem normal_hull_odd_quotient_Q_normalizer_preimage (Q : Subgroup G)
     (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q)

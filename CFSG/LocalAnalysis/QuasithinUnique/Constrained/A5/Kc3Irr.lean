@@ -58,11 +58,6 @@ omit [CharP F 2] in
 theorem pactF_apply (σ : Equiv.Perm (Fin 5)) (x : Fin 5 → F) (i : Fin 5) :
     pactF σ x i = x (σ⁻¹ i) := rfl
 
-omit [CharP F 2] in
-theorem pactF_mul (σ τ : Equiv.Perm (Fin 5)) (x : Fin 5 → F) :
-    pactF (σ * τ) x = pactF σ (pactF τ x) := by
-  funext i
-  simp [pactF_apply, mul_inv_rev]
 
 @[expose] def sumF : (Fin 5 → F) →ₗ[F] F := ∑ i, LinearMap.proj i
 

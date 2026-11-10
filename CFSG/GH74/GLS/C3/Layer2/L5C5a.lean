@@ -94,7 +94,6 @@ instance instGroup : Group (Ext2 D) :=
 
 @[simp] theorem inc_snd (h : H) : (inc (D := D) h).snd = false := rfl
 
-theorem inc_injective : Function.Injective (inc (D := D)) := fun _ _ h => congrArg Ext2.fst h
 
 theorem mem_range_inc {a : Ext2 D} : a ∈ (inc (D := D)).range ↔ a.snd = false := by
   constructor

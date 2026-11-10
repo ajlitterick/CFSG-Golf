@@ -122,13 +122,6 @@ open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.
   [2, -1, -2, -1, -2, -1, 2, -1, -2, -1, 2, -1, 2, -1, 2, -1, -2, -1, 2, -1, 2, 1, -2, 1, -2,
    1, 2, 1, 2, 1, 2, 1, 2, 1, -2, 1, 2, 1, -2, 1, 2, 1, -2, 1, 2, 1, -2]
 
-@[expose] def m24Words : List (List ℤ) := [xW, x2W, s1W, s2W, ca1W, ca2W, ra0W, ha0W, ra1W, ha1W, ra2W, ha2W, cb1W, cb2W, rb0W, hb0W, rb1W, hb1W, rb2W, hb2W]
-
-@[expose] def m24Sift (T : Table) : Bool := m24Words.any fun w => tblEq 24 T (wT w)
-
-@[expose] def m24Pg : Array Table := #[toTable m24gA, toTable m24gB]
-
-@[expose] def m24PgInv : Array Table := #[toTable m24gA⁻¹, toTable m24gB⁻¹]
 
 @[expose] def m24Row3A : ClassRow where
   rep := wT xW
@@ -152,9 +145,5 @@ open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.
       ⟨wT rb1W, 7, 24, .conj (wT hb1W) 3⟩,
       ⟨wT rb2W, 7, 24, .conj (wT hb2W) 3⟩]
 
-set_option compiler.extract_closed false in
-@[noinline, expose] def m24ThreeCheck : Bool :=
-  threeDataOK 24 244823040 600000 m24Pg m24PgInv m24Sift [wT s1W, wT s2W] 27
-    [m24Row3A, m24Row3B]
 
 end CFSG.AGLEmbeddingD2.Wilson.ThreeCore.M24

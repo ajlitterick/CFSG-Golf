@@ -22,11 +22,6 @@ theorem not_nonabelian_of_isSolvable {Q : Type} [Group Q] [IsSimpleGroup Q]
   rintro ⟨a, b, hab⟩
   exact hab (IsSimpleGroup.comm_iff_isSolvable.mpr hs a b)
 
-theorem secAll_of_isSolvable {X : Type} [Group X] (hX : Group.IsSolvable X) (P : GrpPred) :
-    SecAll X P := by
-  intro H₁ N _ _ hs hnab
-  have hQ : Group.IsSolvable (↥H₁ ⧸ N) := inferInstance
-  exact absurd hnab (not_nonabelian_of_isSolvable hQ)
 
 theorem secAll_of_surjective {X X' : Type} [Group X] [Group X'] {P : GrpPred}
     (hP : IsoInv P) (f : X →* X') (hf : Function.Surjective f) (hker : Group.IsSolvable ↥f.ker)

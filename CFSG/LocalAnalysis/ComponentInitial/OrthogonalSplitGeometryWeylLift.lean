@@ -552,37 +552,5 @@ theorem weylElt_smul_flag_top_and_Xstar {j : Fin r} (hj : j.val + 1 ≤ r - 2) :
 
 end Flags
 
-theorem orthogonal_geometry_split_Weyl_lifts {K : Type*} [Field K] {r : ℕ} (hr : 3 ≤ r) :
-    ∃ ν : torusWeyl r K →* weylGroup r,
-      (∀ (n : torusWeyl r K) (c : Fin r ⊕ Fin r), ∃ (μ : Kˣ) (c' : Fin r ⊕ Fin r),
-        (n : (Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K)) (Pi.single c 1) =
-            (μ : K) • Pi.single c' 1 ∧
-          coordWt c' = ((ν n : weylGroup r) : (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) (coordWt c)) ∧
-      Function.Surjective ν ∧
-      ν.ker = (torus r K).subgroupOf (torusWeyl r K) ∧
-      (∀ i : Fin r, ((ν ⟨weylElt r K i, weylElt_mem_torusWeyl i⟩ : weylGroup r) :
-        (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) = simpleRefl r i) ∧
-      (∀ (n : torusWeyl r K) (α : Fin r → ℤ), α ∈ roots r →
-        (rootSubgroup r K α).map
-            (MulAut.conj (n : (Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K))).toMonoidHom =
-          rootSubgroup r K (((ν n : weylGroup r) : (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) α)) ∧
-      (∀ i : ℕ, 1 ≤ i → i ≤ r - 2 → ∀ j : Fin r, j.val + 1 ≠ i →
-        weylElt r K j • flag r K i = flag r K i) ∧
-      (∀ j : Fin r, j.val + 1 ≤ r - 2 →
-        weylElt r K j • flag r K (j.val + 1) ≠ flag r K (j.val + 1)) ∧
-      (weylElt r K ⟨r - 1, by omega⟩ • flag r K r ≠ flag r K r ∧
-        weylElt r K ⟨r - 1, by omega⟩ • Xstar r K (by omega) = Xstar r K (by omega)) ∧
-      (weylElt r K ⟨r - 2, by omega⟩ • Xstar r K (by omega) ≠ Xstar r K (by omega) ∧
-        weylElt r K ⟨r - 2, by omega⟩ • flag r K r = flag r K r) ∧
-      ∀ j : Fin r, j.val + 1 ≤ r - 2 →
-        weylElt r K j • flag r K r = flag r K r ∧
-          weylElt r K j • Xstar r K (by omega) = Xstar r K (by omega) := by
-  have hr2 : 2 ≤ r := by omega
-  exact ⟨torusWeylNu r K hr2, apply_single_torusWeylNu hr2, torusWeylNu_surjective hr2 hr,
-    torusWeylNu_ker hr2, fun i => congrArg Subtype.val (torusWeylNu_weylElt hr2 i),
-    fun n α hα => map_conj_rootSubgroup_torusWeyl hr2 n hα,
-    fun i hi1 hi2 j hj => weylElt_smul_flag_of_ne hr hi1 hi2 hj,
-    fun j hj => weylElt_smul_flag_ne hr hj, weylElt_last_smul hr, weylElt_penult_smul hr,
-    fun j hj => weylElt_smul_flag_top_and_Xstar hr hj⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplit

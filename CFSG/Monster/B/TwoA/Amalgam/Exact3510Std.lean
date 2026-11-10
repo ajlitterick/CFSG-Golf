@@ -131,12 +131,6 @@ theorem posSemidef_levelMat_of_relIdx_one
     orbP_one_div.2.2, sub_self, zero_smul, add_zero] at h
   exact h
 
-theorem spectral_bounds_of_relIdx (hreg : X.IsRegularOfDegree 693)
-    (hφ : ∀ a b, relIdx (φ a) (φ b) = if a = b then 0 else if X.Adj a b then 2 else 4) :
-    (∀ μ : ℝ, Module.End.HasEigenvalue (Matrix.toLin' (X.adjMatrix ℝ)) μ → -9 ≤ μ) ∧
-      Fintype.card V ≤ 10166 :=
-  ⟨neg_nine_le_of_posSemidef X hreg (posSemidef_levelMat_of_relIdx_zero X φ hφ),
-    card_le_of_posSemidef X hreg (posSemidef_levelMat_of_relIdx_one X φ hφ)⟩
 
 end Embedded
 

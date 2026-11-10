@@ -133,7 +133,6 @@ theorem fuse_toW_toddAct_xor {t : Array ℕ} {k : S24} (hk : k ∈ M24g) (h : Re
       rho11 AutPerm le_rfl ⟨k, hk⟩ (toW 11 m) * (toW 11 m)⁻¹ := by
   rw [toW_xor, rho11_toW_native hk h m, inv_eq_of_mul_eq_one_right (W11_mul_self (toW 11 m))]
 
-theorem fuse_one_inv_W11 : (1 : W11)⁻¹ = 1 := inv_eq_of_mul_eq_one_right (W11_mul_self 1)
 
 @[expose] def piA : S24 where
   toFun := ![0, 1, 2, 3, 4, 5, 6, 7, 9, 8, 11, 10, 13, 12, 15, 14, 17, 16, 19, 18, 21, 20, 23, 22]
@@ -155,17 +154,6 @@ theorem repT_piB : RepT Native.fusePiBTab piB := by
   unfold RepT
   decide +kernel
 
-theorem piA_sq : piA * piA = 1 := Equiv.ext (by decide +kernel)
-
-theorem piB_sq : piB * piB = 1 := Equiv.ext (by decide +kernel)
-
-theorem piA_apply_eq_iff (i : Fin 24) : piA i = i ↔ i.val < 8 := by
-  revert i
-  decide +kernel
-
-theorem piB_apply_ne (i : Fin 24) : piB i ≠ i := by
-  revert i
-  decide +kernel
 
 theorem fuse_repT_pA_inv : RepT Native.pATab bridgePA⁻¹ := by
   unfold RepT
@@ -449,12 +437,6 @@ theorem fix_piB_mem_annOf {w : W11}
     toW_inj (by simpa using toddAct_lt repT_piB m) hm hw
   exact (fuse_mem_annOf_sextFin_zero_iff m).2 (fusePiB_spec m hm' hfix)
 
-theorem fix_piB_mem {w : W11}
-    (hw : rho11 AutPerm le_rfl ⟨piB, K0base_le piB_mem⟩ w = w) :
-    ∃ a ∈ annOf (octsOf (sextFin 0)), ∃ v : W11,
-      w = a * (rho11 AutPerm le_rfl ⟨piB, K0base_le piB_mem⟩ v * v⁻¹) := by
-  refine ⟨w, fix_piB_mem_annOf hw, 1, ?_⟩
-  rw [map_one, fuse_one_inv_W11, mul_one, mul_one]
 
 theorem fix_piA_mem_annOf {w : W11}
     (hw : rho11 AutPerm le_rfl ⟨piA, K0base_le piA_mem⟩ w = w) :
@@ -476,14 +458,6 @@ theorem fix_piA_mem_annOf {w : W11}
   rw [rho11_toW_native hσ hrep m]
   exact (fuse_mem_annOf_sextFin_zero_iff _).2 hcA
 
-theorem fix_piA_mem {w : W11}
-    (hw : rho11 AutPerm le_rfl ⟨piA, K0base_le piA_mem⟩ w = w) :
-    ∃ (σ : S24) (hσ : σ ∈ M24g), σ * piA = piA * σ ∧ ∃ a ∈ annOf (octsOf (sextFin 0)),
-      ∃ v : W11, rho11 AutPerm le_rfl ⟨σ, hσ⟩ w =
-        a * (rho11 AutPerm le_rfl ⟨piA, K0base_le piA_mem⟩ v * v⁻¹) := by
-  obtain ⟨σ, hσ, hcomm, hA⟩ := fix_piA_mem_annOf hw
-  refine ⟨σ, hσ, hcomm, _, hA, 1, ?_⟩
-  rw [map_one, fuse_one_inv_W11, mul_one, mul_one]
 
 end Main
 

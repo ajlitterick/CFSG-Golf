@@ -30,9 +30,6 @@ abbrev ProjectiveSpecialUnitary (n : ℕ) (K : Type u) [Field K] (sigma : K ≃+
     SUid sigma n →* fixedPGL n K sigma :=
   (unitaryProjection n K sigma).comp (Subgroup.inclusion (SUid_le_Uid sigma n))
 
-theorem specialUnitaryProjection_val (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (g : SUid sigma n) :
-    (specialUnitaryProjection n K sigma g).val = ProjGenLinGroup.mk g.val := rfl
 
 theorem specialUnitaryProjection_kernel (n : ℕ) (K : Type u) [Field K]
     (sigma : K ≃+* K) :
@@ -62,17 +59,6 @@ theorem specialUnitaryProjection_range (n : ℕ) (K : Type u) [Field K]
   (QuotientGroup.quotientMulEquivOfEq (specialUnitaryProjection_kernel n K sigma).symm).trans
     (QuotientGroup.quotientKerEquivRange (specialUnitaryProjection n K sigma))
 
-theorem projectiveSpecialUnitaryEquivImage_mk (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (g : SUid sigma n) :
-    (projectiveSpecialUnitaryEquivImage n K sigma (QuotientGroup.mk g)).val.val =
-      ProjGenLinGroup.mk g.val := by
-  rw [projectiveSpecialUnitaryEquivImage, MulEquiv.trans_apply,
-    QuotientGroup.quotientMulEquivOfEq_mk]
-  rfl
-
-theorem projectiveSpecialUnitary_eq_stated (n : ℕ) (K : Type) [Field K]
-    (sigma : K ≃+* K) :
-    ProjectiveSpecialUnitary n K sigma = CFSG.Assembly.LowTwoRank.StatedProj (SUid sigma n) := rfl
 
 end
 

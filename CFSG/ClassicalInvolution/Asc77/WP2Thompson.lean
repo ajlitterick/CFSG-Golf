@@ -39,10 +39,6 @@ variable (p f)
     ∀ K ∈ Ω, dComp Ω K = dstarComp Ω K ∨
       ∀ W ∈ WSet Ω, MuIsoS3 Ω W ∨ MuIsoS4 Ω W ∨ MuIsoWylD4 Ω W
 
-@[expose] def L9_2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), PartIHyp p f Ω →
-    ∀ K ∈ Ω, ∀ z : G, IsUniqueInvolution K z →
-      ∀ U ∈ USet Ω, U ≤ K → ¬ U ≤ oTwoCore (Subgroup.centralizer ({z} : Set G))
 
 @[expose] def L9_3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), PartIHyp p f Ω →

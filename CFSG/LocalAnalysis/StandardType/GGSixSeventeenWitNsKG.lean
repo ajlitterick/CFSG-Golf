@@ -25,10 +25,6 @@ section Inputs
         ∃ e ∈ L₁, GGSixSeventeenDirect p Bs D (ggG0 p B x L D J) e ∨
           (e ∈ Bs ∧ e ≠ 1 ∧ GGSixSeventeenSixteen p B Bs x L D J t f e)
 
-theorem GGSixSeventeenWitnessOn.dvdOn {P : StatedLieTag → ℕ → ℕ → ℕ → Prop}
-    (h : GGSixSeventeenWitnessOn P) : GGSixSeventeenWitnessDvdOn P :=
-  fun G _ _ p B Bs x L D J t n f ψ hP hctx s1 b L₁ hpair _ =>
-    h G p B Bs x L D J t n f ψ hP hctx s1 b L₁ hpair
 
 theorem ggSixSeventeenWitnessOn_of_dvdOn {P : StatedLieTag → ℕ → ℕ → ℕ → Prop}
     (hT : ∀ t n f p, P t n f p → GGNonsplitTag t ∧ GGLayerPDivTag t)
@@ -44,9 +40,6 @@ theorem ggSixSeventeenWitnessOn_of_dvdOn {P : StatedLieTag → ℕ → ℕ → �
     GGSixSeventeenWitnessDvdOn (fun t _ _ _ => t = .POmegaMinus) ∧
     GGSixSeventeenE8SevenInput ∧ GGSixSeventeenRootWitnessInputFor GGExceptionalTag
 
-theorem ggSixSeventeenWitnessRest8_of_rest7 (h : GGSixSeventeenWitnessRest7) :
-    GGSixSeventeenWitnessRest8 :=
-  ⟨h.1.dvdOn, h.2.1.dvdOn, h.2.2.1.dvdOn, h.2.2.2.1.dvdOn, h.2.2.2.2⟩
 
 theorem ggSixSeventeenWitnessRest7_of_rest8 (hU : GGNonsplitTag .PSU)
     (hSp : GGNonsplitTag .PSp) (hPl : GGNonsplitTag .POmegaPlus)

@@ -158,9 +158,5 @@ theorem noCaseIIBetaL217_of (hComp : ComponentList) (hP : PumpUpData) : NoCaseII
   intro G _ _ hH t t' a A B K hc hK hsh _ _
   exact no_component_L217 hComp hP hH hc.order_t hK hsh
 
-theorem noCaseIIBeta_of_pumpup (hComp : ComponentList) (hP : PumpUpData)
-    (hA5 : NoCaseIIBetaA5) (hA6 : NoCaseIIBetaA6) (hL3 : NoCaseIIBetaL33)
-    (hM : NoCaseIIBetaM11) : NoCaseIIBeta :=
-  noCaseIIBeta_of_shapes hA5 (noCaseIIBetaL27_of hComp hP) hA6 (noCaseIIBetaL217_of hComp hP) hL3 hM
 
 end CFSG.GH74.E2

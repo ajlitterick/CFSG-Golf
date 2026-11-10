@@ -385,17 +385,6 @@ theorem commutator_range_mulSingle_le (j : Fin r) :
   obtain ⟨s, rfl⟩ := hg'
   exact ⟨s, rfl⟩
 
-theorem eq_bot_of_commutator_eq {X : Type*} [Group X] [Group.IsSolvable X] {H : Subgroup X}
-    (hH : ⁅H, H⁆ = H) : H = ⊥ := by
-  obtain ⟨k, hk⟩ := Group.IsSolvable.solvable (G := X)
-  have h : ∀ i, H ≤ derivedSeries X i := by
-    intro i
-    induction i with
-    | zero => exact le_top
-    | succ i ih =>
-      rw [derivedSeries_succ, ← hH]
-      exact Subgroup.commutator_mono ih ih
-  exact le_bot_iff.mp (hk ▸ h k)
 
 end Core
 

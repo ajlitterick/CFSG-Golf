@@ -21,15 +21,6 @@ theorem exists_eq_conj_of_fix_perpLevi_E7 [Finite K] [CharP K 2]
       g ∈ centralizer (perpLevi .E7 K : Set (adjointGroup .E7 K)) :=
   E8Pilot.exists_eq_conj_of_fix_perpLevi (Or.inl rfl) β hβ
 
-theorem exists_eq_conj_mem_highRootSL2_of_fix_perpLevi_E7 [Finite K] [CharP K 2]
-    (hq : 4 ≤ Nat.card K) (β : MulAut (adjointGroup .E7 K))
-    (hβ : ∀ x ∈ perpLevi .E7 K, β x = x) :
-    ∃ g : adjointGroup .E7 K, β = MulAut.conj g ∧
-      g ∈ (highRootSL2 .E7 K).subgroupOf (adjointGroup .E7 K) := by
-  obtain ⟨g, hg, hgD⟩ := exists_eq_conj_of_fix_perpLevi_E7 β hβ
-  refine ⟨g, hg, ?_⟩
-  rw [← centralizer_perpLevi_subgroupOf (Or.inr (Or.inl rfl)) hq]
-  exact hgD
 
 theorem eq_one_of_fix_perpLevi_E7 [Finite K] [CharP K 2] {X Y : Subgroup (adjointGroup .E7 K)}
     (hXc : centralizer (X : Set (adjointGroup .E7 K)) ≤ Y ⊔ perpLevi .E7 K)
@@ -228,67 +219,5 @@ theorem neighbour_standard_E7_highTorusLine [Finite G] (hL : standardComponentIs
   exact neighbour_standard_E7_of_le_highTorusLine hL htC ht hK hKc e hc le_rfl
     (mem_subgroupOf.2 (rootDiagUnit_highDiag_mem_highTorusLine c)) hX htX hDe
 
-theorem neighbour_standard_E7_highRootSL2 [Finite G] (hL : standardComponentIsStandard L)
-    {t : G} (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {f : ℕ} (hKc : Nat.card K = 2 ^ f) (hq : 4 ≤ Nat.card K) (e : L ≃* adjointGroup .E7 K)
-    {X : Subgroup G} (hX : X = (((highRootSL2 .E7 K).subgroupOf (adjointGroup .E7 K)).map
-      e.symm.toMonoidHom).map L.subtype)
-    (htX : t ∈ centralizer (X : Set G))
-    {D : Subgroup G} (hDe : D = ((perpLevi .E7 K).map e.symm.toMonoidHom).map L.subtype) :
-    CFSG.Open.IsComponentOf
-        ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-        (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-      (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-        IsPGroup 2 U →
-        U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-        Nat.card U ≤ 2) ∧
-      standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  have := F4Pilot.finite_of_natCard_eq_two_pow hKc
-  have := F4Pilot.charP_two_of_natCard_eq_two_pow hKc
-  refine neighbour_standard_E7_of_centralizer_eq_sup hL htC ht hK hKc e (Y := ⊥) ?_ bot_le bot_le
-    ?_ hX htX hDe
-  · rw [bot_sup_eq]
-    exact centralizer_highRootSL2_subgroupOf (Or.inr (Or.inl rfl)) hq
-  · rw [card_bot]
-    exact odd_one
-
-theorem neighbour_standard_E7_of_highDiag_mem [Finite G] (hL : standardComponentIsStandard L)
-    {t : G} (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {f : ℕ} (hKc : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .E7 K) {c : Kˣ}
-    (hc : 3 ≤ orderOf c) {X : Subgroup G}
-    (hcX : ((e.symm ⟨rootDiagUnit .E7 (highDiag .E7 c),
-      E6Pilot.rootDiagUnit_highDiag_mem_adjointGroup (Or.inr (Or.inl rfl)) c⟩ : L) : G) ∈ X)
-    (htX : t ∈ centralizer (X : Set G))
-    {D : Subgroup G} (hDe : D = ((perpLevi .E7 K).map e.symm.toMonoidHom).map L.subtype)
-    (hD : D = inSubgroup layer (L ⊓ centralizer (X : Set G))) :
-    CFSG.Open.IsComponentOf
-        ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-        (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-      (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-        IsPGroup 2 U →
-        U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-        Nat.card U ≤ 2) ∧
-      standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  have := F4Pilot.finite_of_natCard_eq_two_pow hKc
-  have := F4Pilot.charP_two_of_natCard_eq_two_pow hKc
-  refine neighbour_standard_E7 hL htC ht hK hKc e htX highTorusLine_le_centralizer_perpLevi_E7
-    (odd_card_highTorusLine_E7 hKc)
-    (E6Pilot.centralizer_le_highTorusLine_sup (Or.inr (Or.inl rfl)) hc ?_) hDe hD
-  refine ⟨e.symm ⟨rootDiagUnit .E7 (highDiag .E7 c),
-    E6Pilot.rootDiagUnit_highDiag_mem_adjointGroup (Or.inr (Or.inl rfl)) c⟩,
-    mem_subgroupOf.2 hcX, ?_⟩
-  simp
 
 end CFSG.SeitzReduction.E7Pilot

@@ -62,9 +62,6 @@ theorem quotientCongruenceImage_index_dvd_two (h2 : (2 : K) ≠ 0) :
   rw [quotientCongruenceImage_index]
   exact congruenceImage_index_dvd_two delta h2
 
-theorem quotientCongruenceImage_index_le_two (h2 : (2 : K) ≠ 0) :
-    (quotientCongruenceImage delta h2).index ≤ 2 :=
-  Nat.le_of_dvd (by decide) (quotientCongruenceImage_index_dvd_two delta h2)
 
 instance quotientByCongruenceImageCyclic (h2 : (2 : K) ≠ 0) :
     IsCyclic (SpecialQuotient delta h2 ⧸ quotientCongruenceImage delta h2) := by
@@ -75,10 +72,5 @@ instance specialQuotientSolvable (h2 : (2 : K) ≠ 0) :
     Group.IsSolvable (SpecialQuotient delta h2) :=
   Group.isSolvable_of_subgroup_quotient (quotientCongruenceImage delta h2)
 
-theorem hermitian_isometry_quotient_structure (h2 : (2 : K) ≠ 0) :
-    ∃ A : Subgroup (SpecialQuotient delta h2), A.Normal ∧ IsMulCommutative A ∧
-      A.index ≤ 2 ∧ Group.IsSolvable (SpecialQuotient delta h2) :=
-  ⟨quotientCongruenceImage delta h2, inferInstance, inferInstance,
-    quotientCongruenceImage_index_le_two delta h2, inferInstance⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalFourNonsplit

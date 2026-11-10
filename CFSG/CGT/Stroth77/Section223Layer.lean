@@ -159,14 +159,6 @@ theorem conj_mem_omegaIn [Finite G] {D : Subgroup G}
   rw [inv_inv] at h
   rw [h, hx.2, mul_one, inv_mul_cancel]
 
-theorem mem_normalizer_omegaIn [Finite G] {D : Subgroup G} (hcomm : ∀ x ∈ D, ∀ y ∈ D, x * y = y * x)
-    {i : ℕ} {g : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) :
-    g ∈ Subgroup.normalizer ((omegaIn i D : Subgroup G) : Set G) := by
-  rw [Subgroup.mem_normalizer_iff'']
-  intro x
-  refine ⟨conj_mem_omegaIn hcomm hg, fun hx => ?_⟩
-  have h := conj_mem_omegaIn hcomm (inv_mem hg) hx
-  simpa [mul_assoc] using h
 
 end S223
 
@@ -201,8 +193,6 @@ theorem card_A : Nat.card F.A = 32 := by
 theorem two_zsmul_uv_sub : ∀ v : Torus (StrothTypeIndex.t100 1).k,
     (2 : ℤ) • ((StrothTypeIndex.t100 1).action.φuv v - v) = 0 := by decide
 
-theorem two_zsmul_t_sub : ∀ v : Torus (StrothTypeIndex.t100 1).k,
-    (2 : ℤ) • ((StrothTypeIndex.t100 1).action.φt v - v) = 0 := by decide
 
 theorem two_zsmul_of_two_zsmul_rho_sub : ∀ v : Torus (StrothTypeIndex.t100 1).k,
     (2 : ℤ) • ((StrothTypeIndex.t100 1).action.φρ v - v) = 0 → (2 : ℤ) • v = 0 := by decide
@@ -218,14 +208,6 @@ theorem comm_uv_mem_omegaIn_A {x : G} (hx : x ∈ F.A) :
     exact two_zsmul_uv_sub _)
   exact congrArg Subtype.val h
 
-theorem comm_t_mem_omegaIn_A {x : G} (hx : x ∈ F.A) :
-    x⁻¹ * (F.dA.t⁻¹ * x * F.dA.t) ∈ omegaIn 1 F.A := by
-  set a : F.A := ⟨x, hx⟩
-  refine mem_omegaIn_one_of_mul_self (a⁻¹ * conjBy F.dA.t_mem a).2 ?_
-  have h := (F.dA.mul_self_eq_one_iff (a⁻¹ * conjBy F.dA.t_mem a)).2 (by
-    rw [F.dA.e_inv_mul_conjBy F.dA.t_mem F.dA.t_conj]
-    exact two_zsmul_t_sub _)
-  exact congrArg Subtype.val h
 
 theorem mem_omegaIn_A_of_comm_rho_mem {x : G} (hx : x ∈ F.A)
     (h : x⁻¹ * (F.dA.ρ⁻¹ * x * F.dA.ρ) ∈ omegaIn 1 F.A) : x ∈ omegaIn 1 F.A := by

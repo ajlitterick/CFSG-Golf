@@ -10,7 +10,6 @@ variable {G : Type*} [Group G]
 
 @[expose] def cmap (x y : G) : G := y⁻¹ * x⁻¹ * y * x
 
-theorem cmap_apply (x y : G) : cmap x y = y⁻¹ * x⁻¹ * y * x := rfl
 
 lemma cmap_eq (x y : G) : cmap x y = y⁻¹ * x⁻¹ * y * x := by simp only [cmap]
 

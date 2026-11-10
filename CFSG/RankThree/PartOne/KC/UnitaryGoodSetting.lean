@@ -38,19 +38,6 @@ variable (h) in
     Subgroup (MulAut (primeFormP h (idGram K n))) :=
   ⨆ i : GoodBlockIdx h x, idBlockImage h x (i.1 : K[X])
 
-theorem mem_idSpecialBlock_iff {x : gramSU h (idGram K n)} {a : K[X]}
-    {Y : primeFormUnitary h (idGram K n)} :
-    Y ∈ idSpecialBlock h x a ↔
-      (toLinU h n Y ∈ unitaryCentralizer (idForm h n) (toLinU h n (liftUnitary x)) ∧
-        ∀ b ∈ primaryFactors ((toLinU h n (liftUnitary x) : LinearMap.GeneralLinearGroup K
-          (Fin n → K)) : Module.End K (Fin n → K)), b ∉ ({a, dualPoly h.bar a} : Set K[X]) →
-          ∀ v ∈ primaryComponent ((toLinU h n (liftUnitary x) : LinearMap.GeneralLinearGroup K
-            (Fin n → K)) : Module.End K (Fin n → K)) b,
-            ((toLinU h n Y : LinearMap.GeneralLinearGroup K (Fin n → K)) :
-              Module.End K (Fin n → K)) v = v) ∧
-      ∃ hg : toLinU h n Y ∈ gl_centralizer (toLinU h n (liftUnitary x)),
-        blockDetHom (toLinU h n (liftUnitary x)) a ⟨toLinU h n Y, hg⟩ = 1 :=
-  mem_specialBlock
 
 theorem two_le_pow_of (h : UnitaryFieldData ℓ f K) : 2 ≤ ℓ ^ f := by
   have h1 : 1 < ℓ ^ f := Nat.one_lt_pow (by have := h.one_le; omega) h.prime.one_lt

@@ -12,35 +12,6 @@ namespace CFSG.ClassicalInvolution.Q3
 open CFSG CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 open scoped commutatorElement
 
-@[expose] def TightSubnormalLarge : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup (genFittingFStar G)],
-    (∃ a b : genFittingFStar G, a * b ≠ b * a) →
-    ¬ TwoSubgroupsFourGenerated (genFittingFStar G) →
-    ∀ (R : Subgroup G) (S : Sylow 2 R),
-    (∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup R) ≃* QuaternionGroup (2 ^ (r - 2)))) →
-    ∀ t : G, t ∈ (S : Subgroup R).map R.subtype → orderOf t = 2 →
-    R ≤ Subgroup.centralizer ({t} : Set G) →
-    (R.subgroupOf (Subgroup.centralizer ({t} : Set G))).Normal →
-    IsPGroup 2 (R ⧸ classicalInvolutionOddCore R) →
-    ∃ (x : G) (k : ℕ), x ∈ Subgroup.centralizer ({t} : Set G) ∧ x ^ 3 ^ k = 1 ∧
-      (∃ r ∈ R, ⁅x, r⁆ ∉ oddCoreImg R) ∧
-      IsSubnormal (R ⊔ Subgroup.zpowers x ⊔ oddCoreImg (Subgroup.centralizer ({t} : Set G)))
-        (Subgroup.centralizer ({t} : Set G))
-
-@[expose] def TightThreeElementLarge : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup (genFittingFStar G)],
-    (∃ a b : genFittingFStar G, a * b ≠ b * a) →
-    ¬ TwoSubgroupsFourGenerated (genFittingFStar G) →
-    ∀ (R : Subgroup G) (S : Sylow 2 R),
-    (∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup R) ≃* QuaternionGroup (2 ^ (r - 2)))) →
-    ∀ t : G, t ∈ (S : Subgroup R).map R.subtype → orderOf t = 2 →
-    R ≤ Subgroup.centralizer ({t} : Set G) →
-    (R.subgroupOf (Subgroup.centralizer ({t} : Set G))).Normal →
-    IsPGroup 2 (R ⧸ classicalInvolutionOddCore R) →
-    ∃ (x : G) (k : ℕ), x ∈ Subgroup.centralizer ({t} : Set G) ∧ x ^ 3 ^ k = 1 ∧
-      (∃ r ∈ R, ⁅x, r⁆ ∉ oddCoreImg R) ∧
-      ∀ y ∈ Subgroup.centralizer ({t} : Set G), (∀ r ∈ R, ⁅y, r⁆ ∈ oddCoreImg R) →
-        ⁅x, y⁆ ∈ oddCoreImg (Subgroup.centralizer ({t} : Set G))
 
 theorem tl3_nonempty_mulEquiv_q8 {G : Type*} [Group G] [Finite G] {R : Subgroup G}
     (S : Sylow 2 R)
@@ -67,27 +38,5 @@ theorem tl3_nonempty_mulEquiv_q8 {G : Type*} [Group G] [Finite G] {R : Subgroup 
     obtain ⟨r', hr', hnr⟩ := hxR
     exact hnr ((tl3Act_eq_one_iff R ⟨x, hCR hxC⟩).mp hP1 r' hr')
 
-theorem tightLift3_of_tightSubnormalLarge (h : TightSubnormalLarge) : TightLift3 := by
-  intro G _ _ _ hnab hlarge R S hS t ht hto hRC hRn h2
-  obtain ⟨x, k, hxC, hx3, hxR, hsub⟩ := h G hnab hlarge R S hS t ht hto hRC hRn h2
-  have hCR : Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (R : Set G) :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hRC).mp hRn
-  have hS8 := tl3_nonempty_mulEquiv_q8 S hS h2 hCR hxC hx3 hxR
-  exact ⟨_, le_sup_left.trans le_sup_left,
-    isClassicalMember3_of_subnormal S hS8 ht hto hRC hRn h2 hxC hx3 hxR hsub⟩
-
-theorem tightSubnormalLarge_of_tightThreeElementLarge (h : TightThreeElementLarge) :
-    TightSubnormalLarge := by
-  intro G _ _ _ hnab hlarge R S hS t ht hto hRC hRn h2
-  obtain ⟨x, k, hxC, hx3, hxR, hxD⟩ := h G hnab hlarge R S hS t ht hto hRC hRn h2
-  have hCR : Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (R : Set G) :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hRC).mp hRn
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨e1⟩ := QuaternionStructure.nonempty_mulEquiv_sylow_of_isPGroup_oddCore_quotient h2 S
-  obtain ⟨e2⟩ := tl3_nonempty_mulEquiv_q8 S hS h2 hCR hxC hx3 hxR
-  exact ⟨x, k, hxC, hx3, hxR, isSubnormal_threeElement_join hRC hCR (e1.trans e2) hxC hx3 hxR hxD⟩
-
-theorem tightLift3_of_tightThreeElementLarge (h : TightThreeElementLarge) : TightLift3 :=
-  tightLift3_of_tightSubnormalLarge (tightSubnormalLarge_of_tightThreeElementLarge h)
 
 end CFSG.ClassicalInvolution.Q3

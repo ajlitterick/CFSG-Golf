@@ -25,16 +25,6 @@ namespace CFSG.ClassicalInvolution
     CFSG.Open.IsSubnormal J (Subgroup.centralizer ({z} : Set G)) ∧
     CFSG.Open.classicalInvolutionWitness J ∧ ¬ Group.IsSolvable J
 
-theorem hasNonsolvableClassical_iff (G : Type*) [Group G] :
-    HasNonsolvableClassical G ↔ ¬ NoNonsolvableClassical G := by
-  constructor
-  · rintro ⟨z, J, hz, hzJ, hJ, hw, hns⟩ h
-    exact h z hz J hzJ hJ hw hns
-  · intro h
-    by_contra h'
-    apply h
-    intro z hz J hzJ hJ hw hns
-    exact h' ⟨z, J, hz, hzJ, hJ, hw, hns⟩
 
 theorem HasNonsolvableClassical.nonabelian {G : Type*} [Group G] (h : HasNonsolvableClassical G) :
     ∃ a b : G, a * b ≠ b * a := by
@@ -141,15 +131,5 @@ theorem noNonsolvableClassical_properTwoGenCoreJ1 :
   rw [← properTwoGenCoreJ1_eq_walterJ1] at h
   exact h
 
-theorem gamma_two_eq_top (hA : AschbacherProperTwoGeneratedCore) {G : Type} [Group G] [Finite G]
-    [IsSimpleGroup G] (hcl : HasNonsolvableClassical G) (S : Sylow 2 G)
-    (h3 : 3 ≤ CFSG.Open.pRank 2 (S : Subgroup G)) :
-    CFSG.Open.properTwoGenCoreGamma (S : Subgroup G) 2 = ⊤ := by
-  by_contra hne
-  rcases hA G hcl.nonabelian S h3 hne with h1 | ⟨⟨e⟩⟩
-  · obtain ⟨z, J, hz, -, hJ, -, hns⟩ := hcl
-    exact false_of_gamma_one_ne_top S h3 h1 hz (CFSG.ClassicalInvolution.isSubnormal_le hJ) hns
-  · exact (hasNonsolvableClassical_iff G).mp hcl
-      (NoNonsolvableClassical.of_mulEquiv e noNonsolvableClassical_properTwoGenCoreJ1)
 
 end CFSG.ClassicalInvolution

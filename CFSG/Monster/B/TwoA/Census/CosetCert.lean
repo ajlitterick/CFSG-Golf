@@ -22,23 +22,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.B.Rep4371
 
 theorem boolZ_mod_two_beq (s : ℕ) : boolZ (s % 2 == 1) = (s : ZMod 2) := boolZ_mod_two s
 
-theorem val_boolZ_mod_two (s : ℕ) : (boolZ (s % 2 == 1)).val = s % 2 := by
-  rcases Nat.mod_two_eq_zero_or_one s with h | h <;> simp only [h, boolZ] <;> rfl
-
-theorem existsUnique_cocode (D : ℕ) :
-    ∃! δ : Cocode, ∀ i : Fin 12, pair (basisC i) δ = boolZ (D.testBit i) :=
-  ⟨toD D, fun i => pair_basisC_toD i D, fun _ h => eq_toD_of_pair h⟩
-
-theorem coe_toC_eq_sum (A : ℕ) :
-    (toC A : Fin 24 → ZMod 2) = ∑ i : Fin 12, boolZ (A.testBit i) • B i := by
-  rw [toC, Submodule.coe_sum]
-  refine Finset.sum_congr rfl fun i _ => ?_
-  rw [Submodule.coe_smul, basisC_apply]
-
-theorem coe_qP (s A D : ℕ) :
-    (qP s A D : GL SpinIdx ℚ) = zU ^ (s % 2) * TU (toC A) * DU (toD D) := by
-  rw [qP, pauliQ, coe_spinEquiv, toGL_eq, toSC_s, toSC_a, toSC_δ, pauli_s, pauli_a, pauli_d,
-    val_boolZ_mod_two]
 
 theorem qP_mul (s A D t B E : ℕ) :
     qP s A D * qP t B E =
@@ -71,11 +54,6 @@ theorem pauliDec_pauliEnc {s A D : ℕ} (hs : s < 2) (hA : A < 2 ^ 12) (hD : D <
   · show (A + 2 ^ 12 * D + 2 ^ 24 * s) / 2 ^ 12 % 2 ^ 12 = D
     omega
 
-theorem pauliEnc_injective {s A D s' A' D' : ℕ} (hA : A < 2 ^ 12) (hD : D < 2 ^ 12)
-    (hA' : A' < 2 ^ 12) (hD' : D' < 2 ^ 12)
-    (h : pauliEnc s A D = pauliEnc s' A' D') : s = s' ∧ A = A' ∧ D = D' := by
-  unfold pauliEnc at h
-  omega
 
 theorem testBit_eq_of_lt {a b : ℕ} (ha : a < 2 ^ 12) (hb : b < 2 ^ 12)
     (h : ∀ j : Fin 12, a.testBit j = b.testBit j) : a = b := by
@@ -155,32 +133,5 @@ theorem qOfEnc_pauliEnc {s A D : ℕ} (hs : s < 2) (hA : A < 2 ^ 12) (hD : D < 2
     qOfEnc (pauliEnc s A D) = qP s A D := by
   rw [qOfEnc, pauliDec_pauliEnc hs hA hD, qP]
 
-theorem mem_C₀_toC_iff (A : ℕ) : toC A ∈ C₀ ↔ A % 2 = 0 := by
-  rw [C₀, LinearMap.mem_ker, μ₀_toC, Model.mu0N, boolZ_eq_zero_iff, Nat.testBit_zero]
-  rcases Nat.mod_two_eq_zero_or_one A with h | h <;> simp [h]
-
-theorem visible_involution_coset_certificate_data :
-    (∀ D : ℕ, ∃! δ : Cocode, ∀ i : Fin 12, pair (basisC i) δ = boolZ (D.testBit i)) ∧
-    (∀ s A D : ℕ, (qP s A D : GL SpinIdx ℚ) = zU ^ (s % 2) * TU (toC A) * DU (toD D)) ∧
-    (∀ A : ℕ, (toC A : Fin 24 → ZMod 2) = ∑ i : Fin 12, boolZ (A.testBit i) • B i) ∧
-    (∀ D : ℕ, ∀ i : Fin 12, pair (basisC i) (toD D) = boolZ (D.testBit i)) ∧
-    (∀ s A D : ℕ, s < 2 → A < 2 ^ 12 → D < 2 ^ 12 →
-      pauliEnc s A D < 2 ^ 25 ∧ pauliDec (pauliEnc s A D) = (s % 2 == 1, A, D) ∧
-      qOfEnc (pauliEnc s A D) = qP s A D) ∧
-    (∀ s A D s' A' D' : ℕ, s < 2 → A < 2 ^ 12 → D < 2 ^ 12 → s' < 2 → A' < 2 ^ 12 →
-      D' < 2 ^ 12 → qP s A D = qP s' A' D' → s = s' ∧ A = A' ∧ D = D') ∧
-    (∀ r : Q, ∃ s < 2, ∃ A < 2 ^ 12, ∃ D < 2 ^ 12, qP s A D = r) ∧
-    (∀ s A D t B E : ℕ, qP s A D * qP t B E =
-      qP (s + t + Model.popcN 12 (B &&& D)) (A ^^^ B) (D ^^^ E)) ∧
-    (∀ A : ℕ, toC A ∈ C₀ ↔ A % 2 = 0) ∧
-    cosetData.map CosetRecord.index = [1, 2, 6] ∧
-    cosetData.map (fun c => c.genImages.length) = [24, 24, 24] ∧
-    fusionData.generators.length = 11 ∧ fusionData.edges.length = 134 ∧
-    tauData.length = 4 := by
-  refine ⟨existsUnique_cocode, coe_qP, coe_toC_eq_sum, fun D i => pair_basisC_toD i D,
-    fun s A D hs hA hD => ⟨pauliEnc_lt hs hA hD, pauliDec_pauliEnc hs hA hD,
-      qOfEnc_pauliEnc hs hA hD⟩,
-    fun _ _ _ _ _ _ hs hA hD hs' hA' hD' h => qP_injective hs hA hD hs' hA' hD' h, exists_qP,
-    qP_mul, mem_C₀_toC_iff, rfl, rfl, rfl, rfl, rfl⟩
 
 end CFSG.Monster.B.TwoA.Census

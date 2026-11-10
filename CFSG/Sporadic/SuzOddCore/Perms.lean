@@ -108,15 +108,6 @@ theorem rawOfArrays_base_toList : (rawOfArrays n hn O S hk base hb W).base.toLis
   change (⟨base.toArray, _⟩ : Vector (Fin n) base.length).toList = base
   simp
 
-theorem rawOfArrays_derivation (j : Fin (rawOfArrays n hn O S hk base hb W).strongCount)
-    (hj : (rawOfArrays n hn O S hk base hb W).originalCount ≤ j.val) :
-    (rawOfArrays n hn O S hk base hb W).derivation j hj = toLetters j.val W[(j : ℕ)]! := rfl
-
-theorem rawOfArrays_original_toList :
-    (rawOfArrays n hn O S hk base hb W).original.toList =
-      (List.finRange O.size).map fun i : Fin O.size => permC n O[(i : ℕ)]! := by
-  change (Vector.ofFn fun i : Fin O.size => permC n O[(i : ℕ)]!).toList = _
-  rw [Vector.toList_ofFn, List.ofFn_eq_map]
 
 end RawOfArrays
 
@@ -144,7 +135,6 @@ theorem certGen_le_strong : certGenArrs.size ≤ certStrongArrs.size := by
 
 theorem certChain_originalCount : certChain.originalCount = 2 := rfl
 
-theorem certChain_strongCount : certChain.strongCount = 10 := rfl
 
 theorem certChain_baseCount : certChain.baseCount = 6 := by
   change certBase.length = 6
@@ -349,14 +339,5 @@ abbrev SuzK : Type := Equiv.Perm (Fin 22880) × Equiv.Perm (Fin 1782)
 @[expose] def suzPhi : SuzK →* Equiv.Perm (Fin 22880) :=
   MonoidHom.fst (Equiv.Perm (Fin 22880)) (Equiv.Perm (Fin 1782))
 
-@[expose] def suzBGen (i : Fin certChain.originalCount) : Equiv.Perm (Fin 1782) :=
-  ![suzB0, suzB1] (Fin.cast certChain_originalCount i)
-
-@[expose] def suzU : Vector SuzK certChain.originalCount :=
-  Vector.ofFn fun i => (certChain.original.get i, suzBGen i)
-
-theorem suzU_get (i : Fin certChain.originalCount) :
-    suzU.get i = (certChain.original.get i, suzBGen i) := by
-  rw [suzU, Vector.get_ofFn]
 
 end CFSG.Sporadic.SuzOddCore

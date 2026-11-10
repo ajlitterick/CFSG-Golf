@@ -19,15 +19,6 @@ theorem mem_Lgen_of_mem {M L : Subgroup G} {x : G} (hx : x ∈ L) : x ∈ Lgen M
   rw [conjSubgroup_one]
   exact hx
 
-@[expose] def Smith212Statement : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M Q Z B : Subgroup G), Smith1981Below (Nat.card G) →
-    RemCfg M Q Z B → ∀ z ∈ Z, z ≠ 1 → ∀ x : G, x ∈ M → x ∉ Q → IsConj z x →
-      (conjClassSet z ∩ cosetSet x Z = {x}) ∧
-      ({g : G | IsConj x g} ∩ {g : G | ∃ q ∈ Q, g = x * q} = conjOrbit Q x) ∧
-      (∀ X : Subgroup G, IsZConjugate Z X → x ∈ X →
-        (Q ⊓ QB X) ⊔ Z = ⁅Q, Subgroup.zpowers x⁆ ⊔ Z) ∧
-      (((Q ⊓ Subgroup.centralizer ({x} : Set G) : Subgroup G) : Set G) =
-        CQt Q Z (Subgroup.zpowers x))
 
 @[expose] def Smith216Statement : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (M Q Z B : Subgroup G), Smith1981Below (Nat.card G) →

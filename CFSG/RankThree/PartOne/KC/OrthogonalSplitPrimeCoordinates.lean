@@ -17,9 +17,6 @@ open scoped IsMulCommutative
   map_one' := by simp
   map_mul' a b := by simp [ofMul_mul]
 
-theorem charToMultiplicative_apply {G : Type*} [Group G] {p : ℕ} (χ : Additive G →+ ZMod p)
-    (g : G) : (charToMultiplicative χ g).toAdd = χ (Additive.ofMul g) :=
-  rfl
 
 variable {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V] [FiniteDimensional K V]
   {Q : QuadraticForm K V}

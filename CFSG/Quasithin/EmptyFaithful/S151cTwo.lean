@@ -22,9 +22,6 @@ variable {V : Type} [CommGroup V] [Finite V] {X Tb Xc : Subgroup (MulAut V)}
     rw [conjBy_conjBy, inv_mul_cancel, conjBy_one] at h
     exact h.symm⟩
 
-omit [Finite V] in
-theorem mem_stabConj {X L : Subgroup (MulAut V)} {x : MulAut V} :
-    x ∈ stabConj X L ↔ x ∈ X ∧ conjBy x L = L := Iff.rfl
 
 omit [Finite V] in
 theorem conjBy_inv_eq_of_eq {L L' : Subgroup (MulAut V)} {x : MulAut V}
@@ -327,23 +324,6 @@ theorem pair_le_closure (h : Setting151c X Tb Xc) {r : ℚ} (hr : qhatOf X = (r 
   rw [← h1]
   exact hprop u u.2 a haL
 
-open Classical in
-omit [Finite V] in
-theorem iSup_pair151c {α : Type*} [CompleteLattice α] (f : Subgroup (MulAut V) → α)
-    (a b : Subgroup (MulAut V)) :
-    (⨆ L ∈ ({a, b} : Finset (Subgroup (MulAut V))), f L) = f a ⊔ f b := by
-  classical
-  apply le_antisymm
-  · refine iSup₂_le fun L hL => ?_
-    rcases Finset.mem_insert.mp hL with rfl | hL
-    · exact le_sup_left
-    · rw [Finset.mem_singleton.mp hL]
-      exact le_sup_right
-  · exact sup_le
-      (le_iSup₂ (f := fun L (_ : L ∈ ({a, b} : Finset (Subgroup (MulAut V)))) => f L) a
-        (by simp))
-      (le_iSup₂ (f := fun L (_ : L ∈ ({a, b} : Finset (Subgroup (MulAut V)))) => f L) b
-        (by simp))
 
 omit [Finite V] in
 theorem commV_sup_le151c (L₁ L₂ : Subgroup (MulAut V)) :

@@ -59,11 +59,6 @@ theorem oddCore_comap_of_surjective [Finite G] [Finite H]
   exact (QuotientGroup.quotientMulEquivOfEq hk.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective f hf)
 
-theorem reducedSurjectionEquiv_mk [Finite G] [Finite H]
-    (phi : G →* H) (hphi : Function.Surjective phi)
-    (hker : Odd (Nat.card phi.ker)) (g : G) :
-    reducedSurjectionEquiv phi hphi hker (QuotientGroup.mk' (CFSG.oddCore G) g) =
-      QuotientGroup.mk' (CFSG.oddCore H) (phi g) := rfl
 
 theorem oddCore_map_of_injective_normal_range [Finite H]
     (phi : G →* H) (hphi : Function.Injective phi) (hnormal : phi.range.Normal) :
@@ -165,9 +160,6 @@ theorem involution_mem_normal_of_odd_index
       Subgroup.mem_centralizer_singleton_iff.mpr
         (congrArg L.subtype (Subgroup.mem_centralizer_singleton_iff.mp x.property)))
 
-theorem centralizerInclusion_coe (L : Subgroup H) (t : H) (htL : t ∈ L)
-    (b : Subgroup.centralizer ({(⟨t, htL⟩ : L)} : Set L)) :
-    (centralizerInclusion L t htL b : H) = ((b : L) : H) := rfl
 
 theorem centralizerInclusion_injective (L : Subgroup H) (t : H) (htL : t ∈ L) :
     Function.Injective (centralizerInclusion L t htL) := by
@@ -282,16 +274,6 @@ theorem reducedCentralizerInjection_injective [Finite G]
   (reducedCentralizerEquiv O hO v hv).symm.injective.comp
     (reducedNormalInclusion_injective _ _ _)
 
-theorem reducedCentralizerInjection_range [Finite G]
-    (O : Subgroup G) [O.Normal] (hO : Odd (Nat.card O))
-    (L : Subgroup (G ⧸ O)) [L.Normal] (hindex : Odd L.index)
-    (v : G) (hv : orderOf v = 2) :
-    (reducedCentralizerInjection O hO L hindex v hv).range =
-      ((L.subgroupOf (Subgroup.centralizer {QuotientGroup.mk' O v})).map
-        (QuotientGroup.mk' (CFSG.oddCore (Subgroup.centralizer {QuotientGroup.mk' O v})))).map
-          (reducedCentralizerEquiv O hO v hv).symm.toMonoidHom := by
-  unfold reducedCentralizerInjection
-  rw [MonoidHom.range_comp, reducedNormalInclusion_range, centralizerInclusion_range]
 
 theorem reducedCentralizerInjection_normal [Finite G]
     (O : Subgroup G) [O.Normal] (hO : Odd (Nat.card O))
@@ -337,44 +319,5 @@ theorem ambient_centralizer_oddCore_map [Finite G]
         (OddNormalQuotientInvolutions.centralizerQuotient O v) := rfl
   rw [heq, ← Subgroup.map_map, centralizer_oddCore_map O hO v hv]
 
-theorem centralizerInclusion_core_intersection [Finite H]
-    (L : Subgroup H) [L.Normal] (t : H) (htL : t ∈ L) :
-    (CFSG.oddCore (Subgroup.centralizer ({(⟨t, htL⟩ : L)} : Set L))).map
-        (centralizerInclusion L t htL) =
-      L.subgroupOf (Subgroup.centralizer {t}) ⊓ CFSG.oddCore (Subgroup.centralizer {t}) := by
-  rw [oddCore_map_of_injective_normal_range _ (centralizerInclusion_injective L t htL)
-    (centralizerInclusion_normal L t htL), centralizerInclusion_range]
-
-theorem odd_kernel_and_normal_odd_index_preserve_reduced_centralizer_inclusion [Finite G]
-    (O : Subgroup G) [O.Normal] (hO : Odd (Nat.card O))
-    (L : Subgroup (G ⧸ O)) [L.Normal] (hindex : Odd L.index)
-    (v : G) (hv : orderOf v = 2) :
-    let alpha := QuotientGroup.mk' O
-    let vbar := alpha v
-    let hvL := quotient_involution_mem O hO L hindex v hv
-    let C := Subgroup.centralizer {v}
-    let Cbar := Subgroup.centralizer {vbar}
-    let B := Subgroup.centralizer ({(⟨vbar, hvL⟩ : L)} : Set L)
-    let j := centralizerInclusion L vbar hvL
-    let psi := reducedCentralizerEquiv O hO v hv
-    let iota := reducedCentralizerInjection O hO L hindex v hv
-    vbar ∈ L ∧ C.map alpha = Cbar ∧
-      ((CFSG.oddCore C).map C.subtype).map alpha = (CFSG.oddCore Cbar).map Cbar.subtype ∧
-      (∀ c : C, psi (QuotientGroup.mk' (CFSG.oddCore C) c) =
-        QuotientGroup.mk' (CFSG.oddCore Cbar)
-          (OddNormalQuotientInvolutions.centralizerQuotient O v c)) ∧
-      (CFSG.oddCore B).map j = L.subgroupOf Cbar ⊓ CFSG.oddCore Cbar ∧
-      Function.Injective iota ∧ iota.range.Normal ∧ Odd iota.range.index ∧
-      ∀ b : B, psi (iota (QuotientGroup.mk' (CFSG.oddCore B) b)) =
-        QuotientGroup.mk' (CFSG.oddCore Cbar) (j b) := by
-  dsimp only
-  exact ⟨quotient_involution_mem O hO L hindex v hv,
-    OddNormalQuotientInvolutions.centralizer_map O hO v hv,
-    ambient_centralizer_oddCore_map O hO v hv, reducedCentralizerEquiv_mk O hO v hv,
-    centralizerInclusion_core_intersection L _ _,
-    reducedCentralizerInjection_injective O hO L hindex v hv,
-    reducedCentralizerInjection_normal O hO L hindex v hv,
-    reducedCentralizerInjection_odd_index O hO L hindex v hv,
-    reducedCentralizerInjection_mk O hO L hindex v hv⟩
 
 end CFSG.Wreathed.ReducedCentralizerInclusion

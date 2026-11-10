@@ -103,7 +103,6 @@ theorem aEmpty_of_sub {Φ Ψ : Set (Subgroup G)} (h : HypOmegaGen Φ) (hsub : Ψ
     exact ⟨hJΨ, hne, R, mem_RSet_of_isSylow2In hJΨ hRM, hRJ, hRN⟩
   exact hA L (hsub hL) J hJ' hJn' zK zJ hzK hzJ
 
-variable {K : Subgroup G} {S : Sylow 2 G} {R W H : Subgroup G}
 
 end B
 

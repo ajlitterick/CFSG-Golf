@@ -103,11 +103,6 @@ variable {h : UnitaryFieldData p f E} {B : V →ₛₗ[h.bar] V →ₗ[E] E}
             (QuotientGroup.mk' (sesqNormOneScalars h B)) (g : sesqUnitaryGroup B)
         rw [← map_mul, ← map_mul, Subgroup.mem_centralizer_singleton_iff.mp g.2])
 
-theorem coe_centralizerImageHom (A : sesqUnitaryGroup B)
-    (g : Subgroup.centralizer ({A} : Set (sesqUnitaryGroup B))) :
-    (centralizerImageHom A g : sesqProjUnitary h B) =
-      QuotientGroup.mk (g : sesqUnitaryGroup B) :=
-  rfl
 
 theorem range_centralizerImageHom (A : sesqUnitaryGroup B) :
     (centralizerImageHom (h := h) A).range =

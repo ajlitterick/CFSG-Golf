@@ -320,42 +320,6 @@ theorem linear_three_two_cover_kernel_bound {P : Type*} {Q : Type} [Group P] [Gr
     (projectiveSL_three_dihedral_sylow (by rw [hcard, pow_one]))
   rwa [hker'] at h
 
-theorem linear_two_four_cover_kernel_bound {P : Type*} {Q : Type} [Group P] [Group Q]
-    [Finite P] [Group.IsPerfect P] (η : P →* Q) (hη : Function.Surjective η)
-    (hK : η.ker ≤ center P) (h2 : IsPGroup 2 η.ker) (hQ : CFSG.Blueprint.LieModel Q .PSL 2 2 2) :
-    IsCyclic η.ker ∧ Nat.card η.ker ≤ 2 := by
-  obtain ⟨F, _, _, hcard, ⟨e⟩⟩ := exists_mulEquiv_projectiveSL_of_lieModel hQ
-  have := finite_field_prime_power_characteristic (K := F) Nat.prime_two (by norm_num) hcard
-  set η' : P →* SpecialLinearGroup (Fin 2) F :=
-    (projectiveSLTwoEquivSL F).toMonoidHom.comp (e.toMonoidHom.comp η)
-  have hker' : η'.ker = η.ker := by
-    ext z
-    change projectiveSLTwoEquivSL F (e (η z)) = 1 ↔ η z = 1
-    rw [MulEquiv.map_eq_one_iff, MulEquiv.map_eq_one_iff]
-  have hbound := CFSG.ShultStronglyClosedTI.four_field_linear_cover_kernel_card_le_two
-    (K := F) (by rw [hcard]; norm_num) η'
-    ((projectiveSLTwoEquivSL F).surjective.comp (e.surjective.comp hη)) (hker' ▸ hK)
-    (hker' ▸ h2)
-  rw [hker'] at hbound
-  exact ⟨isCyclic_of_natCard_le_two hbound, hbound⟩
-
-
-theorem perfect_central_two_cover_dihedral_Sylow_and_small_linear_kernel_bound :
-    (∀ {P Q : Type*} [Group P] [Group Q] [Finite P] [Finite Q] [Group.IsPerfect P]
-      (η : P →* Q), Function.Surjective η → η.ker ≤ center P → IsPGroup 2 η.ker →
-      (∃ m : ℕ, 3 ≤ m ∧ ∃ S : Sylow 2 Q, ∃ r ∈ (S : Subgroup Q), ∃ s ∈ (S : Subgroup Q),
-        (S : Subgroup Q) = Subgroup.closure {r, s} ∧ orderOf r = 2 ^ (m - 1) ∧
-          orderOf s = 2 ∧ s ∉ zpowers r ∧ s⁻¹ * r * s = r⁻¹) →
-      IsCyclic η.ker ∧ Nat.card η.ker ≤ 2) ∧
-    (∀ {P : Type*} {Q : Type} [Group P] [Group Q] [Finite P] [Finite Q] [Group.IsPerfect P]
-      (η : P →* Q), Function.Surjective η → η.ker ≤ center P → IsPGroup 2 η.ker →
-      CFSG.Blueprint.LieModel Q .PSL 2 2 2 → IsCyclic η.ker ∧ Nat.card η.ker ≤ 2) ∧
-    (∀ {P : Type*} {Q : Type} [Group P] [Group Q] [Finite P] [Finite Q] [Group.IsPerfect P]
-      (η : P →* Q), Function.Surjective η → η.ker ≤ center P → IsPGroup 2 η.ker →
-      CFSG.Blueprint.LieModel Q .PSL 3 2 1 → IsCyclic η.ker ∧ Nat.card η.ker ≤ 2) :=
-  ⟨fun η hη hK h2 hS => dihedral_kernel_bound η hη hK h2 hS,
-    fun η hη hK h2 hQ => linear_two_four_cover_kernel_bound η hη hK h2 hQ,
-    fun η hη hK h2 hQ => linear_three_two_cover_kernel_bound η hη hK h2 hQ⟩
 
 end LinearCover
 

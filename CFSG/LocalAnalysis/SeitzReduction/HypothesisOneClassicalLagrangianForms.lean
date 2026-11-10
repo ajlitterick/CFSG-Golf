@@ -35,14 +35,6 @@ theorem exists_apply_eq_smul_of_commute_transvection {u : V}
   refine ⟨(β x u)⁻¹ * β (f x) u, ?_⟩
   rw [mul_smul, ← h, smul_smul, inv_mul_cancel₀ hx, one_smul]
 
-theorem apply_eq_zero_of_commute_transvection {u : V}
-    (hf : Commute f (LinearMap.transvection (β.flip u) u)) (hu : u ≠ 0) {x : V}
-    (hx : β x u = 0) : β (f x) u = 0 := by
-  have h : f (LinearMap.transvection (β.flip u) u x) =
-      LinearMap.transvection (β.flip u) u (f x) := LinearMap.congr_fun hf.eq x
-  rw [transvection_apply, transvection_apply, hx, zero_smul, add_zero, left_eq_add,
-    smul_eq_zero] at h
-  exact h.resolve_right hu
 
 theorem apply_eq_of_commute_transvection_mul {u v : V}
     (hf : Commute f (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v))
@@ -173,96 +165,6 @@ theorem exists_eq_smul_one_of_commute_transvection_mul [FiniteDimensional K V] (
     (by rwa [finrank_top]) (fun u _ v _ huv => hf u v huv)
   exact ⟨c, LinearMap.ext fun x => by simp [hc x Submodule.mem_top]⟩
 
-theorem exists_apply_eq_smul_of_commute_transvection_mul_pair [CharP K 2] {u v : V}
-    (hu : β u u = 0) (hv : β v v = 0) (huv : β u v = 1) (hvu : β v u = 1) {l : K} (hl0 : l ≠ 0)
-    (hl1 : l ≠ 1)
-    (hf : Commute f (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v))
-    (hf' : Commute f (LinearMap.transvection (β.flip (l • u)) (l • u) *
-      LinearMap.transvection (β.flip (l⁻¹ • v)) (l⁻¹ • v))) :
-    ∃ a : K, f u = a • u := by
-  have h2 : (2 : K) = 0 := CharTwo.two_eq_zero
-  have hfu := apply_eq_of_commute_transvection_mul hf (x := v) hv hvu
-  set a := β (f v) u + β (f v) v * β v u with ha
-  set b := β (f v) v with hb
-  clear_value a b
-  have hgu : (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v) u = v := by
-    rw [transvection_mul_apply, huv, hu, hvu]
-    linear_combination (norm := module) h2 • u
-  have hgv : (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v) v =
-      u + v := by
-    rw [transvection_mul_apply, hv, hvu]
-    module
-  have hfv : f v = b • u + (a + b) • v := by
-    have e : f ((LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v) u) =
-        (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v) (f u) :=
-      LinearMap.congr_fun hf.eq u
-    rw [hgu, hfu, map_add, map_smul, map_smul, hgu, hgv] at e
-    rw [e]
-    module
-  have hll : l * l⁻¹ = 1 := mul_inv_cancel₀ hl0
-  have hg'u : (LinearMap.transvection (β.flip (l • u)) (l • u) *
-      LinearMap.transvection (β.flip (l⁻¹ • v)) (l⁻¹ • v)) u = (l⁻¹ * l⁻¹) • v := by
-    rw [transvection_mul_apply]
-    simp only [map_smul, LinearMap.smul_apply, smul_eq_mul, huv, hu, hvu]
-    have hc : (1 : K) + (l * 0 + l⁻¹ * 1 * (l⁻¹ * (l * 1))) * l = 0 := by
-      linear_combination (1 + l * l⁻¹) * hll + h2
-    linear_combination (norm := module) hc • u
-  have hg'v : (LinearMap.transvection (β.flip (l • u)) (l • u) *
-      LinearMap.transvection (β.flip (l⁻¹ • v)) (l⁻¹ • v)) v = v + (l * l) • u := by
-    rw [transvection_mul_apply]
-    simp only [map_smul, LinearMap.smul_apply, smul_eq_mul, hv, hvu]
-    module
-  set G := LinearMap.transvection (β.flip (l • u)) (l • u) *
-    LinearMap.transvection (β.flip (l⁻¹ • v)) (l⁻¹ • v) with hG
-  clear_value G
-  have e : f (G u) = G (f u) := LinearMap.congr_fun hf'.eq u
-  rw [hg'u, map_smul f (l⁻¹ * l⁻¹) v, hfv, hfu, map_add G (a • u) (b • v), map_smul G a u,
-    map_smul G b v, hg'u, hg'v] at e
-  have e' := congrArg (fun x => β x v) e
-  simp only [map_add, map_smul, LinearMap.add_apply, LinearMap.smul_apply, smul_eq_mul, huv,
-    hv] at e'
-  have e'' : b = b * l ^ 4 := by linear_combination (l * l) * e' - b * (l * l⁻¹ + 1) * hll
-  have hb4 : b * (l - 1) ^ 4 = 0 := by
-    linear_combination -e'' + b * (-2 * l ^ 3 + 3 * l ^ 2 - 2 * l + 1) * h2
-  have hb0 : b = 0 :=
-    (mul_eq_zero.mp hb4).resolve_right (pow_ne_zero 4 (sub_ne_zero.mpr hl1))
-  exact ⟨a, by rw [hfu, hb0, zero_smul, add_zero]⟩
-
-theorem exists_forall_apply_eq_smul_of_commute_transvection_mul_of_ne [CharP K 2]
-    {H : Submodule K V} (halt : ∀ x ∈ H, β x x = 0)
-    (hnd : ∀ x ∈ H, x ≠ 0 → ∃ y ∈ H, β x y ≠ 0) {l : K} (hl0 : l ≠ 0) (hl1 : l ≠ 1)
-    (hf : ∀ u ∈ H, ∀ v ∈ H, β u v = 1 →
-      Commute f (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v)) :
-    ∃ c : K, ∀ x ∈ H, f x = c • x := by
-  have hskew : ∀ a ∈ H, ∀ b ∈ H, β b a = -β a b := by
-    intro a ha b hb
-    have := halt (a + b) (H.add_mem ha hb)
-    simp only [map_add, LinearMap.add_apply, halt a ha, halt b hb, zero_add, add_zero] at this
-    linear_combination this
-  apply exists_forall_apply_eq_smul
-  intro x hx
-  by_cases hx0 : x = 0
-  · exact ⟨0, by rw [hx0, map_zero, smul_zero]⟩
-  obtain ⟨y, hy, hxy⟩ := hnd x hx hx0
-  obtain ⟨w, hwH, hxw⟩ : ∃ w ∈ H, β x w = 1 :=
-    ⟨(β x y)⁻¹ • y, H.smul_mem _ hy, by rw [map_smul, smul_eq_mul, inv_mul_cancel₀ hxy]⟩
-  have hwx : β w x = 1 := by
-    rw [hskew x hx w hwH, hxw, CharTwo.neg_eq]
-  refine exists_apply_eq_smul_of_commute_transvection_mul_pair (halt x hx) (halt w hwH) hxw hwx
-    hl0 hl1 (hf x hx w hwH hxw) (hf _ (H.smul_mem l hx) _ (H.smul_mem l⁻¹ hwH) ?_)
-  rw [map_smul, map_smul, LinearMap.smul_apply, smul_eq_mul, smul_eq_mul, hxw, mul_one,
-    inv_mul_cancel₀ hl0]
-
-theorem exists_eq_smul_one_of_commute_transvection_mul_of_ne [CharP K 2] (halt : β.IsAlt)
-    (hβ : ∀ x, x ≠ 0 → ∃ y, β x y ≠ 0) {l : K} (hl0 : l ≠ 0) (hl1 : l ≠ 1)
-    (hf : ∀ u v, β u v = 1 →
-      Commute f (LinearMap.transvection (β.flip u) u * LinearMap.transvection (β.flip v) v)) :
-    ∃ c : K, f = c • 1 := by
-  obtain ⟨c, hc⟩ := exists_forall_apply_eq_smul_of_commute_transvection_mul_of_ne (H := ⊤)
-    (fun x _ => halt.self_eq_zero x)
-    (fun x _ hx => let ⟨y, hy⟩ := hβ x hx; ⟨y, Submodule.mem_top, hy⟩) hl0 hl1
-    (fun u _ v _ huv => hf u v huv)
-  exact ⟨c, LinearMap.ext fun x => by simp [hc x Submodule.mem_top]⟩
 
 theorem transvection_isometry_of_self {u : V} (hu : β u u = 0) (hskew : ∀ y, β u y = -β y u)
     (x y : V) :
@@ -373,28 +275,6 @@ theorem exists_ne_zero_of_mem_ker (hsymm : ∀ x y, β x y = β y x)
   refine ⟨y - β d y • d, by rw [map_sub, map_smul, smul_eq_mul, hdd, mul_one, sub_self], ?_⟩
   rwa [map_sub, map_smul, smul_eq_mul, hsymm x d, hx, mul_zero, sub_zero]
 
-theorem eq_smul_one_of_commute_transvection_of_commute_shear (hsymm : ∀ x y, β x y = β y x)
-    (hsep : ∀ x, (∀ y, β x y = 0) → x = 0) {d : V} (hdd : β d d = 1)
-    (hT : ∀ u, β d u = 0 → Commute f (LinearMap.transvection (β.flip u) u))
-    {h : V} (hh : β d h = 0) (hh0 : h ≠ 0)
-    (hτ : Commute f ((β.flip d).smulRight h + (β.flip h).smulRight d)) : ∃ c : K, f = c • 1 := by
-  obtain ⟨c, hc⟩ := exists_forall_apply_eq_smul (H := LinearMap.ker (β d)) (f := f)
-    (fun u hu => by
-      have hu' : β d u = 0 := LinearMap.mem_ker.mp hu
-      by_cases hu0 : u = 0
-      · exact ⟨0, by rw [hu0, map_zero, smul_zero]⟩
-      have : ∃ x, β x u ≠ 0 := by
-        by_contra hcon
-        exact hu0 (hsep u fun y => by
-          rw [hsymm]
-          exact not_not.mp fun hy => hcon ⟨y, hy⟩)
-      obtain ⟨x, hx⟩ := this
-      exact exists_apply_eq_smul_of_commute_transvection (hT u hu') hx)
-  refine ⟨c, eq_smul_one_of_apply_eq_smul_of_commute_shear hsymm hsep hdd
-    (fun x hx => hc x (LinearMap.mem_ker.mpr hx)) (fun u hu => ?_) hh hh0 hτ⟩
-  by_cases hu0 : u = 0
-  · rw [hu0, map_zero]
-  · exact apply_eq_zero_of_commute_transvection (hT u hu) hu0 hu
 
 theorem apply_eq_zero_of_commute_transvection_mul_of_mem_ker (hsymm : ∀ x y, β x y = β y x)
     (hsep : ∀ x, (∀ y, β x y = 0) → x = 0) {d : V} (hdd : β d d = 1)
@@ -562,15 +442,6 @@ theorem exists_dotProduct_mulVec_ne_zero {J : Matrix ι ι K} (hJ : IsUnit J) {x
     obtain ⟨j, hj⟩ := Function.ne_iff.mp hJx
     exact ⟨Pi.single j 1, by rwa [single_one_dotProduct]⟩
 
-theorem exists_eq_smul_one_of_commute_matrix {J : Matrix ι ι K} (hJ : IsUnit J)
-    {M : Matrix ι ι K} (hM : ∀ u, Commute M (1 + vecMulVec u (J *ᵥ u))) : ∃ c : K, M = c • 1 := by
-  obtain ⟨c, hc⟩ := exists_eq_smul_one_of_commute_transvection
-    (β := Matrix.toBilin' J) (f := Matrix.toLinAlgEquiv' M)
-    (fun u hu => by
-      obtain ⟨y, hy⟩ := (exists_dotProduct_mulVec_ne_zero hJ hu).2
-      exact ⟨y, by rwa [Matrix.toBilin'_apply']⟩)
-    (fun u => by rw [← toLinAlgEquiv'_transvection]; exact commute_toLinAlgEquiv' (hM u))
-  exact ⟨c, eq_smul_one_of_toLinAlgEquiv' hc⟩
 
 theorem exists_eq_smul_one_of_commute_matrix_mul {J : Matrix ι ι K} (hJ : IsUnit J)
     (halt : ∀ x, x ⬝ᵥ (J *ᵥ x) = 0) (hcard : 2 < Fintype.card ι) {M : Matrix ι ι K}
@@ -589,43 +460,12 @@ theorem exists_eq_smul_one_of_commute_matrix_mul {J : Matrix ι ι K} (hJ : IsUn
       exact commute_toLinAlgEquiv' (hM u v (by rwa [Matrix.toBilin'_apply'] at huv)))
   exact ⟨c, eq_smul_one_of_toLinAlgEquiv' hc⟩
 
-theorem exists_eq_smul_one_of_commute_matrix_mul_of_ne [CharP K 2] {J : Matrix ι ι K}
-    (hJ : IsUnit J) (halt : ∀ x, x ⬝ᵥ (J *ᵥ x) = 0) {l : K} (hl0 : l ≠ 0) (hl1 : l ≠ 1)
-    {M : Matrix ι ι K}
-    (hM : ∀ u v, u ⬝ᵥ (J *ᵥ v) = 1 →
-      Commute M ((1 + vecMulVec u (J *ᵥ u)) * (1 + vecMulVec v (J *ᵥ v)))) :
-    ∃ c : K, M = c • 1 := by
-  obtain ⟨c, hc⟩ := exists_eq_smul_one_of_commute_transvection_mul_of_ne
-    (β := Matrix.toBilin' J) (f := Matrix.toLinAlgEquiv' M)
-    (fun x => by rw [Matrix.toBilin'_apply']; exact halt x)
-    (fun x hx => by
-      obtain ⟨y, hy⟩ := (exists_dotProduct_mulVec_ne_zero hJ hx).1
-      exact ⟨y, by rwa [Matrix.toBilin'_apply']⟩) hl0 hl1
-    (fun u v huv => by
-      rw [← toLinAlgEquiv'_transvection, ← toLinAlgEquiv'_transvection, ← map_mul]
-      exact commute_toLinAlgEquiv' (hM u v (by rwa [Matrix.toBilin'_apply'] at huv)))
-  exact ⟨c, eq_smul_one_of_toLinAlgEquiv' hc⟩
 
 theorem dotProduct_separating {x : ι → K} (hx : ∀ y, x ⬝ᵥ y = 0) : x = 0 := by
   funext j
   have := hx (Pi.single j 1)
   rwa [dotProduct_single_one] at this
 
-theorem exists_eq_smul_one_of_commute_dotProduct {d : ι → K} (hdd : d ⬝ᵥ d = 1)
-    {M : Matrix ι ι K} (hT : ∀ u, d ⬝ᵥ u = 0 → Commute M (1 + vecMulVec u u))
-    {h : ι → K} (hh : d ⬝ᵥ h = 0) (hh0 : h ≠ 0)
-    (hτ : Commute M (vecMulVec h d + vecMulVec d h)) : ∃ c : K, M = c • 1 := by
-  obtain ⟨c, hc⟩ := eq_smul_one_of_commute_transvection_of_commute_shear
-    (β := Matrix.toBilin' (1 : Matrix ι ι K)) (f := Matrix.toLinAlgEquiv' M)
-    (fun x y => by rw [toBilin'_one_apply_eq, toBilin'_one_apply_eq, dotProduct_comm])
-    (fun x hx => dotProduct_separating fun y => by rw [← toBilin'_one_apply_eq]; exact hx y)
-    (d := d) (by rw [toBilin'_one_apply_eq, hdd])
-    (fun u hu => by
-      rw [← toLinAlgEquiv'_transvection_one]
-      exact commute_toLinAlgEquiv' (hT u (by rwa [toBilin'_one_apply_eq] at hu)))
-    (h := h) (by rw [toBilin'_one_apply_eq, hh]) hh0
-    (by rw [← toLinAlgEquiv'_shear]; exact commute_toLinAlgEquiv' hτ)
-  exact ⟨c, eq_smul_one_of_toLinAlgEquiv' hc⟩
 
 theorem exists_eq_smul_one_of_commute_dotProduct_mul {d : ι → K} (hdd : d ⬝ᵥ d = 1)
     (halt : ∀ x, d ⬝ᵥ x = 0 → x ⬝ᵥ x = 0) {M : Matrix ι ι K}

@@ -10,6 +10,5 @@ namespace CFSG.Sporadic.ON
 
 open Native
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Perm CFSG.Perm.Native
-open CFSG.Sporadic.SmallF2.Native (ordOK)
 
 end CFSG.Sporadic.ON

@@ -42,37 +42,6 @@ open CFSG.Wreathed.WreathedCentralCover
 
 variable {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]
 
-theorem original_model_involution_mem
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))) :
-    wreathModelHom (centralizerOddCoreSylow n hn S e)
-        (centralizerOddCoreCoordinates n hn S e) (Original.x (2 ^ n)) ∈
-      CFSG.layer (centralizerOddCoreQuotient n S e) := by
-  rw [actual_quotient_involution_value n hn S e]
-  exact centralizerActualLayer_involution_mem hnonab n hn S e hfour
-
-theorem original_model_involution_eta
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {F : Type v} [Field F]
-    (eta : CFSG.layer (centralizerOddCoreQuotient n S e) ≃*
-      SpecialLinearGroup (Fin 2) F)
-    (heta : eta (centralizerActualLayerInvolution hnonab n hn S e hfour) =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) :
-    eta ⟨wreathModelHom (centralizerOddCoreSylow n hn S e)
-      (centralizerOddCoreCoordinates n hn S e) (Original.x (2 ^ n)),
-        original_model_involution_mem hnonab n hn S e hfour⟩ =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F := by
-  have hx : (⟨wreathModelHom (centralizerOddCoreSylow n hn S e)
-      (centralizerOddCoreCoordinates n hn S e) (Original.x (2 ^ n)),
-      original_model_involution_mem hnonab n hn S e hfour⟩ :
-      CFSG.layer (centralizerOddCoreQuotient n S e)) =
-    centralizerActualLayerInvolution hnonab n hn S e hfour :=
-    Subtype.ext (actual_quotient_involution_value n hn S e)
-  rw [hx]
-  exact heta
 
 omit [IsSimpleGroup G] in
 theorem original_phi_kernel_central
@@ -102,51 +71,6 @@ theorem original_phi_layer_action
     slCoordinateAction F (eta v) = coordinateProjection F (actualField n hn S e rho)
       (actualPhi n hn S e rho hin.linear_extension) v := hin.action_values v
 
-theorem actual_original_fixed_nonsquare_root
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {F : Type v} [Field F] [Finite F]
-    (p f : ℕ) (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (hcard : Nat.card F = p ^ f)
-    (theta : centralizerSimpleLayer n hn S e ≃*
-      ProjectiveSpecialLinearGroup (Fin 2) F)
-    (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-    (hrho : Function.Injective rho)
-    (eta : CFSG.layer (centralizerOddCoreQuotient n S e) ≃*
-      SpecialLinearGroup (Fin 2) F)
-    (hin : ActualCentralCoverInputs hnonab n hn S e hfour p f theta rho eta)
-    (b : (FixedField F (actualField n hn S e rho))ˣ) (hb : ¬IsSquare b) :
-    let phi := actualPhi n hn S e rho hin.linear_extension
-    let hc := original_phi_kernel_central n hn S e rho hrho hin.linear_extension
-    ¬IsSquare (fixedUnit F (actualField n hn S e rho) b) ∧
-      ∃ t : centralizerOddCoreQuotient n S e,
-        t ∈ Subgroup.centralizer
-          (CFSG.Wreathed.CentralTwoPowerFieldLift.E F (actualField n hn S e rho) phi hc :
-            Set (centralizerOddCoreQuotient n S e)) ∧
-        t ^ 2 = centralizerOddCoreMap n S e
-          (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-            (Original.a (2 ^ n))) ∧
-        t ^ (2 ^ n) = centralizerOddCoreMap n S e (centralInvolution n S e) ∧
-        orderOf t = 2 * 2 ^ n ∧
-        coordinateProjection F (actualField n hn S e rho) phi t =
-          (jProjective F (fixedUnit F (actualField n hn S e rho) b) :
-            Equiv.Perm (Omega F)) := by
-  let phi := actualPhi n hn S e rho hin.linear_extension
-  let hc := original_phi_kernel_central n hn S e rho hrho hin.linear_extension
-  let : (CFSG.layer (centralizerOddCoreQuotient n S e)).Normal := hin.layer_normal
-  have hF : CFSG.GorensteinWalter.IsOddPrimePower (Nat.card F) :=
-    ⟨p, f, hp, hp.odd_of_ne_two hpodd, hf, hcard⟩
-  obtain ⟨hbF, t, ht, hsq, hpow, horder, hproj⟩ :=
-    exists_original_fixed_j_square_root F hF (actualField n hn S e rho) hin.field_odd n hn
-      (centralizerOddCoreSylow n hn S e) (centralizerOddCoreCoordinates n hn S e)
-      phi (actualPhi_surjective n hn S e rho hin.linear_extension)
-      (actualPhi_kernel_center_data n hn S e rho hrho hin.linear_extension).1 hc
-      (CFSG.layer (centralizerOddCoreQuotient n S e)) hin.sylow_intersection eta
-      (original_phi_layer_action hnonab n hn S e hfour p f theta rho eta hin) b hb
-  refine ⟨hbF, t, ht, ?_, ?_, horder, hproj⟩
-  · exact hsq.trans (actual_quotient_wreath_value n hn S e (Original.a (2 ^ n)))
-  · exact hpow.trans (actual_quotient_involution_value n hn S e)
 
 section OriginalFixedCentralizer
 
@@ -183,108 +107,6 @@ local notation "hsurj₀" => actualPhi_surjective n hn S e rho hin.linear_extens
 local notation "e₀" => CFSG.Wreathed.CentralTwoPowerFieldLift.eSigma F Σ₀ φ₀
   hsurj₀ hc₀ hK₀ hin.field_odd
 
-theorem actual_eSigma_unique
-    (sigma : Σ₀) :
-    ∃! v : E₀, coordinateProjection F Σ₀ φ₀ v = fieldExtension F sigma := by
-  refine ⟨e₀ sigma,
-    CFSG.Wreathed.CentralTwoPowerFieldLift.eSigma_projective F Σ₀ φ₀
-      hsurj₀ hc₀ hK₀ hin.field_odd sigma, ?_⟩
-  intro v hv
-  let eps := CFSG.Wreathed.CentralTwoPowerFieldLift.EEquivField F Σ₀ φ₀
-    hsurj₀ hc₀ hK₀ hin.field_odd
-  have he : coordinateProjection F Σ₀ φ₀ (e₀ (eps v)) = fieldExtension F (eps v) :=
-    CFSG.Wreathed.CentralTwoPowerFieldLift.eSigma_projective F Σ₀ φ₀
-      hsurj₀ hc₀ hK₀ hin.field_odd (eps v)
-  have hev : e₀ (eps v) = v := eps.symm_apply_apply v
-  rw [hev, hv] at he
-  have hsig : eps v = sigma := by
-    apply Subtype.ext
-    apply RingEquiv.ext
-    intro x
-    have heval := congrArg (fun k : Equiv.Perm (Omega F) => k (some x)) he
-    exact Option.some.inj heval.symm
-  exact eps.injective (hsig.trans (eps.apply_symm_apply sigma).symm)
-
-include hp hpodd hcard in
-theorem actual_eSigma_entrywise
-    (sigma : Σ₀) (v : M₀) :
-    let : (M₀).Normal := hin.layer_normal
-    eta (conjugateIn M₀ (e₀ sigma) v) =
-      SpecialLinearGroup.map sigma.val.toRingHom (eta v) := by
-  let : (M₀).Normal := hin.layer_normal
-  let : CharP F p :=
-    CFSG.Semidihedral.FixedFieldData.characteristic_of_prime_power_card F hp hcard
-  exact compatible_conjugation_entrywise F p (hp.odd_of_ne_two hpodd) M₀ eta
-    (coordinateProjection F Σ₀ φ₀)
-    (original_phi_layer_action hnonab n hn S e hfour p f theta rho eta hin)
-    (e₀ sigma) sigma
-    (CFSG.Wreathed.CentralTwoPowerFieldLift.eSigma_projective F Σ₀ φ₀
-      hsurj₀ hc₀ hK₀ hin.field_odd sigma) v
-
-include hp hpodd hcard in
-theorem actual_E_centralizer_mem_iff
-    (v : M₀) :
-    v ∈ (Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀ ↔
-      ∀ sigma : Σ₀, SpecialLinearGroup.map sigma.val.toRingHom (eta v) = eta v := by
-  let : (M₀).Normal := hin.layer_normal
-  constructor
-  · intro hv sigma
-    have hc : (e₀ sigma : H₀) * v = (v : H₀) * e₀ sigma :=
-      Subgroup.mem_centralizer_iff.mp hv (e₀ sigma) (e₀ sigma).property
-    have hfix : conjugateIn M₀ (e₀ sigma) v = v := by
-      apply Subtype.ext
-      rw [conjugateIn_coe, hc, mul_assoc, mul_inv_cancel, mul_one]
-    rw [← actual_eSigma_entrywise hnonab n hn S e hfour p f hp hpodd hcard
-      theta rho hrho eta hin sigma v, hfix]
-  · intro hv
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro t ht
-    let tE : E₀ := ⟨t, ht⟩
-    let eps := CFSG.Wreathed.CentralTwoPowerFieldLift.EEquivField F Σ₀ φ₀
-      hsurj₀ hc₀ hK₀ hin.field_odd
-    let sigma := eps tE
-    have heq : e₀ sigma = tE := eps.symm_apply_apply tE
-    have h := actual_eSigma_entrywise hnonab n hn S e hfour p f hp hpodd hcard
-      theta rho hrho eta hin sigma v
-    rw [heq, hv sigma] at h
-    have hfix : conjugateIn M₀ t v = v := eta.injective h
-    have hh := congrArg (fun w : M₀ => (w : H₀)) hfix
-    rw [conjugateIn_coe] at hh
-    exact mul_inv_eq_iff_eq_mul.mp hh
-
-include hp hpodd hcard in
-theorem actual_eta_fixed_centralizer_image :
-    ((Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀).map eta.toMonoidHom =
-      fixedEntrySL2 F Σ₀ := by
-  ext X
-  rw [mem_fixedEntrySL2]
-  constructor
-  · rintro ⟨v, hv, rfl⟩
-    exact (actual_E_centralizer_mem_iff hnonab n hn S e hfour p f hp hpodd hcard
-      theta rho hrho eta hin v).mp hv
-  · intro hX
-    refine ⟨eta.symm X, ?_, eta.apply_symm_apply X⟩
-    apply (actual_E_centralizer_mem_iff hnonab n hn S e hfour p f hp hpodd hcard
-      theta rho hrho eta hin _).mpr
-    rwa [eta.apply_symm_apply]
-
-@[expose] def actualFixedCentralizerEquiv :
-    (Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀ ≃*
-      SpecialLinearGroup (Fin 2) (FixedField F Σ₀) :=
-  (eta.subgroupMap ((Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀)).trans
-    ((MulEquiv.subgroupCongr (actual_eta_fixed_centralizer_image hnonab n hn S e hfour
-      p f hp hpodd hcard theta rho hrho eta hin)).trans (fixedSL2EquivRange F Σ₀).symm)
-
-theorem actualFixedCentralizerEquiv_inclusion
-    (v : (Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀) :
-    fixedSL2Inclusion F Σ₀
-      (actualFixedCentralizerEquiv hnonab n hn S e hfour p f hp hpodd hcard
-        theta rho hrho eta hin v) = eta v := by
-  have h := (fixedSL2EquivRange F Σ₀).apply_symm_apply
-    ((MulEquiv.subgroupCongr (actual_eta_fixed_centralizer_image hnonab n hn S e hfour
-      p f hp hpodd hcard theta rho hrho eta hin))
-      (eta.subgroupMap ((Subgroup.centralizer (E₀ : Set H₀)).subgroupOf M₀) v))
-  exact congrArg Subtype.val h
 
 end OriginalFixedCentralizer
 
@@ -571,31 +393,6 @@ theorem actual_full_centralizer_data
     · intro w hw
       exact huniq w hw.1
 
-theorem actual_supplied_projective_model_full_centralizer
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {F : Type v} [Field F] [Finite F]
-    (p f : ℕ) (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (hcard : Nat.card F = p ^ f)
-    (theta : centralizerSimpleLayer n hn S e ≃*
-      ProjectiveSpecialLinearGroup (Fin 2) F)
-    (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-    (hrho : Function.Injective rho)
-    (hextends : ∀ l : centralizerSimpleLayer n hn S e,
-      (rho l.val).val = ((pslEquivCoordinateG F) (theta l)).val)
-    (eta : CFSG.layer (centralizerOddCoreQuotient n S e) ≃*
-      SpecialLinearGroup (Fin 2) F)
-    (hprojective : (CFSG.Semidihedral.ProjectiveSL2Cover.nativeQuotient F).comp eta.toMonoidHom =
-      theta.toMonoidHom.comp (centralizerActualLayerMap hnonab n hn S e hfour))
-    (hinvolution : eta (centralizerActualLayerInvolution hnonab n hn S e hfour) =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) :
-    ∃ hin : ActualCentralCoverInputs hnonab n hn S e hfour p f theta rho eta,
-      ActualFullCentralizerData hnonab n hn S e hfour p f theta rho eta hin hrho := by
-  let hin := actual_central_cover_inputs hnonab n hn S e hfour p f hp hpodd hf hcard
-    theta rho hrho hextends eta hprojective hinvolution
-  exact ⟨hin, actual_full_centralizer_data hnonab n hn S e hfour p f hp hpodd hf hcard
-    theta rho hrho eta hin⟩
 
 theorem actual_projective_model_determines_full_centralizer
     (hnonab : ∃ a b : G, a * b ≠ b * a)

@@ -148,13 +148,6 @@ private theorem binomY_eq (c : R) : binomY m c = revOp m * binomX m c * revOp m 
     binomY_single_apply, Fin.val_rev, Fin.val_rev, show m + 1 - ((i : ℕ) + 1) = m - i by omega,
     show m + 1 - ((j : ℕ) + 1) = m - j by omega, show m - (i : ℕ) - (m - j) = j - i by omega]
 
-theorem binomY_zero : binomY m (0 : R) = 1 := by
-  rw [binomY_eq, binomX_zero, mul_one, revOp_mul_revOp]
-
-theorem binomY_mul_binomY (c d : R) : binomY m c * binomY m d = binomY m (c + d) := by
-  rw [binomY_eq, binomY_eq, binomY_eq, ← binomX_mul_binomX]
-  simp only [mul_assoc]
-  rw [← mul_assoc (revOp m) (revOp m), revOp_mul_revOp, one_mul]
 
 private theorem alternating_sum_choose (n : ℕ) : ∀ i j : ℕ,
     ∑ b ∈ Finset.range (n + 1), (-1 : ℤ) ^ b * (n.choose b : ℤ) * ((i + b).choose j : ℤ) =
@@ -357,12 +350,5 @@ theorem binomN_mul_binomY (t : Rˣ) (c : R) :
       (revOp_mul_binomY ((((-1 : Rˣ)⁻¹ : Rˣ) : R) * ((((t⁻¹)⁻¹ : Rˣ) : R) * c))),
     mul_mul_eq_of_mul_eq h4]
 
-theorem binomial_string_weyl_identities (m : ℕ) (t : Rˣ) :
-    (∀ j : Fin (m + 1), binomN m t (Finsupp.single j 1) =
-      ((-1) ^ (j : ℕ) * ((t ^ ((m : ℤ) - 2 * (j : ℕ)) : Rˣ) : R)) •
-        Finsupp.single (Fin.rev j) 1) ∧
-      (∀ c : R, binomN m t * binomX m c = binomY m (-c * ((t⁻¹ ^ 2 : Rˣ) : R)) * binomN m t) ∧
-      ∀ c : R, binomN m t * binomY m c = binomX m (-c * ((t ^ 2 : Rˣ) : R)) * binomN m t :=
-  ⟨binomN_single t, binomN_mul_binomX t, binomN_mul_binomY t⟩
 
 end CFSG.Blueprint.Chevalley

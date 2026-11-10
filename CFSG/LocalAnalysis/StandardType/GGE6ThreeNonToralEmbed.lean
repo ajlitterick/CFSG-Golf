@@ -66,9 +66,6 @@ private theorem kcard_le {G : Type*} [Group G] {E : Subgroup G} [Finite E] (T : 
   calc Nat.card ↥(conjE E g ⊓ T) ≤ Nat.card ↥(conjE E g) := Subgroup.card_le_of_le inf_le_left
     _ = Nat.card ↥E := Subgroup.card_map_of_injective (MulAut.conj g).injective
 
-private theorem le_of_conjE_le {G : Type*} [Group G] {E N : Subgroup G} (g : G)
-    (h : conjE E g ≤ N) : ∀ x ∈ E, MulAut.conj g x ∈ N := fun x hx =>
-  h (mem_conjE.2 ⟨x, hx, rfl⟩)
 
 private theorem conjE_le_of_forall {G : Type*} [Group G] {E N : Subgroup G} (g : G)
     (h : ∀ x ∈ E, MulAut.conj g x ∈ N) : conjE E g ≤ N := by

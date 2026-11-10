@@ -44,12 +44,6 @@ instance lTwoPrimeTwo_normal : (lTwoPrimeTwo X).Normal := by
   unfold lTwoPrimeTwo
   infer_instance
 
-omit [Finite X] in
-theorem pPrimeCore_le_oTwoPrimeTwo : pPrimeCore 2 X ≤ oTwoPrimeTwo X := by
-  intro x hx
-  change QuotientGroup.mk' (pPrimeCore 2 X) x ∈ pCore 2 (X ⧸ pPrimeCore 2 X)
-  rw [QuotientGroup.mk'_apply, (QuotientGroup.eq_one_iff x).mpr hx]
-  exact one_mem _
 
 theorem map_lTwoPrimeTwo :
     (lTwoPrimeTwo X).map (QuotientGroup.mk' (pPrimeCore 2 X)) =

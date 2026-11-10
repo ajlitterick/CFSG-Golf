@@ -37,6 +37,5 @@ set_option compiler.extract_closed false
 @[expose] def Q27 : RawSchreierDatum 12 :=
   certificate (by decide) [x27, y27] [[-1, 2, 1]] #v[1, 0] (by decide)
 
-variable {K : Type} [Group K]
 
 end CFSG.GH74.KGroups.TwoM12

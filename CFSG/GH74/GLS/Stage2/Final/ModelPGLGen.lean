@@ -98,9 +98,6 @@ variable {F : Type} [Field F]
     · left; rw [h, mul_one] at h1; exact h1
     · right; rw [h] at h1; linear_combination -h1
 
-theorem mem_Hpm {M : ModelData F} {g : GL (Fin 2) F} :
-    g ∈ Hpm M ↔ g ∈ M.U2 ∧ ((g : Matrix (Fin 2) (Fin 2) F).det = 1 ∨
-      (g : Matrix (Fin 2) (Fin 2) F).det = -1) := Iff.rfl
 
 theorem det_unit_cases {g : GL (Fin 2) F}
     (h : (g : Matrix (Fin 2) (Fin 2) F).det = 1 ∨ (g : Matrix (Fin 2) (Fin 2) F).det = -1) :

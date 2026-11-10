@@ -23,13 +23,6 @@ theorem kernelWeylGroup_eq_closure :
     obtain ⟨w, i, rfl⟩ := isRoot_iff_exists_smul_single.1 hα.1
     exact ⟨w, i, hα, (conj_simple_eq_rootReflection w i).symm⟩
 
-theorem componentWeylGroup_le_kernelWeylGroup
-    (i : KernelComponent χ) :
-    componentWeylGroup (componentRoots χ i) ≤ kernelWeylGroup χ := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ ⟨β, hβ, rfl⟩
-  obtain ⟨hβk, -⟩ := simpleRoots_subset hβ
-  exact rootReflection_mem_kernelWeylGroup hβk
 
 theorem kernelWeylGroup_le_iSup :
     kernelWeylGroup χ ≤ ⨆ i : KernelComponent χ, componentWeylGroup (componentRoots χ i) := by

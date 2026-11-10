@@ -44,8 +44,5 @@ namespace CFSG.EvenSmallLie.UnitarySix.YamadaPar
 
 @[expose] def relCheck : Bool := h1Rels.all fun w => bIsId 8 (wordBits w)
 
-@[expose] def h1Check : Bool :=
-  certCheck (3 * 64) 64 (7 * 64) (linBits (3 * 64) (7 * 64) h1Fb)
-    (Array.ofFn (n := 64) fun j => cobFb (2 ^ (j : ℕ)))
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaPar

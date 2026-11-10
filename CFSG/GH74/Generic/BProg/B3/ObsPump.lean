@@ -22,21 +22,6 @@ section Coprime
 
 variable {u : G} {J : Subgroup G}
 
-def qSub (S A : Subgroup G) : Subgroup G where
-  carrier := {g | g ∈ S ∧ ∀ b ∈ A, b * g * b⁻¹ ∈ S}
-  one_mem' := ⟨S.one_mem, fun b _ => by simp⟩
-  mul_mem' := by
-    rintro x y ⟨hx, hxA⟩ ⟨hy, hyA⟩
-    refine ⟨S.mul_mem hx hy, fun b hb => ?_⟩
-    have : b * (x * y) * b⁻¹ = (b * x * b⁻¹) * (b * y * b⁻¹) := by group
-    rw [this]
-    exact S.mul_mem (hxA b hb) (hyA b hb)
-  inv_mem' := by
-    rintro x ⟨hx, hxA⟩
-    refine ⟨S.inv_mem hx, fun b hb => ?_⟩
-    have : b * x⁻¹ * b⁻¹ = (b * x * b⁻¹)⁻¹ := by group
-    rw [this]
-    exact S.inv_mem (hxA b hb)
 
 end Coprime
 

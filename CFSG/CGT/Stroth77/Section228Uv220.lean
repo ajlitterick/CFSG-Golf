@@ -12,14 +12,6 @@ variable {G : Type} [Group G] [Finite G]
 
 namespace StrothFrame.IsD
 
-theorem t220_uv_c {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
-    (Type220.action h).φuv Torus.c =
-      (-i : ℤ) • Torus.c + (4 : ℤ) • Torus.a + (-4 : ℤ) • Torus.b := by
-  refine (matAct_gen_of (Type220.uvM i F H) (Type220.compat_uv h) 0 (-i) 4 (-4)
-    ?_ ?_ ?_).trans ?_ <;>
-    first
-      | simp [Type220.uvM, ofCols]
-      | module
 
 theorem t220_uv_a {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
     (Type220.action h).φuv Torus.a =
@@ -43,29 +35,6 @@ theorem t220_uv_b {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
           Matrix.mulVec, dotProduct, Fin.sum_univ_three] <;> ring1)
       | module
 
-theorem t220_u_c {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
-    (Type220.action h).φu Torus.c = (-1 : ℤ) • Torus.c := by
-  refine (matAct_gen_of (Type220.uM i F H) (Type220.compat_u h) 0 (-1) 0 0
-    ?_ ?_ ?_).trans ?_ <;>
-    first
-      | simp [Type220.uM, uMat, ofCols]
-      | module
-
-theorem t220_u_a {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
-    (Type220.action h).φu Torus.a = (-2 * F : ℤ) • Torus.c + (1 : ℤ) • Torus.b := by
-  refine (matAct_gen_of (Type220.uM i F H) (Type220.compat_u h) 1 (-2 * F) 0 1
-    ?_ ?_ ?_).trans ?_ <;>
-    first
-      | simp [Type220.uM, uMat, ofCols]
-      | module
-
-theorem t220_u_b {s : ℕ} {i F H : ℤ} (h : Type220.Data s i F H) :
-    (Type220.action h).φu Torus.b = (-2 * F : ℤ) • Torus.c + (1 : ℤ) • Torus.a := by
-  refine (matAct_gen_of (Type220.uM i F H) (Type220.compat_u h) 2 (-2 * F) 1 0
-    ?_ ?_ ?_).trans ?_ <;>
-    first
-      | (simp [Type220.uM, uMat, ofCols])
-      | module
 
 theorem t220_u_a_half (s : ℕ) (hs : 1 ≤ s) :
     (StrothTypeIndex.t220 s hs).action.φu

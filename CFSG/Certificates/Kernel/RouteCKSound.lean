@@ -405,17 +405,6 @@ theorem smK_cons (b : Nat) (l : List Nat) : smK (b :: l) = smK l ||| xl (smK l) 
   rw [forceN_eq]
   rfl
 
-theorem spanList_lt (l : List Nat) (hl : ∀ x ∈ l, x < 64) : ∀ y ∈ spanList l, y < 64 := by
-  induction l with
-  | nil => simp [spanList]
-  | cons b l ih =>
-    have hb : b < 64 := hl b (by simp)
-    have ih := ih (fun x hx => hl x (by simp [hx]))
-    intro y hy
-    simp only [spanList, List.mem_append, List.mem_map] at hy
-    rcases hy with hy | ⟨z, hz, rfl⟩
-    · exact ih y hy
-    · exact xor_lt64 (ih z hz) hb
 
 theorem smK_bit (l : List Nat) (hl : ∀ x ∈ l, x < 64) :
     ∀ x, x < 64 → (smK l).testBit x = (spanList l).contains x := by

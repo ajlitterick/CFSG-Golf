@@ -61,15 +61,6 @@ theorem exists_chain_three (hMFZ : FundNoncentral p) (hp2 : p ≠ 2) (hq : 5 ≤
     · exact ⟨W3, hW3⟩
     · exact ⟨W4, hW4⟩
 
-theorem routeD_typeA_three (hMFZ : FundNoncentral p) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hex : ExactMembers Ω) (hK : K ∈ Ω)
-    (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hconn : DeltaConnected Ω)
-    (hz : IsClassicalMember p f K z) (hshape : LocalShapeA p f 3 Ω z)
-    (hP1 : LocalOddCentral Ω {z}) :
-    ∃ D : LieSystemData p f G Ω, D.card = 1 ∧ ∃ i, D.tag i = .PSL ∧ D.rank i = 3 + 3 := by
-  obtain ⟨U, hUΩ, hcomm, hpair⟩ :=
-    exists_chain_three hMFZ hp2 hq hΩ hex hK hsingle hz hshape hP1
-  exact routeD_typeA_of_chain hp2 hq (by omega) hΩ hK hsingle hconn hz hshape hP1 U hUΩ hcomm hpair
 
 theorem exists_chain_four (hMFZ : FundNoncentral p) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
     (hΩ : InClass p f Ω) (hex : ExactMembers Ω) (hK : K ∈ Ω)
@@ -121,14 +112,5 @@ theorem exists_chain_four (hMFZ : FundNoncentral p) (hp2 : p ≠ 2) (hq : 5 ≤ 
     · exact nd.pair 1 (by omega)
     · exact nd.pair 2 (by omega)
 
-theorem routeD_typeA_four (hMFZ : FundNoncentral p) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hex : ExactMembers Ω) (hK : K ∈ Ω)
-    (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hconn : DeltaConnected Ω)
-    (hz : IsClassicalMember p f K z) (hshape : LocalShapeA p f 4 Ω z)
-    (hP1 : LocalOddCentral Ω {z}) :
-    ∃ D : LieSystemData p f G Ω, D.card = 1 ∧ ∃ i, D.tag i = .PSL ∧ D.rank i = 4 + 3 := by
-  obtain ⟨U, hUΩ, hcomm, hpair⟩ :=
-    exists_chain_four hMFZ hp2 hq hΩ hex hK hsingle hz hshape hP1
-  exact routeD_typeA_of_chain hp2 hq (by omega) hΩ hK hsingle hconn hz hshape hP1 U hUΩ hcomm hpair
 
 end CFSG.ClassicalInvolution.RouteD

@@ -29,9 +29,6 @@ omit [Finite V] in
 theorem centR_le_pCoreOf (X : Subgroup (MulAut V)) (t : MulAut V) : centR X t ≤ pCoreOf 3 X :=
   inf_le_left
 
-omit [Finite V] in
-theorem KleinData.mul_mem_A {A : Subgroup (MulAut V)} {a b : MulAut V} (k : KleinData A a b) :
-    a * b ∈ A := A.mul_mem k.ha k.hb
 
 omit [Finite V] in
 theorem Nt_inv_P (hcomm : ∀ x ∈ pCoreOf 3 X, ∀ y ∈ pCoreOf 3 X, x * y = y * x) (t : MulAut V)

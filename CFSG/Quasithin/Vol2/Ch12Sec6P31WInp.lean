@@ -21,15 +21,6 @@ abbrev starMod_w31 {G : Type} [Group G] (H K : Subgroup G) : Type :=
 @[expose] def fiveFam_w31 (n : ℕ) (X : Type) [Group X] : Prop :=
   IsPSL 2 2 n X ∨ IsSz n X ∨ (n = 2 ∧ IsAlt 5 X)
 
-@[expose] def E114List_w31 : Prop :=
-  Lemma12_6_29 → ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) [IsMulCommutative ↥V]
-    (F : Frame126 T L V), Hyp126 G T L V → V ⊓ Subgroup.centralizer (L : Set G) = ⊥ →
-      ∀ H K : Subgroup G, IsHK T L F.V1 H K → HypF918 T V L F.V1 F.V5 H K →
-        ((∃ n : ℕ, E1.nParam H = (n : ℕ∞) ∧
-            ((conjClosure K T = K ∧ benderFam_w31 n (starMod_w31 H K)) ∨
-             (conjClosure K T ≠ K ∧ fiveFam_w31 n (starMod_w31 H K)))) ∨
-          (E1.nParam H = 2 ∧ (IsSporadic .M22 ↥(star H (conjClosure K T)) ∨
-            IsHat ↥(star H (conjClosure K T)) (CFSG.Blueprint.NativeSporadic.Carrier .M22))))
 
 @[expose] def NoM22_w31 : Prop :=
   Lemma12_6_29 → ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) [IsMulCommutative ↥V]

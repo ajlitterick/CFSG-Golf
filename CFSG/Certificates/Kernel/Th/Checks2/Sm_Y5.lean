@@ -156,40 +156,10 @@ end CFSG.KD.ThS.Rows_Sm_Y5
 #kc_rows_unfold CFSG.KD.ThS.Rows_Sm_Y5.f14 1 as CFSG.KD.ThS.bs5_2_ names CFSG.KD.ThS.Rows_Sm_Y5.f14I
   eval CFSG.KD.ThS.Rows_Sm_Y5.f14P CFSG.KD.ThS.Rows_Sm_Y5.f14l0
 
-theorem CFSG.KD.ThS.sd5 : CFSG.KC.Th.andB (Nat.beq (CFSG.KD.ThS.RBp5 (nat_lit 1)) (CFSG.KD.ThS.RBf
-    (nat_lit 1))) (Nat.beq (CFSG.KD.ThS.RBp5 (nat_lit 2)) (CFSG.KD.ThS.RBf (nat_lit 2))) = true :=
-    by
-  quickRfl
-
-theorem CFSG.KD.ThS.pw5 : CFSG.KC.Th.BigS.pwOK CFSG.KD.ThS.RBp5 CFSG.KD.ThS.PW5 CFSG.KD.ThS.c
-    CFSG.KD.ThS.rm CFSG.KD.ThS.PR5 (nat_lit 3) (nat_lit 5) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.gpc5 : CFSG.KC.Th.BigS.gensPcOK CFSG.KD.ThS.GL5 (nat_lit 2) CFSG.KD.ThS.PR5
-    CFSG.KD.ThS.n5 (nat_lit 32) = true := by
-  quickRfl
 
 theorem CFSG.KD.ThS.rg5 : CFSG.KC.Th.andB (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.PR5 CFSG.KD.ThS.n5
     (nat_lit 39)) (CFSG.KC.Th.BigS.regsIn CFSG.KD.ThS.GL5 (nat_lit 2) (nat_lit 39)) = true := by
   quickRfl
 
-theorem CFSG.KD.ThS.bf5_0 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp5 CFSG.KD.ThS.rm
-    CFSG.KD.ThS.PR5 (CFSG.KD.ThS.PT5_0 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL5 (nat_lit
-    5) (nat_lit 5)) (nat_lit 3) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.bf5_1 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp5 CFSG.KD.ThS.rm
-    CFSG.KD.ThS.PR5 (CFSG.KD.ThS.PT5_1 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL5 (nat_lit
-    15) (nat_lit 5)) (nat_lit 3) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.bf5_2 : CFSG.KC.Th.BigS.baseFixed CFSG.KD.ThS.RBp5 CFSG.KD.ThS.rm
-    CFSG.KD.ThS.PR5 (CFSG.KD.ThS.PT5_2 (nat_lit 0)) (CFSG.KC.Th.BigS.bitsN CFSG.KD.ThS.BL5 (nat_lit
-    25) (nat_lit 5)) (nat_lit 3) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.bl5 : CFSG.KC.Th.BigS.blocksOK CFSG.KD.ThS.BL5 CFSG.KD.ThS.nb5 CFSG.KD.ThS.n5 =
-    true := by
-  quickRfl
 
 end

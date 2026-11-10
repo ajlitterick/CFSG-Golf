@@ -10,18 +10,6 @@ namespace CFSG.SignalizerFunctorTheorem.Nonsolvable
 
 variable {G : Type*} [Group G]
 
-theorem oStar_le_normalizer [Finite G] {K : Subgroup G} (hK : IsSolComponent K) :
-    oStar G ≤ Subgroup.normalizer (K : Set G) := by
-  refine sup_le hK.solvableRadical_le_normalizer (sSup_le fun L hL => ?_)
-  have hLc : IsSolComponent L := hL
-  by_cases hLK : L = K
-  · rw [hLK]
-    exact Subgroup.le_normalizer
-  · exact (hK.normalizes_of_ne hLc (Ne.symm hLK)).2.1
-
-theorem normal_subgroupOf_oStar [Finite G] {K : Subgroup G} (hK : IsSolComponent K) :
-    K ≤ oStar G ∧ (K.subgroupOf (oStar G)).Normal :=
-  ⟨le_oStar hK, Subgroup.normal_subgroupOf_of_le_normalizer (oStar_le_normalizer hK)⟩
 
 theorem IsSolComponent.subgroupOf [Finite G] {K H : Subgroup G} (hK : IsSolComponent K)
     (hKH : K ≤ H) : IsSolComponent (K.subgroupOf H) := by

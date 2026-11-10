@@ -176,9 +176,6 @@ theorem e7T12W_cycle :
     ← toVec_lmulVec]
   refine ⟨congrArg _ ?_, congrArg _ ?_, congrArg _ ?_⟩ <;> decide +kernel
 
-theorem e7T12W_pow_three_alpha : (e7T12W ^ 3) *ᵥ e7T12Alpha = e7T12Alpha := by
-  rw [e7T12W_eq, e7T12Alpha_eq, ← toMat_lpow, ← toVec_lmulVec]
-  exact congrArg _ (by decide +kernel)
 
 theorem e7T12_relation :
     (e7T12W ^ 4) *ᵥ e7T12V - (e7T12W ^ 2) *ᵥ e7T12V + e7T12V = e7T12Gamma - e7T12Alpha := by

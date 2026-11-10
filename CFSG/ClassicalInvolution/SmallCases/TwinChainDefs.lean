@@ -42,17 +42,6 @@ theorem twinSU4Chain_of_chainData (hc : TwinSU4ChainData p f) (hp : SU4PatternSt
   obtain ⟨Us, hsn, hUs⟩ := hp G hnab K z S hshape Λ K₁ K₂ z₁ hK₁ hK₂ hz₁ c02 p01 p12 hK₂i
   exact ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, Λ, Us, hsn, hUs⟩
 
-theorem twinSU4ChainData_of_chain (h : TwinSU4Chain p f) : TwinSU4ChainData p f := by
-  intro G _ _ _ hnab K z S hshape
-  obtain ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, Λ, Us, hsn, -⟩ := h G hnab K z S hshape
-  refine ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, Λ, ?_⟩
-  exact le_sup_left.trans hsn.2.2.2.2.2.le
-
-@[expose] def ProductOfTwoP1 (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), RouteDSetup p f K z →
-      ∀ M ∈ conjClass K, ∀ w : G, IsClassicalMember p f M w → Commutes K M → z ≠ w →
-        LocalOddCentral (conjClass K) {z * w}
 
 @[expose] def LinkedAtProduct {G : Type} [Group G] (Ω : Set (Subgroup G)) (K : Subgroup G)
     (z w : G) : Prop :=

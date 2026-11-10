@@ -58,24 +58,6 @@ theorem mem_closure_pair {a z : G} (ha2 : a * a = 1) (hz2 : z * z = 1) (haz : a 
     · right; right; right
       rw [mul_inv_rev, hai, hzi, h1]
 
-theorem eq_four_of_card_le_four [Finite G] {A : Subgroup G} {a z : G}
-    (hcard : Nat.card A ≤ 4) (ha2 : a * a = 1) (hz2 : z * z = 1) (ha1 : a ≠ 1) (hz1 : z ≠ 1)
-    (haz : a ≠ z) (hcomm : a * z = z * a) (haA : a ∈ A) (hzA : z ∈ A) :
-    ∀ b ∈ A, b = 1 ∨ b = a ∨ b = z ∨ b = a * z := by
-  have hE := T7A.isElemAbelian2_closure_pair ha2 hz2 ha1 hz1 haz hcomm
-  have hle : Subgroup.closure ({a, z} : Set G) ≤ A := by
-    rw [Subgroup.closure_le]
-    rintro x (rfl | hx)
-    · exact haA
-    · rw [Set.mem_singleton_iff] at hx
-      rw [hx]
-      exact hzA
-  have hc : Nat.card ↥(Subgroup.closure ({a, z} : Set G)) = 4 := by
-    rw [hE.1]; norm_num
-  have heq := Subgroup.eq_of_le_of_card_ge hle (by rw [hc]; exact hcard)
-  intro b hb
-  rw [← heq] at hb
-  exact mem_closure_pair ha2 hz2 hcomm hb
 
 end Four
 
@@ -114,7 +96,6 @@ section Six
 variable {G : Type} [Group G] [Finite G] [IsSimpleGroup G] {p f : ℕ} [Fact p.Prime]
   {Ω : Set (Subgroup G)} {K K' W : Subgroup G} {z : G} {S : Sylow 2 G} {R R' : Subgroup G}
   {t u₁ u₂ : G}
-
 
 
 theorem not_layerOrthSix (hM6 : Layer6Cen4 p f) (hyp : Hyp25 p f Ω K K' W S R R' z t u₁ u₂)

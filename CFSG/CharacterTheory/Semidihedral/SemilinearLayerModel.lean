@@ -125,10 +125,6 @@ theorem coordinateEquivAut_symm_conj (K : Type v) [Field K] [Finite K]
     ((MulAut.congr (pslEquivCoordinateG K)).symm (MulAut.conj x)))).val = x.val
   rw [htransport, coordinate_inner_value, (pslEquivCoordinateG K).apply_symm_apply]
 
-theorem coordinateEquivAut_socle (K : Type v) [Field K] [Finite K]
-    (x : coordinateG K) :
-    coordinateEquivAut K (coordinateSocleInclusion K x) = MulAut.conj x := by
-  rw [← coordinateEquivAut_symm_conj, (coordinateEquivAut K).apply_symm_apply]
 
 theorem generalizedFitting_semilinear_model_of_equiv {Γ : Type u} [Group Γ] [Finite Γ]
     [IsSimpleGroup (CFSG.generalizedFitting Γ)]

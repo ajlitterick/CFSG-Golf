@@ -187,13 +187,6 @@ theorem binaryNaturalSL_two_of_s3 {V : Type} [CommGroup V] [Finite V] (hV : ∀ 
   have hCfix : ∀ h : ↥H, ∀ c ∈ C, (h : MulAut V) c ∈ C := fun h c hc => hCinv h h.2 c hc
   exact ⟨ZMod 2, inferInstance, inferInstance, by simp, π, RealizesVia.extend hreal hCfix hUC⟩
 
-theorem nonempty_mulEquiv_statedSL_two_of_s3 {V : Type} [CommGroup V] [Finite V]
-    (hV : ∀ v : V, v ^ 2 = 1) {H : Subgroup (MulAut V)} {U : Subgroup V} (hH6 : Nat.card ↥H = 6)
-    (hU4 : Nat.card U = 4) (hUinv : ∀ h ∈ H, ∀ u ∈ U, h u ∈ U)
-    (hfaith : ∀ h ∈ H, (∀ u ∈ U, h u = u) → h = 1) :
-    Nonempty (↥(StatedSL 2 (ZMod 2)) ≃* ↥H) := by
-  obtain ⟨π, hπ, -⟩ := exists_natural_s3 hV hH6 hU4 hUinv hfaith
-  exact ⟨MulEquiv.ofBijective π hπ⟩
 
 end FFC
 

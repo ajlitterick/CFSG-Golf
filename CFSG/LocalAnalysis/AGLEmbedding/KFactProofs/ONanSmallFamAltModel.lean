@@ -168,8 +168,6 @@ theorem altTr_inv (i j : ZMod p) : (altTr i j)⁻¹ = altTr (-i) (-j) := by
     rintro _ ⟨i, j, rfl⟩
     exact ⟨-i, -j, altTr_inv i j⟩
 
-theorem mem_altEtr {x : Perm (ZMod p × Fin 2)} : x ∈ (altEtr : Subgroup (Perm (ZMod p × Fin 2))) ↔
-    ∃ i j : ZMod p, x = altTr i j := Iff.rfl
 
 theorem altDg_conj (l m : (ZMod p)ˣ) (i j : ZMod p) :
     altDg l m * altTr i j * (altDg l m)⁻¹ = altTr ((l : ZMod p) * i) ((m : ZMod p) * j) := by

@@ -98,12 +98,6 @@ theorem testBit_vm (X : Array Nat) (v j : Nat) :
     testBit_condRec]
   rfl
 
-theorem vm_lt {X : Array Nat} (hX : ∀ k, rw' X k < 2 ^ 24) (v : Nat) : vecMulN 24 X v < 2 ^ 24 :=
-  Nat.lt_pow_two_of_testBit _ fun j hj => by
-    rw [testBit_vm]
-    refine (xs_congr 24 fun k _ => ?_).trans (xs_false 24)
-    rw [Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le (hX k) (Nat.pow_le_pow_right (by omega) hj)),
-      Bool.and_false]
 
 theorem xor_and (a b c : Bool) : ((a ^^ b) && c) = ((a && c) ^^ (b && c)) := by
   cases a <;> cases b <;> cases c <;> rfl

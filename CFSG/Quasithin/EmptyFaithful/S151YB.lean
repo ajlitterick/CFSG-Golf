@@ -117,10 +117,5 @@ theorem input15122A7_of_bang (hbang : Input15122A7Bang) : Input15122A7 := by
     ⟨P, hPpart, hstabS, hPM⟩, v, hv2, hvS, hvM⟩
   exact lt_of_le_of_ne inf_le_right fun h => hc.h20.one (h ▸ inf_le_left)
 
-theorem lemma15122InputU_of_named_inputs_bang (nDich : Input15122Dichotomy) (nNoB : Input15122NoBorel)
-    (nBang : Input15122A7Bang) (nR2 : Input15122Rank2Block) (nL45 : Input15122L45Block)
-    (nC : Input15122ThreeC) (nD : Input15122ThreeD) (nE : Input15122ThreeE) :
-    Lemma15122InputU :=
-  lemma15122InputU_of_named_inputs nDich nNoB (input15122A7_of_bang nBang) nR2 nL45 nC nD nE
 
 end CFSG.Quasithin

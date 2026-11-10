@@ -225,43 +225,5 @@ theorem supported_native_affine_realization_and_Lang
   rw [map_mul, map_mul, map_inv]
   group
 
-theorem E7_supported_native_affine_realization_and_Lang
-    (Ω : Type) [Field Ω] [IsAlgClosed Ω]
-    (J : Set (Fin Tag.E7.rank)) :
-    (IsPointClosed Ω (transportPoints (modGLPoint Tag.E7 Ω)
-        (subsystemGroup Tag.E7 Ω J : Set (ModGL Tag.E7 Ω))) ∧
-      IsConnectedAlgebraicSubgroup Ω (subsystemPointSubgroup Tag.E7 Ω J) ∧
-      Algebra.Smooth Ω
-        (GLCoord Ω (Label Tag.E7) ⧸ subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J)) ∧
-      IrreducibleSpace (PrimeSpectrum
-        (GLCoord Ω (Label Tag.E7) ⧸ subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J))) ∧
-      ∃ e : WithConv ((GLCoord Ω (Label Tag.E7) ⧸
-          subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J)) →ₐ[Ω] Ω) ≃*
-            subsystemGroup Tag.E7 Ω J, ∀ φ,
-        ((e φ : subsystemGroup Tag.E7 Ω J) : ModGL Tag.E7 Ω) =
-          (modGLPoint Tag.E7 Ω).symm (toConv (φ.ofConv.comp (Ideal.Quotient.mkₐ Ω _)))) ∧
-    ∀ (ℓ : ℕ) [Fact ℓ.Prime] [CharP Ω ℓ] (f : ℕ), 1 ≤ f →
-      ∀ A ∈ Subgroup.normalizer (subsystemGroup Tag.E7 Ω J : Set (ModGL Tag.E7 Ω)),
-        (∃ Ψ : MulAut (subsystemGroup Tag.E7 Ω J), ∀ g,
-          (Ψ g : ModGL Tag.E7 Ω) = frobTwistGL Tag.E7 Ω ℓ f A g) ∧
-        (∃ σ : (GLCoord Ω (Label Tag.E7) ⧸ subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J))
-            →ₐc[Ω]
-            (GLCoord Ω (Label Tag.E7) ⧸ subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J)),
-          (∀ φ, (modGLPoint Tag.E7 Ω).symm (toConv ((pointMap σ φ).ofConv.comp
-              (Ideal.Quotient.mkₐ Ω _))) =
-            frobTwistGL Tag.E7 Ω ℓ f A
-              ((modGLPoint Tag.E7 Ω).symm (toConv (φ.ofConv.comp (Ideal.Quotient.mkₐ Ω _))))) ∧
-          ∀ D ∈ tangentSpace Ω _ (Bialgebra.counitAlgHom Ω
-              (GLCoord Ω (Label Tag.E7) ⧸ subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J))),
-            D ∘ₗ (σ : (GLCoord Ω (Label Tag.E7) ⧸
-                subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J)) →ₐ[Ω]
-              (GLCoord Ω (Label Tag.E7) ⧸
-                subgroupIdeal (subsystemPointSubgroup Tag.E7 Ω J))).toLinearMap = 0) ∧
-        (∀ y ∈ subsystemGroup Tag.E7 Ω J, ∃ h ∈ subsystemGroup Tag.E7 Ω J,
-          y = h⁻¹ * frobTwistGL Tag.E7 Ω ℓ f A h) ∧
-        ∀ y ∈ subsystemGroup Tag.E7 Ω J, ∃ h ∈ subsystemGroup Tag.E7 Ω J,
-          ∀ g : ModGL Tag.E7 Ω, y * frobTwistGL Tag.E7 Ω ℓ f A g * y⁻¹ =
-            h⁻¹ * frobTwistGL Tag.E7 Ω ℓ f A (h * g * h⁻¹) * h :=
-  supported_native_affine_realization_and_Lang Tag.E7 Ω J
 
 end CFSG.LieType.AlgebraicGroups

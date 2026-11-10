@@ -90,10 +90,6 @@ theorem ggDepELRefl_length {q : GGDepANPair} {v : List ℕ} (hq : q.1.length = 6
   unfold ggTWNRefl
   exact l05nNC_sub_length hv (l05nNC_smul_length (p := 3) (N := 6) hq)
 
-theorem ggDepELConj_length {q g : GGDepANPair} (hq1 : q.1.length = 6) (hq2 : q.2.length = 6)
-    (hg1 : g.1.length = 6) (hg2 : g.2.length = 6) :
-    (ggDepANConj 3 q g).1.length = 6 ∧ (ggDepANConj 3 q g).2.length = 6 := by
-  exact l05nNC_conj_length (p := 3) (N := 6) hq1 hq2 hg1 hg2
 
 theorem ggDepELToZ_sub {a b : List ℕ} (ha : a.length = 6) (hb : b.length = 6) :
     ggDepELToZ (ggDepANSub 3 a b) = ggDepELToZ a - ggDepELToZ b := by

@@ -11,11 +11,6 @@ open scoped IsMulCommutative
 
 variable {G : Type} [Group G]
 
-theorem li128_one (n : ℕ) (L W : Subgroup G) : li128 n 1 L W = lOne L W := by
-  unfold li128 lOne
-  split_ifs with h
-  · omega
-  · rfl
 
 theorem mem_normalizer_conjugate_iff {W : Subgroup G} {l x : G} :
     x ∈ normalizer (CFSG.conjugate W l : Set G) ↔ l * x * l⁻¹ ∈ normalizer (W : Set G) := by
@@ -264,15 +259,5 @@ theorem config_of_cx1291 (h1222 : Stmt12_2_2) (h1283 : Lemma12_8_3) (h1293 : Lem
       have h3 := SteinbergBS.mem_normalizer_of_conjugate_eq h2
       exact (h1297 G (S : Subgroup G) L V n hcx 2 V₂ (by omega) (by omega) hV₂ h3).1
 
-theorem false_of_cx1291 (h1222 : Stmt12_2_2) (h1283 : Lemma12_8_3) (h1293 : Lemma12_9_3One)
-    (h1294 : Lemma12_9_4) (h1297 : Lemma12_9_7) (h1299 : Lemma12_9_9) (hfin : Final1291)
-    [Finite G] {T L V : Subgroup G} {n : ℕ} (hcx : Cx1291 G T L V n) : False := by
-  obtain ⟨V', Z, W, H, hVel, hVT, hVn, hTV, htrans, hcent, hhull, hwc, hZW, hWV, hZ, hW, hTH,
-    hHZ, hTW, hHW₀, hS₃, hUab, hUV, hUQ, hWU⟩ :=
-    config_of_cx1291 h1222 h1283 h1293 h1294 h1297 h1299 hfin hcx
-  obtain ⟨S, rfl⟩ := exists_sylow_of_quasithinIsSylowTwo hcx.hyp.hyp.sylow
-  have hn4 : 4 ≤ n := by rcases hcx.n45 with h | h <;> omega
-  exact LinearS3.linear_S3_abelian_hull_obstruction S hVn hn4 hVT hTV htrans hcent hhull hwc hZW
-    hWV hZ hW hTH hHZ hTW hHW₀ hS₃ hUab hUV hUQ hWU
 
 end CFSG.Quasithin.H13

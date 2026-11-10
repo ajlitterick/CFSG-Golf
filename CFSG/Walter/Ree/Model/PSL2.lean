@@ -135,10 +135,6 @@ theorem smallReeRankOne_uSL
     smallReeRankOne K i (uSL c) = xUnit G2.tag K i c :=
   (exceptional_ordinary_rank_one_central_image G2.tag K i).choose_spec.1 c
 
-theorem smallReeRankOne_vSL
-    (i : Fin G2.tag.rank) (c : K) :
-    smallReeRankOne K i (vSL c) = yUnit G2.tag K i c :=
-  (exceptional_ordinary_rank_one_central_image G2.tag K i).choose_spec.2.1 c
 
 theorem smallReeRankOne_HSL
     (i : Fin G2.tag.rank) (u : Kˣ) :

@@ -27,13 +27,6 @@ open CFSG.Assembly
 @[expose] def GGCorFiveTwentyInputQTwo : Prop :=
   GGCorFiveTwentyInputOn GGLabQTwo
 
-@[expose] def GGCorFiveTwentyInputNbrQTwo : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGCorFiveTwentyHyp p B Bs x L D J → ¬ GGNbrLabelsOk p B Bs x D J →
-      Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
-
-@[expose] def GGCorFiveTwentyResidualInput : Prop :=
-  GGCorFiveTwentyInputQTwo ∧ GGCorFiveTwentyInputNbrQTwo
 
 @[expose] def GGCorFiveTwentyQFourInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -41,28 +34,6 @@ open CFSG.Assembly
       GGNbrLabelsOk p B Bs x D J →
         Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem ggCorFiveTwentyInput_of_split (hR : GGCorFiveTwentyResidualInput)
-    (hW : GGCorFiveTwentyQFourInput) : GGCorFiveTwentyInput := by
-  intro G _ _ p B Bs x L D J hc hop hid hnt hG0
-  have hH : GGCorFiveTwentyHyp p B Bs x L D J := ⟨hc, hop, hid, hnt, hG0⟩
-  rcases (hid.1.label GGLabQFour p).elim_or with hq | hq
-  · by_cases hN : GGNbrLabelsOk p B Bs x D J
-    · exact hW G p B Bs x L D J hH hq hN
-    · exact hR.2 G p B Bs x L D J hH hN
-  · exact hR.1 G p B Bs x L D J hH
-      (largeEvenMarking_mono (fun _ _ _ _ _ _ hP => ⟨not_le.mp hP.1, hP.2⟩) hq)
-
-theorem ggCorFiveTwentyResidualInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyResidualInput :=
-  ⟨fun G _ _ p B Bs x L D J hH _ =>
-      h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2,
-    fun G _ _ p B Bs x L D J hH _ =>
-      h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2⟩
-
-theorem ggCorFiveTwentyQFourInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourInput :=
-  fun G _ _ p B Bs x L D J hH _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
 
 @[expose] def GGLabPhiOneTwo (p : ℕ) (lab : LargeEvenLabel) : Prop := p ∣ 4 ^ lab.n - 1
 
@@ -92,14 +63,5 @@ theorem ggCorFiveTwentyQFourInput_of_weyl (hN : GGCorFiveTwentyQFourNonWeylInput
   · exact hW G p B Bs x L D J hH hq hN' hD
   · exact hN G p B Bs x L D J hH hq hN' hD
 
-theorem ggCorFiveTwentyQFourNonWeylInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourNonWeylInput :=
-  fun G _ _ p B Bs x L D J hH _ _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
-
-theorem ggCorFiveTwentyQFourWeylInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourWeylInput :=
-  fun G _ _ p B Bs x L D J hH _ _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
 
 end CFSG.StandardType

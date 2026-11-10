@@ -121,9 +121,6 @@ section Arrays
     let p := R.getD i (pid n, pid n)
     R.push (ppow n p.1 e, ppow n p.2 e)
 
-@[expose] def runA (n : ℕ) (R : Array (Array ℕ × Array ℕ)) (prog : List SOp) :
-    Array (Array ℕ × Array ℕ) :=
-  prog.foldl (stepA n) R
 
 variable {n : ℕ}
 
@@ -182,13 +179,6 @@ theorem RRep.stepA {A : Array (Array ℕ × Array ℕ)} {G : Array (Equiv.Perm (
     obtain ⟨h1, h2⟩ := h.2 i
     exact h.push (prep_ppow h1 e) (by rw [← inv_pow]; exact prep_ppow h2 e)
 
-theorem RRep.runA {A : Array (Array ℕ × Array ℕ)} {G : Array (Equiv.Perm (Fin n))}
-    (h : RRep n A G) (prog : List SOp) : RRep n (runA n A prog) (runG G prog) := by
-  induction prog generalizing A G with
-  | nil => simpa [ONTriple.runA, runG] using h
-  | cons o prog ih =>
-    simp only [ONTriple.runA, runG, List.foldl_cons] at ih ⊢
-    exact ih (h.stepA o)
 
 end Arrays
 

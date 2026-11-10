@@ -228,14 +228,6 @@ theorem closure_of_check
   obtain ⟨w', hw', hb⟩ := h (rootPos α) (rootPos_lt α) h1 h2 w hw
   exact ⟨w', hw', (((hasBits_eltElement α).mul (hasBits_evalG w)).eq_iff (hasBits_evalG w')).2 hb⟩
 
-omit [Finite K] in
-theorem eltElement_mem_Uminus
-    {r : WeylGroup ReeTag.F4.tag} {α : Root ReeTag.F4.tag}
-    (h1 : 0 < height α.1) (h2 : height (r • α).1 < 0) (c : K) :
-    (rootOperatorFamily ReeTag.F4.tag).eltElement α c ∈ Uminus ReeTag.F4.tag K r :=
-  le_iSup₂_of_le (f := fun (β : Root ReeTag.F4.tag)
-    (_ : 0 < height β.1 ∧ height (r • β).1 < 0) => (nativeRootSubgroups ReeTag.F4.tag K).X β)
-    α ⟨h1, h2⟩ le_rfl ((rootOperatorFamily ReeTag.F4.tag).eltElement_mem_rootSubgroup α c)
 
 end Fixed
 
@@ -284,26 +276,6 @@ theorem titsU2Words_fixed : ∀ w ∈ titsU2Words,
         evalB w % 2 ^ 2704 = evalB (titsG1Word ++ titsG1Word ++ titsG1Word) % 2 ^ 2704 := by
   decide +kernel
 
-omit [Finite K] in
-theorem titsG0_mem_Uminus
-    : titsG0 K ∈ Uminus ReeTag.F4.tag K (ReeTag.F4.blockElt (0 : Fin 4)) := by
-  rw [titsG0_eq_evalG, titsG0Word, evalG_cons, evalG_singleton, elt, elt,
-    ← eltElement_simpleRoot, ← eltElement_simpleRoot]
-  refine mul_mem (eltElement_mem_Uminus ?_ ?_ _) (eltElement_mem_Uminus ?_ ?_ _)
-  all_goals try simp only [coe_smul_root, CFSG.LieType.Ree.wordProd_smul]
-  all_goals decide +kernel
-
-omit [Finite K] in
-theorem titsG1_mem_Uminus
-    : titsG1 K ∈ Uminus ReeTag.F4.tag K (ReeTag.F4.blockElt (1 : Fin 4)) := by
-  change xElement (idx 2) 1 * xElement (idx 1) 1 * (weylElement ReeTag.F4.tag K (idx 2) *
-    xElement (idx 1) 1 * (weylElement ReeTag.F4.tag K (idx 2))⁻¹) ∈ _
-  rw [← eltElement_simpleRoot, ← eltElement_simpleRoot,
-    (rootOperatorFamily ReeTag.F4.tag).weylElement_mul_eltElement_mul_inv]
-  refine mul_mem (mul_mem (eltElement_mem_Uminus ?_ ?_ _) (eltElement_mem_Uminus ?_ ?_ _))
-    (eltElement_mem_Uminus ?_ ?_ _)
-  all_goals try simp only [coe_smul_root, simple_smul, CFSG.LieType.Ree.wordProd_smul]
-  all_goals decide +kernel
 
 variable [CharP K ReeTag.F4.prime]
 

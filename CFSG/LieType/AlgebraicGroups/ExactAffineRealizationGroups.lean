@@ -82,11 +82,6 @@ variable {τ : Tag} {k : Type} [Field k] {M : ℕ}
     Subgroup (ModGL τ k × Matrix.GeneralLinearGroup (Fin M) k) :=
   ((adjointGroup τ k).subtype.prod ψ).range
 
-theorem mem_graphSubgroup
-    {ψ : adjointGroup τ k →* Matrix.GeneralLinearGroup (Fin M) k}
-    {p : ModGL τ k × Matrix.GeneralLinearGroup (Fin M) k} :
-    p ∈ graphSubgroup ψ ↔ ∃ g : adjointGroup τ k, ((g : ModGL τ k), ψ g) = p :=
-  MonoidHom.mem_range
 
 variable (τ k M) in
 @[expose] def modGLPairPoint :
@@ -94,11 +89,6 @@ variable (τ k M) in
       WithConv (GLCoord k (Label τ) ⊗[k] GLCoord k (Fin M) →ₐ[k] k) :=
   ((modGLEquivGL τ k).prodCongr (MulEquiv.refl _)).trans glPairPointEquiv
 
-theorem modGLPairPoint_apply
-    (p : ModGL τ k × Matrix.GeneralLinearGroup (Fin M) k) :
-    (modGLPairPoint τ k M p).ofConv =
-      tensorPointEquiv ((modGLPoint τ k p.1).ofConv, (glPointEquiv p.2).ofConv) :=
-  rfl
 
 abbrev graphPointSubgroup
     (ψ : adjointGroup τ k →* Matrix.GeneralLinearGroup (Fin M) k) :

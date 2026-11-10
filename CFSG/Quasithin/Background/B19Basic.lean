@@ -106,9 +106,6 @@ theorem eq_one_of_isPGroup_of_odd {Q N : Subgroup G} (hQ : IsPGroup 2 Q) (hN : O
       rw [e]
       exact hN _ (N.inv_mem ha)
 
-theorem mem_cosetSub {N : Subgroup G} {t : G} {ht : t * t = 1}
-    {hN : ∀ f ∈ N, t * f * t⁻¹ ∈ N} {g : G} : g ∈ cosetSub N ht hN ↔ g ∈ N ∨ g * t ∈ N :=
-  Iff.rfl
 
 theorem sup_zpowers_le_cosetSub (N : Subgroup G) {t : G} (ht : t * t = 1)
     (hN : ∀ f ∈ N, t * f * t⁻¹ ∈ N) : N ⊔ Subgroup.zpowers t ≤ cosetSub N ht hN :=

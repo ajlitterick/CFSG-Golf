@@ -38,13 +38,6 @@ theorem nativeCarrier_G2
       (DynkinType.G2.geckPoints DynkinType.valid_G2 (ValidLieTypeIndex.Closure ⟨_, hv⟩))).trans
     (MulEquiv.subgroupCongr (nativeCarrier_G2 q hv hp2))
 
-theorem coe_geckGroupEquiv_G2
-    (hp2 : q.p ≠ 2)
-    (g : ↥(DynkinType.G2.geckPoints DynkinType.valid_G2 (ValidLieTypeIndex.Closure ⟨_, hv⟩))) :
-    (geckGroupEquiv_G2 q hv hp2 g : ModGL .G2 (ValidLieTypeIndex.Closure ⟨_, hv⟩)) =
-      (geckMatchG2.toGeck _).symm (g : Matrix.GeneralLinearGroup
-        (Fin (DynkinType.G2.geckDim DynkinType.valid_G2)) (ValidLieTypeIndex.Closure ⟨_, hv⟩)) :=
-  rfl
 
 theorem untwistedBridge_G2 :
     UntwistedBridge .G2 LieTypeIndex.G2 := by

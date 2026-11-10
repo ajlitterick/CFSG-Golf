@@ -52,7 +52,6 @@ theorem coe_gGen (g : E443Gen) : ((gGen g : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) =
 
 theorem coe_fGen (g : E443Gen) : ((fGen g : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) = (M (wIdx g))⁻¹ := rfl
 
-theorem fGen_eq (g : E443Gen) : fGen g = (gGen g)⁻¹ := rfl
 
 @[expose] def y443U11 : E443Gen := ⟨0, ⟨0, by decide⟩⟩
 

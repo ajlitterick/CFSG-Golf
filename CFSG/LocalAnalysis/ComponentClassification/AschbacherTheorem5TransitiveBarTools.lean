@@ -48,12 +48,6 @@ theorem isDihedral_of_equiv {Y : Type} [Group Y] {P : Subgroup X} {Q : Subgroup 
   obtain ⟨n, hn, ⟨f⟩⟩ := hP
   exact ⟨n, hn, ⟨e.symm.trans f⟩⟩
 
-omit [Finite X] in
-theorem isQuaternion_of_equiv {Y : Type} [Group Y] {P : Subgroup X} {Q : Subgroup Y}
-    (e : P ≃* Q) (hP : AschbacherTheorem3.IsQuaternionTwoGroup P) :
-    AschbacherTheorem3.IsQuaternionTwoGroup Q := by
-  obtain ⟨n, hn, ⟨f⟩⟩ := hP
-  exact ⟨n, hn, ⟨e.symm.trans f⟩⟩
 
 omit [Finite X] in
 theorem isCyclic_of_equiv {Y : Type} [Group Y] {P : Subgroup X} {Q : Subgroup Y} (e : P ≃* Q)

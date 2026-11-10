@@ -86,9 +86,6 @@ theorem ggCorFiveTwentyReflDom_of_allSplit (hTB : GGNbrTableBWeylInput)
         ¬ GGCorFiveTwentyAllSplit p B x L D J →
           Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem ggCorFiveTwentyQFourReflFailNonSplitInput_of_reflFail
-    (h : GGCorFiveTwentyQFourReflFailInput) : GGCorFiveTwentyQFourReflFailNonSplitInput :=
-  fun G _ _ p B Bs x L D J hH hq hN hD _ => h G p B Bs x L D J hH hq hN hD
 
 theorem ggCorFiveTwentyQFourReflFailInput_of_nonSplit (hTB : GGNbrTableBWeylInput)
     (hRig : GGLabelRigidInput) (hCP : GGLabelCenterPCyclicInput)
@@ -97,15 +94,6 @@ theorem ggCorFiveTwentyQFourReflFailInput_of_nonSplit (hTB : GGNbrTableBWeylInpu
     h G p B Bs x L D J hH hq hN hD fun hS =>
       hD (ggCorFiveTwentyReflDom_of_allSplit hTB hRig hCP hH hS)
 
-theorem ggCorFiveTwentyQFourReflFailNonSplitInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourReflFailNonSplitInput :=
-  fun G _ _ p B Bs x L D J hH _ _ _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
-
-theorem ggCorFiveTwentyQFourReflFailNonSplitInput_of_nonWeyl
-    (h : GGCorFiveTwentyQFourNonWeylInput) : GGCorFiveTwentyQFourReflFailNonSplitInput :=
-  ggCorFiveTwentyQFourReflFailNonSplitInput_of_reflFail
-    (ggCorFiveTwentyQFourReflFailInput_of_nonWeyl h)
 
 theorem ggCorFiveTwentyQFourNonWeylInput_of_scalarFail_nonSplit (hTB : GGNbrTableBWeylInput)
     (hRig : GGLabelRigidInput) (hCP : GGLabelCenterPCyclicInput) (hraw : GGRawInnFieldInput)

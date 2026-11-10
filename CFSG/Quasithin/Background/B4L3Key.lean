@@ -28,9 +28,6 @@ theorem vec_neg_eq (x : L3.Vec) : -x = x := by
     rw [toAdd_inv, vec_neg_eq]
     exact hx
 
-theorem mem_SubOf {S : Finset L3.Vec} {h0 : (0 : L3.Vec) ∈ S}
-    {hadd : ∀ x ∈ S, ∀ y ∈ S, x + y ∈ S} {x : Multiplicative L3.Vec} :
-    x ∈ SubOf S h0 hadd ↔ Multiplicative.toAdd x ∈ S := Iff.rfl
 
 theorem card_SubOf (S : Finset L3.Vec) (h0 : (0 : L3.Vec) ∈ S)
     (hadd : ∀ x ∈ S, ∀ y ∈ S, x + y ∈ S) : Nat.card (SubOf S h0 hadd) = S.card := by

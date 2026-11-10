@@ -386,9 +386,6 @@ theorem centralizer_diagSL {μ : kˣ} (hμ : μ ≠ 1) :
   · rintro ⟨ν, rfl⟩
     rw [diagSLHom_apply, diagSL_mul, diagSL_mul, mul_comm]
 
-theorem centralizer_zpowers_diagSL {μ : kˣ} (hμ : μ ≠ 1) :
-    centralizer (zpowers (diagSL μ) : Set SL(2, k)) = torusSL k := by
-  rw [zpowers_eq_closure, centralizer_closure, centralizer_diagSL hμ]
 
 theorem eq_upperSL_or_eq_lowerSL [Finite k] {W : Subgroup SL(2, k)}
     (hW : Nat.card W = Nat.card k) {μ : kˣ} (hμ : μ ≠ 1)
@@ -485,23 +482,6 @@ theorem weylSL_conj_lowerUnipotent (c : k) :
   fin_cases i <;> fin_cases j <;>
     simp [coe_weylSL, coe_unipotent, coe_lowerUnipotent, Matrix.mul_apply, Fin.sum_univ_two]
 
-theorem weylSL_mem_normalizer_torusSL : weylSL k ∈ normalizer (torusSL k : Set SL(2, k)) := by
-  have key : ∀ h ∈ torusSL k, weylSL k * h * (weylSL k)⁻¹ ∈ torusSL k := by
-    rintro _ ⟨μ, rfl⟩
-    rw [diagSLHom_apply, weylSL_conj_diagSL]
-    exact diagSL_mem_torusSL _
-  refine mem_normalizer_of_conj_mem key fun h hh => ?_
-  rw [weylSL_inv]
-  exact key h hh
-
-theorem map_conj_weylSL_upperSL :
-    (upperSL k).map (MulAut.conj (weylSL k)).toMonoidHom = lowerSL k := by
-  ext x
-  constructor
-  · rintro ⟨_, ⟨c, rfl⟩, rfl⟩
-    exact mem_lowerSL_iff.2 ⟨c.toAdd, (weylSL_conj_unipotent c.toAdd).symm⟩
-  · rintro ⟨c, rfl⟩
-    exact ⟨unipotent c.toAdd, unipotent_mem_upperSL _, weylSL_conj_unipotent c.toAdd⟩
 
 theorem map_conj_weylSL_lowerSL :
     (lowerSL k).map (MulAut.conj (weylSL k)).toMonoidHom = upperSL k := by

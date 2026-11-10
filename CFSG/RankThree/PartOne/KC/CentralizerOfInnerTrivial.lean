@@ -90,25 +90,5 @@ theorem mulAut_eq_one_of_commute_conj_of_surjective {G T : Type*} [Group G] [Gro
   · rintro _ ⟨g, hg, rfl⟩
     exact h g hg
 
-theorem mulAut_eq_one_of_commute_conj_of_iSup_eq_top {G T ι : Type*} [Group G] [Group T]
-    (hinj : Function.Injective (MulAut.conj : T →* MulAut T)) (φ : G →* T)
-    (hφ : Function.Surjective φ) (F : ι → Subgroup G) (hF : ⨆ i, F i = ⊤) {s : MulAut T}
-    (h : ∀ i, ∀ g ∈ F i, s * MulAut.conj (φ g) = MulAut.conj (φ g) * s) : s = 1 := by
-  refine mulAut_eq_one_of_commute_conj_of_surjective hinj φ hφ
-    (S := ⋃ i, (F i : Set G)) ?_ ?_
-  · rw [← Subgroup.iSup_eq_closure, hF]
-  · intro g hg
-    obtain ⟨i, hi⟩ := Set.mem_iUnion.mp hg
-    exact h i g hi
-
-theorem eq_bot_of_commute_conj_of_iSup_eq_top {G T ι : Type*} [Group G] [Group T]
-    (hinj : Function.Injective (MulAut.conj : T →* MulAut T)) (φ : G →* T)
-    (hφ : Function.Surjective φ) (F : ι → Subgroup G) (hF : ⨆ i, F i = ⊤)
-    (I : Subgroup (MulAut T))
-    (h : ∀ s ∈ I, ∀ i, ∀ g ∈ F i, s * MulAut.conj (φ g) = MulAut.conj (φ g) * s) : I = ⊥ := by
-  rw [eq_bot_iff]
-  intro s hs
-  exact (Subgroup.mem_bot).mpr
-    (mulAut_eq_one_of_commute_conj_of_iSup_eq_top hinj φ hφ F hF fun i g hg => h s hs i g hg)
 
 end CFSG.RankThree.PartOne

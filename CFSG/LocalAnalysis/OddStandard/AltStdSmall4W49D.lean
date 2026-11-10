@@ -33,9 +33,6 @@ theorem isSimpleGroup_GL3 : IsSimpleGroup (GL (Fin 3) (ZMod 2)) :=
 
 theorem t01_mul_self : t01 * t01 = 1 := Units.ext (by decide)
 
-theorem eq_zero_of_linPerm8_fix : ∀ v : Fin 8, linPerm8 t01 v = v → linPerm8 t12 v = v →
-    linPerm8 t10 v = v → v = 0 := by
-  decide +kernel
 
 theorem t01_ne_one : t01 ≠ 1 := fun h => by
   have h1 := congrArg (fun A : GL (Fin 3) (ZMod 2) => (A : Matrix (Fin 3) (Fin 3) (ZMod 2)) 0 1) h
@@ -324,7 +321,6 @@ theorem eps_mem_Dsub (v : Fin 8) : N0.eps θ hn v ∈ Dsub θ hn :=
 theorem kap_mem_Dsub (A : GL (Fin 3) (ZMod 2)) : kap θ hn A ∈ Dsub θ hn :=
   mem_sup_right ⟨A, rfl⟩
 
-theorem E_le_Dsub : E θ hn ≤ Dsub θ hn := le_sup_left
 
 theorem Dsub_le_L : Dsub θ hn ≤ L :=
   sup_le (E_le_L hn) (by rintro _ ⟨A, rfl⟩; exact kap_mem_L θ hn A)
@@ -419,45 +415,6 @@ theorem card_Dsub : Nat.card (Dsub θ hn) = 1344 := by
   rw [← Nat.card_eq_of_bijective f hf, Nat.card_prod, Nat.card_eq_fintype_card (α := Fin 8),
     Fintype.card_fin, FixedCodim.card_GL3]
 
-theorem center_Dsub : center (Dsub θ hn) = ⊥ := by
-  rw [eq_bot_iff]
-  rintro ⟨x, hx⟩ hxc
-  rw [mem_center_iff] at hxc
-  rw [Subgroup.mem_bot]
-  apply Subtype.ext
-  show x = 1
-  obtain ⟨v, A, rfl⟩ := (mem_Dsub_iff θ hn x).1 hx
-  have hc : ∀ y ∈ Dsub θ hn, y * (N0.eps θ hn v * kap θ hn A) =
-      (N0.eps θ hn v * kap θ hn A) * y := fun y hy =>
-    congrArg Subtype.val (hxc ⟨y, hy⟩)
-  have hA : A = 1 := by
-    apply linPerm8_injective
-    rw [map_one]
-    refine Equiv.ext fun u => ?_
-    have h1 := hc _ (eps_mem_Dsub θ hn u)
-    have h2 : N0.eps θ hn v * kap θ hn A * N0.eps θ hn u * (N0.eps θ hn v * kap θ hn A)⁻¹ =
-        N0.eps θ hn u := by
-      rw [← h1]; group
-    have h3 : N0.eps θ hn v * kap θ hn A * N0.eps θ hn u * (N0.eps θ hn v * kap θ hn A)⁻¹ =
-        N0.eps θ hn (linPerm8 A u) := by
-      calc N0.eps θ hn v * kap θ hn A * N0.eps θ hn u * (N0.eps θ hn v * kap θ hn A)⁻¹
-          = N0.eps θ hn v * (kap θ hn A * N0.eps θ hn u * (kap θ hn A)⁻¹) *
-              (N0.eps θ hn v)⁻¹ := by group
-        _ = N0.eps θ hn v * N0.eps θ hn (linPerm8 A u) * N0.eps θ hn v := by
-            rw [kap_conj_eps, N0.eps_inv]
-        _ = N0.eps θ hn (linPerm8 A u) := by
-            rw [N0.eps_comm θ hn v, mul_assoc, N0.eps_mul_self, mul_one]
-    have h4 := N0.eps_injective θ hn (h3.symm.trans h2)
-    rw [Perm.one_apply]
-    exact h4
-  rw [hA, map_one, mul_one] at hc ⊢
-  have hv : ∀ B : GL (Fin 3) (ZMod 2), linPerm8 B v = v := by
-    intro B
-    have h1 := hc _ (kap_mem_Dsub θ hn B)
-    apply N0.eps_injective θ hn
-    rw [← kap_conj_eps, h1, mul_inv_cancel_right]
-  have hv0 : v = 0 := eq_zero_of_linPerm8_fix v (hv t01) (hv t12) (hv t10)
-  rw [hv0, N0.eps_zero]
 
 end Dsub
 
@@ -470,9 +427,6 @@ include c in
 theorem Dsub_le_cent : Dsub θ c.hn8 ≤ centralizer ({z} : Set G) :=
   (Dsub_le_L θ c.hn8).trans (AltStdCycTwo.le_cent_single c.ot.std c.ot.cyc)
 
-theorem Dsub_le_N0 : Dsub θ c.hn8 ≤ N0 θ c.hn8 z :=
-  sup_le ((le_sup_left : E θ c.hn8 ≤ E θ c.hn8 ⊔ zpowers z).trans Subgroup.le_normalizer)
-    (by rintro _ ⟨A, rfl⟩; exact kap_mem_N0 c A)
 
 theorem comm_Dsub_of_odd {u : G} (hu : u ∈ centralizer ({z} : Set G)) (hodd : Odd (orderOf u))
     (hE : ∀ e ∈ E θ c.hn8, u * e = e * u) : ∀ d ∈ Dsub θ c.hn8, u * d = d * u := by
@@ -578,23 +532,6 @@ theorem comm_E_of_mem_ocore {o : G} (ho : o ∈ Ocore θ c.hn8 z)
   calc o * e = o * e * o⁻¹ * e⁻¹ * (e * o) := by group
     _ = e * o := by rw [h2, one_mul]
 
-theorem Dsub_inf_ocore_cent :
-    Dsub θ c.hn8 ⊓ (Ocore θ c.hn8 z ⊓ centralizer ({z} : Set G)) = ⊥ := by
-  rw [eq_bot_iff]
-  intro x hx
-  have hxD : x ∈ Dsub θ c.hn8 := (mem_inf.1 hx).1
-  have hxO : x ∈ Ocore θ c.hn8 z := (mem_inf.1 (mem_inf.1 hx).2).1
-  have hxz : x ∈ centralizer ({z} : Set G) := (mem_inf.1 (mem_inf.1 hx).2).2
-  have hodd : Odd (orderOf x) :=
-    (Nat.coprime_two_left.1 (coprime_card_oddCoreOf (N0 θ c.hn8 z))).of_dvd_nat
-      (Subgroup.orderOf_dvd_natCard _ hxO)
-  have hc := comm_Dsub_of_odd c hxz hodd (comm_E_of_mem_ocore c hxO hxz)
-  have hcen : (⟨x, hxD⟩ : Dsub θ c.hn8) ∈ center (Dsub θ c.hn8) := by
-    rw [mem_center_iff]
-    intro y
-    exact Subtype.ext (hc y y.2).symm
-  rw [center_Dsub, mem_bot] at hcen
-  exact mem_bot.2 (congrArg Subtype.val hcen)
 
 variable {T : Subgroup G} (hH : HData θ c.hn8 z T)
 

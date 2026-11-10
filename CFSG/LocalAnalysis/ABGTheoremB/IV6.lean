@@ -207,12 +207,6 @@ theorem isSylowOf_oddCoreIn_normalizer_of_mem_familyL (hσ : σ.IsValid)
   rw [heq.symm.trans hR'N] at hR'
   exact hR'
 
-theorem not_isSylowOf_oddCoreIn_of_not_stationary (hσ : σ.IsValid) (hII : σ.ChapterIIFacts)
-    {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON) (hns : ¬ σ.Stationary r)
-    {H : Subgroup G} (hH : H ∈ σ.familyL r) {R : Subgroup G} (hR : IsSylowOf r R σ.ON)
-    (hRD : σ.D ≤ Subgroup.normalizer (R : Set G)) (hRH : R ≤ oddCoreIn H) :
-    ¬ IsSylowOf r R (oddCoreIn H) := fun hsyl =>
-  hns ⟨R, hR, σ.isSylowOf_oddCoreIn_normalizer_of_mem_familyL hσ hII hr hdiv hH hR hRD hRH hsyl⟩
 
 theorem propIV61 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (h32 : σ.LemmaIV32)
     (h33 : σ.LemmaIV33) : σ.PropIV61 := by

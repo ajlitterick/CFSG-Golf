@@ -94,22 +94,6 @@ theorem pairsYX_eq_iPairsY (hθ : NearFunctor p A θ) (hX : X ∈ mtil p A θ) :
     have h2 := ((mem_mhat_iff_isDAIn hθ hX (Z := P.2)).mpr hP2).2
     exact ⟨⟨⟨h1, h2, h3, h4⟩, h5⟩, hP1.1⟩
 
-theorem usetX_eq_iUset (hθ : NearFunctor p A θ) (hX : X ∈ mtil p A θ) :
-    usetX p A θ Y X = iUset A X Y := by
-  have hD := cenIn_eq_dsub_of_mem_mtil hθ hX
-  ext Z
-  constructor
-  · rintro ⟨⟨hZ, hZY⟩, hZX⟩
-    refine ⟨⟨hZX, ?_⟩, ?_, ?_⟩
-    · rw [hD]
-      exact sup_le (admits_dsub_of_le hZ.2) hZ.1.1
-    · rw [hD]
-      exact hZ.2
-    · rw [hD]
-      exact hZY
-  · rintro ⟨hZ, hZD, hZY⟩
-    rw [hD] at hZD hZY
-    exact ⟨⟨⟨mem_assoc_of_le hθ.prime hX.1 hZ.1 hZ.admits_left, hZD⟩, hZY⟩, hZ.1⟩
 
 end Compare
 

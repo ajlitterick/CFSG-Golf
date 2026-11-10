@@ -69,18 +69,6 @@ theorem e3_12_core (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) (hAV : A ≤ 
   have h := (E1.isSylowIn_map_of_injective K.subtype_injective).2 key.1
   rwa [hmap, Subgroup.map_subgroupOf_eq_of_le hYK] at h
 
-theorem e3_12_isTwoClosed (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) (hAV : A ≤ V)
-    (hAS : A ≤ S) (hK : E1.IsEAny H S A K) :
-    E1.IsTwoClosed (kerIn (K ⊓ Subgroup.normalizer (V : Set G)) K) := by
-  obtain ⟨j, hj⟩ := hK
-  exact ⟨_, (e3_12_core hV hS hAV hAS hj).1,
-    normal_subgroupOf_inf_pCoreOf (kerIn_le.trans inf_le_left)⟩
-
-theorem e3_12_not_le (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) (hAV : A ≤ V) (hAS : A ≤ S)
-    (hK : E1.IsEAny H S A K) :
-    ¬ A ≤ kerIn (K ⊓ Subgroup.normalizer (V : Set G)) K := by
-  obtain ⟨j, hj⟩ := hK
-  exact (e3_12_core hV hS hAV hAS hj).2
 
 theorem e3_12_le_pCoreOf (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) (hAV : A ≤ V)
     (hAS : A ≤ S) (hK : E1.IsEAny H S A K) {X : Subgroup G} (hX : IsPGroup 2 X)

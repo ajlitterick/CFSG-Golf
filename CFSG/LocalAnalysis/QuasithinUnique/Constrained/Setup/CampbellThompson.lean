@@ -128,9 +128,6 @@ open scoped commutatorElement in
     rw [h1]
     exact (inferInstance : V.Normal).conj_mem _ (inv_mem (hx e he)) x⁻¹
 
-open scoped commutatorElement in
-theorem mem_commMod {E' V : Subgroup G} [V.Normal] {x : G} :
-    x ∈ commMod E' V ↔ ∀ e ∈ E', ⁅e, x⁆ ∈ V := Iff.rfl
 
 theorem commutator_le_iff_le_commMod {E' X V : Subgroup G} [V.Normal] :
     ⁅E', X⁆ ≤ V ↔ X ≤ commMod E' V := by
@@ -291,46 +288,6 @@ end EqualRank
 
 section CommonFamily
 
-variable {S : Type*} [Group S] [Finite S] {p : ℕ} [Fact p.Prime]
-
-theorem common_Thompson_family_centralizer_identification (_hS : IsPGroup p S)
-    (Q₁ Q₂ : Subgroup S) (hr : pRank p Q₁ = pRank p Q₂)
-    (hC : Subgroup.centralizer (elemCenterIn p Q₂ : Set S) ≤ Q₂)
-    (hne : (elemFamilyIn p Q₁ ∩ elemFamilyIn p Q₂).Nonempty) (D : Subgroup S)
-    (hD : D = Q₁ ⊓ Subgroup.centralizer ((elemCenterIn p Q₁ ⊔ elemCenterIn p Q₂ : Subgroup S) :
-      Set S)) :
-    pRank p D = pRank p Q₁ ∧ elemFamilyIn p D = elemFamilyIn p Q₁ ∩ elemFamilyIn p Q₂ ∧
-      elemThompsonIn p D = sSup (elemFamilyIn p Q₁ ∩ elemFamilyIn p Q₂) := by
-  have hle : ∀ A ∈ elemFamilyIn p Q₁ ∩ elemFamilyIn p Q₂, A ≤ D := by
-    rintro A ⟨hA1, hA2⟩
-    rw [hD]
-    refine le_inf (le_of_mem_elemFamilyIn hA1) fun a ha => ?_
-    rw [Subgroup.mem_centralizer_iff]
-    intro x hx
-    have hxA : x ∈ A := (sup_le (elemCenterIn_le hA1) (elemCenterIn_le hA2)) hx
-    exact ((isElementaryAbelian_iff.mp (isElementaryAbelian_of_mem_elemFamilyIn hA1)).1 x hxA a ha)
-  obtain ⟨A₀, hA₀⟩ := hne
-  have hDQ₁ : D ≤ Q₁ := by rw [hD]; exact inf_le_left
-  have hDF₂ : D ≤ Subgroup.centralizer (elemCenterIn p Q₂ : Set S) := by
-    rw [hD]
-    refine inf_le_right.trans (Subgroup.centralizer_le ?_)
-    exact fun x hx => (le_sup_right : elemCenterIn p Q₂ ≤ elemCenterIn p Q₁ ⊔ elemCenterIn p Q₂) hx
-  have hDQ₂ : D ≤ Q₂ := hDF₂.trans hC
-  have hrank : pRank p D = pRank p Q₁ := by
-    refine le_antisymm (pRank_mono hDQ₁) ?_
-    obtain ⟨-, hA0e, hA0c⟩ := mem_elemFamilyIn.mp hA₀.1
-    exact pRank_le_of_card_le (hle A₀ hA₀) hA0e hA0c
-  have hfam : elemFamilyIn p D = elemFamilyIn p Q₁ ∩ elemFamilyIn p Q₂ := by
-    ext A
-    constructor
-    · intro hA
-      obtain ⟨hAD, hAe, hAc⟩ := mem_elemFamilyIn.mp hA
-      exact ⟨mem_elemFamilyIn.mpr ⟨hAD.trans hDQ₁, hAe, by rw [hAc, hrank]⟩,
-        mem_elemFamilyIn.mpr ⟨hAD.trans hDQ₂, hAe, by rw [hAc, hrank, hr]⟩⟩
-    · intro hA
-      obtain ⟨-, hAe, hAc⟩ := mem_elemFamilyIn.mp hA.1
-      exact mem_elemFamilyIn.mpr ⟨hle A hA, hAe, by rw [hAc, hrank]⟩
-  exact ⟨hrank, hfam, by rw [elemThompsonIn_eq, hfam]⟩
 
 end CommonFamily
 

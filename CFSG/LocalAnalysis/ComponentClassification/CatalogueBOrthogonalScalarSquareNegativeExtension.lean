@@ -70,18 +70,5 @@ theorem negativeOrthogonalExtension_positive (f : T.eigenspace b ≃ₗ[K] T.eig
     (negativeOrthogonalExtension Q hQ T b hb h2 hsquare hadj f).val.val x.val = (f x).val := by
   simpa using negativeOrthogonalExtension_apply Q hQ T b hb h2 hsquare hadj f x 0
 
-theorem negativeOrthogonalExtension_negative (f : T.eigenspace b ≃ₗ[K] T.eigenspace b)
-    (y : T.eigenspace (-b)) :
-    (negativeOrthogonalExtension Q hQ T b hb h2 hsquare hadj f).val.val y.val =
-      (negativeEigenspaceDual Q.polarBilin hQ T b hb h2 hsquare hadj f y).val := by
-  simpa using negativeOrthogonalExtension_apply Q hQ T b hb h2 hsquare hadj f 0 y
-
-theorem negativeOrthogonalExtension_preserves_polar
-    (f : T.eigenspace b ≃ₗ[K] T.eigenspace b) (x y : V) :
-    Q.polarBilin ((negativeOrthogonalExtension Q hQ T b hb h2 hsquare hadj f).val.val x)
-      ((negativeOrthogonalExtension Q hQ T b hb h2 hsquare hadj f).val.val y) =
-      Q.polarBilin x y :=
-  TauCeti.QuadraticMap.polar_apply_of_mem_orthogonalGroup
-    (negativeOrthogonalExtension Q hQ T b hb h2 hsquare hadj f).val.property x y
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareNegative

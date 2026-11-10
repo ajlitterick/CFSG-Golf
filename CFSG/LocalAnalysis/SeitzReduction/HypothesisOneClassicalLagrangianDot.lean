@@ -22,11 +22,6 @@ theorem onesVec_dotProduct_onesVec_of_odd (hn : Odd n) :
   rw [Nat.cast_add, Nat.cast_mul, Nat.cast_ofNat, CharTwo.two_eq_zero, zero_mul, zero_add,
     Nat.cast_one]
 
-theorem exists_eq_smul_one_of_commute_odd (hn : Odd n) {M : Matrix (Fin n) (Fin n) K}
-    (hT : ∀ u : Fin n → K, onesVec ⬝ᵥ u = 0 → Commute M (1 + vecMulVec u u))
-    {h : Fin n → K} (hh : onesVec ⬝ᵥ h = 0) (hh0 : h ≠ 0)
-    (hτ : Commute M (vecMulVec h onesVec + vecMulVec onesVec h)) : ∃ c : K, M = c • 1 :=
-  exists_eq_smul_one_of_commute_dotProduct (onesVec_dotProduct_onesVec_of_odd hn) hT hh hh0 hτ
 
 theorem exists_eq_smul_one_of_commute_odd_mul (hn : Odd n) {M : Matrix (Fin n) (Fin n) K}
     (hg : ∀ u v : Fin n → K, onesVec ⬝ᵥ u = 0 → onesVec ⬝ᵥ v = 0 → u ⬝ᵥ v = 1 →
@@ -79,12 +74,6 @@ theorem conj_radicalMatrix_mul_radicalMatrix (hn : Even n) {g : GL (Fin n) K}
   rw [conj_radicalMatrix hg, radicalMatrix_mul c c (onesVec_dotProduct_onesVec hn)
     (by rw [onesVec_dotProduct_mulVec_of_mem hg, hw]) hw, CharTwo.add_self_eq_zero, zero_add]
 
-theorem commute_radicalMatrix_add (hn : Even n) {M : Matrix (Fin n) (Fin n) K}
-    {v v' : Fin n → K} (hv : onesVec ⬝ᵥ v = 0) (hv' : onesVec ⬝ᵥ v' = 0) {c c' : K}
-    (h : Commute M (radicalMatrix v c)) (h' : Commute M (radicalMatrix v' c')) :
-    Commute M (radicalMatrix (v + v') (c + c' + v ⬝ᵥ v')) := by
-  rw [← radicalMatrix_mul c c' (onesVec_dotProduct_onesVec hn) hv hv']
-  exact h.mul_right h'
 
 theorem exists_eq_smul_one_of_commute_radicalMatrix (hn : Even n) {i : Fin n}
     {M : Matrix (Fin n) (Fin n) K} (hW : ∀ w ∈ radicalW i, M *ᵥ w ∈ radicalW i)
@@ -159,35 +148,6 @@ theorem exists_eq_smul_one_of_commute_radicalMatrix (hn : Even n) {i : Fin n}
     rw [hMW w hw, smul_mulVec, one_mulVec]
   · rw [hMe, hδ, hε, zero_smul, zero_add, smul_mulVec, one_mulVec]
 
-omit [CharP K 2] in
-theorem preserves_of_commute_transvection_radicalW {i : Fin n} {M : Matrix (Fin n) (Fin n) K}
-    (hT : ∀ u ∈ radicalW i, Commute M (1 + vecMulVec u u)) :
-    (∀ w ∈ radicalW i, M *ᵥ w ∈ radicalW i) ∧
-      ∀ x, (∀ u ∈ radicalW i, x ⬝ᵥ u = 0) → ∀ u ∈ radicalW i, (M *ᵥ x) ⬝ᵥ u = 0 := by
-  have hc : ∀ u ∈ radicalW i, Commute (Matrix.toLinAlgEquiv' M)
-      (LinearMap.transvection ((Matrix.toBilin' (1 : Matrix (Fin n) (Fin n) K)).flip u) u) :=
-    fun u hu => by
-      rw [← toLinAlgEquiv'_transvection_one]
-      exact commute_toLinAlgEquiv' (hT u hu)
-  refine ⟨fun w hw => ?_, fun x hx u hu => ?_⟩
-  · by_cases hw0 : w = 0
-    · rw [hw0, mulVec_zero]
-      exact zero_mem _
-    have : ∃ x : Fin n → K, Matrix.toBilin' (1 : Matrix (Fin n) (Fin n) K) x w ≠ 0 := by
-      by_contra hcon
-      exact hw0 (dotProduct_separating fun y => by
-        rw [dotProduct_comm, ← toBilin'_one_apply_eq]
-        exact not_not.mp fun hne => hcon ⟨y, hne⟩)
-    obtain ⟨x, hx⟩ := this
-    obtain ⟨a, ha⟩ := exists_apply_eq_smul_of_commute_transvection (hc w hw) hx
-    rw [Matrix.toLinAlgEquiv'_apply] at ha
-    rw [ha]
-    exact Submodule.smul_mem _ a hw
-  · by_cases hu0 : u = 0
-    · rw [hu0, dotProduct_zero]
-    have := apply_eq_zero_of_commute_transvection (hc u hu) hu0
-      (x := x) (by rw [toBilin'_one_apply_eq]; exact hx u hu)
-    rwa [toBilin'_one_apply_eq, Matrix.toLinAlgEquiv'_apply] at this
 
 theorem preserves_of_commute_transvection_mul_radicalW (hn : Even n) {i : Fin n}
     {M : Matrix (Fin n) (Fin n) K}
@@ -232,16 +192,6 @@ theorem preserves_of_commute_transvection_mul_radicalW (hn : Even n) {i : Fin n}
       (by rw [toBilin'_one_apply_eq]; exact hx v hv)).1
     rwa [toBilin'_one_apply_eq, Matrix.toLinAlgEquiv'_apply] at this
 
-theorem exists_eq_smul_one_of_commute_even (hn : Even n) {i : Fin n}
-    {M : Matrix (Fin n) (Fin n) K} (hT : ∀ u ∈ radicalW i, Commute M (1 + vecMulVec u u))
-    (hR : ∀ v ∈ radicalW i, ∃ c : K, Commute M (radicalMatrix v c))
-    {h : Fin n → K} (hh : h ∈ radicalW i) (hh0 : h ≠ 0)
-    (hτ : Commute M (vecMulVec h (Pi.single i 1) + vecMulVec (Pi.single i 1) h)) :
-    ∃ c : K, M = c • 1 := by
-  obtain ⟨hW, hperp⟩ := preserves_of_commute_transvection_radicalW hT
-  exact exists_eq_smul_one_of_commute_radicalMatrix hn hW
-    (hperp _ fun u hu => (mem_radicalW.mp hu).1)
-    (hperp _ fun u hu => by rw [single_one_dotProduct, (mem_radicalW.mp hu).2]) hR hh hh0 hτ
 
 theorem exists_eq_smul_one_of_commute_even_mul (hn : Even n) {i : Fin n}
     {M : Matrix (Fin n) (Fin n) K}

@@ -518,11 +518,6 @@ private theorem firstCase_t1_centralizes_primeCore_in_FU
     ((Subgroup.mem_centralizer_iff.mp
       (firstCase_t1_centralizes_primeCore c od)) x hx)
 
-private theorem firstCase_t1_mem_S_bg
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    d.bg.t1 ∈ (d.bg.S : Subgroup G) :=
-  d.bg.t1_mem_S
 
 private theorem firstCase_U_le_centralizer_t
     {G : Type u} [Group G] [Finite G]
@@ -760,24 +755,6 @@ private theorem firstCase_normalizer_P_le_H
     simpa [hHhat] using hNX
   simpa [od.d.H_eq] using hNXH
 
-/-- The source assertion `P₁ ≠ P`. -/
-public theorem firstCase_P1_ne_P
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hfirst : FirstCase c)
-    (hHhat : c.Hhat = c.H)
-    (hU : od.d.bg.U = fittingSubgroupOf od.d.bg.U ⊔ od.d.bg.B)
-    (Q : Sylow od.p ↥od.d.bg.B) :
-    sylowCarrier (firstCase_P1_sylow c od hU Q) ≠ qCoreOf od.d.bg.U od.p := by
-  intro hP1eq
-  let fd := Classical.choice (exists_firstCaseFourData c od.d)
-  have hNP1 : Subgroup.normalizer
-      (sylowCarrier (firstCase_P1_sylow c od hU Q) : Set G) ≤ od.d.bg.H := by
-    rw [hP1eq]
-    exact firstCase_normalizer_P_le_H c od hfirst hHhat
-  exact (firstCase_normalizer_P1_not_le_H hmin c od fd hU Q) hNP1
 
 /-- The source assertion `P₂ ≠ 1`. -/
 public theorem firstCase_P2_ne_one

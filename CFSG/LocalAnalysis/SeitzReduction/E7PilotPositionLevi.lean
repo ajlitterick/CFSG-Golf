@@ -623,9 +623,6 @@ variable (K) in
 theorem xLeviHom_injective : Function.Injective (xLeviHom K) :=
   (adjointGroup .E7 K).subtype_injective.comp (xLeviE7 K).subtype_injective
 
-theorem xLeviHom_perpLeviEquivXLevi (x : EPilot.perpLevi .E7 K) :
-    xLeviHom K (perpLeviEquivXLevi K x) =
-      (e7RepConj K 0 : ModGL .E7 K) * perpLeviHom K x * (e7RepConj K 0 : ModGL .E7 K)⁻¹ := rfl
 
 theorem map_xLeviHom_map_perpLeviEquivXLevi (H : Subgroup (EPilot.perpLevi .E7 K)) :
     (H.map (perpLeviEquivXLevi K).toMonoidHom).map (xLeviHom K) =

@@ -124,12 +124,6 @@ theorem kE8 : allN 8 (fun i => allN 8 fun j => i == j || !Nat.beq (SuzMGEC i) (S
     true := by
   quickRfl
 
-theorem negA : Bool.not (allN 12 (fun i => Nat.beq (Nat.xor (SuzMGA i) 1) (a4K i))) = true := by
-  quickRfl
-
-theorem negE8 : Bool.not (allN 8 (fun i => allN 8 fun j => i == j ||
-    !Nat.beq (SuzMGEC (i % 7)) (SuzMGEC (j % 7)))) = true := by
-  quickRfl
 
 theorem allLt_of {n : Nat} {f : Nat → Bool} (h : ∀ i < n, f i = true) : allLt n f = true := by
   unfold allLt

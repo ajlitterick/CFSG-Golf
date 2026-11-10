@@ -23,21 +23,5 @@ theorem ggCoxeterForkLabelInput_of_cells (hFix : GGTBFixInput)
     GGCoxeterForkLabelInput :=
   ggCoxeterForkLabelInput_of_fix hFix h5 (ggForkWeylExtRestInput_of_affine_indef hA hI)
 
-@[expose] def GGRemainderCoxeterLabelKnown : Prop :=
-  GGTBFixInput ∧ GGForkCrossGe5Input ∧ GGForkAffineExclRest ∧ GGForkIndefExclRest ∧
-    GGCoxeterLabelResidualInput
-
-theorem ggRemainderCoxeterLabel_of_known (h : GGRemainderCoxeterLabelKnown) :
-    GGCoxeterForkLabelInput ∧ GGCoxeterLabelResidualInput :=
-  ⟨ggCoxeterForkLabelInput_of_cells h.1 h.2.1 h.2.2.1 h.2.2.2.1, h.2.2.2.2⟩
-
-@[expose] def GGRemainderCoxeterLabelSplit : Prop :=
-  GGTBFixInput ∧ GGForkCrossGe5MainInput ∧ GGForkCrossGe5ExcInput ∧ GGForkAffineExclRest ∧
-    GGForkIndefExclRest ∧ GGCoxeterLabelResidualInput
-
-theorem ggRemainderCoxeterLabel_of_split (h : GGRemainderCoxeterLabelSplit) :
-    GGCoxeterForkLabelInput ∧ GGCoxeterLabelResidualInput :=
-  ⟨ggCoxeterForkLabelInput_of_cells h.1 (ggForkCrossGe5Input_of_f1_split h.1 h.2.1 h.2.2.1)
-    h.2.2.2.1 h.2.2.2.2.1, h.2.2.2.2.2⟩
 
 end CFSG.StandardType

@@ -42,15 +42,5 @@ theorem generalizedFitting_B_inclusion {G : Type*} [Group G] [Finite G]
     Subgroup.map_bot]
   exact bot_le
 
-theorem alternating_generalizedFitting_B_inclusion {G : Type*} [Group G] [Finite G]
-    [IsSimpleGroup (GeneralizedFitting.subgroup G)]
-    (hnonab : ∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a)
-    {n : ℕ} (hn : n = 5 ∨ 7 ≤ n)
-    (θ : GeneralizedFitting.subgroup G ≃* alternatingGroup (Fin n)) :
-    (∀ S : Subgroup G, IsPGroup 2 S →
-      TwoComponents.badSubgroup (Subgroup.normalizer (S : Set G)) = ⊥) ∧
-      CentralTwoBInclusion.Property G :=
-  ⟨fun S hS => generalizedFitting_normalizer_badSubgroup_eq_bot hnonab hn θ S hS,
-    generalizedFitting_B_inclusion hnonab hn θ⟩
 
 end CFSG.ComponentClassification.CatalogueBAlternating

@@ -136,10 +136,6 @@ theorem coe_torusDiagSU_unitaryRootTorusHom {a b : Fin n} (hab : a ≠ b)
     Subgroup (unitaryPSU h n) :=
   ((unitaryProj h n).comp ((torusDiagSU h).comp (unitaryRootTorusHom h hab))).range
 
-theorem mem_unitaryRootTorus {a b : Fin n} (hab : a ≠ b) {x : unitaryPSU h n} :
-    x ∈ unitaryRootTorus h hab ↔ ∃ κ : (Units.map h.normHom).ker,
-      unitaryProj h n (torusDiagSU h (unitaryRootTorusHom h hab κ)) = x :=
-  Iff.rfl
 
 theorem torusDiagSU_unitaryRootTorusHom_mem_unitaryBlock {a b : Fin n} (hab : a ≠ b)
     (κ : (Units.map h.normHom).ker) :

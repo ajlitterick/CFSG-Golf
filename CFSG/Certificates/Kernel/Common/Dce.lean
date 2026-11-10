@@ -111,47 +111,18 @@ namespace CFSG.KC
 @[expose] noncomputable def dN (c Lc st : Nat) : Nat :=
   Bool.rec (nat_lit 0) (mkSt (sD st) (pmul (sP st) Lc) st) (Nat.beq (sLet st) c)
 
-@[expose] noncomputable def dEf (R st : Nat) : Nat :=
-  Bool.rec (nat_lit 0) (mkSt (dDp R) (pmul (dP R) (sP st)) st)
-    (andB (Nat.beq (sLet st) (nat_lit 255)) (andB (Nat.beq (dJ R) (nat_lit 0)) (Nat.beq (sD st) (dD R))))
-
-@[expose] noncomputable def dEb (R st : Nat) : Nat :=
-  Bool.rec (nat_lit 0) (mkSt (dD R) (pmul (pinv (dP R)) (sP st)) st)
-    (andB (Nat.beq (sLet st) (nat_lit 255)) (andB (Nat.beq (dJ R) (nat_lit 0)) (Nat.beq (sD st) (dDp R))))
-
-@[expose] noncomputable def dTf (TL NB PB BB R st : Nat) : Nat :=
-  Bool.rec (nat_lit 0) (mkSt (dDp R) (pmul (dP R) (sP st)) st)
-    (andB (Nat.beq (sLet st) TL) (andB (Nat.beq (dJ R) (pbTag PB)) (andB (Nat.beq (sD st) (dD R))
-      (allIn NB BB (imgMasks (sP st) PB)))))
-
-@[expose] noncomputable def dTb' (TL NB PB BB R P st : Nat) : Nat :=
-  Bool.rec (nat_lit 0) (mkSt (dD R) P st)
-    (andB (Nat.beq (sLet st) TL) (andB (Nat.beq (dJ R) (pbTag PB)) (andB (Nat.beq (sD st) (dDp R))
-      (allIn NB BB (imgMasks P PB)))))
-
-@[expose] noncomputable def dTb (TL NB PB BB R st : Nat) : Nat := dTb' TL NB PB BB R (pmul (pinv (dP R)) (sP st)) st
 
 @[expose] noncomputable def dRecOK (ND NO R : Nat) : Bool :=
   andB (Nat.blt (dD R) ND) (andB (Nat.blt (dDp R) ND) (andB (Nat.ble (dJ R) NO) (isPerm (dP R))))
 
-@[expose] noncomputable def dStart (D0 P0 W : Nat) : Nat :=
-  Nat.lor D0 (Nat.lor (Nat.shiftLeft P0 (nat_lit 14)) (Nat.shiftLeft W (nat_lit 78)))
-
-@[expose] noncomputable def dWalk (ND NO R D0 P0 st : Nat) : Bool :=
-  andB (dRecOK ND NO R) (Nat.beq st (dStart D0 P0 (nat_lit 1)))
 
 @[expose] noncomputable def dTree (ND NO ID R k : Nat) : Bool :=
   andB (dRecOK ND NO R) (andB (Nat.blt (nat_lit 0) (dJ R)) (andB (Nat.beq (dDp R) k)
     (andB (Nat.blt (dD R) k) (Nat.beq (dP R) ID))))
 
-@[expose] noncomputable def dAx (ND NO R HIa Hb : Nat) : Bool :=
-  andB (dRecOK ND NO R) (andB (Nat.beq (Nat.land R (nat_lit 549755813887)) (nat_lit 0))
-    (Nat.beq (dP R) (pmul HIa Hb)))
 
 @[expose] noncomputable def bitAt (A d : Nat) : Bool := Nat.blt (nat_lit 0) (Nat.land A (Nat.shiftLeft (nat_lit 1) d))
 
-@[expose] noncomputable def dCovF (A R D J : Nat) : Bool :=
-  andB (Nat.beq (dD R) D) (andB (Nat.beq (dJ R) J) (bitAt A (dDp R)))
 
 @[expose] noncomputable def dCovB (NB A R D J PBw OMj : Nat) : Bool :=
   andB (Nat.beq (dDp R) D) (andB (Nat.beq (pbTag PBw) J) (andB (Nat.beq (omTag OMj) (dJ R))
@@ -175,7 +146,6 @@ namespace CFSG.KC
 
 @[expose] noncomputable def eTree (e p g : Nat) : Bool := Nat.beq (pmul p g) e
 
-@[expose] noncomputable def eClos (e g f : Nat) : Bool := Nat.beq (pmul e g) f
 
 end CFSG.KC
 

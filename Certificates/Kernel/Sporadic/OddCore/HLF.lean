@@ -201,10 +201,6 @@ theorem kgens_get {j : Nat} (hj : j < 9) : heKGens[j]! = unpack 105 7 (HKE.G j) 
     rw [Array.getElem_toList, ← getElem!_pos heOmega0 a hsz, e, om_get hs,
       nget_get omL (by rw [om_len]; exact hs), om_eq, om_nodup.idxOf_getElem]
 
-theorem kinvs_get {j : Nat} (hj : j < 9) : heKInvs[j]! = unpack 105 7 (HKI j) := by
-  rw [heKInvs, getElem!_pos _ j (by simp [heKGens]; omega), Array.getElem_map,
-    ← getElem!_pos heKGens j (by simp [heKGens]; omega), kgens_get hj]
-  exact (invEqK_sound (sig_facts hj).2.1).1
 
 theorem k_ok : GensOK 105 7 HKE.k HKE.G heKGens :=
   ⟨rfl, fun _ hj => ⟨kgens_get hj, (sig_facts hj).1⟩⟩

@@ -114,9 +114,6 @@ def extSub {G : Type*} [Group G] (K' : Subgroup G) (x : G) (hx : x * x = 1)
       rw [this]
       exact K'.inv_mem hy
 
-theorem mem_extSub {G : Type*} [Group G] {K' : Subgroup G} {x : G} {hx : x * x = 1}
-    {hcomm : ∀ k ∈ K', x * k = k * x} {y : G} :
-    y ∈ extSub K' x hx hcomm ↔ y ∈ K' ∨ x * y ∈ K' := Iff.rfl
 
 theorem exists_mem_of_isEA_le {G : Type*} [Group G] [DecidableEq G] [Finite G] (T : Subgroup G)
     (D : List (Finset G))

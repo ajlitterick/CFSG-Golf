@@ -410,35 +410,6 @@ theorem g2_not_mixed
   calc p = g⁻¹ * (g * p * g⁻¹) * g := by group
     _ = 1 := by rw [hq1, mul_one, inv_mul_cancel]
 
-theorem g2_exists_longLong
-    [CharP K 2] (h4 : Asc75Theorem4) (h32 : Lemma32)
-    (h184 : G2Centr184) (h184s : G2Centr184s) (hc : Sec3 A R T g)
-    (hOut : Odd (Nat.card (commutator (outerAutomorphismGroup ↥A))))
-    (hZA : Odd (Nat.card (center A))) (hK4 : 4 ≤ Nat.card K)
-    (hψ : IsActionHom A
-      (MulAut.conj : ↥(adjointGroup .G2 K) →* MulAut ↥(adjointGroup .G2 K)).range ψ) :
-    ∃ (T' : Subgroup G) (g' : G), Sec3 A R T' g' ∧
-      ((G2Pinned ψ T' g2c ∧ ActsIn ψ T' (rootSubgroup .G2 K g2c) ∧
-          G2Pinned ψ (rightConjugate R g'⁻¹) g2c ∧
-          ActsIn ψ (rightConjugate R g'⁻¹) (rootSubgroup .G2 K g2c)) ∨
-        (G2Pinned ψ T' g2v ∧ ActsIn ψ T' (rootSubgroup .G2 K g2v))) := by
-  obtain ⟨a, ha, hlong | hshort⟩ := g2_exists_pinned h4 h32 h184 h184s hc hOut hK4 hψ
-  · have hc₁ := sec3_conj hc ha
-    obtain ⟨b, hb, hRlong | hRshort⟩ := g2_exists_pinned h4 h32 h184 h184s hc₁.swap hOut hK4 hψ
-    · refine ⟨rightConjugate T a, b⁻¹ * (g * a), sec3_mul_left hc₁ (inv_mem hb),
-        Or.inl ⟨hlong.1, hlong.2, ?_, ?_⟩⟩
-      · rw [rightConjugate_inv_mul_inv]
-        exact hRlong.1
-      · rw [rightConjugate_inv_mul_inv]
-        exact hRlong.2
-    · exfalso
-      refine g2_not_mixed h4 h32 h184 h184s (sec3_mul_left hc₁ (inv_mem hb)) hOut hZA hK4 hψ
-        hlong.2 ?_ ?_
-      · rw [rightConjugate_inv_mul_inv]
-        exact hRshort.1
-      · rw [rightConjugate_inv_mul_inv]
-        exact hRshort.2
-  · exact ⟨rightConjugate T a, g * a, sec3_conj hc ha, Or.inr hshort⟩
 
 end G2
 

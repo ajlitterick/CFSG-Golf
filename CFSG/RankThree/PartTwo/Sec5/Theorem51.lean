@@ -36,46 +36,5 @@ theorem rank3II_5_1 {A S : Subgroup G} (h : SectionFiveHyp A S) :
     · rw [hΩ]
       exact hU.card_eq
 
-theorem rank3II_5_6 {A S : Subgroup G} (h : SectionFiveHyp A S) :
-    (∀ W : Subgroup G, W ≤ S → A ≤ Subgroup.normalizer (W : Set G) → IsMulCommutative W →
-      IsCyclic W) ∨ ∃ U : Subgroup G, IsNormalFourGroup A S U :=
-  rank3II_5_6_of_ih h fun _ _ h' => rank3II_5_1 h'
-
-omit [Finite G] in
-theorem isSymplecticType_of_forall_isCyclic {A S : Subgroup G}
-    (hAS : A ≤ Subgroup.normalizer (S : Set G))
-    (h2 : ∀ W : Subgroup G, W ≤ S → A ≤ Subgroup.normalizer (W : Set G) →
-      IsMulCommutative W → IsCyclic W) : IsSymplecticType S := by
-  intro W hchar hW
-  have hAW' : A ≤ Subgroup.normalizer ((W.map S.subtype : Subgroup G) : Set G) := by
-    intro g hg
-    set φ := S.normalizerMonoidHom ⟨g, hAS hg⟩
-    have hφ : W.map φ.toMonoidHom = W := Subgroup.characteristic_iff_map_eq.mp hchar φ
-    have hφs : W.map φ.symm.toMonoidHom = W := Subgroup.characteristic_iff_map_eq.mp hchar _
-    rw [Subgroup.mem_normalizer_iff]
-    intro x
-    constructor
-    · rintro ⟨y, hy, rfl⟩
-      have hmem : φ y ∈ W := hφ ▸ Subgroup.mem_map_of_mem φ.toMonoidHom hy
-      exact ⟨φ y, hmem, rfl⟩
-    · intro hx
-      obtain ⟨y, hy, hyx⟩ := Subgroup.mem_map.mp hx
-      have hxS : x ∈ S := (Subgroup.mem_normalizer_iff.mp (hAS hg) x).mpr (hyx ▸ y.2)
-      have hmem : φ.symm y ∈ W := hφs ▸ Subgroup.mem_map_of_mem φ.symm.toMonoidHom hy
-      refine ⟨φ.symm y, hmem, ?_⟩
-      have hφx : φ ⟨x, hxS⟩ = y := Subtype.ext hyx.symm
-      rw [← hφx, MulEquiv.symm_apply_apply]
-      rfl
-  have hW'c : IsMulCommutative (W.map S.subtype) := ⟨⟨fun x y => by
-    obtain ⟨u, hu, hux⟩ := Subgroup.mem_map.mp x.2
-    obtain ⟨v, hv, hvy⟩ := Subgroup.mem_map.mp y.2
-    apply Subtype.ext
-    change (x : G) * y = y * x
-    rw [← hux, ← hvy]
-    have := congrArg (fun w : W => ((w : S) : G)) (hW.is_comm.comm ⟨u, hu⟩ ⟨v, hv⟩)
-    simpa using this⟩⟩
-  have := h2 _ (Subgroup.map_subtype_le W) hAW' hW'c
-  exact isCyclic_of_surjective (W.equivMapOfInjective S.subtype S.subtype_injective).symm
-    (W.equivMapOfInjective S.subtype S.subtype_injective).symm.surjective
 
 end CFSG.RankThree.PartTwo.Sec5

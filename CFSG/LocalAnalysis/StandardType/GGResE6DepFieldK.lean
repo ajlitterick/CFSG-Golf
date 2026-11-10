@@ -157,17 +157,5 @@ theorem ggResE6Dep_K_field_of_tablePRow
     have hn1 : 1 ≤ labK.n := hK2.1
     omega
 
-theorem ggResE6Dep_K_field
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hTP : GGNbrTablePConfig p B Bs x L D J) (hI3 : GGNbrSubcomponentInput)
-    (hRig : GGLabelRigidInput) (hT3 : GGSchurDvdInput) (hH : GGResHyp p B Bs x L D J y K)
-    {labJ labK : LargeEvenLabel} (hJ2 : LargeEvenInLambda2 labJ) (hK2 : LargeEvenInLambda2 labK)
-    (hJ : GGA5Label labJ) (hK : GGE6DepLabel labK)
-    (hlJ : GGHasLabel labJ (↥J ⧸ Subgroup.center ↥J))
-    (hlK : GGHasLabel labK (↥K ⧸ Subgroup.center ↥K)) : labK.n = labJ.n := by
-  exact ggResE6Dep_K_field_of_tablePRow hRig hT3 hH hJ2 hK2 hJ hK hlJ hlK
-    (hI3 G p B x L D J hH.1.1 hH.1.2.2 y K hH.2.2.2.2.1)
-    (tablePRow_of_resHyp hTP hH hJ2 hK2 hlJ hlK)
 
 end CFSG.StandardType

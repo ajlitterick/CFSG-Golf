@@ -82,8 +82,6 @@ theorem zI_smul (c : F) (w : Ix3 → F) : zI (c • w) = c • zI w := by
   map_add' w w' := by rw [zI_add, map_add, zP_add]
   map_smul' c w := by rw [zI_smul, map_smul, zP_smul, RingHom.id_apply]
 
-theorem zornLin_apply (g : quasithinZorn F ≃ₗ[F] quasithinZorn F) (w : Ix3 → F) :
-    zornLin g w = zP (g (zI w)) := rfl
 
 variable [CharP F 2]
 

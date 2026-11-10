@@ -26,21 +26,10 @@ variable {G : Type*} [Group G] {L : Subgroup G} {K : Type} [Field K] {n : ℕ}
 @[expose] noncomputable def sndF (B : Subgroup (StatedSp n K)) : Subgroup G :=
   (B.subgroupOf (spBlock K ({k}ᶜ : Finset (Fin n)))).map (P.Ψ.comp (MonoidHom.inr _ _))
 
-theorem fstF_def (B : Subgroup (StatedSp n K)) :
-    P.fstF B = (B.subgroupOf (spBlock K ({k}ᶜ : Finset (Fin n)))).map
-      (P.Ψ.comp (MonoidHom.inl _ _)) :=
-  rfl
-
-theorem sndF_def (B : Subgroup (StatedSp n K)) :
-    P.sndF B = (B.subgroupOf (spBlock K ({k}ᶜ : Finset (Fin n)))).map
-      (P.Ψ.comp (MonoidHom.inr _ _)) :=
-  rfl
 
 theorem fstF_mono {A B : Subgroup (StatedSp n K)} (h : A ≤ B) : P.fstF A ≤ P.fstF B :=
   map_mono fun _ hx => mem_subgroupOf.2 (h (mem_subgroupOf.1 hx))
 
-theorem sndF_mono {A B : Subgroup (StatedSp n K)} (h : A ≤ B) : P.sndF A ≤ P.sndF B :=
-  map_mono fun _ hx => mem_subgroupOf.2 (h (mem_subgroupOf.1 hx))
 
 theorem sndF_le_centralizer_fstF (B B' : Subgroup (StatedSp n K)) :
     P.sndF B' ≤ centralizer (P.fstF B : Set G) := by
@@ -49,9 +38,6 @@ theorem sndF_le_centralizer_fstF (B B' : Subgroup (StatedSp n K)) :
   rintro _ ⟨x, -, rfl⟩
   exact (P.commute_inl_inr x y).eq
 
-theorem fstF_le_centralizer_sndF (B B' : Subgroup (StatedSp n K)) :
-    P.fstF B' ≤ centralizer (P.sndF B : Set G) :=
-  le_centralizer_iff.1 (P.sndF_le_centralizer_fstF B' B)
 
 theorem map_conj_fstF (B : Subgroup (StatedSp n K)) :
     (P.fstF B).map (MulAut.conj t).toMonoidHom = P.sndF B := by
@@ -171,17 +157,11 @@ theorem fstF_sup_sndF_eq_planeCore [Finite G] [Finite K] (hK : 4 ≤ Nat.card K)
       change t * P.Ψ (prodSwap K k (x, y)) * t⁻¹ = P.Ψ (prodSwap K k (y, x))
       exact P.swap y x)
 
-theorem flip_Ψ_apply [CharP K 2] (x : spBlock K ({k}ᶜ : Finset (Fin n)) ×
-    spBlock K ({k}ᶜ : Finset (Fin n))) : P.flip.Ψ x = P.Ψ (x.2, x.1) :=
-  rfl
 
 theorem flip_fstF [CharP K 2] (B : Subgroup (StatedSp n K)) : P.flip.fstF B = P.sndF B := by
   rw [fstF, sndF]
   rfl
 
-theorem flip_sndF [CharP K 2] (B : Subgroup (StatedSp n K)) : P.flip.sndF B = P.fstF B := by
-  rw [fstF, sndF]
-  rfl
 
 end Factors
 

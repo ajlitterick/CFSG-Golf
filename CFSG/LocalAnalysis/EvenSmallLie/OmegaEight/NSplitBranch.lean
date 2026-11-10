@@ -46,14 +46,11 @@ theorem ψ_zero : ψ 0 = 1 := by
   rw [add_zero] at h
   exact (mul_eq_left.1 h.symm)
 
-theorem ψ_mul_self (v : V6) : ψ v * ψ v = 1 := by
-  rw [← hB.ψ_add, CharTwo.add_self_eq_zero, hB.ψ_zero]
 
 theorem ψ_coord {x : G} (hx : x ∈ Q) : ψ (coord ψ x) = x := by
   obtain ⟨v, rfl⟩ := hB.mem_ψ x hx
   rw [coord, Function.leftInverse_invFun hB.ψ_inj v]
 
-theorem coord_ψ (v : V6) : coord ψ (ψ v) = v := Function.leftInverse_invFun hB.ψ_inj v
 
 theorem commute_sup : ∀ a ∈ Q, ∀ b ∈ zpowers t, a * b = b * a := by
   intro a ha b hb

@@ -135,16 +135,6 @@ namespace Setting
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} (S : Setting G T L V)
 
-theorem autOn_eq_map_rhoGv {K : Subgroup G} (hK : K ≤ Subgroup.centralizer ({S.v12} : Set G)) :
-    autOn K S.Uv = (K.subgroupOf (Subgroup.centralizer ({S.v12} : Set G))).map
-      (Setup.rho S.Uv (Subgroup.centralizer ({S.v12} : Set G)) S.Gv_le_normalizer_Uv) := by
-  ext φ
-  rw [Setup.mem_autOn_iff_rho S.Gv_le_normalizer_Uv hK, Subgroup.mem_map]
-  constructor
-  · rintro ⟨p, hpK, rfl⟩
-    exact ⟨p, hpK, rfl⟩
-  · rintro ⟨p, hpK, rfl⟩
-    exact ⟨p, hpK, rfl⟩
 
 theorem exists_cComp_autOn_eq (h39 : Vol2Native.A39ForSQTKCat)
     (hO2 : pCoreOf 2 (Subgroup.centralizer ({S.v12} : Set G)) ≠ ⊥)
@@ -274,15 +264,5 @@ theorem inYz_of_goodComp (h1222 : Stmt12_2_2)
 
 end Setting
 
-theorem exists1367_of (h1222 : Stmt12_2_2) (h517 : Stmt5_1_7_one)
-    (h56 : AsB56) (h37 : Vol2Native.A37ForSQTKCat) (h38 : Vol2Native.A38ForSQTKCat)
-    (h39 : Vol2Native.A39ForSQTKCat) : Exists1367 := by
-  intro G _ _ T L V S hH
-  obtain ⟨Kb, hKb⟩ := S.exists_goodComp h1222 h517 h56 hH
-  obtain ⟨K, hK, hKK⟩ :=
-    S.exists_cComp_autOn_eq h39 (S.pCoreOf_Gv_ne_bot h1222 h517 hH.hF) hKb.1
-  refine ⟨K, S.inYz_of_goodComp h1222 h517 h37 h38 hH.hF hK ?_⟩
-  rw [hKK]
-  exact hKb
 
 end CFSG.Quasithin.H13.A5

@@ -105,15 +105,6 @@ theorem j4d_stableRoots_reflection
   rw [hρ _ (hΨ.isRoot _ hrefΨ), hε, hlin]
   simp
 
-private theorem FConn_symm
-    {F : Set (Fin τ.rank → ℤ)} {x y : Fin τ.rank → ℤ} (h : FConn F x y) :
-    FConn F y x := by
-  induction h with
-  | refl => exact Relation.ReflTransGen.refl
-  | @tail b c _ hstep ih =>
-      exact Relation.ReflTransGen.head ⟨hstep.2.1, hstep.1, by
-        rw [iform_comm]
-        exact hstep.2.2⟩ ih
 
 theorem j4d_fcomp_orthogonal
     {F : Set (Fin τ.rank → ℤ)} {γ x y : Fin τ.rank → ℤ}

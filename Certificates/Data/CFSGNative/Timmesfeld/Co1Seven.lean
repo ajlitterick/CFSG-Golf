@@ -611,15 +611,6 @@ deriving Inhabited
   dag [aR, bR] (dagWords.map decWord)
 
 
-@[expose] def instOK (X : Array Nat) (aR bR : Rows) (I : Inst7)
-    (post : GTree → List Rows → Bool) : Bool :=
-  let dg := gDag aR bR
-  let rs := dg.1
-  let gens := I.gens.map (rowAt rs)
-  let T := treeOf gens
-  dg.2.2 && cenOK X (rowAt rs I.xi) gens T I.leaf I.N && closureOK T.pts gens qsList &&
-    post T rs
-
 @[expose] def xGen (rs : List Rows) (k : Nat) : Rows :=
   let s := rowAt rs iS
   let t := rowAt rs iT
@@ -642,12 +633,6 @@ deriving Inhabited
       validRows (rowAt rs (fusG.getD k 0)) &&
         mul (rowAt rs (fusG.getD k 0)) (xGen rs k) == mul (tgtRow rs k) (rowAt rs (fusG.getD k 0))
 
-@[expose] def centOK (T : GTree) (rs : List Rows) : Bool :=
-  T.pts.all fun e => mul e (rowAt rs iT) != mul (rowAt rs iT) e || pow e 7 == one ()
-
-@[expose] def instOKA (X : Array Nat) (aR bR : Rows) : Bool := instOK X aR bR instA centOK
-
-@[expose] def instOKB (X : Array Nat) (aR bR : Rows) : Bool := instOK X aR bR instB fun _ _ => true
 
 end Timmesfeld.Co1Seven
 

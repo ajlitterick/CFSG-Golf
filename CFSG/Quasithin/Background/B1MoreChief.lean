@@ -18,10 +18,6 @@ variable {G : Type*} [Group G]
 @[expose] def AllTwoChiefFactorsCentral (X : Subgroup G) : Prop :=
   ∀ A B : Subgroup G, IsTwoChiefFactor X A B → ⁅A, X⁆ ≤ B
 
-theorem isTwoChiefFactorOutsideO2_iff {X A B : Subgroup G} :
-    IsTwoChiefFactorOutsideO2 X A B ↔ pCoreOf 2 X ≤ B ∧ IsTwoChiefFactor X A B := by
-  unfold IsTwoChiefFactorOutsideO2 IsTwoChiefFactor
-  tauto
 
 section Sections
 

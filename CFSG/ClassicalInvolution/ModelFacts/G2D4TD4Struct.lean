@@ -29,8 +29,6 @@ variable {K : Type} [Field K] (σ : K →+* K)
 
 variable {σ}
 
-theorem mem_TK {x : twistedGroup σ} :
-    x ∈ TK σ ↔ ∃ b : Fin d4.rank → Kˣ, twistedIncl σ x = rootDiagUnit d4 b := Iff.rfl
 
 variable (hσ : ∀ c, σ (σ (σ c)) = c)
 

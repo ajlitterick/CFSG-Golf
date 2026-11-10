@@ -34,9 +34,6 @@ variable {G : Type} [Group G] [Finite G]
   ∀ e : G, Subgroup.zpowers e ∈ omegaA A → ∃ Le ∈ lA A e,
     Nonempty (↥Le ⧸ aschbacherSolvableCore 3 ↥Le ≃* CFSG.Blueprint.NativeSporadic.J2)
 
-@[expose] def Concl142HJ : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec14Std G A c L → AllPointsHJ A → Concl142 A (lB A)
 
 section General
 
@@ -680,43 +677,8 @@ theorem concl142_of_allPointsHJ {A L : Subgroup G} {c : G} (h : Sec14Std G A c L
   have hS : Sec14Std G A e Le := { h with zpowers_mem_omegaA := he, mem_lA := hLe }
   exact mem_scriptQ_of_hj_point hS hJe hQ.prop
 
-theorem concl142HJ : Concl142HJ :=
-  fun _ _ _ _ _ _ h hHJ => concl142_of_allPointsHJ h hHJ
-
-theorem rank3II_14_4_3_HJ {A L : Subgroup G} {c : G} (h : Sec14Std G A c L)
-    (hHJ : AllPointsHJ A) (h143 : Concl143 A (lB A)) : Item1443 A (lB A) :=
-  rank3II_14_4_3_reduction (concl142_of_allPointsHJ h hHJ) h143
-
-theorem rank3II_14_4_4_HJ {A L : Subgroup G} {c : G} (h : Sec14Std G A c L)
-    (hHJ : AllPointsHJ A) (h143 : Concl143 A (lB A))
-    (h1431 : ∀ a ∈ A, a ≠ 1 → Subgroup.zpowers a ∉ omegaA A →
-      delta A (lB A) (Subgroup.centralizer {a}) = pPrimeCoreOf 3 (Subgroup.centralizer {a}) ⊔
-        pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G))) :
-    Item1444 A (lB A) :=
-  rank3II_14_4_4_reduction (concl142_of_allPointsHJ h hHJ) h143
-    (Late.isE27_of_mem_partTwoE h.toSec13Data.mem_partTwoE).1.1 h1431
-
-theorem rank3II_14_4_4_of_mem_omegaA_HJ {A L : Subgroup G} {c : G} (h : Sec14Std G A c L)
-    (hHJ : AllPointsHJ A) {a : G} (hΩ : Subgroup.zpowers a ∈ omegaA A) {Q S : Subgroup G}
-    (hQ : Q ∈ collectionIn (scriptQZero A (lB A)) (Subgroup.centralizer {a}))
-    (hS : S ∈ invariantPiSubgroups (Subgroup.centralizer {a}) (A ⊔ Q) (piCompl 3)) :
-    ⁅Q, S⁆ ∈ collectionIn (scriptQ A (lB A)) (Subgroup.centralizer {a}) :=
-  rank3II_14_4_4_of_mem_omegaA (concl142_of_allPointsHJ h hHJ) hΩ hQ hS
 
 end Stage
 
-theorem rank3II_14_4_3_of_concl142HJ (h142 : Concl142HJ) {A L : Subgroup G} {c : G}
-    (h : Sec14Std G A c L) (hHJ : AllPointsHJ A) (h143 : Concl143 A (lB A)) :
-    Item1443 A (lB A) :=
-  rank3II_14_4_3_reduction (h142 G A c L h hHJ) h143
-
-theorem rank3II_14_4_4_of_concl142HJ (h142 : Concl142HJ) {A L : Subgroup G} {c : G}
-    (h : Sec14Std G A c L) (hHJ : AllPointsHJ A) (h143 : Concl143 A (lB A))
-    (h1431 : ∀ a ∈ A, a ≠ 1 → Subgroup.zpowers a ∉ omegaA A →
-      delta A (lB A) (Subgroup.centralizer {a}) = pPrimeCoreOf 3 (Subgroup.centralizer {a}) ⊔
-        pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G))) :
-    Item1444 A (lB A) :=
-  rank3II_14_4_4_reduction (h142 G A c L h hHJ) h143
-    (Late.isE27_of_mem_partTwoE h.toSec13Data.mem_partTwoE).1.1 h1431
 
 end CFSG.RankThree.PartTwo.Sec14

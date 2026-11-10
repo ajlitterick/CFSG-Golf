@@ -199,15 +199,6 @@ noncomputable def psiE
     E_subgroup p a →* kˣ :=
   ψ.comp (E_to_Cyc p a ha)
 
-/--
-The one-dimensional representation of `E(a)` attached to a linear character of
-the cyclic factor `Cyc a`.
--/
-noncomputable def VpsiE
-    (a : G) (ha : IsPRegular p a)
-    (ψ : PElementary.Cyc a →* kˣ) :
-    FDRep k (E_subgroup p a) :=
-  FDRep.ofLinearChar (psiE p a ha ψ)
 
 /--
 The linear character of `E(a)` obtained from the character of `Cyc a` sending

@@ -27,14 +27,6 @@ theorem sec5_trichotomy (Y : Setup Γ G) (H : Y.Sec5Hyp s n₀) :
       exact Or.inr (Or.inr ⟨hn, h5, treeJ2_of_caseC Y H hZ h5, j2Arc_of_five Y H hZ h5⟩)
   · exact Or.inl (treeU42_of_caseA Y H hZ (higmanQuad n₀))
 
-theorem sec5_false_of_four_le (Y : Setup Γ G)
-    (H : Y.Sec5Hyp s n₀) (h4 : 4 ≤ n₀) :
-    False := by
-  rcases sec5_trichotomy Y H with ⟨h2, -, -⟩ | ⟨-, hD⟩ | ⟨h2, -, -⟩
-  · omega
-  · have h3 := hD.n_eq_three H.two_le
-    omega
-  · omega
 
 theorem sec5_two (Y : Setup Γ G) (H : Y.Sec5Hyp s 2) :
     s = 5 ∧ (Y.swap.TreeU42Data ∨ (Y.swap.TreeJ2Data ∧ Y.J2Arc)) := by
@@ -59,43 +51,6 @@ theorem sec5_S3A5_univ_odd (hc : CharTwoStab (V := V) (G := G))
   · exact ⟨h5', Or.inr (Setup.TreeJ2Data.congr (X := Y.swap.swap) (Y := Y)
       (by simp) (by simp) hJ)⟩
 
-theorem sec5_S3A5 (hc : CharTwoStab (V := V) (G := G))
-    (X : Setup Γ G)
-    (hn0 : X.n 0 = 1 ∨ X.n 0 = 2) (hn1 : X.n 1 = 1 ∨ X.n 1 = 2) (hne : X.n 0 ≠ X.n 1)
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s)
-    (hGT : Odd (Nat.card X.GT)) :
-    s = 5 ∧ ((X.n 0 = 1 ∧ (X.TreeU42Data ∨ X.TreeJ2Data)) ∨
-      (X.n 1 = 1 ∧ X.swap.TreeU42Data)) := by
-  have hor : (X.n 0 = 1 ∧ X.n 1 = 2) ∨ (X.n 0 = 2 ∧ X.n 1 = 1) := by
-    rcases hn0 with h0 | h0 <;> rcases hn1 with h1 | h1
-    · exact absurd (h0.trans h1.symm) hne
-    · exact Or.inl ⟨h0, h1⟩
-    · exact Or.inr ⟨h0, h1⟩
-    · exact absurd (h0.trans h1.symm) hne
-  rcases hor with ⟨h0, h1⟩ | ⟨h0, h1⟩
-  · obtain ⟨h5', hU | hJ⟩ := sec5_S3A5_univ_odd hc hs hodd h5 X h0 h1 hGT
-    · exact ⟨h5', Or.inl ⟨h0, Or.inl hU⟩⟩
-    · exact ⟨h5', Or.inl ⟨h0, Or.inr hJ⟩⟩
-  · have H : X.Sec5Hyp s 2 := ⟨hc, le_rfl, h0, h1, hs, hodd, h5, hGT⟩
-    obtain ⟨h5', hU | ⟨hJ, hJArc⟩⟩ := Setup.sec5_two X H
-    · exact ⟨h5', Or.inr ⟨h1, hU⟩⟩
-    · exfalso
-      obtain ⟨⟨hL, hR⟩, -⟩ := hJArc
-      have hreg : Regular Γ G (X.line.arc 1 6) :=
-        ⟨(X.leftTransitive_arc_iff 1 6).mpr (by simpa using hL),
-          (X.rightTransitive_arc_iff 1 (by norm_num)).mpr (by simpa using hR)⟩
-      have hpar := (odd_orbit_of_rightSingular X.hyp.isTree X.hyp.adj_smul
-        (fun v x y hx hy => X.hyp.locTrans hx hy) X.hyp.edgeTrans X.hyp.preservesParts
-        hs hX).2 6 (by omega) (X.line.arc 1 6) hreg
-      have h01 : Even (Γ.dist (X.vert 0) (X.vert 1)) := by
-        simpa [Line.arc] using hpar.1
-      have hdist : Γ.dist (X.vert 0) (X.vert 1) = 1 := by
-        have h := Line.dist_eq X.hyp.isTree X.line (i := (0 : ℤ)) (j := 1) (by norm_num)
-        simpa using h
-      rw [hdist] at h01
-      obtain ⟨m, hm⟩ := h01
-      omega
 
 theorem sec5_S3A5_univ (hc : CharTwoStab (V := V) (G := G))
     (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)

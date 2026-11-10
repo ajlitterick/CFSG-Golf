@@ -47,32 +47,6 @@ structure Facts (c : ℕ) : Prop extends BaseFacts D where
   ordB : ordOK D.n D.Q (O D).beta D.ordB = true
   ordC : ordOK D.n D.Q (wordT D.n (genT D.n (O D)) (cWordOf D.gWord)) D.ordC = true
 
-private theorem array_all_lt {a : Array ℕ} {m : ℕ} (h : a.all (· < m) = true) :
-    ∀ i < a.size, a[i]! < m := by
-  intro i hi
-  rw [Array.all_eq_true] at h
-  have := h i hi
-  rw [getElem!_pos a i hi]
-  simpa using this
-
-theorem facts_of_f5Cert {c : ℕ} (h : f5Cert D c = true) : Facts D c := by
-  unfold f5Cert matrixChecks orbitChecks chainChecks subChecks ordChecks at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq, and_assoc] at h
-  obtain ⟨hd0, hd, heA, heB, hpA, hpB, horb, hks, has, hbs, hn, hiA, hiB, hQs, hQl, hbas, hslp,
-    hnest, hsts, hb2, hb0, hch, hT0, hos, hk, hr0, hSs, hss, htr, hlab, hpts, hdiv, ho0, ho1,
-    ho2⟩ := h
-  refine ⟨⟨hd0, hd, heA, heB, hpA, hpB, f5OrbitOK_facts horb, hks, has, hbs, hn, hiA, hiB, hQs,
-    array_all_lt hQl, hbas⟩, hslp, hnest, hsts, hb2, hb0, hch, hT0, hos, hk, hr0, hSs, hss,
-    fun j hj => (allIn_eq_true.1 htr) j (Nat.zero_le _) hj,
-    fun p hp => ?_, fun p hp => ?_, fun j hj t ht => ?_, hdiv, ho0, ho1, ho2⟩
-  · have := (allIn_eq_true.1 hlab) p (Nat.zero_le _) hp
-    simp only [Bool.and_eq_true, decide_eq_true_eq] at this
-    exact this.1
-  · have := (allIn_eq_true.1 hlab) p (Nat.zero_le _) hp
-    simp only [Bool.and_eq_true, decide_eq_true_eq] at this
-    exact this.2
-  · have := (allIn_eq_true.1 ((allIn_eq_true.1 hpts) j (Nat.zero_le _) hj)) t (Nat.zero_le _) ht
-    simpa using this
 
 @[expose] noncomputable def genG (z : ℤ) : J D :=
   if z = 1 then a D else if z = -1 then (a D)⁻¹ else if z = 2 then b D else (b D)⁻¹

@@ -100,32 +100,5 @@ theorem pRank_map_le_one {G G' : Type*} [Group G] [Group G'] [Finite G] [Finite 
     have h2 : p ^ 2 = p * p := by ring
     nlinarith [hp.two_le]
 
-theorem iterCommutator_of_perfect {X : Type*} [Group X] {L : Subgroup X}
-    (hL : ⁅L, L⁆ = L) (n : ℕ) : CFSG.AGLEmbeddingD2.iterCommutator L n = L :=
-  le_antisymm (CFSG.AGLEmbeddingD2.iterCommutator_le L n)
-    (CFSG.AGLEmbeddingD2.le_iterCommutator_of_commutator_eq hL le_rfl n)
-
-theorem exists_perfect_of_le_map {G G' : Type*} [Group G] [Group G'] [Finite G] {p : ℕ}
-    (f : G →* G') {N : Subgroup G} {L' : Subgroup G'} (hL' : L' ≤ N.map f)
-    (hperf : ⁅L', L'⁆ = L') (hp : p ∣ Nat.card L') :
-    ∃ D : Subgroup G, D ≤ N ∧ ⁅D, D⁆ = D ∧ p ∣ Nat.card D := by
-  have hD₀map : (L'.comap f ⊓ N).map f = L' := by
-    apply le_antisymm
-    · intro y hy
-      obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.mp hy
-      exact (Subgroup.mem_inf.mp hx).1
-    · intro y hy
-      obtain ⟨x, hxN, rfl⟩ := Subgroup.mem_map.mp (hL' hy)
-      exact Subgroup.mem_map.mpr
-        ⟨x, Subgroup.mem_inf.mpr ⟨Subgroup.mem_comap.mpr hy, hxN⟩, rfl⟩
-  obtain ⟨n, hn⟩ := CFSG.AGLEmbeddingD2.exists_iterCommutator_perfect (L'.comap f ⊓ N)
-  refine ⟨CFSG.AGLEmbeddingD2.iterCommutator (L'.comap f ⊓ N) n,
-    (CFSG.AGLEmbeddingD2.iterCommutator_le _ n).trans inf_le_right, hn, ?_⟩
-  have hmap : (CFSG.AGLEmbeddingD2.iterCommutator (L'.comap f ⊓ N) n).map f = L' := by
-    rw [CFSG.AGLEmbeddingD2.iterCommutator_map, hD₀map, iterCommutator_of_perfect hperf n]
-  have h1 := Subgroup.card_map_dvd (f := f)
-    (H := CFSG.AGLEmbeddingD2.iterCommutator (L'.comap f ⊓ N) n)
-  rw [hmap] at h1
-  exact hp.trans h1
 
 end CFSG.AGLEmbeddingD2.McLaughlin.OrdinaryProofs

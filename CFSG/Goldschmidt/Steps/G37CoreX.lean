@@ -46,13 +46,6 @@ theorem normalizer_le_normalizer_oddFit (X : Subgroup G) :
   exact (normalizer_le_normalizer_fitting X).trans
     (CFSG.Walter.normalizer_le_normalizer_map_of_characteristic _)
 
-omit [Finite G] in
-theorem normalizer_le_normalizer_componentLayerOf (X : Subgroup G) :
-    Subgroup.normalizer (X : Set G) ≤
-      Subgroup.normalizer (componentLayerOf X : Set G) := fun _ hg =>
-  CFSG.Walter.mem_normalizer_sSup_of_map_mem
-    (fun _ hK => CFSG.Walter.isComponentOf_map_conj hK hg)
-    (fun _ hK => CFSG.Walter.isComponentOf_map_conj hK (Subgroup.inv_mem _ hg))
 
 omit [Finite G] in
 theorem commutator_self_le (H : Subgroup G) : ⁅H, H⁆ ≤ H := by

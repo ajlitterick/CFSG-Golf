@@ -30,9 +30,6 @@ variable {C : Type*} [Group C]
     rw [Subgroup.map_map, e, Subgroup.map_id] at h
     exact h.symm⟩
 
-theorem mem_setwiseStabilizer {A : Subgroup (MulAut C)} {Q : Subgroup C} {α : MulAut C} :
-    α ∈ setwiseStabilizer A Q ↔ α ∈ A ∧ Q.map α.toMonoidHom = Q :=
-  Iff.rfl
 
 theorem normalizer_conclusions_of_pointwise_rigidity [Finite C] (hZ : Subgroup.center C = ⊥)
     {p : ℕ} [Fact p.Prime] {Q : Subgroup C} (hQ : IsPGroup p Q) {A : Subgroup (MulAut C)}

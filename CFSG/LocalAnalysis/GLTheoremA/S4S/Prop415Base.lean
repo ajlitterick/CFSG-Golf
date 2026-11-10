@@ -380,14 +380,6 @@ theorem exists_isGStar_pump (h183 : Input18_3_4) {p : ℕ} (hp : p.Prime)
       (le_inf ((hT.1.trans inf_le_left).trans hJK) (hT.1.trans inf_le_right)) inf_le_right
   exact le_bot_iff.1 (hle.trans (le_of_eq hbot))
 
-theorem not_isCyclic_of_card_sq {p : ℕ} (hp : p.Prime) {D : Subgroup G} (hD : IsElemAbelian p D)
-    (hc : Nat.card D = p ^ 2) : ¬ IsCyclic D := by
-  intro hcyc
-  have h1 := card_le_of_isCyclic_of_pow hp hcyc hD.2
-  rw [hc] at h1
-  have : p * p ≤ p := by simpa [sq] using h1
-  have hp1 := hp.one_lt
-  nlinarith
 
 theorem d4_contradiction {m : ℕ} (hctx : ThmACtx G m) {p : ℕ} (hp : p ∈ Mu G m)
     (hS3 : Stage3 G p) (h183 : Input18_3_4) (h264 : I264At G p) (h91 : I91At G)

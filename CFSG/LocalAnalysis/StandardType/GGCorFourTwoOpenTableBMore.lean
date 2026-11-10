@@ -84,19 +84,6 @@ theorem ggTableBActionInputOn_rest_of_rest2
 
 end More
 
-theorem ggTableBCxInputOn_rest2_of_rest (h : GGTableBCxInputOn GGCorFourTwoOpenTableBRestLabel) :
-    GGTableBCxInputOn GGCorFourTwoOpenTableBRest2Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBModuleInputOn_rest2_of_rest
-    (h : GGTableBModuleInputOn GGCorFourTwoOpenTableBRestLabel) :
-    GGTableBModuleInputOn GGCorFourTwoOpenTableBRest2Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBActionInputOn_rest2_of_rest
-    (h : GGTableBActionInputOn GGCorFourTwoOpenTableBRestLabel) :
-    GGTableBActionInputOn GGCorFourTwoOpenTableBRest2Label :=
-  h.mono fun _ _ h => h.1
 
 section Certs
 

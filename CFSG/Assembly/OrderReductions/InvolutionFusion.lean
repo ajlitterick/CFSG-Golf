@@ -172,24 +172,6 @@ theorem involution_swapping_components {group : Type*} [Group group] [Finite gro
           show reflection * reflection = 1 from
           by simpa only [pow_two] using reflection_square, one_smul]
 
-theorem involution_card_mul_centralizer_card {group : Type*} [Group group] [Finite group]
-    (transitive : MulAction.IsPretransitive group (Involution group))
-    (involution : Involution group) :
-    Nat.card (Involution group) * Nat.card (Subgroup.centralizer ({involution.val} : Set group)) =
-      Nat.card group := by
-  classical
-  let _ : Fintype group := Fintype.ofFinite group
-  let _ : Fintype (Involution group) := Fintype.ofFinite _
-  have := transitive
-  have orbit_card : Nat.card (MulAction.orbit group involution) =
-      Nat.card (Involution group) := by
-    rw [MulAction.orbit_eq_univ]
-    exact Nat.card_congr (Equiv.Set.univ _)
-  let _ : Fintype (MulAction.stabilizer group involution) := Fintype.ofFinite _
-  have card_product := MulAction.card_orbit_mul_card_stabilizer_eq_card_group group involution
-  simp only [← Nat.card_eq_fintype_card] at card_product
-  rw [orbit_card, involution_stabilizer_eq_centralizer] at card_product
-  exact card_product
 
 theorem involution_conjugator_of_odd_product_order {group : Type*} [Group group]
     (first second : Involution group) (distinct : first ≠ second)

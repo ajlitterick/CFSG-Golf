@@ -108,25 +108,6 @@ section Pinned
 variable [Finite K] (hK3 : ringChar K ≠ 3) (hK4 : 4 ≤ Nat.card K)
 include hK3 hK4
 
-theorem stdPinnedG2_stable : (stdPinnedG2 K).Stable := by
-  obtain ⟨hdec, -⟩ := g2_automorphism_normal_form hK3 hK4
-  have hcomm : ∀ σ τ : K ≃+* K,
-      g2FieldHom K σ * g2FieldHom K τ = g2FieldHom K τ * g2FieldHom K σ := fun σ τ => by
-    rw [← map_mul, ← map_mul, ringAut_mul_comm K σ τ]
-  refine ⟨⟨fun d hd α => ?_⟩, ?_, ?_, ?_⟩
-  · obtain ⟨y, rfl⟩ := hd
-    exact ⟨α y, (mul_mulAutConj_mul_inv α y).symm⟩
-  · rintro α _ ⟨τ, rfl⟩ h1
-    obtain ⟨g, σ, rfl⟩ := hdec α
-    refine ⟨g2FieldHom K τ, ⟨τ, rfl⟩, h1, MulAut.conj g, ⟨g, rfl⟩, ?_⟩
-    calc MulAut.conj g * g2FieldHom K σ * g2FieldHom K τ * (MulAut.conj g * g2FieldHom K σ)⁻¹ =
-        MulAut.conj g * (g2FieldHom K σ * g2FieldHom K τ) * (g2FieldHom K σ)⁻¹ *
-          (MulAut.conj g)⁻¹ := by group
-      _ = MulAut.conj g * g2FieldHom K τ * (MulAut.conj g)⁻¹ := by rw [hcomm]; group
-  · rintro α γ hγ
-    exact absurd hγ (Set.notMem_empty γ)
-  · rintro α γ φ hγ
-    exact absurd hγ (Set.notMem_empty γ)
 
 theorem stdPinnedG2_separated : (stdPinnedG2 K).Separated := by
   obtain ⟨-, hfaith⟩ := g2_automorphism_normal_form hK3 hK4
@@ -147,22 +128,6 @@ variable (K) in
   ∃ e : L ⧸ aschbacherSolvableCore 3 L ≃* adjointGroup Tag.G2 K,
     InducesKind L (stdPinnedG2 K) e x k
 
-variable [Finite K] (hK3 : ringChar K ≠ 3) (hK4 : 4 ≤ Nat.card K)
-include hK3 hK4
-
-theorem inducesKindG2_iff (e : L ⧸ aschbacherSolvableCore 3 L ≃* adjointGroup Tag.G2 K) (x : G)
-    (k : AutKind) : InducesKindG2 K L x k ↔ InducesKind L (stdPinnedG2 K) e x k := by
-  constructor
-  · rintro ⟨e', h⟩
-    exact (inducesKind_iff_of_stable L (stdPinnedG2_stable hK3 hK4) e' e x k).1 h
-  · intro h
-    exact ⟨e, h⟩
-
-theorem inducesKindG2_unique {x : G} {k₁ k₂ : AutKind} (h₁ : InducesKindG2 K L x k₁)
-    (h₂ : InducesKindG2 K L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedG2_separated hK3 hK4) h₁
-    ((inducesKindG2_iff L hK3 hK4 e x k₂).mp h₂)
 
 end Induced
 

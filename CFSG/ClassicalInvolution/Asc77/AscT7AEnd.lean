@@ -263,42 +263,6 @@ theorem T7A.conjSub_sigmaGen_eq (hΩ : ConjInvariant Ω) {K : Subgroup G} (hK : 
     have h1 : conjSub g⁻¹ M ∈ dComp Ω K := hmap hg' M hM
     exact le_iSup₂_of_le (conjSub g⁻¹ M) h1 (by rw [conjSub_conjSub_inv])
 
-theorem c21_4_of (h3 : C21_3 p f) (h4 : TwinNormAlpha p f) : C21_4 p f := by
-  intro G _ _ _ Ω K K' z u J t W h
-  have hs : AlphaSteps p f := ⟨h3, h4⟩
-  have hΩ : HypOmegaMod p f Ω := h.std.stand.hyp
-  have hK : K ∈ Ω := h.std.stand.mem
-  have hKn : K ≤ Subgroup.normalizer (alphaOf (Subgroup.closure ({u, z} : Set G)) : Set G) :=
-    h4 G Ω K K' z u J t W h K (mem_twinSet_self hK h.std.hz)
-  refine ⟨fun M hM => ?_, fun c hc => ?_⟩
-  · obtain ⟨x, hx⟩ := h.std.stand.trans M (T7A.mem_of_mem_dComp hK hM)
-    have hxα := hs.conj_alpha_of_mem_dComp h M hM x hx
-    have hxiα : conjSub x⁻¹ (alphaOf (Subgroup.closure ({u, z} : Set G))) =
-        alphaOf (Subgroup.closure ({u, z} : Set G)) := by
-      conv_lhs => rw [← hxα]
-      rw [conjSub_inv_conjSub]
-    intro m hm
-    have hk : x⁻¹ * m * x ∈ K := by
-      rw [← hx] at hm
-      exact mem_conjSub_iff.mp hm
-    have hkα := mem_normalizer_iff_conjSub_eq.mp (hKn hk)
-    refine mem_normalizer_iff_conjSub_eq.mpr ?_
-    have e : m = x * (x⁻¹ * m * x) * x⁻¹ := by group
-    rw [e, conjSub_mul, conjSub_mul, hxiα, hkα, hxα]
-  · have hcα := hs.conj_alpha_of_mem_centralizer h hc
-    have hcz : c * z * c⁻¹ = z := by
-      have := Subgroup.mem_centralizer_singleton_iff.mp hc
-      calc c * z * c⁻¹ = (z * c) * c⁻¹ := by rw [this]
-        _ = z := by group
-    have hcm : ∀ {d : G}, d * z * d⁻¹ = z → conjSub d K ∈ dComp Ω K := fun {d} hd =>
-      T7A.mem_dComp_of_mem_kPerp
-        (mem_kPerp_of_twin hΩ (hΩ.conjInvariant d K hK) hK
-          (hd ▸ h.std.hz.conj d) h.std.hz)
-    have hcz' : c⁻¹ * z * c⁻¹⁻¹ = z := by
-      have h1 := congrArg (fun x => c⁻¹ * x * c) hcz
-      simpa [mul_assoc] using h1.symm
-    have hSig := T7A.conjSub_sigmaGen_eq hΩ.conjInvariant hK (hcm hcz) (hcm hcz')
-    rw [T7A.conjSub_sup_eq, hcα, hSig]
 
 end Alpha4
 

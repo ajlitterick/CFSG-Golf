@@ -26,7 +26,6 @@ open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
     S8.IsTypeWithCenter 3 I₀ (S8.isU4of 3) 9 →
       catalogIs (PSimple 3 K) (S8.sporIs .Suz) ∨ catalogIs (PSimple 3 K) (S8.sporIs .Co1)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.GLTheoremA.H1420
 

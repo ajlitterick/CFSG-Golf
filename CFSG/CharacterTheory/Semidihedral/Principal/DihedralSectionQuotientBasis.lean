@@ -543,41 +543,5 @@ theorem dihedral_section_quotient_basis_of_embedding (hn : 2 ≤ n) (hM : M = 2 
 
 end Basis
 
-theorem dihedral_central_involution_section_quotient_basis {C : Type} [Group C] [Fintype C]
-    {n M : ℕ} (hn : 2 ≤ n) (hM : M = 2 ^ (n - 1)) (S : Subgroup C) (r s : S)
-    (hcard : Nat.card S = 2 * M) (hgen : Subgroup.closure {r, s} = ⊤) (hr : orderOf r = M)
-    (hs : orderOf s = 2) (hrel : s * r * s = r⁻¹) (R : Subgroup C) [R.Normal]
-    (hRodd : Odd (Nat.card R)) (hRS : ∀ c : C, ∃ u ∈ R, ∃ y ∈ S, c = u * y)
-    (hRS1 : R ⊓ S = ⊥) (ht : ((r ^ (M / 2) : S) : C) ∈ Subgroup.center C) :
-    (∃! π : C →* S, π.ker = R ∧ ∀ y : S, π y = y) ∧
-    ∀ π : C →* S, π.ker = R → (∀ y : S, π y = y) →
-      centralInvolutionSection ((r ^ (M / 2) : S) : C) =
-        π ⁻¹' ((Subgroup.zpowers r : Set S) \ {1}) ∧
-      LinearIndependent ℂ (dihedralSectionFamily π r s M) ∧
-      Submodule.span ℂ (Set.range (dihedralSectionFamily π r s M)) =
-        sectionQuotientSpace π (centralInvolutionSection ((r ^ (M / 2) : S) : C)) ∧
-      Module.finrank ℂ
-          (sectionQuotientSpace π (centralInvolutionSection ((r ^ (M / 2) : S) : C))) =
-        M / 2 ∧
-      ∀ F H : S → ℂ, BlocksInnerProduct (F ∘ π) (H ∘ π) = BlocksInnerProduct F H := by
-  have hcomp : ∀ π : C →* S, π.comp S.subtype = MonoidHom.id S ↔ ∀ y : S, π y = y := by
-    intro π
-    constructor
-    · intro h y
-      exact DFunLike.congr_fun h y
-    · intro h
-      ext y
-      exact congrArg Subtype.val (h y)
-  have hprod : ∀ c : C, ∃ u ∈ R, ∃ y : S, c = u * S.subtype y := by
-    intro c
-    obtain ⟨u, hu, y, hy, rfl⟩ := hRS c
-    exact ⟨u, hu, ⟨y, hy⟩, rfl⟩
-  have hRS' : R ⊓ S.subtype.range = ⊥ := by rwa [Subgroup.range_subtype]
-  obtain ⟨huniq, hrest⟩ := dihedral_section_quotient_basis_of_embedding (ι := S.subtype) hn hM
-    hcard hgen hr hs hrel Subtype.val_injective hRodd hprod hRS' ht
-  refine ⟨?_, fun π hker hid => hrest π hker ((hcomp π).mpr hid)⟩
-  obtain ⟨π, ⟨hker, hid⟩, huniq'⟩ := huniq
-  exact ⟨π, ⟨hker, (hcomp π).mp hid⟩, fun π' ⟨hker', hid'⟩ =>
-    huniq' π' ⟨hker', (hcomp π').mpr hid'⟩⟩
 
 end CFSG.Semidihedral.Principal

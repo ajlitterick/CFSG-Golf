@@ -35,13 +35,6 @@ theorem Thm4RBelow.mono {r m n : ℕ} (hmn : m ≤ n) (h : Thm4RBelow r n) : Thm
 section Cit3
 
 
-@[expose] def TightSepLeafR' (r n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
-    TightLargeHypR r n Y R S t → TC.SepHyp (CoreAssembly.conjClass (tightCore R))
-
-theorem tightSepLeafR_of_R' {r n : ℕ} (h : TightSepLeafR' r n) : TightSepLeafR r n :=
-  fun Y _ _ R S t hL _ => h Y R S t hL
-
 @[expose] def TightSepLeafRα (r n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
     TightLargeHypR r n Y R S t → TightSepAlpha R t →

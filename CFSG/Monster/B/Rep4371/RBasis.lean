@@ -217,27 +217,5 @@ theorem linearIndependent_Rraw : LinearIndependent ℚ (fun k : Fin 4371 => Rraw
 theorem coe_RbasisOf (t : Fin 4371) : (RbasisOf hoct t : SpaceB) = Rraw t := by
   rw [RbasisOf, Module.Basis.map_apply, LinearEquiv.coe_ofEq_apply, Module.Basis.span_apply]
 
-include hoct in
-theorem finrank_V4_rStar : Module.finrank ℚ (V4 Short.rStar) = 4371 := by
-  rw [Module.finrank_eq_card_basis (RbasisOf hoct), Fintype.card_fin]
-
-theorem toMatrix_eq_transpose {n : ℕ} {V : Type*} [AddCommMonoid V] [Module ℚ V]
-    (b : Module.Basis (Fin n) ℚ V) (f : V →ₗ[ℚ] V) (N : Matrix (Fin n) (Fin n) ℚ)
-    (hN : ∀ t, f (b t) = ∑ u, N t u • b u) : LinearMap.toMatrix b b f = Nᵀ := by
-  ext u t
-  rw [LinearMap.toMatrix_apply, hN, Module.Basis.repr_sum_self, Matrix.transpose_apply]
-
-theorem mul_gram_transpose {n : ℕ} (R : Fin n → SpaceB) (G : Matrix (Fin n) (Fin n) ℚ)
-    (hG : ∀ t u, bform (R t) (R u) = G t u) (g : SpaceB →ₗ[ℚ] SpaceB)
-    (hg : ∀ v w, bform (g v) (g w) = bform v w) (N : Matrix (Fin n) (Fin n) ℚ)
-    (hN : ∀ t, g (R t) = ∑ u, N t u • R u) : N * G * Nᵀ = G := by
-  ext t t'
-  have h := hg (R t) (R t')
-  rw [hN, hN, hG] at h
-  rw [← h]
-  simp only [map_sum, map_smul, LinearMap.sum_apply, LinearMap.smul_apply, hG, smul_eq_mul,
-    Matrix.mul_apply, Matrix.transpose_apply, Finset.sum_mul, Finset.mul_sum]
-  refine Finset.sum_congr rfl fun u _ => Finset.sum_congr rfl fun u' _ => ?_
-  ring
 
 end CFSG.Monster.B.Rep4371

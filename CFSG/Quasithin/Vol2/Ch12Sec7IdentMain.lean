@@ -24,12 +24,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Quasithin Subgroup
       ∀ W : Subgroup G, W ≤ V → z ∈ W → Nat.card W = 16 →
         ∃ l ∈ L, l⁻¹ * z * l ∈ W ∧ l⁻¹ * z * l ≠ z
 
-@[expose] def Ygen {G : Type} [Group G] (L U : Subgroup G) (z : G) : Subgroup G :=
-  Subgroup.closure
-    (((Subgroup.normalizer (L : Set G) ⊓ Subgroup.centralizer ({z} : Set G) : Subgroup G) :
-        Set G) ∪
-      ((Subgroup.normalizer (U : Set G) ⊓ Subgroup.centralizer ({z} : Set G) : Subgroup G) :
-        Set G))
 
 theorem L1_of (h1222 : Stmt12_2_2) (G : Type) [Group G] [Finite G] (T L V : Subgroup G)
     (h : Hyp1271 G T L V) :
@@ -38,20 +32,6 @@ theorem L1_of (h1222 : Stmt12_2_2) (G : Type) [Group G] [Finite G] (T L V : Subg
   obtain ⟨z, hz, hz1, hTz, -, -, -, hz45, -, -⟩ := S127.lemma12_7_4_part1_of h1222 h
   exact ⟨z, (Subgroup.mem_inf.mp hz).1, hz1, hTz, hz45⟩
 
-theorem theoremA_of_struct (h1222 : Stmt12_2_2) (hS : Struct1277) :
-    ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G), Hyp1271 G T L V →
-      ∀ t ∈ V, (Subgroup.centralizer ({t} : Set G)).relIndex L = 18 →
-        ¬ Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (L : Set G) →
-          ∀ z ∈ V, (Subgroup.centralizer ({z} : Set G)).relIndex L = 45 →
-            Nonempty (↥(Subgroup.centralizer ({z} : Set G)) ≃*
-              ↥(Subgroup.centralizer
-                ({Quasithin.H13.transvection15} : Set (Matrix.SpecialLinearGroup (Fin 5) (ZMod 2))))) := by
-  intro G _ _ T L V h t ht h18 hGt z hzV hz45
-  obtain ⟨hcomm, hV64, -⟩ := S127.card_eq_of_1222 h1222 h
-  have hVel : IsElemAbelian 2 V := ⟨hcomm, fun x hx => S127.sq_eq_one_of_mem h.hyp hx⟩
-  have hz1 : z ≠ 1 := S127.ne_one_of_relIndex hz45 (by norm_num)
-  exact centralizer_iso_transvection_of_structAt hVel hV64 hzV hz1
-    (hS G T L V h t ht h18 hGt z hzV hz45)
 
 theorem ident1277_of_struct (h1222 : Stmt12_2_2) (hS : Struct1277) (hVI : VInter1277) :
     Ident1277 := by

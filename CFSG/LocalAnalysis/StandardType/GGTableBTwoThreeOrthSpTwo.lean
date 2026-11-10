@@ -272,14 +272,6 @@ theorem smul_add_smul_supp {n : ℕ} (i : Fin n) (α β : K) :
       Fin n ⊕ Fin n → K) r = 0 := fun r hr => by
   simp [single_supp (inl_mem_coords i) r hr, single_supp (inr_mem_coords i) r hr]
 
-omit [CharP K 2] in
-theorem form_planes_eq_zero {n : ℕ} {i j : Fin n} (hij : i ≠ j) (α β γ δ : K) :
-    form (α • Pi.single (Sum.inl i) 1 + β • Pi.single (Sum.inr i) 1)
-      (γ • Pi.single (Sum.inl j) 1 + δ • Pi.single (Sum.inr j) 1) = 0 :=
-  form_eq_zero_of_supp (parClosed_coords j)
-    (fun a ha => smul_add_smul_supp i α β a fun h => by
-      rcases mem_coords.1 ha with rfl | rfl <;> rcases mem_coords.1 h with h' | h' <;> simp_all)
-    (smul_add_smul_supp j γ δ)
 
 theorem mat_nsElt_mulVec_smul_add_smul {n : ℕ} (j : Fin n) (α β : K) :
     mat n K (nsElt j) *ᵥ (α • Pi.single (Sum.inl j) 1 + β • Pi.single (Sum.inr j) 1) =

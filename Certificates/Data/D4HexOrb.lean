@@ -39,8 +39,5 @@ structure OrbRec where
       actF r.lab[i]! r.ord[r.par[i]!]! == r.ord[i]!)) &&
     allLt N fun x => !items x || (decide (r.pos[x]! < cnt) && r.ord[r.pos[x]!]! == x)
 
-@[expose] def orbCheck (N k : Nat) (actF : Nat → Nat → Nat) (root cnt : Nat) (items : Nat → Bool) :
-    Bool :=
-  orbOK N k actF root cnt items (orbBFS N k actF root)
 
 end CFSG.D4Hex

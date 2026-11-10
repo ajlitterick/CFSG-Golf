@@ -568,16 +568,6 @@ theorem dec_mem_normalizer_blk {H A : Subgroup (LGL p V)} {g : LGL p V} (hg : g 
 theorem dec_blk_le {H A : Subgroup (LGL p V)} (hA : IsAVMin H A) : blk H A ≤ H :=
   dec_blk_le_of_le hA.1.1
 
-theorem dec_normal (H A : Subgroup (LGL p V)) :
-    ((kerOn H (commSub (blk H A))).subgroupOf H).Normal := by
-  refine ⟨fun n hn g => ?_⟩
-  rw [Subgroup.mem_subgroupOf] at hn ⊢
-  refine ⟨H.mul_mem (H.mul_mem g.2 n.2) (H.inv_mem g.2), fun w hw => ?_⟩
-  have h1 : ((g⁻¹ : H) : LGL p V) w ∈ commSub (blk H A) :=
-    map_mem_commSub_of_mem_normalizer _ (dec_mem_normalizer_blk (g⁻¹).2) hw
-  change (g : LGL p V) ((n : LGL p V) (((g⁻¹ : H) : LGL p V) w)) = w
-  rw [hn.2 _ h1]
-  exact apply_inv_apply' (g : LGL p V) w
 
 end Blk
 

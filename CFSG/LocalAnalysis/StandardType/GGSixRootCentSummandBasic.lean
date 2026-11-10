@@ -460,32 +460,6 @@ theorem ggRCS_layer_ne_bot {p : ℕ} (hp : p.Prime) {V E K S : Subgroup X} (hEV 
   rw [hbot] at hle
   exact hCne (le_bot_iff.mp hle)
 
-@[expose] def GGHypRestIIIae (H E : Subgroup X) : Prop :=
-  (∀ C : Subgroup (GGHypQuot H), IsComponentOf C ⊤ →
-    ggHypImage H E ≤ Subgroup.normalizer (C : Set (GGHypQuot H)) ∧
-      LargeEvenMarking ↥C (fun lab _ _ I _ θ => GGChevStTag lab ∧
-        ∀ e ∈ ggHypImage H E, ∃ φ ∈ I,
-          LargeEvenInduces θ (fun l l' => (l' : GGHypQuot H) = e⁻¹ * l * e) φ)) ∧
-  (commutator ↥(ggHypLayer H) = ⊤ ∨ LargeEvenLayer (⊤ : Subgroup (GGHypQuot H)) = ⊥) ∧
-  (∃ k : ℕ, derivedSeries ↥H k ≤ (ggHypLayer H).subgroupOf H) ∧
-  (LargeEvenLayer (⊤ : Subgroup (GGHypQuot H)) ≠ ⊥ →
-    GGTwoConstrained ↥(ggHypLayer H) ∨
-      (CFSG.Assembly.IsQuasisimple ↥(ggHypLayer H) ∧
-        Odd (Nat.card (Subgroup.center ↥(ggHypLayer H)))))
-
-theorem ggHypRestIII_of_ae {p : ℕ} {H E : Subgroup X} (h : GGHypRestIIIae H E)
-    (hL : LargeEvenLayer (⊤ : Subgroup (GGHypQuot H)) ≠ ⊥) : GGHypRestIII p H E :=
-  ⟨h.1, h.2.1, h.2.2.1, h.2.2.2, fun hb => absurd hb hL⟩
-
-@[expose] def GGRCSAutKIII (V E K : Subgroup X) : Prop :=
-  ∀ [((ggRCSU V E K).subgroupOf (E ⊔ K)).Normal], GGHypRestIIIae
-    (((E ⊔ (K ⊓ V)).subgroupOf (E ⊔ K)).map
-      (QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K))))
-    ((E.subgroupOf (E ⊔ K)).map (QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K))))
-
-@[expose] def GGRCSAutKIV (p : ℕ) (V E K : Subgroup X) : Prop :=
-  ∀ [((ggRCSU V E K).subgroupOf (E ⊔ K)).Normal], GGHypRestIV p
-    ((E.subgroupOf (E ⊔ K)).map (QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K))))
 
 @[expose] def GGRCSAutKNotExc (p : ℕ) (V E K : Subgroup X) : Prop :=
   ∀ [((ggRCSU V E K).subgroupOf (E ⊔ K)).Normal], ¬ GGFusionException p
@@ -493,22 +467,6 @@ theorem ggHypRestIII_of_ae {p : ℕ} {H E : Subgroup X} (h : GGHypRestIIIae H E)
       (QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K))))
     ((E.subgroupOf (E ⊔ K)).map (QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K))))
 
-theorem ggRCS_autKConfig {p : ℕ} (hp : p.Prime) {V E K S : Subgroup X}
-    (hfus : GGControlsStrongFusion V E) (hE : IsElemAbelian p E) (hEcard : Nat.card E = p ^ 2)
-    (hEK : E ≤ Subgroup.normalizer (K : Set X)) (hK : CFSG.IsComponent K)
-    (hcat : InCatalog (↥K ⧸ Subgroup.center ↥K)) (hS : GGRCSQuasiPiece p V S) (hSK : S ≤ K)
-    (h3 : GGRCSAutKIII V E K) (h4 : GGRCSAutKIV p V E K) (hexc : GGRCSAutKNotExc p V E K) :
-    GGAutKConfig p V E K := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hN := ggRCSU_normal (V := V) hEK
-  refine ⟨_, inferInstance, inferInstance, QuotientGroup.mk' ((ggRCSU V E K).subgroupOf (E ⊔ K)),
-    QuotientGroup.mk'_surjective _, ?_,
-    ggHypThreeSixteenRest_of_parts (ggRCS_hypRestII hfus hE hEcard hEK hK hcat)
-      (ggHypRestIII_of_ae (@h3 hN) (ggRCS_layer_ne_bot hp hfus.1 hS hSK)) (@h4 hN),
-    ggRCS_layer_ne_bot hp hfus.1 hS hSK, @hexc hN⟩
-  intro w hw
-  rw [QuotientGroup.ker_mk'] at hw
-  exact hw
 
 end Layer
 

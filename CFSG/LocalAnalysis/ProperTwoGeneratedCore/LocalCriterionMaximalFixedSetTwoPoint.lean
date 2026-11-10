@@ -19,12 +19,6 @@ open CFSG.BenderSuzuki.PFAppendixIII CFSG.BenderSuzuki.PFchapter1section1
 
 variable {G : Type*} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem subgroup_sylow_containing_ambient_sylow_is_ambient
-    (p : ℕ) (B : Subgroup G) (Q : Sylow p B) (R : Sylow p G)
-    (hRQ : (R : Subgroup G) ≤ (Q : Subgroup B).map B.subtype) :
-    ∃ S : Sylow p G, (S : Subgroup G) = (Q : Subgroup B).map B.subtype := by
-  exact ⟨R, (R.is_maximal' (Q.isPGroup'.map B.subtype) hRQ).symm⟩
 
 theorem no_large_pair_sylow_of_two_point_ambient_sylows
     {H P : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)

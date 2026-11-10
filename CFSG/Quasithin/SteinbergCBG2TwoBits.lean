@@ -135,11 +135,6 @@ theorem toV_ofV {n : ℕ} (v : Fin n → F2) : toV n (ofV v) = v := by
 theorem toV_surj {n : ℕ} (v : Fin n → F2) : ∃ x < 2 ^ n, toV n x = v :=
   ⟨ofV v, ofV_lt v, toV_ofV v⟩
 
-theorem eq_of_toV {n : ℕ} {X : Type*} {f g : (Fin n → F2) → X}
-    (h : ∀ x < 2 ^ n, f (toV n x) = g (toV n x)) : f = g := by
-  funext v
-  obtain ⟨x, hx, rfl⟩ := toV_surj v
-  exact h x hx
 
 @[expose] def mApp : List ℕ → ℕ → ℕ
   | [], _ => 0
@@ -190,31 +185,5 @@ theorem mApp_mComp (M : List ℕ) : ∀ (N : List ℕ) (x : ℕ),
     seen.contains x && decide (k < gens.length) && decide (y < 2 ^ n) &&
       mApp (gens.getD k []) x == y && certOK n gens (y :: seen) rest
 
-theorem mem_orbit_of_certOK {H X : Type*} [Group H] [MulAction H X] (n : ℕ) (pt : ℕ → X)
-    (gens : List (List ℕ))
-    (hgens : ∀ k < gens.length, ∃ h : H, ∀ x < 2 ^ n, h • pt x = pt (mApp (gens.getD k []) x))
-    (base : X) : ∀ (cert : List (ℕ × ℕ × ℕ)) (seen : List ℕ),
-      (∀ s ∈ seen, s < 2 ^ n ∧ pt s ∈ MulAction.orbit H base) →
-      certOK n gens seen cert = true → ∀ t ∈ cert, t.1 < 2 ^ n ∧ pt t.1 ∈ MulAction.orbit H base
-  | [], _, _, _ => by simp
-  | (y, k, x) :: rest, seen, hseen, hc => by
-    simp only [certOK, Bool.and_eq_true, List.contains_iff_mem, decide_eq_true_eq,
-      beq_iff_eq] at hc
-    obtain ⟨⟨⟨⟨hx, hk⟩, hy⟩, hyx⟩, hrest⟩ := hc
-    obtain ⟨h, hh⟩ := hgens k hk
-    obtain ⟨hxlt, hxo⟩ := hseen x hx
-    have hyo : pt y ∈ MulAction.orbit H base := by
-      obtain ⟨g, hg⟩ := MulAction.mem_orbit_iff.1 hxo
-      refine MulAction.mem_orbit_iff.2 ⟨h * g, ?_⟩
-      rw [mul_smul, hg, hh x hxlt, hyx]
-    have hseen' : ∀ s ∈ y :: seen, s < 2 ^ n ∧ pt s ∈ MulAction.orbit H base := by
-      intro s hs
-      rcases List.mem_cons.1 hs with rfl | hs
-      · exact ⟨hy, hyo⟩
-      · exact hseen s hs
-    intro t ht
-    rcases List.mem_cons.1 ht with rfl | ht
-    · exact ⟨hy, hyo⟩
-    · exact mem_orbit_of_certOK n pt gens hgens base rest (y :: seen) hseen' hrest t ht
 
 end CFSG.Quasithin.SteinbergCB.G2Two

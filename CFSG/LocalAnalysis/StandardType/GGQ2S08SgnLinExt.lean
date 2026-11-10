@@ -11,12 +11,10 @@ open Matrix
 variable {r : ℕ}
 
 
-
 @[expose] def xLast2 (r : ℕ) : Vn (r + 2) := Pi.single (Fin.last (r + 1)) 1
 
 theorem xLast2_apply (k : Fin (r + 2)) : xLast2 r k = if k = Fin.last (r + 1) then 1 else 0 := by
   simp [xLast2, Pi.single_apply]
-
 
 
 private theorem frameIndex_ne_last (i : Fin r) :
@@ -26,12 +24,6 @@ private theorem frameIndex_ne_last (i : Fin r) :
   simp only [Fin.val_last, Fin.val_castSucc] at hv
   omega
 
-private theorem extraIndex_ne_last (r : ℕ) :
-    ((Fin.last r).castSucc : Fin (r + 2)) ≠ Fin.last (r + 1) := by
-  intro hh
-  have hv := congrArg Fin.val hh
-  simp only [Fin.val_last, Fin.val_castSucc] at hv
-  omega
 
 private theorem extraIndex_ne_frame (i : Fin r) :
     ((Fin.last r).castSucc : Fin (r + 2)) ≠ i.castSucc.castSucc := by
@@ -43,16 +35,9 @@ private theorem extraIndex_ne_frame (i : Fin r) :
 private theorem xLast2_frame (i : Fin r) : xLast2 r i.castSucc.castSucc = 0 := by
   rw [xLast2_apply, if_neg (frameIndex_ne_last i)]
 
-private theorem xLast2_extra (r : ℕ) : xLast2 r ((Fin.last r).castSucc) = 0 := by
-  rw [xLast2_apply, if_neg (extraIndex_ne_last r)]
 
 @[expose] def frameE2 (r : ℕ) (i : Fin r) : Vn (r + 2) := Pi.single i.castSucc.castSucc 1
-theorem frameE2_apply (i : Fin r) (k : Fin (r + 2)) :
-    frameE2 r i k = if k = i.castSucc.castSucc then 1 else 0 := by
-  simp [frameE2, Pi.single_apply]
 
-theorem dot_xLast2 (a : Vn (r + 2)) : a ⬝ᵥ xLast2 r = a (Fin.last (r + 1)) := by
-  rw [xLast2, dotProduct_single, mul_one]
 
 theorem dot_frameE2 (a : Vn (r + 2)) (i : Fin r) : a ⬝ᵥ frameE2 r i = a i.castSucc.castSucc := by
   rw [frameE2, dotProduct_single, mul_one]
@@ -222,20 +207,6 @@ theorem extFrameFun2_last (τ : Equiv.Perm (Fin r)) :
 theorem extFramePerm2_apply (σ : Equiv.Perm (Fin r)) (i : Fin (r + 2)) :
     extFramePerm2 σ i = extFrameFun2 σ i := rfl
 
-theorem extFramePerm2_apply_castSucc (σ : Equiv.Perm (Fin r)) (i : Fin r) :
-    extFramePerm2 σ i.castSucc.castSucc = (σ i).castSucc.castSucc := by
-  change extFrameFun2 σ i.castSucc.castSucc = (σ i).castSucc.castSucc
-  rw [extFrameFun2_castSucc]
-
-theorem extFramePerm2_apply_extra (σ : Equiv.Perm (Fin r)) :
-    extFramePerm2 σ ((Fin.last r).castSucc) = (Fin.last r).castSucc := by
-  change extFrameFun2 σ ((Fin.last r).castSucc) = (Fin.last r).castSucc
-  rw [extFrameFun2_extra]
-
-theorem extFramePerm2_apply_last (σ : Equiv.Perm (Fin r)) :
-    extFramePerm2 σ (Fin.last (r + 1)) = Fin.last (r + 1) := by
-  change extFrameFun2 σ (Fin.last (r + 1)) = Fin.last (r + 1)
-  rw [extFrameFun2_last]
 
 theorem extFramePerm2_symm_castSucc (σ : Equiv.Perm (Fin r)) (i : Fin r) :
     (extFramePerm2 σ).symm i.castSucc.castSucc = (σ⁻¹ i).castSucc.castSucc := by
@@ -481,11 +452,6 @@ theorem frameFlip2_insert (i : Fin r) (S : Finset (Fin r)) (hi : i ∉ S) :
             rw [if_neg hki', if_congr hmem rfl rfl, flipSign2_castSucc]
             try ring_nf
 
-theorem frameFlip2_mem {W : Subgroup (Vn (r + 2) ≃ₗ[ZMod 3] Vn (r + 2))}
-    (hW : ∀ i, sgnFlip2 i ∈ W) (S : Finset (Fin r)) : frameFlip2 S ∈ W := by
-  induction S using Finset.induction with
-  | empty => rw [frameFlip2_empty]; exact W.one_mem
-  | insert i S hi ih => rw [frameFlip2_insert i S hi]; exact W.mul_mem (hW i) ih
 
 theorem sgnDiff2_mul_self (i j : Fin r) (h : i ≠ j) :
     sgnDiff2 i j h * sgnDiff2 i j h = 1 := by

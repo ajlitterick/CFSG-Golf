@@ -503,12 +503,6 @@ theorem exists_orderOf_eq_two (hK : Nat.card K = 2) :
     Finite.of_equiv _ (CFSG.RankThree.PerfectCover.hopfMultiplierEquivGriess _).symm.toEquiv
   exact ⟨inferInstance, exists_prime_orderOf_dvd_card' 2 (two_dvd_card_griessHopfMultiplier hK)⟩
 
-theorem nontrivial_griessHopfMultiplier (hK : Nat.card K = 2) :
-    Nontrivial (griessHopfMultiplier (adjointGroup .F4 K)) := by
-  obtain ⟨z, hz⟩ := exists_two_dvd_orderOf hK
-  refine ⟨⟨z, 1, fun h => ?_⟩⟩
-  rw [h, orderOf_one] at hz
-  omega
 
 theorem two_dvd_card_griessHopfMultiplier_of_mulEquiv (hK : Nat.card K = 2) {X : Type}
     [Group X] (e : X ≃* adjointGroup .F4 K) : 2 ∣ Nat.card (griessHopfMultiplier X) := by

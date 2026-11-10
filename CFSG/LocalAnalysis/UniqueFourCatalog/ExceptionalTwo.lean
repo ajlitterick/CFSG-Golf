@@ -185,6 +185,5 @@ theorem not_uniqueFour_of_untwistedChevalleyModel_two
       twoLocalClosure_adjoint_eq_top_of_normalizes (τ := τ) (k := K) hp hp2 hE hS₀ hS₀2 hEN
   exact not_uniqueFour_of_closure hS (closure_hyp_of_mulEquiv (e.trans e2) hcl)
 
-set_option linter.unusedSectionVars false
 
 end CFSG.LocalAnalysis.UniqueFourCatalog

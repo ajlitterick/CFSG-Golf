@@ -69,20 +69,6 @@ theorem conjSub_exactLayer (hΩ : ConjInvariant Ω) {n : G}
     conjSub n (exactLayer Ω c) = exactLayer Ω c :=
   Subgroup.mem_normalizer_iff_map_conj_eq.mp (normalizesLayer_exactFamily hΩ n hn)
 
-theorem inClass_exactFamily (hΩ : ConjInvariant Ω) (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hne : (tqMembers Ω c).Nonempty) :
-    InClass p f (exactPair Ω c) := by
-  have hs := secData_exactFamily hΩ hcls hc2 hne
-  have h := hs.inClass
-  rw [hs.centMembers_eq] at h
-  exact h
-
-theorem exactLayer_eq_bot_of_not_nonempty (hne : ¬ (tqMembers Ω c).Nonempty) :
-    exactLayer Ω c = ⊥ := by
-  rw [exactLayer_eq_iSup]
-  refine le_bot_iff.mp (iSup₂_le fun K' hK' => ?_)
-  obtain ⟨K, hK, -⟩ := hK'
-  exact (hne ⟨K, hK⟩).elim
 
 theorem exactLayer_ne_top (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) : exactLayer Ω c ≠ ⊤ := by
   intro h
@@ -100,28 +86,6 @@ theorem card_exactLayer_lt (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
   have : 2 ≤ (exactLayer Ω c).index := by omega
   nlinarith
 
-theorem lieSystemMod_exactFamily (hΩ : ConjInvariant Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hBelow : CITBelowU p f (Nat.card G)) (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
-    LieSystemMod p f (exactPair Ω c) := by
-  by_cases hne : (tqMembers Ω c).Nonempty
-  · exact hBelow _ (card_exactLayer_lt hnc) _ (inClass_exactFamily hΩ hcls hc2 hne)
-  · have hbot := exactLayer_eq_bot_of_not_nonempty hne
-    have hfam := exactFamily_eq_empty_of_not_nonempty hne
-    have hrf : exactPair Ω c = ∅ :=
-      Set.eq_empty_of_forall_notMem fun K' ⟨L, hL, _⟩ => by rw [hfam] at hL; exact hL
-    have hsub : Subsingleton ↥(exactLayer Ω c) := by rw [hbot]; infer_instance
-    have hq : Subsingleton (↥(exactLayer Ω c) ⧸ classicalInvolutionOddCore ↥(exactLayer Ω c)) :=
-      inferInstance
-    exact LieSystem.of_empty p f (by rw [hrf]; simp [oddQuotientFamily])
-
-@[expose] def ExactLocalLieSystems (p f : ℕ) [Fact p.Prime] (Ω : Set (Subgroup G)) : Prop :=
-  ∀ c : G, IsPGroup 2 (Subgroup.zpowers c) → ¬ ({c} : Set G) ⊆ Subgroup.center G →
-    LieSystemMod p f (exactPair Ω c)
-
-theorem exactLocalLieSystems_of_citBelowU (hΩ : InClass p f Ω)
-    (hBelow : CITBelowU p f (Nat.card G)) : ExactLocalLieSystems p f Ω :=
-  fun _ hc2 hnc => lieSystemMod_exactFamily hΩ.conjInvariant hΩ.classical hc2 hBelow hnc
 
 end Layer
 
@@ -172,45 +136,6 @@ theorem lieDecomposition_exactFamily (hp2 : p ≠ 2) (h0 : ModelClauseZero)
   · obtain ⟨D, -⟩ := exists_big_decomposition_of_not_nonempty hne
     exact ⟨D⟩
 
-theorem lieDecomposition_exactFamily_big (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) (hΩ : ConjInvariant Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hBelow : CITBelowU p f (Nat.card G)) (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G)
-    (hF3 : NoComponentOverF3 p f (exactFamily Ω c) c) :
-    ∃ D : LieDecomposition (exactImages Ω c) (exactJoin Ω c), D.Big := by
-  by_cases hne : (tqMembers Ω c).Nonempty
-  · have hs := secData_exactFamily hΩ hcls hc2 hne
-    obtain ⟨Dsys⟩ := hs.nonempty_lieSystem hBelow hnc
-    obtain ⟨D, -, hbig⟩ := hs.lieDecomposition_comp hp2 h0 hA1 hq Dsys
-    exact ⟨D, hbig (hF3 Dsys)⟩
-  · exact exists_big_decomposition_of_not_nonempty hne
-
-theorem trichotomy_exactFamily (hp2 : p ≠ 2) (h0 : ModelClauseZero) (hA1 : FundamentalWholeA1)
-    (hq : 5 ≤ p ^ f) (hΩ : ConjInvariant Ω) (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hBelow : CITBelowU p f (Nat.card G))
-    (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) {L : Subgroup (OddQuot c)}
-    (hL : CFSG.IsComponent L) :
-    OmegaFreeAt (exactFamily Ω c) c L ∨ RankOneAt (exactFamily Ω c) c L ∨
-      (IsOddLieComponent L ∧ L ≤ exactJoin Ω c) := by
-  by_cases hne : (tqMembers Ω c).Nonempty
-  · exact (secData_exactFamily hΩ hcls hc2 hne).trichotomy hp2 h0 hA1 hq hBelow hnc hL
-  · refine Or.inl fun K' hK' => ?_
-    have hfam := exactFamily_eq_empty_of_not_nonempty hne
-    rw [hfam] at hK'
-    exact absurd hK' (Set.notMem_empty K')
-
-theorem isQuasisimple_modOdd_exactFamily (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : ConjInvariant Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hBelow : CITBelowU p f (Nat.card G)) (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G)
-    (hF3 : NoComponentOverF3 p f (exactFamily Ω c) c) {K' : Subgroup G}
-    (hK' : K' ∈ exactFamily Ω c) : CFSG.Open.IsQuasisimple ↥(modOdd c K') := by
-  obtain ⟨K, hK, rfl⟩ := hK'
-  have hs := secData_exactFamily hΩ hcls hc2 ⟨K, hK⟩
-  obtain ⟨Dsys⟩ := hs.nonempty_lieSystem hBelow hnc
-  refine hs.isQuasisimple_modOdd Dsys (fun j R hR => ?_) (exactCore_mem_exactFamily hK)
-  have h5 : 5 ≤ p ^ Dsys.exp j :=
-    five_le_pow_of_ne_three Fact.out hp2 hq ((Dsys.exp_eq j).imp id And.right) (hF3 Dsys j)
-  exact fundQuasisimple_core hp2 (Dsys.isFundTag j) (Dsys.admissible j) (by omega) R hR
 
 theorem oddQuotMk_centralizes_modOdd_exactCore {p f : ℕ} [Fact p.Prime] {K : Subgroup G} {z c : G}
     (hK : IsClassicalMember p f K z) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
@@ -222,35 +147,6 @@ theorem oddQuotMk_centralizes_modOdd_exactCore {p f : ℕ} [Fact p.Prime] {K : S
   oddQuotMk_centralizes_of_commutator_mem (exactCore_le_centralizer c K) hbc hq fun _ hl =>
     commutator_mem_oddCoreIn_triangleResidual hb hbc (axisResidual_exactCore hK hc2 hcK) hl
 
-theorem lieDecomposition_exactFamily_of_inClass (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hBelow : CITBelowU p f (Nat.card G))
-    (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
-    Nonempty (LieDecomposition (exactImages Ω c) (exactJoin Ω c)) :=
-  lieDecomposition_exactFamily hp2 h0 hA1 hq hΩ.conjInvariant hΩ.classical hc2 hBelow hnc
-
-theorem lieDecomposition_exactFamily_big_of_inClass (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hBelow : CITBelowU p f (Nat.card G))
-    (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) (hF3 : NoComponentOverF3 p f (exactFamily Ω c) c) :
-    ∃ D : LieDecomposition (exactImages Ω c) (exactJoin Ω c), D.Big :=
-  lieDecomposition_exactFamily_big hp2 h0 hA1 hq hΩ.conjInvariant hΩ.classical hc2 hBelow hnc hF3
-
-theorem trichotomy_exactFamily_of_inClass (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hBelow : CITBelowU p f (Nat.card G))
-    (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) {L : Subgroup (OddQuot c)}
-    (hL : CFSG.IsComponent L) :
-    OmegaFreeAt (exactFamily Ω c) c L ∨ RankOneAt (exactFamily Ω c) c L ∨
-      (IsOddLieComponent L ∧ L ≤ exactJoin Ω c) :=
-  trichotomy_exactFamily hp2 h0 hA1 hq hΩ.conjInvariant hΩ.classical hc2 hBelow hnc hL
-
-theorem isQuasisimple_modOdd_exactFamily_of_inClass (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hBelow : CITBelowU p f (Nat.card G)) (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G)
-    (hF3 : NoComponentOverF3 p f (exactFamily Ω c) c) {K' : Subgroup G}
-    (hK' : K' ∈ exactFamily Ω c) : CFSG.Open.IsQuasisimple ↥(modOdd c K') :=
-  isQuasisimple_modOdd_exactFamily hp2 hq hΩ.conjInvariant hΩ.classical hc2 hBelow hnc hF3 hK'
 
 end Lie
 
@@ -276,14 +172,6 @@ theorem centLayer_le_exactLayer (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p
     centLayer Ω c ≤ exactLayer Ω c :=
   centLayer_le fun _ hK => le_centLayer ⟨centMembers_subset_exactFamily hcls hK, hK.2⟩
 
-theorem memberImages_subset_exactImages (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) :
-    memberImages Ω c ⊆ exactImages Ω c := by
-  rintro _ ⟨K, hK, rfl⟩
-  exact ⟨K, ⟨centMembers_subset_exactFamily hcls hK, hK.2⟩, rfl⟩
-
-theorem memberJoin_le_exactJoin (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) :
-    memberJoin Ω c ≤ exactJoin Ω c :=
-  iSup₂_le fun _ hK => modOdd_le_exactJoin (centMembers_subset_exactFamily hcls hK)
 
 theorem tqMembers_eq_centMembers_of_exact (hex : ExactMembers Ω) :
     tqMembers Ω c = centMembers Ω c := by

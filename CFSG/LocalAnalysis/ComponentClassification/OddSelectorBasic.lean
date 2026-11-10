@@ -116,30 +116,6 @@ end Sources
 
 section Cover
 
-variable {H : Type*} {L : Type} [Group H] [Group L]
-
-theorem not_small_source_of_cover [Group.IsPerfect H] (σ : H →* L) (hσ : σ.ker ≤ center H)
-    (E : Subgroup H) [IsElementaryAbelian 2 E] (hE : 8 ≤ Nat.card E) (hEZ : E ⊓ center H = ⊥)
-    {l : ℕ} (hl : l.Prime) (hl2 : l ≠ 2) (U : Subgroup H) (hU : l ^ 3 ∣ Nat.card U)
-    (hUZ : U ⊓ center H = ⊥) :
-    (∀ p f : ℕ, p ≠ 2 → ¬ StatedClassicalModel (L ⧸ center L) .PSL 2 p f) ∧
-      IsEmpty (L ⧸ center L ≃* alternatingGroup (Fin 7)) ∧
-      ¬ StatedClassicalModel (L ⧸ center L) .PSL 3 2 2 := by
-  have hEi := injective_restrict_center σ hσ hEZ
-  have hUi := injective_restrict_center σ hσ hUZ
-  set eE := MonoidHom.ofInjective hEi
-  set eU := MonoidHom.ofInjective hUi
-  have : IsElementaryAbelian 2
-      (((QuotientGroup.mk' (center L)).comp σ).comp E.subtype).range :=
-    isElementaryAbelian_of_mulEquiv eE
-  have hE' : 4 < Nat.card (((QuotientGroup.mk' (center L)).comp σ).comp E.subtype).range := by
-    rw [← Nat.card_congr eE.toEquiv]
-    omega
-  have hU' : l ^ 3 ∣ Nat.card (L ⧸ center L) := by
-    refine hU.trans ?_
-    rw [Nat.card_congr eU.toEquiv]
-    exact Subgroup.card_subgroup_dvd_card _
-  exact not_small_source_of_quotient _ hE' hl hl2 hU'
 
 end Cover
 

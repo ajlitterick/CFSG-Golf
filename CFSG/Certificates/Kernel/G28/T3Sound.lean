@@ -322,9 +322,6 @@ theorem decode_powCode {A : Array ℕ} (hA : Valid A) (k : ℕ) :
     change decode (mulCode (powCode A k) A) = _
     rw [decode_mulCode (valid_powCode hA k) hA, ih, pow_succ]
 
-theorem decode_eq_of_codeP {A B : Array ℕ} (hA : Valid A) (hB : Valid B)
-    (h : codeP A = codeP B) : decode A = decode B := by
-  rw [codeP_inj hA hB h]
 
 theorem eq_of_beq_codeP {A B : Array ℕ} (hA : Valid A) (hB : Valid B) {x y : ℕ}
     (hx : codeP A = x) (hy : codeP B = y) (h : Nat.beq x y = true) : A = B :=

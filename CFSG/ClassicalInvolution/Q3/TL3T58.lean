@@ -100,50 +100,6 @@ theorem vbar_pairVec_ne_one (hn : 3 ≤ n) {a c : Fin n} (hac : a ≠ c) :
     rw [TL4.pairVec_apply] at this
     simp [hda, hdc] at this
 
-theorem vbar_pairVec_ne_zBar (hn : 7 ≤ n) (a c : Fin n) (δ : Finset (Fin n))
-    (hδ : δ.card = 4) : mkQ n (ofVec (TL4.pairVec a c)) ≠ zBar δ hδ := by
-  classical
-  intro h
-  rw [zBar, mkQ_eq_iff] at h
-  obtain ⟨d, hdδ, hda, hdc⟩ : ∃ d ∈ δ, d ≠ a ∧ d ≠ c := by
-    by_contra hne
-    push Not at hne
-    have hsub : δ ⊆ {a, c} := fun d hd => by
-      by_cases hda : d = a
-      · simp [hda]
-      · simp [hne d hd hda]
-    have h2 := Finset.card_le_card hsub
-    have h3 := Finset.card_insert_le a ({c} : Finset (Fin n))
-    rw [Finset.card_singleton] at h3
-    omega
-  obtain ⟨e, he⟩ := AE.Block4.exists_not_mem (s := δ ∪ {a, c}) (by
-    have h1 := Finset.card_union_le δ {a, c}
-    have h3 := Finset.card_insert_le a ({c} : Finset (Fin n))
-    rw [Finset.card_singleton] at h3
-    omega)
-  simp only [Finset.mem_union, Finset.mem_insert, Finset.mem_singleton, not_or] at he
-  have hdr : d ∈ Set.range (emb δ hδ) := by rw [range_emb]; exact_mod_cast hdδ
-  have her : e ∉ Set.range (emb δ hδ) := by rw [range_emb]; exact_mod_cast he.1
-  have hd : (zOf (emb δ hδ)).vec d = 1 := by
-    rw [zOf_vec_apply]
-    simp [hdr]
-  have he' : (zOf (emb δ hδ)).vec e = 0 := by
-    rw [zOf_vec_apply]
-    simp [her]
-  rcases h with h1 | h1
-  · have h2 : ofVec (TL4.pairVec a c) = zOf (emb δ hδ) := inv_mul_eq_one.mp h1
-    have := congrFun (congrArg Wr.vec h2) d
-    rw [hd] at this
-    change TL4.pairVec a c d = (1 : ZMod 2) at this
-    rw [TL4.pairVec_apply] at this
-    simp [hda, hdc] at this
-  · have h2 : zOf (emb δ hδ) = ofVec (TL4.pairVec a c) * allOnes n :=
-      inv_mul_eq_iff_eq_mul.mp h1
-    have := congrFun (congrArg Wr.vec h2) e
-    rw [he', mul_vec] at this
-    change (0 : ZMod 2) = TL4.pairVec a c e + 1 at this
-    rw [TL4.pairVec_apply] at this
-    simp [he.2.1, he.2.2] at this
 
 end CFSG.ClassicalInvolution.Q3.AE
 

@@ -65,44 +65,5 @@ theorem perfect_centralizes_of_commutator_central {G : Type u} [Group G]
   rw [Subgroup.commutator_eq_self] at hrotate
   exact Subgroup.commutator_eq_bot_iff_le_centralizer.mp hrotate
 
-theorem normal_quasisimple_centralizes_normal_pSubgroup {G : Type u} [Group G] [Finite G]
-    (quasisimpleSubgroup subgroup : Subgroup G) (hquasi : IsQuasisimple quasisimpleSubgroup)
-    (hquasiNormal : quasisimpleSubgroup.Normal) (hnormal : subgroup.Normal)
-    (prime : ℕ) (hprime : prime.Prime) (hpgroup : IsPGroup prime subgroup) :
-    quasisimpleSubgroup ≤ Subgroup.centralizer (subgroup : Set G) := by
-  have : quasisimpleSubgroup.Normal := hquasiNormal
-  have : subgroup.Normal := hnormal
-  have hperfect : Group.IsPerfect quasisimpleSubgroup := ⟨hquasi.1⟩
-  apply perfect_centralizes_of_commutator_central quasisimpleSubgroup subgroup hperfect
-  have hrestriction : (subgroup.subgroupOf quasisimpleSubgroup).Normal := inferInstance
-  let inclusion : (subgroup.subgroupOf quasisimpleSubgroup) →* subgroup :=
-    { toFun := fun element => ⟨((element : quasisimpleSubgroup) : G), element.property⟩
-      map_one' := rfl
-      map_mul' := fun _ _ => rfl }
-  have hinjective : Function.Injective inclusion := by
-    intro first second heq
-    apply Subtype.ext
-    apply Subtype.ext
-    exact congrArg (fun element : subgroup => (element : G)) heq
-  have hrestrictedPGroup : IsPGroup prime (subgroup.subgroupOf quasisimpleSubgroup) :=
-    hpgroup.of_injective inclusion hinjective
-  have hcenter := normal_pSubgroup_le_center_of_quasisimple hquasi prime hprime
-    (subgroup.subgroupOf quasisimpleSubgroup) hrestriction hrestrictedPGroup
-  intro element hmem
-  have hinf := Subgroup.commutator_le_inf quasisimpleSubgroup subgroup hmem
-  have hcentral := hcenter (show (⟨element, hinf.1⟩ : quasisimpleSubgroup) ∈
-    subgroup.subgroupOf quasisimpleSubgroup from hinf.2)
-  apply Subgroup.mem_centralizer_iff.mpr
-  intro other hother
-  exact congrArg Subtype.val (Subgroup.mem_center_iff.mp hcentral ⟨other, hother⟩)
-
-theorem no_normal_quasisimple_of_selfCentralizing_twoCore {G : Type u} [Group G] [Finite G]
-    (hcentralizer : Subgroup.centralizer (pCore 2 G : Set G) ≤ pCore 2 G)
-    (subgroup : Subgroup G) (hnormal : subgroup.Normal) : ¬IsQuasisimple subgroup := by
-  intro hquasi
-  have hcentral := normal_quasisimple_centralizes_normal_pSubgroup subgroup (pCore 2 G)
-    hquasi hnormal (pCore_normal G 2) 2 Nat.prime_two (pCore_isPGroup G 2)
-  have hpgroup := (pCore_isPGroup G 2).to_le (hcentral.trans hcentralizer)
-  exact quasisimple_not_isPGroup subgroup hquasi 2 Nat.prime_two hpgroup
 
 end CFSG.RankThreeEvenClassification.Helpers

@@ -20,11 +20,6 @@ theorem sH2 : CFSG.KC.LceS.aliveOK LVs (nat_lit 16) (nat_lit 63944) (nat_lit 465
 theorem sH3 : Nat.beq nC (nat_lit 63944) = true := by
   quickRfl
 
-theorem sH4 : CFSG.KC.Co2K.litOK litRT CFSG.KC.Co2B.rel (nat_lit 10) = true := by
-  quickRfl
-
-theorem sH5 : CFSG.KC.Co2K.litOK litST CFSG.KC.Co2K.subH (nat_lit 4) = true := by
-  quickRfl
 
 end CFSG.KD.Co2KP4
 

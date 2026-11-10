@@ -50,15 +50,6 @@ theorem CFSG.proposition_1_5_d {G A : Type*} [Group G] [Finite G] [Group A] [Fin
       (G := G) (A := A) hsolv hcoprime (π := π) H hHinv
 
 -- Proposition 1.5(e)
-theorem CFSG.proposition_1_5_e {G A : Type*} [Group G] [Finite G] [Group A] [Finite A]
-    [MulDistribMulAction A G] (hsolv : Group.IsSolvable G) (hcoprime : Nat.Coprime (Nat.card A) (Nat.card G))
-    (π : Set Nat.Primes) :
-    ∀ Hπ' : Subgroup G,
-      IsHallSubgroup {p | p ∉ π} Hπ' →
-        Hπ' ≤ fixedPointSubgroup A G → commutatorAction (A := A) (G := G) ≤ piCore π G := by
-  exact
-    commutatorAction_le_piCore_of_hall_complement_le_fixedPointSubgroup
-      (G := G) (A := A) hsolv hcoprime π
 
 
 end

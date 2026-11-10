@@ -31,8 +31,6 @@ namespace AbelianQ
 
 variable {Q : Subgroup G} {j : G} {hQab : ∀ x ∈ Q, ∀ y ∈ Q, x * y = y * x}
 
-theorem mem_invSub {u : G} : u ∈ invSub Q j hQab ↔ u ∈ Q ∧ j * u * j⁻¹ = u⁻¹ :=
-  Iff.rfl
 
 theorem invSub_le : invSub Q j hQab ≤ Q := fun _ hu => hu.1
 

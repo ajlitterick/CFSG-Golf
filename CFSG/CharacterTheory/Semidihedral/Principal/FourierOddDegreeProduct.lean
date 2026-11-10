@@ -489,23 +489,6 @@ theorem principal_Fourier_odd_degree_product_of_degrees (hn : 4 ≤ n)
   obtain ⟨hsign, hprod⟩ := odd_degree_product_algebra hq hf₁1 hf₂1 hf₃1 hδ₁ hδ₂ hδ₃ hdeg hQ
   exact ⟨hΘdec, hsign, hQ, hprod⟩
 
-theorem degree_one_eq_principal_of_simple [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (basis : FiniteIrreducibleCharacterBasis G) {principal : basis.index}
-    (hprincipal : (basis.representation principal).character = 1) (c : basis.index)
-    (hdeg : (basis.representation c).character 1 = 1) : c = principal := by
-  set u := degreeOneCharacterUnits (basis.representation c) hdeg with hu
-  rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal u.ker with hbot | htop
-  · exfalso
-    obtain ⟨a, b, hab⟩ := hnonab
-    apply hab
-    apply (MonoidHom.ker_eq_bot_iff u).mp hbot
-    rw [map_mul, map_mul, mul_comm]
-  · apply basis.distinct
-    funext g
-    have hg : g ∈ u.ker := htop ▸ Subgroup.mem_top g
-    rw [MonoidHom.mem_ker] at hg
-    show (basis.representation c).character g = (basis.representation principal).character g
-    rw [hprincipal, Pi.one_apply, ← degreeOneCharacterUnits_val _ hdeg, ← hu, hg, Units.val_one]
 
 theorem one_lt_degree_of_ne_principal (basis : FiniteIrreducibleCharacterBasis G)
     {principal c : basis.index} (hne : c ≠ principal)
@@ -521,68 +504,5 @@ theorem one_lt_degree_of_ne_principal (basis : FiniteIrreducibleCharacterBasis G
     have hf1 : f = 1 := by omega
     exact hne (hone (by rw [hf, hf1, Nat.cast_one]))
 
-theorem principal_Fourier_odd_degree_product [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hn : 4 ≤ n)
-    (e : SemidihedralGroup n ≃* (S : Subgroup G)) (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] (principal : basis.index)
-    (hprincipal : (basis.representation principal).character = 1) (c₁ c₂ c₃ : basis.index)
-    (hc₁B : c₁ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal)
-    (hc₂B : c₂ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal)
-    (hc₃B : c₃ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal)
-    (h01 : principal ≠ c₁) (h02 : principal ≠ c₂) (h03 : principal ≠ c₃) (h12 : c₁ ≠ c₂)
-    (h13 : c₁ ≠ c₃) (h23 : c₂ ≠ c₃)
-    (hodd : ∀ c ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal,
-      (∃ d : ℕ, Odd d ∧ (basis.representation c).character 1 = d) ↔
-        (c = principal ∨ c = c₁ ∨ c = c₂ ∨ c = c₃))
-    (f₁ f₂ f₃ : ℕ) (hf₁ : (basis.representation c₁).character 1 = f₁)
-    (hf₂ : (basis.representation c₂).character 1 = f₂)
-    (hf₃ : (basis.representation c₃).character 1 = f₃) (q : ℕ) (hq3 : 3 ≤ q) (_hqodd : Odd q)
-    (ε δ₁ δ₂ δ₃ : ℤ) (hε : ε = 1 ∨ ε = -1) (hδ₁ : δ₁ = 1 ∨ δ₁ = -1)
-    (hδ₂ : δ₂ = 1 ∨ δ₂ = -1) (hδ₃ : δ₃ = 1 ∨ δ₃ = -1) (Φ : G → ℂ)
-    (hΦ : ∃ y₁ ∈ Subgroup.centralizer {(e (r n) : G) ^ (modulus n / 2)},
-      ∃ y₂ ∈ Subgroup.centralizer {(e (r n) : G) ^ (modulus n / 2)},
-        Odd (orderOf y₁) ∧ Odd (orderOf y₂) ∧ Φ y₁ ≠ Φ y₂)
-    (hΦ1 : Φ 1 = q)
-    (hχ₁ : ∀ y ∈ Subgroup.centralizer {(e (r n) : G) ^ (modulus n / 2)}, Odd (orderOf y) →
-      (basis.representation c₁).character ((e (r n) : G) ^ (modulus n / 2) * y) =
-        δ₁ * ε * Φ y)
-    (hχ₂ : ∀ y ∈ Subgroup.centralizer {(e (r n) : G) ^ (modulus n / 2)}, Odd (orderOf y) →
-      (basis.representation c₂).character ((e (r n) : G) ^ (modulus n / 2) * y) =
-        -δ₂ * ε * Φ y)
-    (hχ₃ : ∀ y ∈ Subgroup.centralizer {(e (r n) : G) ^ (modulus n / 2)}, Odd (orderOf y) →
-      (basis.representation c₃).character ((e (r n) : G) ^ (modulus n / 2) * y) = -δ₃)
-    (hdeg : 1 + δ₁ * (f₁ : ℤ) + δ₂ * f₂ + δ₃ * f₃ = 0) :
-    let B := coefficientBlock basis (localizedComplexIntegerRing ideal) principal
-    let ρ : G := (e (r n) : G)
-    let M : ℕ := modulus n
-    let χ : basis.index → G → ℂ := fun c => (basis.representation c).character
-    let lam := cyclicLinearCharacter ρ M ((M / 2 : ℕ) : ℤ)
-    let Θ := principalCyclicProjection basis B ρ (fun x => 1 - lam x)
-    lam ⟨ρ, Subgroup.mem_zpowers ρ⟩ = -1 ∧
-    Θ = 1 + (δ₁ : ℂ) • χ c₁ + (δ₂ : ℂ) • χ c₂ + (δ₃ : ℂ) • χ c₃ ∧
-    1 < f₁ ∧ 1 < f₂ ∧ 1 < f₃ ∧
-    ((δ₁ = -1 ∧ δ₂ = -1 ∧ δ₃ = 1) ∨ (δ₁ = -1 ∧ δ₂ = 1 ∧ δ₃ = -1) ∨
-      (δ₁ = 1 ∧ δ₂ = -1 ∧ δ₃ = -1)) ∧
-    (1 : ℚ) + δ₁ * q ^ 2 / f₁ + δ₂ * q ^ 2 / f₂ + δ₃ / f₃ = 0 ∧
-    f₁ * f₂ = q ^ 2 * f₃ := by
-  intro B ρ M χ lam Θ
-  have hone := fun c (_ : c ∈ B) (hdeg1 : (basis.representation c).character 1 = 1) =>
-    degree_one_eq_principal_of_simple hnonab basis hprincipal c hdeg1
-  have hf₁1 := one_lt_degree_of_ne_principal basis (Ne.symm h01) (hone c₁ hc₁B) hf₁
-  have hf₂1 := one_lt_degree_of_ne_principal basis (Ne.symm h02) (hone c₂ hc₂B) hf₂
-  have hf₃1 := one_lt_degree_of_ne_principal basis (Ne.symm h03) (hone c₃ hc₃B) hf₃
-  obtain ⟨hΘ, hsign, hQ, hprod⟩ := principal_Fourier_odd_degree_product_of_degrees hn e basis
-    ideal principal hprincipal c₁ c₂ c₃ hc₁B hc₂B hc₃B h01 h02 h03 h12 h13 h23 hodd f₁ f₂ f₃
-    hf₁ hf₂ hf₃ q (by omega) ε δ₁ δ₂ δ₃ hε hδ₁ hδ₂ hδ₃ Φ hΦ hΦ1 hχ₁ hχ₂ hχ₃ hdeg hf₁1 hf₂1
-    hf₃1
-  have hlam : lam ⟨ρ, Subgroup.mem_zpowers ρ⟩ = -1 := by
-    have h := cyclicLinearCharacter_zpow (suppliedRotation_orderOf (n := n) (by omega) e)
-      ((modulus n / 2 : ℕ) : ℤ) 1
-    rw [mul_one, cyclicRoot_zpow_half hn] at h
-    rw [← h]
-    congr 1
-    exact Subtype.ext (zpow_one _).symm
-  exact ⟨hlam, hΘ, hf₁1, hf₂1, hf₃1, hsign, hQ, hprod⟩
 
 end CFSG.Semidihedral.Principal

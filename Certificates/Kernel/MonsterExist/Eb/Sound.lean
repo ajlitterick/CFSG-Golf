@@ -21,9 +21,6 @@ theorem bXK_eq (x y : ℕ) : bXK x y = (bX x y).toNat := by
 
 theorem beq_one_toNat (b : Bool) : Nat.beq b.toNat 1 = b := by cases b <;> rfl
 
-theorem bNot_true {c : Bool} : bIf(c, false, true) = true ↔ c = false := by cases c <;> simp
-
-theorem bNot_true' {t : Bool} : bIf(true, t, true) = t := rfl
 
 theorem case1Range_iff (lo n : ℕ) : case1Range lo n = true ↔ ∀ k < n, case1Bucket (lo + k) = true :=
   natRec_and_iff (fun k => case1Bucket (Nat.add lo k)) n

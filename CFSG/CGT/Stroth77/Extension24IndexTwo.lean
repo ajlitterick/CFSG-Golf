@@ -79,12 +79,5 @@ theorem false_of_index_two_t300_of_data {S : Type*} [Group S] [Finite S] {B C S'
   rw [hd]
   exact B.mul_mem hwB σ.2
 
-theorem false_of_index_two_t300 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S} {n : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t300 n)) (_hn : 1 ≤ n)
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_t300_of_data hB.data _hn hBC hC hrel hL hH hcS
 
 end CFSG.CGT.Stroth77

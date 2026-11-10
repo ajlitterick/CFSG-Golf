@@ -87,10 +87,6 @@ theorem pull_sup (e : ↥K ≃* C) (P Q : Subgroup C) :
       (P.map e.symm.toMonoidHom).map K.subtype ⊔ (Q.map e.symm.toMonoidHom).map K.subtype := by
   rw [Subgroup.map_sup, Subgroup.map_sup]
 
-theorem pull_inf (e : ↥K ≃* C) (P Q : Subgroup C) :
-    ((P ⊓ Q).map e.symm.toMonoidHom).map K.subtype =
-      (P.map e.symm.toMonoidHom).map K.subtype ⊓ (Q.map e.symm.toMonoidHom).map K.subtype := by
-  rw [Subgroup.map_inf _ _ _ e.symm.injective, Subgroup.map_inf _ _ _ K.subtype_injective]
 
 theorem pull_mono (e : ↥K ≃* C) {P Q : Subgroup C} (h : P ≤ Q) :
     (P.map e.symm.toMonoidHom).map K.subtype ≤ (Q.map e.symm.toMonoidHom).map K.subtype :=

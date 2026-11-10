@@ -67,7 +67,6 @@ theorem sign_of_isInvA {t : Array ℕ} (h : isInvA n t t = true) :
 
 end Arrays
 
-theorem reflS_size : reflS.size = 120 := by simp [reflS, posRoots]
 
 theorem wS_size : wS.size = 13 := by simp [wS, sgsRoots]
 
@@ -123,13 +122,6 @@ theorem sign_refl {r : ℕ} (hr : r < 240) : Equiv.Perm.sign (refl r) = -1 := by
   rw [refl, sign_of_isInvA (refl_facts.inv r hr), refl_facts.fix r hr]
   decide
 
-theorem reflS_getElem! {i : ℕ} (hi : i < 120) : reflS[i]! = reflArr (posRoots.getD i 0) := by
-  rw [reflS, getElem!_pos _ i (by simpa [posRoots] using hi)]
-  simp only [List.getElem_toArray, List.getElem_map]
-  rw [List.getD_eq_getElem _ _ (by simpa [posRoots] using hi)]
-
-theorem posRoots_lt {i : ℕ} (hi : i < 120) : posRoots.getD i 0 < 240 := by
-  interval_cases i <;> decide
 
 theorem wS_getElem! {i : ℕ} (hi : i < 13) : wS[i]! = reflArr (sgsRoots.getD i 0) := by
   rw [wS, getElem!_pos _ i (by simpa [sgsRoots] using hi)]
@@ -139,9 +131,6 @@ theorem wS_getElem! {i : ℕ} (hi : i < 13) : wS[i]! = reflArr (sgsRoots.getD i 
 theorem sgsRoots_lt {i : ℕ} (hi : i < 13) : sgsRoots.getD i 0 < 240 := by
   interval_cases i <;> decide
 
-theorem refl_eq_of_eqA {r s : ℕ} (hr : r < 240) (hs : s < 240)
-    (h : eqA 240 (reflArr r) (reflArr s) = true) : refl r = refl s :=
-  eq_of_eqA (rep_refl hr) (rep_refl hs) h
 
 theorem wE8_eq : wE8 = wQ.originalSubgroup := by
   rw [wQ, ofArrays_originalSubgroup, wE8]

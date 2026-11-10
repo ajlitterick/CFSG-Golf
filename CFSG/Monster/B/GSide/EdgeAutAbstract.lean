@@ -565,43 +565,6 @@ theorem mulAut_eq_inner_mul_beta [Finite A] (N : Subgroup A) [N.Normal]
     _ = g * x * (μ x * g⁻¹) := by rw [hμc x g⁻¹]
     _ = g * (x * μ x) * g⁻¹ := by group
 
-open scoped _root_.Classical in
-theorem exists_beta_mulEquiv (hidx : (commutator A).index = 2) {w : A}
-    (hw : ∀ a : A, a * w = w * a) (hw2 : w * w = 1) (hwA : w ∈ commutator A) :
-    ∃ β : MulAut A, ∀ x, β x = x * (if x ∈ commutator A then 1 else w) := by
-  let f : A → A := fun x => x * (if x ∈ commutator A then 1 else w)
-  have hmem : ∀ x, x * (if x ∈ commutator A then 1 else w) ∈ commutator A ↔
-      x ∈ commutator A := fun x => by
-    split_ifs
-    · rw [mul_one]
-    · exact (commutator A).mul_mem_cancel_right hwA
-  have hff : ∀ x, f (f x) = x := fun x => by
-    simp only [f, hmem]
-    split_ifs <;> simp [mul_assoc, hw2]
-  have hfmul : ∀ x y, f (x * y) = f x * f y := fun x y => by
-    simp only [f]
-    by_cases hx : x ∈ commutator A <;> by_cases hy : y ∈ commutator A
-    · rw [ite_eq_left ((commutator A).mul_mem hx hy), ite_eq_left hx, ite_eq_left hy]
-      group
-    · rw [ite_eq_right (fun h => hy (((commutator A).mul_mem_cancel_left hx).1 h)),
-        ite_eq_left hx, ite_eq_right hy]
-      group
-    · rw [ite_eq_right (fun h => hx (((commutator A).mul_mem_cancel_right hy).1 h)),
-        ite_eq_right hx, ite_eq_left hy]
-      calc x * y * w = x * (y * w) := mul_assoc _ _ _
-        _ = x * (w * y) := by rw [hw y]
-        _ = x * w * (y * 1) := by group
-    · rw [ite_eq_left ((Subgroup.mul_mem_iff_of_index_two hidx).2 (iff_of_false hx hy)),
-        ite_eq_right hx, ite_eq_right hy]
-      calc x * y * 1 = x * (y * (w * w)) := by rw [hw2]; group
-        _ = x * (y * w * w) := by group
-        _ = x * (w * y * w) := by rw [hw y]
-        _ = x * w * (y * w) := by group
-  exact ⟨{ toFun := f
-           invFun := f
-           left_inv := hff
-           right_inv := hff
-           map_mul' := hfmul }, fun _ => rfl⟩
 
 end Main
 

@@ -26,20 +26,5 @@ theorem exists_global_maximal_three_point_prime_overgroup
   intro V hV hWV hVthree
   exact hW.2 ⟨hW.1.1.trans hWV, hV, hVthree⟩ hWV
 
-omit [Finite G] in
-theorem global_three_point_prime_maximality_iff
-    (H : Subgroup G) (p : ℕ) (W : Subgroup G) :
-    (IsPGroup p W ∧ 3 ≤ Nat.card (pointFixedSet H W) ∧
-      ∀ V : Subgroup G, IsPGroup p V → W ≤ V →
-        3 ≤ Nat.card (pointFixedSet H V) → V ≤ W) ↔
-      Maximal (fun V : Subgroup G => IsPGroup p V ∧
-        2 < Nat.card (pointFixedSet H V)) W := by
-  constructor
-  · rintro ⟨hW, hthree, hmax⟩
-    refine ⟨⟨hW, by omega⟩, ?_⟩
-    intro V hV hWV
-    exact hmax V hV.1 hWV (by omega)
-  · rintro ⟨⟨hW, hthree⟩, hmax⟩
-    exact ⟨hW, by omega, fun V hV hWV hVthree => hmax ⟨hV, by omega⟩ hWV⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionThreePointClassFree

@@ -100,20 +100,6 @@ theorem exists_injective_of_dvd {m₁ m₂ d : ℕ} (hm₁ : m₁ ≠ 0) (hm₂ 
   · exact h1'
   · exact h2'
 
-theorem exists_injective_of_torus {Γ : Type*} [Group Γ] {m₁ m₂ d : ℕ} (hm₁ : m₁ ≠ 0)
-    (hm₂ : m₂ ≠ 0) (h₁ : d ∣ m₁) (h₂ : d ∣ m₂) (T₀ : Subgroup Γ)
-    (ψ : T₀ ≃* Multiplicative (ZMod m₁) × Multiplicative (ZMod m₂)) :
-    ∃ Ψ : (Fin 2 → Multiplicative (ZMod d)) →* Γ, Function.Injective Ψ := by
-  obtain ⟨Ψ₀, hΨ₀⟩ := exists_injective_of_dvd hm₁ hm₂ h₁ h₂
-  exact ⟨T₀.subtype.comp (ψ.symm.toMonoidHom.comp Ψ₀),
-    T₀.subtype_injective.comp (ψ.symm.injective.comp hΨ₀)⟩
-
-theorem sylowShape_of_torus {p e : ℕ} (hp : p.Prime) {Γ : Type*} [Group Γ] [Finite Γ]
-    {m₁ m₂ : ℕ} (hm₁ : m₁ ≠ 0) (hm₂ : m₂ ≠ 0) (h₁ : p ^ e ∣ m₁) (h₂ : p ^ e ∣ m₂)
-    (T₀ : Subgroup Γ) (ψ : T₀ ≃* Multiplicative (ZMod m₁) × Multiplicative (ZMod m₂))
-    (hord : (Nat.card Γ).factorization p = 2 * e) : SylowShape p 2 e Γ := by
-  obtain ⟨Ψ, hΨ⟩ := exists_injective_of_torus hm₁ hm₂ h₁ h₂ T₀ ψ
-  exact sylowShape_of_injective hp Ψ hΨ hord
 
 theorem dvd_card_of_pRank_pos {p : ℕ} (hp : p.Prime) {Γ : Type*} [Group Γ] [Finite Γ]
     (h : 1 ≤ CFSG.pRank p Γ) : p ∣ Nat.card Γ := by

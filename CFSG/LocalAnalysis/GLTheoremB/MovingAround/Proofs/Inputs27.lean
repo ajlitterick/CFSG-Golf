@@ -646,14 +646,6 @@ theorem input27_4_of_core (h : Input27_4Core) : Prop115.Input27_4 := by
       (fun h' => absurd h' hA2)
 
 
-theorem input27_3Core_of_input27_3 (h : Input27_3) : Input27_3Core := by
-  intro p hp hp2 X _ _ hXK hO K hK hKh E A hE hA hEA hEAp hr hc _ _ _ _ _
-  exact h p hp hp2 X hXK hO K hK hKh E A hE hA hEA hEAp hr.ge hc
-
-theorem input27_4Core_of_input27_4 (h : Prop115.Input27_4) : Input27_4Core := by
-  intro p hp hp2 X _ _ hXK hO K hK hKh E A hE hA hEA hEAp hr hc _ _ _ _ _ _
-  exact h p hp hp2 X hXK hO K hK hKh E A hE hA hEA hEAp hr hc
-
 section Gamma
 
 variable {X : Type} [Group X] [Finite X] {p : ℕ}
@@ -898,10 +890,6 @@ theorem inputI27111_of_inputs (h2319 : Lemma1315b.Input23_19) (hCS : InputI2711C
     rw [heq]
     exact hEl
 
-theorem inputI2711ChevPSpor_of_inputI27111 (h : Lemma138.InputI27111) : InputI2711ChevPSpor := by
-  intro X _ _ p hp hp2 L B hLK hLq hB hBN hmax hB4 _ _ _ _ J0 hJ0 hJt hJ5 hE
-  obtain ⟨E, hEB, -, hEi, hEl⟩ := hE
-  exact h X p hp hp2 L B hLK hLq hB hBN hmax hB4 J0 hJ0 hJt hJ5 ⟨E, hEB, hEi, hEl⟩
 
 end I2711
 
@@ -998,11 +986,6 @@ theorem input27_5_of_core (h : Input27_5Core) : Claims1245b.Input27_5 := by
       exact h X hXK hO K hK B hB hB9 hN hC' S hS hBS hSN hnc hcond
   · exact Or.inl (kStar_le_iSup_centralizer hB (by rw [hB9]; norm_num) hK hN)
 
-theorem input27_5Core_of_input27_5 (h : Claims1245b.Input27_5) : Input27_5Core := by
-  intro X _ _ hXK hO K hK B hB hB9 hN _ S hS hBS hSN hnc hcond
-  have hKs := kStar_eq_of_le_normalizer hN
-  have h1 := h X hXK hO K hK B hB hB9 S hS hBS (by rw [hKs]; exact hSN) (by rw [hKs]; exact hnc) hcond
-  rwa [hKs] at h1
 
 end I275
 

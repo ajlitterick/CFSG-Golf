@@ -362,10 +362,6 @@ theorem isGStar_of_dLevel_eq_five {B : Subgroup G} {x : G} {L : Subgroup G} (h :
   rw [if_neg hG] at h2
   omega
 
-theorem isGStar_of_caseA {B : Subgroup G} {x : G} {L : Subgroup G} {b : G}
-    (hBN : B ≤ Subgroup.normalizer (L : Set G)) (h : CaseA p B x L b) : IsGStar p B L := by
-  obtain ⟨E, hEB, hE, hcard, -, hne⟩ := h
-  exact ⟨E, hEB, hE, hcard, by rwa [closureIn_eq_self hBN]⟩
 
 theorem td4_gives_GStar (hc : S10Ctx G p) (hin : Lemma103Inputs G p) {B : Subgroup G} {x : G}
     {L : Subgroup G} {b : G} (h : Cfg p B x L b) (hp3 : p = 3)

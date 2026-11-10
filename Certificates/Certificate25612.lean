@@ -7,7 +7,5 @@ public section
 
 namespace Certificates
 
-theorem certificate25612 : CFSG.EvenSporadicStandard.Solomon78.fi22UmovData = true :=
-  CertificateChecks.KernelSpor.Fi22Um.fi22UmovData_true
 
 end Certificates

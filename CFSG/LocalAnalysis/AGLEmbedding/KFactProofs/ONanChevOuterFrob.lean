@@ -16,7 +16,6 @@ open CFSG.Quasithin CFSG.AGLEmbedding.D4Two CFSG.RankThree.PartTwo.Sec4.Item434D
   map_zero' := by decide
   map_add' := by decide
 
-theorem frobF_apply (a : GF8) : frobF a = a * a := rfl
 
 theorem frobF_cube (a : GF8) : frobF (frobF (frobF a)) = a := by
   revert a
@@ -70,8 +69,6 @@ theorem frobGL_mem {g : GL (Fin 8) GF8} (hg : g ∈ lineGroup) : frobGL g ∈ li
 @[expose] def frobT : lineGroup →* lineGroup :=
   (frobGL.comp lineGroup.subtype).codRestrict lineGroup fun g => frobGL_mem g.2
 
-theorem coe_frobT (g : lineGroup) :
-    ((frobT g : lineGroup) : GL (Fin 8) GF8) = frobGL (g : GL (Fin 8) GF8) := rfl
 
 theorem frobT_cube (g : lineGroup) : frobT (frobT (frobT g)) = g :=
   Subtype.ext (frobGL_cube _)

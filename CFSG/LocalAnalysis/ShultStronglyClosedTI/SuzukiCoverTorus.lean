@@ -28,8 +28,6 @@ theorem suzukiCoverTorusGL_le : suzukiCoverTorusGL m ≤ G := by
 @[expose] def suzukiCoverTorus : Subgroup G :=
   (suzukiCoverTorusGL m).subgroupOf G
 
-@[expose] def suzukiCoverTorusBridge : suzukiCoverTorus m ≃* suzukiCoverTorusGL m :=
-  Subgroup.subgroupOfEquivOfLe (suzukiCoverTorusGL_le m)
 
 @[expose] def suzukiCoverTorusHom : Kˣ →* suzukiCoverTorus m where
   toFun x := ⟨⟨SuzukiTorusGL m x,

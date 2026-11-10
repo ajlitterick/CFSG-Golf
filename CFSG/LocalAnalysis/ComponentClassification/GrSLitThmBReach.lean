@@ -52,7 +52,5 @@ theorem theoremBBoundedInput_of_theoremBReachInput (h : TheoremBReachInput) :
   fun X _ _ _ hnonab hK hz hU a x J hJ hbound htype =>
     h X hnonab hK hz hU a x J hJ (fun u v K hK' _ => hbound u v K hK') htype
 
-theorem theoremBReachInput_of_theoremBInput (h : GSLit.TheoremBInput) : TheoremBReachInput :=
-  fun X _ _ _ hnonab hK hz hU a x J hJ _ htype => (h X hnonab hK hz hU).1 a x J hJ htype
 
 end CFSG.ComponentClassification.GrSLit

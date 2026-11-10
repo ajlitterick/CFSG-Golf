@@ -31,13 +31,6 @@ theorem ggCommutator_self_le {G : Type*} [Group G] (H : Subgroup G) : ⁅H, H⁆
   Subgroup.commutator_le.mpr fun _ hg _ hh =>
     H.mul_mem (H.mul_mem (H.mul_mem hg hh) (H.inv_mem hg)) (H.inv_mem hh)
 
-theorem commutator_goodSL : ⁅goodSL E m, goodSL E m⁆ = goodSL E m := by
-  refine le_antisymm (ggCommutator_self_le _) (iSup_le fun b => ?_)
-  calc blockSL E m b.1 = ⁅blockSL E m b.1, blockSL E m b.1⁆ :=
-        (CFSG.RankThree.PartOne.KCUnitary.commutator_eq_of_isPerfect
-          (isPerfect_blockSL b.1 b.2.1 b.2.2)).symm
-    _ ≤ ⁅goodSL E m, goodSL E m⁆ :=
-        Subgroup.commutator_mono (blockSL_le_goodSL b.2) (blockSL_le_goodSL b.2)
 
 theorem apply_eq_one_of_mem_goodSL {w : PiGL E m} (hw : w ∈ goodSL E m) {b : ι}
     (hb : ¬ GoodBlock E m b) : w b = 1 := by

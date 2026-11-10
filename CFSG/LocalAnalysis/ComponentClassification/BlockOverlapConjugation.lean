@@ -22,12 +22,5 @@ theorem original {G : Type*} [Group G] (component first : Subgroup G) (actor mov
         (UniversalOrbitBlock.normalizer component).map (MulAut.conj actor).toMonoidHom :=
   inf first _ moving hmoving
 
-theorem opposite {G : Type*} [Group G] (component second : Subgroup G) (actor moving : G)
-    (hmoving : moving ∈ UniversalOrbitBlock.normalizer component) :
-    (UniversalOrbitBlock.conjugate second actor ⊓ UniversalOrbitBlock.normalizer component).map
-        (MulAut.conj moving).toMonoidHom =
-      UniversalOrbitBlock.conjugate (UniversalOrbitBlock.conjugate second actor) moving ⊓
-        UniversalOrbitBlock.normalizer component :=
-  inf _ _ moving hmoving
 
 end CFSG.ComponentClassification.BlockOverlapConjugation

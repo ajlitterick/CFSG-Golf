@@ -10,9 +10,6 @@ namespace CFSG.StandardType
 open CFSG.Assembly
 
 
-theorem ggRawInnFieldOn_twF4 : GGRawInnFieldOn fun lab => lab.tag = .twF4 :=
-  ggRawInnFieldOn_twF4_of_diag ggTwistedF4DiagInput_holds
-
 theorem ggRawInnFieldOn_rest5 :
     GGRawInnFieldOn fun lab => ¬ GGRawInnFieldDoneLabel lab ∧ ¬ GGOmegaLabel lab :=
   ggRawInnFieldOn_rest5_of_diag ggTwistedF4DiagInput_holds

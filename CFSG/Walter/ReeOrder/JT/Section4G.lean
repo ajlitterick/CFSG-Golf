@@ -113,50 +113,6 @@ theorem le_Q_of_normal_of_odd
     exact fun k hk => s.mem_Q_of_mem_D hp hQD hD (hKD hk)
       (Odd.of_dvd_nat hKodd (Subgroup.orderOf_dvd_natCard K hk))
 
-theorem mem_centralizer_Q_of_coprime
-    {y : G} (hy : y ∈ Subgroup.normalizer (s.Q : Set G))
-    (hcop : Nat.Coprime (orderOf y) 6) : y ∈ Subgroup.centralizer (s.Q : Set G) := by
-  have hQab : ∀ x ∈ s.Q, ∀ z ∈ s.Q, x * z = z * x := by
-    have := s.isCyclic_Q hp
-    intro x hx z hz
-    exact congrArg Subtype.val ((IsCyclic.commGroup (α := s.Q)).mul_comm ⟨x, hx⟩ ⟨z, hz⟩)
-  have hQC : s.Q ≤ Subgroup.centralizer (s.Q : Set G) := fun x hx =>
-    Subgroup.mem_centralizer_iff.mpr fun z hz => hQab z hz x hx
-  have hodd : Odd (orderOf y) := Nat.coprime_two_right.mp
-    (Nat.Coprime.coprime_dvd_right (by norm_num : 2 ∣ 6) hcop)
-  rcases s.lemma_4_4 hp hS with h1 | ⟨L, D, ⟨eL⟩, hQD, -, hD, hLD⟩
-  ·
-    have hyT : y ∈ Subgroup.normalizer (s.T : Set G) := h1 ▸ hy
-    have h3 : y ^ 3 ∈ Subgroup.centralizer (s.T : Set G) := by
-      have := centralizer_subgroupOf_normalizer_normal s.T
-      have h2 := Subgroup.pow_index_mem ((Subgroup.centralizer (s.T : Set G)).subgroupOf
-        (Subgroup.normalizer (s.T : Set G))) (⟨y, hyT⟩ : Subgroup.normalizer (s.T : Set G))
-      rw [← Subgroup.relIndex, s.relIndex_centralizer_T_normalizer_T hp,
-        Subgroup.mem_subgroupOf] at h2
-      exact h2
-    have hcop3 : Nat.Coprime (orderOf y) 3 :=
-      Nat.Coprime.coprime_dvd_right (by norm_num : 3 ∣ 6) hcop
-    have hyC : y ∈ Subgroup.centralizer (s.T : Set G) := by
-      have heq : Subgroup.zpowers (y ^ 3) = Subgroup.zpowers y :=
-        Subgroup.eq_of_le_of_card_ge ((Subgroup.zpowers_le).mpr
-          (Subgroup.pow_mem _ (Subgroup.mem_zpowers y) 3))
-          (by rw [Nat.card_zpowers, Nat.card_zpowers, hcop3.orderOf_pow])
-      have : y ∈ Subgroup.zpowers (y ^ 3) := heq ▸ Subgroup.mem_zpowers y
-      exact ((Subgroup.zpowers_le).mpr h3) this
-    exact hQC ((s.mem_Q_iff hp).mpr ⟨hyC, hodd⟩)
-  · obtain ⟨l, hl, d, hd, rfl⟩ := hLD.exists_mul hy
-    have hn := pow_orderOf_eq_one (l * d)
-    rw [Commute.mul_pow (hLD.commute hl hd)] at hn
-    have hl' : l ^ orderOf (l * d) = (d ^ orderOf (l * d))⁻¹ := eq_inv_of_mul_eq_one_left hn
-    have hl1 : l ^ orderOf (l * d) = 1 := (Subgroup.disjoint_def.mp hLD.2.1)
-      (L.pow_mem hl _) (hl' ▸ D.inv_mem (D.pow_mem hd _))
-    rw [hl1, one_mul] at hn
-    have hdQ : d ∈ s.Q := s.mem_Q_of_mem_D hp hQD hD hd
-      (Odd.of_dvd_nat hodd (orderOf_dvd_of_pow_eq_one hn))
-    refine Subgroup.mul_mem _ ?_ (hQC hdQ)
-    rw [Subgroup.mem_centralizer_iff]
-    intro x hx
-    exact (hLD.commute hl (hQD hx)).symm
 
 theorem eq_of_inf_ne_bot (g : G)
     (hne : s.Q ⊓ s.Q.map (MulAut.conj g).toMonoidHom ≠ ⊥) :

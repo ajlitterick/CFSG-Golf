@@ -32,8 +32,6 @@ section ToMat
     ext p q
     rfl
 
-theorem toMatEquiv_apply {k : Type*} [Field k] (z : (Fin 2 → Fin 2) → k) :
-    toMatEquiv k z = toMat z := rfl
 
 variable {F : Type*} [Field F] {k : Type*} [Field k] [Algebra F k] [CharP k 2]
 
@@ -59,9 +57,6 @@ theorem twAct_smul (s : ℕ) (γ X : Matrix (Fin 2) (Fin 2) F) (c : F) :
     twAct s γ (c • X) = c • twAct s γ X := by
   simp [twAct]
 
-theorem twAct_add (s : ℕ) (γ X Y : Matrix (Fin 2) (Fin 2) F) :
-    twAct s γ (X + Y) = twAct s γ X + twAct s γ Y := by
-  simp [twAct, Matrix.mul_add, Matrix.add_mul]
 
 theorem twAct_u (s : ℕ) (t : F) (X : Matrix (Fin 2) (Fin 2) F) :
     twAct s !![1, t; 0, 1] X =

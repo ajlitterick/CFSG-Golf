@@ -182,13 +182,5 @@ theorem mem_diagonalFieldActors_of_fix_heightSeries_E [Finite K] {τ : Tag}
   · exact mem_diagonalFieldActors_of_fix_heightSeries_E6 h1 hh hfix
   · exact mem_diagonalFieldActors_E7_E8 hτ β
 
-theorem exists_eq_conj_of_fix_heightSeries_E [Finite K] {τ : Tag}
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {h : ℤ} (h1 : 1 ≤ h) (hh : h ≤ simpleDiffTailMax τ)
-    {β : MulAut (adjointGroup τ K)}
-    (hfix : ∀ x : adjointGroup τ K, (x : ModGL τ K) ∈ heightSeries τ K h → β x = x) :
-    ∃ u ∈ posUnipotent τ K, ∃ hu : u ∈ adjointGroup τ K, β = MulAut.conj ⟨u, hu⟩ ∧
-      ∀ x ∈ heightSeries τ K h, u * x = x * u :=
-  exists_eq_conj_commute_of_mem_actors_of_fix_heightSeries h1 (simpleDiffTail_of_le hh)
-    (mem_diagonalFieldActors_of_fix_heightSeries_E hτ h1 hh hfix) hfix
 
 end CFSG.SeitzReduction

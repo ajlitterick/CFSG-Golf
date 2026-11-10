@@ -17,8 +17,6 @@ variable {G : Type*} [Group G]
 theorem conjugate_eq_map_conj_inv (H : Subgroup G) (g : G) :
     CFSG.conjugate H g = H.map (MulAut.conj g⁻¹).toMonoidHom := rfl
 
-theorem rightConjugate_eq_conjugate (H : Subgroup G) (g : G) :
-    AschbacherTightEmbedding.rightConjugate H g = CFSG.conjugate H g := rfl
 
 theorem map_conj_eq_conjugate_inv (H : Subgroup G) (g : G) :
     H.map (MulAut.conj g).toMonoidHom = CFSG.conjugate H g⁻¹ := by
@@ -65,26 +63,6 @@ theorem isStandardSubgroup_iff_assembly {L : Subgroup G} :
     CFSG.IsStandardSubgroup L ↔ Assembly.ComponentType.IsStandardSubgroup L :=
   isStandardSubgroup_iff_standardComponentIsStandard
 
-theorem classicalInvolutionTightlyEmbedded_bot :
-    Open.classicalInvolutionTightlyEmbedded (⊥ : Subgroup G) := fun g hg =>
-  (hg (by rw [Subgroup.normalizer_eq_top_iff.2 inferInstance]; exact Subgroup.mem_top g)).elim
-
-theorem not_tightlyEmbedded_bot :
-    ¬ AschbacherTightEmbedding.TightlyEmbedded (⊥ : Subgroup G) := by
-  rintro ⟨heven, -⟩
-  rw [Subgroup.card_bot] at heven
-  exact Nat.not_even_one heven
-
-theorem classicalInvolutionTightlyEmbedded_bot_and_not_tightlyEmbedded :
-    Open.classicalInvolutionTightlyEmbedded (⊥ : Subgroup G) ∧
-      ¬ AschbacherTightEmbedding.TightlyEmbedded (⊥ : Subgroup G) :=
-  ⟨classicalInvolutionTightlyEmbedded_bot, not_tightlyEmbedded_bot⟩
-
-theorem tightlyEmbedded_of_classical_of_mem {Q : Subgroup G}
-    (h : Open.classicalInvolutionTightlyEmbedded Q) {u : G} (hu : u ∈ Q) (hu2 : orderOf u = 2) :
-    AschbacherTightEmbedding.TightlyEmbedded Q :=
-  (AschbacherTightEmbedding.tightlyEmbedded_iff_classical Q).2
-    ⟨even_card_of_mem_of_orderOf_eq_two hu hu2, h⟩
 
 theorem standardComponentIsStandard_iff_classical {L : Subgroup G} :
     Open.standardComponentIsStandard L ↔

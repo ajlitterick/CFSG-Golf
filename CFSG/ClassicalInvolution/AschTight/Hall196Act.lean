@@ -312,25 +312,5 @@ theorem isQuaternionSub_of_swap [Finite G] {C P : Subgroup G} {p zc : G} (hCcyc 
   exact ⟨fun h => ⟨a₀, p, by omega, hcardP', h.trans hzc', hpa, hcl⟩,
     fun h => ⟨a₀, p, by omega, hcardP', h, hpa, hcl⟩⟩
 
-theorem eq_or_isQuaternionSub_or_isDihedralSub [Finite G] {W V C P : Subgroup G} {t : G}
-    (hWab : ∀ x ∈ W, ∀ y ∈ W, x * y = y * x) (hVW : V ≤ W) (hCW : C ≤ W)
-    (hCcyc : IsCyclic C) (hVcyc : IsCyclic V) (hcard : Nat.card V = Nat.card C)
-    (h4 : 4 ≤ Nat.card C) (hC2 : IsPGroup 2 C) (hV2 : IsPGroup 2 V)
-    (htV : t ∈ V) (ht1 : t ≠ 1) (ht2 : t * t = 1)
-    (hCP : C ≤ P) (hPN : P ≤ Subgroup.normalizer (W : Set G))
-    (hcomm : ∀ x ∈ P, ∀ w ∈ W, x * w * x⁻¹ * w⁻¹ ∈ C)
-    (hstar : ∀ x ∈ P, x * t = t * x → x ∈ C) :
-    P = C ∨ IsQuaternionSub P ∨ ∃ a b : G, 4 ≤ orderOf a ∧ Nat.card P = 2 * orderOf a ∧
-      b * b = 1 ∧ b * a * b⁻¹ = a⁻¹ ∧ Subgroup.closure {a, b} = P := by
-  classical
-  by_cases hPC : P ≤ C
-  · exact Or.inl (le_antisymm hPC hCP)
-  obtain ⟨p, hpP, hpC, zc, hzcC, hzc1, hzc2, -, -, hpinv, -, hp2, hcoset, hcardP, -⟩ :=
-    exists_swap_of_not_le hWab hVW hCW hCcyc hVcyc hcard h4 hC2 hV2 htV ht1 ht2 hCP hPN hcomm
-      hstar hPC
-  have hpk := isQuaternionSub_of_swap hCcyc h4 hC2 hCP hpP hzcC hzc1 hzc2 hpinv hcoset hcardP
-  rcases hp2 with h | h
-  · exact Or.inr (Or.inr (hpk.2 h))
-  · exact Or.inr (Or.inl (hpk.1 h))
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Hall196

@@ -15,9 +15,6 @@ variable {V : Type*} [CommGroup V]
 @[expose] def IsIrrSection (X : Subgroup (MulAut V)) (P Z : Subgroup V) : Prop :=
   Z < P ∧ ∀ U : Subgroup V, Z ≤ U → U ≤ P → (∀ x ∈ X, ∀ u ∈ U, x u ∈ U) → U = Z ∨ U = P
 
-@[expose] def IsNontrivialOrbit {n : ℕ} (F : Subgroup (Equiv.Perm (Fin n))) (O : Set (Fin n)) :
-    Prop :=
-  (∃ x, O = MulAction.orbit F x) ∧ O.Nontrivial
 
 @[expose] def IsMaxSwapGroup {n : ℕ} (Y : Subgroup (Equiv.Perm (Fin n))) : Prop :=
   ∃ T : Set (Equiv.Perm (Fin n)), (∀ t ∈ T, t.IsSwap) ∧ (∀ t ∈ T, ∀ t' ∈ T, t * t' = t' * t) ∧
@@ -116,14 +113,6 @@ theorem exists_moved_of_irr {F : Subgroup (Equiv.Perm (Fin n))}
   push Not at hcon
   exact hv (mem_fixV_map_iff.2 fun a ha i => by rw [hcon i a ha])
 
-theorem moved_of_nontrivial {F : Subgroup (Equiv.Perm (Fin n))} {x : Fin n}
-    (h : (MulAction.orbit F x).Nontrivial) : ∃ f ∈ F, f x ≠ x := by
-  by_contra hcon
-  push Not at hcon
-  obtain ⟨y, ⟨⟨g, hg⟩, rfl⟩, z, ⟨⟨k, hk⟩, rfl⟩, hyz⟩ := h
-  apply hyz
-  change g x = k x
-  rw [hcon g hg, hcon k hk]
 
 theorem same_orbit_of_moved (hn : Odd n) {F : Subgroup (Equiv.Perm (Fin n))}
     (hF : opResidual 2 F = F)
@@ -179,17 +168,5 @@ theorem same_orbit_of_moved (hn : Odd n) {F : Subgroup (Equiv.Perm (Fin n))}
     rw [vcoord_pairVec, vcoord_pairVec] at h5
     simp [hc₄, hc₄', hc₃.symm] at h5
 
-theorem two_fourteen_a (n : ℕ) (hn : Odd n) {F : Subgroup (Equiv.Perm (Fin n))}
-    (hF : opResidual 2 F = F)
-    (hirr : IsIrrSection (F.map (coreAct n))
-      (commV (F.map (coreAct n)) ⊔ fixV (F.map (coreAct n))) (fixV (F.map (coreAct n)))) :
-    ∃ O : Set (Fin n), IsNontrivialOrbit F O ∧ ∀ O', IsNontrivialOrbit F O' → O' = O := by
-  obtain ⟨x₀, hx₀⟩ := exists_moved_of_irr hirr
-  refine ⟨MulAction.orbit F x₀, ⟨⟨x₀, rfl⟩, ?_⟩, ?_⟩
-  · obtain ⟨f, hf, hfx⟩ := hx₀
-    exact ⟨x₀, MulAction.mem_orbit_self x₀, f x₀, ⟨⟨f, hf⟩, rfl⟩, hfx.symm⟩
-  · rintro O' ⟨⟨x', rfl⟩, hnt⟩
-    obtain ⟨f, hf, hfx⟩ := same_orbit_of_moved hn hF hirr (moved_of_nontrivial hnt) hx₀
-    exact MulAction.orbit_eq_iff.2 ⟨⟨f, hf⟩, hfx⟩
 
 end CFSG.CGT.PushingUpLit.BHS

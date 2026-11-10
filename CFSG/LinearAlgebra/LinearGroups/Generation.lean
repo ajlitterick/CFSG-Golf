@@ -10,48 +10,6 @@ open Matrix
 
 variable {K : Type*} [Field K] {n : ℕ}
 
-theorem list_prod_diagonal {ι : Type*} (L : List ι) (f : ι → Fin n → K) :
-    (L.map fun i => diagonal (f i)).prod = diagonal (fun k => (L.map fun i => f i k).prod) := by
-  induction L with
-  | nil => simp
-  | cons a L ih => rw [List.map_cons, List.prod_cons, ih, diagonal_mul_diagonal]; simp
-
-theorem special_linear_diagonal_generation (hn : 2 ≤ n) (d : Fin n → Kˣ)
-    (hd : ∏ i, (d i : K) = 1) :
-    diagonal (fun k => (d k : K)) =
-        (((List.finRange n).filter (fun i => i ≠ ⟨n - 1, by omega⟩)).map fun i =>
-          diagonal (fun k => if k = i then (d i : K) else
-            if k = ⟨n - 1, by omega⟩ then (d i : K)⁻¹ else 1)).prod ∧
-      ∃ h : (diagonal (fun k => (d k : K))).det = 1,
-        (⟨_, h⟩ : SpecialLinearGroup (Fin n) K) ∈ Subgroup.closure (elementarySet n K) := by
-  classical
-  set l : Fin n := ⟨n - 1, by omega⟩ with hl
-  have hdet : (diagonal (fun k => (d k : K))).det = 1 := by rw [det_diagonal]; exact hd
-  refine ⟨?_, hdet, ?_⟩
-  · rw [list_prod_diagonal]
-    congr 1
-    funext k
-    rw [← List.prod_toFinset _ ((List.nodup_finRange n).filter _), List.toFinset_filter,
-      List.toFinset_finRange]
-    simp only [decide_eq_true_eq, Finset.filter_ne']
-    by_cases hk : k = l
-    · subst hk
-      have hprod := Finset.mul_prod_erase Finset.univ (fun i => (d i : K)) (Finset.mem_univ l)
-      rw [hd] at hprod
-      have hrest : ∏ x ∈ Finset.univ.erase l, (d x : K) = (d l : K)⁻¹ :=
-        eq_inv_of_mul_eq_one_right hprod
-      rw [Finset.prod_congr rfl fun i hi => by
-        rw [ite_eq_right (Ne.symm (Finset.ne_of_mem_erase hi)), ite_eq_left rfl],
-        Finset.prod_inv_distrib, hrest, inv_inv]
-    · rw [Finset.prod_congr rfl fun i _ => by rw [ite_eq_right hk] , Finset.prod_ite_eq,
-        ite_eq_left (Finset.mem_erase.mpr ⟨hk, Finset.mem_univ _⟩)]
-  · have key : (⟨diagonal (fun k => (d k : K)), hdet⟩ : SpecialLinearGroup (Fin n) K) = _ :=
-      SpecialLinearGroup.diag_eq_diag2n_prod l _ hdet
-    rw [key]
-    refine Subgroup.noncommProd_mem (G := SpecialLinearGroup (Fin n) K) _ _ fun i hi => ?_
-    have hi' : i ≠ l := (Finset.mem_filter.mp hi).2
-    rw [dite_eq_left hi']
-    exact (elementary_diagonal_factorization hi' _).2.2.2.2
 
 theorem special_linear_elementary_generation :
     Subgroup.closure (elementarySet n K) = ⊤ := by

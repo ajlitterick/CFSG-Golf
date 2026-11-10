@@ -520,35 +520,5 @@ public theorem firstCase_cyclic_B_inter_FU_eq_bot_of_a7
   have hordF : orderOf x ∣ Nat.card (↥c.FU) := Subgroup.orderOf_dvd_natCard c.FU hxF
   exact orderOf_eq_one_iff.mp (Nat.eq_one_of_dvd_coprimes hFUodd hord2 hordF)
 
-/-- `F(U)` is abelian. -/
-public theorem firstCase_cyclic_FU_abelian_of_a7
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hfirst : FirstCase c)
-    (hcyclic : twoCoreOf c.Hhat ≤ c.S0)
-    (hU : od.d.bg.U = fittingSubgroupOf od.d.bg.U ⊔ od.d.bg.B)
-    (Q : Sylow od.p ↥od.d.bg.B)
-    (M : Subgroup G) (hMmax : IsCoatom M)
-    (hMN : Subgroup.normalizer
-      (sylowCarrier (firstCase_P2_sylow c od hU Q) : Set G) ≤ M)
-    (hSM : (c.S : Subgroup G) ≤ M)
-    (fd : FirstCaseFourData c od.d)
-    (hV2 : fd.V2 ≤ componentLayerOf M)
-    (hA7 : Nonempty ((componentLayerOf M) ⧸
-      pPrimeCore 2 (componentLayerOf M) ≃* alternatingGroup (Fin 7)))
-    (hp3 : od.p = 3) :
-    IsMulCommutative (↥c.FU) := by
-  classical
-  let : Fintype G := Fintype.ofFinite G
-  have hI2FU : od.d.I2 = c.FU :=
-    firstCase_cyclic_I2_eq_FU_of_a7 hmin c od hfirst hcyclic hU Q M hMmax hMN hSM
-      fd hV2 hA7 hp3
-  have hK2abel : IsMulCommutative (↥((firstCaseBGKData hmin c od.d).K2)) :=
-    (firstCase_cyclic_K2_abelian_normal hmin c od.d).1
-  change IsMulCommutative (↥od.d.I2) at hK2abel
-  rw [← hI2FU]
-  exact hK2abel
 
 end CFSG.GorensteinWalter

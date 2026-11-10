@@ -331,22 +331,6 @@ theorem E_regular_large_prime_toral_centralizer (τ : Tag) (hτ : τ = .E6 ∨ �
     adjointGroup τ M ⊓ Subgroup.centralizer {x} = torusGroup τ M :=
   regular_prime_toral_centralizer τ M hp (not_dvd_card_weylGroup_E hp hp7 hτ) hpM hxH hxp hreg
 
-theorem E6_E7_regular_large_prime_toral_centralizers (τ : Tag) (hτ : τ = .E6 ∨ τ = .E7)
-    (M : Type) [Field M] [Finite M] {p : ℕ} (hp : p.Prime) (hp7 : 7 < p)
-    (hpM : p ∣ Nat.card Mˣ) {x : ModGL τ M} (hxH : x ∈ torusGroup τ M) (hxp : orderOf x = p)
-    (hreg : ∀ a : Fin τ.rank → Mˣ, x = rootDiagUnit τ a →
-      ∀ α : Fin τ.rank → ℤ, IsRoot τ α → rootChar a α ≠ 1) :
-    adjointGroup τ M ⊓ Subgroup.centralizer {x} = torusGroup τ M :=
-  E_regular_large_prime_toral_centralizer τ (by rcases hτ with h | h <;> simp [h]) M hp hp7 hpM
-    hxH hxp hreg
-
-theorem E8_regular_large_prime_toral_centralizers (M : Type) [Field M] [Finite M] {p : ℕ}
-    (hp : p.Prime) (hp7 : 7 < p) (hpM : p ∣ Nat.card Mˣ) {x : ModGL Tag.E8 M}
-    (hxH : x ∈ torusGroup Tag.E8 M) (hxp : orderOf x = p)
-    (hreg : ∀ a : Fin Tag.E8.rank → Mˣ, x = rootDiagUnit Tag.E8 a →
-      ∀ α : Fin Tag.E8.rank → ℤ, IsRoot Tag.E8 α → rootChar a α ≠ 1) :
-    adjointGroup Tag.E8 M ⊓ Subgroup.centralizer {x} = torusGroup Tag.E8 M :=
-  E_regular_large_prime_toral_centralizer Tag.E8 (Or.inr (Or.inr rfl)) M hp hp7 hpM hxH hxp hreg
 
 end Regular
 

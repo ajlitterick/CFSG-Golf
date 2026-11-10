@@ -129,14 +129,6 @@ variable (F : Type u) [Field F] [Finite F]
       Subgroup.centralizer ({t} : Set (SL3 F ⧸ D)) :=
   (targetQuotientCentralizer F hF D z hz t hzt).comp (linearPlaneEquiv F b).toMonoidHom
 
-theorem linearMatrixTargetHom_coe (hF : Odd (Nat.card F))
-    (D : Subgroup (SL3 F)) [D.Normal] (z : SL3 F) (hz : orderOf z = 2)
-    (t : SL3 F ⧸ D) (hzt : QuotientGroup.mk' D z = t)
-    (b : Module.Basis (Fin 2) F (minusSpace (matrixAction F z).toLinearMap))
-    (a : (⊤ : Subgroup (GeneralLinearGroup (Fin 2) F))) :
-    (linearMatrixTargetHom F hF D z hz t hzt b a : SL3 F ⧸ D) =
-      QuotientGroup.mk' D (matrixCentralizerEquiv F hF z hz (linearPlaneEquiv F b a)) :=
-  targetQuotientCentralizer_coe F hF D z hz t hzt _
 
 theorem linearMatrixTargetHom_surjective (hF : Odd (Nat.card F))
     (D : Subgroup (SL3 F)) [D.Normal] (hD : D ≤ Subgroup.center (SL3 F))

@@ -51,9 +51,6 @@ theorem mem_fixSub {T : Set (MulAut B)} {b : B} : b ∈ fixSub T ↔ ∀ σ ∈ 
     rw [map_inv]
     exact congrArg (·⁻¹) hx
 
-theorem mem_invSub {hB : IsMulCommutative B} {σ : MulAut B} {b : B} :
-    b ∈ invSub hB σ ↔ σ b = b⁻¹ :=
-  Iff.rfl
 
 variable (hB : CFSG.Assembly.IsElemAbelian 3 B)
 include hB
@@ -80,21 +77,6 @@ theorem exists_fixed_of_isPGroup [Finite B] (h9 : Nat.card B = 9) {P : Subgroup 
   obtain ⟨⟨b, hb⟩, hb1⟩ := exists_ne (⟨1, h1⟩ : MulAction.fixedPoints P B)
   exact ⟨b, fun h => hb1 (Subtype.ext h), fun σ hσ => hb ⟨σ, hσ⟩⟩
 
-theorem exists_line_of_sq_eq_one [Finite B] (h9 : Nat.card B = 9) {σ : MulAut B}
-    (hσ : σ * σ = 1) : ∃ v : B, v ≠ 1 ∧ (σ v = v ∨ σ v = v⁻¹) := by
-  by_cases hinv : ∀ b : B, σ b = b⁻¹
-  · have : Nontrivial B := by
-      rw [← Finite.one_lt_card_iff_nontrivial, h9]
-      norm_num
-    obtain ⟨v, hv⟩ := exists_ne (1 : B)
-    exact ⟨v, hv, Or.inr (hinv v)⟩
-  · simp only [not_forall] at hinv
-    obtain ⟨b, hb⟩ := hinv
-    refine ⟨b * σ b, fun h => hb ?_, Or.inl ?_⟩
-    · exact (eq_inv_of_mul_eq_one_right h)
-    · have h2 : σ (σ b) = b := by
-        rw [← MulAut.mul_apply, hσ, MulAut.one_apply]
-      rw [map_mul, h2, mul_comm' hB]
 
 omit hB in
 theorem card_eq_three_of_ne [Finite B] (h9 : Nat.card B = 9) {V : Subgroup B} (hV1 : V ≠ ⊥)

@@ -251,44 +251,6 @@ theorem exists_pair_ne_fin (hn : 3 ≤ n) (k : Fin n) : ∃ i j : Fin n, i ≠ j
     · refine ⟨⟨0, by omega⟩, ⟨2, by omega⟩, ?_, ?_, ?_⟩ <;> simp [Fin.ext_iff, h1]
     · refine ⟨⟨0, by omega⟩, ⟨1, by omega⟩, ?_, ?_, ?_⟩ <;> simp [Fin.ext_iff] <;> omega
 
-theorem centralizer_longRoot_decomp (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n) (k : Fin n) :
-    ∃ (z : matrixProjectiveDerived (coordinateQuadPlus n K))
-      (Qz Mz : Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K))),
-      z ∈ pairPerp k ∧ IsLongRoot _ z ∧
-        CFSG.Quasithin.perfectCore (centralizer ({z} : Set _)) = centralizer {z} ∧
-        centralizer {z} = Qz ⊔ Mz ∧ IsPGroup 2 Qz ∧
-        Mz ≤ normalizer (Qz : Set (matrixProjectiveDerived (coordinateQuadPlus n K))) ∧
-        Disjoint Qz Mz ∧ (∀ N : Subgroup Mz, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-        pairTorus k ≤ Mz := by
-  obtain ⟨i, j, hij, hik, hjk⟩ := exists_pair_ne_fin (by omega : 3 ≤ n) k
-  have hQ := (regular_coordinateQuadPlus n K (by omega)).1
-  have hi := isHypCoord_coordinateQuadPlus (K := K) i
-  have hj := isHypCoord_coordinateQuadPlus (K := K) j
-  have hk := isHypCoord_coordinateQuadPlus (K := K) k
-  have h₁₂ := hi.orth hj (pairDisjoint_plus hij)
-  have h₁₃ := hi.orth hk (pairDisjoint_plus hik)
-  have h₂₃ := hj.orth hk (pairDisjoint_plus hjk)
-  refine ⟨plusRootElt K (by omega) hij hik hjk, rootRadicalBar _ hi.hypPair hj.hypPair,
-    rootLeviBar _ hi.hypPair hj.hypPair, ?_, isLongRoot_rootPairElt hQ h₁₂ h₁₃ h₂₃,
-    CFSG.Quasithin.perfectCore_eq_self_of_perfect
-      (commutator_centralizer_rootPairElt hn hq hij hik hjk),
-    centralizer_rootPairElt hQ h₁₂ h₁₃ h₂₃, isPGroup_rootRadicalBar _ _,
-    rootLeviBar_le_normalizer h₁₂, disjoint_rootRadicalBar_rootLeviBar h₁₂,
-    fun N hN h2 => rootLeviBar_normal_isPGroup_eq_bot hn hij N hN h2, ?_⟩
-  · exact rootPairElt_mem_pairPerpOf hQ h₁₂ h₁₃ h₂₃ hk
-      ⟨single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inr rfl)⟩
-  · exact pairTorusOf_le_rootLeviBar hk
-      ⟨single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hik _ _ (.inr rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inr rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inr rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inr rfl) (.inr rfl)⟩
 
 end Main
 

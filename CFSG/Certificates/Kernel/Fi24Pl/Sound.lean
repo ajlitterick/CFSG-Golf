@@ -16,10 +16,6 @@ open CFSG.LocalAnalysis.GLTheoremA.H1017.Fi22TwistNative (commAtN)
 
 theorem strictB_eq (y : Nat) (k : Nat → Bool) : strictB y k = k y := by cases y <;> rfl
 
-theorem pg_eq (p x : Nat) : pg 9 511 p x = (p >>> (9 * x)) % 512 := by
-  change Nat.land (Nat.shiftRight p (Nat.mul 9 x)) 511 = _
-  change p >>> (9 * x) &&& (2 ^ 9 - 1) = _
-  exact Nat.and_two_pow_sub_one_eq_mod _ 9
 
 theorem bp_lt {r : Nat} (hr : r < 6) : bp r < 504 := by
   interval_cases r <;> decide

@@ -111,11 +111,6 @@ theorem card_radA2 (hF : Nat.card F = 2 ^ 2) : Nat.card (radA2 F) = 2 ^ 6 := by
   rw [h, hF]
   norm_num
 
-theorem card_antiUnipotentCenter (hF : Nat.card F = 2 ^ 2) :
-    Nat.card (antiUnipotentCenter F) = 2 ^ 4 := by
-  have h := (card_radicals (K := F)).2.2.2
-  rw [h, hF]
-  norm_num
 
 theorem antiUnipotent_inf_dTor : antiUnipotent F ⊓ dTor F = ⊥ := by
   refine le_antisymm ?_ bot_le

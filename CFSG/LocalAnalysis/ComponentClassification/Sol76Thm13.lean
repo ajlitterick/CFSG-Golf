@@ -130,9 +130,5 @@ theorem false_of_isSolomonChoice
       (le_sup_left : K ⟨0, by omega⟩ ≤ K ⟨0, by omega⟩ ⊔ oddCoreIn D)
     omega
 
-theorem solomonThm13Input_of_inputs
-        (h313 : Lemma313Input) (h316 : Lemma316Input) : SolomonThm13Input :=
-  solomonThm13Input_of_noChoice fun _ _ _ hbelow _ hN =>
-    false_of_isSolomonChoice h313 h316 hbelow hN
 
 end CFSG.ComponentClassification.Sol76

@@ -12,15 +12,6 @@ namespace CFSG.StandardType.ZS
 
 variable {p : ℕ} [Fact p.Prime] {U : Type} [AddCommGroup U] [Module (ZMod p) U]
 
-private theorem transvection_pow_apply {t : U ≃ₗ[ZMod p] U} {u : U} {ψ : Module.Dual (ZMod p) U}
-    (hψu : ψ u = 0) (htu : ∀ v, t v = v + ψ v • u) (n : ℕ) (v : U) :
-    (t ^ n) v = v + (n * ψ v) • u := by
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    rw [pow_succ', LinearEquiv.mul_apply, ih, htu]
-    simp only [map_add, map_smul, hψu, smul_zero, add_zero]
-    module
 
 private theorem not_isTransvectionLin_of_finrank_le_one
     [Module.Finite (ZMod p) U]

@@ -79,12 +79,6 @@ open scoped Classical in
   | regs, .mu a b c :: rest => runProgram (Function.update regs c (regs a * regs b)) rest
   | regs, .iv a b :: rest => runProgram (Function.update regs b (regs a)⁻¹) rest
 
-@[expose] def firstUninitialized : List ℕ → List Data.Instr → Option ℕ
-  | _, [] => none
-  | init, .mu a b c :: rest =>
-    if a ∉ init then some a else if b ∉ init then some b else firstUninitialized (c :: init) rest
-  | init, .iv a b :: rest =>
-    if a ∉ init then some a else firstUninitialized (b :: init) rest
 
 theorem leadCoord_eq_of_find {z : Vec} {j : Fin 154}
     (h : (List.finRange 154).find? (fun j => z j != 0) = some j) : leadCoord z = z j := by
@@ -152,8 +146,6 @@ theorem base_facts : Data.baseList.length = 29 ∧ Data.baseList.Nodup ∧
     ∀ b ∈ Data.baseList, b < N := by
   decide
 
-theorem spanIdx_facts : Data.spanIdx.size = 154 ∧ ∀ i ∈ Data.spanIdx.toList, i < N := by
-  decide +kernel
 
 theorem words_facts : Data.strongWords.size = 7 ∧ Data.strongWords[0]! = [] ∧
     Data.strongWords[1]! = [] ∧
@@ -166,27 +158,5 @@ theorem normalize_zero : normalize 0 = 0 := by
   · exact neg_zero
   · rfl
 
-theorem program_facts : Data.subgroupProgram.length = 9 ∧
-    firstUninitialized [1, 2] Data.subgroupProgram = none := by
-  decide
-
-theorem cert_on_vector_line_data :
-    (Data.baseList.length = 29 ∧ Data.baseList.Nodup ∧ ∀ b ∈ Data.baseList, b < N) ∧
-    (Data.spanIdx.size = 154 ∧ ∀ i ∈ Data.spanIdx.toList, i < N) ∧
-    (Data.strongWords.size = 7 ∧ Data.strongWords[0]! = [] ∧ Data.strongWords[1]! = [] ∧
-      ∀ j < 7, 2 ≤ j → ∀ l ∈ Data.strongWords[j]!, l ≠ 0 ∧ l.natAbs ≤ j) ∧
-    (Data.subgroupProgram.length = 9 ∧ firstUninitialized [1, 2] Data.subgroupProgram = none) ∧
-    (∀ z : Vec, z ≠ 0 → (∃ c : ZMod 3, c ≠ 0 ∧ normalize z = c • z) ∧
-      leadCoord (normalize z) = 1 ∧ ∀ c : ZMod 3, c ≠ 0 → normalize (c • z) = normalize z) ∧
-    normalize 0 = 0 ∧
-    (∀ i, f0 i = lookup vv N (mA *ᵥ vv i) ∧ f1 i = lookup vv N (mB *ᵥ vv i)) ∧
-    (∀ j, l0 j = lookup uu nL (normalize (mA *ᵥ uu j)) ∧
-      l1 j = lookup uu nL (normalize (mB *ᵥ uu j))) ∧
-    (∀ i, piMap i = lookup uu nL (normalize (vv i)) ∧ sigmaMap i = lookup vv N (-vv i)) ∧
-    (∀ r k, basisMatrix r k = vv (spanIndex k) r) ∧
-    ∀ i j, pairing i j = vv i ⬝ᵥ (invariantForm *ᵥ vv j) :=
-  ⟨base_facts, spanIdx_facts, words_facts, program_facts, fun _ hz => normalize_spec hz,
-    normalize_zero, fun _ => ⟨rfl, rfl⟩, fun _ => ⟨rfl, rfl⟩,
-    fun _ => ⟨rfl, rfl⟩, fun _ _ => rfl, fun _ _ => rfl⟩
 
 end CFSG.ONSchreier

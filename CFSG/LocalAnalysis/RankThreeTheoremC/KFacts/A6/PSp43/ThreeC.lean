@@ -96,15 +96,8 @@ abbrev P3 : Subgroup (Equiv.Perm (Fin 45)) := gen (P3gens.map wperm)
 
 theorem card_Q0 : Nat.card Q0 = 27 := (card_gen_words Q0_enumOK).trans (by decide)
 theorem card_P3 : Nat.card P3 = 81 := (card_gen_words P3_enumOK).trans (by decide)
-theorem Q0_le_P : Q0 ≤ P := gen_words_le_P Q0gens
 theorem P3_le_P : P3 ≤ P := gen_words_le_P P3gens
 
-theorem Q0_le_P3 : Q0 ≤ P3 := by
-  apply Subgroup.closure_mono
-  intro g hg
-  simp only [Set.mem_setOf_eq, List.mem_map] at hg ⊢
-  obtain ⟨w, hw, rfl⟩ := hg
-  exact ⟨w, by simp [P3gens, Q0gens] at hw ⊢; tauto, rfl⟩
 
 theorem card_P3_eq : Nat.card P3 = 3 ^ (Nat.card P).factorization 3 := by
   rw [card_P3, card_P, factorization_three_25920]
@@ -125,7 +118,6 @@ theorem card_centralizer_P3_le {p : Equiv.Perm (Fin 45)} (hp : p ∈ P3) (hpQ : 
   rw [commB, beq_iff_eq]
   exact rep_eq_tab (rep_mul hr hsr) (hc ▸ rep_mul hsr hr)
 
-theorem c_mem_P : wperm cW ∈ P := wperm_mem cW
 
 theorem P3_le_centralizer_c : P3 ≤ centralizer ({wperm cW} : Set (Equiv.Perm (Fin 45))) := by
   rw [Subgroup.closure_le]

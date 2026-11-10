@@ -29,7 +29,6 @@ theorem mem_pt1_iff : ∀ c < 64, c ∈ pt1 ↔ c = 0 ∨ c = 1 ∨ c = 2 ∨ c 
 
 theorem one_xor_two : (1 : ℕ) ^^^ 2 = 3 := by decide
 
-theorem p1c_lt' : ∀ c ∈ p1c, c < 64 := by decide
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} [IsMulCommutative ↥V]
 

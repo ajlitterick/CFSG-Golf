@@ -67,15 +67,6 @@ end Wr
 @[expose] def swapPerm : Equiv.Perm (Fin 2 × Fin 6) :=
   Equiv.prodCongr (Equiv.swap 0 1) (Equiv.refl _)
 
-theorem pairPerm_apply_zero (a b : Equiv.Perm (Fin 6)) (j : Fin 6) :
-    pairPerm a b (0, j) = (0, a j) := by
-  simp [pairPerm]
-
-theorem pairPerm_apply_one (a b : Equiv.Perm (Fin 6)) (j : Fin 6) :
-    pairPerm a b (1, j) = (1, b j) := by
-  simp [pairPerm]
-
-theorem swapPerm_apply (i : Fin 2) (j : Fin 6) : swapPerm (i, j) = (Equiv.swap 0 1 i, j) := rfl
 
 theorem pairPerm_mul (a b a' b' : Equiv.Perm (Fin 6)) :
     pairPerm (a * a') (b * b') = pairPerm a b * pairPerm a' b' := by

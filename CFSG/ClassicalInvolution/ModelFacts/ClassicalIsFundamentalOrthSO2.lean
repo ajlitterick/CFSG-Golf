@@ -13,15 +13,6 @@ open scoped MatrixGroups commutatorElement
 
 variable {K : Type*} [Field K]
 
-theorem reflM_eq_neg_adjugate {v : Matrix (Fin 2) (Fin 2) K} (hv : v.det ≠ 0)
-    (X : Matrix (Fin 2) (Fin 2) K) : reflM v X = -((v.det)⁻¹ • (v * adjugate X * v)) := by
-  obtain ⟨p, q, r, s, rfl⟩ := exists_eq_of_fin_two v
-  obtain ⟨x, y, z, w, rfl⟩ := exists_eq_of_fin_two X
-  simp only [Matrix.det_fin_two_of] at hv
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [reflM, polarDet, Matrix.det_fin_two_of, Matrix.adjugate_fin_two_of] <;> field_simp <;>
-      ring
 
 theorem reflM_reflM_eq {v w : Matrix (Fin 2) (Fin 2) K} (hv : v.det ≠ 0) (hw : w.det ≠ 0)
     (X : Matrix (Fin 2) (Fin 2) K) :

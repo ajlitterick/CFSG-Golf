@@ -60,15 +60,6 @@ theorem card_map_mk_oddCore_of_mul_self [Finite Y] {P : Subgroup Y}
 
 end General
 
-@[expose] def LFiveSmallIdentInput : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], CFSG.IsQuasisimple S → center S = ⊥ →
-    ∀ τ : MulAut S, orderOf τ = 2 →
-    ∀ D : Subgroup (fixedSubgroup τ), IsComponent D → LieModel (D ⧸ center D) .PSL 3 2 1 →
-      (F4Pilot.FixedCentralizerTwoFree τ D ∨
-        (τ ∈ (MulAut.conj : S →* MulAut S).range ∧ FixedCentralizerTwoSmall τ D)) →
-      SLmSmall (S ⧸ center S) 3 1 →
-      LieModel S .PSL 2 7 2 ∨ LieModel S .PSL 3 7 1 ∨ LieModel S .PSU 3 7 1 ∨
-        Nonempty (S ≃* NativeSporadic.J2)
 
 @[expose] def LFiveSmallKindRankInput : Prop :=
   ∀ (S : Type) [Group S] [Finite S], CFSG.IsQuasisimple S → center S = ⊥ →

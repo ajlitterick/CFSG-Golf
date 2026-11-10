@@ -57,8 +57,6 @@ open CFSG.KC.LyOm CFSG.KC.Ord CFSG.KC.LL
 @[expose] def LCanon (w r c X : ℕ) : Prop :=
   X < 2 ^ (w * c * r) ∧ ∀ i < r, ∀ j < c, X / 2 ^ (w * c * i + w * j) % 2 ^ w < 5
 
-@[expose] def rowSpan (X : ℕ) : Submodule (ZMod 5) (Fin 111 → ZMod 5) :=
-  Submodule.span (ZMod 5) (Set.range (blkM X))
 
 @[expose] def lastCols (M : Matrix (Fin 7) (Fin 111) (ZMod 5)) : Matrix (Fin 7) (Fin 7) (ZMod 5) :=
   fun i j => M i ⟨104 + j.val, by omega⟩

@@ -255,9 +255,6 @@ theorem Kspan_le_centSub_of_le {A K : Subgroup (MulAut V)} {W : Subgroup V} (hAW
   rw [MulAut.apply_inv_self] at h2
   exact a⁻¹.injective h2
 
-theorem Kspan_le_stabSub_commV (A K : Subgroup (MulAut V)) :
-    Kspan A K ≤ stabSub (commV (Kspan A K)) :=
-  B1.le_stabSub_of_invariant (Kspan_invariant_commV A K)
 
 theorem not_le_centSub_commV_Kspan {G A K : Subgroup (MulAut V)} (hK : IsComponentOf K G) :
     ¬ K ≤ centSub (commV (Kspan A K)) := by
@@ -291,45 +288,6 @@ theorem commSub_commV_Kspan_ne_bot {G A K : Subgroup (MulAut V)} (hK : IsCompone
   have h3 := eq_bot_of_commV_eq_bot h2.symm
   exact ne_bot_of_isComponentOf hK (eq_bot_iff.mpr ((le_Kspan A K).trans h3.le))
 
-theorem restrict_commV {G A K : Subgroup (MulAut V)} (hA : IsFFStarOffender G A)
-    (hK : IsComponentOf K G) {a₀ : MulAut V} (ha₀ : a₀ ∈ A)
-    (hn : a₀ ∉ Subgroup.normalizer (K : Set (MulAut V))) :
-    IsFFStarOffender (autSub (Kspan A K ⊔ A) (commV (Kspan A K))) (autSub A (commV (Kspan A K))) ∧
-      IsComponentOf (autSub K (commV (Kspan A K)))
-        (autSub (Kspan A K ⊔ A) (commV (Kspan A K))) ∧
-      (autSub A (commV (Kspan A K)) ≤
-          Subgroup.normalizer (autSub K (commV (Kspan A K)) : Set (MulAut (commV (Kspan A K)))) →
-        A ≤ Subgroup.normalizer (K : Set (MulAut V))) :=
-  restrict_package hA hK (A_invariant_commV A K) (Kspan_invariant_commV A K)
-    (commSub_commV_Kspan_ne_bot hK hA.1 ha₀ hn) (not_le_centSub_commV_Kspan hK)
-
-theorem restrict_irrPlus {G A K : Subgroup (MulAut V)} (hA : IsFFStarOffender G A)
-    (hK : IsComponentOf K G) (hE : ⁅Kspan A K, A⁆ = Kspan A K) {I : Subgroup V}
-    (hI : I ∈ IrrPlus (Kspan A K) (⊤ : Subgroup V)) (hIA : ∀ a ∈ A, ∀ w ∈ I, a w ∈ I) :
-    IsFFStarOffender (autSub (Kspan A K ⊔ A) I) (autSub A I) ∧
-      IsComponentOf (autSub K I) (autSub (Kspan A K ⊔ A) I) ∧
-      (autSub A I ≤ Subgroup.normalizer (autSub K I : Set (MulAut I)) →
-        A ≤ Subgroup.normalizer (K : Set (MulAut V))) := by
-  obtain ⟨invI, commI, ltI, -⟩ := mem_irrPlus_top_iff.mp hI
-  have hnot : ¬ I ≤ fixV (Kspan A K) := by
-    intro h
-    have h1 : I ⊓ fixV (Kspan A K) = I := inf_eq_left.mpr h
-    rw [h1] at ltI
-    exact lt_irrefl _ ltI
-  have hbot : ¬ commSub I (Kspan A K) = ⊥ := fun h => hnot (commSub_eq_bot_iff.mp h)
-  refine restrict_package hA hK hIA invI ?_ ?_
-  · intro hbot'
-    exact hbot (by
-      have h1 := Kspan_le_centSub_of_fixed hE invI (commSub_eq_bot_iff.mp hbot')
-      rw [commSub_eq_bot_iff]
-      intro u hu e he
-      exact mem_centSub.mp (h1 he) u hu)
-  · intro hKI
-    exact hbot (by
-      have h1 := Kspan_le_centSub_of_le (B1.le_stabSub_of_invariant hIA) hKI
-      rw [commSub_eq_bot_iff]
-      intro u hu e he
-      exact mem_centSub.mp (h1 he) u hu)
 
 end CommE
 

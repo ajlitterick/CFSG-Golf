@@ -89,20 +89,6 @@ theorem fieldCoreAt_of_canonical_quasisimple [Finite C]
     have hdvd : orderOf g ∣ p := hδp ▸ orderOf_dvd_of_mem_zpowers hg1
     exact orderOf_eq_one_iff.1 (Nat.Coprime.eq_one_of_dvd hgp.symm hdvd)
 
-theorem fieldCoreAt_of_canonical_data [Finite C]
-    (hinj : Function.Injective (MulAut.conj : C →* MulAut C)) {p : ℕ}
-    {δ : MulAut C} (hδp : orderOf δ = p) {J : Subgroup C}
-    (hsimple : IsSimpleGroup J) (hnc : ¬ ∀ a b : J, a * b = b * a)
-    (hNδ : J.map (MulAut.conj : C →* MulAut C) ≤ Subgroup.centralizer ({δ} : Set (MulAut C)))
-    (hnormal : ((J.map (MulAut.conj : C →* MulAut C)).subgroupOf
-      (Subgroup.centralizer ({δ} : Set (MulAut C)))).Normal)
-    (hcent : Subgroup.centralizer ({δ} : Set (MulAut C)) ⊓
-      Subgroup.centralizer (((J.map (MulAut.conj : C →* MulAut C) : Subgroup (MulAut C)) :
-        Set (MulAut C))) = Subgroup.zpowers δ)
-    (hJp : ¬ Nat.Coprime p (Nat.card J)) : FieldCoreAt p δ :=
-  have : IsSimpleGroup J := hsimple
-  fieldCoreAt_of_canonical_quasisimple hinj hδp (isQuasisimple_of_simple_nonabelian hnc) hNδ
-    hnormal hcent hJp
 
 theorem fieldCoreAt_of_fixSub_eq {p : ℕ} {δ : MulAut C} (hδp : orderOf δ = p) {J : Subgroup C}
     (hJq : CFSG.IsQuasisimple J) (hJ : ∀ g : C, g ∈ J ↔ δ g = g)

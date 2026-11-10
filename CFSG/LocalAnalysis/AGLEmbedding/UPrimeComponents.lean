@@ -175,14 +175,6 @@ section Config
 variable {G : Type} [Group G] [Finite G] {P : Sylow p G} {M H R : Subgroup G}
   {Rbar : Sylow p (↥H ⧸ primeComplementCore (G := H) p)}
 
-theorem D1ComponentConfig.toPhaseThree_of_forall_kFact
-    (hcfg : D1ComponentConfig p P M H R Rbar)
-    (hU : ∀ L : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L ⊤ →
-      ¬ L ≤ ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) →
-      KFactUPrime p ↥L ∧ ∃ T : Sylow p ↥L, (GLBCore p 1 (T : Subgroup ↥L)).map L.subtype ≤
-        ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p))) :
-    D1PhaseThree p P M H R :=
-  hcfg.toPhaseThree (uPrimeHyp_of_forall_kFact hcfg.red.prime hU)
 
 theorem D1ComponentConfig.toPhaseThree_of_rankOne (hcfg : D1ComponentConfig p P M H R Rbar)
     {K : Subgroup (H ⧸ primeComplementCore (G := H) p)} (hK : IsComponentOf K ⊤)
@@ -209,16 +201,6 @@ theorem D1ComponentConfig.toPhaseThree_of_isCyclic (hcfg : D1ComponentConfig p P
   hcfg.toPhaseThree (uPrimeHyp_of_isCyclic hcfg.red.prime Rbar fun L hL hLX₀ =>
     ⟨hcyc L hL, hU L hL hLX₀⟩)
 
-theorem D1ComponentConfig.toPhaseThree_of_unique (hcfg : D1ComponentConfig p P M H R Rbar)
-    {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
-    (huniq : ∀ L : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L ⊤ → L = K)
-    (hN : ∀ U : Subgroup (H ⧸ primeComplementCore (G := H) p),
-      U ≤ (Rbar : Subgroup (H ⧸ primeComplementCore (G := H) p)) ⊓ K → U ≠ ⊥ →
-      K ⊓ Subgroup.normalizer (U : Set (H ⧸ primeComplementCore (G := H) p)) ≤
-        ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)))
-    (hk : KFactUPrime p ↥K) : D1PhaseThree p P M H R :=
-  hcfg.toPhaseThree (uPrimeHyp_of_forall_ne_le hcfg.red.prime Rbar
-    (fun L hL hLK => absurd (huniq L hL) hLK) hN hk)
 
 end Config
 

@@ -45,11 +45,6 @@ theorem vecPt_ptVec (i : Fin 31) (h : ptVec i ≠ 0) : vecPt (ptVec i) h = i := 
   apply Fin.succ_injective
   rw [vecPt, Fin.succ_pred, ptVec, Equiv.apply_symm_apply]
 
-@[expose] def ptEquiv : Fin 31 ≃ {v : V // v ≠ 0} where
-  toFun i := ⟨ptVec i, ptVec_ne_zero i⟩
-  invFun v := vecPt v.1 v.2
-  left_inv i := vecPt_ptVec i _
-  right_inv v := Subtype.ext (ptVec_vecPt v.1 v.2)
 
 theorem mulVec_ne_zero (g : G) {v : V} (hv : v ≠ 0) :
     (g : Matrix (Fin 5) (Fin 5) (ZMod 2)) *ᵥ v ≠ 0 := by
@@ -178,37 +173,10 @@ theorem bijective_toGL :
     rw [this, Units.val_one]
   exact ⟨⟨g, hdet⟩, Units.ext (Matrix.SpecialLinearGroup.coe_GL_coe_matrix _)⟩
 
-theorem center_SL_eq_bot : Subgroup.center (SpecialLinearGroup (Fin 5) (ZMod 2)) = ⊥ := by
-  rw [eq_bot_iff]
-  intro A hA
-  obtain ⟨r, hr, hA'⟩ := Matrix.SpecialLinearGroup.mem_center_iff.1 hA
-  rw [Subgroup.mem_bot]
-  have key : ∀ s : ZMod 2, s ^ 5 = 1 → s = 1 := by
-    intro s hs
-    rcases (by decide : ∀ s : ZMod 2, s = 0 ∨ s = 1) s with rfl | rfl
-    · simp at hs
-    · rfl
-  rw [Fintype.card_fin] at hr
-  have hr1 : r = 1 := key r hr
-  rw [hr1, map_one] at hA'
-  exact Subtype.ext hA'.symm
-
-theorem bijective_mk_center : Function.Bijective
-    (QuotientGroup.mk' (Subgroup.center (SpecialLinearGroup (Fin 5) (ZMod 2)))) := by
-  refine ⟨?_, QuotientGroup.mk'_surjective _⟩
-  rw [← MonoidHom.ker_eq_bot_iff, QuotientGroup.ker_mk', center_SL_eq_bot]
 
 theorem card_GL52 : Nat.card G = 2 ^ 10 * 3 ^ 2 * 5 * 7 * 31 := by
   rw [Matrix.card_GL_field, ZMod.card, Fin.prod_univ_five]
   norm_num [Fin.val_zero, Fin.val_one, Fin.val_two]
 
-@[expose] noncomputable def equivPSL : G ≃* ProjectiveSpecialLinearGroup (Fin 5) (ZMod 2) :=
-  (MulEquiv.ofBijective _ bijective_toGL).symm.trans (MulEquiv.ofBijective _ bijective_mk_center)
-
-theorem isSimpleGroup_GL52 : IsSimpleGroup G := by
-  obtain ⟨h1, h2, -⟩ := CFSG.LinearGroups.linear_projective_simple (K := ZMod 2) (n := 5)
-    (by norm_num) (Or.inl (by norm_num))
-  have : Nontrivial G := equivPSL.toEquiv.nontrivial
-  exact IsSimpleGroup.isSimpleGroup_of_surjective equivPSL.symm.toMonoidHom equivPSL.symm.surjective
 
 end CFSG.Literature.GL52

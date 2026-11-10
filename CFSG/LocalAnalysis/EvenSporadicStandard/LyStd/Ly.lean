@@ -30,11 +30,6 @@ theorem isDoubleCoverOfAlt_ly
   obtain ⟨hq, hc, hquot⟩ := CFSG.Sporadic.LySchreier.involution_centralizers_quasisimple hT t ht
   exact ⟨hq, hc, hquot⟩
 
-theorem stdHasIntrinsicAn_ly_of_maximal
-    (hmax : CentralizerComponentMaximal .Ly) : StdHasIntrinsicAn .Ly :=
-  stdHasIntrinsicAn_of_maximal (by norm_num)
-    (fun _ _ _ hT => exists_involution_of_isSporadic_ly hT)
-    (fun _ _ hT _ ht => isDoubleCoverOfAlt_ly hT ht) hmax
 
 theorem stdHasIntrinsicAn_ly_of_residuals
     (hsw : NoSwappedPair .Ly) (hct : ContainerIsDoubleCover .Ly) : StdHasIntrinsicAn .Ly :=

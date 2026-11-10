@@ -46,47 +46,5 @@ structure Ctx20 (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G)
         Multiplicative.toAdd (β w) =
           (α k : Matrix (Fin 3) (Fin 3) F).mulVec (Multiplicative.toAdd (β v))
 
-@[expose] def Item202 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G), Hyp201 G A M L N c →
-    scriptM ((A ⊔ kTwenty M c : Subgroup G) : Set G) = {M}
-
-@[expose] def Item203 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G), Hyp201 G A M L N c →
-    M ≤ Subgroup.normalizer (((A ⊓ L) ⊔ CFSG.Open.pCoreOf 2 M : Subgroup G) : Set G) ∧
-      Sec4.HasSection (Sec4.autIn M (A ⊓ L)) (QuaternionGroup 2)
-
-@[expose] def Item204 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T → scriptM ((kTwenty M c ⊔ T : Subgroup G) : Set G) = {M}
-
-@[expose] def Item205 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T →
-      ¬ CFSG.ABGLocalTools.IsSylowOf 2 T ⊤ ∧
-      (∀ C : Subgroup T, C.Characteristic → C ≠ ⊥ →
-        ¬ kTwenty M c ⊔ T ≤ Subgroup.normalizer ((C.map T.subtype : Subgroup G) : Set G)) ∧
-      (∃ n : ℕ, Odd n ∧ Nonempty (kTwenty M c ⧸ CFSG.pCore 2 (kTwenty M c) ≃*
-        CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 n))) ∧
-      ¬ 2 ∣ (M ⊓ N).relIndex M ∧
-      ∃ T' : Subgroup G, Ctx20 G A M L N c T' ∧ T' ≤ N
-
-@[expose] def Item206 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T → T ≤ N → ⁅vTwenty M c T, A ⊓ L⁆ = ⊥
-
-@[expose] def Item207 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T → T ≤ N →
-      kTwenty M c ⊓ Subgroup.centralizer (zTwenty T : Set G) ≤ N
-
-@[expose] def Item208 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T → T ≤ N →
-      IsBlock M (kTwenty M c) ∧ vTwenty M c T = CFSG.Open.pCoreOf 2 (kTwenty M c) ∧
-        ∃ n : ℕ, Odd n ∧ IsNaturalL3Module (kTwenty M c) (vTwenty M c T) n
-
-@[expose] def Item209 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
-    Ctx20 G A M L N c T → T ≤ N → ⁅L, vTwenty M c T⁆ = ⊥
 
 end CFSG.RankThree.PartTwo.Sec20

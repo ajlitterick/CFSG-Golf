@@ -210,10 +210,6 @@ theorem largeReeBlockSet_injective :
   obtain ⟨x, hx⟩ := List.exists_mem_of_ne_nil _ (largeReeBlockTable_ne_nil_nodup i).1
   exact largeReeBlockTable_disjoint i i' hne x hx ((Set.ext_iff.1 h x).1 hx)
 
-theorem ncard_largeReeBlockSet (i : Fin 16) :
-    {x | x ∈ largeReeBlockTable i}.ncard = (largeReeBlockTable i).length := by
-  rw [← List.coe_toFinset, Set.ncard_coe_finset,
-    List.toFinset_card_of_nodup (largeReeBlockTable_ne_nil_nodup i).2]
 
 theorem isRoot_of_mem_largeReeBlocks
     {Q : Set (Fin F4.tag.rank → ℤ)} (hQ : Q ∈ largeReeBlocks)
@@ -222,10 +218,6 @@ theorem isRoot_of_mem_largeReeBlocks
   obtain ⟨β, hβ, rfl⟩ := hx
   exact IsRoot.smul (mem_fixedOrbitRoots_iff.1 hβ).1 w
 
-theorem ncard_largeReeBlocks :
-    largeReeBlocks.ncard = 16 := by
-  rw [largeReeBlocks_eq_range, Set.ncard_range_of_injective largeReeBlockSet_injective,
-    Nat.card_eq_fintype_card, Fintype.card_fin]
 
 theorem largeReeBlocks_disjoint
     {Q Q' : Set (Fin F4.tag.rank → ℤ)} (hQ : Q ∈ largeReeBlocks)
@@ -245,20 +237,6 @@ theorem sUnion_largeReeBlocks :
   obtain ⟨i, hi⟩ := largeReeBlockTable_cover m hm
   exact ⟨_, largeReeBlockSet_mem i, hi⟩
 
-theorem ncard_largeReeBlocks_filter
-    (P : Set (Fin F4.tag.rank → ℤ) → Prop) (p : Fin 16 → Prop)
-    [DecidablePred p] (hP : ∀ i, P {x | x ∈ largeReeBlockTable i} ↔ p i) :
-    {Q | Q ∈ largeReeBlocks ∧ P Q}.ncard = (Finset.univ.filter p).card := by
-  have h : {Q | Q ∈ largeReeBlocks ∧ P Q} =
-      (fun i : Fin 16 => {x | x ∈ largeReeBlockTable i}) '' ↑(Finset.univ.filter p) := by
-    ext Q
-    rw [largeReeBlocks_eq_range]
-    constructor
-    · rintro ⟨⟨i, rfl⟩, hQ⟩
-      exact ⟨i, by simpa using (hP i).1 hQ, rfl⟩
-    · rintro ⟨i, hi, rfl⟩
-      exact ⟨⟨i, rfl⟩, (hP i).2 (by simpa using hi)⟩
-  rw [h, Set.ncard_image_of_injective _ largeReeBlockSet_injective, Set.ncard_coe_finset]
 
 theorem largeReeBlockSet_subset_iff
     (i : Fin 16) :
@@ -267,18 +245,6 @@ theorem largeReeBlockSet_subset_iff
   ⟨fun h _ hx => (h hx).2,
     fun h x hx => ⟨isRoot_of_mem_largeReeBlocks (largeReeBlockSet_mem i) hx, h x hx⟩⟩
 
-theorem ncard_largeReePosBlocks_filter
-    (n : ℕ) :
-    {Q | Q ∈ largeReePosBlocks ∧ Q.ncard = n}.ncard =
-      (Finset.univ.filter fun i : Fin 16 =>
-        (∀ x ∈ largeReeBlockTable i, 0 < height x) ∧ (largeReeBlockTable i).length = n).card := by
-  have e : {Q | Q ∈ largeReePosBlocks ∧ Q.ncard = n} = {Q | Q ∈ largeReeBlocks ∧
-      (Q ⊆ {α | IsRoot F4.tag α ∧ 0 < height α} ∧ Q.ncard = n)} := by
-    ext Q
-    exact and_assoc
-  rw [e]
-  exact ncard_largeReeBlocks_filter _ _ fun i => by
-    rw [largeReeBlockSet_subset_iff, ncard_largeReeBlockSet]
 
 theorem largeReeBlocks_sign
     {Q : Set (Fin F4.tag.rank → ℤ)} (hQ : Q ∈ largeReeBlocks) :
@@ -466,45 +432,6 @@ theorem bijOn_list_prod_largeReeBlockGroup
 
 end Groups
 
-theorem large_Ree_relative_block_collection
-    (a : ℕ) (K : Type) [Field K] [Finite K]
-    [CharP K F4.prime] :
-    largeReeBlocks.ncard = 16 ∧
-    (∀ Q ∈ largeReeBlocks, ∀ Q' ∈ largeReeBlocks, Q ≠ Q' → Disjoint Q Q') ∧
-    ⋃₀ largeReeBlocks = {α | IsRoot F4.tag α} ∧
-    {Q | Q ∈ largeReeBlocks ∧ Q.ncard = 2}.ncard = 8 ∧
-    {Q | Q ∈ largeReeBlocks ∧ Q.ncard = 4}.ncard = 8 ∧
-    (∀ Q ∈ largeReeBlocks, ((∀ α ∈ Q, 0 < height α) ∨ ∀ α ∈ Q, height α < 0) ∧
-      (∀ α ∈ Q, F4.dualRoot α ∈ Q) ∧
-      ∀ l : List (Fin F4.tag.rank → ℤ), l ≠ [] → (∀ α ∈ l, α ∈ Q) → IsRoot F4.tag l.sum →
-        l.sum ∈ Q) ∧
-    {Q | Q ∈ largeReePosBlocks ∧ Q.ncard = 2}.ncard = 4 ∧
-    {Q | Q ∈ largeReePosBlocks ∧ Q.ncard = 4}.ncard = 4 ∧
-    (∀ w ∈ F4.relWeylRee, ∀ j : Fin F4.fixedOrbitCount,
-      largeReeBlockGroup K a ((w • ·) '' F4.fixedOrbitRoots j) =
-        (F4.reeFixedOrbitUnipotent K a j).map
-          (MulAut.conj (canonicalRep (coxeterSystem F4.tag) K w)).toMonoidHom ∧
-      largeReeBlockGroup K a ((w • ·) '' F4.fixedOrbitRoots j) ≠ ⊥) ∧
-    ∀ Q : Fin 8 → Set (Fin F4.tag.rank → ℤ), Function.Injective Q →
-      Set.range Q = largeReePosBlocks →
-      Set.BijOn (fun x : Fin 8 → ModGL F4.tag K => (List.ofFn x).prod)
-        (Set.univ.pi fun k => (largeReeBlockGroup K a (Q k) : Set (ModGL F4.tag K)))
-        (F4.reeFixedPosUnipotent K a : Set (ModGL F4.tag K)) := by
-  obtain ⟨c2, c4, p2, p4⟩ := largeReeBlockTable_card
-  refine ⟨ncard_largeReeBlocks, fun Q hQ Q' hQ' hne => largeReeBlocks_disjoint hQ hQ' hne,
-    sUnion_largeReeBlocks, ?_, ?_,
-    fun Q hQ => ⟨largeReeBlocks_sign hQ, fun α hα => dualRoot_mem_largeReeBlocks hQ hα,
-      fun l hl hmem hr => list_sum_mem_largeReeBlocks hQ hl hmem hr⟩, ?_, ?_,
-    fun w hw j => ⟨largeReeBlockGroup_eq_map K a hw j, largeReeBlockGroup_ne_bot K a hw j⟩,
-    fun Q hQinj hQ => bijOn_list_prod_largeReeBlockGroup K a Q hQinj hQ⟩
-  · exact (ncard_largeReeBlocks_filter (fun Q => Q.ncard = 2)
-      (fun i => (largeReeBlockTable i).length = 2)
-      fun i => by rw [ncard_largeReeBlockSet]).trans c2
-  · exact (ncard_largeReeBlocks_filter (fun Q => Q.ncard = 4)
-      (fun i => (largeReeBlockTable i).length = 4)
-      fun i => by rw [ncard_largeReeBlockSet]).trans c4
-  · exact (ncard_largeReePosBlocks_filter 2).trans p2
-  · exact (ncard_largeReePosBlocks_filter 4).trans p4
 
 end ReeTag
 

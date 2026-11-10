@@ -285,10 +285,6 @@ theorem hMinus_mul {i j : Fin r} (hij : i ≠ j) (a b : kˣ) :
     hMinus π i j hij a * hMinus π i j hij b = hMinus π i j hij (a * b) := by
   rw [hMinus, hMinus, hMinus, ← map_mul, ← map_mul]
 
-omit [Finite k] [Finite E] in
-theorem hMinus_inv {i j : Fin r} (hij : i ≠ j) (a : kˣ) :
-    hMinus π i j hij a⁻¹ = (hMinus π i j hij a)⁻¹ := by
-  rw [hMinus, hMinus, map_inv, map_inv]
 
 variable (hS : LiftHyp π)
 include hS

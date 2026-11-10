@@ -28,19 +28,6 @@ theorem leviGroup_fix_line (hH : IsLeviSpace BN ℓ H) {g : Gsp BN} (hg : g ∈ 
     {x : N} (hx : x ∈ ℓ) : g.app x = x :=
   hg x (hH.2.1 hx)
 
-omit [FiniteDimensional K N] in
-include hBN in
-theorem leviGroup_commute_planeGroup (hH : IsLeviSpace BN ℓ H) {g h : Gsp BN}
-    (hg : g ∈ leviGroup BN H) (hh : h ∈ planeGroup hBN ℓ) : g * h = h * g := by
-  have : planeGroup hBN ℓ ≤ Subgroup.centralizer {g} := by
-    rw [planeGroup, Subgroup.closure_le]
-    rintro _ ⟨a, ha, c, hc, rfl⟩
-    rw [SetLike.mem_coe, Subgroup.mem_centralizer_iff]
-    intro k hk
-    rw [Set.mem_singleton_iff.mp hk]
-    exact (commute_lineElt_of_app_eq hBN (leviGroup_fix_line hH hg ha)
-      (leviGroup_fix_line hH hg hc)).eq
-  exact Subgroup.mem_centralizer_iff.mp (this hh) g rfl
 
 variable (hBNnd : BN.Nondegenerate)
 
@@ -165,13 +152,6 @@ theorem exists_leviEmb_eq {g : Gsp BN} (hg : g ∈ leviGroup BN H) :
       obtain ⟨g', hg'⟩ := exists_leviEmb_eq hBN hH hg
       exact ⟨g', Subtype.ext hg'⟩⟩
 
-theorem leviEquiv_apply (g : Gsp (BN.restrict (BN.orthogonal H))) :
-    ((leviEquiv hBN hH g : leviGroup BN H) : Gsp BN) = leviEmb hBN hH g := rfl
-
-include hBN hH in
-theorem nonempty_mulEquiv_leviGroup :
-    Nonempty (Gsp (BN.restrict (BN.orthogonal H)) ≃* leviGroup BN H) :=
-  ⟨leviEquiv hBN hH⟩
 
 include hBN hH in
 theorem IsLeviSpace.restrict_orthogonal_nondegenerate (hBNnd : BN.Nondegenerate) :
@@ -264,38 +244,6 @@ theorem map_sup_span_eq_of_mem_leviRoot (hH : IsLeviSpace BN ℓ H) {n : N}
     (ℓ ⊔ Submodule.span K {n}).map g.lin = ℓ ⊔ Submodule.span K {n} :=
   map_lin_eq_of_fixed g fun _ hx => app_eq_of_mem_leviRoot hBN hH hn hg hx
 
-include hBN in
-theorem mul_self_of_mem_leviRoot [CharP K 2] {n : N} {g : Gsp BN} (hg : g ∈ leviRoot hBN n) :
-    g * g = 1 := by
-  obtain ⟨c, rfl⟩ := (mem_leviRoot_iff hBN).mp hg
-  exact Tsp_mul_self hBN n c
-
-include hBN in
-theorem card_leviRoot [FiniteDimensional K N] (hBNnd : BN.Nondegenerate) {n : N} (hn0 : n ≠ 0) :
-    Nat.card (leviRoot hBN n) = Nat.card K := by
-  have hinj : Function.Injective (rootHom hBN n) := by
-    rw [injective_iff_map_eq_one]
-    intro t ht
-    have : Tsp hBN n t.toAdd = 1 := ht
-    rcases (Tsp_eq_one_iff hBN hBNnd n t.toAdd).mp this with h | h
-    · exact absurd h hn0
-    · exact Multiplicative.toAdd.injective h
-  rw [leviRoot_eq_range, Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv.symm]
-  exact Nat.card_congr Multiplicative.toAdd
-
-include hBN in
-theorem leviRoot_ne_of_linearIndependent [FiniteDimensional K N] (hBNnd : BN.Nondegenerate)
-    {n n' : N} (hind : LinearIndependent K ![n, n']) : leviRoot hBN n ≠ leviRoot hBN n' := by
-  intro h
-  have h1 : Tsp hBN n 1 ∈ leviRoot hBN n' := h ▸ (mem_leviRoot_iff hBN).mpr ⟨1, rfl⟩
-  obtain ⟨c, hc⟩ := (mem_leviRoot_iff hBN).mp h1
-  obtain ⟨z, hz⟩ := exists_apply_eq_of_linearIndependent hBNnd hind ![1, 0]
-  have hzn : BN z n = 1 := by simpa using hz 0
-  have hzn' : BN z n' = 0 := by simpa using hz 1
-  have h2 := congrArg (fun g : Gsp BN => g.app z) hc
-  simp only [Tsp_app, hzn, hzn', mul_zero, zero_smul, add_zero, mul_one, one_smul] at h2
-  have hn0 : n ≠ 0 := by simpa using hind.ne_zero (0 : Fin 2)
-  exact hn0 (add_eq_left.mp h2)
 
 end Root
 

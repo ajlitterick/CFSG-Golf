@@ -102,17 +102,5 @@ theorem two_generated_core_controls_involution_fusion
     _ = v * ((u⁻¹ * g * v)⁻¹ * (u⁻¹ * t * u) * (u⁻¹ * g * v)) * v⁻¹ := by rw [hh]
     _ = g⁻¹ * t * g := by group
 
-theorem involution_conjugacy_set_inter_overgroup
-    (S : Sylow 2 G) (H : Subgroup G) (hSH : (S : Subgroup G) ≤ H)
-    (hcore : properTwoGenCoreGamma (S : Subgroup G) 2 ≤ H)
-    (t : G) (htH : t ∈ H) (ht : orderOf t = 2) :
-    {x : G | ∃ g : G, g⁻¹ * t * g = x} ∩ (H : Set G) =
-      {x : G | ∃ h ∈ H, h⁻¹ * t * h = x} := by
-  ext x
-  constructor
-  · rintro ⟨⟨g, rfl⟩, hgH⟩
-    exact two_generated_core_controls_involution_fusion S H hSH hcore t htH ht g hgH
-  · rintro ⟨h, hhH, rfl⟩
-    exact ⟨⟨h, rfl⟩, H.mul_mem (H.mul_mem (H.inv_mem hhH) htH) hhH⟩
 
 end CFSG.ProperTwoGeneratedCore

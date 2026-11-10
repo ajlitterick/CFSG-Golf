@@ -158,13 +158,6 @@ literal source equality `F = F° F_{alpha,beta}`. -/
                 (QuotientGroup.mk 1 : conjugateCosetSpace M) ⊓
               MulAction.stabilizer X beta : Subgroup X) : Set X)
 
-/-- Full conclusion of Corollary 7.13 in the strongly embedded specialization. -/
-@[expose] public def Corollary713Conclusion
-    {X : Type u} [Group X] [Finite X]
-    (M F : Subgroup X) : Prop :=
-  ¬ involutionCoreIn F ≤ M ∧
-    (Corollary713SolvableConclusion M F ∨
-      Corollary713NonsolvableConclusion M F)
 
 /-! ## Proposition 8.4 -/
 

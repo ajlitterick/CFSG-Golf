@@ -14,8 +14,6 @@ namespace T85
 
 variable {G : Type*} [Group G]
 
-theorem lHat_le (H L : Subgroup G) : lHat H L ≤ H :=
-  sSup_le fun _ hR => lcal_le hR.1
 
 theorem le_lHat {H L R : Subgroup G} (hR : R ∈ lcal H)
     (hRL : ¬ L ≤ Subgroup.centralizer (R : Set G)) : R ≤ lHat H L :=

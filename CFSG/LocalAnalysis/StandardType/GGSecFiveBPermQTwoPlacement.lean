@@ -377,29 +377,6 @@ theorem ggSecFiveBPermQTwo_original_K_sup_conj_eq_sup
     sup_le le_sup_right hKg_le
   exact le_antisymm hLK hKL
 
-theorem ggSecFiveBPermQTwo_original_placement
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J K : Subgroup G} {𝒦 : Finset (Subgroup G)} {n m r : ℕ}
-    (hRt : GGSecFiveRouteCfg 3 B Bs x L D J 𝒦)
-    {eta : ↥Bs ≃* (Fin n → Multiplicative (ZMod 3))} {i0 : Fin n}
-    (hc : GGSecFiveBPermQTwoCell 3 Bs L 𝒦 n eta m K i0)
-    (hn : 4 ≤ n)
-    (π : Fin (r + 2) ≃ Fin n) (hπ0 : π 0 = i0)
-    {σ : SL(r + 2, GaloisField 2 2) →* G}
-    {χ : Multiplicative (ZMod 3) →* (GaloisField 2 2)ˣ}
-    (hLF : GGSecFiveBPermSpLFrame Bs L eta π σ χ) :
-    J = (CFSG.RankThree.CALinearPlane.coordBlockSL (GaloisField 2 2)
-        (Finset.univ.erase (0 : Fin (r + 2)))).map σ ∧
-      J ≤ K ∧
-      L = J ⊔ J.map
-        (MulAut.conj (σ (TypeA.permSL (Equiv.swap (0 : Fin (r + 2)) 1)))).toMonoidHom ∧
-      K ⊔ K.map
-        (MulAut.conj (σ (TypeA.permSL (Equiv.swap (0 : Fin (r + 2)) 1)))).toMonoidHom =
-          L ⊔ K := by
-  exact ⟨ggSecFiveBPermQTwo_original_J_eq_block hRt hc π hπ0 hLF,
-    ggSecFiveBPermQTwo_original_J_le_K hRt hc hn,
-    ggSecFiveBPermQTwo_original_J_sup_conj_eq_L hRt hc hn π hπ0 hLF,
-    ggSecFiveBPermQTwo_original_K_sup_conj_eq_sup hRt hc hn π hπ0 hLF⟩
 
 theorem ggSecFiveBPermQTwo_original_recognition_range
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}

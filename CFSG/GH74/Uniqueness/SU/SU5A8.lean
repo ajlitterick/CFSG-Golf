@@ -23,8 +23,6 @@ instance instDecHp (s : J2Syl) : Decidable (Hp s) := by unfold Hp; infer_instanc
 @[expose] def Hs : Subgroup J2Syl := subOfPred Hp (by decide +kernel) (by decide +kernel)
   (by decide +kernel)
 
-theorem card_Hs : Nat.card Hs = 16 := by
-  unfold Hs; rw [card_subOfPred]; decide +kernel
 
 @[expose] def rep (i : Fin 8) : J2Syl :=
   ⟨⟨if i.val % 2 = 0 then 0 else F4c.w, if (i.val / 2) % 2 = 0 then 0 else F4c.w, 0⟩,

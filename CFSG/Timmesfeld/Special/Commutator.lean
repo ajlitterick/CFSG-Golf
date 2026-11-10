@@ -84,17 +84,6 @@ theorem rootGroupCommutatorHom_injective (hclass : ∃ d₀ : G, D = {g | IsConj
   rw [h4g] at h2
   norm_num at h2
 
-theorem mul_sq_mul_eq_mul (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
-    (hD : IsRootInvolutionSet D) (hc : RootClosure D) (hd : d ∈ D) (he : e ∈ D)
-    (h4 : orderOf (d * e) = 4) {a b b' : G} (ha : a ∈ rootSet D d) (hb : b ∈ rootSet D e)
-    (hb' : b' ∈ rootSet D e) (hbb' : b ≠ b') : (a * (b * b')) ^ 2 = (a * b) ^ 2 * (a * b') ^ 2 := by
-  have hbb : b * b' ∈ rootSet D e := hc e he b hb b' hb' hbb'
-  have h2 := hD.mul_self_eq_one ha.1
-  rw [← Special.commutatorElement_eq_mul_sq h2 (hD.mul_self_eq_one hbb.1),
-    ← Special.commutatorElement_eq_mul_sq h2 (hD.mul_self_eq_one hb.1),
-    ← Special.commutatorElement_eq_mul_sq h2 (hD.mul_self_eq_one hb'.1)]
-  exact commutatorElement_mul_of_mem_rootGroup hclass hD hd he h4 ha
-    (rootSet_subset_rootGroup D e hb) (rootSet_subset_rootGroup D e hb')
 
 theorem mul_sq_injOn (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
     (hD : IsRootInvolutionSet D) (hc : RootClosure D) (hd : d ∈ D) (he : e ∈ D)

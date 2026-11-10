@@ -98,6 +98,5 @@ theorem fin76bInnerRest₆_of_rest₇ (h65 : Fin76bLemma65b) (hR : Fin76bInnerRe
   have hodd := hE.centralizer_oddCore_dihedral hcfg hSp hSC hSmax (k := 2) (by norm_num) ⟨e⟩
   exact hR G L z t T₀ E Q x β B hconf S hSp hSC hSmax hzS ⟨e⟩ hBS hodd
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end CFSG.EvenSporadicStandard.Fin76b

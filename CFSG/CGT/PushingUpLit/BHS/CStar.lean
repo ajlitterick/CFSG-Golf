@@ -23,9 +23,6 @@ theorem cgsIn_mono {H H' S : Subgroup Γ} (h : H ≤ H') : cgsIn H S ≤ cgsIn H
   iSup_mono fun _ => iSup_mono fun _ => iSup_mono fun _ => iSup_mono fun _ =>
     inf_le_inf_right _ h
 
-theorem cStarIn_mono {G G' : Subgroup Γ} (T : Subgroup Γ) (h : G ≤ G') :
-    cStarIn G T ≤ cStarIn G' T :=
-  sup_le_sup (inf_le_inf_right _ h) (cgsIn_mono h)
 
 theorem centralizer_le_cStarIn (G T : Subgroup Γ) :
     G ⊓ Subgroup.centralizer (omegaOneCenterOf T : Set Γ) ≤ cStarIn G T := le_sup_left

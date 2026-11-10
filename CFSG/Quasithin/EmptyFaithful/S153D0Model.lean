@@ -55,10 +55,6 @@ theorem oTwoUpper_inf_L₂_eq (h : OfourStruct X L₁ L₂ t) {T' : Subgroup (Mu
     · exact absurd (by simpa using hkeq) hne9
   exact (Subgroup.eq_of_le_of_card_ge hle (by rw [hc, hc3])).symm
 
-theorem oTwoUpper_inf_L₁_eq (h : OfourStruct X L₁ L₂ t) {T' : Subgroup (MulAut W)}
-    (hT : IsSylowTwoOf T' X) {x : MulAut W} (hxL : x ∈ L₁) (hx3 : orderOf x = 3) :
-    oTwoUpper X ⊓ L₁ = Subgroup.zpowers x :=
-  oTwoUpper_inf_L₂_eq h.symm hT hxL hx3
 
 theorem zpowers_sup_eq_oTwoUpper (h : OfourStruct X L₁ L₂ t) {T' : Subgroup (MulAut W)}
     (hT : IsSylowTwoOf T' X) {x₁ x₂ : MulAut W} (h₁ : x₁ ∈ L₁) (h₂ : x₂ ∈ L₂)
@@ -101,38 +97,6 @@ theorem zpowers_sup_eq_oTwoUpper (h : OfourStruct X L₁ L₂ t) {T' : Subgroup 
     · simpa using hkeq
   exact Subgroup.eq_of_le_of_card_ge hAle (by rw [hc, h9])
 
-theorem eq_one_of_centralizes_oTwoUpper (h : OfourStruct X L₁ L₂ t) {T' : Subgroup (MulAut W)}
-    (hT : IsSylowTwoOf T' X) {s : MulAut W} (hsT : s ∈ T')
-    (hc : ∀ y ∈ oTwoUpper X, s * y = y * s) : s = 1 := by
-  set C : Subgroup (MulAut W) :=
-    T' ⊓ Subgroup.centralizer (oTwoUpper X : Set (MulAut W)) with hC
-  have hCX : C ≤ X := inf_le_left.trans hT.1
-  have hCp : IsPGroup 2 C := hT.2.1.to_le inf_le_left
-  have hXN : X ≤ Subgroup.normalizer (C : Set (MulAut W)) := by
-    rw [← h.sup_oTwoUpper_eq hT]
-    refine sup_le (fun g hg => A4.mem_normalizer_of_conj_mem fun x hx => ?_)
-      (fun g hg => A4.mem_normalizer_of_conj_mem fun x hx => ?_)
-    · have h1 := Subgroup.mem_centralizer_iff.mp hx.2 g hg
-      have : g * x * g⁻¹ = x := by
-        rw [h1]
-        group
-      rw [this]
-      exact hx
-    · refine ⟨T'.mul_mem (T'.mul_mem hg hx.1) (T'.inv_mem hg), ?_⟩
-      refine Subgroup.mem_centralizer_iff.mpr fun y hy => ?_
-      have hgn : g ∈ Subgroup.normalizer (oTwoUpper X : Set (MulAut W)) :=
-        le_normalizer_oTwoUpper X (hT.1 hg)
-      have hy' : g⁻¹ * y * g ∈ oTwoUpper X := by
-        have := (Subgroup.mem_normalizer_iff.mp (Subgroup.inv_mem _ hgn) y).mp hy
-        simpa using this
-      have h1 := Subgroup.mem_centralizer_iff.mp hx.2 _ hy'
-      calc y * (g * x * g⁻¹) = g * ((g⁻¹ * y * g) * x) * g⁻¹ := by group
-        _ = g * (x * (g⁻¹ * y * g)) * g⁻¹ := by rw [h1]
-        _ = g * x * g⁻¹ * y := by group
-  have hbot : C = ⊥ := h.eq_bot_of_normal_isPGroup hT hCX hXN hCp
-  have hsC : s ∈ C := ⟨hsT, Subgroup.mem_centralizer_iff.mpr fun y hy => (hc y hy).symm⟩
-  rw [hbot, Subgroup.mem_bot] at hsC
-  exact hsC
 
 theorem model_signs (h : OfourStruct X L₁ L₂ t) {T' : Subgroup (MulAut W)}
     (hT : IsSylowTwoOf T' X) {x₁ x₂ : MulAut W} (hx₁L : x₁ ∈ L₁) (hx₂L : x₂ ∈ L₂)

@@ -136,36 +136,5 @@ theorem blocksIrr_prod_card_two {Z : Type} [Group Z] [Fintype Z] [DecidableEq Z]
 theorem outerProductCharacter_apply {Z L : Type} (ε : Z → ℂ) (θ : L → ℂ) (z : Z) (x : L) :
     outerProductCharacter ε θ (z, x) = ε z * θ x := rfl
 
-theorem prod_psl2_character_table {F : Type} [Field F] [Fintype F] [DecidableEq F]
-    (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F) {ν : F} (hν : ¬ IsSquare ν)
-    {ψ : AddChar F ℂ} (hψ : ψ.IsPrimitive) {Z : Type} [Group Z] [Fintype Z] [DecidableEq Z]
-    (hZ : Nat.card Z = 2) :
-    BlocksIrr (Z × PSL(2, F)) = {χ | ∃ ε ∈ ({1, signChar Z} : Set (Z → ℂ)),
-      ∃ θ : PSL(2, F) → ℂ,
-      (θ = 1 ∨ θ = steinberg F ∨
-        (∃ α : splitTorus F →* ℂˣ, α ^ 2 ≠ 1 ∧ θ = principal α) ∨
-        (∃ β : nonsplitTorus ν →* ℂˣ, β ^ 2 ≠ 1 ∧ θ = discrete β) ∨
-        θ = halfPlus hF ψ ν ∨ θ = halfMinus hF ψ ν) ∧ χ = outerProductCharacter ε θ} ∧
-    (∀ ε ∈ ({1, signChar Z} : Set (Z → ℂ)), ∀ ε' ∈ ({1, signChar Z} : Set (Z → ℂ)),
-      ∀ θ ∈ BlocksIrr PSL(2, F), ∀ θ' ∈ BlocksIrr PSL(2, F),
-        outerProductCharacter ε θ = outerProductCharacter ε' θ' → ε = ε' ∧ θ = θ') := by
-  obtain ⟨hIrr, hinj⟩ := blocksIrr_prod_card_two hZ PSL(2, F)
-  have hL := (psl2_character_table hF hq hν hψ).1
-  refine ⟨?_, hinj⟩
-  rw [hIrr]
-  ext χ
-  constructor
-  · rintro ⟨θ, hθ, h | h⟩
-    · rw [hL] at hθ
-      exact ⟨1, Or.inl rfl, θ, hθ, h⟩
-    · rw [hL] at hθ
-      exact ⟨signChar Z, Or.inr rfl, θ, hθ, h⟩
-  · rintro ⟨ε, hε, θ, hθ, rfl⟩
-    have hθ' : θ ∈ BlocksIrr PSL(2, F) := by
-      rw [hL]
-      exact hθ
-    rcases hε with rfl | rfl
-    · exact ⟨θ, hθ', Or.inl rfl⟩
-    · exact ⟨θ, hθ', Or.inr rfl⟩
 
 end CFSG.PSL2Table

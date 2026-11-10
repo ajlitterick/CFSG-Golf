@@ -96,14 +96,6 @@ theorem torus_agree_long [Finite F] (P : TwistedB2Model F E G) (hν : ∃ t, P.n
   · intro m hm hcentral
     exact P.centralizer_long hν hl (hM ▸ hm) hcentral
 
-theorem torus_agree_short [Finite E] (P : TwistedB2Model F E G) (hμ : ∃ s, P.mu s ≠ 1)
-    (hE : 3 ≤ Nat.card E) (t : Fin 2)
-    {θ₁ : G →* X} {θ₂ : SL(3, E) →* X} (hs : Function.Injective (θ₁.comp P.sb))
-    (h₂ : θ₂.ker ≤ Subgroup.center SL(3, E))
-    (hM : (θ₁.comp P.sb).range = (Bs E t).map θ₂)
-    (hcomm : ∀ x ∈ (θ₁.comp P.lb).range, ∀ y ∈ (Bs E t.rev).map θ₂, x * y = y * x) :
-    (diagTorus2 E).map (θ₁.comp P.sb) = (Ds E t).map θ₂ :=
-  torus_agree_long P.swap hμ hE t hs h₂ hM hcomm
 
 end Agree
 

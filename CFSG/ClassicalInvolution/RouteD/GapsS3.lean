@@ -292,17 +292,5 @@ theorem standardPairAutAbelian_of_classification [Finite F] (hodd : Odd (Nat.car
           (slConjugation 3 F swapGL (blockSL2 F 2 ⟨1, by omega⟩ (flipSL B))))
       rw [conj_swap_one, flipSL_flipSL]
 
-theorem perfect_le_centralizer_of_partner_of_classification {p f : ℕ} [Fact p.Prime]
-    (hMFZ : FundNoncentral p) {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    (hodd : Odd (Nat.card F)) (h5 : 5 ≤ Nat.card F) (hcl : LinearAutClassification F 3)
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) {t : G} (hP1 : LocalOddCentral Ω {t})
-    (D : LieSystemData p f (locQuot Ω t) (locFamily Ω t)) (hD : D.card ≤ 4)
-    {W K₀ K : Subgroup G} (hK : K ∈ Ω) (hxK : IsClassicalMember p f K t)
-    (hWK : LinearBlockStandardPair F W K₀ K) {S : Subgroup G} (hS : ⁅S, S⁆ = S)
-    (hSt : S ≤ Subgroup.centralizer ({t} : Set G))
-    (hS₀ : S ≤ Subgroup.centralizer (K₀ : Set G)) : S ≤ Subgroup.centralizer (K : Set G) :=
-  perfect_le_centralizer_of_partner hMFZ (standardPairAutAbelian_of_classification hodd h5 hcl) hΩ
-    hP1 D hD hK hxK hWK hS hSt hS₀
-
 
 end CFSG.ClassicalInvolution.RouteD.Gaps

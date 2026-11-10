@@ -53,10 +53,6 @@ theorem isSubnormal_twImage (hΩ : Q3T7M.HM Ω) {M : Subgroup G} {t : G}
     (hM : M ∈ Ω) (hMt : IsUniqueInvolution M t) : IsSubnormal (twImage t M) ⊤ :=
   CFSG.ClassicalInvolution.T7FU.Asc77.isSubnormal_twImage (⟨hΩ, hΩ.toGen⟩) hM hMt
 
-theorem mem_oddCore_of_coe_mem_oddCoreOf (hΩ : Q3T7M.HM Ω) {M : Subgroup G} {t : G}
-    (hM : M ∈ Ω) (hMt : IsUniqueInvolution M t) {x : ↥(TwC t)} (hx : (x : G) ∈ oddCoreOf M) :
-    x ∈ classicalInvolutionOddCore ↥(TwC t) :=
-  CFSG.ClassicalInvolution.T7FU.Asc77.mem_oddCore_of_coe_mem_oddCoreOf (⟨hΩ, hΩ.toGen⟩) hM hMt hx
 
 theorem commutes_twImage (hΩ : Q3T7M.HM Ω) {M J : Subgroup G} {t : G} (hM : M ∈ Ω)
     (hJ : J ∈ Ω) (hMJ : M ≠ J) (hMt : IsUniqueInvolution M t) (hJt : IsUniqueInvolution J t) :
@@ -193,20 +189,10 @@ namespace CentQuot
 open CFSG.ClassicalInvolution.Asc77.AscE186.CentQuot
 variable (c : Asc77.AscE186.CentQuot Ω N)
 include c
-omit [Finite G] in
-
-theorem natCard_map {J : Subgroup G} (hJ : J ∈ Ω) :
-    Nat.card ↥(J.map (QuotientGroup.mk' N)) = Nat.card J :=
-  (Nat.card_congr (AscQuot.quotRestrictEquiv (c.meet J hJ)).toEquiv).symm
 
 theorem isSylow2In_map {J V : Subgroup G} (hJ : J ∈ Ω) (hV : IsSylow2In V J) :
     IsSylow2In (V.map (QuotientGroup.mk' N)) (J.map (QuotientGroup.mk' N)) :=
   CFSG.ClassicalInvolution.T7FU.Asc77.AscE186.CentQuot.isSylow2In_map c.toU hJ hV
-omit [Finite G] in
-
-theorem le_of_map_eq [Finite G] {A B : Subgroup G} (hA : A ∈ Ω) (hB : B ∈ Ω)
-    (h : A.map (QuotientGroup.mk' N) = B.map (QuotientGroup.mk' N)) : A ≤ B :=
-  T7FU.Asc77.AscE186.CentQuot.le_of_map_eq c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hA hB h
 omit [Finite G] in
 
 theorem eq_of_map_eq [Finite G] {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω)
@@ -225,15 +211,6 @@ theorem mem_normalizer_of_map {K : Subgroup G} (hK : K ∈ Ω) {u : G}
   T7FU.Asc77.AscE186.CentQuot.mem_normalizer_of_map c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hK
     hu
 
-theorem exists_lift_RSet {J : Subgroup G} (hJ : J ∈ Ω) {Rb : Subgroup (G ⧸ N)}
-    (hRb : Rb ∈ RSet (quotFamily Ω N)) (hRbJ : Rb ≤ J.map (QuotientGroup.mk' N)) :
-    ∃ R ∈ RSet Ω, R ≤ J ∧ R.map (QuotientGroup.mk' N) = Rb :=
-  T7FU.Asc77.AscE186.CentQuot.exists_lift_RSet c.toU hJ hRb hRbJ
-
-theorem exists_lift_USet {J : Subgroup G} (hJ : J ∈ Ω) {Ub : Subgroup (G ⧸ N)}
-    (hUb : Ub ∈ USet (quotFamily Ω N)) (hUbJ : Ub ≤ J.map (QuotientGroup.mk' N)) :
-    ∃ U ∈ USet Ω, U ≤ J ∧ U.map (QuotientGroup.mk' N) = Ub :=
-  CFSG.ClassicalInvolution.T7FU.Asc77.AscE186.CentQuot.exists_lift_USet c.toU hJ hUb hUbJ
 
 theorem omegaStarNbr_of_map {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω)
     (h : J.map (QuotientGroup.mk' N) ∈
@@ -253,10 +230,6 @@ theorem omegaNbr_map {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ omegaNbr Ω 
       omegaNbr (quotFamily Ω N) (K.map (QuotientGroup.mk' N)) :=
   T7FU.Asc77.AscE186.CentQuot.omegaNbr_map c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hK hJ
 
-theorem dstarAdj_of_map {L L' : Subgroup G} (hL : L ∈ Ω) (hL' : L' ∈ Ω)
-    (h : dstarAdj (quotFamily Ω N) (L.map (QuotientGroup.mk' N))
-      (L'.map (QuotientGroup.mk' N))) : dstarAdj Ω L L' :=
-  T7FU.Asc77.AscE186.CentQuot.dstarAdj_of_map c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hL hL' h
 
 theorem exists_lift_dstarComp {K : Subgroup G} (hK : K ∈ Ω) {Mb : Subgroup (G ⧸ N)}
     (hMb : Mb ∈ dstarComp (quotFamily Ω N) (K.map (QuotientGroup.mk' N))) :
@@ -367,43 +340,9 @@ theorem endgame_none (hΩ : HypOmega Ω) {H : Subgroup G} {t : G}
 end EndNone
 section EndOne
 variable [Finite G]
-omit [Finite G] in
-
-theorem conj_mul_commE (δ y x : G) : y * commE δ x * y⁻¹ = commE δ (y * x) * (commE δ y)⁻¹ := by
-  unfold commE
-  group
 
 @[expose] def commSub (K : Subgroup G) (δ : G) : Subgroup G :=
   Subgroup.closure (Set.range fun x : ↥K => commE δ (x : G))
-omit [Finite G] in
-
-theorem commSub_le (K : Subgroup G) {δ : G} (hδ : conjSub δ K = K) : commSub K δ ≤ K := by
-  refine (Subgroup.closure_le K).mpr ?_
-  rintro _ ⟨x, rfl⟩
-  have h1 : δ * (x : G) * δ⁻¹ ∈ K := by
-    have := conj_mem_conjSub (n := δ) x.2
-    rwa [hδ] at this
-  exact K.mul_mem x.2 (K.inv_mem h1)
-omit [Finite G] in
-
-theorem commSub_normal (K : Subgroup G) (δ : G) :
-    ∀ y ∈ K, ∀ w ∈ commSub K δ, y * w * y⁻¹ ∈ commSub K δ := by
-  intro y hy w hw
-  induction hw using Subgroup.closure_induction with
-  | mem w hw =>
-    obtain ⟨x, rfl⟩ := hw
-    rw [conj_mul_commE]
-    refine Subgroup.mul_mem _ (Subgroup.subset_closure ⟨⟨y * x, K.mul_mem hy x.2⟩, rfl⟩)
-      (Subgroup.inv_mem _ (Subgroup.subset_closure ⟨⟨y, hy⟩, rfl⟩))
-  | one => simp
-  | mul a b _ _ ha hb =>
-    have : y * (a * b) * y⁻¹ = (y * a * y⁻¹) * (y * b * y⁻¹) := by group
-    rw [this]
-    exact Subgroup.mul_mem _ ha hb
-  | inv a _ ha =>
-    have : y * a⁻¹ * y⁻¹ = (y * a * y⁻¹)⁻¹ := by group
-    rw [this]
-    exact Subgroup.inv_mem _ ha
 
 theorem endgame_one (hΩ : HypOmega Ω) {H : Subgroup G} {t : G}
     (hbad : ∀ M ∈ Ω, IsUniqueInvolution M t → ∀ u ∈ M, orderOf u = 4 → u ∉ H)

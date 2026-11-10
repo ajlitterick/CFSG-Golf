@@ -247,12 +247,6 @@ theorem conjProj_coordBlock_injective (hn : 3 ≤ n)
   (MonoidHom.ofInjective (conjProj_coordBlock_injective hn hinj a b)).trans
     (MulEquiv.subgroupCongr (by rw [MonoidHom.range_comp, range_subtype]; rfl))
 
-theorem coe_pairSliceEquiv (hn : 3 ≤ n)
-    (hinj : Function.Injective (MulAut.conj : projectiveSL n K →* MulAut (projectiveSL n K)))
-    (g : coordBlock K {a, b}) :
-    ((pairSliceEquiv hn hinj a b g : pairSlice K a b) : MulAut (projectiveSL n K)) =
-      conjProj n K g :=
-  rfl
 
 theorem center_coordBlock_pair (hab : a ≠ b) :
     center (coordBlock K {a, b}) =

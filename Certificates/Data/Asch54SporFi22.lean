@@ -371,29 +371,6 @@ open CFSG.Sporadic.FischerOddCore CFSG.Sporadic.FischerOddCore.Native
 
 @[expose] def tGen (i : Nat) : Array Nat := (fi22OuterStrong3510 4)[i]!
 
-@[expose] def a0ChainOK (chunks : Nat) : Bool :=
-  let O := a0Orig
-  let S := a0Strong
-  rawChainOK 3510 O S fi22BaseArr a0Words chunks &&
-    rawOrbitSizes 3510 S fi22BaseArr == [1536, 360, 32, 1, 1, 1] &&
-    O.size == 2 && O.all fi22InP
-
-@[expose] def mOK (LA LH : Array Level) : Bool :=
-  let m := mArr
-  let mi := invCand 3510 m
-  isInvA 3510 m mi && eqA 3510 (compA 3510 m m) (idA 3510) &&
-    fi22InP (compA 3510 fi22GraphOuterArr m) &&
-    allLt 9 (fun i => fi22InT (conjArr 3510 m mi (tGen i))) &&
-    a0Orig.all (fun x => siftA 3510 LA fi22BaseArr 0 (conjArr 3510 m mi x)) &&
-    allLt 9 (fun k => siftA 3510 LH fi22BaseArr 0 (conjArr 3510 m mi (ctiG k)))
-
-@[expose] def pairChecks (chunks : Nat) : Bool :=
-  let LA := rawLevels 3510 a0Strong fi22BaseArr
-  let LH := rawLevels 3510 (fi22CentStrong 1) fi22BaseArr
-  a0ChainOK chunks &&
-    allLt 9 (fun i => siftA 3510 LA fi22BaseArr 0 (tGen i) &&
-      siftA 3510 LH fi22BaseArr 0 (tGen i)) &&
-    mOK LA LH
 
 @[expose] def genOrig (_ : Unit := ()) : Array (Array Nat) :=
   a0Orig ++ (List.range 9).toArray.map ctiG
@@ -411,18 +388,5 @@ open CFSG.Sporadic.FischerOddCore CFSG.Sporadic.FischerOddCore.Native
 @[expose] def genA1Word (_ : Unit := ()) : List Int :=
   [-4, -25, 2, 20, 15, 14, 16, 24, 22, 16, -25, 21, 26, 24, 19, 25]
 
-@[expose] def genChecks (_ : Unit := ()) : Bool :=
-  let O := genOrig
-  let W := genWords
-  let S := slpStrong 3510 O W
-  let Si := rawInvs 3510 S
-  O.size == 11 && S.size == W.size &&
-    allLt S.size (fun j => isInvA 3510 S[j]! Si[j]!) &&
-    allLt O.size (fun k => eqA 3510 S[k]! O[k]!) &&
-    allLt S.size (fun j => decide (j < O.size) ||
-      (lettersOK j W[j]! && eqA 3510 S[j]! (wordA 3510 S Si W[j]!))) &&
-    lettersOK S.size genA0Word && lettersOK S.size genA1Word &&
-    eqA 3510 (fi22ChainGen 0) (wordA 3510 S Si genA0Word) &&
-    eqA 3510 (fi22ChainGen 1) (wordA 3510 S Si genA1Word)
 
 end CFSG.LocalAnalysis.WeakClosure81.Asch54Fi22

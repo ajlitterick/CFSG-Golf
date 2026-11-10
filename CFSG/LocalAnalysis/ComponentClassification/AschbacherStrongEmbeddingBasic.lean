@@ -48,13 +48,6 @@ theorem centralizer_le_of_unique (huniq : ∀ g : G, z ∈ rightConjugate H g �
     rw [mul_assoc, ← Subgroup.mem_centralizer_singleton_iff.mp hg, inv_mul_cancel_left]
   exact (conj_mem_iff huniq g).mp (by rw [hfix]; exact mem_of_unique huniq)
 
-theorem normalizer_eq_of_unique (huniq : ∀ g : G, z ∈ rightConjugate H g ↔ g ∈ H) :
-    Subgroup.normalizer (H : Set G) = H := by
-  apply le_antisymm _ H.le_normalizer
-  intro g hg
-  apply (conj_mem_iff huniq g).mp
-  have hg' := (Subgroup.normalizer (H : Set G)).inv_mem hg
-  simpa only [inv_inv] using (Subgroup.mem_normalizer_iff.mp hg' z).mp (mem_of_unique huniq)
 
 theorem smul_eq_iff_eq_base (huniq : ∀ g : G, z ∈ rightConjugate H g ↔ g ∈ H)
     (ω : G ⧸ H) : z • ω = ω ↔ ω = QuotientGroup.mk 1 := by
@@ -81,9 +74,6 @@ theorem class_mem_iff_fixes_base {s : G} :
     s ∈ H ↔ s • (QuotientGroup.mk 1 : G ⧸ H) = QuotientGroup.mk 1 := by
   rw [smul_mk_eq_mk_iff, inv_one, one_mul, mul_one]
 
-theorem class_mem_iff (huniq : ∀ g : G, z ∈ rightConjugate H g ↔ g ∈ H) (g : G) :
-    rightConjugateElem z g ∈ H ↔ g ∈ H :=
-  conj_mem_iff huniq g
 
 theorem class_orderOf (hz : orderOf z = 2) {s : G} (hs : s ∈ involutionPointClass z) :
     orderOf s = 2 :=

@@ -164,10 +164,6 @@ theorem noAllA1Other_of_narrow (h : NoAllA1Narrow p f) : NoAllA1Other p f := by
   exact NDBG.false_of_three_images C htrans hno hnoT hall' hN hN' hM hn hn' hm hnz hn'z hmz
     (Ne.symm hne) (Ne.symm hcon.1) (Ne.symm hcon.2)
 
-theorem noAllA1Narrow_of_other (h : NoAllA1Other p f) : NoAllA1Narrow p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hno D hall N hN n hn hnz
-  have e := h G hnab hp2 hq K z hz hBelow hconn hno D hall N hN n hn hnz
-  exact ⟨fun _ _ => e, fun _ _ _ _ _ _ _ _ _ => e, fun _ _ _ _ _ => e⟩
 
 theorem noAllA1_of_narrow (h : NoAllA1Narrow p f) : NoAllA1 p f :=
   noAllA1_of_core (noAllA1Core_of_other (noAllA1Other_of_narrow h))

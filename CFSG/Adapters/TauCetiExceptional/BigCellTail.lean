@@ -28,17 +28,6 @@ theorem xOp_rootVec_neg_single'
     one_smul]
   exact (ite_eq_right (single_ne_neg_single i).symm).trans (ite_eq_left rfl)
 
-theorem xOp_eq_quadratic
-    (hτ : τ ≠ .G2) (i : Fin τ.rank) (c : L) :
-    xOp τ L i c = 1 + c • xCoeff τ L i 1 + c ^ 2 • xCoeff τ L i 2 := by
-  have h := xOp_eq_sum_xCoeff_entryDegreeBound (R := L) τ i c
-  have h0 := xOp_eq_sum_xCoeff_entryDegreeBound (R := L) τ i 0
-  simp only [entryDegreeBound, hτ, ↓reduceIte, Finset.sum_range_succ, Finset.sum_range_zero,
-    zero_add, pow_zero, one_smul, pow_one] at h h0
-  rw [xOp_zero] at h0
-  simp only [zero_smul, ne_eq, OfNat.ofNat_ne_zero, not_false_eq_true, zero_pow,
-    add_zero] at h0
-  rw [h, ← h0]
 
 theorem xOp_eq_quadratic_of
     {i : Fin τ.rank} (hA3 : xCoeff τ L i 3 = 0) (c : L) :
@@ -95,12 +84,6 @@ theorem eq_of_conj_xUnit_of
   norm_num at hv
   exact hv.resolve_right h2
 
-theorem eq_of_conj_xUnit
-    (hτ : τ ≠ .G2) (h2 : (2 : L) ≠ 0) (h : ModGL τ L) (i : Fin τ.rank)
-    (h1 : h * xUnit τ L i 1 * h⁻¹ = xUnit τ L i 1)
-    (hm1 : h * xUnit τ L i (-1) * h⁻¹ = xUnit τ L i (-1)) {c d : L}
-    (hcd : h * xUnit τ L i c * h⁻¹ = xUnit τ L i d) : c = d :=
-  eq_of_conj_xUnit_of h2 h (xCoeff_three_eq_zero hτ i) h1 hm1 hcd
 
 @[expose] def pairBound (τ : Tag) : ℕ :=
   Finset.univ.sup fun x : Label τ × Label τ × Fin τ.rank =>

@@ -18,7 +18,6 @@ variable {Q : Type*} [Group Q]
 
 theorem sg_mul (σ x y : Q) : sg σ (x * y) = sg σ x * sg σ y := by simp only [sg]; group
 theorem sg_one (σ : Q) : sg σ 1 = 1 := by simp [sg]
-theorem sg_inv (σ x : Q) : sg σ x⁻¹ = (sg σ x)⁻¹ := by simp only [sg]; group
 theorem sg_pow (σ x : Q) (n : ℕ) : sg σ (x ^ n) = (sg σ x) ^ n := by
   induction n with
   | zero => simp [sg_one]
@@ -386,27 +385,6 @@ theorem rel [Finite Q] {a₁ b₁ : Q} (ha₁ : a₁ ∈ R₁) (hb₁ : b₁ ∈
     calc u * sg σ u * (u⁻¹ * (sg σ u)⁻¹) = (sg σ u * u) * (u⁻¹ * (sg σ u)⁻¹) := by rw [c12.eq]
       _ = 1 := by group
 
-theorem comm_mem_Zc₁ {g y : Q} (hg : g ∈ R σ R₁) (hy : y ∈ R₁) : ⁅g, y⁆ ∈ Zc R₁ := by
-  have hc := h.comm3
-  obtain ⟨g₁, hg₁, g₂, hg₂, g₃, hg₃, rfl⟩ := hc.mem_sup3 hg
-  have := hc.comm_prod3 hg₁ hy hg₂ (one_mem _) hg₃ (one_mem _)
-  simp only [mul_one, commutatorElement_one_right] at this
-  rw [this]; exact h.heis.comm_mem_Zc hg₁ hy
-
-theorem comm_mem_Zc₂ {g y : Q} (hg : g ∈ R σ R₁) (hy : y ∈ cj σ R₁) : ⁅g, y⁆ ∈ Zc (cj σ R₁) := by
-  have hc := h.comm3
-  obtain ⟨g₁, hg₁, g₂, hg₂, g₃, hg₃, rfl⟩ := hc.mem_sup3 hg
-  have := hc.comm_prod3 hg₁ (one_mem _) hg₂ hy hg₃ (one_mem _)
-  simp only [mul_one, one_mul, commutatorElement_one_right] at this
-  rw [this]; exact h.heis₂.comm_mem_Zc hg₂ hy
-
-theorem comm_mem_Zc₃ {g y : Q} (hg : g ∈ R σ R₁) (hy : y ∈ cj σ (cj σ R₁)) :
-    ⁅g, y⁆ ∈ Zc (cj σ (cj σ R₁)) := by
-  have hc := h.comm3
-  obtain ⟨g₁, hg₁, g₂, hg₂, g₃, hg₃, rfl⟩ := hc.mem_sup3 hg
-  have := hc.comm_prod3 hg₁ (one_mem _) hg₂ (one_mem _) hg₃ hy
-  simp only [one_mul, commutatorElement_one_right] at this
-  rw [this]; exact h.heis₃.comm_mem_Zc hg₃ hy
 
 theorem exp3_R {g : Q} (hg : g ∈ R σ R₁) : g ^ 3 = 1 := by
   have hc := h.comm3
@@ -440,8 +418,6 @@ theorem R₁_le_R : R₁ ≤ R σ R₁ := le_sup_left.trans le_sup_left
 theorem R₂_le_R : cj σ R₁ ≤ R σ R₁ := le_sup_right.trans le_sup_left
 theorem R₃_le_R : cj σ (cj σ R₁) ≤ R σ R₁ := le_sup_right
 
-omit h in
-theorem W_le_R' : W σ R₁ ≤ R σ R₁ := W_le_R
 
 theorem comm_eq₁ {x₁ x₂ x₃ y : Q} (hx₁ : x₁ ∈ R₁) (hx₂ : x₂ ∈ cj σ R₁)
     (hx₃ : x₃ ∈ cj σ (cj σ R₁)) (hy : y ∈ R₁) : ⁅x₁ * x₂ * x₃, y⁆ = ⁅x₁, y⁆ := by

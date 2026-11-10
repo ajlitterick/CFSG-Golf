@@ -114,26 +114,6 @@ instance smallCfourEvenSubgroup_normal : smallCfourEvenSubgroup.Normal := by
   rw [smallCfourEvenSubgroup_kernel]
   infer_instance
 
-theorem smallCfourEvenSubgroup_card : Nat.card smallCfourEvenSubgroup = 16 := by
-  let equivalence := MonoidHom.ofInjective smallCfourEvenHom_injective
-  change Nat.card smallCfourEvenHom.range = 16
-  rw [← Nat.card_congr equivalence.toEquiv]
-  exact rankTwoBinaryResidue_card 1
-
-theorem smallCfourEvenSubgroup_elementary : CFSG.Open.IsElemAbelian 2 smallCfourEvenSubgroup := by
-  constructor
-  · apply isMulCommutative_iff.mpr
-    intro u v
-    obtain ⟨f, hf⟩ := u.property
-    obtain ⟨g, hg⟩ := v.property
-    apply Subtype.ext
-    change u.val * v.val = v.val * u.val
-    rw [← hf, ← hg]
-    rw [← map_mul, ← map_mul, mul_comm]
-  · rintro u ⟨f, rfl⟩
-    rw [← map_pow]
-    have h : ∀ f : Multiplicative (RankTwoBinaryResidue 1), f ^ 2 = 1 := by decide +kernel
-    rw [h, map_one]
 
 @[expose] def smallCfourBinaryShear : (RankTwoBinaryResidue 1)ˣ :=
   ⟨1 + smallCfourUpper, 1 + smallCfourUpper, by decide +kernel, by decide +kernel⟩
@@ -357,25 +337,5 @@ theorem smallCfour_invariant_hyperplane_contains_plane
   rw [hdecomposition]
   exact W.add_mem hdeltaStable (W.smul_mem _ hdeltaV)
 
-theorem small_cfour_automorphism_two_subgroup_normal_form :
-    smallCfourEvenSubgroup.Normal ∧
-    CFSG.Open.IsElemAbelian 2 smallCfourEvenSubgroup ∧
-    Nat.card smallCfourEvenSubgroup = 16 ∧ Nat.card smallCfourSylow = 32 ∧
-    (∀ H : Subgroup (ResidualRing 1)ˣ, IsPGroup 2 H →
-      ∃ u : (ResidualRing 1)ˣ, H.map (MulAut.conj u).toMonoidHom ≤ smallCfourSylow) ∧
-    (∀ u : (ResidualRing 1)ˣ, u ∈ smallCfourSylow → u ∉ smallCfourEvenSubgroup →
-      ∀ f : RankTwoBinaryResidue 1, u * smallCfourEvenUnit f * u⁻¹ =
-        smallCfourEvenUnit (smallCfourBinaryShear.val * f * smallCfourBinaryShear.val)) ∧
-    smallCfourShearDifference.ker = smallCfourShearPlane ∧
-    smallCfourShearDifference.range = smallCfourShearPlane ∧
-    (∀ u : (ResidualRing 1)ˣ, u ∈ smallCfourSylow → Commute (smallCfourEvenUnit smallCfourUpper) u) ∧
-    (∀ W : Submodule (ZMod 2) (RankTwoBinaryResidue 1), Module.finrank (ZMod 2) W = 3 →
-      (∀ x ∈ W, smallCfourBinaryShear.val * x * smallCfourBinaryShear.val ∈ W) →
-        smallCfourShearPlane ≤ W) :=
-  ⟨inferInstance, smallCfourEvenSubgroup_elementary, smallCfourEvenSubgroup_card,
-    smallCfourSylow_card, smallCfour_two_subgroup_conjugate,
-    smallCfourSylow_conjugation_even, smallCfourShearDifference_kernel,
-    smallCfourShearDifference_range, smallCfourCentralShear,
-    smallCfour_invariant_hyperplane_contains_plane⟩
 
 end CFSG.LargeEvenClassification.Helpers

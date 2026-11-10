@@ -77,8 +77,6 @@ variable {β : Finset (Fin 6)}
   one_mem' := ⟨supportedOn_one _, wsum_one⟩
   inv_mem' {a} ha := ⟨ha.1.inv, by rw [wsum_inv]; exact ha.2⟩
 
-theorem mem_cHat {hβ : β.card = 4} {c : Wr 6} :
-    c ∈ cHat β hβ ↔ SupportedOn c (Set.range (emb β hβ))ᶜ ∧ wsum c = 0 := Iff.rfl
 
 theorem cHat_spec {hβ : β.card = 4} {a a' : Fin 6} (haa' : a ≠ a') (ha : a ∉ β) (ha' : a' ∉ β)
     (hout : ∀ i, i ∉ β → i = a ∨ i = a') {c : Wr 6} (hc : c ∈ cHat β hβ) :

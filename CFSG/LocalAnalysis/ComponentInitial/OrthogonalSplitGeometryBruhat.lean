@@ -16,23 +16,6 @@ section SetMul
 
 variable {G : Type*} [Group G]
 
-theorem mem_mul_singleton_mul {S T : Set G} {x g : G} :
-    g ∈ S * {x} * T ↔ ∃ s ∈ S, ∃ t ∈ T, g = s * x * t := by
-  simp only [Set.mem_mul, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨_, ⟨s, hs, _, rfl, rfl⟩, t, ht, rfl⟩
-    exact ⟨s, hs, t, ht, rfl⟩
-  · rintro ⟨s, hs, t, ht, rfl⟩
-    exact ⟨_, ⟨s, hs, x, rfl, rfl⟩, t, ht, rfl⟩
-
-theorem mem_mul_singleton_mul_singleton_mul {S T U : Set G} {x y g : G} :
-    g ∈ S * {x} * T * {y} * U ↔ ∃ s ∈ S, ∃ t ∈ T, ∃ u ∈ U, g = s * x * t * y * u := by
-  simp only [Set.mem_mul, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨_, ⟨_, ⟨_, ⟨s, hs, _, rfl, rfl⟩, t, ht, rfl⟩, _, rfl, rfl⟩, u, hu, rfl⟩
-    exact ⟨s, hs, t, ht, u, hu, rfl⟩
-  · rintro ⟨s, hs, t, ht, u, hu, rfl⟩
-    exact ⟨_, ⟨_, ⟨_, ⟨s, hs, x, rfl, rfl⟩, t, ht, rfl⟩, y, rfl, rfl⟩, u, hu, rfl⟩
 
 end SetMul
 
@@ -150,28 +133,6 @@ theorem borel_weylElt_mul_mem {n : (Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ 
 
 end Exchange
 
-theorem orthogonal_geometry_split_Bruhat_exchange {K : Type*} [Field K] {r : ℕ} (hr : 3 ≤ r)
-    {n : (Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K)} (hn : n ∈ torusWeyl r K) (i : Fin r) :
-    (borel r K : Set ((Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K))) * {weylElt r K i} *
-        (borel r K : Set _) * {n} * (borel r K : Set _) ⊆
-      (borel r K : Set _) * {weylElt r K i * n} * (borel r K : Set _) ∪
-        (borel r K : Set _) * {n} * (borel r K : Set _) ∧
-    ((((torusWeylNu r K (by omega) ⟨n, hn⟩)⁻¹ : weylGroup r) : (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ))
-        (simpleRoot r i) ∈ posRoots r →
-      (borel r K : Set ((Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K))) * {weylElt r K i} *
-          (borel r K : Set _) * {n} * (borel r K : Set _) =
-        (borel r K : Set _) * {weylElt r K i * n} * (borel r K : Set _)) := by
-  refine ⟨fun g hg => ?_, fun hw => Set.Subset.antisymm (fun g hg => ?_) fun g hg => ?_⟩
-  · obtain ⟨b₁, h1, b₂, h2, b₃, h3, rfl⟩ := mem_mul_singleton_mul_singleton_mul.1 hg
-    rcases (borel_weylElt_mul_mem hr hn i h1 h2 h3).2 with ⟨c₁, hc₁, c₂, hc₂, he⟩ |
-      ⟨c₁, hc₁, c₂, hc₂, he⟩
-    · exact Or.inl (mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩)
-    · exact Or.inr (mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩)
-  · obtain ⟨b₁, h1, b₂, h2, b₃, h3, rfl⟩ := mem_mul_singleton_mul_singleton_mul.1 hg
-    obtain ⟨c₁, hc₁, c₂, hc₂, he⟩ := (borel_weylElt_mul_mem hr hn i h1 h2 h3).1 hw
-    exact mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩
-  · obtain ⟨b₁, h1, b₂, h2, rfl⟩ := mem_mul_singleton_mul.1 hg
-    exact mem_mul_singleton_mul_singleton_mul.2 ⟨b₁, h1, 1, one_mem _, b₂, h2, by group⟩
 
 theorem orthogonal_geometry_split_Borel_Weyl_generation {K : Type*} [Field K] {r : ℕ}
     (hr : 3 ≤ r) :

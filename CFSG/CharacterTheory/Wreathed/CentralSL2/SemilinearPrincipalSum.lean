@@ -34,19 +34,6 @@ theorem principalFamilyH_finite (hb : ¬ IsSquare b) (hd : Odd (Nat.card Sigma))
   (CFSG.BlockSectionOrthogonality.Helpers.irreducibles_finite _).subset
     (principalFamilyH_subset hSigma hb hd)
 
-theorem mem_principalFamilyH_iff (hb : ¬ IsSquare b) (hd : Odd (Nat.card Sigma))
-    {χ : SemilinearExtension F b m hm heven Sigma hSigma → ℂ}
-    (hχ : χ ∈ BlocksIrr (SemilinearExtension F b m hm heven Sigma hSigma)) :
-    (∃ P : PrincipalSeriesParameter F b m, P.1.1 ≠ 1 ∧
-      0 < BlocksInnerProduct (fun g => χ (SemidirectProduct.inl g))
-        (principalSeries F b m hm heven (torusCharacter F b m hm heven P))) ↔
-      χ ∈ principalFamilyH hSigma := by
-  constructor
-  · rintro ⟨P, hP, hpos⟩
-    obtain ⟨ρ, rfl⟩ := ((principal_clifford hSigma hb hd hP).2.2.1 χ hχ).mp hpos
-    exact ⟨P, ρ, hP, rfl⟩
-  · rintro ⟨P, ρ, hP, rfl⟩
-    exact ⟨P, hP, ((principal_clifford hSigma hb hd hP).2.2.1 _ hχ).mpr ⟨ρ, rfl⟩⟩
 
 end Family
 

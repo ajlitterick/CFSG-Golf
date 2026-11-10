@@ -112,10 +112,6 @@ theorem IsSylowIn.eq_of_le {X P K : Subgroup G} (hP : IsSylowIn X P) (hKX : K �
     (hPK : P ≤ K) : K = P :=
   (Subgroup.eq_of_le_of_card_ge hPK (hP.card_le hKX hK)).symm
 
-theorem IsSylowIn.of_ge {X P K : Subgroup G} (hP : IsSylowIn X P) (hKX : K ≤ X) (hK : IsPGroup 2 K)
-    (hPK : P ≤ K) : IsSylowIn X K := by
-  rw [hP.eq_of_le hKX hK hPK]
-  exact hP
 
 theorem IsSylowIn.pRank_eq {X P : Subgroup G} (hP : IsSylowIn X P) : Open.pRank 2 P = Open.pRank 2 X := by
   refine le_antisymm (SU1.pRank_mono (by norm_num) hP.1) ?_

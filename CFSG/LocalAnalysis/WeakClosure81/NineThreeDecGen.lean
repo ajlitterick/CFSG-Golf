@@ -12,10 +12,6 @@ open scoped Pointwise commutatorElement
 
 variable {G : Type} [Group G] [Finite G] {V T A K S X : Subgroup G} {p : ℕ} {g x : G}
 
-private theorem nine3_conjSubgroup_iSup {ι : Sort*} (B : ι → Subgroup G) (g : G) :
-    conjSubgroup (⨆ i, B i) g = ⨆ i, conjSubgroup (B i) g := by
-  simp only [CFSG.Quasithin.conjSubgroup]
-  exact Subgroup.map_iSup _ _
 
 private theorem nine3_commutator_mem_nineI (hc : Nine3Choice V T A K S X p g x)
     {i w : G} (hi : i ∈ nineI V K) (hw : w ∈ K) : ⁅i, w⁆ ∈ nineI V K := by

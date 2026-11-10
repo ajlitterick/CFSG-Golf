@@ -92,28 +92,6 @@ theorem four_dvd_card_centralizer_of_perfect {Q : Type} [Group Q] [Finite Q]
   rw [hker, index_top] at hidx
   norm_num at hidx
 
-@[expose] def QuasisimpleEvenCenterInput : Prop :=
-  (∀ (Q : Type) [Group Q] [Finite Q], IsQuasisimple Q → Blueprint.Catalog (Q ⧸ center Q) →
-    ∀ u v : Q, orderOf u = 2 → orderOf v = 2 → u ≠ v → u ∈ center Q → v ∈ center Q →
-      ∃ x : Q, orderOf x = 2 ∧ x ∉ center Q) ∧
-  ∀ (Q : Type) [Group Q] [Finite Q], IsQuasisimple Q → Blueprint.Catalog (Q ⧸ center Q) →
-    2 ∣ Nat.card ↥(center Q) → ∀ x : Q, orderOf x = 2 → x ∉ center Q →
-      (Nat.card ↥(center Q)).factorization 2 + 2 ≤
-        (Nat.card ↥(centralizer ({x} : Set Q))).factorization 2
-
-theorem quasisimpleTwoPartInput_of_evenCenter (h : QuasisimpleEvenCenterInput) :
-    QuasisimpleTwoPartInput := by
-  refine ⟨h.1, fun Q _ _ hQ hcat x hx hxZ => ?_⟩
-  by_cases h2 : 2 ∣ Nat.card ↥(center Q)
-  · exact h.2 Q hQ hcat h2 x hx hxZ
-  · have : Group.IsPerfect Q := hQ.1
-    have h0 : (Nat.card ↥(center Q)).factorization 2 = 0 :=
-      Nat.factorization_eq_zero_of_not_dvd h2
-    have h4 : 2 ^ 2 ∣ Nat.card ↥(centralizer ({x} : Set Q)) := by
-      rw [show (2 : ℕ) ^ 2 = 4 by norm_num]
-      exact four_dvd_card_centralizer_of_perfect hx
-    have h5 := (Nat.prime_two.pow_dvd_iff_le_factorization Nat.card_pos.ne').mp h4
-    omega
 
 @[expose] def Lemma32ConditionTwoRankTwoInputFor (𝒜 : Thm13Ambient) : Prop :=
   ∀ (G : Type) [Group G] [Finite G], 𝒜 G → ∀ N : Subgroup G, IsSolomonChoice N →

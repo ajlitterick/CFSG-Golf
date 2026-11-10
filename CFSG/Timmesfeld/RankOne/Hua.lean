@@ -29,11 +29,6 @@ variable {X : Type*} [Group X]
     · right
       exact ⟨(map_conj_eq_iff.1 hB).symm, (map_conj_eq_iff.1 hA).symm⟩
 
-theorem mem_pairStabilizer {A B : Subgroup X} {g : X} :
-    g ∈ pairStabilizer A B ↔ (A.map (MulAut.conj g).toMonoidHom = A ∧
-      B.map (MulAut.conj g).toMonoidHom = B) ∨
-    (A.map (MulAut.conj g).toMonoidHom = B ∧ B.map (MulAut.conj g).toMonoidHom = A) :=
-  Iff.rfl
 
 namespace IsElemAbRankOne
 

@@ -106,6 +106,5 @@ theorem isC118Pair_sharpen {G : Type*} [Group G] [Finite G] {T T₁ T₂ : Subgr
     le_inf (h1Z.trans (C1GN.omegaOneCenterOf_le_centerOf T)) hT₁C,
     isC118Pair_of_baum hT hP', rfl, hT₁C, hCB, hCchar, hCΩ, hCU⟩
 
-variable {X : Type} [Group X] [Finite X]
 
 end CFSG.LocalAnalysis.RankThreeUC.S15.GN15

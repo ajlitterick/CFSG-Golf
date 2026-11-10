@@ -15,16 +15,10 @@ open CFSG.HardMathSupport.Solomon.Coordinator.YS08.L3Char (lie_char_part amb_lie
 open CFSG.HardMathSupport.Solomon.Coordinator.I1420 (lieOrderFormula)
 open CFSG.HardMathSupport.Solomon.LocalBalance (innerAut barOf)
 
-@[expose] def KDL227Spor : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (s : TauCeti.SporadicName),
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 → ∀ J : Subgroup S,
-      GLAPComponent 3 (fixSubgroup β) J → ¬ catalogIs (PSimple 3 J) (onLie (isL2 27))
 
 namespace KDL227Aux
 
 set_option linter.unusedSectionVars false
-
 
 
 private theorem prime_dvd_9828 {r : ℕ} (hr : r.Prime) (h : r ∣ 9828) :
@@ -227,31 +221,6 @@ theorem lie_three_outer_case {S : Type} [Group S] [Finite S] (hs : IsSimpleGroup
   exact hdata.l227 rfl I hI (isL227_of_catalogIs hL) ξ hξ hξβ hN
 
 
-theorem s_level (hSpor : KDL227Spor) {S : Type} [Group S] [Finite S] (hs : IsSimpleGroup S)
-    (hna : ∃ a b : S, a * b ≠ b * a) (hcat : CFSG.Open.IsCatalogGroup S)
-    (β ξ : MulAut S) (hβ : β ^ 3 = 1) (hβ1 : β ≠ 1) (hξ : ξ ^ 3 = 1) (hξβ : ξ * β = β * ξ)
-    (I : Subgroup S) (hI : GLAPComponent 3 (fixSubgroup β) I)
-    (hL : catalogIs (PSimple 3 I) (onLie (isL2 27))) (hN : I.map ξ.toMonoidHom = I) :
-    ∃ i ∈ I, ∀ y ∈ I, ξ y * (i * y * i⁻¹)⁻¹ ∈ GLAPPrimeCoreOf 3 I := by
-  obtain ⟨i, ⟨e⟩⟩ := hcat
-  cases i with
-  | cyclic p hp =>
-    exfalso
-    obtain ⟨a, b, hab⟩ := hna
-    apply hab
-    apply e.injective
-    rw [map_mul, map_mul]
-    exact mul_comm _ _
-  | alternating n hn => exact (alt_case hn e β hβ hβ1 I hI hL).elim
-  | sporadic s => exact (hSpor S s ⟨e⟩ β hβ hβ1 I hI hL).elim
-  | lie d =>
-    by_cases hd3 : d.1.characteristic = 3
-    · by_cases hinn : β ∈ innerAut S
-      · exact (lie_three_inner_case hs hna d e hd3 β hβ hβ1 hinn I hI).elim
-      · exact lie_three_outer_case hs hna d e hd3 β ξ hβ hβ1 hinn hξ hξβ I hI hL hN
-    · exact (lie_ne_three_case hs hna d e hd3 β hβ I hI hL).elim
-
-
 open CFSG.HardMathSupport.Dickson.DefCharOuter.Export (FixedData3)
 open CFSG.HardMathSupport.Timmesfeld.Coordinator (map_glaPPrimeCoreOf_of_injective)
 
@@ -277,78 +246,6 @@ theorem map_fixSubgroup_conjNormal {Y : Type} [Group Y] (S : Subgroup Y) [S.Norm
     calc b * y * b⁻¹ = y * b * b⁻¹ := by rw [← hc]
       _ = y := by group
 
-
-theorem _root_.CFSG.LocalAnalysis.GLTheoremA.kdL227Pump_of_spor (hSpor : KDL227Spor) :
-    KDL227Pump := by
-  intro Y _ _ S hSn hSs hSna hSc hSC I b x hb3 hx3 hbx hI hL hxN hind
-  by_contra hb1
-  haveI := hSn
-  set β : MulAut ↥S := MulAut.conjNormal (H := S) b with hβdef
-  set ξ : MulAut ↥S := MulAut.conjNormal (H := S) x⁻¹ with hξdef
-  have hβ3 : β ^ 3 = 1 := by rw [hβdef, ← map_pow, hb3, map_one]
-  have hξ3 : ξ ^ 3 = 1 := by rw [hξdef, ← map_pow, inv_pow, hx3, inv_one, map_one]
-  have hβ1 : β ≠ 1 := by
-    intro h
-    apply hb1
-    have hmem : b ∈ Subgroup.centralizer (S : Set Y) := by
-      rw [Subgroup.mem_centralizer_iff]
-      intro g hg
-      have := congrArg Subtype.val (DFunLike.congr_fun h ⟨g, hg⟩)
-      simp only [hβdef, MulAut.conjNormal_apply, MulAut.one_apply] at this
-      calc g * b = b * g * b⁻¹ * b := by rw [this]
-        _ = b * g := by group
-    rw [hSC] at hmem
-    exact Subgroup.mem_bot.1 hmem
-  have hξβ : ξ * β = β * ξ := by
-    rw [hξdef, hβdef, ← map_mul, ← map_mul]
-    congr 1
-    calc x⁻¹ * b = x⁻¹ * (b * x) * x⁻¹ := by group
-      _ = x⁻¹ * (x * b) * x⁻¹ := by rw [hbx]
-      _ = b * x⁻¹ := by group
-  rw [← map_fixSubgroup_conjNormal S b] at hI
-  obtain ⟨I', hI', rfl⟩ := exists_glaPComponent_map_eq Nat.prime_three S.subtype
-    (FixedData3.coprime_inf_ker S.subtype S.subtype_injective _) hI
-  have hL' : catalogIs (PSimple 3 I') (onLie (isL2 27)) :=
-    (catalogIs_congr (CFSG.HardMathSupport.Dickson.I271.pSimpleEquiv 3
-      (I'.equivMapOfInjective S.subtype S.subtype_injective))).2 hL
-  have hN : I'.map ξ.toMonoidHom = I' := by
-    have key : ∀ g : Y, g ∈ Subgroup.normalizer ((I'.map S.subtype : Subgroup Y) : Set Y) →
-        ∀ s ∈ I', ∃ t ∈ I', (t : Y) = g * (s : Y) * g⁻¹ := by
-      intro g hg s hs
-      have h1 : g * (s : Y) * g⁻¹ ∈ I'.map S.subtype :=
-        (Subgroup.mem_normalizer_iff.1 hg (s : Y)).1 ⟨s, hs, rfl⟩
-      obtain ⟨t, ht, hts⟩ := h1
-      exact ⟨t, ht, hts⟩
-    apply le_antisymm
-    · rintro _ ⟨s, hs, rfl⟩
-      obtain ⟨t, ht, hts⟩ := key x⁻¹ (Subgroup.inv_mem _ hxN) s hs
-      have : ξ s = t := Subtype.ext (by
-        simp only [hξdef, MulAut.conjNormal_apply]
-        exact hts.symm)
-      rw [MulEquiv.coe_toMonoidHom, this]
-      exact ht
-    · intro t ht
-      obtain ⟨s, hs, hts⟩ := key x hxN t ht
-      refine ⟨s, hs, ?_⟩
-      apply Subtype.ext
-      simp only [MulEquiv.coe_toMonoidHom, hξdef, MulAut.conjNormal_apply, inv_inv]
-      calc x⁻¹ * (s : Y) * x = x⁻¹ * (x * (t : Y) * x⁻¹) * x := by rw [← hts]
-        _ = t := by group
-  obtain ⟨i, hi, hall⟩ := s_level hSpor hSs hSna hSc β ξ hβ3 hβ1 hξ3 hξβ I' hI' hL' hN
-  apply hind
-  refine ⟨((i⁻¹ : ↥S) : Y), ⟨i⁻¹, I'.inv_mem hi, rfl⟩, ?_⟩
-  rintro _ ⟨y, hy, rfl⟩
-  rw [← map_glaPPrimeCoreOf_of_injective 3 S.subtype S.subtype_injective I']
-  have hw : ((i * y * i⁻¹)⁻¹ : ↥S) ∈ I' :=
-    I'.inv_mem (I'.mul_mem (I'.mul_mem hi hy) (I'.inv_mem hi))
-  have h1 := hall y hy
-  have hnorm := le_normalizer_glaPPrimeCoreOf 3 I' hw
-  have h2 : (i * y * i⁻¹)⁻¹ * ξ y ∈ GLAPPrimeCoreOf 3 I' := by
-    have := (Subgroup.mem_normalizer_iff.1 hnorm _).1 h1
-    simpa [mul_assoc] using this
-  refine ⟨_, h2, ?_⟩
-  simp only [Subgroup.coe_subtype, hξdef, MulAut.conjNormal_apply, inv_inv, Subgroup.coe_mul,
-    Subgroup.coe_inv]
 
 end KDL227Aux
 

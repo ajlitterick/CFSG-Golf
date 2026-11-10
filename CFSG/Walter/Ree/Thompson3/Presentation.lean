@@ -23,8 +23,6 @@ theorem ι_mem (n : ThompsonN k σ) : R.ι n ∈ R.N := (R.e.symm n).2
 theorem exists_ι {g : G} (hg : g ∈ R.N) : ∃ n, g = R.ι n :=
   ⟨R.e ⟨g, hg⟩, by simp [ι_apply]⟩
 
-theorem mem_N_iff (g : G) : g ∈ R.N ↔ ∃ n, g = R.ι n :=
-  ⟨R.exists_ι, fun ⟨n, hn⟩ => hn ▸ R.ι_mem n⟩
 
 theorem pglK_mul_self : pglK * pglK = 1 := by decide
 
@@ -48,7 +46,6 @@ theorem torus_mul_K (t : kˣ) :
     R.ι (ThompsonN.torus σ t) * R.K = R.K * R.ι (ThompsonN.torus σ t⁻¹) := by
   rw [R.K_mul_torus, inv_inv]
 
-theorem K_not_mem_N : R.K ∉ R.N := R.K_not_mem
 
 theorem card_N :
     Nat.card R.N = R.hyp.q ^ 3 * (R.hyp.q - 1) :=

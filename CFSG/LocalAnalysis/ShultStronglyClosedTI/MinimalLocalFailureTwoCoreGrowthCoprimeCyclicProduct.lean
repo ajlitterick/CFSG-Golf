@@ -9,23 +9,6 @@ namespace CFSG.ShultStronglyClosedTI.TwoCoreGrowthCoprime
 
 universe u v
 
-theorem coprime_commuting_factors_mem_zpowers_product
-    {A : Type v} [Group A] (s t : A) (hst : Commute s t)
-    (hcop : Nat.Coprime (orderOf s) (orderOf t)) :
-    s ∈ Subgroup.zpowers (s * t) ∧ t ∈ Subgroup.zpowers (s * t) := by
-  have htpow : t ^ orderOf s ∈ Subgroup.zpowers (s * t) := by
-    have hpower : (s * t) ^ orderOf s = t ^ orderOf s := by
-      rw [hst.mul_pow, pow_orderOf_eq_one, one_mul]
-    rw [← hpower]
-    exact (Subgroup.zpowers (s * t)).pow_mem (Subgroup.mem_zpowers (s * t)) _
-  have ht : t ∈ Subgroup.zpowers (s * t) :=
-    (Subgroup.zpowers_le.mpr htpow)
-      (mem_zpowers_pow_iff.mpr hcop.gcd_eq_one)
-  have hs : s ∈ Subgroup.zpowers (s * t) := by
-    have hmem := (Subgroup.zpowers (s * t)).mul_mem
-      (Subgroup.mem_zpowers (s * t)) ((Subgroup.zpowers (s * t)).inv_mem ht)
-    simpa only [mul_inv_cancel_right] using hmem
-  exact ⟨hs, ht⟩
 
 theorem coprime_commuting_cyclic_join_data
     {G : Type u} [Group G] [Finite G] (S T : Subgroup G)

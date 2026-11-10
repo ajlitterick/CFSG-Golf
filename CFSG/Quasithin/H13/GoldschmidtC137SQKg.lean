@@ -10,9 +10,6 @@ namespace CFSG.Quasithin.H13.U3.GC137.SQ
 
 open CFSG.Blueprint CFSG.SectionRank
 
-theorem catalog_of_comm {S : Type} [Group S] [Finite S] [IsSimpleGroup S]
-    (hcomm : ∀ a b : S, a * b = b * a) : Catalog S :=
-  CFSG.SectionRank.catalog_containsAbelianSimple S hcomm
 
 theorem isKGroupCat_of_solvable {X : Type} [Group X] [Finite X] (hX : Group.IsSolvable X) :
     IsKGroupCat X :=

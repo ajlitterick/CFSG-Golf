@@ -74,11 +74,6 @@ private theorem normHypForm_normWVec {m : ℕ} (s : Bool) :
     normHypForm E m (normWVec K m s) = 0 := by
   cases s <;> simp [normHypForm, normWVec, hypSum_apply, Qn_apply]
 
-private theorem polar_normWVec_normWVec {m : ℕ} (s t : Bool) :
-    polar (normHypForm E m) (normWVec K m s) (normWVec K m t) =
-      if s = t then 0 else 1 := by
-  cases s <;> cases t <;>
-    simp [normHypForm, normWVec, polar_hypSum, hypSum_apply, Qn_apply]
 
 private theorem polar_normWVec_normPlaneVec {m : ℕ} (s : Bool) (i : Fin m) (x : K) :
     polar (normHypForm E m) (normWVec K m s) (normPlaneVec F i x) = 0 := by

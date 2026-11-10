@@ -118,17 +118,11 @@ theorem orderOf_z2 (h2 : (2 : F) ≠ 0) : orderOf (z2 F) = 2 :=
 theorem orderOf_z3 (h2 : (2 : F) ≠ 0) : orderOf (z3 F) = 2 :=
   orderOf_longSL2_neg_one _ _ _ _ h2
 
-theorem z0_mul_self : z0 F * z0 F = 1 := by
-  rw [z0, ← map_mul]
-  simp
 
 theorem z2_mul_self : z2 F * z2 F = 1 := by
   rw [z2, ← map_mul]
   simp
 
-theorem z3_mul_self : z3 F * z3 F = 1 := by
-  rw [z3, ← map_mul]
-  simp
 
 end Nodes
 

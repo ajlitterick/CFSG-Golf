@@ -125,22 +125,6 @@ theorem three_le_pRank_of_isAltType {L : Subgroup G} {m : ℕ} (hm : 9 ≤ m) (h
   obtain ⟨α, hα, hker, -⟩ := h
   exact le_pRank_three_of_alt_quotient α hα hker (three_le_pRank_alternating hm)
 
-theorem le_normalizer_of_exceptionalA7 {X L : Subgroup G} (hSQ : IsSQTKTC X)
-    (h38 : A38Part3 (↥X ⧸ CFSG.pCore 2 ↥X)) (hL : IsBlock2 X L)
-    (hexc : IsExcA7Block L) : X ≤ Subgroup.normalizer (L : Set G) := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hLc : L ∈ cComp X := mem_cComp_of_exceptionalA7 hL hexc
-  have hL' : L.subgroupOf X ∈ cComp (⊤ : Subgroup ↥X) := subgroupOf_mem_cComp hLc
-  have hrank : 1 < CFSG.Open.pRank 3 (L.subgroupOf X) := by
-    have e : ↥(L.subgroupOf X) ≃* ↥L := Subgroup.subgroupOfEquivOfLe hL.2.1
-    have h1 := pRank_top_eq_of_mulEquiv (p := 3) (by norm_num) e
-    have h2 := pRank_top_subtype (p := 3) (L.subgroupOf X)
-    have h3 := pRank_top_subtype (p := 3) L
-    have h4 := two_le_pRank_exceptionalA7 hexc
-    omega
-  have hnorm : (L.subgroupOf X).Normal :=
-    A318.normal_of_pRank_gt_one (isSQTKTC_iff_sqtkGroup.1 hSQ) h38 hL' Nat.prime_three (by norm_num) hrank
-  exact (Subgroup.normal_subgroupOf_iff_le_normalizer hL.2.1).1 hnorm
 
 end Normality
 

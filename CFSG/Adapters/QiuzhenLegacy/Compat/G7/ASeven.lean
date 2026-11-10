@@ -40,15 +40,6 @@ theorem factorization_two_2520 :
   simp [Nat.prime_two.factorization_self,
     Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 2 ∣ 315)]
 
-lemma conj_mem_centralizer_conj
-    {G : Type*} [Group G] (g t x : G)
-    (hx : x ∈ Subgroup.centralizer ({t} : Set G)) :
-    g * x * g⁻¹ ∈ Subgroup.centralizer ({g * t * g⁻¹} : Set G) := by
-  rw [Subgroup.mem_centralizer_singleton_iff] at hx ⊢
-  calc
-    (g * x * g⁻¹) * (g * t * g⁻¹) = g * (x * t) * g⁻¹ := by group
-    _ = g * (t * x) * g⁻¹ := by rw [hx]
-    _ = (g * t * g⁻¹) * (g * x * g⁻¹) := by group
 
 theorem a7t_centralizer_card :
     Nat.card (Subgroup.centralizer ({a7t} : Set A7)) = 24 := by

@@ -15,7 +15,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
   CFSG.Monster.Griess CFSG.Monster.ScalarKernel CFSG.Monster.Visible Matrix Subgroup
 open scoped commutatorElement
 
-theorem griess_ratVec_eq (v : Fin 24 → ℤ) : Griess.ratVec v = ScalarKernel.ratVec v := rfl
 
 theorem transpose_mul_smul_vecMulVec_mul (g : Matrix (Fin 24) (Fin 24) ℚ) (a : Fin 24 → ℚ) :
     gᵀ * ((32 : ℚ)⁻¹ • vecMulVec a a) * g = (32 : ℚ)⁻¹ • vecMulVec (a ᵥ* g) (a ᵥ* g) := by

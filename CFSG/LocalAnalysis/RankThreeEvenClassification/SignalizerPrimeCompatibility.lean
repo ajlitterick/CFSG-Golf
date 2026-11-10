@@ -73,61 +73,6 @@ theorem SignalizerPrimeCompatible.of_le {G : Type u} [Group G] [Finite G]
   ⟨SignalizerCompatible.of_le prime actor signalizer subgroup smaller hcompatible.1 hle hnormalized,
     hcompatible.2.to_le hle⟩
 
-theorem SignalizerPrimeCompatible.normalized_sup {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (subgroupPrime : ℕ)
-    (actor : Subgroup G) (signalizer : G → Subgroup G) (hpgroup : IsPGroup prime actor)
-    (first second : Subgroup G)
-    (hfirst : SignalizerPrimeCompatible prime subgroupPrime actor signalizer first)
-    (hsecond : SignalizerPrimeCompatible prime subgroupPrime actor signalizer second)
-    (hnormalizes : second ≤ Subgroup.normalizer (first : Set G)) :
-    SignalizerPrimeCompatible prime subgroupPrime actor signalizer (first ⊔ second) :=
-  ⟨SignalizerCompatible.normalized_sup prime hprime actor signalizer hpgroup first second
-      hfirst.1 hsecond.1 hnormalizes,
-    hfirst.2.to_sup_of_normal_left' hsecond.2 hnormalizes⟩
-
-theorem SignalizerPrimeCompatible.conjugate_by_common_fixed
-    {G : Type u} [Group G] [Finite G]
-    (prime subgroupPrime : ℕ) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (hsignalizer : IsSolvableSignalizerFunctor prime actor signalizer)
-    (subgroup : Subgroup G)
-    (hcompatible : SignalizerPrimeCompatible prime subgroupPrime actor signalizer subgroup)
-    (conjugator : G) (hconjugator : conjugator ∈ signalizerCommonFixed actor signalizer) :
-    SignalizerPrimeCompatible prime subgroupPrime actor signalizer
-      (subgroup.map (MulAut.conj conjugator).toMonoidHom) :=
-  ⟨SignalizerCompatible.conjugate_by_common_fixed prime actor signalizer hsignalizer
-      subgroup hcompatible.1 conjugator hconjugator,
-    hcompatible.2.map _⟩
-
-theorem exists_maximal_signalizer_prime_compatible_above
-    {G : Type u} [Group G] [Finite G]
-    (prime subgroupPrime : ℕ) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (subgroup : Subgroup G)
-    (hcompatible : SignalizerPrimeCompatible prime subgroupPrime actor signalizer subgroup) :
-    ∃ maximal : Subgroup G, subgroup ≤ maximal ∧
-      Maximal (SignalizerPrimeCompatible prime subgroupPrime actor signalizer) maximal :=
-  Finite.exists_le_maximal hcompatible
-
-theorem maximal_signalizer_prime_compatible_conjugate
-    {G : Type u} [Group G] [Finite G]
-    (prime subgroupPrime : ℕ) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (hsignalizer : IsSolvableSignalizerFunctor prime actor signalizer)
-    (subgroup : Subgroup G)
-    (hmaximal : Maximal (SignalizerPrimeCompatible prime subgroupPrime actor signalizer) subgroup)
-    (conjugator : G) (hconjugator : conjugator ∈ signalizerCommonFixed actor signalizer) :
-    Maximal (SignalizerPrimeCompatible prime subgroupPrime actor signalizer)
-      (subgroup.map (MulAut.conj conjugator).toMonoidHom) := by
-  refine ⟨SignalizerPrimeCompatible.conjugate_by_common_fixed prime subgroupPrime actor signalizer
-    hsignalizer subgroup hmaximal.1 conjugator hconjugator, ?_⟩
-  intro larger hlarger hle
-  have hinverseCompatible := SignalizerPrimeCompatible.conjugate_by_common_fixed prime subgroupPrime
-    actor signalizer hsignalizer larger hlarger conjugator⁻¹
-      ((signalizerCommonFixed actor signalizer).inv_mem hconjugator)
-  have hinverseLe := Subgroup.map_mono (f := (MulAut.conj conjugator⁻¹).toMonoidHom) hle
-  rw [subgroup_map_conj_inv_cancel] at hinverseLe
-  have hreverse := hmaximal.2 hinverseCompatible hinverseLe
-  have hmapped := Subgroup.map_mono (f := (MulAut.conj conjugator).toMonoidHom) hreverse
-  rw [← subgroup_map_conj_mul, mul_inv_cancel, subgroup_map_conj_one] at hmapped
-  exact hmapped
 
 theorem subgroup_card_lt_of_lt {G : Type u} [Group G] [Finite G]
     (first second : Subgroup G) (hstrict : first < second) : Nat.card first < Nat.card second := by

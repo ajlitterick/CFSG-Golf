@@ -45,5 +45,3 @@ theorem conj_conj_eq (hP : Pair H F) {a₂ a₃ b : H} (ha₂ : a₂ ∈ F) (ha�
 
 end O2Twin
 
-variable {H : Type} [Group H] {F : Set H}
-

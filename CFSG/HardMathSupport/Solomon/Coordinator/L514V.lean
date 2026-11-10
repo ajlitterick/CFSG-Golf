@@ -18,13 +18,6 @@ open CFSG.RankThree.PartTwo.Sec4 CFSG.RankThree.PartTwo.KFacts CFSG.LocalAnalysi
   CFSG.HardMathSupport.Solomon.LocalBalance.Lemma514CoverNs
   CFSG.HardMathSupport.Solomon.LocalBalance.AutL3
 
-@[expose, reducible, deprecated innAutDerivedVocab (since := "2026-10-15")]
-noncomputable def coordInndiagVocab : InndiagVocab := innAutDerivedVocab
-
-@[deprecated "use `commutator_le_innAutDerived`" (since := "2026-10-15")]
-theorem commutator_le_coordInndiagVocab (Y : Type) [Group Y] :
-    commutator (MulAut Y) ≤ innAutDerivedVocab.innDiag Y :=
-  commutator_le_innAutDerived Y
 
 section Dichotomy
 
@@ -106,8 +99,6 @@ end Dichotomy
 
 section Fields
 
-@[deprecated (since := "2026-10-15")]
-alias mem_coordInndiagVocab_of_commutator := mem_innAutDerivedVocab_of_commutator
 
 theorem diagAut_mem_commutator_of_center_bot {Y : Type} [Group Y]
     (hY : CFSG.Open.IsQuasisimple Y) (hZ : Subgroup.center Y = ⊥) {α : MulAut Y}

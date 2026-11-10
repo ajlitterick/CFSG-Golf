@@ -122,11 +122,6 @@ theorem MG_conj {k m : G} (hk : k ∈ c.Kg) (hm : m ∈ c.MG) : k * m * k⁻¹ �
   have := (CFSG.oddCore_normal ↥c.Kg).conj_mem _ hm' ⟨k, hk⟩
   exact this
 
-theorem odd_card_MG : Odd (Nat.card c.MG) := by
-  rw [c.card_MG]
-  exact CFSG.DisconnectedInvolutionGraph.Helpers.oddCore_odd
-
-theorem a_mem_Kg' : (c.a : G) ∈ c.Kg := c.a_mem_Kg
 
 theorem IsW.le_Kg
     {W : Subgroup G} (hW : c.IsW W) : W ≤ c.Kg := fun w hw =>

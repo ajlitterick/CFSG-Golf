@@ -23,7 +23,6 @@ theorem gapShapeFacts_holds :
     borelGL32SylowOn_shapeU3, borelGL32CenterOn_shapeL3, borelGL32CenterOn_shapeSp4,
     borelGL32CenterOn_shapeSL3⟩
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.WeakClosure81
 

@@ -29,10 +29,6 @@ theorem repXYZ_facts : repXYZ.size = 15 ∧
   rw [repXYZ_eq]
   exact CFSG.KC.Fi22RkS.rows_of (by norm_num) szTX ch431009tx
 
-theorem repXYZ_ap {k i : Nat} (hk : k < 15) (hi : i < 3510) :
-    (repXYZ[k]!)[i]! = ap (rowR TX.F k) i := by
-  rw [(repXYZ_facts.2 k hk).1, CFSG.KC.Fi22RkS.get_unpack hi]
-  rfl
 
 end CertificateChecks.KernelFi22Twist
 

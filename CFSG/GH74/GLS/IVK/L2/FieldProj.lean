@@ -57,18 +57,6 @@ theorem mem_innDiagSub_iff (x : MulAut K) : x ∈ innDiagSub e ↔ fieldProj e x
     · simp
     · simp [h1]
 
-theorem mem_fieldAutSub_iff (x : MulAut K) : x ∈ fieldAutSub e ↔ (thetaAut e x).left = 1 := by
-  constructor
-  · rintro ⟨σ, rfl⟩
-    rw [thetaAut_fieldAutHom]
-    simp
-  · intro h
-    refine ⟨(thetaAut e x).right, ?_⟩
-    apply (thetaAut e).injective
-    rw [thetaAut_fieldAutHom]
-    apply SemidirectProduct.ext
-    · simp [h]
-    · simp
 
 theorem fieldAutHom_fieldProj_mul (x : MulAut K) :
     ∃ g ∈ innDiagSub e, x = g * fieldAutHom e (fieldProj e x) := by

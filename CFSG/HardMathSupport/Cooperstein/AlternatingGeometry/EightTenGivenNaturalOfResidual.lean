@@ -8,11 +8,6 @@ namespace CFSG.HardMathSupport.Cooperstein.AlternatingGeometry
 
 open Equiv Equiv.Perm CFSG.AGLEmbedding CFSG.Open
 
-@[expose] def EightTenFourCase : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (X S L : Subgroup G), CFSG.Open.IsKGroup ↥X →
-    Asc81bHyp X S → IsWeakSBlock X S L → S ≤ Subgroup.normalizer (L : Set G) →
-    Nonempty (↥(barM (L ⊔ S) L) ⧸ Subgroup.center ↥(barM (L ⊔ S) L) ≃* alternatingGroup (Fin 7)) →
-    Nat.card ↥⁅blockV S L, L⁆ = 2 ^ 4 → EightTenOutcomes X S L
 
 @[expose] def EightTenResidualOutcomes : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (X S L : Subgroup G), CFSG.Open.IsKGroup ↥X →

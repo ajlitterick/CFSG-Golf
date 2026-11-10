@@ -69,23 +69,6 @@ theorem JFin_apply_p (p r : ℕ) (i j : Fin (r + r)) :
       omega
     simp [hc1, hc2]
 
-theorem jAMp_spec (p r : ℕ) [NeZero p] : toMat p (r + r) (jAMp p r) = JFin r (ZMod p) := by
-  ext i j
-  rw [toMat_apply, JFin_apply_p]
-  unfold jAMp
-  rw [getElem!_ofFn _ i.isLt, getElem!_ofFn _ j.isLt]
-  have hp1 : 1 ≤ p := Nat.one_le_iff_ne_zero.2 (NeZero.ne p)
-  split_ifs
-  · rw [Nat.cast_sub hp1, ZMod.natCast_self, zero_sub, Nat.cast_one]
-  · simp
-  · simp
-
-theorem symplAP_spec {p r : ℕ} [NeZero p] {X : AM} (h : symplAP p r X = true) :
-    ∃ x : SpJP p r, matJP p r x = toMat p (r + r) X := by
-  apply exists_of_symplP
-  unfold symplAP at h
-  have := matEqB_true h
-  rwa [toMat_mulM, toMat_mulM, toMat_trA', jAMp_spec] at this
 
 theorem card_spJP_three : Nat.card (SpJP 3 3) = 3 ^ 9 * 465920 := by
   have h := (CFSG.LocalAnalysis.ComponentInitial.SymplecticFlag.symplectic_higher_order_and_Sylow
@@ -95,7 +78,6 @@ theorem card_spJP_three : Nat.card (SpJP 3 3) = 3 ^ 9 * 465920 := by
 
 section Certificates
 
-variable {X : Type} [Group X] [Finite X] {K R T : Subgroup X} {z : X}
 
 end Certificates
 

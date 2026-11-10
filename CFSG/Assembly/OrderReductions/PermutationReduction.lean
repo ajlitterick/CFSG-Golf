@@ -34,13 +34,6 @@ theorem simple_coset_action_injective (group : Type*) [Group group]
   · exact core_bot
   · exact False.elim (proper (top_le_iff.mp (core_top ▸ subgroup.normalCore_le)))
 
-theorem simple_card_dvd_index_factorial (group : Type*) [Group group] [Finite group]
-    [IsSimpleGroup group] (subgroup : Subgroup group) (proper : subgroup ≠ ⊤) :
-    Nat.card group ∣ Nat.factorial subgroup.index := by
-  have card_dvd := Subgroup.card_dvd_of_injective
-    (MulAction.toPermHom group (group ⧸ subgroup))
-    (simple_coset_action_injective group subgroup proper)
-  simpa only [Nat.card_perm, ← subgroup.index_eq_card] using card_dvd
 
 theorem perfect_perm_hom_mem_alternating (group : Type*) [Group group]
     [Group.IsPerfect group] (points : Type*) [Fintype points] [DecidableEq points]
@@ -106,12 +99,6 @@ theorem simple_prime_card_of_index_le_four (group : Type*) [Group group] [Finite
     (simple_coset_action_injective group subgroup proper)
   exact CFSG.OrderReductions.Helpers.prime_card_of_simple_solvable group
 
-theorem simple_card_mem_orders_of_index_le_four (group : Type*) [Group group]
-    [Finite group] [IsSimpleGroup group] (subgroup : Subgroup group)
-    (proper : subgroup ≠ ⊤) (small_index : subgroup.index ≤ 4) :
-    Nat.card group ∈ cfsgOrders :=
-  CFSG.OrderReductions.Helpers.mem_cfsgOrders_of_prime
-    (simple_prime_card_of_index_le_four group subgroup proper small_index)
 
 theorem simple_noncommutative_proper_subgroup_index_ge_five (group : Type*) [Group group]
     [Finite group] [IsSimpleGroup group] (noncommutative : ¬ IsMulCommutative group)
@@ -274,31 +261,6 @@ theorem simple_noncommutative_card_eq_sixty_of_dvd_sixty (group : Type*) [Group 
         5 (by rw [card_twenty]; decide) sylow
       omega
 
-theorem simple_card_mem_orders_of_index_le_five (group : Type*) [Group group]
-    [Finite group] [IsSimpleGroup group] (subgroup : Subgroup group)
-    (proper : subgroup ≠ ⊤) (small_index : subgroup.index ≤ 5) :
-    Nat.card group ∈ cfsgOrders := by
-  classical
-  by_cases commutative : IsMulCommutative group
-  · have := commutative
-    exact CFSG.OrderReductions.Helpers.card_mem_cfsgOrders_of_simple_commutative group
-  · have card_dvd : Nat.card group ∣ 60 := by
-      simpa only [show Nat.factorial 5 / 2 = 60 by decide] using
-        simple_noncommutative_card_dvd_alternating_order_of_index_bound
-        group commutative subgroup proper 5 (by decide) small_index
-    apply CFSG.OrderReductions.Helpers.mem_cfsgOrders_of_alternating (degree := 5) (by decide)
-    simpa only [show Nat.factorial 5 / 2 = 60 by decide] using
-      simple_noncommutative_card_eq_sixty_of_dvd_sixty group commutative card_dvd
-
-theorem simple_card_dvd_card_or_index_gt_four (group : Type*) [Group group] [Finite group]
-    [IsSimpleGroup group] (nonprime_order : ¬ (Nat.card group).Prime)
-    (subgroup : Subgroup group) : subgroup = ⊤ ∨ 5 ≤ subgroup.index := by
-  classical
-  by_cases proper : subgroup = ⊤
-  · exact Or.inl proper
-  · right
-    by_contra small
-    exact nonprime_order (simple_prime_card_of_index_le_four group subgroup proper (by omega))
 
 theorem simple_noncommutative_sylow_card_constraints (group : Type*) [Group group]
     [Finite group] [IsSimpleGroup group] (noncommutative : ¬ IsMulCommutative group)
@@ -493,35 +455,5 @@ theorem simple_card_sixty_or_360_of_embedding_alternating_six (group : Type*)
     · exact Or.inl card_sixty
     · exact False.elim (simple_noncommutative_not_card_72 group noncommutative (by omega))
 
-theorem simple_card_mem_orders_of_index_le_six (group : Type*) [Group group]
-    [Finite group] [IsSimpleGroup group] (subgroup : Subgroup group)
-    (proper : subgroup ≠ ⊤) (small_index : subgroup.index ≤ 6) :
-    Nat.card group ∈ cfsgOrders := by
-  classical
-  by_cases commutative : IsMulCommutative group
-  · let := commutative
-    exact CFSG.OrderReductions.Helpers.card_mem_cfsgOrders_of_simple_commutative group
-  · let _ : Fintype (group ⧸ subgroup) := Fintype.ofFinite _
-    let := CFSG.OrderReductions.Helpers.simple_noncommutative_isPerfect group commutative
-    have coset_bound : Fintype.card (group ⧸ subgroup) ≤ Fintype.card (Fin 6) := by
-      simpa only [subgroup.index_eq_card, Nat.card_eq_fintype_card, Fintype.card_fin] using
-        small_index
-    obtain ⟨embedding⟩ := Function.Embedding.nonempty_of_card_le coset_bound
-    let permutation_hom := (Equiv.Perm.viaEmbeddingHom embedding).comp
-      (MulAction.toPermHom group (group ⧸ subgroup))
-    have permutation_injective : Function.Injective permutation_hom :=
-      (Equiv.Perm.viaEmbeddingHom_injective embedding).comp
-        (simple_coset_action_injective group subgroup proper)
-    let alternating_hom := permutation_hom.codRestrict (alternatingGroup (Fin 6))
-      (perfect_perm_hom_mem_alternating group (Fin 6) permutation_hom)
-    have alternating_injective : Function.Injective alternating_hom := by
-      intro first second equal_images
-      exact permutation_injective (congrArg Subtype.val equal_images)
-    rcases simple_card_sixty_or_360_of_embedding_alternating_six group commutative
-      alternating_hom alternating_injective with card_sixty | card_360
-    · exact CFSG.OrderReductions.Helpers.mem_cfsgOrders_of_alternating (degree := 5) (by decide)
-        (by simpa only [show Nat.factorial 5 / 2 = 60 by decide] using card_sixty)
-    · exact CFSG.OrderReductions.Helpers.mem_cfsgOrders_of_alternating (degree := 6) (by decide)
-        (by simpa only [show Nat.factorial 6 / 2 = 360 by decide] using card_360)
 
 end CFSG.OrderReductions.PermutationReduction

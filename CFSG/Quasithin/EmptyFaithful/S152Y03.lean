@@ -22,8 +22,6 @@ variable {n : ℕ} [NeZero n]
     rintro _ ⟨i, rfl⟩
     exact ⟨-i, by simp⟩
 
-omit [NeZero n] in
-theorem mem_rotSub_iff (x : DihedralGroup n) : x ∈ rotSub n ↔ ∃ i, x = r i := Iff.rfl
 
 theorem mem_rotSub_iff_odd (hn : Odd n) (x : DihedralGroup n) :
     x ∈ rotSub n ↔ Odd (orderOf x) := by

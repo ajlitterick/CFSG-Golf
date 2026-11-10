@@ -23,16 +23,6 @@ structure S3Setup (G : Type) [Group G] [Finite G] (x : G) (K : Subgroup (Central
   g2 : GLS.InG2 ↥K
   shape : ShapeS3 x K
 
-@[expose] def QcongEps {G : Type} [Group G] {x : G} (K : Subgroup (CentralizerBar x)) : Prop :=
-  ∃ p f : ℕ, (LieModel ↥K .PSL 3 p f ∧ p ^ f % 4 = 1) ∨ (LieModel ↥K .PSU 3 p f ∧ p ^ f % 4 = 3)
-
-@[expose] def QcongNegEps {G : Type} [Group G] {x : G} (K : Subgroup (CentralizerBar x)) : Prop :=
-  ∃ p f : ℕ, (LieModel ↥K .PSL 3 p f ∧ p ^ f % 4 = 3) ∨ (LieModel ↥K .PSU 3 p f ∧ p ^ f % 4 = 1)
-
-@[expose] def CentralizerCyclic2 {G : Type} [Group G] (x : G) (K : Subgroup (CentralizerBar x)) :
-    Prop :=
-  ∀ P : Subgroup (CentralizerBar x), IsPGroup 2 ↥P → P ≤ centralizer (K : Set (CentralizerBar x)) →
-    IsCyclic ↥P
 
 @[expose] noncomputable def imgBar {G : Type} [Group G] (x : G) (M : Subgroup G) :
     Subgroup (CentralizerBar x) :=

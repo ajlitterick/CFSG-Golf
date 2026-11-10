@@ -41,10 +41,6 @@ theorem map_conjugate {F' : Type*} [Group F'] (π : F →* F') (H : Subgroup F) 
   ext x
   simp
 
-theorem le_conjugate_of_normal {M C : Subgroup F} [M.Normal] (hMC : M ≤ C) (g : F) :
-    M ≤ conjugate C g := by
-  intro m hm
-  exact ⟨g * m * g⁻¹, hMC (‹M.Normal›.conj_mem m hm g), by simp [mul_assoc]⟩
 
 theorem map_inf_of_ker_le {F' : Type*} [Group F'] (π : F →* F') {C D : Subgroup F}
     (hC : π.ker ≤ C) : (C ⊓ D).map π = C.map π ⊓ D.map π := by

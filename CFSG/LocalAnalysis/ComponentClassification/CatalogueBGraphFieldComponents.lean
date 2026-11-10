@@ -76,12 +76,6 @@ theorem innerDiagonal_congr_graphField (n : ℕ) (K : Type u) [Field K]
       (MulEquiv.subgroupCongr (congrArg FixedCommutingProduct.fixedSubgroup
         ((innerDiagonal_congr_graphField n K H sigma).trans hconj.symm)))
 
-theorem graphFieldFixedConjugacyEquiv_val (n : ℕ) (K : Type u) [Field K]
-    (A H : GL (Fin n) K) (sigma : K ≃+* K)
-    (hconj : graphFieldAction n K A sigma = innerDiagonalAction n K H *
-      pslGraphFieldAut n K sigma * (innerDiagonalAction n K H)⁻¹)
-    (x : fixedPSL n K sigma) :
-    (graphFieldFixedConjugacyEquiv n K A H sigma hconj x).val = innerDiagonalAction n K H x.val := rfl
 
 theorem graphField_involution_fixed_pComponent_projectiveSpecialUnitary
     (n : ℕ) (K : Type u) [Field K] [Finite K]

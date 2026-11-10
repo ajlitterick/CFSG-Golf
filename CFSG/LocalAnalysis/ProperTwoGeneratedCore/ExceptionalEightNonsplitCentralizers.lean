@@ -58,8 +58,6 @@ variable {V : Type*} [Group V] {e : Fin 3 → V}
 theorem Independent.zero_ne_one (he : Independent e) : e 0 ≠ 1 := fun h1 =>
   absurd (he 1 0 0 (by simp [h1])).1 (by decide)
 
-theorem Independent.one_ne_one (he : Independent e) : e 1 ≠ 1 := fun h1 =>
-  absurd (he 0 1 0 (by simp [h1])).2.1 (by decide)
 
 theorem Independent.two_ne_one (he : Independent e) : e 2 ≠ 1 := fun h1 =>
   absurd (he 0 0 1 (by simp [h1])).2.2 (by decide)

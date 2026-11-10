@@ -16,8 +16,6 @@ theorem card_presentedGroup_le {c₂ c₁ : ℕ}
     Finite (PG 6 hsRels) ∧ Nat.card (PG 6 hsRels) ≤ 44352000 :=
   card_PG_le_chain h₂ h₁
 
-theorem coverRelators_hsCommW : coverRelators (wordSet hsRels) hsCommW = wordSet hsCover :=
-  coverRelators_wordSet hsRels hsCommWord
 
 theorem card_presentedCover_le {k c₄ c₃ : ℕ}
     (h₄ : subsetCheckShortCC hsCover [0, 1, 2, 3, 4] k c₄ 11200 = true)

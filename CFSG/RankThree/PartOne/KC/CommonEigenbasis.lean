@@ -121,55 +121,6 @@ theorem exists_basis_common_eigenvectors_of_pow_eq_one {p : ℕ} [NeZero p] {ζ 
   rw [hW] at hi
   exact mem_eigenspace_iff.mp hi
 
-theorem exists_basis_common_eigenvectors_of_pow_eq_scalar {p : ℕ} [NeZero p] {ζ : K}
-    (hζ : IsPrimitiveRoot ζ p) [FiniteDimensional K V] {ι : Type*} [Finite ι]
-    (f : ι → End K V) (r : ι → K) (hcomm : ∀ i j, Commute (f i) (f j))
-    (hr : ∀ i, r i ≠ 0) (hpow : ∀ i, f i ^ p = (r i ^ p) • (1 : End K V)) :
-    ∃ (b : Basis (Fin (finrank K V)) K V) (μ : ι → Fin (finrank K V) → K),
-      (∀ i j, f i (b j) = μ i j • b j) ∧
-      (∀ i j, μ i j ^ p = r i ^ p) ∧
-      (∀ i j, μ i j ≠ 0) := by
-  classical
-  let g : ι → End K V := fun i => (r i)⁻¹ • f i
-  have hgpow : ∀ i, g i ^ p = 1 := by
-    intro i
-    dsimp only [g]
-    rw [_root_.smul_pow, hpow i, smul_smul, inv_pow,
-      inv_mul_cancel₀ (pow_ne_zero p (hr i)), one_smul]
-  have hgcomm : ∀ i j, Commute (g i) (g j) := by
-    intro i j
-    exact ((hcomm i j).smul_left (r i)⁻¹).smul_right (r j)⁻¹
-  obtain ⟨b, μ, hb⟩ :=
-    exists_basis_common_eigenvectors_of_pow_eq_one (p := p) (ζ := ζ) hζ g hgcomm hgpow
-  have hμ : ∀ i j, μ i j ^ p = 1 := by
-    intro i j
-    have hev : (g i).HasEigenvector (μ i j) (b j) :=
-      Module.End.hasEigenvector_iff.mpr
-        ⟨Module.End.mem_eigenspace_iff.mpr (hb i j), b.ne_zero j⟩
-    have hp := hev.pow_apply p
-    rw [hgpow i] at hp
-    have h1 : μ i j ^ p • b j = (1 : K) • b j := by
-      rw [one_smul]
-      simpa using hp.symm
-    exact smul_left_injective K (b.ne_zero j) h1
-  refine ⟨b, fun i j => r i * μ i j, ?_, ?_, ?_⟩
-  · intro i j
-    have hfg : r i • g i = f i := by
-      dsimp only [g]
-      rw [smul_smul, mul_inv_cancel₀ (hr i), one_smul]
-    calc
-      f i (b j) = (r i • g i) (b j) := by rw [hfg]
-      _ = r i • g i (b j) := rfl
-      _ = r i • (μ i j • b j) := by rw [hb i j]
-      _ = (r i * μ i j) • b j := smul_smul ..
-  · intro i j
-    rw [mul_pow, hμ i j, mul_one]
-  · intro i j
-    exact mul_ne_zero (hr i) (by
-      intro h0
-      have hμij := hμ i j
-      rw [h0, zero_pow (NeZero.ne p)] at hμij
-      exact zero_ne_one hμij)
 
 open Matrix in
 theorem exists_conj_diagonal_of_commuting_pow_eq_one {n p : ℕ} [NeZero p] {k : Type*} [Field k]

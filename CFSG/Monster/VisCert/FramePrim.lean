@@ -20,12 +20,5 @@ theorem visible_frame_primitivity
   ⟨isPreprimitive frameDelta_eq_iUnion hstab, fun j => ⟨(ambient_spec j).1, rfl, tAmb_smul j,
     fusionGroup_eq_Hvis frameDelta_eq_iUnion hstab j⟩⟩
 
-theorem orbit_fusionGroup_eq (j : Fin 5) :
-    MulAction.orbit (↥(Nvis ⊔ Subgroup.zpowers (tAmb j))) twoΩCls = frameDelta :=
-  orbit_fusionGroup frameDelta_eq_iUnion j
-
-theorem isPretransitive_Hvis_deltaSub :
-    MulAction.IsPretransitive Hvis deltaSub :=
-  isPretransitive frameDelta_eq_iUnion
 
 end CFSG.Monster.VisCert

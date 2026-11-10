@@ -126,26 +126,5 @@ theorem not_signalizerNearPSolvable_of_not_isSolvable_smear
   exact hnon (Group.isSolvable_of_isSolvable_injective (f := ψ.codRestrict _ hψfix)
     fun x y h => hψinj (congrArg Subtype.val h))
 
-theorem fittingSubgroup_fixedSubgroup_eq_bot {p : ℕ} {X : Type*} [Group X] [Finite X]
-    (hA : signalizerMcBrideHypothesisA p X) (hnear : ¬ signalizerNearPSolvable p X)
-    {f : MulAut X} (hf : orderOf f = p) :
-    CFSG.fittingSubgroup ↥(signalizerFixedSubgroup f) = ⊥ := by
-  have hloc := ((hA.2.2.2.2.2.resolve_left hnear) f hf).1
-  by_contra hne
-  set C := signalizerFixedSubgroup f with hC
-  set T : Subgroup X := (CFSG.fittingSubgroup ↥C).map C.subtype with hT
-  have hT1 : T ≠ ⊥ := fun h =>
-    hne ((Subgroup.map_eq_bot_iff_of_injective _ C.subtype_injective).mp h)
-  have hnil : Group.IsNilpotent (CFSG.fittingSubgroup ↥C) :=
-    (CFSG.LocalCores.fitting_nilpotent (G := ↥C)).1
-  have hTs : Group.IsSolvable T :=
-    Group.isSolvable_of_surjective (f := C.subtype.subgroupMap (CFSG.fittingSubgroup ↥C))
-      (MonoidHom.subgroupMap_surjective _ _)
-  have hTC : T ≤ C := Subgroup.map_subtype_le _
-  have hsub : T.subgroupOf C = CFSG.fittingSubgroup ↥C :=
-    Subgroup.comap_map_eq_self_of_injective C.subtype_injective _
-  have hCn : C ≤ Subgroup.normalizer (T : Set X) :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hTC).mp (by rw [hsub]; infer_instance)
-  exact hloc T hT1 hTs hCn
 
 end CFSG.SignalizerFunctorTheorem.McBride

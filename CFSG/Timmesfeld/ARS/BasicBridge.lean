@@ -162,13 +162,6 @@ theorem exists_mulEquiv_SL2 [Finite G] (hR : IsRootClass R) (hA : A ∈ R) (h : 
   rw [← hcard] at hq ⊢
   exact ElemAbRankOne.exists_mulEquiv_SL2 (h.isElemAbRankOne hR hA) hq
 
-theorem exists_mulEquiv_SL2_two [Finite G] (hR : IsRootClass R) (hA : A ∈ R) (h : Opposite A B)
-    (hq : Nat.card A = 2) :
-    ∃ φ : ↥(A ⊔ B) ≃* Matrix.SpecialLinearGroup (Fin 2) (GaloisField 2 1),
-      (A.subgroupOf (A ⊔ B)).map φ.toMonoidHom = upperUnipotent (GaloisField 2 1) ∧
-      (B.subgroupOf (A ⊔ B)).map φ.toMonoidHom = lowerUnipotent (GaloisField 2 1) :=
-  ElemAbRankOne.exists_mulEquiv_SL2_two (h.isElemAbRankOne hR hA)
-    ((card_subgroupOf_of_le le_sup_left).trans hq)
 
 theorem exists_mulEquiv_SL2' [Finite G] (hR : IsRootClass R) (hA : A ∈ R) (h : Opposite A B) :
     ∃ n : ℕ, 1 ≤ n ∧ Nat.card A = 2 ^ n ∧
@@ -179,9 +172,6 @@ theorem exists_mulEquiv_SL2' [Finite G] (hR : IsRootClass R) (hA : A ∈ R) (h :
   rw [← hcard]
   exact ElemAbRankOne.exists_mulEquiv_SL2' (h.isElemAbRankOne hR hA)
 
-theorem card_sup_eq_six [Finite G] (hR : IsRootClass R) (hA : A ∈ R) (h : Opposite A B)
-    (hq : Nat.card A = 2) : Nat.card ↥(A ⊔ B) = 6 :=
-  (h.isElemAbRankOne hR hA).card_eq_six ((card_subgroupOf_of_le le_sup_left).trans hq)
 
 end Opposite
 

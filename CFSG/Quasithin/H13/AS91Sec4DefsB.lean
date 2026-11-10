@@ -52,8 +52,6 @@ structure Loc44 (G : Type) [Group G] [Finite G] (z : G) extends Loc43 G z where
   comm_R : ⁅R, R⁆ = Z
   sq_R : ∀ x ∈ R, x * x ∈ Z
 
-@[expose] def Stmt4_4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G), HypJ4 G z → Nonempty (Loc44 G z)
 
 structure Loc46 (G : Type) [Group G] [Finite G] (z : G) extends Loc44 G z, Loc45 G z where
   E : Subgroup G
@@ -65,8 +63,6 @@ structure Loc46 (G : Type) [Group G] [Finite G] (z : G) extends Loc44 G z, Loc45
   card_QE : Nat.card (Q z ⊔ E : Subgroup G) = 2 ^ 17
   QE_elem : ∀ x ∈ Q z ⊔ E, ∀ y ∈ Q z ⊔ E, x * y * x⁻¹ * y⁻¹ ∈ E ∧ x * x ∈ E
 
-@[expose] def Stmt4_6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G), HypJ4 G z → Nonempty (Loc46 G z)
 
 structure Loc47 (G : Type) [Group G] [Finite G] (z : G) extends Loc46 G z where
   G12 : Subgroup G
@@ -77,8 +73,6 @@ structure Loc47 (G : Type) [Group G] [Finite G] (z : G) extends Loc46 G z where
   G12_quot : ∃ φ : ↥G12 →* Matrix.GeneralLinearGroup (Fin 3) (ZMod 2) × Equiv.Perm (Fin 3),
     Function.Surjective φ ∧ φ.ker = (R ⊔ E).subgroupOf G12
 
-@[expose] def Stmt4_7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G), HypJ4 G z → Nonempty (Loc47 G z)
 
 structure Loc48 (G : Type) [Group G] [Finite G] (z : G) extends Loc47 G z where
   todd : @MathieuCocode24 ↥E (commGroupOfElem E_elem) (conjNormalizer E).range ⊤ ⊥
@@ -86,8 +80,6 @@ structure Loc48 (G : Type) [Group G] [Finite G] (z : G) extends Loc47 G z where
   split : ∃ C : Subgroup G, C ≤ normalizer (E : Set G) ∧ C ⊓ E = ⊥ ∧
     C ⊔ E = normalizer (E : Set G)
 
-@[expose] def Stmt4_8 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G), HypJ4 G z → Nonempty (Loc48 G z)
 
 structure Loc49 (G : Type) [Group G] [Finite G] (z : G) extends Loc48 G z where
   quasisimple : CFSG.IsQuasisimple ↥(H z ⊓ centralizer (X : Set G))

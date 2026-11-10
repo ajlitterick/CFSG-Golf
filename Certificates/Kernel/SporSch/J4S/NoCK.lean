@@ -113,7 +113,6 @@ theorem cnt6 : Nat.beq (cntK 2048 fun a => Nat.beq (etaK (J4RV 6) a) (J4RV 6)) 1
 theorem nes : allN 7 (fun l => allN 2048 (fun a => bIf(Nat.beq (etaK (J4RV l) a) (J4RV l), true,
     vneK (etaK (J4RV l) a) (J4RV l)))) = true := by quickRfl
 
-theorem rvlt :allN 7 (fun l => Nat.blt (J4RV l) (Nat.pow 2 112)) = true := by quickRfl
 
 theorem bil2 : bilK (J4RV 2) true = true := by quickRfl
 theorem bil3 : bilK (J4RV 3) false = true := by quickRfl

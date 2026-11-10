@@ -110,13 +110,6 @@ theorem residualUnitCandidate_injective {twist : ZMod 4} :
   intro first second heq
   exact Units.ext (congrArg Subtype.val heq)
 
-theorem residual_unit_card_even {twist : ZMod 4} (htwist : twist = 0 ∨ twist = 2) :
-    Nat.card (ResidualRing twist)ˣ ≤ 64 := by
-  have hcard := Nat.card_le_card_of_injective residualUnitCandidate
-    (residualUnitCandidate_injective (twist := twist))
-  have hcount : Nat.card (ResidualUnitCandidates twist) = 64 := by
-    rcases htwist with rfl | rfl <;> rw [Nat.card_eq_fintype_card] <;> decide
-  exact hcount ▸ hcard
 
 @[expose] def residualInverse {twist : ZMod 4} (element : ResidualRing twist) : ResidualRing twist :=
   ((residualDeterminant element * element.2.2, -residualDeterminant element * element.1.2),
@@ -137,13 +130,6 @@ theorem residualUnitCandidate_surjective {twist : ZMod 4} :
   apply Subtype.ext
   rfl
 
-theorem residual_unit_card_one : Nat.card (ResidualRing 1)ˣ ≤ 96 := by
-  have hcard := Nat.card_le_card_of_injective residualUnitCandidate
-    (residualUnitCandidate_injective (twist := 1))
-  have hcount : Nat.card (ResidualUnitCandidates 1) = 96 := by
-    rw [Nat.card_eq_fintype_card]
-    decide
-  exact hcount ▸ hcard
 
 theorem residual_unit_card_eq_even {twist : ZMod 4} (htwist : twist = 0 ∨ twist = 2) :
     Nat.card (ResidualRing twist)ˣ = 64 := by
@@ -156,102 +142,8 @@ theorem residual_unit_card_eq_one : Nat.card (ResidualRing 1)ˣ = 96 := by
     ⟨residualUnitCandidate_injective, residualUnitCandidate_surjective⟩), Nat.card_eq_fintype_card]
   decide
 
-abbrev ResidualInvolutionCandidates (twist : ZMod 4) := {element : ResidualRing twist //
-  (residualDeterminant element = 1 ∨ residualDeterminant element = 3) ∧ element ^ 2 = 1}
-
-theorem residual_involution_candidates_small {twist : ZMod 4} (htwist : twist = 0 ∨ twist = 2) :
-    Nat.card (ResidualInvolutionCandidates twist) < 64 := by
-  rcases htwist with rfl | rfl <;> rw [Nat.card_eq_fintype_card] <;> decide
 
 universe groupUniverse
 
-theorem two_group_card_lt_64_generator_rank {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] (hpgroup : IsPGroup 2 Ambient) (hcard : Nat.card Ambient < 64) :
-    pGeneratorRank 2 Ambient ≤ 5 := by
-  obtain ⟨rank, hrankCard⟩ := hpgroup.exists_card_eq
-  have hrank : rank ≤ 5 := by
-    by_contra hlarge
-    have hpower : 2 ^ 6 ≤ 2 ^ rank := Nat.pow_le_pow_right (by decide) (by omega)
-    rw [← hrankCard] at hpower
-    norm_num at hpower
-    omega
-  have hquotientCard := Nat.card_le_card_of_surjective (QuotientGroup.mk' (frattini Ambient))
-    (QuotientGroup.mk'_surjective (frattini Ambient))
-  unfold pGeneratorRank
-  exact (Nat.log_mono_right hquotientCard).trans (by
-    rw [hrankCard, Nat.log_pow (by decide : 1 < 2)]
-    exact hrank)
-
-theorem two_group_card_le_64_nontrivial_frattini_rank {Ambient : Type groupUniverse}
-    [Group Ambient] [Finite Ambient] (hpgroup : IsPGroup 2 Ambient)
-    (hcard : Nat.card Ambient ≤ 64) (hfrattini : frattini Ambient ≠ ⊥) :
-    pGeneratorRank 2 Ambient ≤ 5 := by
-  have hfrattiniCard : 2 ≤ Nat.card (frattini Ambient) := by
-    have hpositive : 0 < Nat.card (frattini Ambient) := Nat.card_pos
-    have hne : Nat.card (frattini Ambient) ≠ 1 := by
-      intro hone
-      exact hfrattini (Subgroup.card_eq_one.mp hone)
-    omega
-  have hformula := Subgroup.card_eq_card_quotient_mul_card_subgroup (frattini Ambient)
-  have hquotientCard : Nat.card (Ambient ⧸ frattini Ambient) < 64 := by nlinarith
-  have hlog : Nat.log 2 (Nat.card (Ambient ⧸ frattini Ambient)) ≤ 5 := by
-    obtain ⟨rank, hrankCard⟩ := (hpgroup.to_quotient (frattini Ambient)).exists_card_eq
-    rw [hrankCard, Nat.log_pow (by decide : 1 < 2)]
-    by_contra hlarge
-    have hpower : 2 ^ 6 ≤ 2 ^ rank := Nat.pow_le_pow_right (by decide) (by omega)
-    rw [← hrankCard] at hpower
-    norm_num at hpower
-    omega
-  exact hlog
-
-theorem residual_even_two_subgroup_generator_rank {Acting : Type groupUniverse} [Group Acting]
-    [Finite Acting] (hpgroup : IsPGroup 2 Acting) {twist : ZMod 4}
-    (htwist : twist = 0 ∨ twist = 2) (embedding : Acting →* (ResidualRing twist)ˣ)
-    (hinjective : Function.Injective embedding) : pGeneratorRank 2 Acting ≤ 5 := by
-  have hcard : Nat.card Acting ≤ 64 :=
-    (Nat.card_le_card_of_injective embedding hinjective).trans (residual_unit_card_even htwist)
-  by_cases hfrattini : frattini Acting = ⊥
-  · have hsquare : ∀ element : Acting, element ^ 2 = 1 := by
-      intro element
-      have hmem := pGroup_pow_mem_frattini Nat.prime_two hpgroup element
-      rw [hfrattini] at hmem
-      exact hmem
-    let candidates : Acting → ResidualInvolutionCandidates twist := fun element =>
-      ⟨(embedding element).val, residual_unit_determinant (embedding element), by
-        have hzero : (embedding element) ^ 2 = 1 := by rw [← map_pow, hsquare, map_one]
-        exact congrArg Units.val hzero⟩
-    have hcandidates : Function.Injective candidates := by
-      intro first second heq
-      apply hinjective
-      exact Units.ext (congrArg Subtype.val heq)
-    have hsmall := (Nat.card_le_card_of_injective candidates hcandidates).trans_lt
-      (residual_involution_candidates_small htwist)
-    exact two_group_card_lt_64_generator_rank hpgroup hsmall
-  · exact two_group_card_le_64_nontrivial_frattini_rank hpgroup hcard hfrattini
-
-theorem residual_one_two_subgroup_generator_rank {Acting : Type groupUniverse} [Group Acting]
-    [Finite Acting] (hpgroup : IsPGroup 2 Acting) (embedding : Acting →* (ResidualRing 1)ˣ)
-    (hinjective : Function.Injective embedding) : pGeneratorRank 2 Acting ≤ 5 := by
-  let equivalence := MonoidHom.ofInjective hinjective
-  have hdivides : Nat.card Acting ∣ 96 := by
-    rw [Nat.card_congr equivalence.toEquiv]
-    exact (residual_unit_card_eq_one) ▸ embedding.range.card_subgroup_dvd_card
-  obtain ⟨rank, hrankCard⟩ := hpgroup.exists_card_eq
-  have hrank : rank ≤ 5 := by
-    by_contra hlarge
-    have hpower : 2 ^ 6 ∣ 2 ^ rank := Nat.pow_dvd_pow 2 (by omega)
-    have hbad : 64 ∣ 96 := by rw [← hrankCard] at hpower; exact hpower.trans hdivides
-    norm_num at hbad
-  apply two_group_card_lt_64_generator_rank hpgroup
-  rw [hrankCard]
-  exact (Nat.pow_le_pow_right (by decide : 0 < 2) hrank).trans_lt (by decide)
-
-theorem residual_binary_two_subgroup_generator_rank {Acting : Type groupUniverse} [Group Acting]
-    [Finite Acting] (hpgroup : IsPGroup 2 Acting) {twist : ZMod 4}
-    (htwist : twist = 1 ∨ twist = 0 ∨ twist = 2) (embedding : Acting →* (ResidualRing twist)ˣ)
-    (hinjective : Function.Injective embedding) : pGeneratorRank 2 Acting ≤ 5 := by
-  rcases htwist with rfl | heven
-  · exact residual_one_two_subgroup_generator_rank hpgroup embedding hinjective
-  · exact residual_even_two_subgroup_generator_rank hpgroup heven embedding hinjective
 
 end CFSG.LargeEvenClassification.Helpers

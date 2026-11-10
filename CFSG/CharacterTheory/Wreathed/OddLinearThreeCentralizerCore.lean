@@ -491,9 +491,6 @@ section MatrixCentralizer
   right_inv g := Subtype.ext (e.apply_symm_apply g)
   map_mul' g h := Subtype.ext (e.map_mul g h)
 
-theorem centralizerTransport_apply {G H : Type*} [Group G] [Group H]
-    (e : G ≃* H) (z : G) (g : Subgroup.centralizer ({z} : Set G)) :
-    (centralizerTransport e z g : H) = e g := rfl
 
 set_option maxHeartbeats 2000000 in
 @[expose] def matrixCentralizerEquiv [Finite F] (hF : Odd (Nat.card F))
@@ -587,14 +584,6 @@ section MatrixScalarKernel
     simpa only [Fintype.card_fin, Units.val_pow_eq_pow_val, Units.val_one] using
       congrArg Units.val hc⟩
 
-theorem matrixScalar_center (c : Fˣ) (hc : c ^ 3 = 1) :
-    matrixScalar F c hc ∈ Subgroup.center (SL3 F) := by
-  apply Matrix.SpecialLinearGroup.mem_center_iff.mpr
-  refine ⟨(c : F), ?_, ?_⟩
-  · simpa only [Fintype.card_fin, Units.val_pow_eq_pow_val, Units.val_one] using
-      congrArg Units.val hc
-  · ext i j
-    simp [matrixScalar, Matrix.scalar_apply, Matrix.diagonal_apply, Matrix.one_apply]
 
 theorem matrixScalar_action (c : Fˣ) (hc : c ^ 3 = 1) :
     matrixAction F (matrixScalar F c hc) = LinearEquiv.smulOfUnit c := by
@@ -704,13 +693,6 @@ theorem D_le_matrixCentralizer (D : Subgroup (SL3 F))
         (OddNormalQuotientInvolutions.centralizerQuotient_ker D z)).trans
           (Subgroup.subgroupOfEquivOfLe (D_le_matrixCentralizer F D hD z))))
 
-theorem matrixQuotientKernelEquiv_coe [Finite F] (hF : Odd (Nat.card F))
-    (D : Subgroup (SL3 F)) [D.Normal] (hD : D ≤ Subgroup.center (SL3 F))
-    (z : SL3 F) (hz : orderOf z = 2)
-    (a : (matrixQuotientCentralizer F hF D z hz).ker) :
-    (matrixQuotientKernelEquiv F hF D hD z hz a : SL3 F) =
-      (matrixCentralizerEquiv F hF z hz a : SL3 F) := by
-  rfl
 
 theorem matrixQuotientKernel_card [Finite F] (hF : Odd (Nat.card F))
     (D : Subgroup (SL3 F)) [D.Normal] (hD : D ≤ Subgroup.center (SL3 F))
@@ -740,44 +722,6 @@ theorem matrixQuotientKernel_le_scalars (hF : Odd (Nat.card F))
   obtain ⟨c, _, _, he⟩ := (matrixQuotientCentralizer_mem_ker_iff hF hD hz).mp ha
   exact ⟨c, he.symm⟩
 
-theorem matrixQuotientCentralizer_core_structure (hF : Odd (Nat.card F))
-    (hq : 3 ≤ Nat.card F) (D : Subgroup (SL3 F)) [D.Normal]
-    (hD : D ≤ Subgroup.center (SL3 F)) (z : SL3 F) (hz : orderOf z = 2) :
-    CFSG.oddCore (Subgroup.centralizer
-      ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D))) =
-      ((CyclicOddScalarQuotient.oddElements Fˣ).map
-        (OddLinearTwoAutomorphisms.scalarHom F
-          (minusSpace (matrixAction F z).toLinearMap))).map
-            (matrixQuotientCentralizer F hF D z hz) ∧
-      CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D))) ≤
-          Subgroup.center (Subgroup.centralizer
-            ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D))) ∧
-      IsCyclic (CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D)))) ∧
-      Nat.card (CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D)))) =
-          ordCompl[2] (Nat.card F - 1) / Nat.card D := by
-  let P := minusSpace (matrixAction F z).toLinearMap
-  have hP : Module.finrank F P = 2 := (matrixAction_finrank F hF z hz).1
-  let : Finite (P ≃ₗ[F] P) := OddLinearTwoAutomorphisms.finite_automorphisms F P hP
-  have h := CyclicOddScalarQuotient.quotient_oddCore_structure
-    (OddLinearTwoAutomorphisms.scalarHom F P)
-    (OddLinearTwoAutomorphisms.scalarHom_injective F P hP)
-    (OddLinearTwoAutomorphisms.scalarHom_central F P)
-    (matrixQuotientCentralizer F hF D z hz)
-    (matrixQuotientCentralizer_surjective F hF D hD z hz)
-    (matrixQuotientKernel_odd F hF D hD z hz)
-    (matrixQuotientKernel_le_scalars F hF D hD z hz)
-    (OddLinearTwoAutomorphisms.normal_odd_is_scalar F P hF hq hP)
-  refine ⟨h.1, h.2.1, h.2.2.1, ?_⟩
-  calc
-    Nat.card (CFSG.oddCore (Subgroup.centralizer
-      ({QuotientGroup.mk' D z} : Set (SL3 F ⧸ D)))) =
-        ordCompl[2] (Nat.card Fˣ) /
-          Nat.card (matrixQuotientCentralizer F hF D z hz).ker := h.2.2.2
-    _ = ordCompl[2] (Nat.card F - 1) / Nat.card D := by
-      rw [Nat.card_units, matrixQuotientKernel_card F hF D hD z hz]
 
 theorem matrixQuotientCentralizer_card (hF : Odd (Nat.card F))
     (D : Subgroup (SL3 F)) [D.Normal] (hD : D ≤ Subgroup.center (SL3 F))
@@ -884,21 +828,6 @@ theorem targetQuotientCentralizer_card (hF : Odd (Nat.card F))
   rw [← Nat.card_congr (targetCentralizerEquiv F D z t hzt).toEquiv]
   exact matrixQuotientCentralizer_card F hF D hD z hz
 
-theorem mem_targetCentralizer_oddCore_iff {F : Type u} [Field F] [Finite F] {hF : Odd (Nat.card F)}
-    {hq : 3 ≤ Nat.card F} {D : Subgroup (SL3 F)} [D.Normal]
-    (hD : D ≤ Subgroup.center (SL3 F)) {z : SL3 F} (hz : orderOf z = 2)
-    {t : SL3 F ⧸ D} (hzt : QuotientGroup.mk' D z = t)
-    {g : Subgroup.centralizer ({t} : Set (SL3 F ⧸ D))} :
-    g ∈ CFSG.oddCore (Subgroup.centralizer ({t} : Set (SL3 F ⧸ D))) ↔
-      ∃ c : Fˣ, Odd (orderOf c) ∧
-        targetQuotientCentralizer F hF D z hz t hzt (LinearEquiv.smulOfUnit c) = g := by
-  rw [(targetQuotientCentralizer_core_structure F hF hq D hD z hz t hzt).1]
-  constructor
-  · rintro ⟨a, ⟨c, hc, rfl⟩, hag⟩
-    exact ⟨c, hc, hag⟩
-  · rintro ⟨c, hc, hcg⟩
-    exact Subgroup.mem_map.mpr ⟨LinearEquiv.smulOfUnit c,
-      Subgroup.mem_map.mpr ⟨c, hc, rfl⟩, hcg⟩
 
 theorem odd_linear_three_involution_centralizer_core (hF : Odd (Nat.card F))
     (hq : 3 ≤ Nat.card F) (D : Subgroup (SL3 F)) [D.Normal]

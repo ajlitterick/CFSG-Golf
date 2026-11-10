@@ -26,14 +26,6 @@ theorem primaryPart_eq_power_of_coprime_factors {G : Type*} [Group G]
       regular ^ exponent.val = regular ^ 0)
   simp [hprimary, hregular]
 
-theorem primaryPart_eq_power {G : Type*} [Group G] {prime : ℕ}
-    {element primary : G} (hprimary : BlocksIsPPart prime element primary) :
-    ∃ exponent : ℕ, element ^ exponent = primary := by
-  rcases hprimary with ⟨regular, hproduct, hproduct', ⟨power, horder⟩, hpositive, hcoprime⟩
-  apply primaryPart_eq_power_of_coprime_factors hproduct
-    (hproduct.trans hproduct'.symm)
-  rw [horder]
-  exact hcoprime.symm.pow_left power
 
 @[expose] def twoSidedPermutation {G : Type*} [Group G] (left right : G) : Equiv.Perm G where
   toFun element := left * element * right⁻¹

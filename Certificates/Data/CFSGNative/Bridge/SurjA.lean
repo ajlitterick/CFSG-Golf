@@ -30,13 +30,6 @@ set_option compiler.extract_closed false
   let O := D.orbit ()
   relCheck D.n O.alpha (invT D.n O.alpha) O.beta (invT D.n O.beta) rels
 
-@[noinline, expose] def mclRelCheck (rels : List (List (Nat × Bool))) : Bool :=
-  let O := CFSG.Sporadic.McL.Native.orbitData ()
-  relCheck 275 O.alpha O.alpha O.beta (invT 275 O.beta) rels
-
-@[noinline, expose] def heRelCheck (rels : List (List (Nat × Bool))) : Bool :=
-  let O := CFSG.Sporadic.He.Native.orbitData ()
-  relCheck 8330 O.alpha O.alpha O.beta (invT 8330 O.beta) rels
 
 @[noinline, expose] def fi22RelCheck (rels : List (List (Nat × Bool))) : Bool :=
   let O := CFSG.Sporadic.Fi22.Native.orbitData ()

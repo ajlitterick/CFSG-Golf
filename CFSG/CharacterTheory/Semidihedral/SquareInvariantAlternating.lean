@@ -178,45 +178,6 @@ theorem square_invariant_alternating_eq_zero
   exact congrArg (fun B : K →ₗ[ZMod p] K →ₗ[ZMod p] ZMod p => B x y) hz
 
 
-theorem square_invariant_alternating_eq_zero_over_prime_field
-    (p f : ℕ) [Fact p.Prime] (hpodd : Odd p) (hf : 1 ≤ f)
-    (P : Type w) [Field P] (hprime : Nat.card P = p)
-    (K : Type u) [Field K] [Algebra P K] (hcard : Nat.card K = p ^ f)
-    (W : Type v) [AddCommGroup W] [Module P W]
-    (b : K →ₗ[P] K →ₗ[P] W) (halt : b.IsAlt)
-    (hinv : ∀ (a : Kˣ) (x y : K),
-      b ((a : K) ^ 2 * x) ((a : K) ^ 2 * y) = b x y)
-    (hnine : p ^ f ≠ 9) : b = 0 := by
-  classical
-  let : Finite P := Nat.finite_of_card_ne_zero (hprime ▸ (Fact.out : p.Prime).ne_zero)
-  let : Fintype P := Fintype.ofFinite P
-  let : Finite K := FixedFieldData.finite_of_prime_power_card K Fact.out hcard
-  let : Fintype K := Fintype.ofFinite K
-  have hrank : Module.finrank P K = f := by
-    apply Nat.pow_right_injective (Fact.out : p.Prime).two_le
-    calc
-      p ^ Module.finrank P K = Nat.card P ^ Module.finrank P K := by rw [hprime]
-      _ = Nat.card K := Module.natCard_eq_pow_finrank.symm
-      _ = p ^ f := hcard
-  by_cases hf1 : f = 1
-  · exact alternating_eq_zero_of_finrank_one (hrank.trans hf1) b halt
-  have hdegree : 4 < (Fintype.card P - 1) * Module.finrank P K := by
-    rw [Fintype.card_eq_nat_card, hprime, hrank]
-    exact quartic_degree_bound Fact.out hpodd hf hf1 hnine
-  have hpzero : (p : P) = 0 := by
-    rw [← hprime, Nat.card_eq_fintype_card]
-    exact FiniteField.cast_card_eq_zero P
-  have hcast : (Fintype.card K : P) = 0 := by
-    rw [Fintype.card_eq_nat_card, hcard, Nat.cast_pow, hpzero,
-      zero_pow (by omega : f ≠ 0)]
-  ext x y
-  apply (Module.forall_dual_apply_eq_zero_iff P (b x y)).mp
-  intro φ
-  have hz : b.compr₂ φ = 0 :=
-    square_invariant_bilinear_eq_zero_of_degree_bound hdegree hcast (b.compr₂ φ)
-      (fun a x y => by simp only [LinearMap.compr₂_apply, hinv])
-  exact congrArg (fun B : K →ₗ[P] K →ₗ[P] P => B x y) hz
-
 @[expose] def bilinearOfBiadditive (p : ℕ) {V : Type u} [AddCommGroup V] [Module (ZMod p) V]
     {W : Type v} [AddCommGroup W] [Module (ZMod p) W]
     (b : V →+ V →+ W) : V →ₗ[ZMod p] V →ₗ[ZMod p] W :=
@@ -228,18 +189,6 @@ theorem square_invariant_alternating_eq_zero_over_prime_field
     {W : Type v} [AddCommGroup W] [Module (ZMod p) W]
     (b : V →+ V →+ W) (x y : V) : bilinearOfBiadditive p b x y = b x y := rfl
 
-theorem square_invariant_biadditive_eq_zero
-    (p f : ℕ) [Fact p.Prime] (hpodd : Odd p) (hf : 1 ≤ f)
-    (K : Type u) [Field K] [Algebra (ZMod p) K] (hcard : Nat.card K = p ^ f)
-    (W : Type v) [AddCommGroup W] [Module (ZMod p) W]
-    (b : K →+ K →+ W) (halt : ∀ x, b x x = 0)
-    (hinv : ∀ (a : Kˣ) (x y : K),
-      b ((a : K) ^ 2 * x) ((a : K) ^ 2 * y) = b x y)
-    (hnine : p ^ f ≠ 9) : b = 0 := by
-  have hz := square_invariant_alternating_eq_zero p f hpodd hf K hcard W
-    (bilinearOfBiadditive p b) halt hinv hnine
-  ext x y
-  exact congrArg (fun B : K →ₗ[ZMod p] K →ₗ[ZMod p] W => B x y) hz
 
 end
 

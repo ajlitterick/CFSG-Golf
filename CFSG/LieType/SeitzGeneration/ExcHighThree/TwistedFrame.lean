@@ -19,13 +19,6 @@ open CFSG.HardMathSupport.Foote.Coordinator.SplitFrame
   CFSG.HardMathSupport.Timmesfeld.Tables.T1b CFSG.RankThree.PartOne.KE CFSG.RankThree.Lattice
 
 
-theorem f4Six_row (i : Fin Tag.F4.rank) :
-    (((coxeterSystem Tag.F4).wordProd TwClass.wordF4)⁻¹ • (Pi.single i 1 : Fin Tag.F4.rank → ℤ)) 1
-      % 3 = if i = 1 then 2 else 0 := by
-  rw [← CoxeterSystem.wordProd_reverse, wordProd_smul_eq_wordMat_mulVec]
-  fin_cases i <;> decide +kernel
-
-
 theorem natCast_three_ne_zero {K L : Type} [Field K] [Finite K] [Field L] [Algebra K L]
     (h : ¬ 3 ∣ Nat.card K) : ((3 : ℕ) : L) ≠ 0 := by
   intro h0

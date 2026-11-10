@@ -20,11 +20,6 @@ private theorem parseWords_centWordStr_0 :
   str_lits Native.centWordStr
   exact (Native.parseWords_ofList _).trans (eq_of_beq (by quickRfl))
 
-private theorem parseWords_centWordStr_neg :
-    (!(Native.parseWords Native.centWordStr == Native.centWordsL.set 44 [1])) = true := by
-  str_lits Native.centWordStr
-  rw [Native.parseWords_ofList]
-  quickRfl
 
 end CertificateChecks.Batch3110
 

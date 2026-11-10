@@ -53,13 +53,6 @@ section Proofs
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem ggL44iii_iff {p : ℕ} {B Bs : Subgroup G} {x : G} {D J X : Subgroup G} {d y : G}
-    {K : Subgroup G} :
-    GGL44iii p B Bs x D J X d y K ↔
-      D ⊓ (Bs ⊓ Subgroup.centralizer (X : Set G)) = Subgroup.zpowers d ∧ d ≠ 1 ∧
-        GGNbr p B x D J y K ∧ Subgroup.zpowers y = Subgroup.zpowers d ∧
-        GGL44iiiMarking p Bs x X K :=
-  Iff.rfl
 
 omit [Finite G] in
 theorem not_mem_sup_of_raw {p : ℕ} {B₁ K : Subgroup G} {x : G}

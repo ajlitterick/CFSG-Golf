@@ -14,17 +14,6 @@ open CFSG.Open CFSG.RankThreeCoreUniqueness.Helpers CFSG.AGLEmbedding
 open CFSG.AGLEmbedding.ParabPrime
 open scoped commutatorElement
 
-@[expose] def KFactBlockFieldIndexAt (p : ℕ) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M S L : Subgroup G), BlockL28Hyps M S L →
-    pCoreOf 2 M ≤ S → (L.subgroupOf M).Normal →
-    (∀ q : ℕ, q.Prime → q ≠ 2 → Open.pRank q (barM M L) ≤ 3) →
-    p ∣ Nat.card (perfectJoin (blockPL M S L)) →
-    Open.pRank p (perfectJoin (blockPL M S L)) ≤ 1 →
-    ∀ a : ↥M ⧸ CFSG.pCore 2 ↥M, IsPGroup p (Subgroup.zpowers a) →
-      a ∈ Subgroup.normalizer (blockPL M S L : Set (↥M ⧸ CFSG.pCore 2 ↥M)) →
-      (¬ ∃ v ∈ perfectJoin (blockPL M S L), ∀ w ∈ perfectJoin (blockPL M S L),
-        ⁅a * v, w⁆ ∈ pCoreOf 2 (perfectJoin (blockPL M S L))) →
-      ∃ N : Subgroup (↥M ⧸ CFSG.pCore 2 ↥M), N.Normal ∧ N.index = p
 
 variable {G : Type} [Group G] [Finite G]
 

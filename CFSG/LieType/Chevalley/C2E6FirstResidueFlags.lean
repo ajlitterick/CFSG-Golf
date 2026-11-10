@@ -23,9 +23,6 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
   smul_mem' c v hv j hj := by
     rw [Pi.smul_apply, hv j hj, smul_zero]
 
-theorem mem_preSpan {k : ℕ} {v : Fin 6 → K} :
-    v ∈ preSpan k ↔ ∀ j : Fin 6, k ≤ (j : ℕ) → v j = 0 :=
-  Iff.rfl
 
 theorem uVec_mem_preSpan {k : ℕ} {i : Fin 6} (hi : (i : ℕ) < k) : uVec i ∈ preSpan k :=
   fun j hj => Pi.single_eq_of_ne (fun h => by rw [h] at hj; omega) 1
@@ -277,7 +274,6 @@ theorem J6_mem_SU6 : (⟨J6, det_J6⟩ : SpecialLinearGroup (Fin 6) K) ∈ SU6 :
 @[expose] def revSU : SU6 :=
   ⟨⟨J6, det_J6⟩, J6_mem_SU6⟩
 
-abbrev oppFlag : IsoFlag6 := revSU • baseFlag
 
 theorem suLin_revSU_uVec (i : Fin 6) : suLin revSU (uVec i) = uVec (Fin.rev i) := by
   funext j
@@ -286,17 +282,6 @@ theorem suLin_revSU_uVec (i : Fin 6) : suLin revSU (uVec i) = uVec (Fin.rev i) :
   rw [J6_apply, uVec, Pi.single_apply]
   exact if_congr ⟨fun h => by rw [h, Fin.rev_rev], fun h => by rw [h, Fin.rev_rev]⟩ rfl rfl
 
-theorem oppFlag_sub (k : Fin 3) :
-    oppFlag.sub k = Submodule.span K (uVec '' {j | 5 - (k : ℕ) ≤ (j : ℕ)}) := by
-  rw [smul_sub, baseFlag_sub, preSpan_eq_span, Submodule.map_span, Set.image_image]
-  congr 1
-  ext v
-  simp only [Set.mem_image, Set.mem_ofPred_eq, LinearEquiv.coe_coe, suLin_revSU_uVec]
-  constructor
-  · rintro ⟨j, hj, rfl⟩
-    exact ⟨Fin.rev j, by rw [Fin.val_rev]; omega, rfl⟩
-  · rintro ⟨j, hj, rfl⟩
-    exact ⟨Fin.rev j, by rw [Fin.val_rev]; omega, by rw [Fin.rev_rev]⟩
 
 @[expose] def frob6 : (Fin 6 → K) →ₛₗ[barHom] (Fin 6 → K) where
   toFun v i := bar (v i)

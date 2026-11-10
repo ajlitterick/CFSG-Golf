@@ -66,20 +66,6 @@ theorem pullbackPerm_apply (G : Subgroup (LinearMap.GeneralLinearGroup K V)) (X 
     (hX : ∀ g ∈ G, ∀ q ∈ X, glPullback g q ∈ X) (g : G) (q : X) :
     (pullbackPerm G X hX g q : V → K) = glPullback g q := rfl
 
-theorem exists_unique_polarOperator [FiniteDimensional K V] {B : LinearMap.BilinForm K V}
-    (hB : B.Nondegenerate) (β : LinearMap.BilinForm K V) :
-    ∃! T : Module.End K V, ∀ u w, B u (T w) = β u w := by
-  let e := B.flip.toDual hB.flip
-  have key : ∀ u w, B u (e.symm (β.flip w)) = β u w := fun u w =>
-    LinearMap.BilinForm.apply_toDual_symm_apply (B := B.flip) (hB := hB.flip) (β.flip w) u
-  refine ⟨e.symm.toLinearMap ∘ₗ β.flip, fun u w => key u w, ?_⟩
-  intro T' hT'
-  apply LinearMap.ext
-  intro w
-  apply sub_eq_zero.1
-  apply hB.2
-  intro u
-  rw [map_sub, hT', LinearMap.comp_apply, LinearEquiv.coe_coe, key, sub_self]
 
 theorem commute_polarOperator_of_pullback {B : LinearMap.BilinForm K V} (hB : B.Nondegenerate)
     {g : LinearMap.GeneralLinearGroup K V}
@@ -114,46 +100,5 @@ theorem eq_smul_id_of_pullback_eq {B : LinearMap.BilinForm K V} (hB : B.Nondegen
   obtain ⟨c, hc⟩ := hmem
   exact ⟨c, hc.symm⟩
 
-theorem gl_smul_id_ne_zero [Nontrivial V] {g : LinearMap.GeneralLinearGroup K V} {c : K}
-    (hc : (g : V →ₗ[K] V) = c • LinearMap.id) : c ≠ 0 := by
-  rintro rfl
-  have h := g.val_inv
-  rw [hc, zero_smul, zero_mul] at h
-  exact zero_ne_one h
-
-theorem gl_eq_one_of_subsingleton [Subsingleton V] (g : LinearMap.GeneralLinearGroup K V) :
-    g = 1 :=
-  Units.ext (LinearMap.ext fun _ => Subsingleton.elim _ _)
-
-theorem polar_scalar_separating_base (B : LinearMap.BilinForm K V) (hB : B.Nondegenerate)
-    (G : Subgroup (LinearMap.GeneralLinearGroup K V))
-    (hGB : ∀ g ∈ G, ∀ u w, B ((g : V →ₗ[K] V) u) ((g : V →ₗ[K] V) w) = B u w)
-    (hscalar : ∀ c : K, c ≠ 0 → ∀ g ∈ G, (g : V →ₗ[K] V) = c • LinearMap.id → c = 1)
-    {ι : Type*} (q : ι → V → K) (β : ι → LinearMap.BilinForm K V)
-    (hβ : ∀ i u w, β i u w = q i (u + w) - q i u - q i w) (T : ι → Module.End K V)
-    (hT : ∀ i u w, B u (T i w) = β i u w)
-    (hcent : {S : Module.End K V | ∀ i, S * T i = T i * S} =
-      Set.range fun c : K => c • (LinearMap.id : V →ₗ[K] V)) :
-    (∀ g ∈ G, (∀ i, glPullback g (q i) = q i) → g = 1) ∧
-    ∀ (X : Set (V → K)) (hX : ∀ g ∈ G, ∀ f ∈ X, glPullback g f ∈ X) (hqX : ∀ i, q i ∈ X),
-      (∀ g : G, (∀ i, pullbackPerm G X hX g ⟨q i, hqX i⟩ = ⟨q i, hqX i⟩) → g = 1) ∧
-      Function.Injective (pullbackPerm G X hX) := by
-  have hfix : ∀ g ∈ G, (∀ i, glPullback g (q i) = q i) → g = 1 := by
-    intro g hg hq
-    rcases subsingleton_or_nontrivial V with hV | hV
-    · exact gl_eq_one_of_subsingleton g
-    · obtain ⟨c, hc⟩ := eq_smul_id_of_pullback_eq hB (hGB g hg) hβ hT hcent hq
-      have h1 := hscalar c (gl_smul_id_ne_zero hc) g hg hc
-      rw [h1, one_smul] at hc
-      exact Units.ext hc
-  have hstab : ∀ (X : Set (V → K)) (hX : ∀ g ∈ G, ∀ f ∈ X, glPullback g f ∈ X)
-      (hqX : ∀ i, q i ∈ X) (g : G),
-      (∀ i, pullbackPerm G X hX g ⟨q i, hqX i⟩ = ⟨q i, hqX i⟩) → g = 1 := by
-    intro X hX hqX g hg
-    exact Subtype.ext (hfix g g.2 fun i => congrArg Subtype.val (hg i))
-  refine ⟨hfix, fun X hX hqX => ⟨hstab X hX hqX, ?_⟩⟩
-  refine (injective_iff_map_eq_one _).2 fun g hg => hstab X hX hqX g fun i => ?_
-  rw [hg]
-  rfl
 
 end CFSG.Certificates

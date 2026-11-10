@@ -85,8 +85,6 @@ theorem loop_eq_foldl (step : Nat → Nat → Nat) (N c : Nat) :
   rw [Nat.sub_self] at this
   rw [this, List.range_eq_range']
 
-theorem cStep_eq_genStep (n w m : Nat) (T : Nat → Nat) (t row g gi k c : Nat) :
-    cStep n w m T t row g gi k c = genStep n w m T (pcomp n w m t gi) row g k c := rfl
 
 theorem cStep_eq (n w m : Nat) (T : Nat → Nat) (t row g gi k c : Nat) :
     cStep n w m T t row g gi k c =
@@ -326,11 +324,6 @@ theorem cStep_mono {n w m : Nat} {T : Nat → Nat} {t row g gi k c : Nat}
     (h : cStep n w m T t row g gi k c ≠ 0) : c ≤ cStep n w m T t row g gi k c :=
   (cStep_spec rfl h).2.1
 
-theorem cPoint_zero (n w m ng : Nat) (G GI T E : Nat → Nat) (i : Nat) :
-    cPoint n w m ng G GI T E i 0 = 0 := by
-  rw [cPoint_eq]
-  exact foldl_zero_of (step := fun k c => cStep n w m T (T i) (E i) (G k) (GI k) k c)
-    (fun k => cStep_zero n w m T (T i) (E i) (G k) (GI k) k) _
 
 theorem cPoint_mono {n w m ng : Nat} {G GI T E : Nat → Nat} {i c : Nat}
     (h : cPoint n w m ng G GI T E i c ≠ 0) : c ≤ cPoint n w m ng G GI T E i c := by

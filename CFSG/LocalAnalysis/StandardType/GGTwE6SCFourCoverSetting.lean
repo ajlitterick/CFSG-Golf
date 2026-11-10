@@ -15,18 +15,6 @@ open CFSG CFSG.Assembly CFSG.Blueprint TableB
     IsComponentOf J₁ (ggFix a₀) ∧ (∀ a ∈ A, ∀ m ∈ J₁, a m ∈ J₁) ∧
     (∀ a ∈ A, (∀ m ∈ J₁, a m = m) → a ∈ Subgroup.zpowers a₀)
 
-@[expose] def GGTwE6OfOutsideKnownAd : Prop :=
-  ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →
-    LargeEvenLabelAll lab fun R _ I _ => IsSimpleGroup R → (∃ a b : R, a * b ≠ b * a) →
-      Finite R →
-      ∀ (s t : MulAut R) (n : ℕ), s ^ 3 = 1 → t ^ 3 = 1 → s * t = t * s → s ∈ I → t ∈ I →
-        3 ∣ 2 ^ n + 1 →
-        ∀ J₁ : Subgroup R, IsComponentOf J₁ (ggFix s) →
-          LargeEvenMarking ↥J₁ (fun lab' _ _ _ _ _ =>
-            lab' = ⟨.D, 4, n⟩ ∨ lab' = ⟨.triD4, 0, n⟩ ∨ lab' = ⟨.A, 2, 3 * n⟩ ∨
-              lab' = ⟨.twA, 2, 3 * n⟩) →
-          GGOutsideInndiag J₁ t →
-          (lab.tag = .twE6 ∧ 3 ∣ 2 ^ lab.n + 1) ∨ GGTorusLift 3 5 R
 
 @[expose] def GGTwE6A5LKnownAd : Prop :=
   ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →

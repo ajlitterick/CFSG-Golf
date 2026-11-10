@@ -297,7 +297,6 @@ theorem exists_of_mem_openCone_neg {a b ε : ι → ℤ} (ha : a ∈ Φ.neg) (ha
 
 theorem posExcept_subset_pos (i : ι) : Φ.posExcept i ⊆ Φ.pos := Set.sdiff_subset
 
-theorem negExcept_subset_neg (i : ι) : Φ.negExcept i ⊆ Φ.neg := Set.sdiff_subset
 
 theorem neg_mem_posExcept_iff {i : ι} {γ : ι → ℤ} : -γ ∈ Φ.posExcept i ↔ γ ∈ Φ.negExcept i := by
   simp only [posExcept, negExcept, Set.mem_sdiff, Set.mem_insert_iff, Set.mem_singleton_iff,
@@ -437,13 +436,6 @@ theorem mem_cases (i : ι) {γ : ι → ℤ} (hγ : γ ∈ Φ.roots) :
 theorem refl_neg_single (i : ι) : Φ.refl i (-Pi.single i 1) = Pi.single i 1 := by
   rw [map_neg, Φ.refl_single, neg_neg]
 
-theorem refl_two_smul_single (i : ι) :
-    Φ.refl i (2 • Pi.single i 1) = -(2 • Pi.single i 1) := by
-  rw [map_nsmul, Φ.refl_single, neg_nsmul]
-
-theorem refl_neg_two_smul_single (i : ι) :
-    Φ.refl i (-(2 • Pi.single i 1)) = 2 • Pi.single i 1 := by
-  rw [map_neg, refl_two_smul_single, neg_neg]
 
 theorem wordAct_mem (w : List ι) {γ : ι → ℤ} (hγ : γ ∈ Φ.roots) :
     wordAct Φ.refl w γ ∈ Φ.roots := by

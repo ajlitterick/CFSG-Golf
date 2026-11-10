@@ -15,14 +15,6 @@ variable {X : Type} [Group X] {E : Set X}
 
 section Solvable
 
-theorem eq_bot_of_isSolvable (hZ : Subgroup.center X = ⊥) (hs : IsSimpleGroup (commutator X))
-    (hna : ¬ ∀ a b : commutator X, a * b = b * a) {N : Subgroup X} [N.Normal]
-    (hN : Group.IsSolvable N) : N = ⊥ := by
-  by_contra hne
-  have hle := commutator_le_of_normal hZ hs hne
-  have : Group.IsSolvable (commutator X) := Group.isSolvable_of_isSolvable_injective
-    (f := Subgroup.inclusion hle) (Subgroup.inclusion_injective hle)
-  exact hna (IsSimpleGroup.comm_iff_isSolvable.2 this)
 
 end Solvable
 

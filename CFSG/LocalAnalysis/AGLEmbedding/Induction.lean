@@ -15,8 +15,6 @@ open CFSG.Open CFSG.PreuniquenessRankFour.Helpers CFSG.RankThreeCoreUniqueness.H
     ∀ (P : Sylow p G) (M : Subgroup G), D1Local p P M →
       ∀ H R : Subgroup G, D1Extremal p P M H R → ¬ HasPrimeConstraint (G := H) p → False
 
-theorem D1ComponentCase.toInd (h : D1ComponentCase) : D1ComponentCaseInd :=
-  fun G _ _ hglob p _ P M hloc H R hext hcon => h G hglob p P M hloc H R hext hcon
 
 theorem d1At_of_extremalAt {G : Type} [Group G] [Finite G] {p : ℕ} (hp : p ∈ GLBBetaFour G)
     (h : ∀ (P : Sylow p G) (M : Subgroup G), D1Local p P M →
@@ -50,14 +48,5 @@ theorem d1_of_cases_ind (hcon : D1ConstrainedCase) (hcomp : D1ComponentCaseInd) 
   d1At_of_cases_ind hcon hcomp ⟨inferInstance, hnonab, hK, hchar, he, hpre⟩ p hp P M hM hWM H
     hH hHM
 
-theorem d1_of_kFacts_of_componentCaseInd (hβ : KFactBeta) (hα : KFactAlpha)
-    (hcomp : D1ComponentCaseInd) (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : IsKProper G) (hchar : IsCharTwoType G)
-    (he : 4 ≤ evenRank G) (hpre : GLBPreuniqueness G) (p : ℕ) (hp : p ∈ GLBBetaFour G)
-    (P : Sylow p G) (M : Subgroup G) (hM : GLBIsMaxTwoLocal M)
-    (hWM : GLBWeakCore p (P : Subgroup G) ≤ M) (H : Subgroup G) (hH : IsTwoLocal H)
-    (hHM : 3 ≤ Open.pRank p (H ⊓ M)) : H ≤ M :=
-  d1_of_cases_ind (d1ConstrainedCase_of_kFacts hβ hα) hcomp G hnonab hK hchar he hpre p hp P M
-    hM hWM H hH hHM
 
 end CFSG.AGLEmbedding

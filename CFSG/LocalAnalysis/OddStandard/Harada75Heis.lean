@@ -62,9 +62,6 @@ theorem comm_formula : ∀ a b : Heis, a * b * a⁻¹ * b⁻¹ = Zc (b₀ a.w b.
 
 theorem sq_formula : ∀ a : Heis, a * a = Zc (q₀ a.w) := by decide
 
-theorem Zc_central : ∀ (a : Heis) (k : ZMod 2), a * Zc k = Zc k * a := by decide
-
-theorem Zc_add : ∀ k k' : ZMod 2, Zc k * Zc k' = Zc (k + k') := by decide
 
 theorem eq_mul_Zc : ∀ h : Heis, h = ⟨h.w, 0⟩ * Zc h.k := by decide
 
@@ -99,8 +96,6 @@ instance (h : Heis) : Decidable (h ∈ E₀) :=
 theorem card_E₀ : Nat.card E₀ = 8 := by
   rw [Nat.card_eq_fintype_card]
   decide
-
-theorem Zc_mem_E₀ (k : ZMod 2) : Zc k ∈ E₀ := ⟨rfl, rfl⟩
 
 
 @[expose] def lin (φ : Heis →* Heis) (w : W₀) : W₀ := (φ ⟨w, 0⟩).w
@@ -150,7 +145,6 @@ theorem lin_comp (φ ψ : Heis →* Heis) (hφ : φ z₀ = z₀) (w : W₀) :
   have h2 := congrArg Heis.w this
   simpa [lin] using h2
 
-theorem lin_id (w : W₀) : lin (MonoidHom.id Heis) w = w := rfl
 
 @[expose] def linPerm (φ φ' : Heis →* Heis) (h1 : φ.comp φ' = MonoidHom.id Heis)
     (h2 : φ'.comp φ = MonoidHom.id Heis) (hz : φ z₀ = z₀) (hz' : φ' z₀ = z₀) :
@@ -162,9 +156,6 @@ theorem lin_id (w : W₀) : lin (MonoidHom.id Heis) w = w := rfl
   right_inv w := by
     rw [← lin_comp φ φ' hz, h1]; rfl
 
-theorem linPerm_apply (φ φ' : Heis →* Heis) (h1 : φ.comp φ' = MonoidHom.id Heis)
-    (h2 : φ'.comp φ = MonoidHom.id Heis) (hz : φ z₀ = z₀) (hz' : φ' z₀ = z₀) (w : W₀) :
-    linPerm φ φ' h1 h2 hz hz' w = lin φ w := rfl
 
 theorem exists_conj_of_lin_eq_id (φ : Heis →* Heis) (hz : φ z₀ = z₀) (h : ∀ w, lin φ w = w) :
     ∃ h₀ : Heis, ∀ x : Heis, φ x = h₀ * x * h₀⁻¹ := by

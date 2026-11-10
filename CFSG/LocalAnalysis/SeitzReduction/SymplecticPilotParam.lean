@@ -15,12 +15,6 @@ section FieldBlock
 
 variable {K : Type} [Field K] {F : Type} [Field F] {n : ℕ}
 
-theorem spFieldMap_spFieldMap {F' : Type} [Field F'] (ι : K →+* F) (ι' : F →+* F')
-    (x : StatedSp n K) : spFieldMap n ι' (spFieldMap n ι x) = spFieldMap n (ι'.comp ι) x := by
-  refine mat_injective ?_
-  rw [mat_spFieldMap, mat_spFieldMap, mat_spFieldMap]
-  ext a b
-  rfl
 
 theorem spFieldMap_id (x : StatedSp n K) : spFieldMap n (RingHom.id K) x = x := by
   refine mat_injective ?_
@@ -140,9 +134,6 @@ theorem FieldNeighbourParam.commute_of_fix (P : FieldNeighbourParam e t ι σ k)
     t * ((e.symm x : L) : G) * t⁻¹ = ((e.symm x : L) : G) := by
   rw [← P.N1 x hx, P.N3, fieldBlockSp_spFieldMap hσι hx]
 
-theorem SwapNeighbourParam.conj_inl (P : SwapNeighbourParam e t k)
-    (x : spBlock K ({k}ᶜ : Finset (Fin n))) : t * P.Ψ (x, 1) * t⁻¹ = P.Ψ (1, x) :=
-  P.swap x 1
 
 theorem SwapNeighbourParam.commute_inl_inr (P : SwapNeighbourParam e t k)
     (x y : spBlock K ({k}ᶜ : Finset (Fin n))) : Commute (P.Ψ (x, 1)) (P.Ψ (1, y)) := by
@@ -152,10 +143,6 @@ theorem SwapNeighbourParam.commute_inl_inr (P : SwapNeighbourParam e t k)
   change P.Ψ (x, 1) * P.Ψ (1, y) = P.Ψ (1, y) * P.Ψ (x, 1)
   rw [← map_mul, hxy, map_mul]
 
-theorem SwapNeighbourParam.mul_conj_inl (P : SwapNeighbourParam e t k)
-    (x : spBlock K ({k}ᶜ : Finset (Fin n))) :
-    P.Ψ (x, 1) * (t * P.Ψ (x, 1) * t⁻¹) = ((e.symm x : L) : G) := by
-  rw [P.conj_inl, ← map_mul, Prod.mk_mul_mk, mul_one, one_mul, P.diag]
 
 theorem FieldNeighbourParam.injective [CharP F 2] (P : FieldNeighbourParam e t ι σ k) :
     Function.Injective P.Φ := by
@@ -189,12 +176,6 @@ theorem FieldNeighbourParam.planeCore_eq_map (P : FieldNeighbourParam e t ι σ 
     planeCore e I = ((spBlock F I).subgroupOf (spBlock F ({k}ᶜ : Finset (Fin n)))).map P.Φ :=
   planeCore_eq_map_of_neighbourCore e ι hK hk P.Φ P.ker_le P.range_eq (P.N2.of_top e ι _)
 
-theorem FieldNeighbourParam.pieceCore_tail_eq_map (P : FieldNeighbourParam e t ι σ k)
-    (hK : 4 ≤ Nat.card K) {a : ℕ} (hka : k.val < a) :
-    pieceCore e (Finset.univ.filter fun j : Fin n => a ≤ j.val) =
-      ((spBlock F (Finset.univ.filter fun j : Fin n => a ≤ j.val)).subgroupOf
-        (spBlock F ({k}ᶜ : Finset (Fin n)))).map P.Φ :=
-  pieceCore_tail_eq_map_of_neighbourCore e ι hK hka P.Φ P.ker_le P.range_eq (P.N2.of_top e ι _)
 
 theorem FieldNeighbourParam.pieceCore_string_eq_map (P : FieldNeighbourParam e t ι σ k)
     (hK : 4 ≤ Nat.card K) {a b : ℕ} (hab : a < b) (hb : b < n)
@@ -205,11 +186,6 @@ theorem FieldNeighbourParam.pieceCore_string_eq_map (P : FieldNeighbourParam e t
   pieceCore_string_eq_map_of_neighbourCore e ι hK hab hb hk P.Φ P.ker_le P.range_eq
     (P.N2.of_top e ι _)
 
-theorem FieldNeighbourParam.nonempty_mulEquiv_planeCore [CharP F 2]
-    (P : FieldNeighbourParam e t ι σ k) (hK : 4 ≤ Nat.card K) {I : Finset (Fin n)} (hk : k ∉ I) :
-    Nonempty (StatedSp I.card F ≃* planeCore e I) :=
-  nonempty_mulEquiv_planeCore_of_conjDiagSp e ι hK (subset_compl_singleton_of_notMem hk)
-    (modelToG_rootTorusSp_le_planeTorusSp e hk) P.Φ P.ker_le P.range_eq (P.N2.of_top e ι _)
 
 omit [Finite F] in
 theorem SwapNeighbourParam.planeCore_eq_map [Finite K] (P : SwapNeighbourParam e t k)

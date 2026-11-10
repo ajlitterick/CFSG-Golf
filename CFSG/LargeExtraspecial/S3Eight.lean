@@ -460,62 +460,6 @@ theorem exists_swap {g t : G} (hgt : g * S.z * g⁻¹ = t) (htQ : t ∈ S.QG) (h
     ∃ u ∈ S.QG ⊔ S.Qa g, u * S.z * u⁻¹ = t ∧ u * t * u⁻¹ = S.z :=
   (S.lemma_3_8_1 hgt htQ hne).2 t (by simp) S.z (by simp) hne
 
-theorem lemma_3_8_1_mulAut {g t : G} (hgt : g * S.z * g⁻¹ = t) (htQ : t ∈ S.QG)
-    (hne : t ≠ S.z) (σ : closure ({S.z, t} : Set G) ≃* closure ({S.z, t} : Set G)) :
-    ∃ u ∈ S.QG ⊔ S.Qa g, ∀ v (hv : v ∈ closure ({S.z, t} : Set G)),
-      u * v * u⁻¹ = (σ ⟨v, hv⟩ : G) := by
-  set T := S.conjBy g
-  have hTz : T.z = t := hgt
-  have htt : t * t = 1 := by
-    rw [← hTz]
-    exact T.z_mul_z
-  have ht1 : t ≠ 1 := by
-    rw [← hTz]
-    exact T.z_ne_one
-  have hzt : S.z * t = t * S.z := (S.mem_M_iff.mp (S.QG_le_M htQ)).symm
-  have hzV : S.z ∈ closure ({S.z, t} : Set G) := subset_closure (by simp)
-  have htV : t ∈ closure ({S.z, t} : Set G) := subset_closure (by simp)
-  have himg : ∀ (w : closure ({S.z, t} : Set G)), (w : G) ≠ 1 →
-      (w : G) ∈ ({S.z, t, t * S.z} : Set G) := by
-    intro w hw
-    rcases (mem_closure_pair_iff S.z_mul_z htt hzt).mp w.2 with h | h | h | h
-    · exact absurd h hw
-    · simp [h]
-    · simp [h]
-    · simp [h, hzt]
-  have hne1 : ∀ v (hv : v ∈ closure ({S.z, t} : Set G)), v ≠ 1 → (σ ⟨v, hv⟩ : G) ≠ 1 := by
-    intro v hv hv1 h
-    apply hv1
-    have : σ ⟨v, hv⟩ = 1 := Subtype.ext h
-    rw [← map_one σ] at this
-    exact congrArg Subtype.val (σ.injective this)
-  have hσzt : (σ ⟨S.z, hzV⟩ : G) ≠ σ ⟨t, htV⟩ := by
-    intro h
-    exact hne (congrArg Subtype.val (σ.injective (Subtype.ext h))).symm
-  obtain ⟨u, hu, huz, hut⟩ := (S.lemma_3_8_1 hgt htQ hne).2 _
-    (himg _ (hne1 _ hzV S.z_ne_one)) _ (himg _ (hne1 _ htV ht1)) hσzt
-  refine ⟨u, hu, fun v hv => ?_⟩
-  induction hv using closure_induction with
-  | mem x hx =>
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
-    rcases hx with rfl | rfl
-    · exact huz
-    · exact hut
-  | one =>
-    rw [mul_one, mul_inv_cancel]
-    exact (congrArg Subtype.val (map_one σ)).symm
-  | mul x y hx hy ihx ihy =>
-    have : σ ⟨x * y, mul_mem hx hy⟩ = σ ⟨x, hx⟩ * σ ⟨y, hy⟩ := by
-      rw [← map_mul]
-      rfl
-    rw [this, Subgroup.coe_mul, ← ihx, ← ihy]
-    group
-  | inv x hx ihx =>
-    have : σ ⟨x⁻¹, inv_mem hx⟩ = (σ ⟨x, hx⟩)⁻¹ := by
-      rw [← map_inv]
-      rfl
-    rw [this, Subgroup.coe_inv, ← ihx]
-    group
 
 end Setting
 

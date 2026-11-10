@@ -197,29 +197,6 @@ end Two
 
 section Model
 
-variable {p e : ℕ} [Fact p.Prime]
-
-theorem deltaCore_trivial_gf {n : ℕ} (hn : 2 ≤ n) (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) {X : Type}
-    [Group X] [Finite X] (ψ : SL(n, GaloisField p e) →* X)
-    (hker : ψ.ker ≤ Subgroup.center SL(n, GaloisField p e)) (hnorm : ψ.range.Normal)
-    {F : Subgroup X} (hcard : Nat.card F = 4) (hF2 : ∀ f ∈ F, f * f = 1)
-    (hfaith : ∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ ψ.range, f * x = x * f)
-    (htoral : ToralDiagGL 2 ψ F) {d : X}
-    (hd : d ∈ CFSG.ClassicalInvolution.Balance.deltaCore F) {x : X} (hx : x ∈ ψ.range) :
-    d * x = x * d := by
-  have he : e ≠ 0 := by
-    rintro rfl
-    simp at h5
-  have h4 : 4 ≤ Nat.card (GaloisField p e) := by
-    rw [GaloisField.card p e he]
-    omega
-  have h2 := CFSG.ClassicalInvolution.ModelFacts.two_ne_zero_galoisField e hp2
-  by_cases h3 : 3 ≤ n
-  · exact deltaCore_trivial_gl h3 h2 h4
-      (CFSG.ClassicalInvolution.ModelFacts.LinearAut.linearAutClassification hp2 h5 h3) ψ hker
-      hnorm hcard hF2 htoral hd hx
-  · obtain rfl : n = 2 := by omega
-    exact (false_of_toralDiagGL_two h2 ψ hcard hF2 hfaith htoral).elim
 
 end Model
 

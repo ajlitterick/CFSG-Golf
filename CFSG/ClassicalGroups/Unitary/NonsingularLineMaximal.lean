@@ -29,16 +29,6 @@ private theorem lineInv_apply (h : UnitaryFieldData p f K) {x : Fin 3 → K}
     lineInv h hx v = ((2 : K) * (stdHermForm h 3 x v)) • x - v := by
   simp [lineInv, LinearMap.smulRight_apply, smul_smul]
 
-private theorem lineInv_isometry (h : UnitaryFieldData p f K) {x : Fin 3 → K}
-    (hx : stdHermForm h 3 x x = 1) (v w : Fin 3 → K) :
-    stdHermForm h 3 (lineInv h hx v) (lineInv h hx w) = stdHermForm h 3 v w := by
-  rw [lineInv_apply, lineInv_apply]
-  have hsymm : stdHermForm h 3 v x = h.bar (stdHermForm h 3 x v) :=
-    ((stdHermForm_isSymm h 3).eq x v).symm
-  simp only [map_sub, map_add, map_smul, map_smulₛₗ, LinearMap.sub_apply, LinearMap.add_apply,
-    LinearMap.smul_apply, smul_eq_mul, hx, mul_one, mul_zero, zero_mul, sub_zero, map_zero,
-    RingHom.id_apply, hsymm, map_mul, map_ofNat]
-  ring
 
 private theorem lineInv_self (h : UnitaryFieldData p f K) {x : Fin 3 → K}
     (hx : stdHermForm h 3 x x = 1) : lineInv h hx x = x := by
@@ -281,8 +271,6 @@ private theorem exists_su_map_of_orthonormalBases (h : UnitaryFieldData p f K)
     rw [show g = suOfIsometry h hφiso hφdet from rfl, suOfIsometry_apply,
       show φ (b₁ 2) = b₂ 2 from ?_]
     rw [show φ = φ0.comp k from rfl, LinearMap.comp_apply, hk1, hφ0]
-
-
 
 
 private theorem exists_su_of_ne_zero_one (h : UnitaryFieldData p f K) (hp2 : p ≠ 2)

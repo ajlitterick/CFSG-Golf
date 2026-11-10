@@ -96,24 +96,6 @@ abbrev Spor (n : TauCeti.SporadicName) : Type :=
           IsExtOf (K ⧸ CFSG.pCore 2 K) Blueprint.NativeSporadic.ON (Multiplicative (ZMod 3)))) →
       K.map (L ⊓ Subgroup.centralizer {d}).subtype = L
 
-@[expose] def Item4_31 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G →
-    CFSG.Open.pRank 3 (⊤ : Subgroup G) = 3 → aschbacherSolvableCore 3 G = ⊥ →
-    ∀ A : Subgroup G, Late.IsE27 A → ∀ c ∈ A, c ≠ 1 → ∀ L : Subgroup G, IsComponent L →
-    ∀ K : Subgroup (L ⊓ Subgroup.centralizer {c} : Subgroup G), IsComponent K →
-      Nonempty (K ⧸ CFSG.pCore 2 K ≃* alternatingGroup (Fin 6)) →
-      Nonempty (L ≃* alternatingGroup (Fin 6)) ∨ Nonempty (L ≃* Blueprint.NativeSporadic.J3) ∨
-        Nonempty (L ≃* projSp 3 (GaloisField 2 1)) ∨ Nonempty (L ≃* alternatingGroup (Fin 9)) ∨
-        Nonempty (L ≃* projSp 2 (GaloisField 2 3))
-
-@[expose] def Item4_32 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G → CFSG.pPrimeCore 3 G = ⊥ →
-    ∀ Z : Subgroup G, Nat.card Z = 3 →
-    (∀ g : G, Z.map (MulAut.conj g).toMonoidHom ≤ Subgroup.normalizer (Z : Set G) →
-      Z.map (MulAut.conj g).toMonoidHom = Z) →
-      CFSG.Open.pRank 3 (Subgroup.normalClosure (Z : Set G)) = 1 ∨
-        IsoGTwoPrime (Subgroup.normalClosure (Z : Set G)) ∨
-        Nonempty (Subgroup.normalClosure (Z : Set G) ≃* Blueprint.NativeSporadic.J2)
 
 @[expose] def Item4_39 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A M Q : Subgroup G), Ctx434 G A M Q →
@@ -195,21 +177,5 @@ abbrev Spor (n : TauCeti.SporadicName) : Type :=
           ⁅inSubgroup (CFSG.pCore 2) (Subgroup.centralizer (U : Set G)), B⁆ ≤
             aschbacherSolvableCore 3 G
 
-@[expose] def Item4_63 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G → ∀ A : Subgroup G,
-    Maximal (fun B : Subgroup G => CFSG.Assembly.IsElemAbelian 3 B) A → Nat.card A = 27 →
-    ∀ a ∈ A, a ∈ Subgroup.center G → a ≠ 1 → Odd (Nat.card (aschbacherSolvableCore 3 G)) →
-    ∀ B : Subgroup G, B ≤ A → Nat.card B = 9 →
-      Even (Nat.card (⁅inSubgroup (aschbacherSolvableCore 3) (Subgroup.centralizer (B : Set G)),
-        A⁆ : Subgroup G)) →
-      ∃ L ∈ thetaComponents 3 G,
-        haveI : (solvableRadical L).Normal := Subgroup.normal_sSup _ fun _ hN => hN.1;
-        Nonempty (L ⧸ solvableRadical L ≃* alternatingGroup (Fin 7)) ∨
-          Nonempty (L ⧸ solvableRadical L ≃* Blueprint.NativeSporadic.M12) ∨
-          Nonempty (L ⧸ solvableRadical L ≃* Blueprint.NativeSporadic.J2) ∨
-          Nonempty (L ⧸ solvableRadical L ≃* Blueprint.NativeSporadic.M22) ∨
-          (∃ (p e : ℕ) (_ : Fact p.Prime), 3 < p ∧ 1 ≤ e ∧ e ≤ 2 ∧
-            IsoLThreePi (L ⧸ solvableRadical L) p e) ∨
-          Nonempty (L ⧸ solvableRadical L ≃* projSL 2 (GaloisField 3 3))
 
 end CFSG.RankThree.PartTwo.Sec4

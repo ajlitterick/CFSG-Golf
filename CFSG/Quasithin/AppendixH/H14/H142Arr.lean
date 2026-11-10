@@ -62,7 +62,5 @@ theorem hasArr_permOfArrD {a : Array ℕ} (h : inAutOK a = true) : HasArr (permO
   rw [permOfArrD, dif_pos h.1]
   exact hasArr_permOfArr h.1
 
-theorem permOfArrD_mem_M24g {a : Array ℕ} (h : inAutOK a = true) : permOfArrD a ∈ M24g :=
-  mem_M24g_of_arr (hasArr_permOfArrD h) h
 
 end CFSG.Quasithin.AppendixH.H14

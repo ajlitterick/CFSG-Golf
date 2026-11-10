@@ -17,20 +17,6 @@ variable {G : Type*} [Group G]
   sSup {L | GLAPComponent p (Subgroup.centralizer ({b} : Set G)) L ∧
     IsStronglyLocallyOneBalanced p B b L}
 
-theorem glaPLayer_eq_lambdaOf_sup_phiOf (p : ℕ) (B : Subgroup G) (b : G) :
-    GLAPLayer p (Subgroup.centralizer ({b} : Set G)) = lambdaOf p B b ⊔ phiOf p B b := by
-  unfold GLAPLayer lambdaOf phiOf
-  rw [← sSup_union]
-  congr 1
-  ext L
-  constructor
-  · intro h
-    by_cases hL : IsStronglyLocallyOneBalanced p B b L
-    · exact Or.inr ⟨h, hL⟩
-    · exact Or.inl ⟨h, hL⟩
-  · rintro (h | h)
-    · exact h.1
-    · exact h.1
 
 @[expose] def Input20_1 : Prop :=
   ∀ (X : Type) [Group X] [Finite X] (p : ℕ), p.Prime → p ≠ 2 →

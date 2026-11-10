@@ -86,13 +86,6 @@ namespace CFSG.CGT.M24R
 
 @[expose] def m24Rels : List M24Word := relsN8 ++ thetaRels8 ++ ruRel
 
-theorem length_relsN8 : relsN8.length = 55 := rfl
-
-theorem length_thetaRels8 : thetaRels8.length = 4 := rfl
-
-theorem length_ruRel : ruRel.length = 1 := rfl
-
-theorem length_m24Rels : m24Rels.length = 60 := rfl
 
 theorem thetaRels8_eq : thetaRels8 = [(letG, true), (letG, true)] ::
     List.ofFn fun i : Fin 3 => (letG, true) :: dWord i ++ (letG, true) :: invW (thetaWord i) := by

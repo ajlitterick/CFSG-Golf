@@ -296,8 +296,6 @@ theorem f4rhoShort_diag (A : SL(3, L))
     exact mem_subsystemTorus_f4Short.2 ⟨ua, ub, rfl⟩
   exact hmem.2
 
-theorem f4ShortSigma_neg' (i j : Fin 3) : f4ShortSigma j i = -f4ShortSigma i j :=
-  f4ShortSigma_neg i j
 
 theorem f4Short_frame : IsA2Frame (f4rhoShort L) f4ShortSigma where
   injective := f4rhoShort_injective

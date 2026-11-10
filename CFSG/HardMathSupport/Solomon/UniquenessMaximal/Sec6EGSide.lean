@@ -57,23 +57,6 @@ theorem mem_normalizer_zpowers {g a : G} (h : g * a * g⁻¹ = a ∨ g * a * g�
   · rw [h]; exact Subgroup.zpow_mem _ (Subgroup.mem_zpowers a) z
   · rw [h]; exact Subgroup.zpow_mem _ (Subgroup.inv_mem _ (Subgroup.mem_zpowers a)) z
 
-theorem mem_normalizer_iSup_of_set (S : Set G) (P : G → Subgroup G) {n : G}
-    (hn : n ∈ Subgroup.normalizer (⨆ g ∈ S, (P g : Set G))) :
-    n ∈ Subgroup.normalizer ((⨆ g ∈ S, P g : Subgroup G) : Set G) := by
-  have : Finite ((⨆ g ∈ S, P g : Subgroup G) : Set G) := Subtype.finite
-  apply Subgroup.mem_normalizer_fintype
-  intro x hx
-  have hle : (⨆ g ∈ S, P g : Subgroup G) ≤
-      (⨆ g ∈ S, P g : Subgroup G).comap (MulAut.conj n).toMonoidHom := by
-    refine iSup₂_le fun g hg u hu => ?_
-    have hu' : u ∈ (⨆ g ∈ S, (P g : Set G)) := by
-      simp only [Set.iSup_eq_iUnion, Set.mem_iUnion]
-      exact ⟨g, hg, hu⟩
-    have h1 := (Subgroup.mem_set_normalizer_iff.1 hn u).1 hu'
-    simp only [Set.iSup_eq_iUnion, Set.mem_iUnion] at h1
-    obtain ⟨g', hg', h2⟩ := h1
-    exact (le_iSup₂_of_le g' hg' le_rfl : P g' ≤ (⨆ g ∈ S, P g : Subgroup G)) h2
-  exact hle hx
 
 omit [Finite G] in
 theorem jOf_le (L A : Subgroup G) : jLayerOf L A ≤ L ⊓ Subgroup.centralizer (A : Set G) :=

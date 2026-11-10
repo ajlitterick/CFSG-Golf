@@ -124,8 +124,6 @@ theorem card_Mc : Nat.card Mc = 256 := by
   rw [hidx, hKcard, card_Mh h hMh] at hmain
   omega
 
-theorem Mc_isPGroup : IsPGroup 2 Mc :=
-  (Mh_isPGroup h hMh).to_le (Mc_le_Mh h hMh hMc)
 
 theorem mem_Q_of_mem_Mc_cent_Y {m : H} (hm : m ∈ Mc) (hY : m ∈ centralizer (Y : Set H)) :
     m ∈ Q := by

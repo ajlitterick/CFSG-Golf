@@ -219,11 +219,6 @@ theorem liftPt_mul {p : V} (hp : ∃ k, π k a = p) {g g' : V ≃ₗ[ZMod 2] V}
   h.liftPt_eq_of_apply_eq hp (mul_mem (liftPt_mem hg) (liftPt_mem hg'))
     (by rw [map_mul, apply_liftPt hg, apply_liftPt hg'])
 
-theorem conj_mem_map_Ept {p : V} (hp : ∃ k, π k a = p) {g : V ≃ₗ[ZMod 2] V}
-    (hg : g ∈ (Ept π E a p).map π) (x : K) :
-    π x * g * (π x)⁻¹ ∈ (Ept π E a (π x p)).map π := by
-  obtain ⟨e, he, rfl⟩ := hg
-  exact ⟨x * e * x⁻¹, h.conj_mem_Ept hp he x, by rw [map_mul, map_mul, map_inv]⟩
 
 theorem liftPt_conj {p : V} (hp : ∃ k, π k a = p) {g : V ≃ₗ[ZMod 2] V}
     (hg : g ∈ (Ept π E a p).map π) (x : K) :
@@ -262,12 +257,6 @@ theorem normal_of_le_map {H : Subgroup K} (hHX : X ≤ H.map π) : H.Normal := b
   rw [e]
   exact mul_mem (mul_mem hy' hy) (inv_mem hy')
 
-theorem ker_sup_eq_top_of_le_map {H : Subgroup K} (hHX : X ≤ H.map π) : π.ker ⊔ H = ⊤ := by
-  rw [eq_top_iff]
-  intro x _
-  obtain ⟨y, hy, hz⟩ := h.exists_mem_inv_mul_mem_ker hHX x
-  have := mul_mem (mem_sup_right (S := π.ker) hy) (mem_sup_left (T := H) hz)
-  rwa [mul_inv_cancel_left] at this
 
 theorem eq_top_of_normal {D : Subgroup K} [D.Normal] {k : K} (hE : Eb E k ≤ D) : D = ⊤ := by
   have hEH : E ≤ D := by

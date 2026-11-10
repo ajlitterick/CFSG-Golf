@@ -23,9 +23,6 @@ variable {G : Type*} [Group G]
 
 attribute [local instance] pointRightCosetOppositeMulAction
 
-theorem native_fixedSet_eq (H : Subgroup G) (u : G) :
-    LocalCriterionInvolutionCount.fixedSet (Ω := pointRightCosetSpace H) u =
-      elementFixedSet H u := rfl
 
 theorem elementFixedSet_conjugate_iff (H : Subgroup G) (u g : G)
     (a : pointRightCosetSpace H) :

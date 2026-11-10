@@ -14,20 +14,6 @@ open CFSG.RankThreeCoreUniqueness.Helpers CFSG.QuasithinUnique Subgroup
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def KFactTenElevenOneLie : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (L : Subgroup Y), L.Normal → Open.IsQuasisimple ↥L →
-    CFSG.pCore 2 Y = ⊥ →
-    ((IsClassicalTwoOrG2 (↥L ⧸ Subgroup.center ↥L) ∧
-        ∃ T J : Subgroup (↥L ⧸ Subgroup.center ↥L), IsSylowTwoOf T ⊤ ∧
-          Subgroup.normalizer (T : Set _) ≤ J ∧ J ≠ Subgroup.normalizer (T : Set _) ∧ J ≠ ⊤) ∨
-      IsOrthogonalTwo ↥L ∨
-      ∃ n : ℕ, Nonempty (↥L ⧸ Subgroup.center ↥L ≃* alternatingGroup (Fin n)) ∨
-        Nonempty (↥L ≃* alternatingGroup (Fin n))) →
-    Open.pRank 3 (⊤ : Subgroup Y) = 3 →
-    (∃ E : Subgroup Y, IsElemAbelian 3 E ∧ Nat.card E = 9 ∧
-      Open.pRank 3 (Subgroup.centralizer (E : Set Y)) ≤ 2) →
-    (∃ N : Subgroup Y, N.Normal ∧ N.index = 3) →
-    ∃ e : ℕ, IsLieOver (↥L ⧸ Subgroup.center ↥L) (.A 2) 2 e
 
 namespace TenElevenOneLie
 
@@ -119,54 +105,6 @@ theorem exists_bar_normal_index (hNI : HasNormalIndex M 3) :
 
 end TenElevenOneLie
 
-open TenElevenOneLie in
-theorem AGL81ElevenNineData.lie_of_not_centRankThreeAt (hKF : KFactTenElevenOneLie)
-    (hS : Setting G) (h85 : Asc81bEightFive) (h93 : Asc81bNineThree) (hNX : NoXBlockFor G)
-    (h98 : AGL81NineEightFour G) {P : Sylow 3 G} {M H Q : Subgroup G}
-    {K : Subgroup (H ⧸ primeComplementCore (G := H) 3)} {L W : Subgroup G} {a₀ : G}
-    (hd : AGL81ElevenNineData 3 P M H Q K L W a₀) (hc : ¬ CentRankThreeAt 3 M)
-    (hNI : HasNormalIndex M 3) :
-    ∃ e : ℕ, IsLieOver (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)) (.A 2) 2 e := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hT := hd.data.toTwoLocalPhaseThree' hS h98
-  have hK : Open.IsKGroup ↥M := (hT.toTwoLocalPair.isKGroup_of_isKProper hS.kProper).1
-  have hX : ¬ InClassXBlock (L : Subgroup G) := (hT.nineThree_not_one hK h85 hNX hd.block).1
-  have hSy := hT.not_isSylowTwoOf_inf hK h85 hNX hd.block
-  have hlist : (IsClassicalTwoOrG2 (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)) ∧
-        ∃ T J : Subgroup (↥(barM M L) ⧸ Subgroup.center ↥(barM M L)), IsSylowTwoOf T ⊤ ∧
-          Subgroup.normalizer (T : Set _) ≤ J ∧ J ≠ Subgroup.normalizer (T : Set _) ∧ J ≠ ⊤) ∨
-      IsOrthogonalTwo ↥(barM M L) ∨ ∃ n : ℕ,
-        Nonempty (↥(barM M L) ⧸ Subgroup.center ↥(barM M L) ≃* alternatingGroup (Fin n)) ∨
-        Nonempty (↥(barM M L) ≃* alternatingGroup (Fin n)) := by
-    rcases hT.nineThree hK h93 hd.block with h1 | h2 | h3 | h4 | h5 | h6 | h7 | h8
-    · exact absurd h1 hX
-    · obtain ⟨hcl, T, J, hT2, hle, hne, htop, -⟩ :=
-        BlockCyc.nineThreeTwo_parabolic hT.asc81bHyp hd.block hSy h2
-      exact Or.inl ⟨hcl, T, J, hT2, hle, hne, htop⟩
-    · exact Or.inr (Or.inl h3.2.1)
-    · exact Or.inr (Or.inr ⟨6, Or.inl h4.2.2.1⟩)
-    · exact Or.inr (Or.inr ⟨7, Or.inr h5.2.1⟩)
-    · obtain ⟨-, n, hn, -⟩ := h6
-      exact Or.inr (Or.inr ⟨2 * n, Or.inl hn⟩)
-    · obtain ⟨-, n, hn, -⟩ := h7
-      exact Or.inr (Or.inr ⟨4 * n, Or.inr hn⟩)
-    · obtain ⟨-, N, r, -, -, -, -, -, hN, -⟩ := h8
-      exact Or.inr (Or.inr ⟨N, Or.inr hN⟩)
-  have hLn : (barM M L).Normal :=
-    ((Subgroup.normal_subgroupOf_iff_le_normalizer hd.block.le).mpr hd.normal).map _
-      (QuotientGroup.mk'_surjective _)
-  have hrank : Open.pRank 3 (⊤ : Subgroup (↥M ⧸ CFSG.pCore 2 ↥M)) = 3 := by
-    rw [CFSG.SectionRank.pRank_quotient_eq (CFSG.pCore 2 ↥M) (not_three_dvd_card_pCore_two ↥M),
-      ← CFSG.SectionRank.pRank_eq_pRank_top_subgroup M]
-    obtain ⟨H₁, R₁, hesc⟩ := hd.data.escape
-    refine le_antisymm ?_ (hesc.three_le_pRank.trans
-      (CFSG.SectionRank.pRank_mono (by norm_num) hesc.le_M))
-    have h1 := CFSG.RankThreeCoreUniqueness.Helpers.local_pRank_le_evenRank 3 Nat.prime_three
-      (by norm_num) M hesc.maxTwoLocal_M.1
-    rw [hS.rank] at h1
-    exact h1
-  exact hKF _ (barM M L) hLn hd.block.component.2.2 (pCore_quotient_pCore_eq_bot' 2) hlist hrank
-    (exists_bar_of_not_centRankThreeAt hc) (exists_bar_normal_index hNI)
 
 @[expose] def AGL81TenElevenOneLie (G : Type) [Group G] [Finite G] : Prop :=
   Setting G → ∀ (P : Sylow 3 G) (M H Q : Subgroup G)
@@ -178,14 +116,5 @@ theorem AGL81ElevenNineData.lie_of_not_centRankThreeAt (hKF : KFactTenElevenOneL
         Nonempty ((M ⧸ primeComplementCore (G := M) 3) ≃* alternatingGroup (Fin 10)) ∨
         Nonempty ((M ⧸ primeComplementCore (G := M) 3) ≃* Equiv.Perm (Fin 10))
 
-theorem agl81TenElevenOneLie_of_tenElevenOne (h : AGL81TenElevenOne G) :
-    AGL81TenElevenOneLie G :=
-  fun hS P M H Q K _ _ _ hd V hVM _ _ _ => h hS P M H Q K hd.data V hVM
-
-theorem agl81TenElevenOneDisc_of_lie (hKF : KFactTenElevenOneLie) (h85 : Asc81bEightFive)
-    (h93 : Asc81bNineThree) (hNX : NoXBlockFor G) (h98 : AGL81NineEightFour G)
-    (h : AGL81TenElevenOneLie G) : AGL81TenElevenOneDisc G :=
-  fun hS P M H Q K L W a₀ hd V hVM hc hNI => h hS P M H Q K L W a₀ hd V hVM hc hNI
-    (hd.lie_of_not_centRankThreeAt hKF hS h85 h93 hNX h98 hc hNI)
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

@@ -50,20 +50,5 @@ theorem generic_shapes_of_inG2
     · exact shape_of_simpleInC2 hgen hx hset
         (simpleInC2_of_even hset.isSimple (Or.inr (Or.inr (Or.inr (Or.inr h)))))
 
-theorem generic_component_shapes
-    (hF : GenericKnownFacts) {G : Type} [Group G] [Finite G]
-    (hs : IsSimpleGroup G) (hn : ∃ a b : G, a * b ≠ b * a) (hgen : Gen4 G) (hK : KGH G) {x : G}
-    (hx : orderOf x = 2) {K : Subgroup (CentralizerBar x)} (_hKc : IsComponent K)
-    (hG2 : InG2 ↥K) : GenericShape x K :=
-  generic_shapes_of_inG2 hF hs hn hgen hK hx hG2
-
-theorem generic_shapes_of_L2Meets
-    (hF : GenericKnownFacts) {G : Type} [Group G] [Finite G]
-    (hs : IsSimpleGroup G) (hn : ∃ a b : G, a * b ≠ b * a) (hgen : Gen4 G) (hK : KGH G)
-    (h : L2Meets G InG2) :
-    ∃ x : G, orderOf x = 2 ∧ ∃ K : Subgroup (CentralizerBar x), IsComponent K ∧ InG2 ↥K ∧
-      GenericShape x K := by
-  obtain ⟨x, hx, K, hKc, hG2⟩ := h
-  exact ⟨x, hx, K, hKc, hG2, generic_shapes_of_inG2 hF hs hn hgen hK hx hG2⟩
 
 end CFSG.GH74.Generic

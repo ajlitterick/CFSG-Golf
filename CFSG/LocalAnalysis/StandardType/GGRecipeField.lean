@@ -65,13 +65,6 @@ theorem ggRawPCyclicOn_done : GGRawPCyclicOn fun _ => GGRawPCyclicDoneLabel :=
   ggRawPCyclicOn_linear.or (ggRawPCyclicOn_symplectic.or (ggRawPCyclicOn_b2der.or
     (ggRawPCyclicOn_excCyclic.or (ggRawPCyclicOn_unitary.or ggRawPCyclicOn_E6))))
 
-theorem ggL46CyclicInput_of_rest
-    (h : GGRawPCyclicOn fun p lab => GGNotD4Three p lab ∧ ¬ GGRawPCyclicDoneLabel lab)
-    (hD4 : GGL46CyclicD4Input) : GGL46CyclicInput := by
-  refine ggL46CyclicInput_of_raw (fun p hp hp2 lab hlab hne => ?_) hD4
-  by_cases hd : GGRawPCyclicDoneLabel lab
-  · exact ggRawPCyclicOn_done p hp hp2 lab hlab hd
-  · exact h p hp hp2 lab hlab ⟨hne, hd⟩
 
 end CFSG.StandardType
 

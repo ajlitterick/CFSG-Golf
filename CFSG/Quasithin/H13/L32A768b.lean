@@ -87,7 +87,6 @@ theorem upper24_lower24_ne : upper24 1 * lower24 1 ≠ lower24 1 * upper24 1 := 
     rintro _ ⟨a, rfl⟩
     exact ⟨a, (upper24_inv a).symm⟩
 
-theorem mem_upperSub {A : SL(2, F4)} : A ∈ upperSub ↔ ∃ a, upper24 a = A := Iff.rfl
 
 theorem card_upperSub : Nat.card upperSub = 4 := by
   have hinj : Function.Injective upper24 := fun a b h => by

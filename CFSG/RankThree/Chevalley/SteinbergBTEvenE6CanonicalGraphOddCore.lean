@@ -65,24 +65,5 @@ theorem even_twisted_E6_canonical_graph_class_odd_core {f : ℕ} (hf : 1 ≤ f) 
   exact oddCore_inf_centralizer_conj_eq_bot
     (fun H' hIH' => oddCore_inf_centralizer_eq_bot_of_canonicalGraph hD hη hcent H' hIH') H hIH hα
 
-theorem even_E6_twisted_E6_canonical_graph_class_full_centralizer_odd_core (f : ℕ) (hf : 1 ≤ f)
-    (k K : Type) [Field k] [Field K] [Algebra k K] (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) (σ : K →+* K) (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    (∀ η : MulAut (adjointGroup TwistTag.E6.tag k), (∀ g, (η g : ModGL TwistTag.E6.tag k) =
-        diagramMap TwistTag.E6 k * g * (diagramMap TwistTag.E6 k)⁻¹) →
-      ∀ H : Subgroup (MulAut (adjointGroup TwistTag.E6.tag k)),
-        inner (adjointGroup TwistTag.E6.tag k) ≤ H → ∀ α ∈ H,
-          (∃ φ : MulAut (adjointGroup TwistTag.E6.tag k), φ * α * φ⁻¹ = η) →
-            CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {α}) = ⊥) ∧
-    (∀ η : MulAut (graphFixedRootGroup TwistTag.E6 K σ),
-      (∀ g, (η g : ModGL TwistTag.E6.tag K) =
-        diagramMap TwistTag.E6 K * g * (diagramMap TwistTag.E6 K)⁻¹) →
-      ∀ H : Subgroup (MulAut (graphFixedRootGroup TwistTag.E6 K σ)),
-        inner (graphFixedRootGroup TwistTag.E6 K σ) ≤ H → ∀ α ∈ H,
-          (∃ φ : MulAut (graphFixedRootGroup TwistTag.E6 K σ), φ * α * φ⁻¹ = η) →
-            CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {α}) = ⊥) :=
-  ⟨fun η hη H hIH _ _ ⟨_, hα⟩ => even_E6_canonical_graph_class_odd_core hf k hk η hη H hIH hα,
-    fun η hη H hIH _ _ ⟨_, hα⟩ =>
-      even_twisted_E6_canonical_graph_class_odd_core hf k K hk hK σ hσ η hη H hIH hα⟩
 
 end CFSG.RankThree.Chevalley

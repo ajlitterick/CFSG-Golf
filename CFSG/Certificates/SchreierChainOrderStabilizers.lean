@@ -24,11 +24,6 @@ theorem transversal_getD_spec {n : ℕ} (Q : RawSchreierDatum n)
       rw [Q.orbitPoints_eq_orbit i]
       exact x.property)).2.1⟩
 
-theorem levelOrbitTransversal_val {n : ℕ} (Q : RawSchreierDatum n)
-    (i : Fin Q.baseCount)
-    (x : MulAction.orbit (Q.levelSubgroup i.val) (Q.base.get i)) :
-    (Q.levelOrbitTransversal i x : Equiv.Perm (Fin n)) =
-      (Q.transversal? i x.val).getD 1 := rfl
 
 theorem levelOrbitTransversal_smul {n : ℕ} (Q : RawSchreierDatum n)
     (i : Fin Q.baseCount)

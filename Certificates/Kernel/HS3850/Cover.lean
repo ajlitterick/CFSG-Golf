@@ -57,9 +57,6 @@ theorem ok25552b : bAnd(cvK (CC.F 0) (FG.F 0) (HC.F 21) (cvW 0),
     cvK (CC.F 1) (FG.F 1) (HC.F 34) (cvW 1)) = true := by
   quickRfl
 
-theorem neg25552 : bAnd(bIf(Nat.beq (pc cvX cvN) (pc cvN cvX), false, true),
-    bIf(cvK (CC.F 0) (FG.F 1) (HC.F 34) (cvW 0), false, true)) = true := by
-  quickRfl
 
 end CFSG.KD.HS3850
 

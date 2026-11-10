@@ -17,48 +17,6 @@ variable {H : Type} [Group H] [Finite H] (h : Hyp52 H)
     Nonempty (OddBar h.K ≃* alternatingGroup (Fin 9)) ∨
     Nonempty (OddBar h.K ≃* alternatingGroup (Fin 11)))
 
-@[expose] def Elim514 : Prop := ¬ Blueprint.LieModel (ZStarBar h.K) .PSL 3 2 2
-
-@[expose] def Elim515 : Prop := ¬ Nonempty (OddBar h.K ≃* alternatingGroup (Fin 10))
-
-@[expose] def Elim516 : Prop :=
-  ¬ ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ (Blueprint.LieModel (ZStarBar h.K) .PSL 4 p f ∨
-    Blueprint.LieModel (ZStarBar h.K) .PSU 4 p f ∨
-    Blueprint.LieModel (ZStarBar h.K) .POmegaMinus 4 p f)
-
-theorem table517_of_eliminations (hB1 : ConjFixStatement) (hB6 : SylowKernelStatement)
-    (hCF23 : CFProp23Fusion) (hCF24 : CFProp24c) (h13 : h.Elim513) (h14 : h.Elim514)
-    (h15 : h.Elim515) (h16 : h.Elim516) : h.Table517 := by
-  rcases h.table hB1 hCF23 with ⟨n, hn, hJ, (⟨hKa, hK | hK⟩ | ⟨hKa, hZ, hK⟩)⟩ |
-      ⟨-, -, -, hK⟩ | h3 | ⟨p, f, hp, hp2, hf, -, -, hK⟩ | h5 | h6 | h7
-  ·
-    rcases hn with rfl | rfl | rfl
-    · exact absurd (Or.inl hK) (h13 hKa)
-    · exact Or.inr (Or.inr (Or.inl ⟨hJ, hKa, hK⟩))
-    · exact absurd (Or.inr (Or.inl hK)) (h13 hKa)
-  ·
-    rcases hn with rfl | rfl | rfl
-    · exact absurd (Or.inr (Or.inl hK)) (h13 hKa)
-    · exact absurd hK h15
-    · exact absurd (Or.inr (Or.inr hK)) (h13 hKa)
-  ·
-    exact Or.inl ⟨hKa, hZ, Or.inl ⟨n, hn, hJ, hK⟩⟩
-  ·
-    exact absurd hK h14
-  ·
-    exact absurd h3 (h.not_suz hB6 hCF24)
-  ·
-    rcases hK with hK | hK | ⟨e, rfl, hK⟩
-    · exact absurd ⟨p, f, hp, hp2, hf, Or.inl hK⟩ h16
-    · exact absurd ⟨p, f, hp, hp2, hf, Or.inr (Or.inl hK)⟩ h16
-    · exact absurd ⟨p, e, hp, hp2, by omega, Or.inr (Or.inr hK)⟩ h16
-  ·
-    exact Or.inr (Or.inl h5)
-  ·
-    obtain ⟨p, f, hp, hp2, hf, h5f, hJ, hKa, hZ, hK⟩ := h6
-    exact Or.inl ⟨hKa, hZ, Or.inr ⟨p, f, hp, hp2, hf, h5f, hJ, hK⟩⟩
-  ·
-    exact Or.inr (Or.inr (Or.inr h7))
 
 theorem comm_a_B {b : H} (hb : b ∈ h.B) : b * h.a = h.a * b := h.comm_a (h.B_le_S hb)
 

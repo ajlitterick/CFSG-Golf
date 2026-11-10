@@ -17,8 +17,6 @@ namespace F6
     (∃ p : ℕ, p.Prime ∧ (p % 8 = 3 ∨ p % 8 = 5) ∧ IsL2FieldExtCat p D) ∨ IsHatSym 6 D ∨
       Nonempty (D ≃* Equiv.Perm (Fin 7)) ∨ IsHatSym 7 D
 
-theorem f618RecogZ2D8SQT_of (h : F618RecogZ2D8) : F618RecogZ2D8SQT :=
-  fun D _ _ hS => h D hS.toF618RecogSetting
 
 @[expose] def F618RecogZ4wrZ2SQT : Prop :=
   ∀ (D : Type) [Group D] [Finite D], F618RecogSettingSQT D →
@@ -26,8 +24,6 @@ theorem f618RecogZ2D8SQT_of (h : F618RecogZ2D8) : F618RecogZ2D8SQT :=
       Nonempty (↥S ≃* Multiplicative (ZMod 4) ≀ᵣ Multiplicative (ZMod 2))) →
     ∃ p : ℕ, (p % 8 = 3 ∨ p % 8 = 5) ∧ IsSLEps3 p D
 
-theorem f618RecogZ4wrZ2SQT_of (h : F618RecogZ4wrZ2) : F618RecogZ4wrZ2SQT :=
-  fun D _ _ hS => h D hS.toF618RecogSetting
 
 structure F618QSInputsMS : Prop where
   theoremC : NativeTheoremCSection

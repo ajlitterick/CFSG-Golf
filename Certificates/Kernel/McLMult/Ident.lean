@@ -130,10 +130,6 @@ theorem mk_mclCommW (i : Fin 6) :
   rw [e, map_mul, map_inv, inv_mul_eq_one] at h1
   exact h1.symm
 
-theorem isPresentation_mclGen :
-    IsPresentation mclGen (wordSet mclRels) :=
-  isPresentation_mclGen_of mclEvalY_rels mclEvalY_surjA mclEvalY_surjB card_mclCover_le
-    three_dvd_orderOf_mclR0 mk_mclCommW
 
 end CertificateChecks.KernelMcLMult
 

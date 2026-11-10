@@ -32,15 +32,6 @@ local notation "𝒞" => Generic.CoreAssembly.conjClass
             TorusFixedP (by norm_num : 3 ≤ 6) c ((0 : Fin 6) : Fin (modelUniv .POmegaPlus 6 p f
               Fact.out).D.rank) ht
 
-@[expose] def E7AttachmentsExcluded (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), RouteDSetup p f K z →
-      LocalShapeT p f 1 .POmegaPlus 6 (𝒞 K) z →
-      ∀ j : Fin 6 → Subgroup G, NodeSystem p f (edgeD 6) (𝒞 K) K z j →
-        ∀ β ∈ 𝒞 K, (∃ W : Subgroup G, LinearBlockStandardPair (GaloisField p f) W K β) →
-        ∀ p₀ : Fin 6, (∀ a, a ≠ p₀ → Commutes β (j a)) →
-          (∃ W : Subgroup G, LinearBlockStandardPair (GaloisField p f) W β (j p₀)) →
-          p₀ = 4 ∨ p₀ = 5
 
 @[expose] def E8TorusFixed (p f : ℕ) [Fact p.Prime] : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -66,11 +57,6 @@ local notation "𝒞" => Generic.CoreAssembly.conjClass
 @[expose] def E7SignPerp (p f : ℕ) [Fact p.Prime] : Prop :=
   SignPerp (fundamentalSubgroups .E7 (modelUniv .E7 0 p f Fact.out).D) (GaloisField p f)
 
-theorem e7PartnerExists_of_inputs (hMFZ : Gaps.FundNoncentral p) (hT : E7TorusFixed p f)
-    (hX : E7AttachmentsExcluded p f) : E7PartnerExists p f := by
-  intro G _ _ _ hnab K z S hS
-  exact exists_partnerAt_E7 hMFZ S.odd S.five S.inClass S.exact (mem_conjClass_self K)
-    (single_class K) S.cls hS S.p1 (hT G hnab K z S hS) (hX G hnab K z S hS)
 
 theorem e8PartnerExists_of_inputs (hMFZ : Gaps.FundNoncentral p) (hG : E7SignPerp p f)
     (hT : E8TorusFixed p f) (hX : E8AttachmentsExcluded p f) : E8PartnerExists p f := by

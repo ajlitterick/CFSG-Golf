@@ -199,8 +199,6 @@ theorem edgeRho_mem_Usig
       Subtype.ext e.symm
     rw [e', psiW_cQ_xhat]
 
-theorem edgeU0_mem_Ehat :
-    (((cEdgeIncl edgeU0 : cEdgeStab) : Shat) : Dfull) ∈ Ehat := u0_mem_Ehat
 
 theorem val_conj_inv
     (b x : cEdgeStab) :

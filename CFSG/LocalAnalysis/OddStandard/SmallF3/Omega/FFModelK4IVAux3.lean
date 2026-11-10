@@ -27,26 +27,6 @@ theorem ff_k4iv_polar_isSimilitude_neg {ρ : V ≃ₗ[ZMod 3] V} (hρ : IsSimili
   simp only [Units.val_neg, Units.val_one, neg_mul, neg_neg]
   ring
 
-theorem ff_k4iv_simConj_reflOf {ρ : V ≃ₗ[ZMod 3] V} (hρ : IsSimilitude Q ρ (-1))
-    (u : V) (hu : Q u ≠ 0) :
-    simConj hρ (reflOf Q u hu) =
-      reflOf Q (ρ u) (by rw [hρ u]; exact mul_ne_zero (by decide) hu) := by
-  apply Subtype.ext
-  apply LinearEquiv.ext
-  intro x
-  rw [coe_simConj, LinearEquiv.mul_apply, LinearEquiv.mul_apply, LinearEquiv.coe_inv,
-    coe_reflOf_apply, coe_reflOf_apply]
-  rw [map_sub, map_smul, LinearEquiv.apply_symm_apply]
-  congr 1
-  rw [hρ u]
-  have hadj := ff_k4iv_polar_isSimilitude_neg (Q := Q) hρ u (ρ.symm x)
-  rw [LinearEquiv.apply_symm_apply] at hadj
-  simp only [← QuadraticMap.polarBilin_apply_apply]
-  rw [hadj]
-  congr 1
-  field_simp
-  rw [show ((-1 : (ZMod 3)ˣ) : ZMod 3) = -1 by norm_num]
-  ring
 
 theorem ff_k4iv_reflOf_comm {u v : V} (hu : Q u ≠ 0) (hv : Q v ≠ 0)
     (huv : Q.polarBilin u v = 0) :

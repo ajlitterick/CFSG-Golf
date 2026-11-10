@@ -352,11 +352,6 @@ theorem multiPiece_of_modelFactsNe (hconn : ModelConnFactNe p) (hstar : ModelSta
     (hno : NoG2D4 p f) : MultiPiece p f :=
   multiPiece_of_multiStar (multiStar_of_modelFactsNe hconn hstar hno)
 
-@[expose] def MultiModelFactsNe (p f : ℕ) [Fact p.Prime] : Prop :=
-  ModelConnFactNe p ∧ ModelStarFact p ∧ NoG2D4 p f
-
-theorem multiPiece_of_multiModelFactsNe (h : MultiModelFactsNe p f) : MultiPiece p f :=
-  multiPiece_of_modelFactsNe h.1 h.2.1 h.2.2
 
 end Reduction
 

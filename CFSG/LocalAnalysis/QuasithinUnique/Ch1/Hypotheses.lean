@@ -55,13 +55,6 @@ theorem z_mem_H (h : Lemma115Hyp H S M z) : z ∈ H := h.sylow.1 h.z_mem
 
 theorem S_le_inf (h : Lemma115Hyp H S M z) : S ≤ H ⊓ M := le_inf h.sylow.1 h.le
 
-theorem of_mem_omegaOneCenter (hH : pCoreOf 2 H ≠ ⊥) (hS : IsSylowTwoOf S H) (hM : CharTwo M)
-    (hM' : pCoreOf 2 M ≠ ⊥) (hSM : S ≤ M)
-    (hC : pCoreOf 2 M ⊓ Subgroup.centralizer (pCoreOf 2 (H ⊓ M) : Set G) ≤ H)
-    (hz : Subgroup.centralizer ({z} : Set G) ≤ M) (hz1 : z ≠ 1)
-    (hzS : z ∈ quasithinOmegaOneCenter S) : Lemma115Hyp H S M z :=
-  let h := mem_quasithinOmegaOneCenter_iff.mp hzS
-  ⟨hH, hS, hM, hM', hSM, hC, hz, hz1, h.1, h.2.1, h.2.2⟩
 
 end Lemma115Hyp
 

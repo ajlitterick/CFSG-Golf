@@ -135,25 +135,6 @@ theorem isSimpleGroup_comp (R : Red n p K P z D) (C : ComponentIndex K) :
   refine ⟨MulEquiv.isSimpleGroup e.symm, e a, e b, fun h => hab ?_⟩
   exact e.injective (show e (a * b) = e (b * a) by rw [map_mul, map_mul]; exact h)
 
-theorem caseA (hI : GL83I294Two) (R : Red n p K P z D) (h5 : 5 ≤ p) (hn : 3 ≤ n)
-    (hcat : CFSG.AGLEmbedding.CatalogSimpleSections K) {g : K} (hg : IsPlaneDiagonal p D z g)
-    (hlow : ∃ x ∈ D, x ≠ 1 ∧ CFSG.Open.pRank p (centralizer ({x} : Set K)) ≤ 2)
-    (hD : ∀ w ∈ D, ∀ C : ComponentIndex K, w • C = C) :
-    (∀ T : Subgroup K, p.Coprime (Nat.card T) → D ≤ normalizer (T : Set K) → T = ⊥) ∨
-      LinesTransitive D := by
-  haveI := R.fact
-  have hS := R.subsingleton_of_normalizes (by omega) hD
-  obtain ⟨C₀⟩ := exists_comp R.core R.nc
-  obtain ⟨hsimple, hnonab⟩ := R.isSimpleGroup_comp C₀
-  haveI : C₀.1.Normal :=
-    ⟨fun x hx g => by
-      have h1 := mem_cjComp_of_mem g C₀ hx
-      rwa [Subsingleton.elim (cjComp g C₀) C₀] at h1⟩
-  have hcatL : IsCatalogGroup C₀.1 := hcat.simple_subgroup C₀.1 hsimple hnonab
-  have hrank : 3 ≤ CFSG.Open.pRank p (⊤ : Subgroup K) :=
-    hn.trans (R.conf.rank.trans (CFSG.PreuniquenessRankFour.Helpers.pRank_mono p R.prime le_top))
-  exact hI p R.prime h5 K C₀.1 hsimple hnonab hcatL (R.centralizer_eq_bot hS C₀) D R.conf.elem
-    R.conf.card R.conf.sylow hrank z g R.conf.mem R.z_ne_one hg hlow
 
 end Red
 

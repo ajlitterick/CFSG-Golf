@@ -33,17 +33,6 @@ theorem c25_19_of_sylow_at (hyp : Hyp25 Ω K K' W S R R' z t u₁ u₂) (h2 : �
     obtain ⟨t', ht'S, hg, hconj⟩ := h2
     exact T7DR.tf4_of_index_two hyp hidx ht'S hg hconj
 
-theorem c25_21_of_sylow_coord_at (hyp : Hyp25 Ω K K' W S R R' z t u₁ u₂)
-    (h20 : Nat.card ↥(S : Subgroup G) = 4 * Nat.card ↥(R ⊔ R') → ∃ a b s t' : G, a ∈ R ∧ b ∈ R
-        ∧ Subgroup.closure ({a, b} : Set G) = R ∧ b * a * b⁻¹ = a⁻¹ ∧ (∃ k : ℤ, b * b = a ^ k)
-            ∧ s ∈ (S : Subgroup G) ∧ t' ∈ (S : Subgroup G) ∧ (∃ g : G, g * z * g⁻¹ = t')
-                ∧ conjSub t' R = R' ∧ Subgroup.closure ({a, b, s, t'} : Set G) = (S : Subgroup G)
-                    ∧ s * s = 1 ∧ s * t' = t' * s ∧ s * a * s⁻¹ = a⁻¹ ∧ s * b * s⁻¹ = b * a) :
-    Nat.card ↥(S : Subgroup G) = 4 * Nat.card ↥(R ⊔ R') → TwoSubgroupsFourGenerated G := by
-  intro h4
-  obtain ⟨a, b, s, t', haR, hbR, -, hbab, hk, hs, ht', hg, hconj, hSgen, hs2, hst, hsa, hsb⟩ :=
-    h20 h4
-  exact (T7DR.tf4_of_index_four hyp haR hbR hbab hk hs ht' hg hconj hSgen hs2 hst hsa hsb)
 
 theorem c25_20_coord_of_at (hyp : Hyp25 Ω K K' W S R R' z t u₁ u₂) (h : Nat.card ↥(S : Subgroup G)
     = 4 * Nat.card ↥(R ⊔ R') → ∃ s t' : G, s ∈ (S : Subgroup G) ∧ t' ∈ (S : Subgroup G) ∧

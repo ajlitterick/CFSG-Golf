@@ -330,13 +330,6 @@ end Gens
 
 section Core
 
-theorem map_e_symm_coe {H K : Type*} [Group H] [Group K] {B : Subgroup H} {τ : StrothTypeIndex}
-    (D : StrothWeakTypeData B τ) (f : H →* K) (hf : Function.Injective f) (y : Torus τ.k) :
-    ((Additive.toMul ((D.map f hf).e.symm y) : B.map f) : K) =
-      f ((Additive.toMul (D.e.symm y) : B) : H) := rfl
-
-theorem mnsDataA_e_symm_coe (y : Torus (StrothTypeIndex.t100 1).k) :
-    ((Additive.toMul (mnsDataA.e.symm y) : Ag) : Mns) = toA y := rfl
 
 theorem toA_c : toA (Torus.c : Torus (Type100.k 1)) = mnsW := by decide
 theorem toA_a : toA (Torus.a : Torus (Type100.k 1)) = mnsX1 * mnsX := by decide

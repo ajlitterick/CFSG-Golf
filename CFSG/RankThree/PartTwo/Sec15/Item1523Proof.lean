@@ -22,18 +22,6 @@ variable {G : Type} [Group G] [Finite G]
 noncomputable abbrev k1523 (A : Subgroup G) (d : G) : Subgroup G :=
   oPrimeResidualOf 3 (delta A (lB A) (Subgroup.centralizer ({d} : Set G)))
 
-structure Data1523 (A : Subgroup G) (L Y : Subgroup G) (d : G) : Prop where
-  mem_d : d ∈ A
-  ne_d : d ≠ 1
-  central_d : IsThreeCentralIn L d
-  mem_k : k1523 A d ∈ scriptY0 A (lB A)
-  type_k : Sec4.IsTripleCover (↥(k1523 A d) ⧸ CFSG.pCore 2 ↥(k1523 A d))
-    CFSG.Blueprint.NativeSporadic.ON
-  mem_x : oPrimeResidualOf 3 (Y ⊓ k1523 A d) ∈ scriptY4 A (lB A)
-  eq_y : Y = oPrimeResidualOf 3 (Y ⊓ k1523 A d) ⊔ CFSG.Open.pCoreOf 2 Y
-  type_y : (∃ _ : Fact (Nat.Prime 7), Nonempty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃*
-      CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 7 1))) ∨
-    Nonempty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃* alternatingGroup (Fin 7))
 
 theorem conclusion1523_of_meets {A : Subgroup G} {c : G} {L : Subgroup G}
     (h1514 : Item1514 A (lB A) c L)

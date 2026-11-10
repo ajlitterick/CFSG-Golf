@@ -100,55 +100,6 @@ private theorem stdBasis_repr_apply [Field K]
     ((Matrix.stdBasis K ι ι).repr M) (i, j) = M i j := by
   simp [Matrix.stdBasis]
 
-theorem trace_matrix_mulLeftRight [Field K]
-    {ι : Type*} [Fintype ι] [DecidableEq ι]
-    (A B : Matrix ι ι K) :
-    LinearMap.trace K (Matrix ι ι K)
-        (LinearMap.mulLeftRight K (A, B)) =
-      Matrix.trace A * Matrix.trace B := by
-  let b := Matrix.stdBasis K ι ι
-  rw [LinearMap.trace_eq_matrix_trace K b]
-  change
-    (∑ ij : ι × ι,
-      ((LinearMap.toMatrix b b)
-        (LinearMap.mulLeftRight K (A, B))) ij ij) =
-      (∑ i : ι, A i i) * ∑ j : ι, B j j
-  calc
-    (∑ ij : ι × ι,
-      ((LinearMap.toMatrix b b)
-        (LinearMap.mulLeftRight K (A, B))) ij ij) =
-        ∑ ij : ι × ι, A ij.1 ij.1 * B ij.2 ij.2 := by
-      apply Finset.sum_congr rfl
-      rintro ⟨i, j⟩ hij
-      rw [LinearMap.toMatrix_apply]
-      change (b.repr
-        ((LinearMap.mulLeftRight K (A, B)) (b (i, j)))) (i, j) = _
-      rw [show b (i, j) = Matrix.single i j (1 : K) by
-        exact Matrix.stdBasis_eq_single K i j]
-      rw [stdBasis_repr_apply, LinearMap.mulLeftRight_apply]
-      calc
-        (A * Matrix.single i j (1 : K) * B) i j =
-            ∑ k : ι, (A * Matrix.single i j (1 : K)) i k * B k j :=
-          Matrix.mul_apply
-        _ = (A * Matrix.single i j (1 : K)) i j * B j j := by
-          rw [Finset.sum_eq_single j]
-          · intro k hk hkj
-            rw [Matrix.mul_single_apply_of_ne (1 : K) i j i k hkj]
-            simp
-          · simp
-        _ = A i i * B j j := by
-          rw [Matrix.mul_single_apply_same]
-          simp
-    _ = (∑ i : ι, A i i) * ∑ j : ι, B j j := by
-      rw [Fintype.sum_prod_type]
-      calc
-        (∑ i : ι, ∑ j : ι, A i i * B j j) =
-            ∑ i : ι, A i i * ∑ j : ι, B j j := by
-          apply Finset.sum_congr rfl
-          intro i hi
-          rw [Finset.mul_sum]
-        _ = (∑ i : ι, A i i) * ∑ j : ι, B j j := by
-          rw [Finset.sum_mul]
 
 private noncomputable def blockProductBasis [Field K]
     {n : ℕ} (d : Fin n → ℕ) :

@@ -130,14 +130,6 @@ theorem f443_unique
     f = f443 :=
   PresentedGroup.ext fun g => (hf g).trans (f443_of g).symm
 
-@[expose] noncomputable def f443Op :
-    E443 →* Gmatᵐᵒᵖ :=
-  (MulEquiv.inv' Gmat).toMonoidHom.comp f443Inv
-
-theorem f443Op_of
-    (g : E443Gen) : f443Op (PresentedGroup.of g) = MulOpposite.op (gGen g) := by
-  show MulOpposite.op ((f443Inv (PresentedGroup.of g))⁻¹) = _
-  rw [f443Inv_of, inv_inv]
 
 theorem f443_range :
     f443.range = Subgroup.closure (Set.range gGen) := by
@@ -145,28 +137,6 @@ theorem f443_range :
   rw [MonoidHom.range_eq_map, ← PresentedGroup.closure_range_of (rels := e443Rels),
     MonoidHom.map_closure, ← Set.range_comp, h]
 
-theorem f443_b1 :
-    f443 (PresentedGroup.of y443U11) = ⟨tauB, tauB_mem_Gmat⟩ := by
-  rw [f443_of]
-  apply Subtype.ext
-  rw [coe_gGen]
-  exact M_zero
-
-theorem f443_ne_one :
-    f443 ≠ 1 := by
-  intro h
-  have h1 := f443_b1
-  rw [h, MonoidHom.one_apply] at h1
-  exact tauB_ne_one (congrArg Subtype.val h1).symm
-
-theorem y443_native_even_presentation_homomorphism :
-    (∃! f : E443 →* Gmat, ∀ g : E443Gen, f (PresentedGroup.of g) = gGen g) ∧
-      ∀ f : E443 →* Gmat, (∀ g : E443Gen, f (PresentedGroup.of g) = gGen g) →
-        f (PresentedGroup.of y443U11) = ⟨tauB, tauB_mem_Gmat⟩ ∧ f ≠ 1 ∧
-          f.range = Subgroup.closure (Set.range gGen) := by
-  refine ⟨⟨f443, f443_of, fun _ h => f443_unique h⟩, fun f hf => ?_⟩
-  rw [f443_unique hf]
-  exact ⟨f443_b1, f443_ne_one, f443_range⟩
 
 @[expose] noncomputable def fM :
     MonsterY443Derived →* Gmat :=
@@ -196,24 +166,6 @@ theorem fM_unique_ax
     {f : MonsterY443Derived →* Gmat} (hf : IsFM f) : f = fM :=
   fM_unique fun g => by rw [← axElt_eq]; exact hf g
 
-@[expose] noncomputable def fMOp :
-    MonsterY443Derived →* Gmatᵐᵒᵖ :=
-  f443Op.comp e443Phi.symm.toMonoidHom
-
-theorem fMOp_phi
-    (g : E443Gen) :
-    fMOp (e443Phi (PresentedGroup.of g)) = MulOpposite.op (gGen g) := by
-  simp [fMOp, f443Op_of]
-
-theorem fM_range :
-    fM.range = Subgroup.closure (Set.range gGen) := by
-  rw [← f443_range]
-  ext y
-  constructor
-  · rintro ⟨x, rfl⟩
-    exact ⟨e443Phi.symm x, rfl⟩
-  · rintro ⟨u, rfl⟩
-    exact ⟨e443Phi u, by simp [fM]⟩
 
 theorem fM_axElt_b1 :
     fM (axElt y443U11) = ⟨tauB, tauB_mem_Gmat⟩ := by

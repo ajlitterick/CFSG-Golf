@@ -264,13 +264,6 @@ theorem centralizer_pairTorus (hq : 4 ≤ Nat.card K) (k : Fin n) :
       pairTorus k ⊔ pairPerp k :=
   (isHypCoord_coordinateQuadPlus k).centralizer_pairTorusOf hq
 
-theorem inSubgroup_layer_centralizer_pairTorus (hq : 4 ≤ Nat.card K) (hn : 4 ≤ n) (k : Fin n) :
-    inSubgroup layer (centralizer
-      (pairTorus (K := K) k : Set (matrixProjectiveDerived (coordinateQuadPlus n K)))) =
-      pairPerp k := by
-  obtain ⟨hR, hT⟩ := regular_plusPerp (K := K) hn k
-  exact (isHypCoord_coordinateQuadPlus k).inSubgroup_layer_centralizer_pairTorusOf hq
-    (regular_coordinateQuadPlus n K (by omega)).1 hR hT
 
 @[expose] noncomputable def pairPerpEquiv (hn : 4 ≤ n) (k : Fin n) :
     pairPerp (K := K) k ≃* orthDerived (coordinateQuadPlus (n - 1) K) :=
@@ -414,14 +407,6 @@ theorem centralizer_minusPairTorus (hq : 4 ≤ Nat.card K) (hn : 1 ≤ n) (b c :
       minusPairTorus hn b c k ⊔ minusPairPerp hn b c k :=
   (isHypCoord_coordinateQuadMinus hn b c k).centralizer_pairTorusOf hq
 
-theorem inSubgroup_layer_centralizer_minusPairTorus (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1)) :
-    inSubgroup layer (centralizer (minusPairTorus (K := K) (by omega) b c k :
-      Set (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)))) =
-      minusPairPerp (by omega) b c k := by
-  obtain ⟨hR, hT⟩ := regular_minusPerp hn hirr k
-  exact (isHypCoord_coordinateQuadMinus _ b c k).inSubgroup_layer_centralizer_pairTorusOf hq
-    (regular_coordinateQuadMinus n K b c (by omega) hirr).1 hR hT
 
 @[expose] noncomputable def minusPairPerpEquiv (hn : 5 ≤ n) {b c : K}
     (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1)) :

@@ -143,28 +143,11 @@ theorem knownFacts15122Types_final
     (fun _ _ _ h => two_le_pRank_of_isPSU_three_three1515e h)
     (fun _ _ _ h => two_le_pRank_of_is3D4_two1515e h)
 
-theorem Lemma15125InputRestU.toFive (h : Lemma15125InputRestU) : Lemma15125InputFive :=
-  fun G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 h24 =>
-    (h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 h24).2.2
 
 theorem lemma15125InputRestU_of_five_final
     (hF : A318Facts) (h36 : A36ForSQTK) (h38 : A38ForSQTK) (h5 : Lemma15125InputFive) :
     Lemma15125InputRestU :=
   lemma15125InputRestU_of_five hF h36 h38 knownFacts15122Types_final h5
 
-theorem theorem1515_of_inputs_ce4
-    (h37 : A37ForSQTK) (h38 : A38ForSQTK) (h39 : A39ForSQTK) (h36 : A36ForSQTK) (hF : A318Facts)
-    (h23 : Lemma15123Standalone)
-    (h316 : Theorem316Statement) (h317 : Theorem317Statement) (h319 : Lemma319Statement)
-    (h1414 : StageLemma1414) (h1416 : StageLemma1416) (h1417 : StageLemma1417)
-    (hD : Description1512CE) (hN : Nilpotency1512CE) (hStep : Step1514Gen)
-    (h17 : StageLemma1517) (h158 : StageLemma1518) (h1511one : StageLemma15111One)
-    (h1512four : StageLemma15112Four)
-    (hI20 : Lemma15120InputU) (hI21 : Lemma15121InputU) (hI22 : Lemma15122InputU)
-    (hI24 : Lemma15124InputU) (h5 : Lemma15125InputFive) (hI27 : Lemma15127InputU)
-    (hI28 : Lemma15128InputU) (hI29 : Lemma15129InputU) : StageTheorem1515 :=
-  theorem1515_of_inputs_ce3 h37 h38 h39 h23 h316 h317 h319 h1414 h1416 h1417 hD hN hStep h17 h158
-    h1511one h1512four hI20 hI21 hI22 hI24 (lemma15125InputRestU_of_five_final hF h36 h38 h5) hI27
-    hI28 hI29
 
 end CFSG.Quasithin

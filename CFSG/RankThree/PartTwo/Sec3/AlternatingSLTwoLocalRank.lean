@@ -628,35 +628,5 @@ theorem rank3II_3_9_of_le {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Pri
   exact lt_of_lt_of_le (by omega)
     (le_localRank_of_commute_involution hp.one_lt hx1 hx2 hEc hEp (hE.trans inf_le_right) hr)
 
-theorem rank3II_3_9 {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (hp3 : 3 < p)
-    {X P : Subgroup G} (hP : IsPGroup p P) (hXP : X ≤ Subgroup.normalizer (P : Set G))
-    (hX : Nonempty (X ≃* alternatingGroup (Fin 4) × SL(2, ZMod 3)))
-    (hfaith : X ⊓ Subgroup.centralizer (P : Set G) = ⊥) :
-    2 < CFSG.Assembly.RankThreeEven.localRank p ↥(X ⊔ P) := by
-  obtain ⟨e⟩ := hX
-  obtain ⟨x, hxX, hx1, hx2, E, hE, hEc, hEp, r, hr3, hr⟩ :=
-    exists_involution_elemAbelian hp hp3 hP hXP e hfaith
-  have hxK : x ∈ X ⊔ P := Subgroup.mem_sup_left hxX
-  have hEK : E ≤ X ⊔ P := (hE.trans inf_le_left).trans le_sup_right
-  let x' : ↥(X ⊔ P) := ⟨x, hxK⟩
-  have hx1' : x' ≠ 1 := fun h => hx1 (congrArg Subtype.val h)
-  have hx2' : x' ^ 2 = 1 := Subtype.ext (by rw [Subgroup.coe_pow]; exact hx2)
-  have hE'c : IsMulCommutative (E.subgroupOf (X ⊔ P)) := ⟨⟨fun a b => by
-    have := hEc.is_comm.comm ⟨((a : ↥(X ⊔ P)) : G), a.2⟩ ⟨((b : ↥(X ⊔ P)) : G), b.2⟩
-    have h' : ((a : ↥(X ⊔ P)) : G) * ((b : ↥(X ⊔ P)) : G) =
-        ((b : ↥(X ⊔ P)) : G) * ((a : ↥(X ⊔ P)) : G) := congrArg Subtype.val this
-    exact Subtype.ext (Subtype.ext h')⟩⟩
-  have hE'p : ∀ w ∈ E.subgroupOf (X ⊔ P), w ^ p = 1 := fun w hw =>
-    Subtype.ext (by rw [Subgroup.coe_pow]; exact hEp _ hw)
-  have hE'x : E.subgroupOf (X ⊔ P) ≤ Subgroup.centralizer ({x'} : Set ↥(X ⊔ P)) := by
-    intro w hw
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    apply Subtype.ext
-    exact Subgroup.mem_centralizer_singleton_iff.mp (hE hw).2
-  have hr' : Nat.card (E.subgroupOf (X ⊔ P)) = p ^ r := by
-    rw [← hr]
-    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe hEK).toEquiv
-  exact lt_of_lt_of_le (by omega)
-    (le_localRank_of_commute_involution hp.one_lt hx1' hx2' hE'c hE'p hE'x hr')
 
 end CFSG.RankThree.PartTwo.Sec3

@@ -61,7 +61,6 @@ private theorem w183Q1_invol : w183Q1 * w183Q1 = 1 := by decide +kernel
 
 private theorem w183Qz_invol : w183Qz * w183Qz = 1 := by decide +kernel
 
-private def w183RowP : Fin 4 → w183LocI := w183Sel ![0, 1, 2, 5]
 
 private def w183RowQ1 : Fin 4 → w183LocI := w183Sel ![0, 1, 3, 7]
 

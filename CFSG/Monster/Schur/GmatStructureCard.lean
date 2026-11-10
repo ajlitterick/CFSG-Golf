@@ -55,7 +55,6 @@ theorem natCard_RMat : Nat.card RMat = 2 ^ 24 := by
 
 instance finite_RMat : Finite RMat := Nat.finite_of_card_ne_zero (by rw [natCard_RMat]; norm_num)
 
-theorem isPGroup_RMat : IsPGroup 2 RMat := IsPGroup.of_card natCard_RMat
 
 theorem RMat_le_Gvis : RMat ≤ Gvis := RMat_le_CVMat.trans CVMat_le_Hmat
 

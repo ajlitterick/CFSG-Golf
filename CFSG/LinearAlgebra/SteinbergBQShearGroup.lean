@@ -43,9 +43,6 @@ theorem finrank_span_pair {u w : Y} (h : LinearIndependent (ZMod 2) ![u, w]) :
   rwa [Matrix.range_cons, Matrix.range_cons, Matrix.range_empty, Set.union_empty,
     Set.singleton_union, Fintype.card_fin] at this
 
-variable (q : QuadraticForm (ZMod 2) Y)
-
-variable {q}
 
 end CFSG.LinearAlgebra.SteinbergBQ
 

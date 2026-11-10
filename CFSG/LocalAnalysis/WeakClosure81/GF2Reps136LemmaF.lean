@@ -64,12 +64,6 @@ private theorem w1369_map_conj_conj (X : Subgroup (MulAut W)) (g : MulAut W) :
     simp [MulAut.conj_apply]
   rw [Subgroup.map_map, hcomp, Subgroup.map_id]
 
-private theorem w1369_stableUnder_sup {X : Subgroup (MulAut W)} {A B : Subgroup W}
-    (hA : StableUnder X A) (hB : StableUnder X B) : StableUnder X (A ⊔ B) := by
-  intro x hx u hu
-  obtain ⟨a, ha, b, hb, rfl⟩ := Subgroup.mem_sup.mp hu
-  rw [map_mul]
-  exact Subgroup.mul_mem_sup (hA x hx a ha) (hB x hx b hb)
 
 private theorem w1369_commSub_sup (A B : Subgroup W) (X : Subgroup (MulAut W)) :
     commSub (A ⊔ B) X = commSub A X ⊔ commSub B X := by

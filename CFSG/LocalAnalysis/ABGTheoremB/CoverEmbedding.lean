@@ -70,73 +70,6 @@ theorem map_centralizer_comap_eq_range_inf (hι : Function.Injective ι) {Z : Su
       ι.range ⊓ Subgroup.centralizer (Z : Set B) := by
   rw [map_centralizer_eq_range_inf hι, Subgroup.map_comap_eq_self hZ]
 
-private theorem oddCore_map_mulEquiv_aux {X Y : Type*} [Group X] [Group Y] [Finite X] [Finite Y]
-    (e : X ≃* Y) : (CFSG.oddCore X).map e.toMonoidHom = CFSG.oddCore Y := by
-  apply le_antisymm
-  · exact le_sSup ⟨(CFSG.oddCore_normal X).map _ e.surjective,
-      by rw [Subgroup.card_map_of_injective e.injective]; exact odd_card_oddCore X⟩
-  · have hle : (CFSG.oddCore Y).map e.symm.toMonoidHom ≤ CFSG.oddCore X :=
-      le_sSup ⟨(CFSG.oddCore_normal Y).map _ e.symm.surjective,
-        by rw [Subgroup.card_map_of_injective e.symm.injective]; exact odd_card_oddCore Y⟩
-    intro y hy
-    exact ⟨e.symm y, hle ⟨y, hy, rfl⟩, by simp⟩
-
-private theorem isSolvable_map_of_injective {X Y : Type*} [Group X] [Group Y] {f : X →* Y}
-    (hf : Function.Injective f) (K : Subgroup X) [Group.IsSolvable K] :
-    Group.IsSolvable (K.map f) :=
-  Group.isSolvable_of_surjective (f := (K.equivMapOfInjective f hf).toMonoidHom)
-    (K.equivMapOfInjective f hf).surjective
-
-private theorem solvableRadical_map_mulEquiv_aux {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) :
-    (CFSG.solvableRadical X).map e.toMonoidHom = CFSG.solvableRadical Y := by
-  apply le_antisymm
-  · rw [Subgroup.map_le_iff_le_comap]
-    refine sSup_le fun K hK => ?_
-    obtain ⟨hKn, hKs⟩ := hK
-    rw [← Subgroup.map_le_iff_le_comap]
-    exact le_sSup ⟨hKn.map _ e.surjective, isSolvable_map_of_injective e.injective K⟩
-  · refine sSup_le fun K hK => ?_
-    obtain ⟨hKn, hKs⟩ := hK
-    have hle : K.map e.symm.toMonoidHom ≤ CFSG.solvableRadical X :=
-      le_sSup ⟨hKn.map _ e.symm.surjective, isSolvable_map_of_injective e.symm.injective K⟩
-    intro y hy
-    exact ⟨e.symm y, hle ⟨y, hy, rfl⟩, by simp⟩
-
-theorem map_oddCore_of_injective [Finite A] (hι : Function.Injective ι) :
-    (CFSG.oddCore A).map ι = (CFSG.oddCore ι.range).map ι.range.subtype := by
-  have : Finite ι.range := Finite.of_equiv A (MonoidHom.ofInjective hι).toEquiv
-  have hcomp : ι = ι.range.subtype.comp (MonoidHom.ofInjective hι).toMonoidHom := by
-    ext a
-    exact (MonoidHom.ofInjective_apply hι).symm
-  rw [← oddCore_map_mulEquiv_aux (MonoidHom.ofInjective hι), Subgroup.map_map, ← hcomp]
-
-theorem map_solvableRadical_of_injective (hι : Function.Injective ι) :
-    (CFSG.solvableRadical A).map ι = (CFSG.solvableRadical ι.range).map ι.range.subtype := by
-  have hcomp : ι = ι.range.subtype.comp (MonoidHom.ofInjective hι).toMonoidHom := by
-    ext a
-    exact (MonoidHom.ofInjective_apply hι).symm
-  rw [← solvableRadical_map_mulEquiv_aux (MonoidHom.ofInjective hι), Subgroup.map_map, ← hcomp]
-
-private theorem hasNormalSL2_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y)
-    {q : ℕ} (h : HasNormalSL2 X q) : HasNormalSL2 Y q := by
-  obtain ⟨L, F, hF, hFin, hL, hq, ⟨φ⟩⟩ := h
-  exact ⟨L.map e.toMonoidHom, F, hF, hFin, hL.map _ e.surjective, hq,
-    ⟨(L.equivMapOfInjective e.toMonoidHom e.injective).symm.trans φ⟩⟩
-
-theorem hasNormalSL2_congr (e : A ≃* B) (q : ℕ) : HasNormalSL2 A q ↔ HasNormalSL2 B q :=
-  ⟨hasNormalSL2_of_mulEquiv e, hasNormalSL2_of_mulEquiv e.symm⟩
-
-theorem hasNormalSL2_iff_range (hι : Function.Injective ι) (q : ℕ) :
-    HasNormalSL2 A q ↔ HasNormalSL2 ι.range q :=
-  hasNormalSL2_congr (MonoidHom.ofInjective hι) q
-
-theorem hasNormalSL2_of_le_range (hι : Function.Injective ι) {Z : Subgroup B}
-    (hZ : Z ≤ ι.range) (hZn : ι.range ≤ Subgroup.normalizer (Z : Set B)) {F : Type} [Field F]
-    [Finite F] (e : Z ≃* Matrix.SpecialLinearGroup (Fin 2) F) : HasNormalSL2 A (Nat.card F) :=
-  ⟨Z.comap ι, F, inferInstance, inferInstance,
-    (normal_comap_iff_range_le_normalizer hι hZ).mpr hZn, rfl,
-    ⟨(((Z.comap ι).equivMapOfInjective ι hι).trans
-      (MulEquiv.subgroupCongr (Subgroup.map_comap_eq_self hZ))).trans e⟩⟩
 
 end Transport
 
@@ -144,44 +77,6 @@ section Quotient
 
 variable {K : Type*} [Group K]
 
-private theorem card_comap_mk'_aux (M : Subgroup K) [M.Normal] (V : Subgroup (K ⧸ M)) :
-    Nat.card (V.comap (QuotientGroup.mk' M)) = Nat.card M * Nat.card V := by
-  have hMV : M ≤ V.comap (QuotientGroup.mk' M) := by
-    intro x hx
-    rw [Subgroup.mem_comap, QuotientGroup.mk'_apply, (QuotientGroup.eq_one_iff x).mpr hx]
-    exact one_mem _
-  have h1 := Subgroup.relIndex_mul_card M (V.comap (QuotientGroup.mk' M))
-  rw [inf_eq_left.mpr hMV] at h1
-  have h2 : M.relIndex (V.comap (QuotientGroup.mk' M)) = Nat.card V := by
-    have h := Subgroup.relIndex_comap (⊥ : Subgroup (K ⧸ M)) (QuotientGroup.mk' M)
-      (V.comap (QuotientGroup.mk' M))
-    rw [MonoidHom.comap_bot, QuotientGroup.ker_mk', Subgroup.map_comap_eq_self_of_surjective
-      (QuotientGroup.mk'_surjective M), Subgroup.relIndex_bot_left] at h
-    exact h
-  rw [← h1, h2, mul_comm]
-
-theorem normal_map_mk'_iff (M : Subgroup K) [M.Normal] {Y : Subgroup K} (hMY : M ≤ Y) :
-    (Y.map (QuotientGroup.mk' M)).Normal ↔ Y.Normal := by
-  constructor
-  · intro h
-    have h' := h.comap (QuotientGroup.mk' M)
-    rwa [Subgroup.comap_map_eq_self (by rwa [QuotientGroup.ker_mk'])] at h'
-  · intro h
-    exact h.map _ (QuotientGroup.mk'_surjective M)
-
-theorem oddCore_quotient_oddCore [Finite K] : CFSG.oddCore (K ⧸ CFSG.oddCore K) = ⊥ := by
-  set P := (CFSG.oddCore (K ⧸ CFSG.oddCore K)).comap (QuotientGroup.mk' (CFSG.oddCore K))
-    with hP
-  have hPn : P.Normal := (CFSG.oddCore_normal _).comap _
-  have hPodd : Odd (Nat.card P) := by
-    rw [hP, card_comap_mk'_aux]
-    exact (odd_card_oddCore K).mul (odd_card_oddCore _)
-  have hPO : P ≤ CFSG.oddCore K := le_sSup ⟨hPn, hPodd⟩
-  rw [eq_bot_iff]
-  intro x hx
-  obtain ⟨k, rfl⟩ := QuotientGroup.mk_surjective x
-  rw [Subgroup.mem_bot, QuotientGroup.eq_one_iff]
-  exact hPO hx
 
 theorem solvableRadical_quotient_oddCore [Finite K] :
     CFSG.solvableRadical (K ⧸ CFSG.oddCore K) =
@@ -220,12 +115,6 @@ theorem solvableRadical_quotient_oddCore [Finite K] :
       (f := (QuotientGroup.mk' (CFSG.oddCore K)).subgroupMap (CFSG.solvableRadical K))
       ((QuotientGroup.mk' (CFSG.oddCore K)).subgroupMap_surjective _)
 
-theorem oddCore_range_eq_bot_of_injective [Finite K] {B : Type*} [Group B]
-    {ι : K ⧸ CFSG.oddCore K →* B} (hι : Function.Injective ι) : CFSG.oddCore ι.range = ⊥ := by
-  have h := map_oddCore_of_injective hι
-  rw [oddCore_quotient_oddCore, Subgroup.map_bot, eq_comm,
-    Subgroup.map_eq_bot_iff_of_injective _ ι.range.subtype_injective] at h
-  exact h
 
 end Quotient
 
@@ -266,20 +155,6 @@ theorem exists_L₀Bar_mulEquiv [Finite G] (hσ : σ.IsValid) :
       ((QuotientGroup.quotientMulEquivOfEq hγker).trans
         (QuotientGroup.quotientKerEquivOfSurjective ψ hψ))⟩⟩
 
-theorem le_normalizer_iff_range_le_normalizer {H Y : Subgroup G} (hYH : Y ≤ H)
-    (hOY : oddCoreIn H ≤ Y) {B : Type*} [Group B] {ι : ↥H ⧸ CFSG.oddCore ↥H →* B}
-    (hι : Function.Injective ι) :
-    H ≤ Subgroup.normalizer (Y : Set G) ↔ ι.range ≤ Subgroup.normalizer
-      ((((Y.subgroupOf H).map (QuotientGroup.mk' (CFSG.oddCore ↥H))).map ι : Subgroup B) :
-        Set B) := by
-  have hOY' : CFSG.oddCore ↥H ≤ Y.subgroupOf H := fun o ho => hOY ⟨o, ho, rfl⟩
-  rw [← Subgroup.normal_subgroupOf_iff_le_normalizer hYH, ← normal_map_mk'_iff _ hOY',
-    normal_iff_range_le_normalizer_map hι]
-
-theorem oddCoreIn_inf_N_eq_ON_inf {H : Subgroup G} (hON₁ : oddCoreIn H ⊓ σ.N ≤ σ.ON)
-    (hON₂ : σ.ON ⊓ H ≤ oddCoreIn H) : oddCoreIn H ⊓ σ.N = σ.ON ⊓ H :=
-  le_antisymm (le_inf hON₁ (inf_le_left.trans (oddCoreIn_le H)))
-    (le_inf hON₂ (inf_le_left.trans σ.ON_le_N))
 
 theorem exists_quotient_embedding_of_factorization {H : Subgroup G}
     (hfac : oddCoreIn H ⊔ (H ⊓ σ.N) = H) (hON₁ : oddCoreIn H ⊓ σ.N ≤ σ.ON)
@@ -414,8 +289,6 @@ theorem D_le_inf_N_of_mem_familyL [Finite G] (hσ : σ.IsValid) {r : ℕ} {H : S
   obtain ⟨-, -, hDH, -⟩ := hH
   exact le_inf hDH (σ.D_le_N hσ)
 
-theorem inf_L_le_inf_N [Finite G] (hσ : σ.IsValid) (H : Subgroup G) : H ⊓ σ.L ≤ H ⊓ σ.N :=
-  inf_le_inf_left _ (sup_le hσ.L₀_le_N (σ.S_le_N hσ))
 
 theorem map_solvableRadical_quotient_of_mem_familyL [Finite G] (hσ : σ.IsValid)
     (hII : σ.ChapterIIFacts) {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON)
@@ -476,10 +349,5 @@ theorem L₀Bar_comap_properties [Finite G] (hσ : σ.IsValid) {H : Subgroup G}
         (MulEquiv.subgroupCongr (Subgroup.map_comap_eq_self hL))).trans e⟩⟩,
     map_centralizer_comap_eq_range_inf hι hL⟩
 
-theorem hasNormalSL2_of_L₀Bar_le_range [Finite G] (hσ : σ.IsValid) {H : Subgroup G}
-    {ι : (↥H ⧸ CFSG.oddCore ↥H) →* (↥σ.N ⧸ σ.ON.subgroupOf σ.N)} (hι : Function.Injective ι)
-    (hL : σ.L₀Bar ≤ ι.range) : HasNormalSL2 (↥H ⧸ CFSG.oddCore ↥H) σ.q := by
-  obtain ⟨hn, ⟨F, hF, hFin, hq, ⟨e⟩⟩, -⟩ := σ.L₀Bar_comap_properties hσ hι hL
-  exact ⟨σ.L₀Bar.comap ι, F, hF, hFin, hn, hq, ⟨e⟩⟩
 
 end CFSG.ABGTheoremB.Setting

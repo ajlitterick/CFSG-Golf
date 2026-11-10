@@ -13,16 +13,6 @@ namespace CFSG.Sporadic.Co2Schreier
 
 open CFSG.Monster.B.Co2.Native CFSG.Monster.B.Binary.Native CFSG.Sporadic.Co2Cert
 
-@[expose] def localSha : ℕ :=
-  0x96c6dbf062ccf86eefc67923beb4f94f7de6e7ec3b360c1700e960730b5ee165
-
-@[expose] def localKeyList : List String :=
-  ["C_initial_center_word", "C_initial_words", "C_strong_derivations", "D_center_word",
-    "D_strong_derivations", "D_words", "Frattini_profiles", "Q_words", "R_words",
-    "S_quotient_words", "alignment_intermediate_word", "alignment_odd_orders", "chains",
-    "expected_Frattini_rank", "expected_centralizer_indices", "schema_version", "z_R_word"]
-
-@[expose] def localChainKeyList : List String := ["C", "D", "Q_action", "R_action", "S", "join"]
 
 @[expose] def extWordsOK (k : ℕ) (ds : List (List ℤ)) : Bool :=
   (List.range ds.length).all fun j => lettersOK (k + j) (ds.getD j [])

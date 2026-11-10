@@ -14,8 +14,6 @@ open scoped Pointwise
 
 universe u
 
-@[expose] def finiteFieldPrime (K : Type u) [Field K] [Finite K] : ℕ :=
-  ringChar K
 
 theorem finiteField_primePower (K : Type u) [Field K] [Finite K] :
     ∃ f : ℕ, Nat.Prime (ringChar K) ∧ Nat.card K = ringChar K ^ f := by

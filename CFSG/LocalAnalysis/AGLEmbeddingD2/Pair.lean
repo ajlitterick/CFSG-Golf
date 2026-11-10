@@ -56,9 +56,6 @@ theorem inf_lt_left (h : AGLPair p M H R) : H ⊓ M < H :=
 theorem inf_lt_right (h : AGLPair p M H R) : H ⊓ M < M :=
   h.toTwoLocalPair.inf_lt_right
 
-theorem cgsIn_eq (h : AGLPair p M H R) :
-    CFSG.Quasithin.cgsIn M (pCoreOf 2 H) = M ⊓ H :=
-  h.toTwoLocalPair.cgsIn_eq
 
 theorem normalizer_twoCore_H (h : AGLPair p M H R) :
     Subgroup.normalizer (pCoreOf 2 H : Set G) = H :=

@@ -36,8 +36,6 @@ variable (X : StrothAmbient G)
 
 @[expose] def L : Subgroup G := X.dataA.L
 
-theorem L_le_normalizer_A : X.L ≤ Subgroup.normalizer (X.A : Set G) :=
-  X.dataA.L_le_normalizer
 
 theorem card_A : Nat.card X.A = 32 := by
   have h := X.dataA.card
@@ -71,8 +69,6 @@ variable {X : StrothAmbient G} (Z : StrothDatum X)
 @[expose] def centralizerInMho : Subgroup G :=
   Z.normalizerIn ⊓ Subgroup.centralizer ((mhoOne Z.D : Subgroup G) : Set G)
 
-@[expose] def centralizerInOmegaOne : Subgroup G :=
-  Z.normalizerIn ⊓ Subgroup.centralizer ((omegaIn 1 Z.D : Subgroup G) : Set G)
 
 theorem centralizerIn_eq : Z.centralizerIn = Z.D := Z.hcent
 
@@ -81,9 +77,6 @@ theorem D_le_normalizerIn : Z.D ≤ Z.normalizerIn := by
   rw [normalizerIn]
   exact ⟨Z.hDS hx, Subgroup.le_normalizer hx⟩
 
-theorem L_le_normalizer : X.L ≤ Subgroup.normalizer (Z.D : Set G) := by
-  rw [← Z.hL]
-  exact Z.dataD.L_le_normalizer
 
 theorem mem_of_mem_centralizer {x : G} (hxS : x ∈ (X.S : Subgroup G))
     (hx : x ∈ Subgroup.centralizer (Z.D : Set G)) : x ∈ Z.D := by
@@ -102,79 +95,5 @@ theorem D_le_centralizerInMho : Z.D ≤ Z.centralizerInMho := by
 
 end StrothDatum
 
-structure StrothSection2Input (X : StrothAmbient G) : Prop where
-  induction_step :
-    ∀ (B : Subgroup G) (τ : StrothTypeIndex) (Bdata : StrothWeakTypeData B τ),
-      X.A ≤ B → B ≤ (X.S : Subgroup G) → Bdata.L = X.L →
-      B < (X.S : Subgroup G) ⊓ Subgroup.centralizer (B : Set G) →
-      ∃ (C : Subgroup G) (τ' : StrothTypeIndex) (Cdata : StrothWeakTypeData C τ'),
-        B < C ∧ C ≤ (X.S : Subgroup G) ⊓ Subgroup.centralizer (B : Set G) ∧
-          Cdata.L = X.L
-  item224 :
-    ∀ (Z : StrothDatum X),
-      Z.τ.m + 1 = Z.τ.n →
-      Nonempty (Additive ↥(omegaIn 2 Z.D) ≃+ Torus ![2, 2, 2]) →
-      (∀ z : G, z ∈ Z.centralizerInMho → z * z = 1 → z ∈ omegaIn 1 Z.D) ∧
-      (∀ (j : ℕ) (B : Subgroup G), j ≤ Z.τ.n - 1 → B ≤ Z.centralizerInMho →
-        Nonempty (Additive ↥B ≃+
-          (ZMod (2 ^ j) × ZMod (2 ^ (j + 1)) × ZMod (2 ^ (j + 1)))) →
-        B ≤ Z.D) ∧
-      ((Z.centralizerInMho ⊓
-          Subgroup.centralizer ((omegaIn (Z.τ.n - 1) Z.D : Subgroup G) : Set G)) ≠ Z.D →
-        ∃ s : G,
-          s ∈ Z.centralizerInMho ⊓
-              Subgroup.centralizer ((omegaIn (Z.τ.n - 1) Z.D : Subgroup G) : Set G) ∧
-          s ∉ Z.D ∧ s * s = (Z.dataD.c : G) ∧
-          (Z.centralizerInMho ⊓
-              Subgroup.centralizer ((omegaIn (Z.τ.n - 1) Z.D : Subgroup G) : Set G)) =
-            (Z.D ⊔ Subgroup.zpowers s) ∧
-          ⁅Subgroup.zpowers s, Z.D⁆ =
-            ⁅Subgroup.zpowers (Z.dataD.ρ : G), omegaIn 1 Z.D⁆)
-  item225 :
-    ∀ (Z : StrothDatum X),
-      Z.τ.m + 2 = Z.τ.n →
-      Nonempty (Additive ↥(omegaIn 2 Z.D) ≃+ Torus ![2, 2, 2]) →
-      (∀ x : G, x ∈ Z.centralizerInMho → x * x ∈ Z.D) ∧
-      (∀ x : G, x ∈ Z.centralizerInMho → ∀ y : G, y ∈ Z.centralizerInMho →
-        x * y * x⁻¹ * y⁻¹ ∈ Z.D) ∧
-      Nat.card Z.centralizerInMho ≤ 8 * Nat.card Z.D ∧
-      (∀ (j : ℕ) (B : Subgroup G), j ≤ Z.τ.n - 2 → B ≤ Z.centralizerInMho →
-        Nonempty (Additive ↥B ≃+
-          (ZMod (2 ^ j) × ZMod (2 ^ (j + 2)) × ZMod (2 ^ (j - 2)))) →
-        B ≤ Subgroup.centralizer ((omegaIn (Z.τ.n - 2) Z.D : Subgroup G) : Set G)) ∧
-      ((Z.centralizerInMho ⊓
-          Subgroup.centralizer ((omegaIn (Z.τ.n - 2) Z.D : Subgroup G) : Set G)) ≠ Z.D →
-        ∃ s : G,
-          s ∈ Z.centralizerInMho ⊓
-              Subgroup.centralizer ((omegaIn (Z.τ.n - 2) Z.D : Subgroup G) : Set G) ∧
-          s ∉ Z.D ∧ s * s = (Z.dataD.c : G) ∧
-          (Z.centralizerInMho ⊓
-              Subgroup.centralizer ((omegaIn (Z.τ.n - 2) Z.D : Subgroup G) : Set G)) =
-            (Z.D ⊔ Subgroup.zpowers s) ∧
-          ⁅Subgroup.zpowers s, Z.D⁆ =
-            ⁅Subgroup.zpowers (Z.dataD.ρ : G), omegaIn 1 Z.D⁆)
-  item226 :
-    ∀ (Z : StrothDatum X) (B : Subgroup G),
-      B ≤ Z.centralizerInOmegaOne →
-      (∀ h : G, h ∈ Z.centralizerInOmegaOne → ∀ b : G, b ∈ B → h * b * h⁻¹ ∈ B) →
-      B ≠ Z.D →
-      (∃ g : G, B = Z.D.map (MulAut.conj g).toMonoidHom) →
-      Z.τ.m = Z.τ.n
-  item227 :
-    ∀ (Z : StrothDatum X),
-      (∀ x : G, x ∈ omegaIn 1 Z.D → orderOf x = 2 →
-        ∀ y : G, y ∈ omegaIn 1 Z.D → orderOf y = 2 →
-        ∃ g : G, y = g * x * g⁻¹) →
-      Z.τ.m = Z.τ.n
-  item228 :
-    ∀ (Z : StrothDatum X),
-      (∃ x : G, x ∈ omegaIn 1 Z.D ∧ orderOf x = 2 ∧
-        ∃ y : G, y ∈ omegaIn 1 Z.D ∧ orderOf y = 2 ∧
-          ∀ g : G, y ≠ g * x * g⁻¹) →
-      (∃ m : ℕ, HasStrothWeakType Z.D (StrothTypeIndex.t200 m)) ∨
-      (∃ m : ℕ, HasStrothWeakType Z.D (StrothTypeIndex.t201 m)) ∨
-      (∃ m : ℕ, HasStrothWeakType Z.D (StrothTypeIndex.t100 m)) ∨
-      (∃ s : ℕ, HasStrothWeakType Z.D (StrothTypeIndex.t101 s)) ∨
-      (∃ n : ℕ, HasStrothWeakType Z.D (StrothTypeIndex.t300 n))
 
 end CFSG.CGT.Stroth77

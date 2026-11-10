@@ -110,11 +110,6 @@ theorem conj_x_mem {b : H} (hb : b ∈ h.B) :
     · exact ⟨hPQ (hPx b hbP).1, hPQ (hPx b hbP).2⟩
   exact ⟨mem_inf.mpr ⟨hQ.1, (hPx b hbP).1⟩, hQ.2⟩
 
-theorem conjugate_B_x_le_T : conjugate h.B h.x ≤ h.toHyp52.T := by
-  intro y hy
-  rw [mem_conjugate_iff] at hy
-  have h1 := (conj_x_mem h hy).1
-  rwa [show h.x⁻¹ * (h.x * y * h.x⁻¹) * h.x = y by group] at h1
 
 end B5a
 
@@ -122,56 +117,6 @@ namespace Hyp59
 
 variable (h : Hyp59 H)
 
-theorem prod_conj :
-    conjugate h.B h.x ≤ normalizer (h.B : Set H) ∧
-      h.B ≤ normalizer (conjugate h.B h.x : Set H) ∧
-      ⁅h.B, conjugate h.B h.x⁆ = ⊥ ∧ h.B ⊓ conjugate h.B h.x = ⊥ ∧
-      ∃ e : ↥h.B × ↥(conjugate h.B h.x) ≃* ↥(h.B ⊔ conjugate h.B h.x),
-        ∀ (b : h.B) (c : conjugate h.B h.x), (e (b, c) : H) = b * c := by
-  have hN1 : conjugate h.B h.x ≤ normalizer (h.B : Set H) := fun y hy =>
-    (mem_inf.mp (mem_inf.mp (B5a.conjugate_B_x_le_T h hy)).1).2
-  have hN2 : h.B ≤ normalizer (conjugate h.B h.x : Set H) := by
-    intro b hb
-    have hxb : h.x * b * h.x⁻¹ ∈ normalizer (h.B : Set H) :=
-      (mem_inf.mp (B5a.conj_x_mem h hb).2).2
-    rw [mem_normalizer_iff]
-    intro y
-    rw [mem_conjugate_iff, mem_conjugate_iff,
-      show h.x * (b * y * b⁻¹) * h.x⁻¹ =
-        (h.x * b * h.x⁻¹) * (h.x * y * h.x⁻¹) * (h.x * b * h.x⁻¹)⁻¹ by group]
-    exact mem_normalizer_iff.mp hxb _
-  have hinf : h.B ⊓ conjugate h.B h.x = ⊥ := h.inf_conjugate_x
-  have hcomm : ⁅h.B, conjugate h.B h.x⁆ = ⊥ := by
-    rw [eq_bot_iff, ← hinf, commutator_le]
-    intro b hb c hc
-    refine mem_inf.mpr ⟨?_, ?_⟩
-    · rw [commutatorElement_def, show b * c * b⁻¹ * c⁻¹ = b * (c * b⁻¹ * c⁻¹) by group]
-      exact mul_mem hb ((mem_normalizer_iff.mp (hN1 hc) b⁻¹).mp (inv_mem hb))
-    · rw [commutatorElement_def]
-      exact mul_mem ((mem_normalizer_iff.mp (hN2 hb) c).mp hc) (inv_mem hc)
-  refine ⟨hN1, hN2, hcomm, hinf, ?_⟩
-  have hc : ∀ (b : h.B) (c : conjugate h.B h.x),
-      Commute (h.B.subtype b) ((conjugate h.B h.x).subtype c) := by
-    intro b c
-    have h1 : ⁅(b : H), (c : H)⁆ = 1 := by
-      have h2 : ⁅(b : H), (c : H)⁆ ∈ ⁅h.B, conjugate h.B h.x⁆ :=
-        commutator_mem_commutator b.2 c.2
-      rwa [hcomm, mem_bot] at h2
-    exact commutatorElement_eq_one_iff_commute.mp h1
-  set φ := MonoidHom.noncommCoprod h.B.subtype (conjugate h.B h.x).subtype hc with hφ
-  have hφinj : Function.Injective φ := by
-    rw [injective_iff_map_eq_one]
-    rintro ⟨b, c⟩ hbc
-    have h1 : (b : H) * c = 1 := hbc
-    have h2 : (c : H) = (b : H)⁻¹ := eq_inv_of_mul_eq_one_right h1
-    have h3 : (c : H) ∈ h.B ⊓ conjugate h.B h.x := mem_inf.mpr ⟨h2 ▸ inv_mem b.2, c.2⟩
-    rw [hinf, mem_bot] at h3
-    have h4 : (b : H) = 1 := by rw [h3, mul_one] at h1; exact h1
-    exact Prod.ext (Subtype.ext h4) (Subtype.ext h3)
-  have hrange : φ.range = h.B ⊔ conjugate h.B h.x := by
-    rw [hφ, MonoidHom.noncommCoprod_range, range_subtype, range_subtype]
-  refine ⟨(MonoidHom.ofInjective hφinj).trans (MulEquiv.subgroupCongr hrange), fun b c => ?_⟩
-  rfl
 
 theorem embeds_T_quot :
     ∃ f : ↥h.B →* ↥h.toHyp52.T ⧸ h.B.subgroupOf h.toHyp52.T, Function.Injective f := by

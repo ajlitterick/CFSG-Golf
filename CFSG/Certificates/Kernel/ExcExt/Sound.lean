@@ -1044,7 +1044,6 @@ theorem wk_dim_le : ∀ m : Fin 6, dim m ≤ 8 := by decide
 
 theorem wk_nroots_le : ∀ m : Fin 6, nroots m ≤ 128 := by decide
 
-theorem wk_ln2_le (x i : Nat) : ln2 x i ≤ 3 := Nat.and_le_right
 
 theorem wk_ln4_le (x i : Nat) : ln4 x i ≤ 15 := Nat.and_le_right
 

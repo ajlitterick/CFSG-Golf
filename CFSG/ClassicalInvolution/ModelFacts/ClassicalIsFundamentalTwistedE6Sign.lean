@@ -104,9 +104,6 @@ variable (p e : ℕ) [Fact p.Prime]
     ((adjointGroup TwistTag.E6.tag (GaloisField p (2 * e))).subtype.comp
       (CFSG.LieType.Steinberg.Isogeny.e6IsogenyT (GaloisField p (2 * e))))
 
-theorem twistedE6Phi_eq_ambient (g : twistedE6Group p e) :
-    twistedE6Phi p e (AlgebraicClosure (GaloisField p (2 * e))) g =
-      twistedE6PhiAmbient p e (g : e6Data_valid.minGroup (GaloisField p (2 * e))) := rfl
 
 theorem twistedE6PhiAmbient_xm {α : Fin (Tag.rank .E6) → ℤ} (hα : IsRoot .E6 α)
     (d : GaloisField p (2 * e)) :

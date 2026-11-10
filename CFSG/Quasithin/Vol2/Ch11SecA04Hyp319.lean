@@ -23,10 +23,6 @@ theorem isElemAbelian_subgroupOf {V H : Subgroup G} (hV : IsElemAbelian 2 V) :
     have := CFSG.LieType.BorelTits.map_pCore_mulEquiv 2 (Subgroup.subgroupOfEquivOfLe hLH)
     exact this)
 
-theorem quotPCoreSubgroupOfEquiv_mk {L H : Subgroup G} (hLH : L ≤ H) (l : ↥(L.subgroupOf H)) :
-    quotPCoreSubgroupOfEquiv hLH (QuotientGroup.mk l) =
-      QuotientGroup.mk (Subgroup.subgroupOfEquivOfLe hLH l) :=
-  rfl
 
 theorem natOn_subgroupOf {H L W : Subgroup G} (hLH : L ≤ H) (hWH : W ≤ H)
     (hLW : L ≤ Subgroup.normalizer (W : Set G)) {K : Type} [Field K]

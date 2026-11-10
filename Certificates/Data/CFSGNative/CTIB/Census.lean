@@ -15,10 +15,6 @@ set_option compiler.extract_closed false
 @[expose] def censusRecs (_ : Unit := ()) : List (Nat × Nat) :=
   [(1, 2300), (3, 46575), (7, 2049300), (17, 1619200), (19, 476928)]
 
-@[expose] def censusOK (_ : Unit) : Bool :=
-  censusRecs.all (fun r =>
-    orbitOK censusAct 2 (fun v => decide (0 < v) && decide (v < 2 ^ 22)) r.1 r.2) &&
-  (censusRecs.map (·.2)).sum == 2 ^ 22 - 1 && chainLt (censusRecs.map (·.1))
 
 @[expose] def squaresOK (_ : Unit) : Bool :=
   qmul gArr 1 1 == 0 && qmul gArr 3 3 == 0 && qmul gArr 7 7 == 0 &&

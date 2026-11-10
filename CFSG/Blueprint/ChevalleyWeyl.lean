@@ -192,18 +192,6 @@ theorem torusElt_mem_adjointGroup {K : Type*} [Field K] (i : Fin τ.rank) (t : K
     torusElt τ K i t ∈ adjointGroup τ K :=
   mul_mem (weylElt_mem_adjointGroup i t) (weylElt_mem_adjointGroup i (-1))
 
-theorem simple_weyl_torus_elements (i : Fin τ.rank) (t : Rˣ) :
-    (weylElt τ R i t : Module.End R (RootModule τ R)) =
-        xOp τ R i t * yOp τ R i (-((t⁻¹ : Rˣ) : R)) * xOp τ R i t ∧
-      (((weylElt τ R i t)⁻¹ : (Module.End R (RootModule τ R))ˣ) :
-          Module.End R (RootModule τ R)) =
-        xOp τ R i (-(t : R)) * yOp τ R i ((t⁻¹ : Rˣ) : R) * xOp τ R i (-(t : R)) ∧
-      torusElt τ R i t = weylElt τ R i t * weylElt τ R i (-1) :=
-  ⟨rfl, rfl, rfl⟩
-
-theorem weylElt_torusElt_mem_adjointGroup {K : Type*} [Field K] (i : Fin τ.rank) (t : Kˣ) :
-    weylElt τ K i t ∈ adjointGroup τ K ∧ torusElt τ K i t ∈ adjointGroup τ K :=
-  ⟨weylElt_mem_adjointGroup i t, torusElt_mem_adjointGroup i t⟩
 
 private theorem word_hVec (i j : Fin τ.rank) {t s : R} (hts : t * s = 1) :
     xOp τ R i t (yOp τ R i (-s) (xOp τ R i t (hVec τ R j))) =
@@ -379,15 +367,6 @@ theorem weylElt_inv (i : Fin τ.rank) (t : Rˣ) : (weylElt τ R i t)⁻¹ = weyl
   refine Units.ext ?_
   rw [coe_weylElt_inv, coe_weylElt, Units.val_neg, inv_neg, Units.val_neg, neg_neg]
 
-theorem simple_weyl_basis_action (i : Fin τ.rank) (t : Rˣ) :
-    (∀ j : Fin τ.rank, (weylElt τ R i t : Module.End R (RootModule τ R)) (hVec τ R j) =
-        hVec τ R j - ((τ.cartan j i).natAbs : R) • hVec τ R i) ∧
-      (∀ α : Fin τ.rank → ℤ, IsRoot τ α →
-        (weylElt τ R i t : Module.End R (RootModule τ R)) (rootVec τ R α) =
-          ((-1) ^ stringDown τ i α * ((t ^ (-∑ j, τ.cartan i j * α j) : Rˣ) : R)) •
-            rootVec τ R (reflect τ i α)) ∧
-      (weylElt τ R i t)⁻¹ = weylElt τ R i (-t) :=
-  ⟨fun j => weylElt_hVec i j t, fun _ hα => weylElt_rootVec i t hα, weylElt_inv i t⟩
 
 private theorem neg_one_pow_mul_zpow_mul_pow (p q : ℕ) :
     (-1 : R) ^ q * (((-1 : Rˣ) ^ (-((q : ℤ) - p)) : Rˣ) : R) * (-1 : R) ^ p = 1 := by
@@ -440,18 +419,6 @@ theorem torusElt_mul_comm (i j : Fin τ.rank) (t u : Rˣ) :
     congr 1
     ring
 
-theorem simple_torus_basis_action (i : Fin τ.rank) (t : Rˣ) :
-    (∀ j : Fin τ.rank,
-        (torusElt τ R i t : Module.End R (RootModule τ R)) (hVec τ R j) = hVec τ R j) ∧
-      (∀ α : Fin τ.rank → ℤ, IsRoot τ α →
-        (torusElt τ R i t : Module.End R (RootModule τ R)) (rootVec τ R α) =
-          ((t ^ (∑ j, τ.cartan i j * α j) : Rˣ) : R) • rootVec τ R α) ∧
-      torusElt τ R i 1 = 1 ∧
-      (∀ u : Rˣ, torusElt τ R i (t * u) = torusElt τ R i t * torusElt τ R i u) ∧
-      ∀ (j : Fin τ.rank) (u : Rˣ),
-        torusElt τ R i t * torusElt τ R j u = torusElt τ R j u * torusElt τ R i t :=
-  ⟨fun j => torusElt_hVec i j t, fun _ hα => torusElt_rootVec i t hα, torusElt_one i,
-    fun u => torusElt_mul i t u, fun j u => torusElt_mul_comm i j t u⟩
 
 theorem weylElt_mul_xOp (i : Fin τ.rank) (t : Rˣ) (c : R) :
     (weylElt τ R i t : Module.End R (RootModule τ R)) * xOp τ R i c =

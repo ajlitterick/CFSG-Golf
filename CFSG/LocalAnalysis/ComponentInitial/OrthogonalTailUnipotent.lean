@@ -61,10 +61,6 @@ variable (qA) in
 @[expose] def gramMat (L : Fin r → A) : Matrix (Fin r) (Fin r) K :=
   Matrix.of fun i j => polar qA (L i) (L j)
 
-theorem sum_smul_add (L : Fin r → A) (y y' : Fin r → K) :
-    ∑ j, (y j + y' j) • L j = ∑ j, y j • L j + ∑ j, y' j • L j := by
-  rw [← Finset.sum_add_distrib]
-  exact Finset.sum_congr rfl fun j _ => add_smul _ _ _
 
 theorem dotProduct_sMat_mulVec (L : Fin r → A) (y : Fin r → K) :
     y ⬝ᵥ (sMat qA L *ᵥ y) = -qA (∑ j, y j • L j) := by

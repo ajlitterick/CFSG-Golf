@@ -193,13 +193,5 @@ theorem harris46eOdd_of
   exact (hs.setup.isLemma46d_and_eOdd hnonab hK hcat hSch hFC hKC h219 hGA hGC hCI h34 i' j'
     (hSD X hnonab hK hcat t L p f S w z V i j hs i' j')).2
 
-theorem harris46d'_of
-    (hFC : AutPSL2FieldCentralizerInput) (hKC : AutPSL2CentralizerInput)
-    (hSch : LocalAnalysis.ComponentInitial.SchreierFor Blueprint.Catalog)
-    (h219 : Harris82Lemma219Input) (hSD : Harris46SemidihedralInput)
-    (hGA : TBLit.GriessMultipliersOdd) (hGC : TBLit.GriessMultipliersCentralCovers)
-    (hCI : GSLit.ClassicalInvolutionInput) (h34 : Harris81Lemma34Input) : Harris46dInput' :=
-  fun X _ _ _ hnonab hK hcat t L p f S w z V i j hs i' j' _ =>
-    harris46d_of hFC hKC hSch h219 hSD hGA hGC hCI h34 X hnonab hK hcat t L p f S w z V i j hs i' j'
 
 end CFSG.ComponentClassification.HarrisLit

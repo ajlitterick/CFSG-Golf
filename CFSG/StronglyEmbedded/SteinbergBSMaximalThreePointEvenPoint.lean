@@ -22,6 +22,5 @@ theorem two_le_pRank_two_of_commuting_involutions {X : Type*} [Group X] [Finite 
     _ = Nat.card B := hB.symm
     _ ≤ Nat.card X := Subgroup.card_le_card_group B
 
-variable {G : Type} [Group G]
 
 end CFSG.StronglyEmbedded

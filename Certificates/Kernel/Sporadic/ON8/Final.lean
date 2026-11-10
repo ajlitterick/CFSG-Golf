@@ -386,17 +386,6 @@ theorem hRec_get {k : Nat} (hk : k < 144) :
   funext i
   rw [eH_eq]
 
-theorem ofFn_eq {F G : Nat → Nat} (h : ∀ x < 245520, F x = G x) :
-    (Array.ofFn (n := 245520) fun i => F i.val) = Array.ofFn (n := 245520) fun i => G i.val :=
-  congrArg (fun f => Array.ofFn (n := 245520) f) (funext fun i => h i.val i.isLt)
-
-theorem comp_get {a b : Array Nat} {F G : Nat → Nat} (ha : ∀ x < 245520, a[x]! = F x)
-    (hb : ∀ x < 245520, b[x]! = G x) (hG : ∀ x < 245520, G x < 245520) :
-    comp nPts a b = Array.ofFn (n := 245520) fun i => F (G i.val) := by
-  unfold comp
-  congr 1
-  funext i
-  rw [hb _ i.isLt, ha _ (hG _ i.isLt)]
 
 theorem comp_comm_of {a b : Array Nat} {F G : Nat → Nat} (ha : ∀ x < 245520, a[x]! = F x)
     (hb : ∀ x < 245520, b[x]! = G x) (hF : ∀ x < 245520, F x < 245520)
@@ -414,7 +403,6 @@ theorem comp_comm_of {a b : Array Nat} {F G : Nat → Nat} (ha : ∀ x < 245520,
     rw [hb i hi, ha _ (hG i hi), ha i hi, hb _ (hF i hi)]
     exact h i hi
 
-theorem pid_eq : pid nPts = Array.ofFn (n := 245520) fun i => i.val := rfl
 
 theorem bpt_lt' {b : Nat} (hb : b < 3) : bpt b < 245520 := by
   interval_cases b <;> decide

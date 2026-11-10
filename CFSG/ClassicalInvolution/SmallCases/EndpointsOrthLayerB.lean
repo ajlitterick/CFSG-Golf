@@ -75,62 +75,6 @@ theorem exists_plane_of_mem [Finite G] (hΩ : InClass p f Ω) (hP1 : LocalOddCen
       Commutes N Us) ∧
     locImg Ω x M ⊔ locImg Ω x Us = (Λ.D.hom Λ.i₁).range
 
-theorem exists_shortNode [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hP1 : LocalOddCentral Ω {x}) {M : Subgroup G} (hM : M ∈ centralizingMembers Ω {x})
-    (hMi : locImg Ω x M ≤ (Λ.D.hom Λ.i₁).range) :
-    ∃ Us : Subgroup G, Λ.IsShortNode M Us := by
-  have hf : f ≠ 0 := by
-    rintro rfl
-    simp at hq
-  have hcard : Nat.card (GaloisField p f) = p ^ f := GaloisField.card p f hf
-  have h4 : 4 ≤ Nat.card (GaloisField p f) := by rw [hcard]; omega
-  have h5 : 5 ≤ Nat.card (GaloisField p f) := by rw [hcard]; exact hq
-  obtain ⟨P, hP, hMP⟩ := Λ.exists_plane_of_mem hΩ hP1 hM hMi
-  obtain ⟨g, hg⟩ := exists_planeGroup_eq_conj_longBlock hP (1 : Fin 2)
-  have h01 : (0 : Fin 2) ≠ 1 := by decide
-  have hstd := symplecticBlockStandardPair_conj (K := GaloisField p f) (n := 2) h01 g
-  have hpairX := symplecticBlockPair_map_central h5 hstd Λ.ψ Λ.ψ_ker
-  set Rs : Subgroup (StatedSp 2 (GaloisField p f)) :=
-    (shortBlock (GaloisField p f) h01).range.map (MulAut.conj g).toMonoidHom with hRs
-  have hSperf : Rs.map Λ.ψ ≤ ⁅Rs.map Λ.ψ, Rs.map Λ.ψ⁆ :=
-    (symplecticBlockPair_perfect h4 hpairX).2
-  obtain ⟨A, hAperf, hAmap⟩ := exists_perfect_lift hP1 hSperf
-  set Yl : Subgroup G := locLayer Ω x with hYl
-  let Us : Subgroup G := A.map Yl.subtype
-  have hUsimg : locImg Ω x Us = Rs.map Λ.ψ := by
-    show locImg Ω x (A.map Yl.subtype) = _
-    rw [locImg_map_subtype, hAmap]
-  have hUsY : Us ≤ Yl := Subgroup.map_subtype_le _
-  have hUsperf : Us ≤ ⁅Us, Us⁆ := by
-    show A.map Yl.subtype ≤ ⁅A.map Yl.subtype, A.map Yl.subtype⁆
-    rw [← Subgroup.map_commutator]
-    exact Subgroup.map_mono hAperf
-  have hMY : M ≤ Yl := le_centralizingLayer hM
-  have hMperf : M ≤ ⁅M, M⁆ := by
-    obtain ⟨z, hz⟩ := hΩ.classical M hM.1
-    exact (commutator_eq_of_isClassicalMember hz).ge
-  have hUsrange : locImg Ω x Us ≤ (Λ.D.hom Λ.i₁).range := by
-    rw [hUsimg, ← Λ.ψ_range]
-    exact Subgroup.map_le_range _ _
-  have hMUs : (locImg Ω x M) = ((longBlock (GaloisField p f) 2 1).range.map
-      (MulAut.conj g).toMonoidHom).map Λ.ψ := by
-    rw [hMP, hg]
-  have hsup : (longBlock (GaloisField p f) 2 1).range.map (MulAut.conj g).toMonoidHom ⊔ Rs = ⊤ := by
-    rw [hRs, ← Subgroup.map_sup, sup_comm, shortBlock_sup_longBlock_eq_top, Subgroup.map_top]
-    exact MonoidHom.range_eq_top.mpr (MulAut.conj g).surjective
-  obtain ⟨W, hW⟩ : ∃ W, SymplecticBlockPair (GaloisField p f) W (locImg Ω x M)
-      (locImg Ω x Us) := ⟨_, by rw [hMUs, hUsimg]; exact hpairX⟩
-  refine ⟨Us, hUsY, le_antisymm (commutator_self_le _) hUsperf, hUsrange, ?_, ?_, ?_⟩
-  · exact symplecticBlockPair_of_locImg_perfect hp2 hq hP1 hMY hUsY hMperf hUsperf hW
-  · intro N hN j hj hNj
-    have hNY : N ≤ Yl := le_centralizingLayer hN
-    have hNperf : N ≤ ⁅N, N⁆ := by
-      obtain ⟨z, hz⟩ := hΩ.classical N hN.1
-      exact (commutator_eq_of_isClassicalMember hz).ge
-    refine commutes_of_commutes_locImg_perfect hP1 hNY hUsY hNperf ?_
-    intro u hu w hw
-    exact range_commute_of_ne Λ.D hj u (hNj hu) w (hUsrange hw)
-  · rw [hMUs, hUsimg, ← Subgroup.map_sup, hsup, Subgroup.map_top, Λ.ψ_range]
 
 theorem exists_other_of_self [Finite G] (h5 : 5 ≤ p ^ f) {K : Subgroup G} (hK : K ∈ Ω)
     (hz : IsClassicalMember p f K x) (Λ : SpLayer p f a Ω x) :
@@ -186,42 +130,6 @@ theorem range_eq_top (ha : a = 0) : (Λ.D.hom Λ.i₁).range = ⊤ := by
   rw [eq_top_iff, ← Λ.D.generate]
   exact iSup_le fun i => by rw [hall i]
 
-theorem layer_le_sup [Finite G] (ha : a = 0) (hΩ : InClass p f Ω) (hP1 : LocalOddCentral Ω {x})
-    {M Us : Subgroup G} (hsn : Λ.IsShortNode M Us) :
-    locLayer Ω x ≤ M ⊔ Us := by
-  set Y : Subgroup G := locLayer Ω x with hY
-  have hperfY : Y ≤ ⁅Y, Y⁆ := iSup₂_le fun L hL => by
-    obtain ⟨z, hz⟩ := hΩ.classical L hL.1
-    exact (commutator_eq_of_isClassicalMember hz).ge.trans
-      (Subgroup.commutator_mono (le_centralizingLayer hL) (le_centralizingLayer hL))
-  have hperfT : (⊤ : Subgroup ↥Y) ≤ ⁅(⊤ : Subgroup ↥Y), ⊤⁆ := by
-    have := perfect_subgroupOf (le_refl Y) hperfY
-    rwa [Subgroup.subgroupOf_self] at this
-  set O := classicalInvolutionOddCore ↥Y with hO
-  set N' : Subgroup ↥Y := M.subgroupOf Y ⊔ Us.subgroupOf Y with hN'
-  have hTop : (⊤ : Subgroup ↥Y) ≤ N' ⊔ O := by
-    intro y _
-    have hrange : QuotientGroup.mk' O y ∈ locImg Ω x M ⊔ locImg Ω x Us := by
-      rw [hsn.2.2.2.2.2, Λ.range_eq_top ha]
-      trivial
-    have himg : locImg Ω x M ⊔ locImg Ω x Us = N'.map (QuotientGroup.mk' O) := by
-      unfold locImg
-      rw [Subgroup.map_sup]
-    rw [himg] at hrange
-    obtain ⟨w, hw, hwy⟩ := hrange
-    have hmem : w⁻¹ * y ∈ O := QuotientGroup.eq.mp hwy
-    have hyw : y = w * (w⁻¹ * y) := by group
-    rw [hyw]
-    exact Subgroup.mul_mem _ (Subgroup.mem_sup_left hw) (Subgroup.mem_sup_right hmem)
-  have hTop' := le_of_perfect_of_le_sup_center hP1 hperfT hTop
-  intro g hg
-  have h1 : (⟨g, hg⟩ : ↥Y) ∈ N' := hTop' (Subgroup.mem_top _)
-  have h2 : N' ≤ (M ⊔ Us).subgroupOf Y := sup_le
-    (fun u hu => Subgroup.mem_subgroupOf.mpr
-      ((show M ≤ M ⊔ Us from le_sup_left) (Subgroup.mem_subgroupOf.mp hu)))
-    (fun u hu => Subgroup.mem_subgroupOf.mpr
-      ((show Us ≤ M ⊔ Us from le_sup_right) (Subgroup.mem_subgroupOf.mp hu)))
-  exact Subgroup.mem_subgroupOf.mp (h2 h1)
 
 end SpLayer
 

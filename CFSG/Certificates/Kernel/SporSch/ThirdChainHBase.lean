@@ -30,7 +30,6 @@ structure ThirdFactsH : Prop where
 variable (h : ThirdFactsH)
 include h
 
-theorem thB_sizeH : thB.size = 13 := beq_iff_eq.1 h.base_size
 
 theorem thB_ltH {j : ℕ} (hj : j < 13) : thB[j]! < 2300 := by
   have := allLt_iff.1 h.base_lt j hj
@@ -175,16 +174,6 @@ theorem exists_thT_inv_mul_memH
   rw [← h1, inv_mul_cancel_left]
   exact s'.2
 
-theorem prodFrom_memH
-    {k : ℕ → ℕ} : ∀ (f j : ℕ), j + f = 13 →
-    (∀ i, j ≤ i → i < 13 → k i < tsz i) → prodFrom k f j ∈ stabB j
-  | 0, j, _, _ => by
-    rw [prodFrom]
-    exact (stabB j).one_mem
-  | f + 1, j, hj, hk => by
-    rw [prodFrom]
-    exact (stabB j).mul_mem (thT_mem_stabBH h (by omega) (hk j le_rfl (by omega)))
-      (stabB_succ_le j (prodFrom_memH f (j + 1) (by omega) fun i hi hi' => hk i (by omega) hi'))
 
 theorem exists_prodFromH :
     ∀ (f j : ℕ), j + f = 13 → ∀ s ∈ stabB j,
@@ -206,23 +195,5 @@ theorem exists_prodFromH :
     · rw [prodFrom, Function.update_self, prodFrom_congr f (j + 1) (k' := k')
         fun i hi => Function.update_of_ne (by omega) _ _, ← he, mul_inv_cancel_left]
 
-theorem prodFrom_injH :
-    ∀ (f j : ℕ), j + f = 13 → ∀ (k k' : ℕ → ℕ),
-    (∀ i, j ≤ i → i < 13 → k i < tsz i) → (∀ i, j ≤ i → i < 13 → k' i < tsz i) →
-    prodFrom k f j = prodFrom k' f j → ∀ i, j ≤ i → i < 13 → k i = k' i
-  | 0, j, hj, _, _, _, _, _, i, hi, hi' => by omega
-  | f + 1, j, hj, k, k', hk, hk', he, i, hi, hi' => by
-    rw [prodFrom, prodFrom] at he
-    have hm := prodFrom_memH h f (j + 1) (by omega) fun i hi hi' => hk i (by omega) hi'
-    have hm' := prodFrom_memH h f (j + 1) (by omega) fun i hi hi' => hk' i (by omega) hi'
-    have h2 := congrArg (fun g : Equiv.Perm (Fin 2300) => g (bpt j)) he
-    simp only [Equiv.Perm.mul_apply, hm.2 j (by omega), hm'.2 j (by omega)] at h2
-    have hkj : k j = k' j := thT_injH h (by omega) (hk j le_rfl (by omega))
-      (hk' j le_rfl (by omega)) h2
-    rcases eq_or_lt_of_le hi with rfl | hlt
-    · exact hkj
-    · rw [hkj] at he
-      exact prodFrom_injH f (j + 1) (by omega) k k' (fun i hi hi' => hk i (by omega) hi')
-        (fun i hi hi' => hk' i (by omega) hi') (mul_left_cancel he) i hlt hi'
 
 end CFSG.Sporadic.Co2Schreier

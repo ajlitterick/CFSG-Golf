@@ -79,31 +79,6 @@ theorem deviation_apply (Z : StrothDatum X) (x : G)
       x * (d : G) * x⁻¹ * (d : G)⁻¹ :=
   rfl
 
-theorem deviation_sq_eq_zero (Z : StrothDatum X) (x : G)
-    (hx : x ∈ Z.centralizerInMho) (d : Z.D) :
-    deviation Z x hx (Additive.ofMul (d * d)) = 0 := by
-  have hd2 : ((d : G) * (d : G)) ∈ mhoOne Z.D := by
-    simpa [pow_two] using
-      CFSG.GroupTheory.HuppertProduct.pow_mem_mho (S := Z.D) (n := 2) d.2
-  have hcomm : ((d : G) * (d : G)) * x = x * ((d : G) * (d : G)) :=
-    Subgroup.mem_centralizer_iff.mp hx.2 ((d : G) * (d : G)) hd2
-  have hxdx : (x * (d : G) * x⁻¹) * (x * (d : G) * x⁻¹) = (d : G) * (d : G) := by
-    have h1 : x * ((d : G) * (d : G)) * x⁻¹ = (d : G) * (d : G) := by
-      rw [← hcomm]
-      group
-    calc (x * (d : G) * x⁻¹) * (x * (d : G) * x⁻¹)
-        = x * ((d : G) * (d : G)) * x⁻¹ := by group
-      _ = (d : G) * (d : G) := h1
-  have hconj : x * ((d : G) * (d : G)) * x⁻¹ = (d : G) * (d : G) := by
-    calc x * ((d : G) * (d : G)) * x⁻¹
-        = (x * (d : G) * x⁻¹) * (x * (d : G) * x⁻¹) := by group
-      _ = (d : G) * (d : G) := hxdx
-  apply Additive.toMul.injective
-  apply Subtype.ext
-  rw [deviation_apply]
-  simp only [toMul_zero, Subgroup.coe_one, Subgroup.coe_mul]
-  rw [hconj]
-  group
 
 instance instNormalSubgroupOfD (Z : StrothDatum X) :
     (Z.D.subgroupOf Z.centralizerInMho).Normal := by

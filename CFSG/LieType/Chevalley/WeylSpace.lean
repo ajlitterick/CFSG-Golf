@@ -535,16 +535,6 @@ variable (τ) in
 @[expose] def openDominantCone : Set (RootSpace τ) :=
   {v | ∀ i, 0 < inner ℝ (ofLattice (Pi.single i 1)) v}
 
-theorem mem_dominantCone {v : RootSpace τ} :
-    v ∈ dominantCone τ ↔ ∀ i, 0 ≤ inner ℝ (ofLattice (Pi.single i 1)) v :=
-  Iff.rfl
-
-theorem mem_openDominantCone {v : RootSpace τ} :
-    v ∈ openDominantCone τ ↔ ∀ i, 0 < inner ℝ (ofLattice (Pi.single i 1)) v :=
-  Iff.rfl
-
-theorem openDominantCone_subset_dominantCone : openDominantCone τ ⊆ dominantCone τ :=
-  fun _ hv i => (hv i).le
 
 variable (τ) in
 @[expose] def heightVector : RootSpace τ :=
@@ -609,19 +599,6 @@ theorem IsRoot.inner_heightVector_pos {α : Fin τ.rank → ℤ} (hpos : 0 < hei
   rw [inner_ofLattice_heightVector]
   exact_mod_cast hpos
 
-theorem eq_one_of_weylAct_mem_openDominantCone {w : WeylGroup τ} {v : RootSpace τ}
-    (hv : v ∈ openDominantCone τ) (hwv : weylAct τ w v ∈ openDominantCone τ) : w = 1 := by
-  refine eq_one_of_forall_height_pos fun i => ?_
-  rcases height_smul_single_pos_or_neg w i with h | h
-  · exact h
-  · exfalso
-    have hroot := IsRoot.smul (isRoot_single τ i) w
-    have hneg := IsRoot.inner_pos_of_mem_openDominantCone (IsRoot.neg hroot)
-      (by rw [height_neg]; omega) hwv
-    rw [ofLattice_neg, inner_neg_left, ← weylAct_ofLattice,
-      LinearIsometryEquiv.inner_map_map] at hneg
-    have := hv i
-    linarith
 
 theorem span_ofLattice_isRoot :
     Submodule.span ℝ (Set.range fun α : {v : Fin τ.rank → ℤ // IsRoot τ v} => ofLattice α.1) =
@@ -642,8 +619,5 @@ theorem span_ofLattice_isRoot :
     labelWeight (.inr α : Label τ) = ofLattice α.1 :=
   rfl
 
-theorem weylAct_labelWeight_inr (w : WeylGroup τ) (α : {v : Fin τ.rank → ℤ // IsRoot τ v}) :
-    weylAct τ w (labelWeight (.inr α : Label τ)) = labelWeight (.inr (w • α) : Label τ) :=
-  weylAct_ofLattice w α.1
 
 end CFSG.LieType.Chevalley

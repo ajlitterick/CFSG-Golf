@@ -420,17 +420,6 @@ theorem rckSU_elemAbelian_le_suZ0
   intro s hs
   exact mem_suZ0_of_fix_planePerp hk (rckSU_fixes_perp_of_coreComm hk V hrV hVab hN hs)
 
-theorem rckSU_core_le_centralizer_of_fourAt
-    {k : ℕ} (hk : 4 ≤ k) {V : Subgroup (SUG k)}
-    (hFour : FourAt (⊤ : Subgroup (SUG k)) V (suR hk))
-    (hCore : CoreCommAt (⊤ : Subgroup (SUG k)) V (suR hk)) :
-    CFSG.Open.pCoreOf 2 (Subgroup.centralizer ({suR hk} : Set (SUG k))) ≤
-      Subgroup.centralizer (V : Set (SUG k)) := by
-  apply rckSU_core_le_centralizer_of_le_suZ0 hk
-  apply rckSU_elemAbelian_le_suZ0 hk V hFour.1 hFour.2.2.1
-  intro v hv y hy
-  apply hCore v hv y
-  simpa only [top_inf_eq] using hy
 
 theorem rckSU_fix_suR_iff_mem_perp
     {k : ℕ} (hk : 4 ≤ k) (z : Fin k → SUF) :

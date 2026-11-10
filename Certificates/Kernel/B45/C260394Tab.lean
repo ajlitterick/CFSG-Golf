@@ -122,28 +122,6 @@ theorem hk : K0 495 = 0 ∧ K1 495 = 1 := by
   exact ⟨Nat.eq_of_beq_eq_true h.1, Nat.eq_of_beq_eq_true h.2⟩
 
 
-theorem ru2A_table : ∃ X : ℕ → Equiv.Perm (Fin 4060), (∀ i, X i ∈ ruS) ∧
-    (∀ i, 495 ≤ i → X i = 1) ∧ (∀ i < 495, X i * X i = 1 ∧ X i ≠ 1) ∧
-    (∀ i ≤ 495, ∀ j ≤ 495, X i = X j → i = j) ∧
-    (∀ i j, cK CM i j = true ↔ X i * X j = X j * X i) ∧
-    (∀ i ≤ 495, ∀ j ≤ 495, cK CM i j = true → pK PR i j ≤ 495 ∧ X i * X j = X (pK PR i j)) ∧
-    ∀ x ∈ ruS, x * x = 1 → (fixFinset x).card = 92 → ∃ i < 495, x = X i := by
-  have hT0 : ∀ a < 2048, PRep 4060 12 (RuSqS.TR (Nat.add (roff 4060 48720 (RuSqS.LR 0)) a))
-      (lT 0 a) := fun a ha => hT (by norm_num) (by rw [hc.1]; exact ha)
-  have hT1 : ∀ b < 8, PRep 4060 12 (RuSqS.TR (Nat.add (roff 4060 48720 (RuSqS.LR 1)) b))
-      (lT 1 b) := fun b hb => hT (by norm_num) (by rw [hc.2]; exact hb)
-  have hgen : ∀ g ∈ ruS, ∃ a < 2048, ∃ b < 8, g = lT 0 a * lT 1 b := fun g hg =>
-    hgen' (by rw [ruChainS4060_sub]; exact hg)
-  have hin : ∀ a < 2048, ∀ b < 8, lT 0 a * lT 1 b ∈ ruS := fun a ha b hb => by
-    rw [← ruChainS4060_sub]
-    exact hin' ha hb
-  exact ⟨X (lT 0) (lT 1) CD, x_mem hin hinv, fun i hi => x_one hi,
-    fun i hi => ⟨x_sq hT0 hT1 hgen hin hcov hinv hk hi, x_ne_one hT0 hT1 hinv hk hi⟩,
-    fun i hi j hj => x_inj hT0 hT1 hcov hinv hk hi hj,
-    x_comm hT0 hT1 hgen hin hcov hinv hrow hk,
-    fun i hi j hj => x_prod hT0 hT1 hgen hin hcov hinv hrow hk hi hj,
-    fun x hx h2 h92 => x_cover hT0 hT1 hgen hin hcov hinv hk hx h2 h92⟩
-
 end CertificateChecks.KernelB45.C260394
 
 end

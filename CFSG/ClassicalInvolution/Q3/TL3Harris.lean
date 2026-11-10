@@ -347,20 +347,5 @@ theorem centralizes_of_isSubnormal_sl2 [Finite C] {K H P : Subgroup C} (hHK : Is
     (mem_normalizer_of_forall_conj_mem (normalizes_of_isSubnormal_sl2 hHK e hPH hP8 hPK hK) hdK)
     hdP hh
 
-theorem eq_of_isSubnormal_sl2 [Finite C] {K H₁ H₂ P : Subgroup C} (h₁ : IsSubnormal H₁ K)
-    (h₂ : IsSubnormal H₂ K) (e₁ : H₁ ≃* SL(2, ZMod 3)) (e₂ : H₂ ≃* SL(2, ZMod 3))
-    (hP₁ : P ≤ H₁) (hP₂ : P ≤ H₂) (hP8 : Nat.card P = 8)
-    (hPK : ∀ g ∈ K, ∀ p ∈ P, g * p * g⁻¹ ∈ P) (hK : oddCoreIn K = ⊥) : H₁ = H₂ := by
-  refine eq_of_normal_sl2 e₁ e₂ (isSubnormal_le h₁) (isSubnormal_le h₂)
-    (normalizes_of_isSubnormal_sl2 h₁ e₁ hP₁ hP8 hPK hK)
-    (normalizes_of_isSubnormal_sl2 h₂ e₂ hP₂ hP8 hPK hK) hP₁ hP₂ hP8 ?_
-  intro N hNK hNn hN3
-  have hNsub : IsSubnormal N K := by
-    refine isSubnormal_of_normal_subgroupOf hNK ?_
-    rw [Subgroup.normal_subgroupOf_iff_le_normalizer hNK]
-    exact fun x hx => mem_normalizer_of_forall_conj_mem hNn hx
-  have := le_oddCoreIn_of_isSubnormal hNsub (odd_card_of_pow_three_eq_one hN3)
-  rw [hK] at this
-  exact le_bot_iff.mp this
 
 end CFSG.ClassicalInvolution.Q3.Harris3

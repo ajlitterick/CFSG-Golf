@@ -478,17 +478,6 @@ private theorem factor₁ : IsSixTwoFactor T s.M₁ s.X s.L₁ := by
   · exact s.dataX.factor_left
   · exact s.dataX.factor_right
 
-private theorem factor₂ : IsSixTwoFactor T s.M₂ s.Y s.L₂ := by
-  rcases s.choice₂ with h | h <;> rw [h]
-  · exact s.dataY.factor_left
-  · exact s.dataY.factor_right
-
-private theorem T₀_le_normalizer_X₁ : s.T₀ ≤ Subgroup.normalizer (s.X₁ : Set G) := inf_le_right
-
-private theorem T₀_le_normalizer_Y₁ : s.T₀ ≤ Subgroup.normalizer (s.Y₁ : Set G) :=
-  inf_le_left.trans inf_le_right
-
-private theorem L₁_le_I : s.L₁ ≤ s.I := le_sup_left.trans le_sup_left
 
 private theorem L₂_le_I : s.L₂ ≤ s.I := le_sup_left.trans le_sup_right
 

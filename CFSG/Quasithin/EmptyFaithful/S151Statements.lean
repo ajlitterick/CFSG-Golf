@@ -94,8 +94,6 @@ open Classical in
       A₀ = oTwoUpper (autOn M V) ⊔ Subgroup.zpowers t) ∧
     IsIrredOnSection (autOn T V) (oTwoUpper (autOn M V)) (frattiniIn (oTwoUpper (autOn M V)))
 
-@[expose] def IsDihedralParam (p m : ℕ) : Prop :=
-  (p = 3 ∧ m = 1) ∨ (p = 3 ∧ m = 2) ∨ (p = 5 ∧ m = 2)
 
 @[expose] def IsDirectSumOfCommutators (M V : Subgroup G) (A₁ A₂ : Subgroup (MulAut V)) : Prop :=
   ⁅V, preOn M V A₁⁆ ⊓ ⁅V, preOn M V A₂⁆ = ⊥ ∧ ⁅V, preOn M V A₁⁆ ⊔ ⁅V, preOn M V A₂⁆ = V
@@ -103,35 +101,6 @@ open Classical in
 @[expose] def IsInternalDirect {X : Type*} [Group X] (A A₁ A₂ : Subgroup X) : Prop :=
   A = A₁ ⊔ A₂ ∧ A₁ ⊓ A₂ = ⊥ ∧ ∀ a ∈ A₁, ∀ b ∈ A₂, a * b = b * a
 
-@[expose] def Case1512One (V : Subgroup G) (AJ : Subgroup (MulAut V)) : Prop :=
-  ∃ p m : ℕ, IsDihedralParam p m ∧ Nonempty (↥AJ ≃* DihedralGroup p) ∧
-    Nat.card V = 2 ^ (2 * m)
-
-@[expose] def Case1512Two (M V : Subgroup G) (AJ : Subgroup (MulAut V)) : Prop :=
-  Nat.card V = 16 ∧ autOn M V = AJ ∧ IsOmegaFourPlusOn M V ∧
-    Nonempty (↥AJ ≃* DihedralGroup 3 × DihedralGroup 3)
-
-@[expose] def Case1512Three (M V : Subgroup G) (AJ : Subgroup (MulAut V)) : Prop :=
-  ∃ (p m : ℕ) (A₁ A₂ : Subgroup (MulAut V)), IsDihedralParam p m ∧ IsInternalDirect AJ A₁ A₂ ∧
-    Nonempty (↥A₁ ≃* DihedralGroup p) ∧ Nonempty (↥A₂ ≃* DihedralGroup p) ∧
-    IsDirectSumOfCommutators M V A₁ A₂ ∧
-    Nat.card (⁅V, preOn M V A₁⁆ : Subgroup G) = 2 ^ (2 * m) ∧
-    Nat.card (⁅V, preOn M V A₂⁆ : Subgroup G) = 2 ^ (2 * m) ∧
-    ∃ x ∈ autOn M V, A₁.map (MulAut.conj x).toMonoidHom = A₂ ∧
-      A₂.map (MulAut.conj x).toMonoidHom = A₁
-
-@[expose] def Case1512Four (T M V : Subgroup G) (AJ : Subgroup (MulAut V)) : Prop :=
-  ExtraspecialThreeShape T M V AJ ∧ Nat.card V = 64
-
-@[expose] def Case1512Five (T M V : Subgroup G) (AJ : Subgroup (MulAut V)) : Prop :=
-  ElementaryNineShape M V AJ ∧ Nat.card V = 16 ∧
-    Nonempty (↥(autOn T V) ≃* Multiplicative (ZMod 4))
-
-@[expose] def Lemma1512Concl (T Mc M : Subgroup G) : Prop :=
-  Case1512One (VZ T M) (JhatOn M (VZ T M)) ∨ Case1512Two M (VZ T M) (JhatOn M (VZ T M)) ∨
-    Case1512Three M (VZ T M) (JhatOn M (VZ T M)) ∨
-    Case1512Four T M (VZ T M) (JhatOn M (VZ T M)) ∨
-    Case1512Five T M (VZ T M) (JhatOn M (VZ T M)) ∨ Case1512Six T Mc M
 
 @[expose] def Case1517One (M V : Subgroup G) (A₀ : Subgroup (MulAut V)) : Prop :=
   Nat.card V = 16 ∧ autOn M V = A₀ ∧ Nonempty (↥A₀ ≃* DihedralGroup 3)
@@ -209,28 +178,11 @@ structure Lemma1515Concl (T Mc M : Subgroup G) : Prop where
   reduced : IsTwoReducedIn M (V154 T Mc M)
   centralizer_le : Subgroup.centralizer (V154 T Mc M : Set G) ≤ Mc
 
-@[expose] def StageLemma1515 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), quasithinQTFE14Cat G T Mc →
-    IsMf T Mc M → Lemma1515Concl T Mc M
-
-@[expose] def Description1512 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), quasithinQTFE14Cat G T Mc →
-    IsMf T Mc M →
-    V154 T Mc M = conjClosure (quasithinOmegaOneCenter T ⊓ V154 T Mc M) (m0Of T Mc M)
 
 @[expose] def IsTwoNilpotentOn (M V : Subgroup G) : Prop :=
   ∃ N : Subgroup (MulAut V), N ≤ autOn M V ∧ (∀ g ∈ autOn M V, ∀ y ∈ N, g * y * g⁻¹ ∈ N) ∧
     Odd (Nat.card N) ∧ ∀ x ∈ autOn M V, ∃ k : ℕ, x ^ 2 ^ k ∈ N
 
-@[expose] def Nilpotency1512 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), quasithinQTFE14Cat G T Mc →
-    IsMf T Mc M → IsTwoNilpotentOn M (V154 T Mc M)
-
-@[expose] def StageLemma1516 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), quasithinQTFE14Cat G T Mc →
-    IsMf T Mc M →
-    oTwoUpper (M ⊓ Subgroup.centralizer (quasithinOmegaOneCenter T : Set G)) ≤
-      Subgroup.centralizer (V154 T Mc M : Set G)
 
 @[expose] def Lemma1518Concl (T Mc M : Subgroup G) : Prop :=
   (qhatOn M (V154 T Mc M) = 2 ∧ qOn M (V154 T Mc M) = 2) ∨

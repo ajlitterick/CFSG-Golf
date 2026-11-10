@@ -33,14 +33,6 @@ theorem sq_eq_one_of_norm (hq1 : p ^ f % 4 = 1) {t : K}
     rw [hj, pow_add, pow_mul, show t ^ 4 = (t ^ 2) ^ 2 by ring, h4, one_pow, one_mul] at hq
     exact hq
 
-omit [Finite K] in
-theorem diag_pow (a b : K) (N : ℕ) :
-    (!![a, 0, 0, 0; 0, a, 0, 0; 0, 0, b, 0; 0, 0, 0, b] : Matrix (Fin 4) (Fin 4) K) ^ N =
-      !![a ^ N, 0, 0, 0; 0, a ^ N, 0, 0; 0, 0, b ^ N, 0; 0, 0, 0, b ^ N] := by
-  rw [L4.diag4_eq, L4.diag4_eq, Matrix.diagonal_pow]
-  congr 1
-  ext i
-  fin_cases i <;> rfl
 
 theorem lift_pow {X : Type} [Group X] (θ : Su K p f 4 →* X) (s : MulAut X)
     (α : Monoid.End (Su K p f 4)) (hα : ∀ x, θ (α x) = s (θ x)) (N : ℕ) :

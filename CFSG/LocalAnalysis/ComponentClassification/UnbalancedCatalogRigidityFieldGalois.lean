@@ -21,8 +21,6 @@ variable {K : Type*} [Field K]
     change τ.symm a = a
     rw [RingEquiv.symm_apply_eq, hτ a ha]
 
-theorem mem_descentFixer {σ τ : K ≃+* K} : τ ∈ descentFixer σ ↔ ∀ a ∈ descentField σ, τ a = a :=
-  Iff.rfl
 
 theorem eq_one_or_eq_of_mem_zpowers {σ τ : K ≃+* K} (hσσ : σ * σ = 1)
     (hτ : τ ∈ Subgroup.zpowers σ) : τ = 1 ∨ τ = σ := by

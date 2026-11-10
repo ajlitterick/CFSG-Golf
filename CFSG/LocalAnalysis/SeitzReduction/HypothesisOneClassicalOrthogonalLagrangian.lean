@@ -53,9 +53,6 @@ variable {K : Type} [Field K] {d : ℕ}
     matrixIsometries Q →* MulAut (matrixProjectiveDerived Q) :=
   (matrixProjectiveConjugationHom Q).comp (matrixIsometryInclusion Q)
 
-theorem isometryKappa_apply (Q : QuadraticForm K (Fin d → K)) (s : matrixIsometries Q) :
-    isometryKappa Q s = matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s) :=
-  rfl
 
 section Model
 
@@ -191,90 +188,11 @@ theorem sq_eq_one_of_lagrangian (hQ : Q.polarBilin.Nondegenerate)
     exact Subtype.ext (Subtype.ext hx2)
   rw [← map_pow, hx2', map_one]
 
-theorem pow_two_eq_one_of_lagrangian_pair (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q)
-    (hd : 8 ≤ d) {α : MulAut (matrixProjectiveDerived Q)} {S : similarityPairs Q}
-    (hS : S ∈ unitMultiplierPairs Q) (hSα : matrixProjectiveConjugationHom Q S = α)
-    (hσ : S.val.right = 1) (hS2 : S * S = 1)
-    (hlag : LinearMap.ker ((matrixLinearEquiv S.val.left : (Fin d → K) →ₗ[K] (Fin d → K)) - 1) ≤
-      LinearMap.range ((matrixLinearEquiv S.val.left : (Fin d → K) →ₗ[K] (Fin d → K)) - 1)) :
-    ∀ β ∈ matrixProjectiveImage Q, β * α = α * β →
-      (∀ c, α c = c → Odd (orderOf c) → β c = c) → β ^ 2 = 1 := by
-  have hA : S.val.left ∈ matrixIsometries Q := by
-    rw [mem_matrixIsometries_iff]
-    intro v
-    have h := hS v
-    rw [coordinateSemilinearMap_apply, hσ] at h
-    exact h
-  set s : matrixIsometries Q := ⟨S.val.left, hA⟩ with hsdef
-  have hSs : S = matrixIsometryInclusion Q s := by
-    apply Subtype.ext
-    rw [matrixIsometryInclusion_val]
-    exact SemidirectProduct.ext rfl hσ
-  have hss : s * s = 1 := by
-    apply Subtype.ext
-    have h := congrArg (fun g : similarityPairs Q => g.val.left) hS2
-    simp only [Subgroup.coe_mul, SemidirectProduct.mul_left, hσ, map_one, MulAut.one_apply,
-      OneMemClass.coe_one, SemidirectProduct.one_left] at h
-    exact h
-  have hαs : α = isometryKappa Q s := by rw [← hSα, hSs, isometryKappa_apply]
-  subst hαs
-  intro β hβ hβα hβc
-  exact sq_eq_one_of_lagrangian hQ hT hE hd s hss hlag hβ hβα hβc
-
-theorem involutionCriterion_of_lagrangian (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q)
-    (htop : matrixProjectiveImage Q = ⊤) (hd : 8 ≤ d) (s : matrixIsometries Q) (hs : s * s = 1)
-    (hlag : LinearMap.ker ((matrixLinearEquiv s.val : (Fin d → K) →ₗ[K] (Fin d → K)) - 1) ≤
-      LinearMap.range ((matrixLinearEquiv s.val : (Fin d → K) →ₗ[K] (Fin d → K)) - 1)) :
-    InvolutionCriterion (isometryKappa Q s) := fun β hβs hβD =>
-  sq_eq_one_of_lagrangian hQ hT hE hd s hs hlag (htop ▸ Subgroup.mem_top β) hβs hβD
 
 end Model
 
 section Coordinates
 
-variable [Finite K] [CharP K 2] (n : ℕ)
-
-theorem sq_eq_one_of_lagrangian_plus (hn : 4 ≤ n) (s : matrixIsometries (coordinateQuadPlus n K))
-    (hs : s * s = 1)
-    (hlag : LinearMap.ker ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K))
-        - 1) ≤
-      LinearMap.range ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K)) - 1))
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))}
-    (hβE : β ∈ matrixProjectiveImage (coordinateQuadPlus n K))
-    (hβs : β * isometryKappa _ s = isometryKappa _ s * β)
-    (hβD : ∀ c, isometryKappa _ s c = c → Odd (orderOf c) → β c = c) : β ^ 2 = 1 :=
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  sq_eq_one_of_lagrangian hreg.1 hreg.2 (commutator_coordinateQuadPlus n K (by omega))
-    (by omega) s hs hlag hβE hβs hβD
-
-theorem involutionCriterion_lagrangian_plus (hn : 5 ≤ n)
-    (s : matrixIsometries (coordinateQuadPlus n K)) (hs : s * s = 1)
-    (hlag : LinearMap.ker ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K))
-        - 1) ≤
-      LinearMap.range ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K)) - 1)) :
-    InvolutionCriterion (isometryKappa _ s) :=
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  involutionCriterion_of_lagrangian hreg.1 hreg.2 (commutator_coordinateQuadPlus n K (by omega))
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_plus K n hn) (by omega)
-    s hs hlag
-
-theorem involutionCriterion_lagrangian_minus (hn : 4 ≤ n) (b c : K)
-    (hirr : ∀ t : K, t ^ 2 + b * t + c ≠ 0)
-    (s : matrixIsometries (coordinateQuadMinus n K (by omega) b c)) (hs : s * s = 1)
-    (hlag : LinearMap.ker ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K))
-        - 1) ≤
-      LinearMap.range ((matrixLinearEquiv s.val : (Fin (2 * n) → K) →ₗ[K] (Fin (2 * n) → K)) - 1)) :
-    InvolutionCriterion (isometryKappa _ s) :=
-  have hreg := regular_coordinateQuadMinus n K b c hn hirr
-  involutionCriterion_of_lagrangian hreg.1 hreg.2 (commutator_coordinateQuadMinus n K b c hn hirr)
-    (CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr)
-    (by omega) s hs hlag
 
 end Coordinates
 

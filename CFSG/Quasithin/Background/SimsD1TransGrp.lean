@@ -67,18 +67,6 @@ theorem le_normalizer_map_iff (f : A →* B) (hf : Function.Injective f) (H X : 
   exact ⟨fun h a ha => (mem_normalizer_map_iff f hf X a).1 (h ha),
     fun h a ha => (mem_normalizer_map_iff f hf X a).2 (h ha)⟩
 
-theorem le_centralizer_map_iff (f : A →* B) (hf : Function.Injective f) (H X : Subgroup A) :
-    H.map f ≤ Subgroup.centralizer ((X.map f : Subgroup B) : Set B) ↔
-      H ≤ Subgroup.centralizer (X : Set A) := by
-  rw [Subgroup.map_le_iff_le_comap]
-  exact ⟨fun h a ha => (mem_centralizer_map_iff f hf X a).1 (h ha),
-    fun h a ha => (mem_centralizer_map_iff f hf X a).2 (h ha)⟩
-
-theorem normal_subgroupOf_map_iff (f : A →* B) (hf : Function.Injective f) {X H : Subgroup A}
-    (hXH : X ≤ H) :
-    ((X.map f).subgroupOf (H.map f)).Normal ↔ (X.subgroupOf H).Normal := by
-  rw [Subgroup.normal_subgroupOf_iff_le_normalizer (Subgroup.map_mono hXH),
-    Subgroup.normal_subgroupOf_iff_le_normalizer hXH, le_normalizer_map_iff f hf]
 
 theorem pCoreOf_map_eq (f : A →* B) (hf : Function.Injective f) (p : ℕ) (K : Subgroup A) :
     pCoreOf p (K.map f) = (pCoreOf p K).map f := by
@@ -144,17 +132,6 @@ theorem thompsonJ_map_eq (f : A →* B) (hf : Function.Injective f) (H : Subgrou
     exact le_iSup₂_of_le C hC le_rfl
   · exact le_iSup₂_of_le (C.map f) ((isMaxElemAbelian_map_iff f hf H C).2 hC) le_rfl
 
-theorem conjClosure_map_eq (f : A →* B) (V H : Subgroup A) :
-    conjClosure (V.map f) (H.map f) = (conjClosure V H).map f := by
-  unfold conjClosure
-  rw [MonoidHom.map_closure]
-  congr 1
-  ext y
-  constructor
-  · rintro ⟨_, ⟨h, hh, rfl⟩, _, ⟨z, hz, rfl⟩, rfl⟩
-    exact ⟨h * z * h⁻¹, ⟨h, hh, z, hz, rfl⟩, by simp⟩
-  · rintro ⟨_, ⟨h, hh, z, hz, rfl⟩, rfl⟩
-    exact ⟨f h, ⟨h, hh, rfl⟩, f z, ⟨z, hz, rfl⟩, by simp⟩
 
 theorem centerOf_map_eq (f : A →* B) (hf : Function.Injective f) (K : Subgroup A) :
     centerOf (K.map f) = (centerOf K).map f :=
@@ -187,117 +164,6 @@ theorem twoResidual_map_eq (f : A →* B) (hf : Function.Injective f) (H : Subgr
     obtain ⟨k, hk⟩ := hpow (f z) ⟨z, hz, rfl⟩
     exact ⟨k, (Subgroup.mem_map_iff_mem hf).1 (by rwa [← map_pow] at hk)⟩
 
-private theorem mem_twoPrimeResidual_iff {H : Subgroup A} {x : A} :
-    x ∈ twoPrimeResidual H ↔ ∀ N : Subgroup A, N ≤ H → H ≤ Subgroup.normalizer (N : Set A) →
-      ¬ 2 ∣ N.relIndex H → x ∈ N := by
-  unfold twoPrimeResidual
-  simp only [Subgroup.mem_iInf]
-  constructor
-  · intro h N h1 h2 h3
-    exact h N ⟨h1, h2, h3⟩
-  · rintro h N ⟨h1, h2, h3⟩
-    exact h N h1 h2 h3
-
-private theorem twoPrimeResidual_le (H : Subgroup A) : twoPrimeResidual H ≤ H := fun _ hx =>
-  mem_twoPrimeResidual_iff.1 hx H le_rfl Subgroup.le_normalizer (by simp)
-
-theorem twoPrimeResidual_map_eq (f : A →* B) (hf : Function.Injective f) (H : Subgroup A) :
-    twoPrimeResidual (H.map f) = (twoPrimeResidual H).map f := by
-  ext y
-  constructor
-  · intro hy
-    obtain ⟨x, hxH, rfl⟩ : y ∈ H.map f := twoPrimeResidual_le _ hy
-    refine ⟨x, mem_twoPrimeResidual_iff.2 fun N hNH hHN hodd => ?_, rfl⟩
-    refine (Subgroup.mem_map_iff_mem hf).1
-      (mem_twoPrimeResidual_iff.1 hy (N.map f) (Subgroup.map_mono hNH)
-        ((le_normalizer_map_iff f hf H N).2 hHN) ?_)
-    rwa [relIndex_map_eq f hf]
-  · rintro ⟨x, hx, rfl⟩
-    rw [mem_twoPrimeResidual_iff]
-    intro N' hN'H hHN' hodd
-    obtain ⟨N, rfl⟩ := exists_map_eq_of_le_map f hN'H
-    refine ⟨x, ?_, rfl⟩
-    exact mem_twoPrimeResidual_iff.1 hx N ((Subgroup.map_le_map_iff_of_injective hf).1 hN'H)
-      ((le_normalizer_map_iff f hf H N).1 hHN') (by rwa [relIndex_map_eq f hf] at hodd)
-
-theorem isNormalIn_map_iff (f : A →* B) (hf : Function.Injective f) (H U N : Subgroup A) :
-    IsNormalIn (H.map f) (U.map f) (N.map f) ↔ IsNormalIn H U N := by
-  unfold IsNormalIn
-  rw [Subgroup.map_le_map_iff_of_injective hf]
-  refine and_congr_right fun _ => ?_
-  constructor
-  · intro h g hg x hx
-    have h1 := h (f g) ⟨g, hg, rfl⟩ (f x) ⟨x, hx, rfl⟩
-    rw [← map_inv, ← map_mul, ← map_mul] at h1
-    exact (Subgroup.mem_map_iff_mem hf).1 h1
-  · rintro h _ ⟨g, hg, rfl⟩ _ ⟨x, hx, rfl⟩
-    rw [← map_inv, ← map_mul, ← map_mul]
-    exact ⟨g * x * g⁻¹, h g hg x hx, rfl⟩
-
-theorem isChiefStep_map_iff (f : A →* B) (hf : Function.Injective f) (H U L N : Subgroup A) :
-    IsChiefStep (H.map f) (U.map f) (L.map f) (N.map f) ↔ IsChiefStep H U L N := by
-  unfold IsChiefStep
-  rw [isNormalIn_map_iff f hf, isNormalIn_map_iff f hf, Subgroup.map_lt_map_iff_of_injective hf]
-  refine and_congr_right fun _ => and_congr_right fun _ => and_congr_right fun _ => ?_
-  constructor
-  · intro h K hK hLK hKN
-    rcases h (K.map f) ((isNormalIn_map_iff f hf H U K).2 hK) (Subgroup.map_mono hLK)
-        (Subgroup.map_mono hKN) with h1 | h1
-    · exact Or.inl (Subgroup.map_injective hf h1)
-    · exact Or.inr (Subgroup.map_injective hf h1)
-  · intro h K' hK' hLK hKN
-    obtain ⟨K, rfl⟩ := exists_map_eq_of_le_map f hK'.1
-    rw [isNormalIn_map_iff f hf] at hK'
-    rcases h K hK' ((Subgroup.map_le_map_iff_of_injective hf).1 hLK)
-        ((Subgroup.map_le_map_iff_of_injective hf).1 hKN) with h1 | h1
-    · exact Or.inl (by rw [h1])
-    · exact Or.inr (by rw [h1])
-
-theorem isCentralStep_map_iff (f : A →* B) (hf : Function.Injective f) (H L N : Subgroup A) :
-    IsCentralStep (H.map f) (L.map f) (N.map f) ↔ IsCentralStep H L N := by
-  unfold IsCentralStep
-  constructor
-  · intro h g hg x hx
-    have h1 := h (f g) ⟨g, hg, rfl⟩ (f x) ⟨x, hx, rfl⟩
-    simp only [← map_inv, ← map_mul] at h1
-    exact (Subgroup.mem_map_iff_mem hf).1 h1
-  · rintro h _ ⟨g, hg, rfl⟩ _ ⟨x, hx, rfl⟩
-    simp only [← map_inv, ← map_mul]
-    exact ⟨_, h g hg x hx, rfl⟩
-
-theorem exists_isChiefSeriesFrom_of_map (f : A →* B) (hf : Function.Injective f)
-    (H U : Subgroup A) {N' : Subgroup B} {c : ℕ}
-    (h : IsChiefSeriesFrom (H.map f) (U.map f) N' c) :
-    ∃ N : Subgroup A, N.map f = N' ∧ IsChiefSeriesFrom H U N c := by
-  induction h with
-  | bot => exact ⟨⊥, Subgroup.map_bot f, IsChiefSeriesFrom.bot⟩
-  | @central N₁ L₁ n hstep hcen _ ih =>
-    obtain ⟨L, rfl, hL⟩ := ih
-    obtain ⟨N, rfl⟩ := exists_map_eq_of_le_map f hstep.1.1
-    exact ⟨N, rfl, IsChiefSeriesFrom.central ((isChiefStep_map_iff f hf H U L N).1 hstep)
-      ((isCentralStep_map_iff f hf H L N).1 hcen) hL⟩
-  | @noncentral N₁ L₁ n hstep hcen _ ih =>
-    obtain ⟨L, rfl, hL⟩ := ih
-    obtain ⟨N, rfl⟩ := exists_map_eq_of_le_map f hstep.1.1
-    exact ⟨N, rfl, IsChiefSeriesFrom.noncentral ((isChiefStep_map_iff f hf H U L N).1 hstep)
-      (fun hc => hcen ((isCentralStep_map_iff f hf H L N).2 hc)) hL⟩
-
-theorem isChiefSeriesFrom_map_iff (f : A →* B) (hf : Function.Injective f)
-    (H U N : Subgroup A) (c : ℕ) :
-    IsChiefSeriesFrom (H.map f) (U.map f) (N.map f) c ↔ IsChiefSeriesFrom H U N c := by
-  constructor
-  · intro h
-    obtain ⟨N₀, hN₀, h₀⟩ := exists_isChiefSeriesFrom_of_map f hf H U h
-    rwa [← Subgroup.map_injective hf hN₀]
-  · intro h
-    induction h with
-    | bot => rw [Subgroup.map_bot]; exact IsChiefSeriesFrom.bot
-    | @central N L n hstep hcen _ ih =>
-      exact IsChiefSeriesFrom.central ((isChiefStep_map_iff f hf H U L N).2 hstep)
-        ((isCentralStep_map_iff f hf H L N).2 hcen) ih
-    | @noncentral N L n hstep hcen _ ih =>
-      exact IsChiefSeriesFrom.noncentral ((isChiefStep_map_iff f hf H U L N).2 hstep)
-        (fun hc => hcen ((isCentralStep_map_iff f hf H L N).1 hc)) ih
 
 theorem isSylowTwoOf_map_iff (f : A →* B) (hf : Function.Injective f) (S H : Subgroup A) :
     IsSylowTwoOf (S.map f) (H.map f) ↔ IsSylowTwoOf S H := by
@@ -344,25 +210,6 @@ theorem isUniqueMaxOver_map_iff (f : A →* B) (hf : Function.Injective f) (H T 
   rw [maxOver_map_eq f hf, ← Set.image_singleton,
     (Subgroup.map_injective hf).image_injective.eq_iff]
 
-theorem mem_uFam_map_iff (f : A →* B) (hf : Function.Injective f) (H P X : Subgroup A) :
-    P.map f ∈ uFam (H.map f) (X.map f) ↔ P ∈ uFam H X := by
-  simp only [uFam, Set.mem_setOf_eq]
-  rw [Subgroup.map_le_map_iff_of_injective hf, Subgroup.map_lt_map_iff_of_injective hf,
-    maxOver_map_eq f hf, Set.ncard_image_of_injective _ (Subgroup.map_injective hf)]
-
-theorem mem_uFamHat_map_iff (f : A →* B) (hf : Function.Injective f) (H P X : Subgroup A) :
-    P.map f ∈ uFamHat (H.map f) (X.map f) ↔ P ∈ uFamHat H X := by
-  simp only [uFamHat, Set.mem_setOf_eq]
-  rw [mem_uFam_map_iff f hf, le_normalizer_map_iff f hf]
-
-theorem isMinParabolicOf_map_iff (f : A →* B) (hf : Function.Injective f) (H P : Subgroup A) :
-    IsMinParabolicOf (H.map f) (P.map f) ↔ IsMinParabolicOf H P := by
-  constructor
-  · rintro ⟨T', hT', hP⟩
-    obtain ⟨T, rfl, hT⟩ := exists_isSylowTwoOf_of_map f hf H hT'
-    exact ⟨T, hT, (mem_uFamHat_map_iff f hf H P T).1 hP⟩
-  · rintro ⟨T, hT, hP⟩
-    exact ⟨T.map f, (isSylowTwoOf_map_iff f hf T H).2 hT, (mem_uFamHat_map_iff f hf H P T).2 hP⟩
 
 theorem charTwo_map_iff (f : A →* B) (hf : Function.Injective f) (H : Subgroup A) :
     CharTwo (H.map f) ↔ CharTwo H := by
@@ -370,51 +217,16 @@ theorem charTwo_map_iff (f : A →* B) (hf : Function.Injective f) (H : Subgroup
   rw [pCoreOf_map_eq f hf, ← map_inf_centralizer_eq f hf,
     Subgroup.map_le_map_iff_of_injective hf]
 
-theorem isSolvable_map_iff (f : A →* B) (hf : Function.Injective f) (H : Subgroup A) :
-    Group.IsSolvable ↥(H.map f) ↔ Group.IsSolvable ↥H := by
-  let e : ↥H ≃* ↥(H.map f) := H.equivMapOfInjective f hf
-  constructor
-  · intro h
-    exact Group.isSolvable_of_isSolvable_injective (f := e.toMonoidHom) e.injective
-  · intro h
-    exact Group.isSolvable_of_isSolvable_injective (f := e.symm.toMonoidHom) e.symm.injective
 
 end General
 
 section Iso
 
-variable {X Y : Type*} [Group X] [Group Y]
-
-theorem exists_isElementaryAbelian_of_injective (g : X →* Y) (hg : Function.Injective g)
-    (p r : ℕ) (h : ∃ E : Subgroup X, IsElementaryAbelian p E ∧ Nat.card E = p ^ r) :
-    ∃ E : Subgroup Y, IsElementaryAbelian p E ∧ Nat.card E = p ^ r := by
-  obtain ⟨E, hE, hcard⟩ := h
-  exact ⟨E.map g, hE.subgroup_map g, by rw [Subgroup.card_map_of_injective hg, hcard]⟩
-
-theorem pRank_eq_of_mulEquiv (e : X ≃* Y) (p : ℕ) : CFSG.pRank p X = CFSG.pRank p Y := by
-  unfold CFSG.pRank
-  congr 1
-  ext r
-  exact ⟨exists_isElementaryAbelian_of_injective e.toMonoidHom e.injective p r,
-    exists_isElementaryAbelian_of_injective e.symm.toMonoidHom e.symm.injective p r⟩
-
-theorem isStronglyQuasithin_congr (e : X ≃* Y) :
-    CFSG.IsStronglyQuasithin X ↔ CFSG.IsStronglyQuasithin Y := by
-  unfold CFSG.IsStronglyQuasithin
-  simp only [pRank_eq_of_mulEquiv e]
 
 end Iso
 
 section SQTK
 
-theorem isSQTKCat_congr {X Y : Type} [Group X] [Group Y] (e : X ≃* Y) :
-    CFSG.SectionRank.IsSQTKCat X ↔ CFSG.SectionRank.IsSQTKCat Y :=
-  and_congr (isStronglyQuasithin_congr e) ⟨fun h => h.of_mulEquiv e.symm, fun h => h.of_mulEquiv e⟩
-
-theorem isSQTKCat_map_iff {A B : Type} [Group A] [Group B] (f : A →* B)
-    (hf : Function.Injective f) (H : Subgroup A) :
-    CFSG.SectionRank.IsSQTKCat ↥(H.map f) ↔ CFSG.SectionRank.IsSQTKCat ↥H :=
-  (isSQTKCat_congr (H.equivMapOfInjective f hf)).symm
 
 end SQTK
 

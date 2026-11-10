@@ -55,9 +55,6 @@ theorem exactNormalAut_one_mul {τ : Tag} (σ σ' : K ≃+* K) (ε ε' : ℕ) :
       show (ε + ε) % exactE .E6 = 0 by change (ε + ε) % 2 = 0; omega]
     exact exactNormalAut_one_one_zero
 
-theorem mem_e6FieldGraph {α : MulAut (adjointGroup .E6 K)} :
-    α ∈ e6FieldGraph K ↔ ∃ (σ : K ≃+* K) (ε : ℕ), ε < 2 ∧ α = exactNormalAut .E6 K 1 σ ε :=
-  Iff.rfl
 
 @[expose] noncomputable def e6DiagHom (K : Type) [Field K] :
     (Fin Tag.E6.rank → Kˣ) →* MulAut (adjointGroup .E6 K) where
@@ -204,8 +201,6 @@ theorem ggAutModelAt_E6 : GGAutModelAt .E6 := by
     e6Isogeny_surjective _, CFSG.LieType.Steinberg.CentralExt.FieldFour.e6Isogeny_ker_eq_center,
     AutSt.autModel_E6 hf hK⟩
 
-theorem ggAutStructureAt_E6 : GGAutStructureAt .E6 :=
-  ggAutStructureAt_of_autModelAt ggAutModelAt_E6
 
 end Family
 

@@ -91,20 +91,6 @@ theorem normalized_sup_primeSetOrder {G : Type u} [Group G]
   exact PrimeSetOrder.mul primes _ _
     (PrimeSetOrder.of_dvd primes _ _ hsecond hquotientCard) hfirst
 
-theorem normal_primeSetOrder_le_hall {G : Type u} [Group G] [Finite G]
-    (primes : Set ℕ) (normalSubgroup hall : Subgroup G) [normalSubgroup.Normal]
-    (horder : PrimeSetOrder primes (Nat.card normalSubgroup)) (hhall : HallFor primes hall) :
-    normalSubgroup ≤ hall := by
-  have hsupOrder := normalized_sup_primeSetOrder primes normalSubgroup hall
-    (by rw [Subgroup.normalizer_eq_top]; exact le_top) horder hhall.1
-  have heq := HallFor.eq_top_of_primeSetOrder primes (hall.subgroupOf (normalSubgroup ⊔ hall))
-    (HallFor.subgroupOf primes hall (normalSubgroup ⊔ hall) le_sup_right hhall) hsupOrder
-  have hsupLe : normalSubgroup ⊔ hall ≤ hall := by
-    intro element helement
-    have hmem : (⟨element, helement⟩ : (normalSubgroup ⊔ hall : Subgroup G)) ∈
-        hall.subgroupOf (normalSubgroup ⊔ hall) := by rw [heq]; exact Subgroup.mem_top _
-    exact hmem
-  exact le_sup_left.trans hsupLe
 
 theorem normal_complement_of_sup_eq_top_and_coprime {G : Type u} [Group G]
     (normalSubgroup complement : Subgroup G) [normalSubgroup.Normal]

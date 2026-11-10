@@ -345,8 +345,6 @@ theorem coe_minFin : (minFin : Set (Fin 24 → ℤ)) = minVecs := by
   unfold minFin
   rw [Finset.coe_union, Finset.coe_union, coe_fam₁Fin, coe_fam₂Fin, coe_fam₃Fin, minVecs_eq]
 
-theorem mem_minFin {u : Fin 24 → ℤ} : u ∈ minFin ↔ u ∈ minVecs := by
-  rw [← Finset.mem_coe, coe_minFin]
 
 theorem card_minFin : minFin.card = 196560 := by
   unfold minFin
@@ -510,52 +508,5 @@ theorem card_classes :
       exact absurd hv2 ((posFirst_xor (minVecs_ne_zero hu1)).1 hu2)
   rw [hS, hinj.ncard_image, ncard_minHalf]
 
-theorem mog_lattice_short_vectors :
-    ((∀ u ∈ codeLattice C, u ≠ 0 →
-        4 ≤ codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ))) ∧
-      ∃ u ∈ codeLattice C, u ≠ 0 ∧ codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 4) ∧
-    minVecs = minFamily₁ ∪ minFamily₂ ∪ minFamily₃ ∧
-    (Disjoint minFamily₁ minFamily₂ ∧ Disjoint minFamily₁ minFamily₃ ∧
-      Disjoint minFamily₂ minFamily₃) ∧
-    (minFamily₁.ncard = 1104 ∧ minFamily₂.ncard = 97152 ∧ minFamily₃.ncard = 98304 ∧
-      minVecs.ncard = 196560) ∧
-    (∀ c : codeLatticeModTwo C allOnes_mem_C,
-      {u : Fin 24 → ℤ | u ∈ minVecs ∧ classOf u = c} = ∅ ∨
-        ∃ u ∈ minVecs, -u ≠ u ∧ {v : Fin 24 → ℤ | v ∈ minVecs ∧ classOf v = c} = {u, -u}) ∧
-    {c : codeLatticeModTwo C allOnes_mem_C | ∃ u ∈ minVecs, classOf u = c}.ncard = 98280 := by
-  have hmin : ∀ u ∈ codeLattice C, u ≠ 0 →
-      4 ≤ codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) := by
-    intro u hu h0
-    rw [codeForm_self]
-    have : (32 : ℚ) ≤ normSq u := by exact_mod_cast normSq_ge hu h0
-    linarith
-  have hex : ∃ u ∈ codeLattice C, u ≠ 0 ∧
-      codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 4 := by
-    have h3 : oddMin 0 0 ∈ minVecs := minFamily₃_subset ⟨0, 0, C.zero_mem, rfl⟩
-    exact ⟨oddMin 0 0, h3.1, minVecs_ne_zero h3, h3.2⟩
-  refine ⟨⟨hmin, hex⟩, minVecs_eq, ⟨disjoint_minFamily₁₂, disjoint_minFamily₁₃,
-    disjoint_minFamily₂₃⟩, ⟨?_, ?_, ?_, ?_⟩, ?_, card_classes⟩
-  · rw [← coe_fam₁Fin, Set.ncard_coe_finset, card_fam₁Fin]
-  · rw [← coe_fam₂Fin, Set.ncard_coe_finset, card_fam₂Fin]
-  · rw [← coe_fam₃Fin, Set.ncard_coe_finset, card_fam₃Fin]
-  · rw [← coe_minFin, Set.ncard_coe_finset, card_minFin]
-  · intro c
-    by_cases hc : ∃ u ∈ minVecs, classOf u = c
-    · right
-      obtain ⟨u, hu, rfl⟩ := hc
-      refine ⟨u, hu, neg_ne_self_of_mem_minVecs hu, ?_⟩
-      ext v
-      simp only [Set.mem_ofPred_eq, Set.mem_insert_iff, Set.mem_singleton_iff]
-      constructor
-      · rintro ⟨hv, hvc⟩
-        exact (classOf_eq_iff hu hv).1 hvc.symm
-      · rintro (rfl | rfl)
-        · exact ⟨hu, rfl⟩
-        · exact ⟨neg_mem_minVecs hu,
-            ((classOf_eq_iff hu (neg_mem_minVecs hu)).2 (Or.inr rfl)).symm⟩
-    · left
-      ext v
-      simp only [Set.mem_ofPred_eq, Set.mem_empty_iff_false, iff_false, not_and]
-      exact fun hv hvc => hc ⟨v, hv, hvc⟩
 
 end CFSG.Monster.Code

@@ -44,21 +44,6 @@ theorem centralizer_le_subStab_of_unique (hU : WreathPairUniqueAt n)
     refine ⟨h1', ?_⟩
     rw [hxz', h1', ← cjSub_mul, hz2, cjSub_one]
 
-theorem not_conj_of_pairChar_eq_one (h : Setting G L n) (d : Cyc L Q z) (hQ2 : Nat.card Q = 2)
-    (hn : 11 ≤ n) {H : Subgroup G} (hH : WreathPair L z n H)
-    (hCz : Nat.card (centralizer ({z} : Set G)) = 2 * n.factorial)
-    (w : subStab ({H, cjSub z H} : Set (Subgroup G)))
-    (hw : pairChar H (cjSub z H) (hH.ne_cjSub (by omega)) w = 1) :
-    ¬ ∃ g : G, g⁻¹ * z * g = (w : G) := by
-  rintro ⟨g, hg⟩
-  have hne : H ≠ cjSub z H := hH.ne_cjSub (by omega)
-  have h1 : cjSub (w : G) H = H := (pairChar_eq_one_iff hne).1 hw
-  have h2 : cjSub (w : G) (cjSub z H) = cjSub z H := by
-    rcases (mem_subStab_pair_iff hne).1 w.2 with ⟨-, h2⟩ | ⟨h2, -⟩
-    · exact h2
-    · exact absurd (h1.symm.trans h2) hne
-  rw [← hg] at h1 h2
-  exact false_of_conj_fixes h d hQ2 hn hH g hCz h1 h2
 
 theorem wreathOvergroup_of_unique (hU : WreathPairUniqueAt n)
     (h : Setting G L n) (d : Cyc L Q z) (hQ2 : Nat.card Q = 2) (hn : 11 ≤ n) {u : G}

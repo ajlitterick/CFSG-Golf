@@ -54,14 +54,6 @@ end AnyCharacteristic
 
 variable [CharP K 2]
 
-theorem holds_statedOmega_quadPlus_two (hn : 3 ≤ n) :
-    Holds (StatedOmega (StatedQuadPlus n K)) 2 :=
-  holds_statedOmega_quadPlus_of_three_le n K 2 hn
-
-theorem holds_statedOmega_quadMinus_two (hn : 3 ≤ n) (b c : K)
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :
-    Holds (StatedOmega (StatedQuadMinus n K b c)) 2 :=
-  holds_statedOmega_quadMinus_of_three_le n K 2 hn b c hirr
 
 theorem holds_statedProj_statedOmega_quadPlus_two (hn : 3 ≤ n) :
     Holds (StatedProj (StatedOmega (StatedQuadPlus n K))) 2 :=

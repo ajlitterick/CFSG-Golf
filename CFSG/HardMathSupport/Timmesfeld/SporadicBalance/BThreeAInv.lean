@@ -158,39 +158,6 @@ theorem gLAPPrimeCoreOf_eq_bot_of_inverted_by_label {s : Shat} (hs : orderOf s =
     rw [← hsxy, hs] at h4
     exact absurd h4 (by norm_num)
 
-theorem oPrimeCoreTrivialAt_Shat_three_of_census (hC : BThreeCensus) (hB : BThreeCentral) :
-    OPrimeCoreTrivialAt 3 Shat := by
-  intro s hs
-  rcases hC s hs with ⟨v, w, hw, hc⟩ | h13
-  · obtain ⟨g, hg⟩ := isConj_iff.1 hc
-    refine (gLAPPrimeCoreOf_centralizer_conj g s).1 ?_
-    rw [hg]
-    exact gLAPPrimeCoreOf_typeThree_eq_bot' hw
-  · exact hB s hs h13
-
-theorem oPrimeCoreTrivialAt_B_three_of_census
-    (hC : BThreeCensus) (hB : BThreeCentral) :
-    OPrimeCoreTrivialAt 3 CFSG.Blueprint.NativeSporadic.B :=
-  OPrimeCoreTrivialAt.of_mulEquiv (CTIB.iotaEquiv.trans CTIB.sEquiv)
-    (oPrimeCoreTrivialAt_Shat_three_of_census hC hB)
-
-@[expose] def BThreeUninverted : Prop :=
-  ∀ s : Shat, orderOf s = 3 → (∀ x : CVert, clabelS x * s * (clabelS x)⁻¹ ≠ s⁻¹) →
-    GLAPPrimeCoreOf 3 (Subgroup.centralizer ({s} : Set Shat)) = ⊥
-
-theorem oPrimeCoreTrivialAt_Shat_three_of_uninverted (h : BThreeUninverted) :
-    OPrimeCoreTrivialAt 3 Shat := by
-  intro s hs
-  by_cases hinv : ∃ x : CVert, clabelS x * s * (clabelS x)⁻¹ = s⁻¹
-  · obtain ⟨x, hx⟩ := hinv
-    exact gLAPPrimeCoreOf_eq_bot_of_inverted_by_label hs hx
-  · exact h s hs fun x hx => hinv ⟨x, hx⟩
-
-theorem oPrimeCoreTrivialAt_B_three_of_uninverted
-    (h : BThreeUninverted) :
-    OPrimeCoreTrivialAt 3 CFSG.Blueprint.NativeSporadic.B :=
-  OPrimeCoreTrivialAt.of_mulEquiv (CTIB.iotaEquiv.trans CTIB.sEquiv)
-    (oPrimeCoreTrivialAt_Shat_three_of_uninverted h)
 
 end ThreeAInv
 

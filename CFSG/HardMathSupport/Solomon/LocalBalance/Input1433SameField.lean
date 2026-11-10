@@ -54,16 +54,5 @@ structure Input14_33Setup {X : Type} [Group X] [Finite X]
   centralizes : Q ≤ Subgroup.centralizer (GLAPLayer 3 (K ⊓ Subgroup.centralizer
     (((Subgroup.center ↥Q).map Q.subtype : Subgroup X) : Set X)) : Set X)
 
-@[expose] def Input14_33LiteralSameField : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (K Q₁ Q J : Subgroup X) (t : X) (q : ℕ),
-    Input14_33Setup K Q₁ Q t →
-    IsComponentOf J (GLAPLayer 3 (K ⊓ Subgroup.centralizer
-      (((Subgroup.center ↥Q).map Q.subtype : Subgroup X) : Set X))) →
-    IsSL3EpsOver ↥J q →
-    (Subgroup.center ↥Q).map Q.subtype = (Subgroup.center ↥J).map J.subtype →
-    (Nat.card J).factorization 3 = 3 → IsD4Over ↥K q
-
-@[expose] def Input14_33SameField : Prop :=
-  Input14_33LiteralSameField
 
 end CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27Ns

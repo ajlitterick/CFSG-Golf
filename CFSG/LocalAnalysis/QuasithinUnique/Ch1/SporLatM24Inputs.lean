@@ -26,7 +26,6 @@ open CFSG.Open (pCoreOf)
 @[expose] def m24Lat : LatData (List ℕ) :=
   buildLat (codeSetAct 24) 24 m24ta.toArray m24tb.toArray m24Delta m24STabs 400
 
-@[expose] def m24Ot : Array (OmegaData (List (List ℕ))) := buildO2 (codeSetAct 24) m24Lat
 
 @[expose] def m24Mems : List Mem :=
   [⟨1024, 1024, 1024⟩, ⟨322560, 16, 322560⟩, ⟨64512, 64, 64512⟩, ⟨138240, 64, 138240⟩,

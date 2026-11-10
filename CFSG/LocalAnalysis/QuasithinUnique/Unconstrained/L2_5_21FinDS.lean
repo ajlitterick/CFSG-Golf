@@ -81,7 +81,6 @@ open DihedralGroup
     rintro _ ⟨a, rfl⟩
     exact ⟨-a, by simp⟩
 
-theorem mem_rotSub_iff {n : ℕ} {x : DihedralGroup n} : x ∈ rotSub n ↔ ∃ j, x = r j := Iff.rfl
 
 theorem sr_not_mem_rotSub {n : ℕ} (i : ZMod n) : sr i ∉ rotSub n := by
   rintro ⟨j, h⟩

@@ -21,44 +21,6 @@ open scoped commutatorElement
     ∀ k : Y, k ∈ K → k ∈ Subgroup.centralizer ({b} : Set Y) → IsPGroup 2 ↥(Subgroup.zpowers k) →
       InducesInner 3 J k
 
-theorem input14_1CoreCyc_of_core (h : Input14_1Core) : Input14_1CoreCyc := by
-  intro Y _ _ K hKq hKK hKO hchev b hbN hb3 hbK J hJ hJt k hk hkb hk2
-  have hb1 : b ≠ 1 := by
-    rintro rfl
-    exact hbK (Subgroup.one_mem _)
-  have hbo : orderOf b = 3 := orderOf_eq_prime hb3 hb1
-  have hel : IsElemAbelian 3 (Subgroup.zpowers b) := by
-    refine ⟨⟨⟨fun u w => Subtype.ext ?_⟩⟩, fun y hy => ?_⟩
-    · obtain ⟨i, hi⟩ := Subgroup.mem_zpowers_iff.1 u.2
-      obtain ⟨j, hj⟩ := Subgroup.mem_zpowers_iff.1 w.2
-      show (u : Y) * w = w * u
-      rw [← hi, ← hj, ← zpow_add, ← zpow_add, add_comm]
-    · obtain ⟨i, rfl⟩ := Subgroup.mem_zpowers_iff.1 hy
-      rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, hb3, one_zpow]
-  have hfaith : Subgroup.zpowers b ⊓ Subgroup.centralizer (K : Set Y) = ⊥ := by
-    rw [eq_bot_iff]
-    rintro g ⟨hgb, hgK⟩
-    rw [Subgroup.mem_bot]
-    by_contra hg1
-    have hgo : orderOf g = 3 := by
-      obtain ⟨i, rfl⟩ := Subgroup.mem_zpowers_iff.1 hgb
-      refine orderOf_eq_prime ?_ hg1
-      rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, hb3, one_zpow]
-    have heq : Subgroup.zpowers g = Subgroup.zpowers b :=
-      Subgroup.eq_of_le_of_card_ge (Subgroup.zpowers_le.2 hgb)
-        (by rw [Nat.card_zpowers, Nat.card_zpowers, hgo, hbo])
-    exact hbK ((Subgroup.zpowers_le.2 hgK) (heq ▸ Subgroup.mem_zpowers b))
-  have hne : Subgroup.zpowers b ≠ ⊥ := by
-    rw [Ne, Subgroup.zpowers_eq_bot]
-    exact hb1
-  have hcz : Subgroup.centralizer ((Subgroup.zpowers b : Subgroup Y) : Set Y) =
-      Subgroup.centralizer ({b} : Set Y) := Claims1245b.centralizer_zpowers_eq b
-  refine h Y K hKq hKK hKO (Subgroup.zpowers b) (Subgroup.zpowers_le.2 hbN) hel hfaith hne (fun _ => hchev) J
-    ?_ hJt k hk ?_ hk2
-  · rw [hcz]
-    exact hJ
-  · rw [hcz]
-    exact hkb
 
 section CycConfig
 

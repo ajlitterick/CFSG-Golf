@@ -107,64 +107,6 @@ theorem phiUV_gen2_t131 (h : Type131.Data (s + 2) i F G N K J) :
   · simp_t131
     linear_combination (0) * hG
 
-theorem phiT_gen0_t131 (h : Type131.Data (s + 2) i F G N K J) :
-    (Type131.action h).φt (gen (Type131.k (s + 2)) 0) =
-      (-8 * G - 15 : ℤ) • gen (Type131.k (s + 2)) 0 + (2 : ℤ) • gen (Type131.k (s + 2)) 1 +
-        (4 * (2 : ℤ) ^ s + 4 : ℤ) • gen (Type131.k (s + 2)) 2 := by
-  obtain ⟨hi, hF, hN, hK, -, hG⟩ := h
-  subst hi hF hN
-  obtain rfl : K = 2 * 2 ^ s := by rw [pow_add] at hK; norm_num at hK; linarith
-  conv_lhs => rw [gen_zero_eq218]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (0 : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-
-theorem phiT_gen1_t131 (h : Type131.Data (s + 2) i F G N K J) :
-    (Type131.action h).φt (gen (Type131.k (s + 2)) 1) =
-      (32 * G ^ 2 + 76 * G : ℤ) • gen (Type131.k (s + 2)) 0 +
-        (-56 * G + 4 * (2 : ℤ) ^ s - 133 : ℤ) • gen (Type131.k (s + 2)) 1 +
-        (-64 * G - 152 : ℤ) • gen (Type131.k (s + 2)) 2 := by
-  obtain ⟨hi, hF, hN, hK, -, hG⟩ := h
-  subst hi hF hN
-  obtain rfl : K = 2 * 2 ^ s := by rw [pow_add] at hK; norm_num at hK; linarith
-  conv_lhs => rw [gen_one_eq218]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (0 : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-
-theorem phiT_gen2_t131 (h : Type131.Data (s + 2) i F G N K J) :
-    (Type131.action h).φt (gen (Type131.k (s + 2)) 2) =
-      (64 * G ^ 2 + 264 * G - 8 * (2 : ℤ) ^ s + 266 : ℤ) • gen (Type131.k (s + 2)) 0 +
-        (-16 * G - 4 * (2 : ℤ) ^ s - 38 : ℤ) • gen (Type131.k (s + 2)) 1 +
-        (-56 * G - 4 * (2 : ℤ) ^ s - 133 : ℤ) • gen (Type131.k (s + 2)) 2 := by
-  obtain ⟨hi, hF, hN, hK, -, hG⟩ := h
-  subst hi hF hN
-  obtain rfl : K = 2 * 2 ^ s := by rw [pow_add] at hK; norm_num at hK; linarith
-  conv_lhs => rw [gen_two_eq218]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (0 : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
 
 theorem phiU_gen0_t131 (h : Type131.Data (s + 2) i F G N K J) :
     (Type131.action h).φu (gen (Type131.k (s + 2)) 0) =
@@ -242,24 +184,6 @@ theorem phiR_gen0_t131 (h : Type131.Data (s + 2) i F G N K J) :
   · simp_t131
     linear_combination (0) * hG
 
-theorem phiR_gen1_t131 (h : Type131.Data (s + 2) i F G N K J) :
-    (Type131.action h).φρ (gen (Type131.k (s + 2)) 1) =
-      (0 : ℤ) • gen (Type131.k (s + 2)) 0 + (0 : ℤ) • gen (Type131.k (s + 2)) 1 +
-        (1 : ℤ) • gen (Type131.k (s + 2)) 2 := by
-  obtain ⟨hi, hF, hN, hK, -, hG⟩ := h
-  subst hi hF hN
-  obtain rfl : K = 2 * 2 ^ s := by rw [pow_add] at hK; norm_num at hK; linarith
-  conv_lhs => rw [gen_one_eq218]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (0 : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
-  · simp_t131
-    linear_combination (0) * hG
 
 theorem phiR_gen2_t131 (h : Type131.Data (s + 2) i F G N K J) :
     (Type131.action h).φρ (gen (Type131.k (s + 2)) 2) =
@@ -351,64 +275,6 @@ theorem phiUV_gen2_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
     linear_combination (-40960 * ((2 : ℤ) ^ s) ^ 3 - 7680 * G * (2 : ℤ) ^ s +
       30720 * ((2 : ℤ) ^ s) ^ 2 + 5760 * G - 15808 * (2 : ℤ) ^ s + 13632) * hG
 
-theorem phiT_gen0_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
-    (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
-    (Type230.action h).φt (gen (Type230.k s) 0) =
-      (-8 * G - 15 : ℤ) • gen (Type230.k s) 0 + (2 * (2) : ℤ) • gen (Type230.k s) 1 +
-        (2 * (4 * (2 : ℤ) ^ s + 4) : ℤ) • gen (Type230.k s) 2 := by
-  obtain ⟨hi, hF, -, -⟩ := h
-  subst hi hF hGG
-  conv_lhs => rw [gen_zero_eq218]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (-32 * (2 : ℤ) ^ s : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t230
-    linear_combination (-8) * hG
-  · simp_t230
-    linear_combination (0) * hG
-  · simp_t230
-    linear_combination (0) * hG
-
-theorem phiT_gen1_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
-    (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
-    (2 : ℤ) • (Type230.action h).φt (gen (Type230.k s) 1) =
-      (32 * G ^ 2 + 76 * G : ℤ) • gen (Type230.k s) 0 +
-        (2 * (-56 * G + 4 * (2 : ℤ) ^ s - 133) : ℤ) • gen (Type230.k s) 1 +
-        (2 * (-64 * G - 152) : ℤ) • gen (Type230.k s) 2 := by
-  obtain ⟨hi, hF, -, -⟩ := h
-  subst hi hF hGG
-  rw [← map_zsmul, two_gen_one_eq220]
-  refine matAct_gens_eq _ _ 1 0 0
-    (t0 := (10240 * ((2 : ℤ) ^ s) ^ 3 - 880 * (2 : ℤ) ^ s + 3 : ℤ))
-    (t1 := (-112 * (2 : ℤ) ^ s - 1 : ℤ))
-    (t2 := (-128 * (2 : ℤ) ^ s + 1 : ℤ)) ?_ ?_ ?_
-  · simp_t230
-    linear_combination (2560 * ((2 : ℤ) ^ s) ^ 2 + 480 * G + 900) * hG
-  · simp_t230
-    linear_combination (-112) * hG
-  · simp_t230
-    linear_combination (-128) * hG
-
-theorem phiT_gen2_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
-    (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
-    (2 : ℤ) • (Type230.action h).φt (gen (Type230.k s) 2) =
-      (64 * G ^ 2 + 264 * G - 8 * (2 : ℤ) ^ s + 266 : ℤ) • gen (Type230.k s) 0 +
-        (2 * (-16 * G - 4 * (2 : ℤ) ^ s - 38) : ℤ) • gen (Type230.k s) 1 +
-        (2 * (-56 * G - 4 * (2 : ℤ) ^ s - 133) : ℤ) • gen (Type230.k s) 2 := by
-  obtain ⟨hi, hF, -, -⟩ := h
-  subst hi hF hGG
-  rw [← map_zsmul, two_gen_two_eq220]
-  refine matAct_gens_eq _ _ 1 0 0
-    (t0 := (20480 * ((2 : ℤ) ^ s) ^ 3 - 416 * (2 : ℤ) ^ s + 15 : ℤ))
-    (t1 := (-32 * (2 : ℤ) ^ s + 1 : ℤ))
-    (t2 := (-112 * (2 : ℤ) ^ s + 2 : ℤ)) ?_ ?_ ?_
-  · simp_t230
-    linear_combination (5120 * ((2 : ℤ) ^ s) ^ 2 + 960 * G + 2136) * hG
-  · simp_t230
-    linear_combination (-32) * hG
-  · simp_t230
-    linear_combination (-112) * hG
 
 theorem phiU_gen0_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
     (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
@@ -486,24 +352,6 @@ theorem phiR_gen0_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
   · simp_t230
     linear_combination (0) * hG
 
-theorem phiR_gen1_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
-    (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
-    (2 : ℤ) • (Type230.action h).φρ (gen (Type230.k s) 1) =
-      (0 : ℤ) • gen (Type230.k s) 0 + (2 * (0) : ℤ) • gen (Type230.k s) 1 +
-        (2 * (1) : ℤ) • gen (Type230.k s) 2 := by
-  obtain ⟨hi, hF, -, -⟩ := h
-  subst hi hF hGG
-  rw [← map_zsmul, two_gen_one_eq220]
-  refine matAct_gens_eq _ _ 0 0 0
-    (t0 := (0 : ℤ))
-    (t1 := (0 : ℤ))
-    (t2 := (0 : ℤ)) ?_ ?_ ?_
-  · simp_t230
-    linear_combination (0) * hG
-  · simp_t230
-    linear_combination (0) * hG
-  · simp_t230
-    linear_combination (0) * hG
 
 theorem phiR_gen2_t230_t131 (h : Type230.Data s i F G') (hGG : G' = 4 * G + 7)
     (hG : 3 * G + 7 = 16 * ((2 : ℤ) ^ s) ^ 2) :
@@ -757,9 +605,6 @@ theorem zsmul_tor230 (n x y z : ℤ) : n • tor230 s x y z = tor230 s (n * x) (
   simp only [tor230]
   module
 
-theorem neg_tor230 (x y z : ℤ) : -tor230 s x y z = tor230 s (-x) (-y) (-z) := by
-  simp only [tor230]
-  module
 
 theorem two_zsmul_tor230 (x y z : ℤ) : (2 : ℤ) • tor230 s x y z = 0 := by
   rw [zsmul_tor230, ← tor230_zero]
@@ -895,18 +740,6 @@ theorem u_gen1_par_t230 (h : Type230.Data s i F G) :
   · simp_t230
     ring
 
-theorem u_gen2_par_t230 (h : Type230.Data s i F G) :
-    ∃ p Q R : ℤ, (Type230.action h).φu (gen (Type230.k s) 2) = p • gen (Type230.k s) 0 +
-      (2 * Q + 1) • gen (Type230.k s) 1 + (2 * R) • gen (Type230.k s) 2 := by
-  obtain ⟨hi, hF, -, -⟩ := h
-  subst hi hF
-  refine ⟨16 * G * (2 : ℤ) ^ s - 4 * ((2 : ℤ) ^ s) ^ 2 - 8 * G + 38 * (2 : ℤ) ^ s - 18,
-    0,
-    0, ?_⟩
-  conv_lhs => rw [gen_two_eq218]
-  refine matAct_gens_eq _ _ 0 0 0 (t0 := 0) (t1 := 0) (t2 := 0) ?_ ?_ ?_ <;>
-  · simp_t230
-    ring
 
 theorem dev_apply220 {k : Fin 3 → ℕ} (X A : Torus k →+ Torus k) {ω₁ ω₂ : Torus k}
     (h0 : X (gen k 0) = A (gen k 0)) (h1 : X (gen k 1) = A (gen k 1) + ω₁)

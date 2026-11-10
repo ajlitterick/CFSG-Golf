@@ -188,15 +188,6 @@ theorem exists_d6Embed_eq_of_mem_perpRoots {γ : Fin (Tag.rank .E7) → ℤ}
     ∃ v, v ∈ roots (isFiniteType_cartanD 6) ∅ ∧ d6Embed v = γ :=
   ⟨e7RestrictD γ, mem_rootsD_e7RestrictD hγ.1 hγ.2, d6Embed_e7RestrictD hγ.2⟩
 
-theorem perpRoots_E7_eq_image :
-    perpRoots .E7 = d6Embed '' roots (isFiniteType_cartanD 6) ∅ := by
-  ext γ
-  constructor
-  · intro hγ
-    obtain ⟨v, hv, rfl⟩ := exists_d6Embed_eq_of_mem_perpRoots hγ
-    exact ⟨v, hv, rfl⟩
-  · rintro ⟨v, hv, rfl⟩
-    exact d6Embed_mem_perpRoots hv
 
 theorem not_isRoot_add_self_E7'
     {α : Fin (Tag.rank .E7) → ℤ} : ¬ IsRoot .E7 (α + α) := by

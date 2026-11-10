@@ -81,12 +81,6 @@ theorem V_ne_bot : V ≠ ⊥ := by
   revert this
   decide
 
-theorem V'_ne_bot : V' ≠ ⊥ := by
-  intro h
-  have : u ∈ (⊥ : Subgroup S) := h ▸ u_mem_V'
-  rw [Subgroup.mem_bot] at this
-  revert this
-  decide
 
 theorem conj_mem_sup_zpowers {g h c v : S}
     (hg : c * g * c⁻¹ ∈ Subgroup.zpowers g ⊔ Subgroup.zpowers h)
@@ -207,7 +201,6 @@ theorem mem_conj_smul_iff {P : Subgroup S} {g r : S} :
     rw [card_T, card_S] at h
     omega)
 
-theorem coe_sylowT : (sylowT : Subgroup S) = T := rfl
 
 theorem mem_map_conj {P : Subgroup S} {g n : S} :
     n ∈ P.map (MulAut.conj g).toMonoidHom ↔ g⁻¹ * n * g ∈ P := by
@@ -374,8 +367,4 @@ theorem top_le_iSup_pCoreOf {R : Subgroup S} (hR : Nat.card ↥R = 9) :
 end S7
 
 end CFSG.LocalAnalysis.GLTheoremB
-
-
-
-
 

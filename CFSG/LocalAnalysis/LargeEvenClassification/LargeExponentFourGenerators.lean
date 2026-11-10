@@ -231,20 +231,5 @@ theorem rank_two_large_exponent_four_generators {S : Type*} [Group S] [Finite S]
   obtain ⟨generators, hgenerates, hcard⟩ := pGeneratorRank_generators Nat.prime_two hpU
   exact ⟨generators, hgenerates, hcard.trans_le hUrank⟩
 
-theorem rank_two_large_exponent_ambient_four_generators {S : Type*} [Group S] [Finite S]
-    (hpgroup : IsPGroup 2 S) (A : Subgroup S) [A.Normal]
-    (hcommutative : IsMulCommutative A)
-    (hselfCentralizing : Subgroup.centralizer (A : Set S) = A)
-    (hnoEight : ∀ E : Subgroup S, E.Normal → CFSG.Open.IsElemAbelian 2 E → Nat.card E ≠ 8)
-    (upper lower : ℕ) (hordered : lower ≤ upper) (hlarge : 3 ≤ lower)
-    (coordinates : A ≃* Multiplicative (ZMod (2 ^ upper)) × Multiplicative (ZMod (2 ^ lower)))
-    (U : Subgroup S) :
-    ∃ X : Finset S, X.card ≤ 4 ∧ Subgroup.closure (X : Set S) = U := by
-  classical
-  obtain ⟨generators, hgenerates, hcard⟩ := rank_two_large_exponent_four_generators hpgroup A
-    hcommutative hselfCentralizing hnoEight upper lower hordered hlarge coordinates U
-  refine ⟨generators.image U.subtype, Finset.card_image_le.trans hcard, ?_⟩
-  rw [Finset.coe_image, ← MonoidHom.map_closure, hgenerates, Subgroup.map_top]
-  exact U.range_subtype
 
 end CFSG.LargeEvenClassification.Helpers

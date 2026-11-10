@@ -125,56 +125,11 @@ section Classify
 
 variable {F : Type} [Field F] {b c : F} {n : ℕ}
 
-theorem minusVecNe6 (b c : F) (i : Fin (n - 1)) (u : Bool) :
-    minusVec n (K := F) i u ≠ 0 := by
-  intro h
-  have h1 := polar_minusVec_minusVec n b c i i u (!u)
-  rw [h] at h1
-  simp at h1
 
 section Frame
 
 variable (b c)
 
-theorem eqZeroPolarFrame6
-    (hQ : (polarBilin (quadMinus n F b c)).Nondegenerate) {y : Vm n F}
-    (he : ∀ i : Fin (n - 1), polar (quadMinus n F b c) y (minusVec n i true) = 0)
-    (hf : ∀ i : Fin (n - 1), polar (quadMinus n F b c) y (minusVec n i false) = 0)
-    (hp : ∀ t : Fin 2, polar (quadMinus n F b c) y (planeVec n (Pi.single t 1)) = 0) :
-    y = 0 := by
-  refine hQ.1 y fun z => ?_
-  have hz : polarBilin (quadMinus n F b c) y = 0 := by
-    refine (Pi.basisFun F (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2)).ext fun c' => ?_
-    rcases c' with i | i | t
-    · have e : (Pi.basisFun F (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2)) (.inl i) =
-          minusVec n i true := by simp [Pi.basisFun_apply, minusVec, eVec]
-      rw [e]
-      simpa [polarBilin_apply_apply] using he i
-    · have e : (Pi.basisFun F (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2)) (.inr (.inl i)) =
-          minusVec n i false := by simp [Pi.basisFun_apply, minusVec, fVec]
-      rw [e]
-      simpa [polarBilin_apply_apply] using hf i
-    · have e : (Pi.basisFun F (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2)) (.inr (.inr t)) =
-          planeVec n (Pi.single t 1) := by
-        funext v
-        rcases v with i' | i' | t' <;> simp [Pi.basisFun_apply, planeVec, Pi.single_apply]
-      rw [e]
-      simpa [polarBilin_apply_apply] using hp t
-  simpa using LinearMap.congr_fun hz z
-
-theorem eqOfPolarFrame6
-    (hQ : (polarBilin (quadMinus n F b c)).Nondegenerate) {x y : Vm n F}
-    (he : ∀ i : Fin (n - 1), polar (quadMinus n F b c) x (minusVec n i true) =
-      polar (quadMinus n F b c) y (minusVec n i true))
-    (hf : ∀ i : Fin (n - 1), polar (quadMinus n F b c) x (minusVec n i false) =
-      polar (quadMinus n F b c) y (minusVec n i false))
-    (hp : ∀ t : Fin 2, polar (quadMinus n F b c) x (planeVec n (Pi.single t 1)) =
-      polar (quadMinus n F b c) y (planeVec n (Pi.single t 1))) : x = y := by
-  have := eqZeroPolarFrame6 b c hQ (y := x - y)
-    (fun i => by rw [polar_sub_left, he i, sub_self])
-    (fun i => by rw [polar_sub_left, hf i, sub_self])
-    (fun t => by rw [polar_sub_left, hp t, sub_self])
-  exact sub_eq_zero.mp this
 
 end Frame
 

@@ -89,10 +89,6 @@ private def l6m6_A (p : ℕ) {V : Type*} [AddCommGroup V] [Module (ZMod p) V]
     (α : Fin Tag.E8.rank → Module.Dual (ZMod p) V) (x : Fin Tag.E8.rank → ℤ) (v : V) : ZMod p :=
   ∑ k, (x k : ZMod p) * α k v
 
-private theorem l6m6_H_add {p : ℕ} {V : Type*} [AddCommGroup V] [Module (ZMod p) V]
-    (h : Fin Tag.E8.rank → V) (x y : Fin Tag.E8.rank → ℤ) :
-    l6m6_H p h (x + y) = l6m6_H p h x + l6m6_H p h y := by
-  simp only [l6m6_H, Pi.add_apply, Int.cast_add, add_smul, Finset.sum_add_distrib]
 
 private theorem l6m6_H_single {p : ℕ} {V : Type*} [AddCommGroup V] [Module (ZMod p) V]
     (h : Fin Tag.E8.rank → V) (i : Fin Tag.E8.rank) :

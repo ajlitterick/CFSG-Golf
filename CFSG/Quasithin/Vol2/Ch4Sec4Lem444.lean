@@ -230,9 +230,6 @@ theorem lemma_4_4_4_core_of (hW : WielandtCoprimeProduct) (h : Hyp4_4_1Core G T 
   have := h.B_comm
   exact eq_commutator_sup_of_wielandt hW (h.sylow.1.to_le h.Tp_le) h.B_odd h.mul_comm_Tp
 
-theorem lemma_4_4_4_of (hW : WielandtCoprimeProduct) (h : Hyp4_4_1Two G T M L B Tp) :
-    Tp = ⁅pCoreOf 2 (Tp ⊔ B), B⁆ ⊔ (Tp ⊓ Subgroup.normalizer (B : Set G)) :=
-  lemma_4_4_4_core_of hW h.toHyp4_4_1Core
 
 theorem lemma_4_4_4_orbit_of (hW : WielandtCoprimeProduct) (h : Hyp4_4_1TwoOrbit G T M L B Tp) :
     Tp = ⁅pCoreOf 2 (Tp ⊔ B), B⁆ ⊔ (Tp ⊓ Subgroup.normalizer (B : Set G)) :=

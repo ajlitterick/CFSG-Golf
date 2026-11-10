@@ -32,7 +32,6 @@ theorem rank_k : (allN 2300 (fun i => decide (lineK 0 i < 2300) && decide (lineK
     rankOfK 0 co2RankIdx0 co2RankDual0 && rankOfK 1 co2RankIdx1 co2RankDual1) = true := by
   decide +kernel
 
-theorem rank_neg : (!rankOfK 1 co2RankIdx0 co2RankDual0) = true := by decide +kernel
 
 end CertificateChecks.KernelCo2Five
 

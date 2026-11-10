@@ -15,10 +15,6 @@ theorem map_commutator_of_surjective {H S : Type*} [Group H] [Group S] (φ : H �
   rw [commutator_def, commutator_def, Subgroup.map_commutator,
     Subgroup.map_top_of_surjective φ hφ]
 
-theorem exists_pow_two_pow_eq_one_of_isPGroup_zpowers {H : Type*} [Group H] {g : H}
-    (hg : IsPGroup 2 (Subgroup.zpowers g)) : ∃ n : ℕ, g ^ 2 ^ n = 1 := by
-  obtain ⟨n, hn⟩ := hg ⟨g, Subgroup.mem_zpowers g⟩
-  exact ⟨n, congrArg Subtype.val hn⟩
 
 theorem mem_of_map_of_oddKernel {H Q : Type*} [Group H] [Group Q] (φ : H →* Q)
     (N : Subgroup H) [N.Normal] (hker : Odd (Nat.card φ.ker)) {g : H}
@@ -51,11 +47,6 @@ theorem mem_commutator_of_two_element_of_oddKernel {H : Type*} [Group H]
   obtain ⟨n, hn⟩ := hg
   exact sl2Three_mem_commutator_of_two_element ⟨n, by rw [← map_pow, hn, map_one]⟩
 
-theorem mem_commutator_of_isPGroup_two_of_oddKernel {H : Type*} [Group H]
-    (φ : H →* SL(2, ZMod 3)) (hφ : Function.Surjective φ) (hker : Odd (Nat.card φ.ker)) {g : H}
-    (hg : IsPGroup 2 (Subgroup.zpowers g)) : g ∈ commutator H :=
-  mem_commutator_of_two_element_of_oddKernel φ hφ hker
-    (exists_pow_two_pow_eq_one_of_isPGroup_zpowers hg)
 
 section Equiv
 
@@ -85,18 +76,6 @@ theorem natCard_commutator_of_equiv_sl2Three (e : P ≃* SL(2, ZMod 3)) :
   rw [← sl2Three_card_commutator, ← map_commutator_of_surjective e.toMonoidHom e.surjective,
     Subgroup.card_map_of_injective e.injective]
 
-theorem derived₂_eq_center_of_equiv_sl2Three (e : P ≃* SL(2, ZMod 3)) :
-    ⁅commutator P, commutator P⁆ = Subgroup.center P := by
-  apply Subgroup.map_injective (f := e.toMonoidHom) e.injective
-  rw [Subgroup.map_commutator, map_commutator_of_surjective e.toMonoidHom e.surjective,
-    sl2Three_derived₂_eq_center]
-  exact (Subgroup.map_center_eq e).symm
-
-theorem commutator_ne_top_of_equiv_sl2Three (e : P ≃* SL(2, ZMod 3)) : commutator P ≠ ⊤ := by
-  intro h
-  have := natCard_commutator_of_equiv_sl2Three e
-  rw [h, Subgroup.card_top, Nat.card_congr e.toEquiv, natCard_sl2Three] at this
-  omega
 
 theorem isSolvable_of_equiv_sl2Three (e : P ≃* SL(2, ZMod 3)) : Group.IsSolvable P := by
   have := sl2Three_isSolvable
@@ -232,11 +211,6 @@ theorem normal_cases_of_equiv_sl2_of_card_three (hF : Nat.card F = 3) {P : Type*
   obtain ⟨eF⟩ := nonempty_mulEquiv_sl2Three_of_natCard_eq_three hF
   exact normal_cases_of_equiv_sl2Three (e.trans eF) N hN
 
-theorem isClassicalSL2_normal_cases_of_card_three (hF : Nat.card F = 3) {G : Type*} [Group G]
-    {J : Subgroup G} {d : G} (h : IsClassicalSL2 F J d) (N : Subgroup J) (hN : N.Normal) :
-    N = ⊥ ∨ N = Subgroup.center J ∨ N = commutator J ∨ N = ⊤ := by
-  obtain ⟨e⟩ := h.nonempty_mulEquiv
-  exact normal_cases_of_equiv_sl2_of_card_three hF e N hN
 
 theorem natCard_commutator_of_equiv_sl2_of_card_three (hF : Nat.card F = 3) {P : Type*}
     [Group P] (e : P ≃* SL(2, F)) : Nat.card (commutator P) = 8 := by
@@ -244,11 +218,6 @@ theorem natCard_commutator_of_equiv_sl2_of_card_three (hF : Nat.card F = 3) {P :
   obtain ⟨eF⟩ := nonempty_mulEquiv_sl2Three_of_natCard_eq_three hF
   exact natCard_commutator_of_equiv_sl2Three (e.trans eF)
 
-theorem commutator_ne_top_of_equiv_sl2_of_card_three (hF : Nat.card F = 3) {P : Type*}
-    [Group P] (e : P ≃* SL(2, F)) : commutator P ≠ ⊤ := by
-  have : Finite F := Nat.finite_of_card_ne_zero (by rw [hF]; norm_num)
-  obtain ⟨eF⟩ := nonempty_mulEquiv_sl2Three_of_natCard_eq_three hF
-  exact commutator_ne_top_of_equiv_sl2Three (e.trans eF)
 
 theorem mem_commutator_of_two_element_of_oddKernel_of_card_three (hF : Nat.card F = 3)
     {H : Type*} [Group H] (φ : H →* SL(2, F)) (hφ : Function.Surjective φ)
@@ -264,12 +233,6 @@ theorem mem_commutator_of_two_element_of_oddKernel_of_card_three (hF : Nat.card 
     (eF.surjective.comp hφ) ?_ hg
   rwa [hk]
 
-theorem mem_commutator_of_isPGroup_two_of_oddKernel_of_card_three (hF : Nat.card F = 3)
-    {H : Type*} [Group H] (φ : H →* SL(2, F)) (hφ : Function.Surjective φ)
-    (hker : Odd (Nat.card φ.ker)) {g : H} (hg : IsPGroup 2 (Subgroup.zpowers g)) :
-    g ∈ commutator H :=
-  mem_commutator_of_two_element_of_oddKernel_of_card_three hF φ hφ hker
-    (exists_pow_two_pow_eq_one_of_isPGroup_zpowers hg)
 
 theorem classicalInvolutionOddCore_map_eq_bot_of_card_three (hF : Nat.card F = 3)
     {K G : Type*} [Group K] [Group G] [Finite G] (ψ : K →* G) {R : Subgroup K}

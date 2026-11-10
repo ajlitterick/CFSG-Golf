@@ -189,11 +189,6 @@ theorem center_statedOmega_quadOdd (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
   have := isSimpleGroup_statedProj_statedOmega_quadOdd_of_two_ne_zero h2 hn
   exact center_eq_statedScalars_subgroupOf
 
-theorem isQuasisimple_statedOmega_quadOdd (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
-    IsQuasisimple (StatedOmega (StatedQuadOdd n K)) := by
-  have := isPerfect_statedOmega_quadOdd h2 hn
-  have := isSimpleGroup_statedProj_statedOmega_quadOdd_of_two_ne_zero h2 hn
-  exact isQuasisimple_of_isSimpleGroup_statedProj
 
 theorem spinToStatedProj_quadOdd (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) :
     Function.Surjective (spinToStatedProj (quadOdd n K) (range_spinMatrix_quadOdd h2 hn)) ∧

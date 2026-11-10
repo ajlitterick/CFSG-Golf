@@ -256,14 +256,6 @@ theorem mem_of_characteristic {L : Type*} [Group L] (X : Subgroup L) [hX : X.Cha
     ((autQuotient (CFSG.pCore 2 X)).comp
       ((autRestrict X (mem_of_characteristic X)).comp MulAut.conjNormal))
 
-theorem ambientResidualAction_mk {H : Type*} [Group H] (L : Subgroup H) [L.Normal]
-    (X : Subgroup L) [X.Characteristic] (h : H) (x : X) :
-    ambientResidualAction L X h (((x : X ⧸ CFSG.pCore 2 X)) : (X ⧸ CFSG.pCore 2 X) ⧸
-      frattini (X ⧸ CFSG.pCore 2 X)) =
-      ((((autRestrict X (mem_of_characteristic X) (MulAut.conjNormal h) x : X) :
-        X ⧸ CFSG.pCore 2 X)) :
-        (X ⧸ CFSG.pCore 2 X) ⧸ frattini (X ⧸ CFSG.pCore 2 X)) :=
-  rfl
 
 theorem ambientResidualAction_comp_subtype {H : Type*} [Group H] (L : Subgroup H) [L.Normal]
     (X : Subgroup L) [X.Characteristic] :

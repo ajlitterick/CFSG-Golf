@@ -187,10 +187,6 @@ theorem map_Xmat {S S' : Type} [Field S] [Field S'] (φ : S ≃+* S') (s : S) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Xmat]
 
-theorem map_mul_comm_iff {S S' : Type} [Field S] [Field S'] (φ : S ≃+* S')
-    (A B : Matrix (Fin 3) (Fin 3) S) : A.map φ * B.map φ = B.map φ * A.map φ ↔ A * B = B * A := by
-  rw [← Matrix.map_mul, ← Matrix.map_mul]
-  exact (Matrix.map_injective φ.injective).eq_iff
 
 theorem mem_genSet_iff_slCongr {S S' : Type} [Field S] [Field S'] (φ : S ≃+* S') (ν s : S)
     (g : Matrix.SpecialLinearGroup (Fin 3) S) :

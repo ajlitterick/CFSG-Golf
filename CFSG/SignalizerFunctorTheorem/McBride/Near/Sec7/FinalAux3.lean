@@ -224,11 +224,6 @@ theorem Decomp.cj_Ws {E B V : Subgroup G} {Y : Fin p → Subgroup G} (hY : Decom
   unfold Ws
   rw [cj_sup, hij, hY.cj_Vs hV ha hij]
 
-theorem Setting.ne_bot_E {E B : Subgroup G} (h : Counterexample p A θ) (hS : Setting p A E B) :
-    E ≠ ⊥ := fun hbot => by
-  have := hS.hE.2
-  rw [hbot, Subgroup.card_bot, pow_one] at this
-  exact h.hyp.prime.one_lt.ne this
 
 theorem Setting.ne_bot_B {E B : Subgroup G} (h : Counterexample p A θ) (hS : Setting p A E B) :
     B ≠ ⊥ := fun hbot => by

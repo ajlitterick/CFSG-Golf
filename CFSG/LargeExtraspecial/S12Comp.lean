@@ -12,15 +12,6 @@ namespace CFSG.LargeExtraspecial
 
 open Subgroup Module QuadraticMap CFSG.RankThree.OrthogonalInvolutions
 
-@[expose] def RootInvolutionComponentsInput.{u} : Prop :=
-  ∀ (V : Type u) [AddCommGroup V] [Module (ZMod 2) V] [FiniteDimensional (ZMod 2) V]
-    (q : QuadraticForm (ZMod 2) V), q.polarBilin.Nondegenerate →
-    ∀ H : Subgroup (TauCeti.QuadraticMap.orthogonalGroup q), S12NoNormalTwo H →
-    ∀ D : Set (TauCeti.QuadraticMap.orthogonalGroup q),
-      D = {x | x ∈ H ∧ IsTypeA q (x : V ≃ₗ[ZMod 2] V) 2} →
-      ∀ d ∈ D, ∀ e, Relation.ReflTransGen (fun x y => x ∈ D ∧ y ∈ D ∧ x * y ≠ y * x) d e →
-        ∃ x ∈ closure {f | Relation.ReflTransGen (fun x y => x ∈ D ∧ y ∈ D ∧ x * y ≠ y * x) d f},
-          e = x * d * x⁻¹
 
 universe u
 

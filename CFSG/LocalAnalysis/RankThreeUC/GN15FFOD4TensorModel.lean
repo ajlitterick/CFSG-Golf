@@ -110,9 +110,6 @@ private theorem bLinv_neg_single_zero :
     toStdD 4 (bLinv (-Pi.single (0 : Fin 4) 1)) = lv 2 1 true false := by
   decide +kernel
 
-private theorem bLinv_single_neg_zero :
-    toStdD 4 (bLinv (Pi.single (0 : Fin 4) (-1))) = lv 2 1 true false := by
-  decide +kernel
 
 private theorem bLinv_neg_single_one :
     toStdD 4 (bLinv (-Pi.single (1 : Fin 4) 1)) = lv 0 3 true false := by
@@ -627,7 +624,6 @@ private theorem mem_fixer {u : adjointGroup .D4 K} (hu : (u : ModGL .D4 K) ∈ p
   have h := posUnipotent_le_fixer hu
   obtain ⟨hg, hgfix⟩ := h
   rwa [show (⟨(u : ModGL .D4 K), hg⟩ : adjointGroup .D4 K) = u from Subtype.ext rfl] at hgfix
-
 
 
 private theorem natMat_posUnipotent_col {u : adjointGroup .D4 K}

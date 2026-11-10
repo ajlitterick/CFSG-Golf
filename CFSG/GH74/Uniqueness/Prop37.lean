@@ -160,14 +160,6 @@ theorem IsProductDisconnected.prop37d_omega (hZ : IsInvariantInvolutionSet Z)
   rw [← zNum_conjugate hZ M g]
   exact (h.conjugate_point hZ g).prop37d hZ ht ((h.conjugate_ne_iff ⟨g, rfl⟩).mp hβt) hp hp2 hP htP
 
-theorem IsProductDisconnected.prop35_omega (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {t : X} (ht : t ∈ Z) {β γ : Subgroup X} (hβ : β ∈ omega M)
-    (hβγ : β ≠ γ) (hγ : conjugate β t = γ) : IsZStarIn ((β ⊓ γ) ⊔ zpowers t) t := by
-  obtain ⟨g, rfl⟩ := hβ
-  have htβ : t ∉ conjugate M g :=
-    (h.conjugate_ne_iff ⟨g, rfl⟩).mp (fun heq => hβγ (heq.symm.trans hγ))
-  rw [← hγ]
-  exact (h.conjugate_point hZ g).isZStarIn_inf_conjugate_sup hZ ht htβ
 
 end Omega37
 

@@ -132,12 +132,6 @@ theorem card_orderOf_eq_six_eq_fintype_card {H : Type*} [Group H] [Fintype H] [D
   rw [Nat.card_congr (Equiv.subtypeEquivRight fun x => orderOf_eq_six_iff),
     Nat.card_eq_fintype_card]
 
-example : Nat.card {x : DihedralGroup 3 × DihedralGroup 3 // orderOf x = 3} = 8 := by
-  rw [card_orderOf_eq_three_eq_fintype_card]; decide
-example : Nat.card {x : DihedralGroup 3 × Multiplicative (ZMod 2) // orderOf x = 2} = 7 := by
-  rw [card_orderOf_eq_two_eq_fintype_card]; decide
-example : Nat.card {x : DihedralGroup 3 × Multiplicative (ZMod 2) // orderOf x = 6} = 2 := by
-  rw [card_orderOf_eq_six_eq_fintype_card]; decide
 
 theorem card_orderOf_two_dihedralGroup_three_prod :
     Nat.card {x : DihedralGroup 3 × DihedralGroup 3 // orderOf x = 2} = 15 := by

@@ -42,6 +42,5 @@ theorem Model.modelLinkFacts (ε : Eps) :
   U_max := fun _ hVL hV hUV => UQm_max hVL hV hUV
   cent_Q := fun _ hl hc => mem_QMm_of_commute hl hc
 
-variable {G : Type*} [Group G]
 
 end CFSG.EvenSmallLie.OmegaEight.Stage1

@@ -61,13 +61,5 @@ theorem sylow_two_quaternion_of_perfect_rank_one (G : Type*) [Group G] [Finite G
   · exact False.elim (sylow_two_not_isCyclic_of_perfect G heven sylow hcyclic)
   · exact hquaternion
 
-theorem sylow_two_quaternion_of_nonabelian_simple_rank_one (G : Type*)
-    [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonabelian : ∃ left right : G, left * right ≠ right * left)
-    (heven : Even (Nat.card G)) (hrank : twoRank G ≤ 1) (sylow : Sylow 2 G) :
-    ∃ exponent : ℕ, 3 ≤ exponent ∧
-      Nonempty ((sylow : Subgroup G) ≃* QuaternionGroup (2 ^ (exponent - 2))) := by
-  have := perfect_of_nonabelian_simple G hnonabelian
-  exact sylow_two_quaternion_of_perfect_rank_one G heven hrank sylow
 
 end CFSG.TwoRankLowerBound.Helpers

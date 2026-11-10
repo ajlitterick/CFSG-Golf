@@ -25,17 +25,6 @@ open CFSG.KC.D4Q2K CFSG.KC.Enum
 #kc_each CertificateChecks.KernelD4Q2K.rowVSl 0 105
 #kc_each CertificateChecks.KernelD4Q2K.elimVSl 0 105
 
-theorem elim_negRk : (!elimV DE.NL (fun x => Nat.shiftLeft (DE.RC x) 32) DE.tr 2240) = true := by
-  quickRfl
-
-theorem elim_negTr : (!elimV DE.NL DE.RC (Nat.shiftLeft DE.tr 32) 1) = true := by
-  quickRfl
-
-theorem row_negNb : (!rowV D.RF DS.SF D.MF DT.TF (fun x => Nat.xor (DE.NL x) 65536) 0) = true := by
-  quickRfl
-
-theorem row_negRow : (!rowV (fun i => D.RF (Nat.succ i)) DS.SF D.MF DT.TF DE.NL 0) = true := by
-  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

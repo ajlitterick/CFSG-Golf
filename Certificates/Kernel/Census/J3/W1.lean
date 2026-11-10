@@ -15,8 +15,6 @@ namespace CertificateChecks.KernelCensus.J3
 
 set_option maxRecDepth 1000000
 
-theorem kW60 : (List.range' 60 30).all wordF = true := by quickRfl
-theorem kW90 : (List.range' 90 30).all wordF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J3
 

@@ -83,22 +83,6 @@ private lemma ggQ2xF1_dsimple_mem_D {m : ℕ} (hm : 4 ≤ m) (i : Fin m) :
     exact ggQ2_DW_Wt_add_single ⟨m - 2, by omega⟩ ⟨m - 1, by omega⟩
       (by intro h; have := congrArg Fin.val h; simp only [Fin.val_mk] at this; omega)
 
-private theorem ggQ2xF1_weyl_coord (D : GGQ2Lin 3) {m : ℕ} (hm : 4 ≤ m) (e : Fin m ≃ D.ι)
-    (τ : D.V ≃ₗ[ZMod 3] GGBCV m)
-    (hcor : ∀ i, τ (D.coroot (e i)) = ggDSimple 3 m i)
-    (hroot : ∀ i v, D.root (e i) v = ∑ j, ggDSimple 3 m i j * τ v j) :
-    (D.weyl).map (ggLinConj τ).toMonoidHom = ggBCReflGp (ggDRoots m) := by
-  rw [ggQ2_DW_linWeylMap D hm e τ hcor hroot]
-  apply le_antisymm
-  · rw [ggQ2_DW_Wc, Subgroup.closure_le]
-    rintro t ⟨i, rfl⟩
-    rw [ggQ2_DW_r_eq_bc hm i]
-    exact Subgroup.subset_closure
-      ⟨ggDSimple 3 m i, ggQ2xF1_dsimple_mem_D hm i,
-        (by rw [ggQ2_DW_simple_norm hm i]; decide), rfl⟩
-  · rw [ggBCReflGp, Subgroup.closure_le]
-    rintro t ⟨c, hc, hcc, rfl⟩
-    exact ggQ2_DW_Droot_refl_mem_Wc m hm hc hcc
 
 private lemma ggQ2xF1_dsimple_zero {m : ℕ} [NeZero m] (hm : 4 ≤ m) {i : Fin m}
     (hi : (i : ℕ) ≠ 0) :
@@ -1283,9 +1267,6 @@ private lemma ggQ2xF1_wt_cases {m : ℕ} [NeZero m] (Z : Set (GGBCV m))
   · omega
   · exact Or.inr (Or.inr h)
 
-private lemma ggQ2xF1_wt2_iff {m : ℕ} {Z : Set (GGBCV m)} (hZroots : ggDRoots m ⊆ Z)
-    {z : GGBCV m} : (z ∈ Z ∧ ggBCWt z = 2) ↔ z ∈ ggDRoots m :=
-  ⟨fun h => h.2, fun h => ⟨hZroots h, h⟩⟩
 
 private lemma ggQ2xF1_wt1_all {m : ℕ} [NeZero m] {Z : Set (GGBCV m)}
     (hZroots : ggDRoots m ⊆ Z)
@@ -1696,10 +1677,6 @@ private noncomputable def ggQ2xF1_add_refl {m : ℕ} (i j : Fin m) (hij : i ≠ 
   ggBCRefl ((Pi.single i (1 : ZMod 3) : GGBCV m) + Pi.single j 1)
     (by rw [ggQ2_DW_add_norm i j hij]; decide)
 
-private lemma ggQ2xF1_single_sub_dot {m : ℕ} (i j : Fin m) (v : GGBCV m) :
-    ((Pi.single i (1 : ZMod 3) : GGBCV m) - Pi.single j 1) ⬝ᵥ v = v i - v j := by
-  change ggQ2_DW_dotLin 3 m (ggQ2_DW_fvec 3 m i - ggQ2_DW_fvec 3 m j) v = v i - v j
-  rw [ggQ2_DW_dotLin_sub_left, ggQ2_DW_dotLin_fvec_left, ggQ2_DW_dotLin_fvec_left]
 
 private lemma ggQ2xF1_single_add_dot {m : ℕ} (i j : Fin m) (v : GGBCV m) :
     ((Pi.single i (1 : ZMod 3) : GGBCV m) + Pi.single j 1) ⬝ᵥ v = v i + v j := by

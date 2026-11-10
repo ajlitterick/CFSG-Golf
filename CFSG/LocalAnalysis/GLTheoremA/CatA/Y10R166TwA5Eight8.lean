@@ -598,14 +598,6 @@ theorem twA5_e3_range :
     exact Subgroup.mem_map_of_mem _ (Subgroup.mem_inf.mpr ⟨hA12, hA13⟩)
   · norm_num
 
-theorem twA5_e3 : ∃ E : Subgroup (unitaryPSU h 6),
-    E ≤ (twA5Hom h).range.map (unitaryProj h 6) ∧ IsElemAbelian 3 E ∧
-      Nat.card E = 3 ^ 3 ∧ twA5X h ∈ E ∧
-      GLAPLayer 3 (blockSU h suFiveIndex ⊓
-        Subgroup.centralizer (E : Set (unitaryPSU h 6))) ≠ ⊥ :=
-  ⟨(twA5EHom h).range, twA5E_le_B h, twA5E_isElemAbelian h,
-    by rw [card_twA5E h]; norm_num, twA5X_mem_E h, twA5_e3_range h⟩
-
 
 end TwA5Eight
 

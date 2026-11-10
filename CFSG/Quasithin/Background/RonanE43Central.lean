@@ -66,85 +66,6 @@ theorem isSylowIn_map (π : G →* Γ) (hπ : Function.Surjective π)
 
 variable [Finite Γ]
 
-theorem aParam_le_of_central_family (V : Type) [CommGroup V] [Finite V] (ρ : G →* MulAut V)
-    (hρ : Function.Injective ρ) (hO2 : pCoreOf 2 (⊤ : Subgroup G) = ⊥) {T L : Subgroup G}
-    (hT : IsSylowIn 2 T ⊤) (hLF : L = CFSG.generalizedFitting G) (hLq : CFSG.IsQuasisimple ↥L)
-    (hLT : L ⊔ T = ⊤) (hlt : fixV ρ.range < fixV (T.map ρ))
-    (π : G →* Γ) (hπ : Function.Surjective π) (hker : π.ker ≤ Subgroup.center G)
-    (hodd : Nat.Coprime (Nat.card π.ker) 2) {S₀ : Subgroup Γ} (hS₀ : IsSylowIn 2 S₀ ⊤)
-    (F : Finset (Subgroup Γ)) (hF : F.Nonempty) (hSF : ∀ Y ∈ F, S₀ ≤ Y)
-    (h2F : ∀ Y ∈ F, Nat.card S₀ ≤ 2 * Nat.card (pCoreOf 2 Y)) (hgen : (⨆ Y ∈ F, Y) = ⊤) :
-    aParam ρ.range ≤ F.card := by
-  classical
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hTp : IsPGroup 2 (T.map π) := hT.isPGroup.map π
-  let PT : Sylow 2 Γ := hTp.toSylow (isSylowIn_map π hπ hT)
-  have hS0idx : ¬ 2 ∣ S₀.index := by
-    have := hS₀.not_dvd_relIndex
-    rwa [Subgroup.relIndex_top_right] at this
-  let P0 : Sylow 2 Γ := hS₀.isPGroup.toSylow hS0idx
-  obtain ⟨c, hc⟩ := MulAction.exists_smul_eq Γ P0 PT
-  have hSc : S₀.map (MulAut.conj c).toMonoidHom = T.map π := by
-    have := congrArg (fun Q : Sylow 2 Γ => (Q : Subgroup Γ)) hc
-    exact this
-  let conjc : Subgroup Γ → Subgroup Γ := fun Y => Y.map (MulAut.conj c).toMonoidHom
-  let Δ : Finset (Subgroup G) := F.image (fun Y => (conjc Y).comap π)
-  have hΔT : ∀ H ∈ Δ, T ≤ H := by
-    intro H hH
-    obtain ⟨Y, hY, rfl⟩ := Finset.mem_image.mp hH
-    intro t ht
-    rw [Subgroup.mem_comap]
-    have h1 : π t ∈ T.map π := Subgroup.mem_map_of_mem π ht
-    rw [← hSc] at h1
-    exact Subgroup.map_mono (hSF Y hY) h1
-  have h2 : ∀ H ∈ Δ, Nat.card T ≤ 2 * Nat.card (pCoreOf 2 H) := by
-    intro H hH
-    obtain ⟨Y, hY, rfl⟩ := Finset.mem_image.mp hH
-    have e1 : Nat.card T = Nat.card S₀ := by
-      rw [← card_map_eq_of_odd_ker π hodd hT.isPGroup, ← hSc]
-      exact (Subgroup.card_map_of_injective (MulAut.conj c).injective)
-    have e2 : Nat.card (pCoreOf 2 (conjc Y)) = Nat.card (pCoreOf 2 Y) := by
-      have := CFSG.LieType.BorelTits.pCoreOf_map_mulEquiv 2 (MulAut.conj c) Y
-      show Nat.card (pCoreOf 2 (Y.map (MulAut.conj c).toMonoidHom)) = _
-      rw [this]
-      exact Subgroup.card_map_of_injective (MulAut.conj c).injective
-    have e3 := card_pCoreOf_le_comap π hπ hker hodd (conjc Y)
-    calc Nat.card T = Nat.card S₀ := e1
-      _ ≤ 2 * Nat.card (pCoreOf 2 Y) := h2F Y hY
-      _ = 2 * Nat.card (pCoreOf 2 (conjc Y)) := by rw [e2]
-      _ ≤ 2 * Nat.card (pCoreOf 2 ((conjc Y).comap π)) := Nat.mul_le_mul_left _ e3
-  have hΔgen : (⨆ H ∈ Δ, H) = ⊤ := by
-    set X : Subgroup G := ⨆ H ∈ Δ, H with hX
-    have hle : ∀ Y ∈ F, (conjc Y).comap π ≤ X := fun Y hY =>
-      le_iSup₂_of_le ((conjc Y).comap π) (Finset.mem_image.mpr ⟨Y, hY, rfl⟩) le_rfl
-    obtain ⟨Y0, hY0⟩ := hF
-    have hXker : π.ker ≤ X := by
-      intro g hg
-      apply hle Y0 hY0
-      rw [Subgroup.mem_comap, MonoidHom.mem_ker.mp hg]
-      exact Subgroup.one_mem _
-    have hXmap : X.map π = ⊤ := by
-      rw [eq_top_iff]
-      have h1 : (⊤ : Subgroup Γ) ≤ (⨆ Y ∈ F, conjc Y) := by
-        have h3 : (⨆ Y ∈ F, Y) ≤ (⨆ Y ∈ F, conjc Y).comap (MulAut.conj c).toMonoidHom :=
-          iSup₂_le fun Y hY y hy =>
-            Subgroup.mem_comap.mpr
-              (Subgroup.mem_iSup_of_mem Y (Subgroup.mem_iSup_of_mem hY
-                (Subgroup.mem_map_of_mem _ hy)))
-        rw [hgen] at h3
-        intro x _
-        have h4 := Subgroup.mem_comap.mp (h3 (Subgroup.mem_top ((MulAut.conj c).symm x)))
-        rwa [MulEquiv.coe_toMonoidHom, MulEquiv.apply_symm_apply] at h4
-      refine h1.trans (iSup₂_le fun Y hY => ?_)
-      calc conjc Y = ((conjc Y).comap π).map π :=
-            (Subgroup.map_comap_eq_self_of_surjective hπ _).symm
-        _ ≤ X.map π := Subgroup.map_mono (hle Y hY)
-    have := Subgroup.comap_map_eq_self hXker
-    rw [hXmap, Subgroup.comap_top] at this
-    exact this.symm
-  have hmain := aParam_le_card_of_family V ρ hρ hO2 Δ hT hLF hLq hLT hlt hΔgen hΔT h2
-  exact hmain.trans Finset.card_image_le
-
 
 theorem coprime_card_center_of_pCore_bot (hO2 : pCoreOf 2 (⊤ : Subgroup G) = ⊥)
     {K : Subgroup G} (hK : K ≤ Subgroup.center G) : Nat.Coprime (Nat.card K) 2 := by
@@ -171,26 +92,5 @@ theorem coprime_card_center_of_pCore_bot (hO2 : pCoreOf 2 (⊤ : Subgroup G) = �
   rw [hx1, orderOf_one] at hord
   omega
 
-theorem exists_central_hom {L : Subgroup G} (hLtop : L = ⊤)
-    (e : (↥L ⧸ Subgroup.center ↥L) ≃* Γ) (hO2 : pCoreOf 2 (⊤ : Subgroup G) = ⊥) :
-    ∃ π : G →* Γ, Function.Surjective π ∧ π.ker ≤ Subgroup.center G ∧
-      Nat.Coprime (Nat.card π.ker) 2 := by
-  subst hLtop
-  let ι : ↥(⊤ : Subgroup G) ≃* G := Subgroup.topEquiv
-  let π : G →* Γ := e.toMonoidHom.comp
-    ((QuotientGroup.mk' (Subgroup.center ↥(⊤ : Subgroup G))).comp ι.symm.toMonoidHom)
-  have hsurj : Function.Surjective π :=
-    e.surjective.comp ((QuotientGroup.mk'_surjective _).comp ι.symm.surjective)
-  have hker : π.ker ≤ Subgroup.center G := by
-    intro g hg
-    have h1 : e (QuotientGroup.mk' (Subgroup.center ↥(⊤ : Subgroup G)) (ι.symm g)) = 1 := hg
-    rw [map_eq_one_iff e e.injective, QuotientGroup.mk'_apply,
-      QuotientGroup.eq_one_iff] at h1
-    rw [Subgroup.mem_center_iff]
-    intro y
-    apply ι.symm.injective
-    rw [map_mul, map_mul]
-    exact (Subgroup.mem_center_iff.mp h1 (ι.symm y))
-  exact ⟨π, hsurj, hker, coprime_card_center_of_pCore_bot hO2 hker⟩
 
 end CFSG.Quasithin.RonanE43

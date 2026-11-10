@@ -42,8 +42,6 @@ theorem Frame.commutator_le {G T : Subgroup X} (hF : Frame G T) : ⁅G, T⁆ ≤
     (Subgroup.mem_normalizer_iff.mp (hF.le_normalizer ht) _).mp (G.inv_mem hg)
   simpa [mul_assoc] using G.mul_mem hg h1
 
-theorem oddCore_eq_componentClassificationOddCore (H : Type*) [Group H] :
-    CFSG.oddCore H = CFSG.Open.componentClassificationOddCore H := rfl
 
 theorem odd_card_oddCore (H : Type*) [Group H] [Finite H] : Odd (Nat.card (CFSG.oddCore H)) :=
   OddCore.odd_card H

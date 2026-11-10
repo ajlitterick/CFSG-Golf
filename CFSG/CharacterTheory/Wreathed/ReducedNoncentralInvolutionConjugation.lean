@@ -26,8 +26,6 @@ theorem centralizer_map_mulEquiv (γ : G ≃* G) (y : G) :
   (Subgroup.equivMapOfInjective _ γ.toMonoidHom γ.injective).trans
     (MulEquiv.subgroupCongr (centralizer_map_mulEquiv γ y))
 
-theorem centralizerEquiv_apply (γ : G ≃* G) (y : G) (k : Subgroup.centralizer {y}) :
-    (centralizerEquiv γ y k : G) = γ k := rfl
 
 theorem oddCore_centralizer_map (γ : G ≃* G) (y : G) :
     ((CFSG.oddCore (Subgroup.centralizer {y})).map (Subgroup.centralizer {y}).subtype).map

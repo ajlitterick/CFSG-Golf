@@ -724,73 +724,11 @@ theorem det_fix_of_mapsTo (M : Matrix (Fin m) (Fin m) F) (hM : ∀ x ∈ U, M *�
   rw [RingHom.mapMatrix_apply] at h
   simpa [hmap] using h
 
-theorem suTv_mapsTo [CharP F 2] (hσ : IsUnitaryInvolution σ) {v : Fin m → F} (hv : v ∈ U)
-    (hQv : Q v = 1) {x : Fin m → F} (hx : x ∈ U) :
-    suTv hσ v 1 • x ∈ U ∧ Q (suTv hσ v 1 • x) = Q x := by
-  have h1 : (1 : F) + σ 1 = 0 := by rw [map_one]; exact CharTwo.add_self_eq_zero 1
-  rw [suTv_smul hσ (hU.herm_self hv) h1, one_mul]
-  have hfix := hU.herm_fix hv hx
-  refine ⟨U.add_mem hx (hU.smul_mem _ hfix v hv), ?_⟩
-  rw [hU.add x hx _ (hU.smul_mem _ hfix v hv), hU.smul _ hfix v hv, hQv, mul_one,
-    herm_smul_right, hU.herm_comm hv hx, add_assoc, ← sq, CharTwo.add_self_eq_zero, add_zero]
-
-theorem exists_eq_suTv_one [Finite F] [CharP F 2] (hσ : IsUnitaryInvolution σ)
-    {a : Fin m → F} (ha0 : a ≠ 0) (ha : herm σ a a = 0) {c : F} (hc0 : c ≠ 0)
-    (hc : c + σ c = 0) (hpres : ∀ x ∈ U, suTv hσ a c • x ∈ U ∧ Q (suTv hσ a c • x) = Q x) :
-    ∃ v ∈ U, Q v = 1 ∧ suTv hσ a c = suTv hσ v 1 := by
-  have hcfix : σ c = c := by
-    have e : σ c = -c := by linear_combination hc
-    rw [e, CharTwo.neg_eq]
-  obtain ⟨x, hx, hax⟩ : ∃ x ∈ U, herm σ a x ≠ 0 := by
-    by_contra hcon
-    push Not at hcon
-    exact ha0 (hU.eq_zero_of_forall_herm hcon)
-  set μ := c * herm σ a x with hμ
-  have hμ0 : μ ≠ 0 := mul_ne_zero hc0 hax
-  have ha₀U : μ • a ∈ U := by
-    have h1 := (hpres x hx).1
-    rw [suTv_smul hσ ha hc] at h1
-    have h2 := U.sub_mem h1 hx
-    rwa [add_sub_cancel_left] at h2
-  set a₀ := μ • a with ha₀def
-  have ha₀ : herm σ a₀ a₀ = 0 := by rw [herm_smul_left, herm_smul_right, ha, mul_zero, mul_zero]
-  have ha₀0 : a₀ ≠ 0 := smul_ne_zero hμ0 ha0
-  set c' := σ μ⁻¹ * μ⁻¹ * c with hc'
-  have hT : suTv hσ a c = suTv hσ a₀ c' := by
-    have e : a = μ⁻¹ • a₀ := by rw [ha₀def, smul_smul, inv_mul_cancel₀ hμ0, one_smul]
-    conv_lhs => rw [e]
-    exact suTv_smul_vec hσ ha₀ hc μ⁻¹
-  have hc'fix : σ c' = c' := by rw [hc', map_mul, map_mul, hσ.invol, hcfix]; ring
-  have hc'0 : c' ≠ 0 :=
-    mul_ne_zero (mul_ne_zero ((map_ne_zero σ).mpr (inv_ne_zero hμ0)) (inv_ne_zero hμ0)) hc0
-  have hc'' : c' + σ c' = 0 := by rw [hc'fix]; exact CharTwo.add_self_eq_zero c'
-  obtain ⟨y, hy, ha₀y⟩ := hU.exists_herm_eq_one_of_mem ha₀U ha₀0
-  have hQa₀ : c' * Q a₀ = 1 := by
-    have h1 := (hpres y hy).2
-    rw [hT, suTv_smul hσ ha₀ hc'', ha₀y, mul_one, hU.add y hy _ (hU.smul_mem _ hc'fix _ ha₀U),
-      hU.smul _ hc'fix _ ha₀U, herm_smul_right, hU.herm_comm ha₀U hy, ha₀y, mul_one] at h1
-    have h2 : c' * (c' * Q a₀ + 1) = 0 := by linear_combination h1
-    have h3 := (mul_eq_zero.mp h2).resolve_left hc'0
-    rw [← CharTwo.neg_eq (1 : F)]
-    linear_combination h3
-  obtain ⟨s, hs, hs2⟩ := exists_fix_sq_eq hc'fix
-  refine ⟨s • a₀, hU.smul_mem s hs _ ha₀U, ?_, ?_⟩
-  · rw [hU.smul s hs _ ha₀U, hs2, hQa₀]
-  · rw [hT, suTv_smul_vec hσ ha₀ (by rw [map_one]; exact CharTwo.add_self_eq_zero 1) s, hs,
-      mul_one, ← sq, hs2]
 
 end Basic
 
 end IsFixedQuadForm
 
-theorem suTv_one_mul_self [CharP F 2] (hσ : IsUnitaryInvolution σ) {v : Fin m → F}
-    (hv : herm σ v v = 0) : suTv hσ v 1 * suTv hσ v 1 = 1 := by
-  have h1 : (1 : F) + σ 1 = 0 := by rw [map_one]; exact CharTwo.add_self_eq_zero 1
-  apply ext_smul
-  intro x
-  rw [mul_smul, suTv_smul hσ hv h1, suTv_smul hσ hv h1, one_smul, herm_add_right,
-    herm_smul_right, hv, mul_zero, add_zero, one_mul, add_assoc, ← add_smul,
-    CharTwo.add_self_eq_zero, zero_smul, add_zero]
 
 theorem exists_norm_eq_one_of_suTv_eq [CharP F 2] (hσ : IsUnitaryInvolution σ)
     {a b : Fin m → F} (ha0 : a ≠ 0) (ha : herm σ a a = 0) (hb : herm σ b b = 0)
@@ -870,37 +808,6 @@ theorem IsFixedQuadForm.mapsTo_of_conj [Finite F] [CharP F 2] (hσ : IsUnitaryIn
   intro x hx
   simpa [hG] using hlU x hx
 
-theorem normalizer_fixedQuadSubgroup [Finite F] [CharP F 2] (hσ : IsUnitaryInvolution σ)
-    {lam : F} (hlam : σ lam = lam) (hlam0 : lam ≠ 0) (hlam1 : lam ≠ 1)
-    {U : AddSubgroup (Fin m → F)} {Q : (Fin m → F) → F} (hU : IsFixedQuadForm σ U Q)
-    (hscal : ∀ l : F, σ l * l = 1 → l ^ m = 1 → l = 1) :
-    Subgroup.normalizer (fixedQuadSubgroup σ U Q : Set (SUid σ m)) =
-      fixedQuadSubgroup σ U Q := by
-  have h1 : (1 : F) + σ 1 = 0 := by rw [map_one]; exact CharTwo.add_self_eq_zero 1
-  have key : ∀ g ∈ Subgroup.normalizer (fixedQuadSubgroup σ U Q : Set (SUid σ m)),
-      ∀ x ∈ U, g • x ∈ U ∧ Q (g • x) = Q x := by
-    intro g hg
-    refine hU.mapsTo_of_conj hσ hlam hlam0 hlam1 hscal g fun v hv hQv => ?_
-    have hv0 : v ≠ 0 := fun h => by
-      rw [h, hU.Q_zero] at hQv
-      exact zero_ne_one hQv
-    have hmem : suTv hσ v 1 ∈ fixedQuadSubgroup σ U Q := by
-      refine ⟨fun x => ⟨fun h => ?_, fun h => (hU.suTv_mapsTo hσ hv hQv h).1⟩,
-        fun x hx => (hU.suTv_mapsTo hσ hv hQv hx).2⟩
-      have h2 := (hU.suTv_mapsTo hσ hv hQv h).1
-      rwa [← mul_smul, suTv_one_mul_self hσ (hU.herm_self hv), one_smul] at h2
-    have hconj := (Subgroup.mem_normalizer_iff.mp hg (suTv hσ v 1)).mp hmem
-    have hconj' := hconj
-    rw [suTv_conj hσ g (hU.herm_self hv) h1] at hconj'
-    have hgv0 : g • v ≠ 0 := fun h => hv0 (by simpa using congrArg (g⁻¹ • ·) h)
-    have hgv : herm σ (g • v) (g • v) = 0 := by rw [herm_smul_smul, hU.herm_self hv]
-    obtain ⟨v', hv', hQv', heq⟩ := hU.exists_eq_suTv_one hσ hgv0 hgv one_ne_zero h1
-      (fun x hx => ⟨(hconj'.1 x).mpr hx, hconj'.2 x hx⟩)
-    exact ⟨v', hv', hQv', by rw [suTv_conj hσ g (hU.herm_self hv) h1, heq]⟩
-  refine le_antisymm (fun g hg => ?_) (Subgroup.le_normalizer)
-  refine ⟨fun x => ⟨fun h => ?_, fun h => (key g hg x h).1⟩, fun x hx => (key g hg x hx).2⟩
-  have h2 := (key g⁻¹ (inv_mem hg) _ h).1
-  rwa [inv_smul_smul] at h2
 
 theorem IsFixedQuadForm.suTv_injOn [CharP F 2] (hσ : IsUnitaryInvolution σ)
     {U : AddSubgroup (Fin m → F)} {Q : (Fin m → F) → F} (hU : IsFixedQuadForm σ U Q) :
@@ -919,17 +826,6 @@ theorem IsFixedQuadForm.suTv_injOn [CharP F 2] (hσ : IsUnitaryInvolution σ)
   have hμ1 : μ = 1 := eq_one_of_fix_of_norm hfix.symm hμ
   rw [hμ1, one_smul]
 
-private theorem eq_one_of_pow_four_eq_one [CharP F 2] {l : F} (h : l ^ 4 = 1) : l = 1 := by
-  have h2 : l ^ 2 = 1 := frobenius_inj F 2 (by
-    rw [frobenius_def, frobenius_def, ← pow_mul, one_pow]; exact h)
-  exact frobenius_inj F 2 (by rw [frobenius_def, frobenius_def, h2, one_pow])
-
-theorem normalizer_fixedQuadSubgroup_four [Finite F] [CharP F 2] (hσ : IsUnitaryInvolution σ)
-    {lam : F} (hlam : σ lam = lam) (hlam0 : lam ≠ 0) (hlam1 : lam ≠ 1)
-    {U : AddSubgroup (Fin 4 → F)} {Q : (Fin 4 → F) → F} (hU : IsFixedQuadForm σ U Q) :
-    Subgroup.normalizer (fixedQuadSubgroup σ U Q : Set (SUid σ 4)) =
-      fixedQuadSubgroup σ U Q :=
-  normalizer_fixedQuadSubgroup hσ hlam hlam0 hlam1 hU fun _ _ h => eq_one_of_pow_four_eq_one h
 
 section Frame
 

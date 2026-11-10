@@ -19,8 +19,6 @@ variable {G : Type*} [Group G]
 
 theorem mem_cComp_iff {L X : Subgroup G} : L ∈ cComp X ↔ quasithinIsCComponent L X := Iff.rfl
 
-theorem mem_cCompInter_iff {L X H : Subgroup G} : L ∈ cCompInter X H ↔ L ∈ cComp X ∧ L ≤ H :=
-  Iff.rfl
 
 theorem ne_bot_of_mem_cComp {L X : Subgroup G} (hL : L ∈ cComp X) : L ≠ ⊥ := hL.1
 
@@ -179,15 +177,6 @@ theorem cComp_mem_of_subnormal {X H K : Subgroup G} (hH : IsSubnormal H X) (hK :
     A3.subnormal_of_le_of_le hK'sub (hK'K.le.trans (le_of_mem_cComp hK)) (A3.subnormal_le hH)
   exact not_subnormal_of_mem_cComp hK hK'K hK'ne hK'perf hK'H
 
-theorem cCompInter_subset_and_eq [Finite G] (X H : Subgroup G) :
-    (H ≤ X → cCompInter X H ⊆ cComp H) ∧ (IsSubnormal H X → cCompInter X H = cComp H) := by
-  refine ⟨fun hHX L hL => cComp_mem_of_le hL.1 hL.2 hHX, fun hHX => ?_⟩
-  ext L
-  constructor
-  · intro hL
-    exact cComp_mem_of_le hL.1 hL.2 (A3.subnormal_le hHX)
-  · intro hL
-    exact ⟨cComp_mem_of_subnormal hHX hL, le_of_mem_cComp hL⟩
 
 theorem cComp_commutator_perfectCore [Finite G] {X L N : Subgroup G} (hL : L ∈ cComp X)
     (hNX : N ≤ X) (hNs : Group.IsSolvable N) (hLN : L ≤ Subgroup.normalizer (N : Set G)) :

@@ -137,9 +137,6 @@ theorem Lgrp_le_P4p :
   (rhoX.comp (Subgroup.inclusion P4p_le_Xgrp)).codRestrict _
     fun x => (mem_P4p_iff (Subgroup.inclusion P4p_le_Xgrp x)).1 x.2
 
-theorem coe_p4pProj
-    (x : P4p) :
-    (p4pProj x : V8 ≃ₗ[ZMod 2] V8) = rhoX (Subgroup.inclusion P4p_le_Xgrp x) := rfl
 
 theorem p4pProj_surjective :
     Function.Surjective p4pProj := by

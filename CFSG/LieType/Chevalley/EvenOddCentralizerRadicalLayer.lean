@@ -171,25 +171,6 @@ theorem layerMap_smul_rootVec
   · intro h
     exact absurd (Finset.mem_univ _) h
 
-theorem layerMap_smul_rootVec_of_ne
-    (J : Set (Fin τ.rank)) (n : ℕ) {β : Fin τ.rank → ℤ}
-    (hβ : IsRoot τ β) (hne : parabolicDegree τ J β ≠ n + 1) (c : K) :
-    layerMap J n (c • rootVec τ K β) = 1 := by
-  refine Finset.prod_eq_one fun γ _ => ?_
-  rw [rootVec_of_isRoot hβ, Finsupp.smul_single, smul_eq_mul, mul_one]
-  by_cases hγ : (Sum.inr γ : Label τ) = Sum.inr ⟨β, hβ⟩
-  · rw [hγ, Finsupp.single_eq_same, layerFactor, dite_eq_right]
-    intro h
-    have hγβ : γ.1 = β := congrArg Subtype.val (Sum.inr_injective hγ)
-    have := h.2.2
-    rw [hγβ] at this
-    exact hne this
-  · rw [Finsupp.single_eq_of_ne hγ, layerFactor_zero]
-
-theorem layerMap_smul_rootVec_of_not
-    (J : Set (Fin τ.rank)) (n : ℕ) {β : Fin τ.rank → ℤ}
-    (hβ : ¬IsRoot τ β) (c : K) : layerMap J n (c • rootVec τ K β) = 1 := by
-  rw [rootVec_of_not hβ, smul_zero, layerMap_zero]
 
 theorem rootVec_mem_parabolicGraded {J : Set (Fin τ.rank)} {d : ℤ} {β : Fin τ.rank → ℤ}
     (hβ : IsRoot τ β) (hd : parabolicDegree τ J β = d) :

@@ -130,9 +130,6 @@ theorem ggSLNonsplitFrameInput_holds : GGSLNonsplitFrameInput := by
     rw [← h1, mul_inv_cancel_right]
   exact (hXb ⟨b, hb⟩).trans (congrArg ψ h2)
 
-theorem ggSixRootFusionSLRepNonsplitInput_of_twoBlock (h2 : GGNSTwoBlockPermInput) :
-    GGSixRootFusionSLRepNonsplitInput :=
-  ggSixRootFusionSLRepNonsplitInput_of_frame ggSLNonsplitFrameInput_holds h2
 
 end Inputs
 

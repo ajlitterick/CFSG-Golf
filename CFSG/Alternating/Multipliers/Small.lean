@@ -20,18 +20,6 @@ namespace CFSG.Alternating.Multipliers
 open Subgroup CFSG.LieType.Multipliers CFSG.LocalAnalysis.ComponentInitial CFSG.CosetTable
   CFSG.RankThree.PerfectCover
 
-theorem card_le_of_orderCheck_nil {m : ℕ} {ws : List (List (Fin m × Bool))} {k cap n fuel : ℕ}
-    {words : List (List (Fin m × Bool) × ℕ)} (h : orderCheck ws [] k cap n words fuel = true) :
-    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n := by
-  have hS : subsetOf m [] = [] := by simp [subsetOf]
-  have : Finite (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) := by
-    rw [hS]
-    exact (inferInstance : Finite (PG 0 _))
-  have hc : Nat.card (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) = 1 := by
-    rw [hS]
-    exact card_PG_zero _
-  have := card_le_of_subsetCheckShortC ws [] (subsetCheckShortC_of_orderCheck h)
-  rwa [hc, mul_one] at this
 
 theorem multiplier_cyclic_of_bounds {m : ℕ} {X : Type} [Group X] {g : Fin m → X}
     {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
@@ -86,16 +74,6 @@ theorem multiplier_cyclic_of_bounds {m : ℕ} {X : Type} [Group X] {g : Fin m �
   rw [Nat.card_congr eK.toEquiv]
   omega
 
-theorem multiplier_cyclic_of_orderCheck {m : ℕ} {X : Type} [Group X] {g : Fin m → X}
-    {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
-    (c : Fin m → List (List (Fin m × Bool) × List (Fin m × Bool)))
-    (hwg : ∀ i, FreeGroup.lift g (FreeGroup.mk (commWords (c i))) = g i) {N : ℕ} (hN : 0 < N)
-    {u : List (Fin m × Bool)} (hu : FreeGroup.lift g (FreeGroup.mk u) = 1) {k cap n fuel : ℕ}
-    (h : orderCheck (coverWords R fun i => commWords (c i)) [] k cap n [(u, N)] fuel = true)
-    (hn : n ≤ N * Nat.card X) :
-    IsCyclic (hopfMultiplier X) ∧ Nat.card (hopfMultiplier X) = N :=
-  multiplier_cyclic_of_bounds hP c hwg hu (card_le_of_orderCheck_nil h).1
-    (card_le_of_orderCheck_nil h).2 (dvd_orderOf_of_orderCheck h (List.mem_singleton_self _) hN) hn
 
 theorem lift_carmichaelRel01 (m : ℕ) :
     FreeGroup.lift (altThreeCycle (n := m + 2)) (FreeGroup.mk (carmichaelRel01 m)) = 1 :=

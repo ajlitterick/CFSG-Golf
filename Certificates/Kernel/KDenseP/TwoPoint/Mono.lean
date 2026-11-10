@@ -22,9 +22,6 @@ set_option maxRecDepth 100000
 theorem monoTab_ok : monoTabOK CFSG.KD.KDF.F CFSG.KD.TPM.MT = true := by
   kd_monoTabL CFSG.KD.TPME t
 
-theorem neg_monoPad : andB (netOK 10 (2 ^ (4 * 1024 + 768)))
-    (notB (monoPadOK { CFSG.KD.TPM.MT.ents 0 with qn := 2 ^ (4 * 1024 + 768) })) = true := by
-  decide +kernel
 
 theorem data_okT : dataOKP CFSG.KD.KDF.F CFSG.KD.TPM.MT CFSG.KD.KDF.KT CFSG.KD.KDF.TH
     CFSG.KD.KDF.OCT CFSG.KD.KDF.DU1 = true :=

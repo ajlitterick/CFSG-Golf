@@ -83,21 +83,6 @@ private theorem componentCyclicIntegralRepresentation_generator_toMatrix
   rw [cyclicPowerHom_generator]
   exact componentIntegralRepresentation_toMatrix D i v
 
-theorem componentIntegralMatrix_commute_cyclicPower
-    (D : Decomposition G) (i : Fin D.blockCount) {w v : G}
-    (hwv : Commute w v)
-    (a : Multiplicative (ZMod (orderOf v))) :
-    Commute (componentIntegralMatrix D i w)
-      (componentIntegralMatrix D i (cyclicPowerHom v a)) := by
-  let y : Subgroup.zpowers v := cyclicPowersEquiv v a
-  have hy : (y : G) = cyclicPowerHom v a := rfl
-  obtain ⟨n, hn⟩ := y.property
-  have hwy : Commute w (y : G) := by
-    rw [← hn]
-    exact hwv.zpow_right n
-  rw [commute_iff_eq, ← componentIntegralMatrix_mul,
-    ← componentIntegralMatrix_mul]
-  exact congrArg (componentIntegralMatrix D i) (by simpa [hy] using hwy.eq)
 
 private theorem componentIntegralRepresentation_commute_cyclicPower
     (D : Decomposition G) (i : Fin D.blockCount) {w v : G}

@@ -55,31 +55,6 @@ theorem two_mul_le_localRank_of_G2Model_odd {S : Type} [Group S] [Finite S] {p f
   rw [localRank_eq_of_mulEquiv e' hp]
   omega
 
-theorem four_mul_le_localRank_of_twistedE6Model_odd {S : Type} [Group S] [Finite S] {p f : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) (hf : 1 ≤ f) (h : TwistedChevalleyModel S .E6 (p ^ f)) :
-    4 * f ≤ localRank p S := by
-  obtain ⟨K, _, _, hK, σ, hσ, ⟨e⟩⟩ := h
-  obtain ⟨e₀⟩ := CFSG.RankThree.Chevalley.nonempty_derivedCentralQuotient_equiv .E6 hp hf K hK σ hσ
-  let e' : S ≃* graphFixedRootGroup .E6 K σ := e.trans e₀
-  have : Finite (graphFixedRootGroup .E6 K σ) := Finite.of_equiv S e'.toEquiv
-  have hK2 : Nat.card K = (p ^ f) ^ 2 := hK
-  have : Finite K :=
-    Nat.finite_of_card_ne_zero (by rw [hK2]; exact (pow_pos (pow_pos hp.pos f) 2).ne')
-  have : Fintype K := Fintype.ofFinite K
-  have hKp : Fintype.card K = p ^ (2 * f) := by
-    rw [← Nat.card_eq_fintype_card, hK2, ← pow_mul, mul_comm]
-  set F := RingHom.eqLocusField σ (RingHom.id K)
-  have : Fintype F := Fintype.ofFinite F
-  have hF : Fintype.card F = p ^ f := by
-    rw [← Nat.card_eq_fintype_card]
-    exact CFSG.RankThree.Chevalley.card_eqLocusField_of_pow hp hf hK2 hσ
-  obtain ⟨ι, hι, hcomm⟩ := CFSG.RankThree.Chevalley.twisted_E6_four_commuting_faithful_fixed_SL2 K
-    (ringChar_ne_two_of_card hp hp2 hKp) σ
-  have h := sum_le_localRank_of_commuting_SL2 hp hp2 (0 : Fin 4) (K := fun _ => F)
-    (fun _ => f) (fun _ => hF) ι hι hcomm
-  rw [Fin.sum_const, smul_eq_mul] at h
-  rw [localRank_eq_of_mulEquiv e' hp]
-  exact h
 
 theorem four_le_localRank_of_trialityModel_odd {S : Type} [Group S] [Finite S] {p f : ℕ}
     (hp : p.Prime) (hp2 : p ≠ 2) (hf : 1 ≤ f) (h : TwistedChevalleyModel S .D4 (p ^ f)) :

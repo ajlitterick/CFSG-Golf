@@ -226,10 +226,6 @@ theorem validR_qGens {i : ℕ} (hi : i < qGens.size) : validR qGens[i]! = true :
   rw [qGens_getElem hi]
   exact validR_d4Word (qWords_lt hi)
 
-theorem validR_lGens {i : ℕ} (hi : i < lGens.size) : validR lGens[i]! = true := by
-  rw [lGens_size] at hi
-  rw [lGens_getElem hi]
-  exact validR_d4Gens (lIdx_lt hi)
 
 theorem mul_self_of_gensOK {gs : Array (Array ℕ)} {gH : ℕ → trialityGroup8}
     (hrep : ∀ k < gs.size, RepE d4E gs[k]! (gH k)) (h : gensOK gs = true) :

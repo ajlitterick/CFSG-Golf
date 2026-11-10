@@ -66,36 +66,6 @@ end Perfect
 
 section Family
 
-variable {G : Type*} [Group G]
-
-private theorem map_map_conj_eq (J : Subgroup G) (a b : G) :
-    (J.map (MulAut.conj a).toMonoidHom).map (MulAut.conj b).toMonoidHom =
-      J.map (MulAut.conj (b * a)).toMonoidHom := by
-  rw [Subgroup.map_map]
-  congr 1
-  ext x
-  show b * (a * x * a⁻¹) * b⁻¹ = b * a * x * (b * a)⁻¹
-  group
-
-private theorem mem_normalizer_of_commute {M : Subgroup G} {x : G}
-    (h : ∀ y ∈ M, x * y = y * x) : x ∈ Subgroup.normalizer (M : Set G) := by
-  rw [Subgroup.mem_normalizer_iff]
-  intro y
-  constructor
-  · intro hy
-    rw [h y hy]
-    simpa using hy
-  · intro hy
-    have h1 := h _ hy
-    have h2 : x * y * x⁻¹ = y := by
-      have : x * (x * y * x⁻¹) = x * y := by rw [h1]; group
-      exact mul_left_cancel this
-    rw [h2] at hy
-    exact hy
-
-private theorem isSubnormal_subgroupOf_top {J X : Subgroup G} (h : CFSG.Open.IsSubnormal J X) :
-    CFSG.Open.IsSubnormal (J.subgroupOf X) ⊤ :=
-  CFSG.Open.IsSubnormal.of_mathlib h.subgroupOf
 
 end Family
 

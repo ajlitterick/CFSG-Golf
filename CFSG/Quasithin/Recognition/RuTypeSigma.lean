@@ -156,16 +156,11 @@ theorem card_fix_le_four {x : SigmaL2F4} (hx : x ≠ 1) :
     rintro ⟨rfl, rfl⟩
     exact hx rfl)
 
-theorem exists_sl_smul_ne : ∀ v : Fin 2 → F4, v ≠ 0 →
-    ∃ A : SL(2, F4), (A : Matrix (Fin 2) (Fin 2) F4).mulVec v ≠ v := by
-  decide +kernel
 
 @[expose] def detF (v w : Fin 2 → F4) : F4 := v 0 * w 1 + v 1 * w 0
 
 @[expose] def formB (v w : Fin 2 → F4) : F4 := detF v w + detF v w * detF v w
 
-theorem formB_val : ∀ v w : Fin 2 → F4, formB v w = 0 ∨ formB v w = 1 := by
-  decide +kernel
 
 theorem formB_sl : ∀ (A : SL(2, F4)) (v w : Fin 2 → F4),
     formB ((A : Matrix (Fin 2) (Fin 2) F4).mulVec v) ((A : Matrix (Fin 2) (Fin 2) F4).mulVec w) =
@@ -349,8 +344,6 @@ theorem SP0_moves : ∀ x y : Fin 2 → F4, x 1 ≠ 0 → y 1 = 0 →
     ∃ g ∈ SP0, sigmaAct g x + x = y := by
   decide +kernel
 
-theorem SP0_fix_line : ∀ g ∈ SP0, ∀ x : Fin 2 → F4, x 1 = 0 → (sigmaAct g x) 1 = 0 := by
-  decide +kernel
 
 @[expose] def U0 : Subgroup SigmaL2F4 where
   carrier := {x | x ∈ SP0 ∧ x.right = 1}

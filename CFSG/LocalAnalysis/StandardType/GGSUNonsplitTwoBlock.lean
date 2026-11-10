@@ -219,9 +219,6 @@ theorem ggSUNonsplitTwoBlockInput_holds : GGSUNonsplitTwoBlockInput := by
 theorem ggSixRootFusionSURepNonsplitInput_holds : GGSixRootFusionSURepNonsplitInput :=
   ggSixRootFusionSURepNonsplitInput_of_twoBlock ggSUNonsplitTwoBlockInput_holds
 
-theorem ggSixRootFusionSURepInput_of_known (h1 : GGSUBlockNotExcludedInput)
-    (h2 : GGSUSixAlphaInput) : GGSixRootFusionSURepInput :=
-  ggSixRootFusionSURepInput_of_twoBlock_known ggSUNonsplitTwoBlockInput_holds h1 h2
 
 end Inputs
 

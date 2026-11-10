@@ -24,10 +24,6 @@ namespace ComponentType
   full_standard% FullStandardCore (IsQuasisimple L)
     (fun H g => H.map (MulAut.conj g).toMonoidHom) L
 
-theorem isStandardSubgroup_eq_fullStandardCore {G : Type*} [Group G] (L : Subgroup G) :
-    IsStandardSubgroup L =
-      FullStandardCore (IsQuasisimple L) (fun H g => H.map (MulAut.conj g).toMonoidHom) L :=
-  rfl
 
 inductive ClassicalTag where
   | PSL | PSU | PSp | POmegaOdd | POmegaPlus | POmegaMinus
@@ -51,8 +47,6 @@ variable (n p f : ℕ) [Fact p.Prime]
     Subgroup (Matrix.ProjGenLinGroup (Fin n) (GaloisField p (2 * f))) :=
   PGLModel.projSU n p f
 
-abbrev symplecticForm (K : Type*) [Field K] : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K :=
-  PGLModel.sympForm n K
 
 @[expose] noncomputable def pspModel :
     Subgroup (Matrix.ProjGenLinGroup (Fin n ⊕ Fin n) (GaloisField p f)) :=

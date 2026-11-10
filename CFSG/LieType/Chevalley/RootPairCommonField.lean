@@ -79,12 +79,6 @@ theorem adjX_injective
     exact congrArg (fun g : adjointGroup τ K =>
       ((g : ModGL τ K) : Module.End K (RootModule τ K))) h)
 
-theorem adjY_injective
-    (i : Fin τ.rank) : Function.Injective (adjY τ K i) := fun c d h =>
-  yOp_injective i (by
-    rw [← coe_yUnit, ← coe_yUnit]
-    exact congrArg (fun g : adjointGroup τ K =>
-      ((g : ModGL τ K) : Module.End K (RootModule τ K))) h)
 
 theorem rankOneRep_range_le
     (i : Fin τ.rank) :

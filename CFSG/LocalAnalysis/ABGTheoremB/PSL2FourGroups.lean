@@ -18,25 +18,6 @@ section Ring
 
 variable {R : Type*} [Ring R]
 
-private theorem ring_cycle {a b : R} (ha : a * a = -1) (hb : b * b = -1)
-    (hab : a * b = -(b * a)) :
-    (1 + a) * (1 + b) * a = b * ((1 + a) * (1 + b)) ∧
-      (1 + a) * (1 + b) * b = a * b * ((1 + a) * (1 + b)) := by
-  have hba : b * a = -(a * b) := by rw [hab, neg_neg]
-  have haba : a * b * a = b := by
-    rw [mul_assoc, hba, mul_neg, ← mul_assoc, ha, neg_mul, one_mul, neg_neg]
-  have hbab : b * a * b = a := by
-    rw [hba, neg_mul, mul_assoc, hb, mul_neg, mul_one, neg_neg]
-  constructor
-  · have e1 : (1 + a) * (1 + b) * a = a + b * a + a * a + a * b * a := by noncomm_ring
-    have e2 : b * ((1 + a) * (1 + b)) = b + b * a + b * b + b * a * b := by noncomm_ring
-    rw [e1, e2, ha, hb, haba, hbab]
-    abel
-  · have e1 : (1 + a) * (1 + b) * b = b + b * b + a * b + a * (b * b) := by noncomm_ring
-    have e2 : a * b * ((1 + a) * (1 + b)) =
-        a * b + a * b * a + a * (b * b) + a * b * a * b := by noncomm_ring
-    rw [e1, e2, hb, haba, hb]
-    abel
 
 end Ring
 
@@ -50,81 +31,6 @@ private theorem mul_self_fin_two (A : Matrix (Fin 2) (Fin 2) F) :
   fin_cases i <;> fin_cases j <;>
     simp [Matrix.mul_apply, Fin.sum_univ_two, Matrix.trace_fin_two, Matrix.det_fin_two] <;> ring
 
-private theorem det_one_add_fin_two (A : Matrix (Fin 2) (Fin 2) F) :
-    (1 + A).det = 1 + A.trace + A.det := by
-  simp [Matrix.det_fin_two, Matrix.trace_fin_two]
-  ring
-
-private theorem trace_eq_zero_of_mul_self_eq_neg_one {A : Matrix (Fin 2) (Fin 2) F}
-    (hA : A * A = -1) (hdet : A.det = 1) : A.trace = 0 := by
-  have h := mul_self_fin_two A
-  rw [hA, hdet, one_smul] at h
-  have h' : A.trace • A = 0 := by
-    have h2 := congrArg (· + (1 : Matrix (Fin 2) (Fin 2) F)) h
-    simpa using h2.symm
-  by_contra htr
-  have hA0 : A = 0 := by
-    have h3 := congrArg ((A.trace)⁻¹ • ·) h'
-    simpa [smul_smul, inv_mul_cancel₀ htr] using h3
-  rw [hA0, Matrix.det_zero] at hdet
-  exact zero_ne_one hdet
-
-private theorem exists_sl2_cycle (h2 : (2 : F) ≠ 0) (a b : SpecialLinearGroup (Fin 2) F)
-    (ha : (a : Matrix (Fin 2) (Fin 2) F) * a = -1) (hb : (b : Matrix (Fin 2) (Fin 2) F) * b = -1)
-    (hab : (a : Matrix (Fin 2) (Fin 2) F) * b = -((b : Matrix (Fin 2) (Fin 2) F) * a)) :
-    ∃ w : SpecialLinearGroup (Fin 2) F, w * a = b * w ∧ w * b = a * b * w := by
-  set M : Matrix (Fin 2) (Fin 2) F :=
-    (1 + (a : Matrix (Fin 2) (Fin 2) F)) * (1 + (b : Matrix (Fin 2) (Fin 2) F)) with hM
-  have hdetM : M.det = 4 := by
-    rw [hM, Matrix.det_mul, det_one_add_fin_two, det_one_add_fin_two,
-      trace_eq_zero_of_mul_self_eq_neg_one ha a.2, trace_eq_zero_of_mul_self_eq_neg_one hb b.2,
-      a.2, b.2]
-    norm_num
-  have hdet : ((2 : F)⁻¹ • M).det = 1 := by
-    rw [Matrix.det_smul, Fintype.card_fin, hdetM]
-    field_simp
-    norm_num
-  obtain ⟨h1, h2'⟩ := ring_cycle ha hb hab
-  refine ⟨⟨(2 : F)⁻¹ • M, hdet⟩, ?_, ?_⟩
-  · apply Subtype.ext
-    change (2 : F)⁻¹ • M * (a : Matrix (Fin 2) (Fin 2) F) =
-      (b : Matrix (Fin 2) (Fin 2) F) * ((2 : F)⁻¹ • M)
-    rw [Matrix.smul_mul, Matrix.mul_smul, hM, h1]
-  · apply Subtype.ext
-    change (2 : F)⁻¹ • M * (b : Matrix (Fin 2) (Fin 2) F) =
-      (a : Matrix (Fin 2) (Fin 2) F) * b * ((2 : F)⁻¹ • M)
-    rw [Matrix.smul_mul, Matrix.mul_smul, hM, h2']
-
-
-private theorem coe_eq_one_or_neg_one_of_mem_center {c : SpecialLinearGroup (Fin 2) F}
-    (hc : c ∈ Subgroup.center (SpecialLinearGroup (Fin 2) F)) :
-    (c : Matrix (Fin 2) (Fin 2) F) = 1 ∨ (c : Matrix (Fin 2) (Fin 2) F) = -1 := by
-  obtain ⟨r, hr, hrc⟩ := Matrix.SpecialLinearGroup.mem_center_iff.mp hc
-  rw [Fintype.card_fin] at hr
-  rcases sq_eq_one_iff.mp hr with rfl | rfl
-  · left
-    rw [← hrc, map_one]
-  · right
-    rw [← hrc, map_neg, map_one]
-
-private theorem coe_mul_self_eq_neg_one (h2 : (2 : F) ≠ 0) {a : SpecialLinearGroup (Fin 2) F}
-    (h1 : (a : Matrix.ProjectiveSpecialLinearGroup (Fin 2) F) ≠ 1)
-    (hsq : (a : Matrix.ProjectiveSpecialLinearGroup (Fin 2) F) *
-      (a : Matrix.ProjectiveSpecialLinearGroup (Fin 2) F) = 1) :
-    (a : Matrix (Fin 2) (Fin 2) F) * a = -1 := by
-  have hmem : a * a ∈ Subgroup.center (SpecialLinearGroup (Fin 2) F) :=
-    (QuotientGroup.eq_one_iff _).mp (by rw [QuotientGroup.mk_mul]; exact hsq)
-  rcases coe_eq_one_or_neg_one_of_mem_center hmem with h | h
-  · exfalso
-    have hxx : a * a = 1 := Subtype.ext (by rw [Matrix.SpecialLinearGroup.coe_mul]; simpa using h)
-    have hinv : a⁻¹ = a := inv_eq_of_mul_eq_one_left hxx
-    rcases CFSG.Semidihedral.OddFieldSL2.eq_one_or_minusIdentity_of_inv_eq_self F h2 a hinv
-      with rfl | rfl
-    · exact h1 rfl
-    · exact h1 ((QuotientGroup.eq_one_iff _).mpr
-        (CFSG.Semidihedral.OddFieldSL2.minusIdentity_mem_center F))
-  · rw [Matrix.SpecialLinearGroup.coe_mul] at h
-    exact h
 
 private theorem exists_psl2_cycle (h2 : (2 : F) ≠ 0)
     {v₁ v₂ : Matrix.ProjectiveSpecialLinearGroup (Fin 2) F} (h₁ : v₁ ≠ 1) (h₂ : v₂ ≠ 1)

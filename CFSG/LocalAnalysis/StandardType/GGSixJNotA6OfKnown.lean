@@ -39,15 +39,6 @@ theorem center_eq_bot_and_aut_inner_of_model {L : Type} [Group L] [Finite L] {m 
     have := congrArg (fun β : MulAut (LargeEvenProj (LargeEvenSpGroup K m)) => e.symm (β (e j))) hr
     simpa [MulAut.conj_apply] using this.symm
 
-@[expose] def GGSixA6InsideF4Known : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (n : ℕ) (G₀ B L D J : Subgroup X) (x : X),
-    LieModel (↥G₀ ⧸ Subgroup.center ↥G₀) .F4 n 2 1 →
-    Subgroup.center ↥G₀ = ⊥ → B ≤ G₀ → IsElemAbelian 3 B → 3 ^ 4 ≤ Nat.card B →
-    L ≤ G₀ → IsComponentOf L (G₀ ⊓ Subgroup.centralizer {x}) → x ≠ 1 →
-    (∀ S : Subgroup X, S ≤ G₀ ⊓ Subgroup.centralizer (L : Set X) → IsPGroup 3 S → IsCyclic S) →
-    LargeEvenStdSubPre 3 B x L D J → Nonempty (↥J ≃* alternatingGroup (Fin 6)) →
-      (∃ D₁ K₁ : Subgroup X, LargeEvenStdSubPre 3 B x L D₁ K₁ ∧ ¬ LargeEvenSmall K₁) ∨
-        ∀ U : Subgroup X, U ≤ L → IsPGroup 2 U → B ≤ Subgroup.normalizer (U : Set X) → U = ⊥
 
 section KnownLie
 

@@ -148,49 +148,6 @@ theorem excAut_E8 {p : ℕ} [Fact p.Prime] [CharP F p] {X : Type} [Group X]
   · exact (Adjoint.xPar_neg_simple (F := rootOperatorFamily .E8) i c).trans
       (Subtype.ext ((rootOperatorFamily .E8).eltUnit_neg_simple i c))
 
-theorem excAut_F4 {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2) {X : Type} [Group X]
-    (θ : ↥(adjointGroup Tag.F4 F) →* X) (hθ : Function.Surjective θ)
-    (hker : θ.ker ≤ Subgroup.center ↥(adjointGroup Tag.F4 F)) (σ : X ≃* X) :
-    ∃ (α : ↥(adjointGroup Tag.F4 F) ≃* ↥(adjointGroup Tag.F4 F))
-      (g : ↥(adjointGroup Tag.F4 F)) (φ : F ≃+* F),
-      (∀ y, θ (α y) = σ (θ y)) ∧ ∀ i c,
-        α (Adjoint.f4Par F (Pi.single i 1) c) = g * Adjoint.f4Par F (Pi.single i 1) (φ c) * g⁻¹ ∧
-        α (Adjoint.f4Par F (-Pi.single i 1) c) =
-          g * Adjoint.f4Par F (-Pi.single i 1) (φ c) * g⁻¹ := by
-  have hpar := Adjoint.f4_isParametrization F
-  have hZC : Subgroup.center (adjointGroup Tag.F4 F) = ⊥ := center_adjointGroup_eq_bot
-  have hkerπ : θ.ker ≤ (MonoidHom.id ↥(adjointGroup Tag.F4 F)).ker := by
-    rw [MonoidHom.ker_id]
-    exact hker.trans hZC.le
-  obtain ⟨α, σ', hαθ, hαπ⟩ := exists_mulEquiv_lift_of_centralQuotient (p := p) θ hθ
-    (MonoidHom.id _) Function.surjective_id (by rw [MonoidHom.ker_id]; exact bot_le)
-    (by rw [MonoidHom.ker_id, Subgroup.card_bot]; exact (Fact.out : p.Prime).not_dvd_one)
-    (fun ψ => ⟨ψ, by simp, fun α' h => by simpa using h⟩) hZC hkerπ
-    (closure_of_isParametrization hpar (Adjoint.f4_isCTGroupDatum F).iSup_eq_top) σ
-  have := Fintype.ofFinite F
-  obtain ⟨n, -, hcard⟩ := FiniteField.card F p
-  have hF : Nat.card F = p ^ (n : ℕ) := by rw [Nat.card_eq_fintype_card, hcard]
-  obtain ⟨⟨g, φ⟩, hform, -⟩ := (odd_F4_and_nonexceptional_G2_automorphism_normal_form
-    (Fact.out : p.Prime) hp2 n.pos F hF Tag.F4 (Or.inl rfl)).1 σ'
-  have hX : ∀ (i : Fin Tag.F4.rank) (c : F),
-      Adjoint.f4Par F (Pi.single i 1) c = adjX Tag.F4 F i c := fun i c =>
-    (Adjoint.xPar_simple (F := rootOperatorFamily .F4) i c).trans (eltElement_simpleRoot i c)
-  have hY : ∀ (i : Fin Tag.F4.rank) (c : F),
-      Adjoint.f4Par F (-Pi.single i 1) c = adjY Tag.F4 F i c := fun i c =>
-    (Adjoint.xPar_neg_simple (F := rootOperatorFamily .F4) i c).trans
-      (Subtype.ext ((rootOperatorFamily .F4).eltUnit_neg_simple i c))
-  have hα : ∀ y, α y = σ' y := fun y => hαπ y
-  refine ⟨α, g, φ, hαθ, fun i c => ⟨?_, ?_⟩⟩
-  · rw [hα, hX, hX]
-    refine Subtype.ext ?_
-    rw [hform, Subgroup.coe_mul, Subgroup.coe_mul]
-    exact congrArg (fun u => (g : ModGL Tag.F4 F) * u * (g : ModGL Tag.F4 F)⁻¹)
-      (units_map_entrywiseHom_xUnit φ.toRingHom i c)
-  · rw [hα, hY, hY]
-    refine Subtype.ext ?_
-    rw [hform, Subgroup.coe_mul, Subgroup.coe_mul]
-    exact congrArg (fun u => (g : ModGL Tag.F4 F) * u * (g : ModGL Tag.F4 F)⁻¹)
-      (units_map_entrywiseHom_yUnit φ.toRingHom i c)
 
 end Groups
 

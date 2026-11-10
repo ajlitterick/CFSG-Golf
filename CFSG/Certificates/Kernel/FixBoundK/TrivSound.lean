@@ -351,14 +351,6 @@ theorem exists_sig {t : Nat} (ht : t < 24) : ∃ j < 24, fget G j 5 = t := by
   obtain ⟨j, hj, e⟩ := Finset.mem_image.1 this
   exact ⟨j, Finset.mem_range.1 hj, e⟩
 
-theorem pmK_ext {a b : Nat} (h : ∀ j < 24, (pmK G a).testBit (fget G j 5) =
-    (pmK G b).testBit (fget G j 5)) : pmK G a = pmK G b := by
-  apply Nat.eq_of_testBit_eq
-  intro t
-  rcases Nat.lt_or_ge t 24 with ht | ht
-  · obtain ⟨j, hj, rfl⟩ := exists_sig hG ht
-    exact h j hj
-  · rw [testBit_pmK_ge hG a ht, testBit_pmK_ge hG b ht]
 
 theorem pmK_lt (x : Nat) : pmK G x < 2 ^ 24 :=
   Nat.lt_pow_two_of_testBit _ fun _ ht => testBit_pmK_ge hG x ht
@@ -384,7 +376,6 @@ theorem pmK_xor : XorLin (pmK G) := fun x y => by
   · rw [testBit_pmK_ge hG _ ht, testBit_pmK_ge hG _ ht, testBit_pmK_ge hG _ ht]
     rfl
 
-theorem pmK_zero : pmK G 0 = 0 := (pmK_xor hG).map_zero
 
 theorem pmK_omK : pmK G omK = omK := by
   apply Nat.eq_of_testBit_eq

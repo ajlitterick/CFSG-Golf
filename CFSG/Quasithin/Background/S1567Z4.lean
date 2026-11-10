@@ -116,26 +116,6 @@ theorem VE67_le_TE (k : Ctx67 G T Mc M V₁ V₂ E t) : VE67 T M E ≤ TE153 T E
       ((Subgroup.normal_subgroupOf_iff_le_normalizer hQD).mpr (le_normalizer_pCoreOf 2 _))
       (pCoreOf_isPGroup 2 _))
 
-theorem VE67_le_centralizer_V (k : Ctx67 G T Mc M V₁ V₂ E t) :
-    VE67 T M E ≤ Subgroup.centralizer (VZ T M : Set G) := fun a ha =>
-  Subgroup.mem_centralizer_iff.mpr fun v hv => VE67_comm k v (VZ_le_VE67 hv) a ha
-
-theorem VE67_commutator_YE (h113 : StageLemma14113) (k : Ctx67 G T Mc M V₁ V₂ E t) :
-    ⁅VE67 T M E, YE153 Mc M E⁆ = VE67 T M E := by
-  have hYE : YE153 Mc M E ≤ Subgroup.normalizer (E : Set G) := (oTwoUpper_le _).trans inf_le_right
-  apply le_antisymm
-  · exact commutator_le_of_le_normalizer (hYE.trans (normalizer_le_normalizer_VE67 T M E))
-  · have hVN : VZ T M ≤ ⁅VE67 T M E, YE153 Mc M E⁆ := by
-      have h1 := (Y_facts h113 k.c k.L).1
-      calc VZ T M = ⁅VZ T M, YE153 Mc M E⁆ := h1.symm
-        _ ≤ ⁅VE67 T M E, YE153 Mc M E⁆ := Subgroup.commutator_mono VZ_le_VE67 le_rfl
-    have hNorm : Subgroup.normalizer (E : Set G) ≤
-        Subgroup.normalizer ((⁅VE67 T M E, YE153 Mc M E⁆ : Subgroup G) : Set G) := by
-      intro g hg
-      rw [← conjSubgroup_eq_iff_mem_normalizer, CFSG.QuasithinUnique.C5.conjSubgroup_commutator,
-        conjSubgroup_eq_iff_mem_normalizer.mpr (normalizer_le_normalizer_VE67 T M E hg),
-        conjSubgroup_eq_iff_mem_normalizer.mpr (normalizer_le_normalizer_YE h113 k hg)]
-    exact conjClosure_le fun g hg z hz => (Subgroup.mem_normalizer_iff.mp (hNorm hg) z).mp (hVN hz)
 
 @[expose] def K167 (T M E : Subgroup G) : Subgroup G where
   carrier := {g | g ∈ Subgroup.centralizer (E : Set G) ∧ ∀ v ∈ VE67 T M E, g * v * g⁻¹ * v⁻¹ ∈ E}

@@ -41,9 +41,6 @@ variable {E : Subgroup G}
        map_mul' := fun a b => Commute.mul_pow (hc a b) k } : E →* E)
     hk.pow_left_bijective
 
-theorem powAut_apply (hc : ∀ a b : E, a * b = b * a) {k : ℕ} (hk : (Nat.card E).Coprime k)
-    (e : E) : powAut hc hk e = e ^ k :=
-  rfl
 
 theorem mul_comm_of_pow {z : MulAut E} {k : ℕ} (hz : ∀ e : E, z e = e ^ k) (σ : MulAut E) :
     σ * z = z * σ :=

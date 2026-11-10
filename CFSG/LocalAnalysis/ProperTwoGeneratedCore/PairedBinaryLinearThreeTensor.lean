@@ -52,7 +52,6 @@ theorem tau_apply_val (g : S) : ((tau g : S) : Mat3) = ((g⁻¹ : S) : Mat3)ᵀ 
 
 theorem tau_tau (g : S) : tau (tau g) = g := invTranspose_invTranspose g
 
-theorem tau_mul_tau : tau * tau = 1 := MulEquiv.ext tau_tau
 
 abbrev K : Type := S × S
 
@@ -75,7 +74,6 @@ instance : Inv QFull := ⟨inv⟩
 
 theorem mul_def (q r : QFull) : q * r = mul q r := rfl
 theorem one_def : (1 : QFull) = ⟨0, 0, 0⟩ := rfl
-theorem inv_def (q : QFull) : q⁻¹ = inv q := rfl
 
 instance : Group QFull :=
   Group.ofLeftAxioms (by decide) (by decide) (by decide)
@@ -84,11 +82,6 @@ instance : Group QFull :=
 @[expose] def b : QFull := ⟨0, 1, 0⟩
 @[expose] def s : QFull := ⟨0, 0, 1⟩
 
-theorem a_sq : a * a = 1 := by decide
-theorem b_sq : b * b = 1 := by decide
-theorem s_sq : s * s = 1 := by decide
-theorem a_mul_b : a * b = b * a := by decide
-theorem s_a_s : s * a * s = b := by decide
 
 theorem eq_word : ∀ q : QFull, q = (if q.e₁ = 0 then 1 else a) * (if q.e₂ = 0 then 1 else b) *
     (if q.σ = 0 then 1 else s) := by
@@ -98,27 +91,6 @@ theorem card_eq : Nat.card QFull = 8 := by
   rw [Nat.card_eq_fintype_card]
   rfl
 
-theorem closure_eq_top : Subgroup.closure {a, b, s} = ⊤ := by
-  refine eq_top_iff.mpr fun q _ => ?_
-  rw [eq_word q]
-  refine Subgroup.mul_mem _ (Subgroup.mul_mem _ ?_ ?_) ?_ <;> split_ifs <;>
-    first | exact Subgroup.one_mem _ | exact Subgroup.subset_closure (by simp)
-
-@[expose] def dihedralHom : DihedralGroup 4 →* QFull where
-  toFun x := match x with
-    | .r i => (a * s) ^ i.val
-    | .sr i => s * (a * s) ^ i.val
-  map_one' := rfl
-  map_mul' := by decide
-
-theorem dihedralHom_bijective : Function.Bijective dihedralHom := by
-  refine (Fintype.bijective_iff_injective_and_card _).mpr ⟨?_, rfl⟩
-  intro x y h
-  revert x y
-  decide
-
-@[expose] def dihedralEquiv : DihedralGroup 4 ≃* QFull :=
-  MulEquiv.ofBijective dihedralHom dihedralHom_bijective
 
 section Lift
 
@@ -174,75 +146,6 @@ end QFull
 
 abbrev Efull : Type := K ⋊[qAct] QFull
 
-@[expose] def Qswap : Subgroup QFull := Subgroup.zpowers QFull.s
-
-@[expose] def Qcyclic : Subgroup QFull := Subgroup.zpowers (QFull.a * QFull.s)
-
-@[expose] def Qfour : Subgroup QFull := Subgroup.closure {QFull.a * QFull.b, QFull.s}
-
-@[expose] def EQ (Q : Subgroup QFull) : Subgroup Efull :=
-  Q.comap SemidirectProduct.rightHom
-
-theorem mem_EQ {Q : Subgroup QFull} {e : Efull} : e ∈ EQ Q ↔ e.right ∈ Q := Iff.rfl
-
-theorem card_Qswap : Nat.card Qswap = 2 := by
-  rw [Qswap, Nat.card_zpowers]
-  exact orderOf_eq_prime (by decide) (by decide)
-
-theorem card_Qcyclic : Nat.card Qcyclic = 4 := by
-  rw [Qcyclic, Nat.card_zpowers]
-  refine orderOf_eq_iff (by norm_num) |>.mpr ⟨by decide, ?_⟩
-  intro m hm hm0
-  interval_cases m <;> decide
-
-@[expose] def diagSub : Subgroup QFull where
-  carrier := {q | q.e₁ = q.e₂}
-  mul_mem' {q r} hq hr := by
-    change q.e₁ + (if q.σ = 0 then r.e₁ else r.e₂) = q.e₂ + (if q.σ = 0 then r.e₂ else r.e₁)
-    rw [show q.e₁ = q.e₂ from hq, show r.e₁ = r.e₂ from hr]
-  one_mem' := rfl
-  inv_mem' {q} hq := by
-    change (QFull.inv q).e₁ = (QFull.inv q).e₂
-    unfold QFull.inv
-    split_ifs
-    · exact hq
-    · exact (show q.e₁ = q.e₂ from hq).symm
-
-theorem Qfour_eq : Qfour = diagSub := by
-  apply le_antisymm
-  · rw [Qfour, Subgroup.closure_le]
-    rintro q (rfl | rfl) <;> rfl
-  · intro q hq
-    change q.e₁ = q.e₂ at hq
-    have hq' : q = (if q.e₁ = 0 then 1 else QFull.a * QFull.b) *
-        (if q.σ = 0 then 1 else QFull.s) := by
-      revert hq
-      revert q
-      decide
-    rw [hq']
-    refine Subgroup.mul_mem _ ?_ ?_ <;> split_ifs <;>
-      first | exact Subgroup.one_mem _ | exact Subgroup.subset_closure (by simp)
-
-theorem card_Qfour : Nat.card Qfour = 4 := by
-  rw [Qfour_eq]
-  change Nat.card {q : QFull // q.e₁ = q.e₂} = 4
-  rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
-  rfl
-
-@[expose] def graphLabel : Equiv.Perm (Fin 4) := Equiv.swap 1 2
-
-@[expose] def pairAct : QFull →* Equiv.Perm (Fin 4 × Fin 4) :=
-  QFull.lift (x := Equiv.prodCongr graphLabel (Equiv.refl _))
-    (y := Equiv.prodCongr (Equiv.refl _) graphLabel) (z := Equiv.prodComm _ _)
-    (by decide) (by decide) (by decide) (by decide) (by decide) (by decide)
-
-@[expose] def pairOrbit (Q : Subgroup QFull) (ij : Fin 4 × Fin 4) : Set (Fin 4 × Fin 4) :=
-  {kl | ∃ q ∈ Q, pairAct q ij = kl}
-
-theorem pairAct_mem_pairOrbit {Q : Subgroup QFull} {ij kl : Fin 4 × Fin 4} {q : QFull}
-    (hq : q ∈ Q) (hkl : kl ∈ pairOrbit Q ij) : pairAct q kl ∈ pairOrbit Q ij := by
-  obtain ⟨r, hr, rfl⟩ := hkl
-  exact ⟨q * r, Q.mul_mem hq hr, by rw [map_mul, Equiv.Perm.mul_apply]⟩
 
 abbrev N : Type := Fin 3 → ZMod 2
 
@@ -307,11 +210,6 @@ theorem repA_apply (g : S) (X : A) :
   change ((g⁻¹⁻¹ : S) : Mat3) * (X : Mat3) * ((g⁻¹ : S) : Mat3) = _
   rw [inv_inv]
 
-theorem dotProduct_rightN_rightNd (g : S) (v : N) (f : Nd) :
-    dotProduct (rightN g v) (rightNd g f) = dotProduct v f := by
-  simp only [rightN, rightNd, Matrix.vecMulLinear_apply, tau_apply_val]
-  rw [← Matrix.dotProduct_mulVec, Matrix.vecMul_transpose, Matrix.mulVec_mulVec, Units.mul_inv,
-    Matrix.one_mulVec]
 
 theorem finrank_N : Module.finrank (ZMod 2) N = 3 := by simp
 
@@ -374,7 +272,6 @@ abbrev T : Type := TensorProduct (ZMod 2) V V
 
 @[expose] def flipT : Module.End (ZMod 2) T := (TensorProduct.comm (ZMod 2) V V).toLinearMap
 
-theorem flipT_tmul (u w : V) : flipT (u ⊗ₜ w) = w ⊗ₜ u := rfl
 
 @[expose] def repQ : QFull →* Module.End (ZMod 2) T :=
   QFull.lift (x := TensorProduct.map graphV 1) (y := TensorProduct.map 1 graphV) (z := flipT)
@@ -459,21 +356,11 @@ theorem rho_mem_labelSub (g : S) (i : Fin 4) : ∀ x ∈ labelSub i, rho g x ∈
   · exact ⟨repA g y, Prod.ext rfl (Prod.ext (map_zero (repN g)).symm
       (Prod.ext (map_zero (repNd g)).symm rfl))⟩
 
-theorem graphV_mem_labelSub (i : Fin 4) :
-    ∀ x ∈ labelSub i, graphV x ∈ labelSub (graphLabel i) := by
-  intro x hx
-  fin_cases i <;> obtain ⟨y, rfl⟩ := hx
-  · exact ⟨y, rfl⟩
-  · exact ⟨y, rfl⟩
-  · exact ⟨y, rfl⟩
-  · exact ⟨transposeA y, Prod.ext rfl (Prod.ext rfl (Prod.ext rfl rfl))⟩
 
 @[expose] def block (i j : Fin 4) : Submodule (ZMod 2) T :=
   Submodule.span (ZMod 2)
     (Set.image2 (fun x y => x ⊗ₜ[ZMod 2] y) (labelSub i : Set V) (labelSub j : Set V))
 
-@[expose] def tensorBlock (O : Set (Fin 4 × Fin 4)) : Submodule (ZMod 2) T :=
-  ⨆ ij ∈ O, block ij.1 ij.2
 
 theorem map_block_le {f g : V →ₗ[ZMod 2] V} {i j i' j' : Fin 4}
     (hf : ∀ x ∈ labelSub i, f x ∈ labelSub i') (hg : ∀ y ∈ labelSub j, g y ∈ labelSub j') :
@@ -482,156 +369,19 @@ theorem map_block_le {f g : V →ₗ[ZMod 2] V} {i j i' j' : Fin 4}
   rintro _ ⟨_, ⟨x, hx, y, hy, rfl⟩, rfl⟩
   exact Submodule.subset_span ⟨f x, hf x hx, g y, hg y hy, rfl⟩
 
-theorem map_flipT_block_le (i j : Fin 4) : (block i j).map flipT ≤ block j i := by
-  rw [block, Submodule.map_span, Submodule.span_le]
-  rintro _ ⟨_, ⟨x, hx, y, hy, rfl⟩, rfl⟩
-  exact Submodule.subset_span ⟨y, hy, x, hx, rfl⟩
 
 @[expose] def MapsBlocks (F : Module.End (ZMod 2) T) (π : Equiv.Perm (Fin 4 × Fin 4)) : Prop :=
   ∀ ij : Fin 4 × Fin 4, (block ij.1 ij.2).map F ≤ block (π ij).1 (π ij).2
 
-theorem mapsBlocks_mul {F G : Module.End (ZMod 2) T} {π σ : Equiv.Perm (Fin 4 × Fin 4)}
-    (hF : MapsBlocks F π) (hG : MapsBlocks G σ) : MapsBlocks (F * G) (π * σ) := fun ij => by
-  rw [Module.End.mul_eq_comp, Submodule.map_comp]
-  exact (Submodule.map_mono (hG ij)).trans (hF (σ ij))
-
-theorem mapsBlocks_one : MapsBlocks 1 1 := fun ij => by
-  rw [Module.End.one_eq_id, Submodule.map_id]
-  rfl
-
-theorem mapsBlocks_ite (c : Prop) [Decidable c] {F : Module.End (ZMod 2) T}
-    {π : Equiv.Perm (Fin 4 × Fin 4)} (hF : MapsBlocks F π) :
-    MapsBlocks (if c then 1 else F) (if c then 1 else π) := by
-  split_ifs
-  · exact mapsBlocks_one
-  · exact hF
-
-theorem mapsBlocks_repQ (q : QFull) : MapsBlocks (repQ q) (pairAct q) := by
-  change MapsBlocks (QFull.word _ _ _ q) (QFull.word _ _ _ q)
-  refine mapsBlocks_mul (mapsBlocks_mul (mapsBlocks_ite _ ?_) (mapsBlocks_ite _ ?_))
-    (mapsBlocks_ite _ ?_)
-  · exact fun ij => map_block_le (graphV_mem_labelSub ij.1) (fun _ hy => hy)
-  · exact fun ij => map_block_le (fun _ hx => hx) (graphV_mem_labelSub ij.2)
-  · exact fun ij => map_flipT_block_le ij.1 ij.2
 
 theorem mapsBlocks_repK (k : K) : MapsBlocks (repK k) 1 := fun ij =>
   map_block_le (rho_mem_labelSub k.1 ij.1) (rho_mem_labelSub k.2 ij.2)
 
-theorem map_tensorBlock_le {F : Module.End (ZMod 2) T} {π : Equiv.Perm (Fin 4 × Fin 4)}
-    (hF : MapsBlocks F π) {O : Set (Fin 4 × Fin 4)} (hO : ∀ ij ∈ O, π ij ∈ O) :
-    (tensorBlock O).map F ≤ tensorBlock O := by
-  rw [tensorBlock, Submodule.map_iSup]
-  refine iSup_le fun ij => ?_
-  rw [Submodule.map_iSup]
-  refine iSup_le fun hij => ?_
-  exact (hF ij).trans (le_iSup₂ (f := fun kl (_ : kl ∈ O) => block kl.1 kl.2) (π ij) (hO ij hij))
-
-theorem repE_mem_tensorBlock {Q : Subgroup QFull} {O : Set (Fin 4 × Fin 4)}
-    (hO : ∀ q ∈ Q, ∀ ij ∈ O, pairAct q ij ∈ O) {e : Efull} (he : e ∈ EQ Q) {m : T}
-    (hm : m ∈ tensorBlock O) : repE e m ∈ tensorBlock O := by
-  have hQ := map_tensorBlock_le (mapsBlocks_repQ e.right) (hO e.right he)
-  have hK := map_tensorBlock_le (mapsBlocks_repK e.left) (O := O) (fun ij hij => hij)
-  exact hK ⟨_, hQ ⟨m, hm, rfl⟩, rfl⟩
-
-@[expose] def blockRep (Q : Subgroup QFull) (O : Set (Fin 4 × Fin 4))
-    (hO : ∀ q ∈ Q, ∀ ij ∈ O, pairAct q ij ∈ O) :
-    Representation (ZMod 2) (EQ Q) (tensorBlock O) where
-  toFun e := (repE e).restrict fun _ hm => repE_mem_tensorBlock hO e.2 hm
-  map_one' := LinearMap.ext fun m => Subtype.ext (by simp)
-  map_mul' e f := LinearMap.ext fun m => Subtype.ext (by simp)
-
-abbrev orbitModule (Q : Subgroup QFull) (ij : Fin 4 × Fin 4) : Submodule (ZMod 2) T :=
-  tensorBlock (pairOrbit Q ij)
-
-@[expose] def orbitRep (Q : Subgroup QFull) (ij : Fin 4 × Fin 4) :
-    Representation (ZMod 2) (EQ Q) (orbitModule Q ij) :=
-  blockRep Q (pairOrbit Q ij) fun _ hq _ hkl => pairAct_mem_pairOrbit hq hkl
-
-theorem mem_Qswap {q : QFull} : q ∈ Qswap ↔ q = 1 ∨ q = QFull.s := by
-  constructor
-  · rintro ⟨k, rfl⟩
-    have h2 : orderOf QFull.s = 2 := orderOf_eq_prime (by decide) (by decide)
-    change QFull.s ^ k = 1 ∨ QFull.s ^ k = QFull.s
-    rw [← zpow_mod_orderOf, h2, Nat.cast_ofNat]
-    rcases Int.emod_two_eq_zero_or_one k with h | h <;> rw [h]
-    · exact Or.inl (zpow_zero _)
-    · exact Or.inr (zpow_one _)
-  · rintro (rfl | rfl)
-    · exact Qswap.one_mem
-    · exact Subgroup.mem_zpowers _
-
-@[expose] def Mplus : Submodule (ZMod 2) T := tensorBlock {(1, 0), (0, 1)}
-
-@[expose] def Mminus : Submodule (ZMod 2) T := tensorBlock {(2, 0), (0, 2)}
-
-theorem pairOrbit_Qswap (ij : Fin 4 × Fin 4) : pairOrbit Qswap ij = {ij, ij.swap} := by
-  ext kl
-  constructor
-  · rintro ⟨q, hq, rfl⟩
-    rcases mem_Qswap.mp hq with rfl | rfl
-    · exact Or.inl (by rw [map_one]; rfl)
-    · exact Or.inr (by rw [show pairAct QFull.s = Equiv.prodComm _ _ by decide]; rfl)
-  · rintro (rfl | rfl)
-    · exact ⟨1, Qswap.one_mem, by rw [map_one]; rfl⟩
-    · exact ⟨QFull.s, mem_Qswap.mpr (Or.inr rfl),
-        by rw [show pairAct QFull.s = Equiv.prodComm _ _ by decide]; rfl⟩
-
-theorem Mplus_eq : Mplus = orbitModule Qswap (1, 0) := by
-  rw [orbitModule, pairOrbit_Qswap]
-  rfl
-
-theorem Mminus_eq : Mminus = orbitModule Qswap (2, 0) := by
-  rw [orbitModule, pairOrbit_Qswap]
-  rfl
 
 abbrev U3 : Subgroup S := BinaryThreeSpace.sylowT
 
 @[expose] def Jmat : S :=
   ⟨!![0, 0, 1; 0, 1, 0; 1, 0, 0], !![0, 0, 1; 0, 1, 0; 1, 0, 0], by decide, by decide⟩
 
-@[expose] def Pfull : Subgroup Efull :=
-  Subgroup.closure
-    ((fun u : S => SemidirectProduct.inl ((u, 1) : K)) '' (U3 : Set S) ∪
-      (fun u : S => SemidirectProduct.inl ((1, u) : K)) '' (U3 : Set S) ∪
-      {SemidirectProduct.inl ((Jmat, 1) : K) * SemidirectProduct.inr QFull.a,
-        SemidirectProduct.inl ((1, Jmat) : K) * SemidirectProduct.inr QFull.b,
-        SemidirectProduct.inr QFull.s})
-
-@[expose] def PQ (Q : Subgroup QFull) : Subgroup Efull := Pfull ⊓ EQ Q
-
-@[expose] def fixedSpace {G W : Type*} [Group G] [AddCommMonoid W] [Module (ZMod 2) W]
-    (ρ : Representation (ZMod 2) G W) (B : Subgroup G) : Submodule (ZMod 2) W where
-  carrier := {w | ∀ b ∈ B, ρ b w = w}
-  add_mem' {x y} hx hy b hb := by rw [map_add, hx b hb, hy b hb]
-  zero_mem' b _ := map_zero _
-  smul_mem' c x hx b hb := by rw [map_smul, hx b hb]
-
-@[expose] def fixedCodim {G W : Type*} [Group G] [AddCommMonoid W] [Module (ZMod 2) W]
-    (ρ : Representation (ZMod 2) G W) (B : Subgroup G) : ℕ :=
-  Module.finrank (ZMod 2) W - Module.finrank (ZMod 2) (fixedSpace ρ B)
-
-@[expose] def elemRank {G : Type*} [Group G] (B : Subgroup G) : ℕ := Nat.log 2 (Nat.card B)
-
-theorem mem_fixedSpace {G W : Type*} [Group G] [AddCommMonoid W] [Module (ZMod 2) W]
-    {ρ : Representation (ZMod 2) G W} {B : Subgroup G} {w : W} :
-    w ∈ fixedSpace ρ B ↔ ∀ b ∈ B, ρ b w = w :=
-  Iff.rfl
-
-theorem paired_tensor_graph_modules_spec :
-    tau * tau = 1 ∧ Nat.card QFull = 8 ∧ Nonempty (DihedralGroup 4 ≃* QFull) ∧
-    (QFull.a * QFull.a = 1 ∧ QFull.b * QFull.b = 1 ∧ QFull.s * QFull.s = 1 ∧
-      QFull.a * QFull.b = QFull.b * QFull.a ∧ QFull.s * QFull.a * QFull.s = QFull.b) ∧
-    (qAct QFull.a = autA ∧ qAct QFull.b = autB ∧ qAct QFull.s = autS) ∧
-    Nat.card Qswap = 2 ∧ Nat.card Qcyclic = 4 ∧ Nat.card Qfour = 4 ∧
-    (Module.finrank (ZMod 2) (ZMod 2) = 1 ∧ Module.finrank (ZMod 2) N = 3 ∧
-      Module.finrank (ZMod 2) Nd = 3 ∧ Module.finrank (ZMod 2) A = 8) ∧
-    (∀ (q : QFull) (k : K), repQ q * repK k = repK (qAct q k) * repQ q) ∧
-    ∀ (Q : Subgroup QFull) (ij : Fin 4 × Fin 4) (e : Efull), e ∈ EQ Q →
-      ∀ m ∈ orbitModule Q ij, repE e m ∈ orbitModule Q ij :=
-  ⟨tau_mul_tau, QFull.card_eq, ⟨QFull.dihedralEquiv⟩,
-    ⟨QFull.a_sq, QFull.b_sq, QFull.s_sq, QFull.a_mul_b, QFull.s_a_s⟩, ⟨qAct_a, qAct_b, qAct_s⟩,
-    card_Qswap, card_Qcyclic, card_Qfour, ⟨Module.finrank_self _, finrank_N, finrank_Nd, finrank_A⟩,
-    repQ_mul_repK, fun _ _ _ he _ hm =>
-      repE_mem_tensorBlock (fun _ hq _ hkl => pairAct_mem_pairOrbit hq hkl) he hm⟩
 
 end CFSG.ProperTwoGeneratedCore.PairedTensor

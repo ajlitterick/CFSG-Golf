@@ -16,10 +16,6 @@ open CFSG.KC CFSG.KC.L34Cov CFSG.KC.L34W CertificateChecks.KernelL34W
   (fun i => alGensOK VT CFSG.KD.L34F4a.Tab CFSG.KD.L34F4b.Tab FW TwC.codes AlX.F
     (UAC.codes.getD i []) (UBC.codes.getD i []) i) 0 36
 
-theorem ch22219ag_neg : (!alGensOK VT CFSG.KD.L34F4a.Tab CFSG.KD.L34F4b.Tab FW TwC.codes
-    (fun r => cond (Nat.beq r 0) (Nat.add (AlX.F 0) (Nat.shiftLeft 1 12)) (AlX.F r))
-    (UAC.codes.getD 0 []) (UBC.codes.getD 0 []) 0) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

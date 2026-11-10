@@ -91,56 +91,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
   CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley CFSG.RankThree.PartOne.KE
 
 
-theorem exc_langDatum_through {τ : Tag}
-    (hτ : τ = .G2 ∨ τ = .F4 ∨ τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {K : Type} [Field K] [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (b : ↥(adjointGroup τ K)) (hb : b ^ p = 1) :
-    ∃ D : LangDatum τ (AlgebraicClosure K),
-      D.Φ = Units.map (entrywiseHom (iterateFrobenius (AlgebraicClosure K) 2 f)) ∧
-      D.q = 2 ^ f ∧
-      baseChangeGL (algebraMap K (AlgebraicClosure K)) (b : ModGL τ K) ∈
-        D.torus.map (MulAut.conj D.g0).toMonoidHom := by
-  classical
-  haveI : Fintype K := Fintype.ofFinite K
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set L := AlgebraicClosure K
-  haveI : CharP L 2 := charP_of_injective_algebraMap (algebraMap K L).injective _
-  set ι₁ : K →+* L := algebraMap K L
-  set u : ModGL τ L := baseChangeGL ι₁ (b : ModGL τ K)
-  have hhL : u ∈ adjointGroup τ L := baseChangeGL_mem_adjointGroup_of_mem' ι₁ b.2
-  have hup : u ^ p = 1 := by
-    change baseChangeGL ι₁ (b : ModGL τ K) ^ p = 1
-    rw [← map_pow, ← Subgroup.coe_pow, hb]
-    exact map_one _
-  have hfix : entrywiseFrobGL τ L 2 f u = u := by
-    have hcomp : (iterateFrobenius L 2 f).comp ι₁ = ι₁ := by
-      refine RingHom.ext fun c => ?_
-      change (iterateFrobenius L 2 f) (ι₁ c) = ι₁ c
-      rw [iterateFrobenius_def, ← map_pow]
-      congr 1
-      rw [← hK, Nat.card_eq_fintype_card]
-      exact FiniteField.pow_card c
-    change entrywiseFrobGL τ L 2 f (baseChangeGL ι₁ (b : ModGL τ K)) = _
-    rw [entrywiseFrobGL, CFSG.LieType.Chevalley.units_map_entrywiseHom_eq_baseChangeGL,
-      CFSG.LieType.Chevalley.baseChangeGL_baseChangeGL, hcomp]
-  have hmon : MonomialToralAt τ p :=
-    monomialToralAt_exc monomialToralAt_E6_five monomialToralAt_E7_five hτ hp hp2
-  have hconj := exists_conj_torusGroup_of_pow_eq_one hp hmon (Ne.symm hp2)
-    (isAlgebraic_zmod_algebraicClosure_of_finite K 2) hhL hup
-  have hpq : Nat.Coprime p (2 ^ f) :=
-    Nat.Coprime.pow_right _ ((Nat.coprime_primes hp Nat.prime_two).2 hp2)
-  exact exists_langDatum_of_toral_untw f hf hpq hup hfix hconj
-
-theorem e6_langDatum_through {K : Type} [Field K] [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (b : ↥(adjointGroup Tag.E6 K)) (hb : b ^ p = 1) :
-    ∃ D : LangDatum Tag.E6 (AlgebraicClosure K),
-      D.Φ = Units.map (entrywiseHom (iterateFrobenius (AlgebraicClosure K) 2 f)) ∧
-      D.q = 2 ^ f ∧
-      baseChangeGL (algebraMap K (AlgebraicClosure K)) (b : ModGL Tag.E6 K) ∈
-        D.torus.map (MulAut.conj D.g0).toMonoidHom :=
-  exc_langDatum_through (Or.inr (Or.inr (Or.inr (Or.inl rfl)))) hf hK hp hp2 b hb
-
 theorem f4_baseChangeGL_eq_bcGL {R S : Type} [Field R] [Field S] (ι : R →+* S) :
     baseChangeGL (τ := Tag.F4) ι = CFSG.StandardType.F4ExplicitPos.BaseChange.bcGL ι := by
   apply MonoidHom.ext

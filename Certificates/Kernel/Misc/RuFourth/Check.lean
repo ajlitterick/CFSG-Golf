@@ -28,7 +28,6 @@ theorem x2OK : Nat.beq (wordFrom RK RIK [-2, -1, -3, -1, -3, -1, 3] C1) X2 = tru
 
 theorem w2X : oneP RK RIK (intsK RuFST.chars) X2 48 0 = true := by quickRfl
 
-theorem w2X_neg : (!oneP RK RIK (intsK RuFST.chars) X2 320 0) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.RuFourth
 

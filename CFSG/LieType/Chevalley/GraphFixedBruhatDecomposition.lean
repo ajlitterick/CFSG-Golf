@@ -264,30 +264,6 @@ theorem twistedFixedGroup_eq_sup_closure :
   rw [twistedFixedGroup_eq_sup_graphFixedMonomial hσ, graphFixedMonomial_eq_sup, ← sup_assoc,
     sup_eq_left.2 (graphFixedTorus_le_graphFixedBorel)]
 
-theorem card_twistedFixedGroup
-    [Finite K] :
-    Nat.card (twistedFixedGroup t K σ) = Nat.card (graphFixedBorel t K σ) *
-      ∑ᶠ w : relWeylTwist t, Nat.card (graphFixedInversionUnipotent t K σ w) := by
-  classical
-  have : Fintype (relWeylTwist t) := Fintype.ofFinite _
-  have : Finite (Module.End K (RootModule t.tag K)) := Module.finite_of_finite K
-  have e : (twistedFixedGroup t K σ : Set (ModGL t.tag K)) ≃
-      Σ w : relWeylTwist t, graphFixedBruhatCell t K σ w := by
-    rw [twistedFixedGroup_eq_iUnion_graphFixedBruhatCell hσ]
-    exact Set.unionEqSigmaOfDisjoint fun w w' h =>
-      disjoint_graphFixedBruhatCell fun h' => h (Subtype.ext h')
-  have hcell : ∀ w : relWeylTwist t, Nat.card (graphFixedBruhatCell t K σ w) =
-      Nat.card (graphFixedBorel t K σ) * Nat.card (graphFixedInversionUnipotent t K σ w) := by
-    intro w
-    rw [← Nat.card_congr (bijOn_graphFixedBruhatCell hσ w.2).equiv,
-      Nat.card_congr (Equiv.Set.prod _ _), Nat.card_prod]
-    rfl
-  calc Nat.card (twistedFixedGroup t K σ) =
-        Nat.card (Σ w : relWeylTwist t, graphFixedBruhatCell t K σ w) := Nat.card_congr e
-    _ = ∑ w : relWeylTwist t, Nat.card (graphFixedBruhatCell t K σ w) := Nat.card_sigma
-    _ = _ := by
-      rw [finsum_eq_sum_of_fintype, Finset.mul_sum]
-      exact Finset.sum_congr rfl fun w _ => hcell w
 
 omit hσ
 
@@ -331,59 +307,5 @@ theorem graphFixedTorus_mul_comm
   (triangular_borel_structure.{0, 0} t.tag K).1 g (Subgroup.mem_inf.1 hg).1 g'
     (Subgroup.mem_inf.1 hg').1
 
-theorem graph_field_fixed_Bruhat_decomposition
-    (t : TwistTag) (K : Type) [Field K]
-    (σ : K ≃+* K) :
-    ((graphFixedBorel t K σ.toRingHom : Set (ModGL t.tag K)) =
-      (graphFixedTorus t K σ.toRingHom : Set (ModGL t.tag K)) *
-        (graphFixedPosUnipotent t K σ.toRingHom : Set (ModGL t.tag K))) ∧
-    ((graphFixedBorel t K σ.toRingHom : Set (ModGL t.tag K)) =
-      (graphFixedPosUnipotent t K σ.toRingHom : Set (ModGL t.tag K)) *
-        (graphFixedTorus t K σ.toRingHom : Set (ModGL t.tag K))) ∧
-    (∀ h₁ ∈ graphFixedTorus t K σ.toRingHom, ∀ h₂ ∈ graphFixedTorus t K σ.toRingHom,
-      ∀ u₁ ∈ graphFixedPosUnipotent t K σ.toRingHom,
-      ∀ u₂ ∈ graphFixedPosUnipotent t K σ.toRingHom,
-        h₁ * u₁ = h₂ * u₂ → h₁ = h₂ ∧ u₁ = u₂) ∧
-    (∀ h₁ ∈ graphFixedTorus t K σ.toRingHom, ∀ h₂ ∈ graphFixedTorus t K σ.toRingHom,
-      ∀ u₁ ∈ graphFixedPosUnipotent t K σ.toRingHom,
-      ∀ u₂ ∈ graphFixedPosUnipotent t K σ.toRingHom,
-        u₁ * h₁ = u₂ * h₂ → u₁ = u₂ ∧ h₁ = h₂) ∧
-    ((graphFixedPosUnipotent t K σ.toRingHom).subgroupOf
-      (graphFixedBorel t K σ.toRingHom)).Normal ∧
-    Group.IsNilpotent (graphFixedPosUnipotent t K σ.toRingHom) ∧
-    (∀ g ∈ graphFixedTorus t K σ.toRingHom, ∀ g' ∈ graphFixedTorus t K σ.toRingHom,
-      g * g' = g' * g) ∧
-    (twistedFixedGroup t K σ.toRingHom : Set (ModGL t.tag K)) =
-      ⋃ w : relWeylTwist t, graphFixedBruhatCell t K σ.toRingHom w ∧
-    (∀ w w' : WeylGroup t.tag, w ≠ w' →
-      Disjoint (graphFixedBruhatCell t K σ.toRingHom w)
-        (graphFixedBruhatCell t K σ.toRingHom w')) ∧
-    (∀ w ∈ relWeylTwist t,
-      Set.BijOn (fun p : ModGL t.tag K × ModGL t.tag K =>
-          p.1 * canonicalRep (coxeterSystem t.tag) K w * p.2)
-        ((graphFixedBorel t K σ.toRingHom : Set (ModGL t.tag K)) ×ˢ
-          (graphFixedInversionUnipotent t K σ.toRingHom w : Set (ModGL t.tag K)))
-        (graphFixedBruhatCell t K σ.toRingHom w) ∧
-      graphFixedBruhatCell t K σ.toRingHom w =
-        (twistedFixedGroup t K σ.toRingHom : Set (ModGL t.tag K)) ∩ bruhatCell t.tag K w) ∧
-    twistedFixedGroup t K σ.toRingHom =
-      graphFixedBorel t K σ.toRingHom ⊔ graphFixedMonomial t K σ.toRingHom ∧
-    twistedFixedGroup t K σ.toRingHom = graphFixedBorel t K σ.toRingHom ⊔ Subgroup.closure
-      (Set.range fun a => canonicalRep (coxeterSystem t.tag) K (t.orbitReflection a)) ∧
-    ∀ [Finite K], Nat.card (twistedFixedGroup t K σ.toRingHom) =
-      Nat.card (graphFixedBorel t K σ.toRingHom) *
-        ∑ᶠ w : relWeylTwist t, Nat.card (graphFixedInversionUnipotent t K σ.toRingHom w) :=
-  ⟨graphFixedBorel_eq_mul σ.surjective, graphFixedBorel_eq_mul' σ.surjective,
-    fun _ hh₁ _ hh₂ _ hu₁ _ hu₂ h => graphFixed_mul_unique hh₁ hh₂ hu₁ hu₂ h,
-    fun _ hh₁ _ hh₂ _ hu₁ _ hu₂ h => graphFixed_mul_unique' hh₁ hh₂ hu₁ hu₂ h,
-    graphFixedPosUnipotent_subgroupOf_normal, isNilpotent_graphFixedPosUnipotent,
-    fun _ hg _ hg' => graphFixedTorus_mul_comm hg hg',
-    twistedFixedGroup_eq_iUnion_graphFixedBruhatCell σ.surjective,
-    fun _ _ h => disjoint_graphFixedBruhatCell h,
-    fun _ hw => ⟨bijOn_graphFixedBruhatCell σ.surjective hw,
-      graphFixedBruhatCell_eq_inter σ.surjective hw⟩,
-    twistedFixedGroup_eq_sup_graphFixedMonomial σ.surjective,
-    twistedFixedGroup_eq_sup_closure σ.surjective,
-    card_twistedFixedGroup σ.surjective⟩
 
 end CFSG.LieType.Chevalley

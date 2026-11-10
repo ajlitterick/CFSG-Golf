@@ -32,11 +32,6 @@ open scoped commutatorElement Pointwise
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def R15_3 (D : Data G) : Prop :=
-  ∀ (V₀ V L : Subgroup G) (h : Hyp151 D V₀ V L),
-    (∃ φ ∈ Mbar D.M (v1Sub D.M V₀ V h.isElemAbelian L) V h.isElemAbelian,
-        InducesTransvection φ (wStar D.M V₀ V h.isElemAbelian L)) →
-      Desc153 D V₀ V h.isElemAbelian L
 
 @[expose] def R15_13 (D : Data G) : Prop :=
   ∀ (V₀ V L : Subgroup G) (h : Hyp154 D V₀ V L),

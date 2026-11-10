@@ -130,7 +130,6 @@ variable (σ) in
 
 @[simp] theorem torus_γ (κ : Kˣ) : (torus σ κ).γ = 0 := rfl
 
-theorem kappaHom_comp_torus : (kappaHom σ).comp (torus σ) = MonoidHom.id Kˣ := rfl
 
 theorem torus_injective : Function.Injective (torus σ) := fun κ l h => by
   simpa using congrArg ThompsonN.κ h
@@ -175,20 +174,6 @@ theorem card_P [Finite K] : Nat.card (P σ) = Nat.card K ^ 3 := by
   rw [Nat.card_congr (P_equiv (σ := σ)), Nat.card_prod, Nat.card_prod]
   ring
 
-theorem P_sup_R : P σ ⊔ R σ = ⊤ := by
-  refine eq_top_iff.2 fun x _ => ?_
-  have h : x = (x * (torus σ x.κ)⁻¹) * torus σ x.κ := by group
-  rw [h]
-  refine Subgroup.mul_mem_sup ?_ ⟨x.κ, rfl⟩
-  change (x * (torus σ x.κ)⁻¹).κ = 1
-  simp [mul_def, thompsonMul, inv_def]
-
-theorem P_inf_R : P σ ⊓ R σ = ⊥ := by
-  refine eq_bot_iff.2 fun x hx => ?_
-  obtain ⟨hP, hR⟩ := hx
-  obtain ⟨h1, h2, h3⟩ := mem_R.1 hR
-  have : x = 1 := by ext <;> simp_all [mem_P]
-  exact this
 
 theorem torus_conj (κ : Kˣ) (α β γ : K) :
     (torus σ κ)⁻¹ * ⟨1, α, β, γ⟩ * torus σ κ =
@@ -217,34 +202,6 @@ theorem mul_P (α β γ ξ η ζ : K) :
 theorem inv_P (α β γ : K) : (⟨1, α, β, γ⟩ : ThompsonN K σ)⁻¹ = ⟨1, -α, -β, α * β - γ⟩ := by
   ext <;> simp [inv_def]
 
-theorem commutator_P (α β γ ξ η ζ : K) :
-    (⟨1, α, β, γ⟩ : ThompsonN K σ)⁻¹ * (⟨1, ξ, η, ζ⟩ : ThompsonN K σ)⁻¹ * ⟨1, α, β, γ⟩ *
-        ⟨1, ξ, η, ζ⟩ =
-      ⟨1, 0, σ α * ξ - α * σ ξ,
-        α ^ 2 * σ ξ - α * η - α * σ α * ξ + α * σ ξ * ξ + β * ξ - σ α * ξ ^ 2⟩ := by
-  rw [inv_P, inv_P, mul_P, mul_P, mul_P]
-  ext
-  · rfl
-  · simp only; ring
-  · simp only [map_add, map_neg]
-    linear_combination (norm := skip)
-    ring_nf
-    reduce_mod_char!
-  · simp only [map_add, map_neg]
-    linear_combination (norm := skip)
-    ring_nf
-    reduce_mod_char!
-
-theorem inv_mul_inv_mul_mul_eq_one_iff {G : Type*} [Group G] {x y : G} :
-    x⁻¹ * y⁻¹ * x * y = 1 ↔ x * y = y * x := by
-  constructor
-  · intro h
-    calc x * y = y * x * (x⁻¹ * y⁻¹ * x * y) := by group
-      _ = y * x := by rw [h, mul_one]
-  · intro h
-    calc x⁻¹ * y⁻¹ * x * y = x⁻¹ * y⁻¹ * (x * y) := by group
-      _ = x⁻¹ * y⁻¹ * (y * x) := by rw [h]
-      _ = 1 := by group
 
 variable (σ) in
 @[expose] def P2 : Subgroup (ThompsonN K σ) where
@@ -264,75 +221,6 @@ variable (σ) in
 
 theorem mem_P2 {x : ThompsonN K σ} : x ∈ P2 σ ↔ x.κ = 1 ∧ x.α = 0 := Iff.rfl
 
-theorem mem_Zc {x : ThompsonN K σ} : x ∈ Zc σ ↔ x.κ = 1 ∧ x.α = 0 ∧ x.β = 0 := Iff.rfl
-
-theorem commutator_P_le : ⁅P σ, P σ⁆ ≤ P2 σ := by
-  rw [Subgroup.commutator_le]
-  intro x hx y hy
-  rw [commutatorElement_def]
-  have hx' := eq_of_mem_P (P σ |>.inv_mem hx)
-  have hy' := eq_of_mem_P (P σ |>.inv_mem hy)
-  have e : x * y * x⁻¹ * y⁻¹ = x⁻¹⁻¹ * y⁻¹⁻¹ * x⁻¹ * y⁻¹ := by simp
-  rw [e, hx', hy', commutator_P]
-  exact ⟨rfl, rfl⟩
-
-theorem Zc_le_commutator : Zc σ ≤ ⁅P σ, P σ⁆ := by
-  intro x hx
-  have e : x = (⟨1, 0, x.γ, 0⟩ : ThompsonN K σ)⁻¹ * (⟨1, 1, 0, 0⟩ : ThompsonN K σ)⁻¹ *
-      ⟨1, 0, x.γ, 0⟩ * ⟨1, 1, 0, 0⟩ := by
-    rw [commutator_P]
-    ext <;> simp [hx.1, hx.2.1, hx.2.2]
-  rw [e]
-  have h1 := Subgroup.commutator_mem_commutator (H₁ := P σ) (H₂ := P σ)
-    (g₁ := (⟨1, 0, x.γ, 0⟩ : ThompsonN K σ)⁻¹) (g₂ := (⟨1, 1, 0, 0⟩ : ThompsonN K σ)⁻¹)
-    (P σ |>.inv_mem rfl) (P σ |>.inv_mem rfl)
-  rwa [commutatorElement_def, inv_inv, inv_inv] at h1
-
-theorem commutator_commutator_P_le : ⁅⁅P σ, P σ⁆, P σ⁆ ≤ Zc σ := by
-  refine (Subgroup.commutator_mono (commutator_P_le (σ := σ)) le_rfl).trans ?_
-  rw [Subgroup.commutator_le]
-  intro x hx y hy
-  rw [commutatorElement_def]
-  have hx2 := (P2 σ).inv_mem hx
-  have hx' : x⁻¹ = ⟨1, 0, x⁻¹.β, x⁻¹.γ⟩ := by ext <;> simp [hx2.1, hx2.2]
-  have hy' := eq_of_mem_P (P σ |>.inv_mem hy)
-  have e : x * y * x⁻¹ * y⁻¹ = x⁻¹⁻¹ * y⁻¹⁻¹ * x⁻¹ * y⁻¹ := by simp
-  rw [e, hx', hy', commutator_P]
-  exact ⟨rfl, rfl, by simp⟩
-
-theorem mem_center_P (hσ : ∃ ξ : K, σ ξ ≠ ξ) {x : ThompsonN K σ} :
-    x ∈ (Subgroup.center (P σ)).map (P σ).subtype ↔ x ∈ Zc σ := by
-  constructor
-  · rintro ⟨w, hw, rfl⟩
-    have hx := eq_of_mem_P w.2
-    have hc : ∀ y ∈ P σ, (w : ThompsonN K σ)⁻¹ * y⁻¹ * w * y = 1 := fun y hy =>
-      inv_mul_inv_mul_mul_eq_one_iff.2
-        (congrArg Subtype.val (Subgroup.mem_center_iff.1 hw ⟨y, hy⟩)).symm
-    have h1 := hc ⟨1, 1, 0, 0⟩ rfl
-    rw [hx, commutator_P] at h1
-    have hb1 : σ w.1.α - w.1.α = 0 := by
-      have := congrArg ThompsonN.β h1; simpa using this
-    obtain ⟨ξ₀, hξ₀⟩ := hσ
-    have h2 := hc ⟨1, ξ₀, 0, 0⟩ rfl
-    rw [hx, commutator_P] at h2
-    have hb2 : σ w.1.α * ξ₀ - w.1.α * σ ξ₀ = 0 := by
-      have := congrArg ThompsonN.β h2; simpa using this
-    have hα : w.1.α = 0 := by
-      have e : w.1.α * (ξ₀ - σ ξ₀) = 0 := by
-        rw [sub_eq_zero.1 hb1] at hb2; linear_combination hb2
-      exact (mul_eq_zero.1 e).resolve_right (sub_ne_zero.2 (Ne.symm hξ₀))
-    have hβ : w.1.β = 0 := by
-      have := congrArg ThompsonN.γ h1
-      simp [hα] at this
-      exact this
-    exact ⟨mem_P.1 w.2, hα, hβ⟩
-  · intro hx
-    refine ⟨⟨x, hx.1⟩, Subgroup.mem_center_iff.2 fun y => Subtype.ext ?_, rfl⟩
-    have hx' : x = ⟨1, 0, 0, x.γ⟩ := by ext <;> simp [hx.1, hx.2.1, hx.2.2]
-    have hy' := eq_of_mem_P y.2
-    show y.1 * x = x * y.1
-    rw [hx', hy', mul_P, mul_P]
-    ext <;> simp; ring
 
 variable (σ) in
 @[expose] def J : ThompsonN K σ := torus σ (-1)

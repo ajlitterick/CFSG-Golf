@@ -154,10 +154,6 @@ end Config
     AS76b.Hyp31 A → Odd (Nat.card (center A)) →
       ∃ (g : G) (R T Q : Subgroup G), Config814 D g R T Q
 
-@[expose] def ExcAt (G : Type) [Group G] [Finite G] (A : Subgroup G) : Prop :=
-  RankTwoHyp G A → standardComponentOddCore G = ⊥ →
-    RankTwoExceptionalEvenType (rankTwoQuot A) →
-      ChevalleyExceptionalModel A .G2 2 2 ∧ NativeSporadic.IsSporadic (rankTwoX A) .Co1
 
 @[expose] def L3EvenAt (G : Type) [Group G] [Finite G] (A : Subgroup G) : Prop :=
   RankTwoHyp G A → ∀ m : ℕ, 2 ≤ m → StatedClassicalModel (rankTwoQuot A) .PSL 3 2 m →
@@ -172,14 +168,6 @@ end Config
         (Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
           NativeSporadic.IsSporadic (rankTwoX A) .He))
 
-theorem rankTwoExceptionalEvenStandard_iff :
-    RankTwoExceptionalEvenStandard ↔
-      ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), ExcAt G A :=
-  Iff.rfl
-
-theorem rankTwoL3EvenStandard_iff :
-    RankTwoL3EvenStandard ↔ ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), L3EvenAt G A :=
-  Iff.rfl
 
 @[expose] def ExcHypII : Prop :=
   ∀ (A : Type) [Group A] [Finite A], commutator A = ⊤ →

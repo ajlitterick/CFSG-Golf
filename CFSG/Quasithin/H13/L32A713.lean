@@ -115,10 +115,6 @@ theorem commutator_conjClosure_eq {U L Q : Subgroup G}
     have := Subgroup.commutator_mono hle le_rfl h1
     simpa [MulAut.conj_apply] using this
 
-theorem map_subtype_commutator_eq (H : Subgroup G) :
-    (_root_.commutator H).map H.subtype = ⁅H, H⁆ := by
-  rw [_root_.commutator_def, Subgroup.map_commutator, ← MonoidHom.range_eq_map,
-    Subgroup.range_subtype]
 
 theorem commutator_closure_le {X : Set G} {B : Subgroup G}
     (hXB : ∀ x ∈ X, x ∈ Subgroup.normalizer (B : Set G))

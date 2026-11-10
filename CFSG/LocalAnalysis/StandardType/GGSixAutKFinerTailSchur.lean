@@ -77,8 +77,6 @@ end Schur
 
 section Consequences
 
-theorem ggStepTwoBstarNormFiveInput_holds : GGStepTwoBstarNormFiveInput :=
-  ggStepTwoBstarNormFiveInput_of_schur ggAltFiveCentreInput_holds
 
 theorem ggStepTwoAutKFiveInput_of_field (hF : GGSixFieldFiveInput)
     (hD : GGLayerNotDFourTwoInput) : GGStepTwoAutKFiveInput :=

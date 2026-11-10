@@ -63,61 +63,6 @@ theorem center_eq_bot_of_fsEndMarking
   rw [hcard, Nat.dvd_one] at hd
   exact Subgroup.eq_bot_of_card_eq _ hd
 
-@[expose] def GGFSxEndsCardInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSecFiveRestHyp 3 B Bs x L D J → GGSecFiveWeylCase 3 B Bs x D J →
-      GGInnerDiagOnLabel GGLabQTwo 3 Bs L →
-    (GGSecFiveWeylAt 3 B Bs x L D J CoxeterMatrix.E₇ →
-      LargeEvenMarking L (fun lab _ _ _ _ _ => lab.tag = .D ∧ lab.rank = 6 ∧ lab.n = 1) →
-      Nat.card Bs = 3 * Nat.card B) ∧
-    (GGSecFiveWeylAt 3 B Bs x L D J CoxeterMatrix.E₈ →
-      LargeEvenMarking L (fun lab _ _ _ _ _ =>
-        ((lab.tag = .twD ∧ lab.rank = 7) ∨ (lab.tag = .E7 ∧ lab.rank = 0)) ∧ lab.n = 1) →
-      Nat.card Bs = 3 * Nat.card B)
-
-theorem ggFSxEndsInput_of_card
-    (h : GGFSxEndsCardInput) : GGFSxEndsInput := by
-  intro G _ _ B Bs x L D J hR hW hq
-  obtain ⟨h7, h8⟩ := h G B Bs x L D J hR hW hq
-  refine ⟨fun hAt hm => ⟨h7 hAt hm, ?_⟩, fun hAt hm => ⟨h8 hAt hm, ?_⟩⟩
-  · exact center_eq_bot_of_fsEndMarking (fun _ hl => ⟨Or.inl ⟨hl.1, hl.2.1⟩, hl.2.2⟩) hm
-  · exact center_eq_bot_of_fsEndMarking (fun _ hl => by
-      rcases hl.1 with h | h
-      · exact ⟨Or.inr (Or.inl h), hl.2⟩
-      · exact ⟨Or.inr (Or.inr h), hl.2⟩) hm
-
-@[expose] def GGFSyNonFSNbrInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSecFiveRestHyp 3 B Bs x L D J → GGSecFiveWeylCase 3 B Bs x D J →
-      GGInnerDiagOnLabel GGLabQTwo 3 Bs L →
-    (GGSecFiveWeylAt 3 B Bs x L D J CoxeterMatrix.E₇ →
-      LargeEvenMarking L (fun lab _ _ _ _ _ =>
-        ((lab.tag = .twA ∧ lab.rank = 6) ∨ (lab.tag = .twE6 ∧ lab.rank = 0)) ∧ lab.n = 1) →
-      Nat.card Bs = 3 * Nat.card B ∧
-        ∃ y ∈ B, ∃ K : Subgroup G, LargeEvenIsNeighborOf 3 B x L y K ∧
-          LargeEvenSStar 3 B y K ∧
-          (K.subgroupOf (Subgroup.centralizer ({y} : Set G))).Normal ∧
-          LargeEvenMarking K (fun lab _ _ _ _ _ => lab.tag = .D ∧ lab.rank = 6 ∧ lab.n = 1)) ∧
-    (GGSecFiveWeylAt 3 B Bs x L D J CoxeterMatrix.E₈ →
-      LargeEvenMarking L (fun lab _ _ _ _ _ => lab.tag = .twA ∧ lab.rank = 8 ∧ lab.n = 1) →
-      Nat.card Bs = 3 * Nat.card B ∧
-        ∃ y ∈ B, ∃ K : Subgroup G, LargeEvenIsNeighborOf 3 B x L y K ∧
-          LargeEvenSStar 3 B y K ∧
-          (K.subgroupOf (Subgroup.centralizer ({y} : Set G))).Normal ∧
-          LargeEvenMarking K (fun lab _ _ _ _ _ => lab.tag = .E7 ∧ lab.rank = 0 ∧ lab.n = 1))
-
-theorem ggFSyNonFSInput_of_nbr
-    (h : GGFSyNonFSNbrInput) : GGFSyNonFSInput := by
-  intro G _ _ B Bs x L D J hR hW hq
-  obtain ⟨h7, h8⟩ := h G B Bs x L D J hR hW hq
-  refine ⟨fun hAt hm => ?_, fun hAt hm => ?_⟩
-  · obtain ⟨hc, y, hy, K, hN, hS, hn, hK⟩ := h7 hAt hm
-    exact ⟨hc, y, hy, K, hN, hS, hn,
-      center_eq_bot_of_fsEndMarking (fun _ hl => ⟨Or.inl ⟨hl.1, hl.2.1⟩, hl.2.2⟩) hK, hK⟩
-  · obtain ⟨hc, y, hy, K, hN, hS, hn, hK⟩ := h8 hAt hm
-    exact ⟨hc, y, hy, K, hN, hS, hn,
-      center_eq_bot_of_fsEndMarking (fun _ hl => ⟨Or.inr (Or.inr ⟨hl.1, hl.2.1⟩), hl.2.2⟩) hK,
-      hK⟩
 
 end CFSG.StandardType.FrameRoute
 

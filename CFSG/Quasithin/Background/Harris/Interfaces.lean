@@ -42,16 +42,6 @@ theorem OneCompSetting.of_g93Hyp {Γ A L : Subgroup (GLV V)} {m : ℕ} (h : G93H
     (∃ L₂ : Subgroup (GLV V), IsComponentOf L₂ Γ ∧ L₂ ≠ L ∧ H = L ⊔ L₂ ∧ QuasiEquivalent L L₂) →
     G93Case14 H m ∨ G93Case15 H m
 
-theorem g93Stmt_of_interfaces (hD : DescentOne) (hT : TwoComp) (hO : OneCompFor CompType) :
-    G93Stmt := by
-  intro V _ _ _ Γ A L H m h
-  rcases h.H_eq with rfl | hL₂
-  · exact hO V Γ A H m (OneCompSetting.of_g93Hyp h) (hD V Γ A H m h)
-  · rcases hT V Γ A L H m h hL₂ with h14 | h15
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr
-        (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h14))))))))))))))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr
-        (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h15)))))))))))))))
 
 theorem OneCompFor.mono {P Q : ∀ (X : Type) [Group X], Prop}
     (hPQ : ∀ (X : Type) [Group X], Q X → P X) (h : OneCompFor P) : OneCompFor Q :=
@@ -172,49 +162,5 @@ theorem oneCompFor_famCoverSL3 (h1 : OneCompFor FamCoverSL3Two) (h2 : OneCompFor
     · exact h1 V Γ A L m hs ⟨hz, e, he, by simpa using hmod, hm⟩
   · exact h3 V Γ A L m hs ⟨hz, s, p, hp, hp2, by simpa using hm⟩
 
-theorem oneCompFor_compType
-    (h5 : OneCompFor (FamAlt 5)) (h6 : OneCompFor (FamAlt 6)) (h7 : OneCompFor (FamAlt 7))
-    (h8 : OneCompFor (FamAlt 8)) (hOL2 : OneCompFor FamOddL2) (hOL3 : OneCompFor FamOddL3)
-    (hOU3 : OneCompFor FamOddU3) (hL2 : OneCompFor FamL2) (hL3 : OneCompFor FamL3)
-    (hU3 : OneCompFor FamU3) (hSp4 : OneCompFor FamSp4) (hG2 : OneCompFor FamG2)
-    (h3D4 : OneCompFor Fam3D4) (h2F4 : OneCompFor Fam2F4) (hSz : OneCompFor FamSz)
-    (hTits : OneCompFor FamTits) (hL4 : OneCompFor (FamLn2 4)) (hL5 : OneCompFor (FamLn2 5))
-    (hSpor : ∀ s : TauCeti.SporadicName, (s = .M11 ∨ s = .M12 ∨ s = .M22 ∨ s = .M23 ∨ s = .M24 ∨
-      s = .J1 ∨ s = .J2 ∨ s = .J4 ∨ s = .HS ∨ s = .He ∨ s = .Ru) → OneCompFor (FamSpor s))
-    (hCSL3 : OneCompFor FamCoverSL3) (hA6 : OneCompFor (FamHat (alternatingGroup (Fin 6))))
-    (hA7 : OneCompFor (FamHat (alternatingGroup (Fin 7))))
-    (hM22 : OneCompFor (FamHat (NativeSporadic.Carrier .M22))) :
-    OneCompFor CompType := by
-  intro V _ _ _ Γ A L m hs hL
-  rcases hL with ⟨hsimp, hlist⟩ | ⟨hz, hlist⟩
-  · rcases hlist with ⟨n, hn5, hn8, he⟩ | ⟨p, hp, hp2, (⟨f, hf, hm⟩ | hm | hm)⟩ |
-      (⟨f, (⟨hf, hm⟩ | ⟨hf, hm⟩ | ⟨hf, hm⟩ | ⟨hf, hm⟩ | ⟨hf, hm⟩ | ⟨hf, hm⟩ | ⟨hfo, hf, hm⟩ |
-        ⟨hfo, hf, hm⟩)⟩ | hm) | ⟨n, hn, hm⟩ | ⟨s, hs', he⟩
-    · interval_cases n
-      · exact h5 V Γ A L m hs ⟨hsimp, he⟩
-      · exact h6 V Γ A L m hs ⟨hsimp, he⟩
-      · exact h7 V Γ A L m hs ⟨hsimp, he⟩
-      · exact h8 V Γ A L m hs ⟨hsimp, he⟩
-    · exact hOL2 V Γ A L m hs ⟨hsimp, p, hp, hp2, f, hf, hm⟩
-    · exact hOL3 V Γ A L m hs ⟨hsimp, p, hp, hp2, hm⟩
-    · exact hOU3 V Γ A L m hs ⟨hsimp, p, hp, hp2, hm⟩
-    · exact hL2 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact hL3 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact hU3 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact hSp4 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact hG2 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact h3D4 V Γ A L m hs ⟨hsimp, f, hf, hm⟩
-    · exact h2F4 V Γ A L m hs ⟨hsimp, f, hfo, hf, hm⟩
-    · exact hSz V Γ A L m hs ⟨hsimp, f, hfo, hf, hm⟩
-    · exact hTits V Γ A L m hs ⟨hsimp, hm⟩
-    · rcases hn with rfl | rfl
-      · exact hL4 V Γ A L m hs ⟨hsimp, hm⟩
-      · exact hL5 V Γ A L m hs ⟨hsimp, hm⟩
-    · exact hSpor s hs' V Γ A L m hs ⟨hsimp, he⟩
-  · rcases hlist with ⟨s, p, e, hp, he, hpe, hm⟩ | hm | hm | hm
-    · exact hCSL3 V Γ A L m hs ⟨hz, s, p, e, hp, he, hpe, hm⟩
-    · exact hA6 V Γ A L m hs ⟨hz, hm⟩
-    · exact hA7 V Γ A L m hs ⟨hz, hm⟩
-    · exact hM22 V Γ A L m hs ⟨hz, hm⟩
 
 end CFSG.Quasithin.G11.Harris

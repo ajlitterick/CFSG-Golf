@@ -195,8 +195,6 @@ theorem V.inj {s t : List ℕ} (hs : V s) (ht : V t) (h : encT s = encT t) : s =
 theorem V.beq {s t : List ℕ} (hs : V s) (ht : V t) : Nat.beq (encT s) (encT t) = true ↔ s = t :=
   ⟨fun h => hs.inj ht (beq_iff.mp h), fun h => h ▸ Nat.beq_refl _⟩
 
-theorem V.enc_ofFn {t : List ℕ} (h : V t) : encT t = ofFn 12 (fun i => t.getD i 0) := by
-  rw [ofFn_eq, h.table]
 
 theorem v_tid : V tid := by
   refine ⟨List.length_range, fun x hx => List.mem_range.mp hx, List.nodup_range⟩

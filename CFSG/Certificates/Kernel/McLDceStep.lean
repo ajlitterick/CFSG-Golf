@@ -50,9 +50,6 @@ theorem stepT_eq (HB GB TB : ℕ → ℕ) (nT R dir e S : ℕ) :
       (Nat.beq dir 1 = true ∧ McL.Dce.sD S = McL.Dce.rDp R ∧
         S' = McL.Dce.mkSt (McL.Dce.rD R) (mul25 (McL.Dce.rFI R) (McL.Dce.sPi S)))))
 
-theorem brfN (a b : ℕ) : Bool.rec (motive := fun _ => ℕ) a b false = a := rfl
-
-theorem brtN (a b : ℕ) : Bool.rec (motive := fun _ => ℕ) a b true = b := rfl
 
 theorem stepL_cases {HB GB TB : ℕ → ℕ} {TL nT c R dir e S : ℕ} :
     McL.Dce.stepL HB GB TB TL nT c R dir e S = McL.Dce.bad ∨

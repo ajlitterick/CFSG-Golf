@@ -67,10 +67,6 @@ theorem conj_zf (κ : Kˣ) (γ : K) :
     (r κ)⁻¹ * zf hc γ * r κ = zf hc ((κ : K) ^ 2 * σ κ * γ) := by
   rw [eq_zf hc (conj_mem_zc h (zf_mem hc γ)), hc.eq3 κ _ (zf_mem hc γ), l3_zf hc γ]
 
-theorem invol_conj_zf [CharP K 3] (γ : K) : (r (-1))⁻¹ * zf hc γ * r (-1) = zf hc (-γ) := by
-  rw [conj_zf h hc]
-  congr 1
-  simp
 
 end J
 
@@ -146,8 +142,6 @@ theorem conj_yf (κ : Kˣ) (β : K) :
     rw [e, (mem_P0.1 hm).2]
   rw [eq_yf h hc hK hmem, hc.eq2 κ _ (yf_mem' h hc hK β), l2_yf h hc hK β]
 
-theorem invol_conj_yf (β : K) : (r (-1))⁻¹ * yf h hc hK β * r (-1) = yf h hc hK β :=
-  (mem_P0.1 (yf_mem h hc hK β)).2
 
 end Y
 
@@ -276,8 +270,6 @@ theorem zf_comm {x : N} (hx : x ∈ P) (η : K) : zf hc η * x = x * zf hc η :=
 
 include h hc hK
 
-theorem yf_comm (β β' : K) : yf h hc hK β * yf h hc hK β' = yf h hc hK β' * yf h hc hK β :=
-  commutator_comm h (yf_mem' h hc hK β) (yf_mem' h hc hK β')
 
 theorem yf_mul {x : N} (hx : x ∈ P) (β : K) :
     yf h hc hK β * x = x * yf h hc hK β * zf hc (β * ℓ₁ x) := by
@@ -291,9 +283,6 @@ theorem yf_mul {x : N} (hx : x ∈ P) (β : K) :
 variable {p : N} (hp : p ∈ P) (hp1 : ℓ₁ p = 1) (hpinv : (r (-1))⁻¹ * p * r (-1) = p⁻¹)
 include hp hp1
 
-omit hp1 in
-theorem NF_mem (γ β η : K) : NF h hc hK p γ β η ∈ P :=
-  P.mul_mem (P.mul_mem (x0f_mem h hp γ) (yf_mem_P h hc hK β)) (zc_le P (zf_mem hc η))
 
 theorem l1_NF (γ β η : K) : ℓ₁ (NF h hc hK p γ β η) = γ := by
   have hy := yf_mem' h hc hK β

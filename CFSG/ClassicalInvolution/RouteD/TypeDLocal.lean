@@ -58,26 +58,6 @@ namespace TCtx
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {z : G} {K : Subgroup G}
 
-theorem exists_nodes_plus {m : ℕ} (hm : 4 ≤ m) (c : TCtx p f .POmegaPlus m Ω K z) :
-    ∃ j : Fin m → Subgroup G, (∀ a, j a ∈ centralizingMembers Ω {z} ∧ j a ≠ K ∧
-        ¬ locImg Ω z (j a) ≤ c.d.Q₁) ∧
-      (∀ a b, a ≠ b → ¬ edgeD m a b → ¬ edgeD m b a → Commutes (j a) (j b)) ∧
-      (∀ a b, edgeD m a b → ∃ W : Subgroup G,
-        LinearBlockStandardPair (GaloisField p f) W (j a) (j b)) ∧
-      (∀ a, Commutes K (j a)) := by
-  have hm3 : 3 ≤ m := by omega
-  obtain ⟨R, hR, hcomm, hstd⟩ : ∃ R : Fin m → Subgroup (modelUniv .POmegaPlus m p f Fact.out).K,
-      (∀ a, R a ∈ fundamentalSubgroups .POmegaPlus (modelUniv .POmegaPlus m p f Fact.out).D) ∧
-      (∀ a b, a ≠ b → ¬ edgeD m a b → ¬ edgeD m b a → Commutes (R a) (R b)) ∧
-      (∀ a b, edgeD m a b → ∃ W, LinearBlockStandardPair (GaloisField p f) W (R a) (R b)) := by
-    rw [modelUniv_POmegaPlus_eq (p := p) (f := f) hm3]
-    exact ⟨fun a => rankOne (plusDatum m (GaloisField p f) hm3).rootGroup a,
-      fun a => rankOne_mem_fundamentalSubgroups_plusDatum hm3 a,
-      fun a b hab h1 h2 => commutes_rankOne_plusDatum hm3
-        (LevisSpin.cartanD_of_not_edgeD hab h1 h2).1,
-      fun a b h => standardPair_plusDatum_edge (F := GaloisField p f) hm3 h⟩
-  obtain ⟨j, hj, hjc, hjp, hjK⟩ := c.exists_nodes R hR (edgeD m) hcomm hstd
-  exact ⟨j, fun a => ⟨(hj a).1, (hj a).2.1, (hj a).2.2.1⟩, hjc, hjp, hjK⟩
 
 theorem exists_partner_plus {m : ℕ} (hm : 4 ≤ m) (hadm : StatedLieAdmissible .POmegaPlus m p f)
     (c : TCtx p f .POmegaPlus m Ω K z) (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K)

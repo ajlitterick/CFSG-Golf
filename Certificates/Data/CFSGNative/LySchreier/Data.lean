@@ -70,7 +70,6 @@ namespace CFSG.Sporadic.LySchreier.Native
 
 @[expose] def fusionWord (_ : Unit := ()) : List Int := [1, 2]
 
-@[expose] def fusionOrders : Array Nat := #[9, 15]
 
 @[expose] def hDag : Array (Nat × Nat × Nat) := #[
     (0, 0, 0), (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 4, 0), (1, 0, 0), (2, 0, 5), (2, 0, 6),
@@ -89,7 +88,6 @@ namespace CFSG.Sporadic.LySchreier.Native
 
 @[expose] def hLevelGens : Array (List Nat) := #[[0, 1], [60, 62], [85, 91], [], [], [], []]
 
-@[expose] def hOrbitSizes : Array Nat := #[15624, 3125, 120, 1, 1, 1, 1]
 
 @[expose] def chainOrbits : Array (List Nat) := #[
     [0, 2, 8, 4, 10, 5, 6, 9, 3, 7, 1], [1, 9, 2, 8, 6, 7, 10, 3, 4, 5],

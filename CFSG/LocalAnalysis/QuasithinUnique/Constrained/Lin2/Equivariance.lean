@@ -65,11 +65,6 @@ theorem isMaxElemAbelian_map_equiv_of (f : G ≃* G) {S A : Subgroup G} (hA : Is
   rw [h2, card_map_equiv f A]
   exact h1
 
-theorem isMaxElemAbelian_map_equiv_iff (f : G ≃* G) (S A : Subgroup G) :
-    IsMaxElemAbelian (S.map f.toMonoidHom) (A.map f.toMonoidHom) ↔ IsMaxElemAbelian S A := by
-  refine ⟨fun h => ?_, isMaxElemAbelian_map_equiv_of f⟩
-  have := isMaxElemAbelian_map_equiv_of f.symm h
-  rwa [map_equiv_symm_map_equiv, map_equiv_symm_map_equiv] at this
 
 theorem thompsonJ_map_equiv (f : G ≃* G) (S : Subgroup G) :
     thompsonJ (S.map f.toMonoidHom) = (thompsonJ S).map f.toMonoidHom := by
@@ -109,9 +104,6 @@ theorem isElemAbelian_conjR_iff (A : Subgroup G) (g : G) :
     IsElemAbelian 2 (conjR A g) ↔ IsElemAbelian 2 A :=
   isElemAbelian_map_equiv_iff (MulAut.conj g⁻¹) A
 
-theorem isMaxElemAbelian_conjR_iff (S A : Subgroup G) (g : G) :
-    IsMaxElemAbelian (conjR S g) (conjR A g) ↔ IsMaxElemAbelian S A :=
-  isMaxElemAbelian_map_equiv_iff (MulAut.conj g⁻¹) S A
 
 theorem conjR_thompsonJ (S : Subgroup G) (g : G) :
     conjR (thompsonJ S) g = thompsonJ (conjR S g) :=

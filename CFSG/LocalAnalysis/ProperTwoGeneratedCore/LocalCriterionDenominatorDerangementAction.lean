@@ -57,12 +57,5 @@ theorem odd_derangement_full_centralizer_free
   exact hg a (odd_actor_fixed_of_square_fixed g hodd a (by
     simpa only [pow_two, mul_smul] using hga))
 
-theorem odd_derangement_full_centralizer_card_dvd [Finite G] [Finite X]
-    (hthree : ∀ x : G, x ≠ 1 → ∀ a b c : X,
-      a ≠ b → a ≠ c → b ≠ c →
-        ¬ (x • a = a ∧ x • b = b ∧ x • c = c))
-    (g : G) (hodd : Odd (orderOf g)) (hg : ∀ a : X, g • a ≠ a) :
-    Nat.card (Subgroup.centralizer ({g} : Set G)) ∣ Nat.card X :=
-  free_action_card_dvd (odd_derangement_full_centralizer_free hthree g hodd hg)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionDenominator

@@ -49,9 +49,6 @@ variable {G : Type*} [Group G]
       · conv_lhs => rw [← ha₁]
         exact rightConjugate_inv_cancel A₁ a
 
-theorem mem_pairStabilizer_iff {A₁ A₂ : Subgroup G} {g : G} :
-    g ∈ pairStabilizer A₁ A₂ ↔ Permutes A₁ A₂ g :=
-  Iff.rfl
 
 theorem rightConjugate_le_iff {X Y : Subgroup G} {g : G} :
     rightConjugate X g ≤ Y ↔ ∀ x ∈ X, g⁻¹ * x * g ∈ Y := by
@@ -65,11 +62,6 @@ theorem rightConjugate_le_iff {X Y : Subgroup G} {g : G} :
     have := h _ hy
     simpa only [mul_assoc, inv_mul_cancel, mul_one, inv_mul_cancel_left] using this
 
-theorem mem_normalizer_of_conj_subset [Finite G] {A : Subgroup G} {g : G}
-    (h : ∀ a ∈ A, g⁻¹ * a * g ∈ A) : g ∈ Subgroup.normalizer (A : Set G) := by
-  rw [← rightConjugate_eq_self_iff]
-  exact Subgroup.eq_of_le_of_card_ge (rightConjugate_le_iff.mpr h)
-    (rightConjugate_card A g).ge
 
 theorem mem_pairStabilizer_of_mem_one {A₁ A₂ : Subgroup G} (hc : ⁅A₁, A₂⁆ = ⊥) {a : G}
     (ha : a ∈ A₁) : a ∈ pairStabilizer A₁ A₂ := by
@@ -138,32 +130,6 @@ theorem exists_mem_normalizer_of_four_le [Finite G] {A₁ A₂ Y : Subgroup G}
 
 variable [Finite G] {S : Sylow 2 G} {A₁ A₂ : Subgroup G}
 
-theorem Hyp.sylow_le_normalizer_of_le (h : Hyp S A₁ A₂) (h21 : A₂ ≤ A₁) :
-    (S : Subgroup G) ≤ Subgroup.normalizer (A₁ : Set G) := by
-  by_contra hcon
-  let N := (S : Subgroup G) ⊓ Subgroup.normalizer (A₁ : Set G)
-  have hNS : N ≤ S := inf_le_left
-  have hNne : N ≠ S := fun heq => hcon (heq ▸ inf_le_right)
-  obtain ⟨s, hsS, hsN, hsnorm⟩ :=
-    exists_mem_normalizer_not_mem S.isPGroup' hNS hNne
-  have hA₁N : A₁ ≤ N := le_inf h.le_one (Subgroup.le_normalizer)
-  have hconjN : ∀ a ∈ A₁, s⁻¹ * a * s ∈ N := fun a ha =>
-    (Subgroup.mem_normalizer_iff''.mp hsnorm a).mp (hA₁N ha)
-  obtain ⟨a₀, ha₀, ha₀1⟩ := (Subgroup.bot_or_exists_ne_one A₁).resolve_left h.ne_bot_one
-  obtain ⟨-, hsub⟩ := h.conj_subset_of_normalizer (X := (A₁ : Set G))
-    Set.subset_union_left (fun a ha => (hconjN a ha).1) ha₀ ha₀1 (Or.inl (hconjN a₀ ha₀).2)
-  apply hsN
-  refine ⟨hsS, mem_normalizer_of_conj_subset fun a ha => ?_⟩
-  rcases hsub a ha with h' | h'
-  · exact h'
-  · exact h21 h'
-
-theorem Hyp.conj_mem_of_le (h : Hyp S A₁ A₂) (h21 : A₂ ≤ A₁) {a g : G} (ha : a ∈ A₁)
-    (hS : g⁻¹ * a * g ∈ (S : Subgroup G)) : g⁻¹ * a * g ∈ A₁ := by
-  rcases h.conj_mem_of_mem_normalizer (Or.inl ha) hS
-    (Or.inl (h.sylow_le_normalizer_of_le h21 hS)) with h' | h'
-  · exact h'
-  · exact h21 h'
 
 theorem Hyp.sylow_le_pairStabilizer (h : Hyp S A₁ A₂) (h12 : ¬ A₁ ≤ A₂) (h21 : ¬ A₂ ≤ A₁) :
     (S : Subgroup G) ≤ pairStabilizer A₁ A₂ := by
@@ -263,9 +229,6 @@ theorem Hyp.sylow_le_overlapClosure (h : Hyp S A₁ A₂) (h12 : ¬ A₁ ≤ A�
     (S : Subgroup G) ≤ overlapClosure A₁ A₂ :=
   (h.sylow_le_pairStabilizer h12 h21).trans h.pairStabilizer_le
 
-theorem Hyp.sylow_le_overlapClosure_of_le (h : Hyp S A₁ A₂) (h21 : A₂ ≤ A₁) :
-    (S : Subgroup G) ≤ overlapClosure A₁ A₂ :=
-  (h.sylow_le_normalizer_of_le h21).trans (normalizer_le_overlapClosure_one h.ne_bot_one)
 
 theorem Hyp.fixesOnly_of_card (h : Hyp S A₁ A₂) (h12 : ¬ A₁ ≤ A₂) (h21 : ¬ A₂ ≤ A₁)
     {X : Subgroup G} (hX : (X : Set G) ⊆ (A₁ : Set G) ∪ A₂) (hcard : 4 ≤ Nat.card X) :

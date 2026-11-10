@@ -80,8 +80,6 @@ theorem q1mIdx_lt (q : Q1M) : q1mIdx q < 64 := by
   simp only [q1mIdx]
   omega
 
-theorem q1mList_length : (q1mList ()).length = 64 := by
-  simp [q1mList]
 
 theorem κArr_getElem (i : ℕ) (hi : i < 64) : (κArr ())[i]! = κT (q1mAt i) := by
   have hlen : i < ((q1mList ()).map κT).length := by simpa [q1mList] using hi

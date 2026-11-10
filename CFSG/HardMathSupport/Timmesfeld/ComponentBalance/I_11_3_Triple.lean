@@ -243,7 +243,6 @@ theorem centralizes_K {z : Q} (hz : z ∈ B) (hc : ∀ l ∈ L, l * z = z * l) :
   intro k hk
   exact Subgroup.mem_centralizer_singleton_iff.1 (hle hk)
 
-theorem B0_le_B {b : Q} (hb : b ∈ t113B0 B L) : b ∈ B := hb.1
 
 theorem B0_comm_K {b : Q} (hb : b ∈ t113B0 B L) : ∀ k ∈ t113K B L, k * b = b * k :=
   Subgroup.mem_centralizer_iff.1 hb.2
@@ -346,12 +345,6 @@ theorem inf01 : L ⊓ GLBConj x L = ⊥ := by
   have := T.inf_eq_bot (g := 1) (h := x) (by rw [gLBConj_one]; exact T.conj1_ne.symm)
   simpa only [gLBConj_one] using this
 
-theorem inf02 : L ⊓ GLBConj (x ^ 2) L = ⊥ := by
-  have := T.inf_eq_bot (g := 1) (h := x ^ 2) (by rw [gLBConj_one]; exact T.conj2_ne.symm)
-  simpa only [gLBConj_one] using this
-
-theorem inf12 : GLBConj x L ⊓ GLBConj (x ^ 2) L = ⊥ :=
-  T.inf_eq_bot (g := x) (h := x ^ 2) T.conj21_ne.symm
 
 theorem eq_one_of_central0 {z : Q} (hz : z ∈ L) (hc : ∀ w ∈ L, z * w = w * z) : z = 1 := by
   refine T.eq_one_of_central (g := 1) ?_ ?_ <;> simpa only [gLBConj_one] using ‹_›

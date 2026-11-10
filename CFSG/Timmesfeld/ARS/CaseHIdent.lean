@@ -78,14 +78,6 @@ theorem polar_N (s₀ s : E) : c.N (s₀ + s) = c.N s + c.N s₀ + c.F2 s₀ s +
   simp only [map_one, one_mul, zero_add, c.F3_zero, c.F2_zero, c.T_zero, add_zero] at h
   exact (c.vc_injective h).2.2.2.trans (by ring)
 
-theorem polar_F2 (s₀ s w : E) :
-    c.F2 (s₀ + s) w = c.F2 s w + c.F2 s₀ w + c.T s₀ (c.F3 s w) := by
-  have := S.hyp.finite
-  have h := c.ad_x1_add s₀ s (c.vc 0 w 0 0)
-  rw [c.ad_x1 e he, c.ad_x1 e he, c.ad_x1 e he] at h
-  simp only [map_zero, zero_mul, add_zero, zero_add, c.T_zero] at h
-  obtain ⟨-, -, -, h4⟩ := c.vc_injective h
-  rw [h4]
 
 theorem polar_sharp (s₀ s : E) :
     c.sharp (s₀ + s) = c.sharp s + c.sharp s₀ + c.F3 s₀ s := by

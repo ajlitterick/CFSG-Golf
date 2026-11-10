@@ -198,23 +198,6 @@ theorem le_centralizer_of_isComponentOf_statedSp [Finite G] [Finite F] [CharP F 
     obtain ⟨s, rfl⟩ := hg
     rw [hC s h₀ h₁, map_one]
 
-theorem range_le_centralizer_of_isComponentOf_statedSp [Finite G] [Finite F] [CharP F 2]
-    {H J : Subgroup G} (ψ : StatedSp 2 F →* G) (hψ : Function.Injective ψ)
-    (hψJ : ψ.range = J) (hJH : CFSG.Assembly.IsComponentOf J H) (ψ' : StatedSp 2 F →* G)
-    {S : Subgroup (StatedSp 2 F)} (hS : ⁅S, S⁆ = S)
-    (hSle : ¬ S ≤ (longBlock F 2 0).range ⊔ (longBlock F 2 1).range) (hSH : S.map ψ' ≤ H)
-    (hSQ : ∀ k : Fin 2,
-      S.map ψ' ≤ Subgroup.centralizer ((ψ.comp (longBlock F 2 k)).range : Set G))
-    (hJQ : ∀ k : Fin 2, J ≤ Subgroup.centralizer ((ψ'.comp (longBlock F 2 k)).range : Set G)) :
-    ψ'.range ≤ Subgroup.centralizer (J : Set G) := by
-  have : Group.IsPerfect ↥S := Subgroup.isPerfect_iff.mpr hS
-  have : Group.IsPerfect ↥(S.map ψ') := Group.IsPerfect.map ψ'
-  have hR := le_centralizer_of_isComponentOf_statedSp ψ hψ hψJ hJH (R := S.map ψ') hSH hSQ
-  rw [MonoidHom.range_eq_map,
-    ← CFSG.ClassicalGroups.Symplectic.Sp4.longBlock_sup_longBlock_sup_eq_top_of_perfect hS hSle,
-    Subgroup.map_sup, Subgroup.map_sup, ← MonoidHom.range_comp, ← MonoidHom.range_comp]
-  exact sup_le (sup_le (Subgroup.le_centralizer_iff.mp (hJQ 0))
-    (Subgroup.le_centralizer_iff.mp (hJQ 1))) hR
 
 end Native
 

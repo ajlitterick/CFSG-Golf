@@ -65,9 +65,6 @@ theorem exists_orderOf_four {P : Subgroup Q} (hP : IsPGroup 2 P) (h4 : 4 ≤ Nat
   one_mem' := ⟨P.one_mem, map_one σ⟩
   inv_mem' := fun ha => ⟨P.inv_mem ha.1, by rw [map_inv, ha.2]⟩
 
-omit [Finite Q] in
-theorem mem_fixedIn {P : Subgroup Q} {σ : Q →* Q} {x : Q} :
-    x ∈ fixedIn P σ ↔ x ∈ P ∧ σ x = x := Iff.rfl
 
 omit [Finite Q] in
 theorem fixedIn_le (P : Subgroup Q) (σ : Q →* Q) : fixedIn P σ ≤ P := fun _ hx => hx.1

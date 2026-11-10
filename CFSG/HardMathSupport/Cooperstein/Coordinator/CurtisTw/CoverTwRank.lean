@@ -262,10 +262,6 @@ theorem uSL_zero' {F : Type*} [Field F] : (uSL (0 : F) : SL2 F) = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [coe_uSL]
 
-theorem vSL_zero' {F : Type*} [Field F] : (vSL (0 : F) : SL2 F) = 1 := by
-  refine Subtype.ext ?_
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [coe_vSL]
 
 include hf hK hσ in
 theorem mem_fixedGroup_of_pLift {P : Subgroup ↥(graphFixedRootGroup TwistTag.E6 K σ)}
@@ -473,15 +469,6 @@ theorem twisted_exists_isCoverType {k V : Type*} [Field k] [Algebra K k] [AddCom
       IsCoverType (twistedE6CoverRankOne hf hK σ hσ) ρ y χ J :=
   exists_isCoverType hρ (twistedCover_split hf hK σ hσ k)
 
-include hf hK hσ in
-theorem twisted_isCoverType_unique {k V : Type*} [Field k] [Algebra K k] [AddCommGroup V]
-    [Module k V] [CharP k 2] {ρ : Representation k ↥(TwistedE6.fixedGroup K σ) V}
-    (hρ : IsSimpleRep ρ) {y y' : V} {χ χ' : ↥(TwistedE6.fixedGroup K σ) → k}
-    {J J' : Finset (Fin TwistTag.E6.foldedTag.rank)}
-    (ht : IsCoverType (twistedE6CoverRankOne hf hK σ hσ) ρ y χ J)
-    (ht' : IsCoverType (twistedE6CoverRankOne hf hK σ hσ) ρ y' χ' J') :
-    (∀ h ∈ (twistedE6Datum hf hK σ hσ).H.comap (coverHom hf hK σ hσ), χ h = χ' h) ∧ J = J' :=
-  IsCoverType.unique hρ (twistedCover_split hf hK σ hσ k) ht ht'
 
 include hf hK hσ in
 theorem twisted_iso_of_isCoverType {k V V' : Type*} [Field k] [Algebra K k] [AddCommGroup V]

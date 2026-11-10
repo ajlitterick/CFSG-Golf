@@ -12,8 +12,6 @@ open Native Pointwise
 
 section Facts
 
-variable (hF : OrbitFacts)
-include hF
 
 end Facts
 

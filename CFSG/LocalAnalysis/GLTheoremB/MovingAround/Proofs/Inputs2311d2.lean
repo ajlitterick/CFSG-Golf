@@ -1581,7 +1581,6 @@ theorem mem_closure_uni (hU : UnitaryFieldData ℓ f K) (hp5 : 5 ≤ p)
   exact hmem
 
 
-
 end NonsplitCore
 
 section NonsplitWrap
@@ -1669,7 +1668,6 @@ theorem uniClosure_unitarySU_nonsplit {ℓ f p n : ℕ} {K : Type} [Field K] (hU
   have hyg' : y = g := Subtype.ext hyg
   rw [← hyg']
   exact hy
-
 
 
 end NonsplitWrap
@@ -4179,10 +4177,6 @@ theorem orthU3_uniSeitzPlanes_orthogonal :
       (by rw [hcard]; exact not_dvd_pow_of_ne hp q.prime_p hq') (by rw [hring]; exact hq2)
       E₁ hE₁ hcard₁
 
-theorem orthU_uniSeitzPlanes_orthogonal_three :
-    Inputs2311c.UniSeitzPlanes fun d p E => CFSG.LieType.SeitzGeneration.InnerPlane d p E ∧ p = 3 ∧
-      CFSG.LieType.SeitzGeneration.IsOrthogonalIndex d.1 ∧ d.1.characteristic ≠ 2 :=
-  orthU3_uniSeitzPlanes_orthogonal.mono fun _ _ _ h => ⟨h.1, h.2.2.1, h.2.2.2⟩
 
 end Cat
 
@@ -4578,10 +4572,6 @@ theorem orthOut_uniSeitzPlanes_orthogonal_outer :
         ⟨e⟩⟩ hp hp3 hq' hE hc hout
     simpa using h
 
-theorem orthOut_uniSeitzPlanes_orthogonal_outer_five :
-    Inputs2311c.UniSeitzPlanes fun d p E => ¬ CFSG.LieType.SeitzGeneration.InnerPlane d p E ∧ 5 ≤ p ∧
-      CFSG.LieType.SeitzGeneration.IsOrthogonalIndex d.1 ∧ d.1.characteristic ≠ 2 :=
-  UniSeitzPlanes.mono (fun _ _ _ h => ⟨h.1, h.2.1, h.2.2.1⟩) orthOut_uniSeitzPlanes_orthogonal_outer
 
 end Cat
 
@@ -5049,12 +5039,6 @@ theorem orthOut3_uniSeitzPlanes_orthogonal_outer_three_all :
       · exact Or.inl ⟨hout, hp3, horth, hD4⟩)
     orthOut3_uniSeitzPlanes_orthogonal_outer_three_nonD4 orthOut3_uniSeitzPlanes_dFour_similarity
 
-theorem orthOut3_uniSeitzPlanes_orthogonal_outer_three :
-    Inputs2311c.UniSeitzPlanes fun d p E => ¬ CFSG.LieType.SeitzGeneration.InnerPlane d p E ∧ p = 3 ∧
-      CFSG.LieType.SeitzGeneration.IsOrthogonalIndex d.1 ∧ d.1.characteristic ≠ 2 ∧
-      (CFSG.LieType.SeitzGeneration.IsDFourIndex d.1 → orthOut3_SimilarityPlane d E) :=
-  UniSeitzPlanes.mono (fun _ _ _ h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2.2⟩)
-    orthOut3_uniSeitzPlanes_orthogonal_outer_three_all
 
 end Cat
 
@@ -5928,9 +5912,6 @@ theorem twOut_uniSeitzPlanes_reeG2_outer :
   have h := (uniPlaneGen_map_congr e _ E).1 (twOut_uniPlaneGen_reeG2_outer ha hX hp hp5 _ hc' hout')
   simpa using h
 
-theorem twOut_uniSeitzPlanes_reeG2_outer_five :
-    UniSeitzPlanes fun d p E => ¬ InnerPlane d p E ∧ 5 ≤ p ∧ IsReeG2Index d.1 :=
-  twOut_uniSeitzPlanes_reeG2_outer.mono fun _ _ _ h => ⟨h.1, h.2.2⟩
 
 end ReeG2
 
@@ -6104,9 +6085,6 @@ theorem uniSeitzPlanes_oddCpfRest_of_rest2 (h : UniSeitzPlanes OddCpfRest2) : Un
       · exact absurd (by rw [hm]; simp) hch
       · exact absurd (by rw [ht]; simp) hch
 
-theorem input23_11Thm4_of_uniRest2 (hU : UniSeitzPlanes OddCpfRest2) (hR : Input23_11Thm4Rest) :
-    Inputs2311.Input23_11Thm4 :=
-  input23_11Thm4_of_uniRest (uniSeitzPlanes_oddCpfRest_of_rest2 hU) hR
 
 theorem input23_11Bar_of_uniRest2 (hU : UniSeitzPlanes OddCpfRest2) (hR : Input23_11Thm4Rest)
     (hs : Inputs2311.Input14_2Struct) : Inputs2311.Input23_11Bar :=

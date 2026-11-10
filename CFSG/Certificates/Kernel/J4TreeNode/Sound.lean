@@ -463,8 +463,6 @@ theorem is2AK_spec {sx X v : ℕ} {a : Code} (h : is2AK sx X v = true) (ha : RC 
 theorem idx_lt : ∀ i k j : Fin 12, i < k → k < j → idx i k < idx i j ∧ idx k j < idx i j := by
   decide
 
-theorem idx_inj : ∀ i j i' j' : Fin 12, i < j → i' < j' → idx i j = idx i' j' → i = i' ∧ j = j' := by
-  decide
 
 theorem ut_mul {A B : Matrix (Fin 12) (Fin 12) (ZMod 2)} (hA : UT A) (hB : UT B) : UT (A * B) := by
   intro i j
@@ -654,19 +652,6 @@ theorem filt_mem {α : Type*} {b : Bool} : ∀ {fs : List Bool} {l : List α} {x
       · exact List.mem_cons_of_mem _ (filt_mem h)
     · exact List.mem_cons_of_mem _ (filt_mem h)
 
-theorem filt_true_mem {α : Type*} : ∀ {fs : List Bool} {l : List α} {x : α},
-    x ∈ filt fs l true → ∃ i, i < l.length ∧ fs.getD i false = true ∧ l[i]? = some x
-  | [], _, _, h => by simp [filt] at h
-  | _ :: _, [], _, h => by simp [filt] at h
-  | f :: fs, y :: l, x, h => by
-    unfold filt at h
-    split_ifs at h with hf
-    · rcases List.mem_cons.mp h with h | h
-      · exact ⟨0, by simp, by simp [hf], by simp [h]⟩
-      · obtain ⟨i, hi, hfi, hli⟩ := filt_true_mem h
-        exact ⟨i + 1, by simp [hi], by simpa using hfi, by simpa using hli⟩
-    · obtain ⟨i, hi, hfi, hli⟩ := filt_true_mem h
-      exact ⟨i + 1, by simp [hi], by simpa using hfi, by simpa using hli⟩
 
 theorem nw_split {K : Subgroup G} : ∀ (fs : List Bool) (l : List G), fs.length = l.length →
     (∀ x ∈ l, x ∈ K) → (∀ x ∈ filt fs l true, ∀ y ∈ K, x * y = y * x) →

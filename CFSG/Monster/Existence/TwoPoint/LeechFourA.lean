@@ -14,7 +14,6 @@ open CFSG CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLatt
   CFSG.Monster.Griess CFSG.Monster.ScalarKernel CFSG.Monster.Visible CFSG.Monster.VisQuot
   CFSG.Monster.VisCert CFSG.Monster.Generated CFSG.Monster.B.Short CFSG.Monster.B Subgroup
 
-theorem leech_zmod_two_cases : ∀ a : ZMod 2, a = 0 ∨ a = 1 := by decide
 
 section Generic
 
@@ -61,14 +60,6 @@ theorem leech_mem_cent2_iff {r₁ r₂ : Q} (hsq : (rhoGriess r₁ * rhoGriess r
   · rintro ⟨h1, h2, -⟩
     exact mem_inf.2 ⟨mem_centralizer_singleton_iff.2 h1, mem_centralizer_singleton_iff.2 h2⟩
 
-theorem leech_cent2_le_cent {α β : MGriess} (h : (α * β) ^ 2 = xGriess) :
-    cent2 α β ≤ cent xGriess := by
-  intro g hg
-  obtain ⟨h1, h2⟩ := mem_inf.1 hg
-  have h3 := leech_commute_sq (mem_centralizer_singleton_iff.1 h1)
-    (mem_centralizer_singleton_iff.1 h2)
-  rw [h] at h3
-  exact mem_centralizer_singleton_iff.2 h3
 
 theorem leech_fourA_shape_of_rep
     {r₁ r₂ : Q} (hr₁ : IsShortCoord (coordOf r₁))
@@ -113,38 +104,5 @@ theorem bL_eq_qL_add_of_short {v₁ v₂ : L2} (h₁ : v₁ ∈ shortSet) (h₂ 
   have e2 : qL v₂ = 0 := h₂.elim fun _ hu => hu.2 ▸ qL_classOf_minVecs hu.1
   rw [qL_add, e1, e2, zero_add, zero_add]
 
-theorem leech_fourA_shape_of_qL
-    (v₂ : L2) (h₂ : v₂ ∈ shortSet) (hq : qL (Co2.v0 + v₂) = 1) :
-    ∃ α β : MGriess, IsConj tGriess α ∧ IsConj tGriess β ∧ orderOf (α * β) = 4 ∧
-      (α * β) ^ 2 = xGriess ∧
-      ∃ (N : Subgroup ↥(cent2 α β)) (_ : N.Normal), IsExtraspecialPGroup 2 N ∧
-        Nat.card N = 2 ^ 23 ∧ Nonempty (↥(cent2 α β) ⧸ N ≃* ↥(Kstab Co2.v0 ⊓ Kstab v₂)) :=
-  leech_fourA_shape v₂ h₂ ((bL_eq_qL_add_of_short classOf_vMinus_mem_shortSet h₂).trans hq)
-
-theorem exists_leech_fourA_class :
-    ∃ v₂ : L2, v₂ ∈ shortSet ∧ bL Co2.v0 v₂ = 1 := by
-  by_contra hcon
-  push Not at hcon
-  have hinv : ∀ p : Pvis, ∀ w ∈ Submodule.span (ZMod 2) shortSet,
-      modTwoEnd p.1.2 w ∈ Submodule.span (ZMod 2) shortSet := fun p w hw => by
-    have h : Submodule.span (ZMod 2) shortSet ≤
-        (Submodule.span (ZMod 2) shortSet).comap (modTwoEnd p.1.2) :=
-      Submodule.span_le.2 fun w' hw' => Submodule.subset_span (modTwoEnd_mem_shortSet p.1.2 hw')
-    exact h hw
-  have hne : Submodule.span (ZMod 2) shortSet ≠ ⊥ := fun h =>
-    Co2.v0_ne_zero (by
-      have := Submodule.subset_span (R := ZMod 2) classOf_vMinus_mem_shortSet
-      rw [h] at this
-      exact this)
-  have htop : Submodule.span (ZMod 2) shortSet = ⊤ :=
-    (eq_bot_or_eq_top_of_invariant hinv).resolve_left hne
-  have hker : Submodule.span (ZMod 2) shortSet ≤ LinearMap.ker (bL Co2.v0) := by
-    rw [Submodule.span_le]
-    intro w hw
-    rw [SetLike.mem_coe, LinearMap.mem_ker]
-    exact (leech_zmod_two_cases _).resolve_right (hcon w hw)
-  refine Co2.v0_ne_zero (bL_nondegenerate.1 _ fun y => ?_)
-  have hy : y ∈ LinearMap.ker (bL Co2.v0) := hker (htop ▸ Submodule.mem_top)
-  exact hy
 
 end CFSG.Monster.Existence

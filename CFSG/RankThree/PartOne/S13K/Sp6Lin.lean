@@ -79,8 +79,6 @@ theorem formQ_map {g : AutV K} (hg : g ∈ M10 K) (x y : QV K (Fin 3)) :
     · change g.1.symm (sg 2 a) = _
       rw [LinearEquiv.symm_apply_eq, (hg a).2]
 
-theorem mem_sBlk_iff {g : ↥(M10 K)} :
-    g ∈ sBlk K ↔ ∀ a : Qext K, g.1 (sg 1 a) = sg 1 a ∧ g.1 (sg 2 a) = sg 2 a := Iff.rfl
 
 theorem sBlk_sg_zero {g : ↥(M10 K)} (hg : g ∈ sBlk K) (a : Qext K) :
     g.1 (sg 0 a) 1 = 0 ∧ g.1 (sg 0 a) 2 = 0 := by
@@ -109,12 +107,6 @@ theorem torusEquiv_sg (x : Fin 3 → (Qext K)ˣ) (i : Fin 3) (a : Qext K) :
     simp
   · simp [Pi.single_eq_of_ne h]
 
-theorem sg_add (i : Fin 3) (a b : Qext K) : sg i (a + b) = sg i a + sg i b := by
-  funext j
-  by_cases h : j = i
-  · subst h
-    simp
-  · simp [Pi.single_eq_of_ne h]
 
 theorem sg_sub (i : Fin 3) (a b : Qext K) : sg i (a - b) = sg i a - sg i b := by
   funext j

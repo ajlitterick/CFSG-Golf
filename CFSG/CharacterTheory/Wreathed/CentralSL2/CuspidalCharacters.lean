@@ -33,13 +33,6 @@ theorem blocksInnerProduct_sub_right' (f g h : K → ℂ) :
   refine Finset.sum_congr rfl fun x _ => ?_
   rw [Pi.sub_apply, map_sub, mul_sub]
 
-theorem blocksInnerProduct_conj_symm (f g : K → ℂ) :
-    BlocksInnerProduct g f = starRingEnd ℂ (BlocksInnerProduct f g) := by
-  unfold BlocksInnerProduct
-  rw [map_mul, map_sum, map_inv₀, Complex.conj_natCast]
-  congr 1
-  refine Finset.sum_congr rfl fun x _ => ?_
-  rw [map_mul, Complex.conj_conj, mul_comm]
 
 theorem inducedFunction_classFunction (H : Subgroup K) (ρ : H → ℂ) :
     BlocksIsClassFunction (inducedFunction H ρ) := fun g h => inducedFunction_conjugate H ρ g h

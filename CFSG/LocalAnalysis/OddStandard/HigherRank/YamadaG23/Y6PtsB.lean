@@ -13,9 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G] [Finite G] {A C0 V : Subgroup G} {a₁ b₁ a₂ b₂ z t u : G}
 
-private lemma y6_t_sq (h : Y6Cfg A C0 V a₁ b₁ a₂ b₂ z t u) : t * t = 1 := by
-  rw [← pow_two, ← h.t_ord]
-  exact pow_orderOf_eq_one t
 
 private lemma y6_t_conj_V (h : Y6Cfg A C0 V a₁ b₁ a₂ b₂ z t u) :
     ∀ v ∈ V, t * v * t⁻¹ = v⁻¹ := by

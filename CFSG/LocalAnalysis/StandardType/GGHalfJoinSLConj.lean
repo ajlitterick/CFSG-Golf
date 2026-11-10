@@ -48,9 +48,6 @@ private theorem slConj_omegaBlock_coe (n : ℕ) (k : Fin n) :
   rw [slConj_omegaBlock_eq_tv_mul]
   exact slConj_transvection_prod_coe _
 
-private theorem slConj_det_rhoM : rhoM.det = 1 := by
-  rw [rhoM, Matrix.det_fin_two_of]
-  rw [zero_mul, one_mul, zero_sub, neg_eq_iff_add_eq_zero, slConj_one_add_one_f2]
 
 private theorem slConj_submatrix_pow_equiv {F : Type} [Semiring F] {d d' : ℕ}
     (C : Matrix (Fin d) (Fin d) F) (e : Fin d ≃ Fin d') (m : ℕ) :

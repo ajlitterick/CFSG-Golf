@@ -59,37 +59,5 @@ theorem involutions_conjugate_of_no_four_group
     _ = y * (y⁻¹ * b * y) * y⁻¹ := by rw [heq]
     _ = b := by group
 
-theorem normal_subgroup_involution_centralizer_factorization
-    (K : Subgroup T) [K.Normal]
-    (hno : ∀ V : Subgroup K, IsElemAbelian 2 V → Nat.card V ≠ 4)
-    (u : K) (hu : orderOf u = 2) (n : T) :
-    ∃ k ∈ K, ∃ e ∈ Subgroup.centralizer ({(u : T)} : Set T), n = k * e := by
-  let v : K := ⟨n * (u : T) * n⁻¹,
-    (inferInstance : K.Normal).conj_mem u u.property n⟩
-  have hv : orderOf v = 2 := by
-    rw [← Subgroup.orderOf_coe v]
-    exact ((MulAut.conj n).orderOf_eq (u : T)).trans
-      ((Subgroup.orderOf_coe u).trans hu)
-  obtain ⟨k, hk⟩ := involutions_conjugate_of_no_four_group hno v u hv hu
-  refine ⟨k, k.property, (k : T)⁻¹ * n, ?_, ?_⟩
-  · apply Subgroup.mem_centralizer_singleton_iff.mpr
-    have hconj : (k : T)⁻¹ * (n * (u : T) * n⁻¹) * k = (u : T) :=
-      congrArg Subtype.val hk
-    have heq : ((k : T)⁻¹ * n) * (u : T) * ((k : T)⁻¹ * n)⁻¹ = (u : T) := by
-      convert hconj using 1
-      group
-    exact mul_inv_eq_iff_eq_mul.mp heq
-  · group
-
-theorem normal_subgroup_sup_involution_centralizer_eq_top
-    (K : Subgroup T) [K.Normal]
-    (hno : ∀ V : Subgroup K, IsElemAbelian 2 V → Nat.card V ≠ 4)
-    (u : K) (hu : orderOf u = 2) :
-    K ⊔ Subgroup.centralizer ({(u : T)} : Set T) = ⊤ := by
-  apply top_le_iff.mp
-  intro n _
-  obtain ⟨k, hk, e, he, rfl⟩ :=
-    normal_subgroup_involution_centralizer_factorization K hno u hu n
-  exact Subgroup.mul_mem_sup hk he
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionClassFreeAffineHull

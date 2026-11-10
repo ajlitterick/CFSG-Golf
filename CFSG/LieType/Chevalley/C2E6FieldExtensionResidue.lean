@@ -13,12 +13,6 @@ open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley.C2E6Overlap
 open CFSG.LieType.Chevalley.CosetBuilding
 open scoped Pointwise
 
-theorem apply_apply_of_mem_betaGroup
-    (b : betaGroup) (x : stdGroup) :
-    (b : MulAut stdGroup) ((b : MulAut stdGroup) x) = x := by
-  rcases mem_betaGroup_iff.mp b.2 with h | h <;> rw [h]
-  · rfl
-  · exact betaG_betaG x
 
 theorem apply_mem_nativeParabolic_iff
     (b : betaGroup) (J : Set (Fin 4)) (x : stdGroup) :
@@ -49,32 +43,6 @@ theorem mem_baseResidue_iff
   · intro hg
     exact ⟨g, hg, rfl⟩
 
-theorem image_smul_baseResidue_iff
-    (γ : GStar) (J : Set (Fin 4)) :
-    (γ • ·) '' baseResidue J = baseResidue J ↔ (γ.left : ModGL Tag.E6 K) ∈ nativeParabolic J := by
-  constructor
-  · intro h
-    have h1 : γ • ((1 : stdGroup) : stdChamber) ∈ baseResidue J := by
-      rw [← h]
-      exact ⟨_, (mem_baseResidue_iff J 1).2 (one_mem _), rfl⟩
-    rwa [smul_mk, map_one, mul_one, mem_baseResidue_iff] at h1
-  · intro hγ
-    ext q
-    induction q using QuotientGroup.induction_on with | H y => ?_
-    constructor
-    · rintro ⟨q', hq', e⟩
-      induction q' using QuotientGroup.induction_on with | H x => ?_
-      dsimp only at e
-      rw [← e, smul_mk, mem_baseResidue_iff, Subgroup.coe_mul]
-      exact mul_mem hγ ((apply_mem_nativeParabolic_iff _ J _).2
-        ((mem_baseResidue_iff J x).1 hq'))
-    · intro hy
-      refine ⟨(((γ.right : MulAut stdGroup) (γ.left⁻¹ * y) : stdGroup) : stdChamber), ?_, ?_⟩
-      · rw [mem_baseResidue_iff, apply_mem_nativeParabolic_iff, Subgroup.coe_mul,
-          Subgroup.coe_inv]
-        exact mul_mem (inv_mem hγ) ((mem_baseResidue_iff J y).1 hy)
-      · dsimp only
-        rw [smul_mk, apply_apply_of_mem_betaGroup, mul_inv_cancel_left]
 
 @[expose] def parStar
     (J : Set (Fin 4)) : Subgroup GStar where
@@ -135,29 +103,12 @@ theorem parSmul_mk
     parSmul γ (QuotientGroup.mk p) = QuotientGroup.mk (parMap γ p) :=
   rfl
 
-theorem chamberOf_parSmul
-    {J : Set (Fin 4)} (γ : parStar J) (y : ParabolicCosets J) :
-    FourthResidue.chamberOf J (parSmul γ y) = γ.1 • FourthResidue.chamberOf J y := by
-  induction y using QuotientGroup.induction_on with | H p => ?_
-  rfl
 
 theorem range_chamberOf
     (J : Set (Fin 4)) :
     Set.range (FourthResidue.chamberOf J) = baseResidue J :=
   FourthResidue.range_chamberOf J
 
-theorem forall_smul_eq_iff
-    {J : Set (Fin 4)} (γ : parStar J) :
-    (∀ x ∈ baseResidue J, γ.1 • x = x) ↔ ∀ y : ParabolicCosets J, parSmul γ y = y := by
-  constructor
-  · intro h y
-    apply FourthResidue.chamberOf_injective J
-    rw [chamberOf_parSmul]
-    exact h _ (range_chamberOf J ▸ ⟨y, rfl⟩)
-  · intro h x hx
-    rw [← range_chamberOf J] at hx
-    obtain ⟨y, rfl⟩ := hx
-    rw [← chamberOf_parSmul, h]
 
 open _root_.Classical in
 @[expose] noncomputable def betaGroupHom

@@ -387,22 +387,10 @@ end Steps
       ∃ L ∈ lA A c,
         Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2)
 
-@[expose] def Item148Simple (A : Subgroup G) (LB : Subgroup G → Subgroup G) : Prop :=
-  ∀ (Y : Subgroup G) (hY : Y ∈ scriptY A) {K : Type} [Group K], IsSimpleGroup K →
-    (∃ a b : K, a * b ≠ b * a) →
-    (letI := ker148_normal hY.2; Nonempty (↥(img148 A Y (deltaZero A LB Y)) ≃* K)) →
-    IsEmpty (K ≃* alternatingGroup (Fin 5)) → IsEmpty (K ≃* alternatingGroup (Fin 7)) →
-    IsEmpty (K ≃* alternatingGroup (Fin 10)) →
-    (∀ (p f : ℕ) [Fact p.Prime], ¬ IsLThreeEpsAt K p f) →
-    ∃ c' : G, Subgroup.zpowers c' ∈ omegaA A ∧
-      ∃ L' ∈ lA A c', Nonempty (K ≃* ↥L' ⧸ aschbacherSolvableCore 3 ↥L')
 
 @[expose] def Item148SmallS14 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
     Sec14Std G A c L → Item148Small A (lB A)
 
-@[expose] def Item148SimpleS14 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec14Std G A c L → Item148Simple A (lB A)
 
 end CFSG.RankThree.PartTwo.Sec14

@@ -190,12 +190,6 @@ theorem conj_zw_eq {g g' : G} (hgg : conjSub g K = conjSub g' K) :
 
 theorem comm_zw : z * w = w * z := h.commutes_KT z h.hz.mem w h.hw.mem
 
-theorem swap_fixes_zw : ∃ s : G, conjSub s K = T ∧ s * (z * w) * s⁻¹ = z * w := by
-  obtain ⟨s, hsK, -, hsz, hsw⟩ := h.exists_swap
-  refine ⟨s, hsK, ?_⟩
-  calc s * (z * w) * s⁻¹ = (s * z * s⁻¹) * (s * w * s⁻¹) := by group
-    _ = w * z := by rw [hsz, hsw]
-    _ = z * w := h.comm_zw.symm
 
 section Member
 

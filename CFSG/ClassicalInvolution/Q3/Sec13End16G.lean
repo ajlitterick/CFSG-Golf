@@ -100,14 +100,6 @@ private theorem e16g1_dSet_conj (h : EndHyp Ω) {R W : Subgroup G} (hR : R ∈ D
     _ = conjSub x (conjSub (x⁻¹ * y * x) W) := conjSub_mul _ _ _
     _ = conjSub x W := by rw [hN]
 
-private theorem e16g1_eq_of_mem_closure {a b : G} (ha : a * a = 1) (hb1 : b ≠ 1)
-    (hb : b ∈ Subgroup.closure ({a} : Set G)) : b = a := by
-  obtain ⟨k, rfl⟩ := Subgroup.mem_closure_singleton.mp hb
-  have ha2 : a ^ (2 : ℤ) = 1 := by rw [zpow_two, ha]
-  rcases Int.even_or_odd' k with ⟨m, rfl | rfl⟩
-  · rw [zpow_mul, ha2, one_zpow] at hb1
-    exact absurd rfl hb1
-  · rw [zpow_add_one, zpow_mul, ha2, one_zpow, one_mul]
 
 theorem symm (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) : Sit16 Ω K' K W z u e g := by
   have s := c.twin
@@ -187,17 +179,6 @@ theorem conjG (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) (x : G) :
     have h1 : x⁻¹ * (x * e * x⁻¹) * x = e := by group
     rwa [h1] at hmem
 
-theorem exists_conj_of_frame {K₂ K₂' W₂ : Subgroup G} {z₂ u₂ e₂ g₂ : G}
-    (c : Sit16 Ω K K' W z u e g) (c₂ : Sit16 Ω K₂ K₂' W₂ z₂ u₂ e₂ g₂) (h : EndHyp Ω) :
-    ∃ y : G, conjSub y W = W₂ ∧ e₂ = y * e * y⁻¹ := by
-  obtain ⟨y, hy⟩ := wSet_conj h c.data.hW c₂.data.hW
-  refine ⟨y, hy, ?_⟩
-  have hc := (conjG c h y).data.he
-  rw [hy] at hc
-  have hmem : y * e * y⁻¹ ∈ Subgroup.closure ({e₂} : Set G) := by
-    rw [c₂.data.he, ← hc]
-    exact Subgroup.subset_closure (Set.mem_singleton _)
-  exact (e16g1_eq_of_mem_closure c₂.data.he2 (conjG c h y).data.he1 hmem).symm
 
 theorem exists_frame_of_dSet (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) (h9 : Perp9 Ω)
     {W' : Subgroup G} (hW' : W' ∈ WSet Ω) (hKW' : K ∈ DSet Ω W') :
@@ -511,75 +492,6 @@ private theorem e16g2_comm_normalizer (c : Sit16 Ω K K' W z u e g) {x : G}
   rw [show (y : G) = e from hye] at h1
   exact h1
 
-private theorem e16g2_psi_mem {P : Set (Subgroup G)} (I : AEIdent P 6)
-    (ψ : ↥(pSpan P) ≃* ↥(AE.aeSub 6))
-    (hmem : ∀ L ∈ P, ∀ (α : Finset (Fin 6)) (hα : α.card = 4) (b : Bool),
-      (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b →
-      ((L.subgroupOf (pSpan P)).map ψ.toMonoidHom).map (AE.aeSub 6).subtype = AE.memAt α hα b)
-    {L : Subgroup G} (hL : L ∈ P) {α : Finset (Fin 6)} {hα : α.card = 4} {b : Bool}
-    (hLα : (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b)
-    {x : G} (hx : x ∈ pSpan P) (hxL : x ∈ L) : (ψ ⟨x, hx⟩ : AE.Wr 6) ∈ AE.memAt α hα b := by
-  rw [← hmem L hL α hα b hLα]
-  refine Subgroup.mem_map.mpr ⟨ψ ⟨x, hx⟩, Subgroup.mem_map.mpr ⟨⟨x, hx⟩, ?_, rfl⟩, rfl⟩
-  exact Subgroup.mem_subgroupOf.mpr hxL
-
-private theorem e16g2_psi_inv {P : Set (Subgroup G)} (I : AEIdent P 6)
-    (ψ : ↥(pSpan P) ≃* ↥(AE.aeSub 6))
-    (hmem : ∀ L ∈ P, ∀ (α : Finset (Fin 6)) (hα : α.card = 4) (b : Bool),
-      (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b →
-      ((L.subgroupOf (pSpan P)).map ψ.toMonoidHom).map (AE.aeSub 6).subtype = AE.memAt α hα b)
-    {L : Subgroup G} (hL : L ∈ P) {α : Finset (Fin 6)} {hα : α.card = 4} {b : Bool}
-    (hLα : (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b)
-    {r : G} (hr : r ∈ pSpan P) (hLr : IsUniqueInvolution L r) :
-    (ψ ⟨r, hr⟩ : AE.Wr 6) = AE.zOf (AE.emb α hα) := by
-  have hmemS := e16g2_psi_mem I ψ hmem hL hLα hr hLr.mem
-  have hsq : (ψ ⟨r, hr⟩ : AE.Wr 6) * (ψ ⟨r, hr⟩ : AE.Wr 6) = 1 := by
-    have h1 : ψ ⟨r, hr⟩ * ψ ⟨r, hr⟩ = 1 := by
-      rw [← map_mul]
-      have h2 : (⟨r, hr⟩ : pSpan P) * ⟨r, hr⟩ = 1 := Subtype.ext (by simp [hLr.sq])
-      rw [h2, map_one]
-    exact congrArg Subtype.val h1
-  rcases AE.eq_of_mem_memAt_mul_self hmemS hsq with h3 | h3
-  · exfalso
-    have h4 : ψ ⟨r, hr⟩ = 1 := Subtype.ext h3
-    have h5 : (⟨r, hr⟩ : pSpan P) = 1 := ψ.injective (by rw [h4, map_one])
-    exact hLr.ne_one (congrArg Subtype.val h5)
-  · exact h3
-
-private theorem e16g2_mem_centMembers_of_inv (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω)
-    (h9 : Perp9 Ω) {L : Subgroup G} (hL : L ∈ Ω) {t' : G}
-    (ht' : t' = u * e ∨ t' = z * (u * e)) (hLt : IsUniqueInvolution L t') :
-    L ∈ centMembers Ω e := by
-  have hR : ∃ R ∈ DSet Ω W, IsUniqueInvolution R t' := by
-    rcases ht' with rfl | rfl
-    · obtain ⟨hJD, -, -, hJu⟩ := conjSub_mem c h h9
-      exact ⟨conjSub g K, hJD, hJu⟩
-    · obtain ⟨R, hRD, hR⟩ := exists_dSet_zt c h h9
-      exact ⟨R, hRD, hR⟩
-  obtain ⟨R, hRD, hRt⟩ := hR
-  have hLD : L ∈ DSet Ω W := h.twinSet_subset_dSet c.data.hW hRD ⟨hL, t', hRt, hLt⟩
-  exact dSet_subset_centMembers c h hLD
-
-private theorem e16g2_comm_memAt {P : Set (Subgroup G)} (I : AEIdent P 6)
-    (ψ : ↥(pSpan P) ≃* ↥(AE.aeSub 6))
-    (hmem : ∀ L ∈ P, ∀ (α : Finset (Fin 6)) (hα : α.card = 4) (b : Bool),
-      (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b →
-      ((L.subgroupOf (pSpan P)).map ψ.toMonoidHom).map (AE.aeSub 6).subtype = AE.memAt α hα b)
-    {L : Subgroup G} (hL : L ∈ P) {α : Finset (Fin 6)} {hα : α.card = 4} {b : Bool}
-    (hLα : (L.subgroupOf (pSpan P)).map I.φ = AE.memBar α hα b)
-    {x : G} (hx : x ∈ pSpan P) (hcomm : ∀ l ∈ L, x * l = l * x) :
-    ∀ y ∈ AE.memAt α hα b, (ψ ⟨x, hx⟩ : AE.Wr 6) * y = y * (ψ ⟨x, hx⟩ : AE.Wr 6) := by
-  intro y hy
-  rw [← hmem L hL α hα b hLα] at hy
-  obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp hy
-  obtain ⟨a', ha', rfl⟩ := Subgroup.mem_map.mp ha
-  have hl : (a' : G) ∈ L := Subgroup.mem_subgroupOf.mp ha'
-  have hc : x * (a' : G) = (a' : G) * x := hcomm _ hl
-  have h1 : ψ ⟨x, hx⟩ * ψ a' = ψ a' * ψ ⟨x, hx⟩ := by
-    rw [← map_mul, ← map_mul]
-    congr 1
-    exact Subtype.ext hc
-  exact congrArg Subtype.val h1
 
 theorem pSpan_le_centralizer_of_mem_lambdaW
     (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K)
@@ -710,289 +622,10 @@ theorem lambdaW_eq_centralizer (c : Sit16 Ω K K' W z u e g)
     intro x hx
     exact hd.2 x (hMle hx)
 
-theorem eq_of_mem_zSet_of_mem_sup (c : Sit16 Ω K K' W z u e g)
-    (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K) {d : G} (hd : d ∈ zSet Ω)
-    (hdK : d ∈ K ⊔ K') : d = z := by
-  obtain ⟨L0, hL0, hdL0⟩ := hd
-  have s := c.twin
-  have hΩc : ConjInvariant Ω := h.thmD.hyp.conjInvariant
-  have hdD : d ∈ zGroup Ω := Subgroup.subset_closure ⟨L0, hL0, hdL0⟩
-  obtain ⟨I, ψ, hI, -, hmem, ⟨heX, hψe⟩, hψD⟩ := exists_equiv_X c h h9 h13
-  have hKD : K ∈ DSet Ω W := h.mem_dSet_of_mem c.data.hW s.mem s.isInv c.data.hzW
-  have hKP : K ∈ centMembers Ω e := dSet_subset_centMembers c h hKD
-  have hK'D : K' ∈ DSet Ω W := h.mem_dSet_of_mem c.data.hW s.mem_twin.1 s.mem_twin.2 c.data.hzW
-  have hK'P : K' ∈ centMembers Ω e := dSet_subset_centMembers c h hK'D
-  have hzX : z ∈ pSpan (centMembers Ω e) := le_pSpan hKP s.isInv.mem
-  have hdX : d ∈ pSpan (centMembers Ω e) := sup_le (le_pSpan hKP) (le_pSpan hK'P) hdK
-  obtain ⟨αK, hαK, bK, hLK⟩ := I.label K hKP
-  obtain ⟨αK', hαK', bK', hLK'⟩ := I.label K' hK'P
-  have hαeq : αK = αK' := by
-    have h1 := e16g2_psi_inv I ψ hmem hKP hLK hzX s.isInv
-    have h2 := e16g2_psi_inv I ψ hmem hK'P hLK' hzX s.mem_twin.2
-    have h3 := AE.range_eq_of_zOf_eq (h2.symm.trans h1)
-    rw [AE.range_emb, AE.range_emb] at h3
-    exact Finset.coe_injective h3.symm
-  subst hαeq
-  let H : Subgroup G :=
-    { carrier := {x | ∃ hx : x ∈ pSpan (centMembers Ω e),
-        AE.SupportedOn (ψ ⟨x, hx⟩ : AE.Wr 6) (Set.range (AE.emb αK hαK))}
-      mul_mem' := by
-        rintro a b ⟨ha, hsa⟩ ⟨hb, hsb⟩
-        refine ⟨mul_mem ha hb, ?_⟩
-        have hab : (ψ ⟨a * b, mul_mem ha hb⟩ : AE.Wr 6) =
-            (ψ ⟨a, ha⟩ : AE.Wr 6) * (ψ ⟨b, hb⟩ : AE.Wr 6) := by
-          rw [← Subgroup.coe_mul, ← map_mul]
-          rfl
-        rw [hab]
-        exact hsa.mul hsb
-      one_mem' := ⟨one_mem _, by
-        have h1 : (ψ ⟨1, one_mem _⟩ : AE.Wr 6) = 1 := by
-          rw [show (⟨1, one_mem _⟩ : pSpan (centMembers Ω e)) = 1 from rfl, map_one]
-          rfl
-        rw [h1]
-        exact AE.supportedOn_one _⟩
-      inv_mem' := by
-        rintro a ⟨ha, hsa⟩
-        refine ⟨inv_mem ha, ?_⟩
-        have hab : (ψ ⟨a⁻¹, inv_mem ha⟩ : AE.Wr 6) = (ψ ⟨a, ha⟩ : AE.Wr 6)⁻¹ := by
-          rw [show (⟨a⁻¹, inv_mem ha⟩ : pSpan (centMembers Ω e)) = (⟨a, ha⟩)⁻¹ from rfl,
-            map_inv]
-          rfl
-        rw [hab]
-        exact hsa.inv }
-  have hKH : K ≤ H := by
-    intro x hx
-    have hxX : x ∈ pSpan (centMembers Ω e) := le_pSpan hKP hx
-    refine ⟨hxX, ?_⟩
-    exact AE.supportedOn_of_mem_memAt
-      (e16g2_psi_mem I ψ hmem hKP hLK hxX hx)
-  have hK'H : K' ≤ H := by
-    intro x hx
-    have hxX : x ∈ pSpan (centMembers Ω e) := le_pSpan hK'P hx
-    refine ⟨hxX, ?_⟩
-    exact AE.supportedOn_of_mem_memAt
-      (e16g2_psi_mem I ψ hmem hK'P hLK' hxX hx)
-  obtain ⟨-, hdS⟩ : ∃ _ : d ∈ pSpan (centMembers Ω e),
-      AE.SupportedOn (ψ ⟨d, hdX⟩ : AE.Wr 6) (Set.range (AE.emb αK hαK)) :=
-    sup_le hKH hK'H hdK
-  set w : AE.Wr 6 := (ψ ⟨d, hdX⟩ : AE.Wr 6) with hw
-  have hwperm : w.perm = 1 := (hψD ⟨d, hdX⟩).mp hdD
-  have hwsum : ∑ i, w.vec i = 0 := (AE.mem_aeSub.mp (ψ ⟨d, hdX⟩).2).1
-  have hwsq : w * w = 1 := by
-    have h1 : ψ ⟨d, hdX⟩ * ψ ⟨d, hdX⟩ = 1 := by
-      rw [← map_mul]
-      have h2 : (⟨d, hdX⟩ : pSpan (centMembers Ω e)) * ⟨d, hdX⟩ = 1 :=
-        Subtype.ext (by simp [hdL0.sq])
-      rw [h2, map_one]
-    exact congrArg Subtype.val h1
-  have hwne : w ≠ 1 := by
-    intro h1
-    have h2 : ψ ⟨d, hdX⟩ = 1 := Subtype.ext h1
-    have h3 : (⟨d, hdX⟩ : pSpan (centMembers Ω e)) = 1 := ψ.injective (by rw [h2, map_one])
-    exact hdL0.ne_one (congrArg Subtype.val h3)
-  have hwS : ∀ i ∉ Set.range (AE.emb αK hαK), w.vec i = 0 := fun i hi => (hdS i hi).1
-  obtain ⟨S, hS⟩ : ∃ S : Finset (Fin 6), S = Finset.univ.filter (fun i => w.vec i = 1) :=
-    ⟨_, rfl⟩
-  have hmemS : ∀ i, i ∈ S ↔ w.vec i = 1 := by
-    intro i
-    rw [hS, Finset.mem_filter]
-    simp
-  have hZ2 : ∀ x : ZMod 2, x = 0 ∨ x = 1 := by decide
-  have hval : ∀ i, w.vec i = if i ∈ S then 1 else 0 := by
-    intro i
-    rcases hZ2 (w.vec i) with h0 | h1
-    · have hnot : i ∉ S := fun hi => by
-        have := (hmemS i).mp hi
-        rw [h0] at this
-        exact zero_ne_one this
-      rw [if_neg hnot, h0]
-    · rw [if_pos ((hmemS i).mpr h1), h1]
-  have hSsub : S ⊆ αK := by
-    intro i hi
-    by_contra hiα
-    have hi' : i ∉ Set.range (AE.emb αK hαK) := by
-      rw [AE.range_emb]
-      exact_mod_cast hiα
-    have h0 := hwS i hi'
-    have h1 := (hmemS i).mp hi
-    rw [h0] at h1
-    exact zero_ne_one h1
-  have hsumS : ∑ i, w.vec i = (S.card : ZMod 2) := by
-    simp only [hval, Finset.sum_ite_mem, Finset.univ_inter, Finset.sum_const, nsmul_eq_mul,
-      mul_one]
-  have hev : 2 ∣ S.card := by
-    have h1 : ((S.card % 2 : ℕ) : ZMod 2) = 0 := by
-      rw [ZMod.natCast_mod, ← hsumS, hwsum]
-    rcases Nat.mod_two_eq_zero_or_one S.card with h2 | h2
-    · exact Nat.dvd_of_mod_eq_zero h2
-    · rw [h2] at h1
-      exact absurd h1 (by decide)
-  have hSle : S.card ≤ 4 := by
-    have := Finset.card_le_card hSsub
-    rw [hαK] at this
-    exact this
-  have hSpos : S.Nonempty := by
-    by_contra hne
-    rw [Finset.not_nonempty_iff_eq_empty] at hne
-    apply hwne
-    refine AE.Wr.ext (funext fun i => ?_) hwperm
-    rw [hval i, hne]
-    rfl
-  have hSpos' : 0 < S.card := Finset.card_pos.mpr hSpos
-  have hzψ := e16g2_psi_inv I ψ hmem hKP hLK hzX s.isInv
-  have hcard : S.card = 2 ∨ S.card = 4 := by omega
-  rcases hcard with hc2 | hc4
-  ·
-    exfalso
-    obtain ⟨a, b, hab, hS2⟩ := Finset.card_eq_two.mp hc2
-    have hβ : ({a, b} : Finset (Fin 6))ᶜ.card = 4 := by
-      rw [Finset.card_compl, Fintype.card_fin, Finset.card_pair hab]
-    obtain ⟨M, hM, hLM⟩ := I.label_surj _ hβ true
-    have hMΩ : M ∈ Ω := hM.1
-    obtain ⟨rM, hrM⟩ := Sec6Gen.exists_uniqueInvolution h.thmD.hyp hMΩ
-    have hrMX : rM ∈ pSpan (centMembers Ω e) := le_pSpan hM hrM.mem
-    have hrMψ := e16g2_psi_inv I ψ hmem hM hLM hrMX hrM
-    have hedX : e * d ∈ pSpan (centMembers Ω e) := mul_mem heX hdX
-    have hedψ : (ψ ⟨e * d, hedX⟩ : AE.Wr 6) = AE.zOf (AE.emb _ hβ) := by
-      have hsplit : (ψ ⟨e * d, hedX⟩ : AE.Wr 6) = (ψ ⟨e, heX⟩ : AE.Wr 6) * w := by
-        have h1 : ψ ⟨e * d, hedX⟩ = ψ ⟨e, heX⟩ * ψ ⟨d, hdX⟩ := by
-          rw [← map_mul]
-          rfl
-        exact congrArg Subtype.val h1
-      rw [hsplit, hψe]
-      refine AE.Wr.ext (funext fun i => ?_) ?_
-      · rw [AE.Wr.mul_vec, AE.zOf_vec_apply]
-        have h1 : (AE.Wr.allOnes 6).perm.symm i = i := rfl
-        have h2 : (AE.Wr.allOnes 6).vec i = 1 := rfl
-        rw [h1, h2, hval i, hS2]
-        simp only [AE.range_emb, Finset.mem_coe, Finset.mem_compl, Finset.mem_insert,
-          Finset.mem_singleton]
-        by_cases hi : i = a ∨ i = b
-        · simp [hi]
-          decide
-        · simp [hi]
-      · rw [AE.zOf_perm, AE.Wr.mul_perm, hwperm]
-        rfl
-    have hr_eq : rM = e * d := by
-      have h1 : ψ ⟨rM, hrMX⟩ = ψ ⟨e * d, hedX⟩ := Subtype.ext (hrMψ.trans hedψ.symm)
-      exact congrArg Subtype.val (ψ.injective h1)
-    have hMC : M ≤ Subgroup.centralizer ({d} : Set G) := by
-      intro m hm
-      have hmX : m ∈ pSpan (centMembers Ω e) := le_pSpan hM hm
-      have hmsupp : AE.SupportedOn (ψ ⟨m, hmX⟩ : AE.Wr 6) (Set.range (AE.emb _ hβ)) :=
-        AE.supportedOn_of_mem_memAt (e16g2_psi_mem I ψ hmem hM hLM hmX hm)
-      have hwS2 : AE.SupportedOn w (((({a, b} : Finset (Fin 6))) : Set (Fin 6))) := by
-        intro i hi
-        have hi' : i ∉ S := by
-          rw [hS2]
-          exact fun h' => hi (by exact_mod_cast h')
-        refine ⟨?_, ?_⟩
-        · rw [hval i, if_neg hi']
-        · rw [hwperm]
-          rfl
-      have hdisj : Disjoint (Set.range (AE.emb _ hβ))
-          (((({a, b} : Finset (Fin 6))) : Set (Fin 6))) := by
-        rw [AE.range_emb]
-        refine Set.disjoint_left.mpr fun x hx1 hx2 => ?_
-        have hx2' : x ∈ ({a, b} : Finset (Fin 6)) := by exact_mod_cast hx2
-        have hx1' : x ∉ ({a, b} : Finset (Fin 6)) := by
-          intro hh
-          exact (Finset.mem_compl.mp (by exact_mod_cast hx1)) hh
-        exact hx1' hx2'
-      have hcomm := AE.comm_of_disjoint hmsupp hwS2 hdisj
-      have hmd : (⟨m, hmX⟩ : pSpan (centMembers Ω e)) * ⟨d, hdX⟩ =
-          ⟨d, hdX⟩ * ⟨m, hmX⟩ := by
-        apply ψ.injective
-        rw [map_mul, map_mul]
-        exact Subtype.ext hcomm
-      exact Subgroup.mem_centralizer_singleton_iff.mpr (congrArg Subtype.val hmd)
-    have hMd : IsUniqueInvolution M d := h.involution_eq_of_le_centralizer h9 hL0 hMΩ hdL0 hMC
-    have hdr : d = rM := hMd.eq hrM
-    have he_d : e * d = d := hr_eq.symm.trans hdr.symm
-    exact c.data.he1 (mul_right_cancel (he_d.trans (one_mul d).symm))
-  ·
-    have hSeq : S = αK := Finset.eq_of_subset_of_card_le hSsub (by rw [hc4, hαK])
-    have hwz : w = AE.zOf (AE.emb αK hαK) := by
-      refine AE.Wr.ext (funext fun i => ?_) ?_
-      · rw [hval i, AE.zOf_vec_apply]
-        simp [AE.range_emb, hSeq]
-      · rw [AE.zOf_perm]
-        exact hwperm
-    have h1 : ψ ⟨d, hdX⟩ = ψ ⟨z, hzX⟩ := Subtype.ext (hwz.trans hzψ.symm)
-    exact congrArg Subtype.val (ψ.injective h1)
-
-theorem not_mem_sup_of_omegaStarNbr (c : Sit16 Ω K K' W z u e g)
-    (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K) {J' : Subgroup G}
-    (hJ' : J' ∈ omegaStarNbr Ω K) (hJ't : J' ∉ twinSet Ω K) {t : G}
-    (ht : IsUniqueInvolution J' t) : t ∉ K ⊔ K' := by
-  intro htK
-  have htz : t ∈ zSet Ω := ⟨J', hJ'.1, ht⟩
-  have htz' : t = z := eq_of_mem_zSet_of_mem_sup c h h9 h13 htz htK
-  apply hJ't
-  refine ⟨hJ'.1, z, c.twin.isInv, ?_⟩
-  rw [htz'] at ht
-  exact ht
 
 @[expose] def centres (Ω : Set (Subgroup G)) (K K' : Subgroup G) (z : G) : Set G :=
   {e' | ∃ (W' : Subgroup G) (u' g' : G), Sit16 Ω K K' W' z u' e' g'}
 
-theorem eq_of_frames_same_line (c : Sit16 Ω K K' W z u e g)
-    (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K) {W₂ : Subgroup G}
-    {u₂ e₂ g₂ : G} (c₂ : Sit16 Ω K K' W₂ z u₂ e₂ g₂) {J₁ J₂ : Subgroup G} {r₁ r₂ : G}
-    (hJ₁ : J₁ ∈ DSet Ω W) (hJ₂ : J₂ ∈ DSet Ω W₂) (hr₁ : IsUniqueInvolution J₁ r₁)
-    (hr₂ : IsUniqueInvolution J₂ r₂) (hr₁z : r₁ ≠ z) (hline : r₂ = r₁ ∨ r₂ = z * r₁) : e₂ = e := by
-  have s := c.twin
-  have hzsq : z * z = 1 := s.isInv.sq
-  have hr₂z : r₂ ≠ z := by
-    rcases hline with rfl | rfl
-    · exact hr₁z
-    · intro hh
-      apply hr₁.ne_one
-      have h1 : z⁻¹ * (z * r₁) = z⁻¹ * z := by rw [hh]
-      simpa using h1
-  have hr₁t : r₁ = u * e ∨ r₁ = z * (u * e) := by
-    rcases zValues c h h9 J₁ hJ₁ r₁ hr₁ with h1 | h1 | h1
-    · exact absurd h1 hr₁z
-    · exact Or.inl h1
-    · exact Or.inr h1
-  have hr₂t : r₂ = u * e ∨ r₂ = z * (u * e) := by
-    rcases hline with rfl | rfl
-    · exact hr₁t
-    · rcases hr₁t with h1 | h1
-      · exact Or.inr (by rw [h1])
-      · exact Or.inl (by rw [h1, ← mul_assoc, hzsq, one_mul])
-  have hr₂u : u₂ * e₂ = u * e ∨ u₂ * e₂ = z * (u * e) := by
-    rcases zValues c₂ h h9 J₂ hJ₂ r₂ hr₂ with h1 | h1 | h1
-    · exact absurd h1 hr₂z
-    · rw [← h1]
-      exact hr₂t
-    · have h2 : u₂ * e₂ = z * r₂ := by rw [h1, ← mul_assoc, hzsq, one_mul]
-      rcases hr₂t with h3 | h3
-      · exact Or.inr (by rw [h2, h3])
-      · exact Or.inl (by rw [h2, h3, ← mul_assoc, hzsq, one_mul])
-  have hKP : K ∈ centMembers Ω e :=
-    dSet_subset_centMembers c h (h.mem_dSet_of_mem c.data.hW s.mem s.isInv c.data.hzW)
-  have hK'P : K' ∈ centMembers Ω e :=
-    dSet_subset_centMembers c h
-      (h.mem_dSet_of_mem c.data.hW s.mem_twin.1 s.mem_twin.2 c.data.hzW)
-  refine eq_of_dSet_subset_centMembers c c₂ h h9 h13 ?_
-  intro R hR
-  have hRΩ : R ∈ Ω := (h.mem_dSet_iff.mp hR).1
-  obtain ⟨r, hr⟩ := Sec6Gen.exists_uniqueInvolution h.thmD.hyp hRΩ
-  rcases zValues c₂ h h9 R hR r hr with h1 | h1 | h1
-  ·
-    have hRz : IsUniqueInvolution R z := h1 ▸ hr
-    have hR' : R ∈ twinSet Ω K := ⟨hRΩ, z, s.isInv, hRz⟩
-    rw [s.twin] at hR'
-    rcases hR' with rfl | rfl
-    · exact hKP
-    · exact hK'P
-  · exact e16g2_mem_centMembers_of_inv c h h9 hRΩ hr₂u (h1 ▸ hr)
-  · have hrt : r = u * e ∨ r = z * (u * e) := by
-      rcases hr₂u with h2 | h2
-      · exact Or.inr (by rw [h1, h2])
-      · exact Or.inl (by rw [h1, h2, ← mul_assoc, hzsq, one_mul])
-    exact e16g2_mem_centMembers_of_inv c h h9 hRΩ hrt hr
 
 theorem two_le_ncard_centres (c : Sit16 Ω K K' W z u e g)
     (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K) :
@@ -1072,31 +705,6 @@ private theorem e16ge_ofVec_mul (u w : Fin n → ZMod 2) : ofVec u * ofVec w = o
   · rfl
   · simp [ofVec, mul_perm]
 
-private theorem e16ge_ofPerm_conj_ofVec (σ : Equiv.Perm (Fin n)) (w : Fin n → ZMod 2) :
-    ofPerm σ * ofVec w * (ofPerm σ)⁻¹ = ofVec (fun x => w (σ.symm x)) := by
-  refine Wr.ext (funext fun x => ?_) ?_
-  · rw [ofPerm_conj_vec]
-    rfl
-  · simp [ofPerm, ofVec, inv_perm, mul_perm]
-
-private theorem e16ge_conj_embedVec (ι : Fin 4 ↪ Fin n) {σ : Equiv.Perm (Fin n)}
-    {τ : Equiv.Perm (Fin 4)} (hσ : ∀ i, σ (ι i) = ι (τ i)) (v : Fin 4 → ZMod 2) :
-    ofPerm σ * ofVec (embedVec ι v) * (ofPerm σ)⁻¹ = ofVec (embedVec ι (v ∘ τ.symm)) := by
-  rw [e16ge_ofPerm_conj_ofVec]
-  congr 1
-  funext x
-  by_cases hx : x ∈ Set.range ι
-  · obtain ⟨i, rfl⟩ := hx
-    have h1 : σ.symm (ι i) = ι (τ.symm i) := by
-      rw [Equiv.symm_apply_eq, hσ, Equiv.apply_symm_apply]
-    rw [h1, embedVec_apply, embedVec_apply]
-    rfl
-  · have hx' : σ.symm x ∉ Set.range ι := by
-      rintro ⟨j, hj⟩
-      apply hx
-      refine ⟨τ j, ?_⟩
-      rw [← hσ, hj, Equiv.apply_symm_apply]
-    rw [embedVec_of_not_mem ι _ hx', embedVec_of_not_mem ι _ hx]
 
 private theorem e16ge_zOf_eq (ι : Fin 4 ↪ Fin n) : zOf ι = ofVec (embedVec ι (fun _ => 1)) := by
   refine Wr.ext (funext fun x => ?_) ?_
@@ -1145,7 +753,6 @@ private theorem e16ge_perm_extend (ι : Fin 4 ↪ Fin n) (hn : n = 6) (τ : Equi
       norm_num
 
 
-
 private theorem e16ge_memAt_invol {n : ℕ} (α : Finset (Fin n)) (hα : α.card = 4) (b : Bool)
     {a : Wr n}
     (ha : a ∈ memAt α hα b) (hsq : a * a = 1) (hne : a ≠ 1) : a = zOf (emb α hα) := by
@@ -1156,7 +763,6 @@ private theorem e16ge_memAt_invol {n : ℕ} (α : Finset (Fin n)) (hα : α.card
   · rcases eq_of_mem_memK_mul_self (emb α hα) a ha hsq with h1 | h1
     · exact absurd h1 hne
     · exact h1
-
 
 
 private theorem e16ge_embedVec_add {n : ℕ} (ι : Fin 4 ↪ Fin n) (u w : Fin 4 → ZMod 2) :
@@ -1212,7 +818,6 @@ private theorem e16ge_E4_cases : ∀ v : Fin 4 → ZMod 2, (∑ i, v i) = 0 →
       v = ![1, 0, 1, 0] + 1 ∨ v = ![1, 1, 0, 0] + ![1, 0, 1, 0] ∨
       v = ![1, 1, 0, 0] + ![1, 0, 1, 0] + 1 := by
   decide +kernel
-
 
 
 private theorem e16ge_comb : ∀ w₁ w₂ : Fin 4 → ZMod 2,

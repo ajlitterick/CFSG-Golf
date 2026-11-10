@@ -111,9 +111,6 @@ theorem spanArr_nodup (S : List ℕ) (hS : ∀ x ∈ S, x < 64) :
     (spanArr S).toList.Nodup :=
   (spanArr_spanInv S hS).1
 
-theorem spanArr_closed (S : List ℕ) (hS : ∀ x ∈ S, x < 64) :
-    ∀ a ∈ (spanArr S).toList, ∀ b ∈ (spanArr S).toList, a ^^^ b ∈ (spanArr S).toList :=
-  (spanArr_spanInv S hS).2.1
 
 theorem spanArr_lt (S : List ℕ) (hS : ∀ x ∈ S, x < 64) :
     ∀ b ∈ (spanArr S).toList, b < 64 :=

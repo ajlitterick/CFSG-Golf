@@ -889,35 +889,6 @@ theorem GGSecFiveBPermOmKFrame.normPerm_swap_mem_ggBlockComm
   rw [hblock']
   exact hmem
 
-theorem GGSecFiveBPermOmKFrame.blockComm_commute_normPerm
-    {G : Type} [Group G] [Finite G]
-    {F K : Type} [Field F] [Field K] [Algebra F K] [Finite K] [CharP K 2]
-    {E : QuadExt F K (unitaryInvolution K 2 1)} (hF : Nat.card F = 2)
-    {B Bs L D J : Subgroup G} {x : G} {n r : ℕ} (hr : 3 ≤ r)
-    (hcfg : GGConfig 3 B Bs x L D J)
-    (hZ : Subgroup.center L = ⊥)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {eta : ↥Bs ≃* (Fin n → Multiplicative (ZMod 3))} {i0 : Fin n}
-    (hLeta : (ggAutomizer L Bs).map (MulAut.congr eta).toMonoidHom =
-      bCoordinateBlock n 3 i0)
-    {π : Fin (r + 1) ≃ Fin n} (hpi : π (Fin.last r) = i0)
-    {κ : normOmega E r →* G} {χ : Multiplicative (ZMod 3) →* Kˣ}
-    (hframe : GGSecFiveBPermOmKFrame E Bs L eta π κ χ)
-    {i j : Fin r} (hij : i ≠ j) (σ : Equiv.Perm (Fin r)) (hi : σ i = i) (hj : σ j = j) :
-    ∀ x ∈ ggBlockComm Bs eta
-        ((fun k : Fin r => π k.castSucc) '' (({i, j} : Finset (Fin r)) : Set (Fin r))),
-      κ (normPerm E hr σ) * x = x * κ (normPerm E hr σ) := by
-  intro x hx
-  have hS : ({i, j} : Finset (Fin r)).card = 1 ∨ ({i, j} : Finset (Fin r)).card = 2 :=
-    Or.inr (by simp [hij])
-  have hblock := GGSecFiveBPermOmKFrame.blockComm
-    (hF := hF) (hr := hr) (hcfg := hcfg) (hZ := hZ) (hN := hN)
-    (hLeta := hLeta) (hpi := hpi) (hframe := hframe) (S := {i, j}) (hS := hS)
-  have hx' : x ∈ (normBlock E r {i, j}).map κ := by
-    simpa only [hblock] using hx
-  obtain ⟨m, hm, rfl⟩ := Subgroup.mem_map.mp hx'
-  have hcomm := normPerm_commute_normBlock_pair E hr hij σ ⟨m, hm⟩ hi hj
-  simpa [map_mul] using congrArg κ hcomm
 
 end PermutationAction
 

@@ -44,20 +44,12 @@ theorem p0_length : p0Lit.length = 32 := by decide +kernel
 @[expose] def cosetCheck (E reps repsInv gens : List (List Nat)) : Bool :=
   reps.all fun r => gens.all fun g => repsInv.any fun rinv => E.contains (cmul (cmul r g) rinv)
 
-@[expose] def invListCheck (l inv : List (List Nat)) : Bool :=
-  (l.length == inv.length) && (l.zip inv).all fun p => cmul p.1 p.2 == cid
 
 theorem aut_cosets : cosetCheck pslLit autReps autRepsInv autGenC = true := by decide +kernel
 
-theorem aut_repsInv : invListCheck autReps autRepsInv = true := by decide +kernel
-
-theorem aut_reps_one : autReps.contains cid = true := by decide +kernel
 
 theorem s6_cosets : cosetCheck pslLit s6Reps s6RepsInv s6GenC = true := by decide +kernel
 
-theorem s6_repsInv : invListCheck s6Reps s6RepsInv = true := by decide +kernel
-
-theorem s6_reps_one : s6Reps.contains cid = true := by decide +kernel
 
 @[expose] def autL : List (List Nat) := pslLit.flatMap fun y => autReps.map (cmul y)
 

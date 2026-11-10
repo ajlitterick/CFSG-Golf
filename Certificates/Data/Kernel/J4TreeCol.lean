@@ -110,24 +110,9 @@ structure Mats where
   wv.foldl (fun Ms ce => strictL (eltJ G ce) fun b => Ms ++ smapK (fun x => mulJ G.c G.rm x b) Ms)
     [G.one]
 
-@[expose] noncomputable def elimJ (G : Mats) (X t b : Nat) : Nat :=
-  Nat.xor X (Nat.land
-    (Nat.mul (Nat.land (Nat.land (Nat.div X b) G.c)
-      (Nat.xor G.c (Nat.shiftLeft 1 (Nat.mul t 128)))) G.rm)
-    (Nat.mul (rowJ G.rm X t) G.c))
 
 @[expose] noncomputable def lowBitJ (v : Nat) : Nat := Nat.land v (Nat.xor v (Nat.sub v 1))
 
-@[expose] noncomputable def gjRank (G : Mats) (X : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ rk => rk)
-    (fun t ih X rk => strictN (rowJ G.rm X t) fun v =>
-      Bool.rec (motive := fun _ => Nat)
-        (strictN (elimJ G X t (lowBitJ v)) fun X' => ih X' (Nat.succ rk))
-        (ih X rk) (Nat.beq v 0))
-    112 X 0
-
-@[expose] noncomputable def pairMat (G : Mats) (Ms : List Nat) (i j : Nat) : Nat :=
-  Nat.xor (Nat.xor (Nat.xor (getN 0 Ms (Nat.xor i j)) (getN 0 Ms i)) (getN 0 Ms j)) G.one
 
 @[expose] noncomputable def symJ (G : Mats) (R : List Nat) (nr s : Nat) : Nat :=
   if s ≤ 5 then getN G.one G.g5 (s - 1) else if s ≤ 10 then getN G.one G.g5i (s - 6)
@@ -169,14 +154,6 @@ structure Mats where
         (let R := rulesJ G D.rules [] 0
          normMatsOK G (G.us ++ G.ks) (matsOf G wv) D n oL (seqJ G R D.rules.length 4096 D.seq G.one))
 
-@[expose] noncomputable def pairsOK (G : Mats) (D : CRec) (t0 cnt : Nat) : Bool :=
-  let wv := treeWv D.k
-  let n := 2 ^ wv.length
-  let Ms := matsOf G wv
-  D.mode == 1 && (List.range n).all fun i => (List.range (n - i)).all fun d =>
-    let t := pIdx n i (i + d)
-    !(Nat.ble t0 t && Nat.blt t (t0 + cnt)) ||
-      Nat.beq (fld D.qp 7 t + gjRank G (pairMat G Ms i (i + d))) 112
 
 end CFSG.KC.J4TreeCol
 

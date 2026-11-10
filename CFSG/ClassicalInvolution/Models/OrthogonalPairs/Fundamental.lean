@@ -172,39 +172,6 @@ theorem La_mem_swap_range_iff (F : Frame Q) (A : SL(2, K)) :
 theorem prodHom_apply (F : Frame Q) (A B : SL(2, K)) : F.prodHom (A, B) = F.La A * F.swap.La B :=
   rfl
 
-theorem prodHom_eq_one_iff (F : Frame Q) (A B : SL(2, K)) :
-    F.prodHom (A, B) = 1 ↔ (A = 1 ∧ B = 1) ∨ (A = -1 ∧ B = -1) := by
-  constructor
-  · intro h
-    rw [prodHom_apply] at h
-    have h1 : F.La A = F.swap.La B⁻¹ := by
-      rw [map_inv]
-      exact eq_inv_of_mul_eq_one_left h
-    have h2 : F.La A ∈ F.swap.La.range := ⟨B⁻¹, h1.symm⟩
-    rcases (La_mem_swap_range_iff F A).mp h2 with rfl | rfl
-    · left
-      refine ⟨rfl, ?_⟩
-      rw [map_one, one_mul] at h
-      exact F.swap.La_injective (h.trans F.swap.La.map_one.symm)
-    · right
-      refine ⟨rfl, ?_⟩
-      rw [← La_swap_neg_one F, ← map_mul] at h
-      have h3 : (-1 : SL(2, K)) * B = 1 := F.swap.La_injective (h.trans F.swap.La.map_one.symm)
-      rw [neg_one_mul, neg_eq_iff_eq_neg] at h3
-      exact h3
-  · rintro (⟨rfl, rfl⟩ | ⟨rfl, rfl⟩)
-    · simp [prodHom_apply]
-    · rw [prodHom_apply, ← La_swap_neg_one F, ← map_mul, neg_mul_neg, one_mul, map_one]
-
-theorem range_prodHom (F : Frame Q) : F.prodHom.range = F.La.range ⊔ F.swap.La.range := by
-  refine le_antisymm ?_ ?_
-  · rintro _ ⟨⟨A, B⟩, rfl⟩
-    exact Subgroup.mul_mem _ (Subgroup.mem_sup_left ⟨A, rfl⟩) (Subgroup.mem_sup_right ⟨B, rfl⟩)
-  · refine sup_le ?_ ?_
-    · rintro _ ⟨A, rfl⟩
-      exact ⟨(A, 1), by simp [prodHom_apply]⟩
-    · rintro _ ⟨B, rfl⟩
-      exact ⟨(1, B), by simp [prodHom_apply]⟩
 
 end Frame
 

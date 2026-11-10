@@ -300,11 +300,6 @@ theorem c5_add_right (s : E) (u u' : F) : c.c5 s (u + u') = c.c5 s u * c.c5 s u'
   rw [c5, c.x6_add]
   exact cxy_mul_right S (c.x1_mem s) (c.x6_mem u) (c.x6_mem u')
 
-theorem c5_zero_right (s : E) : c.c5 s 0 = 1 := by
-  rw [c5, cxy, c.x6_zero, commutatorElement_one_right]
-  refine comp5_eq S ⟨Subgroup.one_mem _, Subgroup.one_mem _⟩ (Subgroup.one_mem _) ?_
-  rw [inv_one, mul_one]
-  exact Subgroup.one_mem _
 
 theorem c5_mem (s : E) (u : F) : c.c5 s u ∈ shortRoot R P' ⁅A₀, P⁆ A :=
   (cxy_spec S (c.x1_mem s) (c.x6_mem u)).1
@@ -444,12 +439,6 @@ theorem Setup.exists_coords (S : Setup R A A₀ P P') :
       hφU := hU
       hφL := hL }
 
-theorem Setup.exists_pow (S : Setup R A A₀ P P') :
-    ∃ k : ℕ, (linesThrough R A).ncard - 1 = Nat.card A ^ k := by
-  obtain ⟨n, m, hn, hm, hq, hl, ⟨c⟩⟩ := S.exists_coords
-  obtain ⟨k, hk⟩ := c.exists_card_eq_pow
-  rw [GaloisField.card 2 m (by omega), GaloisField.card 2 n (by omega)] at hk
-  exact ⟨k, by rw [hl, hq, Nat.add_sub_cancel, hk]⟩
 
 end CaseH
 

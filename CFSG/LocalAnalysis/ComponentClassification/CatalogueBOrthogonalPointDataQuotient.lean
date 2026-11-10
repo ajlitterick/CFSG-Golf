@@ -61,10 +61,5 @@ theorem projectivePointAction_mk_submodule (Q : QuadraticForm K (Fin d → K))
       L.val.map (matrixLinearEquiv A.val).toLinearMap := by
   rw [projectivePointAction_mk, derivedPointAction_submodule]
 
-theorem projectivePointAction_range_le_similarity (Q : QuadraticForm K (Fin d → K)) :
-    (projectivePointAction Q).range ≤ (similarityPointAction Q).range := by
-  rintro phi ⟨g, rfl⟩
-  obtain ⟨A, rfl⟩ := matrixProjectiveProjection_surjective Q g
-  exact ⟨matrixDerivedInclusion Q A, (projectivePointAction_mk Q A).symm⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

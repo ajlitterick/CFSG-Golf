@@ -24,13 +24,6 @@ section Components
     thetaAlpha 3 ((Sec4.autThetaQuot A K).subgroupOf
       (Sec4.autThetaQuot (Subgroup.centralizer ({a} : Set G)) K)) ≠ ⊥}
 
-theorem mem_lA422_iff {G : Type*} [Group G] [Finite G] {A K : Subgroup G} {a : G} :
-    K ∈ lA422 A a ↔ K ∈ thetaComponentsAt 3 a ∧ A ≤ Subgroup.normalizer (K : Set G) ∧
-      Late.sectionCentralizer A K ((aschbacherSolvableCore 3 K).map K.subtype) =
-        (Subgroup.zpowers a : Set G) ∧
-      thetaAlpha 3 ((Sec4.autThetaQuot A K).subgroupOf
-        (Sec4.autThetaQuot (Subgroup.centralizer ({a} : Set G)) K)) ≠ ⊥ :=
-  Iff.rfl
 
 theorem mem_lA_of_mem_lA422 {G : Type} [Group G] [Finite G] {A K : Subgroup G} {a : G}
     (hAa : A ≤ Subgroup.centralizer ({a} : Set G)) (hK : K ∈ lA422 A a) : K ∈ lA A a :=
@@ -242,67 +235,6 @@ theorem Sec12Std.inf_thetaQuotCentralizer_eq {A L : Subgroup G} {c : G} (h : Sec
     rw [hAA, hAL, hZ] at h1
     norm_num at h1
 
-theorem Sec12Std.toSec12StdBar {A L : Subgroup G} {c : G} (h : Sec12Std G A c L)
-    (hZ : Nat.card (Subgroup.center (L ⧸ aschbacherSolvableCore 3 L)) = 3)
-    (hAL : Nat.card (A ⊓ L : Subgroup G) = 9) : Sec12StdBar G A c L := by
-  have heq := h.inf_thetaQuotCentralizer_eq hZ hAL
-  exact
-    { h.toPartTwoStanding with
-      partTwoF_eq := h.partTwoF_eq
-      isE27 := h.isE27
-      mem_A := h.mem_A
-      ne_one := h.ne_one
-      mem_thetaComponentsAt := h.mem_thetaComponentsAt
-      mem_L := h.mem_L
-      card_B := by rw [heq]; exact h.card_B
-      sup_eq := by rw [heq]; exact h.sup_eq
-      exists_sylow := by rw [heq]; exact h.exists_sylow }
-
-theorem item128_of_item128BarAt (h128 : Item128BarAt) (h122 : Item122) (h422 : Sec4.Item4_22)
-    (h45 : Sec4.Item4_5) : Item128 := by
-  intro G _ _ A c L h
-  by_cases hAT : A ∈ partTwoT G
-  · exact Or.inl hAT
-  right
-  have hty := h122 G A c L h.toSec12Std
-  have hZ := card_center_thetaQuot_eq_three_of_item122 h122 h.toSec12Std
-  have hAL := h.toSec12Std.card_inf_eq_nine h122
-  have hbar := h.toSec12Std.toSec12StdBar hZ hAL
-  have heq := h.toSec12Std.inf_thetaQuotCentralizer_eq hZ hAL
-  have hAE := h.mem_partTwoE
-  by_cases hΩ : ∃ a : G, Subgroup.zpowers a ∈ omegaA A
-  · right
-    obtain ⟨a, ha⟩ := hΩ
-    obtain ⟨L₀, hL₀, hA6, haL₀, ha1, K, hK, hHJ, hKa⟩ :=
-      exists_of_item128BarAt h128 h422 h45 hbar hAE hAT hty ha
-    refine ⟨L₀, hL₀, hA6, a, ⟨haL₀.1, fun x hx => ?_⟩, ha1, K, hK, hHJ, ha, hKa⟩
-    obtain ⟨-, hθ⟩ := Sec6.mem_thetaQuotCentralizer_iff.mp haL₀.2
-    have h1 := Sec13.conj_mem_inSubgroup_theta hx (hθ x hx)
-    have e : x * (x⁻¹ * (a * x * a⁻¹)) * x⁻¹ = a * x * a⁻¹ * x⁻¹ := by group
-    rw [e] at h1
-    exact h1
-  · left
-    push Not at hΩ
-    have hAab := hAE.1
-    have h27 := hAE.2.1
-    have hstar : ∀ a ∈ A, a ≠ 1 → StarConditionAt A a := by
-      intro a ha ha1
-      by_contra hs
-      exact hΩ a (zpowers_mem_omegaA_iff.mpr ⟨ha, Sec13.card_zpowers_eq_three hAab ha ha1, hs⟩)
-    obtain ⟨hsolv, hindep, -⟩ :=
-      CFSG.RankThree.Theta.part_two_solvable_local_quotient_alpha_criterion A hAab h27 hstar
-    have hB9 := h.card_B
-    have hBA : A ⊓ Subgroup.centralizer (L : Set G) ≤ A := inf_le_left
-    refine ⟨fun D hDA hD9 => hindep D _ hDA hD9 hBA hB9, ?_⟩
-    obtain ⟨hs, hcop⟩ := hsolv _ hBA hB9
-    have hcore := solvable_prime_complement_core_characterization
-      (H := thetaAlpha 3 (A ⊓ Subgroup.centralizer (L : Set G))) Nat.prime_three
-    refine eq_top_iff.mpr (hcore.2.2.2.1 ⊤ Subgroup.normal_top ?_ ?_)
-    · exact Group.isSolvable_of_surjective (f := (Subgroup.topEquiv :
-        (⊤ : Subgroup (thetaAlpha 3 (A ⊓ Subgroup.centralizer (L : Set G)))) ≃* _).symm.toMonoidHom)
-        (MulEquiv.surjective _)
-    · rw [Subgroup.card_top]
-      exact (Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mp hcop
 
 end Proofs
 

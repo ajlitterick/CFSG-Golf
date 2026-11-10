@@ -225,16 +225,6 @@ theorem not_isFOneModule
   have h' : rkIdx (fixV A) ≤ rk ↥A + 1 := hoff
   omega
 
-theorem alphaH_eq_one
-    {X : Subgroup (MulAut (PairMod (Fin 4) (ZMod 2)))}
-    (hXN : X ≤ pairNormA7 α) : alphaH X = 1 :=
-  alphaH_eq_one_of_not_isFOneModule (not_isFOneModule α hXN)
-
-theorem not_isFFModule
-    {X : Subgroup (MulAut (PairMod (Fin 4) (ZMod 2)))}
-    (hXN : X ≤ pairNormA7 α) : ¬ IsFFModule X :=
-  not_isFFModule_of_not_isFOneModule (IsPGroup.of_card card_pairMod_four)
-    (not_isFOneModule α hXN)
 
 theorem H8_A7Pair_alpha
     {V : Type*} [CommGroup V] [Finite V] {H M : Subgroup (MulAut V)}

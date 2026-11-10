@@ -102,11 +102,6 @@ theorem blockHom_mem_statedSp (i : Fin r) (A : SpecialLinearGroup (Fin 2) k) :
     (Sum.inl_ne_inr : (Sum.inl i : Fin r ⊕ Fin r) ≠ Sum.inr i)).codRestrict (StatedSp r k)
     (blockHom_mem_statedSp i)
 
-theorem coe_longSL (i : Fin r) (A : SpecialLinearGroup (Fin 2) k) :
-    (((longSL i A : StatedSp r k) : GL (Fin r ⊕ Fin r) k) :
-        Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) k) =
-      LieType.Steinberg.Sp.blockMat (Sum.inl i) (Sum.inr i) (A : Matrix (Fin 2) (Fin 2) k) :=
-  rfl
 
 end LongSL
 

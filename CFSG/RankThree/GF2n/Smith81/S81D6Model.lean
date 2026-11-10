@@ -22,16 +22,6 @@ variable
   {φ₀ : Lgen M (LB M Q B) →* (Module.End K (W K))ˣ}
   {ψ₀ : ↥Q ⧸ Z.subgroupOf Q ≃* Multiplicative (W K)}
 
-@[expose] def E4LinearHyp (ψ₀ : ↥Q ⧸ Z.subgroupOf Q ≃* Multiplicative (W K))
-    (ψ : M₀.E ≃ₗ[K] W K) : Prop :=
-  ∀ (x : G) (hx : x ∈ Q), ψ (M₀.π x) = Multiplicative.toAdd (ψ₀ (QuotientGroup.mk ⟨x, hx⟩))
-
-@[expose] def E4WeightHyp (φ₀ : Lgen M (LB M Q B) →* (Module.End K (W K))ˣ)
-    (ψ : M₀.E ≃ₗ[K] W K) : Prop :=
-  ∀ A : Subgroup G, IsZConjugate Z A → A ≤ Q → A ≠ Z → ∃ g ∈ EAut0 K,
-    (fun a : G => ψ (M₀.π a)) '' (A : Set G) = (Submodule.span K {g (p0 K)} : Set (W K)) ∧
-    ∀ u ∈ conjSub g (rootRad0 K), ∃ t : Lgen M (LB M Q B), (t : G) ∈ QB A ∧
-      ((vAut0 K).toMonoidHom.comp φ₀) t = u
 
 end ToUniform
 

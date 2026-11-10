@@ -11,7 +11,6 @@ namespace CFSG.KS.ListSlices
 
 open CFSG.KC
 
-theorem lnth_nil {α : Type} (d : α) (j : Nat) : lnth d [] j = d := rfl
 
 theorem lnth_cons_zero {α : Type} (d a : α) (l : List α) : lnth d (a :: l) 0 = a := rfl
 

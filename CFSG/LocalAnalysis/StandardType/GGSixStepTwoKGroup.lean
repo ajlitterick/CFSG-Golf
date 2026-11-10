@@ -86,9 +86,6 @@ abbrev GGHypQuot (H : Subgroup W) : Type := ↥H ⧸ CFSG.pCore 2 ↥H
 
 end HypDefs
 
-@[expose] def GGKGroupFusionLegacyUnrestrictedInput : Prop :=
-  ∀ (W : Type) [Group W] [Finite W] (p : ℕ) (H E : Subgroup W),
-    GGHypThreeSixteen p H E → H = ⊤ ∨ GGFusionException p H E
 
 section AutK
 
@@ -117,49 +114,6 @@ end AutK
 
 section Inputs
 
-@[expose] def GGStepTwoAutKInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-    ¬ GGStepTwoLinearType p t f →
-      ∀ (b : G) (L₁ : Subgroup G), GGStepTwoPair p B Bs x L D J b L₁ →
-      ∀ K : Subgroup G, IsComponentOf K (Subgroup.centralizer {b}) → L₁ ≤ K →
-        ¬ K ≤ ggM p B x L D J →
-        ∃ m ∈ ggM p B x L D J,
-          D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} ∧
-          ∃ (W' : Type) (_ : Group W') (_ : Finite W') (π : ↥(ggAutKW D K m) →* W'),
-            Function.Surjective π ∧
-            π.ker ≤ (ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m) ∧
-            GGHypThreeSixteen p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π) ∧
-            ¬ GGFusionException p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π)
-
-theorem ggStepTwoComponentInput_of_kgroup (hKF : GGKGroupFusionLegacyUnrestrictedInput)
-    (hV : GGStepTwoAutKInput) : GGStepTwoComponentInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK
-  by_contra hKM
-  obtain ⟨m, hm, -, W', _, _, π, -, hker, hhyp, hexc⟩ :=
-    hV G p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM
-  rcases hKF W' p _ _ hhyp with htop | hex
-  · apply hKM
-    obtain ⟨⟨hBBs, -, -⟩, ⟨⟨hDB, -⟩, -⟩, -, -, -, ⟨hBsM, -⟩, -⟩ := hctx.2
-    have hEM : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ ggM p B x L D J := by
-      rintro _ ⟨d, hd, rfl⟩
-      have h' := (ggM p B x L D J).mul_mem ((ggM p B x L D J).mul_mem
-        ((ggM p B x L D J).inv_mem hm) (hBsM (hBBs (hDB hd)))) hm
-      simpa [MulAut.conj_apply] using h'
-    exact (le_sup_right.trans (ggAutK_le_of_map_eq_top π hker htop)).trans
-      (sup_le hEM inf_le_right)
-  · exact hexc hex
-
-theorem ggSixStepTwoV2Input_of_kgroup (hfus : GGStepTwoBstarFusionInput)
-    (hA : GGStepTwoLinearFusionInput) (h314 : GGLemmaThreeFourteenInput)
-    (hKF : GGKGroupFusionLegacyUnrestrictedInput) (hV : GGStepTwoAutKInput) (h615 : GGStepTwoCentralizerInput) :
-    GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_split hfus hA h314 (ggStepTwoComponentInput_of_kgroup hKF hV) h615
 
 end Inputs
 

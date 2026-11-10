@@ -12,10 +12,6 @@ namespace L14328
 
 variable {G : Type} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem conjAct_coe {V : Subgroup G} (c : ↥(Subgroup.normalizer (V : Set G))) (v : ↥V) :
-    ((conjAct V c v : ↥V) : G) = c * v * (c : G)⁻¹ :=
-  Subgroup.normalizerMonoidHom_apply_apply_coe V (Subgroup.inclusion le_rfl c) v
 
 theorem mem_normalizer_of_maps {X : Subgroup G} {c : G} (h : ∀ w ∈ X, c * w * c⁻¹ ∈ X) :
     c ∈ Subgroup.normalizer (X : Set G) := by
@@ -124,45 +120,6 @@ theorem a_V : g⁻¹ * z * g ∈ V := C.plane.1.1 C.a_mem
 
 @[expose] def zz : ↥V := ⟨z, C.z_V⟩
 
-@[expose] def aa : ↥V := ⟨g⁻¹ * z * g, C.a_V⟩
-
-@[expose] def bb : ↥V := ⟨b, C.b_mem⟩
-
-theorem sq_V (v : ↥V) : v * v = 1 := Subtype.ext (C.S.mul_self_V v.2)
-
-theorem sq_V' (v w : ↥V) : v * (v * w) = w := by rw [← mul_assoc, C.sq_V, one_mul]
-
-theorem mulAut_eq_one {φ : MulAut ↥V} (hz : φ C.zz = C.zz) (ha : φ C.aa = C.aa)
-    (hb : φ C.bb = C.bb) : φ = 1 := by
-  have S := C.S
-  have h1 : ∀ (w : G) (hw : w ∈ fsuV1 T V), φ ⟨w, (Subgroup.mem_inf.mp hw).1⟩ =
-      ⟨w, (Subgroup.mem_inf.mp hw).1⟩ := by
-    intro w hw
-    rcases S.eq_of_mem_V1 C.z_mem C.z_ne hw with rfl | rfl
-    · exact map_one φ
-    · exact hz
-  have h2 : ∀ (w : G) (hw : w ∈ V₂), φ ⟨w, C.plane.1.1 hw⟩ = ⟨w, C.plane.1.1 hw⟩ := by
-    intro w hw
-    rcases S.mem_V2 C.a_mem C.a_nmem hw with h | h
-    · exact h1 w h
-    · have e : (⟨w, C.plane.1.1 hw⟩ : ↥V) =
-          C.aa⁻¹ * ⟨g⁻¹ * z * g * w, (Subgroup.mem_inf.mp h).1⟩ :=
-        Subtype.ext (by simp only [aa, Subgroup.coe_mul, Subgroup.coe_inv]; group)
-      rw [e, map_mul, map_inv, ha, h1 _ h]
-  ext ⟨v, hv⟩
-  rcases S.mem_V C.b_mem C.b_nmem hv with h | h
-  · exact congrArg Subtype.val (h2 v h)
-  · have e : (⟨v, hv⟩ : ↥V) = C.bb⁻¹ * ⟨b * v, C.plane.1.1 h⟩ :=
-      Subtype.ext (by simp [bb])
-    rw [e, map_mul, map_inv, hb, h2 _ h]
-    rfl
-
-theorem mulAut_eq {φ ψ : MulAut ↥V} (hz : φ C.zz = ψ C.zz) (ha : φ C.aa = ψ C.aa)
-    (hb : φ C.bb = ψ C.bb) : φ = ψ := by
-  have h := C.mulAut_eq_one (φ := ψ⁻¹ * φ) (by rw [MulAut.mul_apply, hz, MulAut.inv_apply_self])
-    (by rw [MulAut.mul_apply, ha, MulAut.inv_apply_self])
-    (by rw [MulAut.mul_apply, hb, MulAut.inv_apply_self])
-  rw [← mul_inv_cancel_left ψ φ, h, mul_one]
 
 end Ctx
 

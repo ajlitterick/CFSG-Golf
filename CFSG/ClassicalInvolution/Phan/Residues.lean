@@ -181,91 +181,6 @@ theorem nullOn_typeInt_of_le_two {a b : ℕ} (h : b ≤ a + 2) : NullOn σ n (ty
 theorem typeInt_zero_self : typeInt n 0 n = Set.univ :=
   Set.eq_univ_of_forall fun j => ⟨Nat.zero_le _, j.isLt⟩
 
-theorem separated_of_typeInt {a k b : ℕ} {i j : Fin n} (hi : i ∈ typeInt n a k)
-    (hj : j ∈ typeInt n (k + 1) b) : Separated i j :=
-  Or.inl (by have := hi.2; have := hj.1; omega)
-
-theorem typeInt_union_eq_diff {a k b : ℕ} (hak : a ≤ k) (hkb : k < b) (hbn : b ≤ n) :
-    typeInt n a k ∪ typeInt n (k + 1) b = typeInt n a b \ {(⟨k, by omega⟩ : Fin n)} := by
-  ext j
-  simp only [Set.mem_union, mem_typeInt, Set.mem_sdiff, Set.mem_singleton_iff, Fin.ext_iff]
-  omega
-
-theorem NullOn.typeInt_union (hσ : IsUnitaryInvolution σ) {a k b : ℕ}
-    (h₁ : NullOn σ n (typeInt n a k)) (h₂ : NullOn σ n (typeInt n (k + 1) b)) :
-    NullOn σ n (typeInt n a k ∪ typeInt n (k + 1) b) :=
-  NullOn.union hσ (fun _ hi _ hj => separated_of_typeInt hi hj) h₁ h₂
-
-theorem nullOn_of_runs (hσ : IsUnitaryInvolution σ)
-    (h : ∀ a b : ℕ, a + 3 ≤ b → b ≤ n →
-      (∀ J' : Set (Fin n), J'.ncard < (typeInt n a b).ncard → NullOn σ n J') →
-        NullOn σ n (typeInt n a b))
-    (J : Set (Fin n)) : NullOn σ n J := by
-  suffices key : ∀ N : ℕ, ∀ J : Set (Fin n), J.ncard = N → NullOn σ n J from key _ J rfl
-  intro N
-  induction N using Nat.strong_induction_on with
-  | _ N ih =>
-  intro J hN
-  by_cases hsmall : J.ncard ≤ 2
-  · refine nullOn_of_encard_le_two ?_
-    rw [← Set.Finite.cast_ncard_eq (Set.toFinite J)]
-    exact_mod_cast hsmall
-  push Not at hsmall
-  have hne : J.Nonempty := Set.nonempty_iff_ne_empty.2 fun hJ => by
-    rw [hJ, Set.ncard_empty] at hsmall
-    omega
-  by_cases hconv : ∀ j₁ ∈ J, ∀ j₂ ∈ J, ∀ g : Fin n, j₁ < g → g < j₂ → g ∈ J
-  ·
-    obtain ⟨a₀, ha₀, hmin⟩ := Set.exists_min_image J id (Set.toFinite J) hne
-    obtain ⟨b₀, hb₀, hmax⟩ := Set.exists_max_image J id (Set.toFinite J) hne
-    have hJ : J = typeInt n a₀.val (b₀.val + 1) := by
-      ext j
-      refine ⟨fun hj => ⟨hmin j hj, Nat.lt_succ_of_le (hmax j hj)⟩, fun hj => ?_⟩
-      obtain ⟨hj1, hj2⟩ := hj
-      rcases lt_trichotomy j a₀ with hlt | heq | hgt
-      · exact absurd hj1 (not_le.2 (Fin.lt_def.1 hlt))
-      · exact heq ▸ ha₀
-      · rcases lt_trichotomy j b₀ with hlt | heq | hgt'
-        · exact hconv a₀ ha₀ b₀ hb₀ j hgt hlt
-        · exact heq ▸ hb₀
-        · exact absurd (Nat.lt_succ_iff.1 hj2) (not_le.2 (Fin.lt_def.1 hgt'))
-    have hN' : (typeInt n a₀.val (b₀.val + 1)).ncard = N := hJ ▸ hN
-    rw [hJ]
-    refine h _ _ ?_ b₀.isLt fun J' hJ' => ih _ (hN' ▸ hJ') J' rfl
-    by_contra hlt
-    have := encard_typeInt_le_two (n := n) (a := a₀.val) (b := b₀.val + 1) (by omega)
-    rw [← Set.Finite.cast_ncard_eq (Set.toFinite _)] at this
-    have : (typeInt n a₀.val (b₀.val + 1)).ncard ≤ 2 := by exact_mod_cast this
-    omega
-  · push Not at hconv
-    obtain ⟨j₁, hj₁, j₂, hj₂, g, hg₁, hg₂, hgJ⟩ := hconv
-    have hU : J = {j ∈ J | j < g} ∪ {j ∈ J | g < j} := by
-      ext j
-      refine ⟨fun hj => ?_, fun hj => hj.elim (fun h => h.1) fun h => h.1⟩
-      rcases lt_trichotomy j g with hlt | heq | hgt
-      · exact Or.inl ⟨hj, hlt⟩
-      · exact absurd (heq ▸ hj) hgJ
-      · exact Or.inr ⟨hj, hgt⟩
-    have hlt₁ : {j ∈ J | j < g}.ncard < N := by
-      rw [← hN]
-      exact Set.ncard_lt_ncard ⟨fun j hj => hj.1, fun hsub => (hsub hj₂).2.not_gt hg₂⟩
-        (Set.toFinite J)
-    have hlt₂ : {j ∈ J | g < j}.ncard < N := by
-      rw [← hN]
-      exact Set.ncard_lt_ncard ⟨fun j hj => hj.1, fun hsub => (hsub hj₁).2.not_gt hg₁⟩
-        (Set.toFinite J)
-    rw [hU]
-    refine NullOn.union hσ (fun i hi j hj => Or.inl ?_) (ih _ hlt₁ _ rfl) (ih _ hlt₂ _ rfl)
-    have h1 : i.val < g.val := hi.2
-    have h2 : g.val < j.val := hj.2
-    omega
-
-theorem simplyTwoConnected_of_runs (hσ : IsUnitaryInvolution σ)
-    (h : ∀ a b : ℕ, a + 3 ≤ b → b ≤ n →
-      (∀ J' : Set (Fin n), J'.ncard < (typeInt n a b).ncard → NullOn σ n J') →
-        NullOn σ n (typeInt n a b)) :
-    (frameSystem σ n).SimplyTwoConnected :=
-  simplyTwoConnected_iff_nullOn_univ.2 (nullOn_of_runs hσ h Set.univ)
 
 theorem mem_posInt_of_mem_suppPos {a b : ℕ} {k : Fin (n + 1)}
     (hk : k ∈ suppPos (typeInt n a b)) : k ∈ posInt n a b := by
@@ -432,41 +347,6 @@ theorem mem_residue_typeInt_iff (hσ : IsUnitaryInvolution σ) (hK : Nat.card K 
   ⟨fun h _ hk => residue_typeInt_agree h hk,
     mem_residue_typeInt hσ hK hq (b - a) a b (by omega) hbn c e⟩
 
-theorem mem_residue_typeInt_union_iff (hσ : IsUnitaryInvolution σ) (hK : Nat.card K = q ^ 2)
-    (hq : 3 ≤ q) {a k b : ℕ} (hak : a ≤ k) (hkb : k < b) (hbn : b ≤ n) {c e : Frame σ (n + 1)} :
-    e ∈ (frameSystem σ n).residue (typeInt n a k ∪ typeInt n (k + 1) b) c ↔
-      (∀ l, l ∉ posInt n a b → e.line l = c.line l) ∧
-        e.spanAt (posInt n a k) = c.spanAt (posInt n a k) := by
-  have hcomm : ∀ j ∈ typeInt n (k + 1) b, ∀ i ∈ typeInt n a k,
-      CommuteTypes (frameSystem σ n) j i := fun j hj i hi =>
-    commuteTypes_of_separated hσ (Or.inr (by have := hj.1; have := hi.2; omega))
-  rw [mem_residue_union_iff hcomm]
-  constructor
-  · rintro ⟨f, hf, hef⟩
-    have hf' := (mem_residue_typeInt_iff hσ hK hq hak (by omega : k ≤ n)).1 hf
-    have he' := (mem_residue_typeInt_iff hσ hK hq (by omega : k + 1 ≤ b) hbn).1 hef
-    refine ⟨fun l hl => ?_, ?_⟩
-    · have h1 : l ∉ posInt n a k := by
-        rw [mem_posInt] at hl ⊢
-        omega
-      have h2 : l ∉ posInt n (k + 1) b := by
-        rw [mem_posInt] at hl ⊢
-        omega
-      rw [he' l h2, hf' l h1]
-    · rw [Frame.spanAt_congr (d := f) fun l hl => he' l (by
-        rw [mem_posInt] at hl ⊢
-        omega), spanAt_posInt_of_mem_residue hσ hf]
-  · rintro ⟨hagree, hspan⟩
-    refine ⟨c.glue e (posInt n a k) hspan, ?_, ?_⟩
-    · exact (mem_residue_typeInt_iff hσ hK hq hak (by omega : k ≤ n)).2 fun l hl =>
-        Frame.glue_line_of_not_mem c e hspan hl
-    · refine (mem_residue_typeInt_iff hσ hK hq (by omega : k + 1 ≤ b) hbn).2 fun l hl => ?_
-      by_cases hl1 : l ∈ posInt n a k
-      · rw [Frame.glue_line_of_mem c e hspan hl1]
-      · have hl2 : l ∉ posInt n a b := by
-          rw [mem_posInt] at hl hl1 ⊢
-          omega
-        rw [Frame.glue_line_of_not_mem c e hspan hl1, hagree l hl2]
 
 theorem frameSystem_connected (hσ : IsUnitaryInvolution σ) (hK : Nat.card K = q ^ 2)
     (hq : 3 ≤ q) : (frameSystem σ n).Connected := by

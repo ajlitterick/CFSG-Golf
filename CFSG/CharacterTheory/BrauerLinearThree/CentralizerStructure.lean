@@ -128,24 +128,6 @@ theorem exists_lift_pow_eq_one {g : G} (hg : J * g = g * J) {m : ℕ}
 variable (hZodd : Odd (Nat.card Z)) (h2 : (2 : F) ≠ 0)
 include hZodd h2
 
-omit [Finite F] in
-theorem mem_center_iff_scalar {g : G} (hg : J * g = g * J) :
-    (∀ h : G, J * h = h * J → g * h = h * g) ↔
-      ∃ a : Fˣ, g = linearCentralizerHom φ (Matrix.GeneralLinearGroup.scalar (Fin 2) a) := by
-  constructor
-  · intro hc
-    obtain ⟨A, rfl⟩ := exists_linearCentralizerHom_eq φ hg
-    have hA : A ∈ Subgroup.center (GL (Fin 2) F) := by
-      rw [Subgroup.mem_center_iff]
-      intro B
-      exact (commute_of_linearCentralizerHom_commute φ hZ hZodd h2
-        (hc _ (linearCentralizerHom_commute φ B))).symm
-    rw [Matrix.GeneralLinearGroup.center_eq_range_scalar] at hA
-    obtain ⟨a, rfl⟩ := hA
-    exact ⟨a, rfl⟩
-  · rintro ⟨a, rfl⟩ h hh
-    obtain ⟨B, rfl⟩ := exists_linearCentralizerHom_eq φ hh
-    rw [← map_mul, ← map_mul, (commute_of_mem_scalars ⟨a, rfl⟩ B).eq]
 
 omit [Finite F] hZodd h2 in
 theorem card_scalarImage :

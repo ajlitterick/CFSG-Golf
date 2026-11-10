@@ -145,26 +145,6 @@ theorem conj_inv_mem_of_conj_mem {N' : Subgroup G} [Finite N'] {τ : G}
   rw [this]
   exact m.2
 
-theorem subset_iUnion_doubleCoset_of_card_eq {ι : Type*} [Fintype ι] {H N U : Subgroup G}
-    [Finite H] (hN : N ≤ H) (hU : U ≤ H) {h : ι → G} (hh : ∀ r, h r ∈ H)
-    (hdisj : Pairwise (Function.onFun Disjoint fun r =>
-      DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G)))
-    (hcard : ∑ r, Nat.card (DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G)) =
-      Nat.card H) :
-    (H : Set G) ⊆ ⋃ r, DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G) := by
-  have hsub : (⋃ r, DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G)) ⊆ (H : Set G) := by
-    refine Set.iUnion_subset fun r g hg => ?_
-    obtain ⟨n, hn, u, hu, rfl⟩ := DoubleCoset.mem_doubleCoset.1 hg
-    exact H.mul_mem (H.mul_mem (hN hn) (hh r)) (hU hu)
-  have hfin : ∀ r, Finite (DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G)) := fun r =>
-    ((Set.toFinite (H : Set G)).subset
-      (fun g hg => hsub (Set.mem_iUnion.2 ⟨r, hg⟩))).to_subtype
-  have hc : (⋃ r, DoubleCoset.doubleCoset (h r) (N : Set G) (U : Set G)).ncard =
-      (H : Set G).ncard := by
-    rw [← Nat.card_coe_set_eq, card_iUnion_of_pairwise_disjoint hdisj, hcard,
-      ← Nat.card_coe_set_eq]
-    rfl
-  exact (Set.eq_of_subset_of_ncard_le hsub hc.ge (Set.toFinite _)).symm.subset
 
 end Constructing
 
@@ -180,8 +160,6 @@ variable {G : Type*} [Group G]
 
 @[simp] theorem tpow_false (τ : G) : tpow τ false = τ⁻¹ := rfl
 
-theorem tpow_not (τ : G) (ε : Bool) : tpow τ (!ε) = (tpow τ ε)⁻¹ := by
-  cases ε <;> simp
 
 variable (G) (X : Type*) [MulAction G X] (I : Type*) (R : I → Type*)
 
@@ -702,11 +680,6 @@ theorem sum_transition_eq [Fintype I] [Finite S.H]
     _ = (∑ i, Nat.card (S.trans i t)) * S.L := (Finset.sum_mul _ _ _).symm
     _ = S.L * Nat.card (S.orb t) := by rw [h1, mul_comm]
 
-theorem sum_transition_eq_int [Fintype I] [Finite S.H]
-    (hD : ∀ i, Pairwise (Function.onFun Disjoint (S.D i))) (hO : Function.Injective S.orb)
-    (t : I) :
-    ∑ i, (S.M t i : ℤ) * (Nat.card (S.orb i) : ℤ) = (S.L : ℤ) * (Nat.card (S.orb t) : ℤ) := by
-  exact_mod_cast S.sum_transition_eq hD hO t
 
 end Matrix
 
@@ -863,12 +836,6 @@ theorem stabilizer_inf_closure_eq (hO : Function.Injective S.orb) {i₀ : I}
         (Subgroup.inv_mem _ (hγC _)) (hHC _ (S.κ_mem i r ε))) (hτ ε)) (hHC _ (S.h_mem i r)))
         (hγC i)
 
-theorem stabilizer_eq_closure (hO : Function.Injective S.orb) {i₀ : I}
-    (hG : Subgroup.closure ((S.H : Set G) ∪ {S.τ}) = ⊤)
-    (hγ : ∀ i, γ i • S.v i₀ = S.v i) (hγ₀ : γ i₀ ∈ S.H) :
-    MulAction.stabilizer G (S.v i₀) = Subgroup.closure (S.schreierGens γ i₀) := by
-  have h := S.stabilizer_inf_closure_eq hO hγ (fun i => by rw [hG]; exact Subgroup.mem_top _) hγ₀
-  rwa [hG, inf_top_eq] at h
 
 end Schreier
 

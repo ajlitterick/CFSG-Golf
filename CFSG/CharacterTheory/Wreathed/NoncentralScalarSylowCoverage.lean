@@ -74,13 +74,6 @@ theorem quasisimple_le_kernel_image_of_noncentral_central_action
     _ = (⁅D, D⁆).map π := (Subgroup.map_commutator D D π).symm
     _ ≤ α.ker.map π := Subgroup.map_mono (commutator_preimage_center_le_kernel α)
 
-theorem inverting_automorphism_isMulCommutative
-    {A : Type u} [Group A] (α : MulAut A) (hinverts : ∀ a : A, α a = a⁻¹) :
-    IsMulCommutative A := by
-  apply isMulCommutative_iff.mpr
-  intro a b
-  have h := α.map_mul a⁻¹ b⁻¹
-  simpa only [hinverts, mul_inv_rev, inv_inv] using h.symm
 
 theorem inverting_automorphism_mem_center
     {A : Type u} [Group A] (α : MulAut A) (hinverts : ∀ a : A, α a = a⁻¹) :

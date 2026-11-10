@@ -10,9 +10,6 @@ set_option maxRecDepth 200000
 
 namespace CFSG.KD.TP.c6091
 
-theorem weq : CFSG.KC.KDenseP.wordsEqB WD
-    (CFSG.KC.KDense.Y443.words CFSG.KC.KDenseP.TwoPoint.p6091) (nat_lit 24) = true := by
-  quickRfl
 
 @[expose] noncomputable def u (g : Nat) : Bool :=
   CFSG.KC.KDenseP.grpL rn

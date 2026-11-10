@@ -43,34 +43,6 @@ theorem coprime_card_Qp : Nat.Coprime p (Nat.card (Qp p H)) := by
   rw [Qp_eq_map_pPrimeCore, Subgroup.card_map_of_injective H.subtype_injective]
   exact CFSG.pPrimeCore_coprime_card
 
-theorem Qp_cj {g : G} (hg : g ∈ Subgroup.normalizer (H : Set G)) :
-    (Qp p H).map (MulAut.conj g).toMonoidHom = Qp p H := by
-  have key : ∀ g ∈ Subgroup.normalizer (H : Set G),
-      (Qp p H).map (MulAut.conj g).toMonoidHom ≤ Qp p H := by
-    intro g hg
-    refine le_Qp H ?_ ⟨fun n hn k => ?_⟩ ?_
-    · rintro _ ⟨x, hx, rfl⟩
-      exact (Subgroup.mem_normalizer_iff.mp hg x).mp (Qp_le H hx)
-    · obtain ⟨y, hy, hyn⟩ := hn
-      have hn' : (n : G) = g * y * g⁻¹ := hyn.symm
-      have hk : g⁻¹ * k * g ∈ H := by
-        refine (Subgroup.mem_normalizer_iff.mp hg _).mpr ?_
-        have : g * (g⁻¹ * (k : G) * g) * g⁻¹ = k := by group
-        rw [this]
-        exact k.2
-      have h1 : g⁻¹ * k * g * y * (g⁻¹ * k * g)⁻¹ ∈ Qp p H :=
-        (Qp_normal H).conj_mem ⟨y, Qp_le H hy⟩ hy ⟨_, hk⟩
-      refine ⟨_, h1, ?_⟩
-      show g * (g⁻¹ * (k : G) * g * y * (g⁻¹ * (k : G) * g)⁻¹) * g⁻¹ =
-        (k : G) * (n : G) * (k : G)⁻¹
-      rw [hn']
-      group
-    · rw [Subgroup.card_map_of_injective (MulAut.conj g).injective]
-      exact coprime_card_Qp H
-  refine le_antisymm (key g hg) fun x hx => ?_
-  refine ⟨g⁻¹ * x * g, ?_, by simp [MulAut.conj_apply, mul_assoc]⟩
-  have := key g⁻¹ (inv_mem hg) ⟨x, hx, rfl⟩
-  simpa [MulAut.conj_apply, mul_assoc] using this
 
 end Qp
 

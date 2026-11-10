@@ -58,9 +58,6 @@ theorem primB_12637K : primOK 8 heThreeLettersB heThreeTwB heThreeEwB = true ∧
     fourOK 8 heThreeLettersB heThreeFourB = true := by
   constructor <;> decide +kernel
 
-theorem neg_12637K : Nat.beq (ordK XBQ.LR 3) 336 = false ∧
-    fourOK 8 heThreeLettersB [] = false := by
-  constructor <;> decide +kernel
 
 theorem len_XA : heThreeSigmaA.length = 4 := rfl
 

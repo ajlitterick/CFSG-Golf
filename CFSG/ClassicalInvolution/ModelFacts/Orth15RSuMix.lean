@@ -46,8 +46,5 @@ theorem mixProp_of_conj {Y Yi M M₀ : Matrix (Fin 4) (Fin 4) K} (hYiY : Yi * Y 
     _ = (Yi * Y) * (z • (M₀ * Matrix.diagonal ![s, w, s, w])) := by rw [← Matrix.mul_assoc]
     _ = z • (M₀ * Matrix.diagonal ![s, w, s, w]) := by rw [hYiY, Matrix.one_mul]
 
-theorem diag4_eq_diagonal (s w : K) : diag4 s w = Matrix.diagonal ![s, s, w, w] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [diag4]
 
 end CFSG.ClassicalInvolution.ModelFacts.Orth15.InnerSu

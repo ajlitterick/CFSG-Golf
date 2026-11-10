@@ -98,14 +98,6 @@ theorem uP_sq :
     uP * uP = 1 :=
   Subtype.ext (eq_of_eqA (rep_compA rep_u rep_u) rep_idA classFacts.u_sq)
 
-theorem uP_ne_one :
-    uP ≠ 1 := by
-  intro h
-  have h1 : locU = 1 := congrArg Subtype.val h
-  have h2 := (eqA_iff rep_u rep_idA).2 h1
-  have h3 := classFacts.u_ne
-  rw [h2] at h3
-  exact absurd h3 (by decide)
 
 theorem myRep_sq
     {r : ℕ} (hr : r < 3) : myRep r * myRep r = 1 := by

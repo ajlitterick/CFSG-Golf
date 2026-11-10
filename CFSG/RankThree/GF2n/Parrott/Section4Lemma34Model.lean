@@ -237,9 +237,6 @@ local notation "uA" => (⟨u, u_mem_A⟩ : A45)
 set_option quotPrecheck false in
 local notation "vA" => (⟨v, v_mem_A⟩ : A45)
 
-include D
-
-omit D
 
 end Five
 

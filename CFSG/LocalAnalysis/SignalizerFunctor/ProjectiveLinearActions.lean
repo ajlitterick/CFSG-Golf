@@ -102,48 +102,5 @@ theorem projective_linear_fixed_iff_eigenvector
   exact exists_congr (fun scalar : FieldType =>
     (eq_comm : scalar • vector = automorphism vector ↔ automorphism vector = scalar • vector))
 
-theorem quadratic_linear_eigenvector_fixed
-    (automorphism : VectorType ≃ₗ[FieldType] VectorType)
-    (quadratic : (automorphism.toLinearMap - 1) ^ 2 = 0)
-    (vector : VectorType) (nonzero : vector ≠ 0)
-    (scalar : FieldType) (eigenvector : automorphism vector = scalar • vector) :
-    automorphism vector = vector := by
-  have square := congrArg (fun operator : Module.End FieldType VectorType => operator vector) quadratic
-  have first_difference : (automorphism.toLinearMap - 1) vector = (scalar - 1) • vector := by
-    change automorphism vector - vector = (scalar - 1) • vector
-    rw [eigenvector, sub_smul, one_smul]
-  have second_difference : (((automorphism.toLinearMap - 1) : Module.End FieldType VectorType) ^ 2) vector =
-      ((scalar - 1) ^ 2) • vector := by
-    rw [pow_two, Module.End.mul_apply, first_difference, map_smul, first_difference, smul_smul, pow_two]
-  rw [second_difference, LinearMap.zero_apply] at square
-  have scalar_one : scalar = 1 := by
-    have scalar_square_zero := (smul_eq_zero.mp square).resolve_right nonzero
-    exact sub_eq_zero.mp (eq_zero_of_pow_eq_zero scalar_square_zero)
-  rw [eigenvector, scalar_one, one_smul]
-
-theorem quadratic_projective_fixed_iff_linear_fixed
-    (automorphism : VectorType ≃ₗ[FieldType] VectorType)
-    (quadratic : (automorphism.toLinearMap - 1) ^ 2 = 0)
-    (vector : VectorType) (nonzero : vector ≠ 0) :
-    projectiveLinearAction automorphism (Projectivization.mk FieldType vector nonzero) =
-      Projectivization.mk FieldType vector nonzero ↔ automorphism vector = vector := by
-  rw [projective_linear_fixed_iff_eigenvector]
-  constructor
-  · rintro ⟨scalar, eigenvector⟩
-    exact quadratic_linear_eigenvector_fixed automorphism quadratic vector nonzero scalar eigenvector
-  · intro fixed
-    exact ⟨1, by rwa [one_smul]⟩
-
-theorem quadratic_projective_kernel_trivial
-    (automorphism : VectorType ≃ₗ[FieldType] VectorType)
-    (quadratic : (automorphism.toLinearMap - 1) ^ 2 = 0)
-    (projective_identity : projectiveLinearAction automorphism = 1) : automorphism = 1 := by
-  apply LinearEquiv.ext
-  intro vector
-  by_cases nonzero : vector = 0
-  · simp [nonzero]
-  · have fixed : projectiveLinearAction automorphism (Projectivization.mk FieldType vector nonzero) =
-        Projectivization.mk FieldType vector nonzero := by rw [projective_identity]; rfl
-    exact (quadratic_projective_fixed_iff_linear_fixed automorphism quadratic vector nonzero).mp fixed
 
 end CFSG.SignalizerFunctor.Helpers

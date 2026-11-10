@@ -184,25 +184,6 @@ structure Lemma15211Concl (T Mc M H B : Subgroup G) : Prop where
   quasithinIsMaximalLocal T Kc ∧ Kc ∈ cComp Mc ∧
     Nonempty (OTwoQuot Kc ≃* CFSG.Blueprint.NativeSporadic.Carrier .He)
 
-structure Lemma15212Concl (T Mc M H B : Subgroup G) : Prop where
-  xi : IsXi T (oTwoUpper H)
-  cases : conjClosure (oTwoUpper H) Mc = oTwoUpper H ∨
-    Case15212ii T Mc (conjClosure (oTwoUpper H) Mc) ∨
-    Case15212iii T Mc (conjClosure (oTwoUpper H) Mc) ∨
-    Case15212He T Mc (conjClosure (oTwoUpper H) Mc)
-  unique : IsUniqueM H Mc
-  normal : H ≤ Subgroup.normalizer ((⁅V154 T Mc M, B⁆ : Subgroup G) : Set G)
-  normalizer_le : Subgroup.normalizer ((⁅V154 T Mc M, B⁆ : Subgroup G) : Set G) ≤ Mc
-  eq_oThreePrime : conjClosure (oTwoUpper H) Mc = oPrimeResidualOf 3 Mc
-  le_centralizer : conjClosure (oTwoUpper H) Mc ≤
-    Subgroup.centralizer (quasithinOmegaOneCenter T : Set G)
-  not_six : ¬ Case1512Six T Mc M
-  eq_VZ : V154 T Mc M = VZ T M
-
-@[expose] def StageLemma15212 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ B ∈ sigmaPrime T H (V154 T Mc M),
-      Lemma15212Concl T Mc M H B
 
 @[expose] def Case15213i (T Mc M : Subgroup G) : Prop :=
   (Case1517One M (V154 T Mc M) (mBar0 T Mc M) ∨ Case1517Five T M (V154 T Mc M) (mBar0 T Mc M)) ∧
@@ -292,39 +273,6 @@ structure Lemma15220Concl (T Mc M : Subgroup G) (B₀ : Subgroup (MulAut (V154 T
     ∀ H : Subgroup G, IsHStar T M H → ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
       ∀ I : Subgroup G, Hyp15215 T Mc M B₀ I → Lemma15220Concl T Mc M B₀ I
 
-structure Lemma15221Concl (T Mc M H H₁ H₂ : Subgroup G)
-    (B₀ : Subgroup (MulAut (V154 T Mc M))) (I : Subgroup G) : Prop where
-  one : ¬ IsIrredOnSection (sOf152 T Mc M B₀) (oTwoUpper H) (pCoreOf 2 (oTwoUpper H)) →
-    oTwoUpper H ⊔ sOf152 T Mc M B₀ = H₁ ⊔ H₂ ∧
-      (∀ t ∈ T, t ∉ sOf152 T Mc M B₀ → conjSub t (oTwoUpper H₁) = oTwoUpper H₂) ∧
-      conjClosure (oTwoUpper H) Mc ≤ Subgroup.centralizer (zSOf T Mc M B₀ : Set G) ∧
-      conjClosure (oTwoUpper H) Mc = oPrimeResidualOf 3 (Mc ⊓ I)
-  two : conjClosure (oTwoUpper H) Mc = oTwoUpper H →
-    IsThreePrimeGroup (M ⊓ Subgroup.centralizer (V154 T Mc M : Set G))
-  three : IsLnTwo 4 (OTwoQuot (conjClosure (oTwoUpper H) Mc)) → Concl15218ii T Mc M H B₀ I →
-    (∃ Y₁ : Subgroup G, Y₁ = oTwoUpper Y₁ ∧ Y₁ ≤ M ⊓ I ∧
-        sOf152 T Mc M B₀ ≤ Subgroup.normalizer (Y₁ : Set G) ∧
-        Nonempty (OTwoQuot (Y₁ ⊔ sOf152 T Mc M B₀) ≃* Equiv.Perm (Fin 3)) ∧
-        ¬ Y₁ ≤ Mc ⊓ I) →
-    IsIrredOnSection (sOf152 T Mc M B₀) (oTwoUpper H) (pCoreOf 2 (oTwoUpper H))
-
-@[expose] def StageLemma15221 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ H₁ H₂ : Subgroup G, IsHPair H (V154 T Mc M) H₁ H₂ →
-      ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
-        ∀ I : Subgroup G, Hyp15215 T Mc M B₀ I → Lemma15221Concl T Mc M H H₁ H₂ B₀ I
-
-@[expose] def StageLemma15222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ H₁ H₂ : Subgroup G, IsHPair H (V154 T Mc M) H₁ H₂ →
-      ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
-        ∀ I : Subgroup G, Hyp15215 T Mc M B₀ I → Concl15218ii T Mc M H B₀ I → CharTwo I →
-          IsThreePrimeGroup (M ⊓ Subgroup.centralizer (V154 T Mc M : Set G)) →
-          ¬ IsIrredOnSection (sOf152 T Mc M B₀) (oTwoUpper H) (pCoreOf 2 (oTwoUpper H)) →
-          ∀ Y₁ : Subgroup G, Y₁ = oTwoUpper Y₁ → Y₁ ≤ M ⊓ I →
-            sOf152 T Mc M B₀ ≤ Subgroup.normalizer (Y₁ : Set G) →
-            Nonempty (OTwoQuot (Y₁ ⊔ sOf152 T Mc M B₀) ≃* Equiv.Perm (Fin 3)) →
-            ¬ ⁅Y₁, oTwoUpper H₂⁆ ≤ Y₁ ⊓ oTwoUpper H₂
 
 @[expose] def StageLemma15223 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
@@ -337,14 +285,6 @@ structure Lemma15221Concl (T Mc M H H₁ H₂ : Subgroup G)
       ∀ I : Subgroup G, Hyp15215.Min T Mc M B₀ I → ∀ L : Subgroup G, IsComponentIn L I →
         ¬ L ≤ Mc → ¬ Lemma115LieCharTwo (↥L ⧸ Subgroup.center ↥L)
 
-@[expose] def Stage15215Tail : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ B ∈ sigmaPrime T H (V154 T Mc M),
-      ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
-        Lemma15212Concl T Mc M H B → Lemma15214Concl T Mc M B₀ →
-        ∀ I : Subgroup G, Hyp15215.Min T Mc M B₀ I → Lemma15220Concl T Mc M B₀ I → ¬ CharTwo I →
-          (∀ L : Subgroup G, IsComponentIn L I → ¬ L ≤ Mc →
-            ¬ Lemma115LieCharTwo (↥L ⧸ Subgroup.center ↥L)) → False
 
 structure Lemma15225Concl (T Mc M : Subgroup G) : Prop where
   cases : Case15213i T Mc M
@@ -370,40 +310,11 @@ structure Lemma15226Concl (T Mc M : Subgroup G) : Prop where
       E3.wClos (V154 T Mc M) 0 (pCoreOf 2 H) ≤
         H ⊓ Subgroup.centralizer (conjClosure (V154 T Mc M) H : Set G)
 
-structure Lemma15227Concl (T Mc M H : Subgroup G) (B₀ : Subgroup (MulAut (V154 T Mc M))) :
-    Prop where
-  one : oTwoFstarIn Mc ≤ conjClosure (oTwoUpper H) Mc ⊔ (M ⊓ Mc)
-  two : V154 T Mc M ≤ pCoreOf 2 Mc
-  three : ∀ g : G, zSOf T Mc M B₀ ⊓ conjSub g (V154 T Mc M) ≠ ⊥ →
-    ⁅V154 T Mc M, conjSub g (V154 T Mc M)⁆ = ⊥
-
-@[expose] def StageLemma15227 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
-      Lemma15227Concl T Mc M H B₀
 
 @[expose] def StageLemma15228 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
     ∀ H : Subgroup G, IsHStar T M H → ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
       ⁅conjClosure (V154 T Mc M) H, lambdaOf (pCoreOf 2 H)⁆ ≤ zSOf T Mc M B₀
 
-@[expose] def StageObserveF7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → AmalgamHypV (M ⊔ H) M H T (V154 T Mc M)
-
-@[expose] def StageFinal152 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → ∀ H₁ H₂ : Subgroup G, IsHPair H (V154 T Mc M) H₁ H₂ →
-      ∀ B₀ : Subgroup (MulAut (V154 T Mc M)), IsB0 T Mc M B₀ →
-        AmalgamHypV (M ⊔ H) M H T (V154 T Mc M) →
-        Lemma1518Concl T Mc M →
-        (V154 T Mc M ≤ pCoreOf 2 H ∧ IsElemAbelian 2 (conjClosure (V154 T Mc M) H)) →
-        Concl319 T M (V154 T Mc M) H True →
-        Nonempty (OTwoQuot H ≃* Equiv.Perm (Fin 3) ≀ᵣ Multiplicative (ZMod 2)) →
-        Lemma15225Concl T Mc M → Lemma15226Concl T Mc M →
-        (E3.wClos (V154 T Mc M) 0 (pCoreOf 2 H) ≤
-          H ⊓ Subgroup.centralizer (conjClosure (V154 T Mc M) H : Set G)) →
-        Lemma15227Concl T Mc M H B₀ →
-        ⁅conjClosure (V154 T Mc M) H, lambdaOf (pCoreOf 2 H)⁆ ≤ zSOf T Mc M B₀ → False
 
 end CFSG.Quasithin

@@ -24,10 +24,6 @@ structure LieAutVocab10 where
   InducesGraphField : ∀ {G : Type} [Group G], Subgroup G → G → Prop
   IsFundamental : ∀ {G : Type} [Group G], Subgroup G → Subgroup G → Prop
 
-@[expose] def IsReeType10 (X : Type) [Group X] (q : ℕ) : Prop :=
-  (∃ n : ℕ, q = 3 ^ (2 * n + 1)) ∧ (∀ P : Sylow 2 X, IsMulCommutative (P : Subgroup X)) ∧
-    ∃ t : X, orderOf t = 2 ∧ ∃ (F : Type) (_ : Field F) (_ : Fintype F), Fintype.card F = q ∧
-      Nonempty (↥(Subgroup.centralizer ({t} : Set X)) ≃* (Multiplicative (ZMod 2) × PSL(2, F)))
 
 @[expose] def IsTits10 (X : Type) [Group X] : Prop :=
   LieModel X .Tits 0 2 1

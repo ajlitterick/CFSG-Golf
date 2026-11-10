@@ -109,16 +109,6 @@ theorem map_strongOf (f : G →* H) (k : ℕ) (start : ℕ → G) (W : List (Lis
     · rw [strongOf_of_le (by omega), strongOf_of_le (by omega), map_wordIn]
       exact wordIn_congr (fun h hh => ih h hh) _
 
-theorem strongOf_mem {k : ℕ} {start : ℕ → G} {W : List (List ℤ)} {K : Subgroup G}
-    (h : ∀ i < k, start i ∈ K) : ∀ j, strongOf k start W j ∈ K := by
-  intro j
-  induction j using Nat.strong_induction_on with
-  | h j ih =>
-    by_cases hj : j < k
-    · rw [strongOf_of_lt hj]
-      exact h j hj
-    · rw [strongOf_of_le (by omega)]
-      exact wordIn_mem (fun h hh => ih h hh) _
 
 end Strong
 

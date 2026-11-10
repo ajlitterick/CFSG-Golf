@@ -106,14 +106,6 @@ theorem ggTWDCells_of_cert {p N : ℕ} (h : GGTWDCertCells p N) : GGTWDCells p N
               ggDepARefl (ggDepAh p N i) (ggDepAα p N i)) ∪
                 {ggDepARefl ha1 αa1, ggDepARefl ha2 αa2}))
 
-theorem ggTWDCellsOr_false {p N : ℕ} (h : GGTWDCells p N) : GGTWDCellsOr p N (fun _ => False) := by
-  obtain ⟨h1, h2⟩ := h
-  unfold GGTWDCellsOr
-  refine ⟨?_, ?_⟩
-  · intro pos c0 m n hpat ha αa hpairs hdot hx
-    exact Or.inl (h1 pos c0 m n hpat ha αa hpairs hdot hx)
-  · intro pos c c₂ hpat ha1 αa1 ha2 αa2 hpairs hx
-    exact Or.inl (h2 pos c c₂ hpat ha1 αa1 ha2 αa2 hpairs hx)
 
 end CFSG.StandardType
 

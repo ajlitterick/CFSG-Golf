@@ -15,20 +15,6 @@ namespace CFSG.LocalAnalysis.GLTheoremA
 open CFSG CFSG.Open CFSG.Assembly CFSG.RankThree.PartTwo.Census
 
 
-theorem exists_elemAbelian_le_normalizer_statedSU
-    {F : Type} [Field F] [Finite F] {n d : ℕ}
-    (hFD : CFSG.LocalAnalysis.ComponentInitial.UnitaryFieldData 2 n F)
-    [CharP F 2] {r k : ℕ} (hr : r.Prime) (hrq : r ∣ 2 ^ n + 1)
-    (hk : k + 2 < d) (hcen : k + 3 < d ∨ ¬ r ∣ d) (hk1 : 1 ≤ k + 1) :
-    ∃ (X E : Subgroup (StatedProj (StatedSU d (2 ^ n) F))),
-      X ≠ ⊥ ∧ IsPGroup 2 X ∧ IsElemAbelian r E ∧ Nat.card E = r ^ (k + 1) ∧
-        E ≤ Subgroup.normalizer (X : Set (StatedProj (StatedSU d (2 ^ n) F))) := by
-  have hloc := CFSG.RankThree.PartTwo.Census.le_localRank_statedSU_torus hFD hr hrq hk hcen
-  obtain ⟨U, hU2, hU0, E, hEN, hEel, hEcard⟩ :=
-    CFSG.RankThree.PartOne.exists_elemAbelian_of_le_localRank hr hk1 hloc
-  exact ⟨U, E, hU0, hU2, (CFSG.SectionRank.isElementaryAbelian_iff_isElemAbelian r E).1 hEel,
-    hEcard, hEN⟩
-
 theorem le_evenRank_of_quotient_of_le_localRank {G : Type} [Group G] [Finite G]
     {N : Subgroup G} [N.Normal] {r k : ℕ} (hr : r.Prime) (hr2 : r ≠ 2)
     (hrN : ¬ r ∣ Nat.card N) (hk1 : 1 ≤ k)
@@ -310,7 +296,6 @@ theorem le_localRank_statedSU_quot_pow
   have hloc := CFSG.RankThree.PartTwo.Census.le_localRank_of_commute_involution hr
     (CFSG.RankThree.PartTwo.Census.orderOf_mk_eq_two N htN ht2) hEelem hEcard hEt
   omega
-
 
 
 theorem exists_surjective_center_quotient_two

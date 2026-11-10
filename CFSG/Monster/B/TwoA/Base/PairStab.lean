@@ -64,7 +64,6 @@ theorem autPerm_maps_four
     have h : (g : Equiv.Perm (Fin 24)) 3 = bridgeQ z := g3
     rw [h, bridgeQ_inv_apply]
 
-theorem smul_autPerm (p : AutPerm) (i : Fin 24) : p • i = (p : Equiv.Perm (Fin 24)) i := rfl
 
 @[expose] def pair01 : Set.powersetCard (Fin 24) 2 := CFSG.Sporadic.Mathieu.duad 0 1 (by decide)
 

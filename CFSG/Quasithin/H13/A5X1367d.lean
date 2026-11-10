@@ -101,35 +101,6 @@ theorem conjAct_Uv_eq_one {g : G} (hgN : g ∈ Subgroup.normalizer (S.Uv : Set G
   show g * (u : G) * g⁻¹ = u
   rw [← h, mul_inv_cancel_right]
 
-theorem autOn_thompsonJ_le_ffJ (h1222 : Stmt12_2_2)
-    (h517 : Stmt5_1_7_one) (hF : CharTwo (Subgroup.centralizer ({S.v12} : Set G))) :
-    haveI : IsMulCommutative ↥S.Uv := (S.elemAbelian_Uv h1222 h517 hF).1
-    autOn (thompsonJ S.Tv) S.Uv ≤ ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv) := by
-  have : IsMulCommutative ↥S.Uv := (S.elemAbelian_Uv h1222 h517 hF).1
-  set P : Subgroup G :=
-    ((ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)).comap (conjAct S.Uv)).map
-      (Subgroup.normalizer (S.Uv : Set G)).subtype with hP
-  have hJP : thompsonJ S.Tv ≤ P := by
-    refine iSup₂_le fun A hA => ?_
-    intro a ha
-    have haN : a ∈ Subgroup.normalizer (S.Uv : Set G) :=
-      (hA.1.trans (S.Tv_le_Gv.trans S.Gv_le_normalizer_Uv)) ha
-    refine ⟨⟨a, haN⟩, ?_, rfl⟩
-    show conjAct S.Uv ⟨a, haN⟩ ∈ ffJ _
-    by_cases hAc : A ≤ Subgroup.centralizer (S.Uv : Set G)
-    · rw [S.conjAct_Uv_eq_one haN (hAc ha)]
-      exact Subgroup.one_mem _
-    · have hoff := S.isFFStarOffender_of_mem h1222 h517 hF ⟨hA, hAc⟩
-      have hle : autOn A S.Uv ≤ ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv) :=
-        le_iSup₂_of_le (f := fun B (_ : IsFFStarOffender
-          (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv) B) => B) (autOn A S.Uv) hoff le_rfl
-      exact hle ⟨⟨a, haN⟩, Subgroup.mem_subgroupOf.mpr ha, rfl⟩
-  intro x hx
-  obtain ⟨⟨g, hgN⟩, hg, rfl⟩ := hx
-  obtain ⟨⟨g', hg'N⟩, hg'P, hg'g⟩ := hJP (Subgroup.mem_subgroupOf.mp hg)
-  have : (⟨g', hg'N⟩ : ↥(Subgroup.normalizer (S.Uv : Set G))) = ⟨g, hgN⟩ := Subtype.ext hg'g
-  rw [← this]
-  exact hg'P
 
 theorem autOn_thompsonJ_ne_bot
     (hJ : ¬ thompsonJ S.Tv ≤ Subgroup.centralizer (S.Uv : Set G)) :
@@ -149,23 +120,6 @@ theorem autOn_thompsonJ_ne_bot
   calc u * g = g * u * g⁻¹ * g := by rw [h2]
     _ = g * u := by group
 
-theorem b56Cases_GvS (h1222 : Stmt12_2_2) (h517 : Stmt5_1_7_one)
-    (h56 : AsB56) (hF : CharTwo (Subgroup.centralizer ({S.v12} : Set G)))
-    (hJ : ¬ thompsonJ S.Tv ≤ Subgroup.centralizer (S.Uv : Set G)) :
-    haveI : IsMulCommutative ↥S.Uv := (S.elemAbelian_Uv h1222 h517 hF).1
-    B56Case1 (ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)) ∨
-      B56Case2 (ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)) ∨
-      B56Case3 (ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)) ∨
-      B56Case4 (ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)) ∨
-      B56Case5 (ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv)) := by
-  have hUe := S.elemAbelian_Uv h1222 h517 hF
-  have : IsMulCommutative ↥S.Uv := hUe.1
-  have hV : ∀ v : ↥S.Uv, v ^ 2 = 1 := fun v =>
-    Subtype.ext (by rw [Subgroup.coe_pow, hUe.2 _ v.2, Subgroup.coe_one])
-  have hJ1 : ffJ (autOn (Subgroup.centralizer ({S.v12} : Set G)) S.Uv) ≠ ⊥ := fun h =>
-    S.autOn_thompsonJ_ne_bot hJ (le_bot_iff.1 (h ▸ S.autOn_thompsonJ_le_ffJ h1222 h517 hF))
-  exact h56 ↥S.Uv hV _ hJ1 (InternalSec.b53Hyp_ffJ_autOn S.Gv_le_normalizer_Uv
-    (S.sqtkGroup_Gv h1222 h517 hF) (S.pCoreOf_GvS h1222 h517 hF))
 
 @[expose] noncomputable def JGv : Subgroup (MulAut ↥S.Uv) :=
   ⨆ (A : Subgroup G) (_ : IsFFOffender S.Tv S.Uv A) (g : MulAut ↥S.Uv)

@@ -47,10 +47,6 @@ theorem kappaU_beta (g : ↥G) (x : Multiplicative (Fin 2 → GaloisField 2 n)) 
   show S.β (⟨(g : MulAut V) (s m : V), commV_apply_mem g.2 (s m).2⟩ * (s x)⁻¹) = 1
   rw [map_mul, map_inv, hs, e', mul_inv_cancel]
 
-omit hρ hs in
-theorem kappaU_one (g : ↥G) : kappaU ρ s g 1 = 1 := by
-  apply Subtype.ext
-  simp [kappaU]
 
 omit hρ hs in
 theorem kappaU_mul (g : ↥G) (x y : Multiplicative (Fin 2 → GaloisField 2 n)) :
@@ -81,8 +77,6 @@ theorem kappaU_mem (g : ↥G) (x : Multiplicative (Fin 2 → GaloisField 2 n)) :
     ↥(commV G ⊓ fixV G) :=
   ⟨(kappaU ρ s g x : V), kappaU_mem S ρ hρ s hs g x⟩
 
-theorem kappaC_one (g : ↥G) : kappaC S ρ hρ s hs g 1 = 1 :=
-  Subtype.ext (congrArg (fun u : ↥(commV G) => (u : V)) (kappaU_one ρ s g))
 
 theorem kappaC_mul (g : ↥G) (x y : Multiplicative (Fin 2 → GaloisField 2 n)) :
     kappaC S ρ hρ s hs g (x * y) = kappaC S ρ hρ s hs g x * kappaC S ρ hρ s hs g y :=

@@ -47,12 +47,6 @@ theorem uniPSL_injective : Function.Injective (uniPSL K) := by
   simp [uniSL] at h01
   exact toAdd_eq_zero.mp h01.symm
 
-theorem uniPSL_pow (p : ℕ) [CharP K p] (t : Multiplicative K) : (uniPSL K t) ^ p = 1 := by
-  rw [← map_pow]
-  have : t ^ p = 1 := by
-    apply Multiplicative.toAdd.injective
-    simp [toAdd_pow, nsmul_eq_mul, CharP.cast_eq_zero]
-  rw [this, map_one]
 
 end Uni
 

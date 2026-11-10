@@ -64,7 +64,6 @@ theorem exists_map_eq_mul_nSL_of_conj_HSL {L : Type} [Field L] {Fr : L →+* L} 
   obtain ⟨c, hc⟩ := exists_eq_nSL_of_conj_HSL hl hQ
   exact ⟨c, by rw [← hc]; group⟩
 
-variable {L : Type} [Field L]
 
 end CFSG.StandardType.TwE6CorootCore
 

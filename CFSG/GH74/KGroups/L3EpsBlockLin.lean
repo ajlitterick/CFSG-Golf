@@ -407,7 +407,6 @@ theorem mem_CenD_of_commute (h2 : (2 : F) ≠ 0) {g : SL(3, F)}
 
 @[expose] def blockSub : Subgroup (projectiveSL 3 F) := (blockEmb : SL(2, F) →* projectiveSL 3 F).range
 
-theorem mem_blockSub {x : projectiveSL 3 F} : x ∈ blockSub ↔ ∃ A : SL(2, F), blockEmb A = x := Iff.rfl
 
 theorem blockEmb_mem (A : SL(2, F)) : blockEmb A ∈ blockSub := ⟨A, rfl⟩
 

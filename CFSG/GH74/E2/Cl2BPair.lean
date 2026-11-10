@@ -198,10 +198,6 @@ private theorem mem_fixSub_aV [Finite Q] (hQ : IsPGroup 2 Q) {a : MulAut Q} (ha 
   rw [fixSub_quotAut hQ ha]
   exact ⟨x, hx, rfl⟩
 
-private theorem fixSub_aV_comap [Finite Q] (hQ : IsPGroup 2 Q) {a : MulAut Q} (ha : a ^ 3 = 1) :
-    (fixSub (aV a ha)).comap (QuotientGroup.mk' (frattini Q)) = fixSub a ⊔ frattini Q := by
-  unfold aV
-  rw [fixSub_quotAut hQ ha, Subgroup.comap_map_eq, QuotientGroup.ker_mk']
 
 variable [Finite Q] {a b : MulAut Q}
 
@@ -220,23 +216,6 @@ theorem BPair.index_frattini (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a
   rw [Subgroup.index_eq_card]
   exact (vfacts hQ h4 h).1
 
-theorem BPair.index_fixSub_a (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) :
-    (fixSub a ⊔ frattini Q).index = 4 := by
-  obtain ⟨hV, -, -, hA, -⟩ := vfacts hQ h4 h
-  rw [← fixSub_aV_comap hQ h.a_cube,
-    Subgroup.index_comap_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  have := Subgroup.card_mul_index (fixSub (aV a h.a_cube))
-  rw [hV, hA] at this
-  omega
-
-theorem BPair.index_fixSub_b (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) :
-    (fixSub b ⊔ frattini Q).index = 4 := by
-  obtain ⟨hV, -, -, -, hB⟩ := vfacts hQ h4 h
-  rw [← fixSub_aV_comap hQ h.b_cube,
-    Subgroup.index_comap_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  have := Subgroup.card_mul_index (fixSub (aV b h.b_cube))
-  rw [hV, hB] at this
-  omega
 
 theorem BPair.fix_inf_le (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) :
     fixSub a ⊓ fixSub b ≤ frattini Q := by
@@ -270,32 +249,6 @@ theorem BPair.eps_a_mem (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) {
   rw [h2] at h1
   exact (QuotientGroup.eq_one_iff _).mp h1
 
-theorem BPair.eps_b_mem (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) {x : Q}
-    (hx : x ∈ fixSub a) : eps b x ∈ frattini Q := by
-  obtain ⟨-, hinf, -, -, -⟩ := vfacts hQ h4 h
-  have h1 := eps_eq_one (V_sq hQ) (a := aV b h.b_cube) (b := aV a h.a_cube)
-    (quotAut_pow_three b _ _ h.b_cube) (aV_comm h).symm (by rw [inf_comm]; exact hinf)
-    (y := (QuotientGroup.mk x : Q ⧸ frattini Q)) (mem_fixSub_aV hQ h.a_cube hx)
-  have h2 : eps (aV b h.b_cube) (QuotientGroup.mk x : Q ⧸ frattini Q) =
-      ((eps b x : Q) : Q ⧸ frattini Q) := by
-    unfold eps
-    simp [aV, quotAut_mk]
-  rw [h2] at h1
-  exact (QuotientGroup.eq_one_iff _).mp h1
-
-theorem BPair.mem_frattini_of_fix (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) {x : Q}
-    (hx : x ∈ fixSub b) (hax : x⁻¹ * a x ∈ frattini Q) : x ∈ frattini Q := by
-  obtain ⟨-, hinf, -, -, -⟩ := vfacts hQ h4 h
-  have hxa : (QuotientGroup.mk x : Q ⧸ frattini Q) ∈ fixSub (aV a h.a_cube) := by
-    show aV a h.a_cube (QuotientGroup.mk x) = QuotientGroup.mk x
-    unfold aV
-    rw [quotAut_mk]
-    exact ((QuotientGroup.eq).mpr hax).symm
-  have : (QuotientGroup.mk x : Q ⧸ frattini Q) ∈
-      fixSub (aV a h.a_cube) ⊓ fixSub (aV b h.b_cube) :=
-    ⟨hxa, mem_fixSub_aV hQ h.b_cube hx⟩
-  rw [hinf, Subgroup.mem_bot] at this
-  exact (QuotientGroup.eq_one_iff x).mp this
 
 theorem BPair.relIndex_fixSub_b (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) :
     (fixSub b ⊓ frattini Q).relIndex (fixSub b) = 4 := by
@@ -310,18 +263,6 @@ theorem BPair.relIndex_fixSub_b (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair 
   rw [← hker, Subgroup.index_ker, hrange, ← fixSub_quotAut hQ h.b_cube]
   exact hB
 
-theorem BPair.relIndex_fixSub_a (hQ : IsPGroup 2 Q) (h4 : FourGen Q) (h : BPair Q a b) :
-    (fixSub a ⊓ frattini Q).relIndex (fixSub a) = 4 := by
-  obtain ⟨-, -, -, hA, -⟩ := vfacts hQ h4 h
-  rw [Subgroup.inf_relIndex_left, Subgroup.relIndex]
-  let f := (QuotientGroup.mk' (frattini Q)).comp (fixSub a).subtype
-  have hker : f.ker = (frattini Q).subgroupOf (fixSub a) := by
-    ext x
-    simp [f, MonoidHom.mem_ker, Subgroup.mem_subgroupOf, QuotientGroup.eq_one_iff]
-  have hrange : f.range = (fixSub a).map (QuotientGroup.mk' (frattini Q)) := by
-    rw [MonoidHom.range_comp, Subgroup.range_subtype]
-  rw [← hker, Subgroup.index_ker, hrange, ← fixSub_quotAut hQ h.a_cube]
-  exact hA
 
 omit [Finite Q] in
 theorem commSub_le_fixSub_a (h : BPair Q a b) : commSub a b ≤ fixSub a := by

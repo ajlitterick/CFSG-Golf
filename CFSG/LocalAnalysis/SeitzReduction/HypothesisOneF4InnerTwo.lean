@@ -292,12 +292,5 @@ theorem innerCentralizerCriterion_F4_longRoot' {f : ℕ} (hf : 1 ≤ f) [Finite 
     exact innerCentralizerCriterion_F4_longRoot_two (by simpa using hK)
   · exact innerCentralizerCriterion_F4_longRoot h hK
 
-theorem innerCentralizerCriterion_F4_shortRoot' {f : ℕ} (hf : 1 ≤ f) [Finite K] [CharP K 2]
-    (hK : Nat.card K = 2 ^ f) :
-    InnerCentralizerCriterion
-      (⟨f4x K 44 1, pinnedX_mem_adjointGroup _ _⟩ : adjointGroup .F4 K) := by
-  have : CharP K ReeTag.F4.prime := ‹CharP K 2›
-  have h := (innerCentralizerCriterion_F4_longRoot' hf hK).map (f4Phi (K := K))
-  rwa [(f4Phi_f4x_47_44 (K := K)).1] at h
 
 end CFSG.SeitzReduction

@@ -70,25 +70,6 @@ namespace CFSG.TwoRankLowerBound.Helpers
           _ = outside * (power left * outside) * power right := by rw [hcommute]
           _ = (outside * power left) * (outside * power right) := by group
 
-theorem quaternionNormalFormHom_a {G : Type*} [Group G] (parameter : ℕ)
-    (cyclicHom : Multiplicative (ZMod (2 * parameter)) →* G) (outside : G)
-    (hsquare : outside ^ 2 = cyclicHom (Multiplicative.ofAdd (parameter : ZMod (2 * parameter))))
-    (hcommute : ∀ residue : ZMod (2 * parameter),
-      cyclicHom (Multiplicative.ofAdd residue) * outside =
-        outside * (cyclicHom (Multiplicative.ofAdd residue))⁻¹)
-    (residue : ZMod (2 * parameter)) :
-    quaternionNormalFormHom parameter cyclicHom outside hsquare hcommute
-      (QuaternionGroup.a residue) = cyclicHom (Multiplicative.ofAdd residue) := rfl
-
-theorem quaternionNormalFormHom_xa {G : Type*} [Group G] (parameter : ℕ)
-    (cyclicHom : Multiplicative (ZMod (2 * parameter)) →* G) (outside : G)
-    (hsquare : outside ^ 2 = cyclicHom (Multiplicative.ofAdd (parameter : ZMod (2 * parameter))))
-    (hcommute : ∀ residue : ZMod (2 * parameter),
-      cyclicHom (Multiplicative.ofAdd residue) * outside =
-        outside * (cyclicHom (Multiplicative.ofAdd residue))⁻¹)
-    (residue : ZMod (2 * parameter)) :
-    quaternionNormalFormHom parameter cyclicHom outside hsquare hcommute
-      (QuaternionGroup.xa residue) = outside * cyclicHom (Multiplicative.ofAdd residue) := rfl
 
 theorem quaternion_normal_form_isomorphism_of_cyclic_index_two (G : Type*)
     [Group G] [Finite G] (htwogroup : IsPGroup 2 G) (hrank : twoRank G ≤ 1)

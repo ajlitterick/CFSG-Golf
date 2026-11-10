@@ -21,9 +21,6 @@ open CatalogueBProjectiveInvolution
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem orthogonalCentralizerToOperator_apply (Q : QuadraticForm K V)
-    (T : Module.End K V) (g : orthogonalOperatorCentralizer Q T) (x : V) :
-    (orthogonalCentralizerToOperator Q T g).val x = g.val.val x := rfl
 
 @[expose] def orthogonalCentralizerRestriction (Q : QuadraticForm K V)
     (T : Module.End K V) (b : K) : orthogonalOperatorCentralizer Q T →*

@@ -170,24 +170,6 @@ private lemma pow_val_sub_zpow {D : Type*} [Group D] [Finite D]
       congr 1
       ring
 
-private lemma rel_zpow_mul {D : Type*} [Group D] {ρ σ : D}
-    (hrel : σ * ρ * σ⁻¹ = ρ⁻¹) (t : ℕ) :
-    σ * ρ ^ t = ρ ^ (-(t : ℤ)) * σ := by
-  induction t with
-  | zero => simp
-  | succ t ih =>
-      have h' : σ * ρ = ρ⁻¹ * σ := by
-        simpa [mul_assoc] using congrArg (fun x : D => x * σ) hrel
-      calc
-        σ * ρ ^ (t + 1) = σ * (ρ ^ t * ρ) := by rw [pow_succ]
-        _ = (σ * ρ ^ t) * ρ := by rw [mul_assoc]
-        _ = (ρ ^ (-(t : ℤ)) * σ) * ρ := by rw [ih]
-        _ = ρ ^ (-(t : ℤ)) * (σ * ρ) := by rw [mul_assoc]
-        _ = ρ ^ (-(t : ℤ)) * (ρ⁻¹ * σ) := by rw [h']
-        _ = (ρ ^ (-(t : ℤ)) * ρ⁻¹) * σ := by rw [mul_assoc]
-        _ = ρ ^ (-((t + 1 : ℕ) : ℤ)) * σ := by
-          rw [← zpow_neg_one ρ, ← zpow_add]
-          exact congrArg (fun e : ℤ => ρ ^ e * σ) (by omega)
 
 private lemma pow_mul_rel {D : Type*} [Group D] {ρ σ : D}
     (hrel : σ * ρ * σ⁻¹ = ρ⁻¹) (t : ℕ) :

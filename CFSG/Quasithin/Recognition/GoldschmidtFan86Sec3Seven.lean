@@ -55,6 +55,5 @@ theorem not_lineSingLe_four (F : FanTree Γ G) (h40 : Fan40 F) (h36 : Fan36 F) (
 
 end Sec3Seven
 
-variable {V G : Type*} [Group G] [MulAction G V] {Γ : SimpleGraph V}
 
 end CFSG.Quasithin.Fan86

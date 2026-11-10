@@ -55,25 +55,9 @@ structure Hyp20A (z : G) (S L A : Subgroup G) : Prop where
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S L A : Subgroup G), Hyp20A z S L A →
     center ↥(hbarImage (centralizer ({z} : Set G)) L) = ⊥
 
-@[expose] def Lemma203Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S L A : Subgroup G), Hyp20A z S L A →
-    Nat.card A = 8 ∧
-      ∃ _ : ((centralizer (A : Set G)).subgroupOf (normalizer (A : Set G))).Normal,
-        Nat.card (↥(normalizer (A : Set G)) ⧸
-          (centralizer (A : Set G)).subgroupOf (normalizer (A : Set G))) = 21 ∧
-        ∃ a b : ↥(normalizer (A : Set G)) ⧸
-          (centralizer (A : Set G)).subgroupOf (normalizer (A : Set G)), a * b ≠ b * a
 
 @[expose] def IsL24 (X : Type) [Group X] : Prop := LieModel X .PSL 2 2 2
 
-@[expose] def Lemma204Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S L A : Subgroup G), Hyp20A z S L A →
-    IsL24 ↥(hbarImage (centralizer ({z} : Set G)) L)
-
-@[expose] def Lemma205Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S L A : Subgroup G), Hyp20A z S L A →
-    ∃ (Y : Type) (_ : Group Y), IsL24 Y ∧
-      Nonempty (Hbar (centralizer ({z} : Set G)) ≃* Multiplicative (ZMod 2) × Y)
 
 @[expose] def Prop201Stmt : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S L A : Subgroup G), Hyp20A z S L A →

@@ -14,8 +14,6 @@ open Subgroup CFSG.Open CFSG.ABGLocalTools CFSG.ComponentClassification.Aschbach
 
 section OddCore
 
-theorem assemblyOddCore_eq_helpers (H : Type*) [Group H] :
-    CFSG.Assembly.oddCore H = CFSG.DisconnectedInvolutionGraph.Helpers.oddCore H := rfl
 
 theorem odd_card_assemblyOddCore (H : Type*) [Group H] [Finite H] :
     Odd (Nat.card (CFSG.Assembly.oddCore H)) :=

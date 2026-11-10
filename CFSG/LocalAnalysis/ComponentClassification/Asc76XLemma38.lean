@@ -209,20 +209,6 @@ theorem isSylowOf_inf_of_mem_perp (hM : MinCounter Ω) (h22 : Lemma22Four) (hB :
   isSylowOf_inf_of_conc4 hM.setting hB (Sec3Setting.perp_subset Ω K) (hM.lemma37_one h22 hK) hS
     hJ hSJ
 
-theorem lemma39 (hM : MinCounter Ω) (h22 : Lemma22Four) (hB : BenderFacts)
-    {K R S J : Subgroup G} (hK : K ∈ Ω) (hR : IsSylowOf 2 R K)
-    (hS : IsSylowOf 2 (S ⊓ sSup (perp Ω K)) (sSup (perp Ω K))) (hJ : J ∈ Ω) {u : G}
-    (huJ : u ∈ J) (huS : u ∈ S) (huR : u ∈ normalizer (R : Set G)) (hu1 : u ≠ 1) {k : ℕ}
-    (huk : u ^ (2 ^ k) = 1) : IsSylowOf 2 (S ⊓ J) J ∧ u ∈ S ⊓ J := by
-  have hΩ := hM.setting
-  have hR2 : IsPGroup 2 R := IsPGroup.of_card (isSylowOf_iff_card.mp hR).2
-  have huK : u ∈ normalizer (K : Set G) := hΩ.normalizer_le_normalizer hK hR2
-    (hΩ.sylow_ne_bot hK hR) (isSylowOf_iff_card.mp hR).1 huR
-  have hJK : J ∈ perp Ω K := ⟨hJ, even_card_of_two_element (mem_inf.mpr ⟨huJ, huK⟩) hu1 huk⟩
-  have hSJ : S ⊓ J ≠ ⊥ := fun h => hu1 (by
-    have : u ∈ S ⊓ J := mem_inf.mpr ⟨huS, huJ⟩
-    rwa [h, mem_bot] at this)
-  exact ⟨hM.isSylowOf_inf_of_mem_perp h22 hB hK hS hJK hSJ, mem_inf.mpr ⟨huS, huJ⟩⟩
 
 theorem lemma310 (hM : MinCounter Ω) (h22 : Lemma22Four) (hB : BenderFacts)
     {K R S J U : Subgroup G} (hK : K ∈ Ω) (hR : IsSylowOf 2 R K) (hS2 : IsPGroup 2 S)

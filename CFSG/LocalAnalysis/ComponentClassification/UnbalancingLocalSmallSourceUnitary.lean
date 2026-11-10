@@ -254,16 +254,5 @@ theorem small_standard_source_even_unitary_model_exclusion_stated {X : Type} [Gr
       have := (hXcard hK φ).trans (card_psu_four_two hK)
       omega
 
-theorem small_standard_source_even_unitary_model_exclusion {X : Type} [Group X] {n g : ℕ}
-    (hX : Assembly.ComponentType.ClassicalModel X .PSU n 2 g) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 →
-        ¬ Assembly.ComponentType.ClassicalModel X .PSL 2 p f) ∧
-      IsEmpty (X ≃* alternatingGroup (Fin 7)) ∧
-      ¬ Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 := by
-  obtain ⟨h1, h2, h3⟩ := small_standard_source_even_unitary_model_exclusion_stated
-    (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSU n 2 g hX)
-  exact ⟨fun p f _ hp2 hY => h1 p f hp2
-      (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 p f hY), h2,
-    fun hZ => h3 (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 3 2 2 hZ)⟩
 
 end CFSG.ComponentClassification.UnbalancingLocal

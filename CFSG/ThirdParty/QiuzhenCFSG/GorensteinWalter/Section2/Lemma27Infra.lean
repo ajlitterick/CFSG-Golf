@@ -80,96 +80,9 @@ public theorem fittingSubgroupOf_isNilpotent
   exact Group.nilpotent_of_mulEquiv
     (Subgroup.equivMapOfInjective (fittingSubgroup (↥H)) H.subtype H.subtype_injective)
 
-/-- `O^p(P) ≤ K` whenever `P` is a Sylow `p`-subgroup and `K ◁ G` has
-`p`-power index. -/
-private theorem pResidualOf_sylow_le_of_normal_index
-    {G : Type u} [Group G] [Finite G]
-    (p n : ℕ) [Fact p.Prime] (P : Sylow p G) (K : Subgroup G)
-    (hK : K.Normal) (hindex : K.index = p ^ n) :
-    pResidualOf (P : Subgroup G) p ≤ K := by
-  let KP : Subgroup (↥(P : Subgroup G)) :=
-    (K ⊓ (P : Subgroup G)).subgroupOf (P : Subgroup G)
-  have hPleN : (P : Subgroup G) ≤
-      Subgroup.normalizer ((K ⊓ (P : Subgroup G)) : Set G) := by
-    let : (K : Subgroup G).Normal := hK
-    exact (le_inf (Subgroup.le_normalizer_of_normal (H := K))
-      (Subgroup.le_normalizer (H := (P : Subgroup G)))).trans
-      (Subgroup.inf_normalizer_le_normalizer_inf (H := K) (K := (P : Subgroup G)))
-  have hKP_normal : KP.Normal :=
-    Subgroup.normal_subgroupOf_of_le_normalizer (H := (P : Subgroup G))
-      (N := K ⊓ (P : Subgroup G)) hPleN
-  have hKP_index : ∃ m : ℕ, KP.index = p ^ m := by
-    have hrel : K.relIndex (P : Subgroup G) ∣ K.index :=
-      Subgroup.relIndex_dvd_index_of_normal (H := K) (K := (P : Subgroup G))
-    have hKPidx : KP.index = K.relIndex (P : Subgroup G) := by
-      change ((K ⊓ (P : Subgroup G)).subgroupOf (P : Subgroup G)).index =
-        K.relIndex (P : Subgroup G)
-      rw [Subgroup.inf_subgroupOf_right]
-      rfl
-    have hdvd : KP.index ∣ p ^ n := by
-      rwa [← hKPidx, hindex] at hrel
-    rcases (Nat.dvd_prime_pow (inferInstance : Fact p.Prime).out).mp hdvd with
-      ⟨m, _hm, hm⟩
-    exact ⟨m, hm⟩
-  have hres := pResidualOf_le_of_normal_index
-    (H := (P : Subgroup G)) (p := p) (N := KP) hKP_normal hKP_index
-  exact hres.trans (by
-    intro y hy
-    rcases Subgroup.mem_map.mp hy with ⟨z, hz, rfl⟩
-    exact (Subgroup.mem_subgroupOf.mp hz).1)
-
-/-- `O^p(P) ≤ O^p(G)` for a Sylow `p`-subgroup `P` of `G`. -/
-public theorem pResidualOf_sylow_le_pResidualOf_top
-    {G : Type u} [Group G] [Finite G]
-    (p : ℕ) [Fact p.Prime] (P : Sylow p G) :
-    pResidualOf (P : Subgroup G) p ≤ pResidualOf (⊤ : Subgroup G) p := by
-  classical
-  intro x hx
-  let xTop : ↥(⊤ : Subgroup G) := ⟨x, trivial⟩
-  have hxSInf : xTop ∈ sInf
-      {N : Subgroup (↥(⊤ : Subgroup G)) |
-        N.Normal ∧ ∃ n : ℕ, N.index = p ^ n} := by
-    rw [Subgroup.mem_sInf]
-    intro N hN
-    rcases hN with ⟨hNnormal, n, hNindex⟩
-    let K : Subgroup G := N.map (⊤ : Subgroup G).subtype
-    have hKnormal : K.Normal :=
-      Subgroup.Normal.map hNnormal (⊤ : Subgroup G).subtype
-        (Subgroup.topEquiv.surjective)
-    have hKindex : K.index = p ^ n := by
-      have heq := Subgroup.index_map_equiv
-        (e := (Subgroup.topEquiv : (⊤ : Subgroup G) ≃* G)) (H := N)
-      convert heq.trans hNindex using 1
-      rfl
-    have hres := pResidualOf_sylow_le_of_normal_index
-      (p := p) (n := n) P K hKnormal hKindex
-    have hxK : x ∈ K := hres hx
-    have hxN : xTop ∈ N := by
-      rcases Subgroup.mem_map.mp hxK with ⟨y, hyN, hyx⟩
-      have hyx' : y = xTop := by
-        apply Subtype.ext
-        exact hyx
-      simpa [hyx'] using hyN
-    exact hxN
-  exact Subgroup.mem_map.mpr ⟨xTop, hxSInf, rfl⟩
 
 /-! ## The Bender `F*`-centralizer fact -/
 
-/-- The classical Bender fact (proved in `Bender1970_18`):
-`C_G(F*(G)) ⊓ F*(G) ≤ F(G)`.  The paper route for Lemma 2.7 uses this
-together with `E(M) = 1` and the D-group classification; the full
-`C_G(F(M)) ≤ F(M)` plus `IsSolvable M` step is a separate gap that needs
-the minimal-counterexample context (see the task card).  The previous
-registered bridge `isSolvable_of_DGroup_of_componentLayer_eq_bot` was
-DELETED: the statement is false in general (`F* = F` does not imply
-solvable; e.g. a faithful semidirect product `F₅³ ⋊ A₅` has dihedral
-Sylow-2, trivial layer, `F* = F`, and is not solvable). -/
-public theorem centralizer_generalizedFitting_intersection_le_fittingSubgroup
-    {G : Type u} [Group G] [Finite G] :
-    let X := generalizedFittingSubgroupOf (⊤ : Subgroup G)
-    let C := Subgroup.centralizer (X : Set G)
-    C ⊓ X ≤ fittingSubgroupOf (⊤ : Subgroup G) :=
-  centralizer_generalizedFitting_intersection_le_fittingSubgroupOf (G := G)
 
 /-! ## Normal subgroups of order divisible by four -/
 
@@ -2018,59 +1931,6 @@ public theorem odd_order_subgroup_le_U_of_H_eq_SU
 
 /-! ## Lemma 2.9: `X = [s, C_A(t)] ≤ U` -/
 
-/-- In the Lemma 2.9 configuration (`V ≤ S ≤ H`, `V ≤ N`,
-`A = oddCoreOf N`), the commutator subgroup
-`X := ⁅Subgroup.zpowers s, C_A(t)⁆` has odd order and lies in `H`, hence
-lies in `U = O(H)` by `odd_order_subgroup_le_U_of_H_eq_SU`. -/
-public theorem commutator_centralizer_le_U
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G) (c : CentralizerSetup G)
-    {N V : Subgroup G} {s : G}
-    (hVN : V ≤ N) (hVS : V ≤ (c.S : Subgroup G)) (hsV : s ∈ V) :
-    ⁅Subgroup.zpowers s, centralizerIn (oddCoreOf N) c.t⁆ ≤ c.U := by
-  classical
-  let A : Subgroup G := oddCoreOf N
-  let C : Subgroup G := centralizerIn A c.t
-  let X : Subgroup G := ⁅Subgroup.zpowers s, C⁆
-  have hVH : V ≤ c.H := hVS.trans (centralizerSetup_S_le_H c)
-  have hsH : s ∈ c.H := hVH hsV
-  have hzH : Subgroup.zpowers s ≤ c.H := Subgroup.zpowers_le.2 hsH
-  have hCH : C ≤ c.H := by
-    intro x hx
-    have hxA : x ∈ A := hx.1
-    have hxCent : x ∈ Subgroup.centralizer ({c.t} : Set G) := hx.2
-    rw [c.H_eq_centralizer]
-    exact hxCent
-  have hXH : X ≤ c.H := (Subgroup.commutator_le_sup (H₁ := Subgroup.zpowers s) (H₂ := C)).trans
-    (sup_le hzH hCH)
-  have hzN : Subgroup.zpowers s ≤ Subgroup.normalizer (A : Set G) := by
-    apply subgroup_le_normalizer_of_conj_mem (H := A) (R := Subgroup.zpowers s)
-    intro r _hr ha
-    rcases Subgroup.mem_zpowers_iff.mp r.2 with ⟨n, hn⟩
-    rw [← hn]
-    rcases Subgroup.mem_map.mp ha with ⟨p, hp, rfl⟩
-    have hrN : s ^ n ∈ N := Subgroup.zpow_mem N (hVN hsV) n
-    have hconj : (⟨s ^ n, hrN⟩ : ↥N) * p * (⟨s ^ n, hrN⟩ : ↥N)⁻¹ ∈ pPrimeCore 2 N :=
-      (pPrimeCore_normal (p := 2) (G := N)).conj_mem p hp (⟨s ^ n, hrN⟩ : ↥N)
-    exact Subgroup.mem_map.mpr ⟨(⟨s ^ n, hrN⟩ : ↥N) * p * (⟨s ^ n, hrN⟩ : ↥N)⁻¹, hconj, by simp⟩
-  have hXA : X ≤ A := by
-    have hCA : C ≤ A := inf_le_left
-    have hcommA : ⁅A, Subgroup.zpowers s⁆ ≤ A :=
-      (Subgroup.le_normalizer_iff_commutator_le_left (H := Subgroup.zpowers s) (K := A)).1 hzN
-    have hXAz : ⁅Subgroup.zpowers s, C⁆ ≤ ⁅Subgroup.zpowers s, A⁆ :=
-      Subgroup.commutator_mono (H₁ := Subgroup.zpowers s) (K₁ := Subgroup.zpowers s) le_rfl
-        (H₂ := C) (K₂ := A) hCA
-    exact hXAz.trans (by
-      rw [Subgroup.commutator_comm (H₁ := Subgroup.zpowers s) (H₂ := A)]
-      exact hcommA)
-  have hXodd : Nat.Coprime 2 (Nat.card X) := by
-    have hcopA : Nat.Coprime 2 (Nat.card A) := by
-      dsimp [A, oddCoreOf]
-      rw [Subgroup.card_map_of_injective N.subtype_injective]
-      exact pPrimeCore_coprime_card (p := 2) (G := N)
-    have hcard : Nat.card X ∣ Nat.card A := Subgroup.card_dvd_of_le hXA
-    exact hcopA.of_dvd_right hcard
-  exact odd_order_subgroup_le_U_of_H_eq_SU hmin c hXH hXodd
 
 end
 

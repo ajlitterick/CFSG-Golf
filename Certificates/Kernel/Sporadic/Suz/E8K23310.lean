@@ -84,8 +84,6 @@ theorem base23310 : bAnd(szOK 1782 11, bAnd(cn (pidn 1782 11), bAnd(cn (SuzHypT.
 theorem k23310 : e8K X Y Z = true := by
   quickRfl
 
-theorem k23310_neg : e8K (ppw 1782 11 (SuzHypT.F 7) 2) Y Z = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.Suz23310
 

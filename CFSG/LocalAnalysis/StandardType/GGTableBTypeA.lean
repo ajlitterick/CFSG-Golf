@@ -276,12 +276,5 @@ theorem ggStdSubPreInputOn_of_labels {S : ℕ → LargeEvenLabel → Prop}
 
 end On
 
-theorem ggBstarInputOn_typeA : GGBstarInputOn GGTypeALabel :=
-  ggBstarInputOn_of_labels (fun _ _ h => h.pilot) fun _ _ hp hlab h =>
-    (largeEvenLabelAll_typeA hp hlab h).mono fun _ _ _ _ ⟨r, h1, h2, _⟩ => ⟨r, h1, h2⟩
-
-theorem ggStdSubPreInputOn_typeA : GGStdSubPreInputOn GGTypeALabel :=
-  ggStdSubPreInputOn_of_labels fun _ _ hp hlab h =>
-    (largeEvenLabelAll_typeA hp hlab h).mono fun _ _ _ _ ⟨r, h1, _, h3⟩ => ⟨r, h1, h3⟩
 
 end CFSG.StandardType

@@ -259,39 +259,9 @@ theorem normPart_eq (hK : InSigma F E K) (hodd : Odd (Nat.card F)) (h5 : 5 ≤ N
 
 end InSigma
 
-theorem four_dvd_iff_modEq {n q : ℕ} {η : ℤ} (h : (n : ℤ) = q - η) :
-    4 ∣ n ↔ (q : ℤ) ≡ η [ZMOD 4] := by
-  rw [Int.modEq_iff_dvd]
-  constructor <;> intro hh <;> omega
 
 namespace InSigma
 
-variable [Finite F] {E K : Subgroup G}
-
-omit [Field F] [Finite F] in
-theorem eq_one_or_eq_of_two_power {z : G} (hz : IsUniqueInvolution K z) {η : ℤ}
-    (h : (Nat.card (centPart K E) : ℤ) = Nat.card F - η)
-    (hmod : ¬ (Nat.card F : ℤ) ≡ η [ZMOD 4]) {x : G} (hx : x ∈ centPart K E) {k : ℕ}
-    (hxk : x ^ 2 ^ k = 1) : x = 1 ∨ x = z := by
-  have h4 : ¬ 4 ∣ Nat.card (centPart K E) := fun h4 =>
-    hmod ((four_dvd_iff_modEq h).mp h4)
-  have h1 : orderOf x ∣ Nat.card (centPart K E) := by
-    have := orderOf_dvd_natCard (⟨x, hx⟩ : centPart K E)
-    rwa [← Subgroup.orderOf_coe] at this
-  obtain ⟨j, -, hj⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp (orderOf_dvd_of_pow_eq_one hxk)
-  have hj1 : j ≤ 1 := by
-    by_contra hj2
-    push Not at hj2
-    apply h4
-    refine dvd_trans ?_ h1
-    rw [hj]
-    exact (pow_dvd_pow 2 hj2 : 2 ^ 2 ∣ 2 ^ j)
-  have hsq : x * x = 1 := by
-    rw [← pow_two]
-    apply orderOf_dvd_iff_pow_eq_one.mp
-    rw [hj]
-    simpa using (pow_dvd_pow 2 hj1 : 2 ^ j ∣ 2 ^ 1)
-  exact hz.unique x (centPart_le_left _ _ hx) hsq
 
 end InSigma
 

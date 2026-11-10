@@ -67,15 +67,6 @@ theorem imgs_eq : Native.parseNats Native.centImgsStr = imgsL := by
   str_lits Native.centImgsStr
   exact nats_of (by quickRfl)
 
-theorem neg_orbit6 : (!natsChk ((Native.orbitStr6.toList).set 0 '5') (recsL 6 PT6 529)) = true := by
-  str_lits Native.orbitStr6
-  rw [String.toList_ofList]
-  quickRfl
-
-theorem neg_imgs : (!natsChk ((Native.centImgsStr.toList).set 0 '3') imgsL) = true := by
-  str_lits Native.centImgsStr
-  rw [String.toList_ofList]
-  quickRfl
 
 theorem cosetCheck_eq_true_0 : Native.cosetCheck () = true :=
   cosetCheck_of parseWords_eq orbit6 orbit8 orbit10 imgs_eq

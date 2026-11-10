@@ -83,17 +83,5 @@ theorem cgraph_mu_connected_of_mem_sphereFour
     (Set.nonempty_of_ncard_ne_zero (by rw [hcard]; norm_num)).to_subtype
   exact ⟨hpre'⟩
 
-theorem cgraph_triangulable_of_local
-    (B0 : ∀ x y : CVert, cgraph.dist x y ≤ 3)
-    (B2tri : ∀ v x y : CVert, cgraph.dist v x = 2 → cgraph.dist v y = 2 → cgraph.Adj x y →
-      ∃ c, cgraph.Adj v c ∧ cgraph.Adj c x ∧ cgraph.Adj c y)
-    (B3loc : ∀ v u c : CVert, cgraph.dist v u = 3 → cgraph.Adj u c → cgraph.dist v c = 2 →
-      c ∈ sphereFour v)
-    (B3con : ∀ v u : CVert, cgraph.dist v u = 3 →
-      (cgraph.induce (cgraph.neighborSet u ∩ sphereFour v)).Connected)
-    (B3tri : ∀ v x y : CVert, cgraph.dist v x = 3 → cgraph.dist v y = 3 → cgraph.Adj x y →
-      ∃ h, cgraph.dist v h = 2 ∧ cgraph.Adj h x ∧ cgraph.Adj h y) :
-    CFSG.Monster.B.Recog.Triangulable cgraph :=
-  cgraph_triangulable_of B0 cgraph_mu_connected_of_mem_sphereFour B2tri B3loc B3con B3tri
 
 end CFSG.Monster.B.GSide

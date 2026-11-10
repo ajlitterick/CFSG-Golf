@@ -173,25 +173,5 @@ theorem rank_one_scalar_perfect
   · exact ht.2.1 (sub_eq_zero.1 h1)
   · exact ht.2.2 (eq_neg_of_add_eq_zero_left h1)
 
-theorem nontrivial_adjointQuotient
-    (τ : Tag) (K : Type) [Field K] :
-    Nontrivial (AdjointQuotient τ K) :=
-  (opposite_simple_root_noncommutativity τ K).2.2.2
-
-theorem untwisted_chevalley_model_nontrivial
-    (G : Type) [Group G]
-    (t : Assembly.LowTwoRank.StatedLieTag)
-    (ht : t = .G2 ∨ t = .F4 ∨ t = .E6 ∨ t = .E7 ∨ t = .E8) (p f : ℕ)
-    (h : ChevalleyExceptionalModel G t p f) : Nontrivial G := by
-  have key : ∀ τ : Tag, ∀ q, UntwistedChevalleyModel G τ q → Nontrivial G := by
-    rintro τ q ⟨K, _, _, -, ⟨e⟩⟩
-    have := nontrivial_adjointQuotient τ K
-    exact e.toEquiv.nontrivial
-  rcases ht with rfl | rfl | rfl | rfl | rfl
-  · exact key _ _ h.2
-  · exact key _ _ h.2
-  · exact key _ _ h.2
-  · exact key _ _ h.2
-  · exact key _ _ h.2
 
 end CFSG.LieType.Chevalley

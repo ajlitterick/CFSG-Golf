@@ -70,7 +70,6 @@ theorem e12_check : e1 ≠ 0 ∧ e2 ≠ 0 ∧ e2 ≠ e1 := by
 
 theorem vec_add_self : ∀ v : L3.Vec, v + v = 0 := by decide
 
-theorem vec_sub_eq : ∀ v w : L3.Vec, v - w = v + w := by decide
 
 theorem vec_neg : ∀ v : L3.Vec, -v = v := by decide
 

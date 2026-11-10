@@ -53,8 +53,6 @@ theorem transv_mul_self (u : V) : transv hβ u * transv hβ u = 1 :=
 theorem transv_inv (u : V) : (transv hβ u)⁻¹ = transv hβ u :=
   inv_eq_of_mul_eq_one_right (transv_mul_self hβ u)
 
-theorem transv_zero : transv hβ (0 : V) = 1 :=
-  Units.ext (LinearMap.ext fun x => by simp)
 
 theorem transv_apply_of_orth {u x : V} (h : β u x = 0) :
     (transv hβ u : V →ₗ[ZMod 2] V) x = x := by
@@ -112,11 +110,6 @@ theorem mem_isometryGroup {g : LinearMap.GeneralLinearGroup (ZMod 2) V} :
 theorem transv_mem_isometryGroup (u : V) : transv hβ u ∈ isometryGroup β :=
   transv_isometry hβ u
 
-theorem closure_transv_le_isometryGroup (S : Set V) :
-    Subgroup.closure (transv hβ '' S) ≤ isometryGroup β :=
-  (Subgroup.closure_le _).2 (by
-    rintro _ ⟨u, -, rfl⟩
-    exact transv_mem_isometryGroup hβ u)
 
 variable {I : Type*}
 

@@ -117,27 +117,6 @@ end XO
 
 section Main
 
-variable {p f : ℕ} [Fact p.Prime] {P : StatedLieTag → ℕ → Prop}
-
-theorem twinYTransitiveOn_of_visible (hΩall : HypOmegaModAll p f) (hAall : AEmptyAll p f)
-    (hP4 : Ih8G2D4 p f) (hH : TwinFrameHyp51 p f) (hGenT : TwinYGenTOn p f P)
-    (hVis : TwinYVisibleOn p f P) (hNC : TwinYNoCentralOn p f P) : TwinYTransitiveOn p f P :=
-  twinYTransitiveOn_of_p1 hΩall hAall (twinYP1On_of_visible hΩall hAall hP4 hH hGenT hVis)
-    (twinYXOrbit p f) hNC
-
-theorem twinYTypeOn_of_visible (hΩall : HypOmegaModAll p f) (hAall : AEmptyAll p f)
-    (hP4 : Ih8G2D4 p f) (hH : TwinFrameHyp51 p f) (hGenT : TwinYGenTOn p f P)
-    (hVis : TwinYVisibleOn p f P) (hNC : TwinYNoCentralOn p f P) (hRank : TwinYRankOn p f P) :
-    TwinYTypeOn p f P :=
-  twinYTypeOn_of_local hΩall hAall hP4 hH hGenT hVis (twinYXOrbit p f) hNC hRank
-
-theorem twinYInputs_of_visible (hΩall : HypOmegaModAll p f) (hAall : AEmptyAll p f)
-    (hP4 : Ih8G2D4 p f) (hH : TwinFrameHyp51 p f) (hGenT : TwinYGenT p f)
-    (hVis : TwinYVisibleOn p f fun _ _ => True) (hNC : TwinYNoCentralOn p f fun _ _ => True)
-    (hRank : TwinYRank p f) (hY3 : TwinYPartner p f) (hY4 : TwinYPattern p f) :
-    TwinYInputs p f :=
-  ⟨twinYP1_of_visible hΩall hAall hP4 hH hGenT hVis,
-    (twinYTypeOn_of_visible hΩall hAall hP4 hH hGenT.on hVis hNC hRank.on).of_true, hY3, hY4⟩
 
 end Main
 

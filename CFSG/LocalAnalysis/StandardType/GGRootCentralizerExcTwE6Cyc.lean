@@ -170,8 +170,6 @@ theorem ggTwE6InnerDiagCyclicInput_holds : GGTwE6InnerDiagCyclicInput := by
     obtain ⟨z', hz'1, hz'2⟩ := hact j γ hγ z hz
     exact ⟨z', hz'1, Subtype.ext hz'2⟩
 
-theorem ggRootCentralizerCyclicTag_twistedE6 : GGRootCentralizerCyclicTag .twistedE6 :=
-  ggRootCentralizerCyclicTag_twistedE6_of_cyclic ggTwE6InnerDiagCyclicInput_holds
 
 theorem ggRootCentralizerCyclicInput_holds : GGRootCentralizerCyclicInput :=
   ggRootCentralizerCyclicInput_of_remaining ggRootCentralizerCyclicTag_PSU

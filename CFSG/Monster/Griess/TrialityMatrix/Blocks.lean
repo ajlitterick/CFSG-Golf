@@ -55,9 +55,6 @@ theorem trace_diag2 [Fintype m] [Fintype n] (A : Matrix m m ℚ) (D : Matrix n n
   simp only [trace, diag, Fintype.sum_sum_type]
   rfl
 
-theorem diag2_diagonal [DecidableEq m] [DecidableEq n] (a : m → ℚ) (b : n → ℚ) :
-    diag2 (diagonal a) (diagonal b) = diagonal (Sum.elim a b) :=
-  fromBlocks_diagonal a b
 
 theorem diag2_mem_dyadic {A : Matrix m m ℚ} {D : Matrix n n ℚ} (hA : ∀ i j, A i j ∈ dyadic)
     (hD : ∀ i j, D i j ∈ dyadic) : ∀ x y, diag2 A D x y ∈ dyadic
@@ -96,10 +93,6 @@ theorem trace_kron1 [Fintype ι] [Fintype n] (A : Matrix n n ℚ) :
     trace (kron1 ι A) = Fintype.card ι * trace A := by
   rw [kron1, trace_kronecker, trace_one]
 
-theorem kron1_diagonal [DecidableEq n] (s : n → ℚ) :
-    kron1 ι (diagonal s) = diagonal fun p : ι × n => s p.2 := by
-  rw [kron1, ← diagonal_one, diagonal_kronecker_diagonal]
-  simp only [one_mul]
 
 theorem one_apply_mem_dyadic {m : Type*} [DecidableEq m] (i j : m) :
     (1 : Matrix m m ℚ) i j ∈ dyadic := by
@@ -196,50 +189,6 @@ theorem octHD_cls (d : OctadWord) {δ ε : Finset (Fin 24)} (hδ : δ ⊆ octSup
   norm_num
   ring
 
-theorem sq_eq_transpose_of_pow_three {n : Type*} [Fintype n] [DecidableEq n]
-    {A : Matrix n n ℚ} (h3 : A ^ 3 = 1) (ho : A * Aᵀ = 1) : A ^ 2 = Aᵀ := by
-  calc A ^ 2 = A ^ 2 * (A * Aᵀ) := by rw [ho, Matrix.mul_one]
-    _ = A ^ 3 * Aᵀ := by rw [← Matrix.mul_assoc, ← pow_succ]
-    _ = Aᵀ := by rw [h3, Matrix.one_mul]
-
-theorem three_mul_finrank_ker_sub_one {V : Type*} [AddCommGroup V] [Module ℚ V]
-    [FiniteDimensional ℚ V] (T : Module.End ℚ V) (hT : T ^ 3 = 1) :
-    3 * (finrank ℚ (LinearMap.ker (T - 1)) : ℚ) =
-      finrank ℚ V + LinearMap.trace ℚ V T + LinearMap.trace ℚ V (T ^ 2) := by
-  set P : Module.End ℚ V := (3 : ℚ)⁻¹ • (1 + T + T ^ 2) with hP
-  have hT4 : T ^ 4 = T := by rw [pow_succ, hT, one_mul]
-  have hPidem : IsIdempotentElem P := by
-    show P * P = P
-    rw [hP, smul_mul_smul_comm]
-    have : (1 + T + T ^ 2) * (1 + T + T ^ 2) = (3 : ℚ) • (1 + T + T ^ 2) := by
-      have e : (1 + T + T ^ 2) * (1 + T + T ^ 2) = 1 + 2 • T + 3 • T ^ 2 + 2 • T ^ 3 + T ^ 4 := by
-        noncomm_ring
-      rw [e, hT, hT4, ← Nat.cast_smul_eq_nsmul ℚ 2, ← Nat.cast_smul_eq_nsmul ℚ 3]
-      module
-    rw [this, smul_smul]
-    norm_num
-  have hrange : LinearMap.range P = LinearMap.ker (T - 1) := by
-    ext x
-    constructor
-    · rintro ⟨y, rfl⟩
-      rw [LinearMap.mem_ker, LinearMap.sub_apply, Module.End.one_apply, sub_eq_zero]
-      show (T * P) y = P y
-      rw [hP, mul_smul_comm]
-      congr 1
-      have e : T * (1 + T + T ^ 2) = T + T ^ 2 + T ^ 3 := by noncomm_ring
-      rw [e, hT]
-      abel_nf
-    · intro hx
-      rw [LinearMap.mem_ker, LinearMap.sub_apply, Module.End.one_apply, sub_eq_zero] at hx
-      refine ⟨x, ?_⟩
-      have hx2 : (T ^ 2) x = x := by rw [pow_two, Module.End.mul_apply, hx, hx]
-      rw [hP, LinearMap.smul_apply, LinearMap.add_apply, LinearMap.add_apply, Module.End.one_apply,
-        hx, hx2]
-      module
-  have htrace : LinearMap.trace ℚ V P = finrank ℚ (LinearMap.range P) :=
-    LinearMap.IsProj.trace (LinearMap.IsIdempotentElem.isProj_range P hPidem)
-  rw [← hrange, ← htrace, hP, map_smul, map_add, map_add, LinearMap.trace_one, smul_eq_mul]
-  ring
 
 theorem bform_toLin_of_gram {ι : Type*} [Fintype ι] [DecidableEq ι] (b : Basis ι ℚ SpaceB)
     {N : ι → ℚ} (hb : ∀ x y, bform (b x) (b y) = if x = y then N x else 0)

@@ -38,8 +38,5 @@ theorem exists_aut_form_GL_two (hn : 3 ≤ n) (α : MulAut (GL (Fin n) (ZMod 2))
     rw [GL.coe_glEquivProj_symm_conjAut_dualAut, Units.val_mul, Units.val_mul]
     rfl
 
-theorem dualGLn_not_inner (hn : 3 ≤ n) :
-    ¬ ∃ B : GL (Fin n) (ZMod 2), ∀ X : GL (Fin n) (ZMod 2), dualGLn n X = B * X * B⁻¹ :=
-  GL.dualGLn_not_inner_aux hn
 
 end CFSG.ASVolI.ChH

@@ -55,23 +55,6 @@ theorem getElem!_unpack_all {n w P i : Nat} (hP0 : Nat.beq (Nat.shiftRight P (n 
 
 #lc_blocks LMB lamTK 4725 32
 
-theorem lamPart : allLt 4725 (fun i => decide (fusionP[i]! < 128) && decide (fusionI[i]! < 4725) &&
-    eqA 315 (compA 315 repArrs[i]! fusionArr)
-      (compA 315 eltArrs[fusionP[i]!]! repArrs[fusionI[i]!]!)) = true := by
-  refine allLt_iff.2 fun i hi => ?_
-  have h := CFSG.KC.Co3Bfs.cover_of_blocks (by norm_num) (by norm_num) LMB.all i hi
-  unfold lamTK at h
-  rw [strictB_eq', strictB_eq'] at h
-  obtain ⟨h1, h⟩ := (bAnd_iff _ _).1 h
-  obtain ⟨h2, h3⟩ := (bAnd_iff _ _).1 h
-  have hp := Nat.le_of_ble_eq_true h1
-  have hq := Nat.le_of_ble_eq_true h2
-  rw [fusionP_eq, fusionI_eq, getElem!_unpack hi, getElem!_unpack hi, repArrs_eq i hi, hFU,
-    eltArrs_eq _ hp, repArrs_eq _ hq, compA_unpackN (repT_canon i hi) cFU,
-    compA_unpackN (eltT_canon _ hp) (repT_canon _ hq),
-    eqA_unpackN (canon_pcN (repT_canon i hi) cFU) (canon_pcN (eltT_canon _ hp) (repT_canon _ hq)), h3]
-  simp only [Bool.and_true, Bool.and_eq_true, decide_eq_true_eq]
-  exact ⟨hp, hq⟩
 
 theorem kFPP : Nat.beq (Nat.shiftRight FPP (4725 * 13)) 0 = true := by quickRfl
 
@@ -79,13 +62,6 @@ theorem kFIP : Nat.beq (Nat.shiftRight FIP (4725 * 13)) 0 = true := by quickRfl
 
 theorem kACP : Nat.beq (Nat.shiftRight ACP (4725 * 13)) 0 = true := by quickRfl
 
-theorem getElem!_ofFn_all {α : Type} [Inhabited α] {n : Nat} {f : Fin n → α} {i : Nat} :
-    (Array.ofFn f)[i]! = if h : i < n then f ⟨i, h⟩ else default := by
-  by_cases h : i < n
-  · simp only [h, ↓reduceDIte]
-    exact getElem!_ofFn' h
-  · simp only [h, ↓reduceDIte]
-    exact getElem!_neg _ i (by rw [Array.size_ofFn]; exact h)
 
 theorem fusionBit_eq : fusionBit = fusionBitF (fun i => aCoefT[i]!) (fun i => fusionP[i]!)
     (fun i => fusionI[i]!) fRows := rfl

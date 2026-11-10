@@ -84,15 +84,6 @@ theorem quotientInclusion_range (D : Subgroup H) :
   · rintro ⟨d, hd, rfl⟩
     exact ⟨QuotientGroup.mk' ((Subgroup.center H).subgroupOf D) (⟨d, hd⟩ : D), rfl⟩
 
-theorem quotientInclusion_normal (D : Subgroup H) [D.Normal] :
-    (quotientInclusion D).range.Normal := by
-  rw [quotientInclusion_range]
-  infer_instance
-
-theorem quotientInclusion_odd_index (D : Subgroup H) (hodd : Odd D.index) :
-    Odd (quotientInclusion D).range.index := by
-  rw [quotientInclusion_range]
-  exact hodd.of_dvd_nat (Subgroup.index_map_dvd D (QuotientGroup.mk'_surjective _))
 
 theorem subgroup_center_comap (M : Subgroup H)
     (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H) :
@@ -127,10 +118,6 @@ theorem subgroup_center_comap (M : Subgroup H)
   exact (QuotientGroup.quotientMulEquivOfEq hk.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective f hf)
 
-theorem projectiveImageEquiv_mk (M : Subgroup H)
-    (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H) (m : M) :
-    (projectiveImageEquiv M hcentralizer (QuotientGroup.mk' (Subgroup.center M) m) :
-      H ⧸ Subgroup.center H) = QuotientGroup.mk' (Subgroup.center H) (m : H) := rfl
 
 theorem projectiveImage_centralizer (M : Subgroup H) [Group.IsPerfect M]
     (hcentralizer : Subgroup.centralizer (M : Set H) = Subgroup.center H) :

@@ -90,21 +90,6 @@ theorem noNormalP_of_ggOpAutTrivial {p : ℕ} {Bs : Subgroup G} (hO : GGOpAutTri
 
 end Automizer
 
-@[expose] def GGBstarInnerDiagLInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → GGInnerDiagOn Bs L
-
-@[expose] def GGLTransvectionCenterInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
-      ∀ φ ∈ ggInduced (Subgroup.centralizer ({x} : Set G)) Bs, GGIsTransvection p φ →
-        ∀ b : ↥Bs, ((b⁻¹ * φ b : ↥Bs) : G) ∈ Subgroup.zpowers x
-
-@[expose] def GGLNoInvariantLineInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
-      ∀ E : Subgroup G, E ≤ Bs → x ∈ E → Nat.card E = p ^ 2 →
-        ¬ Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (E : Set G)
 
 section NoTransvection
 
@@ -116,36 +101,6 @@ theorem mem_zpowers_mk_of_coe_mem {Bs : Subgroup G} {x : G} (hx : x ∈ Bs) {b :
   obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hb
   exact Subgroup.mem_zpowers_iff.mpr ⟨k, Subtype.ext (by simpa using hk)⟩
 
-theorem ggNoTransvection_of (hK : GGKantorReductionInput) (hcen : GGLTransvectionCenterInput)
-    (hline : GGLNoInvariantLineInput) {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hC : GGConfig p B Bs x L D J) (hO : GGOpAutTrivial p Bs) (hL : GGInnerDiagOn Bs L) :
-    GGNoTransvection p Bs := by
-  intro φ hφ htv
-  obtain ⟨hT, hBs, hstd⟩ := hC
-  have hp : p.Prime := hT.2.2.2.2.2.1.1
-  have hp2 : p ≠ 2 := hT.2.2.2.2.2.1.2.1
-  have hxBs : x ∈ Bs := hBs.1 hT.2.2.2.2.2.2.1.2.1
-  have hcomm : ∀ a b : ↥Bs, a * b = b * a := fun a b => hBs.2.1.1.is_comm.comm a b
-  have hexp : ∀ a : ↥Bs, a ^ p = 1 := fun a => Subtype.ext (by simpa using hBs.2.1.2 a a.2)
-  rcases exists_transvection_fix_or_plane_mul hK hp hp2 hcomm hexp Bs.normalizerMonoidHom.range
-      (noNormalP_of_ggOpAutTrivial hO) ⟨φ, mem_ggInduced_top_iff.mp hφ, htv⟩ ⟨x, hxBs⟩ with
-    ⟨ψ, ⟨g, rfl⟩, hψtv, hψx, b, hb⟩ | ⟨E, hEcard, hxE, hEinv⟩
-  · have hgx : (g : G) ∈ Subgroup.centralizer ({x} : Set G) := by
-      rw [Subgroup.mem_centralizer_singleton_iff]
-      have h1 : (g : G) * x * (g : G)⁻¹ = x := congrArg Subtype.val hψx
-      calc (g : G) * x = (g : G) * x * (g : G)⁻¹ * (g : G) := by group
-        _ = x * (g : G) := by rw [h1]
-    have hmem : Bs.normalizerMonoidHom g ∈ ggInduced (Subgroup.centralizer ({x} : Set G)) Bs :=
-      mem_ggInduced_iff.mpr ⟨g, hgx, rfl⟩
-    exact hb (mem_zpowers_mk_of_coe_mem hxBs
-      (hcen G p B Bs x L D J ⟨hT, hBs, hstd⟩ hL _ hmem hψtv b))
-  · refine hline G p B Bs x L D J ⟨hT, hBs, hstd⟩ hL (E.map Bs.subtype)
-      (Subgroup.map_subtype_le E) ⟨⟨x, hxBs⟩, hxE, rfl⟩
-      (by rw [Subgroup.card_map_of_injective Bs.subtype_injective, hEcard]) ?_
-    refine CFSG.StandardType.le_normalizer_of_map_conj_le fun g hg => ?_
-    rintro _ ⟨_, ⟨e, he, rfl⟩, rfl⟩
-    have hge := hEinv (Bs.normalizerMonoidHom ⟨g, hg⟩) ⟨⟨g, hg⟩, rfl⟩ e he
-    exact ⟨_, hge, rfl⟩
 
 end NoTransvection
 
@@ -190,27 +145,5 @@ theorem largeEvenInduces_ggLAut_inv {b : G} (hb : b⁻¹ ∈ Subgroup.normalizer
 
 end Induces
 
-theorem ggCor42Input_of (hK : GGKantorReductionInput) (hLID : GGBstarInnerDiagLInput)
-    (hcen : GGLTransvectionCenterInput) (hline : GGLNoInvariantLineInput)
-    (hnorm : GGBstarNbrNormalInput) (hgraph : GGNbrGraphInput)
-    (hfield : GGNbrFieldTransvectionInput) : GGCor42Input := by
-  intro G _ _ p B Bs x L D J hC hO
-  have hL := hLID G p B Bs x L D J hC
-  have hNT := ggNoTransvection_of hK hcen hline hC hO hL
-  refine ⟨hL, fun y K hK' => ?_⟩
-  have hN := hnorm G p B Bs x L D J hC y K hK'
-  have h5 := (hC.1.2.2.2.2.2.2.2.2.2.1 y K (isNeighborOf_of_ggNbr hC.2.2 hK')).2
-  have hM := hfield G p B Bs x L D J hC y K hK' hN _ (hgraph G p B Bs x L D J hC y K hK' hN _ h5)
-  refine largeEvenMarking_mono ?_ hM
-  rintro lab R _ I F θ ⟨⟨-, hall⟩, himp⟩
-  refine ⟨hN, fun b hb => ⟨_, ?_, largeEvenInduces_ggLAut_inv K θ (hN (Bs.inv_mem hb))⟩⟩
-  by_contra hnot
-  obtain ⟨φ, hφ, htv⟩ := himp hall ⟨b⁻¹, Bs.inv_mem hb, hnot⟩
-  exact hNT φ hφ htv
-
-theorem ggNoTransvectionInput_of (hK : GGKantorReductionInput) (hcen : GGLTransvectionCenterInput)
-    (hline : GGLNoInvariantLineInput) : GGNoTransvectionInput := by
-  intro G _ _ p B Bs x L D J hC hO hD
-  exact ggNoTransvection_of hK hcen hline hC hO hD.1
 
 end CFSG.StandardType

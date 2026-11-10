@@ -133,15 +133,6 @@ theorem not_dvd_two_pow_add_one (h : IsUnitaryPPD r f n) (hn : 1 < n) : ¬ r ∣
   rw [pow_one, pow_one, sub_neg_eq_add]
   exact_mod_cast hd
 
-theorem not_dvd_sq_sub_one (h : IsUnitaryPPD r f n) (hn : 2 < n) : ¬ r ∣ (2 ^ f) ^ 2 - 1 := by
-  intro hd
-  apply h.not_dvd 2 two_pos hn
-  have e : ((((2 ^ f) ^ 2 - 1 : ℕ)) : ℤ) = ((2 ^ f : ℕ) : ℤ) ^ 2 - (-1) ^ 2 := by
-    rw [Nat.cast_sub (Nat.one_le_pow _ _ (by positivity))]
-    push_cast
-    ring
-  rw [← e]
-  exact_mod_cast hd
 
 theorem dvd_pow_sub (h : IsUnitaryPPD r f n) {p m : ℕ} (hp : Odd p) (hnpm : p * m = n) :
     (r : ℤ) ∣ ((2 ^ (f * p) : ℕ) : ℤ) ^ m - (-1) ^ m := by
@@ -154,28 +145,6 @@ theorem dvd_pow_sub (h : IsUnitaryPPD r f n) {p m : ℕ} (hp : Odd p) (hnpm : p 
   rw [e1, e2]
   exact h.dvd
 
-theorem not_dvd_card_unitarySU (h : IsUnitaryPPD r f n) (hf : 1 ≤ f) {K : Type} [Field K]
-    (hK : UnitaryFieldData 2 f K) {k : ℕ} (hk : 1 ≤ k) (hkn : k < n) :
-    ¬ r ∣ Nat.card (unitarySU 2 f K k) := by
-  have : CharP K 2 := hK.charP
-  have hU := (CFSG.LinearGroups.unitary_full_group_order hK
-    (gramForm_isSymm hK (G := (1 : Matrix (Fin k) (Fin k) K)) (by simp))
-    (gramForm_separatingLeft hK (by simp)) (Module.finrank_fin_fun K) hk).2.1
-  have hcard : (Nat.card (unitarySU 2 f K k) : ℤ) = ((2 ^ f : ℕ) : ℤ) ^ (k * (k - 1) / 2) *
-      ∏ i ∈ Finset.Icc 2 k, (((2 ^ f : ℕ) : ℤ) ^ i - (-1) ^ i) := by
-    rw [unitarySU_eq_gramSU hK, card_gramSU, hU]
-  intro hd
-  have hd' : (r : ℤ) ∣ ((2 ^ f : ℕ) : ℤ) ^ (k * (k - 1) / 2) *
-      ∏ i ∈ Finset.Icc 2 k, (((2 ^ f : ℕ) : ℤ) ^ i - (-1) ^ i) :=
-    hcard ▸ Int.natCast_dvd_natCast.mpr hd
-  have hrp : Prime (r : ℤ) := Nat.prime_iff_prime_int.mp h.prime
-  rcases hrp.dvd_or_dvd hd' with h1 | h1
-  · have h2 : r ∣ 2 ^ f := Int.natCast_dvd_natCast.mp (hrp.dvd_of_dvd_pow h1)
-    exact h.ne_two hf ((Nat.prime_dvd_prime_iff_eq h.prime Nat.prime_two).mp
-      (h.prime.dvd_of_dvd_pow h2))
-  · obtain ⟨i, hi, hdi⟩ := (Prime.dvd_finsetProd_iff hrp _).mp h1
-    rw [Finset.mem_Icc] at hi
-    exact h.not_dvd i (by omega) (by omega) hdi
 
 end IsUnitaryPPD
 

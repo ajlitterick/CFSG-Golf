@@ -47,15 +47,5 @@ structure Pair (T : Sylow 2 G) (z : G) (L : Subgroup G) : Prop where
   (∃ g : G, K' = K.map (MulAut.conj g).toMonoidHom) ∧ K' ≠ K ∧
     Even (Nat.card ↥(K' ⊓ normalizer (K : Set G)))
 
-@[expose] def InDelta0 (K L K' : Subgroup G) : Prop :=
-  InDelta K K' ∧ ∀ R : Subgroup G, QuasithinUnique.IsSylowTwoOf R (K' ⊓ normalizer (K : Set G)) →
-    omegaOne R ≤ K ⊔ L
-
-@[expose] def IsBenderComp (L : Subgroup G) : Prop :=
-  Open.fusionIsBenderGroup (↥L ⧸ center ↥L)
-
-@[expose] def JankoLocal (z : G) (L : Subgroup G) : Prop :=
-  z ∉ L ∧ Nonempty (↥L ≃* alternatingGroup (Fin 5)) ∧
-    centralizer ({z} : Set G) = zpowers z ⊔ L
 
 end CFSG.GH74.AS16

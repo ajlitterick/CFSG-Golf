@@ -127,45 +127,6 @@ theorem twin_modOdd3 {C K J : Subgroup G} {z : G} (hKC : IsSubnormal K C)
     rw [hmap]
     exact Subgroup.map_mono h
 
-theorem twin_modOdd3_weak {C K J : Subgroup G} {z : G} (hKC : IsSubnormal K C)
-    (hJC : IsSubnormal J C) (hz : orderOf z = 2) (hzK : z ∈ K) (hzJ : z ∈ J)
-    (eK : Nonempty (K ⧸ classicalInvolutionOddCore K ≃* SL(2, ZMod 3)))
-    (eJ : Nonempty (J ⧸ classicalInvolutionOddCore J ≃* SL(2, ZMod 3))) :
-    K ⊔ Balance.oddCoreIn C = J ⊔ Balance.oddCoreIn C ∨ ⁅K, J⁆ ≤ Balance.oddCoreIn C := by
-  have hKle : K ≤ C := isSubnormal_le hKC
-  have hJle : J ≤ C := isSubnormal_le hJC
-  obtain ⟨e₁⟩ := eK
-  obtain ⟨e₂⟩ := eJ
-  have hz' : orderOf (⟨z, hKle hzK⟩ : C) = 2 := by rw [Subgroup.orderOf_mk]; exact hz
-  have hNC : Balance.oddCoreIn C ≤ C := Balance.oddCoreIn_le C
-  rcases twin_modOdd3_images (K := K.subgroupOf C) (J := J.subgroupOf C)
-      (z := (⟨z, hKle hzK⟩ : C)) (isSubnormal_subgroupOf_top hKC) (isSubnormal_subgroupOf_top hJC)
-      hz' (Subgroup.mem_subgroupOf.mpr hzK) (Subgroup.mem_subgroupOf.mpr hzJ)
-      (nonempty_quotEquiv_subgroupOf hKle e₁) (nonempty_quotEquiv_subgroupOf hJle e₂) with h | h
-  · left
-    set π := QuotientGroup.mk' (classicalInvolutionOddCore C) with hπ
-    have key : ∀ {A B : Subgroup G}, A ≤ C →
-        (A.subgroupOf C).map π = (B.subgroupOf C).map π → A ≤ B ⊔ Balance.oddCoreIn C := by
-      intro A B hAC hAB x hx
-      have hxC : x ∈ C := hAC hx
-      have h1 : π ⟨x, hxC⟩ ∈ (B.subgroupOf C).map π :=
-        hAB ▸ Subgroup.mem_map_of_mem π (Subgroup.mem_subgroupOf.mpr hx)
-      obtain ⟨y, hy, hyx⟩ := h1
-      have hker : y⁻¹ * ⟨x, hxC⟩ ∈ classicalInvolutionOddCore C := by
-        have : π (y⁻¹ * ⟨x, hxC⟩) = 1 := by rw [map_mul, map_inv, hyx, inv_mul_cancel]
-        exact (QuotientGroup.eq_one_iff _).mp this
-      have hmem : ((y⁻¹ * ⟨x, hxC⟩ : ↥C) : G) ∈ Balance.oddCoreIn C := ⟨_, hker, rfl⟩
-      have hyB : (y : G) ∈ B := Subgroup.mem_subgroupOf.mp hy
-      have hxy : (y : G) * ((y⁻¹ * ⟨x, hxC⟩ : ↥C) : G) = x := by simp
-      rw [← hxy]
-      exact Subgroup.mul_mem_sup hyB hmem
-    exact le_antisymm (sup_le (key hKle h) le_sup_right) (sup_le (key hJle h.symm) le_sup_right)
-  · right
-    have hmap : ⁅K, J⁆ = (⁅K.subgroupOf C, J.subgroupOf C⁆).map C.subtype := by
-      rw [Subgroup.map_commutator, Subgroup.map_subgroupOf_eq_of_le hKle,
-        Subgroup.map_subgroupOf_eq_of_le hJle]
-    rw [hmap]
-    exact Subgroup.map_mono h
 
 end InAmbient
 

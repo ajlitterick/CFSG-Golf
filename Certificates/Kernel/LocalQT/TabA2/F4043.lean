@@ -26,7 +26,6 @@ open CFSG.PSL3Four.Native CFSG.QuasithinUnique.Id2519.Tab.A2
 @[expose] def P (a : Array Nat) (A : Nat) : Prop :=
   a = unpack 42 6 A ∧ canonK 42 6 (mask 6) (42 * 6) A = true
 
-theorem cn_eq (A : Nat) : cn A = canonK 42 6 (mask 6) (42 * 6) A := rfl
 
 theorem hn : szOK 42 6 = true := by quickRfl
 

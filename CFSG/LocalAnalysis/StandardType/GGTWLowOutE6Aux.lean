@@ -185,30 +185,6 @@ lemma l05nL6_sim_orbit {news : List GGDepANPair}
     omega
   · exact hgen
 
-lemma l05nL6_Ts_getD {w : GGTWLE6} {j : ℕ} (hj : j < w.s.length) :
-    (List.map (ggTWLMatOfPair 3 5) w.s).getD j [] = ggTWLMatOfPair 3 5 (w.s.getD j ([], [])) := by
-  rw [List.getD_eq_getElem _ _ (by rw [List.length_map]; exact hj),
-    List.getD_eq_getElem _ _ hj, List.getElem_map]
-
-lemma l05nL6_Tg_getD {news : List GGDepANPair} {g : ℕ} (hg : g < 5 + news.length) :
-    (ggTWLGenMats 3 6 news).getD g [] = ggTWLMatOfPair 3 5 (ggTWNGen 3 6 news g) := by
-  rw [ggTWLGenMats, List.getD_eq_getElem _ _
-      (by rw [List.length_map, List.length_map, List.length_range]; simpa using hg),
-    List.getElem_map, List.getElem_map, List.getElem_range]
-
-lemma l05nL6_word_mem {M : Submonoid (Module.End (ZMod 3) (GGTWE 3 6))}
-    {T : List (List (List ℕ))} {w : List ℕ} (hT : ∀ t ∈ T, ggTWLMatWF 5 t)
-    (hgen : ∀ t ∈ T, ggTWLMatLin 3 5 t ∈ M) (hw : ∀ k ∈ w, k < T.length) :
-    ggTWLMatLin 3 5 (ggTWLWordMat 3 5 T w) ∈ M := by
-  obtain ⟨-, heq⟩ := ggTWLWordMat_lin (p := 3) (d := 5) hT hw
-  rw [heq]
-  refine Submonoid.list_prod_mem M ?_
-  intro x hx
-  rw [List.mem_map] at hx
-  obtain ⟨k, hk, rfl⟩ := hx
-  exact hgen _ (by
-    rw [List.getD_eq_getElem _ _ (hw k hk)]
-    exact List.getElem_mem _)
 
 lemma l05nL6_S_invol {news : List GGDepANPair}
     (hnews : ∀ q ∈ news, GGTWNValid 3 6 q) :

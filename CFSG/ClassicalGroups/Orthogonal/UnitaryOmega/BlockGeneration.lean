@@ -419,49 +419,9 @@ theorem normBlock_singleton_sup_singleton
     Subgroup.map_subgroupOf_eq_of_le hle_A]
   exact hsupp.symm
 
-theorem normBlock_eq_iSup_singletons (n : ℕ) (S : Finset (Fin n)) (hS : S.Nonempty) :
-    normBlock E n S = ⨆ i ∈ S, normBlock E n {i} := by
-  classical
-  refine le_antisymm ?_ ?_
-  · by_cases h2 : 2 ≤ S.card
-    · rw [normBlock_eq_iSup_pairs E n S h2]
-      refine iSup_le fun P => ?_
-      obtain ⟨a, b, _hab, hPab⟩ := Finset.card_eq_two.mp P.2.2
-      have ha : a ∈ S := P.2.1 (by rw [hPab]; simp)
-      have hb : b ∈ S := P.2.1 (by rw [hPab]; simp)
-      rw [hPab, ← normBlock_singleton_sup_singleton E a b]
-      exact sup_le
-        (le_iSup₂ (f := fun i (_ : i ∈ S) => normBlock E n {i}) a ha)
-        (le_iSup₂ (f := fun i (_ : i ∈ S) => normBlock E n {i}) b hb)
-    · have hpos : 0 < S.card := Finset.card_pos.mpr hS
-      have h1 : S.card = 1 := by
-        have hlt : S.card < 2 := not_le.mp h2
-        omega
-      obtain ⟨i, rfl⟩ := Finset.card_eq_one.mp h1
-      rw [← Finset.sup_eq_iSup]
-      simp
-  · refine iSup_le fun i => iSup_le fun hi => ?_
-    exact normBlock_mono E n (Finset.singleton_subset_iff.mpr hi)
 
 section FieldTwoPair
 
-variable {L : Type} [Field L] [Algebra (ZMod 2) L] [Finite L] [CharP L 2]
-
-theorem normBlock_zero_sup_one_eq_top
-    (E : QuadExt (ZMod 2) L (unitaryInvolution L 2 1)) :
-    normBlock E 2 {0} ⊔ normBlock E 2 {1} = ⊤ := by
-  have h := iSup_singleton_normBlock_eq_top (F := ZMod 2) (K := L) (f := 1) E
-    (n := 2) (by norm_num)
-  have hpair : (⨆ i : Fin 2, normBlock E 2 {i}) =
-      normBlock E 2 {0} ⊔ normBlock E 2 {1} := by
-    have hsup : (Finset.univ : Finset (Fin 2)).sup
-        (fun i => normBlock E 2 {i}) = ⨆ i : Fin 2, normBlock E 2 {i} := by
-      rw [Finset.sup_eq_iSup]
-      simp
-    rw [← hsup]
-    have huniv : (Finset.univ : Finset (Fin 2)) = {0, 1} := by decide
-    rw [huniv, Finset.sup_insert, Finset.sup_singleton]
-  rwa [hpair] at h
 
 end FieldTwoPair
 

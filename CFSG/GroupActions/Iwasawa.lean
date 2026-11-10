@@ -13,26 +13,6 @@ open scoped commutatorElement
 
 variable {G Ω : Type*} [Group G] [MulAction G Ω]
 
-theorem equivalence_normal_orbit (N : Subgroup G) :
-    Equivalence fun x y : Ω => ∃ n ∈ N, n • x = y where
-  refl x := ⟨1, one_mem N, one_smul G x⟩
-  symm := by
-    rintro x y ⟨n, hn, rfl⟩
-    exact ⟨n⁻¹, inv_mem hn, inv_smul_smul n x⟩
-  trans := by
-    rintro x y z ⟨n, hn, rfl⟩ ⟨m, hm, rfl⟩
-    exact ⟨m * n, mul_mem hm hn, mul_smul m n x⟩
-
-theorem exists_mem_smul_eq_iff (N : Subgroup G) [hN : N.Normal] (g : G) (x y : Ω) :
-    (∃ n ∈ N, n • x = y) ↔ ∃ n ∈ N, n • (g • x) = g • y := by
-  constructor
-  · rintro ⟨n, hn, rfl⟩
-    refine ⟨g * n * g⁻¹, hN.conj_mem n hn g, ?_⟩
-    rw [smul_smul, smul_smul, inv_mul_cancel_right]
-  · rintro ⟨n, hn, h⟩
-    refine ⟨g⁻¹ * n * g, ?_, ?_⟩
-    · simpa using hN.conj_mem n hn g⁻¹
-    · rw [← smul_smul, ← smul_smul, h, inv_smul_smul]
 
 theorem exists_mul_of_normalClosure_eq_top (N : Subgroup G) [hN : N.Normal] {H A : Subgroup G}
     (hAH : ∀ h ∈ H, ∀ a ∈ A, h * a * h⁻¹ ∈ A) (hNH : ∀ g : G, ∃ n ∈ N, ∃ h ∈ H, n * h = g)

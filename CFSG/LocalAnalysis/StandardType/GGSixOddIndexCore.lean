@@ -15,9 +15,6 @@ open CFSG.Assembly
 
 variable {G : Type*} [Group G]
 
-theorem ggSix_pCore_eq (p : ℕ) (X : Type*) [Group X] :
-    CFSG.Assembly.pCore p X = CFSG.pCore p X :=
-  CFSG.RankThreeCoreUniqueness.Helpers.pCore_eq_sSup (G := X) p
 
 theorem ggSix_pCoreOf_isPGroup (p : ℕ) (H : Subgroup G) : IsPGroup p (pCoreOf p H) := by
   unfold pCoreOf

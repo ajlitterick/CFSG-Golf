@@ -104,7 +104,6 @@ theorem exists_A₂sub_coord (h : UnitaryFieldData 2 f K) (a u c : K) :
     Matrix.cons_val', Matrix.empty_val', Matrix.cons_val_fin_one] at e2 e3 e5 e7
   exact ⟨g, mem_A₂sub.2 ⟨hg, e3, by rw [(U_rel hg).2.1, e3, map_zero], e7⟩, e1, e2, e5⟩
 
-variable {b κ : K} (hκ : κ + h.bar κ = b * h.bar b)
 include hκ
 
 end A₂Lines

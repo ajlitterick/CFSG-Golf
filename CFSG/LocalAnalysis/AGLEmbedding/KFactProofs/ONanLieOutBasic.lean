@@ -106,9 +106,6 @@ theorem center_le_of_normalizer_le {Y : Type} [Group Y] {L T J : Subgroup Y}
   Sylow.mapSurjective (f := QuotientGroup.mk' (Subgroup.center ↥L))
     (QuotientGroup.mk'_surjective _) (sylowOfIsSylowTwoOf hT)
 
-theorem coe_barSylow {Y : Type} [Group Y] [Finite Y] {L T : Subgroup Y} (hT : IsSylowTwoOf T L) :
-    (barSylow hT : Subgroup (↥L ⧸ Subgroup.center ↥L)) =
-      (T.subgroupOf L).map (QuotientGroup.mk' (Subgroup.center ↥L)) := rfl
 
 theorem normalizer_barSylow_le_quotImage {Y : Type} [Group Y] [Finite Y] {L T J : Subgroup Y}
     (hT : IsSylowTwoOf T L) (hJ : L ⊓ Subgroup.normalizer (T : Set Y) ≤ J) :

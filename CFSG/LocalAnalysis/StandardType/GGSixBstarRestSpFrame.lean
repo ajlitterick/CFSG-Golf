@@ -111,8 +111,6 @@ theorem ggSpBstarFrameInput_holds : GGSpBstarFrameInput := by
   exact spFrame_core hctx.2.2.2.1.1.2.1 hctx.2.2.2.1.2 ψ hctx.2.2.2.2.1.2 hC hctx.prime
     hctx.ne_two hctx.bstar.2.1 (fun b hb => hctx.2.2.2.2.2.2.1.2 b hb) hp
 
-theorem ggRootPlaneInputOn_PSpSplit : GGRootPlaneInputOn GGPSpSplit :=
-  ggRootPlaneInputOn_PSpSplit_of_frame ggSpBstarFrameInput_holds
 
 theorem ggRootPlaneAt_PSp_of_nonsplit (h₂ : GGRootPlaneInputOn GGPSpNonsplit) :
     GGRootPlaneAt .PSp :=

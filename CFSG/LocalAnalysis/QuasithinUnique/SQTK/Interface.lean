@@ -15,14 +15,5 @@ open CFSG.Assembly CFSG.Open.SQTKTauCeti
 instance (s : TauCeti.SporadicName) : Decidable (IsSQTKSporadicName s) := by
   unfold IsSQTKSporadicName; infer_instance
 
-@[expose] def TCExcludedSporadic (s : TauCeti.SporadicName) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    Nonempty (G ≃* s.Group) →
-    ∃ ℓ : ℕ, ℓ.Prime ∧ ℓ ≠ 2 ∧
-      ∃ E : Subgroup G, CFSG.Open.IsElemAbelian ℓ E ∧ Nat.card E = ℓ ^ 3
-
-@[expose] def TCLieCase (d : TauCeti.ValidLieTypeIndex) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    StronglyQuasithin G → Nonempty (G ≃* d.Group) → SQTKSimpleList G
 
 end CFSG.QuasithinUnique.SQTK

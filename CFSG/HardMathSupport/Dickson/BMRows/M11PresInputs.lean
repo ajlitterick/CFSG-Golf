@@ -19,6 +19,5 @@ open CFSG.CosetTable
     [(3, true), (1, true), (3, true), (1, true)],
     [(2, false), (3, false), (2, true), (3, true)]]
 
-@[expose] def m11CosetCheck (_ : Unit := ()) : Bool := subsetCheck m11Rels [] 4096 64
 
 end CFSG.HardMathSupport.Dickson.BMRows.M11

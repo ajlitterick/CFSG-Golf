@@ -44,28 +44,6 @@ open scoped MatrixGroups
       (IsAlt (G ⧸ CFSG.solvableRadical G) 6 →
         2 ∣ Nat.card (CFSG.solvableRadical G) ∨ 3 ∣ Nat.card (CFSG.solvableRadical G))
 
-@[expose] def K332 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], CFSG.Open.IsKGroup G → ∀ p : ℕ, p.Prime → p ≠ 2 →
-    ∀ Z : Subgroup G, Nat.card Z = p → IsWeaklyClosedIn Z (normalizer (Z : Set G)) →
-    CFSG.Open.pRank p (⊤ : Subgroup G) ≤ 3 →
-    (3 < p → ∀ q : ℕ, q.Prime → q ≠ 2 → 3 < CFSG.Open.twoLocalPrimeRank q G →
-      ∃ N : Subgroup G, IsStronglyPEmbedded q N ∧ ∀ Q : Subgroup G, IsPGroup q Q → ¬ IsCyclic Q →
-        Q ≤ N → ∀ N' ∈ calMOf Q, N' ≤ N) →
-    ∀ P : Subgroup G, CFSG.ABGLocalTools.IsSylowOf p P (Subgroup.normalClosure (Z : Set G)) → Z ≤ P →
-      CFSG.Open.pRank p (Subgroup.normalClosure (Z : Set G)) = 1 ∨
-      (LieModel ↥((Subgroup.normalClosure (Z : Set G)).map
-          (QuotientGroup.mk' (CFSG.pPrimeCore p G))) .PSU 3 p 1 ∧ ExtraspecialExpP p P) ∨
-      (p = 3 ∧ (∃ (r f : ℕ), r.Prime ∧ LieModel ↥((Subgroup.normalClosure (Z : Set G)).map
-          (QuotientGroup.mk' (CFSG.pPrimeCore p G))) .G2 0 r f) ∧
-        ¬ IsMulCommutative ↥(omegaOne p P)) ∨
-      (p = 3 ∧ ExtraspecialExpP 3 P ∧ IsSpor ↥((Subgroup.normalClosure (Z : Set G)).map
-          (QuotientGroup.mk' (CFSG.pPrimeCore p G))) .J2) ∨
-      (p = 5 ∧ ExtraspecialExpP 5 P ∧ ∃ s : TauCeti.SporadicName,
-          (s = .McL ∨ s = .HS ∨ s = .Co3 ∨ s = .Co2) ∧
-          IsSpor ↥((Subgroup.normalClosure (Z : Set G)).map
-            (QuotientGroup.mk' (CFSG.pPrimeCore p G))) s) ∨
-      (p = 11 ∧ ExtraspecialExpP 11 P ∧ IsSpor ↥((Subgroup.normalClosure (Z : Set G)).map
-          (QuotientGroup.mk' (CFSG.pPrimeCore p G))) .J4)
 
 @[expose] def K35 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], CFSG.Open.IsKGroup G → ∀ p : ℕ, p.Prime → p ≠ 2 →

@@ -26,9 +26,6 @@ omit hb in
 theorem caseC3Word_three : caseC3Word Z u m y x 3 = (y : G ⧸ Z) * (x : G ⧸ Z) := by
   simp [caseC3Word, c3Word]
 
-omit hb in
-theorem caseC3Word_four : caseC3Word Z u m y x 4 = ((x * m * x⁻¹ : G) : G ⧸ Z) := by
-  simp [caseC3Word, c3Word]
 
 omit hb in
 theorem caseC3Word_eight : caseC3Word Z u m y x 8 = ((x * u * x⁻¹ : G) : G ⧸ Z) := by

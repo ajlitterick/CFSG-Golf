@@ -46,9 +46,6 @@ end Conj
 
 variable {K : Type} [Field K] {n : ℕ}
 
-theorem isSpRootSL2_spRootSL2 {v : Fin n → ℤ} (hv : v ∈ roots (isFiniteType_cartanC n) ∅) :
-    IsSpRootSL2 n K (spRootSL2 n K v) :=
-  ⟨v, hv, 1, by ext x; simp⟩
 
 theorem IsSpRootSL2.map_conj {H : Subgroup (StatedSp n K)} (hH : IsSpRootSL2 n K H)
     (h : StatedSp n K) : IsSpRootSL2 n K (H.map (MulAut.conj h).toMonoidHom) := by
@@ -154,8 +151,6 @@ theorem negIdx_tauIdx (r : RootSubgroupIndex 2) : negIdx (tauIdx r) = tauIdx (ne
   | positiveSum i j h => fin_cases i <;> fin_cases j <;> first | exact absurd h (by decide) | rfl
   | negativeSum i j h => fin_cases i <;> fin_cases j <;> first | exact absurd h (by decide) | rfl
 
-theorem tauExp_negIdx (r : RootSubgroupIndex 2) : tauExp (negIdx r) = tauExp r := by
-  cases r <;> rfl
 
 theorem tauExp_eq (r : RootSubgroupIndex 2) : tauExp r = 1 ∨ tauExp r = 2 := by
   cases r <;> simp [tauExp]

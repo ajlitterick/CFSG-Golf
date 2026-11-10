@@ -134,11 +134,6 @@ theorem form_ok : formChecks () = true := by
     eqM_self (unlane_size' (ln 7)), eqM_self (unlane_size' (ln 3))]
   rfl
 
-theorem pow4096 : (2 : Nat) ^ 4096 - 1 = mask 4096 := by
-  rw [CFSG.KS.Raw.Orb.mask_eq']
-
-theorem lane_p_bit (X t : Nat) : (⟨X &&& (2 ^ 4096 - 1), X >>> 4096⟩ : V).p.testBit t =
-    (decide (t < 4096) && X.testBit t) := lo_bit
 
 theorem toMat_lane3 (X : Nat) :
     toMat 64 (unlane 64 ⟨X &&& (2 ^ 4096 - 1), X >>> 4096⟩) = mat3 64 4096 X := by

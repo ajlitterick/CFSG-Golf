@@ -145,21 +145,6 @@ public theorem no_kleinFour_centralizes_odd_cyclic_of_conjugate_torus
   exact no_kleinFour_centralizes_odd_rotation_of_normalizer
     U A0 V0 w hA0ne hA0rot hA0odd hUcyc hwU hwsq hwinv hN hV0K hV0leC
 
-public theorem center_eq_bot_perm_fin4 :
-    Subgroup.center (Equiv.Perm (Fin 4)) = ⊥ := by
-  rw [Subgroup.eq_bot_iff_forall]
-  exact (by
-    decide +kernel :
-      ∀ x : Equiv.Perm (Fin 4),
-        x ∈ Subgroup.center (Equiv.Perm (Fin 4)) → x = 1)
-
-public theorem center_eq_bot_alternatingGroup_four :
-    Subgroup.center (alternatingGroup (Fin 4)) = ⊥ := by
-  exact alternatingGroup.center_eq_bot (by norm_num)
-
-public theorem center_eq_bot_alternatingGroup_five :
-    Subgroup.center (alternatingGroup (Fin 5)) = ⊥ := by
-  exact alternatingGroup.center_eq_bot (by norm_num)
 
 public theorem no_kleinFour_of_isPGroup_odd
     {G : Type u} [Group G] [Finite G]
@@ -179,41 +164,6 @@ public theorem no_kleinFour_of_isPGroup_odd
   have hp_ge2 : 2 ≤ p := (Fact.out : Nat.Prime p).two_le
   interval_cases p <;> norm_num at *
 
-public theorem pGroup_le_kernel_of_complement
-    {M : Type u} [Group M] [Finite M]
-    (N A C : Subgroup M)
-    (hNnormal : N.Normal)
-    (hcomp : N.IsComplement' C)
-    {p : ℕ} [Fact p.Prime] (hAp : IsPGroup p A)
-    (hcop : Nat.Coprime p (Nat.card C)) :
-    A ≤ N := by
-  let : N.Normal := hNnormal
-  intro a ha
-  let q : M →* M ⧸ N := QuotientGroup.mk' N
-  rcases hAp.exists_card_eq with ⟨k, hk⟩
-  have horder_dvd : orderOf a ∣ Nat.card A := by
-    have hzle : Subgroup.zpowers a ≤ A := Subgroup.zpowers_le.mpr ha
-    have hcard : Nat.card (Subgroup.zpowers a) ∣ Nat.card A :=
-      Subgroup.card_dvd_of_le hzle
-    rw [show orderOf a = Nat.card (Subgroup.zpowers a) by
-      exact (Nat.card_zpowers a).symm]
-    exact hcard
-  rw [hk] at horder_dvd
-  have hcop_pow : Nat.Coprime (p ^ k) (Nat.card C) :=
-    Nat.Coprime.pow_left k hcop
-  have hcop_ord : Nat.Coprime (orderOf a) (Nat.card C) :=
-    hcop_pow.of_dvd_left horder_dvd
-  let eQ : M ⧸ N ≃* C := hcomp.symm.QuotientMulEquiv
-  have hcard : Nat.card (M ⧸ N) = Nat.card C := Nat.card_congr eQ.toEquiv
-  have hqord_dvd : orderOf (q a) ∣ Nat.card (M ⧸ N) :=
-    orderOf_dvd_natCard (q a)
-  have hqord_dvd_C : orderOf (q a) ∣ Nat.card C := by
-    simpa [hcard] using hqord_dvd
-  have hmap_ord : orderOf (q a) ∣ orderOf a := orderOf_map_dvd q a
-  have hqord1 : orderOf (q a) = 1 :=
-    Nat.eq_one_of_dvd_coprimes hcop_ord hmap_ord hqord_dvd_C
-  have hqa_one : q a = 1 := orderOf_eq_one_iff.mp hqord1
-  exact (QuotientGroup.eq_one_iff (N := N) a).mp hqa_one
 
 /-- In a complement `N ⋊ C` with `p` coprime to `|C|`, a Klein four that
 centralizes a nontrivial `p`-subgroup and lies inside the kernel `N` is
@@ -258,97 +208,5 @@ public theorem no_kleinFour_subgroup_of_dihedral_odd
   rw [hk] at hdvd
   omega
 
-public theorem v4_le_kernel_of_fixedPointFree
-    {M : Type u} [Group M] [Finite M]
-    (N A V C : Subgroup M)
-    (hNnormal : N.Normal)
-    (hdisj : Disjoint N C) (hjoin : N ⊔ C = ⊤)
-    (hAne : A ≠ ⊥) (hA_leN : A ≤ N)
-    (hNab : ∀ x : M, x ∈ N → ∀ y : M, y ∈ N → x * y = y * x)
-    (hVleC : V ≤ Subgroup.centralizer (A : Set M))
-    (hfree : ∀ c : M, c ∈ C → c ≠ 1 →
-      ∀ a : M, a ∈ A → a ≠ 1 → c * a * c⁻¹ ≠ a) :
-    V ≤ N := by
-  let : N.Normal := hNnormal
-  have hcomp : N.IsComplement' C := by
-    refine ⟨Subgroup.mul_injective_of_disjoint hdisj, ?_⟩
-    intro g
-    have hg : g ∈ (N : Set M) * (C : Set M) := by
-      rw [← Subgroup.normal_mul N C, hjoin]
-      trivial
-    rcases hg with ⟨n, hn, c, hc, hnc⟩
-    exact ⟨⟨⟨n, hn⟩, ⟨c, hc⟩⟩, hnc⟩
-  intro v hv
-  have hvM : v ∈ (N : Set M) * (C : Set M) := by
-    rw [← Subgroup.normal_mul N C, hjoin]
-    trivial
-  rcases hvM with ⟨n, hn, c, hc, hnc⟩
-  have hnc' : n * c = v := hnc
-  have hc_cent : ∀ a : M, a ∈ A → c * a = a * c := by
-    intro a ha
-    have haN : a ∈ N := hA_leN ha
-    have hncent : n * a = a * n := hNab n hn a haN
-    have hvcent : v * a = a * v :=
-      ((Subgroup.mem_centralizer_iff.mp (hVleC hv)) a ha).symm
-    calc
-      c * a = n⁻¹ * (v * a) := by
-        rw [← hnc']
-        group
-      _ = n⁻¹ * (a * v) := by rw [hvcent]
-      _ = a * c := by
-        rw [← hnc']
-        calc
-          n⁻¹ * (a * (n * c)) = (n⁻¹ * a * n) * c := by group
-          _ = (n⁻¹ * n * a) * c := by
-            have h1 : n⁻¹ * a * n * c = n⁻¹ * (a * n) * c := by group
-            rw [h1, ← hncent]
-            group
-          _ = a * c := by group
-  have hc_one : c = 1 := by
-    by_contra hcne
-    obtain ⟨a, ha⟩ := Subgroup.ne_bot_iff_exists_ne_one.mp hAne
-    have haA : (a : M) ∈ A := a.2
-    have ha_ne : (a : M) ≠ 1 := by
-      intro h
-      exact ha (Subtype.ext h)
-    have hcaeq : c * (a : M) * c⁻¹ = (a : M) := by
-      calc
-        c * (a : M) * c⁻¹ = (a : M) * c * c⁻¹ := by
-          rw [hc_cent (a : M) haA]
-        _ = (a : M) := by group
-    exact hfree c hc hcne (a : M) haA ha_ne hcaeq
-  rw [← hnc', hc_one]
-  simpa using hn
-
-public theorem frobenius_complement_has_no_v4_centralizer
-    {M : Type u} [Group M] [Finite M]
-    (N A V C : Subgroup M)
-    {p : ℕ} [Fact p.Prime]
-    (hNnormal : N.Normal)
-    (hdisj : Disjoint N C) (hjoin : N ⊔ C = ⊤)
-    (hNp : IsPGroup p N) (hpodd : Odd p)
-    (hAp : IsPGroup p A)
-    (hcop : Nat.Coprime p (Nat.card C))
-    (hAne : A ≠ ⊥)
-    (hNab : ∀ x : M, x ∈ N → ∀ y : M, y ∈ N → x * y = y * x)
-    (hVK : IsKleinFour V) (hVleC : V ≤ Subgroup.centralizer (A : Set M))
-    (hfree : ∀ c : M, c ∈ C → c ≠ 1 →
-      ∀ a : M, a ∈ A → a ≠ 1 → c * a * c⁻¹ ≠ a) :
-    False := by
-  let : N.Normal := hNnormal
-  have hcomp : N.IsComplement' C := by
-    refine ⟨Subgroup.mul_injective_of_disjoint hdisj, ?_⟩
-    intro g
-    have hg : g ∈ (N : Set M) * (C : Set M) := by
-      rw [← Subgroup.normal_mul N C, hjoin]
-      trivial
-    rcases hg with ⟨n, hn, c, hc, hnc⟩
-    exact ⟨⟨⟨n, hn⟩, ⟨c, hc⟩⟩, hnc⟩
-  have hA_leN : A ≤ N :=
-    pGroup_le_kernel_of_complement N A C hNnormal hcomp hAp hcop
-  have hVleN : V ≤ N :=
-    v4_le_kernel_of_fixedPointFree N A V C hNnormal hdisj hjoin
-      hAne hA_leN hNab hVleC hfree
-  exact no_kleinFour_of_pGroup_subgroup N V hNp hpodd hVleN hVK
 
 end CFSG.GorensteinWalter

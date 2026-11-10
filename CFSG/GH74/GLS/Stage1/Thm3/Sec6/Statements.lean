@@ -19,11 +19,6 @@ variable {G : Type} [Group G]
 
 @[expose] def Cond6b (S K : Subgroup G) : Prop := pRank 2 ↥(Qof S K) = 1
 
-@[expose] def Is4_7b (z : G) (S F : Subgroup G) (y : G) : Prop :=
-  y ∈ S ∧ orderOf y = 2 ∧ y ∉ Pz S z ⊔ F ∧ S = Pz S z ⊔ F ⊔ zpowers y
-
-@[expose] def Is4_7U (S R : Subgroup G) (y : G) (U : Subgroup G) : Prop :=
-  U ≤ R ∧ IVK.IsFourSubgroup U ∧ (∀ s ∈ S, ∀ v ∈ U, s * v * s⁻¹ ∈ U) ∧ ∀ v ∈ U, y * v = v * y
 
 @[expose] def PGLQuot (z y : G) (K : Subgroup G) (Fq : Type) [Field Fq] : Prop :=
   ∃ _ : ((pPrimeCoreOf 2 K ⊔ zpowers z).subgroupOf (K ⊔ zpowers y)).Normal,
@@ -127,21 +122,6 @@ structure Std4r1 (G : Type) [Group G] [Finite G] (z : G) (S K F : Subgroup G) : 
 @[expose] def Prop4_6 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S K F : Subgroup G), Std4r1 G z S K F → ¬ IsCyclic ↥F
 
-@[expose] def Lemma4_7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K F : Subgroup G), Std4r1 G z S K F → IsCyclic ↥F →
-    HasSL2Model (HatT K) Odd ∧ (∃ y, Is4_7b z S F y) ∧
-    ∀ y, Is4_7b z S F y →
-      ((∃ n, IVK.IsSemidihedralTwoGroup ↥(Pz S z ⊔ zpowers y) n) ∧
-        ∃ (Fq : Type) (_ : Field Fq) (_ : Finite Fq), Odd (Nat.card Fq) ∧
-          Nonempty (HatT K ≃* IVK.SL2 Fq) ∧ PGLQuot z y K Fq) ∧
-      IsNonabelianMaximalClassTwoGroup ↥(Qz S z ⊔ zpowers y) ∧
-      (∀ s ∈ S, s * s = 1 → s ∈ Rz S z ⊔ zpowers y) ∧
-      ∃ U : Subgroup G, Is4_7U S (Rz S z) y U
-
-@[expose] def Lemma4_8 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K F : Subgroup G), Std4r1 G z S K F → IsCyclic ↥F →
-    ∀ y, Is4_7b z S F y → ∀ U : Subgroup G, Is4_7U S (Rz S z) y U →
-      ∀ u ∈ U, u ∉ zpowers z → ¬ IsConj z u
 
 @[expose] def Prop4_9 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S K F : Subgroup G), Std4r1 G z S K F →

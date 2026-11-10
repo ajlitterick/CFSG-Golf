@@ -150,15 +150,6 @@ theorem blockDiag_mat_of_mem_minusTorus [Finite K] (k : Fin (n - 1))
     obtain ⟨h1, h2⟩ := shortTorusElt_diag n hirr k ha
     exact blockDiag_mat_of n h1 h2
 
-theorem blockDiag_mat_of_mem_iSup [Finite K] {g : spinGroup (quadMinus n K b c)}
-    {S : Set (Fin (n - 1))} (hg : g ∈ ⨆ k ∈ S, minusTorus n hirr k) : BlockDiag n (mat n g) := by
-  rw [iSup_subtype'] at hg
-  refine Subgroup.iSup_induction _ hg (C := fun g => BlockDiag n (mat n g))
-    (fun k y hy => blockDiag_mat_of_mem_minusTorus n hirr k.1 hy) ?_ fun x y hx hy => ?_
-  · rw [mat_one]
-    exact blockDiag_one n
-  · rw [mat_mul]
-    exact blockDiag_mul n hx hy
 
 theorem mat_eq_one_of_spinAction_eq_one {g : spinGroup (quadMinus n K b c)}
     (h : spinAction (quadMinus n K b c) g = 1) : mat n g = 1 := by

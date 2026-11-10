@@ -12,10 +12,6 @@ namespace CFSG.Quasithin
 
 open CFSG.Open CFSG.QuasithinUnique
 
-@[expose] def LnTwoNoBender : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], (IsPSL 4 2 1 X ∨ IsPSL 5 2 1 X) →
-    ∀ U K : Subgroup X, IsSylowTwoOf U ⊤ → U ≤ Subgroup.normalizer (K : Set X) → K ⊔ U ≠ ⊤ →
-      ¬ ∃ n : ℕ, 2 ≤ n ∧ IsBenderQuot n (OTwoQuot K)
 
 @[expose] def Core3HeLnTwo : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H K1 L M₁ : Subgroup G),

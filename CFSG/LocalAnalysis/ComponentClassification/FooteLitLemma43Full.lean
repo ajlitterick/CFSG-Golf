@@ -118,28 +118,5 @@ theorem foote_lemma_4_1_of_counterexample (hLB : FooteLBalanceInput)
       (le_normalizer_of_mem_footeFamilyOf huniq (hK b hb hb1).1 (hK b hb hb1).2.1))
     hVK hKs ha ha1
 
-theorem foote_lemma_4_3_i_of_counterexample (hLB : FooteLBalanceInput)
-    (hCI : GSLit.ClassicalInvolutionInput) (hGA : TBLit.GriessMultipliersAllModels)
-    (hGC : TBLit.GriessMultipliersCentralCovers)
-    (hSA : SolAltLit.SchurAlternatingMultiplierInput) (hOut : FooteL2OutAbelian)
-    (hAb : FooteL2AbelianCore) (h9 : FooteL2NineOddInner) (hRk : FooteL2RankThree)
-    (hSolv : FooteL2InvolutionSolvable) [IsSimpleGroup G] {t : G} {L : Subgroup G}
-    (hce : FooteCounterexample G t L)
-    (huniq : ∀ (a : G) (K M : Subgroup G), IsTwoComponentAt a K → IsTwoComponentAt a M →
-      K ∈ footeFamilyOf L → M ∈ footeFamilyOf L → K = M)
-    (hrank2 : ∀ B ∈ footeFamilyOf L, CFSG.pRank 2 ↥B = 2)
-    {z : G} {A : Subgroup G} (hAmax : FootePointedMaximal z A) (hAF : A ∈ footeFamilyOf L)
-    {E V : Subgroup G} (hEc : IsMulCommutative E) (hexp : ∀ e ∈ E, e ^ 2 = 1)
-    (h8 : Nat.card E = 8) (hEA : E ≤ coreActionKernel A) (hV : IsKleinFour V)
-    (hVA : V ≤ A ⊓ centralizer (E : Set G)) :
-    ∃ K : G → Subgroup G, (∀ e ∈ E, e ≠ 1 → IsTwoComponentAt e (K e) ∧ K e ∈ footeFamilyOf L) ∧
-      Odd (Nat.card ↥(⨆ e ∈ E, ⨆ (_ : e ≠ 1), oddCoreIn (K e))) ∧
-      (⨆ e ∈ E, ⨆ (_ : e ≠ 1), oddCoreIn (K e)) ≤ oddCoreIn (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) ∧
-      (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) ≤
-        oddResidualIn (A ⊓ centralizer (E : Set G)) ⊔ oddCoreIn (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) :=
-  foote_lemma_4_3_i_of_mem_footeFamilyOf hLB hGA hGC hSA hce.1.2.2.2.2.1 huniq hrank2 hAmax hAF
-    hEc hexp h8 hEA hV hVA fun _ ha ha1 =>
-      foote_lemma_4_1_of_counterexample hLB hCI hGA hGC hSA hOut hAb h9 hRk hSolv hce huniq
-        hrank2 hAmax hAF hEc hexp h8 hEA hV hVA ha ha1
 
 end CFSG.ComponentClassification.FooteLit

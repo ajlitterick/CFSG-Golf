@@ -38,14 +38,6 @@ variable {τ : Tag} {D : MinData τ} (R : Type*) [CommRing R]
 
 variable {R}
 
-theorem mem_adjNormalizer {S : AdjSigns τ} {g : (Module.End R (Fin D.d →₀ R))ˣ} :
-    g ∈ adjNormalizer R S D ↔
-      (∀ v, ∃ w, (g : Module.End R (Fin D.d →₀ R)) * adjMap R S D v *
-        ((g⁻¹ : (Module.End R (Fin D.d →₀ R))ˣ) : Module.End R (Fin D.d →₀ R)) =
-          adjMap R S D w) ∧
-      ∀ v, ∃ w, ((g⁻¹ : (Module.End R (Fin D.d →₀ R))ˣ) : Module.End R (Fin D.d →₀ R)) *
-        adjMap R S D v * (g : Module.End R (Fin D.d →₀ R)) = adjMap R S D w :=
-  Iff.rfl
 
 @[expose] def adEnd
     (S : AdjSigns τ) (g : (Module.End R (Fin D.d →₀ R))ˣ) :

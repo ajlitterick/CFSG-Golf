@@ -20,9 +20,6 @@ open CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInitial.Lin
     (A' : GL (Fin 3) F) = g * (A : GL (Fin 3) F) * g⁻¹ →
       φ (QuotientGroup.mk A) = QuotientGroup.mk A'
 
-theorem isConjByGL_iff {F : Type} [Field F] (H : Subgroup (GL (Fin 3) F))
-    (φ : MulAut (StatedProj H)) : IsConjByGL H φ ↔ IsConjByGL' H φ :=
-  Iff.rfl
 
 theorem mem_statedSL_iff {n : ℕ} {F : Type} [Field F] {x : GL (Fin n) F} :
     x ∈ StatedSL n F ↔ (x : Matrix (Fin n) (Fin n) F).det = 1 :=

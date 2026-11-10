@@ -52,23 +52,6 @@ theorem cyclicFourResidual_val (n : ℕ) (g : CyclicFourAut n) :
   rw [hsmall]
   rfl
 
-theorem cyclicFourResidual_kernel (n : ℕ) :
-    (cyclicFourResidual n).ker = principalFourSubgroup (AddMonoid.End (CyclicFourSpace n)) := by
-  ext g
-  change Units.map (residualRingTwistEquiv (cyclicFourScale_zero n)).toMonoidHom
-    (cyclicPairResidualUnits (2 ^ (n + 2)) 4 (by decide) g) = 1 ↔ _
-  have hmap : ∀ u : (ResidualRing (2 ^ (n + 2) : ℕ))ˣ,
-      Units.map (residualRingTwistEquiv (cyclicFourScale_zero n)).toMonoidHom u = 1 ↔ u = 1 := by
-    intro u
-    constructor
-    · intro h
-      apply Units.ext
-      have hv := congrArg (fun x : (ResidualRing 0)ˣ => x.val) h
-      exact hv
-    · rintro rfl
-      exact map_one _
-  rw [hmap]
-  exact cyclicPairResidualUnits_kernel _ _ _ g
 
 @[expose] noncomputable def cyclicFourDiagonal (n : ℕ) :
     (ZMod (2 ^ (n + 2) * 4))ˣ × (ZMod 4)ˣ →* CyclicFourAut n where
@@ -216,10 +199,6 @@ theorem cyclicFourLower_power (n : ℕ) (j : ZMod 4) :
 @[expose] def cyclicFourModFour (n : ℕ) : (ZMod (2 ^ (n + 2) * 4))ˣ →* (ZMod 4)ˣ :=
   Units.map (cyclicReduction (2 ^ (n + 2)) 4).toMonoidHom
 
-theorem cyclicFourModFour_kernel_cyclic (n : ℕ) : IsCyclic (cyclicFourModFour n).ker := by
-  exact binary_unit_mod_four_kernel_cyclic_of_eq
-    (show 2 ^ (n + 2) * 4 = 2 ^ ((n + 2) + 2) by
-      rw [pow_add 2 (n + 2) 2]; norm_num) (dvd_mul_left 4 _)
 
 @[expose] def cyclicFourFive (n : ℕ) : (ZMod (2 ^ (n + 2) * 4))ˣ :=
   ZMod.unitOfCoprime 5 (Nat.Coprime.mul_right
@@ -366,9 +345,6 @@ theorem cyclicFourResidual_kernel_scalar (n : ℕ) :
     rw [cyclicFourResidual_scalar, cyclicFourFive_mod_four]
     rfl
 
-theorem cyclicFourPrincipal_eq_scalar (n : ℕ) :
-    principalFourSubgroup (AddMonoid.End (CyclicFourSpace n)) = Subgroup.zpowers (cyclicFourC n) :=
-  (cyclicFourResidual_kernel n).symm.trans (cyclicFourResidual_kernel_scalar n)
 
 theorem cyclicFourP_central (n : ℕ) :
     Subgroup.zpowers (cyclicFourC n) ≤ Subgroup.center (CyclicFourAut n) := by
@@ -387,39 +363,6 @@ instance cyclicFourP_normal (n : ℕ) : (Subgroup.zpowers (cyclicFourC n)).Norma
     rw [Subgroup.map_id, cyclicFourResidual_kernel_scalar])).trans
       (QuotientGroup.quotientKerEquivOfSurjective (cyclicFourResidual n) (cyclicFourResidual_surjective n))
 
-theorem cyclicFourAut_normal_form (n : ℕ) (g : CyclicFourAut n) :
-    ∃ (k : ℤ) (i j : ZMod 4) (e f : ZMod 2), g =
-      cyclicFourC n ^ k * cyclicFourU n ^ i.val * cyclicFourV n ^ j.val *
-        cyclicFourZ n ^ e.val * cyclicFourW n ^ f.val := by
-  obtain ⟨i, j, e, f, hr⟩ := residualZero_generators_normal_form (cyclicFourResidual n g)
-  let s := cyclicFourU n ^ i.val * cyclicFourV n ^ j.val * cyclicFourZ n ^ e.val * cyclicFourW n ^ f.val
-  have hs : cyclicFourResidual n s = cyclicFourResidual n g := by
-    dsimp only [s]
-    rw [map_mul, map_mul, map_mul, map_pow, map_pow, map_pow, map_pow,
-      cyclicFourU, cyclicFourV, cyclicFourResidual_upper, cyclicFourResidual_lower,
-      cyclicFourResidual_z, cyclicFourResidual_w]
-    exact hr.symm
-  have hker : g * s⁻¹ ∈ Subgroup.zpowers (cyclicFourC n) := by
-    rw [← cyclicFourResidual_kernel_scalar]
-    change cyclicFourResidual n (g * s⁻¹) = 1
-    rw [map_mul, map_inv, hs, mul_inv_cancel]
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hker
-  refine ⟨k, i, j, e, f, ?_⟩
-  have h : g = cyclicFourC n ^ k * s := by rw [hk, mul_assoc, inv_mul_cancel, mul_one]
-  simpa only [s, mul_assoc] using h
-
-theorem cyclicFourAut_generators (n : ℕ) :
-    Subgroup.closure ({cyclicFourU n, cyclicFourV n, cyclicFourZ n, cyclicFourW n, cyclicFourC n} :
-      Set (CyclicFourAut n)) = ⊤ := by
-  apply top_unique
-  intro g _
-  obtain ⟨k, i, j, e, f, rfl⟩ := cyclicFourAut_normal_form n g
-  apply Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ ?_ ?_) ?_) ?_) ?_
-  · exact Subgroup.zpow_mem _ (Subgroup.subset_closure (by simp)) _
-  · exact Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _
-  · exact Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _
-  · exact Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _
-  · exact Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _
 
 theorem cyclicFourAut_card (n : ℕ) : Nat.card (CyclicFourAut n) = 2 ^ (n + 8) := by
   have hformula := Subgroup.card_eq_card_quotient_mul_card_subgroup (cyclicFourResidual n).ker
@@ -437,29 +380,6 @@ theorem cyclicFourAut_card (n : ℕ) : Nat.card (CyclicFourAut n) = 2 ^ (n + 8) 
 @[expose] noncomputable def cyclicFourShearPreimage (n : ℕ) : Subgroup (CyclicFourAut n) :=
   (cyclicFourOuter n).ker
 
-theorem cyclicFourShearPreimage_normal_form (n : ℕ) (g : CyclicFourAut n)
-    (hg : g ∈ cyclicFourShearPreimage n) :
-    ∃ (k : ℤ) (i j : ZMod 4), g = cyclicFourC n ^ k * cyclicFourU n ^ i.val * cyclicFourV n ^ j.val := by
-  have hr : cyclicFourResidual n g ∈ residualZeroShear.range := by
-    rw [← residualZeroDiagonal_kernel]
-    exact hg
-  obtain ⟨x, hx⟩ := hr
-  let s := cyclicFourU n ^ x.toAdd.1.val * cyclicFourV n ^ x.toAdd.2.val
-  have hs : cyclicFourResidual n s = cyclicFourResidual n g := by
-    dsimp only [s]
-    rw [map_mul, map_pow, map_pow, cyclicFourU, cyclicFourV,
-      cyclicFourResidual_upper, cyclicFourResidual_lower]
-    change residualZeroU ^ x.toAdd.1.val * residualZeroV ^ x.toAdd.2.val = _
-    rw [← residualZeroShear_powers]
-    exact hx
-  have hker : g * s⁻¹ ∈ Subgroup.zpowers (cyclicFourC n) := by
-    rw [← cyclicFourResidual_kernel_scalar]
-    change cyclicFourResidual n (g * s⁻¹) = 1
-    rw [map_mul, map_inv, hs, mul_inv_cancel]
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hker
-  refine ⟨k, x.toAdd.1, x.toAdd.2, ?_⟩
-  have h : g = cyclicFourC n ^ k * s := by rw [hk, mul_assoc, inv_mul_cancel, mul_one]
-  simpa only [s, mul_assoc] using h
 
 @[expose] def cyclicFourTopUnit (n : ℕ) : (ZMod (2 ^ (n + 2) * 4))ˣ :=
   ZMod.unitOfCoprime (1 + 2 ^ (n + 3)) (by
@@ -550,23 +470,6 @@ theorem cyclicFour_shear_squares_commute (n : ℕ) : Commute (cyclicFourU n ^ 2)
     one_mul, mul_one, zero_add, add_zero, cyclicFourScale_zero]
   rw [show (2 * 2 : ZMod 4) = 0 by decide +kernel, map_zero, add_zero]
 
-theorem cyclicFourZ_square (n : ℕ) : cyclicFourZ n ^ 2 = 1 := by
-  rw [cyclicFourZ, ← map_pow (cyclicFourDiagonal n)]
-  have hs : (-1 : (ZMod (2 ^ (n + 2) * 4))ˣ) ^ 2 = 1 := by
-    apply Units.ext
-    change (-1 : ZMod _) ^ 2 = 1
-    ring
-  rw [show ((-1, 1) : (ZMod (2 ^ (n + 2) * 4))ˣ × (ZMod 4)ˣ) ^ 2 = 1 from
-    Prod.ext (by simpa only [Prod.pow_fst, Prod.fst_one] using hs) (by simp), map_one]
-
-theorem cyclicFourW_square (n : ℕ) : cyclicFourW n ^ 2 = 1 := by
-  rw [cyclicFourW, ← map_pow (cyclicFourDiagonal n)]
-  have hs : (-1 : (ZMod 4)ˣ) ^ 2 = 1 := by
-    apply Units.ext
-    change (-1 : ZMod 4) ^ 2 = 1
-    ring
-  rw [show ((1, -1) : (ZMod (2 ^ (n + 2) * 4))ˣ × (ZMod 4)ˣ) ^ 2 = 1 from
-    Prod.ext (by simp) (by simpa only [Prod.pow_snd, Prod.snd_one] using hs), map_one]
 
 @[expose] def binaryInvolutionHom {G : Type*} [Group G] (g : G) (hg : g ^ 2 = 1) :
     Multiplicative (ZMod 2) →* G where
@@ -686,11 +589,6 @@ theorem cyclicFourElementaryHom_injective (n : ℕ) : Function.Injective (cyclic
       exact (cyclicFourDelta_ne_one n hs).elim
   exact Prod.ext he (Prod.ext hi0 hj0)
 
-theorem cyclicFourE_card (n : ℕ) : Nat.card (cyclicFourE n) = 8 := by
-  change Nat.card (cyclicFourElementaryHom n).range = 8
-  rw [← Nat.card_congr (MonoidHom.ofInjective (cyclicFourElementaryHom_injective n)).toEquiv,
-    Nat.card_eq_fintype_card]
-  decide +kernel
 
 theorem cyclicFourE_elementary (n : ℕ) : CFSG.Open.IsElemAbelian 2 (cyclicFourE n) := by
   constructor
@@ -915,10 +813,6 @@ theorem cyclicFourE_commutator_bound (n : ℕ) :
   rw [map_commutatorElement]
   exact commutatorElement_eq_one_iff_commute.mpr hc
 
-theorem cyclicFourQuotientEquiv_mk (n : ℕ) (g : CyclicFourAut n) :
-    cyclicFourQuotientEquiv n ((QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) g) =
-      cyclicFourResidual n g := by
-  rfl
 
 @[expose] noncomputable def cyclicFourQuotientOuter (n : ℕ) :
     (CyclicFourAut n ⧸ Subgroup.zpowers (cyclicFourC n)) →* (ZMod 4)ˣ × (ZMod 4)ˣ :=
@@ -931,73 +825,6 @@ theorem cyclicFourQuotientEquiv_mk (n : ℕ) (g : CyclicFourAut n) :
 instance cyclicFourN_normal (n : ℕ) : (cyclicFourN n).Normal :=
   (cyclicFourQuotientOuter n).normal_ker
 
-theorem cyclicFourN_generators (n : ℕ) : cyclicFourN n =
-    Subgroup.closure ({(QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) (cyclicFourU n),
-      (QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) (cyclicFourV n)} :
-        Set (CyclicFourAut n ⧸ Subgroup.zpowers (cyclicFourC n))) := by
-  let q := QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))
-  apply le_antisymm
-  · intro x hx
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective _ x
-    have hg : g ∈ cyclicFourShearPreimage n := hx
-    obtain ⟨k, i, j, rfl⟩ := cyclicFourShearPreimage_normal_form n g hg
-    change q _ ∈ _
-    rw [map_mul, map_mul, map_pow, map_pow, map_zpow,
-      show q (cyclicFourC n) = 1 from (QuotientGroup.eq_one_iff _).mpr (Subgroup.mem_zpowers _),
-      one_zpow, one_mul]
-    exact Subgroup.mul_mem _
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (Set.mem_insert _ _)) _)
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_singleton _))) _)
-  · apply (Subgroup.closure_le _).mpr
-    intro x hx
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
-    rcases hx with rfl | rfl
-    · change residualZeroDiagonal (cyclicFourResidual n (cyclicFourU n)) = 1
-      rw [cyclicFourU, cyclicFourResidual_upper]
-      change residualZeroShear _ ∈ residualZeroDiagonal.ker
-      rw [residualZeroDiagonal_kernel]
-      exact ⟨_, rfl⟩
-    · change residualZeroDiagonal (cyclicFourResidual n (cyclicFourV n)) = 1
-      rw [cyclicFourV, cyclicFourResidual_lower]
-      change residualZeroShear _ ∈ residualZeroDiagonal.ker
-      rw [residualZeroDiagonal_kernel]
-      exact ⟨_, rfl⟩
-
-@[expose] noncomputable def cyclicFourNResidualEquiv (n : ℕ) :
-    cyclicFourN n ≃* residualZeroDiagonal.ker where
-  toFun x := ⟨cyclicFourQuotientEquiv n x.val, x.property⟩
-  invFun x := ⟨(cyclicFourQuotientEquiv n).symm x.val, by
-    change residualZeroDiagonal (cyclicFourQuotientEquiv n ((cyclicFourQuotientEquiv n).symm x.val)) = 1
-    rw [MulEquiv.apply_symm_apply]
-    exact x.property⟩
-  left_inv x := Subtype.ext ((cyclicFourQuotientEquiv n).symm_apply_apply _)
-  right_inv x := Subtype.ext ((cyclicFourQuotientEquiv n).apply_symm_apply _)
-  map_mul' x y := Subtype.ext (map_mul (cyclicFourQuotientEquiv n) x.val y.val)
-
-@[expose] noncomputable def cyclicFourNCoordinates (n : ℕ) :
-    cyclicFourN n ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 4) :=
-  ((cyclicFourNResidualEquiv n).trans residualZeroShearEquiv.symm).trans
-    (MulEquiv.prodMultiplicative (ZMod 4) (ZMod 4))
-
-theorem cyclicFourQuotientOuter_surjective (n : ℕ) : Function.Surjective (cyclicFourQuotientOuter n) :=
-  residualZeroDiagonal_surjective.comp (cyclicFourQuotientEquiv n).surjective
-
-@[expose] noncomputable def cyclicFourOuterCoordinates (n : ℕ) :
-    ((CyclicFourAut n ⧸ Subgroup.zpowers (cyclicFourC n)) ⧸ cyclicFourN n) ≃*
-      Multiplicative (ZMod 2) × Multiplicative (ZMod 2) :=
-  (QuotientGroup.quotientKerEquivOfSurjective (cyclicFourQuotientOuter n)
-    (cyclicFourQuotientOuter_surjective n)).trans
-      (MulEquiv.prodCongr fourUnitSignEquiv.symm fourUnitSignEquiv.symm)
-
-theorem cyclicFourShearPreimage_eq (n : ℕ) : cyclicFourShearPreimage n =
-    (cyclicFourN n).comap (QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) := by
-  ext g
-  rfl
-
-theorem cyclicFourP_cyclic (n : ℕ) : IsCyclic (Subgroup.zpowers (cyclicFourC n)) := inferInstance
-
-theorem cyclicFourP_card (n : ℕ) : Nat.card (Subgroup.zpowers (cyclicFourC n)) = 2 ^ (n + 2) := by
-  rw [Nat.card_zpowers, cyclicFourC_order]
 
 theorem cyclicFourDelta_apply (n : ℕ) (x : CyclicFourSpace n) :
     (cyclicFourDelta n).val x =
@@ -1005,89 +832,5 @@ theorem cyclicFourDelta_apply (n : ℕ) (x : CyclicFourSpace n) :
   rw [cyclicPairEnd_apply, cyclicFourDelta_coefficients]
   simp only [zero_mul, map_zero, add_zero, zero_add, one_mul]
 
-theorem cyclicFourUpper_apply (n : ℕ) (i : Multiplicative (ZMod 4)) (x : CyclicFourSpace n) :
-    (cyclicFourUpper n i).val x =
-      (x.1 + scaledCyclicInclusion (2 ^ (n + 2)) 4 (i.toAdd * x.2), x.2) := by
-  rw [cyclicPairEnd_apply, cyclicFourUpper_coefficients]
-  simp only [one_mul, zero_mul, zero_add]
-
-theorem cyclicFourLower_apply (n : ℕ) (j : Multiplicative (ZMod 4)) (x : CyclicFourSpace n) :
-    (cyclicFourLower n j).val x =
-      (x.1, j.toAdd * cyclicReduction (2 ^ (n + 2)) 4 x.1 + x.2) := by
-  rw [cyclicPairEnd_apply, cyclicFourLower_coefficients]
-  simp only [one_mul, zero_mul, map_zero, add_zero]
-
-theorem cyclicFourDiagonal_apply (n : ℕ)
-    (d : (ZMod (2 ^ (n + 2) * 4))ˣ × (ZMod 4)ˣ) (x : CyclicFourSpace n) :
-    (cyclicFourDiagonal n d).val x = (d.1.val * x.1, d.2.val * x.2) := by
-  rw [cyclicPairEnd_apply, cyclicFourDiagonal_coefficients]
-  simp only [zero_mul, map_zero, add_zero, zero_add]
-
-theorem cyclicFourU_apply (n : ℕ) (x : CyclicFourSpace n) :
-    (cyclicFourU n).val x = (x.1 + scaledCyclicInclusion (2 ^ (n + 2)) 4 x.2, x.2) := by
-  rw [cyclicFourU, cyclicFourUpper_apply]
-  change (x.1 + scaledCyclicInclusion (2 ^ (n + 2)) 4 (1 * x.2), x.2) = _
-  rw [one_mul]
-
-theorem cyclicFourV_apply (n : ℕ) (x : CyclicFourSpace n) :
-    (cyclicFourV n).val x = (x.1, cyclicReduction (2 ^ (n + 2)) 4 x.1 + x.2) := by
-  rw [cyclicFourV, cyclicFourLower_apply]
-  change (x.1, 1 * cyclicReduction (2 ^ (n + 2)) 4 x.1 + x.2) = _
-  rw [one_mul]
-
-theorem cyclicFourZ_apply (n : ℕ) (x : CyclicFourSpace n) :
-    (cyclicFourZ n).val x = (-x.1, x.2) := by
-  rw [cyclicFourZ, cyclicFourDiagonal_apply]
-  change ((-1 : ZMod (2 ^ (n + 2) * 4)) * x.1, (1 : ZMod 4) * x.2) = _
-  rw [neg_one_mul, one_mul]
-
-theorem cyclicFourW_apply (n : ℕ) (x : CyclicFourSpace n) :
-    (cyclicFourW n).val x = (x.1, -x.2) := by
-  rw [cyclicFourW, cyclicFourDiagonal_apply]
-  change ((1 : ZMod (2 ^ (n + 2) * 4)) * x.1, (-1 : ZMod 4) * x.2) = _
-  rw [neg_one_mul, one_mul]
-
-theorem cyclicFourC_apply (n : ℕ) (x : CyclicFourSpace n) :
-    (cyclicFourC n).val x = (5 * x.1, x.2) := by
-  rw [cyclicFourC]
-  change (cyclicFourDiagonal n (cyclicFourFive n, 1)).val x = _
-  rw [cyclicFourDiagonal_apply]
-  change ((5 : ZMod (2 ^ (n + 2) * 4)) * x.1, (1 : ZMod 4) * x.2) = _
-  rw [one_mul]
-
-theorem rank_two_cyclic_times_four_automorphism_quotient (n : ℕ) :
-    Subgroup.closure ({cyclicFourU n, cyclicFourV n, cyclicFourZ n, cyclicFourW n, cyclicFourC n} :
-      Set (CyclicFourAut n)) = ⊤ ∧
-    cyclicFourU n ^ 4 = 1 ∧ cyclicFourV n ^ 4 = 1 ∧
-    cyclicFourZ n ^ 2 = 1 ∧ cyclicFourW n ^ 2 = 1 ∧
-    IsCyclic (Subgroup.zpowers (cyclicFourC n)) ∧
-    Nat.card (Subgroup.zpowers (cyclicFourC n)) = 2 ^ (n + 2) ∧
-    Subgroup.zpowers (cyclicFourC n) ≤ Subgroup.center (CyclicFourAut n) ∧
-    Subgroup.zpowers (cyclicFourC n) = principalFourSubgroup (AddMonoid.End (CyclicFourSpace n)) ∧
-    (cyclicFourN n).Normal ∧
-    cyclicFourN n = Subgroup.closure
-      ({(QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) (cyclicFourU n),
-        (QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) (cyclicFourV n)} :
-        Set (CyclicFourAut n ⧸ Subgroup.zpowers (cyclicFourC n))) ∧
-    Nonempty (cyclicFourN n ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 4)) ∧
-    Nonempty (((CyclicFourAut n ⧸ Subgroup.zpowers (cyclicFourC n)) ⧸ cyclicFourN n) ≃*
-      Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
-    cyclicFourShearPreimage n = (cyclicFourN n).comap
-      (QuotientGroup.mk' (Subgroup.zpowers (cyclicFourC n))) ∧
-    (∀ g : CyclicFourAut n, g ∈ cyclicFourShearPreimage n → g ^ 2 = 1 → g ∈ cyclicFourE n) ∧
-    cyclicFourE n = Subgroup.closure
-      ({cyclicFourDelta n, cyclicFourU n ^ 2, cyclicFourV n ^ 2} : Set (CyclicFourAut n)) ∧
-    CFSG.Open.IsElemAbelian 2 (cyclicFourE n) ∧ Nat.card (cyclicFourE n) = 8 ∧
-    ⁅cyclicFourE n, ⊤⁆ ≤ Subgroup.zpowers (cyclicFourDelta n) ∧
-    cyclicFourDelta n = cyclicFourC n ^ (2 ^ (n + 1)) ∧
-    (∀ x : CyclicFourSpace n, (cyclicFourDelta n).val x =
-      ((1 + ((2 ^ (n + 3) : ℕ) : ZMod (2 ^ (n + 2) * 4))) * x.1, x.2)) := by
-  exact ⟨cyclicFourAut_generators n, cyclicFourU_fourth n, cyclicFourV_fourth n,
-    cyclicFourZ_square n, cyclicFourW_square n, cyclicFourP_cyclic n, cyclicFourP_card n,
-    cyclicFourP_central n, (cyclicFourPrincipal_eq_scalar n).symm, inferInstance,
-    cyclicFourN_generators n, ⟨cyclicFourNCoordinates n⟩, ⟨cyclicFourOuterCoordinates n⟩,
-    cyclicFourShearPreimage_eq n, cyclicFourShearPreimage_square_one n, cyclicFourE_generators n,
-    cyclicFourE_elementary n, cyclicFourE_card n, cyclicFourE_commutator_bound n, rfl,
-    cyclicFourDelta_apply n⟩
 
 end CFSG.LargeEvenClassification.Helpers

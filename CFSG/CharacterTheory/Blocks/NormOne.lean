@@ -40,29 +40,5 @@ theorem blocksVChar_norm_one_signed_irreducible {G : Type} [Group G] [Fintype G]
   · exact Or.inl (by simpa only [hpos, Int.cast_one, one_smul] using heq)
   · exact Or.inr (by simpa only [hneg, Int.cast_neg, Int.cast_one, neg_one_smul] using heq)
 
-theorem blocksIrr_identity_normSq_ge_one {G : Type} [Group G] (χ : BlocksIrr G) :
-    1 ≤ Complex.normSq ((χ : G → ℂ) 1) := by
-  have hχ := (Set.ext_iff.mp (blocksIrr_eq_irreducible_characters G) (χ : G → ℂ)).mp
-    χ.property
-  obtain ⟨ρ, hρ, hρχ⟩ := hχ
-  have hdim : 0 < Module.finrank ℂ ρ.vector := by
-    apply Nat.pos_of_ne_zero
-    intro hzero
-    apply irreducible_character_degree_ne_zero ρ hρ
-    rw [FiniteComplexRepresentation.character, Representation.char_one, hzero, Nat.cast_zero]
-  rw [← hρχ, FiniteComplexRepresentation.character, Representation.char_one,
-    Complex.normSq_natCast]
-  have hdim' : (1 : ℝ) ≤ Module.finrank ℂ ρ.vector := by exact_mod_cast hdim
-  nlinarith
-
-theorem blocksVChar_norm_one_identity_bound {G : Type} [Group G] [Fintype G]
-    {f : G → ℂ} (hf : f ∈ BlocksVChar G) (hnorm : BlocksInnerProduct f f = 1) :
-    1 ≤ ‖f 1‖ ^ 2 := by
-  rw [Complex.sq_norm]
-  obtain ⟨χ, hpos | hneg⟩ := blocksVChar_norm_one_signed_irreducible hf hnorm
-  · rw [hpos]
-    exact blocksIrr_identity_normSq_ge_one χ
-  · rw [hneg, Pi.neg_apply, Complex.normSq_neg]
-    exact blocksIrr_identity_normSq_ge_one χ
 
 end CFSG

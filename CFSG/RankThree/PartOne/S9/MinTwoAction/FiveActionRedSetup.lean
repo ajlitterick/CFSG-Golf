@@ -78,12 +78,6 @@ theorem not_dvd_orderOf_of_two_group (hq : q.Prime) (hq2 : q ≠ 2) {H : Type*} 
   have h1 : q ∣ 2 ^ a := ha ▸ hdvd.trans (orderOf_dvd_natCard h)
   exact hq2 ((Nat.prime_dvd_prime_iff_eq hq Nat.prime_two).mp (hq.dvd_of_dvd_pow h1))
 
-theorem isPGroup_zpowers_of_two_group {H : Type*} [Group H] [Finite H] (hH : IsPGroup 2 H)
-    (h : H) : IsPGroup 2 (Subgroup.zpowers h) := by
-  obtain ⟨a, ha⟩ := IsPGroup.iff_card.mp hH
-  have hd : orderOf h ∣ 2 ^ a := ha ▸ orderOf_dvd_natCard h
-  obtain ⟨j, -, hj⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp hd
-  exact IsPGroup.of_card (n := j) (by rw [Nat.card_zpowers]; exact hj)
 
 theorem isPGroup_zpowers_two {R L : Subgroup G} [Finite G] (hR2 : IsPGroup 2 R) (hRL : R ≤ L)
     (r : ↥R) : IsPGroup 2 (Subgroup.zpowers (Subgroup.inclusion hRL r)) := by

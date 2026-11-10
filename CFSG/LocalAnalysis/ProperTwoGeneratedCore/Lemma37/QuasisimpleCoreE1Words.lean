@@ -70,24 +70,11 @@ theorem e1R_nine : e1R 9 ∧ c3Mul 9 9 = 40 := by decide
 
 instance : DecidablePred e1Sing := fun v => by unfold e1Sing; infer_instance
 
-theorem card_e1R_involution :
-    (Finset.univ.filter fun v : Fin 64 => e1R v ∧ c3Mul v v = 0 ∧ v ≠ 0).card = 19 := by decide
-
-theorem card_e1Sing : (Finset.univ.filter e1Sing).card = 18 := by decide
-
-theorem e1Sing_mul_forty : ∀ v : Fin 64, e1Sing v → e1Sing (c3Mul v 40) ∧ c3Mul v 40 ≠ v := by
-  decide
-
-theorem e1Gen_mul_forty : ∀ (gf gef : Bool) (v : Fin 64), e1Sing v →
-    e1Gen gf gef (c3Mul v 40) = e1Gen gf gef v := by decide +kernel
 
 @[expose] def e1Pt (v : Fin 64) : Prop := e1Sing v ∧ v.val / 32 % 2 = 0
 
 instance : DecidablePred e1Pt := fun v => by unfold e1Pt; infer_instance
 
-theorem card_e1Sing_e1Gen : ∀ gf gef : Bool,
-    (Finset.univ.filter fun v : Fin 64 => e1Sing v ∧ e1Gen gf gef v = true).card =
-      4 + 4 * (gf.toNat + gef.toNat) := by decide +kernel
 
 @[expose] def e1E (v : Fin 64) : Prop :=
   v.val / 16 % 2 = 0 ∧ v.val / 4 % 2 = 0 ∧ v.val % 2 = 0
@@ -125,16 +112,6 @@ theorem e1E_of_e1R_typeD : ∀ v : Fin 64, e1R v → c3Mul v v = 0 → e1Gen tru
 theorem e1E_of_typeD : ∀ v : Fin 64, c3Mul v v = 0 → e1Gen true true v = false →
     e1Gen true true (c3Mul v 40) = false → e1E v := by decide +kernel
 
-theorem e1E_conj_outer : ∀ s t : Fin 64, s.val % 2 = 1 → c3Mul s s = 0 → e1E t →
-    c3Conj s t = t ∨ c3Conj s t = c3Mul t 40 := by decide +kernel
-
-theorem e1_transvection_iff : ∀ v : Fin 64, v.val % 2 = 0 →
-    ((c3Conj v 32 = 32 ∧ c3Conj v 8 = 8 ∧ c3Conj v 2 = 42) ↔
-      (v.val / 16 % 2 = 1 ∧ v.val / 4 % 2 = 1)) := by decide +kernel
-
-theorem e1_transvection_conj : ∀ v t : Fin 64, v.val % 2 = 0 → v.val / 16 % 2 = 1 →
-    v.val / 4 % 2 = 1 → e1E t → c3Conj v t = if t.val / 2 % 2 = 0 then t else c3Mul t 40 := by
-  decide +kernel
 
 @[expose] def e1PQ (v : Fin 64) : Prop := v.val % 4 = 0 ∧ v ≠ 0 ∧ ¬ c3GenW v
 
@@ -142,8 +119,5 @@ instance : DecidablePred e1PQ := fun v => by unfold e1PQ; infer_instance
 
 theorem e1PQ_mul_self : ∀ v : Fin 64, e1PQ (c3Mul v v) → v.val % 4 = 2 := by decide
 
-theorem card_e1PQ_mul_self :
-    (Finset.univ.filter fun v : Fin 64 => e1PQ (c3Mul v v)).card = 8 ∧ e1PQ (c3Mul 6 6) := by
-  decide
 
 end CFSG.ProperTwoGeneratedCore.Lemma37.QuasisimpleCore

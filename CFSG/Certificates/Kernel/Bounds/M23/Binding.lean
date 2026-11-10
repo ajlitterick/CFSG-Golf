@@ -18,8 +18,6 @@ theorem rels_eq : TauCeti.Sporadic.m23Presentation.relatorLetters = rels := by
 theorem gens_eq : TauCeti.Sporadic.m23Presentation.generatorCount = 2 := by
   simp [TauCeti.GroupPresentation.generatorCount, TauCeti.Sporadic.m23Presentation_generatorNames]
 
-theorem rels_T1_tau : KB.relsOk CFSG.KBData.M23_T1v.R (nat_lit 9) T1.amap TauCeti.Sporadic.m23Presentation.relatorLetters = true := by
-  rw [rels_eq]; exact T1.rels_ok
 
 end CFSG.KBRoute.M23
 

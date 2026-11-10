@@ -60,21 +60,6 @@ theorem x₃_mul_x₃ [Finite G] (hσ : σ.IsValid) : σ.x₃ * σ.x₃ = 1 := b
     _ = σ.x * σ.x * (σ.x₂ * σ.x₂) := by rw [← hσ.commute]; group
     _ = 1 := by rw [x_mul_x hσ, x₂_mul_x₂ hσ, one_mul]
 
-theorem x₃_ne_one [Finite G] (hσ : σ.IsValid) : σ.x₃ ≠ 1 := fun h => by
-  apply hσ.x_ne_x₂
-  calc σ.x = σ.x * (σ.x₂ * σ.x₂) := by rw [x₂_mul_x₂ hσ, mul_one]
-    _ = σ.x₃ * σ.x₂ := by rw [x₃_def]; group
-    _ = σ.x₂ := by rw [h, one_mul]
-
-theorem x₃_ne_x [Finite G] (hσ : σ.IsValid) : σ.x₃ ≠ σ.x := fun h => by
-  apply x₂_ne_one hσ
-  calc σ.x₂ = σ.x * σ.x₃ := (x_mul_x₃ hσ).symm
-    _ = 1 := by rw [h, x_mul_x hσ]
-
-theorem x₃_ne_x₂ [Finite G] (hσ : σ.IsValid) : σ.x₃ ≠ σ.x₂ := fun h => by
-  apply x_ne_one hσ
-  calc σ.x = σ.x₃ * σ.x₂ := (x₃_mul_x₂ hσ).symm
-    _ = 1 := by rw [h, x₂_mul_x₂ hσ]
 
 theorem mem_T_iff [Finite G] (hσ : σ.IsValid) {g : G} :
     g ∈ σ.T ↔ g = 1 ∨ g = σ.x ∨ g = σ.x₂ ∨ g = σ.x₃ := by

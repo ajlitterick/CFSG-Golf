@@ -28,63 +28,6 @@ private theorem odd_card_of_forall_odd_orderOf [Finite G] {H : Subgroup G}
   rw [orderOf_submonoid, hg] at h1
   exact (Nat.not_even_iff_odd.2 h1) even_two
 
-theorem sup_zpowers_odd_abelian [Finite G] {Y : Subgroup G} (hYc : Y ≤ centralizer (Y : Set G))
-    (hYo : Odd (Nat.card Y)) {c : G} (hcY : c ∈ centralizer (Y : Set G))
-    (hco : Odd (orderOf c)) :
-    Y ⊔ zpowers c ≤ centralizer ((Y ⊔ zpowers c : Subgroup G) : Set G) ∧
-      Odd (Nat.card (Y ⊔ zpowers c : Subgroup G)) := by
-  have hcz : zpowers c ≤ centralizer (Y : Set G) := zpowers_le.2 hcY
-  have hzz : zpowers c ≤ centralizer ((zpowers c : Subgroup G) : Set G) := by
-    rw [zpowers_le, mem_centralizer_iff]
-    intro y hy
-    obtain ⟨k, rfl⟩ := mem_zpowers_iff.1 hy
-    exact (Commute.zpow_left (Commute.refl c) k).eq
-  have hYz : Y ≤ centralizer ((zpowers c : Subgroup G) : Set G) := le_centralizer_iff.1 hcz
-  refine ⟨sup_le (le_centralizer_iff.1 (sup_le hYc hcz))
-    (le_centralizer_iff.1 (sup_le hYz hzz)), ?_⟩
-  refine odd_card_of_forall_odd_orderOf fun x hx => ?_
-  have hYN : Y ≤ normalizer ((zpowers c : Subgroup G) : Set G) :=
-    hYz.trans (centralizer_le_normalizer _)
-  have hx' : x ∈ ((Y ⊔ zpowers c : Subgroup G) : Set G) := hx
-  rw [coe_mul_of_left_le_normalizer_right _ _ hYN] at hx'
-  obtain ⟨y, hy, z, hz, rfl⟩ := Set.mem_mul.1 hx'
-  have hyz : Commute y z := (mem_centralizer_iff.1 (hcz hz) y hy)
-  have hy1 : y ^ Nat.card Y = 1 := by
-    have h1 : (⟨y, hy⟩ : Y) ^ Nat.card Y = 1 := pow_card_eq_one'
-    have h2 := congrArg Subtype.val h1
-    rwa [coe_pow, coe_one] at h2
-  have hz1 : z ^ orderOf c = 1 := by
-    obtain ⟨k, rfl⟩ := mem_zpowers_iff.1 hz
-    rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, pow_orderOf_eq_one,
-      one_zpow]
-  have hpow : (y * z) ^ (Nat.card Y * orderOf c) = 1 := by
-    rw [hyz.mul_pow, pow_mul, hy1, one_pow, one_mul, mul_comm, pow_mul, hz1, one_pow]
-  exact (hYo.mul hco).of_dvd_nat (orderOf_dvd_of_pow_eq_one hpow)
-
-theorem exists_odd_abelian_forall_odd_mem [Finite G] {Q X₀ : Subgroup G} (hX₀Q : X₀ ≤ Q)
-    (hX₀c : X₀ ≤ centralizer (X₀ : Set G)) (hX₀o : Odd (Nat.card X₀)) :
-    ∃ X : Subgroup G, X₀ ≤ X ∧ X ≤ Q ∧ X ≤ centralizer (X : Set G) ∧ Odd (Nat.card X) ∧
-      ∀ c ∈ Q ⊓ centralizer (X : Set G), Odd (orderOf c) → c ∈ X := by
-  suffices h : ∀ m : ℕ, ∀ Y : Subgroup G, Nat.card G - Nat.card Y = m → X₀ ≤ Y → Y ≤ Q →
-      Y ≤ centralizer (Y : Set G) → Odd (Nat.card Y) →
-      ∃ X : Subgroup G, X₀ ≤ X ∧ X ≤ Q ∧ X ≤ centralizer (X : Set G) ∧ Odd (Nat.card X) ∧
-        ∀ c ∈ Q ⊓ centralizer (X : Set G), Odd (orderOf c) → c ∈ X from
-    h _ X₀ rfl le_rfl hX₀Q hX₀c hX₀o
-  intro m
-  induction m using Nat.strong_induction_on with
-  | _ m ih =>
-    intro Y hm hX₀Y hYQ hYc hYo
-    by_cases hmax : ∀ c ∈ Q ⊓ centralizer (Y : Set G), Odd (orderOf c) → c ∈ Y
-    · exact ⟨Y, hX₀Y, hYQ, hYc, hYo, hmax⟩
-    · push Not at hmax
-      obtain ⟨c, ⟨hcQ, hcY⟩, hco, hcn⟩ := hmax
-      obtain ⟨hY'c, hY'o⟩ := sup_zpowers_odd_abelian hYc hYo hcY hco
-      have hlt : Y < Y ⊔ zpowers c :=
-        lt_of_le_of_ne le_sup_left fun h => hcn (h ▸ mem_sup_right (mem_zpowers c))
-      have h1 : Nat.card Y < Nat.card (Y ⊔ zpowers c : Subgroup G) := card_lt_of_lt hlt
-      have h2 : Nat.card (Y ⊔ zpowers c : Subgroup G) ≤ Nat.card G := card_le_card_group _
-      exact ih _ (by omega) _ rfl (hX₀Y.trans le_sup_left) (sup_le hYQ (zpowers_le.2 hcQ))
-        hY'c hY'o
 
 end OddOrder
 
@@ -247,27 +190,6 @@ end Automizer
 
 section Layer
 
-theorem inSubgroup_layer_inf_centralizer_eq_of_le {L X₀ X D : Subgroup G} (hX₀X : X₀ ≤ X)
-    (hDX : D ≤ L ⊓ centralizer (X : Set G))
-    (hcomm : ∀ g ∈ L ⊓ centralizer (X₀ : Set G), ∀ h ∈ L ⊓ centralizer (X₀ : Set G),
-      g * h * g⁻¹ * h⁻¹ ∈ D) (hD : CFSG.IsQuasisimple D) :
-    inSubgroup layer (L ⊓ centralizer (X : Set G)) = D := by
-  have hle : L ⊓ centralizer (X : Set G) ≤ L ⊓ centralizer (X₀ : Set G) :=
-    inf_le_inf_left _ (centralizer_le hX₀X)
-  exact (inSubgroup_layer_eq_of_commutator_mem hDX
-    (fun g hg h hh => hcomm g (hle hg) h (hle hh)) hD)
-
-theorem commutator_mem_map_symm_of_mem_inf_centralizer {C : Type*} [Group C] {L : Subgroup G}
-    (e : L ≃* C) {A D : Subgroup C}
-    (hcomm : ∀ g ∈ centralizer (A : Set C), ∀ h ∈ centralizer (A : Set C),
-      g * h * g⁻¹ * h⁻¹ ∈ D) :
-    ∀ g ∈ L ⊓ centralizer (((A.map e.symm.toMonoidHom).map L.subtype : Subgroup G) : Set G),
-      ∀ h ∈ L ⊓ centralizer (((A.map e.symm.toMonoidHom).map L.subtype : Subgroup G) : Set G),
-        g * h * g⁻¹ * h⁻¹ ∈ (D.map e.symm.toMonoidHom).map L.subtype := by
-  rw [F4Pilot.inf_centralizer_map_symm]
-  rintro _ ⟨_, ⟨g, hg, rfl⟩, rfl⟩ _ ⟨_, ⟨h, hh, rfl⟩, rfl⟩
-  refine ⟨e.symm.toMonoidHom (g * h * g⁻¹ * h⁻¹), ⟨_, hcomm g hg h hh, rfl⟩, ?_⟩
-  simp
 
 end Layer
 

@@ -48,7 +48,6 @@ open CertificateChecks.KernelSpor.Suz2306
 
 set_option maxRecDepth 1000000
 
-theorem psl_eq : suzPSL = suzPS := rfl
 
 theorem inM_eq {P : Nat} (hP : canon1 1782 11 P = true) (hv : pvalid 1782 11 P = true) :
     inMP P = suzInM (unpackP 1782 11 P) := by

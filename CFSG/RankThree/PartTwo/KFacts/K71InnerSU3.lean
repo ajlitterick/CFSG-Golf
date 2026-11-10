@@ -326,47 +326,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 variable {p f : ℕ} {K : Type} [Field K] {l m : K}
 
-theorem exists_imageModTheta_mulEquiv_sl2_of_su3 [Finite K] (h : UnitaryFieldData p f K)
-    (hq : 4 ≤ p ^ f) (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitarySU p f K 3) {d : G}
-    (hd : d ∈ Subgroup.normalizer (L : Set G)) (hd3 : ∃ j : ℕ, d ^ 3 ^ j = 1) (hlm : l ≠ m)
-    {t : GL (Fin 3) K} (ht : (t : Matrix (Fin 3) (Fin 3) K) = diagonal ![l, l, m])
-    (hdt : ∀ g : unitarySU p f K 3,
-      ((inducedAutHom L e ⟨d, hd⟩ g : unitarySU p f K 3) : GL (Fin 3) K) = t * g * t⁻¹) :
-    ∃ (F₀ : Type) (_ : Field F₀) (_ : Finite F₀), Nat.card F₀ = p ^ f ∧
-      Nonempty (Sec8.imageModTheta L (inSubgroup perfectResidual (L ⊓ Subgroup.centralizer {d}))
-        ≃* SL(2, F₀)) := by
-  obtain ⟨ι⟩ := nonempty_imageModTheta_perfectResidual_mulEquiv hd hd3 e (suCentralizer (p ^ f) t)
-    fun z => by
-      rw [mem_suCentralizer, ← Subtype.coe_inj, hdt, mul_inv_eq_iff_eq_mul, eq_comm]
-  obtain ⟨F₀, hF₀, hF₀', hcard, ⟨κ⟩⟩ := exists_perfectResidual_suCentralizer_mulEquiv h hq hlm ht
-  exact ⟨F₀, hF₀, hF₀', hcard, ⟨ι.trans κ⟩⟩
-
-theorem imageModTheta_mulEquiv_projSL_of_su3 [Finite K] (h : UnitaryFieldData 2 f K)
-    (hf : 2 ≤ f) (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitarySU 2 f K 3) {d : G}
-    (hd : d ∈ Subgroup.normalizer (L : Set G)) (hd3 : ∃ j : ℕ, d ^ 3 ^ j = 1) (hlm : l ≠ m)
-    {t : GL (Fin 3) K} (ht : (t : Matrix (Fin 3) (Fin 3) K) = diagonal ![l, l, m])
-    (hdt : ∀ g : unitarySU 2 f K 3,
-      ((inducedAutHom L e ⟨d, hd⟩ g : unitarySU 2 f K 3) : GL (Fin 3) K) = t * g * t⁻¹) :
-    Nonempty (Sec8.imageModTheta L (inSubgroup perfectResidual (L ⊓ Subgroup.centralizer {d})) ≃*
-      projSL 2 (GaloisField 2 f)) ∧
-      inSubgroup perfectResidual (L ⊓ Subgroup.centralizer {d}) ≠ ⊥ := by
-  have hq : 4 ≤ 2 ^ f := (Nat.pow_le_pow_right (by norm_num) hf : 2 ^ 2 ≤ 2 ^ f)
-  obtain ⟨F₀, _, _, hcard, ⟨ι⟩⟩ := exists_imageModTheta_mulEquiv_sl2_of_su3 h hq e hd hd3 hlm ht hdt
-  obtain ⟨κ⟩ := nonempty_sl2_mulEquiv_projSL hcard
-  have := nontrivial_sl2 F₀
-  exact ⟨⟨ι.trans κ⟩, ne_bot_of_imageModTheta_mulEquiv ι⟩
-
-theorem exists_imageModTheta_mulEquiv_sl2_of_suConj [Finite K] (h : UnitaryFieldData p f K)
-    (hq : 4 ≤ p ^ f) (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitarySU p f K 3) {d : G}
-    (hd : d ∈ Subgroup.normalizer (L : Set G)) (hd3 : ∃ j : ℕ, d ^ 3 ^ j = 1) (hlm : l ≠ m)
-    {A : unitaryIsom3 h}
-    (hA : ((A : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = diagonal ![l, l, m])
-    (hdA : inducedAutHom L e ⟨d, hd⟩ = suConj h A) :
-    ∃ (F₀ : Type) (_ : Field F₀) (_ : Finite F₀), Nat.card F₀ = p ^ f ∧
-      Nonempty (Sec8.imageModTheta L (inSubgroup perfectResidual (L ⊓ Subgroup.centralizer {d}))
-        ≃* SL(2, F₀)) :=
-  exists_imageModTheta_mulEquiv_sl2_of_su3 h hq e hd hd3 hlm hA fun g => by
-    rw [hdA, coe_suConj, Subgroup.coe_inv]
 
 theorem exists_imageModTheta_mulEquiv_sl2_of_psu3 [Finite K] (h : UnitaryFieldData p f K)
     (hq : 4 ≤ p ^ f) (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitaryPSU h 3) {d : G}
@@ -400,19 +359,6 @@ theorem imageModTheta_mulEquiv_projSL_of_psu3 [Finite K] (h : UnitaryFieldData 2
   have := nontrivial_sl2 F₀
   exact ⟨⟨ι.trans κ⟩, ne_bot_of_imageModTheta_mulEquiv ι⟩
 
-theorem inducesKindSU3_inner_or_diagonal (h : UnitaryFieldData p f K) (hq : 2 < p ^ f)
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitarySU p f K 3) {d : G}
-    (hd : d ∈ Subgroup.normalizer (L : Set G)) (A : unitaryIsom3 h)
-    (hdA : inducedAutHom L e ⟨d, hd⟩ = suConj h A) :
-    InducesKindSU3 h L hq d .inner ∨ InducesKindSU3 h L hq d .diagonal := by
-  have hmem : MulAut.congr (suCenterEquiv h hq) (centerDescend _ (inducedAutHom L e ⟨d, hd⟩)) ∈
-      (stdPinnedPSU3 h).inndiag := by
-    rw [hdA, congr_centerDescend_suConj]
-    exact ⟨A, rfl⟩
-  by_cases hi : IsInnerAut
-      (MulAut.congr (suCenterEquiv h hq) (centerDescend _ (inducedAutHom L e ⟨d, hd⟩)))
-  · exact Or.inl ⟨e, hd, hi⟩
-  · exact Or.inr ⟨e, hd, hmem, hi⟩
 
 theorem inducesKindPSU3_inner_or_diagonal (h : UnitaryFieldData p f K)
     (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitaryPSU h 3) {d : G}

@@ -184,8 +184,6 @@ theorem fusionOddCore_eq_bot_of_oddCoreIn {H : Subgroup G} (hO : oddCoreIn H = �
     fusionOddCore ↥H = ⊥ :=
   (Subgroup.map_eq_bot_iff_of_injective _ H.subtype_injective).mp hO
 
-omit [Finite G] in
-theorem oTwoFIn_eq_map (H : Subgroup G) : oTwoFIn H = (oTwoFSub ↥H).map H.subtype := rfl
 
 omit [Finite G] in
 theorem oTwoFIn_le (H : Subgroup G) : oTwoFIn H ≤ H := Subgroup.map_subtype_le _

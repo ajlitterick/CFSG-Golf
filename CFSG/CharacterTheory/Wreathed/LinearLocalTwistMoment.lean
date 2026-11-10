@@ -148,24 +148,6 @@ theorem centralizerSelf_extendedCentralizer_le (x : G) (hx : x * x = 1) :
   change extendedCentralizer x ≤ _
   exact le_of_eq (extendedCentralizer_involution_eq x hx)
 
-omit [Fintype G] in
-theorem centralizerSelf_internal_centralizer_eq (x : G) :
-    Subgroup.centralizer (Subgroup.zpowers (centralizerSelf x) :
-      Set (Subgroup.centralizer (Subgroup.zpowers x : Set G))) = ⊤ := by
-  ext t
-  constructor
-  · intro _
-    trivial
-  · intro _
-    exact mem_centralizer_zpowers_of_commute (centralizerSelf_commute x t)
-
-omit [Fintype G] in
-theorem localCentralizerEquiv_centralizerSelf_apply (x : G) (hx : x * x = 1)
-    (t : Subgroup.centralizer (Subgroup.zpowers (centralizerSelf x) :
-      Set (Subgroup.centralizer (Subgroup.zpowers x : Set G)))) :
-    localCentralizerEquiv (Subgroup.centralizer (Subgroup.zpowers x : Set G))
-      (centralizerSelf x) (centralizerSelf_extendedCentralizer_le x hx) t = t.val :=
-  Subtype.ext rfl
 
 theorem self_brauer_coefficient_projection (x : G) (hx : x * x = 1) (ring : Subring ℂ)
     (value : centralCoefficientSubring

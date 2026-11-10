@@ -67,9 +67,6 @@ theorem frameComp_intertwine
   rw [frameComp_apply, frameComp_apply]
   exact congrArg (fun v => v.1 i) h1
 
-theorem torusAct_zero_fst (k : Fin s → ℕ) (w : Fin r → K) :
-    torusAct g k ((0 : Fin s → AdjoinRoot g), w) = (0, w) :=
-  Prod.ext (funext fun _ => mul_zero _) rfl
 
 end FrameComp
 

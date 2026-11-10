@@ -114,8 +114,6 @@ variable {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k
 theorem finite_kernelRoots : (kernelRoots D.χ).Finite :=
   (root_character_kernel_orthogonal_central_product τ k D.χ).1
 
-theorem finite_kernelComponent : Finite (KernelComponent D.χ) :=
-  (root_character_kernel_orthogonal_central_product τ k D.χ).2.1
 
 theorem theta_injective : Function.Injective D.θ := by
   intro x y h
@@ -152,12 +150,6 @@ theorem mk_eq_of_theta {a b : kernelRoots D.χ} (hab : (⟦a⟧ : KernelComponen
     obtain ⟨y', hy', e⟩ := D.bijOn_kernelRoots.mapsTo ⟨_, y.2, rfl⟩
     exact (ih₁ (b' := ⟨y', hy'⟩) ha e.symm).trans (ih₂ e.symm hb)
 
-theorem J_nonempty : D.J.Nonempty := by
-  obtain ⟨i₀, hJ⟩ := D.isThetaOrbit
-  obtain ⟨⟨α, hα⟩, rfl⟩ := Quotient.exists_rep i₀
-  refine ⟨⟦⟨α, hα⟩⟧, ?_⟩
-  rw [hJ]
-  exact ⟨0, α, ⟨hα, rfl⟩, α, ⟨hα, rfl⟩, by simp⟩
 
 theorem mapsTo_roots : Set.MapsTo D.θ (toReal '' D.roots) (toReal '' D.roots) := by
   obtain ⟨i₀, hJ⟩ := D.isThetaOrbit

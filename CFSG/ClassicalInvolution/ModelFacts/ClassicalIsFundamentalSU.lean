@@ -29,7 +29,6 @@ variable {F : Type} [Field F] (σ : F ≃+* F) {n : ℕ}
     simp [conjTr]
   map_add' := conjTr_add σ
 
-theorem conjTrAdd_apply (A : Matrix (Fin n) (Fin n) F) : conjTrAdd σ n A = conjTr σ A := rfl
 
 theorem conjTr_smul_eq (c : F) (A : Matrix (Fin n) (Fin n) F) :
     conjTr σ (c • A) = σ c • conjTr σ A := by

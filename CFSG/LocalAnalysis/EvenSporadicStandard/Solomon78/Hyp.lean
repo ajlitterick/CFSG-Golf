@@ -41,25 +41,5 @@ variable {G : Type} [Group G]
 @[expose] def vPairs (L K : Subgroup G) (u : G) : Set G :=
   {w | ∃ v ∈ vMaximal K u, w = u * v ∧ ∃ l ∈ L, l * u * l⁻¹ = w}
 
-structure SolomonSetting (G : Type) [Group G] [Finite G] (L K : Subgroup G) (t u : G) : Prop where
-  simple : IsSimpleGroup G
-  nonabelian : ∃ a b : G, a * b ≠ b * a
-  simpleL : IsSimpleGroup L
-  nonabelianL : ∃ a b : L, a * b ≠ b * a
-  t_order : orderOf t = 2
-  t_mem : t ∈ centralizer (L : Set G)
-  u_order : orderOf u = 2
-  u_mem : u ∈ L
-  K_le : K ≤ L
-  u_comm_t : u * t = t * u
-  u_mem_centralizer_K : u ∈ centralizer (K : Set G)
-  standard_in_L : standardComponentIsStandard (K.subgroupOf L)
-  autCentralizer_two : twoAdic (autCentralizer L K) ≤ 2
-  hyp35 : K = componentProduct K u
-
-structure SolomonHyp (G : Type) [Group G] [Finite G] (L K : Subgroup G) (t u : G) : Prop
-    extends SolomonSetting G L K t u where
-  hyp38_1 : ∀ g ∈ centralizer ({u} : Set G), ∀ w ∈ vPairs L K u, g * w * g⁻¹ ∈ vPairs L K u
-  hyp38_2 : centralizer ({u} : Set G) ≤ normalizer (L : Set G)
 
 end CFSG.EvenSporadicStandard.Solomon78

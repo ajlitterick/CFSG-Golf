@@ -53,20 +53,6 @@ theorem sectionAutomorphism_mk (N Z : Subgroup E) [N.Normal] [Z.Normal]
       sectionProjection N Z (sectionConjugation N e h) :=
   QuotientGroup.congr_mk' _ _ _ _ h
 
-theorem sectionAutomorphism_mk_literal (N Z : Subgroup E) [N.Normal] [Z.Normal]
-    (e : E) (h : derivedNormalSubgroup N) :
-    sectionAutomorphism N Z e (sectionProjection N Z h) =
-      sectionProjection N Z
-        ⟨e * (h : E) * e⁻¹,
-          (inferInstance : (derivedNormalSubgroup N).Normal).conj_mem h.val h.property e⟩ := by
-  rw [sectionAutomorphism_mk]
-  rfl
-
-theorem sectionAutomorphism_symm_mk (N Z : Subgroup E) [N.Normal] [Z.Normal]
-    (e : E) (h : derivedNormalSubgroup N) :
-    (sectionAutomorphism N Z e).symm (sectionProjection N Z h) =
-      sectionProjection N Z ((sectionConjugation N e).symm h) :=
-  rfl
 
 @[expose] def quotientConjugationHom (N Z : Subgroup E) [N.Normal] [Z.Normal] :
     E →* MulAut (Section N Z) where
@@ -85,17 +71,6 @@ theorem sectionAutomorphism_symm_mk (N Z : Subgroup E) [N.Normal] [Z.Normal]
       sectionAutomorphism N Z e (sectionAutomorphism N Z f (sectionProjection N Z h))
     simp only [sectionAutomorphism_mk, map_mul, MulAut.mul_apply]
 
-theorem quotientConjugationHom_derivedMember (N Z : Subgroup E) [N.Normal] [Z.Normal]
-    (h : derivedNormalSubgroup N) :
-    quotientConjugationHom N Z (h : E) = MulAut.conj (sectionProjection N Z h) := by
-  apply MulEquiv.ext
-  intro p
-  obtain ⟨x, rfl⟩ := sectionProjection_surjective N Z p
-  change sectionAutomorphism N Z (h : E) (sectionProjection N Z x) = _
-  rw [sectionAutomorphism_mk]
-  change sectionProjection N Z (MulAut.conjNormal (h : E) x) = _
-  rw [MulAut.conjNormal_val, MulAut.conj_apply, MulAut.conj_apply,
-    map_mul, map_mul, map_inv]
 
 @[expose] def theta (N Z : Subgroup E) [N.Normal] [Z.Normal] :
     E →* OuterAutomorphisms.Outer (Section N Z) :=
@@ -108,22 +83,5 @@ theorem theta_apply (N Z : Subgroup E) [N.Normal] [Z.Normal] (e : E) :
         (quotientConjugationHom N Z e) :=
   rfl
 
-theorem theta_kernel (N Z : Subgroup E) [N.Normal] [Z.Normal] :
-    (theta N Z).ker =
-      (OuterAutomorphisms.inner (Section N Z)).comap (quotientConjugationHom N Z) := by
-  ext e
-  exact QuotientGroup.eq_one_iff (quotientConjugationHom N Z e)
-
-theorem theta_derivedMember (N Z : Subgroup E) [N.Normal] [Z.Normal]
-    (h : derivedNormalSubgroup N) :
-    theta N Z (h : E) = 1 := by
-  rw [theta_apply]
-  apply (QuotientGroup.eq_one_iff _).mpr
-  exact ⟨sectionProjection N Z h, (quotientConjugationHom_derivedMember N Z h).symm⟩
-
-theorem derivedNormalSubgroup_le_theta_kernel (N Z : Subgroup E) [N.Normal] [Z.Normal] :
-    derivedNormalSubgroup N ≤ (theta N Z).ker := by
-  intro h hh
-  exact theta_derivedMember N Z ⟨h, hh⟩
 
 end CFSG.ComponentClassification.CatalogueBDerivedNormalSection

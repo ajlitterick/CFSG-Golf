@@ -23,7 +23,6 @@ theorem thetaVis_mul (p q : Pvis) : thetaVis (p * q) = thetaVis q * thetaVis p :
 theorem thetaVis_mul_negPair (p : Pvis) : thetaVis (p * negPair) = thetaVis p :=
   Subtype.ext (thetaEquiv_mul_negPair p)
 
-theorem coe_rhoGvis (r : Q) : (rhoGvis r : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv r := rfl
 
 theorem rhoGvis_mul (r r' : Q) : rhoGvis (r * r') = rhoGvis r' * rhoGvis r :=
   Subtype.ext (rhoEquiv_mul r r')

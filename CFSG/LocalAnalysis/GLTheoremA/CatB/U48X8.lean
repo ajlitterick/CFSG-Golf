@@ -96,17 +96,6 @@ theorem Xs_stable {W : Subgroup (GL (Fin 4) K)} {g : GL (Fin 4) K}
     exact act_sub_mem_Xs (hg w hw) (act g u)
   exact hle hv
 
-theorem Rs_stable {W : Subgroup (GL (Fin 4) K)} {g : GL (Fin 4) K}
-    (hg : ∀ w ∈ W, g * w * g⁻¹ ∈ W) (hg' : ∀ w ∈ W, g⁻¹ * w * g ∈ W) :
-    ∀ x ∈ Rs W, act g x ∈ Rs W := by
-  intro x hx
-  refine ⟨Xs_stable hg x hx.1, fun w hw => ?_⟩
-  have h1 : g⁻¹ * w * g ∈ W := hg' w hw
-  have h2 : act (g⁻¹ * w * g) x = x := hx.2 _ h1
-  calc act w (act g x) = act (w * g) x := (act_mul _ _ _).symm
-    _ = act (g * (g⁻¹ * w * g)) x := by congr 1; group
-    _ = act g (act (g⁻¹ * w * g) x) := act_mul _ _ _
-    _ = act g x := by rw [h2]
 
 theorem dotB_eq_zero_of_mem_Rs (h : UnitaryFieldData 2 3 K) {W : Subgroup (GL (Fin 4) K)}
     (hWu : ∀ w ∈ W, ((w : Matrix (Fin 4) (Fin 4) K).map h.bar)ᵀ * (w : Matrix (Fin 4) (Fin 4) K) = 1)

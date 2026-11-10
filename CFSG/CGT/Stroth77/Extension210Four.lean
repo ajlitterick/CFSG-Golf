@@ -275,13 +275,6 @@ theorem false_of_index_four_t210_of_data {m : ℕ} {hm : 2 ≤ m}
     (parityTorus_t_t210 hm) (fun _ hρ ht => fixed_rho_t_t210 D hρ ht) hBC hC hrel hL hH
     hcS (not_isCyclic_quotient_of_sq_mem_Idx4R hBC hC hrel hexp)
 
-theorem false_of_index_four_t210 {m : ℕ} {hm : 2 ≤ m}
-    (hB : HasStrothType B (StrothTypeIndex.t210 m hm)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B) (hexp : ∀ x ∈ C, x * x ∈ B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_four_t210_of_data hB.data hBC hC hrel hexp hL hH hcS
 
 theorem false_of_index_four_t211_of_data {m : ℕ} {hm : 2 ≤ m}
     (D : StrothTypeData B (StrothTypeIndex.t211 m hm)) (hBC : B ≤ C)
@@ -295,12 +288,5 @@ theorem false_of_index_four_t211_of_data {m : ℕ} {hm : 2 ≤ m}
     (parityTorus_t_t211 hm) (fun _ hρ ht => fixed_rho_t_t211 D hρ ht) hBC hC hrel hL hH
     hcS (not_isCyclic_quotient_of_sq_mem_Idx4R hBC hC hrel hexp)
 
-theorem false_of_index_four_t211 {m : ℕ} {hm : 2 ≤ m}
-    (hB : HasStrothType B (StrothTypeIndex.t211 m hm)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B) (hexp : ∀ x ∈ C, x * x ∈ B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_four_t211_of_data hB.data hBC hC hrel hexp hL hH hcS
 
 end CFSG.CGT.Stroth77

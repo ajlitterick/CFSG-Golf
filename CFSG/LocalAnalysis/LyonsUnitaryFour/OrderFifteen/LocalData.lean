@@ -59,15 +59,6 @@ end Helpers
 
 variable {G : Type} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem unitary_four_exists_third_central {T : Type} [Group T]
-    (hT : CFSG.Assembly.LowTwoRank.StatedClassicalModel T .PSU 3 2 2) (S : Sylow 2 G)
-    (U : Sylow 2 T) (hSU : Nonempty ((S : Subgroup G) ≃* (U : Subgroup T))) (z : G) :
-    ∃ w ∈ (Subgroup.center (S : Subgroup G)).map (S : Subgroup G).subtype, w ≠ 1 ∧ w ≠ z := by
-  obtain ⟨-, -, -, -, hZcard⟩ := unitary_four_sylow_structure hT S U hSU
-  apply exists_third_mem_four _ z
-  rw [Subgroup.card_map_of_injective (Subgroup.subtype_injective _)]
-  exact hZcard
 
 theorem lyons_order_fifteen_local_data [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
     {T : Type} [Group T] (hT : CFSG.Assembly.LowTwoRank.StatedClassicalModel T .PSU 3 2 2)

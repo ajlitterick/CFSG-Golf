@@ -10,9 +10,6 @@ namespace CFSG.RankThree.PartTwo.KFacts
 
 open CFSG.GorensteinWalter CFSG.ComponentClassification.CatalogueSchreierLinearTwo
 
-theorem exists_toPGL_eq_sq {K : Type*} [Field K] (g : PGL2 K) :
-    ∃ x : PSL2 K, Matrix.ProjectiveSpecialLinearGroup.toPGL x = g ^ 2 :=
-  CFSG.GorensteinWalter.pgl2_sq_mem_psl2Range g
 
 theorem exists_toPGL_eq_of_pow_odd {K : Type*} [Field K] {g : PGL2 K} {n : ℕ} (hn : Odd n)
     (hg : g ^ n = 1) : ∃ x : PSL2 K, Matrix.ProjectiveSpecialLinearGroup.toPGL x = g :=

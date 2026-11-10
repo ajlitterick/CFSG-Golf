@@ -36,7 +36,5 @@ theorem exists_f4Frame_of_nslFrame (F : NSLFrameData G R)
   exact ⟨⟨K, hA, X, nW, H, hct, hext, i₀, hi₀, pg, Ψ, surj, ker, mem, opp⟩,
     fun m hm => hm a2v (a2v_mem_roots hA)⟩
 
-variable {D : Set G} {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
-  [FiniteDimensional (ZMod 2) V] {Q : QuadraticForm (ZMod 2) V} {ρ : G →* (V ≃ₗ[ZMod 2] V)}
 
 end CFSG.LargeExtraspecial.A2Mod.FrF

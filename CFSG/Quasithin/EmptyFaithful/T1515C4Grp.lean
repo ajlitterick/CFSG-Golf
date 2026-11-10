@@ -26,10 +26,6 @@ theorem sq_ne_one_of_orderOf_four {τ : X} (h4 : orderOf τ = 4) : τ * τ ≠ 1
   rw [h4] at this
   omega
 
-theorem ne_one_of_orderOf_four {τ : X} (h4 : orderOf τ = 4) : τ ≠ 1 := by
-  intro h
-  rw [h, orderOf_one] at h4
-  omega
 
 theorem zpowers_cases {τ : X} (h4 : orderOf τ = 4) {y : X} (hy : y ∈ Subgroup.zpowers τ) :
     y = 1 ∨ y = τ ∨ y = τ * τ ∨ y = τ * τ * τ := by
@@ -242,9 +238,6 @@ theorem s_mem_A₀ : τ * τ ∈ oTwoUpper A ⊔ Subgroup.zpowers t := by
   exact Subgroup.mul_mem _ (Subgroup.mem_sup_left ((oTwoUpper A).inv_mem hq))
     (Subgroup.mem_sup_right (Subgroup.mem_zpowers t))
 
-omit [Finite V] in
-theorem t_normalizes : Subgroup.zpowers t ≤ Subgroup.normalizer (oTwoUpper A : Set (MulAut V)) :=
-  t_normalizes_of h.t_sq h.t_inv
 
 omit [Finite V] in
 theorem tau_not_mem : τ ∉ oTwoUpper A ⊔ Subgroup.zpowers t :=
@@ -555,12 +548,6 @@ theorem s_mul_s (h : FourCtx A τ t) : (τ * τ) * (τ * τ) = 1 := by
   calc (τ * τ) * (τ * τ) = τ ^ 4 := by simp only [pow_succ, pow_zero, one_mul, mul_assoc]
     _ = 1 := this
 
-theorem tau_inv_eq (h : FourCtx A τ t) : τ⁻¹ = τ * τ * τ := by
-  have h4 := pow_four_eq_one h.tau_ord
-  have : τ * (τ * τ * τ) = 1 := by
-    calc τ * (τ * τ * τ) = τ ^ 4 := by simp only [pow_succ, pow_zero, one_mul, mul_assoc]
-      _ = 1 := h4
-  exact inv_eq_of_mul_eq_one_right this
 
 end FourCtx
 
@@ -707,10 +694,6 @@ theorem P_U₂ (h : FourCtx A τ t) (hg : FourGen A τ g) {x : MulAut V} (hx : x
     (hw : w ∈ fixOf (hOf τ g)) : x w ∈ fixOf (hOf τ g) :=
   apply_mem_fixOf_of_comm (h.comm_P x hx _ (h_mem h hg)) hw
 
-omit [Finite V] in
-theorem P_U₁ (h : FourCtx A τ t) (hg : FourGen A τ g) {x : MulAut V} (hx : x ∈ oTwoUpper A) {w : V}
-    (hw : w ∈ fixOf g) : x w ∈ fixOf g :=
-  apply_mem_fixOf_of_comm (h.comm_P x hx _ hg.gP) hw
 
 theorem mem_Cbar (h : FourCtx A τ t) (hg : FourGen A τ g) {a : MulAut V} (ha : a ∈ A)
     (hfix : a ∈ fixingV (zOne τ g : Set V)) :
@@ -809,10 +792,6 @@ omit [Finite V] in
 theorem g_mem_Cbar (h : FourCtx A τ t) (hg : FourGen A τ g) : g ∈ sixCbar A (zOne τ g) := by
   simpa using mem_Cbar_of h hg 1 (Subgroup.one_mem _)
 
-omit [Finite V] in
-theorem s_mem_Cbar (h : FourCtx A τ t) (hg : FourGen A τ g) :
-    τ * τ ∈ sixCbar A (zOne τ g) := by
-  simpa using mem_Cbar_of h hg 0 (Subgroup.mem_zpowers _)
 
 omit [Finite V] in
 theorem card_zpowers_s (h : FourCtx A τ t) : Nat.card (Subgroup.zpowers (τ * τ)) = 2 := by

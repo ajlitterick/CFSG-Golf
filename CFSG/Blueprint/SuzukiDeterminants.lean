@@ -19,17 +19,5 @@ theorem det_suzukiW_eq_one : (suzukiW K).det = 1 := by
   rw [h]
   simp
 
-theorem suzuki_generator_determinants (a : ℕ) (K : Type) [Field K] [Finite K]
-    (_hK : Nat.card K = 2 ^ (2 * a + 1)) :
-    (∀ u v : K, (suzukiS a u v).det = 1) ∧ (∀ l : Kˣ, (suzukiD a l).det = 1) ∧
-    (suzukiW K).det = 1 ∧
-    (∀ u v : K, ∃ g : Matrix.SpecialLinearGroup (Fin 4) K,
-      (g : Matrix (Fin 4) (Fin 4) K) = suzukiS a u v) ∧
-    (∀ l : Kˣ, ∃ g : Matrix.SpecialLinearGroup (Fin 4) K,
-      (g : Matrix (Fin 4) (Fin 4) K) = suzukiD a l) ∧
-    ∃ g : Matrix.SpecialLinearGroup (Fin 4) K, (g : Matrix (Fin 4) (Fin 4) K) = suzukiW K :=
-  ⟨det_suzukiS a, det_suzukiD a, det_suzukiW_eq_one,
-    fun u v => ⟨⟨suzukiS a u v, det_suzukiS a u v⟩, rfl⟩,
-    fun l => ⟨⟨suzukiD a l, det_suzukiD a l⟩, rfl⟩, ⟨⟨suzukiW K, det_suzukiW_eq_one⟩, rfl⟩⟩
 
 end CFSG.Blueprint

@@ -86,7 +86,6 @@ variable {X : Type*} [Group X] {Z : Set X} {M : Subgroup X}
 @[expose] def omega (M : Subgroup X) : Set (Subgroup X) :=
   Set.range (conjugate M)
 
-theorem mem_omega_iff {β : Subgroup X} : β ∈ omega M ↔ ∃ g : X, conjugate M g = β := Iff.rfl
 
 theorem self_mem_omega (M : Subgroup X) : M ∈ omega M := ⟨1, conjugate_one M⟩
 
@@ -179,19 +178,6 @@ theorem IsProductDisconnected.exists_conj_mem_subgroup (hZ : IsInvariantInvoluti
   rw [hg] at this
   simpa using hSM this
 
-theorem IsProductDisconnected.exists_conj_not_mem (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {u : X} (hu : u ∈ Z) : ∃ g : X, g⁻¹ * u * g ∉ M := by
-  obtain ⟨g₀, hg₀⟩ := h.exists_conj_mem_subgroup hZ hu
-  obtain ⟨k, hk⟩ : ∃ k : X, k ∉ M := by
-    by_contra hall
-    push Not at hall
-    exact h.1 (eq_top_iff.mpr fun x _ => hall x)
-  refine ⟨g₀ * k, fun hmem => hk ?_⟩
-  have : k⁻¹ * (g₀⁻¹ * u * g₀) * k ∈ M := by
-    have e : k⁻¹ * (g₀⁻¹ * u * g₀) * k = (g₀ * k)⁻¹ * u * (g₀ * k) := by group
-    rw [e]
-    exact hmem
-  exact h.mem_of_conj_mem (hZ.2 u hu g₀) hg₀ this
 
 theorem IsProductDisconnected.existsUnique_fixed_point (hZ : IsInvariantInvolutionSet Z)
     (h : IsProductDisconnected Z M) {u : X} (hu : u ∈ Z) :

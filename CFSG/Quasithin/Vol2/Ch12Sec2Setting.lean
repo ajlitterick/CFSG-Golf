@@ -78,8 +78,6 @@ namespace Hyp1223
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G}
 
-abbrev Gtilde (h : Hyp1223 G T L V) (z : G) : Type :=
-  ↥(h.Gv z) ⧸ (Subgroup.zpowers z).subgroupOf (Subgroup.centralizer ({z} : Set G))
 
 end Hyp1223
 
@@ -150,21 +148,5 @@ theorem stmt12_7_1_iff : Stmt12_7_1 ↔
 @[expose] def transvection15 : Matrix.SpecialLinearGroup (Fin 5) (ZMod 2) :=
   Matrix.SpecialLinearGroup.transvection (show (0 : Fin 5) ≠ 4 by decide) 1
 
-@[expose] def Asc94_M24He_L52Type : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G), IsSimpleGroup G → orderOf z = 2 →
-    Nonempty (↥(Subgroup.centralizer ({z} : Set G)) ≃*
-      ↥(Subgroup.centralizer
-        ({transvection15} : Set (Matrix.SpecialLinearGroup (Fin 5) (ZMod 2))))) →
-    (∃ g : G, g⁻¹ * z * g ∈ pCoreOf 2 (Subgroup.centralizer ({z} : Set G)) ∧
-      g⁻¹ * z * g ≠ z) →
-      (LieModel G .PSL 5 2 1 ∨ Nonempty (G ≃* NativeSporadic.M24) ∨
-          Nonempty (G ≃* NativeSporadic.He)) ∧
-        ((∃ E : Subgroup G, IsElemAbelian 2 E ∧ Nat.card E = 16 ∧
-            ∃ φ : ↥(Subgroup.normalizer (E : Set G)) →* GL (Fin 4) (ZMod 2),
-              Function.Surjective φ ∧
-              φ.ker = (Subgroup.centralizer (E : Set G)).subgroupOf
-                (Subgroup.normalizer (E : Set G))) →
-          ¬ Nonempty (G ≃* NativeSporadic.He) ∧
-            (LieModel G .PSL 5 2 1 ∨ Nonempty (G ≃* NativeSporadic.M24)))
 
 end CFSG.Quasithin.H13

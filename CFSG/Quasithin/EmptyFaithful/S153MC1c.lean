@@ -16,7 +16,6 @@ section One
 
 attribute [local instance] commGroupOfFact
 
-variable {G : Type} [Group G] [Finite G] {T V L V₁ Vp H K : Subgroup G}
 
 end One
 

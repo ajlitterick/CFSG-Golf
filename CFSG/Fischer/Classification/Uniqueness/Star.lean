@@ -101,9 +101,6 @@ theorem starTau_self (hP : Pair X E) {d : X} (f : LocalClass E d) : starTau hP f
   tv_tv f := starTau_involutive hP f
   tv_self f := starTau_self hP f
 
-theorem starModel_perp (hP : Pair X E) {d : X} (f g : LocalClass E d) :
-    (starModel hP d).perp f g ↔ (f : X) * g = g * f :=
-  Iff.rfl
 
 @[simp]
 theorem starModel_tv (hP : Pair X E) {d : X} (f g : LocalClass E d) :
@@ -170,15 +167,6 @@ theorem mem_starMap_iff {d : X} {d' : Y} (φ : LocalClass E d ≃ LocalClass F d
   · intro h
     exact ⟨p, h, rfl⟩
 
-theorem starMap_subset {d : X} {d' : Y} (φ : LocalClass E d ≃ LocalClass F d') (O : Set X) :
-    starMap φ O ⊆ LocalClass F d' := by
-  rintro _ ⟨f, -, rfl⟩
-  exact (φ f).2
-
-theorem starMap_nonempty {d : X} {d' : Y} (φ : LocalClass E d ≃ LocalClass F d') {O : Set X}
-    (hO : O ⊆ LocalClass E d) (hne : O.Nonempty) : (starMap φ O).Nonempty := by
-  obtain ⟨x, hx⟩ := hne
-  exact ⟨_, ⟨x, hO hx⟩, hx, rfl⟩
 
 theorem starMap_symm_starMap {d : X} {d' : Y} (φ : LocalClass E d ≃ LocalClass F d')
     {O : Set X} (hO : O ⊆ LocalClass E d) : starMap φ.symm (starMap φ O) = O := by

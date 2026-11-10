@@ -45,8 +45,5 @@ theorem c20_5_of_res20_7 (h : Res20_7 p f) : C20_5 p f := by
   intro G _ _ _ K K' J S R R' W V z t d c3 c4
   exact d.concl20_5_of_7 (h G K K' J S R R' W V z t d c3 c4)
 
-theorem res20_7_of_c20_5 (h5 : C20_5 p f) : Res20_7 p f := by
-  intro G _ _ _ K K' J S R R' W V z t d c3 c4
-  exact c20_7 p f G K K' J S R R' W V z t d c3 c4 (h5 G K K' J S R R' W V z t d c3 c4)
 
 end CFSG.ClassicalInvolution.Asc77.T3CII

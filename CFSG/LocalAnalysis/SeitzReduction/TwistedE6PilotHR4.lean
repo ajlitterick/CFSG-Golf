@@ -117,7 +117,6 @@ theorem conj_etaAut_or_xiAut_of_outer {f : ℕ} (hf : 1 ≤ f) {K : Type} [Field
   · rw [← hηe, ← hξe]
     exact hnc φ
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end HR4
 

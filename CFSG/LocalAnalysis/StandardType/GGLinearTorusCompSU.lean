@@ -161,8 +161,6 @@ theorem ggLinearTorusComponentTag_PSU : GGLinearTorusComponentTag .PSU := by
   · intro ψ G₀ hpres
     exact absurd hpres.1.1.2.1 hf
 
-theorem ggLinearTorusComponentInput_holds : GGLinearTorusComponentInput :=
-  ggLinearTorusComponentInput_of_PSU ggLinearTorusComponentTag_PSU
 
 theorem ggSixLinearJInput_holds : GGSixLinearJInput :=
   ggSixLinearJInput_of_PSU ggLinearTorusComponentTag_PSU

@@ -50,13 +50,6 @@ section Alperin
 
 variable {X : Type} [Group X]
 
-private theorem mem_map_conj_inv_iff' {H : Subgroup X} {g y : X} :
-    y ∈ H.map (MulAut.conj g⁻¹).toMonoidHom ↔ g * y * g⁻¹ ∈ H := by
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    simpa [mul_assoc] using hx
-  · intro hy
-    exact ⟨g * y * g⁻¹, hy, by simp [mul_assoc]⟩
 
 theorem exists_moving_step_subgroup [Finite X] {p : ℕ} {S P : Subgroup X} {c : X}
     (h : AlperinDecomposition p S P c) (hc : ∃ a ∈ P, c⁻¹ * a * c ∉ P) :

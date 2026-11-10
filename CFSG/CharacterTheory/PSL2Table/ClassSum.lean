@@ -51,8 +51,6 @@ variable {G : Type} [Group G]
 
 @[expose] def conjSet (H : Subgroup G) : Set G := {y | y ≠ 1 ∧ ∃ g : G, g * y * g⁻¹ ∈ H}
 
-theorem mem_conjSet_iff (H : Subgroup G) (y : G) :
-    y ∈ conjSet H ↔ y ≠ 1 ∧ ∃ g : G, g * y * g⁻¹ ∈ H := Iff.rfl
 
 theorem conj_mem_conjSet {H : Subgroup G} {y : G} (hy : y ∈ conjSet H) (k : G) :
     k * y * k⁻¹ ∈ conjSet H := by

@@ -33,18 +33,5 @@ noncomputable instance selectCarrierGroup (m : MonsterModel) (s : TauCeti.Sporad
     Group (selectCarrier m s) := by
   cases s <;> dsimp [selectCarrier] <;> infer_instance
 
-theorem selectCarrier_M (m : MonsterModel) : selectCarrier m .M = m.Carrier :=
-  rfl
-
-theorem selectCarrier_of_ne_M (m : MonsterModel) {s : TauCeti.SporadicName} (hs : s ≠ .M) :
-    selectCarrier m s = Carrier s := by
-  cases s <;> first | rfl | exact absurd rfl hs
-
-theorem carrier_eq_selectCarrier : Carrier = selectCarrier .y443Derived := by
-  funext s
-  cases s <;> rfl
-
-theorem carrier_M_eq_y443Derived : Carrier .M = MonsterModel.y443Derived.Carrier :=
-  rfl
 
 end CFSG.Blueprint.NativeSporadic

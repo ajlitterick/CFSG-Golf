@@ -56,19 +56,6 @@ theorem thm210k
   calc Z = ⁅Z, A⁆ := hfac.symm
     _ ≤ ⁅fProd A G, A⁆ := Subgroup.commutator_mono hZF le_rfl
 
-theorem thm210m
-    (h : SemisimpleAction p A G) {X Y : Subgroup Γ} (hXG : X ≤ G) (hYG : Y ≤ G)
-    (hX : Admits (cenIn G A ⊔ A) X) (hY : Admits (cenIn G A ⊔ A) Y) (hXY : IsNormalIn X Y)
-    (hYs : Group.IsSolvable Y) {J : Subgroup Γ} (hJ : J ∈ lcal G)
-    (hVX : ¬ CFSG.fittingSubgroupOf (smear J A) ≤ X)
-    (hVY : CFSG.fittingSubgroupOf (smear J A) ≤ Y) :
-    IsMulCommutative (projIn (lcal G) J (G ⊓ sectionCentralizer X Y)) := by
-  have _ : _ ∧ _ ∧ _ ∧ _ := ⟨hXG, hYG, hY, hYs⟩
-  have hle := h.projIn_sectionCentralizer_le hJ hX hXY.1 hVX hVY
-  have hF : projIn (lcal G) J (fProd A G) ≤ CFSG.fittingSubgroupOf (kJ A J) :=
-    (h.le_fProd_iff.mp le_rfl).2 J hJ
-  have := h.isMulCommutative_fittingSubgroupOf_kJ hJ
-  exact Thm210.isMulCommutative_of_le (hle.trans hF)
 
 theorem thm210d
     (h : SemisimpleAction p A G) (φ : MulAut ↥G) :

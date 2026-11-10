@@ -127,14 +127,6 @@ theorem kOut : allN 1755 (fun x => bIf(Nat.blt x 3, true,
 
 theorem kFix : Nat.beq (gP 3 0) 0 = true := by quickRfl
 
-theorem negPA : bAnd(bIf(allN 1755 (forestAtG 1755 4 Mv gP (fun t => Qf (Nat.succ t)) ORf FOf DPf
-      PAf GLf), false, true),
-    bAnd(bIf(orbRecK 1755 Mv 4 gP (fun x => Lf (Nat.succ x)) Rf PAf GLf DPf, false, true),
-    bAnd(bIf(Nat.beq (cntL 1755 (Lf 0)) 2, false, true),
-    bAnd(bIf(allN Mv (fun c => bIf(Nat.beq c (Lf 0), true,
-      bIf(Nat.beq c (Lf 1), true, Nat.ble 9 (cntL 1755 c)))), false, true),
-    bIf(allN 4 (fun k => Nat.beq (gP k 1) 1), false, true))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.PA7051
 

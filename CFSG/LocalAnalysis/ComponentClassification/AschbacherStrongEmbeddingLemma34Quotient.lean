@@ -153,12 +153,6 @@ theorem mem_normalizer_one_of_mem_union (hc : ⁅A₁, A₂⁆ = ⊥) {b : G}
       rw [hx]
       exact hw
 
-omit [Finite G] in
-theorem mem_normalizer_two_of_mem_union (hc : ⁅A₁, A₂⁆ = ⊥) {b : G}
-    (hb : b ∈ (A₁ : Set G) ∪ A₂) : b ∈ Subgroup.normalizer (A₂ : Set G) := by
-  have hc' : ⁅A₂, A₁⁆ = ⊥ := by rw [Subgroup.commutator_comm]; exact hc
-  rw [Set.union_comm] at hb
-  exact mem_normalizer_one_of_mem_union hc' hb
 
 omit [Finite G] in
 theorem mem_normalizer_of_mem_center {K : Subgroup G} {y : G} (hy : y ∈ Subgroup.center G) :

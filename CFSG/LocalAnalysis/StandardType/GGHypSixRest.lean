@@ -31,10 +31,6 @@ section Inputs
         Bs ≤ Subgroup.normalizer (ggG0 3 B x L D J : Set G) →
           ∀ b ∈ Bs, GGSpinSemilinear (quadPlus 4 (GaloisField 2 f)) ψ b
 
-theorem ggCompatNbrSomeInput_of_compatNbr (hC : GGCompatNbrInput) : GGCompatNbrSomeInput := by
-  intro G _ _ p B Bs x L D J hcfg hOp hInn t n f ψ hpres
-  obtain ⟨K, hK, hcomp⟩ := hC G p B Bs x L D J hcfg hOp hInn t n f ψ hpres
-  exact ⟨t, n, f, ψ, hpres, K, hK, hcomp⟩
 
 end Inputs
 
@@ -89,15 +85,6 @@ theorem ggTorusOnRoot_of_compatNbr (hMp : GGInnerDiagMpInput) {p : ℕ} {B Bs : 
     · exact le_ggG0_of_ggNbr hy
   exact ggTorusOnRoot_of_innerDiagOn_mp hMp hKinn hcomp hKle
 
-theorem ggHypSixD4Input_of_semilinear (hMp : GGInnerDiagMpInput) (hC : GGCompatNbrInput)
-    (hS : GGHypSixD4SemilinearInput) : GGHypSixD4Input := by
-  intro G _ _ B Bs x L D J hcfg hOp hInn f ψ hpres hBsN b hb
-  obtain ⟨K, hK, hcomp⟩ := hC G 3 B Bs x L D J hcfg hOp hInn .POmegaPlus 4 f ψ hpres
-  obtain ⟨γ, hγ, u, hall⟩ := ggTorusOnRoot_of_compatNbr hMp hInn hpres.2.1.1 hK hcomp
-  exact ggPsiInnerDiag_D4_of_semilinear hpres.2.1.2 Nat.prime_three (by norm_num)
-    (mem_normalizer_range_of_bstar hpres.2.1.1 hBsN hb)
-    (pow_mem_centralizer_range_of_bstar hcfg ψ hb) hγ (hall b hb)
-    (hS G B Bs x L D J hcfg hOp hInn f ψ hpres hBsN b hb)
 
 theorem ggPsiInnerDiag_of_compatNbr (hMp : GGInnerDiagMpInput) (hdet : ∀ t, GGRootDetect t)
     (hS : GGHypSixD4SemilinearInput) {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}

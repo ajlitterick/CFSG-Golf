@@ -36,9 +36,6 @@ theorem fin3_eta {α : Type*} (f : Fin 3 → α) : f = ![f 0, f 1, f 2] := by
   funext i
   fin_cases i <;> rfl
 
-theorem val_zmod4_zero : (0 : ZMod 4).val = 0 := rfl
-theorem val_zmod4_one : (1 : ZMod 4).val = 1 := rfl
-theorem val_zmod4_two : (2 : ZMod 4).val = 2 := rfl
 
 noncomputable section
 

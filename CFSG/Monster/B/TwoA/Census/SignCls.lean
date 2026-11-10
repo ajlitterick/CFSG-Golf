@@ -65,10 +65,6 @@ theorem canI_eq (n : ℕ) : canI n = n ∨ canI n = n ^^^ OM := by
   · exact Or.inl (min_eq_left h)
   · exact Or.inr (min_eq_right h)
 
-theorem mem_C_canI {n : ℕ} (h : bvec 24 n ∈ C) : bvec 24 (canI n) ∈ C := by
-  rcases canI_eq n with e | e <;> rw [e]
-  · exact h
-  · exact mem_C_xor h bvec_OM_mem
 
 theorem codeCls_canI {n : ℕ} (h : bvec 24 n ∈ C) : codeCls (canI n) = codeCls n := by
   rcases canI_eq n with e | e <;> rw [e]

@@ -158,28 +158,5 @@ theorem thetaY_le_thetaM'
   exact iThetaY_le_iThetaM (Thm33a.nearAsolvAction_of_mem_mtil hθ hXm)
     (Thm33Transport.nonempty_iPairsY hθ hX)
 
-theorem thetaM_le_thetaU' (hθ : NearFunctor p A θ) (_hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) : thetaM p A θ Y X ≤ thetaU p A θ Y X := by
-  have hXm : X ∈ mtil p A θ := hX.1
-  rw [Thm33Transport.thetaM_eq_iThetaM hθ hXm, Thm33a.thetaU_eq_iThetaU hθ hXm]
-  exact iThetaM_le_iThetaU A X Y
-
-theorem thetaU_inf'
-    (hθ : NearFunctor p A θ) (_hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) (hZ : Z ∈ cset p A θ Y) :
-    thetaU p A θ Y X ⊓ Z = X ⊓ thetaU p A θ Y Z := by
-  rw [Thm33a.thetaU_eq_iThetaU hθ hX.1, Thm33a.thetaU_eq_iThetaU hθ hZ.1]
-  refine le_antisymm (Thm33Transport.iThetaU_inf_le hθ hX hZ) ?_
-  rw [inf_comm X, inf_comm (iThetaU A X Y)]
-  exact Thm33Transport.iThetaU_inf_le hθ hZ hX
-
-theorem thetaY_inf'
-    (hθ : NearFunctor p A θ) (_hY : Y ∈ dset p A θ)
-    (hX : X ∈ cset p A θ Y) (hZ : Z ∈ cset p A θ Y) :
-    thetaY p A θ Y X ⊓ Z = X ⊓ thetaY p A θ Y Z := by
-  rw [Thm33Transport.thetaY_eq_iThetaY hθ hX.1, Thm33Transport.thetaY_eq_iThetaY hθ hZ.1]
-  refine le_antisymm (Thm33Transport.iThetaY_inf_le hθ hX hZ) ?_
-  rw [inf_comm X, inf_comm (iThetaY A X Y)]
-  exact Thm33Transport.iThetaY_inf_le hθ hZ hX
 
 end CFSG.SignalizerFunctorTheorem.McBride.Near

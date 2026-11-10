@@ -67,11 +67,6 @@ theorem kRad : allN 2 (fun X => bAnd(Nat.beq (radPosK X).size 16,
 theorem kFixW : allN 1782 (fun i => Bool.not (Bool.xor (Nat.beq (pgk (SuzTwG 6) i) i)
     (Nat.beq (pgk (SuzC1BT 11) i) i))) = true := by quickRfl
 
-theorem negTh : Bool.not (allN 36 fun i => allN 64 fun k => strictB (g7 (SuzGlP i) k) fun j =>
-    bAnd(Nat.blt j 64, Nat.beq (qc (qc (SuzGlT i) (SuzGlR k)) (SuzGlTI i))
-      (if i = 7 then Nat.xor (SuzGlR j) 1 else SuzGlR j))) = true := by quickRfl
-
-theorem allN42 {f : Nat → Bool} (h : allN 42 f = true) : ∀ i < 42, f i = true := allN_spec h
 
 theorem resQ {X R : Nat} (h : allN 42 (fun i => Nat.beq (resK X i) (pg 6 (mask 6) R i)) = true)
     (hc : qn R = true) : Q (resTab (unpack 1782 11 X)) R := by

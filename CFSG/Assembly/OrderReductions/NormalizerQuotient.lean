@@ -33,21 +33,6 @@ theorem commuting_pair_survives_odd_kernel {source target : Type*} [Group source
   rw [CFSG.OrderReductions.RankTwoContainment.commuting_involution_product first second distinct commutes] at divides
   exact odd_kernel.not_two_dvd_nat divides
 
-theorem quotient_card_lt_of_nontrivial {group : Type*} [Group group] [Finite group]
-    (subgroup : Subgroup group) (normal : Subgroup group) [normal.Normal]
-    (normal_le : normal ≤ subgroup) (nontrivial : normal ≠ ⊥) :
-    Nat.card (subgroup ⧸ normal.subgroupOf subgroup) < Nat.card group := by
-  have normal_card : 1 < Nat.card (normal.subgroupOf subgroup) := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe normal_le).toEquiv]
-    have card_ne_one : Nat.card normal ≠ 1 := fun equal => nontrivial (Subgroup.card_eq_one.mp equal)
-    have card_positive : 0 < Nat.card normal := Nat.card_pos
-    omega
-  have quotient_positive : 0 < Nat.card (subgroup ⧸ normal.subgroupOf subgroup) := Nat.card_pos
-  have product_eq := (normal.subgroupOf subgroup).card_mul_index
-  rw [Subgroup.index_eq_card] at product_eq
-  have card_lt : Nat.card (subgroup ⧸ normal.subgroupOf subgroup) < Nat.card subgroup := by
-    nlinarith
-  exact card_lt.trans_le subgroup.card_le_card_group
 
 theorem normalizer_quotient_card_lt {group : Type*} [Group group] [Finite group]
     (normal : Subgroup group) (nontrivial : normal ≠ ⊥) :

@@ -15,10 +15,6 @@ section OpenComponents
 
 variable {G : Type*} [Group G]
 
-theorem open_isSubnormal_map_subtype {X : Subgroup G} {S : Subgroup X} (h : S.IsSubnormal) :
-    CFSG.Open.IsSubnormal (S.map X.subtype) X := by
-  have h1 := (CFSG.Open.IsSubnormal.of_mathlib h).map X.subtype
-  rwa [Subgroup.map_top, Subgroup.range_subtype] at h1
 
 theorem open_isSubnormal_of_subgroupOf {K X : Subgroup G} (hKX : K ≤ X)
     (h : (K.subgroupOf X).IsSubnormal) : CFSG.Open.IsSubnormal K X :=
@@ -123,10 +119,6 @@ theorem goldschmidtOddCore_top_eq_bot (hO : goldschmidtOddCore M = ⊥) :
   Subgroup.topEquiv.symm.trans (QuotientGroup.quotientBot.symm.trans
     (QuotientGroup.quotientMulEquivOfEq (goldschmidtOddCore_top_eq_bot hO).symm))
 
-theorem topQuotEquiv_apply (hO : goldschmidtOddCore M = ⊥) (x : M) :
-    topQuotEquiv hO x = (QuotientGroup.mk (⟨x, trivial⟩ : (⊤ : Subgroup M)) :
-      (⊤ : Subgroup M) ⧸ goldschmidtOddCore (⊤ : Subgroup M)) :=
-  rfl
 
 theorem barOf_top_eq_map (hO : goldschmidtOddCore M = ⊥) (B : Subgroup M) :
     barOf ⊤ B = B.map (topQuotEquiv hO).toMonoidHom := by

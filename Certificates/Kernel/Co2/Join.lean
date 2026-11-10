@@ -31,14 +31,6 @@ theorem runFacts_append (blk WT : Nat → Nat) (INV nC L : Nat) :
       runFacts blk WT INV nC L l2 (strictN (runChunk blk WT INV nC L C x) (runFacts blk WT INV nC L l1))
     rw [strictN_eq, strictN_eq, runFacts_append blk WT INV nC L l1 l2]
 
-theorem runCover_append (blk LVs : Nat → Nat) (nf L : Nat) :
-    ∀ l1 l2 x, runCover blk LVs nf L (List.append l1 l2) x =
-      runCover blk LVs nf L l2 (runCover blk LVs nf L l1 x)
-  | [], _, _ => rfl
-  | C :: l1, l2, x => by
-    change strictN (covChunk blk LVs nf L C x) (runCover blk LVs nf L (List.append l1 l2)) =
-      runCover blk LVs nf L l2 (strictN (covChunk blk LVs nf L C x) (runCover blk LVs nf L l1))
-    rw [strictN_eq, strictN_eq, runCover_append blk LVs nf L l1 l2]
 
 end CertificateChecks.KernelCo2
 

@@ -52,22 +52,6 @@ theorem weight_zero_iff {x : Ω → ZMod 2} : weight x = 0 ↔ x = 0 := by
   · intro h ω _
     simp [h]
 
-theorem weight_delta_add_delta {a b : Ω} (hab : a ≠ b) : weight (delta a + delta b) = 2 := by
-  unfold weight
-  have : (Finset.univ.filter fun ω => (delta a + delta b) ω ≠ 0) = {a, b} := by
-    ext ω
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_insert,
-      Finset.mem_singleton]
-    constructor
-    · intro h
-      by_contra hne
-      push Not at hne
-      apply h
-      simp [delta, hne.1, hne.2]
-    · rintro (rfl | rfl)
-      · simp [delta, hab]
-      · simp [delta, Ne.symm hab]
-  rw [this, Finset.card_pair hab]
 
 theorem eq_delta_add_delta_of_weight_two {x : Ω → ZMod 2} (hx : weight x = 2) :
     ∃ a b, a ≠ b ∧ x = delta a + delta b := by

@@ -22,9 +22,6 @@ theorem commSpace_top_eq_commSub (X : Subgroup (LGL 2 V)) :
   · rintro ⟨x, hx, u, rfl⟩
     exact ⟨x, hx, u, trivial, rfl⟩
 
-@[expose] def IsRegularOnNonzero (X : Subgroup (LGL 2 V)) (W : Submodule (ZMod 2) V) : Prop :=
-  (∀ x ∈ X, ∀ w ∈ W, w ≠ 0 → x w = w → x = 1) ∧
-  (∀ v ∈ W, v ≠ 0 → ∀ w ∈ W, w ≠ 0 → ∃ x ∈ X, x v = w)
 
 theorem isCompl_fixSub_commSub_of_odd (X : Subgroup (LGL 2 V)) (hodd : Odd (Nat.card X)) :
     IsCompl (fixSub X) (commSub X) := by

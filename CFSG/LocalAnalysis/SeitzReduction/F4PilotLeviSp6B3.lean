@@ -163,13 +163,6 @@ theorem isQuasisimple_open_B3Levi [Finite K] [CharP K 2] : CFSG.Open.IsQuasisimp
 
 variable {f : ℕ}
 
-theorem B3Levi_mulEquiv (hK : Nat.card K = 2 ^ f) :
-    Nonempty (↥(B3Levi K) ≃* (lieUniversal .PSp 3 2 f Nat.prime_two).K) := by
-  have := finite_of_natCard_eq_two_pow hK
-  have := charP_two_of_natCard_eq_two_pow hK
-  have : CharP K ReeTag.F4.prime := ‹CharP K 2›
-  obtain ⟨e⟩ := C3Levi_mulEquiv (K := K) hK
-  exact ⟨(c3LeviEquivB3Levi K).symm.trans e⟩
 
 theorem lieModel_B3Levi (hK : Nat.card K = 2 ^ f) :
     CFSG.Blueprint.LieModel (B3Levi K) .PSp 3 2 f := by

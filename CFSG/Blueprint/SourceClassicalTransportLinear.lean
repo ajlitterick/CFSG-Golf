@@ -46,10 +46,6 @@ theorem coe_sourceGLEquiv (b : Basis ι K V) (g : LinearMap.GeneralLinearGroup K
       LinearMap.toMatrix b b (g : Module.End K V) :=
   rfl
 
-theorem coe_sourceGLEquiv_symm (b : Basis ι K V) (A : GL ι K) :
-    (((sourceGLEquiv b).symm A : LinearMap.GeneralLinearGroup K V) : Module.End K V) =
-      Matrix.toLin b b (A : Matrix ι ι K) :=
-  rfl
 
 theorem map_sourceScalars_sourceGLEquiv (b : Basis ι K V) :
     (sourceScalars K V).map (sourceGLEquiv b).toMonoidHom = StatedScalars ι K := by
@@ -61,36 +57,10 @@ theorem map_sourceScalars_sourceGLEquiv (b : Basis ι K V) :
   rw [AlgEquiv.commutes, GeneralLinearGroup.coe_scalar, Matrix.algebraMap_eq_diagonal]
   rfl
 
-theorem map_sourceSL_sourceGLEquiv (b : Basis ι K V) :
-    (sourceSL K V).map (sourceGLEquiv b).toMonoidHom =
-      (GeneralLinearGroup.det : GL ι K →* Kˣ).ker := by
-  ext A
-  rw [Subgroup.mem_map_equiv, sourceSL, MonoidHom.mem_ker, MonoidHom.mem_ker, Units.ext_iff,
-    GeneralLinearGroup.val_det_apply, Units.val_one]
-  change LinearMap.det (Matrix.toLin b b (A : Matrix ι ι K)) = 1 ↔ _
-  rw [LinearMap.det_toLin]
 
 end Basis
 
 export CFSG.Open.StatedAPI (statedSL_eq_ker_det)
 
-theorem sourceClassicalModel_of_stated_PSL {X : Type} [Group X] {n p f : ℕ}
-    (h : StatedClassicalModel X .PSL n p f) : SourceClassicalModel X .PSL n p f := by
-  obtain ⟨hadm, K, _, _, hK, ⟨e⟩⟩ := h
-  refine ⟨hadm, K, inferInstance, inferInstance, Fin n → K, inferInstance, inferInstance,
-    inferInstance, sourceSL K (Fin n → K), ⟨e.trans (quotientInfCongr
-      (sourceGLEquiv (Pi.basisFun K (Fin n))).symm ?_ ?_)⟩, hK, Module.finrank_fin_fun K, rfl⟩
-  · rw [statedSL_eq_ker_det, ← map_sourceSL_sourceGLEquiv (Pi.basisFun K (Fin n)),
-      Subgroup.map_map]
-    simp
-  · rw [← map_sourceScalars_sourceGLEquiv (Pi.basisFun K (Fin n)), Subgroup.map_map]
-    simp
-
-theorem stated_of_sourceClassicalModel_PSL {X : Type} [Group X] {n p f : ℕ}
-    (h : SourceClassicalModel X .PSL n p f) : StatedClassicalModel X .PSL n p f := by
-  obtain ⟨hadm, K, _, _, V, _, _, _, H, ⟨e⟩, hK, hV, rfl⟩ := h
-  let b := Module.finBasisOfFinrankEq K V hV
-  exact ⟨hadm, K, inferInstance, inferInstance, hK, ⟨e.trans (quotientInfCongr (sourceGLEquiv b)
-    (by rw [map_sourceSL_sourceGLEquiv, statedSL_eq_ker_det]) (map_sourceScalars_sourceGLEquiv b))⟩⟩
 
 end CFSG.Blueprint.EvenSource

@@ -70,11 +70,6 @@ open CFSG.SeitzReduction.LinearPilot (FixedCentralizerTwoSmall)
   CatSUmAlternating ∧ CatSUmEvenInner ∧ CatSUmEvenOuterAt m ∧ CatSUmOddLieAt m ∧
     CatSUmSporadicAt m ∧ CatSUmCovers
 
-@[expose] def SUmOvergroupCatalogue : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], IsQuasisimple K → Catalog (K ⧸ center K) →
-    ∀ τ : MulAut K, orderOf τ = 2 → ∀ (m f : ℕ) (D : Subgroup (fixedSubgroup τ)), 4 ≤ m →
-      IsComponent D → LieModel (D ⧸ center D) .PSU m 2 f → FixedCentralizerTwoFree τ D →
-        SUmOvergroup K τ m f
 
 theorem not_sumSmall_of_ne {S : Type} [Group S] {m f : ℕ} (hmf : (m, f) ≠ (4, 1)) :
     ¬ SUmSmall S m f := fun h => hmf (by rw [h.1, h.2.1])
@@ -137,19 +132,5 @@ theorem sum_overgroup_catalogue {m : ℕ} (h : SUmCatalogueClausesAt m) {K : Typ
   obtain ⟨hout, hlist⟩ := (sum_simple_of_clauses h hK.2.1 hK.2.2 hcat hτ' hm hD' hD'm).2 hodd2
   exact ⟨fun hin => hout (hinn hin), hZ, hlist⟩
 
-theorem sum_overgroup_catalogue_of_ne {m : ℕ} (h : SUmCatalogueClausesAt m) {K : Type} [Group K]
-    [Finite K] (hK : IsQuasisimple K) (hcat : Catalog (K ⧸ center K)) (τ : MulAut K)
-    (hτ : orderOf τ = 2) {f : ℕ} (hm : 4 ≤ m) (hmf : (m, f) ≠ (4, 1))
-    (D : Subgroup (fixedSubgroup τ)) (hD : IsComponent D)
-    (hDm : LieModel (D ⧸ center D) .PSU m 2 f) (hodd : FixedCentralizerTwoFree τ D) :
-    τ ∉ (MulAut.conj : K →* MulAut K).range ∧ Odd (Nat.card (center K)) ∧
-      LieModel (K ⧸ center K) .PSL m 2 (2 * f) := by
-  obtain ⟨hout, hZ, hlist⟩ := sum_overgroup_catalogue h hK hcat τ hτ hm D hD hDm hodd
-  exact ⟨hout, hZ, hlist.resolve_right (not_sumSmall_of_ne hmf)⟩
-
-theorem sumOvergroupCatalogue_of_clauses (h : ∀ m : ℕ, 4 ≤ m → SUmCatalogueClausesAt m) :
-    SUmOvergroupCatalogue :=
-  fun _ _ _ hK hcat τ hτ m _ D hm hD hDm hodd =>
-    sum_overgroup_catalogue (h m hm) hK hcat τ hτ hm D hD hDm hodd
 
 end CFSG.SeitzReduction.UnitaryPilot

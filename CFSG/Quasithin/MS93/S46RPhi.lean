@@ -123,9 +123,6 @@ variable {𝔾 : Type} [Group 𝔾]
     rw [e]
     exact (Subgroup.mem_normalizer_iff.mp (hKN (K.inv_mem hg.1)) _).mp (N.inv_mem (hg.2 y hy))⟩
 
-theorem mem_centMod {K C N : Subgroup 𝔾} {hKN : K ≤ Subgroup.normalizer (N : Set 𝔾)} {g : 𝔾} :
-    g ∈ centMod K C N hKN ↔ g ∈ K ∧ ∀ y ∈ C, ⁅y, g⁆ ∈ N :=
-  Iff.rfl
 
 theorem conj_mem_centMod {K C N : Subgroup 𝔾} {hKN : K ≤ Subgroup.normalizer (N : Set 𝔾)}
     (hKC : K ≤ Subgroup.normalizer (C : Set 𝔾)) {k g : 𝔾} (hk : k ∈ K)
@@ -295,12 +292,5 @@ theorem le_bloc_of_commutator_qv_le_cfg (h464 : I464) (h467 : I467) (h469 : I469
   intro v hv
   exact (Subgroup.mem_centralizer_iff.mp (hCα hv) y hy).symm
 
-theorem le_bloc_of_commutator_qv_le (h464 : I464) (h467 : I467) (h469 : I469)
-    (d : X3Data c α β γ ψ) {C : Subgroup (puAmalgam c.pu.le).Universal}
-    (hCV : C ≤ Vv (puAmalgam c.pu.le) α)
-    (hCn : stab (puAmalgam c.pu.le) α ≤
-      Subgroup.normalizer (C : Set (puAmalgam c.pu.le).Universal))
-    (hCT : ⁅C, Qv (puAmalgam c.pu.le) β⁆ ≤ Bloc c.pu.le L α) : C ≤ Bloc c.pu.le L α :=
-  le_bloc_of_commutator_qv_le_cfg h464 h467 (h469 G M T L F φ) d hCV hCn hCT
 
 end CFSG.Quasithin.MS93.S46R

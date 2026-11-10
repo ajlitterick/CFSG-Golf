@@ -22,9 +22,6 @@ open CFSG.Assembly
         GGCorFiveTwentyR3Rank p B Bs x D J →
           Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem GGCorFiveTwentyInputNbrQTwoQFourNoA11Cfg.toR3Rank
-    (h : GGCorFiveTwentyInputNbrQTwoQFourNoA11Cfg) : GGCorFiveTwentyInputNbrQTwoQFourNoA11CfgR3 :=
-  fun G _ _ p B Bs x L D J hH hq hN hA _ => h G p B Bs x L D J hH hq hN hA
 
 theorem ggCorFiveTwentyR3Rank_of_rank (hR : GGTwE6ThreeNbrRankInput) {G : Type} [Group G]
     [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}

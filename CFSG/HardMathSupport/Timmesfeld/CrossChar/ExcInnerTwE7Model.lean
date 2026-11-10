@@ -59,18 +59,6 @@ theorem rootDiagUnit_mem_torusGroup_of_adjugate
   obtain ⟨i, -, rfl⟩ := List.mem_map.1 hg
   exact torusElt_mem_torusGroup i _
 
-theorem coroot_mem_twistedTorus
-    (htorL : ∀ a : Fin τ.rank → Lˣ, rootDiagUnit τ a ∈ torusGroup τ L) {w : WeylGroup τ}
-    (hw : ∀ u : Fin τ.rank → ℤ, w • u = -u) {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q)
-    {ζ : Lˣ} (hζ : ζ ^ (q + 1) = 1) (v : WeylGroup τ) (k : Fin τ.rank) :
-    canonicalRep (coxeterSystem τ) L v * torusElt τ L k ζ *
-        (canonicalRep (coxeterSystem τ) L v)⁻¹ ∈
-      twistedTorus (canonicalRep (coxeterSystem τ) L w) Fr := by
-  refine (mem_twistedTorus_of_neg htorL hw hFr).2 ?_
-  refine ⟨weylTuple v fun j => ζ ^ τ.cartan k j, ?_, fun i => ?_⟩
-  · rw [torusElt_eq_rootDiagUnit, canonicalRep_conj_rootDiagUnit]
-  · refine CTTorus.rootChar_pow_eq_one (fun j => ?_) _
-    rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, hζ, one_zpow]
 
 end Torus
 
@@ -140,12 +128,6 @@ theorem finite_e7Model [Finite K] (g0 : ModGL Tag.E7 L) : Finite (e7Model K L g0
   have : Finite (ModGL Tag.E7 K) := finite_modGL
   exact Finite.of_equiv _ (e7ModelEquiv K L g0).toEquiv
 
-theorem e7Model_le_adjointGroup {g0 : ModGL Tag.E7 L} (hg0C : g0 ∈ adjointGroup Tag.E7 L) :
-    e7Model K L g0 ≤ adjointGroup Tag.E7 L := by
-  rintro _ ⟨_, ⟨y, hy, rfl⟩, rfl⟩
-  exact (adjointGroup Tag.E7 L).mul_mem ((adjointGroup Tag.E7 L).mul_mem
-    ((adjointGroup Tag.E7 L).inv_mem hg0C) (baseChangeGL_mem_adjointGroup _ hy)) (by
-      simpa using hg0C)
 
 theorem e7Model_le_twModel [Finite K] {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
     {g0 : ModGL Tag.E7 L} (hg0C : g0 ∈ adjointGroup Tag.E7 L)
@@ -168,30 +150,6 @@ theorem e7Model_le_twModel [Finite K] {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ 
   rw [this]
   exact hz
 
-
-theorem le_e7Model_of_le_twModel [Finite K] [IsAlgClosure K L] {Fr : L →+* L}
-    (hFr : ∀ c, Fr c = c ^ Nat.card K) {g0 : ModGL Tag.E7 L} (hg0C : g0 ∈ adjointGroup Tag.E7 L)
-    (hg0 : Units.map (entrywiseHom Fr) g0 =
-      g0 * canonicalRep (coxeterSystem Tag.E7) L e7Neg)
-    {P : Subgroup (ModGL Tag.E7 L)} [Finite P]
-    (hPM : P ≤ twModel (canonicalRep (coxeterSystem Tag.E7) L e7Neg) Fr) {p : ℕ} (hp : p.Prime)
-    (hp3 : 3 < p) (hPp : IsPGroup p P) : P ≤ e7Model K L g0 := by
-  classical
-  have : Algebra.IsAlgebraic K L := IsAlgClosure.isAlgebraic
-  set X := P.map (MulAut.conj g0).toMonoidHom with hX
-  have : Finite X := Finite.of_surjective ((MulAut.conj g0).toMonoidHom.subgroupMap P)
-    ((MulAut.conj g0).toMonoidHom.subgroupMap_surjective P)
-  have hXF : X ≤ adjointGroup Tag.E7 L ⊓
-      (Units.map (entrywiseHom Fr)).eqLocus (MonoidHom.id _) := by
-    rw [← map_conj_twModel hg0C hg0]
-    exact Subgroup.map_mono hPM
-  have hdesc := finite_fixed_subgroup_rational_perfect 2 (Or.inr (Or.inl ⟨rfl, rfl⟩)) Fr hFr X
-    (fun x hx => (hXF hx).1) (fun x hx => (hXF hx).2)
-  have hXC := hdesc.2.1 p hp hp3 X le_rfl (hPp.map _)
-  intro x hx
-  refine ⟨(MulAut.conj g0).toMonoidHom x, hXC ⟨x, hx, rfl⟩, ?_⟩
-  simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-  group
 
 end Model
 

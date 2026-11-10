@@ -71,8 +71,6 @@ variable {K : Type} [Field K] {V : Type*} [AddCommGroup V] [Module K V] {xe : V 
   left_inv w := Subtype.ext (M.symm_apply_apply (w : V))
   right_inv w := Subtype.ext (M.apply_symm_apply (w : V))
 
-theorem coe_restrictLin (M : V ≃ₗ[K] V) (hM : ∀ v, M (xe v) = xe (M v)) (w : fixedSpace xe) :
-    ((restrictLin M hM w : fixedSpace xe) : V) = M (w : V) := rfl
 
 @[expose] def restrictAdd (F : V ≃+ V) (hF : ∀ v, F (xe v) = xe (F v)) :
     fixedSpace xe ≃+ fixedSpace xe where

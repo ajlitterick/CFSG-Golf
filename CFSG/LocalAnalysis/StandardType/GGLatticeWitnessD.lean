@@ -181,13 +181,6 @@ theorem lwd_extend_single {n b₀ : ℕ} (hn : b₀ ≤ n) (x : Option (Fin b₀
   · intro j hj
     rw [Pi.single_eq_of_ne hj, zero_smul]
 
-private theorem lwd_extend_add {n b₀ : ℕ} (hn : b₀ ≤ n) (m m' : Option (Fin b₀) → ℤ) :
-    lwd_extend hn (m + m') = lwd_extend hn m + lwd_extend hn m' := by
-  unfold lwd_extend
-  rw [← Finset.sum_add_distrib]
-  apply Finset.sum_congr rfl
-  intro j _
-  rw [Pi.add_apply, add_smul]
 
 theorem lwd_extend_sub_smul {n b₀ : ℕ} (hn : b₀ ≤ n) (m m' : Option (Fin b₀) → ℤ)
     (r : ℤ) : lwd_extend hn (m - r • m') = lwd_extend hn m - r • lwd_extend hn m' := by
@@ -384,153 +377,6 @@ theorem lwd_not_mem_shift {n b₀ : ℕ} (hn : b₀ ≤ n) {i : ℕ} (hi : i < n
     have := x.isLt
     omega
 
-private theorem lwd_latticeWitness_of_block {n b₀ : ℕ} (hb : 5 ≤ b₀) (hn : b₀ ≤ n)
-    (kb k₀ : Fin b₀) (ψγb : List (Option (Fin b₀))) (gb gRb : Option (Fin b₀) → ℤ)
-    (hgb : ggSWord (ggAttachCartan (CartanMatrix.D b₀) kb) ψγb (Pi.single (some k₀) 1) = gb)
-    (hgRb : ggSWordR (ggAttachCartan (CartanMatrix.D b₀) kb) ψγb
-      (Pi.single (some k₀) 1) = gRb)
-    (hgRb_none : gRb none = 1)
-    (hP1 : (∑ j, ggAttachCartan (CartanMatrix.D b₀) kb none j * gb j) = -2)
-    (hP2 : (∑ j, gRb j * ggAttachCartan (CartanMatrix.D b₀) kb j none) = -2)
-    (hblock0 : ∀ u ∈ ggDRootList b₀,
-      12 % ggLWminors ((List.range b₀).map fun i =>
-        if h : i < b₀ then - gb (some ⟨i, h⟩) else 0) u = 0)
-    {p : ℕ} (hp : p.Prime) (h5 : 5 ≤ p)
-    {k : Fin n} (hk : k = ⟨n - b₀ + kb, by omega⟩) :
-    GGLatticeWitness (ggAttachCartan (CartanMatrix.D n) k) p := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  haveI : NeZero p := ⟨by omega⟩
-  let Xb : Matrix (Option (Fin b₀)) (Option (Fin b₀)) ℤ := ggAttachCartan (CartanMatrix.D b₀) kb
-  let Xn : Matrix (Option (Fin n)) (Option (Fin n)) ℤ := ggAttachCartan (CartanMatrix.D n) k
-  have hX : ∀ i j : Option (Fin b₀), Xn (lwd_shift hn i) (lwd_shift hn j) = Xb i j := by
-    intro i j
-    dsimp only [Xn, Xb]
-    exact lwd_attach_sub (by omega) hn kb hk i j
-  have hdiagn : ∀ j, Xn j j = 2 := by
-    intro j
-    rcases j with _ | j
-    · simp [Xn, ggAttachCartan]
-    · simp [Xn, ggAttachCartan, CartanMatrix.D]
-  let ψγ : List (Option (Fin n)) := ψγb.map (lwd_shift hn)
-  let kγ : Option (Fin n) := lwd_shift hn (some k₀)
-  have hgn : ggSWord Xn ψγ (Pi.single kγ 1) = lwd_extend hn gb := by
-    dsimp only [ψγ, kγ]
-    change ggSWord Xn (List.map (lwd_shift hn) ψγb) (lwd_single hn (some k₀))
-      = lwd_extend hn gb
-    rw [← lwd_extend_single hn (some k₀), lwd_sWord_extend hn hX]
-    dsimp only [Xb]
-    rw [hgb]
-  have hgRn : ggSWordR Xn ψγ (Pi.single kγ 1) = lwd_extend hn gRb := by
-    dsimp only [ψγ, kγ]
-    change ggSWordR Xn (List.map (lwd_shift hn) ψγb) (lwd_single hn (some k₀))
-      = lwd_extend hn gRb
-    rw [← lwd_extend_single hn (some k₀), lwd_sWordR_extend hn hX]
-    dsimp only [Xb]
-    rw [hgRb]
-  have hP1n : (∑ j, ggSWord Xn ψγ (Pi.single kγ 1) j * Xn none j) = -2 := by
-    rw [hgn]
-    calc ∑ j, lwd_extend hn gb j * Xn none j
-        = ∑ j, Xn none j * lwd_extend hn gb j := by
-          apply Finset.sum_congr rfl
-          intro j _
-          ring
-      _ = ∑ j, Xb none j * gb j := by
-          simpa only [lwd_shift] using lwd_dot_extend hn hX gb none
-      _ = -2 := by
-          dsimp only [Xb]
-          exact hP1
-  have hP2n : (∑ i, ggSWordR Xn ψγ (Pi.single kγ 1) i * Xn i none) = -2 := by
-    rw [hgRn]
-    calc ∑ i, lwd_extend hn gRb i * Xn i none
-        = ∑ j, gRb j * Xb j none := by
-          simpa only [lwd_shift] using lwd_dot_extendR hn hX gRb none
-      _ = -2 := by
-          dsimp only [Xb]
-          exact hP2
-  let m : ℕ := ((4 : ZMod p)⁻¹).val
-  have hm : ((m : ℤ) : ZMod p) = (4 : ZMod p)⁻¹ := by
-    dsimp only [m]
-    rw [Int.cast_natCast, ZMod.natCast_zmod_val]
-  let ψ : List (Option (Fin n)) := ggAffineWord ψγ kγ none m
-  have hword := ggAffinePair_word Xn hdiagn none kγ ψγ hP1n hP2n m
-  refine ⟨ψ, none, ?_, ?_⟩
-  · rw [hword.2]
-    have hge : lwd_extend hn gRb none = 1 := by
-      rw [← show lwd_shift hn none = none from rfl, lwd_extend_shift, hgRb_none]
-    have hnone : ((Pi.single none (1 : ℤ) : Option (Fin n) → ℤ) - (2 * (m : ℤ)) •
-        ((Pi.single none (1 : ℤ) : Option (Fin n) → ℤ) +
-          ggSWordR Xn ψγ (Pi.single kγ 1))) none = 1 - 4 * (m : ℤ) := by
-      rw [hgRn]
-      simp only [Pi.sub_apply, Pi.smul_apply, Pi.add_apply, Pi.single_eq_same, hge,
-        smul_eq_mul]
-      ring
-    rw [hnone]
-    have h4 : (4 : ZMod p) ≠ 0 := by
-      intro h
-      have hd : p ∣ 4 := (ZMod.natCast_eq_zero_iff 4 p).mp h
-      have : p ≤ 4 := Nat.le_of_dvd (by norm_num) hd
-      omega
-    push_cast
-    rw [show ((m : ZMod p)) = (4 : ZMod p)⁻¹ by exact_mod_cast hm]
-    field_simp
-    ring
-  · intro v hv r heq
-    obtain ⟨hv0, hrootd⟩ :=
-      ggDRoot_of_mem_ggLCoroots (n := n) (le_trans hb hn) k (show v ∈ ggLCoroots Xn from hv)
-    let wbig : Option (Fin n) → ℤ := Pi.single none 1 - lwd_extend hn gb
-    let wℕ : ℕ → ℤ := fun i => if h : i < n then wbig (some ⟨i, h⟩) else 0
-    have hw : ∀ i < n - b₀, wℕ i = 0 := by
-      intro i hi
-      dsimp only [wℕ]
-      rw [dif_pos (by omega)]
-      dsimp only [wbig]
-      rw [Pi.sub_apply, Pi.single_eq_of_ne (by simp), zero_sub, neg_eq_zero]
-      exact lwd_extend_eq_zero_of_not_mem hn gb (lwd_not_mem_shift hn hi)
-    have htail : (List.range b₀).map (fun i => wℕ (n - b₀ + i))
-        = (List.range b₀).map (fun i =>
-            if h : i < b₀ then - gb (some ⟨i, h⟩) else 0) := by
-      apply List.map_congr_left
-      intro i hi
-      rw [List.mem_range] at hi
-      dsimp only [wℕ]
-      rw [dif_pos (by omega)]
-      dsimp only [wbig]
-      rw [Pi.sub_apply, Pi.single_eq_of_ne (by simp), zero_sub]
-      rw [show (some ⟨n - b₀ + i, by omega⟩ : Option (Fin n)) =
-        lwd_shift hn (some ⟨i, hi⟩) from rfl]
-      rw [lwd_extend_shift]
-      rw [dif_pos hi]
-    have hblock : ∀ u ∈ ggDRootList b₀,
-        12 % ggLWminors ((List.range b₀).map fun i => wℕ (n - b₀ + i)) u = 0 := by
-      intro u hu
-      rw [htail]
-      exact hblock0 u hu
-    refine ggD_nonprop (b₀ := b₀) hb hn (w := wℕ) hw hblock hp h5 hrootd
-      (2 * (r : ZMod p)) ?_
-    intro i hi
-    dsimp only [wℕ]
-    rw [dif_pos hi]
-    dsimp only [wbig]
-    have h2c : ((2 * ggSWord Xn ψ (Pi.single none 1) (some ⟨i, hi⟩) : ℤ) : ZMod p)
-        = (wbig (some ⟨i, hi⟩) : ZMod p) := by
-      rw [hword.1, hgn]
-      dsimp only [wbig]
-      simp only [Pi.sub_apply, Pi.smul_apply, Pi.add_apply, Pi.single_apply,
-        Option.some_ne_none, if_false, smul_eq_mul]
-      push_cast
-      rw [show ((m : ZMod p)) = (4 : ZMod p)⁻¹ by exact_mod_cast hm]
-      have h4 : (4 : ZMod p) ≠ 0 := by
-        intro h
-        have hd : p ∣ 4 := (ZMod.natCast_eq_zero_iff 4 p).mp h
-        have : p ≤ 4 := Nat.le_of_dvd (by norm_num) hd
-        omega
-      field_simp
-      ring_nf
-    rw [← h2c]
-    have hci := congrFun heq (some ⟨i, hi⟩)
-    push_cast
-    rw [hci, dif_pos hi]
-    ring
 
 @[expose] def lwd_psig5 : List (Option (Fin 5)) :=
   [some ⟨2, by decide⟩, some ⟨4, by decide⟩, some ⟨1, by decide⟩, some ⟨2, by decide⟩, none,
@@ -566,30 +412,6 @@ theorem lwd_hP2_5 :
     (∑ j, lwd_gb5 j * ggAttachCartan (CartanMatrix.D 5) ⟨2, by decide⟩ j none) = -2 := by
   decide +kernel
 
-private theorem lwd_hblock5_bool : (ggDRootList 5).all (fun u =>
-    decide (12 % ggLWminors ((List.range 5).map fun i =>
-      if h : i < 5 then - lwd_gb5 (some ⟨i, h⟩) else 0) u = 0)) = true := by
-  decide +kernel
-
-private theorem lwd_hblock5 : ∀ u ∈ ggDRootList 5,
-    12 % ggLWminors ((List.range 5).map fun i =>
-      if h : i < 5 then - lwd_gb5 (some ⟨i, h⟩) else 0) u = 0 := by
-  intro u hu
-  exact of_decide_eq_true ((List.all_eq_true.mp lwd_hblock5_bool) u hu)
-
-theorem ggLatticeWitness_D_cell {Λ : Type} [Fintype Λ] [DecidableEq Λ] {C : Matrix Λ Λ ℤ}
-    {c : Λ} {n : ℕ} (hn : 5 ≤ n) (e : Fin n ≃ Λ)
-    (hC : ∀ i j, C (e i) (e j) = CartanMatrix.D n i j) (hc : c = e ⟨n - 3, by omega⟩)
-    {p : ℕ} (hp : p.Prime) (h5 : 5 ≤ p) : GGLatticeWitness (ggAttachCartan C c) p := by
-  refine ggLatticeWitness_of_equiv e
-    (X := ggAttachCartan (CartanMatrix.D n) ⟨n - 3, by omega⟩)
-    (ggAttachCartan_map_equiv e hC hc) ?_
-  refine lwd_latticeWitness_of_block (n := n) (b₀ := 5) (hb := by norm_num) (hn := hn)
-    (kb := ⟨2, by decide⟩) (k₀ := ⟨0, by decide⟩) (ψγb := lwd_psig5)
-    (gb := lwd_gb5) (gRb := lwd_gb5) (hgb := lwd_gb5_eq) (hgRb := lwd_gRb5_eq)
-    (hgRb_none := lwd_gb5_none) (hP1 := lwd_hP1_5) (hP2 := lwd_hP2_5)
-    (hblock0 := lwd_hblock5) (hp := hp) (h5 := h5) (k := ⟨n - 3, by omega⟩)
-    (hk := Fin.ext (by simp only [Fin.val_mk]; omega))
 
 @[expose] def lwd_psig8 : List (Option (Fin 8)) :=
   [some ⟨7, by decide⟩, some ⟨5, by decide⟩, some ⟨6, by decide⟩, some ⟨4, by decide⟩,
@@ -630,16 +452,7 @@ theorem lwd_hP2_8 :
     (∑ j, lwd_gb8 j * ggAttachCartan (CartanMatrix.D 8) ⟨7, by decide⟩ j none) = -2 := by
   decide +kernel
 
-private theorem lwd_hblock8_bool : (ggDRootList 8).all (fun u =>
-    decide (12 % ggLWminors ((List.range 8).map fun i =>
-      if h : i < 8 then - lwd_gb8 (some ⟨i, h⟩) else 0) u = 0)) = true := by
-  decide +kernel
 
-private theorem lwd_hblock8 : ∀ u ∈ ggDRootList 8,
-    12 % ggLWminors ((List.range 8).map fun i =>
-      if h : i < 8 then - lwd_gb8 (some ⟨i, h⟩) else 0) u = 0 := by
-  intro u hu
-  exact of_decide_eq_true ((List.all_eq_true.mp lwd_hblock8_bool) u hu)
 @[expose] def lwd_psig8a : List (Option (Fin 8)) :=
   [some ⟨6, by decide⟩, some ⟨5, by decide⟩, some ⟨7, by decide⟩, some ⟨4, by decide⟩,
     some ⟨5, by decide⟩, some ⟨6, by decide⟩, some ⟨3, by decide⟩, some ⟨4, by decide⟩,
@@ -679,40 +492,5 @@ theorem lwd_hP2_8a :
     (∑ j, lwd_gb8a j * ggAttachCartan (CartanMatrix.D 8) ⟨6, by decide⟩ j none) = -2 := by
   decide +kernel
 
-private theorem lwd_hblock8a_bool : (ggDRootList 8).all (fun u =>
-    decide (12 % ggLWminors ((List.range 8).map fun i =>
-      if h : i < 8 then - lwd_gb8a (some ⟨i, h⟩) else 0) u = 0)) = true := by
-  decide +kernel
-
-private theorem lwd_hblock8a : ∀ u ∈ ggDRootList 8,
-    12 % ggLWminors ((List.range 8).map fun i =>
-      if h : i < 8 then - lwd_gb8a (some ⟨i, h⟩) else 0) u = 0 := by
-  intro u hu
-  exact of_decide_eq_true ((List.all_eq_true.mp lwd_hblock8a_bool) u hu)
-
-theorem ggLatticeWitness_D_cell_one {Λ : Type} [Fintype Λ] [DecidableEq Λ] {C : Matrix Λ Λ ℤ}
-    {b : Λ} {n : ℕ} (hn : 9 ≤ n) (e : Fin n ≃ Λ)
-    (hC : ∀ i j, C (e i) (e j) = CartanMatrix.D n i j)
-    (hb : b = e ⟨n - 2, by omega⟩ ∨ b = e ⟨n - 1, by omega⟩)
-    {p : ℕ} (hp : p.Prime) (h5 : 5 ≤ p) : GGLatticeWitness (ggAttachCartan C b) p := by
-  rcases hb with hb | hb
-  · refine ggLatticeWitness_of_equiv e
-      (X := ggAttachCartan (CartanMatrix.D n) ⟨n - 2, by omega⟩)
-      (ggAttachCartan_map_equiv e hC hb) ?_
-    refine lwd_latticeWitness_of_block (n := n) (b₀ := 8) (hb := by norm_num)
-      (hn := by omega) (kb := ⟨6, by decide⟩) (k₀ := ⟨0, by decide⟩) (ψγb := lwd_psig8a)
-      (gb := lwd_gb8a) (gRb := lwd_gb8a) (hgb := lwd_gb8a_eq) (hgRb := lwd_gRb8a_eq)
-      (hgRb_none := lwd_gb8a_none) (hP1 := lwd_hP1_8a) (hP2 := lwd_hP2_8a)
-      (hblock0 := lwd_hblock8a) (hp := hp) (h5 := h5) (k := ⟨n - 2, by omega⟩)
-      (hk := Fin.ext (by simp only [Fin.val_mk]; omega))
-  · refine ggLatticeWitness_of_equiv e
-      (X := ggAttachCartan (CartanMatrix.D n) ⟨n - 1, by omega⟩)
-      (ggAttachCartan_map_equiv e hC hb) ?_
-    refine lwd_latticeWitness_of_block (n := n) (b₀ := 8) (hb := by norm_num)
-      (hn := by omega) (kb := ⟨7, by decide⟩) (k₀ := ⟨0, by decide⟩) (ψγb := lwd_psig8)
-      (gb := lwd_gb8) (gRb := lwd_gb8) (hgb := lwd_gb8_eq) (hgRb := lwd_gRb8_eq)
-      (hgRb_none := lwd_gb8_none) (hP1 := lwd_hP1_8) (hP2 := lwd_hP2_8)
-      (hblock0 := lwd_hblock8) (hp := hp) (h5 := h5) (k := ⟨n - 1, by omega⟩)
-      (hk := Fin.ext (by simp only [Fin.val_mk]; omega))
 
 end CFSG.StandardType

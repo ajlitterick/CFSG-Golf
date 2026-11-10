@@ -46,14 +46,5 @@ theorem noOddNormal_centralizer
   · exact NoOddNormal.of_mulEquiv (conjCentralizerEquiv hg ruZ) noOddNormal_centralizer_ruZ
   · exact NoOddNormal.of_mulEquiv (conjCentralizerEquiv hg ruA0) noOddNormal_centralizer_ruA0
 
-theorem CTUC_Ru_all_involution_centralizers_odd_core_free :
-    ∀ t ∈ ruP, orderOf t = 2 →
-      (∀ R : Subgroup (ruP ⊓ Subgroup.centralizer {t} : Subgroup (Equiv.Perm (Fin 4060))),
-        R.Normal → Odd (Nat.card R) → R = ⊥) ∧
-      CFSG.piCore {p : Nat.Primes | p.1 ≠ 2}
-        (ruP ⊓ Subgroup.centralizer {t} : Subgroup (Equiv.Perm (Fin 4060))) = ⊥ ∧
-      CFSG.pPrimeCore 2 (ruP ⊓ Subgroup.centralizer {t} : Subgroup (Equiv.Perm (Fin 4060))) = ⊥ ∧
-      CFSG.oddCore (ruP ⊓ Subgroup.centralizer {t} : Subgroup (Equiv.Perm (Fin 4060))) = ⊥ :=
-  fun _ ht h2 => ⟨noOddNormal_centralizer ht h2, (noOddNormal_centralizer ht h2).cores⟩
 
 end CFSG.Sporadic.RuSchreier

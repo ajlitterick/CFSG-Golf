@@ -131,37 +131,7 @@ end Proved
 section F4
 
 
-theorem seitzExcAnisotropicF4_of_classes (h3 : SeitzExcAnisotropicF4Class 3)
-    (h4 : SeitzExcAnisotropicF4Class 4) (h6 : SeitzExcAnisotropicF4Class 6)
-    (hthree : SeitzExcAnisotropicF4Three) : SeitzExcAnisotropicF4 :=
-  seitzExcAnisotropicFor_F4_of_residuals (seitzExcAnisotropicF4Big_of_classes h3 h4 h6) hthree
-
 end F4
 
-theorem seitzExcAnisotropicF4Class_of_f4Big (h : SeitzExcAnisotropicF4Big) (e : ℕ) :
-    SeitzExcAnisotropicF4Class e :=
-  SeitzExcAnisotropicForAt.mono (fun d p hQ => by
-    obtain ⟨hp5, q, hdq, hX, -⟩ := hQ
-    exact ⟨hp5, q, hdq, hX⟩) h
-
-theorem seitzExcAnisotropicE6Class_of_e6 (h : SeitzExcAnisotropicE6) (e : ℕ) :
-    SeitzExcAnisotropicE6Class e :=
-  SeitzExcAnisotropicFor.toAt h _
-
-theorem seitzExcAnisotropicE8Class_of_e8 (h : SeitzExcAnisotropicE8) (e : ℕ) :
-    SeitzExcAnisotropicE8Class e :=
-  SeitzExcAnisotropicFor.toAt h _
-
-theorem seitzExcAnisotropicE6Three_of_e6 (h : SeitzExcAnisotropicE6) :
-    SeitzExcAnisotropicE6Three :=
-  SeitzExcAnisotropicFor.toAt h _
-
-theorem seitzExcAnisotropicE7Three_of_e7 (h : SeitzExcAnisotropicE7) :
-    SeitzExcAnisotropicE7Three :=
-  SeitzExcAnisotropicFor.toAt h _
-
-theorem seitzExcAnisotropicE8Three_of_e8 (h : SeitzExcAnisotropicE8) :
-    SeitzExcAnisotropicE8Three :=
-  SeitzExcAnisotropicFor.toAt h _
 
 end CFSG.LieType.SeitzGeneration

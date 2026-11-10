@@ -148,19 +148,6 @@ public lemma generator_of_inf {m : ℕ} (H : Subgroup (DihedralGroup (2 ^ m))) :
       _ = H ⊓ R := htop
 
 -- (6) elements of a size-1 intersection are trivial
-public lemma mem_eq_one_of_card_one {m : ℕ} (H : Subgroup (DihedralGroup (2 ^ m)))
-    (hcard1 : Nat.card (↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) = 1)
-    {z : DihedralGroup (2 ^ m)} (hz : z ∈ H ⊓ Subgroup.zpowers (DihedralGroup.r 1)) : z = 1 := by
-  let : NeZero (2 ^ m) := ⟨pow_ne_zero m (by norm_num : 2 ≠ 0)⟩
-  let : Fintype (↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) := Fintype.ofFinite _
-  have hc1 : Fintype.card (↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) = 1 := by
-    rwa [Nat.card_eq_fintype_card] at hcard1
-  rcases (Fintype.card_eq_one_iff).mp hc1 with ⟨z₀, hz₀⟩
-  have hz' : (⟨z, hz⟩ : ↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) = z₀ := hz₀ ⟨z, hz⟩
-  have h1' : (⟨1, Subgroup.one_mem _⟩ : ↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) = z₀ := hz₀ ⟨1, Subgroup.one_mem _⟩
-  have heq : (⟨z, hz⟩ : ↥(H ⊓ Subgroup.zpowers (DihedralGroup.r 1))) = ⟨1, Subgroup.one_mem _⟩ := by
-    rw [hz', h1']
-  exact congrArg Subtype.val heq
 
 /-- The rotation subgroup `⟨r (2 ^ k)⟩` of `DihedralGroup (2 ^ m)`. -/
 public def dihedralRotationSubgroup (m k : ℕ) : Subgroup (DihedralGroup (2 ^ m)) :=

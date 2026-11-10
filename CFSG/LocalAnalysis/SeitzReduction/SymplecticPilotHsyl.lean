@@ -149,19 +149,6 @@ theorem eq_one_of_two_pow_fix_rootTorusSp [Finite K] [CharP K 2] (hK : 4 ≤ Nat
   rw [eq_one_of_conj_pow_eq_one hβm (odd_card_rootTorusSp k)
     ((rootTorusSp K k).orderOf_dvd_natCard hx), map_one]
 
-theorem eq_one_of_isPGroup_fix_rootTorusSp [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
-    (hn : 2 ≤ n) (k : Fin (n + 1)) {β : MulAut (StatedSp (n + 1) K)}
-    (hβ : IsPGroup 2 (zpowers β))
-    (hX : ∀ x ∈ rootTorusSp K k, β x = x) (hD : ∀ d ∈ complSp K k, β d = d) : β = 1 := by
-  obtain ⟨m, hm⟩ := hβ ⟨β, mem_zpowers β⟩
-  exact eq_one_of_two_pow_fix_rootTorusSp hK hn k hX hD (m := m) (congrArg Subtype.val hm)
-
-theorem exists_mem_rootTorusSp_eq_conj_of_odd [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
-    (hn : 2 ≤ n) (k : Fin (n + 1)) {β : MulAut (StatedSp (n + 1) K)}
-    (_hβ : Odd (orderOf β))
-    (hX : ∀ x ∈ rootTorusSp K k, β x = x) (hD : ∀ d ∈ complSp K k, β d = d) :
-    ∃ x ∈ rootTorusSp K k, β = MulAut.conj x :=
-  exists_mem_rootTorusSp_eq_conj_of_fix hK hn k hX hD
 
 end RootTorus
 
@@ -236,11 +223,6 @@ theorem eq_one_of_two_pow_fix_siegelTorus [Finite K] [CharP K 2] (hK : 4 ≤ Nat
   rw [eq_one_of_conj_pow_eq_one hβm odd_card_siegelTorus
     ((siegelTorus K n).orderOf_dvd_natCard hx), map_one]
 
-theorem eq_one_of_isPGroup_fix_siegelTorus [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
-    (hn : 3 ≤ n) {β : MulAut (StatedSp n K)} (hβ : IsPGroup 2 (zpowers β))
-    (hX : ∀ x ∈ siegelTorus K n, β x = x) (hD : ∀ d ∈ siegelLevi K n, β d = d) : β = 1 := by
-  obtain ⟨m, hm⟩ := hβ ⟨β, mem_zpowers β⟩
-  exact eq_one_of_two_pow_fix_siegelTorus hK hn hX hD (m := m) (congrArg Subtype.val hm)
 
 end Siegel
 
@@ -281,17 +263,6 @@ theorem eq_one_of_fix_map_rootTorusSp (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n)
   have := congrArg (MulAut.congr e).symm key
   rwa [MulEquiv.symm_apply_apply, map_one] at this
 
-theorem card_le_two_of_rootTorusSp [Finite G] {t : G}
-    (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (ht : orderOf t = 2)
-    (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n) (e : L ≃* StatedSp (n + 1) K) (k : Fin (n + 1))
-    {X D : Subgroup G} (hX : ((rootTorusSp K k).map e.symm.toMonoidHom).map L.subtype ≤ X)
-    (hD : ((complSp K k).map e.symm.toMonoidHom).map L.subtype ≤ D)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ⊓ centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hKt ht
-    (eq_one_of_fix_map_rootTorusSp hK hn e k hX hD) hU hUC
 
 theorem exists_mem_map_rootTorusSp_eq_conj_of_fix (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n)
     (e : L ≃* StatedSp (n + 1) K) (k : Fin (n + 1)) {X D : Subgroup G}
@@ -345,17 +316,6 @@ theorem eq_one_of_fix_map_siegelTorus (hK : 4 ≤ Nat.card K) (hn : 3 ≤ n)
   have := congrArg (MulAut.congr e).symm key
   rwa [MulEquiv.symm_apply_apply, map_one] at this
 
-theorem card_le_two_of_siegelTorus [Finite G] {t : G}
-    (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (ht : orderOf t = 2)
-    (hK : 4 ≤ Nat.card K) (hn : 3 ≤ n) (e : L ≃* StatedSp n K)
-    {X D : Subgroup G} (hX : ((siegelTorus K n).map e.symm.toMonoidHom).map L.subtype ≤ X)
-    (hD : ((siegelLevi K n).map e.symm.toMonoidHom).map L.subtype ≤ D)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ⊓ centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hKt ht
-    (eq_one_of_fix_map_siegelTorus hK hn e hX hD) hU hUC
 
 theorem exists_mem_map_siegelTorus_eq_conj_of_fix (hK : 4 ≤ Nat.card K) (hn : 3 ≤ n)
     (e : L ≃* StatedSp n K) {X D : Subgroup G}

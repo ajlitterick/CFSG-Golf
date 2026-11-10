@@ -79,7 +79,6 @@ theorem commute_zm_of_mem_bloc {q : ℕ → Vtx (puAmalgam c.hyp.le)} {N y : ℕ
   rw [commutatorElement_eq_one_iff_commute] at h1
   exact h1.eq
 
-variable {p : ℕ → Vtx (puAmalgam c.hyp.le)} {N : ℕ}
 
 end Ctx
 

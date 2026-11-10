@@ -53,9 +53,6 @@ theorem kOf_lt {x : ℕ} (hx : x < 243) : kOf x < 81 := by
   unfold kOf
   omega
 
-theorem eq_of_codeP_eq {A B : Array ℕ} (hA : Valid A) (hB : Valid B) {x : ℕ} (hx : codeP A = x)
-    (hy : codeP B = x) : A = B :=
-  codeP_inj hA hB (by rw [hx, hy])
 
 theorem list_getElem! (l : List (List ℕ)) (j : ℕ) : l[j]! = l.getD j [] := by
   induction l generalizing j with

@@ -119,7 +119,6 @@ theorem l34type_of_mulEquiv {A B : Type} [Group A] [Group B] (e : A ≃* B)
   · rw [← Nat.card_congr (Subgroup.centerCongr e).toEquiv]
     exact hcard
 
-variable {G : Type} [Group G] [Finite G]
 
 end Unique
 

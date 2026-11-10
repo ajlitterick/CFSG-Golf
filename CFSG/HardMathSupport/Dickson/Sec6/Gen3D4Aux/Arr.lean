@@ -68,7 +68,6 @@ theorem eq_of_toMat_eq {A B : Array GF64} (hA : A.size = 64) (hB : B.size = 64)
 
 theorem frobF_apply (a : GF64) : frobF a = a ^ 4 := GF64.sigma2_eq_pow a
 
-theorem frobF_cube (a : GF64) : frobF (frobF (frobF a)) = a := GF64.sigma2_cube a
 
 @[expose] def frobArr (A : Array GF64) : Array GF64 := A.map frobF
 
@@ -81,7 +80,6 @@ theorem getD_frobArr (A : Array GF64) (t : ℕ) :
   simp only [frobArr, Array.getD_eq_getD_getElem?, Array.getElem?_map]
   cases A[t]? <;> simp
 
-theorem size_frobArr (A : Array GF64) : (frobArr A).size = A.size := by simp [frobArr]
 
 theorem toMat_frobArr (A : Array GF64) : toMat (frobArr A) = (toMat A).map frobF := by
   refine Matrix.ext fun i j => ?_
@@ -95,9 +93,5 @@ theorem toMat_frobPow (n : ℕ) (A : Array GF64) :
   | zero => rfl
   | succ n ih => rw [frobPow, toMat_frobArr, ih, Function.iterate_succ_apply']
 
-theorem size_frobPow (n : ℕ) (A : Array GF64) : (frobPow n A).size = A.size := by
-  induction n with
-  | zero => rfl
-  | succ n ih => rw [frobPow, size_frobArr, ih]
 
 end CFSG.HardMathSupport.Dickson.Sec6.Gen3D4

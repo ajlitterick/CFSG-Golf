@@ -37,16 +37,6 @@ open CFSG.HardMathSupport.Solomon.LocalBalance CFSG.HardMathSupport.Solomon.Coor
       A ≤ Subgroup.normalizer (T : Set (MulAut S)) → (⁅A, T⁆ : Subgroup (MulAut S)) = T →
       (⁅A, (⁅T, T⁆ : Subgroup (MulAut S))⁆ : Subgroup (MulAut S)) = ⊥
 
-@[expose] def KD264 (p : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (K B : Subgroup Y), K.Normal → CFSG.Open.IsQuasisimple ↥K →
-    GLAPPrimeCore p ↥K = ⊥ → fullCoverLevel p ↥K = 4 →
-    IsElemAbelian p B → K ⊔ B = ⊤ → p ^ 4 ≤ Nat.card B → IsMaxRankIn p B ⊤ →
-    B ⊓ Subgroup.centralizer (K : Set Y) ≠ ⊥ →
-    (∃ E : Subgroup Y, E ≤ B ∧ IsElemAbelian p E ∧ Nat.card E = p ^ 3 ∧
-        GLAPLayer p (K ⊓ Subgroup.centralizer (E : Set Y)) ≠ ⊥) ∨
-      (p = 3 ∧ Nat.card B = 3 ^ 4 ∧ Nat.card ↥(B ⊓ Subgroup.centralizer (K : Set Y)) = 3 ∧
-        catalogIs (↥K ⧸ Subgroup.center ↥K) (onLie isTrialityD4Big) ∧
-        ∃ b ∈ B, ¬ InducesInnerMod 3 K b)
 
 @[expose] def KD91 : Prop :=
   ∀ (S : Type) [Group S] [Finite S], catalogIs S (onLie isTrialityD4Big) →

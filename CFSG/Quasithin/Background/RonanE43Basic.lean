@@ -193,23 +193,5 @@ theorem exists_moved_of_lt {V : Type} [CommGroup V] (ρ : G →* MulAut V) {T L 
     exact sup_le hLK hTK
   exact hK (Subgroup.mem_top g)
 
-theorem aParam_le_card_of_family (V : Type) [CommGroup V] [Finite V] (ρ : G →* MulAut V)
-    (hρ : Function.Injective ρ) (hO2 : pCoreOf 2 (⊤ : Subgroup G) = ⊥) {T L : Subgroup G}
-    (Δ : Finset (Subgroup G)) (hT : IsSylowIn 2 T ⊤) (hLF : L = CFSG.generalizedFitting G)
-    (hLq : CFSG.IsQuasisimple ↥L) (hLT : L ⊔ T = ⊤) (hlt : fixV ρ.range < fixV (T.map ρ))
-    (hΔ : (⨆ H ∈ Δ, H) = ⊤) (hΔT : ∀ H ∈ Δ, T ≤ H)
-    (h2 : ∀ H ∈ Δ, Nat.card T ≤ 2 * Nat.card (pCoreOf 2 H)) :
-    aParam ρ.range ≤ Δ.card := by
-  classical
-  have hfix := exists_moved_of_lt ρ hLT hlt
-  have hmain := e4_2_of_good G V ρ hρ hO2 T L (↑Δ : Set (Subgroup G)) hT hLF hLq
-    (by simpa using hΔ) (fun H hH => hΔT H hH)
-    (fun H hH Y hYH hYn hYT => good_of_card_le hT (hΔT H hH) (h2 H hH) hYH hYn hYT) hfix
-  refine hmain.trans ?_
-  rw [finsum_mem_coe_finset]
-  calc ∑ H ∈ Δ, CFSG.Open.pRank 2 (⊤ : Subgroup (↥H ⧸ CFSG.pCore 2 ↥H))
-      ≤ ∑ _H ∈ Δ, 1 := Finset.sum_le_sum fun H hH =>
-        pRank_le_one_of_card_le hT (hΔT H hH) (h2 H hH)
-    _ = Δ.card := by simp
 
 end CFSG.Quasithin.RonanE43

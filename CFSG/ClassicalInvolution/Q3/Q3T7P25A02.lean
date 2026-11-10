@@ -127,10 +127,6 @@ open CFSG.ClassicalInvolution.Asc77.T75
 variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
   {S : Sylow 2 G} {η β : Set (Subgroup G)}
 
-theorem Data.false_of_sup_mem_RSet (D : Data Ω S η β) {U V : Subgroup G} (hU : U ∈ β)
-    (hV : V ∈ β) (hne : U ≠ V) (hR : U ⊔ V ∈ RSet Ω) : False := by
-  obtain ⟨K, hK, hRK⟩ := exists_isSylow2In_of_mem_RSet hR
-  exact D.symm.distinct hU hV hne hK (le_sup_left.trans hRK.1) (le_sup_right.trans hRK.1)
 
 theorem Data.exists_conj_eq [Finite G] (D : Data Ω S η β) :
     ∃ c : G, conjSub c (⨆ A ∈ η, A) = ⨆ A ∈ β, A :=
@@ -209,11 +205,6 @@ namespace T7ER
 open CFSG.ClassicalInvolution.Asc77.T7ER
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem omegaStarNbr_subset_omegaNbr_of_E4 {K K₁ : Subgroup G} (hs : AscStand Ω K)
-    {W₀ : Subgroup G} (hW₀ : W₀ ∈ WSet Ω) (hE4 : MuIsoE4 Ω W₀) (hK₁ : K₁ ∈ Ω) :
-    omegaStarNbr Ω K₁ ⊆ omegaNbr Ω K₁ :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.omegaStarNbr_subset_omegaNbr_of_E4 hs.toF hW₀
-    (hs.e4All hW₀ hE4) hK₁
 end T7ER
 end Asc77
 
@@ -230,18 +221,6 @@ open CFSG.ClassicalInvolution.Asc77.T7ER
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K K' : Subgroup G} {z : G}
 
-theorem not_le_centralizer_of_mem_USet (hs : Hyp23Setting Ω K K' z) {W₀ : Subgroup G}
-    (hW₀ : W₀ ∈ WSet Ω) (hE4 : MuIsoE4 Ω W₀) {J : Subgroup G} (hJ : J ∈ Ω)
-    (hJt : J ∉ twinSet Ω K) {V : Subgroup G} (hV : V ∈ USet Ω) (hVJ : V ≤ J) :
-    ¬ V ≤ Subgroup.centralizer ({z} : Set G) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.not_le_centralizer_of_mem_USet hs.toF hW₀
-    (hs.stand.e4All hW₀ hE4) hJ hJt hV hVJ
-
-theorem not_commute_of_orderOf_four (hs : Hyp23Setting Ω K K' z) {W₀ : Subgroup G}
-    (hW₀ : W₀ ∈ WSet Ω) (hE4 : MuIsoE4 Ω W₀) {J : Subgroup G} (hJ : J ∈ Ω)
-    (hJt : J ∉ twinSet Ω K) {x : G} (hx : x ∈ J) (hx4 : orderOf x = 4) : z * x ≠ x * z :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.not_commute_of_orderOf_four hs.toF hW₀
-    (hs.stand.e4All hW₀ hE4) hJ hJt hx hx4
 
 theorem not_commute_of_conj (hs : Hyp23Setting Ω K K' z) {W₀ : Subgroup G}
     (hW₀ : W₀ ∈ WSet Ω) (hE4 : MuIsoE4 Ω W₀) {J : Subgroup G} (hJ : J ∈ Ω) {a : G}
@@ -269,9 +248,6 @@ theorem conjSub_eq_of_centralizes (hs : Hyp23Setting Ω K K' z) {u : G} (hu : u 
     conjSub u K = K ∨ conjSub u K = K' :=
   CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.conjSub_eq_of_centralizes hs.toF hu
 
-theorem normalizes_iff_of_centralizes (hs : Hyp23Setting Ω K K' z) {u : G}
-    (hu : u * z = z * u) : conjSub u K = K ↔ conjSub u K' = K' :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.normalizes_iff_of_centralizes hs.toF hu
 end T7ER
 end Asc77
 
@@ -288,11 +264,6 @@ open CFSG.ClassicalInvolution.Asc77.T7ER
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K K' W : Subgroup G} {S : Sylow 2 G} {R R' : Subgroup G} {z t u₁ u₂ : G}
 
-theorem exists_notNormalizing_conj (hyp : Hyp25 Ω K K' W S R R' z t u₁ u₂) {g : G}
-    (hg : g * z * g⁻¹ = t) (hRt : conjSub t R = R) :
-    ∃ s' : G, s' * s' = 1 ∧ s' * z = z * s' ∧ (∃ y : G, y * z * y⁻¹ = s') ∧
-      conjSub s' K ≠ K :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T7ER.exists_notNormalizing_conj hyp.toF hg hRt
 end T7ER
 end Asc77
 

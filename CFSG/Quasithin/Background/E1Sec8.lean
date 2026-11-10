@@ -223,13 +223,6 @@ theorem ten_eight_aux : ∀ (n : ℕ) (G : Type u) [Group G] [Finite G], Nat.car
       rw [← hJ₁Y₁]
       exact (sup_eq_left.mpr hY₁J₁).symm
 
-theorem ten_eight {G : Type u} [Group G] [Finite G] {T A Y J : Subgroup G} [Y.Normal]
-    (hT : IsSylowIn 2 T ⊤) (hA : A ≤ T) (hAab : IsElemAbelian 2 A)
-    (h1 : twoResidual (⊤ : Subgroup G) = perfectCore (⊤ : Subgroup G))
-    (h2 : perfectCore (⊤ : Subgroup G) = ⁅perfectCore (⊤ : Subgroup G), A⁆)
-    (hY : IsTwoClosed Y) (hTJ : T ≤ J) (hJY : J ⊔ Y = ⊤) :
-    J ⊔ (⨆ K ∈ {K : Subgroup G | IsE 1 ⊤ T A K}, K) = ⊤ :=
-  ten_eight_aux (Nat.card G) G le_rfl hT hA hAab h1 h2 (isSolvable_of_isTwoClosed hY) hTJ hJY
 
 end E1
 

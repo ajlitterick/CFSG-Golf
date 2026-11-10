@@ -224,97 +224,18 @@ theorem eqCheck_sound {w₁ w₂ : List Native.Gen} {v₁ v₂ : Native.DVec}
 @[expose] def pw (w : List Native.Gen) : List Native.PGen :=
   Native.prepWordG hsCtx xiGD p0Arr p0GD w
 
-theorem prepGD_eq (g : Native.Gen) :
-    Native.prepGD hsCtx xiGD p0Arr p0GD g = Native.GD.ofGen hsCtx g := by
-  cases g with
-  | xi => rfl
-  | perm arr =>
-    show (if arr == p0Arr then p0GD else Native.GD.ofGen hsCtx (Native.Gen.perm arr)) = _
-    by_cases h : (arr == p0Arr) = true
-    · rw [ite_eq_left h]
-      rw [beq_iff_eq] at h
-      subst h
-      rfl
-    · rw [ite_eq_right h]
-  | rho q => rfl
-  | sign a => rfl
-  | tau => rfl
-
-theorem applyP_eq (g : Native.Gen) (v : Native.DVec) :
-    Native.applyP hsCtx ⟨g, Native.GD.ofGen hsCtx g⟩ v = Native.applyGen hsCtx g v := by
-  cases g <;> rfl
-
-theorem evalPrep_pw (w : List Native.Gen) (v : Native.DVec) :
-    Native.evalPrep hsCtx (pw w) v = Native.evalWordC hsCtx w v := by
-  induction w generalizing v with
-  | nil => rfl
-  | cons g w ih =>
-    have h1 : Native.evalPrep hsCtx (pw (g :: w)) v = Native.evalPrep hsCtx (pw w)
-        (Native.applyP hsCtx ⟨g, Native.prepGD hsCtx xiGD p0Arr p0GD g⟩ v).reduce := rfl
-    rw [h1, prepGD_eq, applyP_eq, ih, evalWordC_cons]
-
-theorem evalPrep_append (a b : List Native.PGen) (v : Native.DVec) :
-    Native.evalPrep hsCtx (a ++ b) v = Native.evalPrep hsCtx b (Native.evalPrep hsCtx a v) := by
-  unfold Native.evalPrep
-  rw [List.foldl_append]
-
-theorem pw_append (a b : List Native.Gen) : pw (a ++ b) = pw a ++ pw b := List.map_append
-
-theorem interp_evalPrep_pw
-    {w : List Native.Gen} (hw : w.all Native.Gen.validB = true)
-    (v : Native.DVec) : interp (Native.evalPrep hsCtx (pw w) v) = wordLin w (interp v) := by
-  rw [evalPrep_pw]
-  have e : hsCtx = Native.mkCtx () := rfl
-  rw [e]
-  exact evalWordC_sound w (fun g hg => List.all_eq_true.1 hw g hg) v
 
 theorem mem_range'_iff {lo hi r : Nat} : r ∈ List.range' lo (hi - lo) ↔ lo ≤ r ∧ r < hi := by
   rw [List.mem_range'_1]
   omega
 
-theorem getElem!_finRange_map {n : ℕ} {β : Type*} [Inhabited β] (f : Fin n → β) (i : Fin n) :
-    ((List.finRange n).map f).toArray[(i : ℕ)]! = f i := by
-  simp
 
 theorem mem_bool (ε : Bool) : ε ∈ [true, false] := by cases ε <;> simp
-
-
-@[expose] def qtab : Array Native.DVec :=
-  ((List.finRange 10).map fun j : Fin 10 => Native.evalWordC hsCtx (babyW j) axisM).toArray
-
-@[expose] def qtabOK : Bool :=
-  (List.finRange 10).all fun j : Fin 10 => (babyW j).all Native.Gen.validB
-
-theorem qtab_spec (h : qtabOK = true) (j : Fin 10) :
-    interp qtab[(j : ℕ)]! = wordLin (babyW j) aStarMinus := by
-  have hv : ∀ g ∈ babyW j, g.validB = true := fun g hg =>
-    List.all_eq_true.1 (List.all_eq_true.1 h j (List.mem_finRange j)) g hg
-  unfold qtab
-  rw [getElem!_finRange_map]
-  show interp (Native.evalWordC (Native.mkCtx ()) (babyW j) axisM) = _
-  rw [evalWordC_sound (babyW j) hv, interp_axisM]
 
 
 @[expose] def isTauB : Native.Gen → Bool
   | .tau => true
   | _ => false
-
-@[expose] def babyFix : Bool := (List.range 10).all fun j => (babyBlocks[j]!).all fun b =>
-  b.all (fun g => !isTauB g) && eqCheck hsCtx b axisP [] axisP
-
-theorem babyFix_sound (h : babyFix = true) :
-    ∀ j, j < 10 → ∀ b ∈ babyBlocks[j]!,
-      (∀ g ∈ b, g ≠ Native.Gen.tau) ∧ wordLin b aStar = aStar := by
-  intro j hj b hb
-  have h1 := List.all_eq_true.1 (List.all_eq_true.1 h j (List.mem_range.2 hj)) b hb
-  rw [Bool.and_eq_true] at h1
-  refine ⟨fun g hg e => ?_, ?_⟩
-  · have := List.all_eq_true.1 h1.1 g hg
-    subst e
-    simp [isTauB] at this
-  · have := eqCheck_sound h1.2
-    rw [interp_axisP] at this
-    simpa [wordLin_nil] using this
 
 
 @[expose] def trA2N (d : Native.DVec) : ℤ :=

@@ -237,20 +237,5 @@ theorem stage1422Data_of_facts1422Input (hF : Facts1422Input) : Stage1422Data :=
 theorem stage1426VleQ_of_facts1422Input (hF : Facts1422Input) : Stage1426VleQ :=
   fun G _ _ T M h _ hH => h.vz_le_pCoreOf (hF G T M h) hH
 
-theorem stageTheorem14220_of_facts1422 (hFacts : Facts1422Input) (hF112 : F112LegacyPrintedError)
-    (hLoc : Lemma14221Local) (hF431 : F431Statement) (hNS : ModelNotSimple)
-    (hABG : ABGWreathedRecognition) (hG22p : G22pAmalgamFacts)
-    (hI46 : CFSG.GH74.M12.S_Asc03_simple) (hM12 : M12AmalgamFacts)
-    (hAut : AutM12AmalgamFacts) : StageTheorem14220 :=
-  stageTheorem14220_of_inputs hF112 (stage1422Data_of_facts1422Input hFacts)
-    (stage1426VleQ_of_facts1422Input hFacts) hLoc hF431 hNS hABG hG22p hI46 hM12 hAut
-
-theorem stageTheorem14220_of_stages (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hF112 : F112LegacyPrintedError) (hLoc : Lemma14221Local) (hF431 : F431Statement)
-    (hNS : ModelNotSimple) (hABG : ABGWreathedRecognition) (hG22p : G22pAmalgamFacts)
-    (hI46 : CFSG.GH74.M12.S_Asc03_simple) (hM12 : M12AmalgamFacts)
-    (hAut : AutM12AmalgamFacts) : StageTheorem14220 :=
-  stageTheorem14220_of_facts1422 (facts1422Input_of_stages h11 h113) hF112 hLoc hF431 hNS hABG
-    hG22p hI46 hM12 hAut
 
 end CFSG.Quasithin

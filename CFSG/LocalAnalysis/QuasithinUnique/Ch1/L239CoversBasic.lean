@@ -64,9 +64,6 @@ theorem wordVal_cons (x : Fin 2 → M) (l : Letter) (w : List Letter) :
     wordVal x (l :: w) = letterVal x l * wordVal x w := by
   simp [wordVal]
 
-theorem wordVal_append (x : Fin 2 → M) (u v : List Letter) :
-    wordVal x (u ++ v) = wordVal x u * wordVal x v := by
-  simp [wordVal]
 
 theorem map_letterVal {N : Type*} [Group N] (f : M →* N) (x : Fin 2 → M) (l : Letter) :
     f (letterVal x l) = letterVal (fun i => f (x i)) l := by
@@ -79,25 +76,6 @@ theorem map_wordVal {N : Type*} [Group N] (f : M →* N) (x : Fin 2 → M) (w : 
   | nil => simp
   | cons l w ih => rw [wordVal_cons, wordVal_cons, map_mul, ih, map_letterVal]
 
-theorem wordVal_eq_lift (x : Fin 2 → M) (w : List Letter) :
-    wordVal x w = FreeGroup.lift x (FreeGroup.mk w) := by
-  induction w with
-  | nil => simp only [wordVal_nil]; exact (map_one _).symm
-  | cons l w ih =>
-    rw [wordVal_cons, ih]
-    have h : FreeGroup.mk (l :: w) = FreeGroup.mk [l] * FreeGroup.mk w := rfl
-    rw [h, map_mul]
-    congr 1
-    obtain ⟨i, b⟩ := l
-    cases b
-    · rw [show FreeGroup.mk [(i, false)] = (FreeGroup.of i)⁻¹ from rfl, map_inv,
-        FreeGroup.lift_apply_of]
-      rfl
-    · rw [show FreeGroup.mk [(i, true)] = FreeGroup.of i from rfl, FreeGroup.lift_apply_of]
-      rfl
-
-theorem wordVal_inv_letter (x : Fin 2 → M) (i : Fin 2) :
-    letterVal x (i, false) = (letterVal x (i, true))⁻¹ := rfl
 
 end Words
 

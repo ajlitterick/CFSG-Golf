@@ -272,8 +272,6 @@ theorem conj_monoidHom_apply (f : A →* ℂ) (x : A) : conj (f x) = f x⁻¹ :=
   rw [monoidHom_inv_eq, Complex.inv_def, Complex.normSq_eq_norm_sq, hn]
   simp
 
-theorem conj_mul_monoidHom_apply (f : A →* ℂ) (x : A) : conj (f x) * f x = 1 := by
-  rw [conj_monoidHom_apply, ← map_mul, inv_mul_cancel, map_one]
 
 end Conj
 

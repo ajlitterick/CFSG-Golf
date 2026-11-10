@@ -138,15 +138,6 @@ theorem exists_surjection_iSup_unitary (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 �
   · rw [MonoidHom.ker_comp_of_injective θ N.subtype N.subtype_injective]
     exact hker
 
-theorem exists_surjection_A4_unitary (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ f)
-    {G : Type} [Group G] (J : Fin 4 → Subgroup G)
-    (hcomm : ∀ i j : Fin 4, (i : ℕ) + 1 < j → ∀ x ∈ J i, ∀ y ∈ J j, x * y = y * x)
-    (hpair : ∀ i j : Fin 4, (j : ℕ) = i + 1 →
-      ∃ W, UnitaryBlockStandardPair K p f W (J i) (J j)) :
-    ∃ ψ : Su K p f 5 →* G, ψ.range = ⨆ i, J i ∧
-      ψ.ker ≤ Subgroup.center (Su K p f 5) ∧ CFSG.IsQuasisimple ↥(⨆ i, J i) ∧
-      LieModel (↥(⨆ i, J i) ⧸ Subgroup.center ↥(⨆ i, J i)) StatedLieTag.PSU 5 p f :=
-  exists_surjection_iSup_unitary K p f hK hq (n := 4) (by norm_num) J hcomm hpair
 
 theorem exists_surjection_iSup_statedSU (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ f) {n : ℕ}
     (hn : 3 ≤ n) {G : Type} [Group G] (J : Fin n → Subgroup G)
@@ -189,14 +180,6 @@ theorem lieModel_unitary_iSup_of_isSimpleGroup (hK : Nat.card K = (p ^ f) ^ 2) (
   exact lieModel_of_mulEquiv
     ((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot) hmodel
 
-theorem lieModel_A4_unitary_of_isSimpleGroup (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ f)
-    {G : Type} [Group G] (J : Fin 4 → Subgroup G)
-    (hcomm : ∀ i j : Fin 4, (i : ℕ) + 1 < j → ∀ x ∈ J i, ∀ y ∈ J j, x * y = y * x)
-    (hpair : ∀ i j : Fin 4, (j : ℕ) = i + 1 →
-      ∃ W, UnitaryBlockStandardPair K p f W (J i) (J j))
-    (hs : IsSimpleGroup ↥(⨆ i, J i)) :
-    LieModel ↥(⨆ i, J i) StatedLieTag.PSU 5 p f :=
-  lieModel_unitary_iSup_of_isSimpleGroup K p f hK hq (n := 4) (by norm_num) J hcomm hpair hs
 
 theorem lieModel_unitary_of_iSup_eq_top (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ f) {n : ℕ}
     (hn : 3 ≤ n) {G : Type} [Group G] (J : Fin n → Subgroup G)

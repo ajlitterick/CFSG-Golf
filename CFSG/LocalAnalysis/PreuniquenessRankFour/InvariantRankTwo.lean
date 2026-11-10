@@ -153,88 +153,6 @@ theorem odd_pGroup_invariant_noncyclic_pSubgroup_has_invariant_elementary_rank_t
   rw [Subgroup.card_map_of_injective Subtype.val_injective]
   exact hlocalCard
 
-theorem normal_elementary_rank_two_pGroup_centralizer_index_one_or_prime
-    {source : Type u} [Group source] [Finite source]
-    (prime : ℕ) [Fact prime.Prime] (hsource : IsPGroup prime source)
-    (normal : Subgroup source) [normal.Normal] (hnormal : IsElemAbelian prime normal)
-    (hcard : Nat.card normal = prime ^ 2) :
-    (Subgroup.centralizer (normal : Set source)).index = 1 ∨
-      (Subgroup.centralizer (normal : Set source)).index = prime := by
-  let : IsMulCommutative normal := hnormal.1
-  let : CommGroup normal := IsMulCommutative.instCommGroup
-  let : MulDistribMulAction source normal := MulDistribMulAction.compHom normal (MulAut.conjNormal (H := normal))
-  obtain ⟨kernel, hindex, hfixed⟩ := pGroup_action_on_elementary_rank_two_has_prime_index_kernel
-    prime hsource hcard (fun member => Subtype.ext (hnormal.2 member member.property))
-  have hcontained : kernel ≤ Subgroup.centralizer (normal : Set source) := by
-    intro scalar hscalar
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro member hmember
-    have hequal := congrArg (fun value : normal => (value : source))
-      (hfixed scalar hscalar (⟨member, hmember⟩ : normal))
-    change scalar * member * scalar⁻¹ = member at hequal
-    have hmultiplied := congrArg (fun value : source => value * scalar) hequal
-    simpa only [mul_assoc, inv_mul_cancel, mul_one] using hmultiplied.symm
-  obtain ⟨exponent, hpower⟩ := hsource.index (Subgroup.centralizer (normal : Set source))
-  have hbound : prime ^ exponent ≤ prime := by
-    have hindexBound := Subgroup.index_antitone hcontained
-    rw [hpower] at hindexBound
-    rcases hindex with hone | hprime
-    · rw [hone] at hindexBound
-      exact hindexBound.trans (Fact.out : prime.Prime).one_le
-    · rwa [hprime] at hindexBound
-  have hexponent : exponent ≤ 1 := (Nat.pow_le_pow_iff_right (Fact.out : prime.Prime).one_lt).mp
-    (by simpa only [pow_one] using hbound)
-  rcases Nat.le_one_iff_eq_zero_or_eq_one.mp hexponent with hzero | hone
-  · exact Or.inl (by simpa only [hzero, pow_zero] using hpower)
-  · exact Or.inr (by simpa only [hone, pow_one] using hpower)
-
-theorem nonnormal_maximal_elementary_rank_two_characteristic_centralizer_properties
-    {source : Type u} [Group source] [Finite source]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2) (hsource : IsPGroup prime source)
-    (elementary : Subgroup source) (helementary : IsElemAbelian prime elementary)
-    (hcard : Nat.card elementary = prime ^ 2)
-    (hmaximal : ∀ extension : Subgroup source, elementary ≤ extension →
-      IsElemAbelian prime extension → extension = elementary)
-    (hnonnormal : ¬ elementary.Normal) :
-    ∃ characteristic : Subgroup source, characteristic.Characteristic ∧
-      IsElemAbelian prime characteristic ∧ Nat.card characteristic = prime ^ 2 ∧
-        (Subgroup.centralizer (characteristic : Set source)).Characteristic ∧
-        (Subgroup.centralizer (characteristic : Set source)).index = prime ∧
-        2 ≤ pRank prime ((Subgroup.center (Subgroup.centralizer (characteristic : Set source))).map
-          (Subgroup.centralizer (characteristic : Set source)).subtype) := by
-  obtain ⟨characteristic, hcharacteristic, hcharacteristicElementary, hcharacteristicCard, _⟩ :=
-    odd_pGroup_nonnormal_maximal_elementary_rank_two_has_characteristic_rank_two
-      prime hodd hsource elementary helementary hcard hmaximal hnonnormal
-  let : characteristic.Characteristic := hcharacteristic
-  let centralizer := Subgroup.centralizer (characteristic : Set source)
-  have hcharacteristicContained : characteristic ≤ centralizer := by
-    let : IsMulCommutative characteristic := hcharacteristicElementary.1
-    exact Subgroup.le_centralizer _
-  have hcharacteristicCenter : characteristic ≤ (Subgroup.center centralizer).map centralizer.subtype := by
-    intro member hmember
-    apply Subgroup.mem_map.mpr
-    refine ⟨⟨member, hcharacteristicContained hmember⟩, ?_, rfl⟩
-    apply Subgroup.mem_center_iff.mpr
-    intro other
-    exact Subtype.ext (Subgroup.mem_centralizer_iff.mp other.property member hmember).symm
-  have hindex : centralizer.index = prime := by
-    rcases normal_elementary_rank_two_pGroup_centralizer_index_one_or_prime
-      prime hsource characteristic hcharacteristicElementary hcharacteristicCard with hone | hprime
-    · have htop : centralizer = ⊤ := Subgroup.index_eq_one.mp hone
-      have hjoinElementary : IsElemAbelian prime (elementary ⊔ characteristic) := by
-        apply elementary_abelian_sup_of_commuting prime helementary hcharacteristicElementary
-        change elementary ≤ centralizer
-        rw [htop]
-        exact le_top
-      have hequal := hmaximal _ le_sup_left hjoinElementary
-      have hcontained : characteristic ≤ elementary := hequal ▸ (le_sup_right : characteristic ≤ elementary ⊔ characteristic)
-      have hequal : characteristic = elementary := Subgroup.eq_of_le_of_card_ge hcontained (by omega)
-      exact False.elim (hnonnormal (hequal ▸ (inferInstance : characteristic.Normal)))
-    · exact hprime
-  refine ⟨characteristic, hcharacteristic, hcharacteristicElementary, hcharacteristicCard,
-    inferInstance, hindex, ?_⟩
-  exact le_csSup (pRank_bddAbove prime (Fact.out : prime.Prime) _)
-    ⟨characteristic, hcharacteristicCenter, hcharacteristicElementary, hcharacteristicCard⟩
 
 theorem normal_elementary_rank_two_pGroup_centralizer_rank_eq
     {source : Type u} [Group source] [Finite source]
@@ -297,24 +215,5 @@ theorem normal_elementary_rank_two_pGroup_centralizer_rank_eq
     exact le_csSup (pRank_bddAbove prime (Fact.out : prime.Prime) _)
       ⟨elementary, hcentral, helementary, helementaryCard⟩
 
-theorem nonnormal_maximal_elementary_rank_two_has_characteristic_index_prime_centralizer
-    {source : Type u} [Group source] [Finite source]
-    (prime : ℕ) [Fact prime.Prime] (hodd : prime ≠ 2) (hsource : IsPGroup prime source)
-    (elementary : Subgroup source) (helementary : IsElemAbelian prime elementary)
-    (hcard : Nat.card elementary = prime ^ 2)
-    (hmaximal : ∀ extension : Subgroup source, elementary ≤ extension →
-      IsElemAbelian prime extension → extension = elementary)
-    (hnonnormal : ¬ elementary.Normal) :
-    ∃ subgroup : Subgroup source, subgroup.Characteristic ∧ subgroup.index = prime ∧
-      pRank prime subgroup = pRank prime (⊤ : Subgroup source) ∧
-        2 ≤ pRank prime ((Subgroup.center subgroup).map subgroup.subtype) := by
-  obtain ⟨characteristic, hcharacteristic, hcharacteristicElementary, hcharacteristicCard,
-      hcentralizerCharacteristic, hindex, hcenterRank⟩ :=
-    nonnormal_maximal_elementary_rank_two_characteristic_centralizer_properties
-      prime hodd hsource elementary helementary hcard hmaximal hnonnormal
-  let : characteristic.Characteristic := hcharacteristic
-  exact ⟨Subgroup.centralizer (characteristic : Set source), hcentralizerCharacteristic,
-    hindex, normal_elementary_rank_two_pGroup_centralizer_rank_eq
-      prime hsource characteristic hcharacteristicElementary hcharacteristicCard, hcenterRank⟩
 
 end CFSG.PreuniquenessRankFour.Helpers

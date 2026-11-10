@@ -21,8 +21,6 @@ variable {X : Type} [Group X] {Φ : Set (Subgroup X)}
   map_one' := Subtype.ext (map_one I.φ)
   map_mul' a b := Subtype.ext (map_mul I.φ ⟨a, mem_pSpan hgen a⟩ ⟨b, mem_pSpan hgen b⟩)
 
-theorem coe_psi (hgen : omegaGen Φ = ⊤) (I : AEIdent Φ 5) (y : X) :
-    ((psi hgen I y : ↥((aeSub 5).map (mkQ 5))) : AEQ 5) = I.φ ⟨y, mem_pSpan hgen y⟩ := rfl
 
 theorem psi_surjective (hgen : omegaGen Φ = ⊤) (I : AEIdent Φ 5) :
     Function.Surjective (psi hgen I) := by

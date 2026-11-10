@@ -74,10 +74,6 @@ theorem projPair_add_smul_a (hσ : ∀ c, σ (σ c) = c) {a d : Fin m → F}
     projPair σ a d (x + c • a) = projPair σ a d x := by
   rw [projPair_add, projPair_smul, projPair_a hσ haa had, smul_zero, add_zero]
 
-theorem projPair_add_smul_d {a d : Fin m → F} (hdd : uForm σ d d = 0)
-    (had : uForm σ a d = 1) (x : Fin m → F) (c : F) :
-    projPair σ a d (x + c • d) = projPair σ a d x := by
-  rw [projPair_add, projPair_smul, projPair_d hdd had, smul_zero, add_zero]
 
 end ModelRank
 

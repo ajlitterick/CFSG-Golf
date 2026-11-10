@@ -60,34 +60,6 @@ theorem nonsplit_unitary_noninner_actual_component_odd_action_of
     hE hEcard htE ht1 hL hEL hSL hplaneL hP
   exact ⟨⟨⟨hset, hWN, hrel⟩, hres⟩, hnonfaith⟩
 
-theorem higher_unitary_noninner_plane_actual_component_odd_action_of
-    (h : HigherUnitaryNoninnerPlaneLocalCoreOdd) :
-    ∀ (G : Type) [Group G] [Finite G] (p ℓ f n : ℕ), p.Prime → 3 ≤ n → n < p → ℓ ≠ p →
-      ∀ E : Subgroup G, IsElementaryAbelian p E → Nat.card E = p ^ 2 →
-      ∀ t ∈ E, t ≠ 1 → ∀ L : Subgroup G, IsComponent L →
-      StatedClassicalModel (L ⧸ Subgroup.center L) .PSU n ℓ f →
-      E ≤ Subgroup.normalizer (L : Set G) →
-      inSubgroup (aschbacherSolvableCore p) (Subgroup.centralizer ({t} : Set G)) ≤
-        Subgroup.normalizer (L : Set G) →
-      (E ⊓ Subgroup.centralizer (L : Set G) ≠ ⊥ ∨
-        ¬ actualPlane L E ≤
-          (MulAut.conj : (L ⧸ Subgroup.center L) →* MulAut (L ⧸ Subgroup.center L)).range) →
-      ComponentLocalCoreOddResidual p E t L ∧
-        (E ⊓ Subgroup.centralizer (L : Set G) ≠ ⊥ → localCoreProduct p E t ≤
-          Subgroup.centralizer (L : Set G)) := by
-  intro G _ _ p ℓ f n hp hn3 hnp hℓp E hE hEcard t htE ht1 L hL hmod hEL hSL hcase
-  have hp2 : p ≠ 2 := by omega
-  obtain ⟨-, -, -, hne, K, _, hU, ⟨e⟩⟩ := exists_primeFormP_of_statedClassicalModel_PSU hmod
-  have hplane : PlaneLocalCoreOddIf p (primeFormP hU (idGram K n)) (fun A => ¬ A ≤ innU hU n) :=
-    fun B hB A hAB hA hAcard hPA t htA ht1 =>
-      ((h ℓ f n p K hU hp hℓp.symm hn3 hnp hne B hB A hAB hA hAcard hPA).2.2.2.2.2.2 t htA ht1).2
-  have hplaneL := PlaneLocalCoreOddIf.of_mulEquiv hp e hplane
-  have hP : E ⊓ Subgroup.centralizer (L : Set G) ≠ ⊥ ∨
-      ¬ (actualPlane L E).map (MulAut.congr e).toMonoidHom ≤ innU hU n :=
-    hcase.imp_right (not_map_le_conjRange_of_not_le e)
-  obtain ⟨hset, hWN, hrel, hres, hnonfaith⟩ := component_local_core_odd_action_of_plane_if hp hp2
-    hE hEcard htE ht1 hL hEL hSL hplaneL hP
-  exact ⟨⟨⟨hset, hWN, hrel⟩, hres⟩, hnonfaith⟩
 
 theorem higher_unitary_all_plane_actual_component_odd_action_of
     (h6 : HigherUnitaryInnerPlaneProductsTrivial) (h7 : HigherUnitaryNoninnerPlaneLocalCoreOdd) :

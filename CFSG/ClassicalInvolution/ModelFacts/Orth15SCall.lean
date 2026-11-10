@@ -21,8 +21,6 @@ theorem twinFrameHyp51_proved (hin : TwinSmallInner p) (hout : TwinSmallOuter p)
     TwinFrameHyp51 p f :=
   twinFrameHyp51_of hin hout g2d4VertexExcl_proved
 
-theorem c21_3_proved (hin : TwinSmallInner p) (hout : TwinSmallOuter p) : C21_3 p f :=
-  c21_3_of_residuals hin hout g2d4VertexExcl_proved
 
 end Call
 

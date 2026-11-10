@@ -114,7 +114,6 @@ theorem gensT_iso : gensT.all isoB = true := by decide
 
 theorem gensV_iso : gensV.all isoB = true := by decide
 
-theorem mulP_oneP : mulP oneP oneP = oneP := by decide
 
 theorem tab_facts {TW TWI : List (List ℕ)} {TT TI : List ℕ}
     (h : tabK (gensT.map numC) TW TWI TT TI = true) (j : ℕ) :

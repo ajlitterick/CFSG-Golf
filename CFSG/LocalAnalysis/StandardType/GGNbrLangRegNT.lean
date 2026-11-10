@@ -76,15 +76,6 @@ theorem ggNbr_hyperplane_not_centralizing {G : Type} [Group G] [Finite G] {p : �
   ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → p ≠ 2 → LargeEvenInLambda2 lab → S p lab →
     LargeEvenLabelAll lab (KGLangTorusNTCont p)
 
-theorem kgLangTorusNTCont_of_cont {p : ℕ} {R : Type} [Group R] {I F : Set (MulAut R)}
-    (h : KGLangTorusCont p R I F) : KGLangTorusNTCont p R I F :=
-  fun K _ _ θ hK A hA hAI _ α₀ hα₀ hα₀I => h K θ hK A hA hAI α₀ hα₀ hα₀I
-
-theorem kgLangTorusNTOn_of_on {S : ℕ → LargeEvenLabel → Prop} (h : KGLangTorusOn S) :
-    KGLangTorusNTOn S :=
-  fun p lab hp hp2 hlab hS Q hQ =>
-    largeEvenRawDatum_mono (fun _ _ _ _ h' => ⟨h'.1, kgLangTorusNTCont_of_cont h'.2⟩)
-      (h p lab hp hp2 hlab hS Q hQ)
 
 theorem KGLangTorusNTOn.mono {S S' : ℕ → LargeEvenLabel → Prop}
     (hS : ∀ p lab, S' p lab → S p lab) (h : KGLangTorusNTOn S) : KGLangTorusNTOn S' :=
@@ -167,12 +158,6 @@ theorem ggNbrLangTorusAxisOn_of_kgNT_of_inputs (hraw : GGRawInnFieldInput)
     (S₂ := fun p lab => ¬ GGNotD4Three p lab) (fun _ _ _ => em _) hpc kgRawFieldCyclicOn_D4Three
     hLT
 
-@[expose] def GGNbrLangRest12RegSplit : Prop :=
-  KGLangTorusNTOn GGNbrLangRegLabel ∧ GGNbrLangAxisOn GGNbrLangRest12NonRegLabel
-
-theorem ggNbrLangAxisOn_rest12NonReg_of_rest12 (h : GGNbrLangAxisOn GGNbrLangRest12Label) :
-    GGNbrLangAxisOn GGNbrLangRest12NonRegLabel :=
-  GGNbrLangAxisOn.mono (fun _ _ hl => hl.1) h
 
 section Certified
 
@@ -182,15 +167,6 @@ theorem ggNbrLangTorusAxisOn_of_kgNT (hpc : GGRawPCyclicOn GGNotD4Three)
   ggNbrLangTorusAxisOn_of_kgNT_of_inputs ggRawInnFieldInput_holds ggInndiagNormalInput_holds hpc
     hLT
 
-theorem ggNbrLangAxisOn_rest12_of_regNT (hpc : GGRawPCyclicOn GGNotD4Three)
-    (hLT : KGLangTorusNTOn GGNbrLangRegLabel)
-    (hrest : GGNbrLangAxisOn GGNbrLangRest12NonRegLabel) :
-    GGNbrLangAxisOn GGNbrLangRest12Label := by
-  refine ((ggNbrLangAxisOn_of_torusOn (ggNbrLangTorusAxisOn_of_kgNT hpc hLT)).or hrest).mono ?_
-  intro p lab hS
-  by_cases h : GGNbrLangRegLabel p lab
-  · exact Or.inl h
-  · exact Or.inr ⟨hS, h⟩
 
 end Certified
 

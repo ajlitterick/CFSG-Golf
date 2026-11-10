@@ -77,8 +77,6 @@ theorem rho_apply (g : ↥SL32 × ↥SL32) (X : WMod) : rho g X = act g X := rfl
 theorem toAdd_rho (g : ↥SL32 × ↥SL32) (X : WMod) :
     Multiplicative.toAdd (rho g X) = mat g.1 * Multiplicative.toAdd X * (mat g.2)ᵀ := rfl
 
-theorem tensorPairModel_act (g : ↥SL32 × ↥SL32) (X : WMod) :
-    (tensorPairModel SL32 SL32).act g X = rho g X := rfl
 
 theorem rho_injective : Function.Injective rho := by
   rw [injective_iff_map_eq_one]

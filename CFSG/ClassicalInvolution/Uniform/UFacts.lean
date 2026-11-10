@@ -35,8 +35,6 @@ theorem nonempty_equiv_sl2 {p f : ℕ} [Fact p.Prime] (h : IsClassicalMemberU (.
   obtain ⟨_, e⟩ := h.witness
   exact e
 
-theorem sl2_admissible {p f : ℕ} (h : IsClassicalMemberU (.sl2 p f) L z) :
-    p.Prime ∧ p ≠ 2 ∧ 0 < f := h.admissible
 
 theorem isUniqueInvolution_of_forall (h : IsClassicalMemberU t L z)
     (hu : ∀ w ∈ L, orderOf w = 2 → w = z) : IsUniqueInvolution L z where

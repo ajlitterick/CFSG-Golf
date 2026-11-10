@@ -177,43 +177,6 @@ theorem toVec_foxEb (ε : Eps) (v : ℕ) : toVec 203 (foxEb ε v) = feLin ε (to
   ext1 i
   exact toVec_blkN (k := 7) v i
 
-@[expose] def cobFb (ε : Eps) (v : ℕ) : ℕ := foldOr 7 7 fun i => actECode ε i v ^^^ v
-
-@[expose] noncomputable def cobFun (ε : Eps) (x : Fin 7 → ZMod 2) : Fin 49 → ZMod 2 :=
-  packV 7 7 fun i => aE ε i x + x
-
-@[expose] noncomputable def cobLin (ε : Eps) : (Fin 7 → ZMod 2) →ₗ[ZMod 2] (Fin 49 → ZMod 2) where
-  toFun := cobFun ε
-  map_add' x y := by
-    show packV 7 7 _ = packV 7 7 _ + packV 7 7 _
-    rw [← packV_add]
-    congr 1
-    funext i
-    simp only [Pi.add_apply, aE_add]
-    abel
-  map_smul' a x := by
-    rcases zmod2_cases a with rfl | rfl
-    · simp only [zero_smul, RingHom.id_apply]
-      show packV 7 7 _ = 0
-      have h : packV 7 7 (0 : Fin 7 → Fin 7 → ZMod 2) = 0 := rfl
-      rw [← h]
-      congr 1
-      funext i
-      simp only [aE, map_zero, add_zero]
-      rfl
-    · simp
-
-theorem cobLin_apply (ε : Eps) (x : Fin 7 → ZMod 2) : cobLin ε x = cobFun ε x := rfl
-
-theorem toVec_cobFb (ε : Eps) {v : ℕ} (hv : v < 128) :
-    toVec 49 (cobFb ε v) = cobLin ε (toVec 7 v) := by
-  apply unpackV_injective 7 7
-  have hlt : ∀ i < 7, actECode ε i v ^^^ v < 2 ^ 7 := fun i hi =>
-    Nat.xor_lt_two_pow (actECode_lt ε hi hv) hv
-  rw [cobFb, toVec_foldOr (by norm_num) _ hlt, cobLin_apply, cobFun, unpackV_packV]
-  ext1 i
-  rw [toVec_xorN, toVec_actECode ε i.2 hv]
-  rfl
 
 theorem toMat_eq_zero_of_bIsZero {n m : ℕ} {X : Array ℕ} (h : bIsZero n X = true) :
     toMat n m X = 0 := by
@@ -236,14 +199,6 @@ theorem toMat_foxE (ε : Eps) (e : Fin 49 → ZMod 2) :
     toMat 203 49 (linBits 49 203 (foxEb ε)) *ᵥ e = feLin ε e :=
   toMat_linBits_mulVec (foxEb ε) (feLin ε) (fun j => by rw [toVec_foxEb, toVec_two_pow]) e
 
-theorem toMat_cob (ε : Eps) (x : Fin 7 → ZMod 2) :
-    toMat 49 7 (linBits 7 49 (cobFb ε)) *ᵥ x = cobLin ε x :=
-  toMat_linBits_mulVec (cobFb ε) (cobLin ε) (fun j => by
-    have hj : 2 ^ (j : ℕ) < 128 := by
-      have := j.2
-      have h := Nat.pow_lt_pow_right (by norm_num : 1 < 2) this
-      simpa using h
-    rw [toVec_cobFb ε hj, toVec_two_pow]) x
 
 @[expose] def relVec (c : List (Fin 7) → V7) : Fin 203 → ZMod 2 :=
   packV 29 7 fun j => c (rels7.getD j [])
@@ -284,27 +239,5 @@ theorem fox_split (ε : Eps) (m : Fin 7 → Fin (mOf ε) → V7) (c : List (Fin 
   rw [unpackV_packV, unpackV_packV] at this
   exact this.symm
 
-theorem fox_h1 (ε : Eps) (e : Fin 7 → V7) (he : ∀ w ∈ rels7, foxSum (aE ε) e w = 0) :
-    ∃ x : V7, ∀ i, e i = aE ε i x + x := by
-  have hc : nsH1Check ε = true := by
-    cases ε; exact nsH1Check_plus; exact nsH1Check_minus
-  rw [nsH1Check] at hc
-  have hmem : ∀ j : Fin 29, rels7.getD j [] ∈ rels7 := fun j => by
-    rw [List.getD_eq_getElem _ _ (by rw [rels7_length]; exact j.2)]
-    exact List.getElem_mem _
-  have hzero : toMat 203 49 (linBits 49 203 (foxEb ε)) *ᵥ packV 7 7 e = 0 := by
-    rw [toMat_foxE, feLin_apply, feFun, unpackV_packV]
-    have h0 : packV 29 7 (0 : Fin 29 → Fin 7 → ZMod 2) = 0 := rfl
-    rw [← h0]
-    congr 1
-    funext j
-    exact he _ (hmem j)
-  obtain ⟨l, hl⟩ := exists_eq_mulVec_of_certCheck hc hzero
-  have hcob : btr 7 49 (Array.ofFn (n := 7) fun b => cobCol ε b) = linBits 7 49 (cobFb ε) := rfl
-  rw [← toMat_btr, hcob, toMat_cob, cobLin_apply, cobFun] at hl
-  refine ⟨l, fun i => ?_⟩
-  have := congrArg (fun y => unpackV 7 7 y i) hl
-  simp only [unpackV_packV] at this
-  exact this
 
 end CFSG.EvenSmallLie.OmegaEight.NSplit

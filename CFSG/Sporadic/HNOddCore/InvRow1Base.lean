@@ -130,7 +130,6 @@ theorem orbitCert1 {i : ℕ} (hi : i < 3) :
         (posArr InvData.f1Arr.size InvData.o1Lists[i]!)).2 = true :=
   orbit1_parts.2.2 i hi
 
-theorem K1_le_HJ : K1 ≤ HJ := closure_le_HJ fun s => c1G_mem_HJ s
 
 theorem disjoint_orbit_of_ncard_ne {G Y : Type*} [Group G] [MulAction G Y] {a b : Y}
     (h : (MulAction.orbit G a).ncard ≠ (MulAction.orbit G b).ncard) :

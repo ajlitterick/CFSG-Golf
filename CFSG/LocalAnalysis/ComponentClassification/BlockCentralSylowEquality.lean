@@ -47,24 +47,5 @@ theorem original {G : Type*} [Group G] [Finite G]
   rw [hmoved] at heq
   exact SubgroupSylowTransport.unique_eq_of_centralizer _ _ moving heq firstSylow secondSylow hunique hcentralizes
 
-theorem opposite {G : Type*} [Group G] [Finite G]
-    (component first second : Subgroup G) (actor moving : G)
-    (hmoving : moving ∈ UniversalOrbitBlock.normalizer component)
-    (hmoved : UniversalOrbitBlock.conjugate (UniversalOrbitBlock.conjugate first actor) moving =
-      UniversalOrbitBlock.conjugate second actor)
-    (firstSylow : Sylow 2 ↥(UniversalOrbitBlock.conjugate first actor ⊓ UniversalOrbitBlock.normalizer component))
-    (secondSylow : Sylow 2 ↥(UniversalOrbitBlock.conjugate second actor ⊓ UniversalOrbitBlock.normalizer component))
-    (hunique : ∀ other : Sylow 2 ↥(UniversalOrbitBlock.conjugate second actor ⊓ UniversalOrbitBlock.normalizer component),
-      other = secondSylow)
-    (hcentral : moving ∈ Subgroup.centralizer ((firstSylow : Subgroup ↥(UniversalOrbitBlock.conjugate first actor ⊓
-      UniversalOrbitBlock.normalizer component)).map
-        (UniversalOrbitBlock.conjugate first actor ⊓ UniversalOrbitBlock.normalizer component).subtype : Set G)) :
-    (firstSylow : Subgroup ↥(UniversalOrbitBlock.conjugate first actor ⊓ UniversalOrbitBlock.normalizer component)).map
-        (UniversalOrbitBlock.conjugate first actor ⊓ UniversalOrbitBlock.normalizer component).subtype =
-      (secondSylow : Subgroup ↥(UniversalOrbitBlock.conjugate second actor ⊓ UniversalOrbitBlock.normalizer component)).map
-        (UniversalOrbitBlock.conjugate second actor ⊓ UniversalOrbitBlock.normalizer component).subtype := by
-  have heq := BlockOverlapConjugation.opposite component first actor moving hmoving
-  rw [hmoved] at heq
-  exact SubgroupSylowTransport.unique_eq_of_centralizer _ _ moving heq firstSylow secondSylow hunique hcentral
 
 end CFSG.ComponentClassification.BlockCentralSylowEquality

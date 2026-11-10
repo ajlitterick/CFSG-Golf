@@ -106,22 +106,6 @@ theorem uni_center_eq_bot (hn : 3 ≤ n) (h3 : ¬ 3 ∣ n) :
   CFSG.RankThree.PartOne.KCUnitaryRegular.center_primeFormP_eq_bot h (C := 1)
     isPrimeFormGram_one hn (uni_ne_three h3)
 
-theorem uni_eq_one_of_conjHom_eq_one (hf : f = 1 ∨ f = 3) (hn : 3 ≤ n) (h3 : ¬ 3 ∣ n)
-    (t : primeFormUnitary h (oneGram F n))
-    (hdet : ((t : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).det = 1)
-    (h1 : primeFormConjHom h (oneGram F n) t = 1) : (t : GL (Fin n) F) = 1 := by
-  have hC : IsPrimeFormGram (1 : GL (Fin n) F) := isPrimeFormGram_one
-  have hpsi : primeFormPsi h hC ⟨t, 1⟩ = 1 := by
-    rw [primeFormPsi_apply, map_one, mul_one]
-    exact h1
-  obtain ⟨-, c, hcN, hc⟩ := (primeFormPsi_eq_one_iff h hC hn _).1 hpsi
-  have hc' : (t : GL (Fin n) F) = GeneralLinearGroup.scalar (Fin n) c := hc
-  have hcn : (c : F) ^ n = 1 := by
-    have e := congrArg Units.val (GeneralLinearGroup.det_scalar (n := Fin n) c)
-    rw [Units.val_pow_eq_pow_val, Fintype.card_fin] at e
-    rw [← e, ← hdet, hc']
-    rfl
-  rw [hc', uni_units_eq_one h hf h3 hcn hcN, map_one]
 
 theorem uni_exists_conjHom_eq (hf : f = 1 ∨ f = 3) (hn : 3 ≤ n) (h3 : ¬ 3 ∣ n)
     (A : primeFormUnitary h (oneGram F n)) :

@@ -19,27 +19,6 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 @[expose] def lineMap (ℓ : Submodule K V) : Submodule (ZMod 2) X :=
   ((M ℓ).restrictScalars (ZMod 2) ⊓ W₀).map psiLin
 
-theorem coe_pointMap (P : Submodule K V) :
-    (pointMap P : Set X) = Ψ '' {w : W₀ | w.1 ∈ L P} := by
-  ext x
-  simp only [pointMap, Submodule.map_coe, Set.mem_image, SetLike.mem_coe, Submodule.mem_inf,
-    Submodule.restrictScalars_mem, Set.mem_ofPred_eq, Subtype.exists, Ψ_apply]
-  constructor
-  · rintro ⟨w, ⟨hw, hw₀⟩, rfl⟩
-    exact ⟨w, hw₀, hw, rfl⟩
-  · rintro ⟨w, hw₀, hw, rfl⟩
-    exact ⟨w, ⟨hw, hw₀⟩, rfl⟩
-
-theorem coe_lineMap (ℓ : Submodule K V) :
-    (lineMap ℓ : Set X) = Ψ '' {w : W₀ | w.1 ∈ M ℓ} := by
-  ext x
-  simp only [lineMap, Submodule.map_coe, Set.mem_image, SetLike.mem_coe, Submodule.mem_inf,
-    Submodule.restrictScalars_mem, Set.mem_ofPred_eq, Subtype.exists, Ψ_apply]
-  constructor
-  · rintro ⟨w, ⟨hw, hw₀⟩, rfl⟩
-    exact ⟨w, hw₀, hw, rfl⟩
-  · rintro ⟨w, hw₀, hw, rfl⟩
-    exact ⟨w, ⟨hw, hw₀⟩, rfl⟩
 
 theorem wedge_add_left (x x' v : V) : wedge (x + x') v = wedge x v + wedge x' v := by
   funext p

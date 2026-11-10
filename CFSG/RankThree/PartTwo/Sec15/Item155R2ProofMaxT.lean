@@ -94,7 +94,6 @@ theorem oPrimeResidualOf_le_of_le_sup {H K S : Subgroup G} (hS : IsPGroup 2 S)
   rintro y ⟨hy, k, hk⟩
   exact mem_left_of_pow_prime_pow Nat.prime_three hSK hcop (hH hy) hk
 
-variable {A : Subgroup G} {c : G} {L : Subgroup G}
 
 end Proof155R2
 

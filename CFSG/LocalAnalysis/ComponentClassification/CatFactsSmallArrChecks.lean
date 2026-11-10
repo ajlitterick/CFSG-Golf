@@ -11,8 +11,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.KGroups.Native CFSG.Certi
 
 variable {n : ℕ}
 
-theorem eqA_toA_iff (σ τ : Equiv.Perm (Fin n)) : eqA n (toA σ) (toA τ) = true ↔ σ = τ :=
-  eqA_iff (rep_toA σ) (rep_toA τ)
 
 theorem eqA_comm_iff (σ τ : Equiv.Perm (Fin n)) :
     eqA n (compA n (toA σ) (toA τ)) (compA n (toA τ) (toA σ)) = true ↔ σ * τ = τ * σ :=

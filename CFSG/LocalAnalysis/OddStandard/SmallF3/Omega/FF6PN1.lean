@@ -77,16 +77,6 @@ theorem ffN0p_le_ffMonoP (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) 
   rw [hbJ, ffHat, mul_assoc, fr.signChange_mul]
   exact mono_mem_ffMonoP fr σ _
 
-theorem ffP0p_le_ffN0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ffP0p hQ fr ≤ ffN0p hQ fr := by
-  intro g hg
-  obtain ⟨σ, -, b, hb, rfl⟩ := (mem_ffP0p_iff_hat hQ fr).mp hg
-  exact (mem_ffN0p_iff hQ fr).mpr ⟨σ, b, hb, rfl⟩
-
-theorem ffB0p_le_ffN0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ffB0p fr ≤ ffN0p hQ fr := by
-  intro b hb
-  exact (mem_ffN0p_iff hQ fr).mpr ⟨1, b, hb, by rw [ffHat_one, one_mul]⟩
 
 theorem ffHat_mem_ffN0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC)
     (σ : Equiv.Perm (Fin 5)) : ffHat fr σ ∈ ffN0p hQ fr := by
@@ -144,25 +134,6 @@ theorem ffN0Rho_ker (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) 
       rwa [mul_inv_cancel_right] at h2
     rw [hσ, ffOutFF6PN1_hat_mem_B0_eq_one fr hff]
 
-theorem ff6p_N0_quotEquivTo (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    QuotEquivTo (ffN0p hQ fr) (ffB0p fr) (Equiv.Perm (Fin 5)) :=
-  ⟨ffN0Rho hQ fr, ffN0Rho_surjective hQ fr, ffN0Rho_ker hQ fr⟩
-
-theorem ffN0p_card (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    Nat.card ↥(ffN0p hQ fr) = 1920 := by
-  rw [Subgroup.card_eq_card_quotient_mul_card_subgroup
-    ((ffB0p fr).subgroupOf (ffN0p hQ fr))]
-  have h1 : Nat.card (↥(ffN0p hQ fr) ⧸ (ffB0p fr).subgroupOf (ffN0p hQ fr)) =
-      Nat.card (Equiv.Perm (Fin 5)) := by
-    rw [← ffN0Rho_ker hQ fr]
-    exact Nat.card_congr (QuotientGroup.quotientKerEquivOfSurjective (ffN0Rho hQ fr)
-      (ffN0Rho_surjective hQ fr)).toEquiv
-  have h2 : Nat.card ((ffB0p fr).subgroupOf (ffN0p hQ fr)) = 16 := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe (ffB0p_le_ffN0p hQ fr)).toEquiv,
-      ffB0p_card]
-  have h3 : Nat.card (Equiv.Perm (Fin 5)) = 120 := by
-    rw [Nat.card_perm, Nat.card_fin]; decide
-  rw [h1, h2, h3]
 
 theorem ffN0p_conj_signChange (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC)
     {g : OGroup Q} (hg : g ∈ ffN0p hQ fr) (J : Finset (Fin 5)) :
@@ -186,44 +157,6 @@ theorem ffN0p_conj_signChange (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin
     _ = ffHat fr σ * fr.signChange (ffOpt J) * (ffHat fr σ)⁻¹ := by rw [hbconj]
     _ = fr.signChange (ffOpt (ffAct σ J)) := ffHat_conj_signChange_ffOpt fr σ J
 
-theorem ff6p_centralizer_B0 (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC)
-    {g : OGroup Q} (hg : g ∈ omegaGroup hQ) (hc : ∀ b ∈ ffB0p fr, g * b = b * g) :
-    g ∈ ffB0p fr := by
-  have hnorm : g ∈ Subgroup.normalizer (ffB0p fr : Set (OGroup Q)) := by
-    rw [Subgroup.mem_normalizer_iff]
-    intro h
-    constructor
-    · intro hh
-      rw [hc h hh, mul_assoc, mul_inv_cancel, mul_one]
-      exact hh
-    · intro hh
-      have hy : g * h * g⁻¹ ∈ ffB0p fr := hh
-      have hconj : g⁻¹ * (g * h * g⁻¹) * g = g * h * g⁻¹ := by
-        have h' : g * (g * h * g⁻¹) = (g * h * g⁻¹) * g := hc _ hy
-        calc g⁻¹ * (g * h * g⁻¹) * g = g⁻¹ * ((g * h * g⁻¹) * g) := by group
-          _ = g⁻¹ * (g * (g * h * g⁻¹)) := by rw [h']
-          _ = g * h * g⁻¹ := by group
-      have hmem : g⁻¹ * (g * h * g⁻¹) * g ∈ ffB0p fr := hconj.symm ▸ hy
-      rwa [show g⁻¹ * (g * h * g⁻¹) * g = h by group] at hmem
-  have hσ1 : ffN0Rho hQ fr ⟨g, ⟨hg, hnorm⟩⟩ = 1 := by
-    apply ff_perm_eq_one_of_fix_even
-    intro J hJe
-    have hcomm : g * fr.signChange (ffOpt J) = fr.signChange (ffOpt J) * g :=
-      hc _ ((mem_ffB0p_iff_ffOpt fr).mpr ⟨J, hJe, rfl⟩)
-    have h1 : g * fr.signChange (ffOpt J) * g⁻¹ = fr.signChange (ffOpt J) := by
-      rw [hcomm, mul_assoc, mul_inv_cancel, mul_one]
-    have h2 := ffN0p_conj_signChange hQ fr (g := g) ⟨hg, hnorm⟩ J
-    rw [h1] at h2
-    exact ((ffOpt_signChange_eq_iff fr).mp h2).symm
-  obtain ⟨σ', b, hb, hg_eq⟩ := (mem_ffN0p_iff hQ fr).mp ⟨hg, hnorm⟩
-  have hb' : ffHat fr σ' * b ∈ ffN0p hQ fr := hg_eq ▸ ⟨hg, hnorm⟩
-  have hσ' : ffN0Rho hQ fr ⟨g, ⟨hg, hnorm⟩⟩ = σ' := by
-    rw [show (⟨g, ⟨hg, hnorm⟩⟩ : ↥(ffN0p hQ fr)) = ⟨ffHat fr σ' * b, hb'⟩ from
-      Subtype.ext hg_eq]
-    exact ffN0Rho_hat hQ fr hb hb'
-  have hσ'1 : σ' = 1 := by rw [← hσ', hσ1]
-  rw [hg_eq, hσ'1, ffHat_one, one_mul]
-  exact hb
 
 @[expose] noncomputable def ffVecT (fr : PFrame Q (Option (Fin 5)) ffC) (v : Fin 5 → ZMod 2) :
     OGroup Q :=

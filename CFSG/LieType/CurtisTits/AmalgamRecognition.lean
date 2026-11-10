@@ -68,18 +68,5 @@ theorem isPresentedByAmalgam_of_surjective [Finite K]
   obtain ⟨y, rfl⟩ := hback b
   exact congrArg back (hcomp hab)
 
-theorem recognition_of_surjective_amalgamPresentation [Finite K]
-    (hgen : ⨆ i, L i = ⊤) (hK : IsQuasisimple K)
-    (back : K →* PresentedGroup (amalgamRels L)) (hback : Function.Surjective back)
-    {G : Type w} [Group G] (φ : ∀ i, L i →* G) (hφ : IsCompatible L φ)
-    (hGgen : ⨆ i, (φ i).range = ⊤) (hnt : ∃ i, ∃ x : L i, φ i x ≠ 1) :
-    ∃ ψ : K →* G, (∀ i (x : L i), ψ x = φ i x) ∧
-      Function.Surjective ψ ∧ ψ.ker ≤ center K := by
-  have hP := isPresentedByAmalgam_of_surjective hgen back hback
-  have hU : IsUniversalCompletion.{u,v,w} L :=
-    isUniversalCompletion_of_isPresentedByAmalgam hP
-  obtain ⟨ψ, hψ, hsurj, hker, _⟩ :=
-    recognition_of_isUniversalCompletion hgen hK hU φ hφ hGgen hnt
-  exact ⟨ψ, hψ, hsurj, hker⟩
 
 end CFSG.LieType.CurtisTits

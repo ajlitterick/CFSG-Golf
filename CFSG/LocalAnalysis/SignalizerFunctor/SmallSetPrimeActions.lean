@@ -42,29 +42,5 @@ theorem prime_power_permutation_small_set_fixed
     restriction_identity
   exact fixed
 
-variable {FieldType : Type fieldUniverse} [Field FieldType]
-variable {VectorType : Type vectorUniverse} [AddCommGroup VectorType] [Module FieldType VectorType]
-
-theorem prime_power_projective_two_set_identity [FiniteDimensional FieldType VectorType]
-    (dimension : Module.finrank FieldType VectorType = 2)
-    (prime : ℕ) (prime_prime : prime.Prime) (odd_prime : prime ≠ 2) [CharP FieldType prime]
-    (automorphism : VectorType ≃ₗ[FieldType] VectorType)
-    (exponent : ℕ) (power_one : automorphism ^ (prime ^ exponent) = 1)
-    (first second : Projectivization FieldType VectorType) (distinct : first ≠ second)
-    (invariant : ∀ point : Projectivization FieldType VectorType,
-      projectiveLinearAction automorphism point ∈ ({first, second} : Set (Projectivization FieldType VectorType))
-        ↔ point ∈ ({first, second} : Set (Projectivization FieldType VectorType))) :
-    automorphism = 1 := by
-  have projective_power : projectiveLinearAction automorphism ^ (prime ^ exponent) = 1 := by
-    rw [← map_pow, power_one, map_one]
-  have small : ({first, second} : Set (Projectivization FieldType VectorType)).ncard < prime := by
-    rw [Set.ncard_pair distinct]
-    have lower := prime_prime.two_le
-    omega
-  have fixed := prime_power_permutation_small_set_fixed prime prime_prime
-    (projectiveLinearAction automorphism) exponent projective_power {first, second}
-    (Set.finite_insert.mpr (Set.finite_singleton _)) small invariant
-  exact prime_power_projective_two_fixed_identity dimension prime prime_prime automorphism exponent power_one
-    first second distinct (fixed first (Set.mem_insert _ _)) (fixed second (Set.mem_insert_of_mem _ rfl))
 
 end CFSG.SignalizerFunctor.Helpers

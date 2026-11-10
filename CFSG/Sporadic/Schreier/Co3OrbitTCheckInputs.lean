@@ -38,7 +38,5 @@ instance : Hashable Co3Key := ⟨fun k => UInt64.ofNat (k.mask % 184467440737095
       head := head + 1
   return (sets, par, lab)
 
-@[expose] def co3OrbitT : Array (List Nat) × Array Nat × Array Nat :=
-  co3KeySearch co3OrigArrs co3ItNat 2608200
 
 end CFSG.Sporadic.Schreier.Co3

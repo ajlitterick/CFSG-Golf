@@ -1155,67 +1155,6 @@ public theorem IsBorelSubgroup.coset_isTwoPretransitive_of_isPSL2_model
   exact IsBorelSubgroup.psl_coset_isTwoPretransitive
     n hn (hB.map_mulEquiv eG)
 
-/-- In the natural unitary action, the root subgroup from Huppert II.10.12
-has normalizer exactly the isotropic-point stabilizer.  This isolates the
-remaining model-specific Sylow calculation from the action argument. -/
-public theorem psu_root_normalizer_action
-    {K : Type u} [Field K] [Finite K]
-    (J : HermitianForm 3 K) (q : ℕ)
-    (hKcard : Nat.card K = q ^ 2)
-    (hfixed_card : Nat.card {x : K // J.conj x = x} = q)
-    (hJstandard : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
-    (hq : 1 < q) :
-    let P := ℙ K (Fin 3 → K)
-    let A : Set P :=
-      {x | ∃ (v : Fin 3 → K) (hv : v ≠ 0),
-        x = Projectivization.mk K v hv ∧
-          dotProduct (fun i => J.conj (v i)) (J.form.mulVec v) = 0}
-    let Omega := {x : P // x ∈ A}
-    let G := ProjectiveSpecialUnitaryMatrixGroup J
-    ∃ (rho : G →* Equiv.Perm Omega) (pinf : Omega) (R : Subgroup G),
-      Function.Injective rho ∧
-      Nat.card R = q ^ 3 ∧
-      Subgroup.normalizer (R : Set G) =
-        (MulAction.stabilizer (Equiv.Perm Omega) pinf).comap rho ∧
-      (∀ a b c d : Omega, a ≠ b → c ≠ d →
-        ∃ g : G, rho g a = c ∧ rho g b = d) := by
-  let P := ℙ K (Fin 3 → K)
-  let A : Set P :=
-    {x | ∃ (v : Fin 3 → K) (hv : v ≠ 0),
-      x = Projectivization.mk K v hv ∧
-        dotProduct (fun i => J.conj (v i)) (J.form.mulVec v) = 0}
-  let Omega := {x : P // x ∈ A}
-  let G := ProjectiveSpecialUnitaryMatrixGroup J
-  change ∃ (rho : G →* Equiv.Perm Omega) (pinf : Omega)
-      (R : Subgroup G),
-    Function.Injective rho ∧
-    Nat.card R = q ^ 3 ∧
-    Subgroup.normalizer (R : Set G) =
-      (MulAction.stabilizer (Equiv.Perm Omega) pinf).comap rho ∧
-    (∀ a b c d : Omega, a ≠ b → c ≠ d →
-      ∃ g : G, rho g a = c ∧ rho g b = d)
-  rcases External.huppert_II_10_12 J q hKcard hfixed_card hJstandard with
-    ⟨_hOmegaCard, rho, pinf, hrho, _hnatural, _hUcard,
-      hroot, htwo, _hGcard, _hthree⟩
-  rcases hroot with
-    ⟨R, H, hR_le_U, _hH_le_U, hU_le_normalizer_R,
-      _hR_disjoint_H, _hR_sup_H, _hH_cyclic, hRcard,
-      _hcommutator_center, _hcommutator_card, _hHcard,
-      hRregular, _hcoordR, _hHcoord, _hHcoord_surjective⟩
-  letI : MulAction G Omega := MulAction.compHom Omega rho
-  have hR_ne : R ≠ ⊥ := by
-    intro hRbot
-    have hRcard_one : Nat.card R = 1 := by
-      rw [hRbot, Subgroup.card_bot]
-    have hqcube_one : q ^ 3 = 1 := hRcard.symm.trans hRcard_one
-    have hq_one : q = 1 :=
-      (pow_eq_one_iff_left (by norm_num : (3 : ℕ) ≠ 0)).mp hqcube_one
-    omega
-  have hnormalizer :
-      Subgroup.normalizer (R : Set G) = MulAction.stabilizer G pinf :=
-    normalizer_eq_stabilizer_of_regular_compl R pinf hR_le_U hR_ne
-      hRregular hU_le_normalizer_R
-  exact ⟨rho, pinf, R, hrho, hRcard, hnormalizer, htwo⟩
 
 /-- For `q = 2^n`, the root subgroup in the natural unitary action is a
 Sylow `2`-subgroup, and its normalizer is the isotropic-point stabilizer. -/

@@ -335,13 +335,4 @@ theorem onT_centerIn :
     exact congrArg Subtype.val this
 
 
-theorem at_on_sylow_center :
-    onz ∈ onT ∧ onz ≠ 1 ∧ orderOf onz = 2 ∧ CFSG.centerIn onT = Subgroup.zpowers onz ∧
-      onR.Nodup ∧ onR.length = 32 ∧ (∀ g ∈ onT, ∀ p ∈ onR, g p ∈ onR) ∧
-      (∀ (g : onT) (k : Fin 32), onR.get (Fin.cast onR_length.symm (rhoT g k)) =
-        (g : Equiv.Perm (Fin N)) (onR.get (Fin.cast onR_length.symm k))) ∧
-      Function.Injective rhoT ∧ rhoT.range = onT32Chain.originalSubgroup ∧ rhoT zT = onz32 :=
-  ⟨onz_mem_T, onz_ne_one, orderOf_onz, onT_centerIn, onR_nodup, onR_length,
-    fun g hg p hp => onT_preserve g hg p hp, rhoT_spec, rhoT_injective, rhoT_range, rhoT_z⟩
-
 end CFSG.ONSchreier

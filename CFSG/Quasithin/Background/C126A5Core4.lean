@@ -20,7 +20,6 @@ variable {H T M V Y : Subgroup G} {hV : IsElemAbelian 2 V} (s : Setting H T M V 
 
 include s
 
-theorem S_le_normalizer : baum T ≤ Subgroup.normalizer (Y : Set G) := s.S_norm
 
 theorem P₃_le : Y ⊔ baum T ≤ H := sup_le s.Y_le (s.S_le_T.trans s.hT.1)
 

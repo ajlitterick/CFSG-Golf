@@ -56,21 +56,6 @@ theorem componentImageAmbientCenterStatedLayerEquiv_symm_coe
   exact (componentImageAmbientCenterStatedLayerEquiv_coe hnonab n hn S e hfour K hcover
     (E.symm a)).symm.trans (congrArg Subtype.val (E.apply_symm_apply a))
 
-theorem componentImageAmbientCenterStatedLayerEquiv_mk
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K)
-    (d : originalImage n S e K)
-    (hd : QuotientGroup.mk'
-      ((Subgroup.center (centralizerOddCoreQuotient n S e)).subgroupOf (originalImage n S e K))
-        d ∈ originalImageAmbientCenterLayer n S e K) :
-    (componentImageAmbientCenterStatedLayerEquiv hnonab n hn S e hfour K hcover
-        ⟨_, hd⟩ : centralizerFullQuotient n hn S e) =
-      centralizerFullQuotientMap n hn S e (d : _) := by
-  rw [componentImageAmbientCenterStatedLayerEquiv_coe,
-    componentImageAmbientCenterInclusion_mk, originalFullCenterQuotientEquiv_mk]
 
 theorem componentImageAmbientCenterStatedLayerEquiv_every_inverse
     (hnonab : ∃ a b : G, a * b ≠ b * a)

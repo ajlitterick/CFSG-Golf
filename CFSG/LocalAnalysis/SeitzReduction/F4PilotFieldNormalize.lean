@@ -431,21 +431,6 @@ theorem FieldNeighbourIso.map_conj [Finite K] [CharP K 2] {N : AmalgamNeighbour}
         rw [hcomm.eq, mul_inv_cancel_right]
     _ = _ := by group
 
-theorem FieldNeighbourIso.map_conj_rootDiagUnit [Finite K] [CharP K 2] {N : AmalgamNeighbour}
-    (h : FieldNeighbourIso σ e N) (b : Fin (Tag.rank .F4) → (fixSubfield σ)ˣ) {x y : N.levi K}
-    (hy : ((y : adjointGroup .F4 K) : ModGL .F4 K) =
-      rootDiagUnit .F4 (fun i => Units.map (fixSubfield σ).subtype.toMonoidHom (b i)) *
-        ((x : adjointGroup .F4 K) : ModGL .F4 K) *
-          (rootDiagUnit .F4 (fun i => Units.map (fixSubfield σ).subtype.toMonoidHom (b i)))⁻¹) :
-    ((h.Φ y : neighbourCore e N) : G) =
-      ((e.symm ⟨rootDiagUnit .F4 b, f4RootDiagUnit_mem_adjointGroup b⟩ : L) : G) * (h.Φ x : G) *
-        ((e.symm ⟨rootDiagUnit .F4 b, f4RootDiagUnit_mem_adjointGroup b⟩ : L) : G)⁻¹ := by
-  refine h.map_conj (rootDiagUnit_mem_leviTorus fun j hj => absurd hj (Finset.notMem_empty j)) ?_
-  rw [hy]
-  change _ = baseChangeGL (fixSubfield σ).subtype (rootDiagUnit .F4 b) * _ *
-    (baseChangeGL (fixSubfield σ).subtype (rootDiagUnit .F4 b))⁻¹
-  rw [baseChangeGL_rootDiagUnit_eq_map]
-
 
 theorem baseChangeGL_conj_mem_map_levi {k : Type} [Field k] [Finite k] [CharP k 2]
     (ι : k →+* K) (N : AmalgamNeighbour) {d : ModGL .F4 k} (hd : d ∈ leviTorus k ∅)

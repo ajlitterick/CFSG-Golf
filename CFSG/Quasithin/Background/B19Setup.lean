@@ -99,9 +99,6 @@ theorem mem_commTo {Φ M : Subgroup G} {g : G} :
     rw [e]
     exact (Subgroup.mem_normalizer_iff.1 (Subgroup.inv_mem _ ha) _).1 (M.inv_mem ha')
 
-theorem mem_commWith {M : Subgroup G} {t k : G} :
-    k ∈ commWith M t ↔ k ∈ Subgroup.normalizer (M : Set G) ∧ ⁅k, t⁆ ∈ M :=
-  Iff.rfl
 
 theorem exists_inv_mul_fix {N K : Subgroup G} (hN : Odd (Nat.card N)) {τ c : G}
     (hτ : τ * τ = 1) (hc : c ∈ N) (hcK : c ∈ K) (hτc : τ * c * τ⁻¹ ∈ N)

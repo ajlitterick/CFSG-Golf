@@ -47,9 +47,6 @@ theorem centSpan_le {A H : Subgroup G} (h : ∀ a ∈ A, a ≠ 1 → centLayer �
 theorem centSpan_mono {A B : Subgroup G} (h : A ≤ B) : centSpan Ω A ≤ centSpan Ω B :=
   centSpan_le fun _ ha ha1 => le_centSpan (h ha) ha1
 
-theorem le_centSpan_of_commute {A L : Subgroup G} (hL : L ∈ Ω) {a : G} (ha : a ∈ A) (ha1 : a ≠ 1)
-    (hc : ∀ k ∈ L, k * a = a * k) : L ≤ centSpan Ω A :=
-  (le_centLayer (mem_centMembers_iff_commute.mpr ⟨hL, hc⟩)).trans (le_centSpan ha ha1)
 
 variable (hΩ : ConjInvariant Ω)
 include hΩ

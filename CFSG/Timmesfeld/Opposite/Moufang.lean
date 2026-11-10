@@ -153,16 +153,5 @@ theorem exists_mulEquiv_SL2_of_moufang {G : Type} [Group G] [Finite G] {D : Set 
   rw [← hcard] at hq ⊢
   exact rankOne_mulEquiv_SL2 h hq
 
-theorem card_sup_rootGroup_eq_six_of_moufang {G : Type} [Group G] [Finite G] {D : Set G}
-    (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g}) (hD : IsRootInvolutionSet D)
-    (hrc : RootClosure D) {d c : G} (hd : d ∈ D) (hcD : c ∈ D) (hdc : ¬ Commute d c)
-    (hodd : Odd (orderOf (d * c)))
-    (hM : ∀ a ∈ rootSet D d, ∃ b ∈ rootSet D c, orderOf (a * b) = 3)
-    (hM' : ∀ b ∈ rootSet D c, ∃ a ∈ rootSet D d, orderOf (a * b) = 3)
-    (hq : Nat.card (rootGroup D d) = 2) :
-    Nat.card ↥(rootGroup D d ⊔ rootGroup D c) = 6 := by
-  have h := isElemAbRankOne_of_moufang hclass hD hrc hd hcD hdc hodd hM hM'
-  have hcard := card_subgroupOf_of_le (le_sup_left : rootGroup D d ≤ rootGroup D d ⊔ rootGroup D c)
-  exact rankOne_two h (hcard.trans hq)
 
 end CFSG.Timmesfeld

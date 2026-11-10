@@ -55,67 +55,6 @@ public theorem lemma75_actor_le_normalizer
   rw [Subgroup.zpowers_le]
   exact hzT
 
-/-- The source condition `W = [W,⟨z⟩]` is exactly the `J = W`
-specialization in `[II1; 4.6]`: for the full actor `W⟨z⟩`, one has
-`[⟨z⟩, W⟨z⟩] = W`. -/
-public theorem lemma75_actor_commutator_eq
-    {X : Type u} [Group X] {W : Subgroup X} {z : X}
-    (hzNormW : z ∈ Subgroup.normalizer (W : Set X))
-    (hcomm : ⁅W, Subgroup.zpowers z⁆ = W) :
-    ⁅Subgroup.zpowers z, W ⊔ Subgroup.zpowers z⁆ = W := by
-  let Z : Subgroup X := Subgroup.zpowers z
-  let A : Subgroup X := W ⊔ Z
-  let WA : Subgroup A := W.subgroupOf A
-  let ZA : Subgroup A := Z.subgroupOf A
-  have hZnormW : Z ≤ Subgroup.normalizer (W : Set X) := by
-    rw [Subgroup.zpowers_le]
-    exact hzNormW
-  have hAnormW : A ≤ Subgroup.normalizer (W : Set X) :=
-    sup_le Subgroup.le_normalizer hZnormW
-  have hWAnormal : WA.Normal := by
-    exact (Subgroup.normal_subgroupOf_iff_le_normalizer
-      (H := W) (K := A) (by simp [A])).mpr hAnormW
-  letI : WA.Normal := hWAnormal
-  have hsupTop : WA ⊔ ZA = ⊤ := by
-    rw [← Subgroup.subgroupOf_sup (A := W) (A' := Z) (B := A)
-      (by simp [A]) (by simp [A])]
-    simp [A]
-  have hupper : ⁅Z, A⁆ ≤ W := by
-    rw [Subgroup.commutator_le]
-    intro x hxZ a haA
-    let aA : A := ⟨a, haA⟩
-    have haTop : aA ∈ WA ⊔ ZA := by simpa [hsupTop]
-    rcases (Subgroup.mem_sup_of_normal_left.mp haTop) with
-      ⟨wA, hwA, zA, hzA, hdecomp⟩
-    have hwW : (wA : X) ∈ W := hwA
-    have hzZ : (zA : X) ∈ Z := hzA
-    have hdecompX : (wA : X) * (zA : X) = a := by
-      exact congrArg Subtype.val hdecomp
-    have hcommZW : ⁅Z, W⁆ = W := by
-      simpa [Z, Subgroup.commutator_comm] using hcomm
-    have hxwW : ⁅x, (wA : X)⁆ ∈ W := by
-      rw [← hcommZW]
-      exact Subgroup.commutator_mem_commutator hxZ hwW
-    have hxzComm : Commute x (zA : X) := by
-      let xZ : Z := ⟨x, hxZ⟩
-      let zZ : Z := ⟨(zA : X), hzZ⟩
-      exact congrArg Subtype.val
-        (IsMulCommutative.is_comm.comm xZ zZ)
-    have hxzOne : ⁅x, (zA : X)⁆ = 1 :=
-      commutatorElement_eq_one_iff_mul_comm.mpr hxzComm.eq
-    rw [← hdecompX, commutator_mul_right, hxzOne]
-    simpa using hxwW
-  apply le_antisymm
-  · simpa [A, Z] using hupper
-  · have hcommZW : ⁅Z, W⁆ = W := by
-      simpa [Z, Subgroup.commutator_comm] using hcomm
-    calc
-      W = ⁅Z, W⁆ := hcommZW.symm
-      _ ≤ ⁅Z, A⁆ := by
-        apply Subgroup.commutator_mono
-        · exact le_rfl
-        · change W ≤ W ⊔ Z
-          exact le_sup_left
 
 /-- The routine cardinality bridge needed before invoking a coprime-action
 theorem: the actor `W⟨z⟩` is coprime to an odd target `T` as soon as
@@ -181,14 +120,6 @@ public theorem lemma75_actor_card_coprime
   rw [hactor, hcardA]
   exact hprod
 
-public theorem lemma75_pgroup_odd_card
-    {X : Type u} [Group X] [Finite X] {W : Subgroup X} {p : ℕ}
-    (hp : Nat.Prime p) (hpOdd : Odd p) (hWp : IsPGroup p W) :
-    Odd (Nat.card W) := by
-  letI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨n, hn⟩ := hWp.exists_card_eq
-  rw [hn]
-  exact hpOdd.pow
 
 public theorem lemma75_pgroup_coprime_card
     {X : Type u} [Group X] [Finite X]

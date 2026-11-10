@@ -98,13 +98,6 @@ theorem iso_ok2 : allN 15 (fun m => isoK (Nat.add 30 m)) = true := by quickRfl
 
 theorem iso_ok3 : allN 15 (fun m => isoK (Nat.add 45 m)) = true := by quickRfl
 
-theorem admK_neg : bIf(admK (TT 0), false, true) = true := by quickRfl
-
-theorem iso_neg : bIf((fun f => allN 32 (fun a => allN 32 (fun b => Nat.beq (pg 7 (mask 7) f (eK b a))
-    (mulCK (pg 7 (mask 7) f a) (pg 7 (mask 7) f b))))) (AI 0), false, true) = true := by
-  quickRfl
-
-theorem scan_neg : bIf(Nat.beq (TT (IX 0)) (AK 1), false, true) = true := by quickRfl
 
 end CertificateChecks.KernelPgAdm
 

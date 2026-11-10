@@ -212,10 +212,6 @@ theorem Qs1_subset : (Δ.Qs 1 : Set G) ⊆ comp σ V 1 := fun u hu => by
 
 theorem Qs1_le_V : Δ.Qs 1 ≤ V := fun _ hu => (h.Qs1_subset hu).1
 
-theorem Qs1_le_centralizer : Δ.Qs 1 ≤ Subgroup.centralizer (R Δ 0 : Set G) := fun u hu => by
-  have hu' : u ∈ (Δ.Qs 1 : Set G) := hu
-  rw [h.X_eq] at hu'
-  exact hu'.2
 
 theorem odd_V : Odd (Nat.card V) := odd_card_V Δ h.maxV
 
@@ -270,8 +266,6 @@ theorem Q2_le_V : Δ.Q 2 ≤ V := h.Q2_le_Y.trans inf_le_left
 theorem Q_inf_C (i : Fin 3) : Δ.Q i ⊓ σ.C = ⊥ :=
   eq_bot_iff.mpr ((inf_le_inf_right _ (Q_le_R Δ i)).trans (R_inf_C Δ h.valid i).le)
 
-theorem Qs_inf_C (i : Fin 3) : Δ.Qs i ⊓ σ.C = ⊥ :=
-  eq_bot_iff.mpr ((inf_le_inf_right _ (Qs_le_Rs Δ i)).trans (Rs_inf_C Δ h.valid i).le)
 
 theorem Q_subset_comp (i : Fin 3) {W : Subgroup G} (hW : Δ.Q i ≤ W) :
     (Δ.Q i : Set G) ⊆ comp σ W i := fun _ hu =>
@@ -280,12 +274,6 @@ theorem Q_subset_comp (i : Fin 3) {W : Subgroup G} (hW : Δ.Q i ≤ W) :
     (T_le_normalizer_of_C_le h.valid (C_le_normalizer_Q Δ i)) (h.Q_inf_C i)
     (Q_le_Ns Δ h.valid i) hu)
 
-theorem Qs_subset_comp (i : Fin 3) {W : Subgroup G} (hW : Δ.Qs i ≤ W) :
-    (Δ.Qs i : Set G) ⊆ comp σ W i := fun _ hu =>
-  comp_mono hW i (mem_comp_of_le_Ns h.valid
-    (odd_card_of_isPGroup Δ.prime Δ.ne_two (Δ.Q_pgroup i).2)
-    (T_le_normalizer_of_C_le h.valid (C_le_normalizer_Qs Δ i)) (h.Qs_inf_C i)
-    (Qs_le_Ns Δ h.valid i) hu)
 
 theorem Q2_subset_comp : (Δ.Q 2 : Set G) ⊆ comp σ V 2 := h.Q_subset_comp 2 h.Q2_le_V
 

@@ -129,13 +129,6 @@ theorem mem_stabSub_of_cube {g : MulAut V} (hg : g ^ 3 = 1) {W : Subgroup V}
   have := hW _ (hW _ h)
   rwa [apply_cube hg] at this
 
-omit [Finite V] in
-theorem invariant_zpowers_of_cube {g : MulAut V} (hg : g ^ 3 = 1) {W : Subgroup V}
-    (hW : ∀ w ∈ W, g w ∈ W) : ∀ x ∈ Subgroup.zpowers g, ∀ w ∈ W, x w ∈ W := by
-  intro x hx w hw
-  have h1 : Subgroup.zpowers g ≤ stabSub W :=
-    Subgroup.zpowers_le.mpr (mem_stabSub_of_cube hg hW)
-  exact (mem_stabSub.mp (h1 hx) w).mpr hw
 
 omit [Finite V] in
 theorem avg3_kill {g h a b : MulAut V} (hg : g ^ 3 = 1) (hgh : g * h = h * g) {W : Subgroup V}

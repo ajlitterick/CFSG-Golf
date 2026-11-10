@@ -77,48 +77,5 @@ noncomputable def hullSectionEquiv {G : Type*} [Group G] {L H : Subgroup G} (hLH
     (map_centralPreimage_mulEquiv _ _ _ (pPrimeCore_map_iso 2 _))).trans
     (QuotientGroup.quotientMulEquivOfEq (fusionZStar_eq_centralPreimage L).symm)
 
-theorem hullSectionEquiv_mk {G : Type*} [Group G] {L H : Subgroup G} (hLH : L ≤ H) (l : L) :
-    hullSectionEquiv hLH
-      (QuotientGroup.mk (⟨(⟨(l : G), hLH l.2⟩ : H), l.2⟩ : L.subgroupOf H)) =
-      QuotientGroup.mk l := by
-  rfl
-
-theorem hullSectionEquiv_mk_subgroup {G : Type*} [Group G] {L H : Subgroup G}
-    (hLH : L ≤ H) (l : L.subgroupOf H) :
-    hullSectionEquiv hLH (QuotientGroup.mk l) =
-      QuotientGroup.mk (⟨(l : G), l.2⟩ : L) := by
-  rfl
-
-theorem unbalancing_triple_uList (hUc : CatalogueU.CatalogAlmostSimpleUnbalancedOutcome)
-    {X : Type} [Group X] [Finite X] (hK : Assembly.KProper Catalog X) {x y : X}
-    (hxZ : x ∉ center X) {L : Subgroup X} (hT : UnbalancedLayer.GSUnbalancingTriple x y L) :
-    UList (L ⧸ Open.fusionZStar L) := by
-  obtain ⟨-, hy, hxy, hLx, hL, hLy, hLD⟩ := UnbalancedLayer.gsUnbalancingTriple_iff.mp hT
-  have hLD' : ⁅L, oddCentralizerMeet x y⁆ = L := hLD
-  have key := unbalancing_local_odd_two_quotient hy hxy hxZ hLx hL hLy hLD'
-  dsimp only at key
-  set H := hull L y (oddCentralizerMeet x y) with hH
-  set α := hullAction L y (oddCentralizerMeet x y) hLy.le hLD'.le with hα
-  obtain ⟨-, hS, -, -, -, hF, ⟨f⟩, -, hαy, -, -, -, hcore, -, hKcat⟩ := key
-  have hbridge : CFSG.generalizedFitting α.range = GeneralizedFitting.subgroup α.range :=
-    CFSG.generalizedFitting_eq_componentClassification α.range
-  let eF : GeneralizedFitting.subgroup α.range ≃* hullSection L H :=
-    (MulEquiv.subgroupCongr (hbridge.symm.trans hF)).trans f
-  have := hS.1
-  have hsimple : IsSimpleGroup (GeneralizedFitting.subgroup α.range) := eF.isSimpleGroup
-  have hnonab : ∃ a b : GeneralizedFitting.subgroup α.range, a * b ≠ b * a := by
-    obtain ⟨s, t, hst⟩ := hS.2
-    exact ⟨eF.symm s, eF.symm t, fun h => hst (by simpa using congrArg eF h)⟩
-  have hcat : Catalog (GeneralizedFitting.subgroup α.range) :=
-    SectionRank.catalog_of_mulEquiv eF (hKcat hK).2
-  have hz : ∃ z : α.range, orderOf z = 2 ∧ CFSG.oddCore (centralizer ({z} : Set α.range)) ≠ ⊥ :=
-    ⟨α.rangeRestrict ⟨y, mem_hull_elem L y _⟩, by
-      rw [← orderOf_injective _ α.range.subtype_injective]
-      exact hαy, by
-      rw [oddCore_eq_pPrimeCore_two]
-      exact hcore⟩
-  have hUO := hUc α.range hsimple hnonab hcat hz
-  exact uList_of_mulEquiv (eF.trans (hullSectionEquiv (le_hull_left L y _)))
-    (uList_of_uOutcome hUO)
 
 end CFSG.ComponentClassification.TBLit

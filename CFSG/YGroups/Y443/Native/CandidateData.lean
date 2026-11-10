@@ -23,13 +23,6 @@ theorem M_zero : M 0 = tauB := by
   rw [one_mul]
   rfl
 
-theorem orderOf_M_zero : orderOf (M 0) = 3 := by
-  rw [M_zero]
-  exact orderOf_tauB
-
-theorem M_zero_ne_one : M 0 ≠ 1 := by
-  rw [M_zero]
-  exact tauB_ne_one
 
 theorem thetaN_one : Model.thetaN 1 = 0 := by decide
 

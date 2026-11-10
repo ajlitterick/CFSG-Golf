@@ -38,8 +38,6 @@ theorem patFix_inv {π : Perm (Fin 4)} {χ : Fin 4 → ℕ} (hπ : PatFix π χ)
 instance (p : Fin 2 × Fin 2 × Fin 2) : DecidablePred (· ∈ stabP p) := fun π =>
   inferInstanceAs (Decidable (PatFix (π : Perm (Fin 4)) (pat p)))
 
-theorem mem_stabP {p : Fin 2 × Fin 2 × Fin 2} {π : Fin81.R0} :
-    π ∈ stabP p ↔ PatFix (π : Perm (Fin 4)) (pat p) := Iff.rfl
 
 theorem comm_omegaEl_iff (hn : 3 ≤ n) {s : L4Model n} {p : Fin 2 × Fin 2 × Fin 2} :
     s * omegaEl hn p = omegaEl hn p * s ↔ PatFix (piT s : Perm (Fin 4)) (pat p) := by

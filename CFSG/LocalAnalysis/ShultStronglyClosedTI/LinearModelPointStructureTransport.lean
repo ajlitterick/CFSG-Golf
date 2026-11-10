@@ -88,9 +88,6 @@ theorem le_stabilizer_left (h : LinearPointAction G X q α β U T) :
     U ≤ MulAction.stabilizer G α :=
   h.sup_eq_stabilizer ▸ le_sup_left
 
-theorem le_stabilizer_right (h : LinearPointAction G X q α β U T) :
-    T ≤ MulAction.stabilizer G α :=
-  h.sup_eq_stabilizer ▸ le_sup_right
 
 theorem normalizer_eq_stabilizer (h : LinearPointAction G X q α β U T) (hq : 1 < q) :
     Subgroup.normalizer (U : Set G) = MulAction.stabilizer G α := by
@@ -304,13 +301,6 @@ section Transport
 
 universe u
 
-theorem twoRank_eq_of_mulEquiv_psl2 {G : Type*} [Group G] [Finite G] {K : Type u} [Field K]
-    [Finite K] {f : ℕ} (hcard : Nat.card K = 2 ^ f) (e : G ≃* PSL2MatrixGroup K) :
-    twoRank G = f := by
-  rw [← twoRank_eq hcard]
-  exact le_antisymm
-    (CFSG.TwoRankLowerBound.Helpers.le_twoRank_of_injective e.toMonoidHom e.injective)
-    (CFSG.TwoRankLowerBound.Helpers.le_twoRank_of_injective e.symm.toMonoidHom e.symm.injective)
 
 theorem linearPointAction_cosets_of_mulEquiv {G : Type*} [Group G] {K : Type u} [Field K]
     [Finite K] {f : ℕ} (hcard : Nat.card K = 2 ^ f) (e : G ≃* PSL2MatrixGroup K)
@@ -349,9 +339,6 @@ theorem linearPointAction_cosets_of_mulEquiv_psl2 {G : Type*} [Group G] {n : ℕ
       FaithfulSMul G (G ⧸ Subgroup.normalizer ((Q : Subgroup G) : Set G)) :=
   linearPointAction_cosets_of_mulEquiv (GaloisField.card 2 n (by omega)) e Q
 
-theorem twoRank_eq_of_mulEquiv_psl2Binary {G : Type*} [Group G] [Finite G] {n : ℕ}
-    (e : G ≃* PSL2BinaryMatrixGroup n) (hn : 1 ≤ n) : twoRank G = n :=
-  twoRank_eq_of_mulEquiv_psl2 (GaloisField.card 2 n (by omega)) e
 
 end Transport
 

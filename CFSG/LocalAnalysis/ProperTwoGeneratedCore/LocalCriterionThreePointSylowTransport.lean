@@ -12,25 +12,6 @@ open CFSG.ProperTwoGeneratedCore.LocalCriterionSubgroupSylow
 
 variable {G : Type*} [Group G]
 
-theorem pair_flip_zpowers_subgroupOf (H : Subgroup G)
-    (beta : rightCosetSpace H) (t : G) :
-    (Subgroup.zpowers t).subgroupOf (pairFlipGroup H beta t) =
-      Subgroup.zpowers (⟨t, flip_mem_pairFlipGroup H beta t⟩ : pairFlipGroup H beta t) := by
-  apply Subgroup.map_injective (pairFlipGroup H beta t).subtype_injective
-  rw [Subgroup.map_subgroupOf_eq_of_le
-    (show Subgroup.zpowers t ≤ pairFlipGroup H beta t from le_sup_right),
-    MonoidHom.map_zpowers]
-  rfl
-
-theorem pair_group_stabilizer_sup_flip_eq_top (H : Subgroup G)
-    (beta : rightCosetSpace H) (t : G) :
-    (pairPointStabilizer H beta).subgroupOf (pairFlipGroup H beta t) ⊔
-      Subgroup.zpowers (⟨t, flip_mem_pairFlipGroup H beta t⟩ : pairFlipGroup H beta t) = ⊤ := by
-  rw [← pair_flip_zpowers_subgroupOf,
-    ← Subgroup.subgroupOf_sup
-      (pairPointStabilizer_le_pairFlipGroup H beta t)
-      (show Subgroup.zpowers t ≤ pairFlipGroup H beta t from le_sup_right)]
-  exact Subgroup.subgroupOf_self _
 
 theorem pair_odd_core_restriction_le_stabilizer [Finite G]
     (H : Subgroup G) (beta : rightCosetSpace H) (t : G) :

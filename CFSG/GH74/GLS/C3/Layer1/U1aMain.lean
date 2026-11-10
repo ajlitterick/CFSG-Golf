@@ -14,10 +14,6 @@ open Subgroup CFSG.GH74.Uniqueness
 
 variable {G : Type} [Group G] [Finite G] {M L N W Q T : Subgroup G}
 
-private theorem conj_mul_mem_of_mem_conjugate {g y : G} (hy : y ∈ CFSG.conjugate Q g) :
-    g * y * g⁻¹ ∈ Q := by
-  obtain ⟨q, hq, rfl⟩ := Subgroup.mem_map.1 hy
-  simpa [MulAut.conj_apply, mul_assoc] using hq
 
 theorem exists_conj_rank_two_of_not_A2 (h : ¬ A2 M Q) :
     ∃ g : G, g ∉ M ∧ 2 ≤ CFSG.pRank 2 ↥(CFSG.conjugate Q g ⊓ M) := by
@@ -38,34 +34,6 @@ theorem exists_conj_rank_two_of_not_A2 (h : ¬ A2 M Q) :
   · intro hxy
     exact hab (by simpa using hxy)
 
-theorem not_A2_of_exists_conj_rank_two
-    (h : ∃ g : G, g ∉ M ∧ 2 ≤ CFSG.pRank 2 ↥(CFSG.conjugate Q g ⊓ M)) : ¬ A2 M Q := by
-  rintro hA2
-  obtain ⟨g, hgM, hrank⟩ := h
-  obtain ⟨x, hxD, y, hyD, hx2, hy2, hxy_ne, hxy_comm⟩ :=
-    exists_commuting_involutions (D := CFSG.conjugate Q g ⊓ M) hrank
-  have hxQ : g * x * g⁻¹ ∈ Q := conj_mul_mem_of_mem_conjugate hxD.1
-  have hyQ : g * y * g⁻¹ ∈ Q := conj_mul_mem_of_mem_conjugate hyD.1
-  have hx2' : orderOf (g * x * g⁻¹) = 2 := by rw [orderOf_conj_eq', hx2]
-  have hy2' : orderOf (g * y * g⁻¹) = 2 := by rw [orderOf_conj_eq', hy2]
-  have hxy_ne' : g * x * g⁻¹ ≠ g * y * g⁻¹ := by
-    intro hxy
-    apply hxy_ne
-    have := congrArg (fun z => g⁻¹ * z * g) hxy
-    simpa [mul_assoc] using this
-  have hxy_comm' : (g * x * g⁻¹) * (g * y * g⁻¹) = (g * y * g⁻¹) * (g * x * g⁻¹) := by
-    calc (g * x * g⁻¹) * (g * y * g⁻¹) = g * (x * y) * g⁻¹ := by group
-      _ = g * (y * x) * g⁻¹ := by rw [hxy_comm]
-      _ = (g * y * g⁻¹) * (g * x * g⁻¹) := by group
-  have hgM' : g ∈ M :=
-    hA2 (g * x * g⁻¹) hxQ (g * y * g⁻¹) hyQ hx2' hy2' hxy_ne' hxy_comm' g
-      (by simpa [mul_assoc] using hxD.2)
-      (by simpa [mul_assoc] using hyD.2)
-  exact hgM hgM'
-
-theorem not_A2_iff_exists_conj_rank_two :
-    ¬ A2 M Q ↔ ∃ g : G, g ∉ M ∧ 2 ≤ CFSG.pRank 2 ↥(CFSG.conjugate Q g ⊓ M) :=
-  ⟨exists_conj_rank_two_of_not_A2, not_A2_of_exists_conj_rank_two⟩
 
 namespace Setup
 

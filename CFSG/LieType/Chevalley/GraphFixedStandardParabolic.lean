@@ -36,9 +36,6 @@ theorem graphFixedRootBorel_le_graphFixedParabolic
     graphFixedRootBorel t K σ ≤ graphFixedParabolic t K σ J :=
   le_sup_left
 
-theorem foldedParabolicWeylGroup_empty
-    : foldedParabolicWeylGroup t ∅ = ⊥ := by
-  rw [foldedParabolicWeylGroup, Set.image_empty, Subgroup.closure_empty]
 
 theorem graphFixedParabolic_empty
     : graphFixedParabolic t K σ ∅ = graphFixedRootBorel t K σ := by

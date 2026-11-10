@@ -68,18 +68,6 @@ theorem Hvis_stab_iff :
   rw [Nvis_eq_range_monoHom, ← modTwoEnd_twoΩCls_eq_iff]
   rfl
 
-theorem Nvis_le_stabilizer :
-    Nvis ≤ MulAction.stabilizer GLV twoΩCls := fun u hu =>
-  (Hvis_stab_iff u (Nvis_le_Hvis hu)).2 hu
-
-theorem Hvis_inf_stabilizer :
-    Hvis ⊓ MulAction.stabilizer GLV twoΩCls = Nvis :=
-  le_antisymm (fun u hu => (Hvis_stab_iff u hu.1).1 hu.2) fun _ hu =>
-    ⟨Nvis_le_Hvis hu, Nvis_le_stabilizer hu⟩
-
-def NvisEquiv : MonoSD ≃* Nvis :=
-  (MonoidHom.ofInjective monoHom_injective).trans
-    (MulEquiv.subgroupCongr Nvis_eq_range_monoHom.symm)
 
 instance normal_Evis_subgroupOf_Nvis :
     (Evis.subgroupOf Nvis).Normal := by
@@ -115,30 +103,5 @@ theorem Evis_comm {x y : GLV} (hx : x ∈ Evis) (hy : y ∈ Evis) : x * y = y * 
   rw [Evis_eq_Esign] at hx hy
   exact mul_comm_of_mem_Esign hx hy
 
-theorem coordinate_frame_stabilizer :
-    (∀ u ∈ Hvis, u • twoΩCls = twoΩCls ↔ u ∈ Nvis) ∧ Nvis ≤ Hvis ∧
-    Hvis ⊓ MulAction.stabilizer GLV twoΩCls = Nvis ∧
-    (∀ g : latticeO, modTwoEnd g twoΩCls = twoΩCls ↔ ∃ (a : C) (p : AutPerm), g = gO a * PO p) ∧
-    (∀ x : OLq, x ∈ stabQ ↔ ∃ (a : C) (p : AutPerm), x = QuotientGroup.mk (gO a * PO p)) ∧
-    (∀ (a b : C) (p q : AutPerm),
-      (QuotientGroup.mk (gO a * PO p) : OLq) = QuotientGroup.mk (gO b * PO q) ↔
-        p = q ∧ (a = b ∨ a = ΩC + b)) ∧
-    gO ΩC = negOneO ∧
-    Nonempty (stabQ ≃* MonoSD) ∧ Nonempty (Nvis ≃* MonoSD) ∧
-    Nvis = monoHom.range ∧ Function.Injective monoHom ∧
-    (∀ (a : C) (p : AutPerm),
-      monoHom ⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⟩ = modTwoUnit (PO p * gO a)) ∧
-    pA = bridgePA ∧ pB = bridgePB ∧ Subgroup.closure {pAAut, pBAut} = (⊤ : Subgroup AutPerm) ∧
-    Evis = Esign ∧
-    (∀ x ∈ Evis, ∀ y ∈ Evis, x * y = y * x) ∧ Evis ≤ Nvis ∧ (Evis.subgroupOf Nvis).Normal ∧
-    Nat.card Evis = 2 ^ 11 ∧
-    Nonempty (Nvis ⧸ Evis.subgroupOf Nvis ≃* AutPerm) ∧
-    Nat.card Nvis = 2 ^ 11 * 244823040 :=
-  ⟨Hvis_stab_iff, Nvis_le_Hvis, Hvis_inf_stabilizer,
-    fun g => by rw [twoΩCls_eq_frameClass]; exact modTwoEnd_frameClass_eq_iff g,
-    fun _ => mem_stabQ_iff, mk_gO_mul_PO_eq_iff, gO_ΩC, ⟨stabQEquiv.symm⟩, ⟨NvisEquiv.symm⟩,
-    Nvis_eq_range_monoHom, monoHom_injective, monoHom_mk, pA_eq, pB_eq, closure_pAAut_pBAut,
-    Evis_eq_Esign, fun _ hx _ hy => Evis_comm hx hy, Evis_le_Nvis, inferInstance, natCard_Evis,
-    ⟨NvisQuotEquiv⟩, natCard_Nvis⟩
 
 end CFSG.Monster.VisQuot

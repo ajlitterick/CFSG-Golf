@@ -100,10 +100,6 @@ theorem rho_rho (x y : A) (v : V) : ρ x (ρ y v) = ρ (x * y) v := by
 
 theorem rho_comp (x y : A) : ρ x ∘ₗ ρ y = ρ (x * y) := (map_mul ρ x y).symm
 
-@[expose] noncomputable def rhoEquiv (a : A) : V ≃ₗ[K] V :=
-  LinearEquiv.ofLinear (ρ a) (ρ a⁻¹)
-    (LinearMap.ext fun v => Representation.self_inv_apply ρ a v)
-    (LinearMap.ext fun v => Representation.inv_self_apply ρ a v)
 
 theorem exists_not_mem_hyperplane (hp : p.Prime) (H : Hyperplane A p) : ∃ x : A, x ∉ H.1 := by
   by_contra hcon

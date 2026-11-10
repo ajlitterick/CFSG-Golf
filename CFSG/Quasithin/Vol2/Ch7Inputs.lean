@@ -33,9 +33,6 @@ theorem alphaE_eq_top_of_alphaH_eq_one {M : Subgroup (MulAut V)} (h : alphaH M =
   rw [alphaSet_eq_empty_of_alphaH_eq_one h]
   simp
 
-theorem alphaE_eq_top_of_not_isFOneModule {M : Subgroup (MulAut V)} (h : ¬ IsFOneModule M) :
-    alphaE M = ⊤ :=
-  alphaE_eq_top_of_alphaH_eq_one (alphaH_eq_one_of_not_isFOneModule h)
 
 end AlphaE
 

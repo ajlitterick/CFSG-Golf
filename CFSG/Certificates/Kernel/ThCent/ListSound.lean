@@ -86,16 +86,6 @@ theorem pkMat_wordR (V : ℕ → ℕ) (w : List ℕ) :
     pkMat (wordR c rm ONE V w) = (w.map fun r => pkMat (V r)).prod := by
   rw [wordR, pkMat_wordRFrom hk, pkMat_one hk, Matrix.one_mul]
 
-theorem inLayout_wordRFrom (V : ℕ → ℕ) : ∀ (w : List ℕ) (acc : ℕ), InLayout acc →
-    InLayout (wordRFrom c rm V w acc)
-  | [], _, h => h
-  | r :: w, acc, _ => by
-    change InLayout (strictF (mulB c rm acc (V r)) (wordRFrom c rm V w))
-    rw [strictF_eq]
-    exact inLayout_wordRFrom V w _ (inLayout_mulB hk _ _)
-
-theorem inLayout_wordR (V : ℕ → ℕ) (w : List ℕ) : InLayout (wordR c rm ONE V w) :=
-  inLayout_wordRFrom hk V w ONE (inLayout_one hk)
 
 theorem neB_sound {X Y : ℕ} (h : neB c rm ONE X Y = true) : pkMat X ≠ pkMat Y := by
   intro e

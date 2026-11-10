@@ -103,10 +103,6 @@ theorem eq_of_mem_USet [Finite G] (hΩ : HM Ω) {U : Subgroup G}
     (hUK' : U ≤ K') : K = K' :=
   Sec6Gen.eq_of_mem_USet hΩ.toGen hU hK hK' hUK hUK'
 
-theorem natCard_eq_of_mem_USet [Finite G] (hΩ : HM Ω) {K U V : Subgroup G} (hK : K ∈ Ω)
-    (hU : U ∈ USet Ω) (hV : V ∈ USet Ω) (hUK : U ≤ K) (hVK : V ≤ K) :
-    Nat.card U = Nat.card V :=
-  Sec6Gen.natCard_eq_of_mem_USet hΩ.toGen hK hU hV hUK hVK
 
 theorem oddGen [Finite G] (hΩ : HM Ω) {K : Subgroup G} (hK : K ∈ Ω) :
     Subgroup.closure {x : G | x ∈ K ∧ Odd (orderOf x)} = K := by
@@ -195,12 +191,6 @@ end Vocab
     HypOmegaModU (.sl2 3 1) Ω → classicalInvolutionOddCore G = ⊥ → (∀ K ∈ Ω, AEmpty Ω K) →
       ∀ K ∈ Ω, ∀ J ∈ Ω, (¬ ∃ g : G, conjSub g K = J) → Commutes K J
 
-@[expose] def Thm2Below (n : ℕ) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Nat.card G < n → ∀ (Ω : Set (Subgroup G)),
-    HypOmegaModU (.sl2 3 1) Ω → classicalInvolutionOddCore G = ⊥ → (⨆ J ∈ Ω, J) = ⊤ → ∀ K ∈ Ω,
-      (∀ J ∈ Ω, ∃ g : G, conjSub g K = J) →
-        ∀ z : G, IsUniqueInvolution K z → (∃ N : Subgroup G, N.Normal ∧ IsPGroup 2 N ∧ z ∈ N) →
-          K.Normal
 
 @[expose] def Thm2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)),
@@ -215,9 +205,6 @@ section IH
 theorem thm4Below_of_ih {n : ℕ} (h : IH8T 3 1 n) : Thm4Below n :=
   fun G _ _ hG Ω hΩ hO hA => h.thm4 (by norm_num) (by norm_num) G hG Ω hΩ hO hA
 
-theorem thm2Below_of_ih {n : ℕ} (h : IH8T 3 1 n) : Thm2Below n :=
-  fun G _ _ hG Ω hΩ hO hgen K hK htr z hz hN =>
-    h.thm2 (by norm_num) (by norm_num) G hG Ω hΩ hO hgen K hK htr z hz hN
 
 end IH
 
@@ -225,13 +212,6 @@ section Six
 
 variable {G : Type} [Group G]
 
-@[expose] def L6_13 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod Ω →
-    ∀ R ∈ RSet Ω, ∀ Y X : Subgroup G, R ≤ Y → X ≤ Y → (∀ y ∈ Y, conjSub y X = X) →
-      R ⊓ X = ⊥ →
-        (⨆ R' ∈ {R' : Subgroup G | (∃ y ∈ Y, R' = conjSub y R) ∧ R' ≤ R ⊔ X}, R') ≤
-            R ⊔ oddCoreOf X ∧
-          ⁅R, X⁆ ≤ oddCoreOf X
 
 end Six
 

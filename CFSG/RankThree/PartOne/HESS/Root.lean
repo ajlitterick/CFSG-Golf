@@ -31,17 +31,6 @@ theorem mem_rootGrp_iff {i j : Fin 3} (h : i ≠ j) {x : SL3 K} :
 theorem rt_mem_rootGrp {i j : Fin 3} (h : i ≠ j) (s : K) : rt h s ∈ rootGrp (K := K) h :=
   (mem_rootGrp_iff h).2 ⟨s, rfl⟩
 
-theorem rt_injective {i j : Fin 3} (h : i ≠ j) : Function.Injective (fun s : K => rt h s) := by
-  intro a b hab
-  have := congrArg (fun z : SL3 K => KFOUT3.ent z i j) hab
-  simpa [KFOUT3.rt_apply_self] using this
-
-theorem card_rootGrp {i j : Fin 3} (h : i ≠ j) : Nat.card (rootGrp (K := K) h) = Nat.card K := by
-  have hinj : Function.Injective (rtHom (K := K) h) := fun a b hab => by
-    have := rt_injective (K := K) h (by simpa [rtHom] using hab)
-    exact Multiplicative.toAdd.injective this
-  rw [rootGrp, ← Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv]
-  exact Nat.card_congr Multiplicative.toAdd
 
 theorem commutator_rootGrp_chain {i j k : Fin 3} (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k) :
     ⁅rootGrp (K := K) hij, rootGrp (K := K) hjk⁆ = rootGrp (K := K) hik := by
@@ -85,15 +74,6 @@ theorem map_conj_permSL_rootGrp [CharP K 2] (σ : Equiv.Perm (Fin 3)) {i j : Fin
       simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
       exact KFOUT3.permSL_conj_rt σ h s⟩
 
-theorem rootGrp_injective {i j k l : Fin 3} (hij : i ≠ j) (hkl : k ≠ l)
-    (h : rootGrp (K := K) hij = rootGrp (K := K) hkl) : i = k ∧ j = l := by
-  have h1 : rt hij (1 : K) ∈ rootGrp (K := K) hkl := h ▸ rt_mem_rootGrp hij 1
-  obtain ⟨s, hs⟩ := (mem_rootGrp_iff hkl).1 h1
-  have h2 := congrArg (fun z : SL3 K => KFOUT3.ent z i j) hs
-  simp only [KFOUT3.rt_apply_self, KFOUT3.rt_apply] at h2
-  by_contra hne
-  have h3 : ¬ (k = i ∧ l = j) := fun ⟨e1, e2⟩ => hne ⟨e1.symm, e2.symm⟩
-  simp [hij, h3] at h2
 
 end Mat
 

@@ -85,10 +85,6 @@ theorem det_cornerMat (hk : k ≤ n) (A : Matrix (Fin k) (Fin k) K) :
     (cornerMat hk A).det = A.det := by
   rw [cornerMat, det_submatrix_equiv_self, det_fromBlocks_zero₂₁, det_one, mul_one]
 
-@[expose] def cornerMatHom (hk : k ≤ n) : Matrix (Fin k) (Fin k) K →* Matrix (Fin n) (Fin n) K where
-  toFun := cornerMat hk
-  map_one' := cornerMat_one hk
-  map_mul' := cornerMat_mul hk
 
 @[expose] def cornerSL (hk : k ≤ n) :
     SpecialLinearGroup (Fin k) K →* SpecialLinearGroup (Fin n) K where
@@ -108,12 +104,6 @@ theorem coe_cornerSL (hk : k ≤ n) (g : SpecialLinearGroup (Fin k) K) :
       cornerMat hk g :=
   rfl
 
-@[expose] def cornerGL (hk : k ≤ n) : GL (Fin k) K →* GL (Fin n) K :=
-  Units.map (cornerMatHom hk)
-
-theorem coe_cornerGL (hk : k ≤ n) (A : GL (Fin k) K) :
-    ((cornerGL hk A : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) = cornerMat hk A :=
-  rfl
 
 theorem cornerSL_transpose (hk : k ≤ n) (g : SpecialLinearGroup (Fin k) K) :
     (cornerSL hk g).transpose = cornerSL hk g.transpose := by
@@ -129,17 +119,6 @@ theorem cornerSL_map (hk : k ≤ n) (σ : K →+* K) (g : SpecialLinearGroup (Fi
     cornerMat hk ((g : Matrix (Fin k) (Fin k) K).map σ)
   exact cornerMat_map hk σ _
 
-theorem conjAut_cornerGL_proj_cornerSL (hk : k ≤ n) (A : GL (Fin k) K)
-    (g : SpecialLinearGroup (Fin k) K) :
-    conjAut n K (cornerGL hk A) (proj n K (cornerSL hk g)) =
-      proj n K (cornerSL hk
-        (CFSG.ComponentClassification.CatalogueBHigherLinearAction.slConjugation k K A g)) := by
-  rw [conjAut_proj]
-  congr 1
-  apply Subtype.ext
-  change _ = cornerMat hk _
-  rw [coe_slConjugation, coe_slConjugation, ← map_inv, coe_cornerGL, coe_cornerGL, coe_cornerSL,
-    ← cornerMat_mul, ← cornerMat_mul]
 
 theorem fieldAut_proj_cornerSL (hk : k ≤ n) (σ : K ≃+* K) (g : SpecialLinearGroup (Fin k) K) :
     fieldAut n K σ (proj n K (cornerSL hk g)) =
@@ -186,9 +165,6 @@ theorem coe_fusionLower (c : K) :
     ((fusionLower c : SpecialLinearGroup (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) = !![1, 0; c, 1] :=
   rfl
 
-theorem coe_fusionSwap [CharP K 2] :
-    ((fusionSwap : SpecialLinearGroup (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) = !![0, 1; 1, 0] :=
-  rfl
 
 theorem fusionUpper_eq_rootElt (c : K) : fusionUpper c = rootElt (0 : Fin 2) 1 c := by
   apply Subtype.ext

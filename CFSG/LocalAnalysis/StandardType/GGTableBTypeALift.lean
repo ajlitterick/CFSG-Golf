@@ -258,9 +258,6 @@ variable [Finite K] (hd : 0 < d) (hpd : Nat.Coprime p d)
     rintro g ⟨hg, hgX⟩
     exact ⟨by rw [inv_pow, hg, inv_one], by rw [map_inv, map_inv]; exact X.inv_mem hgX⟩
 
-theorem mem_slLift {g : SpecialLinearGroup (Fin d) K} :
-    g ∈ slLift hd hpd X hXc ↔ g ^ p = 1 ∧ conjAut d K (SpecialLinearGroup.toGL g) ∈ X :=
-  Iff.rfl
 
 theorem slLift_comm {g h : SpecialLinearGroup (Fin d) K} (hg : g ∈ slLift hd hpd X hXc)
     (hh : h ∈ slLift hd hpd X hXc) : g * h = h * g :=

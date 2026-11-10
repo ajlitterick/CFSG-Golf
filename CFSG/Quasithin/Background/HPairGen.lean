@@ -375,24 +375,6 @@ theorem fst_mem_natNorm {a b : MulAut (StdMod ι K)} (hx : pairAut a b ∈ pairN
     rw [← h, hδ, inv_inv]
     group
 
-theorem snd_mem_natNorm (hθ : Function.Surjective θ) {a b : MulAut (StdMod ι K)}
-    (hx : pairAut a b ∈ pairNorm Γ θ) : b ∈ natNorm Γ := by
-  have hx' : pairAut a⁻¹ b⁻¹ ∈ pairNorm Γ θ := by
-    rw [← pairAut_inv]
-    exact Subgroup.inv_mem _ hx
-  rw [natNorm, Subgroup.mem_normalizer_iff]
-  intro y
-  constructor
-  · rintro ⟨γ, rfl⟩
-    obtain ⟨γ₀, rfl⟩ := hθ γ
-    obtain ⟨δ, -, h⟩ := exists_conj hx γ₀
-    exact ⟨θ δ, h.symm⟩
-  · rintro ⟨δ, hδ⟩
-    obtain ⟨δ₀, rfl⟩ := hθ δ
-    obtain ⟨γ, -, h⟩ := exists_conj hx' δ₀
-    refine ⟨θ γ, ?_⟩
-    rw [← h, hδ, inv_inv]
-    group
 
 end Img
 

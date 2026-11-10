@@ -434,16 +434,6 @@ theorem z_sq_eq {S : WardSetup G L q e} (D : S.EtaData) {χ : G → ℂ} (h : χ
   have := (Finset.sum_eq_zero_iff_of_nonneg (fun ξ hξ => sub_nonneg.mpr (hle ξ hξ))).mp hsum χ h
   linarith
 
-theorem σ_NE_R {χ : G → ℂ} (h : χ ∈ D.NE) {r : L} (hr : r ∈ S.W.Ro) (hr1 : r ≠ 1) :
-    S.σ χ r = S.d1 χ := by
-  have hodd : Odd (orderOf r) := S.orderOf_Ro_odd hr
-  obtain ⟨h2, h3, -, hS⟩ := S.W.val_Ro r hr hr1
-  rw [S.σ_decomp (D.mem_NE.mp h).1 hodd, h2, h3,
-    Finset.sum_eq_zero (s := S.W.RFam) (fun θ hθ => by
-      rw [show S.dR χ θ = 0 from
-        D.dR_other (D.mem_NE.mp h).1 (D.NE_ne_η h) (D.NE_ne_η' h) ⟨θ, hθ⟩]; simp),
-    Finset.sum_eq_zero (s := S.W.SFam) (fun θ hθ => by rw [hS θ hθ, mul_zero])]
-  simp
 
 end EtaData
 

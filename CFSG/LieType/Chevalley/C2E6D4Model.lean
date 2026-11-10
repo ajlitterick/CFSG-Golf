@@ -21,10 +21,6 @@ open scoped commutatorElement
   map_one' := LinearMap.ext fun _ => rfl
   map_mul' _ _ := LinearMap.ext fun _ => rfl
 
-theorem restrictEndD_apply
-    (g : groupD) (v : moduleD) :
-    ((restrictEndD g v : moduleD) : RootModule Tag.E6 K) =
-      ((g : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) v := rfl
 
 @[expose] def psiD
     : groupD →* ((Fin 4 ⊕ Fin 4 → K) ≃ₗ[K] (Fin 4 ⊕ Fin 4 → K)) :=

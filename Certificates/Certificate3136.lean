@@ -61,8 +61,6 @@ private theorem ty_of {e n k : ℕ} (hw : walkOK e = true) (hn : Nat.beq (n % 2 
   rw [innerTy_walk KernelBM.census_orbitLists hw (beq_iff.1 hn) (Nat.pos_iff_ne_zero.1 (blt_iff.1 h0)),
     beq_iff.1 hk]
 
-private theorem walk_neg : (!(walkOK (Nat.xor CFSG.KD.Y3136.W0 (Nat.shiftLeft 1 31)))) = true := by
-  quickRfl
 
 private theorem ty32 : innerTy innerTab 32 = 1 :=
   ty_of (e := CFSG.KD.Y3136.W0) (k := 0) (by quickRfl) (by quickRfl) (by quickRfl) (by quickRfl)

@@ -126,9 +126,5 @@ theorem isAGLQ_of_escape {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
   ⟨h.le_M, h.isPGroup,
     Or.inl (by rw [CFSG.SectionRank.pRank_coe_eq_openPRank]; exact h.three_le_pRank)⟩
 
-theorem extremal_of_competitor {p : ℕ} {P : Sylow p G} {M H R N : Subgroup G}
-    (h : D1Extremal p P M H R) (hN : GLBIsMaxTwoLocal N) (hNM : ¬ N ≤ M) (hRN : R ≤ N) :
-    D1Extremal p P M N R :=
-  h.of_le hN hRN hNM
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111

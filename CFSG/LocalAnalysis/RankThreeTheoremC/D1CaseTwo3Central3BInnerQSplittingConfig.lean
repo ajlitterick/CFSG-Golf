@@ -32,6 +32,5 @@ end Generic
 
 end InnerQ
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

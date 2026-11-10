@@ -661,14 +661,6 @@ theorem mem_pCoreOf_of_commutator_mem_frattiniR (h : TwoPTwo K S X p) {k : G} (h
   have hksup : k ∈ pCoreOf 2 K ⊔ X := mem_sup_of_commutator_mem h hk hcR
   exact mem_pCoreOf_of_mem_sup h hksup hn
 
-theorem subgroupOf_normal_of_le_normalizer (h : TwoPTwo K S X p) {N : Subgroup G} (hNK : N ≤ K)
-    (hN₁ : twoResidual K ≤ normalizer (N : Set G)) (hN₂ : S ≤ normalizer (N : Set G)) :
-    (N.subgroupOf K).Normal := by
-  have hsup : S ⊔ twoResidual K = K :=
-    sup_twoResidual_eq (show IsSylowTwoOf S K from h.sylowTwo)
-  refine (Subgroup.normal_subgroupOf_iff_le_normalizer hNK).mpr ?_
-  rw [← hsup]
-  exact sup_le hN₂ hN₁
 
 theorem twoResidual_le_of_le_sup (h : TwoPTwo K S X p) {N : Subgroup G} (hNK : N ≤ K)
     (hN : (N.subgroupOf K).Normal) (hX : X ≤ N ⊔ pCoreOf 2 K) : twoResidual K ≤ N := by

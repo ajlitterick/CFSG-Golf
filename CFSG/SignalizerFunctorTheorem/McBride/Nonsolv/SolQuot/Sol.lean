@@ -29,33 +29,10 @@ theorem sol_qimg_sol (G : Subgroup Γ) : sol (qimg (sol G) G) = ⊥ := by
     (QuotientGroup.quotientKerEquivOfSurjective (qres (sol G) G (le_nrm_sol G))
       (qres_surjective (le_nrm_sol G)))
 
-omit [Finite Γ] in
-theorem quotSolEquiv_mk (G : Subgroup Γ) (g : ↥G) :
-    ((quotSolEquiv G (QuotientGroup.mk g) : ↥(qimg (sol G) G)) : QG (sol G)) =
-      qmap (sol G) ⟨g, le_nrm_sol G g.2⟩ := rfl
 
 theorem sol_qimg_sol_of_le (hX : X ≤ G) : sol (qimg (sol G) X) = qimg (sol G) (sol X) :=
   sol_qimg (isSolvable_sol G) (hX.trans (le_nrm_sol G))
 
-theorem mem_mcal_iff_qimg_mem_lcal (hXG : X ≤ G) (hX : sol G ≤ X) :
-    X ∈ mcal G ↔ qimg (sol G) X ∈ lcal (qimg (sol G) G) := by
-  rw [← mcal_eq_lcal_of_sol_eq_bot (sol_qimg_sol G),
-    qimg_mem_mcal_iff (isSolvable_sol G) (le_nrm_sol G) hXG hX]
-
-theorem bijOn_mcal_sol (G : Subgroup Γ) :
-    Set.BijOn (qimg (sol G)) (mcal G) (lcal (qimg (sol G) G)) := by
-  have h := bijOn_mcal (isSolvable_sol G) (le_nrm_sol G)
-  rwa [mcal_eq_lcal_of_sol_eq_bot (sol_qimg_sol G)] at h
-
-theorem bijOn_ltilde_sol (G : Subgroup Γ) :
-    Set.BijOn (qimg (sol G)) (ltilde G) (ltilde (qimg (sol G) G)) :=
-  bijOn_ltilde (isSolvable_sol G) (le_nrm_sol G)
-
-theorem qpre_mem_mcal {J : Subgroup (QG (sol G))} (hJ : J ∈ lcal (qimg (sol G) G)) :
-    qpre (sol G) J ∈ mcal G ∧ qimg (sol G) (qpre (sol G) J) = J := by
-  obtain ⟨M, hM, rfl⟩ := (bijOn_mcal_sol G).surjOn hJ
-  rw [qpre_qimg (hM.1.trans (le_nrm_sol G)), sup_eq_left.mpr hM.2.1]
-  exact ⟨hM, rfl⟩
 
 theorem kOf_qimg_sol (hX : X ≤ G) : kOf (qimg (sol G) X) = qimg (sol G) (kOf X) :=
   kOf_qimg (isSolvable_sol G) (hX.trans (le_nrm_sol G))
@@ -153,15 +130,6 @@ theorem kDown_qimg_sol (h : KSetting p A G) :
     kDown (qimg (sol G) G) (qimg (sol G) A) = qimg (sol G) (kDown G A) :=
   kDown_qimg (qSetting_sol h) le_rfl
 
-theorem kUp_qimg_sol (h : KSetting p A G) :
-    kUp (qimg (sol G) G) (qimg (sol G) A) = qimg (sol G) (kUp G A) :=
-  kUp_qimg (qSetting_sol h)
-
-theorem le_normalizer_kUp_iff_sol (h : KSetting p A G) (hX : X ≤ G) :
-    qimg (sol G) X ≤
-        Subgroup.normalizer (kUp (qimg (sol G) G) (qimg (sol G) A) : Set (QG (sol G))) ↔
-      X ≤ Subgroup.normalizer (kUp G A : Set Γ) :=
-  le_normalizer_kUp_iff (qSetting_sol h) hX
 
 theorem exists_mem_kUp_of_qimg_sol (h : KSetting p A G) (hX : X ≤ G)
     (hbar : ∀ z ∈ qimg (sol G) X, ∃ w ∈ kUp (qimg (sol G) G) (qimg (sol G) A),
@@ -169,11 +137,6 @@ theorem exists_mem_kUp_of_qimg_sol (h : KSetting p A G) (hX : X ≤ G)
     ∀ x ∈ X, ∃ y ∈ kUp G A, y⁻¹ * x ∈ kDown G A :=
   exists_mem_kUp_of_qimg (qSetting_sol h) le_rfl hX hbar
 
-theorem qimg_inf_centralizer_sol (h : KSetting p A G) :
-    qimg (sol G) (G ⊓ Subgroup.centralizer (A : Set Γ)) =
-      qimg (sol G) G ⊓ Subgroup.centralizer ((qimg (sol G) A : Subgroup (QG (sol G))) :
-        Set (QG (sol G))) :=
-  (qSetting_sol h).qimg_inf_centralizer le_rfl h.normalizes
 
 omit [Finite Γ] in
 theorem QSetting.qimg_inf_centralizer_singleton {R : Subgroup Γ} (h : QSetting p R A G) {a : Γ}

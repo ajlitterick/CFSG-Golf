@@ -13,17 +13,6 @@ universe u
 
 variable {G : Type u} [Group G]
 
-theorem hull_relative_centralizer_product_carrier (M L : Subgroup G) :
-    ((L ⊔ (M ⊓ Subgroup.centralizer (L : Set G)) : Subgroup G) : Set G) =
-      (L : Set G) * ((M ⊓ Subgroup.centralizer (L : Set G) : Subgroup G) : Set G) := by
-  let K := M ⊓ Subgroup.centralizer (L : Set G)
-  have hLC : L ≤ Subgroup.centralizer (K : Set G) := by
-    intro l hl
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro k hk
-    exact (Subgroup.mem_centralizer_iff.mp hk.2 l hl).symm
-  exact Subgroup.coe_mul_of_left_le_normalizer_right L K
-    (hLC.trans (Subgroup.centralizer_le_normalizer _))
 
 theorem entire_involutions_mem_hull_relative_centralizer_product
     (M L : Subgroup G) (u : G) (huM : u ∈ M)

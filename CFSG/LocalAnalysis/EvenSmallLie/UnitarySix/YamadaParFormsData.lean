@@ -42,8 +42,5 @@ namespace CFSG.EvenSmallLie.UnitarySix.YamadaPar
 
 @[expose] def formFb (z v : ℕ) : ℕ := packN 16 12 (formBlock z (unpackN 16 v 0))
 
-@[expose] def formCheck (z : ℕ) : Bool := injCheck 256 (12 * 256) (linBits 256 (12 * 256) (formFb z))
-
-@[expose] def formsCheck : Bool := formCheck 4 && formCheck 5 && formCheck 6 && formCheck 7
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaPar

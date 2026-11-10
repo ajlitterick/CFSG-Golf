@@ -23,8 +23,6 @@ open scoped Nat
     LieModel X .PSL m 2 f → StatedLieAdmissible t n 2 f' → LieModel X t n 2 f' →
       t = .PSL ∧ n = m ∧ f' = f
 
-@[expose] def SLmEvenTypeDet : Prop :=
-  ∀ m : ℕ, 3 ≤ m → SLmEvenTypeDetAt m
 
 theorem isSimpleGroup_of_lieModel_PSL {X : Type} [Group X] {n p f : ℕ}
     (h : LieModel X .PSL n p f) : IsSimpleGroup X :=
@@ -343,7 +341,5 @@ theorem catSLmEvenOuterFamilyAt_PSL {m : ℕ} (hm : 3 ≤ m) (hdet : SLmEvenType
   · exact (no_component_statedSp hdet hk hr Φ hD hm hDm).elim
   · exact (h D hDp).elim
 
-theorem catSLmEvenOuterFamily_PSL (hdet : SLmEvenTypeDet) : CatSLmEvenOuterFamily .PSL :=
-  fun m hm => catSLmEvenOuterFamilyAt_PSL hm (hdet m hm)
 
 end CFSG.SeitzReduction.LinearPilot

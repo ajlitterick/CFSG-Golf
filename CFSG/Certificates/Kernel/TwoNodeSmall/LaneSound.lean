@@ -200,9 +200,6 @@ theorem pkr_eq (D : Nat) (f : Vec) : pkr D f = rv D (ln f) := by
   rw [Nat.zero_mul, Nat.zero_add] at h
   exact h
 
-theorem pkP_eq (D : Nat) (v : Vec) : pkP 3 D v = pk D v := rfl
-
-theorem pkrP_eq (D : Nat) (f : Vec) : pkrP 3 D f = pkr D f := rfl
 
 theorem ln_le (v : Vec) (i : Nat) : ln v i ≤ 2 := by
   unfold ln
@@ -431,22 +428,6 @@ theorem conjK_pk {P : Pt} (hp : P.p = 3) (hD : P.D ≤ 10) (gh gf rh rf : Vec) :
   rw [dotK_pk hp hD, redF_eq, pkr_applyRefl hp, dotv_comm P gh rf]
   exact red_rv_add 7 (Or.inr rfl) P.D _ (k_le _) rf gf
 
-theorem smulK_pk {P : Pt} (hp : P.p = 3) (l : Nat) (hl : l < 3) (v : Vec) :
-    smulK (fdB 3 P.D) l (pk P.D v) = pk P.D ((List.range P.D).map fun i => l * v.getD i 0 % 3) := by
-  have _ := hp
-  unfold smulK
-  rw [redF_eq, pk_eq, pk_eq]
-  have e : Nat.mul l (fw P.D (ln v)) = fw P.D (fun i => l * ln v i) := by
-    unfold fw
-    rw [enc_map_mul]
-    rfl
-  rw [e, red_fw 7 (Or.inr rfl) P.D _ (fun i => by
-    have := Nat.mul_le_mul (by omega : l ≤ 2) (ln_le v i); omega)]
-  unfold fw
-  apply enc_map_congr
-  intro i hi
-  rw [List.mem_range] at hi
-  simp [ln, List.getD_eq_getElem?_getD, hi, Nat.mul_mod]
 
 @[expose] def negV (D : Nat) (v : Vec) : Vec := (List.range D).map fun i => (3 - v.getD i 0 % 3) % 3
 
@@ -921,22 +902,6 @@ theorem conjKP_pk {P : Pt} {p : Nat} (hp : P.p = p) (hp57 : p = 5 ∨ p = 7) (hD
   rw [dotKP_pk hp hp0 (by omega) hD, pkrP_applyRefl hp hp57, dotv_comm P gh rf]
   exact red_rv_addP hp57 P.D _ (kP_le hp0 _) rf gf
 
-theorem smulKP_pk {p : Nat} (hp : p = 5 ∨ p = 7) (D l : Nat) (hl : l < p) (v : Vec) :
-    smulK (fdOf p D) l (pkP p D v) = pkP p D ((List.range D).map fun i => l * v.getD i 0 % p) := by
-  unfold smulK
-  rw [pkP_fw, pkP_fw]
-  have e : Nat.mul l (fw D (lnp p v)) = fw D (fun i => l * lnp p v i) := by
-    unfold fw
-    rw [enc_map_mul]
-    rfl
-  rw [e, red_fwP hp D _ (fun i => by
-    have h0 := lane_addP hp l (by omega) v v i
-    omega)]
-  unfold fw
-  apply enc_map_congr
-  intro i hi
-  rw [List.mem_range] at hi
-  simp [lnp, List.getD_eq_getElem?_getD, hi, Nat.mul_mod]
 
 theorem shiftLeft_unitP (P : Pt) {p : Nat} (hp : 2 ≤ p) {i : Nat} (hi : i < P.D) :
     Nat.shiftLeft 1 (Nat.mul 16 i) = pkP p P.D (P.unit i) := by

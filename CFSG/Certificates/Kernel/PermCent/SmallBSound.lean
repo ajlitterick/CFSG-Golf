@@ -24,9 +24,6 @@ theorem ev_evCodesB (S : List (Equiv.Perm (Fin n))) (w : List ℤ) :
     · rw [ev_cOf]
     · rw [ev_inv, ev_cOf]
 
-theorem cOf_evalCodes (S : List (Equiv.Perm (Fin n))) (w : List ℤ) :
-    cOf (evalCodes S w) = evCodesB (S.map cOf) w :=
-  ev_injective (by rw [ev_cOf, ev_evCodesB])
 
 theorem orderIs_eq_P {M : Type*} [Monoid M] [DecidableEq M] (g : M) (m : Nat) (ps : List Nat)
     (hm : 0 < m) (h1 : ∀ p < m + 1, p.Prime → p ∣ m → p ∈ ps)

@@ -15,30 +15,6 @@ open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
   CFSG.LocalAnalysis.GLTheoremA CFSG.LocalAnalysis.GLTheoremA.I1416Rows
 
 
-theorem not_isChevSimple_of_not_lieOrder
-    (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge) {T : Type} [Group T]
-    [Finite T] {N : ℕ} (hT : Nat.card T = N)
-    (hN : ∀ d : TauCeti.LieTypeIndex, d.Valid →
-      CFSG.HardMathSupport.Solomon.Coordinator.I1420.lieOrderFormula d ≠ N)
-    (h60 : N ≠ 60) (h360 : N ≠ 360) (h8 : N ≠ 20160) (q : ℕ) : ¬ IsChevSimple q T := by
-  rintro (⟨i, hi, ⟨e⟩⟩ | ⟨i, hi, ⟨e⟩⟩)
-  · cases i with
-    | lie d => exact hN d.1 d.2 ((hb d T ⟨e⟩).symm.trans hT)
-    | _ => exact hi.elim
-  · cases i with
-    | lie d => exact hN d.1 d.2 ((hb d T ⟨e⟩).symm.trans hT)
-    | alternating n hn5 =>
-      simp only [ambiguousChev] at hi
-      have hc : Nat.card T = n.factorial / 2 :=
-        (Nat.card_congr e.toEquiv).trans
-          (CFSG.HardMathSupport.Solomon.Coordinator.YS08.L3Char.card_alt n (by omega))
-      rw [hT] at hc
-      rcases hi with ⟨rfl, -⟩ | ⟨rfl, -⟩ | ⟨rfl, -⟩
-      · exact h60 (by rw [hc]; decide)
-      · exact h360 (by rw [hc]; decide)
-      · exact h8 (by rw [hc]; decide)
-    | _ => exact hi.elim
-
 theorem scompOK_three_of_card_dvd_1080
     (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge) {Q : Type} [Group Q]
     [Finite Q] {k : Q} (hk3 : orderOf k = 3)

@@ -83,8 +83,6 @@ variable {G : Type u} [Group G] [Finite G] (S : Setting G)
 
 variable {S}
 
-theorem mem_invZ12 {g : G} {t y : S.O} :
-    y ∈ S.invZ12 g t ↔ y ∈ S.Z3Xbar12 g ∧ t * y * t⁻¹ = y⁻¹ := Iff.rfl
 
 theorem mem_centZ12 {g : G} {t y : S.O} :
     y ∈ S.centZ12 g t ↔ y ∈ S.Z3Xbar12 g ∧ y * t = t * y := by

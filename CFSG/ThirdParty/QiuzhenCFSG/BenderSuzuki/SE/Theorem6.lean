@@ -87,19 +87,5 @@ public theorem exists_isMinimalNormalSupplement_le
     Finite.exists_le_minimal (p := IsNormalSupplement M D) hQ
   exact ⟨W, hWQ, hWmin⟩
 
-/-- To obtain a normal complement, it is enough to prove that every minimal
-normal supplement is disjoint from `D`. -/
-public theorem exists_isNormalComplementIn_of_minimal_disjoint
-    {X : Type u} [Group X] [Finite X] {M D : Subgroup X}
-    (hDle : D ≤ M)
-    (hcore : ∀ {W : Subgroup X},
-      IsMinimalNormalSupplement M D W → Disjoint W D) :
-    ∃ Q : Subgroup X, IsNormalComplementIn M D Q := by
-  obtain ⟨Q, hQmin⟩ := exists_isMinimalNormalSupplement hDle
-  exact ⟨Q,
-    { le_M := hQmin.prop.le_M
-      normal_in_M := hQmin.prop.normal_in_M
-      sup_eq := hQmin.prop.sup_eq
-      disjoint_D := hcore hQmin }⟩
 
 end CFSG.BenderSuzuki

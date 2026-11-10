@@ -62,8 +62,6 @@ theorem transK_cofK (x : R9) : transK (cofK (codeR x)) = codeR (adj x) := by
   rw [cofK_codeR, transK_codeR]
   rfl
 
-theorem conjK_codeR (g x : R9) : conjK (codeR g) (codeR x) = codeR (rmul (rmul g x) (adj g)) := by
-  rw [conjK, transK_cofK, mulK_codeR, mulK_codeR]
 
 theorem rdet_one : rdet rone = 1 := by decide
 

@@ -72,23 +72,5 @@ structure Data where
     decide ((sporKRestEval [a, b] (sporKRestParse e.g))⁻¹ * rep a b (d.classes.getD e.cls ⟨"", [], "", ""⟩) *
       sporKRestEval [a, b] (sporKRestParse e.g) = t))
 
-theorem check_sound {n : ℕ} {a b : Perm (Fin n)} {sylowOrder : ℕ} {d : Data}
-    (h : check a b sylowOrder d = true) : spec a b sylowOrder d := by
-  unfold check at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true, List.any_eq_true,
-    Bool.or_eq_true] at h
-  unfold spec
-  refine ⟨h.1.1.1.1.1, h.1.1.1.1.2, h.1.1.1.2, h.1.1.2, ?_, ?_⟩
-  · intro c hc
-    obtain ⟨⟨hent, hwa⟩, hwb⟩ := h.1.2 c hc
-    refine ⟨?_, hwa, hwb⟩
-    intro e he
-    obtain ⟨⟨hidx, hh⟩, hzs⟩ := hent e he
-    exact ⟨hidx, hh, hzs⟩
-  · intro t ht hne
-    rcases h.2 t ht with h1 | h1
-    · exact absurd h1 hne
-    · obtain ⟨e, he, ⟨⟨hcls, hget⟩, hconj⟩⟩ := h1
-      exact ⟨e, he, hcls, hget, hconj⟩
 
 end CFSG.StandardType.SporadicShape.PermCover

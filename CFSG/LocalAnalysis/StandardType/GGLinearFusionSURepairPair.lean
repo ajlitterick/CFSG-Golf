@@ -325,39 +325,7 @@ end SURepair
 section Inputs
 
 open CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem CFSG.Assembly.LowTwoRank
-open CFSG.LieType.Universal.Unitary (SU antidiag conjTr)
-open CFSG.LieType.BorelTits (unitaryInvolution)
 
-@[expose] def GGUnitaryBTwoLocalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (ψ : (ggU .PSU n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU .PSU n f).D .PSU n f ψ → GGSixStepOne p B Bs x L D J →
-      p ∣ 2 ^ f + 1 →
-        ∃ V : Subgroup G, V ≤ ggG0 p B x L D J ∧ V ≠ ⊥ ∧ IsPGroup 2 V ∧
-          B ≤ Subgroup.normalizer (V : Set G)
-
-theorem ggUnitaryBFramePairInput_of_twoLocal (h2 : GGUnitaryBTwoLocalInput) :
-    GGUnitaryBFramePairInput := by
-  intro G _ _ p B Bs x L D J n f ψ hctx s1 hp P hP _
-  right
-  obtain ⟨V, hVG, hV1, hV2, hBV⟩ := h2 G p B Bs x L D J n (f + 1) ψ hctx s1 hp
-  have hF : Nat.card (GaloisField 2 (2 * (f + 1))) = (2 ^ (f + 1)) ^ 2 :=
-    card_galoisField_two_mul 2 (f + 1) (Nat.le_add_left 1 f)
-  have h : UnitaryFieldData 2 (f + 1) (GaloisField 2 (2 * (f + 1))) :=
-    ⟨Nat.prime_two, by omega, by rw [hF, ← pow_mul, mul_comm]⟩
-  obtain ⟨hrange, hker⟩ := hctx.2.2.2.2.1
-  have hrφ : (SURep.ggFrameU hF ψ P hP).range = ggG0 p B x L D J :=
-    (SURep.range_ggFrameU hF ψ P hP).trans hrange
-  exact SURepair.exists_framePair_of_twoSubgroup h (SURep.ker_ggFrameU_le hF ψ P hP hker) hV1 hV2
-    (by rw [hrφ]; exact hVG) hBV
-
-theorem ggUnitaryBstarCentralizerInput_of_twoLocal (h2 : GGUnitaryBTwoLocalInput) :
-    GGUnitaryBstarCentralizerInput :=
-  ggUnitaryBstarCentralizerInput_of_pair (ggUnitaryBFramePairInput_of_twoLocal h2)
-
-theorem ggStepTwoUnitaryFusionLargeInput_of_twoLocal (h2 : GGUnitaryBTwoLocalInput) :
-    GGStepTwoUnitaryFusionLargeInput :=
-  ggStepTwoUnitaryFusionLargeInput_of_pair (ggUnitaryBFramePairInput_of_twoLocal h2)
 
 end Inputs
 

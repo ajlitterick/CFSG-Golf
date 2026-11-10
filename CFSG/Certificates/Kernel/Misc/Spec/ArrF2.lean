@@ -73,18 +73,6 @@ theorem blowUp_entry (M : Array (Array ℕ)) (i j : Fin 54) :
   rw [ofFn_getElem! _ i.isLt]
   rw [ofFn_getElem! _ j.isLt]
 
-theorem blowUp_eq (M : Array (Array ℕ)) : blowUp M = ofM (toM (blowUp M)) := by
-  unfold ofM
-  conv_lhs => unfold blowUp
-  refine congrArg Array.ofFn (funext fun i => congrArg Array.ofFn (funext fun j => ?_))
-  have h1 : toM (blowUp M) i j = ((blockEntry ((M[i.val / 2]!)[j.val / 2]!) (i.val % 2)
-      (j.val % 2) : ℕ) : ZMod 2) := by
-    show ((((blowUp M)[i.val]!)[j.val]! : ℕ) : ZMod 2) = _
-    rw [blowUp_entry]
-  rw [h1, ZMod.val_natCast]
-  have hlt : blockEntry ((M[i.val / 2]!)[j.val / 2]!) (i.val % 2) (j.val % 2) < 2 :=
-    blk_lt _ _ _
-  rw [Nat.mod_eq_of_lt hlt]
 
 theorem foldr_mulM {α : Type*} (L : α → Array (Array ℕ)) (w : List α) :
     w.foldr (fun l M => mulM 2 54 (L l) M) (idM 54) = ofM (wordProd (fun l => toM (L l)) w) := by

@@ -89,7 +89,6 @@ theorem rootElt_mem_rootGroup (i j : Fin 3) (c : F) : rootElt i j c ∈ rootGrou
 
 @[expose] def sStar : Subgroup (SL3 F) := rootGroup 0 1 ⊔ rootGroup 0 2 ⊔ rootGroup 1 2
 
-theorem rootGroup_le_qPt : rootGroup 0 2 ≤ (qPt : Subgroup (SL3 F)) := le_sup_right
 
 theorem rootGroup_le_qLn : rootGroup 0 2 ≤ (qLn : Subgroup (SL3 F)) := le_sup_left
 

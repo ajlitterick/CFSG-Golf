@@ -20,29 +20,6 @@ def normalizerFrattiniBaseAction (P : Subgroup G) :
     MulDistribMulAction (Subgroup.normalizer (P : Set G)) P :=
   Subgroup.conjMulDistribMulActionOfLeNormalizer _ P le_rfl
 
-@[expose] def ambientFrattiniInversion
-    (P : Subgroup G) (t : G) (htP : t ∈ Subgroup.normalizer (P : Set G)) : Prop :=
-  let := normalizerFrattiniBaseAction P
-  let := frattiniQuotientAction (A := Subgroup.normalizer (P : Set G)) (P := P)
-  ∀ x : P ⧸ frattini P, (⟨t, htP⟩ : Subgroup.normalizer (P : Set G)) • x = x⁻¹
-
-@[expose] def ambientFrattiniBounds [Finite G] {p : ℕ} [Fact p.Prime]
-    (P : Subgroup G) (hP : IsPGroup p P)
-    (W : Subgroup G) (hWP : W ≤ Subgroup.normalizer (P : Set G)) : Prop :=
-  let := normalizerFrattiniBaseAction P
-  let : MulDistribMulAction W P := MulDistribMulAction.compHom P (Subgroup.inclusion hWP)
-  let := frattiniQuotientAction (A := W) (P := P)
-  let : IsElementaryAbelian p (P ⧸ frattini P) :=
-    (GroupTheory.frattini_elementary_quotient hP).2.2.2.1
-  (∀ w : W, w ≠ 1 →
-    let : IsElementaryAbelian p (actorFixedSubgroup (I := P ⧸ frattini P) w) :=
-      elementary_subgroup (actorFixedSubgroup (I := P ⧸ frattini P) w)
-    IsCyclic (actorFixedSubgroup (I := P ⧸ frattini P) w) ∧
-      Nat.card (actorFixedSubgroup (I := P ⧸ frattini P) w) ≤ p ∧
-        Module.finrank (ZMod p)
-          (Additive (actorFixedSubgroup (I := P ⧸ frattini P) w)) ≤ 1) ∧
-    Nat.card (P ⧸ frattini P) ≤ p ^ 3 ∧
-      Module.finrank (ZMod p) (Additive (P ⧸ frattini P)) ≤ 3
 
 theorem ambient_fixed_subgroup_map (P : Subgroup G) (w : G)
     (hwP : w ∈ Subgroup.normalizer (P : Set G)) :
@@ -111,73 +88,5 @@ theorem ambient_fixed_commutator_map (P : Subgroup G) (w t : G)
     change t⁻¹ * (a : G)⁻¹ * t * a ∈ K.map P.subtype
     simpa only [mul_inv_rev, inv_inv, htinv, mul_assoc] using hinv
 
-theorem right_involution_commutator_mono (t : G) {C D : Subgroup G} (hCD : C ≤ D) :
-    rightInvolutionCommutatorSubgroup t C ≤ rightInvolutionCommutatorSubgroup t D := by
-  apply (Subgroup.closure_le _).mpr
-  rintro x ⟨a, rfl⟩
-  exact Subgroup.subset_closure ⟨⟨a, hCD a.property⟩, rfl⟩
-
-theorem ambient_fixed_commutator_cyclic (I P : Subgroup G) (hPI : P ≤ I) (w t : G)
-    (hwP : w ∈ Subgroup.normalizer (P : Set G))
-    (htP : t ∈ Subgroup.normalizer (P : Set G)) (ht : orderOf t = 2)
-    (hcyclic : IsCyclic (rightInvolutionCommutatorSubgroup t
-      (I ⊓ Subgroup.centralizer ({w} : Set G)))) :
-    let := normalizerFrattiniBaseAction P
-    IsCyclic (actorCommutatorSubgroup (⟨t, htP⟩ : Subgroup.normalizer (P : Set G))
-      (actorFixedSubgroup (I := P) (⟨w, hwP⟩ : Subgroup.normalizer (P : Set G)))) := by
-  let := normalizerFrattiniBaseAction P
-  let K := actorCommutatorSubgroup (⟨t, htP⟩ : Subgroup.normalizer (P : Set G))
-    (actorFixedSubgroup (I := P) (⟨w, hwP⟩ : Subgroup.normalizer (P : Set G)))
-  let := hcyclic
-  have hkle : K.map P.subtype ≤ rightInvolutionCommutatorSubgroup t
-      (I ⊓ Subgroup.centralizer ({w} : Set G)) := by
-    rw [ambient_fixed_commutator_map P w t hwP htP ht]
-    exact right_involution_commutator_mono t (inf_le_inf hPI le_rfl)
-  let : IsCyclic (K.map P.subtype) := Subgroup.isCyclic_of_le hkle
-  exact isCyclic_of_injective (P.subtype.subgroupMap K)
-    (P.subtype.subgroupMap_injective K P.subtype_injective)
-
-theorem ambient_frattini_four_group_bounds [Finite G] {p : ℕ} [Fact p.Prime]
-    (hpodd : Odd p) (I P : Subgroup G) (hPI : P ≤ I) (hP : IsPGroup p P)
-    (W : Subgroup G) [IsKleinFour W] (hWP : W ≤ Subgroup.normalizer (P : Set G))
-    (t : G) (ht : orderOf t = 2) (htP : t ∈ Subgroup.normalizer (P : Set G))
-    (hwt : ∀ w : W, Commute (w : G) t) (hinv : ambientFrattiniInversion P t htP)
-    (hcyclic : ∀ w : W, w ≠ 1 →
-      IsCyclic (rightInvolutionCommutatorSubgroup t
-        (I ⊓ Subgroup.centralizer ({(w : G)} : Set G)))) :
-    ambientFrattiniBounds P hP W hWP := by
-  let := normalizerFrattiniBaseAction P
-  let := frattiniQuotientAction (A := Subgroup.normalizer (P : Set G)) (P := P)
-  let : MulDistribMulAction W P := MulDistribMulAction.compHom P (Subgroup.inclusion hWP)
-  let : MulDistribMulAction W (P ⧸ frattini P) :=
-    MulDistribMulAction.compHom (P ⧸ frattini P) (Subgroup.inclusion hWP)
-  let : IsElementaryAbelian p (P ⧸ frattini P) :=
-    (GroupTheory.frattini_elementary_quotient hP).2.2.2.1
-  have hlocal (w : W) (hw : w ≠ 1) :
-      IsCyclic (actorFixedSubgroup (I := P ⧸ frattini P) w) ∧
-        Nat.card (actorFixedSubgroup (I := P ⧸ frattini P) w) ≤ p := by
-    let wN : Subgroup.normalizer (P : Set G) := ⟨w, hWP w.property⟩
-    let tN : Subgroup.normalizer (P : Set G) := ⟨t, htP⟩
-    have hwsq : wN ^ 2 = 1 := by
-      apply Subtype.ext
-      change (w : G) ^ 2 = 1
-      simpa only [pow_two, Subgroup.coe_mul, Subgroup.coe_one] using
-        congrArg Subtype.val (IsKleinFour.mul_self w)
-    have hcomm : Commute wN tN := by
-      apply Subtype.ext
-      exact (hwt w).eq
-    have hc := ambient_fixed_commutator_cyclic I P hPI (w : G) t
-      (hWP w.property) htP ht (hcyclic w hw)
-    have hfixed := frattini_cyclic_fixed_card hP hpodd wN tN hwsq hcomm hinv hc
-    exact ⟨hfixed.1, hfixed.2.2⟩
-  change _ ∧ _ ∧ _
-  refine ⟨?_, ?_⟩
-  · intro w hw
-    let : IsElementaryAbelian p (actorFixedSubgroup (I := P ⧸ frattini P) w) :=
-      elementary_subgroup (actorFixedSubgroup (I := P ⧸ frattini P) w)
-    obtain ⟨hc, hcard⟩ := hlocal w hw
-    exact ⟨hc, hcard, elementary_finrank_le_of_card_le (n := 1)
-      (by simpa only [pow_one] using hcard)⟩
-  · exact klein_four_elementary_finrank_bound hpodd (fun w hw => (hlocal w hw).2)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumeratorPairRankFrattini

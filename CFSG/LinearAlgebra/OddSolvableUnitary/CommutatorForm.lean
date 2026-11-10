@@ -71,10 +71,6 @@ theorem commRight_apply (x y : D) :
         rw [mul_comm, ← map_mul]
         exact congrArg ε (Subtype.ext (commutatorElement_mul_left_of_center hZ x x' y)) }
 
-theorem commPairing_of (x y : D) :
-    commPairing hZ ε (Abelianization.of x) (Abelianization.of y) =
-      ε ⟨⁅x, y⁆, commutatorElement_mem_center hZ x y⟩ :=
-  rfl
 
 end Pairing
 

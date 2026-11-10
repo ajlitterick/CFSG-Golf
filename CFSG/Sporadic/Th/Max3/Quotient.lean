@@ -50,10 +50,6 @@ theorem proj_wbM :
       carmBar (carmIdx 7) ^ 2 * carmBar (carmIdx 8) := by
   simp only [wbM, carmBar, map_mul, map_pow]
 
-theorem carmWord_eval : ∀ k : CarmichaelIndex 9,
-    ((carmWord k.1).map (Gen.eval aPerm bPerm)).prod = carmichaelPerm k := by
-  decide
-
 
 end AltQuot
 
@@ -376,10 +372,6 @@ theorem pCore_M :
     have h3 : 3 ∣ 2 ^ n := hn2 ▸ (by norm_num : 3 ∣ 181440)
     exact absurd (Nat.Prime.dvd_of_dvd_pow Nat.prime_three h3) (by norm_num)
 
-theorem map_pCore_M :
-    (CFSG.pCore 2 M).map M.subtype = Q := by
-  rw [pCore_M]
-  exact Subgroup.map_subgroupOf_eq_of_le Q_le_M
 
 theorem centralizer_Q_inf_M :
     Subgroup.centralizer (Q : Set J) ⊓ M = Subgroup.zpowers z := by

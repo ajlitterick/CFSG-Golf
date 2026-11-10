@@ -167,6 +167,5 @@ theorem card_center_eq_sixteen_of_twoGroup
   exact (hP11 (Y ⧸ O) hYq (Sol78.center_isPGroup_two hYO) hL σ hσσ hσ1 N hNC q₀ hq₀ hNSL (π w)
     hw2 ⟨w, hwT, rfl⟩ hwZ').2
 
-variable {X : Type} [Group X] [Finite X]
 
 end CFSG.ComponentClassification.GS82PumpInputs.Residue

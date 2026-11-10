@@ -20,12 +20,6 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.SmallOd
     nWords1.all (fun w => commTT 1408 (tabW w) tz) && memT 1408 L ta && memT 1408 L tz &&
     sqInOK L (pair4 (idT 1408) ta tz (tabW wordAZ))
 
-@[expose] def tableI2OK : Bool :=
-  let tb := tabW wordB
-  let L := subgroupList capI sWords2
-  blkDataOK blkData2 && blkImageOK blkData2 20160 && enumW capI 20160 sWords2 &&
-    sWords2.all (fun w => commTT 1408 (tabW w) tb) && blkTrivOK blkData2.blk (tabW wordA) &&
-    blkTrivOK blkData2.blk tb && trivInjOK blkData2.blk (idT 1408) L
 
 @[expose] def tableI3OK : Bool :=
   let tz₁ := tabW wordZ₁
@@ -37,6 +31,5 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.SmallOd
     sqOneOK (idT 1408) (subgroupList capI nWords3) && !memT 1408 LS (tabW wordA) &&
     !memT 1408 LS tz₁ && !memT 1408 LS (tabW (wordA ++ wordZ₁))
 
-@[expose] def tableIOK : Bool := tableI1OK && tableI2OK && tableI3OK
 
 end CFSG.EvenSporadicStandard.HNRecog

@@ -82,15 +82,6 @@ end CubeSetup
 
 section Classes
 
-@[expose] def L154TD4Rank : Prop :=
-  ∀ (τ : Tag) (L : Type) [Field L] [IsAlgClosed L] [CharP L 2] (p₀ : ℕ) (S : LangSetup τ L p₀)
-    (a : Fin τ.rank → Lˣ) (i : KernelComponent (rootCharHom a)),
-    rootDiagUnit τ a ∈ S.D.torus → (∀ k, a k ^ 3 = 1) → rootDiagUnit τ a ≠ 1 →
-    CFSG.IsQuasisimple ↥(rationalComponent S.ρ S.Γ (rootCharHom a) i) →
-    catalogIs (↥(rationalComponent S.ρ S.Γ (rootCharHom a) i) ⧸
-        Subgroup.center ↥(rationalComponent S.ρ S.Γ (rootCharHom a) i))
-      (onLie fun | .trialityD4 _ => True | _ => False) →
-    compRank (componentRoots (rootCharHom a) i) = 4
 
 @[expose] def L154TD4Class : Prop :=
   ∀ (τ : Tag) (L : Type) [Field L] [IsAlgClosed L] [CharP L 2] (p₀ : ℕ) (S : LangSetup τ L p₀)

@@ -128,12 +128,5 @@ theorem lemma_15_1_14 (hStep : Step1514Gen) {T Mc M : Subgroup G} (h : quasithin
       two := fun hnb => ⟨h2, hNMc hnb⟩
       three := fun hnb x hx => ⟨hNM hx, hNMc hnb (h2 ⟨hNM hx, hx⟩)⟩ }
 
-theorem stageLemma15114_of (hStep : Step1514Gen) (h157 : StageLemma1517)
-    (h15 : StageLemma1515) (h159 : StageLemma1519) (h16 : StageLemma1516)
-    (h1512 : StageLemma15112) : StageLemma15114 := by
-  intro G _ _ T Mc M h hM hCE
-  exact lemma_15_1_14 hStep h hM hCE (h157 G T Mc M h hM hCE) (h15 G T Mc M h hM)
-    (h159 G T Mc M h hM hCE) (h16 G T Mc M h hM)
-    (fun H hH => (h1512 G T Mc M h hM hCE H hH).2)
 
 end CFSG.Quasithin

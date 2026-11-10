@@ -83,8 +83,6 @@ variable [Finite G] {L U U₁ U₂ : Subgroup G} {α : ↥L →* Γ} {β₁ : �
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem burnsideC137_ι_val {U W : Subgroup G} (hU : IsElemAbelian 2 U) (h : W ≤ U) (w : ↥W) :
-    (burnsideC137_ι hU h w).val = w := rfl
 
 variable (hs : SumOfTwoNat L U α U₁ U₂ β₁ β₂)
 include hs
@@ -269,10 +267,6 @@ theorem burnsideC137_ψ_starHom (l : ↥L) :
   rw [h1]
   rfl
 
-theorem burnsideC137_ψ_conv (l : ↥L) (h : convI hU ⟨l, burnsideC137_LN hs l.2⟩ ∈ autI hU L) :
-    burnsideC137_ψ hs hU ⟨_, h⟩ = α l := by
-  rw [← burnsideC137_ψ_starHom hs hU l]
-  rfl
 
 theorem burnsideC137_κ_act (a : ↥(autI hU L)) (m : IntMod U hU) :
     burnsideC137_κ hs hU ((a : MulAut (IntMod U hU)) m) =

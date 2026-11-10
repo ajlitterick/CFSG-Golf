@@ -153,11 +153,6 @@ theorem lemma_1_2_5 (hK : LocalSQTK G) (h37 : A37ForSQTKCat) (h39 : A39ForSQTKCa
     (h37 _ (sqtkHypCat_quotient_of_pCoreOf_ne_bot hK hH)) (mem_lFamily_of_isLocal hL) hK''.1 hK'
     hK''.2 hLK
 
-theorem lemma_1_2_5_of_relIndex_eq_two (hK : LocalSQTK G) (h37 : A37ForSQTKCat)
-    (h39 : A39ForSQTKCat) {H S R L : Subgroup G} (hH : pCoreOf 2 H ≠ ⊥) (hS : IsSylowTwoOf S H)
-    (hRS : R ≤ S) (hidx : R.relIndex S = 2) (hL : quasithinIsLocal R L) (hLH : L ≤ H) :
-    ∃! K, K ∈ cComp H ∧ L ≤ K :=
-  lemma_1_2_5 hK h37 h39 hH hS hRS hidx.le hL hLH
 
 end Ambient
 

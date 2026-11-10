@@ -141,11 +141,5 @@ theorem prime_primary_factorization {g : G} (hg : IsOfFinOrder g) (hp : p.Prime)
     exact ⟨⟨hab', hba', ha', hb', hbp'⟩, fun c d hcd hdc hc _ hdp =>
       primary_unique hcd hdc hc hdp hab' hba' ha' hbp'⟩
 
-theorem existsUnique_blocksIsPPart {g : G} (hg : IsOfFinOrder g) (hp : p.Prime) :
-    ∃! a : G, CFSG.BlocksIsPPart p g a := by
-  obtain ⟨⟨⟨a, b⟩, ⟨hab, hba, ha, hb, hbp⟩, -⟩, -⟩ := prime_primary_factorization hg hp
-  refine ⟨a, ⟨b, hab, hba, ha, hb.orderOf_pos, hbp⟩, ?_⟩
-  rintro c ⟨d, hcd, hdc, hc, -, hdp⟩
-  exact (primary_unique hcd hdc hc hdp hab hba ha hbp).1
 
 end CFSG.RankThree.PGroups

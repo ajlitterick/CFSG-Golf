@@ -261,15 +261,6 @@ theorem not_exists_central
     rw [hcz] at hcj
     exact hzc.trans hcj
 
-theorem lemma_J27_3
-    : Nonempty ((↥M.GP ⧸ M.B.subgroupOf M.GP) ≃* A6Models.autA6) := by
-  obtain ⟨e⟩ := M.nonempty_NP_psl29
-  rcases M.ρ_dichotomy e with hinj | hc
-  · have hbij : Function.Bijective (M.ρ e) :=
-      hinj.bijective_of_nat_card_le (by rw [M.card_XP, A6Facts.card_autA6])
-    exact ⟨MulEquiv.ofBijective _ hbij⟩
-  · obtain ⟨c, hcR, hc2, -, hcc⟩ := hc
-    exact (M.not_exists_central ⟨c, hcR, hc2, hcc⟩).elim
 
 end RuDataM
 

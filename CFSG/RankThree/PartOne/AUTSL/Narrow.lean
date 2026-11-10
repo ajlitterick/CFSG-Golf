@@ -58,12 +58,6 @@ theorem kf1511BTE_of_rows (h4 : KF1511BTEL4) (h6 : KF1511BTESp6) (h8 : KF1511BTE
   · exact h6 X f hmodel
   · exact h8 X f hmodel
 
-theorem kf1511BTE_iff_rows :
-    KF1511BTE ↔ KF1511BTEL4 ∧ KF1511BTESp6 ∧ KF1511BTEOm8m :=
-  ⟨fun h => ⟨fun X _ _ f hmodel => h X .PSL 4 f hmodel (Or.inl ⟨rfl, rfl⟩),
-      fun X _ _ f hmodel => h X .PSp 3 f hmodel (Or.inr (Or.inl ⟨rfl, rfl⟩)),
-      fun X _ _ f hmodel => h X .POmegaMinus 4 f hmodel (Or.inr (Or.inr ⟨rfl, rfl⟩))⟩,
-    fun ⟨h4, h6, h8⟩ => kf1511BTE_of_rows h4 h6 h8⟩
 
 end AUTSL
 

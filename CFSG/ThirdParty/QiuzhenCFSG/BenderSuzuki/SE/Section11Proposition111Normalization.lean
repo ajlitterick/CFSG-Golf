@@ -241,12 +241,6 @@ public theorem proposition111_normalizes_of_normal_sylow_overgroup
   rw [hCoreMap] at hNormCore
   exact hNnormY.trans hNormCore
 
-/-- Right conjugation follows the exponent convention `(H^a)^b=H^(ab)`. -/
-public theorem proposition111_rightConjugate_rightConjugate
-    {X : Type u} [Group X] (H : Subgroup X) (a b : X) :
-    rightConjugate (rightConjugate H a) b =
-      rightConjugate H (a * b) := by
-  simp [rightConjugate, Subgroup.conjBy_conjBy, mul_inv_rev]
 
 /-- Reverse a right-conjugate containment. -/
 public theorem proposition111_le_rightConjugate_inv_of_rightConjugate_le

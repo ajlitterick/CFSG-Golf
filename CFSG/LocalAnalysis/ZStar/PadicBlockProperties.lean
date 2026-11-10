@@ -75,18 +75,6 @@ theorem sum_principalBlockPadic_coeff_twoSidedTwist_eq_zero
     (principalBlockPadic_idempotent (G := G))
     (principalBlockPadic_central (G := G))
 
-theorem sum_principalBlockCandidate_coeff_twoSidedTwist_eq_zero
-    [DecidableEq G]
-    (a b : G) (ha : a * a = 1) (hb : b * b = 1)
-    (hnconj : ¬IsConj a b) :
-    (∑ g : G,
-      (ZStar.Helpers.principalBlockCandidate G).coeff
-        (g⁻¹ * a * g * b⁻¹)) = 0 := by
-  have h := congrArg (PadicInt.toZModPow 1)
-    (sum_principalBlockPadic_coeff_twoSidedTwist_eq_zero
-      (G := G) a b ha hb hnconj)
-  simpa only [map_sum, map_zero,
-    toZModPow_one_principalBlockPadic_coeff] using h
 
 end
 

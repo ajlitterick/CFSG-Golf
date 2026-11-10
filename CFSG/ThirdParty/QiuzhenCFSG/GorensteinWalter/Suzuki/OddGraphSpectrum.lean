@@ -1079,31 +1079,6 @@ private theorem spectrumIndicator_sumSquares_eq
         spectrumIndicator_certificate_quadratic c S hS]
       ring
 
-public theorem firstCase_indepSet_card_le_fifteen
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (hfirst : FirstCase c)
-    (d : FirstCaseCountData c)
-    [Fintype (UConjugates c)] [DecidableEq (UConjugates c)]
-    (S : Set (UConjugates c))
-    (hS : (commutingGraph c).IsIndepSet S) :
-    Nat.card S ≤ 15 := by
-  have hsum := spectrumIndicator_sumSquares_eq hmin c hfirst d S hS
-  have hq1 : 0 ≤
-      (spectrumQOne c *ᵥ spectrumIndicator c S) ⬝ᵥ
-        (spectrumQOne c *ᵥ spectrumIndicator c S) := by
-    exact Fintype.sum_nonneg fun _ => mul_self_nonneg _
-  have hq2 : 0 ≤
-      (spectrumQTwo c *ᵥ spectrumIndicator c S) ⬝ᵥ
-        (spectrumQTwo c *ᵥ spectrumIndicator c S) := by
-    exact Fintype.sum_nonneg fun _ => mul_self_nonneg _
-  have hcert : 0 ≤ (Nat.card S : ℝ) * (15 - Nat.card S) := by
-    nlinarith
-  by_contra hle
-  have hsNat : 16 ≤ Nat.card S := by omega
-  have hsReal : (16 : ℝ) ≤ Nat.card S := by exact_mod_cast hsNat
-  have hsNonneg : 0 ≤ (Nat.card S : ℝ) := by positivity
-  nlinarith
 
 private theorem spectrumIndicator_adj_mulVec_apply_eq_card
     {G : Type u} [Group G] [Finite G]

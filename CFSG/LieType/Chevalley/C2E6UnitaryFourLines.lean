@@ -89,8 +89,6 @@ theorem exists_uOn_aux : ∀ k k' : Fin 45, k ≠ k' → herm (uVec k) (uVec k')
     ∃ j, UOn k j ∧ UOn k' j := by
   decide +kernel
 
-theorem eq_of_uOn_iff : ∀ j j' : Fin 27, (∀ k, UOn k j ↔ UOn k j') → j = j' := by
-  decide +kernel
 
 theorem finrank_span_pair_of_not_mem {a b : V} (ha : a ≠ 0) (hb : b ∉ K ∙ a) :
     finrank K (Submodule.span K {a, b}) = 2 := by
@@ -163,15 +161,6 @@ theorem uVec_mem_uPlane_iff {k : Fin 45} {j : Fin 27} : uVec k ∈ uPlane j ↔ 
 theorem uLine_le_uPlane_iff {k : Fin 45} {j : Fin 27} : uLine k ≤ uPlane j ↔ UOn k j := by
   rw [uLine, Submodule.span_singleton_le_iff_mem, uVec_mem_uPlane_iff]
 
-theorem uLine_injective : Function.Injective uLine := by
-  intro k k' h
-  by_contra hk
-  exact uVec_not_mem_uLine hk (h ▸ Submodule.mem_span_singleton_self (uVec k'))
-
-theorem uPlane_injective : Function.Injective uPlane := by
-  intro j j' h
-  refine eq_of_uOn_iff j j' fun k => ?_
-  rw [← uVec_mem_uPlane_iff, ← uVec_mem_uPlane_iff, h]
 
 theorem exists_uVec_mem {U : Submodule K V} {v : V} (hv : v ∈ U) (hv0 : v ≠ 0)
     (hh : herm v v = 0) : ∃ k, uVec k ∈ U ∧ v ∈ uLine k := by

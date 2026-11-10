@@ -238,13 +238,8 @@ theorem exists_sigmaFixed_pair (D : LangLevi Tag.F4 K wF) {δ₁ δ₂ γ : Fin 
 
 theorem isRoot_r3 : IsRoot Tag.F4 r3 := isRoot_single Tag.F4 2
 theorem isRoot_r4 : IsRoot Tag.F4 r4 := isRoot_single Tag.F4 3
-theorem isRoot_r34 : IsRoot Tag.F4 (r3 + r4) := by
-  have h : (r3 + r4 : Fin Tag.F4.rank → ℤ) ∈ rootFinset Tag.F4 := by
-    unfold r3 r4; decide +kernel
-  exact mem_rootFinset.1 h
 theorem isRoot_neg_r3 : IsRoot Tag.F4 (-r3) := IsRoot.neg isRoot_r3
 theorem isRoot_neg_r4 : IsRoot Tag.F4 (-r4) := IsRoot.neg isRoot_r4
-theorem isRoot_neg_r34 : IsRoot Tag.F4 (-(r3 + r4)) := IsRoot.neg isRoot_r34
 theorem isRoot_alpha1 : IsRoot Tag.F4 alpha1 := mem_rootFinset.1 (by decide +kernel)
 theorem isRoot_root1342 : IsRoot Tag.F4 root1342 := mem_rootFinset.1 (by decide +kernel)
 
@@ -274,8 +269,6 @@ theorem neg_r4_mem : (-r4) ∈ f4ShortList := by unfold r4; decide +kernel
 theorem neg_r34_mem : (-(r3 + r4)) ∈ f4ShortList := by unfold r3 r4; decide +kernel
 theorem alpha1_mem : alpha1 ∈ f4LongList := by decide +kernel
 theorem root1342_mem : root1342 ∈ f4LongList := by decide +kernel
-theorem theta_mem' : highRoot Tag.F4 ∈ f4LongList := by
-  rw [← theta_eq]; decide +kernel
 
 theorem commPairs_eq_single' {α β : Fin Tag.F4.rank → ℤ}
     (h : ∀ p ∈ commCandidates, p.1 • α + p.2 • β ∈ rootFinset .F4 ↔ p = (1, 1)) :

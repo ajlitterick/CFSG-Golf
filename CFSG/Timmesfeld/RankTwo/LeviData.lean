@@ -57,8 +57,6 @@ theorem leviConePresented_e8 (K : Type) [Field K] : LeviConePresented (Adjoint.e
 theorem leviConePresented_f4 (K : Type) [Field K] : LeviConePresented (Adjoint.f4Datum K) :=
   leviConePresented_of (Adjoint.f4_isCTGroupDatum K) (Adjoint.f4_steinbergExtras K)
 
-theorem leviConePresented_g2 (K : Type) [Field K] : LeviConePresented (Adjoint.g2Datum K) :=
-  leviConePresented_of (Adjoint.g2_isCTGroupDatum K) (Adjoint.g2_steinbergExtras K)
 
 theorem leviConePresented_twistedE6Datum {k : Type*} [Field k] (θ : k →+* k)
     (hθ : ∀ c, θ (θ c) = c) : LeviConePresented (TwistedE6.twistedDatum k θ) :=
@@ -70,9 +68,5 @@ theorem leviConePresented_twistedE6 (p f : ℕ) [Fact p.Prime] (hf : 1 ≤ f) :
     LeviConePresented (Exceptional.twistedE6Datum p f) :=
   leviConePresented_twistedE6Datum (Exceptional.frobQ p f) (Exceptional.frobQ_frobQ p f hf)
 
-theorem leviConePresented_twistedD4 {K : Type} [Field K] (σ : K →+* K)
-    (hσ : ∀ c, σ (σ (σ c)) = c) : LeviConePresented (TwistedD4.twistedDatum σ) :=
-  leviConePresented_of (TwistedD4.twistedDatum_isCTGroupDatum σ hσ)
-    (TwistedD4.twistedDatum_steinbergExtras σ hσ)
 
 end CFSG.Timmesfeld

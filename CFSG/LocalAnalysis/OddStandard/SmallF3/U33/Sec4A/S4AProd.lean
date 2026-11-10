@@ -17,8 +17,6 @@ private theorem tau_ne_one (h : Ctx t L S x₁ x₂ lam rho tau) : tau ≠ 1 := 
   rw [h1]
   exact Subgroup.mem_sup_left (twoCore t).one_mem
 
-private theorem tau_mem_invCent (h : Ctx t L S x₁ x₂ lam rho tau) : tau ∈ invCent t :=
-  h.le_invCent h.tau_mem
 
 private theorem t_mem_S (h : Ctx t L S x₁ x₂ lam rho tau) : t ∈ S := by
   rw [h.S_eq]

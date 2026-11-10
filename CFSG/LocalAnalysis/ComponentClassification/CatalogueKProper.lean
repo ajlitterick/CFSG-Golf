@@ -8,14 +8,6 @@ namespace CFSG.ComponentClassification.CatalogueKProper
 
 open CFSG.Assembly
 
-theorem catalogue_of_equiv {G H : Type} [Group G] [Group H] (hcatalogue : InCatalog G)
-    (equivalence : G ≃* H) : InCatalog H :=
-  inCatalog_isoInvariant equivalence.symm hcatalogue
-
-theorem catalogue_equiv_iff {G H : Type} [Group G] [Group H] (equivalence : G ≃* H) :
-    InCatalog G ↔ InCatalog H :=
-  ⟨fun hcatalogue => catalogue_of_equiv hcatalogue equivalence,
-    fun hcatalogue => catalogue_of_equiv hcatalogue equivalence.symm⟩
 
 theorem simple_quotient_of_surjective (G : Type) [Group G] (hK : KProper InCatalog G)
     (subgroup : Subgroup G) (hproper : subgroup ≠ ⊤) (simple : Type) [Group simple]
@@ -57,17 +49,10 @@ theorem quotient {G : Type} [Group G] (hK : KProper InCatalog G) (N : Subgroup G
     KProper InCatalog (G ⧸ N) :=
   of_surjective hK (QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N)
 
-theorem section_closed {G : Type} [Group G] (hK : KProper InCatalog G) (H : Subgroup G)
-    (N : Subgroup H) [N.Normal] : KProper InCatalog (H ⧸ N) :=
-  quotient (CatalogueKProper.subgroup hK H) N
 
 theorem of_equiv {G H : Type} [Group G] [Group H] (hK : KProper InCatalog G)
     (equivalence : G ≃* H) : KProper InCatalog H :=
   of_surjective hK equivalence.toMonoidHom equivalence.surjective
 
-theorem section_closed_of_equiv {G Y : Type} [Group G] [Group Y] (hK : KProper InCatalog G)
-    (H : Subgroup G) (N : Subgroup H) [N.Normal] (equivalence : (H ⧸ N) ≃* Y) :
-    KProper InCatalog Y :=
-  of_equiv (section_closed hK H N) equivalence
 
 end CFSG.ComponentClassification.CatalogueKProper

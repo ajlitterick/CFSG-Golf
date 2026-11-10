@@ -48,10 +48,6 @@ theorem mem_map_center_iff {E : Subgroup G} {x : G} :
     rw [key]
     exact inv_mem hze
 
-theorem coe_fixedCentralQuotient (E : Subgroup G) (t : G) :
-    (fixedCentralQuotient E t : Set G) =
-      {e | e ∈ E ∧ e⁻¹ * (t⁻¹ * e * t) ∈ (center E).map E.subtype} :=
-  rfl
 
 theorem unique_perfect_fixed_central_quotient_centralization {E A : Subgroup G} {t : G}
     (_ht : t ∈ normalizer (E : Set G))

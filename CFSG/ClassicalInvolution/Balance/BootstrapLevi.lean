@@ -157,39 +157,6 @@ end Residual
 
 section Frame
 
-variable {A : Subgroup G}
-
-theorem exactMembers_and_localOddCentral_of_frameFamily_of_layers_exotic [Finite G]
-    [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K)
-    (hIH : LocalLieSystems p f Ω) (hconn : OmegaConnected Ω)
-    (hM : MemberFamily p f Ω A (frameFamily p f Ω A))
-    (hMF1 : ∀ a ∈ A, a ≠ 1 → ∀ D : LieSystemData p f (LocalQuot Ω a) (localFamily Ω a),
-      SingleClassComponents p f D)
-    (hcover : ∀ a ∈ A, IsFrameInvolution p f (frameFamily p f Ω A) a → FamilyMeetsAt p f Ω A a)
-    (hloc : ∀ a ∈ A, a ≠ 1 → ComponentLayersAt Ω A a)
-    (hgenModO : ∀ a ∈ A, IsFrameInvolution p f (frameFamily p f Ω A) a →
-      CentralizerGenerationModOTwo Ω A a)
-    (hexotic : ExoticLeviBlock p f) :
-    ExactMembers Ω ∧ ∀ L ∈ Ω, ∀ z : G, IsClassicalMember p f L z → LocalOddCentral Ω {z} := by
-  have hf : 0 < f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  obtain ⟨hΔ, K₀, hK₀, z₀, hz₀A, hz₀, hK₀A, hP1⟩ :=
-    deltaCore_eq_bot_and_localOddCentral_of_frameFamily hnab hp2 hq hΩ hIH hconn hM hMF1 hcover
-      hloc hgenModO
-  have hK₀Ω : K₀ ∈ Ω := hM.subset hK₀
-  have hP1all := localOddCentral_of_classicalMember hp2 hf hΩ hsingle hK₀Ω hz₀ hP1
-  refine ⟨?_, hP1all⟩
-  by_cases h9 : p ^ f = 9
-  · exact exactMembers_of_connected_nine hnab hp2 hq h9 hΩ hsingle hIH hconn hP1all hexotic
-  · obtain ⟨F₀, hF₀⟩ := CFSG.SignalizerFunctor.Helpers.signalizerFunctorEk_nonempty 2 2
-      Nat.prime_two A hM.elem (by rw [hM.card]; norm_num)
-    exact exactMembers_of_deltaCore_eq_bot hnab hp2 hq h9 ModelFacts.modelClauseZero
-      fundamentalWholeA1 hΩ hsingle hIH hK₀Ω hz₀
-      (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le 2 hM.elem hF₀.1)
-      (hK₀A.trans (Subgroup.centralizer_le hF₀.1)) (hΔ F₀ hF₀)
 
 end Frame
 

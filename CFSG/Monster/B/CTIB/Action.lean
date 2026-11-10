@@ -251,90 +251,6 @@ theorem exists_qS
   obtain ⟨n, hn, rfl⟩ := hg
   exact ⟨n, hn, rfl⟩
 
-@[expose] def gBit (i j : ℕ) : ℕ := if (Bin.gramRows.getD i 0).testBit j then 1 else 0
-
-@[expose] def nbit (n i : ℕ) : ℕ := if n.testBit i then 1 else 0
-
-@[expose] def prodCode (n m : ℕ) : ℕ :=
-  (n ^^^ m) % 2 ^ 22 + 2 ^ 22 * ((nbit n 22 + nbit m 22 +
-    ∑ i ∈ Finset.range 22, ∑ j ∈ Finset.range 22,
-      if j < i then nbit n i * nbit m j * gBit i j else 0) % 2)
-
-theorem xor_decide_mod (S T : ℕ) :
-    (decide (S % 2 = 1) ^^ decide (T % 2 = 1)) = decide ((S + T) % 2 = 1) := by
-  rcases Nat.mod_two_eq_zero_or_one S with h | h <;>
-    rcases Nat.mod_two_eq_zero_or_one T with h' | h' <;> simp [h, h', Nat.add_mod]
-
-theorem bool_eq_decide (b : Bool) : b = decide ((if b then 1 else 0) % 2 = 1) := by
-  cases b <;> rfl
-
-theorem cAtN_eq_decide (gj u j n : ℕ) :
-    cAtN gj u j n = decide ((∑ i ∈ Finset.range n,
-      if j < i ∧ u.testBit i ∧ gj.testBit i then 1 else 0) % 2 = 1) := by
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-    rw [cAtN_succ, ih, Finset.sum_range_succ, bool_eq_decide (decide (j < n) && _ && _),
-      xor_decide_mod]
-    congr 3
-    by_cases h1 : j < n <;> by_cases h2 : u.testBit n <;> by_cases h3 : gj.testBit n <;>
-      simp [h1, h2, h3]
-
-theorem corrN_eq_decide (a b m : ℕ) :
-    corrN gArr a b m = decide ((∑ j ∈ Finset.range m, if b.testBit j then
-      ∑ i ∈ Finset.range 22, (if j < i ∧ a.testBit i ∧ (gArr.getD j 0).testBit i then 1 else 0)
-      else 0) % 2 = 1) := by
-  induction m with
-  | zero => rfl
-  | succ m ih =>
-    rw [corrN_succ, Finset.sum_range_succ]
-    by_cases hb : b.testBit m
-    · rw [ite_eq_left hb, ite_eq_left hb, ih, cAt, cAtN_eq_decide, xor_decide_mod]
-    · rw [ite_eq_right hb, ite_eq_right hb, ih, add_zero]
-
-theorem corr_sum (a b : ℕ) :
-    (∑ j ∈ Finset.range 22, if b.testBit j then
-      ∑ i ∈ Finset.range 22, (if j < i ∧ a.testBit i ∧ (gArr.getD j 0).testBit i then 1 else 0)
-      else 0) =
-    ∑ i ∈ Finset.range 22, ∑ j ∈ Finset.range 22,
-      if j < i then nbit a i * nbit b j * gBit i j else 0 := by
-  have hl : (∑ j ∈ Finset.range 22, if b.testBit j then
-      ∑ i ∈ Finset.range 22, (if j < i ∧ a.testBit i ∧ (gArr.getD j 0).testBit i then 1 else 0)
-      else 0) = ∑ j ∈ Finset.range 22, ∑ i ∈ Finset.range 22,
-        (if b.testBit j ∧ j < i ∧ a.testBit i ∧ (gArr.getD j 0).testBit i then 1 else 0) := by
-    refine Finset.sum_congr rfl fun j _ => ?_
-    by_cases hb : b.testBit j
-    · simp [hb]
-    · simp [hb]
-  rw [hl, Finset.sum_comm]
-  refine Finset.sum_congr rfl fun i hi => Finset.sum_congr rfl fun j hj => ?_
-  have hsym : (gArr.getD j 0).testBit i = (Bin.gramRows.getD i 0).testBit j := by
-    rw [gArr_getD, gram_bits_symm j (Finset.mem_range.1 hj) i (Finset.mem_range.1 hi)]
-  rw [hsym]
-  unfold nbit gBit
-  by_cases h1 : j < i <;> by_cases h2 : a.testBit i <;> by_cases h3 : b.testBit j <;>
-    by_cases h4 : (Bin.gramRows.getD i 0).testBit j <;> simp [h1, h2, h3]
-
-theorem qmul_eq (n m : ℕ) : qmul gArr n m = prodCode n m := by
-  set T := ∑ i ∈ Finset.range 22, ∑ j ∈ Finset.range 22,
-    if j < i then nbit n i * nbit m j * gBit i j else 0 with hT
-  have hc : corr gArr n m = decide (T % 2 = 1) := by rw [corr, corrN_eq_decide, corr_sum]
-  have hs : ((n.testBit 22 ^^ m.testBit 22) ^^ corr gArr n m) =
-      decide ((nbit n 22 + nbit m 22 + T) % 2 = 1) := by
-    rw [hc, bool_eq_decide (n.testBit 22), bool_eq_decide (m.testBit 22), xor_decide_mod,
-      xor_decide_mod]
-    rfl
-  have hlt : (n ^^^ m) % 2 ^ 22 < 2 ^ 22 := Nat.mod_lt _ (by norm_num)
-  rw [qmul, hs, prodCode, ← hT]
-  by_cases h : (nbit n 22 + nbit m 22 + T) % 2 = 1
-  · rw [decide_eq_true h, ite_eq_left rfl, h, mul_one, Nat.or_two_pow_eq_add_of_lt hlt]
-  · have h0 : (nbit n 22 + nbit m 22 + T) % 2 = 0 := by omega
-    rw [decide_eq_false h, h0, mul_zero, add_zero]
-    simp
-
-theorem qS_mul_prodCode
-    (n m : ℕ) : qS n * qS m = qS (prodCode n m) := by
-  rw [qS_mul, qmul_eq]
 
 local notation "βr" s => ((betaRow Dyadic.betaS s : MatBˣ) : MatB)
 
@@ -457,9 +373,6 @@ theorem psiS_signedImg {rows : Array ℕ} {rows' : List ℕ}
     · simp
   rw [hb, Max2.decMat, Matrix.of_apply, hrows i i.2, Code.bvec_apply]
 
-theorem quotRows1_lt : ∀ i < 22, quotRows1.getD i 0 < 2 ^ 22 := by decide
-
-theorem quotRows2_lt : ∀ i < 22, quotRows2.getD i 0 < 2 ^ 22 := by decide
 
 theorem conj_mem_Qs {g s : Sbp} (hg : g.unop ∈ Jbar) (hs : s ∈ Qs) : g⁻¹ * s * g ∈ Qs := by
   have h := conj_mem_Ebar (Jbar.inv_mem hg) hs
@@ -663,10 +576,6 @@ theorem quotM_eq (k : ℕ) : quotM k = Dyadic.matRows (liftRowsK k) := by
   rw [quotM, Max2.decMat, Matrix.of_apply, Code.bvec_apply, toArray_getElem!, Dyadic.matRows,
     Matrix.of_apply]
 
-theorem quotM_sq
-    {k : ℕ} (hk : k = 6 ∨ k = 8 ∨ k = 10) : quotM k * quotM k = 1 := by
-  have h := (Certificates.certificate3098.2.2.1 k hk).2.1
-  rwa [liftData_eq hk, ← quotM_eq] at h
 
 theorem rank_quotM
     {k : ℕ} (hk : k = 6 ∨ k = 8 ∨ k = 10) : (quotM k - 1).rank = k := by
@@ -731,9 +640,6 @@ theorem beta_rs
     (i : ℕ) : (βr (rs i)) = Dyadic.repK i := by
   rw [rs, map_mul, Units.val_mul, beta_hs, beta_qSK, Dyadic.repK]
 
-theorem hs10_eq :
-    hs 10 = liftWordS seed10 ^ 10 := by
-  rw [hs, ite_eq_right (by decide), ite_eq_right (by decide), ite_eq_left rfl]
 
 theorem lift10_107 : qmul gArr (autApply gArr (liftImgsK 10).toArray 107) 107 = 2 ^ 22 := by
   decide +kernel
@@ -759,20 +665,5 @@ theorem hs10_sq :
   rw [← hxi]
   exact eq_inv_of_mul_eq_one_left e
 
-theorem native_extraspecial_action_and_three_lift_squares :
-    Set.BijOn qS (Set.Iio (2 ^ 23)) (Qs : Set Sbp) ∧
-    (∀ n m, qS n * qS m = qS (prodCode n m)) ∧
-    genSigns = [3711077, 3015616] ∧
-    (∀ i < 22, (gs 0)⁻¹ * es i * gs 0 = qS (signedImg quotRows1 3711077 i)) ∧
-    (∀ i < 22, (gs 1)⁻¹ * es i * gs 1 = qS (signedImg quotRows2 3015616 i)) ∧
-    (∀ k, (k = 6 ∨ k = 8 ∨ k = 10) →
-      (∀ i < 22, (hs k)⁻¹ * es i * hs k = qS ((liftImgsK k).getD i 0)) ∧
-      (∀ i : Fin 22, psiS ((hs k)⁻¹ * es i * hs k) = ∑ j : Fin 22, quotM k i j • psiS (es j)) ∧
-      quotM k * quotM k = 1 ∧ (quotM k - 1).rank = k) ∧
-    hs 6 ^ 2 = xs ∧ hs 8 ^ 2 = 1 ∧ hs 10 ^ 2 = xs :=
-  ⟨⟨fun n _ => qS_mem n, qS_injOn, fun _ hg => exists_qS hg⟩, qS_mul_prodCode, rfl,
-    fun _ hi => conj_g0 hi, fun _ hi => conj_g1 hi,
-    fun _ hk => ⟨fun _ hi => conj_hs hk hi, psiS_conj_hs hk, quotM_sq hk, rank_quotM hk⟩,
-    hs6_sq, hs8_sq, hs10_sq⟩
 
 end CFSG.Monster.B.CTIB

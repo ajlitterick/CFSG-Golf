@@ -28,37 +28,5 @@ namespace CFSG.Blueprint.EvenSource
 @[expose] def sourceGolayCode : Submodule (ZMod 2) (Fin 24 → ZMod 2) :=
   Submodule.span (ZMod 2) (Set.range sourceGolayGenerator)
 
-@[expose] def sourceGolayOctads : Set (Finset (Fin 24)) :=
-  {O | ∃ w ∈ sourceGolayCode, Finset.univ.filter (fun i => w i ≠ 0) = O ∧ O.card = 8}
-
-theorem sourceGolayGenerator_eq : sourceGolayGenerator =
-    ![![1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1],
-    ![0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1],
-    ![0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-      1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1],
-    ![0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,
-      0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1],
-    ![0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-      0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1],
-    ![0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
-      0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1],
-    ![0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
-      1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1],
-    ![0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
-      1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1],
-    ![0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0,
-      1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1],
-    ![0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,
-      0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1],
-    ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-      1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1],
-    ![0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-      1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0]] := by
-  decide
-
-theorem sourceGolayGenerator_mem (i : Fin 12) : sourceGolayGenerator i ∈ sourceGolayCode :=
-  Submodule.subset_span ⟨i, rfl⟩
 
 end CFSG.Blueprint.EvenSource

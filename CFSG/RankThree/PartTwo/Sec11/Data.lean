@@ -23,28 +23,6 @@ structure Sec11Data (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L 
   g_not_mem : g ∉ Subgroup.normalizer (Subgroup.zpowers c : Set G)
   conj_mem : g * c * g⁻¹ ∈ Subgroup.closure {c, d}
 
-theorem rank3II_11_10 {G : Type} [Group G] [Finite G] {A : Subgroup G} {c : G} {L : Subgroup G}
-    {a : G} {R Y : Subgroup G} {d x s r g : G} (h : Sec11Data G A c L a R Y d x s r g)
-    (hs : s = c) : r * a = a * r := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hR3 : IsPGroup 3 R := h.isSylowOf.isPGroup
-  have hRH : R ≤ Subgroup.normalizer (Subgroup.zpowers c : Set G) := h.isSylowOf.le
-  have hrR : r ∈ R := by
-    rw [h.R_eq]
-    exact Subgroup.subset_closure (by simp)
-  obtain ⟨k, hk⟩ := hR3 ⟨r, hrR⟩
-  have hrk : r ^ 3 ^ k = 1 := by simpa using congrArg Subtype.val hk
-  have hc3 : orderOf c = 3 :=
-    orderOf_eq_prime (h.mem_partTwoF.1.2 c h.mem_A) h.ne_one
-  have hrc : r * c = c * r := Sec12.commute_of_conj_mem_zpowers hc3
-    ((Subgroup.mem_normalizer_iff.mp (hRH hrR) c).mp (Subgroup.mem_zpowers c)) hrk
-  have hle : Subgroup.closure ({r, s} : Set G) ≤ Subgroup.centralizer ({r} : Set G) := by
-    rw [Subgroup.closure_le]
-    rintro y (rfl | rfl)
-    · exact Subgroup.mem_centralizer_singleton_iff.mpr rfl
-    · rw [hs]
-      exact Subgroup.mem_centralizer_singleton_iff.mpr hrc.symm
-  exact (Subgroup.mem_centralizer_singleton_iff.mp (hle h.a_mem_closure)).symm
 
 variable {G : Type*} [Group G]
 

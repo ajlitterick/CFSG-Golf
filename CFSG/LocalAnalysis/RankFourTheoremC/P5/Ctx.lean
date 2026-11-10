@@ -10,11 +10,6 @@ namespace CFSG.LocalAnalysis.RankFourTheoremC.P5
 
 open CFSG.Open CFSG.AGLEmbedding CFSG.AGLEmbeddingD2 CFSG.LocalAnalysis.RankThreeTheoremC Subgroup
 
-@[expose] def GL83NormalElementaryRankFourOdd : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ), p.Prime → 5 ≤ p → ∀ R : Subgroup G, IsPGroup p R →
-    4 ≤ Open.pRank p R →
-      ∃ E : Subgroup G, E ≤ R ∧ R ≤ normalizer (E : Set G) ∧ IsElemAbelian p E ∧
-        Nat.card E = p ^ 4
 
 structure P5KFacts : Prop where
   h243 : GL83ComponentPCoreTrivial

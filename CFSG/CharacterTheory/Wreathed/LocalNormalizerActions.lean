@@ -87,21 +87,5 @@ theorem modelVNormalizer_exists_odd_three_power_actor (n : ℕ) (hn : 2 ≤ n)
   · rw [hg]
     exact haorderA
 
-omit [Finite G] in
-theorem modelVNormalizer_order_three_cycles_all_nonzero (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (g : Subgroup.normalizer (modelV S e : Set G))
-    (horder : orderOf (modelVQuotientAction S e g) = 3)
-    (x : Original.V (2 ^ n) ⧸ Subgroup.center (Original.V (2 ^ n))) (hx : x ≠ 1) :
-    modelVQuotientAction S e g x ≠ x ∧
-      modelVQuotientAction S e g (modelVQuotientAction S e g x) ≠ x ∧
-      modelVQuotientAction S e g (modelVQuotientAction S e g x) ≠
-        modelVQuotientAction S e g x ∧
-      ∀ y : Original.V (2 ^ n) ⧸ Subgroup.center (Original.V (2 ^ n)), y ≠ 1 →
-        y = x ∨ y = modelVQuotientAction S e g x ∨
-          y = modelVQuotientAction S e g (modelVQuotientAction S e g x) := by
-  let : IsKleinFour (Original.V (2 ^ n) ⧸ Subgroup.center (Original.V (2 ^ n))) :=
-    original_v_center_quotient_isKleinFour n hn
-  exact CFSG.kleinFour_order_three_cycle _ (modelVQuotientAction S e g) horder x hx
 
 end CFSG.Wreathed

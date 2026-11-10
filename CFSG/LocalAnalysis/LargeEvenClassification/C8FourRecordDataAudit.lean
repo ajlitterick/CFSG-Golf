@@ -8,10 +8,6 @@ public section
 
 namespace CFSG.LargeEvenClassification.Helpers
 
-theorem c8Four_record_rank_le_five
-    (r : C8FourSubgroupRecord) (hr : c8FourRecordValid r) :
-    pGeneratorRank 2 (c8FourRecordSubgroup r hr) ≤ 5 := by
-  exact (c8FourRecord_generator_rank_le r hr).trans hr.2.2.2.2.2.2.2
 
 @[expose] def c8FourRecordBinaryHom
     (r : C8FourSubgroupRecord) (hr : c8FourRecordValid r) :

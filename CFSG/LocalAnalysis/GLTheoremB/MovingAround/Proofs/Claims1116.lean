@@ -254,9 +254,6 @@ theorem prep_hAC (P : Prep1116 G m p B M E A a K q e J0 J1) : A ≤ Cg e :=
 theorem prep_hE3 (P : Prep1116 G m p B M E A a K q e J0 J1) : 3 ≤ CFSG.Open.pRank p E :=
   P.pair.1.1.1.2
 
-theorem prep_cardE (P : Prep1116 G m p B M E A a K q e J0 J1) : p ^ 3 ≤ Nat.card E := by
-  rw [card_eq_pow_pRank' P.hp (sec11_isElemAbelian_E P.toSec11)]
-  exact Nat.pow_le_pow_right P.hp.pos (prep_hE3 P)
 
 theorem prep_conj_comp (P : Prep1116 G m p B M E A a K q e J0 J1) {g : G}
     (hg : g ∈ Subgroup.zpowers a) : GLAPComponent p (Cg e) (GLBConj g J1) := by
@@ -321,21 +318,6 @@ theorem prop1116_chevr_of_inputs (hDown : Input14_4_ChevDown) (hPair : Input3_3_
     · exact hseitz hrp fun ⟨_, h⟩ => h.elim hp3 hexc
   · exact hseitz hrp fun ⟨h, _⟩ => hr2 h
 
-@[expose] def Input14_13Spor : Prop :=
-  ∀ {G : Type} [Group G] [Finite G] {p : ℕ}, p.Prime → p ≠ 2 → ∀ {e a : G} {J0 J1 : Subgroup G},
-    a * e = e * a → a ^ p = 1 → GLAPComponent p (Cg e) J1 →
-    GLAPComponent p (GLAPLayer p (Kx p J0 e ⊓ Cg a)) J0 →
-    Kx p J0 e = ⨆ g ∈ Subgroup.zpowers a, GLBConj g J1 →
-    ∀ s : TauCeti.SporadicName, IsSporType s (barOf p J1 ⧸ Subgroup.center (barOf p J1)) →
-    ∀ q : ℕ, q.Prime → q ≠ 2 → q ≠ p →
-      IsChevSimple q (barOf p J0 ⧸ Subgroup.center (barOf p J0)) →
-      GLBConj a J1 = J1 ∧
-        ((p = 3 ∧ (s = .M23 ∨ s = .HS) ∧
-            IsLpType 2 5 (barOf p J0 ⧸ Subgroup.center (barOf p J0))) ∨
-          (p = 3 ∧ (s = .M24 ∨ s = .He) ∧
-            IsLpType 2 7 (barOf p J0 ⧸ Subgroup.center (barOf p J0))) ∨
-          (p = 5 ∧ s = .Suz ∧ IsLpType 2 9 (barOf p J0 ⧸ Subgroup.center (barOf p J0))) ∨
-          (p = 13 ∧ s = .M ∧ IsLpType 3 3 (barOf p J0 ⧸ Subgroup.center (barOf p J0))))
 
 @[expose] def InputSporAutRank : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (p : ℕ) (s : TauCeti.SporadicName),
@@ -779,48 +761,5 @@ theorem spor_five (hSuz : InputSuzFive) (h104i : Lemma104_iStatement)
 
 end Spor
 
-theorem prop1116_spor_of_inputs (hSpor : Input14_13Spor) (hAut : InputSporAutRank) (hSuz : InputSuzFive)
-    (hField : Input14_4_1Field)
-    (h113 : Lemma113_iStatement) (h104i : Lemma104_iStatement) (h104ii : Lemma104_iiStatement)
-    (h104vi : Lemma104_viStatement) : Prop1116SporStatement := by
-  intro G _ _ m p B M E A a K q e J0 J1 P s hs
-  have hp : p.Prime := P.hp
-  have hp2 : p ≠ 2 := P.standing.ne_two
-  obtain ⟨hJ1a, hcases⟩ := hSpor hp hp2 (prep_hea P) (prep_hap P) P.hJ1 P.hJ0' P.hJstar s hs q
-    P.hq.1 P.hq.2.1 P.hq.2.2 P.hJ0chev
-  have hKx : Kx p J0 e = J1 := by
-    rw [P.hJstar]
-    apply le_antisymm
-    · exact iSup₂_le fun g hg => le_of_eq (gLBConj_eq_of_zpowers hJ1a hg)
-    · exact le_iSup₂_of_le (1 : G) (Subgroup.one_mem _) (le_of_eq (gLBConj_one J1).symm)
-  have hgam : ¬ barX p (Cg e) J1 ≤ GLBCore p 2 (barX p (Cg e) E) := by
-    rw [← hKx]
-    exact P.hgamma
-  have hlist : (p = 3 ∧ (s = .M23 ∨ s = .HS ∨ s = .M24 ∨ s = .He)) ∨ (p = 5 ∧ s = .Suz) ∨
-      (p = 13 ∧ s = .M) := by
-    rcases hcases with ⟨h3, h | h, -⟩ | ⟨h3, h | h, -⟩ | ⟨h5, h, -⟩ | ⟨h13, h, -⟩
-    · exact Or.inl ⟨h3, Or.inl h⟩
-    · exact Or.inl ⟨h3, Or.inr (Or.inl h)⟩
-    · exact Or.inl ⟨h3, Or.inr (Or.inr (Or.inl h))⟩
-    · exact Or.inl ⟨h3, Or.inr (Or.inr (Or.inr h))⟩
-    · exact Or.inr (Or.inl ⟨h5, h⟩)
-    · exact Or.inr (Or.inr ⟨h13, h⟩)
-  have hE3 : CFSG.Open.pRank p E = 3 := spor_rank hAut P hlist hs hgam
-  rcases hcases with ⟨hp3, -, -⟩ | ⟨hp3, -, -⟩ | ⟨hp5, hsS, -⟩ | ⟨hp13, -, hL33⟩
-  · subst hp3
-    have := h113 P.toSec11 P.ha.1 P.ha.2 P.notD
-    omega
-  · subst hp3
-    have := h113 P.toSec11 P.ha.1 P.ha.2 P.notD
-    omega
-  · subst hp5
-    subst hsS
-    exact spor_five hSuz h104i h104ii P hs hJ1a hgam hE3
-  · subst hp13
-    have hAel : IsElemAbelian 13 A := sec11_isElemAbelian_A P.toSec11
-    exact P.notIv ⟨rfl, h104vi P.toSec11.toSec10Fails P.pair hE3,
-      hField P.hK P.hq.1 P.hq.2.1 P.hq.2.2 P.hchev
-        (inf_le_right.trans (le_cg_of_elemAbelian hAel P.ha.1)) (isElemAbelian_of_le hAel inf_le_right)
-        P.he.1 P.he.2 P.hJ0 P.hJ0K hL33⟩
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Claims1116

@@ -90,38 +90,5 @@ theorem ambient_conjugation_subgroupOf_invariant
   rw [Subgroup.conjMulDistribMulActionOfLeNormalizer_smul_coe]
   exact Subgroup.mem_normalizer_iff.mp (hAQ a.property) x
 
-theorem isCyclic_ambient_elementary_actor_of_kernel_dichotomy
-    {G : Type u} [Group G] [Finite G] (M Q A : Subgroup G)
-    [Subgroup.Normalizes A M] [Q.Normal] {p : ℕ}
-    (hp : p.Prime) (hpOdd : Odd p) [CFSG.IsElementaryAbelian p A]
-    (hM : IsPGroup 2 M) (hAQ : A ≤ Subgroup.normalizer (Q : Set G))
-    (hQproper : ¬ M ≤ Q)
-    (hInv : ∀ x : G, x ∈ M → orderOf x = 2 → x ∈ Q)
-    (hdichotomy : ∀ a : G, a ∈ A → a ≠ 1 →
-      (∀ x : G, x ∈ M → x ∈ Q → a * x * a⁻¹ = x → x = 1) ∨
-        (∀ x : G, x ∈ M → a * x * a⁻¹ = x → x ∈ Q)) :
-    IsCyclic A := by
-  have hQinv := ambient_conjugation_subgroupOf_invariant M Q A hAQ
-  have hproper : Q.subgroupOf M ≠ ⊤ := by
-    intro h
-    exact hQproper (Subgroup.subgroupOf_eq_top.mp h)
-  apply isCyclic_elementary_odd_actor_of_kernel_dichotomy hp hpOdd hM
-    (Q.subgroupOf M) hQinv hproper
-  · intro x hx
-    exact hInv x x.property (by simpa only [orderOf_submonoid] using hx)
-  · intro a ha
-    have haG : (a : G) ≠ 1 := fun h => ha (Subtype.ext h)
-    rcases hdichotomy a a.property haG with hs | hk
-    · left
-      intro x hx hax
-      apply Subtype.ext
-      exact hs x x.property hx (by
-        simpa only [Subgroup.conjMulDistribMulActionOfLeNormalizer_smul_coe]
-          using congrArg Subtype.val hax)
-    · right
-      intro x hax
-      exact hk x x.property (by
-        simpa only [Subgroup.conjMulDistribMulActionOfLeNormalizer_smul_coe]
-          using congrArg Subtype.val hax)
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowthCoprime

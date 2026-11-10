@@ -95,12 +95,6 @@ theorem qcompOK_of_centShape {p : ℕ} (hp : p.Prime) {Q : Type} [Group Q] [Fini
     p.Prime → p ≠ 2 → ∀ β : MulAut S, β ^ p = 1 → β ≠ 1 → ∀ J : Subgroup S,
       GLAPComponent p (fixSubgroup β) J → QTypeOK p (PSimple p J)
 
-theorem i1416QSporS_iff : I1416QSporS ↔ ∀ s p, I1416QRow s p := by
-  constructor
-  · intro h s p S _ _ he hp hp2 β hβ hβ1 J hJ q hq hq2 hqp hc hA
-    exact h S s he p hp hp2 β hβ hβ1 J hJ q hq hq2 hqp hc hA
-  · intro h S _ _ s he p hp hp2 β hβ hβ1 J hJ q hq hq2 hqp hc hA
-    exact h s p S he hp hp2 β hβ hβ1 J hJ q hq hq2 hqp hc hA
 
 theorem qrow_of_model {s : TauCeti.SporadicName} {p : ℕ} {Q : Type} [Group Q] [Finite Q]
     [IsSimpleGroup Q] (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
@@ -321,7 +315,6 @@ theorem qtypeOK_A6 (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge
   decide
 
 section NotSq
-
 
 
 theorem qrow_of_not_sq_dvd

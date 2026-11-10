@@ -41,17 +41,6 @@ theorem mat_lower (S : Matrix (Fin k) (Fin k) F) (hS : Sᵀ = S) :
     SpExtras.mat k F (lower S hS) = fromBlocks 1 0 S 1 :=
   rfl
 
-theorem transpose_add_of {S S' : Matrix (Fin k) (Fin k) F} (hS : Sᵀ = S) (hS' : S'ᵀ = S') :
-    (S + S')ᵀ = S + S' := by
-  rw [transpose_add, hS, hS']
-
-theorem upper_mul_upper {S S' : Matrix (Fin k) (Fin k) F} (hS : Sᵀ = S) (hS' : S'ᵀ = S') :
-    upper S hS * upper S' hS' = upper (S + S') (transpose_add_of hS hS') :=
-  ext_mat (by simp [fromBlocks_multiply, add_comm])
-
-theorem lower_mul_lower {S S' : Matrix (Fin k) (Fin k) F} (hS : Sᵀ = S) (hS' : S'ᵀ = S') :
-    lower S hS * lower S' hS' = lower (S + S') (transpose_add_of hS hS') :=
-  ext_mat (by simp [fromBlocks_multiply, add_comm])
 
 theorem add_self_eq_zero [CharP F 2] {ι : Type*} (S : Matrix ι ι F) : S + S = 0 := by
   ext a b
@@ -63,11 +52,6 @@ theorem upper_inv [CharP F 2] {S : Matrix (Fin k) (Fin k) F} (hS : Sᵀ = S) :
   simp only [map_mul, mat_upper, fromBlocks_multiply, map_one]
   simp [← fromBlocks_one, add_self_eq_zero]
 
-theorem lower_inv [CharP F 2] {S : Matrix (Fin k) (Fin k) F} (hS : Sᵀ = S) :
-    (lower S hS)⁻¹ = lower S hS := by
-  refine inv_eq_of_mul_eq_one_right (ext_mat ?_)
-  simp only [map_mul, mat_lower, fromBlocks_multiply, map_one]
-  simp [← fromBlocks_one, add_self_eq_zero]
 
 @[expose] noncomputable def leviElt (A : SpecialLinearGroup (Fin k) F) : StatedSp k F :=
   ⟨⟨fromBlocks (A : Matrix (Fin k) (Fin k) F) 0 0
@@ -108,27 +92,6 @@ theorem mat_levi (A : SpecialLinearGroup (Fin k) F) :
       ((A⁻¹ : SpecialLinearGroup (Fin k) F) : Matrix (Fin k) (Fin k) F)ᵀ :=
   rfl
 
-theorem levi_conj_upper (A : SpecialLinearGroup (Fin k) F) {S : Matrix (Fin k) (Fin k) F}
-    (hS : Sᵀ = S) (h : ((A : Matrix (Fin k) (Fin k) F) * S * (A : Matrix (Fin k) (Fin k) F)ᵀ)ᵀ =
-      (A : Matrix (Fin k) (Fin k) F) * S * (A : Matrix (Fin k) (Fin k) F)ᵀ) :
-    levi A * upper S hS * (levi A)⁻¹ = upper _ h := by
-  refine ext_mat ?_
-  rw [← map_inv, map_mul, map_mul, mat_levi, mat_levi, mat_upper, mat_upper, inv_inv,
-    fromBlocks_multiply, fromBlocks_multiply]
-  simp only [Matrix.mul_zero, Matrix.zero_mul, add_zero, zero_add, Matrix.mul_one,
-    sl_coe_mul_coe_inv, Matrix.mul_assoc, ← transpose_mul, transpose_one]
-
-theorem levi_conj_lower (A : SpecialLinearGroup (Fin k) F) {S : Matrix (Fin k) (Fin k) F}
-    (hS : Sᵀ = S) (h : (((A⁻¹ : SpecialLinearGroup (Fin k) F) : Matrix (Fin k) (Fin k) F)ᵀ * S *
-      ((A⁻¹ : SpecialLinearGroup (Fin k) F) : Matrix (Fin k) (Fin k) F))ᵀ =
-      ((A⁻¹ : SpecialLinearGroup (Fin k) F) : Matrix (Fin k) (Fin k) F)ᵀ * S *
-        ((A⁻¹ : SpecialLinearGroup (Fin k) F) : Matrix (Fin k) (Fin k) F)) :
-    levi A * lower S hS * (levi A)⁻¹ = lower _ h := by
-  refine ext_mat ?_
-  rw [← map_inv, map_mul, map_mul, mat_levi, mat_levi, mat_lower, mat_lower, inv_inv,
-    fromBlocks_multiply, fromBlocks_multiply]
-  simp only [Matrix.mul_zero, Matrix.zero_mul, add_zero, zero_add, Matrix.mul_one,
-    sl_coe_mul_coe_inv, Matrix.mul_assoc, ← transpose_mul, transpose_one]
 
 @[expose] noncomputable def jElt : StatedSp k F :=
   ⟨⟨fromBlocks 0 1 (-1) 0, fromBlocks 0 (-1) 1 0, by simp [fromBlocks_multiply, ← fromBlocks_one],

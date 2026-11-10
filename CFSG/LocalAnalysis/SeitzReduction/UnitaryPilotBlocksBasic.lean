@@ -261,8 +261,6 @@ theorem blockSU_univ : blockSU h (Finset.univ : Finset (Fin n)) = ⊤ := by
   rw [blockSU, unitaryBlock_univ, ← MonoidHom.range_eq_map,
     MonoidHom.range_eq_top.2 (unitaryProj_surjective h n)]
 
-theorem rootSU2_comm (a b : Fin n) : rootSU2 h a b = rootSU2 h b a := by
-  rw [rootSU2, rootSU2, Finset.pair_comm]
 
 theorem rootSU2_le_blockSU {I : Finset (Fin n)} {a b : Fin n} (ha : a ∈ I) (hb : b ∈ I) :
     rootSU2 h a b ≤ blockSU h I :=
@@ -283,76 +281,11 @@ theorem blockSU_mulEquiv (I : Finset (Fin n)) (hI : I.card < n) :
     Nonempty (blockSU h I ≃* unitarySU p f K I.card) :=
   ⟨(blockSUEquiv h hI).symm⟩
 
-theorem rootSU2_mulEquiv {a b : Fin n} (hab : a ≠ b) (hn : 3 ≤ n) :
-    Nonempty (rootSU2 h a b ≃* unitarySU p f K 2) := by
-  have hcard : ({a, b} : Finset (Fin n)).card = 2 := Finset.card_pair hab
-  obtain ⟨e⟩ := blockSU_mulEquiv h {a, b} (by omega)
-  rw [hcard] at e
-  exact ⟨e⟩
 
 theorem commute_blockSU_of_disjoint {I J : Finset (Fin n)} (hIJ : Disjoint I J) :
     ∀ x ∈ blockSU h I, ∀ y ∈ blockSU h J, x * y = y * x := by
   rintro _ ⟨A, hA, rfl⟩ _ ⟨B, hB, rfl⟩
   rw [← map_mul, ← map_mul, (commute_unitaryBlock_of_disjoint h hIJ hA hB).eq]
 
-@[expose] noncomputable def pairEmbedSU {a b : Fin n} (hab : a ≠ b) :
-    unitarySU p f K 2 →* unitarySU p f K n :=
-  (SpecialLinearGroup.toGL.comp ((LinearPilot.pairEmbed hab).comp (toSL h 2))).codRestrict
-    (unitarySU p f K n) fun X => (mem_unitarySU_iff h).2
-      ⟨((LinearPilot.pairEmbed hab) (toSL h 2 X)).2,
-        blockMatrix_unitary h {a, b} (reindex_unitary h _ (unitary_toSL h X))⟩
-
-theorem toSL_pairEmbedSU {a b : Fin n} (hab : a ≠ b) (X : unitarySU p f K 2) :
-    toSL h n (pairEmbedSU h hab X) = LinearPilot.pairEmbed hab (toSL h 2 X) :=
-  rfl
-
-theorem coe_pairEmbedSU {a b : Fin n} (hab : a ≠ b) (X : unitarySU p f K 2) :
-    (((pairEmbedSU h hab X : unitarySU p f K n) : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) =
-      ((LinearPilot.pairEmbed hab (toSL h 2 X) : SpecialLinearGroup (Fin n) K) :
-        Matrix (Fin n) (Fin n) K) :=
-  rfl
-
-theorem pairEmbedSU_injective {a b : Fin n} (hab : a ≠ b) :
-    Function.Injective (pairEmbedSU h hab) := by
-  intro X Y hXY
-  have h1 := congrArg (toSL h n) hXY
-  rw [toSL_pairEmbedSU, toSL_pairEmbedSU] at h1
-  exact toSL_injective h (LinearPilot.pairEmbed_injective hab h1)
-
-theorem range_pairEmbedSU {a b : Fin n} (hab : a ≠ b) :
-    (pairEmbedSU h hab).range = unitaryBlock h {a, b} := by
-  apply le_antisymm
-  · rintro _ ⟨X, rfl⟩
-    rw [mem_unitaryBlock_iff_toSL, toSL_pairEmbedSU, ← LinearPilot.range_pairEmbed hab]
-    exact ⟨_, rfl⟩
-  · intro A hA
-    rw [mem_unitaryBlock_iff_toSL, ← LinearPilot.range_pairEmbed hab] at hA
-    obtain ⟨B, hB⟩ := hA
-    have hBu : ((B : Matrix (Fin 2) (Fin 2) K).map h.bar)ᵀ *
-        (B : Matrix (Fin 2) (Fin 2) K) = 1 := by
-      have hA' := unitary_toSL h A
-      rw [← hB] at hA'
-      exact unitary_of_reindex_unitary h _ (unitary_of_blockMatrix_unitary h {a, b} hA')
-    exact ⟨ofSL h B hBu, toSL_injective h (by rw [toSL_pairEmbedSU, toSL_ofSL, hB])⟩
-
-theorem rootSU2_eq_range_pairEmbedSU {a b : Fin n} (hab : a ≠ b) :
-    rootSU2 h a b = ((unitaryProj h n).comp (pairEmbedSU h hab)).range := by
-  rw [MonoidHom.range_comp, range_pairEmbedSU, rootSU2, blockSU]
-
-theorem unitaryProj_pairEmbedSU_mem_rootSU2 {a b : Fin n} (hab : a ≠ b)
-    (X : unitarySU p f K 2) : unitaryProj h n (pairEmbedSU h hab X) ∈ rootSU2 h a b := by
-  rw [rootSU2_eq_range_pairEmbedSU h hab]
-  exact ⟨X, rfl⟩
-
-theorem unitaryProj_comp_pairEmbedSU_injective {a b : Fin n} (hab : a ≠ b) (hn : 3 ≤ n) :
-    Function.Injective ((unitaryProj h n).comp (pairEmbedSU h hab)) := by
-  rw [injective_iff_map_eq_one]
-  intro X hX
-  have hmem : pairEmbedSU h hab X ∈ unitaryBlock h {a, b} := by
-    rw [← range_pairEmbedSU h hab]
-    exact ⟨X, rfl⟩
-  have h1 := eq_one_of_mem_unitaryBlock_of_unitaryProj_eq_one h
-    (by rw [Finset.card_pair hab]; omega) hmem hX
-  exact pairEmbedSU_injective h hab (by rw [h1, map_one])
 
 end CFSG.SeitzReduction.UnitaryPilot

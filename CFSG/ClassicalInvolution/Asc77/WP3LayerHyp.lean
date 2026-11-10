@@ -310,10 +310,6 @@ theorem hyp51_conj_mp {B : Subgroup G} (g : G) (h : Hyp51 B) : Hyp51 (conjSub g 
     rw [e, h1]
     group
 
-theorem hyp51_conj (g : G) (B : Subgroup G) : Hyp51 (conjSub g B) ↔ Hyp51 B := by
-  refine ⟨fun h => ?_, hyp51_conj_mp g⟩
-  have h1 := hyp51_conj_mp g⁻¹ h
-  rwa [conjSub_inv_conjSub] at h1
 
 theorem hyp51_of_orbitReps {B : Subgroup G} (hB : IsElemAbelian 2 B) (hcard : Nat.card B = 8)
     {R : Set G} (hR : ∀ r ∈ R, Hyp51At B r)

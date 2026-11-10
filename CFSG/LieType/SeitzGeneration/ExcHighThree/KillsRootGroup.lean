@@ -336,10 +336,6 @@ theorem neg_mem_familyKernel {L : Type} [Field L] {ι : Type} (a : ι → Fin τ
   refine ⟨CFSG.LieType.Chevalley.IsRoot.neg hγ.1, fun i => ?_⟩
   rw [show -γ = (-1 : ℤ) • γ by simp, rootChar_zsmul, hγ.2 i, one_zpow]
 
-theorem add_mem_familyKernel {L : Type} [Field L] {ι : Type} (a : ι → Fin τ.rank → Lˣ)
-    {β γ : Fin τ.rank → ℤ} (hβ : β ∈ familyKernel a) (hγ : γ ∈ familyKernel a)
-    (hp : IsRoot τ (β + γ)) : β + γ ∈ familyKernel a :=
-  ⟨hp, fun i => by rw [rootChar_add, hβ.2 i, hγ.2 i, one_mul]⟩
 
 theorem stab_mem_familyKernel {L : Type} [Field L] {ι : Type} (a : ι → Fin τ.rank → Lˣ)
     {x : WeylGroup τ} (hx : ∀ i, x ∈ rootCharStabilizerSubgroup (a i))

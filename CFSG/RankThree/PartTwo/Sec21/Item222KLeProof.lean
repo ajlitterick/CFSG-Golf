@@ -252,12 +252,5 @@ theorem kZero_le_of_mem_starOf [Finite G] {A L : Subgroup G} (hA : A ∈ partTwo
     rw [← Subgroup.coe_pow, hk, Subgroup.coe_one]
   exact (mem_of_pow_eq_one_of_mem_sup_centralizer hTC hcop (hE y.2) hyk).1
 
-theorem item222KLe :
-    ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
-      Sec21Pair G A E U c L → ∀ φ ∈ starOf A L, φ ∈ dStar A → kZero A φ ≤ L := by
-  intro G _ _ A E U c L hpair φ hφL hφ
-  have hpairs := mem_lThreeStarPairs_iff.mp hpair.mem_pair
-  exact kZero_le_of_mem_starOf hpair.mem_S.1 (hpair.mem_E.2 hpairs.1.1)
-    ((lZeroStarAt_subset A c) hpairs.2.2.1) hφL hφ.1.1
 
 end CFSG.RankThree.PartTwo.Sec21

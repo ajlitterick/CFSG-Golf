@@ -129,20 +129,6 @@ theorem up_apply (u : V) (hu : zstar hli hspan u = 0) (x : V) :
 theorem lo_apply (ψ : Dual F V) (hψ : ψ z = 0) (x : V) : lo z ψ hψ x = x + ψ x • z :=
   rfl
 
-theorem up_mul_up (u u' : V) (hu : zstar hli hspan u = 0) (hu' : zstar hli hspan u' = 0) :
-    up hli hspan u hu * up hli hspan u' hu' =
-      up hli hspan (u + u') (by rw [map_add, hu, hu', add_zero]) := by
-  ext x
-  rw [LinearEquiv.mul_apply, up_apply, up_apply, up_apply, map_add, map_smul, hu', smul_zero,
-    add_zero, smul_add]
-  abel
-
-theorem lo_mul_lo (ψ ψ' : Dual F V) (hψ : ψ z = 0) (hψ' : ψ' z = 0) :
-    lo z ψ hψ * lo z ψ' hψ' = lo z (ψ + ψ') (by rw [LinearMap.add_apply, hψ, hψ', add_zero]) := by
-  ext x
-  rw [LinearEquiv.mul_apply, lo_apply, lo_apply, lo_apply, map_add, map_smul, hψ, smul_zero,
-    add_zero, LinearMap.add_apply, add_smul]
-  abel
 
 theorem conj_up {h : V ≃ₗ[F] V} (hz : ∀ x, zstar hli hspan (h x) = zstar hli hspan x)
     (u : V) (hu : zstar hli hspan u = 0) :

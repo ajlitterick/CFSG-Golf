@@ -175,18 +175,6 @@ theorem ggLayerTags_PSp_of_core (hcore : GGSpCentralizerCoreInput) :
     | exact (LayerFacts.ggLayer_sp (F := GaloisField 2 f) hcore hrk hker hp hp2 hE hcomm hdiag).1
     | exact (LayerFacts.ggLayer_sp (F := GaloisField 2 f) hcore hrk hker hp hp2 hE hcomm hdiag).2
 
-theorem ggLayerInputs_of_remaining_sp
-    (hPSU : GGLayerCentreOddTag .PSU ∧ GGLayerPerfectTag .PSU)
-    (hSp : GGSpCentralizerCoreInput)
-    (hPlus : GGLayerCentreOddTag .POmegaPlus ∧ GGLayerPerfectTag .POmegaPlus)
-    (hMinus : GGLayerCentreOddTag .POmegaMinus ∧ GGLayerPerfectTag .POmegaMinus)
-    (hF4 : GGLayerCentreOddTag .F4 ∧ GGLayerPerfectTag .F4)
-    (hE6 : GGLayerCentreOddTag .E6 ∧ GGLayerPerfectTag .E6)
-    (hE7 : GGLayerCentreOddTag .E7 ∧ GGLayerPerfectTag .E7)
-    (hE8 : GGLayerCentreOddTag .E8 ∧ GGLayerPerfectTag .E8)
-    (hTwE6 : GGLayerCentreOddTag .twistedE6 ∧ GGLayerPerfectTag .twistedE6) :
-    GGLayerCentreOddInput ∧ GGLayerPerfectInput :=
-  ggLayerInputs_of_remaining hPSU (ggLayerTags_PSp_of_core hSp) hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
 
 end Tags
 

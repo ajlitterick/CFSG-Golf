@@ -114,13 +114,6 @@ theorem card_layerSub_top : Nat.card (layerSub θ ⊤ : Subgroup G) = 64 := by
   · rintro ⟨_, B, -, rfl⟩
     exact ⟨B, rfl⟩
 
-@[expose] noncomputable def diagR : R →* Multiplicative (Fin 3 → ZMod 2) where
-  toFun x := Multiplicative.ofAdd
-    (symThreeDiag ((Multiplicative.toAdd (θ x)).1 : Matrix (Fin 3) (Fin 3) (ZMod 2)))
-  map_one' := by
-    rw [map_one, toAdd_one, Prod.fst_zero, ZeroMemClass.coe_zero, symThreeDiag_zero, ofAdd_zero]
-  map_mul' x y := by
-    rw [map_mul, toAdd_mul, Prod.fst_add, AddSubgroup.coe_add, symThreeDiag_add, ofAdd_add]
 
 end Layers
 

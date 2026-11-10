@@ -23,14 +23,6 @@ theorem beta_mem_S {x : NativeSporadic.M12} (hx : x ∈ S) : beta x ∈ S := by
   rw [this]
   exact (βS ⟨x, hx⟩).2
 
-theorem beta_map_S : S.map beta.toMonoidHom = S := by
-  apply le_antisymm
-  · rintro _ ⟨x, hx, rfl⟩
-    exact beta_mem_S hx
-  · intro x hx
-    refine ⟨beta x, beta_mem_S hx, ?_⟩
-    change beta (beta x) = x
-    rw [← MulAut.mul_apply, beta_mul_self, MulAut.one_apply]
 
 theorem beta_r (i : Fin 1485) : beta (r i) = aS i * r (σI i) :=
   Subtype.ext (beta_apply_of_mem (pair_mem_r i))
@@ -38,11 +30,6 @@ theorem beta_r (i : Fin 1485) : beta (r i) = aS i * r (σI i) :=
 theorem tau0_snd (x : R) : ((tau0 x).snd : NativeSporadic.M12) = beta x.snd := by
   rw [proj_tau0, beta_coe]
 
-theorem tau_snd (x : R) : ((tau x).snd : NativeSporadic.M12) = beta x.snd := by
-  rw [proj_tau, beta_coe]
-
-theorem autIndex_eq (i : Fin 1485) : isRightTransversal.autIndex beta i = σI i :=
-  isRightTransversal.autIndex_eq_of_eq beta (aS i).2 (beta_r i)
 
 theorem autCoef_eq (i : Fin 1485) : isRightTransversal.autCoef beta i = aS i :=
   Subtype.ext (isRightTransversal.coe_autCoef_eq_of_eq beta (aS i).2 (beta_r i))

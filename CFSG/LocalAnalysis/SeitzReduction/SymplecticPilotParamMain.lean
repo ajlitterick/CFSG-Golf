@@ -61,21 +61,6 @@ section AllPlanes
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {K : Type} [Field K]
 
-theorem forall_nonempty_fieldNeighbourParam_of_rootKindSp {m f : ℕ} (hset : SeitzSetting G L)
-    (hKc : Nat.card K = 2 ^ f) (hf : 2 ≤ f) (hm : 2 ≤ m) (e : L ≃* StatedSp (m + 1) K) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {F : Type} [Field F] [Finite F]
-    (ι : K →+* F) {σ : F ≃+* F} (hσ : orderOf σ = 2) (hfix : ∀ x : F, σ x = x ↔ x ∈ Set.range ι)
-    {k₀ : Fin (m + 1)} (h : RootKindSp e t f k₀ .field) (k : Fin (m + 1)) :
-    Nonempty (FieldNeighbourParam e t ι σ k) :=
-  nonempty_fieldNeighbourParam_of_rootKindSp hset hKc hf hm e htC ht k ι hσ hfix
-    ((rootKindSp_iff e htC f k₀ k .field).1 h)
-
-theorem forall_nonempty_swapNeighbourParam_of_rootKindSp {m f : ℕ} (hset : SeitzSetting G L)
-    (hKc : Nat.card K = 2 ^ f) (hf : 2 ≤ f) (hm : 2 ≤ m) (e : L ≃* StatedSp (m + 1) K) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {k₀ : Fin (m + 1)}
-    (h : RootKindSp e t f k₀ .swap) (k : Fin (m + 1)) : Nonempty (SwapNeighbourParam e t k) :=
-  nonempty_swapNeighbourParam_of_rootKindSp hset hKc hf hm e htC ht k
-    ((rootKindSp_iff e htC f k₀ k .swap).1 h)
 
 theorem exists_rootKindSp_param {m f : ℕ} (hcat : Sp2mCatalogueClausesAt m)
     (hset : SeitzSetting G L) (hKc : Nat.card K = 2 ^ f) (hf : 2 ≤ f) (hm : 2 ≤ m)

@@ -34,7 +34,6 @@ theorem dodecadW_mem_C : dodecadW ∈ C := by decide
 
 theorem hammingNorm_dodecadW : hammingNorm dodecadW = 12 := by decide
 
-theorem dodecadW_cases : ∀ y : Fin 24, dodecadW y = 0 ∨ dodecadW y = 1 := by decide
 
 theorem dodecadW_zero : dodecadW 0 = 0 := by decide
 

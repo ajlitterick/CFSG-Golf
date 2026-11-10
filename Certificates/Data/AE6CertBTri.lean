@@ -10,7 +10,6 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Sporadic.Schreier.Native
   CFSG.Sporadic.Th.Native CFSG.Monster.B.Co2.Native CFSG.EvenSmallLie.OmegaEight
   Certificates.AE6Model Certificates.S7Twin
 
-@[expose] def triOmit : Fin 3 → Fin 8 := ![1, 7, 5]
 
 @[expose] def triEK : Fin 3 → Fin 3 := ![0, 0, 1]
 

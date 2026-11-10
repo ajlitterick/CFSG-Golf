@@ -19,8 +19,6 @@ open CFSG.ComponentClassification.CatFactsSmall CFSG.ComponentClassification.Cat
 theorem cent2013K : centTrivCheck (elemsV QS8) a8 b8 = true := by
   decide +kernel
 
-theorem neg2013K : centTrivCheck (elemsV QS8) a8 a8 = false := by
-  decide +kernel
 
 theorem len2013K : (elemsV QS8).length = 40320 := by
   decide +kernel

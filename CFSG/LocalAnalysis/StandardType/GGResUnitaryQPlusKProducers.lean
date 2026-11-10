@@ -129,43 +129,6 @@ namespace CFSG.StandardType
 open CFSG CFSG.Assembly CFSG.ClassicalGroups.UnitaryFlag CFSG.LocalAnalysis.ComponentInitial
   CFSG.StandardType.LineU TableB
 
-theorem GGResHyp.exists_unitaryModel_K_of_marking_not_six_three
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ p ∣ 2 ^ lab.n + 1 ∧
-        ¬ (lab.rank + 1 = 6 ∧ p = 3)) p Bs K)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G)) :
-    ∃ (F : Type) (_ : Field F) (_ : Finite F) (n d : ℕ)
-      (θ : ↥K ⧸ Subgroup.center ↥K ≃* LargeEvenProj (unitarySU 2 n F d))
-      (ψ : ↥(unitarySU 2 n F d) →* ↥K),
-      UnitTB.Model ψ ∧
-        ∀ a ∈ (ggGamma K hN).range, ∃ t : Fin d → F, ActsDiagU ψ a t := by
-  classical
-  obtain ⟨hperf, lab, hΛ, hraw⟩ := hU
-  obtain ⟨R₀, iR₀, I₀, F₀, hQ₀⟩ := largeEvenRawDatum_exists hraw
-  obtain ⟨-, -, θ₀, hP₀⟩ := hQ₀
-  dsimp only at hP₀
-  obtain ⟨⟨htag, hr4, hpq, hnot⟩, hN₀, hact₀⟩ := hP₀
-  obtain ⟨tag, rank, n⟩ := lab
-  change tag = .twA at htag
-  change 4 ≤ rank at hr4
-  change p ∣ 2 ^ n + 1 at hpq
-  change ¬ (rank + 1 = 6 ∧ p = 3) at hnot
-  subst tag
-  dsimp only [LargeEvenRawDatumLegacy] at hraw
-  obtain ⟨F, hField, hFinite, hFK, hQ⟩ := hraw
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  obtain ⟨-, -, θ, hP⟩ := hQ
-  obtain ⟨⟨-, -, -, -⟩, hN', hact⟩ := hP
-  have hn : 1 ≤ n := hΛ.1
-  have hd : 5 ≤ rank + 1 := by omega
-  have h63 : ¬ (rank + 1 = 6 ∧ p = 3) := hnot
-  obtain ⟨ψ, hM, hdiag⟩ :=
-    hH.exists_unitaryModel_K_of_marking_data hFK hn hd hpq h63 θ hN hact
-  exact ⟨F, hField, hFinite, n, rank + 1, θ, ψ, hM, hdiag⟩
 
 end CFSG.StandardType
 
@@ -217,7 +180,6 @@ theorem GGResHyp.exists_unitaryModel_K_six_three_of_gamma
     CFSG.StandardType.USixTwo.exists_diagModel_odd hF hψ hker hperf hodd hA hAI
       (by simpa using hγ)
   exact ⟨ψ, hM, hdiag⟩
-
 
 
 theorem GGResHyp.exists_unitaryModel_K_six_three_qGeFour_of_gamma
@@ -379,12 +341,6 @@ theorem GGResHyp.unitary_six_two_K_marking_data
 section GammaCert
 
 
-theorem ggU63Label_le_qplus (p : ℕ) (lab : LargeEvenLabel)
-    (h : GGNbrInner937U63Label p lab) :
-    lab.tag = .twA ∧ 4 ≤ lab.rank ∧ p ∣ 2 ^ lab.n + 1 := by
-  obtain ⟨⟨htag, h3, hpq, -⟩, hrank, -⟩ := h
-  exact ⟨htag, by omega, hpq⟩
-
 theorem ggGammaSuppliers_proved : GGLBalanceInput ∧ GGStdSubPrimeInput := by
   have h01 : CFSG.Yardstones.M3f9567aba59d.GGRemainderStdSubTableB :=
     ggRemainderStdSubTableB_proved
@@ -428,39 +384,6 @@ theorem GGResHyp.exists_unitaryModel_K_six_two_of_marking_gamma_original
     (by simpa using hF) rfl (by norm_num : 3 ∣ 2 ^ 1 + 1) θ hN hact hodd hγ
 
 
-
-theorem GGResHyp.beta_four_of_unitary_six_two_K_original
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G)) (hp3 : p = 3)
-    (hU63 : GGInnerDiagOnLabel GGNbrInner937U63Label p Bs K)
-    {R : Type} [Group R] (θ : ↥K ⧸ Subgroup.center ↥K ≃* R) :
-    3 ^ 4 ≤ Nat.card (ggBeta K θ hN).range := by
-  have hKmark : GGInnerDiagOn Bs K := hH.2.2.1.2 y K hH.2.2.2.2.1
-  have hγ : 3 ^ 4 ≤ Nat.card (ggGamma K hN).range :=
-    GGResHyp.gamma_four_of_unitary_six_two_K_original hH hN hp3 hU63
-  exact ggQ2UnitDvd_beta_card_bound (n := 3 ^ 4) θ hN hKmark.1 hγ
-
-theorem GGResHyp.beta_image_of_unitary_six_two_K_original
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G)) (hp3 : p = 3)
-    (hU63 : GGInnerDiagOnLabel GGNbrInner937U63Label p Bs K)
-    {R : Type} [Group R] (I : Set (MulAut R))
-    (θ : ↥K ⧸ Subgroup.center ↥K ≃* R)
-    (hI : ∀ b ∈ Bs, ∃ φ ∈ I, LargeEvenInduces θ
-      (fun l l' : ↥K => (l' : G) = b⁻¹ * l * b) φ) :
-    IsElemAbelian p (ggBeta K θ hN).range ∧
-      ((ggBeta K θ hN).range : Set (MulAut R)) ⊆ I ∧
-      3 ^ 3 ≤ Nat.card (ggBeta K θ hN).range := by
-  have hKmark : GGInnerDiagOn Bs K := hH.2.2.1.2 y K hH.2.2.2.2.1
-  have h := ggBeta_range_rank_three_of_innerDiag hH.1
-    (Or.inr ⟨y, hH.2.2.2.2.1⟩) I θ hN hKmark.1 hI
-  simpa [hp3] using h
-
-
 theorem GGResHyp.gamma_four_of_unitary_cell
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
@@ -471,7 +394,6 @@ theorem GGResHyp.gamma_four_of_unitary_cell
     3 ^ 4 ≤ Nat.card (ggGamma K hN).range :=
   GGResHyp.gamma_four_of_unitary_six_two_K_original hH hN hp3
     (GGResHyp.u63_marking_of_cell hcell)
-
 
 
 theorem GGResHyp.exists_unitaryModel_K_six_two_of_cell_B_lt_Bs
@@ -855,36 +777,6 @@ theorem GGResHyp.exists_unitaryModel_K_of_label_qGeFour
         (by simpa [hp3] using hpq) θ hN hact hγ
     exact ⟨F, hField, hFinite, n, 6, θ, ψ, hn2, by norm_num, hpq, hM, hdiag⟩
 
-theorem GGResHyp.not_exactThree_K_of_iOne_qGeFour
-    (hLB : GGLBalanceInput)
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hI : Bs ⊓ Subgroup.centralizer (J : Set G) = D)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny := by
-  intro h3
-  have hN := (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer
-  obtain ⟨F, hField, hFinite, n, d, θ, ψ, hn2, hd, hpq, hM, hdiag⟩ :=
-    hH.exists_unitaryModel_K_of_label_qGeFour hU hN
-  obtain ⟨r, hd_eq, hpd, hXD, hcardBs, hcardJ, hBlt, hAut⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hM hpq hd hdiag h3
-  exact (hH.iOne_iff_card_ne_p3.mp hI) hcardJ
-
-theorem GGResHyp.not_exactThree_K_of_linear_split_L_qGeFour
-    (hLB : GGLBalanceInput)
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .A ∧ p ∣ 2 ^ lab.n - 1) p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_iOne_qGeFour hLB
-    (hH.iOne_of_rootTwo (hH.rootTwo_of_large_linear_L_marking hL)) hU
 
 theorem GGResHyp.not_exactThree_K_of_B_eq_Bs_qGeFour
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
@@ -904,41 +796,6 @@ theorem GGResHyp.not_exactThree_K_of_B_eq_Bs_qGeFour
   have hBlt' : Bs < Bs := by simpa [hEq] using hBlt
   exact lt_irrefl Bs hBlt'
 
-theorem GGResHyp.not_exactThree_K_of_spPlus_L_qGeFour
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel ggTBJSpPlusLabel p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_B_eq_Bs_qGeFour (hH.bstar_eq_of_spPlus_L hL) hU
-
-theorem GGResHyp.not_exactThree_K_of_spSplit_three_L_qGeFour
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel (fun p lab =>
-      (lab.tag = .B ∨ lab.tag = .C) ∧ lab.rank = 3 ∧ p ∣ 2 ^ lab.n - 1) p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_B_eq_Bs_qGeFour
-    (hH.bstar_eq_of_spSplit_three_L hL) hU
-
-theorem GGResHyp.not_exactThree_K_of_excSplit_L_qGeFour
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel GGExcLSplitLabel p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_B_eq_Bs_qGeFour
-    (hH.bstar_eq_of_excLSplit (Fact.out : p.Prime) hL) hU
 
 theorem GGResHyp.not_exactThree_K_of_original_L_marking_qGeFour
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
@@ -978,101 +835,6 @@ theorem GGResHyp.bstar_eq_of_orthogonal_split_L
   exact bstar_eq_of_inner_rank hH.1.1 hH.1.2.1
     (ggLNoncyclicInput_holds G p B x L hH.1.1) hL θ
     (hH.1.2.1.1.trans hBN) h3 hlift hrank
-
-
-theorem GGResHyp.not_exactThree_K_of_orthogonal_split_L_qGeFour
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel GGCorFourTwoOrthSplitLabel p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_B_eq_Bs_qGeFour (hH.bstar_eq_of_orthogonal_split_L hL) hU
-
-theorem GGResHyp.bstar_eq_of_orthogonal_minus_even_L
-    {G : Type} [Group G] [Finite G] {p : ℕ}
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twD ∧ 4 ≤ lab.rank ∧ Even lab.rank ∧
-        p ∣ 2 ^ lab.n + 1) p Bs L) :
-    B = Bs := by
-  obtain ⟨-, -, -, -, -, hβ, -, -⟩ := hH.1.1
-  have hp : p.Prime := hβ.1
-  have hM' := largeEvenMarking_and_labelAll
-    (S := fun lab => lab.tag = .twD ∧ 4 ≤ lab.rank ∧ Even lab.rank ∧
-      p ∣ 2 ^ lab.n + 1)
-    (P' := fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGIRankLe p r R I)
-    (hall := fun lab hΛ hs =>
-      largeEvenLabelAll_iRank_orthMinus_even_nonsplit (p := p) hp hΛ hs)
-    (hS := fun lab R _ I F θ hP => hP.1)
-    hM
-  obtain ⟨hL, lab, -, hraw⟩ := hM'
-  obtain ⟨R, _, I, F, -, -, θ, ⟨⟨-, hBN, h3⟩, hr⟩⟩ := largeEvenRawDatum_exists hraw
-  obtain ⟨r, hlift, hrank⟩ := hr
-  exact bstar_eq_of_inner_rank hH.1.1 hH.1.2.1
-    (ggLNoncyclicInput_holds G p B x L hH.1.1) hL θ
-    (hH.1.2.1.1.trans hBN) h3 hlift hrank
-
-theorem GGResHyp.not_exactThree_K_of_orthogonal_minus_even_L_qGeFour
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twD ∧ 4 ≤ lab.rank ∧ Even lab.rank ∧
-        p ∣ 2 ^ lab.n + 1) p Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K) :
-    ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny :=
-  hH.not_exactThree_K_of_B_eq_Bs_qGeFour (hH.bstar_eq_of_orthogonal_minus_even_L hL) hU
-
-theorem GGResHyp.centralizer_J_eq_D_of_B_eq_Bs
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hEq : B = Bs) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) = D :=
-  GGResHyp.iOne_of_eq_bstar hH hEq
-
-theorem GGResHyp.card_centralizer_J_eq_nine_of_B_eq_Bs
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K) (hEq : B = Bs) :
-    Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) = 9 := by
-  have h := GGResHyp.centralizer_J_eq_D_of_B_eq_Bs hH hEq
-  have hD : Nat.card ↥D = 3 ^ 2 := hH.1.2.2.1.2.2.1
-  rw [h, hD]
-  norm_num
-
-theorem GGResHyp.card_centralizer_K_le_nine_of_B_eq_Bs
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K) (hEq : B = Bs) :
-    Nat.card ↥(Bs ⊓ Subgroup.centralizer (K : Set G)) ≤ 9 := by
-  have hJK : J ≤ K := GGResHyp.J_le_K_of_original hH
-  have hle : Bs ⊓ Subgroup.centralizer (K : Set G) ≤
-      Bs ⊓ Subgroup.centralizer (J : Set G) :=
-    inf_le_inf_left Bs (Subgroup.centralizer_le hJK)
-  have hcard := Subgroup.card_le_of_le hle
-  rw [GGResHyp.card_centralizer_J_eq_nine_of_B_eq_Bs hH hEq] at hcard
-  exact hcard
-
-
-theorem GGResHyp.six_two_cell_centralizer_or_no_exactThree
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hcell : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∧ lab.rank = 5 ∧ lab.n = 1) 3 Bs K) :
-    (B = Bs ∧ Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) = 9) ∨
-      (B < Bs ∧ ¬ GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny) := by
-  by_cases hEq : B = Bs
-  · exact Or.inl ⟨hEq, GGResHyp.card_centralizer_J_eq_nine_of_B_eq_Bs hH hEq⟩
-  · exact Or.inr ⟨lt_of_le_of_ne hH.1.2.1.1 hEq,
-      GGResHyp.not_exactThree_K_of_six_two_cell_B_lt_Bs hH
-        (lt_of_le_of_ne hH.1.2.1.1 hEq) hcell⟩
 
 
 theorem GGResHyp.not_exactThree_K_of_qTwo_highrank
@@ -1287,30 +1049,6 @@ theorem GGResHyp.rankFiveK3_original_facts
   exact ⟨F, hField, hFinite, n, θK, ψK, δ, hFK, hM, hdiag, hδM, hδdiag,
     hp3, hnodd, hn3, hpq, hBs, hJ, hAJ6, hBlt⟩
 
-theorem GGResHyp.rankFiveK3_line
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ lab.rank = 5 ∧ 2 ≤ lab.n ∧
-        p ∣ 2 ^ lab.n + 1) p Bs K)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    GGResLineJDatum 3 Bs J .A2 := by
-  obtain ⟨F, hField, hFinite, n, θK, ψK, δ,
-    hFK, hM, hdiag, hδM, hδdiag, hp3, hnodd, hn3, hpq, hBs, hJ, hAJ6, hBlt⟩ :=
-    hH.rankFiveK3_original_facts hU h3
-  have hLB : GGLBalanceInput := ggGammaSuppliers_proved.1
-  obtain ⟨r, hdr, hpd6, hXD, hcardBs, hcardJ, hBlt', hAJ⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hM hpq (by norm_num) hdiag h3
-  have hr : r = 5 := by omega
-  have hcardK : Nat.card ↥(ggAutomizer K Bs) = 720 := by
-    have h := hXD.card_automizer
-    rw [hr] at h
-    norm_num at h
-    exact h
-  have hH3 : GGResHyp 3 B Bs x L D J y K := by simpa [hp3] using hH
-  have h33 : GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny := by simpa [hp3] using h3
-  exact hH3.exactThree_A2_line_of_rankFive h33 hcardK hAJ6
 
 theorem GGResHyp.not_exactThree_K_of_unitary_rank_four_qGeFour
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]

@@ -98,9 +98,6 @@ theorem exists_inner_plane_projectiveSL {K : Type} [Field K] [Finite K] {n : ℕ
   have := (QuotientGroup.eq_one_iff _).1 hord
   exact (Subgroup.mem_subgroupOf.1 this)
 
-theorem sq_mem_range_toPGL' {K : Type*} [Field K] (g : PGL2 K) :
-    g ^ 2 ∈ (ProjectiveSpecialLinearGroup.toPGL (n := Fin 2) (R := K)).range :=
-  CFSG.GorensteinWalter.pgl2_sq_mem_psl2Range g
 
 theorem mem_range_toPGL_of_pow_eq_one' {K : Type*} [Field K] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
     (g : PGL2 K) (hg : g ^ p = 1) :

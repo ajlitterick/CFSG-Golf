@@ -245,18 +245,6 @@ theorem suzukiType_conj (D : ClassicalModel A) {x b : G} {L : Letter} {ℓ : ℕ
   | orthMinus n m hn hm K hK b c hbc e =>
     exact HasSuzukiType.conj (fun M N hN v => quad_conj hN v) h hb
 
-theorem hasRank_of_isPrimary (D : ClassicalModel A) {x : G} (hx : D.IsPrimary x) :
-    D.HasRank x 1 ∨ D.HasRank x 2 := by
-  cases D with
-  | linear => exact Or.inl hx
-  | unitary => exact Or.inl hx
-  | symplectic => exact Or.inl hx
-  | orthPlus =>
-    obtain ⟨h2, M, hM, hM2, hr, -⟩ := hx
-    exact Or.inr ⟨h2, M, hM, hM2, hr⟩
-  | orthMinus =>
-    obtain ⟨h2, M, hM, hM2, hr, -⟩ := hx
-    exact Or.inr ⟨h2, M, hM, hM2, hr⟩
 
 theorem hasRank_of_suzukiType (D : ClassicalModel A) {x : G} {L : Letter} {ℓ : ℕ}
     (h : D.SuzukiType x L ℓ) : D.HasRank x ℓ := by

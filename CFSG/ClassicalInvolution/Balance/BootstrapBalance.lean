@@ -67,54 +67,5 @@ theorem oddQuotMk_centralizes_of_mem_group (T : ExactTriple K₁ K₂ K₃ z₁ 
   subst hqe
   exact (Subgroup.mem_centralizer_iff.mp hq y hy).symm
 
-theorem exists_mem_ne_one_centralizes_of_exactTriple (T : ExactTriple K₁ K₂ K₃ z₁ z₂ z₃)
-    (hΩ₁ : K₁ ∈ Ω) (hΩ₂ : K₂ ∈ Ω) (hΩ₃ : K₃ ∈ Ω) {a : G} (ha : a ∈ T.group) {F₀ : Subgroup G}
-    (hF₀ : F₀ ≤ T.group) (h4 : Nat.card F₀ = 4) {L : Subgroup (OddQuot a)}
-    (hL : OmegaFreeAt Ω a L ∨ RankOneAt Ω a L) :
-    ∃ f ∈ modOdd a F₀, f ≠ 1 ∧ ∀ y ∈ L, f * y = y * f := by
-  obtain ⟨f, hfF, hf1⟩ := exists_ne_one_of_card_eq_two_pow (n := 2) (by norm_num) (by omega)
-  have hfA : f ∈ T.group := hF₀ hfF
-  have hfC : f ∈ Subgroup.centralizer ({a} : Set G) :=
-    Subgroup.mem_centralizer_singleton_iff.mpr (T.comm_of_mem hfA ha)
-  refine ⟨oddQuotMk a ⟨f, hfC⟩, oddQuotMk_mem_modOdd hfF hfC, ?_, fun y hy =>
-    oddQuotMk_centralizes_of_mem_group T hΩ₁ hΩ₂ hΩ₃ ha hL hfA hfC y hy⟩
-  intro h
-  have hsq : (⟨f, hfC⟩ : ↥(Subgroup.centralizer ({a} : Set G))) * ⟨f, hfC⟩ = 1 :=
-    Subtype.ext (by rw [← pow_two]; exact T.isElemAbelian.2 f hfA)
-  exact hf1 (congrArg Subtype.val (eq_one_of_oddQuotMk_eq_one hsq h))
-
-theorem twoBalancedWrt_of_exactTriple_of_layers (T : ExactTriple K₁ K₂ K₃ z₁ z₂ z₃)
-    (hΩ₁ : K₁ ∈ Ω) (hΩ₂ : K₂ ∈ Ω) (hΩ₃ : K₃ ∈ Ω)
-    (hloc : ∀ a ∈ T.group, a ≠ 1 → ComponentLayersAt Ω T.group a) : TwoBalancedWrt T.group := by
-  have hA := T.isElemAbelian
-  refine twoBalancedWrt_of_quotient_deltaCore_eq_bot hA.1 ?_
-  intro a ha ha1 F₀ hF₀
-  obtain ⟨hF₀E, hF₀card⟩ := hF₀
-  have h4 : Nat.card F₀ = 4 := by rw [hF₀card]; norm_num
-  have hFC : F₀ ≤ Subgroup.centralizer ({a} : Set G) := by
-    intro f hf
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact T.comm_of_mem (hF₀E hf) ha
-  have hF2 : ∀ f ∈ F₀, f * f = 1 := fun f hf => by
-    rw [← pow_two]
-    exact hA.2 f (hF₀E hf)
-  have hF2bar : ∀ f ∈ modOdd a F₀, f * f = 1 := by
-    rintro _ ⟨x, hx, rfl⟩
-    have hx' : (x : G) ∈ F₀ := hx
-    rw [← map_mul]
-    have : x * x = 1 := Subtype.ext (hF2 _ hx')
-    rw [this, map_one]
-  show deltaCore (modOdd a F₀) = ⊥
-  refine deltaCore_eq_bot_of_oddCentralizerFree (pPrimeCore_oddQuot_eq_bot a)
-    (by rw [card_modOdd_of_exponent_two hFC hF2, h4]) hF2bar ?_
-  intro L hL hFn hfaith
-  rcases hloc a ha ha1 L hL with h | h | hfree
-  · obtain ⟨f, hf, hf1, hfc⟩ :=
-      exists_mem_ne_one_centralizes_of_exactTriple T hΩ₁ hΩ₂ hΩ₃ ha hF₀E h4 (Or.inl h)
-    exact absurd hfc (hfaith f hf hf1)
-  · obtain ⟨f, hf, hf1, hfc⟩ :=
-      exists_mem_ne_one_centralizes_of_exactTriple T hΩ₁ hΩ₂ hΩ₃ ha hF₀E h4 (Or.inr h)
-    exact absurd hfc (hfaith f hf hf1)
-  · exact hfree F₀ hF₀E h4 hFn hfaith
 
 end CFSG.ClassicalInvolution.Balance.Bootstrap

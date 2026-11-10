@@ -27,11 +27,6 @@ theorem upD42_isQuasisimple {X : Type} [Group X] [Finite X] (L : Subgroup X)
   (CFSG.HardMathSupport.Solomon.Coordinator.YS08.isComponentOf_of_glaPComponent'
     (glaPPrimeCoreOf_top_eq_bot_of_eq_bot hO) hL).2.2
 
-theorem upD42_center_isPGroup {X : Type} [Group X] [Finite X] (L : Subgroup X)
-    (hO : GLAPPrimeCore 3 X = ⊥) (hL : GLAPComponent 3 ⊤ L) :
-    IsPGroup 3 ↥(Subgroup.center ↥L) :=
-  CFSG.HardMathSupport.Solomon.Coordinator.isPGroup_center_of_pPrimeCore_eq_bot
-    Nat.prime_three (upD42_core_eq_bot L hO hL)
 
 theorem upD42_barOf_equiv {X : Type} [Group X] [Finite X] (L : Subgroup X)
     (hO : GLAPPrimeCore 3 X = ⊥) (hL : GLAPComponent 3 ⊤ L) :

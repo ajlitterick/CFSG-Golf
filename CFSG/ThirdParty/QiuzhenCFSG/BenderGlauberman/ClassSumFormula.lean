@@ -240,9 +240,6 @@ private lemma classSumScalarLocal_eq_card_mul_character_div
 public noncomputable def classSumPairCountMul (ci cj : ConjClasses G) (g : G) : ℕ :=
   Nat.card {p : ci.carrier × cj.carrier // p.1.1 * p.2.1 = g}
 
-/-- The number of pairs `(x, y)` with `x, y ∈ c.carrier` and `x·y = g`. -/
-public noncomputable def classSumPairCount (c : ConjClasses G) (g : G) : ℕ :=
-  classSumPairCountMul c c g
 
 omit [Finite G] in
 private lemma carrier_conj_mem {c : ConjClasses G} {x a : G} (hx : x ∈ c.carrier) :
@@ -558,18 +555,6 @@ public theorem classSum_expansion_mul
             intro i hi
             rw [mul_assoc]
 
-/-- Gorenstein 4.2.12 for one class: `#{(x,y) ∈ C × C : x·y = g}`. -/
-public theorem classSum_expansion
-    {ι : Type*} [Fintype ι] [DecidableEq ι]
-    (c : ConjClasses G) (t : G) (ht : t ∈ c.carrier)
-    (χ : ι → ConjClassFunction G) (hχ : IsCompleteIrreducibleCharacterFamily χ) (g : G) :
-    (classSumPairCount c g : ℂ) =
-      ((Nat.card c.carrier : ℂ) ^ 2 / (Nat.card G : ℂ)) *
-        ∑ i : ι, star (χ i (ConjClasses.mk t) ^ 2 / χ i (ConjClasses.mk 1)) *
-          χ i (ConjClasses.mk g) := by
-  classical
-  simpa [classSumPairCount, pow_two] using
-    classSum_expansion_mul c c t t ht ht χ hχ g
 
 /-- For an irreducible class-function character, `star (χ (mk g)) = χ (mk g⁻¹)`. -/
 public lemma star_conjChar_apply_inv {χ : ConjClassFunction G} (hχ : IsConjCharacter χ) (g : G) :
@@ -585,12 +570,6 @@ private lemma star_involution_value {χ : ConjClassFunction G} (hχ : IsConjChar
   have htinv : t⁻¹ = t := (eq_inv_iff_mul_eq_one.mpr ht2).symm
   rw [star_conjChar_apply_inv hχ t, htinv]
 
-private lemma star_sq_div_of_involution {χ : ConjClassFunction G}
-    (hχ : IsIrreducibleConjCharacter χ) (t : G) (ht2 : t * t = 1) :
-    star (χ (ConjClasses.mk t) ^ 2 / χ (ConjClasses.mk 1)) =
-      χ (ConjClasses.mk t) ^ 2 / χ (ConjClasses.mk 1) := by
-  rw [star_div₀, star_pow]
-  rw [star_involution_value hχ.1 t ht2, star_involution_value hχ.1 1 (by simp)]
 
 private lemma star_mul_div_of_involutions {χ : ConjClassFunction G}
     (hχ : IsIrreducibleConjCharacter χ) (ti tj : G) (hti2 : ti * ti = 1) (htj2 : tj * tj = 1) :
@@ -601,22 +580,6 @@ private lemma star_mul_div_of_involutions {χ : ConjClassFunction G}
     star_involution_value hχ.1 1 (by simp)]
   ring
 
-/-- Gorenstein 4.2.12 for one class of an involution `t`, in the paper's form
-(`χ(t)` is real for an involution, so the star disappears). -/
-public theorem classSum_expansion_of_involution
-    {ι : Type*} [Fintype ι] [DecidableEq ι]
-    (c : ConjClasses G) (t : G) (ht : t ∈ c.carrier) (ht2 : t * t = 1)
-    (χ : ι → ConjClassFunction G) (hχ : IsCompleteIrreducibleCharacterFamily χ) (g : G) :
-    (classSumPairCount c g : ℂ) =
-      ((Nat.card c.carrier : ℂ) ^ 2 / (Nat.card G : ℂ)) *
-        ∑ i : ι, (χ i (ConjClasses.mk t) ^ 2 / χ i (ConjClasses.mk 1)) *
-          χ i (ConjClasses.mk g) := by
-  classical
-  rw [classSum_expansion c t ht χ hχ g]
-  congr 1
-  apply Finset.sum_congr rfl
-  intro i hi
-  rw [star_sq_div_of_involution (hχ.1 i) t ht2]
 
 /-- Gorenstein 4.2.12 for two classes of involutions, in the paper's form. -/
 public theorem classSum_expansion_mul_of_involutions

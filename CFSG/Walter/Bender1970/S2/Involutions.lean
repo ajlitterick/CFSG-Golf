@@ -87,9 +87,5 @@ theorem bender1970_2_2_subgroup {G : Type} [Group G] [Finite G] {H : Subgroup G}
     (by rwa [Subgroup.orderOf_mk]) (by rwa [Subgroup.orderOf_mk]))
   exact ⟨c, c.2, congrArg Subtype.val hc⟩
 
-theorem IsAStar.isConj_of_isComponentOf {X : Type} [Group X] [Finite X] (hX : IsAStar X)
-    {K : Subgroup X} (hK : IsComponentOf K ⊤) {x y : K ⧸ Subgroup.center K}
-    (hx : orderOf x = 2) (hy : orderOf y = 2) : IsConj x y :=
-  isConj_of_isTypeL2_or_isTypeJR (hX.isTypeL2_or_isTypeJR hK) hx hy
 
 end CFSG.Walter

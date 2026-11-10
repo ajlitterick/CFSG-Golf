@@ -20,8 +20,5 @@ open CFSG.ClassicalInvolution.Generic CFSG.Assembly.LowTwoRank CFSG.ClassicalInv
     ∀ R ∈ fundamentalSubgroups .trialityD4 (modelUniv .trialityD4 0 p e Fact.out).D,
       IsCoatom (Subgroup.normalizer (R : Set (modelUniv .trialityD4 0 p e Fact.out).K))
 
-theorem d4NormalizerMax_of_maxNormalizer {p : ℕ} [Fact p.Prime] (hM : G2D4MaxNormalizer p) :
-    D4NormalizerMax p :=
-  fun e hadm hp2 R hR => hM .trialityD4 0 e hadm hp2 (Or.inr rfl) R hR
 
 end CFSG.ClassicalInvolution.Asc77.T3Typed

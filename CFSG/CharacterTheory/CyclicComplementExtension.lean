@@ -44,12 +44,6 @@ theorem orderOf_mk (hdisj : N ⊓ Subgroup.zpowers h = ⊥) :
   rw [Subgroup.orderOf_mk] at h1
   exact h1
 
-theorem monoidHom_ext_of_eq_at (hHN : N ⊔ Subgroup.zpowers h = ⊤) {M : Type*} [Group M]
-    (η η' : H →* M) (hη : N ≤ η.ker) (hη' : N ≤ η'.ker) (hh : η h = η' h) : η = η' := by
-  ext x
-  obtain ⟨n, hn, j, rfl⟩ := exists_mul_zpow N h hHN x
-  rw [map_mul, map_mul, MonoidHom.mem_ker.mp (hη hn), MonoidHom.mem_ker.mp (hη' hn), map_zpow,
-    map_zpow, hh]
 
 theorem exists_extension [Fintype H] (hHN : N ⊔ Subgroup.zpowers h = ⊤)
     (hdisj : N ⊓ Subgroup.zpowers h = ⊥) {θ : N → ℂ} (hθ : θ ∈ BlocksIrr N)
@@ -118,92 +112,5 @@ theorem exists_extension [Fintype H] (hHN : N ⊔ Subgroup.zpowers h = ⊤)
   rw [← hres]
   rfl
 
-theorem cyclic_complement_invariant_character_extension [Fintype H] (m : ℕ) (hm : 1 ≤ m)
-    (hord : orderOf h = m) (hHN : N ⊔ Subgroup.zpowers h = ⊤)
-    (hdisj : N ⊓ Subgroup.zpowers h = ⊥) (θ : N → ℂ) (hθ : θ ∈ BlocksIrr N)
-    (hinv : ∀ n : N, θ (MulAut.conjNormal h n) = θ n) :
-    let ζ : ℂ := Complex.exp (2 * Real.pi * Complex.I / m)
-    (∃ Θ ∈ BlocksIrr H, ∀ n : N, Θ n = θ n) ∧
-    (∀ k : ℕ, ∃! η : H →* ℂˣ, N ≤ η.ker ∧ (η h : ℂ) = ζ ^ k) ∧
-    ∀ Θ ∈ BlocksIrr H, (∀ n : N, Θ n = θ n) →
-      ∀ η : ℕ → H →* ℂˣ, (∀ k, N ≤ (η k).ker ∧ ((η k) h : ℂ) = ζ ^ k) →
-        (∀ k < m, (fun x => Θ x * ((η k) x : ℂ)) ∈ BlocksIrr H ∧
-          ∀ n : N, Θ n * ((η k) n : ℂ) = θ n) ∧
-        (∀ k < m, ∀ l < m,
-          (fun x => Θ x * ((η k) x : ℂ)) = (fun x => Θ x * ((η l) x : ℂ)) → k = l) ∧
-        ∀ χ ∈ BlocksIrr H, (∀ n : N, χ n = θ n) →
-          ∃ k < m, χ = fun x => Θ x * ((η k) x : ℂ) := by
-  intro ζ
-  have hζ : IsPrimitiveRoot ζ m := Complex.isPrimitiveRoot_exp m (by omega)
-  have hζ0 : ζ ≠ 0 := hζ.ne_zero (by omega)
-  have : IsCyclic (H ⧸ N) := ⟨⟨QuotientGroup.mk' N h, mem_zpowers_mk N h hHN⟩⟩
-  have hordq : orderOf (QuotientGroup.mk' N h) = m := (orderOf_mk N h hdisj).trans hord
-  have hmkN : ∀ n ∈ N, QuotientGroup.mk' N n = 1 := fun n hn => (QuotientGroup.eq_one_iff n).mpr hn
-  have hex : ∀ k : ℕ, ∃! η : H →* ℂˣ, N ≤ η.ker ∧ (η h : ℂ) = ζ ^ k := by
-    intro k
-    let u : ℂˣ := Units.mk0 (ζ ^ k) (pow_ne_zero _ hζ0)
-    have hu : orderOf u ∣ orderOf (QuotientGroup.mk' N h) := by
-      rw [hordq]
-      apply orderOf_dvd_of_pow_eq_one
-      ext
-      simp only [u, Units.val_pow_eq_pow_val, Units.val_mk0, Units.val_one]
-      rw [← pow_mul, mul_comm, pow_mul, hζ.pow_eq_one, one_pow]
-    let lam : H ⧸ N →* ℂˣ := monoidHomOfForallMemZpowers (mem_zpowers_mk N h hHN) hu
-    have hlamh : lam (QuotientGroup.mk' N h) = u := monoidHomOfForallMemZpowers_apply_gen _ _
-    have hker : N ≤ (lam.comp (QuotientGroup.mk' N)).ker := by
-      intro n hn
-      rw [MonoidHom.mem_ker, MonoidHom.comp_apply, hmkN n hn, map_one]
-    refine ⟨lam.comp (QuotientGroup.mk' N), ⟨hker, ?_⟩, ?_⟩
-    · rw [MonoidHom.comp_apply, hlamh, Units.val_mk0]
-    · rintro η' ⟨hker', hh'⟩
-      refine monoidHom_ext_of_eq_at N h hHN η' _ hker' hker (Units.ext ?_)
-      rw [hh', MonoidHom.comp_apply, hlamh, Units.val_mk0]
-  refine ⟨exists_extension N h hHN hdisj hθ hinv, hex, ?_⟩
-  intro Θ hΘ hΘN η hη
-  obtain ⟨V, _, _, _, ρ, hirr, rfl⟩ := hΘ
-  have hresN : Representation.character (ρ.comp N.subtype) = θ := funext hΘN
-  have hρN : Representation.IsIrreducible (ρ.comp N.subtype) := by
-    apply isIrreducible_of_character_mem_blocksIrr
-    rw [hresN]
-    exact hθ
-  obtain ⟨hirrT, hinjT, hiffT, -⟩ := irreducible_extension_abelian_quotient_character_twists N ρ hρN
-  let lam : ℕ → H ⧸ N →* ℂˣ := fun k => QuotientGroup.lift N (η k) (hη k).1
-  have hlam : ∀ k, quotientTwist N ρ.character (lam k) =
-      fun x => ρ.character x * ((η k) x : ℂ) := by
-    intro k
-    funext x
-    simp [quotientTwist, lam]
-  refine ⟨fun k _ => ⟨?_, fun n => ?_⟩, fun k hk l hl hkl => ?_, fun χ hχ hχN => ?_⟩
-  · rw [← hlam]
-    exact hirrT (lam k)
-  · rw [MonoidHom.mem_ker.mp ((hη k).1 n.2), Units.val_one, mul_one]
-    exact hΘN n
-  · rw [← hlam, ← hlam] at hkl
-    have h1 := congrArg (fun lam' : H ⧸ N →* ℂˣ => ((lam' (QuotientGroup.mk' N h)) : ℂ))
-      (hinjT hkl)
-    simp only [lam, QuotientGroup.mk'_apply, QuotientGroup.lift_mk, (hη k).2, (hη l).2] at h1
-    exact hζ.pow_inj hk hl h1
-  ·
-    have hpos : 0 < BlocksInnerProduct (fun n : N => χ n) (fun n : N => ρ.character n) := by
-      have h1 : (fun n : N => χ n) = θ := funext hχN
-      have h2 : (fun n : N => ρ.character n) = θ := funext hΘN
-      rw [h1, h2, CFSG.DirectProduct.blocksInnerProduct_self_of_mem hθ]
-      exact zero_lt_one
-    obtain ⟨lam', rfl⟩ := (hiffT χ hχ).mp hpos
-    have hroot : ((lam' (QuotientGroup.mk' N h) : ℂˣ) : ℂ) ^ m = 1 := by
-      rw [← Units.val_pow_eq_pow_val, ← map_pow, ← hordq, pow_orderOf_eq_one, map_one,
-        Units.val_one]
-    have : NeZero m := ⟨by omega⟩
-    obtain ⟨k, hk, hζk⟩ := hζ.eq_pow_of_pow_eq_one hroot
-    refine ⟨k, hk, ?_⟩
-    have heq : lam'.comp (QuotientGroup.mk' N) = η k := by
-      refine monoidHom_ext_of_eq_at N h hHN _ _ ?_ (hη k).1 (Units.ext ?_)
-      · intro n hn
-        rw [MonoidHom.mem_ker, MonoidHom.comp_apply, hmkN n hn, map_one]
-      · rw [MonoidHom.comp_apply, (hη k).2, hζk]
-    funext x
-    simp only [quotientTwist]
-    rw [← heq]
-    rfl
 
 end CFSG.CyclicComplement

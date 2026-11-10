@@ -8,7 +8,6 @@ namespace CFSG.CGT.T75JM
 
 open CFSG.CosetTable CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Mathieu.Native
 
-@[expose] def m22EnumPD : Bool := subsetCheck m22RelsPD [0, 1, 2, 3, 4, 5] 200000 77
 
 @[noinline, expose] def thetaTabCheck : Bool :=
   let T0 := m22Img 0

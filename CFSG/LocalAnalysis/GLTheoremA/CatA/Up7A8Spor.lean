@@ -14,13 +14,6 @@ open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup mem_fixSubgroup glaPC
 open CFSG.ComponentClassification.PerfectAutomorphisms
 open CFSG.LocalAnalysis.GLTheoremA.AltDown
 
-@[expose] def SporAltNoComp (m : ℕ) : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (s : TauCeti.SporadicName),
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 → ∀ J : Subgroup S,
-      GLAPComponent 3 (fixSubgroup β) J → IsAltPType 3 J m → False
-
-@[expose] def I1415SevenSporS : Prop := SporAltNoComp 7
 
 theorem up7a8_exists_conjAut {Q : Type} [Group Q] {K : Subgroup Q} {y : Q}
     (hyN : y ∈ Subgroup.normalizer (K : Set Q)) {n : ℕ} (hy : y ^ n = 1) :

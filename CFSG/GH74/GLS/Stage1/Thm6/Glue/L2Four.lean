@@ -12,15 +12,6 @@ open Subgroup CFSG CFSG.GH74.GLS.Stage1.Thm6 CFSG.GH74.GLS.Stage1.Thm6.Sec12
 variable {G : Type} [Group G] {x : G} {Kb : Subgroup (CentralizerBar x)} [Kb.Normal]
   {F : Type} [Field F] [Finite F] {e : ↥Kb ≃* IVK.L2 F} {N : IVK.L2Notation e} {T : Subgroup G}
 
-theorem isEA_of_isFourSubgroup {X : Type} [Group X] {U : Subgroup X} (hU : IVK.IsFourSubgroup U) :
-    Dihedral.IsEA U := by
-  obtain ⟨hEA, -⟩ := hU
-  intro a ha
-  refine ⟨?_, fun b hb => ?_⟩
-  · have := elemPow_eq_one_of_isElementaryAbelian (p := 2) (A := U) a ha
-    rwa [pow_two] at this
-  · have := (IsMulCommutative.is_comm (M := ↥U)).comm ⟨a, ha⟩ ⟨b, hb⟩
-    exact congrArg Subtype.val this
 
 theorem isFourSubgroup_of_isEA {X : Type} [Group X] {U : Subgroup X} (hU : Dihedral.IsEA U)
     (hc : Nat.card U = 4) : IVK.IsFourSubgroup U := by
@@ -66,61 +57,6 @@ theorem isEA_timgP (h : SitFacts x Kb e N T) {V : Subgroup G} (hV : V ≤ Pg x K
     rw [← phig_mul x Kb (hC g hg) (hC g' hg'), ← phig_mul x Kb (hC g' hg') (hC g hg),
       (hEA g hg).2 g' hg']
 
-@[expose] noncomputable def comapP (h : SitFacts x Kb e N T) (U : Subgroup (MulAut ↥Kb)) : Subgroup G :=
-  ((U.subgroupOf N.P).map (PgEquiv h).symm.toMonoidHom).map (Pg x Kb T).subtype
-
-theorem mem_comapP (h : SitFacts x Kb e N T) {U : Subgroup (MulAut ↥Kb)} (_hU : U ≤ N.P) {g : G} :
-    g ∈ comapP h U ↔ g ∈ Pg x Kb T ∧ phig x Kb g ∈ U := by
-  constructor
-  · rintro ⟨g', ⟨y, hy, rfl⟩, rfl⟩
-    refine ⟨((PgEquiv h).symm y).2, ?_⟩
-    have := PgEquiv_apply h ((PgEquiv h).symm y)
-    rw [MulEquiv.apply_symm_apply] at this
-    show phig x Kb ((PgEquiv h).symm y : G) ∈ U
-    rw [← this]
-    exact hy
-  · rintro ⟨hg, hgU⟩
-    refine ⟨(PgEquiv h).symm ⟨phig x Kb g, (h.hPN _).2 ⟨g, hg, rfl⟩⟩, ⟨_, hgU, rfl⟩, ?_⟩
-    have : (PgEquiv h) ⟨g, hg⟩ = ⟨phig x Kb g, (h.hPN _).2 ⟨g, hg, rfl⟩⟩ :=
-      Subtype.ext (PgEquiv_apply h _)
-    show (((PgEquiv h).symm ⟨phig x Kb g, _⟩ : ↥(Pg x Kb T)) : G) = g
-    rw [← this]
-    simp
-
-theorem comapP_le (h : SitFacts x Kb e N T) (U : Subgroup (MulAut ↥Kb)) :
-    comapP h U ≤ Pg x Kb T := by
-  rintro _ ⟨g', -, rfl⟩
-  exact g'.2
-
-theorem timgP_comapP (h : SitFacts x Kb e N T) {U : Subgroup (MulAut ↥Kb)} (hU : U ≤ N.P) :
-    timgP h (comapP h U) = U := by
-  ext a
-  rw [mem_timgP h (comapP_le h U)]
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    exact ((mem_comapP h hU).1 hg).2
-  · intro ha
-    obtain ⟨g, hg, hga⟩ := (h.hPN a).1 (hU ha)
-    exact ⟨g, (mem_comapP h hU).2 ⟨hg, hga ▸ ha⟩, hga⟩
-
-theorem card_comapP (h : SitFacts x Kb e N T) {U : Subgroup (MulAut ↥Kb)} (hU : U ≤ N.P) :
-    Nat.card (comapP h U) = Nat.card U := by
-  rw [← card_timgP h (comapP_le h U), timgP_comapP h hU]
-
-omit [Finite G] in
-theorem isElemAb2_comapP (h : SitFacts x Kb e N T) [Finite G] {U : Subgroup (MulAut ↥Kb)}
-    (hU : U ≤ N.P) (hEA : Dihedral.IsEA U) : IsElemAb2 (comapP h U) := by
-  have hP := comapP_le h U
-  have hC : ∀ g ∈ comapP h U, g ∈ Cx x := fun g hg => ((mem_Kg x Kb).1 (hP hg).2).1
-  intro a ha
-  refine ⟨?_, fun b hb => ?_⟩
-  · apply h.phig_inj_P ((comapP h U).mul_mem ha ha |> hP) (Pg x Kb T).one_mem
-    rw [phig_mul x Kb (hC a ha) (hC a ha), phig_one]
-    have := (hEA _ ((mem_comapP h hU).1 ha).2).1
-    exact this
-  · apply h.phig_inj_P ((comapP h U).mul_mem ha hb |> hP) ((comapP h U).mul_mem hb ha |> hP)
-    rw [phig_mul x Kb (hC a ha) (hC b hb), phig_mul x Kb (hC b hb) (hC a ha)]
-    exact (hEA _ ((mem_comapP h hU).1 ha).2).2 _ ((mem_comapP h hU).1 hb).2
 
 omit [Kb.Normal] [Finite G] in
 theorem NP_le_NPt : N.P ≤ N.Pt := fun _ ha => ⟨ha.1, IVK.innAut_le_innDiagSub e ha.2⟩

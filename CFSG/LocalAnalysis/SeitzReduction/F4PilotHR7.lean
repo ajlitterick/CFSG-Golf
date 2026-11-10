@@ -154,13 +154,6 @@ theorem map_le_centralizer_map (φ : C →* G) {Y D : Subgroup C}
   rintro _ ⟨d, hd, rfl⟩
   rw [← map_mul, ← map_mul, mem_centralizer_iff.1 (h hy) d hd]
 
-omit [Group C] in
-theorem inSubgroup_layer_eq_self {D : Subgroup G} (hD : CFSG.IsQuasisimple D) :
-    inSubgroup layer D = D := by
-  have htop : layer D = ⊤ := by
-    refine eq_top_iff.2 (CFSG.LocalCores.component_le_layer ⟨?_, IsSubnormal.top⟩)
-    exact CFSG.LocalCores.isQuasisimple_of_mulEquiv Subgroup.topEquiv.symm hD
-  rw [inSubgroup, htop, ← MonoidHom.range_eq_map, range_subtype]
 
 omit [Group C] in
 theorem inSubgroup_layer_sup_eq {Y D : Subgroup G}
@@ -342,33 +335,6 @@ theorem neighbour_standard [Finite G] (hL : standardComponentIsStandard L) {t : 
   exact standard_inheritance_of_forall_fix_eq_one hL htC ht hK htX hD hDq
     (eq_one_of_fix_map_C3Levi hf hKc e hDe (eq_one_of_mem_inf_of_le_sup hXc hYD hYodd))
 
-theorem neighbour_standard_of_centralizer_eq [Finite G] (hL : standardComponentIsStandard L)
-    {t : G} (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {f : ℕ} (hKc : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .F4 K)
-    {X : Subgroup G} (hXL : X ≤ L) (htX : t ∈ centralizer (X : Set G)) (hXodd : Odd (Nat.card X))
-    (hXc : centralizer (((X.subgroupOf L).map e.toMonoidHom : Subgroup (adjointGroup .F4 K)) :
-      Set (adjointGroup .F4 K)) = (X.subgroupOf L).map e.toMonoidHom ⊔ C3Levi K)
-    {D : Subgroup G} (hDe : D = ((C3Levi K).map e.symm.toMonoidHom).map L.subtype)
-    (hD : D = inSubgroup layer (L ⊓ centralizer (X : Set G))) :
-    CFSG.Open.IsComponentOf
-        ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-        (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-      (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-        IsPGroup 2 U →
-        U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-        Nat.card U ≤ 2) ∧
-      standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  refine neighbour_standard hL htC ht hK hKc e htX ?_ ?_ hXc.le hDe hD
-  · rw [le_centralizer_iff, hXc]
-    exact le_sup_right
-  · rw [card_map_of_injective e.injective, Nat.card_congr (subgroupOfEquivOfLe hXL).toEquiv]
-    exact hXodd
 
 theorem neighbour_standard_of_centralizer_eq_sup [Finite G] (hL : standardComponentIsStandard L)
     {t : G} (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)

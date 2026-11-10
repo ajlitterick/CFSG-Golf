@@ -39,8 +39,6 @@ private def q0Perm (p : Fin 5 → Fin 2) : Equiv.Perm (Fin 45) :=
   alpha1 ^ (p 0 : ℕ) * beta1 ^ (p 1 : ℕ) * alpha2 ^ (p 2 : ℕ) * beta2 ^ (p 3 : ℕ) *
     t ^ (p 4 : ℕ)
 
-private def s0Perm (p : Fin 4 → Fin 2) : Equiv.Perm (Fin 45) :=
-  t ^ (p 0 : ℕ) * u ^ (p 1 : ℕ) * (alpha1 * alpha2) ^ (p 2 : ℕ) * (beta1 * beta2) ^ (p 3 : ℕ)
 
 private def q8Perm : QuaternionGroup 2 →* Equiv.Perm (Fin 45) :=
   quaternionLift (pow_four_of h45 pk_one pk_a1 (by decide +kernel) : alpha1 ^ 4 = 1)
@@ -158,7 +156,6 @@ private theorem toPerm_injective : Function.Injective toPerm := by
 
 private theorem toPerm_tC : toPerm tC = t := rfl
 
-private theorem toPerm_uC : toPerm uC = u := rfl
 
 private theorem toPerm_a1C : toPerm a1C = alpha1 := rfl
 
@@ -168,17 +165,12 @@ private theorem toPerm_a2C : toPerm a2C = alpha2 := rfl
 
 private theorem toPerm_b2C : toPerm b2C = beta2 := rfl
 
-private theorem toPerm_s1C : toPerm s1C = sigma1 := rfl
-
-private theorem toPerm_s2C : toPerm s2C = sigma2 := rfl
 
 private def rhoC : C0 := s1C * s2C
 
 private def q0C (p : Fin 5 → Fin 2) : C0 :=
   a1C ^ (p 0 : ℕ) * b1C ^ (p 1 : ℕ) * a2C ^ (p 2 : ℕ) * b2C ^ (p 3 : ℕ) * tC ^ (p 4 : ℕ)
 
-private def s0C (p : Fin 4 → Fin 2) : C0 :=
-  tC ^ (p 0 : ℕ) * uC ^ (p 1 : ℕ) * (a1C * a2C) ^ (p 2 : ℕ) * (b1C * b2C) ^ (p 3 : ℕ)
 
 private def conjC (p : Fin 5 → Fin 2) : C0 :=
   match q0code p with
@@ -208,9 +200,6 @@ private theorem q0C_val (p : Fin 5 → Fin 2) : toPerm (q0C p) = q0Perm p := by
   simp [q0C, q0Perm, toPerm_tC, toPerm_a1C, toPerm_b1C, toPerm_a2C, toPerm_b2C, map_mul,
     map_pow]
 
-private theorem s0C_val (p : Fin 4 → Fin 2) : toPerm (s0C p) = s0Perm p := by
-  simp [s0C, s0Perm, toPerm_tC, toPerm_uC, toPerm_a1C, toPerm_a2C, toPerm_b1C, toPerm_b2C,
-    map_mul, map_pow]
 
 private theorem conjC_val (p : Fin 5 → Fin 2) : toPerm (conjC p) = conjPerm p := by
   unfold conjC conjPerm
@@ -561,35 +550,6 @@ private theorem orderOf_tC : orderOf tC = 2 := by
   rw [h1, Subgroup.orderOf_mk]
   exact orderOf_eq_prime t_sq t_ne_one
 
-private theorem a1C_not_mem_S0 : a1C ∉ S0 := by
-  intro h
-  rw [mem_S0_iff] at h
-  obtain ⟨p, hp⟩ := h
-  change a1C = s0C p at hp
-  have hp' : alpha1 = s0Perm p := by
-    have := congrArg toPerm hp
-    rwa [toPerm_a1C, s0C_val] at this
-  exact (by decide +kernel : ∀ q : Fin 4 → Fin 2, alpha1 ≠ s0Perm q) p hp'
-
-private theorem b1C_not_mem_S0 : b1C ∉ S0 := by
-  intro h
-  rw [mem_S0_iff] at h
-  obtain ⟨p, hp⟩ := h
-  change b1C = s0C p at hp
-  have hp' : beta1 = s0Perm p := by
-    have := congrArg toPerm hp
-    rwa [toPerm_b1C, s0C_val] at this
-  exact (by decide +kernel : ∀ q : Fin 4 → Fin 2, beta1 ≠ s0Perm q) p hp'
-
-private theorem a1C_mul_b1C_not_mem_S0 : a1C * b1C ∉ S0 := by
-  intro h
-  rw [mem_S0_iff] at h
-  obtain ⟨p, hp⟩ := h
-  change a1C * b1C = s0C p at hp
-  have hp' : alpha1 * beta1 = s0Perm p := by
-    have := congrArg toPerm hp
-    rwa [map_mul, toPerm_a1C, toPerm_b1C, s0C_val] at this
-  exact (by decide +kernel : ∀ q : Fin 4 → Fin 2, alpha1 * beta1 ≠ s0Perm q) p hp'
 
 private theorem exists_conj_a1a2 (j : C0) (hj : j ∈ CFSG.pCore 2 C0)
     (hj2 : orderOf j = 2) (hjt : j ≠ tC) :

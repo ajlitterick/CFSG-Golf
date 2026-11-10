@@ -30,18 +30,6 @@ theorem statedClassicalModel_of_blueprintLieModel {X : Type} [Group X] {t : Stat
     StatedClassicalModel X t n p f :=
   CFSG.Blueprint.LieModel.statedClassicalModel_of_ne_zero hn h
 
-theorem nonempty_mulEquiv_alternating_five_of_lieModel (X : Type) [Group X]
-    (h : Models.LieModel X .PSL 2 2 2) : Nonempty (X ≃* alternatingGroup (Fin 5)) :=
-  LocalAnalysis.ComponentInitial.PSL2_four_alternating_five_model X
-    (blueprintLieModel_of_statedClassicalModel (by decide)
-      (statedClassicalModel_of_modelsLieModel (by decide) h))
-
-theorem lieModel_PSL_two_seven_of_lieModel_PSL_three_two (X : Type) [Group X]
-    (h : Models.LieModel X .PSL 3 2 1) : Models.LieModel X .PSL 2 7 1 :=
-  modelsLieModel_of_statedClassicalModel (statedClassicalModel_of_blueprintLieModel (by decide)
-    (LocalAnalysis.ComponentInitial.PSL3_two_PSL2_seven_paired_isomorphism X
-      (blueprintLieModel_of_statedClassicalModel (by decide)
-        (statedClassicalModel_of_modelsLieModel (by decide) h))))
 
 theorem nonempty_mulEquiv_alternating_eight_of_lieModel (X : Type) [Group X]
     (h : Models.LieModel X .PSL 4 2 1) : Nonempty (X ≃* alternatingGroup (Fin 8)) :=
@@ -55,11 +43,6 @@ theorem lieModel_PSp_two_three_of_lieModel_PSU_four_two (X : Type) [Group X]
     (GH74.Exceptional.statedClassicalModel_PSp_two_three_of_PSU_four_two
       (statedClassicalModel_of_modelsLieModel (by decide) h))
 
-theorem lieModel_PSU_three_three_of_nonempty_mulEquiv (X : Type) [Group X]
-    (h : Nonempty (X ≃* StatedProj (StatedSU 3 3 (GaloisField 3 2)))) :
-    Models.LieModel X .PSU 3 3 1 :=
-  modelsLieModel_of_statedClassicalModel ⟨⟨Nat.prime_three, le_rfl, le_rfl, by decide⟩,
-    GaloisField 3 2, inferInstance, inferInstance, GaloisField.card 3 2 two_ne_zero, h⟩
 
 @[expose] def symplecticIndex : Fin 2 ⊕ Fin 2 ≃ Fin 4 where
   toFun := Sum.elim ![0, 1] ![3, 2]
@@ -130,20 +113,5 @@ theorem nonempty_mulEquiv_alternating_six_of_symplectic (X : Type) [Group X]
   obtain ⟨e⟩ := h
   exact ⟨e.trans symplecticCommutatorEquivAlternating⟩
 
-theorem even_exceptions_odd_type (X : Type) [Group X]
-    (h : Blueprint.Recognition.EvenStandardException X) :
-    Blueprint.Recognition.OddStandardType X := by
-  rcases h with h | h | h | h | h | h | h | h
-  · exact Or.inl ⟨5, le_rfl, nonempty_mulEquiv_alternating_five_of_lieModel X h⟩
-  · exact Or.inr (Or.inl ⟨.PSL, 2, 7, 1, by decide,
-      lieModel_PSL_two_seven_of_lieModel_PSL_three_two X h⟩)
-  · exact Or.inl ⟨8, by norm_num, nonempty_mulEquiv_alternating_eight_of_lieModel X h⟩
-  · exact Or.inl ⟨6, by norm_num, nonempty_mulEquiv_alternating_six_of_symplectic X h⟩
-  · exact Or.inr (Or.inl ⟨.PSU, 3, 3, 1, by decide,
-      lieModel_PSU_three_three_of_nonempty_mulEquiv X h⟩)
-  · exact Or.inr (Or.inl ⟨.PSp, 2, 3, 1, by decide,
-      lieModel_PSp_two_three_of_lieModel_PSU_four_two X h⟩)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr h))
 
 end CFSG.ComponentClassification.StandardRecognition

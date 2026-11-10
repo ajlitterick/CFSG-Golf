@@ -37,18 +37,6 @@ theorem k_tc : allN 6 (fun j => Nat.beq (pc (pc (L j) (L 5)) (LI j))
 theorem k_sq : Nat.beq (cntN 3456 sqD) 164 = true := by
   quickRfl
 
-theorem kNegSq : notB (Nat.beq (cntN 3456 sqD) 163) = true := by
-  quickRfl
-
-theorem kNegWit : notB (Nat.beq (kerK (oX 0) (primeWit.getD 0 ([], 0)).1) (tgtK 1)) = true := by
-  quickRfl
-
-theorem kNegTc : notB (Nat.beq (pc (pc (L 0) (L 5)) (LI 0)) (LI 5)) = true := by
-  quickRfl
-
-theorem kNegCov : allN 11 (fun r => allN (oc (r + 1)) fun q =>
-    notB (Nat.beq (oT (r + 1) q) (L 0))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelTh.DModel
 

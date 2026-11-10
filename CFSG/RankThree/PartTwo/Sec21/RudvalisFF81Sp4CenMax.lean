@@ -63,7 +63,6 @@ theorem stabilizer_eq4 :
   rw [← hst, card_Sbar] at h
   omega
 
-theorem sbar_le_stabilizer4 : Sbar ≤ MulAction.stabilizer GL4 W0 := stabilizer_eq4.1.le
 
 theorem sbar_max4 {Z : Subgroup GL4} (hZ : Sbar ≤ Z) : Z = Sbar ∨ Z = ⊤ :=
   Certificates.certificate899110.2.2.1 Z hZ

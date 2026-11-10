@@ -173,7 +173,6 @@ theorem fldAut_one : fldAut (n := n) (1 : K ≃+* K) = 1 :=
   map_one' := fldAut_one
   map_mul' := fldAut_mul
 
-theorem fldHom_apply (φ : K ≃+* K) : fldHom (n := n) φ = fldAut φ := rfl
 
 @[expose] noncomputable def mapGL (φ : K ≃+* K) : GL (Fin 3) K →* GL (Fin 3) K :=
   Units.map ((φ.toRingHom.mapMatrix : Matrix (Fin 3) (Fin 3) K →+* Matrix (Fin 3) (Fin 3) K) :
@@ -184,12 +183,6 @@ theorem coe_mapGL (φ : K ≃+* K) (A : GL (Fin 3) K) :
     ((mapGL φ A : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
       (A : Matrix (Fin 3) (Fin 3) K).map φ := rfl
 
-omit [Finite K] [CharP K 2] in
-theorem det_mapGL (φ : K ≃+* K) (A : GL (Fin 3) K) :
-    ((mapGL φ A : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K).det =
-      φ (A : Matrix (Fin 3) (Fin 3) K).det := by
-  rw [coe_mapGL]
-  exact (RingHom.map_det φ.toRingHom _).symm
 
 theorem tw_map (φ : K ≃+* K) (A X : Matrix (Fin 3) (Fin 3) K) :
     (tw n A X).map φ = tw n (A.map φ) (X.map φ) := by

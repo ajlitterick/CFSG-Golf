@@ -271,11 +271,6 @@ theorem leviBlk2_one (hij : i ≠ j) : leviBlk2 i j (1 : StatedSp n K) = 1 := by
   ext x y
   fin_cases x <;> fin_cases y <;> simp [leviBlk2, hij, hji]
 
-theorem leviBlk2_inv (hij : i ≠ j) (ha : (a : K) ≠ ((a⁻¹ : Kˣ) : K)) {g : StatedSp n K}
-    (hg : g ∈ leviCent K i j a) : leviBlk2 i j g⁻¹ = (leviBlk2 i j g)⁻¹ := by
-  have h1 : leviBlk2 i j g * leviBlk2 i j g⁻¹ = 1 := by
-    rw [← leviBlk2_mul hij ha hg (inv_mem hg), mul_inv_cancel, leviBlk2_one hij]
-  exact (Matrix.inv_eq_right_inv h1).symm
 
 theorem det_leviBlk2_commutator (hij : i ≠ j) (ha : (a : K) ≠ ((a⁻¹ : Kˣ) : K)) {g h : StatedSp n K}
     (hg : g ∈ leviCent K i j a) (hh : h ∈ leviCent K i j a) :
@@ -360,13 +355,6 @@ theorem planeTorusDiag_inr_j (hij : i ≠ j) (a b : Kˣ) :
     planeTorusDiag i j a b (Sum.inr j) = ((b⁻¹ : Kˣ) : K) := by
   simp [planeTorusDiag, hij.symm]
 
-theorem planeTorusDiag_of_not_mem (a b : Kˣ) {r : Fin n ⊕ Fin n}
-    (h : r ∉ coords i ∪ coords j) : planeTorusDiag i j a b r = 1 := by
-  have h1 : r ≠ Sum.inl i := fun e => h (Or.inl (e ▸ inl_mem_coords i))
-  have h2 : r ≠ Sum.inr i := fun e => h (Or.inl (e ▸ inr_mem_coords i))
-  have h3 : r ≠ Sum.inl j := fun e => h (Or.inr (e ▸ inl_mem_coords j))
-  have h4 : r ≠ Sum.inr j := fun e => h (Or.inr (e ▸ inr_mem_coords j))
-  simp [planeTorusDiag, h1, h2, h3, h4]
 
 theorem planeTorusDiag_ne_of_cross (hij : i ≠ j) {a b : Kˣ} (hab : a ≠ b) (hab' : a ≠ b⁻¹)
     {r t : Fin n ⊕ Fin n} (hr : r ∈ coords i) (ht : t ∈ coords j) :

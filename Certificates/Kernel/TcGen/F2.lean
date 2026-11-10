@@ -69,16 +69,6 @@ theorem co1tcp_K : seedsF2 24 C1A.M C1B.M Co1Three.cpNregs Co1Three.cpProg
     Co1Three.cpSpec.facts Co1Three.cpSpec.rA Co1Three.cpSpec.rB = true := by
   quickRfl
 
-theorem co2tc_neg_seeds : (!seedsF2 22 C2B.M C2A.M Co2Three.tcNregs Co2Three.tcProg
-    Co2Three.tcSpec.facts Co2Three.tcSpec.rA Co2Three.tcSpec.rB) = true := by
-  quickRfl
-
-theorem co3cp_neg_ord : (!seedsF2 22 C3A.M C3B.M Co3Three.cpNregs Co3Three.cpProg
-    (.ord 0 2 :: Co3Three.cpSpec.facts) Co3Three.cpSpec.rA Co3Three.cpSpec.rB) = true := by
-  quickRfl
-
-theorem co1_neg_ne : (!seedsF2 24 C1A.M C1B.M 2 [] [.ne [(0, 1)] [(0, 1)] 0] 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelTc
 

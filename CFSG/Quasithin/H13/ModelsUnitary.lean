@@ -89,31 +89,5 @@ theorem nonempty_statedProj_statedSU_mulEquiv_quasithinPSU (n p k : ℕ) [Fact p
     ((statedProjEquivMapMk _).trans
       (MulEquiv.subgroupCongr (quasithinPSU_eq_map_SU n p k).symm))⟩
 
-theorem lieModel_quasithinPSU {n p k : ℕ} [Fact p.Prime] (hadm : StatedLieAdmissible .PSU n p k) :
-    CFSG.Blueprint.LieModel (quasithinPSU n p k) .PSU n p k := by
-  have hk : k ≠ 0 := by
-    have := hadm.2.1
-    omega
-  obtain ⟨f⟩ := nonempty_statedProj_statedSU_mulEquiv_quasithinPSU n p k hk
-  exact Or.inl ⟨by decide, hadm, GaloisField p (2 * k), inferInstance, inferInstance,
-    card_galoisField_two_mul p k hk, ⟨f.symm⟩⟩
-
-theorem lieModel_of_mulEquiv_quasithinPSU {X : Type} [Group X] {n p k : ℕ} [Fact p.Prime]
-    (hadm : StatedLieAdmissible .PSU n p k) (e : X ≃* quasithinPSU n p k) :
-    CFSG.Blueprint.LieModel X .PSU n p k := by
-  have hk : k ≠ 0 := by
-    have := hadm.2.1
-    omega
-  obtain ⟨f⟩ := nonempty_statedProj_statedSU_mulEquiv_quasithinPSU n p k hk
-  exact Or.inl ⟨by decide, hadm, GaloisField p (2 * k), inferInstance, inferInstance,
-    card_galoisField_two_mul p k hk, ⟨e.trans f.symm⟩⟩
-
-theorem lieModel_quasithinPSU_four_two :
-    CFSG.Blueprint.LieModel (quasithinPSU 4 2 1) .PSU 4 2 1 :=
-  lieModel_quasithinPSU ⟨Nat.prime_two, le_rfl, by norm_num, by decide⟩
-
-theorem lieModel_quasithinPSU_four_three :
-    CFSG.Blueprint.LieModel (quasithinPSU 4 3 1) .PSU 4 3 1 :=
-  lieModel_quasithinPSU ⟨Nat.prime_three, le_rfl, by norm_num, by decide⟩
 
 end CFSG.Quasithin.H13

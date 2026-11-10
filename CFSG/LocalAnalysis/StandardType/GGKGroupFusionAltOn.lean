@@ -39,9 +39,6 @@ theorem ggSwap_mul_swap_mem_altOn {X : Finset V} {a b c : V} (ha : a ∈ X) (hb 
   simp only [Finset.mem_insert, Finset.mem_singleton] at hv'
   rcases hv' with rfl | rfl | rfl <;> assumption
 
-theorem ggAltIn_of_altOn_le {N : Subgroup (Perm V)} {X : Finset V} (h : GGAltOn X ≤ N) :
-    GGAltIn N X :=
-  fun _ ha _ hb _ hc hab hbc hac => h (ggSwap_mul_swap_mem_altOn ha hb hc hab hbc hac)
 
 omit [Fintype V] in
 theorem ggAltOn_le_of_altIn {N : Subgroup (Perm V)} {X : Finset V} (h : GGAltIn N X) :
@@ -105,11 +102,6 @@ theorem ggAltOn_commute_of_disjoint {X Y : Finset V} (hXY : Disjoint X Y) {σ τ
       exact Finset.disjoint_left.mp hXY (hσ.2 v hv) (hτ.2 v hv')
   exact hd.commute.eq
 
-omit [Fintype V] in
-theorem ggSwap_mul_swap_apply_of_ne {x y z w : V} (hx : w ≠ x) (hy : w ≠ y) (hz : w ≠ z) :
-    (swap x y * swap y z) w = w := by
-  rw [Perm.coe_mul, Function.comp_apply, swap_apply_of_ne_of_ne hy hz,
-    swap_apply_of_ne_of_ne hx hy]
 
 omit [Fintype V] in
 theorem ggMem_three_of_commute {x y z : V} (hxy : x ≠ y) (hxz : x ≠ z)

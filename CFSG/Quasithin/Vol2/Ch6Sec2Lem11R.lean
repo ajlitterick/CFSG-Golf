@@ -30,10 +30,6 @@ namespace Data611
 variable (D : Data611 G T M L V d u₁ z)
 include D
 
-theorem d_inv : d⁻¹ = d * d := by
-  have h3 := D.d3
-  rw [pow_succ, pow_two] at h3
-  exact inv_eq_of_mul_eq_one_right (by rw [← mul_assoc]; exact h3)
 
 theorem dU_fix {u : G} (hu : u ∈ uCh611 T L V) (hdu : d * u * d⁻¹ = u) : u = 1 := by
   have h1 : d * u * d⁻¹ * u⁻¹ ∈ ch6ZS T L V := by

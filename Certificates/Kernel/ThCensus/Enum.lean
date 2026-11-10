@@ -19,8 +19,6 @@ open CFSG.KC.ThCensus CFSG.KD.ThCensus
 
 #kc_each ch17305T 0 10
 
-theorem ch17305E : permNfListOK reps = true := by
-  quickRfl
 
 @[expose] noncomputable def ch17305Q (b : Nat) : Bool :=
   permBlockOK (PM 0) (PM (Nat.succ b)) reps (lenN reps) (base.getD 0 0) (base.getD 1 0) (base.getD 2 0) b

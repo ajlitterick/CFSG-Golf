@@ -102,17 +102,5 @@ theorem le_range_inl_of_isPGroup {F : Type} [Field F] [Finite F] {p f : ℕ} (hp
   have h3 : Nat.Coprime (2 ^ k) f := Nat.Coprime.pow_left _ (Nat.coprime_two_left.mpr hf)
   exact orderOf_eq_one_iff.mp (Nat.Coprime.eq_one_of_dvd (Nat.Coprime.coprime_dvd_left h1 h3) h2)
 
-theorem exists_closure_pair_eq_of_isPGroup_pGammaL2 {F : Type} [Field F] [Finite F] {p f : ℕ}
-    (hp : p.Prime) (hFcard : Nat.card F = p ^ f) (hF : IsOddPrimePower (Nat.card F))
-    (hf : Odd f) {H : Subgroup (PGammaL2 F)} (hH : IsPGroup 2 H) :
-    ∃ a b : PGammaL2 F, Subgroup.closure {a, b} = H := by
-  have hH' : IsPGroup 2 (H.comap (SemidirectProduct.inl : PGL2 F →* PGammaL2 F)) :=
-    hH.comap_of_injective _ SemidirectProduct.inl_injective
-  obtain ⟨a, b, hab⟩ := exists_closure_pair_eq_of_isPGroup_pgl2 hF hH'
-  refine ⟨SemidirectProduct.inl a, SemidirectProduct.inl b, ?_⟩
-  have h := congrArg (Subgroup.map (SemidirectProduct.inl : PGL2 F →* PGammaL2 F)) hab
-  rw [MonoidHom.map_closure, Set.image_insert_eq, Set.image_singleton, Subgroup.map_comap_eq,
-    inf_eq_right.mpr (le_range_inl_of_isPGroup hp hFcard hf hH)] at h
-  exact h
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight

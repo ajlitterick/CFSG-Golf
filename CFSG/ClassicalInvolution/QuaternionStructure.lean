@@ -22,14 +22,6 @@ theorem involution_mem_center_oddCore_quotient {X : Type*} [Group X] [Finite X] 
       (QuotientGroup.mk t : X ⧸ oddCore X) ∈ Subgroup.center (X ⧸ oddCore X) :=
   fun t ht ho => CFSG.BrauerSuzuki.brauer_suzuki r hr S hq t ht ho
 
-theorem exists_central_unique_involution_oddCore_quotient {X : Type*} [Group X] [Finite X]
-    (S : Sylow 2 X)
-    (hS : ∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup X) ≃* QuaternionGroup (2 ^ (r - 2)))) :
-    ∃ z : X ⧸ oddCore X, orderOf z = 2 ∧ z ∈ Subgroup.center (X ⧸ oddCore X) ∧
-      ∀ t : X ⧸ oddCore X, orderOf t = 2 → t = z := by
-  obtain ⟨r, hr, hq⟩ := hS
-  exact QuaternionStructure.exists_central_unique_involution S ⟨r, hr, hq⟩
-    (involution_mem_center_oddCore_quotient S hr hq)
 
 theorem quaternion_sylow_structure {X : Type u} [Group X] [Finite X] (S : Sylow 2 X)
     (hS : ∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup X) ≃* QuaternionGroup (2 ^ (r - 2)))) :
@@ -60,25 +52,6 @@ theorem quaternion_sylow_structure {X : Type u} [Group X] [Finite X] (S : Sylow 
   · exact Or.inr (Or.inr (Or.inl h3))
   · exact Or.inr (Or.inr (Or.inr ⟨⟨hcomm, hsimple⟩, hcard, hiso⟩))
 
-theorem quaternion_sylow_structure_of_pow {X : Type u} [Group X] [Finite X] (S : Sylow 2 X)
-    {k : ℕ} (hk : 1 ≤ k) (hS : Nonempty ((S : Subgroup X) ≃* QuaternionGroup (2 ^ k))) :
-    ∃ z : X ⧸ oddCore X, orderOf z = 2 ∧ z ∈ Subgroup.center (X ⧸ oddCore X) ∧
-      (∀ t : X ⧸ oddCore X, orderOf t = 2 → t = z) ∧
-      (IsPGroup 2 (X ⧸ oddCore X) ∨
-        (∃ (F : Type u) (_ : Field F) (_ : Finite F), ringChar F ≠ 2 ∧
-          ∃ L : Subgroup (X ⧸ oddCore X), L.Normal ∧ Odd L.index ∧ Nonempty (L ≃* SL(2, F))) ∨
-        (∃ (F : Type u) (_ : Field F) (_ : Finite F), ringChar F ≠ 2 ∧
-          ∃ L : Subgroup (X ⧸ oddCore X), L.Normal ∧ Odd L.index ∧
-            (∃ φ : L →* Matrix.ProjGenLinGroup (Fin 2) F, Function.Surjective φ ∧
-              φ.ker.map L.subtype = Subgroup.zpowers z) ∧
-            (∀ P : Sylow 2 L, ∃ m : ℕ, 1 ≤ m ∧
-              Nonempty ((P : Subgroup L) ≃* QuaternionGroup (2 ^ m))) ∧
-            ∃ M : Subgroup (X ⧸ oddCore X), M.Normal ∧ M ≤ L ∧ Nonempty (M ≃* SL(2, F))) ∨
-        (CFSG.Open.IsQuasisimple (X ⧸ oddCore X) ∧
-          Nat.card (Subgroup.center (X ⧸ oddCore X)) = 2 ∧
-          Nonempty (((X ⧸ oddCore X) ⧸ Subgroup.center (X ⧸ oddCore X)) ≃*
-            alternatingGroup (Fin 7)))) :=
-  quaternion_sylow_structure S ⟨k + 2, by omega, by rw [Nat.add_sub_cancel]; exact hS⟩
 
 theorem quaternion_sylow_structure_of_perfect {X : Type u} [Group X] [Finite X] (S : Sylow 2 X)
     (hS : ∃ r : ℕ, 3 ≤ r ∧ Nonempty ((S : Subgroup X) ≃* QuaternionGroup (2 ^ (r - 2))))
@@ -97,10 +70,6 @@ theorem quaternion_sylow_structure_of_perfect {X : Type u} [Group X] [Finite X] 
   · exact Or.inl h1
   · exact Or.inr ⟨⟨hcomm, hsimple⟩, hcard, hiso⟩
 
-theorem exists_normal_twoComplement_of_isPGroup_oddCore_quotient {X : Type*} [Group X] [Finite X]
-    (h : IsPGroup 2 (X ⧸ oddCore X)) :
-    ∃ (N : Subgroup X) (_ : N.Normal), Odd (Nat.card N) ∧ IsPGroup 2 (X ⧸ N) :=
-  ⟨oddCore X, inferInstance, QuaternionStructure.odd_natCard_oddCore X, h⟩
 
 theorem specialLinearGroup_sylow_quaternion (F : Type*) [Field F] [Finite F]
     (hF : ringChar F ≠ 2) (P : Sylow 2 SL(2, F)) :

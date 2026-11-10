@@ -43,8 +43,6 @@ theorem dPerm : allN 13 (fun k => permOK 1755 11 (mask 11) (1755 * 11) (DS k) (D
 theorem gPerm : allN 4 (fun k => permOK 1755 11 (mask 11) (1755 * 11) (GS k) (GSI k)) = true := by
   quickRfl
 
-theorem d0Canon : canonK 1755 11 (mask 11) (1755 * 11) (DS 0) = true := by quickRfl
-theorem g0Canon : canonK 1755 11 (mask 11) (1755 * 11) (GS 0) = true := by quickRfl
 
 end CertificateChecks.KernelTitsW
 

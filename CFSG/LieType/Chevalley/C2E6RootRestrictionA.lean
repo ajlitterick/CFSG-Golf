@@ -158,24 +158,6 @@ theorem phiA_vecA
     (j : Fin 20) : phiA ⟨vecA j, vecA_mem j⟩ = wedgeBasis (eA j) := by
   rw [← basisA_apply, phiA, Module.Basis.equiv_apply, wedgeBasis_eq_basis]
 
-theorem phiA_rootVec
-    {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α) (h1 : α (1 : Fin 6) = 1)
-    (hmem : rootVec Tag.E6 K α ∈ moduleA) (I : powersetCard (Fin 6) 3)
-    (hI : ∀ t : Fin 5, rootWeight (jA t) α = subsetPattern I.val t) :
-    phiA ⟨rootVec Tag.E6 K α, hmem⟩ = wedgeBasis I := by
-  obtain ⟨j, rfl⟩ := exists_rootA_eq hα h1
-  obtain ⟨j', rfl⟩ := eA.surjective I
-  rw [eq_of_weight j j' hI]
-  exact phiA_vecA j
-
-theorem existsUnique_subset
-    {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α)
-    (h1 : α (1 : Fin 6) = 1) :
-    ∃! I : powersetCard (Fin 6) 3, ∀ t : Fin 5, rootWeight (jA t) α = subsetPattern I.val t := by
-  obtain ⟨j, rfl⟩ := exists_rootA_eq hα h1
-  refine ⟨eA j, weight_rootA j, fun I hI => ?_⟩
-  obtain ⟨j', rfl⟩ := eA.surjective I
-  rw [eq_of_weight j j' hI]
 
 theorem jA_ne_one (t : Fin 5) : jA t ≠ i6 1 := by
   revert t
@@ -264,9 +246,6 @@ theorem phiA_add_smul
   rw [← map_smul, ← map_add]
   rfl
 
-theorem phiA_zero_mem
-    (h : (0 : RootModule Tag.E6 K) ∈ moduleA) : phiA ⟨0, h⟩ = 0 :=
-  map_zero phiA
 
 theorem phiA_xOp
     (t : Fin 5) (c : K) {v : RootModule Tag.E6 K} (hv : v ∈ moduleA) :
@@ -362,41 +341,8 @@ theorem card_compRev {I : Finset (Fin 6)} (hI : I.card = 3) : (compRev I).card =
 @[expose] def diagA : ⋀[K]^3 (Fin 6 → K) →ₗ[K] ⋀[K]^3 (Fin 6 → K) :=
   ((Pi.basisFun K (Fin 6)).exteriorPower 3).constr K fun I => wedgeBasis (compRevPC I)
 
-theorem diagA_wedgeBasis (I : powersetCard (Fin 6) 3) :
-    diagA (wedgeBasis I) = wedgeBasis (compRevPC I) := by
-  rw [diagA, wedgeBasis_eq_basis I, Module.Basis.constr_basis]
 
 abbrev diagE6 : Module.End K (RootModule Tag.E6 K) := (diagramMap TwistTag.E6 K).val
 
-theorem diagramMap_vecA (j : Fin 20) :
-    diagE6 (vecA j) =
-      rootVec Tag.E6 K (rhoL (rootA j)) :=
-  diagramMap_rootVec TwistTag.E6 K (rootA j) (isRoot_rootA j)
-
-theorem diagramMap_mem_moduleA :
-    ∀ v ∈ moduleA, diagE6 v ∈ moduleA :=
-  moduleA_le_comap fun j => by
-    rw [diagramMap_vecA]
-    obtain ⟨j', hj', -⟩ := diag_rootA j
-    rw [← hj']
-    exact vecA_mem j'
-
-theorem phiA_diagramMap {v : RootModule Tag.E6 K} (hv : v ∈ moduleA) :
-    phiA ⟨diagE6 v,
-      diagramMap_mem_moduleA v hv⟩ = diagA (phiA ⟨v, hv⟩) := by
-  have key : phiA.toLinearMap ∘ₗ
-      diagE6.restrict
-        diagramMap_mem_moduleA = diagA ∘ₗ phiA.toLinearMap := by
-    refine basisA.ext fun j => ?_
-    rw [LinearMap.comp_apply, LinearMap.comp_apply, basisA_apply, LinearMap.restrict_apply]
-    obtain ⟨j', hj', hsub⟩ := diag_rootA j
-    have : (⟨diagE6 (vecA j), diagramMap_mem_moduleA _ (vecA_mem j)⟩ : moduleA) =
-        ⟨vecA j', vecA_mem j'⟩ :=
-      Subtype.ext (show diagE6 (vecA j) = vecA j' by rw [diagramMap_vecA, ← hj'])
-    refine (congrArg phiA this).trans ?_
-    rw [LinearEquiv.coe_coe, phiA_vecA, phiA_vecA, diagA_wedgeBasis]
-    congr 1
-    exact Subtype.ext hsub
-  exact congrArg (fun F : moduleA →ₗ[K] ⋀[K]^3 (Fin 6 → K) => F ⟨v, hv⟩) key
 
 end CFSG.LieType.Chevalley.C2E6Std

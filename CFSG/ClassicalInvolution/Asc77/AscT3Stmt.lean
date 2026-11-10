@@ -34,42 +34,15 @@ end Defs
 
 variable (p f : ℕ) [Fact p.Prime]
 
-@[expose] def Thm3CommBelow (n : ℕ) : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G], Nat.card G < n → ∀ Ω : Set (Subgroup G),
-      HypOmegaMod p f Ω → ∀ K ∈ Ω, ¬ AEmpty Ω K →
-        aStar Ω K = vStar Ω K ∧
-          ∀ L ∈ Ω, L ∉ vStar Ω K → ∀ M ∈ vStar Ω K, ⁅L, M⁆ ≤ oddCoreOf L ⊓ oddCoreOf M
-
-@[expose] def Thm3LieBelow (n : ℕ) : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G], Nat.card G < n → ∀ Ω : Set (Subgroup G),
-      HypOmegaMod p f Ω → ∀ K ∈ Ω, ¬ AEmpty Ω K →
-        SectionLieType p f Ω (omegaGen (aStar Ω K)) .G2 0
-
-@[expose] def Thm3TypedBelow (n : ℕ) : Prop :=
-  Thm3CommBelow p f n ∧ Thm3LieBelow p f n
-
-@[expose] def Thm3ConnBelow (n : ℕ) : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G], Nat.card G < n → ∀ Ω : Set (Subgroup G),
-      HypOmegaMod p f Ω → (∃ L ∈ Ω, ¬ AEmpty Ω L) → DStarConnected Ω
 
 @[expose] def Thm3SectBelow (n : ℕ) : Prop :=
   p ≠ 2 → 5 ≤ p ^ f →
     ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y < n → ∀ Λ : Set (Subgroup Y),
       HypOmegaMod p f Λ → ¬ DStarConnected (oddQuotientFamily Λ) → ∀ L ∈ Λ, AEmpty Λ L
 
-@[expose] def Thm3SectYBelow (n : ℕ) : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y < n → ∀ Λ : Set (Subgroup Y),
-      HypOmegaMod p f Λ → ¬ DStarConnected Λ → ∀ L ∈ Λ, AEmpty Λ L
 
 variable {p f}
 
-theorem thm3CommBelow_of_typed {n : ℕ} (h : Thm3TypedBelow p f n) : Thm3CommBelow p f n := h.1
-
-theorem thm3LieBelow_of_typed {n : ℕ} (h : Thm3TypedBelow p f n) : Thm3LieBelow p f n := h.2
 
 section Graph
 
@@ -95,20 +68,6 @@ theorem dstarConnected_of_pivot {L : Subgroup G} (hL : L ∈ Ω) (h : ∀ M ∈ 
 
 variable {p f : ℕ} [Fact p.Prime]
 
-theorem dstarAdj_of_aGraphAdj [Finite G] (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) {K J : Subgroup G}
-    (hK : K ∈ Ω) (h : aGraphAdj Ω K J) : dstarAdj Ω K J := by
-  obtain ⟨hJ, ⟨zK, zJ, hv⟩ | ⟨zK, zJ, hv⟩ | ⟨⟨-, z, hzK, hzJ⟩, hne⟩⟩ := h
-  · exact ⟨hJ, Or.inl hv.star⟩
-  · exact ⟨hJ, Or.inr hv.star⟩
-  · exact ⟨hJ, Or.inl (omegaNbr_subset_omegaStarNbr hp hΩ K
-      (twin_mem_omegaNbr hΩ hK hJ hne hzK hzJ))⟩
-
-theorem aStar_subset_dstarComp [Finite G] (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) {K : Subgroup G}
-    (hK : K ∈ Ω) {J : Subgroup G} (hJ : J ∈ aStar Ω K) : J ∈ Ω ∧ J ∈ dstarComp Ω K := by
-  induction hJ with
-  | refl => exact ⟨hK, Relation.ReflTransGen.refl⟩
-  | tail _ hbc ih =>
-    exact ⟨hbc.1, ih.2.tail (dstarAdj_of_aGraphAdj hp hΩ ih.1 hbc)⟩
 
 theorem le_normalizer_of_commutator_le {M L : Subgroup G} (h : ⁅M, L⁆ ≤ L) :
     M ≤ Subgroup.normalizer (L : Set G) := by
@@ -126,26 +85,6 @@ theorem le_normalizer_of_commutator_le {M L : Subgroup G} (h : ⁅M, L⁆ ≤ L)
   have e : m⁻¹ * (m * l * m⁻¹) * m⁻¹⁻¹ = l := by group
   rwa [e] at this
 
-theorem thm3ConnBelow_of_comm {n : ℕ} (h : Thm3CommBelow p f n) : Thm3ConnBelow p f n := by
-  intro hp hq G _ _ hn Ω hΩ ⟨L, hL, hnA⟩
-  obtain ⟨hA, hcomm⟩ := h hp hq G hn Ω hΩ L hL hnA
-  have hLv : L ∈ vStar Ω L := ⟨hL, rfl⟩
-  refine dstarConnected_of_pivot hL fun M hM => ?_
-  by_cases hMv : M ∈ vStar Ω L
-  · rw [← hA] at hMv
-    exact (aStar_subset_dstarComp hp hΩ hL hMv).2
-  · have hML : M ≠ L := fun he => hMv (he ▸ hLv)
-    have hc : ⁅M, L⁆ ≤ oddCoreOf M ⊓ oddCoreOf L := hcomm M hM hMv L hLv
-    have hMN : M ≤ Subgroup.normalizer (L : Set G) :=
-      le_normalizer_of_commutator_le (hc.trans (inf_le_right.trans (oddCoreOf_le_self L)))
-    obtain ⟨R, hR, hRM, -⟩ := exists_mem_RSet_ge hM (isPGroup_two_bot' (G := G)) bot_le
-    have hnb : M ∈ omegaNbr Ω L := ⟨hM, hML, R, hR, hRM.1, hRM.1.trans hMN⟩
-    exact Relation.ReflTransGen.single ⟨hM, Or.inl (omegaNbr_subset_omegaStarNbr hp hΩ L hnb)⟩
-
-theorem thm3SectYBelow_of_conn {n : ℕ} (h : Thm3ConnBelow p f n) : Thm3SectYBelow p f n := by
-  intro hp hq Y _ _ hn Λ hΛ hdis L hL
-  by_contra hnA
-  exact hdis (h hp hq Y hn Λ hΛ ⟨L, hL, hnA⟩)
 
 end Graph
 
@@ -272,44 +211,6 @@ theorem omegaStarNbr_map_quot {K J : Subgroup Y} (h : J ∈ omegaStarNbr Λ K)
   rintro _ ⟨u, hu, rfl⟩
   exact map_mem_normalizer' _ (hUN hu)
 
-theorem dstarAdj_map_quot {K J : Subgroup Y} (h : dstarAdj Λ K J) :
-    J.map (oddQuot Y) =
-      K.map (oddQuot Y) ∨
-    dstarAdj (oddQuotientFamily Λ) (K.map (oddQuot Y))
-      (J.map (oddQuot Y)) := by
-  by_cases he : J.map (oddQuot Y) =
-      K.map (oddQuot Y)
-  · exact Or.inl he
-  · right
-    obtain ⟨hJ, h1 | h1⟩ := h
-    · exact ⟨mem_oddQuotientFamily hJ, Or.inl (omegaStarNbr_map_quot h1 he)⟩
-    · exact ⟨mem_oddQuotientFamily hJ, Or.inr (omegaStarNbr_map_quot h1 (Ne.symm he))⟩
-
-theorem dstarConnected_map (h : DStarConnected Λ) : DStarConnected (oddQuotientFamily Λ) := by
-  rintro _ ⟨K, hK, rfl⟩ _ ⟨J, hJ, rfl⟩
-  have hpath : ∀ M, M ∈ dstarComp Λ K → M ∈ Λ ∧
-      M.map (oddQuot Y) ∈
-        dstarComp (oddQuotientFamily Λ) (K.map (oddQuot Y)) := by
-    intro M hM
-    induction hM with
-    | refl => exact ⟨hK, Relation.ReflTransGen.refl⟩
-    | tail _ hbc ih =>
-      refine ⟨hbc.1, ?_⟩
-      rcases dstarAdj_map_quot hbc with he | hadj
-      · rw [he]
-        exact ih.2
-      · exact ih.2.tail hadj
-  exact (hpath J (h K hK J hJ)).2
-
-theorem thm3SectBelow_of_sectY {n : ℕ} (h : Thm3SectYBelow p f n) : Thm3SectBelow p f n := by
-  intro hp hq Y' _ _ hn Λ' hΛ hdis L hL
-  refine h hp hq Y' hn Λ' hΛ (fun hc => hdis (dstarConnected_map hc)) L hL
-
-theorem thm3SectBelow_of_conn {n : ℕ} (h : Thm3ConnBelow p f n) : Thm3SectBelow p f n :=
-  thm3SectBelow_of_sectY (thm3SectYBelow_of_conn h)
-
-theorem thm3SectBelow_of_typed {n : ℕ} (h : Thm3TypedBelow p f n) : Thm3SectBelow p f n :=
-  thm3SectBelow_of_conn (thm3ConnBelow_of_comm h.1)
 
 end Quotient
 

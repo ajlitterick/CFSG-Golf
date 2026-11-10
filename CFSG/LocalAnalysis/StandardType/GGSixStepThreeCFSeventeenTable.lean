@@ -140,65 +140,6 @@ end Table
 
 section Inputs
 
-@[expose] def GGSixAutKHypRestInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      ∀ b ∈ Bs, b ≠ 1 → ∀ L₁ : Subgroup G,
-      IsComponentOf L₁ (ggG0 p B x L D J ⊓ Subgroup.centralizer {b}) →
-      ∀ K : Subgroup G, IsComponentOf K (Subgroup.centralizer {b}) → L₁ ≤ K →
-        ¬ K ≤ ggM p B x L D J →
-        ∃ m ∈ ggM p B x L D J,
-          D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} ∧
-          ∃ (W' : Type) (_ : Group W') (_ : Finite W') (π : ↥(ggAutKW D K m) →* W'),
-            Function.Surjective π ∧
-            π.ker ≤ (ggAutKH D K (ggM p B x L D J) m ⊓
-              Subgroup.centralizer (K : Set G)).subgroupOf (ggAutKW D K m) ∧
-            GGHypThreeSixteenRest p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π)
-
-theorem ggSixSeventeenAutKInput_of_rest (hR : GGSixAutKHypRestInput) :
-    GGSixSeventeenAutKInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 b L₁ hpair K hK hLK hKM
-  obtain ⟨m, hm, hEC, W', _, _, π, hπ, hker, hrest⟩ :=
-    hR G p B Bs x L D J t n f ψ hctx s1 b hpair.1 hpair.2.1 L₁ hpair.2.2.1 K hK hLK hKM
-  refine ⟨m, hm, hEC, W', inferInstance, inferInstance, π, hπ, hker, hrest, ?_⟩
-  have : IsSimpleGroup G := hctx.1.1
-  have hp : p.Prime := hctx.1.2.2.2.2.2.1.1
-  have hp2 : p ≠ 2 := hctx.1.2.2.2.2.2.1.2.1
-  obtain ⟨-, ⟨⟨-, hDel, hDcard, -⟩, -⟩, -⟩ := hctx.2
-  have hfusE : GGControlsStrongFusion (ggM p B x L D J) (D.map (MulAut.conj m⁻¹).toMonoidHom) := by
-    refine s1.2.1.of_map_conj_le ((ggM p B x L D J).inv_mem hm) ?_
-    rintro _ ⟨_, ⟨d, hd, rfl⟩, rfl⟩
-    simpa [MulAut.conj_apply, mul_assoc] using hd
-  have hE0el : IsElemAbelian p (D.map (MulAut.conj m⁻¹).toMonoidHom) :=
-    isElemAbelian_map_hom hDel _
-  have hE0card : Nat.card (D.map (MulAut.conj m⁻¹).toMonoidHom) = p ^ 2 := by
-    rw [Subgroup.card_map_of_injective (MulAut.conj m⁻¹).injective, hDcard]
-  have hnorm : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.normalizer (K : Set G) :=
-    ggLemmaThreeThirteenInput_holds G p hp hp2 (Subgroup.centralizer {b})
-      (ggM p B x L D J ⊓ Subgroup.centralizer {b}) _
-      (ggStepTwo_kGroup_of_ne_top hctx.1.2.2.1
-        (ggStepTwo_centralizer_ne_top hctx.1.2.1 hpair.2.1))
-      hE0el hE0card (hfusE.inf_in hEC) K hK (fun h => hKM (h.trans inf_le_left))
-  have hEM : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ ggM p B x L D J := hfusE.1
-  have hH₀C : D.map (MulAut.conj m⁻¹).toMonoidHom ⊔ (K ⊓ ggM p B x L D J) ≤
-      ggM p B x L D J ⊓ Subgroup.centralizer {b} :=
-    sup_le (le_inf hEM hEC) (le_inf inf_le_right (inf_le_left.trans hK.1))
-  obtain ⟨hC, he⟩ := ggAutK_image_component hpair.isComponentOf_inf hLK hpair.le_ggM hH₀C
-    hK.2.2 hnorm π hπ hker
-  exact ggSixSeventeen_not_fusionException hpair.2.2.2 hC he
-
-theorem ggSixLemmaSixSeventeenInput_of_rest
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog)
-    (hKF : GGKGroupFusionLayerInput) (hR : GGSixAutKHypRestInput)
-    (hW : GGSixSeventeenWitnessInputFor fun _ => True)
-    (h610 : GGSixBstarUniqueV2Input) (h611 : GGSixLSixElevenInput)
-    (h612 : GGSixLSixTwelveInput) (h613t : GGSixTrialityInput)
-    (hlin : GGSixSeventeenLinearTypeInput) : GGSixLemmaSixSeventeenInput :=
-  ggSixLemmaSixSeventeenInput_of_schreier hSch hKF (ggSixSeventeenAutKInput_of_rest hR) hW
-    h610 h611 h612 h613t hlin
 
 end Inputs
 

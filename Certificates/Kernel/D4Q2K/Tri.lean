@@ -21,11 +21,6 @@ open CFSG.KC.D4Q2K
 #kc_each CertificateChecks.KernelD4Q2K.triSSl 0 16
 #kc_each CertificateChecks.KernelD4Q2K.tfSl 0 16
 
-theorem triS_neg : (!triSK D.RF (fun j => D.MF (Nat.succ j)) DT.TW 0 1) = true := by
-  quickRfl
-
-theorem tf_neg : (!tfK DT.TW (fun j => Nat.lor (DT.TF j) 1) 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

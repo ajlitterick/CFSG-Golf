@@ -110,13 +110,6 @@ theorem twClassLeaves_e8Twelve : TwClassLeaves TwClass.e8Twelve :=
 section Generic
 
 
-theorem twClassLeaves (c : TwClass) : TwClassLeaves c := by
-  cases c
-  · exact twClassLeaves_f4Six
-  · exact twClassLeaves_e6Six
-  · exact twClassLeaves_e8Ten
-  · exact twClassLeaves_e8Twelve
-
 end Generic
 
 theorem closure_centralizers_eq_top_of_class (c : TwClass) (h : TwClassLeaves c) (K : Type)

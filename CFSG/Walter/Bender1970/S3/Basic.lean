@@ -42,10 +42,6 @@ theorem isCoatom_map_conj {H : Subgroup G} (g : G) (hH : IsCoatom H) :
     IsCoatom (H.map (MulAut.conj g).toMonoidHom) :=
   (OrderIso.isCoatom_iff (MulEquiv.mapSubgroup (MulAut.conj g)) H).mpr hH
 
-omit [Finite G] in
-theorem isCoatom_of_map_conj {H : Subgroup G} (g : G)
-    (hH : IsCoatom (H.map (MulAut.conj g).toMonoidHom)) : IsCoatom H :=
-  (OrderIso.isCoatom_iff (MulEquiv.mapSubgroup (MulAut.conj g)) H).mp hH
 
 omit [Finite G] in
 theorem map_conj_le_map_conj_iff {A B : Subgroup G} (g : G) :

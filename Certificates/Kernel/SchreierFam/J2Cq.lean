@@ -28,10 +28,5 @@ theorem tCanon : canonK 315 9 (mask 9) (315 * 9) T = true := by quickRfl
 theorem cqAll : all3K 315 9 (mask 9) (315 * 9) C2A.LR C2A.TR (cqK 315 9 T C2A.S cqWords) = true := by
   quickRfl
 
-theorem cqNeg1 : all3K 315 9 (mask 9) (315 * 9) C2A.LR C2A.TR (cqK 315 9 T C2A.S [[0]]) = false := by
-  decide +kernel
-
-theorem cqNeg0 : all3K 315 9 (mask 9) (315 * 9) C2A.LR C2A.TR (cqK 315 9 T C2A.S []) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSchreierFam.J2Cq

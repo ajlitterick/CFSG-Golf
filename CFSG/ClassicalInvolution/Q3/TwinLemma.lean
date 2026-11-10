@@ -84,21 +84,5 @@ theorem twinLemma3 {C J₁ J₂ : Subgroup G} {z : G} (hC : oddCoreIn C = ⊥)
     rwa [Subgroup.map_commutator, Subgroup.map_subgroupOf_eq_of_le hJ₁H,
       Subgroup.map_subgroupOf_eq_of_le hJ₂H, Subgroup.map_bot] at this
 
-theorem eq_of_same_quaternion {C J₁ J₂ : Subgroup G} {z : G} (hC : oddCoreIn C = ⊥)
-    (h₁ : IsSubnormal J₁ C) (h₂ : IsSubnormal J₂ C)
-    (e₁ : Nonempty (↥J₁ ≃* SL(2, ZMod 3))) (e₂ : Nonempty (↥J₂ ≃* SL(2, ZMod 3)))
-    (hz : orderOf z = 2) (hz₁ : z ∈ J₁) (hz₂ : z ∈ J₂)
-    (hQ : ∃ Q : Subgroup G, IsPGroup 2 Q ∧ Nat.card Q = 8 ∧ Q ≤ J₁ ∧ Q ≤ J₂) : J₁ = J₂ := by
-  rcases twinLemma3 hC h₁ h₂ e₁ e₂ hz hz₁ hz₂ with h | h
-  · exact h
-  · exfalso
-    obtain ⟨Q, hQ2, hQ8, hQ₁, hQ₂⟩ := hQ
-    obtain ⟨e⟩ := e₁
-    have hQe : Q = Twin.quatIn e := Twin.eq_quatIn_of_card_eq e hQ₁ hQ2 hQ8
-    obtain ⟨a, b, ha, hb, hab⟩ := Twin.exists_noncomm_quatIn e
-    rw [← hQe] at ha hb
-    have hac : a ∈ Subgroup.centralizer (J₂ : Set G) :=
-      Subgroup.commutator_eq_bot_iff_le_centralizer.mp h (hQ₁ ha)
-    exact hab (Subgroup.mem_centralizer_iff.mp hac b (hQ₂ hb)).symm
 
 end CFSG.ClassicalInvolution.Q3

@@ -24,14 +24,6 @@ theorem local_matrix_one_sub_isUnit_of_residue_zero {ring index : Type*}
   rw [map_sub, map_one, hzero, sub_zero]
   exact isUnit_one
 
-theorem local_matrix_idempotent_eq_zero_of_residue_zero {ring index : Type*}
-    [CommRing ring] [IsLocalRing ring] [Fintype index] [DecidableEq index]
-    (matrix : Matrix index index ring) (hidempotent : IsIdempotentElem matrix)
-    (hzero : (IsLocalRing.residue ring).mapMatrix matrix = 0) : matrix = 0 := by
-  have hunit := local_matrix_one_sub_isUnit_of_residue_zero matrix hzero
-  have hequal : (1 - matrix) * matrix = (1 - matrix) * 0 := by
-    rw [sub_mul, one_mul, hidempotent.eq, sub_self, mul_zero]
-  exact hunit.mul_left_cancel hequal
 
 theorem local_permutation_one_sub_isUnit_of_residue_zero {ring points : Type*}
     [CommRing ring] [IsLocalRing ring] [Fintype points]

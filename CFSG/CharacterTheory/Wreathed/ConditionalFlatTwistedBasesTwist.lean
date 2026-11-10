@@ -76,8 +76,6 @@ theorem oddTwist_injective (lam : E →* ℂˣ) : Function.Injective (oddTwist l
   rw [oddTwist_apply, oddTwist_apply] at hg
   exact mul_left_cancel₀ (lam g.1).ne_zero hg
 
-theorem oddTwist_oddRestriction (lam : E →* ℂˣ) (φ : E → ℂ) :
-    oddTwist lam (oddRestriction φ) = oddRestriction ((fun k => (lam k : ℂ)) * φ) := rfl
 
 @[expose] def oddOne (E : Type u) [Group E] : OddElements E :=
   ⟨1, by rw [orderOf_one]; exact odd_one⟩

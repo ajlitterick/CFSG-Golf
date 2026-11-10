@@ -309,23 +309,6 @@ theorem centralCover_mixed_obstruction {E J : Type*} [Group E] [Finite E]
   exact (centralCoverMixedPairing_apply f hf hk hfc hq ⟨r, hr⟩ s).symm.trans
     (congrArg Subtype.val h)
 
-theorem derivedHom_ker {G H : Type*} [Group G] [Group H] (f : G →* H) :
-    (derivedHom f).ker = f.ker.subgroupOf (commutator G) := by
-  ext x
-  change (derivedHom f x = 1) ↔ f x.val = 1
-  exact Subtype.ext_iff
-
-@[expose] def coverDerivedQuotientEquiv {G H : Type*} [Group G] [Group H]
-    (f : G →* H) (hf : Function.Surjective f) :
-    (commutator G) ⧸ (derivedHom f).ker ≃* commutator H :=
-  QuotientGroup.quotientKerEquivOfSurjective (derivedHom f) (derivedHom_surjective f hf)
-
-@[expose] def centralCoverAbelianizationEquiv {G H : Type*} [Group G] [Group H]
-    (f : G →* H) (hf : Function.Surjective f) (hk : f.ker ≤ commutator G) :
-    Abelianization G ≃* Abelianization H :=
-  (QuotientGroup.quotientMulEquivOfEq (coverAbelianProjection_ker f hf hk).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective (coverAbelianProjection f)
-      (coverAbelianProjection_surjective f hf))
 
 theorem derived_additiveHom_zero_of_commutators {G A : Type*} [Group G] [AddCommGroup A]
     (r : Additive (commutator G) →+ A)

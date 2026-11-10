@@ -29,9 +29,6 @@ variable {K : Type} [Field K] {V : Type*} [AddCommGroup V] [Module K V]
     obtain ⟨B, hB⟩ := hQ.2.1
     exact ⟨B, fun x y => by rw [hB]; ring⟩
 
-theorem IsSourceQuadratic.coe_toQuadraticForm {Q : V → K} (hQ : IsSourceQuadratic Q) :
-    ⇑hQ.toQuadraticForm = Q :=
-  rfl
 
 theorem isSourceQuadratic_of_nondegenerate (Q : QuadraticForm K V)
     (hQ : (polarBilin Q).Nondegenerate) : IsSourceQuadratic ⇑Q := by
@@ -142,8 +139,6 @@ theorem two_mul_finrank_le_of_singular [FiniteDimensional K V] {Q : QuadraticFor
 end Forms
 
 
-
-
 section Witt
 
 variable {K : Type} [Field K] {V : Type} [AddCommGroup V] [Module K V]
@@ -160,11 +155,6 @@ theorem finrank_le_sourceWittIndex_of_injective [FiniteDimensional K V] {U : Typ
   rw [← LinearMap.finrank_range_of_inj hφ]
   exact le_sourceWittIndex Q fun x ⟨u, hu⟩ => hu ▸ h0 u
 
-theorem IsSourceQuadratic.isPlusType [FiniteDimensional K V] {Q : V → K}
-    (hQ : IsSourceQuadratic Q) {n : ℕ} (hdim : finrank K V = 2 * n)
-    (hw : sourceWittIndex Q = n) : IsPlusType hQ.toQuadraticForm := by
-  obtain ⟨W, hW, hWd⟩ := exists_sourceWittIndex hQ.map_zero
-  exact ⟨W, by rw [hWd, hw, hdim], hW⟩
 
 theorem IsSourceQuadratic.not_isPlusType [FiniteDimensional K V] {Q : V → K}
     (hQ : IsSourceQuadratic Q) {n : ℕ} (hn : 1 ≤ n) (hdim : finrank K V = 2 * n)
@@ -179,27 +169,6 @@ section Native
 
 variable (n : ℕ) (K : Type) [Field K]
 
-theorem sourceWittIndex_statedQuadPlus : sourceWittIndex (StatedQuadPlus n K) = n := by
-  have hnd := CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadPlus n K
-  have hdim : finrank K (Fin n ⊕ Fin n → K) = 2 * n := by
-    rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_fin, two_mul]
-  have h1 := two_mul_sourceWittIndex_le (quadPlus n K) hnd
-  rw [coe_quadPlus, hdim] at h1
-  obtain ⟨W, hW, hWs⟩ := CFSG.GroupTheory.WeirSylow.isPlusType_quadPlus K n
-  have h2 := le_sourceWittIndex (StatedQuadPlus n K) (W := W) fun x hx => by
-    rw [← coe_quadPlus]
-    exact hWs x hx
-  rw [hdim] at hW
-  omega
-
-@[expose] def oddHalf : (Fin n → K) →ₗ[K] (Fin n ⊕ Fin n ⊕ Unit → K) where
-  toFun y := Sum.elim y 0
-  map_add' _ _ := by
-    funext j
-    rcases j with i | i <;> simp
-  map_smul' _ _ := by
-    funext j
-    rcases j with i | i <;> simp
 
 @[expose] def minusHalf : (Fin (n - 1) → K) →ₗ[K] (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2 → K) where
   toFun y := Sum.elim y 0
@@ -210,20 +179,6 @@ theorem sourceWittIndex_statedQuadPlus : sourceWittIndex (StatedQuadPlus n K) = 
     funext j
     rcases j with i | i <;> simp
 
-theorem sourceWittIndex_statedQuadOdd (h2 : (2 : K) ≠ 0) :
-    sourceWittIndex (StatedQuadOdd n K) = n := by
-  have hnd := CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadOdd n K h2
-  have hdim : finrank K (Fin n ⊕ Fin n ⊕ Unit → K) = 2 * n + 1 := by
-    rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_sum, Fintype.card_fin,
-      Fintype.card_unit]
-    ring
-  have h1 := two_mul_sourceWittIndex_le (quadOdd n K) hnd
-  rw [coe_quadOdd, hdim] at h1
-  have h2' := finrank_le_sourceWittIndex_of_injective (StatedQuadOdd n K) (oddHalf n K)
-    (fun x y hxy => funext fun i => congrFun hxy (.inl i)) fun y => by
-      simp [StatedQuadOdd, oddHalf]
-  rw [Module.finrank_fin_fun] at h2'
-  omega
 
 theorem sourceWittIndex_statedQuadMinus [Finite K] (hn : 1 ≤ n) {b c : K}
     (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :

@@ -88,10 +88,6 @@ theorem baum_R₂ : baum (R₂ X R Y) = baum R := by
 theorem R₂_inf_Y : R₂ X R Y ⊓ Y = R ⊓ Y :=
   le_antisymm (inf_le_inf_right Y s.R₂_le_R) (le_inf s.RY_le_R₂ inf_le_right)
 
-theorem sylow_R₂ : IsSylowTwoOf (R₂ X R Y) (Y ⊔ R₂ X R Y) := by
-  refine isSylowTwoOf_sup_of_normalizing s.R₂_le_normalizer s.R₂_pGroup ?_
-  rw [s.R₂_inf_Y]
-  exact s.RY_syl
 
 theorem Y_inf_C_le_R₂ : ⁅Y ⊓ Subgroup.centralizer (V : Set G), Y⁆ ≤ R₂ X R Y :=
   s.Y_C.trans s.Q_le_R₂

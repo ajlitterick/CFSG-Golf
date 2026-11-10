@@ -16,6 +16,5 @@ structure NatOps (N : Type) where
   eqb : N → N → Bool
   neb : N → N → Bool
 
-set_option compiler.extract_closed false
 
 end CFSG.HardMathSupport.Dickson.I271

@@ -59,18 +59,6 @@ theorem mul_bot_eq_bot_mul (B : Subgroup G) :
   rw [Subgroup.coe_bot, Set.mul_singleton, Set.singleton_mul]
   simp
 
-theorem Hyp4_4_1TwoOrbit.toBot (h : Hyp4_4_1TwoOrbit G T M L B Tp)
-    (hLn : M ≤ Subgroup.normalizer (L : Set G)) : Hyp4_4_1TwoOrbit G T M L B ⊥ :=
-  { h.toHyp4_4_1Core with
-    Tp_le := bot_le
-    mul_comm_Tp := mul_bot_eq_bot_mul B
-    orbit_Tp := fun t ht => ⟨1, Subgroup.one_mem _, by
-      rw [conjugate_eq_self_of_normalizes (hLn (h.T_le ht)),
-        conjugate_eq_self_of_mem L.one_mem]⟩ }
-
-theorem Hyp4_4_1Orbit.toBot (h : Hyp4_4_1Orbit G T M L B Tp VB)
-    (hLn : M ≤ Subgroup.normalizer (L : Set G)) : Hyp4_4_1Orbit G T M L B ⊥ VB :=
-  { h.toHyp4_4_1TwoOrbit.toBot hLn, h.toHyp4_4_1Three with }
 
 omit [Finite G] in
 theorem le_omegaOneCenter_of_isPrimeReduced {X V : Subgroup G} (hVX : V ≤ X)

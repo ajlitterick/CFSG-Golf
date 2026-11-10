@@ -188,12 +188,6 @@ theorem tauB_symm_mem_octSpan {u : SpaceB} (hu : u ∈ octSpan) : tauB.symm u �
   rw [tauB_symm_octVec]
   exact Submodule.sum_mem _ fun w _ => Submodule.smul_mem _ _ (octVec_mem_octSpan _)
 
-theorem tauB_mem_pairSpan {u : SpaceB} (hu : u ∈ pairSpan) : tauB u ∈ pairSpan := by
-  refine map_mem_span (tauB : SpaceB →ₗ[ℚ] SpaceB) ?_ hu
-  rintro _ ⟨⟨p, k⟩, rfl⟩
-  change tauB (pairVec p k) ∈ pairSpan
-  rw [tauB_pairVec]
-  exact pairVec_mem_pairSpan _ _
 
 theorem tauB_symm_mem_pairSpan {u : SpaceB} (hu : u ∈ pairSpan) : tauB.symm u ∈ pairSpan := by
   refine map_mem_span (tauB.symm : SpaceB →ₗ[ℚ] SpaceB) ?_ hu
@@ -337,10 +331,6 @@ theorem bd_cls {d : OctadWord} {δ ε : Finset (Fin 24)} (hδ : δ ⊆ octSupp d
     bd d (Octad.cls (octSupp d) δ) (Octad.cls (octSupp d) ε) = ((δ ∩ ε).card : ZMod 2) :=
   Octad.polarBilin_quadForm_cls (four_dvd_card_octSupp d) hδ hδe hε hεe
 
-theorem bd_octRep (d : OctadWord) (v w : Octad.EvenQuot (octSupp d)) :
-    bd d v w = ((octRep d v ∩ octRep d w).card : ZMod 2) := by
-  conv_lhs => rw [← cls_octRep d v, ← cls_octRep d w]
-  exact bd_cls (octRep_subset d v) (octRep_even d v) (octRep_subset d w) (octRep_even d w)
 
 theorem bd_nondegenerate (d : OctadWord) : (bd d).Nondegenerate :=
   Octad.polarBilin_quadForm_nondegenerate (four_dvd_card_octSupp d)
@@ -436,8 +426,6 @@ theorem octMk_octRep (d : OctadWord) (v : Octad.EvenQuot (octSupp d)) :
     Octad.mk (octSupp d) ⟨Octad.ind (octRep d v), ind_mem_octRep d v⟩ = v :=
   (octMk_eq_cls (octRep_subset d v) (octRep_even d v)).trans (cls_octRep d v)
 
-theorem pair_mk_eq (a : C) (x : Fin 24 → ZMod 2) :
-    pair a (Submodule.Quotient.mk x) = (a : Fin 24 → ZMod 2) ⬝ᵥ x := pair_mk a x
 
 theorem pair_ΩC_ind {δ : Finset (Fin 24)} (he : Even δ.card) :
     pair ΩC (Submodule.Quotient.mk (Octad.ind δ)) = 0 := by

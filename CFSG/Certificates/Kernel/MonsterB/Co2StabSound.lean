@@ -34,7 +34,6 @@ theorem off_lab {p : Nat} (hp : p < 2300) :
   unfold offT szT
   by_cases h1 : p < 1 <;> by_cases h2 : p < 892 <;> simp [h1, h2] <;> omega
 
-theorem at12_eq (P p : Nat) : at12 P p = pg 12 (mask 12) P p := rfl
 
 structure StabF (PS : Nat → Nat) (OP OPI WP WG WD : Nat) : Prop where
   op_lt : ∀ p < 2300, at12 OP p < 2300

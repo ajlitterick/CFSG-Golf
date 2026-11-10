@@ -14,9 +14,6 @@ open scoped commutatorElement
 theorem radicalZ_le_groupJ :
     radicalZ ≤ groupJ := radicalZ_le_radicalQ.trans radicalQ_le_groupJ
 
-theorem leviOrbit_self
-    (χ : radicalZ →* ℂˣ) : χ ∈ leviOrbit χ :=
-  ⟨1, one_mem _, (charConj_one χ).symm⟩
 
 theorem leviOrbit_subset_of_mem
     {χ ψ : radicalZ →* ℂˣ} (h : ψ ∈ leviOrbit χ) :

@@ -52,10 +52,6 @@ section Defs
     (R Y : Subgroup G) (d : G), ResidueConfig G A c L a R Y d → A ∉ partTwoT G →
       ∀ m : ℕ, 1 < m → IsL2EvenAt L m → TwoStarConditionAt A c
 
-@[expose] def ResidueOddChar : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R Y : Subgroup G) (d : G), ResidueConfig G A c L a R Y d → A ∉ partTwoT G →
-      IsL2OddChar L → False
 
 end Defs
 

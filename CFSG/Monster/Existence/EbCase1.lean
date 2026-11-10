@@ -56,9 +56,6 @@ theorem eb_rhoGriess_mem_FE_iff {q : Q} :
     · exact .inr (.inr (.inl rhoGriess_rTwo))
     · exact .inr (.inr (.inr eb_rhoGriess_rOneTwo))
 
-theorem eb_rhoGriess_comm {q q' : Q} (h : q * q' = q' * q) :
-    rhoGriess q * rhoGriess q' = rhoGriess q' * rhoGriess q := by
-  rw [← rhoGriess_mul, ← rhoGriess_mul, h]
 
 theorem eb_comm_of_mem_centralizer_FE {r : Q}
     (h : rhoGriess r ∈ Subgroup.centralizer (FE : Set MGriess)) :

@@ -438,11 +438,6 @@ theorem rootElem_apply_ij {i j : Fin N} (hij : i ≠ j) (t : k) :
   rw [coe_rootElem, transvection, Matrix.add_apply, Matrix.one_apply_ne hij,
     Matrix.single_apply_same, zero_add]
 
-theorem rootElem_injective {i j : Fin N} (hij : i ≠ j) :
-    Function.Injective (rootElem (k := k) hij) := by
-  intro t t' h
-  have := congrArg (fun g : SL(N, k) => (g : Matrix (Fin N) (Fin N) k) i j) h
-  simpa only [rootElem_apply_ij] using this
 
 theorem rootElem_not_mem_center {i j : Fin N} (hij : i ≠ j) {t : k} (ht : t ≠ 0) :
     rootElem hij t ∉ Subgroup.center SL(N, k) := by

@@ -71,13 +71,5 @@ theorem exists_sq_eq_tGriess :
         (mul_assoc _ _ _).symm
     _ = tGriess * (c⁻¹ * wOrderFourRep * c) := by rw [hw]
 
-theorem exists_orderOf_four_sq_eq_tGriess :
-    ∃ w ∈ cent tGriess, w * w = tGriess ∧ orderOf w = 4 := by
-  obtain ⟨w, hw, hsq⟩ := exists_sq_eq_tGriess
-  refine ⟨w, hw, hsq, leech_orderOf_eq_four_of_sq ((sq w).trans hsq) tGriess_mul_self ?_⟩
-  intro h
-  have := orderOf_tGriess
-  rw [h, orderOf_one] at this
-  omega
 
 end CFSG.Monster.Existence

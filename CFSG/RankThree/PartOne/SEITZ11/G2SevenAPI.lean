@@ -49,13 +49,6 @@ theorem posU_mem_formSubgroup (g : ℕ) (hg : g < 12) (t : R) :
 
 end Form
 
-theorem formVal_mulVec {R : Type*} [CommRing R] {A : Matrix (Fin 7) (Fin 7) R}
-    (hA : A.transpose * gram R * A = gram R) (v : Fin 7 → R) :
-    formVal (A.mulVec v) = formVal v := by
-  unfold formVal
-  generalize hw : (gram R).mulVec (A.mulVec v) = w
-  rw [dotProduct_comm, Matrix.dotProduct_mulVec, dotProduct_comm, ← Matrix.mulVec_transpose,
-    ← hw, Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, hA]
 
 section Image
 
@@ -85,9 +78,6 @@ theorem rep7_form (g : adjointGroup .G2 k) :
   split_ifs
   exact posU_mem_formSubgroup k _ (pos_lt_twelve _) c
 
-theorem rep7_formVal (g : adjointGroup .G2 k) (v : Fin 7 → k) :
-    formVal (((rep7 k g : GL (Fin 7) k) : Matrix (Fin 7) (Fin 7) k).mulVec v) = formVal v :=
-  formVal_mulVec (rep7_form k g) v
 
 end Image
 

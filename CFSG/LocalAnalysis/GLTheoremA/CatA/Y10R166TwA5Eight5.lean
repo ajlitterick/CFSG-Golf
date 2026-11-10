@@ -157,14 +157,6 @@ theorem twA5Bar_inf_centralizer_eq_zpowers :
         (by simp)).symm
     simpa [twA5X_eq_proj_diagFiveLast h] using hcomm
 
-theorem twA5_eight :
-    ∃ S : Subgroup (unitaryPSU h 6), S ≤ blockSU h suFiveIndex ∧ IsPGroup 2 S ∧
-      (twA5Hom h).range.map (unitaryProj h 6) ≤
-        Subgroup.normalizer (S : Set (unitaryPSU h 6)) ∧
-      (twA5Hom h).range.map (unitaryProj h 6) ⊓
-        Subgroup.centralizer (S : Set (unitaryPSU h 6)) = Subgroup.zpowers (twA5X h) :=
-  ⟨twA5S h, twA5S_le_blockSU_five h, twA5S_isPGroup h,
-    twA5Bar_le_normalizer_S h, twA5Bar_inf_centralizer_eq_zpowers h⟩
 
 end TwA5Eight
 

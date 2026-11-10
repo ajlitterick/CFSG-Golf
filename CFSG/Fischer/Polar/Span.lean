@@ -65,9 +65,6 @@ theorem uVec_ptIdx_add_smul {x y : Fin 693} (hxy : x ≠ y) (h : perp x y) (c : 
   rw [uVec_ptIdx ptsFacts (uVec_add_smul_ne_zero hxy c) (hermStd_uVec_add_smul h c)]
   exact normV_eq_smul (uVec_add_smul_ne_zero hxy c)
 
-theorem ptIdx_add_smul_lt {x y : Fin 693} (hxy : x ≠ y) (h : perp x y) (c : F4) :
-    ptIdx (uVec x + c • uVec y) < 693 :=
-  ptIdx_lt ptsFacts (uVec_add_smul_ne_zero hxy c) (hermStd_uVec_add_smul h c)
 
 theorem mem_lineThru_iff {x y : Fin 693} (hxy : x ≠ y) (h : perp x y) (z : Fin 693) :
     z ∈ lineThru x y ↔ z.val ∈ lineC x.val y.val := by

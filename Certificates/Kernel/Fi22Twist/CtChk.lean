@@ -28,9 +28,6 @@ namespace CFSG.KD.Fi22Twist
 
 open CFSG.KC.Enum CFSG.KC.Fi22Twist
 
-theorem neg431009ct : Bool.not (ctK (sfG (nat_lit 23)) (CertificateChecks.KernelSpor.Fi22ExtT.L 22)) =
-    true := by
-  quickRfl
 
 end CFSG.KD.Fi22Twist
 

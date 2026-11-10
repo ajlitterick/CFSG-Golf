@@ -92,8 +92,5 @@ theorem IsAdmissibleHost.comp_mulEquiv {S : Type*} [Group S] {X : Type*} [Group 
     exact (map_top_of_surjective _ α.surjective).symm
   centralizer_le := h.centralizer_le
 
-variable (S : Type u) [Group S]
-
-variable {S}
 
 end CFSG.RankThree.S4Free

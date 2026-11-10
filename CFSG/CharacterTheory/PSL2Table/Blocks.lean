@@ -364,36 +364,6 @@ theorem psl2_blocks_of_mod_eight_eq_three (hF : ringChar F ≠ 2) (hq : 5 ≤ Fi
     push_cast
     ring
 
-theorem psl2_blocks_eq_of_mod_eight_eq_three (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F)
-    {ν : F} (hν : ¬ IsSquare ν) {ψ : AddChar F ℂ} (hψ : ψ.IsPrimitive)
-    (h8 : Fintype.card F % 8 = 3) (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
-    (h2 : (2 : BlocksAlgInt) ∈ m) :
-    {B | BlocksIsBlock m PSL(2, F) B} =
-      {({1, steinberg F, halfPlus hF ψ ν, halfMinus hF ψ ν} : Set (PSL(2, F) → ℂ))} ∪
-      {B | ∃ α : splitTorus F →* ℂˣ, α ^ 2 ≠ 1 ∧ B = {principal α}} ∪
-      {B | ∃ β : nonsplitTorus ν →* ℂˣ, β ^ 2 ≠ 1 ∧
-        B = {discrete β, discrete (β * nonsplitQuadChar ν)}} := by
-  obtain ⟨hP, hR, hD⟩ := psl2_blocks_of_mod_eight_eq_three hF hq hν hψ h8 m hm h2
-  obtain ⟨hIrr, -, hRI, hDI, -⟩ := psl2_character_table hF hq hν hψ
-  have hB0 : ∀ θ ∈ BlocksPrincipalBlock m PSL(2, F),
-      BlocksBlockOf m PSL(2, F) θ = {1, steinberg F, halfPlus hF ψ ν, halfMinus hF ψ ν} :=
-    fun θ hθ => (blockOf_eq_of_mem m (trivial_mem_irr _) hθ).trans hP
-  ext B
-  simp only [Set.mem_ofPred_eq, Set.mem_union, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨χ, hχ, rfl⟩
-    rw [hIrr] at hχ
-    rcases hχ with rfl | rfl | ⟨α, hα, rfl⟩ | ⟨β, hβ, rfl⟩ | rfl | rfl
-    · exact Or.inl (Or.inl hP)
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-    · exact Or.inl (Or.inr ⟨α, hα, hR α hα⟩)
-    · exact Or.inr ⟨β, hβ, (hD β hβ).2.2⟩
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-  · rintro ((rfl | ⟨α, hα, rfl⟩) | ⟨β, hβ, rfl⟩)
-    · exact ⟨fun _ => 1, trivial_mem_irr _, hP.symm⟩
-    · exact ⟨principal α, hRI α hα, (hR α hα).symm⟩
-    · exact ⟨discrete β, hDI β hβ, ((hD β hβ).2.2).symm⟩
 
 end ThreeModEight
 
@@ -623,36 +593,6 @@ theorem psl2_blocks_of_mod_eight_eq_five (hF : ringChar F ≠ 2) (hq : 5 ≤ Fin
     push_cast
     ring
 
-theorem psl2_blocks_eq_of_mod_eight_eq_five (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F)
-    {ν : F} (hν : ¬ IsSquare ν) {ψ : AddChar F ℂ} (hψ : ψ.IsPrimitive)
-    (h8 : Fintype.card F % 8 = 5) (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
-    (h2 : (2 : BlocksAlgInt) ∈ m) :
-    {B | BlocksIsBlock m PSL(2, F) B} =
-      {({1, steinberg F, halfPlus hF ψ ν, halfMinus hF ψ ν} : Set (PSL(2, F) → ℂ))} ∪
-      {B | ∃ β : nonsplitTorus ν →* ℂˣ, β ^ 2 ≠ 1 ∧ B = {discrete β}} ∪
-      {B | ∃ α : splitTorus F →* ℂˣ, α ^ 2 ≠ 1 ∧
-        B = {principal α, principal (α * splitQuadChar F)}} := by
-  obtain ⟨hP, hD, hR⟩ := psl2_blocks_of_mod_eight_eq_five hF hq hν hψ h8 m hm h2
-  obtain ⟨hIrr, -, hRI, hDI, -⟩ := psl2_character_table hF hq hν hψ
-  have hB0 : ∀ θ ∈ BlocksPrincipalBlock m PSL(2, F),
-      BlocksBlockOf m PSL(2, F) θ = {1, steinberg F, halfPlus hF ψ ν, halfMinus hF ψ ν} :=
-    fun θ hθ => (blockOf_eq_of_mem m (trivial_mem_irr _) hθ).trans hP
-  ext B
-  simp only [Set.mem_ofPred_eq, Set.mem_union, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨χ, hχ, rfl⟩
-    rw [hIrr] at hχ
-    rcases hχ with rfl | rfl | ⟨α, hα, rfl⟩ | ⟨β, hβ, rfl⟩ | rfl | rfl
-    · exact Or.inl (Or.inl hP)
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-    · exact Or.inr ⟨α, hα, (hR α hα).2.2⟩
-    · exact Or.inl (Or.inr ⟨β, hβ, hD β hβ⟩)
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-    · exact Or.inl (Or.inl (hB0 _ (by rw [hP]; simp)))
-  · rintro ((rfl | ⟨β, hβ, rfl⟩) | ⟨α, hα, rfl⟩)
-    · exact ⟨fun _ => 1, trivial_mem_irr _, hP.symm⟩
-    · exact ⟨discrete β, hDI β hβ, (hD β hβ).symm⟩
-    · exact ⟨principal α, hRI α hα, ((hR α hα).2.2).symm⟩
 
 end FiveModEight
 

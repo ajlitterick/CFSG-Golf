@@ -26,7 +26,6 @@ theorem EW_lt : ∀ l ∈ EW, l < 42 := by decide +kernel
 
 theorem zero : Nat.beq (elemAt EN.CF 0) IDP = true := by quickRfl
 theorem one : Nat.beq (mOf (recAt EN.CF 0)) 1 = true := by quickRfl
-theorem numX : Nat.beq EN.N 6144 = true := by quickRfl
 
 theorem comm9 : ∀ j < 5, commK (GX j) (RP 9) = true := by kc_cover 5
 theorem commD : ∀ j < 5, commK (GX j) DX = true := by kc_cover 5

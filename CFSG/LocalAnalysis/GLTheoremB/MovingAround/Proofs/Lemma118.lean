@@ -192,84 +192,6 @@ section Anchor
 
 variable {G : Type} [Group G] [Finite G]
 
-def AnchorRanks (p : ℕ) (E A Q D : Subgroup G) : Prop :=
-  p ^ (CFSG.Open.pRank p (E ⊓ A) - 1) ≤ CFSG.Open.pRank p Q ∧
-  p ^ (CFSG.Open.pRank p (E ⊓ A) - 1) ≤ CFSG.Open.pRank p D ∧
-  (p = 3 → CFSG.Open.pRank p (E ⊓ A) = 2 →
-    4 ≤ CFSG.Open.pRank p Q ∧ 4 ≤ CFSG.Open.pRank p D ∧
-    (5 ≤ CFSG.Open.pRank p Q → 5 ≤ CFSG.Open.pRank p D) ∧
-    (CFSG.Open.pRank p Q = 4 → CFSG.Open.pRank p A ≤ 3))
-
-theorem lemma118_P1_anchor {p : ℕ} [hp : Fact p.Prime] (hp2 : p ≠ 2)
-    {M E A : Subgroup G} (hEA : IsDDpStar p M E A)
-    (hI31_6 : Input31_6) (hI31_9 : Input31_9)
-    {D Q R : Subgroup G} (hD : inD p M D) (hQ : CFSG.Open.IsElemAbelian p Q) (hR : IsPGroup p R)
-    (hQR : Q ≤ R) (hDR : D ≤ R) (hAR : AnchorRanks p E A Q D) :
-    ∃ H : Subgroup G, IsSCp p ⊤ H ∧ Q ≤ H ∧ inD p M H := by
-  have hr2 : 2 ≤ CFSG.Open.pRank p (E ⊓ A) := hEA.1.2.2
-  have hp3 : 3 ≤ p := by
-    have := hp.out.two_le
-    omega
-  have hDab : CFSG.Open.IsElemAbelian p D := hD.1.1.2.1
-  obtain ⟨hQs, hDs, hcase⟩ := hAR
-  obtain ⟨HQ, hHQ, hQHQ⟩ := c104_exists_isSCp_top hQ
-  refine ⟨HQ, hHQ, hQHQ, ?_⟩
-  suffices hX : ∃ X : Subgroup G, X ≤ Q ∧ ∀ H : Subgroup G, IsSCp p ⊤ H → X ≤ H → inD p M H by
-    obtain ⟨X, hXQ, hXP⟩ := hX
-    exact hXP HQ hHQ (hXQ.trans hQHQ)
-  by_cases hex : p = 3 ∧ CFSG.Open.pRank p (E ⊓ A) = 2
-  ·
-    obtain ⟨hp3', hr'⟩ := hex
-    obtain ⟨-, -, hQ5, hQ4A⟩ := hcase hp3' hr'
-    have hr3 : CFSG.Open.pRank p (E ⊓ A) + 1 = 3 := by omega
-    by_cases hQ5' : 5 ≤ CFSG.Open.pRank p Q
-    ·
-      obtain ⟨X, hXQ, hXab, hXcard⟩ := exists_elemAb_sub_of_rank hQ (s := 5) hQ5'
-      obtain ⟨Y, hYD, hYab, hYcard⟩ := exists_elemAb_sub_of_rank hDab (s := 5) (hQ5 hQ5')
-      have hX5 : IsEkIn p 5 R X := ⟨hXQ.trans hQR, hXab, hXcard⟩
-      have hY5 : IsEkIn p 5 R Y := ⟨hYD.trans hDR, hYab, hYcard⟩
-      have kc : IsKConnectedIn p 3 ⊤ X Y :=
-        kconn_mono ((hI31_6 G p hp.out hp2 R hR).1 X Y hX5 hY5)
-      have kc' : IsKConnectedIn p (CFSG.Open.pRank p (E ⊓ A) + 1) ⊤ X Y := by
-        rw [hr3]; exact kc
-      have hYr' : 5 ≤ CFSG.Open.pRank p Y := rank_ge_of_card' hYab hYcard.ge
-      exact ⟨X, hXQ, propagate_chain hEA kc' (base_of_le hEA hD hYD (by omega))⟩
-    ·
-      have hQ4eq : CFSG.Open.pRank p Q = 4 := by
-        have := hcase hp3' hr'
-        omega
-      have hA3 : CFSG.Open.pRank p A ≤ 3 := hQ4A hQ4eq
-      obtain ⟨X, hXQ, hXab, hXcard⟩ := exists_elemAb_sub_of_rank hQ (s := 4) (by omega)
-      obtain ⟨C0, hC0D, hC0ab, hC0card⟩ := exists_elemAb_sub_of_rank hDab (s := 4)
-        (by have := hcase hp3' hr'; omega)
-      have hX4 : IsEkIn p 4 R X := ⟨hXQ.trans hQR, hXab, hXcard⟩
-      have hC4 : IsEkIn p 4 R C0 := ⟨hC0D.trans hDR, hC0ab, hC0card⟩
-      have hchain := input31_8_holds G p 4 hp.out (by norm_num) R hR C0 X hC4 hX4
-      have hC0r : 4 ≤ CFSG.Open.pRank p C0 := rank_ge_of_card' hC0ab hC0card.ge
-      have hP0 := base_of_le hEA hD hC0D (by omega)
-      have hall : ∀ W : Subgroup G,
-          Relation.ReflTransGen
-            (fun U V : Subgroup G => IsEkIn p 4 R U ∧ IsEkIn p 4 R V ∧
-              2 ≤ CFSG.Open.pRank p (U ⊓ V)) C0 W →
-          ∀ H : Subgroup G, IsSCp p ⊤ H → W ≤ H → inD p M H := by
-        intro W hW
-        induction hW with
-        | refl => exact hP0
-        | @tail b c _ hbc ih =>
-          exact chain_min_step hEA hr' hA3 hbc.1.2.1 (rank_ge_of_card' hbc.1.2.1 hbc.1.2.2.ge)
-            (rank_ge_of_card' hbc.2.1.2.1 hbc.2.1.2.2.ge) hbc.2.2 ih
-      exact ⟨X, hXQ, hall X hchain⟩
-  ·
-    have hs : CFSG.Open.pRank p (E ⊓ A) + 1 ≤ p ^ (CFSG.Open.pRank p (E ⊓ A) - 1) :=
-      succ_le_pow_pred hp3 hr2
-    obtain ⟨X, hXQ, hXab, hXcard⟩ := exists_elemAb_sub_of_rank hQ (s := p ^ (CFSG.Open.pRank p (E ⊓ A) - 1)) hQs
-    obtain ⟨Y, hYD, hYab, hYcard⟩ := exists_elemAb_sub_of_rank hDab (s := p ^ (CFSG.Open.pRank p (E ⊓ A) - 1)) hDs
-    have hX' : IsEkIn p (p ^ (CFSG.Open.pRank p (E ⊓ A) - 1)) R X := ⟨hXQ.trans hQR, hXab, hXcard⟩
-    have hY' : IsEkIn p (p ^ (CFSG.Open.pRank p (E ⊓ A) - 1)) R Y := ⟨hYD.trans hDR, hYab, hYcard⟩
-    have kc := hI31_9 G p (CFSG.Open.pRank p (E ⊓ A)) hp.out hp2 hr2 hex R hR X Y hX' hY'
-    have hYr : CFSG.Open.pRank p (E ⊓ A) + 1 ≤ CFSG.Open.pRank p Y :=
-      hs.trans (rank_ge_of_card' hYab hYcard.ge)
-    exact ⟨X, hXQ, propagate_chain hEA (kconn_mono kc) (base_of_le hEA hD hYD hYr)⟩
 
 theorem glbCore_mono {p : ℕ} [Finite G] {Q P : Subgroup G} (h : Q ≤ P) :
     GLBCore p 2 Q ≤ GLBCore p 2 P := by
@@ -278,34 +200,6 @@ theorem glbCore_mono {p : ℕ} [Finite G] {Q P : Subgroup G} (h : Q ≤ P) :
   obtain ⟨Q', hQ'Q, hr, rfl⟩ := hN
   exact le_sSup ⟨Q', hQ'Q.trans h, hr, rfl⟩
 
-theorem lemma118_P1_claim {p : ℕ} [hp : Fact p.Prime] (hp2 : p ≠ 2)
-    {M E A : Subgroup G} (hEA : IsDDpStar p M E A)
-    (hI31_6 : Input31_6) (hI31_9 : Input31_9)
-    {D Q R : Subgroup G} (hD : inD p M D) (hQ : CFSG.Open.IsElemAbelian p Q) (hR : IsPGroup p R)
-    (hQR : Q ≤ R) (hDR : D ≤ R) (hAR : AnchorRanks p E A Q D) :
-    GLBCore p 2 Q ≤ M := by
-  obtain ⟨H, -, hQH, hHD⟩ := lemma118_P1_anchor hp2 hEA hI31_6 hI31_9 hD hQ hR hQR hDR hAR
-  exact (glbCore_mono hQH).trans hHD.2.clause_d
-
-def Lemma118Gap : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m p : ℕ) (B M E A : Subgroup G) (a : G) (K : Subgroup G),
-    Cex117 G m p B M E A a K → Type117a p E A K →
-      ∃ Q D R : Subgroup G, CFSG.Open.IsElemAbelian p Q ∧ a ∈ Q ∧ inD p M D ∧ IsPGroup p R ∧
-        Q ≤ R ∧ D ≤ R ∧ AnchorRanks p E A Q D
-
-theorem lemma118_of_gap (hI31_6 : Input31_6) (hI31_9 : Input31_9) (hgap : Lemma118Gap) :
-    Lemma118Statement := by
-  intro G _ _ m p B M E A a K h
-  rcases h.ht with ht | ht | ht
-  · exfalso
-    have hp : p.Prime := h.standing.prime
-    haveI : Fact p.Prime := ⟨hp⟩
-    obtain ⟨Q, D, R, hQ, haQ, hD, hR, hQR, hDR, hAR⟩ := hgap G m p B M E A a K h ht
-    obtain ⟨H, -, hQH, hHD⟩ :=
-      lemma118_P1_anchor h.standing.ne_two h.pair hI31_6 hI31_9 hD hQ hR hQR hDR hAR
-    exact h.notD ⟨H, hHD, hQH haQ⟩
-  · exact Or.inl ht
-  · exact Or.inr ht
 
 end Anchor
 

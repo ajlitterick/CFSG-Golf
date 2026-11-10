@@ -49,13 +49,6 @@ theorem Setting.toCore {K : Subgroup G} {z : G} (h : Setting p f K z) : SettingC
     ∃ i₀ i₁ : Fin D.card, i₀ ≠ i₁ ∧ D.tag i₀ = .PSL ∧ D.rank i₀ = 2 ∧ D.tag i₁ = .PSp ∧
       D.rank i₁ = 2 ∧ ∃ x, x ≠ 1 ∧ x ∈ (D.hom i₀).range ∧ x ∈ (D.hom i₁).range
 
-@[expose] def NoDataShapeCover : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    p ≠ 2 → 5 ≤ p ^ f → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
-      CITBelowU p f (Nat.card G) → 3 ≤ CFSG.Open.twoRank G → ¬ TwoSubgroupsFourGenerated G →
-      Disconnected.DConnected (𝒞 K) → ¬ BootData p f (𝒞 K) →
-        (∃ A : Subgroup G, Balance.Theorem5.FuzzyFrameOn p f (𝒞 K) A) ∨
-          Asc77.ChainShape p f (𝒞 K) z ∨ Asc77.TwinExactShape p f K z ∨ PSpShape p f (𝒞 K) z
 
 @[expose] def FuzzyFrameExcluded : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),

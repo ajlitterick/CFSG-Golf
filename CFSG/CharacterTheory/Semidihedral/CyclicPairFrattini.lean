@@ -24,9 +24,6 @@ instance powerSubgroup_characteristic (ell : ℕ) (R : Type u) [CommGroup R] :
     R →* PowerQuotient ell R :=
   QuotientGroup.mk' (powerSubgroup ell R)
 
-theorem mem_powerSubgroup_iff (ell : ℕ) {R : Type u} [CommGroup R] (r : R) :
-    r ∈ powerSubgroup ell R ↔ ∃ x : R, x ^ ell = r :=
-  Iff.rfl
 
 theorem powerQuotientMk_surjective (ell : ℕ) (R : Type u) [CommGroup R] :
     Function.Surjective (powerQuotientMk ell R) :=
@@ -163,14 +160,6 @@ theorem originalProductPowerQuotientEquiv_product_mk (ell : ℕ)
   apply (originalProductPowerQuotientEquiv ell e).injective
   rw [MulEquiv.apply_symm_apply, originalProductPowerQuotientEquiv_product_mk]
 
-theorem original_power_quotient_card (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w}
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R) :
-    Nat.card (PowerQuotient ell R) = ell ^ 2 := by
-  rw [Nat.card_congr (originalProductPowerQuotientEquiv ell e).toEquiv, Nat.card_prod,
-    cyclic_power_quotient_card ell hA, cyclic_power_quotient_card ell hB, pow_two]
 
 @[expose] noncomputable def cyclicPowerCoordinate (ell : ℕ) [Fact ell.Prime]
     {A : Type u} [CommGroup A] [Finite A] [Nontrivial A] [IsCyclic A]
@@ -246,14 +235,6 @@ theorem originalProductCoordinates_product_mk (ell : ℕ) [Fact ell.Prime]
   apply (originalProductCoordinates ell hA hB e).injective
   rw [LinearEquiv.apply_symm_apply, originalProductCoordinates_product_mk]
 
-theorem original_power_quotient_finrank (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w}
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R) :
-    Module.finrank (ZMod ell) (Additive (PowerQuotient ell R)) = 2 := by
-  rw [(originalProductCoordinates ell hA hB e).finrank_eq]
-  simp
 
 instance (priority := 1100) zmodAddCommGroup (ell : ℕ) : AddCommGroup (ZMod ell) :=
   (inferInstance : Ring (ZMod ell)).toAddCommGroup
@@ -279,17 +260,6 @@ instance (priority := 1100) zmodAddCommGroup (ell : ℕ) : AddCommGroup (ZMod el
       powerQuotientMk ell R (ρ j r) :=
   powerQuotientAut_mk ell (ρ j) r
 
-theorem powerQuotientAction_comp (ell : ℕ)
-    {J : Type v} [Group J] {K : Type w} [Group K] {R : Type u} [CommGroup R]
-    (ρ : J →* MulAut R) (φ : K →* J) :
-    powerQuotientAction ell (ρ.comp φ) = (powerQuotientAction ell ρ).comp φ := rfl
-
-theorem powerQuotientAction_inversion (ell : ℕ)
-    {J : Type v} [Group J] {R : Type u} [CommGroup R]
-    (ρ : J →* MulAut R) (t : J) (hinv : ∀ r : R, ρ t r = r⁻¹)
-    (x : PowerQuotient ell R) : powerQuotientAction ell ρ t x = x⁻¹ := by
-  obtain ⟨r, rfl⟩ := powerQuotientMk_surjective ell R x
-  rw [powerQuotientAction_mk, hinv, map_inv]
 
 @[expose] noncomputable def coordinateAut (ell : ℕ) [Fact ell.Prime]
     {A : Type u} {B : Type v} {R : Type w}
@@ -344,26 +314,6 @@ theorem coordinateAction_mk (ell : ℕ) [Fact ell.Prime]
         (Additive.ofMul (powerQuotientMk ell R (ρ j r))) := by
   rw [coordinateAction_apply, powerQuotientAction_mk]
 
-theorem coordinateAction_inverse_mk (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R)
-    (ρ : J →* MulAut R) (j : J) (r : R) :
-    (originalProductCoordinates ell hA hB e).symm
-      ((coordinateAction ell hA hB e ρ j : Module.End (ZMod ell) (Fin 2 → ZMod ell))
-        (originalProductCoordinates ell hA hB e (Additive.ofMul (powerQuotientMk ell R r)))) =
-      Additive.ofMul (powerQuotientMk ell R (ρ j r)) := by
-  rw [coordinateAction_mk, LinearEquiv.symm_apply_apply]
-
-theorem coordinateAction_comp (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]
-    {K : Type*} [Group K]
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R)
-    (ρ : J →* MulAut R) (φ : K →* J) :
-    coordinateAction ell hA hB e (ρ.comp φ) = (coordinateAction ell hA hB e ρ).comp φ := rfl
 
 theorem coordinateAction_inversion (ell : ℕ) [Fact ell.Prime]
     {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]
@@ -420,32 +370,6 @@ theorem coordinateAction_inversion_ne_one (ell : ℕ) [Fact ell.Prime]
       coordinateAction ell hA hB e ρ j :=
   Matrix.GeneralLinearGroup.toLin.apply_symm_apply _
 
-theorem matrixCoordinateAction_mk (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R)
-    (ρ : J →* MulAut R) (j : J) (r : R) :
-    (matrixCoordinateAction ell hA hB e ρ j : Matrix (Fin 2) (Fin 2) (ZMod ell)).mulVec
-        (originalProductCoordinates ell hA hB e (Additive.ofMul (powerQuotientMk ell R r))) =
-      originalProductCoordinates ell hA hB e
-        (Additive.ofMul (powerQuotientMk ell R (ρ j r))) := by
-  rw [← Matrix.toLinAlgEquiv'_apply]
-  change (Matrix.GeneralLinearGroup.toLin (matrixCoordinateAction ell hA hB e ρ j) :
-    Module.End (ZMod ell) (Fin 2 → ZMod ell)) _ = _
-  rw [matrixCoordinateAction_toLin, coordinateAction_mk]
-
-theorem matrixCoordinateAction_inversion (ell : ℕ) [Fact ell.Prime]
-    {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]
-    [CommGroup A] [CommGroup B] [CommGroup R]
-    [Finite A] [Nontrivial A] [IsCyclic A] [Finite B] [Nontrivial B] [IsCyclic B]
-    (hA : IsPGroup ell A) (hB : IsPGroup ell B) (e : A × B ≃* R)
-    (ρ : J →* MulAut R) (t : J) (hinv : ∀ r : R, ρ t r = r⁻¹) :
-    matrixCoordinateAction ell hA hB e ρ t = -1 := by
-  apply Matrix.GeneralLinearGroup.toLin.injective
-  rw [matrixCoordinateAction_toLin, coordinateAction_inversion ell hA hB e ρ t hinv]
-  symm
-  exact Units.map_neg_one Matrix.toLinAlgEquiv'
 
 theorem matrixCoordinateAction_inversion_ne_one (ell : ℕ) [Fact ell.Prime]
     {A : Type u} {B : Type v} {R : Type w} {J : Type z} [Group J]

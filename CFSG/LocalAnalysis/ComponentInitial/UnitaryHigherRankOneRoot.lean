@@ -330,9 +330,6 @@ theorem range_rkOneUHom : (rkOneUHom h).range = rkOneUStar h := by
   (MonoidHom.ofInjective (rkOneUHom_injective h)).trans
     (MulEquiv.subgroupCongr (range_rkOneUHom h))
 
-theorem coe_rkOneUIso (g : hypUnitriangular h 1 1) :
-    ((rkOneUIso h g : rkOneUStar h) : Equiv.Perm (hypIsotropicLines h 1 1)) = rkOneUHom h g :=
-  rfl
 
 theorem rkOneU_mem {a b : K} (hab : h.norm a + h.trace b = 0) :
     rkOneU h a b hab ∈ rkOneUStar h :=
@@ -497,10 +494,6 @@ theorem mem_traceZero_of_norm_zero {b : K} (hb : h.norm 0 + h.trace b = 0) : b �
   rw [UnitaryFieldData.norm, zero_mul, zero_add] at hb
   exact (UnitaryFieldData.mem_traceZero h).mpr hb
 
-theorem rkOneC_le : rkOneC h ≤ rkOneUStar h := by
-  intro x hx
-  obtain ⟨t, ht, rfl⟩ := (mem_rkOneC h).mp hx
-  exact rkOneU_mem h _
 
 theorem rkOneC_eq_center :
     rkOneC h = (Subgroup.center (rkOneUStar h)).map (rkOneUStar h).subtype := by

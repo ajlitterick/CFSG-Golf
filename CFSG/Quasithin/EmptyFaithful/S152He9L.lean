@@ -42,10 +42,6 @@ theorem conj_A1_of_mem_base {w : W5} (hw : w ∈ base) :
   rw [← mem_normalizer_iff_map_eq, normalizer_A1]
   exact hw
 
-theorem conj_A2_of_mem_base {w : W5} (hw : w ∈ base) :
-    A2.map (MulAut.conj w).toMonoidHom = A2 := by
-  rw [← mem_normalizer_iff_map_eq, normalizer_A2]
-  exact hw
 
 theorem conj_A1_of_not_base {w : W5} (hw : w.right = g2) :
     A1.map (MulAut.conj w).toMonoidHom = A2 := by
@@ -65,23 +61,6 @@ theorem conj_A1_of_not_base {w : W5} (hw : w.right = g2) :
     rw [this]
     exact incl1_mem_A1 (Subgroup.Normal.conj_mem inferInstance σ hσ _)
 
-theorem conj_A2_of_not_base {w : W5} (hw : w.right = g2) :
-    A2.map (MulAut.conj w).toMonoidHom = A1 := by
-  ext x
-  constructor
-  · rintro ⟨y, hy, rfl⟩
-    obtain ⟨σ, hσ, rfl⟩ := hy
-    show w * incl2 σ * w⁻¹ ∈ A1
-    rw [conj_incl2_of_not_base hw]
-    exact incl1_mem_A1 (Subgroup.Normal.conj_mem inferInstance σ hσ _)
-  · intro hx
-    refine ⟨w⁻¹ * x * w, ?_, by simp [MulAut.conj_apply, mul_assoc]⟩
-    obtain ⟨σ, hσ, rfl⟩ := hx
-    have hw' : (w⁻¹).right = g2 := by simp [inv_r, hw, Q2_inv]
-    have := conj_incl1_of_not_base hw' σ
-    rw [inv_inv] at this
-    rw [this]
-    exact incl2_mem_A2 (Subgroup.Normal.conj_mem inferInstance σ hσ _)
 
 theorem right_eq_g2_of_not_mem_base {w : W5} (hw : w ∉ base) : w.right = g2 := by
   rcases Q2_cases w.right with h | h
@@ -137,20 +116,6 @@ theorem mem_normalizer_iff_K1 {π : Γ →* W5} (hπ : WrData π) {K₁ : Subgro
     apply map_injOn_cComp_top π hπ.solvable (conj_mem_cComp_top hK₁ g) hK₁
     rw [map_conj_map, m₁, W5.conj_A1_of_mem_base hg]
 
-theorem mem_normalizer_iff_K2 {π : Γ →* W5} (hπ : WrData π) {K₂ : Subgroup Γ}
-    (hK₂ : K₂ ∈ cComp (⊤ : Subgroup Γ)) (m₂ : K₂.map π = W5.A2)
-    (g : Γ) : g ∈ Subgroup.normalizer (K₂ : Set Γ) ↔ π g ∈ W5.base := by
-  constructor
-  · intro hg
-    rw [W5.mem_normalizer_iff_map_eq] at hg
-    have := congrArg (Subgroup.map π) hg
-    rw [map_conj_map, m₂] at this
-    rw [← W5.normalizer_A2, W5.mem_normalizer_iff_map_eq]
-    exact this
-  · intro hg
-    rw [W5.mem_normalizer_iff_map_eq]
-    apply map_injOn_cComp_top π hπ.solvable (conj_mem_cComp_top hK₂ g) hK₂
-    rw [map_conj_map, m₂, W5.conj_A2_of_mem_base hg]
 
 theorem conj_eq_of_not_mem_base {π : Γ →* W5} (hπ : WrData π) {K₁ K₂ : Subgroup Γ}
     (hK₁ : K₁ ∈ cComp (⊤ : Subgroup Γ)) (hK₂ : K₂ ∈ cComp (⊤ : Subgroup Γ))
@@ -159,12 +124,6 @@ theorem conj_eq_of_not_mem_base {π : Γ →* W5} (hπ : WrData π) {K₁ K₂ :
   apply map_injOn_cComp_top π hπ.solvable (conj_mem_cComp_top hK₁ g) hK₂
   rw [map_conj_map, m₁, m₂, W5.conj_A1_of_not_base (W5.right_eq_g2_of_not_mem_base hg)]
 
-theorem conj_eq_of_not_mem_base' {π : Γ →* W5} (hπ : WrData π) {K₁ K₂ : Subgroup Γ}
-    (hK₁ : K₁ ∈ cComp (⊤ : Subgroup Γ)) (hK₂ : K₂ ∈ cComp (⊤ : Subgroup Γ))
-    (m₁ : K₁.map π = W5.A1) (m₂ : K₂.map π = W5.A2) {g : Γ} (hg : π g ∉ W5.base) :
-    K₂.map (MulAut.conj g).toMonoidHom = K₁ := by
-  apply map_injOn_cComp_top π hπ.solvable (conj_mem_cComp_top hK₂ g) hK₁
-  rw [map_conj_map, m₁, m₂, W5.conj_A2_of_not_base (W5.right_eq_g2_of_not_mem_base hg)]
 
 theorem ker_le_of_sylow {π : Γ →* W5} (hπ : WrData π) {T : Subgroup Γ} (hT2 : IsPGroup 2 T)
     (hTi : ¬ 2 ∣ T.index) : π.ker ≤ T := by
@@ -214,15 +173,6 @@ theorem index_normalizer {π : Γ →* W5} (hπ : WrData π) {K₁ : Subgroup Γ
   rw [normalizer_eq_ker_chi hπ hK₁ m₁, Subgroup.index_ker, chi_range hπ, Subgroup.card_top,
     W5.card_Q2]
 
-theorem ker_le_inf_normalizer {π : Γ →* W5} (hπ : WrData π) {K₁ : Subgroup Γ}
-    (hK₁ : K₁ ∈ cComp (⊤ : Subgroup Γ)) (m₁ : K₁.map π = W5.A1) {T : Subgroup Γ}
-    (hT2 : IsPGroup 2 T) (hTi : ¬ 2 ∣ T.index) :
-    π.ker ≤ T ⊓ Subgroup.normalizer (K₁ : Set Γ) := by
-  refine le_inf (ker_le_of_sylow hπ hT2 hTi) fun g hg => ?_
-  rw [mem_normalizer_iff_K1 hπ hK₁ m₁]
-  have : π g = 1 := hg
-  rw [this]
-  exact one_mem _
 
 theorem exists_not_mem_base {π : Γ →* W5} (hπ : WrData π) {T : Subgroup Γ} (hT2 : IsPGroup 2 T)
     (hTi : ¬ 2 ∣ T.index) : ∃ t ∈ T, π t ∉ W5.base := by

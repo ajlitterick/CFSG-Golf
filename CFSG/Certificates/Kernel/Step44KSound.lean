@@ -208,8 +208,6 @@ structure PairPin (m : Nat) (GB GA : Nat → Nat) (wa : Nat) (G : Nat → Nat) (
 open CFSG.KC.HeAutK (powN_PP pw_PP)
 open CFSG.KLie.CT (anyN sumN andB orB notB)
 
-theorem andB_true {a b : Bool} : CFSG.KLie.CT.andB a b = true ↔ a = true ∧ b = true := by
-  rw [andB_eq, Bool.and_eq_true]
 
 theorem all_pts {n w N : Nat} {T : Nat → Nat} {Q : Array Nat → Bool} {P : Nat → Bool}
     (hT : ∀ i < N, PP n w (T i)) (hQ : ∀ m, PP n w m → Q (unpack n w m) = P m)

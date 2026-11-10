@@ -149,56 +149,5 @@ theorem card_fixedField_frob :
   rw [Subfield.ext (mem_fixedField_iff d), d.1.card_fixedField,
     ValidLieTypeIndex.fieldOrder_eq_characteristic_pow]
 
-theorem hasWitness_unipotent (hodd : d.1.characteristic ≠ 2) {κ : Type} [Fintype κ]
-    [DecidableEq κ] (J : κ → Fin d.1.rank)
-    (horth : ∀ a a', a ≠ a' → CartanMatrix.D d.1.rank (J a) (J a') = 0)
-    (k : Fin d.1.rank) (hk : ∀ a, Even (CartanMatrix.D d.1.rank k (J a)))
-    (j₀ : Fin d.1.rank) (hj₀ : Odd (CartanMatrix.D d.1.rank k j₀)) :
-    HasWitness d.Group d.1.characteristic (d.1.fieldExponent * Fintype.card κ) := by
-  have hJ : Function.Injective J := fun a a' h => by
-    by_contra hne
-    have h1 := horth a a' hne
-    rw [h, CartanMatrix.D_diag] at h1
-    exact absurd h1 (by norm_num)
-  exact (rootData d.1.rank d.toTypeDDiagramLieIndex.four_le_rank d.1.Closure).unipotent_witness_h
-    (rootsInCommutator_odd d hodd) (two_ne_zero_closure d hodd) (card_fixedField_frob d) J hJ
-    horth k hk j₀ hj₀
-
-theorem hasWitness_unipotent_three (hodd : d.1.characteristic ≠ 2) :
-    HasWitness d.Group d.1.characteristic (d.1.fieldExponent * 3) := by
-  have hm := d.toTypeDDiagramLieIndex.four_le_rank
-  set m := d.1.rank
-  have h := hasWitness_unipotent d hodd
-    (![⟨0, by omega⟩, ⟨m - 2, by omega⟩, ⟨m - 1, by omega⟩] : Fin 3 → Fin m) ?_ ⟨0, by omega⟩
-    ?_ ⟨1, by omega⟩ ?_
-  · rwa [Fintype.card_fin] at h
-  · intro a a' h
-    fin_cases a <;> fin_cases a' <;>
-      simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff] at h ⊢ <;> omega
-  · intro a
-    rw [Int.even_iff]
-    fin_cases a <;> simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff] <;> (try split_ifs) <;>
-      omega
-  · rw [Int.odd_iff]
-    simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff]
-    split_ifs <;> omega
-
-theorem hasWitness_unipotent_four (hodd : d.1.characteristic ≠ 2) (h6 : 6 ≤ d.1.rank) :
-    HasWitness d.Group d.1.characteristic (d.1.fieldExponent * 4) := by
-  set m := d.1.rank
-  have h := hasWitness_unipotent d hodd
-    (![⟨0, by omega⟩, ⟨2, by omega⟩, ⟨m - 2, by omega⟩, ⟨m - 1, by omega⟩] : Fin 4 → Fin m) ?_
-    ⟨0, by omega⟩ ?_ ⟨1, by omega⟩ ?_
-  · rwa [Fintype.card_fin] at h
-  · intro a a' h
-    fin_cases a <;> fin_cases a' <;>
-      simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff] at h ⊢ <;> omega
-  · intro a
-    rw [Int.even_iff]
-    fin_cases a <;> simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff] <;> (try split_ifs) <;>
-      omega
-  · rw [Int.odd_iff]
-    simp [CartanMatrix.D, Matrix.of_apply, Fin.ext_iff]
-    split_ifs <;> omega
 
 end CFSG.RankThree.PartTwo.Census.Spin.CarrierD

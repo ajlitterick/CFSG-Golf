@@ -120,11 +120,6 @@ variable {A : Type*} [Group A] [Fintype A] {σ υ : A} {ζ : ℂ}
   (lam : ZMod m → ZMod m → A →* ℂ)
   (hlam : ∀ i j, lam i j σ = ζ ^ i.val ∧ lam i j υ = ζ ^ j.val)
 
-include hc hζ hlam in
-theorem lam_mul_inv (i j : ZMod m) : lam i j (σ * υ)⁻¹ = ζ ^ (-i - j).val := by
-  have h := conj_lam_mul_pow hc hζ lam hlam i j 1
-  rw [pow_one, mul_one, conj_monoidHom_apply] at h
-  exact h
 
 omit [Fintype A] in
 theorem inv_pow_mul_inv_pow (hζ : IsPrimitiveRoot ζ m) (i j : ZMod m) :

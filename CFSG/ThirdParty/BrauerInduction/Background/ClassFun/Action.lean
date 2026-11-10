@@ -230,17 +230,6 @@ lemma action_zero_of_iso
   simpa [hBhom] using
     actionHom_naturality f e.hom
 
-/--
-A class function acts trivially on one representation if and only if it acts
-trivially on any isomorphic representation.
--/
-lemma action_eq_zero_iff_of_iso [Fintype G]
-    {V W : FDRep k G}
-    (f : ClassFun k G) (e : V ≅ W) :
-    action f V = 0 ↔ action f W = 0 := by
-  constructor
-  · exact action_zero_of_iso f e.symm
-  · exact action_zero_of_iso f e
 
 /--
 If a class function acts trivially on every representation in a finite family,

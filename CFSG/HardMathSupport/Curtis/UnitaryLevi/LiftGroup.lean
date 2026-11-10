@@ -73,10 +73,6 @@ theorem mem_liftGroup_iff (hK : Nat.card K = (2 ^ 1) ^ 2) (ρ : StatedSU n 2 K �
   rw [← mem_primeFormUnitary_one_iff_isometry]
   rfl
 
-theorem isometry_of_mem_liftGroup {hK : Nat.card K = (2 ^ 1) ^ 2} {ρ : StatedSU n 2 K →* ↥L}
-    {U : Subgroup Y} {A : GL (Fin n) K} (hA : A ∈ liftGroup hK ρ U) :
-    A ∈ isoGroup (CFSG.AGLEmbedding.ToralCensus.unitaryFieldData_of_card_eq_sq hK le_rfl) n :=
-  hA.1
 
 theorem exists_real_of_pow (hn : 4 ≤ n) (hK : Nat.card K = (2 ^ 1) ^ 2)
     (ρ : StatedSU n 2 K →* ↥L)

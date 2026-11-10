@@ -18,9 +18,6 @@ private def combOpt : Option (List Flags) → Option (List Flags) → Option (Li
   | some a, some b => some (a ++ b)
   | _, _ => none
 
-private theorem combOpt_assoc (A B C : Option (List Flags)) :
-    combOpt (combOpt A B) C = combOpt A (combOpt B C) := by
-  cases A <;> cases B <;> cases C <;> simp [combOpt, List.append_assoc]
 
 private theorem combK_eq (a b : Nat) :
     combK a b = if a = 0 ∨ b = 0 then 0 else if a = 1 then b else if b = 1 then a else 0 := by

@@ -57,47 +57,5 @@ theorem orthogonal_odd_derived_elementary [FiniteDimensional K V] (hK : ringChar
   exact commutator_orthogonalGroup_eq_elementaryGroup_of_two_ne_zero (Ring.two_ne_zero hK) hQ
     h₁₂ h₁₃ h₂₃
 
-theorem orthogonal_derived_projective_nontrivial [FiniteDimensional K V]
-    (hQ : (polarBilin Q).Nondegenerate)
-    (hT : ∃ T : Submodule K V, finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0) :
-    (∃ u v : V, Q u = 0 ∧ polar Q u v = 0 ∧
-      eichler Q u v ∈ ⁅TauCeti.QuadraticMap.orthogonalGroup Q,
-        TauCeti.QuadraticMap.orthogonalGroup Q⁆ ∧ eichler Q u v ∉ scalars K V) ∧
-    Nontrivial (↥(⁅TauCeti.QuadraticMap.orthogonalGroup Q,
-        TauCeti.QuadraticMap.orthogonalGroup Q⁆) ⧸
-      (scalars K V).subgroupOf ⁅TauCeti.QuadraticMap.orthogonalGroup Q,
-        TauCeti.QuadraticMap.orthogonalGroup Q⁆) := by
-  obtain ⟨T, hT3, hTs⟩ := hT
-  obtain ⟨P₁, P₂, P₃, h₁₂, h₁₃, h₂₃⟩ := exists_three_hypPairs hQ (T := T) hT3.ge hTs
-  set D := ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆
-  have hED : elementaryGroup Q ≤ D := by
-    have hperf := commutator_elementaryGroup_eq_top h₁₂ h₁₃ h₂₃ hQ
-    calc elementaryGroup Q = ⁅elementaryGroup Q, elementaryGroup Q⁆ := by
-          rw [← Subgroup.map_subtype_commutator, hperf, ← MonoidHom.range_eq_map,
-            Subgroup.range_subtype]
-      _ ≤ D := Subgroup.commutator_mono (elementaryGroup_le_orthogonalGroup Q)
-        (elementaryGroup_le_orthogonalGroup Q)
-  have hu : polar Q P₁.e P₂.e = 0 := h₁₂.ee
-  have hmove : eichler Q P₁.e P₂.e P₁.f = P₁.f + P₂.e := by
-    rw [eichler_apply P₁.Q_e hu, P₁.polar_fe, h₁₂.fe, P₂.Q_e]
-    simp
-  have hfix : eichler Q P₁.e P₂.e P₁.e = P₁.e := eichler_apply_self _ _
-  have hns : eichler Q P₁.e P₂.e ∉ scalars K V := by
-    intro hs
-    obtain ⟨c, hc⟩ := (mem_scalars).1 hs
-    have hc1 : c = 1 := by
-      have h := hc P₁.e
-      rw [hfix] at h
-      have h' : (1 - c) • P₁.e = 0 := by rw [sub_smul, one_smul, ← h, sub_self]
-      exact (sub_eq_zero.1 ((smul_eq_zero.1 h').resolve_right P₁.e_ne_zero)).symm
-    have h := hc P₁.f
-    rw [hmove, hc1, one_smul, add_eq_left] at h
-    exact P₂.e_ne_zero h
-  have hmem : eichler Q P₁.e P₂.e ∈ D := hED (eichler_mem_elementaryGroup Q _ _)
-  refine ⟨⟨P₁.e, P₂.e, P₁.Q_e, hu, hmem, hns⟩, ?_⟩
-  refine ⟨⟨((⟨eichler Q P₁.e P₂.e, hmem⟩ : D) : D ⧸ (scalars K V).subgroupOf D), 1, ?_⟩⟩
-  intro h
-  rw [QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf] at h
-  exact hns h
 
 end CFSG.LocalAnalysis.ComponentInitial

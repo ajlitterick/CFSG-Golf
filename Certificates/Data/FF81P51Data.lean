@@ -54,7 +54,6 @@ theorem refl_eq (w ψ : V) : refl w ψ = 1 + vecMulVec w ψ := fM_eq _
 
 def dec (n : ℕ) : V := ![(n % 3 : ℕ), (n / 3 % 3 : ℕ), (n / 9 % 3 : ℕ), (n / 27 % 3 : ℕ)]
 
-def enc (v : V) : ℕ := (v 0).val + 3 * (v 1).val + 9 * (v 2).val + 27 * (v 3).val
 
 def allV : List V := (List.range 81).map dec
 

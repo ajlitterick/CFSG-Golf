@@ -208,8 +208,6 @@ theorem y_sq (h : Config S t x ρ k) : h.y ^ 2 = x ^ 2 := by
 
 theorem y_comm_x (h : Config S t x ρ k) : h.y * x = x * h.y := (Commute.pow_left h.rho_x _).eq
 
-theorem x_sq_comm_zpow (h : Config S t x ρ k) (i : ℤ) : ρ ^ i * x ^ 2 = x ^ 2 * ρ ^ i :=
-  (Commute.pow_right (Commute.zpow_left h.rho_x i) 2).eq
 
 theorem e_sq (h : Config S t x ρ k) : h.e ^ 2 = 1 := by
   rw [Config.e, Commute.mul_pow h.y_comm_x, h.y_sq, ← pow_add]

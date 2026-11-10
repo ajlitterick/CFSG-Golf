@@ -46,33 +46,5 @@ namespace CertificateChecks.KernelSporSch.LySepGen
 open CFSG.KC.Eval CFSG.Sporadic.Ly.Native CFSG.Sporadic.He.Native CFSG.KS.SporSch.LyGen
 open CFSG.Sporadic.LySchreier.Native
 
-meta def matOf (f : Nat → Nat → Nat) : Array (Array Nat) :=
-  Array.ofFn (n := 111) fun i => Array.ofFn (n := 111) fun j => f i.val j.val
-
-meta def packDigits (ds : Array Nat) : Nat := Id.run do
-  let mut acc := 0
-  for t in [0:ds.size] do
-    acc := acc ||| (ds[t]! <<< (1332 * (t / 111) + 12 * (t % 111)))
-  return acc
-
-meta def keyVals (k : ByteArray) : Nat × Nat × Nat :=
-  let pEnt (j a : Nat) : Nat := if a < 7 then keyDigit k (111 * a + j) else 0
-  let cEnt (a b : Nat) : Nat := if a < 7 && b < 7 then keyDigit k (777 + 7 * a + b) else 0
-  (packM (matOf fun a j => pEnt j a), packM (matOf pEnt), packM (matOf cEnt))
-
-public meta def sepStep (args : Array Val) : Except String (Array (Lean.Name × Val)) :=
-  if args.size != 0 then .error "sepStep: expected no arguments" else
-  let kd : Array Nat := (txtLines sepKeysTxt).foldl (fun acc s => acc ++ digitsOf s) #[]
-  let kv := sepKeys.map keyVals
-  let Z := faithZ sepKeys formF
-  let cb := colsMat 111 (cyclicVecs Z sepV sepPar sepOp)
-  let vw := packDigits (sepV ++ Array.replicate (111 - sepV.size) 0 ++ sepW)
-  let lines := txtLines sepTreeTxt
-  let natsV (a : Array Nat) : Val := .list (a.map Val.nat)
-  .ok #[(`KK, .nat (packDigits kd)), (`PLT, .list (kv.map fun x => .nat x.1)),
-    (`PL, .list (kv.map fun x => .nat x.2.1)), (`CL, .list (kv.map fun x => .nat x.2.2)),
-    (`Y, .nat (packM sepY)), (`CI, .nat (packM sepCinv)), (`CB, .nat (packM cb)),
-    (`VW, .nat vw), (`PAR, natsV sepPar), (`OP, natsV sepOp),
-    (`L2, natsV (parseNats (lines.getD 2 "")))]
 
 end CertificateChecks.KernelSporSch.LySepGen

@@ -109,10 +109,6 @@ theorem mulK_inj {p q p' q' : ℕ} (h : unpk (mulK p q) = unpk (mulK p' q')) :
 theorem oneK_inj {p q : ℕ} (h : unpk (mulK p q) = unpk oneK) : mulK p q = oneK :=
   unpk_packA_inj (mulL_length p q) rfl (mulL_lt p q) (by decide) h
 
-theorem fmMul_eq_iff (p q p' q' : ℕ) :
-    fmMul (unpk p) (unpk q) = fmMul (unpk p') (unpk q') ↔ mulK p q = mulK p' q' := by
-  rw [fmMul_unpk, fmMul_unpk]
-  exact ⟨mulK_inj, fun h => by rw [h]⟩
 
 theorem fmMul_eq_one_iff (p q : ℕ) : fmMul (unpk p) (unpk q) = fmOne ↔ mulK p q = oneK := by
   rw [fmMul_unpk, fmOne_eq]

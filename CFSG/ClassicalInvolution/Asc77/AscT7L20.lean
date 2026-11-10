@@ -50,11 +50,6 @@ theorem mat_blk_v4 (A B : Matrix.SpecialLinearGroup (Fin 2) F) (a0 a1 b0 b1 : F)
     simp [v4, Matrix.mulVec, dotProduct, Fintype.sum_sum_type, Matrix.fromBlocks,
       Matrix.diagonal_apply]
 
-theorem mat_x0_v4 (a0 a1 b0 b1 : F) :
-    mat 2 F (x0 F) *ᵥ v4 a0 a1 b0 b1 = v4 (-a0) a1 (-b0) b1 := by
-  rw [mat_x0]
-  funext r
-  rcases r with r | r <;> fin_cases r <;> simp [v4, Matrix.mulVec_diagonal, coords]
 
 theorem mat_t0_v4 (a0 a1 b0 b1 : F) :
     mat 2 F (t0 F) *ᵥ v4 a0 a1 b0 b1 = v4 (-b0) b1 a0 (-a1) := by

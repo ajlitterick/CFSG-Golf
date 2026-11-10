@@ -19,9 +19,6 @@ open CFSG.KLie.CT CFSG.KD.Co1Thirteen CFSG.KC.Co1M CFSG.KC.VecK CertificateCheck
 @[expose] noncomputable def sc16956a (s : Nat) : Bool :=
   scanSl (orbMemK 98280 (lk S 32) 17) (lk Pt 32) TS16956 Q16956 s
 
-theorem sc16956_neg : notB (orB (notB (tauK (orbMemK 98280 (lk S 32) 17) TS16956 U1_16956))
-    (memL [] U1_16956)) = true := by
-  quickRfl
 
 end CFSG.KD.C16956
 

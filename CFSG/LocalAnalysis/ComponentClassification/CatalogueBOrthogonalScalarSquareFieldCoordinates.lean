@@ -16,18 +16,6 @@ variable {K : Type u} {V : Type v} [Field K] [AddCommGroup V] [Module K V]
 @[expose] def coordinateElement (T : Module.End K V) (a b : K) : scalarAlgebra T :=
   algebraMap K (scalarAlgebra T) a + b • generator T
 
-theorem coordinateElement_val (T : Module.End K V) (a b : K) :
-    (coordinateElement T a b).val = algebraMap K (Module.End K V) a + b • T := rfl
-
-theorem coordinateElement_zero (T : Module.End K V) : coordinateElement T 0 0 = 0 := by
-  simp only [coordinateElement, map_zero, zero_smul, add_zero]
-
-theorem coordinateElement_one (T : Module.End K V) : coordinateElement T 1 0 = 1 := by
-  simp only [coordinateElement, map_one, zero_smul, add_zero]
-
-theorem coordinateElement_generator (T : Module.End K V) :
-    coordinateElement T 0 1 = generator T := by
-  simp only [coordinateElement, map_zero, one_smul, zero_add]
 
 theorem scalarBasis_expansion [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
@@ -61,10 +49,6 @@ theorem coordinateElement_eq_iff [Nontrivial V] (T : Module.End K V) (d : K)
   · rintro ⟨rfl, rfl⟩
     rfl
 
-theorem coordinateElement_eq_zero_iff [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (a b : K) : coordinateElement T a b = 0 ↔ a = 0 ∧ b = 0 := by
-  rw [← coordinateElement_zero T, coordinateElement_eq_iff T d hns hsquare]
 
 theorem existsUnique_coordinates [Nontrivial V] (T : Module.End K V) (d : K)
     (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
@@ -89,9 +73,6 @@ theorem mem_scalarAlgebra_iff [Nontrivial V] (T : Module.End K V) (d : K)
   · rintro ⟨a, b, rfl⟩
     exact (coordinateElement T a b).property
 
-theorem nonsquare_ne_zero (d : K) (hns : ¬ IsSquare d) : d ≠ 0 := by
-  rintro rfl
-  exact hns IsSquare.zero
 
 theorem coordinate_denominator_ne_zero (d : K) (hns : ¬ IsSquare d) (a b : K)
     (hab : a ≠ 0 ∨ b ≠ 0) : a ^ 2 - d * b ^ 2 ≠ 0 := by
@@ -141,35 +122,5 @@ theorem coordinateElement_inv [Nontrivial V] (T : Module.End K V) (d : K)
   apply inv_eq_of_mul_eq_one_right
   rw [← mul_div_assoc, coordinateElement_conjugate_product T d hns hsquare, div_self hden]
 
-theorem coordinateElement_inv_val [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (a b : K) (hab : a ≠ 0 ∨ b ≠ 0) :
-    letI := scalarField T d hns hsquare
-    ((coordinateElement T a b)⁻¹).val = (a ^ 2 - d * b ^ 2)⁻¹ •
-      (algebraMap K (Module.End K V) a - b • T) := by
-  let := scalarField T d hns hsquare
-  rw [coordinateElement_inv T d hns hsquare a b hab, div_eq_mul_inv, ← map_inv₀]
-  rw [mul_comm, ← Algebra.smul_def]
-  change (a ^ 2 - d * b ^ 2)⁻¹ • (coordinateElement T a (-b)).val = _
-  rw [coordinateElement_val, neg_smul]
-  simp only [sub_eq_add_neg]
-
-theorem coordinate_operator_inverse [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (a b : K) (hab : a ≠ 0 ∨ b ≠ 0) :
-    let R := algebraMap K (Module.End K V) a + b • T
-    let S := (a ^ 2 - d * b ^ 2)⁻¹ • (algebraMap K (Module.End K V) a - b • T)
-    R * S = 1 ∧ S * R = 1 := by
-  let := scalarField T d hns hsquare
-  have hn : coordinateElement T a b ≠ 0 := by
-    intro hz
-    have hz' := (coordinateElement_eq_zero_iff T d hns hsquare a b).mp hz
-    exact hab.elim (fun h => h hz'.1) (fun h => h hz'.2)
-  have hleft := congrArg Subtype.val (mul_inv_cancel₀ hn)
-  have hright := congrArg Subtype.val (inv_mul_cancel₀ hn)
-  change (coordinateElement T a b).val * ((coordinateElement T a b)⁻¹).val = 1 at hleft
-  change ((coordinateElement T a b)⁻¹).val * (coordinateElement T a b).val = 1 at hright
-  rw [coordinateElement_inv_val T d hns hsquare a b hab] at hleft hright
-  exact ⟨hleft, hright⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareField

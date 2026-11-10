@@ -67,13 +67,6 @@ theorem commutator_twistedFixedGroup_eq_map
     Subtype.val_injective).trans
     (MulEquiv.subgroupCongr (commutator_twistedFixedGroup_eq_map σ hq hK hσq).symm)
 
-theorem coe_twistedGroupEquivDerived
-    {q : ℕ} (hq : 2 ≤ q) (hK : Nat.card K = q ^ 3)
-    (hσq : ∀ c, σ c = c ^ q) (g : twistedGroup σ) :
-    ((twistedGroupEquivDerived σ hq hK hσq g :
-        ↥⁅twistedFixedGroup .D4 K σ, twistedFixedGroup .D4 K σ⁆) : ModGL d4 K) =
-      ((g : adjointGroup d4 K) : ModGL d4 K) :=
-  rfl
 
 theorem isQuasisimple_derived_twistedFixedGroup_D4
     {q : ℕ} (hq : 2 ≤ q)

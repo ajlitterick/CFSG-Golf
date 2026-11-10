@@ -427,17 +427,6 @@ theorem rankOneLastOddHom_surjective (hn : ¬Even n) (hk : ¬k.val + 1 < n / 2) 
 
 variable {hF}
 
-theorem rankOneLastEvenEquiv_apply {he : Even n} {hk : ¬k.val + 1 < n / 2}
-    (g : CFSG.LieType.CurtisTits.rankOne
-      (rootGroup (unitaryInvolution F p f) (unitaryInvolution_involutive hF) n) k) :
-    rankOneLastEvenEquiv hF he hk g = rankOneLastEvenHom _ _ he hk g :=
-  rfl
-
-theorem rankOneLastOddEquiv_apply {hn : ¬Even n} {hk : ¬k.val + 1 < n / 2}
-    (g : CFSG.LieType.CurtisTits.rankOne
-      (rootGroup (unitaryInvolution F p f) (unitaryInvolution_involutive hF) n) k) :
-    rankOneLastOddEquiv hF hn hk g = rankOneLastOddHom _ _ hn hk g :=
-  rfl
 
 theorem mat_rankOneLastEvenEquiv {he : Even n} {hk : ¬k.val + 1 < n / 2}
     (g : CFSG.LieType.CurtisTits.rankOne
@@ -453,28 +442,6 @@ theorem mat_rankOneLastOddEquiv {hn : ¬Even n} {hk : ¬k.val + 1 < n / 2}
       toBlock3 (lowIdx k) (midIdx n hn) (Fin.rev (lowIdx k)) (mat (unitaryInvolution F p f) n g) :=
   mat_rankOneLastOddHom (hk := hk) g
 
-theorem coe_rankOneLastEvenEquiv {he : Even n} {hk : ¬k.val + 1 < n / 2}
-    (g : CFSG.LieType.CurtisTits.rankOne
-      (rootGroup (unitaryInvolution F p f) (unitaryInvolution_involutive hF) n) k) :
-    ((rankOneLastEvenEquiv hF he hk g : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
-      SUExtras.toBlock (lowIdx k) (Fin.rev (lowIdx k))
-        (((g : SU (unitaryInvolution F p f) n) : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) :=
-  mat_rankOneLastEvenHom (he := he) (hk := hk) g
-
-theorem coe_rankOneLastOddEquiv {hn : ¬Even n} {hk : ¬k.val + 1 < n / 2}
-    (g : CFSG.LieType.CurtisTits.rankOne
-      (rootGroup (unitaryInvolution F p f) (unitaryInvolution_involutive hF) n) k) :
-    ((rankOneLastOddEquiv hF hn hk g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      toBlock3 (lowIdx k) (midIdx n hn) (Fin.rev (lowIdx k))
-        (((g : SU (unitaryInvolution F p f) n) : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) :=
-  mat_rankOneLastOddHom (hk := hk) g
-
-theorem toBlock_mat_rankOneLastEvenEquiv_symm {he : Even n} {hk : ¬k.val + 1 < n / 2}
-    (A : SU (unitaryInvolution F p f) 2) :
-    SUExtras.toBlock (lowIdx k) (Fin.rev (lowIdx k))
-        (mat (unitaryInvolution F p f) n ((rankOneLastEvenEquiv hF he hk).symm A)) =
-      mat (unitaryInvolution F p f) 2 A := by
-  rw [← mat_rankOneLastEvenEquiv (hF := hF) (he := he) (hk := hk), MulEquiv.apply_symm_apply]
 
 theorem toBlock3_mat_rankOneLastOddEquiv_symm {hn : ¬Even n} {hk : ¬k.val + 1 < n / 2}
     (A : SU (unitaryInvolution F p f) 3) :

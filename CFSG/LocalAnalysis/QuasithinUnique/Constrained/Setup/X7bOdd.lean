@@ -414,13 +414,6 @@ end Main
 
 section Top
 
-theorem original_minimal_parabolic_FF_actor_excludes_PSp4_components_of
-    (h27 : DiagramNormalizerExcludesOffenders) (hdata : ActualSymplecticFourData) {V : Type}
-    [CommGroup V] [Finite V] {H T M E : Subgroup (MulAut V)} (hF : FFHyp V H T M E)
-    (hns : ¬ Group.IsSolvable H) {L : Subgroup (MulAut V)} (hL : IsComp L H) {f : ℕ}
-    (hf : 2 ≤ f) : ¬ StatedClassicalModel (CQ L) .PSp 2 2 f :=
-  original_minimal_parabolic_FF_actor_excludes_PSp4_components
-    unique_Sylow_overgroup_forces_odd_diagram_coset h27 hdata hF hns hL hf
 
 theorem noPSp4Component_of
     (h27 : DiagramNormalizerExcludesOffenders)

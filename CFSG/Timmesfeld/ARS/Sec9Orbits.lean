@@ -48,13 +48,6 @@ theorem exists_conjSub_eq_of_mem_orbit {Δ : Set (Subgroup G)} {X Y Z : Subgroup
   obtain ⟨g, hg, rfl⟩ := hZ
   exact ⟨g, hg, rfl⟩
 
-theorem conjSub_mem_orbit_conjSub {Δ : Set (Subgroup G)} {X Y : Subgroup G}
-    (hY : Y ∈ orbit Δ X) {h : G} (hh : ∀ g ∈ gen Δ, Commute h g) :
-    conjSub Y h ∈ orbit Δ (conjSub X h) := by
-  obtain ⟨y, hy, rfl⟩ := hY
-  refine ⟨y, hy, ?_⟩
-  change conjSub (conjSub X h) y = conjSub (conjSub X y) h
-  rw [← conjSub_mul, ← conjSub_mul, (hh y hy).eq]
 
 theorem gen_le_levi {A A₀ : Subgroup G} {Δ : Set (Subgroup G)} (hΔ : Δ ⊆ leviSet R A A₀) :
     gen Δ ≤ levi R A A₀ :=

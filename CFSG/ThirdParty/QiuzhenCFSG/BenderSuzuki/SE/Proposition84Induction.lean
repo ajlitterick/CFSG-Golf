@@ -242,21 +242,5 @@ public theorem IsStronglyEmbedded.exists_proposition84_with_modelSupport_of_sour
   · intro Y hYV hYne hI
     exact (hbaseFull Y hYV hYne hI).2
 
-/-- Source-facing wrapper that forgets the proof-support fields retained for
-Lemma 11.4. -/
-public theorem IsStronglyEmbedded.exists_proposition84_of_source_endpoints
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hXsimple : IsSimpleGroup X)
-    (hrank : TwoRankAtLeastTwo (involutionCore M))
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (N : Subgroup H), IsStronglyEmbedded N →
-        TheoremSEConclusion N)
-    {t : X} (ht : IsInvolution t) (htM : t ∉ M) :
-    ∃ d83 : Lemma83Data M t,
-      Proposition84Statement M t d83.u := by
-  obtain ⟨d83, h84, _hsupport⟩ :=
-    hM.exists_proposition84_with_modelSupport_of_source_endpoints
-      hXsimple hrank hinduction ht htM
-  exact ⟨d83, h84⟩
 
 end CFSG.BenderSuzuki

@@ -40,7 +40,6 @@ theorem tabCheck_parts :
   · have := List.all_eq_true.1 h7 q (List.mem_range.2 hq)
     simpa [and_assoc] using this
 
-theorem pairTab_size : pairTab.size = 276 := tabCheck_parts.1
 
 theorem pairTab_spec (tp : Nat) (h : tp < 276) :
     pairTab[tp]!.1 < pairTab[tp]!.2 ∧ pairTab[tp]!.2 < 24 ∧
@@ -49,7 +48,6 @@ theorem pairTab_spec (tp : Nat) (h : tp < 276) :
 theorem aIdx_spec (i j : Nat) (hi : i < 24) (hj : j < 24) :
     aIdx i j < 300 ∧ aPos (aIdx i j) = (min i j, max i j) := tabCheck_parts.2.2.1 i j hi hj
 
-theorem octTab_size : octTab.size = 759 := tabCheck_parts.2.2.2.1
 
 theorem octTab_spec (o : Nat) (h : o < 759) :
     octTab[o]! < 4096 ∧ popcN 24 (wordN octTab[o]!) = 8 := tabCheck_parts.2.2.2.2.1 o h
@@ -72,44 +70,12 @@ theorem octCheck_parts (o : Nat) (ho : o < 759) :
       (m = m' ∨ spreadG (wordN octTab[o]!) m ≠ spreadG (wordN octTab[o]!) m')) :=
   Certificates.certificate6007.2.1 o ho
 
-theorem octCheck_eq : octCheck () = true := by
-  unfold octCheck
-  refine List.all_eq_true.2 fun o ho => ?_
-  obtain ⟨h1, h2⟩ := octCheck_parts o (List.mem_range.1 ho)
-  have hS : ∀ m, m < 256 →
-      (Array.ofFn (n := 256) fun m => spreadG (wordN octTab[o]!) m.val)[m]! =
-        spreadG (wordN octTab[o]!) m := fun m hm => by
-    rw [getElem!_eq_getD_gen, getD_ofFn _ _ hm]
-  simp only [Bool.and_eq_true]
-  refine ⟨List.all_eq_true.2 fun m hm => ?_,
-    List.all_eq_true.2 fun m hm => List.all_eq_true.2 fun m' hm' => ?_⟩
-  · have hm := List.mem_range.1 hm
-    have hm2 : m ^^^ 255 < 256 := Nat.xor_lt_two_pow (n := 8) hm (by norm_num)
-    obtain ⟨ha, hb, hc⟩ := h1 m hm
-    rw [hS m hm, hS _ hm2]
-    simp [ha, hb, hc]
-  · have hm := List.mem_range.1 hm
-    have hm' := List.mem_range.1 hm'
-    have hm3 : m &&& m' < 256 := lt_of_le_of_lt Nat.and_le_left hm
-    obtain ⟨ha, hb⟩ := h2 m m' hm hm'
-    rw [hS _ hm3, hS m hm, hS m' hm']
-    simp only [Bool.and_eq_true, beq_iff_eq, Bool.or_eq_true, bne_iff_ne, ne_eq]
-    exact ⟨ha, hb⟩
-
-theorem ctx_keys_size : (mkCtx ()).keys.size = 98280 :=
-  Certificates.certificate6007.2.2.1
 
 theorem ctx_key_spec (p : Nat) (hp : p < 98280) :
     (mkCtx ()).keys[p]!.1 < 4096 ∧ (mkCtx ()).keys[p]!.2 < 4096 ∧
       (mkCtx ()).find (mkCtx ()).keys[p]!.1 (mkCtx ()).keys[p]!.2 = p :=
   Certificates.certificate6007.2.2.2 p hp
 
-theorem ctxCheck_eq : ctxCheck (mkCtx ()) = true := by
-  unfold ctxCheck
-  simp only [Bool.and_eq_true, beq_iff_eq]
-  refine ⟨ctx_keys_size, List.all_eq_true.2 fun p hp => ?_⟩
-  obtain ⟨h1, h2, h3⟩ := ctx_key_spec p (List.mem_range.1 hp)
-  simp [h1, h2, h3]
 
 theorem latA_aIdx
     (G D : Array Int) (i j : Nat) (hi : i < 24) (hj : j < 24) :

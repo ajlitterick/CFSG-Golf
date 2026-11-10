@@ -372,19 +372,6 @@ theorem not_dvd_index_subgroupOf_of_sylow (T : Sylow p G) {K : Subgroup G}
   have h2 := Subgroup.relIndex_mul_index hTK
   exact T.not_dvd_index (h2 ▸ Dvd.dvd.mul_right hdvd _)
 
-theorem pCore_le_pCoreOf_of_sylow (T : Sylow p G) {H : Subgroup G}
-    (hTH : (T : Subgroup G) ≤ H) : CFSG.Open.pCore p G ≤ pCoreOf p H := by
-  rw [← pCoreOf_top p]
-  exact pCoreOf_le_pCoreOf_of_sylow le_top T.isPGroup' hTH
-    (not_dvd_index_subgroupOf_of_sylow T le_top)
-
-theorem centralizer_pCoreOf_le_of_sylow_ambient (T : Sylow p G) {H : Subgroup G}
-    (hTH : (T : Subgroup G) ≤ H)
-    (hG : Subgroup.centralizer (CFSG.Open.pCore p G : Set G) ≤ CFSG.Open.pCore p G) :
-    H ⊓ Subgroup.centralizer (pCoreOf p H : Set G) ≤ pCoreOf p H := by
-  have h := pCore_le_pCoreOf_of_sylow T hTH
-  intro x hx
-  exact h (hG (Subgroup.centralizer_le h hx.2))
 
 end A16
 

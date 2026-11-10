@@ -71,15 +71,6 @@ theorem mem_diagGL_iff (g : GL (Fin 2) F) : g ∈ diagGL F ↔ g.1 0 1 = 0 ∧ g
     ext i j
     fin_cases i <;> fin_cases j <;> simp [h01, h10]
 
-theorem mem_range_uHom_iff (g : GL (Fin 2) F) :
-    g ∈ (uHom F).range ↔ g.1 0 0 = 1 ∧ g.1 1 1 = 1 ∧ g.1 1 0 = 0 := by
-  constructor
-  · rintro ⟨t, rfl⟩
-    simp [uHom]
-  · rintro ⟨h00, h11, h10⟩
-    refine ⟨Multiplicative.ofAdd (g.1 0 1), ?_⟩
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp [uHom, h00, h11, h10]
 
 theorem mem_range_uHom_iff' (g : GL (Fin 2) F) : g ∈ (uHom F).range ↔ ∃ t : F, g = uT t := by
   constructor
@@ -110,28 +101,6 @@ theorem dg_mem_statedSL {a d : Fˣ} (h : (a : F) * d = 1) : dg a d ∈ StatedSL 
 theorem dg_mem_diagGL (a d : Fˣ) : dg a d ∈ diagGL F := by
   simp [mem_diagGL_iff]
 
-theorem exists_ne_inv [Finite F] (h3 : 3 < Nat.card F) : ∃ a : Fˣ, (a : F) ≠ (a : F)⁻¹ := by
-  by_contra hcon
-  push Not at hcon
-  classical
-  have := Fintype.ofFinite F
-  have hle : Nat.card F ≤ 3 := by
-    rw [Nat.card_eq_fintype_card]
-    calc Fintype.card F = (Finset.univ : Finset F).card := Finset.card_univ.symm
-      _ ≤ ({0, 1, -1} : Finset F).card := Finset.card_le_card (fun x _ => by
-          by_cases hx : x = 0
-          · simp [hx]
-          · have h := hcon (Units.mk0 x hx)
-            simp only [Units.val_mk0] at h
-            have h2 : x * x = 1 := by
-              calc x * x = x * x⁻¹ := by rw [← h]
-                _ = 1 := mul_inv_cancel₀ hx
-            have h3 : (x - 1) * (x + 1) = 0 := by linear_combination h2
-            rcases mul_eq_zero.1 h3 with h4 | h4
-            · simp [sub_eq_zero.1 h4]
-            · simp [eq_neg_of_add_eq_zero_left h4])
-      _ ≤ 3 := Finset.card_le_three
-  omega
 
 theorem c_eq_zero_of_mem_normalizer_U {g : GL (Fin 2) F}
     (h : g ∈ normalizer (((uHom F).range : Subgroup (GL (Fin 2) F)) : Set (GL (Fin 2) F))) :
@@ -169,45 +138,6 @@ theorem diag_mem_normalizer_U {g : GL (Fin 2) F} (hg : g ∈ diagGL F) :
   have e : g⁻¹ * (g * h * g⁻¹) * g⁻¹⁻¹ = h := by group
   rwa [e] at this
 
-theorem diag_or_antidiag {g k : GL (Fin 2) F} {a : Fˣ} (ha : (a : F) ≠ (a : F)⁻¹)
-    (hk : k ∈ diagGL F) (h : g * dg a a⁻¹ * g⁻¹ = k) :
-    (g.1 0 1 = 0 ∧ g.1 1 0 = 0) ∨ (g.1 0 0 = 0 ∧ g.1 1 1 = 0) := by
-  rw [mem_diagGL_iff] at hk
-  obtain ⟨hk01, hk10⟩ := hk
-  rw [mul_inv_eq_iff_eq_mul] at h
-  have e00 := congrArg (fun m : GL (Fin 2) F => m.1 0 0) h
-  have e01 := congrArg (fun m : GL (Fin 2) F => m.1 0 1) h
-  have e10 := congrArg (fun m : GL (Fin 2) F => m.1 1 0) h
-  have e11 := congrArg (fun m : GL (Fin 2) F => m.1 1 1) h
-  simp [Matrix.mul_apply, Fin.sum_univ_two, hk01, hk10] at e00 e01 e10 e11
-  have hdet := det_ne_zero g
-  have hne : (a : F)⁻¹ - (a : F) ≠ 0 := sub_ne_zero.2 ha.symm
-  by_cases h00 : g.1 0 0 = 0
-  · right
-    refine ⟨h00, ?_⟩
-    rw [h00] at hdet
-    have h01 : g.1 0 1 ≠ 0 := left_ne_zero_of_mul (by simpa using hdet)
-    have h10 : g.1 1 0 ≠ 0 := right_ne_zero_of_mul (by simpa using hdet)
-    have hk11 : k.1 1 1 = a := by
-      have : (k.1 1 1 - a) * g.1 1 0 = 0 := by linear_combination (-1 : F) * e10
-      exact sub_eq_zero.1 ((mul_eq_zero.1 this).resolve_right h10)
-    have : g.1 1 1 * ((a : F)⁻¹ - a) = 0 := by linear_combination e11 + g.1 1 1 * hk11
-    exact (mul_eq_zero.1 this).resolve_right hne
-  · left
-    have hk00 : k.1 0 0 = a := by
-      have : (k.1 0 0 - a) * g.1 0 0 = 0 := by linear_combination (-1 : F) * e00
-      exact sub_eq_zero.1 ((mul_eq_zero.1 this).resolve_right h00)
-    have h01 : g.1 0 1 = 0 := by
-      have : g.1 0 1 * ((a : F)⁻¹ - a) = 0 := by linear_combination e01 + g.1 0 1 * hk00
-      exact (mul_eq_zero.1 this).resolve_right hne
-    refine ⟨h01, ?_⟩
-    rw [h01] at hdet
-    have h11 : g.1 1 1 ≠ 0 := right_ne_zero_of_mul (by simpa using hdet)
-    have hk11 : k.1 1 1 = (a : F)⁻¹ := by
-      have : (k.1 1 1 - (a : F)⁻¹) * g.1 1 1 = 0 := by linear_combination (-1 : F) * e11
-      exact sub_eq_zero.1 ((mul_eq_zero.1 this).resolve_right h11)
-    have : g.1 1 0 * ((a : F) - (a : F)⁻¹) = 0 := by linear_combination e10 + g.1 1 0 * hk11
-    exact (mul_eq_zero.1 this).resolve_right (sub_ne_zero.2 ha)
 
 theorem wGL_conj_mem_diagGL_iff (x : GL (Fin 2) F) :
     wGL F * x * (wGL F)⁻¹ ∈ diagGL F ↔ x ∈ diagGL F := by
@@ -221,14 +151,6 @@ theorem mul_wGL_inv_mem_diagGL {m : GL (Fin 2) F} (h00 : m.1 0 0 = 0) (h11 : m.1
   simp only [mul_val_apply, wGL_inv_val]
   simp [h00, h11]
 
-theorem wGL_sq : wGL F * wGL F = dg (-1) (-1) := by
-  apply GL2_ext
-  all_goals simp only [mul_val_apply, wGL_val, dg_val]
-  all_goals simp
-
-theorem wGL_sq_mem_diagGL : wGL F * wGL F ∈ diagGL F := by
-  rw [wGL_sq]
-  exact dg_mem_diagGL _ _
 
 theorem bruhat_core {g : GL (Fin 2) F} (hc : g.1 1 0 ≠ 0) :
     ∃ s s' : F, ∃ m : GL (Fin 2) F, g = uT s * m * uT s' ∧ m.1 0 0 = 0 ∧ m.1 1 1 = 0 := by
@@ -243,13 +165,6 @@ theorem bruhat_core {g : GL (Fin 2) F} (hc : g.1 1 0 ≠ 0) :
     field_simp
     ring
 
-theorem antidiag_four_not_upper {n : GL (Fin 2) F} (h00 : n.1 0 0 = 0) (h11 : n.1 1 1 = 0) :
-    (n * uT 1 * n).1 1 0 ≠ 0 := by
-  have hdet := det_ne_zero n
-  rw [h00] at hdet
-  have h10 : n.1 1 0 ≠ 0 := right_ne_zero_of_mul (by simpa using hdet)
-  simp only [mul_val_apply, uT_val]
-  simp [h00, h11, h10]
 
 theorem four_identity {t : F} (ht : t ≠ 0) :
     wGL F * uT t * (wGL F)⁻¹ =
@@ -271,15 +186,5 @@ theorem upper_decomp_left {g : GL (Fin 2) F} (h10 : g.1 1 0 = 0) :
   field_simp
   ring
 
-theorem upper_decomp_right {g : GL (Fin 2) F} (h10 : g.1 1 0 = 0) :
-    g * uT (-(g.1 0 1 / g.1 0 0)) ∈ diagGL F := by
-  have hdet := det_ne_zero g
-  rw [h10] at hdet
-  have h00 : g.1 0 0 ≠ 0 := left_ne_zero_of_mul (by simpa using hdet)
-  rw [mem_diagGL_iff]
-  simp only [mul_val_apply, uT_val]
-  simp [h10]
-  field_simp
-  ring
 
 end CFSG.GH74.GLS.IVK.L2BN

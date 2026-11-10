@@ -59,10 +59,6 @@ theorem rightPairFlipFiber_congr {H : Subgroup G} {z z₀ : G}
   ext t
   simp only [rightPairFlipFiber, Set.mem_ofPred_eq, hclass]
 
-theorem distinguishedRoots_congr {H : Subgroup G} {z z₀ : G}
-    (hclass : involutionPointClass z₀ = involutionPointClass z) (w : G) :
-    distinguishedRoots H z₀ w = distinguishedRoots H z w := by
-  simp only [distinguishedRoots, hclass]
 
 theorem exists_rightCoset_ne {H : Subgroup G} (hH : H ≠ ⊤) :
     ∃ beta : rightCosetSpace H, beta ≠ rightCosetMk H 1 := by

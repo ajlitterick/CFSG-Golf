@@ -33,11 +33,6 @@ private lemma s16c1_sup_conj (A B : Subgroup G) (k : G) (hA : conjSubgroup A k =
     A ⊔ conjSubgroup B k = conjSubgroup (A ⊔ B) k := by
   rw [← s16c1_conjSubgroup_sup A B k, hA]
 
-private lemma s16c1_conjSubgroup_injective (k : G) :
-    Function.Injective fun A : Subgroup G => conjSubgroup A k := by
-  intro A B h
-  have := congrArg (fun X : Subgroup G => conjSubgroup X k⁻¹) h
-  simpa only [conjSubgroup_conjSubgroup, mul_inv_cancel, conjSubgroup_one] using this
 
 theorem s16c1_normal_conj {L K : Subgroup G} (h : (K.subgroupOf L).Normal) (k : G) :
     ((conjSubgroup K k).subgroupOf (conjSubgroup L k)).Normal := by

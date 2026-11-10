@@ -106,23 +106,6 @@ theorem s12_exists_Lbar_of_mem_Ebar12 {g : G} {τ : S.O} (hτ : τ ∈ S.Ebar12 
   refine ⟨S.ρ h₀ * τ * (S.ρ h₀)⁻¹, hL, ?_⟩
   simp [map_inv, mul_assoc]
 
-theorem s12_Ebar12_mul (g : G) (h : S.M) : S.Ebar12 ((h : G) * g) = S.Ebar12 g := by
-  ext τ
-  simp only [Ebar12, Set.mem_ofPred_eq, S.s12_Lbar_mul]
-  refine and_congr_right fun _ => and_congr_right fun _ => ⟨?_, ?_⟩
-  · rintro ⟨m, hm, x, hx, hxe⟩
-    refine ⟨(S.ρ h)⁻¹ * m, S.Mbar.mul_mem (S.Mbar.inv_mem ⟨h, rfl⟩) hm, ?_⟩
-    have e : (S.ρ h)⁻¹ * m * τ * ((S.ρ h)⁻¹ * m)⁻¹ = x := by
-      simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply] at hxe
-      rw [show (S.ρ h)⁻¹ * m * τ * ((S.ρ h)⁻¹ * m)⁻¹ =
-        (S.ρ h)⁻¹ * (m * τ * m⁻¹) * S.ρ h by group, ← hxe]
-      group
-    rw [e]
-    exact hx
-  · rintro ⟨m, hm, hx⟩
-    refine ⟨S.ρ h * m, S.Mbar.mul_mem ⟨h, rfl⟩ hm, m * τ * m⁻¹, hx, ?_⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    group
 
 theorem s12_eq_bot_of_fix {g : G} (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * S.z * g⁻¹ ≠ S.z)
     (hn : 3 ≤ S.width) {K : Subgroup S.O} (hK : S12NoNormalTwo K) (hKM : K ≤ S.Mbar)

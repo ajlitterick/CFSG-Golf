@@ -49,11 +49,6 @@ theorem torus_prod {p : ℕ} {g : SL(4, K)} (hg : g ∈ torus p K) : ∏ i, g.1 
   rw [hd, det_diagonal] at h1
   simpa [hd] using h1
 
-theorem torus_diag_ne {p : ℕ} {g : SL(4, K)} (hg : g ∈ torus p K) (i : Fin 4) : g.1 i i ≠ 0 := by
-  intro h0
-  have := torus_prod hg
-  rw [Finset.prod_eq_zero (f := fun j => g.1 j j) (Finset.mem_univ i) h0] at this
-  exact zero_ne_one this
 
 theorem torus_mul_apply {p : ℕ} {g h : SL(4, K)} (hg : g ∈ torus p K) (hh : h ∈ torus p K) (i : Fin 4) :
     (g * h).1 i i = g.1 i i * h.1 i i := by

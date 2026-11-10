@@ -40,85 +40,9 @@ theorem Q8TwinDatum.exists_sylow_q8 {G : Type} [Group G] [Finite G] {R : Subgrou
   ⟨_, h.sylow_core, ⟨(Subgroup.equivMapOfInjective (S : Subgroup R) R.subtype
     R.subtype_injective).symm.trans hq8.some⟩⟩
 
-theorem iSup_conjClass_eq_iSup {G : Type} [Group G] (K : Subgroup G) :
-    (⨆ J ∈ CoreAssembly.conjClass K, J) = ⨆ g : G, conjSub g K := by
-  apply le_antisymm
-  · refine iSup₂_le fun J hJ => ?_
-    obtain ⟨g, rfl⟩ := hJ
-    exact le_iSup (fun g : G => conjSub g K) g
-  · exact iSup_le fun g => le_iSup₂_of_le (conjSub g K) ⟨g, rfl⟩ le_rfl
 
 section Targets
 
-
-@[expose] def Q8Thm7 : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y], IsSimpleGroup ↥(genFittingFStar Y) →
-    (∃ a b : ↥(genFittingFStar Y), a * b ≠ b * a) → CIT3Below (Nat.card Y) →
-    TightBelow (Nat.card Y) →
-    ∀ (Ω : Set (Subgroup Y)) (K : Subgroup Y), HypOmegaGen Ω → K ∈ Ω →
-      (∀ J ∈ Ω, ∃ g : Y, conjSub g K = J) → (⨆ J ∈ Ω, J) = ⊤ →
-      (∃ P : Subgroup Y, IsSylow2In P K ∧ Nonempty (↥P ≃* QuaternionGroup 2)) →
-      AEmpty Ω K → (∃ K' ∈ twinSet Ω K, K' ≠ K) → IsSimpleGroup Y
-
-@[expose] def Q8SimpleGood : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y], IsSimpleGroup Y → (∃ a b : Y, a * b ≠ b * a) →
-    CIT3Below (Nat.card Y) → TightBelow (Nat.card Y) →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), Q8TwinDatum R S t →
-      Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2) → TightSelfGen R →
-      HypOmegaGen (CoreAssembly.conjClass (tightCore R)) →
-      AEmpty (CoreAssembly.conjClass (tightCore R)) (tightCore R) →
-      (∃ K' ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-        K' ≠ tightCore R) → GoodThreeElement R t
-
-@[expose] def Q8TwinGood : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y], IsSimpleGroup ↥(genFittingFStar Y) →
-    (∃ a b : ↥(genFittingFStar Y), a * b ≠ b * a) → CIT3Below (Nat.card Y) →
-    TightBelow (Nat.card Y) →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), Q8TwinDatum R S t →
-      Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2) → TightSelfGen R →
-      HypOmegaGen (CoreAssembly.conjClass (tightCore R)) →
-      AEmpty (CoreAssembly.conjClass (tightCore R)) (tightCore R) →
-      (∃ K' ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-        K' ≠ tightCore R) → GoodThreeElement R t
-
-theorem q8TwinGood_of_parts (h7 : Q8Thm7) (hg : Q8SimpleGood) : Q8TwinGood := by
-  intro Y _ _ hF hnab hbelow hbelowT R S t hd hq8 hgen hΩ hA htw
-  have hsimple : IsSimpleGroup Y :=
-    h7 Y hF hnab hbelow hbelowT _ (tightCore R) hΩ (CoreAssembly.mem_conjClass_self _)
-      (fun J hJ => hJ) (by rw [iSup_conjClass_eq_iSup]; exact hgen) (hd.exists_sylow_q8 hq8) hA htw
-  obtain ⟨a, b, hab⟩ := hnab
-  exact hg Y hsimple ⟨a, b, fun h => hab (Subtype.ext h)⟩ hbelow hbelowT R S t hd hq8 hgen hΩ hA
-    htw
-
-@[expose] def Q8SimpleLift : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y], IsSimpleGroup Y → (∃ a b : Y, a * b ≠ b * a) →
-    CIT3Below (Nat.card Y) → TightBelow (Nat.card Y) →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), Q8TwinDatum R S t →
-      Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2) → TightSelfGen R →
-      HypOmegaGen (CoreAssembly.conjClass (tightCore R)) →
-      AEmpty (CoreAssembly.conjClass (tightCore R)) (tightCore R) →
-      (∃ K' ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-        K' ≠ tightCore R) → TightHasLift R t
-
-@[expose] def Q8TwinLift : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y], IsSimpleGroup ↥(genFittingFStar Y) →
-    (∃ a b : ↥(genFittingFStar Y), a * b ≠ b * a) → CIT3Below (Nat.card Y) →
-    TightBelow (Nat.card Y) →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), Q8TwinDatum R S t →
-      Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2) → TightSelfGen R →
-      HypOmegaGen (CoreAssembly.conjClass (tightCore R)) →
-      AEmpty (CoreAssembly.conjClass (tightCore R)) (tightCore R) →
-      (∃ K' ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-        K' ≠ tightCore R) → TightHasLift R t
-
-theorem q8TwinLift_of_parts (h7 : Q8Thm7) (hl : Q8SimpleLift) : Q8TwinLift := by
-  intro Y _ _ hF hnab hbelow hbelowT R S t hd hq8 hgen hΩ hA htw
-  have hsimple : IsSimpleGroup Y :=
-    h7 Y hF hnab hbelow hbelowT _ (tightCore R) hΩ (CoreAssembly.mem_conjClass_self _)
-      (fun J hJ => hJ) (by rw [iSup_conjClass_eq_iSup]; exact hgen) (hd.exists_sylow_q8 hq8) hA htw
-  obtain ⟨a, b, hab⟩ := hnab
-  exact hl Y hsimple ⟨a, b, fun h => hab (Subtype.ext h)⟩ hbelow hbelowT R S t hd hq8 hgen hΩ hA
-    htw
 
 end Targets
 

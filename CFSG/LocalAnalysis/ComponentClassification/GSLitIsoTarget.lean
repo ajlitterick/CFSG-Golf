@@ -171,12 +171,6 @@ theorem exists_isoTarget (h : B2Setting a J S) {e : G} (he : orderOf e = 2)
 
 end B2Setting
 
-theorem GSIsoCorr.target_unique {a e : G} {J L L' : Subgroup G} (h : GSIsoCorr a J e L)
-    (h' : GSIsoCorr a J e L') : L = L' := by
-  obtain ⟨hC, -, hsup⟩ := gsIsoCorr_iff_sup.mp h
-  obtain ⟨hC', -, hsup'⟩ := gsIsoCorr_iff_sup.mp h'
-  exact eq_of_isPComponent_cover hC.2.2.2.2.2.1 hC.2.2.2.2.2.2.1 hC'.2.2.2.2.2.1
-    hC'.2.2.2.2.2.2.1 hsup hsup'
 
 omit [Finite G] in
 theorem map_centralizer_subgroup (φ : G ≃* G) (E : Subgroup G) :

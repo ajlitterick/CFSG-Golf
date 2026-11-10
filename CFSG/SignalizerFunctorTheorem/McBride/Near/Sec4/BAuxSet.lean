@@ -10,17 +10,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride.Near.BAux
 
 variable {H : Type*} [Group H] [Finite H]
 
-theorem kOf_top_eq_oStar : kOf (⊤ : Subgroup H) = oStar H := by
-  have h := oStar_map_mulEquiv (Subgroup.topEquiv : (⊤ : Subgroup H) ≃* H)
-  exact h
-
-theorem oStar_oStar_eq_top : oStar ↥(oStar H) = ⊤ := by
-  rw [← kOf_eq_self_iff_oStar_eq_top]
-  have := kOf_kOf (⊤ : Subgroup H)
-  rwa [kOf_top_eq_oStar] at this
-
-theorem oStar_mem_bSet : oStar H ∈ bSet H :=
-  (kOf_eq_self_iff_oStar_eq_top (oStar H)).mpr oStar_oStar_eq_top
 
 theorem perfectResidual_map_props {Z : Subgroup H} (hZ : oStar ↥Z = ⊤) :
     oStar ↥((CFSG.perfectResidual Z).map Z.subtype) = ⊤ ∧

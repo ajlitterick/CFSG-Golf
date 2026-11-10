@@ -40,14 +40,6 @@ theorem coe_sl2InvT (g : SpecialLinearGroup (Fin 2) k) :
         -(g : Matrix (Fin 2) (Fin 2) k) 0 1, (g : Matrix (Fin 2) (Fin 2) k) 0 0] :=
   rfl
 
-theorem coe_sl2InvT_eq (g : SpecialLinearGroup (Fin 2) k) :
-    ((sl2InvT g : SpecialLinearGroup (Fin 2) k) : Matrix (Fin 2) (Fin 2) k) =
-      ((g⁻¹ : SpecialLinearGroup (Fin 2) k) : Matrix (Fin 2) (Fin 2) k)ᵀ := by
-  rw [coe_sl2InvT]
-  change _ = (adjugate (g : Matrix (Fin 2) (Fin 2) k))ᵀ
-  rw [adjugate_fin_two]
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
 
 theorem sl2InvT_sl2InvT (g : SpecialLinearGroup (Fin 2) k) : sl2InvT (sl2InvT g) = g := by
   refine Matrix.SpecialLinearGroup.ext _ _ fun i j => ?_

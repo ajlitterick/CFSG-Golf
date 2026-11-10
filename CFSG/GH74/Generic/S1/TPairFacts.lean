@@ -110,30 +110,6 @@ theorem lin_pair_UV_quasisimple (h4 : 3 < Nat.card F) {X : Type} [Group X] {W U 
     rw [h23] at hU
     exact ⟨hq _ U hU, hq _ V hV⟩
 
-theorem lin_pair_UV_solvable (h3 : Nat.card F = 3) {X : Type} [Group X] {W U V : Subgroup X}
-    (hP : LinearBlockStandardPair F W U V) : Group.IsSolvable U ∧ Group.IsSolvable V := by
-  obtain ⟨θ, c, hrange, hker, hcases⟩ := hP
-  have hcard : Nat.card SL(2, F) = 2 ^ 3 * 3 ^ 1 := by
-    rw [CFSG.OrderReductions.LinearOrders.card_specialLinear F 2 (by norm_num), h3]
-    decide
-  have hSL2 : Group.IsSolvable SL(2, F) :=
-    CFSG.Walter.JT.isSolvable_of_card_eq_two_pow_mul_three_pow hcard
-  have hq : ∀ {i : ℕ} (hi : i + 2 ≤ 3) (T : Subgroup X),
-      ((blockSL F 3 2 i hi).range.map (MulAut.conj c⁻¹).toMonoidHom).map θ = T →
-        Group.IsSolvable T := by
-    intro i hi T hT
-    obtain ⟨f, hf, hfk⟩ := lin_pair_block θ hker c hi
-    rw [← hT, ← hf]
-    exact Group.isSolvable_of_surjective f.rangeRestrict_surjective
-  have h12 : CFSG.ClassicalInvolution.WeakCT.B12 F = (blockSL F 3 2 0 (by omega)).range := rfl
-  have h23 : CFSG.ClassicalInvolution.WeakCT.B23 F = (blockSL F 3 2 1 (by omega)).range := rfl
-  rcases hcases with ⟨hU, hV⟩ | ⟨hV, hU⟩
-  · rw [h12] at hU
-    rw [h23] at hV
-    exact ⟨hq _ U hU, hq _ V hV⟩
-  · rw [h12] at hV
-    rw [h23] at hU
-    exact ⟨hq _ U hU, hq _ V hV⟩
 
 end Lin
 

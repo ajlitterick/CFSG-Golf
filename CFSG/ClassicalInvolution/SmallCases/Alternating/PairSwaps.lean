@@ -77,10 +77,6 @@ section PairSwapsFacts
 
 variable {z : Perm (Fin n)} {hz : z * z = 1}
 
-theorem mem_pairSwaps {w : Perm (Fin n)} :
-    w ∈ pairSwaps z hz ↔ ∀ a, w a = a ∨ w a = z a := Iff.rfl
-
-theorem z_mem_pairSwaps : z ∈ pairSwaps z hz := fun _ => Or.inr rfl
 
 theorem swap_mem_pairSwaps (x : Fin n) : Equiv.swap x (z x) ∈ pairSwaps z hz := by
   have hzz : ∀ b, z (z b) = b := fun b => by simpa using congrArg (fun p : Perm (Fin n) => p b) hz

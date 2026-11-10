@@ -58,14 +58,6 @@ theorem fi24RepFixOK_true : fi24RepFixOK O = true :=
     (fun _ hl _ hx => LN_lt hl hx) (fun _ hl _ hq => LN_lt19 hl hq)
     (fun _ hl v q _ => testBit_planeL (nv_LN hl) v q) fix_ok
 
-theorem fixCnt_true : ∀ d ∈ repFixData, fixCnt (wordTab (mkCtx O) d.1) = d.2 := by
-  have hw : ∀ d ∈ repFixData, ∀ l ∈ d.1, l < 26 := by decide
-  have h := fix_ok
-  rw [List.all_eq_true] at h
-  intro d hd
-  exact CFSG.KS.Fi24FixP.fixCnt_of (σ := LN NW) (A := planeL NW) (letters O hA hB).2
-    (fun _ hl _ hx => LN_lt hl hx) (fun _ hl _ hq => LN_lt19 hl hq)
-    (fun _ hl v q _ => testBit_planeL (nv_LN hl) v q) (hw d hd) (h d hd)
 
 end
 

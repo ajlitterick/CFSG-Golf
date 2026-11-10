@@ -203,9 +203,6 @@ theorem uIn_mul_inv_fix3 (hK : Nat.card K = 3 ^ (2 * 1 + 1)) {t b c : K} (ht : t
     rw [uIn_mul]
     simp [smallReeSigma_zero, uIn_zero hK]
 
-theorem mem_qSub_iff (hK : Nat.card K = 3 ^ (2 * 1 + 1)) (x : ReeTag.G2.reeGamma K 1) :
-    x ∈ qSub hK ↔ ∃ t : K, t ^ 3 = t ∧ ∃ b : K, b ^ 3 = b ∧ ∃ c : K, c ^ 3 = c ∧ x = uIn hK t b c :=
-  Iff.rfl
 
 theorem mem_q0Sub_iff (hK : Nat.card K = 3 ^ (2 * 1 + 1)) (x : ReeTag.G2.reeGamma K 1) :
     x ∈ q0Sub hK ↔ ∃ b : K, b ^ 3 = b ∧ ∃ c : K, c ^ 3 = c ∧ x = uIn hK 0 b c :=

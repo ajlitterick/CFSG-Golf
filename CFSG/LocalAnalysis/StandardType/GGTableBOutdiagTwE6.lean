@@ -122,13 +122,6 @@ theorem ggTwistedE6DiagInput_holds : GGTwistedE6DiagInput := by
 theorem ggLNoncyclicInput_holds : GGLNoncyclicInput :=
   ggLNoncyclicInput_of_twE6Diag ggTwistedE6DiagInput_holds
 
-theorem ggTableBInputs_of_split
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab → LargeEvenLabelAll lab fun R _ I _ =>
-        ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I) :
-    GGLNoncyclicInput ∧ GGBstarInput ∧ GGStdSubPreInput :=
-  ggTableBInputs_of_twE6
-    (fun _ hlab ht => largeEvenLabelAll_outdiag_twE6 ggTwistedE6DiagInput_holds hlab ht) h
 
 end Main
 

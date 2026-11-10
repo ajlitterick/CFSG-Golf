@@ -508,17 +508,6 @@ theorem isElemAbelian_VZ_of_inM {G : Type} [Group G] [Finite G] {T M : Subgroup 
   exact (conjClosure_le_centerOf_pCoreOf M S hSM hF (Z := quasithinOmegaOneCenter T)
     (by rw [hS])).2
 
-theorem e_eq_centralizer_sup_of_stmt15412 {G : Type} [Group G] [Finite G]
-    {T M X X₁ X₂ : Subgroup G} (hyp : MultipleCentralizerHypothesis G T) (h12 : Stmt15412 G T)
-    (hM : InM T M) (hX : IsYFamily T X) (hXM : X ≤ M) (h : IsSixTwoData T M X X₁ X₂) :
-    eOf T = (eOf T ⊓ Subgroup.centralizer (X₁ : Set G)) ⊔
-        (⁅VZ T M, X₁⁆ ⊓ Subgroup.centralizer (baum T : Set G)) ∧
-      (eOf T ⊓ Subgroup.centralizer (X₁ : Set G)) ⊓
-        (⁅VZ T M, X₁⁆ ⊓ Subgroup.centralizer (baum T : Set G)) = ⊥ ∧
-      Nat.card (⁅VZ T M, X₁⁆ ⊓ Subgroup.centralizer (baum T : Set G) : Subgroup G) = 2 := by
-  obtain ⟨-, -, -, -, -, ⟨-, -, hE, hEinf⟩, -, -⟩ := (h12 M hM).2 X hX hXM
-  exact e_eq_centralizer_sup_of_sixTwoData hyp.sylow.1 hM.2 hXM (isElemAbelian_VZ_of_inM hyp hM)
-    hE hEinf h
 
 theorem not_le_of_sixTwoData {G : Type*} [Group G] {T M M' W W₁ W₂ L : Subgroup G}
     (hM : InM T M) (hne : M ≠ M') (hU : IsUniqueM (W ⊔ T) M')

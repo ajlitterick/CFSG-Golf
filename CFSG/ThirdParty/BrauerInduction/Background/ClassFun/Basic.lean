@@ -606,30 +606,6 @@ The submodule of functions on `G` that are constant on conjugacy classes.
     simp only [Pi.smul_apply]
     rw [hf x y hxy]
 
-/--
-Class functions are linearly equivalent to the submodule of functions that are
-constant on conjugacy classes.
--/
-@[expose] def toSubmoduleEquiv :
-    ClassFun k G ≃ₗ[R]
-      toSubmodule (R := R) (k := k) (G := G) where
-  toFun f :=
-    ⟨f, f.map_conj⟩
-  invFun f :=
-    { toFun := f
-      map_conj := f.property }
-  left_inv f := by
-    ext x
-    rfl
-  right_inv f := by
-    ext x
-    rfl
-  map_add' f g := by
-    ext x
-    rfl
-  map_smul' r f := by
-    ext x
-    rfl
 
 end Submodule
 

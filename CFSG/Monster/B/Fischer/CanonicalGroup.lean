@@ -354,37 +354,5 @@ theorem ι_jGen
   · exact (repArr_trans (by omega)).ι_smul y
   · exact ι_tPerm y
 
-theorem Fischer_canonical_permutation_group :
-    Function.Injective (fun x : X₀ => K₀.mkQ (e x)) ∧
-    Set.range (fun x : X₀ => K₀.mkQ (e x)) = Lw 1 ∧
-    (∀ x : X₀, tPerm (.inl x) = .inr (.inl (K₀.mkQ (e x)))) ∧
-    (∀ x : X₀, tPerm (.inr (.inl (K₀.mkQ (e x)))) = .inl x) ∧
-    tPerm o = o ∧
-    (∀ w ∈ Lw 2, tPerm (.inr (.inl w)) = .inr (.inl w)) ∧
-    (∀ z ∈ Z462, tPerm (.inr (.inr z)) = .inr (.inr z)) ∧
-    (∀ u : L3, tPerm (.inr (.inl (u : W₀))) = .inr (.inr (sigmaEquiv u : Z))) ∧
-    (∀ u : L3, tPerm (.inr (.inr (sigmaEquiv u : Z))) = .inr (.inl (u : W₀))) ∧
-    (∀ z : Z1232T, tPerm (.inr (.inr (z : Z))) = .inr (.inr (tauPerm z : Z))) ∧
-    tPerm * tPerm = 1 ∧ tPerm ≠ 1 ∧
-    J = Subgroup.closure (Set.range (MulAction.toPermHom F₀ Y) ∪ {tPerm}) ∧
-    jGen 0 = MulAction.toPerm (kF m22a) ∧ jGen 1 = MulAction.toPerm (kF m22b) ∧
-    (∀ t : Fin 10, jGen (t + 2) = MulAction.toPerm (wF (bW t))) ∧ jGen 12 = tPerm ∧
-    J = Subgroup.closure (Set.range fun k : Fin 13 => jGen k) ∧
-    (∀ k < 13, ∀ y : Y, (ι (jGen k y) : ℕ) = (indCandidate k)[(ι y : ℕ)]!) := by
-  refine ⟨coordImg_injective, range_coordImg, tFun_inl, fun x => ?_, ?_, fun w hw => ?_,
-    fun z hz => ?_, fun u => tFun_L3 u.2, fun u => ?_, fun z => ?_, ?_, ?_, rfl, jGen_zero,
-    jGen_one, jGen_trans, jGen_twelve, J_eq_closure_jGen, fun k hk => ι_jGen hk⟩
-  · exact (tFun_L1 (coordImg_mem x)).trans (congrArg Sum.inl (l1Equiv_symm_coordImg x))
-  · have h := zero_mem_L0
-    exact tFun_fixW (not_mem_Lw h (by norm_num)) (not_mem_Lw h (by norm_num))
-  · exact tFun_fixW (not_mem_Lw hw (by norm_num)) (not_mem_Lw hw (by norm_num))
-  · exact tFun_fixZ (not_mem_Z770_of_mem_Z462 hz) (not_mem_Z1232_of_mem_Z462 hz)
-  · rw [tPerm_apply, tFun_Z770 (sigmaEquiv u).2, Subtype.coe_eta, Equiv.symm_apply_apply]
-  · exact tFun_Z1232 z.2
-  · exact Equiv.ext tFun_involutive
-  · intro h
-    have := congrArg (fun p : Equiv.Perm Y => p (.inl (coordAt 0))) h
-    simp only [Equiv.Perm.coe_one, id_eq, tPerm_apply, tFun_inl] at this
-    exact Sum.inr_ne_inl this
 
 end CFSG.Monster.B.Fischer

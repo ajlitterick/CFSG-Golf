@@ -18,9 +18,6 @@ section Inputs
     GGSixSeventeenWitnessOn (fun t _ _ _ => t = .POmegaMinus) ∧
     GGSixSeventeenE8SevenInput ∧ GGSixSeventeenRootWitnessInputFor GGExceptionalTag
 
-theorem ggSixSeventeenWitnessRest7_of_rest6 (h : GGSixSeventeenWitnessRest6) :
-    GGSixSeventeenWitnessRest7 :=
-  h.2
 
 end Inputs
 

@@ -121,15 +121,6 @@ theorem fbR_injective : Function.Injective (fbR (E := E) a b) := fun X Y h => by
           hu
         rw [this, Matrix.one_mul, fromBlocks_one]
 
-theorem coe_blockHomL (A : SUid (unitaryInvolution E 3 1) a) :
-    (((blockHomL a b A : SUG (unitaryInvolution E 3 1) (1 : Matrix (Fin a ⊕ Fin b) _ E)) :
-      GL (Fin a ⊕ Fin b) E) : Matrix (Fin a ⊕ Fin b) (Fin a ⊕ Fin b) E) =
-      fromBlocks ((A : GL (Fin a) E) : Matrix (Fin a) (Fin a) E) 0 0 1 := rfl
-
-theorem coe_blockHomR (A : SUid (unitaryInvolution E 3 1) b) :
-    (((blockHomR a b A : SUG (unitaryInvolution E 3 1) (1 : Matrix (Fin a ⊕ Fin b) _ E)) :
-      GL (Fin a ⊕ Fin b) E) : Matrix (Fin a ⊕ Fin b) (Fin a ⊕ Fin b) E) =
-      fromBlocks 1 0 0 ((A : GL (Fin b) E) : Matrix (Fin b) (Fin b) E) := rfl
 
 theorem blockHomL_injective : Function.Injective (blockHomL (E := E) a b) := fun _ _ h =>
   Subtype.ext (Units.ext (fbL_injective (congrArg (fun x : SUG (unitaryInvolution E 3 1)
@@ -386,9 +377,6 @@ theorem oddCoreIn_centralizer_dgn_eq_bot (hE : Nat.card E = 9) {μ : E} (hμ : �
     · simpa using hn2
 
 end One
-
-
-
 
 
 end CFSG.ClassicalInvolution.Q3

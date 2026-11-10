@@ -42,13 +42,5 @@ namespace CFSG.ASVolI.ChH
 
 open Equiv
 
-theorem altInfCentralizer_swap {τ : Perm (Fin 8)} (hτ : τ.cycleType = {2}) :
-    Nonempty (↥(alternatingGroup (Fin 8) ⊓ Subgroup.centralizer ({τ} : Set (Perm (Fin 8)))) ≃*
-      Perm (Fin 6)) := by
-  obtain ⟨a, b, hab, rfl⟩ := Equiv.Perm.isSwap_iff_cycleType.mpr hτ
-  obtain ⟨φ⟩ := nonempty_alternatingInfCentralizer_swap_mulEquiv hab
-  have hcard : ∀ a b : Fin 8, a ≠ b → Fintype.card {x : Fin 8 // x ≠ a ∧ x ≠ b} = 6 := by
-    decide
-  exact ⟨φ.trans (Fintype.equivFinOfCardEq (hcard a b hab)).permCongrHom⟩
 
 end CFSG.ASVolI.ChH

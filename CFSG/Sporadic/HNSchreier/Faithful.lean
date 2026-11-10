@@ -18,7 +18,6 @@ abbrev X : Type := Fin hnsData.n
 
 theorem hns_n : hnsData.n = nPts := rfl
 
-theorem hns_d : hnsData.d = 133 := rfl
 
 private theorem array_all_lt' {a : Array ℕ} {m : ℕ} (h : a.all (· < m) = true) :
     ∀ i < a.size, a[i]! < m := by
@@ -72,9 +71,6 @@ theorem PK_zero : PK 0 = fixedVector := by
 theorem PK_injective : ∀ i < nPts, ∀ j < nPts, PK i = PK j → i = j :=
   fun i hi j hj h => P_injective hnsBase i hi j hj h
 
-theorem rowsA_hns : hnsData.rowsA = rowsA := rfl
-
-theorem rowsB_hns : hnsData.rowsB = rowsB := rfl
 
 theorem matA_PK {i : ℕ} (hi : i < nPts) :
     ap alphaT i < nPts ∧ matA *ᵥ PK i = PK (ap alphaT i) := by

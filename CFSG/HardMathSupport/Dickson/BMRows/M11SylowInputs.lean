@@ -40,8 +40,5 @@ open CFSG.Monster.AxisCount CFSG.YGroups.Y443 CFSG.YGroups.Y443Native CFSG.AGLEm
 
 @[expose] def m11Check (_ : Unit := ()) : Bool := agreeAll m11Pairs
 
-theorem m11Check_eq_agreeTasks :
-    m11Check () = agreeTasks (Native.mkCtx ()) (aV ()) (bV ()) (wV ()) m11Pairs := by
-  rw [m11Check, agreeAll_eq_agreeTasks]
 
 end CFSG.HardMathSupport.Dickson.BMRows.M11

@@ -81,8 +81,6 @@ theorem residualZeroDiagonal_section (x : (ZMod 4)ˣ × (ZMod 4)ˣ) :
     residualZeroDiagonal (residualZeroDiagonalSection x) = x := by
   apply Prod.ext <;> apply Units.ext <;> rfl
 
-theorem residualZeroDiagonal_surjective : Function.Surjective residualZeroDiagonal :=
-  Function.RightInverse.surjective residualZeroDiagonal_section
 
 theorem residualZeroDiagonal_kernel : residualZeroDiagonal.ker = residualZeroShear.range := by
   apply le_antisymm
@@ -172,56 +170,6 @@ theorem residualZero_generators_normal_form (r : (ResidualRing 0)ˣ) :
   rw [hs]
   simp only [mul_assoc]
 
-theorem residualZero_generators :
-    Subgroup.closure ({residualZeroU, residualZeroV, residualZeroZ, residualZeroW} : Set (ResidualRing 0)ˣ) = ⊤ := by
-  apply top_unique
-  intro r _
-  obtain ⟨i, j, e, f, rfl⟩ := residualZero_generators_normal_form r
-  apply Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ ?_ ?_) ?_) ?_ <;>
-    apply Subgroup.pow_mem _ (Subgroup.subset_closure (by simp))
-
-theorem residualZeroShear_range_generators :
-    residualZeroShear.range = Subgroup.closure ({residualZeroU, residualZeroV} : Set (ResidualRing 0)ˣ) := by
-  apply le_antisymm
-  · rintro r ⟨x, rfl⟩
-    change residualZeroShear (Multiplicative.ofAdd (x.toAdd.1, x.toAdd.2)) ∈ _
-    rw [residualZeroShear_powers]
-    exact Subgroup.mul_mem _
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
-      (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
-  · apply (Subgroup.closure_le _).mpr
-    intro r hr
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hr
-    rcases hr with rfl | rfl
-    · exact ⟨Multiplicative.ofAdd (1, 0), rfl⟩
-    · exact ⟨Multiplicative.ofAdd (0, 1), rfl⟩
-
-@[expose] noncomputable def residualZeroShearEquiv :
-    Multiplicative (ZMod 4 × ZMod 4) ≃* residualZeroDiagonal.ker :=
-  (MonoidHom.ofInjective residualZeroShear_injective).trans
-    (MulEquiv.subgroupCongr residualZeroDiagonal_kernel.symm)
-
-@[expose] noncomputable def residualZeroOuterEquiv :
-    ((ResidualRing 0)ˣ ⧸ residualZeroDiagonal.ker) ≃*
-      Multiplicative (ZMod 2) × Multiplicative (ZMod 2) :=
-  (QuotientGroup.quotientKerEquivOfSurjective residualZeroDiagonal
-    residualZeroDiagonal_surjective).trans
-      (MulEquiv.prodCongr fourUnitSignEquiv.symm fourUnitSignEquiv.symm)
-
-theorem residualZeroShear_fourth_power (x : Multiplicative (ZMod 4 × ZMod 4)) :
-    residualZeroShear x ^ 4 = 1 := by
-  rw [← map_pow]
-  have h : x ^ 4 = 1 := by
-    apply Multiplicative.toAdd.injective
-    change 4 • x.toAdd = 0
-    apply Prod.ext
-    · change 4 • x.toAdd.1 = (0 : ZMod 4)
-      rw [nsmul_eq_mul]
-      decide +revert +kernel
-    · change 4 • x.toAdd.2 = (0 : ZMod 4)
-      rw [nsmul_eq_mul]
-      decide +revert +kernel
-  rw [h, map_one]
 
 theorem residualZeroShear_square (x : Multiplicative (ZMod 4 × ZMod 4)) :
     residualZeroShear x ^ 2 = 1 ↔

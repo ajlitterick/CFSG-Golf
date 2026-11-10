@@ -121,11 +121,6 @@ theorem smallBase_eq_generated (l : ℕ) :
     Multiplicative (ZMod (4 * l)) × Multiplicative (ZMod 2) ≃* smallBase l :=
   MonoidHom.ofInjective (smallBaseHom_injective l hl)
 
-theorem card_smallBase (l : ℕ) (hl : 0 < l) : Nat.card (smallBase l) = 2 * (4 * l) := by
-  rw [← Nat.card_congr (smallBaseEquiv l hl).toEquiv, Nat.card_prod,
-    Nat.card_congr Multiplicative.toAdd, Nat.card_zmod,
-    Nat.card_congr Multiplicative.toAdd, Nat.card_zmod]
-  omega
 
 @[expose] def smallOutside (l : ℕ) (i j : ZMod (4 * l)) : Subgroup (Wreath (4 * l)) :=
   Subgroup.closure {Original.a (4 * l), Original.x2 (4 * l), element (4 * l) i j 1}

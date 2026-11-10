@@ -121,11 +121,6 @@ theorem all_involutions_conjugate_of_card
   have hum : IsConj u (g * u * g⁻¹) := isConj_iff.mpr ⟨g, rfl⟩
   exact (isConj_a_of_mem_M hg hord).trans hum.symm
 
-theorem involutions_isConj_of_card
-    (hJ : Nat.card J = 90745943887872000) {u v : J}
-    (hu : orderOf u = 2) (hv : orderOf v = 2) : IsConj u v :=
-  (all_involutions_conjugate_of_card hJ u hu).symm.trans
-    (all_involutions_conjugate_of_card hJ v hv)
 
 theorem th_involutions_conjugate_of_card
     (hTh : Nat.card Blueprint.NativeSporadic.Th = 90745943887872000) :
@@ -140,10 +135,5 @@ theorem th_involutions_conjugate_of_card
   refine isConj_iff.mpr ⟨thEquivJ.symm c, ?_⟩
   rw [← map_inv, ← map_mul, ← map_mul, hc, MulEquiv.symm_apply_apply]
 
-theorem th_involutions_isConj_of_card
-    (hTh : Nat.card Blueprint.NativeSporadic.Th = 90745943887872000)
-    {u v : Blueprint.NativeSporadic.Th} (hu : orderOf u = 2) (hv : orderOf v = 2) : IsConj u v :=
-  (th_involutions_conjugate_of_card hTh u hu).symm.trans
-    (th_involutions_conjugate_of_card hTh v hv)
 
 end CFSG.Sporadic.Th.Max3

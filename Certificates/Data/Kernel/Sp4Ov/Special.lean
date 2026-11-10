@@ -57,9 +57,6 @@ open CFSG.KC.Loop
   Nat.rec (motive := fun _ => Bool) true (fun j ih => bAnd(
     (fun w => Nat.beq (ptK P (psiK (mv d (psiInvK T w)))) (appP p (ptK P w))) (Nat.succ j), ih)) 15
 
-@[expose] noncomputable def compK (p q : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) 0 (fun i ih => Nat.lor ih
-    (Nat.shiftLeft (appP p (appP q i)) (Nat.mul 3 i))) 5
 
 @[expose] noncomputable def idP : Nat := 18056
 

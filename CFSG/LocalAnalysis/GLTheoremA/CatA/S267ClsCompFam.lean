@@ -44,10 +44,6 @@ theorem symm_mem_of_forall_mem (e : (ι → K) ≃ₗ[K] (ι → K)) {U : Submod
       apply (glEquiv g).injective
       rw [← LinearEquiv.mul_apply, mul_inv_cancel, LinearEquiv.coe_one, id, hg.2.2 w hw]⟩
 
-theorem mem_blkSub {β : (ι → K) →ₗ[K] (ι → K) →ₛₗ[σ] K} {U W : Submodule K (ι → K)}
-    {g : GL ι K} : g ∈ blkSub β U W ↔
-      g ∈ isomGL β ∧ (∀ u ∈ U, glEquiv g u ∈ U) ∧ ∀ w ∈ W, glEquiv g w = w :=
-  Iff.rfl
 
 @[expose] noncomputable def blkI (β : (ι → K) →ₗ[K] (ι → K) →ₛₗ[σ] K)
     (U W : Submodule K (ι → K)) : Subgroup (GL ι K) :=

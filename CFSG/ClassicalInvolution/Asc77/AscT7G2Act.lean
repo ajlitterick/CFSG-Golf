@@ -94,23 +94,6 @@ theorem squaresSub_conj_mem {R R' : Subgroup G} {g : G} (hg : ∀ r ∈ R, g * r
     exact square_mem_squaresSub (hg r hr)
   exact hle hx
 
-theorem not_isFAut_of_card_eight {R : Subgroup G} (hR2 : IsPGroup 2 R) (h8 : Nat.card ↥R = 8)
-    (a : G) : ¬ IsFAut R a := by
-  rintro ⟨-, -, Q, R₁, -, hQ, hR₁, hcard⟩
-  have hR₁eq : R₁ = R := (hR₁.2.2 R le_rfl hR2 hR₁.1).symm
-  have h8Q := hQ.eight_le
-  rw [hR₁eq, h8] at hcard
-  omega
-
-theorem commutator_mem_squaresSub {R : Subgroup G} {x y : G} (hx : x ∈ R) (hy : y ∈ R) :
-    ⁅x, y⁆ ∈ squaresSub R := by
-  have e : ⁅x, y⁆ = (x * x) * ((x⁻¹ * y) * (x⁻¹ * y)) * (y⁻¹ * y⁻¹)⁻¹⁻¹ := by
-    simp only [commutatorElement_def]; group
-  rw [e]
-  refine Subgroup.mul_mem _ (Subgroup.mul_mem _ (square_mem_squaresSub hx)
-    (square_mem_squaresSub (R.mul_mem (R.inv_mem hx) hy))) ?_
-  rw [inv_inv]
-  exact square_mem_squaresSub (R.inv_mem hy)
 
 end Act
 

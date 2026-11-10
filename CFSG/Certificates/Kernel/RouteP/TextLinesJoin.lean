@@ -15,8 +15,6 @@ section Join
 
 variable (E : Nat → Nat → Nat) (lens : Nat → Nat)
 
-theorem nlChk_nil (L P num iN cm sa : Nat) (fin : Nat → Nat → Nat → Nat → Nat → Nat → Bool) :
-    nlChk E lens [] L P num iN cm sa fin = fin L P num iN cm sa := rfl
 
 theorem nlChk_append (a b : List Nat) : ∀ (L P num iN cm sa : Nat)
     (fin : Nat → Nat → Nat → Nat → Nat → Nat → Bool),

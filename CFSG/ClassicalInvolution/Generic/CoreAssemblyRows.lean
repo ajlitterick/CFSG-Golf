@@ -28,15 +28,6 @@ theorem pieceSL7 : PieceSL7 p f := by
     (oddCoverSL3_of_five_le S.five)
   exact ⟨D⟩
 
-theorem pieceSLs_of_chain (h : ChainPieceSLs p f) : RowPiece p f ShapeSLs := by
-  intro a t n hshape G _ _ _ hnab K z S hS
-  obtain ⟨rfl, rfl, hn3, hn5⟩ := hshape
-  obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 := ⟨n - 1, by omega⟩
-  have hshapeA := localShapeA_of_T hS
-  obtain ⟨U, hUΩ, hcomm, hpair⟩ := h G hnab K z S m (by omega) (by omega) hshapeA
-  obtain ⟨D, -, -⟩ := routeD_typeA_of_chain S.odd S.five (m := m) (by omega) S.inClass
-    (mem_conjClass_self K) (single_class K) S.conn S.cls hshapeA S.p1 U hUΩ hcomm hpair
-  exact ⟨D⟩
 
 theorem pieceSp4_of_pieces (h1 : PieceSp4P1 p f) (h2 : PieceSp4NoOther p f) :
     RowPiece p f ShapeSp4 := by
@@ -76,35 +67,6 @@ theorem pieceTwinD_of_chain (h : ChainPieceTwinD p f) : RowPiece p f ShapeTwinD 
 
 section Small
 
-variable {G : Type} [Group G] [Finite G]
-
-omit [Finite G] in
-theorem sl2Witness_of_isClassicalMember {K : Subgroup G} {z : G}
-    (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h : IsClassicalMember p f K z) : SL2Witness K :=
-  ⟨p, f, inferInstance, hp2, pos_of_five_le hq, h.nonempty_equiv⟩
-
-theorem smallDisconnected_of_cit (hfc : FrameConnected p f) (h : CITDisconnected) :
-    SmallDisconnected p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hΔ
-  have hnotE : ¬ HasEFrameRank4 K := fun hE =>
-    hΔ (hfc G hnab hp2 hq K z hz hBelow hE)
-  exact h G hnab z hz.orderOf_eq_two K hz.mem hz.subnormal
-    (witness_of_isClassicalMember hp2 hq hz) (not_isSolvable_of_isClassicalMember hz)
-    ⟨⟨h3, h4, hnotE⟩, sl2Witness_of_isClassicalMember hp2 hq hz, hΔ⟩
-
-theorem smallConnectedA2_of_cit (h : CITConnectedA2) : SmallConnectedA2 p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hΔ hB hA2
-  have hnotE : ¬ HasEFrameRank4 K := fun hE => hB (bootData_of_hasEFrameRank4 hz hE)
-  exact h G hnab z hz.orderOf_eq_two K hz.mem hz.subnormal
-    (witness_of_isClassicalMember hp2 hq hz) (not_isSolvable_of_isClassicalMember hz)
-    ⟨⟨h3, h4, hnotE⟩, sl2Witness_of_isClassicalMember hp2 hq hz, hΔ, hA2⟩
-
-theorem smallTypeC_of_cit (h : CITTypeC) : SmallTypeC p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hΔ hB hA2
-  have hnotE : ¬ HasEFrameRank4 K := fun hE => hB (bootData_of_hasEFrameRank4 hz hE)
-  exact h G hnab z hz.orderOf_eq_two K hz.mem hz.subnormal
-    (witness_of_isClassicalMember hp2 hq hz) (not_isSolvable_of_isClassicalMember hz)
-    ⟨⟨h3, h4, hnotE⟩, sl2Witness_of_isClassicalMember hp2 hq hz, hΔ, hA2⟩
 
 end Small
 

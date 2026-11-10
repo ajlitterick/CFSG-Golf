@@ -572,10 +572,6 @@ private lemma exists_isSupp {n p : ℕ} [NeZero p] (hp : p.Prime) (hp2 : p ≠ 2
   · exact ⟨a, (isSupp_pSwap hp hab h).1⟩
   · exact ⟨a, (isSupp_nSwap hp hab h).1⟩
 
-private lemma gen_mem {n p : ℕ} {κ : Type*}
-    {r : κ → MulAut (Fin n → Multiplicative (ZMod p))} {k : κ} :
-    r k ∈ Subgroup.closure (Set.range r) :=
-  Subgroup.subset_closure ⟨k, rfl⟩
 
 private lemma apply_eq_of_notMem_genSet {n p : ℕ} {κ : Type*}
     {r : κ → MulAut (Fin n → Multiplicative (ZMod p))}

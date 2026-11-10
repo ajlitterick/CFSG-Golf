@@ -67,11 +67,6 @@ private theorem frame_of : CFSG.ClassicalInvolution.Asc77.T7QEng.Frame S R R' z 
       squaresSub_conj_mem := fun {g} hg {x} hx => squaresSub_conj_mem hg hx }
 
 
-theorem exists_comm_not_mem_R {s : G} (hsN : s ∈ Nsub S R) (hsn : s ∉ R ⊔ R') :
-    ∃ r ∈ R, ⁅s, r⁆ ∉ squaresSub R := by
-  exact CFSG.ClassicalInvolution.Asc77.T7QEng.exists_comm_not_mem_R_gen (frame_of h h11 h16 h4)
-    hsN hsn
-
 theorem exists_coord_s {s : G} (hsN : s ∈ Nsub S R) (hsn : s ∉ R ⊔ R') :
     ∃ (a b : G) (n : ℕ) (i m : ℤ), QuatCoord R a b n ∧ Odd i ∧ Odd m ∧
       s * a * s⁻¹ = a ^ i ∧ s * b * s⁻¹ = b * a ^ m := by

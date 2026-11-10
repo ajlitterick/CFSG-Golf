@@ -32,16 +32,6 @@ theorem isPSolvable_of_isPGroup {Q : Type} [Group Q] [Finite Q] (h : IsPGroup p 
   exact CFSG.GroupTheory.FT63ChII.card_eq_of_isSimpleGroup_of_isPGroup
     ((h.to_subgroup H).to_quotient T)
 
-theorem isPSolvable_of_normal_sylow {G : Type} [Group G] [Finite G] {M P : Subgroup G}
-    (hP : CFSG.ABGLocalTools.IsSylowOf p P M) (hM : M = normalizer (P : Set G)) :
-    IsPSolvable p ↥M := by
-  obtain ⟨hPM, hPp, hidx⟩ := (CFSG.ABGLocalTools.isSylowOf_iff).1 hP
-  haveI : (P.subgroupOf M).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hPM).2 hM.le
-  refine PSolvableClosure.isPSolvable_of_normal (P.subgroupOf M)
-    (isPSolvable_of_isPGroup (hPp.comap_subtype (K := M))) (isPSolvable_of_not_dvd_card ?_)
-  rw [← Subgroup.index]
-  exact hidx
 
 theorem isPSolvable_of_map {A B : Type} [Group A] [Finite A] [Group B] (f : A →* B) (H : Subgroup A)
     (hker : IsPSolvable p ↥(H ⊓ f.ker)) (him : IsPSolvable p ↥(H.map f)) : IsPSolvable p ↥H := by

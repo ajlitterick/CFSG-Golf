@@ -18,17 +18,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec13
   CFSG.RankThree.LocalRank CFSG.GH74.GLS
 open scoped Pointwise
 
-@[expose] def Item464OneA6K : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], Group.IsPerfect X →
-    Sec4.IsTripleCover X CFSG.Blueprint.NativeSporadic.ON →
-    ∀ P : Subgroup X, Late.IsE27 P → ∀ q ∈ P, q ∉ Subgroup.center X →
-    ∀ M F : Subgroup X, P ≤ Subgroup.normalizer (M : Set X) → Group.IsPerfect M →
-      IsQuasisimple (M ⧸ aschbacherSolvableCore 3 M) →
-      Sec4.IsList46 (M ⧸ aschbacherSolvableCore 3 M) →
-      F ≤ M → F ≤ Subgroup.centralizer ({q} : Set X) → Group.IsPerfect F →
-      Sec4.IsTripleCover (F ⧸ aschbacherSolvableCore 3 F) (alternatingGroup (Fin 6)) →
-      q ∉ Late.sectionCentralizer P M (inSubgroup (aschbacherSolvableCore 3) M) →
-      M = ⊤
 
 @[expose] def Item464OneA5K : Prop :=
   ∀ (X : Type) [Group X] [Finite X], Group.IsPerfect X →

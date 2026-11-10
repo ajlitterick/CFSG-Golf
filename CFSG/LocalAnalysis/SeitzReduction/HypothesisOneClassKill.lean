@@ -469,52 +469,6 @@ theorem exists_conj_eq_mul_of_classKillPerp [CharP K 2] (J : Set (Fin τ.rank)) 
     _ = pinnedX τ K (Pi.single i 1) c * (pinnedX τ K (Pi.single i 1) c * p *
           pinnedX τ K (Pi.single i 1) c * (1 * u) * p⁻¹) := by group
 
-theorem exists_conj_eq_mul_of_perp [CharP K 2] (J : Set (Fin τ.rank)) {i : Fin τ.rank}
-    (hi : i ∈ J)
-    (hstr : ∀ δ ∈ parabolicPosRoots τ J, ¬ IsRoot τ (δ + (2 : ℤ) • Pi.single i 1))
-    {c : K} (hc : c ≠ 0) {u : ModGL τ K}
-    (hu : u ∈ rootSpan τ K (parabolicPosRoots τ J \ {Pi.single i 1}))
-    (h2 : (pinnedX τ K (Pi.single i 1) c * u) ^ 2 = 1) :
-    ∃ p ∈ rootSpan τ K (parabolicPosRoots τ J \ {Pi.single i 1}),
-      ∃ u'' ∈ rootSpan τ K {δ ∈ parabolicPosRoots τ J |
-          ¬ IsRoot τ (δ + Pi.single i 1) ∧ ¬ IsRoot τ (δ - Pi.single i 1)},
-        p * (pinnedX τ K (Pi.single i 1) c * u) * p⁻¹ = pinnedX τ K (Pi.single i 1) c * u'' := by
-  obtain ⟨p, hp, u'', hu'', heq⟩ := exists_conj_eq_mul_of_classKillPerp J hi hstr hc hu h2
-  refine ⟨p, hp, u'', classKill_rootSpan_mono ?_ hu'', heq⟩
-  intro δ hδ
-  exact ⟨hδ.1, not_isRoot_add_sub_of_classKillPair hi hstr hδ.1 hδ.2⟩
-
-theorem commute_pinnedX_of_mem_classKillPerp [CharP K 2] {J : Set (Fin τ.rank)} {i : Fin τ.rank}
-    (hi : i ∈ J)
-    (hstr : ∀ δ ∈ parabolicPosRoots τ J, ¬ IsRoot τ (δ + (2 : ℤ) • Pi.single i 1))
-    {z : ModGL τ K} (hz : z ∈ rootSpan τ K (classKillPerp τ J i)) (c' : K) :
-    pinnedX τ K (Pi.single i 1) c' * z = z * pinnedX τ K (Pi.single i 1) c' ∧
-      pinnedX τ K (-Pi.single i 1) c' * z = z * pinnedX τ K (-Pi.single i 1) c' := by
-  refine ⟨classKill_comm_perp hi hstr c' hz, ?_⟩
-  have hle : rootSpan τ K (classKillPerp τ J i) ≤
-      Subgroup.centralizer {pinnedX τ K (-Pi.single i 1) c'} := by
-    rw [rootSpan_eq_closure, Subgroup.closure_le]
-    rintro _ ⟨γ, hγ, g, rfl⟩
-    rw [SetLike.mem_coe, Subgroup.mem_centralizer_iff]
-    intro h hh
-    rw [Set.mem_singleton_iff] at hh
-    subst hh
-    have hγΨ := classKillPerp_subset hγ
-    have hne : -Pi.single i 1 ≠ γ := by
-      intro h
-      have hh := hγ.1.2.2
-      rw [← h, height_neg, height_single] at hh
-      omega
-    have hne' : -Pi.single i 1 ≠ -γ := fun h => hγΨ.2 (neg_injective h).symm
-    obtain ⟨L, -, hnil, -, hform⟩ := classKill_commutator_factors (R := K) CharTwo.two_eq_zero
-      (IsRoot.neg (isRoot_single τ i)) hγ.1.2.1 hne hne'
-    have hL : L = [] := hnil (by
-      rw [neg_add_eq_sub]
-      exact (not_isRoot_add_sub_of_classKillPair hi hstr hγ.1 hγ.2).2)
-    have h1 := hform c' g
-    rw [hL, List.map_nil, List.prod_nil] at h1
-    exact commutatorElement_eq_one_iff_mul_comm.1 h1
-  exact Subgroup.mem_centralizer_iff.1 (hle hz) _ rfl
 
 theorem exists_conj_eq_mul_of_classKillPerp_sq [CharP K 2] (J : Set (Fin τ.rank))
     {i : Fin τ.rank} (hi : i ∈ J)

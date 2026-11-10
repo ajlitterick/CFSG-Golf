@@ -52,7 +52,6 @@ theorem valid_zCode : Valid zCode := valid_powCode valid_z9Code 3
 theorem valid_t3L {i : ℕ} (hi : i < 243) : Valid t3L[i]! :=
   valid_t3List valid_u9Code valid_z9Code valid_omegaCode hi
 
-theorem valid_e0L {i : ℕ} (hi : i < 9) : Valid e0L[i]! := valid_e0List valid_uCode valid_zCode hi
 
 namespace G28Model
 
@@ -149,8 +148,6 @@ namespace G28Model
       _ = (M.rho a⁻¹ * M.rho a) * decode t3L[j]! := by rw [← ha, mul_assoc]
       _ = decode t3L[j]! := by rw [h1, one_mul]
 
-theorem mem_T3_iff (g : ↥(adjointGroup .G2 K)) :
-    g ∈ M.T3 ↔ ∃ i < 243, M.rho g = decode t3L[i]! := Iff.rfl
 
 theorem t3Elt_mem {n : ℕ} (hn : n < 243) : M.t3Elt n ∈ M.T3 := ⟨n, hn, M.rho_t3Elt hn⟩
 
@@ -291,7 +288,6 @@ theorem e0Elt_mem {n : ℕ} : M.e0Elt n ∈ M.E0 :=
 
 @[expose] noncomputable def gElt' (v : ℕ) : ↥(adjointGroup .G2 K) := M.wordElt conjW[v]!.reverse
 
-theorem conjW_size : conjW.size = 28 := by rfl
 
 theorem rho_gElt {v : ℕ} (hv : v < conjW.size) : M.rho (M.gElt v) = decode conjG[v]! := by
   rw [gElt, M.rho_wordElt, conjG, getElem!_pos (conjW.map wordCode) v (by simpa using hv),

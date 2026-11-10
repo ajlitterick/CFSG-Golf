@@ -52,7 +52,6 @@ theorem stepD_mem (E : Elts Fr H) {a ζ t : L} (ha : InE Fr a) (hζ : Fr ζ = ζ
 
 theorem pA3_deg : pA3 0 = 1 := by decide
 theorem pA3_mem_Deg1 : pA3 ∈ Deg1 Tag.F4 := ⟨mem_rootFinset.1 (by decide +kernel), pA3_deg⟩
-theorem rA3_mem_Deg1 : rA3 ∈ Deg1 Tag.F4 := ⟨mem_rootFinset.1 rA3_root, rA3_deg⟩
 
 variable (AD : ActData L)
 

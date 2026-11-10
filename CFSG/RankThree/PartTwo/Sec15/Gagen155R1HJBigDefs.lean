@@ -81,7 +81,5 @@ end Statements
     pPrimeCoreOf 2 (delta A (lB A) (CFSG.Open.pCoreOf 2 Y ⊔ pPrimeCoreOf 3 (u155 A M X))) ≤
       n155 A K
 
-variable {Pt : ∀ (G : Type) [Group G] [Finite G], Subgroup G → G → Subgroup G → Prop}
-  {P : ∀ (Y : Type) [Group Y], Prop}
 
 end CFSG.RankThree.PartTwo.Sec15

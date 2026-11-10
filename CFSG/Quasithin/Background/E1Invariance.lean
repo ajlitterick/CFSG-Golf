@@ -291,18 +291,6 @@ theorem isE_conj [Finite G] (g : G) {i : ℕ} {H T A K : Subgroup G} :
     IsE i (conjSub g H) (conjSub g T) (conjSub g A) (conjSub g K) ↔ IsE i H T A K :=
   isE_map_mulEquiv (MulAut.conj g)
 
-theorem isEAny_map_mulEquiv [Finite G] [Finite G'] (e : G ≃* G') {H T A K : Subgroup G} :
-    IsEAny (H.map e.toMonoidHom) (T.map e.toMonoidHom) (A.map e.toMonoidHom)
-      (K.map e.toMonoidHom) ↔ IsEAny H T A K :=
-  exists_congr fun _ => isE_map_mulEquiv e
-
-theorem isEAny_conj [Finite G] (g : G) {H T A K : Subgroup G} :
-    IsEAny (conjSub g H) (conjSub g T) (conjSub g A) (conjSub g K) ↔ IsEAny H T A K :=
-  isEAny_map_mulEquiv (MulAut.conj g)
-
-theorem tauOf_conj (g : G) (H T A : Subgroup G) :
-    tauOf (conjSub g H) (conjSub g T) (conjSub g A) = conjSub g (tauOf H T A) :=
-  tauOf_map_mulEquiv (MulAut.conj g) H T A
 
 theorem isSylowIn_conj_iff {p : ℕ} (g : G) {P H : Subgroup G} :
     IsSylowIn p (conjSub g P) (conjSub g H) ↔ IsSylowIn p P H :=
@@ -330,38 +318,6 @@ private theorem exists_map_eq (e : G ≃* G') (K' : Subgroup G') :
     ∃ K : Subgroup G, K.map e.toMonoidHom = K' :=
   ⟨K'.comap e.toMonoidHom, Subgroup.map_comap_eq_self_of_surjective e.surjective K'⟩
 
-theorem mem_sFamily_map_iff (e : G ≃* G') {T X Y K : Subgroup G} :
-    K.map e.toMonoidHom ∈
-        sFamily (T.map e.toMonoidHom) (X.map e.toMonoidHom) (Y.map e.toMonoidHom) ↔
-      K ∈ sFamily T X Y := by
-  have hsup : ∀ A B : Subgroup G,
-      A.map e.toMonoidHom ⊔ B.map e.toMonoidHom = (A ⊔ B).map e.toMonoidHom :=
-    fun A B => (Subgroup.map_sup A B _).symm
-  unfold sFamily
-  simp only [Set.mem_ofPred_eq, hsup]
-  refine and_congr (map_le_map_iff_mulEquiv e) (and_congr (map_le_map_iff_mulEquiv e)
-    (and_congr (map_inj_mulEquiv e) ⟨fun h K'' h1 h2 h3 h4 => ?_, fun h K' h1 h2 h3 h4 => ?_⟩))
-  · refine (map_inj_mulEquiv e).mp (h (K''.map e.toMonoidHom)
-      ((map_le_map_iff_mulEquiv e).mpr h1) ((map_le_map_iff_mulEquiv e).mpr h2) ?_
-      ((map_le_map_iff_mulEquiv e).mpr h4))
-    rw [hsup, map_inj_mulEquiv]
-    exact h3
-  · obtain ⟨K'', rfl⟩ := exists_map_eq e K'
-    rw [hsup, map_inj_mulEquiv] at h3
-    rw [map_le_map_iff_mulEquiv] at h1 h2 h4
-    rw [h K'' h1 h2 h3 h4]
-
-theorem sFamily_map_mulEquiv (e : G ≃* G') (T X Y : Subgroup G) :
-    sFamily (T.map e.toMonoidHom) (X.map e.toMonoidHom) (Y.map e.toMonoidHom) =
-      Subgroup.map e.toMonoidHom '' sFamily T X Y := by
-  ext K'
-  obtain ⟨K, rfl⟩ := exists_map_eq e K'
-  rw [mem_sFamily_map_iff]
-  exact ⟨fun h => ⟨K, h, rfl⟩, fun ⟨K₀, hK₀, h⟩ => by rwa [← (map_inj_mulEquiv e).mp h]⟩
-
-theorem sFamily_conj (g : G) (T X Y : Subgroup G) :
-    sFamily (conjSub g T) (conjSub g X) (conjSub g Y) = conjSub g '' sFamily T X Y :=
-  sFamily_map_mulEquiv (MulAut.conj g) T X Y
 
 theorem eGen_map_image [Finite G] [Finite G'] (e : G ≃* G') (i : ℕ) (H T : Subgroup G)
     (Ω : Set (Subgroup G)) :

@@ -27,21 +27,6 @@ open CFSG.Assembly.LowTwoRank (StatedClassicalModel)
       ∀ φ ∈ dStar A, ∀ X ∈ lStar A, kOf A φ ≤ X →
         ∀ x ∈ A, ¬ KFacts.InducesStdKind X x .field ∧ ¬ KFacts.InducesStdKind X x .graphField
 
-@[expose] def Inspection228List :
-    Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (X A K K₀ : Subgroup G) (m : ℕ),
-    Sec4.IsList46 (X ⧸ aschbacherSolvableCore 3 X) →
-    Maximal (fun B : Subgroup G => IsElemAbelian 3 B) A → Nat.card A = 3 ^ 3 →
-    A ≤ Subgroup.normalizer (X : Set G) →
-    Nat.card (A ⊓ Sec4.thetaQuotCentralizer X : Subgroup G) = 3 →
-    (∀ x ∈ A, Sec4.InducesOuterTheta x X → KFacts.InducesStdKind X x .diagonal) →
-    (∀ ρ ∈ starOf A X, ¬ IsTransvectionOn ρ) →
-    ∀ ρ ∈ starOf A X, IsReflectionOn ρ →
-      K ≤ K₀ → K₀ ≤ X → K₀ ≤ Subgroup.centralizer (fixedInG A ρ : Set G) →
-      (∀ y ∈ X ⊓ Subgroup.centralizer (fixedInG A ρ : Set G), ∀ k ∈ K₀, y * k * y⁻¹ ∈ K₀) →
-      (K = K₀ ∨ StatedClassicalModel K₀ .PSU 3 2 2) →
-      Nonempty (K ≃* projSL 2 (GaloisField 2 m)) → 0 < m → Even m →
-        List228 (X ⧸ aschbacherSolvableCore 3 X) m
 
 @[expose] def Item228ThetaTrivial : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
@@ -78,6 +63,5 @@ end Item228ResProof
 
 open Item228ResProof
 
-variable {G : Type} [Group G]
 
 end CFSG.RankThree.PartTwo.Sec21

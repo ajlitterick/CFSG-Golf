@@ -85,60 +85,6 @@ end Conj
 section Cit3
 
 
-@[expose] def TightEdgeSectionGood (n : ℕ) : Prop :=
-  CIT3Below n → TightBelow n → ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y = n →
-    ∀ (R : Subgroup Y) (S : Sylow 2 R) (t : Y), TightDatum R S t → TightCls Y R S t →
-      ¬ TightInO2 t → TightFStarQuasisimple Y →
-        ¬ TwoSubgroupsFourGenerated (genFittingFStar Y) →
-          ∀ J ∈ omegaNbr (CoreAssembly.conjClass (tightCore R)) (tightCore R), ∀ u : Y,
-            IsUniqueInvolution J u → ∀ (htu : t ∈ Subgroup.centralizer ({u} : Set Y)),
-              GoodThreeElement (R.subgroupOf (Subgroup.centralizer ({u} : Set Y))) (⟨t, htu⟩ : _)
-
-theorem tightLargeLift_of_edgeSection (h : ∀ n, TightEdgeSectionGood n) :
-    ∀ n, TightLargeLift n := by
-  intro n hA hB Y _ _ hn R S t hd hc hE2 hQ hlarge hedge
-  have hΩ := hd.hypOmegaGen
-  have huniq := hd.isUniqueInvolution_core
-  have hK : tightCore R ∈ CoreAssembly.conjClass (tightCore R) :=
-    CoreAssembly.mem_conjClass_self _
-  obtain ⟨J, hJ⟩ := hd.nonempty_omegaNbr_of_not_dEdgeless hedge
-  obtain ⟨u, hu⟩ := Sec6Gen.exists_uniqueInvolution hΩ hJ.1
-  obtain ⟨-, hu2, hut, htu, huK, T, hTJ, -, hTc, hTD⟩ := hd.edge_involution hJ hu
-  have hg1 := h n hA hB Y hn R S t hd hc hE2 hQ hlarge J hJ u hu htu
-  obtain ⟨g, hgJ'⟩ := hJ.1
-  have hgJ : conjSub g (tightCore R) = J := hgJ'
-  have hJcore : tightCore (conjSub g R) = J := by rw [← conjSub_tightCore, hgJ]
-  have hgu : g * t * g⁻¹ = u := by
-    have h1 := huniq.conj g
-    rw [hgJ] at h1
-    exact h1.eq hu
-  obtain ⟨SJ, hdJ, ⟨eJ⟩⟩ := hd.conj g
-  rw [hgu] at hdJ
-  have hcJ : TightCls Y (conjSub g R) SJ u := by
-    have := hc.conj g eJ
-    rwa [hgu] at this
-  have hE2J : ¬ TightInO2 u := by
-    have := not_tightInO2_conj hE2 g
-    rwa [hgu] at this
-  have hJΩ : J ∈ CoreAssembly.conjClass (tightCore R) := hJ.1
-  have hKJ : tightCore R ∈ omegaNbr (CoreAssembly.conjClass (tightCore R)) J :=
-    Q3CL.T3.omegaNbr_symm Sec6Gen.l6_2Gen hΩ hK hJΩ hJ
-  have hfam : CoreAssembly.conjClass (tightCore (conjSub g R)) =
-      CoreAssembly.conjClass (tightCore R) := by
-    rw [← conjSub_tightCore, conjClass_conjSub]
-  have hKJ' : tightCore R ∈ omegaNbr (CoreAssembly.conjClass (tightCore (conjSub g R)))
-      (tightCore (conjSub g R)) := by
-    rw [hfam, hJcore]
-    exact hKJ
-  obtain ⟨-, -, htu', -, -, T', hT'K, -, hT'c, hT'D⟩ := hdJ.edge_involution hKJ' huniq
-  have hg2 := h n hA hB Y hn (conjSub g R) SJ u hdJ hcJ hE2J hQ hlarge _ hKJ' t huniq hut
-  have hTJ' : IsSylow2In T (tightCore (conjSub g R)) := hJcore ▸ hTJ
-  obtain ⟨L, hL⟩ := hd.exists_member_dbar hdJ hut huK hTJ' hTc hTD hT'K hT'c hT'D hg2
-  have hcard : Nat.card hd.Dbar + 1 ≤ n := by
-    have := hd.card_dbar_lt hE2
-    omega
-  exact hd.good_of_section_member (CIT3Below.mono hcard hA) hut huK hu2 htu hg1 hL
-
 end Cit3
 
 end CFSG.ClassicalInvolution.Q3

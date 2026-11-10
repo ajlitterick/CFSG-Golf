@@ -33,8 +33,6 @@ variable {X : Type*} [Group X]
     have := B.inv_mem (ha h hh)
     rwa [show (h⁻¹ * a * h)⁻¹ = h⁻¹ * a⁻¹ * h by group] at this
 
-theorem mem_coreIn {B G₀ : Subgroup X} {x : X} : x ∈ coreIn B G₀ ↔ ∀ h ∈ G₀, h⁻¹ * x * h ∈ B :=
-  Iff.rfl
 
 theorem coreIn_le (B G₀ : Subgroup X) : coreIn B G₀ ≤ B := fun x hx => by
   simpa using hx 1 G₀.one_mem
@@ -116,10 +114,6 @@ theorem coe_inv_mul_coe' (g : SpecialLinearGroup (Fin n) K) :
               ((g : Matrix (Fin n) (Fin n) K) *ᵥ v) := by rw [hg2 v hv]
         _ = v := by rw [mulVec_mulVec, coe_inv_mul_coe', one_mulVec]
 
-theorem mem_radicalOf {W : Submodule K (Fin n → K)} {g : SpecialLinearGroup (Fin n) K} :
-    g ∈ radicalOf W ↔ (∀ v, (g : Matrix (Fin n) (Fin n) K) *ᵥ v - v ∈ W) ∧
-      ∀ v ∈ W, (g : Matrix (Fin n) (Fin n) K) *ᵥ v = v :=
-  Iff.rfl
 
 theorem conj_mem_radicalOf {W : Submodule K (Fin n → K)} {s r : SpecialLinearGroup (Fin n) K}
     (hs : s ∈ stabilizer W) (hr : r ∈ radicalOf W) : s * r * s⁻¹ ∈ radicalOf W := by

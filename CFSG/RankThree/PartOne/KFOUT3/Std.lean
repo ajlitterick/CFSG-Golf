@@ -130,7 +130,6 @@ theorem permB_permB (σ : Equiv.Perm (Fin 3)) (b : Blk) : permB σ⁻¹ (permB �
   apply Subtype.ext
   simp [permB]
 
-theorem swapB_swapB (b : Blk) : swapB (swapB b) = b := rfl
 
 theorem rho_false (π : Equiv.Perm (Fin 3)) (b : Blk) : rho π false b = permB π b := rfl
 

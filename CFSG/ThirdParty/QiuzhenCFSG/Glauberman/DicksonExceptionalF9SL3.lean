@@ -37,8 +37,6 @@ private abbrev ExceptionalSL3 :=
 private def exceptionalSL3Y : ExceptionalSL3 :=
   ⟨!![1, 0; 1, 1], by decide⟩
 
-private def exceptionalSL3Z : ExceptionalSL3 :=
-  ⟨!![0, 2; 1, 0], by decide⟩
 
 private def exceptionalSL3Z5 : ExceptionalSL5 :=
   ⟨!![1, 1; 3, 4], by decide⟩

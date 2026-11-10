@@ -26,47 +26,6 @@ open scoped MatrixGroups commutatorElement
 open CFSG.LieType.Steinberg.CentralExt.TwistedE6TwoCover
 open CFSG.GroupTheory
 
-theorem exists_whole_compact_pair_in_original_joined_two_quotient
-    {G : Type} [Group G] [Finite G] {X Bs : Subgroup G}
-    {hmark : GGInnerDiagOnLabel (fun _ lab => lab = ⟨.twE6, 0, 1⟩) 3 Bs X}
-    (D : ExcTwE6CoverData hmark)
-    {ht : GGExcFive .twistedE6} (M : GGDatumModel .twistedE6 1 3 ht) :
-    ∃ (Ψ : SL(3, actualQuadraticSubfield 1) →*
-        e6Data_valid.minGroup (actualQuadraticSubfield 1))
-      (ρ : SL(3, actualQuadraticSubfield 1) →*
-        adjointGroup Tag.E6 (actualQuadraticSubfield 1))
-      (c : e6Data_valid.minGroup GGL)
-      (theta : Su (actualQuadraticSubfield 1) 2 1 3 →* (ggU .twistedE6 0 1).K),
-      ρ = (e6IsogenyT (actualQuadraticSubfield 1)).comp Ψ ∧
-      CFSG.RankThree.PartOne.KF4.IsA2Frame
-        ((adjointGroup Tag.E6 (actualQuadraticSubfield 1)).subtype.comp ρ)
-        (fun i j => CFSG.RankThree.E6.chainRoot CFSG.RankThree.E6.chain13 i j) ∧
-      ((adjointGroup Tag.E6 (actualQuadraticSubfield 1)).subtype.comp ρ) =
-        e6rhoA2₁ (actualQuadraticSubfield 1) ∧
-      Function.Injective theta ∧ e6IsogenyAlgebraic c = M.D.g0 ∧
-      ((minBC e6Data_valid (ggRatEmb 2)).comp
-        (CFSG.LieType.Steinberg.TwistedE6.fixedGroup
-          (GaloisField 2 2) (CFSG.LieType.Steinberg.Exceptional.frobQ 2 1)).subtype).comp
-        theta = (MulAut.conj c).toMonoidHom.comp
-          (((minBC e6Data_valid (actualQuadraticSubfield 1).subtype).comp Ψ).comp
-            (CFSG.ClassicalInvolution.Models.suToSL
-              (unitaryInvolution (actualQuadraticSubfield 1) 2 1) 3)) ∧
-      (ggIotaK .twistedE6 0 1 (by decide)).comp theta =
-        (MulAut.conj M.D.g0).toMonoidHom.comp
-          (e6IsogenyAlgebraic.comp
-            (((minBC e6Data_valid (actualQuadraticSubfield 1).subtype).comp Ψ).comp
-              (CFSG.ClassicalInvolution.Models.suToSL
-                (unitaryInvolution (actualQuadraticSubfield 1) 2 1) 3))) ∧
-      Function.Injective (D.joinedScMap.comp theta) ∧
-      ∀ (K : Type) [Field K] [Finite K] [CharP K 2] (f' : ℕ),
-        Nat.card K = (2 ^ f') ^ 2 →
-        Nat.card ((B12 (actualQuadraticSubfield 1) 2 1).map (D.joinedScMap.comp theta)) =
-          2 ^ f' * ((2 ^ f') ^ 2 - 1) →
-        UnitaryBlockStandardPair K 2 f' (D.joinedScMap.comp theta).range
-          ((B12 (actualQuadraticSubfield 1) 2 1).map (D.joinedScMap.comp theta))
-          ((B23 (actualQuadraticSubfield 1) 2 1).map (D.joinedScMap.comp theta)) := by
-  exact exists_twisted_originalU_marked_pair_mod_central (n := 0) M
-    Nat.prime_three (by decide) (by decide) D.joinedScMap D.joinedScMap_ker_le_center
 
 open CFSG.EvenSmallLie.TwoE6 CFSG.LieType.Chevalley.C2E6Std
 

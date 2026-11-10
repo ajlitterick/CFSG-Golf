@@ -95,10 +95,6 @@ theorem mem_usigOrbit_self
     (x : Wv v0) : x ∈ usigOrbit x :=
     ⟨1, Usig.one_mem, by rw [wAct_one]; rfl⟩
 
-theorem usigOrbit_subset_OmegaW
-    {x : Wv v0} (hx : x ∈ OmegaW) : usigOrbit x ⊆ OmegaW := by
-  rintro _ ⟨u, -, rfl⟩
-  exact wAct_mem_OmegaW u hx
 
 theorem usigOrbit_sigma :
     usigOrbit sigmaW = {sigmaW} := by

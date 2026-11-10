@@ -19,8 +19,6 @@ open CFSG.Sporadic.Th (allIn_eq_true)
 @[expose] def lyAct : J →* Equiv.Perm (Fin 8835156) :=
   @MulAction.toPermHom J (Fin 8835156) _ lyXAction
 
-theorem lyAct_apply (g : J) (i : Fin 8835156) :
-    lyAct g i = ptEquiv.symm (g • ptEquiv i) := rfl
 
 theorem lyAct_eq_iff (g : J) (i j : Fin 8835156) :
     lyAct g i = j ↔ g • ptEquiv i = ptEquiv j :=

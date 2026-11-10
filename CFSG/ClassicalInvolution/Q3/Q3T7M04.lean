@@ -165,22 +165,6 @@ theorem exists_lift_twin (hH : H ≠ ⊤) (hcent : E186Cent2 Ω K H) (hN2 : IsPG
     ∃ L ∈ twinSet Ω K, L.map (QuotientGroup.mk' N) = Lb :=
   CFSG.ClassicalInvolution.T7FU.Asc77.AscE186.exists_lift_twin hH hcent hN2 c.toU hK hLb
 
-theorem exists_lift_kperp (c : CentQuot Ω N) {L : Subgroup G} (hL : L ∈ Ω)
-    {Jb : Subgroup (G ⧸ N)}
-    (hJb : Jb ∈ KPerp (quotFamily Ω N) (L.map (QuotientGroup.mk' N))) :
-    ∃ J ∈ KPerp Ω L, J.map (QuotientGroup.mk' N) = Jb :=
-  T7FU.Asc77.AscE186.exists_lift_kperp c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hL hJb
-
-theorem exists_lift_sylow_pair (hN2 : IsPGroup 2 ↥N) (c : CentQuot Ω N) {L J : Subgroup G}
-    (hL : L ∈ Ω) (hJ : J ∈ KPerp Ω L) {Rb₁ Rb₂ : Subgroup (G ⧸ N)}
-    (hRb₁ : Rb₁ ∈ RSet (quotFamily Ω N)) (hRb₁L : Rb₁ ≤ L.map (QuotientGroup.mk' N))
-    (hRb₂ : Rb₂ ∈ RSet (quotFamily Ω N)) (hRb₂J : Rb₂ ≤ J.map (QuotientGroup.mk' N))
-    (hc : Commutes Rb₁ Rb₂ ∨ Rb₂ = Rb₁) :
-    ∃ R₁ R₂ : Subgroup G, R₁ ∈ RSet Ω ∧ R₁ ≤ L ∧ R₂ ∈ RSet Ω ∧ R₂ ≤ J ∧
-      R₁.map (QuotientGroup.mk' N) = Rb₁ ∧ R₂.map (QuotientGroup.mk' N) = Rb₂ ∧
-      (Commutes R₁ R₂ ∨ R₂ = R₁) :=
-  T7FU.Asc77.AscE186.exists_lift_sylow_pair hN2 c.toU (fun _ hJ => perfect_of_mem c.hyp hJ) hL hJ
-    hRb₁ hRb₁L hRb₂ hRb₂J hc
 
 theorem MinCex.mem_of_conj_mem (c : MinCex Ω K S R W H) (h182 : E18_2)
     {M : Subgroup G} (hM : M ∈ dstarComp Ω K) {u : G} (hu : u ∈ M) (hu4 : orderOf u = 4)

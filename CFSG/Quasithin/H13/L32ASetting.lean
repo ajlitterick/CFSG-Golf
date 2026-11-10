@@ -40,8 +40,6 @@ theorem isTSub_V1 (h : Hyp147 G T L V) (hMod : StmtL32NModule) : IsTSub T V (fsu
     exact ⟨(Subgroup.mem_normalizer_iff.mp (hTV ht) x).mpr hxV,
       (Subgroup.mem_normalizer_iff.mp (hTZ ht) x).mpr hxZ⟩
 
-omit [Finite G] in
-theorem fsuU_eq_u128 (T V : Subgroup G) : fsuU T V = u128 V (fsuV1 T V) := rfl
 
 theorem isHzOne_hz (h : Hyp147 G T L V) (h63 : Thm14_7_63) :
     IsHzOne T L (fsuV1 T V) (L32A.hz T V) := by

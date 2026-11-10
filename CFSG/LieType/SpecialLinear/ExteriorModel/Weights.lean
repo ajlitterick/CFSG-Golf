@@ -47,13 +47,6 @@ theorem bPerm_mul (ε : τ → Finset (Fin n)) (π π' : τ → Equiv.Perm (Fin 
   · rintro ⟨c, ⟨b, hb, rfl⟩, hc⟩
     exact ⟨b, hb, by simpa [Equiv.Perm.mul_apply] using hc⟩
 
-omit [Fintype τ] [DecidableEq τ] in
-theorem bPerm_injective (ε : τ → Finset (Fin n)) (π : τ → Equiv.Perm (Fin n)) :
-    Function.Injective (bPerm ε π) := by
-  intro s t h
-  funext p
-  apply Subtype.ext
-  exact Finset.map_injective (π p.1).toEmbedding (Subtype.ext_iff.mp (congrFun h p))
 
 omit [Fintype τ] [DecidableEq τ] in
 theorem bWt_bPerm (ε : τ → Finset (Fin n)) (π : τ → Equiv.Perm (Fin n)) (s : BIdx ε) :
@@ -474,13 +467,6 @@ theorem homComp_bWt_mem_bRad (ε : τ → Finset (Fin n)) {w : BIdx ε → k} (h
   exact homComp_mem_dotRad (deg := bWt ε) (C := bCyc (k := k) ε)
     (fun e y hy => homComp_bWt_mem_bCyc ε hy e) hw e
 
-theorem bMat_diagonal_mulVec_single (ε : τ → Finset (Fin n)) (d : τ → Fin n → k) (s : BIdx ε) :
-    bMat ε (fun r => Matrix.diagonal (d r)) *ᵥ Pi.single s (1 : k) =
-      (∏ p : τ × Fin n, ∏ a ∈
-        ((s p : Set.powersetCard (Fin n) (bdeg ε p)) : Finset (Fin n)), d p.1 a) •
-        Pi.single s 1 := by
-  rw [bMat, kronMinor_diagonal, Matrix.diagonal_mulVec_single, mul_one, ← Pi.single_smul']
-  simp
 
 theorem bMat_permMatrix_mulVec_single [CharP k 2] (ε : τ → Finset (Fin n))
     (π : τ → Equiv.Perm (Fin n)) (s : BIdx ε) :
@@ -536,11 +522,6 @@ theorem single_notMem_bRad (ε : τ → Finset (Fin n)) {s : BIdx ε}
   rw [single_one_dotProduct, Pi.single_eq_same]
   exact one_ne_zero
 
-theorem notMem_bRad_of_bDer_mulVec_notMem (ε : τ → Finset (Fin n))
-    (b : τ × Fin n × Fin n) {x : BIdx ε → k} (hx : bDer ε b *ᵥ x ∉ bRad ε) :
-    x ∉ bRad ε := by
-  intro hxmem
-  exact hx (bDer_mulVec_mem_bRad ε b hxmem)
 
 theorem bMat_mulVec_notMem_bRad [CharP k 2] (ε : τ → Finset (Fin n))
     (h : τ → Matrix.SpecialLinearGroup (Fin n) k) {x : BIdx ε → k} (hx : x ∉ bRad ε) :
@@ -628,16 +609,6 @@ theorem linearIndependent_mk_of_bWt (ε : τ → Finset (Fin n)) {ι : Type*} (v
   by_contra hgi
   exact hv i ((Submodule.smul_mem_iff (p := bRad ε) hgi).mp hsmul_mem)
 
-theorem exists_apply_mulVec_ne_zero {β : Type*} [Fintype β] {A : Matrix β β k}
-    {v : β → k} {i : β} (h : (A *ᵥ v) i ≠ 0) : ∃ j, A i j ≠ 0 ∧ v j ≠ 0 := by
-  by_contra hc
-  push Not at hc
-  apply h
-  rw [Matrix.mulVec, dotProduct]
-  exact Finset.sum_eq_zero fun j _ => by
-    by_cases h0 : A i j = 0
-    · rw [h0, zero_mul]
-    · rw [hc j h0, mul_zero]
 
 theorem bWt_of_bDer_mulVec_ne_zero (ε : τ → Finset (Fin n)) (x : τ × Fin n × Fin n)
     {v : BIdx ε → k} {w : τ → Fin n → ℤ} (hv : ∀ s, v s ≠ 0 → bWt ε s = w)

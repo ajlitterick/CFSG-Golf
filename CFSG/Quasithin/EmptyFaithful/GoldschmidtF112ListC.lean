@@ -77,109 +77,11 @@ theorem F112ConclC.symm {L1 L2 S : Subgroup G} (h : F112ConclC L1 L2 S) : F112Co
   obtain ⟨L1', L2', hsw, hZ, hl, h2⟩ := h
   exact ⟨L1', L2', hsw.symm, fun hc => hZ hc.symm, hl, h2⟩
 
-theorem f112ConclC_comm {L1 L2 S : Subgroup G} : F112ConclC L1 L2 S ↔ F112ConclC L2 L1 S :=
-  ⟨F112ConclC.symm, F112ConclC.symm⟩
-
-theorem F112ListC.toListLegacyBare {L1 L2 S : Subgroup G} (h1 : L1 ⊔ S = L1) (h2 : L2 ⊔ S = L2)
-    (hB : bigB L1 L2 S = S)
-    (hD : Nonempty (oTwoQuot ↥L1 ≃* DihedralGroup 5) → Nat.card (pCoreOf 2 L1) = 2 ^ 10 →
-      Nat.card (pCoreOf 2 L2) = 2 ^ 11 → False)
-    (h : F112ListC L1 L2 S) : F112ListBare L1 L2 S := by
-  have e1 : pCoreOf 2 (L1 ⊔ S) = pCoreOf 2 L1 := by rw [h1]
-  have e2 : pCoreOf 2 (L2 ⊔ S) = pCoreOf 2 L2 := by rw [h2]
-  unfold F112ListC at h
-  unfold F112ListBare
-  dsimp only at h ⊢
-  rw [hB, e1, e2] at h
-  rw [hB, e1, e2]
-  rcases h with ⟨f, hf, hA, hb | ⟨rfl, ⟨i1⟩, ⟨i2⟩⟩⟩ | h | h | h |
-    ⟨a, hA, hq | ⟨rfl, hd⟩, hc1, hq2, hc2⟩ | h | h | h | h | h | h | h | ⟨hA, hq1, hV, hq2, hc2⟩
-  · exact Or.inl ⟨f, hf, hA, Or.inl hb⟩
-  · exact Or.inl ⟨1, hf, hA, Or.inr ⟨rfl, ⟨(MulEquiv.subgroupCongr h1.symm).trans i1⟩,
-      ⟨(MulEquiv.subgroupCongr h2.symm).trans i2⟩⟩⟩
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨a, hA, hq, hc1, hq2, hc2⟩))))
-  · exact (hD hd (by simpa using hc1) (by simpa using hc2)).elim
-  · iterate 5 right
-    exact Or.inl h
-  · iterate 6 right
-    exact Or.inl h
-  · iterate 7 right
-    exact Or.inl h
-  · iterate 8 right
-    exact Or.inl h
-  · iterate 9 right
-    exact Or.inl h
-  · iterate 10 right
-    exact Or.inl h
-  · iterate 11 right
-    exact Or.inl h
-  · rw [h1] at hV
-    iterate 12 right
-    exact ⟨hA, hq1, hV, hq2, hc2⟩
-
-theorem F112ListBare.toListC {L1 L2 S : Subgroup G} (h1 : L1 ⊔ S = L1) (h2 : L2 ⊔ S = L2)
-    (hB : bigB L1 L2 S = S) (h : F112ListBare L1 L2 S) : F112ListC L1 L2 S := by
-  have e1 : pCoreOf 2 (L1 ⊔ S) = pCoreOf 2 L1 := by rw [h1]
-  have e2 : pCoreOf 2 (L2 ⊔ S) = pCoreOf 2 L2 := by rw [h2]
-  unfold F112ListBare at h
-  unfold F112ListC
-  dsimp only at h ⊢
-  rw [hB, e1, e2] at h
-  rw [hB, e1, e2]
-  rcases h with ⟨f, hf, hA, hb | ⟨rfl, ⟨i1⟩, ⟨i2⟩⟩⟩ | h | h | h | ⟨a, hA, hq, hc1, hq2, hc2⟩ |
-    h | h | h | h | h | h | h | ⟨hA, hq1, hV, hq2, hc2⟩
-  · exact Or.inl ⟨f, hf, hA, Or.inl hb⟩
-  · exact Or.inl ⟨1, hf, hA, Or.inr ⟨rfl, ⟨(MulEquiv.subgroupCongr h1).trans i1⟩,
-      ⟨(MulEquiv.subgroupCongr h2).trans i2⟩⟩⟩
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨a, hA, Or.inl hq, hc1, hq2, hc2⟩))))
-  · iterate 5 right
-    exact Or.inl h
-  · iterate 6 right
-    exact Or.inl h
-  · iterate 7 right
-    exact Or.inl h
-  · iterate 8 right
-    exact Or.inl h
-  · iterate 9 right
-    exact Or.inl h
-  · iterate 10 right
-    exact Or.inl h
-  · iterate 11 right
-    exact Or.inl h
-  · rw [← h1] at hV
-    iterate 12 right
-    exact ⟨hA, hq1, hV, hq2, hc2⟩
-
-
-theorem f112List_iff_listC (L1 L2 S : Subgroup G) :
-    F112List L1 L2 S ↔ F112ListC L1 L2 S := Iff.rfl
 
 end Lists
 
 @[expose] def F112ConclPredC : F112Conc :=
   fun _ _ _ L1 L2 S => F112ConclC L1 L2 S
 
-@[expose] def F112StatementC : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L1 L2 S : Subgroup G), F112Hyp L1 L2 S → F112ConclC L1 L2 S
-
-theorem f112Statement_iff_corrected : F112Statement ↔ F112StatementC := Iff.rfl
-
-theorem f112StatementC_of_slices (hss : F112SliceSS F112ConclPredC)
-    (htits : F112SliceTits F112ConclPredC) (hs3 : F112SliceS3Big F112ConclPredC)
-    (hfd : F112SliceFDBig) (hbig : F112SliceBig F112ConclPredC) (hex : F112SliceExotic) :
-    F112StatementC :=
-  fun G _ _ L1 L2 S h => f112_of_slices hss htits hs3 hfd hbig hex G L1 L2 S h
-
-theorem f112Statement_of_corrected_slices (hss : F112SliceSS F112ConclPredC)
-    (htits : F112SliceTits F112ConclPredC) (hs3 : F112SliceS3Big F112ConclPredC)
-    (hfd : F112SliceFDBig) (hbig : F112SliceBig F112ConclPredC) (hex : F112SliceExotic) :
-    F112Statement :=
-  f112StatementC_of_slices hss htits hs3 hfd hbig hex
 
 end CFSG.Quasithin

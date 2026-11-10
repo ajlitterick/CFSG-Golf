@@ -191,22 +191,6 @@ theorem steinberg_inner_self (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F)
   rw [card_PSL_complex hF, h]
   ring
 
-theorem steinberg_inner_one (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F) {ν : F}
-    (hν : ¬ IsSquare ν) : BlocksInnerProduct (steinberg F) 1 = 0 := by
-  have h := card_mul_blocksInnerProduct hF hq hν
-    (blocksVChar_isClassFunction steinberg_mem_blocksVChar) one_isClassFunction 0 1
-    (fun x hx hx1 => steinberg_of_mem_unipotent hF hx hx1) (fun _ _ _ => rfl)
-    (fun _ => 1) (fun _ => 1)
-    (fun x hx => steinberg_of_mem_splitTorus x.2 (fun h => hx (Subtype.ext h))) (fun _ _ => rfl)
-    (fun _ => -1) (fun _ => 1)
-    (fun x hx => steinberg_of_mem_nonsplitTorus hν x.2 (fun h => hx (Subtype.ext h)))
-    (fun _ _ => rfl)
-  simp only [map_one, mul_one, Pi.one_apply, steinberg_one, Finset.sum_neg_distrib,
-    sum_const_one_subgroup] at h
-  rw [card_splitTorus_complex hF, card_nonsplitTorus_complex hF hν] at h
-  apply mul_left_cancel₀ (card_PSL_complex_ne_zero (F := F))
-  rw [h, mul_zero]
-  ring
 
 theorem principal_inner_discrete (hF : ringChar F ≠ 2) (hq : 5 ≤ Fintype.card F) {ν : F}
     (hν : ¬ IsSquare ν) (α : splitTorus F →* ℂˣ) (β : nonsplitTorus ν →* ℂˣ) :

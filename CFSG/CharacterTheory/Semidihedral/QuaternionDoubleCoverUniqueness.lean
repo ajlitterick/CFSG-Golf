@@ -27,10 +27,6 @@ theorem central_double_cover_kernel_twoGroup (z : E) (hz : orderOf z = 2)
   P.comapOfKerIsPGroup pi (central_double_cover_kernel_twoGroup z hz pi hker)
     (by rw [MonoidHom.range_eq_top.mpr hpi]; exact le_top)
 
-theorem preimageSylow_coe (z : E) (hz : orderOf z = 2)
-    (pi : E →* G) (hpi : Function.Surjective pi)
-    (hker : pi.ker = Subgroup.zpowers z) (P : Sylow 2 G) :
-    (preimageSylow z hz pi hpi hker P : Subgroup E) = (P : Subgroup G).comap pi := rfl
 
 @[expose] def preimageProjection (pi : E →* G) (P : Subgroup G) :
     P.comap pi →* P :=

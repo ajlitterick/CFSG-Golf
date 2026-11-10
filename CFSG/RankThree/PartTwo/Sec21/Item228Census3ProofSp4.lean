@@ -21,8 +21,6 @@ theorem transpose_symJ2_mul (B : Matrix (Fin 2) (Fin 2) K) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [symJ2, Matrix.mul_apply, Fin.sum_univ_two] <;> ring
 
-@[expose] def flatM (B : Matrix (Fin 2) (Fin 2) K) : Matrix (Fin 2) (Fin 2) K :=
-  !![B 1 1, -B 1 0; -B 0 1, B 0 0]
 
 variable (K) in
 @[expose] def gramPlane : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K :=

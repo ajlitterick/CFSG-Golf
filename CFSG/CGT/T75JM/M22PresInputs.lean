@@ -54,13 +54,9 @@ abbrev M22Word : Type := List (Fin 7 × Bool)
 
 abbrev m22RelsN6 := restrictWords (subsetOf 7 [0, 1, 2, 3, 4, 5]) m22Rels
 
-@[expose] def m22Enum7 : Bool := subsetCheck m22Rels [0, 1, 2, 3, 4, 5] 200000 77
 
 abbrev m22RelsK := restrictWords (subsetOf _ [0, 1]) m22RelsN6
 
-@[expose] def m22Enum6 : Bool := subsetCheck m22RelsN6 [0, 1] 200000 16
-
-@[expose] def m22Enum2 : Bool := subsetCheck m22RelsK [] 20000 360
 
 @[expose] def m22GenWord : ℕ → List ℤ
   | 0 => [2, 1, 2, 2, 1, 2, 1, 2, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, 2, 2, 1, 2]
@@ -119,8 +115,5 @@ abbrev m22RelsK := restrictWords (subsetOf _ [0, 1]) m22RelsN6
     wordT 22 (m22ImgLetter T0 T1 T2 T3 T4 T5 T6 V0 V1 V2 V3 V4 V5 V6) m22SurjA == m22Data.tA &&
     wordT 22 (m22ImgLetter T0 T1 T2 T3 T4 T5 T6 V0 V1 V2 V3 V4 V5 V6) m22SurjB == m22Data.tB
 
-@[expose] def m22Enums : Bool := m22Enum7 && m22Enum6 && m22Enum2
-
-@[expose] def m22Checks : Bool := m22Enums && m22TabCheck
 
 end CFSG.CGT.T75JM

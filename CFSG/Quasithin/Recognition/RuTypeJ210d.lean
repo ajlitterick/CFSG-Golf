@@ -257,19 +257,6 @@ theorem card_autG_Y
   rw [he] at h
   exact Nat.dvd_antisymm hR h
 
-omit [Finite G] in
-theorem isCyclic_autG_Y {p : ℕ} (hp : p = 7 ∨ p = 13) {Y : Subgroup G} (hY : Nat.card Y = p) :
-    IsCyclic (autNHom Y).range := by
-  have hpp : p.Prime := by rcases hp with rfl | rfl <;> norm_num
-  have : Fact p.Prime := ⟨hpp⟩
-  have hcyc : IsCyclic Y := isCyclic_of_prime_card hY
-  have hU : IsCyclic (ZMod (Nat.card Y))ˣ := by
-    rw [hY]
-    exact ZMod.isCyclic_units_prime hpp
-  have : IsCyclic (MulAut Y) :=
-    isCyclic_of_surjective (IsCyclic.mulAutMulEquiv Y).symm.toMonoidHom
-      (IsCyclic.mulAutMulEquiv Y).symm.surjective
-  infer_instance
 
 theorem card_normalizer_Y
     {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) {p : ℕ} (hp : p = 7 ∨ p = 13)
@@ -278,26 +265,6 @@ theorem card_normalizer_Y
   rw [card_normalizer_eq_mul, M.card_centralizer_Y hs hs1 hp hYL hY,
     M.card_autG_Y hs hs1 hp hYL hY]
 
-theorem lemma_J210
-    {s : G} (hs : s ∈ M.S0) (hs1 : s ≠ 1) {p : ℕ} (hp : p = 7 ∨ p = 13)
-    {Y : Subgroup G} (hYL : Y ≤ Ls s)
-    (hYQ : ∃ Q : Sylow p (Ls s), (Q : Subgroup (Ls s)) = Y.subgroupOf (Ls s)) :
-    ((∃ P : Sylow p G, (P : Subgroup G) = Y) ∧ Nat.card Y = p) ∧
-    Subgroup.normalizer (Y : Set G) ≤ Subgroup.normalizer (M.S0 : Set G) ∧
-    (Y ⊔ M.S0 = Subgroup.centralizer (Y : Set G) ∧
-      IsCyclic (autNHom Y).range ∧ Nat.card (autNHom Y).range = p - 1) := by
-  have hY := M.card_of_sylow_Ls hs hs1 hp hYL hYQ
-  refine ⟨⟨M.exists_sylow_Y hs hs1 hp hYL hY, hY⟩, fun g hg =>
-    mem_normalizer_of_conj_mem fun a ha => M.conj_mem_S0_of_normalizes hs hs1 hp hYL hY hg ha,
-    le_antisymm ?_ ?_, isCyclic_autG_Y hp hY, M.card_autG_Y hs hs1 hp hYL hY⟩
-  · refine sup_le (fun y hy => ?_) (M.S0_le_centralizer hs hs1 hYL)
-    rw [Subgroup.mem_centralizer_iff]
-    intro y' hy'
-    exact comm_Y hp hY hy' hy
-  · intro x hx
-    obtain ⟨a, ha, y, hy, rfl⟩ := M.exists_S0_mul_of_centralizes hs hs1 hp hYL hY
-      (fun y hy => (Subgroup.mem_centralizer_iff.mp hx y hy).symm)
-    exact mul_mem (Subgroup.mem_sup_right ha) (Subgroup.mem_sup_left hy)
 
 end RuDataM
 

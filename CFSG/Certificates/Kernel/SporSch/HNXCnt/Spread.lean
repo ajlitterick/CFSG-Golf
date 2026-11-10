@@ -200,9 +200,6 @@ theorem spread_step (t : Nat) (f : Nat → Nat) (hf : ∀ j, f j < 8) (N : Nat) 
   · exact Nat.zero_or _
   · exact Nat.or_zero _
 
-theorem spread_rec_succ {α : Type} (z : α) (F : Nat → α → α) (n : Nat) :
-    (Nat.rec (motive := fun _ => α) z F (n + 1) : α) = F n (Nat.rec (motive := fun _ => α) z F n) :=
-  rfl
 
 theorem spread_rec_inv {α : Type} (z : α) (F : Nat → α → α) (P : Nat → α → Prop) (h0 : P 0 z)
     (hs : ∀ n a, P n a → P (n + 1) (F n a)) : ∀ n, P n (Nat.rec (motive := fun _ => α) z F n) := by
@@ -352,9 +349,6 @@ theorem spread_lane {MS x : Nat} (hm : masksOK MS = true) (hx : x < 2 ^ 399) :
   rw [spread_eq hm hx]
   exact spread_extract _ (fun j => Nat.mod_lt _ (by omega)) 133
 
-theorem spread_lane' {MS x : Nat} (hm : masksOK MS = true) (hx : x < 2 ^ 399) :
-    ∀ l < 133, spread MS x / 2 ^ (13 * l) % 2 ^ 13 = x / 2 ^ (3 * l) % 8 :=
-  spread_lane hm hx
 
 end CFSG.KS.SporSch.HNXP
 

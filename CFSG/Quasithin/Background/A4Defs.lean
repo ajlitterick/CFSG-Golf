@@ -431,18 +431,11 @@ theorem conj_mem_centralizerSection {M X Z : Subgroup G} {g m : G}
 
 @[expose] def IsMaxSignalizer (M X R : Subgroup G) : Prop := Maximal (IsSignalizer M X) R
 
-theorem IsMaxSignalizer.isSignalizer {M X R : Subgroup G} (h : IsMaxSignalizer M X R) :
-    IsSignalizer M X R := h.1
 
 theorem IsMaxSignalizer.eq_of_le {M X R S : Subgroup G} (h : IsMaxSignalizer M X R)
     (hS : IsSignalizer M X S) (hRS : R ≤ S) : S = R :=
   le_antisymm (h.2 hS hRS) hRS
 
-theorem isMaxSignalizer_iff {M X R : Subgroup G} :
-    IsMaxSignalizer M X R ↔
-      IsSignalizer M X R ∧ ∀ S, IsSignalizer M X S → R ≤ S → S = R :=
-  ⟨fun h => ⟨h.1, fun _ hS hRS => h.eq_of_le hS hRS⟩,
-    fun ⟨h1, h2⟩ => ⟨h1, fun _ hS hRS => (h2 _ hS hRS).le⟩⟩
 
 theorem exists_isMaxSignalizer_ge [Finite G] {M X P : Subgroup G} (hP : IsSignalizer M X P) :
     ∃ R, IsMaxSignalizer M X R ∧ P ≤ R := by

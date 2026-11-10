@@ -106,12 +106,6 @@ theorem eq_toPGL_of_pglAction {y : PGL2 K} {c : PSL2 K}
   have hz := eq_one_of_conj_transvecs (key _ h1) (key _ h2)
   exact (inv_mul_eq_one.mp hz).symm
 
-theorem eq_one_of_pglAction_fixes {y : PGL2 K}
-    (h1 : pglAction K y (QuotientGroup.mk (transvecUp K)) = QuotientGroup.mk (transvecUp K))
-    (h2 : pglAction K y (QuotientGroup.mk (transvecLow K)) =
-      QuotientGroup.mk (transvecLow K)) : y = 1 := by
-  have := eq_toPGL_of_pglAction (c := 1) (by rw [h1]; simp) (by rw [h2]; simp)
-  rwa [map_one] at this
 
 end Transvections
 

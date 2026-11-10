@@ -62,15 +62,6 @@ noncomputable def diagonal_center_quotient_equivalence {G : Type*} [Group G]
   rw [MonoidHom.ker_rangeRestrict]
   exact diagonal_kernel_central factor automorphism hcommutes
 
-theorem diagonal_even {G : Type*} [Group G] [Finite G] (factor : Subgroup G)
-    (hquasisimple : IsQuasisimple factor) (heven : Even (Nat.card factor))
-    (automorphism : MulAut G) (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥) :
-    Even (Nat.card (InvolutionDiagonal.homomorphism factor automorphism hcommutes).range) := by
-  let diagonal := InvolutionDiagonal.homomorphism factor automorphism hcommutes
-  let : Group.IsPerfect factor := ⟨hquasisimple.1⟩
-  apply PerfectCentralQuotient.even_image diagonal.rangeRestrict diagonal.rangeRestrict_surjective _ heven
-  rw [MonoidHom.ker_rangeRestrict]
-  exact diagonal_kernel_central factor automorphism hcommutes
 
 theorem fixed_eq_diagonal_sup_central {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
     (automorphism : MulAut G) (hinvolutive : Function.Involutive automorphism)
@@ -154,79 +145,6 @@ theorem derived_fixed_eq_diagonal {G : Type*} [Group G] (factor : Subgroup G) [f
     Group.IsPerfect.range _
   exact Subgroup.commutator_eq_self
 
-theorem diagonal_normal_in_fixed {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    (hquasisimple : IsQuasisimple factor) (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hcover : factor ⊔ factor.map automorphism.toMonoidHom = ⊤) :
-    ((InvolutionDiagonal.homomorphism factor automorphism hcommutes).range.subgroupOf
-      (FixedCommutingProduct.fixedSubgroup automorphism)).Normal := by
-  let fixed := FixedCommutingProduct.fixedSubgroup automorphism
-  have hnormal : (⁅fixed, fixed⁆.subgroupOf (fixed ⊔ fixed)).Normal := inferInstance
-  rw [show fixed ⊔ fixed = fixed from sup_idem fixed] at hnormal
-  change (⁅FixedCommutingProduct.fixedSubgroup automorphism,
-    FixedCommutingProduct.fixedSubgroup automorphism⁆.subgroupOf
-      (FixedCommutingProduct.fixedSubgroup automorphism)).Normal at hnormal
-  rwa [derived_fixed_eq_diagonal factor hquasisimple automorphism hinvolutive hcommutes hcover] at hnormal
-
-theorem diagonal_component_of_fixed {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    (hquasisimple : IsQuasisimple factor) (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hcover : factor ⊔ factor.map automorphism.toMonoidHom = ⊤) :
-    IsComponentOf ((InvolutionDiagonal.homomorphism factor automorphism hcommutes).range.subgroupOf
-      (FixedCommutingProduct.fixedSubgroup automorphism)) ⊤ := by
-  apply (OrdinaryComponentTransport.subgroupOf_iff _ _
-    ((diagonal_le_fixed factor automorphism hinvolutive hcommutes).trans inf_le_right)).mpr
-  exact ⟨(diagonal_normal_in_fixed factor hquasisimple automorphism hinvolutive hcommutes hcover).isSubnormal,
-    diagonal_quasisimple factor hquasisimple automorphism hcommutes⟩
-
-theorem fixed_derived_image {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    (hquasisimple : IsQuasisimple factor) (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hcover : factor ⊔ factor.map automorphism.toMonoidHom = ⊤) :
-    (commutator (FixedCommutingProduct.fixedSubgroup automorphism)).map
-      (FixedCommutingProduct.fixedSubgroup automorphism).subtype =
-        (InvolutionDiagonal.homomorphism factor automorphism hcommutes).range := by
-  change Subgroup.map (FixedCommutingProduct.fixedSubgroup automorphism).subtype
-    (⁅⊤, ⊤⁆ : Subgroup (FixedCommutingProduct.fixedSubgroup automorphism)) = _
-  rw [Subgroup.map_commutator, ← MonoidHom.range_eq_map, Subgroup.range_subtype]
-  exact derived_fixed_eq_diagonal factor hquasisimple automorphism hinvolutive hcommutes hcover
-
-theorem fixed_layer_image {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    (hquasisimple : IsQuasisimple factor) (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hcover : factor ⊔ factor.map automorphism.toMonoidHom = ⊤) :
-    (Layer.subgroup (FixedCommutingProduct.fixedSubgroup automorphism)).map
-      (FixedCommutingProduct.fixedSubgroup automorphism).subtype =
-        (InvolutionDiagonal.homomorphism factor automorphism hcommutes).range := by
-  apply le_antisymm
-  · rw [← fixed_derived_image factor hquasisimple automorphism hinvolutive hcommutes hcover]
-    exact Subgroup.map_mono (Layer.le_derived _)
-  · have hcomponent := diagonal_component_of_fixed factor hquasisimple automorphism
-      hinvolutive hcommutes hcover
-    have hmap := Subgroup.map_mono (f := (FixedCommutingProduct.fixedSubgroup automorphism).subtype)
-      (Layer.component_le hcomponent)
-    rwa [Subgroup.map_subgroupOf_eq_of_le
-      ((diagonal_le_fixed factor automorphism hinvolutive hcommutes).trans inf_le_right)] at hmap
-
-theorem unique_fixed_component {G : Type*} [Group G] (factor : Subgroup G) [factor.Normal]
-    (hquasisimple : IsQuasisimple factor) (automorphism : MulAut G)
-    (hinvolutive : Function.Involutive automorphism)
-    (hcommutes : ⁅factor, factor.map automorphism.toMonoidHom⁆ = ⊥)
-    (hcover : factor ⊔ factor.map automorphism.toMonoidHom = ⊤)
-    (component : Subgroup (FixedCommutingProduct.fixedSubgroup automorphism))
-    (hcomponent : IsComponentOf component ⊤) :
-    component = (InvolutionDiagonal.homomorphism factor automorphism hcommutes).range.subgroupOf
-      (FixedCommutingProduct.fixedSubgroup automorphism) := by
-  apply LocalComponents.eq_of_le _ _ hcomponent
-    (diagonal_component_of_fixed factor hquasisimple automorphism hinvolutive hcommutes hcover)
-  have hmap := Subgroup.map_mono (f := (FixedCommutingProduct.fixedSubgroup automorphism).subtype)
-    (Layer.component_le hcomponent)
-  rw [fixed_layer_image factor hquasisimple automorphism hinvolutive hcommutes hcover] at hmap
-  exact Subgroup.map_le_iff_le_comap.mp hmap
 
 theorem product_invariant {G : Type*} [Group G] (factor : Subgroup G)
     (automorphism : MulAut G) (hinvolutive : Function.Involutive automorphism) :

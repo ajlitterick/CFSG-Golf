@@ -15,8 +15,6 @@ open Module CFSG.LocalAnalysis.ComponentInitial CFSG.LinearGroups Subgroup
 variable {F : Type*} [Field F] {hF : UnitaryFieldData 2 1 F} {W : Type*} [AddCommGroup W]
   [Module F W] {B : W →ₛₗ[hF.bar] W →ₗ[F] F}
 
-theorem add_self_W (hF : UnitaryFieldData 2 1 F) (w : W) : w + w = 0 := by
-  rw [← two_smul F w, two_eq_zero hF, zero_smul]
 
 theorem mem_zpowers_two {G : Type*} [Group G] {t x : G} (ht : orderOf t = 2)
     (hx : x ∈ zpowers t) : x = 1 ∨ x = t := by

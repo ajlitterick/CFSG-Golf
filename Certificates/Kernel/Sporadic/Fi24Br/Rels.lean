@@ -140,14 +140,6 @@ theorem gens_eq : TauCeti.Sporadic.fi24PrimePresentation.generatorCount = 11 := 
   simp [TauCeti.GroupPresentation.generatorCount,
     TauCeti.Sporadic.fi24PrimePresentation_generatorNames]
 
-theorem le_range : ∃ φ : TauCeti.Sporadic.fi24PrimePresentation.Group →* GL (Fin 781) (ZMod 3),
-    ∀ g : GL (Fin 781) (ZMod 3),
-      g.val = CFSG.Blueprint.NativeSporadic.decode 3 781 1
-          CFSG.Blueprint.NativeSporadic.Fi24primeSeed1 ∨
-        g.val = CFSG.Blueprint.NativeSporadic.decode 3 781 1
-          CFSG.Blueprint.NativeSporadic.Fi24primeSeed2 → g ∈ φ.range :=
-  le_range_of_homG _ hs CFSG.KD.OrdFi24p.rels_eq gens_eq hroot hinv relB hrel hregs
-    (by norm_num) (by norm_num) (by norm_num) (by norm_num) mA_eq mB_eq
 
 end CertificateChecks.KernelSpor.Fi24Rels
 

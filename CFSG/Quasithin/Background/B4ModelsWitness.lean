@@ -285,10 +285,6 @@ theorem card_dn_sec {n : ℕ} (hn : 1 ≤ n) (ε : AltSym) :
         (Equiv.ofInjective (Fin.succAboveEmb p).1 (Fin.succAboveEmb p).2)
     exact key.trans h
 
-theorem altLift7At_apply_self (p : Fin 8) (σ : ↥(alternatingGroup (Fin 7))) :
-    ((altLift7At p σ : ↥(alternatingGroup (Fin 8))) : Equiv.Perm (Fin 8)) p = p := by
-  change Equiv.Perm.viaEmbedding (σ : Equiv.Perm (Fin 7)) (Fin.succAboveEmb p) p = p
-  exact Equiv.Perm.viaEmbedding_apply_of_notMem _ _ _ fun ⟨i, hi⟩ => Fin.succAbove_ne p i hi
 
 @[expose] def a7FourModel (α : ↥(alternatingGroup (Fin 8)) ≃* GL (Fin 4) (ZMod 2)) (p : Fin 8)
     (ε : NatDual) : FFModel where
@@ -520,8 +516,6 @@ theorem hermDet_twistAct {F : Type} [Field F] [CharP F 2] {a : ℕ} (g : ↥(Sta
     (∀ σ ∈ H, G6.permAct 24 σ eY = eY ∨ G6.permAct 24 σ eY = eY * G6.allOnes 24) ∧
     (FFModel.golaySec H golayC (Subgroup.closure {G6.allOnes 24, eY})).IsModel ρ
 
-@[expose] def IsIndexTwoExtension {P G : Type*} [Group P] [Group G] (ι : P →* G) (t : G) : Prop :=
-  Function.Injective ι ∧ ι.range.Normal ∧ ι.range.index = 2 ∧ t ∉ ι.range ∧ t ^ 2 ∈ ι.range
 
 @[expose] def IsMhat22Datum (P : Type) [Group P] (K : Type) [Field K] [Fintype K]
     (τ : P →* GL (Fin 6) K) (B : Matrix (Fin 6) (Fin 6) K) : Prop :=
@@ -536,13 +530,6 @@ theorem hermDet_twistAct {F : Type} [Field F] [CharP F 2] {a : ℕ} (g : ↥(Sta
     (β : W ≃+ Additive (FFModel.nat τ.range).Sec),
     (FFModel.nat τ.range).Witness ρ (θ.trans (MonoidHom.ofInjective h.2.2.1)) β
 
-@[expose] def mulAutModel {G : Type} [Group G] {ι K : Type} [Field K]
-    (ψ : G →* MulAut (Multiplicative (ι → K))) : FFModel where
-  Gam := G
-  Amb := Multiplicative (ι → K)
-  act g x := ψ g x
-  sec := ⊤
-  ker := ⊥
 
 @[expose] def J2Twelve (ρ : Representation (ZMod 2) Γ W) : Prop :=
   ∃ (K : Type) (_ : Field K) (_ : Fintype K) (ι : quasithinJ2 →* ↥(cayleyGroup K))
@@ -552,13 +539,6 @@ theorem hermDet_twistAct {F : Type} [Field F] [CharP F 2] {a : ℕ} (g : ↥(Sta
       (FFModel.zornQ ((cayleyGroup K).subtype.comp ι).range).Witness ρ
         (θ.trans (MonoidHom.ofInjective hι)) β
 
-@[expose] def zornModel {G : Type} [Group G] {F : Type} [Field F]
-    (ψ : G →* MulAut (Multiplicative (quasithinZorn F))) : FFModel where
-  Gam := G
-  Amb := Multiplicative (quasithinZorn F)
-  act g x := ψ g x
-  sec := zornO0 F
-  ker := zornR F
 
 section Bridge
 
@@ -593,17 +573,6 @@ theorem SL4ExteriorTwo.realizes {ρ : Representation (ZMod 2) Γ W} (h : SL4Exte
   obtain ⟨α, θ, β, hw⟩ := h
   exact ⟨_, hw.realizesVia⟩
 
-theorem AlternatingNatural.realizes_alternating {ρ : Representation (ZMod 2) Γ W} {n : ℕ}
-    (h : AlternatingNatural ρ n .alternating) :
-    CFSG.Quasithin.AlternatingNatural (repMulAut ρ).range ⊤ ⊥ n := by
-  obtain ⟨α, θ, β, hw⟩ := h
-  exact ⟨_, hw.realizesVia⟩
-
-theorem AlternatingNatural.realizes_symmetric {ρ : Representation (ZMod 2) Γ W} {n : ℕ}
-    (h : AlternatingNatural ρ n .symmetric) :
-    CFSG.Quasithin.SymmetricNatural (repMulAut ρ).range ⊤ ⊥ n := by
-  obtain ⟨α, θ, β, hw⟩ := h
-  exact ⟨_, hw.realizesVia⟩
 
 theorem TwistedTensorNatural.realizes_sl {ρ : Representation (ZMod 2) Γ W} {d : ℕ} {F : Type}
     [Field F] [Finite F] [CharP F 2] {a : ℕ} (hF : Nat.card F = 2 ^ (2 * a))
@@ -611,13 +580,6 @@ theorem TwistedTensorNatural.realizes_sl {ρ : Representation (ZMod 2) Γ W} {d 
     CFSG.Quasithin.TwistedTensorSL (repMulAut ρ).range ⊤ ⊥ d a :=
   ⟨F, inferInstance, inferInstance, inferInstance, hF, IsModel.realizesMod h⟩
 
-theorem TwistedTensorNatural.realizes_sp {ρ : Representation (ZMod 2) Γ W} {F : Type} [Field F]
-    [Finite F] [CharP F 2] {a : ℕ} (hF : Nat.card F = 2 ^ (2 * a))
-    (h : TwistedTensorNatural ρ 4 F a .sp) :
-    CFSG.Quasithin.TwistedTensorSp4 (repMulAut ρ).range ⊤ ⊥ a := by
-  refine ⟨F, inferInstance, inferInstance, inferInstance, hF, ?_⟩
-  have hm := IsModel.realizesMod h.2
-  rwa [sp4_eq_statedSp] at hm
 
 theorem BinaryNineTensor.realizes {ρ : Representation (ZMod 2) Γ W} {F : Type} [Field F]
     [Finite F] [CharP F 2] {a : ℕ} (hF : Nat.card F = 2 ^ (2 * a)) (h : BinaryNineTensor ρ F a) :
@@ -630,20 +592,6 @@ theorem BinaryOrthogonalFour.realizes {ρ : Representation (ZMod 2) Γ W} {F : T
     CFSG.Quasithin.BinaryOrthogonalFour (repMulAut ρ).range ⊤ ⊥ a :=
   TwistedTensorNatural.realizes_sl hF h
 
-theorem altLift7At_last : altLift7At (Fin.last 7) = altLift7 := by
-  have he : Fin.succAboveEmb (Fin.last 7) = (Fin.castSuccEmb : Fin 7 ↪ Fin 8) :=
-    Function.Embedding.ext fun i => Fin.succAbove_last_apply i
-  ext σ i
-  simp only [altLift7At, altLift7, he]
-
-theorem A7Four.realizes_last {ρ : Representation (ZMod 2) Γ W}
-    (h : A7Four ρ (Fin.last 7) .natural) : CFSG.Quasithin.A7Four (repMulAut ρ).range ⊤ ⊥ := by
-  obtain ⟨α, hm⟩ := h
-  have he : a7FourModel α (Fin.last 7) .natural = FFModel.a7Four α := by
-    unfold a7FourModel FFModel.a7Four a7Act
-    rw [altLift7At_last]
-  rw [he] at hm
-  exact ⟨α, hm.realizesMod⟩
 
 theorem MathieuCode24.realizes {ρ : Representation (ZMod 2) Γ W} (h : MathieuCode24 ρ) :
     CFSG.Quasithin.MathieuCode24 (repMulAut ρ).range ⊤ ⊥ :=

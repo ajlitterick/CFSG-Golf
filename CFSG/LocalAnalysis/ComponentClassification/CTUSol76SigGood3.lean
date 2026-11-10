@@ -425,31 +425,6 @@ theorem exists_third_kStar_of_ncard_ne_two {K K' : Subgroup G} (hK : K ∈ kStar
       (Set.toFinite _)
   omega
 
-@[expose] def GoodInvolutionsTwoFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      (∀ K'' ∈ kStarComponents N, K'' ≤ normalizer (wGroup B V : Set G)) →
-      ∀ K'' ∈ kStarComponents N, ∀ x ∈ K'', orderOf x = 2 →
-        ∃ g ∈ normalizer (wGroup B V : Set G), IsGoodFor N (wGroup B V) (g⁻¹ * x * g)
-
-theorem goodInvolutionsFor_of_two (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (h : GoodInvolutionsTwoFor) :
-    GoodInvolutionsFor := by
-  intro G _ _ hG N hN K K' V B hP hW hKH K'' hK'' x hx hx2
-  by_cases h2 : (kStarComponents N).ncard = 2
-  · exact h G hG N hN h2 K K' V B hP hW hKH K'' hK'' x hx hx2
-  obtain ⟨K₃, hK₃, hK₃K, hK₃K'⟩ := exists_third_kStar_of_ncard_ne_two hP.1 hP.2.1 hP.2.2.1 h2
-  refine ⟨1, one_mem _, ?_⟩
-  rw [inv_one, one_mul, mul_one]
-  exact isGoodFor_of_third hq hR1 hG hN hP hKH hK₃ hK₃K hK₃K' hK'' hx hx2
-
-theorem lemma315bInputFor_simple_of_two (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (h39 : Lemma39For) (hgood : GoodInvolutionsTwoFor) (hsingle : SingleComponentExcludedFor)
-    (hpair : SigPairExistsTwoFor) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_good hq hR1 hF h39 (goodInvolutionsFor_of_two hq hR1 hgood) hsingle
-    (sigPairExistsFor_of_two hq hpair)
 
 theorem le_normalizer_wGroup_of_third (hq : QuasisimpleTwoPartInput)
     (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hG : SimpleAmbient G)
@@ -480,51 +455,5 @@ theorem le_normalizer_wGroup_of_third (hq : QuasisimpleTwoPartInput)
       (oddCoreIn_le_normalizer_wGroup_of_mem hq hR1 hG hN hK hK' hne hV hVK' hBQ hBV hB hB8 hE hEB
         hEK hBN)
 
-@[expose] def Lemma39RestFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      ((kStarComponents N).ncard = 2 →
-        (∀ E : Subgroup G, IsKleinFour E → E ≤ B → E ≤ K →
-          ¬ ∀ F : Subgroup G, IsKleinFour F → F ≤ K ⊓ centralizer (V : Set G) →
-            Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (V : Set G))) E F) →
-        K ≤ normalizer (wGroup B V : Set G)) ∧
-      ((∀ E : Subgroup G, IsKleinFour E → E ≤ B → E ≤ K →
-          ¬ (CFSG.Assembly.involutionGraph ↥(K' ⊓ centralizer (E : Set G))).Preconnected) →
-        K' ≤ normalizer (wGroup B V : Set G))
-
-theorem lemma39For_of_rest (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (h : Lemma39RestFor) : Lemma39For := by
-  intro G _ _ hG N hN K K' V B hP hW K'' hK''
-  have hP' := hP
-  obtain ⟨hK, hK', hne, hV, hVK', hBQ, hBV, hB, hB8, hBN, E₀, hE₀, hE₀B, hE₀K⟩ := hP'
-  by_cases hK''K : K'' = K
-  · rw [hK''K]
-    by_cases h2 : (kStarComponents N).ncard = 2
-    · by_cases hc : ∃ E : Subgroup G, IsKleinFour E ∧ E ≤ B ∧ E ≤ K ∧
-          ∀ F : Subgroup G, IsKleinFour F → F ≤ K ⊓ centralizer (V : Set G) →
-            Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (V : Set G))) E F
-      · obtain ⟨E, hE, hEB, hEK, hconn⟩ := hc
-        exact le_normalizer_wGroup_of_twoConnected_of_mem hq hR1 hG hN hK hK' hne hV hVK' hBQ hBV
-          hB hB8 hE hEB hEK hBN hconn
-      · exact (h G hG N hN K K' V B hP hW).1 h2 fun E hE hEB hEK hconn =>
-          hc ⟨E, hE, hEB, hEK, hconn⟩
-    · obtain ⟨K₃, hK₃, hK₃K, hK₃K'⟩ := exists_third_kStar_of_ncard_ne_two hK hK' hne h2
-      exact le_normalizer_wGroup_of_third hq hR1 hG hN hP hK₃ hK₃K hK₃K'
-  by_cases hK''K' : K'' = K'
-  · rw [hK''K']
-    by_cases hc : ∃ E : Subgroup G, IsKleinFour E ∧ E ≤ B ∧ E ≤ K ∧
-        (CFSG.Assembly.involutionGraph ↥(K' ⊓ centralizer (E : Set G))).Preconnected
-    · obtain ⟨E, hE, hEB, hEK, hconn⟩ := hc
-      exact le_normalizer_wGroup_of_preconnected_of_mem hq hR1 hG hN hK hK' hne hV hVK' hBQ hBV hB
-        hB8 hE hEB hEK hconn
-    · exact (h G hG N hN K K' V B hP hW).2 fun E hE hEB hEK hconn => hc ⟨E, hE, hEB, hEK, hconn⟩
-  · exact le_normalizer_wGroup_of_ne_of_mem hq hR1 hG hN hK hK' hne hV hVK' hBQ hBV hB hB8 hE₀ hE₀B
-      hE₀K hBN hK'' hK''K hK''K'
-
-theorem lemma315bInputFor_simple_of_residues (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (h39 : Lemma39RestFor) (hgood : GoodInvolutionsTwoFor) (hsingle : SingleComponentExcludedFor)
-    (hpair : SigPairExistsTwoFor) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_two hq hR1 hF (lemma39For_of_rest hq hR1 h39) hgood hsingle hpair
 
 end CFSG.ComponentClassification.Sol76.Sig

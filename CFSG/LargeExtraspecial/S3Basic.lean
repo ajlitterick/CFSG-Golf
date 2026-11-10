@@ -426,11 +426,6 @@ theorem mem_zpowers_iff_of_mul_self {H : Type*} [Group H] {g x : H} (hg : g * g 
     · exact one_mem _
     · exact mem_zpowers _
 
-omit [Finite G] in
-theorem center_Q_eq_zpowers : center S.Q = zpowers S.zQ := by
-  ext x
-  rw [S.mem_center_Q_iff, mem_zpowers_iff_of_mul_self]
-  exact Subtype.ext (Subtype.ext S.z_mul_z)
 
 omit [Finite G] in
 theorem QG_inf_centralizer_eq_zpowers : S.QG ⊓ centralizer (S.QG : Set G) = zpowers S.z := by

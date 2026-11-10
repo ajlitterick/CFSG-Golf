@@ -21,11 +21,6 @@ theorem mem_conjugate_iff {X : Subgroup H} {g x : H} :
     refine ⟨g * x * g⁻¹, h, ?_⟩
     simp [mul_assoc]
 
-theorem conjugate_conjugate_inv (X : Subgroup H) (g : H) :
-    conjugate (conjugate X g⁻¹) g = X := by
-  ext x
-  rw [mem_conjugate_iff, mem_conjugate_iff]
-  simp [mul_assoc]
 
 theorem le_conjugate_inv_of_conjugate_le {X Y : Subgroup H} {g : H} (h : conjugate X g ≤ Y) :
     X ≤ conjugate Y g⁻¹ := by

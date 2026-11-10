@@ -66,11 +66,6 @@ theorem mul_diagonal_eq_diagonal_mul_iff {ι F : Type*} [Fintype ι] [DecidableE
     · rw [hij, mul_comm]
     · rw [h i j hij, zero_mul, mul_zero]
 
-@[expose] def Sp6PieceComputation : Prop :=
-  ∀ (F : Type) [Field F] [Finite F] [CharP F 2] (A : Subgroup Fˣ), 4 ≤ Nat.card F →
-    (∃ a ∈ A, a ^ 2 ≠ 1) →
-    pieceCards ⊤ (sp6TorusA A) (sp6TorusM2 A) (sp6TorusM3 A) =
-      (ordSp 2 (Nat.card F), ordSL 2 (Nat.card F), ordSL 2 (Nat.card F))
 
 section Kinds
 
@@ -94,40 +89,6 @@ private theorem exists_unit_sq_ne_one {F : Type} [Field F] [Finite F] (hF : 4 �
   · exact h1 h3
   · exact hm1 h3
 
-theorem pieceCards_field (hSp6 : Sp6PieceComputation) {F : Type} [Field F] [Finite F]
-    [CharP F 2] {q : ℕ} (hF : Nat.card F = q ^ 2) (hq : 2 ≤ q) {A : Subgroup Fˣ}
-    (hA : ∃ a ∈ A, a ^ 2 ≠ 1) (Φ : CFSG.Assembly.LowTwoRank.StatedSp 3 F ≃* E)
-    (h₁₂ : T₁₂ ⊔ centralizer (E : Set G) =
-      (sp6TorusA A).map (E.subtype.comp Φ.toMonoidHom) ⊔ centralizer (E : Set G))
-    (h₁ : T₁ ⊔ centralizer (E : Set G) =
-      (sp6TorusM2 A).map (E.subtype.comp Φ.toMonoidHom) ⊔ centralizer (E : Set G))
-    (h₂ : T₂ ⊔ centralizer (E : Set G) =
-      (sp6TorusM3 A).map (E.subtype.comp Φ.toMonoidHom) ⊔ centralizer (E : Set G)) :
-    pieceCards E T₁₂ T₁ T₂ = pieceOrders .field q := by
-  have h4 : 4 ≤ Nat.card F := by
-    rw [hF]
-    nlinarith
-  rw [pieceCards_eq_of_mulEquiv Φ h₁₂ h₁ h₂, hSp6 F A h4 hA, hF]
-  rfl
-
-theorem pieceCards_swap (hSp6 : Sp6PieceComputation) {F : Type} [Field F] [Finite F] [CharP F 2]
-    {q : ℕ} (hF : Nat.card F = q) (hq : 4 ≤ q)
-    (Φ : CFSG.Assembly.LowTwoRank.StatedSp 3 F × CFSG.Assembly.LowTwoRank.StatedSp 3 F ≃* E)
-    (h₁₂ : T₁₂ ⊔ centralizer (E : Set G) =
-      (diagPairSubgroup (sp6TorusA (⊤ : Subgroup Fˣ))).map (E.subtype.comp Φ.toMonoidHom) ⊔
-        centralizer (E : Set G))
-    (h₁ : T₁ ⊔ centralizer (E : Set G) =
-      (diagPairSubgroup (sp6TorusM2 (⊤ : Subgroup Fˣ))).map (E.subtype.comp Φ.toMonoidHom) ⊔
-        centralizer (E : Set G))
-    (h₂ : T₂ ⊔ centralizer (E : Set G) =
-      (diagPairSubgroup (sp6TorusM3 (⊤ : Subgroup Fˣ))).map (E.subtype.comp Φ.toMonoidHom) ⊔
-        centralizer (E : Set G)) :
-    pieceCards E T₁₂ T₁ T₂ = pieceOrders .swap q := by
-  have h4 : 4 ≤ Nat.card F := hF ▸ hq
-  obtain ⟨a, ha⟩ := exists_unit_sq_ne_one h4
-  rw [pieceCards_eq_of_mulEquiv Φ h₁₂ h₁ h₂, pieceCards_diagPairSubgroup,
-    hSp6 F ⊤ h4 ⟨a, mem_top a, ha⟩, hF]
-  rfl
 
 end Kinds
 

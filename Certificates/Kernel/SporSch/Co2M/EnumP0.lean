@@ -22,12 +22,6 @@ namespace CertificateChecks.KernelSporSch.Co2M
 
 open CFSG.Sporadic.Co2Schreier CFSG.Sporadic.Co2Cert
 
-meta def p0gRows : Array (Array Nat) :=
-  p0Arrs.map fun a => Gen.rowsOf (Gen.matOf vecsM (Gen.basisOf vecsM) a)
-
-meta def p0Recs : Array (Array Nat) :=
-  Gen.enumRecs vecsM
-    (p0gRows.map fun r => (List.range 22).foldl (fun a i => a ||| (r[i]! <<< (22 * i))) 0) 81
 
 end CertificateChecks.KernelSporSch.Co2M
 

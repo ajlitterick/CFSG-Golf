@@ -580,89 +580,8 @@ section IntegralMatrices
 
 open Polynomial
 
-theorem xOp_X_single_apply (i : Fin τ.rank) (a b : Label τ) :
-    xOp τ ℤ[X] i X (Finsupp.single b 1) a =
-      ∑ k ∈ Finset.range 4, C (xCoeff τ ℤ i k (Finsupp.single b 1) a) * X ^ k := by
-  rw [xOp_eq_sum_xCoeff, LinearMap.sum_apply, Finsupp.finsetSum_apply]
-  refine Finset.sum_congr rfl fun k _ => ?_
-  rw [LinearMap.smul_apply, Finsupp.smul_apply, smul_eq_mul, mul_comm,
-    ← mapRange_xCoeff_single C, Finsupp.mapRange_apply]
-
-theorem yOp_X_single_apply (i : Fin τ.rank) (a b : Label τ) :
-    yOp τ ℤ[X] i X (Finsupp.single b 1) a =
-      ∑ k ∈ Finset.range 4, C (yCoeff τ ℤ i k (Finsupp.single b 1) a) * X ^ k := by
-  rw [yOp_eq_sum_yCoeff, LinearMap.sum_apply, Finsupp.finsetSum_apply]
-  refine Finset.sum_congr rfl fun k _ => ?_
-  rw [LinearMap.smul_apply, Finsupp.smul_apply, smul_eq_mul, mul_comm,
-    ← mapRange_yCoeff_single C, Finsupp.mapRange_apply]
-
-private theorem coeff_sum_range_four (n : ℕ → ℤ) (m : ℕ) :
-    (∑ k ∈ Finset.range 4, C (n k) * X ^ k).coeff m = if m < 4 then n m else 0 := by
-  rw [finsetSum_coeff]
-  simp only [coeff_C_mul_X_pow, Finset.sum_ite_eq, Finset.mem_range]
-
-private theorem natDegree_sum_range_four_le (n : ℕ → ℤ) :
-    (∑ k ∈ Finset.range 4, C (n k) * X ^ k).natDegree ≤ 3 :=
-  natDegree_sum_le_of_forall_le _ _ fun _ hk =>
-    (natDegree_C_mul_X_pow_le _ _).trans (Nat.lt_succ_iff.mp (Finset.mem_range.mp hk))
-
-theorem natDegree_xOp_X_single_apply_le (i : Fin τ.rank) (a b : Label τ) :
-    (xOp τ ℤ[X] i X (Finsupp.single b 1) a).natDegree ≤ 3 := by
-  rw [xOp_X_single_apply]
-  exact natDegree_sum_range_four_le _
-
-theorem natDegree_yOp_X_single_apply_le (i : Fin τ.rank) (a b : Label τ) :
-    (yOp τ ℤ[X] i X (Finsupp.single b 1) a).natDegree ≤ 3 := by
-  rw [yOp_X_single_apply]
-  exact natDegree_sum_range_four_le _
-
-theorem coeff_xOp_X_single_apply (i : Fin τ.rank) (a b : Label τ) (k : ℕ) :
-    (xOp τ ℤ[X] i X (Finsupp.single b 1) a).coeff k = xCoeff τ ℤ i k (Finsupp.single b 1) a := by
-  rw [xOp_X_single_apply, coeff_sum_range_four]
-  split_ifs with hk
-  · rfl
-  · rw [xCoeff_eq_zero i (by omega)]
-    simp
-
-theorem coeff_yOp_X_single_apply (i : Fin τ.rank) (a b : Label τ) (k : ℕ) :
-    (yOp τ ℤ[X] i X (Finsupp.single b 1) a).coeff k = yCoeff τ ℤ i k (Finsupp.single b 1) a := by
-  rw [yOp_X_single_apply, coeff_sum_range_four]
-  split_ifs with hk
-  · rfl
-  · rw [yCoeff_eq_zero i (by omega)]
-    simp
 
 end IntegralMatrices
 
-variable (τ R) in
-theorem simple_root_finite_exponential (i : Fin τ.rank) :
-    (∀ c : R, xOp τ R i c = ∑ k ∈ Finset.range 4, c ^ k • xCoeff τ R i k) ∧
-      (∀ c : R, yOp τ R i c = ∑ k ∈ Finset.range 4, c ^ k • yCoeff τ R i k) ∧
-      (∀ k : ℕ, infE τ R i ^ k = (k ! : R) • xCoeff τ R i k) ∧
-      (∀ k : ℕ, infF τ R i ^ k = (k ! : R) • yCoeff τ R i k) ∧
-      xCoeff τ R i 0 = 1 ∧ yCoeff τ R i 0 = 1 ∧ infE τ R i ^ 4 = 0 ∧ infF τ R i ^ 4 = 0 :=
-  ⟨xOp_eq_sum_xCoeff i, yOp_eq_sum_yCoeff i, infE_pow i, infF_pow i, xCoeff_zero i,
-    yCoeff_zero i, infE_pow_eq_zero i le_rfl, infF_pow_eq_zero i le_rfl⟩
-
-variable (τ R) in
-theorem simple_root_finite_exponential_rat [Algebra ℚ R] (i : Fin τ.rank) (c : R) :
-    xOp τ R i c = ∑ k ∈ Finset.range 4, ((k ! : ℚ)⁻¹ • c ^ k) • infE τ R i ^ k ∧
-      yOp τ R i c = ∑ k ∈ Finset.range 4, ((k ! : ℚ)⁻¹ • c ^ k) • infF τ R i ^ k :=
-  ⟨xOp_eq_sum_infE_pow i c, yOp_eq_sum_infF_pow i c⟩
-
-variable (τ) in
-open Polynomial in
-theorem simple_root_finite_exponential_int (i : Fin τ.rank) :
-    infE τ ℤ i ^ 4 = 0 ∧ infF τ ℤ i ^ 4 = 0 ∧
-      ∀ a b : Label τ, (xOp τ ℤ[X] i X (Finsupp.single b 1) a).natDegree ≤ 3 ∧
-        (yOp τ ℤ[X] i X (Finsupp.single b 1) a).natDegree ≤ 3 ∧
-        ∀ k : ℕ, (infE τ ℤ i ^ k) (Finsupp.single b 1) a =
-            (k ! : ℤ) * (xOp τ ℤ[X] i X (Finsupp.single b 1) a).coeff k ∧
-          (infF τ ℤ i ^ k) (Finsupp.single b 1) a =
-            (k ! : ℤ) * (yOp τ ℤ[X] i X (Finsupp.single b 1) a).coeff k := by
-  refine ⟨infE_pow_eq_zero i le_rfl, infF_pow_eq_zero i le_rfl, fun a b =>
-    ⟨natDegree_xOp_X_single_apply_le i a b, natDegree_yOp_X_single_apply_le i a b, fun k => ?_⟩⟩
-  rw [coeff_xOp_X_single_apply, coeff_yOp_X_single_apply, infE_pow, infF_pow]
-  exact ⟨rfl, rfl⟩
 
 end CFSG.Blueprint.Chevalley

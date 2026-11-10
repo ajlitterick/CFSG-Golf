@@ -42,18 +42,6 @@ theorem exists_conjSub_eq_of_opposite_opposite (hR : IsRootClass R) {A B C : Sub
           rw [hR.mul_self A hA a ha, mul_one, conjSub_mul, hcb, ← conjSub_mul, inv_mul_cancel,
             conjSub_one]
 
-theorem exists_mem_iSup_conjSub_eq_of_opposite_opposite (hR : IsRootClass R) {A B C : Subgroup G}
-    (hA : A ∈ R) (hB : B ∈ R) (hC : C ∈ R) (hAB : Opposite A B) (hBC : Opposite B C)
-    (hAC : Commuting A C) :
-    ∃ g ∈ ⨆ E ∈ {E | E ∈ R ∧ E ≤ A ⊔ B ⊔ C ∧ Commuting B E}, E, conjSub A g = C := by
-  obtain ⟨E, hE, hEle, hBE, e, he, b, hb, heq⟩ :=
-    exists_conjSub_eq_of_opposite_opposite hR hA hB hC hAB hBC hAC
-  refine ⟨b * e, Subgroup.mul_mem _ ?_ ?_, heq⟩
-  · exact le_iSup₂_of_le (f := fun (E : Subgroup G) (_ : E ∈ {E | E ∈ R ∧ E ≤ A ⊔ B ⊔ C ∧
-      Commuting B E}) => E) B ⟨hB, le_sup_right.trans le_sup_left, hR.commuting_self hB⟩
-      le_rfl hb
-  · exact le_iSup₂_of_le (f := fun (E : Subgroup G) (_ : E ∈ {E | E ∈ R ∧ E ≤ A ⊔ B ⊔ C ∧
-      Commuting B E}) => E) E ⟨hE, hEle, hBE⟩ le_rfl he
 
 theorem card_mul_card_le_card_sup [Finite G] {H K : Subgroup G} (h : H ⊓ K = ⊥) :
     Nat.card H * Nat.card K ≤ Nat.card ↥(H ⊔ K) := by

@@ -47,6 +47,5 @@ structure PolarFacts : Prop where
     ∃ x, (xiGraph (hypOrbit 0)).Adj xiRoot x ∧ (xiGraph (hypOrbit 0)).Adj x v ∧
       (xiGraph (hypOrbit 0)).Adj x w
 
-theorem perp_iff_polarModel {p q : Fin 693} : perp p q ↔ polarModel.perp p q := Iff.rfl
 
 end CFSG.Fischer

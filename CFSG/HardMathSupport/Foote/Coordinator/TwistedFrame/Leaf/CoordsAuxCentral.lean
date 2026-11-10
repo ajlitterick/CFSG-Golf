@@ -35,11 +35,6 @@ private theorem Uθ_mul_comm {u u' : ModGL c.tag D.L} (hu : u ∈ Uθ c.tag D.L)
   obtain ⟨b, rfl⟩ := mem_rootSubgroup.1 hu'
   rw [← pinnedX_add, ← pinnedX_add, add_comm]
 
-private theorem Uθ_mem_posUnipotent {u : ModGL c.tag D.L} (hu : u ∈ Uθ c.tag D.L) :
-    u ∈ posUnipotent c.tag D.L := by
-  obtain ⟨a, rfl⟩ := mem_rootSubgroup.1 hu
-  exact pinnedX_mem_rootSpan (S := {α | IsRoot c.tag α ∧ 0 < height α})
-    ⟨isRoot_highRoot _, height_highRoot_pos _⟩ a
 
 theorem commute_of_disjoint_support {q q' : ModGL c.tag K} (hq : q ∈ Qθ c.tag K)
     (hq' : q' ∈ Qθ c.tag K) (hs : ∀ β, κ D q β ≠ 0 → β ∈ Bset c)

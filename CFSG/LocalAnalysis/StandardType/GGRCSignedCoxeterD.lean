@@ -650,8 +650,6 @@ private lemma l05nK42d_pow_conj_one {G : Type*} [Group G] {x y : G} {m : ℕ}
     (h : (x * y) ^ m = 1) : (y * x) ^ m = 1 := by
   rw [l05nK42d_pow_conj x y m, h, mul_one, mul_inv_cancel]
 
-private lemma l05nK42d_intCast_neg_one {p : ℕ} : ((-1 : ℤ) : ZMod p) = -1 := by
-  rw [Int.cast_neg, Int.cast_one]
 
 private lemma l05nK42d_pred_lt {n : ℕ} (k : Fin n) (hk : k.val ≠ n - 1) :
     k.val + 1 < n := by
@@ -664,78 +662,6 @@ private def l05nK42d_next {n : ℕ} (k : Fin n) (hk : k.val ≠ n - 1) : Fin n :
 
 @[simp] private lemma l05nK42d_next_val {n : ℕ} (k : Fin n) (hk : k.val ≠ n - 1) :
     (l05nK42d_next k hk).val = k.val + 1 := rfl
-
-private noncomputable def l05nK42d_h
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) (k : Fin n) : V :=
-  if hk : k.val = n - 1 then
-    b (⟨n - 2, l05nK42d_sub_two_lt hn⟩ : Fin n) + b (⟨n - 1, by omega⟩ : Fin n)
-  else
-    b k - b (l05nK42d_next k hk)
-
-private noncomputable def l05nK42d_alpha
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) (k : Fin n) :
-    Module.Dual (ZMod p) V :=
-  if hk : k.val = n - 1 then
-    b.constr (ZMod p) (fun m => if m = (⟨n - 2, l05nK42d_sub_two_lt hn⟩ : Fin n) then 1
-      else if m = (⟨n - 1, by omega⟩ : Fin n) then 1 else 0)
-  else
-    b.constr (ZMod p) (fun m => if m = k then 1
-      else if m = l05nK42d_next k hk then -1 else 0)
-
-private lemma l05nK42d_h_last
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) {k : Fin n}
-    (hk : k.val = n - 1) :
-    l05nK42d_h hn b k =
-      b (⟨n - 2, l05nK42d_sub_two_lt hn⟩ : Fin n) + b (⟨n - 1, by omega⟩ : Fin n) := by
-  rw [l05nK42d_h, dif_pos hk]
-
-private lemma l05nK42d_h_adj
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) {k : Fin n}
-    (hk : k.val ≠ n - 1) :
-    l05nK42d_h hn b k = b k - b (l05nK42d_next k hk) := by
-  rw [l05nK42d_h, dif_neg hk]
-
-private lemma l05nK42d_alpha_last
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) {k : Fin n}
-    (hk : k.val = n - 1) (m : Fin n) :
-    l05nK42d_alpha hn b k (b m) =
-      (if m = (⟨n - 2, l05nK42d_sub_two_lt hn⟩ : Fin n) then 1
-        else if m = (⟨n - 1, by omega⟩ : Fin n) then 1 else 0) := by
-  rw [l05nK42d_alpha, dif_pos hk, Module.Basis.constr_basis]
-
-private lemma l05nK42d_alpha_adj
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) {k : Fin n}
-    (hk : k.val ≠ n - 1) (m : Fin n) :
-    l05nK42d_alpha hn b k (b m) =
-      (if m = k then 1 else if m = l05nK42d_next k hk then -1 else 0) := by
-  rw [l05nK42d_alpha, dif_neg hk, Module.Basis.constr_basis]
-
-
-private lemma l05nK42d_halpha
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (hn : 2 ≤ n) (b : Module.Basis (Fin n) (ZMod p) V) (k : Fin n) :
-    l05nK42d_alpha hn b k (l05nK42d_h hn b k) = 2 := by
-  by_cases hk : k.val = n - 1
-  · rw [l05nK42d_h_last hn b hk, map_add, l05nK42d_alpha_last hn b hk,
-      l05nK42d_alpha_last hn b hk]
-    have hne : (⟨n - 1, by omega⟩ : Fin n) ≠ (⟨n - 2, l05nK42d_sub_two_lt hn⟩ : Fin n) := by
-      intro h; have := congrArg Fin.val h; simp only [Fin.val_mk] at this; omega
-    simp [hne]
-    norm_num
-  · have hnk : l05nK42d_next k hk ≠ k := by
-      intro h; have := congrArg Fin.val h; simp only [l05nK42d_next, Fin.val_mk] at this; omega
-    rw [l05nK42d_h_adj hn b hk, map_sub, l05nK42d_alpha_adj hn b hk,
-      l05nK42d_alpha_adj hn b hk]
-    simp [hnk]
-    norm_num
-
-
 
 
 private lemma l05nK42d_fin_ne {n : ℕ} {a b : Fin n} (h : a.val ≠ b.val) : a ≠ b :=
@@ -1159,31 +1085,6 @@ private lemma l05nK42d_even_card_of_prod {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2
   rw [hpoint, Finset.prod_ite_mem_eq, Finset.prod_const] at hprod
   exact (neg_one_pow_eq_one_iff_even (l05nK42d_neg_one_ne_one hp2)).mp hprod
 
-private lemma l05nK42d_prod_dpairFun {p : ℕ} [Fact p.Prime] {n : ℕ} {x y : Fin n}
-    (hxy : x ≠ y) :
-    ∏ i, (if i = x ∨ i = y then (-1 : (ZMod p)ˣ) else 1) = 1 := by
-  have hx : ∏ i, (if i = x then (-1 : (ZMod p)ˣ) else 1) = -1 := by
-    rw [Finset.prod_eq_single x]
-    · simp
-    · intro b _ hb; simp [hb]
-    · intro hx; exact absurd (Finset.mem_univ x) hx
-  have hy : ∏ i, (if i = y then (-1 : (ZMod p)ˣ) else 1) = -1 := by
-    rw [Finset.prod_eq_single y]
-    · simp
-    · intro b _ hb; simp [hb]
-    · intro hy; exact absurd (Finset.mem_univ y) hy
-  have hpoint : (fun i => if i = x ∨ i = y then (-1 : (ZMod p)ˣ) else 1) =
-      fun i => (if i = x then (-1 : (ZMod p)ˣ) else 1) *
-        (if i = y then (-1 : (ZMod p)ˣ) else 1) := by
-    funext i
-    by_cases hix : i = x
-    · subst hix; simp [hxy]
-    · by_cases hiy : i = y
-      · subst hiy; simp [hxy, Ne.symm hxy]
-      · simp [hix, hiy]
-  rw [hpoint, Finset.prod_mul_distrib, hx, hy]; simp
-
-
 
 private lemma l05nK42d_diagMap_one
     {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
@@ -1352,7 +1253,6 @@ private lemma l05nK42d_F'_surjective
     exact l05nK42d_A_le_closure hp2 hn b A hA a.2
   obtain ⟨x, hx⟩ := ha
   exact ⟨x, Subtype.ext hx⟩
-
 
 
 private noncomputable def l05nK42d_evenSign

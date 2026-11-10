@@ -116,15 +116,5 @@ theorem dvd_card_of_generated [Finite G] {p : ℕ} (hp : p.Prime) {J B : Subgrou
   rw [← hJeq] at hdvd
   exact hp.dvd_mul.1 (hJ.trans hdvd)
 
-theorem not_dvd_card_of_generated [Finite G] {p : ℕ} (hp : p.Prime) {J B : Subgroup G}
-    (hBJ : B ≤ J) (hgen : J ≤ B ⊔ perfectJoin J)
-    (hperf : ∀ U : Subgroup G, U ≤ J → ⁅U, U⁆ = U → ¬ p ∣ Nat.card U)
-    (hB : p ∣ Nat.card B → ∃ U : Subgroup G, U ≤ J ∧ ⁅U, U⁆ = U ∧ p ∣ Nat.card U) :
-    ¬ p ∣ Nat.card J := by
-  intro hJ
-  rcases dvd_card_of_generated hp hBJ hgen hJ with h | h
-  · obtain ⟨U, hUJ, hU, hpU⟩ := hB h
-    exact hperf U hUJ hU hpU
-  · exact hperf _ (perfectJoin_le J) (perfectJoin_perfect J) h
 
 end CFSG.AGLEmbedding.ParabPrime

@@ -222,56 +222,6 @@ end Helpers
 
 section Main
 
-theorem ggSplitLie_of_prim_refl (hL1 : GGSecFiveL1CoxInput) (hRk1 : GGSecFiveRk1Input)
-    (hGen : GGSecFiveGenCoxInput) {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {𝒦 : Finset (Subgroup G)}
-    (hcfg : GGSecFiveRouteCfg p B Bs x L D J 𝒦) (hsplit : GGSplitLie p L) {ι : Type}
-    {M : CoxeterMatrix ι} {e : M.Group ≃* ↥(ggAutomizerJoin L Bs 𝒦)}
-    (hpres : GGCoxeterPres p (ggAutomizerJoin L Bs 𝒦) M e) (hle3 : ∀ i j : ι, i ≠ j → M.M i j ≤ 3)
-    {X : Subgroup G} (hX : X = L ∨ X ∈ 𝒦) {r : MulAut ↥Bs} (hrA : r ∈ ggAutomizer X Bs)
-    (hrC : r ∈ ggCoxRefl M e) : GGSplitLie p X := by
-  by_contra hns
-  haveI : Finite ι := ggIsWeylMatrix_finite hpres.1
-  have hconn : GGSimplyLacedConnected M := ggSimplyLacedConnected_of_weyl hpres.1 hle3
-  have hAH : ggAutomizerJoin L Bs 𝒦 ≤ ggAutomizer (L ⊔ ⨆ K ∈ 𝒦, K) Bs :=
-    ggAutomizerJoin_le_ggAutomizer L Bs 𝒦
-  obtain ⟨hpp, hp2⟩ := ggRouteCfg_prime hcfg
-  obtain ⟨r₀, hr₀A, hr₀C⟩ : ∃ r₀ : MulAut ↥Bs, r₀ ∈ ggAutomizer L Bs ∧ r₀ ∈ ggCoxRefl M e := by
-    by_contra hne
-    refine ggRouteCfg_ne_bot hcfg (le_bot_iff.mp ?_)
-    calc L = ⨆ r ∈ {r : MulAut ↥Bs | r ∈ ggAutomizer L Bs ∧ r ∈ ggCoxRefl M e},
-          ggRankOneIn L Bs r :=
-          hGen G p B Bs x L D J 𝒦 hcfg hsplit ι M e hpres hle3 L (Or.inl rfl) hsplit
-      _ ≤ ⊥ := iSup₂_le fun r hr => absurd ⟨r, hr.1, hr.2⟩ hne
-  obtain ⟨F, hF, hFfin, θ, -, hθinj, hθrange, -, hpF, -⟩ :=
-    hRk1 G p B Bs x L D J 𝒦 hcfg hsplit ι M e hpres hle3 L (Or.inl rfl) r₀ hr₀A hr₀C
-  obtain ⟨F', hF', hF'fin, θ', -, hθ'inj, hθ'range, -, -, hpF'⟩ :=
-    hRk1 G p B Bs x L D J 𝒦 hcfg hsplit ι M e hpres hle3 X hX r hrA hrC
-  obtain ⟨a, haA, hra⟩ := ggCoxRefl_conj_of_connected e hconn hr₀C hrC
-  have hL1r₀ : ggRankOnePerf Bs r₀ = ggRankOneIn L Bs r₀ :=
-    hL1 G p B Bs x L D J 𝒦 hcfg hsplit ι M e hpres hle3 L (Or.inl rfl) r₀ hr₀A hr₀C
-  have hL1r : ggRankOnePerf Bs r = ggRankOneIn X Bs r :=
-    hL1 G p B Bs x L D J 𝒦 hcfg hsplit ι M e hpres hle3 X hX r hrA hrC
-  have hc₀ : Nat.card (ggRankOnePerf Bs r₀) = Nat.card SL(2, F) := by
-    rw [hL1r₀, ← hθrange]
-    exact Nat.card_congr (MonoidHom.ofInjective hθinj).toEquiv.symm
-  have hc : Nat.card (ggRankOnePerf Bs r) = Nat.card SL(2, F') := by
-    rw [hL1r, ← hθ'range]
-    exact Nat.card_congr (MonoidHom.ofInjective hθ'inj).toEquiv.symm
-  have hcr : Nat.card (ggRankOnePerf Bs r) = Nat.card (ggRankOnePerf Bs r₀) := by
-    rw [hra]
-    exact (ggRankOnePerf_conj_card_le (hAH haA) r₀).1
-  have hFF : Nat.card F = Nat.card F' := ggSL2_card_inj (by rw [← hc₀, ← hc, hcr])
-  have hq : 1 ≤ Nat.card F := le_of_lt Finite.one_lt_card
-  have h1 : p ∣ Nat.card F - 1 := hpF hsplit
-  have h2 : p ∣ Nat.card F + 1 := hFF ▸ hpF' hns
-  have h3 : p ∣ 2 := by
-    have h4 : p ∣ (Nat.card F + 1) - (Nat.card F - 1) := Nat.dvd_sub h2 h1
-    have h5 : (Nat.card F + 1) - (Nat.card F - 1) = 2 := by omega
-    rwa [h5] at h4
-  have h6 : p ≤ 2 := Nat.le_of_dvd (by norm_num) h3
-  have h7 : 2 ≤ p := hpp.two_le
-  omega
 
 theorem ggSecFiveTier1Input_of_prim (hL1 : GGSecFiveL1CoxInput) (hRk1 : GGSecFiveRk1Input)
     (hGen : GGSecFiveGenCoxInput) (hOrb : GGSecFiveOrbInput) (hL2 : GGSecFiveL2SplitInput)

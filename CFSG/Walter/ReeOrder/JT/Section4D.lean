@@ -189,8 +189,6 @@ namespace Config
 variable {G : Type} [Group G] [Finite G] {h : JTHyp G} (c : Config h) (hp : h.p ≠ 2)
 include hp
 
-omit hp in
-theorem t₁_fpf_Q : ∀ x ∈ c.Q, c.t₁ * x * c.t₁⁻¹ = x → x = 1 := c.t₁_fpf
 
 omit hp in
 theorem t₁_not_mem_T : c.t₁ ∉ c.T := fun hT => by

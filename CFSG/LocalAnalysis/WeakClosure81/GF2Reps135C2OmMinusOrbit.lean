@@ -19,8 +19,6 @@ noncomputable abbrev o8mAct (w : o8mW) (v : Fin 3 → ℤ) : Fin 3 → ℤ :=
 @[expose] def o8mWt (j : Fin 3) : Fin 3 → ℤ :=
   ofStdB 3 fun a => if a.val ≤ j.val then 1 else 0
 
-@[expose] def o8mWtPair (i : Fin 3) : Fin 3 → ℤ :=
-  ofStdB 3 (![![3, 3, 1], ![3, 1, 1], ![2, 1, 0]] i)
 
 private theorem o8mAct_mul (a b : o8mW) (v : Fin 3 → ℤ) :
     o8mAct (a * b) v = o8mAct a (o8mAct b v) := by
@@ -55,11 +53,6 @@ theorem o8mWt_fixed {i j : Fin 3} (hij : i ≠ j) : o8mAct (o8mSimple i) (o8mWt 
   simp only [o8mWt, toStdB_ofStdB]
   fin_cases i <;> fin_cases j <;> simp_all <;> decide
 
-theorem o8mWtPair_fixed (i : Fin 3) : o8mAct (o8mSimple i) (o8mWtPair i) = o8mWtPair i := by
-  apply toStdB_injective 3
-  rw [o8m_toStdB_simple]
-  simp only [o8mWtPair, toStdB_ofStdB]
-  fin_cases i <;> simp [stdReflB] <;> decide
 
 private def o8mFourOneListX0 : Fin 4 → List (Fin 3)
   | 0 => [1]
@@ -273,103 +266,6 @@ theorem exists_two_orbit_o8mWt_two :
       Function.Injective u ∧ ∀ i j, u i ≠ o8mAct (o8mSimple 0) (u j) :=
   o8mTwoOrbit
 
-private def o8mPairListZero : Fin 17 → List (Fin 3) :=
-  ![[], [1], [2], [0, 1], [1, 2], [2, 1], [0, 1, 2], [1, 2, 1], [2, 0, 1], [2, 1, 2],
-    [0, 1, 2, 1], [1, 2, 0, 1], [2, 0, 1, 2], [2, 1, 2, 1], [0, 1, 2, 0, 1],
-    [1, 2, 0, 1, 2], [2, 0, 1, 2, 1]]
-
-private noncomputable def o8mPairWordZero (a : Fin 17) : o8mW :=
-  o8mWordOfList (o8mPairListZero a)
-
-private def o8mPairStdZero : Fin 17 → (Fin 3 → ℤ) :=
-  ![![3, 3, 1], ![3, 1, 3], ![3, 3, -1], ![1, 3, 3], ![3, -1, 3], ![3, 1, -3], ![-1, 3, 3],
-    ![3, -3, 1], ![1, 3, -3], ![3, -1, -3], ![-3, 3, 1], ![1, -3, 3], ![-1, 3, -3],
-    ![3, -3, -1], ![-3, 1, 3], ![-1, -3, 3], ![-3, 3, -1]]
-
-private theorem o8m_toStdB_pairZero (a : Fin 17) :
-    toStdB 3 (o8mAct (o8mPairWordZero a) (o8mWtPair 0)) = o8mPairStdZero a := by
-  fin_cases a <;>
-    (simp only [o8mPairWordZero, o8mPairListZero, o8m_toStdB_wordOfList, o8mWtPair,
-      toStdB_ofStdB]
-     decide)
-
-private theorem o8mPairOrbitZero :
-    ∃ u : Fin 17 → (Fin 3 → ℤ), (∀ a, ∃ w : o8mW, u a = o8mAct w (o8mWtPair 0)) ∧
-      Function.Injective u := by
-  refine ⟨fun a => o8mAct (o8mPairWordZero a) (o8mWtPair 0), ?_, ?_⟩
-  · intro a; exact ⟨o8mPairWordZero a, rfl⟩
-  · intro a b hab
-    exact (by decide : Function.Injective o8mPairStdZero) (by
-      have h := congrArg (toStdB 3) hab
-      simpa only [o8m_toStdB_pairZero] using h)
-
-private def o8mPairListOne : Fin 17 → List (Fin 3) :=
-  ![[], [0], [2], [1, 0], [1, 2], [2, 0], [0, 1, 2], [1, 2, 0], [2, 1, 0], [2, 1, 2],
-    [0, 1, 2, 0], [1, 2, 1, 0], [2, 0, 1, 2], [2, 1, 2, 0], [0, 1, 2, 1, 0],
-    [1, 2, 0, 1, 2], [2, 0, 1, 2, 0]]
-
-private noncomputable def o8mPairWordOne (a : Fin 17) : o8mW :=
-  o8mWordOfList (o8mPairListOne a)
-
-private def o8mPairStdOne : Fin 17 → (Fin 3 → ℤ) :=
-  ![![3, 1, 1], ![1, 3, 1], ![3, 1, -1], ![1, 1, 3], ![3, -1, 1], ![1, 3, -1], ![-1, 3, 1],
-    ![1, -1, 3], ![1, 1, -3], ![3, -1, -1], ![-1, 1, 3], ![1, -3, 1], ![-1, 3, -1],
-    ![1, -1, -3], ![-3, 1, 1], ![-1, -1, 3], ![-1, 1, -3]]
-
-private theorem o8m_toStdB_pairOne (a : Fin 17) :
-    toStdB 3 (o8mAct (o8mPairWordOne a) (o8mWtPair 1)) = o8mPairStdOne a := by
-  fin_cases a <;>
-    (simp only [o8mPairWordOne, o8mPairListOne, o8m_toStdB_wordOfList, o8mWtPair,
-      toStdB_ofStdB]
-     decide)
-
-private theorem o8mPairOrbitOne :
-    ∃ u : Fin 17 → (Fin 3 → ℤ), (∀ a, ∃ w : o8mW, u a = o8mAct w (o8mWtPair 1)) ∧
-      Function.Injective u := by
-  refine ⟨fun a => o8mAct (o8mPairWordOne a) (o8mWtPair 1), ?_, ?_⟩
-  · intro a; exact ⟨o8mPairWordOne a, rfl⟩
-  · intro a b hab
-    exact (by decide : Function.Injective o8mPairStdOne) (by
-      have h := congrArg (toStdB 3) hab
-      simpa only [o8m_toStdB_pairOne] using h)
-
-private def o8mPairListTwo : Fin 17 → List (Fin 3) :=
-  ![[], [0], [1], [0, 1], [1, 0], [2, 1], [0, 1, 0], [1, 2, 1], [2, 0, 1], [2, 1, 0],
-    [0, 1, 2, 1], [1, 2, 0, 1], [1, 2, 1, 0], [2, 0, 1, 0], [0, 1, 2, 0, 1],
-    [0, 1, 2, 1, 0], [1, 2, 0, 1, 0]]
-
-private noncomputable def o8mPairWordTwo (a : Fin 17) : o8mW :=
-  o8mWordOfList (o8mPairListTwo a)
-
-private def o8mPairStdTwo : Fin 17 → (Fin 3 → ℤ) :=
-  ![![2, 1, 0], ![1, 2, 0], ![2, 0, 1], ![0, 2, 1], ![1, 0, 2], ![2, 0, -1], ![0, 1, 2],
-    ![2, -1, 0], ![0, 2, -1], ![1, 0, -2], ![-1, 2, 0], ![0, -1, 2], ![1, -2, 0],
-    ![0, 1, -2], ![-1, 0, 2], ![-2, 1, 0], ![0, -2, 1]]
-
-private theorem o8m_toStdB_pairTwo (a : Fin 17) :
-    toStdB 3 (o8mAct (o8mPairWordTwo a) (o8mWtPair 2)) = o8mPairStdTwo a := by
-  fin_cases a <;>
-    (simp only [o8mPairWordTwo, o8mPairListTwo, o8m_toStdB_wordOfList, o8mWtPair,
-      toStdB_ofStdB]
-     decide)
-
-private theorem o8mPairOrbitTwo :
-    ∃ u : Fin 17 → (Fin 3 → ℤ), (∀ a, ∃ w : o8mW, u a = o8mAct w (o8mWtPair 2)) ∧
-      Function.Injective u := by
-  refine ⟨fun a => o8mAct (o8mPairWordTwo a) (o8mWtPair 2), ?_, ?_⟩
-  · intro a; exact ⟨o8mPairWordTwo a, rfl⟩
-  · intro a b hab
-    exact (by decide : Function.Injective o8mPairStdTwo) (by
-      have h := congrArg (toStdB 3) hab
-      simpa only [o8m_toStdB_pairTwo] using h)
-
-theorem exists_seventeen_orbit_o8mWtPair (i : Fin 3) :
-    ∃ u : Fin 17 → (Fin 3 → ℤ), (∀ a, ∃ w : o8mW, u a = o8mAct w (o8mWtPair i)) ∧
-      Function.Injective u := by
-  fin_cases i
-  · exact o8mPairOrbitZero
-  · exact o8mPairOrbitOne
-  · exact o8mPairOrbitTwo
 
 private theorem o8mSimple121_inv :
     (o8mSimple 1 * o8mSimple 2 * o8mSimple 1)⁻¹ =

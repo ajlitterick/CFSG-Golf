@@ -119,10 +119,6 @@ theorem mem_su6D_roots_iff (γ : Fin (6 / 2) → ℤ) :
     · refine Or.inr (Or.inl ⟨(su6Pos r).1, su6Pos_fst_ne_rev r, ?_⟩)
       rw [weight_six, su6Wt_long r (by omega)]
 
-theorem su6Fund_injective : Function.Injective su6Fund := by decide
-
-theorem su6Fund_mem_roots (r : Fin 18) : su6Fund r ∈ su6D.roots :=
-  (mem_su6D_roots_iff _).2 ⟨r, rfl⟩
 
 theorem F4.eq_iff_code (x y : F4) : x = y ↔ x.code = y.code := by
   cases x

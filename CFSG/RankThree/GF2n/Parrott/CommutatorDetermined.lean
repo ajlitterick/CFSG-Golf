@@ -195,13 +195,6 @@ section Determination
 
 variable (h : Tim79a.ParrottHyp z)
 
-@[expose] noncomputable def FsubSubmodule (σ : ↥(H z)) :
-    letI : CommGroup (QuotientV.V z) := commGroupV h
-    letI : Module (ZMod 2) (Additive (QuotientV.V z)) := moduleV h
-    Submodule (ZMod 2) (Additive (QuotientV.V z)) :=
-  letI : CommGroup (QuotientV.V z) := commGroupV h
-  letI : Module (ZMod 2) (Additive (QuotientV.V z)) := moduleV h
-  AddSubgroup.toZModSubmodule (n := 2) (Fsub (z := z) σ).toAddSubgroup
 
 @[expose] noncomputable def commutatorVSubmodule (σ : ↥(H z)) :
     letI : CommGroup (QuotientV.V z) := commGroupV h
@@ -378,20 +371,6 @@ section Equality
 
 variable (h : Tim79a.ParrottHyp z)
 
-theorem commutatorV_eq_of_fixSubmodule_eq {σ₁ σ₂ : ↥(H z)}
-    (hσ₁ : orderOf σ₁ = 3) (hσ₂ : orderOf σ₂ = 3)
-    (hfix : fixSubmodule h σ₁ = fixSubmodule h σ₂) :
-    commutatorV h σ₁ = commutatorV h σ₂ := by
-  letI : CommGroup (QuotientV.V z) := commGroupV h
-  letI : Module (ZMod 2) (Additive (QuotientV.V z)) := moduleV h
-  have h₁ := commutatorV_eq_orthogonal_fixSubmodule h σ₁ hσ₁
-  have h₂ := commutatorV_eq_orthogonal_fixSubmodule h σ₂ hσ₂
-  have hmod : commutatorVSubmodule h σ₁ = commutatorVSubmodule h σ₂ := by
-    rw [h₁, h₂, hfix]
-  have hsub : (commutatorV h σ₁).toAddSubgroup = (commutatorV h σ₂).toAddSubgroup := by
-    apply (AddSubgroup.toZModSubmodule (n := 2)).injective
-    simpa [commutatorVSubmodule] using hmod
-  exact Subgroup.toAddSubgroup.injective hsub
 
 end Equality
 
@@ -482,95 +461,11 @@ end J0Normal
 
 section NormalFromJ0
 
-variable (h : Tim79a.ParrottHyp z)
-
-def CommutatorDeterminedByCentralizer (h : Tim79a.ParrottHyp z) : Prop :=
-  ∀ (σ τ : ↥(H z)), orderOf σ = 3 → orderOf τ = 3 →
-    conjZ z σ = 1 → conjZ z τ = 1 →
-    centralizerJ σ = centralizerJ τ →
-    ⁅(Subgroup.zpowers σ).map (H z).subtype, J z⁆ =
-      ⁅(Subgroup.zpowers τ).map (H z).subtype, J z⁆
-
-theorem commutator_normal_of_J0_normal
-    (hJ0 : (J0sub (z := z) (D := D)).Normal)
-    (hCD : CommutatorDeterminedByCentralizer (z := z) h) :
-    ∀ (g : ↥(H z)) (p : G),
-      p ∈ ⁅(Subgroup.zpowers (sigma1Nine (z := z) D)).map (H z).subtype, J z⁆ ↔
-        (g : G) * p * (g : G)⁻¹ ∈
-          ⁅(Subgroup.zpowers (sigma1Nine (z := z) D)).map (H z).subtype, J z⁆ := by
-  set P : Subgroup G := ⁅(Subgroup.zpowers (sigma1Nine (z := z) D)).map (H z).subtype, J z⁆ with hP
-  have hσord : orderOf (sigma1Nine (z := z) D) = 3 := sigma1Nine_order (z := z) D
-  have hZσ : conjZ z (sigma1Nine (z := z) D) = 1 := conjZ_sigma1Nine (z := z) h D
-  have hmap_of : ∀ k : ↥(H z), P.map (MulAut.conj (k : G)).toMonoidHom = P := by
-    intro k
-    have hτord : orderOf (k * sigma1Nine (z := z) D * k⁻¹) = 3 := by
-      rw [show k * sigma1Nine (z := z) D * k⁻¹ =
-        (MulAut.conj k) (sigma1Nine (z := z) D) by rw [MulAut.conj_apply]]
-      rw [MulEquiv.orderOf_eq (MulAut.conj k), hσord]
-    have hZτ : conjZ z (k * sigma1Nine (z := z) D * k⁻¹) = 1 := by
-      rw [map_mul, map_mul, map_inv, hZσ]
-      simp
-    have hK := centralizerJ_conj_eq_of_J0sub_normal (z := z) (D := D) hJ0 k
-    have hPτ := hCD (sigma1Nine (z := z) D) (k * sigma1Nine (z := z) D * k⁻¹)
-      hσord hτord hZσ hZτ hK.symm
-    have hHN : H z ≤ Subgroup.normalizer (J z : Set G) :=
-      (Subgroup.normal_subgroupOf_iff_le_normalizer (J_le_H (z := z))).mp hN
-    have hJmap : (J z).map (MulAut.conj (k : G)).toMonoidHom = J z :=
-      Subgroup.mem_normalizer_iff_map_conj_eq.mp (hHN k.2)
-    calc
-      P.map (MulAut.conj (k : G)).toMonoidHom
-          = ⁅(Subgroup.zpowers (k * sigma1Nine (z := z) D * k⁻¹)).map
-              (H z).subtype, J z⁆ := by
-            rw [hP]
-            rw [Subgroup.map_commutator]
-            rw [Subgroup.map_map (g := (MulAut.conj (k : G)).toMonoidHom) (f := (H z).subtype)]
-            rw [MonoidHom.map_zpowers, hJmap]
-            congr 2
-            simp [MulAut.conj_apply]
-      _ = P := by
-            rw [hP]
-            exact hPτ.symm
-  intro g p
-  constructor
-  · intro hp
-    change p ∈ P at hp
-    have hmem : (MulAut.conj (g : G)) p ∈ P.map (MulAut.conj (g : G)).toMonoidHom :=
-      Subgroup.mem_map_of_mem _ hp
-    rw [hmap_of g] at hmem
-    change (g : G) * p * (g : G)⁻¹ ∈ P
-    simpa [MulAut.conj_apply] using hmem
-  · intro hp
-    change (g : G) * p * (g : G)⁻¹ ∈ P at hp
-    have hmem : (MulAut.conj (((g⁻¹ : ↥(H z)) : G))) ((g : G) * p * (g : G)⁻¹) ∈
-        P.map (MulAut.conj (((g⁻¹ : ↥(H z)) : G))).toMonoidHom :=
-      Subgroup.mem_map_of_mem _ hp
-    rw [hmap_of g⁻¹] at hmem
-    have hconj : (MulAut.conj (((g⁻¹ : ↥(H z)) : G))) ((g : G) * p * (g : G)⁻¹) =
-        p := by
-      rw [MulAut.conj_apply]
-      have hcoe : (((g⁻¹ : ↥(H z)) : G)) = (g : G)⁻¹ := rfl
-      rw [hcoe]
-      group
-    rw [hconj] at hmem
-    change p ∈ P
-    exact hmem
 
 end NormalFromJ0
 
 section Q8
 
-variable (h : Tim79a.ParrottHyp z)
-
-theorem card_CJcomm_sigma1sigma2inv_eq_eight_unconditional
-    {σ₂ : ↥(H z)} (hσ₂ : orderOf σ₂ = 3)
-    (hq₂ : qH D σ₂ = (⟨sigma2, sigma2_mem_A⟩ : QA45.originalSubgroup))
-    (hc₂ : σ₂ * sigma1Nine (z := z) D = sigma1Nine (z := z) D * σ₂)
-    (hJ0 : (J0sub (z := z) (D := D)).Normal)
-    (hCD : CommutatorDeterminedByCentralizer (z := z) h) :
-    Nat.card ↥(CJcomm (z := z) (D := D) (sigma1Nine (z := z) D * σ₂⁻¹)) = 8 := by
-  refine card_CJcomm_sigma1sigma2inv_eq_eight_of_lift (z := z) (D := D) h hσ₂ hq₂ hc₂ ?_
-  intro g p hp
-  exact (commutator_normal_of_J0_normal (z := z) (D := D) h hJ0 hCD g p).mp hp
 
 end Q8
 

@@ -19,9 +19,6 @@ open scoped commutatorElement
     IsPSL 3 2 1 ↥(autOn L (vPlus L T)) →
       qL L T = vPlus L T ⊔ tC L T ∧ ⁅vPlus L T, tC L T⁆ = ⊥ ∧ frattini ↥(qL L T) = ⊥
 
-@[expose] def Stmt3_3_28U33 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M L D : Subgroup G), Hyp331 G T M L D →
-    IsPSU 3 3 1 ↥(autOn L (vPlus L T)) → tC L T = ⊥ ∧ qL L T = vPlus L T
 
 namespace Lem3328
 

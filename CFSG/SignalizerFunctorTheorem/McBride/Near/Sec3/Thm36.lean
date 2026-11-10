@@ -166,40 +166,6 @@ theorem mem_cset_of_not_inf_le
 
 end Thm36
 
-theorem thm36'
-    (hθ : NearFunctor p A θ) (hrank : p ^ 3 ≤ Nat.card A) {X : Subgroup G}
-    (hX : X ∈ mtil p A θ) {X₁ X₂ : Subgroup G} (h₁ : X₁ ≤ X) (h₂ : X₂ ≤ X)
-    (hd₁ : Admits (dsub A θ ⊔ A) X₁) (hd₂ : Admits (dsub A θ ⊔ A) X₂)
-    (hc : IsChiefFactorOf (X₁ ⊔ dsub A θ ⊔ A) X₁ X₂) (hns : ¬ IsSolvableSection X₁ X₂)
-    {Y : Subgroup G} (hY : Y ∈ dset p A θ) (hX₂ : X₂ ⊓ dsub A θ ≤ Y) :
-    X₁ ⊓ dsub A θ ≤ Y ∨ (X₁ ⊔ Y, X₂ ⊔ Y) ∈ pairsY p A θ Y := by
-  have hXD : cenIn X (A : Set G) = dsub A θ := cenIn_eq_dsub hθ hX
-  have hnear : NearAsolvAction p A X := Thm33a.nearAsolvAction_of_mem_mtil hθ hX
-  obtain ⟨hYD, hYadm⟩ := Thm36.dset_le_admits hθ hY
-  by_cases hXc : X ∈ cset p A θ Y
-  · have hX₁' : IsDAIn A X X₁ := ⟨h₁, by rw [hXD]; exact hd₁⟩
-    have hX₂' : IsDAIn A X X₂ := ⟨h₂, by rw [hXD]; exact hd₂⟩
-    have hc' : IsChiefFactorOf (X₁ ⊔ cenIn X (A : Set G) ⊔ A) X₁ X₂ := by
-      rw [hXD]
-      exact hc
-    have hX₂Y : X₂ ⊓ cenIn X (A : Set G) ≤ Y := by
-      rw [hXD]
-      exact hX₂
-    have hne : (iPairsY A X Y).Nonempty := by
-      rw [← pairsYX_eq_iPairsY hθ hX]
-      exact hXc.2
-    rcases Thm36.iThm36 hnear hne hX₁' hX₂' hc' hns hX₂Y with h1 | h1
-    · left
-      rwa [hXD] at h1
-    · right
-      rw [hXD] at h1
-      have hP := Thm36.pairs_of_secCen hnear hX₁' hX₂' hc' hns hX₂Y (by rw [hXD]; exact hYadm)
-        (by rw [hXD]; exact hYD) (by rw [hXD]; exact h1)
-      rw [← pairsYX_eq_iPairsY hθ hX] at hP
-      exact hP.1
-  · left
-    by_contra hfa
-    exact hXc (Thm36.mem_cset_of_not_inf_le hθ hrank hX h₁ h₂ hd₁ hd₂ hc hns hY hX₂ hfa)
 
 theorem inf_le_of_not_mem_cset
     (hθ : NearFunctor p A θ) (hrank : p ^ 3 ≤ Nat.card A)

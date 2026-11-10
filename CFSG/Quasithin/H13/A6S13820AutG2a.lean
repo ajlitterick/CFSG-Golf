@@ -136,8 +136,6 @@ theorem tor20_mul (s₁ s₂ s₁' s₂' : Kˣ) :
   map_one' := Subtype.ext tor20_one
   map_mul' p q := Subtype.ext (tor20_mul p.1 p.2 q.1 q.2)
 
-theorem coe_torHom20 (p : Kˣ × Kˣ) :
-    ((torHom20 p : ↥(adjointGroup Tag.G2 K)) : ModGL Tag.G2 K) = tor20 p.1 p.2 := rfl
 
 theorem torHom20_injective : Function.Injective (torHom20 (K := K)) := fun p q h => by
   have h' := tor20_injective (congrArg Subtype.val h)

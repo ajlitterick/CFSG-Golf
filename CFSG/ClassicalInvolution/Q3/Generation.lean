@@ -83,10 +83,6 @@ structure FrameSide3 (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup
   generation : ∀ a ∈ A, IsFrameInvolution3 S a → CentralizerGenerationModO Ω A a
   link : ∀ a ∈ A, IsFrameInvolution3 S a → InvolutionLink3 Ω A S a
 
-@[expose] def omegaStar3 (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup G)) :
-    Set (Subgroup G) :=
-  {L | L ∈ Ω ∧ ∃ h ∈ rankThreeSpan A, ∃ K ∈ S, ∃ z ∈ A,
-    IsClassicalMember3 K z ∧ IsClassicalMember3 L (h * z * h⁻¹)}
 
 end Defs
 
@@ -195,187 +191,16 @@ theorem isClassicalMember3_conj_inv {L : Subgroup G} {z h : G}
   have e : h⁻¹ * (h * z * h⁻¹) * h⁻¹⁻¹ = z := by group
   rwa [e] at this
 
-theorem le_rankThreeSpan_of_mem_omegaStar3 (hΩ : InClass3 Ω) (hF : FrameSide3 Ω A S)
-    {L : Subgroup G} (hLs : L ∈ omegaStar3 Ω A S) : L ≤ rankThreeSpan A := by
-  obtain ⟨hLΩ, h, hh, K, hK, a, haA, hKa, hLa⟩ := hLs
-  have hconj := hΩ.conjInvariant
-  have hLa' := isClassicalMember3_conj_inv hLa
-  have hmem : conjSub h⁻¹ L ∈ centralizingMembers Ω {a} :=
-    ⟨hconj _ _ hLΩ, isSubnormal_le hLa'.subnormal⟩
-  have hY : conjSub h⁻¹ L ≤ rankThreeSpan A :=
-    (le_centralizingLayer hmem).trans (centralizingLayer_le_rankThreeSpan hconj hF.elem hF.card haA
-      (hF.generation a haA ⟨K, hK, hKa⟩))
-  intro x hx
-  have h1 : h⁻¹ * x * h ∈ conjSub h⁻¹ L := by
-    rw [mem_conjSub_iff]
-    simpa [mul_assoc] using hx
-  have h2 := hY h1
-  have h3 : x = h * (h⁻¹ * x * h) * h⁻¹ := by group
-  rw [h3]
-  exact mul_mem (mul_mem hh h2) (inv_mem hh)
-
-theorem mem_omegaStar3_of_commutes (hΩ : InClass3 Ω) (hF : FrameSide3 Ω A S)
-    {L L' : Subgroup G} (hLs : L ∈ omegaStar3 Ω A S) (hL' : L' ∈ Ω) (hc : Commutes L L') :
-    L' ∈ omegaStar3 Ω A S := by
-  obtain ⟨hLΩ, h₀, hh₀, K, hKS, a, haA, hKa, hLa⟩ := hLs
-  have hconj := hΩ.conjInvariant
-  have hLa' := isClassicalMember3_conj_inv hLa
-  have hc' : Commutes (conjSub h₀⁻¹ L) (conjSub h₀⁻¹ L') := hc.conjSub h₀⁻¹
-  set M := conjSub h₀⁻¹ L' with hM
-  have hMΩ : M ∈ Ω := hconj _ _ hL'
-  have hMa : M ≤ Subgroup.centralizer ({a} : Set G) := by
-    intro x hx
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (hc' a hLa'.mem x hx).symm
-  have hMmem : M ∈ centralizingMembers Ω {a} := ⟨hMΩ, hMa⟩
-  obtain ⟨z₀, hz₀⟩ := hΩ.classical M hMΩ
-  obtain ⟨K', hK'S, z', hz'A, hK'z', h₁, hh₁Y, hz₀h₁⟩ :=
-    hF.link a haA ⟨K, hKS, hKa⟩ M hMmem z₀ hz₀
-  have hYH := centralizingLayer_le_rankThreeSpan hconj hF.elem hF.card haA
-    (hF.generation a haA ⟨K, hKS, hKa⟩)
-  have hz₀' : IsClassicalMember3 M (h₁ * z' * h₁⁻¹) := by rwa [← hz₀h₁]
-  have hL'z : IsClassicalMember3 L' (h₀ * (h₁ * z' * h₁⁻¹) * h₀⁻¹) := by
-    have := hz₀'.conj h₀
-    rwa [hM, conjSub_conjSub_inv] at this
-  refine ⟨hL', h₀ * h₁, mul_mem hh₀ (hYH hh₁Y), K', hK'S, z', hz'A, hK'z', ?_⟩
-  have e : h₀ * h₁ * z' * (h₀ * h₁)⁻¹ = h₀ * (h₁ * z' * h₁⁻¹) * h₀⁻¹ := by group
-  rwa [e]
-
-theorem mem_omegaStar3_of_omegaConnected (hΩ : InClass3 Ω) (hF : FrameSide3 Ω A S)
-    (hconn : OmegaConnected Ω) {L : Subgroup G} (hLΩ : L ∈ Ω) : L ∈ omegaStar3 Ω A S := by
-  obtain ⟨K₀, hK₀⟩ := hF.nonempty
-  obtain ⟨z, hzA, hz⟩ := hF.involution K₀ hK₀
-  have hK₀s : K₀ ∈ omegaStar3 Ω A S :=
-    ⟨hF.subset hK₀, 1, one_mem _, K₀, hK₀, z, hzA, hz, by simpa using hz⟩
-  have key : ∀ L', Relation.ReflTransGen (fun M N : Subgroup G => N ∈ Ω ∧ Commutes M N) K₀ L' →
-      L' ∈ omegaStar3 Ω A S := by
-    intro L' hpath
-    induction hpath with
-    | refl => exact hK₀s
-    | tail _ hbc ih => exact mem_omegaStar3_of_commutes hΩ hF ih hbc.1 hbc.2
-  exact key L (hconn K₀ (hF.subset hK₀) L hLΩ)
-
-theorem rankThreeSpan_eq_top3 (hΩ : InClass3 Ω) (hF : FrameSide3 Ω A S)
-    (hconn : OmegaConnected Ω) : rankThreeSpan A = ⊤ := by
-  refine top_unique ?_
-  rw [← hΩ.generated]
-  exact iSup₂_le fun _ hLΩ => le_rankThreeSpan_of_mem_omegaStar3 hΩ hF
-    (mem_omegaStar3_of_omegaConnected hΩ hF hconn hLΩ)
-
-theorem fusionGenerated_of_deltaClosure3 (hΩ : InClass3 Ω) (hF : FrameSide3 Ω A S)
-    (hconn : OmegaConnected Ω) : FusionGenerated A :=
-  CFSG.ClassicalInvolution.Balance.fusionGenerated_of_centralizer_generated
-    (rankThreeSpan_eq_top3 hΩ hF hconn)
-
-theorem fusionGenerated_of_lie3 (hL : LocalHypotheses3 Ω A) (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hS : S ⊆ Ω) (hne : S.Nonempty)
-    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember3 K z)
-    (hgen : ∀ a ∈ A, IsFrameInvolution3 S a → CentralizerGenerationModO Ω A a)
-    (hcover : ∀ a ∈ A, IsFrameInvolution3 S a → FrameCoversModO Ω S a)
-    (hconn : OmegaConnected Ω) : FusionGenerated A :=
-  fusionGenerated_of_deltaClosure3 hL.inClass
-    (FrameSide3.of_cover hL hA h16 hS hne hinv hgen hcover) hconn
 
 end Step
 
 section Frame
 
-variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {A : Subgroup G}
-  {S : Set (Subgroup G)}
-
-theorem frameCovers_of_frameGeneration3 (hΩ : InClass3 Ω) (hS : S ⊆ Ω) {a : G}
-    (h : FrameGenerationModO Ω S a) : FrameCoversModO Ω S a := by
-  intro L hL
-  by_contra hno
-  push Not at hno
-  set Y := centralizingLayer Ω {a} with hY
-  have hLY : L ≤ Y := le_centralizingLayer hL
-  obtain ⟨z, hz⟩ := hΩ.classical L hL.1
-  have hclaim : ∀ x ∈ L, ∀ y ∈ Y, x * y * x⁻¹ * y⁻¹ ∈ oddCoreIn Y := by
-    intro x hx y hy
-    have hxY : x ∈ Y := hLY hx
-    let C : Subgroup ↥Y :=
-      (Subgroup.centralizer ({QuotientGroup.mk' (classicalInvolutionOddCore ↥Y) ⟨x, hxY⟩} :
-        Set (↥Y ⧸ classicalInvolutionOddCore ↥Y))).comap
-        (QuotientGroup.mk' (classicalInvolutionOddCore ↥Y))
-    have hC : ∀ t : ↥Y, t ∈ C ↔ x * (t : G) * x⁻¹ * (t : G)⁻¹ ∈ oddCoreIn Y := by
-      intro t
-      rw [Subgroup.mem_comap, Subgroup.mem_centralizer_singleton_iff, eq_comm]
-      exact mk_comm_eq_iff hxY t.2
-    have hO : oddCoreIn Y ≤ C.map Y.subtype := by
-      rintro _ ⟨w, hw, rfl⟩
-      have hwO : (w : G) ∈ oddCoreIn Y := ⟨w, hw, rfl⟩
-      exact ⟨w, (hC w).mpr ((oddCoreIn Y).mul_mem (conj_mem_oddCoreIn hxY hwO)
-        ((oddCoreIn Y).inv_mem hwO)), rfl⟩
-    have hKle : ∀ K ∈ S, K ≤ Subgroup.centralizer ({a} : Set G) → K ≤ C.map Y.subtype := by
-      intro K hK hKa k hk
-      have hkY : k ∈ Y := le_centralizingLayer ⟨hS hK, hKa⟩ hk
-      exact ⟨⟨k, hkY⟩, (hC ⟨k, hkY⟩).mpr (hno K hK hKa x hx k hk), rfl⟩
-    have hYle : Y ≤ C.map Y.subtype :=
-      h.trans (sup_le hO (iSup₂_le fun K hK => iSup_le fun hKa => hKle K hK hKa))
-    obtain ⟨t, ht, rfl⟩ := hYle hy
-    exact (hC t).mp ht
-  have hLmem := (hz.subgroupOf hLY).map_oddQuotient
-  refine hLmem.not_le_center ?_
-  rintro _ ⟨x', hx', rfl⟩
-  rw [Subgroup.mem_center_iff]
-  intro g
-  obtain ⟨y', rfl⟩ := QuotientGroup.mk_surjective g
-  have hx'L : (x' : G) ∈ L := Subgroup.mem_subgroupOf.mp hx'
-  exact ((mk_comm_eq_iff x'.2 y'.2).mpr (hclaim x' hx'L y' y'.2)).symm
-
-theorem FrameSide3.of_frameGeneration (hL : LocalHypotheses3 Ω A) (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hS : S ⊆ Ω) (hne : S.Nonempty)
-    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember3 K z)
-    (hrank : ∀ K ∈ S, ∃ E₀ ∈ signalizerFunctorEk 2 3 A, K ≤ Subgroup.centralizer (E₀ : Set G))
-    (hgen : ∀ a ∈ A, IsFrameInvolution3 S a → FrameGenerationModO Ω S a) :
-    FrameSide3 Ω A S :=
-  FrameSide3.of_cover hL hA h16 hS hne hinv
-    (fun a ha hfa => (hgen a ha hfa).centralizerGenerationModO hS hrank)
-    (fun a ha hfa => frameCovers_of_frameGeneration3 hL.inClass hS (hgen a ha hfa))
 
 end Frame
 
 section Weak
 
-variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {E : Subgroup G}
-  {S : Set (Subgroup G)}
-
-omit [Finite G] in
-theorem exists_involution_mem_of_weakFrame3 (Fr : WeakPreFrame3 Ω E S) {K : Subgroup G}
-    (hK : K ∈ S) : ∃ z ∈ E, IsClassicalMember3 K z := by
-  obtain ⟨z, hz, hzE⟩ := (Fr.weakInSigma hK).member
-  exact ⟨z, hzE, hz⟩
-
-theorem exists_rank3_of_weakFrame3 (Fr : WeakPreFrame3 Ω E S) (h16 : 16 ≤ Nat.card E)
-    {K : Subgroup G} (hK : K ∈ S) :
-    ∃ E₀ ∈ signalizerFunctorEk 2 3 E, K ≤ Subgroup.centralizer (E₀ : Set G) :=
-  exists_rank3_of_relIndex_two (isElemAbelian_two_of_sq_eq_one Fr.elem) h16
-    (Fr.weakInSigma hK).index_two
-
-theorem FrameSide3.of_weakFrame (Fr : WeakPreFrame3 Ω E S) (hL : LocalHypotheses3 Ω E)
-    (h16 : 16 ≤ Nat.card E)
-    (hgen : ∀ a ∈ E, IsFrameInvolution3 S a → FrameGenerationModO Ω S a) :
-    FrameSide3 Ω E S :=
-  FrameSide3.of_frameGeneration hL (isElemAbelian_two_of_sq_eq_one Fr.elem) h16 Fr.subset
-    (let ⟨K, hK, _⟩ := Fr.exists_ne; ⟨K, hK⟩)
-    (fun _ hK => exists_involution_mem_of_weakFrame3 Fr hK)
-    (fun _ hK => exists_rank3_of_weakFrame3 Fr h16 hK) hgen
-
-theorem fusionGenerated_of_weakFrame3 (Fr : WeakPreFrame3 Ω E S) (hL : LocalHypotheses3 Ω E)
-    (h16 : 16 ≤ Nat.card E)
-    (hgen : ∀ a ∈ E, IsFrameInvolution3 S a → FrameGenerationModO Ω S a)
-    (hconn : OmegaConnected Ω) : FusionGenerated E :=
-  fusionGenerated_of_deltaClosure3 hL.inClass (FrameSide3.of_weakFrame Fr hL h16 hgen) hconn
-
-theorem fusionGenerated_of_weakFrame3_of_cover (Fr : WeakPreFrame3 Ω E S)
-    (hL : LocalHypotheses3 Ω E) (h16 : 16 ≤ Nat.card E)
-    (hgen : ∀ a ∈ E, IsFrameInvolution3 S a → CentralizerGenerationModO Ω E a)
-    (hcover : ∀ a ∈ E, IsFrameInvolution3 S a → FrameCoversModO Ω S a)
-    (hconn : OmegaConnected Ω) : FusionGenerated E :=
-  fusionGenerated_of_lie3 hL (isElemAbelian_two_of_sq_eq_one Fr.elem) h16 Fr.subset
-    (let ⟨K, hK, _⟩ := Fr.exists_ne; ⟨K, hK⟩)
-    (fun _ hK => exists_involution_mem_of_weakFrame3 Fr hK) hgen hcover hconn
 
 end Weak
 

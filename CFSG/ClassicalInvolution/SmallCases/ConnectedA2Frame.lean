@@ -323,26 +323,6 @@ theorem datumInjective_of_axis [Finite ↥A] [IsMulCommutative ↥A] (Fr : RankF
       rw [h2]
       exact hx
 
-theorem eq_of_twins (hfib : FibreLE2 S)
-    (h : ∀ K ∈ S, ∃ L ∈ S, (∃ w, IsUniqueInvolution K w ∧ IsUniqueInvolution L w) ∧
-      axisSub A L ≠ axisSub A K) :
-    ∀ K ∈ S, ∀ L ∈ S, (∃ w, IsUniqueInvolution K w ∧ IsUniqueInvolution L w) →
-      axisSub A K = axisSub A L → K = L := by
-  rintro K hK L hL ⟨w, hwK, hwL⟩ hax
-  obtain ⟨M, hM, ⟨w', hwK', hwM⟩, hne⟩ := h K hK
-  have hww : w' = w := hwK'.eq hwK
-  subst hww
-  rcases hfib w' K hK L hL M hM hwK hwL hwM with h1 | h1 | h1
-  · exact h1
-  · exact absurd (by rw [← h1]) hne
-  · exact absurd (by rw [← h1, hax]) hne
-
-
-theorem datumInjective_of_twins [Finite ↥A] [IsMulCommutative ↥A] (Fr : RankFrame F Ω A S)
-    (hfib : FibreLE2 S)
-    (h : ∀ K ∈ S, ∃ L ∈ S, (∃ w, IsUniqueInvolution K w ∧ IsUniqueInvolution L w) ∧
-      axisSub A L ≠ axisSub A K) : Fr.DatumInjective :=
-  datumInjective_of_axis Fr (eq_of_twins hfib h)
 
 theorem oddLieType_of_frame_linear [IsSimpleGroup G] (hp2 : p ≠ 2) (hf : 0 < f)
     (hq : 4 ≤ p ^ f) (hZ : Subgroup.center G = ⊥) (Fr : RankFrame F Ω A S)

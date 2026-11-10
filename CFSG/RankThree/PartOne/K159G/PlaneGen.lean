@@ -383,9 +383,6 @@ theorem exists_reduce (hq : 4 ≤ 2 ^ f) {B : Finset (Fin n)} :
         rw [Matrix.mulVec_mulVec, ← Units.val_mul, inv_mul_cancel, Units.val_one,
           Matrix.one_mulVec]
 
-theorem mem_fixOut {B : Finset (Fin n)} {g : GL (Fin n) K} :
-    g ∈ fixOut K B ↔ ∀ i, i ∉ B → (g : Matrix (Fin n) (Fin n) K) *ᵥ Pi.single i 1 = Pi.single i 1 :=
-  Iff.rfl
 
 theorem blk_le_fixOut {B : Finset (Fin n)} {i j : Fin n} (hi : i ∈ B) (hj : j ∈ B) (hij : i ≠ j) :
     blk h hij ≤ fixOut K B := by

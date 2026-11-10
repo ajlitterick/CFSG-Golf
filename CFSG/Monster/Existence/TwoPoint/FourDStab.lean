@@ -70,9 +70,6 @@ theorem fdEdgeShat_mem_vStab
     ↥(cent2 tGriess uGriess) →* vStab cv0 :=
   (fdEdgeShat hG).codRestrict (vStab cv0) (fdEdgeShat_mem_vStab hG hC)
 
-theorem coe_fdEdgeV
-    (hG : Gmat = AutO) (hC : CTIB.CentralizerInput) (e : ↥(cent2 tGriess uGriess)) :
-    ((fdEdgeV hG hC e : vStab cv0) : Shat) = fdEdgeShat hG e := rfl
 
 @[expose] noncomputable def fdTEdge : ↥(cent2 tGriess uGriess) :=
   ⟨tGriess, Subgroup.mem_inf.2 ⟨self_mem_cent tGriess,

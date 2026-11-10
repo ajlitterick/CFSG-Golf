@@ -170,7 +170,6 @@ theorem t_eq_iff (m m' : Kˣ) :
     have e : m = m' * (m * m'⁻¹) := by rw [mul_comm m m'⁻¹, mul_inv_cancel_left]
     rw [e, torus_mul_apply, hk]
 
-theorem cj_eq_pow (k : Kˣ) : cj J k = k ^ q := Units.ext (by rw [cj_val, H.conj_pow]; simp)
 
 @[expose] noncomputable def sgn (σ : Kˣ → Kˣ) (k : Kˣ) : K := ((σ k : K) * J.conj (k : K)) ^ 3
 
@@ -217,34 +216,6 @@ theorem sgn_mul (k k' : Kˣ) :
 theorem sgn_mul_self (k : Kˣ) : sgn (J := J) σ (k * k) = 1 := by
   rw [H.sgn_mul, ← sq, H.sgn_sq]
 
-theorem sgn_eq_one_of_conj {k : Kˣ} (hk : J.conj (k : K) = k) : sgn (J := J) σ k = 1 := by
-  classical
-  have := H.finite
-  have : Fintype K := Fintype.ofFinite K
-  have hchar : ringChar K ≠ 2 := by
-    intro e
-    apply H.two_ne
-    have := ringChar.spec K 2
-    rw [e] at this
-    exact_mod_cast (this.mpr (dvd_refl 2))
-  have hsq : IsSquare (k : K) := by
-    rw [FiniteField.isSquare_iff hchar k.ne_zero, ← Nat.card_eq_fintype_card, H.card]
-    have hq1 : (k : K) ^ q = k := by rw [← H.conj_pow, hk]
-    have hk1 : (k : K) ^ (q - 1) = 1 := by
-      have hq := H.q_ge
-      have : (k : K) ^ (q - 1) * k = k := by rw [← pow_succ, Nat.sub_add_cancel (by omega), hq1]
-      exact (mul_eq_right₀ k.ne_zero).mp this
-    obtain ⟨r, hr⟩ := H.q_odd
-    have : q ^ 2 / 2 = (q - 1) * (r + 1) := by
-      subst hr
-      have : (2 * r + 1) ^ 2 = 2 * ((2 * r + 1 - 1) * (r + 1)) + 1 := by
-        rw [show 2 * r + 1 - 1 = 2 * r by omega]; ring
-      omega
-    rw [this, pow_mul, hk1, one_pow]
-  obtain ⟨r, hr⟩ := hsq
-  have hr0 : r ≠ 0 := by rintro rfl; rw [mul_zero] at hr; exact k.ne_zero hr
-  have hkr : k = Units.mk0 r hr0 * Units.mk0 r hr0 := Units.ext (by simp [hr])
-  rw [hkr, H.sgn_mul_self]
 
 end SMapHyp3
 

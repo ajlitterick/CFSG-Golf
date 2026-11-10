@@ -49,14 +49,5 @@ theorem p_group_augmentation_nilpotent {field group : Type*}
   exact (ideal_pow_mono _ _ (p_group_augmentation_le_jacobson (field := field) prime hgroup) exponent).trans
     (by simpa only [hpower, Ideal.zero_eq_bot] using (le_refl (⊥ : Ideal (MonoidAlgebra field group))))
 
-theorem p_group_augmentation_element_nilpotent {field group : Type*}
-    [Field field] [Group group] [Finite group] (prime : ℕ) [Fact prime.Prime] [CharP field prime]
-    (hgroup : IsPGroup prime group) (value : MonoidAlgebra field group)
-    (hzero : groupAlgebraAugmentation field group value = 0) : IsNilpotent value := by
-  obtain ⟨exponent, hpower⟩ := p_group_augmentation_nilpotent (field := field) prime hgroup
-  refine ⟨exponent, ?_⟩
-  have hmember := Ideal.pow_mem_pow (I := RingHom.ker (groupAlgebraAugmentation field group)) hzero exponent
-  rw [hpower, Ideal.zero_eq_bot, Ideal.mem_bot] at hmember
-  exact hmember
 
 end CFSG.TwoRankLowerBound.Helpers

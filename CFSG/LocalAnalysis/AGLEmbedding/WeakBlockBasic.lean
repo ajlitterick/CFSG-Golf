@@ -136,26 +136,6 @@ theorem IsTwoPrimeComponent.le_normalizer {M S L : Subgroup G} (hL : IsTwoPrimeC
   rw [Subgroup.mem_normalizer_iff_map_conj_eq]
   exact (hL.map_conj hsM).eq_of_barM_eq hL (by rw [barM_map_conj hsM]; exact hn)
 
-omit [Finite G] in
-theorem IsTwoPrimeComponent.isFooteBlock {M L : Subgroup G} (hL : IsTwoPrimeComponent M L)
-    (hs : IsShort2 L) : IsFooteBlock M L := by
-  refine ⟨hL.le, hL.subnormal, hs.1, ?_, hs.2.2.2.2⟩
-  rcases hs.2.2.2.1 with hq | h3
-  · exact ⟨hq.1.1, hq.2.1⟩
-  · exfalso
-    have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    have : Group.IsPerfect L := Subgroup.isPerfect_iff.mpr hL.perfect
-    have : Group.IsPerfect (L ⧸ CFSG.pCore 2 L) :=
-      Group.IsPerfect.ofSurjective (f := QuotientGroup.mk' _) (QuotientGroup.mk'_surjective _)
-    have hcyc : IsCyclic (L ⧸ CFSG.pCore 2 L) := isCyclic_of_prime_card h3
-    have : Group.IsSolvable (L ⧸ CFSG.pCore 2 L) :=
-      Group.isSolvable_of_comm fun a b =>
-        (IsCyclic.commGroup (α := L ⧸ CFSG.pCore 2 L)).mul_comm a b
-    have hsub :=
-      CFSG.ComponentClassification.SolvableKernelContainment.perfect_solvable_subsingleton
-        (G := L ⧸ CFSG.pCore 2 L)
-    have h1 : Nat.card (L ⧸ CFSG.pCore 2 L) = 1 := Nat.card_unique
-    omega
 
 end Components
 
@@ -163,54 +143,6 @@ section Short
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem IsShort2.hasIrreducibleCommutatorQuotient {L V : Subgroup G} (hL : IsShort2 L)
-    (hLV : L ≤ Subgroup.normalizer (V : Set G)) (hVL : ⁅V, L⁆ ≤ pCoreOf 2 L)
-    (hV : IsMulCommutative V) (hnc : ¬ L ≤ Subgroup.centralizer (V : Set G)) :
-    HasIrreducibleCommutatorQuotient L V := by
-  obtain ⟨hres, -, ⟨hUQ, -⟩, -, -, hirr⟩ := hL
-  have hWK := commutator_le_commutator_commutator_of_twoGroup hres hLV hV
-    ((pCoreOf_isPGroup 2 L).to_le hVL)
-  have hWU : ⁅V, L⁆ ≤ blockU L := hWK.trans (Subgroup.commutator_mono hVL le_rfl)
-  have hUcomm : ∀ a ∈ blockU L, ∀ b ∈ blockU L, a * b = b * a := fun a ha b hb =>
-    Subgroup.mem_centralizer_iff.mp (hUQ hb).2 a (hUQ ha).1
-  have hZU : blockZ L ≤ blockU L := inf_le_left
-  refine ⟨lt_of_le_of_ne inf_le_left fun heq => hnc ?_, fun X hX₁ hX₂ hX₃ => ?_⟩
-  · have hK : ⁅⁅V, L⁆, L⁆ = ⊥ :=
-      Subgroup.commutator_eq_bot_iff_le_centralizer.mpr (inf_eq_left.mp heq)
-    have hW : ⁅V, L⁆ = ⊥ := le_bot_iff.mp (hWK.trans hK.le)
-    exact Subgroup.le_centralizer_iff.mp (Subgroup.commutator_eq_bot_iff_le_centralizer.mp hW)
-  have hLZ : L ≤ Subgroup.normalizer (blockZ L : Set G) :=
-    common_normalizer_le_normalizer_inf L _ _
-      (le_normalizer_commutator_of_le_normalizer (localGroup_le_normalizer_pCoreOf 2 L))
-      (Subgroup.le_normalizer.trans (normalizer_le_normalizer_centralizer L))
-  have hLY : L ≤ Subgroup.normalizer ((X ⊔ blockZ L : Subgroup G) : Set G) := by
-    intro l hl
-    rw [Subgroup.mem_normalizer_iff_map_conj_eq, Subgroup.map_sup,
-      Subgroup.mem_normalizer_iff_map_conj_eq.mp (hX₃ hl),
-      Subgroup.mem_normalizer_iff_map_conj_eq.mp (hLZ hl)]
-  rcases hirr (X ⊔ blockZ L) le_sup_right (sup_le (hX₂.trans hWU) hZU) hLY with hY | hY
-  · exact Or.inl (le_antisymm (le_inf hX₂ ((le_sup_left.trans hY.le).trans inf_le_right)) hX₁)
-  · refine Or.inr (le_antisymm hX₂ ?_)
-    have hXZ : X ≤ Subgroup.normalizer (blockZ L : Set G) := fun x hx =>
-      Subgroup.centralizer_le_normalizer _ (Subgroup.mem_centralizer_iff.mpr fun z hz =>
-        hUcomm z (hZU hz) x (hX₂.trans hWU hx))
-    have hYX : ⁅X ⊔ blockZ L, L⁆ ≤ X := by
-      rw [Subgroup.commutator_le]
-      intro y hy l hl
-      rw [← SetLike.mem_coe, Subgroup.coe_mul_of_left_le_normalizer_right X _ hXZ] at hy
-      obtain ⟨x, hx, z, hz, rfl⟩ := hy
-      have hzl : z * l = l * z := (Subgroup.mem_centralizer_iff.mp hz.2 l hl).symm
-      have e : ⁅x * z, l⁆ = ⁅x, l⁆ := by
-        calc ⁅x * z, l⁆ = x * (z * l) * z⁻¹ * x⁻¹ * l⁻¹ := by
-              rw [commutatorElement_def]; group
-          _ = x * (l * z) * z⁻¹ * x⁻¹ * l⁻¹ := by rw [hzl]
-          _ = ⁅x, l⁆ := by rw [commutatorElement_def]; group
-      rw [e]
-      exact commutator_le_left_of_le_normalizer hX₃ (Subgroup.commutator_mem_commutator hx hl)
-    calc ⁅V, L⁆ ≤ ⁅⁅V, L⁆, L⁆ := hWK
-      _ ≤ ⁅blockU L, L⁆ := Subgroup.commutator_mono hWU le_rfl
-      _ = ⁅X ⊔ blockZ L, L⁆ := by rw [hY]
-      _ ≤ X := hYX
 
 end Short
 

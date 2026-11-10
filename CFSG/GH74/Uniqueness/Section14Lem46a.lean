@@ -36,8 +36,6 @@ variable {G : Type*} [Group G]
     rw [e, mul_assoc, ← hac.inv_right.eq, ← mul_assoc, inv_mul_cancel, one_mul]
     exact inv_mem ha'
 
-theorem mem_stabCoset_iff {V : Subgroup G} {u g : G} :
-    g ∈ stabCoset V u ↔ g ∈ centralizer (V : Set G) ∧ g * u * g⁻¹ * u⁻¹ ∈ V := Iff.rfl
 
 @[expose] def stabCosetHom (V : Subgroup G) (hV : ∀ a ∈ V, ∀ b ∈ V, a * b = b * a) (u : G) :
     ↥(stabCoset V u) →* ↥V where

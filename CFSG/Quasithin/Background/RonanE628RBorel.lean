@@ -21,13 +21,6 @@ variable {G : Type} [Group G] [Finite G]
   ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
     fusionIsBenderGroup G ∨ UniqueSmallModel G
 
-theorem uniqueSetting_of_hypE61 {T M V : Subgroup G} (h : HypE61 T M V) (hu : IsUniqueM T M) :
-    UniqueSetting G T M := by
-  haveI := h.simple
-  exact ⟨h.simple, h.nonabelian, qtkeCore_of_cat h.nonabelian h.qtke,
-    ⟨le_top, h.sylow.1, fun hd => h.sylow.2 (by
-      rw [← Subgroup.relIndex_top_right]; exact hd)⟩,
-    hu.1.1, hu.1.2, fun M' hM' hTM' => hu.2 M' ⟨hM', hTM'⟩⟩
 
 @[expose] def ConjCrit (X : Type*) [Group X] : Prop :=
   ∃ z : X, ∀ t : X, t ^ 2 = 1 → t ≠ 1 → t ≠ z → ∃ s : X, (t * (s * t * s⁻¹)) ^ 2 ≠ 1
@@ -53,21 +46,6 @@ theorem mem_pair_of_conjCrit {T V : Subgroup G} (hV : IsElemAbelian 2 V) (hVT : 
   have hsv : (s : G) * v * (s : G)⁻¹ ∈ V := (Subgroup.mem_normalizer_iff.mp (hN s.2) v).mp hv
   exact hs (Subtype.ext (by simpa using hV.2 _ (V.mul_mem hv hsv)))
 
-theorem rParam_le_one_of_conjCrit {T M V : Subgroup G} (h : HypE61 T M V) (hc : ConjCrit ↥T) :
-    E3.rParam V ≤ 1 := by
-  obtain ⟨z, hz⟩ := hc
-  have hsub : (V : Set G) ⊆ ({1, (z : G)} : Set G) := fun v hv =>
-    mem_pair_of_conjCrit h.isElemAbelian h.le h.normal hz hv
-  have hcard : Nat.card V ≤ 2 := by
-    rw [← SetLike.coe_sort_coe, Nat.card_coe_set_eq]
-    exact (Set.ncard_le_ncard hsub (Set.toFinite _)).trans
-      ((Set.ncard_insert_le _ _).trans (by rw [Set.ncard_singleton]))
-  have hpos : 0 < Nat.card V := Nat.card_pos
-  have hle := rParam_le_mQuot_bot h
-  have hm : E3.mQuot V ⊥ ≤ 1 := by
-    rw [E3.mQuot, Subgroup.relIndex_bot_left]
-    interval_cases hc : Nat.card V <;> simp
-  exact hle.trans (by exact_mod_cast hm)
 
 theorem conjCrit_dihedral {n : ℕ} (hn0 : 0 < n) (hn : ¬ n ∣ 4) : ConjCrit (DihedralGroup n) := by
   haveI : NeZero n := ⟨hn0.ne'⟩
@@ -280,79 +258,5 @@ theorem conjCrit_psl33 :
   obtain ⟨Q⟩ : Nonempty (Sylow 2 PSL(3, ZMod 3)) := inferInstance
   exact ⟨Q, conjCrit_sylow_of_mulEquiv e P₀ hP₀ Q⟩
 
-theorem not_uniqueSmallModel
-    {T M V : Subgroup G} (h : HypE61 T M V) (hr : 1 < E3.rParam V) :
-    ¬ UniqueSmallModel G := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let S : Sylow 2 G := IsPGroup.toSylow h.sylow.1 h.sylow.2
-  have hS : (S : Subgroup G) = T := IsPGroup.toSylow_coe _ _
-  have key : ConjCrit ↥T → False := fun hc =>
-    absurd (rParam_le_one_of_conjCrit h hc) (not_le.mpr hr)
-  rintro (⟨p, hp, hp7, hpF, ⟨e⟩⟩ | ⟨⟨e⟩⟩ | ⟨⟨e⟩⟩)
-  · haveI : Finite PSL(2, ZMod p) := Finite.of_equiv G e.toEquiv
-    obtain ⟨Q, hQ⟩ := conjCrit_psl2 hp hp7 hpF
-    exact key (hS ▸ conjCrit_sylow_of_mulEquiv e Q hQ S)
-  · haveI : Finite PSL(3, ZMod 3) := Finite.of_equiv G e.toEquiv
-    obtain ⟨Q, hQ⟩ := conjCrit_psl33
-    exact key (hS ▸ conjCrit_sylow_of_mulEquiv e Q hQ S)
-  · haveI : Finite ↥M11 := Finite.of_equiv G e.toEquiv
-    obtain ⟨Q, hQ⟩ := conjCrit_m11
-    exact key (hS ▸ conjCrit_sylow_of_mulEquiv e Q hQ S)
-
-theorem normalizer_le_of_isUniqueM {T M : Subgroup G} (hT : IsPGroup 2 T) (hT1 : T ≠ ⊥)
-    (hu : IsUniqueM T M) : Subgroup.normalizer (T : Set G) ≤ M := by
-  obtain ⟨M', hM', hle⟩ := CFSG.Quasithin.exists_maxTwoLocal_ge (G := G)
-    (L := Subgroup.normalizer (T : Set G)) ⟨T, hT1, hT, rfl⟩
-  have hTM' : T ≤ M' := Subgroup.le_normalizer.trans hle
-  rw [← hu.2 M' ⟨hM', hTM'⟩]
-  exact hle
-
-theorem borelTorus_of_bender {T M V : Subgroup G}
-    (h : HypE61 T M V) (hu : IsUniqueM T M) (hB : fusionIsBenderGroup G) :
-    ∃ P K : Subgroup G, IsElemAbelian 2 P ∧ P ≤ T ∧
-      (∀ t ∈ T, t * t = 1 → t ∈ P) ∧ K ≤ M ∧ IsCyclic K ∧ Odd (Nat.card K) ∧
-      K ≤ Subgroup.normalizer (T : Set G) ∧ K ≤ Subgroup.normalizer (P : Set G) ∧
-      (∀ p ∈ P, ∀ q ∈ P, p ≠ 1 → q ≠ 1 → ∃ k ∈ K, k⁻¹ * p * k = q) := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let S : Sylow 2 G := IsPGroup.toSylow h.sylow.1 h.sylow.2
-  have hS : (S : Subgroup G) = T := IsPGroup.toSylow_coe _ _
-  obtain ⟨q, k, -, hBB⟩ := (BenderExt.benderData_of_isBenderGroup hB).borel
-  obtain ⟨hSE, ⟨D, hDc, hDodd, -, hTD⟩, -, -, -⟩ := hBB S
-  rw [hS] at hSE hTD
-  obtain ⟨-, hZ2, -, -⟩ := Bender.benderBorel_sylowCenter hBB S
-  rw [hS] at hZ2
-  have hΩ : CFSG.Goldschmidt.Omega1 T = sylowCenter T := by
-    have := CFSG.Goldschmidt.GoldType.omega1_eq_sylowCenter_of_bender hB S
-    rwa [hS] at this
-  have hT1 : T ≠ ⊥ := fun hT => h.ne_bot (eq_bot_iff.mpr (hT ▸ h.le))
-  have hNM := normalizer_le_of_isUniqueM h.sylow.1 hT1 hu
-  have hDN : D ≤ Subgroup.normalizer (T : Set G) := hTD ▸ le_sup_right
-  have hNP : Subgroup.normalizer (T : Set G) ≤ Subgroup.normalizer (sylowCenter T : Set G) := by
-    rw [← hΩ]; exact CFSG.Goldschmidt.GoldType.normalizer_le_normalizer_omega1 T
-  refine ⟨sylowCenter T, D, ⟨⟨⟨fun a b => Subtype.ext ?_⟩⟩, fun x hx => hZ2 x hx⟩,
-    Bender.sylowCenter_le T, fun t ht htt => ?_, hDN.trans hNM, hDc, hDodd, hDN, hDN.trans hNP,
-    fun p hp q hq hp1 hq1 => ?_⟩
-  · exact ((Bender.mem_sylowCenter.mp b.2).2 a (Bender.sylowCenter_le T a.2))
-  · rw [← hΩ]; exact CFSG.Goldschmidt.GoldType.mem_omega1 ht (by rw [sq]; exact htt)
-  · obtain ⟨n, hn, hnpq⟩ := Bender.normalizer_transitive_center hSE hZ2 hp hq hp1 hq1
-    have hn' : n ∈ ((T ⊔ D : Subgroup G) : Set G) := by rw [hTD]; exact hn
-    rw [Subgroup.coe_mul_of_right_le_normalizer_left T D (hTD ▸ le_sup_right)] at hn'
-    obtain ⟨t, ht, d, hd, rfl⟩ := hn'
-    refine ⟨d, hd, ?_⟩
-    have htp : t * p = p * t := (Bender.mem_sylowCenter.mp hp).2 t ht
-    rw [← hnpq]
-    calc d⁻¹ * p * d = d⁻¹ * (t⁻¹ * (t * p)) * d := by group
-      _ = (t * d)⁻¹ * p * (t * d) := by rw [htp]; group
-
-theorem uniqueMBorelTorusR_of_thm211
-    (h211 : Thm211) : UniqueMBorelTorusR := by
-  intro G _ _ T M V h hr hu
-  rcases h211 G T M (uniqueSetting_of_hypE61 h hu) with hB | hS
-  · exact borelTorus_of_bender h hu hB
-  · exact (not_uniqueSmallModel h hr hS).elim
-
-theorem uniqueMBorelTorusR_holds :
-    UniqueMBorelTorusR :=
-  uniqueMBorelTorusR_of_thm211 theorem_2_1_1_proved
 
 end CFSG.Quasithin.RonanE628.MathAS4

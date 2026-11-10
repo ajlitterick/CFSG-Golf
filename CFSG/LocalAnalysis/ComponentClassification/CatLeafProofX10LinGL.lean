@@ -84,8 +84,6 @@ theorem glProd_component_cases {K : Type} [Field K] [Finite K] {p f : ℕ} (hp :
       exact hx' ▸ x.2
     · exact Or.inr ⟨s, ho, h3, Or.inr rfl, hm⟩
 
-theorem neg_one_comm {K : Type} [Field K] {t : ℕ} (g : GL (Fin t) K) : -1 * g = g * -1 := by
-  rw [neg_one_mul, mul_neg_one]
 
 theorem coe_eq_of_one_eq_scalar {K : Type} [Field K] {t : ℕ} (ht : 1 ≤ t) {c : Kˣ}
     (h : (1 : GL (Fin t) K) = GeneralLinearGroup.scalar (Fin t) c) : (c : K) = 1 := by

@@ -1189,9 +1189,6 @@ section OpenTable
     (.Th, true, 3, 7), (.Co1, true, 3, 7), (.Fi24Prime, true, 3, 7), (.B, true, 3, 7),
     (.M, true, 3, 7), (.B, true, 4, 5), (.M, true, 4, 5), (.M, false, 5, 11)]
 
-@[expose] def SporOmegaTableOpen : Prop :=
-  ∀ (name : TauCeti.SporadicName) (ε : Bool) (n p : ℕ), (name, ε, n, p) ∈ sporOmegaCasesOpen →
-    SporNoOmegaDown p ε n name
 
 theorem sporOmegaCases_split : ∀ c ∈ sporOmegaCases, c ∈ sporOmegaCasesOpen ∨
     (c.1 ∈ [TauCeti.SporadicName.McL, .Suz, .Co3, .Co2] ∧ c.2 = (false, 2, 5)) := by

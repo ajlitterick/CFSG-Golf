@@ -133,29 +133,6 @@ theorem exists_conj_eq_spRep [Finite K] [CharP K 2] {n : ℕ} {z : StatedSp (n +
   rw [htκ, twoCentralRep, conj_permSp_twoCentralElt, hπ0, hπ1]
   rfl
 
-theorem exists_sylow_commute_spRep [Finite K] [CharP K 2] (n : ℕ) (κ : SpTwoCentral) :
-    ∃ U : Sylow 2 (StatedSp (n + 3) K),
-      ∀ u ∈ (U : Subgroup (StatedSp (n + 3) K)), u * spRep n κ = spRep n κ * u := by
-  obtain ⟨P, hP⟩ := SymplecticFlag.exists_sylow_unipotent (K := K) 2 (n + 3)
-  obtain ⟨π, hπ0, hπ1⟩ := exists_perm_zero_one n
-  refine ⟨permSp K π • P, fun u hu => ?_⟩
-  rw [Sylow.coe_subgroup_smul, Subgroup.mem_pointwise_smul_iff_inv_smul_mem, MulAut.smul_def,
-    ← map_inv, MulAut.conj_apply, inv_inv, hP] at hu
-  have hzc := spHighRootCenter_le_centralizer_unipotent (m := n + 1) (K := K)
-    ⟨(κ.params K).1, (κ.params K).2, rfl⟩
-  rw [mem_centralizer_iff] at hzc
-  have h := hzc _ hu
-  have hrep : spRep n κ = permSp K π * twoCentralElt (n + 3) 0 1 (κ.params K).1 (κ.params K).2 *
-      (permSp K π)⁻¹ := by
-    rw [conj_permSp_twoCentralElt, hπ0, hπ1]
-    rfl
-  rw [hrep]
-  set w := twoCentralElt (n + 3) 0 1 (κ.params K).1 (κ.params K).2
-  change (permSp K π)⁻¹ * u * (permSp K π) * w = w * ((permSp K π)⁻¹ * u * (permSp K π)) at h
-  calc u * (permSp K π * w * (permSp K π)⁻¹) =
-      permSp K π * ((permSp K π)⁻¹ * u * permSp K π * w) * (permSp K π)⁻¹ := by group
-    _ = permSp K π * (w * ((permSp K π)⁻¹ * u * permSp K π)) * (permSp K π)⁻¹ := by rw [h]
-    _ = permSp K π * w * (permSp K π)⁻¹ * u := by group
 
 end Classes
 
@@ -216,27 +193,6 @@ section Fusion
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
-theorem exists_conj_eq_mul_spRep_of_hnot (hset : SeitzSetting G L) {n : ℕ} [Finite K] [CharP K 2]
-    (e : L ≃* StatedSp (n + 3) K) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (hnot : ∀ (U : Sylow 2 L) (g : G), g⁻¹ * t * g ∈ L →
-      ¬ ∀ u ∈ (U : Subgroup L), (u : G) * (g⁻¹ * t * g) = (g⁻¹ * t * g) * u) :
-    ∃ (g : G) (κ : SpTwoCentral), g⁻¹ * t * g = t * (e.symm (spRep n κ) : G) := by
-  obtain ⟨g, z, hzL, hgz, hz1, U, hU⟩ := exists_conj_eq_mul_twoCentral hset (by omega) e ht hKt
-    hnot fun U β hβ => mem_range_conj_of_fix_sylow_of_mulEquiv (by omega) e U β hβ
-  have hz' : (⟨z, hzL⟩ : L) ≠ 1 := fun h => hz1 (congrArg Subtype.val h)
-  obtain ⟨κ, c, hc⟩ := exists_conj_eq_spRep_of_mulEquiv e hz' (U := U) fun u hu =>
-    Subtype.ext (hU u hu)
-  have htC : t ∈ centralizer (L : Set G) := LinearPilot.mem_centralizer_of_inf_eq_zpowers hKt
-  have hct : (c : G) * t = t * c := (mem_centralizer_iff.1 htC _ c.2)
-  refine ⟨g * (c : G)⁻¹, κ, ?_⟩
-  have hc' : (c : G) * z * (c : G)⁻¹ = (e.symm (spRep n κ) : G) := by
-    rw [← hc]
-    rfl
-  calc (g * (c : G)⁻¹)⁻¹ * t * (g * (c : G)⁻¹) = (c : G) * (g⁻¹ * t * g) * (c : G)⁻¹ := by group
-    _ = ((c : G) * t) * z * (c : G)⁻¹ := by rw [hgz]; group
-    _ = t * ((c : G) * z * (c : G)⁻¹) := by rw [hct]; group
-    _ = t * (e.symm (spRep n κ) : G) := by rw [hc']
 
 theorem exists_conj_eq_mul_twoCentral_twoSided_of_hnot (hset : SeitzSetting G L) {r : ℕ}
     (hr : 3 ≤ r) [Finite K] [CharP K 2] (e : L ≃* StatedSp r K) {t : G} (ht : orderOf t = 2)

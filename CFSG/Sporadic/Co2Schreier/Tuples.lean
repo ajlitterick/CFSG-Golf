@@ -13,8 +13,6 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 @[expose] def RepTuple (n : ℕ) (A : Array (Array ℕ)) (gs : List (Equiv.Perm (Fin n))) : Prop :=
   A.size = gs.length ∧ ∀ h < gs.length, Rep n A[h]! (gs.getD h 1)
 
-theorem RepTuple.size_eq {n : ℕ} {A : Array (Array ℕ)} {gs : List (Equiv.Perm (Fin n))}
-    (hA : RepTuple n A gs) : A.size = gs.length := hA.1
 
 theorem RepTuple.rep {n : ℕ} {A : Array (Array ℕ)} {gs : List (Equiv.Perm (Fin n))}
     (hA : RepTuple n A gs) {h : ℕ} (hh : h < gs.length) : Rep n A[h]! (gs.getD h 1) := hA.2 h hh

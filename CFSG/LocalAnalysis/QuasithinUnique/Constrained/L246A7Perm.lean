@@ -14,7 +14,6 @@ open scoped Pointwise
 
 @[expose] def pact (σ : Perm (Fin 7)) (x : Fin 7 → ZMod 2) : Fin 7 → ZMod 2 := fun i => x (σ⁻¹ i)
 
-theorem pact_one (x : Fin 7 → ZMod 2) : pact 1 x = x := rfl
 
 theorem pact_mul (σ τ : Perm (Fin 7)) (x : Fin 7 → ZMod 2) :
     pact (σ * τ) x = pact σ (pact τ x) := by
@@ -252,7 +251,6 @@ theorem conj_cc_of_pres : ∀ τ : Perm (Fin 7), τ 6 = 6 →
 @[expose] def S6A : Subgroup (alternatingGroup (Fin 7)) :=
   S6.subgroupOf (alternatingGroup (Fin 7))
 
-theorem mem_S6A {a : alternatingGroup (Fin 7)} : a ∈ S6A ↔ (a : Perm (Fin 7)) 6 = 6 := Iff.rfl
 
 theorem S6A_sup_zpowers_ccA : S6A ⊔ Subgroup.zpowers ccA = ⊤ := by
   have hcoatom : IsCoatom (MulAction.stabilizer (alternatingGroup (Fin 7)) ({6} : Set (Fin 7))) :=

@@ -40,26 +40,5 @@ theorem psl_upper_injective {F : Type} [Field F] :
 
 end
 
-theorem exists_elemAbelian {p : ℕ} [Fact p.Prime] (_hp : p ≠ 2) (n : ℕ) (hn : 1 < n) :
-    ∃ E : Subgroup PSL(2, GaloisField p n), CFSG.Open.IsElemAbelian p E ∧ Nat.card E = p ^ n := by
-  haveI : Fact (CharP (GaloisField p n) p) := ⟨inferInstance⟩
-  have hn0 : n ≠ 0 := by omega
-  set ψ : Multiplicative (GaloisField p n) →* PSL(2, GaloisField p n) :=
-    (QuotientGroup.mk' (Subgroup.center SL(2, GaloisField p n))).comp (upper _) with hψ
-  have hinj : Function.Injective ψ := psl_upper_injective
-  refine ⟨ψ.range, ⟨⟨⟨?_⟩⟩, ?_⟩, ?_⟩
-  · rintro ⟨x, a, rfl⟩ ⟨y, b, rfl⟩
-    apply Subtype.ext
-    show ψ a * ψ b = ψ b * ψ a
-    rw [← map_mul, ← map_mul, mul_comm]
-  · rintro x ⟨a, rfl⟩
-    rw [← map_pow]
-    have : a ^ p = 1 := by
-      apply Multiplicative.toAdd.injective
-      simp only [toAdd_pow, toAdd_one]
-      rw [nsmul_eq_mul, CharP.cast_eq_zero, zero_mul]
-    rw [this, map_one]
-  · rw [← Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv]
-    rw [Nat.card_congr Multiplicative.toAdd, GaloisField.card p n hn0]
 
 end CFSG.LinearAlgebra.ProjectiveRootSpaces.UnipotentSubgroup

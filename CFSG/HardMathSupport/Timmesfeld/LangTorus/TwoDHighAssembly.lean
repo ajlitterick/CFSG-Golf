@@ -75,12 +75,6 @@ theorem LangSetup.exists_lang_twoDT {r e : ℕ} [Fact r.Prime] [CharP L r] (_he0
     (fun γ hγ => by rw [Function.iterate_one]; exact outer_rho_mem_kernelRoots S hT hγ) hy
   exact ⟨z, hzZ, by rw [← hz, iterHom_eq_iterate, Function.iterate_one]⟩
 
-theorem LangSetup.exists_lang_twoD {r e : ℕ} [Fact r.Prime] [CharP L r] (he0 : 0 < e)
-    {Q : ModGL τ L} (hQ : Q ∈ Subgroup.normalizer (torusGroup τ L : Set (ModGL τ L)))
-    (hstep : ∀ g, S.D.step g = frobTwistGL τ L r e Q g) (hE : rootDiagUnit τ a ∈ S.E)
-    {y : ModGL τ L} (hy : y ∈ torusGroup τ L ⊔ rootSpan τ L (kernelRoots (rootCharHom a))) :
-    ∃ z ∈ torusGroup τ L ⊔ rootSpan τ L (kernelRoots (rootCharHom a)), S.D.step z = z * y :=
-  S.exists_lang_twoDT he0 hQ hstep (S.E_le hE).1 hy
 
 theorem mem_normalizer_rootSpan_of_mem_Z {z : ModGL τ L}
     (hz : z ∈ torusGroup τ L ⊔ rootSpan τ L (kernelRoots (rootCharHom a)))
@@ -223,13 +217,6 @@ theorem LangSetup.isQuasisimple_rationalComponent_twoDT
       (MulEquiv.subgroupCongr hRC)
   exact isQuasisimple_of_mulEquiv' e'.symm hCqs
 
-theorem LangSetup.isQuasisimple_rationalComponent_twoD
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    (hE : rootDiagUnit τ a ∈ S.E) (i : KernelComponent (rootCharHom a))
-    (hkind : twistKind S.ρ (rootCharHom a) i = .twoD)
-    (h5 : 5 ≤ compRank (componentRoots (rootCharHom a) i)) :
-    CFSG.IsQuasisimple (rationalComponent S.ρ S.Γ (rootCharHom a) i) :=
-  S.isQuasisimple_rationalComponent_twoDT hτ (S.E_le hE).1 i hkind h5
 
 end Main
 

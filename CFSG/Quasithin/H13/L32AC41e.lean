@@ -118,20 +118,6 @@ theorem psi_mem_zpowers (S14 : L32NSet14.Setting G T L V V₂)
   rw [← this]
   exact hg'
 
-theorem sl2_mem_zpowers {a b : Matrix.SpecialLinearGroup (Fin 2) (ZMod 2)} (ha1 : a ≠ 1)
-    (ha3 : a ^ 3 = 1) (hb : b ∈ Subgroup.zpowers a) : b = 1 ∨ b = a ∨ b = a * a := by
-  classical
-  have hoa : orderOf a = 3 := orderOf_eq_prime ha3 ha1
-  rw [mem_zpowers_iff_mem_range_orderOf, hoa] at hb
-  simp only [Finset.mem_image, Finset.mem_range] at hb
-  obtain ⟨i, hi, hib⟩ := hb
-  interval_cases i
-  · left
-    rw [← hib, pow_zero]
-  · right; left
-    rw [← hib, pow_one]
-  · right; right
-    rw [← hib, pow_two]
 
 theorem exists_inv_s (h1222 : Stmt12_2_2) (h1332 : Stmt13_3_2) (h1334 : A6.Stmt13_3_4)
     (S : Setting147 G T L V H) (S14 : L32NSet14.Setting G T L V V₂)

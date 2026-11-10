@@ -187,12 +187,6 @@ theorem ne_of_eqOn_eq_false
   rw [this] at he
   exact Bool.noConfusion he
 
-theorem rep_nfT
-    {X Y Z : Table} {x y z : reeFixed ReeTag.F4 K 0}
-    (hX : Rep nPts X x) (hY : Rep nPts Y y) (hZ : Rep nPts Z z) (i j k : ℕ) :
-    Rep nPts (nfT X Y Z i j k) (x ^ i * y ^ j * z ^ k) :=
-  ((hX.powT (by norm_num [nPts]) i).compT (hY.powT (by norm_num [nPts]) j)).compT
-    (hZ.powT (by norm_num [nPts]) k)
 
 theorem rep_idT :
     Rep nPts (idT nPts) (1 : reeFixed ReeTag.F4 K 0) :=

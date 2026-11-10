@@ -61,9 +61,6 @@ theorem generic_caseB_scalar {s N u u' σ σ' : ℤ} (hσ : σ = 1 ∨ σ = -1)
   rcases hσ with rfl | rfl <;> rcases hσ' with rfl | rfl <;>
     interval_cases u <;> interval_cases u' <;> omega
 
-theorem case_prod' (a b : Fin 3) : (if a = b then caseNorm a else 4) = 5 ∨
-    (if a = b then caseNorm a else 4) = 6 ∨ (if a = b then caseNorm a else 4) = 4 := by
-  fin_cases a <;> fin_cases b <;> simp [caseNorm]
 
 namespace Frame
 

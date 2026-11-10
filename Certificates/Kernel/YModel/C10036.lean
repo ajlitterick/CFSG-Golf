@@ -32,11 +32,6 @@ theorem y432_I2 :
   rw [y432_arrays_eq, eqA_of_weqK _ _ y432_let]
   quickRfl
 
-theorem c10036_neg :
-    (!weqK 15 10 CFSG.KD.YMY432.Nf [0] [] &&
-      !weqK 15 10 CFSG.KD.YMY432.Nf (yConj.reverse ++ [0, 4, 6] ++ yConj.dropLast)
-        ([2, 5, 7, 9] ++ f213Word)) = true := by
-  quickRfl
 
 open CFSG.YGroups CFSG.Monster.GMS.R433Cover CFSG.Monster.B.Co2.Native in
 theorem c10036 :

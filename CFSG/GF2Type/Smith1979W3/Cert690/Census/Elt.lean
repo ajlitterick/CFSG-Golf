@@ -68,13 +68,6 @@ theorem size_O (hD : GrpFacts minus D) : D.O.size = if minus then 51840 else 403
   rw [hD.codeO, natCard_O₀, Array.length_toList] at h
   exact h.symm
 
-theorem size_Om (hD : GrpFacts minus D) : D.Om.size = if minus then 25920 else 20160 := by
-  have h := hD.enumOm.natCard
-  rw [hD.codeOm, natCard_Ω₀, Array.length_toList] at h
-  exact h.symm
-
-theorem natCard_O₀_eq_size (hD : GrpFacts minus D) : Nat.card (O₀ minus) = D.O.size := by
-  rw [natCard_O₀, hD.size_O]
 
 theorem code_lt (hD : GrpFacts minus D) {i : ℕ} (hi : i < D.O.size) : D.O[i]! < 2 ^ 36 :=
   hD.enumO.lt _ (hD.memO hi)
@@ -153,14 +146,6 @@ theorem elt_vec (hD : GrpFacts minus D) {i : ℕ} (hi : i < D.O.size) (n : ℕ) 
     hD.elt i (Code.vec n) = Code.vec (Code.act D.O[i]! n) :=
   apply_vec_of_hasCode (hD.hasCode_elt hi) n
 
-theorem elt_vec_eq_iff (hD : GrpFacts minus D) {i : ℕ} (hi : i < D.O.size) {n : ℕ}
-    (hn : n < 64) : hD.elt i (Code.vec n) = Code.vec n ↔ Code.act D.O[i]! n = n := by
-  rw [hD.elt_vec hi n]
-  constructor
-  · intro h
-    exact vec_injective_of_lt (Code.act_lt _ _) hn h
-  · intro h
-    rw [h]
 
 theorem mul_comm_iff (hD : GrpFacts minus D) {i j : ℕ} (hi : i < D.O.size) (hj : j < D.O.size) :
     Code.mul D.O[i]! D.O[j]! = Code.mul D.O[j]! D.O[i]! ↔
@@ -175,21 +160,6 @@ theorem mul_comm_iff (hD : GrpFacts minus D) {i j : ℕ} (hi : i < D.O.size) (hj
     rw [← h] at h2
     exact Code.HasCode.code_eq h1 h2 (Code.mul_lt _ _) (Code.mul_lt _ _)
 
-theorem codePow_eq_one_iff (hD : GrpFacts minus D) {i : ℕ} (hi : i < D.O.size) (n : ℕ) :
-    codePow D.O[i]! n = Code.one ↔ hD.elt i ^ n = 1 := by
-  have hmem := hD.memO hi
-  have hxmem : hD.elt i ∈ codeSubgroup (oGensC minus) := hD.enumO.elem_mem hmem
-  have hpow : hD.enumO.code (hD.elt i ^ n) = codePow D.O[i]! n := by
-    have h := hD.enumO.code_pow hxmem n
-    rw [show hD.enumO.code (hD.elt i) = D.O[i]! from hD.enumO.code_elem hmem] at h
-    exact h
-  constructor
-  · intro h
-    refine hD.enumO.eq_of_code_eq (Subgroup.pow_mem _ hxmem n) (Subgroup.one_mem _) ?_
-    rw [hpow, h, hD.enumO.code_one]
-  · intro h
-    rw [h, hD.enumO.code_one] at hpow
-    exact hpow.symm
 
 theorem inIdx_iff (hD : GrpFacts minus D) {A : Array ℕ} {x : V₀ ≃ₗ[ZMod 2] V₀} :
     InIdx D A x ↔ ∃ i ∈ A, i < D.O.size ∧ hD.elt i = x := by

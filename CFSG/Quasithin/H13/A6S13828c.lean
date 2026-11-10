@@ -57,28 +57,6 @@ theorem card_vec4 : Fintype.card (Fin 4 → ZMod 2) = 16 := by
 
 section Chief
 
-variable {G : Type} [Group G]
-
-@[expose] def fixMod (t : G) (N X : Subgroup G) : Subgroup G where
-  carrier := {x | x ∈ X ∧ x ∈ normalizer (N : Set G) ∧ x⁻¹ * (t * x * t⁻¹) ∈ N}
-  one_mem' := ⟨X.one_mem, Subgroup.one_mem _, by simp⟩
-  mul_mem' := by
-    rintro x y ⟨hx, hxN, hx'⟩ ⟨hy, hyN, hy'⟩
-    refine ⟨X.mul_mem hx hy, Subgroup.mul_mem _ hxN hyN, ?_⟩
-    have h1 : y⁻¹ * (x⁻¹ * (t * x * t⁻¹)) * y⁻¹⁻¹ ∈ N :=
-      (mem_normalizer_iff.mp (Subgroup.inv_mem _ hyN) _).mp hx'
-    have e : (x * y)⁻¹ * (t * (x * y) * t⁻¹) =
-        (y⁻¹ * (x⁻¹ * (t * x * t⁻¹)) * y⁻¹⁻¹) * (y⁻¹ * (t * y * t⁻¹)) := by group
-    rw [e]
-    exact N.mul_mem h1 hy'
-  inv_mem' := by
-    rintro x ⟨hx, hxN, hx'⟩
-    refine ⟨X.inv_mem hx, Subgroup.inv_mem _ hxN, ?_⟩
-    have h1 : x * (x⁻¹ * (t * x * t⁻¹))⁻¹ * x⁻¹ ∈ N :=
-      (mem_normalizer_iff.mp hxN _).mp (N.inv_mem hx')
-    have e : x⁻¹⁻¹ * (t * x⁻¹ * t⁻¹) = x * (x⁻¹ * (t * x * t⁻¹))⁻¹ * x⁻¹ := by group
-    rw [e]
-    exact h1
 
 end Chief
 

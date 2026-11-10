@@ -47,11 +47,9 @@ theorem trace_Rmat_mul_Rmat (c d : ShortIdx) :
 @[expose] noncomputable def inWₗ : SpaceW →ₗ[ℚ] SpaceB :=
   LinearMap.inr ℚ symMat (SpaceX × SpaceW) ∘ₗ LinearMap.inr ℚ SpaceX SpaceW
 
-theorem inWₗ_apply (N : SpaceW) : inWₗ N = inW N := rfl
 
 @[expose] noncomputable def Lw (u : SpaceB) : Module.End ℚ SpaceW := projW ∘ₗ gmul u ∘ₗ inWₗ
 
-theorem Lw_apply (u : SpaceB) (N : SpaceW) : Lw u N = (gmul u (inW N)).2.2 := rfl
 
 theorem gmulWHalf_inW_left (N : SpaceW) (u : SpaceB) : gmulWHalf (inW N) u = 0 := by
   simp [gmulWHalf]
@@ -88,34 +86,6 @@ theorem gmul_inA_inW (A : symMat) (N : SpaceW) :
     Matrix.mul_add, Matrix.mul_smul, Matrix.mul_one]
   exact add_comm _ _
 
-theorem gmul_inA_tensor (A : symMat) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ) :
-    gmul (inA A) (inW (tensor q v)) = inW (tensor q (v ᵥ* ((A : Matrix (Fin 24) (Fin 24) ℚ) +
-      (trace (A : Matrix (Fin 24) (Fin 24) ℚ) / 8) • (1 : Matrix (Fin 24) (Fin 24) ℚ)))) := by
-  rw [gmul_inA_inW]
-  exact congrArg inW (vecMulVec_mul q v _)
-
-theorem gmul_Xlift_inW {r : Q} (hr : IsShortCoord (coordOf r)) (N : SpaceW) :
-    gmul (inX (Xlift r)) (inW N) = inW ((8 : ℚ)⁻¹ •
-      (((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ)ᵀ * N *
-        (1 - (4 : ℚ)⁻¹ • vecMulVec (uQ ⟨coordOf r, hr⟩) (uQ ⟨coordOf r, hr⟩)))) := by
-  rw [gmul_inW_eq rfl, Lw_apply']
-  refine congrArg inW ?_
-  rw [coe_Q_eq_sgn_smul_Rmat hr, transpose_smul, Rmat_symm]
-  simp only [Am_inX, trace_zero, zero_div, zero_smul, Matrix.mul_zero, zero_add, xs_inX]
-  rw [Xlift_eq hr, sum_smul_single_smul]
-  change (8 : ℚ)⁻¹ • (sgn (centralCoord r) • (Rmat ⟨coordOf r, hr⟩ * N - (4 : ℚ)⁻¹ •
-      (Rmat ⟨coordOf r, hr⟩ * N * vecMulVec (uQ ⟨coordOf r, hr⟩) (uQ ⟨coordOf r, hr⟩)))) = _
-  simp only [Matrix.smul_mul, Matrix.mul_sub, Matrix.mul_one, Matrix.mul_smul]
-  module
-
-theorem gmul_Xlift_tensor {r : Q} (hr : IsShortCoord (coordOf r)) (q : SpinIdx → ℚ)
-    (v : Fin 24 → ℚ) :
-    gmul (inX (Xlift r)) (inW (tensor q v)) = inW ((8 : ℚ)⁻¹ •
-      tensor (q ᵥ* ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ))
-        (v ᵥ* (1 - (4 : ℚ)⁻¹ • vecMulVec (uQ ⟨coordOf r, hr⟩) (uQ ⟨coordOf r, hr⟩)))) := by
-  rw [gmul_Xlift_inW hr]
-  refine congrArg (fun M => inW ((8 : ℚ)⁻¹ • M)) ?_
-  rw [tensor, tensor, mul_vecMulVec, vecMulVec_mul, mulVec_transpose]
 
 @[expose] noncomputable def lr (P : Matrix SpinIdx SpinIdx ℚ) (M : Matrix (Fin 24) (Fin 24) ℚ) :
     Module.End ℚ SpaceW where
@@ -252,30 +222,6 @@ theorem coe_smul_oneA (c : ℚ) :
     ((c • oneA : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = c • (1 : Matrix (Fin 24) (Fin 24) ℚ) :=
   rfl
 
-theorem trace_Lw_mul_Lw_split (α β : ℚ) (A₀ B₀ : symMat) (X Y : SpaceX)
-    (hA : trace (A₀ : Matrix (Fin 24) (Fin 24) ℚ) = 0)
-    (hB : trace (B₀ : Matrix (Fin 24) (Fin 24) ℚ) = 0) :
-    LinearMap.trace ℚ SpaceW (Lw (inA (α • oneA + A₀) + inX X) * Lw (inA (β • oneA + B₀) + inX Y))
-        / 98304 =
-      16 * α * β +
-        trace ((A₀ : Matrix (Fin 24) (Fin 24) ℚ) * (B₀ : Matrix (Fin 24) (Fin 24) ℚ)) / 24 +
-        3 * bform (inX X) (inX Y) / 64 := by
-  rw [trace_Lw_mul_Lw]
-  have hAm : ∀ (γ : ℚ) (A₀ : symMat) (Z : SpaceX), Am (inA (γ • oneA + A₀) + inX Z) =
-      γ • (1 : Matrix (Fin 24) (Fin 24) ℚ) + (A₀ : Matrix (Fin 24) (Fin 24) ℚ) := by
-    intro γ A₀ Z
-    simp [Am, coe_oneA]
-  have hxs : ∀ (γ : ℚ) (A₀ : symMat) (Z : SpaceX), xs (inA (γ • oneA + A₀) + inX Z) = Z := by
-    intro γ A₀ Z
-    simp [xs]
-  have hbX : bform (inX X) (inX Y) = X ⬝ᵥ Y := by
-    rw [bform_apply]
-    simp [dotProduct]
-  rw [hAm, hAm, hxs, hxs, hbX]
-  simp only [Matrix.add_mul, Matrix.mul_add, Matrix.smul_mul, Matrix.mul_smul, Matrix.one_mul,
-    Matrix.mul_one, trace_add, trace_smul, trace_one, Fintype.card_fin, smul_eq_mul, hA, hB]
-  push_cast
-  ring
 
 structure IsParityAut (f : SpaceB ≃ₗ[ℚ] SpaceB) : Prop where
   map_gmul : ∀ u v, f (gmul u v) = gmul (f u) (f v)
@@ -401,21 +347,6 @@ end IsParityAut
 
 @[expose] noncomputable def scalarLine : Submodule ℚ SpaceB := ℚ ∙ inA oneA
 
-@[expose] noncomputable def tracelessA : Submodule ℚ SpaceB where
-  carrier := {u | trace (u.1 : Matrix (Fin 24) (Fin 24) ℚ) = 0 ∧ u.2.1 = 0 ∧ u.2.2 = 0}
-  add_mem' {u v} hu hv := ⟨by
-      change trace ((u.1 + v.1 : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = 0
-      rw [Submodule.coe_add, trace_add, hu.1, hv.1, add_zero],
-    by change u.2.1 + v.2.1 = 0; rw [hu.2.1, hv.2.1, add_zero],
-    by change u.2.2 + v.2.2 = 0; rw [hu.2.2, hv.2.2, add_zero]⟩
-  zero_mem' := ⟨by
-      change trace ((0 : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = 0
-      rw [Submodule.coe_zero, trace_zero], rfl, rfl⟩
-  smul_mem' c u hu := ⟨by
-      change trace ((c • u.1 : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = 0
-      rw [Submodule.coe_smul, trace_smul, hu.1, smul_zero],
-    by change c • u.2.1 = 0; rw [hu.2.1, smul_zero],
-    by change c • u.2.2 = 0; rw [hu.2.2, smul_zero]⟩
 
 @[expose] noncomputable def subA : Submodule ℚ SpaceB where
   carrier := {u | u.2.1 = 0 ∧ u.2.2 = 0}
@@ -441,14 +372,11 @@ end IsParityAut
   smul_mem' c u hu := ⟨by change c • u.1 = 0; rw [hu.1, smul_zero],
     by change c • u.2.1 = 0; rw [hu.2, smul_zero]⟩
 
-theorem mem_tracelessA {u : SpaceB} :
-    u ∈ tracelessA ↔ trace (Am u) = 0 ∧ xs u = 0 ∧ Nm u = 0 := Iff.rfl
 
 theorem mem_subA {u : SpaceB} : u ∈ subA ↔ xs u = 0 ∧ Nm u = 0 := Iff.rfl
 
 theorem mem_subX {u : SpaceB} : u ∈ subX ↔ u.1 = 0 ∧ Nm u = 0 := Iff.rfl
 
-theorem mem_subW {u : SpaceB} : u ∈ subW ↔ u.1 = 0 ∧ xs u = 0 := Iff.rfl
 
 theorem trace_coe_smul_oneA (c : ℚ) :
     trace ((c • oneA : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = 24 * c := by
@@ -486,19 +414,6 @@ theorem map_subX (hf : IsParityAut f) {u : SpaceB} (hu : u ∈ subX) : f u ∈ s
   change ((5 * trace (Am (f u))) • oneA : symMat) = 0
   rw [htr0, mul_zero, zero_smul]
 
-theorem map_tracelessA (hf : IsParityAut f) {u : SpaceB} (hu : u ∈ tracelessA) :
-    f u ∈ tracelessA := by
-  obtain ⟨h1, h2, h3⟩ := mem_tracelessA.1 hu
-  have hphi : phiOp u = 0 := by
-    refine Prod.ext ?_ (Prod.ext h2 rfl)
-    change ((5 * trace (Am u)) • oneA : symMat) = 0
-    rw [h1, mul_zero, zero_smul]
-  have h := hf.phiOp_map h3
-  rw [hphi, map_zero] at h
-  have h1' : (phiOp (f u)).1 = 0 := congrArg Prod.fst h
-  have htr := trace_eq_of_phiOp h1'
-  rw [Submodule.coe_zero, trace_zero] at htr
-  exact ⟨by linarith, congrArg (fun w : SpaceB => w.2.1) h, hf.map_AX h3⟩
 
 theorem phiOp_smul_oneA (a : ℚ) : phiOp (a • inA oneA) = (120 : ℚ) • (a • inA oneA) := by
   refine Prod.ext ?_ (Prod.ext ?_ ?_)
@@ -560,52 +475,8 @@ theorem map_subA (hf : IsParityAut f) {u : SpaceB} (hu : u ∈ subA) : f u ∈ s
   change b • (0 : SpaceX) = 0
   rw [smul_zero]
 
-theorem map_subW (hf : IsParityAut f) {u : SpaceB} (hu : u ∈ subW) : f u ∈ subW :=
-  hf.map_W (mem_subW.1 hu)
-
-theorem mem_iff_of_maps (hf : IsParityAut f) {V : Submodule ℚ SpaceB}
-    (hV : ∀ {g : SpaceB ≃ₗ[ℚ] SpaceB}, IsParityAut g → ∀ {u}, u ∈ V → g u ∈ V) (u : SpaceB) :
-    f u ∈ V ↔ u ∈ V :=
-  ⟨fun h => by simpa using hV hf.symm h, hV hf⟩
 
 end IsParityAut
 
-theorem parity_centralizer_trace_splitting :
-    (∀ (A : symMat) (N : SpaceW), gmul (inA A) (inW N) =
-      inW (N * ((A : Matrix (Fin 24) (Fin 24) ℚ) +
-        (trace (A : Matrix (Fin 24) (Fin 24) ℚ) / 8) • (1 : Matrix (Fin 24) (Fin 24) ℚ)))) ∧
-    (∀ (A : symMat) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ), gmul (inA A) (inW (tensor q v)) =
-      inW (tensor q (v ᵥ* ((A : Matrix (Fin 24) (Fin 24) ℚ) +
-        (trace (A : Matrix (Fin 24) (Fin 24) ℚ) / 8) • (1 : Matrix (Fin 24) (Fin 24) ℚ))))) ∧
-    (∀ (r : Q) (hr : IsShortCoord (coordOf r)) (N : SpaceW), gmul (inX (Xlift r)) (inW N) =
-      inW ((8 : ℚ)⁻¹ • (((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ)ᵀ * N *
-        (1 - (4 : ℚ)⁻¹ • vecMulVec (uQ ⟨coordOf r, hr⟩) (uQ ⟨coordOf r, hr⟩))))) ∧
-    (∀ (r : Q) (hr : IsShortCoord (coordOf r)) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ),
-      gmul (inX (Xlift r)) (inW (tensor q v)) = inW ((8 : ℚ)⁻¹ •
-        tensor (q ᵥ* ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ))
-          (v ᵥ* (1 - (4 : ℚ)⁻¹ • vecMulVec (uQ ⟨coordOf r, hr⟩) (uQ ⟨coordOf r, hr⟩))))) ∧
-    (∀ (u : SpaceB) (N : SpaceW), u.2.2 = 0 → gmul u (inW N) = inW (Lw u N)) ∧
-    (∀ (α β : ℚ) (A₀ B₀ : symMat) (X Y : SpaceX),
-      trace (A₀ : Matrix (Fin 24) (Fin 24) ℚ) = 0 → trace (B₀ : Matrix (Fin 24) (Fin 24) ℚ) = 0 →
-      LinearMap.trace ℚ SpaceW
-          (Lw (inA (α • oneA + A₀) + inX X) * Lw (inA (β • oneA + B₀) + inX Y)) / 98304 =
-        16 * α * β +
-          trace ((A₀ : Matrix (Fin 24) (Fin 24) ℚ) * (B₀ : Matrix (Fin 24) (Fin 24) ℚ)) / 24 +
-          3 * bform (inX X) (inX Y) / 64) ∧
-    ∀ f : SpaceB ≃ₗ[ℚ] SpaceB, (∀ u v, f (gmul u v) = gmul (f u) (f v)) →
-      (∀ u v, bform (f u) (f v) = bform u v) → (∀ u, f (xB u) = xB (f u)) →
-      (∀ u, f u ∈ scalarLine ↔ u ∈ scalarLine) ∧ (∀ u, f u ∈ tracelessA ↔ u ∈ tracelessA) ∧
-      (∀ u, f u ∈ subX ↔ u ∈ subX) ∧ (∀ u, f u ∈ subW ↔ u ∈ subW) ∧
-      (∀ u, f u ∈ subA ↔ u ∈ subA) := by
-  refine ⟨gmul_inA_inW, gmul_inA_tensor, fun r hr N => gmul_Xlift_inW hr N,
-    fun r hr q v => gmul_Xlift_tensor hr q v, fun u N hu => gmul_inW_eq hu N,
-    fun α β A₀ B₀ X Y hA hB => trace_Lw_mul_Lw_split α β A₀ B₀ X Y hA hB,
-    fun f hmul hiso hcomm => ?_⟩
-  have hf : IsParityAut f := ⟨hmul, hiso, hcomm⟩
-  exact ⟨hf.mem_iff_of_maps fun hg _ h => hg.map_scalarLine h,
-    hf.mem_iff_of_maps fun hg _ h => hg.map_tracelessA h,
-    hf.mem_iff_of_maps fun hg _ h => hg.map_subX h,
-    hf.mem_iff_of_maps fun hg _ h => hg.map_subW h,
-    hf.mem_iff_of_maps fun hg _ h => hg.map_subA h⟩
 
 end CFSG.Monster.Parity

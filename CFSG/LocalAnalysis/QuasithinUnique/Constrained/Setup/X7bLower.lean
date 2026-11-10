@@ -27,7 +27,6 @@ theorem lowU_det (a b c d : K) : (lowU a b c d).det = 1 := by
 @[expose] noncomputable def lowUGL (a b c d : K) : GL (Fin 4) K :=
   Matrix.GeneralLinearGroup.mk'' (lowU a b c d) (by rw [lowU_det]; exact isUnit_one)
 
-theorem glMat_lowUGL (a b c d : K) : glMat (lowUGL a b c d) = lowU a b c d := rfl
 
 theorem lowU_mul_lowU [CharP K 2] (a b c d A B C D : K) :
     lowU a b c d * lowU A B C D =
@@ -164,13 +163,6 @@ theorem minorMap_lowU [CharP K 2] (a b c d : K) :
       CharTwo.sub_eq_add] <;>
     first | ring1 | (ring_nf; simp [h2])
 
-theorem minorMap_minorMap_lowU [CharP K 2] (a b c d : K) :
-    minorMap (minorMap (lowU a b c d)) = lowU (a ^ 2) (b ^ 2) (c ^ 2) (d ^ 2) := by
-  have h2 : (2 : K) = 0 := CharTwo.two_eq_zero
-  have h4 : (4 : K) = 0 := by rw [show (4 : K) = 2 * 2 by norm_num, h2, zero_mul]
-  rw [minorMap_lowU, minorMap_lowU]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [lowU] <;> first | ring1 | (ring_nf; simp [h2, h4])
 
 theorem minorMap_minorJ [CharP K 2] : minorMap (minorJ K) = minorJ K := by
   ext i j
@@ -184,11 +176,6 @@ theorem minorMap_dmat (s t : K) :
   fin_cases i <;> fin_cases j <;>
     simp [minorMap_apply, minorIdx_zero, minorIdx_one, minorIdx_two, minorIdx_three, dmat]
 
-theorem minorMap_minorMap_dmat {s t : K} (hs : s ≠ 0) (ht : t ≠ 0) :
-    minorMap (minorMap (dmat s t)) = dmat (s ^ 2) (t ^ 2) := by
-  rw [minorMap_dmat, minorMap_dmat]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [dmat] <;> field_simp
 
 @[expose] noncomputable def Jgl : GL (Fin 4) K :=
   Matrix.GeneralLinearGroup.mk'' (minorJ K) (isUnit_iff_ne_zero.mpr det_minorJ_ne_zero)
@@ -245,8 +232,6 @@ theorem mem_upperUniSp_iff [CharP K 2] (g : antiSp K) :
     calc Jsp * (Jsp * g * Jsp) * Jsp = (Jsp * Jsp) * g * (Jsp * Jsp) := by group
       _ = g := by rw [Jsp_mul_self]; simp
 
-theorem upperUniSp_eq_map [CharP K 2] :
-    upperUniSp K = (lowerUniSp K).map (MulAut.conj (Jsp : antiSp K)).toMonoidHom := rfl
 
 theorem minorHom_lowUSp [CharP K 2] (a b c d : K) :
     minorHom K (lowUSp a b c d) =
@@ -329,31 +314,5 @@ theorem isPGroup_upperUniSp [CharP K 2] [Finite K] {f : ℕ} (hK : Nat.card K = 
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   IsPGroup.of_card (n := f * 4) (by rw [card_upperUniSp, hK, pow_mul])
 
-theorem lower_unipotent_minor_coordinates [CharP K 2] :
-    Function.Bijective (fun p : K × K × K × K =>
-      (⟨lowUSp p.1 p.2.1 p.2.2.1 p.2.2.2, p.1, p.2.1, p.2.2.1, p.2.2.2, rfl⟩ : lowerUniSp K)) ∧
-    (∀ g : antiSp K, g ∈ lowerUniSp K ↔ IsLowUni (glMat (g : GL (Fin 4) K))) ∧
-    (∀ g : antiSp K, g ∈ upperUniSp K ↔ IsUpUni (glMat (g : GL (Fin 4) K))) ∧
-    (Jsp : antiSp K) * Jsp = 1 ∧
-    upperUniSp K = (lowerUniSp K).map (MulAut.conj (Jsp : antiSp K)).toMonoidHom ∧
-    minorMap (minorJ K) = minorJ K ∧
-    (lowerUniSp K).map (minorHom K) ≤ lowerUniSp K ∧
-    (upperUniSp K).map (minorHom K) ≤ upperUniSp K ∧
-    (∀ a b c d : K, minorMap (lowU a b c d) =
-      lowU c (d + a * b + a ^ 2 * c) (a ^ 2) (b ^ 2 + a * b * c + c * d)) ∧
-    (∀ a b c d : K, minorMap (minorMap (lowU a b c d)) = lowU (a ^ 2) (b ^ 2) (c ^ 2) (d ^ 2)) ∧
-    (∀ s t : Kˣ, minorHom K (dSp s t) = dSp (s * t) (s * t⁻¹) ∧
-      minorHom K (minorHom K (dSp s t)) = dSp (s ^ 2) (t ^ 2)) :=
-  ⟨lowUMap_bijective, mem_lowerUniSp_iff, mem_upperUniSp_iff, Jsp_mul_self, upperUniSp_eq_map,
-    minorMap_minorJ, minorHom_lowerUniSp_le, minorHom_upperUniSp_le, minorMap_lowU,
-    minorMap_minorMap_lowU, fun s t => ⟨minorHom_dSp s t, minorHom_minorHom_dSp s t⟩⟩
-
-theorem lower_unipotent_minor_coordinates_finite [CharP K 2] [Finite K] :
-    Nat.card (lowerUniSp K) = Nat.card K ^ 4 ∧ Nat.card (upperUniSp K) = Nat.card K ^ 4 ∧
-      IsPGroup 2 (lowerUniSp K) ∧ IsPGroup 2 (upperUniSp K) := by
-  have : Fintype K := Fintype.ofFinite K
-  obtain ⟨n, -, hn⟩ := FiniteField.card K 2
-  rw [← Nat.card_eq_fintype_card] at hn
-  exact ⟨card_lowerUniSp, card_upperUniSp, isPGroup_lowerUniSp hn, isPGroup_upperUniSp hn⟩
 
 end CFSG.QuasithinUnique.Setup.X7b

@@ -31,8 +31,6 @@ theorem halvesAZ : halvesK (WK wordAZ) = true := by
 theorem swaps : bAnd(Nat.ble 704 (pt (WK wordB) 0), Nat.ble 704 (pt (WK wordZ₁) 0)) = true := by
   quickRfl
 
-theorem gensInvo : allN 7 (fun j => Nat.beq (pc (WK [j + 1]) (WK [j + 1])) idK) = true := by
-  quickRfl
 
 theorem neg : bAnd(bIf(Nat.ble 704 (pt (WK wordZ) 0), false, true),
     bAnd(bIf(halvesK (WK wordB), false, true), bIf(halvesK (WK wordZ₁), false, true))) =

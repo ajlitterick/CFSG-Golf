@@ -98,7 +98,6 @@ theorem permOf_eq {β : unipotentPairAut Tag.D4 K} {π : Equiv.Perm (Fin Tag.D4.
     rw [map_toMonoidHom_mul_mulAut, (permOf_spec β' i).1, (permOf_spec β _).1]
     rfl
 
-theorem permHom_apply (β : unipotentPairAut Tag.D4 K) : permHom β = permOf β := rfl
 
 end Perm
 

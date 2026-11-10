@@ -658,13 +658,6 @@ theorem largeEvenLabelAll_stdSubTwoTorus_typeA {p : ℕ} (hp : p.Prime) {lab : L
     refine recipeLinear_stdSubTwoTorus hp hpn ⟨2 * n, by rw [mul_comm, pow_mul]⟩ le_rfl
       (fun h2 => hp2 ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).mp h2)) hQ
 
-theorem GGStdSubFixedJOn_typeA : GGStdSubFixedJOn GGTypeALabel :=
-  GGStdSubFixedJOn_of_labels fun _ _ hp hlab h =>
-    largeEvenLabelAll_stdSubTwoTorus_typeA hp hlab h
-
-theorem ggStdSubSmallInputOn_typeA : GGStdSubSmallInputOn GGTypeALabel :=
-  GGStdSubSmallInputOn_of_fixedJ GGStdSubFixedJOn_typeA
-
 
 theorem largeEvenLabelAll_stdSubTwoTorus_typeA_dvd (htor : GGPGLToralityInput) {p : ℕ}
     (hp : p.Prime) {lab : LargeEvenLabel} (hlab : LargeEvenInLambda2 lab)
@@ -694,11 +687,6 @@ theorem ggStdSubSmallInputOn_typeA_split (htor : GGPGLToralityInput) :
 theorem ggStdSubSmallInputOn_typeA_split_holds : GGStdSubSmallInputOn GGTypeASplitLabel :=
   ggStdSubSmallInputOn_typeA_split ggPGLToralityInput_holds
 
-
-theorem ggStdSubSmallInput_of_rest
-    (h : GGStdSubSmallInputOn fun p lab => ¬ GGTypeASplitLabel p lab) : GGStdSubSmallInput :=
-  ggStdSubSmallInput_of_cover (ggStdSubSmallInputOn_typeA_split_holds.or h)
-    fun p lab _ _ => Classical.em (GGTypeASplitLabel p lab)
 
 end CFSG.StandardType
 

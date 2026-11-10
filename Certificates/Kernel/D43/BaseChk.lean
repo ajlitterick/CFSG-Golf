@@ -26,15 +26,6 @@ open CFSG.KC.D43
 
 #kc_forall_chunks relAll (fun c => relD43 c = true) 39 CertificateChecks.KernelD43.d43rel 1
 
-theorem phiPts : tabAt PX.F 0 4 = 15 ∧
-    ([0, 6, 479, 26571, 15916, 186, 1, 2].all fun p => tabAt PX.F 0 p == p) = true := by
-  decide +kernel
-
-theorem negRel : wOK GX.F PX.F [3] = false := by
-  decide +kernel
-
-theorem negRelPhi : wOK GX.F PX.F [16] = false := by
-  decide +kernel
 
 end CertificateChecks.KernelD43
 

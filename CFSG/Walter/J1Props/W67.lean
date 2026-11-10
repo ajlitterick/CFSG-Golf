@@ -39,8 +39,6 @@ noncomputable def jankoHyp₀OfJRGroup
   centralizer_eq := hL.centralizer_eq
   iso := hL.iso.trans (Classical.choice (nonempty_psl_mulEquiv_A5 hL.p_ne_two hL.f_pos hq))
 
-theorem j1Prop_walterJ1 : J1Prop walterJ1 :=
-  ⟨J1_simple, J1_card, fun _ _ hx hy => J1_isConj_involutions hx hy⟩
 
 theorem card_sylow_of_seven {p : ℕ} [Fact p.Prime] (hp : p = 7 ∨ p = 11 ∨ p = 19)
     (P : Sylow p walterJ1) : Nat.card (P : Subgroup walterJ1) = p := by
@@ -57,19 +55,6 @@ theorem card_normQuot_sylow {p : ℕ} [Fact p.Prime] (hp : p = 7 ∨ p = 11 ∨ 
   · exact (J2_eleven P).2
   · exact (J2_nineteen P).2
 
-theorem j2Prop_walterJ1 : J2Prop walterJ1 := by
-  refine ⟨fun p _ hp2 P => J2_inverted hp2 P, fun p _ hp2 P t ht hP hPt => ?_,
-    fun p _ P hp => ?_⟩
-  · have h35 := J2_centralizer ht hp2 P hP hPt
-    exact ⟨h35, J2_normalizer_two_part h35 P⟩
-  · have hcyc := (isCyclic_normQuot (P : Subgroup walterJ1) (card_sylow_of_seven hp P)).1
-    refine ⟨exists_zpowers_sup_eq _ hcyc, ?_⟩
-    rw [Subgroup.index_eq_card]
-    exact card_normQuot_sylow hp P
-
-theorem j2Extra_walterJ1 : J2Extra walterJ1 :=
-  ⟨fun _ _ hp2 P => card_sylow_odd hp2 P, fun _ _ hp P => centralizer_sylow_eq hp P,
-    fun _ hx1 hodd => isSolvable_centralizer hx1 hodd⟩
 
 theorem j3Prop_walterJ1 : J3Prop walterJ1 := by
   refine ⟨J3_aut, fun E _ _ Z _ hZ _ hE ⟨e⟩ => ?_⟩
@@ -80,10 +65,6 @@ theorem j3Prop_walterJ1 : J3Prop walterJ1 := by
   rw [← hker]
   exact J3_multiplier π (e.surjective.comp (QuotientGroup.mk'_surjective Z)) (hker ▸ hZ) hE
 
-theorem outCyclic_walterJ1 : OutCyclic walterJ1 :=
-  ⟨1, fun β => by
-    obtain ⟨g, hg⟩ := J3_aut β
-    exact ⟨0, g, by rw [hg, zpow_zero, one_mul]⟩⟩
 
 section Transport
 

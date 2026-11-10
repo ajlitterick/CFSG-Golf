@@ -147,31 +147,6 @@ theorem linIndepPair_rootOf {a b a' b' : ℤ} (h : a * b' - a' * b ≠ 0) :
 
 end Roots
 
-theorem mul_comm_sup {G : Type*} [Group G] {A B : Subgroup G}
-    (hA : ∀ x ∈ A, ∀ y ∈ A, x * y = y * x) (hB : ∀ x ∈ B, ∀ y ∈ B, x * y = y * x)
-    (hAB : ∀ x ∈ A, ∀ y ∈ B, x * y = y * x) :
-    ∀ x ∈ A ⊔ B, ∀ y ∈ A ⊔ B, x * y = y * x := by
-  have h1 : ∀ x ∈ A ⊔ B, (∀ a ∈ A, a * x = x * a) → (∀ a ∈ B, a * x = x * a) →
-      ∀ y ∈ A ⊔ B, y * x = x * y := by
-    intro x _ hxA hxB y hy
-    have : A ⊔ B ≤ Subgroup.centralizer ({x} : Set G) := sup_le
-      (fun a ha => by rw [Subgroup.mem_centralizer_singleton_iff]; exact hxA a ha)
-      (fun a ha => by rw [Subgroup.mem_centralizer_singleton_iff]; exact hxB a ha)
-    have := Subgroup.mem_centralizer_singleton_iff.1 (this hy)
-    exact this
-  have hC : A ⊔ B ≤ Subgroup.centralizer ((A ⊔ B : Subgroup G) : Set G) := by
-    refine sup_le (fun a ha => ?_) (fun a ha => ?_)
-    · rw [Subgroup.mem_centralizer_iff]
-      intro y hy
-      refine h1 a (Subgroup.mem_sup_left ha) (fun a' ha' => (hA a' ha' a ha)) (fun a' ha' => ?_) y hy
-      exact (hAB a ha a' ha').symm
-    · rw [Subgroup.mem_centralizer_iff]
-      intro y hy
-      refine h1 a (Subgroup.mem_sup_right ha) (fun a' ha' => ?_) (fun a' ha' => hB a' ha' a ha) y hy
-      exact hAB a' ha' a ha
-  intro x hx y hy
-  have := Subgroup.mem_centralizer_iff.1 (hC hx) y hy
-  exact this.symm
 
 section Groups
 
@@ -280,27 +255,6 @@ theorem commute_qB_qC {x y : spinGroup (quadMinus 3 F b c)} (hx : x ∈ (qB hirr
       have : (0 : ℤ) < l := by exact_mod_cast hl
       omega) hx hy)
 
-theorem Qsub_comm : ∀ x ∈ Qsub hirr, ∀ y ∈ Qsub hirr, x * y = y * x := by
-  have hAB : ∀ x ∈ (qA b c).range ⊔ (qB hirr).range, ∀ y ∈ (qA b c).range ⊔ (qB hirr).range,
-      x * y = y * x := mul_comm_sup (fun x hx y hy => commute_of_mem_range _ hx hy)
-    (fun x hx y hy => commute_of_mem_range _ hx hy) (fun x hx y hy => commute_qA_qB hirr hx hy)
-  refine mul_comm_sup hAB (fun x hx y hy => commute_of_mem_range _ hx hy) ?_
-  intro x hx y hy
-  have hx' : ∀ y ∈ (qC b c).range, x * y = y * x := by
-    intro y hy
-    have : (qA b c).range ⊔ (qB hirr).range ≤ Subgroup.centralizer ({y} : Set _) := sup_le
-      (fun a ha => by
-        rw [Subgroup.mem_centralizer_singleton_iff]
-        exact commute_qA_qC hirr ha hy)
-      (fun a ha => by
-        rw [Subgroup.mem_centralizer_singleton_iff]
-        exact commute_qB_qC hirr ha hy)
-    have := Subgroup.mem_centralizer_singleton_iff.1 (this hx)
-    exact this
-  exact hx' y hy
-
-theorem Nsub_comm : ∀ x ∈ Nsub hirr, ∀ y ∈ Nsub hirr, x * y = y * x :=
-  fun _ hx _ hy => commute_of_mem_range _ hx hy
 
 theorem rg_le_Qsub {b'' : ℤ} (h : b'' = -1 ∨ b'' = 0 ∨ b'' = 1) :
     minusRootGroup 3 hirr (rootOf 1 b'') ≤ Qsub hirr := by

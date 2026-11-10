@@ -74,15 +74,6 @@ variable (P : SwapNeighbourParam e t X N)
 @[expose] noncomputable def snd (I : Finset (Fin n)) : Subgroup G :=
   ((unitaryBlock h I).subgroupOf (unitaryBlock h N)).map (P.Ψ.comp (MonoidHom.inr _ _))
 
-theorem fst_def (I : Finset (Fin n)) :
-    P.fst I = ((unitaryBlock h I).subgroupOf (unitaryBlock h N)).map
-      (P.Ψ.comp (MonoidHom.inl _ _)) :=
-  rfl
-
-theorem snd_def (I : Finset (Fin n)) :
-    P.snd I = ((unitaryBlock h I).subgroupOf (unitaryBlock h N)).map
-      (P.Ψ.comp (MonoidHom.inr _ _)) :=
-  rfl
 
 theorem apply_inl_mem_fst {I : Finset (Fin n)} {x : unitaryBlock h N}
     (hx : (x : unitarySU 2 f K n) ∈ unitaryBlock h I) : P.Ψ (x, 1) ∈ P.fst I :=

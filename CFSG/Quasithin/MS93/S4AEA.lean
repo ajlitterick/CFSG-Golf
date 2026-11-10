@@ -305,14 +305,6 @@ theorem card_qLn [Finite F] : Nat.card (qLn : Subgroup (SL3 F)) = Nat.card F ^ 2
         exact ⟨(b, c), rfl⟩⟩
   rw [← Nat.card_congr e, Nat.card_prod, sq]
 
-theorem qPt_inf_qLn : (qPt : Subgroup (SL3 F)) ⊓ qLn = rootGroup 0 2 := by
-  refine le_antisymm ?_ (le_inf rootGroup_le_qPt rootGroup_le_qLn)
-  rintro g ⟨hP, hL⟩
-  obtain ⟨a, b, rfl⟩ := mem_qPt_iff_uniTri.mp hP
-  obtain ⟨b', c', e⟩ := mem_qLn_iff_uniTri.mp hL
-  obtain ⟨ha, -, -⟩ := uniTri_eq_uniTri_iff.mp e
-  rw [← ha]
-  exact ⟨b, rootElt02_eq_uniTri b⟩
 
 theorem finrank_pt0 [Finite F] : Module.finrank F (pt0 : Submodule F (Fin 3 → F)) = 1 := by
   have hc : Nat.card (pt0 : Submodule F (Fin 3 → F)) = Nat.card F := by

@@ -51,9 +51,6 @@ theorem BaseK.hyp31 {G : Type} [Group G] [Finite G] {A : Subgroup G} (h : BaseK 
     AS76b.Hyp31 A :=
   ⟨h.hyp.standard, h.hypII, h.oddCore, by have := h.hyp.rank; omega, h.hyp.not_normal⟩
 
-theorem BaseK.toBase {G : Type} [Group G] [Finite G] {A : Subgroup G} (h : BaseK G A) :
-    Base G A :=
-  ⟨h.hyp.toNF, h.oddCore, h.hypII, h.type⟩
 
 structure Frame (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G)
     (E F : Subgroup G) : Prop where
@@ -96,21 +93,6 @@ structure Frame (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G)
     ∀ R : Subgroup G, IsSylowOf 2 R (centralizer (A : Set G)) →
       ∃ (g : G) (E F : Subgroup G), Frame G A A R g E F
 
-@[expose] def Step15 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A A₁ R : Subgroup G) (g : G) (E F : Subgroup G),
-    Frame G A A₁ R g E F → Odd (Nat.card (center A₁)) →
-      (∀ e ∈ E, e ∉ A₁ → ∃ Q ∈ pointsIn R E, e ∈ Q) ∧
-      (∀ Q₁ ∈ pointsIn R E, ∀ Q₂ ∈ pointsIn R E, Q₁ ≠ Q₂ → Q₁ ⊓ Q₂ = ⊥) ∧
-      Nat.card (pointsIn R E) = 16 ∧
-      ∃ P₀ P : Subgroup G, P₀ ≤ normalizer (E : Set G) ∧
-        normalizer (E : Set G) ≤ normalizer (P₀ : Set G) ∧
-        normalizer (E : Set G) = P₀ ⊔ (normalizer (E : Set G) ⊓ normalizer (R : Set G)) ∧
-        (∀ p ∈ P₀, ∀ q ∈ P₀, p * p ∈ centralizer (E : Set G) ∧
-          p * q * p⁻¹ * q⁻¹ ∈ centralizer (E : Set G)) ∧
-        (P₀ ⊓ centralizer (E : Set G)).relIndex P₀ = 16 ∧
-        (∀ Q ∈ pointsIn R E, ∃ p ∈ P₀, rightConjugate R p = Q) ∧
-        IsPGroup 2 P ∧ P ≤ P₀ ∧ P₀ = AS76b.oddCoreIn (centralizer (E : Set G)) ⊔ P ∧
-        AS76b.oddCoreIn (centralizer (E : Set G)) ≤ centralizer (P : Set G)
 
 @[expose] def Step16 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
@@ -158,17 +140,6 @@ structure Hyp19 (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G) : Pro
   ∀ (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G), Hyp19 G z X T →
     ∀ x ∈ X, ∀ h ∈ centralizer ({z} : Set G), h⁻¹ * x * h ∈ T → h⁻¹ * x * h ∈ X
 
-@[expose] def Sec2Suz : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
-    Frame G A A R g E F → TypeL34 (rankTwoQuot A) → Odd (Nat.card (center A)) →
-    L34GeneralBelow (Nat.card G) → IsSporadic (rankTwoX A) .Suz
-
-@[expose] def Sec4He : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
-    Frame G A A R g E F → TypeL34 (rankTwoQuot A) → Even (Nat.card (center A)) →
-    L34GeneralBelow (Nat.card G) →
-      Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
-        IsSporadic (rankTwoX A) .He
 
 @[expose] def Sec2SuzXR : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A R : Subgroup G) (g : G) (E F : Subgroup G),
@@ -182,10 +153,5 @@ structure Hyp19 (G : Type) [Group G] [Finite G] (z : G) (X T : Subgroup G) : Pro
       Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
         IsSporadic (rankTwoX A) .He
 
-theorem sec2SuzXR_of (h : Sec2Suz) : Sec2SuzXR :=
-  fun G _ _ A R g E F hF hL ho hb _ => h G A R g E F hF hL ho hb
-
-theorem sec4HeXR_of (h : Sec4He) : Sec4HeXR :=
-  fun G _ _ A R g E F hF hL he hb _ => h G A R g E F hF hL he hb
 
 end CFSG.ComponentClassification.AS81

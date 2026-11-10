@@ -45,8 +45,6 @@ theorem pos_coordAt (t : Fin 22) : pos (coordAt t) = t := by
   left_inv := coordAt_pos
   right_inv := pos_coordAt
 
-theorem card_V₀ : Nat.card V₀ = 2 ^ 22 := by
-  rw [Nat.card_eq_fintype_card, Fintype.card_fun, ZMod.card, Fintype.card_coe, card_X₀]
 
 @[expose] def vecOf (m : ℕ) : V₀ := fun i => if m.testBit (pos i) then 1 else 0
 
@@ -87,13 +85,6 @@ theorem vecOf_inj {a b : ℕ} (ha : a < 2 ^ 22) (hb : b < 2 ^ 22) (h : vecOf a =
   · rw [Nat.testBit_eq_false_of_lt (ha.trans_le (Nat.pow_le_pow_right (by norm_num) (by omega))),
       Nat.testBit_eq_false_of_lt (hb.trans_le (Nat.pow_le_pow_right (by norm_num) (by omega)))]
 
-theorem vecOf_surj (v : V₀) : ∃ m < 2 ^ 22, vecOf m = v := by
-  have hinj : Function.Injective fun m : Fin (2 ^ 22) => vecOf m := fun a b h =>
-    Fin.ext (vecOf_inj a.2 b.2 h)
-  have hbij := hinj.bijective_of_nat_card_le (by rw [card_V₀, Nat.card_eq_fintype_card,
-    Fintype.card_fin])
-  obtain ⟨m, hm⟩ := hbij.2 v
-  exact ⟨m, m.2, hm⟩
 
 theorem blockVec_ofMask (b : ℕ) : blockVec (ofMask b) = vecOf (b >>> 2) := by
   funext i

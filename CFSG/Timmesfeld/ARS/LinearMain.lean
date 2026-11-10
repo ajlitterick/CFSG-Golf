@@ -175,30 +175,5 @@ end IsRootFrame
 
 end Linear
 
-theorem lieModel_PSL_of_isTI' {G : Type} [Group G] {R : Set (Subgroup G)} (h : Hyp G R)
-    {Δ : Set (Subgroup G)} (hΔ : IsTI R Δ) {A : Subgroup G} (hA : A ∈ Δ) :
-    ∃ m f : ℕ, Nat.card ↥(gen Δ) = Nat.card A ^ m ∧ Nat.card A = 2 ^ f ∧ 2 ≤ m ∧ 1 ≤ f ∧
-      Blueprint.LieModel G .PSL (m + 1) 2 f := by
-  have := h.finite
-  have hR := h.root
-  have hiso := h.noIsolated
-  have hnd := h.nondeg
-  have hΩ : ∀ A ∈ R, ∀ B ∈ R, omegaSet R B = omegaSet R A → B = A :=
-    fun _ hA _ hB e => eq_of_omegaSet_eq h hA hB e
-  obtain ⟨m, hm⟩ := Sec5.exists_card_gen_eq_pow hR hiso hnd hΩ hΔ.isWeakTI hA
-  obtain ⟨hm2, X, hX⟩ := Linear.exists_isRootFrame hR hiso hnd hΩ hΔ hA hm
-  obtain ⟨f, hf, hcard, hL⟩ := hX.lieModel hR hiso h.center hm2
-  exact ⟨m, f, hm, hcard A (hΔ.1 hA), hm2, hf, hL⟩
-
-theorem lieModel_PSL_of_isTI {G : Type} [Group G] {R : Set (Subgroup G)} (h : Hyp G R)
-    {Δ : Set (Subgroup G)} (hΔ : IsTI R Δ) {A : Subgroup G} (hA : A ∈ Δ) :
-    ∃ n f : ℕ, 3 ≤ n ∧ 1 ≤ f ∧ Blueprint.LieModel G .PSL n 2 f := by
-  obtain ⟨m, f, -, -, hm2, hf, hL⟩ := lieModel_PSL_of_isTI' h hΔ hA
-  exact ⟨m + 1, f, by omega, hf, hL⟩
-
-theorem caseLInput : CaseLInput := by
-  intro G _ R h A hA hmax
-  obtain ⟨Δ, hΔ, hAΔ⟩ := (exists_isTI_iff h hA).1 hmax
-  exact Or.inl (lieModel_PSL_of_isTI h hΔ hAΔ)
 
 end CFSG.Timmesfeld.ARS

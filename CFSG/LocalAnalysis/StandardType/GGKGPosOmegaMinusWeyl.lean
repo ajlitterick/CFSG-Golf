@@ -207,7 +207,6 @@ theorem spinMatrix_minusWeyl_conj_omMinusTorus
   rw [hm, mul_inv_cancel_right]
 
 
-
 theorem minusWeyl_conj_of_torusMatrix
     {F : Type} [Field F] [Finite F] [CharP F 2] {b c : F}
     (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) {p : ℕ} {ζ : Fˣ} (hζ : ζ ^ p = 1)
@@ -267,25 +266,6 @@ theorem exists_markedWeyl_spinMinus_of_torusMatrix
   exact ⟨hnN, ε, hε⟩
 
 
-theorem exists_markedWeyl_spinMinus_splitPrimeTorus
-    {F : Type} [Field F] [Finite F] [CharP F 2] {b c : F}
-    (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) {p : ℕ} {ζ : Fˣ}
-    (hp : p.Prime) (hp2 : p ≠ 2) (hζ : ζ ^ p = 1) (hζo : orderOf ζ = p) :
-    let e := peRhoMEquiv (by decide : 4 ≤ 4) hirr
-    let T := e.symm.toMonoidHom.comp (omMinusTorus b c hζ (m := 3))
-    ∃ hnN : ∀ i : Fin 3, minusWeyl 4 hirr i ∈ Subgroup.normalizer (T.range : Set _),
-      ∃ ε : (CoxeterMatrix.B 3).Group ≃* ↥(ggAutomizer (⊤ : Subgroup _) T.range),
-        ∀ i : Fin 3, (ε ((CoxeterMatrix.B 3).simple i) : MulAut ↥T.range) =
-          ggConjAut T.range (hnN i) := by
-  dsimp only
-  let e := peRhoMEquiv (by decide : 4 ≤ 4) hirr
-  let T := e.symm.toMonoidHom.comp (omMinusTorus b c hζ (m := 3))
-  have hmatT (u : Fin 3 → Multiplicative (ZMod p)) :
-      spinMatrix (quadMinus 4 F b c) (T u) = omMinusTorusGL hζ u :=
-    congrArg (fun A : StatedOmega (StatedQuadMinus 4 F b c) =>
-      (A : GL (Fin 3 ⊕ Fin 3 ⊕ Fin 2) F)) (e.apply_symm_apply (omMinusTorus b c hζ u))
-  exact exists_markedWeyl_spinMinus_of_torusMatrix hirr hp hp2 hζ hζo T hmatT
-
 theorem exists_weylLift_automizer_spinMinus_of_torusMatrix
     {F : Type} [Field F] [Finite F] [CharP F 2] {b c : F}
     (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) {p : ℕ} {ζ : Fˣ}
@@ -324,27 +304,6 @@ theorem exists_weylLift_automizer_spinMinus_of_torusMatrix
       simp only [ggConjAut_apply]
       rw [hνs i]
 
-theorem exists_weylLift_automizer_spinMinus_splitPrimeTorus
-    {F : Type} [Field F] [Finite F] [CharP F 2] {b c : F}
-    (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) {p : ℕ} {ζ : Fˣ}
-    (hp : p.Prime) (hp2 : p ≠ 2) (hζ : ζ ^ p = 1) (hζo : orderOf ζ = p) :
-    let D := minusDatum 4 hirr
-    let e := peRhoMEquiv (by decide : 4 ≤ 4) hirr
-    let T := e.symm.toMonoidHom.comp (omMinusTorus b c hζ (m := 3))
-    ∃ ν : GGWeyl D →* spinGroup (quadMinus 4 F b c), GGWeylLift D ν ∧
-      ∃ ε : GGWeyl D ≃* ↥(ggAutomizer (⊤ : Subgroup _) T.range),
-        (∀ (w : GGWeyl D) (a : T.range),
-          ((ε w : MulAut ↥T.range) a : spinGroup (quadMinus 4 F b c)) =
-            ν w * (a : spinGroup (quadMinus 4 F b c)) * (ν w)⁻¹) ∧
-        ∀ i : Fin 3, ν ((coxeterMatrix D.isFiniteType).simple i) = minusWeyl 4 hirr i := by
-  dsimp only
-  let e := peRhoMEquiv (by decide : 4 ≤ 4) hirr
-  let T := e.symm.toMonoidHom.comp (omMinusTorus b c hζ (m := 3))
-  have hmatT (u : Fin 3 → Multiplicative (ZMod p)) :
-      spinMatrix (quadMinus 4 F b c) (T u) = omMinusTorusGL hζ u :=
-    congrArg (fun A : StatedOmega (StatedQuadMinus 4 F b c) =>
-      (A : GL (Fin 3 ⊕ Fin 3 ⊕ Fin 2) F)) (e.apply_symm_apply (omMinusTorus b c hζ u))
-  exact exists_weylLift_automizer_spinMinus_of_torusMatrix hirr hp hp2 hζ hζo T hmatT
 
 theorem exists_weyl_chart_of_omegaMinus_torusMatrix
     {F G : Type} [Field F] [Finite F] [CharP F 2] [Group G] [Finite G] {b c : F}

@@ -175,13 +175,6 @@ theorem diagSp_mem_centralizer_of_le {T : Subgroup (StatedSp n K)} (hT : T ≤ (
   obtain ⟨t, rfl⟩ := hT hx
   exact (commute_diagSp_diagSp t s).eq
 
-theorem leviTorusSp_le_range (J : Finset (Fin n)) : leviTorusSp K J ≤ (diagSp K n).range := by
-  rintro _ ⟨t, -, rfl⟩
-  exact ⟨t, rfl⟩
-
-theorem rootTorusSp_le_range (k : Fin n) : rootTorusSp K k ≤ (diagSp K n).range := by
-  rintro _ ⟨κ, rfl⟩
-  exact ⟨_, rfl⟩
 
 theorem siegelTorus_le_range : siegelTorus K n ≤ (diagSp K n).range := by
   rintro _ ⟨s, rfl⟩
@@ -217,15 +210,6 @@ theorem neighbourCore_def (k : Fin n) :
     neighbourCore e k = centralizerPerfectCore (modelToG e (rootTorusSp K k)) :=
   rfl
 
-theorem siegelCore_def : siegelCore e = centralizerPerfectCore (modelToG e (siegelTorus K n)) :=
-  rfl
-
-theorem siegelCore_eq_pieceCore :
-    siegelCore e = pieceCore e (Finset.univ.filter fun j : Fin n => j.val + 1 < n) := by
-  rw [siegelCore_def, pieceCore_def, siegelTorus_eq_leviTorusSp]
-
-theorem pieceCore_mono {J J' : Finset (Fin n)} (h : J ⊆ J') : pieceCore e J ≤ pieceCore e J' :=
-  centralizerPerfectCore_anti (modelToG_mono e (leviTorusSp_anti h))
 
 theorem modelToG_rootTorusSp_le {k : Fin n} {J : Finset (Fin n)} (hk : k ∉ spSupport J) :
     modelToG e (rootTorusSp K k) ≤ modelToG e (leviTorusSp K J) :=
@@ -263,9 +247,6 @@ theorem modelToG_simpleRootSL2_le_pieceCore (hK : 4 ≤ Nat.card K) {J : Finset 
   modelToG_le_pieceCore e (simpleRootSL2_le_centralizer_leviTorusSp hj)
     (commutator_simpleRootSL2_eq_of_four_le hK j)
 
-theorem iSup_modelToG_simpleRootSL2_le_pieceCore (hK : 4 ≤ Nat.card K) (J : Finset (Fin n)) :
-    ⨆ j ∈ J, modelToG e (simpleRootSL2 K j) ≤ pieceCore e J :=
-  iSup₂_le fun _ hj => modelToG_simpleRootSL2_le_pieceCore e hK hj
 
 end Cores
 
@@ -284,12 +265,6 @@ theorem modelToG_siegelLevi_le_siegelCore (e : L ≃* StatedSp n K) (hK : 4 ≤ 
       siegelLeviGL_le_centralizer_siegelTorus)
     (Subgroup.isPerfect_iff.1 (isQuasisimple_siegelLevi hK hn).1)
 
-theorem inSubgroup_layer_inf_centralizer_le_neighbourCore (e : L ≃* StatedSp (m + 1) K)
-    (hK : 4 ≤ Nat.card K) (hm : 1 ≤ m) (k : Fin (m + 1)) :
-    inSubgroup layer (L ⊓ centralizer (modelToG e (rootTorusSp K k) : Set G)) ≤
-      neighbourCore e k := by
-  rw [modelToG, layer_inf_centralizer_rootTorusSp hK hm e k]
-  exact modelToG_complSp_le_neighbourCore e hK hm k
 
 end LeviFactors
 
@@ -310,30 +285,12 @@ theorem le_normalizer_siegelCore {t : G} (ht : t ∈ centralizer (L : Set G)) :
     t ∈ normalizer (siegelCore e : Set G) :=
   UnitaryPilot.mem_normalizer_centralizerPerfectCore_modelToG_of_mem_centralizer e ht _
 
-theorem symm_mem_normalizer_pieceCore {J : Finset (Fin n)} {x : StatedSp n K}
-    (hx : x ∈ normalizer (leviTorusSp K J : Set (StatedSp n K))) :
-    ((e.symm x : L) : G) ∈ normalizer (pieceCore e J : Set G) :=
-  UnitaryPilot.symm_mem_normalizer_centralizerPerfectCore_modelToG e hx
-
-theorem symm_mem_normalizer_neighbourCore {k : Fin n} {x : StatedSp n K}
-    (hx : x ∈ normalizer (rootTorusSp K k : Set (StatedSp n K))) :
-    ((e.symm x : L) : G) ∈ normalizer (neighbourCore e k : Set G) :=
-  UnitaryPilot.symm_mem_normalizer_centralizerPerfectCore_modelToG e hx
 
 theorem symm_mem_normalizer_siegelCore {x : StatedSp n K}
     (hx : x ∈ normalizer (siegelTorus K n : Set (StatedSp n K))) :
     ((e.symm x : L) : G) ∈ normalizer (siegelCore e : Set G) :=
   UnitaryPilot.symm_mem_normalizer_centralizerPerfectCore_modelToG e hx
 
-theorem diagSp_mem_normalizer_pieceCore (J : Finset (Fin n)) (s : Fin n → Kˣ) :
-    ((e.symm (diagSp K n s) : L) : G) ∈ normalizer (pieceCore e J : Set G) :=
-  symm_mem_normalizer_pieceCore e
-    (centralizer_le_normalizer _ (diagSp_mem_centralizer_of_le (leviTorusSp_le_range J) s))
-
-theorem diagSp_mem_normalizer_neighbourCore (k : Fin n) (s : Fin n → Kˣ) :
-    ((e.symm (diagSp K n s) : L) : G) ∈ normalizer (neighbourCore e k : Set G) :=
-  symm_mem_normalizer_neighbourCore e
-    (centralizer_le_normalizer _ (diagSp_mem_centralizer_of_le (rootTorusSp_le_range k) s))
 
 theorem diagSp_mem_normalizer_siegelCore (s : Fin n → Kˣ) :
     ((e.symm (diagSp K n s) : L) : G) ∈ normalizer (siegelCore e : Set G) :=
@@ -358,22 +315,6 @@ theorem pieceCore_eq {k : Fin n} {J : Finset (Fin n)} (hk : k ∉ spSupport J) :
       centralizer (modelToG e (leviTorusSp K J) : Set G)) :=
   pieceCore_eq_perfectCore_inf e (modelToG_rootTorusSp_le e hk)
 
-theorem perfectCore_neighbourCore_inf_eq {k l : Fin n} {J : Finset (Fin n)}
-    (hk : k ∉ spSupport J) (hl : l ∉ spSupport J) :
-    perfectCore (neighbourCore e k ⊓ centralizer (modelToG e (leviTorusSp K J) : Set G)) =
-      perfectCore (neighbourCore e l ⊓ centralizer (modelToG e (leviTorusSp K J) : Set G)) := by
-  rw [← pieceCore_eq e hk, ← pieceCore_eq e hl]
-
-theorem pieceCore_eq_siegel {J : Finset (Fin n)} (hJ : ∀ j ∈ J, j.val + 1 < n) :
-    pieceCore e J = perfectCore (siegelCore e ⊓
-      centralizer (modelToG e (leviTorusSp K J) : Set G)) :=
-  pieceCore_eq_perfectCore_inf e (modelToG_siegelTorus_le e hJ)
-
-theorem perfectCore_neighbourCore_inf_eq_siegelCore {k : Fin n} {J : Finset (Fin n)}
-    (hk : k ∉ spSupport J) (hJ : ∀ j ∈ J, j.val + 1 < n) :
-    perfectCore (neighbourCore e k ⊓ centralizer (modelToG e (leviTorusSp K J) : Set G)) =
-      perfectCore (siegelCore e ⊓ centralizer (modelToG e (leviTorusSp K J) : Set G)) := by
-  rw [← pieceCore_eq e hk, ← pieceCore_eq_siegel e hJ]
 
 end Alignment
 

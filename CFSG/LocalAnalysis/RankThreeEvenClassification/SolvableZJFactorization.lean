@@ -47,17 +47,5 @@ theorem solvable_zj_normalizer_factorization_sup {G : Type u}
     (thompsonCenterOf (sylow : Subgroup G)) hcomplement
     (sylow.isPGroup'.to_le (Subgroup.map_subtype_le _)) himageNormal
 
-theorem solvable_zj_normalizer_factorization {G : Type u}
-    [Group G] [Finite G] [Group.IsSolvable G]
-    (prime : ℕ) (hprime : prime.Prime) (hlarge : 5 ≤ prime) (sylow : Sylow prime G) :
-    ∀ member : G, ∃ first ∈ primeComplementCore G prime,
-      ∃ second ∈ Subgroup.normalizer (thompsonCenterOf (sylow : Subgroup G) : Set G),
-        first * second = member := by
-  have : (primeComplementCore G prime).Normal := (primeComplementCore_properties G prime hprime).1
-  have hsup := solvable_zj_normalizer_factorization_sup prime hprime hlarge sylow
-  intro member
-  apply Subgroup.mem_sup_of_normal_left.mp
-  rw [hsup]
-  exact Subgroup.mem_top member
 
 end CFSG.RankThreeEvenClassification.Helpers

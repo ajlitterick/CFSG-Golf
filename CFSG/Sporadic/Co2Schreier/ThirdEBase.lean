@@ -79,9 +79,6 @@ theorem gTuple_getD {i : ℕ} (hi : i < 15) : gTuple.getD i 1 = gPerm i := by
 
 @[expose] def locE : Subgroup (Equiv.Perm (Fin 2300)) := Subgroup.closure {g | g ∈ gTuple}
 
-theorem gPerm_mem_E {i : ℕ} (hi : i < 15) : gPerm i ∈ locE := by
-  rw [← gTuple_getD hi]
-  exact Subgroup.subset_closure (getD_mem (by rw [gTuple_length]; exact hi))
 
 theorem eRec_origArrs : eRec.origArrs = gA := by
   simp [eRecOf, ChainRecord.origArrs, List.map_map, Function.comp_def]

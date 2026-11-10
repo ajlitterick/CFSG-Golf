@@ -23,9 +23,6 @@ theorem rootChar_highDiag (c : Kˣ) (v : Fin τ.rank → ℤ) :
 
 theorem highDiag_one : highDiag τ (1 : Kˣ) = 1 := Pi.mulSingle_one _
 
-theorem highDiag_mul (c d : Kˣ) : highDiag τ (c * d) = highDiag τ c * highDiag τ d := by
-  unfold highDiag
-  exact Pi.mulSingle_mul _ _ _
 
 theorem highDiag_apply (c : Kˣ) (l : Fin τ.rank) :
     highDiag τ c l = c ^ (if l = highNode τ then (1 : ℤ) else 0) := by

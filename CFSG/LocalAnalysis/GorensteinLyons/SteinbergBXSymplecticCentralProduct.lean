@@ -74,10 +74,6 @@ theorem zlog_eq_zero_iff {x : P} (hx : x = 1 ∨ x = z) : zlog z x = 0 ↔ x = 1
   · simp [H.zlog_one]
   · rw [zlog_self]; simp [H.z_ne_one]
 
-theorem zlog_eq_one_iff {x : P} (hx : x = 1 ∨ x = z) : zlog z x = 1 ↔ x = z := by
-  rcases hx with h | h <;> rw [h]
-  · rw [H.zlog_one]; simp [Ne.symm H.z_ne_one]
-  · rw [zlog_self]; simp
 
 theorem comm_center (a b : P) : ⁅a, b⁆ ∈ center P := by
   rcases H.comm_pair a b with h | h <;> rw [h]
@@ -460,8 +456,6 @@ variable {P : Type*} [Group P]
     rintro _ ⟨s, hs, rfl⟩
     exact ⟨s⁻¹, inv_mem hs, (inv_pow s 2).symm⟩
 
-theorem mem_centerSq_iff {y : P} : y ∈ centerSq P ↔ ∃ t ∈ center P, y = t ^ 2 :=
-  Iff.rfl
 
 theorem mul_mem_centerSq_of_notMem (hcyc : IsCyclic (center P)) {s t : P} (hs : s ∈ center P)
     (ht : t ∈ center P) (hs' : s ∉ centerSq P) (ht' : t ∉ centerSq P) :

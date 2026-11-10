@@ -290,14 +290,5 @@ theorem pair_card_of_equiv
   rw [Set.image_pair] at himg
   rw [← himg, hconj, h162]
 
-theorem mcl_pair_card
-    (hrows : ThreeFacts) (hpair : pairCheck = true) {a b : CFSG.Blueprint.NativeSporadic.McL}
-    (ha3 : orderOf a = 3) (hb3 : orderOf b = 3)
-    (ha : Nat.card ↥(Subgroup.centralizer ({a} : Set CFSG.Blueprint.NativeSporadic.McL)) = 29160)
-    (hb : Nat.card ↥(Subgroup.centralizer ({b} : Set CFSG.Blueprint.NativeSporadic.McL)) = 29160)
-    (hab : a * b = b * a) (hnot : b ∉ Subgroup.zpowers a) :
-    Nat.card ↥(Subgroup.centralizer ({a, b} : Set CFSG.Blueprint.NativeSporadic.McL)) = 162 :=
-  @pair_card_of_equiv hrows hpair CFSG.Blueprint.NativeSporadic.McL inferInstance
-    mclPermEquiv a b ha3 hb3 ha hb hab hnot
 
 end CFSG.Sporadic.Recognition.McLAS

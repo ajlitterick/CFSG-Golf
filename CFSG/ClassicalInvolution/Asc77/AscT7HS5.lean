@@ -34,21 +34,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {c : G}
 
-theorem layer_orth_six_proved (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmegaMod p f Ω) (hBelow : CITBelowU p f (Nat.card G))
-    (hc2 : c * c = 1) (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G)
-    {K K' L : Subgroup G} {z t b b' : G}
-    (hK : K ∈ tqMembers Ω c) (hK' : K' ∈ tqMembers Ω c) (hL : L ∈ tqMembers Ω c)
-    (hz : IsUniqueInvolution K z) (hz' : IsUniqueInvolution K' z)
-    (hperp : KPerp Ω K = {K, K'}) (hperp' : KPerp Ω K' = {K', K})
-    (htL : IsUniqueInvolution L t) (hzt : z * t = t * z) (htz : t ≠ z)
-    {R R' : Subgroup G} (hR : IsSylow2In R (exactCore c K)) (hR' : IsSylow2In R' (exactCore c K'))
-    (hRR' : Commutes R R')
-    (hb : b ∈ exactCore c K) (hb' : b' ∈ exactCore c K') (ob : b * b = z) (ob' : b' * b' = z)
-    (hrel : t = b * b' * c) :
-    LayerOrthType p f Ω c 6 (piSign p f) :=
-  layer_orth_six twinSquareFact_proved hp hq hΩ hBelow hc2 hnc hK hK' hL hz hz' hperp hperp' htL
-    hzt htz hR hR' hRR' hb hb' ob ob' hrel
 
 end T7H
 

@@ -82,49 +82,5 @@ theorem linearIndependent_orbitCls : LinearIndependent (ZMod 2) orbitCls := by
 theorem span_orbitCls : Submodule.span (ZMod 2) (Set.range orbitCls) = ⊤ :=
   linearIndependent_orbitCls.span_eq_top_of_card_eq_finrank (by rw [Fintype.card_fin, finrank_L2])
 
-theorem span_ellCls : Submodule.span (ZMod 2) (Set.range ellCls) = ⊤ :=
-  linearIndependent_ellCls.span_eq_top_of_card_eq_finrank (by rw [Fintype.card_fin, finrank_L2])
-
-theorem cycWordElt_mem_closure (w : List ℕ) :
-    cycWordElt w ∈ Subgroup.closure (Set.range cycGen) := by
-  induction w with
-  | nil => exact Subgroup.one_mem _
-  | cons g w ih =>
-    rw [cycWordElt, List.map_cons, List.prod_cons]
-    refine Subgroup.mul_mem _ ?_ ih
-    unfold cycGenN
-    split_ifs with h
-    · exact Subgroup.subset_closure ⟨_, rfl⟩
-    · exact Subgroup.one_mem _
-
-theorem span_orbit_closure_cycGen :
-    Submodule.span (ZMod 2)
-      {x : L2 | ∃ g ∈ Subgroup.closure (Set.range cycGen), modTwoEnd g twoΩCls = x} = ⊤ := by
-  refine eq_top_iff.2 (span_orbitCls ▸ Submodule.span_mono ?_)
-  rintro _ ⟨t, rfl⟩
-  exact ⟨_, cycWordElt_mem_closure _, (dec_orbitVecs t).symm⟩
-
-theorem pCyc_coeff : ∀ j : Fin 12, permWord pCyc (B j) =
-    ∑ k : Fin 12, (if (pCoeff.getD j 0).testBit k then 1 else 0) • B k := by
-  decide +kernel
-
-theorem cyclic_span_certificate :
-    pCyc ∈ AutPerm ∧
-    (∀ j : Fin 12, permWord pCyc (B j) =
-      ∑ k : Fin 12, (if (pCoeff.getD j 0).testBit k then 1 else 0) • B k) ∧
-    (∀ j k : Fin 24, QuadraticMap.polarBilin qL (ellCls j) (ellCls k) = bvec 24 (gramRow j) k) ∧
-    LinearIndependent (ZMod 2) ellCls ∧ Submodule.span (ZMod 2) (Set.range ellCls) = ⊤ ∧
-    (∀ (g : Fin 14) (i : Fin 24), modTwoEnd (cycGen g) (ellCls i) =
-      ∑ j : Fin 24, bvec 24 (cycRows[(g : ℕ)]!)[(i : ℕ)]! j • ellCls j) ∧
-    twoΩCls = ∑ j : Fin 24, bvec 24 seedVec j • ellCls j ∧
-    (∀ t : Fin 24, ∑ j : Fin 24, bvec 24 orbitVecs[(t : ℕ)]! j • ellCls j =
-      modTwoEnd (cycWordElt orbitWords[(t : ℕ)]!) twoΩCls) ∧
-    LinearIndependent (ZMod 2)
-      (fun t : Fin 24 => ∑ j : Fin 24, bvec 24 orbitVecs[(t : ℕ)]! j • ellCls j) ∧
-    Submodule.span (ZMod 2)
-      {x : L2 | ∃ g ∈ Subgroup.closure (Set.range cycGen), modTwoEnd g twoΩCls = x} = ⊤ :=
-  ⟨pCyc_mem, pCyc_coeff, bL_ellCls, linearIndependent_ellCls, span_ellCls,
-    modTwoEnd_cycGen_ellCls, dec_seed.symm, dec_orbitVecs, linearIndependent_orbitCls,
-    span_orbit_closure_cycGen⟩
 
 end CFSG.Monster.VisCert

@@ -309,19 +309,6 @@ theorem input7_L34_holds : Input7_L34 := by
           (quotientCenterAut'_injective hq.1)
     _ ≤ 2 := pRank_mulAut_le_two_of_isLThreeFour hL
 
-theorem inputAutL34Order9_holds : Lemma1112b.InputAutL34Order9 := by
-  intro X _ hL E hE
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  haveI : Finite X := by
-    obtain ⟨K, _, _, -, ⟨f⟩⟩ := hL
-    exact Finite.of_equiv _ f.symm.toEquiv
-  obtain ⟨k, hk⟩ := (Lemma1112b.isPGroup_of_isElemAbelian hE).exists_card_eq
-  have hk2 : k ≤ 2 :=
-    (CFSG.SectionRank.le_pRank (by norm_num) le_top hE hk).trans
-      (pRank_mulAut_le_two_of_isLThreeFour hL)
-  rw [hk]
-  calc 3 ^ k ≤ 3 ^ 2 := Nat.pow_le_pow_right (by norm_num) hk2
-    _ = 9 := by norm_num
 
 theorem inputSchurFi22_holds :
     Lemma123.InputSchurFi22 := by

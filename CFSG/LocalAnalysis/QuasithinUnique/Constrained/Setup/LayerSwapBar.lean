@@ -129,19 +129,6 @@ theorem IsSwap.swapD_inf_left (hS : IsSwap τ H A a S) : swapD τ a S ⊓ S = �
     exact this
   rw [h3, h4]; simp
 
-theorem IsSwap.swapD_inf_right (hS : IsSwap τ H A a S) :
-    swapD τ a S ⊓ S.map (τ a : M →ₗ[k] M) = ⊥ := by
-  refine (Submodule.eq_bot_iff _).2 fun d hd => ?_
-  obtain ⟨y, hy, rfl⟩ := mem_swapD.1 hd.1
-  have h1 : y ∈ S.map (τ a : M →ₗ[k] M) := by
-    have h2 : τ a y - y ∈ S.map (τ a : M →ₗ[k] M) := hd.2
-    have h3 : τ a y ∈ S.map (τ a : M →ₗ[k] M) := ⟨y, hy, rfl⟩
-    have := Submodule.sub_mem _ h3 h2
-    simpa using this
-  have h2 : y ∈ S ⊓ S.map (τ a : M →ₗ[k] M) := ⟨hy, h1⟩
-  rw [hS.disj] at h2
-  have h3 : y = 0 := by simpa using h2
-  rw [h3]; simp
 
 theorem IsSwap.natCard_swapD (hS : IsSwap τ H A a S) :
     Nat.card ↥(swapD τ a S) = Nat.card ↥S := by

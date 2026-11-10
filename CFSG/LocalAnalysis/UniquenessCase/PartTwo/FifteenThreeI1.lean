@@ -113,58 +113,6 @@ private theorem s15_Three_component_eq {A : Type} [Group A] [Finite A]
     exact Subtype.ext (h1 y y.2).symm
   exact (k2_not_forall_comm_of_isQuasisimple hB.2.2) hcommB'
 
-private theorem s15_Three_solvable_normal_le_center {Q : Type} [Group Q] [Finite Q]
-    (hQ : CFSG.Open.IsQuasisimple Q) (N : Subgroup Q) (hN : N.Normal) (hs : IsSolvable ↥N) :
-    N ≤ Subgroup.center Q := by
-  obtain ⟨hperf, hsimple⟩ := hQ
-  haveI := hsimple
-  let π := QuotientGroup.mk' (Subgroup.center Q)
-  have hNbar_normal : (N.map π).Normal := hN.map π (QuotientGroup.mk'_surjective _)
-  have hNbar_solv : IsSolvable ↥(N.map π) := by
-    haveI : Group.IsSolvable ↥N := hs
-    let m : ↥N →* ↥(N.map π) :=
-      (π.comp N.subtype).codRestrict (N.map π) (fun x => Subgroup.mem_map_of_mem π x.2)
-    have hm : Function.Surjective m := by
-      rintro ⟨z, hz⟩
-      obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.1 hz
-      exact ⟨⟨x, hx⟩, rfl⟩
-    exact Group.isSolvable_of_surjective (f := m) hm
-  haveI := hNbar_normal
-  rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal (N.map π) with h | h
-  · rw [Subgroup.map_eq_bot_iff] at h
-    rwa [QuotientGroup.ker_mk'] at h
-  · haveI : Group.IsSolvable ↥(⊤ : Subgroup (Q ⧸ Subgroup.center Q)) := h ▸ hNbar_solv
-    have hQZsolv : Group.IsSolvable (Q ⧸ Subgroup.center Q) :=
-      Group.isSolvable_of_surjective (f := (Subgroup.topEquiv).toMonoidHom)
-        (MulEquiv.surjective _)
-    have hcomm : ∀ a b : Q ⧸ Subgroup.center Q, a * b = b * a :=
-      IsSimpleGroup.comm_iff_isSolvable.mpr hQZsolv
-    have hcommutator : commutator Q ≤ Subgroup.center Q := by
-      change ⁅(⊤ : Subgroup Q), ⊤⁆ ≤ Subgroup.center Q
-      rw [Subgroup.commutator_le]
-      intro a _ b _
-      have hmem : ⁅a, b⁆ ∈ π.ker := by
-        rw [MonoidHom.mem_ker, map_commutatorElement]
-        exact commutatorElement_eq_one_iff_mul_comm.mpr (hcomm (π a) (π b))
-      rwa [QuotientGroup.ker_mk'] at hmem
-    have htop : (⊤ : Subgroup Q) ≤ Subgroup.center Q := by
-      rw [← hperf]
-      exact hcommutator
-    rw [top_le_iff.mp htop]
-    exact le_top
-
-private theorem s15_Three_quot_center_iso {Q T : Type} [Group Q] [Group T] (π : Q →* T)
-    (hπ : Function.Surjective π) (hker : π.ker ≤ Subgroup.center Q)
-    (hT : Subgroup.center T = ⊥) : Nonempty ((Q ⧸ Subgroup.center Q) ≃* T) := by
-  have hZker : Subgroup.center Q ≤ π.ker := by
-    intro z hz
-    rw [MonoidHom.mem_ker]
-    have hzT : π z ∈ Subgroup.center T :=
-      Subgroup.map_center_le_center hπ (Subgroup.mem_map_of_mem π hz)
-    rwa [hT, Subgroup.mem_bot] at hzT
-  have hker_eq : π.ker = Subgroup.center Q := le_antisymm hker hZker
-  refine ⟨(QuotientGroup.quotientMulEquivOfEq hker_eq.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective π hπ)⟩
 
 private theorem s15_Three_barLift_exists (hV : IsElemAbelian 2 V) {Y : Subgroup G}
     (hY : Y ≤ stabTil V₀ V) (h2 : barSub V₀ V hV (pCoreOf 2 Y) = ⊥) :

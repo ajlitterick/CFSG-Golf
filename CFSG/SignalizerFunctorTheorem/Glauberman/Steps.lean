@@ -10,12 +10,6 @@ namespace CFSG.SignalizerFunctorTheorem.Glauberman
 
 variable {G : Type*} [Group G] [Finite G] {p : ℕ} {A : Subgroup G} {θ : Subgroup G → Subgroup G}
 
-theorem Setting.eq_of_maximal_prime_le (h : Setting p A θ) {q : ℕ} (hq : q = 2 ∨ q = 3)
-    {S M₁ M₂ : Subgroup G} (hS : Maximal (signalizerPrimeCompatible p 1 q A θ) S)
-    (hM₁ : Maximal (solvableSignalizerCompatible p 1 A θ) M₁)
-    (hM₂ : Maximal (solvableSignalizerCompatible p 1 A θ) M₂) (h₁ : S ≤ M₁) (h₂ : S ≤ M₂) :
-    M₁ = M₂ :=
-  h.step3 hq hS hM₁ hM₂ h₁ h₂
 
 theorem Setting.exists_not_thompsonFactorizable (h : Setting p A θ) {q : ℕ} (hq : q = 2 ∨ q = 3)
     {S M : Subgroup G} (hS : Maximal (signalizerPrimeCompatible p 1 q A θ) S)

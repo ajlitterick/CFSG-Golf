@@ -54,9 +54,6 @@ theorem planeLineToTraceZero_val (d : Kˣ)
     (planeLineToTraceZero d x).val =
       !![x.2 0, (x.1 0).1; (x.1 0).2 / (d : K), -x.2 0] := rfl
 
-theorem planeLineToTraceZero_symm_apply (d : Kˣ) (X : traceZeroSubmodule K) :
-    (planeLineToTraceZero d).symm X =
-      (fun _ => (X.val 0 1, (d : K) * X.val 1 0), fun _ => X.val 0 0) := rfl
 
 theorem planeLineToTraceZero_form (w : Fin 1 → Kˣ)
     (x : (Fin 1 → K × K) × (Fin 1 → K)) :

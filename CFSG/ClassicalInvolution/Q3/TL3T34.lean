@@ -351,14 +351,6 @@ theorem d1GenLeaf_holds (r : ℕ) : D1GenLeaf r := d1GenLeaf_of_facts d1TwFacts_
 
 variable {r : ℕ} {IH : ℕ → Prop}
 
-theorem dLeafC_of₄ (hE8 : CLeafE8 r IH) (hE64 : CLeafE64 r IH) (hE29 : CLeafE29 r IH)
-    (hAE : CLeafAE r IH) : DLeafC r IH :=
-  dLeafC_of₃ d1TwFacts_holds hE8 hE64 hE29 hAE
-
-theorem thmDAbs_of_leaves₇ (hE8 : CLeafE8 r IH) (hE64 : CLeafE64 r IH) (hE29 : CLeafE29 r IH)
-    (hAE : CLeafAE r IH) (hE4 : DLeafE4 r IH) (hstar : DLeafStar r IH) (hend : DLeafEnd r IH)
-    (hih : ∀ n, IH n) : ThmDAbs r :=
-  thmDAbs_of_leaves₆ d1TwFacts_holds hE8 hE64 hE29 hAE hE4 hstar hend hih
 
 section Cit3
 

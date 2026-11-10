@@ -150,10 +150,6 @@ namespace A2Embedding
 
 variable (E : A2Embedding τ θ δ F)
 
-theorem m₀_ne_zero : E.m₀ ≠ 0 := fun h => by
-  have := E.sq₀
-  rw [h, mul_zero] at this
-  exact zero_ne_one this
 
 theorem m₂_ne_zero : E.m₂ ≠ 0 := fun h => by
   have := E.sq₂
@@ -170,15 +166,6 @@ theorem blk_zero_mem (hθ : IsRoot τ θ) (A : SL2 F) :
       change E.ι (blk F 0 (vSL c)) = _
       rw [← tv10_eq_vSL, blk_zero_tv10, E.h10]) hθ A
 
-theorem blk_zero_neg_one (hF : ringChar F ≠ 2) (hθ : IsRoot τ θ) :
-    E.ι (blk F 0 (HSL (-1 : Fˣ))) = rootSL2 τ F θ (HSL (-1 : Fˣ)) :=
-  sl2Hom_neg_one hF hθ (f := E.ι.comp (blk F 0)) (a := E.m₀) (b := E.m₁) E.m₀_ne_zero
-    (fun c => by
-      change E.ι (blk F 0 (uSL c)) = _
-      rw [← tv01_eq_uSL, blk_zero_tv01, E.h01])
-    (fun c => by
-      change E.ι (blk F 0 (vSL c)) = _
-      rw [← tv10_eq_vSL, blk_zero_tv10, E.h10])
 
 theorem blk_one_neg_one (hF : ringChar F ≠ 2) (hδ : IsRoot τ δ) :
     E.ι (blk F 1 (HSL (-1 : Fˣ))) = rootSL2 τ F δ (HSL (-1 : Fˣ)) :=

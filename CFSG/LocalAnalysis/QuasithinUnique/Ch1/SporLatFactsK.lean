@@ -32,17 +32,6 @@ variable {n : ℕ} [MulAction Γ (Fin n)] {A : LabAct Lab} {valid : Lab → Prop
   LatCtx.ofFacts A valid hlaw Δ hΔ a b ta tb ha hb gen D sg k (hsg.trans h.1.symm) hSk N hΓ h.2.1
     h.2.2.1 h.2.2.2
 
-theorem ctx_mw : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).D.mw = D.mw := rfl
-
-theorem ctx_mt : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).D.mt = D.mt := rfl
-
-theorem ctx_Om : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).D.Om = D.Om := rfl
-
-theorem ctx_sTabs : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).D.sTabs = D.sTabs := rfl
-
-theorem ctx_sg : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).sg = sg := rfl
-
-theorem ctx_k : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).k = k := rfl
 
 theorem ctx_O_size : (ctx hlaw hΔ ha hb gen hsg hSk N hΓ h).D.O.lbl.size = N :=
   LatCtx.ofFacts_O_size ..

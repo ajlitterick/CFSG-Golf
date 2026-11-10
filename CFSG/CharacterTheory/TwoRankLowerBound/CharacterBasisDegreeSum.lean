@@ -64,14 +64,5 @@ theorem finiteIrreducibleCharacterBasis_exhaustion_of_degree_sum {G : Type*} [Gr
   obtain ⟨preimage, _, hequal⟩ := Finset.mem_image.mp hmember
   exact ⟨preimage, hequal⟩
 
-theorem scalarHomRepresentation_norm {G : Type*} [Group G] [Fintype G]
-    (homomorphism : G →* ℂ) :
-    characterPairing (scalarHomRepresentation homomorphism).character
-      (scalarHomRepresentation homomorphism).character = 1 := by
-  rw [scalarHomRepresentation_character]
-  unfold characterPairing
-  simp only [← map_mul, mul_inv_cancel, map_one, Finset.sum_const, Finset.card_univ, nsmul_eq_mul,
-    mul_one, ← Nat.card_eq_fintype_card]
-  exact inv_mul_cancel₀ (Nat.cast_ne_zero.mpr Nat.card_pos.ne')
 
 end CFSG.TwoRankLowerBound.Helpers

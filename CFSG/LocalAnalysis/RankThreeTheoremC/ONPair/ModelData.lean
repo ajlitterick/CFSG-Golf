@@ -23,7 +23,6 @@ namespace CFSG.LocalAnalysis.RankThreeTheoremC.ONPair
 @[expose] def tWord : List Int :=
   [1, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 1, 2, 2, -1, -1, -2, -1, -2, -1, -2, -1, -2, -1, -2, -2, -1]
 
-@[expose] def tExp : Nat := 4
 
 @[expose] def q4Word : List Int := [1, -4, 1, -2, -1, -3, -2, 1, 1, -2, 4, -3]
 

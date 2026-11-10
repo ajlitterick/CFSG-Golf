@@ -107,46 +107,6 @@ theorem le_langModel_E8_of_le_twModel {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ 
   simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
   group
 
-theorem exists_twistedTorus_le_langModel_E8 {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
-    {g0 : ModGL Tag.E8 L} (hg0C : g0 ∈ adjointGroup Tag.E8 L)
-    (hg0 : Units.map (entrywiseHom Fr) g0 = g0 * canonicalRep (coxeterSystem Tag.E8) L e8Neg)
-    {N : ℕ} (hN : N ∣ Nat.card K + 1) :
-    ∃ H₀ : Subgroup (ModGL Tag.E8 L),
-      H₀ ≤ twistedTorus (canonicalRep (coxeterSystem Tag.E8) L e8Neg) Fr ∧
-        H₀ ≤ langModel Tag.E8 K L g0 ∧ Nat.card H₀ = N ^ 8 := by
-  have : IsAlgClosed L := IsAlgClosure.isAlgClosed K
-  obtain ⟨ζ, hζord, hζq⟩ := exists_orderOf_eq_of_dvd_add_one K (L := L) hN
-  obtain ⟨H₀, hH₀T, hH₀card⟩ := exists_le_twistedTorus_card (L := L)
-    rootDiagUnit_mem_torusGroup_E8 e8Neg_smul hFr hζq
-  rw [hζord] at hH₀card
-  have hN0 : N ≠ 0 := fun h0 => by
-    rw [h0] at hN
-    exact absurd (Nat.eq_zero_of_zero_dvd hN) (by omega)
-  have : Finite H₀ := Nat.finite_of_card_ne_zero (by rw [hH₀card]; exact pow_ne_zero _ hN0)
-  exact ⟨H₀, hH₀T, le_langModel_E8_of_le_twModel K L hFr hg0C hg0
-    (hH₀T.trans (twistedTorus_le_twModel _ Fr)), hH₀card⟩
-
-theorem coroot_mem_langModel_E8 {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
-    {g0 : ModGL Tag.E8 L} (hg0C : g0 ∈ adjointGroup Tag.E8 L)
-    (hg0 : Units.map (entrywiseHom Fr) g0 = g0 * canonicalRep (coxeterSystem Tag.E8) L e8Neg)
-    {ζ : Lˣ} (hζ : ζ ^ (Nat.card K + 1) = 1) (v : WeylGroup Tag.E8) (k : Fin Tag.E8.rank) :
-    canonicalRep (coxeterSystem Tag.E8) L v * torusElt Tag.E8 L k ζ *
-        (canonicalRep (coxeterSystem Tag.E8) L v)⁻¹ ∈ langModel Tag.E8 K L g0 := by
-  set x := canonicalRep (coxeterSystem Tag.E8) L v * torusElt Tag.E8 L k ζ *
-    (canonicalRep (coxeterSystem Tag.E8) L v)⁻¹ with hx
-  have hxT : x ∈ twistedTorus (canonicalRep (coxeterSystem Tag.E8) L e8Neg) Fr :=
-    coroot_mem_twistedTorus rootDiagUnit_mem_torusGroup_E8 e8Neg_smul hFr hζ v k
-  have hxq : x ^ (Nat.card K + 1) = 1 := by
-    obtain ⟨a, hxa, ha⟩ := (mem_twistedTorus_of_neg rootDiagUnit_mem_torusGroup_E8 e8Neg_smul
-      hFr).1 hxT
-    have h1 : rootDiagUnit Tag.E8 (a ^ (Nat.card K + 1)) =
-        rootDiagUnit Tag.E8 a ^ (Nat.card K + 1) := map_pow (rootDiagUnitHom Tag.E8 L) a _
-    rw [hxa, ← h1, show a ^ (Nat.card K + 1) = 1 from funext ha, rootDiagUnit_one]
-  have : Finite (Subgroup.zpowers x) := Nat.finite_of_card_ne_zero (by
-    rw [Nat.card_zpowers]
-    exact (orderOf_pos_iff.2 (isOfFinOrder_iff_pow_eq_one.2 ⟨_, by omega, hxq⟩)).ne')
-  exact le_langModel_E8_of_le_twModel K L hFr hg0C hg0
-    ((Subgroup.zpowers_le).2 (twistedTorus_le_twModel _ Fr hxT)) (Subgroup.mem_zpowers x)
 
 end ModelE8
 

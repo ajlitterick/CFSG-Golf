@@ -525,37 +525,6 @@ section Leaves
 open CFSG.GH74.GLS.SP CFSG.GH74.GLS.Stage4 CFSG.Timmesfeld.RankTwo
   CFSG.LieType.Steinberg.TwistedD4
 
-@[expose] def HexCoordD4p : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (D : RankTwoSystem G 6) (p q : ℕ),
-    3 ≤ q → p.Prime → Odd q →
-    (∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card (D.root i) = if i % 2 = 1 then q ^ 3 else q) →
-      PStruct p D.U D.root →
-      ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K →+* K) (hK : Nat.card K = q ^ 3)
-        (hσq : ∀ c, σ c = c ^ q) (ψ : ∀ i : Fin 6, d43Par σ i → G),
-        D4Coords D (sigma_three_of_card hK hσq) ψ
-
-theorem hexMatchD4p_of_coord
-    (h : HexCoordD4p) : HexMatchD4p := by
-  intro G _ _ _ D p q hq hp hodd hD hP
-  obtain ⟨K, _, _, σ, hK, hσq, ψ, hψ⟩ := h G D p q hq hp hodd hD hP
-  exact ⟨K, inferInstance, inferInstance, σ, hK, hσq, uMatch_of_d4Coords (by omega) hK hσq hψ⟩
-
-@[expose] def HexCoordD4s : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (H : Subgroup G) (r₁ r₂ : G)
-    (U : Subgroup G) (root : ℤ → Subgroup G) (R : RGD2 6 H r₁ r₂ U root)
-    (hgen : (H ⊔ U) ⊔ R.N = ⊤) (p q : ℕ), 3 ≤ q → p.Prime → Odd q →
-      RootOrdersD4 root q → PStruct p U root → SL2At H R.N root 1 → SL2At H R.N root 4 →
-      ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K →+* K) (hK : Nat.card K = q ^ 3)
-        (hσq : ∀ c, σ c = c ^ q) (ψ : ∀ i : Fin 6, d43Par σ i → G),
-        D4Coords (R.toPre hgen).toSystemOfSimple (sigma_three_of_card hK hσq) ψ ∨
-          D4Coords (R.toPre hgen).toSystemOfSimple.rev (sigma_three_of_card hK hσq) ψ
-
-theorem hexMatchD4s_of_coord
-    (h : HexCoordD4s) : HexMatchD4s := by
-  intro G _ _ _ H r₁ r₂ U root R hgen p q hq hp hodd hD hP h1 h4
-  obtain ⟨K, _, _, σ, hK, hσq, ψ, hψ⟩ := h G H r₁ r₂ U root R hgen p q hq hp hodd hD hP h1 h4
-  exact ⟨K, inferInstance, inferInstance, σ, hK, hσq,
-    hψ.imp (uMatch_of_d4Coords (by omega) hK hσq) (uMatch_of_d4Coords (by omega) hK hσq)⟩
 
 end Leaves
 

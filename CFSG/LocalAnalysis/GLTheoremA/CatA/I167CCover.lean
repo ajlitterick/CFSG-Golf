@@ -147,45 +147,6 @@ theorem pFreeCover_of_isLnA_two {S : Type} [Group S] {p n : ℕ} (hp : p.Prime) 
   · omega
   · omega
 
-theorem pFreeCover_five_of_isLnA_six_four {S : Type} [Group S] (h : catalogIs S (isLnA 6 4)) :
-    PFreeCover 5 S := by
-  apply pFreeCover_of_isOmPA_aux1
-  obtain ⟨i, hi, ⟨e⟩⟩ := h
-  unfold isLnA at hi
-  rcases hi with hi | hs | hs | hs | hs
-  · cases i with
-    | cyclic _ _ => simp [onLie] at hi
-    | alternating _ _ => simp [onLie] at hi
-    | sporadic _ => simp [onLie] at hi
-    | lie d =>
-      obtain ⟨t, hv⟩ := d
-      cases t with
-      | A r q =>
-        simp only [onLie, isLnEps] at hi
-        obtain ⟨hr, hq⟩ := hi
-        obtain ⟨h1, h2⟩ := primePower_eq_of_card_eq Nat.prime_two (s := 2) (by norm_num)
-          (hq.trans (by norm_num))
-        have hm : CFSG.Models.LieModel S .PSL 6 2 2 := by
-          simpa [h1, h2, hr] using CFSG.Models.lieModel_A r q hv e
-        have hSC : CFSG.Open.StatedClassicalModel S .PSL 6 2 2 :=
-          CFSG.Models.LieModel.statedClassicalModel hm (by decide)
-        obtain ⟨-, K, hfield, hfinite, hKcard, ⟨eK⟩⟩ := hSC
-        letI : Field K := hfield
-        letI : Finite K := hfinite
-        haveI : Fintype K := Fintype.ofFinite K
-        have hcard : Fintype.card K = 4 := by
-          rw [Fintype.card_eq_nat_card, hKcard]; norm_num
-        rw [Nat.card_congr
-            (CFSG.LieType.Steinberg.CentralExt.griessHopfMultiplierCongr eK).toEquiv,
-          CFSG.LocalAnalysis.GLTheoremA.card_hopfMultiplier_statedProj_of_five_le (F := K) (d := 6)
-            (by norm_num),
-          hcard]
-        norm_num
-      | _ => simp [onLie, isLnEps] at hi
-  · omega
-  · omega
-  · omega
-  · omega
 
 end CFSG.LocalAnalysis.GLTheoremA.I167
 

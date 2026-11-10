@@ -68,20 +68,5 @@ theorem original_component_cover_arbitrary_sylow_alternatives
       hnonab n hn S e hfour p f hp hpne hf hlocal K hxK hcover P hxP g hPS hY
         (lt_top_iff_ne_top.mpr hfull) hx)
 
-theorem original_nonfactorizing_component_cover_full_position
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f)
-    (hlocal : StatedClassicalModel (centralizerSimpleLayer n hn S e) .PSL 2 p f)
-    (hrec : SmallerWreathedRecognition G)
-    (K : Subgroup G) (hproper : K < ⊤) (hO : CFSG.oddCore K ≠ ⊥)
-    (hxK : wreathModelHom S e (Original.x (2 ^ n)) ∈ K)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤
-      ComponentCoveringLocal.originalImage n S e K)
-    (hnonfactor : ¬ OriginalFactorizationCenterIntersection n S e K hxK) :
-    OriginalFullPositionTypeIObstruction n hn S e p f K hxK := by
-  exact (original_component_cover_arbitrary_sylow_alternatives hnonab n hn S e hfour
-    p f hp hpodd hf hlocal hrec K hproper hO hxK hcover).resolve_left hnonfactor
 
 end CFSG.Wreathed.SmallerRecognitionOriginalField

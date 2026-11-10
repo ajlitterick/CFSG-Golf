@@ -88,9 +88,6 @@ theorem mul_mem_D5' {r x : ℚ} (hx : x ∈ D5) (hr : r ∈ R5) : x * r ∈ D5 :
   rw [mul_comm]
   exact mul_mem_D5 hr hx
 
-theorem five_mul_mem_D5 {x : ℚ} (hx : x ∈ R5) : 5 * x ∈ D5 := by
-  rw [mem_D5, mul_div_cancel_left₀ _ (by norm_num : (5 : ℚ) ≠ 0)]
-  exact hx
 
 theorem ratLocalRed_eq_zero_iff_mem_D5 (x : R5) : ratLocalRed 5 x = 0 ↔ (x : ℚ) ∈ D5 := by
   rw [ratLocalRed_eq_zero_iff]
@@ -127,8 +124,6 @@ theorem mem_D5_of_mul_mem {x y : ℚ} (hx : x ∈ R5) (hx5 : x ∉ D5) (hxy : x 
   rw [e]
   exact mul_mem_D5 (inv_mem_R5 hx hx5) hxy
 
-theorem mul_not_mem_D5 {x y : ℚ} (hx : x ∈ R5) (hx5 : x ∉ D5) (hy5 : y ∉ D5) : x * y ∉ D5 :=
-  fun h => hy5 (mem_D5_of_mul_mem hx hx5 h)
 
 theorem intCast_mem_D5_iff (n : ℤ) : (n : ℚ) ∈ D5 ↔ (5 : ℤ) ∣ n := by
   rw [← ratLocalRed_eq_zero_iff_mem_D5 ⟨(n : ℚ), intCast_mem _ n⟩]
@@ -197,7 +192,6 @@ theorem IsD5.smul {M : Matrix m n ℚ} (hM : IsD5 M) {c : ℚ} (hc : c ∈ R5) :
 theorem IsD5.isR5 {M : Matrix m n ℚ} (hM : IsD5 M) : IsR5 M :=
   fun i j => mem_R5_of_mem_D5 (hM i j)
 
-theorem isD5_zero : IsD5 (0 : Matrix m n ℚ) := fun _ _ => zero_mem _
 
 theorem isD5_sum (s : Finset ι) {M : ι → Matrix m n ℚ} (h : ∀ k ∈ s, IsD5 (M k)) :
     IsD5 (∑ k ∈ s, M k) := fun i j => by
@@ -212,8 +206,6 @@ theorem IsD5.mul_R5 [Fintype m] {M : Matrix l m ℚ} {N : Matrix m n ℚ} (hM : 
     (hN : IsR5 N) : IsD5 (M * N) :=
   fun i j => sum_mem fun k _ => mul_mem_D5' (hM i k) (hN k j)
 
-theorem isD5_iff_smul {M : Matrix m n ℚ} : IsD5 M ↔ IsR5 ((5 : ℚ)⁻¹ • M) := by
-  simp only [IsD5, IsR5, mem_D5_iff_inv_mul, Matrix.smul_apply, smul_eq_mul]
 
 end Mat
 
@@ -240,8 +232,6 @@ theorem tau_mem_R5 (d e c : ShortIdx) : tau d e c ∈ R5 := dyadic_le_R5 (tau_me
 @[expose] def Div5 (v : SpaceB) : Prop :=
   IsD5 (Am v) ∧ (∀ c, xs v c ∈ D5) ∧ IsD5 (Nm v)
 
-theorem int5_iff (v : SpaceB) : Int5 v ↔ IsR5 (Am v) ∧ (∀ c, xs v c ∈ R5) ∧ IsR5 (Nm v) :=
-  Iff.rfl
 
 @[expose] def L5 : AddSubgroup SpaceB where
   carrier := {v | Int5 v}
@@ -273,9 +263,6 @@ theorem cong5_iff {u v : SpaceB} : Cong5 u v ↔ u ∈ L5 ∧ v ∈ L5 ∧ u - v
   rw [mem_M5_iff_smul]
   exact Iff.rfl
 
-theorem M5_le_L5 : M5 ≤ L5 := fun _ hv =>
-  ⟨fun i j => mem_R5_of_mem_D5 (hv.1 i j), fun c => mem_R5_of_mem_D5 (hv.2.1 c),
-    fun j i => mem_R5_of_mem_D5 (hv.2.2 j i)⟩
 
 theorem smul_mem_L5 {r : ℚ} (hr : r ∈ R5) {v : SpaceB} (hv : v ∈ L5) : r • v ∈ L5 :=
   ⟨fun i j => mul_mem hr (hv.1 i j), fun c => mul_mem hr (hv.2.1 c),
@@ -285,9 +272,6 @@ theorem smul_mem_M5 {r : ℚ} (hr : r ∈ R5) {v : SpaceB} (hv : v ∈ M5) : r �
   ⟨fun i j => mul_mem_D5 hr (hv.1 i j), fun c => mul_mem_D5 hr (hv.2.1 c),
     fun j i => mul_mem_D5 hr (hv.2.2 j i)⟩
 
-theorem five_smul_mem_M5 {v : SpaceB} (hv : v ∈ L5) : (5 : ℚ) • v ∈ M5 := by
-  rw [mem_M5_iff_smul, smul_smul, inv_mul_cancel₀ (by norm_num : (5 : ℚ) ≠ 0), one_smul]
-  exact hv
 
 theorem inA_mem_L5_iff {A : symMat} :
     inA A ∈ L5 ↔ IsR5 (A : Matrix (Fin 24) (Fin 24) ℚ) :=

@@ -40,11 +40,6 @@ structure Hyp22 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' K�
     (K K' K₃ : Subgroup G) (z u₁ u₂ u₃ : G), Hyp22 p f Ω K K' K₃ z u₁ u₂ u₃ →
       alphaOf (Subgroup.closure {u₁ * u₂, z}) = ⊥
 
-@[expose] def C22_8 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K K' K₃ : Subgroup G) (z u₁ u₂ u₃ : G), Hyp22 p f Ω K K' K₃ z u₁ u₂ u₃ →
-      SectionOrthType p f Ω (rLayer Ω (u₁ * u₂)) 6 (piSign p f) ∧
-        (⨆ M ∈ twinSet Ω K, M) ⊔ rLayer Ω (u₁ * u₂) = ⊤
 
 @[expose] def C22_9 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
@@ -106,34 +101,12 @@ structure Hyp23b {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' W
   hg : g ∈ ⨆ R ∈ DSet Ω W, R
   hgt : g * z * g⁻¹ = u * e
 
-@[expose] def C23_4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K K' W : Subgroup G) (z u e g : G), Hyp23b p f Ω K K' W z u e g →
-      rLayer Ω e ≤ oddCoreOf (rLayer Ω e) ⊔ (rLayer Ω e ⊓ Subgroup.normalizer (W : Set G)) ∨
-        SectionOrthType p f Ω (rLayer Ω e) 6 (piSign p f)
-
-@[expose] def C23_5 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K K' W : Subgroup G) (z u e g : G), Hyp23b p f Ω K K' W z u e g →
-      (Odd (Nat.card ↥(alphaOf (Subgroup.closure {u, z}))) ∧
-        ∀ A : Subgroup G, A ≤ Subgroup.closure {u * e, u, z} → IsElemAbelian2 A 2 →
-          alphaOf A = alphaOf (Subgroup.closure {u, z})) ∧
-      (∀ WY ∈ WSet (restrictFamily Ω (rLayer Ω u)), MuIsoE4 (restrictFamily Ω (rLayer Ω u)) WY) ∧
-      (u * e ∈ zStarOf (rLayer Ω u) ∨ SectionOrthType p f Ω (rLayer Ω u) 5 true ∨
-        SectionOrthType p f Ω (rLayer Ω u) 6 (!piSign p f))
 
 @[expose] def C23_7 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
     (K K' W : Subgroup G) (z u e g : G), Hyp23b p f Ω K K' W z u e g →
       ¬ rLayer Ω e ≤ oddCoreOf (rLayer Ω e) ⊔ (rLayer Ω e ⊓ Subgroup.normalizer (W : Set G))
 
-@[expose] def C23_9 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K K' W : Subgroup G) (z u e g : G), Hyp23b p f Ω K K' W z u e g →
-      (alphaOf (Subgroup.closure {u, z}) = ⊥ ∧ rLayer Ω e ⊔ rLayer Ω u = ⊤) ∧
-      SectionOrthType p f Ω (rLayer Ω e) 6 (piSign p f) ∧
-      (SectionOrthType p f Ω (rLayer Ω u) 5 true ∨
-        SectionOrthType p f Ω (rLayer Ω u) 6 (!piSign p f))
 
 @[expose] def C23_10 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))

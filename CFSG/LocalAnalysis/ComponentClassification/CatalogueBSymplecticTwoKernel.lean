@@ -23,11 +23,6 @@ variable (K) in
   map_mul' α β := RelIso.ext fun M => Subtype.ext
     (map_toMonoidHom_mul α β (M : Subgroup (StatedProj (StatedSp 2 K))))
 
-theorem coe_graphAutHom_apply (p : ℕ) (α : MulAut (StatedProj (StatedSp 2 K)))
-    (M : spExtremalParabolics 2 K p) :
-    ((graphAutHom K p α M : spExtremalParabolics 2 K p) :
-      Subgroup (StatedProj (StatedSp 2 K))) = (M : Subgroup _).map α.toMonoidHom :=
-  rfl
 
 theorem pointParabolics_subset [Finite K] (p : ℕ) [Fact p.Prime] [CharP K p] :
     pointParabolics K ⊆ spExtremalParabolics 2 K p := by

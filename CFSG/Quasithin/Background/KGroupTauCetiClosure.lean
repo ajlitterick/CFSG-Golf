@@ -48,8 +48,5 @@ theorem kGroup_quotient {G : Type} [Group G] (hG : KGroup G) (M : Subgroup G) [M
     KGroup (G ⧸ M) :=
   CFSG.KCore.KGroupNonab.quotient inCatalog_isoInvariant hG M
 
-theorem kGroup_of_injective {A B : Type} [Group A] [Group B] (f : A →* B)
-    (hf : Function.Injective f) (hB : KGroup B) : KGroup A :=
-  CFSG.KCore.KGroupNonab.of_injective inCatalog_isoInvariant hB f hf
 
 end CFSG.Quasithin.TauCetiK

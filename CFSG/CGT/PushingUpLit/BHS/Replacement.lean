@@ -172,7 +172,6 @@ local macro "comm_group" : tactic =>
     show a x⁻¹ = x⁻¹
     rw [map_inv, hx']
 
-theorem mem_fixEl {a : MulAut V} {w : V} : w ∈ fixEl a ↔ a w = w := Iff.rfl
 
 theorem mem_cenIn_iff {A : Subgroup (MulAut V)} {U : Subgroup V} {a : MulAut V} :
     a ∈ cenIn A U ↔ a ∈ A ∧ U ≤ fixEl a :=
@@ -475,9 +474,6 @@ theorem commV_eq_bot_of_sup_eq_top [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {A : S
 @[expose] def IsAV (A : Subgroup (MulAut V)) : Prop :=
   IsElemAbelian2 A ∧ ∀ B ≤ A, wt B ≤ wt A
 
-theorem isFFStarOffender_iff_isAV {X A : Subgroup (MulAut V)} :
-    IsFFStarOffender X A ↔ A ≤ X ∧ A ≠ ⊥ ∧ IsAV A :=
-  ⟨fun h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2⟩, fun h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2⟩⟩
 
 theorem commV_eq_bot_iff {A : Subgroup (MulAut V)} : commV A = ⊥ ↔ A = ⊥ := by
   constructor
@@ -520,19 +516,6 @@ theorem timmesfeld_replacement [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {A : Subgr
       eq_top_iff.2 (h1 ▸ hfix ▸ sup_le_sup_right hUle _)
     exact hne (commV_eq_bot_of_sup_eq_top hV hA.1.2 h3)
 
-theorem exists_replacement [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)}
-    (hA : IsFFStarOffender X A) :
-    ∃ A₀ : Subgroup (MulAut V), A₀ ≤ A ∧ IsFFStarOffender X A₀ ∧ commV A₀ ≤ fixV A := by
-  obtain ⟨hAX, hA0, hAV⟩ := isFFStarOffender_iff_isAV.1 hA
-  have hc : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a := hAV.1.1
-  obtain ⟨hAV', -, hne⟩ := timmesfeld_replacement hV hAV ⊤
-  rw [commOn_top] at hAV' hne
-  have hcomm : commV A ≠ ⊥ := fun h => hA0 (commV_eq_bot_iff.1 h)
-  have hne' := hne hcomm
-  obtain ⟨-, -, hcomm0⟩ := replacement hc hAV.2
-  refine ⟨cenIn A (commV A), cenIn_le _ _, ?_, hcomm0⟩
-  exact isFFStarOffender_iff_isAV.2 ⟨(cenIn_le _ _).trans hAX,
-    fun h => hne' (commV_eq_bot_iff.2 h), hAV'⟩
 
 end Main
 

@@ -109,21 +109,5 @@ namespace Certificates
 
 open CertificateChecks
 
-open CFSG in
-open CFSG.GH74 in
-open CFSG.GH74.Uniqueness in
-open CFSG.GH74.Uniqueness.SU in
-open CFSG.GH74.Uniqueness.SU.K in
-open CFSG.GH74.Uniqueness.SU.K.R4 in
-open CFSG.GH74.Uniqueness.SU.K.R4.J2M in
-open CFSG.ComponentClassification.J2Cover CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native in
-open CFSG.Certificates.Native CFSG.Sporadic.Th.Native in
-theorem certificate5136 : (pairCheck autStrong[0]! (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr cent2BStrong [1, 0])
-    (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr cent2BStrong [1, 1, 1]) = true)
-    ∧ (pairCheck twoAArr (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr cent2AStrong [0, 0, 0, 0, 0])
-    (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr cent2AStrong [1, 0, 1, 0, 1, 1]) = true)
-    ∧ (pairCheck outerArr (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr centOuterStrong [0, 1, 1, 0, 0, 1, 1, 0])
-    (CFSG.GH74.Uniqueness.SU.K.R4.J2M.wordArr centOuterStrong [1, 1, 1]) = true) :=
-  ⟨CertificateChecks.Batch5136.check_A, CertificateChecks.Batch5136.check_TwoA, CertificateChecks.Batch5136.check_U⟩
 
 end Certificates

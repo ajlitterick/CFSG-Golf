@@ -29,29 +29,6 @@ namespace CFSG.Quasithin.EmptyFaithfulMultiple
 
 open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Assembly.LowTwoRank
 
-@[expose] def Prop134E9 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (H S X P : Subgroup G),
-    CFSG.SectionRank.IsSQTKCat ↥H → pCoreOf 2 H ≠ ⊥ → IsSylowTwoOf S H → X ≤ H → IsXi S X →
-    (pCoreOf 2 X).relIndex X = 9 → P ≤ X → IsPGroup 3 P → Nat.card P = 9 →
-    H ≤ Subgroup.normalizer (X : Set G) ∨
-    ∃ L : Subgroup G, L ∈ cComp H ∧ CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) ∧
-      X ≤ conjClosure L S ∧
-      (
-        ((∃ t ∈ S ⊓ Subgroup.normalizer (P : Set G), t ∉ Subgroup.normalizer (L : Set G) ∧
-            P = (P ⊓ L) ⊔ conjByElt t (P ⊓ L) ∧ (P ⊓ L) ⊓ conjByElt t (P ⊓ L) = ⊥) ∧
-          ((∃ n : ℕ, Even n ∧ StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 2 2 n) ∨
-            ∃ q : ℕ, q.Prime ∧ q ≠ 2 ∧
-              StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 2 q 1)) ∨
-        (S ≤ Subgroup.normalizer (L : Set G) ∧
-          (StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 3 3 1 ∨
-            Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ≃* ↥(StatedSL 3 (ZMod 3))))) ∨
-        (S ≤ Subgroup.normalizer (L : Set G) ∧
-          (∃ n : ℕ, Even n ∧ StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSp 2 2 n) ∧
-          AutCyclic S P) ∨
-        (S ≤ Subgroup.normalizer (L : Set G) ∧
-          (Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ≃* CFSG.Blueprint.NativeSporadic.Carrier .M11) ∨
-            StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 4 2 1 ∨
-            StatedClassicalModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 5 2 1)))
 
 @[expose] def Prop134E9He : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (H S X P : Subgroup G),
@@ -79,21 +56,6 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique CFSG.Assembly.LowTwoRank
         (H ≤ Subgroup.normalizer (L : Set G) ∧
           Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ≃* CFSG.Blueprint.NativeSporadic.Carrier .He)))
 
-@[expose] def C27Special : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (H R M K V : Subgroup G), HypC23Cat H R M → K ∈ cComp H →
-    CFSG.IsQuasisimple (↥K ⧸ CFSG.pCore 2 ↥K) → CharTwo K → ¬ K ≤ M →
-    R ≤ Subgroup.normalizer (K : Set G) → V = omegaOneCenterOf (pCoreOf 2 (K ⊔ R)) →
-    (K ⊔ R) ⊓ Subgroup.centralizer (V : Set G) ≤ pCoreOf 2 (K ⊔ R) ⊔ oTwoZIn K ∧
-    (∃ hV : IsElemAbelian 2 V, ∃ A : Subgroup (MulAut ↥V), A ≤ autOn R V ∧
-      @IsFFStarOffender V (commGroupOfElemAbelian hV) (autOn (K ⊔ R) V) A) ∧
-    ((∃ n : ℕ, 1 < n ∧ IsLin2Type K n) ∨ IsAltType K 5 ∨ IsAltType K 7 ∨
-      (∃ (n : ℕ) (α : ↥K →* alternatingGroup (Fin n)), 5 ≤ n ∧ n ≤ 8 ∧
-        IsAltBlockTypeWith K n α) ∨
-      IsHatA6Block K ∨ IsExcA7Block K ∨ IsAltBlockType K 6 ∨ IsSp4Block K ∨ IsG2Block K ∨
-      (∃ (n : ℕ) (F : Type) (_ : Field F) (_ : Fintype F), 1 ≤ n ∧ Fintype.card F = 2 ^ n ∧
-        Nonempty (↥(autOn K V) ≃* ↥(StatedSL 3 F))) ∨
-      Nonempty (↥(autOn K V) ≃* ↥(StatedSL 4 (ZMod 2))) ∨
-      Nonempty (↥(autOn K V) ≃* ↥(StatedSL 5 (ZMod 2))))
 
 @[expose] def HeAutCentralizer : Prop :=
   ∀ (X : Type) [Group X], Nonempty (X ≃* CFSG.Blueprint.NativeSporadic.Carrier .He) →

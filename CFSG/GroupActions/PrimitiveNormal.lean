@@ -26,10 +26,5 @@ theorem exists_mul_of_isPretransitive (N : Subgroup G) [IsPretransitive N X] (a 
   refine ⟨n, n.2, (n : G)⁻¹ * g, ?_, (mul_inv_cancel_left _ _).symm⟩
   rw [mem_stabilizer_iff, mul_smul, ← hn, Subgroup.smul_def, inv_smul_smul]
 
-theorem mul_stabilizer_eq_univ (N : Subgroup G) [IsPretransitive N X] (a : X) :
-    (N : Set G) * (stabilizer G a : Set G) = Set.univ := by
-  refine Set.eq_univ_of_forall fun g => ?_
-  obtain ⟨n, hn, h, hh, rfl⟩ := exists_mul_of_isPretransitive N a g
-  exact Set.mul_mem_mul hn hh
 
 end CFSG.GroupActions

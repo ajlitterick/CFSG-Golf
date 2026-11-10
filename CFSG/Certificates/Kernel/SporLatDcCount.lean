@@ -197,9 +197,6 @@ theorem rep_lab_eq {r : Rep} (hr : repOK P.C P.D r) :
   obtain ⟨hisW, hlab⟩ := repOK_parts P hr
   rw [hlab, P.labF_eq_lab (isW_lt P hisW)]
 
-private theorem rep_lab_lt {r : Rep} (hr : repOK P.C P.D r) : ∀ p ∈ Rep.lab r, p < n := by
-  rw [rep_lab_eq P hr]
-  exact lab_lt (fun p hp => delta_lt P hp) _
 
 theorem rep_lab_valid {r : Rep} (hr : repOK P.C P.D r) : PtValid n (Rep.lab r) := by
   rw [rep_lab_eq P hr]

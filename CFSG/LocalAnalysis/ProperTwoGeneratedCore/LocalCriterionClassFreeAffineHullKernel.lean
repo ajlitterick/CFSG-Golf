@@ -30,34 +30,6 @@ theorem hull_centralizer_le_original_pointwise_kernel
   rw [mem_pointwiseRightStabilizer]
   exact hull_centralizer_fixes_original_subset h Delta u L huDelta hLC hr htrans j hj
 
-omit [Finite G] in
-theorem hull_normalizer_conjugation_kernel
-    (K L : Subgroup G) (u : G)
-    (hJ : Subgroup.centralizer (L : Set G) ≤ K)
-    (hEL : Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G) ≤
-      Subgroup.normalizer (L : Set G)) :
-    (hullConjugationHom L
-      (Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)) hEL).ker =
-      (Subgroup.centralizer (L : Set G) ⊓ Subgroup.centralizer ({u} : Set G)).subgroupOf
-        (Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)) ∧
-    (hullConjugationHom L
-      (Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)) hEL).ker.map
-        (Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)).subtype =
-      Subgroup.centralizer (L : Set G) ⊓ Subgroup.centralizer ({u} : Set G) := by
-  let E := Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)
-  let J0 := Subgroup.centralizer (L : Set G) ⊓ Subgroup.centralizer ({u} : Set G)
-  have hJ0E : J0 ≤ E := fun j hj => ⟨Subgroup.le_normalizer (hJ hj.1), hj.2⟩
-  have hker : (hullConjugationHom L E hEL).ker = J0.subgroupOf E := by
-    rw [hullConjugationHom_ker]
-    ext e
-    constructor
-    · intro he
-      exact ⟨he, e.property.2⟩
-    · intro he
-      exact he.1
-  refine ⟨hker, ?_⟩
-  rw [hker]
-  exact Subgroup.map_subgroupOf_eq_of_le hJ0E
 
 theorem pointwise_kernel_normalizer_image_isSolvable_of_hull
     {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)

@@ -64,7 +64,6 @@ theorem isCyclic_of_abelian_transitive_77 (A : Subgroup (Equiv.Perm (Fin 77)))
   have h77 : orderOf (x * y) = 77 := by simp [horder, hx, hy]
   exact isCyclic_of_card_le_orderOf (x * y) (le_of_eq (hcard.trans h77.symm))
 
-variable {n : ℕ}
 
 end CFSG.AGLEmbeddingD2.Wilson.Proving
 

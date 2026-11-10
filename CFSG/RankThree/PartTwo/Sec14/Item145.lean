@@ -65,14 +65,6 @@ theorem pPrimeCoreOf_centralizer_inf_mem_scriptQ (hA : IsMulCommutative A) {Y : 
       (hAC.trans (le_normalizer_pPrimeCoreOf 3 _)) hY
   · exact inf_le_left.trans (inf_le_left.trans (le_sup_right.trans le_sup_left))
 
-theorem delta_inf_centralizer (hA : IsMulCommutative A) (hbot : ∃ B, IsHyperplane A B ∧ LB B = ⊥)
-    {Y : Subgroup G} (hY : A ≤ Subgroup.normalizer (Y : Set G)) :
-    delta A LB (Y ⊓ Subgroup.centralizer (A : Set G)) =
-      pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G)) ⊓ Y := by
-  refine le_antisymm (sSup_le fun Q hQ => le_inf ?_ (hQ.2.trans inf_le_left)) ?_
-  · exact le_pPrimeCoreOf_centralizer hbot hQ.1 (hQ.2.trans inf_le_right)
-  · refine le_delta (pPrimeCoreOf_centralizer_inf_mem_scriptQ hA hY) (le_inf inf_le_right ?_)
-    exact inf_le_left.trans (pPrimeCoreOf_le 3 _)
 
 theorem rank3II_14_5 (hA : CFSG.RankThree.PartTwo.Late.IsE27 A) (hnat : IsNaturalFamily A LB)
     (hbot : ∃ B, IsHyperplane A B ∧ LB B = ⊥) {Y : Subgroup G}

@@ -78,9 +78,6 @@ theorem le_of_map_mk_le_of_isPGroup {H U A B : Subgroup G} (hUH : U ≤ H) (hUp 
   rw [h2]
   exact Subgroup.mem_subgroupOf.mp hb
 
-variable {P : Sylow p G} {M H R : Subgroup G}
-  {Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p)}
-  {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
 
 end Pair
 

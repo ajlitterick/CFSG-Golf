@@ -262,8 +262,6 @@ theorem fieldActor_mem_monoY (δ : K ≃+* K) {x : 𝒞[K, σ]} (hx : x ∈ mono
   map_one' := Subtype.ext (map_one _)
   map_mul' _ _ := Subtype.ext (map_mul _ _ _)
 
-theorem coe_actY (δ : K ≃+* K) (x : monoY σ) :
-    ((actY σ δ x : monoY σ) : 𝒞[K, σ]) = fieldActor σ δ (x : 𝒞[K, σ]) := rfl
 
 theorem weylY_actY (δ : K ≃+* K) (x : monoY σ) : weylY σ (actY σ δ x) = weylY σ x :=
   graphFixedWeylHom_entrywise TwistTag.D4 σ.toRingHom δ _ _ rfl

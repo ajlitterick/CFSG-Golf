@@ -77,19 +77,5 @@ namespace CFSG.KC.PairBnb
 @[expose] noncomputable def nbP (T v : Nat) : Nat :=
   Nat.land (Nat.shiftRight T (Nat.shiftLeft v 7)) 340282366920938463463374607431768211455
 
-@[expose] noncomputable def spR (order : List Nat) (m k : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) m (fun _ s => forceN s fun s' =>
-    Option.rec (motive := fun _ => Nat) s' (fun v => Nat.xor s' (Nat.pow 2 v)) (findR s' order)) k
-
-@[expose] noncomputable def leafR (nbf wtf : Nat → Nat) (order : List Nat) (fuel budget m k : Nat) :
-    Bool :=
-  forceN (spR order m k) fun s =>
-    Option.rec (motive := fun _ => Bool) false
-      (fun v => forceN (wtf v) fun w =>
-        Bool.rec false
-          (bnbR nbf wtf order (Nat.sub (Nat.sub fuel k) 1)
-            (Nat.xor s (Nat.land s (Nat.lor (nbf v) (Nat.pow 2 v)))) (Nat.sub budget w))
-          (Nat.ble w budget))
-      (findR s order)
 
 end CFSG.KC.PairBnb

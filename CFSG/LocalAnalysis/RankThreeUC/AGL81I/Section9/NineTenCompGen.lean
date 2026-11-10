@@ -363,12 +363,6 @@ end NineSettingGen
 
 section CertifiedNineTenFivePClosed
 
-theorem nineTenFivePClosed_of_nineTenPClosed (hI : NineTenInputs) : NineTenFivePClosed := by
-  intro G _ _ M Q H E h hH2 hp C hC
-  haveI : Fact (Nat.Prime 5) := ⟨h.prime⟩
-  by_cases h3C : CFSG.Open.pRank 3 C ≤ 1
-  · exact NineSettingGen.isPClosedMod_component_of_pRank3_le_one h hH2 hp le_rfl hC h3C
-  · exact hI.nineTenPClosed G M Q H E 5 h hH2 hp (by norm_num) C hC (by omega)
 
 end CertifiedNineTenFivePClosed
 

@@ -58,9 +58,6 @@ theorem mem_gammaOneOn_of_commute_of_mem {U A : Subgroup G} {u : G} (hu : u ∈ 
     rw [this]
     exact zpow_mem (mem_zpowers u) n
 
-theorem mem_gammaOneOn_of_commute {U : Subgroup G} {u : G} (hu : u ∈ U) (hu1 : u ≠ 1) {x : G}
-    (hx : x * u = u * x) : x ∈ gammaOneOn U ⊤ :=
-  mem_gammaOneOn_of_commute_of_mem hu hu1 (mem_top x) hx
 
 theorem frattini_map_le_of_sq [Finite G] {R K : Subgroup G} (hR : IsPGroup 2 R)
     (hsq : ∀ x ∈ R, x ^ 2 ∈ K) : (frattini R).map R.subtype ≤ K := by
@@ -287,12 +284,5 @@ theorem lemma24In [Finite G] {A R U : Subgroup G} (hRA : R ≤ A) (hUA : U ≤ A
     have : x ∈ gammaOneOn U A ⊓ (R ⊓ centralizer (R : Set G)) := mem_inf.2 ⟨hΦΓ hxΦ, hxZ⟩
     rwa [h'] at this
 
-theorem lemma24 [Finite G] {R U : Subgroup G} (hR : IsPGroup 2 R) (hU : IsElemAbelian 2 U)
-    (hU4 : Nat.card U = 4)
-    (hcomm : ∀ g : G, rightConjugate R g ≠ R → ⁅R, rightConjugate R g⁆ = ⊥)
-    (hΦ : frattini R ≠ ⊥) :
-    (U ⊓ normalizer (R : Set G) ≠ ⊥ ∨ (frattini R).map R.subtype ≤ gammaOneOn U ⊤) ∧
-      gammaOneOn U ⊤ ⊓ (R ⊓ centralizer (R : Set G)) ≠ ⊥ :=
-  lemma24In le_top le_top hR hU hU4 (fun g _ => hcomm g) hΦ
 
 end CFSG.ComponentClassification.Asc76X

@@ -73,21 +73,5 @@ theorem stmt3_3_1_of (h37 : A37ForSQTKCat) (h38 : A38ForSQTKCat) (h39 : A39ForSQ
     · exact exists_isHStar_of h1.1 hM₁ hTM₁ h₁
   exact ⟨h1, ⟨M₁, M₂, hne, hM₁, hM₂, hTM₁, hTM₂⟩, hHstar, h3, h4⟩
 
-theorem corollary_3_3_2_of_a38_a39
-    (h38 : A38ForSQTKCat) (h39 : A39ForSQTKCat)
-    (h331 : Stmt3_3_1A) {T L : Subgroup G} (hs : IsSimpleGroup G)
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hK : QuasithinUnique.quasithinIsQTKECat G)
-    (hT : quasithinIsSylowTwo T) (hL : quasithinIsMaximalLocal T L)
-    (hq : CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L)) :
-    (quasithinIsMaxTwoLocal (Subgroup.normalizer (conjClosure L T : Set G)) ∧
-        L ⊔ T ≤ Subgroup.normalizer (conjClosure L T : Set G) ∧
-        ∀ M' : Subgroup G, quasithinIsMaxTwoLocal M' → L ⊔ T ≤ M' →
-          M' = Subgroup.normalizer (conjClosure L T : Set G)) ∧
-      Subgroup.normalizer (T : Set G) ≤ Subgroup.normalizer (conjClosure L T : Set G) ∧
-      ∀ H : Subgroup G, IsHStar T (Subgroup.normalizer (conjClosure L T : Set G)) H →
-        IsUniqueMaxOver H T (H ⊓ Subgroup.normalizer (conjClosure L T : Set G)) ∧
-          ¬ H ≤ Subgroup.normalizer (T : Set G) :=
-  corollary_3_3_2_of CFSG.QuasithinUnique.Vol2Native.a37ForSQTKCat_proved h38 h39 h331 hs hnab hK
-    hT hL hq
 
 end CFSG.Quasithin.H13

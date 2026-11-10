@@ -384,12 +384,6 @@ theorem rk_Vut0 (hn : 1 ≤ n) :
     simp only [hev, ite_false]
     rw [h4, padicValNat.prime_pow]
 
-theorem not_mem_U0_exists (hn : 1 ≤ n) : ∃ w : U n, w ∉ U0 n := by
-  obtain ⟨w, hw⟩ := wt_surjective hn (Multiplicative.ofAdd 1)
-  refine ⟨w, fun h => ?_⟩
-  have h1 : wt n w = 1 := h
-  rw [hw] at h1
-  exact one_ne_zero (ofAdd_eq_one.1 h1)
 
 theorem mul_mem_U0_of_not_mem {w x : U n} (hw : w ∉ U0 n) (hx : x ∉ U0 n) : w * x ∈ U0 n := by
   show wt n (w * x) = 1
@@ -401,111 +395,5 @@ theorem mul_mem_U0_of_not_mem {w x : U n} (hw : w ∉ U0 n) (hx : x ∉ U0 n) : 
   revert a b
   decide
 
-theorem B3_1_2 (hn : 5 ≤ n) (hodd : n % 2 = 1) :
-    U0 n ⊓ Esub n = ⊥ ∧ U0 n ⊔ Esub n = ⊤ ∧ rk (Mod.V n Mod.ut0) = n - 1 ∧
-    ∃ φ : Mod.V n Mod.ut0 ≃* Mod.V n Mod.u0, ∀ (g : Gp n) (v : Mod.V n Mod.ut0),
-      φ (Mod.act n Mod.ut0 g v) = Mod.act n Mod.u0 g (φ v) := by
-  have hEU : Esub n ⊓ U0 n = ⊥ := by
-    rw [eq_bot_iff]
-    intro x hx
-    obtain ⟨hxE, hxU⟩ := hx
-    rw [Subgroup.mem_bot]
-    rcases (mem_Esub_iff x).1 hxE with h | h
-    · exact h
-    · exfalso
-      rw [h] at hxU
-      have := eVec_mem_U0_iff.1 hxU
-      omega
-  have heU : eVec n ∉ U0 n := fun h => by
-    have := eVec_mem_U0_iff.1 h
-    omega
-  refine ⟨by rw [inf_comm]; exact hEU, ?_, ?_, ?_⟩
-  · rw [eq_top_iff]
-    intro w _
-    by_cases hw : w ∈ U0 n
-    · exact Subgroup.mem_sup_left hw
-    · have h1 : w * eVec n ∈ U0 n := mul_mem_U0_of_not_mem hw heU
-      have h2 : w = (w * eVec n) * eVec n := by rw [mul_assoc, eVec_mul_self, mul_one]
-      rw [h2]
-      exact Subgroup.mul_mem _ (Subgroup.mem_sup_left h1) (Subgroup.mem_sup_right (Subgroup.mem_zpowers _))
-  · rw [rk_Vut0 (by omega)]
-    simp [show ¬ n % 2 = 0 by omega]
-  · have hMN : (Esub n).subgroupOf (U0 n) = (⊥ : Subgroup (U n)).subgroupOf (U0 n) := by
-      ext x
-      simp only [Subgroup.mem_subgroupOf, Subgroup.mem_bot]
-      constructor
-      · intro hx
-        have : (x : U n) ∈ Esub n ⊓ U0 n := ⟨hx, x.2⟩
-        rw [hEU, Subgroup.mem_bot] at this
-        exact this
-      · intro hx
-        rw [hx]
-        exact Subgroup.one_mem _
-    have h1 : ((Mod.N n Mod.ut0).subgroupOf (Mod.W n Mod.ut0)).Normal :=
-      Subgroup.normal_of_isMulCommutative _
-    have h2 : ((Mod.N n Mod.u0).subgroupOf (Mod.W n Mod.ut0)).Normal :=
-      Subgroup.normal_of_isMulCommutative _
-    have hMN' : (Mod.N n Mod.ut0).subgroupOf (Mod.W n Mod.ut0) =
-        (Mod.N n Mod.u0).subgroupOf (Mod.W n Mod.ut0) := hMN
-    refine ⟨@QuotientGroup.quotientMulEquivOfEq _ _ _ _ h1 h2 hMN', fun g v => ?_⟩
-    induction v using QuotientGroup.induction_on with
-    | H w => rfl
-
-theorem B3_1_3 (hn : 5 ≤ n) (hev : n % 2 = 0) :
-    (Esub n < U0 n ∧ U0 n < ⊤) ∧
-    (∀ (g : Gp n), ∀ x ∈ Esub n, permAct n g x ∈ Esub n) ∧
-    (∀ (g : Gp n), ∀ x ∈ U0 n, permAct n g x ∈ U0 n) ∧
-    (∀ X : Subgroup (U n), (∀ g ∈ alternatingGroup (Fin n), ∀ x ∈ X, permAct n g x ∈ X) →
-      X = ⊥ ∨ X = Esub n ∨ X = U0 n ∨ X = ⊤) ∧
-    rk (Mod.V n Mod.ut0) = n - 2 := by
-  have heU : eVec n ∈ U0 n := eVec_mem_U0_iff.2 hev
-  have hEle : Esub n ≤ U0 n := Subgroup.zpowers_le.2 heU
-  refine ⟨⟨?_, ?_⟩, isInv_Esub n, isInv_U0 n, ?_, ?_⟩
-  · refine lt_of_le_of_ne hEle fun h => ?_
-    have : pair (⟨0, by omega⟩ : Fin n) ⟨1, by omega⟩ ∈ U0 n :=
-      pair_mem_U0 (by simp [Fin.ext_iff])
-    rw [← h] at this
-    exact pair_not_mem_Esub (by omega) _ _ this
-  · refine lt_of_le_of_ne le_top fun h => ?_
-    obtain ⟨w, hw⟩ := not_mem_U0_exists (by omega : 1 ≤ n)
-    exact hw (h ▸ Subgroup.mem_top w)
-  · intro X hX
-    by_cases hX0 : ∀ x ∈ X, x ∈ U0 n
-    · by_cases hXE : ∀ x ∈ X, x ∈ Esub n
-      · by_cases he : eVec n ∈ X
-        · right; left
-          apply le_antisymm
-          · intro x hx
-            exact hXE x hx
-          · exact Subgroup.zpowers_le.2 he
-        · left
-          rw [eq_bot_iff]
-          intro x hx
-          rw [Subgroup.mem_bot]
-          rcases (mem_Esub_iff x).1 (hXE x hx) with h | h
-          · exact h
-          · exact absurd (h ▸ hx) he
-      · right; right; left
-        push Not at hXE
-        obtain ⟨x, hxX, hxE⟩ := hXE
-        have hx1 : x ≠ 1 := fun h => hxE (h ▸ Subgroup.one_mem _)
-        have hxe : x ≠ eVec n := fun h => hxE (h ▸ Subgroup.mem_zpowers _)
-        exact le_antisymm hX0 (U0_le_of_invariant (by omega) hX hxX hx1 hxe)
-    · right; right; right
-      push Not at hX0
-      obtain ⟨x, hxX, hxU⟩ := hX0
-      have hx1 : x ≠ 1 := fun h => hxU (h ▸ Subgroup.one_mem _)
-      have hxe : x ≠ eVec n := fun h => hxU (h ▸ heU)
-      have hU := U0_le_of_invariant (by omega) hX hxX hx1 hxe
-      rw [eq_top_iff]
-      intro w _
-      by_cases hw : w ∈ U0 n
-      · exact hU hw
-      · have h1 : w * x ∈ U0 n := mul_mem_U0_of_not_mem hw hxU
-        have h2 : w = (w * x) * x := by rw [mul_assoc, U_mul_self, mul_one]
-        rw [h2]
-        exact X.mul_mem (hU h1) hxX
-  · rw [rk_Vut0 (by omega)]
-    simp [hev]
 
 end CFSG.Quasithin.B3

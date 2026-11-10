@@ -256,27 +256,5 @@ theorem pairSide_le_pairClosure (hS : Sound D S) (hinvs : invsOK D.n (repT D) (r
   · obtain ⟨y, hy, rfl⟩ := List.mem_map.1 hx
     exact Subgroup.mem_sup_right ⟨y, Subgroup.subset_closure hy, by simp [MulAut.conj_apply]⟩
 
-theorem pairN_le_normalizer_side (hS : Sound D S) (hSide : checkSide D = true)
-    (h : checkSideNorm D = true) {k : ℕ} (hk : k < D.sideW.length) :
-    pairN D S ≤ Subgroup.normalizer (pairSide D S k : Set (Equiv.Perm (Fin D.n))) := by
-  have hNorm := h
-  simp only [checkSideNorm, allBelow_eq_true] at hNorm
-  have hnk := hNorm k hk
-  unfold pairN
-  rw [Subgroup.closure_le]
-  intro a ha
-  obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem ha
-  have hj' : j < D.nW.length := by simpa using hj
-  refine CFSG.AGLEmbedding.MaxD2.mem_normalizer_of_conj_gens
-    (A := {g | g ∈ (D.sideW.getD k []).map (wordVal S)}) ?_
-  intro s hs
-  obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hs
-  have hi' : i < (D.sideW.getD k []).length := by simpa using hi
-  have hja : j < (nGens D).size := by simpa [nGens] using hj'
-  have hia : i < (sideGens D k).size := by simpa [sideGens] using hi'
-  exact (conj_mem_of_normalOK (enum_pairSide hS hSide hk) hnk hja hia
-    (CFSG.AGLEmbedding.MaxD2.rep_getElem!_of_words S D.gT (giT D) hS.rep hS.gi D.nW hj')
-    (CFSG.AGLEmbedding.MaxD2.rep_getElem!_of_words S D.gT (giT D) hS.rep hS.gi
-      (D.sideW.getD k []) hi')).1
 
 end CFSG.StandardType.TitsOvergroup

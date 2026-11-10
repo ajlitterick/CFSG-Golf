@@ -158,20 +158,6 @@ theorem e189_sect_apply (hsect : E189Sect p f) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
       obtain ⟨w', hw', rfl⟩ := hw
       simpa using congrArg Subtype.val (hcomm w' hw')
 
-theorem e189_sect_apply_join (hsect : E189Sect p f) (hp : p ≠ 2) (hq : 5 ≤ p ^ f) {n : ℕ}
-    (hbelow : CITBelowU p f n) (hΩ : HypOmegaMod p f Ω) (hAΩ : ∀ L ∈ Ω, AEmpty Ω L)
-    {H K J : Subgroup G} (hHn : Nat.card H < n) (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKH : K ≤ H)
-    (hJH : J ≤ H) {z t : G} (hz : IsUniqueInvolution K z) (ht : IsUniqueInvolution J t)
-    (hzt : z * t = t * z) (hne : conjSub t K ≠ K) :
-    (∃ K'' ∈ twinSet Ω K, K'' ≠ K ∧ ∃ u x : G, u ∈ K ⊔ K'' ∧ u ≠ 1 ∧ u * u = 1 ∧
-        x * u * x⁻¹ = z * t) ∨
-    (∃ x ∈ H, ∃ M' ∈ twinSet Ω (conjSub x K), M' ≠ conjSub x K ∧
-        ∃ R₁ R₂ : Subgroup G, R₁ ∈ RSet Ω ∧ R₁ ≤ conjSub x K ∧ R₂ ∈ RSet Ω ∧ R₂ ≤ M' ∧
-          Commutes R₁ R₂ ∧ ∀ w ∈ R₁ ⊔ R₂, w * (z * t) = (z * t) * w) := by
-  rcases e189_sect_apply hsect hp hq hbelow hΩ hAΩ hHn hK hJ hKH hJH hz ht hzt hne with
-    ⟨K'', hK'', hne', R₁, R₂, -, hR₁, -, hR₂, -, u, x, hu, hu1, hu2, hux⟩ | h2
-  · exact Or.inl ⟨K'', hK'', hne', u, x, sup_le_sup hR₁ hR₂ hu, hu1, hu2, hux⟩
-  · exact Or.inr h2
 
 end Apply
 

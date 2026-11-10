@@ -24,13 +24,6 @@ variable {Q : QuadraticForm K V}
       not_congr (MulAction.toPerm g).injective.eq_iff
     exact (and_congr hne (pointPerp_smul_iff g L M)).symm)
 
-theorem perpendicularElementaryEquiv_apply (g : elementaryGroup Q) (L : Points Q)
-    (M : perpendicularPoints Q L) :
-    (perpendicularElementaryEquiv g L M).val = g • M.val := rfl
-
-theorem perpendicularElementaryEquiv_symm_apply (g : elementaryGroup Q) (L : Points Q)
-    (M : perpendicularPoints Q (g • L)) :
-    ((perpendicularElementaryEquiv g L).symm M).val = g⁻¹ • M.val := rfl
 
 @[expose] noncomputable def nonperpendicularElementaryEquiv (g : elementaryGroup Q)
     (L : Points Q) : nonperpendicularPoints Q L ≃ nonperpendicularPoints Q (g • L) :=
@@ -39,13 +32,6 @@ theorem perpendicularElementaryEquiv_symm_apply (g : elementaryGroup Q) (L : Poi
     change ¬ PointPerp L M ↔ ¬ PointPerp (g • L) (g • M)
     exact (not_congr (pointPerp_smul_iff g L M)).symm)
 
-theorem nonperpendicularElementaryEquiv_apply (g : elementaryGroup Q) (L : Points Q)
-    (M : nonperpendicularPoints Q L) :
-    (nonperpendicularElementaryEquiv g L M).val = g • M.val := rfl
-
-theorem nonperpendicularElementaryEquiv_symm_apply (g : elementaryGroup Q) (L : Points Q)
-    (M : nonperpendicularPoints Q (g • L)) :
-    ((nonperpendicularElementaryEquiv g L).symm M).val = g⁻¹ • M.val := rfl
 
 theorem perpendicular_point_count_smul (g : elementaryGroup Q) (L : Points Q) :
     Nat.card (perpendicularPoints Q (g • L)) = Nat.card (perpendicularPoints Q L) :=
@@ -87,14 +73,5 @@ theorem exists_uniform_unequal_subdegrees (hQ : Q.polarBilin.Nondegenerate)
   intro M
   exact point_subdegree_uniformity hQ hT M L
 
-theorem exists_uniform_subdegrees_divisibility (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K V, Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0) :
-    ∃ a b : ℕ, a ≠ b ∧ Nat.card K ∣ a ∧ ¬ Nat.card K ^ 2 ∣ a ∧
-      Nat.card K ^ 2 ∣ b ∧ ∀ L : Points Q,
-        Nat.card (perpendicularPoints Q L) = a ∧ Nat.card (nonperpendicularPoints Q L) = b := by
-  obtain ⟨L⟩ := (elementary_projective_action Q hQ hT).1
-  have h := point_subdegree_divisibility hQ hT L
-  exact ⟨Nat.card (perpendicularPoints Q L), Nat.card (nonperpendicularPoints Q L),
-    h.2.2.2, h.1, h.2.1, h.2.2.1, fun M => point_subdegree_uniformity hQ hT M L⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointCount

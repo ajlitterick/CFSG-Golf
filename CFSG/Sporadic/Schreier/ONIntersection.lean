@@ -86,8 +86,6 @@ theorem mToM1_symm_val
   rw [h]
   group
 
-theorem rhoM1_apply
-    (x : onM1) : rhoM1 x = rhoM (mToM1.symm x) := rfl
 
 theorem rhoM1_range :
     rhoM1.range = onM120Chain.originalSubgroup := by
@@ -288,14 +286,5 @@ theorem centralizer_inter_le :
       Set (Equiv.Perm (Fin N))) ≤ cM1D0 :=
   inf_le_inf_left _ (Subgroup.centralizer_le onD0_le)
 
-theorem at_on_intersection_centralizer_bound :
-    onD0 ≤ onM ⊓ onM1 ∧
-      Nat.card (onM1 ⊓ Subgroup.centralizer (onD0 : Set (Equiv.Perm (Fin N))) :
-        Subgroup (Equiv.Perm (Fin N))) ≤ 4 ∧
-      Group.IsSolvable (onM1 ⊓ Subgroup.centralizer ((onM ⊓ onM1 : Subgroup (Equiv.Perm (Fin N))) :
-        Set (Equiv.Perm (Fin N))) : Subgroup (Equiv.Perm (Fin N))) :=
-  ⟨onD0_le, card_cM1D0_le,
-    CFSG.ComponentClassification.CatalogueSchreierAlternating.solvable_of_card_le_four
-      ((Subgroup.card_le_of_le centralizer_inter_le).trans card_cM1D0_le)⟩
 
 end CFSG.ONSchreier

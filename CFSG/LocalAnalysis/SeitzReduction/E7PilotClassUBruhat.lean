@@ -221,10 +221,6 @@ theorem centralizer_e7ASRep_three_le_parabolic [CharP K 2] :
   have h := congrArg Subtype.val hg
   rwa [Subgroup.coe_mul, Subgroup.coe_mul, coe_e7ASRep_three] at h
 
-variable (K) in
-@[expose] noncomputable def parabolicU : Subgroup (adjointGroup .E7 K) :=
-  ((parabolicSubgroup .E7 K uNodes).subgroupOf (adjointGroup .E7 K)).map
-    (MulAut.conj (e7RepConj K 3)).toMonoidHom
 
 theorem conj_mem_centralizer_e7ASRep_three [CharP K 2] {g : adjointGroup .E7 K}
     (hg : g ∈ centralizer ({e7Rep K 3} : Set (adjointGroup .E7 K))) :

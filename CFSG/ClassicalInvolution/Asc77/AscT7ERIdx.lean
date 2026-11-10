@@ -147,9 +147,5 @@ theorem c25_17_idx_of_norm (h : C25_17_norm p f) : C25_17_idx p f := by
     rw [hS, hm]
     ring
 
-theorem c25_17_norm_of_idx (h : C25_17_idx p f) : C25_17_norm p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp
-  have hS := T7ER.card_eq_two_mul_normalizer hyp
-  rcases h G Ω K K' W S R R' z t u₁ u₂ hyp with h2 | h4 <;> omega
 
 end CFSG.ClassicalInvolution.Asc77

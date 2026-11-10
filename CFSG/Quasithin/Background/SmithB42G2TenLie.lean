@@ -22,9 +22,6 @@ abbrev LIdx : Type := Fin 14
     (.inl 1, .inl 2), (.inl 1, .inr 0), (.inl 1, .inr 1), (.inl 1, .inr 2), (.inl 2, .inr 0),
     (.inl 2, .inr 1), (.inr 0, .inr 1), (.inr 0, .inr 2), (.inr 1, .inr 2)]
 
-theorem lP_injective : Function.Injective lP := by decide
-
-theorem rk_lP : ∀ p : LIdx, rk (lP p).1 < rk (lP p).2 := by decide
 
 @[expose] def hwL : LIdx := 4
 
@@ -286,7 +283,6 @@ theorem repLie_single_lowL (g : ↥(cayleyGroup F)) (p : LIdx) :
         repQ g (lP p).1 (.inr 0) * repQ g (lP p).2 (.inl 2) := by
   rw [repLie_mulVec, secL_mulVec_lowL, rep2_mulVec_wedgeT]
 
-theorem lP_snd_ne : ∀ p : LIdx, (lP p).2 ≠ .inl 0 := by decide
 
 theorem ht_lP_snd : ∀ p : LIdx, ht (.inr 2) ≤ ht (lP p).2 := by decide
 
@@ -445,7 +441,6 @@ theorem gramL_mul_repLie (g : ↥(cayleyGroup F)) :
     gramL F * repLie g = (repLie g⁻¹)ᵀ * gramL F :=
   gram_mul_rep repLie (gramL F) repLie_transpose_gramL g
 
-theorem dualL_hwL : dualL hwL = lowL := by decide
 
 end Lie
 

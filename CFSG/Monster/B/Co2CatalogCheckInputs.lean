@@ -21,12 +21,6 @@ namespace CFSG.Monster.B.Co2Catalog
 
 open CFSG.Sporadic.SmallF2.Native CFSG.Monster.B.Binary.Native
 
-@[expose] def bridgeSha : Nat :=
-  0x3b8c2c23d3109b7f7c7e3e3ec59966d9e69d63c48d6287e498e2e2fd8b897b2d
-
-@[expose] def bridgeKeyList : List String :=
-  ["attempt", "catalog_transpose_rows", "change_of_basis_rows", "intertwiner_dimension",
-    "native_a_word", "native_b_word", "native_rows", "purpose"]
 
 @[expose] def quotRows (i : Nat) : Array Nat :=
   (CFSG.Monster.B.Co2.Native.genRecords[i]!).quotientMatrix

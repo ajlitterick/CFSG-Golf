@@ -21,7 +21,6 @@ theorem chA1_P : ∀ j < chA1.gens.length, PermK (CA1.S j) (CA1.SI j) = true := 
 theorem chA2_P : ∀ j < chA2.gens.length, PermK (CA2.S j) (CA2.SI j) = true := by decide +kernel
 theorem chK1A1_P : ∀ j < chK1A1.gens.length, PermK (CK1A1.S j) (CK1A1.SI j) = true := by
   decide +kernel
-theorem chT2_P : ∀ j < chT2.gens.length, PermK (CT2.S j) (CT2.SI j) = true := by decide +kernel
 
 @[expose] noncomputable def sfA1 (G : ℕ) : Bool :=
   siftK 693 10 (mask 10) (693 * 10) (pidn 693 10) CA1.LR CA1.TRI CA1.BP 1 0 G

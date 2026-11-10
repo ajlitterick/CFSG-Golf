@@ -111,14 +111,6 @@ section Classify
 variable {K V : Type} [Field K] [Finite K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
   {Q : QuadraticForm K V}
 
-theorem card_frame_eq_zero_of_finrank_lt (h : Module.finrank K V < 4) :
-    Nat.card (OFrame Q) = 0 := by
-  rw [Nat.card_eq_zero]
-  left
-  refine ⟨fun F => ?_⟩
-  have h1 := Submodule.finrank_le F.span
-  rw [Frame.finrank_span] at h1
-  omega
 
 theorem ringChar_ne_two_of_two_ne_zero (h2 : (2 : K) ≠ 0) : ringChar K ≠ 2 := fun h => by
   have := ringChar.Nat.cast_ringChar (R := K)

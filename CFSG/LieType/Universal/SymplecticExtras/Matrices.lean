@@ -364,8 +364,6 @@ theorem stdVec_injective : Function.Injective (stdVec (n := n)) := by
   · rw [← ofPos_pos1 r, ← ofPos_pos1 r', ← h']
   · rw [← ofPos_pos1 r, ← ofPos_pos2 r', ← h']
 
-theorem isPosWt_stdVec (r : RootSubgroupIndex n) : IsPosWt (stdVec r) :=
-  ⟨_, _, wt_pos1 r⟩
 
 theorem exists_stdVec_of_isPosWt {v : Fin n → ℤ} (hv : IsPosWt v) (h0 : v ≠ 0) :
     ∃ r : RootSubgroupIndex n, stdVec r = v := by

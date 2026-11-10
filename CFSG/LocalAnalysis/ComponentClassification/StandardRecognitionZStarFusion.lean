@@ -137,20 +137,5 @@ theorem four_group_perfect_factor_forces_internal_fusion [Finite G] {t p : G}
   rw [hconjtz] at htz
   exact (orderOf_eq_prime_iff.mp hz2).2 (by simpa using htz)
 
-theorem four_group_action_forces_forbidden_internal_involution_fusion [Finite G] {t p : G}
-    {K : Subgroup G} (ht : orderOf t = 2) (hKH : K ≤ centralizer ({t} : Set G)) (htK : t ∈ K)
-    (hfus : ∀ g : G, g⁻¹ * t * g ∈ K → g⁻¹ * t * g = t)
-    (hext : ∀ x y : G, x ∈ centralizer ({t} : Set G) → x ∉ K → orderOf x = 2 →
-      y ∈ centralizer ({t} : Set G) → y ∉ K → orderOf y = 2 →
-      ∃ h ∈ centralizer ({t} : Set G), h⁻¹ * x * h = y)
-    (hpH : p ∈ centralizer ({t} : Set G)) (hpK : p ∉ K) (hpt : ∃ g : G, g⁻¹ * t * g = p)
-    (A : Subgroup G) (hAK : A ≤ K) (hAperf : _root_.commutator A = ⊤)
-    (hAeven : Even (Nat.card A)) (_hAout : ¬ 3 ∣ Nat.card (OuterAutomorphisms.Outer A))
-    (hVA : Subgroup.closure ({t, p} : Set G) ⊔ A =
-      centralizer ((Subgroup.closure ({t, p} : Set G) : Subgroup G) : Set G))
-    (_hVAbot : Subgroup.closure ({t, p} : Set G) ⊓ A = ⊥)
-    (_hAV : ∀ a ∈ A, ∀ v ∈ Subgroup.closure ({t, p} : Set G), a * v = v * a) : False :=
-  four_group_perfect_factor_forces_internal_fusion ht hKH htK hfus hext hpH hpK hpt hAK hAperf
-    hAeven hVA
 
 end CFSG.ComponentClassification.StandardRecognition

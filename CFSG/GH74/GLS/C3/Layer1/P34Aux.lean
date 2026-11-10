@@ -188,8 +188,6 @@ theorem T_le_normalizer_Q : T ≤ normalizer (Q : Set X) := fun t ht => by
     have := c.Q_norm t⁻¹ (T.inv_mem ht) _ ha
     simpa [mul_assoc] using this
 
-theorem Qfz_le : (Q ⊔ zpowers f) ⊔ zpowers z ≤ T :=
-  sup_le (sup_le c.Q_le (zpowers_le.2 c.f_mem)) (zpowers_le.2 c.z_mem_T)
 
 theorem coe_Qf : ((Q ⊔ zpowers f : Subgroup X) : Set X) = (Q : Set X) * (zpowers f : Set X) :=
   Subgroup.coe_mul_of_right_le_normalizer_left Q (zpowers f)

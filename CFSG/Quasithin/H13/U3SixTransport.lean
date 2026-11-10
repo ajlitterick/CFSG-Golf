@@ -23,9 +23,6 @@ theorem linConj_apply (Φ : V₁ ≃ₗ[ZMod 2] V₂) (g : V₁ ≃ₗ[ZMod 2] V
     linConj Φ g x = Φ (g (Φ.symm x)) :=
   rfl
 
-theorem linConj_symm_apply (Φ : V₁ ≃ₗ[ZMod 2] V₂) (h : V₂ ≃ₗ[ZMod 2] V₂) (x : V₁) :
-    (linConj Φ).symm h x = Φ.symm (h (Φ x)) :=
-  rfl
 
 theorem linFix_map_linConj (Φ : V₁ ≃ₗ[ZMod 2] V₂) (E : Subgroup (V₁ ≃ₗ[ZMod 2] V₁)) :
     linFix (E.map (linConj Φ).toMonoidHom) = (linFix E).map (Φ : V₁ →ₗ[ZMod 2] V₂) := by

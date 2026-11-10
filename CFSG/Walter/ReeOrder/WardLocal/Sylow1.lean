@@ -57,9 +57,6 @@ theorem mem_RR {x : G} : x ∈ RR S ↔ ∃ j : ℕ, S.κ (dgen K ^ j) = x := by
   · rintro ⟨j, rfl⟩
     exact ⟨_, Subgroup.pow_mem _ (Subgroup.mem_zpowers _) j, rfl⟩
 
-theorem RR_comm_J {x : G} (hx : x ∈ RR S) : x * S.J = S.J * x := by
-  obtain ⟨j, rfl⟩ := mem_RR.mp hx
-  exact S.κ_comm _
 
 theorem RR_le_normalizer : RR S ≤ Subgroup.normalizer (FF S : Set G) := by
   rw [RR, FF]

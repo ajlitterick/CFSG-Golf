@@ -41,9 +41,6 @@ variable {F : Type} [Group F]
     ∀ M : Subgroup ↥(Subgroup.centralizer ({x} : Set F)), TwoComponents.IsTwoComponent M →
       N.subgroupOf (Subgroup.centralizer ({x} : Set F)) ≤ M → IsComponentOf M ⊤
 
-theorem A7TwoComponentOrdinary.of_localB [Finite F] (h : LocalB.LocalBProperty F) :
-    A7TwoComponentOrdinary F :=
-  fun x hx _ _ _ M hM _ => LocalB.ordinary_at_involution h x hx M hM
 
 end Ordinary
 
@@ -137,7 +134,5 @@ end LocalP1
 theorem localOddCentralStep2A7_of_B (h : A7BStep) : LocalOddCentralStep2A7 :=
   fun G _ _ _ hnab K z hK hB => localOddCentral2A7_of_ordinary (h G hnab K z hK hB)
 
-theorem cit2A7_of_B (h : GoldschmidtMilestone) (TW : TwinExclusion) (BS : A7BStep) : CIT2A7 :=
-  cit2A7_of_remaining_inputs h TW (localOddCentralStep2A7_of_B BS)
 
 end CFSG.ClassicalInvolution.Hat2A7

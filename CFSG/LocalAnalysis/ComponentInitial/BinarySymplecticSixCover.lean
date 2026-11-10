@@ -24,8 +24,6 @@ include hK
     rintro _ ⟨x, hx, rfl⟩
     exact ⟨x⁻¹, K.inv_mem hx, (inv_pow x n).symm⟩
 
-theorem mem_powers {n : ℕ} {z : P} : z ∈ powers hK n ↔ ∃ x ∈ K, z = x ^ n :=
-  Iff.rfl
 
 theorem powers_le (n : ℕ) : powers hK n ≤ K := by
   rintro _ ⟨x, hx, rfl⟩
@@ -95,27 +93,5 @@ theorem forall_sq_eq_pow_four {P : Type*} [Group P] [Finite P] [Group.IsPerfect 
   rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff] at hsq
   exact hsq
 
-theorem binary_symplectic_six_perfect_central_two_kernel_elementary {P : Type*} {Q : Type}
-    [Group P] [Group Q] [Finite P] [Group.IsPerfect P] (η : P →* Q)
-    (hη : Function.Surjective η) (hK : η.ker ≤ center P) (h2 : IsPGroup 2 η.ker)
-    (hQ : CFSG.Blueprint.LieModel Q .PSp 3 2 1) : CFSG.IsElementaryAbelian 2 η.ker := by
-  obtain ⟨e⟩ := nonempty_mulEquiv_statedSp_of_lieModel hQ
-  set η' : P →* StatedSp 3 (ZMod 2) := e.toMonoidHom.comp η with hη'
-  have hker : η'.ker = η.ker := by
-    ext z
-    exact e.map_eq_one_iff
-  have hsq := sq_eq_one_of_forall_sq_eq_pow_four hK h2 (by
-    have := forall_sq_eq_pow_four η' (e.surjective.comp hη) (hker ▸ hK)
-    rwa [hker] at this)
-  refine { is_comm := ⟨fun u v => Subtype.ext (mem_center_iff.mp (hK v.2) u)⟩
-           exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun x =>
-             Subtype.ext (by simpa using hsq x x.2) }
-
-theorem binary_symplectic_six_kernel_sq_eq_one {P : Type*} {Q : Type}
-    [Group P] [Group Q] [Finite P] [Group.IsPerfect P] (η : P →* Q)
-    (hη : Function.Surjective η) (hK : η.ker ≤ center P) (h2 : IsPGroup 2 η.ker)
-    (hQ : CFSG.Blueprint.LieModel Q .PSp 3 2 1) : ∀ x ∈ η.ker, x ^ 2 = 1 := by
-  have := binary_symplectic_six_perfect_central_two_kernel_elementary η hη hK h2 hQ
-  exact fun x hx => CFSG.elemPow_eq_one_of_isElementaryAbelian x hx
 
 end CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSix

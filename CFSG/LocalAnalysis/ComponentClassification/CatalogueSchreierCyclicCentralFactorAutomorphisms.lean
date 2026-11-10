@@ -121,12 +121,5 @@ theorem productAutomorphismHom_surjective [Group.IsPerfect L] [IsMulCommutative 
   (MulEquiv.ofBijective productAutomorphismHom
     ⟨productAutomorphismHom_injective, productAutomorphismHom_surjective hcenter⟩).symm
 
-theorem automorphismEquivalence_apply [Group.IsPerfect L] [IsMulCommutative Z]
-    (hcenter : Subgroup.center L = ⊥) (automorphism : MulAut (L × Z)) :
-    automorphismEquivalence hcenter automorphism =
-      (leftRestriction automorphism, rightRestriction hcenter automorphism) := by
-  apply productAutomorphismHom_injective
-  exact (MulEquiv.ofBijective_apply_symm_apply productAutomorphismHom _).trans
-    (product_restrictions hcenter automorphism).symm
 
 end CFSG.ComponentClassification.CatalogueSchreierCyclicCentralFactor

@@ -57,17 +57,6 @@ end Frame
 
 section NT
 
-theorem ntFuzzyBalance3_proved : NTFuzzyBalance3 := by
-  intro G _ _ _ K z hyps A hA
-  exact Asc77.lemma52 G A
-    (hyp51_of_fuzzyFrame hyps.common.inClass hyps.common.below hyps.common.nonab hA)
-
-theorem ntResiduals3_of_fixedCovers (hU : NTUniqPair3) (h2 : NTFuzzyFixedCovers3)
-    (h3 : NTOddThreeFree3) (twinsCommute : NTTwinsCommute3) (noAllA1 : NTNoAllA1_3)
-    (noM11 : NTNoM11_3) (noG2D4 : NTNoG2D4_3) (noM3Twin : NTNoM3Twin_3)
-    (noSmallSingle : NTNoSmallSingle_3) (noManyTwins : NTNoManyTwins_3) : NTResiduals3 :=
-  ntResiduals3_of_fuzzy_fixed hU ntFuzzyBalance3_proved h2 h3 twinsCommute noAllA1 noM11 noG2D4
-    noM3Twin noSmallSingle noManyTwins
 
 end NT
 

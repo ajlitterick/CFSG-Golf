@@ -11,7 +11,6 @@ public import CFSG.Sporadic.Fi24.ExtCertInputs
 
 namespace CFSG.Sporadic.Fi24.Native
 
-set_option compiler.extract_closed false
 
 end CFSG.Sporadic.Fi24.Native
 

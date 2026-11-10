@@ -12,17 +12,6 @@ open Subgroup CFSG.Blueprint
 
 variable {G : Type} [Group G]
 
-@[expose] def Lemma181Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (X : Subgroup G), 3 ≤ Open.pRank 2 X →
-    ∀ V : Subgroup G, IsIsolatedVertex X V →
-      ∃ x ∈ V, orderOf x = 2 ∧ ∃ S : Subgroup G, IsSylowIn X S ∧
-        IsSylowIn (centralizer ({x} : Set G) ⊓ X) (centralizer ({x} : Set G) ⊓ S) ∧
-        (∃ (K : Subgroup G) (z : G), K ≤ centralizer ({x} : Set G) ⊓ S ∧
-          zpowers x ⊓ K = ⊥ ∧ zpowers x ⊔ K = centralizer ({x} : Set G) ⊓ S ∧
-          orderOf z = 2 ∧ z ∈ K ∧ (∀ k ∈ K, k * k = 1 → k = 1 ∨ k = z) ∧
-          (∀ s ∈ S, s * z = z * s) ∧
-          (∀ c ∈ S, (∀ s ∈ S, s * c = c * s) → c * c = 1 → c = 1 ∨ c = z)) ∧
-        x ∉ (GLS.oResidual 2 ↥X).map X.subtype
 
 section Finite
 
@@ -42,11 +31,6 @@ variable [Finite G]
     (∀ A B : Subgroup G, IsFour ⊤ A → IsFour ⊤ B → ∃ g : G, conjSub g A ∈ compSet ⊤ B) ∧
     ((∃ E : Subgroup G, IsFour ⊤ E ∧ E ∉ compSet ⊤ U) → ∃ g : G, ¬ PermutesComp U g)
 
-@[expose] def Lemma185Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (U M : Subgroup G), Hyp184 S U M →
-    Concl184b M →
-      (∀ E : Subgroup G, IsFour M E → ∀ g ∈ normalizer (E : Set G), g ∈ M) ∧
-      (∀ A : Subgroup G, IsFour M A → compSet M A = compSet ⊤ A)
 
 @[expose] def Lemma186Stmt : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (U M : Subgroup G), Hyp184 S U M →
@@ -72,14 +56,6 @@ structure Conf18H (S : Sylow 2 G) (M V : Subgroup G) (x z : G) : Prop where
   ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (U M : Subgroup G), Hyp184 S U M →
     (∃ V : Subgroup G, IsIsolatedVertex M V) → ∃ (V : Subgroup G) (x z : G), Conf18H S M V x z
 
-@[expose] def Lemma187Stmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (U M V : Subgroup G) (x z : G),
-    Hyp184 S U M → Conf18H S M V x z →
-      ∀ D : Subgroup G, D ≤ (S : Subgroup G) →
-        IsSylowIn (normalizer (D : Set G)) (normalizer (D : Set G) ⊓ (S : Subgroup G)) →
-        centralizer (D : Set G) ⊓ (S : Subgroup G) ≤ D →
-        ¬ IsFusionIsolated (normalizer (D : Set G)) (normalizer (D : Set G) ⊓ (S : Subgroup G)) z →
-          normalizer (D : Set G) ≤ M
 
 @[expose] def Lemma188Stmt : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (S : Sylow 2 G) (U M V : Subgroup G) (x z : G),

@@ -48,19 +48,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
   else if k ≤ 2322 then octVec ((k - 1091) / 16) ((k - 1091) % 16)
   else rawSpin (if 3347 ≤ k then 1 else 0) (oddC ((k - 2323) % 1024))
 
-@[expose] noncomputable def adaptPair (j : Fin 24) (t : ℕ) : SpaceB :=
-  if t = 0 then rawA j else if t = 1 then rawD j - rawP j else rawD j + rawP j
-
-@[expose] noncomputable def adaptOdd (c : C₀) (t : ℕ) : SpaceB :=
-  if t = 0 then rawOdd c
-  else if t = 1 then sgn (((c : C) : Fin 24 → ZMod 2) 0) • rawSpin 1 c
-  else sgn (P ((c : C) : Fin 24 → ZMod 2)) • rawSpin 0 c
-
-@[expose] noncomputable def Radapt (k : ℕ) : SpaceB :=
-  if k = 0 then rawDiag
-  else if k ≤ 66 then adaptPair (fin24 ((k - 1) / 3 + 2)) ((k - 1) % 3)
-  else if k ≤ 3138 then adaptOdd (oddC ((k - 67) / 3)) ((k - 67) % 3)
-  else octVec ((k - 3139) / 16) ((k - 3139) % 16)
 
 theorem coe_basisA_ne {i j : Fin 24} (h : i ≠ j) :
     (basisA s(i, j) : Matrix (Fin 24) (Fin 24) ℚ) = Matrix.single i j 1 + Matrix.single j i 1 := by

@@ -20,13 +20,6 @@ namespace CFSG.Sporadic.Schreier
 open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
   CFSG.Sporadic.Schreier.PairNative CFSG.Sporadic.Schreier.PairText
 
-@[expose] def j2SchemaVersion : ℕ := 1
-
-@[expose] def j2GroupName : String := "J2"
-
-@[expose] def j2Prime : ℕ := 5
-
-@[expose] def j2Dimension : ℕ := 14
 
 @[expose] def j2BasisIdx : List ℕ := [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15]
 
@@ -46,33 +39,11 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 
 @[expose] def j2P : Subgroup (Equiv.Perm (Fin 315)) := Subgroup.closure {j2Gen 0, j2Gen 1}
 
-@[expose] def j2SylowPrime (e : ℕ) : ℕ := j2Sylows[e]!.prime
-
-@[expose] def j2SylowGen (e k : ℕ) : Equiv.Perm (Fin 315) := permOfArr 315 j2Sylows[e]!.gens[k]!
-
-@[expose] def j2NGRep (e r : ℕ) : Equiv.Perm (Fin 315) :=
-  permOfArr 315 j2Sylows[e]!.records[r]!.rep
-
-@[expose] def j2NGConj (e r j : ℕ) : Equiv.Perm (Fin 315) :=
-  evalCodes [j2Gen 0, j2Gen 1] j2Sylows[e]!.records[r]!.conj[j]!
-
-@[expose] def j2NGBase (e r : ℕ) : List (Fin 315) :=
-  j2Sylows[e]!.records[r]!.chain.base.map fun b => Fin.ofNat 315 b
-
-@[expose] def j2NGChain (e r : ℕ) : RawSchreierDatum 315 :=
-  let c := j2Sylows[e]!.records[r]!.chain
-  if h : c.gens.size ≤ c.strong.size ∧ (j2NGBase e r).Nodup then
-    RawSchreierDatum.ofArrays 315 (by decide) c.strong c.gens.size h.1 (j2NGBase e r) h.2
-      (Array.replicate c.gens.size [] ++ c.words)
-  else RawSchreierDatum.ofArrays 315 (by decide) #[] 0 (Nat.zero_le _) [] List.nodup_nil #[]
 
 theorem rep_of_j2PermOK {t : Array ℕ} (h : j2PermOK t = true) : Rep 315 t (permOfArr 315 t) := by
   simp only [j2PermOK, Bool.and_eq_true] at h
   exact (rep_permOfArr h.2).1
 
-theorem j2Chain_strong_get (j : Fin j2Chain.strongCount) :
-    j2Chain.strong.get j = j2StrongPerm j :=
-  RawSchreierDatum.ofArrays_strong_get j
 
 theorem j2Chain_original_get (k : Fin j2Chain.originalCount) :
     j2Chain.original.get k = j2Gen k :=

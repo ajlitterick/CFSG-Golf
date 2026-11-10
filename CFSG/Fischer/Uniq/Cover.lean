@@ -14,9 +14,6 @@ variable {X : Type} [Group X] {E : Set X} {P : Type} {M : LocalModel P}
 @[expose] def farSet (E : Set X) (d : X) : Set X :=
   {c | c ∈ E ∧ c * d ≠ d * c ∧ (muSet E d c).Nonempty}
 
-theorem mem_farSet {d c : X} :
-    c ∈ farSet E d ↔ c ∈ E ∧ c * d ≠ d * c ∧ (muSet E d c).Nonempty :=
-  Iff.rfl
 
 structure CoverHyp {d : X} (L : LocalPoints M E d) (𝒮 : Set (Set P)) : Prop where
   mem : ∀ c ∈ farSet E d, L.muImg c ∈ 𝒮
@@ -30,9 +27,6 @@ structure CoverHyp {d : X} (L : LocalPoints M E d) (𝒮 : Set (Set P)) : Prop w
   symm := ⟨fun _ _ h => ⟨h.1.symm, h.2.symm⟩⟩
   loopless := ⟨fun _ h => h.1 rfl⟩
 
-theorem farGraph_adj {d : X} {c c' : farSet E d} :
-    (farGraph E d).Adj c c' ↔ (c : X) ≠ c' ∧ (c : X) * c' = c' * c :=
-  Iff.rfl
 
 section Cover
 
@@ -143,13 +137,6 @@ include h
         (hgR.trans hQ₂)
       exact ⟨hne, hcomm.2 (by rw [← e1, ← e2]; exact hperp)⟩
 
-theorem coverOf_C : (coverOf hP hd L h).C = farSet E d := rfl
-
-theorem coverOf_π (c : farSet E d) :
-    ((coverOf hP hd L h).π c : Set P) = L.muImg (c : X) := rfl
-
-theorem coverOf_adj (c c' : farSet E d) :
-    (coverOf hP hd L h).adj.Adj c c' ↔ (farGraph E d).Adj c c' := Iff.rfl
 
 end Cover
 

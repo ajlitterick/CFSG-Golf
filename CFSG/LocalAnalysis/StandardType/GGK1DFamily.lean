@@ -97,11 +97,6 @@ theorem ggK1Df_omegaLift_minus {p nf r : ℕ} {K : Type} [Field K] [Finite K]
       rw [QuadraticMap.polarBilin_apply_apply]
       exact hv w)
 
-noncomputable def ggK1Df_mapSub {K : Type} [Field K] {ι : Type} [Fintype ι] [DecidableEq ι]
-    {Q : (ι → K) → K} (hscal : (LargeEvenScalars ι K).subgroupOf (LargeEvenOmega Q) = ⊥)
-    (S : Subgroup ((ι → K) ≃ₗ[K] (ι → K))) : Subgroup (LargeEvenProj (LargeEvenOmega Q)) :=
-  ((S.map (toLinEquiv ι K).symm.toMonoidHom).subgroupOf (LargeEvenOmega Q)).map
-    (TableBOrth.projMkEquiv hscal).toMonoidHom
 
 noncomputable def ggK1Df_derivedEquiv {K : Type} [Field K] {ι : Type} [Fintype ι]
     [DecidableEq ι] {Q : (ι → K) → K} {Qf : QuadraticForm K (ι → K)} (hQ : Q = ⇑Qf)
@@ -700,9 +695,6 @@ private lemma ggK1Df_commutator_eq_of_isQuasisimple {G : Type*} [Group G] {S : S
     (h : CFSG.IsQuasisimple ↥S) : (⁅S, S⁆ : Subgroup G) = S :=
   Subgroup.isPerfect_iff.mp h.1
 
-private lemma ggK1Df_isQuasisimple_commutator {G : Type*} [Group G] {S : Subgroup G}
-    (h : CFSG.IsQuasisimple ↥S) : CFSG.IsQuasisimple ↥⁅S, S⁆ :=
-  (ggK1Df_commutator_eq_of_isQuasisimple h).symm ▸ h
 
 private lemma ggK1Df_solvable_not_quasi {G : Type*} [Group G] {S : Subgroup G}
     (h : Group.IsSolvable ↥S) : ¬ CFSG.IsQuasisimple ↥⁅S, S⁆ := by

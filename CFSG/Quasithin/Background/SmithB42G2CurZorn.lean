@@ -193,27 +193,6 @@ theorem heckeT_comp
   refine Finset.sum_congr rfl fun c _ => ?_
   rw [MonoidHom.comp_apply, map_mul, psi_xC ψ hψ, psi_nC ψ hψ]
 
-theorem zorn_iso_of_type
-    [Finite K] (hsurj : Function.Surjective ψ) {k V V' : Type*}
-    [Field k]
-    [Algebra K k] [AddCommGroup V] [Module k V] [AddCommGroup V'] [Module k V']
-    {ρ' : Representation k (cayleyGroup K) V} {σ' : Representation k (cayleyGroup K) V'}
-    (hρ' : IsSimpleRep ρ') (hσ' : IsSimpleRep σ') {y : V} {y' : V'}
-    {χ : adjointGroup .G2 K → k} {J : Finset (Fin Tag.G2.rank)}
-    (ht : IsG2Type (ρ'.comp ψ) y χ J) (ht' : IsG2Type (σ'.comp ψ) y' χ J) :
-    ∃ β : V ≃ₗ[k] V', ∀ (g : cayleyGroup K) (v : V), β (ρ' g v) = σ' g (β v) := by
-  obtain ⟨β, hβ⟩ := g2_iso_of_type ((isSimpleRep_comp_iff ρ' hsurj).mpr hρ')
-    ((isSimpleRep_comp_iff σ' hsurj).mpr hσ') ht ht'
-  exact ⟨β, intertwines_of_comp hsurj (β := β.toLinearMap) hβ⟩
-
-theorem zorn_exists_type
-    [Finite K] (hsurj : Function.Surjective ψ) {k V : Type*}
-    [Field k]
-    [Algebra K k] [AddCommGroup V] [Module k V] {ρ' : Representation k (cayleyGroup K) V}
-    (hρ' : IsSimpleRep ρ') :
-    ∃ y : V, ∃ χ : adjointGroup .G2 K → k, ∃ J : Finset (Fin Tag.G2.rank),
-      IsG2Type (ρ'.comp ψ) y χ J :=
-  g2_exists_type ((isSimpleRep_comp_iff ρ' hsurj).mpr hρ')
 
 end Zorn
 

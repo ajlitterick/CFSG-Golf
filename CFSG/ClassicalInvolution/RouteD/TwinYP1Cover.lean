@@ -108,34 +108,6 @@ theorem exists_orthLie_of_trans (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmeg
   obtain ⟨D, hcard, i, ht, hr⟩ := LieSystemData.exists_of_hasLieType hS.gen hLie
   exact ⟨D, hcard, i, d, ε, hd, by rw [ht, hr]; exact hdt⟩
 
-theorem inCommonComponent_of_card_one (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (D : LieSystemData p f (locQuot Ω u) (locFamily Ω u)) (hD : D.card = 1)
-    {K' J : Subgroup G} (hK' : K' ∈ centMembers Ω u) (hJ : J ∈ centMembers Ω u) :
-    InCommonComponent u K' J := by
-  have hθ := layerQuotientHom_injective (a := u) hΩ.conjInvariant
-  have hnc : ∀ L ∈ locFamily Ω u, ¬ L ≤ Subgroup.center (locQuot Ω u) := by
-    intro L hL
-    obtain ⟨L₀, hL₀, rfl⟩ := mem_locFamily_iff.mp hL
-    exact not_le_center_of_mem hΩ hL₀
-  have hΨ : Subgroup.map (layerQuotientHom hΩ.conjInvariant u) '' locFamily Ω u =
-      memberImages Ω u := map_layerQuotientHom_family hΩ.conjInvariant
-  have hY : (layerQuotientHom hΩ.conjInvariant u).range = memberJoin Ω u :=
-    range_layerQuotientHom hΩ.conjInvariant
-  obtain ⟨D', κ, hQ, -⟩ := lieDecomposition_of_lieSystemData_idx hp
-    CFSG.ClassicalInvolution.ModelFacts.modelClauseZero fundamentalWholeA1 hq D
-    (layerQuotientHom hΩ.conjInvariant u) hθ hnc hΨ hY
-  have hsub : Subsingleton (Fin D.card) := Fin.subsingleton_iff_le_one.mpr hD.le
-  obtain ⟨i₀⟩ : Nonempty (Fin D.card) := ⟨⟨0, by omega⟩⟩
-  have hQ0 : ∀ i, D'.Q i = ((layerQuotientHom hΩ.conjInvariant u).comp (D.hom i₀)).range :=
-    fun i => by
-      rw [hQ i, hsub.elim (κ i) i₀]
-      rfl
-  have := memberJoin_normal (a := u) hΩ.conjInvariant
-  obtain ⟨iK, hiK⟩ := D'.exists_le _ (⟨K', hK', rfl⟩ : modOdd u K' ∈ memberImages Ω u)
-  obtain ⟨iJ, hiJ⟩ := D'.exists_le _ (⟨J, hJ, rfl⟩ : modOdd u J ∈ memberImages Ω u)
-  refine ⟨D'.Q iJ, (CFSG.isComponent_iff_open _).mpr (D'.isComponentOf iJ), ?_, hiJ⟩
-  rw [hQ0 iJ, ← hQ0 iK]
-  exact hiK
 
 end OneComp
 

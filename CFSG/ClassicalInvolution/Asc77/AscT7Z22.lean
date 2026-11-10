@@ -33,9 +33,5 @@ theorem c23_chainX_of_inputs (hodd : T7Z.OddCenterClassical) (hneg : C23_chainNe
     · exact c23_chainX_of_one_mod_four h1 hodd
     · exact hneg h3
 
-theorem c23_chainX_of_griess
-    (hGA : CFSG.Open.GriessAllModelsStatement)
-    (hneg : C23_chainNeg p f) : C23_chainX p f :=
-  c23_chainX_of_inputs (T7Z.oddCenterClassical_of_griess hGA) hneg
 
 end CFSG.ClassicalInvolution.Asc77

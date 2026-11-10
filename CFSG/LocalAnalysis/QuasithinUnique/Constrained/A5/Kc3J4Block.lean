@@ -21,9 +21,6 @@ open CFSG.QuasithinUnique.A5.Kc3Cover
             Delta5.vact ((α l : ↥(alternatingGroup (Fin 5))) : Equiv.Perm (Fin 5))
               (Multiplicative.toAdd (β v))
 
-theorem D5Plus.d5Data {G : Type} [Group G] {L : Subgroup G} (h : D5Plus L) : D5Data L := by
-  obtain ⟨V, Q, hVQ, hQL, hQ2, hLQ, hLV, -, α, hα, hαQ, β, hβ⟩ := h
-  exact ⟨V, Q, hVQ, hQL, hQ2, hLQ, hLV, α, hα, hαQ, β, hβ⟩
 
 theorem d5Plus_of_block {G : Type} [Group G] [Finite G] {L : Subgroup G} (hL : IsShort2 L)
     (h5 : IsAltType L 5) : D5Plus L := by

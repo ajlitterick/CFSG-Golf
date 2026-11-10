@@ -269,9 +269,6 @@ theorem szNotOddLie {X : Type} [Group X] {n p f : ℕ} (h : LieModel X .twistedB
     exact hp2 hadm.2.2.2.1
   · exact not_three_dvd_card_twistedB2_of_lieModel h (three_dvd_card_of_lieModel hadm hX ht)
 
-theorem szNotOddLie_of_suzukiModel {X : Type} [Group X] {p f : ℕ} (h : SuzukiModel X p f) :
-    ¬ OddLieType X :=
-  szNotOddLie (Or.inr (Or.inr (Or.inr ⟨rfl, rfl, h⟩)))
 
 end Orders
 

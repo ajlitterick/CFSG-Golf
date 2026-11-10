@@ -426,31 +426,6 @@ open KleinOrder
 
 variable {C : Type*} [Group C] [Finite C]
 
-theorem card_eq_prod_centralizers_of_klein_of_ne_two {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
-    {A : Subgroup C} (hA : IsPGroup p A) {u₁ u₂ : C} (hu₁ : u₁ ^ 2 = 1) (hu₂ : u₂ ^ 2 = 1)
-    (hc : u₁ * u₂ = u₂ * u₁) (h₁ : ∀ y ∈ A, u₁ * y * u₁⁻¹ ∈ A)
-    (h₂ : ∀ y ∈ A, u₂ * y * u₂⁻¹ ∈ A)
-    (hfix : ∀ y ∈ A, u₁ * y = y * u₁ → u₂ * y = y * u₂ → y = 1) :
-    Nat.card A = Nat.card ↥(A ⊓ Subgroup.centralizer ({u₁} : Set C)) *
-      Nat.card ↥(A ⊓ Subgroup.centralizer ({u₂} : Set C)) *
-      Nat.card ↥(A ⊓ Subgroup.centralizer ({u₁ * u₂} : Set C)) := by
-  have h₃ := conj_mul_mem h₁ h₂
-  have key := card_eq_prod_fixedSub hp hA (σ₁ := conjEnd A u₁ h₁) (σ₂ := conjEnd A u₂ h₂)
-    (σ₃ := conjEnd A (u₁ * u₂) h₃) (conjEnd_involutive hu₁ h₁) (conjEnd_involutive hu₂ h₂)
-    (conjEnd_comm hc h₁ h₂) (conjEnd_mul h₁ h₂ h₃)
-    (fun y hy₁ hy₂ => Subtype.ext (hfix y y.2 (conjEnd_eq_self_iff.mp hy₁).symm
-      (conjEnd_eq_self_iff.mp hy₂).symm))
-  rw [key, card_fixedSub_conjEnd, card_fixedSub_conjEnd, card_fixedSub_conjEnd]
-
-theorem card_eq_prod_centralizers_of_klein {A : Subgroup C} (hA : IsPGroup 3 A) {u₁ u₂ : C}
-    (hu₁ : u₁ ^ 2 = 1) (hu₂ : u₂ ^ 2 = 1) (hc : u₁ * u₂ = u₂ * u₁)
-    (h₁ : ∀ y ∈ A, u₁ * y * u₁⁻¹ ∈ A) (h₂ : ∀ y ∈ A, u₂ * y * u₂⁻¹ ∈ A)
-    (hfix : ∀ y ∈ A, u₁ * y = y * u₁ → u₂ * y = y * u₂ → y = 1) :
-    Nat.card A = Nat.card ↥(A ⊓ Subgroup.centralizer ({u₁} : Set C)) *
-      Nat.card ↥(A ⊓ Subgroup.centralizer ({u₂} : Set C)) *
-      Nat.card ↥(A ⊓ Subgroup.centralizer ({u₁ * u₂} : Set C)) :=
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  card_eq_prod_centralizers_of_klein_of_ne_two (by norm_num) hA hu₁ hu₂ hc h₁ h₂ hfix
 
 theorem card_mul_sq_eq_prod_centralizers_of_klein_of_ne_two {p : ℕ} [Fact p.Prime] (hp : p ≠ 2)
     {A Z : Subgroup C} (hA : IsPGroup p A) {u₁ u₂ : C} (hu₁ : u₁ ^ 2 = 1) (hu₂ : u₂ ^ 2 = 1)

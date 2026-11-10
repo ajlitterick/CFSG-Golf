@@ -88,25 +88,6 @@ theorem quadratic_semilinear_involution_conjugacy (K : Type u) [Field K] [Finite
   exact ⟨heven, hformula, hfixed,
     coordinate_semilinear_involution_conjugacy K hK d sigma hne ha⟩
 
-theorem native_quadratic_semilinear_involution_conjugacy
-    (K : Type u) [Field K] [Finite K]
-    (p f : ℕ) (hp : p.Prime) (hodd : Odd p) (hf : 1 ≤ f)
-    (hcard : Nat.card K = p ^ f)
-    (a : PGammaL2 K) (ha : orderOf a = 2) (hfield : a.right ≠ 1) :
-    Even f ∧ (∀ x : K, a.right x = x ^ (p ^ (f / 2))) ∧
-      Nat.card (fixedSubfield K a.right) = p ^ (f / 2) ∧
-      ∃ h : PGL2 K,
-        a = SemidirectProduct.inl h * SemidirectProduct.inr a.right *
-          (SemidirectProduct.inl h)⁻¹ := by
-  have hK : IsOddPrimePower (Nat.card K) := ⟨p, f, hp, hodd, hf, hcard⟩
-  have hasq : a ^ 2 = 1 := by simpa [ha] using pow_orderOf_eq_one a
-  have hsigma : a.right ^ 2 = 1 := by
-    have h := congrArg SemidirectProduct.right hasq
-    simpa [pow_two] using h
-  obtain ⟨heven, hformula, hfixed⟩ :=
-    quadraticField_parameters K p f hp hcard a.right hsigma hfield
-  exact ⟨heven, hformula, hfixed,
-    native_semilinear_involution_conjugacy hK a ha hfield⟩
 
 theorem quadratic_semilinear_involution_conjugacy_in_E
     (K : Type u) [Field K] [Finite K]

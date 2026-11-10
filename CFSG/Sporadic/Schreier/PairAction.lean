@@ -82,9 +82,5 @@ theorem familyPerm_injective (hfix : ∀ g : G, (∀ i, g • vs i = vs i) → g
   (MonoidHom.ofInjective (familyPerm_injective hinj h hfix)).trans
     (MulEquiv.subgroupCongr (familyPerm_range hinj h hs hσ))
 
-theorem familyPermEquiv_apply (hs : Subgroup.closure (Set.range s) = ⊤)
-    (hσ : ∀ k i, s k • vs i = vs (σ k i)) (hfix : ∀ g : G, (∀ i, g • vs i = vs i) → g = 1)
-    (g : G) : (familyPermEquiv hinj h hs hσ hfix g : Equiv.Perm (Fin N)) = familyPerm hinj h g :=
-  rfl
 
 end CFSG.Sporadic.Schreier

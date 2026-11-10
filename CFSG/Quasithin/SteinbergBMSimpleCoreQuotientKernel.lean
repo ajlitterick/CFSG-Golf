@@ -22,21 +22,6 @@ theorem eq_pCore_of_normal_of_isSimpleGroup {L : Type*} [Group L] {p : ℕ}
     rw [h, comap_top, QuotientGroup.ker_mk', sup_eq_left.mpr hON] at h'
     exact h'.symm
 
-theorem simple_core_quotient_action_kernel {L V : Type*} [Group L] [Group V] {p : ℕ}
-    [IsSimpleGroup (L ⧸ CFSG.pCore p L)] (φ : L →* MulAut V)
-    (hO : ∀ l ∈ CFSG.pCore p L, ∀ v : V, φ l v = v) (hφ : ∃ l : L, ∃ v : V, φ l v ≠ v) :
-    φ.ker = CFSG.pCore p L ∧
-      ∃ e : L ⧸ CFSG.pCore p L ≃* φ.range, ∀ l : L, e l = φ.rangeRestrict l := by
-  have hker : φ.ker = CFSG.pCore p L := by
-    refine eq_pCore_of_normal_of_isSimpleGroup φ.normal_ker
-      (fun l hl => φ.mem_ker.mpr (MulEquiv.ext (hO l hl))) fun h => ?_
-    obtain ⟨l, v, hlv⟩ := hφ
-    have hl : φ l = 1 := φ.mem_ker.mp (h ▸ mem_top l)
-    rw [hl] at hlv
-    exact hlv rfl
-  refine ⟨hker, (QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    (QuotientGroup.quotientKerEquivRange φ), fun l => ?_⟩
-  rfl
 
 theorem simple_core_quotient_centralizer_eq_pCore {G : Type*} [Group G] {p : ℕ}
     {L V : Subgroup G} (hLV : L ≤ normalizer (V : Set G)) [IsSimpleGroup (L ⧸ CFSG.pCore p L)]

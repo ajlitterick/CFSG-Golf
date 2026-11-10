@@ -152,12 +152,6 @@ theorem comm_x_y (j : Fin 4) (t : Bool) (h0 : (0 : Fin 4) ≠ j) (h1 : (1 : Fin 
   congr 2
   ring
 
-theorem commute_x_y_disjoint (j j' : Fin 4) (hjj : j ≠ j') (h0 : (0 : Fin 4) ≠ j)
-    (h1 : (1 : Fin 4) ≠ j') (h0' : (0 : Fin 4) ≠ j') (h1' : (1 : Fin 4) ≠ j) (t t' : Bool)
-    (a b : F) :
-    Commute ((fr F).longRoot h0 true t (.ofAdd a)) ((fr F).longRoot h1 true t' (.ofAdd b)) :=
-  (fr F).commute_longRoot_longRoot_of_disjoint h0 h1 (by decide) h0' h1'.symm hjj true t true t'
-    a b
 
 theorem yy_of_partner {k l : Fin 4} (hj : jk l = jk k) (ht : tk l = !tk k) (b : F) :
     yy F l b = (fr F).longRoot (jk_ne1 k) true (!tk k) (.ofAdd b) := by

@@ -497,48 +497,6 @@ private lemma t_ne_t1_s4 (c : Hyp11 G) : c.t ≠ c.t1 := by
   have ht1S0 : c.t1 ∈ c.S0 := by simpa [h] using c.t_mem_S0
   exact c.t1_not_mem_S0 ht1S0
 
-/-- `t ≠ t2` in the Section-4 case. -/
-private lemma t_ne_t2_s4 (c : Hyp11 G) : c.t ≠ c.t2 := by
-  intro h
-  have ht2S0 : c.t2 ∈ c.S0 := by simpa [h] using c.t_mem_S0
-  exact c.t2_not_mem_S0 ht2S0
-
-/-- In the Section-4 case `t = t1·t2` (both are the nonidentity element of
-the order-two subgroup `S0 = ⟨t1·t2⟩`). -/
-private lemma t_eq_t1_mul_t2_s4 (hS4 : Section4Hyp c) :
-    c.t = c.t1 * c.t2 := by
-  classical
-  have hm : c.m = 1 := S_m_eq_one_s4 c hS4
-  have hord : orderOf (c.t1 * c.t2) = 2 := by
-    change orderOf (S0_generator c) = 2
-    rw [S0_generator_orderOf c, hm]
-    norm_num
-  have htmem : c.t ∈ Subgroup.zpowers (c.t1 * c.t2) := by
-    rw [← c.S0_eq_zpowers]
-    exact c.t_mem_S0
-  rcases (Subgroup.mem_zpowers_iff).mp htmem with ⟨k, hk⟩
-  have ht1 : c.t ≠ 1 := c.t_involution.1
-  have hknot2 : ¬ (2 : ℤ) ∣ k := by
-    intro h2
-    have hk1 : (c.t1 * c.t2) ^ k = 1 := by
-      rw [zpow_eq_one_iff_modEq]
-      rw [Int.modEq_zero_iff_dvd]
-      simpa [hord] using h2
-    exact ht1 (by rwa [← hk])
-  rcases Int.even_or_odd k with heven | hodd
-  · rcases heven with ⟨m, hmk⟩
-    exact False.elim (hknot2 ⟨m, by omega⟩)
-  · rcases hodd with ⟨m, hmk⟩
-    have hmod : k ≡ 1 [ZMOD 2] := by
-      rw [Int.modEq_iff_dvd]
-      use -m
-      omega
-    have hpow : (c.t1 * c.t2) ^ k = c.t1 * c.t2 := by
-      have hpow' : (c.t1 * c.t2) ^ k = (c.t1 * c.t2) ^ (1 : ℤ) := by
-        rw [zpow_eq_zpow_iff_modEq (x := c.t1 * c.t2) (m := k) (n := 1)]
-        simpa [hord] using hmod
-      simpa using hpow'
-    exact hk.symm.trans hpow
 
 /-- For every nonidentity element `s` of `S`, some element of `N_G(S)`
 conjugates `t` to `s` (single involution class plus Sylow fusion). -/
@@ -1919,22 +1877,6 @@ private theorem muHatOnC_isCharacter (c : Hyp11 G) (h12 : Hyp12 c)
   rw [hEq]
   exact isCharacter_congr (centralizerS_equiv c hS4) hχ
 
-/-- `μ̂` on `C_G(S)` is irreducible. -/
-private theorem muHatOnC_isIrreducible (c : Hyp11 G) (h12 : Hyp12 c)
-    (hS4 : Section4Hyp c) (μ : Irr (↥c.H0)) :
-    IsIrreducibleCharacter (muHatOnC c h12 hS4 μ) := by
-  classical
-  let χ : ClassFunction (↥(c.S : Subgroup G) × ↥c.B) :=
-    prodChar (1 : ClassFunction (↥(c.S : Subgroup G))) (nuHat c h12 μ).1
-  have hχ : IsIrreducibleCharacter χ :=
-    prodChar_isIrreducible _ _
-      (trivial_isIrreducible_char (↥(c.S : Subgroup G))) (nuHat c h12 μ).2
-  have hEq : muHatOnC c h12 hS4 μ = fun x => χ (centralizerS_equiv c hS4 x) := by
-    funext x
-    dsimp [muHatOnC, χ, prodChar]
-    simp
-  rw [hEq]
-  exact isIrreducibleCharacter_congr (centralizerS_equiv c hS4) hχ
 
 /-- The character `μ'` of Lemma 4.2: induction of `μ̂` from `C_G(S)` to `G`. -/
 private noncomputable def lemma42_mu' (c : Hyp11 G) (h12 : Hyp12 c)

@@ -36,10 +36,6 @@ theorem ug87_chi_neg_one (hr8 : r % 8 = 1) : χ (-1 : ZMod r) = 1 := by
 theorem ug87_chi_neg (hr8 : r % 8 = 1) (x : ZMod r) : χ (-x) = χ x := by
   rw [← neg_one_mul, map_mul, ug87_chi_neg_one hr8, one_mul]
 
-theorem ug87_chi_cases (x : ZMod r) : χ x = 0 ∨ χ x = 1 ∨ χ x = -1 := by
-  by_cases hx : x = 0
-  · exact Or.inl (by rw [hx]; exact quadraticChar_zero)
-  · exact Or.inr (quadraticChar_dichotomy hx)
 
 theorem ug87_chi_eq_zero_iff (x : ZMod r) : χ x = 0 ↔ x = 0 :=
   quadraticChar_eq_zero_iff

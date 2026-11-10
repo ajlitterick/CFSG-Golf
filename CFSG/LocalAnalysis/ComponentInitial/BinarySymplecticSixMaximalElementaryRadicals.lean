@@ -179,52 +179,6 @@ theorem existsUnique_elementary_le_sylow (hb : b.IsAlt) (hnd : b.Nondegenerate)
   · rw [hW']
     exact (card_pointwiseStabilizer_lagrangianOf he').trans (by norm_num)
 
-theorem eq_pointwiseStabilizer_of_six_le_generators (hb : b.IsAlt) (hnd : b.Nondegenerate)
-    (hV : finrank (ZMod 2) V = 6) {D : Subgroup (bilinIsometryGroup b)}
-    (hcomm : ∀ x ∈ D, ∀ y ∈ D, x * y = y * x) (hD2 : IsPGroup 2 D)
-    (hgen : ∀ S : Finset D, Subgroup.closure (S : Set D) = ⊤ → 6 ≤ S.card) :
-    ∃ W : Submodule (ZMod 2) V, IsTotallyIsotropic b W ∧ finrank (ZMod 2) W = 3 ∧
-      D = pointwiseStabilizer b W ∧ Nat.card D = 64 := by
-  obtain ⟨e, he⟩ := exists_isSymplecticBasis hb hnd (n := 3) (by rw [hV])
-  have : Finite (bilinIsometryGroup b) := finite_bilinIsometryGroup he
-  let : CommGroup D :=
-    { (inferInstance : Group D) with mul_comm := fun x y => Subtype.ext (hcomm x x.2 y y.2) }
-  obtain ⟨S, hS, hScard⟩ := pGeneratorRank_generators Nat.prime_two hD2
-  have h6 : 6 ≤ pGeneratorRank 2 D := by
-    rw [← hScard]
-    exact hgen S hS
-  unfold pGeneratorRank at h6
-  rw [commutative_frattini_card_eq_power_kernel Nat.prime_two hD2] at h6
-  have hker : 64 ≤ Nat.card (powMonoidHom 2 : D →* D).ker :=
-    (show (64 : ℕ) = 2 ^ 6 by norm_num) ▸ Nat.pow_le_of_le_log Nat.card_pos.ne' h6
-  set Ω : Subgroup (bilinIsometryGroup b) := (powMonoidHom 2 : D →* D).ker.map D.subtype with hΩ
-  have hΩD : Ω ≤ D := by
-    rintro _ ⟨x, -, rfl⟩
-    exact x.2
-  have hΩcard : Nat.card Ω = Nat.card (powMonoidHom 2 : D →* D).ker :=
-    Subgroup.card_map_of_injective D.subtype_injective
-  have hΩcomm : ∀ x ∈ Ω, ∀ y ∈ Ω, x * y = y * x := fun x hx y hy =>
-    hcomm x (hΩD hx) y (hΩD hy)
-  have hΩsq : ∀ x ∈ Ω, x * x = 1 := by
-    rintro _ ⟨x, hx, rfl⟩
-    have hx2 : x ^ 2 = 1 := hx
-    change ((x * x : D) : bilinIsometryGroup b) = 1
-    rw [← sq, hx2, Subgroup.coe_one]
-  obtain ⟨h64, heq⟩ := card_le_of_elementary hb hnd hV hΩcomm hΩsq
-  have hΩ64 : Nat.card Ω = 64 := by
-    rw [hΩcard] at h64 ⊢
-    omega
-  obtain ⟨W, hW, hWd, hΩW⟩ := heq hΩ64
-  have hcent := (pointwiseStabilizer_lagrangian hb hnd hV hW hWd).2.2.1
-  have hDR : D ≤ pointwiseStabilizer b W := by
-    intro d hd
-    rw [← hcent, Subgroup.mem_centralizer_iff]
-    intro y hy
-    rw [SetLike.mem_coe, ← hΩW] at hy
-    exact hcomm y (hΩD hy) d hd
-  have hDeq : D = pointwiseStabilizer b W := le_antisymm hDR (hΩW ▸ hΩD)
-  refine ⟨W, hW, hWd, hDeq, ?_⟩
-  rw [hDeq, ← hΩW, hΩ64]
 
 omit [FiniteDimensional (ZMod 2) V] in
 theorem apply_eq_of_range_sub_one_le (hb : b.IsAlt) (hnd : b.Nondegenerate)
@@ -300,74 +254,5 @@ theorem exists_conj_pointwiseStabilizer (hb : b.IsAlt) (hnd : b.Nondegenerate)
     exact e.isometryEquivOfToMatrixEq_apply_basis e' _ (Sum.inl j)
   exact ⟨g, hgW, by rw [map_conj_pointwiseStabilizer, hgW]⟩
 
-theorem binary_symplectic_six_maximal_elementary_and_involution_radicals (hb : b.IsAlt)
-    (hnd : b.Nondegenerate) (hV : finrank (ZMod 2) V = 6) :
-    (∀ W : Submodule (ZMod 2) V, IsTotallyIsotropic b W → finrank (ZMod 2) W = 3 →
-      IsElementaryAbelian 2 (pointwiseStabilizer b W) ∧
-        Nat.card (pointwiseStabilizer b W) = 64 ∧
-        Subgroup.centralizer (pointwiseStabilizer b W : Set (bilinIsometryGroup b)) =
-          pointwiseStabilizer b W ∧
-        Subgroup.normalizer (pointwiseStabilizer b W : Set (bilinIsometryGroup b)) =
-          subspaceStabilizer b W ∧
-        Function.Surjective (restrictSubspace b W) ∧
-        (restrictSubspace b W).ker =
-          (pointwiseStabilizer b W).subgroupOf (subspaceStabilizer b W) ∧
-        ∃ ψ : subspaceStabilizer b W ⧸ (pointwiseStabilizer b W).subgroupOf
-            (subspaceStabilizer b W) ≃* LinearMap.GeneralLinearGroup (ZMod 2) W,
-          ∀ (g : subspaceStabilizer b W) (w : W),
-            (((ψ (QuotientGroup.mk g : subspaceStabilizer b W ⧸
-                (pointwiseStabilizer b W).subgroupOf (subspaceStabilizer b W)) :
-              LinearMap.GeneralLinearGroup (ZMod 2) W) : W →ₗ[ZMod 2] W) w : V) =
-              (((g : bilinIsometryGroup b) : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-                V →ₗ[ZMod 2] V) w) ∧
-    (∀ e : Basis (Fin 3 ⊕ Fin 3) (ZMod 2) V, IsSymplecticBasis b e →
-      (∀ g : bilinIsometryGroup b, g ∈ pointwiseStabilizer b (lagrangianOf e) ↔
-        ∃ B : Matrix (Fin 3) (Fin 3) (ZMod 2), Bᵀ = B ∧
-          LinearMap.toMatrix e e ((g : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-            V →ₗ[ZMod 2] V) = fromBlocks 1 B 0 1) ∧
-      ∀ (g : subspaceStabilizer b (lagrangianOf e)) (r : bilinIsometryGroup b)
-        (B : Matrix (Fin 3) (Fin 3) (ZMod 2)), Bᵀ = B →
-        LinearMap.toMatrix e e ((r : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-          V →ₗ[ZMod 2] V) = fromBlocks 1 B 0 1 →
-        LinearMap.toMatrix e e
-            ((((g : bilinIsometryGroup b) * r * (g : bilinIsometryGroup b)⁻¹ :
-              bilinIsometryGroup b) : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-                V →ₗ[ZMod 2] V) =
-          fromBlocks 1 (LinearMap.toMatrix (lagrangianBasis e) (lagrangianBasis e)
-              ((restrictSubspace b (lagrangianOf e) g :
-                LinearMap.GeneralLinearGroup (ZMod 2) (lagrangianOf e)) :
-                  lagrangianOf e →ₗ[ZMod 2] lagrangianOf e) * B *
-            (LinearMap.toMatrix (lagrangianBasis e) (lagrangianBasis e)
-              ((restrictSubspace b (lagrangianOf e) g :
-                LinearMap.GeneralLinearGroup (ZMod 2) (lagrangianOf e)) :
-                  lagrangianOf e →ₗ[ZMod 2] lagrangianOf e))ᵀ) 0 1) ∧
-    (∀ E : Subgroup (bilinIsometryGroup b), IsElementaryAbelian 2 E →
-      Nat.card E ≤ 64 ∧ (Nat.card E = 64 → ∃ W : Submodule (ZMod 2) V,
-        IsTotallyIsotropic b W ∧ finrank (ZMod 2) W = 3 ∧ E = pointwiseStabilizer b W)) ∧
-    (∀ P : Sylow 2 (bilinIsometryGroup b), ∃! E : Subgroup (bilinIsometryGroup b),
-      E ≤ P ∧ IsElementaryAbelian 2 E ∧ Nat.card E = 64) ∧
-    (∀ D : Subgroup (bilinIsometryGroup b), (∀ x ∈ D, ∀ y ∈ D, x * y = y * x) →
-      IsPGroup 2 D → (∀ S : Finset D, Subgroup.closure (S : Set D) = ⊤ → 6 ≤ S.card) →
-      ∃ W : Submodule (ZMod 2) V, IsTotallyIsotropic b W ∧ finrank (ZMod 2) W = 3 ∧
-        D = pointwiseStabilizer b W ∧ Nat.card D = 64) ∧
-    (∀ x : bilinIsometryGroup b, x ^ 2 = 1 → ∃ W : Submodule (ZMod 2) V,
-      IsTotallyIsotropic b W ∧ finrank (ZMod 2) W = 3 ∧ x ∈ pointwiseStabilizer b W) ∧
-    (∀ W W' : Submodule (ZMod 2) V, IsTotallyIsotropic b W → finrank (ZMod 2) W = 3 →
-      IsTotallyIsotropic b W' → finrank (ZMod 2) W' = 3 →
-      ∃ g : bilinIsometryGroup b,
-        W.map ((g : LinearMap.GeneralLinearGroup (ZMod 2) V) : V →ₗ[ZMod 2] V) = W' ∧
-          (pointwiseStabilizer b W).map (MulAut.conj g).toMonoidHom =
-            pointwiseStabilizer b W') := by
-  refine ⟨fun W hW hd => ?_, fun e he => ⟨mem_pointwiseStabilizer_iff_toMatrix he,
-    fun g r B hB hr => spMatrixOf_spCoord_conj he g hr hB⟩,
-    fun E hE => card_le_of_elementary hb hnd hV
-      (fun x hx y hy => mul_comm_of_isElementaryAbelian hE hx hy)
-      (fun x hx => mul_self_of_isElementaryAbelian hE hx),
-    existsUnique_elementary_le_sylow hb hnd hV,
-    fun D hcomm hD2 hgen => eq_pointwiseStabilizer_of_six_le_generators hb hnd hV hcomm hD2 hgen,
-    exists_lagrangian_mem_pointwiseStabilizer hb hnd hV,
-    fun W W' hW hd hW' hd' => exists_conj_pointwiseStabilizer hb hnd hV hW hd hW' hd'⟩
-  obtain ⟨h1, h2, h3, h4, h5, h6⟩ := pointwiseStabilizer_lagrangian hb hnd hV hW hd
-  exact ⟨h1, h2, h3, h4, h5, h6, exists_quotient_mulEquiv hb hnd hV hW hd⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.BinarySymplecticSix

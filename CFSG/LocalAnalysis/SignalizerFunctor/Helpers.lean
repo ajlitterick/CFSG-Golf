@@ -68,28 +68,6 @@ theorem mcBrideHypothesisB_of_le [Finite GroupType] (prime : ℕ)
   exact hypothesis.2.2 numerator denominator (numerator_le.trans contained) denominator_le
     simple nonabelian
 
-theorem solvable_simple_section_commutative [Finite GroupType]
-    {larger numerator denominator : Subgroup GroupType}
-    [Group.IsSolvable larger] (contained : numerator ≤ larger)
-    [(denominator.subgroupOf numerator).Normal]
-    [IsSimpleGroup (numerator ⧸ denominator.subgroupOf numerator)] :
-    ∀ first second : numerator ⧸ denominator.subgroupOf numerator,
-      first * second = second * first := by
-  let : Group.IsSolvable numerator :=
-    Group.isSolvable_of_isSolvable_injective
-      (f := Subgroup.inclusion contained) (Subgroup.inclusion_injective contained)
-  exact IsSimpleGroup.comm_iff_isSolvable.mpr inferInstance
-
-theorem mcBrideHypothesisB_of_solvable [Finite GroupType] (prime : ℕ)
-    (prime_prime : prime.Prime) (subgroup : Subgroup GroupType)
-    (coprime : Nat.Coprime prime (Nat.card subgroup)) [Group.IsSolvable subgroup] :
-    signalizerMcBrideHypothesisB prime subgroup := by
-  refine ⟨prime_prime, coprime, ?_⟩
-  intro numerator denominator numerator_le _ normal simple nonabelian
-  let := simple
-  obtain ⟨first, second, not_commute⟩ := nonabelian
-  exact (not_commute
-    (solvable_simple_section_commutative numerator_le first second)).elim
 
 theorem elementary_abelian_isPGroup (prime : ℕ) (actor : Subgroup GroupType)
     (elementary : IsElemAbelian prime actor) : IsPGroup prime actor := by

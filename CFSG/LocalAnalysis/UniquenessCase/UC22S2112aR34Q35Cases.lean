@@ -29,12 +29,6 @@ open scoped Pointwise
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem kq35NormSylowAlpha_of_normSylow (h : KQ35NormSylow) : KQ35NormSylowAlpha := by
-  intro X _ _ _ t n p hp35 hadm ht hX P x hx s m hs hs7 _ _ hxs
-  have h3 := h X t n p hp35 hadm ht hX P x hx (by rw [hxs]; exact hs.odd_of_ne_two (by omega))
-  rw [hxs] at h3
-  have := Nat.le_of_dvd (by norm_num) h3
-  omega
 
 theorem uc22s2112r34q35_exists_mem_orderOf_alpha {D : Data G} {Ch : Choice2011 G}
     (c : Ctx21 D Ch) {e m : ℕ} (hm : Odd m) (hm3 : 3 ≤ m) (hn : c.n = 2 ^ e * m) :

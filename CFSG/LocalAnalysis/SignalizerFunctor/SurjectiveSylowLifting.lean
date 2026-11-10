@@ -58,17 +58,5 @@ theorem surjective_pgroup_sylow_lift
   refine ⟨sylow, ?_⟩
   simpa only [Sylow.coe_mapSurjective, target] using groups_eq
 
-theorem surjective_pgroup_element_lift
-    {GroupType : Type groupUniverse} [Group GroupType] [Finite GroupType]
-    {QuotientType : Type quotientUniverse} [Group QuotientType]
-    (prime : ℕ) (prime_prime : prime.Prime)
-    (homomorphism : GroupType →* QuotientType) (surjective : Function.Surjective homomorphism)
-    (pgroup : IsPGroup prime QuotientType) (element : QuotientType) :
-    ∃ lift : GroupType, homomorphism lift = element ∧ ∃ exponent : ℕ, lift ^ (prime ^ exponent) = 1 := by
-  obtain ⟨sylow, image_top⟩ := surjective_pgroup_sylow_lift prime prime_prime homomorphism surjective pgroup
-  obtain ⟨lift, lift_member, lift_eq⟩ := show element ∈ (sylow : Subgroup GroupType).map homomorphism from
-    by rw [image_top]; exact Subgroup.mem_top element
-  obtain ⟨exponent, power⟩ := sylow.isPGroup' ⟨lift, lift_member⟩
-  exact ⟨lift, lift_eq, exponent, congrArg Subtype.val power⟩
 
 end CFSG.SignalizerFunctor.Helpers

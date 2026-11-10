@@ -70,25 +70,11 @@ theorem kFactBeta_of_families (halt : KFactBetaAlt) (h6 : KFactBetaA6) (hlie : K
   ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → ∀ n : ℕ, 5 ≤ n →
     Nonempty (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin n)) → KFactAlphaConclusion K
 
-@[expose] def KFactAlphaLie : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → ∀ d : TauCeti.ValidLieTypeIndex,
-    Nonempty (K ⧸ Subgroup.center K ≃* (TauCeti.CFSGIndex.lie d).Group) → KFactAlphaConclusion K
 
 @[expose] def KFactAlphaSpor : Prop :=
   ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K → ∀ s : TauCeti.SporadicName,
     Nonempty (K ⧸ Subgroup.center K ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
     KFactAlphaConclusion K
 
-theorem kFactAlpha_of_families (halt : KFactAlphaAlt) (hlie : KFactAlphaLie)
-    (hspor : KFactAlphaSpor) : KFactAlpha := by
-  intro K _ _ hK hcat
-  obtain ⟨i, ⟨e⟩⟩ := hcat
-  cases i with
-  | cyclic p hp =>
-    exact (not_nonempty_mulEquiv_zmod
-      (ComponentClassification.Helpers.quasisimple_central_quotient_nonabelian K hK) ⟨e⟩).elim
-  | alternating n hn => exact halt K hK n hn ⟨e⟩
-  | lie d => exact hlie K hK d ⟨e⟩
-  | sporadic s => exact hspor K hK s ⟨e⟩
 
 end CFSG.AGLEmbedding

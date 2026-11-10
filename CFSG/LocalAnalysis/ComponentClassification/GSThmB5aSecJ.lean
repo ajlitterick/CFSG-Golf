@@ -144,14 +144,6 @@ theorem secMk_mem_normalizer {Y : Subgroup X} {g : X} (hg : g ∈ h.secG0 y)
   apply mem_normalizer_of_conjugate_eq
   rw [← secImage_conjugate Y hg, conjugate_eq_of_mem_normalizer hgN]
 
-theorem secMk_mem_centralizer {Y : Subgroup X} {g : X} (hg : g ∈ h.secG0 y)
-    (hgC : g ∈ centralizer (Y : Set X)) :
-    h.secMk y ⟨g, hg⟩ ∈ centralizer (h.secImage y Y : Set (h.secBar y)) := by
-  rw [mem_centralizer_iff]
-  rintro _ ⟨z, hz, rfl⟩
-  rw [← map_mul, ← map_mul]
-  congr 1
-  exact Subtype.ext (mem_centralizer_iff.mp hgC z hz)
 
 namespace SecCond
 

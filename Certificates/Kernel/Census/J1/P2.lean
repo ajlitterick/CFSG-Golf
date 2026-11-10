@@ -17,8 +17,6 @@ namespace CertificateChecks.KernelCensus.J1
 
 set_option maxRecDepth 1000000
 
-theorem kP6 : pairF 6 = true := by quickRfl
-theorem kP7 : pairF 7 = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J1
 

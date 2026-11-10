@@ -10,13 +10,6 @@ open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
 open CFSG.HardMathSupport.Solomon.Coordinator
 open CFSG.ComponentClassification.PerfectAutomorphisms
 
-@[expose] def I1416QSporS : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (s : TauCeti.SporadicName),
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ β : MulAut S, β ^ p = 1 → β ≠ 1 → ∀ J : Subgroup S,
-      GLAPComponent p (fixSubgroup β) J → ∀ q : ℕ, q.Prime → q ≠ 2 → q ≠ p →
-      IsChevSimple q (PSimple p J) →
-      (∃ A : Subgroup (MulAut (PSimple p J)), IsElemAbelian p A ∧ p ^ 2 ≤ Nat.card A) → False
 
 theorem i1416_elemAb_transfer {T U : Type} [Group T] [Group U] (φ : T ≃* U) {p : ℕ}
     (h : ∃ A : Subgroup (MulAut T), IsElemAbelian p A ∧ p ^ 2 ≤ Nat.card A) :

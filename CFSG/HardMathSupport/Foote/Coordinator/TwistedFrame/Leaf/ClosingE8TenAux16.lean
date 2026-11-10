@@ -132,7 +132,6 @@ section Final
 
 variable (K : Type) [Field K] [Finite K] (D : LangLevi TwClass.e8Ten.tag K TwClass.e8Ten.w)
 
-theorem e8Ten_minQ_le (h2 : 2 ≤ Nat.card K) : TwClass.e8Ten.minQ ≤ Nat.card K := h2
 
 theorem twClosing_e8Ten_three (h3 : 3 ≤ Nat.card K) :
     TwFrameClosing TwClass.e8Ten.tag K (TwClass.e8Ten.X₁ D ⊔ TwClass.e8Ten.X₂ D) := by

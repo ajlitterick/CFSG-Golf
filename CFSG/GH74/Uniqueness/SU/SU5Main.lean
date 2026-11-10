@@ -30,11 +30,6 @@ theorem exists_config_of_isJ2Type {S : Subgroup G} (hS : IsJ2Type S) :
   · intro hg
     exact ⟨e ⟨g, hg⟩, by simp [f]⟩
 
-theorem J2Facts.of_isJ2Type {S : Subgroup G} (hS : IsJ2Type S) :
-    ∃ (T : Subgroup G) (x z : G), J2Facts S T x z := by
-  obtain ⟨T, x, h⟩ := exists_config_of_isJ2Type hS
-  obtain ⟨z, hz⟩ := h.exists_zgen
-  exact ⟨T, x, z, h.facts hz⟩
 
 namespace J2Emb
 

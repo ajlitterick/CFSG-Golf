@@ -26,9 +26,6 @@ theorem fg2_word : fg2 = m11gB⁻¹ * m11gA * m11gB⁻¹ * m11gA * m11gB * m11gA
     m11gB⁻¹ * m11gA * m11gB * m11gA * m11gB⁻¹ := by
   decide +kernel
 
-theorem fg1_word_short : fg1 ≠ m11gA * m11gB * m11gA * m11gB⁻¹ * m11gA * m11gB⁻¹ * m11gA *
-    m11gB⁻¹ * m11gA := by
-  decide +kernel
 
 theorem mA : m11gA ∈ Q.originalSubgroup := by
   rw [Q_closure]; exact Subgroup.subset_closure (Set.mem_insert _ _)

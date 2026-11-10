@@ -15,17 +15,6 @@ open CFSG.LocalAnalysis.UniquenessCase.UCK (fixV ExtraspecialExpP)
 @[expose] def omegaOneZJ {G : Type} [Group G] (X : Subgroup G) : Subgroup G :=
   CFSG.inSubgroup (fun K _ => CFSG.elemThompsonCenterTorsion K 2) X
 
-@[expose] def InX390 (L : Type) [Group L] [Finite L] : Prop :=
-  CFSG.RankThree.PartOne.InClassX L ∧ ∀ u ∈ CFSG.RankThree.PartOne.shortU L, u ^ 2 = 1
-
-@[expose] def InOmega {G : Type} [Group G] [Finite G] (T H E Z : Subgroup G) : Prop :=
-  H = thompsonJ H ∧
-  (Fstar H = CFSG.Open.pCoreOf 2 H ∧ (∃ n : ℕ, IsL2 (Bar2 H) n) ∧
-    ¬ InX390 ↥(CFSG.RankThree.PartOne.oResidualTwo ↥H)) ∧
-  E = omegaOneZJ (CFSG.Open.pCoreOf 2 H) ∧
-  ((∃ S : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 2 S H ∧ T = thompsonJ S ∧
-      ¬ CFSG.RankThree.PartOne.omegaOneCenterIn S ≤ (Subgroup.center ↥H).map H.subtype) ∧
-    Z = ⁅T, E⁆)
 
 @[expose] def hyperplanes {G : Type} [Group G] (q : ℕ) (A : Subgroup G) : Set (Subgroup G) :=
   {D | D ≤ A ∧ D.relIndex A = q}

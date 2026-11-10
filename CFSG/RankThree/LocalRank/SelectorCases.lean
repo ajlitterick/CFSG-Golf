@@ -62,22 +62,6 @@ theorem rank_three_selector_of_large (hrank : evenRank G = 3)
   classical
   rw [sigmaA_eq_of_evenRank_eq_three hrank, ite_eq_left hT]
 
-theorem rank_three_selector_of_five (hrank : evenRank G = 3)
-    (hT : {p | p.Prime ∧ 5 < p ∧ localRank p G = 3} = ∅) (h5 : localRank 5 G = 3) :
-    sigmaA G = {5} := by
-  classical
-  have hS3 : {p | p.Prime ∧ 3 < p ∧ localRank p G = 3} = {5} := by
-    ext p
-    simp only [Set.mem_ofPred_eq, Set.mem_singleton_iff]
-    constructor
-    · rintro ⟨hp, h3p, hr⟩
-      by_contra hne
-      have h5p : 5 < p := by rcases hp.eq_two_or_odd with h | h <;> omega
-      exact Set.eq_empty_iff_forall_notMem.mp hT p ⟨hp, h5p, hr⟩
-    · rintro rfl
-      exact ⟨Nat.prime_five, by norm_num, h5⟩
-  rw [sigmaA_eq_of_evenRank_eq_three hrank, ite_eq_right (Set.not_nonempty_iff_eq_empty.mpr hT),
-    ite_eq_left (hS3 ▸ Set.singleton_nonempty 5), hS3]
 
 theorem rank_three_selector_of_three (hrank : evenRank G = 3)
     (hT : {p | p.Prime ∧ 5 < p ∧ localRank p G = 3} = ∅) (h5 : localRank 5 G < 3) :
@@ -151,22 +135,5 @@ theorem rank_three_selector_ne_three_iff (hrank : evenRank G = 3) :
   · rintro ⟨q, hq, h3q, heq⟩
     exact ⟨q, hq, h3q, heq.ge⟩
 
-theorem rank_three_selector_cases (hrank : evenRank G = 3) :
-    {p | p.Prime ∧ p ≠ 2 ∧ p ∣ Nat.card G ∧ 3 < localRank p G} = ∅ ∧
-    {p | p.Prime ∧ p ≠ 2 ∧ p ∣ Nat.card G ∧ localRank p G = 3}.Nonempty ∧
-    (∀ p ∈ sigmaA G, localRank p G = 3) ∧
-    ({p | p.Prime ∧ 5 < p ∧ localRank p G = 3}.Nonempty →
-      sigmaA G = {p | p.Prime ∧ 5 < p ∧ localRank p G = 3}) ∧
-    ({p | p.Prime ∧ 5 < p ∧ localRank p G = 3} = ∅ → localRank 5 G = 3 → sigmaA G = {5}) ∧
-    ({p | p.Prime ∧ 5 < p ∧ localRank p G = 3} = ∅ → localRank 5 G < 3 →
-      sigmaA G = {3} ∧ localRank 3 G = 3) ∧
-    (sigmaA G = {3} ↔ ∀ q : ℕ, q.Prime → 3 < q → localRank q G < 3) ∧
-    (sigmaA G ≠ {3} ↔ ∃ q : ℕ, q.Prime ∧ 3 < q ∧ localRank q G = 3) :=
-  ⟨rank_three_selector_first_stratum_eq_empty hrank,
-    rank_three_selector_fourth_stratum_nonempty hrank,
-    fun _ hp => rank_three_selector_localRank_eq hrank hp,
-    rank_three_selector_of_large hrank, rank_three_selector_of_five hrank,
-    rank_three_selector_of_three hrank, rank_three_selector_eq_three_iff hrank,
-    rank_three_selector_ne_three_iff hrank⟩
 
 end CFSG.RankThree.LocalRank

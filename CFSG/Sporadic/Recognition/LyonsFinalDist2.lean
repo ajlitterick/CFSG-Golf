@@ -288,15 +288,6 @@ theorem lift_dist2_eq_one_of_replays (g : Fin 6 → G)
   obtain ⟨d, hd, rfl⟩ := hr
   exact dist2Replay_sound hstep d.steps _ (hders d hd)
 
-theorem lift_dist2_eq_one (g : Fin 6 → G)
-    (hB : ∀ w : List (Fin 6 × Bool), bWordCheck w = true → FreeGroup.lift g (FreeGroup.mk w) = 1)
-    (hk : g 5 * g 5 = 1)
-    (hE : ∀ e ∈ dist2EEvs, FreeGroup.lift g (FreeGroup.mk (eRelOf e)) = 1)
-    (hρ : FreeGroup.lift g (FreeGroup.mk (trRel dist2TrEv)) = 1)
-    (h : dist2Check = true) :
-    ∀ r ∈ dist2Relators, FreeGroup.lift g (FreeGroup.mk r) = 1 := by
-  simp only [dist2Check, Bool.and_eq_true, dist2BCheck, List.all_eq_true] at h
-  exact lift_dist2_eq_one_of_replays g (fun w hw => hB w (h.1.2 w hw)) hk hE hρ h.2
 
 theorem mk_dist2_mem_normalClosure {S : Set (FreeGroup (Fin 6))}
     (hB : ∀ w ∈ dist2BWords, FreeGroup.mk w ∈ S) (hk : FreeGroup.mk kkRel ∈ S)
@@ -331,30 +322,6 @@ end Soundness
 
 section Final
 
-variable {G : Type} [Group G] [Finite G] {t : G}
-  {ρ : ↥(centralizer ({t} : Set G)) →* Perm (Fin 11)}
-  {x₁ x₂ x₃ : ↥(centralizer ({t} : Set G))}
-
-theorem lift_gOf_dist2 (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
-    (hM : Ly0.ModelChecks) (hY : Ly1080.YOK) (hT : Ly243.trCheck = true)
-    (hτ : Tau.tauOK = true) (φ : ↥(NormX (x₁ : G)) ≃* Ly0.B0)
-    (hφY : ((NN (x₁ : G) (x₂ : G)).subgroupOf (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Y0)
-    (hφT : ((normalizer (A3 (x₁ : G) (x₂ : G) (x₃ : G) : Set G)).subgroupOf
-      (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Tx)
-    (hφK : ((NN (x₁ : G) (x₂ : G) ⊓ normalizer (zpowers (x₃ : G) : Set G)).subgroupOf
-      (NormX (x₁ : G))).map φ.toMonoidHom = Ly0.Txy) (M : ModelGlue)
-    (hMtx : ∀ i : Fin 4, M.txW i = Glue.txWords.getD i.val []) {k : G}
-    (hk : IsSwapY0 (x₁ : G) (x₂ : G) (x₃ : G) (borelPhiY φ hφY M.ιY) k)
-    (hd : dist2Check = true) :
-    ∀ r ∈ dist2Relators, FreeGroup.lift (gOf φ k) (FreeGroup.mk r) = 1 := by
-  have hev := (Bool.and_eq_true_iff.1 (Bool.and_eq_true_iff.1 hd).1).1
-  simp only [dist2Evidence, Bool.and_eq_true, List.all_eq_true] at hev
-  obtain ⟨hE, hρ⟩ := hev
-  refine lift_dist2_eq_one (gOf φ k) (fun w hw => lift_gOf_bword_eq_one φ k hM.tab hw) ?_ ?_ ?_ hd
-  · simpa [gOf] using hk.mul_self
-  · intro e he
-    exact lift_gOf_erel φ hφY M hk hY hM.tab (hE e he)
-  · exact lift_gOf_trrel D S hY hT hτ hM.tab φ hφY hφT hφK M hMtx hk hρ
 
 end Final
 

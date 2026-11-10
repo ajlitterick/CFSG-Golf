@@ -22,7 +22,6 @@ theorem intPart_intCast (n : ℤ) : intPart (n : ℂ) = n := by
   have h := intPart_spec (w := (n : ℂ)) ⟨n, rfl⟩
   exact_mod_cast h.symm
 
-theorem intPart_eq_of_eq {w w' : ℂ} (h : w = w') : intPart w = intPart w' := by rw [h]
 
 theorem fiveFourier_mod {X : Type*} [Monoid X] (f : X → ℂ) {ζ : ℂ} (hζ : IsPrimitiveRoot ζ 5)
     (u v : X) (i : ℕ) : fiveFourier f ζ u v i = fiveFourier f ζ u v (i % 5) := by

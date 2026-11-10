@@ -240,51 +240,6 @@ theorem card_radQuot_congr {U V : Type*} [Group U] [Group V] (e : U ≃* V) :
   Nat.card_congr (QuotientGroup.congr _ _ e
     (CFSG.LieType.SteinbergBR.solvableRadical_map_equiv e)).toEquiv
 
-theorem distinct_Ccomponents_simple_quotient_product_divisor {F : Type*} [Group F] [Finite F]
-    {U V : Subgroup F} (hU : U ∈ cComp (⊤ : Subgroup F)) (hV : V ∈ cComp (⊤ : Subgroup F))
-    (hUV : U ≠ V) :
-    Nat.card (↥U ⧸ CFSG.solvableRadical ↥U) * Nat.card (↥V ⧸ CFSG.solvableRadical ↥V) ∣
-        Nat.card F ∧
-      ∀ m : ℕ, Nat.card (↥U ⧸ CFSG.solvableRadical ↥U) = m →
-        Nat.card (↥V ⧸ CFSG.solvableRadical ↥V) = m → m ^ 2 ∣ Nat.card F := by
-  have h : Nat.card (↥U ⧸ CFSG.solvableRadical ↥U) * Nat.card (↥V ⧸ CFSG.solvableRadical ↥V) ∣
-      Nat.card F := by
-    have := card_dvd_of_mem_cComp hU hV hUV (le_top : U ⊔ V ≤ ⊤)
-    rw [Subgroup.card_top] at this
-    exact (mul_dvd_mul_right (card_radQuot_dvd U) _).trans this
-  refine ⟨h, fun m hm1 hm2 => ?_⟩
-  rw [hm1, hm2, ← sq] at h
-  exact h
-
-theorem Ccomponent_full_radical_product_divisor {H K B : Subgroup G} (hB : B ∈ cComp H)
-    (hBK : B ≤ K) :
-    (∀ s ∈ H ⊓ Subgroup.normalizer (K : Set G), CFSG.conjugate B s ≠ B →
-      Nat.card B * Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) ∣ Nat.card K) ∧
-    (¬ Nat.card B * Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) ∣ Nat.card K →
-      H ⊓ Subgroup.normalizer (K : Set G) ≤ H ⊓ Subgroup.normalizer (B : Set G)) := by
-  have key : ∀ s ∈ H ⊓ Subgroup.normalizer (K : Set G), CFSG.conjugate B s ≠ B →
-      Nat.card B * Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) ∣ Nat.card K := by
-    intro s hs hne
-    set C := CFSG.conjugate B s with hC
-    have hsH : s⁻¹ ∈ Subgroup.normalizer (H : Set G) :=
-      Subgroup.le_normalizer (H.inv_mem hs.1)
-    have hCH : C ∈ cComp H := map_conj_mem_cComp hB hsH
-    have hCK : C ≤ K := by
-      have hsK : s⁻¹ ∈ Subgroup.normalizer (K : Set G) := Subgroup.inv_mem _ hs.2
-      rw [hC, CFSG.conjugate, ← map_conj_eq_iff.mpr hsK]
-      exact Subgroup.map_mono hBK
-    let e : ↥B ≃* ↥C := B.equivMapOfInjective _ (MulAut.conj s⁻¹).injective
-    have hcardB : Nat.card (↥C ⧸ CFSG.solvableRadical ↥C) =
-        Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) := (card_radQuot_congr e).symm
-    have h := card_dvd_of_mem_cComp hB hCH (Ne.symm hne) (sup_le hBK hCK)
-    rwa [hcardB] at h
-  refine ⟨key, fun hnd s hs => ⟨hs.1, ?_⟩⟩
-  by_contra hsB
-  refine hnd (key s hs ?_)
-  intro h
-  apply hsB
-  have : s⁻¹ ∈ Subgroup.normalizer (B : Set G) := map_conj_eq_iff.mp h
-  simpa using Subgroup.inv_mem _ this
 
 end Divisor
 

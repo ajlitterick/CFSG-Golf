@@ -104,7 +104,6 @@ end RankTwoSystem
 @[expose] def plist (p : ℤ) (k : ℕ) : List ℤ :=
   (List.range (k + 1)).map fun t : ℕ => p + t
 
-theorem length_plist (p : ℤ) (k : ℕ) : (plist p k).length = k + 1 := by simp [plist]
 
 theorem plist_map_reflect (c p : ℤ) (k : ℕ) :
     (plist p k).map (fun q => c - q) = (plist (c - p - k) k).reverse := by
@@ -213,81 +212,6 @@ end RankTwoSystem
 
 section Arcs
 
-@[expose] def rootIdx (n : ℕ) (i : ℤ) : ℤ :=
-  if 0 < i then i - 1 else (n : ℤ) + (-i - 1)
-
-theorem rootPos_eq (n : ℕ) (i : ℤ) : rootPos n i = ((rootIdx n i : ℤ) : ZMod (2 * n)) := by
-  unfold rootPos rootIdx
-  split_ifs <;> rfl
-
-theorem posRoot_intCast {n : ℕ} (hn : 0 < n) (a : ℤ) :
-    posRoot n ((a : ℤ) : ZMod (2 * n)) = Rt n a := by
-  have : NeZero (2 * n) := ⟨by omega⟩
-  have h : (((a : ZMod (2 * n)).val : ℕ) : ℤ) = a % (2 * (n : ℤ)) := by
-    rw [ZMod.val_intCast]
-    push_cast
-    rfl
-  unfold posRoot Rt
-  rw [← h]
-  by_cases hc : (a : ZMod (2 * n)).val < n
-  · have hc' : (((a : ZMod (2 * n)).val : ℕ) : ℤ) < (n : ℤ) := by exact_mod_cast hc
-    rw [ite_eq_left hc, ite_eq_left hc']
-  · have hc' : ¬ (((a : ZMod (2 * n)).val : ℕ) : ℤ) < (n : ℤ) := by exact_mod_cast hc
-    rw [ite_eq_right hc, ite_eq_right hc']
-
-@[expose] def zlist (n : ℕ) (p : ZMod (2 * n)) (k : ℕ) : List ℤ :=
-  (List.range (k + 1)).map fun t : ℕ => posRoot n (p + t)
-
-theorem zlist_eq {n : ℕ} (hn : 0 < n) (p : ZMod (2 * n)) (k : ℕ) :
-    zlist n p k = (plist (p.val : ℤ) k).map (Rt n) := by
-  have : NeZero (2 * n) := ⟨by omega⟩
-  unfold zlist plist
-  rw [List.map_map]
-  refine List.map_congr_left fun t _ => ?_
-  rw [Function.comp_apply, ← posRoot_intCast hn]
-  congr 1
-  push_cast
-  rw [ZMod.natCast_zmod_val]
-
-theorem arc_eq_ite (n : ℕ) (i j : ℤ) :
-    arc n i j =
-      if (rootPos n j - rootPos n i).val ≤ n then
-        (List.range ((rootPos n j - rootPos n i).val + 1)).map fun t : ℕ =>
-          posRoot n (rootPos n i + (t : ZMod (2 * n)))
-      else
-        (List.range ((2 * n - (rootPos n j - rootPos n i).val) + 1)).map fun t : ℕ =>
-          posRoot n (rootPos n i - (t : ZMod (2 * n))) := by
-  unfold arc
-  split_ifs <;> simp [← List.map_eq_flatMap, List.map_map, Function.comp_def]
-
-theorem arc_of_le {n : ℕ} {i j : ℤ} (h : (rootPos n j - rootPos n i).val ≤ n) :
-    arc n i j = zlist n (rootPos n i) (rootPos n j - rootPos n i).val := by
-  rw [arc_eq_ite, ite_eq_left h]
-  rfl
-
-theorem arc_of_gt {n : ℕ} (hn : 0 < n) {i j : ℤ} (h : ¬ (rootPos n j - rootPos n i).val ≤ n) :
-    arc n i j = (zlist n (rootPos n j) (2 * n - (rootPos n j - rootPos n i).val)).reverse := by
-  have : NeZero (2 * n) := ⟨by omega⟩
-  have hlt := ZMod.val_lt (rootPos n j - rootPos n i)
-  set d := (rootPos n j - rootPos n i).val with hd
-  have hdx : ((d : ℕ) : ZMod (2 * n)) = rootPos n j - rootPos n i := ZMod.natCast_zmod_val _
-  rw [arc_eq_ite, ← hd, ite_eq_right h]
-  apply List.ext_getElem
-  · simp [zlist]
-  · intro t h1 h2
-    have ht : t < 2 * n - d + 1 := by simpa using h1
-    simp only [zlist, List.getElem_map, List.getElem_range, List.getElem_reverse, List.length_map,
-      List.length_range]
-    congr 1
-    have hm : ((2 * n - d : ℕ) : ZMod (2 * n)) = -((d : ℕ) : ZMod (2 * n)) := by
-      rw [Nat.cast_sub (by omega)]
-      push_cast
-      rw [show ((2 : ZMod (2 * n)) * (n : ZMod (2 * n))) = ((2 * n : ℕ) : ZMod (2 * n)) by
-        push_cast; rfl, ZMod.natCast_self]
-      ring
-    have e1 : 2 * n - d + 1 - 1 - t = (2 * n - d) - t := by omega
-    rw [e1, Nat.cast_sub (by omega), hm, hdx]
-    ring
 
 end Arcs
 
@@ -304,62 +228,8 @@ theorem chainProd_good_plist {k : ℕ} (hk : k + 1 ≤ n) (p : ℤ) :
   rw [pprod_eq_chainProd, List.map_reverse] at hrev
   exact ⟨hV, hrev⟩
 
-theorem arc_good (i j : ℤ) (hij : rootPos n j ≠ rootPos n i + (n : ZMod (2 * n))) :
-    chainProd D.root (arc n i j) = chainProd D.root (arc n j i) ∧
-      ∃ V : Subgroup X, (V : Set X) = chainProd D.root (arc n i j) := by
-  have hn := D.three_le
-  have : NeZero (2 * n) := ⟨by omega⟩
-  have key : ∀ (p : ℤ) (k : ℕ), k + 1 ≤ n →
-      ((arc n i j = (plist p k).map (Rt n) ∧ arc n j i = ((plist p k).map (Rt n)).reverse) ∨
-        (arc n i j = ((plist p k).map (Rt n)).reverse ∧ arc n j i = (plist p k).map (Rt n))) →
-      chainProd D.root (arc n i j) = chainProd D.root (arc n j i) ∧
-        ∃ V : Subgroup X, (V : Set X) = chainProd D.root (arc n i j) := by
-    intro p k hk h
-    obtain ⟨⟨V, hV⟩, hrev⟩ := D.chainProd_good_plist hk p
-    rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩
-    · rw [h1, h2]
-      exact ⟨hrev, V, hV⟩
-    · rw [h1, h2]
-      exact ⟨hrev.symm, V, hV.trans hrev⟩
-  have hdn : (rootPos n j - rootPos n i).val ≠ n := by
-    intro h
-    apply hij
-    have := ZMod.natCast_zmod_val (rootPos n j - rootPos n i)
-    rw [h] at this
-    rw [this]
-    ring
-  have hlt := ZMod.val_lt (rootPos n j - rootPos n i)
-  have hneg := ZMod.neg_val (rootPos n j - rootPos n i)
-  rw [neg_sub] at hneg
-  by_cases hx : rootPos n j - rootPos n i = 0
-  · have hQ : rootPos n j = rootPos n i := sub_eq_zero.1 hx
-    have hd0 : (rootPos n j - rootPos n i).val = 0 := by rw [hx]; simp
-    have e1 : arc n i j = (plist ((rootPos n i).val : ℤ) 0).map (Rt n) := by
-      rw [arc_of_le (by omega), zlist_eq (by omega), hd0]
-    have e2 : arc n j i = arc n i j := by
-      unfold arc
-      rw [hQ]
-    refine key ((rootPos n i).val : ℤ) 0 (by omega) (Or.inl ⟨e1, ?_⟩)
-    rw [e2, e1]
-    simp [plist]
-  · rw [ite_eq_right hx] at hneg
-    by_cases hd : (rootPos n j - rootPos n i).val < n
-    · refine key ((rootPos n i).val : ℤ) (rootPos n j - rootPos n i).val (by omega) (Or.inl ⟨?_, ?_⟩)
-      · rw [arc_of_le (by omega), zlist_eq (by omega)]
-      · rw [arc_of_gt (by omega) (by omega), hneg, zlist_eq (by omega)]
-        have : 2 * n - (2 * n - (rootPos n j - rootPos n i).val) = (rootPos n j - rootPos n i).val := by
-          omega
-        rw [this]
-    · have hd' : n < (rootPos n j - rootPos n i).val := by omega
-      refine key ((rootPos n j).val : ℤ) (2 * n - (rootPos n j - rootPos n i).val) (by omega)
-        (Or.inr ⟨?_, ?_⟩)
-      · rw [arc_of_gt (by omega) (by omega), zlist_eq (by omega)]
-      · rw [arc_of_le (by omega), hneg, zlist_eq (by omega)]
 
 end RankTwoSystem
 
-theorem lemma30_5 : Lemma30_5.{u} := by
-  intro X _ n D i j _ _ hij
-  exact D.arc_good i j hij
 
 end CFSG.GH74.BNPair

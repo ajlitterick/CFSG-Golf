@@ -91,22 +91,11 @@ theorem gaussBlock_transpose (Z : Matrix (Fin 2) (Fin 2) (Gauss K)) :
 theorem formJ_eq_gaussBlock : formJ 2 K = gaussBlock (J₁E (K := K)) := by
   simp [formJ, gaussBlock, J₁E]
 
-theorem kron_one_J₁_eq_gaussBlock :
-    kron 1 (J₁ : Matrix (Fin 2) (Fin 2) K) =
-      gaussBlock ((QuadraticAlgebra.omega : Gauss K) • (1 : Matrix (Fin 2) (Fin 2) (Gauss K))) := by
-  have hω : gaussEmb (QuadraticAlgebra.omega : Gauss K) = J₁ := by
-    rw [gaussEmb_apply, QuadraticAlgebra.re_omega, QuadraticAlgebra.im_omega, zero_smul, one_smul,
-      zero_add]
-  simp [kron, gaussBlock, hω]
 
 theorem gaussBlock_map (g : Matrix (Fin 2) (Fin 2) K) :
     gaussBlock (g.map (algebraMap K (Gauss K))) = kron g 1 := by
   simp only [gaussBlock, kron, map_apply, gaussEmb_algebraMap]
 
-theorem gaussBlock_smul_map (z : Gauss K) (g : Matrix (Fin 2) (Fin 2) K) :
-    gaussBlock (z • g.map (algebraMap K (Gauss K))) = kron g (gaussEmb z) := by
-  simp only [gaussBlock, kron, Matrix.smul_apply, map_apply, smul_eq_mul, map_mul,
-    gaussEmb_algebraMap, Matrix.mul_smul, Matrix.mul_one]
 
 theorem exists_gaussBlock_of_commute {A : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K}
     (hA : A * kron 1 J₁ = kron 1 J₁ * A) : ∃ Z, gaussBlock Z = A := by

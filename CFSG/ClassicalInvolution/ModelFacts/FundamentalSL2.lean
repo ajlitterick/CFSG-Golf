@@ -28,9 +28,6 @@ def slMapEquiv {K K' : Type} [Field K] [Field K'] (e : K ≃+* K') : SL(2, K) �
   right_inv := map_symm_map e
   map_mul' := map_mul _
 
-theorem nonempty_equiv_sl2_of_ringEquiv {K K' R : Type} [Field K] [Field K'] [Group R]
-    (e : K ≃+* K') (h : Nonempty (R ≃* SL(2, K))) : Nonempty (R ≃* SL(2, K')) :=
-  h.map fun φ => φ.trans (slMapEquiv e)
 
 noncomputable def subgroupMapConjEquiv {X : Type} [Group X] (U : Subgroup X) (g : X) :
     U.map (MulAut.conj g).toMonoidHom ≃* U :=

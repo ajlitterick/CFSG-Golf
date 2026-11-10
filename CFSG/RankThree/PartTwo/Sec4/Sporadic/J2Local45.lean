@@ -148,11 +148,6 @@ theorem gensCa_spec :
   rw [Bool.and_eq_true] at this
   exact okA_spec this.1
 
-theorem gensCa_comm (k : ℕ) (hk : k < gensCaArr.size) : commA gensCaArr[k]! xArr = true := by
-  obtain ⟨h, -⟩ := elts45
-  have := allLt_spec h hk
-  rw [Bool.and_eq_true] at this
-  exact this.2
 
 theorem centralizer_x : centralizer ({xJ} : Set GJ) = subOf gensCaArr :=
   Certificates.certificate8169.2.1 _ rep_x

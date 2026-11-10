@@ -72,8 +72,6 @@ theorem tThree_pow_conj_C {u : G} (hu : u ∈ D.C) (n : ℕ) :
         ((D.primaryPart 3).inv_mem hu), -i, ?_⟩
     group
 
-theorem mem_QT {g : G} : g ∈ D.QT ↔ ∃ u ∈ D.primaryPart 3, ∃ i : ℤ, g = u * D.tThree ^ i :=
-  Iff.rfl
 
 theorem P_le_QT : D.primaryPart 3 ≤ D.QT := fun u hu => ⟨u, hu, 0, by simp⟩
 
@@ -215,9 +213,6 @@ theorem exists_coord {u : G} (hu : u ∈ D.primaryPart 3) : ∃ i j : ℤ, u = E
   obtain ⟨j, rfl⟩ := Subgroup.mem_zpowers_iff.mp ha
   exact ⟨i, j, rfl⟩
 
-theorem coord_mem_P (i j : ℤ) : E.u₀ ^ i * E.u₁ ^ j ∈ D.primaryPart 3 :=
-  (D.primaryPart 3).mul_mem ((D.primaryPart 3).zpow_mem E.u₀_mem_P i)
-    ((D.primaryPart 3).zpow_mem E.u₁_mem_P j)
 
 theorem ht₀' : D.t * E.u₀ * D.t⁻¹ = E.u₀ ^ (1 + E.l * E.s₀) * E.u₁ ^ (1 : ℤ) := by
   rw [zpow_one]
@@ -312,12 +307,6 @@ theorem t_conj_Z {z : G} (hz : z ∈ E.Z) : D.t * z * D.t⁻¹ = z :=
 theorem t_comm_Z {z : G} (hz : z ∈ E.Z) : D.t * z = z * D.t :=
   comm_of_conj_eq (E.t_conj_Z hz)
 
-theorem cube_mem_Z {u : G} (hu : u ∈ D.primaryPart 3) : u ^ 3 ∈ E.Z := by
-  obtain ⟨a, b, rfl⟩ := E.exists_coord hu
-  rw [E.comm.zpow_zpow a b |>.mul_pow, ← zpow_natCast, ← zpow_natCast, ← zpow_mul, ← zpow_mul,
-    E.mem_Z_iff_coord]
-  push_cast
-  exact ⟨dvd_mul_left 3 a, dvd_mul_left 3 b⟩
 
 theorem mem_Z_of_t_pow_fix {u : G} (hu : u ∈ D.primaryPart 3) {m : ℕ} (hm : ¬ 3 ∣ m)
     (hfix : D.t ^ m * u * (D.t ^ m)⁻¹ = u) : u ∈ E.Z := by
@@ -377,10 +366,6 @@ theorem conj_fix_iff {v : G} (hv : v ∈ D.QT) (hvP : v ∉ D.primaryPart 3) {p 
   · intro hz
     exact conj_eq_of_comm (E.tThree_zpow_comm_Z hz i)
 
-theorem cube_mem_Z_of_mem_QT {v : G} (hv : v ∈ D.QT) (hvP : v ∉ D.primaryPart 3) :
-    v ^ 3 ∈ E.Z :=
-  (E.conj_fix_iff hv hvP (D.cube_mem_P_of_mem_QT hv)).mp
-    (conj_eq_of_comm ((Commute.self_pow v 3).eq))
 
 theorem card_QT_eq : Nat.card D.QT = 3 ^ (E.h + 2) := by
   rw [D.card_QT E.three_dvd_q, D.factorization_card_G Nat.prime_three (by norm_num)

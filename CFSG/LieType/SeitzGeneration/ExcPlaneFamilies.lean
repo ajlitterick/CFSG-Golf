@@ -14,8 +14,6 @@ open CFSG.Open CFSG.AGLEmbeddingD2
     ∃ E : Subgroup (MulAut (Cat d)), IsElemAbelian p E ∧ Nat.card E = p ^ 2 ∧
       InnerPlane d p E ∧ NormalizesRSubgroup d E
 
-theorem excParabolicPlane_eq :
-    ExcParabolicPlane = ExcParabolicPlaneOn fun d _ => ¬ IsClassicalIndex d := rfl
 
 theorem ExcParabolicPlaneOn.mono {S T : TauCeti.LieTypeIndex → ℕ → Prop}
     (h : ∀ d p, T d p → S d p) (hS : ExcParabolicPlaneOn S) : ExcParabolicPlaneOn T :=
@@ -114,16 +112,6 @@ theorem excParabolicPlane_of_parts (hF : ExcParabolicPlaneFree) (hR : ExcParabol
     · exact hF.reeF4Five d p hp hp2 hpd hex ⟨hd, h5⟩ hr
   · exact hF.tits d p hp hp2 hpd hex hd hr
 
-theorem ExcParabolicPlane.residuals (h : ExcParabolicPlane) : ExcParabolicPlaneResiduals where
-  g2Three := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.1.not_classical) h
-  trialityOddFive := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.1.not_classical) h
-  trialityThree := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.1.not_classical) h
-  reeF4Three := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.1.not_classical) h
-  f4 := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h
-  e6 := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h
-  twistedE6 := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h
-  e7 := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h
-  e8 := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h
 
 theorem ExcParabolicPlane.free (h : ExcParabolicPlane) : ExcParabolicPlaneFree where
   suzuki := ExcParabolicPlaneOn.mono (fun _ _ hd => hd.not_classical) h

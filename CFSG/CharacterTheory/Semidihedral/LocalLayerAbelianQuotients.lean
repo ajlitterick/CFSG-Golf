@@ -18,9 +18,6 @@ universe u v
 abbrev originalLayerPreimage {G : Type u} [Group G] (t : G) : Subgroup (C t) :=
   ((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)
 
-theorem originalLayerPreimage_eq_kappa_preimage {G : Type u} [Group G] (t : G) :
-    originalLayerPreimage t = (CFSG.generalizedFitting (Gamma t)).comap (kappa t) := by
-  rw [originalLayerPreimage, Subgroup.comap_comap, barKappa_comp_nu]
 
 theorem coordinate_outer_quotient_isMulCommutative (F : Type v) [Field F] [Finite F]
     (hF : IsOddPrimePower (Nat.card F)) :
@@ -208,44 +205,6 @@ theorem original_local_layer_preimage_has_abelian_quotient
   exact ⟨SameParameterRegularity.quotient_isMulCommutative_of_kernel
     (originalLayerPreimage t) phi hker, hker ▸ commutator_le_kernel phi⟩
 
-theorem original_perfect_local_layer_preimage_has_abelian_quotient
-    {G : Type u} [Group G] [Finite G] [Group.IsPerfect G]
-    (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ P : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic P)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma t) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F))) :
-    IsMulCommutative (C t ⧸ originalLayerPreimage t) ∧
-      commutator (C t) ≤ originalLayerPreimage t :=
-  original_local_layer_preimage_has_abelian_quotient n hn S0 f0
-    Principal.RotationCongruence.index_ne_two_of_isPerfect
-    t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel
-
-theorem original_simple_local_layer_preimage_has_abelian_quotient
-    {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]
-    (hGnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ P : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic P)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma t) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F))) :
-    IsMulCommutative (C t ⧸ originalLayerPreimage t) ∧
-      commutator (C t) ≤ originalLayerPreimage t :=
-  original_local_layer_preimage_has_abelian_quotient n hn S0 f0
-    (Principal.index_ne_two_of_isSimpleGroup hGnonab)
-    t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel
 
 theorem original_odd_inverted_subgroup_le_layer_preimage
     {G : Type u} [Group G] [Finite G]

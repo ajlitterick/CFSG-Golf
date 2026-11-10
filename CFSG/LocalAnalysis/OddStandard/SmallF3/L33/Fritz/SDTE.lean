@@ -63,6 +63,5 @@ theorem card_T_eq_two_mul_card_TE : Nat.card A.T = 2 * Nat.card (TE A) := by
     card_map_of_injective (subtype_injective _)
   rw [hTE, ← h, mul_comm]
 
-variable [Finite X]
 
 end CFSG.OddStandard.SmallF3.L33.KD.SDKD

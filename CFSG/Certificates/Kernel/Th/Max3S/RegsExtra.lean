@@ -51,10 +51,6 @@ theorem wf_wb (hA : WfRows A) (hB : WfRows B) : WfRows (wb A B) := by
     (wf_carm hA hB (AltQuot.carmIdx 6))) ((wf_carm hA hB (AltQuot.carmIdx 7)).powRows 2))
     (wf_carm hA hB (AltQuot.carmIdx 8))
 
-theorem wf_commXQ (hA : WfRows A) (hB : WfRows B) : WfRows (commXQ A B) := by
-  unfold commXQ
-  exact wfRows_mulRows (wfRows_mulRows (wfRows_mulRows (wf_x hA hB) (wf_q hA hB 1))
-    (wf_x hA hB)) (wf_q hA hB 1)
 
 theorem wf_ab (hA : WfRows A) (hB : WfRows B) (w : List ℕ) : WfRows (ab A B w) := by
   unfold ab

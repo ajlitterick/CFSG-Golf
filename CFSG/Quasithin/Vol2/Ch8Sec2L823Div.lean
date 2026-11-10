@@ -91,22 +91,6 @@ theorem eq_one_of_cent_cartan_sz_82 {M I V X : Subgroup G} {k : ℕ} (hV : IsEle
 
 variable [Finite G]
 
-theorem nParam_eq_of_isSz_82 {Y : Type} [Group Y] [Finite Y] {k : ℕ} (hY : IsSz k Y)
-    {S : Subgroup Y} (hS : QuasithinUnique.IsSylowTwoOf S ⊤) :
-    E1.nParam (⊤ : Subgroup Y) = k := by
-  have hs : IsSimpleGroup Y := (CFSG.LieType.Simplicity.fam_2b2_simplicity Y 2 k hY).2
-  have hF : CFSG.generalizedFitting Y = ⊤ := generalizedFitting_eq_top_82
-  have hL : IsSz k ↥(CFSG.generalizedFitting Y) := by
-    rw [hF]
-    exact CFSG.SectionRank.suzukiModel_of_mulEquiv Subgroup.topEquiv hY
-  have hFs : IsSimpleGroup ↥(CFSG.generalizedFitting Y) := by
-    rw [hF]
-    exact Subgroup.topEquiv.isSimpleGroup
-  have hT : quasithinIsSylowTwo S := by
-    refine ⟨hS.2.1, ?_⟩
-    have h2 := hS.2.2
-    rwa [show (S.subgroupOf ⊤).index = S.index from Subgroup.relIndex_top_right S] at h2
-  exact Vol2.Ch11.SecE3.nParam_eq_of_isSz hL hFs hT (by rw [hF]; exact top_sup_eq _)
 
 theorem exists_faithful_cartan_82 {T M V : Subgroup G} {h : G} {k : ℕ} (hV : IsElemAbelian 2 V)
     (hk : 2 ≤ k) (hhI : h ∈ ch82I V h)

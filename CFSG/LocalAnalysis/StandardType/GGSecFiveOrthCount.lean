@@ -47,19 +47,6 @@ private lemma ct_oc_polar_e0 {n : ℕ} (a : Fin (n+1) → ZMod 3) (x : Fin (n+1)
   ring
 
 
-private def ct_oc_consLinearEquiv (n : ℕ) :
-    (ZMod 3 × (Fin n → ZMod 3)) ≃ₗ[ZMod 3] (Fin (n+1) → ZMod 3) where
-  toFun p := Fin.cons p.1 p.2
-  invFun x := (x 0, Fin.tail x)
-  left_inv p := by ext <;> simp
-  right_inv x := by rw [← Fin.cons_self_tail x]; simp
-  map_add' p q := by
-    funext i
-    refine Fin.cases ?_ ?_ i <;> simp [Pi.add_apply]
-  map_smul' c p := by
-    funext i
-    refine Fin.cases ?_ ?_ i <;> simp [Pi.smul_apply]
-
 private lemma ct_oc_cons0_tail {n : ℕ} (x : Fin (n+1) → ZMod 3) (hx : x 0 = 0) :
     Fin.cons (0 : ZMod 3) (Fin.tail x) = x := by
   rw [← hx]
@@ -883,7 +870,6 @@ theorem card_stabilizer_five {V : Type} [AddCommGroup V] [Module (ZMod 3) V] [Fi
   by_cases hp : ct_oc_isoPair b
   · left; exact ct_oc_count_four_of_pair b hb hp
   · right; exact ct_oc_count_four_of_not_pair b hb hp
-
 
 
 theorem card_stabilizer_four {V : Type} [AddCommGroup V] [Module (ZMod 3) V]

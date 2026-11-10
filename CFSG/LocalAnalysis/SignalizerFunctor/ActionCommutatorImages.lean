@@ -55,17 +55,6 @@ theorem action_commutator_trivial_iff :
     rw [fixed, inv_mul_cancel]
     exact Subgroup.one_mem _
 
-theorem action_commutator_invariant_of_commuting
-    {SecondActorType : Type secondActorUniverse} [Group SecondActorType]
-    [MulDistribMulAction SecondActorType GroupType]
-    (commuting : ∀ firstActor : ActorType, ∀ secondActor : SecondActorType, ∀ element : GroupType,
-      firstActor • (secondActor • element) = secondActor • (firstActor • element)) :
-    ∀ secondActor : SecondActorType, ∀ element ∈ actionCommutator (ActorType := ActorType) (GroupType := GroupType),
-      secondActor • element ∈ actionCommutator (ActorType := ActorType) := by
-  intro secondActor element member
-  have image_le := action_commutator_map_le (MulDistribMulAction.toMonoidHom GroupType secondActor)
-    (fun firstActor original => (commuting firstActor secondActor original).symm)
-  exact image_le (Subgroup.mem_map_of_mem _ member)
 
 theorem action_commutator_centralizes_fixed_normal (normal : Subgroup GroupType) [normal.Normal]
     (fixed : ∀ actorElement : ActorType, ∀ element ∈ normal, actorElement • element = element) :

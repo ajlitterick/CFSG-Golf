@@ -21,12 +21,6 @@ theorem ne_zero_of_irr (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) : b ≠ 0 := 
   rw [hr]
   linear_combination r ^ 2 * CharTwo.two_eq_zero (R := K)
 
-omit [Finite K] [CharP K 2] in
-theorem ne_zero_of_irr' (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) : c ≠ 0 := by
-  intro h
-  apply hirr 0
-  rw [h]
-  ring
 
 theorem isSimpleGroup_statedOmega_quadMinus_of_two_le {m : ℕ} (hm : 2 ≤ m)
     (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :

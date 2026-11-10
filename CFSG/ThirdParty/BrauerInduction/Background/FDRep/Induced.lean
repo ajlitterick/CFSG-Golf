@@ -135,10 +135,6 @@ variable {k : Type u} [CommRing k] {G : Type u} [Group G]
 noncomputable abbrev ind [Finite G] (H : Subgroup G) (σ : FDRep k H) : FDRep k G :=
   indHom H.subtype σ
 
-/-- Map on subgroup-induced morphisms. -/
-noncomputable abbrev indMap [Finite G] (H : Subgroup G) {A B : FDRep k H} (f : A ⟶ B) :
-    ind H A ⟶ ind H B :=
-  indHomMap H.subtype f
 
 /-- Induction from a subgroup as a functor. -/
 @[simps!]
@@ -151,10 +147,6 @@ lemma forget₂_obj_ind [Finite G] (H : Subgroup G) (σ : FDRep k H) :
       Rep.ind H.subtype (asRep σ) := by
   rfl
 
-/-- Functoriality: Induction preserves isomorphisms in FDRep. -/
-@[expose] noncomputable def indMapIso [Finite G] (H : Subgroup G) {V W : FDRep k H} (e : V ≅ W) :
-    ind H V ≅ ind H W :=
-  (indFunctor H).mapIso e
 
 end SubgroupInduction
 
@@ -261,11 +253,6 @@ noncomputable abbrev coind [Finite G] [IsNoetherianRing k]
     (H : Subgroup G) (σ : FDRep k H) : FDRep k G :=
   coindHom H.subtype σ
 
-/-- Map on subgroup-coinduced morphisms. -/
-noncomputable abbrev coindMap [Finite G] [IsNoetherianRing k]
-    (H : Subgroup G) {A B : FDRep k H} (f : A ⟶ B) :
-    coind H A ⟶ coind H B :=
-  coindHomMap H.subtype f
 
 /-- Coinduction from a subgroup as a functor. -/
 @[simps!]
@@ -280,11 +267,6 @@ lemma forget₂_obj_coind [Finite G] [IsNoetherianRing k]
       Rep.coind H.subtype (asRep σ) := by
   rfl
 
-/-- Functoriality: coinduction preserves isomorphisms in `FDRep`. -/
-@[expose] noncomputable def coindMapIso [Finite G] [IsNoetherianRing k]
-    (H : Subgroup G) {V W : FDRep k H} (e : V ≅ W) :
-    coind H V ≅ coind H W :=
-  (coindFunctor H).mapIso e
 
 end SubgroupCoinduction
 
@@ -410,13 +392,6 @@ lemma indResHomEquiv_symm_id
       FDRep.indResCounit I ρ := by
   rfl
 
-/-- The Hom-set equivalence for Frobenius reciprocity on subgroups. -/
-noncomputable def indResEquiv
-    (H : Subgroup G)
-    (σ : FDRep k H)
-    (ρ : FDRep k G) :
-    (FDRep.ind H σ ⟶ ρ) ≃ₗ[k] (σ ⟶ FDRep.res ρ H) :=
-  indHomComapEquiv H.subtype σ ρ
 
 @[simp]
 lemma forget₂_map_indResHomEquiv
@@ -448,218 +423,21 @@ end SubgroupFrobeniusReciprocity
 
 section top
 
-variable {k : Type u} [CommRing k]
-variable {G : Type v} [Group G] [Finite G]
-
-/--
-The equivalence between representations of the top subgroup and representations
-of the group, viewed as an adjunction.
--/
-@[expose] noncomputable def ofTopResAdjunction :
-    FDRep.ofTopFunctor (k:= k) (G := G) ⊣
-      FDRep.resFunctor (⊤ : Subgroup G) :=
-  (FDRep.ofTopEquivalence (G := G)).toAdjunction
 
 end top
 
 section transitivity
 
-variable {k : Type u} [CommRing k]
-variable {G : Type u} [Group G] [Finite G]
-
-/--
-Transitivity of subgroup induction.
-
-If `H ≤ I ≤ G`, then induction from `H` to `I` followed by induction from `I`
-to `G` is isomorphic to induction from the image of `H` in `G`, after
-transporting the representation along the canonical isomorphism
-`H ≃* H.map I.subtype`.
-
-This proof works at the `Rep` level and then lifts the resulting isomorphism
-through the fully faithful forgetful functor `FDRep k G ⥤ Rep k G`.
--/
-@[expose] noncomputable def indTrans
-    {I : Subgroup G} {H : Subgroup I}
-    (V : FDRep k H) :
-    FDRep.ind (G := G) I
-        (FDRep.ind (G := I) H V)
-      ≅
-    FDRep.ind (G := G) (H.map I.subtype)
-      (FDRep.transport
-        (H.equivMapOfInjective I.subtype Subtype.coe_injective) V) := by
-
-  let H' : Subgroup G := H.map I.subtype
-  let e : H ≃* H' := H.equivMapOfInjective I.subtype Subtype.coe_injective
-
-  let U_H : FDRep k H ⥤ Rep k H := forget₂ (FDRep k H) (Rep k H)
-  let U_I : FDRep k I ⥤ Rep k I := forget₂ (FDRep k I) (Rep k I)
-  let U_G : FDRep k G ⥤ Rep k G := forget₂ (FDRep k G) (Rep k G)
-
-  let L1 : Rep k I ⥤ Rep k G := Rep.indFunctor k I.subtype
-  let L2 : Rep k H ⥤ Rep k I := Rep.indFunctor k H.subtype
-  let L3 : Rep k H' ⥤ Rep k G := Rep.indFunctor k H'.subtype
-
-  let T_trans : Rep k H ⥤ Rep k H' := Rep.resFunctor e.symm.toMonoidHom
-  let T_inv : Rep k H' ⥤ Rep k H := Rep.resFunctor e.toMonoidHom
-
-  let R1 : Rep k G ⥤ Rep k I := Rep.resFunctor I.subtype
-  let R2 : Rep k I ⥤ Rep k H := Rep.resFunctor H.subtype
-  let R3 : Rep k G ⥤ Rep k H' := Rep.resFunctor H'.subtype
-  let iso_R : (R1 ⋙ R2) ≅ (R3 ⋙ T_inv) := Iso.refl _
-
-  let adj_T : T_trans ⊣ T_inv :=
-    Adjunction.mkOfHomEquiv
-      { homEquiv := fun X Y =>
-          { toFun := fun f =>
-              Rep.ofHom
-                { toLinearMap := f.hom
-                  isIntertwining' := by
-                    intro h
-                    ext x
-                    have hf := Rep.hom_comm_apply f (e h) x
-                    change f.hom ((X.ρ h) x) = Y.ρ (e h) (f.hom x)
-                    have hact : ((T_trans.obj X).ρ (e h)) x = (X.ρ h) x := by
-                      change (X.ρ (e.symm (e h))) x = (X.ρ h) x
-                      simp only [MulEquiv.symm_apply_apply]
-                    rw [← hact]
-                    exact hf }
-
-            invFun := fun g =>
-              Rep.ofHom
-                { toLinearMap := g.hom
-                  isIntertwining' := by
-                    intro h'
-                    ext x
-                    have hg := Rep.hom_comm_apply g (e.symm h') x
-                    change g.hom ((X.ρ (e.symm h')) x) = Y.ρ h' (g.hom x)
-                    have hact :
-                        ((T_inv.obj Y).ρ (e.symm h')) (g.hom x) =
-                          (Y.ρ h') (g.hom x) := by
-                      change (Y.ρ (e (e.symm h'))) (g.hom x) = (Y.ρ h') (g.hom x)
-                      simp only [MulEquiv.apply_symm_apply]
-                    rw [← hact]
-                    exact hg }
-            left_inv := by intro f; apply Rep.hom_ext; rfl
-            right_inv := by intro f; apply Rep.hom_ext; rfl } }
-
-  let adj₁ : L2 ⋙ L1 ⊣ R1 ⋙ R2 :=
-    (Rep.indResAdjunction k H.subtype).comp (Rep.indResAdjunction k I.subtype)
-  let adjIndH' : L3 ⊣ R3 := Rep.indResAdjunction k H'.subtype
-  let adj₂pre : T_trans ⋙ L3 ⊣ R3 ⋙ T_inv := adj_T.comp adjIndH'
-  let adj₂ := Adjunction.ofNatIsoRight adj₂pre iso_R.symm
-  let isoRep := (Adjunction.leftAdjointUniq adj₁ adj₂).app (U_H.obj V)
-
-  exact isoOfAsRepIso isoRep
 
 end transitivity
 
 section top
 
-variable {k : Type u} [CommRing k]
-variable {G : Type u} [Group G] [Finite G]
 
 section top
 
-variable {k : Type u} [CommRing k]
-variable {G : Type u} [Group G] [Finite G]
-
-@[expose] def topSubgroupMulEquiv (G : Type u) [Group G] :
-    (⊤ : Subgroup G) ≃* G where
-  toFun x := x
-  invFun g := ⟨g, by simp⟩
-  left_inv x := by
-    ext
-    rfl
-  right_inv g := rfl
-  map_mul' x y := rfl
-
-/--
-Induction from the top subgroup agrees with transporting a representation of
-`⊤` to a representation of `G`.
--/
-@[expose] noncomputable def indTopIsoOfTop
-    (V : FDRep k (⊤ : Subgroup G)) :
-    FDRep.ind (k := k) (G := G) (⊤ : Subgroup G) V ≅
-      FDRep.ofTop (G := G) (k := k) V := by
-  let T : Subgroup G := ⊤
-  let e : T ≃* G := topSubgroupMulEquiv G
-
-  let U_T : FDRep k T ⥤ Rep k T :=
-    forget₂ (FDRep k T) (Rep k T)
-  let U_G : FDRep k G ⥤ Rep k G :=
-    forget₂ (FDRep k G) (Rep k G)
-
-  let L_ind : Rep k T ⥤ Rep k G :=
-    Rep.indFunctor k T.subtype
-  let R_ind : Rep k G ⥤ Rep k T :=
-    Rep.resFunctor T.subtype
-
-  let T_top : Rep k T ⥤ Rep k G :=
-    Rep.resFunctor e.symm.toMonoidHom
-  let T_inv : Rep k G ⥤ Rep k T :=
-    Rep.resFunctor e.toMonoidHom
-
-  let iso_R : R_ind ≅ T_inv := Iso.refl _
-
-  let adj_T : T_top ⊣ T_inv :=
-    Adjunction.mkOfHomEquiv
-      { homEquiv := fun X Y =>
-          { toFun := fun f =>
-              Rep.ofHom
-                { toLinearMap := f.hom
-                  isIntertwining' := by
-                    intro h
-                    ext x
-                    have hf := Rep.hom_comm_apply f (e h) x
-                    change f.hom ((X.ρ h) x) = Y.ρ (e h) (f.hom x)
-                    have hact :
-                        ((T_top.obj X).ρ (e h)) x = (X.ρ h) x := by
-                      change (X.ρ (e.symm (e h))) x = (X.ρ h) x
-                      simp only [MulEquiv.symm_apply_apply]
-                    rw [← hact]
-                    exact hf }
-
-            invFun := fun g =>
-              Rep.ofHom
-                { toLinearMap := g.hom
-                  isIntertwining' := by
-                    intro h'
-                    ext x
-                    have hg := Rep.hom_comm_apply g (e.symm h') x
-                    change g.hom ((X.ρ (e.symm h')) x) = Y.ρ h' (g.hom x)
-                    have hact :
-                        ((T_inv.obj Y).ρ (e.symm h')) (g.hom x) =
-                          (Y.ρ h') (g.hom x) := by
-                      change
-                        (Y.ρ (e (e.symm h'))) (g.hom x) =
-                          (Y.ρ h') (g.hom x)
-                      simp only [MulEquiv.apply_symm_apply]
-                    rw [← hact]
-                    exact hg }
-
-            left_inv := by
-              intro f
-              apply Rep.hom_ext
-              rfl
-
-            right_inv := by
-              intro f
-              apply Rep.hom_ext
-              rfl } }
-
-  let adj_ind : L_ind ⊣ R_ind :=
-    Rep.indResAdjunction k T.subtype
-
-  let adj_top : T_top ⊣ R_ind :=
-    Adjunction.ofNatIsoRight adj_T iso_R.symm
-
-  let isoRep :=
-    (Adjunction.leftAdjointUniq adj_ind adj_top).app (U_T.obj V)
-
-  exact isoOfAsRepIso isoRep
 
 end top
-
 
 
 end top

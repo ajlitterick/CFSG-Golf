@@ -321,22 +321,6 @@ theorem exists_orth_pair {P : Submodule K (Fin m → K)} (hP : finrank K P ≤ 2
     rw [ht, finrank_bot] at hfin
     omega
 
-theorem ncard_isoPts_of_degenerate_plane {P : Submodule K (Fin m → K)} (hP : finrank K P = 2)
-    (hdeg : ¬ Nondeg σ P) (hne : ∃ v ∈ P, herm σ v v ≠ 0) : (isoPts σ P).ncard = 1 := by
-  obtain ⟨s, hsP, hs⟩ := hne
-  obtain ⟨t, hst, hPeq, ht⟩ := exists_orth_pair hσ hP.le hsP hs
-  have ht0 := ht hP
-  have hβ : herm σ t t = 0 := by
-    by_contra h
-    rw [hPeq] at hdeg
-    exact hdeg (Nondeg.sup_of_orth hσ (nondeg_span_singleton hs) (nondeg_span_singleton h)
-      fun u hu w hw => by
-        obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.mp hu
-        obtain ⟨d, rfl⟩ := Submodule.mem_span_singleton.mp hw
-        rw [herm_smul_left, herm_smul_right, hst, mul_zero, mul_zero])
-  subst hPeq
-  rw [isoPts_pair_of_eq_zero hσ hs hst ht0 hβ]
-  simp
 
 section Count
 

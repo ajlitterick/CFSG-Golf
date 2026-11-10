@@ -12,52 +12,6 @@ open QuadraticMap CFSG.ClassicalGroups.Orthogonal Module
 
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V] {Q : QuadraticForm K V}
 
-theorem quadratic_scalar_isometries (hQ : ∃ v : V, Q v ≠ 0) (c : Kˣ) :
-    (∀ v : V, Q ((c : K) • v) = Q v) ↔ (c : K) ^ 2 = 1 := by
-  obtain ⟨v₀, hv₀⟩ := hQ
-  constructor
-  · intro h
-    have h1 := h v₀
-    rw [map_smul_eq_sq] at h1
-    have h2 : ((c : K) ^ 2 - 1) * Q v₀ = 0 := by rw [sub_mul, h1, one_mul, sub_self]
-    exact sub_eq_zero.1 ((mul_eq_zero.1 h2).resolve_right hv₀)
-  · intro h v
-    rw [map_smul_eq_sq, h, one_mul]
-
-theorem orthogonal_geometry_singular_vectors_span {e f : V} (he : Q e = 0) (hf : Q f = 0)
-    (hef : polar Q e f = 1) :
-    (∀ w : V, polar Q w e = 0 → polar Q w f = 0 →
-      e + w - Q w • f ≠ 0 ∧ Q (e + w - Q w • f) = 0 ∧ w = (e + w - Q w • f) - e + Q w • f) ∧
-    Submodule.span K {v : V | Q v = 0} = ⊤ := by
-  have hfe : polar Q f e = 1 := by rw [polar_comm, hef]
-  have hff : polar Q f f = 0 := polar_self_eq_zero hf
-  have hkey : ∀ w : V, polar Q w e = 0 → polar Q w f = 0 →
-      e + w - Q w • f ≠ 0 ∧ Q (e + w - Q w • f) = 0 ∧ w = (e + w - Q w • f) - e + Q w • f := by
-    intro w hwe hwf
-    refine ⟨fun h0 => ?_, ?_, by abel⟩
-    · have h1 := congrArg (polar Q f) h0
-      rw [polar_sub_right, polar_add_right, polar_smul_right_eq, hfe, hff, polar_comm Q f w,
-        hwf, polar_zero_right] at h1
-      simp at h1
-    · have hew : polar Q e w = 0 := by rw [polar_comm]; exact hwe
-      rw [sub_eq_add_neg, ← neg_smul, QuadraticMap.map_add Q, QuadraticMap.map_add Q,
-        map_smul_eq_sq, he, hf]
-      simp only [polar_add_left, polar_smul_right_eq, hef, hew, hwf]
-      ring
-  refine ⟨hkey, eq_top_iff.2 fun x _ => ?_⟩
-  set S := Submodule.span K {v : V | Q v = 0}
-  have heS : e ∈ S := Submodule.subset_span he
-  have hfS : f ∈ S := Submodule.subset_span hf
-  let P : HypPair Q := ⟨e, f, he, hf, hef⟩
-  have hp := HypPair.mem_perp.1 (P.proj_mem_perp x)
-  have hwe : polar Q (P.proj x) e = 0 := by rw [polar_comm]; exact hp.1
-  have hwf : polar Q (P.proj x) f = 0 := by rw [polar_comm]; exact hp.2
-  obtain ⟨-, hsing, hw⟩ := hkey (P.proj x) hwe hwf
-  have hwS : P.proj x ∈ S := by
-    rw [hw]
-    exact S.add_mem (S.sub_mem (Submodule.subset_span hsing) heS) (S.smul_mem _ hfS)
-  rw [P.eq_add_proj x]
-  exact S.add_mem (S.add_mem (S.smul_mem _ heS) (S.smul_mem _ hfS)) hwS
 
 theorem map_span_singleton_eq_iff {g : V ≃ₗ[K] V} {v : V} (hv : v ≠ 0) :
     (Submodule.span K {v}).map (g : V →ₗ[K] V) = Submodule.span K {v} ↔

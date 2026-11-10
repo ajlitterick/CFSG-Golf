@@ -31,15 +31,6 @@ variable (K p f) in
     exact blockEmb3_comp_embSUid_zero n i h
   comm i j hij A B := blockEmb2_comm n i j hij A B
 
-theorem standardFamily_extends (n : ℕ) :
-    ∃ ψ : Su K p f (n + 1) →* Su K p f (n + 1),
-      (∀ i : Fin n, ψ.comp (blockEmb2 K p f n i) = (standardFamily K p f n).ι i) ∧
-      ∀ (i : Fin n) (h : (i : ℕ) + 1 < n),
-        ψ.comp (blockEmb3 K p f n i h) = (standardFamily K p f n).θ i :=
-  ⟨MonoidHom.id _, fun _ => rfl, fun i h => by
-    change _ = if h : (i : ℕ) + 1 < n then blockEmb3 K p f n i h else 1
-    rw [dite_eq_left h]
-    rfl⟩
 
 omit [Fact p.Prime] [CharP K p] in
 theorem three_le_pow_of_card (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) : 3 ≤ p ^ f := by
@@ -108,10 +99,6 @@ theorem range_blockEmb3 (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) (n : 
   rw [MonoidHom.range_eq_map, ← B12_sup_B23 hK hq, Subgroup.map_sup, map_B12_blockEmb3,
     map_B23_blockEmb3]
 
-theorem standardW_succ (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) (n : ℕ) (i : Fin n)
-    (h : (i : ℕ) + 1 < n) :
-    standardW K p f n i ⟨i + 1, h⟩ = (blockEmb3 K p f n i h).range :=
-  (range_blockEmb3 hK hq n i h).symm
 
 theorem weakPhanA_standard (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) (n : ℕ) :
     WeakPhanA K p f n (standardU K p f n) (standardW K p f n) where
@@ -144,49 +131,5 @@ theorem sup_range_blockEmb2_three (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f �
   · exact le_sup_of_le_left (le_sup_of_le_right le_rfl)
   · exact le_sup_of_le_right le_rfl
 
-theorem adjacentTripleFour_standard (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) (n : ℕ) :
-    AdjacentTripleFour K p f (standardW K p f n) := by
-  intro i j k hj hk
-  have hi1 : (i : ℕ) + 1 < n := by have := j.isLt; omega
-  have hi2 : (i : ℕ) + 2 < n := by have := k.isLt; omega
-  obtain rfl : j = ⟨i + 1, hi1⟩ := Fin.ext hj
-  obtain rfl : k = ⟨i + 2, hi2⟩ := Fin.ext (by simp only at hk; omega)
-  have hi4 : (i : ℕ) + 4 ≤ n + 1 := by omega
-  refine ⟨blockEmb K p f (n + 1) 4 i hi4, ?_, ?_⟩
-  · have h3 : (blockEmb2 K p f 3 0).range ⊔ (blockEmb2 K p f 3 1).range ⊔
-        (blockEmb2 K p f 3 2).range = (⊤ : Subgroup (Su K p f 4)) :=
-      sup_range_blockEmb2_three hK hq
-    have e0 : (blockEmb K p f (n + 1) 4 i hi4).comp (blockEmb2 K p f 3 0) =
-        blockEmb2 K p f n i := blockEmb_comp hi4 (by omega)
-    have e1 : (blockEmb K p f (n + 1) 4 i hi4).comp (blockEmb2 K p f 3 1) =
-        blockEmb2 K p f n ⟨i + 1, hi1⟩ := blockEmb_comp hi4 (by omega)
-    have e2 : (blockEmb K p f (n + 1) 4 i hi4).comp (blockEmb2 K p f 3 2) =
-        blockEmb2 K p f n ⟨i + 2, hi2⟩ := blockEmb_comp hi4 (by omega)
-    rw [MonoidHom.range_eq_map, ← h3, Subgroup.map_sup, Subgroup.map_sup, ← MonoidHom.range_comp,
-      ← MonoidHom.range_comp, ← MonoidHom.range_comp, e0, e1, e2]
-    change _ = (standardU K p f n i ⊔ standardU K p f n ⟨i + 1, hi1⟩) ⊔
-      (standardU K p f n ⟨i + 1, hi1⟩ ⊔ standardU K p f n ⟨i + 2, hi2⟩)
-    rw [← sup_assoc (standardU K p f n i ⊔ standardU K p f n ⟨i + 1, hi1⟩), sup_assoc
-      (standardU K p f n i), sup_idem]
-    rfl
-  · rw [(MonoidHom.ker_eq_bot_iff _).mpr (blockEmb_injective hi4)]
-    exact bot_le
-
-theorem standard_hypotheses (hK : Nat.card K = (p ^ f) ^ 2) {n : ℕ}
-    (hq : 5 ≤ p ^ f ∨ (p ^ f = 3 ∧ 4 ≤ n)) :
-    WeakPhanA K p f n (standardU K p f n) (standardW K p f n) ∧
-      (5 ≤ p ^ f ∨ (p ^ f = 3 ∧ 4 ≤ n ∧ AdjacentTripleFour K p f (standardW K p f n))) := by
-  have hq2 : p ^ f ≠ 2 := by omega
-  refine ⟨weakPhanA_standard hK hq2 n, ?_⟩
-  rcases hq with h | ⟨h3, h4⟩
-  · exact Or.inl h
-  · exact Or.inr ⟨h3, h4, adjacentTripleFour_standard hK hq2 n⟩
-
-theorem recognition_applies_to_standard (h : WeakPhanUnitaryRecognitionOdd)
-    (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2) {n : ℕ} (hn : 3 ≤ n)
-    (hq : 5 ≤ p ^ f ∨ (p ^ f = 3 ∧ 4 ≤ n)) :
-    ∃ θ : Su K p f (n + 1) →* Su K p f (n + 1), Function.Surjective θ ∧
-      θ.ker ≤ Subgroup.center (Su K p f (n + 1)) :=
-  h K p f hK hp hn (standard_hypotheses hK hq).1 (standard_hypotheses hK hq).2
 
 end CFSG.ClassicalInvolution.Phan

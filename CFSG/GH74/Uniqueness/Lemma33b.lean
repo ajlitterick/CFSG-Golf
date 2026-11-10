@@ -87,35 +87,6 @@ theorem twoRank_le_one_of_isolated (hZ : IsInvariantInvolutionSet Z)
   rw [← hq]
   exact hle
 
-omit [Finite X] in
-theorem eq_of_isZStarIn_commute (hZ : IsInvariantInvolutionSet Z) {z y : X} (hz : z ∈ Z)
-    (hy : y ∈ Z) (hyz : y * z = z * y) {N : Subgroup X} (hNodd : Odd (Nat.card N))
-    (hn : y * z⁻¹ ∈ N) : y = z := by
-  have hz2 := hZ.mul_self_eq_one hz
-  have hy2 := hZ.mul_self_eq_one hy
-  have hzi : z⁻¹ = z := inv_eq_of_mul_eq_one_right hz2
-  rw [hzi] at hn
-  have hn2 : (y * z) * (y * z) = 1 := by
-    calc (y * z) * (y * z) = y * (z * y) * z := by group
-      _ = y * (y * z) * z := by rw [hyz]
-      _ = (y * y) * (z * z) := by group
-      _ = 1 := by rw [hy2, hz2, one_mul]
-  have hord : orderOf (⟨y * z, hn⟩ : N) ∣ 2 := by
-    apply orderOf_dvd_of_pow_eq_one
-    apply Subtype.ext
-    simpa [pow_two] using hn2
-  have hodd : Odd (orderOf (⟨y * z, hn⟩ : N)) :=
-    Odd.of_dvd_nat hNodd (orderOf_dvd_natCard _)
-  have h1 : orderOf (⟨y * z, hn⟩ : N) = 1 := by
-    rcases (Nat.dvd_prime Nat.prime_two).mp hord with h | h
-    · exact h
-    · rw [h] at hodd
-      exact absurd hodd (by decide)
-  have : (⟨y * z, hn⟩ : N) = 1 := orderOf_eq_one_iff.mp h1
-  have hyz1 : y * z = 1 := congrArg Subtype.val this
-  calc y = y * (z * z) := by rw [hz2, mul_one]
-    _ = (y * z) * z := by rw [mul_assoc]
-    _ = z := by rw [hyz1, one_mul]
 
 end Isolated
 
@@ -133,17 +104,6 @@ theorem IsProductDisconnected.exists_commuting_ne (hZ : IsInvariantInvolutionSet
     (fun y hy hyz => by_contra fun hne => hno y hy hne hyz)
   omega
 
-theorem IsProductDisconnected.not_isZStarIn (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) (hgen : Subgroup.closure Z = ⊤)
-    (hrank : 2 ≤ Open.twoRank X) {z : X} (hz : z ∈ Z) (hzM : z ∈ M) : ¬ IsZStarIn M z := by
-  rintro ⟨-, N, -, -, hNodd, hN⟩
-  obtain ⟨y, hy, hne, hyz⟩ := h.exists_commuting_ne hZ hgen hrank hz
-  have hyM : y ∈ M := h.centralizer_le_of_mem hz hzM
-    (Subgroup.mem_centralizer_singleton_iff.mpr hyz)
-  obtain ⟨m, hm, hmy⟩ := h.exists_conj_mem hZ hz hzM hy hyM
-  have h1 := hN m⁻¹ (M.inv_mem hm)
-  rw [inv_inv, hmy] at h1
-  exact hne (eq_of_isZStarIn_commute hZ hz hy hyz hNodd h1)
 
 theorem IsProductDisconnected.two_le_pRank_zHull (hZ : IsInvariantInvolutionSet Z)
     (h : IsProductDisconnected Z M) (hgen : Subgroup.closure Z = ⊤)

@@ -18,8 +18,6 @@ theorem glList_closed : glList.length = 168 ∧
 
 theorem glList_length : glList.length = 168 := glList_closed.1
 
-theorem idxOf_getD {k : Nat} (hk : k < 168) : glList.idxOf (glList.getD k linId) = k :=
-  Nat.eq_of_beq_eq_true (allN_of glList_closed.2.2 hk)
 
 theorem mono_of_step {g : Nat → Nat} {n : Nat} (h : ∀ k, k + 1 < n → g k < g (k + 1)) :
     ∀ b, b < n → ∀ a, a < b → g a < g b := by

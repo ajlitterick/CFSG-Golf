@@ -115,10 +115,6 @@ theorem psiN_eq_zero_iff (n : N1.subgroupOf P1) :
     · exact Or.inl (Subtype.ext h1)
     · exact Or.inr (Subtype.ext h1)
 
-@[expose] noncomputable def psiNHom : N1.subgroupOf P1 →* Multiplicative sigmaPerp where
-  toFun n := Multiplicative.ofAdd (psiN n)
-  map_one' := by rw [psiN_one]; rfl
-  map_mul' n m := by rw [psiN_mul]; rfl
 
 @[expose] noncomputable def incN : N1.subgroupOf P1 →* commutator P1 :=
   Subgroup.inclusion N1P_le_commutator

@@ -70,7 +70,6 @@ theorem mix25_all : Mix25 p f := by
         (g := d⁻¹ * x) (by group) hb1 hb1a hbN
   · exact Or.inr (fieldStrong25N G Ω K K' W S R R' z t u₁ u₂ hyp a haS ha2 hF' hp hq haK e hχ)
 
-theorem mix25_nine (_h9 : p ^ f = 9) : Mix25 p f := mix25_all
 
 end Main
 

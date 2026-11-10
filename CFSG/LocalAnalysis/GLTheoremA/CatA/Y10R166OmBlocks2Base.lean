@@ -27,7 +27,6 @@ variable {K : Type} [Field K] [CharP K 2]
 
 @[expose] def zeroIdx (n : ℕ) (hn : 4 ≤ n) : Fin n := ⟨0, by omega⟩
 
-@[expose] def twoIdx (n : ℕ) (hn : 4 ≤ n) : Fin n := ⟨2, by omega⟩
 
 @[expose] def oneIdx (n : ℕ) (hn : 4 ≤ n) : Fin n := ⟨1, by omega⟩
 
@@ -35,50 +34,6 @@ variable {K : Type} [Field K] [CharP K 2]
     IsHypFrame (coordinateQuadPlus n K) (plusFrameLeft n) (plusFrameRight n) :=
   isHypFrame_plus K n
 
-@[expose] noncomputable def rootSpace (n : ℕ) (hn : 4 ≤ n) : Submodule K (Fin (2 * n) → K) where
-  carrier := {y | y (plusFrameLeft n (zeroIdx n hn)) = 0 ∧
-    y (plusFrameRight n (zeroIdx n hn)) = 0 ∧
-    y (plusFrameRight n (twoIdx n hn)) = 0}
-  zero_mem' := by simp
-  add_mem' := by
-    rintro y z ⟨h1, h2, h3⟩ ⟨g1, g2, g3⟩
-    exact ⟨by simp [h1, g1], by simp [h2, g2], by simp [h3, g3]⟩
-  smul_mem' := by
-    rintro c x ⟨h1, h2, h3⟩
-    exact ⟨by simp [Pi.smul_apply, h1], by simp [Pi.smul_apply, h2],
-      by simp [Pi.smul_apply, h3]⟩
-
-theorem polar_frameE_rootSpace (n : ℕ) (hn : 4 ≤ n) (y : rootSpace (K := K) n hn) :
-    polar (coordinateQuadPlus n K) (frameE n (twoIdx n hn))
-      ((y : rootSpace n hn) : Fin (2 * n) → K) = 0 := by
-  have h := isHypCoord_coordinateQuadPlus (K := K) (twoIdx n hn)
-  simp only [frameE, plusFrameLeft]
-  rw [h.polar_left]
-  obtain ⟨-, -, h3⟩ := y.2
-  exact h3
-
-@[expose] noncomputable def rootElt (n : ℕ) (hn : 4 ≤ n)
-    (y : rootSpace (K := K) n hn) : orthDerived (coordinateQuadPlus n K) :=
-  ⟨eichler (coordinateQuadPlus n K) (frameE n (twoIdx n hn))
-      ((y : rootSpace n hn) : Fin (2 * n) → K),
-    eichler_mem_orthDerived_plus (K := K) (n := n) (by omega) (frameE n (twoIdx n hn))
-      ((y : rootSpace n hn) : Fin (2 * n) → K)⟩
-
-@[expose] noncomputable def rootGroupHom (n : ℕ) (hn : 4 ≤ n) :
-    Multiplicative (rootSpace (K := K) n hn) →*
-      matrixProjectiveDerived (coordinateQuadPlus n K) where
-  toFun y := projHom _ (rootElt n hn y)
-  map_one' := by
-    have h1 : rootElt n hn (1 : Multiplicative (rootSpace (K := K) n hn)) = 1 := by
-      apply Subtype.ext
-      exact eichler_zero_right (coordinateQuadPlus n K) (frameE n (twoIdx n hn))
-    rw [h1, map_one]
-  map_mul' y z := by
-    have h1 : rootElt n hn (y * z) = rootElt n hn y * rootElt n hn z := by
-      apply Subtype.ext
-      exact (eichler_mul (polar_frameE_rootSpace (K := K) n hn y)
-        (polar_frameE_rootSpace (K := K) n hn z)).symm
-    rw [h1, map_mul]
 
 section QTorsion
 

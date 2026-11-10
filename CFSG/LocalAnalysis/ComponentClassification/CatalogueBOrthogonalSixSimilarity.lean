@@ -23,13 +23,6 @@ variable {K : Type u} [Field K]
   let : Fact (¬ IsSquare ((-(w 1) / w 0 : Kˣ) : K)) := ⟨binary_tail_nonsquare w ha⟩
   (planesBinaryCoordinates (w 0) (-(w 1) / w 0)).trans (sixCoordinates _ h2)
 
-theorem planesBinaryToSix_val (w : Fin 2 → Kˣ)
-    (ha : (weightedSumSquares K w).Anisotropic) (h2 : (2 : K) ≠ 0)
-    (x : (Fin 2 → K × K) × (Fin 2 → K)) :
-    (planesBinaryToSix w ha h2 x).val =
-      sixCoordinateMatrix ((-(w 1) / w 0 : Kˣ) : K)
-        ![(x.1 0).1, -(x.1 0).2 / (w 0 : K), x.2 0, x.2 1,
-          (x.1 1).1, -(x.1 1).2 / ((w 0 : K) * ((-(w 1) / w 0 : Kˣ) : K))] := rfl
 
 theorem planesBinaryToSix_form (w : Fin 2 → Kˣ)
     (ha : (weightedSumSquares K w).Anisotropic) (h2 : (2 : K) ≠ 0)

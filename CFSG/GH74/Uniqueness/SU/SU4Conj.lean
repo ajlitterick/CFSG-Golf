@@ -191,12 +191,9 @@ theorem mem_compSet_conj {g : G} {X Y U E : Subgroup G} (h : conjSub g X = Y) :
     have := mem_compSet_conj_of_le h' hE
     simpa [conjSub_inv_conjSub] using this
 
-theorem isFour_of_mem_compSet_left {X U E : Subgroup G} (h : E ∈ compSet X U) : IsFour X U := h.1
 
 theorem isFour_of_mem_compSet {X U E : Subgroup G} (h : E ∈ compSet X U) : IsFour X E := h.2.1
 
-theorem mem_compSet_self {X U : Subgroup G} (hU : IsFour X U) : U ∈ compSet X U :=
-  ⟨hU, hU, SimpleGraph.Reachable.refl _⟩
 
 theorem compSet_symm {X U E : Subgroup G} (h : E ∈ compSet X U) : U ∈ compSet X E :=
   ⟨h.2.1, h.1, h.2.2.symm⟩

@@ -96,10 +96,6 @@ theorem lead_smul {c : GF8} (hc : c ≠ 0) {w : Fin 8 → GF8} (hw : w ≠ 0) :
 theorem normV_ne_zero {w : Fin 8 → GF8} (hw : w ≠ 0) : normV w ≠ 0 :=
   smul_ne_zero (inv_ne_zero (lead_ne_zero hw)) hw
 
-theorem lead_normV {w : Fin 8 → GF8} (hw : w ≠ 0) : lead (normV w) = 1 := by
-  unfold normV
-  rw [lead_smul (inv_ne_zero (lead_ne_zero hw)) hw]
-  exact inv_mul_cancel₀ (lead_ne_zero hw)
 
 theorem ofNat'_mulNat {a b : ℕ} (ha : a < 8) (hb : b < 8) :
     GF8.ofNat' (GF8.mulNat a b) = GF8.ofNat' a * GF8.ofNat' b := by

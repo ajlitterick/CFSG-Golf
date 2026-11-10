@@ -86,15 +86,5 @@ theorem mutually_normalizing_abelian_product_derived
   rw [map_commutator_eq, parent.subtype_range, Subgroup.map_subgroupOf_eq_of_le second_le] at second_bound
   exact le_inf first_bound second_bound
 
-theorem mutually_normalizing_abelian_product_class_two
-    (first second : Subgroup GroupType)
-    (first_abelian : IsMulCommutative first) (second_abelian : IsMulCommutative second)
-    (first_normalizes : first ≤ Subgroup.normalizer (second : Set GroupType))
-    (second_normalizes : second ≤ Subgroup.normalizer (first : Set GroupType)) :
-    ⁅first ⊔ second, first ⊔ second⁆ ≤
-      Subgroup.centralizer ((first ⊔ second : Subgroup GroupType) : Set GroupType) :=
-  (mutually_normalizing_abelian_product_derived first second first_abelian second_abelian
-    first_normalizes second_normalizes).trans
-      (mutually_normalizing_abelian_intersection_central first second first_abelian second_abelian)
 
 end CFSG.SignalizerFunctor.Helpers

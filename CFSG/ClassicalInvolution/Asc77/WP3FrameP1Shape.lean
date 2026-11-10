@@ -18,43 +18,6 @@ section Shape
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {z : G}
 
-@[expose] def ChainShapeData {X : Type} [Group X] {Φ : Set (Subgroup X)}
-    (D : LieSystemData p f X Φ) : Prop :=
-  D.card = 2 ∧ ∃ i₀ i₁ : Fin D.card, i₀ ≠ i₁ ∧ D.tag i₀ = .PSL ∧ D.rank i₀ = 2 ∧
-    (D.tag i₁ = .PSL ∨ D.tag i₁ = .PSU) ∧ (D.rank i₁ = 3 ∨ D.rank i₁ = 4)
-
-theorem chainShape_iff :
-    ChainShape p f Ω z ↔ ∃ D : LocalLieSystemAt p f (exactFamily Ω z) z, ChainShapeData D :=
-  Iff.rfl
-
-theorem chainShape_of_local (hex : ExactMembers Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z)
-    (hs : ∃ D : LocalLieSystemAt p f Ω z, ChainShapeData D) : ChainShape p f Ω z := by
-  have h : centralizingMembers (exactFamily Ω z) {z} = centralizingMembers Ω {z} :=
-    (centMembers_exactFamily Ω z).trans (exactFamily_eq_centMembers_of_exact hex hcls)
-  have key : ∀ S₁ S₂ : Set (Subgroup G), S₁ = S₂ →
-      (∃ D : LieSystemData p f (↥(⨆ L ∈ S₁, L) ⧸ classicalInvolutionOddCore ↥(⨆ L ∈ S₁, L))
-        (oddQuotientFamily (restrictFamily S₁ (⨆ L ∈ S₁, L))), ChainShapeData D) →
-      ∃ D : LieSystemData p f (↥(⨆ L ∈ S₂, L) ⧸ classicalInvolutionOddCore ↥(⨆ L ∈ S₂, L))
-        (oddQuotientFamily (restrictFamily S₂ (⨆ L ∈ S₂, L))), ChainShapeData D := by
-    intro S₁ S₂ h
-    subst h
-    exact id
-  exact key _ _ h.symm hs
-
-theorem chainShape_of_localShapeA (hex : ExactMembers Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) (h : LocalShapeA p f 2 Ω z) :
-    ChainShape p f Ω z := by
-  obtain ⟨D, hcard, i₀, i₁, hne, ht₀, hr₀, ht₁, hr₁⟩ := h
-  exact chainShape_of_local hex hcls ⟨D, hcard, i₀, i₁, hne, ht₀, hr₀, Or.inl ht₁,
-    Or.inl (by omega)⟩
-
-theorem chainShape_of_localShapeU (hex : ExactMembers Ω)
-    (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) (h : LocalShapeU p f 2 Ω z) :
-    ChainShape p f Ω z := by
-  obtain ⟨D, hcard, i₀, i₁, hne, ht₀, hr₀, ht₁, hr₁⟩ := h
-  exact chainShape_of_local hex hcls ⟨D, hcard, i₀, i₁, hne, ht₀, hr₀, Or.inr ht₁,
-    Or.inl (by omega)⟩
 
 theorem exactLayer_eq_centLayer_of_exact (hex : ExactMembers Ω)
     (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) : exactLayer Ω z = centLayer Ω z := by

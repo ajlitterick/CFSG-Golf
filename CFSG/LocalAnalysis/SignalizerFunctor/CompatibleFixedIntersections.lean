@@ -39,23 +39,6 @@ theorem signalizer_common_conjugation_value (prime rank : ℕ) (actor : Subgroup
     exact member_fixed.1
   exact conjugate_subgroup_eq_of_mem element.val (values selected) contained
 
-theorem signalizer_common_conjugation_index (prime rank : ℕ) (actor : Subgroup GroupType)
-    (values : Subgroup GroupType → Subgroup GroupType)
-    (element : signalizerCommonFixed prime rank actor values)
-    (selected : Subgroup GroupType) (contained : selected ≤ actor) :
-    conjugateSubgroup element.val selected = selected := by
-  have commutes : ∀ actorElement ∈ selected, element.val * actorElement = actorElement * element.val := by
-    intro actorElement member
-    exact (Subgroup.mem_centralizer_iff.mp element.property.1 actorElement (contained member)).symm
-  apply le_antisymm
-  · rintro actorElement ⟨original, member, rfl⟩
-    change element.val * original * element.val⁻¹ ∈ selected
-    rw [commutes original member, mul_assoc, mul_inv_cancel, mul_one]
-    exact member
-  · intro actorElement member
-    refine ⟨actorElement, member, ?_⟩
-    change element.val * actorElement * element.val⁻¹ = actorElement
-    rw [commutes actorElement member, mul_assoc, mul_inv_cancel, mul_one]
 
 theorem signalizer_normalizer_completion_conjugate (prime rank : ℕ) (actor target : Subgroup GroupType)
     (values : Subgroup GroupType → Subgroup GroupType)

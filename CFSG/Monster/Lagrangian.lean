@@ -128,20 +128,5 @@ theorem signOp_lagrangianFun (b : LinearMap.BilinForm (ZMod 2) E) (K : Submodule
   · rw [hq v h, sgn_zero, one_mul]
   · rw [mul_zero]
 
-theorem fourier_signOp_lagrangianFun (b : LinearMap.BilinForm (ZMod 2) E) (hb : b.Nondegenerate)
-    (halt : ∀ v, b v v = 0) {m : ℕ} (hE : finrank (ZMod 2) E = 2 * m)
-    (K : Submodule (ZMod 2) E) [DecidablePred (· ∈ K)] (hK : finrank (ZMod 2) K = m)
-    (hKK : ∀ x ∈ K, ∀ y ∈ K, b x y = 0) (a : E) (q : E → ZMod 2)
-    (hq : ∀ v, v - a ∈ K → q v = 0) :
-    fourier b m (signOp q (lagrangianFun b K a)) = lagrangianFun b K a := by
-  rw [signOp_lagrangianFun b K a q hq, fourier_lagrangianFun b hb halt hE K hK hKK a]
-
-theorem signOp_fourier_lagrangianFun (b : LinearMap.BilinForm (ZMod 2) E) (hb : b.Nondegenerate)
-    (halt : ∀ v, b v v = 0) {m : ℕ} (hE : finrank (ZMod 2) E = 2 * m)
-    (K : Submodule (ZMod 2) E) [DecidablePred (· ∈ K)] (hK : finrank (ZMod 2) K = m)
-    (hKK : ∀ x ∈ K, ∀ y ∈ K, b x y = 0) (a : E) (q : E → ZMod 2)
-    (hq : ∀ v, v - a ∈ K → q v = 0) :
-    signOp q (fourier b m (lagrangianFun b K a)) = lagrangianFun b K a := by
-  rw [fourier_lagrangianFun b hb halt hE K hK hKK a, signOp_lagrangianFun b K a q hq]
 
 end CFSG.Monster

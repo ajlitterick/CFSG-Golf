@@ -110,63 +110,6 @@ open CFSG.ClassicalInvolution.Balance.Theorem5
 
 section Conj
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem bootTriple_conjMembers_exotic (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hF3 : FuzzyNoF3 p f conjMembers)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hexotic : ExoticLeviBlock p f) : CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_fuzzyFrames_exotic conjMembers hlay
-    (fun _ _ _ K => conjInvariant_conjMembers K) (fuzzyFrameBalance_conjMembers hmodel hF3)
-    fuzzyAxisExact_conjMembers
-    (fuzzyVertexConn_of_adj fuzzyMemberConn_conjMembers (fuzzyEdgeInFrame_conjMembers hlinkF3))
-    (fuzzyLinkConn_conjMembers hMFC hlinkF3) hexotic
-
-theorem connectedFramesExist_of_bootTriple (hBT : CoreAssembly.BootTriple p f)
-    (hcon : FuzzyFramesConnected p f) : Theorem5.ConnectedFramesExist p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
-  have hf : 0 < f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
-  have hIH := localLieSystems_of_citBelowU hΩ hBelow
-  have hex := (hBT G hnab hp2 hq K z hz hBelow hconn hind).1
-  have hqs : ∀ J ∈ CoreAssembly.conjClass K, CFSG.Open.IsQuasisimple J := fun J hJ =>
-    isQuasisimple_of_mem_exactMembers hq hΩ hex hJ
-  have hind' := hind
-  obtain ⟨K', z', hK', hcomm, hel, hcard⟩ := hind
-  have hAex : IndepTripleOn p f (CoreAssembly.conjClass K) (Subgroup.closure (Set.range z')) :=
-    ⟨K', z', hK', hcomm, rfl, hel, hcard⟩
-  have hz'A : ∀ m, z' m ∈ Subgroup.closure (Set.range z') := fun m =>
-    Subgroup.subset_closure ⟨m, rfl⟩
-  have htri : Theorem5.TriangleConnected p f (CoreAssembly.conjClass K) :=
-    triangleConnected_of_fuzzyFramesConnected hnab hp2 hq hΩ hIH hex
-      (hcon G hnab hp2 hq K z hz hBelow hconn hind')
-  refine ⟨Theorem5.triangleFrames p f (CoreAssembly.conjClass K), fun _ h => h,
-    fun _ hA g => Theorem5.indepTripleOn_map hΩ.conjInvariant hA g, htri,
-    Subgroup.closure (Set.range z'), hAex, K' 0,
-    ⟨(hK' 0).1, triple_centralizes hK' hcomm 0, z' 0, hz'A 0, (hK' 0).2⟩, z' 0, hz'A 0, (hK' 0).2,
-    ?_⟩
-  exact Theorem5.triangleFramesMeetAt_of_indepTriple_pair_of_isQuasisimple hnab hp2 hf hΩ hIH hqs
-    hK' hcomm rfl hel hcard (i := 0) (j := 1) (by decide) (x := z' 0)
-    (Subgroup.subset_closure (by simp)) (hK' 0).2.ne_one
-
-theorem triangleConnectedAll_conjMembers_exotic (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hF3 : FuzzyNoF3 p f conjMembers)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hexotic : ExoticLeviBlock p f) : TriangleConnectedAll p f :=
-  triangleConnectedAll_of_bootTriple
-    (bootTriple_conjMembers_exotic hlay hmodel hF3 hlinkF3 hMFC hexotic)
-    (fuzzyFramesConnected_conjMembers hMFC hlinkF3)
-
-theorem connectedFramesExist_conjMembers_exotic (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hF3 : FuzzyNoF3 p f conjMembers)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hexotic : ExoticLeviBlock p f) : Theorem5.ConnectedFramesExist p f :=
-  connectedFramesExist_of_bootTriple
-    (bootTriple_conjMembers_exotic hlay hmodel hF3 hlinkF3 hMFC hexotic)
-    (fuzzyFramesConnected_conjMembers hMFC hlinkF3)
 
 end Conj
 

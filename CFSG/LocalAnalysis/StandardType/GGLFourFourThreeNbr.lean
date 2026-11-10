@@ -374,29 +374,11 @@ theorem ggStdSubBstarMeetInput_of_small_cyclic (hs : GGStdSubSmallInput)
         _ < p ^ 3 := Nat.pow_lt_pow_right hp.one_lt (by norm_num)
     omega
 
-theorem ggStdSubBstarMeetInput_of_small_centralizer (hs : GGStdSubSmallInput)
-    (h1 : GGStdSubBstarCentralizerInput) : GGStdSubBstarMeetInput := by
-  intro G _ _ p B Bs x L D J hcfg
-  by_cases hsm : Nat.card (Bs ⊓ J : Subgroup G) < p ^ 3
-  · exact (hs G p B Bs x L D J hcfg hsm).2
-  · by_contra hcon
-    have hp : p.Prime := hcfg.1.2.2.2.2.2.1.1
-    have hle : Bs ⊓ J ≤ D := fun b hb => h1 G p B Bs x L D J hcfg
-      ⟨hb.1, by
-        by_contra hbC
-        exact hcon ⟨b, hb, hbC⟩⟩
-    have hcard := Subgroup.card_le_of_le hle
-    rw [hcfg.2.2.1.2.2.1] at hcard
-    have hlt : p ^ 2 < p ^ 3 := Nat.pow_lt_pow_right hp.one_lt (by norm_num)
-    omega
 
 theorem ggL44iiiNbrInput_of_small_cyclic (hPU : GGPumpupInput) (hJp : GGStdSubPrimeInput)
     (hs : GGStdSubSmallInput) (hcyc : GGStdSubCenterCyclicInput) : GGL44iiiNbrInput :=
   ggL44iiiNbrInput_of_pumpup hPU hJp (ggStdSubBstarMeetInput_of_small_cyclic hs hcyc)
 
-theorem ggL44iiiNbrInput_of_center (hPU : GGPumpupInput) (ha₀ : GGLNoncyclicInput)
-    (hJp : GGStdSubPrimeInput) (hcen : GGStdSubCenterMeetInput) : GGL44iiiNbrInput :=
-  ggL44iiiNbrInput_of_pumpup hPU hJp (ggStdSubBstarMeetInput_of_center ha₀ hJp hcen)
 
 end CFSG.StandardType
 

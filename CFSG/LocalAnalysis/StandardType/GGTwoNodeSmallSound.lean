@@ -29,13 +29,5 @@ theorem verify_elim {P : Pt}
     simp only [verify, Bool.and_eq_true] at h
     exact hW (verifyW_sound (wfCheck_sound h.1) h.2)
 
-theorem check1_elim {P : Pt}
-    [Fact P.p.Prime] (h : check1 P = true) {C : Prop}
-    (hK : P.FrameViolation → C) (hT : (∃ g ∈ P.group, IsTransv g) → C)
-    (hO : P.bound < Nat.card P.group → C) (hW : CFSG.StandardType.ZS.LinWeyl P.p P.group → C) : C := by
-  unfold check1 at h
-  split at h
-  · exact verify_elim h hK hT hO hW
-  · exact absurd h (by simp)
 
 end CFSG.TwoNodeSmall

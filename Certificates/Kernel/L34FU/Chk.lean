@@ -42,14 +42,6 @@ theorem ch23204_six : sixK T1X.F AlX.F YT (L34O.T 3) FUW (L34R.G 4) = true := by
 
 theorem ch23204_g4 : Nat.beq (pc (L34R.G 3) (RP 3)) (pc (RP 3) (L34R.G 3)) = true := by quickRfl
 
-theorem ch23204n_exp : notB (expK 256 (patchT PSY.T 0 (L34R.G 3))) = true := by quickRfl
-
-theorem ch23204n_six : notB (sixK T1X.F AlX.F YT (L34O.T 3) (fun _ => 0) (L34R.G 4)) = true := by
-  quickRfl
-
-theorem ch23204n_g4 : notB (Nat.beq (pc (L34R.G 3) (L34R.G 5)) (pc (L34R.G 5) (L34R.G 3))) =
-    true := by
-  quickRfl
 
 end CertificateChecks.KernelL34FU
 

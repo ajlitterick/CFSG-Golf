@@ -161,9 +161,6 @@ variable {K : Type} [Field K] [Finite K] [CharP K F4.prime] {a : ℕ}
     SL2 K →* F4.reeLocalBlock K a ⟨0, by decide⟩ :=
   (largeReeA1Hom K a).codRestrict _ (largeReeA1Hom_mem hK)
 
-theorem coe_largeReeA1Rep (hK : Nat.card K = 2 ^ (2 * a + 1)) (g : SL2 K) :
-    (largeReeA1Rep hK g : ModGL F4.tag K) = largeReeA1Hom K a g :=
-  rfl
 
 theorem largeReeA1Rep_surjective (hK : Nat.card K = 2 ^ (2 * a + 1)) :
     Function.Surjective (largeReeA1Rep hK) := by

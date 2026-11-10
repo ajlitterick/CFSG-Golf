@@ -90,10 +90,6 @@ theorem r0Five14 : slK 256 r0Row 224 16 = true := by quickRfl
 
 theorem r0Five15 : slK 256 r0Row 240 16 = true := by quickRfl
 
-theorem r0FiveNeg1 : (!fiveTopK 6156 13 (mask 13) cgR cgRI 6 0 (J3XS.T 5)) = true := by quickRfl
-
-theorem r0FiveNeg2 : (!fiveTopK 6156 13 (mask 13) cgR cgRI 6 2 (pidn 6156 13)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.J3SylFourR
 

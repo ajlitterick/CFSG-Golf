@@ -305,56 +305,6 @@ theorem rowElemAb3_twD7 {G : Type} [Group G] [Finite G] {K A : Subgroup G}
     (n := 7) (by norm_num) hcard ⟨fun h => absurd h hnp, fun h => absurd h (by decide)⟩
     hAK hA hAcard
 
-theorem exists_orth_model_of_isRow {G : Type} [Group G] {K : Subgroup G} {r : Row}
-    (hr : r ≠ Row.E7) (hK : IsRow r K) (hZ : Subgroup.center K = ⊥) :
-    ∃ (ι : Type) (_ : Fintype ι) (_ : DecidableEq ι) (Q : QuadraticForm (ZMod 2) (ι → ZMod 2)),
-      (QuadraticMap.polarBilin Q).Nondegenerate ∧ Fintype.card ι = 2 * r.n ∧
-      (CFSG.GroupTheory.WeirSylow.IsPlusType Q ↔ Even r.n) ∧
-      Nonempty (↥K ≃* ↥⁅TauCeti.QuadraticMap.orthogonalGroup Q,
-        TauCeti.QuadraticMap.orthogonalGroup Q⁆) := by
-  cases r with
-  | D6 =>
-    have hm : LargeEvenMarking ↥K
-        (fun lab _ _ _ _ _ => lab.tag = .D ∧ lab.rank = 6 ∧ lab.n = 1) := by
-      refine largeEvenMarking_mono ?_ (by simpa only [IsRow] using hK)
-      intro lab R _ I F θ h
-      obtain ⟨hn, h | h | h⟩ := h
-      · exact ⟨h.2.1, h.2.2, hn⟩
-      · exact absurd h.1 (by decide)
-      · exact absurd h.1 (by decide)
-    obtain ⟨e⟩ := nonempty_mulEquiv_omegaPlusSix_of_marking hm hZ
-    refine ⟨Fin 6 ⊕ Fin 6, inferInstance, inferInstance,
-      CFSG.LieType.Universal.Spin.quadPlus 6 (ZMod 2), ?_, ?_, ?_, ?_⟩
-    · exact CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadPlus 6 (ZMod 2)
-    · simp [Row.n]
-    · exact ⟨fun _ => by simp only [Row.n]; decide,
-        fun _ => CFSG.GroupTheory.WeirSylow.isPlusType_quadPlus (ZMod 2) 6⟩
-    · exact ⟨e.trans (CFSG.LieType.ChevTwo.statedOmegaEquivDerived
-        (Q := StatedQuadPlus 6 (ZMod 2))
-        (q := CFSG.LieType.Universal.Spin.quadPlus 6 (ZMod 2))
-        (CFSG.LieType.Universal.Spin.coe_quadPlus 6 (ZMod 2)))⟩
-  | twD7 =>
-    have hm : LargeEvenMarking ↥K
-        (fun lab _ _ _ _ _ => lab.tag = .twD ∧ lab.rank = 7 ∧ lab.n = 1) := by
-      refine largeEvenMarking_mono ?_ (by simpa only [IsRow] using hK)
-      intro lab R _ I F θ h
-      obtain ⟨hn, h | h | h⟩ := h
-      · exact absurd h.1 (by decide)
-      · exact ⟨h.2.1, h.2.2, hn⟩
-      · exact absurd h.1 (by decide)
-    obtain ⟨e⟩ := nonempty_mulEquiv_omegaMinusSeven_of_marking hm hZ
-    refine ⟨Fin 6 ⊕ Fin 6 ⊕ Fin 2, inferInstance, inferInstance,
-      CFSG.LieType.Universal.Spin.quadMinus 7 (ZMod 2) 1 1, ?_, ?_, ?_, ?_⟩
-    · exact CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadMinus_of_finite 7 (ZMod 2)
-        (CFSG.LieType.ChevTwo.hirr_one_one)
-    · simp [Row.n]
-    · exact ⟨fun h => absurd h (CFSG.GroupTheory.WeirSylow.not_isPlusType_quadMinus (by norm_num)
-          CFSG.LieType.ChevTwo.hirr_one_one), fun h => absurd h (by simp only [Row.n]; decide)⟩
-    · exact ⟨e.trans (CFSG.LieType.ChevTwo.statedOmegaEquivDerived
-        (Q := StatedQuadMinus 7 (ZMod 2) 1 1)
-        (q := CFSG.LieType.Universal.Spin.quadMinus 7 (ZMod 2) 1 1)
-        (CFSG.LieType.Universal.Spin.coe_quadMinus 7 (ZMod 2) 1 1))⟩
-  | E7 => exact absurd rfl hr
 
 end CFSG.StandardType.FrameRoute.FS81
 

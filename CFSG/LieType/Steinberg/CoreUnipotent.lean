@@ -330,9 +330,6 @@ theorem map_conj_stnw_stRoot (w : List ι) {γ : ι → ℤ} (hγ : γ ∈ Φ.ro
   | cons i w ih =>
     rw [stnw_cons, map_conj_mul, ih, hD.map_conj_stn_stRoot i (Φ.wordAct_mem w hγ), wordAct_cons]
 
-theorem stPi_stnw (w : List ι) : stPi Φ D.X (D.stnw w) = (w.map D.n).prod := by
-  rw [stnw, map_list_prod, List.map_map]
-  exact congrArg List.prod (List.map_congr_left fun i _ => hD.stPi_stn i)
 
 theorem map_conj_stPi_stnw (w : List ι) {γ : ι → ℤ} (hγ : γ ∈ Φ.roots) :
     (D.X γ).map (MulAut.conj (stPi Φ D.X (D.stnw w))).toMonoidHom =

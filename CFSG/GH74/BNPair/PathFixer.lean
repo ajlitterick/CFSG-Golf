@@ -17,8 +17,6 @@ theorem mem_pathFixer_iff {l : List V} {σ : Equiv.Perm V} :
   simp only [Subgroup.mem_iInf, MulAction.mem_stabilizer_iff, Equiv.Perm.smul_def,
     SimpleGraph.mem_neighborSet]
 
-theorem pathFixer_le_graphAut (l : List V) : pathFixer G l ≤ graphAut G :=
-  fun _ h => (mem_pathFixer_iff.1 h).1
 
 theorem mem_graphAut_iff {σ : Equiv.Perm V} :
     σ ∈ graphAut G ↔ ∀ v w, G.Adj (σ v) (σ w) ↔ G.Adj v w :=

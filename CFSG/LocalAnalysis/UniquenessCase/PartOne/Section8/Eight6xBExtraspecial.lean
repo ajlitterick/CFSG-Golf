@@ -119,10 +119,6 @@ private theorem isHeisThree_sylow_j2
   obtain ⟨e⟩ := hY
   exact (CFSG.RankThree.PartTwo.Sec4.Sporadic.rank3II_4_15 Y ⟨e⟩ S _ rfl _ rfl).1.1
 
-theorem sylow_isExtraspecialExpP_of_j2
-    {Y : Type} [Group Y] [Finite Y] (hY : IsSpor Y .J2)
-    (S : Sylow 3 Y) : IsExtraspecialExpP 3 1 ↥(S : Subgroup Y) :=
-  isExtraspecialExpP_of_isHeisThree (isHeisThree_sylow_j2 hY S)
 
 private theorem isHeisThree_sylow_m12
     {Y : Type} [Group Y] [Finite Y] (hY : IsSpor Y .M12) (S : Sylow 3 Y) :

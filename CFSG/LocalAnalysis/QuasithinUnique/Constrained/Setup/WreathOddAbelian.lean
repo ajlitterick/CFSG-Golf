@@ -37,28 +37,5 @@ theorem commutator_ne_bot_of_centralizer_le {H N A : Subgroup (V ≃ₗ[k] V)} (
   have hdvd : Nat.card ↥A ∣ Nat.card ↥N := Subgroup.card_dvd_of_le hAN
   exact (Nat.not_even_iff_odd.2 hodd) (even_iff_two_dvd.2 (h2.trans hdvd))
 
-variable [CharP k 2] [Finite V]
-
-theorem minimal_parabolic_odd_abelian_S3_wreath {H T M N E : Subgroup (V ≃ₗ[k] V)}
-    (hNH : N ≤ H) (hNn : (N.subgroupOf H).Normal) (hNab : ∀ x y : ↥N, x * y = y * x)
-    (hNodd : Odd (Nat.card N))
-    (hCN : H ⊓ Subgroup.centralizer (N : Set (V ≃ₗ[k] V)) ≤ N)
-    (hT : IsSylowTwoOf T H) (hTn : ¬ (T.subgroupOf H).Normal) (hTM : T ≤ M) (hMH : M < H)
-    (hmax : ∀ Y : Subgroup (V ≃ₗ[k] V), T ≤ Y → Y < H → Y ≤ M)
-    (hEH : E ≤ H) (hEne : E ≠ ⊥) (hEel : CFSG.IsElementaryAbelian 2 ↥E)
-    (hEoff : Nat.card V ≤ weight (MonoidHom.id (V ≃ₗ[k] V)) E) : S3Wreath H T N := by
-  classical
-  have : Finite (V ≃ₗ[k] V) := finite_linearEquiv
-  have hO2 := pCore_trivial_of_centralizer_le hNH hNn hNodd hCN
-  obtain ⟨A, hA⟩ := exists_minOffender hEH hEne hEel hEoff
-  obtain ⟨hAH, hAne, hAel, hAoff, hAstrict⟩ := hA
-  have hcomm := commutator_ne_bot_of_centralizer_le hAH hAne hAel hNodd hCN
-  have hset : OddAbelianSetting H N A :=
-    ⟨hNH, hNn, hNab, hNodd, hAH, hAel, hAne, hAoff, hAstrict, hcomm⟩
-  obtain ⟨ι, hfin, g0, F0⟩ := exists_conjFamily H N A
-  let e : Fin (Fintype.card ι) ≃ ι := (Fintype.equivFin ι).symm
-  have hF : ConjFamily H N A (g0 ∘ e) := F0.reindex e
-  have hnat := hset.naturalS3Factors hF
-  exact s3Wreath_of_natural hnat hF hNH hNn hNodd hAne hAel hO2 hT hTn hTM hMH hmax
 
 end CFSG.QuasithinUnique.Setup.Wreath

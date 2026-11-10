@@ -123,26 +123,6 @@ theorem supplied_index_two {S : Type*} [Group S] (n : ℕ) (hn : 4 ≤ n)
   (quaternionEquiv n hn).trans ((f.subgroupMap (quaternionSubgroup n)).trans
     (MulEquiv.subgroupCongr (map_quaternionSubgroup n f)))
 
-theorem suppliedDihedralEquiv_coe {S : Type*} [Group S]
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (g : DihedralGroup (half n)) :
-    (suppliedDihedralEquiv n hn f g : S) = f (dihedralHom n hn g) := by
-  rfl
-
-theorem suppliedQuaternionEquiv_coe {S : Type*} [Group S]
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S)
-    (g : QuaternionGroup (2 ^ (n - 3))) :
-    (suppliedQuaternionEquiv n hn f g : S) = f (quaternionHom n hn g) := by
-  rfl
-
-theorem suppliedQuaternionEquiv_rotation {S : Type*} [Group S]
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) :
-    (suppliedQuaternionEquiv n hn f (QuaternionGroup.a 1) : S) = f (r n) ^ 2 := by
-  rw [suppliedQuaternionEquiv_coe, quaternionHom_rotation, map_pow]
-
-theorem suppliedQuaternionEquiv_generator {S : Type*} [Group S]
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) :
-    (suppliedQuaternionEquiv n hn f (QuaternionGroup.xa 0) : S) = f (r n) * f (s n) := by
-  rw [suppliedQuaternionEquiv_coe, quaternionHom_generator, map_mul]
 
 theorem supplied_subgroup_properties {S : Type*} [Group S]
     (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) :

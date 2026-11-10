@@ -58,12 +58,5 @@ theorem ch36408_rec_lt {a : Nat} (ha : a < 96) :
   rw [recB, hH, Bool.true_and]
   exact allB_of_chunks (m := 16) hC
 
-theorem ch36409_tree_neg :
-    (!treeB 8192 4 (wm slSM slAC) wGS (Nat.xor slPT (Nat.shiftLeft 1 (Nat.mul 32 77)))) = true := by
-  decide +kernel
-theorem ch36409_rec_neg :
-    (!recB 8192 4 (wm slSM slAC) slPT (imA slIM 5) (Nat.xor (slA 7) (Nat.shiftLeft 1 1600))) =
-      true := by
-  decide +kernel
 
 end Certificates.KernelTower

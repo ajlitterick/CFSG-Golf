@@ -23,7 +23,6 @@ namespace CFSG.StandardType.QTwoSymplecticCav
 variable {K : Type} [Field K] {r : ℕ}
 
 
-
 section FourBlocks
 
 variable {n : ℕ} (i : Fin 4 → Fin n)
@@ -179,10 +178,6 @@ theorem permSp_one_of_injective {n : ℕ} : permSp K (1 : Equiv.Perm (Fin n)) = 
   by_cases h : a = b <;> simp [h, CFSG.ClassicalInvolution.Models.SymplecticPairs.spIncl_apply,
     Matrix.one_apply]
 
-theorem permSp_inv_of_injective {n : ℕ} (π : Equiv.Perm (Fin n)) :
-    permSp K π⁻¹ = (permSp K π)⁻¹ := by
-  apply eq_inv_of_mul_eq_one_right
-  rw [← permSp_mul_of_injective, mul_inv_cancel, permSp_one_of_injective]
 
 end PermSp
 
@@ -196,54 +191,6 @@ theorem WSL_mul_self_of_char_two [CharP K 2] : (WSL : SL(2, K)) * WSL = 1 := by
 
 section WSLConj
 
-theorem WSL_conj_M [Finite K] (hK : Nat.card K = 2) {M : Matrix (Fin 2) (Fin 2) K}
-    (hdet : M.det = 1) (hM : M * M + M + 1 = 0) :
-    ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) * M *
-      ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = M ^ 2 := by
-  haveI : CharP K 2 :=
-    CFSG.Timmesfeld.ClassicalOrders.charP_two_of_card_eq (f := 1) (by simpa using hK)
-  have hW2 : (WSL : SL(2, K)) * WSL = 1 := WSL_mul_self_of_char_two
-  have hWi : (WSL : SL(2, K))⁻¹ = WSL := inv_eq_of_mul_eq_one_right hW2
-  have h3SL : (mkSL M hdet : SL(2, K)) ^ 3 = 1 := by
-    apply Subtype.ext
-    rw [Matrix.SpecialLinearGroup.coe_pow, coe_mkSL, Matrix.SpecialLinearGroup.coe_one]
-    exact CFSG.StandardType.SymplecticPlaneActions.pow_three_eq_one_of_sq_add_self_add_one hM
-  have hsq : (mkSL M hdet : SL(2, K)) ^ 2 = (mkSL M hdet : SL(2, K))⁻¹ := by
-    have hpow : (mkSL M hdet : SL(2, K)) * (mkSL M hdet : SL(2, K)) ^ 2 =
-        (mkSL M hdet : SL(2, K)) ^ 3 := by
-      rw [show (3 : ℕ) = 1 + 2 by norm_num, pow_add, pow_one]
-    exact (inv_eq_of_mul_eq_one_right (hpow.trans h3SL)).symm
-  have hconj := CFSG.StandardType.SymplecticPlaneActions.WSL_conj_mkSL_eq_inv hK hdet hM
-  rw [hWi, ← hsq] at hconj
-  simpa only [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_pow,
-    coe_mkSL, Matrix.SpecialLinearGroup.coe_one] using
-    congrArg (fun A : SL(2, K) => (A : Matrix (Fin 2) (Fin 2) K)) hconj
-
-theorem WSL_conj_M_sq [Finite K] (hK : Nat.card K = 2) {M : Matrix (Fin 2) (Fin 2) K}
-    (hdet : M.det = 1) (hM : M * M + M + 1 = 0) :
-    ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) * M ^ 2 *
-      ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = M := by
-  haveI : CharP K 2 :=
-    CFSG.Timmesfeld.ClassicalOrders.charP_two_of_card_eq (f := 1) (by simpa using hK)
-  have hW : ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) *
-      ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = 1 := by
-    simpa using congrArg (fun A : SL(2, K) => (A : Matrix (Fin 2) (Fin 2) K))
-      (WSL_mul_self_of_char_two (K := K))
-  have h := WSL_conj_M hK hdet hM
-  calc ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) * M ^ 2 *
-        ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K)
-      = ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) *
-          (((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) * M *
-            ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K)) *
-          ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) := by
-        rw [h]
-    _ = (((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) *
-          ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K)) * M *
-          (((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) *
-            ((WSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K)) := by
-        noncomm_ring
-    _ = M := by
-        rw [hW]; simp
 
 end WSLConj
 
@@ -274,13 +221,6 @@ theorem movingU_mul_self [CharP K 2] (i : Fin 4 → Fin r) (hi : Function.Inject
     movingU i k t * movingU i k t = 1 := by
   unfold movingU
   exact prod_four_longBlock_mul_self i hi (movingW k t) (fun j => movingW_mul_self j)
-
-theorem mat_movingU (i : Fin 4 → Fin r) (hi : Function.Injective i) :
-    mat r K (movingU i k t) =
-      WitSpNs.planeMat (fun j => if j ∈ Set.range i then
-        ((movingW k t j) : Matrix (Fin 2) (Fin 2) K) else 1) := by
-  unfold movingU
-  exact mat_longBlock_four_range i hi (movingW k t)
 
 
 end MovingFrame

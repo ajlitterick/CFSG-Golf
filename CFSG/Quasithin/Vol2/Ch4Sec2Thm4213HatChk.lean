@@ -111,14 +111,6 @@ theorem memA_of_mem {gs : Array (Array ℕ)} {ps : List ℕ} {c : ArrCert} (hps 
   rw [keysOf, map_getElem! _ _ hj]
   exact keyA_eq hps (hval j hj) hvt (by rw [hgj, permOfArr_eq_of_rep ht])
 
-theorem mem_of_memA {gs : Array (Array ℕ)} {ps : List ℕ} {c : ArrCert} (hps : ∀ p ∈ ps, p < n)
-    (h : enumOK n gs ps c = true) {ks : Array ℕ} {t : Array ℕ} {g : Equiv.Perm (Fin n)}
-    (ht : Rep n t g) (hm : memA n ps c ks t = true) : g ∈ Subgroup.closure (permsA n gs) := by
-  obtain ⟨j, hj, -, hjt⟩ := memA_iff.1 hm
-  obtain ⟨hmem, -, hval⟩ := enumOK_spec hps h
-  have hrj := rep_of_validA (hval j hj)
-  have hgj : g = permOfArr n c.pts[j]! := (eqA_iff ht hrj).1 hjt
-  exact (hmem g).2 ⟨j, hj, hgj.symm⟩
 
 theorem card_le_of_coverOK {gs₁ gs₂ : Array (Array ℕ)} {ps : List ℕ} {c₁ c₂ : ArrCert}
     {m : ℕ} {cls : Array ℕ} (hps : ∀ p ∈ ps, p < n) (h₁ : enumOK n gs₁ ps c₁ = true)

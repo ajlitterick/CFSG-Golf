@@ -184,11 +184,5 @@ theorem IsPartialSpread.completion [Finite ι] (hS : IsPartialSpread r D)
   rw [hZtop, hZi, finrank_top, finrank_bot, hS.finrank_space, hS.finrank_eq i] at h
   omega
 
-theorem spread_completion_fin (r : ℕ) (hV : finrank (ZMod 2) V = 2 * r)
-    (D : Fin (2 ^ r) → Submodule (ZMod 2) V) (hD : ∀ i, finrank (ZMod 2) (D i) = r)
-    (hDD : ∀ i j, i ≠ j → D i ⊓ D j = ⊥) :
-    ∃ Z : Submodule (ZMod 2) V, finrank (ZMod 2) Z = r ∧
-      ∀ v : V, v ∈ Z ↔ (v = 0 ∨ ∀ i, v ∉ D i) :=
-  IsPartialSpread.completion ⟨hV, hD, hDD⟩ (by simp)
 
 end CFSG.QuasithinUnique.ONan

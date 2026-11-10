@@ -20,7 +20,6 @@ theorem notB_eq (a : Bool) : notB a = !a := by cases a <;> rfl
 
 theorem bIf_eq (c a b : Bool) : bIf(c, a, b) = if c then a else b := by cases c <;> rfl
 
-theorem nIf_eq (c : Bool) (a b : Nat) : nIf(c, a, b) = if c then a else b := by cases c <;> rfl
 
 theorem beq_iff {a b : Nat} : Nat.beq a b = true ↔ a = b := ⟨Nat.eq_of_beq_eq_true, fun h => by
   rw [h]; exact Nat.beq_refl b⟩
@@ -147,7 +146,6 @@ theorem land_lowM_eq_gw {c k : Nat} (h : Nat.land c (lowM (k + 1)) = gw k) :
       rw [pow_succ, Nat.mod_mul_right_div_self]
     rw [e, h, Nat.div_self (by positivity)]
 
-theorem apP_nil (f : Nat → Nat → Nat) (x : Nat) : apP f [] x = x := rfl
 
 theorem apP_cons (f : Nat → Nat → Nat) (l : Nat) (w : List Nat) (x : Nat) :
     apP f (l :: w) x = f l (apP f w x) := strictN_eq _ _
@@ -232,10 +230,6 @@ variable {G : Type*} [Group G] (act : G → Nat → Nat) (hmul : ∀ g h p, act 
   (hone : ∀ p, act 1 p = p)
 include hmul hone
 
-theorem act_pow (g : G) (n p : Nat) : act (g ^ n) p = (act g)^[n] p := by
-  induction n generalizing p with
-  | zero => rw [pow_zero, hone]; rfl
-  | succ n ih => rw [pow_succ, hmul, ih, Function.iterate_succ_apply]
 
 theorem act_prod (l : List G) (p : Nat) : act l.prod p = l.foldr act p := by
   induction l with

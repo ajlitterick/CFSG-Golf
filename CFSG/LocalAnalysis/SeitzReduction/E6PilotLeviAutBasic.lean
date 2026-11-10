@@ -131,13 +131,6 @@ theorem IsAutConjIn.map_conj {M J : Subgroup C} (h : IsAutConjIn M J) (hJM : J �
   rw [inv_mul_cancel_right]
   rfl
 
-theorem nonempty_centralizer_map_mulEquiv_of_isAutConjIn {M J : Subgroup C}
-    (h : IsAutConjIn M J) (ι : M ≃* M) :
-    Nonempty (centralizer ((((J.subgroupOf M).map ι.toMonoidHom).map M.subtype : Subgroup C) :
-      Set C) ≃* centralizer (J : Set C)) := by
-  obtain ⟨m, -, hm⟩ := h ι
-  rw [hm]
-  exact nonempty_centralizer_map_conj_mulEquiv J m
 
 end AutConjIn
 

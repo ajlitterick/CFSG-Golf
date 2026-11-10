@@ -98,15 +98,5 @@ theorem card_sq_eq_of_mem_suzukiCoverRoot (hm : 0 < m) {z : suzukiCoverRoot m} (
   obtain ⟨r, hr, rfl⟩ := exists_eq_suzukiCoverRootElement_of_sq_eq_one m hm hz1 hz2
   exact card_sq_eq_suzukiCoverRootElement m hm hr
 
-theorem card_sq_eq_of_mulEquiv_suzukiMatrixGroup (hm : 0 < m) {J : Type*} [Group J]
-    (e : J ≃* SuzukiMatrixGroup m) (R : Sylow 2 J) {z : (R : Subgroup J)} (hz1 : z ≠ 1)
-    (hz2 : z ^ 2 = 1) : Nat.card {x : (R : Subgroup J) // x ^ 2 = z} = 2 ^ (2 * m + 1) := by
-  have : Finite J := Finite.of_equiv _ e.symm.toEquiv
-  obtain ⟨θ⟩ : Nonempty ((R : Subgroup J) ≃* suzukiCoverRoot m) :=
-    nonempty_sylow_mulEquiv_of_mulEquiv e R (suzukiCoverSylow m hm)
-  rw [card_sq_eq_congr θ z]
-  refine card_sq_eq_of_mem_suzukiCoverRoot m hm (fun h => hz1 ?_) ?_
-  · exact θ.injective (h.trans (map_one θ).symm)
-  · rw [← map_pow, hz2, map_one]
 
 end CFSG.ProperTwoGeneratedCore.BenderFacts

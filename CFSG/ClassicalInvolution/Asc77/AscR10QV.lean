@@ -16,7 +16,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 open scoped commutatorElement
 
 
-
 section Restrict
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
@@ -201,12 +200,6 @@ theorem g2Comp3_of_qv3Comp (hQ : QV3Comp) : G2Comp3 := by
   rw [hJS] at hQ'
   exact hQ _ _ hΦ D j R S hR hS _ _ _ hQ'
 
-theorem sec3Typing_of_qv3Comp (h3 : Q3.CIT3Inductive) (hQ : QV3Comp) : Sec3Typing :=
-  sec3Typing_of_g2Comp3 h3 (g2Comp3_of_qv3Comp hQ)
-
-theorem res10aNoConj_nine_of_qv3Comp (p f : ℕ) [Fact p.Prime] (h3 : Q3.CIT3Inductive)
-    (hQ : QV3Comp) (h9 : p ^ f = 9) : Res10aNoConj p f :=
-  res10aNoConj_nine_of_cit3 p f h3 (g2Comp3_of_qv3Comp hQ) h9
 
 theorem res10aNoConj9_of_qv3Comp (p f : ℕ) [Fact p.Prime] (hQ : QV3Comp) :
     Q3.CIT3Inductive → p ^ f = 9 → Res10aNoConj p f :=

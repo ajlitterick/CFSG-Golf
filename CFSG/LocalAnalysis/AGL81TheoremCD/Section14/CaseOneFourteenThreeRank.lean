@@ -625,32 +625,6 @@ private theorem mem_oTwoZStar_of_commutator_le {J : Subgroup G} (hJSL : IsSL34St
   rw [hbar_ker] at hker
   exact Subgroup.mem_subgroupOf.mp hker
 
-private theorem S_inf_A_le_center {N₁ A S : Subgroup G}
-    (hJSL : IsSL34Star J) (hS_def : S = Q ⊓ J)
-    (hJA_le : J ⊓ A ≤ oTwoZStar J)
-    (hNA : N₁ ≤ Subgroup.normalizer (A : Set G)) (hJN : J ≤ N₁)
-    (hSleJ : S ≤ J) (hQN_J : Q ≤ Subgroup.normalizer (J : Set G))
-    (hScenter : S ⊓ oTwoZStar J = (Subgroup.center ↥S).map S.subtype) :
-    S ⊓ A ≤ (Subgroup.center ↥S).map S.subtype := by
-  intro s hs
-  obtain ⟨hsS, hsA⟩ := Subgroup.mem_inf.mp hs
-  have hsJ : s ∈ J := hSleJ hsS
-  have hcomm : ∀ j ∈ J, s * j * s⁻¹ * j⁻¹ ∈ oTwoZStar J := by
-    intro j hj
-    have hjsA : j * s * j⁻¹ * s⁻¹ ∈ A := by
-      exact A.mul_mem ((Subgroup.mem_normalizer_iff.mp (hNA (hJN hj)) s).mp hsA)
-        (A.inv_mem hsA)
-    have hjsJ : j * s * j⁻¹ * s⁻¹ ∈ J := by
-      exact J.mul_mem (J.mul_mem (J.mul_mem hj hsJ) (J.inv_mem hj)) (J.inv_mem hsJ)
-    have hjs : j * s * j⁻¹ * s⁻¹ ∈ J ⊓ A := Subgroup.mem_inf.mpr ⟨hjsJ, hjsA⟩
-    have hsj : s * j * s⁻¹ * j⁻¹ = (j * s * j⁻¹ * s⁻¹)⁻¹ := by
-      simp only [mul_inv_rev, inv_inv]
-      group
-    rw [hsj]
-    exact hJA_le ((J ⊓ A).inv_mem hjs)
-  have hsO : s ∈ oTwoZStar J := mem_oTwoZStar_of_commutator_le hJSL hsJ hcomm
-  have hmem : s ∈ S ⊓ oTwoZStar J := Subgroup.mem_inf.mpr ⟨hsS, hsO⟩
-  rwa [hScenter] at hmem
 
 private theorem eq_sup_Q0_S {Q Q₀ S Z : Subgroup G}
     (hQ0Q : Q₀ ≤ Q) (hS_eq : S = Q ⊓ J)

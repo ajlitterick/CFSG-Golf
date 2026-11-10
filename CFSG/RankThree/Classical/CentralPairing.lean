@@ -127,15 +127,6 @@ theorem liftPair_conj' (g : X) {v v' w w' : V}
   rw [← commutatorElement_eq_liftPair hφ ρ hZ h1 h2]
   exact commutatorElement_conj_of_mem_center (liftPair_mem_center hφ ρ hZ v w) ĝ
 
-theorem liftPair_conj (g : X) (τ : V → V)
-    (hτ : ∀ v, g * ρ (Multiplicative.ofAdd v) * g⁻¹ = ρ (Multiplicative.ofAdd (τ v)))
-    (v w : V) : liftPair hφ ρ (τ v) (τ w) = liftPair hφ ρ v w := by
-  set ĝ := lift hφ g
-  have hlift : ∀ u, φ (ĝ * lift hφ (ρ (Multiplicative.ofAdd u)) * ĝ⁻¹) =
-      ρ (Multiplicative.ofAdd (τ u)) := fun u => by
-    rw [map_mul, map_mul, map_inv, map_lift, map_lift, hτ]
-  rw [← commutatorElement_eq_liftPair hφ ρ hZ (hlift v) (hlift w)]
-  exact commutatorElement_conj_of_mem_center (liftPair_mem_center hφ ρ hZ v w) ĝ
 
 theorem liftPair_eq_one_of_weight {p : ℕ} (hp : p.Prime) {v w : V} (hpv : p • v = 0)
     {s t : ℕ} (hst : 1 ≤ s * t) (hcop : ¬ p ∣ s * t - 1)

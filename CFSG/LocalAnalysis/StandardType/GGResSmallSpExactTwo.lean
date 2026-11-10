@@ -487,7 +487,6 @@ theorem rank4_transport_component
   exact Subgroup.equivMapOfInjective (J.subgroupOf L) eL.toMonoidHom eL.injective
 
 
-
 theorem ggResSmallSpFour_component_labels
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
@@ -545,7 +544,6 @@ theorem ggResSmallSpFour_component_labels
   · exact Or.inl (ggHasLabel_of_mulEquiv eQ.symm h)
   · exact Or.inr (Or.inl (ggHasLabel_of_mulEquiv eQ.symm h))
   · exact Or.inr (Or.inr (ggHasLabel_of_mulEquiv eQ.symm h))
-
 
 
 theorem ggWeylTypeData_B4 :
@@ -700,7 +698,6 @@ theorem ggResC4_automizerL_card_eq_384
     exact c4_aut_of_torus_data hCfg hLperf hZL hInnL _ θ hBsN hBs3 hSC
 
 
-
 theorem rank4_innerOnL
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
@@ -803,115 +800,6 @@ theorem ggResSmallSpFour_A6_exactTwo_false_of_card_four
     simpa [hAJ4] using hW
   exact ggWeylTypeData_two_four_false _ h4
 
-
-lemma ggWeylTypeData_two_dvd_four_false {n c : ℕ} (h : GGWeylTypeData 2 n c)
-    (hdvd : n ∣ 4) : False := by
-  rcases h with ⟨-, hn, -⟩ | ⟨-, hn, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ |
-    ⟨-, hn, -⟩
-  · rw [hn] at hdvd
-    norm_num at hdvd
-  · rw [hn] at hdvd
-    norm_num at hdvd
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · rw [hn] at hdvd
-    norm_num at hdvd
-
-theorem ggResSmallSpFour_A6_exactTwo_false_of_dvd_four
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L)
-    (h2 : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hJ : ggAutomizer J Bs ≠ ⊥)
-    (hAJdvd : Nat.card ↥(ggAutomizer J Bs) ∣ 4) :
-    False := by
-  have hAL : Nat.card ↥(ggAutomizer L Bs) = 384 :=
-    ggResSmallSpFour_automizerL_card hH hM
-  obtain ⟨Λ, hΛ, hcard, r, hr, hW⟩ :=
-    ggResSmallSpFour_exactTwo_rank_two h2 hJ hAL
-  subst hr
-  exact ggWeylTypeData_two_dvd_four_false hW hAJdvd
-
-theorem card_ggAutomizer_alt6_threeSubgroup_le_four
-    {K : Type} [Group K] [Finite K] (hK : IsAltTwoP 3 K) (E : Subgroup K)
-    (hE3 : IsPGroup 3 E) :
-    Nat.card ↥(ggAutomizer (⊤ : Subgroup K) E) ≤ 4 := by
-  classical
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨eA6⟩ := hK
-  have hKcard : Nat.card K = 360 := by
-    have h : Nat.card K = Nat.card (alternatingGroup (Fin 6)) := by
-      simpa using Nat.card_congr eA6.toEquiv
-    rw [h, nat_card_alternatingGroup]
-    norm_num
-  obtain ⟨k, hk⟩ := hE3.exists_card_eq
-  have hdvd : Nat.card E ∣ Nat.card K := Subgroup.card_subgroup_dvd_card E
-  have h27 : ¬ (27 : ℕ) ∣ Nat.card E := by
-    intro h
-    have h' : (27 : ℕ) ∣ Nat.card K := h.trans hdvd
-    rw [hKcard] at h'
-    norm_num at h'
-  have hk2 : k ≤ 2 := by
-    by_contra h
-    have h3 : (3 : ℕ) ^ 3 ∣ 3 ^ k := pow_dvd_pow 3 (by omega)
-    rw [← hk] at h3
-    exact h27 (by norm_num at h3 ⊢; exact h3)
-  have hcases : k = 0 ∨ k = 1 ∨ k = 2 := by omega
-  rcases hcases with rfl | rfl | rfl
-  · have hE1 : Nat.card E = 1 := by simpa using hk
-    have hbot : E = ⊥ := E.card_le_one_iff_eq_bot.mp (by omega)
-    subst hbot
-    have hsub : Subsingleton ↥(ggAutomizer (⊤ : Subgroup K) (⊥ : Subgroup K)) :=
-      ⟨fun a b => Subtype.ext (Subsingleton.elim (a : MulAut ↥(⊥ : Subgroup K))
-        (b : MulAut ↥(⊥ : Subgroup K)))⟩
-    have hinj : Function.Injective
-        (fun _ : ↥(ggAutomizer (⊤ : Subgroup K) (⊥ : Subgroup K)) => ()) :=
-      fun a b _ => Subsingleton.elim a b
-    have hle1 := Nat.card_le_card_of_injective
-      (fun _ : ↥(ggAutomizer (⊤ : Subgroup K) (⊥ : Subgroup K)) => ()) hinj
-    have hUnit : Nat.card Unit = 1 := by simp
-    omega
-  · have hE3card : Nat.card E = 3 := by simpa using hk
-    haveI : IsCyclic ↥E := isCyclic_of_prime_card hE3card
-    have hAut : Nat.card (MulAut ↥E) = 2 := by
-      rw [IsCyclic.card_mulAut, hE3card]
-      exact Nat.totient_prime Nat.prime_three
-    have hle : Nat.card ↥(ggAutomizer (⊤ : Subgroup K) E) ≤ Nat.card (MulAut ↥E) :=
-      Nat.le_of_dvd (Nat.card_pos)
-        (Subgroup.card_subgroup_dvd_card (ggAutomizer (⊤ : Subgroup K) E))
-    omega
-  · have hE9 : Nat.card E = 9 := by simpa using hk
-    have hEp : IsPGroup 3 E := IsPGroup.of_card (n := 2) (by rw [hE9]; norm_num)
-    have hidx : E.index = 40 := by
-      have h := E.card_mul_index
-      rw [hE9, hKcard] at h
-      omega
-    let P : Sylow 3 K := hEp.toSylow (by rw [hidx]; norm_num)
-    have hPcoe : (P : Subgroup K) = E := IsPGroup.toSylow_coe hEp _
-    have hcardP := card_ggAutomizer_alt6_sylow_three ⟨eA6⟩ P
-    rw [hPcoe] at hcardP
-    omega
-
-
-lemma six_le_card_of_weylTypeData_two {n c : ℕ} (h : GGWeylTypeData 2 n c) : 6 ≤ n := by
-  rcases h with ⟨-, hn, -⟩ | ⟨-, hn, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩ |
-    ⟨-, hn, -⟩
-  · rw [hn]
-    norm_num
-  · rw [hn]
-    norm_num
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · norm_num at h
-  · rw [hn]
-    norm_num
 
 theorem GGResHyp.card_automizer_J_eq_four_of_A6
     {G : Type} [Group G] [Finite G]
@@ -1153,36 +1041,6 @@ theorem ggResSmallSpFour_B2der_false
     ggResSmallSpFour_component_labels hH hM
   exact ggResSmallSpFour_A6_false_of_iso hH hM h2
     (nonempty_alt6_of_B2der_transport hs3 hs1 hcomp eJ hB2)
-
-
-theorem ggResSmallSpFour_rank_three_false
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L)
-    (h2 : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hW3 : GGWeylTypeData 3 (Nat.card ↥(ggAutomizer J Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer J Bs)))) :
-    False := by
-  have hAL : Nat.card ↥(ggAutomizer L Bs) = 384 :=
-    ggResSmallSpFour_automizerL_card hH hM
-  obtain ⟨lab, hlab, hLlab, R, instR, I, F, θ, hP⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  have hp3 : p = 3 := hP.1.1
-  subst hp3
-  have hX : ∃ c, GGWeylTypeData 4 (Nat.card ↥(ggAutomizer L Bs)) c := by
-    refine ⟨2, ?_⟩
-    rw [hAL]
-    exact ggWeylTypeData_B4
-  have hJ := (ggResLeviDatumCard_survivor_dvd_and_ne h2 hX
-    (by norm_num : 2 < 4) hH.Bs_le_normalizer_J (by norm_num : 3 ≠ 2)
-    hH.1.2.1.2.1.2).2
-  obtain ⟨Λ, hΛ, hcardΛ, r, hr, hW2⟩ :=
-    ggResSmallSpFour_exactTwo_rank_two h2 hJ hAL
-  subst hr
-  have hrank := ggWeylTypeData_rank_eq hW3 hW2
-  omega
 
 
 theorem ggResSmallSpFour_exactTwo_C3_or_twA
@@ -1517,166 +1375,6 @@ theorem ggResSmallSpFourExactTwo_false
     ggWeylTypeData_card_le_twelve_of_rank_le_two hW2 (by omega)
   omega
 
-
-theorem ggResSmallSpFour_exactThree_L_rank_one
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L)
-    (h3 : GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny) :
-    Nat.card ↥(ggAutomizer J Bs) = 2 := by
-  classical
-  have hAL : Nat.card ↥(ggAutomizer L Bs) = 384 :=
-    ggResSmallSpFour_automizerL_card hH hM
-  have hX : GGWeylTypeData 4 384 2 := ggWeylTypeData_B4
-  have hX' : GGWeylTypeData 4 (Nat.card ↥(ggAutomizer L Bs)) 2 := by
-    rw [hAL]
-    exact hX
-  have hJ : ggAutomizer J Bs ≠ ⊥ :=
-    (ggResLeviDatumCard_survivor_dvd_and_ne h3 ⟨2, hX'⟩ (by norm_num)
-      hH.Bs_le_normalizer_J hH.1.1.2.2.2.2.2.1.2.1 hH.1.2.1.2.1.2).2
-  obtain ⟨r, hr, hW⟩ :=
-    ggResLeviDatumCard_rank_eq_of_weylTypeData h3 hJ hX'
-  have hr1 : r = 1 := by omega
-  subst hr1
-  rcases hW with ⟨-, hn, -⟩ | ⟨h2, -⟩ | ⟨h4, -⟩ | ⟨h6, -⟩ | ⟨h7, -⟩ | ⟨h8, -⟩ |
-    ⟨h4, -⟩ | ⟨h2, -⟩
-  · simpa using hn
-  all_goals omega
-
-theorem ggResSmallSpFour_exactThree_L_false
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L)
-    (h3 : GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny) :
-    False := by
-  classical
-  have hAJ2 : Nat.card ↥(ggAutomizer J Bs) = 2 :=
-    ggResSmallSpFour_exactThree_L_rank_one hH hM h3
-  obtain ⟨s, J', hs3, hs1, hcomp, ⟨eJ⟩, hlabels⟩ :=
-    ggResSmallSpFour_component_labels hH hM
-  rcases hlabels with hC3 | htwA | hB2
-  · have h48 : 48 ≤ Nat.card ↥(ggAutomizer J Bs) :=
-      ggResSmallSpFour_J_card_ge_C3 hH hM hC3
-    omega
-  · have h24 : Nat.card ↥(ggAutomizer J Bs) = 24 :=
-      ggResSmallSpFour_J_card_eq_twA3 hH hM htwA
-    omega
-  · obtain ⟨lab, hlab, hLlab, R, instR, I, F, θ, hP⟩ :=
-      largeEvenMarking_exists_hasLabel hM
-    have hp3 : p = 3 := hP.1.1
-    subst hp3
-    have hAJ4 := hH.card_automizer_J_eq_four_of_A6
-      (nonempty_alt6_of_B2der_transport hs3 hs1 hcomp eJ hB2)
-    omega
-
-theorem ggResSmallSpFour_card_bstar
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L) :
-    Nat.card Bs = 3 ^ 5 := by
-  obtain ⟨lab, hlab, hLlab, R, instR, I, F, θ, hP⟩ := largeEvenMarking_exists_hasLabel hM
-  have hp3 : p = 3 := hP.1.1
-  have htag : lab.tag = .B ∨ lab.tag = .C := hP.1.2.1
-  have hn1 : lab.n = 1 := hP.1.2.2.1
-  have hrank4 : lab.rank = 4 := hP.1.2.2.2
-  subst hp3
-  have hZL : Subgroup.center ↥L = ⊥ :=
-    HdRo7C.hdRo7CLOSpAux_center_L_eq_bot hH lab hlab hLlab htag hn1 (by omega)
-  have hInnL : ∀ b ∈ Bs, ∃ k ∈ L, ∀ l ∈ L, b * l * b⁻¹ = k * l * k⁻¹ :=
-    rank4_innerOnL hH lab hlab hLlab htag hn1 hrank4 rfl hP.2.1
-  have hEcard := HdRo7C.hdRo7CLOSpAux_card_inf_pow hH lab hlab hLlab htag hn1
-    (by omega) rfl hP.2.1 hInnL
-  have hCeq := HdRo7C.hdRo7CLCoordAux_bstar_centralizer_eq hH
-  have hCcard : Nat.card ↥(Bs ⊓ Subgroup.centralizer (L : Set G)) = 3 := by
-    rw [hCeq, Nat.card_zpowers]
-    exact orderOf_eq_prime (HdRo7C.hdRo7CLCoordAux_x_pow_eq_one hH)
-      (HdRo7C.hdRo7CLCoordAux_x_ne_one hH)
-  have hsplit := card_ggBstar_split hH.1.2.1 hZL hP.2.1 hInnL
-  rw [hEcard, hrank4, hCcard] at hsplit
-  simpa using hsplit
-
-theorem ggResSmallSpFour_exactThree_K_false
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) : False := by
-  classical
-  obtain ⟨lab, hlab, hLlab, R, instR, I, F, θ, hP⟩ := largeEvenMarking_exists_hasLabel hM
-  have hp3 : p = 3 := hP.1.1
-  subst hp3
-  have hBsCard := ggResSmallSpFour_card_bstar hH hM
-  have hJCard : Nat.card (ggAutomizer J Bs) = 4 ∨ 24 ≤ Nat.card (ggAutomizer J Bs) := by
-    obtain ⟨s, J', hs3, hs1, hcomp, ⟨eJ⟩, hlabels⟩ := ggResSmallSpFour_component_labels hH hM
-    rcases hlabels with hC | hT | hA
-    · exact Or.inr ((by norm_num : 24 ≤ 48).trans (ggResSmallSpFour_J_card_ge_C3 hH hM hC))
-    · exact Or.inr (ggResSmallSpFour_J_card_eq_twA3 hH hM hT).ge
-    · exact Or.inl (hH.card_automizer_J_eq_four_of_A6
-        (nonempty_alt6_of_B2der_transport hs3 hs1 hcomp eJ hA))
-  have hJne : ggAutomizer J Bs ≠ ⊥ := by
-    intro h
-    rw [h, Subgroup.card_bot] at hJCard
-    rcases hJCard with h | h <;> omega
-  obtain ⟨Λ, i1, i2, S, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-    hS, hA1, hA3, hWML, hCLL, hWMK, hCKK, htyp, hlin, hrefl, hpairL, hpairK, hsel,
-    ⟨fL, hfL⟩, ⟨fK, hfK⟩, hclosL, hclosK, hdel, hclosJ⟩ := h3
-  let := i1
-  let := i2
-  let := i3
-  let := i4
-  let := i5
-  let := i6
-  haveI : Finite V := Finite.of_equiv _ ι.toEquiv
-  haveI : Module.Finite (ZMod 3) V := Module.Finite.of_finite
-  have hVcard : Nat.card V = 3 ^ 5 := by
-    calc Nat.card V = Nat.card (Additive ↥Bs) := (Nat.card_congr ι.toEquiv).symm
-      _ = 3 ^ 5 := hBsCard
-  have hdim : Module.finrank (ZMod 3) V = 5 := by
-    have hp := FiniteField.pow_finrank_eq_natCard 3 V
-    rw [hVcard] at hp
-    exact Nat.pow_right_injective (by norm_num : 2 ≤ 3) hp
-  have hn : Fintype.card Λ ≤ 5 := by
-    have haxis := ggResK_rank_core_add_one hH (fun i w => hlin (Sum.inl i) w)
-      hpairL hCLL.1 hclosL
-    have hcart := ggIntCartan_card_le_rank_add_one hWML hCLL 3 (by norm_num)
-    omega
-  have hX : GGWeylTypeData (Fintype.card Λ) (Nat.card (ggAutomizer K Bs))
-      (Nat.card (Subgroup.center ML.Group)) := by
-    have hh := ggWeylTypeData_of_isWeylMatrix hWML
-    have hc : Nat.card ML.Group = Nat.card (ggAutomizer K Bs) := Nat.card_congr fL.toEquiv
-    rwa [hc] at hh
-  have h3' : GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny :=
-    ⟨Λ, i1, i2, S, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-      hS, hA1, hA3, hWML, hCLL, hWMK, hCKK, htyp, hlin, hrefl, hpairL, hpairK, hsel,
-      ⟨fL, hfL⟩, ⟨fK, hfK⟩, hclosL, hclosK, hdel, hclosJ⟩
-  obtain ⟨r, hr, hW⟩ := ggResLeviDatumCard_rank_eq_of_weylTypeData h3' hJne hX
-  have hr2 : r ≤ 2 := by omega
-  rcases hJCard with h4 | h24
-  · rw [h4] at hW
-    rcases hW with ⟨_, hn, _⟩ | ⟨_, hn, _⟩ | ⟨hn, _⟩ | ⟨hn, _⟩ | ⟨hn, _⟩ | ⟨hn, _⟩ |
-      ⟨hn, _⟩ | ⟨_, hn, _⟩
-    all_goals interval_cases r <;> norm_num at *
-  · have h12 := ggWeylTypeData_card_le_twelve_of_rank_le_two hW hr2
-    omega
-
-theorem ggResSmallSpFour_not_exactThree_either
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ (lab.tag = .B ∨ lab.tag = .C) ∧ lab.n = 1 ∧ lab.rank = 4) p Bs L) :
-    ¬ (GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) := by
-  rintro (h3 | h3)
-  · exact ggResSmallSpFour_exactThree_L_false hH hM h3
-  · exact ggResSmallSpFour_exactThree_K_false hH hM h3
 
 end CFSG.StandardType
 

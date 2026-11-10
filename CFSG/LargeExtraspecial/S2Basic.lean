@@ -36,11 +36,6 @@ theorem mem_fixOf {S : Set G} {v : M} : v ∈ fixOf ρ S ↔ ∀ g : X, (g : G) 
 theorem fixOf_anti {S T : Set G} (h : S ⊆ T) : fixOf ρ T ≤ fixOf ρ S :=
   fun _ hv g hg => hv g (h hg)
 
-theorem fixOf_union (S T : Set G) : fixOf ρ (S ∪ T) = fixOf ρ S ⊓ fixOf ρ T := by
-  ext v
-  simp only [Submodule.mem_inf, mem_fixOf, Set.mem_union]
-  exact ⟨fun h => ⟨fun g hg => h g (Or.inl hg), fun g hg => h g (Or.inr hg)⟩,
-    fun h g hg => hg.elim (h.1 g) (h.2 g)⟩
 
 theorem fixOf_closure {S : Set G} (hS : S ⊆ X) :
     fixOf ρ (Subgroup.closure S : Set G) = fixOf ρ S := by
@@ -88,36 +83,6 @@ theorem map_fixOf_conj (g : X) {S T : Set G} (hST : ∀ x, x ∈ T ↔ (g : G)�
   · change ρ g (ρ g⁻¹ w) = w
     rw [map_inv, CFSG.ClassicalGroups.Orthogonal.LinearEquiv.apply_inv_apply']
 
-theorem finrank_fixOf_conj [FiniteDimensional (ZMod 2) M] (g : X) {S T : Set G}
-    (hST : ∀ x, x ∈ T ↔ (g : G)⁻¹ * x * g ∈ S) :
-    finrank (ZMod 2) (fixOf ρ T) = finrank (ZMod 2) (fixOf ρ S) := by
-  rw [← map_fixOf_conj ρ g hST]
-  exact LinearEquiv.finrank_map_eq (ρ g) _
-
-theorem fixSpace_eq_of_isCompl {L L₁ : Set G} (hc : IsCompl (fixOf ρ L) (fixOf ρ L₁))
-    (hLX : L ⊆ X) (x : X) (hx : (x : G) ∈ L₁)
-    (hgen : L₁ ⊆ Subgroup.closure (insert (x : G) L)) :
-    fixSpace (ρ x) = fixOf ρ L₁ := by
-  have hB : fixOf ρ L₁ ≤ fixSpace (ρ x) := fun v hv => mem_fixSpace.mpr (hv x hx)
-  have hA : fixSpace (ρ x) ⊓ fixOf ρ L ≤ fixOf ρ L₁ := by
-    rintro v ⟨hvx, hvL⟩
-    have hins : insert (x : G) L ⊆ X := Set.insert_subset x.2 hLX
-    have hv : v ∈ fixOf ρ (insert (x : G) L) := by
-      intro g hg
-      rcases hg with hg | hg
-      · rw [show g = x from Subtype.ext hg]
-        exact mem_fixSpace.mp hvx
-      · exact hvL g hg
-    rw [← fixOf_closure ρ hins] at hv
-    exact fixOf_anti ρ hgen hv
-  have h0 : fixOf ρ L ⊓ fixSpace (ρ x) = ⊥ := by
-    rw [eq_bot_iff, ← hc.inf_eq_bot]
-    intro v hv
-    exact ⟨hv.1, hA ⟨hv.2, hv.1⟩⟩
-  calc fixSpace (ρ x) = (fixOf ρ L₁ ⊔ fixOf ρ L) ⊓ fixSpace (ρ x) := by
-        rw [sup_comm, hc.sup_eq_top, top_inf_eq]
-    _ = fixOf ρ L₁ ⊔ fixOf ρ L ⊓ fixSpace (ρ x) := sup_inf_assoc_of_le _ hB
-    _ = fixOf ρ L₁ := by rw [h0, sup_bot_eq]
 
 theorem inf_fixSpace_eq_of_compl {L L₁ : Set G} {N : Submodule (ZMod 2) M}
     (hsup : (N ⊓ fixOf ρ L) ⊔ (N ⊓ fixOf ρ L₁) = N)
@@ -192,36 +157,6 @@ theorem sup_inf_fixSpace_eq [FiniteDimensional (ZMod 2) M] {a b : M ≃ₗ[ZMod 
   rw [hinf, finrank_bot] at h3
   omega
 
-theorem commSpace_eq_fixSpace_of_finrank [FiniteDimensional (ZMod 2) M] {t : M ≃ₗ[ZMod 2] M}
-    (htt : t * t = 1) (h : 2 * finrank (ZMod 2) (fixSpace t) = finrank (ZMod 2) M) :
-    commSpace t = fixSpace t := by
-  refine Submodule.eq_of_le_of_finrank_le (commSpace_le_fixSpace htt) ?_
-  have := finrank_commSpace_add_finrank_fixSpace t
-  omega
-
-theorem fixSpace_mul_eq_bot {x y : M ≃ₗ[ZMod 2] M} (hx : x * x = 1) (hy : y * y = 1)
-    (hxy : fixSpace x ⊓ fixSpace y = ⊥) : fixSpace (x * y) = ⊥ := by
-  have hxx : ∀ v, x (x v) = v := fun v => by rw [← LinearEquiv.mul_apply, hx]; rfl
-  have hyy : ∀ v, y (y v) = v := fun v => by rw [← LinearEquiv.mul_apply, hy]; rfl
-  rw [eq_bot_iff]
-  intro v hv
-  rw [mem_fixSpace, LinearEquiv.mul_apply] at hv
-  have hyv : y v = x v := by
-    have := congrArg x hv
-    rwa [hxx] at this
-  have hyxv : y (x v) = v := by rw [← hyv, hyy]
-  set u := x v + v with hu
-  have hxu : x u = u := by rw [hu, map_add, hxx, add_comm]
-  have hyu : y u = u := by rw [hu, map_add, hyxv, hyv, add_comm]
-  have hu0 : u = 0 := by
-    have : u ∈ fixSpace x ⊓ fixSpace y := ⟨mem_fixSpace.mpr hxu, mem_fixSpace.mpr hyu⟩
-    rwa [hxy, Submodule.mem_bot] at this
-  have hxv' : x v = v := by
-    rw [hu, add_eq_zero_iff_eq_neg, vec_neg] at hu0
-    exact hu0
-  have : v ∈ fixSpace x ⊓ fixSpace y :=
-    ⟨mem_fixSpace.mpr hxv', mem_fixSpace.mpr (by rw [hyv, hxv'])⟩
-  rwa [hxy, Submodule.mem_bot] at this
 
 theorem finrank_map_sub_one_add [FiniteDimensional (ZMod 2) M] (t : M ≃ₗ[ZMod 2] M)
     (N : Submodule (ZMod 2) M) :

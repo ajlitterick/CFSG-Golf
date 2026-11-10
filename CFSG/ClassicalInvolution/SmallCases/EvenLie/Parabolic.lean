@@ -54,42 +54,5 @@ theorem NoNonsolvableClassical.of_isCharTwoType {F : Type*} [Group F] [Finite F]
   fun _ hz => NoNonsolvableClassicalAt.of_twoConstrained
     (h _ (isTwoLocal_centralizer_of_orderOf_eq_two hz)) hz
 
-theorem NoNonsolvableClassicalAt.of_borelTits_of_isEvenCharacteristic {X : Type*} [Group X]
-    [Finite X] {z : X} (hz : orderOf z = 2) (hE : IsEvenCharacteristic X) (S : Sylow 2 X)
-    (P : Subgroup X)
-    (hNP : Subgroup.normalizer ((Subgroup.zpowers z : Subgroup X) : Set X) ≤ P)
-    (hzP : z ∈ pCoreOf 2 P) (hSP : (S : Subgroup X) ≤ P) : NoNonsolvableClassicalAt z := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hVne : pCoreOf 2 P ≠ ⊥ := by
-    intro h
-    rw [h, Subgroup.mem_bot] at hzP
-    rw [hzP, orderOf_one] at hz
-    exact absurd hz (by norm_num)
-  have hPH : P ≤ Subgroup.normalizer (pCoreOf 2 P : Set X) := le_normalizer_pCoreOf 2 P
-  have hloc : IsPLocal 2 (Subgroup.normalizer (pCoreOf 2 P : Set X)) :=
-    ⟨pCoreOf 2 P, hVne, pCoreOf_isPGroup 2 P, rfl⟩
-  have hchar := hE _ hloc ⟨S, hSP.trans hPH⟩
-  refine NoNonsolvableClassicalAt.of_hasParabolicOvergroup
-    ⟨Subgroup.normalizer (pCoreOf 2 P : Set X),
-      pCoreOf 2 (Subgroup.normalizer (pCoreOf 2 P : Set X)), ?_, pCoreOf_le 2 _,
-      (Subgroup.normal_subgroupOf_iff_le_normalizer (pCoreOf_le 2 _)).2
-        (le_normalizer_pCoreOf 2 _), pCoreOf_isPGroup 2 _, ?_⟩
-  · rw [centralizer_eq_normalizer_zpowers_of_orderOf_eq_two hz]
-    exact hNP.trans hPH
-  · rw [inf_comm]
-    exact inf_centralizer_pCoreOf_le_of_isCharacteristicP hchar
-
-theorem noNonsolvableClassical_of_lieModel_of_isEvenCharacteristic {X : Type} [Group X] [Finite X]
-    {t : StatedLieTag} {n f : ℕ} (h : LieModel X t n 2 f) (hE : IsEvenCharacteristic X) :
-    NoNonsolvableClassical X := by
-  intro z hz
-  have hp := isPGroup_zpowers_of_orderOf_eq_two hz
-  obtain ⟨S, P, -, hN, -, hUP, hS1, hS2⟩ := lieModel_conclusion X t n 2 f h _ hp.2 hp.1
-  have hSP : (S : Subgroup X) ≤ P := by
-    by_cases ht : t = .Tits
-    · exact hS2 ht
-    · exact Subgroup.le_normalizer.trans (hS1 ht)
-  exact NoNonsolvableClassicalAt.of_borelTits_of_isEvenCharacteristic hz hE S P hN
-    (hUP (Subgroup.mem_zpowers z)) hSP hz
 
 end CFSG.ClassicalInvolution

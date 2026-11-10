@@ -30,25 +30,6 @@ theorem rank_one_two_group_unique_involution [Nontrivial G]
   intro involution
   exact hrank involution central (Subgroup.mem_center_iff.mp element.property involution)
 
-theorem rank_one_two_group_unique_order_two_subgroup [Nontrivial G]
-    (hpgroup : IsPGroup 2 G) (hrank : NoCommutingDistinctInvolutions G) :
-    ∃ subgroup : Subgroup G, Nat.card subgroup = 2 ∧
-      ∀ other : Subgroup G, Nat.card other = 2 → other = subgroup := by
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨central, _, hunique⟩ := rank_one_two_group_unique_involution hpgroup hrank
-  let subgroup := Subgroup.zpowers (central : G)
-  have hcard : Nat.card subgroup = 2 := (Nat.card_zpowers (central : G)).trans central.property
-  refine ⟨subgroup, hcard, ?_⟩
-  intro other hotherCard
-  obtain ⟨element, horder⟩ := exists_prime_orderOf_dvd_card' (G := other) 2
-    (by rw [hotherCard])
-  let involution : Involution G := ⟨element, (Subgroup.orderOf_coe element).trans horder⟩
-  have heq : (central : G) = element := congrArg Subtype.val (hunique involution).symm
-  have hle : subgroup ≤ other := by
-    apply Subgroup.zpowers_le.mpr
-    rw [heq]
-    exact element.property
-  exact (Subgroup.eq_of_le_of_card_ge hle (by rw [hcard, hotherCard])).symm
 
 omit [Finite G] in
 theorem subgroup_no_commuting_distinct_involutions (subgroup : Subgroup G)

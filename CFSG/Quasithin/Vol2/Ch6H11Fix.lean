@@ -282,10 +282,6 @@ theorem fixV_anti {X Y : Subgroup (MulAut V)} (h : X ≤ Y) : fixV Y ≤ fixV X 
 abbrev conjSub (g : MulAut V) (A : Subgroup (MulAut V)) : Subgroup (MulAut V) :=
   A.map (MulAut.conj g).toMonoidHom
 
-omit [CharP F 2] in
-theorem card_conjSub (g : MulAut V) (A : Subgroup (MulAut V)) :
-    Nat.card (conjSub g A) = Nat.card A :=
-  Subgroup.card_map_of_injective (MulAut.conj g).injective
 
 omit [CharP F 2] in
 theorem card_fixV_conjSub (g : MulAut V) (A : Subgroup (MulAut V)) :

@@ -47,88 +47,6 @@ namespace L246C127
 
 namespace C127Block
 
-private theorem perm_inv_apply_self {α : Type*} (f : Equiv.Perm α) (x : α) : f⁻¹ (f x) = x :=
-  Equiv.symm_apply_apply f x
-
-private theorem perm_apply_inv_self {α : Type*} (f : Equiv.Perm α) (x : α) : f (f⁻¹ x) = x :=
-  Equiv.apply_symm_apply f x
-
-theorem perm_commutes_all_eq_one {n : ℕ} (hn : 3 ≤ n) (g : Equiv.Perm (Fin n))
-    (hg : ∀ σ : Equiv.Perm (Fin n), g * σ = σ * g) : g = 1 := by
-  have hconj : ∀ p q : Fin n, Equiv.swap (g p) (g q) = Equiv.swap p q := by
-    intro p q
-    rw [Equiv.swap_apply_apply, hg (Equiv.swap p q), mul_inv_cancel_right]
-  have hfix : ∀ i : Fin n, g i = i := by
-    intro i
-    obtain ⟨j, hj, k, hk, hjk⟩ := Finset.one_lt_card.1 (show 1 < (Finset.univ.erase i).card by
-      rw [Finset.card_erase_of_mem (Finset.mem_univ i), Finset.card_univ, Fintype.card_fin]
-      omega)
-    have hji : j ≠ i := Finset.ne_of_mem_erase hj
-    have hki : k ≠ i := Finset.ne_of_mem_erase hk
-    have h1 := hconj i j
-    have h2 := hconj i k
-    by_contra hx
-    by_cases hgj : g i = j
-    · rw [hgj] at h2
-      have h3 := congrArg (fun p : Equiv.Perm (Fin n) => p j) h2
-      simp only [Equiv.swap_apply_left, Equiv.swap_apply_of_ne_of_ne hji hjk] at h3
-      exact hki (g.injective (h3.trans hgj.symm))
-    · have h3 := congrArg (fun p : Equiv.Perm (Fin n) => p (g i)) h1
-      simp only [Equiv.swap_apply_left, Equiv.swap_apply_of_ne_of_ne hx hgj] at h3
-      exact hji (g.injective h3)
-  refine Equiv.ext fun i => ?_
-  simpa using hfix i
-
-theorem perm_map_stab_inner {n : ℕ} (hn : 3 ≤ n) (a : Fin n)
-    (φ : Equiv.Perm (Fin n) → Equiv.Perm (Fin n))
-    (hmul : ∀ σ τ : Equiv.Perm (Fin n), φ (σ * τ) = φ σ * φ τ)
-    (h0 : ∀ σ : Equiv.Perm (Fin n), φ σ a = a ↔ σ a = a) :
-    ∃ f : Equiv.Perm (Fin n), ∀ σ : Equiv.Perm (Fin n), φ σ = f * σ * f⁻¹ := by
-  have hφ1 : φ 1 = 1 := by
-    have h := hmul 1 1
-    rw [mul_one] at h
-    have h' : φ 1 * φ 1 = φ 1 * 1 := by rw [mul_one]; exact h.symm
-    exact mul_left_cancel h'
-  have hinv : ∀ σ : Equiv.Perm (Fin n), φ σ⁻¹ = (φ σ)⁻¹ := by
-    intro σ
-    have h : φ σ * φ σ⁻¹ = 1 := by rw [← hmul, mul_inv_cancel, hφ1]
-    exact (inv_eq_of_mul_eq_one_right h).symm
-  obtain ⟨F, hF⟩ : ∃ F : Fin n → Fin n, ∀ p, F p = φ (Equiv.swap a p) a :=
-    ⟨fun p => φ (Equiv.swap a p) a, fun p => rfl⟩
-  have hinj : Function.Injective F := by
-    intro p q hpq
-    rw [hF, hF] at hpq
-    have hσ : φ ((Equiv.swap a q)⁻¹ * Equiv.swap a p) a = a := by
-      rw [hmul, hinv, Equiv.Perm.mul_apply, hpq, perm_inv_apply_self]
-    have h2 : ((Equiv.swap a q)⁻¹ * Equiv.swap a p) a = a := (h0 _).mp hσ
-    rw [Equiv.Perm.mul_apply, Equiv.swap_apply_left] at h2
-    have h3 : Equiv.swap a q ((Equiv.swap a q)⁻¹ p) = p := perm_apply_inv_self _ _
-    rw [h2, Equiv.swap_apply_left] at h3
-    exact h3.symm
-  have hbij : Function.Bijective F := Finite.injective_iff_bijective.mp hinj
-  have hkey : ∀ (σ : Equiv.Perm (Fin n)) (p : Fin n), φ σ (F p) = F (σ p) := by
-    intro σ p
-    rw [hF, hF]
-    have hτ : ((Equiv.swap a (σ p))⁻¹ * (σ * Equiv.swap a p)) a = a := by
-      have hs : Equiv.swap a (σ p) a = σ p := Equiv.swap_apply_left a (σ p)
-      rw [Equiv.Perm.mul_apply, Equiv.Perm.mul_apply, Equiv.swap_apply_left]
-      calc (Equiv.swap a (σ p))⁻¹ (σ p) = (Equiv.swap a (σ p))⁻¹ (Equiv.swap a (σ p) a) := by
-            rw [hs]
-        _ = a := perm_inv_apply_self _ _
-    have hτa : φ ((Equiv.swap a (σ p))⁻¹ * (σ * Equiv.swap a p)) a = a := (h0 _).mpr hτ
-    rw [hmul, hinv, Equiv.Perm.mul_apply] at hτa
-    calc φ σ (φ (Equiv.swap a p) a) = φ (σ * Equiv.swap a p) a := by
-          rw [hmul, Equiv.Perm.mul_apply]
-      _ = φ (Equiv.swap a (σ p)) ((φ (Equiv.swap a (σ p)))⁻¹ (φ (σ * Equiv.swap a p) a)) :=
-          (perm_apply_inv_self _ _).symm
-      _ = φ (Equiv.swap a (σ p)) a := by rw [hτa]
-  refine ⟨Equiv.ofBijective F hbij, fun σ => ?_⟩
-  refine Equiv.ext fun x => ?_
-  obtain ⟨p, rfl⟩ := hbij.2 x
-  have hinvF : (Equiv.ofBijective F hbij)⁻¹ (F p) = p :=
-    perm_inv_apply_self (Equiv.ofBijective F hbij) p
-  rw [Equiv.Perm.mul_apply, Equiv.Perm.mul_apply, hinvF]
-  exact hkey σ p
 
 theorem perm_two_subgroup_dichotomy {n : ℕ} (hodd : Odd n) (h5 : 5 ≤ n)
     (S : Subgroup (Equiv.Perm (Fin n))) (hS : IsPGroup 2 S) :
@@ -326,26 +244,6 @@ theorem exists_even_not_mem_young {n : ℕ} (O : Finset (Fin n)) (h2 : 2 ≤ O.c
       Equiv.swap_apply_left] at h1
     exact hp (h1.mpr ha)
 
-theorem exists_mem_young_moves {n : ℕ} (O : Finset (Fin n)) (h2 : 2 ≤ O.card)
-    (hO : O.card + 2 ≤ n) (a : Fin n) : ∃ σ ∈ young O, σ a ≠ a := by
-  by_cases ha : a ∈ O
-  · obtain ⟨x, hx, hxa⟩ := bt_exists_ne_mem O h2 a
-    refine ⟨Equiv.swap a x, bt_swap_mem_young (iff_of_true ha hx), ?_⟩
-    rw [Equiv.swap_apply_left]
-    exact hxa
-  · obtain ⟨y, hy, hya⟩ := bt_exists_notMem_ne O hO a
-    refine ⟨Equiv.swap a y, bt_swap_mem_young (iff_of_false ha hy), ?_⟩
-    rw [Equiv.swap_apply_left]
-    exact hya
-
-theorem exists_involution_mem_young {n : ℕ} (O : Finset (Fin n)) (h2 : 2 ≤ O.card) :
-    ∃ σ ∈ young O, σ ≠ 1 ∧ σ * σ = 1 := by
-  obtain ⟨x, hx, y, hy, hxy⟩ := Finset.one_lt_card.mp (by omega : 1 < O.card)
-  refine ⟨Equiv.swap x y, bt_swap_mem_young (iff_of_true hx hy), ?_, Equiv.swap_mul_self x y⟩
-  intro h
-  have h' : Equiv.swap x y x = (1 : Equiv.Perm (Fin n)) x := by rw [h]
-  rw [Equiv.swap_apply_left, Equiv.Perm.one_apply] at h'
-  exact hxy h'.symm
 
 end C127Block
 

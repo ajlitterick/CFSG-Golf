@@ -42,21 +42,6 @@ theorem le_join_of_absorb
   exact Subgroup.mul_mem _ (Subgroup.mul_mem _ hg (le_sup_left (b := ⨆ K ∈ 𝒦, K) (hJL hj')))
     (Subgroup.inv_mem _ hg)
 
-theorem ggG0_le_join_of_reflMax
-    {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {𝒦 : Finset (Subgroup G)} (hJL : J ≤ L)
-    (hcJ : ∀ c ∈ Subgroup.centralizer (Bs : Set G), ∀ j ∈ J, c * j * c⁻¹ ∈ J)
-    (hRM : ∀ (y : G) (K' : Subgroup G), GGNbr p B x D J y K' →
-      ggAutomizer K' Bs ≤ ggAutomizerJoin L Bs 𝒦)
-    (hGen : ∀ (y : G) (K' : Subgroup G), GGNbr p B x D J y K' →
-      ∃ n ∈ K', ∃ φ : MulAut ↥Bs, n ∈ Subgroup.normalizer (Bs : Set G) ∧
-        (∀ b : ↥Bs, ((φ b : ↥Bs) : G) = n * b * n⁻¹) ∧
-        K' ≤ J ⊔ J.map (MulAut.conj n).toMonoidHom) :
-    ggG0 p B x L D J ≤ L ⊔ ⨆ K ∈ 𝒦, K := by
-  refine sup_le le_sup_left (iSup_le fun y => iSup_le fun K' => iSup_le fun hK' => ?_)
-  obtain ⟨n, hnK, φ, hnN, hφn, hle⟩ := hGen y K' hK'
-  have hφ : φ ∈ ggAutomizer K' Bs := Subgroup.subset_closure ⟨n, hnK, hnN, hφn⟩
-  exact le_join_of_absorb hJL hcJ n hle φ (hRM y K' hK' hφ) hφn
 
 theorem map_conj_le_join_of_absorb
     {G : Type} [Group G] [Finite G] {L J Bs : Subgroup G} {𝒦 : Finset (Subgroup G)} (hJL : J ≤ L)
@@ -89,12 +74,6 @@ theorem ggG0_le_join_of_reflMax_genN
   ∃ (ι : Type) (M : CoxeterMatrix ι) (e : M.Group ≃* ↥(ggAutomizerJoin L Bs 𝒦)),
     GGCoxeterPres p (ggAutomizerJoin L Bs 𝒦) M e ∧ ∀ i j : ι, i ≠ j → M.M i j ≤ 3
 
-theorem ggSecFiveRegionGuard_of_pres
-    {G : Type} [Group G] [Finite G] {p : ℕ} {L Bs : Subgroup G} {𝒦 : Finset (Subgroup G)}
-    {ι : Type} {M : CoxeterMatrix ι} {e : M.Group ≃* ↥(ggAutomizerJoin L Bs 𝒦)}
-    (hpres : GGCoxeterPres p (ggAutomizerJoin L Bs 𝒦) M e) (hle3 : ∀ i j : ι, i ≠ j → M.M i j ≤ 3) :
-    GGSecFiveRegionGuard p L Bs 𝒦 :=
-  ⟨ι, M, e, hpres, hle3⟩
 
 theorem ggSecFiveRegionGuard_of_ADE
     {G : Type} [Group G] [Finite G] {p : ℕ} {L Bs : Subgroup G} {𝒦 : Finset (Subgroup G)}
@@ -176,36 +155,6 @@ theorem ggSecFiveJoinRegionInput_of_primed
     (hGen : GGSecFiveNbrGenKNInput') (hJ : GGSecFiveJNormInput') : GGSecFiveJoinRegionInput :=
   ggSecFiveJoinRegionInput_of_join' (ggSecFiveJoinRegionInput'_of_reflMax' hRM hGen hJ)
 
-@[expose] def GGSecFiveQFourMarkInput
-    : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
-      ∀ X : Subgroup G, (X = L ∨ (5 ≤ p ∧ ∃ y : G, GGNbr p B x D J y X)) →
-        GGInnerDiagOnLabel GGLabQFour p Bs X
-
-@[expose] def GGSecFiveRootGenInput
-    : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
-      ∀ X : Subgroup G, (X = L ∨ ∃ y : G, GGNbr p B x D J y X) →
-        GGInnerDiagOnLabel GGLabQFour p Bs X →
-          ∀ r ∈ ggAutomizer X Bs, GGIsReflection p r → GGRealized p Bs r
-
-theorem ggSecFiveRootGenInput_of_realQFour
-    (hP : GGStdSubPrimeInput)
-    (hR : GGReflRealizedQFourInput) : GGSecFiveRootGenInput := by
-  intro G _ _ p B Bs x L D J 𝒦 hcfg hsplit X hX hmark r hr hrefl
-  have hconf : GGConfig p B Bs x L D J := hcfg.1.1
-  have hRX : GGReflRealizedIn p Bs X :=
-    hR G p B Bs x L D J hconf hcfg.1.2.2.1 hcfg.1.2.2.2.1 X hX hmark
-  rcases hX with rfl | ⟨y, hnb⟩
-  · exact ggRealized_of_reflRealizedIn_L hP hconf hRX hr hrefl
-  · have hpr : p.Prime := hconf.1.2.2.2.2.2.1.1
-    have hyBs : y ∈ Bs := hconf.2.1.1 hnb.1.2.1
-    have hKpc : LargeEvenPComponent p (Subgroup.centralizer ({y} : Set G)) X :=
-      hnb.1.2.2.2.2.1
-    exact ggRealized_of_reflRealizedIn hpr hyBs
-      ((CFSG.Assembly.LargeEven.largeEvenPComponent_iff_glaPComponent p _ X).mp hKpc) hRX hr hrefl
 
 @[expose] def GGSecFiveJrInput
     : Prop :=
@@ -213,15 +162,6 @@ theorem ggSecFiveRootGenInput_of_realQFour
     (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
       ∀ r ∈ ggAutomizer J Bs, GGIsReflection p r → GGRealized p Bs r
 
-theorem ggSecFiveJrInput_of_rootGen
-    (hRG : GGSecFiveRootGenInput) (hM : GGSecFiveQFourMarkInput) (hJ : GGSecFiveJNormInput') :
-    GGSecFiveJrInput := by
-  intro G _ _ p B Bs x L D J 𝒦 hcfg hsplit r hr hrefl
-  obtain ⟨hJL, -⟩ := hJ G p B Bs x L D J 𝒦 hcfg hsplit
-  obtain ⟨g, hg, hgN, hgφ⟩ := mem_ggAutomizer_iff.mp hr
-  exact hRG G p B Bs x L D J 𝒦 hcfg hsplit L (Or.inl rfl)
-    (hM G p B Bs x L D J 𝒦 hcfg hsplit L (Or.inl rfl)) r
-    (mem_ggAutomizer_iff.mpr ⟨g, hJL hg, hgN, hgφ⟩) hrefl
 
 @[expose] def GGSecFiveFixInput
     : Prop :=
@@ -229,15 +169,6 @@ theorem ggSecFiveJrInput_of_rootGen
     (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
       ∀ b : Bs, (∀ φ ∈ ggAutomizer L Bs, φ b = b) → (b : G) ∈ Subgroup.zpowers x
 
-@[expose] def GGSecFivePumpInput
-    : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
-      ∀ D₃ : Subgroup G, D₃ ≤ D → Nat.card D₃ = p →
-        ∀ L₃ : Subgroup G, L₃ ≤ Subgroup.centralizer (D₃ : Set G) →
-          IsPComponent p (L₃.subgroupOf (Subgroup.centralizer (D₃ : Set G))) → J ≤ L₃ →
-            GGWeylReflectionGroup p (ggAutomizer L₃ Bs) ∧ ggAutomizer J Bs ≤ ggAutomizer L₃ Bs ∧
-              ¬ GGWeylOfType p CoxeterMatrix.G₂ (ggAutomizer L₃ Bs)
 
 @[expose] def GGSecFiveRootReflInput
     : Prop :=
@@ -250,22 +181,6 @@ theorem ggSecFiveJrInput_of_rootGen
             ∀ a : ↥A, GGIsReflection p (a : MulAut ↥Bs) →
               ∃ (i : ι) (g : M.Group), a = f (g * M.simple i * g⁻¹)
 
-@[expose] def GGSecFiveMONInput
-    : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L → 5 ≤ p →
-      ∀ [Fact p.Prime] (V : Type) [AddCommGroup V] [Module (ZMod p) V] (ι : Additive ↥Bs ≃+ V)
-        (A : Subgroup (MulAut ↥Bs)), ggAutomizer J Bs ≤ A → A ≤ ggInduced ⊤ Bs →
-        ∀ (n : ℕ) (f : Fin n → V), 3 ≤ n → LinearIndependent (ZMod p) f →
-          (∀ a ∈ A, ∀ i, ∃ j, ∃ c : ZMod p, c ≠ 0 ∧ ggLin (p := p) ι a (f i) = c • f j) →
-          (∀ a ∈ A, ∀ v : V, ggLin (p := p) ι a v - v ∈ Submodule.span (ZMod p) (Set.range f)) →
-          (∀ W : Submodule (ZMod p) V, W ≤ Submodule.span (ZMod p) (Set.range f) →
-            (∀ a ∈ A, ∀ w ∈ W, ggLin (p := p) ι a w ∈ W) →
-              W = ⊥ ∨ W = Submodule.span (ZMod p) (Set.range f)) →
-          (∃ a ∈ A, (∀ i, ∃ c : ZMod p, ggLin (p := p) ι a (f i) = c • f i) ∧
-            ∃ i : Fin n, ∃ c : ZMod p, ggLin (p := p) ι a (f i) = c • f i ∧ c ≠ 1 ∧ c ≠ -1) →
-          (∃ r ∈ ggAutomizer J Bs, ∃ r' ∈ ggAutomizer J Bs, GGIsReflection p r ∧
-            GGIsReflection p r' ∧ orderOf (r * r') = 3) → False
 
 @[expose] def GGSecFiveCRInput
     : Prop :=
@@ -287,11 +202,6 @@ theorem ggSecFiveJrInput_of_rootGen
       (∀ b : ↥Bs, (∀ φ ∈ ggAInf p B Bs x L D J, φ b = b) → b = 1) →
         GGWeylReflectionGroup p (ggAInf p B Bs x L D J)
 
-@[expose] def GGSecFiveLpRankInput
-    : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg' p B Bs x L D J 𝒦 → GGSplitLie p L →
-      2 ≤ CFSG.Open.pRank p L
 
 end JoinPrimed
 

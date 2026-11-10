@@ -10,11 +10,6 @@ namespace CFSG.ComponentClassification.GSThmB
 open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
 open scoped MatrixGroups
 
-@[expose] def GS82Step2ConjInput : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (c : Eight2.CtxA0 X),
-    ¬ Nonempty (↥(generalizedFitting (c.s.h.subQuot c.s.y)) ≃* alternatingGroup (Fin 10)) →
-    (c.s.h.secG0 c.s.y).relIndex c.s.h.S ≠ 2 →
-    ∃ u ∈ c.s.h.S, u⁻¹ * c.b * u = c.s.h.a * c.b
 
 @[expose] def GS82Step6PumpInputA0 : Prop :=
   ∀ (X : Type) [Group X] [Finite X] (c : Eight2.CtxA0 X),

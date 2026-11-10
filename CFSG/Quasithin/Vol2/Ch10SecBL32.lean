@@ -111,8 +111,6 @@ theorem isKb_inv : ∀ a : Γ, IsKb a → IsKb a⁻¹ := by unfold IsKb IsPb ent
   inv_mem' := fun {a} => isKb_inv a
 
 theorem mem_U3 {g : Γ} : g ∈ U3 ↔ IsU g := Iff.rfl
-theorem mem_Pa {g : Γ} : g ∈ Pa ↔ IsPa g := Iff.rfl
-theorem mem_Pb {g : Γ} : g ∈ Pb ↔ IsPb g := Iff.rfl
 theorem mem_Ea {g : Γ} : g ∈ Ea ↔ IsEa g := Iff.rfl
 theorem mem_Eb {g : Γ} : g ∈ Eb ↔ IsEb g := Iff.rfl
 theorem mem_Ka {g : Γ} : g ∈ Ka ↔ IsKa g := Iff.rfl

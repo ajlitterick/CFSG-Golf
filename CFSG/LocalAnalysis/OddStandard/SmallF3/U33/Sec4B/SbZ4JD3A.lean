@@ -270,13 +270,6 @@ theorem tau_not_mem_Mc : τ ∉ Mc := by
   rw [hnorm] at hτQ
   exact h.tau_not_mem_Q hτQ
 
-theorem Mc_conj_Mh {m c : H} (hm : m ∈ Mh) (hc : c ∈ Mc) : m * c * m⁻¹ ∈ Mc := by
-  have hcM : c ∈ Mh := Mc_le_Mh h hMh hMc hc
-  have hcomm : m * c * m⁻¹ * c⁻¹ ∈ Q := by
-    simpa using Mh_comm_mem_Q h hMh hm hcM
-  have heq : m * c * m⁻¹ = (m * c * m⁻¹ * c⁻¹) * c := by group
-  rw [heq]
-  exact Mc.mul_mem (Q_le_Mc h hMh hMc hcomm) hc
 
 theorem Mc_conj_rho {x : H} (hx : x ∈ Mc) : ρ * x * ρ⁻¹ ∈ Mc := by
   have hxM : x ∈ Mh := Mc_le_Mh h hMh hMc hx

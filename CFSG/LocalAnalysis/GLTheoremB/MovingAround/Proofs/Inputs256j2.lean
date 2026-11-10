@@ -98,7 +98,6 @@ private theorem sl3_hom_charElemJ {F : Type} [Field F] [Finite F] {C : Type} [Gr
 end SL3
 
 
-
 section TwoDHigh
 
 open CFSG.Open CFSG.HardMathSupport.Solomon.LocalBalance CFSG.HardMathSupport.Timmesfeld.Coordinator
@@ -1707,9 +1706,6 @@ theorem qGenTriD4Rest_of_outer (hout : LangOuterCharElem) : Inputs256f.QGenTriD4
     · exact absurd h hin
     · exact qGen_triD4_outer_three hℓ h5 hf hK Fr hFr φ hφ hin
 
-theorem qGenExc_of_outer (hout : LangOuterCharElem) : Inputs256e.QGenExc :=
-  Inputs256f.qGenExc_of_inndiag (qGenExcInndiag_of_outer hout) (qGenTwE6Inndiag_of_outer hout)
-    (qGenTriD4Rest_of_outer hout)
 
 theorem qGenExcInndiag_holds : Inputs256f.QGenExcInndiag :=
   qGenExcInndiag_of_outer langOuterCharElem_holds
@@ -1720,8 +1716,6 @@ theorem qGenTwE6Inndiag_holds : Inputs256f.QGenTwE6Inndiag :=
 theorem qGenTriD4Rest_holds : Inputs256f.QGenTriD4Rest :=
   qGenTriD4Rest_of_outer langOuterCharElem_holds
 
-theorem qGenExc_holds : Inputs256e.QGenExc :=
-  qGenExc_of_outer langOuterCharElem_holds
 
 theorem seitzThm4Rest4_of_uniSeitz (hU : Inputs2311c.UniSeitzPlanes Inputs2311f.OddCpfRest3)
     (h3 : Inputs256e.Input14_2StructThree) : SeitzRest2.SeitzThm4Rest4 :=

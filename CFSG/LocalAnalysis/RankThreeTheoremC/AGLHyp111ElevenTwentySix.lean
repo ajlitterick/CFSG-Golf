@@ -11,29 +11,12 @@ open CFSG.PreuniquenessRankFour.Helpers CFSG.AGLEmbeddingD2
 
 variable {G : Type} [Group G] [Finite G]
 
-variable (G) in
-@[expose] def AGL81NineSeventeenOne : Prop :=
-  AGLGlobal G → ∀ (p : ℕ) (P : Sylow p G) (M H : Subgroup G), AGLMuAt p P M →
-    GLBIsMaxTwoLocal H → ¬ H ≤ M →
-    (∃ L : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L ⊤ ∧
-      ¬ L ≤ d1X0 p M H) →
-    2 ≤ Open.pRank p (d1KBar p M H) →
-    ∀ B N : Subgroup G, IsAGLQ p M B → B ≤ H → GLBIsMaxTwoLocal N → ¬ N ≤ M → B ≤ N →
-      AGLCovers p H N (d1KBar p M H) → Hyp917OneAt p M H N (d1KBar p M H)
 
 @[expose] def ElevenTwentyConcl (M : Subgroup G) : Prop :=
   ∃ H₀ : Subgroup G, GLBIsMaxTwoLocal H₀ ∧ H₀ ≠ M ∧ Open.pRank 3 (H₀ ⊓ M) = 3 ∧
     ∃ K : Subgroup (H₀ ⧸ primeComplementCore (G := H₀) 3), IsComponentOf K ⊤ ∧
       IsLinThreeFour K
 
-theorem two_le_pRank_of_isAltTwoP {X : Type} [Group X] [Finite X] {K : Subgroup X}
-    (h : IsAltTwoP 3 K) : 2 ≤ Open.pRank 3 K := by
-  obtain ⟨e⟩ := h
-  rw [← CFSG.SectionRank.pRank_coe_eq_openPRank, CFSG.SectionRank.pRank_eq_open_pRank_top,
-    CFSG.SectionRank.pRank_top_eq_of_mulEquiv (by norm_num : 1 < 3) e]
-  exact CFSG.SectionRank.le_pRank (by norm_num) le_top
-    (CFSG.SectionRank.isElemAbelian_sylowThreeAlt (n := 6) le_rfl)
-    (CFSG.SectionRank.card_sylowThreeAlt (n := 6) le_rfl)
 
 omit [Finite G] in
 theorem d1KBar_ne_bot_of_isAltTwoP {M H : Subgroup G} (h : IsAltTwoP 3 (d1KBar 3 M H)) :

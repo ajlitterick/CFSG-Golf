@@ -312,22 +312,6 @@ theorem commutator_mem (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], �
   rw [e, show a * b * (y₁ * y₂ * (x₁ * x₂)) * (x₁ * x₂)⁻¹ * (y₁ * y₂)⁻¹ = a * b by group]
   exact mul_mem haF hbF
 
-theorem commutator_S_le (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥) :
-    ⁅𝐒, 𝐒⁆ ≤ 𝐅 :=
-  Subgroup.commutator_le.mpr fun _ hs _ hs' => by
-    rw [commutatorElement_def]
-    exact commutator_mem h hbt hs hs'
-
-theorem upperCentralSeries_two (h : FCHyp L K n φ t)
-    (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥) : Subgroup.upperCentralSeries 𝐒 2 = ⊤ := by
-  refine eq_top_iff.mpr fun x _ => ?_
-  rw [Subgroup.mem_upperCentralSeries_succ_iff]
-  intro y
-  rw [Subgroup.upperCentralSeries_one, Subgroup.mem_center_iff, commutatorElement_def]
-  intro g
-  apply Subtype.ext
-  simp only [coe_mul, coe_inv]
-  exact F_comm_S h hbt (commutator_mem h hbt x.2 y.2) g.2
 
 end Center
 
@@ -339,75 +323,5 @@ open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique
   CFSG.RankThree.PartOne.KCRootAxis
 open scoped Matrix Pointwise
 
-theorem standard_symplectic_four_both_trivial_Heisenberg_center
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) (φ : L ≃* antiSp K)
-    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) :
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    let ZP := (center PG).map PG.subtype
-    let U : Axis → Subgroup G := fun i => ((rootU K i).comap φ.toMonoidHom).map L.subtype
-    let A : Axis → Subgroup G := fun i => ((rootA K i).comap φ.toMonoidHom).map L.subtype
-    let V : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ U i
-    let B : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ A i
-    let M : Axis → Subgroup G := fun i => normalizer (V i : Set G)
-    let N : Axis → Subgroup G := fun i => normalizer (B i : Set G)
-    let D : Axis → Subgroup G := fun i => (CFSG.pCore 2 (M i)).map (M i).subtype
-    let E : Axis → Subgroup G := fun i => (CFSG.pCore 2 (N i)).map (N i).subtype
-    let Qi : Axis → Subgroup G := fun i => Q ⊔ D i
-    let R : Axis → Subgroup G := fun i => Q ⊔ E i
-    let H := Qi Axis.one ⊔ Qi Axis.two
-    let E₀ := E Axis.one ⊓ E Axis.two
-    let J₀ := ((diagTorus K).comap φ.toMonoidHom).map L.subtype
-    let F := closure {x : G | ∃ e ∈ E₀, ∃ j ∈ J₀, x = e⁻¹ * (j⁻¹ * e * j)}
-    let Fi : Axis → Subgroup G := fun i => F ⊓ D i
-    let w : Axis → G := fun i => ((φ.symm (weylElt K i) : L) : G)
-    let Fw : Axis → Subgroup G := fun i => F.map (MulAut.conj (w i)⁻¹).toMonoidHom
-    let X : Axis → Subgroup G := fun i => F ⊔ Fw i
-    let T₀ := R Axis.one ⊔ R Axis.two
-    let S := X Axis.one ⊔ X Axis.two
-    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ ZP, x = t * z} →
-    ⁅A Axis.one, Fi Axis.two⁆ = ⊥ → ⁅A Axis.two, Fi Axis.one⁆ = ⊥ →
-    (∀ i : Axis, X i ⊓ X i.swap = F ∧ X i ⊓ centralizer (A i.swap : Set G) = F) ∧
-      (X Axis.one : Set G) * (X Axis.two : Set G) = S ∧
-      (S ⊓ H = F ⊔ PG ∧ (F : Set G) * (PG : Set G) = (S ⊓ H : Subgroup G)) ∧
-      (S ≤ T₀ ∧ (S.subgroupOf T₀).Normal ∧ S ⊓ zpowers (t : G) = ⊥ ∧
-        S ⊔ zpowers (t : G) = T₀ ∧ (S : Set G) * (zpowers (t : G) : Set G) = T₀) ∧
-      Nat.card S = (2 ^ n) ^ 8 ∧ Nat.card T₀ = 2 * (2 ^ n) ^ 8 ∧
-      (center S).map S.subtype = F ∧ ⁅S, S⁆ ≤ F ∧ Subgroup.upperCentralSeries S 2 = ⊤ := by
-  intro TG PG Q ZP U A V B M N D E Qi R H E₀ J₀ F Fi w Fw X T₀ S hfull hb1 hb2
-  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
-  have hPG : PG = pull φ (antiUnipotent K) := by
-    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
-    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
-  have hZP : ZP = pull φ (antiUnipotentCenter K) := by
-    change (center ↥PG).map PG.subtype = _
-    rw [hPG, center_pull_antiUnipotent]
-  have hfull' : {x : G | ∃ m ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) :
-      Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ pull φ (antiUnipotentCenter K), x = t * z} := by
-    rw [← hPG, ← hZP]
-    exact hfull
-  obtain ⟨hTG₀, hF⟩ := FCHyp.of_setup hS (hO := hO) hLn hfull'
-  have hTG : TG = zpowers (t : G) := hTG₀
-  clear_value ZP PG TG
-  subst hTG hPG hZP
-  have hbt : ∀ i : Axis, ⁅A i, F ⊓ D i.swap⁆ = ⊥ := fun i => by
-    cases i
-    · exact hb1
-    · exact hb2
-  have hSH := S_inf_H hF hbt
-  refine ⟨fun i => ⟨X_inf_X_swap hF i, X_inf_centralizer hF hbt i⟩, X_mul_X hF hbt,
-    ⟨hSH, ?_⟩, ⟨S_le_T hF, normal_subgroupOf_of_le_normalizer (T_le_normalizer_S hF hbt),
-      (S_sup_t hF hbt).1, (S_sup_t hF hbt).2, S_mul_t hF hbt⟩,
-    (card_S hF hbt).trans (by rw [hK]), (card_T hF hbt).trans (by rw [hK]), center_S hF hbt,
-    commutator_S_le hF hbt, upperCentralSeries_two hF hbt⟩
-  exact (F_mul_P hF).trans (congrArg SetLike.coe ((Ks_eq hF).trans hSH.symm))
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

@@ -237,16 +237,6 @@ theorem qTwo_family_linWeyl
   | h4 hadm hdeg _ hneg hmax hclass =>
     exact False.elim (qTwoGlobLin_not_h4 hm hLM hD hdeg hneg)
 
-theorem qTwoGlobLin_ainf_weyl {𝒦 : Finset (Subgroup G)}
-    (hcfg : GGSecFiveRouteCfg 3 B Bs x L D J 𝒦)
-    {m N : ℕ} (hm : 5 ≤ m) (hN1 : m + 1 ≤ N) (hN2 : N ≤ m + 2)
-    (hA : GGWeylOfType 3 (CoxeterMatrix.A (N - 1)) (ggAutomizerJoin L Bs 𝒦))
-    (hLM : QTwoLocalModel m Bs L x)
-    (hD : GGSecFiveBarData 3 B Bs x L D J ι U Abar ρ)
-    (hdim : Module.finrank (ZMod 3) U = m ∨ Module.finrank (ZMod 3) U + 1 = m)
-    (hFam : ZS.Family 3 Abar) : GGWeylReflectionGroup 3 (ggAInf 3 B Bs x L D J) :=
-  ggSecFive_weyl_of_linWeyl hD
-    (qTwo_family_linWeyl hcfg hm hN1 hN2 hA hLM hD hdim hFam)
 
 end CFSG.StandardType.QTwo
 end

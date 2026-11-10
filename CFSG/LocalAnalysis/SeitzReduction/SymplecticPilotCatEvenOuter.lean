@@ -15,9 +15,6 @@ open CFSG.SeitzReduction.F4Pilot (FixedCentralizerTwoFree)
     LieModel S .PSL (2 * m + 1) 2 f ∨ LieModel S .PSU (2 * m + 1) 2 f ∨
     LieModel S .POmegaPlus (m + 1) 2 f ∨ LieModel S .POmegaMinus (m + 1) 2 f
 
-theorem sp6OvergroupType_iff {S : Type} [Group S] {f : ℕ} :
-    Sp2mOvergroupType S 3 f ↔ F4Pilot.Sp6OvergroupType S f :=
-  Iff.rfl
 
 @[expose] def CatSp2mEvenOuter (m : ℕ) : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -35,15 +32,6 @@ theorem sp6OvergroupType_iff {S : Type} [Group S] {f : ℕ} :
 theorem catSp2mEvenOuter_of_exact {m : ℕ} (h : CatSp2mEvenOuterExact m) : CatSp2mEvenOuter m :=
   fun S _ _ hS hna heven σ hσ hout f D hD hDm _ => h S hS hna heven σ hσ hout f D hD hDm
 
-theorem catSp6EvenOuter_of_catSp2mEvenOuter (h : CatSp2mEvenOuter 3) :
-    F4Pilot.CatSp6EvenOuter :=
-  fun S _ _ hS hna heven σ hσ hout f D hD hD6 hodd =>
-    h S hS hna heven σ hσ hout f D hD hD6 hodd
-
-theorem catSp2mEvenOuter_three_of_catSp6EvenOuter (h : F4Pilot.CatSp6EvenOuter) :
-    CatSp2mEvenOuter 3 :=
-  fun S _ _ hS hna heven σ hσ hout f D hD hD6 hodd =>
-    h S hS hna heven σ hσ hout f D hD hD6 hodd
 
 @[expose] def CatSp2mEvenOuterFamily (τ : StatedLieTag) (m : ℕ) : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -58,9 +46,6 @@ theorem catSp2mEvenOuterExact_of_families {m : ℕ} (h : ∀ τ, CatSp2mEvenOute
   obtain ⟨τ, n, e, hadm, hmS⟩ := heven
   exact h τ S hS hna n e hadm hmS σ hσ hout f D hD hDm
 
-theorem catSp2mEvenOuter_of_families {m : ℕ} (h : ∀ τ, CatSp2mEvenOuterFamily τ m) :
-    CatSp2mEvenOuter m :=
-  catSp2mEvenOuter_of_exact (catSp2mEvenOuterExact_of_families h)
 
 theorem catSp2mEvenOuterFamily_of_not_admissible {τ : StatedLieTag}
     (hτ : ∀ n e : ℕ, ¬ StatedLieAdmissible τ n 2 e) (m : ℕ) : CatSp2mEvenOuterFamily τ m :=
@@ -80,10 +65,6 @@ theorem catSp2mEvenOuterFamily_of_involutions_inner {τ : StatedLieTag}
   intro S _ _ _ _ n e hadm hmS σ hσ hout
   exact absurd (hτ S n e hadm hmS σ (hσ ▸ pow_orderOf_eq_one σ)) hout
 
-theorem catSp6EvenOuterFamily_of_catSp2mEvenOuterFamily {τ : StatedLieTag}
-    (h : CatSp2mEvenOuterFamily τ 3) : F4Pilot.CatSp6EvenOuterFamily τ :=
-  fun S _ _ hS hna n e hadm hmS σ hσ hout f D hD hD6 _ =>
-    h S hS hna n e hadm hmS σ hσ hout f D hD hD6
 
 section SuzukiReeTits
 

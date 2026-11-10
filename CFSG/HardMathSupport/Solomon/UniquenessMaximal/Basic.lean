@@ -14,14 +14,6 @@ variable {G : Type} [Group G] [Finite G] {m p : ℕ}
 @[expose] def IsPreUniquenessSubgroup (p : ℕ) (B M₀ : Subgroup G) : Prop :=
   lambdaStarGroup p B ≤ M₀ ∧ GLBCore p 3 B ≤ M₀ ∧ Even (Nat.card (GLAPPrimeCoreOf p M₀))
 
-theorem IsPreUniquenessTwoLocal.isPreUniquenessSubgroup (hp : p.Prime) (hp2 : p ≠ 2)
-    {B M : Subgroup G} (h : IsPreUniquenessTwoLocal p B M) : IsPreUniquenessSubgroup p B M :=
-  ⟨h.2.1, h.2.2, even_card_glaPPrimeCoreOf_of_isTwoLocal hp hp2 h.1.1⟩
-
-theorem IsPreUniquenessSubgroup.isPreUniquenessTwoLocal {B M : Subgroup G}
-    (h : IsPreUniquenessSubgroup p B M) (hM : GLAIsMaxTwoLocal M) :
-    IsPreUniquenessTwoLocal p B M :=
-  ⟨hM, h.1, h.2.1⟩
 
 section Consequences
 

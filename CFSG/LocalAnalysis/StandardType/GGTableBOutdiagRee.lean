@@ -61,17 +61,6 @@ theorem ggLNoncyclicInput_of_twE6
 theorem ggLNoncyclicInput_of_twE6Diag (hE6 : GGTwistedE6DiagInput) : GGLNoncyclicInput :=
   ggLNoncyclicInput_of_twE6 fun _ hlab ht => largeEvenLabelAll_outdiag_twE6 hE6 hlab ht
 
-theorem ggTableBInputs_of_twE6
-    (h₀ : ∀ lab, LargeEvenInLambda2 lab → lab.tag = .twE6 →
-      LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I))
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab → LargeEvenLabelAll lab fun R _ I _ =>
-        ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I) :
-    GGLNoncyclicInput ∧ GGBstarInput ∧ GGStdSubPreInput :=
-  ggTableBInputs_of_open (fun lab hlab ht => by
-    rcases ht with ht | ht
-    · exact h₀ lab hlab ht
-    · exact (largeEvenLabelAll_outdiag_twF4' hlab ht).mono fun _ _ _ _ hO _ _ => hO) h
 
 end TwF4
 

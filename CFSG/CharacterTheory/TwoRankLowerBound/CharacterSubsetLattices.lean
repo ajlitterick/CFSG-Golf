@@ -44,35 +44,5 @@ theorem coefficientVirtualLattice_le_complex_space {G : Type*} [Group G] [Fintyp
     coefficientVirtualLattice basis support ≤ (coefficientCharacterSpace basis support).restrictScalars ℤ :=
   Submodule.span_le_restrictScalars ℤ ℂ _
 
-theorem coefficientVirtualLattice_iff_virtual_and_complex {G : Type*} [Group G] [Fintype G]
-    (basis : FiniteIrreducibleCharacterBasis G) (support : Finset basis.index) (function : G → ℂ) :
-    function ∈ coefficientVirtualLattice basis support ↔
-      function ∈ virtualCharacters G ∧ function ∈ coefficientCharacterSpace basis support := by
-  constructor
-  · intro hfunction
-    exact ⟨coefficientVirtualLattice_le_virtual basis support hfunction,
-      coefficientVirtualLattice_le_complex_space basis support hfunction⟩
-  · rintro ⟨hvirtual, hspace⟩
-    obtain ⟨coefficient, hexpansion, hpairing⟩ := virtualCharacter_basis_integer_expansion basis function hvirtual
-    have houtside : ∀ label, label ∉ support → coefficient label = 0 := by
-      intro label hnot
-      apply Int.cast_injective (α := ℂ)
-      rw [← hpairing, coefficientCharacterSpace_pairing_zero_outside basis support function hspace label hnot,
-        Int.cast_zero]
-    have hsum : function = ∑ label, coefficient label • (basis.representation label).character := by
-      rw [← hexpansion]
-      funext element
-      simp only [characterBasisIntegerExpansion, LinearMap.coe_mk, AddHom.coe_mk,
-        Finset.sum_apply, Pi.smul_apply]
-      apply Finset.sum_congr rfl
-      intro label _
-      rw [zsmul_eq_mul]
-    rw [hsum]
-    apply Submodule.sum_mem
-    intro label _
-    by_cases hmember : label ∈ support
-    · exact Submodule.smul_mem _ _ (Submodule.subset_span ⟨label, hmember, rfl⟩)
-    · rw [houtside label hmember, zero_smul]
-      exact (coefficientVirtualLattice basis support).zero_mem
 
 end CFSG.TwoRankLowerBound.Helpers

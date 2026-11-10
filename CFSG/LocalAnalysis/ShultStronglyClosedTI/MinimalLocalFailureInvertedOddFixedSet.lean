@@ -313,46 +313,5 @@ theorem minimalLocalFailure_inverted_odd_subgroup_fixed_set_obstruction
   rw [← hct, hleft] at hright
   exact hzetaε hright.symm
 
-theorem minimalLocalFailure_inverted_odd_subgroup_fixed_set_eq_pair
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hcomm : ProperStrongEmbeddingCommutingImages G)
-    (hsmallerR1 : ∀ (K : Type u) [Group K] [Finite K], Nat.card K < Nat.card G →
-      2 ≤ twoRank K → (∃ A : Subgroup K, fusionStronglyEmbedded A) → R1Full K)
-    {alpha beta : pointRightCosetSpace H} (hab : alpha ≠ beta)
-    {t : G} (ht : t ∈ involutionPointClass z)
-    (htab : pointRightCosetMul H alpha t = beta)
-    {A : Subgroup G} (hAab : A ≤ rightCosetStabilizer H alpha ⊓ rightCosetStabilizer H beta)
-    (hAodd : Odd (Nat.card A)) (htA : t ∈ Subgroup.normalizer (A : Set G))
-    (hAt : ⁅A, Subgroup.zpowers t⁆ ≠ ⊥)
-    (htrans : ∀ a ∈ pointFixedSet H A, ∀ b ∈ pointFixedSet H A, ∀ c ∈ pointFixedSet H A,
-      ∀ d ∈ pointFixedSet H A, a ≠ b → c ≠ d →
-        ∃ x ∈ Subgroup.centralizer (A : Set G),
-          pointRightCosetMul H a x = c ∧ pointRightCosetMul H b x = d) :
-    pointFixedSet H A = {alpha, beta} := by
-  obtain ⟨g, hg⟩ := ht
-  have hg : rightConjugateElem z g = t := hg
-  let gamma := rightCosetMk H g
-  have hgamma : pointRightCosetMul H gamma t = gamma := by
-    rw [← hg]
-    exact point_class_conjugate_fixed_rightCoset h.local_datum g
-  have hall := minimalLocalFailure_inverted_odd_subgroup_fixed_set_obstruction h hcomm
-    hsmallerR1 hab ⟨g, hg⟩ htab hAab hAodd htA hAt hgamma
-  have hle : Nat.card (pointFixedSet H A) ≤ 2 := by
-    by_contra hgt
-    exact hall.2.2.2.2.2.2.2.2.2 (by omega) htrans
-  have hα : alpha ∈ pointFixedSet H A :=
-    (mem_pointFixedSet_iff H A alpha).mpr (hAab.trans inf_le_left)
-  have hβ : beta ∈ pointFixedSet H A :=
-    (mem_pointFixedSet_iff H A beta).mpr (hAab.trans inf_le_right)
-  have hsub : ({alpha, beta} : Set (pointRightCosetSpace H)) ⊆ pointFixedSet H A := by
-    intro x hx
-    rcases hx with rfl | rfl
-    · exact hα
-    · exact hβ
-  have hpair : ({alpha, beta} : Set (pointRightCosetSpace H)).ncard = 2 :=
-    Set.ncard_pair hab
-  refine (Set.eq_of_subset_of_ncard_le hsub ?_ (Set.toFinite _)).symm
-  rw [hpair, ← Nat.card_coe_set_eq]
-  exact hle
 
 end CFSG.ShultStronglyClosedTI

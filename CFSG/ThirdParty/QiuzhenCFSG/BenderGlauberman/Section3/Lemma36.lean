@@ -1506,13 +1506,6 @@ private lemma char_value_isIntegral_local {H : Type u} [Group H] [Fintype H]
   rcases ν.2 with ⟨n, ρ, hρ, hνeq⟩
   simpa [hνeq] using character_value_isIntegral ρ g
 
-/-- `±1` are algebraic integers. -/
-private lemma pm_one_isIntegral_local {c : ℂ} (h : c = 1 ∨ c = -1) : IsIntegral ℤ c := by
-  rcases h with h1 | hm1
-  · rw [h1]
-    exact isIntegral_one
-  · rw [hm1]
-    exact IsIntegral.neg isIntegral_one
 
 /-- `±x ≡ x (mod 2)` for an algebraic integer `x`. -/
 private lemma pm_one_mul_congr_local {c x : ℂ} (h : c = 1 ∨ c = -1)
@@ -2092,16 +2085,6 @@ private lemma finset_pair_eq_of_card_two_local {α : Type u} [DecidableEq α]
       _ ≤ s.card := Finset.card_le_card hsub3
   omega
 
-/-- Conjugation by `s` fixes the value of every `H0`-character at the central
-involution `t` (because `s` fixes `t`). -/
-private lemma conjChar_apply_tH0_eq_local (c : Hyp11 G) [Hyp11KData c] (h12 : Hyp12 c)
-    (ν : ClassFunction (↥c.H0)) :
-    conjChar c.H0 (s_normalizes_H0 c h12) ν (tH0 c) = ν (tH0 c) := by
-  change ν (conjMonoidHom c.H0 c.s (s_normalizes_H0 c h12) (tH0 c)) = ν (tH0 c)
-  congr 1
-  apply Subtype.ext
-  change c.s * c.t * c.s⁻¹ = c.t
-  exact s_conj_t c
 
 /-- Conjugation by `s` is injective on class functions of `H0`. -/
 private lemma conjChar_injective_local (c : Hyp11 G) [Hyp11KData c] (h12 : Hyp12 c)

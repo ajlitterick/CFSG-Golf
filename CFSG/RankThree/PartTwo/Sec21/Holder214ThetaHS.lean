@@ -68,22 +68,6 @@ theorem commutator_self_le (H : Subgroup G) : ⁅H, H⁆ ≤ H :=
     rw [commutatorElement_def]
     exact H.mul_mem (H.mul_mem (H.mul_mem hx hy) (H.inv_mem hx)) (H.inv_mem hy)
 
-theorem eq_bot_of_commCheck {D Q : Subgroup G} {c c' : G} (hc : c ∈ D) (hc' : c' ∈ D)
-    (hQD : Q ≤ D) (hDN : D ≤ Subgroup.normalizer (Q : Set G)) (hpow : ∀ q ∈ Q, q ^ 512 = 1)
-    (hchk : ∀ p ∈ D, p ≠ 1 → p ^ 512 = 1 → ⁅p, c⁆ ^ 512 = 1 → ⁅p, c'⁆ ^ 512 = 1 →
-      ∃ d ∈ D, ¬ (⁅d * p * d⁻¹, c⁆ ^ 512 = 1 ∧ ⁅d * p * d⁻¹, c'⁆ ^ 512 = 1)) :
-    Q = ⊥ := by
-  have hcomm : ∀ q ∈ Q, ∀ e ∈ D, ⁅q, e⁆ ∈ Q := by
-    intro q hq e he
-    rw [commutatorElement_def, show q * e * q⁻¹ * e⁻¹ = q * (e * q⁻¹ * e⁻¹) by group]
-    exact Q.mul_mem hq ((Subgroup.mem_normalizer_iff.mp (hDN he) q⁻¹).mp (Q.inv_mem hq))
-  by_contra hne
-  obtain ⟨⟨p, hpQ⟩, hp1⟩ := Subgroup.ne_bot_iff_exists_ne_one.mp hne
-  have hp1' : p ≠ 1 := fun h => hp1 (Subtype.ext h)
-  obtain ⟨d, hd, hnot⟩ := hchk p (hQD hpQ) hp1' (hpow p hpQ) (hpow _ (hcomm p hpQ c hc))
-    (hpow _ (hcomm p hpQ c' hc'))
-  have hdp : d * p * d⁻¹ ∈ Q := (Subgroup.mem_normalizer_iff.mp (hDN hd) p).mp hpQ
-  exact hnot ⟨hpow _ (hcomm _ hdp c hc), hpow _ (hcomm _ hdp c' hc')⟩
 
 end General
 
@@ -91,140 +75,10 @@ section Kit
 
 variable {n : ℕ}
 
-theorem exists_of_allLt_eq_false {N : ℕ} {f : ℕ → Bool} (h : allLt N f = false) :
-    ∃ j < N, f j = false := by
-  by_contra hne
-  push Not at hne
-  rw [allLt_iff.2 fun j hj => by simpa using hne j hj] at h
-  simp at h
-
-theorem rep_pow2A {x : Array ℕ} {X : Perm (Fin n)} (hx : Rep n x X) :
-    ∀ k, Rep n (pow2A n x k) (X ^ 2 ^ k)
-  | 0 => by simpa [pow2A] using hx
-  | k + 1 => by
-    rw [pow2A, pow_succ, pow_mul, sq]
-    exact rep_compA (rep_pow2A hx k) (rep_pow2A hx k)
-
-theorem twoA_iff {x : Array ℕ} {X : Perm (Fin n)} (hx : Rep n x X) :
-    twoA n x = true ↔ X ^ 512 = 1 := by
-  rw [twoA, eqA_iff (rep_pow2A hx 9) rep_idA]
-  norm_num
-
-theorem rep_commutatorA_of_rep {x c : Array ℕ} {X C : Perm (Fin n)} (hx : validA n x = true)
-    (hc : validA n c = true) (hX : Rep n x X) (hC : Rep n c C) :
-    Rep n (commutatorA n x c) ⁅X, C⁆ := by
-  have h := rep_commutatorA hx hc
-  rwa [RankThree.Native.permOfArr_eq_of_rep hX, RankThree.Native.permOfArr_eq_of_rep hC] at h
-
-theorem badA_iff {c c' p : Array ℕ} {C C' P : Perm (Fin n)} (hc : validA n c = true)
-    (hc' : validA n c' = true) (hp : validA n p = true) (hC : Rep n c C) (hC' : Rep n c' C')
-    (hP : Rep n p P) :
-    badA n c c' p = true ↔ ⁅P, C⁆ ^ 512 = 1 ∧ ⁅P, C'⁆ ^ 512 = 1 := by
-  rw [badA, Bool.and_eq_true, twoA_iff (rep_commutatorA_of_rep hp hc hP hC),
-    twoA_iff (rep_commutatorA_of_rep hp hc' hP hC')]
 
 variable {gD : Array (Array ℕ)} {ps : List ℕ} {cD : ArrCert} {c c' : Array ℕ}
   {C C' : Perm (Fin n)}
 
-theorem o2SimpleOK_spec (hps : ∀ q ∈ ps, q < n) (hD : enumOK n gD ps cD = true)
-    (hc : validA n c = true) (hc' : validA n c' = true) (hC : Rep n c C) (hC' : Rep n c' C')
-    (h : o2SimpleOK n cD c c' = true) {p : Perm (Fin n)}
-    (hpD : p ∈ Subgroup.closure (permsA n gD)) (hp1 : p ≠ 1) (hp2 : p ^ 512 = 1) :
-    ¬ (⁅p, C⁆ ^ 512 = 1 ∧ ⁅p, C'⁆ ^ 512 = 1) := by
-  intro hbad
-  obtain ⟨hmem, -, hval⟩ := enumOK_spec hps hD
-  obtain ⟨k, hk, rfl⟩ := (hmem p).1 hpD
-  have hr := rep_of_validA (hval k hk)
-  have h' := allLt_spec h hk
-  simp only [Bool.or_eq_true, Bool.not_eq_true'] at h'
-  rcases h' with (h' | h') | h'
-  · exact hp1 ((eqA_iff hr rep_idA).1 h')
-  · rw [(twoA_iff hr).2 hp2] at h'
-    simp at h'
-  · rw [(badA_iff hc hc' (hval k hk) hC hC' hr).2 hbad] at h'
-    simp at h'
-
-theorem o2RefinedOK_spec (hps : ∀ q ∈ ps, q < n) (hD : enumOK n gD ps cD = true)
-    (hc : validA n c = true) (hc' : validA n c' = true) (hC : Rep n c C) (hC' : Rep n c' C')
-    (h : o2RefinedOK n cD c c' = true) {p : Perm (Fin n)}
-    (hpD : p ∈ Subgroup.closure (permsA n gD)) (hp1 : p ≠ 1) (hp2 : p ^ 512 = 1)
-    (hbad : ⁅p, C⁆ ^ 512 = 1 ∧ ⁅p, C'⁆ ^ 512 = 1) :
-    ∃ d ∈ Subgroup.closure (permsA n gD),
-      ¬ (⁅d * p * d⁻¹, C⁆ ^ 512 = 1 ∧ ⁅d * p * d⁻¹, C'⁆ ^ 512 = 1) := by
-  obtain ⟨hmem, -, hval⟩ := enumOK_spec hps hD
-  obtain ⟨k, hk, rfl⟩ := (hmem p).1 hpD
-  have hr := rep_of_validA (hval k hk)
-  have h' := allLt_spec h hk
-  simp only [Bool.or_eq_true, Bool.not_eq_true'] at h'
-  rcases h' with ((h' | h') | h') | h'
-  · exact absurd ((eqA_iff hr rep_idA).1 h') hp1
-  · rw [(twoA_iff hr).2 hp2] at h'
-    simp at h'
-  · rw [(badA_iff hc hc' (hval k hk) hC hC' hr).2 hbad] at h'
-    simp at h'
-  · obtain ⟨j, hj, hj'⟩ := exists_of_allLt_eq_false h'
-    simp only [Bool.or_eq_false_iff, Bool.not_eq_false'] at hj'
-    obtain ⟨hv, hb⟩ := hj'
-    refine ⟨permOfArr n cD.pts[j]!, (hmem _).2 ⟨j, hj, rfl⟩, fun hb' => ?_⟩
-    rw [(badA_iff hc hc' hv hC hC' (rep_conjA (hval j hj) hr)).2 hb'] at hb
-    simp at hb
-
-theorem involOK_spec {gC : Array (Array ℕ)} {cC : ArrCert} {v₁ v₂ v₃ : Array ℕ}
-    {V₁ V₂ V₃ : Perm (Fin n)} (hps : ∀ q ∈ ps, q < n) (hCe : enumOK n gC ps cC = true)
-    (hC : Rep n c C) (hV₁ : Rep n v₁ V₁) (hV₂ : Rep n v₂ V₂) (hV₃ : Rep n v₃ V₃)
-    (h : involOK n cC c v₁ v₂ v₃ = true) {x : Perm (Fin n)}
-    (hx : x ∈ Subgroup.closure (permsA n gC)) (hx2 : x ^ 2 = 1) (hxc : x * C = C * x) :
-    x = 1 ∨ x = V₁ ∨ x = V₂ ∨ x = V₃ := by
-  obtain ⟨k, hk, hr⟩ := enumOK_exists_rep hps hCe hx
-  have h' := allLt_spec h hk
-  simp only [Bool.or_eq_true, Bool.not_eq_true'] at h'
-  rcases h' with ((((h' | h') | h') | h') | h') | h'
-  · rw [(eqA_iff (rep_compA hr hr) rep_idA).2 (by rw [← sq]; exact hx2)] at h'
-    simp at h'
-  · rw [(commA_iff hr hC).2 hxc] at h'
-    simp at h'
-  · exact Or.inl ((eqA_iff hr rep_idA).1 h')
-  · exact Or.inr (Or.inl ((eqA_iff hr hV₁).1 h'))
-  · exact Or.inr (Or.inr (Or.inl ((eqA_iff hr hV₂).1 h')))
-  · exact Or.inr (Or.inr (Or.inr ((eqA_iff hr hV₃).1 h')))
-
-theorem derivedWitOK_spec {gM w : Array (Array ℕ)} {cM : ArrCert} {N : ℕ}
-    (hps : ∀ q ∈ ps, q < n) (hM : enumOK n gM ps cM = true)
-    (h : derivedWitOK n gM w ps cM cD N = true) :
-    enumOK n (dGensA n w) ps cD = true ∧
-      Nat.card (Subgroup.closure (permsA n (dGensA n w))) = N ∧
-      ⁅Subgroup.closure (permsA n gM), Subgroup.closure (permsA n gM)⁆ =
-        Subgroup.closure (permsA n (dGensA n w)) := by
-  simp only [derivedWitOK, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨⟨hDe, hsize⟩, -⟩, hw⟩, hnorm⟩, hcomm⟩ := h
-  have hw' : ∀ i < 4, validA n w[i]! = true ∧ cM.pts.toList.any (eqA n w[i]!) = true := by
-    intro i hi
-    simpa only [Bool.and_eq_true] using allLt_spec hw hi
-  have hWM : ∀ i < 4, permOfArr n w[i]! ∈ Subgroup.closure (permsA n gM) := fun i hi =>
-    enumOK_mem_of_any hps hM (rep_of_validA (hw' i hi).1) (hw' i hi).2
-  have hd0 : (dGensA n w)[0]! = commutatorA n w[0]! w[1]! := by simp [dGensA]
-  have hd1 : (dGensA n w)[1]! = commutatorA n w[2]! w[3]! := by simp [dGensA]
-  have hsz : (dGensA n w).size = 2 := by simp [dGensA]
-  refine ⟨hDe, (enumOK_spec hps hDe).2.1.trans hsize, ?_⟩
-  apply commutator_closure_eq_closure
-  · rintro _ ⟨l, hl, rfl⟩
-    have hl2 : l < 2 := hsz ▸ hl
-    obtain rfl | rfl : l = 0 ∨ l = 1 := by omega
-    · dsimp only
-      rw [hd0, RankThree.Native.permOfArr_eq_of_rep (rep_commutatorA (hw' 0 (by norm_num)).1
-        (hw' 1 (by norm_num)).1)]
-      exact Subgroup.commutator_mem_commutator (hWM 0 (by norm_num)) (hWM 1 (by norm_num))
-    · dsimp only
-      rw [hd1, RankThree.Native.permOfArr_eq_of_rep (rep_commutatorA (hw' 2 (by norm_num)).1
-        (hw' 3 (by norm_num)).1)]
-      exact Subgroup.commutator_mem_commutator (hWM 2 (by norm_num)) (hWM 3 (by norm_num))
-  · rintro _ ⟨k, hk, rfl⟩ _ ⟨l, hl, rfl⟩
-    have hl2 : l < 2 := hsz ▸ hl
-    exact enumOK_mem_of_any hps hDe (rep_conjA (enumOK_gens_valid hM hk)
-      (rep_of_validA (enumOK_gens_valid hDe hl))) (allLt_spec (allLt_spec hnorm hk) hl2)
-  · rintro _ ⟨k, hk, rfl⟩ _ ⟨l, hl, rfl⟩
-    exact enumOK_mem_of_any hps hDe (rep_commutatorA (enumOK_gens_valid hM hk)
-      (enumOK_gens_valid hM hl)) (allLt_spec (allLt_spec hcomm hk) hl)
 
 end Kit
 

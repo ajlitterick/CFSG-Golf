@@ -1073,7 +1073,6 @@ end Main
 end OneAxisComplement
 
 open Subgroup GomiFusion RootAxisTwoCore OneAxisRadical OneAxisSecond OneAxisHeisenberg
-open FullCenterTorus (axisTorus)
 open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.RankThree.PartOne.KCRootAxis
 open scoped Pointwise
 

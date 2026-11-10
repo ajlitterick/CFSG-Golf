@@ -77,8 +77,6 @@ end Vec
 
 variable {hA : G.AffineData H}
 
-theorem mem_dirSub {d : P} {hd : d ∈ H} {v : Vec hA} :
-    v ∈ dirSub hA d hd ↔ G.HasDir H v.perm d := Iff.rfl
 
 theorem mem_dirSub_iff {d : P} {hd : d ∈ H} {v : Vec hA} {p : P} (hp : p ∉ H) :
     v ∈ dirSub hA d hd ↔ v p ∈ G.line p d :=

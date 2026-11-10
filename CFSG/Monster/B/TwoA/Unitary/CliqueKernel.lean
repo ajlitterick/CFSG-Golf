@@ -18,8 +18,6 @@ open CFSG.Fischer CFSG.LinearGroups CFSG.LieType.Universal.Unitary Matrix
   one_mem' p := by rw [map_one, Equiv.Perm.one_apply]
   inv_mem' {x} hx p := by rw [← hx, map_inv, Equiv.Perm.coe_inv, Equiv.apply_symm_apply]
 
-theorem mem_stabL {W : Submodule F4 V} {x : ProjSU} :
-    x ∈ stabL W ↔ ∀ p, projAct x p ∈ planePts W ↔ p ∈ planePts W := Iff.rfl
 
 @[expose] noncomputable def kerL (W : Submodule F4 V) : Subgroup ProjSU where
   carrier := {x | ∀ p ∈ planePts W, projAct x p = p}
@@ -27,8 +25,6 @@ theorem mem_stabL {W : Submodule F4 V} {x : ProjSU} :
   one_mem' p _ := by rw [map_one, Equiv.Perm.one_apply]
   inv_mem' {x} hx p hp := by rw [map_inv, Equiv.Perm.inv_eq_iff_eq, hx p hp]
 
-theorem mem_kerL {W : Submodule F4 V} {x : ProjSU} :
-    x ∈ kerL W ↔ ∀ p ∈ planePts W, projAct x p = p := Iff.rfl
 
 @[expose] noncomputable def restrL (W : Submodule F4 V) : stabL W →* Equiv.Perm (planePts W) where
   toFun x := (projAct (x : ProjSU)).subtypePerm fun p => x.2 p
@@ -222,8 +218,6 @@ theorem kerL_W0_sq : ∀ x ∈ kerL W0, x ^ 2 = 1 := by
     exact Subtype.ext (add_self_matrix _)
   rw [h, map_one]
 
-theorem isElementaryAbelian_kerL_W0 : CFSG.IsElementaryAbelian 2 (kerL W0) :=
-  isElementaryAbelian_two_of _ kerL_W0_comm kerL_W0_sq
 
 abbrev e3 (i : Fin 3) : Fin 3 → F4 := Pi.single i 1
 

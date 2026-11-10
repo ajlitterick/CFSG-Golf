@@ -27,8 +27,6 @@ variable {G : Type} [Group G] [Finite G] {p : ℕ} {P : Sylow p G} {M : Subgroup
 @[expose] def IsMaxFInvariantIn (f : ℕ) (B X F : Subgroup G) : Prop :=
   IsFInvariantIn f B X F ∧ ∀ F' : Subgroup G, IsFInvariantIn f B X F' → F ≤ F' → F' = F
 
-theorem isMaxFInvariantIn_two_iff {B X F : Subgroup G} :
-    IsMaxFInvariantIn 2 B X F ↔ IsMaxTwoInvariantIn B X F := Iff.rfl
 
 theorem fusionIsSylowIn_of_isMax (hS : Situation G p P M) (hx : Point P M x) (hz : Central P z)
     (hcon : HasPrimeConstraint (G := M) p) {f : ℕ} (hf : f.Prime) (hfp : f ≠ p)

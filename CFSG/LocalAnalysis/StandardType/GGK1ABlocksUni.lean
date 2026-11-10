@@ -563,23 +563,6 @@ private theorem ggK1Abu_expected_nontrivial {p nf : ℕ} {m : List ℕ} (hd : gg
   · rw [if_pos h0, if_pos h0]; rfl
   · rw [if_neg h0, if_neg h0]; rfl
 
-private theorem ggK1Abu_range_filter_sl (m : List ℕ) (e : ℕ) :
-    ((List.range (e + 1)).filter (fun j => decide (1 ≤ j ∧ 0 < m.getD j 0))).map
-      (fun j => ggK1ACo_Kind.sl (m.getD j 0) 2) =
-    (((List.range e).map (fun j => m.getD (j + 1) 0)).filter (fun x => decide (x ≠ 0))).map
-      (fun x => ggK1ACo_Kind.sl x 2) := by
-  rw [List.range_succ_eq_map, List.filter_cons]
-  have h0 : ¬ (((fun j => decide (1 ≤ j ∧ 0 < m.getD j 0)) 0) = true) := by simp
-  rw [if_neg h0]
-  rw [ggK1CBl_map_filter_eq]
-  conv_rhs => rw [ggK1CBl_map_filter_eq]
-  rw [List.map_map, List.map_map]
-  congr 1
-  apply List.filter_congr
-  intro k _
-  simp only [Function.comp_apply, Nat.succ_eq_add_one]
-  rw [decide_eq_decide]
-  omega
 
 private theorem ggK1Abu_range_iota {nf N : ℕ} {K : Type} [Field K]
     (h : UnitaryFieldData 2 nf K) :

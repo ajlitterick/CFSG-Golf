@@ -22,22 +22,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec13
         (∃ C : Subgroup X, C ≠ ⊥ ∧ C ≤ S ∧ (C.subgroupOf S).Characteristic ∧ C.Normal) ∨
           IsScriptLBlock ⊤ (oResidual 2 X)
 
-@[expose] def Item3_22One : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], generalizedFitting X = CFSG.pCore 2 X →
-    Nonempty (X ⧸ CFSG.pCore 2 X ≃* CFSG.Blueprint.NativeSporadic.J2) →
-    ∀ R : Subgroup X, CFSG.pCore 2 X ≤ R →
-      Nonempty (R.map (QuotientGroup.mk' (CFSG.pCore 2 X)) ≃*
-        Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) →
-      Nonempty (Subgroup.centralizer
-          ((R.map (QuotientGroup.mk' (CFSG.pCore 2 X)) : Subgroup (X ⧸ CFSG.pCore 2 X)) :
-            Set (X ⧸ CFSG.pCore 2 X)) ≃*
-        (Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) × alternatingGroup (Fin 5)) →
-      ((omegaOneCenter (⊤ : Subgroup R)).map R.subtype).Normal ∧
-            ((higherElemThompson R 0).map R.subtype).Normal ∨
-          ((omegaOneCenter (⊤ : Subgroup R)).map R.subtype).Normal ∧
-            ((higherElemThompsonOmega R 2).map R.subtype).Normal ∨
-          ((higherElemThompson R 0).map R.subtype).Normal ∧
-            ((higherElemThompsonOmega R 2).map R.subtype).Normal
 
 @[expose] def Item3_22Two : Prop :=
   ∀ (X : Type) [Group X] [Finite X], generalizedFitting X = CFSG.pCore 2 X →
@@ -53,11 +37,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec13
         ((higherElemThompson R 0).map R.subtype).Normal ∧
           ((higherElemThompson R 1).map R.subtype).Normal
 
-@[expose] def Item3_22 : Prop :=
-  Item3_22One ∧ Item3_22Two
-
-theorem item3_22_iff : Item3_22 ↔ Item3_22One ∧ Item3_22Two :=
-  Iff.rfl
 
 variable {G : Type} [Group G] [Finite G]
 

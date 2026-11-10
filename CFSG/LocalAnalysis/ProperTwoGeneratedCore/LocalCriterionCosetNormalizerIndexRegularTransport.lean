@@ -16,21 +16,6 @@ open CFSG.ProperTwoGeneratedCore.LocalCriterionInvariantNormalizer
 
 universe u v w x
 
-theorem regularOn_of_equivariant_equiv {L : Type u} [Group L]
-    {Omega : Type v} {Lambda : Type w} [MulAction L Omega] [MulAction L Lambda]
-    (A : Subgroup L) (e : Omega ≃ Lambda)
-    (he : ∀ a : L, ∀ omega : Omega, e (a • omega) = a • e omega)
-    (X : Set Omega) (Y : Set Lambda) (hXY : ∀ omega, omega ∈ X ↔ e omega ∈ Y)
-    (hreg : IsRegularOn A Y) : IsRegularOn A X := by
-  intro a b ha hb
-  obtain ⟨r, hr, huniq⟩ := hreg ((hXY a).mp ha) ((hXY b).mp hb)
-  refine ⟨r, ?_, ?_⟩
-  · apply e.injective
-    rw [he]
-    exact hr
-  · intro s hs
-    apply huniq s
-    rw [← he, hs]
 
 @[expose, instance_reducible] def cosetFixedSetInverseRightAction
     {G : Type u} [Group G] (H L : Subgroup G) (u : G)
@@ -40,13 +25,6 @@ theorem regularOn_of_equivariant_equiv {L : Type u} [Group L]
     (fun a ha omega homega =>
       point_centralizer_preserves_cosetFixedSet H u a (hLC ha) (omega := omega) homega)
 
-theorem cosetFixedSetInverseRightAction_smul
-    {G : Type u} [Group G] (H L : Subgroup G) (u : G)
-    (hLC : L ≤ Subgroup.centralizer ({u} : Set G))
-    (a : L) (omega : cosetFixedSet H u) :
-    letI := cosetFixedSetInverseRightAction H L u hLC
-    ((a • omega : cosetFixedSet H u) : pointRightCosetSpace H) =
-      pointRightCosetMul H omega.val (a : G)⁻¹ := rfl
 
 theorem point_sylow_offBase_orbit_of_full_model_identification
     {G : Type u} {F : Type v} [Group G] [Group F] [Finite G] [Finite F]

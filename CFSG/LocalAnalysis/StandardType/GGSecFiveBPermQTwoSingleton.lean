@@ -539,21 +539,6 @@ theorem singleton_independent
     exact localEq (τ i) (τ j) (τ k) (outside i hil) (outside j hjl) (outside k hkl)
       (fun h => hij (τ.injective h)) (fun h => hik (τ.injective h))
 
-theorem singleton_map_conj_to_aux
-    {L : Subgroup G} {f : ℕ} {σ : SL(r + 2, GaloisField 2 f) →* G}
-    {χ : Multiplicative (ZMod 3) →* (GaloisField 2 f)ˣ}
-    (hLF : GGSecFiveBPermSpLFrame Bs L eta π σ χ)
-    (hA : (ggAutomizer L Bs).map (MulAut.congr eta).toMonoidHom = aPermutationFull n 3)
-    (hBs : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
-    {y : G} (hyB : y ∈ Bs) (hK : CFSG.Open.IsComponentOf K (Subgroup.centralizer ({y} : Set G)))
-    (hr : 2 ≤ r) (hd : d ≤ 1) {w : G} (hw : w ∈ Subgroup.normalizer (Bs : Set G))
-    {τ : Equiv.Perm (Fin n)} (hτ : MulAut.congr eta (ggConjAut Bs hw) = SpCoord.permAut τ)
-    (i j k : Fin n) (hij : i ≠ j) (hik : τ i ≠ k) :
-    (ggQTwoSingleton d Bs eta i j).map (MulAut.conj w).toMonoidHom =
-      ggQTwoSingleton d Bs eta (τ i) k :=
-  (ggQTwoSingleton_map_conj hw hτ d i j).trans
-    (hF.singleton_independent hLF hA hBs hyB hK hr hd (τ i) (τ j) k
-      (fun h => hij (τ.injective h)) hik)
 
 theorem independentSingleton_eq_aux
     {L : Subgroup G} {f : ℕ} {σ : SL(r + 2, GaloisField 2 f) →* G}

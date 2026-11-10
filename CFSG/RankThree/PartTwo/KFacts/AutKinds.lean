@@ -116,8 +116,6 @@ theorem hasKind_diagonal {τ : MulAut L} : P.HasKind τ .diagonal ↔ P.IsDiagon
 theorem hasKind_field {τ : MulAut L} : P.HasKind τ .field ↔ P.IsField τ :=
   Iff.rfl
 
-theorem hasKind_graph {τ : MulAut L} : P.HasKind τ .graph ↔ P.IsGraph τ :=
-  Iff.rfl
 
 theorem hasKind_graphField {τ : MulAut L} : P.HasKind τ .graphField ↔ P.IsGraphField τ :=
   Iff.rfl
@@ -125,11 +123,6 @@ theorem hasKind_graphField {τ : MulAut L} : P.HasKind τ .graphField ↔ P.IsGr
 theorem isInnerDiagonal_of_isInnerAut {τ : MulAut L} (h : IsInnerAut τ) : τ ∈ P.inndiag :=
   P.inn_le h
 
-theorem isField_of_mem {φ : MulAut L} (hφ : φ ∈ P.field) (h1 : φ ≠ 1) : P.IsField φ :=
-  ⟨φ, hφ, h1, 1, one_mem _, by rw [one_mul, inv_one, mul_one]⟩
-
-theorem isGraph_of_mem {γ : MulAut L} (hγ : γ ∈ P.graph) (h1 : γ ≠ 1) : P.IsGraph γ :=
-  ⟨γ, hγ, h1, 1, one_mem _, by rw [one_mul, inv_one, mul_one]⟩
 
 theorem isGraphField_of_mem {γ φ : MulAut L} (hγ : γ ∈ P.graph) (hγ1 : γ ≠ 1) (hφ : φ ∈ P.field)
     (hφ1 : φ ≠ 1) : P.IsGraphField (γ * φ) :=
@@ -150,15 +143,6 @@ theorem isGraphField_conj {τ d : MulAut L} (hd : d ∈ P.inndiag) (hτ : P.IsGr
   obtain ⟨γ, hγ, hγ1, φ, hφ, hφ1, d', hd', rfl⟩ := hτ
   exact ⟨γ, hγ, hγ1, φ, hφ, hφ1, d * d', mul_mem hd hd', by group⟩
 
-theorem IsField.inFieldCoset {τ : MulAut L}
-    (hnorm : P.field ≤ Subgroup.normalizer (P.inndiag : Set (MulAut L))) (hτ : P.IsField τ) : ∃ φ ∈ P.field, φ ≠ 1 ∧ τ * φ⁻¹ ∈ P.inndiag := by
-  obtain ⟨φ, hφ, h1, d, hd, rfl⟩ := hτ
-  refine ⟨φ, hφ, h1, ?_⟩
-  have h2 : φ * d⁻¹ * φ⁻¹ ∈ P.inndiag :=
-    (Subgroup.mem_normalizer_iff.mp (hnorm hφ) d⁻¹).mp (inv_mem hd)
-  have h3 : d * φ * d⁻¹ * φ⁻¹ = d * (φ * d⁻¹ * φ⁻¹) := by group
-  rw [h3]
-  exact mul_mem hd h2
 
 structure Stable : Prop where
   normal : P.inndiag.Normal
@@ -230,88 +214,12 @@ theorem mem_comap_inndiag (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
     τ ∈ (Q.comap e).inndiag ↔ MulAut.congr e τ ∈ Q.inndiag :=
   Iff.rfl
 
-theorem mem_comap_field (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    τ ∈ (Q.comap e).field ↔ MulAut.congr e τ ∈ Q.field :=
-  Iff.rfl
-
-theorem mem_comap_graph (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    τ ∈ (Q.comap e).graph ↔ MulAut.congr e τ ∈ Q.graph :=
-  Iff.rfl
-
-theorem symm_mem_comap_inndiag (Q : PinnedAut M) (e : L ≃* M) {σ : MulAut M}
-    (h : σ ∈ Q.inndiag) : (MulAut.congr e).symm σ ∈ (Q.comap e).inndiag :=
-  (mem_comap_inndiag Q e).2 (by rwa [MulEquiv.apply_symm_apply])
-
-theorem symm_mem_comap_field (Q : PinnedAut M) (e : L ≃* M) {σ : MulAut M}
-    (h : σ ∈ Q.field) : (MulAut.congr e).symm σ ∈ (Q.comap e).field :=
-  (mem_comap_field Q e).2 (by rwa [MulEquiv.apply_symm_apply])
-
-theorem symm_mem_comap_graph (Q : PinnedAut M) (e : L ≃* M) {σ : MulAut M}
-    (h : σ ∈ Q.graph) : (MulAut.congr e).symm σ ∈ (Q.comap e).graph :=
-  (mem_comap_graph Q e).2 (by rwa [MulEquiv.apply_symm_apply])
 
 theorem congr_conj_mul (e : L ≃* M) (d φ : MulAut L) :
     MulAut.congr e (d * φ * d⁻¹) =
       MulAut.congr e d * MulAut.congr e φ * (MulAut.congr e d)⁻¹ := by
   rw [map_mul, map_mul, map_inv]
 
-theorem isDiagonal_comap (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    (Q.comap e).IsDiagonal τ ↔ Q.IsDiagonal (MulAut.congr e τ) := by
-  rw [IsDiagonal, IsDiagonal, isInnerAut_congr]
-  rfl
-
-theorem isField_comap (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    (Q.comap e).IsField τ ↔ Q.IsField (MulAut.congr e τ) := by
-  constructor
-  · rintro ⟨φ, hφ, h1, d, hd, rfl⟩
-    refine ⟨MulAut.congr e φ, hφ, fun h => h1 ?_, MulAut.congr e d, hd, congr_conj_mul e d φ⟩
-    exact (MulAut.congr e).injective (h.trans (map_one _).symm)
-  · rintro ⟨φ', hφ', h1, d', hd', hτ⟩
-    refine ⟨(MulAut.congr e).symm φ', symm_mem_comap_field Q e hφ', fun h => h1 ?_,
-      (MulAut.congr e).symm d', symm_mem_comap_inndiag Q e hd', ?_⟩
-    · rw [← MulEquiv.apply_symm_apply (MulAut.congr e) φ', h, map_one]
-    · apply (MulAut.congr e).injective
-      rw [congr_conj_mul, MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply, hτ]
-
-theorem isGraph_comap (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    (Q.comap e).IsGraph τ ↔ Q.IsGraph (MulAut.congr e τ) := by
-  constructor
-  · rintro ⟨γ, hγ, h1, d, hd, rfl⟩
-    refine ⟨MulAut.congr e γ, hγ, fun h => h1 ?_, MulAut.congr e d, hd, congr_conj_mul e d γ⟩
-    exact (MulAut.congr e).injective (h.trans (map_one _).symm)
-  · rintro ⟨γ', hγ', h1, d', hd', hτ⟩
-    refine ⟨(MulAut.congr e).symm γ', symm_mem_comap_graph Q e hγ', fun h => h1 ?_,
-      (MulAut.congr e).symm d', symm_mem_comap_inndiag Q e hd', ?_⟩
-    · rw [← MulEquiv.apply_symm_apply (MulAut.congr e) γ', h, map_one]
-    · apply (MulAut.congr e).injective
-      rw [congr_conj_mul, MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply, hτ]
-
-theorem isGraphField_comap (Q : PinnedAut M) (e : L ≃* M) {τ : MulAut L} :
-    (Q.comap e).IsGraphField τ ↔ Q.IsGraphField (MulAut.congr e τ) := by
-  constructor
-  · rintro ⟨γ, hγ, hγ1, φ, hφ, hφ1, d, hd, rfl⟩
-    refine ⟨MulAut.congr e γ, hγ, fun h => hγ1 ?_, MulAut.congr e φ, hφ, fun h => hφ1 ?_,
-      MulAut.congr e d, hd, by rw [congr_conj_mul, map_mul]⟩
-    · exact (MulAut.congr e).injective (h.trans (map_one _).symm)
-    · exact (MulAut.congr e).injective (h.trans (map_one _).symm)
-  · rintro ⟨γ', hγ', hγ1, φ', hφ', hφ1, d', hd', hτ⟩
-    refine ⟨(MulAut.congr e).symm γ', symm_mem_comap_graph Q e hγ', fun h => hγ1 ?_,
-      (MulAut.congr e).symm φ', symm_mem_comap_field Q e hφ', fun h => hφ1 ?_,
-      (MulAut.congr e).symm d', symm_mem_comap_inndiag Q e hd', ?_⟩
-    · rw [← MulEquiv.apply_symm_apply (MulAut.congr e) γ', h, map_one]
-    · rw [← MulEquiv.apply_symm_apply (MulAut.congr e) φ', h, map_one]
-    · apply (MulAut.congr e).injective
-      rw [congr_conj_mul, map_mul, MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply,
-        MulEquiv.apply_symm_apply, hτ]
-
-theorem hasKind_comap (Q : PinnedAut M) (e : L ≃* M) (τ : MulAut L) (k : AutKind) :
-    (Q.comap e).HasKind τ k ↔ Q.HasKind (MulAut.congr e τ) k := by
-  cases k
-  · exact (isInnerAut_congr e τ).symm
-  · exact isDiagonal_comap Q e
-  · exact isField_comap Q e
-  · exact isGraph_comap Q e
-  · exact isGraphField_comap Q e
 
 end PinnedAut
 
@@ -366,21 +274,6 @@ theorem not_isInnerAut_inducedAutHom_iff (e : L ⧸ aschbacherSolvableCore 3 L �
   rw [inducedAutHom_apply, isInnerAut_congr]
   exact ⟨fun h => ⟨hx, h⟩, fun ⟨_, h⟩ => h⟩
 
-theorem inducesKind_comap {N : Type*} [Group N] (Q : PinnedAut N)
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* M) (e' : M ≃* N) (x : G) (k : AutKind) :
-    InducesKind L (Q.comap e') e x k ↔ InducesKind L Q (e.trans e') x k := by
-  have key : ∀ hx : x ∈ Subgroup.normalizer (L : Set G),
-      inducedAutHom L (e.trans e') ⟨x, hx⟩ = MulAut.congr e' (inducedAutHom L e ⟨x, hx⟩) :=
-    fun hx => congr_trans e e' _
-  constructor
-  · rintro ⟨hx, h⟩
-    refine ⟨hx, ?_⟩
-    rw [PinnedAut.hasKind_comap] at h
-    rwa [key]
-  · rintro ⟨hx, h⟩
-    refine ⟨hx, ?_⟩
-    rw [PinnedAut.hasKind_comap, ← key]
-    exact h
 
 theorem inducedAutHom_eq_conj (e₁ e₂ : L ⧸ aschbacherSolvableCore 3 L ≃* M)
     (x : Subgroup.normalizer (L : Set G)) :

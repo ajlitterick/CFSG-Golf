@@ -62,44 +62,5 @@ theorem odd_central_quotient_invariant_sylow_index
     p hp B J t ht hJodd hJB hcentral P hPnorm
   exact sylow_fixed_intersection_relIndex_prime_part p hp B t P R hRimage
 
-omit [Finite K] in
-theorem sylow_involution_invariant_iff_ambient_conjugate_eq
-    (p : ℕ) (B : Subgroup K) (t : K) (P : Sylow p B) :
-    t ∈ Subgroup.normalizer (((P : Subgroup B).map B.subtype : Subgroup K) : Set K) ↔
-      ((P : Subgroup B).map B.subtype).map (MulAut.conj t).toMonoidHom =
-        (P : Subgroup B).map B.subtype :=
-  Subgroup.mem_normalizer_iff_map_conj_eq
-
-theorem odd_central_quotient_involution_invariant_sylows
-    (B J : Subgroup K) [B.Normal] [J.Normal] (t : K) (ht : orderOf t = 2)
-    (_hgenerated : B ⊔ Subgroup.zpowers t = ⊤)
-    (hJodd : Odd (Nat.card J)) (hJB : J ≤ B)
-    (hcentral : QuotientGroup.mk' J t ∈ Subgroup.center (K ⧸ J)) :
-    (B ⊓ Subgroup.centralizer ({t} : Set K)) ⊔ J = B ∧
-    (∀ b ∈ B, ∃ c ∈ B ⊓ Subgroup.centralizer ({t} : Set K), ∃ j ∈ J, c * j = b) ∧
-    ∀ p : ℕ, p.Prime →
-      (∃ P : Sylow p B,
-        ((P : Subgroup B).map B.subtype).map (MulAut.conj t).toMonoidHom =
-          (P : Subgroup B).map B.subtype) ∧
-      ∀ P : Sylow p B,
-        ((P : Subgroup B).map B.subtype).map (MulAut.conj t).toMonoidHom =
-          (P : Subgroup B).map B.subtype →
-        (∃ R : Sylow p (B ⊓ Subgroup.centralizer ({t} : Set K) : Subgroup K),
-          (R : Subgroup (B ⊓ Subgroup.centralizer ({t} : Set K) : Subgroup K)).map
-            (B ⊓ Subgroup.centralizer ({t} : Set K)).subtype =
-              (P : Subgroup B).map B.subtype ⊓ Subgroup.centralizer ({t} : Set K)) ∧
-        (Subgroup.centralizer ({t} : Set K)).relIndex ((P : Subgroup B).map B.subtype) =
-          p ^ ((Subgroup.centralizer ({t} : Set K)).relIndex B).factorization p := by
-  refine ⟨odd_central_quotient_subgroup_sup J B t ht hJodd hJB hcentral,
-    odd_central_quotient_subgroup_factorization J B t ht hJodd hJB hcentral, ?_⟩
-  intro p hp
-  constructor
-  · obtain ⟨P, hP⟩ := odd_central_quotient_invariant_sylow_exists
-      p hp B J t ht hJodd hJB hcentral
-    exact ⟨P, (sylow_involution_invariant_iff_ambient_conjugate_eq p B t P).mp hP⟩
-  · intro P hP
-    have hnorm := (sylow_involution_invariant_iff_ambient_conjugate_eq p B t P).mpr hP
-    exact ⟨odd_central_quotient_invariant_sylow_fixed p hp B J t ht hJodd hJB hcentral P hnorm,
-      odd_central_quotient_invariant_sylow_index p hp B J t ht hJodd hJB hcentral P hnorm⟩
 
 end CFSG.ProperTwoGeneratedCore

@@ -77,12 +77,6 @@ theorem isChiefFactorOf_kOf
   rw [h.thetaM_bot_eq_kOf hX] at this
   exact this
 
-theorem secCenIn_kOf
-    (h : Counterexample p A θ) {X : Subgroup G} (hX : X ∈ cset p A θ ⊥) :
-    secCenIn (kOf X ⊔ dsub A θ) (kOf X) ⊥ = ⊥ := by
-  have := (h.thetaM_bot_pair hX).1.2.2.2
-  rw [h.thetaM_bot_eq_kOf hX] at this
-  exact this
 
 theorem not_isSolvable_kOf
     (h : Counterexample p A θ) {X : Subgroup G}
@@ -118,23 +112,6 @@ theorem isSemisimple_kOf_of_mem_cset
     (h : Counterexample p A θ) {X : Subgroup G}
     (hX : X ∈ cset p A θ ⊥) : IsSemisimple (kOf X) :=
   isSemisimple_kOf (h.sol_eq_bot_of_mem_cset hX)
-
-theorem dsub_inf_centralizer_kOf
-    (h : Counterexample p A θ) {X : Subgroup G}
-    (hX : X ∈ cset p A θ ⊥) : dsub A θ ⊓ Subgroup.centralizer (kOf X : Set G) = ⊥ := by
-  have hsec := h.secCenIn_kOf hX
-  rw [eq_bot_iff]
-  rintro d ⟨hdD, hdC⟩
-  have : d ∈ secCenIn (kOf X ⊔ dsub A θ) (kOf X) ⊥ := by
-    refine Subgroup.mem_inf.mpr ⟨Subgroup.mem_sup_right hdD, ?_⟩
-    refine ⟨?_, Thm41Aux.le_normalizer_kOf X (hX.1.2 hdD), fun y hy => ?_⟩
-    · exact (Subgroup.normalizer_eq_top_iff.mpr (inferInstance : (⊥ : Subgroup G).Normal)) ▸
-        Subgroup.mem_top d
-    · have := Subgroup.mem_centralizer_iff.mp hdC y hy
-      rw [commutatorElement_eq_one_iff_mul_comm.mpr this.symm]
-      exact one_mem _
-  rw [hsec] at this
-  exact this
 
 
 theorem mem_pairsYX_bot
@@ -187,45 +164,6 @@ theorem perfRes_eq_kOf
     perfRes X = kOf X :=
   le_antisymm (h.perfRes_le_kOf hX)
     (Nonsolvable.le_perfectResidual_map_of_isPerfect (h.isPerfect_kOf hX) (kOf_le X))
-
-theorem eq_kOf_of_isChiefFactorOf
-    (h : Counterexample p A θ) {X : Subgroup G}
-    (hX : X ∈ cset p A θ ⊥) {M : Subgroup G}
-    (hM : IsChiefFactorOf (kOf X ⊔ dsub A θ ⊔ A) M ⊥) (hMle : M ≤ kOf X ⊔ dsub A θ) :
-    M = kOf X := by
-  have hch := h.isChiefFactorOf_kOf hX
-  have hsec := h.secCenIn_kOf hX
-  have hMK : IsNormalIn (M ⊓ kOf X) (kOf X ⊔ dsub A θ ⊔ A) :=
-    ⟨inf_le_left.trans hM.2.1.1, fun g hg => Subgroup.inf_normalizer_le_normalizer_inf
-      ⟨hM.2.1.2 hg, hch.2.1.2 hg⟩⟩
-  rcases hM.2.2.2 (M ⊓ kOf X) hMK bot_le inf_le_left with h0 | h1
-  · exfalso
-    refine absurd ?_ (ne_of_gt hM.2.2.1)
-    rw [eq_bot_iff]
-    intro m hm
-    have hmT := hM.2.1.1 hm
-    have : m ∈ secCenIn (kOf X ⊔ dsub A θ) (kOf X) ⊥ := by
-      refine Subgroup.mem_inf.mpr ⟨hMle hm, ?_⟩
-      refine ⟨?_, hch.2.1.2 hmT, fun y hy => ?_⟩
-      · exact (Subgroup.normalizer_eq_top_iff.mpr (inferInstance : (⊥ : Subgroup G).Normal)) ▸
-          Subgroup.mem_top m
-      · have hyT : y ∈ kOf X ⊔ dsub A θ ⊔ A := hch.2.1.1 hy
-        have h1 : ⁅m, y⁆ ∈ kOf X := by
-          have := (Subgroup.mem_normalizer_iff.mp (hch.2.1.2 hmT) y).mp hy
-          exact mul_mem this (inv_mem hy)
-        have h2 : ⁅m, y⁆ ∈ M := by
-          have := (Subgroup.mem_normalizer_iff.mp (hM.2.1.2 hyT) m⁻¹).mp (inv_mem hm)
-          have e : ⁅m, y⁆ = m * (y * m⁻¹ * y⁻¹) := by
-            simp only [commutatorElement_def]
-            group
-          rw [e]
-          exact mul_mem hm (by simpa using this)
-        have h3 : ⁅m, y⁆ ∈ M ⊓ kOf X := ⟨h2, h1⟩
-        rwa [h0] at h3
-    rw [hsec] at this
-    exact this
-  · have hMK' : M ≤ kOf X := inf_eq_left.mp h1
-    exact (hch.2.2.2 M hM.2.1 bot_le hMK').resolve_left (ne_of_gt hM.2.2.1)
 
 
 theorem exists_conj_eq_of_mem_lcal_kOf

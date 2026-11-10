@@ -45,12 +45,6 @@ private theorem eqCov_mulAut_congr_apply {X Y : Type*} [Group X] [Group Y] (e : 
     (φ : MulAut X) (y : Y) : (MulAut.congr e φ) y = e (φ (e.symm y)) := by
   rw [MulAut.congr_apply, MulEquiv.trans_apply, MulEquiv.trans_apply]
 
-private theorem eqCov_mulAut_congr_symm {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y)
-    (ψ : MulAut Y) (x : X) : ((MulAut.congr e).symm ψ) x = e.symm (ψ (e x)) := by
-  have h := congrArg (fun f : MulAut Y => f (e x)) (MulEquiv.apply_symm_apply (MulAut.congr e) ψ)
-  rw [eqCov_mulAut_congr_apply] at h
-  rw [← h]
-  simp
 
 private theorem eqCov_ggLin_coord {G : Type} [Group G] {E : Subgroup G} {M : Type} [Group M]
     {R : RawFrameData} {H' : Subgroup M} (ρ : ↥E →* M) (hρ : Function.Injective ρ)
@@ -68,13 +62,6 @@ private theorem eqCov_ggLin_coord {G : Type} [Group G] {E : Subgroup G} {M : Typ
     rw [eqCov_mulAut_congr_apply, eqCov_mulAut_congr_apply]
     simp
 
-private theorem eqCov_ggLin_coord_comp {G : Type} [Group G] {E : Subgroup G} {M : Type}
-    [Group M] {R : RawFrameData} {H' : Subgroup M} (ρ : ↥E →* M)
-    (hρ : Function.Injective ρ) (mf' : ModelFrame H' ρ.range R) :
-    ggLin (p := 3) (eqCov_coord ρ hρ mf') =
-      (ggLin (p := 3) mf'.coord).comp
-        (MulAut.congr (eqCov_rho_equiv ρ hρ)).toMonoidHom :=
-  MonoidHom.ext fun φ => eqCov_ggLin_coord ρ hρ mf' φ
 
 private theorem eqCov_range_comp_inclusion {G : Type} [Group G] {E : Subgroup G}
     {M : Type} [Group M] (ρ : ↥E →* M) {A : Subgroup G} (hAE : A ≤ E) :
@@ -126,13 +113,6 @@ private noncomputable def eqCov_restrict {G : Type} [Group G] {E : Subgroup G} {
     [Group M] (ρ : ↥E →* M) {A : Subgroup G} (hAE : A ≤ E) : ↥A →* M :=
   ρ.comp (Subgroup.inclusion hAE)
 
-private theorem eqCov_equivariant_restrict {G : Type} [Group G] {H E : Subgroup G} {M : Type}
-    [Group M] (hEN : E ≤ Subgroup.normalizer (H : Set G)) (π : ↥H →* M) (ρ : ↥E →* M)
-    (hEq : ∀ (e : ↥E) (l : ↥H), π (ggGamma H hEN e l) = ρ e * π l * (ρ e)⁻¹)
-    {A : Subgroup G} (hAE : A ≤ E) :
-    Equivariant (hAE.trans hEN) π (eqCov_restrict ρ hAE) := by
-  intro a h
-  exact hEq (Subgroup.inclusion hAE a) h
 
 private theorem eqCov_derived_comap_perfect {X R : Type*} [Group X] [Group R] (π : X →* R)
     (hker : π.ker ≤ Subgroup.center X) {Y : Subgroup R} (hYle : Y ≤ π.range)
@@ -714,26 +694,6 @@ private theorem eqCov_conj_mem_kernel {G : Type} [Group G] {H E : Subgroup G} {M
     hEq e x
   rw [h1, MonoidHom.mem_ker.mp hx, mul_one, mul_inv_cancel]
 
-private theorem eqCov_kernel_inf_bot {G : Type} [Group G] {H E : Subgroup G} {M : Type}
-    [Group M] (π : ↥H →* M) (hker3 : ¬ 3 ∣ Nat.card π.ker) (hEab : IsElemAbelian 3 E) :
-    eqCov_kernelSub π ⊓ E = ⊥ := by
-  rw [eq_bot_iff]
-  rintro x ⟨hxN, hxE⟩
-  obtain ⟨k, hk, hkx⟩ := Subgroup.mem_map.mp hxN
-  have hx : x = (k : G) := hkx.symm
-  rw [hx] at hxE
-  rw [hx]
-  have hk3 : k ^ 3 = 1 := by
-    apply Subtype.ext
-    have h3 : (k : G) ^ 3 = 1 := by simpa using hEab.2 (k : G) hxE
-    simpa using h3
-  have hdvd3 : orderOf k ∣ 3 := orderOf_dvd_of_pow_eq_one hk3
-  have hdvdK : orderOf k ∣ Nat.card π.ker := Subgroup.orderOf_dvd_natCard π.ker hk
-  have hcop : Nat.Coprime 3 (Nat.card π.ker) :=
-    (Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mpr hker3
-  have hone : orderOf k = 1 := Nat.dvd_one.mp (hcop ▸ Nat.dvd_gcd hdvd3 hdvdK)
-  have hk1 : k = 1 := orderOf_eq_one_iff.mp hone
-  simp [hk1]
 
 private theorem eqCov_kernel_normalized_by_E {G : Type} [Group G] {H E : Subgroup G}
     {M : Type} [Group M] (hEN : E ≤ Subgroup.normalizer (H : Set G)) (π : ↥H →* M)
@@ -841,20 +801,6 @@ private theorem eqCov_conj_mem_sup {G : Type} [Group G] {H E : Subgroup G} {M : 
   rw [hdecomp]
   exact Subgroup.mul_mem_sup e'.2 (Subgroup.mem_map.mpr ⟨n'', hn''_ker, rfl⟩)
 
-private theorem eqCov_kernel_map_conj {G : Type} [Group G] {H : Subgroup G} {M : Type}
-    [Group M] (π : ↥H →* M) (x : ↥H) :
-    (eqCov_kernelSub π).map (MulAut.conj (x : G)).toMonoidHom = eqCov_kernelSub π := by
-  calc
-    (eqCov_kernelSub π).map (MulAut.conj (x : G)).toMonoidHom
-        = ((π.ker).map H.subtype).map (MulAut.conj (x : G)).toMonoidHom := rfl
-    _ = (π.ker).map ((MulAut.conj (x : G)).toMonoidHom.comp H.subtype) := by
-          rw [Subgroup.map_map]
-    _ = (π.ker).map (H.subtype.comp (MulAut.conj x).toMonoidHom) := rfl
-    _ = ((π.ker).map (MulAut.conj x).toMonoidHom).map H.subtype := by
-          rw [Subgroup.map_map]
-    _ = (π.ker).map H.subtype := by
-          rw [CFSG.GroupTheory.ThreeTranspositions.map_conj_eq_of_normal
-            (MonoidHom.normal_ker π) x]
 
 open scoped Pointwise in
 private theorem eqCov_exists_sylow_correction {G : Type} [Group G] [Finite G] {p : ℕ}
@@ -1124,27 +1070,6 @@ private theorem eqCov_exists_matching {G : Type} [Group G] [Finite G] {H E : Sub
     _ = A := by rw [hcomm_inv]; group
     _ = (y : M) * ρ a * (y : M)⁻¹ := rfl
 
-private theorem eqCov_congr_ggConjAut {G : Type} [Group G] {H E : Subgroup G} {M : Type}
-    [Group M] (hEN : E ≤ Subgroup.normalizer (H : Set G)) (π : ↥H →* M) (ρ : ↥E →* M)
-    (hρ : Function.Injective ρ)
-    (hEq : ∀ (e : ↥E) (l : ↥H), π (ggGamma H hEN e l) = ρ e * π l * (ρ e)⁻¹)
-    (hρπ : ∀ (e : ↥E) (he : (e : G) ∈ H), ρ e = π ⟨e, he⟩)
-    {x : ↥H} (hxN : (x : G) ∈ Subgroup.normalizer (E : Set G))
-    (hπxN : π x ∈ Subgroup.normalizer ((ρ.range : Subgroup M) : Set M)) :
-    MulAut.congr (eqCov_rho_equiv ρ hρ) (ggConjAut E hxN) = ggConjAut ρ.range hπxN := by
-  ext b
-  obtain ⟨a, rfl⟩ := (eqCov_rho_equiv ρ hρ).surjective b
-  rw [eqCov_mulAut_congr_apply]
-  simp only [MulEquiv.symm_apply_apply]
-  rw [show ((eqCov_rho_equiv ρ hρ) ((ggConjAut E hxN) a) : M) =
-      ρ ((ggConjAut E hxN) a) from rfl]
-  rw [show (ggConjAut E hxN) a =
-      (⟨(x : G) * (a : G) * (x : G)⁻¹,
-        (Subgroup.mem_normalizer_iff.mp hxN (a : G)).1 a.2⟩ : ↥E) from Subtype.ext rfl]
-  rw [show ((ggConjAut ρ.range hπxN) ((eqCov_rho_equiv ρ hρ) a) : M) =
-      π x * ρ a * (π x)⁻¹ from by
-    rw [ggConjAut_apply, eqCov_rho_equiv_apply]]
-  exact eqCov_rho_conj hEN π ρ hρπ hEq hxN a
 
 private theorem eqCov_automizer_eq {G : Type} [Group G] [Finite G] {H E : Subgroup G}
     {M : Type} [Group M] {R : RawFrameData} (hEN : E ≤ Subgroup.normalizer (H : Set G))

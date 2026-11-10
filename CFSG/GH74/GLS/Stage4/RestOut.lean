@@ -71,12 +71,6 @@ theorem Ch6Post.out (h : Ch6Post D) : Ch6Out G := by
       ((∀ x ∈ root 2, ∀ y ∈ root 4, x * y = y * x) ∧ (∀ x ∈ root 4, ∀ y ∈ root 6, x * y = y * x) ∧
         (∀ x ∈ root 2, ∀ y ∈ root 6, ⁅x, y⁆ ∈ root 4))
 
-theorem Ch6OutPlus.toOut (h : Ch6OutPlus G) : Ch6Out G := by
-  obtain ⟨p, H, r₁, r₂, U, root, z, S, K₁, K₂, F, P₀, q, hC, hG, hq, hc, -, -, -⟩ := h
-  refine ⟨p, H, r₁, r₂, U, root, z, S, K₁, K₂, F, P₀, q, hC, hG, hq, ?_⟩
-  rcases hc with hc | ⟨h3, hc⟩
-  · exact Or.inl hc
-  · exact Or.inr ⟨h3, Or.inl hc⟩
 
 theorem Ch6Basics.rootOrdersD4a (h : Ch6Basics D) (hq : D.q₁ = D.q₂ ^ 3) :
     ∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card ↥(D.root i) = if i % 2 = 1 then D.q₂ ^ 3 else D.q₂ := by
@@ -110,11 +104,6 @@ theorem Ch6Post.outPlus (h : Ch6Post D) : Ch6OutPlus G := by
     ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
       ¬ (q₁ = 9 ∧ q₂ = 9) → (¬ ∃ n : ℕ, 3 ≤ n ∧ q₁ = 3 ^ n ∧ q₂ = 3 ^ n) → Ch6OutPlus G
 
-@[expose] def Ch6RestMain : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
-    ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
-      ¬ (q₁ = 9 ∧ q₂ = 9) → (¬ ∃ n : ℕ, 3 ≤ n ∧ q₁ = 3 ^ n ∧ q₂ = 3 ^ n) →
-        ∃ D : Ch6Notation G, Ch6Core D
 
 @[expose] def Ch6RestL92 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
@@ -126,15 +115,5 @@ theorem Ch6Post.outPlus (h : Ch6Post D) : Ch6OutPlus G := by
     ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
       ∀ D : Ch6Notation G, Ch6Core D → D.ZClass
 
-theorem ch6CaseRestPlus_of_leaves (hMain : Ch6RestMain) (hL : Ch6RestL92) (hZ : Ch6RestZClass) :
-    Ch6CaseRestPlus := by
-  intro G _ _ hStd hr Gs _ q₁ q₂ hAt h99 hn
-  obtain ⟨D, hD⟩ := hMain G hStd hr Gs q₁ q₂ hAt h99 hn
-  exact (Ch6Post.mk hD (hL G hStd hr Gs q₁ q₂ hAt D hD) (hZ G hStd hr Gs q₁ q₂ hAt D hD)).outPlus
-
-theorem ch6CaseRest_of_leaves (hMain : Ch6RestMain) (hL : Ch6RestL92) (hZ : Ch6RestZClass) :
-    Ch6CaseRest := by
-  intro G _ _ hStd hr Gs _ q₁ q₂ hAt h99 hn
-  exact (ch6CaseRestPlus_of_leaves hMain hL hZ G hStd hr Gs q₁ q₂ hAt h99 hn).toOut
 
 end CFSG.GH74.GLS.Stage4.Rest

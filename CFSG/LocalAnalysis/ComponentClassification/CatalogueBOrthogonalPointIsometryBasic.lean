@@ -18,10 +18,6 @@ variable {Q : QuadraticForm K V} {R : QuadraticForm K W}
 theorem polar_isometry (e : Q.IsometryEquiv R) (x y : V) :
     polar R (e x) (e y) = polar Q x y := e.polar_apply x y
 
-theorem eichlerLin_isometry_apply (e : Q.IsometryEquiv R) (a b x : V) :
-    e (eichlerLin Q a b x) = eichlerLin R (e a) (e b) (e x) := by
-  rw [eichlerLin_apply, eichlerLin_apply, map_sub, map_add, map_smul, map_smul,
-    polar_isometry, polar_isometry, e.map_app]
 
 theorem eichler_isometry_apply (e : Q.IsometryEquiv R) (a b x : V) :
     e (eichler Q a b x) = eichler R (e a) (e b) (e x) := by
@@ -50,11 +46,6 @@ theorem eichler_isometry_symm (e : Q.IsometryEquiv R) (a b : W) :
   apply (LinearEquiv.autCongr e.toLinearEquiv).injective
   rw [MulEquiv.apply_symm_apply, eichler_isometry, e.apply_symm_apply, e.apply_symm_apply]
 
-theorem eichler_isometry_inverse_apply (e : Q.IsometryEquiv R) (a b : V) (x : W) :
-    e.symm (eichler R (e a) (e b) x) = eichler Q a b (e.symm x) := by
-  apply e.injective
-  change e (e.symm (eichler R (e a) (e b) x)) = e (eichler Q a b (e.symm x))
-  rw [e.apply_symm_apply, eichler_isometry_apply, e.apply_symm_apply]
 
 private theorem elementaryGroup_map_le (e : Q.IsometryEquiv R) :
     (elementaryGroup Q).map (LinearEquiv.autCongr e.toLinearEquiv).toMonoidHom ≤
@@ -81,8 +72,6 @@ theorem elementaryGroup_map (e : Q.IsometryEquiv R) :
   ((LinearEquiv.autCongr e.toLinearEquiv).subgroupMap (elementaryGroup Q)).trans
     (MulEquiv.subgroupCongr (elementaryGroup_map e))
 
-theorem elementaryIsometryEquiv_val (e : Q.IsometryEquiv R) (g : elementaryGroup Q) :
-    (elementaryIsometryEquiv e g).val = LinearEquiv.autCongr e.toLinearEquiv g.val := rfl
 
 theorem elementaryIsometryEquiv_apply (e : Q.IsometryEquiv R)
     (g : elementaryGroup Q) (x : W) :

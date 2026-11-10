@@ -77,7 +77,6 @@ theorem stepS_shiftS (A : ℕ → ℕ) {q : ℕ} (hq : 0 < q) (L s t c : ℕ) :
 theorem walkS_cons (A : ℕ → ℕ) (q L c : ℕ) (w : List ℕ) (s : ℕ) :
     walkS A q L (c :: w) s = walkS A q L w (stepS A q L s c) := rfl
 
-theorem walkS_nil (A : ℕ → ℕ) (q L : ℕ) (s : ℕ) : walkS A q L [] s = s := rfl
 
 theorem walkS_append (A : ℕ → ℕ) (q L : ℕ) (u v : List ℕ) (s : ℕ) :
     walkS A q L (u ++ v) s = walkS A q L v (walkS A q L u s) := by

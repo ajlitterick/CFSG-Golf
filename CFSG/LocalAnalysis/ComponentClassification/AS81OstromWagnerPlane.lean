@@ -95,10 +95,6 @@ theorem par_eq_par_iff {d : Set P} (hd : d ∈ lines) {p q : P} :
     par lines d p = par lines d q ↔ q ∈ par lines d p :=
   ⟨fun h => h ▸ hA.mem_par hd q, fun h => hA.eq_par hd (hA.par_mem hd p) h (hA.par_par hd p)⟩
 
-theorem par_eq_of_par {d d' : Set P} (hd : d ∈ lines) (hd' : d' ∈ lines) (h : Par d d')
-    (p : P) : par lines d' p = par lines d p :=
-  (hA.eq_par hd' (hA.par_mem hd p) (hA.mem_par hd p)
-    (hA.par_trans hd' hd (hA.par_mem hd p) h.symm (hA.par_par hd p))).symm
 
 theorem not_par_of_par {d d' t : Set P} (hd : d ∈ lines) (hd' : d' ∈ lines) (ht : t ∈ lines)
     (hdt : ¬Par d t) (h : Par d d') : ¬Par d' t :=

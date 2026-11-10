@@ -33,15 +33,6 @@ theorem uForm_midExt (z w : Fin m → F) :
     show σ (z j) * w (Fin.rev j) = σ (midExt z (mid j)) * midExt w (Fin.rev (mid j))
     rw [midExt_mid, rev_mid, midExt_mid]
 
-theorem midExt_smul (c : F) (z : Fin m → F) :
-    (midExt (c • z) : Fin (m + 2) → F) = c • midExt z := by
-  funext i
-  rw [Pi.smul_apply]
-  by_cases h : 0 < (i : ℕ) ∧ (i : ℕ) < m + 1
-  · rw [midExt, dite_eq_left h, midExt, dite_eq_left h]
-    simp
-  · rw [midExt, dite_eq_right h, midExt, dite_eq_right h]
-    simp
 
 theorem mem_perpPair_ends {u : Fin (m + 2) → F} :
     u ∈ perpPair σ (Pi.single 0 1) (Pi.single (Fin.last (m + 1)) 1) ↔

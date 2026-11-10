@@ -161,18 +161,6 @@ private theorem normPlaneEquiv_zL (E : QuadExt F K (unitaryInvolution K 2 1))
   rw [zetaOfChi_sq χ hχ]
   ring_nf
 
-theorem normPlaneEquiv_σL (E : QuadExt F K (unitaryInvolution K 2 1))
-    (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ) (c : F × F) :
-    normPlaneEquiv E χ hχ (σL F c) =
-      unitaryInvolution K 2 1 (normPlaneEquiv E χ hχ c) := by
-  rw [normPlaneEquiv_apply, normPlaneEquiv_apply]
-  change algebraMap F K (c.1 + c.2) + algebraMap F K c.2 * zetaOfChi χ =
-    unitaryInvolution K 2 1 (algebraMap F K c.1 + algebraMap F K c.2 * zetaOfChi χ)
-  have hbar : unitaryInvolution K 2 1 (zetaOfChi χ) = zetaOfChi χ ^ 2 :=
-    zetaOfChi_bar χ hχ
-  have hsq : zetaOfChi χ ^ 2 = zetaOfChi χ + 1 := zetaOfChi_sq χ hχ
-  simp only [map_add, map_mul, E.fix, hbar, hsq]
-  ring
 
 private theorem normPlaneEquiv_zpow (E : QuadExt F K (unitaryInvolution K 2 1))
     (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ)
@@ -301,22 +289,6 @@ private theorem normPlaneCoordEquiv_Phi_zero (E : QuadExt F K (unitaryInvolution
       rfl
     simpa only [hfun, MonoidHom.comp_apply, Subgroup.coe_subtype] using hu
 
-theorem normPlaneTorusOmCoord_s (E : QuadExt F K (unitaryInvolution K 2 1)) {m : ℕ}
-    (hm : 2 ≤ m) (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ) :
-    (normPlaneTorusOmCoord E hm χ hχ).s = m := rfl
-
-theorem normPlaneTorusOmCoord_W0 (E : QuadExt F K (unitaryInvolution K 2 1)) {m : ℕ}
-    (hm : 2 ≤ m) (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ) :
-    (normPlaneTorusOmCoord E hm χ hχ).W0 =
-      LinearMap.range (LinearMap.inl F (F × F) (Fin m → K)) := rfl
-
-theorem normPlaneTorusOmCoord_tor (E : QuadExt F K (unitaryInvolution K 2 1)) {m : ℕ}
-    (hm : 2 ≤ m) (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ)
-    (f : Fin m → ZMod 3) :
-    (normPlaneTorusOmCoord E hm χ hχ).tor f =
-      ((normPlaneTorus E hm (by decide : 3 ∣ 2 ^ 1 + 1) χ
-        (fun i => Multiplicative.ofAdd (f i)) : normOmega E m) :
-        ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))) := rfl
 
 theorem normPlaneTorusOmCoord_Phi_zero (E : QuadExt F K (unitaryInvolution K 2 1)) {m : ℕ}
     (hm : 2 ≤ m) (χ : Multiplicative (ZMod 3) →* Kˣ) (hχ : Function.Injective χ)

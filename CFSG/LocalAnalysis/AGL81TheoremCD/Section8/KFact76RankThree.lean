@@ -20,7 +20,5 @@ namespace CFSG.LocalAnalysis.AGL81TheoremCD.Section8
             W = Subgroup.normalizer (A : Set Y) ⊓ Subgroup.normalClosure (A : Set Y) ∨
               W = Subgroup.normalClosure (A : Set Y))
 
-theorem kFact76MaxRankThree_of_kFact76Max (h : KFact76Max) : KFact76MaxRankThree :=
-  fun Y _ _ hK hc A hA hwc _ => h Y hK hc A hA hwc
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section8

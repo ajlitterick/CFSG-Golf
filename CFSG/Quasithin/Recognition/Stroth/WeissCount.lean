@@ -66,26 +66,6 @@ theorem IsLocallyTrans.mono {s t : ℕ} (hts : t ≤ s)
     have h1 := (GPath.smul_eq_iff.mp hg) i (by omega)
     rwa [hqp i hi, hq'p i hi] at h1
 
-theorem exists_smul_nbr_of_isLocallyTrans {s : ℕ} (h : IsLocallyTrans H Γ s) (hs : 1 ≤ s)
-    (hne : ∀ v w : V, Γ.Adj v w → ∃ u, Γ.Adj v u ∧ u ≠ w)
-    {v w₁ w₂ : V} (h₁ : Γ.Adj v w₁) (h₂ : Γ.Adj v w₂) :
-    ∃ g : H, g • v = v ∧ g • w₁ = w₂ := by
-  have h1 : IsLocallyTrans H Γ 1 := h.mono (by omega) hne
-  let p : GPath Γ 1 := (GPath.triv v).snoc w₁ h₁
-  let p' : GPath Γ 1 := (GPath.triv v).snoc w₂ h₂
-  have hp0 : p 0 = v := GPath.snoc_of_le _ _ _ (Nat.zero_le 0)
-  have hp1 : p 1 = w₁ := GPath.snoc_last _ _ _
-  have hp'0 : p' 0 = v := GPath.snoc_of_le _ _ _ (Nat.zero_le 0)
-  have hp'1 : p' 1 = w₂ := GPath.snoc_last _ _ _
-  have hp : p.NoBack := fun i hi => absurd hi (by omega)
-  have hp' : p'.NoBack := fun i hi => absurd hi (by omega)
-  have hstart : p 0 = p' 0 := by rw [hp0, hp'0]
-  obtain ⟨g, hg⟩ := h1 p p' hp hp' hstart
-  refine ⟨g, ?_, ?_⟩
-  · have h := (GPath.smul_eq_iff.mp hg) 0 (by omega)
-    rwa [hp0, hp'0] at h
-  · have h := (GPath.smul_eq_iff.mp hg) 1 (by omega)
-    rwa [hp1, hp'1] at h
 
 theorem exists_smul_nbr_fix_of_isLocallyTrans {s : ℕ} (h : IsLocallyTrans H Γ s) (hs : 2 ≤ s)
     (hne : ∀ v w : V, Γ.Adj v w → ∃ u, Γ.Adj v u ∧ u ≠ w)
@@ -408,117 +388,8 @@ theorem forall_smul_eq_of_card {H : Type v} [Group H] [MulAction H V] {Γ : Simp
 end Counting
 
 
-
-
 section PathStabilizer
 
-theorem eq_one_of_fix_nbPath_of_card (α : RankTwoAmalgam.{u}) {Y : Type w} [Group Y]
-    [Finite Y] (c : α.Completion Y) (hc : c.IsFaithful) {j : ℕ}
-    (hLT : IsLocallyTransHat α (2 * j + 1))
-    (hodd1 : Odd (α.qOne + 1)) (hodd2 : Odd (α.qTwo + 1))
-    (hsyl : ∀ (v : α.Γhat) [Finite (MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) v)]
-      (P : Sylow 2 (MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) v)),
-      Nat.card P = (α.qOne * α.qTwo) ^ j)
-    {g : ↥(α.Ghat1 ⊔ α.Ghat2)} {p : GPath α.graphHat (2 * j + 1)} (hp : p.NoBack)
-    (hfix : ∀ i, i ≤ 2 * j + 1 → g • p i = p i) (hg : ∃ k, orderOf g = 2 ^ k) : g = 1 := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let a : c.Γ := c.Θ hc (p 0)
-  let q : GPath c.graph (2 * j + 1) := (c.graphCovering hc).pathMap p
-  have hq : q ∈ GPath.nbPaths c.graph a (2 * j + 1) := by
-    refine ⟨?_, ?_⟩
-    · simp [q, a, GraphCovering.pathMap_apply]
-    · exact ((c.graphCovering hc).noBack_pathMap_iff p).mpr hp
-  have htrans : ∀ q₁ q₂ : GPath α.graphHat (2 * j + 1),
-      q₁ ∈ GPath.nbPaths α.graphHat (p 0) (2 * j + 1) →
-      q₂ ∈ GPath.nbPaths α.graphHat (p 0) (2 * j + 1) →
-      ∃ u : ↥(α.Ghat1 ⊔ α.Ghat2), u • p 0 = p 0 ∧ u • q₁ = q₂ := by
-    intro q₁ q₂ hq₁ hq₂
-    obtain ⟨u, hu⟩ := hLT q₁ q₂ hq₁.2 hq₂.2 (by rw [hq₁.1, hq₂.1])
-    refine ⟨u, ?_, hu⟩
-    have h0 : u • q₁ 0 = q₂ 0 := by
-      simpa [GPath.smul_apply] using
-        congrArg (fun r : GPath α.graphHat (2 * j + 1) => r 0) hu
-    rwa [hq₁.1, hq₂.1] at h0
-  have hT : c.PathTrans a (2 * j + 1) :=
-    c.lemma_F33_4 hc (p 0) (2 * j + 1) htrans
-  haveI hfin0 : Finite (MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) (p 0)) := by
-    let e := (c.stabIso hc (p 0)).equiv
-    refine Finite.of_injective (fun x => (e x : ↥(c.φ1.range ⊔ c.φ2.range))) ?_
-    intro x y hxy
-    exact e.injective (Subtype.ext hxy)
-  have hrel := RankTwoAmalgam.Completion.relIndex_stabPath (c := c) hc hT hq
-  have hqvodd : Odd (α.qv (CosetGeom.vtype a) + 1) := by
-    cases hb : CosetGeom.vtype a
-    · simpa [RankTwoAmalgam.qv, hb] using hodd1
-    · simpa [RankTwoAmalgam.qv, hb] using hodd2
-  have hqvprod : α.qv (CosetGeom.vtype a) * α.qv (!CosetGeom.vtype a) =
-      α.qOne * α.qTwo := by
-    cases hb : CosetGeom.vtype a <;> simp [RankTwoAmalgam.qv, hb, mul_comm]
-  have hpathNum : α.pathNum (CosetGeom.vtype a) (2 * j + 1) =
-      (α.qv (CosetGeom.vtype a) + 1) * (α.qOne * α.qTwo) ^ j := by
-    rw [RankTwoAmalgam.pathNum_odd, hqvprod]
-  have hle : (q.stabPath : Subgroup c.G0) ≤ c.stv a := GPath.stabPath_le_stabilizer q hq.1
-  have hrelMul := Subgroup.relIndex_mul_card (H := (q.stabPath : Subgroup c.G0)) (K := c.stv a)
-  rw [inf_eq_left.mpr hle, hrel, hpathNum] at hrelMul
-  obtain ⟨P⟩ := Sylow.nonempty (p := 2) (G := c.stv a)
-  have hPcard : Nat.card P = (α.qOne * α.qTwo) ^ j := by
-    let e := (c.stabIso hc (p 0)).equiv
-    let P' : Sylow 2 (MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) (p 0)) :=
-      P.mapSurjective (f := e.symm.toMonoidHom) e.symm.surjective
-    have h1 : Nat.card P' = (α.qOne * α.qTwo) ^ j := hsyl (p 0) P'
-    have h2 : Nat.card P' = Nat.card P := by
-      rw [show (P' : Subgroup ↥(MulAction.stabilizer ↥(α.Ghat1 ⊔ α.Ghat2) (p 0))) =
-          (P : Subgroup (c.stv a)).map e.symm.toMonoidHom from
-        Sylow.coe_mapSurjective e.symm.surjective P]
-      exact Subgroup.card_map_of_injective (K := (P : Subgroup (c.stv a)))
-        (f := e.symm.toMonoidHom) e.symm.injective
-    rw [← h2]
-    exact h1
-  have hMpos : 0 < (α.qOne * α.qTwo) ^ j := by
-    haveI : Nonempty ↥(P : Subgroup (c.stv a)) :=
-      ⟨⟨1, Subgroup.one_mem (P : Subgroup (c.stv a))⟩⟩
-    have hPpos : 0 < Nat.card P := Nat.card_pos
-    rwa [hPcard] at hPpos
-  have hcardStv : Nat.card (c.stv a) =
-      Nat.card (q.stabPath : Subgroup c.G0) *
-        ((α.qv (CosetGeom.vtype a) + 1) * (α.qOne * α.qTwo) ^ j) := by
-    rw [← hrelMul]
-    ring
-  have hPodd : Odd (P : Subgroup (c.stv a)).index :=
-    Nat.not_even_iff_odd.mp (by simpa [even_iff_two_dvd] using P.not_dvd_index)
-  have hcardStv2 : Nat.card (c.stv a) =
-      (α.qOne * α.qTwo) ^ j * (P : Subgroup (c.stv a)).index := by
-    rw [← Subgroup.card_mul_index (P : Subgroup (c.stv a)), hPcard]
-  have hcancel : Nat.card (q.stabPath : Subgroup c.G0) * (α.qv (CosetGeom.vtype a) + 1) =
-      (P : Subgroup (c.stv a)).index := by
-    have h1 : (α.qOne * α.qTwo) ^ j *
-        (Nat.card (q.stabPath : Subgroup c.G0) * (α.qv (CosetGeom.vtype a) + 1)) =
-        (α.qOne * α.qTwo) ^ j * (P : Subgroup (c.stv a)).index := by
-      calc (α.qOne * α.qTwo) ^ j *
-            (Nat.card (q.stabPath : Subgroup c.G0) * (α.qv (CosetGeom.vtype a) + 1))
-          = Nat.card (q.stabPath : Subgroup c.G0) *
-            ((α.qv (CosetGeom.vtype a) + 1) * (α.qOne * α.qTwo) ^ j) := by ring
-        _ = Nat.card (c.stv a) := hcardStv.symm
-        _ = (α.qOne * α.qTwo) ^ j * (P : Subgroup (c.stv a)).index := hcardStv2
-    exact Nat.mul_left_cancel hMpos h1
-  have hoddStab : Odd (Nat.card (q.stabPath : Subgroup c.G0)) :=
-    hPodd.of_dvd_nat ⟨α.qv (CosetGeom.vtype a) + 1, hcancel.symm⟩
-  obtain ⟨k, hk⟩ := hg
-  have hgmap : c.theta0 hc g ∈ (q.stabPath : Subgroup c.G0) := by
-    have hmap := (c.lemma_F33_3 hc (p 0) p rfl).1
-    rw [← hmap]
-    exact Subgroup.mem_map_of_mem (c.theta0 hc) (GPath.mem_stabPath_iff.mpr hfix)
-  have horderStab : orderOf (c.theta0 hc g) ∣ Nat.card (q.stabPath : Subgroup c.G0) :=
-    Subgroup.orderOf_dvd_natCard _ hgmap
-  have horder2 : orderOf (c.theta0 hc g) ∣ 2 ^ k := by
-    rw [← hk]
-    exact orderOf_map_dvd (c.theta0 hc) g
-  have hcop : Nat.Coprime (Nat.card (q.stabPath : Subgroup c.G0)) (2 ^ k) :=
-    hoddStab.coprime_two_right.pow_right k
-  have hOrderOne : orderOf (c.theta0 hc g) = 1 :=
-    Nat.eq_one_of_dvd_coprimes hcop horderStab horder2
-  have htheta1 : c.theta0 hc g = 1 := orderOf_eq_one_iff.mp hOrderOne
-  exact (c.stabIso hc (p 0)).inj g (by simpa using hfix 0 (Nat.zero_le _)) htheta1
 
 end PathStabilizer
 

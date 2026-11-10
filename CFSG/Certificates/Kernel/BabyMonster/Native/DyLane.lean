@@ -143,8 +143,6 @@ open CFSG.KC.BM.Lat
     (fun L => List.rec (motive := fun _ => Bool) true (fun _ _ _ => false) L)
     (fun a _ ih L => List.rec (motive := fun _ => Bool) false (fun b L' _ => andB (lnEqL a b) (ih L')) L)
 
-@[expose] noncomputable def lnFlipR (R : Nat → Nat) (b i : Nat) : Nat :=
-  Nat.xor (R i) (Nat.shiftLeft (nat_lit 1) b)
 
 end CFSG.KC.BM
 

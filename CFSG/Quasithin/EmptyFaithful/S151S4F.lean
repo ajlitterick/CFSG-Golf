@@ -14,18 +14,9 @@ section Statements
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def BaumNormalizesComponentsStatement : Prop :=
-  ∀ H T V L : Subgroup G, CharTwo H → IsTwoReducedIn H V → IsSylowTwoOf T H → IsSQTKTC H →
-    L ∈ cComp H →
-    (∃ (Q : Type) (_ : Group Q) (φ : ↥L →* Q), Function.Surjective φ ∧
-      φ.ker = (Subgroup.centralizer (V : Set G)).subgroupOf L ∧ CFSG.IsQuasisimple Q) →
-    ¬ ⁅L, thompsonJ T⁆ ≤ Subgroup.centralizer (V : Set G) →
-      baum T ≤ Subgroup.normalizer (L : Set G)
 
 end Statements
 
-@[expose] def TheoremC116Three : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], BaumNormalizesComponentsStatement (G := G)
 
 namespace S151S4
 

@@ -123,7 +123,6 @@ theorem normalizer_inf_sup_normal_eq_top {p : ℕ} [Fact p.Prime] {Γ : Type*} [
   exact hfr
 
 
-
 theorem exists_mul_mem_normalizer_inf_of_isSylowTwoOf {H C T : Subgroup G}
     (hHC : H ≤ Subgroup.normalizer (C : Set G)) (hT : IsSylowTwoOf T H) {x : G} (hx : x ∈ H) :
     ∃ c ∈ C, ∃ n ∈ H, n ∈ Subgroup.normalizer ((T ⊓ C : Subgroup G) : Set G) ∧ x = c * n := by
@@ -171,22 +170,6 @@ theorem GoodElt128.mem_sup {g : G} (hg : GoodElt128 T L g) (U : Subgroup G) : g 
   Subgroup.mem_sup_left hg.mem
 
 namespace Hyp1281Two
-
-theorem exists_goodElt (h : Hyp1281Two G T M L) {g : G} (hg : g ∈ L ⊔ T)
-    (hgH : g ∉ Subgroup.centralizer (quasithinOmegaOneCenter T : Set G)) :
-    ∃ t ∈ T, ∃ l : G, GoodElt128 T L l ∧ g = t * l := by
-  have hTL : T ≤ Subgroup.normalizer (L : Set G) := h.inM.2.trans h.normal
-  have hmem : g ∈ (T : Set G) * (L : Set G) := by
-    rw [← Subgroup.coe_mul_of_left_le_normalizer_right T L hTL]
-    rw [sup_comm] at hg
-    exact hg
-  obtain ⟨t, ht, l, hl, rfl⟩ := hmem
-  have hTN : t ∈ Subgroup.normalizer (quasithinOmegaOneCenter T : Set G) := by
-    rw [h.normalizer_Z_eq_centralizer]
-    exact h.almostSpecialHyp_g1.T_le_H ht
-  refine ⟨t, ht, l, ⟨hl, fun hlN => hgH ?_⟩, rfl⟩
-  rw [← h.normalizer_Z_eq_centralizer]
-  exact Subgroup.mul_mem _ hTN hlN
 
 
 theorem sup_uOfL22_le_LT (h : Hyp1281Two G T M L) : L ⊔ uOfL22 T M ≤ L ⊔ T :=

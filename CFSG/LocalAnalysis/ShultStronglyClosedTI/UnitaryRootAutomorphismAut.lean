@@ -129,8 +129,6 @@ variable {V : Type*} [Group V] (φ : hermitianUnipotentCoord J ≃* V)
 @[expose] def rootCenter : Subgroup V :=
   (rootFst J φ).ker
 
-theorem rootFst_apply (v : V) : rootFst J φ v = Multiplicative.ofAdd (φ.symm v).1.1 :=
-  rfl
 
 instance : (rootCenter J φ).Normal :=
   (rootFst J φ).normal_ker

@@ -145,14 +145,5 @@ theorem slFieldAut_mem_H (σ : F ≃+* F) {h : SpecialLinearGroup (Fin (m + 1)) 
   rw [slFieldAut_matrix]
   simp [Matrix.map_apply, hh i j hij]
 
-omit [Finite F] [CharP F 2] in
-theorem slFieldAut_hdiag (σ : F ≃+* F) (s : Fin m) (u : Fˣ) :
-    CatalogueBHigherLinearField.slFieldAut (Fin (m + 1)) F σ (hdiag m F s u) =
-      hdiag m F s (Units.map σ.toMonoidHom u) := by
-  apply Subtype.ext
-  rw [slFieldAut_matrix, hdiag_matrix, hdiag_matrix]
-  ext i j
-  simp only [Matrix.map_apply, Matrix.diagonal_apply]
-  split_ifs <;> simp
 
 end CFSG.LieType.SpecialLinear

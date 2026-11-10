@@ -18,11 +18,6 @@ namespace CFSG.OddStandard.SmallF3Interfaces
   (∃ z : G, orderOf z = 2 ∧ CFSG.oddCore (Subgroup.centralizer ({z} : Set G)) ≠ ⊥) →
     CFSG.ComponentClassification.OutcomeLocal.UOutcome G
 
-@[expose] def SmallF3StandardOddLie : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    CFSG.Assembly.KProper CFSG.Blueprint.Catalog G →
-    ∀ L : Subgroup G, CFSG.Open.standardComponentIsStandard L →
-      SmallF3LieQuotient (L ⧸ Subgroup.center L) → CFSG.Blueprint.OddLieType G
 
 @[expose] def SmallF3StandardOddLieU : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →

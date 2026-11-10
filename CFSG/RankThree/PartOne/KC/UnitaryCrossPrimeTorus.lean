@@ -34,9 +34,6 @@ theorem mem_idSpecialBlock {x : gramSU h (idGram K n)} {a : K[X]}
     A ∈ idSpecialBlock h x a ↔
       toLinU h n A ∈ specialBlock (idForm h n) (toLinU h n (liftUnitary x)) a := Iff.rfl
 
-theorem mem_idCenterUnits {x : gramSU h (idGram K n)} {A : primeFormUnitary h (idGram K n)} :
-    A ∈ idCenterUnits h x ↔
-      toLinU h n A ∈ centerUnitary (idForm h n) (toLinU h n (liftUnitary x)) := Iff.rfl
 
 theorem range_toLinU : (toLinU h n).range = sesqUnitaryGroup (idForm h n) := by
   ext g

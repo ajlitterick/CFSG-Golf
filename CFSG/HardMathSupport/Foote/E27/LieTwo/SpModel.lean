@@ -13,9 +13,6 @@ abbrev SpJ (r : ℕ) : Type := ↥(GLSymplecticFin r (ZMod 2))
 @[expose] noncomputable def matJ (r : ℕ) : SpJ r →* Matrix (Fin (r + r)) (Fin (r + r)) (ZMod 2) :=
   (Units.coeHom _).comp (GLSymplecticFin r (ZMod 2)).subtype
 
-theorem matJ_apply {r : ℕ} (x : SpJ r) :
-    matJ r x = ((x : GL (Fin (r + r)) (ZMod 2)) : Matrix (Fin (r + r)) (Fin (r + r)) (ZMod 2)) :=
-  rfl
 
 theorem matJ_injective (r : ℕ) : Function.Injective (matJ r) := fun _ _ h =>
   Subtype.ext (Units.ext h)

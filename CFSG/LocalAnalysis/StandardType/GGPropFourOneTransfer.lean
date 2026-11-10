@@ -260,22 +260,6 @@ theorem prod_eq_one_of_cyclic {H α M : Type*} [Group H] [MulAction H α] [CommM
     apply hinj (by simpa using hi) (by simpa using hj)
     simpa only [smul_iterate] using hij
 
-theorem map_eq_one_of_orderOf_lt_of_pow_eq_one [Finite G] {p : ℕ} [hp : Fact p.Prime] {H : Subgroup G}
-    (ψ : H →* Multiplicative (ZMod p)) {x : G} (hxp : x ^ p = 1) (h : H)
-    (hlt : orderOf (h : G) < orderOf x) : ψ h = 1 := by
-  have hpos := orderOf_pos (h : G)
-  have hox : orderOf x ≤ p := Nat.le_of_dvd hp.out.pos (orderOf_dvd_of_pow_eq_one hxp)
-  have hndvd : ¬ p ∣ orderOf (h : G) := Nat.not_dvd_of_pos_of_lt hpos (by omega)
-  have h1 : orderOf (ψ h) ∣ p := by
-    apply orderOf_dvd_of_pow_eq_one
-    have := pow_card_eq_one' (G := Multiplicative (ZMod p)) (x := ψ h)
-    rwa [card_multiplicative_zmod] at this
-  have h2 : orderOf (ψ h) ∣ orderOf (h : G) := by
-    apply orderOf_dvd_of_pow_eq_one
-    rw [← map_pow, Subgroup.orderOf_coe, pow_orderOf_eq_one, map_one]
-  rcases (Nat.dvd_prime hp.out).mp h1 with h3 | h3
-  · exact orderOf_eq_one_iff.mp h3
-  · exact absurd (h3 ▸ h2) hndvd
 
 theorem transfer_eq_of_ggWeaklyClosed_of_orderOf [Finite G] {p : ℕ} [hp : Fact p.Prime]
     (hp2 : p ≠ 2) (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)
@@ -398,51 +382,6 @@ theorem transfer_eq_of_ggWeaklyClosed_of_orderOf [Finite G] {p : ℕ} [hp : Fact
   obtain ⟨X₀, rfl⟩ := Quotient.exists_rep o
   exact horbit X₀ hne
 
-theorem transfer_eq_of_ggWeaklyClosed [Finite G] {p : ℕ} [hp : Fact p.Prime] (hp2 : p ≠ 2)
-    (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)
-    (ψ : Subgroup.normalizer (W : Set G) →* Multiplicative (ZMod p))
-    {x : G} (hxR : x ∈ (R : Subgroup G)) (hxp : x ^ p = 1)
-    (hc : ∀ w ∈ W, Commute (x⁻¹ * w⁻¹ * x * w) w) :
-    ψ.transfer x = ψ ⟨x, hW.le_normalizer hWR hxR⟩ :=
-  transfer_eq_of_ggWeaklyClosed_of_orderOf hp2 R hWR hW ψ hxR
-    (map_eq_one_of_orderOf_lt_of_pow_eq_one ψ hxp) hc
-
-theorem surjective_transfer_of_ggWeaklyClosed [Finite G] {p : ℕ} [hp : Fact p.Prime]
-    (hp2 : p ≠ 2) (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)
-    (ψ : Subgroup.normalizer (W : Set G) →* Multiplicative (ZMod p))
-    {x : G} (hxR : x ∈ (R : Subgroup G)) (hxp : x ^ p = 1)
-    (hc : ∀ w ∈ W, Commute (x⁻¹ * w⁻¹ * x * w) w)
-    (hψx : ψ ⟨x, hW.le_normalizer hWR hxR⟩ ≠ 1) :
-    Function.Surjective ψ.transfer ∧ ψ.transfer x ≠ 1 := by
-  have hV := transfer_eq_of_ggWeaklyClosed hp2 R hWR hW ψ hxR hxp hc
-  refine ⟨?_, hV ▸ hψx⟩
-  have : Fact (Nat.card (Multiplicative (ZMod p))).Prime :=
-    ⟨by rw [card_multiplicative_zmod]; exact hp.out⟩
-  rcases Subgroup.eq_bot_or_eq_top_of_prime_card ψ.transfer.range with h | h
-  · exfalso
-    apply hψx
-    rw [← hV]
-    have hmem : ψ.transfer x ∈ ψ.transfer.range := ⟨x, rfl⟩
-    rwa [h, Subgroup.mem_bot] at hmem
-  · exact MonoidHom.range_eq_top.mp h
-
-theorem not_isSimpleGroup_of_ggWeaklyClosed [Finite G] {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
-    (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)
-    (ψ : Subgroup.normalizer (W : Set G) →* Multiplicative (ZMod p))
-    {x : G} (hxR : x ∈ (R : Subgroup G)) (hxp : x ^ p = 1)
-    (hc : ∀ w ∈ W, Commute (x⁻¹ * w⁻¹ * x * w) w)
-    (hψx : ψ ⟨x, hW.le_normalizer hWR hxR⟩ ≠ 1) (hnc : ∃ a b : G, a * b ≠ b * a) :
-    ¬ IsSimpleGroup G := by
-  intro hs
-  have hVx := (surjective_transfer_of_ggWeaklyClosed hp2 R hWR hW ψ hxR hxp hc hψx).2
-  rcases ψ.transfer.normal_ker.eq_bot_or_eq_top with h | h
-  · obtain ⟨a, b, hab⟩ := hnc
-    apply hab
-    apply (MonoidHom.ker_eq_bot_iff _).mp h
-    exact (ψ.transfer.map_mul a b).trans ((mul_comm _ _).trans (ψ.transfer.map_mul b a).symm)
-  · apply hVx
-    have hmem : x ∈ ψ.transfer.ker := h ▸ Subgroup.mem_top x
-    exact hmem
 
 theorem commute_of_isMulCommutative {W : Subgroup G} (hWab : IsMulCommutative W) {x : G}
     (hxN : x ∈ Subgroup.normalizer (W : Set G)) {w : G} (hw : w ∈ W) :
@@ -526,20 +465,6 @@ theorem exists_transfer_ne_one_of_isMulCommutative [Finite G] {p : ℕ} [hp : Fa
   rw [hψx]
   exact hy1
 
-theorem surjective_transfer_of_isMulCommutative [Finite G] {p : ℕ} [hp : Fact p.Prime]
-    (hp2 : p ≠ 2) (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)
-    (hWab : IsMulCommutative W)
-    (ψ : Subgroup.normalizer (W : Set G) →* Multiplicative (ZMod p)) (hψ : ψ ≠ 1) :
-    Function.Surjective ψ.transfer := by
-  obtain ⟨x, hx⟩ := exists_transfer_ne_one_of_isMulCommutative hp2 R hWR hW hWab ψ hψ
-  have : Fact (Nat.card (Multiplicative (ZMod p))).Prime :=
-    ⟨by rw [card_multiplicative_zmod]; exact hp.out⟩
-  rcases Subgroup.eq_bot_or_eq_top_of_prime_card ψ.transfer.range with h | h
-  · exfalso
-    have hmem : ψ.transfer x ∈ ψ.transfer.range := ⟨x, rfl⟩
-    rw [h, Subgroup.mem_bot] at hmem
-    exact hx hmem
-  · exact MonoidHom.range_eq_top.mp h
 
 theorem not_isSimpleGroup_of_isMulCommutative [Finite G] {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
     (R : Sylow p G) {W : Subgroup G} (hWR : W ≤ R) (hW : GGWeaklyClosed W R)

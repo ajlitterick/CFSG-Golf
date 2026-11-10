@@ -271,11 +271,6 @@ theorem liftCheck_of_N {A B : Nat} {D : LiftData} (eA : O₀.decode D.base.seedA
   exact (Sim.ofHom H).liftCheck hn hp (g := getN Rl)
     (fun r _ hr => hR.2 r (by rw [hlen]; exact hr)) (fun _ _ => trivial) (fun _ _ => trivial) hk
 
-theorem v4Check_of_N {A B : Nat} {D : V4Data} (eA : O₀.decode D.base.seedA = H.U A)
-    (eB : O₀.decode D.base.seedB = H.U B) (hA : H.P A) (hB : H.P B)
-    (h : v4N O A B D.base D.inv₁ D.inv₂ = true) : V4Data.check O₀ D = true := by
-  rw [v4Check_eq]
-  exact liftCheck_of_N H eA eB hA hB h
 
 end Hom
 
@@ -320,30 +315,6 @@ theorem v4Check_of_L {c : Lay} {d A B : Nat} {LA LB : List Char} {D : V4Data}
   rw [v4Check_eq]
   exact liftCheck_of_L hc hp hd hA hB hsA hsB h
 
-theorem liftCheck_of_LP {c : Lay} {p d A B : Nat} {LA LB : List Char} {D : LiftData}
-    (hc : c.ok = true) (hp : c.p = p) (hd : c.d = d)
-    (hA : decOK c A LA = true) (hB : decOK c B LB = true)
-    (hsA : D.base.seedA = String.ofList LA) (hsB : D.base.seedB = String.ofList LB)
-    (h : liftL c A B D = true) : LiftData.check (opsP p d) D = true := by
-  subst hp hd
-  unfold liftL liftPreL at h
-  rw [Snd.runC_eq] at h
-  simp only [Bool.and_eq_true] at h
-  obtain ⟨⟨⟨hprog, htests⟩, hexp⟩, hrun⟩ := h
-  obtain ⟨hn, hlt⟩ := Snd.progOK_spec hprog
-  have hL := SndP.lcorr_regs hc hA hB hsA hsB hprog
-  have hlen := Snd.runL_initR_length c D.base.prog A B D.base.nregs
-  exact (Sim.ofLP c hc).liftCheck hn hlt (fun r _ hr => hL.2 r (by rw [hlen]; exact hr))
-    (fun k hk => Snd.lt_of_all htests hk)
-    (fun u hu => (of_decide_eq_true (List.all_eq_true.1 hexp u hu) : u.2 < 65536)) hrun
-
-theorem v4Check_of_LP {c : Lay} {p d A B : Nat} {LA LB : List Char} {D : V4Data}
-    (hc : c.ok = true) (hp : c.p = p) (hd : c.d = d)
-    (hA : decOK c A LA = true) (hB : decOK c B LB = true)
-    (hsA : D.base.seedA = String.ofList LA) (hsB : D.base.seedB = String.ofList LB)
-    (h : v4L c A B D.base D.inv₁ D.inv₂ = true) : V4Data.check (opsP p d) D = true := by
-  rw [v4Check_eq]
-  exact liftCheck_of_LP hc hp hd hA hB hsA hsB h
 
 theorem liftCheck_of_chunks {c : Lay} {d A B : Nat} {LA LB : List Char} {D : LiftData}
     {cs : List RChunk} {S : Nat → List Nat}
@@ -369,19 +340,6 @@ theorem liftCheck_of_chunks {c : Lay} {d A B : Nat} {LA LB : List Char} {D : Lif
   rw [← e, getR_idxOf c _ _ hr]
   exact hL.2 r (by rw [hlen]; exact hrn)
 
-theorem v4Check_of_chunks {c : Lay} {d A B : Nat} {LA LB : List Char} {D : V4Data}
-    {cs : List RChunk} {S : Nat → List Nat}
-    (hc : c.ok = true) (hp : c.p = 3) (hd : c.d = d)
-    (hA : decOK c A LA = true) (hB : decOK c B LB = true)
-    (hsA : D.base.seedA = String.ofList LA) (hsB : D.base.seedB = String.ofList LB)
-    (hpre : liftPreL c (v4Lift D.base D.inv₁ D.inv₂) = true)
-    (hren : renOK (regsL (v4Lift D.base D.inv₁ D.inv₂)) D.base.prog cs = true)
-    (h0 : S 0 = [A, B])
-    (hch : ∀ i < cs.length, chunkV c (cs.getD i (0, [], [])) (S i) (S (i + 1)) = true)
-    (hfin : v4FinL c (S cs.length) D.base D.inv₁ D.inv₂ = true) :
-    V4Data.check (ops3 d) D = true := by
-  rw [v4Check_eq]
-  exact liftCheck_of_chunks hc hp hd hA hB hsA hsB hpre hren h0 hch hfin
 
 theorem liftCheck_of_chunksP {c : Lay} {p d A B : Nat} {LA LB : List Char} {D : LiftData}
     {cs : List RChunk} {S : Nat → List Nat}

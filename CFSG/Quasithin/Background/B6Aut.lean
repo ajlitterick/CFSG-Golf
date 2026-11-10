@@ -87,8 +87,6 @@ theorem autOn_le_autOn_of_le {H H' L : Subgroup Y} (h : H ≤ H') : autOn H L �
     ⟨mul_mem hx.1 hy.1, by rw [indAut_mul hx.1 hy.1]; exact mul_mem hx.2 hy.2⟩
   inv_mem' := fun {x} hx => ⟨inv_mem hx.1, by rw [indAut_inv hx.1]; exact inv_mem hx.2⟩
 
-theorem mem_preAut {L : Subgroup Y} {V : Subgroup (MulAut L)} {y : Y} :
-    y ∈ preAut L V ↔ y ∈ Subgroup.normalizer (L : Set Y) ∧ indAut L y ∈ V := Iff.rfl
 
 @[expose] noncomputable def innAut (L : Subgroup Y) : L →* MulAut L :=
   (conjAct L).comp (Subgroup.inclusion Subgroup.le_normalizer)

@@ -21,10 +21,6 @@ theorem symm_fieldInvolution_apply (v : V) :
     φ.symm (fieldInvolution J φ v) = rootTau J (φ.symm v) :=
   φ.symm_apply_apply _
 
-theorem fieldInvolution_mul_self : fieldInvolution J φ * fieldInvolution J φ = 1 :=
-  MulEquiv.ext fun v => φ.symm.injective (by
-    rw [MulAut.mul_apply, symm_fieldInvolution_apply, symm_fieldInvolution_apply, MulAut.one_apply,
-      ← MulAut.mul_apply, rootTau_mul_self, MulAut.one_apply])
 
 variable {G : Type*} [Group G] (ι : V →* G) (t : G)
 
@@ -111,13 +107,6 @@ theorem mem_involutionCosetNormalizer (v : V) :
     conj_image_smul ht htι, smul_rootCenterIn_eq_iff hι, fst_fieldInvolution_mul, map_one, fst_one,
     add_zero, sub_eq_zero]
 
-theorem involutionCosetNormalizer_mul_comm {x y : V} (hx : x ∈ involutionCosetNormalizer J φ ι t)
-    (hy : y ∈ involutionCosetNormalizer J φ ι t) : x * y = y * x := by
-  rw [mem_involutionCosetNormalizer hι ht htι] at hx hy
-  refine φ.symm.injective (coord_ext ?_ ?_)
-  · rw [map_mul, map_mul, fst_mul, fst_mul, add_comm]
-  · rw [map_mul, map_mul, snd_mul, snd_mul, hx, hy]
-    ring
 
 section CharTwo
 
@@ -268,46 +257,6 @@ theorem card_involutionCosetNormalizer :
   rw [hUidx, (root_structure J φ q hcard hfixed).1, pow_succ] at h
   exact Nat.eq_of_mul_eq_mul_right hq h
 
-theorem exponent_involutionCosetNormalizer :
-    Monoid.exponent (involutionCosetNormalizer J φ ι t) = 4 := by
-  obtain ⟨z, hz⟩ := exists_fst_eq J q hcard hfixed 1
-  have ho : φ z ∈ involutionCosetNormalizer J φ ι t := by
-    rw [mem_involutionCosetNormalizer hι ht htι, MulEquiv.symm_apply_apply, hz, map_one]
-  have h4 : Monoid.exponent (involutionCosetNormalizer J φ ι t) ∣ 4 :=
-    Monoid.exponent_dvd_iff_forall_pow_eq_one.mpr fun x => Subtype.ext (φ.symm.injective (by
-      rw [Subgroup.coe_pow, map_pow, pow_four_eq_one, Subgroup.coe_one, map_one]))
-  have h2 : ¬ Monoid.exponent (involutionCosetNormalizer J φ ι t) ∣ 2 := fun h => by
-    have h' := congrArg (fun x : involutionCosetNormalizer J φ ι t => φ.symm (x : V))
-      (Monoid.exponent_dvd_iff_forall_pow_eq_one.mp h ⟨φ z, ho⟩)
-    simp only [Subgroup.coe_pow, map_pow, MulEquiv.symm_apply_apply, Subgroup.coe_one,
-      map_one, pow_two_eq_one_iff, hz] at h'
-    exact one_ne_zero h'
-  have hle := Nat.le_of_dvd (by norm_num) h4
-  interval_cases h : Monoid.exponent (involutionCosetNormalizer J φ ι t) <;> simp_all
-
-theorem sq_involutionCosetNormalizer :
-    {v : V | ∃ x ∈ involutionCosetNormalizer J φ ι t, x ^ 2 = v} = rootCenter J φ := by
-  ext v
-  constructor
-  · rintro ⟨x, -, rfl⟩
-    rw [SetLike.mem_coe, mem_rootCenter, map_pow]
-    exact fst_pow_two J _
-  · intro hv
-    have hv' : (φ.symm v).1.1 = 0 := hv
-    have hb := conj_snd_of_fst_eq_zero J hv'
-    obtain ⟨r, hr⟩ := isSquare_of_charTwo' (φ.symm v).1.2
-    have hr' : J.conj r = r := by
-      have h₂ : (2 : K) = 0 := CharTwo.two_eq_zero
-      have hsq : (J.conj r - r) ^ 2 = 0 := by
-        have h := congrArg J.conj hr
-        rw [hb, map_mul] at h
-        linear_combination -h - hr + ((φ.symm v).1.2 - r * J.conj r) * h₂
-      exact sub_eq_zero.mp (pow_eq_zero_iff two_ne_zero |>.mp hsq)
-    obtain ⟨w, hw⟩ := exists_fst_eq J q hcard hfixed r
-    refine ⟨φ w, ?_, φ.symm.injective (coord_ext ?_ ?_)⟩
-    · rw [mem_involutionCosetNormalizer hι ht htι, MulEquiv.symm_apply_apply, hw, hr']
-    · rw [map_pow, MulEquiv.symm_apply_apply, fst_pow_two, hv']
-    · rw [map_pow, MulEquiv.symm_apply_apply, snd_pow_two, hw, hr', hr]
 
 theorem card_involutionCosetHull : Nat.card (involutionCosetHull J φ ι t) = 2 * q ^ 2 := by
   set U := involutionCosetNormalizer J φ ι t
@@ -331,39 +280,6 @@ theorem card_involutionCosetHull : Nat.card (involutionCosetHull J φ ι t) = 2 
   rw [← Nat.card_congr (Equiv.ofBijective F hF), Nat.card_sum,
     card_involutionCosetNormalizer hι ht htι q hcard hfixed, two_mul]
 
-theorem frattini_involutionCosetHull :
-    frattini (involutionCosetHull J φ ι t) =
-      (rootCenterIn J φ ι).subgroupOf (involutionCosetHull J φ ι t) := by
-  set W := involutionCosetHull J φ ι t
-  have : Finite W := Nat.finite_of_card_ne_zero (by
-    rw [card_involutionCosetHull hι ht htι q hcard hfixed]
-    exact mul_ne_zero two_ne_zero (pow_ne_zero 2 (pos_of_card_eq_sq q hcard).ne'))
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Fact (IsPGroup 2 W) := ⟨fun w => ⟨2, Subtype.ext (by
-    rw [Subgroup.coe_pow, show 2 ^ 2 = 4 by norm_num, pow_four_eq_one_of_mem_hull hι ht htι w.2,
-      Subgroup.coe_one])⟩⟩
-  have hsq : ∀ w : W, w ^ 2 ∈ (rootCenterIn J φ ι).subgroupOf W := fun w =>
-    Subgroup.mem_subgroupOf.mpr (by
-      rw [Subgroup.coe_pow]
-      exact sq_mem_rootCenterIn hι ht htι w.2)
-  rw [CFSG.frattini_eq_closure_commutator_union_powers (p := 2)]
-  refine le_antisymm ((Subgroup.closure_le _).mpr ?_) fun e he => ?_
-  · rintro x (hx | ⟨w, rfl⟩)
-    · have hle : commutator W ≤ (rootCenterIn J φ ι).subgroupOf W :=
-        Subgroup.commutator_le.mpr fun a _ b _ => by
-          have hab : ⁅a, b⁆ = a ^ 2 * (a⁻¹ * b) ^ 2 * b⁻¹ ^ 2 := by
-            rw [commutatorElement_def, pow_two, pow_two, pow_two]
-            group
-          rw [hab]
-          exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (hsq a) (hsq _)) (hsq _)
-      exact hle hx
-    · exact hsq w
-  · obtain ⟨v, hv, hve⟩ := Subgroup.mem_subgroupOf.mp he
-    rw [← sq_involutionCosetNormalizer hι ht htι q hcard hfixed] at hv
-    obtain ⟨x, hx, rfl⟩ := hv
-    have hxW : ι x ∈ W := (mem_involutionCosetHull_iff hι ht htι _).mpr ⟨x, hx, Or.inl rfl⟩
-    refine Subgroup.subset_closure (Or.inr ⟨⟨ι x, hxW⟩, Subtype.ext ?_⟩)
-    rw [Subgroup.coe_pow, ← map_pow, hve]
 
 theorem involutionCosets_conj_transitive :
     ∀ S ∈ involutionCosets J φ ι t, ∀ S' ∈ involutionCosets J φ ι t,
@@ -406,26 +322,6 @@ theorem conj_orbit_eq_involutionCosets :
     obtain ⟨v, hv⟩ := involutionCosets_conj_transitive hι ht htι q hcard hfixed _ hΓ S hS
     exact ⟨v, hv.symm⟩
 
-theorem ncard_involutionCosets : (involutionCosets J φ ι t).ncard = q := by
-  have hsec : ∀ a : unitaryCoverFixedField J, ∃ x : V, (φ.symm x).1.1 = a := fun a => by
-    obtain ⟨z, hz⟩ := exists_fst_eq J q hcard hfixed a
-    exact ⟨φ z, by rw [MulEquiv.symm_apply_apply, hz]⟩
-  choose sec hsec using hsec
-  have hU : ∀ a, sec a ∈ involutionCosetNormalizer J φ ι t := fun a => by
-    rw [mem_involutionCosetNormalizer hι ht htι, hsec]
-    exact a.2
-  have hrange : involutionCosets J φ ι t =
-      Set.range fun a => (t * ι (sec a)) • (rootCenterIn J φ ι : Set G) := by
-    ext S
-    constructor
-    · rintro ⟨x, hx, rfl⟩
-      refine ⟨⟨(φ.symm x).1.1, (mem_involutionCosetNormalizer hι ht htι x).mp hx⟩, ?_⟩
-      rw [smul_rootCenterIn_eq_iff hι, hsec]
-    · rintro ⟨a, rfl⟩
-      exact ⟨sec a, hU a, rfl⟩
-  rw [hrange, Set.ncard_range_of_injective, card_fixedField J hfixed]
-  intro a b h
-  exact Subtype.ext (by rwa [smul_rootCenterIn_eq_iff hι, hsec, hsec] at h)
 
 end Card
 

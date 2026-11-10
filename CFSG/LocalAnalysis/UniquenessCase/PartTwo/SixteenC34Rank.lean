@@ -69,21 +69,6 @@ theorem s16c34_exists_noncyclic_of_lBar {V₀ V : Subgroup G} (hV : IsElemAbelia
     exact isCyclic_of_surjective ((actTil V₀ V hV).subgroupMap P)
       (MonoidHom.subgroupMap_surjective (actTil V₀ V hV) P)
 
-theorem s16c34_uniqueMax_of_lBar (D : Data G) (h61 : UC6.R6_1 D) {V₀ V L : Subgroup G}
-    (hV : IsElemAbelian 2 V) (hLM : L ≤ D.M) {p : ℕ} (hp : p ∈ D.sig)
-    (h2 : 2 ≤ CFSG.Open.pRank p (lBar V₀ V hV L)) : UniqueMax D.M L := by
-  obtain ⟨P, hPL, hPp, hPc⟩ := s16c34_exists_noncyclic_of_lBar hV (D.sig_prime p hp).1 h2
-  have hU : UniqueMax D.M P := h61 p hp P (hPL.trans hLM) hPp hPc
-  unfold UniqueMax calMOf at hU ⊢
-  ext N
-  simp only [Set.mem_setOf_eq, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨hN, hLN⟩
-    have hmem : N ∈ {N | rankThreeIsMaxTwoLocal N ∧ P ≤ N} := ⟨hN, hPL.trans hLN⟩
-    rw [hU] at hmem
-    exact hmem
-  · rintro rfl
-    exact ⟨D.maxLocal, hLM⟩
 
 theorem s16c34_mem_sig_of_four_le (D : Data G) (hSg : UC6S846.SigmaStd D) {p : ℕ} (hp : p.Prime)
     (hp2 : p ≠ 2) (h4 : 4 ≤ CFSG.Open.pRank p D.M) : p ∈ D.sig :=

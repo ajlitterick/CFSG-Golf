@@ -61,42 +61,6 @@ public theorem le_qCoreOf_of_isNormalIn_pGroup
     Subgroup.map_subgroupOf_eq_of_le hQA
   simpa [qCoreOf, hQmap] using hmap
 
-/-- `O_p(F*(A)) ≤ O_p(A)`. -/
-private theorem qCoreOf_generalizedFitting_le_qCoreOf
-    {G : Type u} [Group G] [Finite G]
-    (A : Subgroup G) (p : ℕ) (hp : p.Prime) :
-    qCoreOf (generalizedFittingSubgroupOf A) p ≤ qCoreOf A p := by
-  let S : Subgroup G := generalizedFittingSubgroupOf A
-  let Q : Subgroup G := qCoreOf S p
-  have hQnormalA : IsNormalIn Q A := by
-    simpa [Q, qCoreOf] using
-      (fstar_characteristic_subgroupOf_map_normal_in (F := S)
-        (K := pCore p (↥S)) (pCore_characteristic (p := p))
-        (fstar_generalizedFittingSubgroupOf_isNormalIn A))
-  have hQp : IsPGroup p Q := qCoreOf_isPGroup S p
-  exact le_qCoreOf_of_isNormalIn_pGroup A Q p hp hQnormalA.1 hQnormalA hQp
-
-/-- For `p ∈ π(F(A))`, the centralizer of `O_p(A)` lies in the maximal
-subgroup `A`. -/
-private theorem centralizer_qCoreOf_A_le_A
-    {G : Type u} [Group G] [Finite G]
-    (hsimple : IsSimpleGroup G)
-    (A : Subgroup G) (hA : IsCoatom A)
-    {p : ℕ} (hp : p.Prime)
-    (hpF : p ∈ primesOfOrder (fittingSubgroupOf A)) :
-    Subgroup.centralizer ((qCoreOf A p : Subgroup G) : Set G) ≤ A := by
-  let S : Subgroup G := generalizedFittingSubgroupOf A
-  have hSF : S ≤ S := le_rfl
-  have hSsub : (S.subgroupOf S).IsSubnormal := by
-    simpa [Subgroup.subgroupOf_self] using
-      (Subgroup.IsSubnormal.top : (⊤ : Subgroup (↥S)).IsSubnormal)
-  have hCS : generalizedFittingSubgroupOf A ⊓ Subgroup.centralizer (S : Set G) ≤ S :=
-    inf_le_left
-  have hcentS : Subgroup.centralizer ((qCoreOf S p : Subgroup G) : Set G) ≤ A :=
-    centralizer_qCoreOf_S_le_A hsimple A S hA hSF hSsub hCS hp hpF
-  exact (Subgroup.centralizer_le
-    (show (qCoreOf S p : Set G) ⊆ (qCoreOf A p : Set G) from
-      qCoreOf_generalizedFitting_le_qCoreOf A p hp)).trans hcentS
 
 /-- `O_p(F(A))` is a normal `p`-subgroup of `A`, hence lies in `O_p(A)`. -/
 private theorem qCoreOf_fitting_le_qCoreOf
@@ -248,30 +212,6 @@ public theorem mem_primesOfOrder_of_qCoreOf_ne_bot
     Nat.mem_primeFactors.mpr ⟨hp, hpdvdF, Nat.card_pos.ne'⟩
   simpa [primesOfOrder] using hpf
 
-/-- A `p`-core of `A` lies in the `s`-residual of `F*(A)` whenever
-`p ≠ s`. -/
-private theorem qCoreOf_le_pResidualOf_of_ne
-    {G : Type u} [Group G] [Finite G]
-    (A : Subgroup G) (p s : ℕ) (hp : p.Prime) (hs : s.Prime) (hne : p ≠ s) :
-    qCoreOf A p ≤ pResidualOf (generalizedFittingSubgroupOf A) s := by
-  let H : Subgroup G := generalizedFittingSubgroupOf A
-  intro x hx
-  have hxH : x ∈ H :=
-    (fstar_qCoreOf_le_fittingSubgroupOf A p hp).trans le_sup_left hx
-  let xQ : ↥(qCoreOf A p) := ⟨x, hx⟩
-  have : Fact p.Prime := ⟨hp⟩
-  have : Fact s.Prime := ⟨hs⟩
-  rcases (IsPGroup.iff_orderOf.mp (qCoreOf_isPGroup A p)) xQ with ⟨k, hk⟩
-  have hpndvd : ¬ p ∣ s := by
-    intro hdiv
-    exact hne ((Nat.prime_dvd_prime_iff_eq hp hs).mp hdiv)
-  have hcopPow : Nat.Coprime s (p ^ k) := hp.coprime_pow_of_not_dvd hpndvd
-  have hord : orderOf x = orderOf xQ :=
-    (orderOf_injective (qCoreOf A p).subtype (qCoreOf A p).subtype_injective xQ)
-  have hcop : Nat.Coprime s (orderOf x) := by
-    rw [hord, hk]
-    exact hcopPow
-  exact fstar_mem_pResidualOf_of_order_coprime H s hs hxH hcop
 
 /-- Under the two 1.7 pairs, `π(F(B)) ⊆ π(F(A))`. -/
 private theorem mem_primesOfOrder_fitting_of_mem_primesOfOrder_fitting_pair
@@ -317,87 +257,6 @@ private theorem mem_primesOfOrder_fitting_of_mem_primesOfOrder_fitting_pair
   have hzsub : z = 1 := by ext; exact hzG
   exact hz1 hzsub
 
-/-- Under the two 1.7 pairs, `π(F(A)) ⊆ π(F(B))`. -/
-private theorem mem_primesOfOrder_fitting_of_mem_primesOfOrder_fitting_pair_symm
-    {G : Type u} [Group G] [Finite G]
-    (hsimple : IsSimpleGroup G)
-    (A : Subgroup G) (hA : IsCoatom A)
-    (S : Subgroup G)
-    (hSF : S ≤ generalizedFittingSubgroupOf A)
-    (hSsub : (S.subgroupOf (generalizedFittingSubgroupOf A)).IsSubnormal)
-    (hCS : generalizedFittingSubgroupOf A ⊓ Subgroup.centralizer (S : Set G) ≤ S)
-    {B : Subgroup G} (hSB : S ≤ B) (hB : IsCoatom B)
-    {Sbar : Subgroup G}
-    (hSbarA : Sbar ≤ A) (hSbarF : Sbar ≤ generalizedFittingSubgroupOf B)
-    (hSbarSub : (Sbar.subgroupOf (generalizedFittingSubgroupOf B)).IsSubnormal)
-    (hSbarCS : generalizedFittingSubgroupOf B ⊓ Subgroup.centralizer (Sbar : Set G) ≤ Sbar)
-    {p : ℕ} (hp : p.Prime)
-    (hpA : p ∈ primesOfOrder (fittingSubgroupOf A)) :
-    p ∈ primesOfOrder (fittingSubgroupOf B) := by
-  by_contra hpB
-  let F : Subgroup G := fittingSubgroupOf A
-  let P : Subgroup G := qCoreOf F p
-  let Z : Subgroup G := (Subgroup.center (↥P)).map P.subtype
-  have hZne : Z ≠ ⊥ :=
-    center_qCoreOf_fitting_ne_bot_of_mem_primesOfOrder A p hp hpA
-  have hZleS : Z ≤ S :=
-    center_qCoreOf_fitting_le_selfCentralizingSubnormal A S hSF hSsub hCS p hp hpA
-  have hZleQ : Z ≤ qCoreOf A p :=
-    (Subgroup.map_subtype_le (H := P) (Subgroup.center (↥P))).trans
-      (qCoreOf_fitting_le_qCoreOf A p hp)
-  have hdisj : qCoreOf A p ⊓ B = ⊥ :=
-    (bender1970_1_7_residual_commutator_assembly hsimple B hB Sbar hSbarF hSbarSub hSbarCS hSbarA).1
-      p hp hpB
-  have hZnt : Nontrivial (↥Z) := (Subgroup.nontrivial_iff_ne_bot Z).2 hZne
-  rcases exists_ne (1 : ↥Z) with ⟨z, hz1⟩
-  have hzS : (z : G) ∈ S := hZleS z.2
-  have hzB : (z : G) ∈ B := hSB hzS
-  have hzQ : (z : G) ∈ qCoreOf A p := hZleQ z.2
-  have hzinf : (z : G) ∈ qCoreOf A p ⊓ B := Subgroup.mem_inf.mpr ⟨hzQ, hzB⟩
-  have hzbot : (z : G) ∈ (⊥ : Subgroup G) := by
-    simpa [hdisj] using hzinf
-  have hzG : (z : G) = 1 := by simpa using hzbot
-  have hzsub : z = 1 := by ext; exact hzG
-  exact hz1 hzsub
-
-/-- The centralizer of a nontrivial layer lies in the maximal subgroup
-containing it. -/
-private theorem centralizer_componentLayer_le_A
-    {G : Type u} [Group G] [Finite G]
-    (hsimple : IsSimpleGroup G)
-    (A : Subgroup G) (hA : IsCoatom A)
-    (hEne : componentLayerOf A ≠ ⊥) :
-    Subgroup.centralizer ((componentLayerOf A : Set G)) ≤ A := by
-  let E : Subgroup G := componentLayerOf A
-  have hEsubA : E ≤ A := by
-    change sSup {K : Subgroup G | IsComponentOf K A} ≤ A
-    exact sSup_le (fun K hK => hK.1)
-  have hEnormA : IsNormalIn E A := fstar_componentLayerOf_isNormalIn A
-  have hAleN : A ≤ Subgroup.normalizer (E : Set G) := by
-    refine (Subgroup.le_normalizer_iff).mpr ?_
-    intro a ha z hz
-    exact hEnormA.2 a ha z hz
-  have hNne_top : Subgroup.normalizer (E : Set G) ≠ ⊤ := by
-    intro htop
-    have hEnormG : E.Normal := (Subgroup.normalizer_eq_top_iff).mp htop
-    rcases (haveI := hEnormG; hsimple.eq_bot_or_eq_top_of_normal E) with hbot | htopE
-    · exact hEne hbot
-    · have hAtop : A = ⊤ := by
-        have hle : (⊤ : Subgroup G) ≤ A := by
-          intro x _hx
-          exact hEsubA (htopE ▸ trivial)
-        exact le_antisymm le_top hle
-      exact hA.1 hAtop
-  have hNleA : Subgroup.normalizer (E : Set G) ≤ A := by
-    by_cases hEq : A = Subgroup.normalizer (E : Set G)
-    · rw [hEq]
-    · have hlt : A < Subgroup.normalizer (E : Set G) :=
-        lt_of_le_of_ne hAleN (by
-          intro h
-          exact hEq h)
-      have htop := hA.2 (Subgroup.normalizer (E : Set G)) hlt
-      exact False.elim (hNne_top htop)
-  exact (Subgroup.centralizer_le_normalizer (E : Set G)).trans hNleA
 
 /-- A perfect subgroup of `H` lies in every p-residual of `H`. -/
 private theorem perfect_subgroup_le_pResidualOf
@@ -496,23 +355,6 @@ private lemma map_center_eq_center_of_mulEquiv {G H : Type u} [Group G] [Group H
     · exact ((Subgroup.centerCongr e).symm ⟨x, hx⟩).2
     · exact e.apply_symm_apply x
 
-/-- Quasisimplicity is invariant under a group isomorphism. -/
-private theorem isQuasisimple_mulEquiv
-    {G H : Type u} [Group G] [Group H]
-    (e : G ≃* H) (hG : IsQuasisimple G) :
-    IsQuasisimple H := by
-  have hNontriv : Nontrivial H := by
-    let : Nontrivial G := hG.1
-    exact e.toEquiv.injective.nontrivial
-  have hPerf : Group.IsPerfect H := by
-    let : Group.IsPerfect G := (Group.isPerfect_def).2 hG.2.1
-    exact Group.IsPerfect.ofSurjective (f := e.toMonoidHom) e.toEquiv.surjective
-  have hSimple : IsSimpleGroup (H ⧸ Subgroup.center H) := by
-    have he : (Subgroup.center G).map e.toMonoidHom = Subgroup.center H :=
-      map_center_eq_center_of_mulEquiv e
-    exact (MulEquiv.isSimpleGroup_congr
-      (QuotientGroup.congr (Subgroup.center G) (Subgroup.center H) e he)).mp hG.2.2
-  exact ⟨hNontriv, (Group.isPerfect_def).1 hPerf, hSimple⟩
 
 /-- A component of the ambient group is subnormal in the ambient group. -/
 private theorem isSubnormal_of_isComponentOf_top
@@ -524,132 +366,6 @@ private theorem isSubnormal_of_isComponentOf_top
       (by intro x; exact ⟨⟨x, trivial⟩, rfl⟩)
   rwa [Subgroup.map_subgroupOf_eq_of_le (le_top : K ≤ (⊤ : Subgroup G))] at h'
 
-/-- A component of the ambient group contained in `H` is a component of
-`H`. -/
-private theorem isComponentOf_of_isComponentOf_top_map
-    {G : Type u} [Group G] {B : Subgroup G} {E : Subgroup (↥B)}
-    (hE : IsComponentOf E (⊤ : Subgroup (↥B))) :
-    IsComponentOf (E.map B.subtype) B := by
-  refine ⟨Subgroup.map_subtype_le E, ?_, ?_⟩
-  · have hEsub : E.IsSubnormal := isSubnormal_of_isComponentOf_top hE
-    have hEq : (E.map B.subtype).subgroupOf B = E := by
-      apply le_antisymm
-      · intro y hy
-        rw [Subgroup.mem_subgroupOf] at hy
-        rcases (Subgroup.mem_map).1 hy with ⟨x, hx, hxy⟩
-        have hyx : x = y := B.subtype_injective (by simpa using hxy)
-        simpa [hyx] using hx
-      · intro y hy
-        rw [Subgroup.mem_subgroupOf]
-        exact (Subgroup.mem_map).mpr ⟨y, hy, rfl⟩
-    simpa [hEq] using hEsub
-  · exact isQuasisimple_mulEquiv
-      (Subgroup.equivMapOfInjective E B.subtype B.subtype_injective) hE.2.2
-
-/-- A component of `A` descends to a component of the ambient group of
-`A`. -/
-private theorem isComponentOf_of_isComponentOf_subgroup
-    {G : Type u} [Group G] {A E : Subgroup G} (hE : IsComponentOf E A) :
-    IsComponentOf (E.subgroupOf A) (⊤ : Subgroup (↥A)) :=
-  ⟨le_top, hE.2.1.subgroupOf,
-    isQuasisimple_mulEquiv (Subgroup.subgroupOfEquivOfLe hE.1).symm hE.2.2⟩
-
-/-- The component layer is preserved by the subgroup embedding:
-`E(⊤_{B})` maps onto `E(B)`. -/
-private theorem componentLayer_top_map_eq_componentLayerOf
-    {G : Type u} [Group G] (B : Subgroup G) :
-    (componentLayerOf (⊤ : Subgroup (↥B))).map B.subtype = componentLayerOf B := by
-  apply le_antisymm
-  · refine (Subgroup.map_le_iff_le_comap).2 ?_
-    change sSup {E : Subgroup (↥B) | IsComponentOf E (⊤ : Subgroup (↥B))} ≤
-      Subgroup.comap B.subtype (componentLayerOf B)
-    refine sSup_le ?_
-    intro E hE
-    intro y hy
-    rw [Subgroup.mem_comap]
-    exact le_sSup (s := {E' : Subgroup G | IsComponentOf E' B})
-      (a := E.map B.subtype)
-      (isComponentOf_of_isComponentOf_top_map hE)
-      (Subgroup.mem_map.mpr ⟨y, hy, rfl⟩)
-  · change sSup {E : Subgroup G | IsComponentOf E B} ≤
-      Subgroup.map B.subtype
-        (sSup {E : Subgroup (↥B) | IsComponentOf E (⊤ : Subgroup (↥B))})
-    refine sSup_le ?_
-    intro E hE
-    intro y hy
-    exact Subgroup.mem_map.mpr
-      ⟨⟨y, hE.1 hy⟩,
-        Subgroup.mem_sSup_of_mem
-          (isComponentOf_of_isComponentOf_subgroup hE)
-          (by
-            rw [Subgroup.mem_subgroupOf]
-            exact hy),
-        rfl⟩
-
-/-- The image of the Fitting subgroup under a surjective homomorphism lies
-in the Fitting subgroup of the target. -/
-private theorem map_fittingSubgroup_le_of_surjective
-    {G H : Type u} [Group G] [Group H] [Finite G] [Finite H]
-    (f : G →* H) (hf : Function.Surjective f) :
-    (fittingSubgroup G).map f ≤ fittingSubgroup H := by
-  have hmap_normal : ((fittingSubgroup G).map f).Normal :=
-    Subgroup.Normal.map (H := fittingSubgroup G) inferInstance f hf
-  have hmap_nil : Group.IsNilpotent ↥((fittingSubgroup G).map f) := by
-    have : Group.IsNilpotent ↥(fittingSubgroup G) := by infer_instance
-    let ψ : fittingSubgroup G →* ↥((fittingSubgroup G).map f) :=
-      { toFun := fun g => ⟨f g, Subgroup.mem_map.mpr ⟨g.1, g.2, rfl⟩⟩
-        map_one' := by ext; simp
-        map_mul' := by intro a b; ext; simp [map_mul] }
-    have hψsurj : Function.Surjective ψ := by
-      intro x
-      rcases (Subgroup.mem_map).1 x.2 with ⟨g, hg, hx⟩
-      refine ⟨⟨g, hg⟩, ?_⟩
-      apply Subtype.ext
-      exact hx
-    exact Group.nilpotent_of_surjective ψ hψsurj
-  exact le_sSup ⟨hmap_normal, hmap_nil⟩
-
-/-- The Fitting subgroup commutes with a group isomorphism. -/
-private theorem map_fittingSubgroup_of_mulEquiv
-    {G H : Type u} [Group G] [Group H] [Finite G] [Finite H]
-    (e : G ≃* H) :
-    (fittingSubgroup G).map e.toMonoidHom = fittingSubgroup H := by
-  apply le_antisymm
-  · exact map_fittingSubgroup_le_of_surjective e.toMonoidHom e.surjective
-  · have hback : (fittingSubgroup H).map e.symm.toMonoidHom ≤ fittingSubgroup G :=
-      map_fittingSubgroup_le_of_surjective e.symm.toMonoidHom e.symm.surjective
-    have hmap : ((fittingSubgroup H).map e.symm.toMonoidHom).map e.toMonoidHom ≤
-        (fittingSubgroup G).map e.toMonoidHom :=
-      Subgroup.map_mono (f := e.toMonoidHom) hback
-    have hleft : ((fittingSubgroup H).map e.symm.toMonoidHom).map e.toMonoidHom =
-        fittingSubgroup H := by
-      rw [Subgroup.map_map]
-      have hcomp : e.toMonoidHom.comp e.symm.toMonoidHom = MonoidHom.id H := by
-        ext x
-        simp
-      rw [hcomp, Subgroup.map_id]
-    rw [hleft] at hmap
-    exact hmap
-
-/-- `F*(⊤_{B})` maps onto `F*(B)`. -/
-private theorem map_generalizedFittingSubgroupOf_top_subtype
-    {G : Type u} [Group G] [Finite G] (B : Subgroup G) :
-    (generalizedFittingSubgroupOf (⊤ : Subgroup (↥B))).map B.subtype =
-      generalizedFittingSubgroupOf B := by
-  rw [generalizedFittingSubgroupOf, generalizedFittingSubgroupOf, Subgroup.map_sup]
-  rw [componentLayer_top_map_eq_componentLayerOf B]
-  have : Finite (↥(⊤ : Subgroup (↥B))) :=
-    Finite.of_equiv (↥B) (Subgroup.topEquiv (G := ↥B)).toEquiv.symm
-  change Subgroup.map B.subtype ((fittingSubgroup (↥(⊤ : Subgroup (↥B)))).map
-      (⊤ : Subgroup (↥B)).subtype) ⊔ componentLayerOf B =
-    Subgroup.map B.subtype (fittingSubgroup (↥B)) ⊔ componentLayerOf B
-  have hTopSubtype :
-      (⊤ : Subgroup (↥B)).subtype =
-        (Subgroup.topEquiv (G := ↥B)).toMonoidHom := by
-    ext x
-    rfl
-  rw [hTopSubtype]
-  rw [map_fittingSubgroup_of_mulEquiv (Subgroup.topEquiv (G := ↥B))]
 
 /-! ## The (iii)-case: `F*(B) ≤ A` from the two pairs plus the two-prime
 hypothesis -/

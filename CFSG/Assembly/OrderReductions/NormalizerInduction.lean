@@ -67,54 +67,5 @@ theorem double_transitive_of_nontrivial_normal_pair
     prime odd_prime (ambient_rule prime prime_is_prime) point (outside.val • point) moves.symm degree
     normalizer all_normalize sylow ambient image_eq not_regular
 
-theorem double_transitive_of_equal_nontrivial_core
-    {group : Type group_universe} [Group group] [Finite group]
-    (induction_hypothesis : ∀ (smaller : Type group_universe) [Group smaller] [Finite smaller],
-      Nat.card smaller < Nat.card group →
-      ∀ first second : Involution smaller, first ≠ second → Commute first.val second.val →
-        ∀ subgroup : Subgroup smaller, StronglyEmbedded subgroup →
-          MulAction.IsMultiplyPretransitive smaller (CFSG.OrderReductions.StrongEmbedding.Conjugates subgroup) 2)
-    (prime : ℕ) [Fact (Nat.Prime prime)]
-    (point other : Component group) (distinct_points : point ≠ other)
-    (strong : StronglyEmbedded (componentStabilizer point)) (degree : 3 ≤ Nat.card (Component group))
-    (flip inside : Involution group) (first_moves : flip.val • point = other)
-    (second_moves : flip.val • other = point) (inside_mem : inside.val ∈ componentStabilizer point)
-    (core_eq : CFSG.OrderReductions.PrimeComplementCore.ambientCore prime
-      (CFSG.OrderReductions.InvolutiveIntersection.intersection (MulAut.conj inside.val) (pairSubgroup point other)) =
-        CFSG.OrderReductions.PrimeComplementCore.ambientCore prime (pairSubgroup point other))
-    (nontrivial : CFSG.OrderReductions.PrimeComplementCore.ambientCore prime (pairSubgroup point other) ≠ ⊥)
-    (first second : Involution group) (distinct_involutions : first ≠ second)
-    (commutes : Commute first.val second.val)
-    (first_mem : first.val ∈ componentStabilizer point)
-    (second_mem : second.val ∈ componentStabilizer point)
-    (ambient_rule : ∀ other_prime : ℕ, Nat.Prime other_prime →
-      CFSG.OrderReductions.EmptyRegularity.EvenPointRule (group := group) other_prime)
-    (normalizer_rule : ∀ other_prime : ℕ, Nat.Prime other_prime →
-      CFSG.OrderReductions.EmptyRegularity.EvenPointRule
-        (group := Subgroup.normalizer
-          (CFSG.OrderReductions.PrimeComplementCore.ambientCore prime (pairSubgroup point other) : Set group)) other_prime) :
-    MulAction.IsMultiplyPretransitive group (Component group) 2 := by
-  let normal := CFSG.OrderReductions.PrimeComplementCore.ambientCore prime (pairSubgroup point other)
-  have contains : normal ≤ pairSubgroup point (flip.val • point) := by
-    rw [first_moves]
-    exact CFSG.OrderReductions.PrimeComplementCore.ambientCore_le prime _
-  have : (normal.subgroupOf (pairSubgroup point (flip.val • point))).Normal := by
-    rw [first_moves]
-    exact CFSG.OrderReductions.PrimeComplementCore.ambientCore_normal_in_subgroup prime _
-  have inside_normalizes : inside.val ∈ Subgroup.normalizer (normal : Set group) :=
-    Subgroup.mem_normalizer_iff_map_conj_eq.mpr
-      (CFSG.OrderReductions.RegularCore.core_invariant_of_equal_intersection prime (MulAut.conj inside.val)
-        (CFSG.OrderReductions.PrimeRegular.involution_conjugation_involutive inside) _ core_eq)
-  have flip_normalizes : flip.val ∈ Subgroup.normalizer (normal : Set group) :=
-    Subgroup.mem_normalizer_iff_map_conj_eq.mpr
-      (CFSG.OrderReductions.RegularCore.ambientCore_invariant prime (MulAut.conj flip.val) _
-        (Subgroup.mem_normalizer_iff_map_conj_eq.mp
-          (flip_normalizes_pair point other flip first_moves second_moves)))
-  have flip_outside : flip.val ∉ componentStabilizer point := by
-    intro fixes
-    exact distinct_points (fixes.symm.trans first_moves)
-  exact double_transitive_of_nontrivial_normal_pair induction_hypothesis point strong degree
-    inside flip inside_mem flip_outside normal nontrivial contains inside_normalizes flip_normalizes
-    first second distinct_involutions commutes first_mem second_mem ambient_rule normalizer_rule
 
 end CFSG.OrderReductions.NormalizerInduction

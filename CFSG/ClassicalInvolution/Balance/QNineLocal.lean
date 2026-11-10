@@ -16,11 +16,6 @@ open scoped MatrixGroups commutatorElement
   (∃ V W : Subgroup X, Phan.UnitaryBlockStandardPair (GaloisField p (2 * f)) p f W U V) ∨
   SymplecticLongBlockImage (GaloisField p f) U
 
-theorem LeviBlockImage.of_symplecticBlockStandardPair {p f : ℕ} [Fact p.Prime] {X : Type}
-    [Group X] {W U V : Subgroup X}
-    (h : Models.SymplecticPairs.SymplecticBlockStandardPair (GaloisField p f) W U V) :
-    LeviBlockImage p f U :=
-  Or.inr (Or.inr (symplecticLongBlockImage_of_standardPair h))
 
 theorem LeviBlockImage.congr_exp {p e f : ℕ} [Fact p.Prime] (h : e = f) {X : Type} [Group X]
     {U : Subgroup X} (hU : LeviBlockImage p e U) : LeviBlockImage p f U :=
@@ -101,34 +96,6 @@ theorem exactMembers_of_leviBlockImage [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p 
   exactMembers_of_oddCore_eq_bot hsingle hL.1
     (classicalInvolutionOddCore_eq_bot_of_leviBlockImage hp2 hq hΩ hP1 hL h).1
 
-theorem exactMembers_of_linearPair [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) {x : G}
-    (hP1 : LocalOddCentral Ω {x}) {L : Subgroup G} (hL : L ∈ centralizingMembers Ω {x})
-    {W V : Subgroup (locQuot Ω x)}
-    (h : WeakCT.LinearBlockStandardPair (GaloisField p f) W (locImg Ω x L) V) :
-    ExactMembers Ω :=
-  exactMembers_of_leviBlockImage hp2 hq hΩ hsingle hP1 hL (Or.inl ⟨V, W, h⟩)
-
-theorem exactMembers_of_unitaryPair [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) {x : G}
-    (hP1 : LocalOddCentral Ω {x}) {L : Subgroup G} (hL : L ∈ centralizingMembers Ω {x})
-    {W V : Subgroup (locQuot Ω x)}
-    (h : Phan.UnitaryBlockStandardPair (GaloisField p (2 * f)) p f W (locImg Ω x L) V) :
-    ExactMembers Ω :=
-  exactMembers_of_leviBlockImage hp2 hq hΩ hsingle hP1 hL (Or.inr (Or.inl ⟨V, W, h⟩))
-
-theorem exactMembers_of_symplecticPair [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) {x : G}
-    (hP1 : LocalOddCentral Ω {x}) {L : Subgroup G} (hL : L ∈ centralizingMembers Ω {x})
-    {W V : Subgroup (locQuot Ω x)}
-    (h : Models.SymplecticPairs.SymplecticBlockStandardPair (GaloisField p f) W (locImg Ω x L)
-      V) :
-    ExactMembers Ω :=
-  exactMembers_of_leviBlockImage hp2 hq hΩ hsingle hP1 hL
-    (LeviBlockImage.of_symplecticBlockStandardPair h)
 
 end Local
 

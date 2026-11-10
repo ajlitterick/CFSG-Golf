@@ -92,34 +92,6 @@ theorem enumOK_of_reach {gs : Array (Array Nat)} {ps : List Nat} {fuel N : Nat}
   rw [hspec.1, Bool.and_true, allLt_iff]
   exact hgv
 
-theorem reach_word {gs : Array (Array Nat)} :
-    ∀ (w : List Nat), (∀ j ∈ w, j < gs.size) → ∀ {z : Array Nat},
-      CFSG.KC.Bfs.Reach (leftA n gs) gs.size (idA n) z →
-      CFSG.KC.Bfs.Reach (leftA n gs) gs.size (idA n)
-        (w.foldr (fun j acc => compA n gs[j]! acc) z)
-  | [], _, _, hz => hz
-  | j :: w, hw, z, hz => by
-    rw [List.foldr_cons]
-    exact CFSG.KC.Bfs.Reach.step j (hw j List.mem_cons_self)
-      (reach_word w (fun i hi => hw i (List.mem_cons_of_mem j hi)) hz)
-
-theorem rep_word {gs : Array (Array Nat)} {gp : Nat → Equiv.Perm (Fin n)}
-    (hg : ∀ j < gs.size, Rep n gs[j]! (gp j)) :
-    ∀ (w : List Nat), (∀ j ∈ w, j < gs.size) → ∀ {z : Array Nat} {Z : Equiv.Perm (Fin n)},
-      Rep n z Z → Rep n (w.foldr (fun j acc => compA n gs[j]! acc) z)
-        ((w.map gp).prod * Z)
-  | [], _, _, _, hz => by simpa using hz
-  | j :: w, hw, z, Z, hz => by
-    rw [List.foldr_cons, List.map_cons, List.prod_cons, mul_assoc]
-    exact rep_compA (hg j (hw j List.mem_cons_self))
-      (rep_word hg w (fun i hi => hw i (List.mem_cons_of_mem j hi)) hz)
-
-theorem size_word {gs : Array (Array Nat)} (w : List Nat) (z : Array Nat) (hz : z.size = n)
-    (hw : w ≠ [] ∨ True) : (w.foldr (fun j acc => compA n gs[j]! acc) z).size = n := by
-  have _ := hw
-  cases w with
-  | nil => simpa using hz
-  | cons j w => simp [compA]
 
 end CFSG.KC.HeLoc
 

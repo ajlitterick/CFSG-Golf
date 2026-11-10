@@ -51,9 +51,6 @@ theorem mem_LC_iff (c : ↥(Cen z)) :
   rw [← h, LC_subgroupOf]
   exact Iff.rfl
 
-omit [Finite G] in
-theorem LC_subgroupOf_le : (LC z).subgroupOf (Cen z) ≤ oPrimePResidual 2 ↥(Cen z) := by
-  rw [LC_subgroupOf]; exact inf_le_left
 
 omit [Finite G] in
 theorem innerE_normal : (InnerE z).Normal := by
@@ -83,14 +80,6 @@ theorem innerE_eq_top_of_layer_eq_bot (h : layer (CentralizerBar z) = ⊥) : Inn
   rw [h]
   simp
 
-omit [Finite G] in
-theorem innerE_eq_top_of_solvable (hs : Group.IsSolvable (CentralizerBar z)) : InnerE z = ⊤ := by
-  refine innerE_eq_top_of_layer_eq_bot z (eq_bot_iff.2 (sSup_le fun K hK => ?_))
-  by_contra hne
-  have hKs : Group.IsSolvable ↥K := Group.isSolvable_of_isSolvable_injective K.subtype_injective
-  have : Nontrivial ↥K := CFSG.LocalCores.isQuasisimple_nontrivial hK.1
-  have : Group.IsPerfect ↥K := hK.1.1
-  exact Group.IsPerfect.not_isSolvable ↥K hKs
 
 omit [Finite G] in
 theorem innerE_eq_top_of_fstar_solvable
@@ -163,9 +152,6 @@ theorem mem_LC_iff_of_pElt (g : ↥(Cen z)) {k : ℕ} (hg : g ^ (2 ^ k) = 1) :
       rw [← map_oResidual (toBar z) (toBar_surj z) Nat.prime_two]
       exact ⟨y, y.2, rfl⟩)
 
-theorem psiZ_coe (y : ↥(oResidual 2 ↥(Cen z))) :
-    ((psiZ z y : ↥(oResidual 2 (CentralizerBar z))) : CentralizerBar z) = toBar z (y : ↥(Cen z)) :=
-  rfl
 
 theorem psiZ_surj : Function.Surjective (psiZ z) := by
   rintro ⟨yb, hyb⟩

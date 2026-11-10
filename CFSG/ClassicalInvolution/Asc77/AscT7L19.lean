@@ -53,11 +53,6 @@ theorem mat_tv_mulVec (v x : Fin n ⊕ Fin n → F) (c : F) :
     mat n F (tv v c) *ᵥ x = x + (c * spForm v x) • v := by
   rw [mat_tv, spTrans_mulVec]
 
-theorem spForm_sub_add_eq_zero {v w : Fin n ⊕ Fin n → F} (h : spForm v w = 0) :
-    spForm (v - w) (v + w) = 0 := by
-  have h' : spForm w v = 0 := by rw [spForm_comm, h, neg_zero]
-  rw [spForm_sub_left, spForm_add_right, spForm_add_right, spForm_self, spForm_self, h, h']
-  ring
 
 theorem tv_three {v w : Fin n ⊕ Fin n → F} (h : spForm v w = 0) (c : F) :
     tv (v - w) c * tv (v + w) c * tv v (-c + -c) = tv w (c + c) := by

@@ -58,8 +58,6 @@ variable (K) in
 @[expose] noncomputable def slEquivPSL : SL₂ K ≃* PSL2 K :=
   MulEquiv.ofBijective (slToPSL K) ⟨slToPSL_injective, slToPSL_surjective⟩
 
-theorem slEquivPSL_apply (M : SL₂ K) : slEquivPSL K M = slToPSL K M :=
-  rfl
 
 theorem toPGL_surjective_of_char_two [Finite K] :
     Function.Surjective (Matrix.ProjectiveSpecialLinearGroup.toPGL : PSL2 K →* PGL2 K) := by
@@ -209,13 +207,6 @@ variable (K) in
 @[expose] noncomputable def frobSL [CharP K 2] : MulAut (SL₂ K) :=
   slFieldAut K (frobRingEquiv K)
 
-theorem frobSL_pow_apply [CharP K 2] (k : ℕ) (M : SL₂ K) (i j : Fin 2) :
-    ((frobSL K ^ k) M) i j = (M i j) ^ 2 ^ k := by
-  induction k generalizing M with
-  | zero => simp
-  | succ k ih =>
-    rw [pow_succ, MulAut.mul_apply, ih, frobSL, slFieldAut_apply, frobRingEquiv_apply,
-      ← pow_mul, pow_succ, mul_comm]
 
 end Frobenius
 

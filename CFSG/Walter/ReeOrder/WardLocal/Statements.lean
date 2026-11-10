@@ -200,56 +200,5 @@ theorem ward_two_three
     rw [hbot, Subgroup.mem_bot, hconj_one] at this
     rw [Subgroup.mem_bot]; exact this
 
-theorem ward_five
-    (h : ReeTypeHyp G) (P : Sylow 3 G) :
-    FaithfulSMul G (G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G)) ∧
-    MulAction.IsMultiplyPretransitive G (G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G)) 2 ∧
-    (∀ a b c : G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G), a ≠ b → a ≠ c → b ≠ c →
-      Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-        MulAction.stabilizer G c : Subgroup G) ≤ 2) ∧
-    ∃ a b c : G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G), a ≠ b ∧ a ≠ c ∧ b ≠ c ∧
-      Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-        MulAction.stabilizer G c : Subgroup G) = 2 := by
-  let _ : Fintype G := Fintype.ofFinite G
-  obtain ⟨⟨k, hk, hq⟩, hG⟩ := ward_order h
-  have : CharP h.F 3 := ree_charP_three h hq
-  obtain ⟨S, D, B, P₀, hP1P, hPc, hPn, hN1c⟩ := exists_data h hq hG
-  obtain ⟨g, hQ⟩ := exists_conj_of_sylow hq hG hPc P
-  have hK := h.card_F
-  exact ⟨B.faithfulSMul hq hK hG hP1P hPc hPn hN1c hQ,
-    B.isMultiplyPretransitive hq hK hG hP1P hPc hPn hN1c hQ,
-    B.card_stabilizer_three_le hq hK hG hP1P hPc hPn hN1c hQ,
-    B.exists_card_stabilizer_three_eq hq hK hG hP1P hPc hPn hN1c hQ⟩
-
-theorem ward_doubly_transitive_sylow
-    (h : ReeTypeHyp G) :
-    MulAction.IsMultiplyPretransitive G (Sylow 3 G) 2 := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨P⟩ : Nonempty (Sylow 3 G) := inferInstance
-  have h2 := (ward_five h P).2.1
-  rw [MulAction.is_two_pretransitive_iff] at h2 ⊢
-  intro A B C D hAB hCD
-  obtain ⟨a, rfl⟩ := MulAction.exists_smul_eq G P A
-  obtain ⟨b, rfl⟩ := MulAction.exists_smul_eq G P B
-  obtain ⟨c, rfl⟩ := MulAction.exists_smul_eq G P C
-  obtain ⟨d, rfl⟩ := MulAction.exists_smul_eq G P D
-  have hcoset : ∀ x y : G, x • P ≠ y • P →
-      (x : G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G)) ≠ y := by
-    intro x y hxy hc
-    apply hxy
-    have hmem : (x⁻¹ * y) • P = P :=
-      (Sylow.smul_eq_iff_mem_normalizer (P := P)).mpr (QuotientGroup.eq.mp hc)
-    calc x • P = x • ((x⁻¹ * y) • P) := by rw [hmem]
-      _ = y • P := by rw [smul_smul, mul_inv_cancel_left]
-  obtain ⟨g, hga, hgb⟩ := h2 (hcoset a b hAB) (hcoset c d hCD)
-  have hmove : ∀ x y : G, g • (x : G ⧸ Subgroup.normalizer ((P : Subgroup G) : Set G)) = y →
-      g • x • P = y • P := by
-    intro x y hxy
-    rw [MulAction.Quotient.smul_mk, QuotientGroup.eq] at hxy
-    have hxy' : ((g * x)⁻¹ * y) • P = P := (Sylow.smul_eq_iff_mem_normalizer (P := P)).mpr hxy
-    calc g • x • P = (g * x) • P := by rw [smul_smul]
-      _ = (g * x) • (((g * x)⁻¹ * y) • P) := by rw [hxy']
-      _ = y • P := by rw [smul_smul, mul_inv_cancel_left]
-  exact ⟨g, hmove a c hga, hmove b d hgb⟩
 
 end CFSG.Walter.WardLocal

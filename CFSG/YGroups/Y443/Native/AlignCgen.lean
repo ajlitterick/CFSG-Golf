@@ -59,25 +59,5 @@ theorem Hbar_conj_le_Cgen :
   rintro _ ⟨_, ⟨x, ⟨h, hh, rfl⟩, rfl⟩, rfl⟩
   exact conj_fM_mem_Cgen hh
 
-theorem fM_mem_centralizer_fMc
-    {h : MonsterY443Derived} (hh : h ∈ y443H) :
-    ((fM h : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) ∈
-      Gmat ⊓ Subgroup.centralizer {((fM y443C : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB)} := by
-  refine Subgroup.mem_inf.2 ⟨(fM h).2, Subgroup.mem_centralizer_singleton_iff.2 ?_⟩
-  have := congrArg (fun m => ((fM m : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB)) (y443C_comm_H hh)
-  simpa using this
-
-theorem Hbar_map_le_conj_Cgen :
-    (y443H.map fM).map Gmat.subtype ≤ Cgen.map (MulAut.conj (wordLin omegaWord)⁻¹).toMonoidHom := by
-  rintro _ ⟨x, ⟨h, hh, rfl⟩, rfl⟩
-  rw [← centralizer_fMc_eq]
-  exact fM_mem_centralizer_fMc hh
-
-theorem Hbar_le_conj_Cgen :
-    y443H.map fM ≤
-      (Cgen.map (MulAut.conj (wordLin omegaWord)⁻¹).toMonoidHom).subgroupOf Gmat := by
-  rintro _ ⟨h, hh, rfl⟩
-  rw [Subgroup.mem_subgroupOf, ← centralizer_fMc_eq]
-  exact fM_mem_centralizer_fMc hh
 
 end CFSG.YGroups.Y443

@@ -92,14 +92,6 @@ theorem piCore_isPiSubgroup [Finite G] (π : Set Nat.Primes) : IsPiSubgroup π (
   · intro b hb
     exact hS.mem_toFinset.mp hb
 
-theorem prime_set_core_maximal [Finite G] (π : Set Nat.Primes) :
-    IsPiSubgroup π (piCore π G) ∧
-      (∀ N : Subgroup G, N.Normal → IsPiSubgroup π N → N ≤ piCore π G) ∧
-      ∀ M : Subgroup G, M.Normal → IsPiSubgroup π M →
-        (∀ N : Subgroup G, N.Normal → IsPiSubgroup π N → N ≤ M) → M = piCore π G :=
-  ⟨piCore_isPiSubgroup π, fun _ hN hNπ => le_piCore_of_normal hN hNπ,
-    fun _ hM hMπ hmax => le_antisymm (le_piCore_of_normal hM hMπ)
-      (hmax _ inferInstance (piCore_isPiSubgroup π))⟩
 
 theorem prime_set_core_normal_intersection [Finite G] (π : Set Nat.Primes) {N : Subgroup G}
     (hN : N.Normal) : (piCore π N).map N.subtype = N ⊓ piCore π G := by

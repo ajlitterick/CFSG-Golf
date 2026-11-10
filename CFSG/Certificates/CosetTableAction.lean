@@ -12,10 +12,6 @@ theorem St.live_lt {st : St} {c : ℕ} (h : st.live c = true) : 0 < c ∧ c < st
   simp only [St.live, Bool.and_eq_true, decide_eq_true_eq] at h
   exact ⟨h.1.1, h.1.2⟩
 
-theorem St.live_one {L : ℕ} {st : St} (h : st.complete L = true) : st.live 1 = true := by
-  unfold St.complete at h
-  rw [Bool.and_eq_true] at h
-  exact h.1
 
 theorem St.complete_step {L : ℕ} {st : St} (hc : st.complete L = true) {c x : ℕ}
     (hl : st.live c = true) (hx : x < L) : st.live (st.tab.getD (c * L + x) 0) = true := by
@@ -26,10 +22,6 @@ theorem St.complete_step {L : ℕ} {st : St} (hc : st.complete L = true) {c x : 
   simp only [hl, Bool.not_true, Bool.false_or, allBelow_iff] at hr
   exact hr x hx
 
-theorem St.tab_ne_zero {L : ℕ} {st : St} (hc : st.complete L = true) {c x : ℕ}
-    (hl : st.live c = true) (hx : x < L) : st.tab.getD (c * L + x) 0 ≠ 0 := by
-  have := (St.live_lt (St.complete_step hc hl hx)).1
-  omega
 
 @[expose] def invConsistent (L : ℕ) (inv : Array ℕ) (st : St) : Bool :=
   allBelow (fun c => !st.live c || allBelow (fun x =>
@@ -95,13 +87,6 @@ theorem act_evalWord_step {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} {L : 
     rw [evalWord_cons, act_mul, ih (fun z hz => hw z (by simp [hz])), htab y hy c,
       List.foldl_cons]
 
-theorem act_evalWord {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0) :
-    ∀ w : List ℕ, (∀ y ∈ w, y < L) → ∀ c : LiveNames st,
-      ((ψ (evalWord gen w)).unop c).1 = w.foldl (fun c x => st.tab.getD (c * L + x) 0) c.1 :=
-  act_evalWord_step (live := fun c => st.live c = true)
-    (δ := fun c x => st.tab.getD (c * L + x) 0) ψ htab
 
 theorem minimalPeriod_dvd_orderOf (ψ : F →* (Equiv.Perm α)ᵐᵒᵖ) (g : F) (c : α) :
     Function.minimalPeriod (ψ g).unop c ∣ orderOf g := by
@@ -126,26 +111,6 @@ theorem iterate_act_evalWord_step {live : ℕ → Prop} {δ : ℕ → ℕ → �
     rw [Function.iterate_succ_apply, Function.iterate_succ_apply, ih,
       act_evalWord_step ψ htab w hw c]
 
-theorem pow_ne_one_of_walk_ne_step {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm {c : ℕ // live c})ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : {c : ℕ // live c}, ((ψ (gen y)).unop c).1 = δ c.1 y)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) (k : ℕ) (c : {c : ℕ // live c})
-    (hne : (fun c' => w.foldl δ c')^[k] c.1 ≠ c.1) : evalWord gen w ^ k ≠ 1 := by
-  intro h
-  apply hne
-  rw [← iterate_act_evalWord_step ψ htab hw k c]
-  have h1 : ((ψ (evalWord gen w)).unop)^[k] c = c := by
-    rw [← Equiv.Perm.coe_pow, ← MulOpposite.unop_pow, ← map_pow, h, map_one]
-    rfl
-  rw [h1]
-
-theorem ne_one_of_walk_ne_step {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm {c : ℕ // live c})ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : {c : ℕ // live c}, ((ψ (gen y)).unop c).1 = δ c.1 y)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) (c : {c : ℕ // live c})
-    (hne : w.foldl δ c.1 ≠ c.1) : evalWord gen w ≠ 1 := by
-  have := pow_ne_one_of_walk_ne_step ψ htab hw 1 c (by simpa using hne)
-  simpa using this
 
 theorem cycle_dvd_orderOf_step {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} {L : ℕ} {gen : ℕ → F}
     (ψ : F →* (Equiv.Perm {c : ℕ // live c})ᵐᵒᵖ)
@@ -172,52 +137,6 @@ theorem cycle_dvd_orderOf_step {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} 
   rw [← hmp]
   exact minimalPeriod_dvd_orderOf ψ _ c
 
-theorem cycle_le_orderOf_step [Finite F] {live : ℕ → Prop} {δ : ℕ → ℕ → ℕ} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm {c : ℕ // live c})ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : {c : ℕ // live c}, ((ψ (gen y)).unop c).1 = δ c.1 y)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) (c : {c : ℕ // live c}) {ℓ : ℕ} (hℓ : 0 < ℓ)
-    (hret : (fun c' => w.foldl δ c')^[ℓ] c.1 = c.1)
-    (hmin : ∀ j, 0 < j → j < ℓ → (fun c' => w.foldl δ c')^[j] c.1 ≠ c.1) :
-    ℓ ≤ orderOf (evalWord gen w) :=
-  Nat.le_of_dvd (orderOf_pos _) (cycle_dvd_orderOf_step ψ htab hw c hℓ hret hmin)
-
-theorem pow_ne_one_of_walk_ne {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) (k : ℕ) {c : ℕ} (hc : st.live c = true)
-    (hne : (fun c' => w.foldl (fun c x => st.tab.getD (c * L + x) 0) c')^[k] c ≠ c) :
-    evalWord gen w ^ k ≠ 1 :=
-  pow_ne_one_of_walk_ne_step (live := fun c => st.live c = true)
-    (δ := fun c x => st.tab.getD (c * L + x) 0) ψ htab hw k ⟨c, hc⟩ hne
-
-theorem ne_one_of_walk_ne {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) {c : ℕ} (hc : st.live c = true)
-    (hne : w.foldl (fun c x => st.tab.getD (c * L + x) 0) c ≠ c) : evalWord gen w ≠ 1 :=
-  ne_one_of_walk_ne_step (live := fun c => st.live c = true)
-    (δ := fun c x => st.tab.getD (c * L + x) 0) ψ htab hw ⟨c, hc⟩ hne
-
-theorem cycle_dvd_orderOf {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) {c : ℕ} (hc : st.live c = true) {ℓ : ℕ} (hℓ : 0 < ℓ)
-    (hret : (fun c' => w.foldl (fun c x => st.tab.getD (c * L + x) 0) c')^[ℓ] c = c)
-    (hmin : ∀ j, 0 < j → j < ℓ →
-      (fun c' => w.foldl (fun c x => st.tab.getD (c * L + x) 0) c')^[j] c ≠ c) :
-    ℓ ∣ orderOf (evalWord gen w) :=
-  cycle_dvd_orderOf_step (live := fun c => st.live c = true)
-    (δ := fun c x => st.tab.getD (c * L + x) 0) ψ htab hw ⟨c, hc⟩ hℓ hret hmin
-
-theorem cycle_le_orderOf [Finite F] {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) {c : ℕ} (hc : st.live c = true) {ℓ : ℕ} (hℓ : 0 < ℓ)
-    (hret : (fun c' => w.foldl (fun c x => st.tab.getD (c * L + x) 0) c')^[ℓ] c = c)
-    (hmin : ∀ j, 0 < j → j < ℓ →
-      (fun c' => w.foldl (fun c x => st.tab.getD (c * L + x) 0) c')^[j] c ≠ c) :
-    ℓ ≤ orderOf (evalWord gen w) :=
-  Nat.le_of_dvd (orderOf_pos _) (cycle_dvd_orderOf ψ htab hw hc hℓ hret hmin)
 
 @[expose] def cycleLengthAux (L : ℕ) (tab : Array ℕ) (w : List ℕ) (c : ℕ) : ℕ → ℕ → ℕ → ℕ
   | 0, _, _ => 0
@@ -228,54 +147,6 @@ theorem cycle_le_orderOf [Finite F] {st : St} {L : ℕ} {gen : ℕ → F}
 @[expose] def cycleLength (L : ℕ) (tab : Array ℕ) (w : List ℕ) (c fuel : ℕ) : ℕ :=
   cycleLengthAux L tab w c fuel 0 c
 
-theorem cycleLengthAux_spec (L : ℕ) (tab : Array ℕ) (w : List ℕ) (c : ℕ) :
-    ∀ (fuel k d ℓ : ℕ), cycleLengthAux L tab w c fuel k d = ℓ → 0 < ℓ →
-      k < ℓ ∧ (fun d => w.foldl (fun c x => tab.getD (c * L + x) 0) d)^[ℓ - k] d = c ∧
-        ∀ j, 0 < j → j < ℓ - k →
-          (fun d => w.foldl (fun c x => tab.getD (c * L + x) 0) d)^[j] d ≠ c := by
-  intro fuel
-  induction fuel with
-  | zero =>
-    intro k d ℓ h hℓ
-    simp [cycleLengthAux] at h
-    omega
-  | succ fuel ih =>
-    intro k d ℓ h hℓ
-    unfold cycleLengthAux at h
-    dsimp only at h
-    split at h
-    · rename_i hd
-      subst h
-      refine ⟨by omega, ?_, fun j hj hj' => by omega⟩
-      simpa using hd
-    · rename_i hd
-      obtain ⟨h1, h2, h3⟩ := ih (k + 1) _ ℓ h hℓ
-      refine ⟨by omega, ?_, ?_⟩
-      · rw [show ℓ - k = (ℓ - (k + 1)) + 1 by omega, Function.iterate_succ_apply]
-        exact h2
-      · intro j hj hj'
-        rcases Nat.lt_or_ge j 2 with hj2 | hj2
-        · have : j = 1 := by omega
-          subst this
-          simpa using hd
-        · rw [show j = (j - 1) + 1 by omega, Function.iterate_succ_apply]
-          exact h3 (j - 1) (by omega) (by omega)
-
-theorem cycleLength_spec (L : ℕ) (tab : Array ℕ) (w : List ℕ) (c fuel ℓ : ℕ)
-    (h : cycleLength L tab w c fuel = ℓ) (hℓ : 0 < ℓ) :
-    (fun d => w.foldl (fun c x => tab.getD (c * L + x) 0) d)^[ℓ] c = c ∧
-      ∀ j, 0 < j → j < ℓ →
-        (fun d => w.foldl (fun c x => tab.getD (c * L + x) 0) d)^[j] c ≠ c := by
-  obtain ⟨-, h2, h3⟩ := cycleLengthAux_spec L tab w c fuel 0 c ℓ h hℓ
-  exact ⟨by simpa using h2, fun j hj hj' => h3 j hj (by omega)⟩
-
-theorem cycleLength_dvd_orderOf {st : St} {L : ℕ} {gen : ℕ → F}
-    (ψ : F →* (Equiv.Perm (LiveNames st))ᵐᵒᵖ)
-    (htab : ∀ y < L, ∀ c : LiveNames st, ((ψ (gen y)).unop c).1 = st.tab.getD (c.1 * L + y) 0)
-    {w : List ℕ} (hw : ∀ y ∈ w, y < L) {c : ℕ} (hc : st.live c = true) {fuel ℓ : ℕ}
-    (h : cycleLength L st.tab w c fuel = ℓ) (hℓ : 0 < ℓ) : ℓ ∣ orderOf (evalWord gen w) :=
-  cycle_dvd_orderOf ψ htab hw hc hℓ (cycleLength_spec L st.tab w c fuel ℓ h hℓ).1
-    (cycleLength_spec L st.tab w c fuel ℓ h hℓ).2
 
 end Act
 
@@ -410,10 +281,6 @@ theorem presPerm_apply {st : St} (hc : st.complete (2 * m) = true)
     (c : LiveNames st) : (presPerm m st hc hi y c).1 = st.tab.getD (c.1 * (2 * m) + y) 0 :=
   stepPerm_apply _ _ hy c
 
-theorem presPerm_inv {st : St} (hc : st.complete (2 * m) = true)
-    (hi : invConsistent (2 * m) (invArr m) st = true) {y : ℕ} (hy : y < 2 * m) :
-    (presPerm m st hc hi y)⁻¹ = presPerm m st hc hi (invCode y) :=
-  stepPerm_inv _ _ hy
 
 theorem exists_action (ws : List (List (Fin m × Bool))) {st : St}
     (hc : st.complete (2 * m) = true) (hi : invConsistent (2 * m) (invArr m) st = true)

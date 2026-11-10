@@ -152,9 +152,6 @@ theorem blockGL_mem_SUid (σ : K ≃+* K) {g : GL (Fin a) K} (hg : g ∈ SUid σ
 @[expose] def blockSUid (σ : K ≃+* K) : SUid σ a →* SUid σ (a + m) :=
   (blockGL.comp (SUid σ a).subtype).codRestrict _ fun g => blockGL_mem_SUid σ g.2
 
-theorem coe_blockSUid (σ : K ≃+* K) (g : SUid σ a) :
-    ((blockSUid (m := m) σ g : SUid σ (a + m)) : GL (Fin (a + m)) K) = blockGL (g : GL _ K) :=
-  rfl
 
 theorem eq_one_of_det_scalar_four [CharP K 2] {c : K} (h : c ^ 4 = 1) : c = 1 := by
   have h2 : (c ^ 2) ^ 2 = 1 ^ 2 := by rw [← pow_mul, one_pow]; exact h

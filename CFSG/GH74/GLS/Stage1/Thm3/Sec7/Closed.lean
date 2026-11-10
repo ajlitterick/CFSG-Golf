@@ -91,37 +91,11 @@ open scoped commutatorElement
         Dat410 q z' (S' : Subgroup Gs) t' w' E₁ E₂ → (w' = 1 ↔ w = 1) →
           PsiData7 z (K₁ ⊔ K₂ ⊔ S) S (Pz S z) t w (IVK.Ez z') (S' : Subgroup Gs) t' w'
 
-@[expose] def C1_eq_KS : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (t u : G) (q : ℕ) (w : G),
-    Cfg7 G z S K₁ K₂ t u q → Concl72abcf z S K₁ K₂ t q w →
-      oPrimeResidual 2 (CentralizerBar z) =
-        ((K₁ ⊔ K₂ ⊔ S).subgroupOf (centralizer ({z} : Set G))).map
-          (QuotientGroup.mk' (pPrimeCore 2 ↥(centralizer ({z} : Set G))))
 
 @[expose] def IVK_PSp4_ne_LU : Prop :=
   ∀ (K : Type) [Group K] [Finite K] (q : ℕ), IVK.IsPSp4 K q →
     ¬ IVK.IsLnEps 4 K 1 q ∧ ¬ IVK.IsLnEps 4 K (-1) q
 
-@[expose] def L711_inspection : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (t u : G) (q : ℕ) (w : G),
-    Cfg7 G z S K₁ K₂ t u q → Concl72abcf z S K₁ K₂ t q w → Concl72de z t u w →
-      ∀ E : Subgroup G, E ≤ S ⊓ pLayerOf 2 ((K₁ ⊔ K₂) ⊓ centralizer ({t} : Set G)) →
-        IVK.IsFourSubgroup E →
-          (IsElementaryAbelian 2 ↥(E ⊔ zpowers t ⊔ zpowers z) ∧
-            Nat.card ↥(E ⊔ zpowers t ⊔ zpowers z) = 16) ∧
-          ∃ Ω : Finset G, (∀ a : G, a ∈ Ω ↔ (a ∈ E ⊔ zpowers t ⊔ zpowers z ∧ IsConj z a)) ∧ Ω.card = 5 ∧
-            Subgroup.closure (Ω : Set G) = E ⊔ zpowers t ⊔ zpowers z ∧
-            (∀ a ∈ Ω, ∀ b ∈ Ω, ∀ c ∈ Ω, ∀ d ∈ Ω, a ≠ b → c ≠ d →
-              ∃ n ∈ normalizer ((E ⊔ zpowers t ⊔ zpowers z : Subgroup G) : Set G),
-                n * a * n⁻¹ = c ∧ n * b * n⁻¹ = d) ∧
-            (Nat.card ↥S = 2 ^ 6 →
-              (centralizer ((E ⊔ zpowers t ⊔ zpowers z : Subgroup G) : Set G)).relIndex
-                (normalizer ((E ⊔ zpowers t ⊔ zpowers z : Subgroup G) : Set G) ⊓
-                  centralizer ({z, t} : Set G)) = 3) ∧
-            (2 ^ 6 < Nat.card ↥S →
-              (centralizer ((E ⊔ zpowers t ⊔ zpowers z : Subgroup G) : Set G)).relIndex
-                (normalizer ((E ⊔ zpowers t ⊔ zpowers z : Subgroup G) : Set G) ⊓
-                  centralizer ({z, t} : Set G)) = 6)
 
 @[expose] def Quat_mod_center : Prop :=
   ∀ (G : Type) [Group G] (P : Subgroup G) (z : G) (n : ℕ), IVK.IsQuaternionTwoGroup ↥P n → z ∈ P →

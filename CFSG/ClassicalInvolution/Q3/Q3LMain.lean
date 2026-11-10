@@ -20,20 +20,6 @@ theorem centralizer_pCore_le_of_layer_eq_bot {Y : Type} [Group Y] [Finite Y]
   have hl : layer Y = ⊥ := by rw [layer_eq_componentClassification]; exact hlayer
   exact isCharacteristicP_of_pPrimeCore_eq_bot_of_layer_eq_bot Y 2 hcore hl
 
-@[expose] def SolvableMemberInner : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], classicalInvolutionOddCore X = ⊥ →
-    ∀ (z : X) (L : Subgroup X), IsClassicalMember3 L z →
-      ∀ T : Subgroup X, IsComponentOf T ⊤ → L ≤ T ⊔ Subgroup.centralizer (T : Set X)
-
-theorem solvableMemberInner_of_L2PrimeBalanceSolv (hb : L2PrimeBalanceSolv) :
-    SolvableMemberInner := by
-  intro X _ _ hO z L hz T hT
-  have hmem : L ≤ Layer.subgroup X ⊔ solvableRadical X := by
-    refine (hb X z L hz).trans (sup_le_sup_right ?_ _)
-    exact sSup_le fun _ hC => Layer.component_le (TwoComponents.ordinary_of_corefree hO hC)
-  by_cases hTz : T ≤ Subgroup.centralizer ({z} : Set X)
-  · exact le_sup_of_le_right (hz.le_centralizer_of_le_centralizer hT hTz)
-  · exact le_sup_of_le_left (solvableMemberSplit_proved X hO z L hz hmem T hT hTz)
 
 section Below
 
@@ -42,9 +28,6 @@ section Below
     ∀ (z : Y) (L : Subgroup Y), IsClassicalMember3 L z →
       ∀ T : Subgroup Y, IsComponentOf T ⊤ → L ≤ T ⊔ Subgroup.centralizer (T : Set Y)
 
-theorem solvableMemberInnerBelow_of_inner (h : SolvableMemberInner) :
-    SolvableMemberInnerBelow :=
-  fun Y _ _ _ hO z L hz T hT => h Y hO z L hz T hT
 
 theorem quasisimpleConnected3Comp_of_innerBelow (h : SolvableMemberInnerBelow) :
     QuasisimpleConnected3Comp := by
@@ -105,20 +88,11 @@ theorem quasisimpleConnected3Comp_of_innerBelow (h : SolvableMemberInnerBelow) :
   subst htopT
   exact Components.quasisimple_of_equiv Subgroup.topEquiv.symm hqs
 
-theorem quasisimpleConnected3Comp_of_inner (h : SolvableMemberInner) :
-    QuasisimpleConnected3Comp :=
-  quasisimpleConnected3Comp_of_innerBelow (solvableMemberInnerBelow_of_inner h)
 
 end Below
 
 section Full
 
-theorem quasisimpleConnected3_of_inner (h : SolvableMemberInner) : QuasisimpleConnected3 :=
-  quasisimpleConnected3_of_comp (quasisimpleConnected3Comp_of_inner h)
-
-theorem quasisimpleConnected3_of_innerBelow (h : SolvableMemberInnerBelow) :
-    QuasisimpleConnected3 :=
-  quasisimpleConnected3_of_comp (quasisimpleConnected3Comp_of_innerBelow h)
 
 end Full
 

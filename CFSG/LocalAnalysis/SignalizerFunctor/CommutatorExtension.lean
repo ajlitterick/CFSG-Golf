@@ -33,13 +33,5 @@ theorem commutator_extension_normalized (actor parent target : Subgroup GroupTyp
         le_sup_right
   exact image_le (Subgroup.mem_map_of_mem _ member)
 
-theorem coprime_pgroup_action_orders [Finite GroupType]
-    (prime : ℕ) (prime_prime : prime.Prime) (actor target : Subgroup GroupType)
-    (actor_pgroup : IsPGroup prime actor) (coprime : Nat.Coprime prime (Nat.card target)) :
-    Nat.Coprime (Nat.card actor) (Nat.card target) := by
-  let : Fact prime.Prime := ⟨prime_prime⟩
-  obtain ⟨exponent, cardinality⟩ := actor_pgroup.exists_card_eq
-  rw [cardinality]
-  exact coprime.pow_left exponent
 
 end CFSG.SignalizerFunctor.Helpers

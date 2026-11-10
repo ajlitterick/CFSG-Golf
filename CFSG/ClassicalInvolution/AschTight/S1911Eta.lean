@@ -26,9 +26,6 @@ theorem inf_mem_rSet (hd : Sec19Data p f K z S W) :
     (S : Subgroup G) ⊓ K ∈ RSet (CoreAssembly.conjClass K) :=
   mem_RSet_of_isSylow2In (CoreAssembly.mem_conjClass_self K) (isSylow2In_inf hd)
 
-theorem isUniqueInvolution_inf (hd : Sec19Data p f K z S W) :
-    IsUniqueInvolution ((S : Subgroup G) ⊓ K) z :=
-  isUniqueInvolution_of_mem_rSet_of_le hd.tight.toTightBranch (inf_mem_rSet hd) inf_le_right
 
 theorem le_normalizer_inf (hd : Sec19Data p f K z S W) :
     (S : Subgroup G) ≤ Subgroup.normalizer (((S : Subgroup G) ⊓ K : Subgroup G) : Set G) := by

@@ -133,17 +133,5 @@ theorem griess_psl_generic
   exact ⟨e.trans (AddEquiv.toMultiplicative
     ((AddEquiv.prodUnique (M := ZMod (Nat.gcd n (p ^ f - 1))) (N := ZMod 1 × ZMod 1)).symm))⟩
 
-theorem griess_psl_of_five_le
-    (p f n : ℕ) [Fact p.Prime] (hf : 0 < f) (hn : 2 ≤ n)
-    (hq : 5 ≤ p ^ f) (h9 : n = 2 → p ^ f ≠ 9) :
-    commutator PSL(n, GaloisField p f) = ⊤ ∧
-      Nonempty (CFSG.Open.griessHopfMultiplier PSL(n, GaloisField p f) ≃*
-        Multiplicative (ZMod (Nat.gcd n (p ^ f - 1)) ×
-          ZMod (CFSG.Open.griessPSLExceptional n (p ^ f)).1 ×
-            ZMod (CFSG.Open.griessPSLExceptional n (p ^ f)).2)) :=
-  griess_psl_generic p f n hf hn (by
-    rcases (show n = 2 ∨ 3 ≤ n by omega) with rfl | hn3
-    · exact Or.inl ⟨rfl, hq, h9 rfl⟩
-    · exact Or.inr (Or.inl ⟨hn3, by omega, by omega⟩))
 
 end CFSG.LieType.Steinberg.CentralExt.SLClosed

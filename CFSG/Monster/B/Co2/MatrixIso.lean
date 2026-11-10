@@ -162,25 +162,5 @@ theorem range_theta :
 theorem agrpEquivPgrp_apply
     (a : Agrp) : (agrpEquivPgrp a : Equiv.Perm Ω) = theta a := rfl
 
-theorem native_short_stabilizer_matrix_action :
-    dec 12288 = classOf (Griess.vMinus 0 1) ∧
-    (∀ i : Fin 24, alpha i ∈ Kstab v0 ∧
-      ∀ x : ℕ, kOp (alpha i) (dec x) = dec (VisCert.actRows (genMatrix i) x)) ∧
-    (∀ t : Fin 22, dec (quotBasis t) ∈ vPerpL v0) ∧
-    LinearIndependent (ZMod 2) qbW ∧ Submodule.span (ZMod 2) (Set.range qbW) = ⊤ ∧
-    (∀ (i : Fin 24) (c : ℕ),
-      wAct v0 ⟨alpha i, alpha_mem_Kv i⟩ (decW c) = decW (Native.actD 22 (genQuotMatrix i) c)) ∧
-    Function.Injective wvec ∧ Submodule.span (ZMod 2) (Set.range wvec) = ⊤ ∧
-    (∀ (i : Fin 24) (j : Ω), wAct v0 ⟨alpha i, alpha_mem_Kv i⟩ (wvec j) = wvec (pPerm i j)) ∧
-    (∀ j : Ω, wAct v0 ⟨A0, A0_mem⟩ (wvec j) = wvec (pa j)) ∧
-    (∀ j : Ω, wAct v0 ⟨A1, A1_mem⟩ (wvec j) = wvec (pb j)) ∧
-    Agrp ≤ Kstab v0 ∧
-    (∃ φ : Agrp ≃* Pgrp, ∀ (a : Agrp) (j : Ω),
-      wvec ((φ a : Equiv.Perm Ω) j) = wAct v0 ⟨(a : OLq)⁻¹, Agrp_le (inv_mem a.2)⟩ (wvec j)) ∧
-    orderOf pa = 2 ∧ orderOf pb = 5 ∧ orderOf (pa * pb) = 23 :=
-  ⟨vShort_eq, fun i => ⟨alpha_mem_Kv i, kOp_alpha_dec i⟩, dec_quotBasis_mem, linearIndependent_qbW,
-    span_qbW, wAct_alpha_decW, wvec_injective, span_wvec, wAct_alpha_wvec, wAct_A0_wvec,
-    wAct_A1_wvec, Agrp_le, ⟨agrpEquivPgrp, fun a j => wvec_theta a j⟩, orderOf_pa, orderOf_pb,
-    orderOf_pa_mul_pb⟩
 
 end CFSG.Monster.B.Co2

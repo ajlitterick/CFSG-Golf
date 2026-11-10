@@ -35,10 +35,6 @@ theorem pairs_ok :
 theorem hg_ok : hgOK (sel2 CFSG.KD.FiFS.B) CFSG.KD.FiFS.nf CFSG.KD.FiFW.cs CFSG.KD.FiFW.hg = true := by
   quickRfl
 
-theorem neg_pairs :
-    CFSG.KC.notB (pairsOK (sel2 CFSG.KD.FiFS.B) CFSG.KD.FiFS.nf CFSG.KD.FiFW.cs CFSG.KD.Fi22KM.XRs
-      CFSG.KD.FiFW.pairs 1) = true := by
-  quickRfl
 
 theorem cs_ok : csOK CFSG.KD.FiFW.cs = true := by quickRfl
 

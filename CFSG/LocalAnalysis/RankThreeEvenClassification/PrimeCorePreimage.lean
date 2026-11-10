@@ -18,17 +18,6 @@ theorem primeCore_quotient_preimage_congr {G : Type u} [Group G] (prime : ℕ)
   subst second
   rfl
 
-theorem primeCore_comap_surjective_of_pKernel {G : Type u} {H : Type v}
-    [Group G] [Group H] (prime : ℕ) (homomorphism : G →* H)
-    (hsurjective : Function.Surjective homomorphism)
-    (hkernel : IsPGroup prime homomorphism.ker) :
-    (pCore prime H).comap homomorphism = pCore prime G := by
-  apply le_antisymm
-  · exact le_pCore_of_normal prime _ ((pCore_normal H prime).comap homomorphism)
-      ((pCore_isPGroup H prime).comap_of_ker_isPGroup homomorphism hkernel)
-  · apply Subgroup.map_le_iff_le_comap.mp
-    exact le_pCore_of_normal prime _ ((pCore_normal G prime).map homomorphism hsurjective)
-      ((pCore_isPGroup G prime).map homomorphism)
 
 theorem primeCore_quotient_preimage_eq_range_preimage {G : Type u} {H : Type v}
     [Group G] [Group H] (prime : ℕ) (homomorphism : G →* H) :

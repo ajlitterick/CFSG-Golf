@@ -683,35 +683,6 @@ theorem spinAction_conj_of_coordinate
     E (r (spinAction (quadMinus 4 K b c) g (r⁻¹ v)))
   rw [hr, ← hvec, hri]
 
-theorem aut_eq_self_on_short_roots_of_coordinate_fix_block
-    (α : MulAut (spinGroup (quadMinus 4 K b c)))
-    (s : matrixIsometries (coordinateQuadMinus 4 K (by norm_num) b c))
-    (hα : ∀ g, coordinateEquiv hirrQ (α g) =
-      matrixProjectiveConjugationHom _ (matrixIsometryInclusion _ s)
-        (coordinateEquiv hirrQ g))
-    (he : let E := coordinateMinusIsometry 4 K (by norm_num : 1 ≤ 4) b c
-      let r := (E.toLinearEquiv.trans (matrixLinearIso s.val)).trans E.symm.toLinearEquiv
-      r (eVec 4 2) = eVec 4 2)
-    (hf : let E := coordinateMinusIsometry 4 K (by norm_num : 1 ≤ 4) b c
-      let r := (E.toLinearEquiv.trans (matrixLinearIso s.val)).trans E.symm.toLinearEquiv
-      r (fVec 4 2) = fVec 4 2)
-    (hp : let E := coordinateMinusIsometry 4 K (by norm_num : 1 ≤ 4) b c
-      let r := (E.toLinearEquiv.trans (matrixLinearIso s.val)).trans E.symm.toLinearEquiv
-      ∀ p : Fin 2 → K, r (planeVec 4 p) = planeVec 4 p) :
-    ∀ g ∈ (shortPosHom 4 hirrQ 2).range ⊔ (shortNegHom 4 hirrQ 2).range, α g = g := by
-  let E := coordinateMinusIsometry 4 K (by norm_num : 1 ≤ 4) b c
-  let r := (E.toLinearEquiv.trans (matrixLinearIso s.val)).trans E.symm.toLinearEquiv
-  have hr : r ∈ TauCeti.QuadraticMap.orthogonalGroup (quadMinus 4 K b c) := by
-    rw [TauCeti.QuadraticMap.mem_orthogonalGroup_iff]
-    intro v
-    change quadMinus 4 K b c (E.symm (matrixLinearIso s.val (E v))) = quadMinus 4 K b c v
-    rw [E.symm.map_app]
-    have hs := TauCeti.QuadraticMap.mem_orthogonalGroup_iff.mp s.2 (E v)
-    change coordinateQuadMinus 4 K (by norm_num) b c (matrixLinearIso s.val (E v)) =
-      coordinateQuadMinus 4 K (by norm_num) b c (E v) at hs
-    exact hs.trans (E.map_app v)
-  exact aut_eq_self_on_short_roots_of_fix_block hirrQ r hr he hf hp α
-    (spinAction_conj_of_coordinate hirrQ α s hα)
 
 end CoordinateAction
 

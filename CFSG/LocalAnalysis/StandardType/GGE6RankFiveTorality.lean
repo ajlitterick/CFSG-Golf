@@ -65,13 +65,5 @@ theorem card_le_of_not_e6AdToral
     omega
   exact Nat.pow_le_pow_right (by norm_num) hr4
 
-theorem eq_of_le_of_card_four_of_not_e6AdToral
-    {L : Type} [Field L] [IsAlgClosed L] [CharP L 2]
-    {E F : Subgroup (ModGL .E6 L)} [Finite F] (hFG : F ≤ adjointGroup .E6 L)
-    (hF : CFSG.Open.IsElemAbelian 3 F) (hEF : E ≤ F)
-    (hcard : Nat.card E = 3 ^ 4) (hNT : ¬ E6AdToral E) : E = F := by
-  have hFNT : ¬ E6AdToral F := fun h => hNT (e6AdToral_mono hEF h)
-  exact Subgroup.eq_of_le_of_card_ge hEF
-    (by rw [hcard]; exact card_le_of_not_e6AdToral hFG hF hFNT)
 
 end CFSG.StandardType.E6RankFive

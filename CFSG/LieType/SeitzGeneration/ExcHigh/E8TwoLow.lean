@@ -380,17 +380,6 @@ theorem toStdD_weylAction_wordProd (ω : List (Fin n)) (v : Fin n → ℤ) :
     rw [CoxeterSystem.wordProd_cons, RootSystem.weylAction_mul_apply, RootSystem.weylAction_simple,
       toStdD_reflection, ih, List.foldr_cons]
 
-example : ([1, 2, 3, 4, 5, 6, 7, 5, 4, 3, 2, 1] : List (Fin 8)).foldr (fun a e => stdReflD 8 a e)
-    (toStdD 8 (Pi.single 0 1)) = Pi.single 0 (boolSign true) + Pi.single 1 (boolSign true) := by
-  decide +kernel
-
-example : ([3, 2, 4, 3, 5, 4, 6, 5] : List (Fin 8)).foldr (fun a e => stdReflD 8 a e)
-    (toStdD 8 (Pi.single 7 1)) = Pi.single 2 (boolSign true) + Pi.single 3 (boolSign true) := by
-  decide +kernel
-
-example : ([5, 4, 6, 5] : List (Fin 8)).foldr (fun a e => stdReflD 8 a e)
-    (toStdD 8 (Pi.single 7 1)) = Pi.single 4 (boolSign true) + Pi.single 5 (boolSign true) := by
-  decide +kernel
 
 end Coordinates
 

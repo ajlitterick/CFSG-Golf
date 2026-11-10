@@ -594,12 +594,6 @@ theorem normalizer_EB2_eq_mul (hS : Setting h L η t Q T) {g : G}
   rw [← hS.normalizer_EB2_inf_C, hS.E_sup_B2]
   exact hc
 
-theorem normalizer_EB2_eq_mul' (hS : Setting h L η t Q T) {g : G}
-    (hg : g ∈ normalizer ((miyamotoEG h L η Q ⊔ miyamotoB2 h L η t : Subgroup G) : Set G)) :
-    ∃ d ∈ miyamotoD2G h L η t Q,
-      ∃ c ∈ normalizer (miyamotoB2 h L η t : Set G) ⊓ centralizer ({t} : Set G), g = d * c := by
-  obtain ⟨c, hc, d, hd, e⟩ := hS.normalizer_EB2_eq_mul (inv_mem hg)
-  exact ⟨d⁻¹, inv_mem hd, c⁻¹, inv_mem hc, by rw [← mul_inv_rev, ← e, inv_inv]⟩
 
 theorem card_D2 (hS : Setting h L η t Q T) :
     Nat.card (miyamotoD2G h L η t Q) = 2 * (2 ^ f) ^ 10 := by
@@ -679,118 +673,6 @@ theorem crossed_mul_mod_E (hS : Setting h L η t Q T) {d d' : G}
     hS.t_mul_t, show t⁻¹ * d'⁻¹ * 1 * d' * t = 1 by group, one_mul]
   exact h2
 
-theorem normal_EB2_subgroupOf_D2 (hS : Setting h L η t Q T) :
-    ((miyamotoEG h L η Q ⊔ miyamotoB2 h L η t).subgroupOf (miyamotoD2G h L η t Q)).Normal := by
-  refine (normal_subgroupOf_iff_le_normalizer hS.EB2_le_D2).2 ?_
-  rw [hS.E_sup_B2]
-  exact hS.D2_le_normalizer_M
-
-theorem normal_ZP_subgroupOf_A2 (hS : Setting h L η t Q T) :
-    ((miyamotoZG h L η).subgroupOf (miyamotoA2G h L η)).Normal :=
-  (normal_subgroupOf_iff_le_normalizer hS.ZP_le_A2).2 fun a ha =>
-    mem_normalizer_fintype fun z hz => by
-      rw [← mem_centralizer_iff.1 (hS.A2_le_centralizer_ZP ha) z hz, mul_inv_cancel_right]
-      exact hz
-
-theorem exists_mulEquiv_D2 (hS : Setting h L η t Q T)
-    [((miyamotoEG h L η Q ⊔ miyamotoB2 h L η t).subgroupOf (miyamotoD2G h L η t Q)).Normal]
-    [((miyamotoZG h L η).subgroupOf (miyamotoA2G h L η)).Normal] :
-    ∃ φ : miyamotoD2G h L η t Q ⧸
-        (miyamotoEG h L η Q ⊔ miyamotoB2 h L η t).subgroupOf (miyamotoD2G h L η t Q) ≃*
-      miyamotoA2G h L η ⧸ (miyamotoZG h L η).subgroupOf (miyamotoA2G h L η),
-      (∀ (d : miyamotoD2G h L η t Q) (a : miyamotoA2G h L η), ∀ e ∈ miyamotoEG h L η Q,
-        (d : G)⁻¹ * t * d * t = e * a → φ (QuotientGroup.mk d) = QuotientGroup.mk a) ∧
-      ∀ c ∈ normalizer (miyamotoB2 h L η t : Set G) ⊓ centralizer ({t} : Set G),
-        ∀ (d : miyamotoD2G h L η t Q) (a : miyamotoA2G h L η)
-          (hd : c * d * c⁻¹ ∈ miyamotoD2G h L η t Q) (ha : c * a * c⁻¹ ∈ miyamotoA2G h L η),
-          φ (QuotientGroup.mk d) = QuotientGroup.mk a →
-            φ (QuotientGroup.mk ⟨c * d * c⁻¹, hd⟩) = QuotientGroup.mk ⟨c * a * c⁻¹, ha⟩ := by
-  set E := miyamotoEG h L η Q with hE
-  set EA := miyamotoEG h L η Q ⊔ miyamotoA2G h L η with hEA
-  have := hS.normal_E_subgroupOf_EA2
-  have hEAE : ∀ w ∈ EA, w ∈ normalizer (E : Set G) := fun w hw =>
-    hS.H_le_normalizer_E (hS.M_le_H (hS.EA2_le_M hw))
-  let ψ₁ : miyamotoD2G h L η t Q →* EA ⧸ E.subgroupOf EA :=
-    MonoidHom.mk' (fun d => QuotientGroup.mk
-      (⟨(d : G)⁻¹ * t * d * t, hS.crossed_mem_EA2_of_mem_D2 d.2⟩ : EA)) fun d d' => by
-        rw [← QuotientGroup.mk_mul, QuotientGroup.eq, mem_subgroupOf]
-        simpa using hS.crossed_mul_mod_E d.2 d'.2
-  have hψ₁ : ∀ d : miyamotoD2G h L η t Q, ψ₁ d = QuotientGroup.mk
-      (⟨(d : G)⁻¹ * t * d * t, hS.crossed_mem_EA2_of_mem_D2 d.2⟩ : EA) := fun _ => rfl
-  let ψ₂ : miyamotoA2G h L η →* EA ⧸ E.subgroupOf EA :=
-    (QuotientGroup.mk' _).comp (inclusion le_sup_right)
-  have hψ₂ : ∀ a : miyamotoA2G h L η,
-      ψ₂ a = QuotientGroup.mk (⟨a, mem_sup_right a.2⟩ : EA) := fun _ => rfl
-  have hdec : ∀ w ∈ EA, ∃ e ∈ E, ∃ a ∈ miyamotoA2G h L η, w = e * a := fun w hw =>
-    exists_mul_of_mem_sup_of_commute (fun e he a ha => hS.E_comm_A2 he ha) hw
-  have hconj : ∀ a ∈ miyamotoA2G h L η, ∀ e ∈ E, a⁻¹ * e * a ∈ E := fun a ha e he => by
-    have := (mem_normalizer_iff.1 (hEAE _ (inv_mem (mem_sup_right ha))) e).1 he
-    rwa [inv_inv] at this
-  have hker₁ : ψ₁.ker = (miyamotoEG h L η Q ⊔ miyamotoB2 h L η t).subgroupOf
-      (miyamotoD2G h L η t Q) := by
-    ext d
-    rw [MonoidHom.mem_ker, hψ₁, QuotientGroup.eq_one_iff, mem_subgroupOf, mem_subgroupOf]
-    exact hS.crossed_mem_E_iff_of_mem_D2 d.2
-  have hsurj₁ : Function.Surjective ψ₁ := by
-    intro q
-    induction q using QuotientGroup.induction_on with | H w => ?_
-    obtain ⟨e, he, a, ha, hw⟩ := hdec w w.2
-    obtain ⟨d, hd, e', he', hd'⟩ := hS.exists_D2_crossed_eq ha
-    refine ⟨⟨d, hd⟩, ?_⟩
-    rw [hψ₁, QuotientGroup.eq, mem_subgroupOf]
-    change ((d : G)⁻¹ * t * d * t)⁻¹ * w ∈ E
-    rw [hd', hw, show (e' * a)⁻¹ * (e * a) = a⁻¹ * (e'⁻¹ * e) * a by group]
-    exact hconj a ha _ (mul_mem (inv_mem he') he)
-  have hker₂ : ψ₂.ker = (miyamotoZG h L η).subgroupOf (miyamotoA2G h L η) := by
-    ext a
-    rw [MonoidHom.mem_ker, hψ₂, QuotientGroup.eq_one_iff, mem_subgroupOf, mem_subgroupOf]
-    change (a : G) ∈ E ↔ _
-    rw [← hS.E_inf_A2]
-    exact ⟨fun h1 => ⟨h1, a.2⟩, fun h1 => h1.1⟩
-  have hsurj₂ : Function.Surjective ψ₂ := by
-    intro q
-    induction q using QuotientGroup.induction_on with | H w => ?_
-    obtain ⟨e, he, a, ha, hw⟩ := hdec w w.2
-    refine ⟨⟨a, ha⟩, ?_⟩
-    rw [hψ₂, QuotientGroup.eq, mem_subgroupOf]
-    change a⁻¹ * w ∈ E
-    rw [hw, hS.E_comm_A2 he ha, inv_mul_cancel_left]
-    exact he
-  let φ₁ := (QuotientGroup.quotientMulEquivOfEq hker₁.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective ψ₁ hsurj₁)
-  let φ₂ := (QuotientGroup.quotientMulEquivOfEq hker₂.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective ψ₂ hsurj₂)
-  have hform : ∀ (d : miyamotoD2G h L η t Q) (a : miyamotoA2G h L η), ∀ e ∈ E,
-      (d : G)⁻¹ * t * d * t = e * a → (φ₁.trans φ₂.symm) (QuotientGroup.mk d) =
-        QuotientGroup.mk a := by
-    intro d a e he hda
-    rw [MulEquiv.trans_apply, MulEquiv.symm_apply_eq]
-    change ψ₁ d = ψ₂ a
-    rw [hψ₁, hψ₂, QuotientGroup.eq, mem_subgroupOf]
-    change ((d : G)⁻¹ * t * d * t)⁻¹ * a ∈ E
-    rw [hda, show (e * (a : G))⁻¹ * a = (a : G)⁻¹ * e⁻¹ * a by group]
-    exact hconj a a.2 _ (inv_mem he)
-  refine ⟨φ₁.trans φ₂.symm, hform, fun c hc d a hd ha hda => ?_⟩
-  have hcH : c ∈ normalizer (CFSG.centerIn Q : Set G) := by
-    rw [← hS.sec3_2.2.2.2.2]
-    exact hc.1
-  obtain ⟨e₀, he₀, a₀, ha₀, hd₀⟩ := hdec _ (hS.crossed_mem_EA2_of_mem_D2 d.2)
-  have h1 : QuotientGroup.mk (⟨a₀, ha₀⟩ : miyamotoA2G h L η) =
-      (QuotientGroup.mk a : miyamotoA2G h L η ⧸ (miyamotoZG h L η).subgroupOf
-        (miyamotoA2G h L η)) := by
-    rw [← hda, hform d ⟨a₀, ha₀⟩ e₀ he₀ hd₀]
-  rw [QuotientGroup.eq, mem_subgroupOf] at h1
-  have hce : c * e₀ * c⁻¹ ∈ E := (mem_normalizer_iff.1 (hS.H_le_normalizer_E hcH) e₀).1 he₀
-  have hca : c * a₀ * c⁻¹ ∈ miyamotoA2G h L η :=
-    (mem_normalizer_iff.1 (hS.H_le_normalizer_A2 hcH) a₀).1 ha₀
-  have hcd : (c * d * c⁻¹)⁻¹ * t * (c * d * c⁻¹) * t = (c * e₀ * c⁻¹) * (c * a₀ * c⁻¹) := by
-    rw [CFSG.EvenSmallLie.UnitarySix.YamadaD.crossed_conj (mem_centralizer_singleton_iff.1 hc.2),
-      hd₀]
-    group
-  rw [hform ⟨c * d * c⁻¹, hd⟩ ⟨c * a₀ * c⁻¹, hca⟩ _ hce hcd, QuotientGroup.eq, mem_subgroupOf]
-  change (c * a₀ * c⁻¹)⁻¹ * (c * a * c⁻¹) ∈ miyamotoZG h L η
-  rw [show (c * a₀ * c⁻¹)⁻¹ * (c * a * c⁻¹) = c * (a₀⁻¹ * a) * c⁻¹ by group]
-  exact (mem_normalizer_iff.1 (hS.H_le_normalizer_ZP hcH) _).1 h1
 
 theorem sec3_8 (hS : Setting h L η t Q T) :
     (∀ g ∈ normalizer ((miyamotoEG h L η Q ⊔ miyamotoB2 h L η t : Subgroup G) : Set G),

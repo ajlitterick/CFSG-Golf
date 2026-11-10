@@ -162,10 +162,6 @@ theorem coe_coordinateE_eq :
       ⇑f = semilinearFractional K α β γ δ σ}
     (coe_coordinateE_eq K).symm
 
-theorem mem_semilinearFractionalGroup {f : Equiv.Perm (Option K)} :
-    f ∈ semilinearFractionalGroup K ↔ ∃ α β γ δ : K, ∃ σ : K ≃+* K, α * δ - β * γ ≠ 0 ∧
-      ⇑f = semilinearFractional K α β γ δ σ :=
-  Iff.rfl
 
 theorem semilinearFractionalGroup_eq : semilinearFractionalGroup K = coordinateE K :=
   Subgroup.copy_eq _ _ _

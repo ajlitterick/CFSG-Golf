@@ -82,14 +82,10 @@ theorem lag3_tree : ∀ k < 63, 0 < k →
 theorem lag3_length : lag3c.length = 63 ∧ lag3c.getD 0 0 = spanMask3 15 18 39 := by
   decide +kernel
 
-theorem lag3_closed : ∀ m ∈ lag3c, ∀ g ∈ gens7, maskImg g m ∈ lag3c := by
-  decide +kernel
 
 theorem lagY_closed : ∀ m ∈ lagYc, ∀ g ∈ gens7, maskImg g m ∈ lagYc := by
   decide +kernel
 
-theorem lag_disjoint : ∀ m ∈ lagYc, m ∉ lag3c := by
-  decide +kernel
 
 theorem lagYtri_spec : lagYtri.length = 72 ∧ ∀ k < 72,
     spanMask3 (lagYtri.getD k (0, 0, 0)).1 (lagYtri.getD k (0, 0, 0)).2.1
@@ -102,8 +98,6 @@ theorem lagY_free : ∀ e ∈ s0c.tail, ∀ t ∈ lagYtri,
     ¬ (vapp e t.1 = t.1 ∧ vapp e t.2.1 = t.2.1 ∧ vapp e t.2.2 = t.2.2) := by
   decide +kernel
 
-theorem dotB_b0c_symm : ∀ u < 64, ∀ v < 64, dotB u (vapp b0c v) = dotB v (vapp b0c u) := by
-  decide +kernel
 
 @[expose] def lagCoverOK : Bool :=
   (List.range 64).all fun u₁ => (List.range 64).all fun u₂ =>

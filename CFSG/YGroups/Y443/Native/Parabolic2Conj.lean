@@ -15,7 +15,6 @@ open CFSG.Monster CFSG.Monster.AxisCount CFSG.Monster.Griess CFSG.Monster.Genera
 
 @[expose] noncomputable def Grho : Gmat := ⟨wordLin rhoWord, wordLin_mem_Gmat _⟩
 
-theorem coe_Grho : ((Grho : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) = wordLin rhoWord := rfl
 
 theorem rho_sq :
     wordLin rhoWord * wordLin rhoWord = 1 := by
@@ -138,49 +137,6 @@ theorem fM_comp_of_axL
     fM.comp ρ' = (MulAut.conj Grho).toMonoidHom.comp fM :=
   hom_ext_axL fun _ hs => by simpa [MulAut.conj_apply] using fM_rho_axL h hs
 
-theorem fM_apply_of_axL
-    {ρ' : MonsterY443Derived →* MonsterY443Derived}
-    (h : ∀ s : ℕ, s ≤ 11 → ρ' (axL s) = axL (armSwapL s)) (x : MonsterY443Derived) :
-    ((fM (ρ' x) : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) =
-      wordLin rhoWord * ((fM x : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB) * (wordLin rhoWord)⁻¹ := by
-  have := congrArg (fun f : MonsterY443Derived →* Gmat => ((f x : Gmat) : SpaceB ≃ₗ[ℚ] SpaceB))
-    (fM_comp_of_axL h)
-  simpa [MulAut.conj_apply, coe_Grho] using this
-
-@[expose] noncomputable def omegaP : SpaceB ≃ₗ[ℚ] SpaceB :=
-  wordLin omegaWord * (wordLin rhoWord)⁻¹
-
-theorem omegaP_mem : omegaP ∈ Gmat :=
-  mul_mem (wordLin_mem_Gmat _) (inv_mem (wordLin_mem_Gmat _))
-
-theorem omegaP_conj :
-    omegaP * evalGL sletP * omegaP⁻¹ = tStar := by
-  rw [← rho_conj_cbar]
-  calc omegaP * (wordLin rhoWord * evalGL slet * (wordLin rhoWord)⁻¹) * omegaP⁻¹
-      = wordLin omegaWord * evalGL slet * (wordLin omegaWord)⁻¹ := by
-        unfold omegaP
-        group
-    _ = tStar := omega_conj_slet
-
-theorem cbarP_mem_shortClass :
-    evalGL sletP ∈ shortClass :=
-  mem_shortClass_of_conj omegaP_mem omegaP_conj
-
-theorem cbarP_ne_one :
-    evalGL sletP ≠ 1 := by
-  intro h
-  have h1 := omegaP_conj
-  rw [h, mul_one, mul_inv_cancel] at h1
-  exact tStar_ne_one h1.symm
-
-theorem centralizer_cbarP_eq :
-    Gmat ⊓ Subgroup.centralizer {evalGL sletP} = Cgen.map (MulAut.conj omegaP⁻¹).toMonoidHom :=
-  centralizer_eq_conj_Cgen omegaP_mem omegaP_conj
-
-theorem conj_mem_Cgen_of_comm_cbarP
-    {x : SpaceB ≃ₗ[ℚ] SpaceB} (hx : x ∈ Gmat)
-    (hxc : x * evalGL sletP = evalGL sletP * x) : omegaP * x * omegaP⁻¹ ∈ Cgen :=
-  conj_mem_Cgen_of_comm omegaP_mem omegaP_conj hx hxc
 
 theorem m_comm :
     wordLin mWord * wordLin omegaWord = wordLin omegaWord * wordLin rhoWord := by
@@ -295,9 +251,5 @@ theorem cbar_mul_cbarP_mem_shortClass :
     evalGL slet * evalGL sletP ∈ shortClass :=
   mem_shortClass_of_conj (mul_mem (wordLin_mem_Gmat _) (wordLin_mem_Gmat _)) omegaQ_conj
 
-theorem centralizer_cbar_mul_cbarP_eq :
-    Gmat ⊓ Subgroup.centralizer {evalGL slet * evalGL sletP} =
-      Cgen.map (MulAut.conj (wordLin qWord * wordLin omegaWord)⁻¹).toMonoidHom :=
-  centralizer_eq_conj_Cgen (mul_mem (wordLin_mem_Gmat _) (wordLin_mem_Gmat _)) omegaQ_conj
 
 end CFSG.YGroups.Y443

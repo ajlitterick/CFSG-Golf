@@ -43,24 +43,5 @@ theorem coprime_centralizer_generation_of_plane {G : Type u} [Group G] [Finite G
     exact ⟨sylow, fun member hmember => hambientGenerated (Subgroup.mem_map_of_mem subgroup.subtype hmember)⟩
   exact le_antisymm ((Subgroup.subgroupOf_eq_top.mp htop)) hgeneratedLe
 
-theorem ambient_fixed_le_restricted_generated {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor plane subgroup : Subgroup G) (signalizer : G → Subgroup G)
-    (hplaneLe : plane ≤ actor) (hpower : ∀ member : plane, member ^ prime = 1)
-    (hcard : Nat.card plane = prime ^ 2) (hcomplement : ¬prime ∣ Nat.card subgroup)
-    (hnormalized : actor ≤ Subgroup.normalizer (subgroup : Set G))
-    (hfixed : ∀ member ∈ actor, member ≠ 1 →
-      subgroup ⊓ Subgroup.centralizer ({member} : Set G) ≤ signalizer member) :
-    signalizerRestrictedGenerated actor signalizer subgroup = subgroup := by
-  apply le_antisymm (signalizerRestrictedGenerated_le actor signalizer subgroup)
-  conv_lhs =>
-    rw [coprime_centralizer_generation_of_plane prime hprime plane subgroup hpower hcard
-      hcomplement (hplaneLe.trans hnormalized)]
-  apply iSup_le
-  intro member
-  apply iSup_le
-  intro hne
-  have hambientNe : (member : G) ≠ 1 := fun heq => hne (Subtype.ext heq)
-  exact le_iSup_of_le (member : G) (le_iSup_of_le (hplaneLe member.property)
-    (le_iSup_of_le hambientNe (le_inf (hfixed member (hplaneLe member.property) hambientNe) inf_le_left)))
 
 end CFSG.RankThreeEvenClassification.Helpers

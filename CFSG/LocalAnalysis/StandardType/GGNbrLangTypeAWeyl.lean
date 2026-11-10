@@ -512,27 +512,6 @@ theorem ggNbrInnerWeylOn_typeASplit (hframe : GGTypeASplitFrameInput)
   · exact largeEvenRawDatum_mono
       (fun R _ I F ⟨hs, hna, θ, hθ⟩ => ⟨hs, hna, θ, hθ, fun h => absurd h hS⟩) hraw
 
-theorem ggNbrInnerWeylInput_of_typeASplit (hframe : GGTypeASplitFrameInput)
-    (hnonreg : GGNbrTypeAXNonRegularInput)
-    (hrest : GGNbrInnerWeylOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGNbrInnerWeylInput :=
-  ggNbrInnerWeylInput_of_on
-    (ggNbrInnerWeylOn_true_of (ggNbrInnerWeylOn_typeASplit hframe hnonreg) hrest)
-
-theorem ggXNotNormalInput_of_typeASplit (hnorm : GGBstarNbrNormalInput)
-    (hgraph : GGNbrGraphInput) (hframe : GGTypeASplitFrameInput)
-    (hnonreg : GGNbrTypeAXNonRegularInput)
-    (hlang : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab)
-    (hweyl : GGNbrInnerWeylOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) : GGXNotNormalInput :=
-  ggXNotNormalInput_of_torus_weyl hnorm hgraph
-    (ggNbrLangTorusInput_of_axis (ggNbrLangTorusAxisInput_of_typeASplit hframe hlang))
-    (ggNbrInnerWeylInput_of_typeASplit hframe hnonreg hweyl)
-
-theorem ggNbrFieldTransvectionInput_of_typeASplit (hframe : GGTypeASplitFrameInput)
-    (hlang : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGNbrFieldTransvectionInput :=
-  ggNbrFieldTransvectionInput_of_torus
-    (ggNbrLangTorusInput_of_axis (ggNbrLangTorusAxisInput_of_typeASplit hframe hlang))
 
 end CFSG.StandardType
 

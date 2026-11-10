@@ -62,16 +62,6 @@ theorem rootPt_injective :
     Function.Injective rootPt :=
   leviG_injective.comp (leviPSU.symm.injective.comp UnitarySix.tPt_injective)
 
-theorem rootPt_pt
-    (v : UnitarySix.V) (hv0 : v ≠ 0) (hv : UnitarySix.herm v v = 0) :
-    rootPt (UnitarySix.pt v hv0 hv) = leviG (leviPSU.symm (UnitarySix.transvec v hv : ProjSU)) := by
-  rw [rootPt, UnitarySix.tPt_pt]
-
-theorem transvec_single_two :
-    UnitarySix.transvec (Pi.single 2 1) (UnitarySix.herm_single_self 2) = rep₁ := by
-  refine SU_ext ?_
-  rw [UnitarySix.coe_transvec, UnitarySix.coe_rep₁]
-  decide +kernel
 
 theorem leviPSU_symm_rep₁ :
     leviPSU.symm (rep₁ : ProjSU) = leviOf rep₁ := by
@@ -164,18 +154,6 @@ theorem rootLeviSet_eq_range :
   · rintro ⟨p, rfl⟩
     exact rootPt_mem_rootLeviSet p
 
-theorem rootLeviSet_eq_transvec :
-    rootLeviSet =
-    {x | ∃ (v : UnitarySix.V) (_ : v ≠ 0) (hv : UnitarySix.herm v v = 0),
-      x = leviG (leviPSU.symm (UnitarySix.transvec v hv : ProjSU))} := by
-  rw [rootLeviSet_eq_range]
-  ext x
-  constructor
-  · rintro ⟨p, rfl⟩
-    induction p using UnitarySix.IsoPt.ind with
-    | h v hv0 hv => exact ⟨v, hv0, hv, rootPt_pt v hv0 hv⟩
-  · rintro ⟨v, hv0, hv, rfl⟩
-    exact ⟨_, rootPt_pt v hv0 hv⟩
 
 theorem betaSU_transvec (v : UnitarySix.V) (hv : UnitarySix.herm v v = 0) :
     UnitarySix.betaSU (UnitarySix.transvec v hv) =
@@ -263,80 +241,5 @@ theorem adj_iff_commute_rootPt
     rw [← map_mul, ← map_mul] at e
     exact hinj e
 
-theorem finrank_rootModule :
-    finrank K (RootModule Tag.E6 K) = 78 := by
-  rw [Module.finrank_finsupp_self, card_label_E6']
-
-theorem finrank_range_sub_one_of_leviPSU
-    {l : stdLevi firstJ} {A : SU frobeniusF4 6}
-    (hA : A ^ 2 = 1) (hA1 : A ≠ 1) (hl : leviPSU l = (A : ProjSU)) :
-    (invRank A = 1 ∧ finrank K (LinearMap.range
-      (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 22) ∨
-    (invRank A = 2 ∧ finrank K (LinearMap.range
-      (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 32) ∨
-    (invRank A = 3 ∧ finrank K (LinearMap.range
-      (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 38) := by
-  rcases UnitarySix.invRank_eq_one_or_two_or_three A hA hA1 with h | h | h
-  · exact Or.inl ⟨h, finrank_range_sub_one_of_invRank_one hA hA1 hl h⟩
-  · exact Or.inr (Or.inl ⟨h, finrank_range_sub_one_of_invRank_two hA hA1 hl h⟩)
-  · exact Or.inr (Or.inr ⟨h, finrank_range_sub_one_of_invRank_three hA hA1 hl h⟩)
-
-theorem E6_unitary_Levi_root_involution_intersection :
-    (rootInv : ModGL Tag.E6 K) = pinnedX Tag.E6 K theta 1 ∧ theta = e6HighestRoot ∧
-    stdLevi firstJ ≤ stdGroup ∧
-    (∀ (l : stdLevi firstJ) (h : SU6),
-      psiA ⟨(l : ModGL Tag.E6 K), stdLevi_firstJ_le_groupA l.2⟩ =
-          cubeHom (h : Matrix.SpecialLinearGroup (Fin 6) K) →
-        leviSUEquiv l = (h : SU6 ⧸ (LinearFlag.scalars 6 K).subgroupOf SU6) ∧
-          leviPSU l = (su6Equiv h : ProjSU)) ∧
-    (∀ h : SU6, (((su6Equiv h : SU frobeniusF4 6) : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) =
-      ((h : Matrix.SpecialLinearGroup (Fin 6) K) : Matrix (Fin 6) (Fin 6) K)) ∧
-    (((leviOf rep₁ : stdLevi firstJ) : ModGL Tag.E6 K) = xUnit Tag.E6 K (i6 3) 1 ∧
-      leviPSU (leviOf rep₁) = (rep₁ : ProjSU)) ∧
-    (((leviOf rep₂ : stdLevi firstJ) : ModGL Tag.E6 K) =
-        xUnit Tag.E6 K (i6 0) 1 * xUnit Tag.E6 K (i6 5) 1 ∧
-      leviPSU (leviOf rep₂) = (rep₂ : ProjSU)) ∧
-    (((leviOf rep₃ : stdLevi firstJ) : ModGL Tag.E6 K) =
-        xUnit Tag.E6 K (i6 0) 1 * xUnit Tag.E6 K (i6 3) 1 * xUnit Tag.E6 K (i6 5) 1 ∧
-      leviPSU (leviOf rep₃) = (rep₃ : ProjSU)) ∧
-    finrank K (RootModule Tag.E6 K) = 78 ∧
-    (∀ (l : stdLevi firstJ) (A : SU frobeniusF4 6), A ^ 2 = 1 → A ≠ 1 →
-      leviPSU l = (A : ProjSU) →
-      (invRank A = 1 ∧ finrank K (LinearMap.range
-        (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 22) ∨
-      (invRank A = 2 ∧ finrank K (LinearMap.range
-        (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 32) ∨
-      (invRank A = 3 ∧ finrank K (LinearMap.range
-        (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 38)) ∧
-    (∃ x ∈ rootClass, (x : ModGL Tag.E6 K) = xUnit Tag.E6 K (i6 3) 1) ∧
-    rootLeviSet = {x | ∃ (v : UnitarySix.V) (_ : v ≠ 0) (hv : UnitarySix.herm v v = 0),
-      x = leviG (leviPSU.symm (UnitarySix.transvec v hv : ProjSU))} ∧
-    rootLeviSet = Set.range rootPt ∧ Function.Injective rootPt ∧ Fintype.card IsoPt = 693 ∧
-    (∀ (v : UnitarySix.V) (hv0 : v ≠ 0) (hv : UnitarySix.herm v v = 0),
-      rootPt (UnitarySix.pt v hv0 hv) =
-        leviG (leviPSU.symm (UnitarySix.transvec v hv : ProjSU))) ∧
-    (∀ g : stdGroup, (((betaG g : stdGroup) : ModGL Tag.E6 K) :
-      Module.End K (RootModule Tag.E6 K)) = entrywise C2E6Overlap.barHom
-        ((g : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K))) ∧
-    (∀ γ : GStar, γ ∈ leviStar ↔ (γ.left : ModGL Tag.E6 K) ∈ stdLevi firstJ) ∧
-    (∀ γ : leviStar, (leviStarEquiv γ).left = leviPSU ⟨_, γ.2⟩ ∧
-      (leviStarEquiv γ).right = betaIdx (γ : GStar).right) ∧
-    (∀ b : betaGroup, ((b : MulAut stdGroup) = 1 → betaIdx b = 1) ∧
-      ((b : MulAut stdGroup) = betaG → betaIdx b = Multiplicative.ofAdd 1)) ∧
-    (∀ (γ : leviStar) (p : IsoPt),
-      (γ : GStar) * SemidirectProduct.inl (rootPt p) * (γ : GStar)⁻¹ =
-        SemidirectProduct.inl (rootPt (UnitarySix.extAct (leviStarEquiv γ) p))) ∧
-    isoGraph.IsSRGWith 693 180 51 45 ∧
-    ∀ p q : IsoPt, isoGraph.Adj p q ↔ p ≠ q ∧ Commute (rootPt p) (rootPt q) :=
-  ⟨rfl, rfl, stdLevi_firstJ_le_stdGroup,
-    fun _ _ e => ⟨leviSUEquiv_apply e, leviPSU_apply e⟩, fun _ => rfl,
-    ⟨coe_leviOf_rep₁, leviPSU_leviOf _⟩, ⟨coe_leviOf_rep₂, leviPSU_leviOf _⟩,
-    ⟨coe_leviOf_rep₃, leviPSU_leviOf _⟩, finrank_rootModule,
-    fun _ _ hA hA1 hl => finrank_range_sub_one_of_leviPSU hA hA1 hl,
-    ⟨_, repPoint_two_mem_rootClass, coe_repPoint_two⟩, rootLeviSet_eq_transvec,
-    rootLeviSet_eq_range, rootPt_injective, UnitarySix.card_isoPt, rootPt_pt,
-    fun _ => rfl, fun _ => Iff.rfl, fun _ => ⟨rfl, rfl⟩,
-    fun _ => ⟨betaIdx_of_eq_one, betaIdx_of_eq_betaG⟩, conj_rootPt, UnitarySix.isSRGWith,
-    adj_iff_commute_rootPt⟩
 
 end CFSG.Monster.B.E6.StdF4

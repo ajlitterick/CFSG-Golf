@@ -28,18 +28,6 @@ theorem tvP_self (p : Fin 693) : tvP p p = p := by
   show ptIdx (tvM (uVec p) *ᵥ uVec p) = p
   rw [tvM_mulVec, uVec_iso ptsFacts p.2, zero_smul, add_zero, ptIdx_uVec ptsFacts p.2]
 
-theorem tvP_image_image (p : Fin 693) (O : Set (Fin 693)) : tvP p '' (tvP p '' O) = O := by
-  rw [Set.image_image]
-  simp only [tvP_tvP, Set.image_id']
-
-theorem mem_tvP_image (p : Fin 693) (O : Set (Fin 693)) : p ∈ tvP p '' O ↔ p ∈ O := by
-  constructor
-  · rintro ⟨q, hq, hqp⟩
-    have := congrArg (tvP p) hqp
-    rw [tvP_tvP, tvP_self] at this
-    rwa [← this]
-  · intro h
-    exact ⟨p, h, tvP_self p⟩
 
 @[expose] noncomputable def polarModel : LocalModel (Fin 693) where
   perp p q := hermStd (uVec p) (uVec q) = 0
@@ -47,9 +35,6 @@ theorem mem_tvP_image (p : Fin 693) (O : Set (Fin 693)) : p ∈ tvP p '' O ↔ p
   tv_tv := tvP_tvP
   tv_self := tvP_self
 
-theorem polarModel_perp (p q : Fin 693) :
-    polarModel.perp p q ↔ hermStd (uVec p) (uVec q) = 0 :=
-  Iff.rfl
 
 theorem polarModel_tv (p : Fin 693) : polarModel.tv p = tvP p := rfl
 

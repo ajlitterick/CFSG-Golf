@@ -250,12 +250,6 @@ theorem find_orbDec_of (hinj : ∀ i < 14080, ∀ j < 14080, sb (Q i) = sb (Q j)
       (bitsOfNat_inj (sb_lt_3520 _) (sb_lt_3520 _) e)) hk]
   rfl
 
-theorem find_orbDec_none (hinj : ∀ i < 14080, ∀ j < 14080, sb (Q i) = sb (Q j) → i = j)
-    {B : Bits} (hB : ∀ k < 14080, B ≠ bitsOfNat (sb (Q k))) : (orbDec Q).find B = 14080 := by
-  unfold LHOrb.find
-  rw [Std.HashMap.get?_eq_getElem?, orbDec_tbl,
-    foldl_insert_none (fun k => bitsOfNat (sb (Q k))) fun k hk e => hB k hk e.symm, orbDec_size]
-  rfl
 
 variable {D : LHData}
 
@@ -275,13 +269,6 @@ theorem mem_lhData_iff {S : Array Nat} (hS : S.size = 351) {lb : Nat}
   · rintro ⟨j, hj, rfl⟩
     exact ⟨j, by omega, by rw [hb j (by omega), getElem!_pos S j hj]⟩
 
-theorem lb0_mem (h : LHChecks D) (x : Nat) :
-    (bs D.lb0).testBit x = true ↔ x ∈ (lhData ())[0]! :=
-  mem_lhData_iff lhData0_size h.lb0 x
-
-theorem lb1_mem (h : LHChecks D) (x : Nat) :
-    (bs D.lb1).testBit x = true ↔ x ∈ (lhData ())[1]! :=
-  mem_lhData_iff lhData1_size h.lb1 x
 
 theorem bitsOf_root {S : Array Nat} (hS : S.size = 351) {lb : Nat}
     (hb : ∀ j < 351, ent lb j = S[j]!) (hinc : incK lb = true) {q : Nat} (hq : sb q = bs lb) :

@@ -187,20 +187,5 @@ theorem perfect_central_prime_kernel_abelian_radical_dilation_trivial' [Finite E
   rw [eq_bot_iff, ← hCK]
   exact le_inf le_rfl (htrans.trans hcommK)
 
-theorem perfect_central_prime_kernel_abelian_radical_dilation_trivial [Finite E]
-    [Group.IsPerfect E] {p : ℕ} [Fact p.Prime] (C : Subgroup E) [C.Normal] (hCZ : C ≤ center E)
-    (hCp : IsPGroup p C) (P : Sylow p E) (R V : Subgroup E) (hRP : R ≤ P)
-    (hRab : IsMulCommutative R) (hCR : C ≤ R)
-    (hRC : IsElementaryAbelian p (R ⧸ C.subgroupOf R)) (hVP : V ≤ P)
-    (hRn : (P : Subgroup E) ≤ normalizer (R : Set E)) (hRV : R ⊓ V = ⊥)
-    (hRVP : R ⊔ V = P) (a : E) (haP : a ∈ normalizer (P : Set E))
-    (haR : a ∈ normalizer (R : Set E)) (haV : a ∈ centralizer (V : Set E))
-    (hacop : Nat.Coprime (orderOf a) p) (ℓ : (ZMod p)ˣ) (hℓ : ℓ ≠ 1)
-    (hact : ∀ x y : R, (y : E) = a * x * a⁻¹ →
-      (y : R ⧸ C.subgroupOf R) = (x : R ⧸ C.subgroupOf R) ^ (ℓ : ZMod p).val) :
-    C = ⊥ :=
-  perfect_central_prime_kernel_abelian_radical_dilation_trivial' C hCZ hCp P R V hRP hRab hCR
-    (QuotientGroup.mk' _) (QuotientGroup.mk'_surjective _) (QuotientGroup.ker_mk' _) hRC hVP hRn
-    hRV hRVP a haP haR haV hacop ℓ hℓ hact
 
 end CFSG.RankThree.PerfectCover

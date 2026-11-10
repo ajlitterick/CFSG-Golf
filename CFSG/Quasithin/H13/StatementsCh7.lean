@@ -155,14 +155,6 @@ variable [Finite G]
   (∃ x ∈ T, Concl326Three T L (CFSG.conjugate I x)) ∨
     ∃ _ : IsMulCommutative ↥(fsuVM T L I), Concl326ThreeIv T L I
 
-theorem concl326ThreeC_of_concl326Three {T L I : Subgroup G} (h : Concl326Three T L I) :
-    Concl326ThreeC T L I := by
-  refine Or.inl ⟨1, T.one_mem, ?_⟩
-  have h1 : CFSG.conjugate I 1 = I := by
-    ext x
-    simp [CFSG.conjugate]
-  rw [h1]
-  exact h
 
 @[expose] def Concl701Four (T L I : Subgroup G) : Prop :=
   L < fsuL0 T L ∧ Shape701 L ∧ Concl326ThreeC T L I

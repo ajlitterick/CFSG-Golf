@@ -34,8 +34,6 @@ namespace CFSG.Monster.B.Fischer
   Array.ofFn (n := (fi22OuterLines693.getD f (0, 0)).2) fun j =>
     fi22OuterArr693 (fi22OuterLine693 f j.val)
 
-@[expose] def fi22OuterStrong256 : Array (Array Nat) :=
-  Array.ofFn (n := 16) fun j => fi22OuterArr256 j.val
 
 @[expose] def fi22WordsArr (k s : Nat) (D : List (List Int)) : Array (List Int) :=
   Array.ofFn (n := s) fun j => if j.val < k then [] else D.getD (j.val - k) []

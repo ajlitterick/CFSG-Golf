@@ -151,7 +151,6 @@ end General
     show a⁻¹ ^ 3 = 1
     rw [inv_pow, show a ^ 3 = 1 from ha, inv_one]
 
-theorem mem_subP {γ : Gam} : γ ∈ subP ↔ γ ^ 3 = 1 := Iff.rfl
 
 theorem card_subP : Nat.card subP = 9 := by
   rw [show Nat.card subP = Nat.card {γ : Gam // γ ^ 3 = 1} from

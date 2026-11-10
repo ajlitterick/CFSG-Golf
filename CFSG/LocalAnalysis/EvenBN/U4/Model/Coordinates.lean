@@ -100,12 +100,6 @@ theorem miyamotoXGL_mul_self {a b c d : K} (hb : h.bar b = b) :
   rw [miyamotoXGL_mul h hb, miyamotoXGL_inj]
   refine ⟨?_, ?_, ?_, ?_⟩ <;> grind
 
-theorem miyamotoXGL_eq_mul_root {a b c d : K} (hb : h.bar b = b) :
-    miyamotoXGL h a b c d = miyamotoXGL h a 0 0 0 * miyamotoXGL h 0 b 0 0 *
-      miyamotoXGL h 0 0 c 0 * miyamotoXGL h 0 0 0 (d + h.bar a * c) := by
-  rw [miyamotoXGL_mul h (map_zero h.bar), miyamotoXGL_mul h (by simpa using hb),
-    miyamotoXGL_mul h (by simpa using hb), miyamotoXGL_inj]
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> grind
 
 end Coordinates
 
@@ -332,24 +326,6 @@ theorem miyamotoRootC_le_Z2 : miyamotoRootC h ≤ miyamotoZ2 h := by
   rintro _ ⟨c, rfl⟩
   exact (miyamotoXGL_mem_Z2 h).2 ⟨rfl, rfl, map_zero _⟩
 
-theorem mem_P_iff_root {g : GL (Fin 4) K} : g ∈ miyamotoP h ↔ ∃ a b c e : K, h.bar b = b ∧
-    h.bar e = e ∧ g = miyamotoXGL h a 0 0 0 * miyamotoXGL h 0 b 0 0 * miyamotoXGL h 0 0 c 0 *
-      miyamotoXGL h 0 0 0 e := by
-  constructor
-  · intro hg
-    obtain ⟨a, b, c, d, hb, hd, rfl⟩ := (mem_P h).1 hg
-    refine ⟨a, b, c, d + h.bar a * c, hb, ?_, miyamotoXGL_eq_mul_root h hb⟩
-    have hbb := h.bar_bar
-    grind
-  · rintro ⟨a, b, c, e, hb, he, rfl⟩
-    have key : miyamotoXGL h a b c (e + h.bar a * c) = miyamotoXGL h a 0 0 0 *
-        miyamotoXGL h 0 b 0 0 * miyamotoXGL h 0 0 c 0 * miyamotoXGL h 0 0 0 e := by
-      rw [miyamotoXGL_eq_mul_root h hb]
-      congr 2
-      grind
-    rw [← key, miyamotoXGL_mem_P]
-    have hbb := h.bar_bar
-    exact ⟨hb, by grind⟩
 
 end Subgroups
 

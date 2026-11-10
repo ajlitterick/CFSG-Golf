@@ -51,32 +51,6 @@ theorem lB_eq_bot_of_not_allPointsHJ (h134 : Item134)
 section Certificates
 
 
-theorem rank3II_14_8_of_steps_nhj (h134 : Item134)
-    (hJ2 : IsSimpleGroup CFSG.Blueprint.NativeSporadic.J2) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15)
-    (hJ2c : Subgroup.center CFSG.Blueprint.NativeSporadic.J2 = ⊥)
-    (hN : Step148Normal) (hCore : Step148Core) (hPoint : Step148Point) (hKT : Step148KType)
-    (hLift : Step148Lift) (hD4 : Step148D4) (hOne : Step148One) (hRank : Step148Rank)
-    (hPGL : Step148PGL) {A L : Subgroup G} {c : G} (h : Sec14Std G A c L)
-    (hNHJ : ¬ AllPointsHJ A) : Item148 A (lB A) :=
-  rank3II_14_8_of_steps_of_lB_eq_bot hN hCore hPoint hKT hLift hD4 hOne hRank hPGL h
-    fun _ hB => lB_eq_bot_of_not_allPointsHJ h134 hJ2 h48 h415 hJ2c h hNHJ hB
-
-theorem item148NHJS14_of_steps (h134 : Item134)
-    (h48 : Sec4.Item4_8) (h415 : Sec4.Item4_15) (hN : Step148Normal) (hCore : Step148Core)
-    (hPoint : Step148Point) (hKT : Step148KType) (hLift : Step148Lift) (hD4 : Step148D4)
-    (hOne : Step148One) (hRank : Step148Rank) (hPGL : Step148PGL) : Item148NHJS14 :=
-  fun _ _ _ _ _ _ h hNHJ =>
-    rank3II_14_8_of_steps_nhj h134 CFSG.Sporadic.J2.isSimpleGroup_J2 h48 h415
-      (KFacts.KS14.center_nativeJ2_eq_bot h415) hN hCore hPoint hKT hLift hD4 hOne hRank hPGL h
-      hNHJ
-
-theorem item148S14_of_hj_nhj (hHJ : Item148HJS14) (hNHJ : Item148NHJS14) : Item148S14 := by
-  intro G _ _ A c L h
-  by_cases hall : AllPointsHJ A
-  · exact hHJ G A c L h hall
-  · exact hNHJ G A c L h hall
-
 end Certificates
 
 end CFSG.RankThree.PartTwo.Sec14

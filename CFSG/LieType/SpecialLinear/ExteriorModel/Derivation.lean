@@ -51,10 +51,6 @@ theorem map_fst_map_inl {T : Type*} [CommRing T] {m : Type*} (M : Matrix m m T) 
   ext a b
   simp only [Matrix.map_apply, TrivSqZeroExt.fst_inl]
 
-theorem map_snd_map_inl {T : Type*} [CommRing T] {m : Type*} (M : Matrix m m T) :
-    (M.map (TrivSqZeroExt.inl : T → DualNumber T)).map TrivSqZeroExt.snd = 0 := by
-  ext a b
-  simp only [Matrix.map_apply, TrivSqZeroExt.snd_inl, Matrix.zero_apply]
 
 theorem map_snd_one {T : Type*} [CommRing T] {m : Type*} [DecidableEq m] :
     ((1 : Matrix m m (DualNumber T)).map TrivSqZeroExt.snd) = 0 := by
@@ -582,35 +578,6 @@ theorem kronMinor_mul_kronDer_mul_kronMinor (P : ι → Prop) [DecidablePred P]
     rw [kronDer_eq_zero_of_forall_not hP X, kronDer_eq_zero_of_forall_not hP (g₀ * X * g₀')]
     simp
 
-theorem kronDer_or {P Q : ι → Prop} [DecidablePred P] [DecidablePred Q]
-    (hPQ : ∀ i, P i → ¬ Q i) (X : Matrix (Fin n) (Fin n) R) :
-    kronDer (d := d) (fun i => P i ∨ Q i) X = kronDer P X + kronDer Q X := by
-  have hsum : (kronDer P X).map (inl : R → DualNumber R) +
-      (kronDer Q X).map (inl : R → DualNumber R) =
-      (kronDer P X + kronDer Q X).map (inl : R → DualNumber R) :=
-    (Matrix.map_add (fun x : R => (TrivSqZeroExt.inl x : DualNumber R))
-      (fun a b => by simp) (kronDer (d := d) P X) (kronDer (d := d) Q X)).symm
-  have hfam : (fun i => if P i ∨ Q i then
-      (1 : Matrix (Fin n) (Fin n) (DualNumber R)) + (ε : DualNumber R) •
-        (X.map inl : Matrix (Fin n) (Fin n) (DualNumber R)) else 1) =
-      fun i => (if P i then (1 : Matrix (Fin n) (Fin n) (DualNumber R)) +
-          (ε : DualNumber R) • (X.map inl) else 1) *
-        (if Q i then (1 : Matrix (Fin n) (Fin n) (DualNumber R)) +
-          (ε : DualNumber R) • (X.map inl) else 1) := by
-    funext i
-    by_cases hP : P i
-    · rw [if_pos (Or.inl hP), if_pos hP, if_neg (hPQ i hP), mul_one]
-    · by_cases hQ : Q i
-      · rw [if_pos (Or.inr hQ), if_neg hP, if_pos hQ, one_mul]
-      · rw [if_neg (not_or.mpr ⟨hP, hQ⟩), if_neg hP, if_neg hQ, mul_one]
-  have hmain : kronMinor (d := d) (fun i => if P i ∨ Q i then
-      (1 : Matrix (Fin n) (Fin n) (DualNumber R)) + (ε : DualNumber R) •
-        (X.map inl : Matrix (Fin n) (Fin n) (DualNumber R)) else 1) =
-      1 + (ε : DualNumber R) • ((kronDer P X + kronDer Q X).map (inl : R → DualNumber R)) := by
-    rw [hfam, kronMinor_mul, kronMinor_one_add_eps_smul, kronMinor_one_add_eps_smul,
-      one_add_smul_mul_one_add_smul DualNumber.eps_mul_eps, hsum]
-  exact eq_of_one_add_eps_smul_map_inl_eq
-    ((kronMinor_one_add_eps_smul (fun i => P i ∨ Q i) X).symm.trans hmain)
 
 theorem inl_eps_mul_self :
     (TrivSqZeroExt.inl (DualNumber.eps : DualNumber R) : DualNumber (DualNumber R)) *

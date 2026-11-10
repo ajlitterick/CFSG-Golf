@@ -133,9 +133,6 @@ theorem pieceCore_eq_inf (J : Finset (Fin (Tag.rank .E6))) :
       centralizerPerfectCore (modelToG e (leviTorus K J ⊓ adjointGroup .E6 K)) := by
   rw [pieceCore, modelToG_inf_adjointGroup]
 
-theorem pieceCore_mono {I J : Finset (Fin (Tag.rank .E6))} (h : I ⊆ J) :
-    pieceCore e I ≤ pieceCore e J :=
-  centralizerPerfectCore_anti (modelToG_mono e (leviTorus_anti h))
 
 theorem modelToG_le_pieceCore {J : Finset (Fin (Tag.rank .E6))} {H : Subgroup (ModGL .E6 K)}
     (hH : H ≤ centralizer (leviTorus K J : Set (ModGL .E6 K)))
@@ -147,10 +144,6 @@ theorem le_normalizer_pieceCore {t : G} (ht : t ∈ centralizer (L : Set G))
   normalizer_le_normalizer_centralizerPerfectCore _
     (mem_normalizer_modelToG_of_mem_centralizer e ht _)
 
-theorem symm_mem_normalizer_pieceCore {J : Finset (Fin (Tag.rank .E6))} {x : adjointGroup .E6 K}
-    (hx : (x : ModGL .E6 K) ∈ normalizer (leviTorus K J : Set (ModGL .E6 K))) :
-    ((e.symm x : L) : G) ∈ normalizer (pieceCore e J : Set G) :=
-  normalizer_le_normalizer_centralizerPerfectCore _ (symm_mem_normalizer_modelToG e hx)
 
 section Neighbour
 
@@ -175,10 +168,6 @@ theorem le_normalizer_neighbourCore {t : G} (ht : t ∈ centralizer (L : Set G))
   normalizer_le_normalizer_centralizerPerfectCore _
     (mem_normalizer_modelToG_of_mem_centralizer e ht _)
 
-theorem symm_mem_normalizer_neighbourCore {N : E6Neighbour} {x : adjointGroup .E6 K}
-    (hx : (x : ModGL .E6 K) ∈ normalizer (N.torus K : Set (ModGL .E6 K))) :
-    ((e.symm x : L) : G) ∈ normalizer (neighbourCore e N : Set G) :=
-  normalizer_le_normalizer_centralizerPerfectCore _ (symm_mem_normalizer_modelToG e hx)
 
 section Finite
 
@@ -195,90 +184,11 @@ theorem pieceCore_eq (N : E6Neighbour) {J : Finset (Fin (Tag.rank .E6))} (hJ : J
       perfectCore (neighbourCore e N ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) :=
   F4Pilot.centralizerPerfectCore_eq_of_le (modelToG_mono e (N.torus_le_leviTorus hJ))
 
-theorem perfectCore_neighbourCore_inf_eq {N N' : E6Neighbour} {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J ⊆ N.nodes) (hJ' : J ⊆ N'.nodes) :
-    perfectCore (neighbourCore e N ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) =
-      perfectCore (neighbourCore e N' ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) := by
-  rw [← pieceCore_eq e N hJ, ← pieceCore_eq e N' hJ']
-
-theorem pieceCore_eq_placement {J : Finset (Fin (Tag.rank .E6))} (hJ : J.card ≤ 2) :
-    pieceCore e J = perfectCore (neighbourCore e (amalgamPlacement J) ⊓
-      centralizer (modelToG e (leviTorus K J) : Set G)) :=
-  pieceCore_eq e _ (subset_nodes_amalgamPlacement hJ)
-
-theorem perfectCore_neighbourCore_high_eq_six {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J ⊆ {0, 2, 3}) :
-    perfectCore (neighbourCore e .high ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) =
-      perfectCore (neighbourCore e .six ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) :=
-  perfectCore_neighbourCore_inf_eq e (hJ.trans (by decide)) (hJ.trans (by decide))
-
-theorem perfectCore_neighbourCore_high_eq_three {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J ⊆ {4, 5}) :
-    perfectCore (neighbourCore e .high ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) =
-      perfectCore (neighbourCore e .three ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) :=
-  perfectCore_neighbourCore_inf_eq e (hJ.trans (by decide)) (hJ.trans (by decide))
-
-theorem perfectCore_neighbourCore_six_eq_three {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J ⊆ {1}) :
-    perfectCore (neighbourCore e .six ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) =
-      perfectCore (neighbourCore e .three ⊓ centralizer (modelToG e (leviTorus K J) : Set G)) :=
-  perfectCore_neighbourCore_inf_eq e (hJ.trans (by decide)) (hJ.trans (by decide))
-
-@[expose] noncomputable def pairCore (N N' : E6Neighbour) : Subgroup G :=
-  centralizerPerfectCore (modelToG e (N.torus K) ⊔ modelToG e (N'.torus K))
-
-theorem pairCore_eq_left (N N' : E6Neighbour) :
-    pairCore e N N' =
-      perfectCore (neighbourCore e N ⊓ centralizer (modelToG e (N'.torus K) : Set G)) :=
-  F4Pilot.centralizerPerfectCore_sup _ _
-
-theorem pairCore_eq_right (N N' : E6Neighbour) :
-    pairCore e N N' =
-      perfectCore (neighbourCore e N' ⊓ centralizer (modelToG e (N.torus K) : Set G)) := by
-  rw [pairCore, sup_comm]
-  exact F4Pilot.centralizerPerfectCore_sup _ _
-
-omit [Finite G] in
-theorem pairCore_le_neighbourCore (N N' : E6Neighbour) :
-    pairCore e N N' ≤ neighbourCore e N ⊓ neighbourCore e N' :=
-  le_inf (centralizerPerfectCore_anti le_sup_left) (centralizerPerfectCore_anti le_sup_right)
-
-omit [Finite G] in
-theorem pieceCore_le_pairCore {N N' : E6Neighbour} {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J ⊆ N.nodes) (hJ' : J ⊆ N'.nodes) : pieceCore e J ≤ pairCore e N N' :=
-  centralizerPerfectCore_anti (sup_le (modelToG_mono e (N.torus_le_leviTorus hJ))
-    (modelToG_mono e (N'.torus_le_leviTorus hJ')))
-
-@[expose] noncomputable def tripleCore : Subgroup G :=
-  centralizerPerfectCore (modelToG e (E6Neighbour.high.torus K) ⊔
-    modelToG e (E6Neighbour.six.torus K) ⊔ modelToG e (E6Neighbour.three.torus K))
-
-omit [Finite G] in
-theorem tripleCore_le_pairCore (N N' : E6Neighbour) : tripleCore e ≤ pairCore e N N' := by
-  have hT : ∀ M : E6Neighbour, modelToG e (M.torus K) ≤
-      modelToG e (E6Neighbour.high.torus K) ⊔ modelToG e (E6Neighbour.six.torus K) ⊔
-        modelToG e (E6Neighbour.three.torus K) := fun M => by
-    cases M
-    · exact le_sup_left.trans le_sup_left
-    · exact le_sup_right.trans le_sup_left
-    · exact le_sup_right
-  exact centralizerPerfectCore_anti (sup_le (hT N) (hT N'))
 
 end Finite
 
 end Neighbour
 
-open CFSG.LieType.Steinberg.Adjoint in
-theorem triplePerp_check :
-    (∀ γ ∈ rootFinset .E6,
-      (iform (highRoot .E6) γ = 0 ∧ iform (Pi.single 5 1 : Fin (Tag.rank .E6) → ℤ) γ = 0 ∧
-        iform (Pi.single 2 1 : Fin (Tag.rank .E6) → ℤ) γ = 0) →
-        γ ∈ ([![1, 0, 1, 1, 0, 0], -![1, 0, 1, 1, 0, 0]] : List (Fin (Tag.rank .E6) → ℤ))) ∧
-    ∀ γ ∈ ([![1, 0, 1, 1, 0, 0], -![1, 0, 1, 1, 0, 0]] : List (Fin (Tag.rank .E6) → ℤ)),
-      γ ∈ rootFinset .E6 ∧ iform (highRoot .E6) γ = 0 ∧
-        iform (Pi.single 5 1 : Fin (Tag.rank .E6) → ℤ) γ = 0 ∧
-        iform (Pi.single 2 1 : Fin (Tag.rank .E6) → ℤ) γ = 0 := by
-  decide +kernel
 
 section Points
 

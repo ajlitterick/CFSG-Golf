@@ -22,23 +22,6 @@ namespace CFSG.RankThree.GF2n.Stroth80
 open Subgroup CFSG CFSG.CGT.Timmesfeld75 CFSG.Open CFSG.Assembly.LowTwoRank
 open scoped commutatorElement Matrix
 
-@[expose] def SL4HomW1Statement : Prop :=
-  ∀ (K : Type) [Field K] [Finite K] [CharP K 2], 4 ≤ Nat.card K →
-    (∀ f : (Fin 4 → K) →ₗ[K] (Fin 3 ⊕ Fin 3 → K) →ₗ[K] (Fin 4 → K),
-      (∀ (A : Matrix.SpecialLinearGroup (Fin 4) K) (v : Fin 4 → K) (w : Fin 3 ⊕ Fin 3 → K),
-        f (A • v) (PartOne.K159.Klein.rho A w) = A • f v w) → f = 0) ∧
-    ∀ f : (Fin 4 → K) →ₗ[K] (Fin 3 ⊕ Fin 3 → K) →ₗ[K] (Fin 4 → K),
-      (∀ (A : Matrix.SpecialLinearGroup (Fin 4) K) (v : Fin 4 → K) (w : Fin 3 ⊕ Fin 3 → K),
-        f (Matrix.SpecialLinearGroup.transpose A⁻¹ • v) (PartOne.K159.Klein.rho A w) =
-          Matrix.SpecialLinearGroup.transpose A⁻¹ • f v w) → f = 0
-
-@[expose] def SL4HomW2Statement : Prop :=
-  ∀ (K : Type) [Field K] [Finite K] [CharP K 2], 4 ≤ Nat.card K → ∀ σ : K ≃+* K,
-    ∀ f : (Fin 4 → K) →ₗ[K] (Fin 4 → K) →ₗ[K] (Fin 3 ⊕ Fin 3 → K),
-      (∀ (A : Matrix.SpecialLinearGroup (Fin 4) K) (v u : Fin 4 → K),
-        f (Matrix.SpecialLinearGroup.map (σ : K →+* K) A • v)
-            (Matrix.SpecialLinearGroup.transpose A⁻¹ • u) =
-          PartOne.K159.Klein.rho A (f v u)) → f = 0
 
 @[expose] def SL4HomW3Statement : Prop :=
   ∀ (K : Type) [Field K] [Finite K] [CharP K 2], 4 ≤ Nat.card K → ∀ σ : K ≃+* K,

@@ -56,28 +56,6 @@ structure FieldNeighbourCover (N : E6Neighbour) where
 
 variable {σ e}
 
-@[expose] noncomputable def FieldNeighbourIso.toCover {N : E6Neighbour}
-    (h : FieldNeighbourIso σ e N) : FieldNeighbourCover σ e N where
-  p := h.Φ.symm.toMonoidHom
-  surjective := h.Φ.symm.surjective
-  ker_le_center := by
-    intro y hy
-    have hy' : h.Φ.symm y = h.Φ.symm 1 := by
-      rw [map_one]
-      exact hy
-    rw [h.Φ.symm.injective hy']
-    exact one_mem _
-  odd_card_ker := by
-    have hbot : h.Φ.symm.toMonoidHom.ker = ⊥ := by
-      rw [eq_bot_iff]
-      intro y hy
-      have hy' : h.Φ.symm y = h.Φ.symm 1 := by
-        rw [map_one]
-        exact hy
-      exact (mem_bot).2 (h.Φ.symm.injective hy')
-    rw [hbot, card_bot]
-    exact odd_one
-  fix x := ⟨h.Φ (leviInclusion σ N x), h.fix x, by simp⟩
 
 theorem FieldNeighbourCover.injective_of_ker_eq_bot {N : E6Neighbour}
     (h : FieldNeighbourCover σ e N) (hker : h.p.ker = ⊥) : Function.Injective h.p :=

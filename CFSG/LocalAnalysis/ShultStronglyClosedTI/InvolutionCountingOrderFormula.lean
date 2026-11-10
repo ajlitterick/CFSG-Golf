@@ -319,24 +319,5 @@ theorem card_eq_of_thompsonPairCount_support [Finite G] {u z : G} (hu : orderOf 
             thompsonPairCount u z z := by rw [hcount]; ring
     _ = _ := by rw [hu', hz']; ring
 
-theorem thompson_all_involution_classes_order_formula [Finite G] {u z : G}
-    (hu : orderOf u = 2) (hz : orderOf z = 2) (huz : ¬ IsConj u z) (T : Finset G)
-    (hT : ∀ w ∈ T, orderOf w = 2)
-    (hTrep : ∀ x : G, orderOf x = 2 → ∃! w, w ∈ T ∧ IsConj w x) :
-    (∀ w : G, orderOf w = 2 → ∀ p ∈ thompsonPairs u z w,
-      p.1 ∈ Subgroup.centralizer {w} ∧ p.2 ∈ Subgroup.centralizer {w}) ∧
-    (∀ w w' : G, IsConj w w' → thompsonPairCount u z w = thompsonPairCount u z w') ∧
-    ((Nat.card G : ℚ) = ∑ w ∈ T, (thompsonPairCount u z w : ℚ) *
-      Nat.card (Subgroup.centralizer {u}) * Nat.card (Subgroup.centralizer {z}) /
-        Nat.card (Subgroup.centralizer {w})) ∧
-    ((∀ w : G, orderOf w = 2 → ¬ IsConj u w → ¬ IsConj z w →
-        thompsonPairCount u z w = 0) →
-      Nat.card G = Nat.card (Subgroup.centralizer {z}) * thompsonPairCount u z u +
-        Nat.card (Subgroup.centralizer {u}) * thompsonPairCount u z z) :=
-  ⟨fun _ hw _ hp => mem_centralizer_of_mem_thompsonPairs (mul_self_eq_one_of_orderOf_eq_two hu)
-      (mul_self_eq_one_of_orderOf_eq_two hz) (mul_self_eq_one_of_orderOf_eq_two hw) hp,
-    fun _ _ h => thompsonPairCount_eq_of_isConj u z h,
-    card_eq_sum_transversal hu hz huz T hT hTrep,
-    card_eq_of_thompsonPairCount_support hu hz huz⟩
 
 end CFSG.ShultStronglyClosedTI.InvolutionCounting

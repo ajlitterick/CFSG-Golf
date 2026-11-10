@@ -262,11 +262,6 @@ theorem X_mul_X_mul (a : A) : P.X * (P.X * a) = 0 := by
 theorem Y_mul_Y_mul (a : A) : P.Y * (P.Y * a) = 0 := by
   rw [← mul_assoc, P.Y_mul_Y, zero_mul]
 
-theorem X_mul_Y_mul_X_mul (a : A) : P.X * (P.Y * (P.X * a)) = P.X * a := by
-  rw [← mul_assoc P.Y, ← mul_assoc, P.X_mul_Y_mul_X]
-
-theorem Y_mul_X_mul_Y_mul (a : A) : P.Y * (P.X * (P.Y * a)) = P.Y * a := by
-  rw [← mul_assoc P.X, ← mul_assoc, P.Y_mul_X_mul_Y]
 
 variable [Algebra K A]
 
@@ -353,10 +348,6 @@ variable {V : Type*} [AddCommGroup V] [Module K V] {Q : QuadraticForm K V}
   (P.toMatrixHom.comp Matrix.SpecialLinearGroup.coeMonoidHom).codRestrict (spinGroup Q)
     (P.toFun_mem (spinGroup Q) hX hY)
 
-theorem coe_toSpin (P : SL2Pair (CliffordAlgebra Q))
-    (hX : ∀ c : K, 1 + c • P.X ∈ spinGroup Q) (hY : ∀ c : K, 1 + c • P.Y ∈ spinGroup Q)
-    (M : Matrix.SpecialLinearGroup (Fin 2) K) :
-    (P.toSpin hX hY M : CliffordAlgebra Q) = P.toFun (M : Matrix (Fin 2) (Fin 2) K) := rfl
 
 end SL2Pair
 

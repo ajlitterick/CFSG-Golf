@@ -239,9 +239,6 @@ abbrev hnL2 : List (List (Fin hnS1L.length × Bool)) :=
 abbrev hnL1 : List (List (Fin hnS2L.length × Bool)) :=
   restrictWords hnS2L (restrictWords hnS1L (restrictWords hnTL (cover₂Words hnRels2 hnCommWord)))
 
-@[expose] def hnPlain : List (List (Fin 7 × Bool)) :=
-  hnRels0.mergeSort fun a b => decide (a.length ≤ b.length)
-
 
 @[expose] def invChainWord (w : List Int) : List Int :=
   w.reverse.map fun z => if z % 2 == 0 then z + 1 else z - 1
@@ -273,11 +270,6 @@ abbrev hnL1 : List (List (Fin hnS2L.length × Bool)) :=
 
 @[expose] def hnTabSpec : Spec := ⟨7, hnTabRels, hnTabImg, hnTabSurj⟩
 
-set_option compiler.extract_closed false in
-@[expose] def hnTabCheck (_ : Unit) : Bool :=
-  let D := CFSG.Sporadic.HN.Native.hnData
-  let O := D.orbit ()
-  wordChecks D.n hnTabSpec (slpLetters D.n (genT D.n O) D.words) O.alpha O.beta
 
 end CFSG.Sporadic.Recognition.HNMultiplier
 

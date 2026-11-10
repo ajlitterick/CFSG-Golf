@@ -117,7 +117,6 @@ variable (h) (hF)
 @[expose] noncomputable def tauLineEquiv : NonisoLine F ≃ {g : StatedSU 3 3 F // orderOf g = 2} :=
   Equiv.ofBijective (tauLine h hF) ⟨tauLine_injective, tauLine_surjective⟩
 
-theorem tauLineEquiv_apply (L : NonisoLine F) : tauLineEquiv h hF L = tauLine h hF L := rfl
 
 theorem isometry_of_mem (hF : Nat.card F = 9) (h : UnitaryFieldData 3 1 F) (g : StatedSU 3 3 F)
     (x y : Fin 3 → F) :

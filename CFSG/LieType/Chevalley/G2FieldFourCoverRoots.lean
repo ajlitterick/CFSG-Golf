@@ -178,9 +178,6 @@ theorem commute_rootX_av
     : Commute (rootX rootA x) (rootX rootV y) :=
   Subtype.ext (g2_even_root_commutator_table x y).2.2.2.2.2.2.2.1
 
-theorem commute_rootX_ac
-    : Commute (rootX rootA x) (rootX rootC y) :=
-  Subtype.ext (g2_even_root_commutator_table x y).2.2.2.2.2.2.2.2.1
 
 theorem commute_rootX_rb
     : Commute (rootX rootR x) (rootX rootB y) :=

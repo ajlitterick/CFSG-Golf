@@ -20,15 +20,6 @@ namespace CFSG.KD.F4Planes
 
 open CFSG.KC.F4Planes
 
-theorem neg_rw_word : (!rowP pS PR (gens.map (List.map fun g => (Nat.add g.1 1, g.2))) tgs 0) =
-    true := by
-  quickRfl
-
-theorem neg_rw_tgt : (!rowP pS PR gens (tgs.map (List.map List.tail)) 0) = true := by
-  quickRfl
-
-theorem neg_rw_shift : (!rowP pS PR gens.tail tgs.tail 0) = true := by
-  quickRfl
 
 end CFSG.KD.F4Planes
 

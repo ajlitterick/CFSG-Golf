@@ -36,16 +36,5 @@ theorem local_point_normal_involution_extension_isolation
       have hnot := involution_point_product_not_mem h hsorder (hzc s hs).symm hescape
       exact False.elim (hnot (hds ▸ hd))
 
-omit [Finite G] in
-theorem centralizing_involution_central_in_sup (U : Subgroup G) {z : G}
-    (hzc : ∀ s ∈ U, Commute z s) :
-    ∀ s ∈ U ⊔ Subgroup.zpowers z, Commute z s := by
-  have hC : U ⊔ Subgroup.zpowers z ≤ Subgroup.centralizer ({z} : Set G) := by
-    refine sup_le ?_ (Subgroup.zpowers_le.mpr ?_)
-    · intro s hs
-      exact Subgroup.mem_centralizer_singleton_iff.mpr (hzc s hs).symm
-    · exact Subgroup.mem_centralizer_singleton_iff.mpr (Commute.refl z)
-  intro s hs
-  exact (Subgroup.mem_centralizer_singleton_iff.mp (hC hs)).symm
 
 end CFSG.ProperTwoGeneratedCore

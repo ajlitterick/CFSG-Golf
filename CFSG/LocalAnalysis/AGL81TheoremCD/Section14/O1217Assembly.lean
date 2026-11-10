@@ -208,18 +208,5 @@ theorem o1217SigmaGen_of_inputs (h1 : NineFourTwoSigmaGen) (h2 : NineTwelveOneSi
   fun G _ _ hC M hM hne hst =>
     O1217SigmaAt.of_inputs h1 h2 h3 hNT hL34 hK1 hK2 hA6 hC hM hne hst
 
-theorem o1217Gen_of_inputs (h1 : NineFourTwoSigmaGen) (h2 : NineTwelveOneSigmaStrong)
-    (h3 : NineTwelveOneSigmaThree)
-    (hNT : CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111.KFactNineThreeNoTwo)
-    (hL34 : KFactL34InvTwo) (hK1 : KFactThreeEightFive) (hK2 : KFactCentralLift)
-    (hA6 : KFactAltSixCoreCentral) : Section15.O1217Gen :=
-  o1217Gen_of_o1217SigmaGen (o1217SigmaGen_of_inputs h1 h2 h3 hNT hL34 hK1 hK2 hA6)
-
-theorem o1219SigmaGen_of_inputs (h1 : NineFourTwoSigmaGen) (h2 : NineTwelveOneSigmaStrong)
-    (h3 : NineTwelveOneSigmaThree)
-    (hNT : CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111.KFactNineThreeNoTwo)
-    (hL34 : KFactL34InvTwo) (hK1 : KFactThreeEightFive) (hK2 : KFactCentralLift)
-    (hA6 : KFactAltSixCoreCentral) : Section15.O1219SigmaGen :=
-  o1219SigmaGen_of_o1217SigmaGen (o1217SigmaGen_of_inputs h1 h2 h3 hNT hL34 hK1 hK2 hA6)
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section14

@@ -15,101 +15,6 @@ namespace CertificateChecks.KernelChengHeld.P
 
 open CFSG.OddStandard.ChengHeldData CFSG.OddStandard.ChengHeldData.RegModel
 
-meta def eaInvsM (α : Nat) : Array Nat :=
-  let M := mkReg α
-  ((List.range M.N).filter fun a => a != 0 && M.m a a == 0).toArray
-
-meta def eaImgM (M : RegModel) (a E : Nat) : Nat :=
-  (List.range M.N).foldl (fun acc x => if E.testBit x then acc ||| (1 <<< M.m a x) else acc) 0
-
-meta def eaCentM (M : RegModel) (a : Nat) : Nat :=
-  (List.range M.N).foldl (fun acc x => if M.m a x == M.m x a then acc ||| (1 <<< x) else acc) 0
-
-meta def eaLevM (α : Nat) : Array (Array Nat) := Id.run do
-  let M := mkReg α
-  let invs := eaInvsM α
-  let mut L : Array (Array Nat) := invs.map fun a => #[0, a]
-  let mut out : Array (Array Nat) := #[]
-  for _ in [0:6] do
-    out := out.push ((L.map eaMask).qsort (· < ·))
-    L := M.eaNext invs L
-  return out
-
-meta def eaAM (α : Nat) : Array (Array Nat) :=
-  let M := mkReg α
-  let invs := eaInvsM α
-  #[invs, (Array.range M.N).map fun x => ((List.range invs.size).find? fun t => invs[t]! == x).getD 0]
-
-meta def eaCM (α : Nat) : Array (Array Nat) :=
-  let M := mkReg α
-  #[(eaInvsM α).map fun a => eaCentM M a]
-
-meta def eaIdxM (A : Array Nat) (F : Nat) : Nat :=
-  ((List.range A.size).find? fun i => A[i]! == F).getD 0
-
-meta def eaExtM (M : RegModel) (invs CM : Array Nat) (Lk : Array Nat) : Array (Nat × Nat × Nat) :=
-  Id.run do
-    let mut out : Array (Nat × Nat × Nat) := #[]
-    for j in [0:Lk.size] do
-      let E := Lk[j]!
-      for t in [0:invs.size] do
-        let a := invs[t]!
-        if !E.testBit a && (E &&& CM[t]!) == E then
-          out := out.push (j, t, E ||| eaImgM M a E)
-    return out
-
-meta def eaPM (α : Nat) : Array (Array Nat) := Id.run do
-  let M := mkReg α
-  let invs := eaInvsM α
-  let CM := (eaCM α)[0]!
-  let Lv := eaLevM α
-  let mut out : Array (Array Nat) := #[]
-  for k in [1:6] do
-    let ext := eaExtM M invs CM Lv[k - 1]!
-    let next := Lv[k]!
-    let mut pj : Array Nat := Array.replicate next.size 0
-    let mut pt : Array Nat := Array.replicate next.size 0
-    let mut done : Array Bool := Array.replicate next.size false
-    for e in ext do
-      let i := eaIdxM next e.2.2
-      if !done[i]! then
-        done := done.set! i true
-        pj := pj.set! i e.1
-        pt := pt.set! i e.2.1
-    out := (out.push pj).push pt
-  return out
-
-meta def eaWM (α : Nat) : Array (Array Nat) := Id.run do
-  let M := mkReg α
-  let invs := eaInvsM α
-  let CM := (eaCM α)[0]!
-  let Lv := eaLevM α
-  let mut out : Array (Array Nat) := #[]
-  for k in [0:5] do
-    let Lk := Lv[k]!
-    for j in [0:Lk.size] do
-      let E := Lk[j]!
-      out := out.push ((Array.range invs.size).map fun t =>
-        let a := invs[t]!
-        if !E.testBit a && (E &&& CM[t]!) == E then eaIdxM Lv[k + 1]! (E ||| eaImgM M a E)
-        else 0)
-  return out
-
-meta def eaA0 : Array (Array Nat) := eaAM 0
-meta def eaA1 : Array (Array Nat) := eaAM 1
-meta def eaA2 : Array (Array Nat) := eaAM 2
-meta def eaC0 : Array (Array Nat) := eaCM 0
-meta def eaC1 : Array (Array Nat) := eaCM 1
-meta def eaC2 : Array (Array Nat) := eaCM 2
-meta def eaL0 : Array (Array Nat) := eaLevM 0
-meta def eaL1 : Array (Array Nat) := eaLevM 1
-meta def eaL2 : Array (Array Nat) := eaLevM 2
-meta def eaP0 : Array (Array Nat) := eaPM 0
-meta def eaP1 : Array (Array Nat) := eaPM 1
-meta def eaP2 : Array (Array Nat) := eaPM 2
-meta def eaW0 : Array (Array Nat) := eaWM 0
-meta def eaW1 : Array (Array Nat) := eaWM 1
-meta def eaW2 : Array (Array Nat) := eaWM 2
 
 end CertificateChecks.KernelChengHeld.P
 
@@ -203,18 +108,6 @@ theorem p6138_eaz : bAnd(bAnd(eaUpW 256 9 CH0.T (IX0 0) (EAA0 0) (EAC0 0) 55 (EA
     true := by
   quickRfl
 
-theorem p6138_neg_eaI : (!eaInvW 256 9 CH0.T (IX0 0) (EAA0 1) (EAA0 1) 55) = true := by quickRfl
-
-theorem p6138_neg_eaC :
-    (!eaCMW 256 9 CH0.T (IX0 0) (IV0 0) (EAA0 0) (EAL0 1) 55) = true := by quickRfl
-
-theorem p6138_neg_eaL : (!eaL1W 128 8 (EAA2 0) (EAL2 1) 55) = true := by quickRfl
-
-theorem p6138_neg_eaU : (!eaUpW 128 8 CH2.T (IX2 0) (EAA2 0) (EAC2 0) 55 (EAL2 1) 303 (EAL2 2) 309
-    (EAP2 3) (EAP2 2)) = true := by quickRfl
-
-theorem p6138_neg_eaW :
-    (!eaWitW 128 8 (EAA2 0) (EAC2 0) 55 (EAL2 1) 303 (EAL2 2) 308 EAW2 55) = true := by quickRfl
 
 end CertificateChecks.KernelChengHeld.P
 

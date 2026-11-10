@@ -61,36 +61,5 @@ theorem canonical_perfect_preimage_subnormal
     (mapped_internal_normal_subgroup_normal_subgroupOf
       preimageGroup (perfectResidual preimageGroup) inferInstance) hpreimageSubnormal
 
-theorem finite_canonical_coprime_perfect_preimage_quotient_equiv
-    {G Image : Type*} [Group G] [Finite G] [Group Image] [Finite Image]
-    (prime : ℕ) (homomorphism : G →* Image) (hsurjective : Function.Surjective homomorphism)
-    (hkernel : prime.Coprime (Nat.card homomorphism.ker))
-    (imageGroup : Subgroup Image) (hperfect : Group.IsPerfect imageGroup)
-    (himageCore : primeComplementCore (G := imageGroup) prime = ⊥) :
-    let perfectLift := perfectResidualOf (Subgroup.comap homomorphism imageGroup)
-    Nonempty ((perfectLift ⧸ primeComplementCore prime) ≃* imageGroup) := by
-  let perfectLift := perfectResidualOf (Subgroup.comap homomorphism imageGroup)
-  have himage := finite_canonical_perfect_preimage_image_eq homomorphism hsurjective
-    imageGroup hperfect
-  let liftedMap : perfectLift →* imageGroup :=
-    (homomorphism.comp perfectLift.subtype).codRestrict imageGroup (by
-      intro element
-      exact himage ▸ Subgroup.mem_map_of_mem homomorphism element.property)
-  have hliftedSurjective : Function.Surjective liftedMap := by
-    intro element
-    have hmem : element.val ∈ Subgroup.map homomorphism perfectLift := himage.symm ▸ element.property
-    obtain ⟨preimage, hpreimage, hequal⟩ := hmem
-    exact ⟨⟨preimage, hpreimage⟩, Subtype.ext hequal⟩
-  have hkernelMap : Subgroup.map perfectLift.subtype liftedMap.ker ≤ homomorphism.ker := by
-    rintro element ⟨preimage, hpreimage, rfl⟩
-    exact congrArg Subtype.val hpreimage
-  have hliftedKernelCoprime : prime.Coprime (Nat.card liftedMap.ker) := by
-    have hdivides := Subgroup.card_dvd_of_le hkernelMap
-    rw [Subgroup.card_map_of_injective perfectLift.subtype_injective] at hdivides
-    exact hkernel.of_dvd_right hdivides
-  have hcore := coprime_kernel_trivial_image_primeComplementCore_eq_kernel prime
-    liftedMap hliftedSurjective hliftedKernelCoprime himageCore
-  exact ⟨(QuotientGroup.quotientMulEquivOfEq hcore).trans
-    (QuotientGroup.quotientKerEquivOfSurjective liftedMap hliftedSurjective)⟩
 
 end CFSG.RankThreeCoreUniqueness.Helpers

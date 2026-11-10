@@ -92,15 +92,6 @@ variable (G) in
 theorem conjAction_apply (g : G) : conjAction G g = conjAut g :=
   rfl
 
-theorem conjAction_injective_of_forall
-    (hfaith : ∀ g : G, (∀ p : {x : G // orderOf x = 2}, g * p * g⁻¹ = p) → g = 1) :
-    Function.Injective (conjAction G) := by
-  rw [injective_iff_map_eq_one]
-  intro g hg
-  refine hfaith g fun p => ?_
-  have := DFunLike.congr_fun hg (Sum.inl p)
-  rw [conjAction_apply, conjAut_inl, RelIso.one_apply, Sum.inl.injEq] at this
-  rw [← coe_conjPoint, this]
 
 theorem conjAction_injective [IsSimpleGroup G] [Finite G]
     (hcard : Nat.card {g : G // orderOf g = 2} = 63)
@@ -129,29 +120,6 @@ theorem conjAction_injective [IsSimpleGroup G] [Finite G]
     rw [hset, Set.ncard_sdiff_singleton_of_mem (Set.mem_univ p), Set.ncard_univ, hcard] at h6
     omega
 
-@[expose] def conjGraphAut (g : G) : involutionGraph G ≃g involutionGraph G where
-  toFun := conjPoint g
-  invFun := conjPoint g⁻¹
-  left_inv p := by rw [← conjPoint_mul, inv_mul_cancel, conjPoint_one]
-  right_inv p := by rw [← conjPoint_mul, mul_inv_cancel, conjPoint_one]
-  map_rel_iff' {p q} := by
-    show (involutionGraph G).Adj (conjPoint g p) (conjPoint g q) ↔ (involutionGraph G).Adj p q
-    rw [adj_iff_ne_and_commute, adj_iff_ne_and_commute]
-    have hinj : Function.Injective (conjPoint g) := fun a b hab => by
-      rw [← conjPoint_one a, ← conjPoint_one b, ← inv_mul_cancel g, conjPoint_mul, conjPoint_mul,
-        hab]
-    refine and_congr hinj.ne_iff ?_
-    show MulAut.conj g p * MulAut.conj g q = MulAut.conj g q * MulAut.conj g p ↔ _
-    rw [← map_mul, ← map_mul, (MulAut.conj g).injective.eq_iff]
-
-theorem dist_conjPoint {S : Subgroup G} {x : {g : G // orderOf g = 2}}
-    (hSx : ∀ s ∈ S, s * (x : G) = x * s) {s : G} (hs : s ∈ S) (z : {g : G // orderOf g = 2}) :
-    (involutionGraph G).dist x (conjPoint s z) = (involutionGraph G).dist x z := by
-  have hx : conjPoint s x = x := Subtype.ext (by
-    rw [coe_conjPoint, hSx s hs, mul_assoc, mul_inv_cancel, mul_one])
-  have := dist_iso (conjGraphAut s) x z
-  rw [show (conjGraphAut s) x = conjPoint s x from rfl, hx] at this
-  exact this
 
 theorem dist_le_two_of_commute {x y z : {g : G // orderOf g = 2}} (hxy : (x : G) * y = y * x)
     (hyz : (y : G) * z = z * y) : (involutionGraph G).dist x z ≤ 2 := by
@@ -208,44 +176,5 @@ theorem eq_one_of_conj_eq [Finite G] {x z : {g : G // orderOf g = 2}} {S : Subgr
   have := dist_le_two_of_commute (y := ⟨(y : G), hy2⟩) hxy hyz
   omega
 
-theorem regular_on_opposite [Finite G] (hcard : Nat.card {g : G // orderOf g = 2} = 63)
-    (hlaw : InvolutionProductLaw G)
-    (hval : ∀ z : {g : G // orderOf g = 2}, ((involutionGraph G).neighborSet z).ncard = 6)
-    (x : {g : G // orderOf g = 2}) (S : Subgroup G) (hS : Nat.card S = 32)
-    (hSx : ∀ s ∈ S, s * (x : G) = x * s) :
-    {z : {g : G // orderOf g = 2} | (involutionGraph G).dist x z = 3}.ncard = 32 ∧
-    ∀ z z' : {g : G // orderOf g = 2}, (involutionGraph G).dist x z = 3 →
-      (involutionGraph G).dist x z' = 3 → ∃! s : S, (s : G) * z * (s : G)⁻¹ = z' := by
-  have H := involutionHexagonData hcard hlaw hval
-  have hlayer := H.hexagon.2.2.2.2.2.2.1 x 3
-  rw [← involutionGraph_eq_collinearityGraph] at hlayer
-  have h32 : {z : {g : G // orderOf g = 2} | (involutionGraph G).dist x z = 3}.ncard = 32 :=
-    hlayer
-  refine ⟨h32, fun z z' hz hz' => ?_⟩
-  let f : S → {w : {g : G // orderOf g = 2} // (involutionGraph G).dist x w = 3} := fun s =>
-    ⟨conjPoint (s : G) z, by rw [dist_conjPoint hSx s.2]; exact hz⟩
-  have hinj : Function.Injective f := by
-    intro s s' hss'
-    have he : conjPoint (s : G) z = conjPoint (s' : G) z := congrArg Subtype.val hss'
-    have hfix : ((s' : G)⁻¹ * s) * z * ((s' : G)⁻¹ * s)⁻¹ = z := by
-      rw [← coe_conjPoint, conjPoint_mul, he, ← conjPoint_mul, inv_mul_cancel, conjPoint_one]
-    have := eq_one_of_conj_eq hS hSx hz (S.mul_mem (S.inv_mem s'.2) s.2) hfix
-    exact Subtype.ext (inv_mul_eq_one.mp this).symm
-  have hcard3 : Nat.card {w : {g : G // orderOf g = 2} // (involutionGraph G).dist x w = 3} =
-      32 := by
-    rw [← h32, ← Nat.card_coe_set_eq]
-    rfl
-  have hbij : Function.Bijective f := by
-    refine hinj.bijective_of_nat_card_le ?_
-    rw [hS, hcard3]
-  obtain ⟨s, hs⟩ := hbij.2 ⟨z', hz'⟩
-  have hs' : (s : G) * z * (s : G)⁻¹ = z' := by
-    rw [← coe_conjPoint]
-    exact congrArg (fun w => ((w.1 : {g : G // orderOf g = 2}) : G)) hs
-  refine ⟨s, hs', fun s₁ hs₁ => hinj ?_⟩
-  apply Subtype.ext
-  apply Subtype.ext
-  show (conjPoint (s₁ : G) z : G) = (conjPoint (s : G) z : G)
-  rw [coe_conjPoint, coe_conjPoint, hs₁, hs']
 
 end CFSG.GroupTheory.InvolutionHexagon

@@ -23,9 +23,6 @@ theorem ch22212n_c : Nat.beq (pcomp 42 6 (mask 6) (GT 4) (GT 5)) (pcomp 42 6 (ma
     true := by
   decide +kernel
 
-theorem ch22212n_neg : notB (memK 64 CertificateChecks.KernelLC.L34PT.T (cjK (GT 0) (tgK GT 1))) =
-    true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

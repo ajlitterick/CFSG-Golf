@@ -137,18 +137,6 @@ theorem fsuV1_eq {T L V : Subgroup G} {z : G} (hF : QTU3InternalFrame T L V z) :
     rw [← hz2]
     exact pow_orderOf_eq_one z
 
-theorem u3V3Centralizer_of_stmt13_3_15
-    (h1332 : Stmt13_3_2) (h13315 : A6.Stmt13_3_15) :
-    U3V3Centralizer := by
-  intro G _ _ T L V z hH hU3 hF V₂ V₃ h12 h23 h3V hT2 hT3 hc2 hc3
-  have hirr := u3_isIrrPlusIn h1332 hH hU3 hF
-  have hV2 : A6.IsV2 T V V₂ :=
-    ⟨by rw [fsuV1_eq hF]; exact h12, h23.trans h3V, hT2, hc2⟩
-  have h := h13315 G T L V V₂ (L₁Of L V₂)
-    (conjClosure (pCoreOf 2 (A6.g1 T V)) (normalizer (V₂ : Set G))) hH hirr
-    (inf_centralizer_L_eq_bot hF) hV2 (not_iso_a5_of_U3 hU3 hF)
-    (fun h => absurd h (not_isHatA6_of_U3 hU3)) (fun _ => rfl) rfl
-  exact (h.2.2.2.2.2.2.2.2 V₃ h23 h3V hT3 hc3).1
 
 namespace HullSetting
 
@@ -191,65 +179,5 @@ theorem comm_eq_bot
 
 end HullSetting
 
-theorem u3_abelian_centralizer_hull
-    (h1332 : Stmt13_3_2) (h13314 : A6.Stmt13_3_14)
-    (h13315 : A6.Stmt13_3_15) (h12_4 : U3Stmt13_3_12_4)
-    (hcod : U3CodimThreeCentralizerControl) : U3AbelianCentralizerHull := by
-  intro G _ _ T L V z hH hU3 hF
-  have : IsElementaryAbelian 2 V := hF.2.2.1
-  obtain ⟨Φ, hL, hLs, hN, hT⟩ := u3_six_module_transport_adapted h1332 hH hU3 hF
-  let S : HullSetting G T L V z := ⟨h1332, hH, hU3, hF, Φ, hL, hLs, hN, hT⟩
-  have hB := u3V3Centralizer_of_stmt13_3_15 h1332 h13315
-  have hsup : (⨆ h ∈ centralizer ({z} : Set G), CFSG.conjugate V h) = conjClosure V S.H := by
-    rw [S.H_eq]
-    apply le_antisymm
-    · refine iSup₂_le fun h hh x hx => ?_
-      rw [mem_conjugate_iff'] at hx
-      have := mem_conjClosure (Z := V) (inv_mem hh) hx
-      rwa [show h⁻¹ * (h * x * h⁻¹) * h⁻¹⁻¹ = x by group] at this
-    · refine conjClosure_le fun k hk v hv => ?_
-      have hmem : k * v * k⁻¹ ∈ CFSG.conjugate V k⁻¹ := by
-        rw [mem_conjugate_iff', inv_inv]
-        simpa [mul_assoc] using hv
-      exact (le_iSup₂ (f := fun h (_ : h ∈ centralizer ({z} : Set G)) =>
-        CFSG.conjugate V h) k⁻¹ (inv_mem hk)) hmem
-  rw [hsup]
-  have hVea := isElemAbelian_of_isElementaryAbelian' V
-  by_cases hHM : S.H ≤ normalizer (L : Set G)
-  ·
-    obtain ⟨-, -, hTI, -, -⟩ := u3_selected_local_normalizer_and_TI_of_1332 h1332 hH hF
-    have hle : conjClosure V S.H ≤ V := by
-      refine conjClosure_le fun k hk v hv => ?_
-      have hkM := hHM (inv_mem hk)
-      rcases hTI _ hkM with h | h
-      · have : k * v * k⁻¹ ∈ CFSG.conjugate V k⁻¹ := by
-          rw [mem_conjugate_iff', inv_inv]
-          simpa [mul_assoc] using hv
-        rwa [h] at this
-      · exfalso
-        have hz : z ∈ V ⊓ CFSG.conjugate V k⁻¹ := mem_inf.2 ⟨S.hzV, by
-          rw [mem_conjugate_iff', S.conj_V₁_of_H (inv_mem hk) S.z_mem_V₁]
-          exact S.hzV⟩
-        rw [h] at hz
-        exact S.hz1 hz
-    exact (F7.isElemAbelian_mono hVea hle).1
-  · have hcod' : ∀ F : Subgroup G, F ≤ V → F.relIndex V ≤ 8 →
-        centralizer (F : Set G) ≤ normalizer (V : Set G) :=
-      fun F hFV hidx => hcod G T L V z hH hU3 hF F hFV hidx
-    have h14 : ¬ pCoreOf 2 S.H ≤ centralizer (S.V₂ : Set G) := by
-      have := h13314 G T L V S.V₂ hH (u3_isIrrPlusIn h1332 hH hU3 hF)
-        (inf_centralizer_L_eq_bot hF) S.isV2 (not_iso_a5_of_U3 hU3 hF)
-      rwa [S.g1_eq_H] at this
-    have h15 : pCoreOf 2 S.H ⊓ centralizer (S.V₂ : Set G) ≤
-        pCoreOf 2 (normalizer (S.V₂ : Set G)) := by
-      have h := h13315 G T L V S.V₂ (L₁Of L S.V₂)
-        (conjClosure (pCoreOf 2 (A6.g1 T V)) (normalizer (S.V₂ : Set G))) hH
-        (u3_isIrrPlusIn h1332 hH hU3 hF) (inf_centralizer_L_eq_bot hF) S.isV2
-        (not_iso_a5_of_U3 hU3 hF) (fun h => absurd h (not_isHatA6_of_U3 hU3))
-        (fun _ => rfl) rfl
-      rw [S.g1_eq_H] at h
-      exact h.2.2.2.2.2.1.trans h.2.2.2.2.2.2.1
-    exact (S.hullHyp (S.centralizer_V₃_le hB) (S.comm_eq_bot h12_4 hB) hHM h14 h15
-      hcod').isElemAbelian.1
 
 end CFSG.Quasithin.H13.U3

@@ -35,8 +35,6 @@ theorem QTKEOver.of_catalogImp (h : CatalogImp C D) (hG : QTKEOver C G) : QTKEOv
 theorem QTKEOver.of_catalogAgree (h : CatalogAgreeOn C D) (hG : QTKEOver C G) : QTKEOver D G :=
   hG.of_catalogImp h.imp
 
-theorem qtkeOver_iff_of_catalogAgree (h : CatalogAgreeOn C D) : QTKEOver C G ↔ QTKEOver D G :=
-  ⟨QTKEOver.of_catalogAgree h, QTKEOver.of_catalogAgree h.symm⟩
 
 end Transport
 

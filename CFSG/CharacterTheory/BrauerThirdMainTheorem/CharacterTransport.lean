@@ -112,32 +112,5 @@ theorem principal_comp_equiv_iff (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
     exact htransport
   · exact principal_comp_equiv m hm equivalence
 
-theorem principalIdempotent_comp_equiv (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
-    {leftGroup rightGroup : Type} [Group leftGroup] [Group rightGroup]
-    [Finite leftGroup] [Finite rightGroup] (equivalence : leftGroup ≃* rightGroup) :
-    BlocksIdempotentCoeff rightGroup (BlocksPrincipalBlock m rightGroup) ∘ equivalence =
-      BlocksIdempotentCoeff leftGroup (BlocksPrincipalBlock m leftGroup) := by
-  classical
-  have hleft := block_admissible m hm leftGroup (principal_isBlock m leftGroup)
-  have hright := block_admissible m hm rightGroup (principal_isBlock m rightGroup)
-  apply sub_eq_zero.mp
-  apply centralChar_separates leftGroup
-  · intro element conjugator
-    simp only [Pi.sub_apply,
-      (centralR_comp_equiv m equivalence (idempotentCoeff_central m rightGroup hright)).2 element conjugator,
-      idempotentCoeff_conj hleft.1]
-  · intro character hcharacter
-    rw [centralChar_sub, centralChar_idempotentCoeff hleft.1 hcharacter]
-    have htransport := centralChar_comp_equiv equivalence
-      (character ∘ equivalence.symm)
-      (BlocksIdempotentCoeff rightGroup (BlocksPrincipalBlock m rightGroup))
-    have hequal : (character ∘ equivalence.symm) ∘ equivalence = character := by
-      ext element
-      simp only [Function.comp_apply, equivalence.symm_apply_apply]
-    rw [hequal, centralChar_idempotentCoeff hright.1 (irr_comp_equiv equivalence.symm hcharacter),
-      principal_comp_equiv_iff m hm equivalence.symm] at htransport
-    rw [htransport]
-    by_cases hmember : character ∈ BlocksPrincipalBlock m leftGroup <;>
-      simp only [hmember, ↓reduceIte, sub_self]
 
 end CFSG.BrauerThirdMainTheorem.Helpers

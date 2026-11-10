@@ -22,6 +22,5 @@ theorem factorial_eq_cardC (hn : 8 ≤ n) (hn' : n ≤ 11) :
 
 end Aux
 
-variable {n : ℕ} [NeZero n]
 
 end CFSG.OddStandard.Solomon75

@@ -61,11 +61,6 @@ theorem central_subgroupOf_le_center (A R : Subgroup E)
   apply Subtype.ext
   exact (Subgroup.mem_center_iff.mp (hA ha)) (r : E)
 
-theorem quotient_preimage_kernel_isPGroup (p : ℕ) (A : Subgroup E) [A.Normal]
-    (hAp : IsPGroup p A) (B : Subgroup (E ⧸ A)) :
-    IsPGroup p (A.subgroupOf (B.comap (QuotientGroup.mk' A))) :=
-  hAp.of_equiv (Subgroup.subgroupOfEquivOfLe
-    (kernel_le_quotient_preimage A B)).symm
 
 theorem quotient_preimage_kernel_coprime_index [Finite E]
     (p : ℕ) [Fact p.Prime] (A : Subgroup E) [A.Normal]
@@ -77,20 +72,6 @@ theorem quotient_preimage_kernel_coprime_index [Finite E]
   rw [quotient_preimage_kernel_card, quotient_preimage_kernel_index, hk]
   exact hB.pow_left k
 
-theorem quotient_core_preimage_normal (p : ℕ) (A : Subgroup E) [A.Normal] :
-    ((CFSG.pPrimeCore p (E ⧸ A)).comap (QuotientGroup.mk' A)).Normal :=
-  Subgroup.Normal.comap inferInstance _
-
-theorem quotient_core_preimage_kernel_coprime_index [Finite E]
-    (p : ℕ) [Fact p.Prime] (A : Subgroup E) [A.Normal]
-    (hAp : IsPGroup p A) :
-    Nat.Coprime
-      (Nat.card (A.subgroupOf
-        ((CFSG.pPrimeCore p (E ⧸ A)).comap (QuotientGroup.mk' A))))
-      (A.subgroupOf
-        ((CFSG.pPrimeCore p (E ⧸ A)).comap (QuotientGroup.mk' A))).index :=
-  quotient_preimage_kernel_coprime_index p A hAp _
-    (CFSG.pPrimeCore_coprime_card (p := p) (G := E ⧸ A))
 
 theorem kernel_complement_map_eq_range {F : Type v} [Group F]
     (f : E →* F) (D : Subgroup E) (hD : f.ker.IsComplement' D) :

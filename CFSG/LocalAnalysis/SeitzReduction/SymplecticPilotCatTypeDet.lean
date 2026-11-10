@@ -18,9 +18,6 @@ open CFSG CFSG.Blueprint CFSG.Open CFSG.Assembly.LowTwoRank
     (t ∈ classicalTags ∨ t = .twistedB2) → LieModel X .PSp m 2 f → StatedLieAdmissible t n 2 f' →
       LieModel X t n 2 f' → t = .PSp ∧ n = m ∧ f' = f
 
-theorem sp2mEvenTypeDetClassical_of_sp2mEvenTypeDet {m : ℕ} (h : Sp2mEvenTypeDet m) :
-    Sp2mEvenTypeDetClassical m :=
-  fun X _ f t n f' _ h1 h2 h3 => h X f t n f' h1 h2 h3
 
 theorem admissible_of_lieModel_PSp {X : Type} [Group X] {m f : ℕ} (h : LieModel X .PSp m 2 f) :
     1 ≤ f ∧ 2 ≤ m ∧ (m, 2 ^ f) ≠ (2, 2) := by

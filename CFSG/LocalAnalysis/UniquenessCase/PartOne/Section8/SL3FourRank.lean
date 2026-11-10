@@ -80,12 +80,6 @@ theorem pRank_three_eq_two_of_isSL3Four
   exact CFSG.Quasithin.R3c.pRank_three_statedSL_three_even (n := 2) (by norm_num)
     (by rw [hKcard]; norm_num)
 
-theorem pRank_three_eq_two_of_mem_calC_of_isSL3Four
-    {G : Type} [Group G] [Finite G] {M L : Subgroup G} (hL : L ∈ calC M)
-    (h : CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne.IsSL3Four (Bar2 L)) :
-    CFSG.Open.pRank 3 L = 2 := by
-  rw [← CFSG.LocalAnalysis.UniquenessCase.UC22.pRank_bar2_eq_of_odd (by norm_num) (by norm_num)]
-  exact pRank_three_eq_two_of_isSL3Four h
 
 theorem three_dvd_card_of_isSL3Four {X : Type} [Group X] [Finite X]
     (h : CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.PartOne.IsSL3Four X) :

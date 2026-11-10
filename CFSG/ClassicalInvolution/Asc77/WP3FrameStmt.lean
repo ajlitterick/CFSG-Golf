@@ -64,8 +64,6 @@ variable {p f}
       ∃ (L₀ : Subgroup G) (z₀ : G) (A : Subgroup G) (S : Set (Subgroup G)) (a : G),
         FuzzyFrameDataStar p f (CoreAssembly.conjClass K) L₀ z₀ A S a ∧ Hyp51 A
 
-@[expose] def FrameExistsStar (p f : ℕ) [Fact p.Prime] : Prop :=
-  FrameExistsOn p f fun _ _ _ _ _ => True
 
 end Star
 
@@ -135,15 +133,6 @@ structure ChainFrameSetting (Ω : Set (Subgroup G)) (K J K' : Subgroup G) (z t z
     (K J K' : Subgroup G) (z t z' : G), ChainFrameSetting p f Ω K J K' z t z' →
       Hyp51At (Subgroup.closure ({z, t, z'} : Set G)) t
 
-@[expose] def ChainFrameHyp51zt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K J K' : Subgroup G) (z t z' : G), ChainFrameSetting p f Ω K J K' z t z' →
-      Hyp51At (Subgroup.closure ({z, t, z'} : Set G)) (z * t)
-
-@[expose] def ChainFrameHyp51 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-    (K J K' : Subgroup G) (z t z' : G), ChainFrameSetting p f Ω K J K' z t z' →
-      Hyp51 (Subgroup.closure ({z, t, z'} : Set G))
 
 end Chain
 

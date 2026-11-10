@@ -202,11 +202,5 @@ theorem mem_consistentKindPairs_of_pieceOrders {q : ℕ} (hq : 2 ≤ q) {κX κY
     (κX, κY) ∈ consistentKindPairs := by
   rw [← pieceOrders_swap_eq_iff hq, ← hX, ← hY, swapPieces_swapPieces]
 
-theorem kinds_ne_linear7_unitary7_of_pieceOrders {q : ℕ} (hq : 2 ≤ q) {κX κY : Sp6Kind}
-    {t : ℕ × ℕ × ℕ} (hX : t = pieceOrders κX q) (hY : swapPieces t = pieceOrders κY q) :
-    κX ≠ .linear7 ∧ κX ≠ .unitary7 ∧ κY ≠ .linear7 ∧ κY ≠ .unitary7 := by
-  have h := mem_consistentKindPairs_of_pieceOrders hq hX hY
-  revert h
-  cases κX <;> cases κY <;> simp [consistentKindPairs]
 
 end CFSG.SeitzReduction.F4Pilot

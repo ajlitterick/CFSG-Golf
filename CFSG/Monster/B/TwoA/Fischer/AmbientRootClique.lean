@@ -220,28 +220,6 @@ theorem cliqueFixedVec_add_mem_rootVecSet
   rw [hqz, hrv] at hmem
   exact hmem.2 (H.rank_of_mem_cliqueShift hΦ hroot hΨ ⟨_, ⟨y, hy, rfl⟩, rfl⟩ hρ)
 
-include hρ hroot hΨ in
-theorem rootFix_eq :
-    {u | u ∈ rootVecSet ∧ ∀ r : ptStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨r, r.2.1⟩)) u = u} =
-      cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∪ {cliqueFixedVec Φ Ψ} := by
-  have hFR : ∀ u, (∀ r : ptStab act lab Y C,
-      actStar (SemidirectProduct.inl (ρ ⟨r, r.2.1⟩)) u = u) ↔
-        u ∈ Submodule.span (ZMod 2) (cliqueVecs Ψ C) := fun u =>
-    Set.ext_iff.1 (H.fixed_ptStab_eq hΦ hroot hΨ) u
-  rw [← H.rank22_eq hΦ hρ hroot hΨ]
-  ext u
-  constructor
-  · rintro ⟨hu, hr⟩
-    exact ⟨(hFR u).1 hr, finrank_range_adL_of_mem hu⟩
-  · intro hu
-    refine ⟨?_, (hFR u).2 hu.1⟩
-    rw [H.rank22_eq hΦ hρ hroot hΨ] at hu
-    rcases hu with (⟨y, hy, rfl⟩ | ⟨_, ⟨y, hy, rfl⟩, rfl⟩) | hu
-    · exact psi_mem_rootVecSet hroot hΨ y
-    · exact H.cliqueFixedVec_add_mem_rootVecSet hΦ hρ hroot hΨ hy
-    · rw [Set.mem_singleton_iff.1 hu]
-      exact H.cliqueFixedVec_mem_rootVecSet hΦ hρ hroot hΨ
 
 include hρ hroot hΨ in
 theorem commute_cliqueFixedVec_iff
@@ -275,53 +253,6 @@ end FullIntertwinerHyp
 
 namespace IsFischerSlice
 
-theorem clique_fixed_vector_is_ambient_root
-    (hS : IsFischerSlice act lab Y) {C : Set V}
-    (hC : IsSliceMaxClique lab Y C) [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))]
-    {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {η : C ≃ X₀}
-    {θ : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
-      CFSG.Blueprint.NativeSporadic.M22}
-    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
-      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
-    (hθ : ∀ (f : setStab act lab Y C) (z : C),
-      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
-    {φ : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
-    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
-    {α : setStab act lab Y C →* F₀}
-    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
-      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
-    {Φ : Y ≃ CFSG.Monster.B.Fischer.Y} (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ)
-    {ρ : sliceGroup lab Y →* stdGroup} (hρ : Function.Injective ρ)
-    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass)
-    {Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL} (hΨ : ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y) :
-    cliqueFixedVec Φ Ψ ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q} ∧
-    (∀ y : Y, (y : V) ∈ C →
-      cliqueFixedVec Φ Ψ + Ψ (ncommVec lab Y y) ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q}) ∧
-    {u | u ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q} ∧ ∀ r : ptStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨r, r.2.1⟩)) u = u} =
-      cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∪ {cliqueFixedVec Φ Ψ} ∧
-    Disjoint (cliqueVecs Ψ C) ((cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C) ∧
-    cliqueFixedVec Φ Ψ ∉ cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∧
-    {u | u ∈ rootVecOf '' {q : stdGroup | IsConj rootInv q} ∧ ∀ r : ptStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨r, r.2.1⟩)) u = u}.ncard = 45 ∧
-    (∀ q : stdGroup, IsConj rootInv q → rootVecOf q = cliqueFixedVec Φ Ψ →
-      {y : Y | Commute q (ρ ⟨lab y, lab_mem_sliceGroup y.2⟩)} = {y : Y | (y : V) ∈ C}) ∧
-    (∀ y₀ : Y, (y₀ : V) ∈ C → ∀ q : stdGroup, IsConj rootInv q →
-      rootVecOf q = cliqueFixedVec Φ Ψ + Ψ (ncommVec lab Y y₀) →
-      {y : Y | Commute q (ρ ⟨lab y, lab_mem_sliceGroup y.2⟩)} = {y : Y | (y : V) ∈ C}) ∧
-    {y : Y | (y : V) ∈ C}.ncard = 22 := by
-  have H := FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα
-  refine ⟨H.cliqueFixedVec_mem_rootVecSet hΦ hρ hroot hΨ,
-    fun y hy => H.cliqueFixedVec_add_mem_rootVecSet hΦ hρ hroot hΨ hy,
-    H.rootFix_eq hΦ hρ hroot hΨ, H.disjoint_cliqueShift hΦ hroot hΨ,
-    H.cliqueFixedVec_not_mem hΦ hroot hΨ, ?_, fun q hq hqz => ?_, fun y₀ hy₀ q hq hqz => ?_,
-    H.ncard_clique⟩
-  · rw [H.rootFix_eq hΦ hρ hroot hΨ]
-    exact H.ncard_rank22 hΦ hroot hΨ
-  · ext y
-    exact H.commute_cliqueFixedVec_iff hΦ hρ hroot hΨ hq hqz y
-  · ext y
-    exact H.commute_cliqueFixedVec_add_iff hΦ hρ hroot hΨ hy₀ hq hqz y
 
 end IsFischerSlice
 

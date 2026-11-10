@@ -244,75 +244,6 @@ section Standard
 
 variable {G G' : Type*} [Group G] [Group G'] [Finite G] [Finite G']
 
-omit [Finite G'] in
-theorem mem_centralizer_of_map {f : G →* G'} {L : Subgroup G} [Group.IsPerfect L]
-    (hodd : Odd (Nat.card f.ker)) (hkc : f.ker ≤ centralizer (L : Set G)) {g : G}
-    (hg : f g ∈ centralizer ((L.map f : Subgroup G') : Set G')) : g ∈ centralizer (L : Set G) := by
-  have : Group.IsSolvable f.ker := CFSG.FeitThompson.isSolvable_of_odd_natCard _ hodd
-  have hLc : L ≤ centralizer (f.ker : Set G) := le_centralizer_iff.mp hkc
-  have hLg : conjugate L g = L := by
-    have hcg : conjugate L g ≤ centralizer (f.ker : Set G) := by
-      intro z hz
-      rw [mem_conjugate_iff] at hz
-      rw [mem_centralizer_iff]
-      intro k hk
-      have hk' : g * k * g⁻¹ ∈ f.ker :=
-        (inferInstance : f.ker.Normal).conj_mem k hk g
-      have h1 := mem_centralizer_iff.mp (hLc hz) _ hk'
-      calc k * z = g⁻¹ * ((g * k * g⁻¹) * (g * z * g⁻¹)) * g := by group
-        _ = g⁻¹ * ((g * z * g⁻¹) * (g * k * g⁻¹)) * g := by rw [h1]
-        _ = z * k := by group
-    have : Group.IsPerfect (conjugate L g) := Group.IsPerfect.map _
-    refine TwoQuot.eq_of_map_eq_of_le_centralizer f hcg hLc ?_
-    ext x
-    constructor
-    · rintro ⟨z, hz, rfl⟩
-      rw [SetLike.mem_coe, mem_conjugate_iff] at hz
-      have h1 := mem_centralizer_iff.mp hg (f (g * z * g⁻¹)) (mem_map_of_mem f hz)
-      refine ⟨g * z * g⁻¹, hz, ?_⟩
-      rw [map_mul, map_mul, map_inv] at h1 ⊢
-      have h2 : f g * f z = f g * (f g * f z * (f g)⁻¹) := by rw [← h1]; group
-      exact (mul_left_cancel h2).symm
-    · rintro ⟨z, hz, rfl⟩
-      refine ⟨g⁻¹ * z * g, ?_, ?_⟩
-      · rw [SetLike.mem_coe, mem_conjugate_iff, show g * (g⁻¹ * z * g) * g⁻¹ = z by group]
-        exact hz
-      · have h1 := mem_centralizer_iff.mp hg (f z) (mem_map_of_mem f hz)
-        rw [map_mul, map_mul, map_inv]
-        calc (f g)⁻¹ * f z * f g = (f g)⁻¹ * (f z * f g) := by group
-          _ = (f g)⁻¹ * (f g * f z) := by rw [h1]
-          _ = f z := by group
-  have hgN : g ∈ normalizer (L : Set G) := mem_normalizer_of_conjugate_eq hLg
-  have h1 := TwoQuot.commutator_mem_of_isPerfect (N := ⊥) bot_le
-    (by rw [bot_subgroupOf]; infer_instance) (inv_mem hgN) fun l hl => by
-      refine ⟨1, one_mem _, l⁻¹ * g⁻¹⁻¹ * l * g⁻¹, ?_, by rw [one_mul]⟩
-      have hk : l⁻¹ * g⁻¹⁻¹ * l * g⁻¹ ∈ f.ker := by
-        rw [MonoidHom.mem_ker]
-        simp only [map_mul, map_inv, inv_inv]
-        have h2 := mem_centralizer_iff.mp hg (f l) (mem_map_of_mem f hl)
-        rw [show (f l)⁻¹ * f g * f l * (f g)⁻¹ = (f l)⁻¹ * (f g * f l) * (f g)⁻¹ by group,
-          ← h2]
-        group
-      exact hkc hk
-  rw [mem_centralizer_iff]
-  intro l hl
-  have h2 := h1 l hl
-  rw [mem_bot, inv_inv] at h2
-  calc l * g = l * (l⁻¹ * g * l * g⁻¹) * g := by rw [h2, mul_one]
-    _ = g * l := by group
-
-omit [Finite G'] in
-theorem centralizer_map_eq_of_odd {f : G →* G'} (hf : Function.Surjective f) {L : Subgroup G}
-    [Group.IsPerfect L] (hodd : Odd (Nat.card f.ker)) (hkc : f.ker ≤ centralizer (L : Set G)) :
-    centralizer ((L.map f : Subgroup G') : Set G') = (centralizer (L : Set G)).map f := by
-  apply le_antisymm
-  · intro g' hg'
-    obtain ⟨g, rfl⟩ := hf g'
-    exact mem_map_of_mem f (mem_centralizer_of_map hodd hkc hg')
-  · rintro _ ⟨g, hg, rfl⟩
-    rw [mem_centralizer_iff]
-    rintro _ ⟨l, hl, rfl⟩
-    rw [← map_mul, ← map_mul, mem_centralizer_iff.mp hg l hl]
 
 omit [Finite G] [Finite G'] in
 theorem mem_map_iff_of_ker_le {f : G →* G'} {Y : Subgroup G} (hkY : f.ker ≤ Y) {x : G} :
@@ -384,14 +315,6 @@ theorem card_map_mul_card_ker {f : G →* G'} {Y : Subgroup G} (hkY : f.ker ≤ 
     (f.subgroupMap_surjective Y)).toEquiv, hker] at h2
   exact h2.symm
 
-omit [Finite G] [Finite G'] in
-theorem map_inf_of_ker_le {f : G →* G'} {A D : Subgroup G} (hkA : f.ker ≤ A) :
-    (A ⊓ D).map f = A.map f ⊓ D.map f := by
-  apply le_antisymm
-  · exact le_inf (map_mono inf_le_left) (map_mono inf_le_right)
-  · rintro _ ⟨hA, ⟨d, hd, rfl⟩⟩
-    have hdA := (mem_map_iff_of_ker_le hkA).mp hA
-    exact mem_map_of_mem f (mem_inf.mpr ⟨hdA, hd⟩)
 
 omit [Finite G] [Finite G'] in
 theorem map_mem_normalizer {f : G →* G'} {Y : Subgroup G} {g : G}

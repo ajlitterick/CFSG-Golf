@@ -175,16 +175,6 @@ private theorem codeK_eq (P : ℕ) : codeK P = codeT (unpack6 P) := by
   rw [h]
   rfl
 
-private theorem codeK_lt (P : ℕ) : codeK P < 68719476736 := by
-  have h : codeK P = 64 * (64 * (64 * (64 * (64 * (64 * 0 + fld6 P 0) + fld6 P 1) + fld6 P 2)
-      + fld6 P 3) + fld6 P 4) + fld6 P 5 := rfl
-  have := fld6_lt P 0
-  have := fld6_lt P 1
-  have := fld6_lt P 2
-  have := fld6_lt P 3
-  have := fld6_lt P 4
-  have := fld6_lt P 5
-  omega
 
 theorem sortedK_sound' {L : List ℕ} (h : sortedK L = true) :
     strictSorted (L.map fun x => codeT (unpack6 x)) = true := by

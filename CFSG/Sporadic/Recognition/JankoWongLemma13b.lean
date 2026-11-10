@@ -174,14 +174,6 @@ theorem card_CP :
     · omega
     · omega
 
-theorem CP_eq :
-    c.CP = c.OG ⊔ zpowers S.z := by
-  have h81 := c.card_OG_eq_81
-  refine (Subgroup.eq_of_le_of_card_ge (c.OG_sup_z_le_CP h81) ?_).symm
-  have hpos : 0 < Nat.card ↥(c.OG ⊔ zpowers S.z) := Nat.card_pos
-  have := Nat.le_of_dvd hpos (c.card_dvd_OG_sup_z h81)
-  rw [c.card_CP]
-  exact this
 
 theorem index_OG_CP :
     (c.OG.subgroupOf c.CP).index = 2 := by

@@ -19,8 +19,6 @@ variable {X : Type*} [Group X] {K : Subgroup X} {n : ℕ}
     K ⧸ Subgroup.center K ≃* alternatingGroup (Fin n) :=
   ((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot).trans e
 
-theorem quotEquiv_mk (hZ : Subgroup.center K = ⊥) (e : ↥K ≃* ↥(alternatingGroup (Fin n)))
-    (x : ↥K) : quotEquiv hZ e (QuotientGroup.mk x) = e x := rfl
 
 @[expose] noncomputable def piRep (hZ : Subgroup.center K = ⊥) (hn5 : 5 ≤ n) (hn6 : n ≠ 6)
     (e : ↥K ≃* ↥(alternatingGroup (Fin n))) :

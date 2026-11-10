@@ -23,14 +23,6 @@ theorem le_e6HighestRoot
     forall_const] at h
   exact h k hk i
 
-theorem eq_e6HighestRoot_of_height {α : Fin TwistTag.E6.tag.rank → ℤ}
-    (hα : IsRoot TwistTag.E6.tag α) (h : height α = 11) : α = e6HighestRoot := by
-  obtain ⟨k, hk, rfl⟩ := (RootCertificate.isRoot_iff (Tag.rootCertificate_check _)).1 hα
-  have hl : (List.range TwistTag.E6.tag.rootCertificate.roots.length).all fun k =>
-      decide (height (TwistTag.E6.tag.rootCertificate.root k) = 11 →
-        TwistTag.E6.tag.rootCertificate.root k = e6HighestRoot) := by decide
-  simp only [List.all_eq_true, List.mem_range, decide_eq_true_eq] at hl
-  exact hl k hk h
 
 @[expose] def theta : Fin Tag.E6.rank → ℤ := e6HighestRoot
 
@@ -45,7 +37,6 @@ theorem isRoot_theta : IsRoot Tag.E6 theta := isRoot_e6HighestRoot
 
 theorem height_theta : height theta = 11 := height_e6HighestRoot
 
-theorem toLat_theta : toLat E6Folded.θ = theta := rfl
 
 @[expose] def rootInvM :
     ModGL Tag.E6 K := pinnedX Tag.E6 K theta 1
@@ -99,10 +90,6 @@ theorem rootInv_ne_one :
   apply rootInvM_ne_one
   rw [← coe_rootInv, h, OneMemClass.coe_one]
 
-theorem orderOf_rootInv :
-    orderOf rootInv = 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact orderOf_eq_prime (by rw [pow_two, rootInv_mul_self]) rootInv_ne_one
 
 theorem betaG_rootInv :
     betaG rootInv = rootInv := Subtype.ext betaGL_rootInvM

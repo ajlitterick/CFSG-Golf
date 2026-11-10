@@ -20,10 +20,6 @@ theorem co2Chain_check :
     rawOrbitSizes 2300 co2StrongArrs co2BaseArr = [2300, 1408, 567, 192, 30, 4] :=
   Certificates.certificate3117.1
 
-theorem co2cChain_check :
-    rawChainOK 2300 co2cOrigArrs co2cStrongArrs co2cBaseArr co2cWordArrs 4 = true ∧
-    rawOrbitSizes 2300 co2cStrongArrs co2cBaseArr = [2300, 1408, 567, 192, 30, 4] :=
-  Certificates.certificate3117.2.1
 
 theorem co2Conj_check :
     isInvA 2300 co2WArr (invCand 2300 co2WArr) = true ∧

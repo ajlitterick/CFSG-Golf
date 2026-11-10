@@ -62,9 +62,6 @@ variable {p f : ℕ} {F : Type} [Field F]
     change (h.norm (a : F))⁻¹ = 1
     rw [show h.norm (a : F) = 1 from ha, inv_one]
 
-theorem mem_normOneUnits (h : UnitaryFieldData p f F) {c : Fˣ} :
-    c ∈ normOneUnits h ↔ h.norm (c : F) = 1 :=
-  Iff.rfl
 
 theorem bar_eq_inv_of_norm (h : UnitaryFieldData p f F) {c : Fˣ} (hc : c ∈ normOneUnits h) :
     h.bar (c : F) = ((c⁻¹ : Fˣ) : F) := by

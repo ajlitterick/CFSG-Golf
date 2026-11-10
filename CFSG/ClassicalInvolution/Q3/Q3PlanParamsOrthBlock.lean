@@ -33,9 +33,6 @@ variable {F V : Type} [Field F] [AddCommGroup V] [Module F V] {Q : QuadraticForm
   map_one' := LinearEquiv.ext fun _ => Subtype.ext rfl
   map_mul' _ _ := LinearEquiv.ext fun _ => Subtype.ext rfl
 
-theorem coe_blockRes (S : Submodule F V) (C : Subgroup (V ≃ₗ[F] V))
-    (hC : ∀ g ∈ C, ∀ x, x ∈ S ↔ g x ∈ S) (g : ↥C) (s : S) :
-    ((blockRes S C hC g s : S) : V) = g.1 s := rfl
 
 end Restriction
 

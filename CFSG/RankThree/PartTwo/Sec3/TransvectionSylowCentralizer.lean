@@ -82,10 +82,6 @@ theorem mem_fixingSubgroup_span_iff {g : V ≃ₗ[ZMod 3] V} {v : V} :
     obtain ⟨c, rfl⟩ := Submodule.mem_span_singleton.mp hy
     rw [LinearEquiv.smul_def, map_smul, h]
 
-theorem apply_eq_of_mem_closure {S : Set (V ≃ₗ[ZMod 3] V)} {v : V} (hS : ∀ s ∈ S, s v = v)
-    {s : V ≃ₗ[ZMod 3] V} (hs : s ∈ Subgroup.closure S) : s v = v :=
-  ((Subgroup.closure_le (MulAction.stabilizer (V ≃ₗ[ZMod 3] V) v)).mpr
-    (fun t ht => (hS t ht : t • v = v)) hs : s • v = v)
 
 theorem sub_mem_of_mapsTo_of_fix {P L : Submodule (ZMod 3) V} (hPL : IsCompl P L)
     {x : V ≃ₗ[ZMod 3] V} (hxP : ∀ p ∈ P, x p ∈ P) (hxL : ∀ l ∈ L, x l = l) (u : V) :

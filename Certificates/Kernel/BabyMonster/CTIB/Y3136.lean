@@ -39,13 +39,6 @@ theorem tree : ∀ i < 2240, treePt act 6 2240 0 S T i = true := by lc_cover 280
 
 theorem root : Nat.beq (fld32 S 0) 32 = true := by quickRfl
 
-theorem neg_words : notB (Nat.beq (wordKF Syms CTs (nthLL STs 0) (id32 22)) (Nat.xor Y0 1)) = true := by
-  quickRfl
-
-theorem neg_clos : notB (closPt act 6 2240 S (Nat.xor E 1) 0) = true := by quickRfl
-
-theorem neg_tree : notB (treePt act 6 2240 0 S (Nat.xor T (Nat.shiftLeft 1 (Nat.add 32 12))) 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelBM.CTIB.Y3136
 

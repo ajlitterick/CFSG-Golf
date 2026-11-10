@@ -65,10 +65,6 @@ variable {Γ : Type} [Group Γ]
   (secHom W U').comp (ρ.codRestrict (stabSub W ⊓ stabSub U')
     (fun g => Subgroup.mem_inf.2 ⟨hW g, hU g⟩))
 
-theorem secAct_apply (ρ : Γ →* MulAut V) (W U' : Subgroup V) (hW : ∀ g : Γ, ρ g ∈ stabSub W)
-    (hU : ∀ g : Γ, ρ g ∈ stabSub U') (g : Γ) (w : ↥W) :
-    secAct ρ W U' hW hU g (QuotientGroup.mk w) =
-      QuotientGroup.mk (⟨ρ g (w : V), (hW g (w : V)).2 w.2⟩ : ↥W) := rfl
 
 theorem secAct_eq_one_iff (ρ : Γ →* MulAut V) (W U' : Subgroup V) (hW : ∀ g : Γ, ρ g ∈ stabSub W)
     (hU : ∀ g : Γ, ρ g ∈ stabSub U') (g : Γ) :

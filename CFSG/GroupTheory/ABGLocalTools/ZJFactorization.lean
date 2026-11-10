@@ -146,11 +146,6 @@ theorem zj_factorization (hp : p ≠ 2) (hcon : IsPConstrained p G) (hst : IsPSt
   rw [← hfr]
   apply sup_le le_sup_right (sup_le le_sup_left (le_sup_of_le_right Subgroup.le_normalizer))
 
-theorem zj_factorization_mul (hp : p ≠ 2) (hcon : IsPConstrained p G) (hst : IsPStable p G)
-    (P : Sylow p G) :
-    (pPrimeCore p G : Set G) * (normalizer (thompsonCenter (P : Subgroup G) : Set G) : Set G) =
-      Set.univ := by
-  rw [← Subgroup.normal_mul, zj_factorization hp hcon hst P, Subgroup.coe_top]
 
 end ZJ
 

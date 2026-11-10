@@ -125,29 +125,6 @@ theorem dec_mem_frameDelta
   rw [dec_eq_inv_smul hw hv]
   exact (smul_mem_frameDelta_iff (Hvis.inv_mem (psiVis_mem_Hvis _))).2 twoΩCls_mem_frameDelta
 
-theorem frameDelta_eq_iUnion_orbit
-    {T : Native.Cover.CoverTables} {seeds sizes : Array ℕ}
-    (hF : Native.Cover.CoverFacts T (rowsU cA cB) seeds sizes)
-    (hseed : ∀ r < seeds.size, dec seeds[r]! ∈ frameDelta) :
-    frameDelta = ⋃ r ∈ Set.Iio seeds.size,
-      MulAction.orbit (Subgroup.closure (gensU cA cB hA hB '' Set.Iio 2)) (dec seeds[r]!) := by
-  have hk := hk_gensU cA cB hA hB
-  have h1 := hF.image_foundSet_eq_iUnion hk
-  have h2 := hF.ncard_image_foundSet (dec := dec) dec_inj
-  have hsub : (⋃ r ∈ Set.Iio seeds.size,
-      MulAction.orbit (Subgroup.closure (gensU cA cB hA hB '' Set.Iio 2)) (dec seeds[r]!)) ⊆
-      frameDelta := by
-    intro x hx
-    simp only [Set.mem_iUnion, Set.mem_Iio, exists_prop] at hx
-    obtain ⟨r, hr, ⟨⟨k, hk'⟩, rfl⟩⟩ := hx
-    exact (smul_mem_frameDelta_iff (closure_gensU_le cA cB hA hB hk')).2 (hseed r hr)
-  have hfin : frameDelta.Finite :=
-    Set.finite_of_ncard_ne_zero (by rw [ncard_frameDelta]; norm_num)
-  have hcard : frameDelta.ncard ≤ (⋃ r ∈ Set.Iio seeds.size, MulAction.orbit
-      (Subgroup.closure (gensU cA cB hA hB '' Set.Iio 2)) (dec seeds[r]!)).ncard := by
-    rw [← h1, h2, ncard_frameDelta]
-    exact le_of_eq rfl
-  exact (Set.eq_of_subset_of_ncard_le hsub hcard hfin).symm
 
 theorem orbit_eq_image {s : ℕ}
     (hfin : CFSG.KC.AxisPlane.natOrbit (rowsU cA cB) s ⊆ Set.Iio (2 ^ 24)) :
@@ -211,11 +188,6 @@ structure CoverHyp (cA cB : List Native.Gen) (hs : ℕ → List Native.Gen) (n :
       (CFSG.KC.AxisPlane.natOrbit (rowsU cA cB) (lam r'))
   total : ((List.range n).map size).sum = 8292375
 
-theorem seeds_size (n : ℕ) (lam : ℕ → ℕ) : ((List.range n).map lam).toArray.size = n := by simp
-
-theorem seeds_get (n : ℕ) (lam : ℕ → ℕ) {r : ℕ} (hr : r < n) :
-    ((List.range n).map lam).toArray[r]! = lam r := by
-  simp [getElem!_pos, hr]
 
 namespace CoverHyp
 
@@ -273,7 +245,6 @@ include H in
 @[expose] noncomputable def hElt (r : Fin n) : Gvis :=
   ⟨wordLin (hs r), wordLin_mem_Gvis_of_isVis _ (H.hH r r.2)⟩
 
-theorem hElt_val (r : Fin n) : (hElt H r : SpaceB ≃ₗ[ℚ] SpaceB) = wordLin (hs r) := rfl
 
 theorem dec_lam_eq (r : Fin n) : dec (lam r) = (hElt H r)⁻¹ • twoΩCls := by
   rw [gvis_smul_def, map_inv]
@@ -380,7 +351,6 @@ theorem natCard' (r : Fin n) :
   exact h1
 
 end CoverHyp
-
 
 
 namespace Cert

@@ -287,16 +287,6 @@ theorem IsLinearDecomposition.hasDihedralSylowTwo {H : Type} [Group H] [Finite H
   exact ⟨m, hm, ⟨((Subgroup.subgroupOfEquivOfLe hPL).symm.trans
     (MulEquiv.subgroupCongr (Sylow.coe_subtype P hPL).symm)).trans e⟩⟩
 
-theorem IsLinearDecomposition.map_eq_pGLStar_of_hasSemidihedralSylow {H : Type} [Group H]
-    [Finite H] {F : Type} [Field F] [Finite F] {ι : H →* PGammaL2 F} {L E : Subgroup H}
-    {S : Sylow 2 H} (hd : IsLinearDecomposition ι L E S) {n : ℕ}
-    (hn : HasSemidihedralSylow H n) : L.map ι = pGammaL2PGLStar F := by
-  rcases hd.map_eq with h | h | h
-  · exact absurd (hd.hasDihedralSylowTwo (Or.inl h))
-      (not_hasDihedralSylowTwo_of_hasSemidihedralSylow hn)
-  · exact absurd (hd.hasDihedralSylowTwo (Or.inr h))
-      (not_hasDihedralSylowTwo_of_hasSemidihedralSylow hn)
-  · exact h
 
 theorem isKleinFour_map_of_injective {G G' : Type*} [Group G] [Group G'] {f : G →* G'}
     (hf : Function.Injective f) {V : Subgroup G} (hV : IsKleinFour V) : IsKleinFour (V.map f) :=

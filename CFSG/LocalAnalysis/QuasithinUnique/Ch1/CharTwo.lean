@@ -170,23 +170,6 @@ theorem charTwo_inf_iInf_normalizer {M : Subgroup G} (hM : CharTwo M) :
         · exact (inf_le_left.trans inf_le_right).trans (iInf_le _ j)
     rwa [heq]
 
-theorem charTwo_of_eq_iInf_normalizer {M H : Subgroup G} (hM : CharTwo M) (hHM : H ≤ M) {n : ℕ}
-    (B : Fin n → Subgroup G) (hB : ∀ i, IsPGroup 2 (B i))
-    (hBN : ∀ i j, i ≤ j → B j ≤ H ⊓ Subgroup.normalizer (B i : Set G))
-    (hH : H = ⨅ i, M ⊓ Subgroup.normalizer (B i : Set G)) : CharTwo H := by
-  have heq : H = M ⊓ ⨅ i, Subgroup.normalizer (B i : Set G) := by
-    apply le_antisymm
-    · refine le_inf hHM (le_iInf fun i => ?_)
-      have hi : H ≤ M ⊓ Subgroup.normalizer (B i : Set G) := by
-        rw [hH]
-        exact iInf_le (fun i => M ⊓ Subgroup.normalizer (B i : Set G)) i
-      exact hi.trans inf_le_right
-    · rw [hH]
-      exact le_iInf fun i => inf_le_inf_left M (iInf_le _ i)
-  rw [heq]
-  exact charTwo_inf_iInf_normalizer hM n B hB
-    (fun i => ((hBN i i le_rfl).trans inf_le_left).trans hHM)
-    (fun i j hij => (hBN i j hij).trans inf_le_right)
 
 omit [Finite G] in
 theorem charTwo_normalizer_of_normal_in_sylow

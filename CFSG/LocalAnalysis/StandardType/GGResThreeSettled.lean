@@ -122,13 +122,6 @@ theorem ggResMultiNodeRestThreeSettledInput_of_census (hRig : GGLabelRigidInput)
   · exact Or.inr ⟨hDK, hnK, hE6, hL2, hLn, hLs,
       hH.residualLabel_K hRig hraw hiso hnK hK hE6 hL2 hLn hLs⟩
 
-theorem ggResMultiNodeRestThreeCensusInput_of_settled (h : GGResMultiNodeRestThreeSettledInput) :
-    GGResMultiNodeRestThreeCensusInput := by
-  intro G _ _ p B Bs x L D J y K hH _ hF hS hE ⟨hD, hrest⟩
-  refine h G p B Bs x L D J y K hH hF hS hE ⟨?_, hrest⟩
-  rcases hD with ⟨hDL, hnL, hE6L, -⟩ | ⟨hDK, hnK, hE6, hL2, hLn, hLs, -⟩
-  · exact Or.inl ⟨hDL, hnL, hE6L⟩
-  · exact Or.inr ⟨hDK, hnK, hE6, hL2, hLn, hLs⟩
 
 section RelativeF4ActualSide
 
@@ -192,21 +185,6 @@ end RelativeF4ActualSide
 
 section TwE6QPlusTyped
 
-theorem ggResLeaf_twE6Plus_three_noLE6 :
-    GGResLeaf fun _ _ _ p _ _ Bs _ L _ J _ K =>
-      p = 3 ∧
-      GGInnerDiagOnLabel (fun p lab => lab.tag = .twE6 ∧ p ∣ 2 ^ lab.n + 1) p Bs L ∧
-      GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny ∧
-      ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypLE6 ∧
-      ¬ (GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny ∨
-         GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) ∧
-      ¬ ggReservedRows p J L K ∧
-      ¬ (GGResRowAt ggRowTwoNode p J L ∨ GGResRowAt ggRowTwoNode p J K) ∧
-      ¬ (GGResRowAt ggRowCorank2C p J L ∨ GGResRowAt ggRowCorank2C p J K) ∧
-      ¬ (GGResRowAt ggRowSUCorank2 p J L ∨ GGResRowAt ggRowSUCorank2 p J K) := by
-  rintro G _ _ p B Bs x L D J y K hH _ _ _ _ ⟨hp3, hM, hD, hnD, -⟩
-  subst hp3
-  exact (hnD (hH.levi_typLE6_of_twE6_qplus_L hM hD)).elim
 
 end TwE6QPlusTyped
 
@@ -890,48 +868,6 @@ theorem GGResHyp.relativeF4_K3_classification_of_L2
     hrank5, hd6, hn2, hodd, hn3, hFK, hBs5, hAJ6, hsurv6, hL2⟩
 
 
-theorem GGResHyp.relativeF4_K3_actual_models_of_L2
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hL2 : GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypAny)
-    (hAL : Nat.card ↥(ggAutomizer L Bs) = 1152)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        3 ∣ 2 ^ lab.n + 1) 3 Bs K)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G))
-    (h3 : GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny) :
-    ∃ (F : Type) (_ : Field F) (_ : Finite F) (n : ℕ)
-      (ψ : ↥(unitarySU 2 n F 6) →* ↥K) (δ : ↥(unitarySU 2 n F 3) →* ↥J),
-      Nat.card F = (2 ^ n) ^ 2 ∧ Odd n ∧ 3 ≤ n ∧ UnitTB.Model ψ ∧ UnitTB.Model δ ∧
-        (∀ a ∈ (ggGamma K hN).range, ∃ t : Fin 6 → F, ActsDiagU ψ a t) ∧
-        (∀ a ∈ (ggGamma J hH.Bs_le_normalizer_J).range,
-          ∃ t : Fin 3 → F, ActsDiagU δ a t) := by
-  obtain ⟨F₀, _, _, n₀, rank₀, d₀, θ₀, ψ₀, _, _, _, _, _, _, _, hAJsix, _⟩ :=
-    hH.relativeF4_K3_classification_of_L2 hL2 hAL hU hN h3
-  obtain ⟨F, hField, hFinite, n, rank, d, θ, ψ,
-    hr4, hn2, hd5, hd_eq, hFK, hpq, hM, hdiag⟩ :=
-    hH.exists_unitaryModel_K_of_label_qGeFour_literal hU hN
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  have hLB : GGLBalanceInput := ggGammaSuppliers_proved.1
-  obtain ⟨r, hdr, _, _, _, _, _, hAJ⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hM hpq hd5 hdiag h3
-  have hfac : (r - 2).factorial = (3 : ℕ).factorial := by
-    calc (r - 2).factorial = 6 := hAJ.symm.trans hAJsix
-         _ = (3 : ℕ).factorial := by norm_num
-  have hr : r - 2 = 3 := (Nat.factorial_inj (by omega : 1 < r - 2)).mp hfac
-  have hd6 : d = 6 := by omega
-  cases hd6
-  obtain ⟨_, δ, hδ, hδdiag⟩ :=
-    hH.unitary_exactThree_J_model_three_of_K hLB hM hpq hdiag h3
-  have hodd : Odd n :=
-    CFSG.RankThree.PartTwo.Census.odd_of_three_dvd_two_pow_add_one hpq
-  have hn3 : 3 ≤ n := by
-    rcases hodd with ⟨k, hk⟩
-    omega
-  exact ⟨F, hField, hFinite, n, ψ, δ, hFK, hodd, hn3, hM, hδ, hdiag, hδdiag⟩
-
 theorem GGResHyp.relativeF4_K3_classification
     {G : Type} [Group G] [Finite G]
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
@@ -1119,33 +1055,6 @@ theorem ggResMultiNodeRestThreeOutsideRowsInput_of_KUnitaryQGeFourJoin
     (ggResMultiNodeRestThreeSingularInput_of_settled hT hLift hTCJ hRig hLB hP hQ1
       (ggResMultiNodeRestThreeSettledInput_of_KUnitaryQGeFourJoin hRig hraw hiso hK))
 
-
-
-theorem GGResHyp.not_exactThree_K_of_f4Two_L
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hL2mark : GGInnerDiagOnLabel
-      (fun p lab => p = 3 ∧ lab.tag = .F4 ∧ lab.n = 1) 3 Bs L)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 4 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-        3 ∣ 2 ^ lab.n + 1) 3 Bs K)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G))
-    (h3 : GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypAny) : False := by
-  have hJ0 : GGInnerDiagOn Bs J :=
-    ggBstarInnerDiagJInput_holds G 3 B Bs x L D J hH.1 hH.2.2.1.1
-  have hJ : GGInnerDiagOnLabel (fun _ _ => True) 3 Bs J :=
-    largeEvenMarking_mono (fun _ _ _ _ _ _ h => ⟨trivial, h⟩) hJ0
-  have hF4three : GGInnerDiagOnLabel GGF4ThreeLabel 3 Bs L :=
-    hL2mark.mono_label (fun lab h => by
-      obtain ⟨hp, htag, hn⟩ := h
-      exact ⟨htag, hp, by rw [hn]; norm_num⟩)
-  rcases ggResExact3_K_reverse_or_exact2_singular ggTBFixInput_holds hH h3 with
-    hL3 | ⟨hL2, -⟩
-  · exact (ggResExact3_false_of_f4Three_L (ggTBTorAll_of_remaining trivial)
-      ggTBTorLiftRows_holds TCJ.ggTCJKnown_holds ggLabelRigidInput_holds
-      (ggGammaSuppliers_proved.2) hH hJ hF4three hL3).elim
-  · exact ggResF4ExactTwo_false hH hL2mark hL2
 
 end Settled
 

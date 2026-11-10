@@ -59,7 +59,6 @@ theorem blt_f {a b : ℕ} (h : b ≤ a) : Nat.blt a b = false := by
 
 theorem brec_t (a b : ℕ) : Bool.rec (motive := fun _ => ℕ) a b true = b := rfl
 
-theorem brec_f (a b : ℕ) : Bool.rec (motive := fun _ => ℕ) a b false = a := rfl
 
 theorem andB_t (b : Bool) : andB true b = b := rfl
 
@@ -86,8 +85,6 @@ theorem bitN_dec (x i : ℕ) : Nat.beq (bitN x i) (nat_lit 1) = x.testBit i := b
   rw [P15.bitN_eq']
   cases x.testBit i <;> rfl
 
-theorem wordT_testBit (a k : ℕ) : (wordT a).testBit k = (Native.wordN a).testBit k := by
-  rw [CFSG.KC.Trace6091.wordT_eq, native_wordN]
 
 @[expose] def vOdd (w i l : ℕ) : ℕ :=
   if w.testBit l then (if l = i then 3 else 14) else (if l = i then 12 else 1)

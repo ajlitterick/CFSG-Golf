@@ -138,11 +138,6 @@ private theorem w183_span_normOne_eq_top {ι : Type} [Fintype ι] {K : Type} [Fi
         exact Submodule.add_mem _ (Submodule.subset_span hw1) (Submodule.subset_span hwx1)
     · exact absurd hx1' hx1
 
-private theorem w183_neg_eq_self {ι : Type} {K : Type} [Field K] [Algebra (ZMod 2) K]
-    (y : ι → K) : -y = y := by
-  haveI : CharP K 2 := (Algebra.charP_iff (ZMod 2) K 2).mp inferInstance
-  funext i
-  exact CharTwo.neg_eq (y i)
 
 private theorem w183_sub_smul_eq_add {ι : Type} {K : Type} [Field K] [Algebra (ZMod 2) K]
     (x : ι → K) (a : K) (v : ι → K) : x - a • v = x + a • v := by

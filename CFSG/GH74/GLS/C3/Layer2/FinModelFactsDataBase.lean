@@ -25,12 +25,9 @@ theorem flatPerm_eq {m : ℕ} (p : Perm (Fin m)) : flatPerm p = p := by
   ext i
   simp [flatPerm, flatPermAux]
 
-theorem evalWord_eq {m r : ℕ} (y : Fin r → Perm (Fin m)) (w : List (Fin r)) :
-    evalWord y w = (w.map y).prod := flatPerm_eq _
 
 theorem a0f_eq (n : ℕ) [NeZero n] : a0f n = a0perm n := flatPerm_eq _
 
-theorem y0p_eq (n : ℕ) [NeZero n] : y0p n = emb n (x0 n) := flatPerm_eq _
 
 theorem mem_Rl_iff (n : ℕ) [NeZero n] (p : Perm (Fin (n + 4))) :
     p ∈ Rl n ↔ ∃ t ∈ Tl n, emb n t = p := by
@@ -49,7 +46,6 @@ theorem mem_Cl_iff (n : ℕ) [NeZero n] (p : Perm (Fin (n + 4))) :
     p ∈ Cl n ↔ p ∈ Sl n ∧ a0perm n * p = p * a0perm n := by
   simp [Cl, a0f_eq]
 
-theorem Cl_nodup (n : ℕ) [NeZero n] (h : (Sl n).Nodup) : (Cl n).Nodup := h.filter _
 
 end Facts
 

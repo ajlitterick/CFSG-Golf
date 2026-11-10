@@ -268,7 +268,6 @@ private lemma scalar_of_proj_eq_of_col {X g : SpecialLinearGroup (Fin n) K}
   simpa [Pi.smul_apply, Pi.single_eq_same, smul_eq_mul, mul_assoc] using this
 
 
-
 private noncomputable def diagElt (f : Fin n → K) (hf : ∏ i, f i = 1) :
     SpecialLinearGroup (Fin n) K :=
   ⟨Matrix.diagonal f, by rw [Matrix.det_diagonal]; exact hf⟩
@@ -395,13 +394,6 @@ private lemma cornerFun_last {m : ℕ} (hm : 3 ≤ m) (lam : K) :
   have h0l : (Fin.last m : Fin (m + 1)) ≠ 0 := AutPSL.last_ne_zero (m := m) (by omega)
   simp [cornerFun, h0l]
 
-private lemma cornerFun_rev_zero {m : ℕ} (hm : 3 ≤ m) (lam : K) :
-    cornerFun (K := K) hm lam (Fin.rev 0) = lam := by
-  simpa using cornerFun_last (K := K) hm lam
-
-private lemma cornerFun_rev_last {m : ℕ} (hm : 3 ≤ m) (lam : K) :
-    cornerFun (K := K) hm lam (Fin.rev (Fin.last m)) = lam := by
-  simpa using cornerFun_zero (K := K) hm lam
 
 private lemma entry_D_eq (D : GL (Fin n) K) {i j r s : Fin n} (hij : i ≠ j)
     (hD : (D : Matrix (Fin n) (Fin n) K) *
@@ -417,7 +409,6 @@ private lemma entry_D_eq (D : GL (Fin n) K) {i j r s : Fin n} (hij : i ≠ j)
   rw [Matrix.GeneralLinearGroup.coe_inv]
   rw [entry_conj_single (D : Matrix (Fin n) (Fin n) K) (1 : K) hD' hij, one_mul,
     entry_conj_single_one]
-
 
 
 private lemma col_actions_of_levi {m : ℕ} (hm : 3 ≤ m)
@@ -725,7 +716,6 @@ private lemma key_to_gl {m : ℕ} (b : SpecialLinearGroup (Fin (m + 1)) K)
   simp only [Matrix.mul_assoc]
 
 
-
 theorem eq_one_of_conj_levi [Finite K] {m : ℕ} (hm : 3 ≤ m)
     (hq : 4 ≤ m ∨ 4 ≤ Nat.card K) {c : MulAut (projectiveSL (m + 1) K)}
     (hc : c ∈ AutPSL.compl) {A : GL (Fin (m + 1)) K}
@@ -1029,7 +1019,6 @@ theorem eq_one_of_conj_levi [Finite K] {m : ℕ} (hm : 3 ≤ m)
         apply HypSixTypeA.eq_one_of_mul_self_eq_one
         simpa [pow_two] using h2
       exact hvalne h1
-
 
 
 end CFSG.StandardType.KGPSL

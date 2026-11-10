@@ -27,12 +27,6 @@ open CFSG.KC.Loop CFSG.KLie.CT CFSG.KC.M1F2 CFSG.KC.Co1F2 CFSG.KC.Co1B CFSG.KC.C
 @[expose] noncomputable def sumU (BT U : List Nat) (cs : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) (nat_lit 0) (fun c _ ih => Nat.xor (slotU BT U c) ih) cs
 
-@[expose] noncomputable def slotP (IMS : List (List (List Nat))) (P : List Nat) (c : Nat) : Nat :=
-  selK (getLP (getLLP IMS (Nat.div c (nat_lit 32))) (Nat.mod c (nat_lit 32)))
-    (getL (nat_lit 0) P (Nat.div c (nat_lit 32)))
-
-@[expose] noncomputable def sumP (IMS : List (List (List Nat))) (P : List Nat) (cs : List Nat) : Nat :=
-  List.rec (motive := fun _ => Nat) (nat_lit 0) (fun c _ ih => Nat.xor (slotP IMS P c) ih) cs
 
 @[expose] noncomputable def codesOK (nb i : Nat) (cs : List Nat) : Bool :=
   List.rec (motive := fun _ => Bool) true
@@ -71,50 +65,12 @@ where
     (andB (Nat.beq (vmF (nat_lit 24) eT u) u) (andB (memK XB u)
     (andB (testsUK XB BT U i T) (eqLL IM (imgsK BT E))))))
 
-@[expose] noncomputable def levelsOK (XB : Nat → Nat) (BT U : List Nat) (IMS : List (List (List Nat))) :
-    List (List Nat) → List Nat → List Nat → List (List (List Nat)) → Nat → Bool
-  | E :: Es, m :: Ms, u :: Us, T :: Ts, i =>
-    andB (levelOK XB BT U i E m u T (getLLP IMS i)) (levelsOK XB BT U IMS Es Ms Us Ts (Nat.succ i))
-  | [], [], [], [], _ => true
-  | _, _, _, _, _ => false
 
 @[expose] noncomputable def packU (BT U SL : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat) (fun _ => nat_lit 0)
     (fun c _ ih r => Nat.lor (Nat.shiftLeft (slotU BT U c) (Nat.mul (nat_lit 24) r)) (ih (Nat.succ r)))
     SL (nat_lit 0)
 
-@[expose] noncomputable def passPK (XB : Nat → Nat) (IMS : List (List (List Nat))) (P : List Nat) (x : Nat)
-    (T : List (List Nat)) : Bool :=
-  List.rec (motive := fun _ => Bool) true
-    (fun t _ ih => andB (Nat.beq (bitN (memK XB (sumP IMS (List.append P (List.cons x List.nil))
-      (List.tail t)))) (List.headD t (nat_lit 2))) ih) T
-
-@[expose] noncomputable def candPK (XB : Nat → Nat) (IMS : List (List (List Nat))) (E : List Nat)
-    (T : List (List Nat)) (P : List Nat) (acc : List (List Nat)) : Nat → List (List Nat) :=
-  Nat.rec (motive := fun _ => List (List Nat)) acc
-    (fun x ih => Bool.rec (motive := fun _ => List (List Nat)) ih
-      (List.cons (List.append P (List.cons x List.nil)) ih)
-      (andB (memK XB (selK E x)) (passPK XB IMS P x T)))
-
-@[expose] noncomputable def stepPK (XB : Nat → Nat) (IMS : List (List (List Nat))) (E : List Nat)
-    (T : List (List Nat)) (Ps : List (List Nat)) : List (List Nat) :=
-  List.rec (motive := fun _ => List (List Nat)) List.nil
-    (fun P _ ih => candPK XB IMS E T P ih (pw2 (lenL E))) Ps
-
-@[expose] noncomputable def searchPK (XB : Nat → Nat) (IMS : List (List (List Nat))) :
-    List (List Nat) → List (List (List Nat)) → List (List Nat) → List (List Nat)
-  | E :: Es, T :: Ts, Ps => searchPK XB IMS Es Ts (stepPK XB IMS E T Ps)
-  | _, _, Ps => Ps
-
-@[expose] noncomputable def lenLL (L : List (List Nat)) : Nat :=
-  List.rec (motive := fun _ => Nat) (nat_lit 0) (fun _ _ ih => Nat.succ ih) L
-
-@[expose] noncomputable def leafPK (XB : Nat → Nat) (BT : List Nat) (Es : List (List Nat)) (Ms U : List Nat)
-    (Ts : List (List (List Nat))) (IMS : List (List (List Nat))) (SL : List Nat) (UIT N : Nat) : Bool :=
-  andB (Nat.blt (lenL BT) (nat_lit 33)) (andB (levelsOK XB BT U IMS Es Ms U Ts (nat_lit 0))
-    (andB (Nat.beq (lenL SL) (nat_lit 24)) (andB (codesOK (lenL BT) (Nat.sub (lenL U) (nat_lit 1)) SL)
-    (andB (Nat.beq (mulWK UIT (packU BT U SL)) oneK)
-      (Nat.beq (lenLL (searchPK XB IMS Es Ts (List.cons List.nil List.nil))) N)))))
 
 end CFSG.KC.Co1LeafP
 

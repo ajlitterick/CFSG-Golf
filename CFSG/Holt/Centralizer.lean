@@ -19,6 +19,5 @@ theorem exists_sylow_eq_subgroupOf_of_fusionIsSylowIn {p : ℕ} {R K : Subgroup 
   rw [← hmap]
   exact (Subgroup.comap_map_eq_self_of_injective K.subtype_injective Q).symm
 
-variable [Finite X] [Finite Ω] [IsPretransitive X Ω] {z : X}
 
 end CFSG.Holt

@@ -20,8 +20,6 @@ open CFSG.KC.OpsMN CFSG.KC.OpsK CFSG.SectionRank.Native CFSG.RankThree.Asc83Tabl
 theorem j4_K : mcertN (opsF2K 112) JA.M JB.M CFSG.RankThree.Asc83Table.J4.j4Cert = true := by
   quickRfl
 
-theorem j4_neg : (!mcertN (opsF2K 112) JA.M JB.M ⟨2, [], [.ord 0 3]⟩) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

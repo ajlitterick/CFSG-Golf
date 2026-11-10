@@ -19,7 +19,5 @@ theorem tableCheck_eq : tableCheck = true :=
 theorem elemCheck_eq : elemCheck = true :=
   Certificates.certificate10020.2.2.1
 
-theorem lamCheck_eq : lamCheck = true :=
-  Certificates.certificate10020.2.2.2
 
 end CFSG.ComponentClassification.J2Cover.External

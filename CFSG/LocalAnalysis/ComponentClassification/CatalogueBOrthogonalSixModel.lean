@@ -110,11 +110,6 @@ theorem sixBar_sharp (delta : K) (X : Matrix (Fin 4) (Fin 4) (extension delta)) 
     · rw [Matrix.transpose_smul, hX.1, smul_neg]
     · rw [sharp_base_smul, hX.2, sixBar_smul, Matrix.mul_smul, Matrix.smul_mul]
 
-theorem mem_sixSubmodule (delta : K)
-    (X : Matrix (Fin 4) (Fin 4) (extension delta)) :
-    X ∈ sixSubmodule delta ↔ X.transpose = -X ∧
-      sharp X = sixGram (extension delta) * sixBar delta X * sixGram (extension delta) :=
-  Iff.rfl
 
 theorem extension_two_ne_zero (delta : K) (h2 : (2 : K) ≠ 0) :
     (2 : extension delta) ≠ 0 := by
@@ -212,11 +207,6 @@ theorem six_original_coordinates (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2
       rw [ha', hf', hc'', hd'', hb]
       rfl
 
-theorem six_generator_coordinate (delta r : K) :
-    (⟨0, r⟩ : extension delta) =
-      QuadraticAlgebra.omega * algebraMap K (extension delta) r := by
-  apply QuadraticAlgebra.ext <;> simp [QuadraticAlgebra.re_mul,
-    QuadraticAlgebra.im_mul]
 
 @[expose] def sixCoordinates (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0) :
     (Fin 6 → K) ≃ₗ[K] sixSubmodule delta where
@@ -245,11 +235,6 @@ theorem six_generator_coordinate (delta r : K) :
 theorem sixCoordinates_val (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0)
     (x : Fin 6 → K) : (sixCoordinates delta h2 x).val = sixCoordinateMatrix delta x := rfl
 
-theorem sixCoordinates_symm_apply (delta : K) [Fact (¬ IsSquare delta)]
-    (h2 : (2 : K) ≠ 0) (X : sixSubmodule delta) :
-    (sixCoordinates delta h2).symm X =
-      ![(X.val 0 1).re, (X.val 2 3).re, (X.val 0 2).re,
-        (X.val 0 2).im, (X.val 0 3).im, (X.val 1 2).im] := rfl
 
 theorem six_finrank (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0) :
     Module.finrank K (sixSubmodule delta) = 6 := by

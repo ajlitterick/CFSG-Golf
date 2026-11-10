@@ -143,8 +143,6 @@ def commFam (xe : (Fin d → K) ≃ₗ[K] (Fin d → K)) : Set ((Fin d → K) �
       show w = (c⁻¹ * c) • w
       rw [inv_mul_cancel₀ hc0, one_smul]
 
-theorem mem_UP_right {xe : (Fin d → K) ≃ₗ[K] (Fin d → K)} {g : similarityPairs Q}
-    (hg : g ∈ UP Q xe) : g.val.right = 1 := hg.1
 
 theorem mem_commFam_of_specialBlock {xe : (Fin d → K) ≃ₗ[K] (Fin d → K)} {h : K[X]}
     (hh : h ∈ primaryFactors xe.toLinearMap) (hne1 : h ≠ X - 1) {f : (Fin d → K) ≃ₗ[K] (Fin d → K)}

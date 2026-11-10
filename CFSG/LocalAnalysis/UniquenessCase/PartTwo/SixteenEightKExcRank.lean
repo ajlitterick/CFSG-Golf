@@ -20,17 +20,6 @@ namespace CFSG.LocalAnalysis.UniquenessCase.PartTwo
 
 open CFSG.Open
 
-theorem s16k_pRank_le_add_of_hom {G G' : Type*} [Group G] [Finite G] [Group G'] [Finite G']
-    {A : Subgroup G} (φ : ↥A →* G') {p : ℕ} (hp : p.Prime) :
-    CFSG.Open.pRank p A ≤ CFSG.Open.pRank p (φ.ker.map A.subtype) + CFSG.Open.pRank p φ.range := by
-  have h := CFSG.AGLEmbedding.pRank_le_pRank_inf_ker_add_pRank_map (p := p) hp φ
-    (⊤ : Subgroup ↥A)
-  rw [top_inf_eq, ← MonoidHom.range_eq_map] at h
-  have h2 : CFSG.Open.pRank p φ.ker ≤ CFSG.Open.pRank p (φ.ker.map A.subtype) :=
-    CFSG.SectionRank.pRank_le_map hp.one_lt A.subtype A.subtype_injective φ.ker
-  have h3 : CFSG.Open.pRank p A = CFSG.Open.pRank p (⊤ : Subgroup ↥A) :=
-    CFSG.SectionRank.pRank_eq_pRank_top_subgroup A
-  omega
 
 theorem s16k_pRank_mulAut_congr {X Y : Type} [Group X] [Finite X] [Group Y] [Finite Y]
     (e : X ≃* Y) (p : ℕ) :

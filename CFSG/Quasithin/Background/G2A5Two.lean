@@ -127,10 +127,6 @@ theorem theta_not_mem_A4s {g : G} (hg : g ∈ L)
     (hgN : g ∉ Subgroup.normalizer (V₁ : Set G)) : S.D.θ ⟨g, hg⟩ ∉ A4s :=
   S.D.theta_not_mem_A4s (le_conjClosure V₁ L) hg hgN
 
-theorem Phi_I_surjective {g : G} (hg : g ∈ L) (hgN : g ∉ Subgroup.normalizer (V₁ : Set G)) :
-    ∀ A : A5, ∃ i : ↥(L ⊔ conjClosure V H),
-      (i : G) ∈ conjClosure V H ⊔ rconj (conjClosure V H) g ∧ S.Phi i = A :=
-  S.toCore.Phi_I_surjective hg hgN
 
 theorem G24_two_aux {g : G} (hg : g ∈ L) (hgN : g ∉ Subgroup.normalizer (V₁ : Set G)) :
     conjClosure V H ⊔ rconj (conjClosure V H) g = L ⊔ conjClosure V H := S.toCore.G24_two_aux hg hgN

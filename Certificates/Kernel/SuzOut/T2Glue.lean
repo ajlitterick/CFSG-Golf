@@ -43,8 +43,6 @@ open CFSG.ComponentClassification.SuzOutComp.Native CFSG.ComponentClassification
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KC.SuzOut CFSG.KC.TitsPrim
 open CertificateChecks.KernelSpor CertificateChecks.KernelSuzOut CertificateChecks.KernelSuzOut.T2
 
-private theorem split2 {a b : Bool} (h : (a && b) = true) : a = true ∧ b = true :=
-  Bool.and_eq_true _ _ ▸ h
 
 private theorem texts' : natsPK 9 (T2Lb 0) 1782 T2LabC.chars = true ∧
     natsPK 11 (T2Rp 0) 396 T2RepC.chars = true ∧ natsPK 4 (T2Lc 0) 396 T2LabelsC.chars = true ∧

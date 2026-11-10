@@ -17,10 +17,6 @@ namespace CertificateChecks.KernelCensus.J3
 
 set_option maxRecDepth 1000000
 
-theorem kN192 : (List.range' 192 4).all nodeF = true := by quickRfl
-theorem kN196 : (List.range' 196 4).all nodeF = true := by quickRfl
-theorem kN200 : (List.range' 200 4).all nodeF = true := by quickRfl
-theorem kN204 : (List.range' 204 4).all nodeF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J3
 

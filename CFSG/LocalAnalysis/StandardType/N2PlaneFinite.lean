@@ -15,7 +15,6 @@ abbrev Vec := Fin 2 → ZMod 5
 
 @[expose] def e1 : Vec := ![0, 1]
 
-@[expose] def om : Vec := ![1, 4]
 
 @[expose] def bad2 : Vec := ![1, 2]
 

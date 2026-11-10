@@ -61,22 +61,6 @@ theorem mcl_faithful_parts :
 theorem mclVectors_wfV {i : ℕ} (hi : i < 275) : wfV 3 21 mclVectors[i]! = true :=
   mclCertOK_parts.2.1 i hi
 
-theorem mclVectors_length {i : ℕ} (hi : i < 275) : mclVectors[i]!.length = 21 :=
-  (wfV_iff.1 (mclVectors_wfV hi)).1
-
-theorem mclVec_ne_zero {i : ℕ} (hi : i < 275) : mclVec i ≠ 0 := by
-  have h := mcl_faithful_parts.1 i hi
-  obtain ⟨x, hx, hx0⟩ := List.any_eq_true.1 h
-  obtain ⟨k, hk, rfl⟩ := List.getElem_of_mem hx
-  have hk21 : k < 21 := by rw [← mclVectors_length hi]; exact hk
-  intro h0
-  have h1 := congrFun h0 ⟨k, hk21⟩
-  have hlt := (wfV_iff.1 (mclVectors_wfV hi)).2 _ (List.getElem_mem hk)
-  simp only [mclVec, toV, Pi.zero_apply] at h1
-  rw [List.getD_eq_getElem _ _ hk] at h1
-  have h2 := congrArg ZMod.val h1
-  rw [ZMod.val_natCast, Nat.mod_eq_of_lt hlt, ZMod.val_zero] at h2
-  simp [h2] at hx0
 
 theorem mclVec_inj {i j : ℕ} (hi : i < 275) (hj : j < 275) (h : mclVec i = mclVec j) : i = j := by
   have he := toV_inj (mclVectors_wfV hi) (mclVectors_wfV hj) h
@@ -96,12 +80,6 @@ theorem mclVec_eq (i : ℕ) : mclVec i = vecOf 21 (vOfList 21 mclVectors[i]!) :=
   rw [vecOf_vOfList]
   rfl
 
-theorem mclStrongArrs_get_lt {k : ℕ} (hk : k < 13) {i : ℕ} (hi : i < 275) :
-    (mclStrongArrs[k]!)[i]! < 275 := by
-  have := rep_mclStrongPerm hk ⟨i, hi⟩
-  rw [show (mclStrongArrs[k]!)[i]! = (mclStrongArrs[k]!)[((⟨i, hi⟩ : Fin 275) : ℕ)]! from rfl,
-    this]
-  exact Fin.isLt _
 
 theorem mcl_mulVec {M : Array V} {i j : ℕ}
     (h : (mulVecM 21 M (vOfList 21 mclVectors[i]!)).beq (vOfList 21 mclVectors[j]!) = true) :
@@ -149,22 +127,6 @@ theorem mclC_col (k : Fin 21) : (fun i => mclC i k) = mclVec (mclBasisIdx.getD k
     List.getD_eq_getElem _ _ (by simp [mclBasisIdx])]
   rfl
 
-theorem mclC_mul_inv : mclC * toM 3 21 mclBasisInv = 1 :=
-  (Matrix.mul_eq_one_comm_of_equiv (Equiv.refl _)).1 mclC_left_inv
-
-@[expose] def mclCEquiv : (Fin 21 → ZMod 3) ≃ₗ[ZMod 3] (Fin 21 → ZMod 3) :=
-  LinearEquiv.ofLinearMap (Matrix.toLin' mclC) (Matrix.toLin' (toM 3 21 mclBasisInv))
-    (by rw [← Matrix.toLin'_mul, mclC_mul_inv, Matrix.toLin'_one])
-    (by rw [← Matrix.toLin'_mul, mclC_left_inv, Matrix.toLin'_one])
-
-@[expose] def mclBasis : Module.Basis (Fin 21) (ZMod 3) (Fin 21 → ZMod 3) :=
-  (Pi.basisFun (ZMod 3) (Fin 21)).map mclCEquiv
-
-theorem mclBasis_apply (k : Fin 21) : mclBasis k = mclVec (mclBasisIdx.getD k 0) := by
-  rw [mclBasis, Module.Basis.map_apply, Pi.basisFun_apply, ← mclC_col]
-  show Matrix.toLin' mclC (Pi.single k 1) = _
-  rw [Matrix.toLin'_apply, mulVec_single_one]
-  rfl
 
 @[expose] def mclFam (i : Fin 275) : Fin 21 → ZMod 3 := mclVec i
 
@@ -243,9 +205,6 @@ theorem mclFamPerm_range :
     CFSG.Sporadic.McL.mB (CFSG.Sporadic.McL.det_mA_ne_zero CFSG.Sporadic.McL.matrixFacts)
     (CFSG.Sporadic.McL.det_mB_ne_zero CFSG.Sporadic.McL.matrixFacts)
 
-theorem mclMatEquiv_val (u : Blueprint.NativeSporadic.McL) :
-    CFSG.Sporadic.McL.mat (mclMatEquiv u) = u.val.val :=
-  rfl
 
 theorem closure_mclGenPerms : Subgroup.closure (Set.range mclGenPerms) = mclP := by
   rw [range_mclGenPerms, mclP]
@@ -253,50 +212,5 @@ theorem closure_mclGenPerms : Subgroup.closure (Set.range mclGenPerms) = mclP :=
 @[expose] def mclPermEquiv : Blueprint.NativeSporadic.McL ≃* mclP :=
   (mclMatEquiv.trans mclFamEquiv).trans (MulEquiv.subgroupCongr closure_mclGenPerms)
 
-theorem mclPermEquiv_apply (u : Blueprint.NativeSporadic.McL) :
-    (mclPermEquiv u : Equiv.Perm (Fin 275)) =
-      familyPerm mclFam_injective mcl_smul_mem (mclMatEquiv u) :=
-  rfl
-
-theorem mclVec_permEquiv (u : Blueprint.NativeSporadic.McL) (i : Fin 275) :
-    mclVec ((mclPermEquiv u : Equiv.Perm (Fin 275)) i) = u.val.val *ᵥ mclVec i := by
-  rw [mclPermEquiv_apply]
-  have := familyPerm_apply mclFam_injective mcl_smul_mem (mclMatEquiv u) i
-  rw [mcl_smul_def, mclMatEquiv_val] at this
-  exact this
-
-@[expose] def mclSeedA : Blueprint.NativeSporadic.McL := mclMatEquiv.symm CFSG.Sporadic.McL.a
-
-@[expose] def mclSeedB : Blueprint.NativeSporadic.McL := mclMatEquiv.symm CFSG.Sporadic.McL.b
-
-theorem mclSeedA_val : mclSeedA.val.val = CFSG.Sporadic.McL.mA := by
-  rw [← mclMatEquiv_val, mclSeedA, MulEquiv.apply_symm_apply, mclMat_a]
-
-theorem mclSeedB_val : mclSeedB.val.val = CFSG.Sporadic.McL.mB := by
-  rw [← mclMatEquiv_val, mclSeedB, MulEquiv.apply_symm_apply, mclMat_b]
-
-theorem mclPermEquiv_seedA : (mclPermEquiv mclSeedA : Equiv.Perm (Fin 275)) = mclGen 0 := by
-  rw [mclPermEquiv_apply, mclSeedA, MulEquiv.apply_symm_apply]
-  exact familyPerm_gen mclFam_injective mcl_smul_mem mclSeedsJ_smul 0
-
-theorem mclPermEquiv_seedB : (mclPermEquiv mclSeedB : Equiv.Perm (Fin 275)) = mclGen 1 := by
-  rw [mclPermEquiv_apply, mclSeedB, MulEquiv.apply_symm_apply]
-  exact familyPerm_gen mclFam_injective mcl_smul_mem mclSeedsJ_smul 1
-
-theorem FAM_McL_faithful_permutation_action :
-    (∀ i < 275, mclVec i ≠ 0) ∧
-    (∀ i < 275, ∀ j < 275, mclVec i = mclVec j → i = j) ∧
-    (∃ bs : Module.Basis (Fin 21) (ZMod 3) (Fin 21 → ZMod 3),
-      ∀ k : Fin 21, bs k = mclVec (mclBasisIdx.getD k 0)) ∧
-    (∀ i : Fin 275, CFSG.Sporadic.McL.mA *ᵥ mclVec i = mclVec (mclGen 0 i)) ∧
-    (∀ i : Fin 275, CFSG.Sporadic.McL.mB *ᵥ mclVec i = mclVec (mclGen 1 i)) ∧
-    (∀ (u : Blueprint.NativeSporadic.McL) (i : Fin 275),
-      mclVec ((mclPermEquiv u : Equiv.Perm (Fin 275)) i) = u.val.val *ᵥ mclVec i) ∧
-    mclSeedA.val.val = CFSG.Sporadic.McL.mA ∧ mclSeedB.val.val = CFSG.Sporadic.McL.mB ∧
-    (mclPermEquiv mclSeedA : Equiv.Perm (Fin 275)) = mclGen 0 ∧
-    (mclPermEquiv mclSeedB : Equiv.Perm (Fin 275)) = mclGen 1 :=
-  ⟨fun _ hi => mclVec_ne_zero hi, fun _ hi _ hj h => mclVec_inj hi hj h,
-    ⟨mclBasis, mclBasis_apply⟩, fun i => (mcl_seed_mulVec i).1, fun i => (mcl_seed_mulVec i).2,
-    mclVec_permEquiv, mclSeedA_val, mclSeedB_val, mclPermEquiv_seedA, mclPermEquiv_seedB⟩
 
 end CFSG.Sporadic.Schreier

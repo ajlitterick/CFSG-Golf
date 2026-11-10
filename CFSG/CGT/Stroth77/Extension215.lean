@@ -271,11 +271,6 @@ theorem false_of_index_two_of_data_t130 (D : StrothTypeData B (StrothTypeIndex.t
     hH hcS (hL D.u_mem_L) D.u_mem D.u_sq huc
   exact no_cocycle_u_t130 (Type130.data m (by omega)) hm z h1 h2
 
-theorem false_of_index_two_t130 (hB : HasStrothType B (StrothTypeIndex.t130 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B) (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_of_data_t130 hB.data hBC hC hrel hL hH hcS
 
 theorem false_of_index_four_of_data_t130 (D : StrothTypeData B (StrothTypeIndex.t130 m hm))
     (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
@@ -292,11 +287,6 @@ theorem false_of_index_four_of_data_t130 (D : StrothTypeData B (StrothTypeIndex.
       (parityTorus_uv_a_t130 hm) hBC hC hrel hL hH hcS hcyc
     exact no_cocycle_index_four_t130 (Type130.data m (by omega)) z h1 h2
 
-theorem false_of_index_four_t130 (hB : HasStrothType B (StrothTypeIndex.t130 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B) (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_four_of_data_t130 hB.data hBC hC hrel hL hH hcS
 
 end Lemma
 

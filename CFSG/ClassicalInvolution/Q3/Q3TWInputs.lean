@@ -15,15 +15,6 @@ open CFSG.ClassicalInvolution.Models.SymplecticPairs (SymplecticBlockStandardPai
 
 section Odd
 
-@[expose] def WeakCT3OddMap (N : ℕ) : Prop :=
-  ∀ {G : Type} [Group G] (U : Fin N → Subgroup G),
-    (∀ i j : Fin N, i.val + 1 < j.val → Commutes (U i) (U j)) →
-    (∀ i j : Fin N, i.val + 1 = j.val → j.val + 1 < N →
-      ∃ W, LinearBlockStandardPair (GaloisField 3 1) W (U i) (U j)) →
-    (∀ i j : Fin N, i.val + 2 = N → j.val + 1 = N →
-      ∃ W, SymplecticBlockStandardPair (GaloisField 3 1) W (U i) (U j)) →
-    ∃ Ψ : spinGroup (quadOdd N (GaloisField 3 1)) →* G, Ψ.ker ≤ Subgroup.center _ ∧
-      ∀ k : Fin N, (rankOne (oddDatum N (GaloisField 3 1)).rootGroup k).map Ψ = U k
 
 @[expose] def LeviEmbed3Odd : Prop :=
   ∀ (n : ℕ) (hn : 5 ≤ n),

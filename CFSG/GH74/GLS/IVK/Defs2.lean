@@ -68,30 +68,6 @@ theorem stableAut_mem_scalars (H : Subgroup (GL ι F)) (hH : FieldStable H) (τ 
       ext i j
       simp [stableAut, glAut_coe])
 
-@[expose] noncomputable def fieldAutProj (H : Subgroup (GL ι F)) (hH : FieldStable H) :
-    (F ≃+* F) →* MulAut (StatedProj H) where
-  toFun σ := projAut H hH σ
-  map_one' := by
-    ext x
-    induction x using QuotientGroup.induction_on with | H g => ?_
-    have h : stableAut H hH 1 g = g := by
-      apply Subtype.ext
-      apply Units.ext
-      ext i j
-      simp [stableAut, glAut_coe]
-    show QuotientGroup.mk (stableAut H hH 1 g) = QuotientGroup.mk g
-    rw [h]
-  map_mul' σ τ := by
-    ext x
-    induction x using QuotientGroup.induction_on with | H g => ?_
-    have h : stableAut H hH (σ * τ) g = stableAut H hH σ (stableAut H hH τ g) := by
-      apply Subtype.ext
-      apply Units.ext
-      ext i j
-      simp [stableAut, glAut_coe]
-    show QuotientGroup.mk (stableAut H hH (σ * τ) g) =
-      QuotientGroup.mk (stableAut H hH σ (stableAut H hH τ g))
-    rw [h]
 
 theorem fieldStable_closure (S : Set (GL ι F)) (hS : ∀ σ : F ≃+* F, ∀ g ∈ S, glAut σ g ∈ S) :
     FieldStable (Subgroup.closure S) := by
@@ -108,51 +84,6 @@ theorem fieldStable_statedSL (n : ℕ) : FieldStable (StatedSL n F) := by
       (σ : F →+* F).mapMatrix (g : Matrix (Fin n) (Fin n) F) := rfl
   rw [h, ← RingHom.map_det, hg, map_one]
 
-theorem fieldStable_statedSU (n q : ℕ) : FieldStable (StatedSU n q F) := by
-  apply fieldStable_closure
-  intro σ g hg
-  obtain ⟨hdet, hform⟩ := hg
-  refine ⟨?_, ?_⟩
-  · have h : ((glAut σ g : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) =
-        (σ : F →+* F).mapMatrix (g : Matrix (Fin n) (Fin n) F) := rfl
-    rw [h, ← RingHom.map_det, hdet, map_one]
-  · have h : ((glAut σ g : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) =
-        (σ : F →+* F).mapMatrix (g : Matrix (Fin n) (Fin n) F) := rfl
-    rw [h]
-    have h2 : (((σ : F →+* F).mapMatrix (g : Matrix (Fin n) (Fin n) F)).map (· ^ q))ᵀ *
-        (σ : F →+* F).mapMatrix (g : Matrix (Fin n) (Fin n) F) =
-        (σ : F →+* F).mapMatrix
-          (((g : Matrix (Fin n) (Fin n) F).map (· ^ q))ᵀ * (g : Matrix (Fin n) (Fin n) F)) := by
-      ext i j
-      simp [Matrix.mul_apply, Matrix.transpose_apply, Matrix.map_apply, map_mul, map_pow]
-    rw [h2, hform, map_one]
-
-@[expose] def symplJ (n : ℕ) (F : Type) [Field F] : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F :=
-  Matrix.fromBlocks 0 1 (-1) 0
-
-theorem fieldStable_statedSp (n : ℕ) : FieldStable (StatedSp n F) := by
-  apply fieldStable_closure
-  intro σ g hg
-  have h : ((glAut σ g : GL (Fin n ⊕ Fin n) F) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F) =
-      (σ : F →+* F).mapMatrix (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F) := rfl
-  have hg' : (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F)ᵀ * symplJ n F *
-      (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F) = symplJ n F := hg
-  show ((glAut σ g : GL (Fin n ⊕ Fin n) F) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F)ᵀ *
-      symplJ n F * ((glAut σ g : GL (Fin n ⊕ Fin n) F) :
-        Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F) = symplJ n F
-  rw [h]
-  have hJ : (σ : F →+* F).mapMatrix (symplJ n F) = symplJ n F := by
-    ext i j
-    rcases i with i | i <;> rcases j with j | j <;>
-      simp [symplJ, Matrix.fromBlocks, Matrix.one_apply, Matrix.neg_apply, apply_ite]
-  have h2 : ((σ : F →+* F).mapMatrix (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F))ᵀ *
-      symplJ n F * (σ : F →+* F).mapMatrix
-        (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F) =
-      (σ : F →+* F).mapMatrix ((g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F)ᵀ *
-        symplJ n F * (g : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) F)) := by
-    rw [map_mul, map_mul, hJ, RingHom.mapMatrix_apply, RingHom.mapMatrix_apply,
-      Matrix.transpose_map]
-  rw [h2, hg', hJ]
 
 end Generic
 
@@ -160,10 +91,6 @@ section Models
 
 variable {F : Type} [Field F]
 
-@[expose] noncomputable def fieldAutSubOf {ι : Type} [Fintype ι] [DecidableEq ι]
-    (H : Subgroup (GL ι F)) (hH : FieldStable H) {K : Type} [Group K] (e : K ≃* StatedProj H) :
-    Subgroup (MulAut K) :=
-  (fieldAutProj H hH).range.comap (MulAut.congr e).toMonoidHom
 
 @[expose] def IsSLnEps (n : ℕ) (X : Type) [Group X] (ε : ℤ) (q : ℕ) : Prop :=
   (ε = 1 ∧ ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = q ∧

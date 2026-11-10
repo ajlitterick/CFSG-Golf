@@ -123,10 +123,6 @@ theorem coeff_zero_dualPoly {a : K[X]} (ha : a.Monic) :
   rw [dualPoly, coeff_C_mul, coeff_zero_reverse, leadingCoeff_map, ha.leadingCoeff, map_one,
     mul_one]
 
-theorem coeff_zero_dualPoly_ne {a : K[X]} (ha : a.Monic) (h0 : a.coeff 0 ≠ 0) :
-    (dualPoly σ a).coeff 0 ≠ 0 := by
-  rw [coeff_zero_dualPoly ha]
-  exact inv_ne_zero ((map_ne_zero σ).mpr h0)
 
 theorem map_reverse (f : K[X]) : (f.reverse).map σ = (f.map σ).reverse := by
   rw [reverse, reverse, natDegree_map, reflect_map]

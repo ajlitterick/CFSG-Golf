@@ -14,11 +14,6 @@ open CFSG.Open CFSG.LieType.BorelTits CFSG.QuasithinUnique
 
 namespace F6
 
-theorem isGoldCase_quotient_pCore (hlist : GoldschmidtS3List.{u}) {D : Type u} [Group D]
-    [Finite D] {G₁ G₂ : Subgroup D} (h : IsGoldschmidtTriple G₁ G₂) :
-    IsGoldCase (G₁.map (QuotientGroup.mk' (Open.pCore 2 D)))
-      (G₂.map (QuotientGroup.mk' (Open.pCore 2 D))) :=
-  hlist _ _ _ h.quotient_pCore
 
 variable {D : Type*} [Group D]
 
@@ -61,16 +56,6 @@ theorem charTwo_of_mulEquiv {E : Type*} [Group E] {H : Subgroup D} {K : Subgroup
   charTwo_iff_centralizer_le.mpr
     (centralizer_pCore_le_of_mulEquiv e (charTwo_iff_centralizer_le.mp hK))
 
-theorem charTwo_of_mulEquiv_of_le {M : Type*} [Group M] [Finite M] {H : Subgroup D}
-    (e : ↥H ≃* M) {V : Subgroup M} (hVn : V.Normal) (hV2 : ∀ v ∈ V, v ^ 2 = 1)
-    (hcV : ∀ g : M, (∀ v ∈ V, g * v = v * g) → g ∈ V) : CharTwo H := by
-  refine charTwo_iff_centralizer_le.mpr (centralizer_pCore_le_of_mulEquiv e.symm ?_)
-  have hVle : V ≤ Open.pCore 2 M := le_pCore 2 hVn fun v => ⟨1, by
-    apply Subtype.ext
-    simpa using hV2 v v.2⟩
-  intro g hg
-  refine hVle (hcV g fun v hv => ?_)
-  exact (Subgroup.mem_centralizer_iff.mp hg v (hVle hv)).symm
 
 theorem not_charTwo_of_mem [Finite D] {H : Subgroup D} {x : D} (hx : x ∈ H)
     (hx3 : orderOf x = 3) (hconj : ∀ h ∈ H, h * x * h⁻¹ = x ∨ h * x * h⁻¹ = x⁻¹) :
@@ -125,17 +110,6 @@ theorem not_charTwo_of_mulEquiv [Finite D] {M : Type*} [Group M] {H : Subgroup D
       have := congrArg (fun m => ((e.symm m : ↥H) : D)) h1
       simpa using this
 
-theorem charTwo_of_mulEquiv_of_pred {M : Type*} [Group M] [Finite M] {H : Subgroup D}
-    (e : ↥H ≃* M) (P : M → Prop) (h1 : P 1) (hmul : ∀ a b, P a → P b → P (a * b))
-    (hinv : ∀ a, P a → P a⁻¹) (hn : ∀ g a, P a → P (g * a * g⁻¹)) (h2 : ∀ a, P a → a ^ 2 = 1)
-    (hc : ∀ g, (∀ a, P a → g * a = a * g) → P g) : CharTwo H := by
-  let V : Subgroup M :=
-    { carrier := {a | P a}
-      mul_mem' := fun ha hb => hmul _ _ ha hb
-      one_mem' := h1
-      inv_mem' := fun ha => hinv _ ha }
-  exact charTwo_of_mulEquiv_of_le e (V := V) ⟨fun a ha g => hn g a ha⟩ (fun a ha => h2 a ha)
-    (fun g hg => hc g fun a ha => hg a ha)
 
 theorem finRotate_three_facts :
     orderOf (finRotate 3) = 3 ∧ ∀ m : Equiv.Perm (Fin 3),
@@ -229,83 +203,6 @@ theorem not_charTwo_of_isGoldCase_i_v [Finite D] {H₁ H₂ : Subgroup D}
 
 instance : DecidablePred kleinFourPerm := fun g => by unfold kleinFourPerm; infer_instance
 
-theorem kleinFourPerm_mul : ∀ a b, kleinFourPerm a → kleinFourPerm b → kleinFourPerm (a * b) := by
-  decide
-
-theorem kleinFourPerm_inv : ∀ a, kleinFourPerm a → kleinFourPerm a⁻¹ := by decide
-
-theorem kleinFourPerm_conj : ∀ g a, kleinFourPerm a → kleinFourPerm (g * a * g⁻¹) := by decide
-
-theorem kleinFourPerm_sq : ∀ a, kleinFourPerm a → a ^ 2 = 1 := by decide
-
-theorem kleinFourPerm_centralizer :
-    ∀ g : Equiv.Perm (Fin 4), (∀ a, kleinFourPerm a → g * a = a * g) → kleinFourPerm g := by
-  decide
-
-theorem charTwo_of_mulEquiv_perm_four {H : Subgroup D} (e : ↥H ≃* Equiv.Perm (Fin 4)) :
-    CharTwo H :=
-  charTwo_of_mulEquiv_of_pred e kleinFourPerm (Or.inl rfl) kleinFourPerm_mul kleinFourPerm_inv
-    kleinFourPerm_conj kleinFourPerm_sq kleinFourPerm_centralizer
-
-theorem charTwo_of_mulEquiv_z2_perm_four {H : Subgroup D}
-    (e : ↥H ≃* Multiplicative (ZMod 2) × Equiv.Perm (Fin 4)) : CharTwo H := by
-  refine charTwo_of_mulEquiv_of_pred e (fun g => kleinFourPerm g.2) (Or.inl rfl)
-    (fun a b ha hb => kleinFourPerm_mul _ _ ha hb) (fun a ha => kleinFourPerm_inv _ ha)
-    (fun g a ha => kleinFourPerm_conj _ _ ha) (fun a ha => ?_) (fun g hg => ?_)
-  · have h1 : a.1 ^ 2 = 1 := by
-      have : ∀ x : Multiplicative (ZMod 2), x ^ 2 = 1 := by decide
-      exact this a.1
-    exact Prod.ext h1 (kleinFourPerm_sq _ ha)
-  · refine kleinFourPerm_centralizer g.2 fun b hb => ?_
-    have := congrArg Prod.snd (hg (1, b) hb)
-    simpa using this
-
-@[expose] def MaxTwoLocalsCharTwo (IsY : ∀ (W : Type) [Group W], Prop) : Prop :=
-  ∀ (W : Type) [Group W] [Finite W], IsY W → ∀ K : Subgroup W, quasithinIsMaxTwoLocal K →
-    (∃ S : Sylow 2 W, (S : Subgroup W) ≤ K) → CharTwo K
-
-theorem charTwo_of_isYAmalgam {IsY : ∀ (W : Type) [Group W], Prop}
-    (hY : MaxTwoLocalsCharTwo IsY) {H₁ H₂ : Subgroup D} (h : IsYAmalgam IsY H₁ H₂) :
-    CharTwo H₁ ∧ CharTwo H₂ := by
-  obtain ⟨W, _, _, K₁, K₂, hW, ⟨hm₁, hm₂, -, S, hS⟩, φ₁, φ₂, -⟩ := h
-  exact ⟨charTwo_of_mulEquiv φ₁.symm (hY W hW K₁ hm₁ ⟨S, hS ▸ inf_le_left⟩),
-    charTwo_of_mulEquiv φ₂.symm (hY W hW K₂ hm₂ ⟨S, hS ▸ inf_le_right⟩)⟩
-
-theorem charTwo_of_isGoldCaseVI (hG22 : MaxTwoLocalsCharTwo IsG22)
-    (hG22' : MaxTwoLocalsCharTwo IsG22Prime) (hM12 : MaxTwoLocalsCharTwo IsM12)
-    (hAut : MaxTwoLocalsCharTwo IsAutM12) {H₁ H₂ : Subgroup D} (h : IsGoldCaseVI H₁ H₂) :
-    CharTwo H₁ ∧ CharTwo H₂ := by
-  rcases h with ⟨-, -, ⟨e₁⟩, ⟨e₂⟩⟩ | ⟨-, -, ⟨e₁⟩, ⟨e₂⟩⟩ | ⟨hY, -⟩ | ⟨hY, -⟩ | ⟨hY, -⟩ | ⟨hY, -⟩
-  · exact ⟨charTwo_of_mulEquiv_perm_four e₁, charTwo_of_mulEquiv_perm_four e₂⟩
-  · exact ⟨charTwo_of_mulEquiv_z2_perm_four e₁, charTwo_of_mulEquiv_z2_perm_four e₂⟩
-  · exact charTwo_of_isYAmalgam hG22 hY
-  · exact charTwo_of_isYAmalgam hG22' hY
-  · exact charTwo_of_isYAmalgam hM12 hY
-  · exact charTwo_of_isYAmalgam hAut hY
-
-theorem isGoldCaseVI_of_charTwo [Finite D] {H₁ H₂ : Subgroup D} (h : IsGoldCase H₁ H₂)
-    (h₁ : CharTwo H₁) (h₂ : CharTwo H₂) : IsGoldCaseVI H₁ H₂ ∨ IsGoldCaseVI H₂ H₁ := by
-  rcases h with h | h
-  · rcases h with h | h | h | h | h | h
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inl h) with h' | h' <;> contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inl h)) with h' | h' <;> contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inl h))) with h' | h' <;>
-        contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inr (Or.inl h)))) with h' | h' <;>
-        contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inr (Or.inr h)))) with h' | h' <;>
-        contradiction
-    · exact Or.inl h
-  · rcases h with h | h | h | h | h | h
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inl h) with h' | h' <;> contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inl h)) with h' | h' <;> contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inl h))) with h' | h' <;>
-        contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inr (Or.inl h)))) with h' | h' <;>
-        contradiction
-    · rcases not_charTwo_of_isGoldCase_i_v (Or.inr (Or.inr (Or.inr (Or.inr h)))) with h' | h' <;>
-        contradiction
-    · exact Or.inr h
 
 theorem mem_centerOf_of_mem_omegaOneCenterOf {T : Subgroup D} {x : D}
     (hx : x ∈ omegaOneCenterOf T) : x ∈ centerOf T ∧ x ^ 2 = 1 := by
@@ -372,24 +269,6 @@ theorem normal_of_sup_eq_top {R : Type*} [Group R] {A B : Subgroup R} (hAB : A �
     rw [this]
     exact hb
 
-theorem exists_mul_of_mem_center {R : Type*} [Group R] {A B : Subgroup R} (hAB : A ⊔ B = ⊤)
-    (hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a) {x : R} (hx : x ∈ Subgroup.center R) :
-    ∃ a ∈ A, ∃ b ∈ B, x = a * b ∧ (∀ a' ∈ A, a * a' = a' * a) ∧ ∀ b' ∈ B, b * b' = b' * b := by
-  have hBn : B.Normal := normal_of_sup_eq_top hAB hc
-  have hx' : x ∈ ((A ⊔ B : Subgroup R) : Set R) := by rw [hAB]; exact Subgroup.mem_top x
-  rw [Subgroup.mul_normal] at hx'
-  obtain ⟨a, ha, b, hb, rfl⟩ := hx'
-  refine ⟨a, ha, b, hb, rfl, fun a' ha' => ?_, fun b' hb' => ?_⟩
-  · have h1 : Commute (a * b) a' := (Subgroup.mem_center_iff.mp hx a').symm
-    have h2 : Commute b a' := (hc a' ha' b hb).symm
-    have h3 : Commute (a * b * b⁻¹) a' := h1.mul_left h2.inv_left
-    rw [mul_inv_cancel_right] at h3
-    exact h3
-  · have h1 : Commute (a * b) b' := (Subgroup.mem_center_iff.mp hx b').symm
-    have h2 : Commute a b' := hc a ha b' hb'
-    have h3 : Commute (a⁻¹ * (a * b)) b' := h2.inv_left.mul_left h1
-    rw [inv_mul_cancel_left] at h3
-    exact h3
 
 theorem eq_of_card_eq_two {G : Type*} [Group G] {S : Subgroup G} (hS : Nat.card S = 2) {x y : G}
     (hx : x ∈ S) (hy : y ∈ S) (hx1 : x ≠ 1) (hy1 : y ≠ 1) : x = y := by
@@ -675,9 +554,6 @@ theorem card_centerOf_of_mulEquiv {M : Type*} [Group M] {X : Subgroup D} (e : �
   rw [card_centerOf]
   exact Nat.card_congr (Subgroup.centerCongr e).toEquiv
 
-theorem not_centerOf_le_of_card_lt [Finite D] {T H : Subgroup D}
-    (h : Nat.card ↥(centerOf H) < Nat.card ↥(centerOf T)) : ¬ centerOf T ≤ centerOf H :=
-  fun hle => absurd (Subgroup.card_le_of_le hle) (not_le.mpr h)
 
 section Accessors
 
@@ -703,76 +579,6 @@ theorem IsGoldCaseV.card_inf (h : IsGoldCaseV H₁ H₂) : Nat.card ↥(H₁ ⊓
   obtain ⟨-, ⟨e⟩, -⟩ := h
   rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card]; rfl
 
-theorem IsGoldCaseI.card_centerOf_inf (h : IsGoldCaseI H₁ H₂) :
-    Nat.card ↥(centerOf (H₁ ⊓ H₂)) = 2 := by
-  obtain ⟨-, ⟨e⟩, -⟩ := h
-  rw [card_centerOf_of_mulEquiv e, Nat.card_eq_fintype_card]; decide
-
-theorem IsGoldCaseII.card_centerOf_inf (h : IsGoldCaseII H₁ H₂) :
-    Nat.card ↥(centerOf (H₁ ⊓ H₂)) = 4 := by
-  obtain ⟨-, ⟨e⟩, -⟩ := h
-  rw [card_centerOf_of_mulEquiv e, Nat.card_eq_fintype_card]; decide
-
-theorem IsGoldCaseIII.card_centerOf_inf (h : IsGoldCaseIII H₁ H₂) :
-    Nat.card ↥(centerOf (H₁ ⊓ H₂)) = 2 := by
-  obtain ⟨-, ⟨e⟩, -⟩ := h
-  rw [card_centerOf_of_mulEquiv e, Nat.card_eq_fintype_card]; decide
-
-theorem IsGoldCaseIV.card_centerOf_inf (h : IsGoldCaseIV H₁ H₂) :
-    Nat.card ↥(centerOf (H₁ ⊓ H₂)) = 2 := by
-  obtain ⟨-, ⟨e⟩, -⟩ := h
-  rw [card_centerOf_of_mulEquiv e, Nat.card_eq_fintype_card]; decide
-
-theorem IsGoldCaseV.card_centerOf_inf (h : IsGoldCaseV H₁ H₂) :
-    Nat.card ↥(centerOf (H₁ ⊓ H₂)) = 4 := by
-  obtain ⟨-, ⟨e⟩, -⟩ := h
-  rw [card_centerOf_of_mulEquiv e, Nat.card_eq_fintype_card]; decide
-
-theorem IsGoldCaseI.not_centerOf_le [Finite D] (h : IsGoldCaseI H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₁ ∧ ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₂ := by
-  have hT := h.card_centerOf_inf
-  obtain ⟨⟨e₁⟩, -, ⟨e₂⟩⟩ := h
-  have h₁ : Nat.card ↥(centerOf H₁) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₁, Nat.card_eq_fintype_card]; decide
-  have h₂ : Nat.card ↥(centerOf H₂) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₂, Nat.card_eq_fintype_card]; decide
-  exact ⟨not_centerOf_le_of_card_lt (by omega), not_centerOf_le_of_card_lt (by omega)⟩
-
-theorem IsGoldCaseII.not_centerOf_le [Finite D] (h : IsGoldCaseII H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₁ ∧ ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₂ := by
-  have hT := h.card_centerOf_inf
-  obtain ⟨⟨e₁⟩, -, ⟨e₂⟩⟩ := h
-  have h₁ : Nat.card ↥(centerOf H₁) = 2 := by
-    rw [card_centerOf_of_mulEquiv e₁, Nat.card_eq_fintype_card]; decide
-  have h₂ : Nat.card ↥(centerOf H₂) = 2 := by
-    rw [card_centerOf_of_mulEquiv e₂, Nat.card_eq_fintype_card]; decide
-  exact ⟨not_centerOf_le_of_card_lt (by omega), not_centerOf_le_of_card_lt (by omega)⟩
-
-theorem IsGoldCaseIII.not_centerOf_le_right [Finite D] (h : IsGoldCaseIII H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₂ := by
-  have hT := h.card_centerOf_inf
-  obtain ⟨-, -, ⟨e₂⟩⟩ := h
-  have h₂ : Nat.card ↥(centerOf H₂) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₂, Nat.card_eq_fintype_card]; decide
-  exact not_centerOf_le_of_card_lt (by omega)
-
-theorem IsGoldCaseIV.not_centerOf_le_left [Finite D] (h : IsGoldCaseIV H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₁ := by
-  have hT := h.card_centerOf_inf
-  obtain ⟨⟨e₁⟩, -, -⟩ := h
-  have h₁ : Nat.card ↥(centerOf H₁) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₁, Nat.card_eq_fintype_card]; decide
-  exact not_centerOf_le_of_card_lt (by omega)
-
-theorem IsGoldCaseV.not_centerOf_le [Finite D] (h : IsGoldCaseV H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₁ ∧ ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₂ := by
-  have hT := h.card_centerOf_inf
-  obtain ⟨⟨e₁⟩, -, ⟨e₂⟩⟩ := h
-  have h₁ : Nat.card ↥(centerOf H₁) = 2 := by
-    rw [card_centerOf_of_mulEquiv e₁, Nat.card_eq_fintype_card]; decide
-  have h₂ : Nat.card ↥(centerOf H₂) = 2 := by
-    rw [card_centerOf_of_mulEquiv e₂, Nat.card_eq_fintype_card]; decide
-  exact ⟨not_centerOf_le_of_card_lt (by omega), not_centerOf_le_of_card_lt (by omega)⟩
 
 variable [Finite D]
 
@@ -823,35 +629,6 @@ theorem IsGoldCaseAutM12.card_inf (hG : IsGoldschmidtTriple H₁ H₂)
   rw [h.2.2.2.2.2] at h2
   omega
 
-theorem IsGoldCaseL32.not_centerOf_le (hG : IsGoldschmidtTriple H₁ H₂)
-    (h : IsGoldCaseL32 H₁ H₂) :
-    ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₁ ∧ ¬ centerOf (H₁ ⊓ H₂) ≤ centerOf H₂ := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hT : 1 < Nat.card ↥(centerOf (H₁ ⊓ H₂)) := by
-    rw [card_centerOf]
-    have hTn : Nontrivial ↥(H₁ ⊓ H₂) := by
-      rw [← Finite.one_lt_card_iff_nontrivial, h.card_inf hG]
-      norm_num
-    have := hG.isPGroup_inf.center_nontrivial
-    exact Finite.one_lt_card_iff_nontrivial.mpr this
-  obtain ⟨-, -, ⟨e₁⟩, ⟨e₂⟩⟩ := h
-  have h₁ : Nat.card ↥(centerOf H₁) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₁, Nat.card_eq_fintype_card]; decide
-  have h₂ : Nat.card ↥(centerOf H₂) = 1 := by
-    rw [card_centerOf_of_mulEquiv e₂, Nat.card_eq_fintype_card]; decide
-  exact ⟨not_centerOf_le_of_card_lt (by omega), not_centerOf_le_of_card_lt (by omega)⟩
-
-theorem card_omegaOneCenterOf_le_two_of_isGoldCase (hG : IsGoldschmidtTriple H₁ H₂)
-    (h₁ : CharTwo H₁)
-    (h : IsGoldCaseG22 H₁ H₂ ∨ IsGoldCaseG22Prime H₁ H₂ ∨ IsGoldCaseM12 H₁ H₂ ∨
-      IsGoldCaseAutM12 H₁ H₂) : Nat.card ↥(omegaOneCenterOf (H₁ ⊓ H₂)) ≤ 2 := by
-  have hZ := centerOf_inf_le_centerOf_pCoreOf hG h₁
-  rcases h with ⟨-, -, -, -, hR, -⟩ | ⟨-, -, -, -, hR, -⟩ | ⟨-, -, -, -, hR, -⟩ |
-    ⟨-, -, -, -, hR, -⟩
-  · exact card_omegaOneCenterOf_le_two hZ (atMostOneInvolution_of_isSpecial hR)
-  · exact card_omegaOneCenterOf_le_two hZ (atMostOneInvolution_of_z4_q8 hR)
-  · exact card_omegaOneCenterOf_le_two hZ (atMostOneInvolution_of_q8_q8 hR)
-  · exact card_omegaOneCenterOf_le_two hZ (atMostOneInvolution_of_z4_q8_q8 hR)
 
 end Accessors
 

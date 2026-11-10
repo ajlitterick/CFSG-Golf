@@ -16,7 +16,6 @@ open CFSG.Monster.B.Fischer (hexTable3)
 
 @[expose] def lyFiveBeta : Fin 4 → ZMod 5 := ![1, 0, 1, 3]
 
-@[expose] def lyFiveN : ℕ := 2880
 
 @[expose] def lyFiveParHex : String :=
   "00000000000100100200200300300400400500500600700700800800900900A00B00B00C00C00D00E00F00F010010011\

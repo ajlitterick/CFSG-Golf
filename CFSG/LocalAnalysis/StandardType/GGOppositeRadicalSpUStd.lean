@@ -46,11 +46,6 @@ theorem flagStab_natRep_apply_eq_zero {H : Subgroup (GL ι K)} {ℓ : ι → ℕ
   have h1 := (hg (ℓ a + 1) _ hmem).1 c h
   rwa [natRep_apply, mulVec_single_one, col_apply] at h1
 
-theorem flagMap_natRep_apply {H : Subgroup (GL ι K)} (g : H) (F : ℕ → Submodule K (ι → K))
-    (k : ℕ) : GGOppRad.flagMap (natRep H) g F k =
-      (F k).map (Matrix.mulVecLin ((g : GL ι K) : Matrix ι ι K)) := by
-  unfold GGOppRad.flagMap
-  congr 1
 
 end NatRep
 
@@ -192,10 +187,6 @@ theorem mem_normalizer_top {G : Type*} [Group G] (x : G) :
   Subgroup.mem_normalizer_iff.mpr fun _ =>
     ⟨fun _ => Subgroup.mem_top _, fun _ => Subgroup.mem_top _⟩
 
-theorem radicalTwo_spU_comp_swap {ℓ : Fin n ⊕ Fin n → ℕ} (h : GGRadicalTwo ⊤ (spU n K ℓ)) :
-    GGRadicalTwo ⊤ (spU n K (ℓ ∘ Sum.swap)) := by
-  rw [spU_comp_swap]
-  exact h.map_conj (mem_normalizer_top _)
 
 variable {n K}
 

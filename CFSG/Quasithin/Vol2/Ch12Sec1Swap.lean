@@ -269,32 +269,5 @@ end Sec121Swap
 
 open Sec121Swap Sec121Thm
 
-theorem setup121Swap_holds :
-    ∀ (G : Type) [Group G] [Finite G] (T L V V₁ V₂ : Subgroup G) (n : ℕ),
-      Hyp121 G T L V V₁ V₂ n → T ≤ Subgroup.normalizer (L : Set G) →
-        ∃ t ∈ T, t ∉ L ⊔ pCoreOf 2 (L ⊔ T) ∧ V₂ = CFSG.conjugate V₁ t := by
-  intro G _ _ T L V V₁ V₂ n hyp hTL
-  have hVe := isElemAbelian_of_isPrimeReduced hyp.le hyp.reduced
-  have := hVe.1
-  obtain ⟨hcard₁, hcard₂, -⟩ := Sec1212.card_eq_of_hyp121 hyp
-  obtain ⟨t, ht, ht1⟩ := exists_mem_not_normalizer hyp hTL
-  have ht1' : t⁻¹ ∉ Subgroup.normalizer (V₁ : Set G) := fun h =>
-    ht1 (by simpa using Subgroup.inv_mem _ h)
-  have hswap := (swap_of_hyp121 hyp (Subgroup.inv_mem _ (hTL ht)) ht1').1
-  have hLQ : L ⊔ pCoreOf 2 (L ⊔ T) ≤ Subgroup.normalizer (V₁ : Set G) := by
-    refine sup_le hyp.norm₁ ?_
-    rw [setup121Q_holds G T L V V₁ V₂ n hyp hTL]
-    have hV₁V : V₁ ≤ V := hyp.sup ▸ le_sup_left
-    exact inf_le_right.trans ((Subgroup.centralizer_le (by exact_mod_cast hV₁V)).trans
-      (Subgroup.centralizer_le_normalizer _))
-  refine ⟨t, ht, fun h => ht1 (hLQ h), ?_⟩
-  have hle : CFSG.conjugate V₁ t ≤ V₂ := by
-    intro x hx
-    obtain ⟨y, hy, rfl⟩ := Subgroup.mem_map.mp hx
-    simpa [MulAut.conj_apply] using hswap y hy
-  have hcard : Nat.card ↥(CFSG.conjugate V₁ t) = Nat.card ↥V₁ :=
-    Subgroup.card_map_of_injective (MulAut.conj t⁻¹).injective
-  refine (Subgroup.eq_of_le_of_card_ge hle ?_).symm
-  rw [hcard, hcard₁, hcard₂]
 
 end CFSG.Quasithin.H13

@@ -18,7 +18,6 @@ theorem zA_sign : Perm.sign zA = 1 := by decide +kernel
 
 theorem cA_sign : Perm.sign cA = 1 := by decide +kernel
 
-theorem zA_sq : zA * zA = 1 := by decide +kernel
 
 theorem zA_ne_one : zA ≠ 1 := by decide +kernel
 

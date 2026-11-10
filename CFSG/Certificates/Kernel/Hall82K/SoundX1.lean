@@ -8,9 +8,6 @@ namespace CFSG.KC.Hall82K
 
 open CFSG.ComponentClassification.AS81.Hexa CFSG.CGT.Hall82
 
-theorem u0K_eq : u0K = hallU0List := rfl
-
-theorem kK_eq : kK = hallKList := rfl
 
 theorem u0K_lt : ∀ u ∈ u0K, u < 64 := by decide +kernel
 

@@ -28,8 +28,6 @@ theorem j4OuterOdd
   @J4Out.odd_card_outer_of_mulEquiv (NativeSporadic.Carrier .J4) J _ _
     (seedEquiv j4Facts.mat) outer_odd_J
 
-theorem j4ExclusionProp_proved
-    : J4ExclusionProp := j4ExclusionProp_of_outerOdd j4OuterOdd
 
 theorem sporadicExclusion_J4_proved
     : SporadicExclusion .J4 :=

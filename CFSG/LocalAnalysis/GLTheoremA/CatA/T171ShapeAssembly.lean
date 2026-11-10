@@ -11,41 +11,6 @@ namespace CFSG.LocalAnalysis.GLTheoremA.T171Sh
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremA.S10
 
-theorem shape15On_of_families (h1 : Shape15On KD264Lie.isLinearIdx)
-    (h2 : Shape15On KD264Lie.isUnitaryIdx) (h3 : Shape15On KD264Lie.isClassicalBCDIdx)
-    (h4 : Shape15On KD264Lie.isTrialityIdx) (h5 : Shape15On KD264Lie.isExcUntwistedIdx)
-    (h6 : Shape15On KD264Lie.isExcTwistedIdx) : Shape15On fun _ => True := by
-  intro G _ _ p L J A d b hS hcat
-  obtain ⟨i, hi, ⟨e⟩⟩ := hcat
-  cases i with
-  | lie dd =>
-    obtain ⟨d0, hv⟩ := dd
-    cases d0 with
-    | A n q => exact h1 G p L J A d b hS ⟨.lie ⟨.A n q, hv⟩, trivial, ⟨e⟩⟩
-    | twistedA n q =>
-      exact h2 G p L J A d b hS ⟨.lie ⟨.twistedA n q, hv⟩, trivial, ⟨e⟩⟩
-    | B n q => exact h3 G p L J A d b hS ⟨.lie ⟨.B n q, hv⟩, trivial, ⟨e⟩⟩
-    | C n q => exact h3 G p L J A d b hS ⟨.lie ⟨.C n q, hv⟩, trivial, ⟨e⟩⟩
-    | D n q => exact h3 G p L J A d b hS ⟨.lie ⟨.D n q, hv⟩, trivial, ⟨e⟩⟩
-    | twistedD n q =>
-      exact h3 G p L J A d b hS ⟨.lie ⟨.twistedD n q, hv⟩, trivial, ⟨e⟩⟩
-    | E6 q => exact h5 G p L J A d b hS ⟨.lie ⟨.E6 q, hv⟩, trivial, ⟨e⟩⟩
-    | E7 q => exact h5 G p L J A d b hS ⟨.lie ⟨.E7 q, hv⟩, trivial, ⟨e⟩⟩
-    | E8 q => exact h5 G p L J A d b hS ⟨.lie ⟨.E8 q, hv⟩, trivial, ⟨e⟩⟩
-    | F4 q => exact h5 G p L J A d b hS ⟨.lie ⟨.F4 q, hv⟩, trivial, ⟨e⟩⟩
-    | G2 q => exact h5 G p L J A d b hS ⟨.lie ⟨.G2 q, hv⟩, trivial, ⟨e⟩⟩
-    | twistedE6 q =>
-      exact h6 G p L J A d b hS ⟨.lie ⟨.twistedE6 q, hv⟩, trivial, ⟨e⟩⟩
-    | trialityD4 q =>
-      exact h4 G p L J A d b hS ⟨.lie ⟨.trialityD4 q, hv⟩, trivial, ⟨e⟩⟩
-    | suzuki k => exact h6 G p L J A d b hS ⟨.lie ⟨.suzuki k, hv⟩, trivial, ⟨e⟩⟩
-    | reeG2 k => exact h6 G p L J A d b hS ⟨.lie ⟨.reeG2 k, hv⟩, trivial, ⟨e⟩⟩
-    | reeF4 k => exact h6 G p L J A d b hS ⟨.lie ⟨.reeF4 k, hv⟩, trivial, ⟨e⟩⟩
-    | tits => exact h6 G p L J A d b hS ⟨.lie ⟨.tits, hv⟩, trivial, ⟨e⟩⟩
-  | cyclic _ _ => simp [onLie] at hi
-  | alternating _ _ => simp [onLie] at hi
-  | sporadic _ => simp [onLie] at hi
-
 
 @[expose] def AmbiguousAltFalse : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (L J A : Subgroup G) (d b : G) (n : ℕ) (hn : 5 ≤ n),

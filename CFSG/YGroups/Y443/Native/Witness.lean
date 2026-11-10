@@ -438,7 +438,6 @@ theorem distinctCheck_sound {vals : Array ℤ} (h : distinctCheck vals = true) :
     (fun p hp => hB p hp) (fun i hi => hC i hi)
 
 
-
 theorem shortValsN_size (A : Array ℤ) : (shortValsN A).size = 98280 := by
   simp [shortValsN]
 
@@ -468,9 +467,6 @@ theorem separation (hOK : shortValsOK () = true) :
 theorem shortValsOK_eq : shortValsOK () = true :=
   Certificates.certificate10127
 
-theorem shortEig_injective :
-    Function.Injective (shortEig a₀) :=
-  shortEig_injective_of_check shortValsOK_eq
 
 theorem separation_witnesses :
     ∀ h ∈ Gmat, h (interp (aV ())) = interp (aV ()) → h (interp (bV ())) = interp (bV ()) →

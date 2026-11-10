@@ -155,28 +155,6 @@ open scoped MatrixGroups
 @[expose] def MainStatement : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], MainFor G
 
-@[expose] def OrderMainStatement : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], OrderMainFor G
-
-theorem models_of_mainStatement (h : MainStatement) (G : Type) [Group G] [Finite G]
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a) (z : G) (hz : orderOf z = 2)
-    (hext : timmesfeldIsExtraspecial (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))))
-    (w : ℕ)
-    (hw : Nat.card (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) = 2 ^ (1 + 2 * w))
-    (Mbar : Type) [Group Mbar]
-    (hMbar : timmesfeldQuotientIso (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) Mbar) :
-    TimmesfeldConclusion G w Mbar :=
-  h G hnonab z hz hext w hw Mbar hMbar
-
-theorem order_of_orderMainStatement (h : OrderMainStatement) (G : Type) [Group G] [Finite G]
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a) (z : G) (hz : orderOf z = 2)
-    (hext : timmesfeldIsExtraspecial (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))))
-    (w : ℕ)
-    (hw : Nat.card (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) = 2 ^ (1 + 2 * w))
-    (Mbar : Type) [Group Mbar]
-    (hMbar : timmesfeldQuotientIso (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) Mbar) :
-    TimmesfeldOrderConclusion G w Mbar :=
-  h G hnonab z hz hext w hw Mbar hMbar
 
 variable {G : Type u} {G' : Type*} [Group G] [Group G'] {Mbar : Type v} {Mbar' : Type*}
   [Group Mbar] [Group Mbar'] {w : ℕ}
@@ -271,19 +249,6 @@ theorem TimmesfeldConclusion.of_mulEquiv_quotient (e : Mbar ≃* Mbar')
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl ⟨h12, ⟨e.symm.trans f⟩⟩))))))
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (h.of_mulEquiv e)))))))
 
-theorem TimmesfeldConclusion.of_mulEquiv_group (e : G ≃* G')
-    (h : TimmesfeldConclusion G w Mbar) : TimmesfeldConclusion G' w Mbar := by
-  rw [timmesfeldConclusion_iff] at h
-  rw [timmesfeldConclusion_iff]
-  rcases h with h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl (h.imp (fun ⟨f⟩ => ⟨e.symm.trans f⟩) (fun ⟨f⟩ => ⟨e.symm.trans f⟩)))
-  · exact Or.inr (Or.inr h)
-
-theorem timmesfeldConclusion_congr (eG : G ≃* G') (eM : Mbar ≃* Mbar') :
-    TimmesfeldConclusion G w Mbar ↔ TimmesfeldConclusion G' w Mbar' :=
-  ⟨fun h => (h.of_mulEquiv_group eG).of_mulEquiv_quotient eM,
-    fun h => (h.of_mulEquiv_group eG.symm).of_mulEquiv_quotient eM.symm⟩
 
 theorem TimmesfeldOrderConclusion.of_mulEquiv_quotient (e : Mbar ≃* Mbar')
     (h : TimmesfeldOrderConclusion G w Mbar) : TimmesfeldOrderConclusion G w Mbar' := by
@@ -305,19 +270,6 @@ theorem TimmesfeldOrderConclusion.of_mulEquiv_quotient (e : Mbar ≃* Mbar')
       exact Nat.card_congr e.toEquiv.symm
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (h.of_mulEquiv e)))))))
 
-theorem TimmesfeldOrderConclusion.of_mulEquiv_group (e : G ≃* G')
-    (h : TimmesfeldOrderConclusion G w Mbar) : TimmesfeldOrderConclusion G' w Mbar := by
-  rw [timmesfeldOrderConclusion_iff] at h
-  rw [timmesfeldOrderConclusion_iff]
-  rcases h with h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl (h.imp (fun ⟨f⟩ => ⟨e.symm.trans f⟩) (fun ⟨f⟩ => ⟨e.symm.trans f⟩)))
-  · exact Or.inr (Or.inr h)
-
-theorem timmesfeldOrderConclusion_congr (eG : G ≃* G') (eM : Mbar ≃* Mbar') :
-    TimmesfeldOrderConclusion G w Mbar ↔ TimmesfeldOrderConclusion G' w Mbar' :=
-  ⟨fun h => (h.of_mulEquiv_group eG).of_mulEquiv_quotient eM,
-    fun h => (h.of_mulEquiv_group eG.symm).of_mulEquiv_quotient eM.symm⟩
 
 theorem TimmesfeldConclusion.of_width_le_four (h : w ≤ 4) : TimmesfeldConclusion G w Mbar :=
   Or.inl h
@@ -342,15 +294,6 @@ theorem TimmesfeldConclusion.of_alt5 (h : TimmesfeldAlt5 w Mbar) :
     TimmesfeldConclusion G w Mbar :=
   Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h))))
 
-theorem TimmesfeldConclusion.of_fstar_psl (hw : w = 10)
-    (hidx : (timmesfeldFStar Mbar).index ≤ 2)
-    (h : Nonempty (timmesfeldFStar Mbar ≃* PSL(6, ZMod 2))) : TimmesfeldConclusion G w Mbar :=
-  TimmesfeldConclusion.of_alt5 ⟨hw, hidx, Or.inl h⟩
-
-theorem TimmesfeldConclusion.of_fstar_psu (hw : w = 10)
-    (hidx : (timmesfeldFStar Mbar).index ≤ 2)
-    (h : Nonempty (timmesfeldFStar Mbar ≃* timmesfeldPSU 6)) : TimmesfeldConclusion G w Mbar :=
-  TimmesfeldConclusion.of_alt5 ⟨hw, hidx, Or.inr h⟩
 
 theorem TimmesfeldConclusion.of_co2 (hw : w = 11)
     (h : Nonempty (Mbar ≃* CFSG.Blueprint.NativeSporadic.Co2)) : TimmesfeldConclusion G w Mbar :=
@@ -445,23 +388,6 @@ theorem TimmesfeldPrintedConclusion.to_legacy {G : Type u} [Group G]
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl seventh))))))
   · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr eighth))))))
 
-theorem TimmesfeldConclusion.to_printed_of_alt5_split {G : Type u} [Group G]
-    {w : ℕ} {Mbar : Type v} [Group Mbar]
-    (hypothesis : TimmesfeldConclusion G w Mbar)
-    (split : TimmesfeldAlt5 w Mbar →
-      ∃ σ : Mbar, σ * σ = 1 ∧ timmesfeldFStar Mbar ⊔ Subgroup.zpowers σ = ⊤) :
-    TimmesfeldPrintedConclusion G w Mbar := by
-  unfold TimmesfeldConclusion TimmesfeldPrintedConclusion at *
-  rcases hypothesis with first | second | third | fourth | fifth | sixth | seventh | eighth
-  · exact Or.inl first
-  · exact Or.inr (Or.inl second)
-  · exact Or.inr (Or.inr (Or.inl third))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl fourth)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr
-      (Or.inl ⟨fifth.1, fifth.2.1, fifth.2.2, split fifth⟩))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl sixth)))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl seventh))))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr eighth))))))
 
 @[expose] def PrintedMainFor (G : Type) [Group G] : Prop :=
   ∀ (_hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -473,26 +399,9 @@ theorem TimmesfeldConclusion.to_printed_of_alt5_split {G : Type u} [Group G]
     (_hMbar : timmesfeldQuotientIso (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) Mbar),
     TimmesfeldPrintedConclusion G w Mbar
 
-@[expose] def Alt5SplitFor (G : Type) [Group G] : Prop :=
-  ∀ (_hnonab : ∃ a b : G, a * b ≠ b * a)
-    (z : G) (_hz : orderOf z = 2)
-    (_hext : timmesfeldIsExtraspecial (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))))
-    (w : ℕ)
-    (_hw : Nat.card (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) = 2 ^ (1 + 2 * w))
-    (Mbar : Type) [Group Mbar]
-    (_hMbar : timmesfeldQuotientIso (timmesfeldFStar (Subgroup.centralizer ({z} : Set G))) Mbar),
-    TimmesfeldAlt5 w Mbar →
-      ∃ σ : Mbar, σ * σ = 1 ∧ timmesfeldFStar Mbar ⊔ Subgroup.zpowers σ = ⊤
 
 @[expose] def PrintedMainStatement : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], PrintedMainFor G
 
-theorem printedMainStatement_of_mainStatement_and_alt5_split
-    (legacy : MainStatement)
-    (split : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], Alt5SplitFor G) :
-    PrintedMainStatement := by
-  intro G group finite simple hnonab z hz hext w hw Mbar quotientGroup hMbar
-  exact (legacy G hnonab z hz hext w hw Mbar hMbar).to_printed_of_alt5_split
-    (split G hnonab z hz hext w hw Mbar hMbar)
 
 end CFSG.LargeExtraspecial.Bridge

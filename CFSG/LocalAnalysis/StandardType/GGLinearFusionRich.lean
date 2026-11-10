@@ -292,16 +292,6 @@ theorem ggStepTwoLinearFusion_PSL_of_frameEq (hcomp : GGLinearSemisimpleComponen
     (fun b hb => hBel.2 b hb) hSC hD hDcard hbB hd hdI (by rw [← hLI]; exact hcard₁)
   exact ⟨w, hwN, hrange ▸ hwR, hw⟩
 
-theorem ggStepTwoLinearFusionInput_of_frameEq (hcomp : GGLinearSemisimpleComponentInput)
-    (hL : GGLinearFrameEqInput) (hU : GGStepTwoUnitaryFusionInput) :
-    GGStepTwoLinearFusionInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair
-  rcases hlin with ⟨rfl, hp⟩ | ⟨rfl, hp⟩
-  · obtain ⟨-, -, hn, -⟩ := hctx.2.2.2.1.1
-    obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 := ⟨n - 1, by omega⟩
-    obtain ⟨w, hwN, -, hw⟩ := ggStepTwoLinearFusion_PSL_of_frameEq hcomp hL hctx s1 hp hpair
-    exact ⟨w, hwN, hw⟩
-  · exact hU G p B Bs x L D J n f ψ hctx s1 hp b L₁ hpair
 
 end Inputs
 

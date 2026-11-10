@@ -27,8 +27,6 @@ theorem isConj_wy_of_ConjMod {M : ModelData F} {g : GL (Fin 4) F} (hg : g ∈ M.
   rw [tP_mul_yP]
   exact this.symm
 
-theorem diagGL_eq_neg_one {a b : GL (Fin 2) F} (h : diagGL a b = xGL F) : a = -1 ∧ b = -1 :=
-  diagGL_inj h
 
 theorem D_plus_conj {M : ModelData F} (hC : ClsFacts M) (h2 : (2 : F) ≠ 0) {a b : GL (Fin 2) F}
     (ha : a ∈ M.U2) (hb : b ∈ M.U2)

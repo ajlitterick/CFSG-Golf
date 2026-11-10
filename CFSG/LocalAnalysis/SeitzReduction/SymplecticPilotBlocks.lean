@@ -233,10 +233,6 @@ theorem leviTorusSp_anti {J J' : Finset (Fin n)} (h : J ⊆ J') :
   rintro _ ⟨t, ht, rfl⟩
   exact ⟨t, fun j hj => ht j (h hj), rfl⟩
 
-theorem leviTorusSp_empty : leviTorusSp K (∅ : Finset (Fin n)) = (diagSp K n).range := by
-  have h : leviTorusParam K (∅ : Finset (Fin n)) = ⊤ :=
-    eq_top_iff.2 fun _ _ j hj => by simp at hj
-  rw [leviTorusSp, h, ← MonoidHom.range_eq_map]
 
 @[expose] def spSupport (J : Finset (Fin n)) : Finset (Fin n) :=
   Finset.univ.filter fun i => i ∈ J ∨ ∃ j ∈ J, j.val + 1 = i.val
@@ -256,33 +252,6 @@ theorem rootTorusSp_le_leviTorusSp {k : Fin n} {J : Finset (Fin n)} (hk : k ∉ 
   · have hjk : j ≠ k := fun e => hk (mem_spSupport.2 (Or.inl (e ▸ hj)))
     simp [hjk]
 
-theorem rootTorusSp_le_leviTorusSp_iff {k : Fin n} {J : Finset (Fin n)}
-    (hK : ∃ κ : Kˣ, κ ≠ 1) : rootTorusSp K k ≤ leviTorusSp K J ↔ k ∉ spSupport J := by
-  refine ⟨fun hle hk => ?_, rootTorusSp_le_leviTorusSp⟩
-  obtain ⟨κ, hκ⟩ := hK
-  obtain ⟨t, ht, he⟩ := hle (rootTorusHom_mem_rootTorusSp k κ)
-  rw [rootTorusHom_apply] at he
-  have htk : t = Pi.mulSingle k κ := diagSp_injective he
-  subst htk
-  rcases mem_spSupport.1 hk with hkJ | ⟨j, hj, hjk⟩
-  · by_cases h : k.val + 1 < n
-    · have h1 := (ht k hkJ).1 h
-      have hne : (⟨k.val + 1, h⟩ : Fin n) ≠ k := fun e => by
-        have := congrArg Fin.val e
-        simp at this
-      simp [hne] at h1
-      exact hκ h1
-    · have h1 := (ht k hkJ).2 (by omega)
-      simp at h1
-      exact hκ h1
-  · have hjk' : j ≠ k := fun e => by
-      rw [e] at hjk
-      omega
-    have h1 := (ht j hj).1 (by omega)
-    have hk' : (⟨j.val + 1, by omega⟩ : Fin n) = k := Fin.ext hjk
-    rw [hk'] at h1
-    simp [hjk'] at h1
-    exact hκ h1.symm
 
 end Levi
 
@@ -292,8 +261,6 @@ variable (K n) in
 @[expose] noncomputable def siegelTorus : Subgroup (StatedSp n K) :=
   ((diagSp K n).comp (Pi.constMonoidHom (Fin n) Kˣ)).range
 
-theorem mem_siegelTorus {x : StatedSp n K} :
-    x ∈ siegelTorus K n ↔ ∃ s : Kˣ, diagSp K n (fun _ => s) = x := Iff.rfl
 
 variable (K n) in
 @[expose] noncomputable def siegelLeviGL : Subgroup (StatedSp n K) :=
@@ -328,9 +295,6 @@ theorem siegelTorus_eq_leviTorusSp :
     change diagSp K n (fun _ => t ⟨0, hn⟩) = diagSp K n t
     exact congrArg (diagSp K n) (funext fun i : Fin n => (key i.val i.isLt).symm)
 
-theorem siegelTorus_le_siegelLeviGL : siegelTorus K n ≤ siegelLeviGL K n := by
-  rintro _ ⟨s, rfl⟩
-  exact ⟨_, rfl⟩
 
 theorem siegelLevi_le_siegelLeviGL : siegelLevi K n ≤ siegelLeviGL K n := by
   rintro _ ⟨A, rfl⟩
@@ -491,30 +455,6 @@ theorem conj_permSp_longBlock (π : Equiv.Perm (Fin n)) (k : Fin n) (A : SL(2, K
   simp only [CFSG.LieType.Steinberg.Sp.blockMat, of_apply, hl, hr, hinj.eq_iff,
     one_apply_sumMap]
 
-theorem map_conj_permSp_siegelTorus (π : Equiv.Perm (Fin n)) :
-    (siegelTorus K n).map (MulAut.conj (permSp K π)).toMonoidHom = siegelTorus K n := by
-  ext x
-  constructor
-  · rintro ⟨_, ⟨s, rfl⟩, rfl⟩
-    refine ⟨s, ?_⟩
-    change diagSp K n (fun _ => s) = permSp K π * diagSp K n (fun _ => s) * (permSp K π)⁻¹
-    rw [conj_permSp_diagSp]
-    rfl
-  · rintro ⟨s, rfl⟩
-    refine ⟨_, ⟨s, rfl⟩, ?_⟩
-    change permSp K π * diagSp K n (fun _ => s) * (permSp K π)⁻¹ = diagSp K n (fun _ => s)
-    rw [conj_permSp_diagSp]
-    rfl
-
-theorem exists_conj_longRootSp2 (k l : Fin n) :
-    ∃ w : StatedSp n K,
-      (longRootSp2 K n k).map (MulAut.conj w).toMonoidHom = longRootSp2 K n l ∧
-      (rootTorusSp K k).map (MulAut.conj w).toMonoidHom = rootTorusSp K l ∧
-      (complSp K k).map (MulAut.conj w).toMonoidHom = complSp K l := by
-  refine ⟨permSp K (Equiv.swap k l), ?_, ?_, ?_⟩
-  · rw [map_conj_permSp_longRootSp2, Equiv.swap_apply_left]
-  · rw [map_conj_permSp_rootTorusSp, Equiv.swap_apply_left]
-  · rw [map_conj_permSp_complSp, Equiv.swap_apply_left]
 
 end Perm
 

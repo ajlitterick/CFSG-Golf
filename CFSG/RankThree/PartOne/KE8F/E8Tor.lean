@@ -186,9 +186,6 @@ theorem mem_fixedCharTuples_e8P4_iff {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr
 
 @[expose] def cg (b : Fin Tag.E8.rank → Lˣ) (j : Fin 4) : Lˣ := bs b (ev j)
 
-theorem gA_eq (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gA x j = (e8P4Binv *ᵥ x) (ev j) := rfl
-
-theorem gB_eq (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gB x j = (e8P4Binv *ᵥ x) (od j) := rfl
 
 theorem rootChar_T0 {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q) {b : Fin Tag.E8.rank → Lˣ}
     (hb : b ∈ fixedCharTuples e8P4V Fr) (α : Fin Tag.E8.rank → ℤ) :

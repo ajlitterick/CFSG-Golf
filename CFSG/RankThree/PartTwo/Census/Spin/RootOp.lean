@@ -190,9 +190,6 @@ theorem RootOp.commute_torus {X : Matrix N N K} {w : ι → ℤ} (hX : R.RootOp 
   rw [hs, Units.val_one, one_mul, ← hX.mat_elt] at h1
   exact mul_inv_eq_iff_eq_mul.mp (R.mat_injective h1)
 
-theorem RootOp.elt_simple_E (i : ι) (hD : ∀ u ∈ L, R.x i u ∈ ⁅H, H⁆) (u : K) :
-    (rootOp_E (R := R) i hD).elt u = R.x i u :=
-  R.mat_injective (by rw [RootOp.mat_elt, mat_x, SqZeroPair.φ_upper])
 
 theorem eq_zero_of_commute_sqZeroPair {X Y : Matrix N N K} (hp : SqZeroPair X Y) (hX0 : X ≠ 0)
     {g g' : R.G} {u : K} (hg : R.mat g = 1 + u • X) (hg' : R.mat g' = 1 + Y)

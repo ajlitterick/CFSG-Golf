@@ -105,17 +105,5 @@ theorem invariant_two_component_in_common_centralizer (a : G) (ha : orderOf a = 
           (Subgroup.mem_zpowers a))).symm
   exact ⟨hcentral, OrdinaryComponentTransport.restrict_nested K _ _ hcentral hsmaller hK⟩
 
-theorem invariant_two_component_in_common_centralizer_layer (a : G) (ha : orderOf a = 2)
-    (K S : Subgroup G) (hKC : K ≤ Subgroup.centralizer ({a} : Set G))
-    (hK : IsComponentOf (K.subgroupOf (Subgroup.centralizer ({a} : Set G))) ⊤)
-    (htwo : IsPGroup 2 S) (haS : a ∈ Subgroup.normalizer (S : Set G))
-    (hKS : K ≤ Subgroup.normalizer (S : Set G)) :
-    K ≤ (Layer.subgroup
-      (Subgroup.centralizer ((S ⊔ Subgroup.zpowers a : Subgroup G) : Set G))).map
-        (Subgroup.centralizer ((S ⊔ Subgroup.zpowers a : Subgroup G) : Set G)).subtype := by
-  obtain ⟨hle, hcomponent⟩ := invariant_two_component_in_common_centralizer
-    a ha K S hKC hK htwo haS hKS
-  rw [← Subgroup.map_subgroupOf_eq_of_le hle]
-  exact Subgroup.map_mono (Layer.component_le hcomponent)
 
 end CFSG.ComponentClassification.AschbacherComponentInvolution

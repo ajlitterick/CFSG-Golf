@@ -110,11 +110,6 @@ theorem statedClassicalModel_of_mulEquiv {G : Type} [Group G] (p f : ℕ) (hp : 
   exact ⟨statedLieAdmissible_psu_three p f hp hpodd hf, K, inferInstance, inferInstance, hK,
     ⟨e.trans e'⟩⟩
 
-theorem statedClassicalModel_psu (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f)
-    {K : Type} [Field K] [Finite K] (J : HermitianForm 3 K) (hK : Nat.card K = (p ^ f) ^ 2)
-    (hfix : Nat.card {x : K // J.conj x = x} = p ^ f) :
-    StatedClassicalModel (ProjectiveSpecialUnitaryMatrixGroup J) .PSU 3 p f :=
-  statedClassicalModel_of_mulEquiv p f hp hpodd hf J hK hfix (MulEquiv.refl _)
 
 @[expose] def closureRootWeylEquiv {K : Type u} [Field K] [Finite K] (J : HermitianForm 3 K)
     (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) (q : ℕ) (hK : Nat.card K = q ^ 2)
@@ -124,12 +119,5 @@ theorem statedClassicalModel_psu (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf 
   (MulEquiv.subgroupCongr (closure_rootGroup_weyl_eq_top J hJ q hK hfix hq)).trans
     Subgroup.topEquiv
 
-theorem closureRootWeylEquiv_apply {K : Type u} [Field K] [Finite K] (J : HermitianForm 3 K)
-    (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) (q : ℕ) (hK : Nat.card K = q ^ 2)
-    (hfix : Nat.card {x : K // J.conj x = x} = q) (hq : 2 < q)
-    (g : Subgroup.closure ((rootGroup J hJ : Set (ProjectiveSpecialUnitaryMatrixGroup J)) ∪
-      {weyl J hJ})) :
-    closureRootWeylEquiv J hJ q hK hfix hq g = (g : ProjectiveSpecialUnitaryMatrixGroup J) :=
-  rfl
 
 end CFSG.UnitaryThreeRecognition.Model

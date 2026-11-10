@@ -30,9 +30,6 @@ theorem rDiag_eq (c : Kˣ) : rDiag c = ![c, 1, 1, 1] := by
 
 theorem rDiag_one : rDiag (1 : Kˣ) = 1 := Pi.mulSingle_one 0
 
-theorem rDiag_mul (c d : Kˣ) : rDiag (c * d) = rDiag c * rDiag d := by
-  unfold rDiag
-  exact Pi.mulSingle_mul _ _ _
 
 @[expose] def f4Vec (a b c d : ℤ) : Fin (Tag.rank .F4) → ℤ := ![a, b, c, d]
 

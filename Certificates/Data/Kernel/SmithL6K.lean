@@ -48,8 +48,6 @@ open CFSG.SmithE (tri applyCols)
     let (a, b, c) := tri[t]!
     wedge3 (tvA p (2 ^ a)) (tvA p (2 ^ b)) (tvA p (2 ^ c))
 
-@[expose] def rev20 (x : Nat) : Nat :=
-  (List.range 20).foldl (fun acc t => if x.testBit t then acc ||| 2 ^ (19 - t) else acc) 0
 
 @[expose] def Reach (n m : Nat) (isRoot : Nat → Bool) (edge : Nat → Nat → Nat → Bool) : Prop :=
   ∀ Q : Nat → Prop, (∀ v < n, isRoot v = true → Q v) →

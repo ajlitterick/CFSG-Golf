@@ -17,36 +17,6 @@ namespace L4
 
 open scoped Matrix
 
-theorem blk4_mul : ∀ X Y : Fin 2 → Fin 2 → ZMod 2,
-    (1 + blk4 X) * (1 + blk4 Y) = 1 + blk4 (X + Y) :=
-  Certificates.certificate7026.1
-
-theorem blk4_inj :
-    ∀ X Y : Fin 2 → Fin 2 → ZMod 2, 1 + blk4 X = 1 + blk4 Y → X = Y :=
-  Certificates.certificate7026.2.1
-
-theorem blk5_mul : ∀ X Y : Fin 3 → Fin 2 → ZMod 2,
-    (1 + blk5 X) * (1 + blk5 Y) = 1 + blk5 (X + Y) :=
-  Certificates.certificate7026.2.2.1
-
-theorem blk5_inj :
-    ∀ X Y : Fin 3 → Fin 2 → ZMod 2, 1 + blk5 X = 1 + blk5 Y → X = Y :=
-  Certificates.certificate7026.2.2.2.1
-
-theorem card_fix_blk4 :
-    (Finset.univ.filter fun v : Fin 4 → ZMod 2 =>
-      ∀ X : Fin 2 → Fin 2 → ZMod 2, (1 + blk4 X) *ᵥ v = v).card = 4 :=
-  Certificates.certificate7026.2.2.2.2.1
-
-theorem card_fix_blk4_transpose :
-    (Finset.univ.filter fun v : Fin 4 → ZMod 2 =>
-      ∀ X : Fin 2 → Fin 2 → ZMod 2, (1 + blk4 X)ᵀ *ᵥ v = v).card = 4 :=
-  Certificates.certificate7026.2.2.2.2.2.1
-
-theorem card_fix_blk5 :
-    (Finset.univ.filter fun v : Fin 5 → ZMod 2 =>
-      ∀ X : Fin 3 → Fin 2 → ZMod 2, (1 + blk5 X) *ᵥ v = v).card = 8 :=
-  Certificates.certificate7026.2.2.2.2.2.2.1
 
 theorem single_mul_self : ∀ i j : Fin 4, i ≠ j →
     (1 + Matrix.single i j (1 : ZMod 2)) * (1 + Matrix.single i j 1) = 1 :=

@@ -32,11 +32,6 @@ theorem mat_eq_of_forall (g h : StatedSp 2 K) (hgh : ∀ v : Fin 2 ⊕ Fin 2 →
 @[expose] def OnPlane (i : Fin 2) (v : Fin 2 ⊕ Fin 2 → K) : Prop :=
   ∀ k, k ≠ Sum.inl i → k ≠ Sum.inr i → v k = 0
 
-theorem onPlane_add {i : Fin 2} {v w : Fin 2 ⊕ Fin 2 → K} (hv : OnPlane i v) (hw : OnPlane i w) :
-    OnPlane i (v + w) := fun k h1 h2 => by simp [hv k h1 h2, hw k h1 h2]
-
-theorem onPlane_smul {i : Fin 2} (c : K) {v : Fin 2 ⊕ Fin 2 → K} (hv : OnPlane i v) :
-    OnPlane i (c • v) := fun k h1 h2 => by simp [hv k h1 h2]
 
 theorem onPlane_zero (i : Fin 2) : OnPlane i (0 : Fin 2 ⊕ Fin 2 → K) := fun _ _ _ => rfl
 

@@ -310,14 +310,10 @@ section Model
 open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem
   CFSG.Assembly.LowTwoRank
 
-theorem ggSLCoordContraryInput_holds : GGSLCoordContraryInput :=
-  ggSLCoordContraryInput_of_compShape ggSLCoordCompShapeInput_holds
 
 theorem ggStepTwoCoordModelOn_PSL_holds : GGStepTwoCoordModelOn .PSL :=
   ggStepTwoCoordModelOn_PSL_of_compShape ggSLCoordCompShapeInput_holds
 
-theorem ggStepTwoToralWitnessOn_PSL_holds : GGStepTwoToralWitnessOn .PSL :=
-  ggStepTwoToralWitnessOn_PSL_of_compShape ggSLCoordCompShapeInput_holds
 
 end Model
 

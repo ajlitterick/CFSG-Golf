@@ -80,44 +80,5 @@ end AlternatingModel
 
 open AlternatingModel
 
-theorem dihedral_sylow_alternating_model_small_degree {T : Type} [Group T] {n : ℕ} (hn : 5 ≤ n)
-    (hT : Nonempty (T ≃* alternatingGroup (Fin n))) {s : ℕ} (hs : 2 ≤ s) (P : Sylow 2 T)
-    (hP : Nonempty ((P : Subgroup T) ≃* DihedralGroup (2 ^ (s - 1)))) :
-    (n = 5 ∨ n = 6 ∨ n = 7) ∧ (n = 5 → StatedClassicalModel T .PSL 2 5 1) ∧
-      (n = 6 → StatedClassicalModel T .PSL 2 3 2) ∧
-      ((n = 7 ∧ Nonempty (T ≃* alternatingGroup (Fin 7))) ∨
-        ∃ ℓ e : ℕ, ℓ.Prime ∧ Odd ℓ ∧ 1 ≤ e ∧ StatedClassicalModel T .PSL 2 ℓ e) := by
-  obtain ⟨eT⟩ := hT
-  have : Finite T := Finite.of_equiv _ eT.symm.toEquiv
-  obtain ⟨hrank, -⟩ := SmallLocal.dihedral_sylow_rank_and_quaternion_obstructions hs ⟨P, hP⟩
-  have hn7 : n ≤ 7 := by
-    by_contra h8
-    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    obtain ⟨E, hE, hEcard⟩ := exists_elementaryAbelian_eight (n := n) (by omega)
-    have := hE
-    have hle := RankOneCenter.le_pRank_of_subgroup
-      (IsElementaryAbelian.map (p := 2) (A := E) eT.symm.toMonoidHom)
-      (by rw [Subgroup.card_map_of_injective eT.symm.injective, hEcard])
-    omega
-  have h5 : n = 5 → StatedClassicalModel T .PSL 2 5 1 := by
-    rintro rfl
-    have : Fact (Nat.Prime 5) := ⟨Nat.prime_five⟩
-    obtain ⟨e5⟩ := (LinearGroups.five_field_linear_two_alternating_five_model
-      (GaloisField 5 1) (by rw [GaloisField.card 5 1 one_ne_zero, pow_one])).1
-    exact statedClassicalModel_psl_two_of_mulEquiv T 5 1 (by norm_num) (eT.trans e5.symm)
-  have h6 : n = 6 → StatedClassicalModel T .PSL 2 3 2 := by
-    rintro rfl
-    have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    have : Fintype (GaloisField 3 2) := Fintype.ofFinite _
-    obtain ⟨e6⟩ :=
-      LocalAnalysis.ComponentInitial.unique_field_nine_projective_linear_alternating_six_isomorphism
-        (GaloisField 3 2)
-        (by rw [← Nat.card_eq_fintype_card, GaloisField.card 3 2 two_ne_zero]; norm_num)
-    exact statedClassicalModel_psl_two_of_mulEquiv T 3 2 (by norm_num) (eT.trans e6.symm)
-  refine ⟨by omega, h5, h6, ?_⟩
-  rcases (by omega : n = 5 ∨ n = 6 ∨ n = 7) with rfl | rfl | rfl
-  · exact Or.inr ⟨5, 1, Nat.prime_five, by decide, le_rfl, h5 rfl⟩
-  · exact Or.inr ⟨3, 2, Nat.prime_three, by decide, by norm_num, h6 rfl⟩
-  · exact Or.inl ⟨rfl, ⟨eT⟩⟩
 
 end CFSG.ComponentClassification.UnbalancedGS

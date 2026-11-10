@@ -302,10 +302,6 @@ theorem exists_fourth {a b c d : Θ} (habcd : [a, b, c, d].Nodup) (p q r : Θ) :
   have : ({p, q, r} : Finset Θ).card ≤ 3 := Finset.card_le_three
   omega
 
-theorem exists_third {a b c d : Θ} (habcd : [a, b, c, d].Nodup) (p q : Θ) :
-    ∃ s ∈ ({a, b, c, d} : Set Θ), s ≠ p ∧ s ≠ q := by
-  obtain ⟨s, hs, h1, h2, -⟩ := exists_fourth habcd p q q
-  exact ⟨s, hs, h1, h2⟩
 
 variable {G : Type v} [Group G] [MulAction G Θ]
 

@@ -113,18 +113,6 @@ theorem four_flip_card [Finite G] (W : Subgroup G) (hWcard : Nat.card W = 4)
       (Nat.card_congr (fourFlipProductEquiv W t hWt ht htW).toEquiv).symm
     _ = 8 := by rw [Nat.card_prod, hWcard, Nat.card_zpowers, ht]
 
-theorem four_flip_finrank [Finite G] (W : Subgroup G) [IsElementaryAbelian 2 W]
-    (hWcard : Nat.card W = 4) (t : G)
-    (hWt : W ≤ Subgroup.centralizer ({t} : Set G))
-    (ht : orderOf t = 2) (htW : t ∉ W) :
-    let : IsElementaryAbelian 2 ↥(W ⊔ Subgroup.zpowers t) :=
-      four_flip_isElementary W t hWt ht htW
-    Module.finrank (ZMod 2) (Additive ↥(W ⊔ Subgroup.zpowers t)) = 3 := by
-  let : IsElementaryAbelian 2 ↥(W ⊔ Subgroup.zpowers t) :=
-    four_flip_isElementary W t hWt ht htW
-  apply Nat.pow_right_injective (a := 2) (by decide)
-  change 2 ^ Module.finrank (ZMod 2) (Additive ↥(W ⊔ Subgroup.zpowers t)) = 2 ^ 3
-  rw [← elementary_card_eq_pow_finrank (p := 2), four_flip_card W hWcard t hWt ht htW]
 
 theorem original_pair_flip_not_mem_four_group
     {H : Subgroup G} {z : G} {beta : rightCosetSpace H}
@@ -148,41 +136,5 @@ theorem original_pair_generated_actor_structure [Finite G]
   exact ⟨four_flip_isElementary W t hWt htorder htW,
     four_flip_card W hWcard t hWt htorder htW⟩
 
-theorem original_generated_actor_frattini_lifting [Finite G]
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta)
-    (W : Subgroup G) [IsElementaryAbelian 2 W] (hWcard : Nat.card W = 4)
-    (hWB : W ≤ pairPointStabilizer H beta)
-    (hWt : W ≤ Subgroup.centralizer ({t} : Set G))
-    {p : ℕ} [Fact p.Prime] (hpodd : Odd p)
-    (P : Subgroup G) (hP : IsPGroup p P)
-    (hinvariant : W ⊔ Subgroup.zpowers t ≤ Subgroup.normalizer (P : Set G)) :
-    let A := W ⊔ Subgroup.zpowers t
-    let := normalizerFrattiniBaseAction P
-    let : MulDistribMulAction A P := MulDistribMulAction.compHom P (Subgroup.inclusion hinvariant)
-    let := frattiniQuotientAction (A := A) (P := P)
-    IsElementaryAbelian 2 A ∧ Nat.card A = 8 ∧
-      Nat.Coprime (Nat.card A) (Nat.card (frattini P)) ∧
-        Nat.Coprime (Nat.card A) (Nat.card (P ⧸ frattini P)) ∧
-          ∀ a : A, actorFixedSubgroup (I := P ⧸ frattini P) a =
-            (actorFixedSubgroup (I := P) a).map (QuotientGroup.mk' (frattini P)) := by
-  let A := W ⊔ Subgroup.zpowers t
-  obtain ⟨helem, hcard⟩ := original_pair_generated_actor_structure h hbeta ht W hWcard hWB hWt
-  let : IsElementaryAbelian 2 A := helem
-  let := normalizerFrattiniBaseAction P
-  let : MulDistribMulAction A P := MulDistribMulAction.compHom P (Subgroup.inclusion hinvariant)
-  let := frattiniQuotientAction (A := A) (P := P)
-  have hkernel := frattini_kernel_structure hP hpodd
-  change _ ∧ _ ∧ _ ∧ _ ∧ _
-  refine ⟨helem, hcard, ?_, ?_, ?_⟩
-  · rw [hcard]
-    exact hkernel.2.2.1.coprime_two_left.pow_left 3
-  · rw [hcard]
-    exact hkernel.2.2.2.2.coprime_two_left.pow_left 3
-  · intro a
-    exact frattini_fixed_quotient_eq_image hP hpodd a
-      (Monoid.exponent_dvd_iff_forall_pow_eq_one.mp
-        (IsElementaryAbelian.exponent_dvd_p 2 A) a)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumeratorPairRankFrattini

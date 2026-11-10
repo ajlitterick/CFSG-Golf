@@ -24,13 +24,6 @@ variable {G : Type*} [Group G]
   letI := pointInvariantSetInverseRightAction H A Delta hstable
   MulAction.toPermHom A Delta
 
-theorem inverseRightRepresentation_apply (H A : Subgroup G)
-    (Delta : Set (pointRightCosetSpace H))
-    (hstable : ∀ a ∈ A, ∀ omega ∈ Delta,
-      pointRightCosetMul H omega a ∈ Delta)
-    (a : A) (omega : Delta) :
-    ((inverseRightRepresentation H A Delta hstable a omega : Delta) :
-      pointRightCosetSpace H) = pointRightCosetMul H omega.val (a : G)⁻¹ := rfl
 
 theorem inverseRightRepresentation_ker (H A : Subgroup G)
     (Delta : Set (pointRightCosetSpace H))
@@ -75,13 +68,6 @@ theorem pointwiseKernelNormalizerRepresentation_ker (H W : Subgroup G) :
         (Subgroup.normalizer (pointwiseRightStabilizer H (pointFixedSet H W) : Set G)) :=
   inverseRightRepresentation_ker H _ _ _
 
-theorem pointwiseKernelNormalizerRepresentation_ker_ambient (H W : Subgroup G) :
-    (pointwiseKernelNormalizerRepresentation H W).ker.map
-      (Subgroup.normalizer
-        (pointwiseRightStabilizer H (pointFixedSet H W) : Set G)).subtype =
-      pointwiseRightStabilizer H (pointFixedSet H W) := by
-  rw [pointwiseKernelNormalizerRepresentation_ker]
-  exact Subgroup.map_subgroupOf_eq_of_le (Subgroup.le_normalizer)
 
 theorem pointwiseKernelNormalizerImage_faithful (H W : Subgroup G) :
     FaithfulSMul (pointwiseKernelNormalizerImage H W) (pointFixedSet H W) :=

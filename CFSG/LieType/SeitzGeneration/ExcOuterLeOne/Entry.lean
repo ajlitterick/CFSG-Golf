@@ -12,7 +12,6 @@ public section
 namespace CFSG.LieType.SeitzGeneration.ExcOuterLeOne
 
 
-
 section Entry
 
 variable {τ : Tag} {K : Type} [Field K]
@@ -31,17 +30,6 @@ theorem entry_entrywiseAdjointAut (σ : K ≃+* K) (g : adjointGroup τ K) (a b 
   rw [h, entrywise_single]
   simp
 
-theorem mem_subfieldGroup_iff_entry (σ : K ≃+* K) (g : adjointGroup τ K) :
-    g ∈ subfieldGroup τ σ ↔ ∀ a b, σ (entry g a b) = entry g a b := by
-  rw [subfieldGroup, mem_fixedSubgroup]
-  constructor
-  · intro h a b
-    rw [← entry_entrywiseAdjointAut, h]
-  · intro h
-    refine Subtype.ext (Units.ext (Finsupp.lhom_ext' fun b => LinearMap.ext_ring (Finsupp.ext fun a => ?_)))
-    have := h a b
-    rw [← entry_entrywiseAdjointAut] at this
-    exact this
 
 end Entry
 

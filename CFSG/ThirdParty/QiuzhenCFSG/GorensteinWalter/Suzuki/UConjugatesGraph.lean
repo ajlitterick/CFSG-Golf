@@ -127,14 +127,6 @@ public theorem adj_smul_iff (c : CentralizerSetup G) (g : G) (V W : UConjugates 
   · intro h
     exact ⟨(smul_injective c g).ne h.1, (lineCommutes.smul_iff c g V W).mpr h.2⟩
 
-/-- Simultaneous conjugation by `g` as an automorphism of the commuting
-graph. -/
-public def smulIso (c : CentralizerSetup G) (g : G) :
-    commutingGraph c ≃g commutingGraph c where
-  toEquiv := MulAction.toPerm g
-  map_rel_iff' := by
-    intro V W
-    simpa using adj_smul_iff c g V W
 
 private lemma stabilizer_base_eq_normalizer (c : CentralizerSetup G) :
     MulAction.stabilizer G (UConjugates.base c) =
@@ -187,20 +179,6 @@ public theorem stabilizer_base_eq_hhat
     MulAction.stabilizer G (UConjugates.base c) = c.Hhat := by
   rw [stabilizer_base_eq_normalizer, hhat_normalizer_U hmin c hfirst]
 
-/-- The normal core of `Ĥ = N_G(U)` is trivial: a nontrivial normal core
-would be all of the simple group `G`, but it is contained in the proper
-subgroup `Ĥ`. -/
-public theorem hhat_normalCore_eq_bot
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (d : FirstCaseCountData c) :
-    c.Hhat.normalCore = ⊥ := by
-  have hsimple : IsSimpleGroup G := minimalCounterexample_isSimple hmin
-  have hle : c.Hhat.normalCore ≤ c.Hhat := c.Hhat.normalCore_le
-  rcases @IsSimpleGroup.eq_bot_or_eq_top_of_normal _ _ hsimple c.Hhat.normalCore c.Hhat.normalCore_normal
-    with hbot | htop
-  · exact hbot
-  · exfalso
-    exact hhat_ne_top hmin c d (le_antisymm le_top (htop.symm ▸ hle))
 
 /-- The conjugation action on the 35 conjugates of `U` is faithful. -/
 public theorem faithfulSMul (hmin : IsMinimalCounterexample G)

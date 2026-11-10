@@ -18,10 +18,6 @@ namespace B510Fa
 
 variable {G G₁ G₂ : Subgroup (MulAut V)} (h : B510Fa G G₁ G₂)
 
-include h in
-theorem res_compat (g : ↥G₂) (w : ↥(fixV G₁)) :
-    (fixV G₁).subtype (((resEquiv h.stab h.faithful g : ↥(autSub G₂ (fixV G₁))) :
-      MulAut ↥(fixV G₁)) w) = (g : MulAut V) ((fixV G₁).subtype w) := rfl
 
 theorem map_top_eq : (⊤ : Subgroup ↥(fixV G₁)).map (fixV G₁).subtype = fixV G₁ :=
   SplitTransport.map_top_eq
@@ -40,10 +36,6 @@ theorem map_commV_le :
     (commV (autSub G₂ (fixV G₁))).map (fixV G₁).subtype ≤ commV G₂ :=
   SplitTransport.map_commV_le h.stab
 
-include h in
-theorem map_modComm_eq :
-    (modComm (autSub G₂ (fixV G₁)) ⊤).map (fixV G₁).subtype = modComm G₂ (fixV G₁) :=
-  SplitTransport.map_modComm_eq h.stab
 
 include h in
 theorem realizes_transport {D : FFModel} {U Z : Subgroup ↥(fixV G₁)}

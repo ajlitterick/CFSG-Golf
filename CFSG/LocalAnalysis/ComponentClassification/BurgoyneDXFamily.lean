@@ -41,8 +41,6 @@ theorem triality_moves_negOne8 [Finite F] (h2 : (2 : F) ≠ 0) {ρ : Sp8 F ≃* 
 
 end Triality
 
-@[expose] def D4TrialityThreeInput : Prop :=
-  ∃ ρ : Sp8 (GaloisField 3 1) ≃* Sp8 (GaloisField 3 1), IsTriality ρ
 
 section Family
 

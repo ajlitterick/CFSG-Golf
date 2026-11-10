@@ -61,38 +61,6 @@ universe u
 
 /-! ## The odd-center PSL₂ cover (unresolved prerequisite) -/
 
-/-- The missing generic "odd-center PSL₂ cover" theorem: a perfect central
-extension of `PSL₂(K)` whose center has odd order coprime to `|K|` is
-trivial.  This is the Schur-multiplier statement for `PSL(2, q)`, `q` odd
-(the multiplier has order 2 except at `q = 9`, where it has order 6 and its
-`3`-part is killed by `3 ∣ q`).  The exact coprimality hypothesis required
-is `Nat.Coprime (Nat.card (Subgroup.center E)) (Nat.card K)`, supplied by
-`component_center_coprime_of_fitting_coprime` from the equation-(7) prime
-information `Nat.Coprime (Nat.card (fittingSubgroupOf M)) (Nat.card K)`. -/
-public def PSL2CenterlessCover (K : Type u) [Field K] [Finite K] : Prop :=
-  ∀ {E : Type u} [Group E] [Finite E],
-    Group.IsPerfect E →
-      Odd (Nat.card (Subgroup.center E)) →
-        Nat.Coprime (Nat.card (Subgroup.center E)) (Nat.card K) →
-          Nonempty (E ⧸ Subgroup.center E ≃* PSL2 K) →
-            Subgroup.center E = ⊥
-
-/-- Given the (still missing) odd-center cover theorem, the selected
-component is centerless and therefore isomorphic to `PSL₂(K)`: the headline
-of source equation (9), `E ≃ L₂(q)`. -/
-public theorem secondCase_equationNine_E_equiv_psl2_of_centerless
-    {G : Type u} [Group G] [Finite G]
-    {c : CentralizerSetup G} {w : SecondCaseWitness c}
-    (d : SecondCaseComponentData w)
-    (K : Type u) [Field K] [Finite K]
-    (e : Nonempty ((d.E ⧸ Subgroup.center d.E) ≃* PSL2 K))
-    (hZ : Subgroup.center d.E = ⊥) :
-    Nonempty (d.E ≃* PSL2 K) := by
-  let qbot : d.E ⧸ (⊥ : Subgroup d.E) ≃* d.E := QuotientGroup.quotientBot
-  let eZ : d.E ⧸ (⊥ : Subgroup d.E) ≃* d.E ⧸ Subgroup.center d.E :=
-    QuotientGroup.quotientMulEquivOfEq (G := d.E) (M := ⊥)
-      (N := Subgroup.center d.E) hZ.symm
-  exact ⟨qbot.symm.trans (eZ.trans e.some)⟩
 
 /-! ## Quotient-level replacements (no `Z(E) = 1` needed) -/
 
@@ -240,44 +208,6 @@ private theorem inverted_odd_quotient_le_torus
       q (⟨c.t, d.t_mem_E⟩ : d.E) * q y
     exact congrArg q hcommE
 
-/-- The cardinal of the quotient image of an inverted odd subgroup of `E`
-equals its own order (injectivity through the odd center). -/
-private theorem inverted_odd_quotient_card_eq
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (w : SecondCaseWitness c)
-    (d : SecondCaseComponentData w)
-    (s : d.E) (A : Subgroup G)
-    (hA_le_U : A ≤ c.U)
-    (hA_inv : ∀ x : G, x ∈ A → (s : G) * x * (s : G)⁻¹ = x⁻¹)
-    (hA_le_E : A ≤ d.E) :
-    Nat.card ((A.subgroupOf d.E).map (QuotientGroup.mk' (Subgroup.center d.E))) =
-      Nat.card A := by
-  classical
-  let q : d.E →* d.E ⧸ Subgroup.center d.E :=
-    QuotientGroup.mk' (Subgroup.center d.E)
-  have hinj := inverted_odd_quotient_injective c w d s A
-    hA_le_U hA_inv hA_le_E
-  let f : A → ((A.subgroupOf d.E).map q : Subgroup (d.E ⧸ Subgroup.center d.E)) :=
-    fun x => ⟨q (⟨(x : G), hA_le_E x.2⟩ : d.E),
-      Subgroup.mem_map.mpr ⟨⟨(x : G), hA_le_E x.2⟩,
-        Subgroup.mem_subgroupOf.mpr x.2, rfl⟩⟩
-  have hsurj : Function.Surjective f := by
-    intro y
-    rcases Subgroup.mem_map.mp y.2 with ⟨a, ha, hxy⟩
-    have haA : (a : G) ∈ A := Subgroup.mem_subgroupOf.mp ha
-    refine ⟨⟨(a : G), haA⟩, ?_⟩
-    apply Subtype.ext
-    change q (⟨(a : G), hA_le_E haA⟩ : d.E) = (y : d.E ⧸ Subgroup.center d.E)
-    have hae : (⟨(a : G), hA_le_E haA⟩ : d.E) = a := by
-      apply Subtype.ext
-      rfl
-    rw [hae]
-    exact hxy
-  have hinj' : Function.Injective f := by
-    intro x y h
-    apply hinj
-    exact congrArg Subtype.val h
-  exact (Nat.card_congr (Equiv.ofBijective f ⟨hinj', hsurj⟩).symm)
 
 /-- The equation-(3) subgroup `K₀ = F(U) ∩ K` has trivial intersection with
 the odd center of the component (it is inverted by `s` and odd), so the
@@ -362,100 +292,6 @@ public theorem secondCase_equationNine_K0_quotient_le_torus
     exact fittingSubgroupOf_le c.U ha.1
   exact inverted_odd_quotient_le_torus c w d s K0 hK0_le_U hK0leE T hcontainT
 
-/-- The cardinal form of the torus bound: `|K₀| ≤ |T|`.  Together with the
-injectivity on `K₀` this is the quotient-level replacement for the `k/k'`
-parameter data when `Z(E) = 1` is not available. -/
-public theorem secondCase_equationNine_K0_card_le_torus
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (w : SecondCaseWitness c)
-    (d : SecondCaseComponentData w)
-    (s : d.E) (Kinv K0 : Subgroup G)
-    (hKinv_carrier : (Kinv : Set G) = invertedElements (c.U ⊓ w.M) (s : G))
-    (hK0_def : K0 = fittingSubgroupOf c.U ⊓ Kinv)
-    (hK0leE : K0 ≤ d.E)
-    (hsI : IsInvolution s)
-    (T : Subgroup (d.E ⧸ Subgroup.center d.E))
-    (hcontainT : ∀ X : Subgroup (d.E ⧸ Subgroup.center d.E),
-      (∀ x : d.E ⧸ Subgroup.center d.E, x ∈ X → Odd (orderOf x)) →
-        X ≤ Subgroup.centralizer
-          ({QuotientGroup.mk' (Subgroup.center d.E) ⟨c.t, d.t_mem_E⟩} :
-            Set (d.E ⧸ Subgroup.center d.E)) → X ≤ T) :
-    Nat.card K0 ≤ Nat.card T := by
-  classical
-  have hle := secondCase_equationNine_K0_quotient_le_torus c w d s Kinv K0
-    hKinv_carrier hK0_def hK0leE T hcontainT
-  have hK0_le_U : K0 ≤ c.U := by
-    intro a ha
-    rw [hK0_def] at ha
-    exact fittingSubgroupOf_le c.U ha.1
-  have hK0_inv : ∀ x : G, x ∈ K0 → (s : G) * x * (s : G)⁻¹ = x⁻¹ := by
-    intro x hx
-    have hxKinv : x ∈ Kinv := by
-      rw [hK0_def] at hx
-      exact hx.2
-    have hxI : x ∈ invertedElements (c.U ⊓ w.M) (s : G) := by
-      rw [← hKinv_carrier]
-      exact hxKinv
-    rw [invertedElements] at hxI
-    exact hxI.2
-  have hcard := inverted_odd_quotient_card_eq c w d s K0
-    hK0_le_U hK0_inv hK0leE
-  have hle2 : Nat.card ((K0.subgroupOf d.E).map
-      (QuotientGroup.mk' (Subgroup.center d.E))) ≤ Nat.card T :=
-    Subgroup.card_le_of_le hle
-  rwa [hcard] at hle2
-
-/-- The Sylow-`2` cardinality of the component transports through the odd
-central kernel: the quotient map `E → E/Z(E)` is injective on a Sylow
-`2`-subgroup (the kernel is the odd center), so `|S ∩ E|` equals the order
-of its image, a Sylow `2`-subgroup of `E/Z(E) ≅ PSL₂(K)`.  This is the
-quotient-level replacement for the source's `S₀ = O₂(H ∩ E)` cardinal data
-when `Z(E) = 1` is not available. -/
-public theorem secondCase_equationNine_componentSylowTwo_card_eq_quotient
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (w : SecondCaseWitness c)
-    (d : SecondCaseComponentData w)
-    (SE : Sylow 2 (↥d.E)) :
-    Nat.card (SE : Subgroup d.E) =
-      Nat.card (((SE : Subgroup d.E).map
-        (QuotientGroup.mk' (Subgroup.center d.E))) :
-          Subgroup (d.E ⧸ Subgroup.center d.E)) := by
-  classical
-  let q : d.E →* d.E ⧸ Subgroup.center d.E :=
-    QuotientGroup.mk' (Subgroup.center d.E)
-  have hSEp : IsPGroup 2 (SE : Subgroup d.E) := SE.isPGroup'
-  have hcop : Nat.Coprime (Nat.card (SE : Subgroup d.E))
-      (Nat.card (Subgroup.center d.E)) := by
-    rcases hSEp.exists_card_eq with ⟨n, hn⟩
-    rw [hn]
-    exact (d.center_odd.coprime_two_left).pow_left n
-  have hdisj : Disjoint (SE : Subgroup d.E) (Subgroup.center d.E) :=
-    Subgroup.disjoint_of_coprime_natCard hcop
-  let S : Subgroup d.E := SE
-  let f : ↥S →
-      (S.map q : Subgroup (d.E ⧸ Subgroup.center d.E)) :=
-    fun x => ⟨q x, Subgroup.mem_map.mpr ⟨x.1, x.2, rfl⟩⟩
-  have hinj : Function.Injective f := by
-    intro x y hq
-    have hxqy : q (x : d.E) = q (y : d.E) := congrArg Subtype.val hq
-    have hdiv : (x : d.E) / (y : d.E) ∈ Subgroup.center d.E :=
-      (QuotientGroup.eq_iff_div_mem (N := Subgroup.center d.E)).mp hxqy
-    have hdivSE : (x : d.E) / (y : d.E) ∈ (SE : Subgroup d.E) :=
-      (SE : Subgroup d.E).div_mem x.2 y.2
-    have hbot : (x : d.E) / (y : d.E) ∈ (⊥ : Subgroup d.E) := by
-      have hmem : (x : d.E) / (y : d.E) ∈
-          (SE : Subgroup d.E) ⊓ Subgroup.center d.E := ⟨hdivSE, hdiv⟩
-      rwa [hdisj.eq_bot] at hmem
-    have hxy : (x : d.E) / (y : d.E) = 1 := Subgroup.mem_bot.mp hbot
-    apply Subtype.ext
-    exact div_eq_one.mp hxy
-  have hsurj : Function.Surjective f := by
-    intro y
-    rcases Subgroup.mem_map.mp y.2 with ⟨x, hx, hxy⟩
-    refine ⟨⟨x, hx⟩, ?_⟩
-    apply Subtype.ext
-    exact hxy
-  exact Nat.card_congr (Equiv.ofBijective f ⟨hinj, hsurj⟩)
 
 /-! ## The `k ≤ |T|` injection (needs `S ⊆ E`) -/
 

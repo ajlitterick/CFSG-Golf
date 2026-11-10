@@ -97,10 +97,6 @@ theorem rank_one_isometry_eq_transvection [FiniteDimensional (ZMod 2) V]
     exact zmod2_eq_of_add_eq_zero h2
   exact ⟨v, hv0, hqv, hform⟩
 
-theorem transvection_comp_apply (q : QuadraticForm (ZMod 2) V) (v w y : V) :
-    (y + polar q y w • w) + polar q (y + polar q y w • w) v • v =
-      y + polar q y w • w + (polar q y v + polar q y w * polar q w v) • v := by
-  rw [polar_add_left, polar_smul_left, smul_eq_mul]
 
 theorem binary_reflection_normalizer_small_rank_obstruction [FiniteDimensional (ZMod 2) V]
     {q : QuadraticForm (ZMod 2) V} (hnd : (polarBilin q).Nondegenerate)

@@ -50,9 +50,6 @@ theorem tprodCoord_tmul (x : ι₁ → k) (y : ι₂ → k) (a : ι₁) (b : ι�
     refine Finset.sum_congr rfl fun a' _ => Finset.sum_congr rfl fun b' _ => ?_
     ring)
 
-theorem tprodKron_nonempty (R₁ : G →* Matrix ι₁ ι₁ k) (R₂ : G →* Matrix ι₂ ι₂ k) :
-    Nonempty (Representation.Equiv (tprod (matRep R₁) (matRep R₂)) (matRep (kronRep R₁ R₂))) :=
-  ⟨tprodKronEquiv R₁ R₂⟩
 
 end Bridge
 
@@ -219,16 +216,6 @@ theorem OnlyT.sub_quot {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k
     rw [repMultiplicity_sub_quot ρ W σ]
     omega
 
-omit [CharP k 2] in
-theorem OnlyT.of_sub_quot {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]
-    {ρ : Representation k (antiSp F) V} (W : Subrepresentation ρ)
-    (h1 : OnlyT (F := F) k f W.toRepresentation) (h2 : OnlyT (F := F) k f W.quotient) :
-    OnlyT (F := F) k f ρ := by
-  intro E _ _ _ σ hσ hpos
-  rw [repMultiplicity_sub_quot ρ W σ] at hpos
-  by_cases ha : 0 < repMultiplicity W.toRepresentation σ
-  · exact h1 _ σ hσ ha
-  · exact h2 _ σ hσ (by omega)
 
 omit [CharP k 2] in
 theorem OnlyT.of_flag {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]

@@ -41,8 +41,6 @@ open CFSG CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 theorem Thm1RTwinBelow.mono {m n : ℕ} (h : m ≤ n) (H : Thm1RTwinBelow n) : Thm1RTwinBelow m :=
   fun Y _ _ hlt => H Y (lt_of_lt_of_le hlt h)
 
-theorem thm1RTwinBelow_zero : Thm1RTwinBelow 0 :=
-  fun _ _ _ hlt => absurd hlt (Nat.not_lt_zero _)
 
 @[expose] def Thm1RTwinLiftBelow (n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y], Nat.card Y < n →
@@ -58,8 +56,6 @@ theorem Thm1RTwinLiftBelow.mono {m n : ℕ} (h : m ≤ n) (H : Thm1RTwinLiftBelo
     Thm1RTwinLiftBelow m :=
   fun Y _ _ hlt => H Y (lt_of_lt_of_le hlt h)
 
-theorem thm1RTwinLiftBelow_zero : Thm1RTwinLiftBelow 0 :=
-  fun _ _ _ hlt => absurd hlt (Nat.not_lt_zero _)
 
 theorem Thm1RTwinBelow.lift {n : ℕ} (H : Thm1RTwinBelow n) : Thm1RTwinLiftBelow n := by
   intro Y _ _ hlt R S t hd hq hg hO hΩ hA htw

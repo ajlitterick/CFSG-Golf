@@ -112,20 +112,10 @@ theorem ggSixSeventeenOmSmallInput_holds : GGSixSeventeenOmSmallInput := by
         (hctx.2.2.2.2.2.2.1.2 b hb))
       hctx.prime hctx.ne_two hctx.bstar (SevOm.card_bstar_ge hctx) hsmall hb hb1 hL₁ hex hpL
 
-theorem ggSixSeventeenWitnessDvdOn_POmegaPlus :
-    GGSixSeventeenWitnessDvdOn (fun t _ _ _ => t = .POmegaPlus) :=
-  ggSixSeventeenWitnessDvdOn_POmegaPlus_of_small ggSixSeventeenOmSmallInput_holds
-
-theorem ggSixSeventeenWitnessDvdOn_POmegaMinus :
-    GGSixSeventeenWitnessDvdOn (fun t _ _ _ => t = .POmegaMinus) :=
-  ggSixSeventeenWitnessDvdOn_POmegaMinus_of_small ggSixSeventeenOmSmallInput_holds
 
 @[expose] def GGSixSeventeenWitnessRest12 : Prop :=
   GGSixSeventeenE8SevenInput ∧ GGSixSeventeenRootWitnessInputFor GGExceptionalTag
 
-theorem ggSixSeventeenWitnessRest12_of_rest11 (h : GGSixSeventeenWitnessRest11) :
-    GGSixSeventeenWitnessRest12 :=
-  h.2
 
 theorem ggSixSeventeenWitnessRest11_of_rest12 (h : GGSixSeventeenWitnessRest12) :
     GGSixSeventeenWitnessRest11 :=

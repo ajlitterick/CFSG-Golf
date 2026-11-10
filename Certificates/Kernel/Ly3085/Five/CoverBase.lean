@@ -135,8 +135,6 @@ theorem words_12 : (∀ z ∈ xWord, z = 1 ∨ z = 2) ∧ (∀ z ∈ y3Word, z =
 theorem gx_lt : (∀ l ∈ CFSG.KD.LyFive.GX, l < 41) ∧ (∀ l ∈ CFSG.KD.LyFive.GY, l < 41) := by
   decide +kernel
 
-theorem tw_lt : (∀ l ∈ CFSG.KD.LyFive.tAW, l < 41) ∧ (∀ l ∈ CFSG.KD.LyFive.tBW, l < 41) := by
-  decide
 
 theorem valJ_hL {l : ℕ} (hl : l < 4) : valJ (hL l) = lyLet l := by
   interval_cases l <;> rfl

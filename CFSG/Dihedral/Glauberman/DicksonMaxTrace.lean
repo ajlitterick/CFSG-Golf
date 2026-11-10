@@ -251,18 +251,6 @@ theorem mem_fixField_two_of_quadratic {b c t : F} (hb : b ∈ fixField F p 1)
   · rw [h, map_sub, map_neg, hφb, h]
     ring
 
-theorem trace_mem_fixField_two_of_pow_four {A : SL(2, F)} (hA : mk A ^ 4 = 1) :
-    (A : Matrix (Fin 2) (Fin 2) F).trace ∈ fixField F p 2 :=
-  trace_mem_of_pow (n := 3) hA fun t ht => by
-    rw [chAB_three] at ht
-    have ht' : t * (t ^ 2 + 0 * t + -2) = 0 := by
-      have : t ^ 3 - 2 * t = 0 := ht
-      linear_combination this
-    rcases mul_eq_zero.mp ht' with h | h
-    · rw [h]
-      exact (fixField F p 2).zero_mem
-    · exact mem_fixField_two_of_quadratic (fixField F p 1).zero_mem
-        ((fixField F p 1).neg_mem (two_mem_subfield _)) h
 
 theorem trace_mem_fixField_two_of_pow_five {A : SL(2, F)} (hA : mk A ^ 5 = 1) :
     (A : Matrix (Fin 2) (Fin 2) F).trace ∈ fixField F p 2 :=

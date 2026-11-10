@@ -49,7 +49,6 @@ theorem diagSL_one : diagSL (1 : SL(2, F)) = 1 := by
   map_one' := diagSL_one
   map_mul' := diagSL_mul
 
-theorem Δsl_apply (h : SL(2, F)) : Δsl h = diagSL h := rfl
 
 theorem mat_Δsl (h : SL(2, F)) : mat 2 F (Δsl h) = tens (h : Matrix (Fin 2) (Fin 2) F) 1 := rfl
 

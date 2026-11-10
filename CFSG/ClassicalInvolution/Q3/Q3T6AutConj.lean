@@ -285,17 +285,6 @@ section PGL
     (conjAut : GL (Fin 2) (ZMod 3) →* MulAut SL(2, ZMod 3)) conjAut3_surjective).symm.trans
     (QuotientGroup.quotientMulEquivOfEq conjAut3_ker)
 
-theorem mulAutEquivPGL2_conjAut (g : GL (Fin 2) (ZMod 3)) :
-    mulAutEquivPGL2 (conjAut g) = Matrix.ProjGenLinGroup.mk g := by
-  have h : (QuotientGroup.quotientKerEquivOfSurjective
-      (conjAut : GL (Fin 2) (ZMod 3) →* MulAut SL(2, ZMod 3)) conjAut3_surjective).symm
-      (conjAut g) = QuotientGroup.mk g := (MulEquiv.symm_apply_eq _).mpr rfl
-  show (QuotientGroup.quotientMulEquivOfEq conjAut3_ker)
-    ((QuotientGroup.quotientKerEquivOfSurjective
-      (conjAut : GL (Fin 2) (ZMod 3) →* MulAut SL(2, ZMod 3)) conjAut3_surjective).symm
-      (conjAut g)) = QuotientGroup.mk g
-  rw [h]
-  rfl
 
 end PGL
 

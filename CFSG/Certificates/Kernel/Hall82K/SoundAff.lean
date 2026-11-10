@@ -72,7 +72,6 @@ theorem compL_lor36 {L M : ℕ} (hL : L < 2 ^ 36) (hM : M < 2 ^ 36) (u w : ℕ) 
 
 @[expose] def codeA (g : Fin 64 → Fin 64) : ℕ := codeL (linPart g) ||| (g 0).val <<< 36
 
-theorem linPart_zero (g : Fin 64 → Fin 64) : linPart g 0 = 0 := xorF_self _
 
 theorem eq_linPart (g : Fin 64 → Fin 64) (v : Fin 64) : g v = xorF (linPart g v) (g 0) := by
   rw [linPart, xorF_assoc, xorF_self, xorF_zero]

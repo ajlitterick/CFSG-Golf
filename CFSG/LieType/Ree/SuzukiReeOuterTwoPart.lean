@@ -36,35 +36,6 @@ theorem suzuki_case
     Nat.ordProj_mul 2 hq0 (by omega), ordProj_two_of_odd h1, ordProj_two_of_odd h2, mul_one,
     mul_one, hq, ← pow_mul, Nat.ordProj_self_pow Nat.prime_two]
 
-theorem large_Ree_case
-    {T : Type} [Group T] {p f : ℕ} (h : ReeTitsModel T .twistedF4 p f) :
-    ordProj[2] (Nat.card (Outer T)) = 1 ∧ 8 ≤ p ^ f ∧ p ^ f ≤ ordProj[2] (Nat.card T) := by
-  obtain ⟨rfl, hf3, hodd, -, hcardO, -, hiso⟩ :=
-    large_Ree_model_field_outer_group_and_inner_involutions T p f h
-  refine ⟨by rw [hcardO]; exact ordProj_two_of_odd hodd, ?_, ?_⟩
-  · calc 8 = 2 ^ 3 := by norm_num
-      _ ≤ 2 ^ f := Nat.pow_le_pow_right (by norm_num) hf3
-  obtain ⟨-, a, hfa, K, _, _, hK, hw⟩ := h
-  have : CharP K F4.prime := finite_field_prime_power_characteristic Nat.prime_two (by omega) hK
-  obtain ⟨⟨E⟩, -⟩ := hiso a K hfa hK hw
-  have hK' : Nat.card K = 2 ^ (2 * a + 1) := by rw [hK, hfa]
-  have hU : Nat.card (F4.reeFixedOrbitUnipotent K a ⟨1, by decide⟩) = (2 ^ f) ^ 2 := by
-    have h1 := Nat.card_congr (large_Ree_B2_fixed_coordinates a K hK').1.equiv
-    rw [Nat.card_univ, Nat.card_prod, hK] at h1
-    rw [sq]
-    exact h1.symm
-  have hdvd : 2 ^ (2 * f) ∣ Nat.card T := by
-    rw [Nat.card_congr E.toEquiv, pow_mul', ← hU]
-    exact Subgroup.card_dvd_of_le
-      (inf_le_right : F4.reeFixedOrbitUnipotent K a ⟨1, by decide⟩ ≤ F4.reeGamma K a)
-  have : Finite (F4.reeGamma K a) := by
-    have := finite_modGL (τ := F4.tag) (K := K)
-    infer_instance
-  have hT0 : Nat.card T ≠ 0 := by
-    rw [Nat.card_congr E.toEquiv]
-    exact Nat.card_pos.ne'
-  calc 2 ^ f ≤ 2 ^ (2 * f) := Nat.pow_le_pow_right (by norm_num) (by omega)
-    _ ≤ ordProj[2] (Nat.card T) := pow_le_ordProj_two hT0 hdvd
 
 theorem small_Ree_case
     {T : Type} [Group T] {p f : ℕ} (h : ReeTitsModel T .twistedG2 p f) :
@@ -134,35 +105,5 @@ theorem small_Ree_case
   rw [hT, ← h2part, Nat.mul_div_cancel_left _ two_pos]
   exact hle
 
-
-theorem _root_.CFSG.LieType.Ree.suzuki_ree_model_outer_two_part_bound
-    (T : Type) [Group T]
-    (p f : ℕ) :
-    (SuzukiModel T p f →
-      ordProj[2] (Nat.card (Outer T)) = 1 ∧ ordProj[2] (Nat.card T) = (p ^ f) ^ 2 ∧
-      4 ≤ ordProj[2] (Nat.card T) ∧
-      ordProj[2] (Nat.card (Outer T)) < ordProj[2] (Nat.card T)) ∧
-    (ReeTitsModel T .twistedF4 p f →
-      ordProj[2] (Nat.card (Outer T)) = 1 ∧ p ^ f ≤ ordProj[2] (Nat.card T) ∧ 8 ≤ p ^ f ∧
-      4 ≤ ordProj[2] (Nat.card T) ∧
-      ordProj[2] (Nat.card (Outer T)) < ordProj[2] (Nat.card T)) ∧
-    (ReeTitsModel T .twistedG2 p f →
-      ordProj[2] (Nat.card (Outer T)) = 1 ∧
-      ordProj[2] ((p ^ f) ^ 2 - 1) / 2 ≤ ordProj[2] (Nat.card T) ∧
-      4 ≤ ordProj[2] ((p ^ f) ^ 2 - 1) / 2 ∧ 4 ≤ ordProj[2] (Nat.card T) ∧
-      ordProj[2] (Nat.card (Outer T)) < ordProj[2] (Nat.card T)) := by
-  refine ⟨fun h => ?_, fun h => ?_, fun h => ?_⟩
-  · obtain ⟨ho, ha⟩ := suzuki_case h
-    obtain ⟨hp, b, hb, -, -, -, hf, -⟩ := h
-    have h4 : 4 ≤ (p ^ f) ^ 2 := by
-      rw [hp, hf]
-      calc 4 = (2 ^ 1) ^ 2 := by norm_num
-        _ ≤ (2 ^ (2 * b + 1)) ^ 2 :=
-          Nat.pow_le_pow_left (Nat.pow_le_pow_right (by norm_num) (by omega)) 2
-    exact ⟨ho, ha, ha ▸ h4, by omega⟩
-  · obtain ⟨ho, h8, hq⟩ := large_Ree_case h
-    exact ⟨ho, hq, h8, by omega, by omega⟩
-  · obtain ⟨ho, hq, h4⟩ := small_Ree_case h
-    exact ⟨ho, hq, h4, by omega, by omega⟩
 
 end CFSG.LieType.Ree.SuzukiReeOuterTwoPart

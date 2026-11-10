@@ -641,12 +641,6 @@ theorem exists_inner_of_mem_normalizer_cubeE {ζ : Kˣ} (hζ : IsPrimitiveRoot �
   have := hnI.inv.mul hI
   rwa [inv_mul_cancel_left] at this
 
-theorem exists_inner_of_mem_normalizer_cubeHom_range {ζ : Kˣ} (hζ : IsPrimitiveRoot ζ 3)
-    {h : adjointGroup .E7 K}
-    (hN : h ∈ Subgroup.normalizer ((cubeHom ζ hζ.pow_eq_one).range : Set (adjointGroup .E7 K))) :
-    ∃ M : SL(2, K), ∀ X : SL(2, K),
-      (h : ModGL .E7 K) * cubeSL2 K X * (h : ModGL .E7 K)⁻¹ = cubeSL2 K (M * X * M⁻¹) :=
-  exists_inner_of_mem_normalizer_cubeE hζ h.2 (coe_mem_normalizer_cubeE hN)
 
 theorem exists_inner_baseChangeGL_conj_cubeSL2 {ζ : Kˣ} (hζ : IsPrimitiveRoot ζ 3) (σ : K →+* K)
     {g : ModGL .E7 K} (hg : g ∈ adjointGroup .E7 K)

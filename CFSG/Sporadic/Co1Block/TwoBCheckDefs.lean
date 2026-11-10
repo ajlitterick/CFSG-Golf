@@ -12,7 +12,6 @@ namespace CFSG.Sporadic.Co1Block.Native
 open CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.SmallF2.Native CFSG.Monster.B.Co2.Native
   CFSG.Certificates.Native CFSG.ONSchreier.Native
 
-abbrev nTri : Nat := 1365
 
 @[expose] def triVecs (T : List (Nat × Nat)) : List Nat :=
   T.flatMap fun p => [p.1, p.2, p.1 ^^^ p.2]

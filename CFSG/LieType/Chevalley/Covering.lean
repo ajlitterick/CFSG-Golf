@@ -124,20 +124,6 @@ theorem conj_mem_Ui (i : ι) {x : G} (hx : x ∈ D.Ui i) :
   rw [Rc.refl_simple] at h'
   exact Rc.not_pos_and_pos_neg _ ⟨Rc.pos_simple i, h' ▸ hα.1⟩
 
-theorem inv_conj_mem_Ui (i : ι) {x : G} (hx : x ∈ D.Ui i) :
-    (D.n i : G)⁻¹ * x * (D.n i : G) ∈ D.Ui i := by
-  suffices h : (D.n i : G)⁻¹ * x * ((D.n i : G)⁻¹)⁻¹ ∈ D.Ui i by simpa using h
-  refine conj_mem_of_iSup _ (fun α hα y hy => ?_) hx
-  have hy' := inv_conj_mem (D.n i) hy
-  rw [inv_inv]
-  have hinv : (D.φ (D.n i))⁻¹ = Rc.refl i := by
-    rw [D.φ_n, inv_eq_of_mul_eq_one_right (Rc.refl_mul_self i)]
-  rw [hinv] at hy'
-  refine X_le_Ui (Rc.pos_refl i α hα.1 hα.2) (fun h => ?_) hy'
-  have h' : α = Rc.refl i • Rc.simple i := by
-    rw [← h, smul_smul, Rc.refl_mul_self, one_smul]
-  rw [Rc.refl_simple] at h'
-  exact Rc.not_pos_and_pos_neg _ ⟨Rc.pos_simple i, h' ▸ hα.1⟩
 
 theorem conj_mem_H (m : D.N) {h : G} (hh : h ∈ D.H) : (m : G) * h * (m : G)⁻¹ ∈ D.H := by
   obtain ⟨k, hk, rfl⟩ := mem_H_iff.mp hh

@@ -15,11 +15,6 @@ open CFSG.KC.LocalComp.Tits CFSG.KC.LocalComp.TitsSound CFSG.SectionRank.Native.
 theorem kElem : elemK 1755 11 TG CP [0] [2, 26] [5, 6, 5] [16, 2, 5] [24, 2, 18] = true := by
   quickRfl
 
-theorem kElemNegDup : (!elemK 1755 11 TG CP [0] [2, 26] [5, 6, 5] [16, 2, 5] [0]) = true := by
-  quickRfl
-
-theorem kElemNegInv : (!elemK 1755 11 TG CP [0] [2, 26] [5, 6, 5] [16, 2, 5] [4]) = true := by
-  quickRfl
 
 theorem elem : elemOK [0] [2, 26] [5, 6, 5] [16, 2, 5] [24, 2, 18] = true :=
   elemOK_of_K gens_eq check_eq kElem

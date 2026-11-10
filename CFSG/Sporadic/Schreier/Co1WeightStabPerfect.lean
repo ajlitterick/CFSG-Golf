@@ -10,14 +10,5 @@ namespace CFSG.Sporadic.Co1Schreier
 
 open ElemThree Matrix
 
-theorem natural_weight_stabilizer_perfect :
-    orderOf ω = 3 ∧
-    (∀ f b : Fin 6 → ZMod 3, charE f ⟨eProd b, eProd_mem b⟩ = ω ^ (∑ i, f i * b i).val) ∧
-    (∀ (f : Fin 6 → ZMod 3) (x : GL24) (hx : x ∈ E), charV f x = charE f ⟨x, hx⟩) ∧
-    (∀ c, c ∈ wStab ↔ c ∈ C ∧ ∀ e ∈ E, charV (γ 0) (c⁻¹ * e * c) = charV (γ 0) e) ∧
-    Nat.card wStab = 7920 ∧ commutator wStab = ⊤ ∧
-    ∀ (K : Type*) [Field K] (φ : wStab →* Kˣ), φ = 1 :=
-  ⟨orderOf_ω, charE_eProd, fun f _ hx => charV_of_mem f hx, fun _ => Iff.rfl, card_wStab,
-    commutator_wStab, fun _ _ φ => wStab_hom_eq_one φ⟩
 
 end CFSG.Sporadic.Co1Schreier

@@ -11,8 +11,6 @@ public import Certificates.Data.CFSGNative.Th.Core
 namespace CFSG.KC.Th.Max3S
 
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3
-open CFSG.ComponentClassification.PresentationLocal (CarmichaelIndex)
-variable (A B : Array V4)
 
 end CFSG.KC.Th.Max3S
 

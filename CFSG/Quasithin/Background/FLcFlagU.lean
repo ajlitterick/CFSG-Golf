@@ -15,13 +15,6 @@ theorem mem_Yk {n k : ℕ} {x : Multiplicative (Vt n)} :
     x ∈ Yk n k ↔ ∀ j : Fin n, k ≤ (j : ℕ) → Multiplicative.toAdd x j = 0 := by
   rw [Yk, mem_subgroupOfSpace, mem_flagSpace]
 
-theorem card_Yk {n k : ℕ} (hk : k ≤ n) : Nat.card (Yk n k) = 2 ^ k := by
-  rw [Yk, card_subgroupOfSpace, finrank_flagSpace hk]
-
-theorem sInvG_Ut_Yk (n k : ℕ) : SInvG (Ut n) (Yk n k) := by
-  intro q hq x hx
-  have h := flagSpace_invariant k (unitriangular_le_upperTriangular n (ZMod 2) hq) hx
-  exact h
 
 theorem eq_Yk_of_Ut_invariant {n k : ℕ} {X : Subgroup (Multiplicative (Vt n))}
     (hX : SInvG (Ut n) X) (hc : Nat.card X = 2 ^ k) : X = Yk n k := by

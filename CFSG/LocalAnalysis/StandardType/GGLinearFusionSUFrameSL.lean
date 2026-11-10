@@ -152,9 +152,6 @@ theorem ggLinearFrameEqInput_holds : GGLinearFrameEqInput := by
       hJI ▸ LinFrameSL.rootSub_le_ggFrameBlock ψ P hij hi hj,
       (hctx.2.1.1.trans hBT).trans (LinFrameSL.le_normalizer_rootSub hij)⟩
 
-theorem ggStepTwoLinearFusionInput_of_unitaryHalf (hU : GGStepTwoUnitaryFusionInput) :
-    GGStepTwoLinearFusionInput :=
-  ggStepTwoLinearFusionInput_of_frameEqInput ggLinearFrameEqInput_holds hU
 
 end Inputs
 

@@ -21,9 +21,6 @@ theorem bot_mem_dset
   rw [h.dset_eq_singleton]
   exact Set.mem_singleton _
 
-theorem ne_dsub_of_mem_dset
-    (h : Counterexample p A θ) {Y : Subgroup G} (hY : Y ∈ dset p A θ) :
-    Y ≠ dsub A θ := fun heq => not_dsub_le_of_mem_dset h.hyp.nearFunctor hY heq.ge
 
 theorem mem_cset_bot_iff
     (h : Counterexample p A θ) {X : Subgroup G} :
@@ -66,10 +63,6 @@ theorem mem_cset_bot_iff
     rw [h.dset_eq_singleton, Set.mem_singleton_iff] at hmem
     exact ⟨P, ⟨hP, by rw [inf_comm]; exact hmem⟩, hPX⟩
 
-theorem cset_bot_eq
-    (h : Counterexample p A θ) :
-    cset p A θ ⊥ = {X | X ∈ mtil p A θ ∧ ¬ Group.IsSolvable X} :=
-  Set.ext fun _ => h.mem_cset_bot_iff
 
 theorem mem_rSet_iff
     (h : Counterexample p A θ) {B : Subgroup G} :
@@ -161,9 +154,6 @@ theorem dsub_le_ssol
       ((hθ.isFunctor.coprime a ha ha1).coprime_dvd_right
         (Subgroup.card_dvd_of_le (dsub_le_apply ha ha1)))
 
-theorem ssol_mem_mtil
-    (h : Counterexample p A θ) : ssol p A θ ∈ mtil p A θ :=
-  ⟨h.ssol_mem_assoc, h.dsub_le_ssol⟩
 
 theorem le_ssol_of_isSolvable
     (h : Counterexample p A θ) {Z : Subgroup G}
@@ -187,22 +177,6 @@ theorem le_ssol_of_isSolvable
     (Group.isSolvable_of_isSolvable_injective
       (Subgroup.inclusion_injective (inf_le_left : Z ⊓ Subgroup.centralizer {a} ≤ Z)))
 
-theorem ssol_inf_eq_thetaSol
-    (h : Counterexample p A θ) {X : Subgroup G}
-    (hX : X ∈ mhat p A θ) : ssol p A θ ⊓ X = thetaSol p A θ X := by
-  have hθ := h.hyp.nearFunctor
-  refine le_antisymm ?_ (le_inf (iSup₂_le fun Z hZ => h.le_ssol_of_isSolvable hZ.1 hZ.2.2)
-    (thetaSol_le X))
-  have hAS : Admits A (ssol p A θ) := h.ssol_mem_assoc.1
-  have hAX : Admits A X := hX.1.1
-  have hadm : Admits A (ssol p A θ ⊓ X) := hAS.inf hAX
-  have hadmD : Admits (dsub A θ) (ssol p A θ ⊓ X) :=
-    (admits_dsub_of_le h.dsub_le_ssol).inf hX.2
-  have := h.isSolvable_ssol
-  exact le_iSup₂ (f := fun Z (_ : Z ∈ {Z | Z ∈ mhat p A θ ∧ Z ≤ X ∧ Group.IsSolvable Z}) => Z)
-    (ssol p A θ ⊓ X) ⟨⟨mem_assoc_of_le hθ.prime h.ssol_mem_assoc inf_le_left hadm, hadmD⟩,
-      inf_le_right, Group.isSolvable_of_isSolvable_injective
-        (Subgroup.inclusion_injective (inf_le_left : ssol p A θ ⊓ X ≤ ssol p A θ))⟩
 
 theorem isGreatest_ssol_inf
     (h : Counterexample p A θ) {X : Subgroup G} (hX : X ∈ mtil p A θ) :
@@ -223,10 +197,6 @@ theorem isGreatest_ssol_inf
     rw [hD] at hZadm
     exact le_inf (h.le_ssol_of_isSolvable (mem_mhat_of_le_mtil hθ.prime hX hZX hZadm) hZs) hZX
 
-theorem ssol_inf_thetaOf_eq
-    (h : Counterexample p A θ) {B : Subgroup G} (hBA : B ≤ A)
-    (hB : B ≠ ⊥) : ssol p A θ ⊓ thetaOf θ B = thetaSol p A θ (thetaOf θ B) :=
-  h.ssol_inf_eq_thetaSol (mtil_subset_mhat (thetaOf_mem_mtil h.hyp.nearFunctor hBA hB))
 
 theorem thetaOf_le_ssol_of_isSolvable
     (h : Counterexample p A θ) {B : Subgroup G} (hBA : B ≤ A)

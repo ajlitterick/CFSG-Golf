@@ -43,8 +43,6 @@ theorem exists_isSr (h : Counterexample p A θ) {r : ℕ} (hr : InPiTheta A θ r
   obtain ⟨S, -, hS⟩ := Finite.exists_le_maximal (p := (· ∈ MsigR p A θ r)) hbot
   exact ⟨S, hS⟩
 
-theorem isPGroup_of_isSr (hS : IsSr p A θ r S) : IsPGroup r S :=
-  hS.1.2
 
 theorem normalizes_of_isSr (hS : IsSr p A θ r S) : A ≤ Subgroup.normalizer (S : Set G) :=
   hS.1.1.1

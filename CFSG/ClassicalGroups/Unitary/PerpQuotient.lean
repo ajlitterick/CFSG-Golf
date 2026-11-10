@@ -47,8 +47,6 @@ theorem u0_ne_zero (hm : 2 ≤ m) : u0 (K := K) m ≠ 0 := by
 
 @[expose] def u0Span (m : ℕ) [NeZero m] : Submodule K (Fin m → K) := Submodule.span K {u0 m}
 
-theorem u0_mem_u0Span : u0 (K := K) m ∈ u0Span (K := K) m :=
-  Submodule.mem_span_singleton_self _
 
 theorem herm_u0_u0 (hm : 2 ≤ m) [CharP K 2] :
     herm σ (u0 (K := K) m) (u0 (K := K) m) = 0 := by
@@ -56,13 +54,6 @@ theorem herm_u0_u0 (hm : 2 ≤ m) [CharP K 2] :
   simp [u0, herm_add_left, herm_add_right, herm_single_left, herm_single_right,
     Pi.single_eq_of_ne h01, Pi.single_eq_of_ne h01.symm, CharTwo.add_self_eq_zero]
 
-theorem u0Span_le_u0Perp (hm : 2 ≤ m) [CharP K 2] :
-    u0Span (K := K) m ≤ u0Perp σ m := by
-  rw [u0Span, Submodule.span_le]
-  intro v hv
-  rw [Set.mem_singleton_iff] at hv
-  subst hv
-  exact (mem_u0Perp (σ := σ) (v := u0 (K := K) m)).mpr (herm_u0_u0 (σ := σ) hm)
 
 @[expose] def u0SpanPerp (σ : K ≃+* K) (m : ℕ) [NeZero m] : Submodule K (u0Perp σ m) :=
   (u0Span (K := K) m).comap (u0Perp σ m).subtype
@@ -201,21 +192,6 @@ theorem u0_add_single_tailIdx_mem_u0Perp [CharP K 2] (hm : 2 ≤ m) (j : Fin (m 
 @[simp] theorem u0AddSingle_val [CharP K 2] (hm : 2 ≤ m) (j : Fin (m - 2)) :
     (u0AddSingle (σ := σ) hm j).1 = u0 (K := K) m + Pi.single (tailIdx hm j) (1 : K) := rfl
 
-theorem tailProj_u0 (hm : 2 ≤ m) :
-    tailProj (K := K) hm (u0 (K := K) m) = 0 := by
-  funext j
-  rw [tailProj_apply, u0]
-  simp [Pi.single_eq_of_ne (tailIdx_ne_zero hm j), Pi.single_eq_of_ne (tailIdx_ne_one hm j)]
-
-theorem tailProj_single_tailIdx (hm : 2 ≤ m) (j : Fin (m - 2)) :
-    tailProj (K := K) hm (Pi.single (tailIdx hm j) (1 : K)) = Pi.single j 1 := by
-  funext k
-  rw [tailProj_apply, Pi.single_apply, Pi.single_apply]
-  by_cases h : k = j
-  · subst h
-    simp
-  · have hne : tailIdx hm k ≠ tailIdx hm j := fun hh => h (tailIdx_injective hm hh)
-    simp [h, hne]
 
 theorem ker_tailProjPerp [CharP K 2] (hm : 2 ≤ m) :
     LinearMap.ker (tailProjPerp (σ := σ) hm) = u0SpanPerp σ m := by
@@ -355,40 +331,6 @@ theorem herm_tailProj_of_mem_u0Perp [CharP K 2] (hm : 2 ≤ m)
   rw [h1, LinearMap.quotKerEquivOfSurjective_apply_mk]
   exact tailProjPerp_eq_tailProj hm2 x
 
-theorem perpQuotEquiv_mk_u0_add_single [CharP K 2] (hm : 3 ≤ m) (j : Fin (m - 2))
-    (x : u0Perp σ m)
-    (hx : x.1 = u0 (K := K) m + Pi.single (tailIdx (by omega) j) (1 : K)) :
-    perpQuotEquiv (σ := σ) hm (Submodule.Quotient.mk x) = Pi.single j 1 := by
-  rw [perpQuotEquiv_mk, hx, map_add, tailProj_u0, tailProj_single_tailIdx, zero_add]
-
-theorem perpQuotEquiv_u0AddSingle [CharP K 2] (hm : 3 ≤ m) (j : Fin (m - 2)) :
-    perpQuotEquiv (σ := σ) hm
-      (Submodule.Quotient.mk (u0AddSingle (σ := σ) (by omega) j)) = Pi.single j 1 := by
-  rw [perpQuotEquiv_mk_u0_add_single (σ := σ) hm j _ rfl]
-
-theorem herm_u0_add_single [CharP K 2] (hm : 3 ≤ m) (i j : Fin (m - 2)) :
-    herm σ (u0 (K := K) m + Pi.single (tailIdx (by omega) i) (1 : K))
-        (u0 (K := K) m + Pi.single (tailIdx (by omega) j) (1 : K)) =
-      if i = j then 1 else 0 := by
-  let hm2 : 2 ≤ m := by omega
-  let x : Fin m → K := u0 (K := K) m + Pi.single (tailIdx hm2 i) (1 : K)
-  let y : Fin m → K := u0 (K := K) m + Pi.single (tailIdx hm2 j) (1 : K)
-  have hx : x ∈ u0Perp σ m := u0_add_single_tailIdx_mem_u0Perp (σ := σ) hm2 i
-  have hy : y ∈ u0Perp σ m := u0_add_single_tailIdx_mem_u0Perp (σ := σ) hm2 j
-  have hxy : herm σ x y = if i = j then 1 else 0 := by
-    rw [← herm_tailProj_of_mem_u0Perp (σ := σ) hm2 hx hy]
-    rw [show tailProj (K := K) hm2 x = Pi.single i 1 by
-      rw [map_add, tailProj_u0, tailProj_single_tailIdx, zero_add]]
-    rw [show tailProj (K := K) hm2 y = Pi.single j 1 by
-      rw [map_add, tailProj_u0, tailProj_single_tailIdx, zero_add]]
-    rw [herm_single_left, map_one, one_mul, Pi.single_apply]
-  simpa [x, y] using hxy
-
-theorem herm_perpQuotEquiv [CharP K 2] (hm : 3 ≤ m) (x y : u0Perp σ m) :
-    herm σ (perpQuotEquiv (σ := σ) hm (Submodule.Quotient.mk x))
-        (perpQuotEquiv (σ := σ) hm (Submodule.Quotient.mk y)) = herm σ x.1 y.1 := by
-  rw [perpQuotEquiv_mk, perpQuotEquiv_mk]
-  exact herm_tailProj_of_mem_u0Perp (σ := σ) (by omega) x.2 y.2
 
 @[expose] def perp (σ : K ≃+* K) (e : Fin m → K) : Submodule K (Fin m → K) :=
   LinearMap.ker (hermL σ e)
@@ -402,13 +344,6 @@ theorem herm_perpQuotEquiv [CharP K 2] (hm : 3 ≤ m) (x y : u0Perp σ m) :
 @[expose] def spanVecPerp (σ : K ≃+* K) (e : Fin m → K) : Submodule K (perp σ e) :=
   (spanVec e).comap (perp σ e).subtype
 
-theorem spanVec_le_perp [CharP K 2] {e : Fin m → K} (he : herm σ e e = 0) :
-    spanVec e ≤ perp σ e := by
-  rw [spanVec, Submodule.span_le]
-  intro v hv
-  rw [Set.mem_singleton_iff] at hv
-  rw [hv]
-  exact (mem_perp (σ := σ) (e := e) (v := e)).mpr he
 
 @[expose] noncomputable def smulPerp (g : SUid σ m) {e : Fin m → K} (hge : g • e = u0 m) :
     perp σ e →ₗ[K] perp σ (u0 m) where
@@ -573,34 +508,6 @@ theorem exists_eQuotEquiv_isometry [CharP K 2] (hσ : IsUnitaryInvolution σ) (h
   exact ⟨eQuotEquivOfSmul (σ := σ) hm g hge,
     herm_eQuotEquivOfSmul (σ := σ) hm g hge⟩
 
-theorem tv_smul_eq_self_of_herm_eq_zero (hσ : IsUnitaryInvolution σ) {e v : Fin m → K}
-    (hev : herm σ e v = 0) (hv : herm σ v v = 0) {c : K} (hc : c + σ c = 0) :
-    tv hσ.invol hv hc • e = e := by
-  rw [tv_smul, herm_eq_zero_comm σ hσ.invol hev, mul_zero, zero_smul, add_zero]
-
-theorem tv_mem_perp (hσ : IsUnitaryInvolution σ) {e v : Fin m → K}
-    (hev : herm σ e v = 0) (hv : herm σ v v = 0) {c : K} (hc : c + σ c = 0)
-    {x : Fin m → K} (hx : x ∈ perp σ e) : tv hσ.invol hv hc • x ∈ perp σ e := by
-  rw [mem_perp] at hx ⊢
-  rw [tv_smul, herm_add_right, herm_smul_right, hx, hev, mul_zero, add_zero]
-
-theorem tv_induced_quot (hσ : IsUnitaryInvolution σ) {e v : Fin m → K}
-    (hev : herm σ e v = 0) (hv : herm σ v v = 0) {c : K} (hc : c + σ c = 0)
-    (x : perp σ e) :
-    Submodule.Quotient.mk (p := spanVecPerp σ e)
-        (⟨tv hσ.invol hv hc • x.1,
-          tv_mem_perp hσ hev hv hc x.2⟩ : perp σ e) =
-      Submodule.Quotient.mk (p := spanVecPerp σ e) x +
-        (c * herm σ v x.1) •
-          Submodule.Quotient.mk (p := spanVecPerp σ e)
-            (⟨v, (mem_perp (σ := σ) (e := e) (v := v)).mpr hev⟩ : perp σ e) := by
-  have h : (⟨tv hσ.invol hv hc • x.1,
-      tv_mem_perp hσ hev hv hc x.2⟩ : perp σ e) =
-      x + (c * herm σ v x.1) •
-        (⟨v, (mem_perp (σ := σ) (e := e) (v := v)).mpr hev⟩ : perp σ e) := by
-    apply Subtype.ext
-    simp [tv_smul]
-  rw [h, Submodule.Quotient.mk_add, Submodule.Quotient.mk_smul]
 
 theorem isUnitaryInvolution_unitaryInvolution_gf4 :
     IsUnitaryInvolution
@@ -609,18 +516,5 @@ theorem isUnitaryInvolution_unitaryInvolution_gf4 :
     rw [GaloisField.card 2 2 (by omega)]
     norm_num)
 
-theorem exists_eQuotEquiv_isometry_gf4 (hm : 3 ≤ m)
-    {e : Fin m → GaloisField 2 2} (he0 : e ≠ 0)
-    (he : herm (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1) e e = 0) :
-    ∃ φ : (perp (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1) e ⧸
-        spanVecPerp (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1) e) ≃ₗ[
-          GaloisField 2 2] (Fin (m - 2) → GaloisField 2 2),
-      ∀ x y : perp (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1) e,
-        herm (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1)
-          (φ (Submodule.Quotient.mk x)) (φ (Submodule.Quotient.mk y)) =
-          herm (CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1) x.1 y.1 :=
-  exists_eQuotEquiv_isometry
-    (σ := CFSG.LieType.BorelTits.unitaryInvolution (GaloisField 2 2) 2 1)
-    isUnitaryInvolution_unitaryInvolution_gf4 hm he0 he
 
 end CFSG.ClassicalGroups.Unitary

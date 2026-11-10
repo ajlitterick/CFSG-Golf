@@ -31,43 +31,6 @@ private theorem sl2_nontrivial (hF : 4 ≤ Nat.card F) :
   (QuotientGroup.mk'_surjective
     (Subgroup.center (Matrix.SpecialLinearGroup (Fin 2) F))).nontrivial
 
-private theorem sl2_normal_le_center_or_eq_top (hF : 4 ≤ Nat.card F)
-    (M : Subgroup (Matrix.SpecialLinearGroup (Fin 2) F)) [M.Normal] :
-    M ≤ Subgroup.center _ ∨ M = ⊤ := by
-  have hs := Matrix.ProjectiveSpecialLinearGroup.rank_two_simple hF
-  have hp := sl2_isPerfect hF
-  have : (M.map (QuotientGroup.mk' (Subgroup.center _))).Normal :=
-    Subgroup.Normal.map inferInstance _ (QuotientGroup.mk'_surjective _)
-  rcases hs.eq_bot_or_eq_top_of_normal (M.map (QuotientGroup.mk' (Subgroup.center _))) with h | h
-  · left
-    rw [Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk'] at h
-    exact h
-  · right
-    have hsup : M ⊔ Subgroup.center _ = ⊤ := by
-      rw [← QuotientGroup.ker_mk' (Subgroup.center (Matrix.SpecialLinearGroup (Fin 2) F)),
-        ← Subgroup.comap_map_eq, h, Subgroup.comap_top]
-    have hρ : ∀ x, QuotientGroup.mk' M x ∈ (Subgroup.center _).map (QuotientGroup.mk' M) := by
-      intro x
-      have hx : x ∈ M ⊔ Subgroup.center _ := by
-        rw [hsup]
-        exact Subgroup.mem_top x
-      have := Subgroup.mem_map_of_mem (QuotientGroup.mk' M) hx
-      rwa [Subgroup.map_sup, (Subgroup.map_eq_bot_iff _).mpr (by rw [QuotientGroup.ker_mk']),
-        bot_sup_eq] at this
-    rw [eq_top_iff]
-    intro x _
-    have hx : x ∈ commutator (Matrix.SpecialLinearGroup (Fin 2) F) := by
-      rw [hp.commutator_eq_top]
-      exact Subgroup.mem_top x
-    rw [commutator_def] at hx
-    refine (Subgroup.commutator_le.mpr ?_) hx
-    intro a _ b _
-    obtain ⟨z₁, hz₁, h₁⟩ := hρ a
-    obtain ⟨z₂, hz₂, h₂⟩ := hρ b
-    rw [← QuotientGroup.ker_mk' M, MonoidHom.mem_ker, map_commutatorElement, ← h₁, ← h₂,
-      ← map_commutatorElement,
-      commutatorElement_eq_one_iff_mul_comm.mpr (Subgroup.mem_center_iff.mp hz₁ z₂).symm,
-      map_one]
 
 variable {A : Type*} [Group A]
 
@@ -98,30 +61,6 @@ private theorem not_isPGroup_of_mulEquiv [Finite A] {X : Subgroup A}
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   exact Group.IsPerfect.not_isNilpotent X h2.isNilpotent
 
-private theorem le_centralizer_or_le_of_mulEquiv {X : Subgroup A}
-    (e : X ≃* Matrix.SpecialLinearGroup (Fin 2) F) (hF : 4 ≤ Nat.card F) {M : Subgroup A}
-    (hMX : M ≤ X) (hXM : X ≤ Subgroup.normalizer (M : Set A)) :
-    M ≤ Subgroup.centralizer (X : Set A) ∨ X ≤ M := by
-  have hM' : (M.subgroupOf X).Normal := (Subgroup.normal_subgroupOf_iff_le_normalizer hMX).mpr hXM
-  have : ((M.subgroupOf X).map e.toMonoidHom).Normal := hM'.map _ e.surjective
-  rcases sl2_normal_le_center_or_eq_top hF ((M.subgroupOf X).map e.toMonoidHom) with h | h
-  · left
-    intro m hm
-    rw [Subgroup.mem_centralizer_iff]
-    intro x hx
-    have hc := Subgroup.mem_center_iff.mp
-      (h ⟨⟨m, hMX hm⟩, Subgroup.mem_subgroupOf.mpr hm, rfl⟩) (e ⟨x, hx⟩)
-    rw [MulEquiv.coe_toMonoidHom, ← map_mul, ← map_mul] at hc
-    exact congrArg Subtype.val (e.injective hc)
-  · right
-    intro x hx
-    have hmem : e ⟨x, hx⟩ ∈ (M.subgroupOf X).map e.toMonoidHom := by
-      rw [h]
-      exact Subgroup.mem_top _
-    obtain ⟨y, hy, hyx⟩ := hmem
-    have hyx' : y = ⟨x, hx⟩ := e.injective hyx
-    have hyM := Subgroup.mem_subgroupOf.mp hy
-    rwa [hyx'] at hyM
 
 end SL2
 
@@ -215,63 +154,6 @@ theorem isPGroup_centralizer_L₀Bar_comap [Finite G] (hσ : σ.IsValid) (hN : �
   refine ⟨k, Subtype.ext (hι ?_)⟩
   rw [Subgroup.coe_pow, map_pow, hk', Subgroup.coe_one, map_one]
 
-theorem eq_L₀Bar_comap_of_normal [Finite G] (hσ : σ.IsValid) (hN : σ.NStructure)
-    {H : Subgroup G} {ι : (↥H ⧸ CFSG.oddCore ↥H) →* (↥σ.N ⧸ σ.ON.subgroupOf σ.N)}
-    (hι : Function.Injective ι) (hL : σ.L₀Bar ≤ ι.range)
-    {J : Subgroup (↥H ⧸ CFSG.oddCore ↥H)} (hJ : J.Normal) {F : Type*} [Field F] [Finite F]
-    (hF : 4 ≤ Nat.card F) (e : J ≃* Matrix.SpecialLinearGroup (Fin 2) F) :
-    J = σ.L₀Bar.comap ι := by
-  obtain ⟨hJ₀n, ⟨F₀, _, _, hq, ⟨e₀⟩⟩, -⟩ := σ.L₀Bar_comap_properties hσ hι hL
-  have hF₀ : 4 ≤ Nat.card F₀ := by
-    rw [hq]
-    have := hσ.five_lt_q
-    omega
-  have h2 := σ.isPGroup_centralizer_L₀Bar_comap hσ hN hι hL
-  set J₀ := σ.L₀Bar.comap ι with hJ₀
-  have hMn : (J₀ ⊓ J).Normal := Subgroup.normal_inf_normal J₀ J
-  rcases le_centralizer_or_le_of_mulEquiv e₀ hF₀ (M := J₀ ⊓ J) inf_le_left
-      (le_top.trans (Subgroup.normalizer_eq_top (J₀ ⊓ J)).ge) with h | h
-  · exfalso
-    have h1 : ⁅⁅J₀, J⁆, J₀⁆ = ⊥ :=
-      Subgroup.commutator_eq_bot_iff_le_centralizer.mpr ((Subgroup.commutator_le_inf J₀ J).trans h)
-    have h1' : ⁅⁅J, J₀⁆, J₀⁆ = ⊥ := by
-      rw [Subgroup.commutator_comm J J₀]
-      exact h1
-    have h3 : ⁅⁅J₀, J₀⁆, J⁆ = ⊥ := Subgroup.commutator_commutator_eq_bot_of_rotate h1 h1'
-    rw [commutator_eq_self_of_mulEquiv e₀ hF₀, Subgroup.commutator_eq_bot_iff_le_centralizer] at h3
-    exact not_isPGroup_of_mulEquiv e hF (h2.to_le (Subgroup.le_centralizer_iff.mp h3))
-  · have hJ₀J : J₀ ≤ J := h.trans inf_le_right
-    rcases le_centralizer_or_le_of_mulEquiv e hF (M := J₀) hJ₀J
-        (le_top.trans (Subgroup.normalizer_eq_top J₀).ge) with h' | h'
-    · exfalso
-      have hbot : ⁅J₀, J₀⁆ = ⊥ :=
-        Subgroup.commutator_eq_bot_iff_le_centralizer.mpr
-          (h'.trans (Subgroup.centralizer_le hJ₀J))
-      rw [commutator_eq_self_of_mulEquiv e₀ hF₀] at hbot
-      exact ne_bot_of_mulEquiv e₀ hF₀ hbot
-    · exact le_antisymm h' hJ₀J
-
-theorem isPGroup_centralizer_of_mem_familyL [Finite G] (hσ : σ.IsValid)
-    (hII : σ.ChapterIIFacts) {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON)
-    {H : Subgroup G} (hH : H ∈ σ.familyL r) {J : Subgroup (↥H ⧸ CFSG.oddCore ↥H)}
-    (hJ : J.Normal) {F : Type*} [Field F] [Finite F] (hF : 4 ≤ Nat.card F)
-    (e : J ≃* Matrix.SpecialLinearGroup (Fin 2) F) :
-    IsPGroup 2 (Subgroup.centralizer (J : Set (↥H ⧸ CFSG.oddCore ↥H))) := by
-  obtain ⟨ι, hι, -, -, -, hLB⟩ := σ.exists_quotient_embedding_of_mem_familyL hσ hII hr hdiv hH
-  have hL := σ.L₀Bar_le_LBar.trans hLB
-  rw [σ.eq_L₀Bar_comap_of_normal hσ hII.toNStructure hι hL hJ hF e]
-  exact σ.isPGroup_centralizer_L₀Bar_comap hσ hII.toNStructure hι hL
-
-theorem eq_of_normal_of_mem_familyL [Finite G] (hσ : σ.IsValid) (hII : σ.ChapterIIFacts)
-    {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON) {H : Subgroup G} (hH : H ∈ σ.familyL r)
-    {J₁ J₂ : Subgroup (↥H ⧸ CFSG.oddCore ↥H)} (hJ₁ : J₁.Normal) (hJ₂ : J₂.Normal)
-    {F₁ F₂ : Type*} [Field F₁] [Finite F₁] [Field F₂] [Finite F₂] (hF₁ : 4 ≤ Nat.card F₁)
-    (hF₂ : 4 ≤ Nat.card F₂) (e₁ : J₁ ≃* Matrix.SpecialLinearGroup (Fin 2) F₁)
-    (e₂ : J₂ ≃* Matrix.SpecialLinearGroup (Fin 2) F₂) : J₁ = J₂ := by
-  obtain ⟨ι, hι, -, -, -, hLB⟩ := σ.exists_quotient_embedding_of_mem_familyL hσ hII hr hdiv hH
-  have hL := σ.L₀Bar_le_LBar.trans hLB
-  rw [σ.eq_L₀Bar_comap_of_normal hσ hII.toNStructure hι hL hJ₁ hF₁ e₁,
-    σ.eq_L₀Bar_comap_of_normal hσ hII.toNStructure hι hL hJ₂ hF₂ e₂]
 
 theorem exists_normal_isPGroup_centralizer_of_mem_familyL [Finite G] (hσ : σ.IsValid)
     (hII : σ.ChapterIIFacts) {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON)

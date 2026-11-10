@@ -85,47 +85,6 @@ theorem ggRootGenKGAvoidOn_symp :
   rcases ht with rfl | rfl <;>
     exact recipeSymplecticNs_rootGenAvoidKG_zero hp hp2 hpn hn hlab.2.1 hQ
 
-theorem ggRootGenLInputOnNS_symp :
-    GGRootGenLInputOnNS GGRootGenSympLabel := by
-  intro G _ _ p B Bs x L D J hHyp _ _ _ hL
-  exact ggRootCompGenAvoiding_L_of_avoidOn ggRootGenKGAvoidOn_symp hHyp hL
-
-theorem ggRootGenNbrInputOnNS_symp :
-    GGRootGenNbrInputOnNS GGRootGenSympLabel := by
-  intro G _ _ p B Bs x L D J hHyp _ _ _ y K hnb hK
-  exact ggRootCompGenAvoiding_nbr_of_avoidOn ggRootGenKGAvoidOn_symp hHyp hnb hK
-
-theorem ggRootGenLInputOnNS_notSpOrthSplitOrth_of_notSymp
-    (h : GGRootGenLInputOnNS fun p lab => GGRootGenOpenLabel p lab ∧
-      ¬ (GGRootGenSpOrthSplitLabel p lab ∨ GGRootGenOrthLabel p lab ∨
-        GGRootGenSympLabel p lab)) :
-    GGRootGenLInputOnNS fun p lab => GGRootGenOpenLabel p lab ∧
-      ¬ (GGRootGenSpOrthSplitLabel p lab ∨ GGRootGenOrthLabel p lab) := by
-  intro G _ _ p B Bs x L D J hHyp hq hN hW hL
-  rcases (GGInnerDiagOnLabel.mono_label (T := fun p lab => GGRootGenSympLabel p lab ∨
-      (GGRootGenOpenLabel p lab ∧ ¬ (GGRootGenSpOrthSplitLabel p lab ∨
-        GGRootGenOrthLabel p lab ∨ GGRootGenSympLabel p lab)))
-      (fun lab hlab => (em (GGRootGenSympLabel p lab)).imp_right fun hn =>
-        ⟨hlab.1, fun h' => h'.elim (fun h₁ => hlab.2 (Or.inl h₁))
-          fun h₂ => h₂.elim (fun h₃ => hlab.2 (Or.inr h₃)) hn⟩) hL).elim_or with h₁ | h₂
-  · exact ggRootGenLInputOnNS_symp G p B Bs x L D J hHyp hq hN hW h₁
-  · exact h G p B Bs x L D J hHyp hq hN hW h₂
-
-theorem ggRootGenNbrInputOnNS_notSpOrthSplitOrth_of_notSymp
-    (h : GGRootGenNbrInputOnNS fun p lab => GGRootGenOpenLabel p lab ∧
-      ¬ (GGRootGenSpOrthSplitLabel p lab ∨ GGRootGenOrthLabel p lab ∨
-        GGRootGenSympLabel p lab)) :
-    GGRootGenNbrInputOnNS fun p lab => GGRootGenOpenLabel p lab ∧
-      ¬ (GGRootGenSpOrthSplitLabel p lab ∨ GGRootGenOrthLabel p lab) := by
-  intro G _ _ p B Bs x L D J hHyp hq hN hW y K hnb hK
-  rcases (GGInnerDiagOnLabel.mono_label (T := fun p lab => GGRootGenSympLabel p lab ∨
-      (GGRootGenOpenLabel p lab ∧ ¬ (GGRootGenSpOrthSplitLabel p lab ∨
-        GGRootGenOrthLabel p lab ∨ GGRootGenSympLabel p lab)))
-      (fun lab hlab => (em (GGRootGenSympLabel p lab)).imp_right fun hn =>
-        ⟨hlab.1, fun h' => h'.elim (fun h₁ => hlab.2 (Or.inl h₁))
-          fun h₂ => h₂.elim (fun h₃ => hlab.2 (Or.inr h₃)) hn⟩) hK).elim_or with h₁ | h₂
-  · exact ggRootGenNbrInputOnNS_symp G p B Bs x L D J hHyp hq hN hW y K hnb h₁
-  · exact h G p B Bs x L D J hHyp hq hN hW y K hnb h₂
 
 end CFSG.StandardType
 

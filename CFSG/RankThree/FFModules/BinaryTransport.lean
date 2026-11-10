@@ -77,16 +77,6 @@ theorem isFFStarOffender_map_iff {ρ : Representation (ZMod 2) X W} (hρ : Funct
       have := hbest _ hCA
       rwa [← hweight, ← hweight, hCB] at this
 
-theorem map_repMulAut_le_range (ρ : Representation (ZMod 2) X W) (A : Subgroup X) :
-    A.map (repMulAut ρ) ≤ (repMulAut ρ).range :=
-  Subgroup.map_le_range _ A
-
-theorem isFFStarOffender_map {ρ : Representation (ZMod 2) X W} (hρ : Function.Injective ρ)
-    {A : Subgroup X} (hA : CFSG.IsElementaryAbelian 2 A) (hne : A ≠ ⊥)
-    (h : IsBestOffender ρ A) :
-    CFSG.Quasithin.IsFFStarOffender (repMulAut ρ).range
-      (A.map (repMulAut ρ)) :=
-  (isFFStarOffender_map_iff hρ (map_repMulAut_le_range ρ A)).2 ⟨hne, hA, h⟩
 
 theorem isSubnormal_map {G K : Type*} [Group G] [Group K] (f : G →* K) {L M : Subgroup G}
     (h : CFSG.Open.IsSubnormal L M) : CFSG.Open.IsSubnormal (L.map f) (M.map f) :=

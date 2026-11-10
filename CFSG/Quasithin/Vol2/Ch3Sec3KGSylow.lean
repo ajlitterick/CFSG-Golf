@@ -68,7 +68,5 @@ theorem AutSylowSelfNorm.autOddNormCent {Q : Type} [Group Q] (h : AutSylowSelfNo
   ∀ p : ℕ, p.Prime → 3 < p → ∀ (Q : Type) [Group Q] [Finite Q], IsPSL 2 p 2 Q →
     AutSylowSelfNorm Q
 
-@[expose] def FactAutU35 : Prop :=
-  ∀ (Q : Type) [Group Q] [Finite Q], IsPSU 3 5 1 Q → AutOddNormCent Q
 
 end CFSG.Quasithin.H13

@@ -180,18 +180,5 @@ theorem closure_latticeGens :
   refine le_antisymm ((AddSubgroup.closure_le _).2 fun u hu => (latticeGens_mem hu).1)
     fun u hu => mem_closure_of_mem_codeLattice hu
 
-theorem mog_lattice_short_generation :
-    (∀ j, hammingNorm (B j) = 8) ∧
-    (∀ u ∈ latticeGens, u ∈ codeLattice C ∧ codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 4) ∧
-    AddSubgroup.closure latticeGens = codeLatticeSubgroup allOnes_mem_C ∧
-    AddSubgroup.closure {u : Fin 24 → ℤ | u ∈ codeLattice C ∧
-      codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 4} = codeLatticeSubgroup allOnes_mem_C := by
-  have hgen : ∀ u ∈ latticeGens, u ∈ codeLattice C ∧
-      codeForm (fun i => (u i : ℚ)) (fun i => (u i : ℚ)) = 4 := fun u hu =>
-    ⟨(latticeGens_mem hu).1, (codeForm_self_eq_four_iff u).2 (latticeGens_mem hu).2⟩
-  refine ⟨wt_B, hgen, closure_latticeGens, le_antisymm ?_ ?_⟩
-  · exact (AddSubgroup.closure_le _).2 fun u hu => hu.1
-  · rw [← closure_latticeGens]
-    exact AddSubgroup.closure_mono fun u hu => hgen u hu
 
 end CFSG.Monster.Code

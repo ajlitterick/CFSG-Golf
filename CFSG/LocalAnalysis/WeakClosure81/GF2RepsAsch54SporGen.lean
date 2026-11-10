@@ -211,13 +211,6 @@ theorem lGen_eq_top_of_isLPair_of_card_outer_eq_one {C : Type} [Group C] [Finite
   exact lGen_eq_top_of_isLPair_mulEquiv hT₀ h
     (φ.symm.trans ((MulEquiv.subgroupCongr hLt).trans Subgroup.topEquiv)) hT
 
-theorem asch54Case_of_isLPair_of_card_outer_eq_one {C : Type} [Group C] [Finite C]
-    {P : ∀ (X : Type) [Group X], Prop} (hPC : ∀ (X : Type) [Group X], P X → Nonempty (X ≃* C))
-    (hOut : Nat.card (Outer C) = 1) {T₀ A₀ B₀ : Subgroup C} (hT₀ : IsSylowIn 2 T₀ ⊤)
-    (h : IsLPair IsCalL0 T₀ A₀ B₀) : Asch54Case P := by
-  intro Q _ _ L T _ hLn _ _ hC hPL _ hT _
-  obtain ⟨φ⟩ := hPC _ hPL
-  exact Or.inl (lGen_eq_top_of_isLPair_of_card_outer_eq_one hOut hT₀ h L φ hC hT)
 
 theorem lGen_eq_top_of_isLPair_of_aut {C : Type} [Group C] [Finite C] [Finite Y]
     {P : ∀ (X : Type) [Group X], Prop}
@@ -307,16 +300,6 @@ theorem lGen_eq_top_of_isLPair_of_aut {C : Type} [Group C] [Finite C] [Finite Y]
   rw [← Subgroup.map_sup, ← Subgroup.map_sup, h.sup_eq_top,
     Subgroup.map_top_of_surjective _ φ.symm.surjective, htopL]
 
-theorem asch54Case_of_isLPair_of_aut {C : Type} [Group C] [Finite C]
-    {P : ∀ (X : Type) [Group X], Prop} (hPC : ∀ (X : Type) [Group X], P X → Nonempty (X ≃* C))
-    (hP0 : ∀ (X : Type) [Group X] [Finite X], IsCalL0 X → ∃ a b : X, a * b ≠ b * a)
-    (hOut : Nat.card (Outer C) ≤ 2) {T₀ A₀ B₀ : Subgroup C} (hT₀ : IsSylowIn 2 T₀ ⊤)
-    (h : IsLPair IsCalL0 T₀ A₀ B₀)
-    (hAut : ∀ ψ : C ≃* C, T₀.map ψ.toMonoidHom = T₀ →
-      A₀.map ψ.toMonoidHom = A₀ ∧ B₀.map ψ.toMonoidHom = B₀) : Asch54Case P := by
-  intro Q _ _ L T _ hLn _ _ hC hPL _ hT _
-  obtain ⟨φ₀⟩ := hPC _ hPL
-  exact Or.inl (lGen_eq_top_of_isLPair_of_aut hP0 hOut hT₀ h hAut L φ₀ hC hT)
 
 @[expose] def Asch54SporAt (s : TauCeti.SporadicName) : Prop :=
   Asch54Case fun X _ => CFSG.Models.IsSporadic X s

@@ -84,11 +84,6 @@ theorem mem_of_cl_letters {p nL n : ℕ} {t y₁ y₂ g₁ g₂ : List ℕ} {M :
   obtain ⟨hM2, hMc, o₁, o₂, -⟩ := hM.clH_facts h ht
   exact hM.mem_of_letters hM2 hMc o₁ o₂ hL k
 
-theorem mem_of_cl_cm {y₁ y₂ s : List ℕ} (o₁ : chW L y₁ = true) (os : chW L s = true)
-    (hs : cm E s y₁ = true) :
-    ev s ∈ Subgroup.closure
-      ((Subgroup.centralizer {ev y₁} : Set G) ∪ Subgroup.centralizer {ev y₂}) :=
-  Subgroup.subset_closure (Or.inl (Subgroup.mem_centralizer_singleton_iff.2 (hM.comm os o₁ hs)))
 
 theorem generating_of_cl [Finite G] {p nL : ℕ} (hp : p.Prime) {t y₁ y₂ g₁ g₂ : List ℕ}
     {M : List (List ℕ)} (h : clH E L p t y₁ y₂ g₁ g₂ M nL = true) (ht : chW L t = true)

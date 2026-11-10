@@ -64,10 +64,6 @@ section Representation
     apply Additive.toMul.injective
     simp [mul_smul]
 
-theorem actionGL_apply (n : ℕ) [Fact n.Prime] (A : Type*) [Group A] (G : Type*)
-    [Group G] [IsElementaryAbelian n G] [MulDistribMulAction A G] (a : A) (x : Additive G) :
-    ((actionGL n A G a : LinearMap.GeneralLinearGroup (ZMod n) (Additive G)) :
-      Additive G →ₗ[ZMod n] Additive G) x = Additive.ofMul (a • Additive.toMul x) := rfl
 
 end Representation
 

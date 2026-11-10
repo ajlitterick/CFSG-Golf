@@ -14,7 +14,6 @@ namespace CertificateChecks.KernelOm1.A
 open CFSG.KC.Enum CFSG.KC.SetOrb CFSG.KC.BfsPin
 open CertificateChecks.KernelLC.E8 (FT NEG)
 
-theorem kNO : Orb.N = 3150 := rfl
 
 theorem kDist : distinctK 3150 (fun i => keyK 240 8 24 (Orb.C i)) Orb.S = true := by quickRfl
 

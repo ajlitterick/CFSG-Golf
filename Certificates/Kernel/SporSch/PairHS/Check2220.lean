@@ -277,8 +277,6 @@ theorem fact2 : (Nat.card P3).factorization 2 = 9 :=
 theorem fact5 : (Nat.card P3).factorization 5 = 3 :=
   factorization_eq (by norm_num) (m := 354816) (by norm_num) (by rw [card_P3]; norm_num)
 
-theorem fact11 : (Nat.card P3).factorization 11 = 1 :=
-  factorization_eq (by norm_num) (m := 4032000) (by norm_num) (by rw [card_P3]; norm_num)
 
 noncomputable abbrev EA : Array (Array Nat) × Array Nat × Array Nat := PairHS.closureOf PairHS.wA
 

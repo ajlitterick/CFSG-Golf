@@ -99,22 +99,6 @@ theorem ModelB3.connected (M : ModelB3 p f h2) {hK : Nat.card (GaloisField p (2 
       (E : PhanFamilyB3 C (spinGroup (quadOdd 3 (GaloisField p f)))),
       GoodFamily E → (∀ i, (E.ι i).range = M.U i) → (phanSystem E).SimplyTwoConnected
 
-theorem exists_good_connected_familyB3 (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hmod : p ^ f % 4 = 3)
-    (hK : Nat.card (GaloisField p (2 * f)) = (p ^ f) ^ 2) (h2 : (2 : GaloisField p f) ≠ 0) :
-    ∃ (C : B2Coord hK (GaloisField p f) h2)
-      (S : PhanFamilyB3 C (spinGroup (quadOdd 3 (GaloisField p f)))),
-      GoodFamily S ∧ (S.ι 0).range ∈ CFSG.ClassicalInvolution.Generic.fundamentalSubgroups
-        .POmegaOdd (oddDatum 3 (GaloisField p f)) ∧ (phanSystem S).Connected := by
-  have hf : 1 ≤ f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  obtain ⟨M⟩ := exists_modelB3 hp2 hq hmod h2
-  obtain ⟨C⟩ := b2Coord_exists p f hmod hK h2 hf
-  obtain ⟨E, hgood, hrange⟩ := M.exists_family C hq hmod
-  refine ⟨C, E, hgood, ?_, M.connected E hrange (not_isSquare_neg_one hmod)⟩
-  rw [hrange 0]
-  exact longestFundamental_subset .POmegaOdd _ M.mem_longest
 
 theorem phanB3Geometry_of_simplyTwoConnected (hsc : PhanB3StdSimplyTwoConnected p f) :
     PhanB3Geometry p f := by

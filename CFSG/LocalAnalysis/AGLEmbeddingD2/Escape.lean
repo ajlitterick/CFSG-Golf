@@ -152,9 +152,6 @@ theorem inf_lt_right (h : D2Escape p P M A H R) : H ⊓ M < M := by
   have hMH : M ≤ H := heq ▸ inf_le_left
   exact (h.maxTwoLocal_M.2 H h.maxTwoLocal_H.1 hMH).le
 
-theorem cgsIn_eq (h : D2Escape p P M A H R) :
-    CFSG.Quasithin.cgsIn M (pCoreOf 2 H) = M ⊓ H :=
-  CFSG.AGLEmbedding.maxTwoLocal_cgsIn_eq_inf h.maxTwoLocal_H M
 
 end D2Escape
 

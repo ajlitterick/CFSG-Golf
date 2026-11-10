@@ -138,7 +138,6 @@ theorem nodup_of_incB : ∀ {L : List ℕ} {b : ℕ}, incB L b = true → (∀ x
   List.rec (motive := fun _ => List ℕ) [a]
     (fun b l acc => Bool.rec (b :: acc) (a :: b :: l) (Nat.ble a b)) L
 
-theorem insK_nil (a : ℕ) : insK a [] = [a] := rfl
 
 theorem insK_cons (a b : ℕ) (l : List ℕ) :
     insK a (b :: l) = if a ≤ b then a :: b :: l else b :: insK a l := by

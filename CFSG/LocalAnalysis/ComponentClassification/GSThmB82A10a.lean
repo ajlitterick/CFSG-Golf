@@ -24,7 +24,6 @@ theorem comm_of_mem_closure {G : Type*} [Group G] {s : Set G}
     exact h1 hu
   exact (mem_centralizer_iff.mp h2 v hv).symm
 
-variable {X : Type} [Group X] [Finite X]
 
 end Eight2
 

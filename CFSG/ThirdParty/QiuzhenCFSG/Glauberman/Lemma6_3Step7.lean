@@ -62,9 +62,6 @@ private theorem sl2NegOne_ne_one {p : ℕ} [Fact p.Prime]
   apply zmod_neg_one_ne_one hpodd
   simpa [sl2NegOne] using h00
 
-private theorem sl2NegOne_sq {p : ℕ} [Fact p.Prime] :
-    sl2NegOne p ^ 2 = 1 := by
-  simp [sl2NegOne, pow_two]
 
 private theorem sl2NegOne_toLin_apply {p : ℕ} [Fact p.Prime]
     (v : Fin 2 → ZMod p) :

@@ -84,9 +84,6 @@ theorem twistedE6_pairFrame (hadm : StatedLieAdmissible .twistedE6 n p e) (hp2 :
     (proj thetaE6) hθ hsingle fun c₁ c₂ hc₁ hc₁c hc₂c hconj =>
       twistedE6_hbase hp2 hadm.2.1 hc₁ hc₁c hc₂c hconj
 
-theorem layerGenerationPairAt_twistedE6_final (hadm : StatedLieAdmissible .twistedE6 n p e)
-    (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) : LayerGenerationPairAt .twistedE6 n p e Fact.out :=
-  layerGenerationPairAt_twistedE6 hadm hp2 h5 (twistedE6_pairFrame hadm hp2)
 
 end Final
 

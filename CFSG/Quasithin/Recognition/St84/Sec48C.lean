@@ -276,22 +276,7 @@ private theorem isElemAbelian_Vk_six (C : X.Comm48 s r d)
   have h := F7.isElemAbelian_conjSub (p := 2) (g := X.τ ^ (3 : ℤ)) (X := X.Vk 0) hEl
   rwa [← Vk_six_eq] at h
 
-private theorem commutator_Vk_Q_six (C : X.Comm48 s r d)
-    (hH : X.ZQ d ≤ X.Q ((d : ℤ) + 2)) : ⁅X.Vk 6, X.Q 6⁆ = X.Z 6 := by
-  obtain ⟨-, -, -, -, hComm, -, -⟩ := X.s48_8 C hH
-  have h := congrArg (conjSub (X.τ ^ (3 : ℤ))) hComm
-  rw [← conjSub_commutator, ← Vk_six_eq] at h
-  have hQ : X.Q 6 = conjSub (X.τ ^ (3 : ℤ)) (X.Q 0) := by
-    have := X.Q_add 3 0
-    rwa [show (0 : ℤ) + 2 * 3 = 6 by norm_num] at this
-  have hZ : X.Z 6 = conjSub (X.τ ^ (3 : ℤ)) (X.Z 0) := by
-    have := X.Z_add 3 0
-    rwa [show (0 : ℤ) + 2 * 3 = 6 by norm_num] at this
-  rw [← hQ, ← hZ] at h
-  exact h
 
-private theorem pCoreOf_L_six : pCoreOf 2 (X.L 6) = X.Q 6 :=
-  (X.hyp.isLocL2_oTwoPrime (X.vert 6)).pCoreOf_eq
 private theorem Z_one_eq_sup_Z_zero_Z_two (C : X.Comm48 s r d)
     (hH : X.ZQ d ≤ X.Q ((d : ℤ) + 2)) :
     X.Z 1 = X.Z 0 ⊔ X.Z 2 ∧ IsElemAbelian 2 (X.Z 1) := by

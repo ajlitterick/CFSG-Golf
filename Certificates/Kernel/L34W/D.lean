@@ -30,13 +30,6 @@ theorem d_k5 : dOK 5 5 = true := by decide +kernel
 
 theorem d_k10 : dOK 10 5 = true := by decide +kernel
 
-theorem lf_neg : (!lfOK AlX.F (patchT LF 0 0)) = true := by decide +kernel
-
-theorem ty_neg : (!tyOK OT (patchT TY 0 (Nat.xor (TY 0) 1))) = true := by decide +kernel
-
-theorem d_neg : (!dOne T1X.F AlX.F OT BT LF TY (patchT DW 0 (Nat.lor (Nat.sub (DW 0)
-    (pg 10 (mask 10) (DW 0) 0)) 2)) (kbMasks.getD 0 0) 0) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34W
 

@@ -49,19 +49,6 @@ theorem range_pslToK (hodd : Odd (orderOf σ)) :
     ((MonoidHom.ofInjective (pslToK_injective e σ)).symm.trans
       (L2.equivPSL (fixedField σ)).symm)
 
-omit [Finite F] in
-theorem pslIncl_fixedSubgroupEquivL2 (hodd : Odd (orderOf σ))
-    (k : ↥(fixedSubgroup K (fieldAutHom e σ))) :
-    pslIncl σ (L2.equivPSL (fixedField σ) (fixedSubgroupEquivL2 e σ hodd k)) = toPSL e k := by
-  have h := MonoidHom.apply_ofInjective_symm (pslToK_injective e σ)
-    ((MulEquiv.subgroupCongr (range_pslToK e σ hodd)).symm k)
-  rw [← toPSL_pslToK e]
-  have h2 : (L2.equivPSL (fixedField σ)) (fixedSubgroupEquivL2 e σ hodd k) =
-      (MonoidHom.ofInjective (pslToK_injective e σ)).symm
-        ((MulEquiv.subgroupCongr (range_pslToK e σ hodd)).symm k) := by
-    simp [fixedSubgroupEquivL2]
-  rw [h2]
-  exact congrArg (toPSL e) (h.trans rfl)
 
 theorem isL2_fixedSubgroup (hodd : Odd (orderOf σ)) :
     IsL2 ↥(fixedSubgroup K (fieldAutHom e σ)) (fun q₀ => q₀ ^ orderOf σ = Nat.card F) :=
@@ -155,13 +142,6 @@ theorem range_fixedSubgroupToPGL (heven : Even (orderOf σ)) :
     ((MulEquiv.subgroupCongr (range_fixedSubgroupToPGL e σ heven)).trans
       (MonoidHom.ofInjective (pgl2Incl_injective σ)).symm)
 
-theorem pgl2Incl_fixedSubgroupEquivPGL2 (heven : Even (orderOf σ))
-    (k : ↥(fixedSubgroup K (fieldAutHom e σ))) :
-    pgl2Incl σ (fixedSubgroupEquivPGL2 e σ heven k) = kToPGL e k := by
-  have h := MonoidHom.apply_ofInjective_symm (pgl2Incl_injective σ)
-    (MulEquiv.subgroupCongr (range_fixedSubgroupToPGL e σ heven)
-      (MonoidHom.ofInjective (fixedSubgroupToPGL_injective e σ) k))
-  exact h.trans rfl
 
 theorem isPGL2_fixedSubgroup (heven : Even (orderOf σ)) :
     IsPGL2 ↥(fixedSubgroup K (fieldAutHom e σ)) (fun q₀ => q₀ ^ orderOf σ = Nat.card F) :=

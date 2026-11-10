@@ -12,12 +12,6 @@ open CFSG.RankThree.PartOne (IsStronglyPEmbedded)
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def Core227Hat (D : Data G) (Ch : Choice2011 G) : Prop :=
-  H1930 D → ∀ _ : Ctx22c D Ch, ∀ p ∈ D.sig, ∀ (m : ℕ) (Nb : Fin m → Subgroup (MBar D.M D.U)),
-    NbarSplit D Nb → ∀ i, p ∈ piSet (preN D (Nb i)) →
-      ∀ g ∈ normalizer (proofS D : Set G), g ∉ normalizer (proofEiHat D (preN D (Nb i)) : Set G) →
-        preN D (Nb i) ≤ centralizer
-          ((proofEiHat D (preN D (Nb i))).map (MulAut.conj g).toMonoidHom : Set G)
 
 @[expose] def S22_2_finHat (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ _ : Ctx22c D Ch, ∀ p ∈ D.sig, ∀ (m : ℕ) (Nb : Fin m → Subgroup (MBar D.M D.U)),

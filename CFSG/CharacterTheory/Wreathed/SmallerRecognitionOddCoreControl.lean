@@ -98,22 +98,5 @@ theorem smaller_wreathed_recognition_gives_proper_subgroup_odd_core_commutator_c
   exact odd_kernel_local_two_action_commutator (CFSG.oddCore K)
     (actual_oddCore_odd K) L hodd hcentral t ht A hA hAC
 
-theorem smaller_recognition_sylow_centralizer_commutator
-    {G : Type} [Group G] [Finite G]
-    (hrec : SmallerWreathedRecognition G) (K : Subgroup G) (hproper : K < ⊤)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 K) (e : S ≃* Wreath (2 ^ n))
-    (hfusion : ∀ x y : K, orderOf x = 2 → orderOf y = 2 → IsConj x y)
-    (hindex : ∀ D : Subgroup K, D.index ≠ 2)
-    (t : K) (ht : orderOf t = 2)
-    (P : Sylow 2 (Subgroup.centralizer ({t} : Set K))) :
-    ⁅(P : Subgroup (Subgroup.centralizer ({t} : Set K))).map
-      (Subgroup.centralizer ({t} : Set K)).subtype,
-      (CFSG.oddCore (Subgroup.centralizer ({t} : Set K))).map
-        (Subgroup.centralizer ({t} : Set K)).subtype⁆ ≤ CFSG.oddCore K := by
-  apply smaller_wreathed_recognition_gives_proper_subgroup_odd_core_commutator_control
-    hrec K hproper n hn S e hfusion hindex t ht
-  · exact P.isPGroup'.map _
-  · rintro a ⟨c, _, rfl⟩
-    exact c.property
 
 end CFSG.Wreathed.SmallerRecognitionOddCoreControl

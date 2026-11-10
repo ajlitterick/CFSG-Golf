@@ -57,9 +57,6 @@ theorem oPolar_add_left (v v' w : OV) : oPolar (v + v') w = oPolar v w + oPolar 
   simp only [oPolar, Pi.add_apply]
   ring
 
-theorem oPolar_add_right (v w w' : OV) : oPolar v (w + w') = oPolar v w + oPolar v w' := by
-  simp only [oPolar, Pi.add_apply]
-  ring
 
 theorem oPolar_smul_left (c : ZMod 2) (v w : OV) : oPolar (c • v) w = c * oPolar v w := by
   simp only [oPolar, Pi.smul_apply, smul_eq_mul]
@@ -71,24 +68,10 @@ theorem oPolar_smul_right (c : ZMod 2) (v w : OV) : oPolar v (c • w) = c * oPo
 
 theorem oPolar_zero_left (w : OV) : oPolar 0 w = 0 := by simp [oPolar]
 
-theorem oPolar_zero_right (v : OV) : oPolar v 0 = 0 := by simp [oPolar]
 
 theorem oQ_smul (c : ZMod 2) (v : OV) : oQ (c • v) = c * c * oQ v := by
   rw [QuadraticMap.map_smul, smul_eq_mul]
 
-theorem oPolar_nondeg (v : OV) (hv : ∀ w, oPolar v w = 0) : v = 0 := by
-  have h0 := hv (Pi.single 3 1)
-  have h1 := hv (Pi.single 4 1)
-  have h2 := hv (Pi.single 5 1)
-  have h3 := hv (Pi.single 0 1)
-  have h4 := hv (Pi.single 1 1)
-  have h5 := hv (Pi.single 2 1)
-  have h6 := hv (Pi.single 7 1)
-  have h7 := hv (Pi.single 6 1)
-  simp only [oPolar, Pi.single_apply] at h0 h1 h2 h3 h4 h5 h6 h7
-  norm_num at h0 h1 h2 h3 h4 h5 h6 h7
-  funext i
-  fin_cases i <;> assumption
 
 @[expose] def IsTSo (U : Submodule (ZMod 2) OV) : Prop := ∀ v ∈ U, oQ v = 0
 
@@ -122,10 +105,6 @@ theorem oQ_eq_Q_oProj {v : OV} (hv : v 3 = 0) : oQ v = Q (oProj v) := by
   rw [oQ_apply, C2E6Overlap.Q_apply, oProj_apply, hv]
   simp
 
-theorem oPolar_eq_polarQ_oProj {v w : OV} (hv : v 3 = 0) (hw : w 3 = 0) (hv0 : v 0 = 0 ∨ w 0 = 0)
-    : oPolar v w = C2E6Overlap.polarQ (oProj v) (oProj w) := by
-  rw [oPolar, C2E6Overlap.polarQ, oProj_apply, oProj_apply, hv, hw]
-  rcases hv0 with h | h <;> simp [h]
 
 theorem eq_smul_of_oProj_eq_zero {v : OV} (hv : v 3 = 0) (h : oProj v = 0) :
     v = v 0 • Pi.single 0 1 := by

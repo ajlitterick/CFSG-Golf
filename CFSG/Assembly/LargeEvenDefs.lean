@@ -90,10 +90,6 @@ end
 
 namespace LargeEven
 
-theorem kProper_inCatalog_iff_allSimple (G : Type) [Group G] [Finite G] :
-    KProper InCatalog G ↔ KCore.KProperAllSimple InCatalog G :=
-  KCore.kProperNonab_iff_kProperAllSimple (C := InCatalog) (X := G)
-    inCatalog_isoInvariant inCatalog_containsAbelianSimple
 
 end LargeEven
 end CFSG.Assembly

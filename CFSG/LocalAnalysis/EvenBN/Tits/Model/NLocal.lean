@@ -191,31 +191,6 @@ theorem tπ_mul_self_mem_titsK
     : Subgroup (Equiv.Perm (Fin 1755)) :=
   CFSG.Quasithin.extSub titsK tπ CFSG.Quasithin.tπ_norm_K tπ_mul_self_mem_titsK
 
-theorem mem_hatC_iff
-    {x : Equiv.Perm (Fin 1755)} : x ∈ hatC ↔ x ∈ titsK ∨ x * tπ⁻¹ ∈ titsK :=
-  Iff.rfl
-
-theorem titsK_le_hatC
-    : titsK ≤ hatC :=
-  CFSG.Quasithin.le_extSub
-
-theorem hatC_le_twoF4S
-    : hatC ≤ twoF4S :=
-  CFSG.Quasithin.extSub_mono titsK_le_titsS
-
-theorem hatC_inf_titsD
-    : hatC ⊓ titsD = titsK :=
-  le_antisymm (fun _ hx => CFSG.Quasithin.mem_of_mem_extSub_of_mem_D titsK_le_titsD hx.1 hx.2)
-    (le_inf titsK_le_hatC titsK_le_titsD)
-
-theorem card_hatC
-    : Nat.card hatC = 2048 := by
-  have h := relIndex_mul_card titsK hatC
-  have h2 : titsK.relIndex hatC = 2 :=
-    CFSG.Quasithin.relIndex_extSub fun h => CFSG.Quasithin.tπ_not_mem_D (titsK_le_titsD h)
-  have h3 : titsK ⊓ hatC = titsK := inf_of_le_left titsK_le_hatC
-  rw [h2, h3, titsQK_facts.2.2.2] at h
-  exact h.symm
 
 @[expose] noncomputable def nlocY : Equiv.Perm (Fin 1755) :=
   nElt Certificates.TitsAschbacherNLocal.yWord

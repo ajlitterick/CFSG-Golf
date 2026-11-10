@@ -15,15 +15,6 @@ open CFSG.ComponentClassification.UnbalancedCatalog
   CFSG.ComponentClassification.UnbalancedCatalog.OmegaRadical
 open CFSG.ClassicalGroups.Orthogonal (elementaryGroup)
 
-@[expose] def SpTwoOmegaStepOneInput (κ : Sp2mKind) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-    ∀ (n : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2], Nat.card K = 2 → 4 ≤ n →
-    ∀ (e : L ≃* StatedSp (n + 1) K) (t : G), orderOf t = 2 →
-      centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t →
-      (∀ k : Fin (n + 1), NsKindSp e t k κ) → NsRowGlobal e t (q2GlobalKind κ) →
-      ∀ (g : G) (hg : g⁻¹ * t * g ∈ normalizer (nsGlobal e : Set G)),
-        (nsGlobal e).normalizerMonoidHom ⟨g⁻¹ * t * g, hg⟩ ∉
-          (MulAut.conj : nsGlobal e →* MulAut (nsGlobal e)).range
 
 @[expose] def SpTwoOmegaBClassInput (κ : Sp2mKind) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →

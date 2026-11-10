@@ -26,17 +26,12 @@ open CFSG.Blueprint.Chevalley Module
 
 @[expose] def applyX (i : ℕ) (L : List ℕ) : List ℕ := L.flatMap (xTab i)
 
-@[expose] def applyY (i : ℕ) (L : List ℕ) : List ℕ := L.flatMap (yTab i)
-
 
 theorem xCol_eq_tab : ∀ i : Fin Tag.F4.rank, ∀ b < 52, xCol i b = xTab i b := by decide +kernel
-
-theorem yCol_eq_tab : ∀ i : Fin Tag.F4.rank, ∀ b < 52, yCol i b = yTab i b := by decide +kernel
 
 
 theorem xTab_lt : ∀ i : Fin Tag.F4.rank, ∀ b < 52, ∀ l ∈ xTab i b, l < 52 := by decide +kernel
 
-theorem yTab_lt : ∀ i : Fin Tag.F4.rank, ∀ b < 52, ∀ l ∈ yTab i b, l < 52 := by decide +kernel
 
 variable {R : Type*} [CommRing R] [CharP R 2]
 
@@ -50,15 +45,6 @@ theorem xOp_one_lvec (i : Fin Tag.F4.rank) {L : List ℕ} (hL : ∀ l ∈ L, l <
     rw [lvec_cons, map_add, ih fun l h => hL l (List.mem_cons_of_mem _ h),
       toVec_one_shiftLeft' hb, xOp_one_single i ⟨b, hb⟩, xCol_eq_tab i b hb, e, lvec_append]
 
-theorem yOp_one_lvec (i : Fin Tag.F4.rank) {L : List ℕ} (hL : ∀ l ∈ L, l < 52) :
-    yOp Tag.F4 R i 1 (lvec R L) = lvec R (applyY i L) := by
-  induction L with
-  | nil => simp [lvec_nil, applyY]
-  | cons b L ih =>
-    have hb : b < 52 := hL b List.mem_cons_self
-    have e : applyY i (b :: L) = yTab i b ++ applyY i L := List.flatMap_cons
-    rw [lvec_cons, map_add, ih fun l h => hL l (List.mem_cons_of_mem _ h),
-      toVec_one_shiftLeft' hb, yOp_one_single i ⟨b, hb⟩, yCol_eq_tab i b hb, e, lvec_append]
 
 theorem applyX_lt (i : Fin Tag.F4.rank) {L : List ℕ} (hL : ∀ l ∈ L, l < 52) :
     ∀ l ∈ applyX i L, l < 52 := by
@@ -66,11 +52,6 @@ theorem applyX_lt (i : Fin Tag.F4.rank) {L : List ℕ} (hL : ∀ l ∈ L, l < 52
   obtain ⟨b, hb, hl⟩ := List.mem_flatMap.1 hl
   exact xTab_lt i b (hL b hb) l hl
 
-theorem applyY_lt (i : Fin Tag.F4.rank) {L : List ℕ} (hL : ∀ l ∈ L, l < 52) :
-    ∀ l ∈ applyY i L, l < 52 := by
-  intro l hl
-  obtain ⟨b, hb, hl⟩ := List.mem_flatMap.1 hl
-  exact yTab_lt i b (hL b hb) l hl
 
 theorem sub_one_lvec {f : Module.End R (RootModule Tag.F4 R)} {fIdx : List ℕ → List ℕ}
     {L : List ℕ} (hf : f (lvec R L) = lvec R (fIdx L)) :

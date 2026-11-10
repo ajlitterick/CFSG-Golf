@@ -53,33 +53,6 @@ theorem one_add_smul_isBlockDiag {A : Type*} [CommRing A] (c : A) {E : Matrix (F
     add_zero]
   exact isBlockDiag_one a b hab
 
-theorem toMat_rootUnit_mem_blockGL
-    (K : Type*) [Field K] (i : Fin 4) (c : K) (s : Bool) :
-    toMat d4Match.lab K (rootUnit d4tData_valid K
-      ((if s then 1 else -1) • Pi.single (d4Match.node i) 1) c) ∈ blockGL d4Blk K := by
-  have hinv : ∀ (γ : Fin (Tag.rank .D4) → ℤ) (c : K),
-      (toMat d4Match.lab K (rootUnit d4tData_valid K γ c))⁻¹ =
-        toMat d4Match.lab K (rootUnit d4tData_valid K γ (-c)) := fun γ c => by
-    rw [← map_inv]
-    congr 1
-    rw [eq_comm, ← mul_eq_one_iff_eq_inv, ← rootUnit_add, neg_add_cancel, rootUnit_zero]
-  cases s
-  · simp only [Bool.false_eq_true, ↓reduceIte, neg_smul, one_smul]
-    refine mem_blockGL_of ?_ ?_
-    · rw [← d4_rootSubgroupPoints_inr, D4Tripled.coe_rootSubgroupPoints_inr, toAdd_ofAdd]
-      exact one_add_smul_isBlockDiag c fun a b hab => by
-        rw [D4Tripled.loweringMatrix_apply]; exact lowering_isBlockDiag i a b hab
-    · rw [hinv, ← d4_rootSubgroupPoints_inr, D4Tripled.coe_rootSubgroupPoints_inr, toAdd_ofAdd]
-      exact one_add_smul_isBlockDiag (-c) fun a b hab => by
-        rw [D4Tripled.loweringMatrix_apply]; exact lowering_isBlockDiag i a b hab
-  · simp only [↓reduceIte, one_smul]
-    refine mem_blockGL_of ?_ ?_
-    · rw [← d4_rootSubgroupPoints_inl, D4Tripled.coe_rootSubgroupPoints_inl, toAdd_ofAdd]
-      exact one_add_smul_isBlockDiag c fun a b hab => by
-        rw [D4Tripled.raisingMatrix_apply]; exact raising_isBlockDiag i a b hab
-    · rw [hinv, ← d4_rootSubgroupPoints_inl, D4Tripled.coe_rootSubgroupPoints_inl, toAdd_ofAdd]
-      exact one_add_smul_isBlockDiag (-c) fun a b hab => by
-        rw [D4Tripled.raisingMatrix_apply]; exact raising_isBlockDiag i a b hab
 
 theorem d4_points_isBlockDiag
     (A : Type*) [CommRing A] (g : Matrix.GeneralLinearGroup (Fin 24) A)

@@ -128,13 +128,6 @@ theorem bSnd_spec' (hn : 3 ≤ n) (hε : ε r₀ = {idxOne hn, idxLast hn}) (s :
   have h := congrArg (fun t : Finset (Fin n) => tᶜ) (bSnd_spec hn hε s)
   simpa using h
 
-omit [Fintype τ] [DecidableEq τ] in
-theorem bFst_eq_of_eq (hn : 3 ≤ n) (hε : ε r₀ = {idxOne hn, idxLast hn}) {s t : BIdx ε}
-    (h : s = t) : bFst hn hε s = bFst hn hε t := by rw [h]
-
-omit [Fintype τ] [DecidableEq τ] in
-theorem bSnd_eq_of_eq (hn : 3 ≤ n) (hε : ε r₀ = {idxOne hn, idxLast hn}) {s t : BIdx ε}
-    (h : s = t) : bSnd hn hε s = bSnd hn hε t := by rw [h]
 
 @[expose]
 noncomputable def bIdxOf (hn : 3 ≤ n) (hε : ε r₀ = {idxOne hn, idxLast hn})
@@ -1116,10 +1109,6 @@ theorem matDot_single_right (X : Matrix (Fin n) (Fin n) k) (i j : Fin n) :
   · intro hi
     exact absurd (Finset.mem_univ i) hi
 
-theorem matDot_comm (X Y : Matrix (Fin n) (Fin n) k) : matDot X Y = matDot Y X := by
-  rw [matDot, matDot]
-  exact Finset.sum_congr rfl fun i _ =>
-    Finset.sum_congr rfl fun j _ => mul_comm _ _
 
 theorem matDot_sub (X Y Z : Matrix (Fin n) (Fin n) k) :
     matDot X (Y - Z) = matDot X Y - matDot X Z := by

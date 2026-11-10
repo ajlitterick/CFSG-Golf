@@ -927,13 +927,6 @@ private lemma lemma54_z_z₁z {z z₁ σ τG ℓ₀ lam μ : G}
   have h1 := congrArg (fun x => x * z⁻¹) h
   simpa [mul_assoc, C.basic.hz2] using h1.symm
 
-private lemma lemma54_lam_ne_lamz {z z₁ σ τG ℓ₀ lam μ : G}
-    (C : Lemma54Context z z₁ σ τG ℓ₀ lam μ) : lam ≠ lam * z := by
-  intro h
-  have h1 : (1 : G) = z := by
-    have := congrArg (fun x => lam⁻¹ * x) h
-    simpa [mul_assoc] using this
-  exact C.basic.hz_ne_one h1.symm
 
 private lemma lemma54_lam_ne_lamz₁ {z z₁ σ τG ℓ₀ lam μ : G}
     (C : Lemma54Context z z₁ σ τG ℓ₀ lam μ) :

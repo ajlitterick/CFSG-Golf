@@ -271,16 +271,6 @@ theorem exists_isLongRootSL2_of_isCompl (h2 : (2 : K) ≠ 0) (hn : 2 ≤ n)
   rw [hL, mem_longRootGroup_iff_vec h2 hII]
   simp only [eigSpace_conj_aux hPQ hQP, hVeq, hWeq]
 
-theorem exists_isLongRootSL2_iff (h2 : (2 : K) ≠ 0) (hn : 2 ≤ n) (L : Subgroup SL(n, K)) :
-    (∃ i : SL(n, K), IsLongRootSL2 hn L i) ↔
-      ∃ V W : Submodule K (Fin n → K), IsCompl V W ∧ finrank K V = 2 ∧ ∀ x : SL(n, K),
-        x ∈ L ↔ (∀ w ∈ W, (x : Matrix (Fin n) (Fin n) K) *ᵥ w = w) ∧
-          ∀ v ∈ V, (x : Matrix (Fin n) (Fin n) K) *ᵥ v ∈ V := by
-  constructor
-  · rintro ⟨i, h⟩
-    exact h.exists_isCompl h2
-  · rintro ⟨V, W, hVW, hV, hL⟩
-    exact exists_isLongRootSL2_of_isCompl h2 hn hVW hV hL
 
 end LongRoot
 

@@ -508,25 +508,5 @@ theorem unitary_defining_splitting {p f : ℕ} {K : Type} [Field K] (h : Unitary
       exact isPGroup_ker_comp_subtype π hCp D)
   rwa [MonoidHom.ker_comp_of_injective _ _ φ.injective] at hker
 
-theorem defining_large_prime_symplectic_even_unitary_central_extension_splitting {p f : ℕ}
-    (hp : p.Prime) (hp3 : 3 < p) (hf : 1 ≤ f) :
-    (∀ (F : Type) [Field F] [Finite F], Nat.card F = p ^ f → ∀ r : ℕ, 1 ≤ r →
-      ∀ (E : Type u) [Group E] [Finite E] (π : E →* StatedSp r F), Function.Surjective π →
-        π.ker ≤ Subgroup.center E → IsPGroup p π.ker →
-        (∃! s : StatedSp r F →* E, π.comp s = MonoidHom.id _) ∧
-          ∀ s : StatedSp r F →* E, π.comp s = MonoidHom.id _ →
-            ∃ e : π.ker × s.range ≃* E, ∀ c g, e (c, g) = (c : E) * g) ∧
-    (∀ (K : Type) [Field K] (h : UnitaryFieldData p f K) (V : Type v) [AddCommGroup V]
-      [Module K V] (B : V →ₛₗ[h.bar] V →ₗ[K] K), B.IsSymm → B.SeparatingLeft → ∀ r : ℕ, 2 ≤ r →
-      Module.finrank K V = 2 * r →
-      ∀ (E : Type u) [Group E] [Finite E] (π : E →* sesqSpecialUnitaryGroup B),
-        Function.Surjective π → π.ker ≤ Subgroup.center E → IsPGroup p π.ker →
-        (∃! s : sesqSpecialUnitaryGroup B →* E, π.comp s = MonoidHom.id _) ∧
-          ∀ s : sesqSpecialUnitaryGroup B →* E, π.comp s = MonoidHom.id _ →
-            ∃ e : π.ker × s.range ≃* E, ∀ c g, e (c, g) = (c : E) * g) :=
-  ⟨fun _ _ _ hF _ _ _ _ _ π hπ hC hCp =>
-      symplectic_defining_splitting hp hp3 hf hF π hπ hC hCp,
-    fun _ _ h _ _ _ _ hB hBl _ hr hV _ _ _ π hπ hC hCp =>
-      unitary_defining_splitting h hp3 hB hBl hr hV π hπ hC hCp⟩
 
 end CFSG.RankThree.CentralLift

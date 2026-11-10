@@ -21,6 +21,5 @@ open Subgroup
     ∃ E : Subgroup (↥M ⧸ CFSG.pCore 2 ↥M), E ≤ barM M (normalizer (S : Set G) ⊓ L) ∧
       IsElemAbelian 3 E ∧ Nat.card E = 9
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

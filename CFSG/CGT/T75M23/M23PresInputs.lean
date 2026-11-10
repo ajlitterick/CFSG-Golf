@@ -64,13 +64,9 @@ abbrev M23Word : Type := List (Fin 7 × Bool)
 
 abbrev m23RelsN6 := restrictWords (subsetOf 7 [0, 1, 2, 3, 4, 5]) m23Rels
 
-@[expose] def m23Enum7 : Bool := subsetCheck m23Rels [0, 1, 2, 3, 4, 5] 200000 253
 
 abbrev m23RelsK := restrictWords (subsetOf _ [0, 1]) m23RelsN6
 
-@[expose] def m23Enum6 : Bool := subsetCheck m23RelsN6 [0, 1] 200000 16
-
-@[expose] def m23Enum2 : Bool := subsetCheck m23RelsK [] 20000 2520
 
 @[expose] def m23tA : Table :=
   #[1, 0, 3, 2, 4, 5, 7, 6, 9, 8, 10, 11, 13, 12, 15, 14, 16, 17, 19, 18, 21, 20, 22]
@@ -155,8 +151,5 @@ abbrev m23RelsK := restrictWords (subsetOf _ [0, 1]) m23RelsN6
     wordT 23 (m23ImgLetter T0 T1 T2 T3 T4 T5 T6 V0 V1 V2 V3 V4 V5 V6) m23SurjA == m23tA &&
     wordT 23 (m23ImgLetter T0 T1 T2 T3 T4 T5 T6 V0 V1 V2 V3 V4 V5 V6) m23SurjB == m23tB
 
-@[expose] def m23Enums : Bool := m23Enum7 && m23Enum6 && m23Enum2
-
-@[expose] def m23Checks : Bool := m23Enums && m23TabCheck
 
 end CFSG.CGT.T75M23

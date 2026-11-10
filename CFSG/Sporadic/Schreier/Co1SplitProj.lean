@@ -115,13 +115,6 @@ theorem g_mem_A (i : Fin 2) : g i.castSucc ∈ A := by
 theorem r_mem_A : r ∈ A :=
   Subgroup.subset_closure (Or.inr (Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ rfl)))
 
-theorem proj_a
-    (i : Fin 6) : proj ⟨a i, a_mem_A i⟩ = 1 := by
-  apply Units.ext
-  rw [proj_val, Units.val_one]
-  change signedMatrix (msData ((a i : GL24) : Mat24)).1 (msData ((a i : GL24) : Mat24)).2.2 = 1
-  rw [(msData_a i).1, (msData_a i).2]
-  exact signedMatrix_id_one
 
 theorem proj_g
     (i : Fin 2) : proj ⟨g i.castSucc, g_mem_A i⟩ = σ i := by
@@ -217,13 +210,6 @@ theorem r_sq : r ^ 2 = 1 := by
   rw [pow_two]
   exact h1.eq MRep.one
 
-theorem r_ne_one :
-    r ≠ 1 := by
-  intro hr
-  have h1 : (⟨r, r_mem_A⟩ : A) = 1 := Subtype.ext hr
-  have := proj_r
-  rw [h1, map_one] at this
-  exact one_ne_neg_one this
 
 theorem r_inv_ker :
     ∀ x ∈ proj.ker, (⟨r, r_mem_A⟩ : A) * x * (⟨r, r_mem_A⟩ : A)⁻¹ = x⁻¹ := by

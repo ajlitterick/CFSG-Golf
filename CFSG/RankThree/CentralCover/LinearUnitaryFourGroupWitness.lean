@@ -341,39 +341,6 @@ section LinearOdd
 
 variable {F : Type} [Field F]
 
-theorem linear_and_odd_unitary_three_central_cover_four_group_witness_linear_odd_quotient
-    [Finite F] (hF : ringChar F ≠ 2) :
-    let ρ := statedProjMk (StatedSL 3 F)
-    let R : Subgroup (StatedSL 3 F) := closure {slOdd₁ F, slOdd₂ F, slOdd₃ F}
-    let V := R.map ρ
-    let a := ρ (slOddA₀ F)
-    let b := ρ (slOddB₀ F)
-    (fun g : StatedSL 3 F => ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F)) ''
-        (R : Set (StatedSL 3 F)) =
-      {1, !![1, 0, 0; 0, -1, 0; 0, 0, -1], !![-1, 0, 0; 0, 1, 0; 0, 0, -1],
-        !![-1, 0, 0; 0, -1, 0; 0, 0, 1]} ∧
-    ((slOddA₀ F : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) = !![0, 0, 1; 1, 0, 0; 0, 1, 0] ∧
-    ((slOddB₀ F : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      !![0, -1, 0; -1, 0, 0; 0, 0, -1] ∧
-    IsKleinFour V ∧
-    (V : Set (StatedProj (StatedSL 3 F))) = {1, ρ (slOdd₁ F), ρ (slOdd₂ F), ρ (slOdd₃ F)} ∧
-    ρ (slOdd₁ F) ≠ 1 ∧ ρ (slOdd₂ F) ≠ 1 ∧ ρ (slOdd₃ F) ≠ 1 ∧ ρ (slOdd₁ F) ≠ ρ (slOdd₂ F) ∧
-    ρ (slOdd₁ F) ≠ ρ (slOdd₃ F) ∧ ρ (slOdd₂ F) ≠ ρ (slOdd₃ F) ∧
-    orderOf a = 3 ∧ a * ρ (slOdd₁ F) * a⁻¹ = ρ (slOdd₂ F) ∧
-    a * ρ (slOdd₂ F) * a⁻¹ = ρ (slOdd₃ F) ∧ a * ρ (slOdd₃ F) * a⁻¹ = ρ (slOdd₁ F) ∧
-    orderOf b = 2 ∧ b⁻¹ * a * b = a⁻¹ ∧
-    a ∈ normalizer (V : Set (StatedProj (StatedSL 3 F))) ∧ V ⊓ zpowers a = ⊥ ∧
-    (V : Set (StatedProj (StatedSL 3 F))) * (zpowers a : Set (StatedProj (StatedSL 3 F))) =
-      (V ⊔ zpowers a : Subgroup (StatedProj (StatedSL 3 F))) ∧
-    Nat.card (V ⊔ zpowers a : Subgroup (StatedProj (StatedSL 3 F))) = 12 ∧
-    Set.InjOn ρ (R ⊔ zpowers (slOddA₀ F) : Subgroup (StatedSL 3 F)) := by
-  intro ρ R V a b
-  have hR : (R : Set (StatedSL 3 F)) = {1, slOdd₁ F, slOdd₂ F, slOdd₃ F} :=
-    (slOddCycled hF).coe_closure
-  refine ⟨?_, rfl, rfl, (slOddCycled hF).quotient_package slOddB₀_conj slOddB₀_sq ρ
-    (ker_statedProjMk_le_center _)⟩
-  rw [hR, Set.image_insert_eq, Set.image_insert_eq, Set.image_pair]
-  rfl
 
 theorem linear_and_odd_unitary_three_central_cover_four_group_witness_linear_odd_cover
     [Finite F] (hF : ringChar F ≠ 2) {K : Type*} [Group K] [Finite K]
@@ -404,50 +371,6 @@ section LinearEven
 
 variable {F : Type} [Field F]
 
-theorem linear_and_odd_unitary_three_central_cover_four_group_witness_linear_even_quotient
-    [Finite F] [CharP F 2] :
-    let ρ := statedProjMk (StatedSL 3 F)
-    let R : Subgroup (StatedSL 3 F) := closure {slEven₁ F, slEven₂ F, slEven₃ F}
-    let V := R.map ρ
-    let a := ρ (slEvenA₀ F)
-    let b := ρ (slEvenB₀ F)
-    (fun g : StatedSL 3 F => ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F)) ''
-        (R : Set (StatedSL 3 F)) =
-      {M | ∃ s t : F, (s = 0 ∨ s = 1) ∧ (t = 0 ∨ t = 1) ∧ M = !![1, s, t; 0, 1, 0; 0, 0, 1]} ∧
-    ((slEvenA₀ F : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) = !![1, 0, 0; 0, 0, 1; 0, 1, 1] ∧
-    ((slEvenB₀ F : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) = !![1, 0, 0; 0, 0, 1; 0, 1, 0] ∧
-    IsKleinFour V ∧
-    (V : Set (StatedProj (StatedSL 3 F))) = {1, ρ (slEven₁ F), ρ (slEven₂ F), ρ (slEven₃ F)} ∧
-    ρ (slEven₁ F) ≠ 1 ∧ ρ (slEven₂ F) ≠ 1 ∧ ρ (slEven₃ F) ≠ 1 ∧ ρ (slEven₁ F) ≠ ρ (slEven₂ F) ∧
-    ρ (slEven₁ F) ≠ ρ (slEven₃ F) ∧ ρ (slEven₂ F) ≠ ρ (slEven₃ F) ∧
-    orderOf a = 3 ∧ a * ρ (slEven₁ F) * a⁻¹ = ρ (slEven₂ F) ∧
-    a * ρ (slEven₂ F) * a⁻¹ = ρ (slEven₃ F) ∧ a * ρ (slEven₃ F) * a⁻¹ = ρ (slEven₁ F) ∧
-    orderOf b = 2 ∧ b⁻¹ * a * b = a⁻¹ ∧
-    a ∈ normalizer (V : Set (StatedProj (StatedSL 3 F))) ∧ V ⊓ zpowers a = ⊥ ∧
-    (V : Set (StatedProj (StatedSL 3 F))) * (zpowers a : Set (StatedProj (StatedSL 3 F))) =
-      (V ⊔ zpowers a : Subgroup (StatedProj (StatedSL 3 F))) ∧
-    Nat.card (V ⊔ zpowers a : Subgroup (StatedProj (StatedSL 3 F))) = 12 ∧
-    Set.InjOn ρ (R ⊔ zpowers (slEvenA₀ F) : Subgroup (StatedSL 3 F)) := by
-  intro ρ R V a b
-  have hR : (R : Set (StatedSL 3 F)) = {1, slEven₁ F, slEven₂ F, slEven₃ F} :=
-    (slEvenCycled (F := F)).coe_closure
-  refine ⟨?_, rfl, rfl, (slEvenCycled (F := F)).quotient_package slEvenB₀_conj slEvenB₀_sq ρ
-    (ker_statedProjMk_le_center _)⟩
-  rw [hR, Set.image_insert_eq, Set.image_insert_eq, Set.image_pair]
-  ext M
-  simp only [Set.mem_insert_iff, Set.mem_singleton_iff, Set.mem_ofPred_eq]
-  constructor
-  · rintro (rfl | rfl | rfl | rfl)
-    · exact ⟨0, 0, Or.inl rfl, Or.inl rfl, by simp [one_fin_three]⟩
-    · exact ⟨1, 0, Or.inr rfl, Or.inl rfl, rfl⟩
-    · exact ⟨1, 1, Or.inr rfl, Or.inr rfl, rfl⟩
-    · exact ⟨0, 1, Or.inl rfl, Or.inr rfl, rfl⟩
-  · rintro ⟨s, t, hs | hs, ht | ht, rfl⟩ <;> subst hs <;> subst ht
-    · left
-      simp [one_fin_three]
-    · right; right; right; rfl
-    · right; left; rfl
-    · right; right; left; rfl
 
 theorem linear_and_odd_unitary_three_central_cover_four_group_witness_linear_even_cover
     [Finite F] [CharP F 2] {K : Type*} [Group K] [Finite K]
@@ -478,44 +401,6 @@ section UnitaryOdd
 
 variable {F : Type} [Field F]
 
-theorem linear_and_odd_unitary_three_central_cover_four_group_witness_unitary_odd_quotient
-    [Finite F] {q : ℕ} (_hq : IsPrimePow q) (hqodd : Odd q) (hF : Nat.card F = q ^ 2) :
-    let ρ := statedProjMk (StatedSU 3 q F)
-    let R : Subgroup (StatedSU 3 q F) := closure {suOdd₁ F hqodd, suOdd₂ F hqodd, suOdd₃ F hqodd}
-    let V := R.map ρ
-    let a := ρ (suOddA₀ F hqodd)
-    let b := ρ (suOddB₀ F hqodd)
-    (fun g : StatedSU 3 q F => ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F)) ''
-        (R : Set (StatedSU 3 q F)) =
-      {1, !![1, 0, 0; 0, -1, 0; 0, 0, -1], !![-1, 0, 0; 0, 1, 0; 0, 0, -1],
-        !![-1, 0, 0; 0, -1, 0; 0, 0, 1]} ∧
-    ((suOddA₀ F hqodd : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      !![0, 0, 1; 1, 0, 0; 0, 1, 0] ∧
-    ((suOddB₀ F hqodd : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      !![0, -1, 0; -1, 0, 0; 0, 0, -1] ∧
-    IsKleinFour V ∧
-    (V : Set (StatedProj (StatedSU 3 q F))) =
-      {1, ρ (suOdd₁ F hqodd), ρ (suOdd₂ F hqodd), ρ (suOdd₃ F hqodd)} ∧
-    ρ (suOdd₁ F hqodd) ≠ 1 ∧ ρ (suOdd₂ F hqodd) ≠ 1 ∧ ρ (suOdd₃ F hqodd) ≠ 1 ∧
-    ρ (suOdd₁ F hqodd) ≠ ρ (suOdd₂ F hqodd) ∧ ρ (suOdd₁ F hqodd) ≠ ρ (suOdd₃ F hqodd) ∧
-    ρ (suOdd₂ F hqodd) ≠ ρ (suOdd₃ F hqodd) ∧
-    orderOf a = 3 ∧ a * ρ (suOdd₁ F hqodd) * a⁻¹ = ρ (suOdd₂ F hqodd) ∧
-    a * ρ (suOdd₂ F hqodd) * a⁻¹ = ρ (suOdd₃ F hqodd) ∧
-    a * ρ (suOdd₃ F hqodd) * a⁻¹ = ρ (suOdd₁ F hqodd) ∧
-    orderOf b = 2 ∧ b⁻¹ * a * b = a⁻¹ ∧
-    a ∈ normalizer (V : Set (StatedProj (StatedSU 3 q F))) ∧ V ⊓ zpowers a = ⊥ ∧
-    (V : Set (StatedProj (StatedSU 3 q F))) * (zpowers a : Set (StatedProj (StatedSU 3 q F))) =
-      (V ⊔ zpowers a : Subgroup (StatedProj (StatedSU 3 q F))) ∧
-    Nat.card (V ⊔ zpowers a : Subgroup (StatedProj (StatedSU 3 q F))) = 12 ∧
-    Set.InjOn ρ (R ⊔ zpowers (suOddA₀ F hqodd) : Subgroup (StatedSU 3 q F)) := by
-  intro ρ R V a b
-  have hF2 := ringChar_ne_two_of_card_eq_sq hqodd hF
-  have hR : (R : Set (StatedSU 3 q F)) = {1, suOdd₁ F hqodd, suOdd₂ F hqodd, suOdd₃ F hqodd} :=
-    (suOddCycled hF2 hqodd).coe_closure
-  refine ⟨?_, rfl, rfl, (suOddCycled hF2 hqodd).quotient_package (suOddB₀_conj hqodd)
-    (suOddB₀_sq hqodd) ρ (ker_statedProjMk_le_center _)⟩
-  rw [hR, Set.image_insert_eq, Set.image_insert_eq, Set.image_pair]
-  rfl
 
 theorem linear_and_odd_unitary_three_central_cover_four_group_witness_unitary_odd_cover
     [Finite F] {q : ℕ} (_hq : IsPrimePow q) (hqodd : Odd q) (hF : Nat.card F = q ^ 2)

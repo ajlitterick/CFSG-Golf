@@ -55,8 +55,6 @@ theorem cv_invRev (u : List (Fin 2 × Bool)) : cv (FreeGroup.invRev u) = (cv u)�
 theorem cv_wpow (u : List (Fin 2 × Bool)) (k : ℕ) : cv (wpow u k) = cv u ^ k := by
   rw [cv, cv, mk_wpow, map_pow]
 
-theorem cv_eq_one {w : List (Fin 2 × Bool)} (h : w ∈ coverWs) : cv w = 1 :=
-  PresentedGroup.one_of_mem (List.mem_map_of_mem h)
 
 @[expose] def aS : Equiv.Perm (Fin 42) := wordPerm wa
 
@@ -93,13 +91,6 @@ theorem lift_genAB_mem_S (f : FreeGroup (Fin 2)) : FreeGroup.lift genAB f ∈ S 
   | inv_of i ih => rw [map_inv]; exact S.inv_mem ih
   | mul x y hx hy => rw [map_mul]; exact S.mul_mem hx hy
 
-theorem abPerm_mem_S (w : List (Fin 2 × Bool)) : abPerm w ∈ S := lift_genAB_mem_S _
-
-theorem bFive_eq : bFive = wpow [(1, true)] 5 := by decide
-
-theorem cv_b_pow_five : cv [(1, true)] ^ 5 = 1 := by
-  rw [← cv_wpow, ← bFive_eq]
-  exact cv_eq_one (List.mem_append_right _ (by simp [extraWs]))
 
 section Lift
 

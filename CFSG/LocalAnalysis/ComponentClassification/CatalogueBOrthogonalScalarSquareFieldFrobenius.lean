@@ -58,20 +58,5 @@ theorem finite_conjugation_eq_card_power [Finite K] [Nontrivial V]
     conjugation T d hns hsquare z = z ^ Nat.card K :=
   conjugation_eq_card_power T d hns hsquare (finite_nonsquare_two_ne_zero d hns) z
 
-theorem generator_card_power [Finite K] [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (h2 : (2 : K) ≠ 0) :
-    letI := scalarField T d hns hsquare
-    generator T ^ Nat.card K = -generator T := by
-  let := scalarField T d hns hsquare
-  rw [← conjugation_eq_card_power T d hns hsquare h2, conjugation_generator]
-
-theorem coordinate_card_power [Finite K] [Nontrivial V] (T : Module.End K V) (d : K)
-    (hns : ¬ IsSquare d) (hsquare : T ^ 2 = algebraMap K (Module.End K V) d)
-    (h2 : (2 : K) ≠ 0) (a b : K) :
-    letI := scalarField T d hns hsquare
-    coordinateElement T a b ^ Nat.card K = coordinateElement T a (-b) := by
-  let := scalarField T d hns hsquare
-  rw [← conjugation_eq_card_power T d hns hsquare h2, conjugation_coordinates]
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareField

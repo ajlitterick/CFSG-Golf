@@ -208,21 +208,6 @@ private theorem bd_cons_cons (f : ℕ × ℕ → ℕ × ℕ → ℕ) (x : ℕ ×
   rw [letN_eq]
   rfl
 
-private theorem bd_ge (f : ℕ × ℕ → ℕ × ℕ → ℕ) (xs : List (ℕ × ℕ)) :
-    ∀ (hs : List (ℕ × ℕ)) (acc : ℕ), acc ≤ bd f xs hs acc := by
-  induction xs with
-  | nil =>
-    intro hs acc
-    cases hs with
-    | nil => exact le_rfl
-    | cons q qs => rw [bd_nil_cons]; omega
-  | cons x xs ih =>
-    intro hs acc
-    cases hs with
-    | nil => rw [bd_cons_nil]; omega
-    | cons q qs =>
-      rw [bd_cons_cons]
-      exact le_trans (Nat.le_add_right _ _) (ih qs _)
 
 private theorem bd_spec (f : ℕ × ℕ → ℕ × ℕ → ℕ) (xs : List (ℕ × ℕ)) :
     ∀ (hs : List (ℕ × ℕ)) (acc : ℕ), bd f xs hs acc < 1099511627776 →

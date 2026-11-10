@@ -150,16 +150,6 @@ section C1B
 
 open CFSG.Quasithin.MS93.S45
 
-@[expose] def S45C1BTwo : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M T L : Subgroup G) (F : Type) [Field F] [Fintype F]
-    (φ : ↥M →* ↥(StatedSL 3 F)) (c : Ctx M T L φ), c.HZV → Fintype.card F = 2 →
-    ∀ (p : ℕ → Vtx (puAmalgam c.hyp.le)) (N : ℕ), IsGoodPath _ p N →
-    ∀ a : ℕ, Even a → 34 ≤ a → a + 30 ≤ N →
-    ¬ Zloc c.hyp.le L (p a) ≤ Hloc c.hyp.le L (p a) →
-    stab (puAmalgam c.hyp.le) (p (a + 1)) ≤ Subgroup.normalizer
-      ((⁅Qv (puAmalgam c.hyp.le) (p a), Ltil c.hyp.le L (p a)⁆ ⊓
-        (Zloc c.hyp.le L (p a) ⊓ Zloc c.hyp.le L (p (a + 2))) : Subgroup _) :
-          Set (puAmalgam c.hyp.le).Universal)
 
 end C1B
 

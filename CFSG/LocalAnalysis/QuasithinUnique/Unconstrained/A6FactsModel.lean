@@ -29,7 +29,6 @@ theorem pslGens_code : pslGens.map code = Core.pslGenC := by decide +kernel
 
 theorem autGens_code : autGens.map code = Core.autGenC := by decide +kernel
 
-theorem autGens_inv_code : (autGens.map (·⁻¹)).map code = Core.autGenInvC := by decide +kernel
 
 theorem p0Gens_code : p0Gens.map code = Core.p0GenC := by decide +kernel
 

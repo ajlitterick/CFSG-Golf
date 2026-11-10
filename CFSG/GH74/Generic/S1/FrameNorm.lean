@@ -104,9 +104,6 @@ section Conj
     change P⁻¹ * ((a : GL (Fin 4) F) * (b : GL (Fin 4) F)) * P = _
     simp [mul_assoc])
 
-theorem conjEquiv_apply (S : Subgroup (GL (Fin 4) F)) (P : GL (Fin 4) F)
-    (h1 : ∀ k ∈ S, P⁻¹ * k * P ∈ S) (h2 : ∀ k ∈ S, P * k * P⁻¹ ∈ S) (k : ↥S) :
-    ((conjEquiv S P h1 h2 k : ↥S) : GL (Fin 4) F) = P⁻¹ * (k : GL (Fin 4) F) * P := rfl
 
 theorem conj_mem_statedSL (P : GL (Fin 4) F) {k : GL (Fin 4) F} (hk : k ∈ StatedSL 4 F) :
     P⁻¹ * k * P ∈ StatedSL 4 F := by

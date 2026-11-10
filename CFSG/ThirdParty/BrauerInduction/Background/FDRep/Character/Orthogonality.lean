@@ -86,43 +86,5 @@ theorem char_scalarProduct_eq_finrank_hom
                 (FDRep.forget₂HomLinearEquiv W V)
   exact Nat.cast_inj.mpr hfin
 
-/--
-Representations with equal characters have equal dimensions of Hom spaces from
-any fixed source representation.
--/
-lemma finrank_hom_eq_of_char_eq
-    [Finite G] [CharZero k]
-    (S V W : FDRep k G)
-    (h : V.character = W.character) :
-    Module.finrank k (S ⟶ V) = Module.finrank k (S ⟶ W) := by
-  letI : Fintype G := Fintype.ofFinite G
-  have hV :
-      ((Fintype.card G : k)⁻¹) *
-          (∑ g : G, V.character g * S.character g⁻¹)
-        =
-      (Module.finrank k (S ⟶ V) : k) :=
-    char_scalarProduct_eq_finrank_hom (k := k) (G := G) V S
-  have hW :
-      ((Fintype.card G : k)⁻¹) *
-          (∑ g : G, W.character g * S.character g⁻¹)
-        =
-      (Module.finrank k (S ⟶ W) : k) :=
-    char_scalarProduct_eq_finrank_hom (k := k) (G := G) W S
-  have hcast :
-      (Module.finrank k (S ⟶ V) : k) =
-        (Module.finrank k (S ⟶ W) : k) := by
-    calc
-      (Module.finrank k (S ⟶ V) : k)
-          =
-        ((Fintype.card G : k)⁻¹) *
-          (∑ g : G, V.character g * S.character g⁻¹) := hV.symm
-      _ =
-        ((Fintype.card G : k)⁻¹) *
-          (∑ g : G, W.character g * S.character g⁻¹) := by
-            rw [h]
-      _ =
-        (Module.finrank k (S ⟶ W) : k) := hW
-  exact Nat.cast_injective hcast
-
 
 end FDRep

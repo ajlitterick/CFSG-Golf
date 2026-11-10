@@ -69,18 +69,6 @@ theorem r2_comm : ∀ r ∈ r2, ∀ c < 64, c ^^^ r.app c ∈ l2c := by decide
 
 theorem r2_fix : ∀ r ∈ r2, r ≠ B6.id → ∀ c < 64, (r.app c = c ↔ c ∈ l2c) := by decide
 
-theorem two6_of_sq {r : B6} (h : r.comp r = B6.id) : two6 r = true := by
-  have h1 : r.pow 1 = r := B6.comp_id
-  have h2 : r.pow 2 = B6.id := by
-    show r.comp (r.pow 1) = _
-    rw [h1, h]
-  have h3 : r.pow 3 = r := by
-    show r.comp (r.pow 2) = _
-    rw [h2, B6.comp_id]
-  have h4 : r.pow 4 = B6.id := by
-    show r.comp (r.pow 3) = _
-    rw [h3, h]
-  simp [two6, h4]
 
 theorem presv_iff (l : List ℕ) (B : B6) : presv l B = true ↔ ∀ c ∈ l, B.app c ∈ l := by
   simp [presv, List.all_eq_true]

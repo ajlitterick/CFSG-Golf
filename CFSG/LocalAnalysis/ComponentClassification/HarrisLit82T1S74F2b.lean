@@ -120,10 +120,6 @@ theorem JThree_mem_centralizer [Finite K] (h4 : 4 ≤ Nat.card K) (B : SL(2, K))
     rw [map_inv]
     exact (LinearEquiv.symm_apply_eq _).mpr (ha i s hi).symm
 
-theorem mem_fixW {g : spinGroup (quadOdd 3 K)} :
-    g ∈ fixW K ↔ ∀ (i : Fin 3) (s : Bool), i ≠ 2 →
-      spinAction (quadOdd 3 K) g (oddVec 3 K i s) = oddVec 3 K i s :=
-  Iff.rfl
 
 theorem shortSeven_mem_fixW (A : SL(2, K)) : shortSeven K A ∈ fixW K := by
   have hfix : ∀ (s : Bool) (c : K), (oddFrame 3 K).shortRoot 2 s (.ofAdd c) ∈ fixW K := by

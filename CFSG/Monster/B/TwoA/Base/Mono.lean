@@ -175,9 +175,6 @@ theorem inclQ_injective (h : MonoHyp D Q) : Function.Injective (inclQ h) := by
     induction x using multQD_induction with
     | h a => rfl
 
-theorem inclSD_mk (h : MonoHyp D Q) (a : D) (p : Q) :
-    inclSD h ⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⟩ =
-      ⟨Multiplicative.ofAdd (Submodule.Quotient.mk (Submodule.inclusion h.le_C a)), p⟩ := rfl
 
 theorem inclSD_injective (h : MonoHyp D Q) : Function.Injective (inclSD h) := by
   intro x y hxy
@@ -216,8 +213,6 @@ theorem mk_mem_monoSub (h : MonoHyp D Q) {a : C} (ha : (a : Fin 24 → ZMod 2) �
 @[expose] def monoSubEquiv (h : MonoHyp D Q) : SDD h ≃* monoSub h :=
   MonoidHom.ofInjective (monoD_injective h)
 
-theorem coe_monoSubEquiv (h : MonoHyp D Q) (x : SDD h) :
-    (monoSubEquiv h x : OLq) = monoD h x := rfl
 
 theorem natCard_monoSub (h : MonoHyp D Q) :
     Nat.card (monoSub h) = Nat.card (D ⧸ ΩIn D) * Nat.card Q := by
@@ -268,16 +263,6 @@ theorem natCard_quot_ΩIn (h : MonoHyp D Q) :
 theorem monoProj_surjective (h : MonoHyp D Q) : Function.Surjective (monoProj h) :=
   SemidirectProduct.rightHom_surjective.comp (monoSubEquiv h).symm.surjective
 
-theorem monoProj_monoSubEquiv (h : MonoHyp D Q) (x : SDD h) :
-    monoProj h (monoSubEquiv h x) = x.right := by
-  change SemidirectProduct.rightHom ((monoSubEquiv h).symm (monoSubEquiv h x)) = x.right
-  rw [MulEquiv.symm_apply_apply]
-  rfl
-
-theorem monoProj_mk (h : MonoHyp D Q) (a : D) (p : Q) :
-    monoProj h ⟨QuotientGroup.mk (gO (Submodule.inclusion h.le_C a) * PO (p : AutPerm)⁻¹),
-      ⟨⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⟩, rfl⟩⟩ = p :=
-  monoProj_monoSubEquiv h ⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⟩
 
 theorem natCard_ker_monoProj [Finite Q] (h : MonoHyp D Q) :
     Nat.card (monoProj h).ker = Nat.card (D ⧸ ΩIn D) := by

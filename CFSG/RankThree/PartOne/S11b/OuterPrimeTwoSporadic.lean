@@ -12,19 +12,6 @@ open CFSG CFSG.Blueprint CFSG.ComponentClassification.OuterAutomorphisms
   Nat.card (Outer (NativeSporadic.Carrier s)) < 40 ∨
     ∀ q : ℕ, q.Prime → 5 ≤ q → ¬ q ∣ Nat.card (Outer (NativeSporadic.Carrier s))
 
-theorem outerPrimeTwoTrivial_of_sporadicOuterSmall {s : TauCeti.SporadicName}
-    (hs : SporadicOuterSmall s) {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier s) : OuterPrimeTwoTrivial S := by
-  have hcard : Nat.card (Outer S) = Nat.card (Outer (NativeSporadic.Carrier s)) :=
-    Nat.card_congr (equivalence e).toEquiv
-  rcases hs with h | h
-  · exact outerPrimeTwoTrivial_of_card_lt (by rw [hcard]; exact h)
-  · exact outerPrimeTwoTrivial_of_not_dvd fun q hq hq5 => by rw [hcard]; exact h q hq hq5
-
-theorem outerPrimeTwoTrivial_sporadic_of_small (hsp : ∀ s, SporadicOuterSmall s) {S : Type}
-    [Group S] [Finite S] (hS : NativeSporadic.SporadicRep S) : OuterPrimeTwoTrivial S := by
-  obtain ⟨s, ⟨e⟩⟩ := hS
-  exact outerPrimeTwoTrivial_of_sporadicOuterSmall (hsp s) e
 
 @[expose] def SporadicOuterSmallSimple (s : TauCeti.SporadicName) : Prop :=
   ∀ (T : Type) [Group T] [Finite T] [IsSimpleGroup T], (∃ a b : T, a * b ≠ b * a) →

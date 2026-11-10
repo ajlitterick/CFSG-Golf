@@ -53,8 +53,6 @@ theorem mem_Q_of_pf_eq_one {a : G} (haS : a ∈ S) (h : C.P.pf a = 1) : a ∈ pC
   calc u * a = (a * u * a⁻¹) * a := by rw [this]
     _ = a * u := by group
 
-theorem mem_Q_iff {a : G} (haS : a ∈ S) : a ∈ pCoreOf 2 H ↔ C.P.pf a = 1 :=
-  ⟨C.pf_eq_one_of_mem_Q, C.mem_Q_of_pf_eq_one haS⟩
 
 theorem im_le_Dstd {A : Subgroup G} (hA : IsMaxElemAbelian S A) : C.P.im A ≤ Dstd := by
   rw [← C.hS]

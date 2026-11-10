@@ -18,9 +18,5 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.SmallOd
   [wordTbl 6156 j3C1Gens [1], wordTbl 6156 j3C1Gens [3], wordTbl 6156 j3C1Gens [5, 5],
     wordTbl 6156 j3C1Gens [4, 4, 4], wordTbl 6156 j3C1Gens [5, 3, 5]]
 
-@[expose] def j3QOK : Bool :=
-  enumOK 6156 100 32 j3QGens && enumOK 6156 3000 1920 j3C1Gens &&
-    j3C1Gens.all (fun c => permOK 6156 c) && j3QGens.all (fun c => permOK 6156 c) &&
-    normOK 6156 100 j3QGens j3C1Gens && centCount 6156 3000 j3C1Gens j3QGens == 2
 
 end CFSG.Sporadic.SmallOddCore

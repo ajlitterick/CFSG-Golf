@@ -68,15 +68,6 @@ theorem gamma_pGroup_le_of_large_intersection
     (gamma_rank_normalizer_le_overgroup threshold prime hprime sylowGroup overgroup hsylow hcore)
     primeGroup hpGroup hrank
 
-theorem aschCore_two_pGroup_le_of_rank_three_intersection
-    (prime : ℕ) (hprime : prime.Prime) (sylowGroup : Sylow prime G)
-    (overgroup : Subgroup G) (hsylow : (sylowGroup : Subgroup G) ≤ overgroup)
-    (hcore : rankThreeAschCore 2 prime (sylowGroup : Subgroup G) ≤ overgroup)
-    (primeGroup : Subgroup G) (hpGroup : IsPGroup prime primeGroup)
-    (hrank : 3 ≤ pRank prime (primeGroup ⊓ overgroup)) : primeGroup ≤ overgroup := by
-  exact pGroup_le_of_rank_intersection_of_normalizer_closure 3 prime hprime overgroup
-    (aschCore_two_rank_three_normalizer_le_overgroup prime hprime sylowGroup overgroup hsylow hcore)
-    primeGroup hpGroup hrank
 
 theorem normalizer_closure_transporter_mem
     (threshold prime : ℕ) (hprime : prime.Prime) (overgroup : Subgroup G)
@@ -157,40 +148,5 @@ theorem gamma_conjugate_intersection_rank_lt
     (gamma_rank_normalizer_le_overgroup threshold prime hprime sylowGroup overgroup hsylow hcore)
     conjugator houtside
 
-theorem aschCore_two_conjugate_intersection_rank_lt_three
-    (prime : ℕ) (hprime : prime.Prime) (sylowGroup : Sylow prime G) (overgroup : Subgroup G)
-    (hsylow : (sylowGroup : Subgroup G) ≤ overgroup)
-    (hcore : rankThreeAschCore 2 prime (sylowGroup : Subgroup G) ≤ overgroup)
-    (conjugator : G) (houtside : conjugator ∉ overgroup) :
-    pRank prime (overgroup ⊓ overgroup.map (MulAut.conj conjugator).toMonoidHom) < 3 := by
-  exact normalizer_closure_conjugate_intersection_rank_lt 3 prime hprime (by omega) overgroup
-    (aschCore_two_rank_three_normalizer_le_overgroup prime hprime sylowGroup overgroup hsylow hcore)
-    conjugator houtside
-
-theorem selected_coreLocal_has_rank_three_normalizer_closure
-    (hrank : evenRank G = 3) (hcoreLocal : rankThreeAschCoreLocal G 2) (prime : ℕ)
-    (hselected : prime ∈ rankThreeSigmaA G) (sylowGroup : Sylow prime G) :
-    ∃ maximalLocal : Subgroup G, rankThreeIsMaxTwoLocal maximalLocal ∧
-      rankThreeAschCore 2 prime (sylowGroup : Subgroup G) ≤ maximalLocal ∧
-      (sylowGroup : Subgroup G) ≤ maximalLocal ∧ pRank prime maximalLocal = 3 ∧
-      Subgroup.normalizer (maximalLocal : Set G) = maximalLocal ∧
-      (∀ primeGroup : Subgroup G, IsPGroup prime primeGroup → primeGroup ≤ maximalLocal →
-        3 ≤ pRank prime primeGroup → Subgroup.normalizer (primeGroup : Set G) ≤ maximalLocal) ∧
-      (∀ primeGroup : Subgroup G, IsPGroup prime primeGroup →
-        3 ≤ pRank prime (primeGroup ⊓ maximalLocal) → primeGroup ≤ maximalLocal) ∧
-      (∀ conjugator : G, conjugator ∉ maximalLocal →
-        pRank prime (maximalLocal ⊓
-          maximalLocal.map (MulAut.conj conjugator).toMonoidHom) < 3) := by
-  obtain ⟨maximalLocal, hmaximal, hcore, _, hinclusion, _, hlocalRank⟩ :=
-    selected_coreLocal_all_sylows_have_maximal_overgroup hrank hcoreLocal prime hselected sylowGroup
-  have hprime := sigmaA_prime prime hselected
-  refine ⟨maximalLocal, hmaximal, hcore, hinclusion, hlocalRank,
-    maxTwoLocal_self_normalizing maximalLocal hmaximal, ?_, ?_, ?_⟩
-  · exact aschCore_two_rank_three_normalizer_le_overgroup prime hprime sylowGroup maximalLocal
-      hinclusion hcore
-  · exact aschCore_two_pGroup_le_of_rank_three_intersection prime hprime sylowGroup maximalLocal
-      hinclusion hcore
-  · exact aschCore_two_conjugate_intersection_rank_lt_three prime hprime sylowGroup maximalLocal
-      hinclusion hcore
 
 end CFSG.RankThreeCoreUniqueness.Helpers

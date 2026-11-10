@@ -73,14 +73,5 @@ theorem facts15311All_of_stages (h11 : StageLemma14111) (h113 : StageLemma14113)
 
 end S153D
 
-theorem theorem15313_of_stages
-    (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hC27 : ∀ (G : Type) [Group G] [Finite G], ASC27Statement G)
-    (h37 : A37ForSQTK) (h38 : A38ForSQTK) (hcover : AsA36NoOddCover)
-    (h15 : Input15315Two) (h16 : Input15316One) (h17 : Input15317)
-    (h18 : Input15318) (h19 : Input15319) (h20 : Input15320) (h21 : Input15321)
-    (h23 : Input15323) (h24 : Input15324) : Stage15313 :=
-  theorem15313_of_inputs hC27 h37 h38 hcover (S153D.facts15311All_of_stages h11 h113) h15 h16 h17
-    h18 h19 h20 h21 h23 h24
 
 end CFSG.Quasithin

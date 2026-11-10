@@ -201,10 +201,6 @@ theorem odd_natCard_of_forall_odd_orderOf {G : Type*} [Group G] [Finite G] (H : 
 
 @[expose] def cocycle (β : MulAut Q) (c : Q) : Q := c⁻¹ * β c
 
-theorem cocycle_mul (β : MulAut Q) (c d : Q) :
-    cocycle β (c * d) = (d⁻¹ * cocycle β c * d) * cocycle β d := by
-  simp only [cocycle, map_mul]
-  group
 
 theorem central_of_mk_commute {c z : Q}
     (h : QuotientGroup.mk' (Subgroup.center Q) c * QuotientGroup.mk' (Subgroup.center Q) z =

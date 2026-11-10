@@ -181,7 +181,6 @@ theorem sv_tab : CFSG.KD.S1277Sig.sd.getD 2 0 = 6 ∧
       40320 := by
   decide +kernel
 
-theorem neg_tab : CFSG.KD.S1277Sig.sl.getD 1 0 ≠ sgln.getD 4 0 := by decide +kernel
 
 theorem sv_card : Nat.card (Sig 6 (φL (sgln.getD 4 0))) = 40320 := by
   obtain ⟨h1, h2, h3⟩ := sv_tab

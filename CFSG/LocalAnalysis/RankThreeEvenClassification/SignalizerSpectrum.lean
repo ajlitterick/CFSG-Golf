@@ -15,12 +15,6 @@ universe u
     (signalizer : G → Subgroup G) : Set ℕ :=
   {prime | prime.Prime ∧ ∃ element ∈ actor, element ≠ 1 ∧ prime ∣ Nat.card (signalizer element)}
 
-theorem acting_prime_not_mem_signalizerSpectrum {G : Type u} [Group G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (hsignalizer : IsSolvableSignalizerFunctor prime actor signalizer) :
-    prime ∉ signalizerSpectrum actor signalizer := by
-  rintro ⟨_, element, hmem, hne, hdiv⟩
-  exact hprime.coprime_iff_not_dvd.mp (hsignalizer.coprime element hmem hne) hdiv
 
 theorem normalized_solvable_prime_subgroup_has_nontrivial_fixed
     {G : Type u} [Group G] [Finite G]
@@ -93,29 +87,5 @@ theorem SignalizerCompatible.prime_dvd_mem_spectrum
   exact ⟨hsupportPrime, member, hplaneLe member.property, hmemberAmbientNe,
     hfixedDiv.trans (Subgroup.card_dvd_of_le hfixedLe)⟩
 
-theorem signalizer_complete_of_spectrum_empty {G : Type u} [Group G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (hempty : signalizerSpectrum actor signalizer = ∅) : SignalizerComplete prime actor signalizer := by
-  have hvalues : ∀ element ∈ actor, element ≠ 1 → signalizer element = ⊥ := by
-    intro element hmem hne
-    apply Subgroup.card_eq_one.mp
-    by_contra hcard
-    obtain ⟨supportPrime, hsupportPrime, hdiv⟩ := Nat.exists_prime_and_dvd hcard
-    have hspectrum : supportPrime ∈ signalizerSpectrum actor signalizer :=
-      ⟨hsupportPrime, element, hmem, hne, hdiv⟩
-    rw [hempty] at hspectrum
-    exact hspectrum
-  have hgenerated : signalizerGenerated actor signalizer = ⊥ := by
-    apply bot_unique
-    apply iSup_le
-    intro element
-    apply iSup_le
-    intro hmem
-    apply iSup_le
-    intro hne
-    rw [hvalues element hmem hne]
-  change SignalizerCompatible prime actor signalizer _
-  rw [hgenerated]
-  exact SignalizerCompatible.bot prime hprime actor signalizer
 
 end CFSG.RankThreeEvenClassification.Helpers

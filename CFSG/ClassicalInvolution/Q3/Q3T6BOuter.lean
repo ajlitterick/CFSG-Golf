@@ -122,6 +122,5 @@ theorem exists_inverting_commuting {Y : Subgroup F} {x y d : F} (hY : Mem3 Y y) 
         (hR2.to_le (Subgroup.zpowers_le.mpr h2))
     exact (commutatorElement_eq_one_iff_mul_comm.mp h3).symm
 
-variable {X : Subgroup F} {x y : F} {R : Subgroup F}
 
 end CFSG.ClassicalInvolution.Q3.Q3T6B

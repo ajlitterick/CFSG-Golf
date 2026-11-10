@@ -71,10 +71,6 @@ theorem pw4_zero (X : ℕ) : pw4 X 0 = one4 := rfl
 
 theorem pw4_succ (X k : ℕ) : pw4 X (k + 1) = CFSG.KC.Loop.strictN (pw4 X k) (fun a => mul4 a X) := rfl
 
-theorem evalL_cons (p : Fin 6 × Bool) (w : List (Fin 6 × Bool)) :
-    evalL (p :: w) = CFSG.KC.Loop.strictN (evalL w) (fun x => mul4 (XF p.1.val) x) := rfl
-
-theorem evalL_nil : evalL [] = one4 := rfl
 
 theorem pw4_dec {X : ℕ} (hX : wf4 X = true) (k : ℕ) : wf4 (pw4 X k) = true ∧ dec4 (pw4 X k) = dec4 X ^ k := by
   induction k with

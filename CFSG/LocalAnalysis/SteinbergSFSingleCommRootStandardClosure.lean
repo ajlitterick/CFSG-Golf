@@ -125,113 +125,6 @@ theorem exists_four_S {n : ℕ} (hn : 2 ≤ n) (hKn : Nat.card K = 2 ^ n) (k : A
       card_map_of_injective 𝐔[k].subtype_injective, hE₀]
     norm_num
 
-theorem exists_sylow_centralizer_inf_C (h : FCHyp L K n φ t) (k : Axis) :
-    ∃ R : Sylow 2 ↥(𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G) ⊓ 𝐂),
-      (R : Subgroup _).map (𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G) ⊓ 𝐂).subtype = zpowers t := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hS := h.twoCore
-  rw [centralizer_J_inf_centralizer_S_inf_C φ hS k, exists_sylow_map_iff]
-  have hc : ∀ x ∈ 𝐉[k], ∀ y ∈ zpowers t, x * y = y * x := fun x hx y hy =>
-    (hS.zpowers_comm hy (pull_le φ _ hx)).symm
-  have hcard := card_sup_of_commute hc (J_inf_zpowers φ hS k)
-  have ht2 : Nat.card (zpowers t) = 2 := by rw [Nat.card_zpowers, h.setup.order_t]
-  refine ⟨le_sup_right, IsPGroup.of_card (n := 1) (by rw [ht2, pow_one]), ?_⟩
-  have h1 := card_mul_index ((zpowers t).subgroupOf (𝐉[k] ⊔ zpowers t))
-  rw [Nat.card_congr (subgroupOfEquivOfLe le_sup_right).toEquiv, hcard, ht2, mul_comm] at h1
-  have h2 : (zpowers t).relIndex (𝐉[k] ⊔ zpowers t) = Nat.card 𝐉[k] :=
-    Nat.eq_of_mul_eq_mul_right (by norm_num) h1
-  rw [h2]
-  exact not_two_dvd_card_J h k
-
-theorem standard_S (h : FCHyp L K n φ t) (k : Axis) :
-    CFSG.Open.standardComponentIsStandard (𝐒[k].subgroupOf 𝐇𝐭[k]) ∧
-    (∃ R : Sylow 2 ↥(𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G)),
-      (R : Subgroup _).map (𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G)).subtype = zpowers t) ∧
-    (∀ b ∈ 𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G), orderOf b = 2 →
-      ∃ g ∈ 𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G), g⁻¹ * t * g = b) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hS := h.twoCore
-  have hK : 4 ≤ Nat.card K := h.four_le_card
-  have htH : t ∈ 𝐇𝐭[k] := t_mem_Ht φ hS k
-  have hSH := S_le_Ht φ k
-  have hCJ : centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) : Set ↥𝐇𝐭[k]) =
-      (𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G)).subgroupOf 𝐇𝐭[k] := by
-    ext x
-    rw [mem_subgroupOf, mem_inf, mem_centralizer_iff, mem_centralizer_iff]
-    constructor
-    · intro hx
-      exact ⟨x.2, fun y hy => congrArg Subtype.val (hx ⟨y, hSH hy⟩ (mem_subgroupOf.mpr hy))⟩
-    · rintro ⟨-, hx⟩ y hy
-      exact Subtype.ext (hx y (mem_subgroupOf.mp hy))
-  have hCa : centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k]) = 𝐂.subgroupOf 𝐇𝐭[k] := by
-    ext x
-    rw [mem_subgroupOf, mem_centralizer_singleton_iff, mem_centralizer_singleton_iff]
-    exact ⟨fun hx => congrArg Subtype.val hx, fun hx => Subtype.ext hx⟩
-  have hza : zpowers (⟨t, htH⟩ : ↥𝐇𝐭[k]) = (zpowers t).subgroupOf 𝐇𝐭[k] := by
-    ext x
-    rw [mem_subgroupOf, mem_zpowers_iff, mem_zpowers_iff]
-    constructor
-    · rintro ⟨m, rfl⟩
-      exact ⟨m, by rw [SubgroupClass.coe_zpow]⟩
-    · rintro ⟨m, hm⟩
-      exact ⟨m, Subtype.ext (by rw [SubgroupClass.coe_zpow, hm])⟩
-  obtain ⟨e, -⟩ := exists_equiv_S φ hK k
-  have hJq : CFSG.Assembly.IsQuasisimple (𝐒[k].subgroupOf 𝐇𝐭[k]) :=
-    isQuasisimple_of_sl2 hK (e.trans (subgroupOfEquivOfLe hSH).symm)
-  have hE := exists_four_S φ h.setup.two_le h.setup.card_K k
-  have haJ : (⟨t, htH⟩ : ↥𝐇𝐭[k]) ∈ centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) :
-      Set ↥𝐇𝐭[k]) := by
-    rw [hCJ]
-    exact mem_subgroupOf.mpr ⟨htH, zpowers_le_centralizer_S φ hS k (mem_zpowers t)⟩
-  have ha : orderOf (⟨t, htH⟩ : ↥𝐇𝐭[k]) = 2 := by
-    rw [← Subgroup.orderOf_coe]
-    exact h.setup.order_t
-  have hcomp : CFSG.Assembly.IsComponentOf (𝐒[k].subgroupOf 𝐇𝐭[k])
-      (centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k])) := by
-    have hle : 𝐒[k].subgroupOf 𝐇𝐭[k] ≤
-        centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k]) := by
-      rw [hCa]
-      exact fun x hx => mem_subgroupOf.mpr (hS.L_le (S_le_L φ k (mem_subgroupOf.mp hx)))
-    refine ⟨hle, CFSG.Assembly.IsSubnormal.step hle ⟨fun x hx g => ?_⟩
-      (CFSG.Assembly.IsSubnormal.refl _), hJq⟩
-    rw [mem_subgroupOf, mem_subgroupOf] at hx ⊢
-    have hgC : (((g : ↥(centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k]))) : ↥𝐇𝐭[k]) : G) ∈
-        𝐂 := mem_centralizer_singleton_iff.mpr
-          (congrArg Subtype.val (mem_centralizer_singleton_iff.mp g.2))
-    have := conj_mem_S φ hS k (mem_inf.mpr ⟨((g : _) : ↥𝐇𝐭[k]).2, hgC⟩) hx
-    simpa using this
-  have hsyl : ∃ R : Sylow 2 ↥(centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) :
-        Set ↥𝐇𝐭[k]) ⊓ centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k])),
-      (R : Subgroup _).map (centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) :
-        Set ↥𝐇𝐭[k]) ⊓ centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k])).subtype =
-        zpowers (⟨t, htH⟩ : ↥𝐇𝐭[k]) := by
-    have hinf : centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) : Set ↥𝐇𝐭[k]) ⊓
-        centralizer ({(⟨t, htH⟩ : ↥𝐇𝐭[k])} : Set ↥𝐇𝐭[k]) =
-        (𝐇𝐭[k] ⊓ centralizer (𝐒[k] : Set G) ⊓ 𝐂).subgroupOf 𝐇𝐭[k] := by
-      rw [hCJ, hCa]
-      ext x
-      simp only [mem_inf, mem_subgroupOf]
-    rw [hinf, hza, exists_sylow_subgroupOf_iff (inf_le_left.trans inf_le_left)
-      (le_inf (le_inf (zpowers_le.mpr htH) (zpowers_le_centralizer_S φ hS k))
-        (zpowers_le.mpr (mem_centralizer_singleton_iff.mpr rfl)))]
-    exact exists_sylow_centralizer_inf_C φ h k
-  obtain ⟨hsylJ, hinv, hstd⟩ :=
-    CFSG.LocalAnalysis.SteinbergBK.quasisimple_involution_centralizer_order_two_standard
-      hJq hE haJ ha hcomp hsyl
-  refine ⟨hstd, ?_, fun b hb hb2 => ?_⟩
-  · rw [hCJ, hza] at hsylJ
-    exact (exists_sylow_subgroupOf_iff inf_le_left
-      (le_inf (zpowers_le.mpr htH) (zpowers_le_centralizer_S φ hS k))).mp hsylJ
-  · have hb' : (⟨b, (mem_inf.mp hb).1⟩ : ↥𝐇𝐭[k]) ∈
-        centralizer ((𝐒[k].subgroupOf 𝐇𝐭[k] : Subgroup ↥𝐇𝐭[k]) : Set ↥𝐇𝐭[k]) := by
-      rw [hCJ]
-      exact mem_subgroupOf.mpr hb
-    have hb2' : orderOf (⟨b, (mem_inf.mp hb).1⟩ : ↥𝐇𝐭[k]) = 2 := by
-      rw [← Subgroup.orderOf_coe]
-      exact hb2
-    obtain ⟨g, hg, hgb⟩ := hinv _ hb' hb2'
-    rw [hCJ] at hg
-    exact ⟨g, mem_subgroupOf.mp hg, congrArg Subtype.val hgb⟩
 
 end Standard
 
@@ -370,33 +263,6 @@ theorem card_V_ge (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 
     (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) (k : Axis) : Nat.card K ^ 2 ≤ Nat.card 𝐕[i, k] :=
   (card_W h k).symm.le.trans (Subgroup.card_le_of_le (W_le_V h i hne hbot k))
 
-theorem not_normal_S (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) (k : Axis) : ¬ (𝐒[k].subgroupOf 𝐇𝐭[k]).Normal := by
-  intro hN
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hYS : 𝐘[k] ≤ 𝐒[k] := by
-    rw [closure_le]
-    rintro _ ⟨g, hg, s, hs, rfl⟩
-    have := hN.conj_mem ⟨s, S_le_Ht φ k hs⟩ (mem_subgroupOf.mpr hs) ⟨g, hg⟩⁻¹
-    rw [mem_subgroupOf] at this
-    simpa using this
-  have hVS : 𝐕[i, k] ≤ 𝐒[k] := (V_le_Y h i hne hbot k).trans hYS
-  have hVp : IsPGroup 2 ((𝐕[i, k]).subgroupOf 𝐒[k]) :=
-    ((isPGroup_M h i hne hbot).to_le inf_le_left).comap_of_injective 𝐒[k].subtype
-      𝐒[k].subtype_injective
-  obtain ⟨R, hR⟩ := hVp.exists_le_sylow
-  obtain ⟨R₀, hR₀⟩ := exists_sylow_U φ h.setup.two_le h.setup.card_K k
-  have hcardR : Nat.card (R : Subgroup ↥𝐒[k]) = Nat.card K := by
-    rw [R.card_eq_multiplicity, ← R₀.card_eq_multiplicity,
-      ← card_map_of_injective 𝐒[k].subtype_injective, hR₀, card_U]
-  have h1 : Nat.card 𝐕[i, k] ≤ Nat.card K := by
-    rw [← hcardR, ← Nat.card_congr (subgroupOfEquivOfLe hVS).toEquiv]
-    exact Subgroup.card_le_of_le hR
-  have h2 := card_V_ge h i hne hbot k
-  have h3 : Nat.card K < Nat.card K ^ 2 := by
-    have := h.four_le_card
-    nlinarith
-  exact absurd (h2.trans h1) (not_le.mpr h3)
 
 theorem exists_W_kappa (h : FCHyp L K n φ t) (k : Axis) {u : G} (hu : u ∈ 𝐔[k]) :
     ∃ w ∈ 𝐖[k], t⁻¹ * (w⁻¹ * t * w) = u ∧ w⁻¹ * t * w = t * u ∧ w * u = u * w := by
@@ -404,16 +270,6 @@ theorem exists_W_kappa (h : FCHyp L K n φ t) (k : Axis) {u : G} (hu : u ∈ �
   refine ⟨w, hw, hwu, by rw [← hwu, mul_inv_cancel_left], ?_⟩
   exact comm_ZP h (F_le_H h (W_le_F k hw)) (pull_mono φ (rootU_le_center k) hu)
 
-theorem exists_conj_comm (h : FCHyp L K n φ t) (k : Axis) :
-    ∃ g ∈ 𝐇𝐭[k], g⁻¹ * t * g ≠ t ∧ (g⁻¹ * t * g) * t = t * (g⁻¹ * t * g) := by
-  have hu1 : coordG φ k 1 ≠ 1 := fun e1 => one_ne_zero (coordG_injective φ k
-    (e1.trans (coordG_zero φ k).symm))
-  obtain ⟨w, hw, -, hwt, -⟩ := exists_W_kappa h k (coordG_mem φ k 1)
-  refine ⟨w, (mem_inf.mp hw).2, ?_, ?_⟩
-  · rw [hwt]
-    intro e
-    exact hu1 (by simpa using e)
-  · rw [hwt, mul_assoc, ← h.twoCore.comm (pull_le φ _ (coordG_mem φ k 1)), ← mul_assoc]
 
 end Closure
 

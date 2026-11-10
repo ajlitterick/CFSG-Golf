@@ -18,10 +18,6 @@ open Matrix
 theorem coe_slι (M : Matrix (Fin 3) (Fin 3) F4) (h : M.det = 1) :
     ((slι M h : SpecialLinearGroup (Fin 3) K64) : Matrix (Fin 3) (Fin 3) K64) = M.map ι := rfl
 
-theorem slι_mul (M N : Matrix (Fin 3) (Fin 3) F4) (hM : M.det = 1) (hN : N.det = 1) :
-    slι (M * N) (by rw [Matrix.det_mul, hM, hN, one_mul]) = slι M hM * slι N hN := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_slι, coe_slι, coe_slι, Matrix.map_mul]
 
 theorem fieldAut_proj_slι (M : Matrix (Fin 3) (Fin 3) F4) (h : M.det = 1) :
     fieldAut 3 K64 σ4 (proj 3 K64 (slι M h)) = proj 3 K64 (slι M h) := by

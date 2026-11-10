@@ -52,10 +52,6 @@ theorem inverseDualAction_pairing (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
     p x (inverseDualAction p f y) = p (f.symm x) y := by
   simp [inverseDualAction, LinearEquiv.trans_apply]
 
-theorem inverseDualAction_preserves (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
-    (f : U ≃ₗ[K] U) (x : U) (y : W) :
-    p (f x) (inverseDualAction p f y) = p x y := by
-  rw [inverseDualAction_pairing, f.symm_apply_apply]
 
 theorem inverseDualAction_unique (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
     (f : U ≃ₗ[K] U) (g : W ≃ₗ[K] W)
@@ -67,30 +63,5 @@ theorem inverseDualAction_unique (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
   rw [inverseDualAction_pairing]
   simpa only [f.apply_symm_apply] using hg (f.symm x) y
 
-theorem inverseDualAction_one (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair] :
-    inverseDualAction p (1 : U ≃ₗ[K] U) = 1 := by
-  symm
-  apply inverseDualAction_unique
-  intro x y
-  rfl
-
-theorem inverseDualAction_mul (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
-    (f g : U ≃ₗ[K] U) :
-    inverseDualAction p (f * g) = inverseDualAction p f * inverseDualAction p g := by
-  symm
-  apply inverseDualAction_unique
-  intro x y
-  change p (f (g x)) (inverseDualAction p f (inverseDualAction p g y)) = p x y
-  rw [inverseDualAction_preserves, inverseDualAction_preserves]
-
-@[expose] def inverseDualHom (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair] :
-    (U ≃ₗ[K] U) →* (W ≃ₗ[K] W) where
-  toFun := inverseDualAction p
-  map_one' := inverseDualAction_one p
-  map_mul' := inverseDualAction_mul p
-
-theorem inverseDualAction_inv (p : U →ₗ[K] W →ₗ[K] K) [p.IsPerfPair]
-    (f : U ≃ₗ[K] U) : inverseDualAction p f⁻¹ = (inverseDualAction p f)⁻¹ :=
-  (inverseDualHom p).map_inv f
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareNegative

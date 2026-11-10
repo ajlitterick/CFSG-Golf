@@ -40,13 +40,6 @@ theorem late_mem_normalizer_sup {A B : Subgroup G} {n : G}
     n ∈ Subgroup.normalizer ((A ⊔ B : Subgroup G) : Set G) := by
   exact late_mem_normalizer_supE hA hB
 
-theorem late_conjSub_eq_of_le {A B : Subgroup G} [Finite G] {n : G} (h : conjSub n A ≤ B)
-    (hc : Nat.card ↥B ≤ Nat.card ↥A) : conjSub n A = B :=
-  late_conjSub_eq_of_leE h hc
-
-theorem late_le_normalizer_of_comm_le {A K : Subgroup G} (h : ⁅A, K⁆ ≤ K) :
-    A ≤ Subgroup.normalizer (K : Set G) := by
-  exact late_le_normalizer_of_comm_leE h
 
 end Elementary
 
@@ -92,8 +85,6 @@ private theorem Std20.late_toF (d : Std20 p f K K' J S R R' W V z t) :
 
 theorem Std20.late_J_ne_K (d : Std20 p f K K' J S R R' W V z t) : J ≠ K := d.viol.ne
 
-theorem Std20.late_J_ne_K' (d : Std20 p f K K' J S R R' W V z t) : J ≠ K' := by
-  exact d.late_toF.late_J_ne_K'
 
 theorem Std20.late_R_eq (d : Std20 p f K K' J S R R' W V z t) : R = K ⊓ (S : Subgroup G) := by
   exact d.late_toF.late_R_eq
@@ -129,57 +120,23 @@ theorem Std20.late_S_inf_sup (d : Std20 p f K K' J S R R' W V z t) :
     (S : Subgroup G) ⊓ (K ⊔ K') = R ⊔ R' := by
   exact d.late_toF.late_S_inf_sup
 
-theorem Std20.late_isSylow2In_RR' (d : Std20 p f K K' J S R R' W V z t) :
-    IsSylow2In (R ⊔ R') (K ⊔ K') :=
-  d.late_toF.late_isSylow2In_RR'
 
 theorem Std20.late_J_not_twin (d : Std20 p f K K' J S R R' W V z t) :
     J ∉ twinSet (CoreAssembly.conjClass K) K := by
   exact d.late_toF.late_J_not_twin
 
-theorem Std20.late_inA (d : Std20 p f K K' J S R R' W V z t) :
-    InA (CoreAssembly.conjClass K) K J :=
-  d.late_toF.late_inA
-
-theorem Std20.late_JW_data (d : Std20 p f K K' J S R R' W V z t)
-    (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) :
-    IsPGroup 2 ↥(J ⊓ W) ∧ 4 ≤ Nat.card ↥(J ⊓ W) := by
-  exact d.late_toF.late_JW_data hJW
-
-theorem Std20.late_t_mem_JW (d : Std20 p f K K' J S R R' W V z t)
-    (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) : t ∈ J ⊓ W := by
-  exact d.late_toF.late_t_mem_JW hJW
 
 theorem Std20.late_JW_le_N_K (d : Std20 p f K K' J S R R' W V z t)
     (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) :
     J ⊓ W ≤ Subgroup.normalizer (K : Set G) := by
   exact d.late_toF.late_JW_le_N_K hJW
 
-theorem Std20.late_JW_le_N_K' (d : Std20 p f K K' J S R R' W V z t)
-    (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) :
-    J ⊓ W ≤ Subgroup.normalizer (K' : Set G) := by
-  exact d.late_toF.late_JW_le_N_K' hJW
 
 theorem Std20.late_isSylow2In_JW (d : Std20 p f K K' J S R R' W V z t)
     (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) :
     IsSylow2In (J ⊓ W) (J ⊓ Subgroup.centralizer ({z} : Set G)) := by
   exact d.late_toF.late_isSylow2In_JW hJW
 
-theorem Std20.late_isSylow2In_P (d : Std20 p f K K' J S R R' W V z t)
-    (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) :
-    IsSylow2In (R ⊔ R' ⊔ (J ⊓ W))
-      ((K ⊔ K') ⊔ (J ⊓ Subgroup.centralizer ({z} : Set G))) := by
-  exact d.late_toF.late_isSylow2In_P hJW
-
-theorem Std20.late_P_le_S (d : Std20 p f K K' J S R R' W V z t) :
-    R ⊔ R' ⊔ (J ⊓ W) ≤ (S : Subgroup G) :=
-  d.late_toF.late_P_le_S
-
-theorem Std20.late_P_inv (d : Std20 p f K K' J S R R' W V z t)
-    (hWeq : W = (W ⊓ K) ⊔ (W ⊓ J)) {x : G} (hxS : x ∈ (S : Subgroup G))
-    (hxK : conjSub x K = K) :
-    conjSub x (R ⊔ R' ⊔ (J ⊓ W)) = R ⊔ R' ⊔ (J ⊓ W) := by
-  exact d.late_toF.late_P_inv hWeq hxS hxK
 
 theorem Std20.late_98 (d : Std20 p f K K' J S R R' W V z t)
     (hJW : J ⊓ W ∈ USet (CoreAssembly.conjClass K)) (hWeq : W = (W ⊓ K) ⊔ (W ⊓ J))

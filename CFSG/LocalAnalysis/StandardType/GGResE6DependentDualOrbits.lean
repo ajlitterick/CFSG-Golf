@@ -70,7 +70,6 @@ lemma s_apply_last (i : Fin 6) (v : V7) : (s i v) (6 : Fin 7) = v 6 := by
 @[expose] def sU (i : Fin 6) (u : U) : U :=
   fun j => u j - u i * (CartanMatrix.E 6 j i : K)
 
-lemma sU_apply (i : Fin 6) (u : U) (j : Fin 6) : sU i u j = u j - u i * (CartanMatrix.E 6 j i : K) := rfl
 
 @[expose] def applyUWord (w : List (Fin 6)) (u : U) : U :=
   w.foldl (fun u i => sU i u) u

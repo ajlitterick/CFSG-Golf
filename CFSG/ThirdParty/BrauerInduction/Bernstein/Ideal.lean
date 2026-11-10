@@ -61,41 +61,6 @@ ideal property `mul_mem_J`, and the Step 8 membership result `f_a_mem_J`.
 /-- Bernstein's integral prime-local span `J_p`. -/
 @[expose] def J : Submodule ℤ (ClassFun k G) := Submodule.span ℤ (JGen p)
 
-/-- A generator of `J_p`: induction from a `p`-elementary subgroup. -/
-lemma ind_mem_J
-    (E : Subgroup G) (hE : IsPElementary p E)
-    {q : ClassFun k E}
-    (hq : q ∈ ClassFun.Q_sys k G E) :
-    ClassFun.ind (k := k) E q ∈ J p := by
-  exact Submodule.subset_span ⟨E, hE, q, hq, rfl⟩
-
-/-- The zero function belongs to `J_p`. -/
-lemma zero_mem_J :
-    (0 : ClassFun k G) ∈ J p :=
-  Submodule.zero_mem _
-
-/-- `J_p` is closed under addition. -/
-lemma add_mem_J
-    {f g : ClassFun k G} (hf : f ∈ J p) (hg : g ∈ J p) :
-    f + g ∈ J p :=
-  Submodule.add_mem _ hf hg
-
-/-- `J_p` is closed under integral scalar multiplication. -/
-lemma zsmul_mem_J
-    (n : ℤ) {f : ClassFun k G} (hf : f ∈ J p) :
-    n • f ∈ J p :=
-  Submodule.smul_mem _ n hf
-
-/--
-A generator restricts to a global element of the character system `Q`.
--/
-lemma JGen_mem_Q_sys
-    {y : ClassFun k G}
-    (hy : y ∈ JGen p) :
-    ClassFun.res (⊤ : Subgroup G) y
-      ∈ ClassFun.Q_sys k G (⊤ : Subgroup G) := by
-  rcases hy with ⟨E, hE, q, hq_Q, rfl⟩
-  exact ClassFun.Q_sys.ind_mem (H := E) hq_Q
 
 /-- The integral span `J_p` absorbs multiplication by global `Q`-functions. -/
 lemma mul_mem_J [Fact p.Prime]
@@ -169,29 +134,10 @@ lemma mem_iff
     f ∈ JIdeal p ↔ (f : ClassFun k G) ∈ J p :=
   Iff.rfl
 
-/--
-Induction of a `Q(E)`-function from a `p`-elementary subgroup gives an element
-of Bernstein's fixed-prime ideal.
--/
-lemma ind_mem
-    (E : Subgroup G)
-    (hE : IsPElementary p E)
-    {q : ClassFun k E}
-    (hq : q ∈ ClassFun.Q_sys k G E) :
-    ClassFun.IntegralCyclotomicCharacterRing.ind E hq ∈ JIdeal p :=
-      ind_mem_J p E hE hq
 
 end JIdeal
 end IdealPackaging
 
-open BrauerInduction.PElementary in
-/-- Bernstein Step 8: the induced function `f_a` belongs to `J_p`. -/
-lemma f_a_mem_J
-    [Fact p.Prime] [CharZero k] [IsAlgClosed k]
-    (a : G) (ha : IsPRegular p a) :
-    f (k := k) p a ∈ J p :=
-      ind_mem_J p
-        (E_subgroup p a) (E_isPElementary p ha) (phi_mem_Q p a ha)
 
 end IntegralIdeal
 

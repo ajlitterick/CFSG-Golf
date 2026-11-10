@@ -94,16 +94,6 @@ theorem m22_yCensusIIW {sG roots : Array ℕ} {nodes : Array NodeP}
     · exact absurd h (by decide)
     · exact absurd h hnot
 
-theorem m22_yCensus17W {sG roots : Array ℕ} {nodes : Array NodeP}
-    {cS : ArrCertP} {wcs : Array (Array ArrCertP)} {xg xs : Array ℕ} {xw : List (List ℕ)}
-    (h : m22CheckW true false sG roots nodes cS wcs xg xs xw = true) :
-    YCensus17 P0in (fun _ => False) := by
-  obtain ⟨S, hS, hcen⟩ := census_of_m22CheckW h
-  refine yCensus17_of_le_sylow P0in_normal hS (fun _ _ h => h) fun E hES hE hE4 _ => ?_
-  rcases hcen E hES hE hE4 with hY | ⟨-, h⟩ | ⟨h, -⟩
-  · exact Or.inl hY
-  · exact Or.inr h
-  · exact absurd h (by decide)
 
 @[expose] noncomputable def m22CheckW2 (allowPW allowInX : Bool) (sG roots : Array ℕ)
     (nodes : Array NodeP) (cS : ArrCertP) (wcs : Array (Array ArrCertP)) (pfs : Array PerfWP)

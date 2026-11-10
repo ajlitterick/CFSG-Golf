@@ -319,13 +319,6 @@ theorem embIdem_mul_of_ne {θ ν : eb.index} (h : θ ≠ ν) :
   rw [← map_mul, ← characterSubsetIdempotent_singleton, ← characterSubsetIdempotent_singleton,
     ← characterSubsetIdempotent_inter, hinter, characterSubsetIdempotent_empty, map_zero]
 
-theorem embIdem_injective : Function.Injective (embIdem hEK eb) := by
-  intro θ ν h
-  have h' : complexCharacterIdempotent (eb.representation θ).character =
-      complexCharacterIdempotent (eb.representation ν).character :=
-    MonoidAlgebra.mapDomain_injective (R := ℂ) (Subgroup.inclusion_injective hEK) h
-  rw [← characterSubsetIdempotent_singleton, ← characterSubsetIdempotent_singleton] at h'
-  exact Finset.singleton_injective (characterSubsetIdempotent_injective eb h')
 
 theorem embIdem_sum : ∑ θ, embIdem hEK eb θ = 1 := by
   unfold embIdem

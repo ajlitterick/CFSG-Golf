@@ -47,25 +47,6 @@ theorem finite_isSimpleGroup_cat_reeF4 {m : ℕ} (hv : (LieTypeIndex.reeF4 m).Va
   ⟨CFSG.LieType.Simplicity.fam_ree_tits_finiteness _ _ _ _ hm,
     (CFSG.LieType.Simplicity.fam_2f4_simplicity _ _ _ hm).2⟩
 
-theorem finiteSimple_G2 :
-    ∀ d : ValidLieTypeIndex, IsG2Index d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d) := by
-  rintro ⟨d, hv⟩ ⟨q, rfl⟩
-  exact finite_isSimpleGroup_cat_G2 hv
-
-theorem finiteSimple_F4 :
-    ∀ d : ValidLieTypeIndex, IsF4Index d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d) := by
-  rintro ⟨d, hv⟩ ⟨q, rfl⟩
-  exact finite_isSimpleGroup_cat_F4 hv
-
-theorem finiteSimple_triality :
-    ∀ d : ValidLieTypeIndex, IsTrialityIndex d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d) := by
-  rintro ⟨d, hv⟩ ⟨q, rfl⟩
-  exact finite_isSimpleGroup_cat_trialityD4 hv
-
-theorem finiteSimple_reeF4 :
-    ∀ d : ValidLieTypeIndex, IsReeF4Index d.1 → Finite (Cat d) ∧ IsSimpleGroup (Cat d) := by
-  rintro ⟨d, hv⟩ ⟨m, rfl⟩
-  exact finite_isSimpleGroup_cat_reeF4 hv
 
 end Untwisted
 

@@ -178,16 +178,6 @@ theorem UnitaryA2Pair.isLine [Finite F] (hK : Nat.card K = (p ^ f) ^ 2) {E P Q :
     obtain ⟨A, rfl⟩ := hb
     rw [eq_one_of_embSUid_mem_center hK 0 hz, map_one]
 
-theorem a2Dichotomy_of_unitary {Ω : Set (Subgroup G)} {E : Subgroup G} {S : Set (Subgroup G)}
-    [Finite F] (Fr : ToralFrame F Ω E S) (hK : Nat.card K = (p ^ f) ^ 2)
-    (h : ∀ P ∈ S, ∀ Q ∈ S, P ≠ Q →
-      Commutes P Q ∨ UnitaryA2Pair K p f E P Q ∨ UnitaryA2Pair K p f E Q P) :
-    A2Dichotomy E S := by
-  intro P hP Q hQ hPQ
-  rcases h P hP Q hQ hPQ with hc | hp | hp
-  · exact Or.inl hc
-  · exact Or.inr (hp.isLine hK (Fr.inSigma hP) (Fr.inSigma hQ) Fr.odd Fr.five).1
-  · exact Or.inr (hp.isLine hK (Fr.inSigma hQ) (Fr.inSigma hP) Fr.odd Fr.five).2
 
 end Line
 

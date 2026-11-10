@@ -33,9 +33,6 @@ theorem hypOmegaGenU_of_modU (hc : t.Cert) {Ω : Set (Subgroup G)} (h : HypOmega
   omega4 := h.omega4
   omega5 := h.omega5
 
-theorem hypOmegaGen_of_mod_via_U {p f : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {Ω : Set (Subgroup G)} (h : HypOmegaMod p f Ω) : HypOmegaGen Ω :=
-  hypOmegaGenU_of_modU (MemberType.cert_sl2 p f) ((hypOmegaModU_iff_hypOmegaMod hp2 hq).mpr h)
 
 theorem hypOmegaGen_conjClass (hc : t.Cert) {K₀ : Subgroup G} {z₀ : G}
     (h₀ : IsClassicalMemberU t K₀ z₀) (hint : IsIntrinsicU t K₀ z₀)

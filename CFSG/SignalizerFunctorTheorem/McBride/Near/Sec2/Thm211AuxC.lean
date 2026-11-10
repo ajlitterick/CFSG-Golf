@@ -55,9 +55,6 @@ theorem scalJoin_semisimple
     ∀ X : Subgroup Γ, X ≤ G → Admits (cenIn G A ⊔ A) X → Group.IsSolvable (X ⊓ N : Subgroup Γ) →
       X ≤ Subgroup.normalizer (scalJoin N A (cenIn G A) : Set Γ)
 
-@[expose] def IH211.{v} (p n : ℕ) : Prop :=
-  ∀ m < n, ∀ {Γ : Type v} [Group Γ] [Finite Γ] (A G N : Subgroup Γ), Nat.card G = m →
-    NearAsolvAction p A G → N ≤ G → IsNormalIn N (G ⊔ A) → Frattini211 A G N
 
 theorem frattini211_bot (A G : Subgroup Γ) : Frattini211 A G ⊥ := by
   have hT : scalJoin ⊥ A (cenIn G A) = ⊥ := scalJoin_bot _ _

@@ -144,17 +144,6 @@ theorem commute_of_ne {t : Y} (ht : t ∈ T) (hne : conjSub t L ≠ L) : ⁅L, c
     group
   exact this
 
-theorem normal_iff [Finite Y] : L.Normal ↔ ∀ t ∈ T, conjSub t L = L := by
-  constructor
-  · intro hn t _
-    exact conjSub_eq_self (Subgroup.le_normalizer_of_normal (Subgroup.mem_top t))
-  · intro h
-    have hTN : T ≤ Subgroup.normalizer (L : Set Y) := fun t ht =>
-      Subgroup.mem_normalizer_iff_map_conj_eq.mpr (h t ht)
-    have htop : L ⊔ T ≤ Subgroup.normalizer (L : Set Y) :=
-      sup_le Subgroup.le_normalizer hTN
-    rw [hF.sup_eq_top] at htop
-    exact Subgroup.normalizer_eq_top_iff.mp (top_le_iff.mp htop)
 
 theorem isPGroup_quotient [Finite Y] [L.Normal] : IsPGroup 2 (Y ⧸ L) := by
   have hT2' : IsPGroup 2 (T.map (QuotientGroup.mk' L)) := hF.minPar.isSylow.2.1.map _

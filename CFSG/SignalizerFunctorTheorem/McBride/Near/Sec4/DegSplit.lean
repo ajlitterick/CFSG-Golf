@@ -15,8 +15,6 @@ theorem splitComm (N : Subgroup Q) (n : N) (c : Subgroup.centralizer (N : Set Q)
 @[expose] def splitHom (N : Subgroup Q) : N × Subgroup.centralizer (N : Set Q) →* Q :=
   N.subtype.noncommCoprod (Subgroup.centralizer (N : Set Q)).subtype (splitComm N)
 
-theorem splitHom_apply (N : Subgroup Q) (x : N × Subgroup.centralizer (N : Set Q)) :
-    splitHom N x = (x.1 : Q) * (x.2 : Q) := rfl
 
 theorem splitHom_bijective (N : Subgroup Q) [N.Normal]
     (h1 : N ⊓ Subgroup.centralizer (N : Set Q) = ⊥)

@@ -201,25 +201,6 @@ theorem torus_sup_rootSpan_le_map_centralizer (A : Subgroup ↥(adjointGroup τ 
   rw [Subgroup.coe_mul, Subgroup.coe_mul, hl]
   exact (Subgroup.mem_centralizer_singleton_iff.1 hc).symm
 
-theorem map_famWeylReps_le_map_centralizer (A : Subgroup ↥(adjointGroup τ K))
-    (hA : ∀ x ∈ A, (x : ModGL τ K) ∈ torusGroup τ K) :
-    (famWeylReps (torusTuples A)).map (monomialSubgroup τ K).subtype ≤
-      (Subgroup.centralizer (A : Set ↥(adjointGroup τ K))).map (adjointGroup τ K).subtype := by
-  rw [famWeylReps, MonoidHom.map_closure, Subgroup.closure_le]
-  rintro _ ⟨n, ⟨w, hw, hn⟩, rfl⟩
-  change (n : ModGL τ K) ∈ _
-  rw [hn]
-  refine ⟨⟨_, canonicalRep_mem_adjointGroup _ K w⟩, ?_, rfl⟩
-  rw [SetLike.mem_coe, Subgroup.mem_centralizer_iff]
-  intro y hy
-  obtain ⟨l, hl⟩ := exists_rootDiagUnit_eq_of_mem_torusGroup (hA y hy)
-  have h1 := (conj_canonicalRep_eq_iff l w).2 (hw l ⟨y, hy, hl⟩)
-  refine Subtype.ext ?_
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, hl]
-  calc rootDiagUnit τ l * canonicalRep (coxeterSystem τ) K w =
-        rootDiagUnit τ l * canonicalRep (coxeterSystem τ) K w * (rootDiagUnit τ l)⁻¹ *
-          rootDiagUnit τ l := by group
-    _ = canonicalRep (coxeterSystem τ) K w * rootDiagUnit τ l := by rw [h1]
 
 theorem map_centralizer_le_sup (A : Subgroup ↥(adjointGroup τ K)) :
     (Subgroup.centralizer (A : Set ↥(adjointGroup τ K))).map (adjointGroup τ K).subtype ≤

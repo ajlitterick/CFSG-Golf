@@ -30,14 +30,9 @@ abbrev w (k : ℕ) : Equiv.Perm (Fin 22) := x ^ (k / 3) * y ^ (k % 3)
 
 @[expose] def yT : Table := toTable y
 
-@[expose] def wT : Array Table := Array.ofFn (n := 9) fun k => toTable (w k.val)
 
 @[expose] def m22Q8 : List (ℕ × ℕ) :=
   [(2, 3), (1, 6), (3, 1), (4, 5), (5, 8), (6, 2), (7, 4), (8, 7)]
 
-@[expose] def m22Bad (T : Table) : Bool :=
-  ap T 0 == 0 &&
-    (List.range 9).any fun k => compT 22 T xT == compT 22 wT[k]! T &&
-      (List.range 9).any fun l => compT 22 T yT == compT 22 wT[l]! T && !m22Q8.contains (k, l)
 
 end CFSG.RankThree.Asc83Table.M22

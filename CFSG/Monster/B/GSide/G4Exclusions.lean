@@ -210,26 +210,6 @@ theorem label_of_mem_dH_of_mem_edgeQ
   · exact not_mem_dH_of_rkH_mul_2048 ψ hψ hy2 h h' haD
   · exact hY3 a haQ ha2' h h' haD
 
-theorem rkH_eq_1860_iff_edgeL
-    {a : cEdgeFix} (haQ : cEdgeIncl a ∈ edgeQ) (ha2 : orderOf a = 2)
-    (hac : a ≠ lamV0) : rkH (cEdgeFixToH a) = 1860 ↔ a = lamW0 ∨ a ∈ edgeL := by
-  rw [rkH_eq_1860_iff_label ha2]
-  constructor
-  · rintro ⟨v, hv⟩
-    by_cases h1 : a = lamW0
-    · exact .inl h1
-    · exact .inr ⟨haQ, ⟨v, hv⟩, hac, h1⟩
-  · rintro (rfl | ⟨-, hl, -, -⟩)
-    · exact ⟨cw0, rfl⟩
-    · exact hl
-
-theorem native_N1_exclusion_edgeL
-    {a : cEdgeFix} (haQ : cEdgeIncl a ∈ edgeQ)
-    (ha2 : orderOf a = 2) (hac : a ≠ lamV0) (hae : a ≠ lamW0) (haL : a ∉ edgeL) :
-    rkH (cEdgeFixToH a) = 2048 ∨
-      (rkH (cV0 * cEdgeFixToH a) = 2048 ∧ rkH (cEdgeFixToH a) ≠ 1860) ∨
-      (rkH (cEdgeFixToH a) = 2168 ∧ rkH (cV0 * cEdgeFixToH a) = 2168) :=
-  native_N1_exclusion haQ ha2 hac fun ⟨v, hv⟩ => haL ⟨haQ, ⟨v, hv⟩, hac, hae⟩
 
 theorem hN1D_of_Y3
     {G : Type*} [Group G] {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0)

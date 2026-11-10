@@ -61,6 +61,5 @@ theorem perm_commute_of_fix {α β : Type*} (c f : Perm (α ⊕ β))
   · obtain ⟨k, hk⟩ := hfr j
     simp only [Perm.mul_apply, hc, hk]
 
-variable [Finite G]
 
 end CFSG.HardMathSupport.RichardWeiss.ExceptionalClosure

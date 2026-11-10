@@ -152,13 +152,6 @@ theorem isRegFam_ind_plane_of_typeB
   rw [ind_plane_eq_smear_of_typeB h hB hF hFE]
   exact isRegFam_smear_ind_E_of_typeB h hB hF hFE
 
-theorem card_ind_plane_of_typeB
-    (h : Counterexample p A θ) (hB : TypeBCore p A θ E K)
-    {F : Subgroup G} (hF : F ∈ signalizerFunctorEk p 1 A) (hFE : F ≠ E) :
-    Nat.card (Ind (thetaOf θ (E ⊔ F))) = p := by
-  have h1 := (isRegFam_ind_plane_of_typeB h hB hF hFE).card_mul_card
-  rw [(h.sup_mem_E2_of_ne hB.mem hF hFE.symm).2, h.card] at h1
-  exact Nat.eq_of_mul_eq_mul_right (pow_pos h.prime.pos 2) (h1.trans (by ring))
 
 theorem ind_plane_eq_inf_centralizer_of_typeB
     (h : Counterexample p A θ)
@@ -190,17 +183,6 @@ theorem ind_plane_eq_inf_centralizer_of_typeB
   rw [← hsmear R hR, T515f.lcal_smear_eq hKS hKA hB.mem.1 hR]
   exact Nat.card_unique
 
-theorem nonempty_mulEquiv_ind_plane_of_typeB
-    (h : Counterexample p A θ)
-    (hB : TypeBCore p A θ E K) {F : Subgroup G} (hF : F ∈ signalizerFunctorEk p 1 A)
-    (hFE : F ≠ E) {L : Subgroup G} (hL : L ∈ Ind (thetaOf θ (E ⊔ F))) :
-    Nonempty (↥L ≃* ↥(thetaOf θ A)) := by
-  rw [ind_plane_eq_smear_of_typeB h hB hF hFE] at hL
-  obtain ⟨L', hL', rfl⟩ := hL
-  obtain ⟨e₁⟩ := (isRegFam_ind_E_of_typeB h hB).nonempty_mulEquiv_smear hF.1
-    (inf_line_eq_bot_of_typeB h hB hF hFE) hL'
-  obtain ⟨e₂⟩ := nonempty_mulEquiv_ind_E_of_typeB h hB hL'
-  exact ⟨e₁.trans e₂⟩
 
 theorem nonempty_mulEquiv_complement_of_typeB
     (h : Counterexample p A θ)
@@ -237,13 +219,6 @@ theorem nonempty_mulEquiv_complement_of_typeB
   obtain ⟨e₂⟩ := nonempty_mulEquiv_line_of_typeB h hB hF₁ hF₁E hL
   exact ⟨(MulEquiv.subgroupCongr hHB).trans (e₁.trans e₂)⟩
 
-theorem lcal_complement_of_typeB
-    (h : Counterexample p A θ) (hB : TypeBCore p A θ E K)
-    {B : Subgroup G} (hB2 : B ∈ signalizerFunctorEk p 2 A) (hEB : ¬ E ≤ B) :
-    lcal (thetaOf θ B) = {thetaOf θ B} := by
-  obtain ⟨e⟩ := nonempty_mulEquiv_complement_of_typeB h hB hB2 hEB
-  exact lcal_eq_singleton_self (e.isSimpleGroup_congr.mpr hB.simple_K.1)
-    fun hc => hB.simple_K.2 ((isMulCommutative_congr e).mp hc)
 
 end Counterexample
 

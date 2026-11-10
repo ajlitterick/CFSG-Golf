@@ -157,7 +157,6 @@ theorem s168e3_restrict_block_normalizer_mem_a7
   exact ⟨hφU, htGamma⟩
 
 
-
 theorem s168e3_block_involution_fixV_le_four_one
     (c : S168e3Ctx D V₀ V L hV)
     (hrow : A7Four (lBar V₀ V hV L)
@@ -536,7 +535,6 @@ private theorem s168e3_block_involutionBound_core
     exact h
 
 
-
 theorem s168e3_block_involutionBound
     (c : S168e3Ctx D V₀ V L hV)
     (hrow : A7Four (lBar V₀ V hV L)
@@ -548,34 +546,6 @@ theorem s168e3_block_involutionBound
   exact s168e3_block_involutionBound_core c hrow
     (V₁ := v1Sub D.M V₀ V hV L) hdata.v1Sub_eq
 
-
-
-theorem s168e3_block_involution_fixV_le_four
-    (c : S168e3Ctx D V₀ V L hV)
-    (hrow : A7Four (lBar V₀ V hV L)
-      (commSub (⊤ : Subgroup (Vtil V₀ V hV)) (lBar V₀ V hV L))
-      (commSub (⊤ : Subgroup (Vtil V₀ V hV)) (lBar V₀ V hV L) ⊓
-        fixV (lBar V₀ V hV L)))
-    {g : G} {X : Subgroup G} (hX : X ∈ wConj D.M V₀ V hV L)
-    {v : G} (hvM : v ∈ conjSubgroup D.M g) (hv2 : v * v = 1)
-    (hvN : v ∈ normalizer
-      (conjSubgroup (X ⊔ v1Sub D.M V₀ V hV L) g : Set G)) :
-    let hVg : IsElemAbelian 2 (conjSubgroup V g) :=
-      E3.isElemAbelian_conjSubgroup hV g
-    let V₁g : Subgroup G := conjSubgroup (v1Sub D.M V₀ V hV L) g
-    let Dg : Subgroup G := conjSubgroup (X ⊔ v1Sub D.M V₀ V hV L) g
-    ∀ (hstab : v ∈ stabTil V₁g (conjSubgroup V g)),
-    let φ : MulAut (Vtil V₁g (conjSubgroup V g) hVg) :=
-      actTil V₁g (conjSubgroup V g) hVg ⟨v, hstab⟩
-    Nat.card ↥(fixV (Subgroup.zpowers φ) ⊓
-      imgTil V₁g (conjSubgroup V g) hVg Dg) ≤ 4 ∨
-      imgTil V₁g (conjSubgroup V g) hVg Dg ≤ fixV (Subgroup.zpowers φ) := by
-  dsimp only
-  intro hstab
-  have hb := s168e3_block_involutionBound c hrow
-  unfold A7FourBlockInvolutionBound at hb
-  dsimp only at hb
-  exact hb g X hX v hvM hv2 hvN hstab
 
 theorem s168e3_block_comm_mem_v1Sub_of_hyperplane
     (c : S168e3Ctx D V₀ V L hV)

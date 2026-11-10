@@ -30,60 +30,6 @@ abbrev Elem2 (n : ℕ) : Type := Multiplicative (Fin n → ZMod 2)
   ∃ (Z : Subgroup Y) (_ : Z.Normal), Nat.card Z = 2 ∧ Nonempty (Y ⧸ Z ≃* Equiv.Perm (Fin 5)) ∧
     Z ≤ commutator Y
 
-private lemma commutator_mul_left_of_central {G : Type*} [Group G] {z s t : G}
-    (hz : ∀ x : G, z * x = x * z) : ⁅z * s, t⁆ = ⁅s, t⁆ := by
-  rw [commutatorElement_mul_left_eq_conj_mul,
-    commutatorElement_eq_one_iff_mul_comm.mpr (hz t), mul_one]
-  rw [hz ⁅s, t⁆, mul_assoc, mul_inv_cancel, mul_one]
-
-private lemma commutator_mul_right_of_central {G : Type*} [Group G] {t z s : G}
-    (hz : ∀ x : G, z * x = x * z) : ⁅t, z * s⁆ = ⁅t, s⁆ := by
-  rw [commutatorElement_mul_right_eq_mul_conj,
-    commutatorElement_eq_one_iff_mul_comm.mpr (hz t).symm, one_mul]
-  rw [hz ⁅t, s⁆, mul_assoc, mul_inv_cancel, mul_one]
-
-theorem IsNonsplitDoubleCoverOfS5.no_complement_of_le_commutator {Y : Type*} [Group Y]
-    {Z : Subgroup Y} (hZ : Z.Normal) (hcard : Nat.card Z = 2) (hc : Z ≤ commutator Y) :
-    ¬ ∃ S : Subgroup Y, Z.IsComplement' S := by
-  rintro ⟨S, hS⟩
-  have hcen : ∀ z ∈ Z, ∀ y : Y, z * y = y * z := by
-    intro z hz y
-    by_cases h1 : z = 1
-    · simp [h1]
-    · obtain ⟨w, _, hw⟩ := (Nat.card_eq_two_iff' (1 : Z)).mp hcard
-      have h2 : y * z * y⁻¹ ∈ Z := hZ.conj_mem z hz y
-      have h3 : y * z * y⁻¹ ≠ 1 := by
-        intro h
-        rw [mul_inv_eq_one] at h
-        exact h1 (by simpa using h)
-      have e1 := hw ⟨z, hz⟩ (fun h => h1 (congrArg Subtype.val h))
-      have e2 := hw ⟨y * z * y⁻¹, h2⟩ (fun h => h3 (congrArg Subtype.val h))
-      have e3 : y * z * y⁻¹ = z := congrArg Subtype.val (e2.trans e1.symm)
-      calc z * y = (y * z * y⁻¹) * y := by rw [e3]
-        _ = y * z := by group
-  have hcomm_le : commutator Y ≤ S := by
-    rw [_root_.commutator_def, Subgroup.commutator_le]
-    intro y1 _ y2 _
-    obtain ⟨⟨⟨z1, hz1⟩, ⟨s1, hs1⟩⟩, h1⟩ := hS.2 y1
-    obtain ⟨⟨⟨z2, hz2⟩, ⟨s2, hs2⟩⟩, h2⟩ := hS.2 y2
-    rw [← h1, ← h2]
-    rw [commutator_mul_left_of_central (z := z1) (s := s1) (t := z2 * s2) (hcen z1 hz1),
-      commutator_mul_right_of_central (z := z2) (s := s2) (t := s1) (hcen z2 hz2)]
-    exact mul_mem (mul_mem (mul_mem hs1 hs2) (inv_mem hs1)) (inv_mem hs2)
-  have hdisj : Disjoint Z S := hS.disjoint
-  have hbot : Z = ⊥ := by
-    refine (Subgroup.eq_bot_iff_forall Z).mpr fun z hz => ?_
-    simpa using hdisj.le_bot ⟨hz, hcomm_le (hc hz)⟩
-  rw [hbot, Subgroup.card_bot] at hcard
-  omega
-
-theorem IsNonsplitDoubleCoverOfS5.not_complement {Y : Type*} [Group Y]
-    (h : IsNonsplitDoubleCoverOfS5 Y) :
-    ∃ (Z : Subgroup Y) (_ : Z.Normal), Nat.card Z = 2 ∧ Nonempty (Y ⧸ Z ≃* Equiv.Perm (Fin 5)) ∧
-      ¬ ∃ S : Subgroup Y, Z.IsComplement' S := by
-  obtain ⟨Z, hZ, hcard, hiso, hc⟩ := h
-  exact ⟨Z, hZ, hcard, hiso,
-    IsNonsplitDoubleCoverOfS5.no_complement_of_le_commutator hZ hcard hc⟩
 
 @[expose] def IsShapeCentralizerThree (X : Type*) [Group X] : Prop :=
   ∃ (Y : Type) (_ : Group Y),

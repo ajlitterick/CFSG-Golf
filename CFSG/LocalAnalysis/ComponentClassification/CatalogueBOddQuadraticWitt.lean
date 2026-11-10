@@ -62,12 +62,6 @@ variable [Invertible (2 : K)]
     rw [hyperbolicPlane_apply]
     ring
 
-theorem hyperbolicPlanePairEquiv_apply (x : Fin 2 → K) :
-    hyperbolicPlanePairEquiv x = (x 0 + x 1, x 0 - x 1) := rfl
-
-theorem hyperbolicPlanePairEquiv_symm_apply (x : K × K) :
-    hyperbolicPlanePairEquiv.symm x =
-      ![(x.1 + x.2) * ⅟(2 : K), (x.1 - x.2) * ⅟(2 : K)] := rfl
 
 private def hyperbolicSumSuccEquiv (m : ℕ) :
     ((hyperbolicPairForm K).prod (hyperbolicSumForm K m)).IsometryEquiv

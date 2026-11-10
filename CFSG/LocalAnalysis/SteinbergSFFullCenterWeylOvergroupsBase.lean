@@ -747,10 +747,6 @@ theorem F_mul_P (h : FCHyp L K n φ t) : (𝐅 : Set G) * (𝐏 : Set G) = 𝐊�
   rw [Ks_eq h]
   exact (coe_mul_of_right_le_normalizer_left _ _ (P_le_H.trans (H_le_normalizer_F h))).symm
 
-theorem K_mul_K (h : FCHyp L K n φ t) :
-    (𝐊[Axis.one] : Set G) * (𝐊[Axis.two] : Set G) = 𝐊⋆ :=
-  (coe_mul_of_right_le_normalizer_left _ _
-    ((K_le_H h Axis.two).trans (H_le_normalizer_K h Axis.one))).symm
 
 theorem card_Ks (h : FCHyp L K n φ t) : Nat.card 𝐊⋆ = Nat.card K ^ 6 := by
   have h1 := card_sup_mul_card_inf 𝐅 𝐏 (P_le_H.trans (H_le_normalizer_F h))

@@ -115,7 +115,6 @@ theorem nd_LD : nodupL LD = true := by decide +kernel
 theorem nd_LPb : nodupL LPb = true := by decide +kernel
 theorem nd_LPc : nodupL LPc = true := by decide +kernel
 theorem nd_LPS : nodupL LPS = true := by decide +kernel
-theorem nd_LPa : nodupL LPa = true := by decide +kernel
 theorem nd_LA5 : nodupL LA5 = true := by decide +kernel
 
 theorem six_LPa : allK (fun c => Nat.beq (dig c 6) 6) LPa = true := by decide +kernel

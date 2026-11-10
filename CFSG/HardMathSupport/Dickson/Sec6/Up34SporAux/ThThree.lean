@@ -245,54 +245,6 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.SectionRank.Native
 section Th
 
 
-theorem le_card_centralizer_of_coreListOK {regs : Array (Array V4)} {R : ℕ → J}
-    (hR : ∀ r < regs.size, rowsMatrix regs[r]! = matJ (R r)) {Z : Array V4} {z : J}
-    (hZ : rowsMatrix Z = matJ z) {D : CoreList} (h : coreListOK regs Z D = true)
-    (hrow : D.row < 248) : D.n ≤ Nat.card (Subgroup.centralizer ({z} : Set J)) := by
-  haveI := finite_J
-  unfold coreListOK at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq, Array.all_eq_true, List.all_eq_true,
-    List.mem_range, Bool.or_eq_true, Bool.not_eq_true'] at h
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨hws, his⟩, hwis⟩, hlet⟩, hwit⟩, hinvlt⟩, hcomm⟩, hwf⟩, hdist⟩, hinv⟩,
-    hwit'⟩ := h
-  set E := D.words.map (wordRowsL regs) with hEdef
-  set f : ℕ → J := fun i => (D.words[i]!.map R).prod with hf
-  have hEsize : E.size = D.n := by rw [hEdef, Array.size_map, hws]
-  have hEi : ∀ i < D.n, rowsMatrix E[i]! = matJ (f i) := by
-    intro i hi
-    have hi' : i < D.words.size := hws ▸ hi
-    rw [hEdef, getElem!_pos _ i (by simpa using hi'), Array.getElem_map, hf]
-    simp only
-    rw [← getElem!_pos D.words i hi']
-    refine rowsMatrix_wordRowsL fun r hr => hR r ?_
-    exact hlet i hi' r (by rwa [getElem!_pos D.words i hi'] at hr)
-  have hwfi : ∀ i < D.n, (rowAt E[i]! D.row).wf = true := by
-    intro i hi
-    have hi' : i < E.size := hEsize ▸ hi
-    rw [getElem!_pos E i hi']
-    exact hwf i hi'
-  have hmem : ∀ i < D.n, f i ∈ Subgroup.centralizer ({z} : Set J) := by
-    intro i hi
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have hi' : i < E.size := hEsize ▸ hi
-    have h1 := hcomm i hi'
-    rw [← getElem!_pos E i hi'] at h1
-    exact eq_of_rowsMatrix_eq (by rw [rowsMatrix_mulRows, hEi i hi, hZ, matJ_mul])
-      (by rw [rowsMatrix_mulRows, hZ, hEi i hi, matJ_mul]) h1
-  have hne : ∀ i < D.n, ∀ j < i, f i ≠ f j := by
-    intro i hi j hj heq
-    exact rowsMatrix_ne_of_row hrow (hwfi i hi) (hwfi j (hj.trans hi)) (hdist i hi j hj)
-      (by rw [hEi i hi, hEi j (hj.trans hi), heq])
-  let g : Fin D.n → Subgroup.centralizer ({z} : Set J) := fun i => ⟨f i, hmem i i.2⟩
-  have hinj : Function.Injective g := by
-    intro i j hij
-    have hij' : f i = f j := congrArg Subtype.val hij
-    by_contra hne'
-    rcases lt_or_gt_of_ne (fun h : i.val = j.val => hne' (Fin.ext h)) with hlt | hlt
-    · exact hne j.val j.2 i.val hlt hij'.symm
-    · exact hne i.val i.2 j.val hlt hij'
-  simpa using Nat.card_le_card_of_injective g hinj
-
 section Seven
 
 
@@ -315,28 +267,6 @@ section Three
 
 local notation "R3" => slpJ a b prog3
 
-theorem prog3_lt : prog3.all (Op.lt n3) = true := by decide
-
-theorem rowsMatrix_regs3 :
-    (regs3 ()).size = n3 ∧ ∀ r < n3, rowsMatrix (regs3 ())[r]! = matJ (R3 r) :=
-  rowsMatrix_slpRows rowsMatrix_seedA rowsMatrix_seedB prog3_lt
-
-theorem rowsMatrix_regs3_at {r : ℕ} (hr : r < n3) :
-    rowsMatrix (regs3 ())[r]! = matJ (R3 r) := rowsMatrix_regs3.2 r hr
-
-theorem ord_of_ordOK {X : Array V4} {g : J} (hX : rowsMatrix X = matJ g) {p : ℕ} [Fact p.Prime]
-    (h : ordOK X p = true) : orderOf g = p := by
-  unfold ordOK at h
-  simp only [Bool.and_eq_true] at h
-  have hid : rowsMatrix idRows = matJ (1 : J) := by rw [rowsMatrix_idRows, matJ_one]
-  refine orderOf_eq_prime (eq_of_rowsMatrix_eq (g := g ^ p) (h := 1) ?_ hid h.1)
-    (ne_of_rowsDiffer hX hid h.2)
-  rw [rowsMatrix_powRowsN, hX, matJ_pow]
-
-theorem comm_of_commOK {X Y : Array V4} {g h : J} (hX : rowsMatrix X = matJ g)
-    (hY : rowsMatrix Y = matJ h) (e : commOK X Y = true) : g * h = h * g :=
-  eq_of_rowsMatrix_eq (by rw [rowsMatrix_mulRows, hX, hY, matJ_mul])
-    (by rw [rowsMatrix_mulRows, hY, hX, matJ_mul]) e
 
 theorem th3_facts : orderOf (R3 11) = 3 ∧ orderOf (R3 14) = 7 ∧ orderOf (R3 12) = 13 ∧
     R3 11 * R3 14 = R3 14 * R3 11 ∧ R3 11 * R3 12 = R3 12 * R3 11 ∧

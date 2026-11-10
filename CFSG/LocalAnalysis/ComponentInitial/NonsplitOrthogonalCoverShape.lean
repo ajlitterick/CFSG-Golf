@@ -149,13 +149,6 @@ theorem commutatorElement_τ (B : Multiplicative (binaryAltMatrices r)) {n : X} 
     ⁅S.τ B, n⁆ = 1 := by
   rw [S.commutator_eq _ (S.τ_mem B) _ hn, S.π_τ, polarAlt_zero_left, ofAdd_zero, map_one]
 
-theorem τ_mul_comm (B : Multiplicative (binaryAltMatrices r)) {n : X} (hn : n ∈ S.N) :
-    S.τ B * n = n * S.τ B :=
-  commutatorElement_eq_one_iff_mul_comm.mp (S.commutatorElement_τ B hn)
-
-theorem commutatorElement_mem_τ_range {m n : X} (hm : m ∈ S.N) (hn : n ∈ S.N) :
-    ⁅m, n⁆ ∈ S.τ.range :=
-  ⟨_, (S.commutator_eq m hm n hn).symm⟩
 
 theorem norm_mem_τ_range {m : X} (hm : m ∈ S.N) :
     m * (S.h * m * S.h⁻¹) * (S.h * (S.h * m * S.h⁻¹) * S.h⁻¹) ∈ S.τ.range := by
@@ -186,15 +179,6 @@ theorem preV_le_preN : S.preV θ ≤ S.preN θ := fun _ ht => S.τ_range_le ht
 
 theorem ker_le_preV : θ.ker ≤ S.preV θ := fun c hc => ⟨1, by rw [map_one]; exact hc.symm⟩
 
-theorem commutatorElement_mem_preV {m n : E} (hm : m ∈ S.preN θ) (hn : n ∈ S.preN θ) :
-    ⁅m, n⁆ ∈ S.preV θ := by
-  rw [mem_preV, map_commutatorElement]
-  exact S.commutatorElement_mem_τ_range hm hn
-
-theorem commutator_le_preV : ⁅S.preN θ, S.preN θ⁆ ≤ S.preV θ := by
-  rw [Subgroup.commutator_le]
-  intro m hm n hn
-  exact commutatorElement_mem_preV hm hn
 
 theorem map_commutatorElement_preV_eq_one {t m : E} (ht : t ∈ S.preV θ) (hm : m ∈ S.preN θ) :
     θ ⁅t, m⁆ = 1 := by
@@ -205,8 +189,6 @@ theorem map_commutatorElement_preV_eq_one {t m : E} (ht : t ∈ S.preV θ) (hm :
 variable (hθ : Function.Surjective θ) (hC : θ.ker ≤ Subgroup.center E)
 include hθ
 
-theorem map_preN : (S.preN θ).map θ = S.N :=
-  Subgroup.map_comap_eq_self_of_surjective hθ _
 
 theorem preV_le_commutator_sup : S.preV θ ≤ ⁅S.preN θ, S.preN θ⁆ ⊔ θ.ker := by
   set Ksub : AddSubgroup (binaryAltMatrices r) :=
@@ -406,9 +388,6 @@ variable (S θ) in
     rw [map_mul, map_mul, map_inv, hhh]
     exact S.h_conj_mem _ m.2
 
-theorem coe_conjPreN (hh : E) (hhh : θ hh = S.h) (m : S.preN θ) :
-    (conjPreN S θ hh hhh m : E) = hh * m * hh⁻¹ :=
-  rfl
 
 variable (S θ) in
 @[expose] noncomputable def normPreN (hh : E) (hhh : θ hh = S.h) :

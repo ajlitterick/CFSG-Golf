@@ -16,13 +16,6 @@ variable (n F) in
 @[expose] noncomputable def glUpperBlockHom : GL (Fin n) F →* GL (Fin (n + 1)) F :=
   Units.map (slUpperBlockMonoidHom n F)
 
-theorem coe_glUpperBlockHom (A : GL (Fin n) F) :
-    ((glUpperBlockHom n F A : GL (Fin (n + 1)) F) : Matrix (Fin (n + 1)) (Fin (n + 1)) F) =
-      slUpperBlockMat n F (A : Matrix (Fin n) (Fin n) F) := rfl
-
-theorem coe_glUpperBlockHom_inv (A : GL (Fin n) F) :
-    (((glUpperBlockHom n F A)⁻¹ : GL (Fin (n + 1)) F) : Matrix (Fin (n + 1)) (Fin (n + 1)) F) =
-      slUpperBlockMat n F ((A⁻¹ : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) := rfl
 
 theorem slConjugation_slUpperBlockHom (A : GL (Fin n) F)
     (g : Matrix.SpecialLinearGroup (Fin n) F) :

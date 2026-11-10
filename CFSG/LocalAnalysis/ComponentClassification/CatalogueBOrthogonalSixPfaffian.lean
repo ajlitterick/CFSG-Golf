@@ -21,8 +21,6 @@ theorem skewMatrix_transpose (a b c d e f : F) :
 @[expose] def pfaffian (X : Matrix (Fin 4) (Fin 4) F) : F :=
   X 0 1 * X 2 3 - X 0 2 * X 1 3 + X 0 3 * X 1 2
 
-theorem pfaffian_skewMatrix (a b c d e f : F) :
-    pfaffian (skewMatrix a b c d e f) = a * f - b * e + c * d := rfl
 
 @[expose] def sharp (X : Matrix (Fin 4) (Fin 4) F) : Matrix (Fin 4) (Fin 4) F :=
   skewMatrix (X 2 3) (-X 1 3) (X 1 2) (X 0 3) (-X 0 2) (X 0 1)
@@ -35,20 +33,6 @@ theorem sharp_add (X Y : Matrix (Fin 4) (Fin 4) F) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [sharp, skewMatrix] <;> ring
 
-theorem sharp_smul (a : F) (X : Matrix (Fin 4) (Fin 4) F) :
-    sharp (a • X) = a • sharp X := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [sharp, skewMatrix, smul_eq_mul]
-
-theorem sharp_sharp_skewMatrix (a b c d e f : F) :
-    sharp (sharp (skewMatrix a b c d e f)) = skewMatrix a b c d e f := by
-  simp only [sharp_skewMatrix, neg_neg]
-
-theorem pfaffian_sharp_skewMatrix (a b c d e f : F) :
-    pfaffian (sharp (skewMatrix a b c d e f)) =
-      pfaffian (skewMatrix a b c d e f) := by
-  simp only [sharp_skewMatrix, pfaffian_skewMatrix]
-  ring
 
 theorem skewMatrix_mul_sharp (a b c d e f : F) :
     skewMatrix a b c d e f * sharp (skewMatrix a b c d e f) =
@@ -79,8 +63,6 @@ theorem skewMatrix_det (a b c d e f : F) :
     linMulLin (Matrix.entryLinearMap F F 0 2) (Matrix.entryLinearMap F F 1 3) +
     linMulLin (Matrix.entryLinearMap F F 0 3) (Matrix.entryLinearMap F F 1 2)
 
-theorem pfaffianForm_apply (X : Matrix (Fin 4) (Fin 4) F) :
-    pfaffianForm F X = pfaffian X := rfl
 
 theorem pfaffian_smul (a : F) (X : Matrix (Fin 4) (Fin 4) F) :
     pfaffian (a • X) = a ^ 2 * pfaffian X := by
@@ -98,22 +80,6 @@ theorem skewMatrix_polarized_product (a b c d e f a' b' c' d' e' f' : F) :
     simp [sharp, skewMatrix, pfaffian, smul_eq_mul] <;>
     ring
 
-@[expose] def skewSubmodule (F : Type*) [CommRing F] :
-    Submodule F (Matrix (Fin 4) (Fin 4) F) where
-  carrier := {X | X.transpose = -X}
-  zero_mem' := by simp
-  add_mem' {X} {Y} hX hY := by
-    change (X + Y).transpose = -(X + Y)
-    rw [Matrix.transpose_add, hX, hY, neg_add]
-  smul_mem' a X hX := by
-    change (a • X).transpose = -(a • X)
-    rw [Matrix.transpose_smul, hX, smul_neg]
-
-theorem mem_skewSubmodule (X : Matrix (Fin 4) (Fin 4) F) :
-    X ∈ skewSubmodule F ↔ X.transpose = -X := Iff.rfl
-
-theorem sharp_transpose (X : Matrix (Fin 4) (Fin 4) F) :
-    (sharp X).transpose = -sharp X := skewMatrix_transpose _ _ _ _ _ _
 
 section Field
 
@@ -141,17 +107,6 @@ theorem skew_eq_skewMatrix (h2 : (2 : K) ≠ 0)
     | rfl
     | exact hl _ _
 
-theorem sharp_sharp (h2 : (2 : K) ≠ 0)
-    {X : Matrix (Fin 4) (Fin 4) K} (hX : X.transpose = -X) :
-    sharp (sharp X) = X := by
-  rw [skew_eq_skewMatrix h2 hX]
-  exact sharp_sharp_skewMatrix _ _ _ _ _ _
-
-theorem pfaffian_sharp (h2 : (2 : K) ≠ 0)
-    {X : Matrix (Fin 4) (Fin 4) K} (hX : X.transpose = -X) :
-    pfaffian (sharp X) = pfaffian X := by
-  rw [skew_eq_skewMatrix h2 hX]
-  exact pfaffian_sharp_skewMatrix _ _ _ _ _ _
 
 theorem mul_sharp (h2 : (2 : K) ≠ 0)
     {X : Matrix (Fin 4) (Fin 4) K} (hX : X.transpose = -X) :

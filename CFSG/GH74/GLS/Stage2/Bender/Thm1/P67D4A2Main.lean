@@ -55,7 +55,6 @@ theorem a2_hC (h : A2Std σ d q)
   A2Core.a2_hC h.toCore φ hφ
 
 
-
 theorem A2Core.a2_noAbel_fixSub (h : A2Core σ d q)
     (φ : MulAut (graphFixedRootGroup TwistTag.D4 K σ.toRingHom))
     (hφ : ∀ y : graphFixedRootGroup TwistTag.D4 K σ.toRingHom,
@@ -156,18 +155,6 @@ theorem a2_card_fixSub (h : A2Std σ d q)
     Nat.card ↥(fixSub φ) = (q - 1) ^ 2 * q ^ 3 * ((q + 1) * (q ^ 2 + q + 1)) :=
   A2Core.a2_card_fixSub h.toCore φ hφ
 
-theorem a2_card_dvd_bound {q : ℕ} (hq : 2 ≤ q) :
-    (q - 1) ^ 2 * q ^ 3 * ((q + 1) * (q ^ 2 + q + 1)) ∣
-      6 * q ^ 6 * (q ^ 2 - 1) * (q ^ 6 - 1) := by
-  obtain ⟨m, rfl⟩ : ∃ m, q = m + 1 := ⟨q - 1, by omega⟩
-  have h2 : (m + 1) ^ 2 - 1 = m * (m + 2) :=
-    Nat.sub_eq_of_eq_add (by ring)
-  have h6 : (m + 1) ^ 6 - 1 =
-      m * ((m + 1) ^ 5 + (m + 1) ^ 4 + (m + 1) ^ 3 + (m + 1) ^ 2 + (m + 1) + 1) :=
-    Nat.sub_eq_of_eq_add (by ring)
-  rw [h2, h6, Nat.add_sub_cancel]
-  exact Dvd.intro (6 * (m + 1) ^ 3 * ((m + 1) ^ 3 + 1)) (by ring)
-
 
 theorem a2Std_of_class {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hf : 1 ≤ f) (hq : (p ^ f) % 3 = 1)
     {K : Type} [Field K] [Finite K] (hK : Nat.card K = (p ^ f) ^ 3) {σ : K ≃+* K}
@@ -231,18 +218,5 @@ theorem d4OuterThreeA2Toral_card {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hf 
       (p ^ f - 1) ^ 2 * (p ^ f) ^ 3 * ((p ^ f + 1) * ((p ^ f) ^ 2 + p ^ f + 1)) :=
   a2_card_fixSub (a2Std_of_class hp hp2 hf hq hK hσ hd hd3 hd1) _ (a2_hφ_of_class hs)
 
-theorem d4OuterThreeA2Toral_card_dvd {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hf : 1 ≤ f)
-    (hq : (p ^ f) % 3 = 1) {K : Type} [Field K] [Finite K] (hK : Nat.card K = (p ^ f) ^ 3)
-    {σ : K ≃+* K} (hσ : ∀ c, σ c = c ^ (p ^ f)) {d : Kˣ}
-    (hd : Units.map σ.toRingHom.toMonoidHom d = d) (hd3 : d ^ 3 = 1) (hd1 : d ≠ 1)
-    {s : graphFixedRootGroup TwistTag.D4 K σ.toRingHom}
-    (hs : (s : ModGL TwistTag.D4.tag K) = rootDiagUnit TwistTag.D4.tag ![1, 1, d, 1]) :
-    Nat.card ↥(fixSub (MulAut.conj s * fieldActor (t := TwistTag.D4) σ σ)) ∣
-      6 * (p ^ f) ^ 6 * ((p ^ f) ^ 2 - 1) * ((p ^ f) ^ 6 - 1) := by
-  rw [d4OuterThreeA2Toral_card hp hp2 hf hq hK hσ hd hd3 hd1 hs]
-  exact a2_card_dvd_bound (by
-    calc 2 ≤ p := hp.two_le
-      _ = p ^ 1 := (pow_one p).symm
-      _ ≤ p ^ f := Nat.pow_le_pow_right hp.pos hf)
 
 end CFSG.GH74.GLS.Stage2.Bender.Thm1

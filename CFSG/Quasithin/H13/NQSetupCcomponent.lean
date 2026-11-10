@@ -20,21 +20,6 @@ theorem le_solvableRadical_of_normal_ne_top {L : Type*} [Group L] [Finite L]
   exact (CFSG.QuasithinUnique.Setup.Offender.solvableRadical_characterization L).2.2.1 N
     inferInstance hs
 
-theorem nq_Ccomponent_representation_kernel_commutator {M : Type*} [Group M] [Finite M]
-    {L : Subgroup M} [L.Normal] (hL : CFSG.IsCComponent (⊤ : Subgroup L)) {A : Type*} [Group A]
-    (φ : M →* A) (hφ : φ.comp L.subtype ≠ 1) :
-    ⁅L, φ.ker⁆ ≤ (CFSG.solvableRadical L).map L.subtype := by
-  have hne : φ.ker.subgroupOf L ≠ ⊤ := by
-    intro htop
-    apply hφ
-    ext x
-    have hx : x ∈ φ.ker.subgroupOf L := by rw [htop]; exact mem_top x
-    rw [mem_subgroupOf, MonoidHom.mem_ker] at hx
-    simpa using hx
-  have hle := le_solvableRadical_of_normal_ne_top hL hne
-  refine (commutator_le_inf L φ.ker).trans fun x hx => ?_
-  obtain ⟨hxL, hxK⟩ := mem_inf.1 hx
-  exact ⟨⟨x, hxL⟩, hle (show (⟨x, hxL⟩ : L) ∈ φ.ker.subgroupOf L from hxK), rfl⟩
 
 theorem nontrivial_Ccomponent_images_retain_radical_quotient_Sylow_noncyclicity {L : Type*}
     [Group L] [Finite L] [(CFSG.solvableRadical L).Normal]

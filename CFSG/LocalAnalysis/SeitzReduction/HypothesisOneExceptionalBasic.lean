@@ -86,18 +86,6 @@ theorem hypothesisOne_of_centralizers {Y : Type*} [Group Y]
     ((QuotientGroup.quotientMulEquivOfEq hcore').trans QuotientGroup.quotientBot).symm hno)
     B hB hiso
 
-theorem hypothesisOne_of_inner_outer {Y : Type*} [Group Y]
-    (hcore : ∀ M : Subgroup (MulAut Y), inner Y ≤ M → ∀ x ∈ M, orderOf x = 2 →
-      CFSG.oddCore ↥(M ⊓ centralizer ({x} : Set (MulAut Y))) = ⊥)
-    (hinner : ∀ M : Subgroup (MulAut Y), inner Y ≤ M → ∀ x ∈ inner Y, orderOf x = 2 →
-      NoNormalZ4OrZ2xZ4 ↥(M ⊓ centralizer ({x} : Set (MulAut Y))))
-    (houter : ∀ M : Subgroup (MulAut Y), inner Y ≤ M → ∀ x ∈ M, x ∉ inner Y → orderOf x = 2 →
-      AbelianNormalCardLeTwo ↥(M ⊓ centralizer ({x} : Set (MulAut Y)))) :
-    HypothesisOne Y := by
-  refine hypothesisOne_of_centralizers fun M hM x hxM hx2 => ⟨hcore M hM x hxM hx2, ?_⟩
-  by_cases hx : x ∈ inner Y
-  · exact hinner M hM x hx hx2
-  · exact (houter M hM x hxM hx hx2).noNormalZ4OrZ2xZ4
 
 theorem eq_one_or_eq_of_mem_zpowers {A : Type*} [Group A] {η x : A} (hη2 : η ^ 2 = 1)
     (hx : x ∈ zpowers η) : x = 1 ∨ x = η := by

@@ -13,28 +13,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Lifts CFSG.Monster.VisQuot
   CFSG.Monster.Visible CFSG.Monster.ScalarKernel CFSG.Monster.SpinLattice CFSG.Monster.Spin
   CFSG.Monster.Griess CFSG.Monster.B.Rep4371
 
-theorem ne_one_of_mem_cosetR
-    {i : ℕ} (hi1 : 1 ≤ i) (hi : i < 7) {f : Gvis}
-    (hf : f ∈ cosetR i) : f ≠ 1 := by
-  rintro rfl
-  rw [mem_cosetR_iff, map_one, eq_comm, ← MonoidHom.mem_ker, ker_piVis,
-    Subgroup.mem_subgroupOf] at hf
-  exact cosetRep_not_mem hi1 hi hf
-
-theorem cosetInv_eq_orderOf
-    {i : ℕ} (hi1 : 1 ≤ i) (hi : i < 7) :
-    cosetInv i = {f | f ∈ cosetR i ∧ orderOf f = 2} := by
-  ext f
-  show f ∈ cosetR i ∧ f * f = 1 ↔ f ∈ cosetR i ∧ orderOf f = 2
-  constructor
-  · rintro ⟨hf, h⟩
-    exact ⟨hf, orderOf_eq_prime_iff.2 ⟨by rw [pow_two]; exact h, ne_one_of_mem_cosetR hi1 hi hf⟩⟩
-  · rintro ⟨hf, h⟩
-    exact ⟨hf, by rw [← pow_two]; exact (orderOf_eq_prime_iff.1 h).1⟩
-
-theorem ncard_cosetInv_one :
-    (cosetInv 1).ncard = 69632 := by
-  rw [ncard_cosetInv (Or.inl rfl), countSq_one]
 
 theorem ncard_cosetInv_two :
     (cosetInv 2).ncard = 8192 := by
@@ -198,27 +176,6 @@ theorem mem_qmatClass_of_mem_cosetInv_one
   obtain ⟨k, hk, hn'⟩ := hmem
   exact ⟨k, Finset.mem_range.1 hk, (mem_classPts (Finset.mem_range.1 hk) hn').2⟩
 
-theorem ncard_classes :
-
-    {C : Set Gvis | ∃ f ∈ cosetInv 1, C = qmatClass f}.ncard = 137 := by
-  have e : {C : Set Gvis | ∃ f ∈ cosetInv 1, C = qmatClass f} =
-      (fun k => qmatClass (classRep k)) '' Set.Iio 137 := by
-    ext C
-    constructor
-    · rintro ⟨f, hf, rfl⟩
-      obtain ⟨k, hk, hfk⟩ := mem_qmatClass_of_mem_cosetInv_one hf
-      exact ⟨k, hk, (qmatClass_eq_of_mem hfk).symm⟩
-    · rintro ⟨k, hk, rfl⟩
-      exact ⟨classRep k, classRep_mem hk, rfl⟩
-  rw [e, Set.InjOn.ncard_image, Set.ncard_Iio_nat]
-  intro k hk k' hk' h
-  by_contra hne
-  have h' : qmatClass (classRep k) = qmatClass (classRep k') := h
-  have m : classRep k ∈ qmatClass (classRep k') := by
-    rw [← h']
-    exact mem_qmatClass_self _
-  exact Set.disjoint_left.1 (disjoint_qmatClass_classRep hk hk' hne)
-    (mem_qmatClass_self (classRep k)) m
 
 theorem class2Check_spec :
     natCertOK (Native.CosetEnum.act (imgs 2)) 24 (fun n => decide (n < 2 ^ 25)) 734
@@ -249,60 +206,5 @@ theorem qOfEnc_eq_qP {s A D n : ℕ} (hs : s < 2) (hA : A < 2 ^ 12) (hD : D < 2 
   rw [← hn]
   exact qOfEnc_pauliEnc hs hA hD
 
-theorem visible_involution_coset_enumeration :
-    ((cosetRep 1 * cosetRep 1 : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = 1 ∧
-    ((cosetRep 2 * cosetRep 2 : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv (qP 1 63 0) ∧
-    ((cosetRep 6 * cosetRep 6 : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = xB ∧
-    (∀ r : Q, (rhoGvis r : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv r) ∧
-    (∀ f : Gvis, qmatClass f = {g | ∃ u ∈ rhoQ.subgroupOf Gvis, g = u⁻¹ * f * u}) ∧
-    (∀ i ∈ ({1, 2, 6} : Finset ℕ), cosetInv i = {f | f ∈ cosetR i ∧ f * f = 1} ∧
-      (∀ f ∈ cosetR i, f ≠ 1) ∧ cosetInv i = {f | f ∈ cosetR i ∧ orderOf f = 2}) ∧
-    (cosetInv 1).ncard = 69632 ∧ (cosetInv 2).ncard = 8192 ∧ (cosetInv 6).ncard = 0 ∧
-    (cosetOrbits 1).length = 137 ∧
-    {C : Set Gvis | ∃ f ∈ cosetInv 1, C = qmatClass f}.ncard = 137 ∧
-    (∀ k < 137, classRep k = cosetRep 1 * rhoGvis (qOfEnc (classEnc k)) ∧
-      classEnc k = ((cosetOrbits 1).map OrbitRecord.rep).getD k 0 ∧ classEnc k < 2 ^ 25 ∧
-      classRep k ∈ cosetInv 1 ∧ qmatClass (classRep k) ⊆ cosetInv 1) ∧
-    (∀ f ∈ cosetInv 1, ∃ k < 137, f ∈ qmatClass (classRep k)) ∧
-    (∀ k < 137, ∀ k' < 137, k ≠ k' →
-      Disjoint (qmatClass (classRep k)) (qmatClass (classRep k'))) ∧
-    (∀ k < 137, ∀ n < 2 ^ 25,
-      cosetRep 1 * rhoGvis (qOfEnc n) ∈ qmatClass (classRep k) → classEnc k ≤ n) ∧
-    (∀ k < 136, classEnc k < classEnc (k + 1)) ∧
-    (∀ k < 137, (qmatClass (classRep k)).ncard = classSize k ∧
-      classSize k = ((cosetOrbits 1).map OrbitRecord.size).getD k 0 ∧
-      classSize k = if k = 0 ∨ k = 4 then 256 else 512) ∧
-    qOfEnc (classEnc 0) = qP 0 0 0 ∧ qOfEnc (classEnc 4) = qP 0 63 0 ∧
-    cosetInv 2 = qmatClass (cosetRep 2 * rhoGvis (qP 0 734 0)) ∧
-    (cosetOrbits 2).map OrbitRecord.rep = [734] ∧ (cosetOrbits 2).map OrbitRecord.size = [8192] ∧
-    pauliEnc 0 60 48 = 196668 ∧
-    cosetRep 1 * rhoGvis (qP 0 60 48) ∈ qmatClass (classRep 17) := by
-  obtain ⟨h1, h2, h6⟩ := cosetRep_sq
-  have hi : ∀ i ∈ ({1, 2, 6} : Finset ℕ), 1 ≤ i ∧ i < 7 := by
-    intro i hi
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hi
-    omega
-  have q734 : qOfEnc 734 = qP 0 734 0 :=
-    qOfEnc_eq_qP (by norm_num) (by norm_num) (by norm_num) (by norm_num [pauliEnc])
-  have q196668 : qOfEnc 196668 = qP 0 60 48 :=
-    qOfEnc_eq_qP (by norm_num) (by norm_num) (by norm_num) (by norm_num [pauliEnc])
-  refine ⟨h1, h2, h6, coe_rhoGvis, fun _ => rfl, fun i hi' => ⟨rfl, fun f hf =>
-    ne_one_of_mem_cosetR (hi i hi').1 (hi i hi').2 hf, cosetInv_eq_orderOf (hi i hi').1
-      (hi i hi').2⟩, ncard_cosetInv_one, ncard_cosetInv_two, ncard_cosetInv_six,
-    cosetOrbits_one_length, ncard_classes, fun k hk => ⟨rfl, rfl, classEnc_lt hk,
-      classRep_mem hk, qmatClass_classRep_subset hk⟩,
-    fun f hf => mem_qmatClass_of_mem_cosetInv_one hf,
-    fun k hk k' hk' hne => disjoint_qmatClass_classRep hk hk' hne,
-    fun k hk n hn h => classEnc_le_of_mem hk hn h, classEnc_succ,
-    fun k hk => ⟨ncard_qmatClass_classRep hk, rfl, classSize_eq k hk⟩, ?_, ?_, ?_,
-    cosetOrbits_two.1, cosetOrbits_two.2, by norm_num [pauliEnc], ?_⟩
-  · rw [classEnc_zero]
-    exact qOfEnc_eq_qP (by norm_num) (by norm_num) (by norm_num) (by norm_num [pauliEnc])
-  · rw [classEnc_four]
-    exact qOfEnc_eq_qP (by norm_num) (by norm_num) (by norm_num) (by norm_num [pauliEnc])
-  · rw [← q734]
-    exact cosetInv_two_eq
-  · rw [← q196668]
-    exact mem_qmatClass_seventeen
 
 end CFSG.Monster.B.TwoA.Census

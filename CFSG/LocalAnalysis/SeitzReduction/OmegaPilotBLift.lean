@@ -93,46 +93,6 @@ theorem bLift_inputs_pairTorus :
     htC ht, hD, hDq, fun _ hc hco => mem_pairTorus_of_odd_of_commute hset hKc hq hn k e htC ht hX
       hDe hc hco⟩
 
-theorem mem_center_of_mem_oddCore_of_commute_pairTorus :
-    ∀ c ∈ oddCore (centralizer (X : Set G)), c * ⟨t, htX⟩ = ⟨t, htX⟩ * c →
-      c ∈ center (centralizer (X : Set G)) := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_pairTorus hset hKc hq hn k e htC ht hX hDe
-  exact LinearPilot.mem_center_of_mem_oddCore_of_commute_of_forall_odd_mem htC hLt htX hD hDq hXo
-
-theorem hasBLift_pairTorus
-    {E : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hE : ⁅E, E⁆ = E)
-    (htE : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∈
-      normalizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))))
-    (hEt : E ≤ ⁅E, zpowers (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)⁆) :
-    HasBLift E := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_pairTorus hset hKc hq hn k e htC ht hX hDe
-  exact LinearPilot.hasBLift_of_forall_odd_mem htC ht hLt htX hD hDq hXo hE htE hEt
-
-theorem isComponent_oddCoreLift_pairTorus
-    {E : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hE : CFSG.IsComponent E)
-    (htE : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∈
-      normalizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))))
-    (htE' : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∉
-      centralizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) :
-    HasBLift E ∧ CFSG.IsComponent (oddCoreLift E) ∧
-      (oddCoreLift E).map (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) = E ∧
-      (oddCore (centralizer (X : Set G))).subgroupOf (oddCoreLift E) ≤ center (oddCoreLift E) := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_pairTorus hset hKc hq hn k e htC ht hX hDe
-  exact LinearPilot.isComponent_oddCoreLift_of_forall_odd_mem htC ht hLt htX hD hDq hXo hE htE
-    htE'
-
-theorem hasBLift_sup_conj_pairTorus
-    {Kb : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hKb : ⁅Kb, Kb⁆ = Kb)
-    (hcomm : ⁅Kb, Kb.map (MulAut.conj
-      (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)).toMonoidHom⁆ = ⊥) :
-    HasBLift (Kb ⊔ Kb.map (MulAut.conj
-      (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)).toMonoidHom) ∧
-      HasBLift Kb := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_pairTorus hset hKc hq hn k e htC ht hX hDe
-  exact LinearPilot.hasBLift_sup_conj_of_forall_odd_mem htC ht hLt htX hD hDq hXo hKb hcomm
 
 end Plus
 
@@ -166,46 +126,6 @@ theorem bLift_inputs_minusPairTorus :
     htC ht, hD, hDq, fun _ hc hco => mem_minusPairTorus_of_odd_of_commute hset hKc hq
       (by omega) hirr k e htC ht hX hDe hc hco⟩
 
-theorem mem_center_of_mem_oddCore_of_commute_minusPairTorus :
-    ∀ c ∈ oddCore (centralizer (X : Set G)), c * ⟨t, htX⟩ = ⟨t, htX⟩ * c →
-      c ∈ center (centralizer (X : Set G)) := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_minusPairTorus hset hKc hq hn hirr k e htC ht hX hDe
-  exact LinearPilot.mem_center_of_mem_oddCore_of_commute_of_forall_odd_mem htC hLt htX hD hDq hXo
-
-theorem hasBLift_minusPairTorus
-    {E : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hE : ⁅E, E⁆ = E)
-    (htE : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∈
-      normalizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))))
-    (hEt : E ≤ ⁅E, zpowers (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)⁆) :
-    HasBLift E := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_minusPairTorus hset hKc hq hn hirr k e htC ht hX hDe
-  exact LinearPilot.hasBLift_of_forall_odd_mem htC ht hLt htX hD hDq hXo hE htE hEt
-
-theorem isComponent_oddCoreLift_minusPairTorus
-    {E : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hE : CFSG.IsComponent E)
-    (htE : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∈
-      normalizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))))
-    (htE' : QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩ ∉
-      centralizer (E : Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) :
-    HasBLift E ∧ CFSG.IsComponent (oddCoreLift E) ∧
-      (oddCoreLift E).map (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) = E ∧
-      (oddCore (centralizer (X : Set G))).subgroupOf (oddCoreLift E) ≤ center (oddCoreLift E) := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_minusPairTorus hset hKc hq hn hirr k e htC ht hX hDe
-  exact LinearPilot.isComponent_oddCoreLift_of_forall_odd_mem htC ht hLt htX hD hDq hXo hE htE
-    htE'
-
-theorem hasBLift_sup_conj_minusPairTorus
-    {Kb : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))}
-    (hKb : ⁅Kb, Kb⁆ = Kb)
-    (hcomm : ⁅Kb, Kb.map (MulAut.conj
-      (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)).toMonoidHom⁆ = ⊥) :
-    HasBLift (Kb ⊔ Kb.map (MulAut.conj
-      (QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩)).toMonoidHom) ∧
-      HasBLift Kb := by
-  obtain ⟨hLt, hD, hDq, hXo⟩ := bLift_inputs_minusPairTorus hset hKc hq hn hirr k e htC ht hX hDe
-  exact LinearPilot.hasBLift_sup_conj_of_forall_odd_mem htC ht hLt htX hD hDq hXo hKb hcomm
 
 end Minus
 

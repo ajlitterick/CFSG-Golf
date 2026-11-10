@@ -127,39 +127,6 @@ theorem single_plus_apply_eq_zero {i k : Fin n} (hik : i ≠ k) (s t : Fin n ⊕
   have h' := (plusIndexEquiv n).injective h
   rcases hs with rfl | rfl <;> rcases ht with rfl | rfl <;> simp_all
 
-theorem centralizer_longRoot_decomp_core (hn : 3 ≤ n) {i j k : Fin n} (hij : i ≠ j) (hik : i ≠ k)
-    (hjk : j ≠ k) :
-    ∃ (z : matrixProjectiveDerived (coordinateQuadPlus n K))
-      (Qz Mz : Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K))),
-      z ∈ pairPerp k ∧ IsLongRoot _ z ∧ centralizer {z} = Qz ⊔ Mz ∧ IsPGroup 2 Qz ∧
-        Mz ≤ normalizer (Qz : Set (matrixProjectiveDerived (coordinateQuadPlus n K))) ∧
-        Disjoint Qz Mz ∧ pairTorus k ≤ Mz := by
-  have hQ := (regular_coordinateQuadPlus n K hn).1
-  have hi := isHypCoord_coordinateQuadPlus (K := K) i
-  have hj := isHypCoord_coordinateQuadPlus (K := K) j
-  have hk := isHypCoord_coordinateQuadPlus (K := K) k
-  have h₁₂ := hi.orth hj (pairDisjoint_plus hij)
-  have h₁₃ := hi.orth hk (pairDisjoint_plus hik)
-  have h₂₃ := hj.orth hk (pairDisjoint_plus hjk)
-  have hz := isLongRoot_rootPairElt hQ h₁₂ h₁₃ h₂₃
-  refine ⟨rootPairElt hQ h₁₂ h₁₃ h₂₃, rootRadicalBar _ hi.hypPair hj.hypPair,
-    rootLeviBar _ hi.hypPair hj.hypPair, ?_, hz, centralizer_rootPairElt hQ h₁₂ h₁₃ h₂₃,
-    isPGroup_rootRadicalBar _ _, rootLeviBar_le_normalizer h₁₂,
-    disjoint_rootRadicalBar_rootLeviBar h₁₂, ?_⟩
-  · exact rootPairElt_mem_pairPerpOf hQ h₁₂ h₁₃ h₂₃ hk
-      ⟨single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inr rfl)⟩
-  · exact pairTorusOf_le_rootLeviBar hk
-      ⟨single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hik _ _ (.inr rfl) (.inl rfl),
-        single_plus_apply_eq_zero hik _ _ (.inr rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_plus_apply_eq_zero hjk _ _ (.inr rfl) (.inl rfl),
-        single_plus_apply_eq_zero hjk _ _ (.inr rfl) (.inr rfl)⟩
 
 end Coordinates
 

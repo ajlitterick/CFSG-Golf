@@ -160,12 +160,6 @@ omit [Finite K] [CharP K 2] [Finite E] in
       _ = g₀ * y⁻¹ * g₀⁻¹ * y := h1
       _ = g₀ * y⁻¹ * g₀⁻¹ * y⁻¹⁻¹ := by rw [inv_inv]
 
-omit [Finite K] [CharP K 2] [Finite E] in
-theorem mem_radComplement {g₀ : E}
-    {hg₀M : ∀ y, θ y ∈ symGroup → θ (g₀ * y * g₀⁻¹) ∈ symGroup}
-    {hM : ∀ x y, θ x ∈ symGroup → θ y ∈ symGroup → x * y = y * x} {x : E} :
-    x ∈ radComplement g₀ hg₀M hM ↔ ∃ y, θ y ∈ symGroup ∧ x = g₀ * y * g₀⁻¹ * y⁻¹ :=
-  Iff.rfl
 
 omit [Finite K] [CharP K 2] [Finite E] in
 theorem torusHom_const_mul_upperUnipotentSp_mul_inv (s : Kˣ) {B : Matrix (Fin 3) (Fin 3) K}

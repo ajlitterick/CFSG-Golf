@@ -649,36 +649,5 @@ theorem uRootSubgroup_le_hypBorel (h : UnitaryFieldData p f K) {α : Fin r → �
   change (uRootMat ε h a b t.toAdd).BlockTriangular fullPos
   exact uRootMat_blockTriangular h ((rootVec_mem_posRoots_iff hab).mp hα) _
 
-theorem unitary_hyperbolic_root_transport (h : UnitaryFieldData p f K) {c : K}
-    (hc : c ∈ h.traceZero) (hc0 : c ≠ 0) :
-    (∀ (w : Equiv.Perm (Fin r ⊕ Fin r)) (hw : w ∈ hypWeyl r) (α : Fin r → ℤ),
-      (uRootSubgroup ε h α).map (MulAut.conj (weylElt (ε := ε) h hc hc0 hw)).toMonoidHom =
-        uRootSubgroup ε h (epsAct w α)) ∧
-    (∀ t ∈ hypTorus h r ε, ∀ α : Fin r → ℤ,
-      (uRootSubgroup ε h α).map (MulAut.conj t).toMonoidHom = uRootSubgroup ε h α) ∧
-    (∀ (w : Equiv.Perm (Fin r ⊕ Fin r)) (hw : w ∈ hypWeyl r) (g : hypSU h r ε),
-      IsLinePerm (weylPerm w) ((g : GL (HypIndex r ε) K) :
-        Matrix (HypIndex r ε) (HypIndex r ε) K) →
-      ∃ t ∈ hypTorus h r ε, g = weylElt h hc hc0 hw * t) ∧
-    (∀ (k : Fin r) (hk : (k : ℕ) + 1 < r), IsLinePerm (weylPerm (simpleRefl r k))
-      (((uWeylRepShort ε h k hk : hypSU h r ε) : GL (HypIndex r ε) K) :
-        Matrix (HypIndex r ε) (HypIndex r ε) K)) ∧
-    (∀ k : Fin r, ¬(k : ℕ) + 1 < r →
-      uWeylRepLong ε h k c hc = weylElt h hc hc0 (simpleRefl_mem k) ∧
-      IsLinePerm (weylPerm (simpleRefl r k))
-        (((uWeylRepLong ε h k c hc : hypSU h r ε) : GL (HypIndex r ε) K) :
-          Matrix (HypIndex r ε) (HypIndex r ε) K)) ∧
-    ∀ α ∈ posRoots r, uRootSubgroup ε h α ≤ hypBorel h r ε := by
-  refine ⟨fun w hw α => map_conj_uRootSubgroup hw _ (by
-      rw [coe_weylElt]
-      exact isLinePerm_weylMat h hc0 w) α,
-    fun t ht α => (map_conj_uRootSubgroup (one_mem _) t (isLinePerm_torus ht) α).trans
-      (by rw [epsAct_one]),
-    fun w hw g hg => exists_torus_of_isLinePerm hc hc0 hw hg,
-    fun k hk => isLinePerm_uWeylRepShort h k hk,
-    fun k hk => ⟨uWeylRepLong_eq_weylElt h hc hc0 k hk, ?_⟩,
-    fun α hα => uRootSubgroup_le_hypBorel h hα⟩
-  rw [uWeylRepLong_eq_weylElt h hc hc0 k hk, coe_weylElt]
-  exact isLinePerm_weylMat h hc0 _
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

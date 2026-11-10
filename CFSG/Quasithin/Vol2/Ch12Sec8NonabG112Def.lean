@@ -148,10 +148,5 @@ theorem G112Concl3.toPartial {Γ : Subgroup (V ≃ₗ[ZMod 2] V)}
 
 end Conclusions
 
-@[expose] def TheoremG112 : Prop :=
-  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
-    (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (V ≃ₗ[ZMod 2] V)) (v₁ : V)
-    (W : Submodule (ZMod 2) V) (X X₀ : Subgroup (V ≃ₗ[ZMod 2] V)),
-    G111Hyp B Γ v₁ W X X₀ → IsQuotientOfSQTKTauCeti ↥Γ → G112Conclusion B Γ X
 
 end CFSG.Quasithin

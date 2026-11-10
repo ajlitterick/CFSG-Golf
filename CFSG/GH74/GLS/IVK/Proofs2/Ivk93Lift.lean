@@ -59,10 +59,6 @@ theorem pPrimeCore_eq_ker {Y' Y : Type} [Group Y'] [Finite Y'] [Group Y] [Finite
   (QuotientGroup.quotientMulEquivOfEq (pPrimeCore_eq_ker ρ hρ hodd hY)).trans
     (QuotientGroup.quotientKerEquivOfSurjective ρ hρ)
 
-theorem quotEquivOfHom_mk {Y' Y : Type} [Group Y'] [Finite Y'] [Group Y] [Finite Y]
-    (ρ : Y' →* Y) (hρ : Function.Surjective ρ) (hodd : ∀ y ∈ ρ.ker, Odd (orderOf y))
-    (hY : pPrimeCore 2 Y = ⊥) (y : Y') :
-    quotEquivOfHom ρ hρ hodd hY (QuotientGroup.mk' (pPrimeCore 2 Y') y) = ρ y := rfl
 
 theorem exists_pComponent_lift {Y' Y : Type} [Group Y'] [Finite Y'] [Group Y] [Finite Y]
     (ρ : Y' →* Y) (hρ : Function.Surjective ρ) (hodd : ∀ y ∈ ρ.ker, Odd (orderOf y))

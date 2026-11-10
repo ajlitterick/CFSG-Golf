@@ -242,11 +242,6 @@ theorem ggSpNonsplitTorusInput_holds :
     GGSpNonsplitTorusInput :=
   ggSpNonsplitTorusInput_of_signedEltSC ggSpNonsplitSignedEltInput_holds
 
-theorem ggCorFiveTwentyWeylInputsOn_spNonsplit :
-    GGWeylPseudoReflGenInputOn GGSpNonsplitLabel ∧
-      GGWeylCentralizerScalarInputOn GGSpNonsplitLabel ∧
-      GGCorFiveTwentyOuterInputOn GGSpNonsplitLabel :=
-  ggCorFiveTwentyWeylInputsOn_spNonsplit_of_input ggSpNonsplitTorusInput_holds
 
 end Input
 

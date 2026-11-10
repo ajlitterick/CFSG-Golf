@@ -524,14 +524,5 @@ theorem cyclicTwo_rank_four_subgroup_classification (n : ℕ) (H : Subgroup (Cyc
     simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hg
     rcases hg with rfl | rfl | rfl | rfl <;> assumption
 
-theorem rank_two_cyclic_times_two_automorphism_generator_strata (n : ℕ)
-    (H : Subgroup (CyclicTwoAut n)) :
-    Group.rank H ≤ 4 ∧ (3 ≤ Group.rank H → cyclicTwoDelta n ∈ H) ∧
-      (Group.rank H = 4 → 1 ≤ n ∧ ∃ k : ℕ, k ≤ n - 1 ∧
-        H = Subgroup.closure ({cyclicTwoTau n, cyclicTwoRho n, cyclicTwoZ n,
-          cyclicTwoC n ^ (2 ^ k)} : Set (CyclicTwoAut n))) := by
-  rw [← pGeneratorRank_eq_group_rank Nat.prime_two ((cyclicTwoAut_isPGroup n).to_subgroup H)]
-  exact ⟨cyclicTwo_subgroup_generator_bound n H, cyclicTwo_three_generators_contains_delta n H,
-    cyclicTwo_rank_four_subgroup_classification n H⟩
 
 end CFSG.LargeEvenClassification.Helpers

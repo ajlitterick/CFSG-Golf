@@ -1328,28 +1328,6 @@ open CFSG.Open CFSG.LieType.SeitzGeneration TauCeti CFSG.LieType.Seitz CFSG.LieT
     ∀ E₀ : Subgroup (adjointGroup .E8 K), IsElemAbelian 5 E₀ → Nat.card E₀ = 5 ^ 3 →
       ¬ NormalizesRGroup (ringChar K) E₀ → HyperGen 5 ⊤ E₀
 
-theorem seitzGoodInnerExcThree_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2) :
-    SeitzGoodInnerExcThree := by
-  intro d p hp hp2 hpd hlist E₀ hE₀ hcard ⟨htop, hN, hgood, h3⟩
-  exact h d p hp hp2 hpd hlist E₀ hE₀ hcard ⟨htop, hN, hgood, Or.inl h3⟩
-
-theorem not_p1ThreeLieList_E8 (p : ℕ) {q : PrimePower} (hv : (LieTypeIndex.E8 q).Valid) :
-    ¬ P1ThreeLieList p ⟨.E8 q, hv⟩ := by
-  unfold P1ThreeLieList
-  rintro (⟨n, q', hq', -⟩ | ⟨q', -, hq'⟩ | ⟨-, m, hm⟩ | ⟨q', ⟨-, -, hq'⟩ | ⟨-, -, -, hq'⟩⟩ | hch)
-  · simp at hq'
-  · simp at hq'
-  · simp at hm
-  · simp at hq'
-  · simp at hq'
-  · unfold IsP1ChevTwoIndex at hch
-    rcases hch with ⟨-, q', -, -, h⟩ | ⟨-, q', -, -, h⟩ | ⟨-, h⟩
-    · simp at h
-    · simp at h
-    · simp at h
-
-theorem seitzGoodIndex_five_E8 (q : PrimePower) : SeitzGoodIndex 5 (LieTypeIndex.E8 q) :=
-  Or.inl (by simp [ExcIndex, Bal207Index])
 
 end Residual
 
@@ -1454,85 +1432,6 @@ theorem seitzGoodInnerExcOpenRest2_of_residual3 (hres : SeitzExcOpenResidual3) :
         exact h1
       exact h81 K he _ hE₁ hc₁ hN₁
 
-theorem exists_cat_E8_equiv (K : Type) [Field K] [Finite K] :
-    ∃ (q : PrimePower) (hv : (LieTypeIndex.E8 q).Valid), Nat.card K = q.card ∧
-      q.p = ringChar K ∧ Nonempty (Cat ⟨.E8 q, hv⟩ ≃* adjointGroup .E8 K) := by
-  classical
-  have : Fintype K := Fintype.ofFinite K
-  obtain ⟨n, hℓ, hn⟩ := FiniteField.card K (ringChar K)
-  let q : PrimePower := ⟨ringChar K, n, hℓ, n.pos⟩
-  have hKq : Nat.card K = q.card := by rw [Nat.card_eq_fintype_card, hn, PrimePower.card_def]
-  have hv : (LieTypeIndex.E8 q).Valid := by simp
-  obtain ⟨K', _, _, hK'q, -, ⟨e⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.e8 q hv
-  have : Fintype K' := Fintype.ofFinite K'
-  have hcard : Fintype.card K' = Fintype.card K := by
-    rw [← Nat.card_eq_fintype_card, ← Nat.card_eq_fintype_card, hK'q, hKq]
-  let φ : K' ≃+* K := FiniteField.ringEquivOfCardEq hcard
-  exact ⟨q, hv, hKq, rfl, ⟨e.trans (CFSG.TauCetiBridge.adjointGroupCongr (τ := .E8) φ)⟩⟩
-
-theorem hyperGen_E8_five_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2)
-    (K : Type) [Field K] [Finite K] (hpK : ¬ 5 ∣ Nat.card K)
-    (hcls : ∀ q : PrimePower, Nat.card K = q.card →
-      SeitzExcOpenRest2.ExcCubeOpenRest2 (LieTypeIndex.E8 q) 5)
-    (E₀ : Subgroup (adjointGroup .E8 K)) (hE₀ : IsElemAbelian 5 E₀) (hc : Nat.card E₀ = 5 ^ 3)
-    (hN : ¬ NormalizesRGroup (ringChar K) E₀) : HyperGen 5 ⊤ E₀ := by
-  obtain ⟨q, hv, hKq, hqp, ⟨e⟩⟩ := exists_cat_E8_equiv K
-  refine hyperGen_of_mulEquiv e.symm ?_
-  have hpd : 5 ≠ (⟨LieTypeIndex.E8 q, hv⟩ : ValidLieTypeIndex).1.characteristic := by
-    change 5 ≠ (LieTypeIndex.E8 q).characteristic
-    rw [LieTypeIndex.characteristic_E8, hqp]
-    intro h5
-    apply hpK
-    have : Fintype K := Fintype.ofFinite K
-    obtain ⟨n, -, hn⟩ := FiniteField.card K (ringChar K)
-    rw [Nat.card_eq_fintype_card, hn, ← h5]
-    exact dvd_pow_self 5 n.ne_zero
-  refine h ⟨.E8 q, hv⟩ 5 Nat.prime_five (by norm_num) hpd (not_p1ThreeLieList_E8 5 hv) _
-    (CFSG.PreuniquenessRankFour.Helpers.elementary_abelian_map 5 hE₀ _)
-    (by rw [Subgroup.card_map_of_injective e.symm.injective, hc])
-    ⟨Or.inr (Or.inr (Or.inr (Or.inl ⟨q, rfl⟩))), ?_, seitzGoodIndex_five_E8 q, hcls q hKq⟩
-  intro hR
-  apply hN
-  have h1 : NormalizesRGroup (LieTypeIndex.E8 q).characteristic
-      (E₀.map e.symm.toMonoidHom) := hR
-  have h2 := normalizesRGroup_of_map_mulEquiv e.symm h1
-  rwa [LieTypeIndex.characteristic_E8, hqp] at h2
-
-theorem e8OneFiveCubeRest_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2) :
-    E8OneFiveCubeRest := by
-  intro K _ _ he E₀ hE₀ hc hN
-  have hpK : ¬ 5 ∣ Nat.card K :=
-    CFSG.LieType.SeitzGeneration.not_dvd_of_orderOf_pos Nat.prime_five he one_ne_zero
-  refine hyperGen_E8_five_of_rest2 h K hpK (fun q hKq => ?_) E₀ hE₀ hc hN
-  have hord : orderOf ((q.card : ℕ) : ZMod 5) = 1 := by
-    rw [← hKq]
-    exact he
-  exact Or.inr ⟨q, Or.inr ⟨rfl, rfl, Or.inr (Or.inr hord)⟩⟩
-
-theorem e8TwoFiveCubeRest_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2) :
-    E8TwoFiveCubeRest := by
-  intro K _ _ hpq E₀ hE₀ hc hN _
-  have hpK : ¬ 5 ∣ Nat.card K := not_dvd_card_of_dvd_add_one Nat.prime_five hpq
-  refine hyperGen_E8_five_of_rest2 h K hpK (fun q hKq => ?_) E₀ hE₀ hc hN
-  have hord : orderOf ((q.card : ℕ) : ZMod 5) = 2 := by
-    rw [← hKq]
-    exact orderOf_eq_two_of_dvd_add_one Nat.prime_five (by norm_num) hpq
-  exact Or.inr ⟨q, Or.inr ⟨rfl, rfl, Or.inl hord⟩⟩
-
-theorem e8FourFiveCubeRest_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2) :
-    E8FourFiveCubeRest := by
-  intro K _ _ he E₀ hE₀ hc hN _
-  have hpK : ¬ 5 ∣ Nat.card K := not_dvd_of_orderOf_eq_four Nat.prime_five he
-  refine hyperGen_E8_five_of_rest2 h K hpK (fun q hKq => ?_) E₀ hE₀ hc hN
-  have hord : orderOf ((q.card : ℕ) : ZMod 5) = 4 := by
-    rw [← hKq]
-    exact he
-  exact Or.inr ⟨q, Or.inr ⟨rfl, rfl, Or.inr (Or.inl hord)⟩⟩
-
-theorem seitzExcOpenResidual3_of_rest2 (h : SeitzExcOpenRest2.SeitzGoodInnerExcOpenRest2) :
-    SeitzExcOpenResidual3 :=
-  ⟨seitzGoodInnerExcThree_of_rest2 h, e8OneFiveCubeRest_of_rest2 h, e8TwoFiveCubeRest_of_rest2 h,
-    e8FourFiveCubeRest_of_rest2 h⟩
 
 end Assembly
 

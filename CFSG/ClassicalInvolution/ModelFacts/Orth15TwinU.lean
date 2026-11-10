@@ -682,8 +682,4 @@ theorem twinFrameHyp51_of {p f : ℕ} [Fact p.Prime] (hin : TwinSmallInner p)
     (twinFrameHyp51u_of hout hex)
 
 
-theorem c21_3_of_residuals {p f : ℕ} [Fact p.Prime] (hin : TwinSmallInner p)
-    (hout : TwinSmallOuter p) (hex : G2D4VertexExcl p f) : C21_3 p f :=
-  c21_3_of p f (twinFrameHyp51_of hin hout hex)
-
 end CFSG.ClassicalInvolution.Asc77

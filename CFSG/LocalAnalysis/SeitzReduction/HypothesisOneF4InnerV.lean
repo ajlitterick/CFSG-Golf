@@ -395,15 +395,5 @@ theorem innerCentralizerCriterion_F4_v {f : ℕ} (hf : 2 ≤ f) [Finite K] [Char
     interval_cases p <;> first | decide | exact absurd h3 (by decide)
   exact f4x_mem_closure_odd_classV hf hK hpc c
 
-theorem innerInvolutionInput_F4_of_classes_v {f : ℕ} (hf : 2 ≤ f) [Finite K] [CharP K 2]
-    (hK : Nat.card K = 2 ^ f)
-    (hrep : ∀ x : adjointGroup .F4 K, orderOf (MulAut.conj x) = 2 →
-      ∃ ψ : MulAut (adjointGroup .F4 K), ∃ s ∈ ({⟨f4x K 47 1, pinnedX_mem_adjointGroup _ _⟩,
-        ⟨f4x K 47 1 * f4x K 44 1, mul_mem (pinnedX_mem_adjointGroup _ _)
-          (pinnedX_mem_adjointGroup _ _)⟩,
-        ⟨f4x K 41 1 * f4x K 45 1, mul_mem (pinnedX_mem_adjointGroup _ _)
-          (pinnedX_mem_adjointGroup _ _)⟩} : Set (adjointGroup .F4 K)), ψ s = x) :
-    InnerInvolutionInput (adjointGroup .F4 K) :=
-  innerInvolutionInput_F4_of_classes hf hK (innerCentralizerCriterion_F4_v hf hK) hrep
 
 end CFSG.SeitzReduction

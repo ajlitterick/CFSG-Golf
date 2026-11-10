@@ -62,35 +62,5 @@ theorem corefree_hall_product_fitting_le_factor
   rw [fitting_subgroup_eq_prime_cores, Subgroup.map_iSup]
   exact iSup_le fitting_prime_le
 
-theorem corefree_abelian_hall_product_fitting_eq_factor
-    (prime : ℕ) (prime_prime : prime.Prime) (complement factor parent : Subgroup GroupType)
-    (complement_coprime : Nat.Coprime prime (Nat.card complement))
-    (factor_pgroup : IsPGroup prime factor) (whole : subgroupProduct complement factor = Set.univ)
-    (corefree : complement.normalCore = ⊥) (factor_le : factor ≤ parent)
-    (abelian : IsMulCommutative factor) (solvable : Group.IsSolvable parent) :
-    (fittingSubgroup (GroupType := parent)).map parent.subtype = factor ∧
-      (factor.subgroupOf parent).Normal := by
-  let := solvable
-  let := abelian
-  have fitting_le := corefree_hall_product_fitting_le_factor prime prime_prime complement factor parent
-    complement_coprime factor_pgroup whole corefree factor_le
-  have factor_le_fitting : factor ≤ (fittingSubgroup (GroupType := parent)).map parent.subtype := by
-    intro element member
-    have centralizes : (⟨element, factor_le member⟩ : parent) ∈
-        Subgroup.centralizer (fittingSubgroup (GroupType := parent) : Set parent) := by
-      apply Subgroup.mem_centralizer_iff.mpr
-      intro other other_member
-      apply Subtype.ext
-      exact Subgroup.mem_centralizer_iff.mp (Subgroup.le_centralizer factor member) other.val
-        (fitting_le (Subgroup.mem_map_of_mem parent.subtype other_member))
-    exact Subgroup.mem_map_of_mem parent.subtype (solvable_fitting_centralizer_le centralizes)
-  have equal := le_antisymm fitting_le factor_le_fitting
-  refine ⟨equal, ?_⟩
-  have internal_eq : factor.subgroupOf parent = fittingSubgroup := by
-    apply Subgroup.map_subtype_inj.mp
-    rw [Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr factor_le]
-    exact equal.symm
-  rw [internal_eq]
-  exact fitting_subgroup_normal
 
 end CFSG.SignalizerFunctor.Helpers

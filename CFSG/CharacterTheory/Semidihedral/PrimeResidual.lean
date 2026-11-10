@@ -72,12 +72,6 @@ theorem primeResidual_hom_eq_one {p : ℕ} [Fact p.Prime]
   subst a
   exact ha
 
-theorem sylow_abelianization_card {p : ℕ} [Fact p.Prime]
-    {H : Type u} [Group H] [Finite H] (S : Sylow p H)
-    (hS : ((commutator H).subgroupOf (S : Subgroup H)).index = p) :
-    Nat.card ((S : Subgroup H).map (Abelianization.of : H →* Abelianization H)) = p := by
-  rw [← Subgroup.relIndex_ker, Abelianization.ker_of]
-  exact hS
 
 theorem abelian_pGroup_quotient_card_dvd {p : ℕ} [Fact p.Prime]
     {H : Type u} [Group H] [Finite H] (S : Sylow p H)
@@ -227,27 +221,5 @@ theorem primeResidual_unique_normal_index {p : ℕ} [Fact p.Prime]
   rw [hindex, primeResidual_index S hS] at hlt
   exact (lt_irrefl p) hlt
 
-theorem prime_residual_from_prime_sylow_abelianization
-    {p : ℕ} [Fact p.Prime] {H : Type u} [Group H] [Finite H] (S : Sylow p H)
-    (hS : ((commutator H).subgroupOf (S : Subgroup H)).index = p) :
-    (primeResidual p H).Characteristic ∧
-      (primeResidual p H).index = p ∧
-      IsCyclic (H ⧸ primeResidual p H) ∧
-      Nat.card (H ⧸ primeResidual p H) = p ∧
-      (S : Subgroup H) ⊓ primeResidual p H = (S : Subgroup H) ⊓ commutator H ∧
-      (∃ T : Sylow p (primeResidual p H),
-        (T : Subgroup (primeResidual p H)) =
-          ((S : Subgroup H) ⊓ commutator H).subgroupOf (primeResidual p H)) ∧
-      (∀ J : Subgroup H, J.Normal → J.index = p → J = primeResidual p H) ∧
-      (∀ (P : Type v) [Group P] [Finite P], IsPGroup p P →
-        ∀ f : primeResidual p H →* P, f = 1) := by
-  have hinter := sylow_inf_primeResidual_eq_commutator S hS
-  obtain ⟨T, hT⟩ := sylow_inf_primeResidual S hS
-  refine ⟨primeResidual_characteristic p H, primeResidual_index S hS,
-    primeResidual_quotient_isCyclic S hS, primeResidual_quotient_card S hS,
-    hinter, ⟨T, ?_⟩, primeResidual_unique_normal_index S hS, ?_⟩
-  · simpa only [hinter] using hT
-  · intro P _ _ hP f
-    exact primeResidual_hom_eq_one hP f
 
 end CFSG.Semidihedral

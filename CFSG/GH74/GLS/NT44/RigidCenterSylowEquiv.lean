@@ -63,38 +63,6 @@ private theorem exists_actual_center_equiv_of_isSylowOf_zStar
   exact ⟨MulEquiv.ofBijective fW ⟨hfinj, hfsur⟩, fun w => rfl⟩
 
 
-theorem exists_rigid_center_sylow_equiv_of_center_equiv
-    {G : Type} [Group G] [Finite G] {fullQ : Type} [Group fullQ]
-    {x : G} {J S : Subgroup G}
-    (hJ : J ∈ CFSG.GH74.GLS.Stage1.Thm4.RigidSet fullQ x)
-    (hS : CFSG.ABGLocalTools.IsSylowOf 2 S
-      (Subgroup.centralizer ({x} : Set G)))
-    (hZ2 : IsPGroup 2 (Subgroup.center (CFSG.GH74.GLS.kBar J)))
-    (eQ : Subgroup.center (CFSG.GH74.GLS.kBar J) ≃*
-      (Multiplicative (ZMod 4) × Multiplicative (ZMod 2))) :
-    ∃ eW : ↥(S ⊓ CFSG.GH74.GLS.zStar J) ≃*
-        (Multiplicative (ZMod 4) × Multiplicative (ZMod 2)),
-      ∀ w : ↥(S ⊓ CFSG.GH74.GLS.zStar J),
-        (eW w : Multiplicative (ZMod 4) × Multiplicative (ZMod 2)) =
-          eQ ⟨CFSG.GH74.GLS.Stage1.Thm2.Recip.hatMk J ⟨(w : G), w.2.2.1⟩,
-            (Alt51.mem_zStar_iff_hat_mem_center (K := J)
-              ⟨(w : G), w.2.2.1⟩).mp w.2.2⟩ := by
-  classical
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hSI := P92.sylow_inf hJ hS
-  have hW : CFSG.ABGLocalTools.IsSylowOf 2 (S ⊓ zStar J) (zStar J) := by
-    have h := hSI.inf_of_le_normalizer (show zStar J ≤ J from inf_le_left)
-      (fun j hj => Alt51.mem_normalizer_zStar (Subgroup.le_normalizer hj))
-    simpa only [inf_assoc, inf_eq_right.mpr (show zStar J ≤ J from inf_le_left)] using h
-  obtain ⟨eZ, heZ⟩ := exists_actual_center_equiv_of_isSylowOf_zStar hW hZ2
-  refine ⟨eZ.trans eQ, ?_⟩
-  intro w
-  rw [MulEquiv.trans_apply]
-  rw [show eZ w = ⟨CFSG.GH74.GLS.Stage1.Thm2.Recip.hatMk J
-      ⟨(w : G), w.2.2.1⟩,
-    (Alt51.mem_zStar_iff_hat_mem_center (K := J)
-      ⟨(w : G), w.2.2.1⟩).mp w.2.2⟩ from Subtype.ext (heZ w)]
-
 theorem exists_rigid_center_sylow_equiv_of_center_card_sixteen :
 ∀
     {G : Type} [Group G] [Finite G] {fullQ : Type} [Group fullQ]
@@ -138,34 +106,6 @@ theorem exists_rigid_center_sylow_equiv_of_center_card_sixteen :
     ((Subgroup.centerCongr eJ).trans (Subgroup.centerCongr eF).symm).trans eModel
   exact ⟨eZ, e4, heZ⟩
 
-theorem exists_rigid_center_sylow_equiv_of_center_equiv_to
-    {G : Type} [Group G] [Finite G] {fullQ : Type} [Group fullQ]
-    {x : G} {J S : Subgroup G} {C : Type*} [Group C]
-    (hJ : J ∈ CFSG.GH74.GLS.Stage1.Thm4.RigidSet fullQ x)
-    (hS : CFSG.ABGLocalTools.IsSylowOf 2 S
-      (Subgroup.centralizer ({x} : Set G)))
-    (hZ2 : IsPGroup 2 (Subgroup.center (CFSG.GH74.GLS.kBar J)))
-    (eQ : Subgroup.center (CFSG.GH74.GLS.kBar J) ≃* C) :
-    ∃ eW : ↥(S ⊓ CFSG.GH74.GLS.zStar J) ≃* C,
-      ∀ w : ↥(S ⊓ CFSG.GH74.GLS.zStar J),
-        eW w = eQ ⟨CFSG.GH74.GLS.Stage1.Thm2.Recip.hatMk J ⟨(w : G), w.2.2.1⟩,
-          (Alt51.mem_zStar_iff_hat_mem_center (K := J)
-            ⟨(w : G), w.2.2.1⟩).mp w.2.2⟩ := by
-  classical
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hSI := P92.sylow_inf hJ hS
-  have hW : CFSG.ABGLocalTools.IsSylowOf 2 (S ⊓ zStar J) (zStar J) := by
-    have h := hSI.inf_of_le_normalizer (show zStar J ≤ J from inf_le_left)
-      (fun j hj => Alt51.mem_normalizer_zStar (Subgroup.le_normalizer hj))
-    simpa only [inf_assoc, inf_eq_right.mpr (show zStar J ≤ J from inf_le_left)] using h
-  obtain ⟨eZ, heZ⟩ := exists_actual_center_equiv_of_isSylowOf_zStar hW hZ2
-  refine ⟨eZ.trans eQ, ?_⟩
-  intro w
-  rw [MulEquiv.trans_apply]
-  rw [show eZ w = ⟨CFSG.GH74.GLS.Stage1.Thm2.Recip.hatMk J
-      ⟨(w : G), w.2.2.1⟩,
-    (Alt51.mem_zStar_iff_hat_mem_center (K := J)
-      ⟨(w : G), w.2.2.1⟩).mp w.2.2⟩ from Subtype.ext (heZ w)]
 
 end CFSG.GH74.GLS.NT44
 

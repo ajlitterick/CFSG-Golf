@@ -382,26 +382,5 @@ theorem rhoEquiv_eq_axisPoly {r : Q} (hr : IsShortCoord (coordOf r)) (v : SpaceB
         perpPart r v) - (16 / 217 : ℚ) • axisCubic (gmul (axis r)) (perpPart r v) := by abel
     _ = _ := by rw [← hv]
 
-theorem short_axis_polynomial_involution (r : Q) (hr : IsShortCoord (coordOf r)) :
-    (rhoEquiv r : SpaceB →ₗ[ℚ] SpaceB) = LinearMap.id - (16 / 217 : ℚ) •
-      (gmul (axis r) ∘ₗ (gmul (axis r) - (4 : ℚ) • LinearMap.id) ∘ₗ
-        (gmul (axis r) - (16 : ℚ) • LinearMap.id)) ∧
-    (∀ v ∈ Module.End.eigenspace (gmul (axis r)) (1 / 2 : ℚ), rhoEquiv r v = -v) ∧
-    (∀ v ∈ Module.End.eigenspace (gmul (axis r)) 0, rhoEquiv r v = v) ∧
-    (∀ v ∈ Module.End.eigenspace (gmul (axis r)) 4, rhoEquiv r v = v) ∧
-    (∀ v ∈ Module.End.eigenspace (gmul (axis r)) 16, rhoEquiv r v = v) := by
-  have hev : ∀ (μ : ℚ) (v : SpaceB), v ∈ Module.End.eigenspace (gmul (axis r)) μ →
-      rhoEquiv r v = (1 - 16 / 217 * (μ * (μ - 4) * (μ - 16))) • v := by
-    intro μ v hv
-    rw [rhoEquiv_eq_axisPoly hr, axisCubic_of_eigen _ (Module.End.mem_eigenspace_iff.1 hv)]
-    exact sub_smul_smul_eq v _ _ rfl
-  refine ⟨LinearMap.ext fun v => rhoEquiv_eq_axisPoly hr v, fun v hv => ?_, fun v hv => ?_,
-    fun v hv => ?_, fun v hv => ?_⟩
-  · rw [hev _ v hv, show (1 - 16 / 217 * (1 / 2 * (1 / 2 - 4) * (1 / 2 - 16)) : ℚ) = -1 by
-      norm_num]
-    exact neg_one_smul ℚ v
-  · rw [hev _ v hv]; norm_num
-  · rw [hev _ v hv]; norm_num
-  · rw [hev _ v hv]; norm_num
 
 end CFSG.Monster.B

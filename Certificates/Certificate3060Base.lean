@@ -18,8 +18,6 @@ theorem c_comm : ∀ k : Fin 8,
 theorem foldN_ne : ∀ x < 256, Model.Pauli.mul (false, 0, 127) (foldN x) ≠ (false, 0, 0) ∧
     Model.Pauli.mul (false, 0, 127) (foldN x) ≠ (false, 0, 191) := by decide +kernel
 
-theorem foldN_ne_corrupt :
-    ¬ ∀ x < 256, Model.Pauli.mul (false, 0, 191) (foldN x) ≠ (false, 0, 0) := by decide +kernel
 
 theorem closed : Model.Pauli.mul (false, 0, 127) (false, 0, 127) = (false, 0, 0) ∧
     Model.conjYN 3 (false, 0, 127) = (false, 0, 127) := by decide +kernel

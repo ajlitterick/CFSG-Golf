@@ -617,13 +617,6 @@ section Steps
         img148 A Y (deltaZero A (lB A) (Ronan148M.centPre148 A Y J)) ≤ img148 A Y J ∨
           Case148Seven A (lB A) Y
 
-theorem step148PGLCentInd_of_cent (h : Step148PGLCent) : Step148PGLCentInd := by
-  intro G _ _ A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA
-  letI := ker148_normal hY.2
-  rcases h G A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA with
-    hc | h7
-  · exact Or.inl (Ronan148M.img148_deltaZero_centPre148_le.trans hc)
-  · exact Or.inr h7
 
 theorem step148PGLCent_of_ind
     (h134 : Item134) (h48 : Sec4.Item4_8)

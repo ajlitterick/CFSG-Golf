@@ -196,33 +196,6 @@ theorem oResidual_sup_eq {Y : Type*} [Group Y] [Finite Y] {N T : Subgroup Y} (hN
     exact oResidual_le_of_isPGroup_quotient hQ
   · exact hperf
 
-theorem oPrimePResidual_eq_pair {A₁ A₂ T : Subgroup Γ} (hP₁ : Group.IsPerfect ↥A₁)
-    (hP₂ : Group.IsPerfect ↥A₂) (hN : (A₁ ⊔ A₂).Normal) (hT : IsPGroup 2 ↥T)
-    (hY : oPrimeResidual 2 Γ = A₁ ⊔ A₂ ⊔ T) : oPrimePResidual 2 Γ = A₁ ⊔ A₂ := by
-  have hN_le : A₁ ⊔ A₂ ≤ oPrimeResidual 2 Γ := by rw [hY]; exact le_sup_left
-  have hT_le : T ≤ oPrimeResidual 2 Γ := by rw [hY]; exact le_sup_right
-  have hA₁ : A₁ ≤ oPrimeResidual 2 Γ := le_sup_left.trans hN_le
-  have hA₂ : A₂ ≤ oPrimeResidual 2 Γ := le_sup_right.trans hN_le
-  have hperf : ∀ {A : Subgroup Γ} (hA : A ≤ oPrimeResidual 2 Γ), Group.IsPerfect ↥A →
-      A.subgroupOf (oPrimeResidual 2 Γ) ≤ oResidual 2 ↥(oPrimeResidual 2 Γ) := by
-    intro A hA hAp
-    apply perfect_le_oResidual
-    have e := Subgroup.subgroupOfEquivOfLe hA
-    exact Group.IsPerfect.ofSurjective (G := ↥A) (G' := ↥(A.subgroupOf (oPrimeResidual 2 Γ)))
-      (f := e.symm.toMonoidHom) e.symm.surjective
-  have h1 : (A₁ ⊔ A₂).subgroupOf (oPrimeResidual 2 Γ) ≤ oResidual 2 ↥(oPrimeResidual 2 Γ) := by
-    rw [Subgroup.subgroupOf_sup hA₁ hA₂]
-    exact sup_le (hperf hA₁ hP₁) (hperf hA₂ hP₂)
-  have h2 : (A₁ ⊔ A₂).subgroupOf (oPrimeResidual 2 Γ) ⊔ T.subgroupOf (oPrimeResidual 2 Γ) = ⊤ := by
-    rw [← Subgroup.subgroupOf_sup hN_le hT_le, ← hY]
-    exact Subgroup.subgroupOf_self (oPrimeResidual 2 Γ)
-  have hTp : IsPGroup 2 ↥(T.subgroupOf (oPrimeResidual 2 Γ)) :=
-    hT.of_equiv (Subgroup.subgroupOfEquivOfLe hT_le).symm
-  have hNY : ((A₁ ⊔ A₂).subgroupOf (oPrimeResidual 2 Γ)).Normal := hN.subgroupOf _
-  have := oResidual_sup_eq hNY h1 hTp h2
-  unfold oPrimePResidual
-  rw [this]
-  exact Subgroup.map_subgroupOf_eq_of_le hN_le
 
 theorem perfect_le_of_le_sup_pgroup {N T P : Subgroup Γ} (hN : N.Normal) (hT : IsPGroup 2 ↥T)
     (hP : Group.IsPerfect ↥P) (hPNT : P ≤ N ⊔ T) : P ≤ N := by

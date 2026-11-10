@@ -21,11 +21,9 @@ open CFSG.Quasithin.KGC31.M22 CertificateChecks.KernelSporSch
 @[expose] noncomputable def X7 : Nat := pw w7
 @[expose] noncomputable def X11 : Nat := pw w11
 
-@[expose] noncomputable def P5 : List Nat := (List.range 5).map (ppw 22 5 X5)
 
 @[expose] noncomputable def P7 : List Nat := (List.range 7).map (ppw 22 5 X7)
 
-@[expose] noncomputable def P11 : List Nat := (List.range 11).map (ppw 22 5 X11)
 
 @[expose] noncomputable def hexP : List Nat := hexW.map pw
 @[expose] noncomputable def duadP : List Nat := duadW.map pw
@@ -41,14 +39,6 @@ open CFSG.Quasithin.KGC31.M22 CertificateChecks.KernelSporSch
 
 @[expose] noncomputable def D : ClsD := M22CK.getD 0 clsD0
 
-@[expose] noncomputable def invOne (k : Nat) : Bool :=
-  permOK 22 5 (mask 5) (22 * 5) (D.ST k) (pinv 22 5 (D.ST k)) &&
-    P5.all (fun x => porbOne 22 5 5 x C5 (D.ST k)) &&
-    P7.all (fun x => porbOne 22 5 7 x C7 (D.ST k)) &&
-    P11.all (fun x => pactOne 22 5 11 x (D.ST k))
-
-@[expose] noncomputable def invBlk (k : Nat) : Bool :=
-  (List.range' (200 * k) (min 200 (D.c - 200 * k))).all invOne
 
 @[expose] noncomputable def CB : List Nat :=
   pfilterProducts 22 5 (fun _ => true) (trPL 22 5 M22C1.LR M22C1.TR 3) (pidn 22 5) []

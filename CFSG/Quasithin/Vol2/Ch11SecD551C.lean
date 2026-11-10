@@ -83,12 +83,6 @@ theorem conjV_pow (V : Subgroup G) {x : G} (hx : x ∈ Subgroup.normalizer (V : 
   rw [← map_pow]
   rfl
 
-theorem conjV_conj' (V : Subgroup G) {x y : G} (hx : x ∈ Subgroup.normalizer (V : Set G))
-    (hy : y ∈ Subgroup.normalizer (V : Set G)) :
-    (SecA.conjV V y hy)⁻¹ * SecA.conjV V x hx * SecA.conjV V y hy =
-      SecA.conjV V (y⁻¹ * x * y) (Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.inv_mem _ hy)
-        hx) hy) := by
-  rw [← SecA.conjV_inv, ← SecA.conjV_mul, ← SecA.conjV_mul]
 
 theorem mem_centralizer_of_conjV_eq_one {V : Subgroup G} {x : G}
     (hx : x ∈ Subgroup.normalizer (V : Set G)) (h1 : SecA.conjV V x hx = 1) :

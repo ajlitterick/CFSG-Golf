@@ -183,8 +183,6 @@ theorem isReduced_G2_alternating :
     (coxeterSystem .G2).IsReduced ([0, 1, 0, 1, 0, 1] : List (Fin 2)) :=
   isReduced_of_reducedCheck (by decide +kernel)
 
-theorem not_isReduced_G2_square : ¬(coxeterSystem .G2).IsReduced ([0, 0] : List (Fin 2)) :=
-  fun h => absurd ((reducedCheck_iff _).2 h) (by decide +kernel)
 
 end Reduced
 
@@ -223,8 +221,6 @@ theorem height_wordProd_smul_neg_of_negCheck {ω : List (Fin τ.rank)} (h : negC
     omega
   · rwa [(walkPos_spec ω hk).2, hkα] at h'
 
-theorem negCheck_G2_alternating : negCheck .G2 ([0, 1, 0, 1, 0, 1] : List (Fin 2)) = true := by
-  decide +kernel
 
 end AllNegative
 

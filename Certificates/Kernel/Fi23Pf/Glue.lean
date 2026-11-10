@@ -81,9 +81,6 @@ theorem gm_append (u v : List Nat) : gm (u ++ v) = gm u * gm v := by
   unfold gm
   rw [List.map_append, List.prod_append]
 
-theorem gm_flatten : ∀ L : List (List Nat), gm L.flatten = (L.map gm).prod
-  | [] => rfl
-  | u :: L => by rw [List.flatten_cons, gm_append, gm_flatten L, List.map_cons, List.prod_cons]
 
 def dW7 : List Nat := (List.replicate 7 dWord).flatten
 

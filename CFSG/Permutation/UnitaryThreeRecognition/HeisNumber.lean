@@ -21,7 +21,6 @@ theorem three_le_prime_pow {p f : ℕ} (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 
 theorem gcd_succ_three_le (q : ℕ) : Nat.gcd (q + 1) 3 ≤ 3 :=
   Nat.le_of_dvd (by norm_num) (Nat.gcd_dvd_right _ _)
 
-theorem gcd_succ_three_dvd (q : ℕ) : Nat.gcd (q + 1) 3 ∣ q + 1 := Nat.gcd_dvd_left _ _
 
 theorem gcd_succ_three_pos (q : ℕ) : 0 < Nat.gcd (q + 1) 3 :=
   Nat.gcd_pos_of_pos_right _ (by norm_num)

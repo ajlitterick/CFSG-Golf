@@ -89,11 +89,6 @@ theorem dualVec_inl_dotProduct_inr (i j : Fin ℓ) :
   rw [dualVec_dotProduct_basis]
   simp
 
-theorem dualVec_inr_dotProduct_inl (i j : Fin ℓ) :
-    dualVec b (.inr (.inl i)) ⬝ᵥ b (.inl j) = 0 := by
-  classical
-  rw [dualVec_dotProduct_basis]
-  simp
 
 theorem dualVec_inr_dotProduct_inr (i j : Fin ℓ) :
     dualVec b (.inr (.inl i)) ⬝ᵥ b (.inr (.inl j)) = if j = i then 1 else 0 := by

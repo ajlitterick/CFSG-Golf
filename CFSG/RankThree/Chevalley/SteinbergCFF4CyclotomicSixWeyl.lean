@@ -66,17 +66,6 @@ theorem f4PhiSixCoord_mul : f4PhiSixCoord * f4PhiSixBasis = 1 := by decide
 
 theorem mul_f4PhiSixCoord : f4PhiSixBasis * f4PhiSixCoord = 1 := by decide
 
-theorem f4PhiSixBasis_eq :
-    f4PhiSixBasis = Matrix.of fun (i j : Fin Tag.F4.rank) =>
-      (![Pi.single (f4Index 0) 1, f4PhiSix • Pi.single (f4Index 0) 1,
-        Pi.single (f4Index 2) 1, f4PhiSix • Pi.single (f4Index 2) 1] :
-          Fin 4 → Fin Tag.F4.rank → ℤ) j i := by
-  rw [← weylMatrix_mulVec, ← weylMatrix_mulVec, weylMatrix_f4PhiSix]
-  decide
-
-theorem det_f4PhiSixBasis : f4PhiSixBasis.det = -1 := by
-  have h : detLaplace 4 f4PhiSixBasis = -1 := by decide
-  exact (detLaplace_eq_det 4 f4PhiSixBasis).symm.trans h
 
 @[expose] def negUnitPhiSix {p : ℕ} {q : ZMod p} (hq : q ^ 2 - q + 1 = 0) : (ZMod p)ˣ :=
   ⟨-q, q ^ 2, by linear_combination (-q - 1) * hq, by linear_combination (-q - 1) * hq⟩

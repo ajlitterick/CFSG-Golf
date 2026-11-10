@@ -50,10 +50,6 @@ set_option linter.unusedSectionVars false
 @[expose] def certCheck (τ : Tag) (j k : Fin τ.rank) : Bool :=
   (List.range 8).all (certTarget τ j k) && (List.range 4).all (certZero3 τ j k)
 
-theorem certCheck_of_parts {τ : Tag} {j k : Fin τ.rank} (h : ∀ i < 8, certTarget τ j k i = true)
-    (h3 : ∀ g < 4, certZero3 τ j k g = true) : certCheck τ j k = true := by
-  simp only [certCheck, Bool.and_eq_true, List.all_eq_true, List.mem_range]
-  exact ⟨h, h3⟩
 
 section Sound
 
@@ -89,15 +85,6 @@ theorem validEntries_nilE (hd : DataChecks τ) (j k : Fin τ.rank) (g : ℕ) :
     validEntries_of_validB (validB_of_allValid hd.valid ha hd')
   exact validEntries_append (validEntries_append (v 1 (by simp)) (v 2 (by simp))) (v 3 (by simp))
 
-theorem validEntries_wordN (hd : DataChecks τ) (j k : Fin τ.rank) :
-    ∀ (w : List ℕ) (M : List Entry), ValidEntries τ M →
-      ValidEntries τ (w.foldl (fun M g => nilE τ j k g ++ M ++ mulE (nilE τ j k g) M) M)
-  | [], M, hM => hM
-  | g :: w, M, hM => by
-    rw [List.foldl_cons]
-    exact validEntries_wordN hd j k w _
-      (validEntries_append (validEntries_append (validEntries_nilE hd j k g) hM)
-        (validEntries_mulE (validEntries_nilE hd j k g) hM))
 
 theorem entriesOp_idE_aux (n : ℕ) (p : ℕ) (hp : p < dim τ) :
     entriesOp τ R ((List.range n).map fun c => (c, c, (1 : ℤ))) (posVec τ R p) =

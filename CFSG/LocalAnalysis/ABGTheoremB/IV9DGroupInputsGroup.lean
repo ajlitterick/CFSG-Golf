@@ -43,8 +43,6 @@ section OddElements
 variable {N : Subgroup K}
   {hcomm : ∀ a ∈ N, ∀ b ∈ N, Odd (orderOf a) → Odd (orderOf b) → a * b = b * a}
 
-theorem mem_oddElements {g : K} : g ∈ oddElements N hcomm ↔ g ∈ N ∧ Odd (orderOf g) :=
-  Iff.rfl
 
 theorem oddElements_le : oddElements N hcomm ≤ N := fun _ hg => hg.1
 

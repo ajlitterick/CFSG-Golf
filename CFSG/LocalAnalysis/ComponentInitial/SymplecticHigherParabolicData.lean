@@ -64,19 +64,6 @@ theorem comap_projStabilizer (W : Submodule K (Fin r ⊕ Fin r → K)) :
 theorem flagStabilizer_empty : flagStabilizer r K ∅ = ⊤ :=
   eq_top_iff.mpr fun _ _ => mem_flagStabilizer.mpr fun _ h => absurd h (Set.notMem_empty _)
 
-theorem parabolic_data :
-    (∀ W : Submodule K (Fin r ⊕ Fin r → K), spScalars r K ≤ stabilizer r K W) ∧
-    (∀ I : Set ℕ, spScalars r K ≤ flagStabilizer r K I) ∧
-    (∀ W : Submodule K (Fin r ⊕ Fin r → K),
-      (projStabilizer r K W).comap (proj r K) = stabilizer r K W) ∧
-    (∀ I : Set ℕ,
-      ((flagStabilizer r K I).map (proj r K)).comap (proj r K) = flagStabilizer r K I) ∧
-    flagStabilizer r K ∅ = ⊤ := by
-  refine ⟨spScalars_le_stabilizer, spScalars_le_flagStabilizer, comap_projStabilizer,
-    fun I => ?_, flagStabilizer_empty⟩
-  rw [Subgroup.comap_map_eq_self]
-  rw [ker_proj]
-  exact spScalars_le_flagStabilizer I
 
 variable (r K)
 

@@ -84,9 +84,6 @@ variable (hU : UnitaryFieldData p f E) (v : Fin 3 → (Fin 3 → E))
     intro g hg
     exact ⟨hg.2, by simpa using hg.1⟩
 
-theorem mem_frameTorusSU {g : gramSU hU (1 : Matrix (Fin 3) (Fin 3) E)} :
-    g ∈ frameTorusSU hU v ↔ ∀ i, ∃ c : E, c ≠ 0 ∧
-      ((g : GL (Fin 3) E) : Matrix (Fin 3) (Fin 3) E) *ᵥ v i = c • v i := Iff.rfl
 
 theorem mem_frameMonoSU {g : gramSU hU (1 : Matrix (Fin 3) (Fin 3) E)} :
     g ∈ frameMonoSU hU v ↔

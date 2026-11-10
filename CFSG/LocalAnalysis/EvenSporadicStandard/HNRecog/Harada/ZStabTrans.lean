@@ -25,7 +25,6 @@ private theorem add_self_eq_zero_V6 (x : V6) : x + x = 0 := by
 private theorem add_add_self_V6 (x y : V6) : x + (x + y) = y := by
   rw [← add_assoc, add_self_eq_zero_V6, zero_add]
 
-private theorem qm_zero : qm (0 : V6) = 0 := by decide
 
 private theorem exists_omega_fix_nonsing_bil_one {w a a' : V6} (hw : qm w = 0) (hw0 : w ≠ 0)
     (ha : qm a = 1) (haw : bil a w = 0) (ha' : qm a' = 1) (ha'w : bil a' w = 0)

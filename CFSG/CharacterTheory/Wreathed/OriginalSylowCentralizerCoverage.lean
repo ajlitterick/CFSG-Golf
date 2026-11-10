@@ -720,56 +720,5 @@ theorem original_Sylow_invariance_iff
         (originalPrimeSubgroup n S e P)),
     Subgroup.comap_map_eq_self_of_injective (involutionCentralizer n S e).subtype_injective]
 
-theorem original_Sylow_centralizer_coverage_equivalent_to_noncentral_wreath_action_kernel
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4)))
-    {ell : ℕ} (hell : ell.Prime) (hdiv : ell ∣ Nat.card (centralizerOddCore n S e))
-    (P : Sylow ell (centralizerOddCore n S e)) :
-    let coverage := (originalPrimeCentralizer n S e P ⊓
-      (CFSG.layer (centralizerOddCoreQuotient n S e)).comap (centralizerOddCoreMap n S e)).map
-        (centralizerOddCoreMap n S e) = CFSG.layer (centralizerOddCoreQuotient n S e)
-    (coverage ↔ ¬ originalPrimeCentralizer n S e P ≤
-      centralizerOddCore n S e ⊔ centralizerFullCenter n hn S e) ∧
-    (coverage ↔ ¬ Group.IsSolvable (originalPrimeCentralizer n S e P)) ∧
-    ((S : Subgroup G) ≤ Subgroup.normalizer (((originalPrimeSubgroup n S e P).map
-      (involutionCentralizer n S e).subtype) : Set G) →
-      (coverage ↔ ¬ originalSylowCentralizer n S e P ≤ Subgroup.center S) ∧
-      (coverage ↔ (modelY S e).subgroupOf (S : Subgroup G) ≤ originalSylowCentralizer n S e P) ∧
-      (coverage ↔ ¬ IsCyclic (originalSylowCentralizer n S e P))) ∧
-    (¬ coverage →
-      originalPrimeCentralizer n S e P ≤ centralizerOddCore n S e ⊔
-        centralizerFullCenter n hn S e ∧
-      Group.IsSolvable (originalPrimeCentralizer n S e P) ∧
-      Subgroup.zpowers (originalSylowInvolution n S e) ≤ originalSylowCentralizer n S e P ∧
-      originalSylowCentralizer n S e P ≤ Subgroup.center S ∧
-      IsCyclic (originalSylowCentralizer n S e P)) := by
-  have hfull : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)) := by
-    intro h
-    obtain ⟨E⟩ := h
-    apply hfour
-    exact ⟨(QuotientGroup.quotientMulEquivOfEq
-      (centralizerOddCoreQuotient_center_eq_fullCenterImage n hn S e)).trans E⟩
-  have h := original_coverage_criterion_fullCenterQuotient hnonab n hn S e hfull hell hdiv P
-  exact ⟨h.1, h.2.1, fun hS => h.2.2.1
-    ((original_Sylow_invariance_iff (n := n) hn (S := S) (e := e) (P := P)).mp hS), h.2.2.2⟩
-
-theorem original_noncentral_Sylow_element_gives_coverage
-    [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4)))
-    {ell : ℕ} (hell : ell.Prime) (hdiv : ell ∣ Nat.card (centralizerOddCore n S e))
-    (P : Sylow ell (centralizerOddCore n S e))
-    (v : S) (hv : v ∈ originalSylowCentralizer n S e P) (hvZ : v ∉ Subgroup.center S) :
-    (originalPrimeCentralizer n S e P ⊓
-      (CFSG.layer (centralizerOddCoreQuotient n S e)).comap (centralizerOddCoreMap n S e)).map
-        (centralizerOddCoreMap n S e) = CFSG.layer (centralizerOddCoreQuotient n S e) := by
-  by_contra hfailure
-  have h := original_Sylow_centralizer_coverage_equivalent_to_noncentral_wreath_action_kernel
-    hnonab n hn S e hfour hell hdiv P
-  exact hvZ ((h.2.2.2 hfailure).2.2.2.1 hv)
 
 end CFSG.Wreathed.OriginalSylowCentralizerCoverage

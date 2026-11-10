@@ -283,21 +283,6 @@ theorem even_omega_symmetry_fixed_equiv (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
         ((MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)))).trans
       ((bilinIsometryGroupEquiv _).trans eSp)⟩
 
-theorem even_omega_symmetry_evenLieConclusion (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) {v : Fin (2 * n) → K} (hv : Q v = 1)
-    (hout : symmetryAut Q v ∉ inner (matrixProjectiveDerived Q))
-    (M : Subgroup (fixedSubgroup (symmetryAut Q v))) (hM : IsPComponent 2 M) :
-    EvenLieConclusion M := by
-  have : CharP K 2 :=
-    LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  have : Finite (GL (Fin (n - 1) ⊕ Fin (n - 1)) K) :=
-    Finite.of_injective Units.val Units.val_injective
-  obtain ⟨Φ⟩ := even_omega_symmetry_fixed_equiv hf hK hn hQ hT hE hv hout
-  exact evenLieConclusion_of_mulEquiv Φ
-    (fun M' hM' => evenLieConclusion_statedSp hf hK (by omega) M' hM') hM
 
 theorem even_omega_linear_fixed_cases (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
     (hn : 4 ≤ n) {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
@@ -340,23 +325,5 @@ theorem even_omega_linear_fixed_cases (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
     subst hincl
     exact Or.inr (even_omega_symmetry_fixed_equiv hf hK hn hQ hT hE hv hout)
 
-theorem even_omega_linear_evenLieConclusion (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (s : matrixIsometries Q)
-    (hs2 : orderOf (matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s)) = 2)
-    (hout : matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s) ∉
-      inner (matrixProjectiveDerived Q))
-    (M : Subgroup (fixedSubgroup (matrixProjectiveConjugationHom Q (matrixIsometryInclusion Q s))))
-    (hM : IsPComponent 2 M) : EvenLieConclusion M := by
-  have : CharP K 2 :=
-    LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  have : Finite (GL (Fin (n - 1) ⊕ Fin (n - 1)) K) :=
-    Finite.of_injective Units.val Units.val_injective
-  rcases even_omega_linear_fixed_cases hf hK hn hQ hT hE s hs2 hout with hch | ⟨⟨Φ⟩⟩
-  · exact absurd hM (not_isPComponent_of_isCharacteristicP hch M)
-  · exact evenLieConclusion_of_mulEquiv Φ
-      (fun M' hM' => evenLieConclusion_statedSp hf hK (by omega) M' hM') hM
 
 end CFSG.ComponentClassification.CatLeafProof

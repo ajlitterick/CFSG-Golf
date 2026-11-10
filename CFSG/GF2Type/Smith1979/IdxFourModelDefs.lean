@@ -21,9 +21,6 @@ open CFSG.GF2Type.Smith1979.GammaU
 
 @[expose] def a5Rows : Array ℕ := #[1, 4, 8, 16, 32, 2, 64, 256, 512, 1024, 2048, 128]
 
-@[expose] def tRows : Array ℕ := #[62, 61, 59, 55, 47, 31, 3968, 3904, 3776, 3520, 3008, 1984]
-
-@[expose] def tbarRows : Array ℕ := #[2, 1, 8, 4, 32, 16, 130, 65, 520, 260, 2080, 1040]
 
 @[expose] def omegaRows : Array ℕ := #[64, 128, 256, 512, 1024, 2048, 65, 130, 260, 520, 1040, 2080]
 

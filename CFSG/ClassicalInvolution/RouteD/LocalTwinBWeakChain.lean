@@ -26,12 +26,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G]
       ∃ W, SymplecticBlockPair (GaloisField p f) W (j a) (j b)) ∧
     (∀ a : Fin m, a.val = 0 → ∃ W, LinearBlockStandardPair (GaloisField p f) W β (j a))
 
-theorem PartnerPatternB.toPair {m : ℕ} {Ω : Set (Subgroup G)} {K β : Subgroup G} {t : G}
-    (h : PartnerPatternB p f m Ω K β t) : PartnerPatternBPair p f m Ω K β t := by
-  obtain ⟨j, h1, h2, h3, h4, h5, h6, h7⟩ := h
-  refine ⟨j, h1, h2, h3, h4, h5, fun a b ha hb => ?_, h7⟩
-  obtain ⟨W, hW⟩ := h6 a b ha hb
-  exact ⟨W, hW.pair⟩
 
 theorem PartnerPatternBPair.of_conj {m : ℕ} {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω)
     {K β : Subgroup G} {t : G} {j : Fin m → Subgroup G}

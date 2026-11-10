@@ -36,7 +36,6 @@ theorem X_contra : ∀ y : Fin 5 → ZMod 2, ∀ σ' ∈ Eset, ∀ t : Perm (Fin
 
 theorem even_e0e2 : isEven ![1, 0, 1, 0, 0] := by decide +kernel
 
-theorem even_ones : isEven ![1, 1, 1, 1, 0] := by decide +kernel
 
 variable {G : Type} [Group G] [Finite G]
 

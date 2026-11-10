@@ -186,19 +186,6 @@ theorem Module.End.eq_smul_one_of_pow_eq_one_of_trace_div_finrank_pow_eq_one
     f hn hpow
   exact Complex.norm_eq_one_of_pow_eq_one htrace_pow hm.ne'
 
-theorem Module.End.eq_smul_one_of_pow_eq_one_of_numberField_trace
-    {V : Type*} [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V] [Nontrivial V]
-    (f : Module.End ℂ V) {n : ℕ} (hn : 0 < n) (hpow : f ^ n = 1)
-    (K : Type*) [Field K] [NumberField K] (x : K) (ι : K →+* ℂ)
-    (hx : x ≠ 0) (hxint : IsIntegral ℤ x)
-    (hemb : ∀ φ : K →+* ℂ, ‖φ x‖ ≤ 1)
-    (htrace : LinearMap.trace ℂ V f / (Module.finrank ℂ V : ℂ) = ι x) :
-    f = (LinearMap.trace ℂ V f / (Module.finrank ℂ V : ℂ)) • 1 := by
-  obtain ⟨m, hm, hxm⟩ :=
-    NumberField.Embeddings.pow_eq_one_of_norm_le_one K ℂ hx hxint hemb
-  apply Module.End.eq_smul_one_of_pow_eq_one_of_trace_div_finrank_pow_eq_one
-    f hn hpow hm
-  rw [htrace, ← map_pow, hxm, map_one]
 
 end Burnside
 

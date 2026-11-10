@@ -29,21 +29,6 @@ open CFSG CFSG.Assembly Module QTwoLin
         ((M.cartan.submatrix (fun i : {k // k ≠ M.a} => (i : M.ι))
           (fun i : {k // k ≠ M.a} => (i : M.ι))).det : ZMod p) ≠ 0
 
-@[expose] def GGQTwoTBWNormAmbInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGQTwoSetting p B Bs x L D J → ∀ [Fact p.Prime] (y : G) (K : Subgroup G),
-      GGNbr p B x D J y K → ∀ M : GGQTwoAmbModel p Bs x y L (L ⊔ K), ∀ u : M.V,
-        (∀ v, (∀ g ∈ M.toLin.parab {k | k ≠ M.a}, g v = v) ↔
-          v ∈ Submodule.span (ZMod p) {u}) →
-        u ∉ Submodule.span (ZMod p) (Set.range fun i : {k // k ≠ M.a} => M.coroot i) →
-        ∀ φ ∈ ggAutomizer ⊤ Bs,
-          ggLin (p := p) M.model φ u ∈ Submodule.span (ZMod p) {u} →
-          ∃ (π : {k // k ≠ M.a} ≃ {k // k ≠ M.a}) (μ : {k // k ≠ M.a} → ZMod p) (c : ZMod p),
-            c ≠ 0 ∧ (∀ i, μ i ≠ 0) ∧
-            (∀ i j : {k // k ≠ M.a},
-              μ i * (M.cartan i j : ZMod p) = μ j * (M.cartan (π i) (π j) : ZMod p)) ∧
-            ∃ w ∈ M.toLin.parab {k | k ≠ M.a}, ∀ i : {k // k ≠ M.a},
-              ggLin (p := p) M.model φ (M.coroot i) = c • μ i • w (M.coroot (π i))
 
 @[expose] def GGQ2GammaXGraphD5AmbInput : Prop :=
   ∀ {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G},

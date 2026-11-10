@@ -108,9 +108,6 @@ theorem inv_mul_eq_one_iff (lam : Kˣ) (y : K) : ((lam⁻¹ : Kˣ) : K) * y = 1 
   rw [Units.val_inv_eq_inv_val, inv_mul_eq_one₀ (Units.ne_zero lam)]
   exact eq_comm
 
-theorem mono_of_lt_chain {s : ℕ} {W : ℕ → Submodule K V}
-    (hlt : ∀ j, 1 ≤ j → j ≤ s → W (j - 1) < W j) : ∀ j, j < s → W j ≤ W (j + 1) := fun j hj => by
-  simpa using (hlt (j + 1) (by omega) (by omega)).le
 
 section Main
 
@@ -260,32 +257,6 @@ theorem finrank_ker_chain_eq_range (hσ : Function.Surjective σ) (hB : B.Separa
 
 
 open scoped Classical in
-theorem finrank_ker_chain_eq (hσ : Function.Surjective σ) (hB : B.SeparatingLeft)
-    (hs : 1 ≤ s) (hW0 : W 0 = ⊥) (hmono : ∀ j, j < s → W j ≤ W (j + 1))
-    (hiso : W s ≤ (W s).orthogonalBilin B) (h : ChainStabData B s W U) (hK : Nat.card K = 4)
-    {e : LinearMap.GeneralLinearGroup K V} (he : e ∈ U) (he3 : e ^ 3 = 1) (c : ℕ → K)
-    (hc : ∀ j, 1 ≤ j → j ≤ s → ∀ v ∈ W j, (e : Module.End K V) v - c j • v ∈ W (j - 1))
-    (lam : Kˣ) :
-    finrank K (LinearMap.ker ((e : Module.End K V) - (lam : K) • 1)) =
-      ∑ j ∈ Finset.Icc 1 s, finrank K (PieceQ (W (j - 1)) (W j)) *
-          ((if c j = (lam : K) then 1 else 0) + (if (σ (c j))⁻¹ = (lam : K) then 1 else 0)) +
-        finrank K (LinearMap.ker (((perpGL B (W s) ⟨e, h.mem_isoStab hs he⟩ :
-          LinearMap.GeneralLinearGroup K (perpQuot B (W s))) :
-            Module.End K (perpQuot B (W s))) - (lam : K) • 1)) := by
-  rw [finrank_ker_chain_eq_range hσ hB hs hW0 hmono hiso h hK he he3 c hc lam]
-  congr 1
-  rw [Finset.range_eq_Ico]
-  have := Finset.sum_Ico_add' (fun j => finrank K (PieceQ (W (j - 1)) (W j)) *
-    ((if c j = (lam : K) then 1 else 0) + (if (σ (c j))⁻¹ = (lam : K) then 1 else 0))) 0 s 1
-  have h' : Finset.Ico (0 + 1) (s + 1) = Finset.Icc 1 s := by
-    ext x
-    simp only [Finset.mem_Ico, Finset.mem_Icc]
-    omega
-  rw [h'] at this
-  rw [← this]
-  rfl
-
-open scoped Classical in
 theorem finrank_ker_chain_eq_scalOf (hσ : Function.Surjective σ) (hB : B.SeparatingLeft)
     (hs : 1 ≤ s) (hW0 : W 0 = ⊥) (hmono : ∀ j, j < s → W j ≤ W (j + 1))
     (hiso : W s ≤ (W s).orthogonalBilin B) (h : ChainStabData B s W U) (hK : Nat.card K = 4)
@@ -350,25 +321,6 @@ theorem exists_units_scalar_of_finrank_one {M : Type*} [AddCommGroup M] [Module 
     simpa using h1.symm
   exact ⟨Units.mk0 ν hν0, fun m => by rw [hν]; rfl⟩
 
-open scoped Classical in
-theorem finrank_ker_chain_eq_of_finrank_one (hσ : Function.Surjective σ) (hB : B.SeparatingLeft)
-    (hs : 1 ≤ s) (hW0 : W 0 = ⊥) (hmono : ∀ j, j < s → W j ≤ W (j + 1))
-    (hiso : W s ≤ (W s).orthogonalBilin B) (h : ChainStabData B s W U) (hK : Nat.card K = 4)
-    {e : LinearMap.GeneralLinearGroup K V} (he : e ∈ U) (he3 : e ^ 3 = 1) (c : ℕ → K)
-    (hc : ∀ j, 1 ≤ j → j ≤ s → ∀ v ∈ W j, (e : Module.End K V) v - c j • v ∈ W (j - 1))
-    (hM : finrank K (perpQuot B (W s)) = 1) (lam : Kˣ) :
-    ∃ ν : Kˣ, (∀ m, ((perpGL B (W s) ⟨e, h.mem_isoStab hs he⟩ :
-        LinearMap.GeneralLinearGroup K (perpQuot B (W s))) :
-          Module.End K (perpQuot B (W s))) m = (ν : K) • m) ∧
-      finrank K (LinearMap.ker ((e : Module.End K V) - (lam : K) • 1)) =
-        ∑ j ∈ Finset.Icc 1 s, finrank K (PieceQ (W (j - 1)) (W j)) *
-            ((if c j = (lam : K) then 1 else 0) +
-              (if (σ (c j))⁻¹ = (lam : K) then 1 else 0)) +
-          (if (ν : K) = (lam : K) then 1 else 0) := by
-  obtain ⟨ν, hν⟩ := exists_units_scalar_of_finrank_one hM (perpGL B (W s) ⟨e, h.mem_isoStab hs he⟩)
-  refine ⟨ν, hν, ?_⟩
-  rw [finrank_ker_chain_eq hσ hB hs hW0 hmono hiso h hK he he3 c hc lam,
-    finrank_ker_scalar_sub hM _ (ν : K) (lam : K) (LinearMap.ext fun m => by simpa using hν m)]
 
 open scoped Classical in
 theorem finrank_ker_chain_eq_scalOf_of_finrank_one (hσ : Function.Surjective σ)

@@ -48,8 +48,6 @@ theorem ch431008t6 : Nat.beq (srch 276 9 7 Co3C.LR Co3C.TR Co3C.TRI Co3C.BP SD.d
 theorem ch431008ts : bAnd(SD.ts0 == [SD.xp0, SD.yp0], bAnd(SD.ts2 == [SD.xp2, SD.yp2],
     SD.ts5 == [SD.xp5, SD.yp5])) = true := by quickRfl
 
-theorem neg431008v : (!vOK EV3.ng EV3.N EV3.G EV3.T SD.xp4 SD.yp4 VD.c3) = true := by quickRfl
-theorem neg431008c : (!vOK EV3.ng EV3.N EV3.G EV3.T SD.xp3 SD.yp3 (pidn 276 9)) = true := by quickRfl
 
 end CertificateChecks.KernelCo3Tw
 

@@ -368,13 +368,6 @@ theorem lemma311 (hM : MinCounter Ω) (h22 : Lemma22Four) (hB : BenderFacts)
     hM.conc4_bar Set.sdiff_subset (fun J hJ x _ => hβinv J hJ x) (Or.inl hlt)
   exact hM.not_conc (hΩ.conc4_of_split hαβ hαinv hβinv hcomm hC hCβ)
 
-theorem sSup_eq_top (hM : MinCounter Ω) (h22 : Lemma22Four) (hB : BenderFacts)
-    {α : Set (Subgroup G)} (hαΩ : α ⊆ Ω) (hαne : α.Nonempty)
-    (hαinv : ∀ J ∈ α, ∀ g : G, rightConjugate J g ∈ α) : sSup α = ⊤ := by
-  by_contra hne
-  apply hM.lemma311 h22 hB hαΩ hαne hαinv
-  refine hM.conc4_bar hαΩ (fun J hJ x _ => hαinv J hJ x) (Or.inr ?_)
-  exact lt_of_le_of_ne (card_le_card_group _) fun h => hne ((card_eq_iff_eq_top _).mp h)
 
 theorem lemma312 (hM : MinCounter Ω) (h22 : Lemma22Four) (hB : BenderFacts) {K : Subgroup G}
     (hK : K ∈ Ω) : Ω = Set.range (rightConjugate K) := by

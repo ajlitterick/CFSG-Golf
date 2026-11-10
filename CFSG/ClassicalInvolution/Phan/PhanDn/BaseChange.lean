@@ -485,13 +485,6 @@ theorem bc_dFlip (E : QuadExt F K σ) (n : ℕ)
     bc E n g (dFlip σ v) = dFlip σ (bc E n g v) :=
   bcLin_dFlip E n (g : (Fin n → K) →ₗ[F] (Fin n → K)) v
 
-theorem bc_injective (E : QuadExt F K σ) (n : ℕ) : Function.Injective (bc E n) := by
-  intro g h hgh
-  have h' : ∀ x : Fin n → K, jEmb E n (g x) = jEmb E n (h x) := by
-    intro x
-    rw [← bc_apply_jEmb, ← bc_apply_jEmb]
-    exact congrArg (fun e : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K) => e (jEmb E n x)) hgh
-  exact LinearEquiv.ext fun x => jEmb_injective E n (h' x)
 
 theorem polar_bcLin (E : QuadExt F K σ) (n : ℕ)
     (g : (Fin n → K) →ₗ[F] (Fin n → K)) (hg : ∀ x, Qn E n (g x) = Qn E n x)

@@ -187,10 +187,6 @@ theorem d4bΓ_surjective
   obtain ⟨x, hx, hxy⟩ := Subgroup.mem_map.1 (d4b_G8_le_map hk σ hσ hy)
   exact ⟨⟨x, hx⟩, Subtype.ext hxy⟩
 
-include hσ in
-theorem d4bΓ_apply
-    (x : twistedGroup σ) :
-    ((d4bΓ hk σ hσ x : d4bG8 k) : GL (Fin 8) k) = d4bΨ' hk (x : adjointGroup d4 k) := rfl
 
 include hσ in
 theorem d4bΓ_nontrivial

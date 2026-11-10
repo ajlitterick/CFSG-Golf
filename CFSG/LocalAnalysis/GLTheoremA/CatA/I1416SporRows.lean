@@ -15,7 +15,6 @@ set_option linter.unusedSectionVars false
 namespace CFSG.LocalAnalysis.GLTheoremA.I1416Rows
 
 
-
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
   CFSG.LocalAnalysis.GLTheoremA
 open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup mem_fixSubgroup)
@@ -62,16 +61,6 @@ theorem compOK_of_no_comp {p : ℕ} {Q : Type} [Group Q] {k : Q}
     p.Prime → p ≠ 2 → ∀ β : MulAut S, β ^ p = 1 → β ≠ 1 → ∀ K : Subgroup S,
       GLAPComponent p (fixSubgroup β) K → TypeOK p (PSimple p K)
 
-theorem i1416TwoSporS_iff : I1416TwoSporS ↔ ∀ s p, I1416SporRow s p := by
-  constructor
-  · intro h s p S _ _ he hp hp2 β hβ hβ1 K hK hc ha hl
-    obtain ⟨h3, h'⟩ := h S s he p hp hp2 β hβ hβ1 K hK hc ha hl
-    subst h3
-    exact ⟨rfl, h'⟩
-  · intro h S _ _ s he p hp hp2 β hβ hβ1 K hK hc ha hl
-    obtain ⟨h3, h'⟩ := h s p S he hp hp2 β hβ hβ1 K hK hc ha hl
-    subst h3
-    exact ⟨rfl, h'⟩
 
 theorem row_of_model {s : TauCeti.SporadicName} {p : ℕ} {Q : Type} [Group Q] [Finite Q]
     [IsSimpleGroup Q] (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
@@ -111,8 +100,6 @@ theorem row_of_model_not_sq_dvd {s : TauCeti.SporadicName} {p : ℕ} {Q : Type} 
     (hp : p.Prime) (hd : ¬ p ^ 2 ∣ Nat.card Q) : I1416SporRow s p :=
   row_of_model hOut b hnc fun k hk => compOK_of_no_comp fun I hI =>
     CFSG.HardMathSupport.Solomon.Coordinator.no_glaPComponent_of_exact hp hk hd hI
-
-
 
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
@@ -173,8 +160,6 @@ theorem not_isChevSimple_two_of_card
     | _ => exact hi.elim
 
 
-
-
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
   CFSG.LocalAnalysis.GLTheoremA
 
@@ -210,8 +195,6 @@ theorem compOK_of_shapeRkAt {p : ℕ} (hp : p.Prime) {Q : Type} [Group Q] [Finit
   · exact (KDSpor.false_of_glaPComponent_of_pConstrained hp hc hI).elim
   · rw [huniq I hI]
     exact hG _ hg
-
-
 
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
@@ -278,8 +261,6 @@ theorem row_M22_three
     (by rw [CFSG.Sporadic.Mathieu.card_M22]; norm_num) fun x hx h3 =>
     KDSpor.check_card_lt m22S3Data rep_m22A rep_m22B Certificates.certificate13511.2.2.1
       (by decide) x hx h3
-
-
 
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
@@ -440,12 +421,6 @@ theorem compOK_conj (hp : p.Prime) (hR : ∀ r ∈ R, ∀ q ∈ P, r * q * r⁻�
   CompOK.of_mulEquiv hp (KDSpor.conjP hR hr) h
 
 
-
-
-
-
-
-
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
   CFSG.LocalAnalysis.GLTheoremA
 
@@ -478,8 +453,6 @@ theorem compOK_five_of_card_dvd_3000 {Q : Type} [Group Q]
   obtain ⟨fA⟩ := CFSG.LargeExtraspecial.S12Tri.nonempty_mulEquiv_alternatingGroup_five_of_card_sixty
     (KDSpor.card_eq_sixty_of_dvd_3000 hnab hd)
   exact typeOK_A5 (Or.inr rfl) fA
-
-
 
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
@@ -842,10 +815,6 @@ theorem row_Th_five
   refine compOK_five_of_card_dvd_3000 ?_
   have hck := @card_centralizer_conj_eq ↥CFSG.Sporadic.Th.J _ hfin m k
   rw [hck, hm, hcard]
-
-
-
-
 
 
 open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB

@@ -57,10 +57,6 @@ theorem ht_hexPos_neg {i : ℤ} (h1 : 1 ≤ i) (h6 : i ≤ 6) : ht (hexPos (-i))
   rw [ht_hexPos]
   interval_cases i <;> simp [hexPos]
 
-theorem ht_hexPos_values : ht (hexPos 1) = 1 ∧ ht (hexPos 2) = 4 ∧ ht (hexPos 3) = 3 ∧
-    ht (hexPos 4) = 5 ∧ ht (hexPos 5) = 2 ∧ ht (hexPos 6) = 1 := by
-  simp only [ht_hexPos]
-  simp [hexPos]
 
 theorem pos_root_cases
     {γ : Fin 2 → ℤ} (h : IsRoot .G2 γ) (hp : 0 < ht γ) :
@@ -114,7 +110,6 @@ theorem cone_between
 
 @[expose] def cartanG2 : Matrix (Fin 2) (Fin 2) ℤ := !![2, -1; -3, 2]
 
-theorem cartanG2_eq : cartanG2 = Tag.cartan .G2 := rfl
 
 open CFSG.LieType.RootSystem in
 theorem reflection_zero_apply (v : Fin 2 → ℤ) :

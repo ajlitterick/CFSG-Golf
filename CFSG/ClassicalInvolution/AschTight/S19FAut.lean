@@ -204,9 +204,6 @@ variable {p : ℕ} [Fact p.Prime]
   RingEquiv.ofBijective (iterateFrobenius (GaloisField p (3 * e)) p e)
     ⟨RingHom.injective _, Finite.surjective_of_injective (RingHom.injective _)⟩
 
-theorem frobEquiv_toRingHom (p e : ℕ) [Fact p.Prime] :
-    (frobEquiv p e).toRingHom = iterateFrobenius (GaloisField p (3 * e)) p e :=
-  rfl
 
 @[expose] noncomputable def twistedEquivC0 (p e : ℕ) [Fact p.Prime] (hp2 : p ≠ 2) (he : 1 ≤ e) :
     ↥(twistedGroup (iterateFrobenius (GaloisField p (3 * e)) p e)) ≃*

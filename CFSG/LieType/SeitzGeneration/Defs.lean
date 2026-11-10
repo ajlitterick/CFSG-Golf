@@ -65,21 +65,6 @@ theorem kFactSeitzRankTwo_of_inner_outer (hi : KFactSeitzRankTwoInner)
   kFactSeitzRankTwo_iff.mpr (SeitzPlanes.of_cover
     (fun d p _ _ E _ => by by_cases h : InnerPlane d p E; exacts [Or.inl h, Or.inr h]) hi ho)
 
-theorem kFactSeitzRankTwo_of_p3_p5 (h3 : SeitzPlanes fun _ p _ => p = 3)
-    (h5 : SeitzPlanes fun _ p _ => 5 ≤ p) : KFactSeitzRankTwo :=
-  kFactSeitzRankTwo_iff.mpr (SeitzPlanes.of_cover
-    (fun _ p hp hp2 _ _ => by
-      have h2 := hp.two_le
-      rcases (by omega : p = 3 ∨ p = 4 ∨ 5 ≤ p) with h | h | h
-      · exact Or.inl h
-      · subst h
-        exact absurd hp (by norm_num)
-      · exact Or.inr h) h3 h5)
-
-theorem kFactSeitzRankTwo_of_low_high (hl : KFactSeitzRankTwoLow)
-    (hh : SeitzPlanes fun d p _ => ¬ RankLE2 p (Cat d)) : KFactSeitzRankTwo :=
-  kFactSeitzRankTwo_iff.mpr (SeitzPlanes.of_cover
-    (fun d p _ _ _ _ => by by_cases h : RankLE2 p (Cat d); exacts [Or.inl h, Or.inr h]) hl hh)
 
 theorem RankLE2.of_pRank {K : Type*} [Group K] [Finite K] {p : ℕ} (hp : p.Prime)
     (h : Open.pRank p (⊤ : Subgroup K) ≤ 2) : RankLE2 p K := by

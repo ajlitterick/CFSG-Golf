@@ -248,19 +248,5 @@ theorem unitary_rank_one_Sylow_layer_kernel_of_mulEquiv {G : Type*} [Group G] [F
       (by rwa [map_omega₁_unitaryCoverRoot] at h₂) (by rwa [map_omega₁_unitaryCoverRoot] at h₃))
     γ hγQ hγV hγQV
 
-theorem unitary_rank_one_Sylow_layer_kernel {f : ℕ} (h : UnitaryFieldData 2 f K) (hf : 2 ≤ f)
-    (Q : Sylow 2 (unitaryPSU h 3)) (V : Subgroup (unitaryPSU h 3))
-    (hV : V = (CFSG.omega₁ (G := (Q : Subgroup (unitaryPSU h 3))) (p := 2)).map
-      (Q : Subgroup (unitaryPSU h 3)).subtype)
-    (γ : MulAut (unitaryPSU h 3)) (hγQ : (Q : Subgroup (unitaryPSU h 3)).map γ.toMonoidHom = Q)
-    (hγV : ∀ v ∈ V, γ v = v) (hγQV : ∀ x ∈ (Q : Subgroup (unitaryPSU h 3)), x⁻¹ * γ x ∈ V) :
-    ∃ b ∈ (Q : Subgroup (unitaryPSU h 3)), γ = MulAut.conj b := by
-  have := h.finite
-  obtain ⟨R, hR⟩ := exists_isHypTransport (r := 1) (ε := 1) h
-  exact unitary_rank_one_Sylow_layer_kernel_of_mulEquiv (fieldDataHermitianForm h) f hf
-    h.card_eq_sq (card_fixed_fieldDataHermitianForm h) rfl
-    ((hypProjTransport h hR).symm.trans
-      (UnitaryAutomorphism.hypPSUEquivPSU (J := fieldDataHermitianForm h) h (fun _ => rfl) rfl))
-    Q V hV γ hγQ hγV hγQV
 
 end CFSG.ProperTwoGeneratedCore.RootCenter

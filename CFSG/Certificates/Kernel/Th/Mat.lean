@@ -48,11 +48,7 @@ namespace CFSG.KC.Th
 @[expose] noncomputable def vecmul (x M : Nat) : Nat :=
   Nat.land (fold45 (fold3 (fold2 (fold1 (Nat.land (spreadS x) M))))) rowMask
 
-@[expose] noncomputable def chkMul (C A B : Nat) : Bool := Nat.beq C (mul24 A B)
 @[expose] noncomputable def chkInv (A B : Nat) : Bool := Nat.beq (mul24 A B) ident24
-@[expose] noncomputable def chkVec (w v M : Nat) : Bool := Nat.beq w (vecmul v M)
-@[expose] noncomputable def chkLt (a b : Nat) : Bool := Nat.blt a b
-@[expose] noncomputable def chkEq (a b : Nat) : Bool := Nat.beq a b
 
 @[expose] noncomputable def permRows (X tau n : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)

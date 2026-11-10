@@ -115,24 +115,6 @@ open CFSG.EvenSmallLie.OmegaEight (pushWords wordsOf)
   stabIdx.all (fun j => decide (j < omegaS.size) && (omegaS[j]!)[0]! == 0) &&
     (List.range 135).all fun p => stabIdx.any fun j => (omegaS[j]!)[p + 1]! != p + 1
 
-@[expose] def bfsTree : Array ℕ × Array ℕ × Array ℕ := Id.run do
-  let mut par : Array ℕ := Array.replicate 136 0
-  let mut lab : Array ℕ := Array.replicate 136 0
-  let mut dep : Array ℕ := (Array.replicate 136 1000).set! 0 0
-  let mut queue : Array ℕ := #[0]
-  let mut h := 0
-  for _ in [0:136] do
-    if h < queue.size then
-      let x := queue[h]!
-      h := h + 1
-      for l in [0:10] do
-        let y := (genArrs[l]!)[x]!
-        if y < 136 && dep[y]! == 1000 then
-          dep := dep.set! y (dep[x]! + 1)
-          par := par.set! y x
-          lab := lab.set! y l
-          queue := queue.push y
-  return (par, lab, dep)
 
 @[expose] def treeOK (par lab dep : Array ℕ) : Bool :=
   dep[0]! == 0 &&
@@ -140,7 +122,6 @@ open CFSG.EvenSmallLie.OmegaEight (pushWords wordsOf)
       decide (par[i + 1]! < 136) && decide (lab[i + 1]! < 10) &&
         decide (dep[par[i + 1]!]! < dep[i + 1]!) && (genArrs[lab[i + 1]!]!)[par[i + 1]!]! == i + 1
 
-@[expose] def treeCheck : Bool := treeOK bfsTree.1 bfsTree.2.1 bfsTree.2.2
 
 @[expose] def sylowTables : List (List Table) :=
   chainTables 136 sylowS (sylowBase.map Fin.val).toArray
@@ -184,15 +165,6 @@ open CFSG.EvenSmallLie.OmegaEight (pushWords wordsOf)
 
 @[expose] def conjArrs : List (Array ℕ) := conjWords.map autW
 
-@[expose] def sylowRepsCheck : Bool :=
-  repsOK 136 sylowGensT sylowGensInvT invList (repArrs.map (arrTable 136)) 100 &&
-    repArrs.all (fun r => ordTest 136 2 (arrTable 136 r)) &&
-    (List.range 36).all fun j =>
-      siftA 136 (rawLevels 136 omegaS (omegaBase.map Fin.val).toArray)
-          (omegaBase.map Fin.val).toArray 0 (repArrs.getD j #[]) ==
-        decide (repTypes.getD j 0 < 3) &&
-      eqA 136 (conjArr (conjArrs.getD j #[]) (mainArrs.getD (repTypes.getD j 0) #[]))
-        (repArrs.getD j #[])
 
 @[expose] def cent0Words : List (List (List ℤ)) :=
   [[[10, 17, 1, 16, 4, 8, 5, 13, 14], [7, 3, 2, 1, 8, 3, 11, 5], [2, 4, 2, 4, 17, 16]],

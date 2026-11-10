@@ -131,7 +131,6 @@ theorem isConj_mul_conj (h : Setting612 G L t) {u : G} (hu : IsConj t (t * u)) {
   calc l * (t * u) * l⁻¹ = (l * t * l⁻¹) * (l * u * l⁻¹) := by group
     _ = t * (l * u * l⁻¹) := by rw [h.comm_of_mem hl, mul_inv_cancel_right]
 
-variable [Finite G]
 
 end Setting612
 

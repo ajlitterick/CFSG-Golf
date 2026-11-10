@@ -42,36 +42,5 @@ theorem theorem_2_part_one {G : Type*} [Group G] [Finite G]
     exact relativeNormalizerProductEquiv_apply Q A X hnormalizes hdisjoint hTS
       (sylowImage_le _ S) (pair.1, factor pair.2)
 
-theorem actual_relativeNormalizer_eq {G : Type*} [Group G]
-    (A X : Subgroup G) (hAX : A ≤ X) :
-    (Subgroup.normalizer ((A.subgroupOf X : Subgroup X) : Set X)).map X.subtype =
-      relativeNormalizer A X := by
-  rw [← Subgroup.subgroupOf_normalizer_eq hAX, Subgroup.subgroupOf_map_subtype]
-  rfl
-
-theorem theorem_2_part_one_actual_normalizer {G : Type*} [Group G] [Finite G]
-    (Q : Subgroup G) (htight : TightlyEmbedded Q) (g : G)
-    (hg : g ∉ Subgroup.normalizer (Q : Set G))
-    (T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)))
-    (S : Sylow 2 ↥(Q ⊔ sylowImage _ T))
-    (hTS : sylowImage _ T ≤ sylowImage _ S) (hne : sylowImage _ T ≠ ⊥) :
-    let A := sylowImage (rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)) T
-    let X := sylowImage (Q ⊔ A) S
-    let N := Subgroup.normalizer ((A.subgroupOf X : Subgroup X) : Set X)
-    N.map X.subtype = A ⊔ (N.map X.subtype ⊓ Q) ∧ A ⊓ Q = ⊥ ∧
-      Nonempty (N ≃* A × A) := by
-  dsimp only
-  let A : Subgroup G := sylowImage
-    (rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)) T
-  let X : Subgroup G := sylowImage (Q ⊔ A) S
-  let N := Subgroup.normalizer ((A.subgroupOf X : Subgroup X) : Set X)
-  have hmap : N.map X.subtype = relativeNormalizer A X := actual_relativeNormalizer_eq A X hTS
-  obtain ⟨hproduct, hbot, _, multiplication, factor, square, _, _⟩ :=
-    theorem_2_part_one Q htight g hg T S hTS hne
-  refine ⟨?_, hbot, ?_⟩
-  · rw [hmap]
-    exact hproduct
-  · exact ⟨((N.equivMapOfInjective X.subtype X.subtype_injective).trans
-      (MulEquiv.subgroupCongr hmap)).trans square.symm⟩
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

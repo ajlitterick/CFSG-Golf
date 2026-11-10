@@ -43,7 +43,6 @@ open CFSG.Quasithin Matrix
 
 section Unique
 
-variable {V : Type*} [CommGroup V] [Finite V]
 
 end Unique
 

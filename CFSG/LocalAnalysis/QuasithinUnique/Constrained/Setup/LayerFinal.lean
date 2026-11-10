@@ -37,14 +37,6 @@ theorem component_section {G L A : Subgroup (V ≃ₗ[k] V)} (hL : IsComponentIn
     (hcomm : ⁅L, A⁆ ≠ ⊥) : ∃ I : Submodule k V, Layer.ComponentSection L A I :=
   Layer.component_section quadBestOffendersNormalize hL hAG hAel hAne hoff hstrict hcomm
 
-theorem minimal_parabolic_section {H T M E : Subgroup (V ≃ₗ[k] V)}
-    (hO2 : ∀ N : Subgroup (V ≃ₗ[k] V), N ≤ H → (N.subgroupOf H).Normal → IsPGroup 2 N → N = ⊥)
-    (hT : IsSylowTwoOf T H) (hTn : ¬ (T.subgroupOf H).Normal) (hTM : T ≤ M) (hMH : M < H)
-    (hmax : ∀ Y : Subgroup (V ≃ₗ[k] V), T ≤ Y → Y < H → Y ≤ M)
-    (hEH : E ≤ H) (hEne : E ≠ ⊥) (hEel : CFSG.IsElementaryAbelian 2 E)
-    (hEoff : Nat.card V ≤ weight (MonoidHom.id (V ≃ₗ[k] V)) E) : Layer.ParabolicSection H T :=
-  Layer.minimal_parabolic_section quadBestOffendersNormalize hO2 hT hTn hTM hMH hmax hEH hEne hEel
-    hEoff
 
 theorem nonsolvable_layer {H T M E : Subgroup (V ≃ₗ[k] V)} (hns : ¬ Group.IsSolvable ↥H)
     (hO2 : ∀ N : Subgroup (V ≃ₗ[k] V), N ≤ H → (N.subgroupOf H).Normal → IsPGroup 2 N → N = ⊥)

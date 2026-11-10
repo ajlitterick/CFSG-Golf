@@ -192,19 +192,6 @@ theorem factorHom_injective : Function.Injective (h.factorHom hc hNc) :=
 @[expose] noncomputable def iota₂ : Matrix.SpecialLinearGroup (Fin 2) K →* (V ≃ₗ[K] V) :=
   (h.factorHom hc hNc).comp (specialRho.comp (MonoidHom.inr _ _))
 
-theorem iota₁_apply_mem (A : Matrix.SpecialLinearGroup (Fin 2) K) (r : ↥(U₁ ⊔ U₂)) :
-    h.iota₁ hc hNc A (r : V) = ((h.normPlaneIsometry hc hNc).symm
-      (A.val * h.normPlaneIsometry hc hNc r) : V) := by
-  unfold iota₁
-  rw [MonoidHom.comp_apply, MonoidHom.comp_apply, factorHom_apply_mem]
-  simp [specialRho_apply]
-
-theorem iota₂_apply_mem (B : Matrix.SpecialLinearGroup (Fin 2) K) (r : ↥(U₁ ⊔ U₂)) :
-    h.iota₂ hc hNc B (r : V) = ((h.normPlaneIsometry hc hNc).symm
-      (h.normPlaneIsometry hc hNc r * (B⁻¹ : Matrix.SpecialLinearGroup (Fin 2) K).val) : V) := by
-  unfold iota₂
-  rw [MonoidHom.comp_apply, MonoidHom.comp_apply, factorHom_apply_mem]
-  simp [specialRho_apply]
 
 omit h hc hNc in
 theorem specialRho_inl_injective :

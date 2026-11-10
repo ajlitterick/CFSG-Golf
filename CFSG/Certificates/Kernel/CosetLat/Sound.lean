@@ -143,16 +143,6 @@ theorem ctab_cover [Finite Γ] (henc : ClosEnc enc M one) (gens : List Γ) {G : 
   refine ⟨a, ha, t, htT, e, heT, ?_⟩
   rw [henc.inj (hu'.trans he.symm), mul_assoc]
 
-theorem notIn_sound (henc : ClosEnc enc M one) {T B : Subgroup Γ} {nT nU : ℕ}
-    {ET EU : ℕ → ℕ} (hTx : ∀ g ∈ T, ∃ k < nT, enc g = ET k)
-    (hBc : ∀ σ ∈ B, ∃ t ∈ T, ∃ i < nU, ∃ u : Γ, enc u = EU i ∧ t * u = σ) {x : Γ}
-    (h : ∀ a < nU, notInAt M ET nT EU (enc x) a = true) : x ∉ B := by
-  intro hx
-  obtain ⟨t, ht, i, hi, u, hu, rfl⟩ := hBc x hx
-  obtain ⟨k, hk, hke⟩ := hTx t ht
-  have hk' := notB_eq_true ((allN_iff _ _).1 (h i hi) k hk)
-  rw [← hke, ← hu, ← henc.enc_mul, Nat.beq_refl] at hk'
-  exact absurd hk' (by simp)
 
 theorem dvd_card_of_clos [Finite Γ] (henc : ClosEnc enc M one) {H : Subgroup Γ} {nK : ℕ}
     {K : ℕ → ℕ} (hK : ∀ j < nK, ∃ g ∈ H, enc g = K j) {N : ℕ} {E PA SG CT : ℕ → ℕ}

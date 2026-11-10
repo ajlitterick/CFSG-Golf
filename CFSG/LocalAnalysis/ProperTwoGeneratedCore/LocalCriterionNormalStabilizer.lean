@@ -149,39 +149,5 @@ theorem local_involution_point_normal_stabilizer_subgroup_central
     exact (Subgroup.closure_le _).mpr hDC
   exact (Subgroup.centralizer_eq_top_iff_subset.mp (top_le_iff.mp htop))
 
-theorem local_involution_point_normal_stabilizer_core_and_faithfulness
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (T : Sylow 2 G) (hzT : z ∈ (T : Subgroup G))
-    (hzCentral : ∀ s ∈ (T : Subgroup G), Commute z s)
-    (hgen : involutionPointHull z = ⊤) (hodd : CFSG.oddCore G = ⊥)
-    (htwo : CFSG.pCore 2 G = ⊥) :
-    H.normalCore = ⊥ ∧ (⨅ g : G, rightConjugate H g) = ⊥ ∧
-      Function.Injective (fun g : G => fun omega : pointRightCosetSpace H =>
-        pointRightCosetMul H omega g) := by
-  have hcentral := local_involution_point_normal_stabilizer_subgroup_central
-    h T hzT hzCentral hgen hodd H.normalCore H.normalCore_le
-  rw [center_eq_bot_of_actual_odd_core_and_two_core hodd htwo] at hcentral
-  have hcore : H.normalCore = ⊥ := le_antisymm hcentral bot_le
-  refine ⟨hcore, ?_, point_right_coset_faithful_of_normal_core_eq_bot H hcore⟩
-  rw [actual_right_conjugate_intersection_eq_normal_core, hcore]
-
-theorem local_involution_point_normal_stabilizer_subgroups_central
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (T : Sylow 2 G) (hzT : z ∈ (T : Subgroup G))
-    (hzCentral : ∀ s ∈ (T : Subgroup G), Commute z s)
-    (hgen : Subgroup.closure (involutionPointClass z) = ⊤)
-    (hodd : CFSG.oddCore G = ⊥) :
-    (∀ M : Subgroup G, M.Normal → M ≤ H → M ≤ Subgroup.center G) ∧
-      (CFSG.pCore 2 G = ⊥ → H.normalCore = ⊥ ∧
-        (⨅ g : G, rightConjugate H g) = ⊥ ∧
-        Function.Injective (fun g : G => fun omega : pointRightCosetSpace H =>
-          pointRightCosetMul H omega g)) := by
-  constructor
-  · intro M hnormal hMH
-    let : M.Normal := hnormal
-    exact local_involution_point_normal_stabilizer_subgroup_central h T hzT hzCentral
-      hgen hodd M hMH
-  · exact local_involution_point_normal_stabilizer_core_and_faithfulness
-      h T hzT hzCentral hgen hodd
 
 end CFSG.ProperTwoGeneratedCore

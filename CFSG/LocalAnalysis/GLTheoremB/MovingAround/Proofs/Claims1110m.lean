@@ -419,45 +419,6 @@ theorem noD4UpOn_szTits_d4cls (hb : CFSG.HardMathSupport.Solomon.Coordinator.Lie
     NoD4UpOn D4UpSzTitsIdx :=
   fun _ _ _ _ hO _ hd ⟨e⟩ _ _ hD _ hx => false_of_suzuki_tits_d4cls hb hO hd e hD hx
 
-open CFSG.LocalAnalysis.GLTheoremB.MovingAround.SporTables (SporTypes)
-open CFSG.LocalAnalysis.GLTheoremA.Chev2Rows (CRow)
-
-theorem inputD4UpClassChev2Spor_of_noD4UpOn_d4cls
-    (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge)
-    (hGA : GriessAllModelsStatement)
-    (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hCo1 : CRow .Co1 5) (hTh : CRow .Th 5) (hHN : CRow .HN 5)
-    (hB5 : SporTypes 5 (fun T _ => Nat.card T = 44352000 ∨ ¬ 7 ∣ 5 * Nat.card T) .B)
-    (hM5 : SporTypes 5 (fun T _ => Nat.card T = 273030912000000) .M)
-    (hC : NoD4UpOn D4UpChev2RestIdx) : Claims1110l.InputD4UpClassChev2Spor := by
-  intro K _ _ hK hO hcase D _ hD x hx
-  rcases hcase with ⟨s, hs, ⟨f⟩⟩ | ⟨d, ⟨e⟩, hd2⟩
-  · exfalso
-    rcases hs with rfl | rfl | rfl | rfl | rfl
-    · exact false_of_crow_d4cls hb hOut hCo1 hD hK.1 f hx
-    · exact false_of_crow_d4cls hb hOut hTh hD hK.1 f hx
-    · exact false_of_crow_d4cls hb hOut hHN hD hK.1 f hx
-    · refine false_of_sporTypes_d4cls hOut hB5 (fun T _ h hc => ?_) hD hK.1 f hx
-      rw [hc] at h
-      rcases h with h | h
-      · norm_num at h
-      · exact h (by norm_num)
-    · refine false_of_sporTypes_d4cls hOut hM5 (fun T _ h hc => ?_) hD hK.1 f hx
-      rw [hc] at h
-      norm_num at h
-  · by_cases hfree : D4UpFreeIdx d.1
-    · obtain ⟨d, hv⟩ := d
-      cases d with
-      | D r q =>
-        rcases hfree with hq | ⟨rfl, hq⟩
-        · obtain ⟨hr, hΩ⟩ := isOmegaTwo_of_catalog_D_two_d4cls hGA hK.1 hO hv hq e
-          exact Or.inl ⟨true, r, hr, hΩ⟩
-        · exact Or.inr (lieModel_of_catalog_D4_32_d4cls hGA hK.1 hv hq e)
-      | twistedD r q =>
-        obtain ⟨hr, hΩ⟩ := isOmegaTwo_of_catalog_twistedD_two_d4cls hGA hK.1 hO hv hfree e
-        exact Or.inl ⟨false, r, hr, hΩ⟩
-      | _ => exact hfree.elim
-    · exact (hC K hK hO d ⟨hd2, hfree⟩ ⟨e⟩ D hD x hx).elim
 
 end Reduction
 

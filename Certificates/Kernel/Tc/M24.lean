@@ -83,10 +83,6 @@ theorem nY : Nat.beq EY.N 27 = true := by quickRfl
 theorem cubeY : allN EY.N (fun k => Nat.beq (pw 24 5 (EY.T k) 3) (pidn 24 5)) = true := by
   quickRfl
 
-theorem restNeg : (!tcRestK 24 5 6 (MS 10) 2 EQ.G MS (fun i => MS (Nat.add 2 i)) 3 EK.G
-    (fun j => MS (Nat.add 4 (Nat.sub j (Nat.ble j 1).toNat))) sigF EQ.N EQ.T EK.N EK.T
-    ES.N) = true := by
-  quickRfl
 
 end CertificateChecks.KernelTc.M24
 

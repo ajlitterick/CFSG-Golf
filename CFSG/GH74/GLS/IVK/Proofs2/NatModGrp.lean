@@ -16,7 +16,6 @@ section Grp
 
 variable {F : Type} [Field F]
 
-theorem unipotent_eq_upperSL (t : F) : (unipotent t : SL2 F) = upperSL t := rfl
 
 @[expose] def lowerHom : Multiplicative F →* SL2 F where
   toFun t := lowerSL t.toAdd
@@ -45,8 +44,6 @@ theorem upperSL_mem_Qup (t : F) : upperSL t ∈ Qup F := mem_Qup.2 ⟨t, rfl⟩
 
 theorem lowerSL_mem_Qlow (t : F) : lowerSL t ∈ Qlow F := mem_Qlow.2 ⟨t, rfl⟩
 
-theorem upperSL_injective : Function.Injective (upperSL : F → SL2 F) :=
-  unipotent_injective
 
 theorem lowerSL_injective : Function.Injective (lowerSL : F → SL2 F) := by
   intro s t h

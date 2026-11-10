@@ -121,11 +121,6 @@ theorem fst_eq_zero_of_translate_mem_baseOrbit (hbt : beta = rightCosetMk H t) (
   have h4 := fst_eq_zero_of_heisL_smul_mem_sublineOrbit F.hJ F.hC _ hmem
   rwa [fst_inv, neg_eq_zero] at h4
 
-theorem hullTorus_le_pair (hbt : beta = rightCosetMk H t) (ht2 : t * t = 1) :
-    hullTorus F ≤ pairPointStabilizer H beta := by
-  rintro _ ⟨x, hx, rfl⟩
-  exact (F.mem_pairPointStabilizer_iff (flip_mem F) ht2 hbt x).mpr
-    (torusL_le_pairStabilizerL F.hJ F.hC hx)
 
 theorem hullTorus_commute {x y : G} (hx : x ∈ hullTorus F)
     (hy : y ∈ minimalLocalFailureProperPairHull H z beta t) : x * y = y * x := by

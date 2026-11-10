@@ -41,23 +41,6 @@ theorem quotientAutomorphism_involutive {group : Type*} [Group group]
   obtain ⟨element, rfl⟩ := QuotientGroup.mk'_surjective normal point
   rw [quotientAutomorphism_apply, quotientAutomorphism_apply, involutive]
 
-theorem quotientAutomorphism_mul {group : Type*} [Group group]
-    (first second : MulAut group) (normal : Subgroup group) [normal.Normal]
-    (first_invariant : normal.map first.toMonoidHom = normal)
-    (second_invariant : normal.map second.toMonoidHom = normal)
-    (product_invariant : normal.map (first * second : MulAut group).toMonoidHom = normal) :
-    quotientAutomorphism (first * second) normal product_invariant =
-      quotientAutomorphism first normal first_invariant *
-        quotientAutomorphism second normal second_invariant := by
-  apply MulEquiv.ext
-  intro point
-  obtain ⟨element, rfl⟩ := QuotientGroup.mk'_surjective normal point
-  change quotientAutomorphism (first * second) normal product_invariant
-      (QuotientGroup.mk' normal element) =
-    quotientAutomorphism first normal first_invariant
-      (quotientAutomorphism second normal second_invariant (QuotientGroup.mk' normal element))
-  rw [quotientAutomorphism_apply, quotientAutomorphism_apply, quotientAutomorphism_apply]
-  rfl
 
 theorem quotientAutomorphism_commutes {group : Type*} [Group group]
     (first second : MulAut group)

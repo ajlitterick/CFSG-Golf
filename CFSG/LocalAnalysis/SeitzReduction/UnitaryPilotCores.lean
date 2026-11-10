@@ -44,41 +44,6 @@ theorem unitaryRootTorus_le_unitaryBlockTorus_of_subset {a b : Fin n} (hab : a �
   unitaryRootTorus_le_unitaryBlockTorus h hab (subset_compl_pair_iff.1 hI).1
     (subset_compl_pair_iff.1 hI).2
 
-theorem rootTorusParam_swap {a b : Fin n} (hab : a ≠ b) (κ : Kˣ) :
-    rootTorusParam b a κ = rootTorusParam a b κ⁻¹ := by
-  funext i
-  simp only [rootTorusParam]
-  by_cases hia : i = a
-  · subst hia
-    simp [hab]
-  · by_cases hib : i = b
-    · subst hib
-      simp [hia]
-    · simp [hia, hib]
-
-theorem unitaryRootTorus_comm {a b : Fin n} (hab : a ≠ b) :
-    unitaryRootTorus h hab.symm = unitaryRootTorus h hab := by
-  have key : ∀ {a b : Fin n} (hab : a ≠ b),
-      unitaryRootTorus h hab.symm ≤ unitaryRootTorus h hab := by
-    intro a b hab
-    rintro _ ⟨κ, rfl⟩
-    refine ⟨κ⁻¹, ?_⟩
-    simp only [MonoidHom.comp_apply]
-    congr 2
-    exact Subtype.ext (by
-      change rootTorusParam a b ((κ⁻¹ : (Units.map h.normHom).ker) : Kˣ) =
-        rootTorusParam b a (κ : Kˣ)
-      rw [rootTorusParam_swap hab, Subgroup.coe_inv])
-  exact le_antisymm (key hab) (key hab.symm)
-
-theorem commutator_blockSU_eq_of_three_le {I : Finset (Fin n)} (hI3 : 3 ≤ I.card)
-    (hIq : (I.card, p ^ f) ≠ (3, 2)) (hIn : I.card < n) :
-    ⁅blockSU h I, blockSU h I⁆ = blockSU h I :=
-  Subgroup.isPerfect_iff.1 (isQuasisimple_blockSU_of_three_le h hI3 hIq hIn).1
-
-theorem commutator_blockSU_eq_of_four_le {I : Finset (Fin n)} (hI4 : 4 ≤ I.card)
-    (hIn : I.card < n) : ⁅blockSU h I, blockSU h I⁆ = blockSU h I :=
-  Subgroup.isPerfect_iff.1 (isQuasisimple_blockSU h hI4 hIn).1
 
 end Tori
 
@@ -101,13 +66,6 @@ theorem neighbourCore_def {a b : Fin n} (hab : a ≠ b) :
     neighbourCore e hab = centralizerPerfectCore (modelToG e (unitaryRootTorus h hab)) :=
   rfl
 
-theorem neighbourCore_comm {a b : Fin n} (hab : a ≠ b) :
-    neighbourCore e hab.symm = neighbourCore e hab := by
-  rw [neighbourCore_def, neighbourCore_def, unitaryRootTorus_comm]
-
-theorem pieceCore_mono {I I' : Finset (Fin n)} (hII' : I ⊆ I') :
-    pieceCore e I ≤ pieceCore e I' :=
-  centralizerPerfectCore_anti (modelToG_mono e (unitaryBlockTorus_anti h hII'))
 
 theorem modelToG_unitaryRootTorus_le {a b : Fin n} (hab : a ≠ b) {I : Finset (Fin n)}
     (hI : I ⊆ {a, b}ᶜ) :
@@ -140,14 +98,6 @@ section PiecesPerfect
 variable {G : Type*} [Group G] {L : Subgroup G} {p f : ℕ} {K : Type} [Field K]
   {h : UnitaryFieldData p f K} {n : ℕ} (e : L ≃* unitaryPSU h n)
 
-theorem modelToG_blockSU_le_pieceCore_of_three_le {I : Finset (Fin n)} (hI3 : 3 ≤ I.card)
-    (hIq : (I.card, p ^ f) ≠ (3, 2)) (hIn : I.card < n) :
-    modelToG e (blockSU h I) ≤ pieceCore e I :=
-  modelToG_blockSU_le_pieceCore e I (commutator_blockSU_eq_of_three_le h hI3 hIq hIn)
-
-theorem modelToG_blockSU_le_pieceCore_of_four_le {I : Finset (Fin n)} (hI4 : 4 ≤ I.card)
-    (hIn : I.card < n) : modelToG e (blockSU h I) ≤ pieceCore e I :=
-  modelToG_blockSU_le_pieceCore e I (commutator_blockSU_eq_of_four_le h hI4 hIn)
 
 theorem modelToG_blockSU_compl_le_neighbourCore (hn : 6 ≤ n) {a b : Fin n} (hab : a ≠ b) :
     modelToG e (blockSU h ({a, b}ᶜ : Finset (Fin n))) ≤ neighbourCore e hab :=
@@ -158,10 +108,6 @@ theorem le_normalizer_pieceCore {t : G} (ht : t ∈ centralizer (L : Set G))
     (I : Finset (Fin n)) : t ∈ normalizer (pieceCore e I : Set G) :=
   mem_normalizer_centralizerPerfectCore_modelToG_of_mem_centralizer e ht _
 
-theorem symm_mem_normalizer_pieceCore {I : Finset (Fin n)} {x : unitaryPSU h n}
-    (hx : x ∈ normalizer (unitaryBlockTorus h I : Set (unitaryPSU h n))) :
-    ((e.symm x : L) : G) ∈ normalizer (pieceCore e I : Set G) :=
-  symm_mem_normalizer_centralizerPerfectCore_modelToG e hx
 
 theorem le_normalizer_neighbourCore {t : G} (ht : t ∈ centralizer (L : Set G)) {a b : Fin n}
     (hab : a ≠ b) : t ∈ normalizer (neighbourCore e hab : Set G) :=
@@ -187,13 +133,6 @@ theorem pieceCore_eq {a b : Fin n} (hab : a ≠ b) {I : Finset (Fin n)} (hI : I 
       centralizer (modelToG e (unitaryBlockTorus h I) : Set G)) :=
   pieceCore_eq_perfectCore_inf e (modelToG_unitaryRootTorus_le e hab hI)
 
-theorem perfectCore_neighbourCore_inf_eq {a b c d : Fin n} (hab : a ≠ b) (hcd : c ≠ d)
-    {I : Finset (Fin n)} (hI : I ⊆ {a, b}ᶜ) (hI' : I ⊆ {c, d}ᶜ) :
-    perfectCore (neighbourCore e hab ⊓
-        centralizer (modelToG e (unitaryBlockTorus h I) : Set G)) =
-      perfectCore (neighbourCore e hcd ⊓
-        centralizer (modelToG e (unitaryBlockTorus h I) : Set G)) := by
-  rw [← pieceCore_eq e hab hI, ← pieceCore_eq e hcd hI']
 
 theorem pieceCore_eq_map_conj {I J : Finset (Fin n)} {x : unitaryPSU h n}
     (hx : (unitaryBlockTorus h I).map (MulAut.conj x).toMonoidHom = unitaryBlockTorus h J) :

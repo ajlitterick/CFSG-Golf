@@ -122,12 +122,6 @@ theorem exists_line (hF : Nat.card F = 9) {a b : NonisoLine F} (horth : Orth a b
       | exact hbc
       | exact hbc.symm h
 
-theorem eq_of_orth (hF : Nat.card F = 9) {a b c : NonisoLine F} {T T' : HexLine F}
-    (hab : a ≠ b) (hbc : b ≠ c) (ha : a ∈ T.1) (hb : b ∈ T.1) (hb' : b ∈ T'.1) (hc : c ∈ T'.1)
-    (hac : Orth a c) : T = T' := by
-  have hcT : c ∈ T.1 :=
-    (mem_line_iff hF hab ha hb c).mpr (Or.inr (Or.inr ⟨hac, orth_of_mem T' hb' hc hbc⟩))
-  exact eq_of_mem_of_mem hF hbc hb hcT hb' hc
 
 theorem orth_lineAct_iff (hF : Nat.card F = 9) (g : StatedSU 3 3 F) (a b : NonisoLine F) :
     Orth (lineAct hF g a) (lineAct hF g b) ↔ Orth a b := by

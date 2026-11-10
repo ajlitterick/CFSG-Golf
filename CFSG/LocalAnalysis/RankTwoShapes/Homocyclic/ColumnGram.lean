@@ -701,15 +701,6 @@ theorem homocyclicColumn_degree_sum (ψ : AddChar (HomocyclicVector n) ℂ) :
     rw [homocyclic_block_kernel_nonconj S ideal basis principal (homocyclicEmbed_mem e v)
       (Subgroup.one_mem _) hv1, mul_zero]
 
-theorem addChar_comp_ne_zero (U : HomocyclicVector n →+ HomocyclicVector n)
-    (hU : Function.Surjective U) (φ : AddChar (HomocyclicVector n) ℂ) (hφ : φ ≠ 0) :
-    φ.compAddMonoidHom U ≠ 0 := by
-  intro h0
-  apply hφ
-  ext w
-  obtain ⟨u, rfl⟩ := hU w
-  have := congrArg (fun χ : AddChar (HomocyclicVector n) ℂ => χ u) h0
-  simpa using this
 
 omit [Fintype G] in
 include e in

@@ -26,8 +26,6 @@ variable {X : Type} [Group X] {Z : Set X} {M : Subgroup X}
 @[expose] def oddHull (Z : Set X) (M : Subgroup X) : Subgroup X :=
   Subgroup.closure {x : X | x ∈ zHull Z M ∧ Odd (orderOf x)}
 
-theorem oddHull_le_zHull (Z : Set X) (M : Subgroup X) : oddHull Z M ≤ zHull Z M :=
-  (Subgroup.closure_le _).mpr fun _ hx => hx.1
 
 theorem subset_oddHull {x : X} (hx : x ∈ zHull Z M) (hodd : Odd (orderOf x)) :
     x ∈ oddHull Z M :=

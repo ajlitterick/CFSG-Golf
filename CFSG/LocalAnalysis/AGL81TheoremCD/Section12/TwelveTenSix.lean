@@ -50,30 +50,5 @@ theorem twelveSix_part_three_of_odd_prime_divisors {M H : Subgroup G}
     rw [← eq_seven_of_mem_sigma_of_odd_prime_divisors h124 hd (hJ d hd) hprime]
     exact hd
 
-structure TwelveSixInputs (M H : Subgroup G) (p d : ℕ)
-    (L₁ L₂ L₃ : Subgroup G) (n₁ n₂ n₃ : ℕ) : Prop where
-  nineFourTwo : ∀ C : Subgroup G, C ≠ ⊤ → 2 ≤ CFSG.Open.pRank d (C ⊓ M) →
-    ¬ CFSG.HallHigman.IsPSolvable d ↥(C ⊓ M) → C ≤ M
-  centralizer₁ : ∀ W : Subgroup G, Nat.card W = 3 → W ≤ L₁ →
-    2 ≤ CFSG.Open.pRank d (Subgroup.centralizer (W : Set G) ⊓ M) ∧
-      ¬ CFSG.HallHigman.IsPSolvable d ↥(Subgroup.centralizer (W : Set G) ⊓ M)
-  centralizer₂ : ∀ W : Subgroup G, Nat.card W = 3 → W ≤ L₂ →
-    2 ≤ CFSG.Open.pRank d (Subgroup.centralizer (W : Set G) ⊓ M) ∧
-      ¬ CFSG.HallHigman.IsPSolvable d ↥(Subgroup.centralizer (W : Set G) ⊓ M)
-  centralizer₃ : ∀ W : Subgroup G, Nat.card W = 3 → W ≤ L₃ →
-    2 ≤ CFSG.Open.pRank d (Subgroup.centralizer (W : Set G) ⊓ M) ∧
-      ¬ CFSG.HallHigman.IsPSolvable d ↥(Subgroup.centralizer (W : Set G) ⊓ M)
-  n₁_eq_one : n₁ = 1
-  n₂_eq_one : n₂ = 1
-  n₃_eq_one : n₃ = 1
-  twelveFour : TwelveFour M H
-  j_eq_all : ∀ q : ℕ, q ∈ sigmaSet G M → jSub M H = oPPrimeHull q M
-  odd_prime_divisors : ∀ q : ℕ, q.Prime → q ≠ 2 → q ∣ Nat.card (jSub M H) → q = 3 ∨ q = 7
-  p_eq_three : p = 3
-  kbar_type : CFSG.Blueprint.LieModel (modTwoCore (kSub p M H)) .PSp 2 3 1 ∨
-    Nonempty (modTwoCore (kSub p M H) ≃* alternatingGroup (Fin 9))
-  k_inter : ∀ P : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 3 P (kSub p M H ⊓ M) →
-    kSub p M H ⊓ M =
-      (kSub p M H ⊓ normalizer (thompsonSubgroup P : Set G)) ⊔ pCoreOf 2 (kSub p M H)
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section12

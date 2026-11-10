@@ -33,6 +33,5 @@ theorem exists_order_three_of_card {Y : Subgroup G} (hc : ∃ a, Nat.card ↥Y =
 
 end Main
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.A38c10

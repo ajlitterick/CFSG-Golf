@@ -183,9 +183,6 @@ theorem clabelS_cu_mem_cEdgeFix :
 @[expose] def lamU0 :
     cEdgeFix := ⟨clabelS (cu 0), clabelS_cu_mem_cEdgeFix⟩
 
-theorem coe_lamU0 :
-    ((lamU0 : Shat) : Dfull) =
-    clabel (cu 0) := rfl
 
 theorem lamU0_mem_edgeL :
     lamU0 ∈

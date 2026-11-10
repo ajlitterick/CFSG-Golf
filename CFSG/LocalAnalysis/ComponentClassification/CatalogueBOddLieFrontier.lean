@@ -35,36 +35,6 @@ theorem exceptional_index_two_B_of_odd
   · exact odd_E6_E7_twisted_E6_triality_B_frontier hnonab hindex .trialityD4 p f
       (Or.inr (Or.inr (Or.inr rfl))) hp2 hmodel hproper
 
-theorem odd_Lie_outside_classical_small_Ree_B_frontier
-    (hnonab : ∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a)
-    (hindex : (GeneralizedFitting.subgroup G).index ≤ 2)
-    (hodd : OddLieType (GeneralizedFitting.subgroup G))
-    (hproper : ∀ X : Subgroup G, X ≠ ⊤ → CentralTwoBInclusion.Property X)
-    (hPSL : ∀ n p f : ℕ, 2 ≤ n → p.Prime → p ≠ 2 → 1 ≤ f →
-      ¬ StatedClassicalModel (GeneralizedFitting.subgroup G) .PSL n p f)
-    (hPSU : ∀ n p f : ℕ, 3 ≤ n → p.Prime → p ≠ 2 → 1 ≤ f →
-      ¬ StatedClassicalModel (GeneralizedFitting.subgroup G) .PSU n p f)
-    (hPSp : ∀ n p f : ℕ, 2 ≤ n → p.Prime → p ≠ 2 → 1 ≤ f →
-      ¬ StatedClassicalModel (GeneralizedFitting.subgroup G) .PSp n p f)
-    (hPOmega : ∀ (t : StatedLieTag) (n p f : ℕ),
-      (t = .POmegaOdd ∨ t = .POmegaPlus ∨ t = .POmegaMinus) → p.Prime → p ≠ 2 → 1 ≤ f →
-        ¬ StatedClassicalModel (GeneralizedFitting.subgroup G) t n p f)
-    (hRee : ∀ p f : ℕ, ¬ ReeTitsModel (GeneralizedFitting.subgroup G) .twistedG2 p f) :
-    CentralTwoBInclusion.Property G := by
-  rcases oddLieType_cases hodd with ⟨t, n, p, f, hp2, hcl⟩ | ⟨p, f, hree⟩ |
-      ⟨t, p, f, ht, -, hp2, hex⟩
-  · exfalso
-    obtain ⟨hp, hf, -⟩ := hcl.1
-    cases t
-    case PSL => exact hPSL n p f hcl.1.2.2.1 hp hp2 hf hcl
-    case PSU => exact hPSU n p f hcl.1.2.2.1 hp hp2 hf hcl
-    case PSp => exact hPSp n p f hcl.1.2.2.1 hp hp2 hf hcl
-    case POmegaOdd => exact hPOmega _ n p f (Or.inl rfl) hp hp2 hf hcl
-    case POmegaPlus => exact hPOmega _ n p f (Or.inr (Or.inl rfl)) hp hp2 hf hcl
-    case POmegaMinus => exact hPOmega _ n p f (Or.inr (Or.inr rfl)) hp hp2 hf hcl
-    all_goals exact hcl.2.elim
-  · exact absurd hree (hRee p f)
-  · exact exceptional_index_two_B_of_odd hnonab hindex hproper t p f ht hp2 hex
 
 theorem odd_Lie_index_two_B_under_proper_subgroup_B
     (hnonab : ∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a)

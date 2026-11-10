@@ -114,8 +114,5 @@ theorem orbits_CJc :
     (orbit1_subset_fix _) (orbit1_subset_fix _)) (orbit1_subset_fix _)), ?_, ?_, ?_⟩ <;>
     rw [orbit1_ncard] <;> rfl
 
-theorem b1_fix
-    {i : ℕ} (hi : i < 3) : cR • b1 i hi = b1 i hi :=
-  orbit1_subset_fix hi (MulAction.mem_orbit_self _)
 
 end CFSG.Sporadic.HNOddCore

@@ -47,23 +47,5 @@ theorem e189ModelAt_g2_odd {e : ℕ} (hp2 : p ≠ 2) (hadm : StatedLieAdmissible
       hadm.2.1)
     (noTwinsFund_g2 hp2 hadm)
 
-theorem noTwinsFund_td4_of_maxNormalizer (hM : G2D4MaxNormalizer p) {e : ℕ} (hp2 : p ≠ 2)
-    (hadm : StatedLieAdmissible .trialityD4 0 p e) : NoTwinsFund p e .trialityD4 0 := by
-  intro F hF c hc g hg
-  exact conjSub_eq_of_same_involution hc hg
-    (CFSG.ClassicalInvolution.RouteD.G2D4.center_modelUniv_g2d4_eq_bot hp2 (Or.inr rfl) 0
-      hadm.2.1)
-    (hM .trialityD4 0 e hadm hp2 (Or.inr rfl) F hF)
-
-theorem e189ModelAt_td4_of_maxNormalizer (hM : G2D4MaxNormalizer p) {e : ℕ} (hp2 : p ≠ 2)
-    (hadm : StatedLieAdmissible .trialityD4 0 p e) : E189ModelAt p e .trialityD4 0 :=
-  e189ModelAt_of_noTwinsFund
-    (CFSG.ClassicalInvolution.RouteD.G2D4.center_modelUniv_g2d4_eq_bot hp2 (Or.inr rfl) 0
-      hadm.2.1)
-    (noTwinsFund_td4_of_maxNormalizer hM hp2 hadm)
-
-theorem e189Rest_of_maxNormalizer (hM : G2D4MaxNormalizer p) : E189Rest p where
-  g2 _ hp2 hadm := e189ModelAt_g2_odd hp2 hadm
-  td4 _ hp2 hadm := e189ModelAt_td4_of_maxNormalizer hM hp2 hadm
 
 end CFSG.ClassicalInvolution.G2D4Models

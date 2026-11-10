@@ -28,9 +28,6 @@ local macro "char_two_ring" : tactic =>
 @[expose] def ofCube (f : V →ₗ[K] V) (h : ∀ x, f (f (f x)) = x) : V ≃ₗ[K] V :=
   LinearEquiv.ofLinearMap f (f ∘ₗ f) (LinearMap.ext h) (LinearMap.ext h)
 
-theorem ofCube_apply (f : V →ₗ[K] V) (h : ∀ x, f (f (f x)) = x) (x : V) :
-    ofCube f h x = f x :=
-  rfl
 
 theorem ofCube_pow_three (f : V →ₗ[K] V) (h : ∀ x, f (f (f x)) = x) : ofCube f h ^ 3 = 1 := by
   ext x
@@ -205,9 +202,6 @@ theorem map_wLeviLin (h : IsHypFrame Q w₁ w₂ w₁' w₂') (x : V) :
 @[expose] def wLevi (h : IsHypFrame Q w₁ w₂ w₁' w₂') : V ≃ₗ[K] V :=
   ofCube (wLeviLin Q w₁ w₂ w₁' w₂') (wLeviLin_cube h)
 
-theorem wLevi_apply (h : IsHypFrame Q w₁ w₂ w₁' w₂') (x : V) :
-    wLevi h x = wLeviLin Q w₁ w₂ w₁' w₂' x :=
-  rfl
 
 theorem wLevi_mem_orthogonalGroup (h : IsHypFrame Q w₁ w₂ w₁' w₂') :
     wLevi h ∈ TauCeti.QuadraticMap.orthogonalGroup Q :=

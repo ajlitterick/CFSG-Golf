@@ -24,7 +24,6 @@ theorem InK4_conj' : ∀ σ τ : Equiv.Perm (Fin 5), σ 4 = 4 → σ.sign = 1 �
 theorem InK4_sq : ∀ σ : Equiv.Perm (Fin 5), InK4 σ → σ * σ = 1 :=
   Certificates.certificate17038.2.2.2.1
 
-theorem not_InK4_c3p' : ¬ InK4 c3p := by decide
 
 theorem A4_decomp' : ∀ σ : Equiv.Perm (Fin 5), σ.sign = 1 → σ 4 = 4 →
     InK4 σ ∨ InK4 (c3p * c3p * σ) ∨ InK4 (c3p * σ) :=

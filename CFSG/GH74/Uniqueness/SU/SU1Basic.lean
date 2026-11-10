@@ -79,12 +79,6 @@ theorem card_lt_of_lt {H K : Subgroup G} (h : H < K) : Nat.card H < Nat.card K :
   by_contra hcon
   exact h.ne (Subgroup.eq_of_le_of_card_ge h.le (not_lt.mp hcon))
 
-theorem bddAbove_rank (hp : 1 < p) (H : Subgroup G) :
-    BddAbove {k | ∃ E : Subgroup G, E ≤ H ∧ Open.IsElemAbelian p E ∧ Nat.card E = p ^ k} := by
-  refine ⟨Nat.card G, ?_⟩
-  rintro k ⟨E, -, -, hk⟩
-  have h1 : p ^ k ≤ Nat.card G := hk ▸ Subgroup.card_le_card_group E
-  exact (Nat.lt_pow_self hp).le.trans h1
 
 theorem le_pRank (hp : 1 < p) {H E : Subgroup G} (hEH : E ≤ H) (hE : Open.IsElemAbelian p E)
     {k : ℕ} (hk : Nat.card E = p ^ k) : k ≤ Open.pRank p H := CFSG.SectionRank.le_pRank hp hEH hE hk

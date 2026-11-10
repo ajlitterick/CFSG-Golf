@@ -255,16 +255,6 @@ theorem z_not_fix_J [Finite G] (hc : LUComps G q z K₁ K₂) (hs : LUSyl G z S 
     calc j * z = (z * j * z⁻¹) * z := by rw [this]
       _ = z * j := by group
 
-theorem z_swaps_J [Finite G] (hc : LUComps G q z K₁ K₂) (hs : LUSyl G z S K₁ K₂ t u) {g : G}
-    (hg : g⁻¹ * z * g = t) :
-    (∀ a ∈ cj K₁ g, z * a * z⁻¹ ∈ cj K₂ g) ∧ (∀ a ∈ cj K₂ g, z * a * z⁻¹ ∈ cj K₁ g) := by
-  have hJ : LUComps G q t (cj K₁ g) (cj K₂ g) := by
-    have := hc.cj g
-    rwa [hg] at this
-  have hzC : z ∈ Cz t := mem_centralizer_singleton_iff.mpr hs.zt_comm
-  rcases hJ.perm' z hzC with hfix | hswap
-  · exact absurd hfix (z_not_fix_J hc hs hg)
-  · exact hswap
 
 theorem prop61a [Finite G] (hc : LUComps G q z K₁ K₂) (hs : LUSyl G z S K₁ K₂ t u) {g : G}
     (hg : g⁻¹ * z * g = t) :

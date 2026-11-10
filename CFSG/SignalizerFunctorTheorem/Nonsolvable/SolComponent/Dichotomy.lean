@@ -94,29 +94,6 @@ theorem inf_le_solvableRadical_of_commutator_le (hK : IsSolComponent K) {S : Sub
   rw [Subgroup.mem_bot] at hx1
   exact (QuotientGroup.eq_one_iff x).mp hx1
 
-theorem le_or_normalizes (hK : IsSolComponent K) {S : Subgroup G} (hS : S.IsSubnormal) :
-    K ≤ S ∨ (S ≤ Subgroup.normalizer (K : Set G) ∧
-      ⁅K, S⁆ ≤ (CFSG.solvableRadical K).map K.subtype ∧
-      K ⊓ S ≤ (CFSG.solvableRadical K).map K.subtype) := by
-  rcases hK.le_or_commutator_le_solvableRadical hS with h | h
-  · exact Or.inl h
-  · right
-    have hN := hK.le_normalizer_of_commutator_le h
-    rw [map_subtype_solvableRadical_eq_inf hK.isSubnormal]
-    exact ⟨hN, le_inf (commutator_le_of_le_normalizer hN) h,
-      le_inf inf_le_left (hK.inf_le_solvableRadical_of_commutator_le hS h)⟩
-
-theorem isSolvable_inf_of_commutator_le (hK : IsSolComponent K) {S : Subgroup G}
-    (hS : S.IsSubnormal) (h : ⁅K, S⁆ ≤ CFSG.solvableRadical G) :
-    Group.IsSolvable ↥(K ⊓ S) := by
-  have hRs : Group.IsSolvable (CFSG.solvableRadical G) := isSolvable_solvableRadical
-  exact Group.isSolvable_of_isSolvable_injective (Subgroup.inclusion_injective
-    (hK.inf_le_solvableRadical_of_commutator_le hS h))
-
-theorem solvableRadical_le_normalizer (hK : IsSolComponent K) :
-    CFSG.solvableRadical G ≤ Subgroup.normalizer (K : Set G) :=
-  le_sup_right.trans (sup_le_normalizer (R := CFSG.solvableRadical G) hK.isPerfect
-    hK.isSubnormal inferInstance isSolvable_solvableRadical)
 
 theorem commutator_le_solvableRadical_of_ne (hK : IsSolComponent K) (hL : IsSolComponent L)
     (hne : K ≠ L) : ⁅K, L⁆ ≤ CFSG.solvableRadical G := by
@@ -126,16 +103,6 @@ theorem commutator_le_solvableRadical_of_ne (hK : IsSolComponent K) (hL : IsSolC
     ((CFSG.LocalCores.distinct_components_commute hK.isComponent_map
       hL.isComponent_map).resolve_left hne')
 
-theorem normalizes_of_ne (hK : IsSolComponent K) (hL : IsSolComponent L) (hne : K ≠ L) :
-    K ≤ Subgroup.normalizer (L : Set G) ∧ L ≤ Subgroup.normalizer (K : Set G) ∧
-      ⁅K, L⁆ ≤ K ⊓ L ∧ ⁅K, L⁆ ≤ CFSG.solvableRadical G ∧
-      K ⊓ L ≤ CFSG.solvableRadical G := by
-  have h := hK.commutator_le_solvableRadical_of_ne hL hne
-  have h' : ⁅L, K⁆ ≤ CFSG.solvableRadical G := by rw [Subgroup.commutator_comm]; exact h
-  have hLK := hK.le_normalizer_of_commutator_le h
-  have hKL := hL.le_normalizer_of_commutator_le h'
-  exact ⟨hKL, hLK, commutator_le_inf_of_le_normalizer hLK hKL, h,
-    hK.inf_le_solvableRadical_of_commutator_le hL.isSubnormal h⟩
 
 end IsSolComponent
 

@@ -33,9 +33,6 @@ theorem mem_C_of_conj (g : G) (h1 : g * σ.x * g⁻¹ = σ.x) (h2 : g * σ.x₂ 
   · calc g * σ.x₂ = g * σ.x₂ * g⁻¹ * g := by group
       _ = σ.x₂ * g := by rw [h2]
 
-omit [Finite G] in
-theorem conj_xs_of_mem_C {c : G} (hc : c ∈ σ.C) (i : Fin 3) : c * σ.xs i * c⁻¹ = σ.xs i := by
-  rw [(Subgroup.mem_centralizer_iff.mp hc _ (xs_mem_T i)).symm, mul_inv_cancel_right]
 
 theorem mem_T_cases (hσ : σ.IsValid) {t : G} (ht : t ∈ σ.T) :
     t = 1 ∨ t = σ.xs 0 ∨ t = σ.xs 1 ∨ t = σ.xs 2 := by
@@ -68,19 +65,6 @@ theorem exists_conj_xs_eq (hσ : σ.IsValid) {g : G} (hg : g ∈ Subgroup.normal
   · exact ⟨1, h⟩
   · exact ⟨2, h⟩
 
-theorem Ns_ne_iff (hσ : σ.IsValid) {i j : Fin 3} : σ.xs i = σ.xs j ↔ i = j := by
-  constructor
-  · intro h
-    by_contra hij
-    have h' : j = i + 1 ∨ j = i + 2 := by
-      fin_cases i <;> fin_cases j <;> simp_all
-    rcases h' with rfl | rfl
-    · exact xs_ne_xs_succ hσ i h
-    · have e := xs_add_two hσ i
-      rw [← h, ← mul_one (σ.xs i), mul_assoc, one_mul] at e
-      exact xs_ne_one hσ (i + 1) (mul_left_cancel e.symm)
-  · rintro rfl
-    rfl
 
 end T
 
@@ -90,23 +74,12 @@ variable (Δ : Data σ r)
 
 theorem conjSub_a_C : conjSub Δ.a σ.C = σ.C := conjSub_eq_self_iff.mpr Δ.a_mem
 
-theorem conjSub_a_T : conjSub Δ.a σ.T = σ.T := conjSub_eq_self_iff.mpr (a_mem_normalizer_T Δ)
 
 theorem conjSub_a_pow_C (k : ℕ) : conjSub (Δ.a ^ k) σ.C = σ.C := by
   induction k with
   | zero => rw [pow_zero, conjSub_one]
   | succ k ih => rw [pow_succ, ← conjSub_conjSub, conjSub_a_C, ih]
 
-theorem conjSub_a_pow_T (k : ℕ) : conjSub (Δ.a ^ k) σ.T = σ.T := by
-  induction k with
-  | zero => rw [pow_zero, conjSub_one]
-  | succ k ih => rw [pow_succ, ← conjSub_conjSub, conjSub_a_T, ih]
-
-theorem a_pow_mem_normalizer_C (k : ℕ) : Δ.a ^ k ∈ Subgroup.normalizer (σ.C : Set G) :=
-  Subgroup.pow_mem _ Δ.a_mem k
-
-theorem a_pow_mem_normalizer_T (k : ℕ) : Δ.a ^ k ∈ Subgroup.normalizer (σ.T : Set G) :=
-  Subgroup.pow_mem _ (a_mem_normalizer_T Δ) k
 
 theorem a_pow_conj_xs (k i : Fin 3) :
     Δ.a ^ (k : ℕ) * σ.xs i * (Δ.a ^ (k : ℕ))⁻¹ = σ.xs (i + k) := by
@@ -177,9 +150,6 @@ theorem Ps_zero_ne_bot (Δ : Data σ r) : σ.Ps r 0 ≠ ⊥ := by
     Nat.Prime.factorization_pos_of_dvd Δ.prime Nat.card_pos.ne' Δ.dvd
   exact (Nat.one_lt_pow hpos.ne' Δ.prime.one_lt).ne' hc.symm
 
-theorem Ps_ne_bot (Δ : Data σ r) (i : Fin 3) : σ.Ps r i ≠ ⊥ := by
-  rw [← zero_add_fin i, ← conjSub_a_pow_Ps Δ, Ne, conjSub_eq_bot_iff]
-  exact Ps_zero_ne_bot Δ
 
 theorem J_le_L : Δ.J ≤ σ.L := Δ.J_le.trans le_sup_left
 
@@ -216,7 +186,6 @@ theorem isPGroup_Rs (hσ : σ.IsValid) (i : Fin 3) : IsPGroup r (Rs Δ i) :=
 
 theorem Ps_le_R (i : Fin 3) : σ.Ps r i ≤ R Δ i := le_sup_right
 
-theorem Ps_le_Rs (i : Fin 3) : σ.Ps r i ≤ Rs Δ i := le_sup_right
 
 theorem Q_le_R (i : Fin 3) : Δ.Q i ≤ R Δ i := le_sup_left
 

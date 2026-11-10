@@ -23,9 +23,5 @@ theorem tauB_conj_slPair :
       thetaEquiv (signLiftPair ⟨dC, 0⟩) * rhoEquiv (XQ ⟨dC, 0⟩) :=
   tauB_conj_thetaEquiv_signLiftPair _ P_dC
 
-theorem tauB_conj_slPair_eq :
-    tauB * thetaEquiv (signLiftPair ⟨dC, 0⟩) * tauB⁻¹ =
-      thetaEquiv (rhoPair (XQ ⟨dC, 0⟩) * signLiftPair ⟨dC, 0⟩) :=
-  tauB_conj_thetaEquiv_signLiftPair_eq _ P_dC
 
 end CFSG.Monster.Visible

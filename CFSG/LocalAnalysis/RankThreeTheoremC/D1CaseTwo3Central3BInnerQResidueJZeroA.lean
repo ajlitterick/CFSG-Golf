@@ -55,10 +55,8 @@ theorem dvd_card_quotient_center_of_perfect {Y : Type*} [Group Y] [Finite Y]
     nlinarith
   exact P.ne_bot_of_dvd_card hp (card_eq_one.mp hP1)
 
-variable {G : Type} [Group G] [Finite G]
 
 end InnerQ.ResidueJZero
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

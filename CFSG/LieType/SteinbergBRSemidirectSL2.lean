@@ -42,33 +42,5 @@ theorem card_center_SL2_eq_two (hF : ringChar F ≠ 2) :
       (Subtype.ext_iff (a1 := A) (a2 := (-1 : SpecialLinearGroup (Fin 2) F))).symm
   rw [← SetLike.coe_sort_coe, hset, Nat.card_coe_set_eq, Set.ncard_pair hne]
 
-variable {N : Type*} [CommGroup N] {φ : SpecialLinearGroup (Fin 2) F →* MulAut N}
-
-theorem semidirect_SL2_structure [Finite F] {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2)
-    (h4 : ∃ s : Finset F, s.card = 4) [Finite N] (hNp : IsPGroup p N)
-    (hφ : Function.Injective φ) {H : Type*} [Group H]
-    (Φ : N ⋊[φ] SpecialLinearGroup (Fin 2) F ≃* H) :
-    CFSG.solvableRadical H = (radPre φ).map Φ.toMonoidHom ∧
-    Nat.card H = Nat.card N * Nat.card (SpecialLinearGroup (Fin 2) F) ∧
-    Nat.card (CFSG.solvableRadical H) = Nat.card N * 2 ∧
-    Nonempty (H ⧸ CFSG.solvableRadical H ≃* ProjectiveSpecialLinearGroup (Fin 2) F) ∧
-    CFSG.pCore 2 H = ⊥ := by
-  have hF : ringChar F ≠ 2 := by rwa [ringChar.eq F p]
-  obtain ⟨hnt, hsimple, -⟩ := CFSG.LinearGroups.linear_projective_simple (K := F) le_rfl
-    (Or.inr h4)
-  have hperf := CFSG.LinearGroups.linear_projective_perfect (K := F) le_rfl (Or.inr h4)
-  have hns : ¬ Group.IsSolvable (ProjectiveSpecialLinearGroup (Fin 2) F) :=
-    not_isSolvable_of_isPerfect
-  have hRad : CFSG.solvableRadical H = (radPre φ).map Φ.toMonoidHom := by
-    rw [← solvableRadical_map_equiv Φ, solvableRadical_eq_radPre hsimple hns]
-  refine ⟨hRad, ?_, ?_, ⟨?_⟩, ?_⟩
-  · rw [← Nat.card_congr Φ.toEquiv, SemidirectProduct.card]
-  · rw [hRad, Subgroup.card_map_of_injective Φ.injective, card_radPre,
-      card_center_SL2_eq_two hF]
-  · refine (QuotientGroup.congr (radPre φ) (CFSG.solvableRadical H) Φ ?_).symm.trans
-      quotientRadPreEquiv
-    rw [hRad]
-    rfl
-  · rw [← pCore_map_equiv 2 Φ, pCore_two_eq_bot hNp hp2 hφ, Subgroup.map_bot]
 
 end CFSG.LieType.SteinbergBR

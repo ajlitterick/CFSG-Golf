@@ -33,25 +33,12 @@ theorem lemma63a
     IsSolvableSection (thetaOf θ B) (kOf (thetaOf θ B)) :=
   isSolvableSection_of_perfRes_le (h.perfRes_le_kOf (h.thetaOf_mem_cset_bot hBA hB hns))
 
-theorem lemma63b
-    (h : Counterexample p A θ) {B : Subgroup G} (hB : B ≠ ⊥) (hBA : B ≤ A)
-    (hns : ¬ Group.IsSolvable (thetaOf θ B)) :
-    IsChiefFactorOf (kOf (thetaOf θ B) ⊔ dsub A θ ⊔ A) (kOf (thetaOf θ B)) ⊥ ∧
-      ∀ M : Subgroup G, IsChiefFactorOf (kOf (thetaOf θ B) ⊔ dsub A θ ⊔ A) M ⊥ →
-        M ≤ kOf (thetaOf θ B) ⊔ dsub A θ → M = kOf (thetaOf θ B) := by
-  have hX := h.thetaOf_mem_cset_bot hBA hB hns
-  exact ⟨h.isChiefFactorOf_kOf hX, fun _ hM hMle => h.eq_kOf_of_isChiefFactorOf hX hM hMle⟩
 
 theorem sol_thetaOf_eq_bot
     (h : Counterexample p A θ) {B : Subgroup G} (hB : B ≠ ⊥)
     (hBA : B ≤ A) (hns : ¬ Group.IsSolvable (thetaOf θ B)) : sol (thetaOf θ B) = ⊥ :=
   h.sol_eq_bot_of_mem_cset (h.thetaOf_mem_cset_bot hBA hB hns)
 
-theorem isSemisimple_kOf_thetaOf
-    (h : Counterexample p A θ) {B : Subgroup G} (hB : B ≠ ⊥)
-    (hBA : B ≤ A) (hns : ¬ Group.IsSolvable (thetaOf θ B)) :
-    IsSemisimple (kOf (thetaOf θ B)) :=
-  h.isSemisimple_kOf_of_mem_cset (h.thetaOf_mem_cset_bot hBA hB hns)
 
 theorem perfRes_thetaOf_eq_kOf
     (h : Counterexample p A θ) {B : Subgroup G} (hB : B ≠ ⊥)
@@ -59,11 +46,6 @@ theorem perfRes_thetaOf_eq_kOf
     perfRes (thetaOf θ B) = kOf (thetaOf θ B) :=
   h.perfRes_eq_kOf (h.thetaOf_mem_cset_bot hBA hB hns)
 
-theorem dsub_inf_centralizer_kOf_thetaOf
-    (h : Counterexample p A θ) {B : Subgroup G}
-    (hB : B ≠ ⊥) (hBA : B ≤ A) (hns : ¬ Group.IsSolvable (thetaOf θ B)) :
-    dsub A θ ⊓ Subgroup.centralizer (kOf (thetaOf θ B) : Set G) = ⊥ :=
-  h.dsub_inf_centralizer_kOf (h.thetaOf_mem_cset_bot hBA hB hns)
 
 theorem exists_conj_eq_of_mem_lcal_thetaOf
     (h : Counterexample p A θ) {B : Subgroup G}
@@ -77,10 +59,6 @@ theorem lemma64
     (⨆ (b : G) (_ : b ∈ B) (_ : b ≠ 1), kOf (θ b)) = wsub p A θ :=
   h.iSup_kOf_apply_eq_wsub hB
 
-theorem lemma65
-    (h : Counterexample p A θ) {F : Subgroup G} (hF : F ∈ rSetN p A θ 1) :
-    ∃ B ∈ rSetN p A θ 2, F ≤ B :=
-  h.exists_rSetN_two_ge_of_one hF
 
 theorem rSetN_two_nonempty
     (h : Counterexample p A θ) : (rSetN p A θ 2).Nonempty :=

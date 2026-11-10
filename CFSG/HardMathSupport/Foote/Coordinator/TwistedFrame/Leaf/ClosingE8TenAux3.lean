@@ -17,7 +17,6 @@ variable {K L : Type} [Field K] [Field L]
 
 @[expose] def Fv (Fr : L →+* L) (c : Fn L) : Fn L := fun ν => Fr (c ν)
 
-@[expose] def ιFn (ι : K →+* L) (c : Fn K) : Fn L := fun ν => ι (c ν)
 
 @[expose] def Frob (Fr : L →+* L) : ModGL Tag.E8 L →* ModGL Tag.E8 L :=
   Units.map (entrywiseHom Fr)
@@ -46,30 +45,6 @@ theorem Fv_single (Fr : L →+* L) (μ : Fin Tag.E8.rank → ℤ) (c : L) :
     simp [Fv]
   · simp [Fv, Pi.single_eq_of_ne h]
 
-theorem ιFn_add (ι : K →+* L) (c c' : Fn K) : ιFn ι (c + c') = ιFn ι c + ιFn ι c' := by
-  funext ν
-  simp [ιFn]
-
-theorem ιFn_neg (ι : K →+* L) (c : Fn K) : ιFn ι (-c) = -ιFn ι c := by
-  funext ν
-  simp [ιFn]
-
-theorem ιFn_zero (ι : K →+* L) : ιFn ι (0 : Fn K) = 0 := by
-  funext ν
-  simp [ιFn]
-
-theorem ιFn_single (ι : K →+* L) (μ : Fin Tag.E8.rank → ℤ) (c : K) :
-    ιFn ι (Pi.single μ c : Fn K) = Pi.single μ (ι c) := by
-  funext ν
-  by_cases h : ν = μ
-  · subst h
-    simp [ιFn]
-  · simp [ιFn, Pi.single_eq_of_ne h]
-
-theorem ιFn_injective (ι : K →+* L) : Function.Injective (ιFn ι) := by
-  intro c c' h
-  funext ν
-  exact ι.injective (congrFun h ν)
 
 @[expose] def frobGood (Fr : L →+* L) : Subgroup (ModGL Tag.E8 L) where
   carrier := {q | q ∈ Qθ Tag.E8 L ∧ Frob Fr q ∈ Qθ Tag.E8 L ∧
@@ -114,41 +89,6 @@ theorem heisCoord_Frob (Fr : L →+* L) {q : ModGL Tag.E8 L} (hq : q ∈ Qθ Tag
           (heisCoord_spec _ L).pinnedX_highRoot, Fv_zero]
   exact (hle hq).2
 
-@[expose] def bcGood (ι : K →+* L) : Subgroup (ModGL Tag.E8 K) where
-  carrier := {q | q ∈ Qθ Tag.E8 K ∧ baseChangeGL ι q ∈ Qθ Tag.E8 L ∧
-    heisCoord Tag.E8 L (baseChangeGL ι q) = ιFn ι (heisCoord Tag.E8 K q)}
-  mul_mem' := by
-    rintro q q' ⟨hq, hcq, hqe⟩ ⟨hq', hcq', hq'e⟩
-    refine ⟨mul_mem hq hq', ?_, ?_⟩
-    · rw [map_mul]
-      exact mul_mem hcq hcq'
-    · rw [map_mul, (heisCoord_spec Tag.E8 L).mul _ hcq _ hcq', hqe, hq'e,
-        (heisCoord_spec Tag.E8 K).mul _ hq _ hq', ιFn_add]
-  one_mem' := ⟨one_mem _, by rw [map_one]; exact one_mem _, by
-    rw [map_one, heisCoord_one, heisCoord_one, ιFn_zero]⟩
-  inv_mem' := by
-    rintro q ⟨hq, hcq, hqe⟩
-    refine ⟨inv_mem hq, ?_, ?_⟩
-    · rw [map_inv]
-      exact inv_mem hcq
-    · rw [map_inv, heisCoord_inv hcq, hqe, heisCoord_inv hq, ιFn_neg]
-
-theorem heisCoord_baseChange (ι : K →+* L) {q : ModGL Tag.E8 K} (hq : q ∈ Qθ Tag.E8 K) :
-    baseChangeGL ι q ∈ Qθ Tag.E8 L ∧
-      heisCoord Tag.E8 L (baseChangeGL ι q) = ιFn ι (heisCoord Tag.E8 K q) := by
-  have hle : Qθ Tag.E8 K ≤ bcGood ι := by
-    refine Qθ_le_of_gen (fun β hβ c => ?_) (fun c => ?_)
-    · refine ⟨pinnedX_mem_Qθ_of_mem_Deg1 hβ c, ?_, ?_⟩
-      · rw [baseChangeGL_pinnedX]
-        exact pinnedX_mem_Qθ_of_mem_Deg1 hβ _
-      · rw [baseChangeGL_pinnedX, (heisCoord_spec _ L).pinnedX_deg1 β hβ,
-          (heisCoord_spec _ K).pinnedX_deg1 β hβ, ιFn_single]
-    · refine ⟨pinnedX_highRoot_mem_Qθ c, ?_, ?_⟩
-      · rw [baseChangeGL_pinnedX]
-        exact pinnedX_highRoot_mem_Qθ _
-      · rw [baseChangeGL_pinnedX, (heisCoord_spec _ L).pinnedX_highRoot,
-          (heisCoord_spec _ K).pinnedX_highRoot, ιFn_zero]
-  exact (hle hq).2
 
 theorem Frob_baseChangeGL (ι : K →+* L) (Fr : L →+* L) (hfix : ∀ a : K, Fr (ι a) = ι a)
     (g : ModGL Tag.E8 K) : Frob Fr (baseChangeGL ι g) = baseChangeGL ι g := by

@@ -160,8 +160,6 @@ theorem chi1_mem_SUJ {B : SL(4, F4)} (hB : B ∈ msigma F4) : chi1 F4 B ∈ SUJ 
 @[expose] noncomputable def chi0 : msigma F4 →* SUJ :=
   ((chi1 F4).comp (msigma F4).subtype).codRestrict SUJ fun B => chi1_mem_SUJ B.2
 
-theorem coe_chi0 (B : msigma F4) :
-    (chi0 B : SpecialLinearGroup (Fin 6) F4) = chi1 F4 (B : SL(4, F4)) := rfl
 
 theorem chi1_sY02 : chi1 F4 (sY F4 0 * sY F4 2) =
     (yamGen 16 : SpecialLinearGroup (Fin 6) F4) := by

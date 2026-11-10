@@ -330,33 +330,5 @@ end Regular
 
 end OmegaRadical
 
-open OmegaRadical in
-theorem even_orthogonal_isotropic_flag_radical_centralizer (G : Type) [Group G]
-    (t : StatedLieTag) (ht : t = .POmegaPlus ∨ t = .POmegaMinus) (n f : ℕ)
-    (h : StatedClassicalModel G t n 2 f) :
-    match t with
-    | .POmegaPlus => ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadPlus n K)),
-          FlagRadicalCentralizer (coordinateQuadPlus n K)
-    | .POmegaMinus => ∀ (hn : 1 ≤ n) (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ b c : K, (∀ s : K, s ^ 2 + b * s + c ≠ 0) →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadMinus n K b c)),
-          FlagRadicalCentralizer (coordinateQuadMinus n K hn b c)
-    | _ => False := by
-  rcases ht with rfl | rfl
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro K _ _ hK _
-    have : CharP K 2 := CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic
-      Nat.prime_two hf hK
-    have hreg := regular_coordinateQuadPlus n K (by omega)
-    exact flagRadicalCentralizer_of_regular hreg.1 hreg.2
-      (commutator_coordinateQuadPlus n K (by omega))
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro hn1 K _ _ hK b c hirr _
-    have : CharP K 2 := CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic
-      Nat.prime_two hf hK
-    have hreg := regular_coordinateQuadMinus n K b c hn hirr
-    exact flagRadicalCentralizer_of_regular hreg.1 hreg.2
-      (commutator_coordinateQuadMinus n K b c hn hirr)
 
 end CFSG.ComponentClassification.UnbalancedCatalog

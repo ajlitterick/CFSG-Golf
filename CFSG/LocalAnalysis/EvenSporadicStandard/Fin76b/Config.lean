@@ -86,7 +86,6 @@ theorem z_mem_T (T₀ : Subgroup G) (z : G) : z ∈ T₀ ⊔ zpowers z := mem_su
 include h in
 theorem t_mem_T : t ∈ T₀ ⊔ zpowers z := mem_sup_left h.t_mem
 
-theorem T₀_le_T (T₀ : Subgroup G) (z : G) : T₀ ≤ T₀ ⊔ zpowers z := le_sup_left
 
 include h in
 theorem z_not_mem_T₀ : z ∉ T₀ := fun hz => h.z_not_mem_A (h.T₀_le hz)

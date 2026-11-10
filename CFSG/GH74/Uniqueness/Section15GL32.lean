@@ -74,7 +74,6 @@ theorem aG_pow_four : aG ^ 4 = 1 := by decide
 
 theorem bG_mul_self : bG * bG = 1 := by decide
 
-theorem bG_aG_bG : bG * aG * bG = aG⁻¹ := by decide
 
 theorem bG_aG_sq : (bG * aG) * (bG * aG) = 1 := by decide
 

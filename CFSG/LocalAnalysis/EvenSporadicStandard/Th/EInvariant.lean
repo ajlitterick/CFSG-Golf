@@ -45,7 +45,6 @@ variable [Finite G]
 
 theorem mem_normInL {n : G} : n ∈ normInL L A ↔ n ∈ L ∧ ∀ x ∈ A, n * x * n⁻¹ ∈ A := Iff.rfl
 
-variable {c : G → (Fin 4 → ZMod 2)}
 
 end Finite
 

@@ -57,7 +57,6 @@ theorem bar_mul {g h : G} (hg : g ∈ Y) (hh : h ∈ Y) :
 
 theorem bar_inv {g : G} (hg : g ∈ Y) : (bar X hg)⁻¹ = bar X (Y.inv_mem hg) := rfl
 
-theorem bar_one : bar X (Y.one_mem) = 1 := rfl
 
 theorem bar_pow {g : G} (hg : g ∈ Y) (n : ℕ) : bar X hg ^ n = bar X (Y.pow_mem hg n) := by
   unfold bar

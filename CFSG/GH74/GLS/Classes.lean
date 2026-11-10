@@ -75,20 +75,5 @@ open Subgroup Blueprint Assembly.LowTwoRank
     (HasL2Model K Odd ∨ Nonempty (K ≃* alternatingGroup (Fin 7)) ∨
       (IsL34Quotient K ∧ IsElementaryAbelian 2 ↥(center K) ∧ Nat.card (center K) ≤ 4))
 
-@[expose] def InTarget2 (K : Type) [Group K] : Prop :=
-  (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-    ((5 < p ^ f ∧ LieModel K .PSL 2 p f) ∨ LieModel K .PSL 3 p f ∨ LieModel K .PSU 3 p f ∨
-      (3 < p ^ f ∧ LieModel K .PSp 2 p f) ∨
-      (3 < p ^ f ∧ p ^ f % 8 ≠ 1 ∧ LieModel K .PSL 4 p f) ∨
-      (3 < p ^ f ∧ p ^ f % 8 ≠ 7 ∧ LieModel K .PSU 4 p f) ∨
-      (3 < p ^ f ∧ LieModel K .G2 0 p f) ∨ LieModel K .trialityD4 0 p f)) ∨
-    (∃ f : ℕ, LieModel K .twistedG2 0 3 f) ∨
-    Nonempty (K ≃* alternatingGroup (Fin 7)) ∨
-    NativeSporadic.IsSporadic K .M11 ∨ NativeSporadic.IsSporadic K .M12 ∨
-    NativeSporadic.IsSporadic K .McL ∨ NativeSporadic.IsSporadic K .Ly ∨
-    NativeSporadic.IsSporadic K .ONan
-
-@[expose] def InTarget2Star (K : Type) [Group K] : Prop :=
-  InTarget2 K ∨ LieModel K .PSL 2 2 2 ∨ LieModel K .PSU 3 2 2 ∨ NativeSporadic.IsSporadic K .J1
 
 end CFSG.GH74.GLS

@@ -24,15 +24,6 @@ theorem lemma_12_8_13_one : VZ T M ≤ wOfU T M ⊓ rconj (wOfU T M) g := by
   rw [h.wOfU_inf_rconj_eq hU hg]
   exact h.VZ_le_inf_rconj hU hg
 
-theorem lemma_12_8_13_two :
-    rconj (centerOf (uOfL22 T M)) g ≤ Subgroup.centralizer (VZ T M : Set G) := by
-  intro z hz
-  have hzC : z ∈ centerOf (rconj (uOfL22 T M) g) := by
-    rw [centerOf_rconj]
-    exact hz
-  rw [Subgroup.mem_centralizer_iff]
-  intro v hv
-  exact Subgroup.mem_centralizer_iff.mp hzC.2 v ((h.VZ_le_inf_rconj hU hg) hv).2
 
 theorem centerOf_sup_eq_bot : centerOf (L ⊔ uOfL22 T M) = ⊥ := by
   by_contra hN
@@ -86,25 +77,6 @@ theorem centralizerMod_rconj_centerOf_eq :
   obtain ⟨e1, e2, e3, e4, -, -⟩ := h.lemma_12_8_10_six hU hg
   rw [e1, e2, e3, e4, h.centerOf_inf_rconj_centerOf_eq_bot hU hg, bot_sup_eq]
 
-theorem exists_mulEquiv_rconj_centerOf :
-    ∃ e : ↥(rconj (centerOf (uOfL22 T M)) g) ≃* ↥(centerOf (uOfL22 T M)),
-      ∀ z : ↥(rconj (centerOf (uOfL22 T M)) g),
-        (z : G) ∈ centralizerMod (centerOf (uOfL22 T M)) (rconj (centerOf (uOfL22 T M)) g)
-          (uOfL22 T M) ↔ ((e z : ↥(centerOf (uOfL22 T M))) : G) ∈ quasithinOmegaOneCenter T := by
-  have hC := h.centralizerMod_rconj_centerOf_eq hU hg
-  refine ⟨{ toFun := fun z => ⟨g * z * g⁻¹, mem_rconj.mp z.2⟩
-            invFun := fun y => ⟨g⁻¹ * y * g, inv_mul_mul_mem_rconj y.2⟩
-            left_inv := fun z => Subtype.ext (by
-              show g⁻¹ * (g * (z : G) * g⁻¹) * g = z
-              group)
-            right_inv := fun y => Subtype.ext (by
-              show g * (g⁻¹ * (y : G) * g) * g⁻¹ = y
-              group)
-            map_mul' := fun a b => Subtype.ext (by
-              show g * ((a : G) * (b : G)) * g⁻¹ = (g * (a : G) * g⁻¹) * (g * (b : G) * g⁻¹)
-              group) }, fun z => ?_⟩
-  rw [hC]
-  exact mem_rconj
 
 theorem lemma_12_8_13_three :
     centerOf (L ⊔ uOfL22 T M) = ⊥ ∧

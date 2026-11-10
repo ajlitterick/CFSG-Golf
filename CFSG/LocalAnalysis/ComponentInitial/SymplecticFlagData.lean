@@ -233,11 +233,6 @@ theorem coe_blockElt {A : Matrix (Fin r) (Fin r) K} (hA : IsUnit A.det)
     coe_upperUnipotentSp, blockMat_eq_mul]
   rfl
 
-theorem blockMat_mem_statedSp {A : Matrix (Fin r) (Fin r) K} (hA : IsUnit A.det)
-    {C : Matrix (Fin r) (Fin r) K} (hC : Cᵀ = C) :
-    ∃ g : StatedSp r K, ((g : GL (Fin r ⊕ Fin r) K) :
-      Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) = blockMat A C :=
-  ⟨blockElt hA hC, coe_blockElt hA hC⟩
 
 variable (r K)
 

@@ -15,13 +15,6 @@ namespace CFSG.Sporadic.Co2Cert
 
 open CFSG.Monster.B.Mathieu CFSG.Monster.B.Co2.Native CFSG.Monster.B.Binary.Native
 
-@[expose] def co2CertSha : ℕ :=
-  0x34a73ee35c6cc5bd2931dad1ca89dec81ca97a3807c1b53253ea0c283238b0a2
-
-@[expose] def co2Keys : List String :=
-  ["basis_indices", "chain", "coprime_chain", "coprime_conjugator", "dimension", "group",
-    "merges", "point", "prime", "schema_version", "stabilizer_generator_indices",
-    "stabilizer_orbits", "vectors"]
 
 @[expose] def co2BasisList : List ℕ :=
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 23, 28, 41, 61]

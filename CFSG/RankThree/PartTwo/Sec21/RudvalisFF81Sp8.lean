@@ -238,13 +238,6 @@ theorem card_CZ : Nat.card CZ = 12960 := card_subS cz_parts.1
 
 theorem card_U0 : Nat.card U0 = 65536 := card_subS u0_tabOK
 
-theorem E0_le_P0 : E0 ≤ P0 :=
-  subS_le fun g hg => mem_subS_of_codeS (by
-    simp only [e0Gens, List.mem_cons, List.not_mem_nil, or_false] at hg
-    simp only [pGens, List.mem_cons, List.not_mem_nil, or_false]
-    tauto)
-
-theorem sp8T_mem_P0 : sp8T ∈ P0 := mem_subS_of_codeS (by rw [codeS_t]; simp [pGens])
 
 theorem E0_comm {x : H8} (hx : x ∈ E0) {y : H8} (hy : y ∈ E0) : x * y = y * x := by
   have hc := allCheck_mem e0_parts.1 e0_parts.2.1 hx
@@ -284,8 +277,6 @@ theorem fixCount_zz : fixCount zz = 16 := by
 theorem fixCount_z012 : fixCount z012 = 4 := by
   rw [fixCount_eq_fixS, codeS_z012, fix_parts.2.2.1]
 
-theorem fixCount_z0123 : fixCount z0123 = 1 := by
-  rw [fixCount_eq_fixS, codeS_z0123, fix_parts.2.2.2.1]
 
 theorem fixCount_zE (i : Fin 4) : fixCount (zE i) = 64 := by
   rw [fixCount_eq_fixS]
@@ -606,8 +597,6 @@ theorem card_le_filter {gens : List (List ℕ)} {n : ℕ} (h : tabOK gens (tabS 
     _ = L.toFinset.card := Set.ncard_coe_finset _
     _ ≤ L.length := List.toFinset_card_le _
 
-theorem isPGroup_P0 : IsPGroup 3 P0 :=
-  IsPGroup.of_card (n := 5) (by rw [card_P0]; norm_num)
 
 theorem exists_le_conj_P0 {Q : Subgroup H8} (hQ : IsPGroup 3 Q) :
     ∃ g : H8, Q ≤ P0.map (MulAut.conj g).toMonoidHom := by
@@ -802,8 +791,6 @@ theorem fl1_conj_z1 : fl1 * sp8Z 1 * fl1⁻¹ = sp8Z 1 * sp8Z 1 := by
   rw [fl1_inv, codeS_mul, codeS_mul, codeS_mul, fl1, codeS_mkS, codeS_z1]
   exact f1_parts.2.2.2.2.2
 
-theorem isPGroup_U0 : IsPGroup 2 U0 :=
-  IsPGroup.of_card (n := 16) (by rw [card_U0]; norm_num)
 
 theorem exists_le_conj_U0 {Q : Subgroup H8} (hQ : IsPGroup 2 Q) :
     ∃ g : H8, Q ≤ U0.map (MulAut.conj g).toMonoidHom := by

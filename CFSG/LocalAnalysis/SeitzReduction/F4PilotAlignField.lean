@@ -103,13 +103,6 @@ theorem FieldNeighbourIso.map_leviPiece [Finite G] {N : AmalgamNeighbour}
   rw [pieceCore_eq e N hJ, ← h.map_comap_centralizer J, ← CFSG.Quasithin.map_perfectCore, hP,
     ← map_map]
 
-theorem FieldNeighbourIso.map_leviPiece_eq [Finite G] {N N' : AmalgamNeighbour}
-    (hN : FieldNeighbourIso σ e N) (hN' : FieldNeighbourIso σ e N')
-    (hq : 4 ≤ Nat.card (fixSubfield σ)) {J : Finset (Fin (Tag.rank .F4))} (hJ : J ⊆ N.nodes)
-    (hJ' : J ⊆ N'.nodes) (hJ2 : J.card ≤ 2) :
-    ((leviPiece K N J).map hN.Φ.toMonoidHom).map (neighbourCore e N).subtype =
-      ((leviPiece K N' J).map hN'.Φ.toMonoidHom).map (neighbourCore e N').subtype := by
-  rw [hN.map_leviPiece hq hJ hJ2, hN'.map_leviPiece hq hJ' hJ2]
 
 end Images
 

@@ -31,12 +31,6 @@ structure IsF5Centralizer (H : Type) [Group H] (E : Subgroup H) : Prop extends I
     ∀ t : G, orderOf t = 2 → ∀ E : Subgroup (centralizer ({t} : Set G)),
       IsHSCover (centralizer ({t} : Set G)) E → IsF5Centralizer (centralizer ({t} : Set G)) E
 
-@[expose] def HaradaHNRecognition : Prop :=
-  ∀ z₀ : Carrier .HN, orderOf z₀ = 2 →
-    (∃ K : Subgroup (centralizer ({z₀} : Set (Carrier .HN))), CFSG.IsComponent K) →
-    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (z : G), orderOf z = 2 →
-      Nonempty (centralizer ({z} : Set G) ≃* centralizer ({z₀} : Set (Carrier .HN))) →
-        IsSporadic G .HN
 
 @[expose] def HaradaHNRecognitionKP : Prop :=
   ∀ z₀ : Carrier .HN, orderOf z₀ = 2 →
@@ -46,8 +40,5 @@ structure IsF5Centralizer (H : Type) [Group H] (E : Subgroup H) : Prop extends I
       Nonempty (centralizer ({z} : Set G) ≃* centralizer ({z₀} : Set (Carrier .HN))) →
         IsSporadic G .HN
 
-theorem haradaHNRecognitionKP_of_haradaHNRecognition (h : HaradaHNRecognition) :
-    HaradaHNRecognitionKP :=
-  fun z₀ hz₀ hK G _ _ _ _ z hz hc => h z₀ hz₀ hK G z hz hc
 
 end CFSG.EvenSporadicStandard.TwoHS

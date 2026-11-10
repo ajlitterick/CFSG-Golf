@@ -158,8 +158,6 @@ theorem b0Arr_ne : eqA 1755 b0Arr (idA 1755) = false :=
 theorem uArr_b0 :
     eqA 1755 (mulA (mulA uArr b0Arr) uArr) (powArr 1755 b0Arr 4) = true := u_spec.2.2.2.2
 
-theorem aa_comm_ab :
-    eqA 1755 (mulA aaArr abArr) (mulA abArr aaArr) = true := i_spec.1
 theorem aa_comm_u :
     eqA 1755 (mulA aaArr uArr) (mulA uArr aaArr) = true := i_spec.2.1
 theorem ab_comm_u :
@@ -702,9 +700,6 @@ theorem rep_iEl (p : ℕ) : Rep 1755 (prodI p) (iEl p) := by
   unfold prodI
   exact rep_mulA (rep_powArr rep_aa _) (rep_powArr rep_ab _)
 
-theorem aaP_comm_abP : aaP * abP = abP * aaP :=
-  eq_of_eqA (rep_mulA rep_aa rep_ab)
-    (rep_mulA rep_ab rep_aa) aa_comm_ab
 
 theorem aaP_comm_uP :
     aaP * uP = uP * aaP :=

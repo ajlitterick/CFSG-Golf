@@ -15,9 +15,6 @@ open CFSG.SignalizerFunctorTheorem.McBride.Nonsolv
 
 variable {Γ : Type u} [Group Γ] {p : ℕ}
 
-@[expose] def Below.{v} (p n : ℕ) : Prop :=
-  ∀ (Γ : Type v) [Group Γ] [Finite Γ] (A X D D₂ N L R : Subgroup Γ) [(D₂.subgroupOf D).Normal],
-    Nat.card ↥X < n → Hyp p A X D D₂ N L R → Concl A D D₂ R
 
 theorem hyp_of_le [Finite Γ] {A X X' D D₂ N L R X₁ X₂ : Subgroup Γ} [(D₂.subgroupOf D).Normal]
     (H : Hyp p A X D D₂ N L R) (hP : (X₁, X₂) ∈ iPairsY A X D₂) (hX'X : X' ≤ X) (hDX' : D ≤ X')

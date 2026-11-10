@@ -111,20 +111,6 @@ theorem exists_hom_lift_sl2Three {X Y : Type} [Group X] [Group Y] [Finite Y] (π
   refine ⟨β, fun a b hab => hαinj ?_, fun s => hcomp s⟩
   rw [← hcomp, ← hcomp, hab]
 
-theorem exists_subgroup_lift_sl2Three {X Y : Type} [Group X] [Group Y] [Finite Y] (π : Y →* X)
-    (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center Y) (h2 : IsPGroup 2 π.ker)
-    (J : Subgroup X) (e : SL(2, ZMod 3) ≃* J) :
-    ∃ J' : Subgroup Y, J'.map π = J ∧ Nonempty (SL(2, ZMod 3) ≃* J') := by
-  obtain ⟨β, hβinj, hβ⟩ := exists_hom_lift_sl2Three π hπ hcen h2 J e
-  refine ⟨β.range, ?_, ⟨MonoidHom.ofInjective hβinj⟩⟩
-  ext x
-  constructor
-  · rintro ⟨_, ⟨s, rfl⟩, rfl⟩
-    rw [hβ]
-    exact (e s).2
-  · intro hx
-    obtain ⟨s, hs⟩ := e.surjective ⟨x, hx⟩
-    exact ⟨β s, ⟨s, rfl⟩, by rw [hβ, hs]⟩
 
 end Lift
 

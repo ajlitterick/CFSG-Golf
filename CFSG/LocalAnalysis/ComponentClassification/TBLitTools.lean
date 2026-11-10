@@ -38,10 +38,6 @@ abbrev zStarIn (K : Subgroup X) : Subgroup X :=
 
 theorem oddCoreIn_le (K : Subgroup X) : oddCoreIn K ≤ K := map_subtype_le _
 
-theorem zStarIn_le (K : Subgroup X) : zStarIn K ≤ K := map_subtype_le _
-
-theorem oddCoreIn_le_zStarIn (K : Subgroup X) : oddCoreIn K ≤ zStarIn K :=
-  map_mono (UnbalancingLocal.le_centralPreimage _)
 
 theorem odd_card_oddCoreIn [Finite X] (K : Subgroup X) : Odd (Nat.card (oddCoreIn K)) := by
   rw [card_map_of_injective K.subtype_injective]

@@ -79,14 +79,5 @@ theorem AEIdent.conjX_φ_apply {P : Set (Subgroup G)} {n : ℕ} (I : AEIdent P n
     (y : ↥(pSpan (conjSub g '' P))) : (I.conjX g).φ y = I.φ ((pSpanConj g P).symm y) :=
   I.conjXHom_apply g y
 
-theorem AEIdent.conjX_ker_eq_bot {P : Set (Subgroup G)} {n : ℕ} (I : AEIdent P n) (g : G)
-    (hker : I.φ.ker = ⊥) : (I.conjX g).φ.ker = ⊥ := by
-  rw [eq_bot_iff]
-  intro x hx
-  have hx' : (pSpanConj g P).symm x ∈ I.φ.ker := by
-    rw [MonoidHom.mem_ker, ← I.conjXHom_apply]; exact hx
-  rw [hker, Subgroup.mem_bot] at hx'
-  have := (pSpanConj g P).symm.injective (hx'.trans (map_one _).symm)
-  exact this
 
 end CFSG.ClassicalInvolution.Q3.TC.Thin

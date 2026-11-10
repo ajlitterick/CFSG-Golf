@@ -201,9 +201,5 @@ theorem input15368PsiL3_of_loc (h11 : StageLemma14111) (h113 : StageLemma14113)
   intro G _ _ T Mc M V₁ V₂ E t s c r45 r46 r49 r50 L r66 r67 gl r68 hL3
   exact (false_of_L32_of_loc h11 h113 hloc c r45 r46 r49 r50 L r66 r67 gl r68 hL3).elim
 
-theorem stage1531InspectBCatNoTwo_of_inputs_loc (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (h56 : AsB56) (hI1 : InspectListF618) (hNP : InspectRemainingNP)
-    (hloc : Input15368PsiL3Loc) : Stage1531InspectBCatNoTwo :=
-  stage1531InspectBCatNoTwo_of_inputs h113 h56 hI1 hNP (input15368PsiL3_of_loc h11 h113 hloc)
 
 end CFSG.Quasithin

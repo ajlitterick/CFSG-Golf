@@ -137,10 +137,6 @@ theorem classDefect_isPGroup {group : Type*} [Group group]
   obtain ⟨representative, _, sylow, rfl⟩ := hdefect
   exact sylow.isPGroup'.map _
 
-theorem classDefect_card_le {group : Type*} [Group group] [Finite group]
-    {prime : ℕ} {conjugacyClass : ConjClasses group} {defect : Subgroup group}
-    (_hdefect : classDefect prime conjugacyClass defect) : Nat.card defect ≤ Nat.card group :=
-  Subgroup.card_le_card_group defect
 
 theorem sylow_image_le {group : Type*} [Group group] {prime : ℕ}
     (ambient : Subgroup group) (sylow : Sylow prime ambient) :
@@ -193,19 +189,5 @@ theorem p_subgroup_subconjugate_classDefect {group : Type*} [Group group] [Finit
   exact subgroupSubconjugate_trans hfirst
     (p_subgroup_subconjugate_sylow_image prime _ _ (hprimary.map _) hlocal sylow)
 
-theorem classDefect_subconjugate {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact prime.Prime] {conjugacyClass : ConjClasses group}
-    {left right : Subgroup group} (hleft : classDefect prime conjugacyClass left)
-    (hright : classDefect prime conjugacyClass right) : subgroupSubconjugate left right := by
-  obtain ⟨representative, hrepresentative, sylow, rfl⟩ := hleft
-  exact p_subgroup_subconjugate_classDefect prime _ (sylow.isPGroup'.map _) representative
-    (sylow_image_le _ sylow) hrepresentative hright
-
-theorem classDefect_conjugate {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact prime.Prime] {conjugacyClass : ConjClasses group}
-    {left right : Subgroup group} (hleft : classDefect prime conjugacyClass left)
-    (hright : classDefect prime conjugacyClass right) : subgroupsConjugate left right :=
-  subgroupSubconjugate_antisymm (classDefect_subconjugate prime hleft hright)
-    (classDefect_subconjugate prime hright hleft)
 
 end CFSG.TwoRankLowerBound.Helpers

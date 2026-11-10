@@ -171,9 +171,6 @@ theorem coe_phia (A : SL(2, L)) :
     (((phia L A : PrimeField.points L) : Matrix.GeneralLinearGroup (Fin 7) L) :
       Matrix (Fin 7) (Fin 7) L) = phiaMat (A : Matrix (Fin 2) (Fin 2) L) := rfl
 
-theorem coe_phib (A : SL(2, L)) :
-    (((phib L A : PrimeField.points L) : Matrix.GeneralLinearGroup (Fin 7) L) :
-      Matrix (Fin 7) (Fin 7) L) = phibMat (A : Matrix (Fin 2) (Fin 2) L) := rfl
 
 theorem phia_upper (c : L) :
     phia L (sl2Upper c) = PrimeField.rootSubgroupPoints (.inl 0) L (Multiplicative.ofAdd c) :=
@@ -205,17 +202,6 @@ theorem phia_injective : Function.Injective (phia L) := by
   · exact congrFun (congrFun h' 1) 0
   · exact congrFun (congrFun h' 1) 1
 
-theorem phib_injective : Function.Injective (phib L) := by
-  intro A B h
-  have h' := congrArg (fun g : PrimeField.points L =>
-    ((g : Matrix.GeneralLinearGroup (Fin 7) L) : Matrix (Fin 7) (Fin 7) L)) h
-  simp only [coe_phib] at h'
-  ext i j
-  fin_cases i <;> fin_cases j
-  · exact congrFun (congrFun h' 1) 1
-  · exact congrFun (congrFun h' 1) 2
-  · exact congrFun (congrFun h' 2) 1
-  · exact congrFun (congrFun h' 2) 2
 
 end Homs
 
@@ -399,8 +385,6 @@ theorem reePhi_commute (A B : SL(2, L)) : reePhi1 L A * reePhi2 L B = reePhi2 L 
 theorem reePhi1_injective : Function.Injective (reePhi1 L) :=
   (MulAut.conj (reeNb L)).injective.comp (phia_injective L)
 
-theorem reePhi2_injective : Function.Injective (reePhi2 L) :=
-  (MulAut.conj (reeNa L)).injective.comp (phib_injective L)
 
 theorem reePhi1_neg_one : reePhi1 L (-1) = reePhi2 L (-1) :=
   Subtype.ext (Units.ext (by

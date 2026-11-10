@@ -222,9 +222,6 @@ section Linear6
 
 variable {F : Type} [Field F]
 
-theorem lin6Weights_apply (t : Fin 3 → Fˣ) :
-    lin6Weights F t = ![t 0, t 1, t 2, (t 0)⁻¹, (t 1)⁻¹, (t 2)⁻¹] :=
-  rfl
 
 theorem lin6Torus_apply_self (t : Fin 3 → Fˣ) (i : Fin 6) :
     ((lin6Torus F t : SpecialLinearGroup (Fin 6) F) : Matrix (Fin 6) (Fin 6) F) i i =

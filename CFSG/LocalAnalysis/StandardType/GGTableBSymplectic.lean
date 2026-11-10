@@ -47,13 +47,5 @@ theorem largeEvenSplit_symplectic_iff {p : ℕ} {lab : LargeEvenLabel}
   rcases htag with h | h <;> dsimp only at h <;> subst h <;>
     simp [LargeEvenSplit, LargeEvenUntwisted]
 
-theorem largeEvenLabelAll_tableB_symplectic_of_split {lab : LargeEvenLabel}
-    (htag : lab.tag = .B ∨ lab.tag = .C) (hlab : LargeEvenInLambda2 lab) (hn : 2 ≤ lab.n)
-    {p : ℕ} (hp : p.Prime) (hs : LargeEvenSplit p lab) :
-    LargeEvenLabelAll lab fun R _ I _ =>
-      ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I := by
-  rcases (largeEvenSplit_symplectic_iff htag).mp hs with hpn | ⟨h1, -⟩
-  · exact largeEvenLabelAll_tableB_symplectic htag hlab hp hpn
-  · omega
 
 end CFSG.StandardType

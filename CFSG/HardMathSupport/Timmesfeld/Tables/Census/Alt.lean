@@ -29,16 +29,9 @@ theorem inV_conj : ∀ u : Perm (Fin 5), InV u ↔ InV (px * u * px⁻¹) := by
 
 theorem sign_pa : Perm.sign pa = 1 := by unfold pa; decide +kernel
 
-theorem sign_pb : Perm.sign pb = 1 := by unfold pb; decide +kernel
 
 theorem sign_px : Perm.sign px = 1 := by unfold px; decide +kernel
 
-theorem sign_of_inV {u : Perm (Fin 5)} (h : InV u) : Perm.sign u = 1 := by
-  rcases h with rfl | rfl | rfl | rfl
-  · simp
-  · exact sign_pa
-  · exact sign_pb
-  · rw [map_mul, sign_pa, sign_pb]; rfl
 
 @[expose] def kleinFour : Subgroup (alternatingGroup (Fin 5)) where
   carrier := {g | InV (g : Perm (Fin 5))}

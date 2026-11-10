@@ -49,8 +49,6 @@ theorem rootMap_mul_of_mem
   rw [e]
   exact inv_mem hp
 
-theorem isConj_rootInv_iff
-    (x : stdGroup) : IsConj rootInv x ↔ ∃ g, rootMap g = x := isConj_iff
 
 theorem lev_one :
     lev 1 = 2 := by
@@ -130,8 +128,6 @@ theorem hpanel
   rw [encard_panel_stdDistance]
   rcases fin4_cases i with rfl | rfl | rfl | rfl <;> rfl
 
-theorem finite_stdChamber :
-    Finite stdChamber := inferInstance
 
 theorem ncard_levChambers
     (d : ℤ) :
@@ -269,10 +265,6 @@ theorem lev_repPoint
     (i : Fin 5) : lev (stdRep (ncs.wordProd (repWord i))) = repLevel i := by
   rw [lev_stdRep, level_repWord]
 
-theorem repPoint_mem_levPoints
-    (i : Fin 5) : repPoint i ∈ levPoints (repLevel i) := by
-  rw [← lev_repPoint]
-  exact rootMap_mem_levPoints _
 
 theorem coe_rootMap_stdRep
     (w : NW) :
@@ -342,6 +334,5 @@ theorem exists_repLevel
   · exact ⟨3, h⟩
   · exact ⟨4, h⟩
 
-theorem repLevel_injective : Function.Injective repLevel := by decide
 
 end CFSG.Monster.B.E6.StdF4

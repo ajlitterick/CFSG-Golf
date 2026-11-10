@@ -357,27 +357,5 @@ theorem foldedWeylEquiv_orbitReflection
     foldedWeylEquiv t ⟨t.orbitReflection a, t.orbitReflection_mem a⟩ = simple t.foldedTag a :=
   foldedWeylHom_orbitReflection t a
 
-theorem fixed_Weyl_folded_identification
-    (t : TwistTag) :
-    (∃ e : (Fin t.foldedTag.rank → ℤ) ≃ₗ[ℤ] t.fixedLattice,
-      ∀ u, (e u : Fin t.tag.rank → ℤ) = t.foldMap u) ∧
-    (∀ a, t.orbitReflection a ∈ relWeylTwist t ∧ t.orbitReflection a ≠ 1 ∧
-      t.orbitReflection a * t.orbitReflection a = 1) ∧
-    relWeylTwist t = Subgroup.closure (Set.range t.orbitReflection) ∧
-    (∃ φ : relWeylTwist t ≃* WeylGroup t.foldedTag,
-      (∀ (w : relWeylTwist t) (u : Fin t.foldedTag.rank → ℤ),
-        (w : WeylGroup t.tag) • t.foldMap u = t.foldMap (φ w • u)) ∧
-      ∀ a (h : t.orbitReflection a ∈ relWeylTwist t),
-        φ ⟨t.orbitReflection a, h⟩ = simple t.foldedTag a) ∧
-    (∀ a (u : Fin t.foldedTag.rank → ℤ),
-      t.orbitReflection a • t.foldMap u = t.foldMap (simple t.foldedTag a • u)) ∧
-    ∀ w ∈ relWeylTwist t, (∀ v ∈ t.fixedLattice, w • v = v) → w = 1 :=
-  ⟨⟨t.foldLatticeEquiv, t.coe_foldLatticeEquiv⟩,
-    fun a => ⟨t.orbitReflection_mem a, t.orbitReflection_ne_one a, t.orbitReflection_mul_self a⟩,
-    relWeylTwist_eq_closure t,
-    ⟨foldedWeylEquiv t, smul_foldMap_foldedWeylEquiv t,
-      fun a _ => foldedWeylEquiv_orbitReflection t a⟩,
-    t.orbitReflection_smul_foldMap,
-    fun _ hw hfix => eq_one_of_forall_smul_fixedLattice t hw hfix⟩
 
 end CFSG.LieType.Chevalley

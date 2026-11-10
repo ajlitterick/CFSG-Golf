@@ -138,8 +138,6 @@ variable {F : Type} [Field F] {X : Type} [Group X]
 
 @[expose] def C₁ (M : burnsideA315y_Model F X) : Subgroup ↥M.Γ := burnsideA315y_C1 M.Γ M.zh
 
-theorem S₀_le_C₁ (M : burnsideA315y_Model F X) : M.S₀ ≤ M.C₁ := fun s hs =>
-  ⟨M.S₀_det s hs, M.S₀_comm s hs⟩
 
 section OfData
 
@@ -264,20 +262,6 @@ end OfData
     S₀_det := fun s hs => ((Classical.choose_spec hS).2.1 hs).1
     two_ne := two_ne }
 
-theorem ofData_relIndex (Γ : Subgroup (GL (Fin 3) F)) [Finite ↥Γ] (c : ↥Γ →* X)
-    (ker_c : ∀ g : ↥Γ, c g = 1 ↔
-      ∃ μ : Fˣ, (g : GL (Fin 3) F) = Matrix.GeneralLinearGroup.scalar (Fin 3) μ)
-    (zh : ↥Γ) (zh_val : (zh : GL (Fin 3) F) = negDiag3 F) (x y cc : F)
-    (hdet : cc ^ 2 * (x ^ 2 + y ^ 2) = -1) (Da Db : ↥Γ)
-    (Da_val : ((Da : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) = blkMat (burnsideA315y_qa F) 1)
-    (Db_val : ((Db : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      blkMat (cc • burnsideA315y_qb x y) 1)
-    (two_ne : (2 : F) ≠ 0) :
-    ¬ 2 ∣ (ofData Γ c ker_c zh zh_val x y cc hdet Da Db Da_val Db_val two_ne).S₀.relIndex
-      (ofData Γ c ker_c zh zh_val x y cc hdet Da Db Da_val Db_val two_ne).C₁ :=
-  (Classical.choose_spec (burnsideA315y_exists_sylow_le
-    (data_quat Γ zh Da Db x y cc zh_val two_ne Da_val Db_val hdet).1
-    (data_quat Γ zh Da Db x y cc zh_val two_ne Da_val Db_val hdet).2)).2.2.2
 
 end burnsideA315y_Model
 

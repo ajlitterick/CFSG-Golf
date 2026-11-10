@@ -15,11 +15,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.
 @[expose] def stepIM (MS MSI IX : ℕ → ℕ) (c j : ℕ) : ℕ :=
   if j < c then MSI (IX j) else MS (IX (j - c))
 
-@[expose] def lvlOf (d : ℕ) (V : Array ℕ) (m : ℕ) (PT PO PA LB TM TIM : ℕ → ℕ) : Level :=
-  ⟨Array.ofFn (n := m) fun k => PT k, Array.ofFn (n := V.size) fun z => PO z,
-    Array.ofFn (n := m) fun k => PA k, Array.ofFn (n := m) fun k => LB k,
-    Array.ofFn (n := m) fun k => permOfMat d V (TM k),
-    Array.ofFn (n := m) fun k => permOfMat d V (TIM k)⟩
 
 @[expose] def lexLtN (a b c e : ℕ) : Bool := a < c || (a == c && b < e)
 

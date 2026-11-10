@@ -335,9 +335,6 @@ noncomputable def qq2 (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) (b :
     Subgroup ↥Q :=
   (L1 hF D).map (conjHom D.norm_Q (wElt α))
 
-theorem qq2_mem (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) (b : F) :
-    qq2 hF D b ∈ L2 hF D :=
-  ⟨qq1 hF D b, qq1_mem hF D b, rfl⟩
 
 theorem qq2_beta (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) (b : F) :
     betaAdd β (qq2 hF D b) = ![0, b] := by
@@ -426,18 +423,6 @@ theorem conj_y_qq2 (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) (t b : 
     _ = conjHom D.norm_Q (wElt α) (qq1 hF D b) := by rw [conj_x_qq1]
     _ = qq2 hF D b := rfl
 
-theorem L2_beta_line (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) {c : ↥Q}
-    (hc : c ∈ L2 hF D) : betaAdd β c = ![0, betaAdd β c 1] := by
-  obtain ⟨q, hq, rfl⟩ := Subgroup.mem_map.mp hc
-  have h := betaAdd_conj D.equiv D.norm_Q (wElt α) q
-  rw [alpha_wElt, weylSL_mulVec, Cplus_beta_eq (α := α) (β := β) D.equiv D.norm_Q
-    (L1_le_Cplus hF D hq)] at h
-  have h' : betaAdd β (conjHom D.norm_Q (wElt α) q) =
-      ![![betaAdd β q 0, 0] 1, ![betaAdd β q 0, 0] 0] := by
-    simpa [conjHom] using h
-  rw [h']
-  ext i
-  fin_cases i <;> simp
 
 @[expose] noncomputable def zz (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β)
     (t b : F) : ↥Q :=
@@ -763,19 +748,6 @@ theorem mem_W0 {hF : Fintype.card F = 4} {D : ModHyp Q Z K τ α β} {q : ↥Q} 
   · rintro ⟨a, b, rfl⟩
     exact ⟨Multiplicative.ofAdd (a, b), rfl⟩
 
-theorem wHom_injective (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) :
-    Function.Injective (wHom hF D) := by
-  intro x y hxy
-  have hxy' : qq1 hF D x.toAdd.1 * qq2 hF D x.toAdd.2 =
-      qq1 hF D y.toAdd.1 * qq2 hF D y.toAdd.2 := hxy
-  have hb : betaAdd β (qq1 hF D x.toAdd.1 * qq2 hF D x.toAdd.2) =
-      betaAdd β (qq1 hF D y.toAdd.1 * qq2 hF D y.toAdd.2) := by rw [hxy']
-  rw [betaAdd_mul, betaAdd_mul, qq1_beta, qq2_beta, qq1_beta, qq2_beta] at hb
-  have h1 := congrFun hb 0
-  have h2 := congrFun hb 1
-  simp at h1 h2
-  apply Multiplicative.toAdd.injective
-  exact Prod.ext h1 h2
 
 theorem W0_inf_Z (hF : Fintype.card F = 4) (D : ModHyp Q Z K τ α β) :
     W0 hF D ⊓ Z.subgroupOf Q = ⊥ := by
@@ -1242,14 +1214,10 @@ theorem sElt_conj_aElt (M : SL₂ F) (v : Fin 2 → F) (c : F) :
       aElt ((M : Matrix (Fin 2) (Fin 2) F) *ᵥ v) c := by
   rw [sElt_mul_aElt, mul_assoc, mul_inv_cancel, mul_one]
 
-theorem dElt_mul (l m : Fˣ) : dElt (l * m) = dElt l * dElt m := by
-  simpa only [dHom₂_apply] using map_mul (dHom₂ F) l m
 
 theorem dElt_one : dElt (1 : Fˣ) = 1 := by
   simpa only [dHom₂_apply] using map_one (dHom₂ F)
 
-theorem dElt_inv (l : Fˣ) : dElt l⁻¹ = (dElt l)⁻¹ := by
-  simpa only [dHom₂_apply] using map_inv (dHom₂ F) l
 
 theorem dElt_conj_aElt (l : Fˣ) (v : Fin 2 → F) (c : F) :
     dElt l * aElt v c * (dElt l)⁻¹ =
@@ -1467,46 +1435,6 @@ theorem xElt_eq_symm (α : ↥K ≃* SL₂ F) (t : F) :
     xElt α t = α.symm (CFSG.SL2MinimalFaithful.unipotent t) := by
   apply α.injective
   rw [alpha_xElt, α.apply_symm_apply]
-
-theorem Cplus_eq_centralizer (α : ↥K ≃* SL₂ F) (Q : Subgroup G) :
-    Cplus α Q = Q ⊓ Subgroup.centralizer
-      (Set.range fun t : F => ((α.symm (CFSG.SL2MinimalFaithful.unipotent t) : ↥K) : G)) := by
-  rw [Cplus]
-  apply congrArg (fun S : Set G => Q ⊓ Subgroup.centralizer S)
-  ext g
-  simp only [Set.mem_range]
-  constructor
-  · rintro ⟨t, rfl⟩
-    exact ⟨t, by rw [xElt_eq_symm]⟩
-  · rintro ⟨t, rfl⟩
-    exact ⟨t, by rw [xElt_eq_symm]⟩
-
-theorem exists_moduleIso_unbundled (hF : Fintype.card F = 4) {Q Z K : Subgroup G} {τ : G}
-    {α : ↥K ≃* SL₂ F} {β : ↥Q →* Multiplicative (Fin 2 → F)}
-    (hQe : IsElemAbelian 2 Q) (hZQ : Z ≤ Q) (hZc : Nat.card Z = 4)
-    (hKQ : ∀ k ∈ K, ∀ q ∈ Q, k * q * k⁻¹ ∈ Q)
-    (hKZ : ∀ k ∈ K, ∀ z ∈ Z, k * z = z * k)
-    (hβs : Function.Surjective β)
-    (hβk : ∀ q : ↥Q, β q = 1 ↔ (q : G) ∈ Z)
-    (hβe : ∀ (k : ↥K) (q q' : ↥Q), (q' : G) = k * q * k⁻¹ →
-      Multiplicative.toAdd (β q') = (α k : Matrix (Fin 2) (Fin 2) F) *ᵥ
-        Multiplicative.toAdd (β q))
-    (hind : ∀ W : Subgroup G, W ≤ Q → (∀ k ∈ K, ∀ w ∈ W, k * w * k⁻¹ ∈ W) →
-      W ⊔ Z = Q → W = Q)
-    (hT : 16 ≤ Nat.card ↥(Q ⊓ Subgroup.centralizer
-      (Set.range fun t : F => ((α.symm (CFSG.SL2MinimalFaithful.unipotent t) : ↥K) : G))))
-    (hτQ : ∀ q ∈ Q, τ * q * τ⁻¹ ∈ Q) (hτK : ∀ k ∈ K, τ * k = k * τ)
-    (hτ3 : τ ^ 3 = 1) (hτff : ∀ q ∈ Q, τ * q * τ⁻¹ = q → q = 1) :
-    ∃ (ν : Fˣ) (b : ↥Q ≃* ↥(radA2 F)), ν ≠ 1 ∧
-      (∀ q : ↥Q, (q : G) ∈ Z ↔ (b q : antiSp F) ∈ rootU₂ F) ∧
-      (∀ (k : ↥K) (q q' : ↥Q), (q' : G) = k * q * k⁻¹ →
-        (b q' : antiSp F) = sElt (α k) * b q * (sElt (α k))⁻¹) ∧
-      (∀ q q' : ↥Q, (q' : G) = τ * q * τ⁻¹ →
-        (b q' : antiSp F) = dElt ν * b q * (dElt ν)⁻¹) :=
-  have hT' : 16 ≤ Nat.card ↥(Cplus α Q) := by
-    rwa [Cplus_eq_centralizer]
-  exists_moduleIso hF
-    ⟨hQe, hZQ, hZc, hKQ, hKZ, hβs, hβk, hβe, hind, hT', hτQ, hτK, hτ3, hτff⟩
 
 
 end Sp44

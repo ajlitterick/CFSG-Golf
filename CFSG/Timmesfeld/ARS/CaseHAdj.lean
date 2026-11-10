@@ -66,42 +66,6 @@ theorem proj_conj_U5 {x : G} (hx : x ∈ shortRoot R A A₀ P') (g : ↥(M R A))
     rfl
   rw [h1, h2, h3, h4, mul_one, mul_one]
 
-include S in
-theorem commutator_notMem_centralizer {x y : G} (hx : x ∈ shortRoot R A A₀ P') (hx1 : x ≠ 1)
-    (hy : y ∈ P) (hy1 : y ≠ 1) : ⁅x, y⁆ ∉ Subgroup.centralizer (P : Set G) := by
-  intro hc
-  have h := S.hyp
-  have := h.finite
-  have hR := h.root
-  have hPR : P ∈ R := S.hP.2.1
-  have hxC : x⁻¹ ∈ Subgroup.centralizer ((A ⊔ A₀ : Subgroup G) : Set G) := inv_mem hx.1
-  have hP₂ : conjSub P x⁻¹ ∈ lambdaStar R A A₀ := conjSub_mem_lambdaStar hR S.hP hxC
-  have hne : P ≠ conjSub P x⁻¹ := by
-    intro e
-    have hfix : conjSub (A ⊔ P) x⁻¹ = A ⊔ P := by
-      change Subgroup.map _ (A ⊔ P) = _
-      rw [Subgroup.map_sup]
-      exact congrArg₂ (· ⊔ ·) (conjSub_of_forall_commute fun z hz =>
-        (Subgroup.mem_centralizer_iff.1 hxC z (Subgroup.mem_sup_left hz)).symm) e.symm
-    obtain ⟨-, -, hreg⟩ := shortRoot_moufang_of h S.hH S.hT S.hA S.hA₀ S.hP'
-    have hV := sup_mem_linesThrough h S.hA S.hP.1
-    have hP'V : ¬ P' ≤ A ⊔ P := fun hle =>
-      S.hPP' (eq_of_mem_lambdaStar_of_le h S.hA S.hA₀ S.hP S.hP' hle).symm
-    obtain ⟨u₀, -, huniq⟩ := hreg _ hV _ hV hP'V hP'V
-    have := (huniq ⟨x⁻¹, inv_mem hx⟩ hfix).trans (huniq 1 (conjSub_one _)).symm
-    exact hx1 (inv_eq_one.1 (congrArg Subtype.val this))
-  obtain ⟨-, -, -, -, ⟨hsp, -⟩, -⟩ := apartment h S.hH S.hA S.hA₀ S.hP hP₂ hne
-  have hyP₂ : conjSub (conjSub P x⁻¹) y = conjSub P x⁻¹ := by
-    refine conjSub_of_forall_commute fun z hz => ?_
-    have hp : x * z * x⁻¹ ∈ P := by
-      have := (mem_conjSub (H := P) (g := x⁻¹)).1 hz
-      rwa [inv_inv] at this
-    have h1 : Commute ⁅x, y⁆ (x * z * x⁻¹) := (Subgroup.mem_centralizer_iff.1 hc _ hp).symm
-    have h2 : Commute y (x * z * x⁻¹) := hR.commuting_self hPR _ hy _ hp
-    have h3 := h1.mul_left h2
-    rw [commutatorElement_def, show x * y * x⁻¹ * y⁻¹ * y = x * y * x⁻¹ by group] at h3
-    exact (Commute.conj_iff x).1 h3
-  exact Sec3.conjSub_ne_of_special hR h.noIsolated hPR hP₂.2.1 hsp hy hy1 hyP₂
 
 end Setup
 
@@ -141,31 +105,6 @@ theorem comm1_mem (s : E) : ⁅c.x1 s, c.x6 1⁆ ∈ M R A :=
 theorem x2_N (s : E) : c.x2 (c.N s) = c.n2 s :=
   Classical.choose_spec (c.x2_surjective (S.proj ⟨_, c.comm1_mem s⟩).2.2.2.2)
 
-theorem N_ne_zero {s : E} (hs : s ≠ 0) : c.N s ≠ 0 := by
-  intro h0
-  have := S.hyp.finite
-  obtain ⟨-, -, -, hU5P, hU3P, -, hPA, -⟩ :=
-    positive_relations S.hyp S.hH S.hT S.hA S.h3 S.hA₀ S.hP S.hP' S.hPP'
-  have hp1 : (S.proj ⟨_, c.comm1_mem s⟩).1 = 1 :=
-    (S.proj_H (commutator_mem_H S (c.x1_mem s) (c.x6_mem 1))).1
-  have hp2 : (S.proj ⟨_, c.comm1_mem s⟩).2.2.2 = 1 := by
-    apply Subtype.ext
-    change c.n2 s = 1
-    rw [← c.x2_N, h0, c.x2_zero]
-  obtain ⟨a, ha, hdec⟩ := S.exists_eq_mul ⟨_, c.comm1_mem s⟩
-  rw [hp1, hp2] at hdec
-  simp only [OneMemClass.coe_one, one_mul, mul_one] at hdec
-  have hcen : ⁅c.x1 s, c.x6 1⁆ ∈ Subgroup.centralizer (P : Set G) := by
-    rw [hdec]
-    refine Subgroup.mul_mem _ (Subgroup.mul_mem _ ?_ ?_) ?_
-    · exact Subgroup.mem_centralizer_iff.2 fun z hz => (hU5P _ (Subtype.prop _) z hz).eq.symm
-    · exact Subgroup.mem_centralizer_iff.2 fun z hz => (hU3P _ (Subtype.prop _) z hz).eq.symm
-    · exact Subgroup.mem_centralizer_iff.2 fun z hz => (hPA z hz a ha).eq
-  refine S.commutator_notMem_centralizer (c.x1_mem s) (fun h => hs (c.x1_injective ?_))
-    (c.x6_mem 1) (fun h => one_ne_zero (c.x6_injective
-      (S.hyp.root.card_eq S.hA S.hP.2.1) ?_)) hcen
-  · rw [h, c.x1_zero]
-  · rw [h, c.x6_zero]
 
 section Weyl
 

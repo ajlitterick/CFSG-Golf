@@ -35,15 +35,6 @@ theorem miyamotoPairing_comm (v w : K × K) : miyamotoPairing h v w = miyamotoPa
   simp only [miyamotoPairing]
   ring
 
-theorem miyamotoPairing_add_left (v v' w : K × K) :
-    miyamotoPairing h (v + v') w = miyamotoPairing h v w + miyamotoPairing h v' w := by
-  simp only [miyamotoPairing, Prod.fst_add, Prod.snd_add, map_add]
-  ring
-
-theorem miyamotoPairing_add_right (v w w' : K × K) :
-    miyamotoPairing h v (w + w') = miyamotoPairing h v w + miyamotoPairing h v w' := by
-  rw [miyamotoPairing_comm, miyamotoPairing_add_left, miyamotoPairing_comm h w,
-    miyamotoPairing_comm h w']
 
 @[simp] theorem miyamotoPairing_zero_left (w : K × K) : miyamotoPairing h 0 w = 0 := by
   simp [miyamotoPairing]
@@ -65,9 +56,6 @@ theorem miyamotoPairing_sub_left (v v' w : K × K) :
   simp only [miyamotoPairing, Prod.fst_sub, Prod.snd_sub, map_sub]
   ring
 
-theorem miyamotoPairing_self [CharP K 2] (v : K × K) : miyamotoPairing h v v = 0 := by
-  simp only [miyamotoPairing]
-  linear_combination (h.bar v.1 * v.2 + v.1 * h.bar v.2) * CharTwo.two_eq_zero (R := K)
 
 theorem eq_zero_of_miyamotoPairing [CharP K 2] {v : K × K}
     (hv : ∀ w, miyamotoPairing h v w = 0) : v = 0 := by

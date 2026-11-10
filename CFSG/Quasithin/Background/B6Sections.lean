@@ -1048,10 +1048,6 @@ theorem perfect_le_twoResidual {P : Subgroup X} [Group.IsPerfect P] :
   rw [Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk'] at hbot
   exact hbot
 
-theorem layer_le_twoResidual : CFSG.layer X ≤ twoResidual (⊤ : Subgroup X) :=
-  sSup_le fun C hC => by
-    have : Group.IsPerfect C := hC.1.1
-    exact perfect_le_twoResidual
 
 end B6
 
@@ -1106,78 +1102,6 @@ theorem isSolvable_kerIn (h : MinParabolic (⊤ : Subgroup X) T M) :
   exact B6.isSolvable_of_map φ₂ _ (by
     rw [hφ₂, QuotientGroup.ker_mk']; exact h.pCore_le_kerIn)
 
-theorem kerIn_eq_O2F (h : MinParabolic (⊤ : Subgroup X) T M) (hns : ¬ Group.IsSolvable X) :
-    kerIn M ⊤ = O2F X := by
-  set φ₂ := QuotientGroup.mk' (CFSG.Open.pCore 2 X) with hφ₂
-  have hsurj₂ : Function.Surjective φ₂ := QuotientGroup.mk'_surjective _
-  have hker₂ : φ₂.ker ≤ M := by
-    rw [hφ₂, QuotientGroup.ker_mk']
-    exact h.pCore_le_M
-  have hmpY := h.map_of_surjective hsurj₂ hker₂
-  have hOY : CFSG.Open.pCore 2 (X ⧸ CFSG.Open.pCore 2 X) = ⊥ := B6.pCore_quotient_pCore
-  have hnsY : ¬ Group.IsSolvable (X ⧸ CFSG.Open.pCore 2 X) := fun hs =>
-    hns (B6.isSolvable_of_quotient_pCore hs)
-  have hF := hmpY.fittingSubgroup_eq_kerIn hOY hnsY
-  rw [kerIn_map_top hsurj₂ hker₂] at hF
-  unfold O2F
-  rw [hF, Subgroup.comap_map_eq, QuotientGroup.ker_mk', sup_eq_left.mpr h.pCore_le_kerIn]
-
-theorem O2F_dichotomy (h : MinParabolic (⊤ : Subgroup X) T M) (hns : ¬ Group.IsSolvable X) :
-    (kerIn M ⊤ = O2F X ∧ O2F X = O2Fstar X) ∨
-      (kerIn M ⊤ = CFSG.solvableRadical X ∧ O2E2 X = ⊤) := by
-  set φ₂ := QuotientGroup.mk' (CFSG.Open.pCore 2 X) with hφ₂
-  have hsurj₂ : Function.Surjective φ₂ := QuotientGroup.mk'_surjective _
-  have hker₂ : φ₂.ker ≤ M := by
-    rw [hφ₂, QuotientGroup.ker_mk']
-    exact h.pCore_le_M
-  have hmpY := h.map_of_surjective hsurj₂ hker₂
-  have hOY : CFSG.Open.pCore 2 (X ⧸ CFSG.Open.pCore 2 X) = ⊥ := B6.pCore_quotient_pCore
-  have hnsY : ¬ Group.IsSolvable (X ⧸ CFSG.Open.pCore 2 X) := fun hs =>
-    hns (B6.isSolvable_of_quotient_pCore hs)
-  have hF := hmpY.fittingSubgroup_eq_kerIn hOY hnsY
-  rw [kerIn_map_top hsurj₂ hker₂] at hF
-  have h3a := h.kerIn_eq_O2F hns
-  by_cases hE : CFSG.layer (X ⧸ CFSG.Open.pCore 2 X) ≤
-      CFSG.fittingSubgroup (X ⧸ CFSG.Open.pCore 2 X)
-  · left
-    refine ⟨h3a, ?_⟩
-    unfold O2F O2Fstar; simp only [CFSG.generalizedFitting.eq_sup]
-    rw [sup_eq_left.mpr hE]
-  · right
-    refine ⟨?_, ?_⟩
-    · apply le_antisymm
-      ·
-        have hsolvJ : Group.IsSolvable (kerIn M ⊤) := h.isSolvable_kerIn
-        exact le_sSup ⟨inferInstance, hsolvJ⟩
-      · refine sSup_le fun N hN => ?_
-        obtain ⟨hNn, hNs⟩ := hN
-        rcases h.le_kerIn_or_twoResidual_le le_top
-          (Subgroup.normalizer_eq_top_iff.mpr hNn).ge with hle | hle
-        · exact hle
-        · exfalso
-          apply hns
-          have := hNs
-          exact B6.isSolvable_of_twoResidual
-            (Group.isSolvable_of_isSolvable_injective (Subgroup.inclusion_injective hle))
-    · refine (B6.upperTwo_eq_top_iff (O2E X)).mpr fun x => ?_
-      have hEn : (CFSG.layer (X ⧸ CFSG.Open.pCore 2 X)).Normal := by
-        have : (CFSG.layer (X ⧸ CFSG.Open.pCore 2 X)).Characteristic :=
-          CFSG.LocalCores.layer_characteristic
-        infer_instance
-      have hKE : twoResidual (⊤ : Subgroup (X ⧸ CFSG.Open.pCore 2 X)) ≤
-          CFSG.layer (X ⧸ CFSG.Open.pCore 2 X) := by
-        rcases hmpY.le_kerIn_or_twoResidual_le le_top
-            (Subgroup.normalizer_eq_top_iff.mpr hEn).ge with hle | hle
-        · exfalso
-          apply hE
-          rw [hF, ← kerIn_map_top hsurj₂ hker₂]
-          exact hle
-        · exact hle
-      obtain ⟨k, hk⟩ := twoResidual_isTwoQuotient
-        (⊤ : Subgroup (X ⧸ CFSG.Open.pCore 2 X)) (φ₂ x) (Subgroup.mem_top _)
-      refine ⟨k, Subgroup.mem_comap.mpr ?_⟩
-      rw [map_pow]
-      exact hKE hk
 
 end MinParabolic
 

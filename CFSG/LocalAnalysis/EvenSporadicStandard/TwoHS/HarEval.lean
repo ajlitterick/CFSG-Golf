@@ -85,13 +85,6 @@ theorem rep_wordTbl'' (hn : n < 2 ^ 32) {gs : List Table} (hg : ∀ g ∈ gs, pe
     List.getD_eq_getElem _ _ (by omega)]
   simp
 
-theorem enum_mem {cap m : ℕ} {gs : List Table} (hn : n < 2 ^ 32)
-    (hg : ∀ g ∈ gs, permOK n g = true) (h : enumOK n cap m gs = true)
-    {k : ℕ} (hk : k < (mulClosureH n gs.toArray cap).1.size) :
-    Rep n (mulClosureH n gs.toArray cap).1[k]!
-        (tablePerm n (mulClosureH n gs.toArray cap).1[k]!) ∧
-      tablePerm n (mulClosureH n gs.toArray cap).1[k]! ∈ genOf n gs :=
-  (enumOK_spec hn hg h).2.1 k hk
 
 theorem mem_genOf_of_memT {cap m : ℕ} {gs : List Table} (hn : n < 2 ^ 32)
     (hg : ∀ g ∈ gs, permOK n g = true) (h : enumOK n cap m gs = true) {x : Table}
@@ -102,38 +95,5 @@ theorem mem_genOf_of_memT {cap m : ℕ} {gs : List Table} (hn : n < 2 ^ 32)
   rw [hgk]
   exact (hrep k hk).2
 
-theorem card_sq_eq {cap m : ℕ} {gs : List Table} (hn : n < 2 ^ 32)
-    (hg : ∀ g ∈ gs, permOK n g = true) (h : enumOK n cap m gs = true) {x : Table}
-    {g : Equiv.Perm (Fin n)} (hx : Rep n x g) :
-    Nat.card {y : genOf n gs // (y : Equiv.Perm (Fin n)) ^ 2 = g} =
-      (mulClosureH n gs.toArray cap).1.toList.countP
-        fun T => tblEq n (compT n T T) x := by
-  classical
-  obtain ⟨-, hrep, hcov, hdist⟩ := enumOK_spec hn hg h
-  set E := (mulClosureH n gs.toArray cap).1
-  have hrepL := forall₂_tablePerm (fun k hk => (hrep k hk).1)
-  have hnodup := nodup_of_hkeysDistinct hrepL hdist
-  have hmemL : ∀ y, y ∈ E.toList.map (tablePerm n) ↔ y ∈ genOf n gs := by
-    intro y
-    constructor
-    · intro hy
-      obtain ⟨k, hk, rfl⟩ := mem_map_tablePerm (fun k hk => (hrep k hk).1) hy
-      exact (hrep k hk).2
-    · intro hy
-      obtain ⟨k, hk, hkrep⟩ := hcov y hy
-      refine List.mem_map.mpr ⟨E[k]!, ?_, tablePerm_eq hkrep⟩
-      rw [getElem!_pos E k hk]
-      exact Array.mem_toList_iff.mpr (Array.getElem_mem hk)
-  have hcount := card_subtype_eq_countP (genOf n gs) (E.toList.map (tablePerm n)) hnodup hmemL
-    (fun y => y ^ 2 = g)
-  rw [hcount, List.countP_map]
-  apply List.countP_congr
-  intro T hT
-  obtain ⟨k, hk, rfl⟩ := Array.getElem_of_mem (Array.mem_toList_iff.mp hT)
-  have hk' := (hrep k hk).1
-  rw [getElem!_pos E k hk] at hk'
-  simp only [Function.comp_apply]
-  rw [tblEq_iff_eq (Rep.compT hk' hk') hx, ← pow_two]
-  exact decide_eq_true_iff
 
 end CFSG.EvenSporadicStandard.TwoHS

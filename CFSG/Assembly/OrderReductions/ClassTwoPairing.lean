@@ -61,17 +61,6 @@ theorem commutator_mul_right {group : Type*} [Group group]
   map_one' := Subtype.ext (commutatorElement_one_right first)
   map_mul' second third := Subtype.ext (commutator_mul_right central first second third)
 
-@[expose] def centralCommutatorHom {group : Type*} [Group group]
-    (central : commutator group ≤ Subgroup.center group) : group →* group →* Subgroup.center group where
-  toFun := centralCommutatorRightHom central
-  map_one' := by
-    ext element
-    change ⁅(1 : group), element⁆ = 1
-    exact commutatorElement_one_left element
-  map_mul' first second := by
-    ext element
-    change ⁅first * second, element⁆ = ⁅first, element⁆ * ⁅second, element⁆
-    exact commutator_mul_left central first second element
 
 @[expose] noncomputable def commutatorPairing {group : Type*} [Group group]
     (central : commutator group ≤ Subgroup.center group) :

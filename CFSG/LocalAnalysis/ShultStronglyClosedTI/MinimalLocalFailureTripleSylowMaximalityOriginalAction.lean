@@ -43,27 +43,5 @@ theorem original_class_unique_fixed_on_invariant_set
     simpa only [pointRightCosetMul_mul, inv_mul_cancel, pointRightCosetMul_one] using hh.symm
   exact (hxb omega.val hfixRight).trans (hxb a hax).symm
 
-theorem original_normalizer_fixed_card
-    [Finite G] (H U : Subgroup G)
-    (Q : Subgroup (Subgroup.normalizer (U : Set G)))
-    (hUQ : U ≤ Q.map (Subgroup.normalizer (U : Set G)).subtype) :
-    let N := Subgroup.normalizer (U : Set G)
-    letI := pointInvariantSetInverseRightAction H N (pointFixedSet H U)
-      (fun _ hn _ homega => normalizer_preserves_pointFixedSet hn homega)
-    Nat.card {omega : pointFixedSet H U //
-      omega ∈ fixedPointsOfSubgroup N (pointFixedSet H U) Q} =
-        Nat.card (pointFixedSet H (Q.map N.subtype)) := by
-  let N := Subgroup.normalizer (U : Set G)
-  let stable : ∀ n ∈ N, ∀ omega ∈ pointFixedSet H U,
-      pointRightCosetMul H omega n ∈ pointFixedSet H U :=
-    fun _ hn _ homega => normalizer_preserves_pointFixedSet hn homega
-  let := pointInvariantSetInverseRightAction H N (pointFixedSet H U) stable
-  have hcard := Nat.card_congr
-    (original_restricted_fixed_equiv H N (pointFixedSet H U) stable Q)
-  have hset : (pointFixedSet H U ∩ pointFixedSet H (Q.map N.subtype) :
-      Set (pointRightCosetSpace H)) = pointFixedSet H (Q.map N.subtype) :=
-    Set.inter_eq_right.mpr (pointFixedSet_antitone hUQ)
-  rw [hset] at hcard
-  exact hcard
 
 end CFSG.ShultStronglyClosedTI.TripleSylowMaximality

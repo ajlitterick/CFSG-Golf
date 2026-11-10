@@ -17,11 +17,6 @@ open scoped commutatorElement
 variable {K : Type} [Field K] [Finite K]
 
 
-theorem permLattice_add' {τ : Tag} (π : Equiv.Perm (Fin τ.rank)) (v w : Fin τ.rank → ℤ) :
-    permLattice π (v + w) = permLattice π v + permLattice π w := by
-  ext j
-  simp [permLattice]
-
 theorem coord_rel {α : MulAut ↥(adjointGroup Tag.D4 K)} (la : LayerAct Tag.D4 α (1 : K ≃+* K))
     {p : Equiv.Perm (D4Idx)}
     (hr : ∀ (k : ℕ) (δ : UnitRoots Tag.D4 k), (la.r k δ).1 = permLattice (τ := Tag.D4) p δ.1)

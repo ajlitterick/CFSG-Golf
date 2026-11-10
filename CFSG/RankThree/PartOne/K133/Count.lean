@@ -74,25 +74,5 @@ theorem card_sup_zpowers {Y : Subgroup G} {b : G} {p : ℕ} (hp : p.Prime) (hb :
   obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.1 hz
   exact ((Commute.zpow_right (show Commute y b from hcomm y hy) n)).eq
 
-theorem exists_subgroup_card_between [Finite G] {p : ℕ} (hp : p.Prime) {D X : Subgroup G}
-    (hXD : X ≤ D) {a : ℕ} (hX : Nat.card X = p ^ a) {n : ℕ} (han : a ≤ n)
-    (hDn : p ^ n ∣ Nat.card D) :
-    ∃ Y : Subgroup G, X ≤ Y ∧ Y ≤ D ∧ Nat.card Y = p ^ n := by
-  have : Fact p.Prime := ⟨hp⟩
-  induction n, han using Nat.le_induction with
-  | base => exact ⟨X, le_rfl, hXD, hX⟩
-  | succ n han ih =>
-    obtain ⟨Y, hXY, hYD, hY⟩ := ih ((pow_dvd_pow p (Nat.le_succ n)).trans hDn)
-    have hYsub : Nat.card (Y.subgroupOf D) = p ^ n := by
-      rw [← hY]
-      exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe hYD).toEquiv
-    obtain ⟨K, hK, hYK⟩ := Sylow.exists_subgroup_card_pow_succ hDn hYsub
-    refine ⟨K.map D.subtype, ?_, Subgroup.map_subtype_le K, ?_⟩
-    · intro x hx
-      have hxY := hXY hx
-      have hxD := hYD hxY
-      have : (⟨x, hxD⟩ : ↥D) ∈ Y.subgroupOf D := hxY
-      exact ⟨⟨x, hxD⟩, hYK this, rfl⟩
-    · rw [Subgroup.card_map_of_injective D.subtype_injective, hK]
 
 end CFSG.RankThree.PartOne.K133

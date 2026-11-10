@@ -67,8 +67,6 @@ theorem isPGroup_two_centralizer_genFittingFStar (hO : oddCore X = ⊥) :
     change η a⁻¹ = a⁻¹
     rw [map_inv, ha]
 
-omit [Finite X] in
-theorem mem_autFixSubgroup {η : MulAut X} {y : X} : y ∈ autFixSubgroup η ↔ η y = y := Iff.rfl
 
 theorem exists_pow_two_pow_eq_one_of_fixes_fstar (hO : oddCore X = ⊥) (η : MulAut X)
     (hη : ∀ y ∈ genFittingFStar X, η y = y) : ∃ m : ℕ, η ^ 2 ^ m = 1 := by

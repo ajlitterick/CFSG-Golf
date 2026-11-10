@@ -9,10 +9,6 @@ namespace CFSG.ComponentClassification.GrSLit
 open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
   CFSG.ComponentClassification.UnbalancedCorr
 
-@[expose] def L34Cor217Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], L34BaseSetting G →
-    ∀ (a x : G) (J : Subgroup G), GSMaximalUnbalancingTriple a x J →
-      IsL34Type (J ⧸ Open.fusionZStar J) → GSWeakMaximalComponent J
 
 @[expose] def L34Cor217ComponentStep : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (t : G) (S T : Subgroup G),

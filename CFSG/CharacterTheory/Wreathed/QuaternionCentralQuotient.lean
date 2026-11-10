@@ -32,20 +32,6 @@ theorem originalYEvenEquiv_coe_a (h : ℕ) (i : ZMod (2 * h)) :
     (originalYEvenEquiv h (QuaternionGroup.a i) : Wreath (2 * h)) =
       element (2 * h) i (-i) 0 := rfl
 
-theorem originalYEvenEquiv_coe_xa (h : ℕ) (i : ZMod (2 * h)) :
-    (originalYEvenEquiv h (QuaternionGroup.xa i) : Wreath (2 * h)) =
-      element (2 * h) (h - i) i 1 := rfl
-
-theorem originalYEvenEquiv_rotation (h : ℕ) :
-    (originalYEvenEquiv h (QuaternionGroup.a 1) : Wreath (2 * h)) =
-      Original.r (2 * h) := by
-  rw [originalYEvenEquiv_coe_a, Original.r_eq]
-
-theorem originalYEvenEquiv_generator (h : ℕ) :
-    (originalYEvenEquiv h (QuaternionGroup.xa 0) : Wreath (2 * h)) =
-      Original.d (2 * h) := by
-  rw [originalYEvenEquiv_coe_xa, Original.d_eq, sub_zero,
-    show 2 * h / 2 = h by omega]
 
 theorem originalYEvenEquiv_involution (h : ℕ) :
     (originalYEvenEquiv h (QuaternionGroup.a (h : ZMod (2 * h))) : Wreath (2 * h)) =
@@ -136,34 +122,12 @@ theorem nativeQuaternion_center_eq (h : ℕ) (hh : 1 < h) :
       omega
   · exact Subgroup.zpowers_le.mpr (CFSG.Semidihedral.CentralQuotients.nativeQuaternion_half_mem_center h)
 
-theorem modulusEquiv_original_r {m k : ℕ} (h : m = k) :
-    modulusEquiv h (Original.r m) = Original.r k := by
-  subst k
-  rfl
-
-theorem modulusEquiv_original_d {m k : ℕ} (h : m = k) :
-    modulusEquiv h (Original.d m) = Original.d k := by
-  subst k
-  rfl
 
 theorem modulusEquiv_original_x {m k : ℕ} (h : m = k) :
     modulusEquiv h (Original.x m) = Original.x k := by
   subst k
   rfl
 
-theorem originalYQuaternionEquiv_rotation (n : ℕ) (hn : 2 ≤ n) :
-    (originalYQuaternionEquiv n hn (QuaternionGroup.a 1) : Wreath (2 ^ n)) =
-      Original.r (2 ^ n) := by
-  change modulusEquiv (wreath_modulus_twice_half n (by omega))
-    (originalYEvenEquiv (2 ^ n / 2) (QuaternionGroup.a 1) : Wreath (2 * (2 ^ n / 2))) = _
-  rw [originalYEvenEquiv_rotation, modulusEquiv_original_r]
-
-theorem originalYQuaternionEquiv_generator (n : ℕ) (hn : 2 ≤ n) :
-    (originalYQuaternionEquiv n hn (QuaternionGroup.xa 0) : Wreath (2 ^ n)) =
-      Original.d (2 ^ n) := by
-  change modulusEquiv (wreath_modulus_twice_half n (by omega))
-    (originalYEvenEquiv (2 ^ n / 2) (QuaternionGroup.xa 0) : Wreath (2 * (2 ^ n / 2))) = _
-  rw [originalYEvenEquiv_generator, modulusEquiv_original_d]
 
 theorem originalYQuaternionEquiv_involution (n : ℕ) (hn : 2 ≤ n) :
     (originalYQuaternionEquiv n hn
@@ -184,11 +148,6 @@ theorem original_x_mem_Y (n : ℕ) (hn : 2 ≤ n) :
 @[expose] def originalYInvolution (n : ℕ) (hn : 2 ≤ n) : Original.Y (2 ^ n) :=
   ⟨Original.x (2 ^ n), original_x_mem_Y n hn⟩
 
-@[expose] def originalYRotation (m : ℕ) : Original.Y m :=
-  ⟨Original.r m, Subgroup.subset_closure (by simp)⟩
-
-@[expose] def originalYGenerator (m : ℕ) : Original.Y m :=
-  ⟨Original.d m, Subgroup.subset_closure (by simp)⟩
 
 theorem originalY_unique_involution (n : ℕ) (hn : 2 ≤ n)
     (y : Original.Y (2 ^ n)) (hy : orderOf y = 2) : y = originalYInvolution n hn := by
@@ -211,18 +170,6 @@ theorem originalY_center_eq_zpowers (n : ℕ) (hn : 2 ≤ n) :
   congr 1
   exact Subtype.ext (originalYQuaternionEquiv_involution n hn)
 
-theorem originalY_center_eq (n : ℕ) (hn : 2 ≤ n) :
-    Subgroup.center (Original.Y (2 ^ n)) =
-      (Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n)) := by
-  apply Subgroup.map_subtype_inj.mp
-  rw [originalY_center_eq_zpowers n hn, MonoidHom.map_zpowers,
-    Subgroup.map_subgroupOf_eq_of_le (Subgroup.zpowers_le.mpr (original_x_mem_Y n hn))]
-  rfl
-
-theorem originalYCentralInvolution_normal (n : ℕ) (hn : 2 ≤ n) :
-    ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n))).Normal := by
-  rw [← originalY_center_eq n hn]
-  infer_instance
 
 theorem originalY_center_map (n : ℕ) (hn : 2 ≤ n) :
     (Subgroup.center (Original.Y (2 ^ n))).map (Original.Y (2 ^ n)).subtype =
@@ -262,8 +209,6 @@ variable {G : Type u} [Group G]
     Original.Y m ≃* modelY S e :=
   (Original.Y m).equivMapOfInjective (wreathModelHom S e) (wreathModelHom_injective S e)
 
-theorem modelYEquiv_coe {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m) (y : Original.Y m) :
-    (modelYEquiv S e y : G) = wreathModelHom S e y := rfl
 
 theorem modelY_unique_involution (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -306,13 +251,6 @@ theorem modelY_center_eq (n : ℕ) (hn : 2 ≤ n)
   · rintro ⟨z, hz, heq⟩
     exact (Subtype.ext heq : z = y) ▸ hz
 
-theorem originalYQuaternionEquiv_rotation_eq (n : ℕ) (hn : 2 ≤ n) :
-    originalYQuaternionEquiv n hn (QuaternionGroup.a 1) = originalYRotation (2 ^ n) :=
-  Subtype.ext (originalYQuaternionEquiv_rotation n hn)
-
-theorem originalYQuaternionEquiv_generator_eq (n : ℕ) (hn : 2 ≤ n) :
-    originalYQuaternionEquiv n hn (QuaternionGroup.xa 0) = originalYGenerator (2 ^ n) :=
-  Subtype.ext (originalYQuaternionEquiv_generator n hn)
 
 theorem originalYQuaternionEquiv_involution_eq (n : ℕ) (hn : 2 ≤ n) :
     originalYQuaternionEquiv n hn (QuaternionGroup.a ((2 ^ n / 2 : ℕ) :
@@ -322,11 +260,6 @@ theorem originalYQuaternionEquiv_involution_eq (n : ℕ) (hn : 2 ≤ n) :
 @[expose] def originalYCentralInvolution (n : ℕ) (hn : 2 ≤ n) :
     Subgroup (Original.Y (2 ^ n)) := Subgroup.zpowers (originalYInvolution n hn)
 
-theorem originalYCentralInvolution_eq (n : ℕ) (hn : 2 ≤ n) :
-    originalYCentralInvolution n hn =
-      (Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n)) := by
-  rw [originalYCentralInvolution, ← originalY_center_eq_zpowers n hn]
-  exact originalY_center_eq n hn
 
 instance originalYCentralInvolution_normal_instance (n : ℕ) (hn : 2 ≤ n) :
     (originalYCentralInvolution n hn).Normal := by
@@ -353,75 +286,16 @@ theorem originalYQuaternionEquiv_map_center (n : ℕ) (hn : 2 ≤ n) :
     (originalYQuaternionEquiv n hn) (originalYQuaternionEquiv_map_center n hn)).symm.trans
     (CFSG.Semidihedral.CentralQuotients.nativeQuaternionQuotientEquiv (2 ^ n / 2)).symm
 
-theorem originalYDihedralEquiv_mk (n : ℕ) (hn : 2 ≤ n)
-    (q : QuaternionGroup (2 ^ n / 2)) :
-    originalYDihedralEquiv n hn
-      ((QuotientGroup.mk' (originalYCentralInvolution n hn)) (originalYQuaternionEquiv n hn q)) =
-        CFSG.Semidihedral.CentralQuotients.quaternionToDihedral (2 ^ n / 2) q := by
-  let : NeZero (2 ^ n / 2) := ⟨by
-    have hge : 2 ^ 2 ≤ 2 ^ n := Nat.pow_le_pow_right (by decide) hn
-    omega⟩
-  change (CFSG.Semidihedral.CentralQuotients.nativeQuaternionQuotientEquiv (2 ^ n / 2)).symm
-    ((QuotientGroup.congr
-      (CFSG.Semidihedral.CentralQuotients.nativeQuaternionZ (2 ^ n / 2))
-      (originalYCentralInvolution n hn) (originalYQuaternionEquiv n hn)
-      (originalYQuaternionEquiv_map_center n hn)).symm
-      ((QuotientGroup.mk' (originalYCentralInvolution n hn))
-        (originalYQuaternionEquiv n hn q))) = _
-  rw [← QuotientGroup.congr_mk'
-    (CFSG.Semidihedral.CentralQuotients.nativeQuaternionZ (2 ^ n / 2))
-    (originalYCentralInvolution n hn) (originalYQuaternionEquiv n hn)
-    (originalYQuaternionEquiv_map_center n hn) q, MulEquiv.symm_apply_apply]
-  exact CFSG.Semidihedral.CentralQuotients.nativeQuaternionQuotientEquiv_symm_mk _ q
-
-theorem originalYDihedralEquiv_rotation (n : ℕ) (hn : 2 ≤ n) :
-    originalYDihedralEquiv n hn
-      ((QuotientGroup.mk' (originalYCentralInvolution n hn)) (originalYRotation (2 ^ n))) =
-        DihedralGroup.r 1 := by
-  rw [← originalYQuaternionEquiv_rotation_eq n hn, originalYDihedralEquiv_mk]
-  exact CFSG.Semidihedral.CentralQuotients.quaternionToDihedral_rotation _
-
-theorem originalYDihedralEquiv_generator (n : ℕ) (hn : 2 ≤ n) :
-    originalYDihedralEquiv n hn
-      ((QuotientGroup.mk' (originalYCentralInvolution n hn)) (originalYGenerator (2 ^ n))) =
-        DihedralGroup.sr 0 := by
-  rw [← originalYQuaternionEquiv_generator_eq n hn, originalYDihedralEquiv_mk]
-  exact CFSG.Semidihedral.CentralQuotients.quaternionToDihedral_generator _
-
-theorem originalYDihedralQuotient_card (n : ℕ) (hn : 2 ≤ n) :
-    Nat.card (Original.Y (2 ^ n) ⧸ originalYCentralInvolution n hn) = 2 ^ n := by
-  rw [Nat.card_congr (originalYDihedralEquiv n hn).toEquiv, DihedralGroup.nat_card]
-  exact wreath_modulus_twice_half n (by omega)
-
-theorem originalYDihedralQuotient_isKleinFour :
-    IsKleinFour (Original.Y (2 ^ 2) ⧸ originalYCentralInvolution 2 (by decide)) := by
-  refine ⟨originalYDihedralQuotient_card 2 (by decide), ?_⟩
-  rw [Monoid.exponent_eq_of_mulEquiv (originalYDihedralEquiv 2 (by decide))]
-  exact DihedralGroup.exponent (n := 2) |>.trans (by decide)
 
 @[expose] def modelYInvolution (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : modelY S e :=
   modelYEquiv S e (originalYInvolution n hn)
 
-@[expose] def modelYRotation {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m) : modelY S e :=
-  modelYEquiv S e (originalYRotation m)
-
-@[expose] def modelYGenerator {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m) : modelY S e :=
-  modelYEquiv S e (originalYGenerator m)
 
 @[expose] def modelYCentralInvolution (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Subgroup (modelY S e) :=
   Subgroup.zpowers (modelYInvolution n hn S e)
 
-theorem modelYInvolution_coe (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (modelYInvolution n hn S e : G) = wreathModelHom S e (Original.x (2 ^ n)) := rfl
-
-theorem modelYRotation_coe {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m) :
-    (modelYRotation S e : G) = wreathModelHom S e (Original.r m) := rfl
-
-theorem modelYGenerator_coe {m : ℕ} (S : Sylow 2 G) (e : S ≃* Wreath m) :
-    (modelYGenerator S e : G) = wreathModelHom S e (Original.d m) := rfl
 
 theorem modelYEquiv_map_centralInvolution (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -457,46 +331,6 @@ theorem modelYCentralInvolution_eq (n : ℕ) (hn : 2 ≤ n)
     (modelYEquiv S e) (modelYEquiv_map_centralInvolution n hn S e)).symm.trans
       (originalYDihedralEquiv n hn)
 
-theorem modelYDihedralEquiv_mk (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (y : Original.Y (2 ^ n)) :
-    modelYDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYEquiv S e y)) =
-        originalYDihedralEquiv n hn ((QuotientGroup.mk' (originalYCentralInvolution n hn)) y) := by
-  change originalYDihedralEquiv n hn
-    ((QuotientGroup.congr (originalYCentralInvolution n hn) (modelYCentralInvolution n hn S e)
-      (modelYEquiv S e) (modelYEquiv_map_centralInvolution n hn S e)).symm
-        ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYEquiv S e y))) = _
-  rw [← QuotientGroup.congr_mk' (originalYCentralInvolution n hn)
-    (modelYCentralInvolution n hn S e) (modelYEquiv S e)
-    (modelYEquiv_map_centralInvolution n hn S e) y, MulEquiv.symm_apply_apply]
-
-theorem modelYDihedralEquiv_rotation (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelYDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYRotation S e)) =
-        DihedralGroup.r 1 := by
-  rw [modelYRotation, modelYDihedralEquiv_mk]
-  exact originalYDihedralEquiv_rotation n hn
-
-theorem modelYDihedralEquiv_generator (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelYDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYGenerator S e)) =
-        DihedralGroup.sr 0 := by
-  rw [modelYGenerator, modelYDihedralEquiv_mk]
-  exact originalYDihedralEquiv_generator n hn
-
-theorem modelYDihedralQuotient_card (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (modelY S e ⧸ modelYCentralInvolution n hn S e) = 2 ^ n := by
-  rw [Nat.card_congr (modelYDihedralEquiv n hn S e).toEquiv, DihedralGroup.nat_card]
-  exact wreath_modulus_twice_half n (by omega)
-
-theorem modelYDihedralQuotient_isKleinFour (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ 2)) :
-    IsKleinFour (modelY S e ⧸ modelYCentralInvolution 2 (by decide) S e) := by
-  refine ⟨modelYDihedralQuotient_card 2 (by decide) S e, ?_⟩
-  rw [Monoid.exponent_eq_of_mulEquiv (modelYDihedralEquiv 2 (by decide) S e)]
-  exact DihedralGroup.exponent (n := 2) |>.trans (by decide)
 
 theorem original_a_mem_center (m : ℕ) :
     Original.a m ∈ Subgroup.center (Wreath m) := by
@@ -550,78 +384,6 @@ theorem modelSylowCenter_eq_center (n : ℕ) (hn : 2 ≤ n)
           have hge : 2 ^ 2 ≤ 2 ^ n := Nat.pow_le_pow_right (by decide) hn
           omega)))
 
-theorem centerQuotientEquivDihedral_mk (m : ℕ) (hm : 1 < m) (w : Wreath m) :
-    centerQuotientEquivDihedral m hm ((QuotientGroup.mk' (Subgroup.center (Wreath m))) w) =
-      dihedralProjection m w := rfl
-
-theorem modelSylowDihedralEquiv_mk (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (w : Wreath (2 ^ n)) :
-    modelSylowDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm w)) =
-        dihedralProjection (2 ^ n) w := by
-  let E := QuotientGroup.congr (Original.Z (2 ^ n)) (modelSylowCenter S e) e.symm
-    (modelSylowCenter_eq_map S e).symm
-  change centerQuotientEquivDihedral (2 ^ n) (by
-    have hge : 2 ^ 2 ≤ 2 ^ n := Nat.pow_le_pow_right (by decide) hn
-    omega)
-    ((QuotientGroup.quotientMulEquivOfEq
-      (wreath_center_involution_and_quaternion_coordinates n hn).center.symm)
-      (E.symm ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm w)))) = _
-  rw [← QuotientGroup.congr_mk' (Original.Z (2 ^ n)) (modelSylowCenter S e) e.symm
-    (modelSylowCenter_eq_map S e).symm w, MulEquiv.symm_apply_apply]
-  rfl
-
-theorem modelSylowDihedralEquiv_mk_coordinates (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (a b : ZMod (2 ^ n)) (c : ZMod 2) :
-    modelSylowDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm (element (2 ^ n) a b c))) =
-        if c = 0 then DihedralGroup.r (a - b) else DihedralGroup.sr (b - a) := by
-  rw [modelSylowDihedralEquiv_mk]
-  rfl
-
-theorem modelSylowDihedralEquiv_s (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelSylowDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm (Original.s (2 ^ n)))) =
-        DihedralGroup.r 1 := by
-  rw [Original.s, modelSylowDihedralEquiv_mk_coordinates]
-  simp
-
-theorem modelSylowDihedralEquiv_t (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelSylowDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm (Original.t (2 ^ n)))) =
-        DihedralGroup.r (-1) := by
-  rw [Original.t, modelSylowDihedralEquiv_mk_coordinates]
-  simp
-
-theorem modelSylowDihedralEquiv_z (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelSylowDihedralEquiv n hn S e
-      ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm (Original.z (2 ^ n)))) =
-        DihedralGroup.sr 0 := by
-  rw [Original.z, modelSylowDihedralEquiv_mk_coordinates]
-  simp
-
-theorem modelSylowDihedralQuotient_card (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (S ⧸ modelSylowCenter S e) = 2 * 2 ^ n := by
-  rw [Nat.card_congr (modelSylowDihedralEquiv n hn S e).toEquiv, DihedralGroup.nat_card]
-
-theorem modelYDihedralEquiv_symm_rotation (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (modelYDihedralEquiv n hn S e).symm (DihedralGroup.r 1) =
-      (QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYRotation S e) := by
-  apply (modelYDihedralEquiv n hn S e).injective
-  rw [MulEquiv.apply_symm_apply, modelYDihedralEquiv_rotation]
-
-theorem modelYDihedralEquiv_symm_generator (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (modelYDihedralEquiv n hn S e).symm (DihedralGroup.sr 0) =
-      (QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYGenerator S e) := by
-  apply (modelYDihedralEquiv n hn S e).injective
-  rw [MulEquiv.apply_symm_apply, modelYDihedralEquiv_generator]
 
 theorem centralizerQuaternion_unique_involution (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -630,176 +392,5 @@ theorem centralizerQuaternion_unique_involution (n : ℕ) (hn : 2 ≤ n)
   exact modelY_unique_involution n hn (centralizerSylow n hn S e)
     (centralizerCoordinates n hn S e) y hy horder
 
-theorem centralizerQuaternion_full_center_intersection (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    modelCenter (centralizerSylow n hn S e) (centralizerCoordinates n hn S e) ⊓
-      centralizerQuaternion n hn S e = Subgroup.zpowers (centralInvolution n S e) :=
-  modelCenter_inf_modelY n hn (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-
-theorem originalY_literal_dihedral_quotient (n : ℕ) (hn : 2 ≤ n) :
-    ∃ h : ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n))).Normal,
-      letI := h
-      ∃ E : Original.Y (2 ^ n) ⧸
-          (Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n)) ≃*
-            DihedralGroup (2 ^ n / 2),
-        E ((QuotientGroup.mk' ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf
-          (Original.Y (2 ^ n)))) (originalYRotation (2 ^ n))) = DihedralGroup.r 1 ∧
-        E ((QuotientGroup.mk' ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf
-          (Original.Y (2 ^ n)))) (originalYGenerator (2 ^ n))) = DihedralGroup.sr 0 := by
-  let : ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf
-      (Original.Y (2 ^ n))).Normal := originalYCentralInvolution_normal n hn
-  refine ⟨inferInstance, ?_⟩
-  let E := (QuotientGroup.quotientMulEquivOfEq (originalYCentralInvolution_eq n hn).symm).trans
-    (originalYDihedralEquiv n hn)
-  exact ⟨E, originalYDihedralEquiv_rotation n hn, originalYDihedralEquiv_generator n hn⟩
-
-theorem modelY_literal_dihedral_quotient (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ∃ h : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-        (modelY S e)).Normal,
-      letI := h
-      ∃ E : modelY S e ⧸
-          (Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-            (modelY S e) ≃* DihedralGroup (2 ^ n / 2),
-        E ((QuotientGroup.mk' ((Subgroup.zpowers
-          (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf (modelY S e)))
-            (modelYRotation S e)) = DihedralGroup.r 1 ∧
-        E ((QuotientGroup.mk' ((Subgroup.zpowers
-          (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf (modelY S e)))
-            (modelYGenerator S e)) = DihedralGroup.sr 0 := by
-  have hC : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-      (modelY S e)).Normal := by
-    rw [← modelY_center_eq n hn S e]
-    infer_instance
-  refine ⟨hC, ?_⟩
-  let E := (QuotientGroup.quotientMulEquivOfEq
-    (modelYCentralInvolution_eq n hn S e).symm).trans (modelYDihedralEquiv n hn S e)
-  exact ⟨E, modelYDihedralEquiv_rotation n hn S e, modelYDihedralEquiv_generator n hn S e⟩
-
-theorem wreathed_quaternion_and_full_center_dihedral_quotients
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (∀ y : Original.Y (2 ^ n), orderOf y = 2 → y = originalYInvolution n hn) ∧
-    Subgroup.center (Original.Y (2 ^ n)) =
-      (Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n)) ∧
-    Original.Z (2 ^ n) ⊓ Original.Y (2 ^ n) = Subgroup.zpowers (Original.x (2 ^ n)) ∧
-    (∀ y : G, y ∈ modelY S e → orderOf y = 2 →
-      y = wreathModelHom S e (Original.x (2 ^ n))) ∧
-    Subgroup.center (modelY S e) =
-      (Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf (modelY S e) ∧
-    modelCenter S e ⊓ modelY S e =
-      Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n))) ∧
-    (∃ E : modelY S e ⧸ modelYCentralInvolution n hn S e ≃* DihedralGroup (2 ^ n / 2),
-      E ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYRotation S e)) =
-        DihedralGroup.r 1 ∧
-      E ((QuotientGroup.mk' (modelYCentralInvolution n hn S e)) (modelYGenerator S e)) =
-        DihedralGroup.sr 0) ∧
-    Nat.card (modelY S e ⧸ modelYCentralInvolution n hn S e) = 2 ^ n ∧
-    (∃ E : S ⧸ modelSylowCenter S e ≃* DihedralGroup (2 ^ n),
-      ∀ w : Wreath (2 ^ n), E ((QuotientGroup.mk' (modelSylowCenter S e)) (e.symm w)) =
-        dihedralProjection (2 ^ n) w) ∧
-    Nat.card (S ⧸ modelSylowCenter S e) = 2 * 2 ^ n := by
-  exact ⟨originalY_unique_involution n hn, originalY_center_eq n hn, original_Z_inf_Y n hn,
-    modelY_unique_involution n hn S e, modelY_center_eq n hn S e,
-    modelCenter_inf_modelY n hn S e,
-    ⟨modelYDihedralEquiv n hn S e, modelYDihedralEquiv_rotation n hn S e,
-      modelYDihedralEquiv_generator n hn S e⟩,
-    modelYDihedralQuotient_card n hn S e,
-    ⟨modelSylowDihedralEquiv n hn S e, modelSylowDihedralEquiv_mk n hn S e⟩,
-    modelSylowDihedralQuotient_card n hn S e⟩
-
-
-theorem originalYInvolution_orderOf (n : ℕ) (hn : 2 ≤ n) :
-    orderOf (originalYInvolution n hn) = 2 := by
-  rw [← Subgroup.orderOf_coe]
-  exact (wreath_center_involution_and_quaternion_coordinates n hn).involution_orders.1
-
-theorem originalY_exists_unique_involution (n : ℕ) (hn : 2 ≤ n) :
-    ∃! y : Original.Y (2 ^ n), orderOf y = 2 := by
-  exact ⟨originalYInvolution n hn, originalYInvolution_orderOf n hn,
-    originalY_unique_involution n hn⟩
-
-theorem modelYInvolution_orderOf (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    orderOf (modelYInvolution n hn S e) = 2 := by
-  rw [modelYInvolution, (modelYEquiv S e).orderOf_eq]
-  exact originalYInvolution_orderOf n hn
-
-theorem modelY_exists_unique_involution (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ∃! y : modelY S e, orderOf y = 2 := by
-  refine ⟨modelYInvolution n hn S e, modelYInvolution_orderOf n hn S e, ?_⟩
-  intro y hy
-  apply Subtype.ext
-  exact modelY_unique_involution n hn S e y y.property
-    ((Subgroup.orderOf_coe y).trans hy)
-
-theorem originalY_literal_dihedral_quotient_card (n : ℕ) (hn : 2 ≤ n) :
-    ∃ h : ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf
-        (Original.Y (2 ^ n))).Normal,
-      letI := h
-      Nat.card (Original.Y (2 ^ n) ⧸
-        (Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf (Original.Y (2 ^ n))) = 2 ^ n := by
-  let : ((Subgroup.zpowers (Original.x (2 ^ n))).subgroupOf
-      (Original.Y (2 ^ n))).Normal := originalYCentralInvolution_normal n hn
-  refine ⟨inferInstance, ?_⟩
-  rw [Nat.card_congr (QuotientGroup.quotientMulEquivOfEq
-    (originalYCentralInvolution_eq n hn).symm).toEquiv]
-  exact originalYDihedralQuotient_card n hn
-
-theorem modelY_literal_dihedral_quotient_card (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ∃ h : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-        (modelY S e)).Normal,
-      letI := h
-      Nat.card (modelY S e ⧸
-        (Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-          (modelY S e)) = 2 ^ n := by
-  let : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ n)))).subgroupOf
-      (modelY S e)).Normal := by
-    rw [← modelY_center_eq n hn S e]
-    infer_instance
-  refine ⟨inferInstance, ?_⟩
-  rw [Nat.card_congr (QuotientGroup.quotientMulEquivOfEq
-    (modelYCentralInvolution_eq n hn S e).symm).toEquiv]
-  exact modelYDihedralQuotient_card n hn S e
-
-theorem originalY_literal_dihedral_quotient_isKleinFour :
-    ∃ h : ((Subgroup.zpowers (Original.x (2 ^ 2))).subgroupOf (Original.Y (2 ^ 2))).Normal,
-      letI := h
-      IsKleinFour (Original.Y (2 ^ 2) ⧸
-        (Subgroup.zpowers (Original.x (2 ^ 2))).subgroupOf (Original.Y (2 ^ 2))) := by
-  let : ((Subgroup.zpowers (Original.x (2 ^ 2))).subgroupOf
-      (Original.Y (2 ^ 2))).Normal := originalYCentralInvolution_normal 2 (by decide)
-  refine ⟨inferInstance, ?_⟩
-  let E := (QuotientGroup.quotientMulEquivOfEq
-    (originalYCentralInvolution_eq 2 (by decide)).symm).trans
-    (originalYDihedralEquiv 2 (by decide))
-  refine ⟨?_, ?_⟩
-  · rw [Nat.card_congr E.toEquiv, DihedralGroup.nat_card]
-    rfl
-  · rw [Monoid.exponent_eq_of_mulEquiv E]
-    exact DihedralGroup.exponent (n := 2) |>.trans (by decide)
-
-theorem modelY_literal_dihedral_quotient_isKleinFour
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ 2)) :
-    ∃ h : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ 2)))).subgroupOf
-        (modelY S e)).Normal,
-      letI := h
-      IsKleinFour (modelY S e ⧸
-        (Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ 2)))).subgroupOf
-          (modelY S e)) := by
-  let : ((Subgroup.zpowers (wreathModelHom S e (Original.x (2 ^ 2)))).subgroupOf
-      (modelY S e)).Normal := by
-    rw [← modelY_center_eq 2 (by decide) S e]
-    infer_instance
-  refine ⟨inferInstance, ?_⟩
-  let E := (QuotientGroup.quotientMulEquivOfEq
-    (modelYCentralInvolution_eq 2 (by decide) S e).symm).trans
-    (modelYDihedralEquiv 2 (by decide) S e)
-  refine ⟨?_, ?_⟩
-  · rw [Nat.card_congr E.toEquiv, DihedralGroup.nat_card]
-    rfl
-  · rw [Monoid.exponent_eq_of_mulEquiv E]
-    exact DihedralGroup.exponent (n := 2) |>.trans (by decide)
 
 end CFSG.Wreathed

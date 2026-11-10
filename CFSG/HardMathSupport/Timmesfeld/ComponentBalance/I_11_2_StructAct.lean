@@ -41,8 +41,6 @@ theorem i112A_le_normalizer : i112A B L ≤ Subgroup.normalizer (L : Set X) := i
 
 theorem i112A_le_B : i112A B L ≤ B := inf_le_right
 
-theorem mem_i112A {a : X} : a ∈ i112A B L ↔ a ∈ Subgroup.normalizer (L : Set X) ∧ a ∈ B :=
-  Subgroup.mem_inf
 
 theorem i112Bc_le_B : i112Bc B L ≤ B := inf_le_left
 
@@ -94,9 +92,6 @@ theorem i112_Bc_eq (hB : IsElemAbelian p B) :
 theorem i112Bc_le_A (hB : IsElemAbelian p B) : i112Bc B L ≤ i112A B L := by
   rw [i112_Bc_eq hB]; exact inf_le_left
 
-theorem i112_center_inf_B_le_Bc :
-    (i112J B L ⊓ Subgroup.centralizer (i112J B L : Set X)) ⊓ B ≤ i112Bc B L :=
-  fun _ hx => ⟨hx.2, hx.1.2⟩
 
 theorem isElemAbelian_top_of {G : Type*} [Group G] {E : Subgroup G} (hE : IsElemAbelian p E) :
     IsElemAbelian p (⊤ : Subgroup ↥E) := by

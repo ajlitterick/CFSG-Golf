@@ -475,10 +475,6 @@ end TableBF4Two
 open TableBF4Two
 
 
-theorem ggStdSubPreInputOn_F4Two_of_inputs (hE1 : GGF4TwoLocalEndNodeInput)
-    (hE2 : GGF4TwoOuterRankInput) : GGStdSubPreInputOn GGTableBF4TwoLabel :=
-  ggStdSubPreInputOn_F4Two (ggF4TwoEndNodeAdmInput_of_inputs hE1 hE2)
-
 theorem ggStdSubPreInputOn_F4_all_of_inputs (hE1 : GGF4TwoLocalEndNodeInput)
     (hE2 : GGF4TwoOuterRankInput) : GGStdSubPreInputOn GGTableBF4AllLabel :=
   ggStdSubPreInputOn_F4_all (ggF4TwoEndNodeAdmInput_of_inputs hE1 hE2)

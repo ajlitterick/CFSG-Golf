@@ -59,11 +59,6 @@ theorem restricted_stabilizer_map (H N : Subgroup G) (lam : rightCosetSpace (H.s
     rw [restrictedRightCosetEmbedding_translate]
     exact hg'
 
-theorem card_restricted_stabilizer (H N : Subgroup G) (lam : rightCosetSpace (H.subgroupOf N)) :
-    Nat.card (rightCosetStabilizer (H.subgroupOf N) lam) =
-      Nat.card (N ⊓ rightCosetStabilizer H (restrictedRightCosetEmbedding H N lam) :
-        Subgroup G) := by
-  rw [← restricted_stabilizer_map, Subgroup.card_map_of_injective N.subtype_injective]
 
 theorem restricted_mem_pointFixedSet_iff (H N : Subgroup G) (T : Subgroup N)
     (lam : rightCosetSpace (H.subgroupOf N)) :

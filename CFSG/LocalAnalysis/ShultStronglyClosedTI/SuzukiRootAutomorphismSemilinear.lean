@@ -20,14 +20,6 @@ variable {G : Type*} [Group G] (H : Subgroup G)
   one_mem' := Subgroup.map_id H
   inv_mem' {γ} (hγ : H.map (γ : G →* G) = H) := (Subgroup.map_symm_eq_iff_map_eq H).2 hγ
 
-@[expose] def autStabilizerRestrict : autStabilizer H →* MulAut H where
-  toFun γ := (MulEquiv.subgroupMap (γ : MulAut G) H).trans (MulEquiv.subgroupCongr γ.2)
-  map_one' := MulEquiv.ext fun _ => rfl
-  map_mul' _ _ := MulEquiv.ext fun _ => rfl
-
-theorem coe_autStabilizerRestrict_apply (γ : autStabilizer H) (x : H) :
-    ((autStabilizerRestrict H γ x : H) : G) = (γ : MulAut G) x :=
-  rfl
 
 variable {H} in
 theorem apply_mem_of_mem_autStabilizer {γ : MulAut G} (hγ : γ ∈ autStabilizer H) {x : G}

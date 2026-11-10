@@ -71,23 +71,6 @@ theorem gmap_eq_bot {H : Subgroup (MulAut ↥B)} : gmap e H = ⊥ ↔ H = ⊥ :=
 theorem card_gmap (H : Subgroup (MulAut ↥B)) : Nat.card (gmap e H) = Nat.card H :=
   Subgroup.card_map_of_injective (glHom_injective e)
 
-theorem transfer64 (h : Setup W Q A F) (hD : (h.datum e).Lemma64Concl)
-    (X : Subgroup (MulAut ↥B)) (hXW : X ≤ W) (hodd : Odd (Nat.card X))
-    (hQX : ∀ q ∈ Q, ∀ x ∈ X, q * x * q⁻¹ ∈ X) : ∀ q ∈ Q, ∀ x ∈ X, q * x = x * q := by
-  intro q hq x hx
-  have hXD : gmap e X ∈ (h.datum e).NWQ2 := by
-    refine ⟨gmap_mono e hXW, by rwa [card_gmap], ?_⟩
-    intro q' hq' x' hx'
-    obtain ⟨q0, hq0, rfl⟩ := gmap_elim e hq'
-    obtain ⟨x0, hx0, rfl⟩ := gmap_elim e hx'
-    rw [← map_mul, ← map_inv, ← map_mul, glHom_mem_gmap]
-    exact hQX q0 hq0 x0 hx0
-  have hq' : glHom e q ∈ (h.datum e).Q := (glHom_mem_gmap e).2 hq
-  have := Subgroup.mem_centralizer_iff.1 (hD hq') (glHom e x)
-    (le_sSup hXD ((glHom_mem_gmap e).2 hx))
-  rw [← map_mul, ← map_mul] at this
-  exact ((glHom_injective e) this).symm
-
 
 @[expose] def Concl65 (W Q : Subgroup (MulAut ↥B)) (A F : Subgroup ↥B) : Prop :=
   (W ≤ Subgroup.normalizer (Q : Set (MulAut ↥B))) ∨
@@ -330,22 +313,6 @@ theorem GSideK.setup (hK : GSideK B A F Q) (hB : Nat.card ↥B = 81) (hA : Nat.c
     Setup (autIn B ⊤) Q A F :=
   ⟨hB, hA, hF, hK.Q_le_W, hK.Q_fix_A, hK.Q_mem_F, hK.Q_faith_F, hQ8⟩
 
-theorem lemma64_of_gSide (hB : Nat.card ↥B = 81) (hexp : ∀ x : ↥B, x ^ 3 = 1)
-    (hcomm : ∀ x y : ↥B, x * y = y * x) (hA : Nat.card A = 9) (hF : Nat.card F = 9)
-    (hQ8 : Nonempty (Q ≃* QuaternionGroup 2)) (hK : GSideK B A F Q) :
-    Q ≤ Subgroup.centralizer ((sSup (NWQ2 B Q) : Subgroup (MulAut ↥B)) : Set (MulAut ↥B)) := by
-  obtain ⟨V, _, _, _, ⟨e⟩⟩ := exists_model hexp hcomm
-  have h := hK.setup hB hA hF hQ8
-  have hD := (h.datum e).lemma64_abs (hasKa_of e h hK.hasKa)
-  have key := transfer64 e h hD
-  have hle : sSup (NWQ2 B Q) ≤ Subgroup.centralizer (Q : Set (MulAut ↥B)) :=
-    sSup_le fun X hX x hx => by
-      rw [Subgroup.mem_centralizer_iff]
-      exact fun q hq => key X hX.1 hX.2.1 hX.2.2 q hq x hx
-  intro q hq
-  rw [Subgroup.mem_centralizer_iff]
-  intro s hs
-  exact ((Subgroup.mem_centralizer_iff.1 (hle hs)) q hq).symm
 
 theorem lemma65_of_gSide (hB : Nat.card ↥B = 81) (hexp : ∀ x : ↥B, x ^ 3 = 1)
     (hcomm : ∀ x y : ↥B, x * y = y * x) (hA : Nat.card A = 9) (hF : Nat.card F = 9)

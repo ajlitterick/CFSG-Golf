@@ -122,9 +122,6 @@ namespace OfourStruct
     rintro a ⟨haN, ha3⟩
     exact ⟨Subgroup.inv_mem _ haN, by rw [inv_pow, ha3, inv_one]⟩
 
-omit [Finite W] in
-theorem mem_cubeSub (h : OfourStruct X L₁ L₂ t) {y : MulAut W} :
-    y ∈ h.cubeSub ↔ y ∈ L₁ ⊔ L₂ ∧ y ^ 3 = 1 := Iff.rfl
 
 omit [Finite W] in
 theorem isPGroup_cubeSub (h : OfourStruct X L₁ L₂ t) : IsPGroup 3 h.cubeSub := by

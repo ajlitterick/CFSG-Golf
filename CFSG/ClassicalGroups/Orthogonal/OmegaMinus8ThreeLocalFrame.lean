@@ -176,10 +176,6 @@ theorem map_omegaMinus8_eq (Φ : (quadMinus 4 K b c).IsometryEquiv (modelForm b 
   ((toModelGL Φ).subgroupMap (omegaMinus8 K b c)).trans
     (MulEquiv.subgroupCongr (map_omegaMinus8_eq Φ))
 
-@[expose] noncomputable def omegaProj (Φ : (quadMinus 4 K b c).IsometryEquiv (modelForm b c)) :
-    ↥(modelOmega b c) →* StatedProj (omegaMinus8 K b c) :=
-  (QuotientGroup.mk' ((StatedScalars OmegaIdx K).subgroupOf (omegaMinus8 K b c))).comp
-    (omegaEquiv Φ).symm.toMonoidHom
 
 theorem cm_mem_modelOmega [Finite K] (h3 : (3 : K) ≠ 0) (hbc : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
     (v : Multiplicative (Fin 3 → ZMod 3)) : cm K v ∈ modelOmega b c := by

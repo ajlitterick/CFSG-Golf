@@ -392,14 +392,6 @@ private theorem B_le_triangular :
   rw [hk, one_smul] at hmono
   simp only [Real.inner_apply, htWt, hmono, add_zero, le_refl]
 
-theorem height_lt_of_mem_U {u : adjointGroup τ K} (hu : u ∈ (nativeData τ K).U) {a b : Label τ}
-    (h : ((u : ModGL τ K) : Module.End K (RootModule τ K)) (Finsupp.single b 1) a -
-      (Finsupp.single b 1 : RootModule τ K) a ≠ 0) :
-    height (labelWt τ b) < height (labelWt τ a) := by
-  obtain ⟨c, hc, hr⟩ := U_le_gradedKernel hu
-  have h1 := hr a b (by rwa [repr_glRep_sub_one])
-  simp only [Real.inner_apply, htWt, mul_one] at h1
-  exact_mod_cast (by linarith : (height (labelWt τ b) : ℝ) < height (labelWt τ a))
 
 theorem height_lt_of_mem_Uneg {u : adjointGroup τ K} (hu : u ∈ Uneg τ K) {a b : Label τ}
     (h : ((u : ModGL τ K) : Module.End K (RootModule τ K)) (Finsupp.single b 1) a -

@@ -376,9 +376,6 @@ theorem siftA_eq :
     · rw [schreierSiftSucceeds_cons_none _ _ _ _ (transversal_eq_none hl10 hk)]
       simp [hk]
 
-theorem chainQ_original_get_zero : chainQ.original.get ⟨0, by decide⟩ = pa := rfl
-
-theorem chainQ_original_get_one : chainQ.original.get ⟨1, by decide⟩ = pb := rfl
 
 theorem strongPerm_zero :
     strongPerm 0 = pa :=

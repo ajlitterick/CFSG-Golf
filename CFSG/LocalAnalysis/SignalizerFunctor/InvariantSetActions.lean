@@ -60,12 +60,6 @@ variable {PointType : Type pointUniverse}
     apply Subtype.ext
     simp only [Equiv.Perm.subtypePerm_apply, map_mul, Equiv.Perm.mul_apply]
 
-theorem invariant_set_permutation_apply
-    (action : ActorType →* Equiv.Perm PointType) (points : Set PointType)
-    (invariant : ∀ actor : ActorType, ∀ point : PointType,
-      action actor point ∈ points ↔ point ∈ points)
-    (actor : ActorType) (point : points) :
-    (invariantSetPermutation action points invariant actor point).val = action actor point.val := rfl
 
 theorem commuting_permutation_preserves_fixed
     (first second : Equiv.Perm PointType) (commute : Commute first second) (point : PointType) :
@@ -75,11 +69,5 @@ theorem commuting_permutation_preserves_fixed
   rw [interchange]
   exact second.injective.eq_iff
 
-theorem commuting_permutation_unique_fixed_preserved
-    (first second : Equiv.Perm PointType) (commute : Commute first second)
-    (point : PointType) (fixed : first point = point)
-    (unique : ∀ other : PointType, first other = other → other = point) : second point = point := by
-  apply unique
-  exact (commuting_permutation_preserves_fixed first second commute point).mpr fixed
 
 end CFSG.SignalizerFunctor.Helpers

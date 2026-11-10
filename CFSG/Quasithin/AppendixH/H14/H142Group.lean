@@ -36,28 +36,6 @@ theorem le_pCoreOf_of_normal {p : ℕ} {H N : Subgroup X} (hNH : N ≤ H)
   rw [Subgroup.map_subgroupOf_eq_of_le hNH] at hmap
   simpa [pCoreOf] using hmap
 
-theorem pCoreOf_map_conj (p : ℕ) (c : X) (H : Subgroup X) :
-    pCoreOf p (H.map (MulAut.conj c).toMonoidHom) =
-      (pCoreOf p H).map (MulAut.conj c).toMonoidHom := by
-  let e : ↥H ≃* ↥(H.map (MulAut.conj c : X →* X)) := (MulAut.conj c).subgroupMap H
-  have hcomp : (H.map (MulAut.conj c : X →* X)).subtype.comp e.toMonoidHom =
-      (MulAut.conj c).toMonoidHom.comp H.subtype := by
-    ext k
-    simp [e, MulEquiv.coe_subgroupMap_apply]
-  calc
-    pCoreOf p (H.map (MulAut.conj c).toMonoidHom)
-        = (pCore p ↥(H.map (MulAut.conj c : X →* X))).map
-            (H.map (MulAut.conj c : X →* X)).subtype := rfl
-    _ = ((pCore p ↥H).map e.toMonoidHom).map
-            (H.map (MulAut.conj c : X →* X)).subtype := by
-          rw [← CFSG.pCore_map_iso p e]
-    _ = (pCore p ↥H).map
-            ((H.map (MulAut.conj c : X →* X)).subtype.comp e.toMonoidHom) := by
-          rw [Subgroup.map_map]
-    _ = (pCore p ↥H).map ((MulAut.conj c).toMonoidHom.comp H.subtype) := by rw [hcomp]
-    _ = ((pCore p ↥H).map H.subtype).map (MulAut.conj c).toMonoidHom := by
-          rw [← Subgroup.map_map]
-    _ = (pCoreOf p H).map (MulAut.conj c).toMonoidHom := rfl
 
 theorem pCoreOf_le_of_sylow [Finite X] {H P : Subgroup X} (hPH : P ≤ H) (hP2 : IsPGroup 2 P)
     (hodd : ¬ 2 ∣ (P.subgroupOf H).index) : pCoreOf 2 H ≤ P := by
@@ -182,22 +160,6 @@ theorem pCoreOf_eq_of_selfCentralizing_irreducible [Finite X] {M E : Subgroup X}
   exact hC x (pCoreOf_le 2 M hxP)
     (fun e he => (Subgroup.mem_centralizer_iff.mp (hEC he)) x hxP)
 
-theorem isElemAbelian_two_iff (E : Subgroup X) :
-    IsElemAbelian 2 E ↔ (∀ x ∈ E, ∀ y ∈ E, x * y = y * x) ∧ ∀ x ∈ E, x * x = 1 := by
-  rw [IsElemAbelian, isMulCommutative_iff]
-  constructor
-  · rintro ⟨hcomm, hp⟩
-    refine ⟨?_, ?_⟩
-    · intro x hx y hy
-      simpa using congrArg Subtype.val (hcomm ⟨x, hx⟩ ⟨y, hy⟩)
-    · intro x hx
-      simpa [pow_two] using hp x hx
-  · rintro ⟨hcomm, hsq⟩
-    refine ⟨?_, ?_⟩
-    · intro a b
-      exact Subtype.ext (hcomm a.1 a.2 b.1 b.2)
-    · intro x hx
-      simpa [pow_two] using hsq x hx
 
 end PCore
 

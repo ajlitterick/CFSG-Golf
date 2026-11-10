@@ -14,9 +14,6 @@ theorem census_cover_check :
     censusCoverCheck = true :=
   Certificates.certificate15070.2.1
 
-theorem census_size_check :
-    censusSizeCheck = true :=
-  Certificates.certificate15070.2.2.1
 
 theorem census_point_check :
     censusPointCheck = true :=

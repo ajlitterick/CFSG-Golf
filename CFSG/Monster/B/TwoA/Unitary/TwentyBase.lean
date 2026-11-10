@@ -287,10 +287,6 @@ theorem range_rep20 :
   · rintro ⟨u, rfl⟩
     exact ⟨u⁻¹, congrArg w20End (inv_inv u)⟩
 
-theorem b20_eq_mk
-    (t : Fin 20) :
-    ∃ h : decW u20Basis[(t : ℕ)]! ∈ sigmaPerp, b20 t = Submodule.Quotient.mk ⟨_, h⟩ :=
-  ⟨u20Basis_mem t, b20_apply t⟩
 
 instance finiteDimensional_W20 :
     FiniteDimensional (ZMod 2) W20 :=

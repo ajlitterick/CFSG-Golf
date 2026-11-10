@@ -189,19 +189,5 @@ theorem theta_mixed_balance_of_rank_three_local_planes {G : Type u} [Group G] [F
         hlineNormalizes hlineCentralizes, Subgroup.commutator_comm]
     exact hcommutatorLe
 
-theorem thetaActorSignalizer_of_rank_three_local_planes {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (hab : IsElemAbelian prime actor)
-    (hactorCard : Nat.card actor = prime ^ 3)
-    (hlocal : ∀ element ∈ actor, element ≠ 1 → ∀ plane : Subgroup G,
-      plane ≤ actor → Nat.card plane = prime ^ 2 →
-        thetaPlaneAlpha prime (plane.subgroupOf (Subgroup.centralizer ({element} : Set G))) ≤
-          solvablePrimeComplementCore (Subgroup.centralizer ({element} : Set G)) prime) :
-    CFSG.Open.IsSolvableSignalizerFunctor prime actor
-      (thetaActorSignalizer prime actor) := by
-  apply thetaActorSignalizer_isSolvableSignalizerFunctor prime hprime actor hab.1
-    (isElemAbelian_isPGroup prime actor hab)
-  intro first hfirst hfirstNe second hsecond hsecondNe
-  exact theta_mixed_balance_of_rank_three_local_planes prime hprime actor hab hactorCard hlocal
-    first second hfirst hsecond hfirstNe hsecondNe
 
 end CFSG.RankThreeEvenClassification.Helpers

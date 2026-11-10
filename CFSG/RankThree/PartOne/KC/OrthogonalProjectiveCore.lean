@@ -75,11 +75,6 @@ theorem conj_mem_inf_centralizer (hB : (MulAut.conj : T →* MulAut T).range ≤
   ((MulAut.conj : T →* MulAut T).comp (Subgroup.centralizer ({a} : Set T)).subtype).codRestrict _
     (fun n => conj_mem_inf_centralizer hB n.2)
 
-theorem coe_conjToCentralizer (hB : (MulAut.conj : T →* MulAut T).range ≤ B) (a : T)
-    (n : ↥(Subgroup.centralizer ({a} : Set T))) :
-    ((conjToCentralizer hB a n :
-      ↥(B ⊓ Subgroup.centralizer ({MulAut.conj a} : Set (MulAut T)))) : MulAut T) =
-        MulAut.conj (n : T) := rfl
 
 theorem conjToCentralizer_injective (hB : (MulAut.conj : T →* MulAut T).range ≤ B) (a : T)
     (hinj : Function.Injective (MulAut.conj : T →* MulAut T)) :

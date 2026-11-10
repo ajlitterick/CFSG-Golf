@@ -39,20 +39,6 @@ theorem glIxRingEquiv_mem {K K' : Type} [Field K] [Field K'] (e : K ≃+* K') {g
   have hg' : (g : Matrix Ix Ix K)ᵀ * spJ K * g = spJ K := hg
   rw [glIxRingEquiv_coe, ← spJ_map e, ← transpose_map, ← Matrix.map_mul, ← Matrix.map_mul, hg']
 
-theorem map_sp4 (e : F ≃+* F') : (sp4 F).map (glIxRingEquiv e : GL Ix F →* GL Ix F') = sp4 F' := by
-  ext h
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    exact glIxRingEquiv_mem e hg
-  · intro hh
-    refine ⟨glIxRingEquiv e.symm h, glIxRingEquiv_mem e.symm hh, ?_⟩
-    ext i j
-    change e (e.symm ((h : Matrix Ix Ix F') i j)) = _
-    rw [RingEquiv.apply_symm_apply]
-
-theorem map_sp4_commutator (e : F ≃+* F') :
-    (⁅sp4 F, sp4 F⁆).map (glIxRingEquiv e : GL Ix F →* GL Ix F') = ⁅sp4 F', sp4 F'⁆ := by
-  rw [Subgroup.map_commutator, map_sp4]
 
 @[expose] def vecIxRingEquiv (e : F ≃+* F') : (Ix → F) ≃+ (Ix → F') where
   toFun v i := e (v i)
@@ -75,32 +61,5 @@ theorem vecIxRingEquiv_smul (e : F ≃+* F') (g : GL Ix F) (v : Ix → F) :
 
 end RingEquiv
 
-variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
-
-theorem finrank_H1_sp4Derived_two {F : Type} [Field F] [Fintype F] (hF : Fintype.card F = 2)
-    {ρ : Representation (ZMod 2) Γ W} (h : BinaryNaturalSp4Derived ρ F) :
-    Module.finrank (ZMod 2) (H1 ρ) = 1 := by
-  obtain ⟨θ, β, hβ⟩ := BinaryNaturalSp4Derived.intertwiner h
-  set e : F ≃+* ZMod 2 := (ZMod.ringEquivOfPrime F Nat.prime_two hF).symm
-  let θ' : Γ ≃* ↥subAB := θ.trans (((glIxRingEquiv e).subgroupMap _).trans
-    (MulEquiv.subgroupCongr ((map_sp4_commutator e).trans sp4Two_commutator_eq)))
-  let β' : W ≃+ (Ix → ZMod 2) := β.trans (vecIxRingEquiv e)
-  have hβ' : ∀ γ w, β' (ρ γ w) = muAB (θ' γ) (β' w) := fun γ w => by
-    change vecIxRingEquiv e (β (ρ γ w)) = glIxRingEquiv e (θ γ : GL Ix F) • vecIxRingEquiv e (β w)
-    rw [hβ, vecIxRingEquiv_smul]
-  have : Finite Γ := Finite.of_equiv _ θ'.toEquiv.symm
-  have : Finite W := Finite.of_equiv _ β'.toEquiv.symm
-  apply finrank_H1_of_card
-  rw [card_H1_eq_of_card ρ hβ' card_Z1A_AB, pow_one]
-
-theorem finrank_H1_sp4Derived {F : Type} [Field F] [Fintype F] {a : ℕ}
-    (hF : Fintype.card F = 2 ^ a) (ha : 0 < a) {ρ : Representation (ZMod 2) Γ W}
-    (h : BinaryNaturalSp4Derived ρ F) : Module.finrank (ZMod 2) (H1 ρ) = a := by
-  have : CharP F 2 := charP_of_card_eq_prime_pow hF
-  rcases Nat.lt_or_ge 1 a with h1 | h1
-  · exact finrank_H1_sp4Derived_of_one_lt hF h1 h
-  · have ha1 : a = 1 := le_antisymm h1 ha
-    subst ha1
-    exact finrank_H1_sp4Derived_two (by rw [hF, pow_one]) h
 
 end CFSG.Quasithin.JonesParshall

@@ -64,11 +64,6 @@ variable (S) in
     · rw [hmem]
       exact Y.neg_mem (hx3 _)
 
-theorem mem_flagGroup {X Y : Submodule (ZMod 2) S.Qt} {x : S.O} :
-    x ∈ flagGroup S X Y ↔ (∀ v ∈ X, (x : S.Qt ≃ₗ[ZMod 2] S.Qt) v = v) ∧
-      (∀ w ∈ Y, (x : S.Qt ≃ₗ[ZMod 2] S.Qt) w - w ∈ X) ∧
-      ∀ u, (x : S.Qt ≃ₗ[ZMod 2] S.Qt) u - u ∈ Y :=
-  Iff.rfl
 
 variable (S) in
 @[expose] def flagCenter (X Y : Submodule (ZMod 2) S.Qt) : Subgroup S.O where

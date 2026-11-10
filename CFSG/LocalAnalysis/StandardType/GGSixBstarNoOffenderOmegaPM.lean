@@ -184,9 +184,6 @@ theorem ggSixBstarMonoFrameOn_POmegaMinusLabel : GGSixBstarMonoFrameOn GGPOmegaM
 theorem ggSixBstarNoOffenderAt_POmegaMinus : GGSixBstarNoOffenderAt .POmegaMinus :=
   ggSixBstarNoOffenderAt_POmegaMinus_of_frame ggSixBstarMonoFrameOn_POmegaMinusLabel
 
-theorem ggSixBstarNoOffenderOn_POmegaPlusNotD4Three :
-    GGSixBstarNoOffenderOn GGPOmegaPlusNotD4Three :=
-  ggNoOffender_of_monoFrameOn ggSixBstarMonoFrameOn_POmegaPlusNotD4Three
 
 theorem ggSixBstarNoOffenderAt_POmegaPlus_of_D4 (hD4 : GGSixBstarNoOffenderOn GGPOmegaPlusD4Three) :
     GGSixBstarNoOffenderAt .POmegaPlus :=

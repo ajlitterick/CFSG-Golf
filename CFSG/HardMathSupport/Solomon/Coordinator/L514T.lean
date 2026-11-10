@@ -97,22 +97,6 @@ theorem l514t_coreQuotEquiv_mk (hXK : X ≤ K) (x : ↥X) :
     l514t_coreQuotEquiv hXK (QuotientGroup.mk x) =
       QuotientGroup.mk' (GLAPPrimeCore 3 ↥(barX 3 K X)) (l514t_barXMap hXK x) := rfl
 
-theorem l514t_map_coreQuotEquiv_barX (hXK : X ≤ K) {J : Subgroup G} (hJX : J ≤ X) :
-    (barX 3 X J).map (l514t_coreQuotEquiv hXK).toMonoidHom = barX 3 (barX 3 K X) (barX 3 K J) := by
-  ext y
-  constructor
-  · rintro ⟨_, ⟨x, hx, rfl⟩, rfl⟩
-    have hxJ : (x : G) ∈ J := Subgroup.mem_subgroupOf.1 hx
-    refine ⟨l514t_barXMap hXK x, ?_, rfl⟩
-    exact Subgroup.mem_subgroupOf.2 ⟨⟨x, hXK x.2⟩, Subgroup.mem_subgroupOf.2 hxJ, rfl⟩
-  · rintro ⟨⟨z, hzF⟩, hz, rfl⟩
-    obtain ⟨⟨j, hjK⟩, hj, hjz⟩ := Subgroup.mem_subgroupOf.1 hz
-    have hjJ : j ∈ J := Subgroup.mem_subgroupOf.1 hj
-    refine ⟨QuotientGroup.mk' (GLAPPrimeCore 3 ↥X) ⟨j, hJX hjJ⟩,
-      ⟨⟨j, hJX hjJ⟩, Subgroup.mem_subgroupOf.2 hjJ, rfl⟩, ?_⟩
-    show QuotientGroup.mk' _ (l514t_barXMap hXK ⟨j, hJX hjJ⟩ : ↥(barX 3 K X)) = _
-    congr 1
-    exact Subtype.ext hjz
 
 theorem l514t_map_coreQuotEquiv_top (hXK : X ≤ K) :
     (⊤ : Subgroup (↥X ⧸ GLAPPrimeCore 3 ↥X)).map (l514t_coreQuotEquiv hXK).toMonoidHom = ⊤ :=

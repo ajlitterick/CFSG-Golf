@@ -42,9 +42,6 @@ theorem not_dvd_q_of_ne_p (hσ : σ.IsValid) {r : ℕ} (hr : r.Prime) (hrp : r �
     ¬ r ∣ σ.q := fun h =>
   hrp ((Nat.prime_dvd_prime_iff_eq hr hσ.p_prime).mp (hr.dvd_of_dvd_pow h))
 
-theorem familyL_isQGroup (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr : r.Prime)
-    (hdiv : r ∣ Nat.card σ.ON) {H : Subgroup G} (hH : H ∈ σ.familyL r) : IsQGroup H :=
-  (σ.familyL_properties hσ hII hr hdiv hH).1.1
 
 theorem familyL_qGroupStanding (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ}
     (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON) {H : Subgroup G} (hH : H ∈ σ.familyL r)

@@ -149,27 +149,6 @@ theorem involQmat_eq : involQmat = {xmat} ∪ shortInv ∪ frameInv := by
     · exact shortInv_subset h
     · exact frameInv_subset h
 
-theorem xmat_not_mem_shortInv : xmat ∉ shortInv := by
-  rintro ⟨r, hr, h⟩
-  have hr' : IsShortCoord (coordOf r) := hr
-  have hrz : r = zQ := rhoEquiv_injective (h.trans rfl)
-  rw [hrz, coordOf_zQ] at hr'
-  exact not_isShortCoord_zero hr'
-
-theorem xmat_not_mem_frameInv : xmat ∉ frameInv := by
-  rintro ⟨r, hr0, h⟩
-  have hr := (mem_frameDelta_phi_iff r).1 hr0
-  have hrz : r = zQ := rhoEquiv_injective (h.trans rfl)
-  rw [hrz, coordOf_zQ, map_zero] at hr
-  exact hr.1 rfl
-
-theorem disjoint_shortInv_frameInv : Disjoint shortInv frameInv := by
-  rw [Set.disjoint_left]
-  rintro _ ⟨r, hr, rfl⟩ ⟨r', hr0', h⟩
-  have hr' := (mem_frameDelta_phi_iff r').1 hr0'
-  have hrr : r' = r := rhoEquiv_injective h
-  rw [hrr] at hr'
-  exact hr'.2.2 hr
 
 theorem Gvis_conj_rho {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Gvis) (r : Q) :
     ∃ p : Pvis, g * rhoEquiv r * g⁻¹ = rhoEquiv (conjQ p r) ∧ thetaEquiv p = g := by
@@ -180,21 +159,6 @@ theorem Gvis_conj_xmat {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Gvis) : g * x
   obtain ⟨p, hp, -⟩ := Gvis_conj_rho hg zQ
   rw [show xmat = rhoEquiv zQ from rfl, hp, conjQ_zQ]
 
-theorem Gvis_conj_mem_shortInv {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Gvis) {t : SpaceB ≃ₗ[ℚ] SpaceB}
-    (ht : t ∈ shortInv) : g * t * g⁻¹ ∈ shortInv := by
-  obtain ⟨r, hr, rfl⟩ := ht
-  obtain ⟨p, hp, -⟩ := Gvis_conj_rho hg r
-  rw [hp]
-  exact ⟨conjQ p r, isShortCoord_conjQ p hr, rfl⟩
-
-theorem Gvis_conj_mem_frameInv {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Gvis) {t : SpaceB ≃ₗ[ℚ] SpaceB}
-    (ht : t ∈ frameInv) : g * t * g⁻¹ ∈ frameInv := by
-  obtain ⟨r, hr, rfl⟩ := ht
-  obtain ⟨p, hp, -⟩ := Gvis_conj_rho hg r
-  rw [hp]
-  refine ⟨conjQ p r, ?_, rfl⟩
-  rw [Set.mem_ofPred_eq, phi_conjQ]
-  exact (modTwoEnd_mem_frameDelta_iff p.1.2).2 hr
 
 theorem shortInv_transitive
     {s t : SpaceB ≃ₗ[ℚ] SpaceB} (hs : s ∈ shortInv) (ht : t ∈ shortInv) :
@@ -228,16 +192,6 @@ noncomputable def shortLiftEquiv : {r : Q | IsShortCoord (coordOf r)} ≃ ZMod 2
   right_inv p := Prod.ext (centralCoord_spinEquiv _)
     (Subtype.ext (Griess.coordOf_spinEquiv ⟨p.1, p.2.1.1, p.2.1.2⟩))
 
-noncomputable def frameLiftEquiv :
-    {r : Q | phi0 (coordOf r) ∈ frameDelta} ≃ ZMod 2 × (phi0 ⁻¹' frameDelta) where
-  toFun r := (centralCoord r.1, ⟨coordOf r.1, r.2⟩)
-  invFun p := ⟨spinEquiv ⟨p.1, p.2.1.1, p.2.1.2⟩, by
-    show phi0 (coordOf (spinEquiv ⟨p.1, p.2.1.1, p.2.1.2⟩)) ∈ frameDelta
-    rw [Griess.coordOf_spinEquiv]
-    exact p.2.2⟩
-  left_inv r := Subtype.ext (spinEquiv.apply_symm_apply r.1)
-  right_inv p := Prod.ext (centralCoord_spinEquiv _)
-    (Subtype.ext (Griess.coordOf_spinEquiv ⟨p.1, p.2.1.1, p.2.1.2⟩))
 
 theorem ncard_shortInv : shortInv.ncard = 196560 := by
   rw [shortInv, Set.ncard_image_of_injective _ rhoEquiv_injective, ← Nat.card_coe_set_eq,
@@ -250,14 +204,6 @@ theorem frameInv_eq_image :
     Set.ext fun r => mem_frameDelta_phi_iff r
   rw [frameInv, e]
 
-theorem ncard_preimage_frameDelta : (phi0 ⁻¹' frameDelta).ncard = 8292375 := by
-  rw [← Set.ncard_image_of_injective _ phi0_injective,
-    Set.image_preimage_eq _ phi0_bijective.2, ncard_frameDelta]
-
-theorem ncard_frameInv : frameInv.ncard = 16584750 := by
-  rw [frameInv_eq_image, Set.ncard_image_of_injective _ rhoEquiv_injective, ← Nat.card_coe_set_eq,
-    Nat.card_congr frameLiftEquiv, Nat.card_prod, Nat.card_zmod, Nat.card_coe_set_eq,
-    ncard_preimage_frameDelta]
 
 theorem gmul_unitB_eq_id : gmul unitB = LinearMap.id := LinearMap.ext gmul_unitB
 
@@ -359,64 +305,5 @@ theorem trace_of_mem_shortInv
   obtain ⟨r, hr, rfl⟩ := ht
   exact trace_rho_short hr
 
-theorem xF_conj
-    {s t : SpaceB ≃ₗ[ℚ] SpaceB} (hs : s ∈ ({xmat} ∪ frameInv))
-    (ht : t ∈ ({xmat} ∪ frameInv)) : ∃ g ∈ Gmat, g * s * g⁻¹ = t := by
-  have hx : ∀ {u : SpaceB ≃ₗ[ℚ] SpaceB}, u ∈ ({xmat} ∪ frameInv) → ∃ g ∈ Gmat, g * xmat * g⁻¹ = u := by
-    intro u hu
-    rcases hu with h | h
-    · exact ⟨1, one_mem _, by rw [Set.mem_singleton_iff.1 h]; group⟩
-    · exact exists_Gmat_conj_xmat h
-  obtain ⟨a, ha, rfl⟩ := hx hs
-  obtain ⟨b, hb, rfl⟩ := hx ht
-  refine ⟨b * a⁻¹, mul_mem hb (inv_mem ha), ?_⟩
-  group
-
-theorem spin_involution_visible_orbits_and_fusion :
-    involQmat = {xmat} ∪ shortInv ∪ frameInv ∧
-    xmat ∉ shortInv ∧ xmat ∉ frameInv ∧ Disjoint shortInv frameInv ∧
-    (∀ g ∈ Gvis, g * xmat * g⁻¹ = xmat) ∧
-    (∀ g ∈ Gvis, ∀ t ∈ shortInv, g * t * g⁻¹ ∈ shortInv) ∧
-    (∀ g ∈ Gvis, ∀ t ∈ frameInv, g * t * g⁻¹ ∈ frameInv) ∧
-    (∀ s ∈ shortInv, ∀ t ∈ shortInv, ∃ g ∈ Gvis, g * s * g⁻¹ = t) ∧
-    (∀ s ∈ frameInv, ∀ t ∈ frameInv, ∃ g ∈ Gvis, g * s * g⁻¹ = t) ∧
-    ({xmat} : Set (SpaceB ≃ₗ[ℚ] SpaceB)).ncard = 1 ∧ shortInv.ncard = 196560 ∧
-    frameInv.ncard = 16584750 ∧
-    (∀ s ∈ involQmat, ∀ t ∈ involQmat, (∃ g ∈ Gmat, g * s * g⁻¹ = t) ↔
-      ((s ∈ shortInv ∧ t ∈ shortInv) ∨ (s ∈ ({xmat} ∪ frameInv) ∧ t ∈ ({xmat} ∪ frameInv)))) ∧
-    (∀ t ∈ shortInv, LinearMap.trace ℚ SpaceB (t : SpaceB →ₗ[ℚ] SpaceB) = 4372) ∧
-    (∀ t ∈ ({xmat} ∪ frameInv), LinearMap.trace ℚ SpaceB (t : SpaceB →ₗ[ℚ] SpaceB) = 276) := by
-  refine ⟨involQmat_eq, xmat_not_mem_shortInv, xmat_not_mem_frameInv, disjoint_shortInv_frameInv,
-    fun g hg => Gvis_conj_xmat hg, fun g hg t ht => Gvis_conj_mem_shortInv hg ht,
-    fun g hg t ht => Gvis_conj_mem_frameInv hg ht, fun s hs t ht => shortInv_transitive hs ht,
-    fun s hs t ht => frameInv_transitive hs ht, Set.ncard_singleton _, ncard_shortInv,
-    ncard_frameInv, ?_, fun t ht => trace_of_mem_shortInv ht, fun t ht => trace_of_mem_xF ht⟩
-  intro s hs t ht
-  have hsplit : ∀ {u : SpaceB ≃ₗ[ℚ] SpaceB}, u ∈ involQmat → u ∈ shortInv ∨ u ∈ ({xmat} ∪ frameInv) := by
-    intro u hu
-    rw [involQmat_eq] at hu
-    rcases hu with (h | h) | h
-    · exact .inr (.inl h)
-    · exact .inl h
-    · exact .inr (.inr h)
-  constructor
-  · rintro ⟨g, -, rfl⟩
-    rcases hsplit hs with h1 | h1 <;> rcases hsplit ht with h2 | h2
-    · exact .inl ⟨h1, h2⟩
-    · exfalso
-      have e1 := trace_of_mem_shortInv h1
-      have e2 := trace_of_mem_xF h2
-      rw [trace_conj, e1] at e2
-      norm_num at e2
-    · exfalso
-      have e1 := trace_of_mem_xF h1
-      have e2 := trace_of_mem_shortInv h2
-      rw [trace_conj, e1] at e2
-      norm_num at e2
-    · exact .inr ⟨h1, h2⟩
-  · rintro (⟨h1, h2⟩ | ⟨h1, h2⟩)
-    · obtain ⟨g, hg, h⟩ := shortInv_transitive h1 h2
-      exact ⟨g, Hmat_le_Gmat hg, h⟩
-    · exact xF_conj h1 h2
 
 end CFSG.Monster.B

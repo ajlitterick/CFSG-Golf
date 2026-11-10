@@ -19,23 +19,6 @@ open CFSG.RankThree.PartOne.KCOrthogonalSubfield (fieldAutT)
 open CFSG.SeitzReduction.TwistedE6Pilot (coordinateQuadMinus_fieldMap_of_fixed)
 open CFSG.SeitzReduction.UnitaryPilot (modelToG)
 
-@[expose] def OmegaMinusSwapRowInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-    ∀ (n f : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2] (b c : K) (hn : 6 ≤ n),
-      Nat.card K = 2 ^ f → 4 ≤ Nat.card K → (∀ s : K, s ^ 2 + b * s + c ≠ 0) →
-      ∀ (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) (t : G),
-      orderOf t = 2 → centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t →
-      (∀ k : Fin (n - 1), ∀ htX : t ∈ centralizer
-          (modelToG e (minusPairTorus (K := K) (by omega) b c k) : Set G),
-        NeighbourOvergroupOmega (QuotientGroup.mk' (oddCore (centralizer
-            (modelToG e (minusPairTorus (K := K) (by omega) b c k) : Set G))) ⟨t, htX⟩)
-          (((modelToG e (minusPairPerp (K := K) (by omega) b c k)).subgroupOf
-              (centralizer (modelToG e (minusPairTorus (K := K) (by omega) b c k) :
-                Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer
-              (modelToG e (minusPairTorus (K := K) (by omega) b c k) : Set G))))) (n - 1) f) →
-      (∀ k : Fin (n - 1), OmegaRowAt t (modelToG e (minusPairTorus (K := K) (by omega) b c k))
-        (modelToG e (minusPairPerp (K := K) (by omega) b c k)) .swap) → False
 
 @[expose] def OmegaMinusFieldRowEndInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →

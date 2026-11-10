@@ -29,13 +29,5 @@ open CFSG.Open CFSG.Assembly.LowTwoRank
       (∃ f : ℕ, Odd f ∧ 3 ≤ f ∧ Blueprint.ReeTitsModel G .twistedG2 3 f) ∨
       Blueprint.NativeSporadic.IsSporadic G .J1
 
-@[expose] def WalterModelsTauCeti : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    ∀ P : Sylow 2 G, IsMulCommutative (P : Subgroup G) →
-      (∃ f : ℕ, 2 ≤ f ∧ Models.LieModel G .PSL 2 2 f) ∨
-      (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ 5 ≤ p ^ f ∧
-        (p ^ f % 8 = 3 ∨ p ^ f % 8 = 5) ∧ Models.LieModel G .PSL 2 p f) ∨
-      (∃ f : ℕ, Odd f ∧ 3 ≤ f ∧ Models.LieModel G .twistedG2 0 3 f) ∨
-      Blueprint.NativeSporadic.IsSporadic G .J1
 
 end CFSG.Walter

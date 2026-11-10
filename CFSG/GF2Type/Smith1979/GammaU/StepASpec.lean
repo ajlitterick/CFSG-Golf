@@ -106,26 +106,12 @@ theorem gammaUN_spec {r : Array ℕ} (h : gammaUN r = true) : toU r h ∈ gammaU
   · exact ⟨(isoN_spec hiso).2, Or.inl (unitary_spec (isoN_spec hiso).1 hu)⟩
   · exact ⟨(isoN_spec hiso).2, Or.inr (anti_spec (isoN_spec hiso).1 ha)⟩
 
-theorem gammaUN_lt {r : Array ℕ} (h : gammaUN r = true) : ∀ x ∈ r, x < 4096 :=
-  (isoN_spec (by simp only [gammaUN, Bool.and_eq_true] at h; exact h.1)).1
 
 theorem gensOK_spec (h : gensOK () = true) :
     (∀ r ∈ gamuGens, gammaUN r = true) ∧ ∀ r ∈ saGens, gammaUN r = true ∧ appN r a0 = a0 := by
   simp only [gensOK, Bool.and_eq_true, List.all_eq_true, beq_iff_eq] at h
   exact ⟨h.1, h.2⟩
 
-theorem singClosure_spec (hg : ∀ r ∈ gamuGens, gammaUN r = true) :
-    ∀ n ∈ singClosure (), ∃ h ∈ gammaU, vecOf n = h (vecOf a0) := by
-  unfold singClosure
-  refine bfsClosure_inv id (gamuGens.map appN)
-    (P := fun n => ∃ h ∈ gammaU, vecOf n = h (vecOf a0)) ?_ 4096 [a0] _ [] ?_ (by simp)
-  · intro f hf n ⟨h, hh, hn⟩
-    obtain ⟨r, hr, rfl⟩ := List.mem_map.1 hf
-    refine ⟨toU r (hg r hr) * h, mul_mem (gammaUN_spec (hg r hr)) hh, ?_⟩
-    rw [vecOf_appN, hn]
-    rfl
-  · simp only [List.mem_singleton, forall_eq]
-    exact ⟨1, one_mem _, rfl⟩
 
 theorem codeOf_eq_zero {x : V12} (h : codeOf x = 0) : x = 0 := by
   rw [← vecOf_codeOf x, h, vecOf_zero]
@@ -134,19 +120,6 @@ theorem q0b_codeOf (x : V12) : q0b (codeOf x) = false ↔ q0 x = 0 := by
   rw [← vecOf_codeOf x, q0_vecOf, codeOf_vecOf (codeOf_lt x)]
   cases q0b (codeOf x) <;> decide
 
-theorem exists_gammaU_singular (htr : transOK () = true) (hg : ∀ r ∈ gamuGens, gammaUN r = true)
-    {a : V12} (ha : a ≠ 0) (hq : q0 a = 0) : ∃ h ∈ gammaU, h a = vecOf a0 := by
-  simp only [transOK, List.all_eq_true, List.mem_range, Bool.or_eq_true, beq_iff_eq,
-    List.contains_iff_mem] at htr
-  rcases htr (codeOf a) (codeOf_lt a) with (h0 | hq') | hmem
-  · exact absurd (codeOf_eq_zero h0) ha
-  · rw [(q0b_codeOf a).2 hq] at hq'
-    exact absurd hq' (by decide)
-  · obtain ⟨h, hh, hn⟩ := singClosure_spec hg _ hmem
-    rw [vecOf_codeOf] at hn
-    refine ⟨h⁻¹, inv_mem hh, ?_⟩
-    rw [hn]
-    exact h.symm_apply_apply _
 
 theorem spanOf_map_appN (r : Array ℕ) (s : List ℕ) :
     spanOf (s.map (appN r)) = (spanOf s).map (linOfRows r) := by
@@ -161,48 +134,5 @@ theorem spanOf_map_appN (r : Array ℕ) (s : List ℕ) :
   · rintro ⟨_, ⟨v, hv, rfl⟩, rfl⟩
     exact ⟨appN r v, ⟨v, hv, rfl⟩, vecOf_appN r v⟩
 
-@[expose] def InOrbitD (rep s : List ℕ) : Prop :=
-  (∀ v ∈ s, v < 4096) ∧ ∃ h ∈ gammaU, h (vecOf a0) = vecOf a0 ∧
-    ∀ x, x ∈ spanOf s ↔ ∃ y ∈ spanOf rep, h y = x
-
-theorem closureD_spec (hg : ∀ r ∈ saGens, gammaUN r = true ∧ appN r a0 = a0) {rep : List ℕ}
-    (hrep : ∀ v ∈ rep, v < 4096) : ∀ s ∈ closureD rep, InOrbitD rep s := by
-  unfold closureD
-  refine bfsClosure_inv keyD _ ?_ 5000 [rep] _ [] ?_ (by simp)
-  · intro f hf s ⟨hlt, h, hh, ha, hs⟩
-    obtain ⟨r, hr, rfl⟩ := List.mem_map.1 hf
-    obtain ⟨hgr, hra⟩ := hg r hr
-    refine ⟨fun v hv => ?_, toU r hgr * h, mul_mem (gammaUN_spec hgr) hh, ?_, fun x => ?_⟩
-    · obtain ⟨u, hu, rfl⟩ := List.mem_map.1 hv
-      exact appN_lt (gammaUN_lt hgr) u
-    · change linOfRows r (h (vecOf a0)) = vecOf a0
-      rw [ha, ← vecOf_appN, hra]
-    · simp only at *
-      rw [spanOf_map_appN, Submodule.mem_map]
-      constructor
-      · rintro ⟨z, hz, rfl⟩
-        obtain ⟨y, hy, rfl⟩ := (hs z).1 hz
-        exact ⟨y, hy, rfl⟩
-      · rintro ⟨y, hy, rfl⟩
-        exact ⟨h y, (hs _).2 ⟨y, hy, rfl⟩, rfl⟩
-  · simp only [List.mem_singleton, forall_eq]
-    exact ⟨hrep, 1, one_mem _, rfl, fun x => ⟨fun hx => ⟨x, hx, rfl⟩, fun ⟨y, hy, hyx⟩ =>
-      hyx ▸ hy⟩⟩
-
-theorem keyD_eq {s t : List ℕ} (hs : ∀ v ∈ s, v < 4096) (ht : ∀ v ∈ t, v < 4096)
-    (h : keyD s = keyD t) (x : V12) : x ∈ spanOf s ↔ x ∈ spanOf t := by
-  rw [← vecOf_codeOf x, ← mem_spanList_iff hs (codeOf_lt x), ← mem_spanList_iff ht (codeOf_lt x),
-    ← List.mem_mergeSort (le := fun a b => decide (a ≤ b)), ← List.mem_mergeSort (l := spanList t)
-    (le := fun a b => decide (a ≤ b))]
-  exact Iff.of_eq (congrArg (codeOf x ∈ ·) h)
-
-theorem coverOK_spec (h : coverOK () = true) :
-    ∀ v ∈ lagrDFS 5 [a0] (lagrCand a0), ∃ rep ∈ dReps, ∃ s ∈ closureD rep, keyD s = keyD v := by
-  simp only [coverOK, List.all_eq_true, List.any_eq_true, List.mem_map, List.contains_iff_mem]
-    at h
-  intro v hv
-  obtain ⟨_, ⟨rep, hrep, rfl⟩, hks⟩ := h v hv
-  obtain ⟨s, hs, hsk⟩ := List.mem_map.1 hks
-  exact ⟨rep, hrep, s, hs, hsk⟩
 
 end CFSG.GF2Type.Smith1979.GammaU.StepA

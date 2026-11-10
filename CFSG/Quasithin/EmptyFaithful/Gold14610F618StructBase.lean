@@ -19,18 +19,6 @@ namespace Struct
 
 variable {D : Type} [Group D] [Finite D]
 
-theorem sq_mem_of_index_le_two {Kb : Subgroup D} [Kb.Normal] (h : Kb.index ≤ 2) (x : D) :
-    x ^ 2 ∈ Kb := by
-  have h0 : Kb.index ≠ 0 := Subgroup.index_ne_zero_of_finite
-  have h12 : Kb.index = 1 ∨ Kb.index = 2 := by omega
-  rcases h12 with h1 | h2
-  · have hx : x ∈ Kb := by
-      rw [Subgroup.index_eq_one] at h1
-      rw [h1]
-      trivial
-    exact Kb.pow_mem hx 2
-  · have := Subgroup.pow_index_mem Kb x
-    rwa [h2] at this
 
 theorem top_eq_sup_of_sq_mem {D₁ D₂ Kb : Subgroup D} [Kb.Normal]
     (hT : IsGoldschmidtTriple D₁ D₂) (hsq : ∀ x : D, x ^ 2 ∈ Kb) :
@@ -134,11 +122,6 @@ theorem exists_noncomm_of_simple {D₁ D₂ Kb : Subgroup D} [Kb.Normal]
     exact orderOf_dvd_of_pow_eq_one hk'
   exact absurd (Nat.Prime.dvd_of_dvd_pow Nat.prime_three hdvd) (by norm_num)
 
-theorem isComponent_of_simple {D₁ D₂ Kb : Subgroup D} [Kb.Normal]
-    (hT : IsGoldschmidtTriple D₁ D₂) (hsq : ∀ x : D, x ^ 2 ∈ Kb) (hs : IsSimpleGroup ↥Kb) :
-    CFSG.IsComponent Kb :=
-  ⟨@isQuasisimple_of_simple_nonab _ _ hs (exists_noncomm_of_simple hT hsq hs),
-    Subgroup.Normal.isSubnormal ‹_›⟩
 
 theorem idx2Comp_of_data {D₁ D₂ : Subgroup D} (hT : IsGoldschmidtTriple D₁ D₂)
     (h : Idx2Data D) :

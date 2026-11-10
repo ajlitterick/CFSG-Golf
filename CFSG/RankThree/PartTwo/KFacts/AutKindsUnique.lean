@@ -146,45 +146,6 @@ theorem inducesKindPSL_unique {n : ℕ} {K : Type*} [Field K] [Finite K] (hn : 3
   exact InducesKind.unique L (stdPinnedPSL_separated hn) h₁
     ((inducesKindPSL_iff L hn e x k₂).mp h₂)
 
-theorem inducesKindSL_unique {n : ℕ} {K : Type*} [Field K] [Finite K] (hn : 3 ≤ n) {x : G}
-    {k₁ k₂ : AutKind} (h₁ : InducesKindSL n K L x k₁) (h₂ : InducesKindSL n K L x k₂) :
-    k₁ = k₂ := by
-  obtain ⟨e, hx, h₁⟩ := h₁
-  obtain ⟨hx', h₂⟩ := (inducesKindSL_iff L hn e x k₂).mp h₂
-  exact (stdPinnedPSL_separated hn).hasKind_unique h₁ h₂
-
-theorem inducesKindPSL2_unique {K : Type*} [Field K] [Finite K] {x : G} {k₁ k₂ : AutKind}
-    (h₁ : InducesKindPSL2 K L x k₁) (h₂ : InducesKindPSL2 K L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L stdPinnedPSL2_separated h₁ ((inducesKindPSL2_iff L e x k₂).mp h₂)
-
-theorem inducesKindPSU3_unique {p f : ℕ} {K : Type} [Field K] {h : UnitaryFieldData p f K}
-    (hq : 2 < p ^ f) {x : G} {k₁ k₂ : AutKind} (h₁ : InducesKindPSU3 h L x k₁)
-    (h₂ : InducesKindPSU3 h L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedPSU3_separated h) h₁
-    ((inducesKindPSU3_iff L hq e x k₂).mp h₂)
-
-theorem inducesKindSU3_unique {p f : ℕ} {K : Type} [Field K] {h : UnitaryFieldData p f K}
-    (hq : 2 < p ^ f) {x : G} {k₁ k₂ : AutKind} (h₁ : InducesKindSU3 h L hq x k₁)
-    (h₂ : InducesKindSU3 h L hq x k₂) : k₁ = k₂ := by
-  obtain ⟨e, hx, h₁⟩ := h₁
-  obtain ⟨hx', h₂⟩ := (inducesKindSU3_iff L hq e x k₂).mp h₂
-  exact (stdPinnedPSU3_separated h).hasKind_unique h₁ h₂
-
-theorem inducesKindPSp_unique {r : ℕ} {K : Type} [Field K] [Finite K] (hr : 3 ≤ r) {x : G}
-    {k₁ k₂ : AutKind} (h₁ : InducesKindPSp r K L x k₁) (h₂ : InducesKindPSp r K L x k₂) :
-    k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedPSp_separated (by omega)) h₁
-    ((inducesKindPSp_iff L hr e x k₂).mp h₂)
-
-theorem inducesKindSz_unique {a : ℕ} {K : Type} [Field K] (ha : 1 ≤ a)
-    (hK : Nat.card K = 2 ^ (2 * a + 1)) {x : G} {k₁ k₂ : AutKind}
-    (h₁ : InducesKindSz a K L x k₁) (h₂ : InducesKindSz a K L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedSz_separated ha hK) h₁
-    ((inducesKindSz_iff L ha hK e x k₂).mp h₂)
 
 theorem InducesStdKind.inducesOuterTheta {x : G} {k : AutKind} (h : InducesStdKind L x k)
     (hk : k ≠ .inner) : InducesOuterTheta x L := by

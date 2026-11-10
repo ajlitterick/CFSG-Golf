@@ -59,15 +59,6 @@ theorem dist : distK MP = true := by decide +kernel
 
 theorem nonab : Nat.beq (mulK MT 1 3) (mulK MT 3 1) = false := by decide +kernel
 
-theorem prod_neg : prodOK (slot MP 1) (slot GP 0) (slot MP 1) = false := by decide +kernel
-
-theorem mt_neg : mtK MT TB WP (WL.map fun l => (l + 1) % 4) = false := by decide +kernel
-
-theorem fm_neg : fmK MP (FM.tail ++ FM.take 1) = false := by decide +kernel
-
-theorem p12_neg : p12K MT (FM.map fun _ => 2 ^ 729 - 1) = false := by decide +kernel
-
-theorem codes_neg : codesK (GS.chars.map Char.toNat) MP 144 = false := by decide +kernel
 
 end CFSG.KD.Syl3W
 

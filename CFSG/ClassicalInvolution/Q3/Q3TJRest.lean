@@ -57,8 +57,5 @@ theorem steinbergOddAut3_of_rest (h : SteinbergOddAut3Rest) : SteinbergOddAut3 :
   | twistedF4 => exact (ht : False).elim
   | Tits => exact (ht : False).elim
 
-theorem modelOddAutRigid_of_rest (hSt : SteinbergOddAut3Rest) (hD4 : D4OddAutInner3)
-    (h3D4 : TrialityD4OddAutInner3) : ModelOddAutRigid :=
-  modelOddAutRigid_of (steinbergOddAut3_of_rest hSt) hD4 h3D4
 
 end CFSG.ClassicalInvolution.Q3.Q3T

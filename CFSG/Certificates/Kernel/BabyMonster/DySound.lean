@@ -36,11 +36,6 @@ open CFSG.KC.BM CFSG.KC.BM.Lat CFSG.KC.BM.B64 CFSG.KC.YModel
 @[expose] noncomputable def contOK (Bs : List (List Nat)) (i : Nat) : Bool :=
   Nat.blt (dyElim (nat_lit 128) Bs (Nat.succ i) (contV Bs i)) dyFail
 
-theorem contOK_of {Bs : List (List Nat)} {s k v : Nat}
-    (h : Nat.blt (dyElim (nat_lit 128) Bs k v) dyFail = true) (hk : k = Nat.succ s)
-    (hv : v = contV Bs s) : contOK Bs s = true := by
-  subst hk hv
-  exact h
 
 theorem andB_true {b c : Bool} (h : andB b c = true) : b = true ∧ c = true := by
   cases b

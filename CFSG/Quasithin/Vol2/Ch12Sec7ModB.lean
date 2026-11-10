@@ -123,8 +123,6 @@ theorem exists_mulVec_eq {g : Matrix.GeneralLinearGroup (Fin 3) F4}
     obtain ⟨x, hx, rfl⟩ := exists_mulVec_eq hg hy
     simpa [Matrix.mulVec_mulVec] using hx
 
-theorem mem_gm {g : Matrix.GeneralLinearGroup (Fin 3) F4} :
-    g ∈ gm ↔ ∀ x ∈ oVec, (g : Matrix (Fin 3) (Fin 3) F4).mulVec x ∈ oVec := Iff.rfl
 
 theorem app_ofMat (M : Matrix (Fin 3) (Fin 3) F4) {v : ℕ} :
     M.mulVec (decV v) = decV ((Mc.ofMat M).app v) := by

@@ -2132,11 +2132,6 @@ public theorem theorem4b_section7_sevenF
   exact Subgroup.map_comap_eq_self_of_surjective
     (QuotientGroup.mk'_surjective (theorem4bSection7O1 M Q)) _
 
-/-- Equation `(7G)`: `M₂` is normal in `M₁`. -/
-public theorem theorem4b_section7_sevenG
-    {X : Type*} [Group X] (M Q : Subgroup X) :
-    (theorem4bSection7M2 M Q).Normal :=
-  theorem4bSection7M2_normal M Q
 
 /-- The source subgroup `M₂`, mapped back into `X`. -/
 @[expose] public def theorem4bSection7M2InX
@@ -2782,32 +2777,6 @@ public theorem IsStronglyEmbedded.theorem4b_section7_z_mem_M2
   simpa [a] using theorem4b_section7_z_mem_M2_of_core_quotient
     M a.Q d.data.z hzN0 d.data.hzM d.data.hz hcoreQuot
 
-/-- The corrected consequence of the source setup: `(7D)` is supported inside
-`M₂` because `z ∈ M₂`, `P₁ ≤ R`, and `R` normalizes `M₂`. -/
-public theorem IsStronglyEmbedded.theorem4b_section7_commutator_le_M2
-    {X : Type*} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hX : IsSimpleGroup X)
-    (d : Theorem4bSixD M)
-    (hrank : TwoRankAtLeastTwo (involutionCore M))
-    (hT2 : Theorem4bProposition63Theorem2 M (involutionsSet X))
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (A : Subgroup H), IsStronglyEmbedded A →
-        TheoremSEConclusion A)
-    (s : Theorem4bSection7SecondStage d)
-    (q : Theorem4bSection7MaximalQData d s) :
-    ⁅Subgroup.zpowers d.data.z, q.chosen.P₁⁆ ≤
-      theorem4bSection7M2InX M q.chosen.Q := by
-  have hzM2 : d.data.z ∈ theorem4bSection7M2InX M q.chosen.Q :=
-    hM.theorem4b_section7_z_mem_M2 hX d hrank hT2 hinduction s q
-  have hzPow : Subgroup.zpowers d.data.z ≤
-      theorem4bSection7M2InX M q.chosen.Q := by
-    rw [Subgroup.zpowers_le]
-    exact hzM2
-  have hP₁Norm : q.chosen.P₁ ≤ Subgroup.normalizer
-      (theorem4bSection7M2InX M q.chosen.Q : Set X) :=
-    q.hP₁R.trans (theorem4b_section7_R_le_normalizer_M2 q)
-  exact (Subgroup.commutator_mono hzPow le_rfl).trans
-    (theorem4b_commutator_le_left_of_le_normalizer hP₁Norm)
 
 /-- Equation `(7D)` excludes the distinguished involution from the ambient
 copy of `O_{p'}(M̂₂)`. -/
@@ -3056,45 +3025,6 @@ public theorem IsStronglyEmbedded.theorem4b_section7_pPrimeCore_M2_odd
   rw [← hcardMap]
   exact Subgroup.card_dvd_of_le hmaple
 
-/-- Source identity `O_{p′}(M₁) = theta(M₁)`, in the ambient group. -/
-public theorem IsStronglyEmbedded.theorem4b_section7_pPrimeCore_M1_eq_theta
-    {X : Type*} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hX : IsSimpleGroup X)
-    (d : Theorem4bSixD M)
-    (hrank : TwoRankAtLeastTwo (involutionCore M))
-    (hT2 : Theorem4bProposition63Theorem2 M (involutionsSet X))
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (A : Subgroup H), IsStronglyEmbedded A →
-        TheoremSEConclusion A)
-    (s : Theorem4bSection7SecondStage d)
-    (q : Theorem4bSection7MaximalQData d s) :
-    (pPrimeCore d.data.p
-        (theorem4bSection7M1InX M q.chosen.Q)).map
-        (theorem4bSection7M1InX M q.chosen.Q).subtype =
-      corollary64Theta d.data.p
-        (theorem4bSection7M1InX M q.chosen.Q) := by
-  letI : Fact d.data.p.Prime := ⟨d.data.hp⟩
-  let N0 : Subgroup X := theorem4bSection7NCore q.chosen.Q
-  let A : Subgroup N0 := theorem4bSection7M1 M q.chosen.Q
-  let AX : Subgroup X := theorem4bSection7M1InX M q.chosen.Q
-  have hAXeq : A.map N0.subtype = AX := by
-    rfl
-  let eA0 : A ≃* A.map N0.subtype :=
-    Subgroup.equivMapOfInjective A N0.subtype N0.subtype_injective
-  let eA : A ≃* AX := eA0.trans (MulEquiv.subgroupCongr hAXeq)
-  have hAodd : Odd (Nat.card (pPrimeCore d.data.p A)) := by
-    simpa [A] using hM.theorem4b_section7_pPrimeCore_M1_odd
-      hX d hrank hT2 hinduction s q
-  have hAXodd : Odd (Nat.card (pPrimeCore d.data.p AX)) :=
-    theorem4b_section7_pPrimeCore_odd_of_mulEquiv eA hAodd
-  have hmapOdd : Odd (Nat.card
-      ((pPrimeCore d.data.p AX).map AX.subtype)) := by
-    rw [show Nat.card ((pPrimeCore d.data.p AX).map AX.subtype) =
-        Nat.card (pPrimeCore d.data.p AX) by
-      exact Subgroup.card_map_of_injective AX.subtype_injective]
-    exact hAXodd
-  simpa [AX] using
-    (theorem4b_section7_theta_eq_pPrimeCore_of_odd AX hmapOdd).symm
 
 /-- Source identity `O_{p′}(M₂) = theta(M₂)`, in the ambient group. -/
 public theorem IsStronglyEmbedded.theorem4b_section7_pPrimeCore_M2_eq_theta
@@ -3142,36 +3072,6 @@ public theorem IsStronglyEmbedded.theorem4b_section7_pPrimeCore_M2_eq_theta
   simpa [BX] using
     (theorem4b_section7_theta_eq_pPrimeCore_of_odd BX hmapOdd).symm
 
-/-- Source identity `O_{p′}(M̂₂) = theta(M̂₂)`. -/
-public theorem IsStronglyEmbedded.theorem4b_section7_pPrimeCore_M2Hat_eq_theta
-    {X : Type*} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hX : IsSimpleGroup X)
-    (d : Theorem4bSixD M)
-    (hrank : TwoRankAtLeastTwo (involutionCore M))
-    (hT2 : Theorem4bProposition63Theorem2 M (involutionsSet X))
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (A : Subgroup H), IsStronglyEmbedded A →
-        TheoremSEConclusion A)
-    (s : Theorem4bSection7SecondStage d)
-    (q : Theorem4bSection7MaximalQData d s) :
-    (pPrimeCore d.data.p (theorem4bSection7M2Hat q)).map
-        (theorem4bSection7M2Hat q).subtype =
-      corollary64Theta d.data.p (theorem4bSection7M2Hat q) := by
-  letI : Fact d.data.p.Prime := ⟨d.data.hp⟩
-  let H : Subgroup X := theorem4bSection7M2Hat q
-  let B : Subgroup X := theorem4bSection7M2InX M q.chosen.Q
-  have hcoreEq : (pPrimeCore d.data.p H).map H.subtype =
-      (pPrimeCore d.data.p B).map B.subtype := by
-    simpa [H, B] using theorem4b_section7_pPrimeCore_M2Hat_eq_M2 d s q
-  have hBtheta : (pPrimeCore d.data.p B).map B.subtype =
-      corollary64Theta d.data.p B := by
-    simpa [B] using hM.theorem4b_section7_pPrimeCore_M2_eq_theta
-      hX d hrank hT2 hinduction s q
-  have hmapOdd : Odd (Nat.card ((pPrimeCore d.data.p H).map H.subtype)) := by
-    rw [hcoreEq, hBtheta]
-    exact lemma75_theta_odd_card d.data.p B
-  simpa [H] using
-    (theorem4b_section7_theta_eq_pPrimeCore_of_odd H hmapOdd).symm
 
 /-! ## The ZJ normality-to-factorization bridge -/
 

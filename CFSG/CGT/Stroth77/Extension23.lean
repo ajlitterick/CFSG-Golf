@@ -550,15 +550,6 @@ theorem exists_square_root_c_of_data_t200
   exists_square_root_c_t200 D hBC hC hrel (hL D.u_mem_L) (hL D.ρ_mem_L)
     hH hCS hne
 
-theorem exists_square_root_c_of_hasStrothType_t200
-    {m : ℕ} {B C S' : Subgroup S}
-    (hB : HasStrothType B (StrothTypeIndex.t200 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hCS : C ≤ S') (hne : C ≠ B) :
-    ∃ d : S, d ∈ C ∧ d ∉ B ∧ d * d = (hB.data.c : S) :=
-  exists_square_root_c_of_data_t200 hB.data hBC hC hrel hL hH hCS hne
 
 theorem one_le_of_noInvolutionsCentralizing_t200_of_data
     {B C S' : Subgroup S} {m : ℕ}
@@ -583,15 +574,6 @@ theorem one_le_of_noInvolutionsCentralizing_t200_of_data
     simpa using h
   exact hdB (hH d (hcS hdC) (by rw [hd2, hc1]) (hC hdC))
 
-theorem one_le_of_noInvolutionsCentralizing_t200
-    {B C S' : Subgroup S} {m : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t200 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') (hne : C ≠ B) :
-    1 ≤ m :=
-  one_le_of_noInvolutionsCentralizing_t200_of_data hB.data hBC hC hrel hL hH hcS hne
 
 section CocycleRel
 
@@ -1333,17 +1315,6 @@ theorem PhiUV_c (m : ℕ) :
 
 end Type200
 
-theorem even_of_two_pow_mul_eq_zero {m : ℕ} {k : ℤ}
-    (h : ((k * 2 ^ (m + 1) : ℤ) : ZMod (2 ^ (m + 2))) = 0) : Even k := by
-  have hdvd : ((2 : ℤ) ^ (m + 2)) ∣ k * 2 ^ (m + 1) :=
-    (ZMod.intCast_zmod_eq_zero_iff_dvd (k * 2 ^ (m + 1)) (2 ^ (m + 2))).1 h
-  obtain ⟨t, ht⟩ := hdvd
-  have hsplit : ((2 : ℤ) ^ (m + 2)) = 2 * 2 ^ (m + 1) := by rw [pow_succ]; ring
-  have hcancel : k = 2 * t := by
-    apply mul_right_cancel₀ (by positivity : ((2 : ℤ) ^ (m + 1)) ≠ 0)
-    rw [ht, hsplit]
-    ring
-  exact ⟨t, by rw [hcancel]; ring⟩
 
 theorem even_of_two_pow_mul_eq_zero_zmod {N : ℕ} (hN : 1 ≤ N) {k : ℤ}
     (h : ((k * 2 ^ (N - 1) : ℤ) : ZMod (2 ^ N)) = 0) : Even k := by

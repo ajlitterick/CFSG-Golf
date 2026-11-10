@@ -31,13 +31,6 @@ theorem localHypotheses_of_frame {K : Subgroup G} {z : G} (hb : Branch p f K z) 
       exact hmem),
     localLieSystems_of_citBelowU (inClass_conjugates hb.member) hb.below, hfacts.single⟩
 
-theorem frameLayerSpan_eq_top_of_branch {K : Subgroup G} {z : G} (hb : Branch p f K z) {F : Type}
-    [Field F] {A : Subgroup G} {S : Set (Subgroup G)} (Fr : RankFrame F (conjClass K) A S)
-    (hfacts : RankThreeFrameFacts p f F (conjClass K) A S) (hne : S.Nonempty)
-    (hcover : ∀ a ∈ A, IsFrameInvolution p f S a → FrameCoversModO (conjClass K) S a) :
-    frameLayerSpan p f (conjClass K) A S = ⊤ :=
-  frameLayerSpan_eq_top_of_lie (localHypotheses_of_frame hb hfacts) Fr.subset hne
-    (frame_involutions hb.member Fr) hcover (omegaConnected_range_conjSub hb.connected)
 
 theorem oddLieType_of_frame {K : Subgroup G} {z : G} (hb : Branch p f K z)
     (hD : HasDatum p f K) (hP1 : A2P1 p f)

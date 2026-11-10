@@ -135,12 +135,6 @@ theorem neg_one_eq_one_orbitField (O : Set (Fin Tag.E6.rank → ℤ)) :
 @[expose] def orbitReflection (O : Set (Fin Tag.E6.rank → ℤ)) : WeylGroup Tag.E6 :=
   setReflection O
 
-@[expose] def relWeyl : Subgroup (WeylGroup Tag.E6) :=
-  Subgroup.closure (orbitReflection '' D.orbits)
-
-@[expose] def relLength (w : WeylGroup Tag.E6) : ℕ :=
-  sInf {m | ∃ l : List (WeylGroup Tag.E6), l.length = m ∧
-    (∀ x ∈ l, x ∈ orbitReflection '' D.orbits) ∧ l.prod = w}
 
 theorem psi_apply (g : ModGL Tag.E6 Ω) :
     D.psi g = D.psiRep * D.frob g * D.psiRep⁻¹ :=
@@ -149,17 +143,6 @@ theorem psi_apply (g : ModGL Tag.E6 Ω) :
 theorem mem_fixedGroup {g : ModGL Tag.E6 Ω} : g ∈ D.fixedGroup ↔ g ∈ D.rootGroup ∧ D.psi g = g :=
   Iff.rfl
 
-theorem mem_fixedUnipotent {g : ModGL Tag.E6 Ω} :
-    g ∈ D.fixedUnipotent ↔ g ∈ D.unipotent ∧ D.psi g = g :=
-  Iff.rfl
-
-theorem fixedGroup_le_rootGroup : D.fixedGroup ≤ D.rootGroup := inf_le_left
-
-theorem fixedUnipotent_le_unipotent : D.fixedUnipotent ≤ D.unipotent := inf_le_left
-
-theorem orbitTorus_le_orbitGroup : D.orbitTorus ≤ D.orbitGroup := inf_le_left
-
-theorem orbitTorus_le_torus : D.orbitTorus ≤ D.torus := inf_le_right
 
 theorem mem_orbitField {O : Set (Fin Tag.E6.rank → ℤ)} {a : Ω} :
     a ∈ D.orbitField O ↔ a ^ D.q ^ orbitCard O = a := by

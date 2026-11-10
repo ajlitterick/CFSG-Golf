@@ -270,25 +270,6 @@ theorem odd_finrank_of_det_eq_neg_one (h2 : (2 : K) ≠ 0)
   rw [he.neg_one_pow] at h1
   exact neg_one_ne_one h2 h1
 
-theorem even_finrank_of_normalizes (h2 : (2 : K) ≠ 0)
-    {S : Matrix (Fin 2) (Fin 2) K ≃ₗ[K] Matrix (Fin 2) (Fin 2) K}
-    (hS : S ∈ TauCeti.QuadraticMap.orthogonalGroup (detQ (K := K))) (hS2 : ∀ X, S (S X) = X)
-    (hn : conjSubgroup S leftGrp = leftGrp) :
-    Even (Module.finrank K (Module.End.eigenspace (S : Module.End K (Matrix (Fin 2) (Fin 2) K))
-      (-1))) := by
-  rcases isometry_trichotomy h2 hS with ⟨hd, -, -⟩ | ⟨-, hl, -⟩
-  · exact even_finrank_of_det_eq_one h2 hS2 hd
-  · exact absurd (hn.symm.trans hl) leftGrp_ne_rightGrp
-
-theorem odd_finrank_of_swaps (h2 : (2 : K) ≠ 0)
-    {S : Matrix (Fin 2) (Fin 2) K ≃ₗ[K] Matrix (Fin 2) (Fin 2) K}
-    (hS : S ∈ TauCeti.QuadraticMap.orthogonalGroup (detQ (K := K))) (hS2 : ∀ X, S (S X) = X)
-    (hn : conjSubgroup S leftGrp = rightGrp) :
-    Odd (Module.finrank K (Module.End.eigenspace (S : Module.End K (Matrix (Fin 2) (Fin 2) K))
-      (-1))) := by
-  rcases isometry_trichotomy h2 hS with ⟨-, hl, -⟩ | ⟨hd, -, -⟩
-  · exact absurd (hl.symm.trans hn) leftGrp_ne_rightGrp
-  · exact odd_finrank_of_det_eq_neg_one h2 hS2 hd
 
 end Parity
 

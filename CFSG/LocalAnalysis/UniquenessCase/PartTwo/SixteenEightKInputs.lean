@@ -25,20 +25,6 @@ open CFSG.Quasithin CFSG.Open CFSG.LocalAnalysis.UniquenessCase.UC22
   ∀ (X : Type) [Group X] [Finite X], IsSpor X .M22 →
     Nat.card (CFSG.ComponentClassification.OuterAutomorphisms.Outer X) ∣ 2
 
-@[expose] def IsE81A5 (X : Type) [Group X] : Prop :=
-  ∃ (N : Subgroup X) (_ : N.Normal), IsElemAbelianOfRank 3 4 ↥N ∧ UC22.IsAlt (X ⧸ N) 5
-
-@[expose] def IsE16A6 (X : Type) [Group X] : Prop :=
-  ∃ (N : Subgroup X) (_ : N.Normal), IsElemAbelianOfRank 2 4 ↥N ∧ UC22.IsAlt (X ⧸ N) 6
-
-@[expose] def S16kU43Table : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →
-    ∀ H : Subgroup (MulAut W),
-      (∃ S : Type, ∃ _ : Group S, CFSG.Blueprint.LieModel S .PSU 4 3 1 ∧ IsHat ↥H S) →
-      rk ↥(⊤ : Subgroup W) = 12 → IsIrrOn H ⊤ ⊥ →
-        ∀ w : W, w ≠ 1 →
-          CFSG.Blueprint.LieModel ↥(ptCent H w) .PSU 4 2 1 ∨ IsE81A5 ↥(ptCent H w) ∨
-            IsE16A6 ↥(ptCent H w)
 
 @[expose] def S16kU43Noncyclic3 : Prop :=
   ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →

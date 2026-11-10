@@ -19,8 +19,5 @@ open CFSG.Monster.AxisCount CFSG.YGroups.Y443 CFSG.YGroups.Y443Native CFSG.AGLEm
 
 @[expose] def m13Check (_ : Unit) : Bool := agreeAll m13Pairs
 
-theorem m13Check_eq_agreeTasks :
-    m13Check () = agreeTasks (Native.mkCtx ()) (aV ()) (bV ()) (wV ()) m13Pairs := by
-  rw [m13Check, agreeAll_eq_agreeTasks]
 
 end CFSG.HardMathSupport.Dickson.I271

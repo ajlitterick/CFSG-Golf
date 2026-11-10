@@ -123,31 +123,6 @@ theorem factor_of_map_eq {M H N W : Subgroup G} (hN : Hyp93At p M N) (hW : W ≤
     hW hwN, ?_⟩
   simp [mul_assoc]
 
-theorem factor_of_le_d1KBar {M H N W : Subgroup G} (hN : Hyp93At p M N) (hW : W ≤ H ⊓ N)
-    {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
-    (hWK : (W.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) = K)
-    (hKp : ∀ V : Subgroup K, V.Normal → p.Coprime (Nat.card V) → V = ⊥)
-    (hκ : d1Kappa p M H ≤ Nat.card K)
-    (hle : (W.subgroupOf N).map (QuotientGroup.mk' (primeComplementCore (G := N) p)) ≤
-      d1KBar p M N)
-    (hNH : d1Kappa p M N ≤ d1Kappa p M H) :
-    ∀ x ∈ N, ∃ m ∈ N ⊓ M, ∃ y ∈ H ⊓ N, x = m * y := by
-  refine factor_of_map_eq hN hW (Subgroup.eq_of_le_of_card_ge hle ?_).ge
-  have := card_le_card_map_of_noPPrime hW hWK hKp
-  unfold d1Kappa at hNH hκ
-  omega
-
-theorem aglRankTwoFactorAt_of_at {M H B : Subgroup G}
-    {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
-    (hat : ∀ N T : Subgroup G, GLBIsMaxTwoLocal N → ¬ N ≤ M → B ≤ N → AGLCovers p H N K →
-      B ≤ T → T ≤ N → T ≤ M → IsPGroup p T →
-      (∀ V : Subgroup G, V ≤ N → IsPGroup p V → T ≤ V → V = T) →
-      (T = B ∨ Open.pRank p T ≤ 2) → Hyp93At p M N ∧ Hyp917EqAt p M H N K) :
-    AGLRankTwoFactorAt p M H B K := by
-  intro N T hN hNM hBN hcov hBT hTN hTM hT hmax hor
-  obtain ⟨h93, W, hW, -, heq | hfac⟩ := hat N T hN hNM hBN hcov hBT hTN hTM hT hmax hor
-  · exact factor_of_map_eq h93 hW heq.ge
-  · exact hfac
 
 theorem Hyp917At.toEq {M H N : Subgroup G} {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
     (h : Hyp917At p M H N K)

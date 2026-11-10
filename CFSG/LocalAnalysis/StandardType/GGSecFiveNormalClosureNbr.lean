@@ -111,18 +111,6 @@ theorem ggNbr_of_ggAutomizer_fixed_le_zpowers {p : ℕ} [Fact p.Prime] {B Bs X D
   exact ⟨largeEvenSHat_of_ggAutomizer_fixed_le_zpowers hBmax hB hzB hz1 hX hfix,
     largeEvenNeighbor_of_ggAutomizer_fixed_le_zpowers hB hxB hxz hD hX hJX hJ hpJ hfix⟩
 
-theorem largeEvenIsNeighborOf_of_ggAutomizer_fixed_le_zpowers {p : ℕ} [Fact p.Prime]
-    {B Bs X D J L : Subgroup G} {x z : G} (hBmax : LargeEvenIsBmax p B) (hB : GGBstar p B Bs)
-    (hxB : x ∈ B) (hzB : z ∈ B) (hz1 : z ≠ 1) (hxz : x ∉ Subgroup.zpowers z)
-    (hD : D = Subgroup.closure {x, z}) (hDJ : LargeEvenStdSub p B x L D J)
-    (hX : LargeEvenPComponent p (Subgroup.centralizer ({z} : Set G)) X) (hJX : J ≤ X)
-    (hpJ : p ∣ Nat.card J)
-    (hfix : ∀ b : ↥Bs, (∀ φ ∈ ggAutomizer X Bs, φ b = b) → (b : G) ∈ Subgroup.zpowers z) :
-    LargeEvenIsNeighborOf p B x L z X := by
-  exact ⟨largeEvenSHat_of_ggAutomizer_fixed_le_zpowers hBmax hB hzB hz1 hX hfix,
-    D, J, hDJ,
-    largeEvenNeighbor_of_ggAutomizer_fixed_le_zpowers hB hxB hxz hD hX hJX
-      (commutator_self_eq_of_largeEvenStdSub hDJ) hpJ hfix⟩
 
 theorem le_ggG0_of_ggAutomizer_fixed_le_zpowers {p : ℕ} [Fact p.Prime] {B Bs X D J L : Subgroup G}
     {x z : G} (hBmax : LargeEvenIsBmax p B) (hB : GGBstar p B Bs) (hxB : x ∈ B) (hzB : z ∈ B)

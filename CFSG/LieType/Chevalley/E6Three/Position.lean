@@ -563,108 +563,11 @@ theorem exists_conj_position_inndiag_image_of_not_toral {K : Type} [Field K] [Fi
     hcomm hEB.2 ((Subgroup.card_map_of_injective hfi).trans hcard)
     fun ⟨g, hg, h⟩ => hnt ⟨g⁻¹, inv_mem hg, fun x hx => by rw [inv_inv]; exact h x hx⟩
 
-theorem exists_conj_position_original_image_of_not_toral {K : Type} [Field K] [Finite K]
-    [CharP K 2] (A : Subgroup (adjointGroup .E6 K)) (hA : CFSG.Open.IsElemAbelian 3 A)
-    (hcard : Nat.card A = 3 ^ 3)
-    (hnt : ¬ CFSG.StandardType.ExcFramesHalf.IsToralSubgroup .E6 (AlgebraicClosure K)
-      (A.map ((baseChangeGL (algebraMap K (AlgebraicClosure K))).comp
-        (adjointGroup .E6 K).subtype)))
-    (ζ : (AlgebraicClosure K)ˣ) (hζ : IsPrimitiveRoot ζ 3) :
-    ∃ g ∈ adjointGroup .E6 (AlgebraicClosure K), ∃ k : Fin 5,
-      (∀ x ∈ (A.map ((baseChangeGL (algebraMap K (AlgebraicClosure K))).comp
-          (adjointGroup .E6 K).subtype)).map (MulAut.conj g).toMonoidHom,
-        x ∈ monomialSubgroup .E6 (AlgebraicClosure K)) ∧
-      (∀ u, u ∈ (A.map ((baseChangeGL (algebraMap K (AlgebraicClosure K))).comp
-          (adjointGroup .E6 K).subtype)).map (MulAut.conj g).toMonoidHom ⊓
-            torusGroup .E6 (AlgebraicClosure K) ↔
-        ∃ z, PositionMem k z ∧ u = rootDiagUnit .E6 (zetaVec ζ hζ.pow_eq_one z)) ∧
-      ∃ n ∈ (A.map ((baseChangeGL (algebraMap K (AlgebraicClosure K))).comp
-          (adjointGroup .E6 K).subtype)).map (MulAut.conj g).toMonoidHom,
-        ∃ hn : n ∈ monomialSubgroup .E6 (AlgebraicClosure K),
-          weylQuotientHom .E6 (AlgebraicClosure K) ⟨n, hn⟩ =
-            (coxeterSystem .E6).wordProd (positionWord k) := by
-  have e : A.map ((baseChangeGL (algebraMap K (AlgebraicClosure K))).comp
-      (adjointGroup .E6 K).subtype) =
-        (A.map (adjointGroup .E6 K).subtype).map
-          (baseChangeGL (algebraMap K (AlgebraicClosure K))) := by rw [Subgroup.map_map]
-  rw [e] at hnt ⊢
-  exact exists_conj_position_inndiag_image_of_not_toral _
-    (by
-      rintro _ ⟨a, -, rfl⟩
-      exact CFSG.StandardType.RecipeExcLang.adjointGroup_le_inndiagGroup a.2)
-    (hA.map _) ((Subgroup.card_map_of_injective (adjointGroup .E6 K).subtype_injective).trans hcard)
-    hnt ζ hζ
 
 end OriginalField
 
 section CImage
 
-variable {L : Type} [Field L]
-
-theorem positionBasis_independent : ∀ (k : Fin 5) (s t : ZMod 3),
-    s • positionBasis k 0 + t • positionBasis k 1 = 0 → s = 0 ∧ t = 0 := by
-  decide +kernel
-
-theorem card_inf_torus_of_position {ζ : Lˣ} (hζ : IsPrimitiveRoot ζ 3)
-    {E : Subgroup (ModGL .E6 L)} {k : Fin 5}
-    (hT : ∀ u, u ∈ E ⊓ torusGroup .E6 L ↔
-      ∃ z, PositionMem k z ∧ u = rootDiagUnit .E6 (zetaVec ζ hζ.pow_eq_one z)) :
-    Nat.card ↥(E ⊓ torusGroup .E6 L) = 3 ^ 2 := by
-  have hζo : orderOf ζ = 3 := hζ.eq_orderOf.symm
-  have hinj : Function.Injective fun p : ZMod 3 × ZMod 3 => rootDiagUnit .E6
-      (zetaVec ζ hζ.pow_eq_one (p.1 • positionBasis k 0 + p.2 • positionBasis k 1)) := by
-    intro p p' h
-    have h1 := rootDiagUnit_zetaVec_injective hζo hζ.pow_eq_one h
-    have h2 : (p.1 - p'.1) • positionBasis k 0 + (p.2 - p'.2) • positionBasis k 1 = 0 := by
-      rw [sub_smul, sub_smul, sub_add_sub_comm]
-      exact sub_eq_zero.2 h1
-    obtain ⟨e1, e2⟩ := positionBasis_independent k _ _ h2
-    exact Prod.ext (sub_eq_zero.1 e1) (sub_eq_zero.1 e2)
-  have hset : ((E ⊓ torusGroup .E6 L : Subgroup (ModGL .E6 L)) : Set (ModGL .E6 L)) =
-      Set.range fun p : ZMod 3 × ZMod 3 => rootDiagUnit .E6
-        (zetaVec ζ hζ.pow_eq_one (p.1 • positionBasis k 0 + p.2 • positionBasis k 1)) := by
-    ext u
-    change u ∈ E ⊓ torusGroup .E6 L ↔ _
-    rw [hT u]
-    constructor
-    · rintro ⟨z, ⟨s, t, rfl⟩, rfl⟩
-      exact ⟨(s, t), rfl⟩
-    · rintro ⟨⟨s, t⟩, rfl⟩
-      exact ⟨_, ⟨s, t, rfl⟩, rfl⟩
-  have h9 : Nat.card ↥(E ⊓ torusGroup .E6 L) = Nat.card (ZMod 3 × ZMod 3) := by
-    rw [← SetLike.coe_sort_coe, Nat.card_coe_set_eq, hset, Set.ncard_range_of_injective hinj]
-  rw [h9, Nat.card_prod, Nat.card_zmod]
-  norm_num
-
-theorem zpowers_cE6_iff_of_position {ζ : Lˣ} (hζ : IsPrimitiveRoot ζ 3)
-    {E : Subgroup (ModGL .E6 L)} (hcard : Nat.card E = 3 ^ 3) {k : Fin 5} (hk : k.val < 3)
-    (hEM : E ≤ monomialSubgroup .E6 L)
-    (hT : ∀ u, u ∈ E ⊓ torusGroup .E6 L ↔
-      ∃ z, PositionMem k z ∧ u = rootDiagUnit .E6 (zetaVec ζ hζ.pow_eq_one z))
-    {n : ModGL .E6 L} (hn : n ∈ E)
-    (hw : weylQuotientHom .E6 L ⟨n, hEM hn⟩ = (coxeterSystem .E6).wordProd (positionWord k)) :
-    ∀ w, w ∈ Subgroup.zpowers cE6 ↔ ∃ e, ∃ he : e ∈ E, weylQuotientHom .E6 L ⟨e, hEM he⟩ = w := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hc : weylQuotientHom .E6 L ⟨n, hEM hn⟩ = cE6 := by
-    rw [hw, positionWord, if_pos hk]
-    rfl
-  set ψ := (weylQuotientHom .E6 L).comp (Subgroup.inclusion hEM) with hψ
-  have hψcard : Nat.card ψ.range = 3 := by
-    have h := card_inf_torus_mul_card_range hEM
-    rw [card_inf_torus_of_position hζ hT, hcard] at h
-    have h' : 9 * Nat.card ψ.range = 9 * 3 := h.trans (by norm_num)
-    exact Nat.eq_of_mul_eq_mul_left (by norm_num) h'
-  have hcR : cE6 ∈ ψ.range := ⟨⟨n, hn⟩, hc⟩
-  have hR : ψ.range = Subgroup.zpowers cE6 := by
-    refine (Subgroup.eq_of_le_of_card_ge (Subgroup.zpowers_le.2 hcR) ?_).symm
-    rw [hψcard, Nat.card_zpowers, orderOf_eq_prime cE6_pow_three cE6_ne_one]
-  intro w
-  rw [← hR]
-  constructor
-  · rintro ⟨⟨e, he⟩, rfl⟩
-    exact ⟨e, he, rfl⟩
-  · rintro ⟨e, he, rfl⟩
-    exact ⟨⟨e, he⟩, rfl⟩
 
 end CImage
 

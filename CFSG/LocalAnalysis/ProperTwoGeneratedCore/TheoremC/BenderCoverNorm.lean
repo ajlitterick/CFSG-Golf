@@ -108,10 +108,6 @@ theorem mk_liftConj (d : K ⧸ Subgroup.center K) (x : K) :
     change liftConj (d : K ⧸ Subgroup.center K) 1 = 1
     rw [liftConj, mul_one, mul_inv_cancel])
 
-theorem liftConjAction_smul (D : Subgroup (K ⧸ Subgroup.center K)) (W : Subgroup K)
-    (hDW : ∀ d ∈ D, ∀ w ∈ W, liftConj d w ∈ W) (d : D) (w : W) :
-    (((liftConjAction D W hDW).smul d w : W) : K) = liftConj (d : K ⧸ Subgroup.center K) w :=
-  rfl
 
 end Lift
 

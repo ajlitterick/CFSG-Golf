@@ -935,9 +935,6 @@ theorem blockLeft_Q23 (K : Type) [Field K] : BlockLeft (Q23 K) 0 2 :=
 theorem blockRight_Q23 (K : Type) [Field K] : BlockRight (Q23 K) 0 2 :=
   blockRight_of_stabilizer (fun _ hg => hg.1)
 
-@[expose] noncomputable def blkMonQ23 (K : Type) [Field K] :
-    ↥(Q23 K) →* Matrix (Fin 2) (Fin 2) K :=
-  blkMon (Q23 K) 0 2 (by norm_num) (blockLeft_Q23 K) (blockRight_Q23 K)
 
 theorem perfect_perfectCore_Q23 (K : Type) [Field K] [Finite K] :
     Group.IsPerfect ↥(perfectCore (Q23 K)) :=

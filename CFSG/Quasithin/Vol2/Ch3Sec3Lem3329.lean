@@ -204,24 +204,5 @@ theorem stmt3_3_29_of
         rw [e, ← Subgroup.map_map, h1, h2]
       exact (Subgroup.zpowers_le.mpr hg2) (mem_zpowers_sq_of_odd hodd)
 
-theorem stmt3_3_28_of (h28b : Stmt3_3_28U33) (h29 : Stmt3_3_29) :
-    ∀ (G : Type) [Group G] [Finite G] (T M L D : Subgroup G), Hyp331 G T M L D →
-      (IsPSL 3 2 1 ↥(autOn L (vPlus L T)) ∨ IsPSU 3 3 1 ↥(autOn L (vPlus L T))) →
-        (qL L T = vPlus L T ⊔ tC L T ∧ vPlus L T ⊓ tC L T = ⊥ ∧ ⁅vPlus L T, tC L T⁆ = ⊥ ∧
-            frattini ↥(qL L T) = ⊥) ∧
-          (IsPSU 3 3 1 ↥(autOn L (vPlus L T)) → tC L T = ⊥ ∧ qL L T = vPlus L T) := by
-  intro G _ _ T M L D h hP
-  have hU : ∀ hU : IsPSU 3 3 1 ↥(autOn L (vPlus L T)), tC L T = ⊥ ∧ qL L T = vPlus L T :=
-    fun hU => h28b G T M L D h hU
-  rcases hP with hL | hU'
-  · exact absurd hL (h29 G T M L D h)
-  · obtain ⟨hTC, hQV⟩ := hU hU'
-    have hred := Hyp331.vPlus_reduced h.toSetup331
-    refine ⟨⟨?_, ?_, ?_, ?_⟩, fun _ => ⟨hTC, hQV⟩⟩
-    · rw [hTC, sup_bot_eq, hQV]
-    · rw [hTC, inf_bot_eq]
-    · rw [hTC, Subgroup.commutator_bot_right]
-    · rw [hQV]
-      exact frattini_eq_bot_of_isElemAbelian hred.2.1
 
 end CFSG.Quasithin.H13

@@ -94,23 +94,6 @@ theorem cocycleUV_two_smul (E : TorusBasisEquivFour D hBC e f)
   rw [hδ]
   exact piBasis_two_smul h2p h2q x
 
-theorem cocycleT_two_smul (E : TorusBasisEquivFour D hBC e f)
-    (hL : D.L ≤ Subgroup.normalizer C)
-    (he : e * e = ⟨D.a, hBC D.a.2⟩) (hf : f * f = ⟨D.b, hBC D.b.2⟩)
-    (x : Torus (Type200.k m)) :
-    2 • cocycleT (D := D) (hBC := hBC) (e := e) (f := f) E hL x = 0 := by
-  have h2p : 2 • cocycleT (D := D) (hBC := hBC) (e := e) (f := f) E hL
-      (gen (Type200.k m) 1) = 0 := by
-    simpa [two_zsmul, two_nsmul] using cocycleT_two_gen1 he hf E hL
-  have h2q : 2 • cocycleT (D := D) (hBC := hBC) (e := e) (f := f) E hL
-      (gen (Type200.k m) 2) = 0 := by
-    simpa [two_zsmul, two_nsmul] using cocycleT_two_gen2 he hf E hL
-  have hδ : cocycleT (D := D) (hBC := hBC) (e := e) (f := f) E hL =
-      piBasis h2p h2q :=
-    hom_eq_piBasis (cocycleT_gen0 he hf E hL) h2p h2q
-  rw [hδ]
-  exact piBasis_two_smul h2p h2q x
-
 
 theorem cocycleUV_uv_sq
     (E : TorusBasisEquivFour D hBC e f) (hL : D.L ≤ Subgroup.normalizer C)
@@ -701,8 +684,6 @@ theorem cocycleUV_cocycleT_forms
   · rw [show cocycleT (D := D) (hBC := hBC) (e := e) (f := f) E hL
       (gen (Type200.k m) 2) = s from rfl, hs_form']
     abel
-
-
 
 
 theorem type200Images_of_cocycle_values_eq_zero

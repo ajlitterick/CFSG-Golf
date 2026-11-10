@@ -147,26 +147,6 @@ theorem matrixToOriginal_form (P R : HypPair Q) (h : P.Orth R)
       (matrixToOriginal_form P R h _).symm
     _ = Q v := congrArg Q (e.apply_symm_apply v)
 
-theorem determinantCoordinates_symm_apply [FiniteDimensional K V]
-    (hdim : Module.finrank K V = 4) (P R : HypPair Q) (h : P.Orth R)
-    (X : Matrix (Fin 2) (Fin 2) K) :
-    (determinantCoordinates hdim P R h).symm X =
-      X 0 0 • P.e + X 0 1 • R.e + X 1 1 • P.f - X 1 0 • R.f := rfl
-
-theorem determinantCoordinates_apply [FiniteDimensional K V]
-    (hdim : Module.finrank K V = 4) (P R : HypPair Q) (h : P.Orth R) (v : V) :
-    determinantCoordinates hdim P R h v =
-      !![polar Q v P.f, polar Q v R.f; -polar Q v R.e, polar Q v P.e] := by
-  have hv : matrixToOriginal P R (determinantCoordinates hdim P R h v) = v :=
-    (determinantCoordinates hdim P R h).symm_apply_apply v
-  have hx := matrixToOriginal_polar P R h (determinantCoordinates hdim P R h v)
-  rw [hv] at hx
-  ext i j
-  fin_cases i <;> fin_cases j
-  · exact hx.1.symm
-  · exact hx.2.1.symm
-  · simpa using (congrArg Neg.neg hx.2.2.2).symm
-  · exact hx.2.2.1.symm
 
 theorem exists_determinant_isometry [FiniteDimensional K V]
     (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate) (hdim : Module.finrank K V = 4)

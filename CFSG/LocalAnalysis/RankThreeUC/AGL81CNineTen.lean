@@ -57,36 +57,11 @@ abbrev NineTenConclusion (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G)
       IsPSLType 2 (ZMod 3) ↥(oPPrimeHull p (⊤ : Subgroup (QuotKer M H))))) ∧
   (pLayerIn p H = ⊥ → NineTenThreeCorrected p M H)
 
-@[expose] def NineTen : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G) (p : ℕ),
-    NineSetting G M p Q H E 2 → H ∈ H2Fam M Q → p ∉ sigmaM G M →
-    NineTenConclusion G M Q H E p
 
 @[expose] def NineTenGen : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G) (p : ℕ),
     NineSettingGen G M p Q H E 2 → H ∈ H2Fam M Q → p ∉ sigmaM G M →
     NineTenConclusion G M Q H E p
 
-abbrev NineTwelveConclusion (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G)
-    (p : ℕ) : Prop :=
-  (¬ pLayerIn p H ≤ M → ∀ L : Subgroup G, IsPComponentIn p L (kSub p M H) →
-    IsTwoPrimeComponentIn L H ∨
-      (p = 3 ∧ Nonempty (↥L ⧸ CFSG.solvableRadical ↥L ≃* alternatingGroup (Fin 6)))) ∧
-  (pLayerIn p H ≤ M → ∀ R : Subgroup G,
-    CFSG.ABGLocalTools.IsSylowOf 3 R (relPPrimeCore p H) →
-    kSub p M H = (kSub p M H ⊓ Subgroup.centralizer (R : Set G)) ⊔ relPPrimeCore p (kSub p M H) ∨
-    (p = 13 ∧ IsElemAbelian 3 (omegaOnePSub 3 R) ∧ Nat.card ↥(omegaOnePSub 3 R) = 27 ∧
-      p ∉ sigmaM G M ∧
-      kSub p M H = (kSub p M H ⊓ Subgroup.centralizer (R : Set G)) ⊔ kerIn M (kSub p M H) ∧
-      ∃ N : Subgroup (StarGroup p H), N ≤ starImg p H (kerIn M (kSub p M H)) ∧
-        (N.subgroupOf (starImg p H (kerIn M (kSub p M H)))).Normal ∧
-        IsSLType 3 (ZMod 3) ↥N) ∨
-    (p = 5 ∧ CFSG.IsExtraspecialPGroup 3 ↥(omegaOnePSub 3 R) ∧
-      Nat.card ↥(omegaOnePSub 3 R) = 3 ^ 5 ∧ Monoid.exponent ↥(omegaOnePSub 3 R) = 3))
-
-@[expose] def NineTwelve : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G) (p : ℕ),
-    NineSetting G M p Q H E 2 → H ∈ H2Fam M Q → p ∉ sigmaM G M →
-    NineTwelveConclusion G M Q H E p
 
 end CFSG.LocalAnalysis.RankThreeUC.AGL81C

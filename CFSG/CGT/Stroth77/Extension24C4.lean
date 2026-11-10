@@ -225,15 +225,6 @@ theorem not_isCyclic_quotient_t300_of_data {n : ℕ}
     exact hq2 hq2eq
   exact hwinv_notB (hH (winv : S) (hcS winv.2) hwinvS2 (hC winv.2))
 
-theorem not_isCyclic_quotient_t300 {n : ℕ}
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t300 n))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    ¬ IsCyclic (C ⧸ B.subgroupOf C) :=
-  not_isCyclic_quotient_t300_of_data hB.data hBC hC hrel hL hH hcS
 
 end QuotientAction
 

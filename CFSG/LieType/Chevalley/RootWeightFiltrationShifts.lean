@@ -55,8 +55,6 @@ theorem weightProj_mem (ψ : Ω) (x : V) : weightProj hV ψ x ∈ Vχ ψ := by
   rw [weightProj_apply]
   exact Submodule.coe_mem _
 
-theorem weightProj_of_mem {ψ : Ω} {x : V} (hx : x ∈ Vχ ψ) : weightProj hV ψ x = x := by
-  rw [weightProj_apply, hV.ofBijective_coeLinearMap_of_mem hx]
 
 theorem weightProj_of_mem_ne {χ ψ : Ω} (h : χ ≠ ψ) {x : V} (hx : x ∈ Vχ χ) :
     weightProj hV ψ x = 0 := by

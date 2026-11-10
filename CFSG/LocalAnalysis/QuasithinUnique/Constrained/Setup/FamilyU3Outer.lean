@@ -153,9 +153,6 @@ variable {p : ℕ} {K : Type} [Field K] (h : UnitaryFieldData p 1 K)
   (primeFormFieldSU h (isPrimeFormGram_one : IsPrimeFormGram (1 : GL (Fin 3) K)) φ).trans
     (primeFormConjSU h _ A)
 
-theorem coe_tauU (A : UI h) (φ : K ≃+* K) (x : ↥(SUI h)) :
-    ((tauU h A φ x : ↥(SUI h)) : GL (Fin 3) K) = A * glAut φ (x : GL (Fin 3) K) * A⁻¹ :=
-  rfl
 
 theorem conjField_mk (A : UI h) (φ : K ≃+* K) (x : ↥(SUI h)) :
     (primeFormConjHom h _ A * primeFormFieldHom h

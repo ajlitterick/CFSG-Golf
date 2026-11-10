@@ -24,10 +24,6 @@ namespace CertificateChecks.KernelCensus.Suz
 
 set_option maxRecDepth 1000000
 
-theorem kNExc98 : (List.range' 98 7).all (nodeQ false conjExc suzE0P) = true := by
-  quickRfl
-theorem kNExc105 : (List.range' 105 7).all (nodeQ false conjExc suzE0P) = true := by
-  quickRfl
 
 end CertificateChecks.KernelCensus.Suz
 

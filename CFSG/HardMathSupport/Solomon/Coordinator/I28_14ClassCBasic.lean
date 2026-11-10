@@ -23,8 +23,6 @@ variable {U : Type*} [AddCommGroup U] [Module (ZMod 2) U]
   zero_mem' e _ := map_zero _
   smul_mem' c x hx e he := by rw [map_smul, hx e he]
 
-theorem mem_fixSub {E : Subgroup (LinearMap.GeneralLinearGroup (ZMod 2) U)} {x : U} :
-    x ∈ fixSub E ↔ ∀ e ∈ E, (e : U →ₗ[ZMod 2] U) x = x := Iff.rfl
 
 theorem i28_14_C_close {p : ℕ} {G A : Subgroup (LinearMap.GeneralLinearGroup (ZMod 2) U)}
     {t : LinearMap.GeneralLinearGroup (ZMod 2) U} {y : LinearMap.GeneralLinearGroup (ZMod 2) U}

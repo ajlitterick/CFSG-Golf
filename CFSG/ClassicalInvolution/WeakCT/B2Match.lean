@@ -51,16 +51,6 @@ set_option maxRecDepth 100000 in
 theorem reach_all : ∀ z ∈ zB2, ∀ w ∈ zB2, z + w ≠ 0 → ∀ p ∈ eList z w,
     (z, w, p) ∈ reachL 6 baseL := by decide
 
-theorem mem_stepL {L : List Tr} {t : Tr} (h : t ∈ L) : t ∈ stepL L := by
-  unfold stepL
-  rw [List.mem_dedup]
-  exact List.mem_append_left _ h
-
-theorem mem_stepL_nbrs {L : List Tr} {t t' : Tr} (h : t ∈ L) (h' : t' ∈ nbrs t) :
-    t' ∈ stepL L := by
-  unfold stepL
-  rw [List.mem_dedup]
-  exact List.mem_append_right _ (List.mem_flatMap.2 ⟨t, h, h'⟩)
 
 theorem mem_reachL_induction {Q : Tr → Prop} (hnbr : ∀ t, Q t → ∀ t' ∈ nbrs t, Q t') :
     ∀ n (L : List Tr), (∀ t ∈ L, Q t) → ∀ t ∈ reachL n L, Q t := by

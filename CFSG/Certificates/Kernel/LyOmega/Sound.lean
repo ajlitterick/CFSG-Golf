@@ -50,20 +50,6 @@ theorem sameSpan_sound {C : BConsts} (hC : bConstsOK C = true) {N Y : ℕ}
     blkM Y = firstCols (blkM Y) * blkM N := by
   exact MC.sameSpan_sound hC hN hY h
 
-theorem cNode_sound {C : BConsts} (hC : bConstsOK C = true) {KX PT WT GT WC : ℕ → ℕ} {nc n i : ℕ}
-    (hGT : ∀ k, LCanon 12 111 111 (GT k)) (hWC : ∀ k, LCanon 12 111 111 (WC k))
-    (hKX : ∀ j < i, LCanon 12 7 111 (getRec KX 9324 j))
-    (h : cNode C KX PT WT GT WC nc n i = true) :
-    chartOf (getRec PT 32 i) < nc ∧ LCanon 12 7 111 (getRec KX 9324 i) ∧
-      lastCols (blkM (getRec KX 9324 i)) = 1 ∧
-      (∀ e < chartOf (getRec PT 32 i), ¬ IsUnit (lastCols (blkM (getRec KX 9324 i) *
-        bigM (WC (chartOf (getRec PT 32 i) + 8 * e)))).det) ∧
-      (0 < i → fldW (getRec PT 32 i) 0 20 < i ∧ fldW (getRec PT 32 i) 20 4 < 2 ∧
-        ∃ M : Matrix (Fin 7) (Fin 7) (ZMod 5),
-          blkM (getRec KX 9324 (fldW (getRec PT 32 i) 0 20)) *
-            bigM (GT (fldW (getRec PT 32 i) 20 4 + 2 * chartOf (getRec PT 32 (fldW (getRec PT 32 i) 0 20))
-              + 16 * chartOf (getRec PT 32 i))) = M * blkM (getRec KX 9324 i)) := by
-  exact CN.cNode_sound hC hGT hWC hKX h
 
 theorem cRange_sound {C : BConsts} {KX PT WT GT WC : ℕ → ℕ} {nc n b₀ c : ℕ}
     (h : cRange C KX PT WT GT WC nc n b₀ c = true) :

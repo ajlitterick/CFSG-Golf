@@ -90,12 +90,6 @@ deriving Inhabited
       q.1 == v.1 && q.2.1 == v.2.1 && q.2.2.1 == v.2.2)) &&
   (D.wA ++ D.wB).all (fun q => D.mods.any fun m => m.acts.any fun g => g.reg == q.1)
 
-@[expose] def r3Check {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String) (nregs : Nat)
-    (prog : List Op) (D : Spec) : Bool :=
-  mcertCheck O sA sB ⟨nregs, prog, D.facts⟩ &&
-  decide (D.rA < nregs) && decide (D.rB < nregs) &&
-  O.eq (O.regsOf sA sB nregs prog)[D.rA]! (O.decode sA) &&
-  O.eq (O.regsOf sA sB nregs prog)[D.rB]! (O.decode sB) && D.wf
 
 @[expose] def Act.formEntry (g : Act) (a b c : Int) (i j : Nat) : Int :=
   let m : Nat → Nat → Int := fun k l => (g.mat.getD (3 * k + l) 0 : Nat)
@@ -112,8 +106,5 @@ deriving Inhabited
     (a * m 0 1 + b * m 1 1 + c * m 2 1 - b) % (p : Int) == 0 &&
     (a * m 0 2 + b * m 1 2 + c * m 2 2 - c) % (p : Int) == 0
 
-@[expose] def Spec.noAlt (D : Spec) : Bool :=
-  D.mods.all fun m => (nonzeroTriples D.p).all fun v =>
-    m.acts.any fun g => !g.fixes D.p v.1 v.2.1 v.2.2
 
 end CFSG.AGLEmbedding.R3

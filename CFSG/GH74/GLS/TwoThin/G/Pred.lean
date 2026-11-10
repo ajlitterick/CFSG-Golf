@@ -64,7 +64,5 @@ theorem RankThreeQ.exists_central_involution {H : Type} [Group H] (h : RankThree
 
 theorem RankThreeP.pRank_le {L : Type} [Group L] (h : RankThreeP L) : CFSG.pRank 2 L ≤ 3 := h.1
 
-theorem RankThreeP.pRank_le_two_of_center_eq_bot {L : Type} [Group L] (h : RankThreeP L)
-    (hz : center L = ⊥) : CFSG.pRank 2 L ≤ 2 := h.2 hz
 
 end CFSG.GH74.GLS.TwoThin

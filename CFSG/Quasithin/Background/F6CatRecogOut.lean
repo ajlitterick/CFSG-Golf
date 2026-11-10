@@ -49,9 +49,6 @@ section Action
     induction x using QuotientGroup.induction_on
     rfl
 
-theorem mulAutQuotCenter_mk {G : Type*} [Group G] (α : MulAut G) (g : G) :
-    mulAutQuotCenter G α (QuotientGroup.mk g) = QuotientGroup.mk (α g) :=
-  rfl
 
 @[expose] noncomputable def conjQuotHom (D : Type) [Group D] : D →* MulAut (TwoResidualQuot D) :=
   have := twoResidual_top_normal (D := D)

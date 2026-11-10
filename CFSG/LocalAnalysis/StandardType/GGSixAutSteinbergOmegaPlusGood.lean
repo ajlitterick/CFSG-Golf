@@ -220,9 +220,6 @@ theorem ggAutModelAt_POmegaPlus_of_four (h4 : GGAutModelPlusFourInput) :
     GGAutModelAt .POmegaPlus :=
   ggAutModelAt_POmegaPlus_of_inputs h4 AutOm.plusGoodInput_holds
 
-theorem ggAutStructureAt_POmegaPlus_of_four (h4 : GGAutModelPlusFourInput) :
-    GGAutStructureAt .POmegaPlus :=
-  ggAutStructureAt_of_autModelAt (ggAutModelAt_POmegaPlus_of_four h4)
 
 end Family
 

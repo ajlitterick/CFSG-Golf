@@ -32,9 +32,6 @@ theorem coe_locLayerConj {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω) (g x :
   QuotientGroup.congr _ _ (locLayerConj hΩ g x)
     (CFSG.ComponentClassification.OddCore.equiv_invariant (locLayerConj hΩ g x))
 
-theorem locQuotConj_mk {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω) (g x : G)
-    (y : ↥(locLayer Ω x)) :
-    locQuotConj hΩ g x (QuotientGroup.mk y) = QuotientGroup.mk (locLayerConj hΩ g x y) := rfl
 
 theorem map_subgroupOf_locLayerConj {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω) (g x : G)
     (L : Subgroup G) :

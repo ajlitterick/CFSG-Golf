@@ -89,23 +89,5 @@ theorem involution_component_reduction {G : Type*} [Group G] [Finite G]
   exact ⟨involution, horder, localComponent, hlocal, hlocalNotQuasisimple, hnotContained,
     hderived, hperfect, hderivedNe, hindex, hcover⟩
 
-theorem involution_reduction {G : Type*} [Group G] [Finite G]
-    (hsmaller : ∀ (subgroup : Subgroup G) (_ : subgroup.Normal),
-      Nat.card (G ⧸ subgroup) < Nat.card G → CentralTwoBInclusion.Property (G ⧸ subgroup))
-    (hproper : ∀ subgroup : Subgroup G, subgroup ≠ ⊤ → CentralTwoBInclusion.Property subgroup)
-    (hfailure : ¬ CentralTwoBInclusion.Property G) :
-    ∃ involution : G, orderOf involution = 2 ∧
-      Group.IsPerfect (commutator G) ∧ commutator G ≠ ⊥ ∧
-      (commutator G).index ≤ 2 ∧ commutator G ⊔ Subgroup.zpowers involution = ⊤ ∧
-      ¬ (TwoComponents.badSubgroup (Subgroup.centralizer ({involution} : Set G))).map
-        (Subgroup.centralizer ({involution} : Set G)).subtype ≤ TwoComponents.badSubgroup G := by
-  obtain ⟨involution, horder, localComponent, hlocal, hnotQuasi, hnotContained,
-    _, hperfect, hderivedNe, hindex, hcover⟩ :=
-    involution_component_reduction hsmaller hproper hfailure
-  refine ⟨involution, horder, hperfect, hderivedNe, hindex, hcover, ?_⟩
-  intro hbadContained
-  have hbad : localComponent ≤ TwoComponents.badSubgroup
-      (Subgroup.centralizer ({involution} : Set G)) := le_sSup ⟨hlocal, hnotQuasi⟩
-  exact hnotContained ((Subgroup.map_mono hbad).trans hbadContained)
 
 end CFSG.ComponentClassification.MinimalBDerived

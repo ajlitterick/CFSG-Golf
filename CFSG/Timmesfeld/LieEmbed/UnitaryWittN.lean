@@ -251,83 +251,6 @@ theorem exists_sigma_mul_self_eq (hF : Nat.card F = (p ^ f) ^ 2) {d : F}
   rw [hσ, ← Units.val_pow_eq_pow_val, ← Units.val_mul, ← pow_succ, ← _root_.zpow_natCast,
     ← _root_.zpow_mul, show m * ((q + 1 : ℕ) : ℤ) = k by rw [hm]; ring, hk, Units.val_mk0]
 
-@[expose] noncomputable def wittScale (σ : F ≃+* F) {n : ℕ} [NeZero n] (l : F) (a : Fin n) : F :=
-  (if a = 0 then l else 1) * (if a = Fin.rev 0 then (σ l)⁻¹ else 1)
-
-theorem exists_su_mulVec_of_gram (hF : Nat.card F = (p ^ f) ^ 2) {n : ℕ} [NeZero n]
-    (h0 : (0 : Fin n) ≠ Fin.rev 0) {col : Fin n → Fin n → F}
-    (hgram : ∀ a b, uForm (unitaryInvolution F p f) (col a) (col b) =
-      if b = Fin.rev a then 1 else 0) :
-    ∃ (g : SU (unitaryInvolution F p f) n) (l : F), l ≠ 0 ∧ ∀ a,
-      suMat _ n g *ᵥ Pi.single a 1 = wittScale (unitaryInvolution F p f) l a • col a := by
-  set σ := unitaryInvolution F p f with hσdef
-  have hσ : ∀ c, σ (σ c) = c := unitaryInvolution_involutive hF
-  set C : Matrix (Fin n) (Fin n) F := Matrix.of fun x a => col a x with hC
-  have hgramC : conjTr σ C * antidiag n * C = antidiag n := by
-    ext a b
-    rw [conjTr_mul_antidiag_mul_apply, antidiag, Matrix.of_apply]
-    exact hgram a b
-  have hdetJ : (antidiag n : Matrix (Fin n) (Fin n) F).det ≠ 0 := by
-    have := congrArg Matrix.det (antidiag_mul_antidiag (F := F) (n := n))
-    rw [Matrix.det_mul, Matrix.det_one] at this
-    exact left_ne_zero_of_mul_eq_one this
-  have hnorm : σ C.det * C.det = 1 := by
-    have h := congrArg Matrix.det hgramC
-    have e : (C.map σ).det = σ C.det := (RingEquiv.map_det σ C).symm
-    rw [Matrix.det_mul, Matrix.det_mul, conjTr, Matrix.det_transpose, e] at h
-    have h' : σ C.det * C.det * (antidiag n : Matrix (Fin n) (Fin n) F).det =
-        1 * (antidiag n : Matrix (Fin n) (Fin n) F).det := by
-      linear_combination h
-    exact mul_right_cancel₀ hdetJ h'
-  have hC0 : C.det ≠ 0 := right_ne_zero_of_mul_eq_one hnorm
-  have hd : σ C.det⁻¹ * C.det⁻¹ = 1 := by
-    rw [map_inv₀, ← mul_inv, hnorm, inv_one]
-  obtain ⟨l, hl0, hl⟩ := exists_mul_inv_sigma_eq hF hd
-  rw [← hσdef] at hl
-  have hσl : σ l ≠ 0 := (map_ne_zero σ).2 hl0
-  have hr0 : Fin.rev (0 : Fin n) ≠ 0 := Ne.symm h0
-  have hrev : ∀ a : Fin n, Fin.rev a = 0 ↔ a = Fin.rev 0 := fun a => by
-    constructor
-    · intro h; rw [← h, Fin.rev_rev]
-    · intro h; rw [h, Fin.rev_rev]
-  have hrev' : ∀ a : Fin n, Fin.rev a = Fin.rev 0 ↔ a = 0 := fun a =>
-    ⟨fun h => Fin.rev_injective h, fun h => by rw [h]⟩
-  set D : Matrix (Fin n) (Fin n) F := Matrix.diagonal (wittScale σ l) with hD
-  have hgramD : conjTr σ D * antidiag n * D = antidiag n := by
-    ext a b
-    rw [hD, conjTr, Matrix.diagonal_map (map_zero σ), Matrix.diagonal_transpose,
-      Matrix.mul_diagonal, Matrix.diagonal_mul, antidiag, Matrix.of_apply]
-    by_cases hb : b = Fin.rev a
-    · subst hb
-      rw [ite_eq_left rfl, mul_one]
-      by_cases ha : a = 0
-      · subst ha
-        simp [wittScale, h0, hr0, hσl]
-      · by_cases ha' : a = Fin.rev 0
-        · subst ha'
-          simp [wittScale, h0, hr0, Fin.rev_rev, hσ, hl0]
-        · simp [wittScale, ha, ha', (hrev a).not.2 ha', (hrev' a).not.2 ha]
-    · simp [hb]
-  have hdetD : D.det = l * (σ l)⁻¹ := by
-    rw [hD, Matrix.det_diagonal]
-    simp only [wittScale, Finset.prod_mul_distrib, Finset.prod_ite_eq', Finset.mem_univ,
-      ite_true]
-  set C' := C * D with hC'
-  have hgram' : conjTr σ C' * antidiag n * C' = antidiag n := by
-    rw [hC', conjTr_mul, show conjTr σ D * conjTr σ C * antidiag n * (C * D) =
-        conjTr σ D * (conjTr σ C * antidiag n * C) * D by simp only [Matrix.mul_assoc], hgramC,
-      hgramD]
-  have hdet' : C'.det = 1 := by
-    rw [hC', Matrix.det_mul, hdetD, hl, mul_inv_cancel₀ hC0]
-  let g0 : GL (Fin n) F :=
-    Matrix.GeneralLinearGroup.mkOfDetNeZero C' (by rw [hdet']; exact one_ne_zero)
-  have hg0 : g0 ∈ SU σ n := mem_SU.2 ⟨hdet', hgram'⟩
-  refine ⟨⟨g0, hg0⟩, l, hl0, fun a => ?_⟩
-  change C' *ᵥ Pi.single a 1 = _
-  rw [hC', ← mulVec_mulVec, hD, diagonal_mulVec_single, mulVec_smul]
-  congr 1
-  funext x
-  simp [hC, mulVec, dotProduct, Pi.single_apply]
 
 end Finite
 
@@ -346,16 +269,6 @@ theorem suMat_heisElt {i k : Fin n} (hi : i ≠ Fin.rev i) (hik : i ≠ k) (hk :
     suMat σ n (heisElt σ hσ hi hik hk hab) = heisenbergMatrix σ i k a b :=
   rfl
 
-theorem heisenbergMatrix_mulVec_single_rev {i k : Fin n} (hik : i ≠ k) (hk : Fin.rev k = k)
-    (a b : F) :
-    heisenbergMatrix σ i k a b *ᵥ Pi.single (Fin.rev i) 1 =
-      Pi.single (Fin.rev i) 1 - σ a • Pi.single k 1 + b • Pi.single i 1 := by
-  have hk' : k ≠ Fin.rev i := fun h => hik (by rw [← Fin.rev_rev i, ← h, hk])
-  funext x
-  simp only [heisenbergMatrix, add_mulVec, sub_mulVec, one_mulVec, single_mulVec, Pi.add_apply,
-    Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Function.update_apply, Pi.zero_apply,
-    Pi.single_apply, ite_eq_right hk', mul_zero]
-  split_ifs <;> simp
 
 end Heisenberg
 

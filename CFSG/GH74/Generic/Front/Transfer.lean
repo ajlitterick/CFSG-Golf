@@ -192,8 +192,6 @@ variable {G : Type} [Group G]
 theorem proj_apply (x : G) (g : ↥(centralizer ({x} : Set G))) :
     proj x g = (QuotientGroup.mk g : CentralizerBar x) := rfl
 
-theorem proj_mk (x : G) {u : G} (hu : u ∈ centralizer ({x} : Set G)) :
-    proj x ⟨u, hu⟩ = barOf hu := rfl
 
 theorem proj_odd [Finite G] (x : G) (n : ↥(centralizer ({x} : Set G))) (hn : proj x n = 1) :
     Odd (orderOf n) := by

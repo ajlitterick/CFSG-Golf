@@ -26,8 +26,6 @@ variable {L : Type} [Field L]
     rintro _ ⟨s, t, hs, ht, rfl⟩
     exact ⟨s⁻¹, t⁻¹, by rw [inv_pow, hs, inv_one], by rw [inv_pow, ht, inv_one], tz_inv s t⟩
 
-theorem mem_tzPart {m : ℕ} {g : ModGL .G2 L} :
-    g ∈ tzPart m ↔ ∃ s t : Lˣ, s ^ m = 1 ∧ t ^ m = 1 ∧ g = tz s t := Iff.rfl
 
 theorem tz_mem_tzPart {m : ℕ} {s t : Lˣ} (hs : s ^ m = 1) (ht : t ^ m = 1) :
     (tz s t : ModGL .G2 L) ∈ tzPart m := ⟨s, t, hs, ht, rfl⟩
@@ -103,11 +101,6 @@ theorem mem_zpowers_of_yq_fixed_tzPart {m : ℕ} (hm3 : 3 ∣ m) {ω : Lˣ} (hω
   rw [← htj, hpow]
   exact Subgroup.pow_mem _ (Subgroup.mem_zpowers _) j
 
-theorem fixed_tzPart_le_zpowers {m : ℕ} (hm3 : 3 ∣ m) {ω : Lˣ} (hω3 : ω ^ 3 = 1)
-    (hω : IsPrimitiveRoot (ω : L) 3) :
-    ∀ x ∈ tzPart m, (yq : ModGL .G2 L) * x * yq⁻¹ = x →
-      x ∈ Subgroup.zpowers (tz 1 ω) :=
-  fun _ hx hfix => mem_zpowers_of_yq_fixed_tzPart hm3 hω3 hω hx hfix
 
 theorem yq_pow_conj_tz_one_ne {ω : Lˣ} (hω1 : ω ≠ 1) {k : ℕ} (hk0 : k ≠ 0) (hk : k < 3) :
     (yq : ModGL .G2 L) ^ k * tz ω 1 * ((yq : ModGL .G2 L) ^ k)⁻¹ ≠ tz ω 1 := by
@@ -368,7 +361,6 @@ theorem one_le_padicValNat_three_sq_sub_one {q : ℕ} (h3 : ¬ 3 ∣ q) (hq : 2 
     omega
   have hdvd : 3 ∣ q ^ 2 - 1 := CFSG.RankThree.PartTwo.Sec12.OrdG2D4.three_dvd_sq_sub_one h3
   exact one_le_padicValNat_of_dvd hq1 hdvd
-
 
 
 theorem ne_inv_of_primitiveRoot_odd {t : Lˣ} {n : ℕ} (hn : Odd n) (hn1 : 1 < n)
@@ -757,57 +749,5 @@ theorem g2_sylow_inversion_of_not_dvd
     g2_exists_sylow_inversion_data h3 hq3
   exact sylow_center_inversion_transport Q0 hQ0syl z0 hcenter t0 ht0ord ht0inv
 
-theorem g2_inverting_of_lieModel
-    {X : Type} [Group X] [Finite X] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hp3 : p ≠ 3)
-    (hX : CFSG.Blueprint.LieModel X .G2 0 p 1)
-    (Q : Sylow 3 X) {z : X}
-    (hzQ : z ∈ (Q : Subgroup X))
-    (hzc : z ∈ Subgroup.centralizer ((Q : Subgroup X) : Set X))
-    (hz3 : orderOf z = 3) :
-    ∃ t : X, orderOf t = 2 ∧ t * z * t⁻¹ = z⁻¹ := by
-  classical
-  have hc : CFSG.Blueprint.ChevalleyExceptionalModel X .G2 p 1 :=
-    CFSG.Blueprint.LieModel.chevalleyExceptionalModel hX (by decide)
-  have hm : CFSG.Blueprint.UntwistedChevalleyModel X .G2 (p ^ 1) := hc.2
-  obtain ⟨K, hKfield, hKfinite, hKcard, ⟨eX⟩⟩ :=
-    CFSG.LieType.Chevalley.nonempty_mulEquiv_adjointGroup (τ := .G2) hm
-  letI : Field K := hKfield
-  letI : Finite K := hKfinite
-  have hKp : Nat.card K = p := by simpa using hKcard
-  have hq3 : 3 ≤ Nat.card K := by
-    rw [hKp]
-    have := hp.one_lt
-    omega
-  have h3 : ¬ 3 ∣ Nat.card K := by
-    rw [hKp]
-    intro h
-    have h3p : 3 = p := (Nat.prime_dvd_prime_iff_eq Nat.prime_three hp).1 h
-    exact hp3 h3p.symm
-  let Q' : Sylow 3 (adjointGroup .G2 K) :=
-    Sylow.mapSurjective (f := eX.toMonoidHom) eX.surjective Q
-  let z' : adjointGroup .G2 K := eX z
-  have hQ' : (Q' : Subgroup (adjointGroup .G2 K)) =
-      (Q : Subgroup X).map eX.toMonoidHom := by
-    simp [Q']
-  have hzQ' : z' ∈ (Q' : Subgroup (adjointGroup .G2 K)) := by
-    rw [hQ']
-    exact Subgroup.mem_map_of_mem eX.toMonoidHom hzQ
-  have hzc' : z' ∈ Subgroup.centralizer
-      ((Q' : Subgroup (adjointGroup .G2 K)) : Set (adjointGroup .G2 K)) := by
-    rw [Subgroup.mem_centralizer_iff] at hzc ⊢
-    intro y hy
-    rw [hQ'] at hy
-    obtain ⟨q, hq, rfl⟩ := hy
-    simpa only [map_mul, z', MulEquiv.coe_toMonoidHom] using congrArg eX.toMonoidHom
-      (Subgroup.mem_centralizer_iff.mp hzc q hq)
-  have hz3' : orderOf z' = 3 := by
-    simpa [z'] using (MulEquiv.orderOf_eq eX z).trans hz3
-  obtain ⟨t', ht'2, ht'inv⟩ :=
-    g2_sylow_inversion_of_not_dvd h3 hq3 Q' z' hzQ' hzc' hz3'
-  refine ⟨eX.symm t', ?_, ?_⟩
-  · rw [← (MulEquiv.orderOf_eq eX (eX.symm t')), eX.apply_symm_apply, ht'2]
-  · apply eX.injective
-    rw [map_mul, map_mul, map_inv, eX.apply_symm_apply, map_inv]
-    exact ht'inv
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

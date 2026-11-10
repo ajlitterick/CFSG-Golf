@@ -82,17 +82,6 @@ theorem ggTorusNbrSC_of_ggTorusIrredSC {p : ℕ} (hp : p.Prime) {R : Type} [Grou
   obtain ⟨W, hW1, hW2, -, -⟩ := h L' ψ hψ hker hperf A hA hAI h3 hsc
   exact ⟨W, hW1, forall_comm_of_irred hp hA h3 hW2⟩
 
-theorem ggTorusNbrSC_of_mulEquiv {p : ℕ} {R R' : Type} [Group R] [Group R'] (e : R ≃* R')
-    {I : Set (MulAut R)} {I' : Set (MulAut R')} (hI : ∀ φ ∈ I, MulAut.congr e φ ∈ I')
-    (h : GGTorusNbrSC p R' I') : GGTorusNbrSC p R I := by
-  intro L' _ _ ψ hψ hker hperf A hA hAI h3 hsc
-  refine h L' (e.toMonoidHom.comp ψ) (e.surjective.comp hψ) ?_ hperf A hA ?_ h3 hsc
-  · intro l hl
-    exact hker (by simpa [MonoidHom.mem_ker] using hl)
-  · intro a ha
-    obtain ⟨φ, hφ, hφa⟩ := hAI a ha
-    refine ⟨MulAut.congr e φ, hI φ hφ, fun l => ?_⟩
-    simp [MulAut.congr_apply, hφa l]
 
 section Config
 

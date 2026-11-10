@@ -45,7 +45,6 @@ theorem rootReflection_smul_eq_refl (L : Type) [Field L] {α δ : Fin Tag.G2.ran
     (hα : IsRoot .G2 α) : rootReflection α • δ = refl α δ :=
   ((exceptional_Lang_root_rank_one_torus_transport .G2 L hα).2.2.2.1 δ).1
 
-variable [Finite K₂]
 
 end QPlusModel
 

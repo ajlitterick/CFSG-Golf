@@ -102,20 +102,6 @@ theorem card_gen_eq_pow_three {Δ : Set (Subgroup G)} (hΔ : IsWeakTI R Δ) {Y :
   congr 1
   omega
 
-theorem card_eq_of_sec8 {Δ : Set (Subgroup G)} (hΔ : IsWeakTI R Δ) {Y : Subgroup G}
-    (hY : Y ∈ Δ) (h8 : Sec8 R Y) : Nat.card Δ = Nat.card Y ^ 2 + Nat.card Y + 1 := by
-  have := h.finite
-  have hcount := Sec5.card_mul_card_sub_one h.root h.noIsolated h.nondeg (eq_of_omegaSet h) hΔ hY
-  rw [card_gen_eq_pow_three h hΔ hY h8] at hcount
-  have hq : 2 ≤ Nat.card Y := (Subgroup.one_lt_card_iff_ne_bot Y).2 (h.root.ne_bot Y (hΔ.1 hY))
-  have key : Nat.card Y ^ 3 - 1 = (Nat.card Y ^ 2 + Nat.card Y + 1) * (Nat.card Y - 1) := by
-    obtain ⟨r, hr⟩ : ∃ r, Nat.card Y = r + 1 := ⟨Nat.card Y - 1, by omega⟩
-    rw [hr]
-    simp only [Nat.add_sub_cancel]
-    ring_nf
-    omega
-  rw [key] at hcount
-  exact Nat.eq_of_mul_eq_mul_right (by omega) hcount
 
 end Plane
 

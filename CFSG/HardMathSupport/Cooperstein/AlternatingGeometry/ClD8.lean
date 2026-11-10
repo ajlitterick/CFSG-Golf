@@ -118,9 +118,6 @@ theorem d8_commute_of_fix_of_pure {κ u : Perm Ω} (hκ : ∀ i, κ (e i) = e i)
     rintro u ⟨hu, a, ha, hua⟩
     exact ⟨d8_pure_inv hu, a⁻¹, isD8_inv a ha, d8_frame_inv hua⟩
 
-theorem mem_d8Frame {u : Perm Ω} : u ∈ d8Frame e ↔
-    (∀ i, i ∉ Set.range e → u i = i) ∧ ∃ a : Perm (Fin 4), IsD8 a ∧ ∀ i, u (e i) = e (a i) :=
-  Iff.rfl
 
 theorem isPGroup_d8Frame [DecidableEq Ω] (e : Fin 4 → Ω) : IsPGroup 2 (d8Frame e) := by
   rintro ⟨u, hu⟩

@@ -28,24 +28,6 @@ variable {n : ℕ}
 
 @[expose] def AmL (n m : ℕ) : List Tab := closeT n ((gensAm n m).map tab)
 
-@[expose] def A0L (n : ℕ) : List Tab := closeT n ((gensA0 n).map tab)
-
-@[expose] def chkGen (n : ℕ) (gensP : List (Gp n)) : Bool :=
-  let S := closeT n (gensP.map tab)
-  subOK n S && gensP.all (fun g => S.contains (tab g)) && chainOK (gensP.map tab) (idT n) [] S
-
-theorem closure_eq_of_chkGen {gensP : List (Gp n)} (h : chkGen n gensP = true) :
-    Subgroup.closure {g | g ∈ gensP} = subOf n (closeT n (gensP.map tab)) := by
-  simp only [chkGen, Bool.and_eq_true] at h
-  obtain ⟨⟨h1, h2⟩, h3⟩ := h
-  exact closure_eq_subOf gensP _ h1 h2 h3
-
-theorem subOf_congr {L L' : List Tab} (hL : subOK n L = true) (hL' : subOK n L' = true)
-    (h : seteqT L L' = true) : subOf n L = subOf n L' := by
-  simp only [seteqT, Bool.and_eq_true, List.all_eq_true, List.contains_iff_mem] at h
-  ext x
-  rw [mem_subOf hL, mem_subOf hL']
-  exact ⟨fun hx => h.1 _ hx, fun hx => h.2 _ hx⟩
 
 @[expose] def conjClass (S : Subgroup (Gp n)) : Set (Subgroup (Gp n)) := {A | ∃ γ : Gp n, A = cj γ S}
 

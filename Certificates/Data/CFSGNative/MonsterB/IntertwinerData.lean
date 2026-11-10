@@ -16,19 +16,11 @@ set_option compiler.extract_closed false
 
 @[noinline, expose] def tBytes (len : Nat) : ByteArray := b64Decode tB64 len
 
-@[expose] def tSha (_ : Unit := ()) : Nat := 0x890923e5c3fe2c3a4a046608375243261dc9b432db51f56f975dd2fe2011c805
 
 @[expose] def f0Sha (_ : Unit := ()) : Nat := 0x3df4f479344b2f87b855937308bcadd83942ee5804e6f31789c0adfc8dd5b5f4
 
 @[expose] def fSha (_ : Unit := ()) : Nat := 0xfbffe3b808963466d8e6476acbe7723d464b337ab04da07d8d268f80e462be27
 
-@[expose] def xconjSha (_ : Unit := ()) : Nat := 0xfc75f8361e73e86ffb34cebf450949026ef36c33f4da0b41e57fae97d8a1636b
-
-@[expose] def eBasisSha (_ : Unit := ()) : Nat := 0x6e551e39aea4a6b24bb9bbe940f54d5c9efed9969edf395621c70edb64ece179
-
-@[expose] def max2GenSha (_ : Unit := ()) : Nat := 0x77fe5522dde617d401af7045d28d18693827b81a1a61116ea754edc03ddb801c
-
-@[expose] def kernelSha (_ : Unit := ()) : Nat := 0xc572730c4ce5cdccc33d83e0ca614d2153fe9857197d58744201dbee5780587a
 
 @[expose] def conjWord (_ : Unit := ()) : List Nat :=
     [3, 17, 12, 26, 3, 5, 17, 15, 2, 11, 19, 16, 8, 7, 6, 18, 8, 26, 5, 20, 21, 5, 5, 22, 7, 20, 5, 20, 2, 19, 19, 17, 5, 22, 26, 19, 20, 15, 13, 21, 17, 18, 24, 18, 2, 22, 6, 6, 10, 24, 2, 16, 8, 26, 15, 14, 25, 12, 4, 3, 26, 24, 18, 22, 15, 17, 10, 25, 16, 17, 4, 7, 20, 10, 11, 20, 24, 20, 23, 8] ++
@@ -51,7 +43,6 @@ set_option compiler.extract_closed false
 
 @[expose] def basisLens (_ : Unit := ()) : List Nat := [0, 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 22, 24, 26, 28, 30, 36]
 
-@[expose] def parityWord (_ : Unit := ()) : List Nat := [23, 2, 10, 22, 17, 7, 2, 15, 13, 17, 7, 24, 2, 14, 10, 22, 14, 13, 23, 4, 16, 3, 2, 18, 7, 13, 11, 23, 20, 3, 15, 10, 23, 5, 14, 25]
 
 @[expose] def gramRows (_ : Unit := ()) : List Nat := [1949072, 4152928, 2289248, 1275280, 4091849, 4175814, 3657014, 1569337, 1739897, 3879094, 1388927, 459095, 3655339, 3376829, 233694, 3961317, 2916075, 2915326, 1285363, 230195, 2406395, 1290870]
 

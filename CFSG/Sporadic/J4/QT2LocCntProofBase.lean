@@ -17,7 +17,6 @@ instance rowFinite : Finite Row := inferInstanceAs (Finite (Fin 112 → ZMod 2))
 
 @[expose] noncomputable def w₀ : Row := toRow rootV.toVec
 
-theorem vecAt_zero' (hF : J4NativeFacts) : vecAt 0 = w₀ := vecAt_zero hF.orbitFacts
 
 theorem mem_Hj_of_smul_root (hF : J4Facts) {x : J} (h : x • w₀ = w₀) : x ∈ Hj := hF.stab x h
 

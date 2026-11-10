@@ -16,7 +16,6 @@ theorem bAnd_and (a b : Bool) : bAnd(a, b) = (a && b) := by cases a <;> rfl
 
 theorem dec_zero_one : dec 0 = oneM := by decide
 
-theorem evalC_var (σ : ℕ → ℕ) (i : ℕ) : evalC T σ (.var i) = σ i := rfl
 theorem evalC_one (σ : ℕ → ℕ) : evalC T σ .one = 0 := rfl
 theorem evalC_mul (σ : ℕ → ℕ) (a b : Tm) :
     evalC T σ (.mul a b) = mulC T (evalC T σ a) (evalC T σ b) := rfl

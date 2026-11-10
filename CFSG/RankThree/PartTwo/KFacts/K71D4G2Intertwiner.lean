@@ -215,12 +215,6 @@ theorem g2ToD4Module_apply (w : RootModule Tag.G2 K) (b : Label Tag.D4) :
       g2ToD4Module_single, Finsupp.smul_apply, Finsupp.single_apply]
     simp only [smul_eq_mul, mul_ite, mul_one, mul_zero, eq_comm]
 
-theorem g2ToD4Module_injective : Function.Injective (g2ToD4Module K) := by
-  intro w w' h
-  ext a
-  have := congrArg (fun v => v (g2LabelRep a)) h
-  simp only [g2ToD4Module_apply, d4LabelToG2_g2LabelRep] at this
-  exact this
 
 @[expose] def d4GraphFixedModule (K : Type*) [Field K] : Submodule K (RootModule Tag.D4 K) :=
   LinearMap.eqLocus (d4DiagramEnd K) LinearMap.id
@@ -318,11 +312,6 @@ theorem g2ToD4Module_vecOf {v : List (ℕ × ℤ)} (hv : ValidVec Tag.G2 v) :
       ih fun y hy => hv y (List.mem_cons_of_mem _ hy)]
     simp only [g2ToD4Vec, List.flatMap_cons, vecOf_append, vecOf_map_mul]
 
-theorem validVec_g2ToD4Vec (v : List (ℕ × ℤ)) : ValidVec Tag.D4 (g2ToD4Vec v) := by
-  intro x hx
-  obtain ⟨y, -, hy⟩ := List.mem_flatMap.1 hx
-  obtain ⟨z, hz, rfl⟩ := List.mem_map.1 hy
-  exact validVec_g2ToD4Pos _ z hz
 
 theorem simpleRow_D4_all (j : Fin Tag.D4.rank) : simpleRow .D4 j = true := by
   fin_cases j
@@ -502,32 +491,5 @@ theorem g2OrbitY_comp_g2ToD4Module (R : Type) [CommRing R] (h2 : (2 : R) = 0)
     exact triple_poly_comp R _ _ _ _ _
       (fun n hn => d4_coeffOp_comp_of_check_triple R h2 d4IntertwinerCheck_y1 hn) c
 
-theorem even_D4_graph_fixed_module_G2_intertwiner (K : Type) [Field K] (hK : ringChar K = 2) :
-    (∀ β, IsRoot Tag.D4 β → IsRoot Tag.G2 (d4ToG2 β)) ∧
-    (∀ α, IsRoot Tag.G2 α → ∃ β, IsRoot Tag.D4 β ∧ d4ToG2 β = α ∧ ∀ β', IsRoot Tag.D4 β' →
-      (d4ToG2 β' = α ↔ β' = β ∨ β' = permLattice TwistTag.D4.perm β ∨
-        β' = permLattice TwistTag.D4.perm (permLattice TwistTag.D4.perm β))) ∧
-    (∀ j, g2ToD4Module K (hVec Tag.G2 K j) =
-      ((g2IndexOrbit j).map fun i => hVec Tag.D4 K i).sum) ∧
-    (∀ α, IsRoot Tag.G2 α → g2ToD4Module K (rootVec Tag.G2 K α) =
-      ∑ β ∈ (rootFinset Tag.D4).filter (fun β => d4ToG2 β = α), rootVec Tag.D4 K β) ∧
-    (∀ v, v ∈ d4GraphFixedModule K ↔
-      (diagramMap TwistTag.D4 K : Module.End K (RootModule TwistTag.D4.tag K)) v = v) ∧
-    Function.Injective (g2ToD4Module K) ∧
-    LinearMap.range (g2ToD4Module K) = d4GraphFixedModule K ∧
-    (∀ j (c : K), g2OrbitX K j c ∘ₗ g2ToD4Module K = g2ToD4Module K ∘ₗ xOp Tag.G2 K j c) ∧
-    (∀ j (c : K), g2OrbitY K j c ∘ₗ g2ToD4Module K = g2ToD4Module K ∘ₗ yOp Tag.G2 K j c) ∧
-    ∀ (R : Type) [CommRing R], (2 : R) = 0 → ∀ j (c : R),
-      g2OrbitX R j c ∘ₗ g2ToD4Module R = g2ToD4Module R ∘ₗ xOp Tag.G2 R j c ∧
-      g2OrbitY R j c ∘ₗ g2ToD4Module R = g2ToD4Module R ∘ₗ yOp Tag.G2 R j c := by
-  have : CharP K 2 := ringChar.of_eq hK
-  have h2 : (2 : K) = 0 := by exact_mod_cast CharP.cast_eq_zero K 2
-  refine ⟨fun β hβ => isRoot_d4ToG2 hβ, fun α hα => exists_d4ToG2_fibre hα, fun j => ?_,
-    fun α hα => ?_, fun v => mem_d4GraphFixedModule, g2ToD4Module_injective K,
-    range_g2ToD4Module K, g2OrbitX_comp_g2ToD4Module K h2, g2OrbitY_comp_g2ToD4Module K h2,
-    fun R _ hR j c => ⟨g2OrbitX_comp_g2ToD4Module R hR j c, g2OrbitY_comp_g2ToD4Module R hR j c⟩⟩
-  · rw [hVec, g2ToD4Module, Finsupp.linearCombination_single, one_smul]
-  · rw [CFSG.LieType.Ree.rootVec_eq_single K hα, g2ToD4Module, Finsupp.linearCombination_single,
-      one_smul]
 
 end CFSG.RankThree.PartTwo.KFacts

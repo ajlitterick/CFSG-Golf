@@ -163,9 +163,6 @@ theorem prop366i_of_prop37x (h : Prop37x) : Prop366i :=
 theorem a7Omega5_of_prop37x (h : Prop37x) : A7Omega5 :=
   a7Omega5_of_prop366i (prop366i_of_prop37x h)
 
-theorem citSimplePerfect_of_thmI_prop37x (h1 : Generic.CITSimplePerfectSL2) (T : A7ThmI)
-    (h : Prop37x) : CITSimplePerfect :=
-  citSimplePerfect_of_thmI h1 T (a7Omega5_of_prop37x h)
 
 end Assembly
 

@@ -21,6 +21,5 @@ theorem e7CatalogueClauses_of_leafInputs (hGLS : GLS3OddLieAutComponentsInput)
     E7CatalogueClauses :=
   e7CatalogueClauses_of_inputs hGLS hX (catE7Sporadic_of_monster hMinn hMcomp)
 
-variable {K : Type} [Field K]
 
 end CFSG.SeitzReduction.E8Pilot

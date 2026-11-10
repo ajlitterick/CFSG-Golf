@@ -110,14 +110,6 @@ theorem isComponentOf_map_coordBlockSL [Finite F] (h4 : 4 ≤ Nat.card F)
   exact ⟨hJF, IsSubnormal.step hJF hJn' (IsSubnormal.refl _),
     (CFSG.ComponentClassification.AssemblyBPredicates.isQuasisimple_iff_native _).mpr hJq⟩
 
-theorem diagonal_GL_comm {D D' : GL (Fin n) F} {t t' : Fin n → F}
-    (hD : (D : Matrix (Fin n) (Fin n) F) = diagonal t)
-    (hD' : (D' : Matrix (Fin n) (Fin n) F) = diagonal t') : D * D' = D' * D := by
-  apply Units.ext
-  rw [Units.val_mul, Units.val_mul, hD, hD', diagonal_mul_diagonal, diagonal_mul_diagonal]
-  congr 1
-  funext i
-  exact mul_comm _ _
 
 theorem slConj_eq_self_of_diagonal {D : GL (Fin n) F} {t : Fin n → F}
     (hD : (D : Matrix (Fin n) (Fin n) F) = diagonal t) {d : Matrix.SpecialLinearGroup (Fin n) F}
@@ -166,14 +158,6 @@ theorem commute_of_frame {φ : Matrix.SpecialLinearGroup (Fin n) F →* G}
   rw [hcent, Subgroup.mem_bot] at hc
   exact (inv_mul_eq_one.mp hc).symm
 
-theorem mem_of_frame_diagonal {p : ℕ} {B Bs : Subgroup G} (hBs : GGBstar p B Bs)
-    {φ : Matrix.SpecialLinearGroup (Fin n) F →* G}
-    (hcent : Subgroup.centralizer (φ.range : Set G) = ⊥) (hframe : ∀ b ∈ Bs, GGFrameDiag φ b)
-    {g : G} (hg : GGFrameDiag φ g) (hgp : g ^ p = 1) : g ∈ Bs := by
-  refine hBs.2.2.2 _ (Subgroup.mem_centralizer_iff.mpr fun b hb => ?_) hgp
-  obtain ⟨D, t, hD, hgD⟩ := hg
-  obtain ⟨D', t', hD', hbD⟩ := hframe b hb
-  exact commute_of_frame hcent (diagonal_GL_comm hD' hD) hbD hgD
 
 theorem ne_zero_of_diagonal {D : GL (Fin n) F} {t : Fin n → F}
     (hD : (D : Matrix (Fin n) (Fin n) F) = diagonal t) (k : Fin n) : t k ≠ 0 := by

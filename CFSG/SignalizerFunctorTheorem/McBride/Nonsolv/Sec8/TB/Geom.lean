@@ -50,8 +50,6 @@ theorem not_le_sup₁ (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂
     ¬ F₂ ≤ E ⊔ F₁ := fun hle =>
   not_le_of_card_le h (le_of_eq (mem_E2_sup₁ h hT).2) (hT.sup_eq ▸ sup_le le_rfl hle)
 
-theorem not_le_sup₂ (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂) :
-    ¬ F₁ ≤ E ⊔ F₂ := not_le_sup₁ h hT.symm
 
 theorem inf_sup₁_eq_bot (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂) :
     (E ⊔ F₁) ⊓ F₂ = ⊥ :=
@@ -62,9 +60,6 @@ theorem inf_sup₁_eq_bot' (h : Counterexample p A θ) (hT : TwoLines p A E F₁
   rw [inf_comm]
   exact inf_sup₁_eq_bot h hT
 
-theorem inf_sup₂_eq_bot (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂) :
-    (E ⊔ F₂) ⊓ F₁ = ⊥ :=
-  inf_sup₁_eq_bot h hT.symm
 
 theorem inf_sup₂_eq_bot' (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂) :
     F₁ ⊓ (E ⊔ F₂) = ⊥ :=
@@ -96,10 +91,6 @@ theorem inf_sup_eq_bot (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F�
     (F₁ ⊔ F₂) ⊓ E = ⊥ :=
   inf_eq_bot_of_not_le h.prime (by rw [hT.mem_E.2, pow_one]) (not_le_sup h hT)
 
-theorem inf_sup_eq_bot' (h : Counterexample p A θ) (hT : TwoLines p A E F₁ F₂) :
-    E ⊓ (F₁ ⊔ F₂) = ⊥ := by
-  rw [inf_comm]
-  exact inf_sup_eq_bot h hT
 
 omit [Finite G] in
 theorem sup_sup_eq' (hT : TwoLines p A E F₁ F₂) : E ⊔ (F₁ ⊔ F₂) = A := by

@@ -107,17 +107,6 @@ theorem oddCentralSplit_statedSp (r : ℕ) (K : Type) [Field K] [Finite K] [Char
     CFSG.LieType.Steinberg.sp_existsUnique_section_of_sl2_lift r (p := 2) hπ hcen hC hlift
   exact ⟨σ, hσ⟩
 
-theorem oddSchurTrivial_statedProj_statedSp (r : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2] :
-    OddSchurTrivial (StatedProj (StatedSp r K)) := by
-  refine oddSchurTrivial_quotient_of_isPGroup (oddCentralSplit_statedSp r K) ?_
-  have hle := card_statedScalars_subgroupOf_statedSp_le_two r K
-  have hpos : 0 < Nat.card ((StatedScalars (Fin r ⊕ Fin r) K).subgroupOf (StatedSp r K)) :=
-    Nat.card_pos
-  rcases (show Nat.card ((StatedScalars (Fin r ⊕ Fin r) K).subgroupOf (StatedSp r K)) = 1 ∨
-      Nat.card ((StatedScalars (Fin r ⊕ Fin r) K).subgroupOf (StatedSp r K)) = 2 by omega)
-    with h | h
-  · exact IsPGroup.of_card (n := 0) (by rw [h, pow_zero])
-  · exact IsPGroup.of_card (n := 1) (by rw [h, pow_one])
 
 end Symplectic
 
@@ -155,27 +144,6 @@ theorem oddSchurTrivial_of_lieModel_POmegaMinus {X : Type} [Group X] {n f : ℕ}
   · simp [reeTitsTags] at ht
   · cases ht
 
-theorem oddSchurTrivial_of_lieModel_PSp {X : Type} [Group X] {n f : ℕ}
-    (hX : LieModel X .PSp n 2 f) : OddSchurTrivial X := by
-  rcases hX with ⟨-, hst⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩
-  · obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := hst
-    have := charTwo_of_natCard_eq_two_pow hK
-    exact (oddSchurTrivial_statedProj_statedSp n K).of_mulEquiv e.symm
-  · simp [chevalleyExceptionalTags] at ht
-  · simp [reeTitsTags] at ht
-  · cases ht
-
-theorem oddSchurTrivial_matrixProjectiveDerived_plus {n : ℕ} (hn : 3 ≤ n) (K : Type) [Field K]
-    [Finite K] [CharP K 2] :
-    OddSchurTrivial (matrixProjectiveDerived (coordinateQuadPlus n K)) :=
-  (oddSchurTrivial_statedProj_omegaPlus hn K).of_mulEquiv
-    (coordinatePlusWitnessEquiv K (MulEquiv.refl _))
-
-theorem oddSchurTrivial_matrixProjectiveDerived_minus {n : ℕ} (hn : 4 ≤ n) {K : Type} [Field K]
-    [Finite K] [CharP K 2] {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :
-    OddSchurTrivial (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) :=
-  (oddSchurTrivial_statedProj_omegaMinus hn hirr).of_mulEquiv
-    (coordinateMinusWitnessEquiv K (by omega) b c (MulEquiv.refl _))
 
 end LieModel
 

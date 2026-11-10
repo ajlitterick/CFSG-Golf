@@ -265,11 +265,6 @@ theorem caseC_card : Nat.card S = Nat.card ↥(S ⊓ Subgroup.centralizer ({w} :
         card_sup_of_inf_eq_bot hXN hinf
     _ = _ := by rw [Nat.card_zpowers, h.orderOf_x₀]
 
-theorem false_of_caseC_cyclic (hScard : Nat.card S = r ^ (Nat.card G).factorization r)
-    (hQc : IsCyclic ↥(S ⊓ Subgroup.centralizer ({w} : Set G))) : False := by
-  have hx₀S : x₀ ∈ S := c.hPS h.x₀_mem_P
-  exact false_of_metacyclic h.perfect h.r_ne_two hScard inf_le_left (h.caseC_normal c) hQc hx₀S
-    (h.caseC_sup c) (fun hab => h.caseC_x₀ c (hab x₀ hx₀S w c.hw.1))
 
 theorem caseC_weaklyClosedIn (hlt : r * Nat.card P₁ < Nat.card ↥(S ⊓ Subgroup.centralizer
     ({w} : Set G))) : WeaklyClosedIn S (S ⊓ Subgroup.centralizer ({w} : Set G)) := by

@@ -567,11 +567,6 @@ private theorem r871shp_pRank_conj {G : Type} [Group G] [Finite G] {A : Subgroup
     ← CFSG.SectionRank.pRank_top_eq_of_mulEquiv hq1 e,
     ← CFSG.SectionRank.pRank_eq_pRank_top_subgroup A]
 
-private theorem r871shp_barImage_sup_pair {G : Type} [Group G] [Finite G] {L A B : Subgroup G}
-    (hAL : A ≤ L) (hBL : B ≤ L) :
-    UC22.barImage L (A ⊔ B) = UC22.barImage L A ⊔ UC22.barImage L B := by
-  rw [UC22.barImage, UC22.barImage, UC22.barImage, Subgroup.subgroupOf_sup hAL hBL,
-    Subgroup.map_sup]
 
 private theorem r871shp_pRank_top_sum {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
     {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)
@@ -625,34 +620,6 @@ private theorem r871shp_pRank_top_sum {G : Type} [Group G] [Finite G] {M L : Sub
   refine Finset.sum_congr rfl fun A hA => ?_
   exact r871shp_pRank_barImage (hmem A hA) hq hq2
 
-private theorem r871shp_card_filter_of_sum {ι : Type} (t : Finset ι) (f : ι → ℕ)
-    (hf : ∀ A ∈ t, f A ≤ 1) (h2 : 2 ≤ ∑ A ∈ t, f A) :
-    2 ≤ (t.filter fun A => 1 ≤ f A).card := by
-  have hb : (∑ A ∈ t, if 1 ≤ f A then 1 else 0) =
-      (t.filter fun A => 1 ≤ f A).card := by
-    simp
-  rw [← hb]
-  refine h2.trans ?_
-  refine Finset.sum_le_sum fun A hA => ?_
-  have := hf A hA
-  by_cases h : 1 ≤ f A
-  · rw [if_pos h]; omega
-  · rw [if_neg h]; omega
-
-private theorem r871shp_card_filter_eq_one {ι : Type} (t : Finset ι) (f : ι → ℕ)
-    (hf : ∀ A ∈ t, f A ≤ 1) (h1 : ∑ A ∈ t, f A = 1) :
-    (t.filter fun A => 1 ≤ f A).card = 1 := by
-  have hb : (∑ A ∈ t, if 1 ≤ f A then 1 else 0) =
-      (t.filter fun A => 1 ≤ f A).card := by
-    simp
-  rw [← hb]
-  trans ∑ A ∈ t, f A
-  · refine Finset.sum_congr rfl fun A hA => ?_
-    have := hf A hA
-    by_cases h : 1 ≤ f A
-    · rw [if_pos h]; omega
-    · rw [if_neg h]; omega
-  · exact h1
 
 private theorem r871shp_pRank_sum {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
     {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)
@@ -749,97 +716,6 @@ private theorem r871shp_not_le_sup {G : Type} [Group G] [Finite G] {M L : Subgro
   exact hne_bot (((Subgroup.isPerfect_iff).mp
     (UC22.uc22p22l_barImage_isComponent hCL).1.1).symm.trans hbot_comm)
 
-private theorem r871shp_barImage_iSup_set {G : Type} [Group G] [Finite G] {L : Subgroup G}
-    (s : Set (Subgroup G)) (hs : ∀ A ∈ s, A ≤ L) :
-    UC22.barImage L (⨆ A ∈ s, A) = ⨆ A ∈ s, UC22.barImage L A := by
-  have h1 : (⨆ A ∈ s, A) = ⨆ A : s, A.1 := iSup_subtype'
-  have h2 : (⨆ A ∈ s, UC22.barImage L A) = ⨆ A : s, UC22.barImage L A.1 := iSup_subtype'
-  rw [h1, h2, UC22.barImage,
-    CFSG.subgroupOf_iSup (fun A : s => A.1) (fun A => hs A.1 A.2),
-    Subgroup.map_iSup]
-  rfl
-
-private theorem r871shp_conjClosure_cover {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
-    {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)
-    (hLset : (L : Set G) = (List.ofFn fun i => (S i : Set G)).prod) (hLM : L ≤ M)
-    (hML : M ≤ Subgroup.normalizer (L : Set G)) [DecidableEq (Subgroup G)] (B : Subgroup G)
-    (hB : B ∈ (List.ofFn S).toFinset)
-    (hcover : L ≤ UC22.conjClosure M B ⊔ pCoreOf 2 L) :
-    ∀ C ∈ (List.ofFn S).toFinset, ∃ m ∈ M, uniqueFourConj m B = C := by
-  have hmemL : ∀ A ∈ (List.ofFn S).toFinset, A ∈ UC22.calC L := by
-    intro A hA
-    obtain ⟨i, hi⟩ := List.mem_ofFn.1 (List.mem_toFinset.mp hA)
-    exact hi ▸ r871shp_calC_L hS hLset hLM i
-  have hCL : ∀ A ∈ (List.ofFn S).toFinset, A ≤ L := fun A hA =>
-    CFSG.Quasithin.A3.subnormal_le (hmemL A hA).1
-  have hmemM : ∀ A ∈ (List.ofFn S).toFinset, A ∈ UC22.calC M := by
-    intro A hA
-    obtain ⟨i, hi⟩ := List.mem_ofFn.1 (List.mem_toFinset.mp hA)
-    exact hi ▸ hS i
-  have hconjL : ∀ K ∈ UC22.conjSetOf M B, K ∈ UC22.calC L := by
-    rintro K ⟨g, hg, rfl⟩
-    have hK : B.map (MulAut.conj g).toMonoidHom ∈ UC22.calC M := by
-      have h := UC22.uc22p22u_calC_conj (Subgroup.le_normalizer) (hmemM B hB)
-        (M.inv_mem hg)
-      simpa only [uniqueFourConj, inv_inv] using h
-    have hKL : B.map (MulAut.conj g).toMonoidHom ≤ L := by
-      have hLmap : L.map (MulAut.conj g).toMonoidHom = L :=
-        (Subgroup.mem_normalizer_iff_map_conj_eq).mp (hML hg)
-      calc B.map (MulAut.conj g).toMonoidHom ≤ L.map (MulAut.conj g).toMonoidHom :=
-            Subgroup.map_mono (hCL B hB)
-        _ = L := hLmap
-    exact ⟨CFSG.Quasithin.A3.subnormal_of_le_of_le hK.1 hKL hLM, hK.2.1, hK.2.2⟩
-  have hcoverL : L = UC22.conjClosure M B ⊔ pCoreOf 2 L :=
-    le_antisymm hcover
-      (sup_le (UC22.uc22p22u_conjClosure_isProd hLM hML (hmemL B hB)).1
-        (UC22.uc22p21c_pCoreOf_le L))
-  intro C hC
-  by_contra hcon
-  push Not at hcon
-  have hCL' : C ∈ UC22.calC L := hmemL C hC
-  have hnotmem : C ∉ UC22.conjSetOf M B := by
-    rintro ⟨g, hg, hgC⟩
-    exact hcon g⁻¹ (M.inv_mem hg) (by
-      rw [uniqueFourConj, hgC]; simp [inv_inv])
-  have hbar_top : UC22.barImage L (UC22.conjClosure M B) = ⊤ := by
-    rw [← r871shp_barImage_sup_pCore
-        (UC22.uc22p22u_conjClosure_isProd hLM hML (hmemL B hB)).1,
-      ← hcoverL, UC22.barImage, Subgroup.subgroupOf_self,
-      Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  have hcomm : ∀ K ∈ UC22.conjSetOf M B, UC22.barImage L C ≤
-      Subgroup.centralizer (UC22.barImage L K : Set (Bar2 L)) := by
-    intro K hK
-    have hKL : K ∈ UC22.calC L := hconjL K hK
-    have hne : C ≠ K := fun h => hnotmem (h ▸ hK)
-    rcases CFSG.LocalCores.distinct_components_commute
-      (UC22.uc22p22l_barImage_isComponent hCL')
-      (UC22.uc22p22l_barImage_isComponent hKL) with h | h
-    · exact absurd (UC22.uc22p22u_calC_ext hCL' hKL h) hne
-    · exact Subgroup.commutator_eq_bot_iff_le_centralizer.mp h
-  have hle' := CFSG.subgroup_le_centralizer_iSup_of_le_centralizer
-    (fun K : UC22.conjSetOf M B => UC22.barImage L K.1) (fun K => hcomm K.1 K.2)
-  have hsup_eq : (⨆ K : UC22.conjSetOf M B, UC22.barImage L K.1) =
-      ⨆ K ∈ UC22.conjSetOf M B, UC22.barImage L K := by
-    refine le_antisymm ?_ ?_
-    · refine iSup_le fun K => ?_
-      exact le_iSup₂ (f := fun K (_ : K ∈ UC22.conjSetOf M B) => UC22.barImage L K) K.1 K.2
-    · refine iSup₂_le fun K hK => ?_
-      exact le_iSup (fun K : UC22.conjSetOf M B => UC22.barImage L K.1) ⟨K, hK⟩
-  rw [hsup_eq] at hle'
-  have hbar_conj : (⨆ K ∈ UC22.conjSetOf M B, UC22.barImage L K) =
-      UC22.barImage L (UC22.conjClosure M B) := by
-    rw [UC22.conjClosure]
-    exact (r871shp_barImage_iSup_set (UC22.conjSetOf M B)
-      (fun K hK => (hconjL K hK).1.le)).symm
-  rw [hbar_conj, hbar_top, Subgroup.coe_top] at hle'
-  have hbot_comm : ⁅UC22.barImage L C, UC22.barImage L C⁆ = ⊥ :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mpr
-      (hle'.trans (Subgroup.centralizer_le (Set.subset_univ _)))
-  have hne_bot : UC22.barImage L C ≠ ⊥ :=
-    CFSG.Quasithin.ne_bot_of_mem_cComp
-      (CFSG.Quasithin.mem_cComp_top_of_isComponent (UC22.uc22p22l_barImage_isComponent hCL'))
-  exact hne_bot (((Subgroup.isPerfect_iff).mp
-    (UC22.uc22p22l_barImage_isComponent hCL').1.1).symm.trans hbot_comm)
 
 private theorem r871shp_le_normalizer_sup {G : Type} [Group G] {A B H : Subgroup G}
     (hA : H ≤ Subgroup.normalizer (A : Set G)) (hB : H ≤ Subgroup.normalizer (B : Set G)) :

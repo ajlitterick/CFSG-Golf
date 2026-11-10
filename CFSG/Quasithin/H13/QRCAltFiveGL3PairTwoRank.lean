@@ -173,7 +173,6 @@ theorem le_or_le_of_normal (hcomm : ∀ x ∈ S₁, ∀ y ∈ S₂, x * y = y * 
   rw [mul_assoc, ← hc n hn S₂ inferInstance h2 b hb, ← mul_assoc,
     ← hc n hn S₁ inferInstance h1 a ha, mul_assoc]
 
-variable [Finite E]
 
 end Pair
 

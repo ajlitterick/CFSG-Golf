@@ -8,47 +8,6 @@ public section
 open CFSG
 namespace CFSG.BrauerThirdMainTheorem.Helpers
 
-theorem class_meets_centralizer_iff {G : Type*} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) {subgroup defect : Subgroup G}
-    (hpGroup : IsPGroup prime subgroup) {conjugacyClass : ConjClasses G}
-    (hdefect : classDefect prime conjugacyClass defect) :
-    (∃ element : G, ConjClasses.mk element = conjugacyClass ∧
-      element ∈ Subgroup.centralizer (subgroup : Set G)) ↔
-        subgroupSubconjugate subgroup defect := by
-  constructor
-  · rintro ⟨element, helement, hcentralizes⟩
-    apply pGroup_centralizes_subconjugate_classDefect prime hprime helement hpGroup
-      _ hdefect
-    intro member hmember
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro test htest
-    obtain rfl := Set.mem_singleton_iff.mp htest
-    exact (Subgroup.mem_centralizer_iff.mp hcentralizes member hmember).symm
-  · rintro ⟨conjugator, hinclusion⟩
-    obtain ⟨representative, hrepresentative, hdefectCentralizes⟩ :=
-      classDefect_centralizes prime hdefect
-    refine ⟨conjugator⁻¹ * representative * conjugator, ?_, ?_⟩
-    · have hconjugate : ConjClasses.mk (conjugator⁻¹ * representative * conjugator) =
-          ConjClasses.mk representative := by
-        apply ConjClasses.mk_eq_mk_iff_isConj.mpr
-        exact (isConj_iff.mpr ⟨conjugator⁻¹, by simp only [inv_inv]⟩).symm
-      exact hconjugate.trans hrepresentative
-    · apply Subgroup.mem_centralizer_iff.mpr
-      intro member hmember
-      have hmemberDefect := hinclusion (Subgroup.mem_map.mpr ⟨member, hmember, rfl⟩)
-      have hcommute := Subgroup.mem_centralizer_iff.mp (hdefectCentralizes hmemberDefect)
-        representative (Set.mem_singleton representative)
-      change representative * (conjugator * member * conjugator⁻¹) =
-        (conjugator * member * conjugator⁻¹) * representative at hcommute
-      have hequal := congrArg (fun value => conjugator⁻¹ * value * conjugator) hcommute
-      have hleft : conjugator⁻¹ * (representative *
-          (conjugator * member * conjugator⁻¹)) * conjugator =
-          (conjugator⁻¹ * representative * conjugator) * member := by group
-      have hright : conjugator⁻¹ * ((conjugator * member * conjugator⁻¹) *
-          representative) * conjugator =
-          member * (conjugator⁻¹ * representative * conjugator) := by group
-      rw [hleft, hright] at hequal
-      exact hequal.symm
 
 theorem class_centralizer_mem_of_normal {G : Type*} [Group G]
     (subgroup : Subgroup G) [subgroup.Normal] {first second : G}

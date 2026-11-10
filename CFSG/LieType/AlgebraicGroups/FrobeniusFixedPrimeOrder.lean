@@ -94,13 +94,6 @@ private instance finite_sylow_of_finite (G : Type*) [Group G] [Finite G] :
   Finite.of_injective (fun Q : Sylow p G => (Q : Subgroup G))
     fun _ _ h => Sylow.ext h
 
-private theorem card_le_card_sylow {G : Type*} [Group G] [Finite G]
-    {A : Subgroup G} (hA : IsPGroup p A) (P : Sylow p G) :
-    Nat.card A ≤ Nat.card P := by
-  obtain ⟨Q, hQ⟩ := hA.exists_le_sylow
-  calc
-    Nat.card A ≤ Nat.card Q := Subgroup.card_le_of_le hQ
-    _ = Nat.card P := by rw [Q.card_eq_multiplicity, P.card_eq_multiplicity]
 
 private theorem exists_conj_of_card {G : Type*} [Group G] [Finite G]
     {P Q : Subgroup G} (hP : Nat.card P = p ^ (Nat.card G).factorization p)

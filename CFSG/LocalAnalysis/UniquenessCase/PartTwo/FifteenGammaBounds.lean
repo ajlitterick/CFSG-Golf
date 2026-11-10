@@ -87,11 +87,6 @@ open scoped Pointwise commutatorElement
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def K_QuasisimpleFixHalf : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w ^ 2 = 1) →
-    ∀ L : Subgroup (MulAut W), CFSG.Open.IsKGroup ↥L → CFSG.Open.IsQuasisimple ↥L →
-      ∀ U : Subgroup W, StableUnder L U → CFSG.Quasithin.commSub U L = U →
-        3 * CFSG.Quasithin.rk ↥(U ⊓ CFSG.Quasithin.fixV L) ≤ CFSG.Quasithin.rk ↥U
 
 theorem three_le_gamma15_of_not_solvable (D : Data G) (h1217 : R1217 D)
     {V₀ V L : Subgroup G} (h : Hyp151 D V₀ V L)
@@ -279,76 +274,5 @@ theorem mBar_le_gamma15 (D : Data G) {V₀ V L : Subgroup G} (h : Hyp151 D V₀ 
     omega
   exact hmbar.trans hBbound
 
-theorem delta15_lt_of_quasisimple (hK : K_QuasisimpleFixHalf) (D : Data G)
-    {V L : Subgroup G} (h : Hyp151 D ⊥ V L)
-    (hq : CFSG.Open.IsQuasisimple ↥(barSub ⊥ V h.isElemAbelian L))
-    (hKg : CFSG.Open.IsKGroup ↥(barSub ⊥ V h.isElemAbelian L))
-    (hγ : 3 ≤ gamma15 D.M ⊥ V h.isElemAbelian L) :
-    delta15 D.M ⊥ V h.isElemAbelian L < gamma15 D.M ⊥ V h.isElemAbelian L - 1 := by
-  have hV := h.isElemAbelian
-  let Lb : Subgroup (MulAut (Vtil ⊥ V hV)) := barSub ⊥ V hV L
-  let U : Subgroup (Vtil ⊥ V hV) := wTil ⊥ V hV L
-  have hUeq : CFSG.Quasithin.commSub U Lb = U := by
-    simpa [Lb, U, wTil] using
-      s15_Lin_commSub_commSub_eq_of_no_two_quotient (s15_Infra_vtil_sq_eq_one ⊥ V hV)
-        (s15_Kbar_no_two_quotient h)
-  have hStab : StableUnder Lb U := by
-    intro x hx u hu
-    exact CFSG.Quasithin.Asc81c.commSub_stable' hx (by simpa [U, wTil] using hu)
-  have hKW := hK (Vtil ⊥ V hV) (s15_Infra_vtil_sq_eq_one ⊥ V hV) Lb hKg hq U hStab hUeq
-  let I : Subgroup (Vtil ⊥ V hV) :=
-    imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L)
-  have hIleU : I ≤ U := by
-    change imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) ≤ wTil ⊥ V hV L
-    have h := Subgroup.map_mono (f := (mkTil ⊥ V hV))
-      (Subgroup.subgroupOf_mono V
-        (inf_le_right : v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L ≤ wSub ⊥ V hV L))
-    change imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) ≤
-      imgTil ⊥ V hV (wSub ⊥ V hV L) at h
-    rw [wSub, imgTil_preTil] at h
-    exact h
-  have hIleFix : I ≤ fixV Lb := by
-    have h1 : imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L) ≤ fixV (barSub ⊥ V hV L) := by
-      simpa only [conjSubgroup_one] using
-        s15_Core_imgTil_v1Sub_le_fixV h (m := (1 : G)) D.M.one_mem
-    have h0 := Subgroup.map_mono (f := (mkTil ⊥ V hV))
-      (Subgroup.subgroupOf_mono V
-        (inf_le_left : v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L ≤ v1Sub D.M ⊥ V hV L))
-    change I ≤ imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L) at h0
-    exact h0.trans (by simpa [Lb] using h1)
-  have hδle : delta15 D.M ⊥ V hV L ≤ rk ↥(U ⊓ fixV Lb) := by
-    have hle : I ≤ U ⊓ fixV Lb := le_inf hIleU hIleFix
-    have hrk : rk ↥I = delta15 D.M ⊥ V hV L := by
-      have h := s15_Infra_mSub_eq_rk_imgTil_add ⊥ V
-        (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) hV
-        (inf_le_right.trans (preTil_le ⊥ V hV _))
-      have hzero : (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) ⊓ ⊥ = ⊥ :=
-        inf_eq_right.mpr bot_le
-      rw [show imgTil ⊥ V hV (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) = I from rfl,
-        hzero] at h
-      have hzero' : mSub (⊥ : Subgroup G) = 0 := by simp [mSub, rk]
-      have h' : mSub (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) = rk ↥I := by
-        simpa [hzero'] using h
-      rw [show delta15 D.M ⊥ V hV L =
-        mSub (v1Sub D.M ⊥ V hV L ⊓ wSub ⊥ V hV L) from rfl]
-      exact h'.symm
-    rw [← hrk]
-    exact rk_mono hle
-  have h151 : Hyp151 D ⊥ V L := h
-  have hUrank : rk ↥U = gamma15 D.M ⊥ V hV L + delta15 D.M ⊥ V hV L := by
-    have h := s15_Infra_mSub_eq_rk_imgTil_add ⊥ V (wSub ⊥ V hV L) hV
-      (preTil_le ⊥ V hV _)
-    have himg : imgTil ⊥ V hV (wSub ⊥ V hV L) = U := by
-      change imgTil ⊥ V hV (wSub ⊥ V hV L) = wTil ⊥ V hV L
-      rw [wSub, imgTil_preTil]
-    have hzero : wSub ⊥ V hV L ⊓ ⊥ = ⊥ := inf_eq_right.mpr bot_le
-    rw [himg, hzero] at h
-    have hW := mSub_wSub (V₀ := ⊥) (V := V) (L := L) D h151.hyp125 hV
-    have hzero' : mSub (⊥ : Subgroup G) = 0 := by simp [mSub, rk]
-    rw [hzero', add_zero] at h
-    exact h.symm.trans hW
-  have h2δ : 2 * delta15 D.M ⊥ V hV L ≤ gamma15 D.M ⊥ V hV L := by
-    omega
-  omega
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

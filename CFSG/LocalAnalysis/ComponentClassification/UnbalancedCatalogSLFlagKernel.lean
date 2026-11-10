@@ -92,11 +92,6 @@ theorem isFlagKernelMatrix_of_mul_eq_one {W L : Submodule K (Fin n → K)} (hWL 
 
 variable {W L : Submodule K (Fin n → K)} {hWL : W ≤ L}
 
-theorem mem_flagKernel {u : SpecialLinearGroup (Fin n) K} :
-    u ∈ flagKernel W L hWL ↔ (∀ w ∈ W, ((u : Matrix (Fin n) (Fin n) K) - 1) *ᵥ w = 0) ∧
-      (∀ v ∈ L, ((u : Matrix (Fin n) (Fin n) K) - 1) *ᵥ v ∈ W) ∧
-      ∀ v, ((u : Matrix (Fin n) (Fin n) K) - 1) *ᵥ v ∈ L :=
-  Iff.rfl
 
 theorem flagKernel_cube {u : SpecialLinearGroup (Fin n) K} (hu : u ∈ flagKernel W L hWL) :
     ((u : Matrix (Fin n) (Fin n) K) - 1) * ((u : Matrix (Fin n) (Fin n) K) - 1) *

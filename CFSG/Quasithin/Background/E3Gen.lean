@@ -293,15 +293,6 @@ theorem e3_17_comm_eq_bot (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) {i j k
   rw [Subgroup.commutator_comm]
   exact Subgroup.commutator_eq_bot_iff_le_centralizer.2 hCA
 
-theorem e3_17_three_core (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) {i j k : ℕ}
-    (hijk : i + j ≤ k) (hkr : (k : ℕ∞) < rParam V) (hkV : k < rk ↥V) {A K : Subgroup G}
-    (hAS : A ≤ S) (hAV : A ≤ V) (hAi : mQuot V A ≤ i) (hK : E1.IsE j H S A K)
-    (hne : ⁅twoResidual K, cClos V k S⁆ ≠ ⊥) : mParam (autI hV ⊤) ≤ k := by
-  by_contra hm
-  push Not at hm
-  have hs : k < sParam hV := lt_sParam_of_lt hV hkr hm
-  exact (e3_17_comm_ne hV hS hijk hkr hkV hAS hAV hAi hK hne).2
-    (e3_17_comm_eq_bot hV hS hijk hkV hAS hAV hAi hK hs)
 
 end Core
 
@@ -325,26 +316,6 @@ theorem e3_17_one (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) {i j k : ℕ}
   simp only [cClos_conjV] at hle hcomm
   exact ⟨hle, hcomm⟩
 
-theorem e3_17_two (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) {i j k : ℕ}
-    (hijk : i + j ≤ k) (hkr : (k : ℕ∞) < rParam V) (hkV : k < rk ↥V) {A K : Subgroup G}
-    (hA : A ∈ gammaSet V i S) (hAV : A ≤ V) (hK : E1.IsE j H S A K)
-    (hne : ⁅twoResidual K, cClos V k S⁆ ≠ ⊥) :
-    V ⊓ centerOf (wClos V k (pCoreOf 2 K)) ≠ ⊥ := by
-  obtain ⟨hAS, g, hAg, hmg⟩ := hA
-  have hmV : mQuot V A ≤ i := (mQuot_conj_eq hV hAV hAg).trans_le hmg.le
-  exact e3_17_two_core hV hS hijk hkr hkV hAS hAV hmV hK hne
-
-theorem e3_17_three (hV : IsElemAbelian 2 V) (hS : IsSylowIn 2 S H) {i j k : ℕ}
-    (hijk : i + j ≤ k) (hkr : (k : ℕ∞) < rParam V) (hkV : k < rk ↥V) {A K : Subgroup G}
-    (hA : A ∈ gammaSet V i S) (hK : E1.IsE j H S A K)
-    (hne : ⁅twoResidual K, cClos V k S⁆ ≠ ⊥) : mParam (autI hV ⊤) ≤ k := by
-  obtain ⟨hAS, g, hAg, hmg⟩ := hA
-  have hVg := isElemAbelian_conjSubgroup hV g
-  have hkr' : (k : ℕ∞) < rParam (conjSubgroup V g) := by rwa [rParam_conj]
-  have hkV' : k < rk ↥(conjSubgroup V g) := by rwa [rk_conjSubgroup]
-  have hne' : ⁅twoResidual K, cClos (conjSubgroup V g) k S⁆ ≠ ⊥ := by rwa [cClos_conjV]
-  have h := e3_17_three_core hVg hS hijk hkr' hkV' hAS hAg hmg.le hK hne'
-  rwa [mParam_conj hV g hVg] at h
 
 end E317
 

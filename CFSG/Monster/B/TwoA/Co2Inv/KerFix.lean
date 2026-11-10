@@ -35,42 +35,6 @@ theorem natCard_Qgrp :
   rw [← Nat.card_congr (Equiv.ofBijective _ qParam_bijective)]
   simp
 
-theorem natCard_Agrp :
-    Nat.card Agrp = 32 := by
-  let f : Fin 2 × Fin 16 → Agrp := fun x =>
-    ⟨qElt x.1 x.2 0, mem_Agrp_iff.2 ⟨x.1, x.1.2, x.2, x.2.2, rfl⟩⟩
-  have hf : Function.Bijective f := by
-    refine ⟨fun x y h => ?_, fun z => ?_⟩
-    · obtain ⟨h1, h2, -⟩ := qElt_inj x.1.2 x.2.2 (by norm_num) y.1.2 y.2.2 (by norm_num)
-        (congrArg Subtype.val h)
-      exact Prod.ext (Fin.ext h1) (Fin.ext h2)
-    · obtain ⟨e, he, l, hl, h⟩ := mem_Agrp_iff.1 z.2
-      exact ⟨(⟨e, he⟩, ⟨l, hl⟩), Subtype.ext h.symm⟩
-  rw [← Nat.card_congr (Equiv.ofBijective _ hf)]
-  simp
-
-theorem natCard_Tperm :
-    Nat.card Tperm = 16 := by
-  let f : Fin 16 → Tperm := fun t => ⟨transP t, transP_mem_Tperm t.2⟩
-  have hf : Function.Bijective f := by
-    refine ⟨fun x y h => Fin.ext (transP_inj x.2 y.2 (congrArg Subtype.val h)), fun p => ?_⟩
-    obtain ⟨t, ht, h⟩ := mem_Tperm_iff.1 p.2
-    exact ⟨⟨t, ht⟩, Subtype.ext h.symm⟩
-  rw [← Nat.card_congr (Equiv.ofBijective _ hf)]
-  simp
-
-theorem natCard_Tgrp :
-    Nat.card Tgrp = 16 := by
-  let f : Fin 16 → Tgrp := fun t => ⟨qElt 0 0 t, mem_Tgrp_iff.2 ⟨t, t.2, rfl⟩⟩
-  have hf : Function.Bijective f := by
-    refine ⟨fun x y h => ?_, fun z => ?_⟩
-    · obtain ⟨-, -, h3⟩ := qElt_inj (by norm_num) (by norm_num) x.2 (by norm_num) (by norm_num)
-        y.2 (congrArg Subtype.val h)
-      exact Fin.ext h3
-    · obtain ⟨t, ht, h⟩ := mem_Tgrp_iff.1 z.2
-      exact ⟨⟨t, ht⟩, Subtype.ext h.symm⟩
-  rw [← Nat.card_congr (Equiv.ofBijective _ hf)]
-  simp
 
 theorem affC_mem_Ceq {e l : ℕ} (he : e < 2) (hl : l < 16) :
     (affC e l : Fin 24 → ZMod 2) ∈ Ceq :=
@@ -190,8 +154,5 @@ theorem QCr_eq_ker :
   Subgroup.eq_of_le_of_card_ge QCr_le_ker
     (resZ_surjective_natCard_ker.2.1.trans natCard_QCr.symm).le
 
-theorem mem_ker_resZ_iff
-    (k : Cr) : k ∈ resZ.ker ↔ ((k : Kstab v0) : OLq) ∈ Qgrp := by
-  rw [← QCr_eq_ker, mem_QCr]
 
 end CFSG.Monster.B.TwoA.Co2Inv

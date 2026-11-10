@@ -45,31 +45,11 @@ theorem simpleRootSL2_le_spBlock {F : Type} [Field F] {j : Fin n} {N : Finset (F
   · rw [simpleRootSL2_of_not_lt h, ← spBlock_singleton]
     exact spBlock_mono (Finset.singleton_subset_iff.2 hj)
 
-theorem simpleRootSL2_le_spBlock_pair {F : Type} [Field F] {j k l : Fin n} (hk : NotInSupp k j)
-    (hl : NotInSupp l j) : simpleRootSL2 F j ≤ spBlock F ({k, l}ᶜ : Finset (Fin n)) := by
-  refine simpleRootSL2_le_spBlock (mem_compl_pair_iff'.2 ⟨hk.1.symm, hl.1.symm⟩)
-    fun h => mem_compl_pair_iff'.2 ⟨fun e => hk.2 h (by rw [← e]), fun e => hl.2 h (by rw [← e])⟩
 
 theorem simpleRootSL2_le_spBlock_compl' {F : Type} [Field F] {j k : Fin n} (hk : NotInSupp k j) :
     simpleRootSL2 F j ≤ spBlock F ({k}ᶜ : Finset (Fin n)) :=
   simpleRootSL2_le_spBlock_compl hk.1 hk.2
 
-theorem exists_notInSupp_pair (hn : 5 ≤ n) (i j : Fin n) :
-    ∃ k : Fin n, NotInSupp k i ∧ NotInSupp k j := by
-  classical
-  obtain ⟨m, hm, hmS⟩ : ∃ m ∈ Finset.range n, m ∉ ({i.val, i.val + 1, j.val, j.val + 1} :
-      Finset ℕ) := by
-    refine Finset.exists_mem_notMem_of_card_lt_card ?_
-    rw [Finset.card_range]
-    refine lt_of_le_of_lt (Finset.card_insert_le _ _) ?_
-    have h1 := Finset.card_insert_le (i.val + 1) ({j.val, j.val + 1} : Finset ℕ)
-    have h2 := Finset.card_insert_le j.val ({j.val + 1} : Finset ℕ)
-    rw [Finset.card_singleton] at h2
-    omega
-  rw [Finset.mem_range] at hm
-  simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hmS
-  refine ⟨⟨m, hm⟩, ⟨fun e => hmS.1 (by rw [← e]), fun _ e => hmS.2.1 e⟩,
-    ⟨fun e => hmS.2.2.1 (by rw [← e]), fun _ e => hmS.2.2.2 e⟩⟩
 
 theorem exists_notInSupp_of_card_le_two (hn : 5 ≤ n) (J : Finset (Fin n)) (hJ : J.card ≤ 2) :
     ∃ k : Fin n, ∀ j ∈ J, NotInSupp k j := by

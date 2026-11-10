@@ -252,13 +252,6 @@ theorem commPairing_mul_right (hB : commutator B ≤ Subgroup.center B)
   apply Subtype.ext
   exact (central_of_mem hB (commPairing hB x y').2 _).eq
 
-theorem commPairing_map (hB : commutator B ≤ Subgroup.center B) (σ : B ≃* B)
-    (hσ : ∀ c ∈ commutator B, σ c = c) (u v : B) :
-    commPairing hB (σ u : B ⧸ commutator B) (σ v : B ⧸ commutator B) =
-      commPairing hB (u : B ⧸ commutator B) (v : B ⧸ commutator B) := by
-  apply Subtype.ext
-  rw [commPairing_mk, commPairing_mk, ← hσ (lcomm u v) (lcomm_mem_commutator u v)]
-  simp [lcomm, map_mul, map_inv]
 
 end ClassTwo
 

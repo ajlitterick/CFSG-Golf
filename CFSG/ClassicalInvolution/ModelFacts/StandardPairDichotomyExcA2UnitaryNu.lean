@@ -20,16 +20,6 @@ theorem l0F4_mem_J : ∀ j ∈ l0F4, j ∈ JF4 := by
   unfold l0F4 JF4 idxF4
   decide +kernel
 
-theorem simpleWordAct_l0F4_theta : simpleWordAct .F4 l0F4 thetaF4' = thetaF4' := by
-  unfold l0F4 simpleWordAct idxF4
-  decide +kernel
-
-theorem simpleWordAct_l0F4_delta : simpleWordAct .F4 l0F4 deltaF4 = -thetaF4' - deltaF4 := by
-  unfold l0F4 simpleWordAct idxF4
-  decide +kernel
-
-theorem simpleWordAct_l0F4_neg_theta : simpleWordAct .F4 l0F4 (-thetaF4') = -thetaF4' := by
-  rw [simpleWordAct_neg, simpleWordAct_l0F4_theta]
 
 end Data
 

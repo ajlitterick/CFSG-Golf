@@ -108,8 +108,6 @@ theorem e8LangG0_mem {ω : (FiniteField.Extension K 2 2)ˣ} (hω : orderOf ω = 
   unfold e8LangG0
   exact TableBExcTwo.baseChangeGL_mem_adjointGroup _ (langElt frameE8 hω).2
 
-theorem e8LangN_mem_adjointGroup : e8LangN K ∈ adjointGroup .E8 (e8LangField K) :=
-  (frameProd (e8LangField K) frameE8 (nSL 1)).2
 
 theorem exists_e8LangN_mem_monomial :
     ∃ h : e8LangN K ∈ monomialSubgroup .E8 (e8LangField K),

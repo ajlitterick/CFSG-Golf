@@ -111,12 +111,6 @@ theorem heckeD_mem_fixU (s : B) {m : V} (hm : m ∈ D.fixU ρ) : D.heckeD ρ s m
   refine Submodule.sum_mem _ fun x hx => D.act_H_mem_fixU ρ (D.phi_mem s x x.2 fun h =>
     Finset.ne_of_mem_erase hx (OneMemClass.coe_eq_one.mp h)) hm
 
-theorem heckeD'_mem_fixU (s : B) {m : V} (hm : m ∈ D.fixU ρ) : D.heckeD' ρ s m ∈ D.fixU ρ := by
-  classical
-  unfold heckeD'
-  rw [LinearMap.sum_apply]
-  refine Submodule.sum_mem _ fun x hx => D.act_H_mem_fixU ρ (D.psi_mem s x x.2 fun h =>
-    Finset.ne_of_mem_erase hx (OneMemClass.coe_eq_one.mp h)) hm
 
 theorem act_n_sub_mem_augL (s : B) {m : V} (hm : m ∈ D.fixU ρ) :
     ρ (D.n s) m - (D.heckeT ρ s m - D.heckeD ρ s m) ∈ augSub ρ D.L := by

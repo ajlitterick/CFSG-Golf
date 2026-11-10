@@ -218,25 +218,6 @@ theorem evalWord_kmGen :
       km_wordProd_append, km_wordProd_append, map_mul, map_mul, Subgroup.coe_mul,
       Subgroup.coe_mul, km_letter_false (hw x (by simp)), km_letter_true (hw y (by simp))]
 
-theorem kmSchreier_lt : ∀ w : List ℕ, (∀ x ∈ w, x < 12) → ∀ l ∈ kmSchreier w, l.1 < 11
-  | [], _ => by simp [kmSchreier]
-  | [_], _ => by simp [kmSchreier]
-  | x :: y :: w, hw => by
-    intro l hl
-    have hx := hw x (by simp)
-    have hy := hw y (by simp)
-    rw [kmSchreier] at hl
-    simp only [List.mem_append] at hl
-    rcases hl with (hl | hl) | hl
-    · split_ifs at hl <;> simp at hl
-      subst hl
-      simp only
-      omega
-    · split_ifs at hl <;> simp at hl
-      subst hl
-      simp only
-      omega
-    · exact kmSchreier_lt w (fun z hz => hw z (by simp [hz])) l hl
 
 theorem kmJ_kmRels :
     ∀ v ∈ kmRels (), wordProd kmJ v = 1 := by

@@ -16,8 +16,6 @@ variable {K : Type u} [Field K] (delta : K)
 @[expose] def conjugateGL : GL (Fin 2) (extension delta) →* GL (Fin 2) (extension delta) :=
   GeneralLinearGroup.map (conjugation delta).toRingHom
 
-theorem conjugateGL_val (A : GL (Fin 2) (extension delta)) :
-    (conjugateGL delta A).val = A.val.map (conjugation delta) := rfl
 
 theorem conjugateGL_conjTranspose (A : GL (Fin 2) (extension delta)) :
     (conjugateGL delta A).val.conjTranspose = A.val.transpose := by

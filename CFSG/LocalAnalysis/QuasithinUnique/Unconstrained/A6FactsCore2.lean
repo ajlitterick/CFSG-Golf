@@ -20,9 +20,6 @@ theorem psl_head : pslLit[0]? = some cid ∧ pslLit6[0]? = some (List.range 6) :
 
 @[expose] def tFrobC : List Nat := [0, 1, 2, 6, 7, 8, 3, 4, 5, 9]
 
-theorem frob_involution : cmul tFrobC tFrobC = cid := by decide +kernel
-
-theorem tau6_involution : cmul tau6 tau6 = List.range 6 := by decide +kernel
 
 theorem frob_not_psl : pslLit.contains tFrobC = false := by decide +kernel
 

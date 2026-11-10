@@ -18,9 +18,6 @@ theorem owL5_neg_two {K : Type*} [Field K] [CharP K 3] : (-2 : K) = 1 := by
     rw [show (-2 : K) - 1 = -(3 : K) by ring, h3, neg_zero]
   exact sub_eq_zero.mp h
 
-theorem owL5_polar_symm {K : Type*} [Field K] {U : Type} [AddCommGroup U] [Module K U]
-    (Q : QuadraticForm K U) (x y : U) : polarBilin Q x y = polarBilin Q y x := by
-  rw [polarBilin_apply_apply, polarBilin_apply_apply, polar_comm]
 
 theorem owL5_Q_neg {K : Type*} [Field K] {U : Type} [AddCommGroup U] [Module K U]
     (Q : QuadraticForm K U) {u : U} (hu : Q u = 0) : Q (-u) = 0 := by
@@ -38,9 +35,6 @@ theorem owL5_two_ne_zero {K : Type*} [Field K] [CharP K 3] : (2 : K) ≠ 0 := by
 
 theorem owL5_two_smul {K : Type*} [Field K] [CharP K 3] {U : Type} [AddCommGroup U]
     [Module K U] (v : U) : (2 : K) • v = -v := by rw [owL5_two, neg_smul, one_smul]
-
-theorem owL5_neg_two_smul {K : Type*} [Field K] [CharP K 3] {U : Type} [AddCommGroup U]
-    [Module K U] (v : U) : (-2 : K) • v = v := by rw [owL5_neg_two, one_smul]
 
 
 theorem owL5_conj {K : Type*} [Field K] [CharP K 3] {U : Type} [AddCommGroup U] [Module K U]

@@ -270,11 +270,6 @@ theorem IsQDGroup.involutionClosure_quotient_oddCore (hH : IsQDGroup H) :
   have : N.Normal := hN
   exact involutionClosure_le_nontrivial_normal hcore hG.involutions_isConj N hne
 
-theorem IsQDGroup.exists_simple_normal_odd_index (hH : IsQDGroup H) :
-    ∃ L : Subgroup (H ⧸ CFSG.oddCore H), L.Normal ∧ IsSimpleGroup L ∧ Odd L.index ∧
-      IsQDGroup L := by
-  obtain ⟨hsimple, hodd, hQD, -⟩ := hH.involutionClosure_quotient_oddCore
-  exact ⟨involutionClosure _, inferInstance, hsimple, hodd, hQD⟩
 
 end Quotient
 

@@ -11,14 +11,6 @@ open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.LieType.Steinberg.Adjo
 open CFSG.RankThree.E6 CFSG.LieType.AlgebraicGroups
 open scoped Pointwise
 
-theorem exists_list_map_eq_of_forall_mem_image {α β : Type*} {f : α → β} {S : Set α} :
-    ∀ {l : List β}, (∀ x ∈ l, x ∈ f '' S) → ∃ l' : List α, (∀ y ∈ l', y ∈ S) ∧ l'.map f = l
-  | [], _ => ⟨[], fun _ h => absurd h List.not_mem_nil, rfl⟩
-  | x :: l, h => by
-    obtain ⟨a, ha, rfl⟩ := h _ List.mem_cons_self
-    obtain ⟨l', hl', e⟩ :=
-      exists_list_map_eq_of_forall_mem_image fun y hy => h y (List.mem_cons_of_mem _ hy)
-    exact ⟨a :: l', List.forall_mem_cons.2 ⟨ha, hl'⟩, by rw [List.map_cons, e]⟩
 
 theorem e6RootSpan_le_adjointGroup {Ω : Type} [Field Ω] (S : Set (Fin Tag.E6.rank → ℤ)) :
     rootSpan Tag.E6 Ω S ≤ adjointGroup Tag.E6 Ω :=
@@ -28,8 +20,6 @@ namespace E6EvenFixedRootDatum
 
 variable {Ω : Type} [Field Ω] [CharP Ω 2] [IsAlgClosed Ω] (D : E6EvenFixedRootDatum Ω)
 
-@[expose] def rootOrbit (α : Fin Tag.E6.rank → ℤ) : Set (Fin Tag.E6.rank → ℤ) :=
-  {β | ∃ k : ℕ, β = D.δ^[k] α}
 
 @[expose] def fixedRootGroup (S : Set (Fin Tag.E6.rank → ℤ)) : Subgroup (ModGL Tag.E6 Ω) :=
   rootSpan Tag.E6 Ω S ⊓ D.psi.eqLocus (MonoidHom.id _)
@@ -37,33 +27,14 @@ variable {Ω : Type} [Field Ω] [CharP Ω 2] [IsAlgClosed Ω] (D : E6EvenFixedRo
 @[expose] def fixedTorus : Subgroup (ModGL Tag.E6 Ω) :=
   D.torus ⊓ D.psi.eqLocus (MonoidHom.id _)
 
-@[expose] def inversionRoots (w : WeylGroup Tag.E6) : Set (Fin Tag.E6.rank → ℤ) :=
-  {α | α ∈ D.posRoots ∧ -(w • α) ∈ D.posRoots}
-
-@[expose] def IsOrbitLift (n : ModGL Tag.E6 Ω) (w : WeylGroup Tag.E6) : Prop :=
-  ∃ l : List (Set (Fin Tag.E6.rank → ℤ)), (∀ O ∈ l, O ∈ D.orbits) ∧
-    (l.map orbitReflection).prod = w ∧ n = (l.map D.orbitN).prod
 
 @[expose] def cell (n : ModGL Tag.E6 Ω) : Set (ModGL Tag.E6 Ω) :=
   D.orbitBorel * {n} * D.orbitBorel
 
-@[expose] def fixedNegUnipotent : Subgroup (ModGL Tag.E6 Ω) :=
-  D.fixedRootGroup {α | -α ∈ D.posRoots}
-
-@[expose] def orbitNegBorel : Set (ModGL Tag.E6 Ω) :=
-  {g | ∃ t ∈ D.orbitTorus, ∃ u ∈ D.fixedNegUnipotent, g = t * u}
-
-theorem gen_chi : D.gen.χ = D.chi :=
-  rfl
-
-theorem gen_theta : D.gen.θ = D.theta :=
-  rfl
 
 theorem gen_e : D.gen.e = D.f :=
   rfl
 
-theorem coe_gen_F (x : adjointGroup Tag.E6 Ω) : (D.gen.F x : ModGL Tag.E6 Ω) = D.psi x :=
-  rfl
 
 theorem gen_roots : D.gen.roots = D.Ξ := by
   ext α
@@ -79,26 +50,11 @@ theorem gen_rootSpanJ : D.gen.rootSpanJ = D.rootGroup := by
   show rootSpan Tag.E6 Ω D.gen.roots = rootSpan Tag.E6 Ω D.Ξ
   rw [D.gen_roots]
 
-theorem gen_posRootsJ : D.gen.posRootsJ = D.posRoots := by
-  show CFSG.LieType.Chevalley.posRoots D.gen.roots = D.posRoots
-  rw [D.gen_roots]
-  rfl
-
-theorem gen_unipotentJ : D.gen.unipotentJ = D.unipotent := by
-  show rootSpan Tag.E6 Ω D.gen.posRootsJ = rootSpan Tag.E6 Ω D.posRoots
-  rw [D.gen_posRootsJ]
 
 theorem gen_torusJ : D.gen.torusJ = D.torus := by
   show D.gen.rootSpanJ ⊓ torusGroup Tag.E6 Ω = D.rootGroup ⊓ torusGroup Tag.E6 Ω
   rw [D.gen_rootSpanJ]
 
-theorem gen_inversionRootsJ (w : WeylGroup Tag.E6) :
-    D.gen.inversionRootsJ w = D.inversionRoots w := by
-  ext α
-  show α ∈ D.gen.posRootsJ ∧ -(w • α) ∈ CFSG.LieType.Chevalley.posRoots D.gen.roots ↔ _
-  rw [show CFSG.LieType.Chevalley.posRoots D.gen.roots = D.gen.posRootsJ from rfl,
-    D.gen_posRootsJ]
-  rfl
 
 theorem mem_gen_simpleRootsJ {β : Fin Tag.E6.rank → ℤ} :
     β ∈ D.gen.simpleRootsJ ↔ ∃ j ∈ D.support, β = Pi.single j 1 := by
@@ -122,12 +78,6 @@ theorem gen_orbits : D.gen.orbits = D.orbits := by
 theorem mem_gen_orbits {O : Set (Fin Tag.E6.rank → ℤ)} : O ∈ D.gen.orbits ↔ O ∈ D.orbits := by
   rw [D.gen_orbits]
 
-theorem gen_orbitField (O : Set (Fin Tag.E6.rank → ℤ)) : D.gen.orbitField O = D.orbitField O :=
-  rfl
-
-theorem rootOrbit_eq_thetaOrbit (α : Fin Tag.E6.rank → ℤ) :
-    D.rootOrbit α = thetaOrbit D.gen.θ α :=
-  (D.thetaOrbit_eq_iterate α).symm
 
 theorem orbitRoot_mem {O : Set (Fin Tag.E6.rank → ℤ)} (hO : O ∈ D.orbits) :
     orbitRoot O ∈ O := by
@@ -282,9 +232,6 @@ theorem exists_orbitX_eq_gen {O : Set (Fin Tag.E6.rank → ℤ)} (hO : O ∈ D.o
   · rw [orbitN, h, D.orbitSwap_eq]
     rfl
 
-theorem gen_orbitN {O : Set (Fin Tag.E6.rank → ℤ)} (hO : O ∈ D.orbits) :
-    D.gen.orbitN O = D.orbitN O :=
-  (D.exists_orbitX_eq_gen hO).choose_spec.2.2.2.2.symm
 
 theorem gen_orbitGroup : D.gen.orbitGroup = D.orbitGroup := by
   show Subgroup.closure _ = Subgroup.closure _
@@ -304,9 +251,6 @@ theorem orbitGroup_le_rootGroup : D.orbitGroup ≤ D.rootGroup := by
   rw [← D.gen_orbitGroup, ← D.gen_rootSpanJ]
   exact D.gen.orbitGroup_le_rootSpanJ
 
-theorem gen_orbitTorus : D.gen.orbitTorus = D.orbitTorus := by
-  show D.gen.orbitGroup ⊓ torusGroup Tag.E6 Ω = D.orbitGroup ⊓ (D.rootGroup ⊓ _)
-  rw [D.gen_orbitGroup, ← inf_assoc, inf_of_le_left D.orbitGroup_le_rootGroup]
 
 theorem map_subtype_fixed {H : Subgroup (ModGL Tag.E6 Ω)} (hH : H ≤ adjointGroup Tag.E6 Ω) :
     (H.subgroupOf (adjointGroup Tag.E6 Ω) ⊓ D.gen.F.toMonoidHom.eqLocus (MonoidHom.id _)).map
@@ -323,9 +267,6 @@ theorem gen_fixedGroup :
   rw [GenFixedRootDatum.fixedGroup, D.gen_rootSpanJ]
   exact D.map_subtype_fixed (e6RootSpan_le_adjointGroup _)
 
-theorem gen_fixedUnipotentM : D.gen.fixedUnipotentM = D.fixedUnipotent := by
-  rw [GenFixedRootDatum.fixedUnipotentM, GenFixedRootDatum.fixedUnipotent, D.gen_unipotentJ]
-  exact D.map_subtype_fixed (e6RootSpan_le_adjointGroup _)
 
 theorem torus_le_adjointGroup : D.torus ≤ adjointGroup Tag.E6 Ω :=
   inf_le_left.trans (e6RootSpan_le_adjointGroup _)
@@ -335,55 +276,6 @@ theorem gen_fixedTorus :
   rw [GenFixedRootDatum.fixedTorus, D.gen_torusJ]
   exact D.map_subtype_fixed D.torus_le_adjointGroup
 
-theorem gen_fixedRootSpan (S : Set (Fin Tag.E6.rank → ℤ)) :
-    (D.gen.fixedRootSpan S).map (adjointGroup Tag.E6 Ω).subtype = D.fixedRootGroup S :=
-  D.map_subtype_fixed (e6RootSpan_le_adjointGroup _)
-
-theorem coe_gen_fixedRootSpan (S : Set (Fin Tag.E6.rank → ℤ)) :
-    Subtype.val '' (D.gen.fixedRootSpan S : Set (adjointGroup Tag.E6 Ω)) =
-      (D.fixedRootGroup S : Set (ModGL Tag.E6 Ω)) := by
-  rw [← D.gen_fixedRootSpan, Subgroup.coe_map]
-  rfl
-
-theorem gen_orbitBorel : (D.gen.orbitBorel : Set (ModGL Tag.E6 Ω)) = D.orbitBorel := by
-  rw [D.gen.coe_orbitBorel_eq_mul, D.gen_orbitTorus, D.gen_fixedUnipotentM]
-  ext g
-  constructor
-  · rintro ⟨t, ht, u, hu, rfl⟩
-    exact ⟨t, ht, u, hu, rfl⟩
-  · rintro ⟨t, ht, u, hu, rfl⟩
-    exact ⟨t, ht, u, hu, rfl⟩
-
-theorem gen_fixedCell (n : ModGL Tag.E6 Ω) : D.gen.fixedCell n = D.cell n := by
-  rw [GenFixedRootDatum.fixedCell, cell, D.gen_orbitBorel]
-
-theorem gen_fixedWeyl : D.gen.fixedWeyl = D.relWeyl := by
-  rw [D.gen.fixedWeyl_eq_closure, D.gen_orbits]
-  rfl
-
-theorem gen_foldedLength (w : WeylGroup Tag.E6) : D.gen.foldedLength w = D.relLength w := by
-  rw [GenFixedRootDatum.foldedLength, relLength]
-  congr 1
-  ext n
-  constructor
-  · rintro ⟨l, hl, rfl, e⟩
-    refine ⟨l.map setReflection, List.length_map _, fun x hx => ?_, e⟩
-    obtain ⟨O, hO, rfl⟩ := List.mem_map.1 hx
-    exact ⟨O, D.mem_gen_orbits.1 (hl O hO), rfl⟩
-  · rintro ⟨l, rfl, hl, e⟩
-    obtain ⟨l', hl', rfl⟩ := exists_list_map_eq_of_forall_mem_image hl
-    exact ⟨l', fun O hO => D.mem_gen_orbits.2 (hl' O hO), (List.length_map _).symm, e⟩
-
-theorem isOrbitLift_iff {n : ModGL Tag.E6 Ω} {w : WeylGroup Tag.E6} :
-    D.IsOrbitLift n w ↔ D.gen.IsOrbitLift n w := by
-  constructor
-  · rintro ⟨l, hl, e, rfl⟩
-    refine ⟨l, fun O hO => D.mem_gen_orbits.2 (hl O hO), e, ?_⟩
-    exact congrArg List.prod (List.map_congr_left fun O hO => (D.gen_orbitN (hl O hO)).symm)
-  · rintro ⟨l, hl, e, rfl⟩
-    refine ⟨l, fun O hO => D.mem_gen_orbits.1 (hl O hO), e, ?_⟩
-    exact congrArg List.prod
-      (List.map_congr_left fun O hO => D.gen_orbitN (D.mem_gen_orbits.1 (hl O hO)))
 
 end E6EvenFixedRootDatum
 

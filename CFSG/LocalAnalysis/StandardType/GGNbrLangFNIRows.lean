@@ -17,9 +17,6 @@ theorem KGFieldNotInnerInputOn.mono {S S' : ℕ → LargeEvenLabel → Prop}
     KGFieldNotInnerInputOn S' :=
   fun p lab hp hp2 hlab ht3 hS' => h p lab hp hp2 hlab ht3 (hS p lab hS')
 
-theorem kgFieldNotInnerInput_of_on (h : KGFieldNotInnerInputOn fun _ _ => True) :
-    KGFieldNotInnerInput :=
-  fun p lab hp hp2 hlab ht3 => h p lab hp hp2 hlab ht3 trivial
 
 @[expose] def kgfniFieldDegree (lab : LargeEvenLabel) : ℕ :=
   match lab.tag with

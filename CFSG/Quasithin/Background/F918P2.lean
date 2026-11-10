@@ -218,36 +218,6 @@ theorem a38Types_conjAutSub {L : Subgroup (MulAut W)} (t : MulAut W) (h : A38Typ
   a38Types_congr (Subgroup.equivMapOfInjective L (MulAut.conj t).toMonoidHom
     (MulAut.conj t).injective) h
 
-theorem le_stabSub_map {Mp T : Subgroup (MulAut W)} (hTn : T ≤ Subgroup.normalizer (Mp : Set (MulAut W)))
-    {t : MulAut W} (ht : t ∈ T) {U : Subgroup W} (hU : Mp ≤ stabSub U) :
-    Mp ≤ stabSub (U.map t.toMonoidHom) := by
-  intro x hx u
-  have hx' : t⁻¹ * x * t ∈ Mp := (Subgroup.mem_normalizer_iff''.mp (hTn ht) x).mp hx
-  have key : ∀ y ∈ Mp, ∀ w ∈ U, y (t w) ∈ U.map t.toMonoidHom := by
-    intro y hy w hw
-    have hy' : t⁻¹ * y * t ∈ Mp := (Subgroup.mem_normalizer_iff''.mp (hTn ht) y).mp hy
-    refine ⟨(t⁻¹ * y * t) w, (hU hy' w).2 hw, ?_⟩
-    simp [MulAut.mul_apply]
-  have hinj : ∀ w : W, t⁻¹ w ∈ U ↔ w ∈ U.map t.toMonoidHom := by
-    intro w
-    constructor
-    · intro h
-      exact ⟨t⁻¹ w, h, by simp⟩
-    · rintro ⟨u', hu', rfl⟩
-      simpa using hu'
-  constructor
-  · intro hxu
-    have h1 : t⁻¹ (x u) ∈ U := (hinj _).mpr hxu
-    have h2 : t⁻¹ (x u) = (t⁻¹ * x * t) (t⁻¹ u) := by simp [MulAut.mul_apply]
-    rw [h2] at h1
-    have h3 : t⁻¹ u ∈ U := ((hU hx') (t⁻¹ u)).mp h1
-    exact (hinj u).mp h3
-  · intro hu
-    have h1 : t⁻¹ u ∈ U := (hinj u).mpr hu
-    exact (hinj _).mp (by
-      have h2 : t⁻¹ (x u) = (t⁻¹ * x * t) (t⁻¹ u) := by simp [MulAut.mul_apply]
-      rw [h2]
-      exact (hU hx' _).mpr h1)
 
 end Elementary
 

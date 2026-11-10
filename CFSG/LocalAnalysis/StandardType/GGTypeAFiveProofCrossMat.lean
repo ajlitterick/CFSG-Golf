@@ -21,9 +21,6 @@ theorem GGIdOutside.mono {S S' : Finset ι} {X : Matrix ι ι F} (h : GGIdOutsid
     (hS : S ⊆ S') : GGIdOutside S' X := fun i j hij =>
   h i j (hij.imp (fun hi hS' => hi (hS hS')) (fun hj hS' => hj (hS hS')))
 
-omit [Fintype ι] in
-theorem ggIdOutside_one (S : Finset ι) : GGIdOutside S (1 : Matrix ι ι F) := fun _ _ _ =>
-  Matrix.one_apply
 
 theorem GGIdOutside.mul {S : Finset ι} {X Y : Matrix ι ι F} (hX : GGIdOutside S X)
     (hY : GGIdOutside S Y) : GGIdOutside S (X * Y) := by

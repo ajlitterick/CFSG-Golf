@@ -171,32 +171,5 @@ theorem rigid_index_two_centralizer_perfect_data_give_zStar [Finite G] {t : G}
     fun g hg => hfusH g (hSH hg)
   exact ⟨⟨S, hS⟩, hfusH, hfac, hcen⟩
 
-theorem rigid_index_two_centralizer_data_give_zStar [Finite G] {t : G} (ht : orderOf t = 2)
-    {K : Subgroup G} (hKH : K ≤ centralizer ({t} : Set G))
-    (_hKn : (K.subgroupOf (centralizer ({t} : Set G))).Normal) (htK : t ∈ K)
-    (hindex : K.relIndex (centralizer ({t} : Set G)) ≤ 2)
-    (T : Sylow 2 (centralizer ({t} : Set G)))
-    (hfix : ∀ φ : MulAut (T : Subgroup (centralizer ({t} : Set G))),
-      ∀ x : (T : Subgroup (centralizer ({t} : Set G))),
-        ((x : centralizer ({t} : Set G)) : G) = t → φ x = x)
-    (hcent : ∀ u ∈ K, orderOf u = 2 → ∃ k ∈ K,
-      ∃ z ∈ center (T : Subgroup (centralizer ({t} : Set G))),
-        ((z : centralizer ({t} : Set G)) : G) = k⁻¹ * u * k)
-    (hext : ∀ x y : G, x ∈ centralizer ({t} : Set G) → x ∉ K → orderOf x = 2 →
-      y ∈ centralizer ({t} : Set G) → y ∉ K → orderOf y = 2 →
-      ∃ h ∈ centralizer ({t} : Set G), h⁻¹ * x * h = y)
-    (hA : ∀ p ∈ centralizer ({t} : Set G), p ∉ K → orderOf p = 2 → ∃ A : Subgroup G, A ≤ K ∧
-      zpowers t ⊔ A = K ⊓ centralizer ({p} : Set G) ∧ zpowers t ⊓ A = ⊥ ∧
-      (∀ a ∈ A, ∀ v ∈ zpowers t, a * v = v * a) ∧ _root_.commutator A = ⊤ ∧
-      Even (Nat.card A) ∧ ¬ 3 ∣ Nat.card (OuterAutomorphisms.Outer A)) :
-    (∃ S : Sylow 2 G,
-        (T : Subgroup (centralizer ({t} : Set G))).map (centralizer ({t} : Set G)).subtype = S) ∧
-      (∀ g : G, g⁻¹ * t * g ∈ centralizer ({t} : Set G) → g⁻¹ * t * g = t) ∧
-      (∀ g : G, ∃ c ∈ centralizer ({t} : Set G), ∃ k ∈ CFSG.oddCore G, g = c * k) ∧
-      (QuotientGroup.mk t : G ⧸ CFSG.oddCore G) ∈ center (G ⧸ CFSG.oddCore G) :=
-  rigid_index_two_centralizer_perfect_data_give_zStar ht hKH htK hindex T hfix hcent hext
-    fun p hpH hpK hp2 => by
-      obtain ⟨A, -, hsup, -, -, hperf, heven, -⟩ := hA p hpH hpK hp2
-      exact ⟨A, hsup, hperf, heven⟩
 
 end CFSG.ComponentClassification.StandardRecognition

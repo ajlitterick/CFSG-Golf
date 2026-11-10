@@ -109,12 +109,6 @@ omit [Finite G] in
     (Subgroup.inclusion (preimage_le D Ā))).codRestrict Ā (fun a =>
       (mem_preimage_iff D Ā (Subgroup.inclusion (preimage_le D Ā) a)).mp a.2)
 
-omit [Finite G] in
-theorem factorQuot_coe (Ā : Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (a : aschbacherThm5Preimage D Ā) :
-    ((factorQuot Ā a : Ā) : D ⧸ aschbacherThm5OddCore D) =
-      QuotientGroup.mk' (aschbacherThm5OddCore D) (Subgroup.inclusion (preimage_le D Ā) a) :=
-  rfl
 
 omit [Finite G] in
 theorem factorQuot_surjective (Ā : Subgroup (D ⧸ aschbacherThm5OddCore D)) :

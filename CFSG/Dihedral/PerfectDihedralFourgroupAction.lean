@@ -151,35 +151,5 @@ theorem perfect_dihedral_fourgroup_normalizer_surjective
       ⟨⟨x, hxN⟩, rfl⟩ ha2 ⟨⟨y, hyN⟩, rfl⟩ hb1 hb2
   exact MonoidHom.range_eq_top.mp hrange
 
-theorem perfect_dihedral_fourgroup_fullAutomorphismImage
-    {G : Type} [Group G] [Finite G] [Group.IsPerfect G]
-    (S : Sylow 2 G) {m : ℕ} (hm : 2 ≤ m)
-    (e : S ≃* DihedralGroup (2 ^ m))
-    (V : Subgroup G) (hVS : V ≤ (S : Subgroup G)) (hV : IsKleinFour V) :
-    DihedralBlueprint.FullAutomorphismImage (Subgroup.normalizer (V : Set G)) V := by
-  intro a
-  obtain ⟨x, hx⟩ := perfect_dihedral_fourgroup_normalizer_surjective S hm e V hVS hV a
-  refine ⟨x, x.property, ?_⟩
-  intro v
-  exact (congrArg Subtype.val (DFunLike.congr_fun hx v)).symm
-
-def perfect_dihedral_fourgroup_normalizer_quotient
-    {G : Type u} [Group G] [Finite G] [Group.IsPerfect G]
-    (S : Sylow 2 G) {m : ℕ} (hm : 2 ≤ m)
-    (e : S ≃* DihedralGroup (2 ^ m))
-    (V : Subgroup G) (hVS : V ≤ (S : Subgroup G)) (hV : IsKleinFour V) :
-    (Subgroup.normalizer (V : Set G) ⧸
-      (Subgroup.centralizer (V : Set G)).subgroupOf (Subgroup.normalizer (V : Set G))) ≃*
-        Equiv.Perm (Fin 3) := by
-  let : IsKleinFour V := hV
-  have hsurj := perfect_dihedral_fourgroup_normalizer_surjective S hm e V hVS hV
-  have hker := Subgroup.normalizerMonoidHom_ker V
-  exact (QuotientGroup.congr _ _ (MulEquiv.refl _) (by
-    change ((Subgroup.centralizer (V : Set G)).subgroupOf
-      (Subgroup.normalizer (V : Set G))).map (MonoidHom.id _) = _
-    rw [Subgroup.map_id]
-    exact hker.symm)).trans
-    ((QuotientGroup.quotientKerEquivOfSurjective V.normalizerMonoidHom hsurj).trans
-      (kleinFourAutSymmetricThreeEquiv V))
 
 end CFSG.GorensteinWalter

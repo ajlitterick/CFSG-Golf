@@ -49,11 +49,5 @@ open CFSG.Blueprint.Chevalley CFSG.HardMathSupport.Timmesfeld.Steinberg
   let nl := wkRows (t.map fun k => T.vecs.getD k [])
   wkRowRoot nl || wkZero nl || wkMinor nl
 
-@[expose] def wkMain (T : RootTables) (elems : List (List ℕ)) : Bool :=
-  elems.all (wkTuple T)
-
-@[expose] def e6TypeCheck (_ : Unit := ()) : Bool :=
-  let S : StabCert3 := ⟨[], [], e6WKeys ()⟩
-  S.check e6Certificate && wkMain (RootTables.ofCert e6Certificate) (S.elems .E6)
 
 end CFSG.StandardType.TwE6RootKill

@@ -77,13 +77,6 @@ theorem bilinear_eq_mul_sqrt_of_equivariant [CharP K 2] {n : ℕ} (hK : Fintype.
   · intro h
     exact absurd (Finset.mem_univ _) h
 
-theorem bilinear_eq_mul_sqrt_of_equivariant' [CharP K 2] {n : ℕ} (hK : Fintype.card K = 2 ^ n)
-    (hn : 1 ≤ n) (β : K → K → K) (h1 : ∀ s s' x, β (s + s') x = β s x + β s' x)
-    (h2 : ∀ s x x', β s (x + x') = β s x + β s x') {μ : K}
-    (hμ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, μ ^ m = w) (hβ : ∀ s x, β (μ * s) (μ * x) = μ * β s x) :
-    ∃ c : K, ∀ s x, β s x = c * (s * x) ^ 2 ^ (n - 1) :=
-  bilinear_eq_mul_sqrt_of_equivariant hK hn (AddMonoidHom.mk' (fun s => AddMonoidHom.mk' (β s)
-    (h2 s)) fun s s' => AddMonoidHom.ext fun x => h1 s s' x) hμ hβ
 
 end Sqrt
 
@@ -91,18 +84,6 @@ section Delta
 
 variable {K : Type*} [Field K] [Fintype K]
 
-theorem szDelta_eq_of_equivariant [CharP K 2] {a : ℕ} (ha : 1 ≤ a)
-    (hK : Fintype.card K = 2 ^ (2 * a + 1)) (δ : K →+ K →+ K) {κ : K}
-    (hκ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, κ ^ m = w)
-    (hδ : ∀ s b, δ (κ ^ (2 ^ (a + 1) + 1) * s) (κ * b) = κ ^ (2 ^ (a + 1) + 1) * δ s b) :
-    ∃ c : K, ∃ ι : K →+ K, ∀ s b, δ s b = c * (s * b) ^ 2 ^ a +
-      (ι s * b ^ 2 ^ (a + 1) + (ι s) ^ 2 ^ (a + 1) * b) := by
-  obtain ⟨c, hc⟩ := SzCoords.bilinear_of_equivariant' ha hK (fun b s => δ s b)
-    (fun b b' s => map_add (δ s) b b') (fun b s s' => by rw [map_add, AddMonoidHom.add_apply])
-    hκ fun b s => hδ s b
-  refine ⟨c, 0, fun s b => ?_⟩
-  rw [hc b s, AddMonoidHom.zero_apply, zero_mul, zero_pow (pow_ne_zero _ two_ne_zero),
-    zero_mul, add_zero, add_zero, mul_comm b s]
 
 end Delta
 
@@ -181,21 +162,6 @@ theorem exists_addMonoidHom₂_of_hom {G : Type*} [Group G] {M : Subgroup G} {S 
   show Φ (sec (s + s')) b = Φ (sec s) b + Φ (sec s') b
   rw [← hΦ _ (hsecM s) _ (hsecM s'), key _ hmul, hS _ (hsecM s) _ (hsecM s'), hsecS, hsecS]
 
-theorem exists_mul_sqrt_of_hom [CharP K 2] {n : ℕ} (hK : Fintype.card K = 2 ^ n) (hn : 1 ≤ n)
-    {μ : K} (hμ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, μ ^ m = w) {G : Type*} [Group G] {M : Subgroup G}
-    {S : G → K} {χ : G → K → K} (hS : ∀ m ∈ M, ∀ m' ∈ M, S (m * m') = S m + S m')
-    (hSsurj : ∀ s : K, ∃ m ∈ M, S m = s)
-    (hχ : ∀ m ∈ M, ∀ m' ∈ M, ∀ x, χ (m * m') x = χ m x + χ m' x)
-    (hχadd : ∀ m ∈ M, ∀ x x', χ m (x + x') = χ m x + χ m x')
-    (hker : ∀ m ∈ M, S m = 0 → ∀ x, χ m x = 0)
-    (hequiv : ∀ m ∈ M, ∃ m' ∈ M, S m' = μ * S m ∧ ∀ x, χ m' (μ * x) = μ * χ m x) :
-    ∃ c : K, ∀ m ∈ M, ∀ x, χ m x = c * (S m * x) ^ 2 ^ (n - 1) := by
-  obtain ⟨D, hD⟩ := exists_addMonoidHom₂_of_hom hS hSsurj hχ hχadd hker
-  obtain ⟨c, hc⟩ := bilinear_eq_mul_sqrt_of_equivariant hK hn D hμ fun s x => by
-    obtain ⟨m, hm, rfl⟩ := hSsurj s
-    obtain ⟨m', hm', hSm', hm'x⟩ := hequiv m hm
-    rw [← hSm', ← hD m' hm', hm'x, hD m hm]
-  exact ⟨c, fun m hm x => by rw [hD m hm, hc]⟩
 
 theorem exists_szDelta_const [CharP K 2] {a : ℕ} (ha : 1 ≤ a)
     (hK : Fintype.card K = 2 ^ (2 * a + 1)) {κ : K} (hκ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, κ ^ m = w)
@@ -280,89 +246,6 @@ theorem exists_szDelta_const [CharP K 2] {a : ℕ} (ha : 1 ≤ a)
   rw [hl b (S m), mul_comm b (S m)] at h
   linear_combination h
 
-theorem addMonoidHom_eq_zero_of_weight [CharP K 2] {a : ℕ} (ha : 1 ≤ a)
-    (hK : Fintype.card K = 2 ^ (2 * a + 1)) (f : K →+ K) {κ : K}
-    (hκ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, κ ^ m = w)
-    (hf : ∀ s, f (κ ^ (2 ^ (a + 1) + 1) * s) = κ * f s) : f = 0 := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hcard : Nat.card K = 2 ^ (2 * a + 1) := by rw [Nat.card_eq_fintype_card, hK]
-  obtain ⟨hb, -⟩ := finite_field_linearized_map_bases Nat.prime_two (by omega) hcard
-  obtain ⟨c, hc, -⟩ := hb f
-  have hlt : 2 ^ (2 * a + 1 - 1) < Fintype.card K := by
-    rw [hK]
-    exact Nat.pow_lt_pow_right (by norm_num) (by omega)
-  have hκ0 : κ ≠ 0 := ne_zero_of_forall_pow_eq_of_two_le hK (by omega) hκ
-  have hcoef : ∀ j : Fin (2 * a + 1),
-      c j * κ ^ ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ)) = κ * c j := by
-    have h := eq_zero_of_forall_sum_mul_pow_eq_zero hlt
-      (a := fun j => c j * κ ^ ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ)) - κ * c j) fun s => by
-        have h1 := hf s
-        rw [hc, hc] at h1
-        simp only [sub_mul, Finset.sum_sub_distrib]
-        rw [sub_eq_zero]
-        calc ∑ j, c j * κ ^ ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ)) * s ^ 2 ^ (j : ℕ) =
-            ∑ j, c j * (κ ^ (2 ^ (a + 1) + 1) * s) ^ 2 ^ (j : ℕ) := by
-              refine Finset.sum_congr rfl fun j _ => ?_
-              rw [mul_pow, ← pow_mul]
-              ring
-          _ = κ * ∑ j, c j * s ^ 2 ^ (j : ℕ) := h1
-          _ = _ := by
-              rw [Finset.mul_sum]
-              refine Finset.sum_congr rfl fun j _ => ?_
-              ring
-    intro j
-    exact sub_eq_zero.mp (congrFun h j)
-  have hzero : ∀ j, c j = 0 := by
-    intro j
-    by_contra hcj
-    have h1 := mul_left_cancel₀ hcj ((hcoef j).trans (mul_comm κ (c j)))
-    have hpos : 1 ≤ (2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) :=
-      Nat.one_le_iff_ne_zero.mpr (by positivity)
-    have hE : κ ^ ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) - 1) = 1 := by
-      rw [show (2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) = ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) - 1) + 1 by
-        omega, pow_succ] at h1
-      exact mul_right_cancel₀ hκ0 (h1.trans (one_mul κ).symm)
-    have hdvd := orderOf_dvd_of_pow_eq_one hE
-    rw [orderOf_eq_of_forall_pow_eq hκ0 hκ, hK] at hdvd
-    have hθ : 2 ≤ 2 ^ (a + 1) := by
-      calc 2 = 2 ^ 1 := by norm_num
-        _ ≤ 2 ^ (a + 1) := Nat.pow_le_pow_right (by norm_num) (by omega)
-    have hq : 2 * 2 ^ (a + 1) ≤ 2 ^ (2 * a + 1) := by
-      rw [← pow_succ']
-      exact Nat.pow_le_pow_right (by norm_num) (by omega)
-    have hdvd' : 2 ^ (2 * a + 1) - 1 ∣ 2 ^ (a + 1) + (2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) +
-        (2 ^ (2 * a + 1) - 2 - 2 ^ (a + 1)) := by
-      have e : 2 ^ (a + 1) + (2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) +
-          (2 ^ (2 * a + 1) - 2 - 2 ^ (a + 1)) =
-          ((2 ^ (a + 1) + 1) * 2 ^ (j : ℕ) - 1) + (2 ^ (2 * a + 1) - 1) := by omega
-      rw [e]
-      exact dvd_add hdvd dvd_rfl
-    have := SzCoords.exp_eq_of_dvd ha (i := a + 1) (by omega) j.2 hdvd'
-    omega
-  refine AddMonoidHom.ext fun s => ?_
-  rw [hc, AddMonoidHom.zero_apply]
-  simp [hzero]
-
-theorem eq_zero_of_hom_weight [CharP K 2] {a : ℕ} (ha : 1 ≤ a)
-    (hK : Fintype.card K = 2 ^ (2 * a + 1)) {κ : K} (hκ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, κ ^ m = w)
-    {G : Type*} [Group G] {M : Subgroup G} {S φ : G → K}
-    (hS : ∀ m ∈ M, ∀ m' ∈ M, S (m * m') = S m + S m') (hSsurj : ∀ s : K, ∃ m ∈ M, S m = s)
-    (hφ : ∀ m ∈ M, ∀ m' ∈ M, φ (m * m') = φ m + φ m') (hker : ∀ m ∈ M, S m = 0 → φ m = 0)
-    (hequiv : ∀ m ∈ M, ∃ m' ∈ M, S m' = κ ^ (2 ^ (a + 1) + 1) * S m ∧ φ m' = κ * φ m) :
-    ∀ m ∈ M, φ m = 0 := by
-  obtain ⟨D, hD⟩ := exists_addMonoidHom₂_of_hom (Φ := fun m b => φ m * b) hS hSsurj
-    (fun m hm m' hm' b => by rw [hφ m hm m' hm', add_mul]) (fun m _ b b' => mul_add _ _ _)
-    (fun m hm hSm b => by rw [hker m hm hSm, zero_mul])
-  have h0 := addMonoidHom_eq_zero_of_weight ha hK (D.flip 1) hκ fun s => by
-    obtain ⟨m, hm, rfl⟩ := hSsurj s
-    obtain ⟨m', hm', hSm', hφm'⟩ := hequiv m hm
-    rw [AddMonoidHom.flip_apply, AddMonoidHom.flip_apply, ← hSm', ← hD m' hm', ← hD m hm, hφm',
-      mul_one, mul_one]
-  intro m hm
-  have h1 := hD m hm 1
-  rw [mul_one] at h1
-  rw [h1, ← AddMonoidHom.flip_apply, h0, AddMonoidHom.zero_apply]
 
 omit [Fintype K] in
 theorem exists_mul_of_hom {μ : K} (hμ : ∀ w : K, w ≠ 0 → ∃ m : ℕ, μ ^ m = w) {G : Type*}

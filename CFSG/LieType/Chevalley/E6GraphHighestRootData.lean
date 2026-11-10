@@ -23,40 +23,21 @@ abbrev e6Idx (i : Fin 6) : Fin TwistTag.E6.tag.rank := i
   ((Finset.univ.filter fun p : Fin 5 × Fin 5 => p.1 ≤ p.2).image fun p => a5Interval p.1 p.2) ∪
     ((Finset.univ.filter fun p : Fin 5 × Fin 5 => p.1 ≤ p.2).image fun p => -a5Interval p.1 p.2)
 
-theorem mem_a5Roots {β : Fin TwistTag.E6.tag.rank → ℤ} :
-    β ∈ a5Roots ↔ ∃ i j : Fin 5, i ≤ j ∧ (β = a5Interval i j ∨ β = -a5Interval i j) := by
-  simp only [a5Roots, Finset.mem_union, Finset.mem_image, Finset.mem_filter, Finset.mem_univ,
-    true_and, Prod.exists]
-  constructor
-  · rintro (⟨i, j, h, rfl⟩ | ⟨i, j, h, rfl⟩)
-    exacts [⟨i, j, h, Or.inl rfl⟩, ⟨i, j, h, Or.inr rfl⟩]
-  · rintro ⟨i, j, h, rfl | rfl⟩
-    exacts [Or.inl ⟨i, j, h, rfl⟩, Or.inr ⟨i, j, h, rfl⟩]
 
 theorem filter_coord_zero :
     (rootFinset TwistTag.E6.tag).filter (fun β => β (e6Idx 1) = 0) = a5Roots := by
   decide +kernel
 
-theorem card_a5Roots : a5Roots.card = 30 := by decide +kernel
 
 @[expose] def degOneRoots : Finset (Fin TwistTag.E6.tag.rank → ℤ) :=
   (rootFinset TwistTag.E6.tag).filter (fun β => β (e6Idx 1) = 1)
 
-theorem card_degOneRoots : degOneRoots.card = 20 := by decide +kernel
-
-theorem filter_coord_two :
-    (rootFinset TwistTag.E6.tag).filter (fun β => β (e6Idx 1) = 2) = {e6HighestRoot} := by
-  decide +kernel
 
 theorem filter_pos_coord_pos :
     (rootFinset TwistTag.E6.tag).filter (fun β => 0 < height β ∧ 0 < β (e6Idx 1)) =
       insert e6HighestRoot degOneRoots := by
   decide +kernel
 
-theorem add_eq_e6HighestRoot : ∀ β ∈ insert e6HighestRoot degOneRoots,
-    ∀ β' ∈ insert e6HighestRoot degOneRoots, β + β' ∈ rootFinset TwistTag.E6.tag →
-      β + β' = e6HighestRoot := by
-  decide +kernel
 
 theorem sub_e6HighestRoot_mem :
     ∀ β ∈ degOneRoots, β - e6HighestRoot ∈ rootFinset TwistTag.E6.tag := by
@@ -68,13 +49,6 @@ theorem sub_e6HighestRoot_mem :
 @[expose] def movedDegOneRoots : Finset (Fin TwistTag.E6.tag.rank → ℤ) :=
   degOneRoots.filter (fun β => permLattice TwistTag.E6.perm β ≠ β)
 
-theorem card_fixedDegOneRoots : fixedDegOneRoots.card = 8 := by decide +kernel
-
-theorem card_movedDegOneRoots : movedDegOneRoots.card = 12 := by decide +kernel
-
-theorem card_image_pair : (movedDegOneRoots.image fun β =>
-    ({β, permLattice TwistTag.E6.perm β} : Finset (Fin TwistTag.E6.tag.rank → ℤ))).card = 6 := by
-  decide +kernel
 
 theorem permLattice_mem_degOneRoots : ∀ β ∈ degOneRoots,
     permLattice TwistTag.E6.perm β ∈ degOneRoots := by
@@ -132,17 +106,6 @@ theorem list_prod_tailGen_smul
     : Subgroup (WeylGroup TwistTag.E6.tag) :=
   Subgroup.closure (simple TwistTag.E6.tag '' {i | i ≠ e6Idx 1})
 
-theorem tailWeyl_le_weylA
-    : tailWeyl ≤ weylA := by
-  have hs : ∀ i : Fin 6, i ≠ 1 → simple TwistTag.E6.tag (e6Idx i) ∈ weylA := fun i hi =>
-    Subgroup.subset_closure ⟨e6Idx i, fun h => hi h, rfl⟩
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ ⟨b, rfl⟩
-  fin_cases b
-  · exact hs 3 (by decide)
-  · exact mul_mem (hs 0 (by decide)) (hs 5 (by decide))
-  · exact mul_mem (hs 2 (by decide)) (hs 4 (by decide))
-
 
 @[expose] def fixedBlockWords : List (List (Fin 3)) :=
   [[], [0], [0, 2], [0, 2, 0], [0, 2, 1], [0, 2, 1, 0], [0, 2, 1, 0, 2], [0, 2, 1, 0, 2, 0]]
@@ -160,13 +123,6 @@ theorem exists_tailWeyl_smul_single
     exact Subgroup.subset_closure ⟨b, rfl⟩
   · rw [list_prod_tailGen_smul, hbw]
 
-theorem tailWeyl_transitive
-    {β β' : Fin TwistTag.E6.tag.rank → ℤ} (hβ : β ∈ fixedDegOneRoots)
-    (hβ' : β' ∈ fixedDegOneRoots) : ∃ w ∈ tailWeyl, w • β = β' := by
-  obtain ⟨w, hw, rfl⟩ := exists_tailWeyl_smul_single hβ
-  obtain ⟨w', hw', rfl⟩ := exists_tailWeyl_smul_single hβ'
-  refine ⟨w' * w⁻¹, mul_mem hw' (inv_mem hw), ?_⟩
-  rw [mul_smul, inv_smul_smul]
 
 section Words
 
@@ -237,8 +193,6 @@ end Words
 
 @[expose] def upWord : List (Fin TwistTag.E6.tag.rank) := ([1, 3, 2, 4, 3, 1] : List (Fin 6))
 
-@[expose] def downWord : List (Fin TwistTag.E6.tag.rank) :=
-  ([1, 3, 4, 2, 3, 5, 0, 4, 2, 3] : List (Fin 6))
 
 theorem fusionWord_smul_e6HighestRoot :
     (coxeterSystem TwistTag.E6.tag).wordProd fusionWord • e6HighestRoot =
@@ -256,11 +210,6 @@ theorem upWord_smul_sRoot :
   rw [wordProd_smul]
   decide
 
-theorem downWord_smul_e6HighestRoot :
-    (coxeterSystem TwistTag.E6.tag).wordProd downWord.reverse • e6HighestRoot =
-      Pi.single (e6Idx 1) 1 := by
-  rw [wordProd_smul]
-  decide
 
 theorem weylTwist_fusionWord :
     weylTwist TwistTag.E6 ((coxeterSystem TwistTag.E6.tag).wordProd fusionWord) =
@@ -272,23 +221,6 @@ theorem weylTwist_upWord :
       (coxeterSystem TwistTag.E6.tag).wordProd upWord.reverse :=
   weylTwist_wordProd_eq (by decide)
 
-theorem weylTwist_downWord :
-    weylTwist TwistTag.E6 ((coxeterSystem TwistTag.E6.tag).wordProd downWord.reverse) =
-      (coxeterSystem TwistTag.E6.tag).wordProd downWord.reverse :=
-  weylTwist_wordProd_eq (by decide)
-
-
-@[expose] def graphWords : List (List (Fin TwistTag.E6.tag.rank)) :=
-  [fusionWord, upWord.reverse, downWord.reverse]
-
-theorem weylTwist_graphWords :
-    ∀ ω ∈ graphWords,
-    weylTwist TwistTag.E6 ((coxeterSystem TwistTag.E6.tag).wordProd ω) =
-      (coxeterSystem TwistTag.E6.tag).wordProd ω := by
-  intro ω hω
-  simp only [graphWords, List.mem_cons, List.not_mem_nil, or_false] at hω
-  rcases hω with rfl | rfl | rfl
-  exacts [weylTwist_fusionWord, weylTwist_upWord, weylTwist_downWord]
 
 theorem two_eq_zero_of_card {F : Type} [Field F] {n : ℕ} (hn : 1 ≤ n) (hF : Nat.card F = 2 ^ n) :
     (2 : F) = 0 := by
@@ -307,86 +239,6 @@ theorem conj_commute {K : Type} [Field K] {G : Subgroup (ModGL TwistTag.E6.tag K
   refine ⟨h1, ?_⟩
   ext g
   simp only [MulAut.mul_apply, MulAut.conj_apply, map_mul, map_inv, h1]
-
-
-
-theorem _root_.CFSG.LieType.Chevalley.even_E6_graph_highest_root_data
-    (f : ℕ) (hf : 1 ≤ f)
-    (k K : Type) [Field k] [Field K] [Algebra k K] (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) (σ : K →+* K) (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    (rootFinset TwistTag.E6.tag).filter (fun β => β (e6Idx 1) = 0) = a5Roots ∧
-    a5Roots.card = 30 ∧
-    (∀ β, β ∈ a5Roots ↔ ∃ i j : Fin 5, i ≤ j ∧ (β = a5Interval i j ∨ β = -a5Interval i j)) ∧
-    (rootFinset TwistTag.E6.tag).filter (fun β => 0 < height β ∧ 0 < β (e6Idx 1)) =
-      insert e6HighestRoot degOneRoots ∧
-    degOneRoots.card = 20 ∧
-    (rootFinset TwistTag.E6.tag).filter (fun β => β (e6Idx 1) = 2) = {e6HighestRoot} ∧
-    (∀ β ∈ insert e6HighestRoot degOneRoots, ∀ β' ∈ insert e6HighestRoot degOneRoots,
-      IsRoot TwistTag.E6.tag (β + β') → β + β' = e6HighestRoot) ∧
-    (∀ β ∈ degOneRoots, IsRoot TwistTag.E6.tag (β - e6HighestRoot)) ∧
-    fixedDegOneRoots.card = 8 ∧ movedDegOneRoots.card = 12 ∧
-    (∀ β ∈ degOneRoots, permLattice TwistTag.E6.perm β ∈ degOneRoots) ∧
-    (∀ β ∈ movedDegOneRoots, iform β (permLattice TwistTag.E6.perm β) = 0) ∧
-    (movedDegOneRoots.image fun β =>
-      ({β, permLattice TwistTag.E6.perm β} : Finset (Fin TwistTag.E6.tag.rank → ℤ))).card = 6 ∧
-    tailWeyl ≤ weylA ∧
-    (∀ β ∈ fixedDegOneRoots, ∀ β' ∈ fixedDegOneRoots, ∃ w ∈ tailWeyl, w • β = β') ∧
-    (∀ l : Fin TwistTag.E6.tag.rank → ℤ, iform e6HighestRoot l = l (e6Idx 1)) ∧
-    (∀ (E : Type) [Field E], (2 : E) = 0 → ∀ (ω : List (Fin TwistTag.E6.tag.rank))
-      (β : Fin TwistTag.E6.tag.rank → ℤ), IsRoot TwistTag.E6.tag β → ∀ c : E,
-        wordElt E ω * pinnedX TwistTag.E6.tag E β c * (wordElt E ω)⁻¹ =
-          pinnedX TwistTag.E6.tag E ((coxeterSystem TwistTag.E6.tag).wordProd ω • β) c) ∧
-    (∀ (E : Type) [Field E], (2 : E) = 0 → ∀ β : Fin TwistTag.E6.tag.rank → ℤ,
-      IsRoot TwistTag.E6.tag β → ∀ c : E,
-        diagramMap TwistTag.E6 E * pinnedX TwistTag.E6.tag E β c * (diagramMap TwistTag.E6 E)⁻¹ =
-          pinnedX TwistTag.E6.tag E (permLattice TwistTag.E6.perm β) c) ∧
-    (coxeterSystem TwistTag.E6.tag).wordProd fusionWord • e6HighestRoot =
-      Pi.single (e6Idx 2) 1 + Pi.single (e6Idx 3) 1 + Pi.single (e6Idx 4) 1 ∧
-    (coxeterSystem TwistTag.E6.tag).wordProd fusionWord • sRoot = Pi.single (e6Idx 3) 1 ∧
-    (coxeterSystem TwistTag.E6.tag).wordProd upWord.reverse • sRoot = e6HighestRoot ∧
-    (coxeterSystem TwistTag.E6.tag).wordProd downWord.reverse • e6HighestRoot =
-      Pi.single (e6Idx 1) 1 ∧
-    (∀ ω ∈ graphWords, wordElt k ω ∈ adjointGroup TwistTag.E6.tag k ∧
-      diagramMap TwistTag.E6 k * wordElt k ω * (diagramMap TwistTag.E6 k)⁻¹ = wordElt k ω ∧
-      wordElt K ω ∈ graphFixedRootGroup TwistTag.E6 K σ ∧
-      diagramMap TwistTag.E6 K * wordElt K ω * (diagramMap TwistTag.E6 K)⁻¹ = wordElt K ω) ∧
-    (∃ η : MulAut (adjointGroup TwistTag.E6.tag k), (∀ g, (η g : ModGL TwistTag.E6.tag k) =
-      diagramMap TwistTag.E6 k * g * (diagramMap TwistTag.E6 k)⁻¹) ∧ orderOf η = 2) ∧
-    (∃ η : MulAut (graphFixedRootGroup TwistTag.E6 K σ), (∀ g, (η g : ModGL TwistTag.E6.tag K) =
-      diagramMap TwistTag.E6 K * g * (diagramMap TwistTag.E6 K)⁻¹) ∧ orderOf η = 2) ∧
-    (∀ η : MulAut (adjointGroup TwistTag.E6.tag k), (∀ g, (η g : ModGL TwistTag.E6.tag k) =
-      diagramMap TwistTag.E6 k * g * (diagramMap TwistTag.E6 k)⁻¹) →
-      ∀ ω ∈ graphWords, ∀ h : wordElt k ω ∈ adjointGroup TwistTag.E6.tag k,
-        η ⟨_, h⟩ = ⟨_, h⟩ ∧ η * MulAut.conj ⟨_, h⟩ = MulAut.conj ⟨_, h⟩ * η) ∧
-    (∀ η : MulAut (graphFixedRootGroup TwistTag.E6 K σ), (∀ g, (η g : ModGL TwistTag.E6.tag K) =
-      diagramMap TwistTag.E6 K * g * (diagramMap TwistTag.E6 K)⁻¹) →
-      ∀ ω ∈ graphWords, ∀ h : wordElt K ω ∈ graphFixedRootGroup TwistTag.E6 K σ,
-        η ⟨_, h⟩ = ⟨_, h⟩ ∧ η * MulAut.conj ⟨_, h⟩ = MulAut.conj ⟨_, h⟩ * η) := by
-  have hk2 : (2 : k) = 0 := two_eq_zero_of_card hf hk
-  have hK2 : (2 : K) = 0 := two_eq_zero_of_card (n := 2 * f) (by omega) (by rw [hK, ← pow_mul,
-    mul_comm])
-  have hcan := even_E6_twisted_E6_canonical_graph_fixed_subgroup f hf k K hk hK σ hσ
-  obtain ⟨η₁, hη₁, hη₁2, -⟩ := hcan.1.1
-  obtain ⟨η₂, hη₂, hη₂2, -⟩ := hcan.2.1
-  refine ⟨filter_coord_zero, card_a5Roots, fun β => mem_a5Roots, filter_pos_coord_pos,
-    card_degOneRoots, filter_coord_two, fun β hβ β' hβ' h => add_eq_e6HighestRoot β hβ β' hβ'
-      (mem_rootFinset.2 h), fun β hβ => mem_rootFinset.1 (sub_e6HighestRoot_mem β hβ),
-    card_fixedDegOneRoots, card_movedDegOneRoots, permLattice_mem_degOneRoots,
-    iform_permLattice, card_image_pair, tailWeyl_le_weylA,
-    fun β hβ β' hβ' => tailWeyl_transitive hβ hβ', iform_e6HighestRoot,
-    fun E _ h2 ω β hβ c => wordElt_conj_pinnedX h2 ω hβ c,
-    fun E _ h2 β hβ c => by rw [← twistHom_id_eq, twistHom_id_pinnedX h2 hβ],
-    fusionWord_smul_e6HighestRoot,
-    fusionWord_smul_sRoot, upWord_smul_sRoot, downWord_smul_e6HighestRoot,
-    fun ω hω => ⟨wordElt_mem_adjointGroup ω,
-      diagramMap_conj_wordElt hk2 (weylTwist_graphWords ω hω),
-      wordElt_mem_graphFixedRootGroup hK2 (weylTwist_graphWords ω hω),
-      diagramMap_conj_wordElt hK2 (weylTwist_graphWords ω hω)⟩,
-    ⟨η₁, hη₁, hη₁2⟩, ⟨η₂, hη₂, hη₂2⟩,
-    fun η hη ω hω h =>
-      conj_commute η hη h (diagramMap_conj_wordElt hk2 (weylTwist_graphWords ω hω)),
-    fun η hη ω hω h =>
-      conj_commute η hη h (diagramMap_conj_wordElt hK2 (weylTwist_graphWords ω hω))⟩
 
 
 end CFSG.LieType.Chevalley.E6GraphHighestRoot

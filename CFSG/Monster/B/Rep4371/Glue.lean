@@ -55,10 +55,5 @@ theorem octSignOK_true : Model.octSignOK = true := by
   rw [← native_octSignOK]
   exact octCheck_eq_true.2
 
-theorem labelsCheck_model :
-    Native.labelsCheck = true := labelsCheck_eq_true.1
-
-theorem spinIndexCheck_model :
-    Native.spinIndexCheck = true := labelsCheck_eq_true.2
 
 end CFSG.Monster.B.Rep4371

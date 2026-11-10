@@ -32,77 +32,6 @@ universe u v
 
 /-! ## Local q-core helpers used by the residual assembly -/
 
-/-- A subnormal `p`-subgroup of `B` lies in `O_p(B)`. -/
-private theorem le_qCoreOf_of_isSubnormal_isPGroup_local
-    {G : Type u} [Group G] [Finite G]
-    (B S : Subgroup G) (p : ℕ) (hp : p.Prime)
-    (hSB : S ≤ B) (hS : (S.subgroupOf B).IsSubnormal) (hSp : IsPGroup p S) :
-    S ≤ qCoreOf B p := by
-  rcases (Subgroup.IsSubnormal.isSubnormal_iff (G := ↥B) (H := S.subgroupOf B)).1 hS with
-    ⟨n, f, hmono, hnorm, hf0, hfn⟩
-  have hmain : ∀ i : ℕ, i ≤ n → S ≤ qCoreOf ((f i).map B.subtype) p := by
-    intro i hi
-    induction i with
-    | zero =>
-      have hK0 : (f 0).map B.subtype = S := by
-        rw [hf0]
-        exact Subgroup.map_subgroupOf_eq_of_le hSB
-      have hSleK : S ≤ (f 0).map B.subtype := by rw [hK0]
-      have hSnorm : IsNormalIn S ((f 0).map B.subtype) := by
-        rw [hK0]
-        refine ⟨le_rfl, ?_⟩
-        intro a ha x hx
-        exact S.mul_mem (S.mul_mem ha hx) (S.inv_mem ha)
-      exact le_qCoreOf_of_normal_isPGroup ((f 0).map B.subtype) S p hSleK (by
-        rw [Subgroup.normal_subgroupOf_iff_le_normalizer hSleK]
-        exact le_normalizer_of_isNormalIn hSnorm) hSp
-    | succ i ih =>
-      have hKi : IsNormalIn ((f i).map B.subtype) ((f (i + 1)).map B.subtype) := by
-        refine ⟨Subgroup.map_mono (f := B.subtype) (hmono (Nat.le_succ i)), ?_⟩
-        intro b hb x hx
-        rcases (Subgroup.mem_map).1 hx with ⟨x0, hx0, rfl⟩
-        rcases (Subgroup.mem_map).1 hb with ⟨b0, hb0, rfl⟩
-        have hconj : b0 * x0 * b0⁻¹ ∈ f i :=
-          (Subgroup.normal_subgroupOf_iff (hmono (Nat.le_succ i))).mp (hnorm i)
-            x0 b0 hx0 hb0
-        exact Subgroup.mem_map.mpr ⟨b0 * x0 * b0⁻¹, hconj, by simp [mul_assoc]⟩
-      have hQleK : S ≤ qCoreOf ((f i).map B.subtype) p :=
-        ih (Nat.le_of_succ_le hi)
-      have hQleN : qCoreOf ((f i).map B.subtype) p ≤ qCoreOf ((f (i + 1)).map B.subtype) p := by
-        exact qCoreOf_le_qCoreOf_of_isNormalIn
-          ((f i).map B.subtype) ((f (i + 1)).map B.subtype) p hKi
-      exact hQleK.trans hQleN
-  have hSleB : S ≤ qCoreOf B p := by
-    have h := hmain n (le_rfl)
-    have htop : (⊤ : Subgroup (↥B)).map B.subtype = B := by
-      simpa [MonoidHom.range_eq_map] using (Subgroup.range_subtype (H := B))
-    rw [hfn] at h
-    simpa [htop] using h
-  exact hSleB
-
-/-- `O_q(A) ≤ O^s(F*(A))` for distinct primes. -/
-private theorem qCoreOf_le_pResidualOf_of_ne_local
-    {G : Type u} [Group G] [Finite G]
-    (A : Subgroup G) (p s : ℕ) (hp : p.Prime) (hs : s.Prime) (hne : p ≠ s) :
-    qCoreOf A p ≤ pResidualOf (generalizedFittingSubgroupOf A) s := by
-  let H : Subgroup G := generalizedFittingSubgroupOf A
-  intro x hx
-  have hxH : x ∈ H :=
-    (fstar_qCoreOf_le_fittingSubgroupOf A p hp).trans le_sup_left hx
-  let xQ : ↥(qCoreOf A p) := ⟨x, hx⟩
-  have : Fact p.Prime := ⟨hp⟩
-  have : Fact s.Prime := ⟨hs⟩
-  rcases (IsPGroup.iff_orderOf.mp (qCoreOf_isPGroup A p)) xQ with ⟨k, hk⟩
-  have hpndvd : ¬ p ∣ s := by
-    intro hdiv
-    exact hne ((Nat.prime_dvd_prime_iff_eq hp hs).mp hdiv)
-  have hcopPow : Nat.Coprime s (p ^ k) := hp.coprime_pow_of_not_dvd hpndvd
-  have hord : orderOf x = orderOf xQ :=
-    (orderOf_injective (qCoreOf A p).subtype (qCoreOf A p).subtype_injective xQ)
-  have hcop : Nat.Coprime s (orderOf x) := by
-    rw [hord, hk]
-    exact hcopPow
-  exact fstar_mem_pResidualOf_of_order_coprime H s hs hxH hcop
 
 /-- `O^p(H) ≤ O^p(K)` when `H ≤ K`. -/
 private theorem pResidualOf_mono_local
@@ -278,19 +207,6 @@ private theorem subgroupOf_iSup_of_le_local
     simpa [hyx] using hy
   · exact iSup_le (fun i => Subgroup.subgroupOf_mono N (le_iSup H i))
 
-/-- If `H ≤ K` are normal and `G/H` is a `p`-group, then `G/K` is a
-`p`-group. -/
-private theorem isPGroup_quotient_of_le_normal_local
-    {G : Type u} [Group G] [Finite G] {H K : Subgroup G}
-    (hHK : H ≤ K) [hH : H.Normal] [hK : K.Normal] {p : ℕ} [Fact p.Prime]
-    (hQ : IsPGroup p (G ⧸ H)) : IsPGroup p (G ⧸ K) := by
-  let f : G ⧸ H →* G ⧸ K := QuotientGroup.map H K (MonoidHom.id G) hHK
-  have hsurj : Function.Surjective f := by
-    intro q
-    refine Quotient.inductionOn' q ?_
-    intro g
-    exact ⟨QuotientGroup.mk' H g, rfl⟩
-  exact hQ.of_surjective f hsurj
 
 /-- `O^p(F(A))` is the join of the q-cores of `A` for `q ≠ p`. -/
 private theorem pResidualOf_fitting_eq_iSup_qCoreOf_of_ne_local
@@ -746,42 +662,6 @@ private theorem map_subgroupOf_subgroupOf_eq_local
     · apply Subtype.ext
       rfl
 
-/-- A component of `A` which is contained in `H ≤ A` is a component of `H`. -/
-private theorem isComponentOf_subgroupOf_of_isComponentOf_local
-    {G : Type u} [Group G] {A H E : Subgroup G}
-    (hE : IsComponentOf E A) (hEH : E ≤ H) (hHA : H ≤ A) :
-    IsComponentOf (E.subgroupOf H) (⊤ : Subgroup H) := by
-  have hE0 : IsComponentOf (E.subgroupOf A) (⊤ : Subgroup (↥A)) :=
-    fstar_isComponentOf_subgroupOf_top hE
-  let HA : Subgroup (↥A) := H.subgroupOf A
-  let e : HA ≃* H := Subgroup.subgroupOfEquivOfLe hHA
-  have hE0HA : IsComponentOf ((E.subgroupOf A).subgroupOf HA) (⊤ : Subgroup (↥HA)) := by
-    apply isComponentOf_subgroupOf_local (G := ↥A) hE0
-    intro x hx
-    rw [Subgroup.mem_subgroupOf]
-    rw [Subgroup.mem_subgroupOf] at hx
-    exact hEH hx
-  have hmap : ((E.subgroupOf A).subgroupOf HA).map e.toMonoidHom = E.subgroupOf H :=
-    map_subgroupOf_subgroupOf_eq_local hEH hHA
-  have hEcompH : IsComponentOf (((E.subgroupOf A).subgroupOf HA).map e.toMonoidHom)
-      (⊤ : Subgroup H) := by
-    refine ⟨le_top, ?_, ?_⟩
-    · have hsub0 : (((E.subgroupOf A).subgroupOf HA).subgroupOf
-          (⊤ : Subgroup (↥HA))).map (⊤ : Subgroup (↥HA)).subtype =
-          (E.subgroupOf A).subgroupOf HA :=
-        Subgroup.map_subgroupOf_eq_of_le
-          (le_top : (E.subgroupOf A).subgroupOf HA ≤ (⊤ : Subgroup (↥HA)))
-      have hKsnHA : ((E.subgroupOf A).subgroupOf HA).IsSubnormal := by
-        have hmap := hE0HA.2.1.map (f := (⊤ : Subgroup (↥HA)).subtype)
-          (by intro x; exact ⟨⟨x, trivial⟩, rfl⟩)
-        rwa [hsub0] at hmap
-      have hsub : (((E.subgroupOf A).subgroupOf HA).map e.toMonoidHom).IsSubnormal :=
-        hKsnHA.map (f := e.toMonoidHom) e.surjective
-      exact hsub.subgroupOf
-    · exact isQuasisimple_mulEquiv_local
-        (Subgroup.equivMapOfInjective ((E.subgroupOf A).subgroupOf HA)
-          e.toMonoidHom e.injective) hE0HA.2.2
-  rwa [hmap] at hEcompH
 
 /-- Restriction of a normalizer-containment to `subgroupOf A`. -/
 private theorem subgroup_normalizer_of_le_normalizer_local
@@ -1254,42 +1134,6 @@ private theorem commutator_qCoreOf_B_inf_A_pResidualOf_S_local
 
 /-! ## Local infrastructure: the residual-commutator assembly -/
 
-/-- A normal `p`-subgroup of `L` commutes with a normal `p'`-subgroup of
-`L`. -/
-private theorem commutator_eq_bot_of_normal_pgroup_pPrime_local
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) (p : ℕ) (hp : p.Prime)
-    (P K : Subgroup G)
-    (hPL : P ≤ L) (hPnorm : IsNormalIn P L) (hPp : IsPGroup p P)
-    (hKL : K ≤ L) (hKnorm : IsNormalIn K L)
-    (hKcop : Nat.Coprime p (Nat.card K)) :
-    ⁅P, K⁆ = ⊥ := by
-  classical
-  let : Fact p.Prime := ⟨hp⟩
-  have hPle : P ≤ qCoreOf L p :=
-    le_qCoreOf_of_normal_isPGroup L P p hPL (by
-      rw [Subgroup.normal_subgroupOf_iff_le_normalizer hPL]
-      exact le_normalizer_of_isNormalIn hPnorm) hPp
-  have hKle : K ≤ (pPrimeCore p (↥L)).map L.subtype := by
-    have hKnorm' : (K.subgroupOf L).Normal := by
-      rw [Subgroup.normal_subgroupOf_iff_le_normalizer hKL]
-      exact le_normalizer_of_isNormalIn hKnorm
-    have hcard : Nat.card (K.subgroupOf L) = Nat.card K :=
-      Nat.card_congr (Subgroup.subgroupOfEquivOfLe hKL).toEquiv
-    have hcop' : Nat.Coprime p (Nat.card (K.subgroupOf L)) := by
-      rwa [hcard]
-    have hsub : K.subgroupOf L ≤ pPrimeCore p (↥L) := le_sSup ⟨hKnorm', hcop'⟩
-    have hmap := Subgroup.map_mono (f := L.subtype) hsub
-    have hmapK : (K.subgroupOf L).map L.subtype = K :=
-      Subgroup.map_subgroupOf_eq_of_le hKL
-    simpa [hmapK] using hmap
-  have hcentK : K ≤ Subgroup.centralizer ((qCoreOf L p : Subgroup G) : Set G) := by
-    exact hKle.trans (pPrimeCore_map_le_centralizer_pCore_map (p := p) L)
-  have hPcentK : P ≤ Subgroup.centralizer (K : Set G) := by
-    intro x hx y hy
-    have hcomm := (Subgroup.mem_centralizer_iff.mp (hcentK hy)) x (hPle hx)
-    exact hcomm.symm
-  exact (Subgroup.commutator_eq_bot_iff_le_centralizer (H₁ := P) (H₂ := K)).mpr hPcentK
 
 /-- Bender 1.1(iv), normal case: a `p`-group acting on a solvable `p'`-group
 centralizes it once it centralizes a normal subgroup whose centralizer is
@@ -2340,18 +2184,6 @@ private theorem fittingSubgroupOf_le_fittingSubgroupOf_of_subnormal_local
     simp
   exact (hmain n (le_rfl : n ≤ n)).trans (le_of_eq (by rw [htop]))
 
-/-- A subnormal nilpotent subgroup lies in the Fitting subgroup. -/
-private theorem le_fittingSubgroupOf_of_isSubnormal_nilpotent_local
-    {G : Type u} [Group G] [Finite G]
-    {A N : Subgroup G} (hNA : N ≤ A)
-    (hNsub : (N.subgroupOf A).IsSubnormal) (hNnil : Group.IsNilpotent N) :
-    N ≤ fittingSubgroupOf A := by
-  have htop : fittingSubgroupOf N = N := by
-    unfold fittingSubgroupOf
-    rw [fitting_eq_top_of_nilpotent (↥N)]
-    simpa [MonoidHom.range_eq_map] using (Subgroup.range_subtype N)
-  exact (le_of_eq htop.symm).trans
-    (fittingSubgroupOf_le_fittingSubgroupOf_of_subnormal_local hNA hNsub)
 
 /-- `F(S) = F(A) ∩ S` for `S` subnormal in `F*(A)` (Gagen 10.4(a)). -/
 private theorem fittingSubgroupOf_eq_inf_of_subnormal_local

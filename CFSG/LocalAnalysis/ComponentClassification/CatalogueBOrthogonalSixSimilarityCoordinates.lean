@@ -82,15 +82,5 @@ theorem planesBinaryCoordinates_form (w : Fin 2 → Kˣ)
   field_simp
   ring
 
-theorem binary_tail_extension_norm (w : Fin 2 → Kˣ) (s z : K) :
-    let delta : Kˣ := -(w 1) / w 0
-    (w 0 : K) * QuadraticAlgebra.norm
-        (⟨s, z⟩ : extension (delta : K)) =
-      (w 0 : K) * s ^ 2 + (w 1 : K) * z ^ 2 := by
-  dsimp only
-  rw [extension_norm]
-  simp only [Units.val_div_eq_div_val, Units.val_neg]
-  field_simp
-  ring
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalSixSimilarity

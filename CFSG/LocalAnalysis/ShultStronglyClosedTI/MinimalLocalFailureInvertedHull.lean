@@ -81,49 +81,5 @@ theorem invertedHull_full_stabilizer_supplement
     h.local_datum.distinguished_order (H ⊓ A) X D hzX inf_le_right hfull
   exact ⟨X, hXK, hXodd, hXnormal, hKproduct, hXescape, hfull, hcomm, hright⟩
 
-theorem minimal_local_embedding_inverted_set_solvable_hull
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (P : Subgroup G) (_hPH : P ≤ H) (hPodd : Odd (Nat.card P))
-    (_hPz : CFSG.conjugate P z = P)
-    (hI : ∃ x ∈ minimalLocalFailureInvertedSet P z, x ≠ 1)
-    (hescape : ¬ Subgroup.centralizer (minimalLocalFailureInvertedSet P z) ≤ H) :
-    let I := minimalLocalFailureInvertedSet P z
-    let M := Subgroup.centralizer I
-    let A := minimalLocalFailureInvertedOvergroup P z
-    let L := minimalLocalFailureInvertedHull P z
-    let V := L ⊓ M
-    (M.subgroupOf A).Normal ∧ (M.subgroupOf A).index = 2 ∧ A ≠ ⊤ ∧
-      fusionStronglyEmbedded (H.subgroupOf L) ∧
-      (V.subgroupOf L).Normal ∧ Odd (Nat.card V) ∧ V.relIndex L = 2 ∧
-      V = (oddCore L).map L.subtype ∧ L = V ⊔ Subgroup.zpowers z ∧
-      (L : Set G) = (V : Set G) * (Subgroup.zpowers z : Set G) ∧
-      Group.IsSolvable L ∧
-      (∃ X : Subgroup G, X ≤ H ⊓ L ∧ Odd (Nat.card X) ∧
-        (X.subgroupOf (H ⊓ L)).Normal ∧
-        (H ⊓ L : Set G) = (X : Set G) *
-          (H ⊓ L ⊓ Subgroup.centralizer ({z} : Set G) : Set G) ∧
-        ¬ Subgroup.normalizer (X : Set G) ⊓ L ≤ H ∧
-        (H ⊓ A : Set G) = (A ⊓ Subgroup.centralizer ({z} : Set G) : Set G) * (X : Set G) ∧
-        ⁅Subgroup.zpowers z, H ⊓ A⁆ ≤ X ∧
-        (∀ a ∈ H ⊓ A, z⁻¹ * a⁻¹ * z * a ∈ X)) ∧
-      A ≤ Subgroup.normalizer I ∧
-      (∀ a ∈ A, ∀ x ∈ I, rightConjugateElem x (rightConjugateElem z a) = x⁻¹) ∧
-      (∀ t ∈ A.subtype '' involutionPointClass
-        (⟨z, Subgroup.mem_sup_right (Subgroup.mem_zpowers z)⟩ : A),
-        ∀ x ∈ I, rightConjugateElem x t = x⁻¹) := by
-  have hz := h.local_datum.distinguished_order
-  obtain ⟨hVnormal, hVodd, hVindex, hcore, hsup, hproduct, hsolvable⟩ :=
-    invertedHull_odd_core_structure h P hPodd hI hescape
-  refine ⟨invertedHull_centralizer_normal P z hz,
-    invertedHull_centralizer_index_two P hPodd z hz hI,
-    invertedHull_overgroup_proper h P hPodd hI,
-    invertedHull_strong_embedding h P hPodd hI hescape,
-    hVnormal, hVodd, hVindex, hcore, hsup, hproduct, hsolvable,
-    invertedHull_full_stabilizer_supplement h P hPodd hI hescape,
-    invertedHull_overgroup_normalizes_set P z hz, ?_, ?_⟩
-  · intro a ha x hx
-    exact invertedHull_conjugates_invert_set P z hz a ha x hx
-  · rintro t ⟨tA, ⟨a, rfl⟩, rfl⟩ x hx
-    exact invertedHull_conjugates_invert_set P z hz a a.property x hx
 
 end CFSG.ShultStronglyClosedTI

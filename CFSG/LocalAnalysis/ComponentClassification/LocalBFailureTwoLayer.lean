@@ -23,14 +23,5 @@ theorem badSubgroup_eq_badTwoComponentSubgroup (G : Type*) [Group G] :
   exact and_congr (CatalogueBAlternating.pComponent_two_iff L).symm
     (not_congr CatalogueBAlternating.quasisimple_iff_native.symm)
 
-theorem local_two_layer_component_ordinary_layer_or_bad {G : Type*} [Group G] [Finite G]
-    (x : G) (L : Subgroup (Subgroup.centralizer ({x} : Set G))) (hL : CFSG.IsPComponent 2 L)
-    (hle : L.map (Subgroup.centralizer ({x} : Set G)).subtype ≤ CFSG.pLayer G 2) :
-    L.map (Subgroup.centralizer ({x} : Set G)).subtype ≤ CFSG.layer G ∨
-      L.map (Subgroup.centralizer ({x} : Set G)).subtype ≤ TwoComponents.badSubgroup G := by
-  rw [CFSG.layer_eq_componentClassification]
-  rw [pLayer_two_eq_twoLayer] at hle
-  exact TwoLayer.local_component_in_layer_or_bad x L
-    ((CatalogueBAlternating.pComponent_two_iff L).mp hL) hle
 
 end CFSG.ComponentClassification.LocalBFailure

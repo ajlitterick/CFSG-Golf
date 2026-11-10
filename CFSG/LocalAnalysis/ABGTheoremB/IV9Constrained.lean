@@ -1664,48 +1664,6 @@ theorem lemmaIV95_iii (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr
   · exact absurd hQD (not_isQDGroup_of_le_isDGroup inf_le_left hHM.2.2.1.1)
   · exact hDg
 
-theorem lemmaIV95_qd (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr : σ.HypIV7 r)
-    (d : σ.IV7Data r) (hc : σ.Constrained r)
-    (hQ : ¬ PConstrainedWithin r (Subgroup.normalizer (d.Q : Set G))
-      (CFSG.oddCore (Subgroup.normalizer (d.Q : Set G))))
-    (h81 : σ.LemmaIV81) (h83 : σ.LemmaIV83)
-    (h92 : ∀ K ∈ σ.familyMstar r, PConstrainedWithin r K (CFSG.oddCore K) ↔
-      ∃ X : Subgroup G, IsSylowOf r X (oddCoreIn K) ∧ σ.T ≤ Subgroup.normalizer (X : Set G) ∧
-        ¬ σ.T ≤ Subgroup.centralizer (X : Set G))
-    (h_II34 : ∀ H : Subgroup G, σ.D ≤ H → IsDGroupWrt (σ.T.subgroupOf H) →
-      (∀ X : Subgroup G, X ≤ H → Odd (Nat.card X) → σ.T ≤ Subgroup.normalizer (X : Set G) →
-          X ≤ oddCoreIn H) ∨
-        ((∀ Y : Subgroup G, Y ≤ H → H ≤ Subgroup.normalizer (Y : Set G) → oddCoreIn H ≤ Y →
-            Y = oddCoreIn H ∨ Y = H) ∧
-          ∀ X : Subgroup G, X ≤ H → Odd (Nat.card X) → σ.D ≤ Subgroup.normalizer (X : Set G) →
-            ∃ T₁ : Subgroup G, T₁ ≤ σ.D ∧ IsKleinFour T₁ ∧ ⁅X, T₁⁆ ≤ oddCoreIn H) ∨
-        (σ.height = 1 ∧ ∃ q₁ : ℕ, 3 < q₁ ∧ IsLinearTypeWrt σ.T H q₁))
-    (h_II57 : ∀ H : Subgroup G, σ.D ≤ H → IsDGroupWrt (σ.T.subgroupOf H) →
-      IsLinearTypeWrt σ.T H 9 → H ⊓ Subgroup.centralizer (σ.T : Set G) ≤ σ.T ⊔ oddCoreIn H)
-    (h_II56 : ∀ (M Z W : Subgroup G) (F : Type) [Field F] [Finite F], Z ≤ M → W ≤ Z →
-      M ≤ Subgroup.normalizer (W : Set G) → Odd (Nat.card Z) → ⁅Z, M⁆ ≤ W →
-      Odd (Nat.card F) → 3 < Nat.card F → Nat.card F ≠ 9 →
-      (∃ ψ : M →* CFSG.GorensteinWalter.PSL2 F, Function.Surjective ψ ∧
-        ψ.ker = Z.subgroupOf M) →
-        ⁅M, M⁆ ⊓ Z ≤ W ∧ ⁅M, M⁆ ⊔ Z = M)
-    (h_II58 : ∀ (J W A : Subgroup G) (F : Type) [Field F] [Finite F], W ≤ J →
-      J ≤ Subgroup.normalizer (W : Set G) → Odd (Nat.card W) → Odd (Nat.card F) →
-      3 < Nat.card F →
-      (∃ ψ : J →* CFSG.GorensteinWalter.PSL2 F, Function.Surjective ψ ∧
-        ψ.ker = W.subgroupOf J) →
-      σ.T ≤ J → IsPGroup r A → A ≤ Subgroup.normalizer (J : Set G) →
-      A ≤ Subgroup.normalizer (W : Set G) → A ≤ Subgroup.centralizer (σ.T : Set G) →
-        ∃ g ∈ J, (∀ a ∈ A, a * g * a⁻¹ * g⁻¹ ∈ W) ∧
-          g ∈ Subgroup.normalizer ((σ.T ⊔ W : Subgroup G) : Set G) ∧
-          (∀ t ∈ σ.T, g ^ 3 * t * (g ^ 3)⁻¹ * t⁻¹ ∈ W) ∧ ∃ t ∈ σ.T, g * t * g⁻¹ * t⁻¹ ∉ W) :
-    (σ.height = 1 ∧
-        ∃ q₁ : ℕ, 3 < q₁ ∧ IsLinearTypeWrt σ.T (Subgroup.normalizer (d.Q : Set G)) q₁) ∧
-      IsSylowOf r (d.P ⊓ oddCoreIn (Subgroup.normalizer (d.Q : Set G)))
-        (oddCoreIn (Subgroup.normalizer (d.Q : Set G))) ∧
-      IsDGroupWrt (σ.T.subgroupOf
-        (Subgroup.normalizer (d.Q : Set G) ⊓ Subgroup.centralizer (d.P : Set G))) :=
-  ⟨σ.lemmaIV95_i hσ hII hr d hc hQ h81 h83 h92 h_II34, σ.lemmaIV95_ii hσ hr d hQ h81 h83 h92,
-    σ.lemmaIV95_iii hσ hII hr d hc hQ h81 h83 h92 h_II34 h_II57 h_II56 h_II58⟩
 
 end NormalizerQ
 

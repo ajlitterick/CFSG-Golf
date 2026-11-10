@@ -40,7 +40,6 @@ instance : Fintype RowV := inferInstanceAs (Fintype (Fin 248 → ZMod 2))
 
 theorem toRow_add (u v : Fin 248 → ZMod 2) : toRow (u + v) = toRow u + toRow v := rfl
 
-theorem toRow_zero : toRow 0 = 0 := rfl
 
 theorem span_pair_eq {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] (u v : M) :
     (Submodule.span (ZMod 2) {u, v} : Set M) = {0, u, v, u + v} := by
@@ -57,25 +56,6 @@ theorem span_pair_eq {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] (u v : M) 
     · exact ⟨0, 1, by simp⟩
     · exact ⟨1, 1, by simp⟩
 
-theorem linearIndependent_pair_of_ne {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] {u v : M}
-    (hu : u ≠ 0) (hv : v ≠ 0) (huv : u ≠ v) : LinearIndependent (ZMod 2) ![u, v] := by
-  rw [LinearIndependent.pair_iff]
-  have hz : ∀ c : ZMod 2, c = 0 ∨ c = 1 := by decide
-  intro s t hst
-  rcases hz s with rfl | rfl <;> rcases hz t with rfl | rfl
-  · exact ⟨rfl, rfl⟩
-  · simp at hst; exact absurd hst hv
-  · simp at hst; exact absurd hst hu
-  · simp only [one_smul] at hst
-    exact absurd (eq_neg_of_add_eq_zero_left hst |>.trans (ZModModule.neg_eq_self v)) huv
-
-theorem finrank_span_pair_of_ne {M : Type*} [AddCommGroup M] [Module (ZMod 2) M] {u v : M}
-    (hu : u ≠ 0) (hv : v ≠ 0) (huv : u ≠ v) :
-    Module.finrank (ZMod 2) (Submodule.span (ZMod 2) {u, v}) = 2 := by
-  have h := finrank_span_eq_card (linearIndependent_pair_of_ne hu hv huv)
-  rw [Fintype.card_fin] at h
-  rwa [Matrix.range_cons, Matrix.range_cons, Matrix.range_empty, Set.union_empty,
-    Set.singleton_union] at h
 
 @[expose] def rowPlane (k : Key) : Set RowV :=
   {0, toRow k.u.toVec, toRow k.v.toVec, toRow k.u.toVec + toRow k.v.toVec}
@@ -84,9 +64,6 @@ theorem rowPlane_eq_image (k : Key) : rowPlane k = toRow '' keyPlane k := by
   simp only [rowPlane, keyPlane, Set.image_insert_eq, Set.image_singleton]
   rfl
 
-theorem keyPlane_eq_image (k : Key) : keyPlane k = ofRow '' rowPlane k := by
-  rw [rowPlane_eq_image, Set.image_image]
-  simp [ofRow, toRow]
 
 theorem rowPlane_canon (p q : V4) :
     rowPlane (canon p q) = {0, toRow p.toVec, toRow q.toVec, toRow p.toVec + toRow q.toVec} := by
@@ -99,9 +76,6 @@ theorem rowPlane_eq_span (k : Key) :
   rw [span_pair_eq]
   rfl
 
-theorem eq_of_rowPlane_eq {k k' : Key} (hk : k.isCanonical = true) (hk' : k'.isCanonical = true)
-    (h : rowPlane k = rowPlane k') : k = k' :=
-  eq_of_keyPlane_eq hk hk' (by rw [keyPlane_eq_image, keyPlane_eq_image, h])
 
 theorem frApply_frTable_vecMul (R : Array V4) (v : V4) :
     (frApply (frTable R) v).toVec = Matrix.vecMul v.toVec (rowsMatrix R) := by
@@ -113,9 +87,6 @@ noncomputable abbrev formFInv : Matrix (Fin 248) (Fin 248) (ZMod 2) := rowsMatri
 
 @[expose] noncomputable def psi (u : V) : RowV := toRow (formF *ᵥ u)
 
-theorem psi_add (u v : V) : psi (u + v) = psi u + psi v := by
-  simp only [psi, Matrix.mulVec_add]
-  rfl
 
 theorem psi_zero : psi 0 = 0 := by
   simp only [psi, Matrix.mulVec_zero]

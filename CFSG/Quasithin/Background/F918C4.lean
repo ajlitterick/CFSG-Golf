@@ -176,9 +176,6 @@ theorem map_symm_eq {V : Subgroup W} {τ : MulAut W} (h : V.map τ.toMonoidHom =
 
 variable {L : Subgroup (MulAut W)} {V Z : Subgroup W} {π : ↥(alternatingGroup (Fin 6)) →* ↥L}
 
-theorem toAdd_act (y : ↥(alternatingGroup (Fin 6))) (z : (FFModel.altDn 6).Amb) :
-    Multiplicative.toAdd ((FFModel.altDn 6).act y z) =
-      fun i => Multiplicative.toAdd z ((y : Perm (Fin 6))⁻¹ i) := rfl
 
 theorem pi_injective (hπ : (FFModel.altDn 6).RealizesVia L V Z π) : Function.Injective π := by
   obtain ⟨-, -, -, hVinv, -, -, -, β, hβs, hβk, hβe⟩ := hπ

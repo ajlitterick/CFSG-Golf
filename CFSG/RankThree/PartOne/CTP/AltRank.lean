@@ -189,10 +189,5 @@ theorem closure_centralizers_eq_top {G V : Type*} [Group G] [Fintype V] [Decidab
   obtain ⟨t, ht, hφt⟩ := h2 (hmain hg)
   rwa [← hφ hφt]
 
-theorem closure_centralizers_alternatingGroup {n : ℕ} (hn₁ : 11 ≤ n) (hn₂ : n ≤ 14)
-    {E : Subgroup (alternatingGroup (Fin n))} (hE : Nat.card E = 25) (hpow : ∀ x ∈ E, x ^ 5 = 1) :
-    Subgroup.closure {k : alternatingGroup (Fin n) | ∃ x ∈ E, x ≠ 1 ∧ k * x = x * k} = ⊤ :=
-  closure_centralizers_eq_top (V := Fin n) (by simpa using hn₁) (by simpa using hn₂)
-    (alternatingGroup (Fin n)).subtype Subtype.val_injective (by simp) hE hpow
 
 end CFSG.RankThree.PartOne.CTP.Alt

@@ -45,7 +45,6 @@ theorem nodup_of_bitsetNodup {α : Type*} {l : List α} (f : α → ℕ)
 @[expose] def finFunKey {n m : ℕ} (f : Fin n → Fin m) : ℕ :=
   digitsKey m (fun i => if h : i < n then (f ⟨i, h⟩ : ℕ) else 0) n
 
-@[expose] def permKey {n : ℕ} (σ : Equiv.Perm (Fin n)) : ℕ := finFunKey (⇑σ)
 
 @[expose] def listKey (m : ℕ) (pos : List ℕ) (t : List ℕ) : ℕ :=
   pos.foldr (fun i acc => t.getD i 0 + m * acc) 0

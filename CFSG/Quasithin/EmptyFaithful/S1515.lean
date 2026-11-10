@@ -50,8 +50,5 @@ theorem lemma_15_1_5 {T Mc M : Subgroup G} (h : quasithinQTFE14Cat G T Mc) (hM :
     Lemma1515Concl T Mc M :=
   ⟨hgen, lemma_15_1_5_reduced h hM hgen, lemma_15_1_5_two h hM⟩
 
-theorem stageLemma1515_of_description (hD : Description1512) : StageLemma1515 := by
-  intro G _ _ T Mc M h hM
-  exact lemma_15_1_5 h hM (hD G T Mc M h hM)
 
 end CFSG.Quasithin

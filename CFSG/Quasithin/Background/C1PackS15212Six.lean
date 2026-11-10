@@ -205,13 +205,6 @@ theorem not_case1512Six_of_threeElements {T Mc M : Subgroup G} (hd : S152Y.Data 
   rw [h1, orderOf_one] at hg3
   omega
 
-theorem not_case1512Six_of_oThreePrime {T Mc M H : Subgroup G} (hd : S152Y.Data T Mc M)
-    (heq : conjClosure (oTwoUpper H) Mc = oPrimeResidualOf 3 Mc)
-    (hle : conjClosure (oTwoUpper H) Mc ≤
-      Subgroup.centralizer (quasithinOmegaOneCenter T : Set G)) :
-    ¬ Case1512Six T Mc M :=
-  not_case1512Six_of_threeElements hd fun _ hx hx3 =>
-    hle (heq ▸ Subgroup.subset_closure ⟨hx, hx3⟩)
 
 end C1Pack12
 

@@ -104,67 +104,6 @@ end Canon
 
 section Conj
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem LinkNoF3.of_conjMembers (h : LinkNoF3 p f conjMembers) : LinkNoF3 p f (canonClass p f) := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind a M hM hMa
-  have hK : canonClass p f K = conjMembers K := canonClass_eq_conjClass hz
-  beta_reduce at hM ⊢
-  rw [hK] at hM ⊢
-  exact h G hnab hp2 hq K z hz hBelow hconn hind a M hM hMa
-
-theorem FuzzyNoF3.of_conjMembers (h : FuzzyNoF3 p f conjMembers) :
-    FuzzyNoF3 p f (canonClass p f) := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind J₁ J₂ J₃ z₁ z₂ z₃ h1 h2 h3 hT b hb hb1
-  have hK : canonClass p f K = conjMembers K := canonClass_eq_conjClass hz
-  beta_reduce at h1 h2 h3
-  rw [hK] at h1 h2 h3
-  exact h G hnab hp2 hq K z hz hBelow hconn hind J₁ J₂ J₃ z₁ z₂ z₃ h1 h2 h3 hT b hb hb1
-
-theorem fuzzyEdgeInFrame_conjMembers (hF3 : LinkNoF3 p f conjMembers) :
-    FuzzyEdgeInFrame p f conjMembers commuteAdj := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind M hM N hN zM zN hMc hNc hE hne
-  have hK : conjMembers K = canonClass p f K := (canonClass_eq_conjClass hz).symm
-  have hadj : tqAdj p f M N := by
-    refine ⟨zM, zN, hMc, hNc, ?_, ?_⟩
-    · exact mem_trivialOnQuot_iff_actsTrivOnQuot.mp
-        (Theorem5.mem_trivialOnQuot_of_centralizes fun x hx => (hE x hx zN hNc.mem).symm)
-    · exact mem_trivialOnQuot_iff_actsTrivOnQuot.mp
-        (Theorem5.mem_trivialOnQuot_of_centralizes fun y hy => hE zM hMc.mem y hy)
-  beta_reduce at hM hN ⊢
-  rw [hK] at hM hN ⊢
-  exact fuzzyEdgeInFrame_canonClass (LinkNoF3.of_conjMembers hF3) G hnab hp2 hq K z hz hBelow
-    hconn hind M hM N hN zM zN hMc hNc hadj hne
-
-theorem fuzzyLinkConn_conjMembers (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hF3 : LinkNoF3 p f conjMembers) : FuzzyLinkConn p f conjMembers := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind a A hA A' hA' haA haA'
-  have hK : conjMembers K = canonClass p f K := (canonClass_eq_conjClass hz).symm
-  beta_reduce at hA hA' haA haA' ⊢
-  rw [hK] at hA hA' haA haA' ⊢
-  exact fuzzyLinkConn_canonClass hMFC (LinkNoF3.of_conjMembers hF3) G hnab hp2 hq K z hz hBelow
-    hconn hind a A hA A' hA' haA haA'
-
-theorem fuzzyFrameBalance_conjMembers
-    (hmodel : LayerGenerationHybrid p)
-    (hF3 : FuzzyNoF3 p f conjMembers) : FuzzyFrameBalance p f conjMembers := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind A hA
-  have hK : conjMembers K = canonClass p f K := (canonClass_eq_conjClass hz).symm
-  beta_reduce at hA
-  rw [hK] at hA
-  exact fuzzyFrameBalance_of_hybrid hmodel (FuzzyNoF3.of_conjMembers hF3) G hnab hp2 hq K z hz
-    hBelow hconn hind A hA
-
-theorem bootTriple_conjMembers (hlay : Theorem5.TriangleLayers p f)
-    (hmodel : LayerGenerationHybrid p) (hF3 : FuzzyNoF3 p f conjMembers)
-    (hlinkF3 : LinkNoF3 p f conjMembers) (hMFC : ModelFacts.CommutingFundamentalFactsFive p)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_fuzzyFrames conjMembers hlay
-    (fun _ _ _ K => conjInvariant_conjMembers K) (fuzzyFrameBalance_conjMembers hmodel hF3)
-    fuzzyAxisExact_conjMembers
-    (fuzzyVertexConn_of_adj fuzzyMemberConn_conjMembers (fuzzyEdgeInFrame_conjMembers hlinkF3))
-    (fuzzyLinkConn_conjMembers hMFC hlinkF3) hcov9 hexotic
 
 end Conj
 

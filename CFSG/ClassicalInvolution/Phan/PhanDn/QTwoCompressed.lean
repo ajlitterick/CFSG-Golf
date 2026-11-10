@@ -8,8 +8,6 @@ namespace CFSG.ClassicalInvolution.PhanDn
 
 variable {K : Type} [Field K]
 
-theorem compGraph_adj_of_flagGraph {σ : K ≃+* K} {U W : CompVert σ}
-    (h : (flagGraph σ 3).Adj U.1 W.1) : (compGraph σ).Adj U W := Or.inl h
 
 theorem FlagVert.finrank_one_two_four {σ : K ≃+* K} (U : FlagVert σ 3) :
     Module.finrank K U.1 = 1 ∨ Module.finrank K U.1 = 2 ∨ Module.finrank K U.1 = 4 := by

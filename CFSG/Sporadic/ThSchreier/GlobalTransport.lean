@@ -97,9 +97,6 @@ theorem stabilizer_planeWSet : MulAction.stabilizer J planeWSet = H := by
     psiSet_injective.eq_iff, smul_idx_eq_iff hC.orbit]
   rw [show ((root hC : Fin nX) : ℕ) = 0 from rfl, planeAt_zero hC.orbit]
 
-theorem card_stabilizer_planeWSet : Nat.card (MulAction.stabilizer J planeWSet) = 634023936 := by
-  rw [stabilizer_planeWSet hC]
-  exact card_H hC
 
 theorem isPreprimitive_planeX : MulAction.IsPreprimitive J planeX := by
   have := isPreprimitive hC

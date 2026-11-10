@@ -69,20 +69,6 @@ private theorem s16e_d3_dParam_seven : dParam 7 = 3 := by
   unfold dParam
   exact orderOf_eq_prime (by decide) (by decide)
 
-private lemma s16e_d3_stab_of_map_eq {U : Subgroup W} {φ : MulAut W}
-    (h : U.map φ.toMonoidHom = U) : φ ∈ stabSub U := by
-  intro u
-  constructor
-  · intro hu
-    have hu' : φ u ∈ U.map φ.toMonoidHom := by rw [h]; exact hu
-    obtain ⟨w, hw, hwu⟩ := Subgroup.mem_map.1 hu'
-    have : w = u := φ.injective hwu
-    rw [← this]
-    exact hw
-  · intro hu
-    have hu' : φ u ∈ U.map φ.toMonoidHom := Subgroup.mem_map.2 ⟨u, hu, rfl⟩
-    rw [h] at hu'
-    exact hu'
 
 private lemma s16e_d3_map_eq_of_mem_stab {U : Subgroup W} {φ : MulAut W}
     (h : φ ∈ stabSub U) : U.map φ.toMonoidHom = U := by

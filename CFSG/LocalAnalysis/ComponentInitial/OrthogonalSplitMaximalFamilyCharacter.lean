@@ -256,10 +256,6 @@ variable (Q : QuadraticForm K V) (k : ℕ)
   map_one' := Equiv.ext fun X => Subtype.ext (map_one_linearEquiv _)
   map_mul' g h := Equiv.ext fun X => Subtype.ext (map_mul_linearEquiv _ _ _)
 
-theorem coe_singularPerm_apply (g : TauCeti.QuadraticMap.orthogonalGroup Q)
-    (X : singularSubspaces Q k) :
-    (singularPerm Q k g X : Submodule K V) = X.1.map ((g : V ≃ₗ[K] V) : V →ₗ[K] V) :=
-  rfl
 
 end Perm
 

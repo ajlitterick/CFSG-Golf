@@ -23,31 +23,6 @@ deriving Inhabited
 @[inline] def tabBelow (n : Nat) (t : Tab) : Bool :=
   t.all fun x => x < n
 
-@[inline] def base64Val (c : UInt8) : Nat :=
-  if c ≥ 65 && c ≤ 90 then c.toNat - 65
-  else if c ≥ 97 && c ≤ 122 then c.toNat - 71
-  else if c ≥ 48 && c ≤ 57 then c.toNat + 4
-  else if c == 43 then 62
-  else if c == 47 then 63
-  else 0
-
-@[expose] def decodeBase64 (s : String) (size : Nat) : ByteArray := Id.run do
-  let src := s.toUTF8
-  let mut out : ByteArray := ByteArray.emptyWithCapacity size
-  let mut acc := 0
-  let mut bits := 0
-  let mut i := 0
-  let mut n := 0
-  while i < src.size && n < size do
-    acc := (acc <<< 6) ||| base64Val src[i]!
-    bits := bits + 6
-    i := i + 1
-    if bits ≥ 8 then
-      bits := bits - 8
-      out := out.push (UInt8.ofNat ((acc >>> bits) &&& 255))
-      acc := acc &&& ((1 <<< bits) - 1)
-      n := n + 1
-  return out
 
 @[expose] def parse (w : Nat → Nat) (wordCount degree rows ambient ambientGens bottom : Nat) :
     Parsed degree := Id.run do

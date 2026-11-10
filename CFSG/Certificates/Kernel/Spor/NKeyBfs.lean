@@ -344,7 +344,6 @@ end
 @[expose] def curE (f : Nat → Nat → Nat → Nat) (k c0 e : Nat) : Nat :=
   (List.range e).foldl (fun s e' => f (e' / k) (e' % k) s) c0
 
-theorem curE_zero (f : Nat → Nat → Nat → Nat) (k c0 : Nat) : curE f k c0 0 = c0 := rfl
 
 theorem curE_succ (f : Nat → Nat → Nat → Nat) (k c0 e : Nat) :
     curE f k c0 (e + 1) = f (e / k) (e % k) (curE f k c0 e) := by

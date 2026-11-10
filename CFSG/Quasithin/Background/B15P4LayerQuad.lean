@@ -66,18 +66,5 @@ theorem normalizes_of_isFFStarMin {V : Type} [CommGroup V] [Finite V]
     (hK : CFSG.Open.IsComponentOf K G) : A ≤ Subgroup.normalizer (K : Set (MulAut V)) :=
   normalizes_of_isQuadratic hV hA.1 (B1_4_3 hV hA) hK
 
-theorem asB15Part4Quad :
-    ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-      ∀ G A : Subgroup (MulAut V), IsFFStarOffender G A → IsQuadratic A →
-        ∀ K : Subgroup (MulAut V), CFSG.Open.IsComponentOf K G →
-          A ≤ Subgroup.normalizer (K : Set (MulAut V)) :=
-  fun _ _ _ hV _ _ hA hq _ hK => normalizes_of_isQuadratic hV hA hq hK
-
-theorem asB15Part4Star :
-    ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-      ∀ G A : Subgroup (MulAut V), IsFFStarMin G A →
-        ∀ K : Subgroup (MulAut V), CFSG.Open.IsComponentOf K G →
-          A ≤ Subgroup.normalizer (K : Set (MulAut V)) :=
-  fun _ _ _ hV _ _ hA _ hK => normalizes_of_isFFStarMin hV hA hK
 
 end CFSG.Quasithin.B15P4

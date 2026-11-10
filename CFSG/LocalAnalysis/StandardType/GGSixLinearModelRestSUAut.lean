@@ -27,11 +27,6 @@ variable {f : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2] (h : UnitaryField
 variable (hn : 4 ≤ n) (hker : ψ.ker ≤ Subgroup.center (SU (unitaryInvolution K 2 f) n))
   (hC : Subgroup.centralizer (ψ.range : Set G) = ⊥)
 
-include hn hker hC in
-theorem autOfU_injective : Function.Injective (autOfU h hn hker hC) := by
-  have hφ : Function.Injective ψ.range.normalizerMonoidHom := by
-    rw [← MonoidHom.ker_eq_bot_iff, Subgroup.normalizerMonoidHom_ker, hC, Subgroup.bot_subgroupOf]
-  exact (MulAut.congr (projEquivU h hn hker hC)).symm.injective.comp hφ
 
 theorem isJUnitary_of_mem {A : GL (Fin n) K}
     (hA : A ∈ primeFormUnitary h ((gramJ n : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)) :

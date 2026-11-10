@@ -435,11 +435,8 @@ theorem mulAut_congr_symm_congr_apply {X Y : Type*} [Group X] [Group Y] (e : X â
   ext x
   simp [MulAut.congr_apply]
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {K : Type} [Field K] [Finite K]
-  [CharP K 2]
 
 open CFSG.Blueprint
-open CFSG.ComponentClassification.CatLeafProof (fixedSubgroupCongrEquiv)
 
 end Row
 

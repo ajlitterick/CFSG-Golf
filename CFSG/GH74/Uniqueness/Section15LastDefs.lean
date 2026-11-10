@@ -89,8 +89,6 @@ namespace FinalHyp
 
 variable {M V R₀ Mo D K : Subgroup X} {u : X} {n : ℕ}
 
-theorem Mo_le_M (h : FinalHyp M V R₀ Mo D K u n) : Mo ≤ M :=
-  h.Mo_le.trans (h.R₀_le.trans h.V_le)
 
 theorem R₀_le_M (h : FinalHyp M V R₀ Mo D K u n) : R₀ ≤ M := h.R₀_le.trans h.V_le
 

@@ -112,15 +112,6 @@ theorem largeEvenLabelAll_inndiag_inn {lab : LargeEvenLabel} (h : GGInndiagInnLa
     subst h
     exact recipeSuzuki_inndiag hQ
 
-@[expose] def GGInndiagNormalRestInput : Prop :=
-  ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab → ¬ GGInndiagInnLabel lab →
-    LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGInndiagNormal R I)
-
-theorem ggInndiagNormalInput_of_rest (h : GGInndiagNormalRestInput) : GGInndiagNormalInput := by
-  intro lab hlab
-  by_cases hi : GGInndiagInnLabel lab
-  · exact largeEvenLabelAll_inndiag_inn hi
-  · exact h lab hlab hi
 
 end Labels
 

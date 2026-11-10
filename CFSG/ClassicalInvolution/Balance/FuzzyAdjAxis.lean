@@ -265,11 +265,6 @@ theorem exists_perfectResidual_mul {J A : Subgroup G} (hJ : Group.IsPerfect J)
     QuotientGroup.eq.mp hix
   exact mem_oddCoreIn_of_mem_classicalInvolutionOddCore hmk
 
-theorem mem_perfectResidual_axis {J A : Subgroup G} {z : G} (hJ : Group.IsPerfect J)
-    (hA : IsPGroup 2 A) (hAJ : A ≤ trivialOnQuot J) (hzJ : z ∈ J) (hz2 : z * z = 1)
-    (hzc : ∀ x ∈ J, x * z = z * x) :
-    z ∈ perfectResidualOf (J ⊓ Subgroup.centralizer (A : Set G)) :=
-  mem_of_cover_of_central hzJ hz2 hzc (exists_perfectResidual_mul hJ hA hAJ)
 
 omit [Finite G] in
 theorem isSubnormal_perfectResidual_axis {J A : Subgroup G} {z : G}
@@ -351,48 +346,6 @@ theorem axisResidual_perfectResidual {J A : Subgroup G} {z : G} (hJ : Group.IsPe
     ((Subgroup.map_subtype_le _ : perfectResidualOf (J ⊓ Subgroup.centralizer (A : Set G)) ≤ _))
     (exists_perfectResidual_mul hJ hA hAJ) (isSubnormal_perfectResidual_axis hsub)
 
-omit [Finite G] in
-theorem AxisResidual.isClassicalMemberIn {J A I : Subgroup G} {z : G}
-    (hJ : IsClassicalMember p f J z) (hAz : ∀ a ∈ A, a * z = z * a)
-    (h : AxisResidual J A I z) (hperf : Group.IsPerfect I) :
-    IsClassicalMemberIn p f (Subgroup.centralizer (A : Set G)) I z := by
-  set Y := Subgroup.centralizer (A : Set G) with hY
-  have hzY : z ∈ Y := Subgroup.mem_centralizer_iff.mpr hAz
-  have hIY : I ≤ Y := h.le_inf.trans inf_le_right
-  have hIJ : I ≤ J := h.le_inf.trans inf_le_left
-  have hsurj : Function.Surjective (toOddQuot hIJ) := toOddQuot_surjective hIJ h.cover
-  have e : I.subgroupOf Y ≃* I := Subgroup.subgroupOfEquivOfLe hIY
-  refine ⟨hzY, ?_, Subgroup.mem_subgroupOf.mpr h.mem, ?_, ?_, ?_⟩
-  · rw [Subgroup.orderOf_mk]
-    exact hJ.orderOf_eq_two
-  · exact Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective
-  · have h2 : (Subgroup.centralizer ({z} : Set G) ⊓ Y).subgroupOf Y =
-        Subgroup.centralizer ({(⟨z, hzY⟩ : Y)} : Set Y) := by
-      ext x
-      simp only [Subgroup.mem_subgroupOf, Subgroup.mem_inf, Subgroup.mem_centralizer_iff,
-        Set.mem_singleton_iff, forall_eq]
-      exact ⟨fun hx => Subtype.ext hx.1, fun hx => ⟨congrArg Subtype.val hx, x.2⟩⟩
-    rw [← h2]
-    exact isSubnormal_subgroupOf h.subnormal Y
-  · obtain ⟨e'⟩ := hJ.nonempty_equiv
-    obtain ⟨φ⟩ := h.nonempty_equiv
-    have hO : (classicalInvolutionOddCore (I.subgroupOf Y)).map e.toMonoidHom =
-        classicalInvolutionOddCore I :=
-      CFSG.ComponentClassification.OddCore.equiv_invariant e
-    exact ⟨((QuotientGroup.congr _ _ e hO).trans φ).trans e'⟩
-
-theorem isClassicalMemberIn_perfectResidual_axis {J A : Subgroup G} {z : G}
-    (hJ : IsClassicalMember p f J z) (hA : IsPGroup 2 A) (hAJ : A ≤ trivialOnQuot J)
-    (hAz : ∀ a ∈ A, a * z = z * a) :
-    IsClassicalMemberIn p f (Subgroup.centralizer (A : Set G))
-      (perfectResidualOf (J ⊓ Subgroup.centralizer (A : Set G))) z := by
-  have hz2 : z * z = 1 := by
-    rw [← pow_two, ← hJ.orderOf_eq_two]
-    exact pow_orderOf_eq_one z
-  have hzc : ∀ x ∈ J, x * z = z * x := fun x hx =>
-    Subgroup.mem_centralizer_singleton_iff.mp (isSubnormal_le hJ.subnormal hx)
-  exact (axisResidual_perfectResidual hJ.perfect hJ.mem hz2 hzc hJ.subnormal hA
-    hAJ).isClassicalMemberIn hJ hAz (finite_perfectResidualOf_isPerfect _)
 
 end Vertex
 
@@ -410,11 +363,6 @@ theorem FuzzyEdge.symm {J K : Subgroup G} (h : FuzzyEdge J K) : FuzzyEdge K J :=
     rw [← commutatorElement_inv x y]
     exact ⟨inv_mem hxy.2, inv_mem hxy.1⟩
 
-omit [Finite G] in
-theorem FuzzyEdge.of_commutes {J K : Subgroup G} (h : Commutes J K) : FuzzyEdge J K :=
-  fun x hx y hy => by
-    rw [(commutatorElement_eq_one_iff_mul_comm).mpr (h x hx y hy)]
-    exact ⟨one_mem _, one_mem _⟩
 
 theorem commute_of_fuzzyEdge {J K : Subgroup G} {x y : G} (hxJ : x ∈ J) (hyK : y ∈ K)
     (hx2 : x * x = 1) (hy2 : y * y = 1) (hKy : ∀ k ∈ K, k * y = y * k)
@@ -561,14 +509,6 @@ theorem triangleAxis_data {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G}
     · exact mem_trivialOnQuot_of_fuzzyEdge h₂.mem h₂.sq e₂₃.symm
     · exact mem_trivialOnQuot_self h₃.mem (hcen h₃)
 
-theorem isElemAbelian_triangleAxis {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G}
-    (h₁ : IsCentralInvolution J₁ z₁) (h₂ : IsCentralInvolution J₂ z₂)
-    (h₃ : IsCentralInvolution J₃ z₃) (e₁₂ : FuzzyEdge J₁ J₂) (e₁₃ : FuzzyEdge J₁ J₃)
-    (e₂₃ : FuzzyEdge J₂ J₃) : IsElemAbelian 2 (triangleAxis z₁ z₂ z₃) := by
-  obtain ⟨hcomm, hsq, -⟩ := triangleAxis_data h₁ h₂ h₃ e₁₂ e₁₃ e₂₃
-  refine ⟨⟨⟨fun a b => Subtype.ext (hcomm a.1 a.2 b.1 b.2)⟩⟩, fun x hx => ?_⟩
-  rw [pow_two]
-  exact hsq x hx
 
 omit [Finite G] in
 theorem isCentralInvolution_of_isClassicalMember {J : Subgroup G} {z : G}
@@ -585,44 +525,6 @@ theorem isCentralInvolution_of_isClassicalMember {J : Subgroup G} {z : G}
   central := fun k hk =>
     (Subgroup.mem_centralizer_singleton_iff.mp (isSubnormal_le h.subnormal hk)).symm
 
-theorem triangle_axisResidual {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G} {A : Subgroup G}
-    (h₁ : IsClassicalMember p f J₁ z₁) (h₂ : IsClassicalMember p f J₂ z₂)
-    (h₃ : IsClassicalMember p f J₃ z₃) (e₁₂ : FuzzyEdge J₁ J₂) (e₁₃ : FuzzyEdge J₁ J₃)
-    (e₂₃ : FuzzyEdge J₂ J₃) (hA : A ≤ triangleAxis z₁ z₂ z₃) :
-    AxisResidual J₁ A (perfectResidualOf (J₁ ⊓ Subgroup.centralizer (A : Set G))) z₁ ∧
-    AxisResidual J₂ A (perfectResidualOf (J₂ ⊓ Subgroup.centralizer (A : Set G))) z₂ ∧
-    AxisResidual J₃ A (perfectResidualOf (J₃ ⊓ Subgroup.centralizer (A : Set G))) z₃ := by
-  have c₁ := isCentralInvolution_of_isClassicalMember h₁
-  have c₂ := isCentralInvolution_of_isClassicalMember h₂
-  have c₃ := isCentralInvolution_of_isClassicalMember h₃
-  obtain ⟨hcomm, hsq, hA₁, hA₂, hA₃⟩ := triangleAxis_data c₁ c₂ c₃ e₁₂ e₁₃ e₂₃
-  have hA2 : IsPGroup 2 A := isPGroup_two_of_sq_eq_one fun x hx => hsq x (hA hx)
-  exact ⟨axisResidual_perfectResidual h₁.perfect h₁.mem c₁.sq (fun x hx => (c₁.central x hx).symm)
-      h₁.subnormal hA2 (hA.trans hA₁),
-    axisResidual_perfectResidual h₂.perfect h₂.mem c₂.sq (fun x hx => (c₂.central x hx).symm)
-      h₂.subnormal hA2 (hA.trans hA₂),
-    axisResidual_perfectResidual h₃.perfect h₃.mem c₃.sq (fun x hx => (c₃.central x hx).symm)
-      h₃.subnormal hA2 (hA.trans hA₃)⟩
-
-theorem triangle_isClassicalMemberIn {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G} {A : Subgroup G}
-    (h₁ : IsClassicalMember p f J₁ z₁) (h₂ : IsClassicalMember p f J₂ z₂)
-    (h₃ : IsClassicalMember p f J₃ z₃) (e₁₂ : FuzzyEdge J₁ J₂) (e₁₃ : FuzzyEdge J₁ J₃)
-    (e₂₃ : FuzzyEdge J₂ J₃) (hA : A ≤ triangleAxis z₁ z₂ z₃) :
-    IsClassicalMemberIn p f (Subgroup.centralizer (A : Set G))
-      (perfectResidualOf (J₁ ⊓ Subgroup.centralizer (A : Set G))) z₁ ∧
-    IsClassicalMemberIn p f (Subgroup.centralizer (A : Set G))
-      (perfectResidualOf (J₂ ⊓ Subgroup.centralizer (A : Set G))) z₂ ∧
-    IsClassicalMemberIn p f (Subgroup.centralizer (A : Set G))
-      (perfectResidualOf (J₃ ⊓ Subgroup.centralizer (A : Set G))) z₃ := by
-  obtain ⟨r₁, r₂, r₃⟩ := triangle_axisResidual h₁ h₂ h₃ e₁₂ e₁₃ e₂₃ hA
-  obtain ⟨hcomm, -, -⟩ := triangleAxis_data (isCentralInvolution_of_isClassicalMember h₁)
-    (isCentralInvolution_of_isClassicalMember h₂) (isCentralInvolution_of_isClassicalMember h₃)
-    e₁₂ e₁₃ e₂₃
-  have hz : ∀ z ∈ ({z₁, z₂, z₃} : Set G), ∀ a ∈ A, a * z = z * a :=
-    fun z hz a ha => hcomm a (hA ha) z (Subgroup.subset_closure hz)
-  exact ⟨r₁.isClassicalMemberIn h₁ (hz z₁ (by simp)) (finite_perfectResidualOf_isPerfect _),
-    r₂.isClassicalMemberIn h₂ (hz z₂ (by simp)) (finite_perfectResidualOf_isPerfect _),
-    r₃.isClassicalMemberIn h₃ (hz z₃ (by simp)) (finite_perfectResidualOf_isPerfect _)⟩
 
 end Triangle
 
@@ -650,70 +552,11 @@ theorem isCentralInvolution_of_isClassicalMember3 {J : Subgroup G} {z : G}
   central := fun k hk =>
     (Subgroup.mem_centralizer_singleton_iff.mp (isSubnormal_le h.subnormal hk)).symm
 
-omit [Finite G] in
-theorem AxisResidual.isClassicalMember3In {J A I : Subgroup G} {z : G}
-    (hJ : IsClassicalMember3 J z) (hAz : ∀ a ∈ A, a * z = z * a) (h : AxisResidual J A I z) :
-    IsClassicalMember3In (Subgroup.centralizer (A : Set G)) I z := by
-  set Y := Subgroup.centralizer (A : Set G) with hY
-  have hzY : z ∈ Y := Subgroup.mem_centralizer_iff.mpr hAz
-  have hIY : I ≤ Y := h.le_inf.trans inf_le_right
-  have e : I.subgroupOf Y ≃* I := Subgroup.subgroupOfEquivOfLe hIY
-  refine ⟨hzY, ?_, Subgroup.mem_subgroupOf.mpr h.mem, ?_, ?_⟩
-  · rw [Subgroup.orderOf_mk]
-    exact hJ.orderOf_eq_two
-  · have h2 : (Subgroup.centralizer ({z} : Set G) ⊓ Y).subgroupOf Y =
-        Subgroup.centralizer ({(⟨z, hzY⟩ : Y)} : Set Y) := by
-      ext x
-      simp only [Subgroup.mem_subgroupOf, Subgroup.mem_inf, Subgroup.mem_centralizer_iff,
-        Set.mem_singleton_iff, forall_eq]
-      exact ⟨fun hx => Subtype.ext hx.1, fun hx => ⟨congrArg Subtype.val hx, x.2⟩⟩
-    rw [← h2]
-    exact isSubnormal_subgroupOf h.subnormal Y
-  · obtain ⟨e'⟩ := hJ.nonempty_equiv
-    obtain ⟨φ⟩ := h.nonempty_equiv
-    have hO : (classicalInvolutionOddCore (I.subgroupOf Y)).map e.toMonoidHom =
-        classicalInvolutionOddCore I :=
-      CFSG.ComponentClassification.OddCore.equiv_invariant e
-    exact ⟨((QuotientGroup.congr _ _ e hO).trans φ).trans e'⟩
-
-theorem isClassicalMember3In_centralizer_axis {J A : Subgroup G} {z : G}
-    (hJ : IsClassicalMember3 J z) (hA : IsPGroup 2 A) (hAJ : A ≤ trivialOnQuot J)
-    (hAz : ∀ a ∈ A, a * z = z * a) :
-    IsClassicalMember3In (Subgroup.centralizer (A : Set G))
-      (J ⊓ Subgroup.centralizer (A : Set G)) z := by
-  have hc := isCentralInvolution_of_isClassicalMember3 hJ
-  exact (axisResidual_centralizer hJ.mem hc.sq (fun x hx => (hc.central x hx).symm)
-    hJ.subnormal hA hAJ).isClassicalMember3In hJ hAz
-
-theorem triangle_isClassicalMember3In {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G} {A : Subgroup G}
-    (h₁ : IsClassicalMember3 J₁ z₁) (h₂ : IsClassicalMember3 J₂ z₂)
-    (h₃ : IsClassicalMember3 J₃ z₃) (e₁₂ : FuzzyEdge J₁ J₂) (e₁₃ : FuzzyEdge J₁ J₃)
-    (e₂₃ : FuzzyEdge J₂ J₃) (hA : A ≤ triangleAxis z₁ z₂ z₃) :
-    IsClassicalMember3In (Subgroup.centralizer (A : Set G))
-      (J₁ ⊓ Subgroup.centralizer (A : Set G)) z₁ ∧
-    IsClassicalMember3In (Subgroup.centralizer (A : Set G))
-      (J₂ ⊓ Subgroup.centralizer (A : Set G)) z₂ ∧
-    IsClassicalMember3In (Subgroup.centralizer (A : Set G))
-      (J₃ ⊓ Subgroup.centralizer (A : Set G)) z₃ := by
-  obtain ⟨hcomm, hsq, hA₁, hA₂, hA₃⟩ := triangleAxis_data
-    (isCentralInvolution_of_isClassicalMember3 h₁) (isCentralInvolution_of_isClassicalMember3 h₂)
-    (isCentralInvolution_of_isClassicalMember3 h₃) e₁₂ e₁₃ e₂₃
-  have hA2 : IsPGroup 2 A := isPGroup_two_of_sq_eq_one fun x hx => hsq x (hA hx)
-  have hz : ∀ z ∈ ({z₁, z₂, z₃} : Set G), ∀ a ∈ A, a * z = z * a :=
-    fun z hz a ha => hcomm a (hA ha) z (Subgroup.subset_closure hz)
-  exact ⟨isClassicalMember3In_centralizer_axis h₁ hA2 (hA.trans hA₁) (hz z₁ (by simp)),
-    isClassicalMember3In_centralizer_axis h₂ hA2 (hA.trans hA₂) (hz z₂ (by simp)),
-    isClassicalMember3In_centralizer_axis h₃ hA2 (hA.trans hA₃) (hz z₃ (by simp))⟩
 
 end Three
 
 section EdgeNAdj
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem FuzzyEdge.nadj {z : G} {J K : Subgroup G}
-    (hJ : IsSubnormal J (Subgroup.centralizer ({z} : Set G))) (h : FuzzyEdge J K) :
-    NAdj z J K := fun x hx y hy => oddCoreIn_le_of_isSubnormal hJ ((h x hx y hy).1)
 
 end EdgeNAdj
 

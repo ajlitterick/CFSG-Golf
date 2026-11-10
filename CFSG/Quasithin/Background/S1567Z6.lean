@@ -125,27 +125,6 @@ theorem barAut_mk [IsMulCommutative ↥V] {g : G}
   rw [QuotientGroup.congr_mk]
   congr 1
 
-theorem barAut_pow_mk [IsMulCommutative ↥V] {g : G}
-    (hgV : g ∈ Subgroup.normalizer (V : Set G)) (hgE : g ∈ Subgroup.normalizer (E : Set G))
-    (m : ℕ) (v : ↥V) :
-    haveI : (E.subgroupOf V).Normal := Subgroup.normal_of_isMulCommutative _
-    (barAut g hgV hgE ^ m) (QuotientGroup.mk v) =
-      QuotientGroup.mk ⟨g ^ m * (v : G) * (g ^ m)⁻¹,
-        (Subgroup.mem_normalizer_iff.mp ((Subgroup.normalizer _).pow_mem hgV m) v).mp v.2⟩ := by
-  have : (E.subgroupOf V).Normal := Subgroup.normal_of_isMulCommutative _
-  induction m generalizing v with
-  | zero =>
-    show QuotientGroup.mk v = _
-    congr 1
-    apply Subtype.ext
-    simp
-  | succ m ih =>
-    rw [pow_succ, MulAut.mul_apply, barAut_mk hgV hgE, ih]
-    congr 1
-    apply Subtype.ext
-    show g ^ m * (g * (v : G) * g⁻¹) * (g ^ m)⁻¹ = g ^ (m + 1) * (v : G) * (g ^ (m + 1))⁻¹
-    rw [pow_succ']
-    group
 
 theorem isKleinFour_quot (hV : IsElemAbelian 2 V) (hEV : E ≤ V) (hV16 : Nat.card ↥V = 16)
     (hE4 : Nat.card ↥E = 4) :

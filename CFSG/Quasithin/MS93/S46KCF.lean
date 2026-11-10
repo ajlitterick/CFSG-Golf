@@ -40,11 +40,6 @@ theorem zprod_mem {H : Subgroup 𝔾} {w : Fin 6 → F → 𝔾} (hw : ∀ i s, 
 
 end Grp
 
-variable {G : Type} [Group G] [Finite G] {M T L : Subgroup G} {F : Type} [Field F] [Fintype F]
-  {φ : ↥M →* ↥(StatedSL 3 F)} {c : Hyp46 M T L φ} {α β γ : Vtx (puAmalgam c.pu.le)}
-  {ψ : ↥(stab (puAmalgam c.pu.le) α) →* ↥(StatedSL 3 F)}
-
-variable [CharP F 2]
 
 end KCF
 

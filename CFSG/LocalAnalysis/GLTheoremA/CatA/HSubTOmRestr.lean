@@ -76,25 +76,6 @@ private theorem coe_restrictEquiv {g : StatedSp 4 (ZMod 2)} (hg : g * t = t * g)
     (v : ↥(fixV t)) : ((restrictEquiv (t := t) hg v : ↥(fixV t)) : Fin 4 ⊕ Fin 4 → ZMod 2) =
       spEnd g v := rfl
 
-private theorem restrictEquiv_mul {g h : StatedSp 4 (ZMod 2)}
-    (hg : g * t = t * g) (hh : h * t = t * h) (hgh : g * h * t = t * (g * h)) :
-    restrictEquiv (t := t) hgh = restrictEquiv (t := t) hg * restrictEquiv (t := t) hh := by
-  apply LinearEquiv.ext
-  intro v
-  apply Subtype.ext
-  change spEnd (g * h) v = spEnd g (spEnd h v)
-  rw [spEnd_mul, Module.End.mul_apply]
-
-private theorem one_comm : (1 : StatedSp 4 (ZMod 2)) * t = t * 1 := by
-  rw [one_mul, mul_one]
-
-private theorem restrictEquiv_one : restrictEquiv (t := t) one_comm = 1 := by
-  apply LinearEquiv.ext
-  intro v
-  apply Subtype.ext
-  change spEnd 1 (v : Fin 4 ⊕ Fin 4 → ZMod 2) = (v : Fin 4 ⊕ Fin 4 → ZMod 2)
-  rw [spEnd_one]
-  rfl
 
 private theorem commSpace_restrictEquiv_eq (ht3 : t ^ 3 = 1) {g : StatedSp 4 (ZMod 2)}
     (hg : g * t = t * g) (htriv : ∀ v ∈ movV t, spEnd g v = v) :

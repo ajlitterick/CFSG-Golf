@@ -136,25 +136,6 @@ theorem closure_g6C :
       exact ⟨⟨s, by rw [row6_parts.2.2.2.2.1]; exact s.2⟩, rfl⟩)
   exact h
 
-theorem phi6_range :
-    phi6.range = arrGen 1100 om0Gens := by
-  rw [range_eq_closure phi6 closure_g6C]
-  have hsz : om0Gens.size = 12 := by simp [om0Gens, row6_parts.2.2.2.2.1]
-  have hO : ∀ k < om0Gens.size, PRep 1100 om0Gens[k]!
-      (if h : k < 12 then phi6 (g6C ⟨k, h⟩) else 1) := by
-    intro k hk
-    have hk' : k < 12 := by rw [← hsz]; exact hk
-    rw [dite_eq_left hk']
-    exact prep_phi6 ⟨k, hk'⟩
-  rw [arrGen_eq hO]
-  congr 1
-  ext σ
-  constructor
-  · rintro ⟨s, rfl⟩
-    exact ⟨⟨s, by rw [hsz]; exact s.2⟩, by dsimp only; rw [dite_eq_left s.2]⟩
-  · rintro ⟨⟨k, hk⟩, rfl⟩
-    have hk' : k < 12 := by rw [← hsz]; exact hk
-    exact ⟨⟨k, hk'⟩, by simp only [dite_eq_left hk']⟩
 
 @[expose] def t6C : C6 := ⟨aJ, mem_centralizer_of_comm rfl⟩
 

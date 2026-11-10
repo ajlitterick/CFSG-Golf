@@ -68,15 +68,6 @@ theorem levTwoS2b_coord_rRefl_gen (n : ℕ) (hn : 1 ≤ n) {a b : Fin n} (hab : 
   rw [levTwoS2b_rRefl_apply_sum n hn hβ hk]
   rw [levTwoS2b_coord_sub, levTwoS2b_coord_smul, levTwoS2b_coord_ofCoord]
 
-theorem levTwoS2b_rRefl_gen_fix (n : ℕ) (hn : 1 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    {s t : ℤ} (hs : s = 1 ∨ s = -1) (ht : t = 1 ∨ t = -1) {v : Fin n → ℤ}
-    (hva : levTwoS2b_coord n v a = 0) (hvb : levTwoS2b_coord n v b = 0) :
-    weylAction (isFiniteType_cartanB n)
-        (rRefl (isFiniteType_cartanB n)
-          (levTwoS2b_ofCoord n (Pi.single a s - Pi.single b t))) v = v := by
-  apply levTwoS2b_coord_injective n
-  rw [levTwoS2b_coord_rRefl_gen n hn hab hs ht v, hva, hvb]
-  simp
 
 theorem levTwoS2b_rRefl_gen_swap (n : ℕ) (hn : 1 ≤ n) {a b : Fin n} (hab : a ≠ b)
     {s t : ℤ} (hs : s = 1 ∨ s = -1) (ht : t = 1 ∨ t = -1) :
@@ -327,9 +318,6 @@ theorem levTwoS2b_rRefl_gen_add_gen (n : ℕ) (hn : 1 ≤ n) {b b' d : Fin n} (h
   funext k
   simp only [Pi.add_apply, Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.single_apply]
   split_ifs <;> simp_all
-
-
-
 
 
 end CFSG.StandardType.LevTwo

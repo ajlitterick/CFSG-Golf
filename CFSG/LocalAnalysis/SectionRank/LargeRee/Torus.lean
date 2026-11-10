@@ -209,11 +209,6 @@ theorem eq_of_simpleChar_eq
       mul_inv_cancel₀ (simpleChar_ne_zero hh' i)]
   exact mul_inv_eq_one.1 this
 
-theorem simpleChar_torusElement
-    (j k : Fin τ.rank) (t : Kˣ) :
-    simpleChar (torusElement τ K j t) k = ((t ^ τ.cartan j k : Kˣ) : K) := by
-  refine simpleChar_eq_of_conj (torusElement_mem_H (nativeRootSubgroups τ K) j t) ?_
-  rw [torusElement_conj_xElement, mul_one]
 
 theorem simpleChar_nrep_conj
     {h : adjointGroup τ K} (hh : h ∈ (nativeData τ K).H)
@@ -566,9 +561,6 @@ theorem nrep_conj_reeTorus_eq
   · rw [simpleChar_nrep_conj_reeTorus, h0]
   · rw [simpleChar_nrep_conj_reeTorus, h1]
 
-theorem fi_zero_eq : fi 0 = (0 : Fin 4) := rfl
-
-theorem fi_one_eq : fi 1 = (1 : Fin 4) := rfl
 
 theorem torus_reflections
     (hK : Nat.card K = ReeTag.F4.prime ^ (2 * a + 1)) (u : Kˣ) :

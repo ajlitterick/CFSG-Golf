@@ -124,9 +124,6 @@ variable (D) in
   neg_mem' {a} ha i hi := by
     simp only [Pi.neg_apply, ha i hi, neg_zero]
 
-theorem mem_ggSupp_iff {J : Finset (Fin D.rank)} {γ : Fin D.rank → ℤ} :
-    γ ∈ ggSupp D J ↔ γ ∈ D.roots ∧ γ ∈ ggSuppLattice D J :=
-  Iff.rfl
 
 theorem eq_sum_single_of_supp {J : Finset (Fin D.rank)} {γ : Fin D.rank → ℤ}
     (hγ : ∀ i ∉ J, γ i = 0) : γ = ∑ j ∈ J, γ j • (Pi.single j 1 : Fin D.rank → ℤ) := by

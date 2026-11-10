@@ -30,17 +30,6 @@ open scoped MatrixGroups
     A3A3x T M H S L s x z₁ z₂ →
     IsGamma2 M (centralizerElem z₂) ∧ ∃ K : Subgroup G, A3A3K T M H S L s x z₁ z₂ K
 
-@[expose] def Lemma2_4_34 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G) (s x z₁ z₂ : G) (K : Subgroup G),
-    A3A3K T M H S L s x z₁ z₂ K → ⁅K, blockU2 L s⁆ = K
-
-@[expose] def Lemma2_4_35 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G) (s x z₁ z₂ : G) (K : Subgroup G),
-    A3A3K T M H S L s x z₁ z₂ K →
-      ∃ e : ↥K ≃* alternatingGroup (Fin 6),
-        (∃ u ∈ blockU2 L s, u ∉ Subgroup.zpowers z₂ ∧ (∀ l ∈ L, u * l = l * u) ∧
-          ∃ τ : Equiv.Perm (Fin 6), τ.IsSwap ∧ InducesPerm e u τ) ∧
-        ¬ ∃ σ : Equiv.Perm (Fin 6), InducesPerm e x σ
 
 @[expose] def Lemma2_4_36 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G) (s x z₁ z₂ : G) (K : Subgroup G),
@@ -57,12 +46,5 @@ open scoped MatrixGroups
           ((α k : K) : G) = g⁻¹ * (k : G) * g) ∧
       (T ⊓ Subgroup.centralizer (conjJoin S L : Set G) = ⊥ ∧ Nat.card T = 2 ^ 8)
 
-@[expose] def Lemma2_4_37 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G) (s x z₁ z₂ : G) (K : Subgroup G),
-    A3A3K T M H S L s x z₁ z₂ K →
-      {y | y ∈ conjClass z₂ ∧ y ∈ baum S} =
-          {y | y ∈ conjClass z₂ ∧ y ∈ baum S ⊓ K} ∪
-            {y | y ∈ conjClass z₂ ∧ y ∈ conjR (baum S ⊓ K) s} ∧
-        {y | y ∈ conjClass z₂ ∧ y ∈ baum S ⊓ K}.ncard = 5
 
 end CFSG.QuasithinUnique.DoubleA3

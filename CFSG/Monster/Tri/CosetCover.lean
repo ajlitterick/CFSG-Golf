@@ -65,20 +65,6 @@ section CosetGraphLemmas
 
 variable {Z : Type*} [Group Z] {K : Subgroup Z} {s : Z}
 
-theorem cosetGraph_adj_mk_mk_iff (hs : s ∉ K) (hs₂ : s * s ∈ K) {z z' : Z} :
-    (cosetGraph K s).Adj (z : Z ⧸ K) (z' : Z ⧸ K) ↔ ∃ a ∈ K, ∃ k ∈ K, z⁻¹ * z' = a * s * k := by
-  rw [cosetGraph_adj_mk_iff hs hs₂]
-  constructor
-  · rintro ⟨a, ha, h⟩
-    have h1 : z'⁻¹ * (z * a * s) ∈ K := QuotientGroup.eq.1 h
-    refine ⟨a, ha, (z'⁻¹ * (z * a * s))⁻¹, K.inv_mem h1, ?_⟩
-    group
-  · rintro ⟨a, ha, k, hk, h⟩
-    refine ⟨a, ha, QuotientGroup.eq.2 ?_⟩
-    have : z' = z * (a * s * k) := by rw [← h]; group
-    rw [this]
-    convert K.inv_mem hk using 1
-    group
 
 theorem cosetGraph_reachable_of_mem_closure (hs : s ∉ K) (hs₂ : s * s ∈ K) {z : Z}
     (hz : z ∈ Subgroup.closure ((K : Set Z) ∪ {s})) :
@@ -136,12 +122,6 @@ theorem chi_mk (hc : ∀ h ∈ H, h * c = c * h)
     (hs : (twoAGraph (f c)).Adj (baseVertex (f c)) (f S • baseVertex (f c))) (z : M) :
     chi f H c S hc hs (z : M ⧸ H) = f z • baseVertex (f c) := rfl
 
-theorem chi_smul (hc : ∀ h ∈ H, h * c = c * h)
-    (hs : (twoAGraph (f c)).Adj (baseVertex (f c)) (f S • baseVertex (f c))) (z : M)
-    (b : M ⧸ H) : chi f H c S hc hs (z • b) = f z • chi f H c S hc hs b := by
-  induction b using QuotientGroup.induction_on with
-  | _ w =>
-    rw [MulAction.Quotient.smul_mk, smul_eq_mul, chi_mk, chi_mk, map_mul, mul_smul]
 
 variable {f H c S}
 
@@ -198,23 +178,6 @@ theorem ker_mk_injective (hinj : Set.InjOn f H) {k k' : M} (hk : k ∈ f.ker) (h
     simp
   exact inv_mul_eq_one.1 (hinj h1 H.one_mem h2)
 
-noncomputable def kerEquivFibre (hc : ∀ h ∈ H, h * c = c * h)
-    (hs : (twoAGraph (f c)).Adj (baseVertex (f c)) (f S • baseVertex (f c)))
-    (hinj : Set.InjOn f H) (hmap : H.map f = Subgroup.centralizer {f c}) :
-    f.ker ≃ {b : M ⧸ H // chi f H c S hc hs b = baseVertex (f c)} :=
-  Equiv.ofBijective
-    (fun n => ⟨(n.1 : M ⧸ H), by rw [chi_mk, MonoidHom.mem_ker.1 n.2, one_smul]⟩)
-    ⟨fun n n' h => Subtype.ext (ker_mk_injective hinj n.2 n'.2 (congrArg Subtype.val h)),
-      fun ⟨b, hb⟩ => by
-        obtain ⟨z, rfl⟩ := QuotientGroup.mk_surjective b
-        rw [chi_mk] at hb
-        have hz : f z ∈ Subgroup.centralizer {f c} := (smul_eq_self_iff _ _).1 hb
-        obtain ⟨h, hh, hfh⟩ : f z ∈ H.map f := hmap ▸ hz
-        refine ⟨⟨z * h⁻¹, ?_⟩, Subtype.ext ?_⟩
-        · rw [MonoidHom.mem_ker, map_mul, map_inv, hfh, mul_inv_cancel]
-        · show (((z * h⁻¹ : M) : M ⧸ H)) = (z : M ⧸ H)
-          rw [QuotientGroup.eq]
-          simpa using hh⟩
 
 theorem exists_ker_eq_one_or_eq (hc : ∀ h ∈ H, h * c = c * h) (hinj : Set.InjOn f H)
     (hmap : H.map f = Subgroup.centralizer {f c}) (hS2 : S * S = 1)

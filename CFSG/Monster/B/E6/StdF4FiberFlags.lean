@@ -233,57 +233,5 @@ theorem range_flagSub
     (k : Fin 3) : Set.range (flagSub k) = isoSubs k :=
   Set.ext fun _ => ⟨fun ⟨p, hp⟩ => hp ▸ flagSub_mem_isoSubs k p, exists_flagSub_eq⟩
 
-@[expose] def flagSubQ
-    (k : Fin 3) : nativeParabolic firstJ ⧸ flagStabP k →
-    Submodule K (Fin 6 → K) :=
-  Quotient.lift (flagSub k) fun a b hab =>
-    (flagSub_eq_flagSub_iff a b).2 (QuotientGroup.leftRel_apply.1 hab)
-
-theorem flagSubQ_injective
-    (k : Fin 3) : Function.Injective (flagSubQ k) := by
-  intro x y h
-  induction x using QuotientGroup.induction_on with | H a => ?_
-  induction y using QuotientGroup.induction_on with | H b => ?_
-  exact QuotientGroup.eq.2 ((flagSub_eq_flagSub_iff a b).1 h)
-
-theorem range_flagSubQ
-    (k : Fin 3) : Set.range (flagSubQ k) = isoSubs k := by
-  rw [← range_flagSub]
-  exact Set.ext fun S => ⟨fun ⟨x, hx⟩ => by
-    induction x using QuotientGroup.induction_on with | H a => exact ⟨a, hx⟩,
-    fun ⟨a, ha⟩ => ⟨QuotientGroup.mk a, ha⟩⟩
-
-theorem ncard_isoSubs_eq
-    {k : Fin 3} {I : Set (Fin 4)} (hk : flagStab k = nativeParabolic I) :
-    (isoSubs k).ncard * Nat.card (nativeParabolic I) = 3 * 2 ^ 36 * 93555 := by
-  have h1 : (isoSubs k).ncard = (flagStabP k).index := by
-    rw [← range_flagSubQ, Set.ncard_range_of_injective (flagSubQ_injective k)]
-    rfl
-  have h2 : Nat.card (flagStabP k) = Nat.card (nativeParabolic I) := by
-    rw [← hk, flagStab, Nat.card_congr ((flagStabP k).equivMapOfInjective
-      (nativeParabolic firstJ).subtype (nativeParabolic firstJ).subtype_injective).toEquiv]
-  rw [h1, ← h2, mul_comm, Subgroup.card_mul_index, card_nativeParabolic_firstJ]
-
-theorem ncard_isoSubs_two :
-    (isoSubs 2).ncard = 891 := by
-  have h : (isoSubs 2).ncard * Nat.card (nativeParabolic (fibIF 1 : Set (Fin 4))) = _ :=
-    ncard_isoSubs_eq (flagStab_fibKd (d := 1) (Or.inl rfl))
-  have h23 : ∑ᶠ w ∈ (ncs.parabolic (fibIF 1 : Set (Fin 4)) : Set NW),
-      weylWeight ncs E6Folded.letterWeight w = 105 := finsum_parabolic_23
-  rw [card_nativeParabolic, h23] at h
-  have e : (3 * 2 ^ 36 * 93555 : ℕ) = 891 * (3 * 2 ^ 36 * 105) := by norm_num
-  rw [e] at h
-  exact Nat.eq_of_mul_eq_mul_right (by norm_num) h
-
-theorem ncard_isoSubs_zero :
-    (isoSubs 0).ncard = 693 := by
-  have h : (isoSubs 0).ncard * Nat.card (nativeParabolic (fibIF 2 : Set (Fin 4))) = _ :=
-    ncard_isoSubs_eq (flagStab_fibKd (d := 2) (Or.inr (Or.inl rfl)))
-  have h12 : ∑ᶠ w ∈ (ncs.parabolic (fibIF 2 : Set (Fin 4)) : Set NW),
-      weylWeight ncs E6Folded.letterWeight w = 135 := finsum_parabolic_12
-  rw [card_nativeParabolic, h12] at h
-  have e : (3 * 2 ^ 36 * 93555 : ℕ) = 693 * (3 * 2 ^ 36 * 135) := by norm_num
-  rw [e] at h
-  exact Nat.eq_of_mul_eq_mul_right (by norm_num) h
 
 end CFSG.Monster.B.E6.StdF4

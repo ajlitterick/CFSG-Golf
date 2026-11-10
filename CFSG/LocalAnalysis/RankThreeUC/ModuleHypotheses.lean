@@ -41,33 +41,9 @@ def centralizerOnQuotient (M V₀ V : Subgroup G) : Subgroup G where
     convert h4 using 1
     group
 
-def centralizerOnQuotientIn (M V₀ V : Subgroup G) : Subgroup M :=
-  (centralizerOnQuotient M V₀ V).subgroupOf M
 
 theorem centralizerOnQuotient_le (M V₀ V : Subgroup G) : centralizerOnQuotient M V₀ V ≤ M :=
   fun _ h => h.1
 
-theorem centralizerOnQuotientIn_normal {M V₀ V : Subgroup G}
-    (hV : M ≤ normalizer (V : Set G)) (hV₀ : M ≤ normalizer (V₀ : Set G)) :
-    (centralizerOnQuotientIn M V₀ V).Normal := by
-  refine ⟨fun n hn m => ?_⟩
-  obtain ⟨hnM, hnV, hnV₀, hn⟩ := hn
-  have hmM : (m : G) ∈ M := m.2
-  refine ⟨mul_mem (mul_mem hmM hnM) (inv_mem hmM),
-    ?_, ?_, fun v hv => ?_⟩
-  · exact hV (mul_mem (mul_mem hmM hnM) (inv_mem hmM))
-  · exact hV₀ (mul_mem (mul_mem hmM hnM) (inv_mem hmM))
-  · have hu : (m : G)⁻¹ * v * m ∈ V := by
-      have := (mem_normalizer_iff.1 (hV (inv_mem hmM)) v).1 hv
-      simpa using this
-    have h1 := (mem_normalizer_iff.1 (hV₀ hmM) _).1 (hn _ hu)
-    convert h1 using 1
-    show (m : G) * (n : G) * (m : G)⁻¹ * v * ((m : G) * (n : G) * (m : G)⁻¹)⁻¹ * v⁻¹ = _
-    have e : M.subtype n = (n : G) := rfl
-    rw [e]
-    group
-
-abbrev MBar (M V₀ V : Subgroup G) [(centralizerOnQuotientIn M V₀ V).Normal] : Type _ :=
-  M ⧸ centralizerOnQuotientIn M V₀ V
 
 end CFSG.LocalAnalysis.RankThreeUC

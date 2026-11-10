@@ -18,7 +18,6 @@ open CFSG.GorensteinWalter CFSG.ComponentClassification.CatalogueSchreierLinearT
   CFSG.RankThree.PartTwo.KFacts
 open CFSG.Open (StatedProj StatedSL)
 
-@[deprecated (since := "2026-10-15")] alias l514vexp_cyc_three := cyc_three
 
 theorem l514vexp_toPGL_of_pow_three {K : Type} [Field K] (g : PGL2 K) (hg : g ^ 3 = 1) :
     ∃ x : PSL2 K, Matrix.ProjectiveSpecialLinearGroup.toPGL x = g :=

@@ -57,8 +57,6 @@ abbrev titsCoverWordsBC := restrictWords (subsetOf 3 [1, 2]) titsCoverWords
   [titsAWord, titsBWord, titsAWord ++ titsBWord ++ titsAWord ++ titsBWord ++ titsAWord ++
     invZ titsBWord ++ titsAWord]
 
-@[expose] def abcArrs : Array (Array ℕ) :=
-  Array.ofFn (n := 3) fun i => wordArr 1755 titsDerivedArrs (abcWords.getD i.val [])
 
 @[expose] def titsDWords : List (List ℤ) :=
   [[-2, 1, 2, 1, -2, 1, 2, 1, 2, 1, 2, 1, 2, 1, -2, 1, 2, 1, 2, 1, -2, 1, 2, 1, 2, 1, 2, 1, 2,

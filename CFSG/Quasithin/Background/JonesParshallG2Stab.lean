@@ -31,15 +31,6 @@ theorem mul_zE_left (t x₀ x₁ x₂ y₀ y₁ y₂ z : F) :
   rw [zE, cayleyMul_zmk]
   apply zmk_congr <;> ring
 
-theorem mul_zE_right (t x₀ x₁ x₂ y₀ y₁ y₂ z : F) :
-    cayleyMul (zmk t x₀ x₁ x₂ y₀ y₁ y₂ z) (zE F) = zmk t 0 0 0 y₀ y₁ y₂ 0 := by
-  rw [zE, cayleyMul_zmk]
-  apply zmk_congr <;> ring
-
-theorem mul_zE'_left (t x₀ x₁ x₂ y₀ y₁ y₂ z : F) :
-    cayleyMul (zE' F) (zmk t x₀ x₁ x₂ y₀ y₁ y₂ z) = zmk 0 0 0 0 y₀ y₁ y₂ z := by
-  rw [zE', cayleyMul_zmk]
-  apply zmk_congr <;> ring
 
 theorem mul_zE'_right (t x₀ x₁ x₂ y₀ y₁ y₂ z : F) :
     cayleyMul (zmk t x₀ x₁ x₂ y₀ y₁ y₂ z) (zE' F) = zmk 0 x₀ x₁ x₂ 0 0 0 z := by
@@ -106,15 +97,6 @@ theorem form_of_peirceU {y : quasithinZorn F} (h1 : cayleyMul (zE F) y = y)
   rw [zorn_eta y]
   exact zmk_congr g1.symm rfl rfl rfl h5.symm h6.symm h7.symm h8.symm
 
-theorem form_of_peirceV {y : quasithinZorn F} (h1 : cayleyMul (zE' F) y = y)
-    (h2 : cayleyMul y (zE F) = y) :
-    y = zmk 0 0 0 0 (y.2.2.1 0) (y.2.2.1 1) (y.2.2.1 2) 0 := by
-  rw [zorn_eta y, mul_zE'_left] at h1
-  rw [zorn_eta y, mul_zE_right] at h2
-  obtain ⟨h1', h2', h3', h4', -, -, -, -⟩ := zmk_inj h1
-  obtain ⟨-, -, -, -, -, -, -, g8⟩ := zmk_inj h2
-  rw [zorn_eta y]
-  exact zmk_congr h1'.symm h2'.symm h3'.symm h4'.symm rfl rfl rfl g8.symm
 
 variable [CharP F 2]
 

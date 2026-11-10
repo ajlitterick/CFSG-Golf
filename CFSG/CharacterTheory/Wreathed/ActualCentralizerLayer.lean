@@ -44,34 +44,6 @@ theorem centralizerFullQuotient_layer_exactly_one
   intro D _ _ hD f
   exact centralizerDihedralImage_hom_to_two_group_eq_one hnonab n hn S e hD f
 
-structure WreathedCentralizerLayerAlternativesData
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Prop where
-  full_quotient : WreathedCentralizerFullQuotientData.{u, v} n hn S e
-  kernel_exists : ∃ K : Subgroup (involutionCentralizer n S e),
-    K.Normal ∧ K.index = 2 ^ n ∧
-    (K.map (involutionCentralizer n S e).subtype) ⊓ (S : Subgroup G) = modelY S e ∧
-    (∀ D : Subgroup K, D.index ≠ 2) ∧
-    (K.map (centralizerOddCoreMap n S e)).map (centralizerFullQuotientMap n hn S e) =
-      centralizerDihedralImage n hn S e
-  exactly_one :
-    (DihedralFourPointAlternative (centralizerFullQuotient n hn S e) n
-        (centralizerDihedralImage n hn S e) ∨
-      DihedralSimpleLayerAlternative (centralizerFullQuotient n hn S e) n
-        (centralizerDihedralImage n hn S e)) ∧
-    ¬ (DihedralFourPointAlternative (centralizerFullQuotient n hn S e) n
-        (centralizerDihedralImage n hn S e) ∧
-      DihedralSimpleLayerAlternative (centralizerFullQuotient n hn S e) n
-        (centralizerDihedralImage n hn S e))
-
-theorem wreathed_full_center_quotient_layer_alternatives
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    WreathedCentralizerLayerAlternativesData.{u, v} n hn S e := by
-  refine ⟨wreathed_centralizer_full_center_dihedral_quotient hnonab n hn S e,
-    ?_, centralizerFullQuotient_layer_exactly_one hnonab n hn S e⟩
-  have hK := wreathed_involution_centralizer_quaternion_two_residual hnonab n hn S e
-  exact ⟨centralizerTransferKernel n hn S e, hK.kernel_normal,
-    hK.kernel_index, hK.ambient_intersection, hK.no_index_two, rfl⟩
 
 theorem centralizerFullQuotient_simple_layer_of_not_symmetric_four
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -224,23 +196,6 @@ theorem centralizerResidualSylow_le_liftedLayer
     exact ⟨eM.symm m, eM.apply_symm_apply m⟩
   exact Q.mapSurjective heM
 
-theorem centralizerLiftedLayer_twoPart_index
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))) :
-    (centralizerLiftedLayer n hn S e).index.factorization 2 = n ∧
-      2 ^ (centralizerLiftedLayer n hn S e).index.factorization 2 = 2 ^ n := by
-  have hle : centralizerLiftedLayer n hn S e ≤ centralizerResidualImage n hn S e := inf_le_left
-  have hidx := Subgroup.relIndex_mul_index hle
-  have hodd := centralizerLiftedLayer_odd_relIndex hnonab n hn S e hfour
-  rw [centralizerResidualImage_index hnonab n hn S e] at hidx
-  have hfac : (centralizerLiftedLayer n hn S e).index.factorization 2 = n := by
-    rw [← hidx, Nat.factorization_mul (by
-      change ((centralizerLiftedLayer n hn S e).subgroupOf (centralizerResidualImage n hn S e)).index ≠ 0
-      exact Subgroup.index_ne_zero_of_finite) (pow_ne_zero _ (by decide)), Finsupp.add_apply,
-      Nat.factorization_eq_zero_of_not_dvd hodd.not_two_dvd_nat,
-      Nat.factorization_pow_self Nat.prime_two, zero_add]
-  exact ⟨hfac, by rw [hfac]⟩
 
 theorem centralizerLiftedLayerSylow_image
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -293,108 +248,5 @@ theorem centralizerLiftedLayerSylow_card
   rw [← hcard, centralizerLiftedLayerSylow_image hnonab n hn S e hfour]
   exact centralizerQuaternionImage_card hnonab n hn S e
 
-@[expose] def centralizerKernelLiftedLayer
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup (involutionCentralizer n S e)) : Subgroup (centralizerOddCoreQuotient n S e) :=
-  UniqueInvolutionLift.liftedSubgroup (centralizerFullQuotientMap n hn S e)
-    (K.map (centralizerOddCoreMap n S e)) (centralizerSimpleLayer n hn S e)
-
-@[expose] def centralizerKernelLiftedLayerMap
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup (involutionCentralizer n S e)) :
-    centralizerKernelLiftedLayer n hn S e K →* centralizerSimpleLayer n hn S e :=
-  UniqueInvolutionLift.restrictedMap (centralizerFullQuotientMap n hn S e)
-    (K.map (centralizerOddCoreMap n S e)) (centralizerSimpleLayer n hn S e)
-
-theorem centralizerKernelLiftedLayer_eq
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup (involutionCentralizer n S e)) [K.Normal] (hK : K.index = 2 ^ n) :
-    centralizerKernelLiftedLayer n hn S e K = centralizerLiftedLayer n hn S e := by
-  rw [centralizer_normal_index_eq_transferKernel hnonab n hn S e K hK]
-  rfl
-
-structure WreathedCentralizerKernelLayerData
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup (involutionCentralizer n S e)) : Prop where
-  odd_core_le : centralizerOddCore n S e ≤ K
-  center_intersection :
-    centralizerFullCenterImage n hn S e ⊓ K.map (centralizerOddCoreMap n S e) =
-      Subgroup.zpowers (centralizerOddCoreMap n S e (centralInvolution n S e))
-  unique_involution : ∀ t : centralizerOddCoreQuotient n S e,
-    t ∈ K.map (centralizerOddCoreMap n S e) → orderOf t = 2 →
-      t = centralizerOddCoreMap n S e (centralInvolution n S e)
-  layer_le_image : centralizerSimpleLayer n hn S e ≤
-    (K.map (centralizerOddCoreMap n S e)).map (centralizerFullQuotientMap n hn S e)
-  image_normal : ((K.map (centralizerOddCoreMap n S e)).map
-    (centralizerFullQuotientMap n hn S e)).Normal
-  image_index : ((K.map (centralizerOddCoreMap n S e)).map
-    (centralizerFullQuotientMap n hn S e)).index = 2
-  image_layer_odd_index : Odd ((centralizerSimpleLayer n hn S e).relIndex
-    ((K.map (centralizerOddCoreMap n S e)).map (centralizerFullQuotientMap n hn S e)))
-  unique_component : UniqueInvolutionLift.UniqueInvolutionLiftData
-    (centralizerFullQuotientMap n hn S e) (K.map (centralizerOddCoreMap n S e))
-    (centralizerSimpleLayer n hn S e) (centralizerOddCoreMap n S e (centralInvolution n S e))
-  full_center_centralizer :
-    Subgroup.centralizer (centralizerKernelLiftedLayer n hn S e K : Set (centralizerOddCoreQuotient n S e)) =
-      centralizerFullCenterImage n hn S e
-  residual_odd_index : Odd ((centralizerKernelLiftedLayer n hn S e K).relIndex
-    (K.map (centralizerOddCoreMap n S e)))
-  quaternion_sylow : ∃ U : Sylow 2 (centralizerKernelLiftedLayer n hn S e K),
-    (U : Subgroup (centralizerKernelLiftedLayer n hn S e K)).map
-      (centralizerKernelLiftedLayer n hn S e K).subtype =
-        (centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e) ∧
-    Nonempty (QuaternionGroup (2 ^ n / 2) ≃* U) ∧ Nat.card U = 2 * 2 ^ n
-  index_factorization : (centralizerKernelLiftedLayer n hn S e K).index.factorization 2 = n
-  index_two_part : 2 ^ (centralizerKernelLiftedLayer n hn S e K).index.factorization 2 = 2 ^ n
-
-theorem wreathed_centralizer_every_kernel_layer_data
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup (involutionCentralizer n S e)) [K.Normal] (hK : K.index = 2 ^ n) :
-    WreathedCentralizerKernelLayerData n hn S e K := by
-  have h := centralizerFullQuotient_simple_layer_of_not_symmetric_four hnonab n hn S e hfour
-  rw [DihedralSimpleLayerAlternative] at h
-  rw [centralizer_normal_index_eq_transferKernel hnonab n hn S e K hK]
-  have hU := wreathed_centralizer_unique_component_data hnonab n hn S e hfour
-  have htwo := centralizerLiftedLayer_twoPart_index hnonab n hn S e hfour
-  refine ⟨centralizerOddCore_le_transferKernel n hn S e,
-    centralizerFullCenterImage_inf_residualImage hnonab n hn S e,
-    centralizerResidualImage_unique_involution_ambient hnonab n hn S e,
-    h.2.2.2.1, ?_, centralizerDihedralImage_index hnonab n hn S e,
-    h.2.2.2.2.1, hU, ?_, centralizerLiftedLayer_odd_relIndex hnonab n hn S e hfour,
-    ?_, htwo.1, htwo.2⟩
-  · change (centralizerDihedralImage n hn S e).Normal
-    infer_instance
-  · exact hU.centralizer.trans (QuotientGroup.ker_mk' (centralizerFullCenterImage n hn S e))
-  · exact ⟨centralizerLiftedLayerSylow hnonab n hn S e hfour,
-      centralizerLiftedLayerSylow_image hnonab n hn S e hfour,
-      ⟨centralizerLiftedLayerQuaternionEquiv hnonab n hn S e hfour⟩,
-      centralizerLiftedLayerSylow_card hnonab n hn S e hfour⟩
-
-structure WreathedCentralizerQuasisimpleLayerData
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Prop where
-  full_quotient : WreathedCentralizerFullQuotientData.{u, v} n hn S e
-  simple_layer : DihedralSimpleLayerAlternative (centralizerFullQuotient n hn S e) n
-    (centralizerDihedralImage n hn S e)
-  kernel_exists : ∃ K : Subgroup (involutionCentralizer n S e), K.Normal ∧
-    K.index = 2 ^ n ∧ ((K.map (involutionCentralizer n S e).subtype) ⊓ (S : Subgroup G) = modelY S e)
-  every_kernel : ∀ K : Subgroup (involutionCentralizer n S e), ∀ [K.Normal],
-    K.index = 2 ^ n → ((K.map (involutionCentralizer n S e).subtype) ⊓ (S : Subgroup G) = modelY S e) →
-      WreathedCentralizerKernelLayerData n hn S e K
-
-theorem wreathed_actual_quasisimple_centralizer_layer
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))) :
-    WreathedCentralizerQuasisimpleLayerData.{u, v} n hn S e := by
-  have hK := wreathed_involution_centralizer_quaternion_two_residual hnonab n hn S e
-  refine ⟨wreathed_centralizer_full_center_dihedral_quotient hnonab n hn S e,
-    centralizerFullQuotient_simple_layer_of_not_symmetric_four hnonab n hn S e hfour,
-    ⟨centralizerTransferKernel n hn S e, hK.kernel_normal, hK.kernel_index, hK.ambient_intersection⟩,
-    ?_⟩
-  intro K _ hindex _
-  exact wreathed_centralizer_every_kernel_layer_data hnonab n hn S e hfour K hindex
 
 end CFSG.Wreathed

@@ -18,27 +18,6 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def originalX2 (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : G :=
   wreathModelHom S e (Original.x2 (2 ^ n))
 
-@[expose] def OriginalOrdinarySylow (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {ell : ℕ} (P : Sylow ell (centralizerOddCore n S e)) : Prop :=
-  OriginalStationarity (involutionCentralizer n S e) P ∧
-    originalX2 n S e ∈
-      Subgroup.normalizer (ambientSylow (involutionCentralizer n S e) P : Set G) ∧
-    ((∀ a ∈ ambientSylow (involutionCentralizer n S e) P,
-        originalX2 n S e * a * (originalX2 n S e)⁻¹ = a) ∨
-      (∀ a ∈ ambientSylow (involutionCentralizer n S e) P,
-        originalX2 n S e * a * (originalX2 n S e)⁻¹ = a⁻¹))
-
-@[expose] def OriginalAllPrimesOrdinary (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Prop :=
-  ∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-    ∃ P : Sylow ell (centralizerOddCore n S e), OriginalOrdinarySylow n S e P
-
-omit [Finite G] in
-theorem ambientSylow_eq_map (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {ell : ℕ} (P : Sylow ell (centralizerOddCore n S e)) :
-    ambientSylow (involutionCentralizer n S e) P =
-      (originalPrimeSubgroup n S e P).map (involutionCentralizer n S e).subtype :=
-  rfl
 
 theorem original_coverage_of_scalar
     [IsSimpleGroup G]
@@ -96,29 +75,5 @@ theorem original_coverage_of_scalar
     (centralizerOddCore n S e) (CFSG.layer (centralizerOddCoreQuotient n S e)) hM.1 hM.2
     hell hdiv P v hvnorm (centralizerOddCoreMap_y_not_mem_center n hn S e) hvscalar
 
-theorem original_coverage_of_ordinary
-    [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {ell : ℕ} (hell : ell.Prime) (hdiv : ell ∣ Nat.card (centralizerOddCore n S e))
-    (P : Sylow ell (centralizerOddCore n S e)) (hP : OriginalOrdinarySylow n S e P) :
-    OriginalCoverage n S e P :=
-  original_coverage_of_scalar hnonab n hn S e hfour hell hdiv P hP.2.1 hP.2.2
-
-theorem original_all_prime_stationarity_and_coverage_of_ordinary
-    [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (hord : OriginalAllPrimesOrdinary n S e) :
-    OriginalAllPrimeStationarity n S e ∧ OriginalAllPrimeCoverage n S e := by
-  constructor
-  · intro ell hell hdiv
-    obtain ⟨P, hP⟩ := hord ell hell hdiv
-    exact ⟨P, hP.1⟩
-  · intro ell hell hdiv
-    obtain ⟨P, hP⟩ := hord ell hell hdiv
-    exact ⟨P, original_coverage_of_ordinary hnonab n hn S e hfour hell hdiv P hP⟩
 
 end CFSG.Wreathed.OriginalAllPrime

@@ -18,16 +18,6 @@ namespace Hering129L
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.Assembly.RankThreeEven (projSL)
 
-@[expose] def KF3D42 : Prop :=
-  ∀ (Q : Type) [Group Q] (r : TauCeti.PrimePower)
-    (hr : (TauCeti.LieTypeIndex.trialityD4 r).Valid), r.card = 2 →
-    Nonempty (Q ≃* (TauCeti.CFSGIndex.lie ⟨.trialityD4 r, hr⟩).Group) →
-    ∀ β : MulAut Q, orderOf β = 3 →
-      ∀ P : Subgroup Q, P ≤ MonoidHom.eqLocus (β : Q →* Q) (MonoidHom.id Q) →
-        Group.IsPerfect ↥P →
-        (P.subgroupOf (MonoidHom.eqLocus (β : Q →* Q) (MonoidHom.id Q))).IsSubnormal →
-        ∀ (p n : ℕ) [Fact p.Prime], 4 ≤ p ^ n →
-          (∃ f : ↥P →* projSL 2 (GaloisField p n), Function.Surjective f) → p ^ n = 8
 
 @[expose] def Gap129EndENotD42 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (b a : G)

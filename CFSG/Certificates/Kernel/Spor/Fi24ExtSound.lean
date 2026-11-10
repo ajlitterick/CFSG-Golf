@@ -132,8 +132,6 @@ theorem add_tbl : ∀ x1 x2 y1 y2 : Bool, (x1 && x2) = false → (y1 && y2) = fa
         bv x1 x2 + bv y1 y2 := by
   decide
 
-theorem lt_of_bits {z N : ℕ} (h : ∀ t, N ≤ t → z.testBit t = false) : z < 2 ^ N :=
-  Nat.lt_pow_two_of_testBit _ h
 
 theorem addM3_sound {d N X Y : ℕ} (hN : N = d * d) (hX : Canon3 N X) (hY : Canon3 N Y) :
     Canon3 N (addM3 N (2 ^ N - 1) X Y) ∧

@@ -195,10 +195,6 @@ variable (h : UnitaryFieldData ℓ f K) (n : ℕ)
     rw [map_mul]
     rfl)
 
-theorem coe_fieldSUHom (φ : K ≃+* K)
-    (g : gramSU h ((1 : GL (Fin n) K) : Matrix (Fin n) (Fin n) K)) :
-    ((fieldSUHom h n φ g : gramSU h _) : GL (Fin n) K) = glAut φ g :=
-  rfl
 
 theorem exists_subfieldGL_eq_of_fixed {σ : K ≃+* K} {g : GL (Fin n) K} (hg : glAut σ g = g) :
     ∃ g₀ : GL (Fin n) (fixSubfield σ), subfieldGL (fixSubfield σ) n g₀ = g := by

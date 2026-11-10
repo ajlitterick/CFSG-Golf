@@ -21,6 +21,5 @@ theorem isLnTwo_four_alt8 {X : Type} [Group X]
     inferInstance, inferInstance, by rw [h2, pow_one], ⟨?_⟩⟩
   exact e.trans (CFSG.Assembly.LowTwoRank.projectiveSpecialLinearGroupEquivStatedProj 4 (ZMod 2))
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.S15221

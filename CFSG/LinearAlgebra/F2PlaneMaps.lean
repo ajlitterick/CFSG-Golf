@@ -70,27 +70,6 @@ theorem apply_eq_self_of_odd_of_apply_eq (hW : finrank (ZMod 2) W = 2) {g : V �
   have := congrArg Subtype.val (LinearEquiv.congr_fun he1 ⟨w, hw⟩)
   simpa [e, restrictEquiv_apply] using this
 
-theorem apply_apply_eq_of_pow_two_pow (hW : finrank (ZMod 2) W = 2) {g : V ≃ₗ[ZMod 2] V}
-    (hgW : ∀ w ∈ W, g w ∈ W) {k : ℕ} (hk : g ^ 2 ^ k = 1) : ∀ w ∈ W, g (g w) = w := by
-  haveI : FiniteDimensional (ZMod 2) W :=
-    FiniteDimensional.of_finrank_pos (by rw [hW]; norm_num)
-  let e := restrictEquiv hgW
-  have hk_e : e ^ 2 ^ k = 1 := restrictEquiv_pow_eq_one hgW hk
-  have h6 : e ^ 6 = 1 := restrictEquiv_pow_six_of_finrank_eq_two hgW hW
-  have hdvd2k : orderOf e ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one hk_e
-  have hdvd6 : orderOf e ∣ 6 := orderOf_dvd_of_pow_eq_one h6
-  have hnot3 : ¬ 3 ∣ orderOf e := by
-    intro h3
-    have h32 : 3 ∣ 2 := Nat.Prime.dvd_of_dvd_pow Nat.prime_three (h3.trans hdvd2k)
-    norm_num at h32
-  have hcop : Nat.Coprime (orderOf e) 3 :=
-    ((Nat.prime_three.coprime_iff_not_dvd).mpr hnot3).symm
-  have hdvd2 : orderOf e ∣ 2 :=
-    hcop.dvd_of_dvd_mul_right (by simpa using hdvd6)
-  have he2 : e ^ 2 = 1 := orderOf_dvd_iff_pow_eq_one.mp hdvd2
-  intro w hw
-  have h := congrArg Subtype.val (LinearEquiv.congr_fun he2 ⟨w, hw⟩)
-  simpa [e, pow_two, LinearEquiv.mul_apply, restrictEquiv_apply] using h
 
 theorem inf_fixSpace_eq_bot_of_pow_three (hW : finrank (ZMod 2) W = 2)
     {x : V ≃ₗ[ZMod 2] V} (hxW : ∀ w ∈ W, x w ∈ W) (hx3 : x ^ 3 = 1)
@@ -176,19 +155,5 @@ theorem apply_eq_self_of_isPerfect (hW : finrank (ZMod 2) W = 2) {Γ : Type*} [G
   have h := congrArg (fun σ : Equiv.Perm W => ((σ ⟨w, hw⟩ : W) : V)) h1
   simpa [φ, res, restrictEquiv_apply] using h
 
-theorem apply_eq_self_of_coprime_six (hW : finrank (ZMod 2) W = 2) {g : V ≃ₗ[ZMod 2] V}
-    (hgW : ∀ w ∈ W, g w ∈ W) (hcop : Nat.Coprime (orderOf g) 6) : ∀ w ∈ W, g w = w := by
-  haveI : FiniteDimensional (ZMod 2) W :=
-    FiniteDimensional.of_finrank_pos (by rw [hW]; norm_num)
-  let e := restrictEquiv hgW
-  have hdvd : orderOf e ∣ orderOf g :=
-    orderOf_dvd_of_pow_eq_one (restrictEquiv_pow_eq_one hgW (pow_orderOf_eq_one g))
-  have hcop_e : Nat.Coprime (orderOf e) 6 := Nat.Coprime.coprime_dvd_left hdvd hcop
-  have h6 : orderOf e ∣ 6 :=
-    orderOf_dvd_of_pow_eq_one (restrictEquiv_pow_six_of_finrank_eq_two hgW hW)
-  have he1 : e = 1 := orderOf_eq_one_iff.mp (hcop_e.eq_one_of_dvd h6)
-  intro w hw
-  have := congrArg Subtype.val (LinearEquiv.congr_fun he1 ⟨w, hw⟩)
-  simpa [e, restrictEquiv_apply] using this
 
 end CFSG.LinearAlgebra

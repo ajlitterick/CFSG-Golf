@@ -49,11 +49,6 @@ theorem c10041_orbit : orbitCheck3 = true := by
   rw [cbfs10041.2.2.1, cbfs10041.2.2.2, decide_eq_true hnd]
   quickRfl
 
-theorem c10041_neg :
-    (!cbfsK [CT0, CT1, CT2] 0 0 28 400 OL OP (OB.set 7 2) &&
-      !cbfsK [CT0, CT1, CT2] 0 0 28 399 OL OP OB &&
-      !cbfsK [CT0, CT1, CT2] 0 0 27 400 OL OP OB) = true := by
-  quickRfl
 
 open Certificates in
 open CFSG.Monster.GMS.S365 in

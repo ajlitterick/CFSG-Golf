@@ -396,20 +396,6 @@ theorem sl2_normalizer_solvable_dvd [Finite F] [CharP F 2]
   have := Subgroup.card_dvd_of_injective g hg
   rwa [Nat.card_units] at this
 
-theorem sl2_exists_order_dvd [Finite F] [CharP F 2] (e : L ≃* SL(2, F))
-    {r : ℕ} (hr : r.Prime) (h : r ∣ Nat.card F - 1 ∨ r = 3) : ∃ x : L, orderOf x = r := by
-  have : Fact r.Prime := ⟨hr⟩
-  have : Finite L := Finite.of_equiv _ e.symm.toEquiv
-  apply exists_prime_orderOf_dvd_card' r
-  rw [Nat.card_congr e.toEquiv, CFSG.GorensteinWalter.sl2_card_formula]
-  obtain ⟨n, -, hn⟩ := exists_card_eq_two_pow (F := F)
-  have hdvd : r ∣ Nat.card F ^ 2 - 1 := by
-    rcases h with h | rfl
-    · refine h.trans ?_
-      simpa using Nat.sub_dvd_pow_sub_pow (Nat.card F) 1 2
-    · rw [hn, ← pow_mul, mul_comm, pow_mul]
-      simpa using Nat.sub_dvd_pow_sub_pow 4 1 n
-  exact hdvd.mul_left _
 
 end Headline
 

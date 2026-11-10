@@ -115,20 +115,6 @@ theorem dvd_card_of_isComponentOf_su_family_field [Finite G]
   rw [← hr₁] at hK
   exact dvd_card_of_isComponentOf_su_of_mem_suPairs_field h hF hn hker₁ hp hp2 hpq hE hEA hK
 
-theorem dvd_card_of_isComponentOf_su_family [Finite G] {f m : ℕ} (hf : 1 ≤ f) (hn : 4 ≤ m + 1)
-    {ψ : SU (unitaryInvolution (GaloisField 2 (2 * f)) 2 f) (m + 1) →* G}
-    (hker : ψ.ker ≤ Subgroup.center (SU (unitaryInvolution (GaloisField 2 (2 * f)) 2 f) (m + 1)))
-    {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hpq : p ∣ 2 ^ f - 1 ∨ p ∣ 2 ^ f + 1)
-    {E : Subgroup G} (hE : IsPGroup p E)
-    (hdiag : ∀ e ∈ E,
-      GGPsiInnerDiag (Unitary.rootDatum (card_galoisField_two_mul 2 f hf) (m + 1)) ψ e)
-    {K : Subgroup G} (hK : IsComponentOf K (ψ.range ⊓ Subgroup.centralizer (E : Set G))) :
-    p ∣ Nat.card K := by
-  classical
-  have hF : Nat.card (GaloisField 2 (2 * f)) = (2 ^ f) ^ 2 := card_galoisField_two_mul 2 f hf
-  have h : UnitaryFieldData 2 f (GaloisField 2 (2 * f)) :=
-    ⟨Nat.prime_two, hf, by rw [hF, ← pow_mul, mul_comm]⟩
-  exact dvd_card_of_isComponentOf_su_family_field h hF hn hker hp hp2 hpq hE hdiag hK
 
 theorem dvd_card_of_isComponentOf_su [Finite G] {f m : ℕ} (hf : 1 ≤ f) (hn : 4 ≤ m + 1)
     {ψ : SU (unitaryInvolution (GaloisField 2 (2 * f)) 2 f) (m + 1) →* G}
@@ -198,12 +184,6 @@ theorem ggLayerPDivInput_of_remaining_seven (hPlus : GGLayerPDivTag .POmegaPlus)
     GGLayerPDivInput :=
   ggLayerPDivInput_of_remaining_eight ggLayerPDivTag_PSU hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
 
-theorem ggSixLayerCXInput_of_pDivTags_seven (hPlus : GGLayerPDivTag .POmegaPlus)
-    (hMinus : GGLayerPDivTag .POmegaMinus) (hF4 : GGLayerPDivTag .F4) (hE6 : GGLayerPDivTag .E6)
-    (hE7 : GGLayerPDivTag .E7) (hE8 : GGLayerPDivTag .E8) (hTwE6 : GGLayerPDivTag .twistedE6)
-    (hNS : GGSixLayerCXNonsplitInput) : GGSixLayerCXInput :=
-  ggSixLayerCXInput_of_split
-    (ggLayerPDivInput_of_remaining_seven hPlus hMinus hF4 hE6 hE7 hE8 hTwE6) hNS
 
 end Tags
 

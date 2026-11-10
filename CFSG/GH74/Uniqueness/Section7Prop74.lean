@@ -19,11 +19,5 @@ theorem ZDSetup.prop74
   · exact ⟨_, S.prop74_of_centralizer_le hL73 hW hC⟩
   · exact S.prop74_of_not_centralizer_le hW.cand hC
 
-theorem Prop74Spec.subset_omegaFix_invertedSet (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {z : X} {p : ℕ} {W : Subgroup X} (hW : T4Cand Z M z p W)
-    {Γ : Set (Subgroup X)} (hΓ : Prop74Spec Z M z W Γ) :
-    Γ ⊆ omegaFix M (CFSG.OddInversion.invertedSet W z) := by
-  rw [hW.omegaFix_invertedSet hZ h]
-  exact hΓ.subset
 
 end CFSG.GH74.Uniqueness

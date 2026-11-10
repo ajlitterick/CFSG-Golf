@@ -46,8 +46,6 @@ theorem dist_x0_eq_zero_iff (v : Ω) : Δ.dist x0 v = 0 ↔ v = x0 := by
   rw [(Δ_reachable_x0 v).dist_eq_zero_iff]
   exact eq_comm
 
-theorem dist_x0_eq_one_iff (v : Ω) : Δ.dist x0 v = 1 ↔ v ∈ MulAction.orbit Zp x1 := by
-  rw [SimpleGraph.dist_eq_one_iff_adj, Δ_adj_x0_iff]
 
 theorem dist_x0_eq_two_iff (v : Ω) : Δ.dist x0 v = 2 ↔ v ∈ MulAction.orbit Zp y2 := by
   rw [Δ_dist_x0, distLevel_eq_iff]
@@ -90,23 +88,6 @@ theorem dist_x0_eq_four_iff (v : Ω) : Δ.dist x0 v = 4 ↔ v = y4a ∨ v = y4b 
     · exact ⟨5, by decide, MulAction.mem_orbit_self _⟩
     · exact ⟨6, by decide, MulAction.mem_orbit_self _⟩
 
-theorem dist_x0_ne_of_four_lt {n : ℕ} (hn : 4 < n) (v : Ω) : Δ.dist x0 v ≠ n := by
-  have := Δ_dist_x0_le_four v
-  omega
-
-theorem dist_x0_x1 : Δ.dist x0 x1 = 1 := (dist_x0_eq_one_iff x1).2 (MulAction.mem_orbit_self _)
-
-theorem dist_x0_y2 : Δ.dist x0 y2 = 2 := (dist_x0_eq_two_iff y2).2 (MulAction.mem_orbit_self _)
-
-theorem dist_x0_y3a : Δ.dist x0 y3a = 3 :=
-  (dist_x0_eq_three_iff y3a).2 (Or.inl (MulAction.mem_orbit_self _))
-
-theorem dist_x0_y3b : Δ.dist x0 y3b = 3 :=
-  (dist_x0_eq_three_iff y3b).2 (Or.inr (MulAction.mem_orbit_self _))
-
-theorem dist_x0_y4a : Δ.dist x0 y4a = 4 := (dist_x0_eq_four_iff y4a).2 (Or.inl rfl)
-
-theorem dist_x0_y4b : Δ.dist x0 y4b = 4 := (dist_x0_eq_four_iff y4b).2 (Or.inr rfl)
 
 theorem exists_mem_repsDist_two {b : Ω} (hb : Δ.dist x0 b = 2) :
     ∃ r ∈ [y2], ∃ k ∈ Zp, k • r = b := by
@@ -125,57 +106,6 @@ theorem exists_mem_repsDist_four {b : Ω} (hb : Δ.dist x0 b = 4) :
   · exact ⟨y4a, by simp, 1, Subgroup.one_mem _, one_smul _ _⟩
   · exact ⟨y4b, by simp, 1, Subgroup.one_mem _, one_smul _ _⟩
 
-theorem ncard_dist_x0_eq_zero : {v : Ω | Δ.dist x0 v = 0}.ncard = 1 := by
-  have : {v : Ω | Δ.dist x0 v = 0} = {x0} := Set.ext fun v => dist_x0_eq_zero_iff v
-  rw [this, Set.ncard_singleton]
-
-theorem ncard_dist_x0_eq_one : {v : Ω | Δ.dist x0 v = 1}.ncard = 31671 := by
-  have : {v : Ω | Δ.dist x0 v = 1} = MulAction.orbit Zp (repPt 1) := by
-    ext v
-    rw [repPt_one]
-    exact dist_x0_eq_one_iff v
-  rw [this, ← Nat.card_coe_set_eq]
-  exact card_orbit_repPt 1
-
-theorem ncard_dist_x0_eq_two : {v : Ω | Δ.dist x0 v = 2}.ncard = 825792 := by
-  have : {v : Ω | Δ.dist x0 v = 2} = MulAction.orbit Zp (repPt 2) :=
-    Set.ext fun v => dist_x0_eq_two_iff v
-  rw [this, ← Nat.card_coe_set_eq]
-  exact card_orbit_repPt 2
-
-theorem ncard_dist_x0_eq_three : {v : Ω | Δ.dist x0 v = 3}.ncard = 63342 := by
-  have hset : {v : Ω | Δ.dist x0 v = 3} =
-      MulAction.orbit Zp (repPt 3) ∪ MulAction.orbit Zp (repPt 4) :=
-    Set.ext fun v => dist_x0_eq_three_iff v
-  have hdisj : Disjoint (MulAction.orbit Zp (repPt 3) : Set Ω)
-      (MulAction.orbit Zp (repPt 4) : Set Ω) := by
-    rw [Set.disjoint_left]
-    intro v hv3 hv4
-    have h3 := (orbLabel_eq_iff 3 v).2 hv3
-    have h4 := (orbLabel_eq_iff 4 v).2 hv4
-    omega
-  rw [hset, Set.ncard_union_eq hdisj, ← Nat.card_coe_set_eq, ← Nat.card_coe_set_eq,
-    card_orbit_repPt, card_orbit_repPt]
-  rfl
-
-theorem ncard_dist_x0_eq_four : {v : Ω | Δ.dist x0 v = 4}.ncard = 2 := by
-  have : {v : Ω | Δ.dist x0 v = 4} = {y4a, y4b} := by
-    ext v
-    simpa using dist_x0_eq_four_iff v
-  have hne : y4a ≠ y4b := by
-    intro h
-    have := congrArg Fin.val h
-    revert this
-    decide
-  rw [this, Set.ncard_pair hne]
-
-theorem Δ_dist_distribution :
-    (List.range 5).map (fun n => {v : Ω | Δ.dist x0 v = n}.ncard) =
-      [1, 31671, 825792, 63342, 2] := by
-  simp only [List.range_succ, List.range_zero, List.nil_append, List.map_cons, List.map_nil,
-    List.map_append, ncard_dist_x0_eq_zero, ncard_dist_x0_eq_one, ncard_dist_x0_eq_two,
-    ncard_dist_x0_eq_three, ncard_dist_x0_eq_four]
-  rfl
 
 end Spheres
 

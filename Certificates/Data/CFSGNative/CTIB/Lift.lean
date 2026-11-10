@@ -27,8 +27,5 @@ set_option compiler.extract_closed false
     rows.length == 22 && rows.all (· < 2 ^ 22) &&
     eq22 (mul22 rows.toArray rows.toArray) id22 && rankOK 22 (minusIdRows rows) r
 
-@[expose] def liftOK (_ : Unit) : Bool :=
-  liftCheck liftWord6 liftImgs6 liftRows6 6 && liftCheck liftWord8 liftImgs8 liftRows8 8 &&
-    liftCheck liftWord10 liftImgs10 liftRows10 10
 
 end CFSG.Monster.B.CTIB.Native

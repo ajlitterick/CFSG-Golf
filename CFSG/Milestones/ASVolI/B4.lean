@@ -252,12 +252,6 @@ variable {F}
   ((g : Matrix (Fin 3) (Fin 3) F).det) ^ k •
     ((g : Matrix (Fin 3) (Fin 3) F) * M * ((g⁻¹ : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F))
 
-@[expose] def IsTwAdjointModule {V : Type} [CommGroup V] (G : Subgroup (MulAut V)) (α : ↥G →* PGL3 F)
-    (k : ℕ) : Prop :=
-  ∃ β : V ≃* Multiplicative ↥(sl3Sub F),
-    ∀ (g : ↥G) (v : V) (g' : GL (Fin 3) F), (QuotientGroup.mk g' : PGL3 F) = α g →
-      ((Multiplicative.toAdd (β ((g : MulAut V) v)) : ↥(sl3Sub F)) : Matrix (Fin 3) (Fin 3) F) =
-        twAdjMat k g' ((Multiplicative.toAdd (β v) : ↥(sl3Sub F)) : Matrix (Fin 3) (Fin 3) F)
 
 @[expose] def TwAdjointIntertwines {V : Type} [CommGroup V] (G : Subgroup (MulAut V))
     (α : ↥G →* PGL3 F) (k : ℕ) (β : V ≃* Multiplicative ↥(sl3Sub F)) : Prop :=
@@ -343,157 +337,9 @@ open scoped commutatorElement Pointwise
 
 section BurnsideB4a
 
-private theorem burnsideB4a_ann_bij (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    [FiniteDimensional F V] :
-    Function.Bijective (Submodule.dualAnnihilator : Submodule F V → Submodule F (Module.Dual F V)) :=
-  ⟨fun _ _ h => Subspace.dualAnnihilator_inj.mp h,
-    fun Φ => ⟨Φ.dualCoannihilator, Subspace.dualCoannihilator_dualAnnihilator_eq⟩⟩
-
-private theorem burnsideB4a_ann_map (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    (g : V ≃ₗ[F] V) (U : Submodule F V) :
-    (U.map (g : V →ₗ[F] V)).dualAnnihilator =
-      U.dualAnnihilator.map ((CFSG.ASVolI.ChB.dualRep (F := F) (M := V) g :
-        Module.Dual F V ≃ₗ[F] Module.Dual F V) : Module.Dual F V →ₗ[F] Module.Dual F V) := by
-  ext f
-  rw [Submodule.mem_dualAnnihilator, Submodule.mem_map]
-  constructor
-  · intro h
-    refine ⟨f ∘ₗ (g : V →ₗ[F] V),
-      (Submodule.mem_dualAnnihilator _).mpr (fun u hu => h (g u) (Submodule.mem_map_of_mem hu)), ?_⟩
-    ext x
-    simp [CFSG.ASVolI.ChB.dualRep]
-  · rintro ⟨φ, hφ, rfl⟩ w hw
-    obtain ⟨u, hu, rfl⟩ := Submodule.mem_map.mp hw
-    have h0 := (Submodule.mem_dualAnnihilator _).mp hφ u hu
-    simpa [CFSG.ASVolI.ChB.dualRep] using h0
-
-private theorem burnsideB4a_mem_fixed (F : Type) [Field F] (M : Type) [AddCommGroup M] [Module F M]
-    (A : Subgroup (M ≃ₗ[F] M)) (x : M) :
-    x ∈ CFSG.ASVolI.ChB.fixedSubF A ↔ ∀ a ∈ A, (a : M →ₗ[F] M) x = x := by
-  simp only [CFSG.ASVolI.ChB.fixedSubF, Submodule.mem_iInf, LinearMap.mem_ker,
-    LinearMap.sub_apply, LinearMap.id_apply, sub_eq_zero]
-
-private theorem burnsideB4a_comm_mem (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    (A : Subgroup (V ≃ₗ[F] V)) (b : V ≃ₗ[F] V) (hb : b ∈ A) (φ : Module.Dual F V) :
-    (((CFSG.ASVolI.ChB.dualRep (F := F) (M := V) b : Module.Dual F V ≃ₗ[F] Module.Dual F V) :
-        Module.Dual F V →ₗ[F] Module.Dual F V) -
-      (LinearMap.id : Module.Dual F V →ₗ[F] Module.Dual F V)) φ ∈
-      CFSG.ASVolI.ChB.commSubF (M := Module.Dual F V)
-        (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V))) :=
-  Submodule.mem_iSup_of_mem (CFSG.ASVolI.ChB.dualRep (F := F) (M := V) b)
-    (Submodule.mem_iSup_of_mem (Subgroup.mem_map.mpr ⟨b, hb, rfl⟩) (LinearMap.mem_range_self _ φ))
-
-private theorem burnsideB4a_ann_comm (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    (A : Subgroup (V ≃ₗ[F] V)) :
-    (CFSG.ASVolI.ChB.commSubF A).dualAnnihilator =
-      CFSG.ASVolI.ChB.fixedSubF (M := Module.Dual F V)
-        (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V))) := by
-  ext ψ
-  rw [Submodule.mem_dualAnnihilator, burnsideB4a_mem_fixed]
-  constructor
-  · intro h b hb
-    obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp hb
-    have K : ∀ c ∈ A, ∀ x : V, ψ ((c : V →ₗ[F] V) x) = ψ x := by
-      intro c hc x
-      have hw : ((c : V →ₗ[F] V) - (LinearMap.id : V →ₗ[F] V)) x ∈ CFSG.ASVolI.ChB.commSubF A :=
-        Submodule.mem_iSup_of_mem c (Submodule.mem_iSup_of_mem hc (LinearMap.mem_range_self _ x))
-      have h1 := h _ hw
-      rw [LinearMap.sub_apply, LinearMap.id_apply, map_sub, sub_eq_zero] at h1
-      exact h1
-    ext x
-    exact K a⁻¹ (A.inv_mem ha) x
-  · intro h
-    have hle : CFSG.ASVolI.ChB.commSubF A ≤ LinearMap.ker ψ := by
-      unfold CFSG.ASVolI.ChB.commSubF
-      refine iSup_le fun a => iSup_le fun ha => ?_
-      rintro _ ⟨v, rfl⟩
-      rw [LinearMap.mem_ker]
-      have h1 := congrArg (fun φ : Module.Dual F V => φ v)
-        (h (CFSG.ASVolI.ChB.dualRep (a⁻¹ : V ≃ₗ[F] V))
-          (Subgroup.mem_map.mpr ⟨a⁻¹, A.inv_mem ha, rfl⟩))
-      have h2 : ψ ((a : V →ₗ[F] V) v) = ψ v := h1
-      rw [LinearMap.sub_apply, LinearMap.id_apply, map_sub, h2, sub_self]
-    intro w hw
-    exact LinearMap.mem_ker.mp (hle hw)
-
-private theorem burnsideB4a_ann_fixed (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    [FiniteDimensional F V] (A : Subgroup (V ≃ₗ[F] V)) :
-    (CFSG.ASVolI.ChB.fixedSubF A).dualAnnihilator =
-      CFSG.ASVolI.ChB.commSubF (M := Module.Dual F V)
-        (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V))) := by
-  have key : CFSG.ASVolI.ChB.fixedSubF A =
-      (CFSG.ASVolI.ChB.commSubF (M := Module.Dual F V)
-        (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V)))).dualCoannihilator := by
-    ext x
-    rw [Submodule.mem_dualCoannihilator, burnsideB4a_mem_fixed]
-    constructor
-    · intro hx φ hφ
-      have hle : CFSG.ASVolI.ChB.commSubF (M := Module.Dual F V)
-          (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V)))
-          ≤ LinearMap.ker (Module.Dual.eval F V x) := by
-        unfold CFSG.ASVolI.ChB.commSubF
-        refine iSup_le fun b => iSup_le fun hb => ?_
-        obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp hb
-        rintro _ ⟨φ', rfl⟩
-        have hax : (a.symm : V ≃ₗ[F] V) x = x := hx (a⁻¹) (A.inv_mem ha)
-        rw [LinearMap.mem_ker, Module.Dual.eval_apply]
-        simp only [LinearMap.sub_apply, LinearMap.id_apply]
-        show φ' (a.symm x) - φ' x = 0
-        rw [hax, sub_self]
-      have h1 := LinearMap.mem_ker.mp (hle hφ)
-      simpa using h1
-    · intro hφ a ha
-      have key' : ∀ φ' : Module.Dual F V, φ' ((a : V →ₗ[F] V) x) = φ' x := by
-        intro φ'
-        have hmem := burnsideB4a_comm_mem F V A (a⁻¹) (A.inv_mem ha) φ'
-        have h1 := hφ _ hmem
-        simp only [LinearMap.sub_apply, LinearMap.id_apply] at h1
-        have h2 : φ' ((a : V →ₗ[F] V) x) - φ' x = 0 := h1
-        exact sub_eq_zero.mp h2
-      have h3 : ∀ φ' : Module.Dual F V, φ' ((a : V →ₗ[F] V) x - x) = 0 := fun φ' => by
-        rw [map_sub, key' φ', sub_self]
-      exact sub_eq_zero.mp ((Module.forall_dual_apply_eq_zero_iff F _).mp h3)
-  rw [key, Subspace.dualCoannihilator_dualAnnihilator_eq]
-
-private theorem burnsideB4a_quad_iff (F : Type) [Field F] (V : Type) [AddCommGroup V] [Module F V]
-    [FiniteDimensional F V] (A : Subgroup (V ≃ₗ[F] V)) :
-    CFSG.ASVolI.ChB.IsQuadraticF A ↔
-      CFSG.ASVolI.ChB.IsQuadraticF (M := Module.Dual F V)
-        (A.map (CFSG.ASVolI.ChB.dualRep (F := F) (M := V))) := by
-  unfold CFSG.ASVolI.ChB.IsQuadraticF
-  rw [← burnsideB4a_ann_comm F V A, ← burnsideB4a_ann_fixed F V A]
-  exact (Subspace.dualAnnihilator_le_dualAnnihilator_iff).symm
 
 end BurnsideB4a
 
-theorem as_B_4_7 : B_4_7 := by
-  refine ⟨fun F _ _ V _ _ _ A _ _ => ?_, fun V _ _ hV A hel hne hq hrk => ?_⟩
-  · refine ⟨⟨burnsideB4a_ann_bij F V,
-      fun U U' => Subspace.dualAnnihilator_le_dualAnnihilator_iff.symm,
-      fun g U => burnsideB4a_ann_map F V g U,
-      fun U => ?_⟩,
-      ⟨burnsideB4a_ann_comm F V A, burnsideB4a_ann_fixed F V A⟩,
-      burnsideB4a_quad_iff F V A⟩
-    rw [add_comm]
-    exact Subspace.finrank_add_finrank_dualAnnihilator_eq U
-  · have hdim : Nat.card (CFSG.Quasithin.commV A) ≤ Nat.card A ^ 2 := by
-      obtain ⟨k, hk⟩ :=
-        (CFSG.Quasithin.isPGroup_two_subgroup hV (CFSG.Quasithin.commV A)).exists_card_eq
-      obtain ⟨m, hm⟩ := (CFSG.Quasithin.IsElemAbelian2.isPGroup hel).exists_card_eq
-      have hk' : CFSG.Quasithin.rk (CFSG.Quasithin.commV A) = k := by
-        unfold CFSG.Quasithin.rk
-        rw [hk, padicValNat.prime_pow]
-      have hm' : CFSG.Quasithin.rk A = m := by
-        unfold CFSG.Quasithin.rk
-        rw [hm, padicValNat.prime_pow]
-      have hkm : k ≤ 2 * m := by
-        have h := hrk
-        rw [hk', hm'] at h
-        exact h
-      rw [hk, hm, ← pow_mul]
-      exact Nat.pow_le_pow_right (by norm_num) (by omega)
-    have h := CFSG.Quasithin.qOf_dualSub_le_two hV A hne hel hq hdim
-    exact_mod_cast h
 
 @[expose] def B_4_8 : Prop :=
   (∀ (G : Type) [Group G] (ρ : G →* Matrix (Fin 3) (Fin 3) (ZMod 2)), Function.Injective ρ →
@@ -524,202 +370,18 @@ theorem as_B_4_7 : B_4_7 := by
 
 section BurnsideB4b
 
-private theorem burnsideB4b_card_groupCohomology_one {G V : Type} [Group G] [AddCommGroup V]
-    [Module (ZMod 2) V] [Finite G] [Finite V] (ρ : Representation (ZMod 2) G V) :
-    Nat.card (groupCohomology (Rep.of ρ) 1) =
-      2 ^ Module.finrank (ZMod 2) (CFSG.Quasithin.JonesParshall.H1 ρ) := by
-  classical
-  set A := Rep.of ρ
-  have hZ : CFSG.Quasithin.JonesParshall.Z1 ρ = groupCohomology.cocycles₁ A := by
-    ext f
-    rw [groupCohomology.mem_cocycles₁_iff]
-    change (∀ g h, f (g * h) = f g + ρ g (f h)) ↔ _
-    constructor <;> intro h g k <;> rw [h g k, add_comm]
-  have hB : CFSG.Quasithin.JonesParshall.B1 ρ = groupCohomology.coboundaries₁ A := rfl
-  have hsurj : Function.Surjective (groupCohomology.H1π A) :=
-    (ModuleCat.epi_iff_surjective _).1 inferInstance
-  let φ := (groupCohomology.H1π A).hom
-  have hker : LinearMap.ker φ =
-      (groupCohomology.coboundaries₁ A).comap (groupCohomology.cocycles₁ A).subtype := by
-    ext x
-    rw [LinearMap.mem_ker, Submodule.mem_comap]
-    exact groupCohomology.H1π_eq_zero_iff x
-  let e1 : CFSG.Quasithin.JonesParshall.H1 ρ ≃ₗ[ZMod 2]
-      (↥(groupCohomology.cocycles₁ A) ⧸ LinearMap.ker φ) :=
-    Submodule.Quotient.equiv _ _ (LinearEquiv.ofEq _ _ hZ) (by
-      rw [hker]
-      ext x
-      simp only [Submodule.mem_map, Submodule.mem_comap, Submodule.coe_subtype]
-      constructor
-      · rintro ⟨y, hy, rfl⟩
-        rw [← hB]
-        exact hy
-      · intro hx
-        refine ⟨(LinearEquiv.ofEq _ _ hZ).symm x, ?_, (LinearEquiv.ofEq _ _ hZ).apply_symm_apply x⟩
-        rw [hB]
-        exact hx)
-  let e2 := φ.quotKerEquivOfSurjective hsurj
-  have hfin : Finite (CFSG.Quasithin.JonesParshall.H1 ρ) :=
-    Finite.of_surjective (Submodule.mkQ _) (Submodule.mkQ_surjective _)
-  let := Fintype.ofFinite (CFSG.Quasithin.JonesParshall.H1 ρ)
-  rw [← Nat.card_congr (e1.trans e2).toEquiv, Nat.card_eq_fintype_card,
-    Module.card_eq_pow_finrank (K := ZMod 2), ZMod.card]
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
   instCommGroupOfIsSimpleGroupOfIsNilpotent in
-private theorem burnsideB4b_binaryNaturalSL {G : Type} [Group G]
-    (ρ : G →* Matrix (Fin 3) (Fin 3) (ZMod 2)) (hinj : Function.Injective ρ)
-    (hcard : Nat.card G = 168) :
-    CFSG.Quasithin.Explicit.BinaryNaturalSL (quasithinH1MatrixRep ρ) 3 (ZMod 2) .natural := by
-  classical
-  let φ : G →* ↥(StatedSL 3 (ZMod 2)) :=
-    (MonoidHom.toHomUnits ρ).codRestrict _ (fun g => CFSG.Open.StatedAPI.mem_statedSL_zmod_two _)
-  have hφinj : Function.Injective φ := by
-    intro g h hgh
-    apply hinj
-    exact congrArg (fun x : ↥(StatedSL 3 (ZMod 2)) =>
-      ((x : Matrix.GeneralLinearGroup (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2))) hgh
-  have : Finite G := Nat.finite_of_card_ne_zero (by omega)
-  have hφbij : Function.Bijective φ := by
-    refine hφinj.bijective_of_nat_card_le ?_
-    rw [CFSG.Open.StatedAPI.card_statedSL_three_zmod_two, hcard]
-  let θ := MulEquiv.ofBijective φ hφbij
-  show (CFSG.Quasithin.FFModel.nat (StatedSL 3 (ZMod 2))).IsModel _
-  let D := CFSG.Quasithin.FFModel.nat (StatedSL 3 (ZMod 2))
-  let e := CFSG.Quasithin.JonesParshall.secEquivAmb D rfl rfl
-  let βa : (Fin 3 → ZMod 2) ≃+ Additive D.Amb :=
-    (CFSG.Quasithin.JonesParshall.additiveVec 3 (ZMod 2)).symm
-  have hamb : ∀ (γ : G) (w : Fin 3 → ZMod 2),
-      βa (quasithinH1MatrixRep ρ γ w) =
-        Additive.ofMul (D.act (θ γ) (Additive.toMul (βa w))) := fun γ w => rfl
-  refine ⟨θ, βa.trans e.symm.toAdditive, ?_, ?_, ?_, ?_⟩
-  · exact bot_le
-  · intro g m _
-    exact Subgroup.mem_top _
-  · intro g m hm
-    have hm1 : m = 1 := Subgroup.mem_bot.mp hm
-    subst hm1
-    refine Subgroup.mem_bot.mpr ?_
-    show CFSG.Quasithin.natAct (StatedSL 3 (ZMod 2)) g 1 = 1
-    simp [CFSG.Quasithin.natAct]
-  · intro γ w m hm hw
-    have key : ∀ y : Additive D.Amb, e.toAdditive (e.symm.toAdditive y) = y := fun y => by
-      show Additive.ofMul (e (e.symm (Additive.toMul y))) = y
-      rw [e.apply_symm_apply]
-      rfl
-    have h1 : βa w = Additive.ofMul (m : D.Amb) := by
-      have h := congrArg e.toAdditive hw
-      rw [show (βa.trans e.symm.toAdditive) w = e.symm.toAdditive (βa w) from rfl, key] at h
-      exact h
-    have h2 : βa (quasithinH1MatrixRep ρ γ w) =
-        Additive.ofMul (D.act (θ γ) (m : D.Amb)) := by
-      rw [hamb, h1]
-      rfl
-    apply e.toAdditive.injective
-    rw [show (βa.trans e.symm.toAdditive) (quasithinH1MatrixRep ρ γ w) =
-      e.symm.toAdditive (βa (quasithinH1MatrixRep ρ γ w)) from rfl, key, h2]
-    rfl
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
   instCommGroupOfIsSimpleGroupOfIsNilpotent in
-private theorem burnsideB4b_h1CardOfRep {G : Type} [Group G]
-    (ρ : G →* Matrix (Fin 3) (Fin 3) (ZMod 2)) (hinj : Function.Injective ρ)
-    (hcard : Nat.card G = 168) : CFSG.ASVolI.ChB.h1CardOfRep ρ = 2 := by
-  have : Finite G := Nat.finite_of_card_ne_zero (by omega)
-  have hF : Fintype.card (ZMod 2) = 2 ^ 1 := by rw [ZMod.card]; norm_num
-  have h := CFSG.Quasithin.JonesParshall.finrank_H1_SL3 (F := ZMod 2) (a := 1) hF (by norm_num)
-    (burnsideB4b_binaryNaturalSL ρ hinj hcard)
-  unfold CFSG.ASVolI.ChB.h1CardOfRep
-  rw [burnsideB4b_card_groupCohomology_one (quasithinH1MatrixRep ρ), h]
-  simp
 
-private theorem burnsideB4b_step {V : Type} [CommGroup V] (G : Subgroup (MulAut V))
-    (θ : ↥G ≃* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) (K M : Subgroup V)
-    (hK : ∀ g ∈ G, ∀ u ∈ K, g u * u⁻¹ ∈ M) (x : V) (hx : ∀ g ∈ G, g x * x⁻¹ ∈ K) :
-    ∀ g ∈ G, g x * x⁻¹ ∈ M := by
-  let f : ↥G →* V ⧸ M :=
-    { toFun := fun g => QuotientGroup.mk ((g : MulAut V) x * x⁻¹)
-      map_one' := by
-        show (QuotientGroup.mk (((1 : ↥G) : MulAut V) x * x⁻¹) : V ⧸ M) = 1
-        rw [Subgroup.coe_one, MulAut.one_apply, mul_inv_cancel]
-        rfl
-      map_mul' := fun g h => by
-        have hu : (h : MulAut V) x * x⁻¹ ∈ K := hx h h.2
-        have hM := hK g g.2 _ hu
-        show (QuotientGroup.mk (((g * h : ↥G) : MulAut V) x * x⁻¹) : V ⧸ M) =
-          QuotientGroup.mk ((g : MulAut V) x * x⁻¹) * QuotientGroup.mk ((h : MulAut V) x * x⁻¹)
-        rw [← QuotientGroup.mk_mul, QuotientGroup.eq]
-        have e : (h : MulAut V) x = ((h : MulAut V) x * x⁻¹) * x := by group
-        have e2 : (((g * h : ↥G) : MulAut V) x) =
-            (g : MulAut V) (((h : MulAut V) x * x⁻¹) * x) := by
-          rw [← e]
-          rfl
-        rw [e2, map_mul]
-        convert M.inv_mem hM using 1
-        apply Additive.ofMul.injective
-        simp only [ofMul_mul, ofMul_inv, map_mul, map_inv]
-        abel }
-  intro g hg
-  have h1 : f ⟨g, hg⟩ = 1 := by
-    have := CFSG.Quasithin.Vol2.Ch10.V1C.hom_eq_one (f.comp θ.symm.toMonoidHom) (θ ⟨g, hg⟩)
-    simpa using this
-  exact (QuotientGroup.eq_one_iff _).mp h1
-
-private theorem burnsideB4b_chief_sections {V : Type} [CommGroup V] (G : Subgroup (MulAut V))
-    (θ : ↥G ≃* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2))
-    (h : CFSG.ASVolI.ChB.HasOneNatChief G 3 1) :
-    ∃ W₁ W₂ : Subgroup V, W₁ ≤ W₂ ∧ W₁ ≤ CFSG.Quasithin.fixV G ∧ CFSG.Quasithin.commV G ≤ W₂ ∧
-      CFSG.Quasithin.BinaryNaturalSL G W₂ W₁ 3 1 := by
-  obtain ⟨m, S, hinv, h0, hm, hchief, j, hj, hcent, hnat⟩ := h
-  refine ⟨S j, S (j + 1), (hchief j hj).1.le, ?_, ?_, hnat⟩
-  · have key : ∀ i, i ≤ j → ∀ x ∈ S i, ∀ g ∈ G, g x * x⁻¹ ∈ (⊥ : Subgroup V) := by
-      intro i
-      induction i with
-      | zero =>
-        intro _ x hx g _
-        rw [h0, Subgroup.mem_bot] at hx
-        subst hx
-        simp
-      | succ i ih =>
-        intro hi x hx g hg
-        exact burnsideB4b_step G θ (S i) ⊥ (fun g hg u hu => ih (by omega) u hu g hg) x
-          (fun g hg => hcent i (by omega) (by omega) g hg x hx) g hg
-    intro x hx
-    rw [CFSG.Quasithin.mem_fixV]
-    intro g hg
-    have := key j le_rfl x hx g hg
-    rw [Subgroup.mem_bot, mul_inv_eq_one] at this
-    exact this
-  · have key : ∀ k, j + 1 ≤ k → k ≤ m → ∀ x ∈ S k, ∀ g ∈ G, g x * x⁻¹ ∈ S (j + 1) := by
-      intro k hk
-      induction k, hk using Nat.le_induction with
-      | base =>
-        intro _ x hx g hg
-        exact (S (j + 1)).mul_mem (hinv (j + 1) (by omega) g hg x hx) ((S (j + 1)).inv_mem hx)
-      | succ k hk ih =>
-        intro hkm x hx g hg
-        exact burnsideB4b_step G θ (S k) (S (j + 1)) (fun g hg u hu => ih (by omega) u hu g hg) x
-          (fun g hg => hcent k (by omega) (by omega) g hg x hx) g hg
-    unfold CFSG.Quasithin.commV
-    rw [Subgroup.closure_le]
-    rintro _ ⟨g, hg, v, rfl⟩
-    exact key m (by omega) le_rfl v (by rw [hm]; exact Subgroup.mem_top v) g hg
 
 end BurnsideB4b
 
 section
 
-theorem as_B_4_8 : B_4_8 := by
-  refine ⟨fun G _ ρ hinj hcard => burnsideB4b_h1CardOfRep ρ hinj hcard, ?_, ?_, ?_⟩
-  · intro V _ _ hV G hcard hnat hind
-    exact CFSG.Quasithin.B4_8_2 hV hcard hnat hind
-  · intro V _ _ hV G hcard hnat hind
-    exact CFSG.Quasithin.B4_8_3 hV hcard hnat hind
-  · intro V _ _ hV G hG hind hchief
-    obtain ⟨θ⟩ := hG
-    obtain ⟨W₁, W₂, h12, h1F, hcW, hnat⟩ := burnsideB4b_chief_sections G θ hchief
-    exact CFSG.Quasithin.Vol2.Ch10.as_B_4_8_four_holds V hV G ⟨θ⟩ hind
-      ⟨W₁, W₂, h12, h1F, hcW, hnat⟩
 
 end
 
@@ -731,9 +393,6 @@ end
         L = Subgroup.closure {x | ∃ g ∈ G, ∃ t : MulAut V, IsTransvectionWith t u ∧ x = g * t * g⁻¹} →
           autSub L U = ⊤
 
-theorem as_B_4_10 : B_4_10 := by
-  intro V _ _ hexp G u hu hT U L hU hL
-  exact CFSG.Quasithin.b410 hexp G u hu hT U hU L hL
 
 @[expose] def B_4_11 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
@@ -741,44 +400,6 @@ theorem as_B_4_10 : B_4_10 := by
       Nontrivial V → (∀ W : Subgroup V, (∀ g ∈ G, ∀ w ∈ W, g w ∈ W) → W = ⊥ ∨ W = ⊤) →
         Nat.card V ≤ 2 ^ 8 → Nat.card V = 2 ^ 4 ∨ Nat.card V = 2 ^ 6
 
-theorem as_B_4_11 : B_4_11 := by
-  intro V _ _ hV G hG _ hirr hcard
-  classical
-  have h2V : ∀ x : Additive V, (2 : ℕ) • x = 0 := by
-    intro x
-    apply Multiplicative.ofAdd.injective
-    exact hV (Additive.toMul x)
-  let _ : Module (ZMod 2) (Additive V) := AddCommGroup.zmodModule h2V
-  obtain ⟨φ⟩ := hG
-  have hfix : CFSG.Quasithin.fixV G = ⊥ := by
-    rcases hirr (CFSG.Quasithin.fixV G) (fun g hg w hw =>
-        CFSG.Quasithin.mem_fixV.mpr fun x hx => by
-          rw [CFSG.Quasithin.mem_fixV.mp hw g hg]
-          exact CFSG.Quasithin.mem_fixV.mp hw x hx) with h | h
-    · exact h
-    · exfalso
-      have hact : ∀ g ∈ G, ∀ w : V, g w = w := fun g hg w => by
-        have hw : w ∈ CFSG.Quasithin.fixV G := by
-          rw [h]
-          exact Subgroup.mem_top w
-        exact CFSG.Quasithin.mem_fixV.mp hw g hg
-      have hG1 : ∀ x : ↥G, x = 1 := fun x =>
-        Subtype.ext (MulEquiv.ext fun w => hact (x : MulAut V) x.2 w)
-      have hsub : Subsingleton ↥G := ⟨fun x y => (hG1 x).trans (hG1 y).symm⟩
-      have h1 : Nat.card ↥G = 1 := Nat.card_eq_one_iff_unique.mpr ⟨hsub, ⟨1⟩⟩
-      have h2 : Nat.card ↥G = 2520 := by
-        rw [Nat.card_congr φ.toEquiv, nat_card_alternatingGroup, Nat.card_fin]
-        rfl
-      omega
-  have hcard' : Nat.card V ≤ 2 ^ 12 := le_trans hcard (by norm_num)
-  rcases CFSG.Quasithin.A7Q528.classify4 φ hirr hfix hcard' with ⟨β, -⟩ | ⟨j, hj, Ψ, -⟩
-  · right
-    rw [Nat.card_congr β.toEquiv, CFSG.Quasithin.A7Q528.card_coreMod7]
-  · left
-    have h4 : Nat.card (Additive V) = 2 ^ 4 := by
-      rw [← Nat.card_congr Ψ.toEquiv]
-      simp [Nat.card_fun]
-    exact h4
 
 @[expose] def B_4_12 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
@@ -794,27 +415,6 @@ theorem as_B_4_11 : B_4_11 := by
             Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) →
           Nat.card V = 2 ^ 4 ∧ {x : V | x ≠ 1} = orbitOf G v)
 
-theorem as_B_4_12 : B_4_12 := by
-  intro V _ _ hV G v hgen hU
-  obtain ⟨U, hUx, hUorb⟩ := hU
-  have hv1 : v ≠ 1 := by
-    rintro rfl
-    obtain ⟨x, hx, y, hy, hx1, hy1, hxy⟩ := hUx
-    obtain ⟨g, -, hg⟩ := hUorb x hx hx1
-    apply hx1
-    rw [← hg, map_one]
-  have hsub : ∀ z ∈ CFSG.Quasithin.orbitOf G v, z ≠ 1 := fun z hz hz1 => by
-    subst hz1
-    exact CFSG.Quasithin.B412.one_not_mem_orbitOf hv1 hz
-  refine ⟨fun h2 => ?_, fun hiso hodd hH => ?_⟩
-  · ext z
-    exact ⟨fun hz => CFSG.Quasithin.orbit_eq_of_twoTransitive hV G v hgen U hUx hUorb h2 z hz,
-      fun hz => hsub z hz⟩
-  · obtain ⟨hcard, hall⟩ :=
-      CFSG.Quasithin.B412.b412_two hV G v hgen ⟨U, hUx, hUorb⟩ hiso hodd hH
-    refine ⟨hcard, ?_⟩
-    ext z
-    exact ⟨fun hz => hall z hz, fun hz => hsub z hz⟩
 
 @[expose] def B_4_13 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →

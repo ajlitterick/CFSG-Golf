@@ -67,17 +67,5 @@ theorem twoSubgroupsFourGenerated_of_conj_le {A P : Subgroup G}
       exact ⟨_, ⟨⟨y, hy⟩, rfl⟩, rfl⟩
   rw [himg, hX]
 
-theorem twoSubgroupsFourGenerated_of_sylow_le [Finite G] (T : Sylow 2 G) {A : Subgroup G}
-    (hT : ∀ Q : Subgroup G, Q ≤ (T : Subgroup G) →
-      ∃ s : Finset G, s.card ≤ 4 ∧ Subgroup.closure (s : Set G) = Q) :
-    TwoSubgroupsFourGenerated ↥A := by
-  refine twoSubgroupsFourGenerated_of_conj_le hT fun X hX2 _ => ?_
-  obtain ⟨T', hXT'⟩ := hX2.exists_le_sylow
-  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq G T T'
-  refine ⟨g, fun x hx => ?_⟩
-  have hT' : (T' : Subgroup G) = conjSub g (T : Subgroup G) := by
-    rw [← hg, Sylow.coe_subgroup_smul]
-    rfl
-  exact hT' ▸ hXT' hx
 
 end CFSG.ClassicalInvolution.Q3

@@ -47,16 +47,5 @@ theorem monster_existence_clauses_one_two_of_stroth
   monster_existence_clauses_one_two_of_count AxisCount.HS.centralizer_tStar_le_Cgen
     AxisCount.HS.natCard_Gmat hStroth
 
-theorem monsterExistenceStatement_MGriess_of_stroth
-    (hStroth : ∀ d₀ : Blueprint.NativeSporadic.B, orderOf d₀ = 2 →
-      Matrix.rank (d₀.val.val - 1) = 1860 →
-      ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (d : G), orderOf d = 2 →
-        Nonempty (Subgroup.centralizer ({d} : Set G) ≃*
-          Subgroup.centralizer ({d₀} : Set Blueprint.NativeSporadic.B)) →
-        Nonempty (G ≃* Blueprint.NativeSporadic.B))
-    (hgraph : IsTwoAGraphData tGriess xGriess) :
-    MonsterExistenceStatement MGriess :=
-  monsterExistenceStatement_MGriess_of_count AxisCount.HS.centralizer_tStar_le_Cgen
-    AxisCount.HS.natCard_Gmat hStroth hgraph
 
 end CFSG.Monster.Existence

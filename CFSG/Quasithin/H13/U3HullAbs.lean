@@ -356,15 +356,6 @@ theorem V₃_le_centralizer_U : V₃ ≤ Subgroup.centralizer (conjClosure V₃ 
   fun c hc => Subgroup.mem_centralizer_iff.2 fun _ hu =>
     (Subgroup.mem_centralizer_iff.1 (h.U_le_centralizer_V₃ hu) c hc).symm
 
-theorem U_elemAbelian : IsElemAbelian 2 (conjClosure V₃ H) := by
-  refine HypF91.isElemAbelian_conjClosure_of_forall h.f91.elemAbelian_Vp fun k hk c hc => ?_
-  rw [Subgroup.mem_centralizer_iff]
-  intro y hy
-  have hyU : y ∈ conjClosure V₃ H := by
-    rw [SetLike.mem_coe, mem_conjSub] at hy
-    have := mem_conjClosure (Z := V₃) hk hy
-    rwa [show k * (k⁻¹ * y * k) * k⁻¹ = y by group] at this
-  exact (Subgroup.mem_centralizer_iff.1 (h.U_le_centralizer_V₃ hyU) c hc).symm
 
 theorem not_V_le_centralizer_U (hab : ¬ IsElemAbelian 2 (conjClosure V H)) :
     ¬ V ≤ H ⊓ Subgroup.centralizer (conjClosure V₃ H : Set G) := by

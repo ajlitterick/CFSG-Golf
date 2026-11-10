@@ -39,26 +39,6 @@ namespace C3Frame
 
 variable {G : Type} [Group G] {Ω : Set (Subgroup G)} (fr : C3Frame G Ω)
 
-theorem K₀_le_range : fr.K₀ ≤ fr.Θ₀₁.range :=
-  fr.blk₀₁₀ ▸ Subgroup.map_le_range _ _
-
-theorem K₁_le_range₀₁ : fr.K₁ ≤ fr.Θ₀₁.range :=
-  fr.blk₀₁₁ ▸ Subgroup.map_le_range _ _
-
-theorem K₁_le_range₁₂ : fr.K₁ ≤ fr.Θ₁₂.range :=
-  fr.blk₁₂₀ ▸ Subgroup.map_le_range _ _
-
-theorem K₂_le_range : fr.K₂ ≤ fr.Θ₁₂.range :=
-  fr.blk₁₂₁ ▸ Subgroup.map_le_range _ _
-
-theorem comm_K₀_K₁ : ∀ a ∈ fr.K₀, ∀ b ∈ fr.K₁, a * b = b * a :=
-  fun a ha b hb => (fr.comm₁₂ b (fr.K₁_le_range₁₂ hb) a ha).symm
-
-theorem comm_K₀_K₂ : ∀ a ∈ fr.K₀, ∀ b ∈ fr.K₂, a * b = b * a :=
-  fun a ha b hb => fr.comm₀₁ a (fr.K₀_le_range ha) b hb
-
-theorem comm_K₁_K₂ : ∀ a ∈ fr.K₁, ∀ b ∈ fr.K₂, a * b = b * a :=
-  fun a ha b hb => fr.comm₀₁ a (fr.K₁_le_range₀₁ ha) b hb
 
 end C3Frame
 
@@ -147,17 +127,6 @@ theorem map_conj_range_longBlock_one (a₀ a₁ : SL(2, F)) :
       (longBlock F 2 1).range :=
   map_conj_range_longBlock a₀ a₁ 1
 
-theorem map_conj_mem_adaptedShort {S : Subgroup (StatedSp 2 F)} (hS : S ∈ adaptedShort F)
-    (a₀ a₁ : SL(2, F)) :
-    S.map (MulAut.conj (longBlock F 2 0 a₀ * longBlock F 2 1 a₁)).toMonoidHom ∈
-      adaptedShort F := by
-  obtain ⟨b₀, b₁, rfl⟩ := hS
-  refine ⟨a₀ * b₀, a₁ * b₁, ?_⟩
-  rw [Subgroup.map_map, ← longBlock_prod_mul]
-  congr 1
-  ext x
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply, mul_inv_rev]
-  simp only [mul_assoc]
 
 theorem shortBlock_range_mem_adaptedShort :
     (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1)).range ∈ adaptedShort F := by
@@ -249,26 +218,6 @@ theorem exists_hom_sp4_of_orth {P P' : Submodule F (Fin 2 ⊕ Fin 2 → F)}
   obtain ⟨g, h₀, h₁⟩ := exists_conj_planes_of_orth (zero_ne_one : (0 : Fin 2) ≠ 1) hP hP' horth
   exact ⟨g, h₀, h₁, by rw [← planeGroup_map_conj, h₀], by rw [← planeGroup_map_conj, h₁]⟩
 
-theorem exists_normalized_layer {G : Type} [Group G] (Θ : StatedSp 2 F →* G)
-    {P P' : Submodule F (Fin 2 ⊕ Fin 2 → F)} (hP : IsHyperbolicPlane P)
-    (hP' : IsHyperbolicPlane P') (horth : ∀ u ∈ P, ∀ v ∈ P', form u v = 0) :
-    ∃ Θ' : StatedSp 2 F →* G, Θ'.range = Θ.range ∧
-      (Function.Injective Θ → Function.Injective Θ') ∧
-      (planeGroup (stdPlane F 2 0)).map Θ' = (planeGroup P).map Θ ∧
-      (planeGroup (stdPlane F 2 1)).map Θ' = (planeGroup P').map Θ := by
-  obtain ⟨h, -, -, h₀, h₁⟩ := exists_hom_sp4_of_orth hP hP' horth
-  refine ⟨Θ.comp (MulAut.conj h).toMonoidHom, ?_, fun hΘ => hΘ.comp (MulAut.conj h).injective,
-    ?_, ?_⟩
-  · ext x
-    simp only [MonoidHom.mem_range, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-      MulAut.conj_apply]
-    constructor
-    · rintro ⟨y, rfl⟩
-      exact ⟨_, rfl⟩
-    · rintro ⟨y, rfl⟩
-      exact ⟨h⁻¹ * y * h, by simp [mul_assoc]⟩
-  · rw [← Subgroup.map_map, h₀]
-  · rw [← Subgroup.map_map, h₁]
 
 theorem exists_noncomm_longBlock_range (k : Fin n) :
     ∃ x ∈ (longBlock F n k).range, ∃ y ∈ (longBlock F n k).range, x * y ≠ y * x :=
@@ -310,13 +259,6 @@ theorem commute_planeGroup_iff (h2 : (2 : F) ≠ 0) (hn : 2 ≤ n)
     simp only [MulEquiv.coe_toMonoidHom]
     rw [← map_mul, ← map_mul, hc]
 
-theorem planeGroup_ne_of_orth (h2 : (2 : F) ≠ 0) (hn : 2 ≤ n)
-    {P P' : Submodule F (Fin n ⊕ Fin n → F)} (hP : IsHyperbolicPlane P)
-    (hP' : IsHyperbolicPlane P') (horth : ∀ u ∈ P, ∀ v ∈ P', form u v = 0) :
-    planeGroup P ≠ planeGroup P' := by
-  intro hne
-  obtain ⟨x, hx, y, hy, hxy⟩ := exists_noncomm_planeGroup (by omega) hP
-  exact hxy ((commute_planeGroup_iff h2 hn hP hP').2 horth x hx y (hne ▸ hy))
 
 end Witt
 
@@ -378,41 +320,6 @@ theorem negOne_two_eq : negOne 2 F = longInv F 2 0 * longInv F 2 1 := by
     rcases a with a | a <;> fin_cases a <;> simp [coords]
   · simp [hab]
 
-theorem shortBlock_neg_one_eq_negOne :
-    shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1) (-1) = negOne 2 F :=
-  (shortBlock_neg_one _).trans negOne_two_eq.symm
-
-theorem negOne_mem_range_shortBlock :
-    negOne 2 F ∈ (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1)).range :=
-  ⟨-1, shortBlock_neg_one_eq_negOne⟩
-
-theorem negOne_notMem_planeGroup (h2 : (2 : F) ≠ 0) (hn : 2 ≤ n)
-    {P : Submodule F (Fin n ⊕ Fin n → F)} (hP : IsHyperbolicPlane P) :
-    negOne n F ∉ planeGroup P := by
-  intro hmem
-  obtain ⟨g, hg⟩ := exists_planeGroup_eq_conj_longBlock hP (⟨0, by omega⟩ : Fin n)
-  rw [hg] at hmem
-  obtain ⟨y, hy, hyx⟩ := hmem
-  have hcen := negOne_mem_center (n := n) (F := F)
-  have hy1 : y = negOne n F := by
-    have h := Subgroup.mem_center_iff.1 hcen g⁻¹
-    calc y = g⁻¹ * (g * y * g⁻¹) * g := by group
-      _ = g⁻¹ * negOne n F * g := by
-        simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply] at hyx
-        rw [hyx]
-      _ = negOne n F := by rw [h]; group
-  rw [hy1, range_longBlock] at hy
-  have ht : (Sum.inl ⟨1, hn⟩ : Fin n ⊕ Fin n) ∉ coords (⟨0, by omega⟩ : Fin n) := by
-    intro h
-    rcases mem_coords.1 h with h | h
-    · simpa using congrArg Fin.val (Sum.inl_injective h)
-    · exact Sum.inl_ne_inr h
-  exact negOne_ne_one h2 (by omega) (eq_one_of_mem_center_of_mem_suppGroup hcen hy ht)
-
-theorem negOne_notMem_range_longBlock (h2 : (2 : F) ≠ 0) (hn : 2 ≤ n) (k : Fin n) :
-    negOne n F ∉ (longBlock F n k).range := by
-  have := negOne_notMem_planeGroup h2 hn (isHyperbolicPlane_stdPlane (K := F) (n := n) k)
-  rwa [planeGroup_stdPlane] at this
 
 theorem ker_eq_bot_of_longInv_ne {G : Type} [Group G] (Θ : StatedSp 2 F →* G)
     (hker : Θ.ker ≤ Subgroup.center (StatedSp 2 F))
@@ -438,23 +345,6 @@ theorem injective_of_longInv_ne {G : Type} [Group G] (Θ : StatedSp 2 F →* G)
     (hne : Θ (longInv F 2 0) ≠ Θ (longInv F 2 1)) : Function.Injective Θ :=
   (MonoidHom.ker_eq_bot_iff Θ).1 (ker_eq_bot_of_longInv_ne Θ hker hne)
 
-theorem ker_eq_bot_of_injective_shortBlock (h2 : (2 : F) ≠ 0) {G : Type} [Group G]
-    (Θ : StatedSp 2 F →* G) (hker : Θ.ker ≤ Subgroup.center (StatedSp 2 F))
-    (hinj : Function.Injective (Θ.comp (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1)))) :
-    Θ.ker = ⊥ := by
-  refine (Subgroup.eq_bot_iff_forall _).2 fun x hx => ?_
-  rcases (mem_center_iff_negOne (n := 2) (by norm_num)).1 (hker hx) with h | h
-  · exact h
-  · exfalso
-    rw [h, ← shortBlock_neg_one_eq_negOne] at hx
-    have h1 : (Θ.comp (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1))) (-1) =
-        (Θ.comp (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1))) 1 := by
-      rw [MonoidHom.comp_apply, MonoidHom.comp_apply, map_one, map_one]
-      exact MonoidHom.mem_ker.1 hx
-    have h3 := congrArg (fun A : SL(2, F) => (A : Matrix (Fin 2) (Fin 2) F) 0 0) (hinj h1)
-    simp only [Matrix.SpecialLinearGroup.coe_neg, Matrix.SpecialLinearGroup.coe_one,
-      Matrix.neg_apply, Matrix.one_apply_eq] at h3
-    exact h2 (by linear_combination -h3)
 
 end Center
 
@@ -464,18 +354,6 @@ theorem gf3_two_ne_zero : (2 : GaloisField 3 1) ≠ 0 := by
   have : ringChar (GaloisField 3 1) = 3 := ringChar.eq (GaloisField 3 1) 3
   exact Ring.two_ne_zero (by rw [this]; norm_num)
 
-theorem commute_planeGroup_iff_sp4
-    {P P' : Submodule (GaloisField 3 1) (Fin 2 ⊕ Fin 2 → GaloisField 3 1)}
-    (hP : IsHyperbolicPlane P) (hP' : IsHyperbolicPlane P') :
-    (∀ x ∈ planeGroup P, ∀ y ∈ planeGroup P', x * y = y * x) ↔
-      ∀ u ∈ P, ∀ v ∈ P', form u v = 0 :=
-  commute_planeGroup_iff gf3_two_ne_zero le_rfl hP hP'
-
-theorem coe_center_eq {F : Type} [Field F] {n : ℕ} (hn : 1 ≤ n) :
-    (Subgroup.center (StatedSp n F) : Set (StatedSp n F)) = {1, negOne n F} := by
-  ext g
-  simp only [SetLike.mem_coe, Set.mem_insert_iff, Set.mem_singleton_iff]
-  exact mem_center_iff_negOne hn
 
 end GF3
 

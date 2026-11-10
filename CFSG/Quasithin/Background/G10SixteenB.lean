@@ -41,8 +41,6 @@ theorem raU_sup (a : GLV V) (U₁ U₂ : Submodule (ZMod 2) V) :
   unfold raU
   rw [Submodule.map_sup]
 
-theorem raU_mono (a : GLV V) {U U' : Submodule (ZMod 2) V} (h : U ≤ U') : raU a U ≤ raU a U' :=
-  Submodule.map_mono h
 
 theorem raU_eq_bot_iff {a : GLV V} {U : Submodule (ZMod 2) V} :
     raU a U = ⊥ ↔ ∀ u ∈ U, a u = u := by
@@ -85,10 +83,6 @@ theorem finrank_raU_eq [Finite V] {a : GLV V} {U : Submodule (ZMod 2) V} (h : co
   exact (LinearEquiv.finrank_eq
     (Submodule.equivMapOfInjective U.subtype U.injective_subtype (LinearMap.range (commMap a U h)))).symm
 
-theorem inducesTransvection_of_finrank_raU [Finite V] {a : GLV V} {J : Submodule (ZMod 2) V}
-    (h : conjSub a J = J) (h1 : Module.finrank (ZMod 2) ↥(raU a J) = 1) :
-    ∃ c : V, InducesTransvection a J c :=
-  (inducesTransvection_iff_finrank h).2 ((finrank_raU_eq h).symm.trans h1)
 
 namespace G108Hyp
 

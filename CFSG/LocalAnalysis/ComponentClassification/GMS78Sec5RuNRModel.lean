@@ -429,7 +429,6 @@ theorem nAut_linComp {r s : Lin8} (hr : r ∈ glList) (hs : s ∈ glList) (x : R
     rw [nAut_linComp hr (linInv_mem hr), linComp_self_linInv hr, nAut_linId]
   map_mul' := nAut_mul hr
 
-theorem nAutE_apply {r : Lin8} (hr : r ∈ glList) (x : RuR) : nAutE hr x = nAut r x := rfl
 
 @[expose] noncomputable def nK : Subgroup (MulAut RuR) where
   carrier := {f | ∃ r ∈ glList, ∀ x, f x = nAut r x}
@@ -444,7 +443,6 @@ theorem nAutE_apply {r : Lin8} (hr : r ∈ glList) (x : RuR) : nAutE hr x = nAut
     rw [MulAut.inv_apply, MulEquiv.symm_apply_eq, hf, nAut_linComp hr (linInv_mem hr),
       linComp_self_linInv hr, nAut_linId]
 
-theorem mem_nK_iff (f : MulAut RuR) : f ∈ nK ↔ ∃ r ∈ glList, ∀ x, f x = nAut r x := Iff.rfl
 
 theorem card_nK : Nat.card nK = 168 := by
   classical
@@ -731,13 +729,6 @@ theorem lift_ruNImg (w : List (Fin 7 × Bool)) :
   refine ⟨h1, ?_⟩
   rw [FreeGroup.lift_mk, nEvalW, h2, toModel_one, one_mul]
 
-theorem ruNImg_relsA :
-    ∀ r ∈ relsA.map (wordOfCodes 7), FreeGroup.lift ruNImg (FreeGroup.mk r) = 1 := by
-  have h := Certificates.certificate15109.2.2.2.2.2.1
-  simp only [nRelCheck, List.all_eq_true, beq_iff_eq] at h
-  intro r hr
-  obtain ⟨r', hr', rfl⟩ := List.mem_map.mp hr
-  rw [(lift_ruNImg _).2, h r' hr', toModel_one]
 
 theorem toModel_inl {m : Nat} (hm : m < 256) (t : Fin 8) :
     toModel (m, t, linId) = SemidirectProduct.inl ⟨⟨m, hm⟩, t⟩ := by

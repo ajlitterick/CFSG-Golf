@@ -32,19 +32,6 @@ theorem normalizer_intersection_eq (Q Y : Subgroup G)
     intro t
     exact Subgroup.mem_normalizer_iff.mp ha (t : G)
 
-omit [Finite G] in
-theorem right_conjugate_intersection_subtype (Q Y : Subgroup G) (g : Y) :
-    (rightConjugate (Q.subgroupOf Y) g).map Y.subtype =
-      rightConjugate Q (g : G) ⊓ Y := by
-  ext x
-  constructor
-  · rintro ⟨t, ht, rfl⟩
-    exact ⟨(mem_rightConjugate_iff Q g t).mpr
-      ((mem_rightConjugate_iff (Q.subgroupOf Y) g t).mp ht), t.property⟩
-  · rintro ⟨hx, hxY⟩
-    refine ⟨⟨x, hxY⟩, ?_, rfl⟩
-    apply (mem_rightConjugate_iff (Q.subgroupOf Y) g _).mpr
-    exact (mem_rightConjugate_iff Q g x).mp hx
 
 theorem tightly_embedded_intersection (Q Y : Subgroup G)
     (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q)
@@ -87,10 +74,5 @@ theorem odd_normalizer_overlaps_intersection (Q Y : Subgroup G)
   have hcard := (hodd g houtside).of_dvd_nat (Subgroup.card_dvd_of_le hle)
   rwa [Subgroup.card_subtype] at hcard
 
-theorem normal_intersection_iff_le_normalizer (Q Y : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (heven : Even (Nat.card (Q.subgroupOf Y))) :
-    (Q.subgroupOf Y).Normal ↔ Y ≤ Subgroup.normalizer (Q : Set G) := by
-  rw [← Subgroup.normalizer_eq_top_iff, normalizer_intersection_eq Q Y hodd heven]
-  exact Subgroup.subgroupOf_eq_top
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

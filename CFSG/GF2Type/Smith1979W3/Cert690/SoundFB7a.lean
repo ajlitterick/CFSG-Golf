@@ -97,9 +97,6 @@ theorem normalizesMask_maskOf {row : Array ℕ} {S : Finset ℕ} {n : ℕ}
   · simp [testBit_maskOf, hiS, hrow i hiS]
   · simp [testBit_maskOf, hiS]
 
-theorem maskOf_subset_range {S : Finset ℕ} {n : ℕ} (hS : S ⊆ Finset.range n) :
-    maskOf S ∈ Finset.range (2 ^ n) :=
-  Finset.mem_range.mpr (maskOf_lt hS)
 
 private def idxFold (A : Array ℕ) (m : ℕ) : Std.HashMap ℕ ℕ :=
   (List.range m).foldl (fun (r : Std.HashMap ℕ ℕ) i => r.insert (A[i]!) i) {}
@@ -239,8 +236,6 @@ theorem idxMapOf_getD_mem {A : Array ℕ} {x : ℕ} (hx : x ∈ A) :
   rw [hpx'] at h
   exact h
 
-example {A : Array ℕ} {x : ℕ} (h : x ∈ A.toList) : x ∈ A := Array.mem_toList_iff.mp h
-example {A : Array ℕ} {x : ℕ} (h : x ∈ A) : x ∈ A.toList := Array.mem_toList_iff.mpr h
 
 theorem hasCode_inv_of_mul_eq_one {g : V₀ ≃ₗ[ZMod 2] V₀} {a b : ℕ}
     (hg : Code.HasCode (g : V₀ →ₗ[ZMod 2] V₀) a) (hmul : Code.mul a b = Code.one) :
@@ -253,17 +248,6 @@ theorem hasCode_inv_of_mul_eq_one {g : V₀ ≃ₗ[ZMod 2] V₀} {a b : ℕ}
     exact Code.HasCode.eq_of_equiv hm0 Code.hasCode_one
   rwa [hHg] at hH
 
-theorem foldl_push_any {α β : Type*} (l : List β) (f : β → Option α) (acc : Array α)
-    (p : α → Bool) :
-    (l.foldl (fun acc b => (f b).elim acc (fun a => acc.push a)) acc).any p =
-      (acc.any p || l.any fun b => (f b).elim false (fun a => p a)) := by
-  induction l generalizing acc with
-  | nil => simp
-  | cons b l ih =>
-    rw [List.foldl_cons, ih]
-    cases hb : f b with
-    | none => simp [hb, List.any_cons]
-    | some a => simp [hb, Array.any_push, List.any_cons, Bool.or_assoc]
 
 theorem foldl_push_any_ite {α β : Type*} (l : List β) (cond : β → Bool) (val : β → α)
     (acc : Array α) (p : α → Bool) :

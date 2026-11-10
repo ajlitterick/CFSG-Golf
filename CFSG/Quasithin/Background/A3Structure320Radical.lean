@@ -30,9 +30,6 @@ open scoped commutatorElement
     rw [h1]
     exact conj_mem_solvRad (Subgroup.inv_mem _ ha) (Subgroup.inv_mem _ (ha' l hl))
 
-theorem mem_centralizerModSolvRad {G : Type*} [Group G] {L : Subgroup G} {h : G} :
-    h ∈ centralizerModSolvRad L ↔
-      h ∈ Subgroup.normalizer (L : Set G) ∧ ∀ l ∈ L, ⁅h, l⁆ ∈ solvRad L := Iff.rfl
 
 @[expose] def HasS3Section {G : Type*} [Group G] (C : Subgroup G) : Prop :=
   ∃ (K : Subgroup G) (ρ : ↥K →* Equiv.Perm (Fin 3)), K ≤ C ∧ Function.Surjective ρ
@@ -84,22 +81,6 @@ theorem centralizes_of_central_radical {L : Subgroup G} (hLperf : ⁅L, L⁆ = L
   have h4 : ⁅l, c⁆ ∈ (⊥ : Subgroup G) := h3 ▸ Subgroup.commutator_mem_commutator hl hc
   rw [← commutatorElement_inv, Subgroup.mem_bot.1 h4, inv_one]
 
-theorem card_solvRad_eq [Finite G] (L : Subgroup G) :
-    Nat.card (solvRad L) = Nat.card (CFSG.solvableRadical ↥L) := by
-  rw [← A36A.subgroupOf_solvRad L]
-  exact (Nat.card_congr (Subgroup.subgroupOfEquivOfLe (solvRad_le L)).toEquiv).symm
-
-theorem exists_orderOf_eq_three_of_surjective {K : Type*} [Group K] [Finite K]
-    (ρ : K →* Equiv.Perm (Fin 3)) (hρ : Function.Surjective ρ) : ∃ y : K, orderOf y = 3 := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have h1 := Subgroup.card_eq_card_quotient_mul_card_subgroup ρ.ker
-  have h2 : Nat.card (K ⧸ ρ.ker) = 6 := by
-    rw [Nat.card_congr (QuotientGroup.quotientKerEquivOfSurjective ρ hρ).toEquiv, Nat.card_perm]
-    simp [Nat.card_eq_fintype_card, Nat.factorial]
-  have : 3 ∣ Nat.card K := by
-    rw [h1, h2]
-    exact Dvd.dvd.mul_right (by norm_num) _
-  exact exists_prime_orderOf_dvd_card' 3 this
 
 theorem mem_zpowers_of_mem_zpowers_prime {p : ℕ} [hp : Fact p.Prime] {x y : G}
     (hx : orderOf x = p) (hy : y ∈ Subgroup.zpowers x) (hy1 : y ≠ 1) :

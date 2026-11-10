@@ -181,20 +181,6 @@ lemma E_to_Cyc_apply_coe [Fact p.Prime]
           (PElementary.Cyc a ⊔ PElementary.P_of_Z p a : Subgroup G)) : G) := by
   rfl
 
-/--
-The `p`-group factor of the associated `p`-elementary subgroup, identified with
-the ambient subgroup `P_of_Z p a`.
--/
-noncomputable def E_P_equiv [Fact p.Prime]
-    (a : G) (ha : IsPRegular p a) :
-    (PElementary.associatedSubgroup (p := p) ha).P ≃*
-      PElementary.P_of_Z p a := by
-  let H : Subgroup G := E_subgroup p a
-  have hP_le : PElementary.P_of_Z p a ≤ H := by
-    intro x hx
-    exact Subgroup.mem_sup_right hx
-  exact Subgroup.subgroupOfEquivOfLe hP_le
-
 
 open PElementary in
 /--
@@ -213,48 +199,6 @@ lemma E_Cyc_equiv_apply_coe [Fact p.Prime]
       ((c : (Cyc a ⊔ P_of_Z p a : Subgroup G)) : G) := by
   rfl
 
-open PElementary in
-/--
-The cardinality of `E(a)` is `orderOf a * |P_Z(a)|`.
--/
-lemma E_card [Fact p.Prime] [Finite G]
-    {a : G} (ha : IsPRegular p a) :
-    Nat.card (E_subgroup p a) =
-      orderOf a * Nat.card (P_of_Z p a) := by
-  letI : Fintype G := Fintype.ofFinite G
-
-  let H : Subgroup G := E_subgroup p a
-
-  let eH := associatedSubgroup (p := p) ha
-  let h_iso : eH.C × eH.P ≃* H := mulEquivProd eH
-
-  have hH :
-      Nat.card H = Nat.card (eH.C × eH.P) := by
-    simpa using Nat.card_congr h_iso.toEquiv.symm
-
-  have hC :
-      Nat.card eH.C = orderOf a := by
-    have hCcard :
-        Nat.card eH.C = Nat.card (Cyc a) := by
-      simpa using
-        Nat.card_congr
-          (E_Cyc_equiv (p := p) a ha).toEquiv
-    rw [hCcard]
-    simpa [Cyc] using Nat.card_zpowers a
-
-  have hP :
-      Nat.card eH.P = Nat.card (P_of_Z p a) := by
-    simpa using
-      Nat.card_congr
-        (E_P_equiv (p := p) a ha).toEquiv
-
-  calc
-    Nat.card H
-        = Nat.card (eH.C × eH.P) := hH
-    _ = Nat.card eH.C * Nat.card eH.P := by
-        simp
-    _ = orderOf a * Nat.card (P_of_Z p a) := by
-        rw [hC, hP]
 
 end ElementarySubgroup
 

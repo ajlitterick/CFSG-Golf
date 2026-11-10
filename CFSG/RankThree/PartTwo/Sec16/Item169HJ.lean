@@ -16,10 +16,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] noncomputable def Item169HJ (A : Subgroup G) (LB : Subgroup G → Subgroup G)
-    (L : Subgroup G) : Prop :=
-  Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2) →
-    Item169 A LB L
 
 @[expose] def Item1610 (A : Subgroup G) (LB : Subgroup G → Subgroup G) : Prop :=
   scriptY0 A LB = ∅ → scriptY3 A LB = scriptY1 A LB

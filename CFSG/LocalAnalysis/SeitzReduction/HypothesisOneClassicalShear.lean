@@ -147,54 +147,6 @@ theorem shear_rigidity_of_fix (hBn : ∀ a : V, (∀ x, B x a = 0) → a = 0)
   rw [hTL l hl] at h
   rw [map_sub, h, sub_self]
 
-theorem shear_of_sub_mem (hB : B.IsAlt) {W L : Submodule K V}
-    (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, B w v = 0) {w u u' : V} (hu : u' - u ∈ W) {g : V →+ V}
-    (hgL : ∀ v ∈ L, g v = v + B v u • w) (hgW : ∀ v, g v - v - B v w • u ∈ W) :
-    (∀ v ∈ L, g v = v + B v u' • w) ∧ ∀ v, g v - v - B v w • u' ∈ W := by
-  refine ⟨fun v hv => ?_, fun v => ?_⟩
-  · have h : B v (u' - u) = 0 := by rw [← hB.neg_eq, (hL v).1 hv _ hu, neg_zero]
-    rw [map_sub, sub_eq_zero] at h
-    rw [hgL v hv, h]
-  · rw [show g v - v - B v w • u' = g v - v - B v w • u - B v w • (u' - u) by
-      rw [smul_sub]; abel]
-    exact W.sub_mem (hgW v) (W.smul_mem _ hu)
-
-theorem forall_shear_of_le_sup (hB : B.IsAlt) {W W₀ L M : Submodule K V}
-    (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, B w v = 0) (hLM : L ≤ M ⊔ W) {F : Type*} [FunLike F V V]
-    {T : F}
-    (hsh : ∀ w ∈ W₀, ∀ u ∈ M, ∃ g : V →+ V, (∀ v, T (g v) = g (T v)) ∧
-      (∀ v ∈ L, g v = v + B v u • w) ∧ ∀ v, g v - v - B v w • u ∈ W) :
-    ∀ w ∈ W₀, ∀ u ∈ L, ∃ g : V →+ V, (∀ v, T (g v) = g (T v)) ∧
-      (∀ v ∈ L, g v = v + B v u • w) ∧ ∀ v, g v - v - B v w • u ∈ W := by
-  intro w hw u hu
-  obtain ⟨m, hm, h, hh, rfl⟩ := Submodule.mem_sup.1 (hLM hu)
-  obtain ⟨g, hgT, hgL, hgW⟩ := hsh w hw m hm
-  exact ⟨g, hgT, shear_of_sub_mem hB hL (by rwa [add_sub_cancel_left]) hgL hgW⟩
-
-theorem shear_comp_right {W L : Submodule K V} (hWL : W ≤ L)
-    (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, B w v = 0) {w u : V} (hu : u ∈ L) {g z : V →+ V}
-    (hgL : ∀ v ∈ L, g v = v + B v u • w) (hgW : ∀ v, g v - v - B v w • u ∈ W)
-    (hzL : ∀ v ∈ L, z v = v) (hzW : ∀ v, z v - v ∈ W) :
-    (∀ v ∈ L, g (z v) = v + B v u • w) ∧ ∀ v, g (z v) - v - B v w • u ∈ W := by
-  have hgy : ∀ y ∈ W, g y = y := fun y hy => by
-    rw [hgL y (hWL hy), (hL u).1 hu y hy, zero_smul, add_zero]
-  refine ⟨fun v hv => by rw [hzL v hv, hgL v hv], fun v => ?_⟩
-  have e : g (z v) = g v + (z v - v) := by
-    rw [← hgy _ (hzW v), ← map_add, add_sub_cancel]
-  rw [e, show g v + (z v - v) - v - B v w • u = g v - v - B v w • u + (z v - v) by abel]
-  exact W.add_mem (hgW v) (hzW v)
-
-theorem shear_comp_left {W L : Submodule K V} (hWL : W ≤ L) {w u : V} (hw : w ∈ W)
-    {g z : V →+ V} (hgL : ∀ v ∈ L, g v = v + B v u • w) (hgW : ∀ v, g v - v - B v w • u ∈ W)
-    (hzL : ∀ v ∈ L, z v = v) (hzW : ∀ v, z v - v ∈ W) :
-    (∀ v ∈ L, z (g v) = v + B v u • w) ∧ ∀ v, z (g v) - v - B v w • u ∈ W := by
-  refine ⟨fun v hv => ?_, fun v => ?_⟩
-  · have hgv : g v ∈ L := by
-      rw [hgL v hv]
-      exact L.add_mem hv (L.smul_mem _ (hWL hw))
-    rw [hzL _ hgv, hgL v hv]
-  · rw [show z (g v) - v - B v w • u = (z (g v) - g v) + (g v - v - B v w • u) by abel]
-    exact W.add_mem (hzW _) (hgW v)
 
 end ShearRigidity
 
@@ -212,42 +164,6 @@ theorem apply_apply_eq_of_apply_sub [CharP K 2] {F : Type*} [FunLike F V V]
         rw [ShearRigidity.add_self_eq_zero K, zero_sub,
           neg_eq_of_add_eq_zero_left (ShearRigidity.add_self_eq_zero K v)]
 
-theorem apply_apply_eq_of_sub_mem [CharP K 2] {W L : Submodule K V} (hWL : W ≤ L)
-    {F : Type*} [FunLike F V V] [AddMonoidHomClass F V V] {T : F}
-    (h1 : ∀ v ∈ L, T v = v) (h2 : ∀ v, T v - v ∈ W) : ∀ v, T (T v) = v :=
-  apply_apply_eq_of_apply_sub K fun v => h1 _ (hWL (h2 v))
-
-theorem semilinear_shear_rigidity_of_perp [CharP K 2]
-    (hBn : ∀ a : V, (∀ x, B x a = 0) → a = 0) (hB : B.IsAlt) {W L : Submodule K V}
-    (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, B w v = 0) (hW : ∀ v, v ∈ W ↔ ∀ l ∈ L, B l v = 0)
-    (hLW : ∃ x ∈ L, ∃ u ∈ L, B x u = 1) (hW2 : ∃ w₁ ∈ W, ∃ w₂ ∈ W, LinearIndependent K ![w₁, w₂])
-    {F : Type*} [FunLike F V V] [AddMonoidHomClass F V V] {φ : K ≃+* K} (T : F)
-    (hT : ∀ (a : K) v, T (a • v) = φ a • T v) (hTB : ∀ x y, B (T x) (T y) = φ (B x y))
-    (hTL : ∀ v ∈ L, T v ∈ L)
-    (hsh : ∀ w ∈ W, ∀ u ∈ L, ∃ g : V →+ V, (∀ v, T (g v) = g (T v)) ∧
-      (∀ v ∈ L, g v = v + B v u • w) ∧ ∀ v, g v - v - B v w • u ∈ W) :
-    (∀ a, φ a = a) ∧ (∀ v ∈ L, T v = v) ∧ ∀ v, T v - v ∈ W := by
-  obtain ⟨w₁, hw₁, w₂, hw₂, hind⟩ := hW2
-  have hW0 : W ≠ ⊥ := (Submodule.ne_bot_iff W).2 ⟨w₁, hw₁, by simpa using hind.ne_zero 0⟩
-  obtain ⟨hφ, hTW, -⟩ := semilinear_core hB hLW hW0 T hT hTB hTL
-    fun w hw u hu => (hsh w hw u hu).imp fun _ hg => ⟨hg.1, hg.2.1⟩
-  have hTB' : ∀ x y, B (T x) (T y) = B x y := fun x y => by rw [hTB, hφ]
-  obtain ⟨hTL1, -, hperp⟩ :=
-    shear_rigidity_of_fix hBn hL ⟨w₁, hw₁, w₂, hw₂, hind⟩ T hTB' hTW hsh
-  exact ⟨hφ, hTL1, fun v => (hW _).2 (hperp v)⟩
-
-theorem semilinear_shear_rigidity [CharP K 2] [FiniteDimensional K V]
-    (hBn : ∀ a : V, (∀ x, B x a = 0) → a = 0) (hB : B.IsAlt) {W L : Submodule K V}
-    (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, B w v = 0) (hLW : ∃ x ∈ L, ∃ u ∈ L, B x u = 1)
-    (hW2 : ∃ w₁ ∈ W, ∃ w₂ ∈ W, LinearIndependent K ![w₁, w₂])
-    {F : Type*} [FunLike F V V] [AddMonoidHomClass F V V] {φ : K ≃+* K} (T : F)
-    (hT : ∀ (a : K) v, T (a • v) = φ a • T v) (hTB : ∀ x y, B (T x) (T y) = φ (B x y))
-    (hTL : ∀ v ∈ L, T v ∈ L)
-    (hsh : ∀ w ∈ W, ∀ u ∈ L, ∃ g : V →+ V, (∀ v, T (g v) = g (T v)) ∧
-      (∀ v ∈ L, g v = v + B v u • w) ∧ ∀ v, g v - v - B v w • u ∈ W) :
-    (∀ a, φ a = a) ∧ (∀ v ∈ L, T v = v) ∧ ∀ v, T v - v ∈ W :=
-  semilinear_shear_rigidity_of_perp hBn hB hL (mem_iff_forall_of_perp hBn hB hL) hLW hW2 T hT
-    hTB hTL hsh
 
 theorem semilinear_shear_rigidity_line [CharP K 2]
     (hBn : ∀ a : V, (∀ x, B x a = 0) → a = 0) (hB : B.IsAlt) {W L : Submodule K V}

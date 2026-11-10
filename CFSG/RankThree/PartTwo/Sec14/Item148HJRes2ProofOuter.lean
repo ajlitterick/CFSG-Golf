@@ -143,17 +143,6 @@ theorem step148HJNormalOuterON_holds :
           a ∉ Late.sectionCentralizer A J (pPrimeCoreOf 3 Y)) →
         Case148Two A (lB A) Y ∨ Case148Three A (lB A) Y ∨ Case148Six A (lB A) Y
 
-theorem step148HJM24Outer2_of_outer (h : Step148HJM24Outer) : Step148HJM24Outer2 := by
-  intro G _ _ A c L hS Y hY hs ih B hB hnot YB hYB htype hΔ b d Lb hc hle J hJ hYBJ hAJ Yd hYd
-    hYBYd hYdJ hAYd hA6 hθ hW hdc _ _ _ hM
-  exact h G A c L hS Y hY hs ih B hB hnot YB hYB htype hΔ b d Lb hc hle J hJ hYBJ hAJ Yd hYd
-    hYBYd hYdJ hAYd hA6 hθ hW hdc hM
-
-theorem step148HJHJOuter2_of_outer (h : Step148HJHJOuter) : Step148HJHJOuter2 := by
-  intro G _ _ A c L hS Y hY hs ih B hB hnot YB hYB htype hΔ b d Lb hc hle J hJ hYBJ hAJ Yd hYd
-    hYBYd hYdJ hAYd hA6 hθ hW hdc _ _ _ hH _
-  exact h G A c L hS Y hY hs ih B hB hnot YB hYB htype hΔ b d Lb hc hle J hJ hYBJ hAJ Yd hYd
-    hYBYd hYdJ hAYd hA6 hθ hW hdc hH
 
 theorem step148HJM24Outer_of_outer2
     (h : Step148HJM24Outer2) :

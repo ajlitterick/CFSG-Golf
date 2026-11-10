@@ -106,14 +106,6 @@ theorem pow_two_eq_one_of_mem_image {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 
   ·
     exact OmegaOuter.field_pow_two_eq_one hf hK hn hQ hT hE hα2 hS hSα hσ β hβ hβα hβc
 
-theorem involutionCriterion_of_image_eq_top {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin (2 * n) → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤)
-    {x : MulAut (matrixProjectiveDerived Q)} (hx : orderOf x = 2) : InvolutionCriterion x :=
-  fun β hβx hβc => pow_two_eq_one_of_mem_image hf hK hn hQ hT hE x (htop ▸ mem_top x) hx β
-    (htop ▸ mem_top β) hβx hβc
 
 theorem hypothesisOne_of_regular {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
     {Q : QuadraticForm K (Fin (2 * n) → K)} (hQ : Q.polarBilin.Nondegenerate)
@@ -185,32 +177,6 @@ theorem hypothesisOne_coordinateMinus {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K 
     (fullInvolutionOddCore_coordinateMinus hf hK hn hirr) fun _ _ =>
       ⟨1, by rw [matrixProjectiveImage_eq_top_minus K n hn b c hirr]; exact le_top⟩
 
-theorem pow_two_eq_one_of_two_power_coordinatePlus {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) (hn : 4 ≤ n)
-    {x : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))} (hx : orderOf x = 2)
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))} {k : ℕ}
-    (hβk : orderOf β = 2 ^ k) (hβx : β * x = x * β)
-    (hβ : ∀ c, x c = c → Odd (orderOf c) → β c = c) : β ^ 2 = 1 := by
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  exact OmegaOuter.pow_two_eq_one_of_conj_le (exists_conj_le_image_coordinatePlus hf hK hn)
-    (pow_two_eq_one_of_mem_image hf hK hn hreg.1 hreg.2
-      (commutator_coordinateQuadPlus n K (by omega))) hx hβk hβx hβ
-
-theorem involutionCriterion_coordinatePlus {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 5 ≤ n) {x : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))}
-    (hx : orderOf x = 2) : InvolutionCriterion x := by
-  have hreg := regular_coordinateQuadPlus n K (by omega)
-  exact involutionCriterion_of_image_eq_top hf hK (by omega) hreg.1 hreg.2
-    (commutator_coordinateQuadPlus n K (by omega)) (matrixProjectiveImage_eq_top_plus K n hn) hx
-
-theorem involutionCriterion_coordinateMinus {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hn : 4 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {x : MulAut (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))}
-    (hx : orderOf x = 2) : InvolutionCriterion x := by
-  have hreg := regular_coordinateQuadMinus n K b c hn hirr
-  exact involutionCriterion_of_image_eq_top hf hK hn hreg.1 hreg.2
-    (commutator_coordinateQuadMinus n K b c hn hirr)
-    (matrixProjectiveImage_eq_top_minus K n hn b c hirr) hx
 
 end Coordinate
 

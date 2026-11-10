@@ -222,19 +222,6 @@ namespace CFSG.GH74.GLS
 
 open Subgroup CFSG CFSG.ABGLocalTools CFSG.GH74.GLS.Th2
 
-@[expose] def B_thm2_p812_NV : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], C3Hyp G → ∀ (x y : G) (K T S M : Subgroup G),
-    Th2Std x y K T S → HasL2Model (kBar K) Odd → K ≤ M → T ≤ M →
-      IsSylowOf 2 (T ⊓ CxK x K) (CMbar M K) →
-        ∀ V : Subgroup G, V ≤ T ⊓ CxK x K → CFSG.IsElementaryAbelian 2 ↥V → V ≠ ⊥ →
-          IsSylowOf 2 (normalizer (V : Set G) ⊓ (T ⊓ CxK x K))
-            (normalizer (V : Set G) ⊓ CMbar M K) →
-          pPrimeCoreOf 2 (normalizer (V : Set G)) ≤ M →
-          ∀ U : Subgroup G, IsFourSub (T ⊓ K) U →
-            normalizer ((U ⊔ V : Subgroup G) : Set G) ≤ M →
-            normalizer (((T ⊓ K) ⊔ (normalizer (V : Set G) ⊓ (T ⊓ CxK x K)) : Subgroup G) :
-              Set G) ≤ M →
-              normalizer (V : Set G) ≤ M
 
 @[expose] def B_thm2_p812_A7 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], C3Hyp G → ∀ (x y : G) (K T S M : Subgroup G) (ρ : Th2Row)

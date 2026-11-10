@@ -4924,11 +4924,6 @@ theorem nonempty_aeIdentOn_e29_of_aglPts' (S : TwinShift Ω) {b : Lab2} (hb : b 
   · exact nonempty_aeIdentOn_e29_of_hom S.conj_mem h.trans h.gen φ hφinj hφrange hK hαS hα4 heq
   · exact nonempty_aeIdentOn_e29_of_hom S.conj_mem h.trans h.gen φ hφinj hφrange hK hαS hα4 heq
 
-theorem nonempty_aeIdentOn_e29' : Nonempty (AEIdentOn Ω 8 AE.e29Sets AE.e29Sub) := by
-  obtain ⟨S⟩ := h.exists_twinShift
-  have hb : ((1 : ZMod 2), (0 : ZMod 2)) ≠ (0 : Lab2) := by decide
-  obtain ⟨P⟩ := h.exists_aglPts S hb
-  exact h.nonempty_aeIdentOn_e29_of_aglPts' S hb P
 
 end DE4Hyp
 

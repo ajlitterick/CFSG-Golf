@@ -93,19 +93,6 @@ theorem rescale_left_comm {X Y : GL (Fin m) K} {κ : Kˣ}
     _ = Y * (GeneralLinearGroup.scalar (Fin m) u * X) * GeneralLinearGroup.scalar (Fin m) κ := by
         simp only [mul_assoc]
 
-theorem rescale_right_comm {X Y : GL (Fin m) K} {κ : Kˣ}
-    (hXY : X * Y = Y * X * GeneralLinearGroup.scalar (Fin m) κ) (u : Kˣ) :
-    X * (GeneralLinearGroup.scalar (Fin m) u * Y) =
-      (GeneralLinearGroup.scalar (Fin m) u * Y) * X * GeneralLinearGroup.scalar (Fin m) κ := by
-  calc X * (GeneralLinearGroup.scalar (Fin m) u * Y)
-      = (X * GeneralLinearGroup.scalar (Fin m) u) * Y := by rw [mul_assoc]
-    _ = (GeneralLinearGroup.scalar (Fin m) u * X) * Y := by
-        rw [GeneralLinearGroup.scalar_commute u X]
-    _ = GeneralLinearGroup.scalar (Fin m) u * (X * Y) := by rw [mul_assoc]
-    _ = GeneralLinearGroup.scalar (Fin m) u * (Y * X * GeneralLinearGroup.scalar (Fin m) κ) := by
-        rw [hXY]
-    _ = (GeneralLinearGroup.scalar (Fin m) u * Y) * X * GeneralLinearGroup.scalar (Fin m) κ := by
-        simp only [mul_assoc]
 
 end Comm
 

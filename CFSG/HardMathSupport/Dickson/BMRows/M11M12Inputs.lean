@@ -72,9 +72,5 @@ open CFSG.Monster.AxisCount CFSG.YGroups.Y443 CFSG.YGroups.Y443Native CFSG.AGLEm
 @[expose] def m12Check (_ : Unit := ()) : Bool :=
   agreeAll m12Pairs && EdgeNoncomm.moveCheck m12aW (aV ())
 
-theorem m12Check_eq_tasks :
-    m12Check () = (agreeTasks (Native.mkCtx ()) (aV ()) (bV ()) (wV ()) m12Pairs &&
-      EdgeNoncomm.moveCheck m12aW (aV ())) := by
-  rw [m12Check, agreeAll_eq_agreeTasks]
 
 end CFSG.HardMathSupport.Dickson.BMRows.M11

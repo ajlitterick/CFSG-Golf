@@ -59,16 +59,10 @@ theorem rep_ruCPair : ∀ k < #[ruC0A, ruC1A].size,
   intro k hk
   exact rep_pair_getD rep_ruC0 rep_ruC1 k hk
 
-theorem rep_ruNsPair' : ∀ k < #[ruNs0A, ruNs1A].size,
-    Rep 4060 #[ruNs0A, ruNs1A][k]! ((fun k => [ruNs0, ruNs1].getD k 1) k) := by
-  intro k hk
-  exact rep_ruNsPair k hk
 
 theorem ruCOrbits_getD {k : ℕ} (hk : k < 4) : ruCOrbits.getD k #[] = ruCOrbit k := by
   simp [ruCOrbits, List.getD_eq_getElem?_getD, hk]
 
-theorem ruNOrbits_getD {k : ℕ} (hk : k < 3) : ruNOrbits.getD k #[] = ruNOrbit k := by
-  simp [ruNOrbits, List.getD_eq_getElem?_getD, hk]
 
 theorem ruF_size : ruF.size = 1920 := by
   simp only [ruF, ruPtList, Array.size_ofFn]

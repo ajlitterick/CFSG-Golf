@@ -159,61 +159,11 @@ theorem range_stabPerm [FaithfulSMul G Ω] :
       rw [hx] at key
       exact (π.injective key).symm
 
-@[expose] noncomputable def stabPermEquiv [FaithfulSMul G Ω] :
-    MulAut G ≃* Subgroup.normalizer ((toPermHom G Ω).range : Set (Equiv.Perm Ω)) :=
-  (MonoidHom.ofInjective (stabPerm_injective hinj hinv)).trans
-    (MulEquiv.subgroupCongr (range_stabPerm hinj hinv))
-
-theorem coe_stabPermEquiv [FaithfulSMul G Ω] (α : MulAut G) :
-    (stabPermEquiv hinj hinv α : Equiv.Perm Ω) = stabPerm hinj hinv α :=
-  rfl
 
 theorem map_inner_stabPerm : (inner G).map (stabPerm hinj hinv) = (toPermHom G Ω).range := by
   rw [CFSG.ComponentClassification.OuterAutomorphisms.inner, MonoidHom.map_range]
   congr 1
   exact MonoidHom.ext fun g => stabPerm_conj_eq hinj hinv g
 
-theorem map_inner_stabPermEquiv [FaithfulSMul G Ω] :
-    (inner G).map (stabPermEquiv hinj hinv : MulAut G →* _) =
-      (toPermHom G Ω).range.subgroupOf
-        (Subgroup.normalizer ((toPermHom G Ω).range : Set (Equiv.Perm Ω))) := by
-  ext y
-  rw [Subgroup.mem_subgroupOf]
-  constructor
-  · rintro ⟨α, hα, rfl⟩
-    exact (map_inner_stabPerm hinj hinv).le ⟨α, hα, rfl⟩
-  · intro hy
-    obtain ⟨α, hα, hy'⟩ := (map_inner_stabPerm hinj hinv).ge hy
-    exact ⟨α, hα, Subtype.ext hy'⟩
-
-@[expose] noncomputable def stabPermOuterEquiv [FaithfulSMul G Ω] :
-    Outer G ≃* Subgroup.normalizer ((toPermHom G Ω).range : Set (Equiv.Perm Ω)) ⧸
-      (toPermHom G Ω).range.subgroupOf
-        (Subgroup.normalizer ((toPermHom G Ω).range : Set (Equiv.Perm Ω))) :=
-  QuotientGroup.congr (inner G) _ (stabPermEquiv hinj hinv) (map_inner_stabPermEquiv hinj hinv)
-
-theorem stabPermOuterEquiv_mk [FaithfulSMul G Ω] (α : MulAut G) :
-    stabPermOuterEquiv hinj hinv (α : Outer G) =
-      ((stabPermEquiv hinj hinv α : Subgroup.normalizer
-        ((toPermHom G Ω).range : Set (Equiv.Perm Ω))) : _ ⧸ _) :=
-  QuotientGroup.congr_mk _ _ _ _ α
-
-theorem faithful_stabilizer_permutation_normalizer [FaithfulSMul G Ω] :
-    Function.Injective (toPermHom G Ω) ∧
-    (∀ (α : MulAut G) (π : Equiv.Perm Ω), π = stabPerm hinj hinv α ↔
-      ∀ ω, (stabilizer G ω).map α.toMonoidHom = stabilizer G (π ω)) ∧
-    Function.Injective (stabPerm hinj hinv) ∧
-    (stabPerm hinj hinv).range =
-      Subgroup.normalizer ((toPermHom G Ω).range : Set (Equiv.Perm Ω)) ∧
-    (∀ α : MulAut G, (stabPermEquiv hinj hinv α : Equiv.Perm Ω) = stabPerm hinj hinv α) ∧
-    (∀ (α : MulAut G) (g : G), stabPerm hinj hinv α * toPermHom G Ω g *
-      (stabPerm hinj hinv α)⁻¹ = toPermHom G Ω (α g)) ∧
-    (inner G).map (stabPerm hinj hinv) = (toPermHom G Ω).range ∧
-    ∀ α : MulAut G, stabPermOuterEquiv hinj hinv (α : Outer G) =
-      ((stabPermEquiv hinj hinv α : Subgroup.normalizer
-        ((toPermHom G Ω).range : Set (Equiv.Perm Ω))) : _ ⧸ _) :=
-  ⟨toPermHom_injective, eq_stabPerm_iff hinj hinv, stabPerm_injective hinj hinv,
-    range_stabPerm hinj hinv, coe_stabPermEquiv hinj hinv, stabPerm_conj hinj hinv,
-    map_inner_stabPerm hinj hinv, stabPermOuterEquiv_mk hinj hinv⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.StabilizerNormalizer

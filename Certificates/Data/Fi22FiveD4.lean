@@ -45,26 +45,5 @@ set_option compiler.extract_closed false
 @[expose] def resA (t : Array Nat) : Array Nat :=
   Array.ofFn (n := 360) fun j => posA[t[ordA[j.val]!]!]!
 
-@[expose] def presOK (t : Array Nat) : Bool :=
-  allLt 360 fun j => decide (posA[t[ordA[j]!]!]! < 360)
-
-@[expose] def ordOK : Bool :=
-  ordA.size == 360 && posA.size == 3510 &&
-    allLt 360 (fun j => decide (ordA[j]! < 3510) && posA[ordA[j]!]! == j) &&
-    allLt 3510 (fun p => !(decide (posA[p]! < 360)) || ordA[posA[p]!]! == p)
-
-@[expose] def autBaseArr : Array Nat := (autBase.map Fin.val).toArray
-
-@[expose] def inAutA (t : Array Nat) : Bool :=
-  siftA 360 (rawLevels 360 autS autBaseArr) autBaseArr 0 t
-
-@[expose] def planeFaithful : Bool :=
-  allLt 5 fun i => allLt 5 fun j => (i == 0 && j == 0) ||
-    !(eqA 360 (resA (planeA i j)) (idA 360))
-
-@[noinline, expose] def d4Check : Bool :=
-  ordOK && presOK g1A && presOK g2A && presOK n1A && presOK n2A && presOK zA &&
-    allLt centClosure.1.size (fun i => presOK centClosure.1[i]!) &&
-    inAutA (resA g1A) && inAutA (resA g2A) && planeFaithful && !(presOK (evalW [1]))
 
 end CFSG.AGLEmbedding.KFactProofs.Fi22Five.D4

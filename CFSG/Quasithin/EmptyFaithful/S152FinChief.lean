@@ -126,9 +126,6 @@ theorem le_fixMod (hXL : X ≤ Subgroup.normalizer (L : Set G)) : L ≤ fixMod X
   have h1 : x * l * x⁻¹ ∈ L := (Subgroup.mem_normalizer_iff.mp (hXL hx) l).mp hl
   exact L.mul_mem h1 (L.inv_mem hl)
 
-theorem fixMod_anti {X' : Subgroup G} (h : X' ≤ X) :
-    fixMod X L N hab hLN ≤ fixMod X' L N hab hLN :=
-  fun _ hn => ⟨hn.1, fun x hx => hn.2 x (h hx)⟩
 
 theorem relIndex_chain_aux [Finite G] {C L F N : Subgroup G} (hLF : L ≤ F) (hFN : F ≤ N)
     (hCF : N ⊓ C ≤ F) : C.relIndex L * F.relIndex N ≤ C.relIndex N := by

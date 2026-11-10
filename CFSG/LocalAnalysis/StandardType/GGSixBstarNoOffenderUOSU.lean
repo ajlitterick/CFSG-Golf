@@ -137,16 +137,6 @@ theorem exists_map_zeta [Fact p.Prime] {ζ : Kˣ} (hζ : orderOf ζ = p) (θ : K
   rw [hζ1, orderOf_one] at hζ
   exact hp.one_lt.ne hζ
 
-theorem coordOf_map [Fact p.Prime] {ζ : Kˣ} (hζ : orderOf ζ = p) {θ : K ≃+* K} {s : ZMod p}
-    (hs : Units.map (θ : K →* K) ζ = ζ ^ s.val) {d : Fin (m + 1) → Kˣ}
-    (hd : ∀ i, (d i / d 0) ^ p = 1) (i : Fin (m + 1)) :
-    coordOf p ζ (fun j => Units.map (θ : K →* K) (d j)) i = s * coordOf p ζ d i := by
-  have : NeZero p := ⟨(Fact.out : p.Prime).ne_zero⟩
-  have key : Units.map (θ : K →* K) (d i) / Units.map (θ : K →* K) (d 0) =
-      ζ ^ (coordOf p ζ d i * s).val := by
-    rw [← map_div, ← pow_coordOf hζ hd i, map_pow, hs, ← pow_val_mul hζ]
-  change dlog p ζ (Units.map (θ : K →* K) (d i) / Units.map (θ : K →* K) (d 0)) = _
-  rw [key, dlog_pow hζ, mul_comm]
 
 theorem coordOf_map_perm [Fact p.Prime] {ζ : Kˣ} (hζ : orderOf ζ = p) {θ : K ≃+* K}
     {s : ZMod p} (hs : Units.map (θ : K →* K) ζ = ζ ^ s.val) {d : Fin (m + 1) → Kˣ}
@@ -588,9 +578,6 @@ theorem ggSixBstarNoOffenderAt_PSU_of_nonsplit (hN : GGSixBstarNoOffenderOn GGPS
     · exact Or.inl ⟨rfl, hp⟩
     · exact Or.inr ⟨rfl, hp⟩
 
-theorem ggSixBstarNoOffenderAt_PSU_of_monoFrame (hN : GGSixBstarMonoFrameOn GGPSUNonsplit) :
-    GGSixBstarNoOffenderAt .PSU :=
-  ggSixBstarNoOffenderAt_PSU_of_nonsplit (ggNoOffender_of_monoFrameOn hN)
 
 @[expose] def GGSixBstarNoOffenderRestUO : Prop :=
   GGSixBstarNoOffenderOn GGPSLSplitDvd ∧ GGSixBstarNoOffenderOn GGPSLNonsplit ∧
@@ -605,9 +592,6 @@ theorem ggSixBstarNoOffenderRest6_of_restUO (h : GGSixBstarNoOffenderRestUO) :
   exact ⟨hDvd, hLNs, hpNs, ggSixBstarNoOffenderAt_PSU_of_nonsplit hUNs, hPlus, hMinus, hF4, hE6,
     hE7, hE8, hTwE6⟩
 
-theorem ggSixBstarNoOffenderInput_of_restUO (h : GGSixBstarNoOffenderRestUO) :
-    GGSixBstarNoOffenderInput :=
-  ggSixBstarNoOffenderInput_of_rest6 (ggSixBstarNoOffenderRest6_of_restUO h)
 
 theorem ggSixBstarUniqueV2Input_of_restUO (h : GGSixBstarNoOffenderRestUO) :
     GGSixBstarUniqueV2Input :=

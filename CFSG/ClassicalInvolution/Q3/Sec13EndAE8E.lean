@@ -29,129 +29,6 @@ theorem ae8e_rep_mem (x : Fin 6) : ae8e_rep x ∈ alternatingGroup (Fin 6) := by
 theorem ae8e_rep_zero (x : Fin 6) : ae8e_rep x x = 0 := by
   fin_cases x <;> decide
 
-theorem ae8e_hom_trivial {s : Finset (Fin 6)} (hs : 5 ≤ Nat.card s) {A : Type} [CommGroup A]
-    (f : alternatingGroup s →* A) (x : alternatingGroup s) : f x = 1 := by
-  have htop : ⁅(⊤ : Subgroup (alternatingGroup s)), ⊤⁆ = ⊤ :=
-    commutator_alternatingGroup_eq_top hs
-  have hmap := Subgroup.map_commutator (H₁ := ⊤) (H₂ := ⊤) f
-  rw [htop] at hmap
-  have hbot : Subgroup.map f (⊤ : Subgroup (alternatingGroup s)) = ⊥ := by
-    rw [hmap, Subgroup.commutator_self_eq_bot_iff]
-    infer_instance
-  have hx : f x ∈ Subgroup.map f (⊤ : Subgroup (alternatingGroup s)) :=
-    Subgroup.mem_map_of_mem f trivial
-  rw [hbot] at hx
-  exact (Subgroup.mem_bot).mp hx
-
-theorem ae8e_zmod2_self (x : ZMod 2) (h : x = x + x) : x = 0 := by
-  revert x; decide
-
-theorem ae8e_zmod2_add_self (t : ZMod 2) : t + t = 0 := by
-  revert t
-  decide
-
-theorem ae8e_zmod2_neg (t : ZMod 2) : -t = t := by
-  revert t
-  decide
-
-theorem ae8e_zmod2_swap (a b c : ZMod 2) (h : a = b + c) : c = a + b := by
-  revert a b c; decide
-
-theorem H1_alt_six (c : alternatingGroup (Fin 6) → (Fin 6 → ZMod 2))
-    (hc : ∀ σ τ : alternatingGroup (Fin 6), c (σ * τ) =
-      c σ + fun i => c τ ((σ : Equiv.Perm (Fin 6)).symm i)) :
-    ∃ v : Fin 6 → ZMod 2, ∀ σ : alternatingGroup (Fin 6),
-      c σ = (fun i => v ((σ : Equiv.Perm (Fin 6)).symm i)) + v := by
-  have hcp : ∀ (σ τ : alternatingGroup (Fin 6)) (p : Fin 6),
-      c (σ * τ) p = c σ p + c τ ((σ : Equiv.Perm (Fin 6)).symm p) := fun σ τ p => by
-    rw [hc σ τ]
-    rfl
-  have hc1 : ∀ p, c 1 p = 0 := fun p => by
-    have h := hcp 1 1 p
-    simp only [mul_one, OneMemClass.coe_one, Equiv.Perm.one_def, Equiv.refl_symm,
-      Equiv.refl_apply] at h
-    exact ae8e_zmod2_self _ h
-  let s : Finset (Fin 6) := Finset.univ.erase 0
-  have hs5 : 5 ≤ Nat.card s := by
-    rw [Nat.card_eq_fintype_card, Fintype.card_coe]
-    decide
-  have hfix : ∀ x : alternatingGroup s,
-      ((alternatingGroup.ofSubtype s x : alternatingGroup (Fin 6)) : Equiv.Perm (Fin 6)) 0 = 0 :=
-    fun x => by
-      rw [alternatingGroup.coe_ofSubtype]
-      exact Equiv.Perm.ofSubtype_apply_of_not_mem _ (by simp [s])
-  let f : alternatingGroup s →* Multiplicative (ZMod 2) :=
-    { toFun := fun x => Multiplicative.ofAdd (c (alternatingGroup.ofSubtype s x) 0)
-      map_one' := by
-        simp only [map_one]
-        rw [hc1 0]
-        rfl
-      map_mul' := fun x y => by
-        have h0 : ((alternatingGroup.ofSubtype s x : alternatingGroup (Fin 6)) :
-            Equiv.Perm (Fin 6)).symm 0 = 0 := by
-          rw [Equiv.symm_apply_eq]
-          exact (hfix x).symm
-        simp only [map_mul]
-        rw [hcp, h0, ofAdd_add] }
-  have hf1 : ∀ x : alternatingGroup s, c (alternatingGroup.ofSubtype s x) 0 = 0 := fun x => by
-    have := ae8e_hom_trivial hs5 f x
-    exact (ofAdd_eq_one.mp this)
-  have hkey : ∀ h : alternatingGroup (Fin 6), (h : Equiv.Perm (Fin 6)) 0 = 0 → c h 0 = 0 := by
-    intro h hh0
-    have hz : ∀ x, (h : Equiv.Perm (Fin 6)) x = 0 ↔ x = 0 := fun x => by
-      constructor
-      · intro e
-        apply (h : Equiv.Perm (Fin 6)).injective
-        rw [e, hh0]
-      · rintro rfl
-        exact hh0
-    have hp : ∀ x, (x ∈ s ↔ (h : Equiv.Perm (Fin 6)) x ∈ s) := fun x => by
-      simp only [s, Finset.mem_erase, Finset.mem_univ, and_true]
-      exact (not_congr (hz x)).symm
-    have hmove : ∀ x, (h : Equiv.Perm (Fin 6)) x ≠ x → x ∈ s := fun x hx => by
-      simp only [s, Finset.mem_erase, Finset.mem_univ, and_true]
-      rintro rfl
-      exact hx hh0
-    have hk : alternatingGroup.ofSubtype s ⟨Equiv.Perm.subtypePerm (h : Equiv.Perm (Fin 6))
-        (fun x => (hp x).symm), by
-          rw [Equiv.Perm.mem_alternatingGroup, ← Equiv.Perm.sign_ofSubtype,
-            Equiv.Perm.ofSubtype_subtypePerm _ hmove]
-          exact Equiv.Perm.mem_alternatingGroup.mp h.2⟩ = h := by
-      apply Subtype.ext
-      rw [alternatingGroup.coe_ofSubtype, Equiv.Perm.ofSubtype_subtypePerm _ hmove]
-    rw [← hk]
-    exact hf1 _
-  let r : Fin 6 → alternatingGroup (Fin 6) := fun x => ⟨ae8e_rep x, ae8e_rep_mem x⟩
-  have hr : ∀ x, (r x : Equiv.Perm (Fin 6)) x = 0 := fun x => ae8e_rep_zero x
-  have hwd : ∀ (g g' : alternatingGroup (Fin 6)) (x : Fin 6),
-      (g : Equiv.Perm (Fin 6)) x = 0 → (g' : Equiv.Perm (Fin 6)) x = 0 → c g' 0 = c g 0 := by
-    intro g g' x hg hg'
-    have hginv : (g : Equiv.Perm (Fin 6))⁻¹ 0 = x := Equiv.Perm.inv_eq_iff_eq.mpr hg.symm
-    have hh0 : ((g' * g⁻¹ : alternatingGroup (Fin 6)) : Equiv.Perm (Fin 6)) 0 = 0 := by
-      rw [Subgroup.coe_mul, Subgroup.coe_inv, Equiv.Perm.mul_apply, hginv]
-      exact hg'
-    have hgg : g' = (g' * g⁻¹ : alternatingGroup (Fin 6)) * g := by group
-    rw [hgg, hcp _ _ 0, hkey _ hh0, (Equiv.symm_apply_eq _).mpr hh0.symm, zero_add]
-  let v : Fin 6 → ZMod 2 := fun x => c (r x) 0
-  have hcob : ∀ (σ : alternatingGroup (Fin 6)) (x : Fin 6),
-      c σ x = v ((σ : Equiv.Perm (Fin 6)).symm x) + v x := by
-    intro σ x
-    have h1 : ((r x * σ : alternatingGroup (Fin 6)) : Equiv.Perm (Fin 6))
-        ((σ : Equiv.Perm (Fin 6)).symm x) = 0 := by
-      rw [Subgroup.coe_mul, Equiv.Perm.mul_apply, Equiv.apply_symm_apply]
-      exact hr x
-    have h2 := hwd (r x * σ) (r ((σ : Equiv.Perm (Fin 6)).symm x)) _ h1 (hr _)
-    have h3 := hcp (r x) σ 0
-    have h4 : (r x : Equiv.Perm (Fin 6)).symm 0 = x := (Equiv.symm_apply_eq _).mpr (hr x).symm
-    rw [h4] at h3
-    have h5 : v ((σ : Equiv.Perm (Fin 6)).symm x) = v x + c σ x := by
-      show c (r ((σ : Equiv.Perm (Fin 6)).symm x)) 0 = c (r x) 0 + c σ x
-      rw [h2, h3]
-    exact ae8e_zmod2_swap _ _ _ h5
-  refine ⟨v, fun σ => ?_⟩
-  funext x
-  rw [Pi.add_apply]
-  exact hcob σ x
 
 section AERelabel
 
@@ -232,12 +109,6 @@ theorem ae8e_permExt6_one (ι : Fin 6 ↪ Fin 8) : ae8e_permExt6 ι 1 = 1 := by
         rw [Equiv.apply_symm_apply, ae8e_permExt6_of_not_mem ι _ hx]
       rw [h1, ae8e_ext6_of_not_mem ι _ hx, ae8e_ext6_of_not_mem ι _ hx,
         ae8e_ext6_of_not_mem ι _ hx, add_zero]
-
-theorem ae8e_relab6_vec (ι : Fin 6 ↪ Fin 8) (a : Wr 6) :
-    (ae8e_relab6 ι a).vec = ae8e_ext6 ι a.vec := rfl
-
-theorem ae8e_relab6_perm (ι : Fin 6 ↪ Fin 8) (a : Wr 6) :
-    (ae8e_relab6 ι a).perm = ae8e_permExt6 ι a.perm := rfl
 
 
 @[expose] def ae8e_relab4 (τ : Equiv.Perm (Fin 4)) (a : Wr 4) : Wr 4 :=
@@ -548,8 +419,6 @@ theorem ae8e_e2_pair : ∀ a b : Fin 6, a ≠ b →
     ae8e_pair (ae8e_e2 a b) = {ae8e_c6 a, ae8e_c6 b} := by
   decide +kernel
 
-theorem ae8e_e2_inW : ∀ a b : Fin 6, a ≠ b → ae8e_inW (ae8e_e2 a b) := by
-  decide +kernel
 
 theorem ae8e_e2_unique : ∀ (w : Fin 6 → ZMod 2) (a b : Fin 6), a ≠ b → ae8e_inW w →
     ae8e_pair w = {ae8e_c6 a, ae8e_c6 b} → w = ae8e_e2 a b := by
@@ -1247,15 +1116,6 @@ section Assembly
 
 variable {c : Chart Ω u} {co : Coords c}
 
-@[expose] noncomputable def ae8e_permQ : AE.AEQ 8 →* Equiv.Perm (Fin 8) :=
-  QuotientGroup.lift (AE.piSub 8) (AE.permHom 8) (fun x hx => by
-    show AE.permHom 8 x = 1
-    rcases AE.mem_piSub.mp hx with h | h
-    · rw [h, map_one]
-    · rw [h]
-      rfl)
-
-theorem ae8e_permQ_mk (w : AE.Wr 8) : ae8e_permQ (AE.mkQ 8 w) = AE.permHom 8 w := rfl
 
 @[expose] noncomputable def ae8e_rho (c : Chart Ω u) (σ : Equiv.Perm (Fin 8)) :
     ↥(pSpan (Generic.centMembers Ω u)) →* AE.AEQ 8 :=
@@ -1265,25 +1125,6 @@ theorem ae8e_permQ_mk (w : AE.Wr 8) : ae8e_permQ (AE.mkQ 8 w) = AE.permHom 8 w :
 theorem ae8e_rho_apply (σ : Equiv.Perm (Fin 8)) (y : ↥(pSpan (Generic.centMembers Ω u))) :
     ae8e_rho c σ y = AE.mkQ 8 (ae8e_relab6 (ae8e_iota σ) (c.ψ y : AE.Wr 6)) := rfl
 
-theorem ae8e_permQ_rho (σ : Equiv.Perm (Fin 8)) (y : ↥(pSpan (Generic.centMembers Ω u))) :
-    ae8e_permQ (ae8e_rho c σ y) = ae8e_permExt6 (ae8e_iota σ) (c.ψ y : AE.Wr 6).perm := rfl
-
-theorem ae8e_permQ_phi (pt : Points u) {H : Subgroup G} {β : Multiplicative (Fin 8 → ZMod 2) →* G}
-    (hS : AESplitHyp (zGroup Ω) H (pt.π.comp H.subtype) β) (hker : pt.π.ker = zGroup Ω)
-    {φ : G →* AE.AEQ 8}
-    (hβφ : ∀ f : Multiplicative (Fin 8 → ZMod 2), ∑ i, f.toAdd i = 0 →
-      φ (β f) = AE.mkQ 8 (AE.Wr.ofVec f.toAdd))
-    (hHφ : ∀ x : H, φ x = AE.mkQ 8 (AE.Wr.ofPerm ((pt.π.comp H.subtype) x))) (g : G) :
-    ae8e_permQ (φ g) = pt.π g := by
-  obtain ⟨f, hf, x, hx⟩ := hS.exists_eq_mul g
-  have hπβ : pt.π (β f) = 1 := by
-    have hmem : β f ∈ pt.π.ker := by
-      rw [hker]
-      exact (hS.mem_iff _).mpr ⟨f, hf, rfl⟩
-    exact hmem
-  rw [← hx, map_mul, map_mul, hβφ f hf, hHφ x, map_mul, ae8e_permQ_mk, ae8e_permQ_mk,
-    hπβ, one_mul]
-  simp [AE.permHom, AE.Wr.ofVec, AE.Wr.ofPerm]
 
 theorem ae8e_mkQ_ofVec_eq {β : Multiplicative (Fin 8 → ZMod 2) →* G}
     (hβ1 : ∀ f : Multiplicative (Fin 8 → ZMod 2), ∑ i, f.toAdd i = 0 →
@@ -1463,18 +1304,6 @@ theorem ae8e_beta_spec (H : End18.Hyp Ω) (cl : Classes co) (pt : Points u) :
       simp only [ae8e_ind, hE]
     rw [hind, ae8e_beta_pair H cl pt hij, hx]
 
-theorem exists_beta (H : End18.Hyp Ω) (cl : Classes co) (pt : Points u) :
-    ∃ β : Multiplicative (Fin 8 → ZMod 2) →* G,
-      (∀ g : G, g ∈ zGroup Ω ↔
-        ∃ f : Multiplicative (Fin 8 → ZMod 2), ∑ i, f.toAdd i = 0 ∧ β f = g) ∧
-      (∀ f : Multiplicative (Fin 8 → ZMod 2), ∑ i, f.toAdd i = 0 →
-        (β f = 1 ↔ f.toAdd = 0 ∨ f.toAdd = fun _ => 1)) ∧
-      (∀ (g : G) (f : Multiplicative (Fin 8 → ZMod 2)), ∑ i, f.toAdd i = 0 →
-        g * β f * g⁻¹ = β (Multiplicative.ofAdd fun i => f.toAdd ((pt.π g).symm i))) ∧
-      ∀ x : ↥(Delta u),
-        β (Multiplicative.ofAdd fun i => if i ∈ (pt.E x : Finset (Fin 8)) then (1 : ZMod 2) else 0)
-          = x :=
-  ⟨ae8e_beta cl pt, ae8e_beta_spec H cl pt⟩
 
 theorem ae8e_split (H : End18.Hyp Ω) (cl : Classes co) (pt : Points u) :
     ∃ Hc : Subgroup G,
@@ -1514,31 +1343,6 @@ theorem ae8e_split (H : End18.Hyp Ω) (cl : Classes co) (pt : Points u) :
     rw [← hvx]
     simp [map_mul, hπv]
 
-theorem exists_splitHyp (H : End18.Hyp Ω) (cl : Classes co)
-    (pt : Points u) :
-    ∃ (Hc : Subgroup G) (σ : ↥Hc →* Equiv.Perm (Fin 8))
-      (β : Multiplicative (Fin 8 → ZMod 2) →* G),
-      AESplitHyp (zGroup Ω) Hc σ β ∧ σ.range = alternatingGroup (Fin 8) := by
-  obtain ⟨Hc, hS, hr, -⟩ := ae8e_split H cl pt
-  exact ⟨Hc, pt.π.comp Hc.subtype, ae8e_beta cl pt, hS, hr⟩
-
-theorem ae8e_D_comm (cl : Classes co) {x y : G} (hx : x ∈ zGroup Ω) (hy : y ∈ zGroup Ω) :
-    x * y = y * x := by
-  have h : (⟨x, hx⟩ : ↥(zGroup Ω)) * ⟨y, hy⟩ = ⟨y, hy⟩ * ⟨x, hx⟩ := by
-    apply co.e.injective
-    rw [map_mul, map_mul]
-    exact mul_comm _ _
-  exact congrArg Subtype.val h
-
-theorem ae8e_D_sq (cl : Classes co) {x : G} (hx : x ∈ zGroup Ω) : x * x = 1 := by
-  have h : (⟨x, hx⟩ : ↥(zGroup Ω)) * ⟨x, hx⟩ = 1 := by
-    apply co.e.injective
-    rw [map_mul, map_one]
-    apply Multiplicative.toAdd.injective
-    rw [toAdd_mul, toAdd_one]
-    funext i
-    simp [ae8e_zmod2_add_self]
-  exact congrArg Subtype.val h
 
 end Points
 

@@ -89,18 +89,6 @@ theorem centralizer_eq_of_comm {U W : Subgroup A} (hUW : U ≤ W)
   intro w hw
   exact hab w (hWC hw) c hc
 
-theorem false_of_normal_pGroup [Finite A] (hR : IsPGroup 2 ↥R)
-    (hMN : M ≤ Subgroup.normalizer (M₀ : Set A)) (hM₀R : M₀ ≤ Subgroup.normalizer (R : Set A))
-    (hsyl : IsSylowTwoOf R (CFSG.Quasithin.centralizerSection M M₀ (pCoreOf 2 M₀)))
-    (hNR : Subgroup.normalizer (R : Set A) ≤ M) {Q : Subgroup A} (hQ : IsPGroup 2 ↥Q)
-    (hQN : Q ≤ Subgroup.normalizer (R : Set A))
-    (hNQ : Subgroup.normalizer (R : Set A) ≤ Subgroup.normalizer (Q : Set A))
-    (hQR : ¬ Q ≤ R) : False := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hrad := pCoreOf_normalizer_eq hR hMN hM₀R hsyl hNR
-  apply hQR
-  rw [← hrad]
-  exact le_pCoreOf_of_le_normalizer 2 hQN hNQ hQ
 
 theorem false_of_sylow_witness [Finite A] (hR : IsPGroup 2 ↥R)
     (hMN : M ≤ Subgroup.normalizer (M₀ : Set A)) (hM₀R : M₀ ≤ Subgroup.normalizer (R : Set A))

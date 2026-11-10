@@ -41,17 +41,6 @@ theorem form_mulVec_inv_left (g : StatedSp n K) (w u : Fin n ⊕ Fin n → K) :
 theorem form_zero_right (v : Fin n ⊕ Fin n → K) : form v 0 = 0 := by
   simp [form]
 
-theorem mem_orthSet_span {S : Set (Fin n ⊕ Fin n → K)} {v : Fin n ⊕ Fin n → K} :
-    v ∈ orthSet (Submodule.span K S : Set (Fin n ⊕ Fin n → K)) ↔ ∀ u ∈ S, form v u = 0 := by
-  constructor
-  · intro h u hu
-    exact h u (Submodule.subset_span hu)
-  · intro h x hx
-    induction hx using Submodule.span_induction with
-    | mem u hu => exact h u hu
-    | zero => exact form_zero_right v
-    | add a b _ _ ha hb => rw [form_add_right, ha, hb, add_zero]
-    | smul c a _ ha => rw [form_smul_right, ha, mul_zero]
 
 theorem mem_orthSet_span_pair {u w v : Fin n ⊕ Fin n → K} :
     v ∈ orthSet (Submodule.span K {u, w} : Set (Fin n ⊕ Fin n → K)) ↔

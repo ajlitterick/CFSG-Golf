@@ -147,11 +147,6 @@ theorem decvX_add {ω : L} (hω : ω ^ 2 + ω + 1 = 0) {Xs Ys Zs : List ℕ}
   refine Finset.sum_congr rfl fun i hi => ?_
   rw [h i (Finset.mem_range.1 hi), emb_xor (ω := ω) (hX i) (hY i), Pi.single_add]
 
-theorem decvX_ext (ω : L) {Xs Ys : List ℕ} (h : ∀ i < 20, Xs.getD i 0 = Ys.getD i 0) :
-    decvX ω Xs = decvX ω Ys := by
-  unfold decvX
-  refine Finset.sum_congr rfl fun i hi => ?_
-  rw [h i (Finset.mem_range.1 hi)]
 
 @[expose] def decv (ω : L) (b : ℕ) : Fn L := decvX ω (expandV b)
 

@@ -42,26 +42,6 @@ theorem mul_self_ne_of_piT_s23 {μ : L4Model n} (hπ : piT μ = s23 ∨ piT μ =
   rw [h] at this
   rcases hπ with h' | h' <;> rw [h'] at this <;> revert this <;> decide
 
-theorem exists_mul_self_eq_x1T (hn : 3 ≤ n) :
-    ∃ c ∈ centralizer {tT (n := n) (by omega)}, c * c = x1T (by omega) := by
-  have hc : detSum (fun i => ss n * (![-1, 1, -1, 1] : Fin 4 → ZMod (2 ^ n)) i) 1 := by
-    rw [detSum_one_iff, Fin.sum_univ_four]
-    simp only [Matrix.cons_val]
-    ring
-  have h4 := four_mul_ss hn
-  have hh2 := hh_add_hh (n := n) (by omega)
-  refine ⟨el _ 1 hc, ?_, ?_⟩
-  · rw [mem_centralizer_singleton_iff, tT]
-    refine ((el_comm_diag_iff (by omega) _ hc).2 ?_).symm
-    rw [pv_tP]
-    refine isConst_of_eq_four 0 ?_ ?_ ?_ ?_ <;> simp only [Pi.sub_apply, Matrix.cons_val] <;>
-      ring1
-  · rw [el_mul, x1T, el_eq_el_iff (by omega)]
-    refine ⟨mul_one _, isConst_of_eq_four (-(2 * ss n)) ?_ ?_ ?_ ?_⟩ <;>
-      simp only [Pi.sub_apply, Pi.add_apply, OneMemClass.coe_one, pv_one, hv, Matrix.cons_val,
-        Nat.cast_one, Nat.cast_zero, mul_one, mul_zero] <;>
-      first | ring1 | linear_combination h4 + hh2 | linear_combination -h4 - hh2 |
-        linear_combination h4 - hh2 | linear_combination -h4 + hh2
 
 theorem exists_pow_four_eq_zT_of_piT_s23 (hn : 3 ≤ n) {μ : L4Model n}
     (hπ : piT μ = s23 ∨ piT μ = s01) : ∃ c ∈ centralizer {μ}, c ^ 4 = zT (by omega) := by

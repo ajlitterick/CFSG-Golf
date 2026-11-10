@@ -142,12 +142,6 @@ theorem ggNbrReflGenNonSplitFull_of_rank (h : GGNbrReflGenNonSplitInput)
 
 section Input
 
-theorem ggSecFiveTwE6ResidualInput_of_rank (hR : GGTwE6ThreeNbrRankInput)
-    (hW : GGTwE6ThreeNbrWeylInput) (hRig : GGLabelRigidInput) (hZ : GGNbrBstarCenterInput) :
-    GGSecFiveTwE6ResidualInput := by
-  intro G _ _ p B Bs x L D J hRest _ ⟨y, K, hK, _, hbad, hnr⟩
-  exact (hnr (ggNbrReflGen_of_twE6Three hR hW hRig hRest.1 hRest.2.2.2.1 hK
-    (hRest.2.2.1.2 y K hK) hbad (hZ G p B Bs x L D J hRest y K hK))).elim
 
 end Input
 

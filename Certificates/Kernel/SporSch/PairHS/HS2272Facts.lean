@@ -682,17 +682,6 @@ theorem LS_rep (k : Nat) : RepF 3850 (LS k) (gS k) := by
   · simp only [h, if_false]
     exact (T_rep hk).2
 
-theorem gS_inv (k : Nat) : gS (ivL k) = (gS k)⁻¹ := by
-  have hst : st (ivL k) = st k := by
-    have h2 : ivL k / 2 = k / 2 := by
-      rw [ivL_eq]
-      split_ifs <;> omega
-    unfold st
-    change (ivL k / 2) % 4 + 1 = (k / 2) % 4 + 1
-    rw [h2]
-  unfold gS
-  rw [hst, ivL_eq]
-  split_ifs with h1 h2 h2 <;> first | omega | simp
 
 theorem sgen_eq : (tp 3850 '' {x | x ∈ hsSylowGenTbls.toArray}) = {T 1, T 2, T 3, T 4} := by
   ext y

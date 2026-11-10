@@ -137,8 +137,6 @@ theorem conjMT_alt (g : Matrix n n ℚ) : ∀ X ∈ altSub n, conjMT g X ∈ alt
 @[expose] def symConj (g : Matrix n n ℚ) : symSub n →ₗ[ℚ] symSub n :=
   (conjM g).restrict (conjM_sym g)
 
-theorem coe_symConj (g : Matrix n n ℚ) (S : symSub n) :
-    (symConj g S : Matrix n n ℚ) = g * S * gᵀ := rfl
 
 variable [DecidableEq n]
 

@@ -12,13 +12,6 @@ open CFSG.Assembly
 abbrev KGroupOver (C : GroupProp) (X : Type) [Group X] : Prop :=
   KCore.KGroupAllSimple C X
 
-theorem isKGroup_iff_kGroupOver {X : Type} [Group X] :
-    CFSG.IsKGroup X ↔ KGroupOver InCatalog X :=
-  Iff.rfl
-
-theorem isKGroupCat_iff_kGroupOver {X : Type} [Group X] :
-    SectionRank.IsKGroupCat X ↔ KGroupOver Blueprint.Catalog X :=
-  Iff.rfl
 
 theorem inCatalog_of_mulEquiv {X Y : Type} [Group X] [Group Y] (e : X ≃* Y) (h : InCatalog Y) :
     InCatalog X :=
@@ -30,21 +23,6 @@ theorem catalog_of_abelian_simple (S : Type) [Group S] [Finite S] [IsSimpleGroup
 
 variable {C : GroupProp}
 
-theorem kGroupOver_of_mulEquiv
-    (hC : ∀ {X Y : Type} [Group X] [Group Y], X ≃* Y → C Y → C X)
-    {X Y : Type} [Group X] [Group Y] (e : X ≃* Y) (hY : KGroupOver C Y) : KGroupOver C X :=
-  KCore.KGroupAllSimple.of_mulEquiv hC hY e
-
-theorem catalog_of_kGroupOver_of_surjective
-    (hC : ∀ {X Y : Type} [Group X] [Group Y], X ≃* Y → C Y → C X)
-    {X : Type} [Group X] (hX : KGroupOver C X) (K : Subgroup X) {S : Type} [Group S]
-    [IsSimpleGroup S] (φ : K →* S) (hφ : Function.Surjective φ) : C S :=
-  KCore.KGroupAllSimple.catalogue_of_surjective hC hX K φ hφ
-
-theorem kGroupOver_quotient (hC : ∀ {X Y : Type} [Group X] [Group Y], X ≃* Y → C Y → C X)
-    {X : Type} [Group X] (hX : KGroupOver C X) (M : Subgroup X) [M.Normal] :
-    KGroupOver C (X ⧸ M) :=
-  KCore.KGroupAllSimple.quotient hC hX M
 
 theorem catalog_of_kProper_of_surjective
     (hC : ∀ {X Y : Type} [Group X] [Group Y], X ≃* Y → C Y → C X)
@@ -59,10 +37,5 @@ theorem kGroupOver_of_kProper (hC : ∀ {X Y : Type} [Group X] [Group Y], X ≃*
     KGroupOver C H :=
   KCore.KProperNonab.kGroupAllSimple hC hab hK H hH
 
-theorem section_K_isomorphism {G H : Type} [Group G] [Group H] (f : G ≃* H) :
-    (CFSG.IsKGroup G ↔ CFSG.IsKGroup H) ∧
-      (SectionRank.IsKGroupCat G ↔ SectionRank.IsKGroupCat H) :=
-  ⟨KCore.kGroupAllSimple_congr inCatalog_isoInvariant f,
-    KCore.kGroupAllSimple_congr SectionRank.catalog_isoInvariant f⟩
 
 end CFSG.ComponentClassification.UnbalancingLocal

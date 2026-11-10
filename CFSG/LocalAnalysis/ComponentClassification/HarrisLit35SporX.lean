@@ -61,9 +61,5 @@ theorem rowFor_spor_He (hHe : TBLit.HeldTrivialMultiplier) :
   intro G _ _ p w v L K h ⟨e⟩
   exact (h.false_of_noTwoCover fun Y _ _ hY _ ⟨eY⟩ => hHe Y hY ⟨eY.trans e⟩).elim
 
-theorem rowFor_spor_ONan (hSM : RankThree.PartTwo.Sec4.Census.SporadicMultipliers) :
-    RowFor fun Y _ => NativeSporadic.IsSporadic Y .ONan := by
-  intro G _ _ p w v L K h ⟨e⟩
-  exact (h.false_of_odd_hopfMultiplier (X := NativeSporadic.ON) e (by rw [hSM.2]; decide)).elim
 
 end CFSG.ComponentClassification.HarrisLit.L35

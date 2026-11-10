@@ -227,29 +227,6 @@ theorem exists_pair [Finite G] {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) (h
   subst this
   exact ⟨hN, hNi'⟩
 
-theorem r2_correspondence [Finite G] {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω)
-    (hex : ExactMembers Ω) {x : G} (hP1 : LocalOddCentral Ω {x})
-    (D : LieSystemData p f (locQuot Ω x) (locFamily Ω x))
-    (hsc : ∀ i, FundamentalSingleClass (D.tag i)
-      (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    (hperf : ∀ i, FundPerfect (D.tag i) (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    {K₀ Kβ : Subgroup G} (h0 : K₀ ∈ centralizingMembers Ω {x})
-    (hβ : Kβ ∈ centralizingMembers Ω {x}) (hnc : ¬ Commutes K₀ Kβ) :
-    ∃ i, ∃ R₀ Rβ : Subgroup (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).K,
-      Corr Ω x D i K₀ R₀ ∧ Corr Ω x D i Kβ Rβ ∧ ¬ Commutes R₀ Rβ ∧
-      (∀ N ∈ centralizingMembers Ω {x}, ¬ Commutes N Kβ → N ∈ compMembers Ω x D i) ∧
-      ∃ e : compMembers Ω x D i ≃ compFund D i, ∀ N : compMembers Ω x D i,
-        Corr Ω x D i N.1 (e N).1 ∧ (Commutes N.1 K₀ ↔ Commutes (e N).1 R₀) ∧
-          (Commutes N.1 Kβ ↔ Commutes (e N).1 Rβ) := by
-  obtain ⟨i, h0i, hβi, hatt⟩ := exists_pair hΩ hex hP1 D h0 hβ hnc
-  obtain ⟨R₀, hR₀⟩ := exists_corr_left hΩ hex D h0i
-  obtain ⟨Rβ, hRβ⟩ := exists_corr_left hΩ hex D hβi
-  obtain ⟨e, he⟩ := exists_compMembersEquiv hΩ hex hP1 D (hsc i) (hperf i)
-  refine ⟨i, R₀, Rβ, hR₀, hRβ, ?_, hatt, e, fun N => ⟨he N, ?_, ?_⟩⟩
-  · rw [← corr_commutes hΩ hP1 (hperf i) hR₀ hRβ]
-    exact hnc
-  · exact corr_commutes hΩ hP1 (hperf i) (he N) hR₀
-  · exact corr_commutes hΩ hP1 (hperf i) (he N) hRβ
 
 theorem commutes_symm {H : Type*} [Group H] {A B : Subgroup H} (h : Commutes A B) :
     Commutes B A := fun a ha b hb => (h b hb a ha).symm
@@ -336,63 +313,5 @@ theorem commutes_iff_le_centralizer {Ω : Set (Subgroup G)} [Finite G] (hMFZ : F
     · exact commutes_symm hc
     · exact absurd (commutes_symm hN0) hnc
 
-theorem ncard_eq_of_equiv {α β : Type*} {A : Set α} {B : Set β} (e : A ≃ B) (P : α → Prop)
-    (Q : β → Prop) (h : ∀ a : A, P a.1 ↔ Q (e a).1) :
-    Set.ncard {a | a ∈ A ∧ P a} = Set.ncard {b | b ∈ B ∧ Q b} := by
-  refine Set.ncard_congr (fun a ha => (e ⟨a, ha.1⟩).1) (fun a ha => ⟨(e _).2, ?_⟩) ?_ ?_
-  · exact (h ⟨a, ha.1⟩).mp ha.2
-  · intro a b ha hb hab
-    have := e.injective (Subtype.ext hab)
-    exact congrArg Subtype.val this
-  · intro b hb
-    refine ⟨(e.symm ⟨b, hb.1⟩).1, ⟨(e.symm ⟨b, hb.1⟩).2, ?_⟩, ?_⟩
-    · have := (h (e.symm ⟨b, hb.1⟩)).mpr
-      rw [Equiv.apply_symm_apply] at this
-      exact this hb.2
-    · have : e ⟨(e.symm ⟨b, hb.1⟩).1, (e.symm ⟨b, hb.1⟩).2⟩ = ⟨b, hb.1⟩ :=
-        e.apply_symm_apply ⟨b, hb.1⟩
-      exact congrArg Subtype.val this
-
-theorem r2_ncard [Finite G] {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) (hex : ExactMembers Ω)
-    {x : G} (hP1 : LocalOddCentral Ω {x}) (D : LieSystemData p f (locQuot Ω x) (locFamily Ω x))
-    (hsc : ∀ i, FundamentalSingleClass (D.tag i)
-      (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    (hperf : ∀ i, FundPerfect (D.tag i) (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    {K₀ Kβ : Subgroup G} (h0 : K₀ ∈ centralizingMembers Ω {x})
-    (hβ : Kβ ∈ centralizingMembers Ω {x}) (hnc : ¬ Commutes K₀ Kβ) :
-    ∃ i, ∃ R₀ Rβ : Subgroup (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).K,
-      Corr Ω x D i K₀ R₀ ∧ Corr Ω x D i Kβ Rβ ∧
-      Set.ncard {N | N ∈ compMembers Ω x D i ∧ Commutes N K₀} =
-        Set.ncard {R | R ∈ compFund D i ∧ Commutes R R₀} ∧
-      Set.ncard {N | N ∈ compMembers Ω x D i ∧ Commutes N K₀ ∧ ¬ Commutes N Kβ} =
-        Set.ncard {R | R ∈ compFund D i ∧ Commutes R R₀ ∧ ¬ Commutes R Rβ} := by
-  obtain ⟨i, R₀, Rβ, hR₀, hRβ, -, -, e, he⟩ := r2_correspondence hΩ hex hP1 D hsc hperf h0 hβ hnc
-  exact ⟨i, R₀, Rβ, hR₀, hRβ, ncard_eq_of_equiv e _ _ fun N => (he N).2.1,
-    ncard_eq_of_equiv e _ _ fun N => and_congr (he N).2.1 (not_congr (he N).2.2)⟩
-
-theorem exists_attached_member [Finite G] {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω)
-    (hex : ExactMembers Ω) {x : G} (hP1 : LocalOddCentral Ω {x})
-    (D : LieSystemData p f (locQuot Ω x) (locFamily Ω x))
-    (hsc : ∀ i, FundamentalSingleClass (D.tag i)
-      (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    (hperf : ∀ i, FundPerfect (D.tag i) (modelUniv (D.tag i) (D.rank i) p (D.exp i) Fact.out).D)
-    {K₀ Kβ : Subgroup G} (h0 : K₀ ∈ centralizingMembers Ω {x})
-    (hβ : Kβ ∈ centralizingMembers Ω {x}) (hnc : ¬ Commutes K₀ Kβ) (hne : K₀ ≠ Kβ)
-    (hMN : ∀ i, K₀ ∈ compMembers Ω x D i →
-      ∀ R₀ ∈ compFund D i, ∀ Rβ ∈ compFund D i, R₀ ≠ Rβ → ¬ Commutes R₀ Rβ →
-        ∃ R ∈ compFund D i, Commutes R R₀ ∧ ¬ Commutes R Rβ) :
-    ∃ N ∈ centralizingMembers Ω {x}, Commutes N K₀ ∧ ¬ Commutes N Kβ := by
-  obtain ⟨i, R₀, Rβ, hR₀, hRβ, hnc', -, -⟩ := r2_correspondence hΩ hex hP1 D hsc hperf h0 hβ hnc
-  have h0i : K₀ ∈ compMembers Ω x D i := ⟨h0, hR₀.2.2 ▸ Subgroup.map_le_range _ _⟩
-  have hRne : R₀ ≠ Rβ := by
-    intro h
-    subst h
-    exact hne (corr_unique_right hΩ hP1 hR₀ hRβ)
-  obtain ⟨R, hR, hc, hnc''⟩ := hMN i h0i R₀ hR₀.2.1 Rβ hRβ.2.1 hRne hnc'
-  obtain ⟨N, hN⟩ := exists_corr_right hΩ D (hsc i) hR
-  refine ⟨N, hN.1, ?_, ?_⟩
-  · exact (corr_commutes hΩ hP1 (hperf i) hN hR₀).mpr hc
-  · rw [corr_commutes hΩ hP1 (hperf i) hN hRβ]
-    exact hnc''
 
 end CFSG.ClassicalInvolution.RouteD.Gaps

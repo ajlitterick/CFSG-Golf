@@ -28,13 +28,6 @@ open scoped commutatorElement
         X = ⊥ ∨ X = Esub n ∨ X = U0 n ∨ X = ⊤) ∧
       rk (Mod.V n Mod.ut0) = n - 2)
 
-theorem as_B_3_1 : B_3_1 := by
-  unfold B_3_1
-  intro n hn
-  have h5 : 5 ≤ n := hn.five_le
-  exact ⟨CFSG.Quasithin.B3.B3_1_1 h5,
-    fun hodd => CFSG.Quasithin.B3.B3_1_2 h5 hodd,
-    fun hev => CFSG.Quasithin.B3.B3_1_3 h5 hev⟩
 
 @[expose] def B_3_2 : Prop :=
   ∀ n : ℕ, SQTKn n → ∀ k : Mod,
@@ -73,19 +66,6 @@ theorem as_B_3_1 : B_3_1 := by
 
 section
 
-theorem as_B_3_2 : B_3_2 := by
-  unfold B_3_2
-  intro n hn k
-  refine ⟨fun m hm1 hm2 => CFSG.Quasithin.B3.B3_2_1 hn k hm1 hm2,
-    fun hB => CFSG.Quasithin.B3.B3_2_2 hn k hB, ?_,
-    fun hA => CFSG.Quasithin.B3.B3_2_4 hn k hA,
-    fun hB hexc => CFSG.Quasithin.B3.B3_2_5 hn k hB hexc, ?_⟩
-  · intro h8 hk A hA
-    subst h8 hk
-    exact CFSG.Quasithin.B3.B3_2_3 hA
-  · intro h8 hk
-    subst h8 hk
-    exact CFSG.Quasithin.B3.B3_2_6
 
 end
 
@@ -123,22 +103,6 @@ end
         (∃ Φ : V ≃* Mod.V n Mod.ut, IsModIso ρ (actL n Mod.ut) Φ) ∨
         (∃ Φ : V ≃* Mod.V n Mod.ut0, IsModIso ρ (actL n Mod.ut0) Φ)))
 
-theorem as_B_3_3 : B_3_3 := by
-  unfold B_3_3
-  intro n hn V _ _ hV
-  have hodd : n % 2 = 1 → n = 5 ∨ n = 7 := by
-    intro h
-    rcases hn with rfl | rfl | rfl | rfl <;> omega
-  have heven : n % 2 = 0 → n = 6 ∨ n = 8 := by
-    intro h
-    rcases hn with rfl | rfl | rfl | rfl <;> omega
-  refine ⟨fun ρ hone hindec => ⟨fun h1 => CFSG.Quasithin.B3.B3_3_1_odd (hodd h1) hV hone hindec,
-      fun h0 => CFSG.Quasithin.B3.B3_3_1_even (heven h0)⟩,
-    fun h0 ρ hone hindec hquot => CFSG.Quasithin.B3.B3_3_2_L (heven h0) hV hone hindec hquot,
-    fun h0 ρG hone hindec hquot =>
-      CFSG.Quasithin.B3.B3_3_2_G ρG (heven h0) hV hone hindec hquot,
-    fun h0 ρ hone hindec => ⟨fun hcomm => CFSG.Quasithin.B3.B3_3_3 (heven h0) hV hone hindec hcomm,
-      CFSG.Quasithin.B3.B3_3_4 (heven h0) hV hone hindec⟩⟩
 
 @[expose] def B_3_4 : Prop :=
   ∀ k : Mod, (k = Mod.u0 ∨ k = Mod.ut0) →
@@ -170,13 +134,6 @@ theorem as_B_3_3 : B_3_3 := by
 
 section
 
-theorem as_B_3_4 : B_3_4 := by
-  unfold B_3_4
-  intro k hk
-  refine ⟨fun P hP T hT W₁ W₂ hW₁ hW₂ H₁ H₂ R₁ R₂ hH₁ hH₂ hR₁ hR₂ J J₁ hJ hJ₁ =>
-      CFSG.Quasithin.B3.B3_4_1 hk hP hT hW₁ hW₂ hH₁ hH₂ hR₁ hR₂ hJ hJ₁,
-    fun P hP T hT W₁ W₂ hW₁ hW₂ H₁ H₂ R₁ R₂ L₁ L₂ hH₁ hH₂ hR₁ hR₂ hL₁ hL₂ J J₁ hJ hJ₁ =>
-      CFSG.Quasithin.B3.B3_4_2 hk hP hT hW₁ hW₂ hH₁ hH₂ hR₁ hR₂ hL₁ hL₂ hJ hJ₁⟩
 
 end
 

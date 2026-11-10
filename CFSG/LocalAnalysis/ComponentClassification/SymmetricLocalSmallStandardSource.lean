@@ -224,16 +224,5 @@ theorem small_standard_source_alternating_degree_and_parameters_stated {X : Type
   obtain ⟨e⟩ := hX
   exact (PSL3Four.excludes_alternating_models_stated X h322).2.2 Ω hm |>.false e
 
-theorem small_standard_source_alternating_degree_and_parameters {X : Type} [Group X]
-    {Ω : Type*} [Fintype Ω] [DecidableEq Ω] (hm : 5 ≤ Fintype.card Ω)
-    (hX : Nonempty (X ≃* alternatingGroup Ω)) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 → Assembly.ComponentType.ClassicalModel X .PSL 2 p f →
-      (Fintype.card Ω = 5 ∧ p = 5 ∧ f = 1) ∨ (Fintype.card Ω = 6 ∧ p = 3 ∧ f = 2)) ∧
-    (Nonempty (X ≃* alternatingGroup (Fin 7)) → Fintype.card Ω = 7) ∧
-    ¬ Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 := by
-  obtain ⟨h1, h2⟩ := alternating_psl_two_parameters_and_degree_seven hm hX
-  refine ⟨h1, h2, fun h322 => ?_⟩
-  obtain ⟨e⟩ := hX
-  exact (PSL3Four.excludes_alternating_models X h322).2.2 Ω hm |>.false e
 
 end CFSG.ComponentClassification.SymmetricLocal

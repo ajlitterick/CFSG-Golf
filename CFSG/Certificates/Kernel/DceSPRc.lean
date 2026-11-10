@@ -24,7 +24,6 @@ variable {G : Type*} [Group G] {LT LI TL VL NL : ℕ}
 
 theorem byte_eq_byteG (x i : ℕ) : byte x i = byteG x i := rfl
 
-theorem rval_eq (x : ℕ → G) (e : ℕ) : rval x e = wv x (Nat.shiftRight e 12) (bits e 2 10) := rfl
 
 theorem relsNorm_spec {RR : ℕ → ℕ} {NR : ℕ} (h : CFSG.Certificates.LCE.relsNorm RR NR = true) :
     ∀ r < NR, Nat.shiftRight (RR r) 12 < 256 ^ bits (RR r) 2 10 := by

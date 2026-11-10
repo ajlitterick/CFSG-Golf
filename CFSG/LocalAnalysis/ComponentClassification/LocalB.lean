@@ -111,33 +111,5 @@ theorem ordinary_at_involution {G : Type*} [Group G] [Finite G]
   rw [hnormalizer] at hlocal
   exact hlocal component hcomponent
 
-theorem hasInvolutionComponent_of_componentType {G : Type*} [Group G] [Finite G]
-    (hB : LocalBProperty G) (hcomponentType : componentClassificationComponentType G) :
-    HasInvolutionComponent G := by
-  obtain ⟨involution, hinvolution, component, hcomponent⟩ := hcomponentType
-  obtain ⟨lift, hlift, _⟩ := TwoComponents.exists_lift component hcomponent
-  have hordinary := ordinary_at_involution hB involution hinvolution lift hlift
-  have hne : involution ≠ 1 := by
-    intro hone
-    simp [hone] at hinvolution
-  have hsquare : involution ^ 2 = 1 := by
-    simpa only [hinvolution] using pow_orderOf_eq_one involution
-  refine ⟨involution, lift.map (Subgroup.centralizer ({involution} : Set G)).subtype,
-    hne, hsquare, ?_⟩
-  refine ⟨Subgroup.map_subtype_le lift, ?_, Components.quasisimple_of_equiv
-    (lift.equivMapOfInjective (Subgroup.centralizer ({involution} : Set G)).subtype
-      (Subgroup.centralizer ({involution} : Set G)).subtype_injective).symm hordinary.2.2⟩
-  have hrelative := Components.chain_map
-    (Subgroup.centralizer ({involution} : Set G)).subtype hordinary.2.1
-  have htopMap : (⊤ : Subgroup (Subgroup.centralizer ({involution} : Set G))).map
-      (Subgroup.centralizer ({involution} : Set G)).subtype =
-      Subgroup.centralizer ({involution} : Set G) := by
-    ext element
-    constructor
-    · rintro ⟨member, _, rfl⟩
-      exact member.property
-    · intro hmem
-      exact ⟨⟨element, hmem⟩, Subgroup.mem_top _, rfl⟩
-  rwa [htopMap] at hrelative
 
 end CFSG.ComponentClassification.LocalB

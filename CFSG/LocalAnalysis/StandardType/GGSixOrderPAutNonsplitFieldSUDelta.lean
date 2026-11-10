@@ -406,8 +406,6 @@ theorem ggOrdPFieldConjPSURest_holds : GGOrdPFieldConjPSURest := by
     · exact ggOrdPFieldConjPSUDelta_holds G p Bs G₀ n f ψ hS hpq hpn y hyM hyo hyI
     · exact ggOrdPFieldConjPSUNonsplit_holds G p Bs G₀ n f ψ hS hpq y hyM hyo hyI
 
-theorem ggOrdPFieldConjAt_PSU : GGOrdPFieldConjAt .PSU :=
-  ggOrdPFieldConjAt_PSU_of_rest ggOrdPFieldConjPSURest_holds
 
 end Family
 

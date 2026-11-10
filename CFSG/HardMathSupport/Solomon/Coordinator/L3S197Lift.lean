@@ -69,8 +69,6 @@ theorem coe_cj (hK : PiField π p f K) {g : GL (Fin 3) K} (hg : g ∈ glPi π 3 
     simp only [Subgroup.coe_mul]
     group)
 
-theorem cjHom_apply (hK : PiField π p f K) (g : ↥(glPi π 3 (p ^ f) K)) :
-    cjHom hK g = cj hK g.2 := rfl
 
 @[expose] noncomputable def lam (hK : PiField π p f K) {M : Type*} [Group M]
     (η : (↥(slPi π 3 (p ^ f) K) ⧸ Subgroup.center ↥(slPi π 3 (p ^ f) K)) ≃* M) :

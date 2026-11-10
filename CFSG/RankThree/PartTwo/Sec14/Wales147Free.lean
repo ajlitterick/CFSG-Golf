@@ -106,12 +106,10 @@ theorem exists_ne_one_mem_inf (hA : Late.IsE27 A) {E F : Subgroup G} (hE : IsHyp
   rw [hbot, h2, hi hE, hi hF] at hle
   omega
 
-variable [Finite G]
 
 end Wales147Free
 
 open Wales147Free
 
-variable [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec14

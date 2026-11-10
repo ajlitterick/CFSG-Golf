@@ -19,10 +19,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride
 
 open PSL2Even CFSG.SignalizerFunctorTheorem.NearModels
 
-theorem exists_aut_psl2Even {p : ℕ} (hp : p.Prime)
-    (_hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 2 p))) :
-    ∃ f : MulAut PSL(2, GaloisField 2 p), orderOf f = p :=
-  PSL2Even.exists_aut hp
 
 theorem frame_psl2Even
     {p : ℕ} (hp : p.Prime)

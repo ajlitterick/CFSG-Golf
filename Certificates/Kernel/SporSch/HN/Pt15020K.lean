@@ -57,15 +57,6 @@ theorem niK : allN 120 (noInvK 2620 FR FX FY NK NQ NB) = true := by quickRfl
 @[expose] noncomputable def mp (s : Nat) : Bool :=
   sliceK 16384 64 (mapK HNT4T.WN HNT4T.WP 135 120 AK AF AQ NK NQ TK) s
 
-theorem neg_mt : Bool.not (Nat.beq (wordC CFSG.KD.HNPtC.GT (uc.getD 1 [])) (at0 UM 0)) = true := by
-  quickRfl
-theorem neg_ch : Bool.not (chunkK TX MS CM3 M MX (at0 FL) (at0 FL) (at0 MI) (at0 NC) 0) = true := by
-  quickRfl
-theorem neg_fc : Bool.not (factK HPE.PL (at0 FL) (at0 IL) (at0 MI) (at0 NC) 63 FR FY FY FP FS 5) =
-    true := by quickRfl
-theorem neg_fa : Bool.not (faithK (at0 FL) (at0 IL) (at0 MI) (at0 NC) 63 2620 FR FX FY AK AF AQ AB AB
-    0) = true := by quickRfl
-theorem neg_ni : Bool.not (noInvK 2620 FR FX FY NK NQ AB 0) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt15020
 

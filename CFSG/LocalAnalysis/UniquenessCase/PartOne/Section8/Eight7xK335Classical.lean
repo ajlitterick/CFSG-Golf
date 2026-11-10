@@ -3506,11 +3506,6 @@ private lemma k335u67_bd_mem_prod_det {K : Type} [Field K] {q : ℕ} (hq : q ≠
     rw [this]
     exact Matrix.blockDiagonal_one
 
-private def k335u67_Dhom {K : Type} [Field K] [Finite K] (p f : ℕ) [Fact p.Prime] [CharP K p]
-    (T : k335u67_TwoData K p f) : Kˣ →* GL (Fin 2) K where
-  toFun c := k335u67_B p f T * k335u67_N c * (k335u67_B p f T)⁻¹
-  map_one' := by rw [k335u67_N_one, mul_one, mul_inv_cancel]
-  map_mul' c d := by rw [k335u67_N_mul]; group
 
 private lemma k335u67_embMat_map_pow {K : Type} [Field K] {n q : ℕ} (hn : n = 6 ∨ n = 7)
     (hq : q ≠ 0) (X : Matrix (Fin 2 × Fin 3) (Fin 2 × Fin 3) K) :

@@ -147,21 +147,6 @@ theorem e6_5_three (h : E6.HypE61 T M V) (hU : U ∈ gammaE64 V M) :
   rw [e]
   exact hUV hu
 
-theorem e6_5_cpu (h : E6.HypE61 T M V) (hU : U ∈ gammaE64 V M) :
-    SatisfiesCPU (Subgroup.centralizer (U : Set G)) (T ⊓ Subgroup.centralizer (V : Set G))
-      (Subgroup.centralizer (U : Set G) ⊓ M) := by
-  have h1 := e6_5_one h hU
-  obtain ⟨h2, h3⟩ := e6_5_two h hU
-  refine ⟨h2, h3, isTwoRadicalIn_of_sylow h1.le h1.isPGroup h1.not_dvd_relIndex h.Q_ne_bot, ?_⟩
-  set Q := T ⊓ Subgroup.centralizer (V : Set G) with hQ
-  set H := Subgroup.centralizer (U : Set G) with hH
-  have hC : conjClosure Q (H ⊓ M) ≤ H := conjClosure_le fun g hg z hz =>
-    H.mul_mem (H.mul_mem (Subgroup.mem_inf.1 hg).1 (h1.le hz)) (H.inv_mem (Subgroup.mem_inf.1 hg).1)
-  intro hdvd
-  apply h1.not_dvd_relIndex
-  refine hdvd.trans ?_
-  rw [← Subgroup.relIndex_mul_relIndex Q (conjClosure Q (H ⊓ M)) H (le_conjClosure Q _) hC]
-  exact Dvd.intro _ rfl
 
 end Lemma65
 

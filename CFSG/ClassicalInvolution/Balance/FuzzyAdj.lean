@@ -21,10 +21,6 @@ theorem NAdj.symm {z : G} {J L : Subgroup G} (h : NAdj z J L) : NAdj z L J := fu
   have := (oddCoreIn (Subgroup.centralizer ({z} : Set G))).inv_mem (h y hy x hx)
   rwa [commutatorElement_inv] at this
 
-theorem NAdj.of_commutes {z : G} {J L : Subgroup G} (h : Commutes J L) : NAdj z J L :=
-  fun x hx y hy => by
-    rw [(commutatorElement_eq_one_iff_mul_comm).mpr (h x hx y hy)]
-    exact one_mem _
 
 theorem NAdj.mono {z : G} {J L J' L' : Subgroup G} (h : NAdj z J L) (hJ : J' ≤ J) (hL : L' ≤ L) :
     NAdj z J' L' := fun x hx y hy => h x (hJ hx) y (hL hy)
@@ -238,80 +234,6 @@ theorem closure_pair_conj (g u v : G) :
   rw [MonoidHom.map_closure, Set.image_pair]
   rfl
 
-theorem odd_card_alphaCore_of_rankThreeBalance (h : RankThreeBalance A) {F : Subgroup G}
-    (hFA : F ≤ A) (hF4 : Nat.card F = 4) : Odd (Nat.card (alphaCore F)) := by
-  obtain ⟨d, hdF, hd1⟩ := exists_ne_one_of_card_eq_two_pow (n := 2) (by norm_num)
-    (show Nat.card F = 2 ^ 2 by rw [hF4]; norm_num)
-  obtain ⟨hodd, -⟩ := deltaStar_isCompletion h.elem (by rw [h.card]) h.weak
-  have hαW : alphaCore F ≤ deltaStarCompletion A :=
-    (alphaCore_le_uCore (comm_of_mem_subgroup h hFA) hdF hd1).trans (uCore_le_completion hFA)
-  exact hodd.of_dvd_nat (Subgroup.card_dvd_of_le hαW)
-
-theorem oddCoreIn_centralizer_le_normalizer_alphaCore (hA : RankThreeBalance A) {F : Subgroup G}
-    (hFA : F ≤ A) (hF4 : Nat.card F = 4) {b : G} (hb : b ∈ A) :
-    oddCoreIn (Subgroup.centralizer ({b} : Set G)) ≤ Subgroup.normalizer (alphaCore F : Set G) := by
-  set X := oddCoreIn (Subgroup.centralizer ({b} : Set G)) with hX
-  have hAC : A ≤ Subgroup.centralizer ({b} : Set G) := fun a ha =>
-    Subgroup.mem_centralizer_singleton_iff.mpr (hA.comm ha hb)
-  have hAX : A ≤ Subgroup.normalizer (X : Set G) := fun a ha => normalizer_oddCoreIn _ (hAC ha)
-  have hgen := CFSG.SignalizerFunctor.Helpers.elementary_abelian_centralizer_generation 2 2
-    Nat.prime_two A X hA.elem (by rw [hA.card]; norm_num) hAX
-    (Nat.coprime_two_left.mpr (odd_card_oddCoreIn _))
-  conv_lhs => rw [← hgen]
-  refine iSup₂_le fun F' hF' => ?_
-  have hconst : alphaCore F' = alphaCore F :=
-    alphaCore_eq_alphaCore hA hF'.1 (by rw [hF'.2]; norm_num) hFA hF4
-  intro c hc
-  have hcF : ∀ f ∈ F', c * f = f * c := fun f hf =>
-    (Subgroup.mem_centralizer_iff.mp (Subgroup.mem_inf.mp hc).2 f hf).symm
-  have hcF' : ∀ f ∈ F', c⁻¹ * f = f * c⁻¹ := fun f hf => by
-    have := hcF f hf
-    calc c⁻¹ * f = c⁻¹ * (f * c) * c⁻¹ := by group
-      _ = c⁻¹ * (c * f) * c⁻¹ := by rw [this]
-      _ = f * c⁻¹ := by group
-  rw [Subgroup.mem_normalizer_iff]
-  intro y
-  refine ⟨fun hy => ?_, fun hy => ?_⟩
-  · rw [← hconst] at hy ⊢
-    exact conj_mem_alphaCore hcF hy
-  · rw [← hconst] at hy ⊢
-    have := conj_mem_alphaCore hcF' hy
-    simpa [mul_assoc] using this
-
-theorem alphaCore_closure_pair_eq_of_conj (hB : RankThreeBalance B) {z t u x : G} (hz : z ∈ B)
-    (ht : t ∈ B) (hu : x * u * x⁻¹ ∈ B) (hx : x ∈ oddCoreIn (Subgroup.centralizer ({z} : Set G)))
-    (hzt : Nat.card (Subgroup.closure ({z, t} : Set G)) = 4)
-    (hzu : Nat.card (Subgroup.closure ({z, u} : Set G)) = 4) :
-    alphaCore (Subgroup.closure ({z, t} : Set G)) =
-      alphaCore (Subgroup.closure ({z, u} : Set G)) := by
-  have hxz : x * z * x⁻¹ = z := by
-    have := Subgroup.mem_centralizer_singleton_iff.mp (oddCoreIn_le _ hx)
-    calc x * z * x⁻¹ = z * x * x⁻¹ := by rw [this]
-      _ = z := by group
-  have hF₂ : Subgroup.closure ({z, x * u * x⁻¹} : Set G) =
-      conjSub x (Subgroup.closure ({z, u} : Set G)) := by
-    rw [← closure_pair_conj, hxz]
-  have hF₂4 : Nat.card (Subgroup.closure ({z, x * u * x⁻¹} : Set G)) = 4 := by
-    rw [hF₂, conjSub, Subgroup.card_map_of_injective (MulAut.conj x).injective]
-    exact hzu
-  have hF₁B : Subgroup.closure ({z, t} : Set G) ≤ B :=
-    (Subgroup.closure_le _).mpr (by
-      intro y hy
-      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-      rcases hy with rfl | rfl <;> assumption)
-  have hF₂B : Subgroup.closure ({z, x * u * x⁻¹} : Set G) ≤ B :=
-    (Subgroup.closure_le _).mpr (by
-      intro y hy
-      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-      rcases hy with rfl | rfl <;> assumption)
-  have hconst := alphaCore_eq_alphaCore hB hF₁B hzt hF₂B hF₂4
-  have hxn : x⁻¹ ∈ Subgroup.normalizer (alphaCore (Subgroup.closure ({z, x * u * x⁻¹} : Set G)) :
-      Set G) :=
-    inv_mem (oddCoreIn_centralizer_le_normalizer_alphaCore hB hF₂B hF₂4 hz hx)
-  have hback : Subgroup.closure ({z, u} : Set G) =
-      conjSub x⁻¹ (Subgroup.closure ({z, x * u * x⁻¹} : Set G)) := by
-    rw [hF₂, conjSub_inv_conjSub]
-  rw [hconst, hback, alphaCore_conjSub, conjSub_eq_of_mem_normalizer hxn]
 
 omit [Finite G] in
 theorem mem_closure_pair_cases {x y g : G} (hx : x * x = 1) (hy : y * y = 1) (hxy : x * y = y * x)
@@ -331,97 +253,6 @@ theorem mem_closure_pair_cases {x y g : G} (hx : x * x = 1) (hy : y * y = 1) (hx
       simp [mul_assoc, hx, hy, s1', c, c']
   · rintro a - (ha | ha | ha | ha) <;> subst ha <;> simp [i1, i2, c]
 
-theorem alphaCore_closure_pair_eq_of_conj_of_mem (hB : RankThreeBalance B) {z t u x : G}
-    (hz : z ∈ B) (ht : t ∈ B) (hx : x ∈ oddCoreIn (Subgroup.centralizer ({z} : Set G)))
-    (hz2 : z * z = 1) (ht2 : t * t = 1) (hzt : z * t = t * z) (hu1 : u ≠ 1) (huz : u ≠ z)
-    (hcard : Nat.card (Subgroup.closure ({z, t} : Set G)) = 4)
-    (hu' : x * u * x⁻¹ ∈ Subgroup.closure ({z, t} : Set G)) :
-    alphaCore (Subgroup.closure ({z, t} : Set G)) =
-      alphaCore (Subgroup.closure ({z, u} : Set G)) := by
-  have hxz : x * z * x⁻¹ = z := by
-    have := Subgroup.mem_centralizer_singleton_iff.mp (oddCoreIn_le _ hx)
-    calc x * z * x⁻¹ = z * x * x⁻¹ := by rw [this]
-      _ = z := by group
-  have hne1 : x * u * x⁻¹ ≠ 1 := by
-    intro h
-    apply hu1
-    calc u = x⁻¹ * (x * u * x⁻¹) * x := by group
-      _ = 1 := by rw [h]; group
-  have hnez : x * u * x⁻¹ ≠ z := by
-    intro h
-    apply huz
-    calc u = x⁻¹ * (x * u * x⁻¹) * x := by group
-      _ = x⁻¹ * z * x := by rw [h]
-      _ = z := by
-        calc x⁻¹ * z * x = x⁻¹ * (x * z * x⁻¹) * x := by rw [hxz]
-          _ = z := by group
-  have hz' : z ∈ Subgroup.closure ({z, t} : Set G) := Subgroup.subset_closure (by simp)
-  have ht' : t ∈ Subgroup.closure ({z, t} : Set G) := Subgroup.subset_closure (by simp)
-  have hF₂ : Subgroup.closure ({z, x * u * x⁻¹} : Set G) = Subgroup.closure ({z, t} : Set G) := by
-    rcases mem_closure_pair_cases hz2 ht2 hzt hu' with h | h | h | h
-    · exact absurd h hne1
-    · exact absurd h hnez
-    · rw [h]
-    · rw [h]
-      have hz'' : z ∈ Subgroup.closure ({z, z * t} : Set G) := Subgroup.subset_closure (by simp)
-      have hzt'' : z * t ∈ Subgroup.closure ({z, z * t} : Set G) :=
-        Subgroup.subset_closure (by simp)
-      apply le_antisymm
-      · refine (Subgroup.closure_le _).mpr fun y hy => ?_
-        simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-        rcases hy with hy | hy
-        · rw [hy]
-          exact hz'
-        · rw [hy]
-          exact mul_mem hz' ht'
-      · refine (Subgroup.closure_le _).mpr fun y hy => ?_
-        simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-        rcases hy with hy | hy
-        · rw [hy]
-          exact hz''
-        · rw [hy]
-          simpa using mul_mem (inv_mem hz'') hzt''
-  have hF₁B : Subgroup.closure ({z, t} : Set G) ≤ B :=
-    (Subgroup.closure_le _).mpr (by
-      intro y hy
-      simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hy
-      rcases hy with rfl | rfl <;> assumption)
-  have hxn : x⁻¹ ∈ Subgroup.normalizer (alphaCore (Subgroup.closure ({z, t} : Set G)) : Set G) :=
-    inv_mem (oddCoreIn_centralizer_le_normalizer_alphaCore hB hF₁B hcard hz hx)
-  have hF₂' : Subgroup.closure ({z, x * u * x⁻¹} : Set G) =
-      conjSub x (Subgroup.closure ({z, u} : Set G)) := by
-    rw [← closure_pair_conj, hxz]
-  have hback : Subgroup.closure ({z, u} : Set G) =
-      conjSub x⁻¹ (Subgroup.closure ({z, t} : Set G)) := by
-    rw [← hF₂, hF₂', conjSub_inv_conjSub]
-  rw [hback, alphaCore_conjSub, conjSub_eq_of_mem_normalizer hxn]
-
-theorem alphaCore_eq_of_nadj {z t u : G} {J L : Subgroup G} (hJL : NAdj z J L)
-    (hJC : J ≤ Subgroup.centralizer ({z} : Set G)) (hLC : L ≤ Subgroup.centralizer ({z} : Set G))
-    (htJ : t ∈ J) (huL : u ∈ L) (hz2 : z * z = 1) (ht2 : t * t = 1) (hu2 : u * u = 1)
-    (hz1 : z ≠ 1) (ht1 : t ≠ 1) (hu1 : u ≠ 1) (htz : t ≠ z) (huz : u ≠ z)
-    (hB : ∀ x ∈ oddCoreIn (Subgroup.centralizer ({z} : Set G)),
-      t * (x * u * x⁻¹) = (x * u * x⁻¹) * t →
-        (x * u * x⁻¹ ∉ Subgroup.closure ({z, t} : Set G) →
-          RankThreeBalance (Subgroup.closure ({z, t, x * u * x⁻¹} : Set G))) ∧
-        (x * u * x⁻¹ ∈ Subgroup.closure ({z, t} : Set G) →
-          ∃ B : Subgroup G, RankThreeBalance B ∧ z ∈ B ∧ t ∈ B)) :
-    alphaCore (Subgroup.closure ({z, t} : Set G)) =
-      alphaCore (Subgroup.closure ({z, u} : Set G)) := by
-  obtain ⟨x, hx, hcomm⟩ := exists_conj_commute_of_nadj hJL hJC hLC htJ huL ht2 hu2
-  have hzt : z * t = t * z := (Subgroup.mem_centralizer_singleton_iff.mp (hJC htJ)).symm
-  have hzu : z * u = u * z := (Subgroup.mem_centralizer_singleton_iff.mp (hLC huL)).symm
-  have hcardt : Nat.card (Subgroup.closure ({z, t} : Set G)) = 4 :=
-    card_closure_pair_eq_four hz2 ht2 hz1 ht1 htz.symm hzt
-  have hcardu : Nat.card (Subgroup.closure ({z, u} : Set G)) = 4 :=
-    card_closure_pair_eq_four hz2 hu2 hz1 hu1 huz.symm hzu
-  by_cases hdeg : x * u * x⁻¹ ∈ Subgroup.closure ({z, t} : Set G)
-  · obtain ⟨B, hBb, hzB, htB⟩ := ((hB x hx hcomm).2 hdeg)
-    exact alphaCore_closure_pair_eq_of_conj_of_mem hBb hzB htB hx hz2 ht2 hzt hu1 huz hcardt hdeg
-  · have hbal := (hB x hx hcomm).1 hdeg
-    exact alphaCore_closure_pair_eq_of_conj hbal
-      (Subgroup.subset_closure (by simp)) (Subgroup.subset_closure (by simp))
-      (Subgroup.subset_closure (by simp)) hx hcardt hcardu
 
 end AlphaStep
 
@@ -429,44 +260,6 @@ section Propagation
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem alphaCore_eq_bot_of_local_constancy {V : Type} (inv : V → G) (act : G → V → V)
-    (E : V → V → Prop) (hO : CFSG.Open.componentClassificationOddCore G = ⊥)
-    (hinv : ∀ g v, inv (act g v) = g * inv v * g⁻¹)
-    (hEsymm : ∀ v w, E v w → E w v) (hEact : ∀ g v w, E v w → E (act g v) (act g w))
-    (hconn : ∀ v w, Relation.ReflTransGen E v w)
-    (hloc : ∀ u v w, E u v → E u w →
-      alphaCore (Subgroup.closure ({inv u, inv v} : Set G)) =
-        alphaCore (Subgroup.closure ({inv u, inv w} : Set G)))
-    (hodd : ∀ v w, E v w → Odd (Nat.card (alphaCore (Subgroup.closure ({inv v, inv w} : Set G))))) :
-    ∀ v w, E v w → alphaCore (Subgroup.closure ({inv v, inv w} : Set G)) = ⊥ := by
-  intro v₀ w₀ h₀
-  set lab : V → V → Subgroup G := fun v w => alphaCore (Subgroup.closure ({inv v, inv w} : Set G))
-    with hlab
-  have hsymm : ∀ v w, lab v w = lab w v := fun v w => by simp only [hlab, Set.pair_comm]
-  set Y := lab v₀ w₀ with hY
-  have hall : ∀ v, Relation.ReflTransGen E v₀ v → ∀ w, E v w → lab v w = Y := by
-    intro v hv
-    induction hv with
-    | refl => exact fun w hw => hloc v₀ w w₀ hw h₀
-    | @tail b c _ hstep ih =>
-      intro w hw
-      calc lab c w = lab c b := hloc c w b hw (hEsymm b c hstep)
-        _ = lab b c := hsymm c b
-        _ = Y := ih c hstep
-  have hedge : ∀ v w, E v w → lab v w = Y := fun v w hvw => hall v (hconn v₀ v) w hvw
-  have hconj : ∀ g, conjSub g Y = Y := by
-    intro g
-    have e1 := hedge (act g v₀) (act g w₀) (hEact g v₀ w₀ h₀)
-    have e2 : lab (act g v₀) (act g w₀) = conjSub g Y := by
-      simp only [hlab, hinv, closure_pair_conj, alphaCore_conjSub, hY]
-    rw [← e2, e1]
-  have hN : Y.Normal := ⟨fun n hn g => by
-    have : g * n * g⁻¹ ∈ conjSub g Y := conj_mem_conjSub hn
-    rwa [hconj g] at this⟩
-  have hle := CFSG.ComponentClassification.OddCore.maximal G Y hN (hodd v₀ w₀ h₀)
-  rw [hO] at hle
-  have hYbot : Y = ⊥ := le_bot_iff.mp hle
-  exact hYbot
 
 omit [Finite G] in
 theorem OmegaConnected.mono {Ω : Set (Subgroup G)} (h : OmegaConnected Ω)

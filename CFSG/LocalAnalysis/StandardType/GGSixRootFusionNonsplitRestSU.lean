@@ -131,10 +131,6 @@ theorem ggSixRootFusionSURepNonsplitInput_of_twoBlock (hT : GGSUNonsplitTwoBlock
   rw [hw] at hcommb
   exact SURep.ggRootFusionWitnessAlt_of_conj_commU ψ hcommb (hle ⟨w, rfl⟩) hW
 
-theorem ggSixRootFusionSURepInput_of_twoBlock_known (hT : GGSUNonsplitTwoBlockInput)
-    (h1 : GGSUBlockNotExcludedInput) (h2 : GGSUSixAlphaInput) : GGSixRootFusionSURepInput :=
-  ggSixRootFusionSURepInput_of_nonsplit_known (ggSixRootFusionSURepNonsplitInput_of_twoBlock hT)
-    h1 h2
 
 end Inputs
 

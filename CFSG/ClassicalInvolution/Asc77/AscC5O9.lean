@@ -27,8 +27,6 @@ variable {G : Type} [Group G]
     rintro _ ⟨x, hx, y, hy, rfl⟩
     exact ⟨x⁻¹, inv_mem hx, x * y⁻¹ * x⁻¹, h x hx _ (inv_mem hy), by group⟩
 
-theorem mem_mulSub {A B : Subgroup G} {h : ∀ x ∈ A, ∀ y ∈ B, x * y * x⁻¹ ∈ B} {g : G} :
-    g ∈ mulSub A B h ↔ ∃ x ∈ A, ∃ y ∈ B, g = x * y := Iff.rfl
 
 theorem le_mulSub_left {A B : Subgroup G} (h : ∀ x ∈ A, ∀ y ∈ B, x * y * x⁻¹ ∈ B) :
     A ≤ mulSub A B h := fun x hx => ⟨x, hx, 1, one_mem _, by simp⟩

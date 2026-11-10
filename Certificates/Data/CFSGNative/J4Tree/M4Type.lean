@@ -125,18 +125,6 @@ structure ConjD where
   fwd : List Nat
   bwd : List Nat
 
-@[noinline, expose] def conjCore (G : Array V2) (S T : Array (Array V2)) (fwd bwd : List Nat) :
-    Bool :=
-  fwd.length == S.size && bwd.length == T.size &&
-    (List.range S.size).all (fun i => eqRows (mulRows G (S[i]?.getD idRows))
-      (mulRows (maskRows T (fwd.getD i 0)) G)) &&
-    (List.range T.size).all fun j => eqRows (mulRows (T[j]?.getD idRows) G)
-      (mulRows G (maskRows S (bwd.getD j 0)))
-
-@[expose] def conjOK (X : Ctx) (src : List (Nat × Nat)) (d : ConjD) : Bool :=
-  coordsOK src && coordsOK d.tgt &&
-    conjCore (eltRows X [("", d.word)]) (src.map (coordRows X)).toArray
-      (d.tgt.map (coordRows X)).toArray d.fwd d.bwd
 
 @[expose] def c486 : ConjD := ⟨[16, 16, 14], treeWv 486, [9, 12, 3, 8], [9, 13, 10, 8]⟩
 
@@ -146,8 +134,5 @@ structure ConjD where
 
 @[expose] def c266 : ConjD := ⟨[18], y266, [10, 1, 4, 7], [2, 14, 4, 15]⟩
 
-@[expose] def conjChecks (X : Ctx) : Bool :=
-  conjOK X (treeWv 539) c486 && conjOK X (treeWv 539) c542 && conjOK X (treeWv 539) c136 &&
-    conjOK X (treeWv 539) c266
 
 end CFSG.J4Tree.M4

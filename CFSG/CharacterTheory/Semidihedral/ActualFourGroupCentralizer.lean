@@ -78,15 +78,6 @@ theorem fixedModelEquiv_coordinates (a : (MatrixCover.FixedField F A)ˣ)
       (fixed_coefficient_action F A a)) (original_coefficient_fixedUnit F A a).symm x
   exact h
 
-theorem fixedModelEquiv_u (a : (MatrixCover.FixedField F A)ˣ) :
-    fixedModelEquiv F A a (MatrixTorus.uInH F A a) =
-      MatrixTorus.originalU F (MatrixCover.fixedUnit F A a) A
-        (fixed_coefficient_action F A a) := by
-  apply SemidirectProduct.ext
-  · apply SemidirectProduct.ext
-    · exact (fixedModelEquiv_coordinates F A a _).1
-    · exact (fixedModelEquiv_coordinates F A a _).2.1
-  · exact (fixedModelEquiv_coordinates F A a _).2.2
 
 theorem fixedModelEquiv_z (a : (MatrixCover.FixedField F A)ˣ) :
     fixedModelEquiv F A a (MatrixTorus.zInH F A a) =
@@ -163,9 +154,6 @@ theorem original_centralizer_card [Finite F] (a : Fˣ)
   right_inv z := Subtype.ext (e.apply_symm_apply z)
   map_mul' z w := Subtype.ext (e.map_mul z w)
 
-theorem centralizerEquiv_value {P : Type u} {Q : Type v} [Group P] [Group Q]
-    (e : P ≃* Q) (x : P) (y : Q) (hxy : e x = y)
-    (z : Subgroup.centralizer {x}) : (centralizerEquiv e x y hxy z : Q) = e z := rfl
 
 @[expose] def intersectionSwapEquiv {P : Type u} [Group P] (J K : Subgroup P) :
     J.subgroupOf K ≃* K.subgroupOf J where
@@ -241,13 +229,6 @@ abbrev OriginalWProduct (a : Fˣ)
     (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a) :=
   SemidirectProduct (MatrixTorus.W F a) A (originalWAction F A a hfix)
 
-@[expose] def originalOddProductEquiv [Finite F] (a : Fˣ)
-    (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a)
-    (hodd : Odd (Nat.card F)) (ha : ¬IsSquare a) :
-    MatrixTorus.originalOddSemilinear F a A hfix ≃* OriginalWProduct F A a hfix := by
-  obtain ⟨_, _, _, _, _, _, _, _, _, _, _, _, _, h, _, _⟩ :=
-    MatrixTorus.nonsquare_matrix_semilinear_involution_centralizer F a A hfix hodd ha
-  exact Classical.choice h
 
 @[expose] def B {t : G} (a : Fˣ)
     (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a)
@@ -283,14 +264,6 @@ theorem B_odd [Finite F] {t : G} (a : Fˣ)
   rw [B_card F A a hfix Psi hodd ha]
   exact hA.mul (MatrixTorus.torusSize_half_odd hodd)
 
-@[expose] def BOddEquiv [Finite F] {t : G} (a : Fˣ)
-    (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a)
-    (Psi : MatrixTorus.OriginalH F a A hfix ≃* H t)
-    (hodd : Odd (Nat.card F)) (ha : ¬IsSquare a) :
-    B F A a hfix Psi ≃* OriginalWProduct F A a hfix :=
-  (Subgroup.equivMapOfInjective _ Psi.toMonoidHom (by
-    simpa only [MulEquiv.coe_toMonoidHom] using Psi.injective)).symm.trans
-      (originalOddProductEquiv F A a hfix hodd ha)
 
 theorem original_quotient_centralizer_card [Finite F] {t : G} (s : C t) (a : Fˣ)
     (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a)
@@ -650,12 +623,6 @@ theorem actualOddQuotientEquiv_mk [Finite G] [Finite F] {t : G}
       MonoidHom.rangeRestrict_surjective _⟩).trans
         (MulEquiv.subgroupCongr (B_original_range F A a hfix Psi).symm)
 
-theorem originalWImageEquiv_value {t : G} (a : Fˣ)
-    (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a)
-    (Psi : MatrixTorus.OriginalH F a A hfix ≃* H t)
-    (x : OriginalWProduct F A a hfix) :
-    (originalWImageEquiv F A a hfix Psi x : H t) =
-      Psi (originalOddInclusion F A a hfix x) := rfl
 
 @[expose] def actualOddQuotientOriginalEquiv [Finite G] [Finite F] {t : G}
     (ht : orderOf t = 2) (s : C t) (hs : orderOf s = 2) (hst : s ≠ tInC t)

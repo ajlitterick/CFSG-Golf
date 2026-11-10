@@ -41,51 +41,6 @@ theorem exists_mul_mem_of_mem_sup {M D₀ P₀ : Subgroup G} (hD₀M : D₀ ≤ 
       P₀.one_mem, by group⟩)
   exact hS hn
 
-theorem mem_of_pow_two_pow_eq_one_of_mem_sup {M D₀ P₀ : Subgroup G} [Finite G]
-    (hD₀M : D₀ ≤ M) (hD₀n : (D₀.subgroupOf M).Normal) (hP₀M : P₀ ≤ M)
-    (hP₀ : Nat.card P₀ = 3) {n : G} (hn : n ∈ P₀ ⊔ D₀) {k : ℕ} (hk : n ^ 2 ^ k = 1) :
-    n ∈ D₀ := by
-  obtain ⟨d, hd, p, hp, rfl⟩ := exists_mul_mem_of_mem_sup hD₀M hD₀n hP₀M hn
-  have hNM : P₀ ⊔ D₀ ≤ M := sup_le hP₀M hD₀M
-  have hp3 : p ^ 3 = 1 := by
-    have h : (⟨p, hp⟩ : P₀) ^ 3 = 1 := by
-      rw [← hP₀]
-      exact pow_card_eq_one'
-    simpa using congrArg Subtype.val h
-  have : (D₀.subgroupOf (P₀ ⊔ D₀)).Normal := by
-    refine ⟨fun x hx g => ?_⟩
-    rw [Subgroup.mem_subgroupOf] at hx ⊢
-    simpa using conj_mem_of_normal_subgroupOf hD₀M hD₀n (hNM g.2) hx
-  set x : ↥(P₀ ⊔ D₀) := ⟨d * p, hn⟩ with hxdef
-  set y : ↥(P₀ ⊔ D₀) := ⟨p, (le_sup_left : P₀ ≤ P₀ ⊔ D₀) hp⟩ with hydef
-  have hxk : x ^ 2 ^ k = 1 := Subtype.ext hk
-  set q : ↥(P₀ ⊔ D₀) ⧸ (D₀.subgroupOf (P₀ ⊔ D₀)) := QuotientGroup.mk x with hqdef
-  have hq1 : q ^ 2 ^ k = 1 := by
-    rw [hqdef, ← QuotientGroup.mk_pow, hxk]
-    rfl
-  have hqy : q = QuotientGroup.mk y := by
-    rw [hqdef, QuotientGroup.eq]
-    have hmem : (x⁻¹ * y : ↥(P₀ ⊔ D₀)) ∈ D₀.subgroupOf (P₀ ⊔ D₀) := by
-      rw [Subgroup.mem_subgroupOf]
-      have hc := conj_mem_of_normal_subgroupOf hD₀M hD₀n (M.inv_mem (hP₀M hp)) (D₀.inv_mem hd)
-      have heq : ((x⁻¹ * y : ↥(P₀ ⊔ D₀)) : G) = p⁻¹ * d⁻¹ * p⁻¹⁻¹ := by
-        show (d * p)⁻¹ * p = p⁻¹ * d⁻¹ * p⁻¹⁻¹
-        group
-      rw [heq]
-      exact hc
-    exact hmem
-  have hq3 : q ^ 3 = 1 := by
-    rw [hqy, ← QuotientGroup.mk_pow]
-    have : y ^ 3 = 1 := Subtype.ext (by simpa using hp3)
-    rw [this]
-    rfl
-  have h1 : orderOf q ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one hq1
-  have h2 : orderOf q ∣ 3 := orderOf_dvd_of_pow_eq_one hq3
-  have hone : orderOf q = 1 :=
-    Nat.eq_one_of_dvd_coprimes (Nat.Coprime.pow_left k (by norm_num)) h1 h2
-  have hq : q = 1 := orderOf_eq_one_iff.mp hone
-  have hxK : x ∈ D₀.subgroupOf (P₀ ⊔ D₀) := (QuotientGroup.eq_one_iff x).mp hq
-  exact Subgroup.mem_subgroupOf.mp hxK
 
 theorem normal_subgroupOf_sup {M D₀ P₀ : Subgroup G} (hD₀M : D₀ ≤ M)
     (hD₀n : (D₀.subgroupOf M).Normal) (hP₀M : P₀ ≤ M) :
@@ -335,18 +290,6 @@ theorem card_sup_mul_card_inf [Finite G] {A K : Subgroup G}
 def sigmaOf (P₀ D₀ D₂ : Subgroup G) : Subgroup G :=
   Subgroup.normalizer (D₂ : Set G) ⊓ (P₀ ⊔ D₀)
 
-theorem conj_mem_normalizer_set {S : Set G} {g x : G} (hg : g ∈ Subgroup.normalizer S)
-    (hx : x ∈ Subgroup.normalizer S) : g * x * g⁻¹ ∈ Subgroup.normalizer S := by
-  rw [Subgroup.mem_set_normalizer_iff] at hg hx ⊢
-  intro h
-  have e1 := hg (x * (g⁻¹ * h * g) * x⁻¹)
-  have e2 := hx (g⁻¹ * h * g)
-  have e3 := hg (g⁻¹ * h * g)
-  have q1 : g * (g⁻¹ * h * g) * g⁻¹ = h := by group
-  have q2 : g * x * g⁻¹ * h * (g * x * g⁻¹)⁻¹ = g * (x * (g⁻¹ * h * g) * x⁻¹) * g⁻¹ := by
-    group
-  rw [q1] at e3
-  rw [q2, ← e1, ← e2, e3]
 
 theorem sup_sigmaOf_eq {M D₀ P₀ D₂ : Subgroup G} [Finite G] (hD₀M : D₀ ≤ M)
     (hD₀n : (D₀.subgroupOf M).Normal) (hP₀M : P₀ ≤ M) (hD₂D₀ : D₂ ≤ D₀)

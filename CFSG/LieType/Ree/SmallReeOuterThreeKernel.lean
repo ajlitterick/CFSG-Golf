@@ -260,10 +260,6 @@ variable (t K a) in
     Subgroup (MulAut (t.reeGamma K a)) :=
   (t.reeGammaFieldAutHom K a).range
 
-theorem mem_reeGammaFld_iff
-    {α : MulAut (t.reeGamma K a)} :
-    α ∈ t.reeGammaFld K a ↔ ∃ σ : K ≃+* K, t.reeGammaFieldAut K a σ = α :=
-  Iff.rfl
 
 end FieldAut
 

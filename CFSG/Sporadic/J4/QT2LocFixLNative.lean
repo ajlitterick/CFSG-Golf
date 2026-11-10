@@ -17,14 +17,5 @@ open CFSG.Sporadic.J4.Native CFSG.Sporadic.J4.QT CFSG.Sporadic.J4.QT2A
   let T := frTable M
   (O.pts.filter fun v => (frApply T v).beq v).toList
 
-@[expose] def fixEta (c : Nat) : List V2 :=
-  rootV :: (fixedIn (etaE c) orb5 ++ fixedIn (etaE c) orb6)
-
-@[expose] def chkOrb5 : Bool := vorbOK locTabs rep5Vec orb5 15180
-
-@[expose] def chkEtaOneWf : Bool := wfRows (etaE 1)
-
-@[expose] def chkFixEtaOne : Bool :=
-  (fixEta 1).length == 8317 && (fixEta 1).eraseDups.length == 8317
 
 end CFSG.Sporadic.J4.QT2

@@ -92,31 +92,6 @@ theorem exists_lift_centralizer (hNc : N ≤ Subgroup.center Y) (hN2 : IsPGroup 
   calc g * t = (g * t * g⁻¹) * g := by group
     _ = t * g := by rw [hgtn]
 
-theorem oddCoreImg_centralizer_le (hNc : N ≤ Subgroup.center Y) (hN2 : IsPGroup 2 ↥N) :
-    oddCoreImg (Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N))) ≤
-      oddCoreImg ((Subgroup.centralizer ({t} : Set Y)).map (QuotientGroup.mk' N)) := by
-  have hC1Cb : (Subgroup.centralizer ({t} : Set Y)).map (QuotientGroup.mk' N) ≤
-      Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N)) := by
-    rintro _ ⟨g, hg, rfl⟩
-    rw [Subgroup.mem_centralizer_singleton_iff, ← map_mul, ← map_mul,
-      Subgroup.mem_centralizer_singleton_iff.mp hg]
-  have hodd : Odd (Nat.card (oddCoreImg
-      (Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N))))) :=
-    odd_natCard_oddCoreImg _
-  have hle : oddCoreImg (Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N))) ≤
-      (Subgroup.centralizer ({t} : Set Y)).map (QuotientGroup.mk' N) := by
-    intro u hu
-    obtain ⟨x, rfl⟩ := QuotientGroup.mk'_surjective N u
-    have hpow : (QuotientGroup.mk' N x) ^ Nat.card (oddCoreImg
-        (Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N)))) = 1 := by
-      have := pow_card_eq_one' (G := ↥(oddCoreImg
-        (Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N))))) (x := ⟨_, hu⟩)
-      exact congrArg Subtype.val this
-    obtain ⟨g, hgC, -, hgx⟩ := exists_lift_centralizer (t := t) hNc hN2 hodd
-      (oddCoreImg_le _ hu) hpow
-    exact ⟨g, hgC, hgx⟩
-  exact TC.le_oddCoreImg_of_normalizes hle
-    (fun e he n hn => conj_mem_oddCoreImg (Subgroup.le_normalizer (hC1Cb he)) hn) hodd
 
 theorem good_of_partial (hd : TightDatum R S t) (hNc : N ≤ Subgroup.center Y)
     (hN2 : IsPGroup 2 ↥N) (htN : t ∉ N)
@@ -208,25 +183,5 @@ theorem good_of_partial (hd : TightDatum R S t) (hNc : N ≤ Subgroup.center Y)
     rw [commutatorElement_def, hoz', hz1, mul_one]
     exact hoO
 
-theorem good_of_twin (hd : TightDatum R S t) (hNc : N ≤ Subgroup.center Y) (hN2 : IsPGroup 2 ↥N)
-    (htN : t ∉ N)
-    (h : GoodThreeElement (R.map (QuotientGroup.mk' N)) (QuotientGroup.mk' N t)) :
-    GoodThreeElement R t := by
-  classical
-  obtain ⟨xb, k, hxbC, hxb3, hnt, hD⟩ := h
-  obtain ⟨x0, rfl⟩ := QuotientGroup.mk'_surjective N xb
-  have hmo : Odd (3 ^ k) := Odd.pow (by decide)
-  obtain ⟨g, hgC, -, hgx⟩ := exists_lift_centralizer (t := t) hNc hN2 hmo hxbC hxb3
-  have hC1Cb : (Subgroup.centralizer ({t} : Set Y)).map (QuotientGroup.mk' N) ≤
-      Subgroup.centralizer ({QuotientGroup.mk' N t} : Set (Y ⧸ N)) := by
-    rintro _ ⟨g, hg, rfl⟩
-    rw [Subgroup.mem_centralizer_singleton_iff, ← map_mul, ← map_mul,
-      Subgroup.mem_centralizer_singleton_iff.mp hg]
-  refine good_of_partial hd hNc hN2 htN ⟨QuotientGroup.mk' N x0, k, hxbC, ?_, hxb3, hnt, ?_⟩
-  · rw [← hgx]
-    exact Subgroup.mem_map_of_mem _ hgC
-  · intro c hcC _ hcR
-    rw [inf_eq_right.mpr hC1Cb]
-    exact oddCoreImg_centralizer_le (t := t) hNc hN2 (hD c hcC hcR)
 
 end CFSG.ClassicalInvolution.Q3.PhilipHall.QuaternionBridge

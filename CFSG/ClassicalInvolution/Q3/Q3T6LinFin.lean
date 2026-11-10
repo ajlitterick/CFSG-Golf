@@ -62,10 +62,6 @@ theorem sl2Three_derived₂_eq_center :
       exact Subgroup.commutator_mem_commutator (mem_sl2ThreeQ_iff.mpr ha)
         (mem_sl2ThreeQ_iff.mpr hb)
 
-theorem sl2Three_neg_one_mem_derived₂ :
-    (-1 : SL(2, ZMod 3)) ∈ ⁅commutator SL(2, ZMod 3), commutator SL(2, ZMod 3)⁆ := by
-  rw [sl2Three_derived₂_eq_center, mem_center_sl2_iff]
-  exact Or.inr rfl
 
 theorem sl2Three_derived₃_eq_bot :
     ⁅⁅commutator SL(2, ZMod 3), commutator SL(2, ZMod 3)⁆,
@@ -81,10 +77,6 @@ theorem sl2Three_isSolvable : Group.IsSolvable SL(2, ZMod 3) := by
     ← commutator_def]
   exact sl2Three_derived₃_eq_bot
 
-theorem sl2Three_not_isPerfect : ¬ Group.IsPerfect SL(2, ZMod 3) := fun h => by
-  have h8 := sl2Three_card_commutator
-  rw [h.commutator_eq_top, Subgroup.card_top, natCard_sl2Three] at h8
-  omega
 
 theorem sl2Three_pow_four_of_two_element {g : SL(2, ZMod 3)} (hg : ∃ n : ℕ, g ^ 2 ^ n = 1) :
     g ^ 4 = 1 := by
@@ -140,8 +132,5 @@ theorem sq_eq_one_of_card_three {F : Type*} [Field F] (hF : Nat.card F = 3) {a :
   rw [h2] at this
   simpa using congrArg Units.val this
 
-theorem not_exists_ne_zero_sq_ne_one_of_card_three {F : Type*} [Field F] (hF : Nat.card F = 3) :
-    ¬ ∃ a : F, a ≠ 0 ∧ a ^ 2 ≠ 1 :=
-  fun ⟨_, ha, h⟩ => h (sq_eq_one_of_card_three hF ha)
 
 end CFSG.ClassicalInvolution.Q3.Q3T6

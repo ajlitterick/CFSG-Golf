@@ -426,37 +426,6 @@ variable {h : JTHyp G} (s : Setup h) (hp : h.p ≠ 2) (hp3 : h.p ≠ 3)
   (hS : SuzukiFourGroupTheorem) (hH : HuppertMetacyclicTheorem)
 include s hp hp3 hS hH
 
-theorem lemma_4_6_b :
-    Subgroup.normalizer (s.Q : Set G) = Subgroup.normalizer (s.T : Set G) := by
-  classical
-  obtain ⟨c, rfl⟩ := s.exists_config hp
-  have h3Q := c.toSetup.lemma_4_5 hp hS hH
-  rcases c.toSetup.lemma_4_4 hp hS with h1 | ⟨L, D, -, hQD, -, hD, hLD⟩
-  · exact h1
-  exfalso
-  have hμN : c.μ ∈ Subgroup.normalizer (c.Q : Set G) :=
-    c.toSetup.normalizer_T_le_normalizer_Q hp c.μ_mem_NT
-  obtain ⟨a₀, ha₀, d₀, hd₀, hμad⟩ := hLD.exists_mul hμN
-  have hd₀1 : d₀ = 1 := by
-    have h3 : (a₀ * d₀) ^ 3 = 1 := by rw [hμad, ← c.orderOf_μ, pow_orderOf_eq_one]
-    have hd3 := (hLD.pow_eq_one_of_mul ha₀ hd₀ h3).2
-    have h2 : orderOf d₀ ∣ 3 := orderOf_dvd_of_pow_eq_one hd3
-    have hd₀Q : d₀ ∈ c.Q :=
-      c.toSetup.mem_Q_of_mem_D_of_odd hp hQD hD hd₀ (Odd.of_dvd_nat (by decide) h2)
-    have h1 : orderOf d₀ ∣ Nat.card c.Q := Subgroup.orderOf_dvd_natCard _ hd₀Q
-    have hcop : Nat.Coprime 3 (Nat.card c.Q) :=
-      (Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mpr h3Q
-    exact orderOf_eq_one_iff.mp (Nat.eq_one_of_dvd_coprimes hcop h2 h1)
-  rw [hd₀1, mul_one] at hμad
-  have hfix := c.lemma_4_6_a hp hp3 hS hH
-  have hQ1 : c.Q = ⊥ := by
-    rw [eq_bot_iff]
-    intro z hz
-    rw [Subgroup.mem_bot]
-    refine hfix z hz ?_
-    rw [← hμad]
-    exact hLD.commute ha₀ (hQD hz)
-  exact c.toSetup.card_Q_ne_one hp (by rw [hQ1, Subgroup.card_bot])
 
 theorem lemma_4_6_c :
     h.q % 8 = 5 := by

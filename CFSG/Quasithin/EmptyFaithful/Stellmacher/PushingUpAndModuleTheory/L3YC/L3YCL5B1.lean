@@ -40,10 +40,6 @@ theorem m1_one : m1 1 0 = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [m1]
 
-theorem blkAt_m1 (A : Matrix (Fin 3) (Fin 3) (ZMod 2)) (X : Matrix (Fin 3) (Fin 2) (ZMod 2)) :
-    blkAt 0 3 (by norm_num) (m1 A X) = A := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [blkAt_apply, m1]
 
 theorem eq_m1_of_blockForm0 {M : Matrix (Fin 5) (Fin 5) (ZMod 2)} (hM : BlockForm 0 3 M) :
     ∃ X, M = m1 (blkAt 0 3 (by norm_num) M) X := by

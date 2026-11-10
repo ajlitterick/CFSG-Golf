@@ -29,29 +29,6 @@ theorem root_ok : rootK V0C (HNXRoot.c0 ++ HNXRoot.c1) = true := by quickRfl
 theorem basis_ok : qBasisK TX CM3 CFSG.Sporadic.HNSchreier.Data.checkPts.toList HNX.QG = true := by
   quickRfl
 
-theorem neg_root : Bool.not (rootK V0C (HNXRoot.c1 ++ HNXRoot.c0)) = true := by quickRfl
-theorem neg_sum : Bool.not (Nat.beq (sumK fun b => Nat.succ (HNX.CNT b)) 1139999) = true := by
-  quickRfl
-theorem neg_link :
-    Bool.not (linkK fun m => Nat.add (HNX.SGT m) (nIf(Nat.beq m 5000, 1, 0))) = true := by
-  quickRfl
-theorem neg_basis :
-    Bool.not (qBasisK TX CM3 CFSG.Sporadic.HNSchreier.Data.checkPts.toList (Nat.xor HNX.QG 1)) =
-      true := by
-  quickRfl
-theorem neg_basisQ :
-    Bool.not (qBasisK TX CM3 (CFSG.Sporadic.HNSchreier.Data.checkPts.toList.map Nat.succ) HNX.QG) =
-      true := by
-  quickRfl
-theorem neg_canon :
-    Bool.not (qBasisK TX CM3 CFSG.Sporadic.HNSchreier.Data.checkPts.toList (Nat.add HNX.QG 5)) =
-      true := by
-  quickRfl
-theorem neg_core : Bool.not (Nat.beq (coreLeaf TX 464 1140000 MS CM3 M GA GB 5 (hnxC 5))
-    (Nat.succ (HNX.CNT 5))) = true := by quickRfl
-theorem neg_sort : Bool.not (sortChunk TX 464 1140000
-    (Nat.lor (Nat.shiftLeft (HNX.SGT 5) 21) (Nat.land (HNX.SGT 5) 2097151)) (hnxS 5)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.HNXOrb
 

@@ -947,19 +947,6 @@ theorem gap17_6_O2RestChar_of_inputs (D : Data G) (V₀ V : Subgroup G)
     exact CFSG.GroupTheory.twoResidual_not_le_conjSubgroup_of_isStronglyPEmbedded hr hr2 hHM
       hrH hsp g hg hres
 
-theorem gap17_6_O2Rest_of_inputs_char (D : Data G) (V₀ V : Subgroup G)
-    (h82 : F08.R82 D) (hSg : UC6S846.SigmaStd D)
-    (hKexc : K_G176ExcRankThree)
-    (h76 : CFSG.LocalAnalysis.UniquenessCase.UC22.F07.R76 D) :
-    ∀ (L : Subgroup G) (r q : ℕ) (hC : Ctx17_6 D V₀ V L r q),
-      Gap17_6_O2Rest D V₀ V L r q hC := by
-  have hKorder : K_G176FunOrder := K_G176FunOrder_holds
-  have hKrank : K_G176L2RankThree := K_G176L2RankThree_holds
-  have hKO1b : K_FunRankTwo := k_FunRankTwo_holds
-  have hKO2 : K_LieOddRankFour := k_LieOddRankFour_holds
-  exact gap17_6_O2Rest_of_inputs D h82 hSg hKorder hKrank
-    (fun L r q hC => gap17_6_O2RestChar_of_inputs D V₀ V hSg hKorder hKO1b hKO2 hKexc
-      h76 L r q hC)
 
 end Certificates
 

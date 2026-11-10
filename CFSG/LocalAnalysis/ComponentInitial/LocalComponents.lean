@@ -86,9 +86,6 @@ theorem component_overgroup [Finite G] {K H : Subgroup G} (hK : CFSG.IsComponent
     (hKH : K ≤ H) : CFSG.IsComponent (K.subgroupOf H) :=
   ⟨(isQuasisimple_congr (subgroupOfEquivOfLe hKH)).2 hK.1, hK.2.subgroupOf⟩
 
-theorem component_overgroup_assembly [Finite G] {K H : Subgroup G}
-    (hK : CFSG.Assembly.IsComponentOf K ⊤) (hKH : K ≤ H) : CFSG.Assembly.IsComponentOf K H :=
-  hK.of_le_of_le hKH le_top
 
 theorem isComponentOf_iff_isComponent_subgroupOf {K H : Subgroup G} (hKH : K ≤ H) :
     CFSG.Assembly.IsComponentOf K H ↔ CFSG.IsComponent (K.subgroupOf H) := by
@@ -108,10 +105,6 @@ theorem assembly_isSubnormal_trans {L M K : Subgroup G} (hLM : CFSG.Assembly.IsS
     (hMK : CFSG.Assembly.IsSubnormal M K) : CFSG.Assembly.IsSubnormal L K :=
   hLM.trans hMK
 
-theorem component_subnormal_lift_assembly {H K : Subgroup G}
-    (hH : CFSG.Assembly.IsSubnormal H ⊤) (hK : CFSG.Assembly.IsComponentOf K H) :
-    CFSG.Assembly.IsComponentOf K ⊤ :=
-  ⟨le_top, assembly_isSubnormal_trans hK.2.1 hH, hK.2.2⟩
 
 theorem isComponent_map_of_isComponent {H : Type*} [Group H] (f : G ≃* H) {K : Subgroup G}
     (hK : CFSG.IsComponent K) : CFSG.IsComponent (K.map f.toMonoidHom) :=

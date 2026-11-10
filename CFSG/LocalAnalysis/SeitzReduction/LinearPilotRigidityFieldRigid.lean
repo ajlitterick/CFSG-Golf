@@ -147,41 +147,6 @@ variable {n : ℕ} {K : Type*} [Field K] [Finite K]
 
 variable {hn : 3 ≤ n} {X₁ X₂ : Subgroup (projectiveSL n K)}
 
-theorem FieldRigid.fieldRigidIn (h : FieldRigid hn X₁ X₂) : FieldRigidIn hn X₁ X₂ := by
-  intro Γ _ _ φ₁ φ₂ hφ₁ hφ₂ hX γ β₁ β₂ hβX h₁ h₂
-  have hmem : ∀ x : X₁, φ₁ x ∈ φ₂.range := fun x => by
-    obtain ⟨z, -, hz⟩ := (hX ▸ (⟨x, x.2, rfl⟩ : φ₁ x ∈ X₁.map φ₁) : φ₁ x ∈ X₂.map φ₂)
-    exact ⟨z, hz⟩
-  let ι₂ : X₁ →* projectiveSL n K :=
-    (MonoidHom.ofInjective hφ₂).symm.toMonoidHom.comp
-      ((φ₁.comp X₁.subtype).codRestrict φ₂.range hmem)
-  have hι₂ : ∀ x : X₁, φ₂ (ι₂ x) = φ₁ x := fun x => by
-    have := MonoidHom.ofInjective_apply hφ₂ (x := ι₂ x)
-    rw [show MonoidHom.ofInjective hφ₂ (ι₂ x) = ⟨φ₁ x, hmem x⟩ from
-      MulEquiv.apply_symm_apply _ _] at this
-    exact this.symm
-  have hinj₂ : Function.Injective ι₂ := fun a b hab => by
-    have := congrArg φ₂ hab
-    rw [hι₂, hι₂] at this
-    exact Subtype.ext (hφ₁ this)
-  have hr₁ : X₁.subtype.range = X₁ := X₁.range_subtype
-  have hr₂ : ι₂.range = X₂ := by
-    apply Subgroup.map_injective hφ₂
-    rw [← hX, ← MonoidHom.range_comp]
-    ext z
-    constructor
-    · rintro ⟨x, rfl⟩
-      exact ⟨x, x.2, (hι₂ x).symm⟩
-    · rintro ⟨x, hx, rfl⟩
-      exact ⟨⟨x, hx⟩, hι₂ ⟨x, hx⟩⟩
-  let γ' : X₁ →* X₁ :=
-    { toFun := fun x => ⟨β₁ x, hβX x x.2⟩
-      map_one' := Subtype.ext (map_one β₁)
-      map_mul' := fun x y => Subtype.ext (map_mul β₁ (x : projectiveSL n K) y) }
-  refine h.linearFieldPart_eq X₁.subtype_injective hinj₂ hr₁ hr₂ γ' (fun x => rfl) fun x => ?_
-  apply hφ₂
-  rw [h₂, hι₂, hι₂]
-  exact (h₁ x).symm
 
 theorem FieldRigidIn.map (h : FieldRigidIn hn X₁ X₂) (ψ₁ ψ₂ : MulAut (projectiveSL n K)) :
     FieldRigidIn hn (X₁.map ψ₁.toMonoidHom) (X₂.map ψ₂.toMonoidHom) := by

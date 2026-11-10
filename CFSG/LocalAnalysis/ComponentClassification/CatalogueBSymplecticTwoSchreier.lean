@@ -59,10 +59,5 @@ theorem classical_model_two_schreier {G : Type} [Group G] {p f : ℕ}
   rw [← map_derivedSeries_eq (f := e'.symm.toMonoidHom) e'.symm.surjective, hder,
     Subgroup.map_bot]
 
-theorem classical_model_two_schreier_of_classicalModel {G : Type} [Group G] {p f : ℕ}
-    [Fact p.Prime] (h : Assembly.ComponentType.ClassicalModel G .PSp 2 p f) :
-    derivedSeries (Outer G) 3 = ⊥ ∧ Group.IsSolvable (Outer G) :=
-  classical_model_two_schreier
-    (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSp 2 p f h)
 
 end CFSG.ComponentClassification.CatalogueBSymplecticTwo

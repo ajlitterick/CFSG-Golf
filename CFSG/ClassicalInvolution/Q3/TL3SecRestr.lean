@@ -84,17 +84,6 @@ theorem TightDatum.exists_sylow_le_centralizer (hd : TightDatum R S t) {B : Subg
   rw [Subgroup.map_subgroupOf_eq_of_le hPR]
   exact (Subgroup.map_subtype_le _).trans inf_le_right
 
-theorem TightDatum.restrictCentralizer (hd : TightDatum R S t) {B : Subgroup Y}
-    (hB2 : IsPGroup 2 ↥B) (hBR : B ≤ centralizerModOdd ⊤ R) :
-    ∃ (ht : t ∈ Subgroup.centralizer (B : Set Y))
-      (S'' : Sylow 2 ↥(R.subgroupOf (Subgroup.centralizer (B : Set Y)))),
-      TightDatum (R.subgroupOf (Subgroup.centralizer (B : Set Y))) S'' ⟨t, ht⟩ ∧
-        Nonempty ((S'' : Subgroup ↥(R.subgroupOf (Subgroup.centralizer (B : Set Y)))) ≃*
-          (S : Subgroup R)) := by
-  obtain ⟨S', hS'⟩ := hd.exists_sylow_le_centralizer hB2 hBR
-  have hd' := hd.ofSylow S'
-  obtain ⟨S'', hd'', ⟨e⟩⟩ := hd'.restrict hS'
-  exact ⟨hS' hd'.mem, S'', hd'', ⟨e.trans (Sylow.equiv S' S)⟩⟩
 
 theorem TightDatum.exists_cls_subnormalClosure (hd : TightDatum R S t)
     (hq8 : Nonempty (↥(S : Subgroup R) ≃* QuaternionGroup 2)) :

@@ -12,18 +12,6 @@ open CFSG.RankThree.PartTwo.KFacts CFSG.LocalAnalysis.ComponentInitial.LinearFla
   CFSG.HardMathSupport.Solomon.LocalBalance
   CFSG.HardMathSupport.Solomon.LocalBalance.Lemma514CoverNs
 
-@[deprecated (since := "2026-10-15")]
-alias l514V_map_mem_commutator := map_mem_commutator_mulAut
-
-@[deprecated "use `innerAut_le_commutator_of_perfect`" (since := "2026-10-15")]
-theorem l514V_innerAut_le_commutator (Y : Type) [Group Y] [Group.IsPerfect Y] :
-    LocalBalance.innerAut Y ≤ commutator (MulAut Y) :=
-  innerAut_le_commutator_of_perfect Group.IsPerfect.commutator_eq_top
-
-@[deprecated "use `innAutDerivedVocab_le_commutator`" (since := "2026-10-15")]
-theorem l514V_innDiag_le_commutator (Y : Type) [Group Y] [Finite Y]
-    (hY : CFSG.Open.IsQuasisimple Y) : innAutDerivedVocab.innDiag Y ≤ commutator (MulAut Y) :=
-  innAutDerivedVocab_le_commutator hY
 
 theorem eq_one_of_mem_commutator_of_field {Y : Type} [Group Y] [Finite Y]
     (hY : CFSG.Open.IsQuasisimple Y) {α : MulAut Y} (hc : α ∈ commutator (MulAut Y))

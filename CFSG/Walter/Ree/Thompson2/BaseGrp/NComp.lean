@@ -29,14 +29,6 @@ theorem pp_zero : pp σ (0 : k) 0 0 = 1 := rfl
 
 theorem pp_mem_P (α β γ : k) : pp σ α β γ ∈ ThompsonN.P σ := rfl
 
-omit [CharP k 3] in
-theorem pp_α (α β γ : k) : (pp σ α β γ).α = α := rfl
-
-omit [CharP k 3] in
-theorem pp_β (α β γ : k) : (pp σ α β γ).β = β := rfl
-
-omit [CharP k 3] in
-theorem pp_γ (α β γ : k) : (pp σ α β γ).γ = γ := rfl
 
 theorem eq_pp_of_mem_P {x : ThompsonN k σ} (hx : x ∈ ThompsonN.P σ) :
     x = pp σ x.α x.β x.γ :=

@@ -65,11 +65,6 @@ theorem prop37x : Prop37x := by
   intro F _ _ _ _ J K t z hJ hK _ htK y hyJ hy2 _ hyz
   exact mem_normalizer_of_core hJ hK htK hyJ hy2 hyz
 
-theorem a7FusionCore : A7FusionCore :=
-  a7FusionCore_of_prop37x prop37x
-
-theorem prop366i : Prop366i :=
-  prop366i_of_prop37x prop37x
 
 theorem a7Omega5 : A7Omega5 :=
   a7Omega5_of_prop37x prop37x

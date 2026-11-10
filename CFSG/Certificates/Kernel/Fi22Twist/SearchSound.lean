@@ -316,9 +316,6 @@ theorem pack5 {x0 x1 x2 x3 x4 : Nat} (h0 : x0 < 4096) (h1 : x1 < 4096) (h2 : x2 
     simp only [Nat.reducePow]; omega
   rw [or_shift a3]
 
-theorem bp0 : bp 0 = 0 := rfl
-theorem bp1 : bp 1 = 1 := rfl
-theorem bp2 : bp 2 = 2 := rfl
 theorem bp3 : bp 3 = 3 := rfl
 theorem bp4 : bp 4 = 6 := rfl
 

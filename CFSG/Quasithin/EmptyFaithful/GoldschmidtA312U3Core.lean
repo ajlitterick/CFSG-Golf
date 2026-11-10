@@ -91,32 +91,5 @@ theorem CoreC.of_map_conj (g : ↥(unitarySU p 1 F 3)) {M : Subgroup ↥(unitary
     rw [hzz] at h1
     exact h1
 
-variable [Fact p.Prime]
-
-theorem coreC_of_odd (hirr : SU3OddIrr) (hp2 : p ≠ 2)
-    (hF : Nat.card F = p ^ 2) (M : Subgroup ↥(unitarySU p 1 F 3)) (hodd : Odd M.index)
-    (hne : M ≠ ⊤) : CoreC p M := by
-  classical
-  have hU := uniData (p := p) hF
-  obtain ⟨g, hg⟩ := exists_conj_contains_four hU M hodd
-  refine CoreC.of_map_conj g ?_
-  set M₁ : Subgroup ↥(unitarySU p 1 F 3) := M.map (MulAut.conj g).toMonoidHom with hM₁
-  have hodd₁ : Odd M₁.index := by
-    rw [hM₁, Subgroup.index_map_of_bijective (MulAut.conj g).bijective]
-    exact hodd
-  have hne₁ : M₁ ≠ ⊤ := by
-    intro htop
-    apply hne
-    rw [← Subgroup.comap_map_eq_self_of_injective (f := (MulAut.conj g).toMonoidHom)
-      (MulAut.conj g).injective M, ← hM₁, htop, Subgroup.comap_top]
-  by_cases hirr₁ : IsIrrIn (unitarySU p 1 F 3) M₁
-  · rcases hirr p hp2 F hF M₁ hodd₁ hirr₁ with htop | hs | hh
-    · exact absurd htop hne₁
-    · exact Or.inl hs
-    · exact Or.inr (Or.inr hh)
-  · obtain ⟨W, hW, hbot, htop⟩ := exists_invariant_of_not_irr hirr₁
-    rcases reducible_core hp2 hF M₁ hodd₁ hg hW hbot htop with hs | hSL
-    · exact Or.inl hs
-    · exact Or.inr (Or.inl hSL)
 
 end CFSG.Quasithin.A312U3

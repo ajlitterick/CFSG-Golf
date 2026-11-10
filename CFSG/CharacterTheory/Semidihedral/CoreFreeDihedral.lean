@@ -46,21 +46,6 @@ theorem isPerfect_of_simple_nonabelian
     exact (hxy (hcomm.is_comm.comm x y)).elim
   · exact h
 
-theorem isComponent_of_normal_simple_nonabelian
-    {G : Type u} [Group G] (N : Subgroup G) [N.Normal] [IsSimpleGroup N]
-    (hnc : ∃ x y : N, x * y ≠ y * x) : CFSG.IsComponent N := by
-  have hZ := center_eq_bot_of_simple_nonabelian hnc
-  have e : (N ⧸ Subgroup.center N) ≃* N :=
-    (QuotientGroup.quotientMulEquivOfEq hZ).trans (QuotientGroup.quotientBot)
-  have hqsimple : IsSimpleGroup (N ⧸ Subgroup.center N) := e.isSimpleGroup
-  have hqnc : ∃ x y : N ⧸ Subgroup.center N, x * y ≠ y * x := by
-    obtain ⟨x, y, hxy⟩ := hnc
-    refine ⟨e.symm x, e.symm y, ?_⟩
-    intro h
-    apply hxy
-    simpa using congrArg e h
-  exact ⟨⟨isPerfect_of_simple_nonabelian hnc, hqsimple, hqnc⟩,
-    (inferInstance : N.Normal).isSubnormal⟩
 
 theorem generalizedFitting_eq_of_normal_simple_centralizer_eq_bot
     {G : Type u} [Group G] [Finite G]

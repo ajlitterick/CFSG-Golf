@@ -125,14 +125,6 @@ omit [Fact ρ.IsIrreducible] [Finite W] in
   map_add' x y := map_add (r : Module.End k₀ W) x y
   map_smul' d w := (d.map_smul r w).symm
 
-omit [Fact ρ.IsIrreducible] [Finite W] in
-theorem actD_apply (r : spanAlg ρ) (w : W) : actD r w = (r : Module.End k₀ W) w := rfl
-
-omit [Fact ρ.IsIrreducible] [Finite W] in
-theorem actD_add (r s : spanAlg ρ) : actD (r + s) = actD r + actD s := rfl
-
-omit [Fact ρ.IsIrreducible] [Finite W] in
-theorem actD_mul (r s : spanAlg ρ) : actD (r * s) = actD r * actD s := rfl
 
 omit [Fact ρ.IsIrreducible] [Finite W] in
 theorem actD_gen (g : G) : actD (⟨ρ g, Algebra.subset_adjoin ⟨g, rfl⟩⟩ : spanAlg ρ) = repD ρ g := rfl

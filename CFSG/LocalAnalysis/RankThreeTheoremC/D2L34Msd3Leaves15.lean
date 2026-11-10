@@ -19,6 +19,5 @@ open CFSG.HardMathSupport.Cooperstein.Coordinator CFSG.HardMathSupport.Meierfran
 structure D2Leaves3SX (G : Type) [Group G] [Finite G] : Prop where
   l34MSolvable : D2L34BetaMSolvableStrong3 G
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

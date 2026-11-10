@@ -22,14 +22,6 @@ section Coord
 
 variable {σ υ : G} (hσ : σ ^ 4 = 1) (hυ : υ ^ 4 = 1) (hc : Commute σ υ)
 
-include hσ in
-theorem pow_natCast_val (i : ℕ) : σ ^ ((i : ZMod 4).val) = σ ^ i := by
-  rw [ZMod.val_natCast, ← pow_eq_pow_mod i hσ]
-
-include hσ hυ in
-theorem pow_mul_pow_eq_coord (i j : ℕ) :
-    σ ^ i * υ ^ j = coord σ υ ((i : ZMod 4), (j : ZMod 4)) := by
-  rw [coord, pow_natCast_val hσ, pow_natCast_val hυ]
 
 include hσ hυ hc in
 theorem coord_mul (p q : ZMod 4 × ZMod 4) :
@@ -58,12 +50,6 @@ theorem coord_pow (p : ZMod 4 × ZMod 4) (k : ℕ) : coord σ υ p ^ k = coord �
   | zero => rw [pow_zero, zero_smul, coord_zero]
   | succ k ih => rw [pow_succ, ih, coord_mul hσ hυ hc, succ_nsmul]
 
-include hσ hυ hc in
-theorem coord_zpow (p : ZMod 4 × ZMod 4) (k : ℤ) : coord σ υ p ^ k = coord σ υ (k • p) := by
-  rcases Int.eq_nat_or_neg k with ⟨k, rfl | rfl⟩
-  · rw [zpow_natCast, coord_pow hσ hυ hc, natCast_zsmul]
-  · rw [zpow_neg, zpow_natCast, coord_pow hσ hυ hc, coord_inv hσ hυ hc, neg_smul,
-      natCast_zsmul]
 
 theorem coord_left : coord σ υ (1, 0) = σ := by
   rw [coord, show (1 : ZMod 4).val = 1 from rfl, show (0 : ZMod 4).val = 0 from rfl, pow_one,
@@ -90,9 +76,6 @@ theorem exists_coord {u : G} (hu : u ∈ Subgroup.closure {σ, υ}) :
     obtain ⟨p, rfl⟩ := hx
     exact ⟨-p, coord_inv hσ hυ hc p⟩
 
-theorem coord_mem {U : Subgroup G} (hσU : σ ∈ U) (hυU : υ ∈ U) (p : ZMod 4 × ZMod 4) :
-    coord σ υ p ∈ U :=
-  U.mul_mem (U.pow_mem hσU _) (U.pow_mem hυU _)
 
 include hσ hυ hc in
 theorem coord_injective (hσo : orderOf σ = 4) (hυo : orderOf υ = 4)

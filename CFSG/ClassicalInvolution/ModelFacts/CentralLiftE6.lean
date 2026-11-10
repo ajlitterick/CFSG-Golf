@@ -53,7 +53,6 @@ variable {k : Type} [Field k] (θ : k →+* k)
 
 abbrev fixedFieldE6 : Subfield k := RingHom.eqLocusField θ (RingHom.id k)
 
-theorem mem_fixedFieldE6 {c : k} : c ∈ fixedFieldE6 θ ↔ θ c = c := Iff.rfl
 
 variable (k) in
 @[expose] noncomputable def slE (a : Fin (Tag.rank .E6)) :
@@ -149,10 +148,6 @@ theorem map_subtype_fixed (M : Matrix.SpecialLinearGroup (Fin 2) (fixedFieldE6 �
       simp only [MonoidHom.comp_apply, map_subtype_fixed] at h ⊢
       exact h
 
-theorem slFixedHom_val {a : Fin (Tag.rank .E6)} (ha : rhoPerm a = a)
-    (M : Matrix.SpecialLinearGroup (Fin 2) (fixedFieldE6 θ)) :
-    (slFixedHom θ ha M : e6Data_valid.minGroup k) =
-      slE k a (Matrix.SpecialLinearGroup.map (fixedFieldE6 θ).subtype M) := rfl
 
 theorem slFixedHom_injective {a : Fin (Tag.rank .E6)} (ha : rhoPerm a = a) :
     Function.Injective (slFixedHom θ ha) := by

@@ -54,15 +54,6 @@ private theorem q2cFNX3_jShift21_eq (u : Fin 2 → K) :
     jShift21 K f u = q2cFNX3_i1 (sgv K f 2 u) :=
   q2cFNX3_jShift21_eq_nat u
 
-private theorem q2cFNX3_jShift21Inv_eq_nat (v : Fin 3 → K) :
-    jShift21Inv K f v = sgv K f 2 (blkOut 3 [0, 1, 3] 1 v) := by
-  funext k
-  fin_cases k <;> simp [jShift21Inv, blkOut, sgv, sgv_apply, Nat.not_succ_le_zero]
-    <;> congr 1
-
-private theorem q2cFNX3_jShift21Inv_eq (v : Fin 3 → K) :
-    jShift21Inv K f v = sgv K f 2 (q2cFNX3_o1 v) :=
-  q2cFNX3_jShift21Inv_eq_nat v
 
 private theorem q2cFNX3_jShift21Inv_i1_nat (w : Fin 2 → K) :
     jShift21Inv K f (blkIn 3 [0, 1, 3] 1 w) = sgv K f 2 w := by

@@ -32,7 +32,6 @@ structure R1Leaves : Prop where
   outerInv : OL.KFactL3U3OuterInv
   noQuad : OL.KFactL33NoQuadFour
 
-variable {G : Type} [Group G] [Finite G] {H T M V : Subgroup G}
 
 end E217R1
 

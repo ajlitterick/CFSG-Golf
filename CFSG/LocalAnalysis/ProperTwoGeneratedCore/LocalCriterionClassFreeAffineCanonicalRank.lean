@@ -29,9 +29,5 @@ theorem not_twoRankAtLeastTwo_of_twoRank_le_one
     le_twoRank_of_elementary F E hE 2 (by simpa only [Nat.reducePow] using hcard)
   omega
 
-theorem twoRank_le_one_iff_not_twoRankAtLeastTwo :
-    twoRank F ≤ 1 ↔ ¬ TwoRankAtLeastTwo F :=
-  ⟨not_twoRankAtLeastTwo_of_twoRank_le_one,
-    twoRank_le_one_of_not_twoRankAtLeastTwo⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionClassFreeAffine

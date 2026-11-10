@@ -154,13 +154,6 @@ theorem ggStepTwoCoordModelOn_POmegaMinus_of_coord (hcoord : GGOmCoordInput) :
     (fun b hb => PsiDiag.SpinM.exists_mem_centralizer hirr hn ψ hker
       (hctx.2.2.2.2.2.2.1.2 b hb))
 
-theorem ggStepTwoToralWitnessOn_POmegaPlus_of_coord (hcoord : GGOmCoordInput) :
-    GGStepTwoToralWitnessOn .POmegaPlus :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_POmegaPlus_of_coord hcoord)
-
-theorem ggStepTwoToralWitnessOn_POmegaMinus_of_coord (hcoord : GGOmCoordInput) :
-    GGStepTwoToralWitnessOn .POmegaMinus :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_POmegaMinus_of_coord hcoord)
 
 end Reduction
 

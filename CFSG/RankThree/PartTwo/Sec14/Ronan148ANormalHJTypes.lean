@@ -360,17 +360,6 @@ theorem step148NormalHJ_of_leaves
   step148NormalHJ_of_types h45 h48 h134 h427 hGW h41 hTYd hKF
     (step148NormalHJHJ_of_point1 h142 h134 h48 hP1) hA5 hA6 hON
 
-theorem step148NormalHJA5_of_normalHJ (hN : Step148NormalHJ) : Step148NormalHJA5 :=
-  fun G _ _ A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle _ _ _ _ _ _ _ _
-    _ _ _ _ _ _ => hN G A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle
-
-theorem step148NormalHJA6_of_normalHJ (hN : Step148NormalHJ) : Step148NormalHJA6 :=
-  fun G _ _ A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle _ _ _ _ _ _ _ _
-    _ _ _ _ _ _ => hN G A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle
-
-theorem step148NormalHJON_of_normalHJ (hN : Step148NormalHJ) : Step148NormalHJON :=
-  fun G _ _ A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle _ _ _ _ _ _ _ _
-    _ _ _ _ _ _ _ => hN G A c L hS Y hY hs ih hcases h1 B hB hnot YB hYB htype hΔ b d Lb hc hle
 
 end Certificates
 

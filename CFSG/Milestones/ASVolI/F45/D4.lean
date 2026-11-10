@@ -125,38 +125,6 @@ open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.LieType
   CFSG.ASVolI.ChF.ExceptionalRoots
 
 
-theorem burnsideF45_facts45L_D4tw {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
-    (hyp : HypF_4_4 .D4tw p f Gp M₁ M₂) (hp : p.Prime) (hm : 3 ≤ GLKind.D4tw.m) :
-    (burnsideF45_setting hyp hp hm).Facts45L := by
-  obtain ⟨chart, -⟩ := hyp.toHypF_4_4g.lie_amalgam
-  rcases chart.coordinates with
-    ⟨c', hk, -⟩ | ⟨hk, -⟩ | ⟨hk, -⟩ |
-    ⟨-, -, -, K, fK, finK, sigma, hscope, marking, -, -, -, -, -⟩ |
-    ⟨-, exponent, K', fK', finK', charK', scope, ⟨hk, -⟩ | ⟨hk, -⟩⟩
-  · exact absurd hk (by cases c' <;> decide)
-  · exact absurd hk (by decide)
-  · exact absurd hk (by decide)
-  · letI := fK
-    haveI := finK
-    obtain ⟨hp', hd, hK, hσ⟩ := hscope
-    obtain ⟨σ, rfl⟩ : ∃ σ : K ≃+* K, σ.toRingHom = sigma :=
-      ⟨RingEquiv.ofBijective sigma ⟨sigma.injective,
-        Finite.surjective_of_injective sigma.injective⟩, rfl⟩
-    have hσ' : ∀ c, σ.toRingHom c = c ^ (p ^ f) := hσ
-    have hq : 2 ≤ p ^ f := burnsideF45_two_le_q σ hp hd hK hσ'
-    obtain ⟨f₀, hf₀, hrange, -⟩ := burnsideF4h_tri_exists_embedding hp hd hK σ hσ
-    let e₁ : CFSG.Blueprint.DerivedCentralQuotient
-        (CFSG.Blueprint.twistedFixedGroup TwistTag.D4 K σ.toRingHom) ≃*
-          ↥(graphFixedRootGroup TwistTag.D4 K σ.toRingHom) :=
-      (MonoidHom.ofInjective hf₀).trans (MulEquiv.subgroupCongr hrange)
-    obtain ⟨e₂⟩ := burnsideF45_d4Model_equiv σ hp hd hK hσ'
-    have hU := burnsideF45_d4ModelSystem_isSylow σ hp hd hK hσ' hq
-    exact burnsideF45_facts45L_of_system hyp hp hm (burnsideF45_parabolics hyp.toHypF_4_4g)
-      (e₂.trans (e₁.symm.trans marking)) (d4ModelSystem σ.toRingHom hq hK hσ') rfl hU
-      (fun i => burnsideF45_bn_modelBase (d4ModelSystem σ.toRingHom hq hK hσ') hp hU i)
-  · exact absurd hk (by decide)
-  · exact absurd hk (by decide)
-
 end Facts
 
 end CFSG.ASVolI

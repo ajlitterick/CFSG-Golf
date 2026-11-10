@@ -298,9 +298,6 @@ instance coordinateU_normal_in_B : ((coordinateU K).subgroupOf (coordinateB K)).
   (MonoidHom.ofInjective translationHom_injective).trans
     (MulEquiv.subgroupCongr coordinateU_eq_range.symm)
 
-theorem coordinateUEquiv_apply (b : K) :
-    (coordinateUEquiv K (Multiplicative.ofAdd b) : Equiv.Perm (Omega K)) = translation K b :=
-  rfl
 
 theorem card_coordinateU : Nat.card (coordinateU K) = Nat.card K :=
   (Nat.card_congr (coordinateUEquiv K).toEquiv).symm.trans (Nat.card_congr Multiplicative.toAdd)
@@ -312,36 +309,6 @@ theorem card_coordinateB :
     Nat.card_congr (Subgroup.subgroupOfEquivOfLe coordinateU_le_coordinateB).toEquiv,
     card_coordinateU, mul_comm]
 
-theorem linear_two_affine_stabilizer (K : Type u) [Field K] :
-    coordinateB K = coordinateG K ⊓ MulAction.stabilizer (Equiv.Perm (Omega K)) (none : Omega K) ∧
-      (coordinateU K : Set (Equiv.Perm (Omega K))) = Set.range (translation K) ∧
-      (∃ e : Multiplicative K ≃* coordinateU K,
-        ∀ b : K, (e (Multiplicative.ofAdd b) : Equiv.Perm (Omega K)) = translation K b) ∧
-      (∀ g : Equiv.Perm (Omega K), g ∈ coordinateB K ↔ g none = none ∧
-        ∃ (s : Kˣ) (b : K), (∃ a : Kˣ, s = a ^ 2) ∧ ∀ x : K, g (some x) = some (s * x + b)) ∧
-      (∀ (g : Equiv.Perm (Omega K)) (s s' : Kˣ) (b b' : K),
-        (∀ x : K, g (some x) = some (s * x + b)) → (∀ x : K, g (some x) = some (s' * x + b')) →
-          s = s' ∧ b = b') ∧
-      coordinateU K ≤ coordinateB K ∧ ((coordinateU K).subgroupOf (coordinateB K)).Normal ∧
-      Nonempty (coordinateB K ⧸ (coordinateU K).subgroupOf (coordinateB K) ≃*
-        (powMonoidHom 2 : Kˣ →* Kˣ).range) ∧
-      (Finite K → Nat.card (coordinateU K) = Nat.card K ∧
-        Nat.card (coordinateB K) = Nat.card K * Nat.card (powMonoidHom 2 : Kˣ →* Kˣ).range) ∧
-      {x : Omega K | ∀ u ∈ coordinateU K, u x = x} = {none} := by
-  have hU : (coordinateU K : Set (Equiv.Perm (Omega K))) = Set.range (translation K) := by
-    rw [coordinateU_eq_range, MonoidHom.coe_range]
-    ext g
-    constructor
-    · rintro ⟨b, rfl⟩
-      exact ⟨b.toAdd, rfl⟩
-    · rintro ⟨b, rfl⟩
-      exact ⟨Multiplicative.ofAdd b, rfl⟩
-  refine ⟨rfl, hU,
-    ⟨coordinateUEquiv K, coordinateUEquiv_apply⟩, fun g => mem_coordinateB_iff_affine,
-    fun _ _ _ _ _ h h' =>
-      affine_params_unique fun x => Option.some_inj.mp ((h x).symm.trans (h' x)),
-    coordinateU_le_coordinateB, inferInstance, ⟨coordinateBQuotientEquiv K⟩,
-    fun _ => ⟨card_coordinateU, card_coordinateB⟩, coordinateU_fixed_points⟩
 
 theorem coordinateB_subgroupOf_eq_stabilizer :
     (coordinateB K).subgroupOf (coordinateG K) =

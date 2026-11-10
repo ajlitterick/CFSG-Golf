@@ -56,14 +56,6 @@ theorem rankThree_vertex_in_elementary (U : Subgroup G)
     (by simp)
   exact ⟨E, hEU, hE⟩
 
-theorem rankThree_vertices_nonempty_of_twoRank (hrank : 3 ≤ twoRank G) :
-    (E3 G).Nonempty := by
-  obtain ⟨U, _, hU, hcard⟩ := pRank_witness (by decide : 1 < 2) (⊤ : Subgroup G)
-  have hUcard : 8 ≤ Nat.card U := by
-    rw [hcard]
-    exact Nat.pow_le_pow_right (by decide : 0 < 2) hrank
-  obtain ⟨E, _, hE⟩ := rankThree_vertex_in_elementary U hU hUcard
-  exact ⟨E, hE⟩
 
 theorem rankThree_subgroup_card_four_or_eight (A R : Subgroup G)
     (hA : A ∈ E3 G) (hRA : R ≤ A) (hRcard : 4 ≤ Nat.card R) :

@@ -41,8 +41,6 @@ theorem exists_flag_of_two_le_localRank_statedSU [CharP K 2] (hK : Nat.card K = 
   rw [hEc, ← pow_add] at hcard
   exact ⟨a, ha1, ha2, (Nat.pow_le_pow_iff_right hp.one_lt).1 hcard⟩
 
-theorem not_dvd_pow_one_sub_one {p q : ℕ} (h : ¬ p ∣ q - 1) : ¬ p ∣ q ^ 1 - 1 := by
-  simpa using h
 
 theorem localRank_statedSU_four_le_one [CharP K 2] (hK : Nat.card K = (2 ^ f) ^ 2) {p : ℕ}
     (hp : p.Prime) (hp2 : p ≠ 2) (h1 : ¬ p ∣ (2 ^ f) ^ 2 - 1) :

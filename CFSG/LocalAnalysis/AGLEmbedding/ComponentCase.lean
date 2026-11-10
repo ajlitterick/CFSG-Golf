@@ -103,33 +103,5 @@ theorem D1Extremal.exists_reducedNongeneration_of_not_hasPrimeConstraint {G : Ty
         IsCatalogGroup (K ⧸ Subgroup.center K) ∧ p ∣ Nat.card (K ⧸ Subgroup.center K) :=
   h.toD1Escape.exists_reducedNongeneration_of_not_hasPrimeConstraint hglob.kProper hcon
 
-@[expose] def D1ReducedComponentCase : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], D1Global G →
-    ∀ (p : ℕ) (P : Sylow p G) (M : Subgroup G), D1Local p P M →
-      ∀ H R : Subgroup G, D1Extremal p P M H R → ¬ HasPrimeConstraint (G := H) p →
-      ∀ Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p),
-        (Rbar : Subgroup _) = (R.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore p)) →
-        ReducedNongeneration p (H ⧸ primeComplementCore (G := H) p) Rbar
-          (((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore p))) →
-        CatalogSimpleSections (H ⧸ primeComplementCore (G := H) p) →
-        (∀ L : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L ⊤ →
-          (Rbar : Subgroup _) ≤
-            Subgroup.normalizer (L : Set (H ⧸ primeComplementCore (G := H) p)) ∧
-          IsCatalogGroup (L ⧸ Subgroup.center L) ∧ p ∣ Nat.card (L ⧸ Subgroup.center L)) →
-        (∀ L₁ L₂ : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L₁ ⊤ →
-          IsComponentOf L₂ ⊤ → 2 ≤ Open.pRank p ((Rbar : Subgroup _) ⊓ L₁) →
-          2 ≤ Open.pRank p ((Rbar : Subgroup _) ⊓ L₂) → L₁ = L₂) →
-        (∀ L₁ L₂ L₃ : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L₁ ⊤ →
-          IsComponentOf L₂ ⊤ → IsComponentOf L₃ ⊤ → L₁ ≠ L₂ → L₁ ≠ L₃ → L₂ ≠ L₃ → False) →
-        IsCyclic (CFSG.pCore p (H ⧸ primeComplementCore (G := H) p)) →
-        ∀ K : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf K ⊤ →
-          IsCatalogGroup (K ⧸ Subgroup.center K) → p ∣ Nat.card (K ⧸ Subgroup.center K) → False
-
-theorem d1ComponentCase_of_reducedComponentCase (h : D1ReducedComponentCase) :
-    D1ComponentCase := by
-  intro G _ _ hglob p P M hloc H R hext hcon
-  obtain ⟨Rbar, hRbar, hred, hX, hL, h2, h3, hcyc, K, hK, hKcat, hKp⟩ :=
-    hext.exists_reducedNongeneration_of_not_hasPrimeConstraint hglob hcon
-  exact h G hglob p P M hloc H R hext hcon Rbar hRbar hred hX hL h2 h3 hcyc K hK hKcat hKp
 
 end CFSG.AGLEmbedding

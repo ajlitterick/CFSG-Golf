@@ -50,9 +50,6 @@ variable {L : Subgroup G} (P : A5Pi L) (σ : Perm (Fin 5))
     rw [P.hπα ℓ hℓ]
     rfl
 
-omit [Finite G] in
-theorem conj_π (y : ↥(Subgroup.normalizer (L : Set G))) :
-    (P.conj σ).π y = σ * P.π y * σ⁻¹ := rfl
 
 omit [Finite G] in
 theorem im_conj (K : Subgroup G) :

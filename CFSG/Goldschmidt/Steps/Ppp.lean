@@ -533,23 +533,6 @@ theorem isGood_of_normalClosureIn_eq {A : Subgroup G} (hA : IsPGroup 2 A) {x : G
     _ = oddCoreOf (normalClosureIn C A) ⊔ A := h
     _ ≤ oddCoreOf C ⊔ A := sup_le_sup_right (oddCoreOf_mono hQC hQn) A
 
-theorem isGood_of_barOf_le_pCore {A : Subgroup G} {x : G}
-    (hAx : A ≤ Subgroup.centralizer ({x} : Set G))
-    (h : barOf (Subgroup.centralizer ({x} : Set G)) A ≤
-      CFSG.Open.pCore 2 (Subgroup.centralizer ({x} : Set G) ⧸
-        goldschmidtOddCore (Subgroup.centralizer ({x} : Set G)))) :
-    IsGood A x := by
-  set C := Subgroup.centralizer ({x} : Set G) with hC
-  have hPn := CFSG.RankThreeCoreUniqueness.Helpers.pCore_normal (G := C ⧸ goldschmidtOddCore C) 2
-  refine isGood_of_le_preOf (CFSG.RankThreeCoreUniqueness.Helpers.pCore_isPGroup 2) ?_
-  rw [Subgroup.commutator_le]
-  intro c hc a ha
-  have hpa : QuotientGroup.mk' (goldschmidtOddCore C) (⟨a, hAx ha⟩ : C) ∈
-      CFSG.Open.pCore 2 (C ⧸ goldschmidtOddCore C) := h ⟨⟨a, hAx ha⟩, ha, rfl⟩
-  refine ⟨(⟨c, hc⟩ : C) * ⟨a, hAx ha⟩ * (⟨c, hc⟩ : C)⁻¹ * (⟨a, hAx ha⟩ : C)⁻¹,
-    Subgroup.mem_comap.mpr ?_, rfl⟩
-  rw [map_mul, map_mul, map_mul, map_inv, map_inv]
-  exact Subgroup.mul_mem _ (hPn.conj_mem _ hpa _) (Subgroup.inv_mem _ hpa)
 
 end Good
 

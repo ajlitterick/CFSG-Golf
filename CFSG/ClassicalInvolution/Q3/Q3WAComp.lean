@@ -176,22 +176,6 @@ theorem powCop3_model {t : StatedLieTag} {n : ℕ} (hft : IsFundTag t)
   cop := not_three_dvd_orderOf_of_isPGroup_two
     (modelFiniteCenterTwoGroup3 t n Nat.prime_three hft hadm).2
 
-theorem powCop3_sl23 : PowCop3 CompData.sl23 where
-  pow3 := fun R hR => by
-    have hR' : R = ⊤ := hR
-    subst hR'
-    exact pow_three_mem_commutator_of_equiv (K := ZMod 3) (by simp)
-      (Subgroup.topEquiv (G := SL(2, ZMod 3)))
-  cop := fun w hw h3 => by
-    rcases (CFSG.ClassicalInvolution.mem_center_sl2_iff w).mp hw with h | h
-    · rw [h, orderOf_one] at h3
-      omega
-    · have h2 : (-1 : SL(2, ZMod 3)) ^ 2 = 1 := by
-        rw [pow_two]
-        have := mul_inv_cancel (-1 : SL(2, ZMod 3))
-        rwa [CFSG.ClassicalInvolution.Generic.neg_one_inv] at this
-      have := Nat.le_of_dvd (by norm_num) (h3.trans (h ▸ orderOf_dvd_of_pow_eq_one h2))
-      omega
 
 theorem powCop3_m11 : PowCop3 CompData.m11 where
   pow3 := fun R hR => by
@@ -496,7 +480,6 @@ theorem not_psl_two_of_admissible3 {t : StatedLieTag} {n : ℕ}
 end M11Facts
 
 section NotA1
-
 
 
 variable {G : Type} [Group G] {ι : Type} {Ω : Set (Subgroup G)} {x : G}

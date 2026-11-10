@@ -163,23 +163,6 @@ theorem omega₁_eq_center_of_card {X : Type*} [Group X] [Finite X] {Q V : Subgr
     rw [Subgroup.card_map_of_injective Q.subtype_injective, hzcard]
   exact (Subgroup.eq_of_le_of_card_ge hZV (by rw [h1, hVcard])).symm
 
-theorem linear_rank_one_involution_normalizer (f : ℕ) (hf : 2 ≤ f)
-    (Q : Sylow 2 PSL(2, GaloisField 2 f)) (V : Subgroup PSL(2, GaloisField 2 f))
-    (hV : V = (CFSG.omega₁ (G := (Q : Subgroup PSL(2, GaloisField 2 f))) (p := 2)).map
-      (Q : Subgroup PSL(2, GaloisField 2 f)).subtype) :
-    V = Q ∧ IsElemAbelian 2 V ∧ Nat.card V = 2 ^ f ∧ IsCyclic V.normalizerMonoidHom.range ∧
-      Nat.card V.normalizerMonoidHom.range = 2 ^ f - 1 ∧
-      ∀ v w : V, v ≠ 1 → w ≠ 1 → ∃! α : V.normalizerMonoidHom.range, (α : MulAut V) v = w := by
-  obtain ⟨P, hP⟩ := linear_standard f hf
-  have : Finite PSL(2, GaloisField 2 f) := inferInstance
-  have hS : HasFieldScalarStructure V (2 ^ f) := by
-    rw [hV]
-    exact hasFieldScalarStructure_omega₁_of_mulEquiv (MulEquiv.refl _) P hP Q
-  have hVQ : V ≤ (Q : Subgroup PSL(2, GaloisField 2 f)) := hV ▸ Subgroup.map_subtype_le _
-  have hQcard := (bender_psl2_borel_full f hf Q).2.2.2.2
-  exact ⟨Subgroup.eq_of_le_of_card_ge hVQ (by rw [hQcard, pow_one, hS.card_eq]),
-    hS.isElemAbelian, hS.card_eq, hS.normalizer_action.1, hS.normalizer_action.2.1,
-    hS.normalizer_action.2.2⟩
 
 theorem unitary_rank_one_involution_normalizer (f : ℕ) (hf : 2 ≤ f)
     (Q : Sylow 2 (PSU3 2 f)) (V : Subgroup (PSU3 2 f))
@@ -216,18 +199,6 @@ theorem suzuki_rank_one_involution_normalizer (a : ℕ) (ha : 1 ≤ a)
   exact ⟨omega₁_eq_center_of_card hV hS.card_eq hB.2.2.1 hB.2.2.2.1, hS.isElemAbelian,
     hS.card_eq, hS.normalizer_action.1, hS.normalizer_action.2.1, hS.normalizer_action.2.2⟩
 
-theorem constructed_rank_one_involution_normalizer
-    {X : Type*} [Group X]
-    (hX : fusionIsBenderGroup X) (Q : Sylow 2 X) (V : Subgroup X)
-    (hV : V = (CFSG.omega₁ (G := (Q : Subgroup X)) (p := 2)).map (Q : Subgroup X).subtype) :
-    IsElemAbelian 2 V ∧ 4 ≤ Nat.card V ∧ IsCyclic V.normalizerMonoidHom.range ∧
-      Nat.card V.normalizerMonoidHom.range = Nat.card V - 1 ∧
-      ∀ v w : V, v ≠ 1 → w ≠ 1 → ∃! α : V.normalizerMonoidHom.range, (α : MulAut V) v = w := by
-  obtain ⟨q, hq, hS⟩ := hasFieldScalarStructure_omega₁_of_fusionIsBenderGroup hX Q
-  rw [← hV] at hS
-  refine ⟨hS.isElemAbelian, hS.card_eq ▸ hq, hS.normalizer_action.1, ?_,
-    hS.normalizer_action.2.2⟩
-  rw [hS.normalizer_action.2.1, hS.card_eq]
 
 theorem layerKernel_of_mulEquiv_aux {X M : Type*} [Group X] [Group M] [Finite M] (e : X ≃* M)
     (P : Sylow 2 M)
@@ -439,19 +410,5 @@ theorem strong_closure_rank_one_action_inner
     rw [inv_inv]
     exact h1
 
-
-theorem strong_closure_rank_one_action_inner_of_group
-    {H : Type*} [Group H] [Finite H]
-    (S : Sylow 2 H) {U L : Subgroup H} (hUS : U ≤ S) (hU : IsElemAbelian 2 U)
-    (hcl : fusionStronglyClosed (U : Set H) S) (hL : fusionIsBenderGroup L)
-    (hUL : U ≤ Subgroup.normalizer (L : Set H))
-    (hP : IsSylowTwoOf ((S : Subgroup H) ⊓ L) L) :
-    ∀ u ∈ U, ∃ p ∈ (S : Subgroup H) ⊓ L, ∀ x ∈ L, u⁻¹ * x * u = p⁻¹ * x * p := by
-  have hS : IsSylowTwoOf (S : Subgroup H) ⊤ := by
-    refine ⟨le_top, S.isPGroup', ?_⟩
-    have := S.not_dvd_index
-    rwa [← Subgroup.relIndex, Subgroup.relIndex_top_right]
-  exact strong_closure_rank_one_action_inner hS hUS hU
-    (fun a ha g _ hg => hcl a ha g hg) le_top hL hUL hP
 
 end CFSG.QuasithinUnique

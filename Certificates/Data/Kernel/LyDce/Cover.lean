@@ -22,7 +22,6 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.MonsterConv.Perm CFSG.KC.LyBase CFSG.KC.LyRepl
   List.rec (motive := fun _ => Nat) 0
     (fun a _ ih => strictN ih fun x => Nat.lor x (Nat.shiftLeft 1 a)) O
 
-@[expose] noncomputable def netP (N X : Nat) : Nat := netsApply 17 131072 1 [N] X
 
 @[expose] noncomputable def fixOK (NS : Nat → Nat) (M₀ : Nat) (G : List (List Nat)) : Bool :=
   List.rec (motive := fun _ => Bool) true
@@ -41,20 +40,6 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.MonsterConv.Perm CFSG.KC.LyBase CFSG.KC.LyRepl
     List (Nat × Nat × Nat) :=
   Bool.rec (motive := fun _ => List (Nat × Nat × Nat)) st st.tail (Nat.beq g 2)
 
-@[expose] noncomputable def walkOK (Nc Nd P K Tc Td : Nat) (es : List (Nat × Nat × Nat))
-    (st : List (Nat × Nat × Nat)) : Bool :=
-  List.rec (motive := fun _ => List (Nat × Nat × Nat) → Bool) (fun _ => true)
-    (fun e _ ih st =>
-      List.rec (motive := fun _ => Bool) false
-        (fun top rest _ =>
-          strictBN (selG e.2.2 top) fun M =>
-            strictBN (netP Nc M) fun Mc => strictBN (netP Nd M) fun Md =>
-              andB (lineOK P K Tc Td e.1 M Mc Md) (ih ((M, Mc, Md) :: popG e.2.2 (top :: rest))))
-        (st.drop e.2.1)) es st
-
-@[expose] noncomputable def walkFrom (Nc Nd P K Tc Td M₀ : Nat) (es : List (Nat × Nat × Nat)) :
-    Bool :=
-  walkOK Nc Nd P K Tc Td es [(M₀, netP Nc M₀, netP Nd M₀)]
 
 @[expose] noncomputable def labMask (ws : List (List (Nat × Nat × Nat))) (R : Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat) (fun R => R)

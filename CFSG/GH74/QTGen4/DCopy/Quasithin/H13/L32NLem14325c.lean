@@ -81,7 +81,6 @@ theorem relIndex_centralizer_le_F4 (h12810 : Lemma12_8_10_F4) {x : G}
 
 end Ctx14325
 
-variable {W : Type*} [AddCommGroup W] [Module (ZMod 2) W] [Finite W]
 
 end L14325
 

@@ -20,9 +20,6 @@ variable {G : Type} [Group G]
   ∀ S : Sylow 2 G, ∀ R ∈ RSet Ω, ∀ R' ∈ RSet Ω, R ≤ (S : Subgroup G) → R' ≤ (S : Subgroup G) →
     R ≠ R' → Commutes R R'
 
-@[expose] def EtaActsR (Ω : Set (Subgroup G)) : Prop :=
-  ∀ S : Sylow 2 G, ∀ η ∈ etaG Ω, (∀ V ∈ η, V ≤ (S : Subgroup G)) →
-    ∀ R ∈ RSet Ω, R ≤ (S : Subgroup G) → ∀ r ∈ R, ∀ V ∈ η, conjSub r V ∈ η
 
 end Family
 

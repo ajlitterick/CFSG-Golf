@@ -38,9 +38,6 @@ theorem sq_eq_one_of_conj_eq {g i z : G} (hi : i * i = 1) (hz : z ∈ Subgroup.c
   calc (g * i * g⁻¹) * (g * i * g⁻¹) = g * (i * i) * g⁻¹ := by group
     _ = 1 := by rw [hi]; group
 
-theorem kerConjFree_of_kerInvolutionFree (hker : θ.ker ≤ Subgroup.center G) {i : G}
-    (hi : i * i = 1) (h : KerInvolutionFree θ) : KerConjFree θ i :=
-  fun _ z hz hg => h z hz (sq_eq_one_of_conj_eq hi (hker hz) hg)
 
 theorem commute_of_commute_map {a b : G} (hb : KerConjFree θ b) (h : Commute (θ a) (θ b)) :
     Commute a b := by
@@ -67,9 +64,6 @@ noncomputable def mulEquivMap (h : ∀ z ∈ L, z ∈ θ.ker → z = 1) : L ≃*
   (MonoidHom.ofInjective (injective_domRestrict h)).trans
     (MulEquiv.subgroupCongr (MonoidHom.domRestrict_range L θ))
 
-theorem mulEquivMap_apply (h : ∀ z ∈ L, z ∈ θ.ker → z = 1) (x : L) :
-    ((mulEquivMap h x : L.map θ) : X) = θ x := by
-  simp [mulEquivMap, MonoidHom.ofInjective_apply]
 
 theorem orderOf_map_eq_two (h : ∀ z ∈ L, z ∈ θ.ker → z = 1) {i : G} (hi : i ∈ L)
     (h2 : orderOf i = 2) : orderOf (θ i) = 2 := by
@@ -207,18 +201,6 @@ theorem commutatorElement_mem_subgroup (M : Subgroup G) {a b : G} (ha : a ∈ M)
   rw [commutatorElement_def]
   exact M.mul_mem (M.mul_mem (M.mul_mem ha hb) (M.inv_mem ha)) (M.inv_mem hb)
 
-theorem le_of_map_le_map (hker : θ.ker ≤ Subgroup.center G) {L M : Subgroup G}
-    (hperf : ⁅L, L⁆ = L) (h : L.map θ ≤ M.map θ) : L ≤ M := by
-  rw [← hperf]
-  refine Subgroup.commutator_le.mpr fun x hx y hy => ?_
-  obtain ⟨m, hm, hxm⟩ := h ⟨x, hx, rfl⟩
-  obtain ⟨m', hm', hym⟩ := h ⟨y, hy, rfl⟩
-  rw [commutatorElement_eq_of_map_eq hker hxm.symm hym.symm]
-  exact commutatorElement_mem_subgroup M hm hm'
-
-theorem eq_of_map_eq_map (hker : θ.ker ≤ Subgroup.center G) {L M : Subgroup G}
-    (hL : ⁅L, L⁆ = L) (hM : ⁅M, M⁆ = M) (h : L.map θ = M.map θ) : L = M :=
-  le_antisymm (le_of_map_le_map hker hL h.le) (le_of_map_le_map hker hM h.ge)
 
 theorem mem_centralizer_of_map (hker : θ.ker ≤ Subgroup.center G) {L : Subgroup G}
     (hperf : ⁅L, L⁆ = L) {g : G}
@@ -299,18 +281,6 @@ section Dichotomy
 
 variable {θ} {H : Type*} [Group H]
 
-theorem mem_centralizer_map_iff (hker : θ.ker ≤ Subgroup.center G) {L₁ L₂ : Subgroup G}
-    (hperf : ⁅L₁, L₁⁆ = L₁) {i₂ : G} (hi₂ : i₂ ∈ L₂)
-    (h : i₂ ∈ Subgroup.centralizer (L₁ : Set G) ↔ ∀ x ∈ L₁, ∀ y ∈ L₂, x * y = y * x) :
-    θ i₂ ∈ Subgroup.centralizer ((L₁.map θ : Subgroup X) : Set X) ↔
-      ∀ x ∈ L₁.map θ, ∀ y ∈ L₂.map θ, x * y = y * x := by
-  constructor
-  · intro hmem
-    have hcomm := h.mp (mem_centralizer_of_map hker hperf hmem)
-    rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩
-    rw [← map_mul, ← map_mul, hcomm x hx y hy]
-  · intro hcomm
-    exact Subgroup.mem_centralizer_iff.mpr fun x hx => hcomm x hx (θ i₂) ⟨i₂, hi₂, rfl⟩
 
 theorem dichotomy_map (hker : θ.ker ≤ Subgroup.center G) {L₁ L₂ : Subgroup G}
     (hperf : ⁅L₁, L₁⁆ = L₁) {i₂ : G} (B₁ B₂ : Subgroup H)
@@ -344,15 +314,6 @@ section SubgroupOf
 
 variable {G' : Type*} [Group G'] {Ω L L₁ L₂ : Subgroup G'}
 
-theorem mem_centralizer_subgroupOf_iff (hL : L ≤ Ω) {g : Ω} :
-    g ∈ Subgroup.centralizer ((L.subgroupOf Ω : Subgroup Ω) : Set Ω) ↔
-      (g : G') ∈ Subgroup.centralizer (L : Set G') := by
-  simp only [Subgroup.mem_centralizer_iff, SetLike.mem_coe, Subgroup.mem_subgroupOf]
-  constructor
-  · intro h x hx
-    exact congrArg Subtype.val (h ⟨x, hL hx⟩ hx)
-  · intro h x hx
-    exact Subtype.ext (h x hx)
 
 theorem mem_normalizer_subgroupOf_iff (hL : L ≤ Ω) {g : Ω} :
     g ∈ Subgroup.normalizer ((L.subgroupOf Ω : Subgroup Ω) : Set Ω) ↔
@@ -369,34 +330,6 @@ theorem mem_normalizer_subgroupOf_iff (hL : L ≤ Ω) {g : Ω} :
   · intro h x
     simpa [Subgroup.mem_subgroupOf] using h (x : G')
 
-theorem forall_comm_subgroupOf_iff (hL₁ : L₁ ≤ Ω) (hL₂ : L₂ ≤ Ω) :
-    (∀ x ∈ L₁.subgroupOf Ω, ∀ y ∈ L₂.subgroupOf Ω, x * y = y * x) ↔
-      ∀ x ∈ L₁, ∀ y ∈ L₂, x * y = y * x := by
-  constructor
-  · intro h x hx y hy
-    exact congrArg Subtype.val (h ⟨x, hL₁ hx⟩ hx ⟨y, hL₂ hy⟩ hy)
-  · intro h x hx y hy
-    exact Subtype.ext (h x hx y hy)
-
-variable {H : Type*} [Group H]
-
-theorem exists_hom_subgroupOf (hL₁ : L₁ ≤ Ω) (hL₂ : L₂ ≤ Ω) (B₁ B₂ : Subgroup H)
-    (θ₀ : H →* G') (hinj : Function.Injective θ₀) (hrange : θ₀.range = L₁ ⊔ L₂)
-    (h₁ : B₁.map θ₀ = L₁) (h₂ : B₂.map θ₀ = L₂) :
-    ∃ ρ : H →* Ω, Function.Injective ρ ∧ ρ.range = L₁.subgroupOf Ω ⊔ L₂.subgroupOf Ω ∧
-      B₁.map ρ = L₁.subgroupOf Ω ∧ B₂.map ρ = L₂.subgroupOf Ω := by
-  have hmem : ∀ g, θ₀ g ∈ Ω := fun g =>
-    sup_le hL₁ hL₂ (hrange ▸ (⟨g, rfl⟩ : θ₀ g ∈ θ₀.range))
-  let ρ : H →* Ω := θ₀.codRestrict Ω hmem
-  have hsub : ∀ (S : Subgroup H) (T : Subgroup G'), S.map θ₀ = T → T ≤ Ω →
-      S.map ρ = T.subgroupOf Ω := fun S T hST hTΩ => by
-    refine Subgroup.map_injective (f := Ω.subtype) Subtype.val_injective ?_
-    rw [Subgroup.map_map, Subgroup.map_subgroupOf_eq_of_le hTΩ, ← hST]
-    rfl
-  refine ⟨ρ, fun x y hxy => hinj (congrArg Subtype.val hxy), ?_, hsub _ _ h₁ hL₁, hsub _ _ h₂ hL₂⟩
-  rw [MonoidHom.range_eq_map, hsub ⊤ (L₁ ⊔ L₂) (by rw [← MonoidHom.range_eq_map]; exact hrange)
-    (sup_le hL₁ hL₂)]
-  exact Subgroup.subgroupOf_sup hL₁ hL₂
 
 end SubgroupOf
 

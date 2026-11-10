@@ -36,14 +36,6 @@ theorem exists_permuting_elemAbelian_of_ctx_of_borel {D : Data G} {V₀ V L X : 
   exact ⟨E, hEB.trans (inf_le_left.trans hXM), hEel, hperm,
     (CFSG.SectionRank.pRank_mono hr.one_lt hDcB).trans hrankB⟩
 
-theorem exists_permuting_elemAbelian_of_ctx {D : Data G} {V₀ V L X : Subgroup G} {p n l : ℕ}
-    {C Dc : Subgroup G} {Gamma : Set G} (ctx : Ctx17_42 D V₀ V L X p n l C Dc Gamma)
-    (hK3 : CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719.K_BorelTorusAbelian)
-    {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    ∃ E : Subgroup G, E ≤ D.M ∧ CFSG.Open.IsElemAbelian r E ∧ Permutes E D.T ∧
-      CFSG.Open.pRank r Dc ≤ CFSG.Open.pRank r E :=
-  exists_permuting_elemAbelian_of_ctx_of_borel ctx
-    (Inputs1719.BorelChevOver.of_chev hK3 ctx.chev) hr hr2
 
 theorem pRank_Dc_le_three_of_borel {D : Data G} {V₀ V L X : Subgroup G} {p n l : ℕ}
     {C Dc : Subgroup G} {Gamma : Set G} (ctx : Ctx17_42 D V₀ V L X p n l C Dc Gamma)

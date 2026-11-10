@@ -202,18 +202,6 @@ theorem evenWeight7_irreducible (W : Submodule (ZMod 2) (Fin 7 → ZMod 2))
   rw [eq_sum_pairs_seven hx]
   refine W.sum_mem fun i hi => W.smul_mem _ (hpair i 0 (Finset.mem_erase.1 hi).1)
 
-theorem evenWeight7_fixed_eq_zero {x : Fin 7 → ZMod 2} (hx : x ∈ evenWeight 7)
-    (hfix : ∀ σ ∈ alternatingGroup (Fin 7), permAct7 σ x = x) : x = 0 := by
-  have hx' : ∑ i, x i = 0 := hx
-  have h1 : permAct7 (swap 0 1 * swap 1 2) x = x := hfix _ threeCycle_mem
-  have h2 : permAct7 (swap 2 3 * swap 3 4) x = x :=
-    hfix _ (swap_mul_swap_mem_alternating (by decide) (by decide))
-  have h3 : permAct7 (swap 4 5 * swap 5 6) x = x :=
-    hfix _ (swap_mul_swap_mem_alternating (by decide) (by decide))
-  clear hfix hx
-  revert h1 h2 h3 hx'
-  revert x
-  decide +kernel
 
 end Vectors
 

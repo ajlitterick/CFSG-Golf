@@ -135,11 +135,6 @@ theorem ggSixBstarOrthFrameOn_D4Three : GGSixBstarOrthFrameOn GGPOmegaPlusD4Thre
   rw [hrange]
   exact hgM
 
-theorem ggSixBstarNoOffenderOn_D4Three : GGSixBstarNoOffenderOn GGPOmegaPlusD4Three :=
-  ggNoOffender_of_orthFrameOn ggSixBstarOrthFrameOn_D4Three
-
-theorem ggSixBstarNoOffenderAt_POmegaPlus : GGSixBstarNoOffenderAt .POmegaPlus :=
-  ggSixBstarNoOffenderAt_POmegaPlus_of_d4OrthFrame ggSixBstarOrthFrameOn_D4Three
 
 theorem ggSixBstarNoOffenderRestOm_of_rest (hpNs : GGSixBstarNoOffenderOn GGPSpNonsplit)
     (hF4 : GGSixBstarNoOffenderAt .F4) (hE6 : GGSixBstarNoOffenderAt .E6)

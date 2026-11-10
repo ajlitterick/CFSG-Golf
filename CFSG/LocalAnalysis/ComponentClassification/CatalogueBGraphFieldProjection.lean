@@ -41,15 +41,6 @@ theorem projective_fixed_iff_multiplier (n : ℕ) (K : Type u) [Field K]
   rw [pglGraphFieldAut_mk, ProjGenLinGroup.mk_eq_mk_iff]
   exact exists_congr (graphField_scalar_equation_iff n K sigma g)
 
-theorem projective_fixed_iff_matrix_multiplier (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (g : GL (Fin n) K) :
-    ProjGenLinGroup.mk g ∈ fixedPGL n K sigma ↔
-      ∃ mu : Kˣ, conjTr sigma g.val * g.val = Matrix.scalar (Fin n) mu.val := by
-  rw [projective_fixed_iff_multiplier]
-  apply exists_congr
-  intro mu
-  rw [Units.ext_iff]
-  rfl
 
 theorem graphField_multiplier_fixed (n : ℕ) (K : Type u) [Field K]
     (hn : 1 ≤ n) (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1)
@@ -114,9 +105,6 @@ theorem exists_unitary_scalar_multiple (n : ℕ) (K : Type u) [Field K] [Finite 
     change pglGraphFieldAut n K sigma (ProjGenLinGroup.mk g.val) = ProjGenLinGroup.mk g.val
     rw [pglGraphFieldAut_mk, (graphField_fixed_iff_unitary n K sigma g.val).mpr g.property])
 
-theorem unitaryProjection_val (n : ℕ) (K : Type u) [Field K]
-    (sigma : K ≃+* K) (g : Uid sigma n) :
-    (unitaryProjection n K sigma g).val = ProjGenLinGroup.mk g.val := rfl
 
 theorem unitaryProjection_surjective (n : ℕ) (K : Type u) [Field K] [Finite K]
     (hn : 1 ≤ n) (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1) :
@@ -155,41 +143,6 @@ theorem unitaryProjection_kernel_iff (n : ℕ) (K : Type u) [Field K]
     change ProjGenLinGroup.mk g.val = 1
     rw [← hc, ProjGenLinGroup.mk_scalar]
 
-theorem scalar_mem_unitary_iff (n : ℕ) (K : Type u) [Field K]
-    (hn : 1 ≤ n) (sigma : K ≃+* K) (c : Kˣ) :
-    GeneralLinearGroup.scalar (Fin n) c ∈ Uid sigma n ↔ sigma (c : K) * (c : K) = 1 := by
-  rw [← graphField_fixed_iff_unitary, graphField_eq_inverse_conjugateTranspose,
-    conjugateTransposeGL_scalar]
-  constructor
-  · intro h
-    have hprod : GeneralLinearGroup.scalar (Fin n)
-        (Units.map sigma.toMonoidHom c * c) = 1 := by
-      rw [map_mul]
-      exact mul_eq_one_iff_eq_inv.mpr (inv_eq_iff_eq_inv.mp h)
-    let i : Fin n := ⟨0, by omega⟩
-    have hentry := congrArg (fun M : GL (Fin n) K => M i i) hprod
-    simp only [GeneralLinearGroup.coe_scalar, Matrix.scalar_apply,
-      Matrix.diagonal_apply_eq, Units.val_one, Matrix.one_apply, ite_true,
-      Units.val_mul, Units.coe_map] at hentry
-    change sigma (c : K) * (c : K) = 1 at hentry
-    exact hentry
-  · intro h
-    have hu : Units.map sigma.toMonoidHom c * c = 1 := Units.ext h
-    have hprod := congrArg (GeneralLinearGroup.scalar (Fin n)) hu
-    rw [map_mul, map_one] at hprod
-    exact inv_eq_iff_eq_inv.mpr (mul_eq_one_iff_eq_inv.mp hprod)
-
-theorem unitaryProjection_kernel_norm_one (n : ℕ) (K : Type u) [Field K]
-    (hn : 1 ≤ n) (sigma : K ≃+* K) (g : Uid sigma n) :
-    g ∈ (unitaryProjection n K sigma).ker ↔
-      ∃ c : Kˣ, sigma (c : K) * (c : K) = 1 ∧
-        GeneralLinearGroup.scalar (Fin n) c = g.val := by
-  rw [unitaryProjection_kernel_iff]
-  constructor
-  · rintro ⟨c, hc⟩
-    exact ⟨c, (scalar_mem_unitary_iff n K hn sigma c).mp (hc.symm ▸ g.property), hc⟩
-  · rintro ⟨c, _, hc⟩
-    exact ⟨c, hc⟩
 
 theorem unitaryProjection_central_kernel (n : ℕ) (K : Type u) [Field K]
     (sigma : K ≃+* K) :
@@ -203,11 +156,6 @@ theorem unitaryProjection_central_kernel (n : ℕ) (K : Type u) [Field K]
   rw [← hc]
   exact (GeneralLinearGroup.scalar_commute c h.val).symm
 
-@[expose] def unitaryScalarQuotientEquivFixedPGL (n : ℕ) (K : Type u) [Field K] [Finite K]
-    (hn : 1 ≤ n) (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1) :
-    (Uid sigma n ⧸ (unitaryProjection n K sigma).ker) ≃* fixedPGL n K sigma :=
-  QuotientGroup.quotientKerEquivOfSurjective _
-    (unitaryProjection_surjective n K hn sigma hsigma hne)
 
 end
 

@@ -65,10 +65,6 @@ theorem ggBstarBound_F4_of_input [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f)
   have := (Nat.pow_le_pow_iff_right hp.one_lt).mp h4
   omega
 
-theorem ggBstarBound_F4 [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    {p : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p) (hpq : p ∣ Nat.card K - 1)
-    (I : Set (MulAut (RecipeGroup K))) : GGBstarBound p 4 (RecipeGroup K) I :=
-  ggBstarBound_F4_of_input hf hK hp hpq (ggF4ToralRankInput_of_five_le hp hp5 hpq) I
 
 end TableBF4
 

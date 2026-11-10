@@ -79,9 +79,5 @@ theorem xOne_le_normalizer_V1 (hN : NatFacts) (h1102 : Stmt11_0_2) (h : Hyp11 G 
     xOne X (LOf L V₁) ≤ Subgroup.normalizer (V₁ : Set G) :=
   inf_le_left.trans (cartan_le_normalizer_Vi hN h1102 h (Or.inl rfl) hV₁ hX)
 
-theorem xOne_le_normalizer_lOf (hN : NatFacts) (h1102 : Stmt11_0_2) (h : Hyp11 G T L I n)
-    (hV₁ : IsVi T L I n 1 V₁) (hX : IsCartanX T L X) :
-    xOne X (LOf L V₁) ≤ Subgroup.normalizer (LOf L V₁ : Set G) :=
-  inf_le_left.trans (cartan_le_normalizer_lOf hN h1102 h (Or.inl rfl) hV₁ hX)
 
 end CFSG.Quasithin.Vol2.Ch11.SecA

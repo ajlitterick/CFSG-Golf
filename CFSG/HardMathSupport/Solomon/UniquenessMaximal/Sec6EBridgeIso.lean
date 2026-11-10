@@ -138,8 +138,6 @@ theorem ev_mem_toAddSub {S : Subgroup C} {x : C} : ev e x ∈ toAddSub e S ↔ x
 theorem ev_mem_toSub {S : Subgroup C} {x : C} : ev e x ∈ toSub e S ↔ x ∈ S :=
   ev_mem_toAddSub e
 
-theorem mem_toSub {S : Subgroup C} {v : V} : v ∈ toSub e S ↔ e.symm (Multiplicative.ofAdd v) ∈ S :=
-  Iff.rfl
 
 theorem card_of_iff (S : Subgroup C) (T : AddSubgroup V) (h : ∀ x, x ∈ S ↔ ev e x ∈ T) :
     Nat.card S = Nat.card T :=

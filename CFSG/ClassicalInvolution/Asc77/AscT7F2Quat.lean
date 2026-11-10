@@ -166,11 +166,6 @@ theorem qmap_mul (c : QuatCoord R a b n) (x y : QuaternionGroup (2 ^ n)) :
     simp [qmap]
   map_mul' := c.qmap_mul
 
-theorem qhom_a (c : QuatCoord R a b n) (i : ZMod (2 * 2 ^ n)) :
-    c.qhom (QuaternionGroup.a i) = a ^ (i.val : ℤ) := rfl
-
-theorem qhom_xa (c : QuatCoord R a b n) (i : ZMod (2 * 2 ^ n)) :
-    c.qhom (QuaternionGroup.xa i) = b * a ^ (i.val : ℤ) := rfl
 
 theorem val_eq_of_zpow_eq (c : QuatCoord R a b n) {i j : ZMod (2 * 2 ^ n)}
     (h : a ^ (i.val : ℤ) = a ^ (j.val : ℤ)) : i = j := by

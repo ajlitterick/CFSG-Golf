@@ -123,18 +123,5 @@ theorem exists_torus_conj_frame_prod
         obtain ⟨σ', hσ'F, rfl⟩ := List.mem_map.1 hx
         exact hfixA σ' (hF σ' (List.mem_cons_of_mem _ hσ'F)) (hσF σ' hσ'F) 1
 
-theorem exists_torus_conj_frame_prod_of_not_isRoot
-    [Finite K] [CharP K 2]
-    (hτ : NoG2 τ) {F : List (Fin τ.rank → ℤ)} (hF : ∀ σ ∈ F, IsRoot τ σ)
-    (hfr : F.Pairwise fun σ σ' =>
-      σ ≠ σ' ∧ σ ≠ -σ' ∧ ¬IsRoot τ (σ + σ') ∧ ¬IsRoot τ (σ - σ'))
-    (c : (Fin τ.rank → ℤ) → K) (hc : ∀ σ ∈ F, c σ ≠ 0) :
-    ∃ h ∈ adjointGroup τ K, h ∈ torusGroup τ K ∧
-      (∀ γ, IsRoot τ γ → (∀ σ ∈ F, iform σ γ = 0) → ∀ e : K,
-        h * pinnedX τ K γ e * h⁻¹ = pinnedX τ K γ e) ∧
-      h * (F.map fun σ => pinnedX τ K σ (c σ)).prod * h⁻¹ =
-        (F.map fun σ => pinnedX τ K σ 1).prod :=
-  exists_torus_conj_frame_prod hτ hF (hfr.imp_of_mem fun hσ hσ' h =>
-    iform_eq_zero_of_not_isRoot_add_sub (hF _ hσ) (hF _ hσ') h.1 h.2.1 h.2.2.1 h.2.2.2) c hc
 
 end CFSG.SeitzReduction

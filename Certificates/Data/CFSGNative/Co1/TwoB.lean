@@ -48,8 +48,5 @@ def gtBFS (G : Array (Array Nat)) (cap : Nat) : GTree :=
       h := h + 1
     return ⟨pts, par, lab⟩
 
-@[expose] def gtInterCount (T : GTree) (g gi : Array Nat) : Nat :=
-  let ks : Std.HashSet (Array Nat) := Std.HashSet.ofList T.pts.toList
-  countBelow (fun i => ks.contains (conjRows gi g T.pts[i]!)) T.pts.size 0
 
 end CFSG.Sporadic.Co1.TwoBNative

@@ -483,15 +483,6 @@ theorem ggStdSubPrimeInput_of_small (hB : GGBstarInput) (hs : GGStdSubSmallInput
   have hcfg : GGConfig p B Bs x L D J := ⟨hI, hBs, hDJ⟩
   exact prime_dvd_card_of_config_small hcfg fun h => (hs G p B Bs x L D J hcfg h).2
 
-theorem ggStdSubPrimeInput_of_bstarMeet (hB : GGBstarInput) (h2 : GGStdSubBstarMeetInput) :
-    GGStdSubPrimeInput := fun G _ _ p B x L D J hI hDJ => by
-  obtain ⟨Bs, hBs⟩ := hB G p B x L hI
-  have hcfg : GGConfig p B Bs x L D J := ⟨hI, hBs, hDJ⟩
-  exact prime_dvd_card_of_config_small hcfg fun _ => h2 G p B Bs x L D J hcfg
-
-theorem ggNbrSubcomponentInput_of_small (hL : GGLBalanceInput) (hB : GGBstarInput)
-    (hs : GGStdSubSmallInput) : GGNbrSubcomponentInput :=
-  ggNbrSubcomponentInput_of_lBalance hL (ggStdSubPrimeInput_of_small hB hs)
 
 theorem ggFieldNbrCanonicalInput_of_lBalance (hL : GGLBalanceInput) (h4 : GGFieldNbrInnerInput)
     (hs : GGStdSubSmallInput) : GGFieldNbrCanonicalInput :=
@@ -565,23 +556,6 @@ theorem commutator_le_of_le_sup {p : ℕ} {A J : Subgroup G} {x : G}
   rw [h1]
   exact O.mul_mem ho ((Subgroup.mem_normalizer_iff.mp hzO o⁻¹).mp (O.inv_mem ho))
 
-theorem not_le_sup_of_ggNbr (hL : GGLBalanceInput) {p : ℕ} {B : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hI : GGThmIHyp p B x L) (hDJ : LargeEvenStdSub p B x L D J)
-    (hpJ : p ∣ Nat.card J) {y : G} {K : Subgroup G} (hnbr : GGNbr p B x D J y K) :
-    ¬ K ≤ J ⊔ LargeEvenPPrimeCoreOf p K := fun hle => by
-  obtain ⟨-, hBK⟩ := isComponentOf_of_isNeighborOf hI.2.2.2.2.2.2.2
-    (isNeighborOf_of_ggNbr hDJ hnbr)
-  have hJx : J ≤ Subgroup.centralizer ({x} : Set G) :=
-    (isComponentOf_inf_centralizer_of_stdSub hI.2.2.2.2.2.2.1 hDJ.1 hnbr.2.1).1.trans
-      inf_le_right
-  exact hnbr.2.2.2 (commutator_le_of_le_sup (hBK hI.2.2.2.2.2.2.1.2.1) hJx
-    (le_of_ggNbr hL hI hDJ hpJ hnbr) hle)
-
-theorem lt_of_ggNbr (hL : GGLBalanceInput) {p : ℕ} {B : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hI : GGThmIHyp p B x L) (hDJ : LargeEvenStdSub p B x L D J)
-    (hpJ : p ∣ Nat.card J) {y : G} {K : Subgroup G} (hnbr : GGNbr p B x D J y K) : J < K :=
-  lt_of_le_of_ne (le_of_ggNbr hL hI hDJ hpJ hnbr) fun h =>
-    not_le_sup_of_ggNbr hL hI hDJ hpJ hnbr (h ▸ le_sup_left)
 
 omit [Finite G] in
 theorem mem_centralizer_of_commutator_le_coprime {p : ℕ} (hp : p.Prime) {J N : Subgroup G}

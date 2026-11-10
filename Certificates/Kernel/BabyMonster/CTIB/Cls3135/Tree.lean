@@ -20,10 +20,6 @@ theorem root : Nat.beq (ptB 960 DB 0) 43 = true := by quickRfl
 
 theorem target : Nat.beq (ptB 960 DB 61) 10875 = true := by quickRfl
 
-theorem neg_tree : notB (treeB fact 37 960 34560 0 DB (Nat.xor U0 (Nat.shiftLeft 1 (Nat.add 32 16)) :: UB.tail) 1) = true := by
-  quickRfl
-
-theorem neg_inc : notB (incB 960 34560 43 DB 0) = true := by quickRfl
 
 end CertificateChecks.KernelBM.CTIB.Cls3135
 

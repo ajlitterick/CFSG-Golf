@@ -246,22 +246,6 @@ theorem filter_map_tabN' (p : Table → Bool) (L : List Nat) :
     (L.map (tabN n w)).filter p = (L.filter fun x => p (tabN n w x)).map (tabN n w) := by
   rw [List.filter_map, Function.comp_def]
 
-theorem normCenRest_eq (d : Dims n w) (G GE L LE : List Nat) (c : Nat) :
-    ((((((LE.map (tabN n w)).toArray.any (fun y => tblEq n (tabN n w c) y) &&
-      (GE.map (tabN n w)).toArray.all (fun x => (G.map (tabN n w)).toArray.any
-        (fun x' => tblEq n x x'))) &&
-      (G.map (tabN n w)).toArray.all (fun m' => (LE.map (tabN n w)).toArray.all (fun y =>
-        (LE.map (tabN n w)).toArray.any (fun y' => tblEq n (compT n m' y) (compT n y' m')) &&
-          (LE.map (tabN n w)).toArray.any
-            (fun y'' => tblEq n (compT n y m') (compT n m' y''))))) &&
-      (L.map (tabN n w)).toArray.all (fun T => !((GE.map (tabN n w)).toArray.all
-        (fun y => commTT n T y)) || (LE.map (tabN n w)).toArray.any (fun y => tblEq n T y))) &&
-      (LE.map (tabN n w)).toArray.all (fun T => !((GE.map (tabN n w)).toArray.all
-        (fun y => commTT n T y)) || tblEq n T (idT n) || tblEq n T (tabN n w c)))) =
-      normCenRestN n w G GE L LE c := by
-  unfold normCenRestN
-  simp only [List.any_toArray, List.all_toArray, all_map_tabN, any_map_tabN, tblEq_tabN' d,
-    compT_tabN' d, commTT_tabN d, idT_tabN' d]
 
 theorem ueEnumCheck_eq (GE GS : List Nat) (c : Nat) (lE lS : List Nat) :
     ueEnumCheck (GE.map (tabN 16 5)).toArray (GS.map (tabN 16 5)).toArray (tabN 16 5 c)

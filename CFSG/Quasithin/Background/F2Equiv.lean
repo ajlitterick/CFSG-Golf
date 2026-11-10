@@ -59,31 +59,6 @@ theorem IsEquivalent.trans {K : Type*} [Group K] {μ : Completion α G} {η : Co
   obtain ⟨ψ, hψ⟩ := h₂
   exact ⟨φ.trans ψ, fun d x => by simp [hφ d x, hψ d x]⟩
 
-theorem equiv_iff_comp_hat (μ : Completion α G) (η : Completion α H) (φ : G ≃* H) :
-    (∀ d (x : α.X d), φ (μ.toHom d x) = η.toHom d x) ↔ φ.toMonoidHom.comp μ.hat = η.hat := by
-  constructor
-  · intro h
-    exact hom_ext fun d x => by simp [h d x]
-  · intro h d x
-    have := congrArg (fun f => f (ξ α d x)) h
-    simpa using this
-
-theorem isEquivalent_iff_ker_hat_eq (μ : Completion α G) (η : Completion α H) :
-    IsEquivalent μ η ↔ μ.hat.ker = η.hat.ker := by
-  constructor
-  · rintro ⟨φ, hφ⟩
-    have h := (equiv_iff_comp_hat μ η φ).mp hφ
-    rw [← h, MonoidHom.ker_comp_of_injective _ _ φ.injective]
-  · intro hk
-    let e₁ : gp α ⧸ μ.hat.ker ≃* G := QuotientGroup.quotientKerEquivOfSurjective μ.hat μ.hat_surjective
-    let e₂ : gp α ⧸ η.hat.ker ≃* H := QuotientGroup.quotientKerEquivOfSurjective η.hat η.hat_surjective
-    refine ⟨e₁.symm.trans ((QuotientGroup.quotientMulEquivOfEq hk).trans e₂), fun d x => ?_⟩
-    have h1 : e₁.symm (μ.toHom d x) = (QuotientGroup.mk (ξ α d x) : gp α ⧸ μ.hat.ker) := by
-      rw [MulEquiv.symm_apply_eq]
-      exact (hat_ξ μ d x).symm
-    simp only [MulEquiv.trans_apply]
-    rw [h1]
-    exact hat_ξ η d x
 
 @[expose] def act (a : Aut α) (μ : Completion α G) : Completion α G where
   toHom d := (μ.toHom d).comp ((a⁻¹).1 d).toMonoidHom
@@ -180,43 +155,15 @@ theorem hatPiHom_mul (a b : Aut α) : hatPiHom (a * b) = (hatPiHom a).comp (hatP
     ext g
     simp [hatPiHom_mul]
 
-theorem hatPi_apply (a : Aut α) (g : gp α) : hatPi a g = hatPiHom a g := rfl
 
 @[simp] theorem hatPi_ξ (a : Aut α) (d : D) (x : α.X d) :
     hatPi a (ξ α d x) = ξ α d (a.1 d x) := hatPiHom_ξ a d x
 
-theorem hatPi_ξ_comp (a : Aut α) (d : D) :
-    (hatPi a).toMonoidHom.comp (ξ α d) = (ξ α d).comp (a.1 d).toMonoidHom :=
-  MonoidHom.ext fun x => hatPi_ξ a d x
 
 namespace Completion
 
 variable {G : Type w} [Group G]
 
-theorem hat_act (a : Aut α) (μ : Completion α G) :
-    (act a μ).hat = μ.hat.comp (hatPi a⁻¹).toMonoidHom :=
-  hom_ext fun d x => by
-    rw [hat_ξ, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, hatPi_ξ, hat_ξ]
-    rfl
-
-theorem ker_hat_act (a : Aut α) (μ : Completion α G) :
-    (act a μ).hat.ker = μ.hat.ker.map (hatPi a).toMonoidHom := by
-  have e : hatPi (α := α) a⁻¹ = (hatPi a)⁻¹ := map_inv hatPi a
-  ext g
-  rw [MonoidHom.mem_ker, hat_act, Subgroup.mem_map]
-  constructor
-  · intro hg
-    refine ⟨hatPi a⁻¹ g, hg, ?_⟩
-    show hatPi a (hatPi a⁻¹ g) = g
-    rw [e, MulAut.inv_def, MulEquiv.apply_symm_apply]
-  · rintro ⟨k, hk, rfl⟩
-    show μ.hat (hatPi a⁻¹ (hatPi a k)) = 1
-    rw [e, MulAut.inv_def, MulEquiv.symm_apply_apply]
-    exact hk
-
-theorem isEquivalent_act_iff (a : Aut α) (μ : Completion α G) :
-    IsEquivalent (act a μ) μ ↔ μ.hat.ker.map (hatPi a).toMonoidHom = μ.hat.ker := by
-  rw [isEquivalent_iff_ker_hat_eq, ker_hat_act]
 
 theorem mulAut_ext {μ : Completion α G} {b₁ b₂ : MulAut G}
     (h : ∀ d (x : α.X d), b₁ (μ.toHom d x) = b₂ (μ.toHom d x)) : b₁ = b₂ := by
@@ -250,51 +197,6 @@ theorem mem_stabilizer {μ : Completion α G} {a : Aut α} :
 @[expose] noncomputable def plus (μ : Completion α G) : gp α ⧸ μ.hat.ker ≃* G :=
   QuotientGroup.quotientKerEquivOfSurjective μ.hat μ.hat_surjective
 
-theorem plus_mk (μ : Completion α G) (g : gp α) : μ.plus (QuotientGroup.mk g) = μ.hat g := rfl
-
-noncomputable def aPlus (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ) :
-    MulAut (gp α ⧸ μ.hat.ker) :=
-  QuotientGroup.congr μ.hat.ker μ.hat.ker (hatPi a) ((isEquivalent_act_iff a μ).mp h)
-
-theorem aPlus_mk (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ) (g : gp α) :
-    aPlus μ a h (QuotientGroup.mk g) = QuotientGroup.mk (hatPi a g) :=
-  QuotientGroup.congr_mk _ _ _ _ _
-
-theorem aPlus_mk_ξ (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ) (d : D)
-    (x : α.X d) :
-    aPlus μ a h (QuotientGroup.mk (ξ α d x)) = QuotientGroup.mk (ξ α d (a.1 d x)) := by
-  rw [aPlus_mk, hatPi_ξ]
-
-noncomputable def aMinus (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ) : MulAut G :=
-  μ.plus.symm.trans ((aPlus μ a h).trans μ.plus)
-
-theorem aMinus_apply (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ) (d : D)
-    (x : α.X d) : aMinus μ a h (μ.toHom d x) = μ.toHom d (a.1 d x) := by
-  have h1 : μ.plus.symm (μ.toHom d x) = QuotientGroup.mk (ξ α d x) := by
-    rw [MulEquiv.symm_apply_eq]
-    exact (hat_ξ μ d x).symm
-  simp only [aMinus, MulEquiv.trans_apply]
-  rw [h1, aPlus_mk_ξ, plus_mk, hat_ξ]
-
-theorem eq_aMinus_iff (μ : Completion α G) (a : Aut α) (h : a ∈ stabilizer μ)
-    (b : MulAut G) : b = aMinus μ a h ↔ ∀ d (x : α.X d), b (μ.toHom d x) = μ.toHom d (a.1 d x) := by
-  constructor
-  · rintro rfl d x
-    exact aMinus_apply μ a h d x
-  · intro hb
-    exact mulAut_ext fun d x => by rw [hb, aMinus_apply]
-
-noncomputable def piMinus (μ : Completion α G) : stabilizer μ →* MulAut G where
-  toFun a := aMinus μ a.1 a.2
-  map_one' := by
-    refine ((eq_aMinus_iff μ 1 (one_mem (stabilizer μ)) 1).mpr fun d x => rfl).symm
-  map_mul' a b := by
-    refine ((eq_aMinus_iff μ (a.1 * b.1) (mul_mem a.2 b.2) _).mpr fun d x => ?_).symm
-    show aMinus μ a.1 a.2 (aMinus μ b.1 b.2 (μ.toHom d x)) = μ.toHom d (a.1.1 d (b.1.1 d x))
-    rw [aMinus_apply, aMinus_apply]
-
-theorem piMinus_apply (μ : Completion α G) (a : stabilizer μ) (d : D) (x : α.X d) :
-    piMinus μ a (μ.toHom d x) = μ.toHom d (a.1.1 d x) := aMinus_apply μ a.1 a.2 d x
 
 @[expose] def normAut (μ : Completion α G) : Subgroup (MulAut G) where
   carrier := {b | ∀ d, (μ.toHom d).range.map (b : G →* G) = (μ.toHom d).range}
@@ -328,10 +230,6 @@ theorem piMinus_apply (μ : Completion α G) (a : stabilizer μ) (d : D) (x : α
 theorem mem_normAut {μ : Completion α G} {b : MulAut G} :
     b ∈ normAut μ ↔ ∀ d, (μ.toHom d).range.map (b : G →* G) = (μ.toHom d).range := Iff.rfl
 
-theorem apply_mem_range_of_mem_normAut {μ : Completion α G} {b : MulAut G} (hb : b ∈ normAut μ)
-    (d : D) (x : α.X d) : b (μ.toHom d x) ∈ (μ.toHom d).range := by
-  have hmem : b (μ.toHom d x) ∈ (μ.toHom d).range.map (b : G →* G) := ⟨μ.toHom d x, ⟨x, rfl⟩, rfl⟩
-  rwa [hb d] at hmem
 
 @[expose] noncomputable def sigmaApp (μ : Completion α G) (hμ : μ.IsFaithful) (b : MulAut G)
     (hb : b ∈ normAut μ) (d : D) : MulAut (α.X d) :=
@@ -364,8 +262,6 @@ theorem sigmaApp_comm (μ : Completion α G) (hμ : μ.IsFaithful) (b : MulAut G
     Aut α :=
   ⟨fun d => sigmaApp μ hμ b.1 b.2 d, fun {_ _} h x => sigmaApp_comm μ hμ b.1 b.2 h x⟩
 
-theorem sigmaAut_apply (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) (d : D)
-    (x : α.X d) : (sigmaAut μ hμ b).1 d x = sigmaApp μ hμ b.1 b.2 d x := rfl
 
 noncomputable def sigma (μ : Completion α G) (hμ : μ.IsFaithful) : normAut μ →* Aut α where
   toFun := sigmaAut μ hμ
@@ -385,54 +281,6 @@ noncomputable def sigma (μ : Completion α G) (hμ : μ.IsFaithful) : normAut �
     rw [sigmaApp_eq_iff, sigmaApp_spec, sigmaApp_spec]
     rfl
 
-theorem sigma_mem_stabilizer (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) :
-    sigma μ hμ b ∈ stabilizer μ := by
-  show IsEquivalent (act (sigma μ hμ b) μ) μ
-  refine ⟨b.1, fun d x => ?_⟩
-  rw [act_apply]
-  have h1 : (sigma μ hμ b)⁻¹ = sigma μ hμ b⁻¹ := (map_inv (sigma μ hμ) b).symm
-  rw [h1]
-  show b.1 (μ.toHom d (sigmaApp μ hμ (b⁻¹ : normAut μ).1 (b⁻¹ : normAut μ).2 d x)) = μ.toHom d x
-  rw [sigmaApp_spec]
-  show b.1 ((b.1)⁻¹ (μ.toHom d x)) = μ.toHom d x
-  simp
-
-theorem piMinus_sigma (μ : Completion α G) (hμ : μ.IsFaithful) (b : normAut μ) :
-    piMinus μ ⟨sigma μ hμ b, sigma_mem_stabilizer μ hμ b⟩ = b.1 := by
-  apply mulAut_ext (μ := μ)
-  intro d x
-  rw [piMinus_apply]
-  show μ.toHom d (sigmaApp μ hμ b.1 b.2 d x) = b.1 (μ.toHom d x)
-  exact sigmaApp_spec μ hμ b.1 b.2 d x
-
-theorem piMinus_mem_normAut (μ : Completion α G) (a : stabilizer μ) : piMinus μ a ∈ normAut μ := by
-  intro d
-  ext g
-  rw [Subgroup.mem_map]
-  constructor
-  · rintro ⟨_, ⟨x, rfl⟩, rfl⟩
-    exact ⟨a.1.1 d x, (piMinus_apply μ a d x).symm⟩
-  · rintro ⟨y, rfl⟩
-    refine ⟨μ.toHom d ((a.1⁻¹).1 d y), ⟨_, rfl⟩, ?_⟩
-    show piMinus μ a (μ.toHom d ((a.1⁻¹).1 d y)) = μ.toHom d y
-    rw [piMinus_apply, Aut.apply_inv_apply]
-
-theorem sigma_piMinus (μ : Completion α G) (hμ : μ.IsFaithful) (a : stabilizer μ) :
-    sigma μ hμ ⟨piMinus μ a, piMinus_mem_normAut μ a⟩ = a.1 := by
-  apply Subtype.ext
-  funext d
-  ext x
-  show sigmaApp μ hμ (piMinus μ a) (piMinus_mem_normAut μ a) d x = a.1.1 d x
-  rw [sigmaApp_eq_iff, piMinus_apply]
-
-theorem range_sigma (μ : Completion α G) (hμ : μ.IsFaithful) :
-    (sigma μ hμ).range = stabilizer μ := by
-  ext a
-  constructor
-  · rintro ⟨b, rfl⟩
-    exact sigma_mem_stabilizer μ hμ b
-  · intro ha
-    exact ⟨⟨piMinus μ ⟨a, ha⟩, piMinus_mem_normAut μ ⟨a, ha⟩⟩, sigma_piMinus μ hμ ⟨a, ha⟩⟩
 
 end Completion
 

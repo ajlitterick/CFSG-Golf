@@ -261,11 +261,6 @@ private lemma lambdaOne_value_t (c : Hyp11 G) (h12 : Hyp12 c)
   rw [induced_lambdaOne_value_t c h12, induced_lambda_value_t c h12 l, hlt] at hT
   linear_combination hT
 
-/-- `|1|² = 1` for the constant-one class function. -/
-private lemma normSq_one (G : Type u) [Group G] [Fintype G] :
-    normSq G (1 : ClassFunction G) = 1 := by
-  unfold normSq scalarProduct
-  simp [Finset.sum_const]
 
 /-- The value of an induced class function at `1` is the index times the
 value at `1`: `δ^G(1) = |G : H|·δ(1)`. -/

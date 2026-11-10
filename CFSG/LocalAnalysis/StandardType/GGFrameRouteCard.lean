@@ -80,22 +80,6 @@ theorem bstar_eq_of_weylAt_F4 (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput) 
     Nat.card Bs = p ^ 4 ∧ B = Bs ∧ twoLocalPrimeRank p G = 4 :=
   bstar_eq_of_weylAt_four hTBF hWI (by simp) hR hW hAt
 
-theorem ggFrameBstarCardInput_of {ι : Type} [Fintype ι] {M : CoxeterMatrix ι} {n : ℕ}
-    (hn : Fintype.card ι = n) (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput)
-    (hlow : GGFrameBstarLowerInput M n) : GGFrameBstarCardInput M n := by
-  intro G _ _ B Bs x L D J hR hW hAt hq
-  refine le_antisymm ?_ (hlow G B Bs x L D J hR hW hAt hq)
-  obtain ⟨y, K, hN, hM⟩ := hAt
-  rw [← hn]
-  exact SpJoinRefl.card_le_pow_of_weylOfType hM (eq_one_of_fix_join hTBF hWI hR hW hN)
-
-theorem ggFrameBstarCardInput_E7 (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput) :
-    GGFrameBstarCardInput CoxeterMatrix.E₇ 7 :=
-  ggFrameBstarCardInput_of (by simp) hTBF hWI ggFrameBstarLowerInput_E7
-
-theorem ggFrameBstarCardInput_E8 (hTBF : GGTBFixInput) (hWI : GGNbrInnerWeylInput) :
-    GGFrameBstarCardInput CoxeterMatrix.E₈ 8 :=
-  ggFrameBstarCardInput_of (by simp) hTBF hWI ggFrameBstarLowerInput_E8
 
 end CFSG.StandardType.FrameRoute
 

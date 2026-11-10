@@ -89,20 +89,6 @@ theorem vhat5_mem_E5 : vhat5 ∈ E5 := by simp [mem_E5, E5list]
 
 theorem f1_mem_E5 : f1 ∈ E5 := by simp [mem_E5, E5list]
 
-theorem e1_mem_E5 : e1 ∈ E5 := by simp [mem_E5, E5list]
-
-theorem T5_norm_E5_chk :
-    allT5.all (fun t => E5list.all fun e => decide (t * e * t⁻¹ ∈ E5list)) = true :=
-  Certificates.certificate5072.2.2.2.2.2.2.1
-
-theorem T5_norm_E5_aux :
-    ∀ t ∈ allT5, ∀ e ∈ E5list, t * e * t⁻¹ ∈ E5list := by
-  have h := T5_norm_E5_chk
-  simpa only [List.all_eq_true, decide_eq_true_eq] using h
-
-theorem E5_norm
-    {t : Amb 5} (ht : t ∈ T5) {e : Amb 5} (he : e ∈ E5) : t * e * t⁻¹ ∈ E5 :=
-  mem_E5.2 (T5_norm_E5_aux t (mem_allT5.2 ht) e (mem_E5.1 he))
 
 theorem centT_E5_chk :
     allT5.all (fun t => imp (E5list.all fun e => decide (t * e = e * t)) (decide (t ∈ E5list))) =
@@ -137,174 +123,10 @@ instance E5_isElementaryAbelian : CFSG.IsElementaryAbelian 2 E5 where
 
 @[expose] def E5F : Subgroup (Fgrp 5) := E5.subgroupOf (Fgrp 5)
 
-theorem card_E5F : Nat.card E5F = 8 := by
-  change Nat.card (E5.subgroupOf (Fgrp 5)) = 8
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe E5_le_Fgrp).toEquiv, card_E5]
-
-theorem E5F_comm : ∀ a ∈ E5F, ∀ b ∈ E5F, a * b = b * a := by
-  intro a ha b hb
-  apply Subtype.ext
-  simpa using E5_comm a (Subgroup.mem_subgroupOf.mp ha) b (Subgroup.mem_subgroupOf.mp hb)
 
 instance E5F_isElementaryAbelian : CFSG.IsElementaryAbelian 2 E5F :=
   CFSG.IsElementaryAbelian.subgroupOf (H := E5) (K := Fgrp 5) E5_le_Fgrp
 
-theorem factorization_Fgrp5_two : (Nat.card (Fgrp 5)).factorization 2 = 5 := by
-  rw [card_Fgrp_eq, Nat.factorization_def _ Nat.prime_two]
-  decide +kernel
-
-theorem card_T5_subgroupOf :
-    Nat.card (T5.subgroupOf (Fgrp 5)) = 2 ^ (Nat.card (Fgrp 5)).factorization 2 := by
-  rw [factorization_Fgrp5_two,
-    Nat.card_congr (Subgroup.subgroupOfEquivOfLe T5_le_Fgrp).toEquiv, card_T5]
-  norm_num
-
-@[expose] noncomputable def T5sylow : Sylow 2 (Fgrp 5) :=
-  Sylow.ofCard (T5.subgroupOf (Fgrp 5)) card_T5_subgroupOf
-
-theorem T5sylow_map :
-    ((T5sylow : Subgroup (Fgrp 5)).map (Fgrp 5).subtype) = T5 := by
-  change (((Sylow.ofCard (T5.subgroupOf (Fgrp 5)) card_T5_subgroupOf :
-    Sylow 2 (Fgrp 5)) : Subgroup (Fgrp 5)).map (Fgrp 5).subtype) = T5
-  rw [Sylow.coe_ofCard]
-  exact Subgroup.map_subgroupOf_eq_of_le T5_le_Fgrp
-
-theorem mem_T5sylow {x : Fgrp 5} :
-    x ∈ (T5sylow : Subgroup (Fgrp 5)) ↔ ((x : Fgrp 5) : Amb 5) ∈ T5 := by
-  rw [← T5sylow_map]
-  exact (Subgroup.mem_map_iff_mem (Subgroup.subtype_injective (Fgrp 5))).symm
-
-theorem T5sylow_isSylowOf : IsSylowOf 2 (T5sylow : Subgroup (Fgrp 5)) ⊤ := by
-  rw [isSylowOf_iff]
-  refine ⟨le_top, T5sylow.isPGroup', ?_⟩
-  rw [Subgroup.relIndex_top_right]
-  exact T5sylow.not_dvd_index
-
-theorem E5F_le_T5sylow : E5F ≤ (T5sylow : Subgroup (Fgrp 5)) := by
-  intro x hx
-  rw [mem_T5sylow]
-  exact E5_le_T5 (Subgroup.mem_subgroupOf.mp hx)
-
-theorem E5F_cent {y : Fgrp 5} (hy : y ∈ (T5sylow : Subgroup (Fgrp 5)))
-    (hc : ∀ a ∈ E5F, y * a = a * y) : y ∈ E5F := by
-  rw [E5F, Subgroup.mem_subgroupOf]
-  refine centT_E5 (mem_T5sylow.mp hy) ?_
-  intro e he
-  have hye : y * ⟨e, E5_le_Fgrp he⟩ = ⟨e, E5_le_Fgrp he⟩ * y :=
-    hc ⟨e, E5_le_Fgrp he⟩ (Subgroup.mem_subgroupOf.mpr he)
-  exact congrArg Subtype.val hye
-
-theorem cent_T5_E5F :
-    Subgroup.centralizer (E5F : Set (Fgrp 5)) ⊓ (T5sylow : Subgroup (Fgrp 5)) = E5F := by
-  apply le_antisymm
-  · intro y hy
-    rw [Subgroup.mem_inf] at hy
-    exact E5F_cent hy.2 (fun a ha => (Subgroup.mem_centralizer_iff.mp hy.1 a ha).symm)
-  · intro y hy
-    rw [Subgroup.mem_inf]
-    exact ⟨Subgroup.mem_centralizer_iff.mpr (fun a ha => E5F_comm a ha y hy),
-      E5F_le_T5sylow hy⟩
-
-theorem sylow_isSylowOf (T : Sylow 2 (Fgrp 5)) :
-    IsSylowOf 2 (T : Subgroup (Fgrp 5)) ⊤ := by
-  rw [isSylowOf_iff]
-  refine ⟨le_top, T.isPGroup', ?_⟩
-  rw [Subgroup.relIndex_top_right]
-  exact T.not_dvd_index
-
-theorem exists_isElementaryAbelian_eight_sylow (T : Sylow 2 (Fgrp 5)) :
-    ∃ E : Subgroup (Fgrp 5), E ≤ (T : Subgroup (Fgrp 5)) ∧
-      CFSG.IsElementaryAbelian 2 E ∧
-      Nat.card E = 8 ∧
-      Subgroup.centralizer (E : Set (Fgrp 5)) ⊓ (T : Subgroup (Fgrp 5)) = E := by
-  obtain ⟨g, -, hconj⟩ := T5sylow_isSylowOf.exists_mem_conj (sylow_isSylowOf T)
-  let E : Subgroup (Fgrp 5) := E5F.map (MulAut.conj g).toMonoidHom
-  have hEcomm : ∀ a ∈ E, ∀ b ∈ E, a * b = b * a := by
-    intro a ha b hb
-    obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.mp ha
-    obtain ⟨y, hy, rfl⟩ := Subgroup.mem_map.mp hb
-    change (g * x * g⁻¹) * (g * y * g⁻¹) = (g * y * g⁻¹) * (g * x * g⁻¹)
-    calc (g * x * g⁻¹) * (g * y * g⁻¹) = g * (x * y) * g⁻¹ := by group
-      _ = g * (y * x) * g⁻¹ := by rw [E5F_comm x hx y hy]
-      _ = (g * y * g⁻¹) * (g * x * g⁻¹) := by group
-  have hET : E ≤ (T : Subgroup (Fgrp 5)) := by
-    intro y hy
-    obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.mp hy
-    have hxT5 : x ∈ (T5sylow : Subgroup (Fgrp 5)) := E5F_le_T5sylow hx
-    have hyT : g * x * g⁻¹ ∈ (T : Subgroup (Fgrp 5)) := by
-      exact (hconj (g * x * g⁻¹)).mpr (by
-        have h : g⁻¹ * (g * x * g⁻¹) * g = x := by group
-        rwa [h])
-    simpa [MulAut.conj_apply] using hyT
-  have hEcent : ∀ y ∈ (T : Subgroup (Fgrp 5)),
-      (∀ a ∈ E, y * a = a * y) → y ∈ E := by
-    intro y hy hc
-    have hyT5 : g⁻¹ * y * g ∈ (T5sylow : Subgroup (Fgrp 5)) := (hconj y).mp hy
-    have hcent : ∀ x ∈ E5F, (g⁻¹ * y * g) * x = x * (g⁻¹ * y * g) := by
-      intro x hx
-      have hxE : (MulAut.conj g) x ∈ E := Subgroup.mem_map.mpr ⟨x, hx, rfl⟩
-      have hcomm := hc ((MulAut.conj g) x) hxE
-      rw [MulAut.conj_apply] at hcomm
-      calc (g⁻¹ * y * g) * x = g⁻¹ * (y * (g * x * g⁻¹)) * g := by group
-        _ = g⁻¹ * ((g * x * g⁻¹) * y) * g := by rw [hcomm]
-        _ = x * (g⁻¹ * y * g) := by group
-    have hxE5F : g⁻¹ * y * g ∈ E5F := E5F_cent hyT5 hcent
-    refine Subgroup.mem_map.mpr ⟨g⁻¹ * y * g, hxE5F, ?_⟩
-    show g * (g⁻¹ * y * g) * g⁻¹ = y
-    group
-  have hcard : Nat.card E = 8 := by
-    change Nat.card (E5F.map (MulAut.conj g).toMonoidHom) = 8
-    rw [Subgroup.card_map_of_injective (MulAut.conj g).injective, card_E5F]
-  have hcent_eq : Subgroup.centralizer (E : Set (Fgrp 5)) ⊓
-      (T : Subgroup (Fgrp 5)) = E := by
-    apply le_antisymm
-    · intro y hy
-      rw [Subgroup.mem_inf] at hy
-      exact hEcent y hy.2 (fun a ha => (Subgroup.mem_centralizer_iff.mp hy.1 a ha).symm)
-    · intro y hy
-      rw [Subgroup.mem_inf]
-      exact ⟨Subgroup.mem_centralizer_iff.mpr (fun a ha => hEcomm a ha y hy), hET hy⟩
-  refine ⟨E, hET, ?_, hcard, hcent_eq⟩
-  exact CFSG.IsElementaryAbelian.map (A := E5F) (f := (MulAut.conj g).toMonoidHom)
-
-theorem exists_isElementaryAbelian_eight_of_isSylowOf {T : Subgroup (Fgrp 5)}
-    (hT : IsSylowOf 2 T ⊤) :
-    ∃ E : Subgroup (Fgrp 5), E ≤ T ∧
-      CFSG.IsElementaryAbelian 2 E ∧
-      Nat.card E = 8 ∧
-      Subgroup.centralizer (E : Set (Fgrp 5)) ⊓ T = E := by
-  have hcardT : Nat.card T = 2 ^ (Nat.card (Fgrp 5)).factorization 2 := by
-    have h := hT.card_eq
-    rwa [Nat.card_congr (Subgroup.topEquiv (G := Fgrp 5)).toEquiv] at h
-  let Ts : Sylow 2 (Fgrp 5) := Sylow.ofCard T hcardT
-  have hTs : (Ts : Subgroup (Fgrp 5)) = T := Sylow.coe_ofCard T hcardT
-  obtain ⟨E, hET, hEab, hcard, hcent⟩ := exists_isElementaryAbelian_eight_sylow Ts
-  refine ⟨E, ?_, hEab, hcard, ?_⟩
-  · rwa [hTs] at hET
-  · rwa [hTs] at hcent
-
-theorem exists_selfCentralizing_e8_of_isSylowOf {T : Subgroup (Fgrp 5)}
-    (hT : IsSylowOf 2 T ⊤) :
-    ∃ E : Subgroup (Fgrp 5), E ≤ T ∧
-      (∀ a ∈ E, ∀ b ∈ E, a * b = b * a) ∧
-      (∀ a ∈ E, a * a = 1) ∧
-      Nat.card E = 8 ∧
-      (∀ y ∈ T, (∀ a ∈ E, y * a = a * y) → y ∈ E) := by
-  obtain ⟨E, hET, hEab, hcard, hcent⟩ :=
-    exists_isElementaryAbelian_eight_of_isSylowOf hT
-  refine ⟨E, hET, ?_, ?_, hcard, ?_⟩
-  · intro a ha b hb
-    exact congrArg Subtype.val (hEab.is_comm.comm ⟨a, ha⟩ ⟨b, hb⟩)
-  · intro a ha
-    have hEab' : CFSG.IsElementaryAbelian 2 E := hEab
-    simpa [pow_two] using CFSG.elemPow_eq_one_of_isElementaryAbelian (p := 2) a ha
-  · intro y hy hc
-    have hycent : y ∈ Subgroup.centralizer (E : Set (Fgrp 5)) := by
-      rw [Subgroup.mem_centralizer_iff]
-      intro a ha
-      exact (hc a ha).symm
-    have hyinf : y ∈ Subgroup.centralizer (E : Set (Fgrp 5)) ⊓ T := ⟨hycent, hy⟩
-    rwa [hcent] at hyinf
 
 end
 
@@ -356,14 +178,6 @@ theorem T5_comm_vhat5
     {t : Amb 5} (ht : t ∈ T5) : t * vhat5 = vhat5 * t :=
   T5_comm_vhat5_aux t (mem_allT5.2 ht)
 
-theorem Hgrp_vhat5 : Hgrp 5 vhat5 = T5 := by
-  ext g
-  rw [Hgrp, Subgroup.mem_inf, Subgroup.mem_centralizer_singleton_iff]
-  constructor
-  · rintro ⟨hgF, hgc⟩
-    exact cent_vhat5 hgF hgc
-  · intro hg
-    exact ⟨T5_le_Fgrp hg, T5_comm_vhat5 hg⟩
 
 theorem sigma5_chk :
     allT5.all (fun s => imp (decide (s * s = 1)) (imp (decide (s ≠ 1))
@@ -383,14 +197,10 @@ theorem sigma5
   obtain ⟨g, hg, hgs⟩ := sigma5_aux s (mem_allT5.2 hs) hsq h1 h8 h4
   exact ⟨g, mem_F5list.1 hg, hgs⟩
 
-theorem nmE_vhat5 : nmE vhat5 = 8 :=
-  Certificates.certificate5072.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem vhat5_sq : vhat5 * vhat5 = 1 :=
   Certificates.certificate5072.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem vhat5_ne_one : vhat5 ≠ 1 :=
-  Certificates.certificate5072.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem vhat5_mem_T5 : vhat5 ∈ T5 := E5_le_T5 vhat5_mem_E5
 
@@ -445,15 +255,6 @@ theorem yS_ne_one : yS ≠ 1 :=
 theorem numMoved_yS : numMoved yS = 8 :=
   Certificates.certificate5072.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem yS_central_chk :
-    S0l.all (fun t => decide (t * yS = yS * t)) = true :=
-  Certificates.certificate5072.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem yS_central
-    {s : Perm (Fin 9)} (hs : s ∈ S0) : s * yS = yS * s := by
-  have h := yS_central_chk
-  simp only [List.all_eq_true, decide_eq_true_eq] at h
-  exact h s (mem_S0l.2 hs)
 
 @[expose] def E9 : Subgroup (Perm (Fin 9)) := E5.map (emb 5)
 
@@ -554,7 +355,6 @@ theorem Rc9list_inv : ∀ a ∈ Rc9list, a⁻¹ ∈ Rc9list := by
   mul_mem' := fun {a b} ha hb => Rc9list_mul a ha b hb
   inv_mem' := fun {a} ha => Rc9list_inv a ha
 
-theorem mem_Rc9 {p : Perm (Fin 9)} : p ∈ Rc9 ↔ p ∈ Rc9list := Iff.rfl
 
 theorem Rc9list_S0_chk :
     Rc9list.all (fun p => decide (p ∈ S0l)) = true :=
@@ -590,11 +390,5 @@ theorem S0_split_aux :
   have h := S0_split_chk
   simpa only [List.all_eq_true, List.any_eq_true, decide_eq_true_eq] using h
 
-theorem E9_sup_Rc9 :
-    E9 ⊔ Rc9 = S0 := by
-  apply le_antisymm (sup_le E9_le_S0 Rc9_le_S0)
-  intro s hs
-  obtain ⟨e, he, r, hr, rfl⟩ := S0_split_aux s (mem_S0l.2 hs)
-  exact mul_mem (mem_sup_left (mem_E9l.1 he)) (mem_sup_right hr)
 
 end CFSG.GH74.GLS.C3.Layer2.L5

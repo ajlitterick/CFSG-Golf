@@ -32,9 +32,6 @@ theorem le_normalizer_commutator' {H P Q : Subgroup G}
     Subgroup.mem_normalizer_iff_map_conj_eq.mp (hHP hh),
     Subgroup.mem_normalizer_iff_map_conj_eq.mp (hHQ hh)]
 
-theorem comm_map_eq {H : Type*} [Group H] (f : G →* H) {Y : Subgroup G} (h : ⁅Y, Y⁆ = Y) :
-    ⁅Y.map f, Y.map f⁆ = Y.map f := by
-  rw [← Subgroup.map_commutator, h]
 
 variable [Finite G]
 

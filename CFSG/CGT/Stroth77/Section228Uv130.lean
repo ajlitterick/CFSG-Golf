@@ -15,29 +15,6 @@ namespace StrothFrame.IsD
 variable {F : StrothFrame G} {D : Subgroup G} {m : ℕ} {hm : 3 ≤ m}
   {dD : StrothWeakTypeData D (StrothTypeIndex.t130 m hm)}
 
-theorem t130_two_pow_nsmul_gen (m : ℕ) (j : Fin 3) :
-    (2 ^ Type130.k m j : ℕ) • gen (Type130.k m) j = 0 := by
-  funext i
-  by_cases h : i = j
-  · subst h
-    simp only [Pi.smul_apply, gen, Pi.single_eq_same, nsmul_eq_mul, mul_one, Pi.zero_apply]
-    exact ZMod.natCast_self _
-  · simp only [Pi.smul_apply, gen, Pi.single_eq_of_ne h, nsmul_zero, Pi.zero_apply]
-
-theorem t130_two_pow_zsmul_gen (m : ℕ) (j : Fin 3) :
-    ((2 : ℤ) ^ (Type130.k m j)) • gen (Type130.k m) j = 0 := by
-  rw [show (2 : ℤ) ^ (Type130.k m j) = ((2 ^ Type130.k m j : ℕ) : ℤ) by
-    push_cast
-    ring]
-  rw [natCast_zsmul]
-  exact t130_two_pow_nsmul_gen m j
-
-theorem t130_zsmul_gen_eq_zero_of_dvd (m : ℕ) (j : Fin 3) {z : ℤ}
-    (hz : (2 : ℤ) ^ (Type130.k m j) ∣ z) :
-    z • gen (Type130.k m) j = 0 := by
-  obtain ⟨q, rfl⟩ := hz
-  rw [show (2 : ℤ) ^ (Type130.k m j) * q = q * (2 : ℤ) ^ (Type130.k m j) by ring,
-    ← smul_smul, t130_two_pow_zsmul_gen m j, smul_zero]
 
 theorem t130_u_a_data {m : ℕ} {i F G N K J : ℤ} (h : Type130.Data m i F G N K J) :
     (Type130.action h).φu (gen (Type130.k m) 1) =
@@ -53,34 +30,6 @@ theorem t130_u_b_data {m : ℕ} {i F G N K J : ℤ} (h : Type130.Data m i F G N 
   simp [Type130.action, SigmaFourAction.ofMatEq, Type130.uM, uMat, ofCols_apply,
     zero_smul, one_smul, add_zero]
 
-theorem t130_u_c_data {m : ℕ} {i F G N K J : ℤ} (h : Type130.Data m i F G N K J) :
-    (Type130.action h).φu (gen (Type130.k m) 0) =
-      (-1 + K) • gen (Type130.k m) 0 := by
-  rw [matAct_gen_eq]
-  simp [Type130.action, SigmaFourAction.ofMatEq, Type130.uM, uMat, ofCols_apply,
-    zero_smul, add_zero]
-
-theorem t130_u_apply_ca {m : ℕ} {i F G N K J : ℤ} (h : Type130.Data m i F G N K J)
-    (x y : ℤ) :
-    (Type130.action h).φu (x • gen (Type130.k m) 0 + y • gen (Type130.k m) 1) =
-      ((-1 + K) * x + (-4 * F) * y) • gen (Type130.k m) 0 +
-        y • gen (Type130.k m) 2 := by
-  rw [map_add, map_zsmul, map_zsmul, t130_u_c_data h, t130_u_a_data h]
-  funext i
-  fin_cases i <;> simp [gen, Pi.single_apply, zsmul_eq_mul] <;> ring
-
-theorem t130_u_apply_gens {m : ℕ} {i F G N K J : ℤ} (h : Type130.Data m i F G N K J)
-    (x y w : ℤ) :
-    (Type130.action h).φu
-        (x • gen (Type130.k m) 0 + y • gen (Type130.k m) 1 +
-          w • gen (Type130.k m) 2) =
-      ((-1 + K) * x + (-4 * F) * y + 4 * F * (-1 + K) * w) •
-          gen (Type130.k m) 0 +
-        w • gen (Type130.k m) 1 + y • gen (Type130.k m) 2 := by
-  rw [map_add, map_add, map_zsmul, map_zsmul, map_zsmul, t130_u_c_data h,
-    t130_u_a_data h, t130_u_b_data h]
-  funext i
-  fin_cases i <;> simp [gen, Pi.single_apply, zsmul_eq_mul] <;> ring
 
 theorem t130_uvM_cols (i F G N : ℤ) :
     Type130.uvM i F G N 0 0 = -i ∧

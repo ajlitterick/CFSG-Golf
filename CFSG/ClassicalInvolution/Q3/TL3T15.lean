@@ -176,9 +176,6 @@ theorem tightCase29Leaf_holds (n : ℕ) : TightCase29Leaf n := by
   exact hS.false_of_e29 hL.center hN I
     (TC.Thin.AEIdentOn.ofEq (hS.maxAdjSet_conj _ g).symm (I.conj g))
 
-variable {n : ℕ} in
-theorem tightIndepLeaf_of_thmD3'' (hD : TC.Thin.TightThmD3) : TightIndepLeaf n :=
-  tightIndepLeaf_of_thmD3' hD (tightCase29Leaf_holds n)
 
 end Cit3
 

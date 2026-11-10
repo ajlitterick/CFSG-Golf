@@ -44,7 +44,6 @@ theorem conj_q13 : ∀ m ∈ ({om, om * om} : Finset (Matrix (Fin 2) (Fin 2) (ZM
       cj a b d e m * q13 a b c d e m = q13 0 0 0 0 0 m * cj a b d e m := by
   decide +kernel
 
-theorem q13_om : q13 0 0 0 0 0 om = y0 := rfl
 
 theorem q13_om_sq : q13 0 0 0 0 0 (om * om) = y0 * y0 := by decide +kernel
 

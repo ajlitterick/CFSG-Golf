@@ -18,9 +18,6 @@ theorem leechStatement :
     LeechStatement :=
   leechStatement_of co1ModuleUniqueness co1PairFacts co1InvolutionFacts
 
-theorem leechCosetStatement :
-    LeechCosetStatement :=
-  leechCosetStatement_of co1ModuleUniqueness co1InvolutionFacts
 
 theorem leechInvolutionStatement :
     LeechInvolutionStatement :=

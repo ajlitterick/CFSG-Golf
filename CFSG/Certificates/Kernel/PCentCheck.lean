@@ -468,15 +468,6 @@ theorem oddOrbK_sound {D : Nat → Nat} {ngen x OM : Nat} {R : List Rec}
       intro y hy
       exact inv_smul_mem ha hy
 
-theorem eq_bot_of_oddOrbK {D : Nat → Nat} {ngen x OM : Nat} {R : List Rec}
-    (hD : ∀ k < ngen, PP n w (D k)) (h : oddOrbK n w D ngen x OM R = true)
-    {Q : Subgroup (Equiv.Perm (Fin n))} {k : Nat} (hQD : Q ≤ Subgroup.closure (gens n w D ngen))
-    (hQn : ∀ d ∈ Subgroup.closure (gens n w D ngen), ∀ q ∈ Q, d * q * d⁻¹ ∈ Q)
-    (hQ : Nat.card Q = 2 ^ k)
-    (hfaith : ∀ d ∈ Subgroup.closure (gens n w D ngen), (∀ y ∈ ptsOf n R, d • y = y) → d = 1) :
-    Q = ⊥ := by
-  obtain ⟨hx, hodd, htr, hinv⟩ := oddOrbK_sound hD h
-  exact eq_bot_of_odd_orbit hQD hQn hQ _ ⟨x, hx⟩ htr hinv hodd hfaith
 
 end CFSG.KC.PCent
 

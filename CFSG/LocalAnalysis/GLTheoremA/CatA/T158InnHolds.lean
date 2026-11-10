@@ -213,15 +213,6 @@ end Sec_t158Inn_char2_index
 section Sec_t158Inn_chev2
 
 
-theorem t158Inn_chev2
-    {Ω : Type} [Group Ω] [Finite Ω] {X K J : Subgroup Ω} {x : Ω}
-    (hK : GLAPComponent 3 X K) (hcat : IsCatalogGroup (PSimple 3 K))
-    (hxN : x ∈ Subgroup.normalizer (K : Set Ω)) (hx3 : x ^ 3 = 1)
-    (hJ : GLAPComponent 3 (K ⊓ Subgroup.centralizer ({x} : Set Ω)) J)
-    (hU : catalogIs (PSimple 3 J) S9.isU3eight) : IsChevSimple 2 (PSimple 3 K) := by
-  obtain ⟨d, hd, ⟨e⟩⟩ := t158Inn_char2_index hK hcat hxN hx3 hJ hU
-  exact Or.inl ⟨TauCeti.CFSGIndex.lie d, hd, ⟨e⟩⟩
-
 end Sec_t158Inn_chev2
 
 section Sec_t158Inn_tri_eight

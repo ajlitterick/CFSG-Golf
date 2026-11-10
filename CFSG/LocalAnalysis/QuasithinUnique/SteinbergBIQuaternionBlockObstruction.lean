@@ -57,8 +57,5 @@ theorem blockGamma_one : blockGamma (1 : GL (Fin 2) K) = 1 := by
   rw [coe_blockGamma, Units.val_one, det_one, inv_one, bdiag_one,
     Matrix.SpecialLinearGroup.coe_one]
 
-@[expose] def jmat : Matrix (Fin 2) (Fin 2) K := !![0, 1; -1, 0]
-
-@[expose] def dmat : Matrix (Fin 3) (Fin 3) K := bdiag jmat 1
 
 end CFSG.QuasithinUnique

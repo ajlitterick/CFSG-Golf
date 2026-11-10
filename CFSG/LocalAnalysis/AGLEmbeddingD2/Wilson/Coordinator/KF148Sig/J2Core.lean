@@ -47,38 +47,6 @@ open Subgroup CFSG.ComponentClassification.J2Cover CFSG.Certificates.Native
 set_option linter.unusedSectionVars false
 
 
-@[expose] noncomputable def evalG (f : ℕ → GJ) (w : List ℕ) : GJ :=
-  w.foldl (fun g i => g * f i) 1
-
-theorem rep_foldl {L : Array (Array ℕ)} {f : ℕ → GJ} :
-    ∀ (w : List ℕ), (∀ i ∈ w, Rep 315 L[i]! (f i).1) → ∀ {acc : Array ℕ} {g : GJ},
-      Rep 315 acc g.1 → Rep 315 (w.foldl (fun acc i => compA 315 acc L[i]!) acc)
-        (w.foldl (fun g i => g * f i) g).1
-  | [], _, _, _, h => h
-  | i :: w, hw, _, _, h => by
-    simp only [List.foldl_cons]
-    exact rep_foldl w (fun j hj => hw j (List.mem_cons_of_mem _ hj))
-      (rep_mul h (hw i List.mem_cons_self))
-
-theorem rep_evalG {L : Array (Array ℕ)} {f : ℕ → GJ} {w : List ℕ}
-    (hw : ∀ i ∈ w, Rep 315 L[i]! (f i).1) : Rep 315 (evalA L w) (evalG f w).1 :=
-  rep_foldl w hw rep_one
-
-theorem foldl_mem {H : Subgroup GJ} {f : ℕ → GJ} :
-    ∀ (w : List ℕ), (∀ i ∈ w, f i ∈ H) → ∀ {g : GJ}, g ∈ H →
-      w.foldl (fun g i => g * f i) g ∈ H
-  | [], _, _, h => h
-  | i :: w, hw, _, h => by
-    simp only [List.foldl_cons]
-    exact foldl_mem w (fun j hj => hw j (List.mem_cons_of_mem _ hj))
-      (H.mul_mem h (hw i List.mem_cons_self))
-
-theorem evalG_mem {H : Subgroup GJ} {f : ℕ → GJ} {w : List ℕ} (hw : ∀ i ∈ w, f i ∈ H) :
-    evalG f w ∈ H :=
-  foldl_mem w hw H.one_mem
-
-theorem witWords_lt : ∀ w ∈ witWords, ∀ i ∈ w, i < 3 := by decide
-
 theorem not_three_dvd_orderOf {G : Type*} [Group G] [Finite G] {H : Subgroup G} {u : G}
     (hu : u ∈ pPrimeCoreOf 3 H) : ¬ 3 ∣ orderOf u := by
   have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
@@ -97,10 +65,6 @@ theorem mem_of_mem_pPrimeCoreOf {G : Type*} [Group G] {H : Subgroup G} {u : G}
   obtain ⟨c, -, rfl⟩ := hu
   exact c.2
 
-theorem dvd_twenty_of_dvd_sixty {n : ℕ} (h60 : n ∣ 60) (h3 : ¬ 3 ∣ n) : n ∣ 20 := by
-  have hn : n ≤ 60 := Nat.le_of_dvd (by norm_num) h60
-  revert h60 h3
-  interval_cases n <;> decide
 
 theorem core_w {K : Subgroup GJ} {k : ℕ} (hk : k < 3) {u : GJ}
     (hu : u ∈ pPrimeCoreOf 3 (K ⊓ centralizer ({wJ k} : Set GJ))) :
@@ -201,26 +165,11 @@ theorem core_z_single {K : Subgroup GJ}
     · exact two_of_pair hH m3 (by norm_num) (by norm_num) (hB 0 (by norm_num)) (hA 1 (by norm_num))
     · exact hjj rfl
 
-theorem genSets_lt {s : ℕ} (hs : s < 4) : ∀ j ∈ genSets.getD s [], j < 6 := by
-  interval_cases s <;> decide
 
 theorem eq_top_of_gen {K : Subgroup GJ} {s : ℕ} (hs : s < 4)
     (hK : ∀ j ∈ genSets.getD s [], ∀ q < 3, tJ (3 * j + q) ∈ K) : K = ⊤ :=
   gen_spec hs hK
 
-theorem twoSets_lt {s : ℕ} (hs : s < 6) : ∀ j ∈ twoSets.getD s [], j < 6 := by
-  interval_cases s <;> decide
-
-theorem mem_twoGens {s : ℕ} {t : Array ℕ} (ht : t ∈ (twoGens s).toList) :
-    ∃ j ∈ twoSets.getD s [], ∃ p < 3, t = vA[3 * j + p]! := by
-  unfold twoGens at ht
-  rw [List.toList_toArray, List.mem_flatMap] at ht
-  obtain ⟨j, hj, ht⟩ := ht
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at ht
-  rcases ht with rfl | rfl | rfl
-  · exact ⟨j, hj, 0, by norm_num, by simp⟩
-  · exact ⟨j, hj, 1, by norm_num, rfl⟩
-  · exact ⟨j, hj, 2, by norm_num, rfl⟩
 
 theorem tJ_mem_two {s : ℕ} (_hs : s < 6) {j p : ℕ} (hj : j ∈ twoSets.getD s []) (hp : p < 3) :
     tJ (3 * j + p) ∈ S2 s :=

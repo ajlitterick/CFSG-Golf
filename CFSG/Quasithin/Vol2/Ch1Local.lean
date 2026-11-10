@@ -46,17 +46,5 @@ theorem isLocal_of_mem_cComp_of_sylow [Finite G] {H T L : Subgroup G} (hT : IsSy
   rw [h] at h2
   exact le_bot_iff.mp h2
 
-theorem cComp_subset_lFamilyOf [Finite G] {H T : Subgroup G} (hT : IsSylowTwoOf T H)
-    (hH : pCoreOf 2 H ≠ ⊥) : cComp H ⊆ lFamilyOf H T :=
-  fun _ hL => ⟨le_of_mem_cComp hL, isLocal_of_mem_cComp_of_sylow hT hH hL⟩
-
-theorem lFamilyOf_subset_isLocal (H T : Subgroup G) :
-    lFamilyOf H T ⊆ {L | quasithinIsLocal T L} :=
-  fun _ hL => hL.2
-
-theorem lemma_1_2_6 [Finite G] {T H : Subgroup G} (hT : quasithinIsSylowTwo T) (hH : InH T H) :
-    cComp H ⊆ lFamilyOf H T ∧ lFamilyOf H T ⊆ {L | quasithinIsLocal T L} :=
-  ⟨cComp_subset_lFamilyOf (isSylowTwoOf_of_quasithinIsSylowTwo hT hH.1) hH.2,
-    lFamilyOf_subset_isLocal H T⟩
 
 end CFSG.Quasithin

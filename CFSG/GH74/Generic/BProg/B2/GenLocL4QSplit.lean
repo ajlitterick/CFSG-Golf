@@ -185,13 +185,6 @@ theorem C2_Y1 (c p s' : F) : C2 c * Y1 c p s' = -(Y1 c p s' * C2 c) := by
   fin_cases i <;> fin_cases j <;> simp [C2, Y1, Matrix.mul_apply, Fin.sum_univ_two]
   all_goals ring
 
-theorem Y1_sq (c p s' : F) : Y1 c p s' * Y1 c p s' = (p ^ 2 - c * s' ^ 2) • (1 : Matrix (Fin 2) (Fin 2) F) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Y1, Matrix.mul_apply, Fin.sum_univ_two] <;> ring
-
-theorem C2_sq (c : F) : C2 c * C2 c = c • (1 : Matrix (Fin 2) (Fin 2) F) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [C2, Matrix.mul_apply, Fin.sum_univ_two]
 
 theorem Uel_four (Γ : Subgroup (Matrix.SpecialLinearGroup (Fin 4) F)) (B0 B1 B2 B3 : Matrix (Fin 2) (Fin 2) F)
     (h0 : ∀ t : F, Uel (t • B0) ∈ Γ) (h1 : ∀ t : F, Uel (t • B1) ∈ Γ) (h2 : ∀ t : F, Uel (t • B2) ∈ Γ)

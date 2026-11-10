@@ -363,111 +363,6 @@ theorem sphVec_ne_zero
   rw [sphVec_basePt, Pi.zero_apply] at this
   exact one_ne_zero this
 
-@[expose] def orbMat : Fin 5 → Fin 5 → ℕ :=
-  ![![0, 1782, 0, 0, 0], ![1, 85, 672, 1024, 0], ![0, 27, 27, 1728, 0], ![0, 1, 42, 715, 1024],
-    ![0, 0, 0, 891, 891]]
-
-theorem orbM_one : ∀ i j : Fin 5, orbM 1 i j = orbMat i j := by decide +kernel
-
-theorem scalar_eq_of_smul
-    {v : Pts → ℝ} (hv : v ≠ 0) {a b : ℝ} (h : a • v = b • v) : a = b := by
-  have h' : (a - b) • v = 0 := by rw [sub_smul, h, sub_self]
-  rcases smul_eq_zero.1 h' with h0 | h0
-  · exact sub_eq_zero.1 h0
-  · exact absurd h0 hv
-
-theorem eigen_relations
-    {p : Fin 5 → ℝ} {v : Pts → ℝ} (hv : v ≠ 0)
-    (h : ∀ i, orbA i *ᵥ v = p i • v) :
-    p 0 = 1 ∧ ∀ j, p 1 * p j = ∑ i, (orbMat i j : ℝ) * p i := by
-  classical
-  refine ⟨?_, fun j => ?_⟩
-  · have h0 := h 0
-    rw [orbA_zero, one_mulVec] at h0
-    exact (scalar_eq_of_smul hv (by rw [one_smul]; exact h0)).symm
-  · have e1 : (orbA 1 * orbA j) *ᵥ v = (p 1 * p j) • v := by
-      rw [← mulVec_mulVec, h j, mulVec_smul, h 1, smul_smul, mul_comm]
-    have e2 : (orbA 1 * orbA j) *ᵥ v = (∑ i, (orbMat i j : ℝ) * p i) • v := by
-      rw [orbA_mul, sum_mulVec, Finset.sum_smul]
-      refine Finset.sum_congr rfl fun i _ => ?_
-      rw [smul_mulVec, h i, smul_smul, orbM_one]
-    exact scalar_eq_of_smul hv (e1.symm.trans e2)
-
-theorem eq_orbP_of_eigen
-    {p : Fin 5 → ℝ} {v : Pts → ℝ} (hv : v ≠ 0)
-    (h : ∀ i, orbA i *ᵥ v = p i • v) : ∃ r : Fin 5, ∀ i, p i = orbP r i := by
-  obtain ⟨h0, hj⟩ := eigen_relations hv h
-  have e1 : p 1 * p 1 = 1782 + 85 * p 1 + 27 * p 2 + p 3 := by
-    have := hj 1
-    simp [Fin.sum_univ_five, orbMat, h0] at this
-    linear_combination this
-  have e2 : p 1 * p 2 = 672 * p 1 + 27 * p 2 + 42 * p 3 := by
-    have := hj 2
-    simp [Fin.sum_univ_five, orbMat, h0] at this
-    linear_combination this
-  have e3 : p 1 * p 3 = 1024 * p 1 + 1728 * p 2 + 715 * p 3 + 891 * p 4 := by
-    have := hj 3
-    simp [Fin.sum_univ_five, orbMat, h0] at this
-    linear_combination this
-  have e4 : p 1 * p 4 = 1024 * p 3 + 891 * p 4 := by
-    have := hj 4
-    simp [Fin.sum_univ_five, orbMat, h0] at this
-    linear_combination this
-  have hχ : (p 1 + 297) * (p 1 + 37) * (p 1 - 27) * (p 1 - 243) * (p 1 - 1782) = 0 := by
-    linear_combination (p 1 ^ 3 - 1633 * p 1 ^ 2 - 304533 * p 1 + 72098829) * e1 -
-      (-27 * p 1 ^ 2 + 41634 * p 1 + 8973261) * e2 - (-p 1 ^ 2 - 216 * p 1 + 986337) * e3 -
-      (-891 * p 1 - 986337) * e4
-  have hrow : ∀ r : Fin 5, p 1 = orbP r 1 → p 2 = orbP r 2 → p 3 = orbP r 3 →
-      p 4 = orbP r 4 → ∀ i, p i = orbP r i := by
-    intro r h1 h2 h3 h4 i
-    have hr0 : (orbP r 0 : ℝ) = 1 := by fin_cases r <;> norm_num [orbP]
-    fin_cases i
-    · show p 0 = (orbP r 0 : ℝ)
-      rw [hr0]
-      exact h0
-    · exact h1
-    · exact h2
-    · exact h3
-    · exact h4
-  rcases mul_eq_zero.1 hχ with hA | hA
-  · rcases mul_eq_zero.1 hA with hB | hB
-    · rcases mul_eq_zero.1 hB with hC | hC
-      · rcases mul_eq_zero.1 hC with hD | hD
-        · have hx : p 1 = -297 := by linarith
-          rw [hx] at e1 e2 e4
-          have h2 : p 2 = 5544 := by linarith
-          have h3 : p 3 = -38016 := by linarith
-          have h4 : p 4 = 32768 := by linarith
-          exact ⟨0, hrow 0 (by rw [hx]; norm_num [orbP]) (by rw [h2]; norm_num [orbP])
-            (by rw [h3]; norm_num [orbP]) (by rw [h4]; norm_num [orbP])⟩
-        · have hx : p 1 = -37 := by linarith
-          rw [hx] at e1 e2 e4
-          have h2 : p 2 = 84 := by linarith
-          have h3 : p 3 = 464 := by linarith
-          have h4 : p 4 = -512 := by linarith
-          exact ⟨1, hrow 1 (by rw [hx]; norm_num [orbP]) (by rw [h2]; norm_num [orbP])
-            (by rw [h3]; norm_num [orbP]) (by rw [h4]; norm_num [orbP])⟩
-      · have hx : p 1 = 27 := by linarith
-        rw [hx] at e1 e2 e4
-        have h2 : p 2 = -108 := by linarith
-        have h3 : p 3 = -432 := by linarith
-        have h4 : p 4 = 512 := by linarith
-        exact ⟨2, hrow 2 (by rw [hx]; norm_num [orbP]) (by rw [h2]; norm_num [orbP])
-          (by rw [h3]; norm_num [orbP]) (by rw [h4]; norm_num [orbP])⟩
-    · have hx : p 1 = 243 := by linarith
-      rw [hx] at e1 e2 e4
-      have h2 : p 2 = 1260 := by linarith
-      have h3 : p 3 = 2592 := by linarith
-      have h4 : p 4 = -4096 := by linarith
-      exact ⟨3, hrow 3 (by rw [hx]; norm_num [orbP]) (by rw [h2]; norm_num [orbP])
-        (by rw [h3]; norm_num [orbP]) (by rw [h4]; norm_num [orbP])⟩
-  · have hx : p 1 = 1782 := by linarith
-    rw [hx] at e1 e2 e4
-    have h2 : p 2 = 44352 := by linarith
-    have h3 : p 3 = 1824768 := by linarith
-    have h4 : p 4 = 2097152 := by linarith
-    exact ⟨4, hrow 4 (by rw [hx]; norm_num [orbP]) (by rw [h2]; norm_num [orbP])
-      (by rw [h3]; norm_num [orbP]) (by rw [h4]; norm_num [orbP])⟩
 
 instance :
 
@@ -483,9 +378,6 @@ theorem mk_symm
   Quotient.lift (fun q : Pts × Pts => relIdx q.1 q.2) fun a b h =>
     ((mk_eq_mk_iff a.1 a.2 b.1 b.2).1 (Quotient.sound h))
 
-theorem orbIdx_mk
-    (x y : Pts) :
-    orbIdx (Quotient.mk _ (x, y) : orbitRel.Quotient GStar (Pts × Pts)) = relIdx x y := rfl
 
 theorem exists_relIdx_eq
     (i : Fin 5) : ∃ y : Pts, relIdx basePt y = i := by
@@ -539,35 +431,5 @@ theorem posSemidef_orbP
   rw [← hsum]
   exact key.1
 
-theorem standard_F4_point_orbital_algebra_spectrum :
-    (∀ x y x' y' : Pts,
-      (Quotient.mk _ (x, y) : orbitRel.Quotient GStar (Pts × Pts)) = Quotient.mk _ (x', y') ↔
-        relIdx x y = relIdx x' y') ∧
-    (∀ i : Fin 5, ∃ x y : Pts, relIdx x y = i) ∧
-    Nat.card (orbitRel.Quotient GStar (Pts × Pts)) = 5 ∧
-    (∀ x y : Pts, relIdx x y = 0 ↔ x = y) ∧
-    orbK = ![1, 1782, 44352, 1824768, 2097152] ∧
-    (∀ (i : Fin 5) (x : Pts), (Finset.univ.filter fun y : Pts => relIdx x y = i).card = orbK i) ∧
-    (∀ x y : Pts,
-      (Quotient.mk _ (x, y) : orbitRel.Quotient GStar (Pts × Pts)) = Quotient.mk _ (y, x)) ∧
-    (∀ x y : Pts, orbitalMatrix (Quotient.mk _ (x, y) : orbitRel.Quotient GStar (Pts × Pts)) =
-      orbA (relIdx x y)) ∧
-    orbA 0 = (by classical exact 1) ∧
-    (∀ j : Fin 5, orbA 1 * orbA j = ∑ i, (orbMat i j : ℝ) • orbA i) ∧
-    (∀ k j : Fin 5, orbA k * orbA j = ∑ i, (orbM k i j : ℝ) • orbA i) ∧
-    (∀ r : Fin 5, ∃ v : Pts → ℝ, v ≠ 0 ∧ ∀ i, orbA i *ᵥ v = (orbP r i : ℝ) • v) ∧
-    (∀ (p : Fin 5 → ℝ) (v : Pts → ℝ), v ≠ 0 → (∀ i, orbA i *ᵥ v = p i • v) →
-      ∃ r : Fin 5, ∀ i, p i = orbP r i) ∧
-    ∀ r : Fin 5, (∑ i, ((orbP r i : ℝ) / orbK i) • orbA i).PosSemidef := by
-  refine ⟨mk_eq_mk_iff, fun i => ?_, ?_, relIdx_eq_zero_iff, rfl, card_relIdx, mk_symm,
-    fun x y => orbitalMatrix_eq_orbA, orbA_zero, fun j => ?_, orbA_mul,
-    fun r => ⟨sphVec r, sphVec_ne_zero r, fun i => orbA_mulVec_sphVec r i⟩,
-    fun p v hv h => eq_orbP_of_eigen hv h, posSemidef_orbP⟩
-  · obtain ⟨y, hy⟩ := exists_relIdx_eq i
-    exact ⟨basePt, y, hy⟩
-  · rw [Nat.card_congr (Equiv.ofBijective orbIdx orbIdx_bijective), Nat.card_eq_fintype_card,
-      Fintype.card_fin]
-  · rw [orbA_mul]
-    exact Finset.sum_congr rfl fun i _ => by rw [orbM_one]
 
 end CFSG.Monster.B.E6.StdF4

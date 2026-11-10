@@ -43,7 +43,6 @@ meta def indexOf (L : Array (Array (Array Nat))) (base : Array Nat) (g : Array N
     h := comp (invA T[k]!) h
   return j
 
-meta def ordA' (g : Array Nat) : Nat := orderA g
 
 end CFSG.KS.SporSch.JPG
 

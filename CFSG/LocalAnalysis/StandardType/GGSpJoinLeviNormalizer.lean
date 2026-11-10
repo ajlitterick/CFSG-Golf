@@ -37,16 +37,6 @@ theorem pairMat_mulVec_apply_inr {ι : Type*} [Fintype ι] [DecidableEq ι]
   obtain ⟨_, _, h3, h4⟩ := pairMat_apply_pair hab g
   rw [h3, h4]
 
-theorem pairMat_mulVec_apply_of_notMem {ι : Type*} [Fintype ι] [DecidableEq ι]
-    {R : Type*} [CommRing R] {a b : ι}
-    (g : Matrix (Fin 2) (Fin 2) R) {r : ι} (hra : r ≠ a) (hrb : r ≠ b) (v : ι → R) :
-    (pairMat a b g *ᵥ v) r = v r := by
-  change (∑ x, pairMat a b g r x * v x) = v r
-  rw [Finset.sum_eq_single r]
-  · rw [pairMat_apply_of_ne hra hrb, one_apply_eq, one_mul]
-  · intro x _ hxr
-    rw [pairMat_apply_of_ne hra hrb, one_apply_ne (Ne.symm hxr), zero_mul]
-  · simp
 
 theorem mat_lam {r : ℕ} (i : Fin r) (g : SpecialLinearGroup (Fin 2) F) :
     mat r F (lam i g) = pairMat (Sum.inl i) (Sum.inr i)
@@ -304,38 +294,5 @@ theorem exists_lam_mul_levi_of_mem_normalizer {m : ℕ} {u : StatedSp (m + 1) F}
       u = lam (0 : Fin (m + 1)) g * CFSG.StandardType.spLeviBlock m F h :=
   exists_lam_mul_levi_of_entries_zero (fun j a ha => entry_eq_zero_of_mem_normalizer_levi hu j a ha)
 
-private theorem lam_mem_normalizer (m : ℕ) (g : SpecialLinearGroup (Fin 2) F) :
-    lam (0 : Fin (m + 1)) g ∈ Subgroup.normalizer (CFSG.StandardType.spLeviBlock m F).range := by
-  rw [Subgroup.mem_normalizer_iff'']
-  intro h
-  constructor
-  · intro hh
-    obtain ⟨h', rfl⟩ := hh
-    have hc := lam_zero_commute_spLeviBlock g h'
-    rw [hc.inv_mul_cancel]
-    exact ⟨h', rfl⟩
-  · intro hh
-    obtain ⟨z, hz⟩ := hh
-    have hc := lam_zero_commute_spLeviBlock g z
-    have h1 : h = CFSG.StandardType.spLeviBlock m F z := by
-      calc h = lam (0 : Fin (m + 1)) g *
-            ((lam (0 : Fin (m + 1)) g)⁻¹ * h * lam (0 : Fin (m + 1)) g) *
-            (lam (0 : Fin (m + 1)) g)⁻¹ := by group
-        _ = lam (0 : Fin (m + 1)) g * CFSG.StandardType.spLeviBlock m F z *
-            (lam (0 : Fin (m + 1)) g)⁻¹ := by rw [← hz]
-        _ = CFSG.StandardType.spLeviBlock m F z := by
-            simpa using (hc.inv_left).inv_mul_cancel
-    rw [h1]
-    exact ⟨z, rfl⟩
-
-theorem normalizer_spLeviBlock_range (m : ℕ) :
-    Subgroup.normalizer (CFSG.StandardType.spLeviBlock m F).range = (spPlaneLevi m F).range := by
-  apply le_antisymm
-  · intro u hu
-    obtain ⟨g, h, rfl⟩ := exists_lam_mul_levi_of_mem_normalizer hu
-    exact ⟨(g, h), spPlaneLevi_apply g h⟩
-  · rintro _ ⟨⟨g, h⟩, rfl⟩
-    rw [spPlaneLevi_apply]
-    exact mul_mem (lam_mem_normalizer m g) (Subgroup.le_normalizer ⟨h, rfl⟩)
 
 end CFSG.StandardType.SpJoin

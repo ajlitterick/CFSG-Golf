@@ -136,14 +136,6 @@ theorem bijOn_largeReeCoord
     rw [e2, ← e4]
     ring_nf
 
-theorem large_Ree_B2_fixed_coordinates
-    (a : ℕ) (K : Type) [Field K] [Finite K]
-    [CharP K F4.prime] (hK : Nat.card K = 2 ^ (2 * a + 1)) :
-    Set.BijOn (fun p : K × K => largeReeCoord a K p.1 p.2) Set.univ
-      (F4.reeFixedOrbitUnipotent K a ⟨1, by decide⟩ : Set (ModGL F4.tag K)) ∧
-    ∀ t v s w : K, largeReeCoord a K t v * largeReeCoord a K s w =
-      largeReeCoord a K (t + s) (v + w + largeReeSigma a t * s) :=
-  ⟨bijOn_largeReeCoord hK, largeReeCoord_mul hK⟩
 
 end ReeTag
 

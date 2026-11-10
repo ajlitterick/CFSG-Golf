@@ -88,8 +88,6 @@ theorem PhiMon_short_f0 (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) (p : Fin 2 �
 @[expose] noncomputable def PhiGL : spinGroup (quadMinus 3 F b c) →* GL (Fin 4) K :=
   D.PhiMon.toHomUnits
 
-theorem coe_PhiGL (s : spinGroup (quadMinus 3 F b c)) :
-    ((D.PhiGL s : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) = D.PhiMon s := rfl
 
 theorem σ_ε_mul {r : F} : σ₀ (algebraMap F K r * D.ε) = -(algebraMap F K r * D.ε) := by
   rw [map_mul, D.σ_alg, D.σ_ε]

@@ -261,11 +261,6 @@ theorem ruAdj_zero_iff
   · rintro ⟨⟨g, hg⟩, rfl⟩
     exact ⟨g, ruR0_le_ruP hg, ruR0_apply_zero hg, rfl⟩
 
-theorem not_ruAdj_self (x : Fin 4060) : ¬ ruAdj x x := by
-  intro h
-  obtain ⟨g, hg, h0, h1⟩ := h
-  have := g.injective (h0.trans h1.symm)
-  exact absurd this (by decide)
 
 theorem ruAdj_iff_tree
     (v x : Fin 4060) :

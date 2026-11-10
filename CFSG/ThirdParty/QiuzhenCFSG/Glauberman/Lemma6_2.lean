@@ -240,10 +240,6 @@ lemma imN_ne_bot (hNnz : N ≠ 0) : (N).range ≠ ⊥ := by
   intro h
   exact hNnz (LinearMap.range_eq_bot.mp h)
 
-omit [FiniteDimensional (ZMod p) V] in
-lemma imM_ne_bot (hMnz : M ≠ 0) : (M).range ≠ ⊥ := by
-  intro h
-  exact hMnz (LinearMap.range_eq_bot.mp h)
 
 omit [FiniteDimensional (ZMod p) V] in
 lemma imM_ne_top (hM2 : M ^ 2 = 0) (hMnz : M ≠ 0) : (M).range ≠ ⊤ := by
@@ -945,12 +941,6 @@ lemma minpoly_irreducible_of_no_invariant_subspace (F : Type*) [Field F] (W : Ty
     · exact hKneBot hbot
     · exact hKneTop htop
 
-/-- If `m` is irreducible, then `(m)` is a maximal ideal of `F[X]`. -/
-lemma isMaximal_span_irreducible {F : Type*} [Field F] (m : Polynomial F)
-    (hm_irr : Irreducible m) : (Ideal.span ({m} : Set (Polynomial F))).IsMaximal := by
-  exact PrincipalIdealRing.isMaximal_of_irreducible (R := Polynomial F) hm_irr
-
-
 
 /-! ## The proved fragments and the statement of Lemma 6.2 -/
 
@@ -983,188 +973,6 @@ paper). -/
     rw [map_mul]
     rfl
 
-set_option backward.isDefEq.respectTransparency false in
-/-- A faithful action with the two displayed transvection formulas gives a faithful copy of
-the group inside `SL₂(K)`. -/
-private theorem twoTransvectionSLModel
-    {F K V H : Type*} [Field F] [Field K] [Algebra F K]
-    [AddCommGroup V] [Module F V] [Module K V] [Group H]
-    (ρ : H →* LinearMap.GeneralLinearGroup F V) (hρ : Function.Injective ρ)
-    (hKlin : ∀ h : H, ∀ k : K, ∀ v : V,
-      (ρ h : V →ₗ[F] V) (k • v) = k • (ρ h : V →ₗ[F] V) v)
-    (coord : LinearEquiv (RingHom.id K) V (K × K)) (r : K) (x y : H)
-    (hcl : Subgroup.closure ({x, y} : Set H) = ⊤)
-    (hx : ∀ a c : K,
-      coord.toFun ((ρ x : V →ₗ[F] V) (coord.symm.toFun (a, c))) = (a + r * c, c))
-    (hy : ∀ a c : K,
-      coord.toFun ((ρ y : V →ₗ[F] V) (coord.symm.toFun (a, c))) = (a, c + a)) :
-    ∃ ρSL : H →* Matrix.SpecialLinearGroup (Fin 2) K,
-      Function.Injective ρSL ∧
-      ((ρSL x : Matrix.SpecialLinearGroup (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) =
-        !![1, r; 0, 1] ∧
-      ((ρSL y : Matrix.SpecialLinearGroup (Fin 2) K) : Matrix (Fin 2) (Fin 2) K) =
-        !![1, 0; 1, 1] := by
-  let linEq (h : H) : V ≃ₗ[K] V :=
-    { (ρ h).toLinearEquiv with
-      map_smul' := hKlin h }
-  let ρK : H →* LinearMap.GeneralLinearGroup K V :=
-    { toFun := fun h => LinearMap.GeneralLinearGroup.ofLinearEquiv (linEq h)
-      map_one' := by
-        apply Units.ext
-        apply LinearMap.ext
-        intro v
-        simp [linEq]
-      map_mul' := by
-        intro a b
-        apply Units.ext
-        apply LinearMap.ext
-        intro v
-        simp [linEq, map_mul] }
-  let pairFin : (Fin 2 → K) ≃ₗ[K] K × K := LinearEquiv.finTwoArrow K K
-  let coordFin : V ≃ₗ[K] (Fin 2 → K) := coord.trans pairFin.symm
-  let ρFin : H →* LinearMap.GeneralLinearGroup K (Fin 2 → K) :=
-    (LinearMap.GeneralLinearGroup.congrLinearEquiv coordFin).toMonoidHom.comp ρK
-  let ρGL : H →* Matrix.GeneralLinearGroup (Fin 2) K :=
-    Matrix.GeneralLinearGroup.toLin.symm.toMonoidHom.comp ρFin
-  let Xmat : Matrix (Fin 2) (Fin 2) K := !![1, r; 0, 1]
-  let Ymat : Matrix (Fin 2) (Fin 2) K := !![1, 0; 1, 1]
-  let Xsl : Matrix.SpecialLinearGroup (Fin 2) K :=
-    ⟨Xmat, by simp [Xmat, Matrix.det_fin_two]⟩
-  let Ysl : Matrix.SpecialLinearGroup (Fin 2) K :=
-    ⟨Ymat, by simp [Ymat, Matrix.det_fin_two]⟩
-  have hX : ρGL x = Matrix.SpecialLinearGroup.toGL Xsl := by
-    apply Matrix.GeneralLinearGroup.toLin.injective
-    apply Units.ext
-    apply LinearMap.ext
-    intro z
-    rw [show Matrix.GeneralLinearGroup.toLin (ρGL x) = ρFin x by simp [ρGL]]
-    rw [Matrix.GeneralLinearGroup.toLin_apply]
-    change coordFin ((ρ x : V →ₗ[F] V) (coordFin.symm z)) =
-      Matrix.mulVecLin (R := K) Xmat z
-    apply pairFin.injective
-    change coord ((ρ x : V →ₗ[F] V) (coord.symm (pairFin z))) =
-      pairFin (Matrix.mulVecLin (R := K) Xmat z)
-    calc
-      _ = ((pairFin z).1 + r * (pairFin z).2, (pairFin z).2) :=
-        hx (pairFin z).1 (pairFin z).2
-      _ = _ := by
-        apply Prod.ext <;>
-          simp [pairFin, Xmat, dotProduct]
-  have hY : ρGL y = Matrix.SpecialLinearGroup.toGL Ysl := by
-    apply Matrix.GeneralLinearGroup.toLin.injective
-    apply Units.ext
-    apply LinearMap.ext
-    intro z
-    rw [show Matrix.GeneralLinearGroup.toLin (ρGL y) = ρFin y by simp [ρGL]]
-    rw [Matrix.GeneralLinearGroup.toLin_apply]
-    change coordFin ((ρ y : V →ₗ[F] V) (coordFin.symm z)) =
-      Matrix.mulVecLin (R := K) Ymat z
-    apply pairFin.injective
-    change coord ((ρ y : V →ₗ[F] V) (coord.symm (pairFin z))) =
-      pairFin (Matrix.mulVecLin (R := K) Ymat z)
-    calc
-      _ = ((pairFin z).1, (pairFin z).2 + (pairFin z).1) :=
-        hy (pairFin z).1 (pairFin z).2
-      _ = _ := by
-        apply Prod.ext <;>
-          simp [pairFin, Ymat, dotProduct, add_comm]
-  let S : Subgroup H :=
-    { carrier := {h | Matrix.GeneralLinearGroup.det (ρGL h) = 1}
-      one_mem' := by simp
-      mul_mem' := by
-        intro a b ha hb
-        change Matrix.GeneralLinearGroup.det (ρGL a) = 1 at ha
-        change Matrix.GeneralLinearGroup.det (ρGL b) = 1 at hb
-        change Matrix.GeneralLinearGroup.det (ρGL (a * b)) = 1
-        rw [map_mul, map_mul, ha, hb, one_mul]
-      inv_mem' := by
-        intro a ha
-        change Matrix.GeneralLinearGroup.det (ρGL a) = 1 at ha
-        change Matrix.GeneralLinearGroup.det (ρGL a⁻¹) = 1
-        rw [map_inv, map_inv, ha, inv_one] }
-  have hle : Subgroup.closure ({x, y} : Set H) ≤ S := by
-    rw [Subgroup.closure_le]
-    intro z hz
-    have hz' : z = x ∨ z = y := by simpa using hz
-    rcases hz' with rfl | rfl
-    · change Matrix.GeneralLinearGroup.det (ρGL _) = 1
-      rw [hX]
-      exact Matrix.SpecialLinearGroup.coeToGL_det Xsl
-    · change Matrix.GeneralLinearGroup.det (ρGL _) = 1
-      rw [hY]
-      exact Matrix.SpecialLinearGroup.coeToGL_det Ysl
-  have hdet (h : H) : Matrix.GeneralLinearGroup.det (ρGL h) = 1 :=
-    hle (hcl ▸ (trivial : h ∈ (⊤ : Subgroup H)))
-  let ρSL : H →* Matrix.SpecialLinearGroup (Fin 2) K :=
-    { toFun := fun h => ⟨(ρGL h : Matrix (Fin 2) (Fin 2) K),
-          Units.ext_iff.mp (hdet h)⟩
-      map_one' := by
-        apply Subtype.ext
-        simp
-      map_mul' := by
-        intro a b
-        apply Subtype.ext
-        simp }
-  have hρSL : Function.Injective ρSL := by
-    intro a b hab
-    apply hρ
-    apply Units.ext
-    apply LinearMap.ext
-    intro v
-    have hgl : ρGL a = ρGL b := by
-      apply Units.ext
-      simpa [ρSL] using
-        congrArg (fun A : Matrix.SpecialLinearGroup (Fin 2) K =>
-          (A : Matrix (Fin 2) (Fin 2) K)) hab
-    have hfin : ρFin a = ρFin b := by
-      simpa [ρGL] using congrArg Matrix.GeneralLinearGroup.toLin hgl
-    have hk : ρK a = ρK b := by
-      apply (LinearMap.GeneralLinearGroup.congrLinearEquiv coordFin).injective
-      simpa [ρFin] using hfin
-    exact congrArg (fun g : LinearMap.GeneralLinearGroup K V => g.1 v) hk
-  refine ⟨ρSL, hρSL, ?_, ?_⟩
-  · change (ρGL x : Matrix (Fin 2) (Fin 2) K) = Xmat
-    simpa [Xsl] using congrArg
-      (fun g : Matrix.GeneralLinearGroup (Fin 2) K =>
-        (g : Matrix (Fin 2) (Fin 2) K)) hX
-  · change (ρGL y : Matrix (Fin 2) (Fin 2) K) = Ymat
-    simpa [Ysl] using congrArg
-      (fun g : Matrix.GeneralLinearGroup (Fin 2) K =>
-        (g : Matrix (Fin 2) (Fin 2) K)) hY
-
-/-- **Proved fragment of Lemma 6.2** (Gorenstein–Walter's block-matrix normal form): the two
-generators `x`, `y` of `H` satisfy `(ρx-1)² = 0`, `ρx ≠ 1` (and the same for `y`), the
-subspaces `im (ρx-1)` and `im (ρy-1)` are complementary in `V`, and the induced transformation
-`S = R ∘ t` of `im (ρx-1)` (with `t : im (ρx-1) ≃ im (ρy-1)` the isomorphism induced by
-`ρy-1`, and `R` the restriction of `ρx-1`) is nonsingular and has no nontrivial invariant
-subspaces — it is the "irreducible transformation `R`" of Gorenstein–Walter [Lemma 4.1, p. 136]
-(cf. `refs/glauberman-p-stable.tex` L1618–L1627). This is the input to the field construction
-in `lemma6_2_structure` below. -/
-public theorem lemma6_2_block_structure {V : Type*} [AddCommGroup V] [Module (ZMod p) V]
-    [FiniteDimensional (ZMod p) V] {H : Type*} [Group H] (D : Lemma62Data p hpodd V H) :
-    ∃ x y : H,
-      Subgroup.closure ({x, y} : Set H) = ⊤ ∧
-        (D.lin x - 1) ^ 2 = 0 ∧ (D.lin x - 1) ≠ 0 ∧
-        (D.lin y - 1) ^ 2 = 0 ∧ (D.lin y - 1) ≠ 0 ∧
-        IsCompl (D.lin x - 1).range (D.lin y - 1).range ∧
-        ∃ t : (D.lin x - 1).range ≃ₗ[ZMod p] (D.lin y - 1).range,
-          ∀ U : Submodule (ZMod p) (D.lin x - 1).range,
-            (∀ v : (D.lin x - 1).range, v ∈ U →
-                ((R (D.lin x - 1) (D.lin y - 1)).comp t.toLinearMap) v ∈ U) →
-              U = ⊥ ∨ U = ⊤ := by
-  rcases D.two_generators with ⟨x, y, hcl, hx2, hxn, hy2, hyn⟩
-  refine ⟨x, y, hcl, hx2, hxn, hy2, hyn, ?_, ?_⟩
-  · exact isCompl_imN_imM D x y hcl hx2 hy2 hxn hyn
-  · refine ⟨t62 D x y hcl hx2 hxn hy2 hyn, ?_⟩
-    intro U hU
-    have hT : Function.Injective (T (D.lin x - 1) (D.lin y - 1)) :=
-      T_injective D x y hy2 (kerM_inf_imN_eq_bot D x y hcl hx2 hy2 hxn hyn)
-    have hR : Function.Injective (R (D.lin x - 1) (D.lin y - 1)) :=
-      R_injective D x y hx2 (kerN_inf_imM_eq_bot D x y hcl hx2 hy2 hxn)
-    have hrank : Module.finrank (ZMod p) (D.lin x - 1).range =
-        Module.finrank (ZMod p) (D.lin y - 1).range :=
-      finrank_imN_eq_imM D x y hT hR
-    exact S_irreducible D x y hcl hx2 hy2 hxn hyn hT hrank U hU
 
 /-! ### Field construction and Dickson classification -/
 
@@ -1537,26 +1345,6 @@ public theorem lemma6_2_model (hpodd : p ≠ 2) {V : Type*} [AddCommGroup V]
   exact ⟨K, hK, hAlg, φ, r, hφinj, hall, coord, hdegree, hrne,
     x, y, hcl', hxmodel, hymodel⟩
 
-/-- **Parts (a)+(b) of Lemma 6.2**: the Schur field acts faithfully on `V`, the action of
-`H` is linear over that field, and `V` has dimension two over it. -/
-public theorem lemma6_2_structure (hpodd : p ≠ 2) {V : Type*} [AddCommGroup V]
-    [Module (ZMod p) V] [FiniteDimensional (ZMod p) V] {H : Type*} [Group H]
-    (D : Lemma62Data p hpodd V H) :
-    ∃ (K : Type) (_ : Field K) (_ : Algebra (ZMod p) K),
-      ∃ (φ : K →ₐ[ZMod p] Module.End (ZMod p) V),
-        Function.Injective φ ∧
-          (∀ h : H, ∀ k : K, (D.lin h) * φ k = φ k * (D.lin h)) ∧
-          letI : Module K V := moduleOfAlgHom φ
-          Module.finrank K V = 2 := by
-  rcases lemma6_2_model hpodd D with
-    ⟨K, hK, hAlg, φ, r, hφinj, hall, coord, _hdegree, _hrne,
-      _x, _y, _hcl, _hx, _hy⟩
-  let : Field K := hK
-  let : Algebra (ZMod p) K := hAlg
-  refine ⟨K, hK, hAlg, φ, hφinj, hall, ?_⟩
-  let : Module K V := moduleOfAlgHom φ
-  rw [coord.finrank_eq, Module.finrank_prod]
-  simp
 
 /-- **Part (c) of Lemma 6.2**: Dickson's classification.
 Statement: under the hypotheses of Lemma 6.2, either `H ≅ SL(2,K)` for the field `K` of
@@ -1609,34 +1397,5 @@ public theorem lemma6_2_part_c (hpodd : p ≠ 2) {V : Type*} [AddCommGroup V] [M
     D.ρ D.faithful K hlinear
     coord r x y hdegree hrne hcl hxmodel hymodel
 
-/-- **Lemma 6.2** ([6], §6, p. 1122; `refs/glauberman-p-stable.tex` L1615–L1654): let `p` be an
-odd prime and `F = GF(p)`. If `H` is a group of linear transformations acting irreducibly and
-faithfully on a vector space `V` over `F`, and `H` is generated by two `p`-elements each with
-minimal polynomial `(x-1)²`, then there exists a field `K` of endomorphisms of `V` such that
-(a) `F ⊆ K`; (b) `V` has dimension two over `K`; and (c) either `H` is the special linear group
-of `V` over `K`, or `|K| = 9` and `H ≅ SL(2,5)`.
-
-The hypothesis "generated by two `p`-elements with minimal polynomial `(x-1)²`" is used in the
-equivalent form `(ρx-1)² = 0 ∧ ρx ≠ 1` (over a field this is `minpoly (ρx) = (X-1)²`; the
-`p`-element condition is automatic in characteristic `p`).  The conclusion (a) is the
-`Algebra (ZMod p) K` structure (a field contains `GF(p)`), (b) is `Module.finrank K V = 2`
-with the module structure `moduleOfAlgHom φ` coming from the endomorphism embedding `φ`, and
-(c) is the disjunction `H ≃* SL(2,K)` / (`Nat.card K = 9 ∧ H ≃* SL(2,5)`); the `K`-linearity of
-the action of `H` (part of the meaning of "H is the special linear group of `V` over `K`") is
-stated explicitly.  The theorem body is exactly the proved `lemma6_2_part_c`, whose statement
-includes the full field-construction prefix; `lemma6_2_structure` is the separately exposed
-Schur-field-construction fragment (parts (a)+(b)), and `lemma6_2_block_structure` is the
-underlying block-matrix fragment. -/
-public theorem lemma6_2 (hpodd : p ≠ 2) {V : Type*} [AddCommGroup V] [Module (ZMod p) V]
-    [FiniteDimensional (ZMod p) V] {H : Type*} [Group H] (D : Lemma62Data p hpodd V H) :
-    ∃ (K : Type) (_ : Field K) (_ : Algebra (ZMod p) K),
-      ∃ (φ : K →ₐ[ZMod p] Module.End (ZMod p) V),
-        Function.Injective φ ∧
-          (∀ h : H, ∀ k : K, (D.lin h) * φ k = φ k * (D.lin h)) ∧
-          letI : Module K V := moduleOfAlgHom φ
-          Module.finrank K V = 2 ∧
-            (Nonempty (H ≃* Matrix.SpecialLinearGroup (Fin 2) K) ∨
-              (Nat.card K = 9 ∧ Nonempty (H ≃* Matrix.SpecialLinearGroup (Fin 2) (ZMod 5)))) := by
-  exact lemma6_2_part_c hpodd D
 
 end CFSG.Glauberman

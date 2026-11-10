@@ -19,10 +19,6 @@ variable (K L : Type) [Field K] [Field L] [Algebra K L]
 
 variable {K L}
 
-theorem coe_incl (g : adjointGroup .F4 K) :
-    ((incl K L g : adjointGroup .F4 L) : ModGL .F4 L) =
-      baseChangeGL (algebraMap K L) (g : ModGL .F4 K) :=
-  rfl
 
 theorem incl_injective : Function.Injective (incl K L) := fun _ _ e =>
   Subtype.ext (baseChangeGL_injective (algebraMap K L) (congrArg Subtype.val e))
@@ -55,10 +51,6 @@ theorem reeF_yElement (m : ℕ) (i : Fin Tag.F4.rank) (c : K) :
   haveI : CharP K ReeTag.F4.prime := ‹CharP K 2›
   ((exceptional_reeFixedGroup_eq .F4 K m).1 i c).2
 
-theorem fixedSubgroup_reeF (m : ℕ) :
-    haveI : CharP K ReeTag.F4.prime := ‹CharP K 2›
-    fixedSubgroup (reeF K m) = reeFixed ReeTag.F4 K m :=
-  rfl
 
 theorem coe_glMap {A : Type*} [CommRing A] (φ : A →+* A)
     (g : Matrix.GeneralLinearGroup (Fin 26) A) :

@@ -29,7 +29,6 @@ theorem gspLin_apply (A : gsp r K) (v : Fin r ⊕ Fin r → K) :
       Module.End K (Fin r ⊕ Fin r → K)) v =
       ((A : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) *ᵥ v := rfl
 
-theorem gspLin_spXg (x : StatedSp r K) : gspLin r K (spXg x) = spLin r K x := rfl
 
 variable (r K) in
 @[expose] noncomputable def gspLE :
@@ -48,7 +47,6 @@ theorem gspLE_injective : Function.Injective (gspLE r K) := fun _ _ h =>
     (Fin r ⊕ Fin r → K) :=
   LinearMap.GeneralLinearGroup.toLinearEquiv (spLin r K x)
 
-theorem spEquiv_toLinearMap (x : StatedSp r K) : (spEquiv x).toLinearMap = spEnd x := rfl
 
 theorem spEquiv_apply (x : StatedSp r K) (v : Fin r ⊕ Fin r → K) :
     spEquiv x v = ((x : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) *ᵥ v :=
@@ -88,10 +86,6 @@ variable {V : Type*} [AddCommGroup V] [Module K V]
       exact this.symm
     exact Subtype.ext (Commute.units_inv_left h2).symm.eq
 
-theorem mem_centerSim {x g : LinearMap.GeneralLinearGroup K V} :
-    g ∈ centerSim x ↔ ∃ hz : (g : Module.End K V) ∈ commutant (x : Module.End K V),
-      (⟨(g : Module.End K V), hz⟩ : commutant (x : Module.End K V)) ∈
-        Subalgebra.center K (commutant (x : Module.End K V)) := Iff.rfl
 
 theorem commute_of_mem_centerSim {x g m : LinearMap.GeneralLinearGroup K V}
     (hg : g ∈ centerSim x) (hm : Commute (m : Module.End K V) (x : Module.End K V)) :

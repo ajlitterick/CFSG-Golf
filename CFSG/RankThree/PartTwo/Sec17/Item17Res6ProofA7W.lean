@@ -276,33 +276,6 @@ theorem exists_w_of_a7 {Y₁ S : Subgroup G} {p : ℕ} {P : Subgroup G}
 
 end Proof17Res6
 
-@[expose] noncomputable def Item1717OneNA7 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ Y₁ S : Subgroup G) (p : ℕ)
-    (P : Subgroup G) (h : Sec17Y1 G A c L Y₀ Y₁ S p P),
-    omegaA A = {Subgroup.zpowers c} →
-    IsEmpty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* alternatingGroup (Fin 7)) →
-    letI := kerAO2_normal h.le_normalizer_y0
-    S = (S ⊓ Y₀) ⊔ (S ⊓ cQuot Y₀) ∧
-      (((IsLThreePi (↥L ⧸ aschbacherSolvableCore 3 ↥L) ∨
-            Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* alternatingGroup (Fin 7))) ∧
-          ∃ (a : G) (ha : a ∈ A), a ∈ L ∧ a ≠ 1 ∧
-            imgY0 A Y₀ (S ⊓ Y₀) = oTwoCY0 A Y₀ (alphaY0 A Y₀ a ha)) ∨
-        (Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.M22) ∧
-          (CFSG.Assembly.IsElemAbelian 2 (imgY0 A Y₀ (S ⊓ Y₀)) ∧
-            Nat.card (imgY0 A Y₀ (S ⊓ Y₀)) = 16) ∧
-          ∃ (a : G) (ha : a ∈ A) (b : G) (hb : b ∈ A), Subgroup.closure {a, b} = A ⊓ L ∧
-            imgY0 A Y₀ (S ⊓ Y₀) =
-              oTwoCY0 A Y₀ (alphaY0 A Y₀ a ha) ⊔ oTwoCY0 A Y₀ (alphaY0 A Y₀ b hb) ∧
-            oTwoCY0 A Y₀ (alphaY0 A Y₀ a ha) ⊓ oTwoCY0 A Y₀ (alphaY0 A Y₀ b hb) = ⊥) ∨
-        (Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2) ∧
-          (∃ T : Sylow 2 (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)),
-            Nonempty (↥(imgY0 A Y₀ (S ⊓ Y₀)) ≃*
-              ↥(T : Subgroup (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2))))) ∧
-          ∃ (a : G) (ha : a ∈ A) (b : G) (hb : b ∈ A) (d : G),
-            Subgroup.closure {a, b} = A ⊓ L ∧ d ∈ A ∧ d ≠ 1 ∧ IsThreeCentralIn L d ∧
-            imgY0 A Y₀ (S ⊓ Y₀) =
-              oTwoCY0 A Y₀ (alphaY0 A Y₀ a ha) ⊔ oTwoCY0 A Y₀ (alphaY0 A Y₀ b hb) ⊔
-                imgY0 A Y₀ (S ⊓ Y₀ ⊓ Subgroup.centralizer {d})))
 
 @[expose] noncomputable def Claim1718QuotOneNA7 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ Y₁ S : Subgroup G) (p : ℕ)

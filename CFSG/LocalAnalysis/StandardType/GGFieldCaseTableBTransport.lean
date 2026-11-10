@@ -262,14 +262,6 @@ theorem ggTableBIrredInputOn_of_labels {S : ℕ → LargeEvenLabel → Prop}
     largeEvenRawDatum_exists hraw
   exact ggTableBIrred_of_ggTorusIrred hcfg hL θ hBsN hBs3 hlift hirr
 
-theorem ggTableBInputsOn_of_labels {S : ℕ → LargeEvenLabel → Prop}
-    (hD : GGBstarInnerDiagLInputOn S)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab → S p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGTorusIrred p r R I) :
-    GGTableBCxInputOn S ∧ GGTableBModuleInputOn S ∧ GGTableBActionInputOn S := by
-  have hI := ggTableBIrredInputOn_of_labels h
-  exact ⟨ggTableBCxInputOn_of_irred hD hI, ggTableBModuleInputOn_of_irred hD hI,
-    ggTableBActionInputOn_of_irred hD hI⟩
 
 end On
 

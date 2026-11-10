@@ -169,12 +169,6 @@ theorem mat_comm_e₁e₂ (g : SU52) : mat ⁅g, e₁SU * e₂SU⁆ =
     mat g * mat (e₁SU * e₂SU) * mat g⁻¹ * mat (e₁SU * e₂SU)⁻¹ := by
   simp only [commutatorElement_def, mat_mul]
 
-theorem x₂SU_eq_comm_e₁e₂ (a : F4) : x₂SU a = ⁅x₂SU (F4.ω * a), e₁SU * e₂SU⁆ := by
-  have hinv : mat (x₂SU (F4.ω * a))⁻¹ = x₂Mat (F4.ω * a) := mat_inv_of_x₂ (mat_x₂SU _)
-  refine ext_mat ?_
-  rw [mat_comm_e₁e₂]
-  simp only [mat_x₂SU, mat_e₁e₂, mat_e₁e₂_inv, hinv]
-  exact x₂_e₁e₂_check a
 
 theorem x₃SU_eq_comm_e₁e₂ (a : F4) : x₃SU a = ⁅x₃SU (F4.ω * a), e₁SU * e₂SU⁆ := by
   have hinv : mat (x₃SU (F4.ω * a))⁻¹ = x₃Mat (F4.ω * a) := mat_inv_of_x₃ (mat_x₃SU _)
@@ -183,30 +177,6 @@ theorem x₃SU_eq_comm_e₁e₂ (a : F4) : x₃SU a = ⁅x₃SU (F4.ω * a), e�
   simp only [mat_x₃SU, mat_e₁e₂, mat_e₁e₂_inv, hinv]
   exact x₃_e₁e₂_check a
 
-theorem commutator_K₂sub_self : ⁅K₂sub, K₂sub⁆ = K₂sub := by
-  apply le_antisymm
-  · rw [commutator_le]
-    intro a ha b hb
-    rw [commutatorElement_def]
-    exact mul_mem (mul_mem (mul_mem ha hb) (inv_mem ha)) (inv_mem hb)
-  · have hX : X₂sub ≤ ⁅K₂sub, K₂sub⁆ := by
-      intro x hx
-      obtain ⟨c, hc⟩ := mem_X₂sub.1 hx
-      have e : x = x₂SU c := ext_mat (by rw [hc, mat_x₂SU])
-      rw [e, x₂SU_eq_comm_e₁e₂ c]
-      exact commutator_mem_commutator (X₂sub_le_K₂sub (x₂SU_mem _)) e₁e₂_mem_K₂sub
-    have hXv : X₂sub.map (MulAut.conj vSU).toMonoidHom ≤ ⁅K₂sub, K₂sub⁆ := by
-      rintro _ ⟨x, hx, rfl⟩
-      have e : (MulAut.conj vSU).toMonoidHom x = ⁅vSU, x⁆ * x := by
-        rw [commutatorElement_def]
-        show vSU * x * vSU⁻¹ = vSU * x * vSU⁻¹ * x⁻¹ * x
-        group
-      rw [e]
-      exact mul_mem (commutator_mem_commutator vSU_mem_K₂sub (X₂sub_le_K₂sub hx)) (hX hx)
-    have key : X₂sub ⊔ X₂sub.map (MulAut.conj vSU).toMonoidHom ≤ ⁅K₂sub, K₂sub⁆ :=
-      sup_le hX hXv
-    rw [← K₂sub_eq_sup_conj] at key
-    exact key
 
 theorem K₂sub_conj_mem_Fsub {k f : SU52} (hk : k ∈ K₂sub) (hf : f ∈ Fsub) :
     k * f * k⁻¹ ∈ Fsub := by

@@ -73,29 +73,6 @@ theorem exists_cartan {Lj S : Subgroup G} (h : IsSylowTwoOf (S ⊓ Lj) Lj) :
       rw [Subgroup.map_sup, hmapN] at h3
       exact h3
 
-omit [Finite G] in
-theorem sup_borelOf_eq_sup_cartan {Li Lj S D : Subgroup G} (hD : (S ⊓ Lj) ⊔ D = borelOf Lj S) :
-    Li ⊔ S ⊔ borelOf Lj S = Li ⊔ S ⊔ D := by
-  have hSD : S ⊓ Lj ⊔ D ≤ Li ⊔ S ⊔ D :=
-    sup_le ((inf_le_left : S ⊓ Lj ≤ S).trans (le_sup_right.trans le_sup_left)) le_sup_right
-  have hDB : D ≤ borelOf Lj S := hD ▸ (le_sup_right : D ≤ S ⊓ Lj ⊔ D)
-  apply le_antisymm
-  · refine sup_le le_sup_left ?_
-    rw [← hD]
-    exact hSD.trans le_rfl
-  · exact sup_le_sup_left hDB _
-
-omit [Finite G] in
-theorem borelOf_le_normalizer_iff {Li Lj S D : Subgroup G}
-    (hS : S ≤ Subgroup.normalizer (Li : Set G)) (hD : (S ⊓ Lj) ⊔ D = borelOf Lj S) :
-    borelOf Lj S ≤ Subgroup.normalizer (Li : Set G) ↔ D ≤ Subgroup.normalizer (Li : Set G) := by
-  have hDB : D ≤ borelOf Lj S := hD ▸ (le_sup_right : D ≤ S ⊓ Lj ⊔ D)
-  constructor
-  · intro h
-    exact hDB.trans h
-  · intro h
-    rw [← hD]
-    exact sup_le (inf_le_left.trans hS) h
 
 omit [Finite G] in
 theorem isSolvable_of_normal_subgroupOf {N H : Subgroup G} (hNH : N ≤ H)

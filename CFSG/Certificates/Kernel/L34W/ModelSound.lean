@@ -255,15 +255,6 @@ theorem mulM_ctr (k l : ℕ) (a b c d : ZMod 4) :
   simp only [mulM]
   refine Prod.ext rfl (Prod.ext ?_ ?_) <;> simp only <;> ring
 
-theorem betaRepM_ctr (i k : ℕ) (a b : ZMod 4) :
-    betaRepM i (k, a, b) =
-      ((betaRepM i (k, 0, 0)).1,
-        (betaRepM i (k, 0, 0)).2.1 +
-          (a * ((alphaEntry i 64).2.1 : ZMod 4) + b * ((alphaEntry i 65).2.1 : ZMod 4)),
-        (betaRepM i (k, 0, 0)).2.2 +
-          (a * ((alphaEntry i 64).2.2.1 : ZMod 4) + b * ((alphaEntry i 65).2.2.1 : ZMod 4))) := by
-  simp only [betaRepM]
-  refine Prod.ext rfl (Prod.ext ?_ ?_) <;> simp only <;> ring
 
 theorem betaYM_ctr (t i k : ℕ) (a b : ZMod 4) :
     betaYM t i (k, a, b) =
@@ -275,12 +266,6 @@ theorem betaYM_ctr (t i k : ℕ) (a b : ZMod 4) :
   simp only [betaYM, mulM, betaRepM]
   refine Prod.ext rfl (Prod.ext ?_ ?_) <;> simp only <;> ring
 
-theorem mulM_sq_ctr (k : ℕ) (a b : ZMod 4) :
-    mulM (k, a, b) (k, a, b) =
-      ((mulM (k, 0, 0) (k, 0, 0)).1, (mulM (k, 0, 0) (k, 0, 0)).2.1 + 2 * a,
-        (mulM (k, 0, 0) (k, 0, 0)).2.2 + 2 * b) := by
-  simp only [mulM]
-  refine Prod.ext rfl (Prod.ext ?_ ?_) <;> simp only <;> ring
 
 end CFSG.KC.L34W
 

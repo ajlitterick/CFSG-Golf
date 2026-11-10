@@ -165,9 +165,6 @@ public lemma scalarProduct_conj (φ ψ : ClassFunction G) :
           intro g hg
           ring
 
-public lemma scalarProduct_self_real (φ : ClassFunction G) :
-    star (scalarProduct G φ φ) = scalarProduct G φ φ := by
-  simp [scalarProduct_conj]
 
 variable [Group G]
 

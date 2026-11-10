@@ -91,23 +91,5 @@ theorem lemma_15_1_19_four {Mc Z₁ : Subgroup G}
   rw [← h441] at hN
   exact hN
 
-structure Lemma15119Rest (T Mc M Z₁ V₂ : Subgroup G) : Prop where
-  two : ∀ K : Subgroup G, K ≤ g1_1516 Z₁ → Odd (Nat.card (↥K ⧸ CFSG.pCore 2 ↥K)) →
-    mZ1516 Mc Z₁ ≤ Subgroup.normalizer (K : Set G) → CharTwo K → K ≤ mZ1516 Mc Z₁
-  three : oTwoFIn (g1_1516 Z₁) ≤ mZ1516 Mc Z₁
-  five : solvRad (g1_1516 Z₁) ≤ mZ1516 Mc Z₁
-  six : ∃ L : Subgroup G, L ∈ cComp (g1_1516 Z₁) ∧
-    CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) ∧ ¬ L ≤ mZ1516 Mc Z₁
-  seven : ∀ L : Subgroup G, L ∈ cComp (g1_1516 Z₁) →
-    CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) → ¬ L ≤ mZ1516 Mc Z₁ →
-      oTwoUpper (M ⊓ Subgroup.centralizer (Z₁ : Set G)) ⊔ V₂ ≤ Subgroup.normalizer (L : Set G) ∧
-        ⁅L, V₂⁆ ≠ ⊥
-
-theorem lemma_15_1_19_of_rest {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G} (hq : quasithinQTFE14Cat G T Mc)
-    (hM : IsMf T Mc M) (hS : Setting1516 T Mc M Z₁ Z₂ V₁ V₂)
-    (h18 : Lemma15118Concl T Mc M Z₁) (hR : Lemma15119Rest T Mc M Z₁ V₂) :
-    Lemma15119Concl T Mc M Z₁ V₂ :=
-  ⟨lemma_15_1_19_one hq hM hS h18, hR.two, hR.three, lemma_15_1_19_four h18.five.2.1, hR.five,
-    hR.six, hR.seven⟩
 
 end CFSG.Quasithin

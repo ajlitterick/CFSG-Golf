@@ -205,8 +205,6 @@ theorem mem_normalizer_diag (hX : (J₁ ⊔ J₂).Normal) {g : G} (hg : g * z = 
   map_one' := tw_one z
   map_mul' x y := d.tw_mul x.2 y.2
 
-theorem hom_apply (d : TypeIIITwist J₁ J₂ z) (x : ↥J₁) : d.hom x = typeIII_tw z (x : G) :=
-  rfl
 
 theorem hom_injective (d : TypeIIITwist J₁ J₂ z) : Function.Injective d.hom :=
   fun x y h => Subtype.ext (d.tw_inj x.2 y.2 h)

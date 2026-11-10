@@ -14,7 +14,6 @@ private instance instDecEqM12 : DecidableEq M12Mod := fun a b =>
   if h : M12Mod.equivProd a = M12Mod.equivProd b then isTrue (M12Mod.equivProd.injective h)
   else isFalse (fun hab => h (by rw [hab]))
 
-private def m1 : M12Mod := M12Mod.mx₁ * M12Mod.mx₂
 
 private def projI : M12Mod →* Multiplicative (Fin 2) where
   toFun m := Multiplicative.ofAdd m.i
@@ -27,9 +26,6 @@ private lemma mem_projI_ker (m : M12Mod) : m ∈ projI.ker ↔ m.i = 0 := by
   · intro h; exact Multiplicative.ofAdd.injective h
   · intro h; show Multiplicative.ofAdd m.i = 1; rw [h, ofAdd_zero]
 
-private lemma isOfFinOrder_of_orderOf_eq {g : M12Mod} {n : ℕ} (hn : 0 < n)
-    (h : orderOf g = n) : IsOfFinOrder g :=
-  isOfFinOrder_iff_pow_eq_one.mpr ⟨n, hn, by rw [← h]; exact pow_orderOf_eq_one g⟩
 
 private lemma y_decomp : ∀ (a b : Fin 4) (j : Fin 2),
     (⟨a, b, 0, j⟩ : M12Mod) = M12Mod.mx₁ ^ a.val * M12Mod.mx₂ ^ b.val * M12Mod.mtau ^ j.val := by
@@ -45,8 +41,6 @@ private lemma cent_x2_fwd : ∀ (a b : Fin 4) (i j : Fin 2),
       i = 0 := by
   decide +kernel
 
-private lemma hord_m1 : orderOf (m1 : M12Mod) = 4 :=
-  orderOf_eq_prime_pow (p := 2) (n := 1) (by decide +kernel) (by decide +kernel)
 
 private lemma closure_x_le_ker : baseGrp M12Mod.mx₁ M12Mod.mx₂ ⊔ zpowers M12Mod.mtau ≤
     projI.ker := by

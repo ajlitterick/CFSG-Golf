@@ -166,48 +166,6 @@ theorem norm_surjective_of_isCyclic [Finite A] [IsCyclic A] {r p : ℕ}
   exact ⟨g ^ c, by rw [hN, ← pow_mul, mul_comm]⟩
 
 
-theorem prod_range_zpow (s : A) (f : ℕ → ℤ) (n : ℕ) :
-    ∏ i ∈ Finset.range n, s ^ f i = s ^ ∑ i ∈ Finset.range n, f i := by
-  induction n with
-  | zero => simp
-  | succ n ih => rw [Finset.prod_range_succ, Finset.sum_range_succ, zpow_add, ih]
-
-theorem pow_apply_eq_zpow {β : MulAut A} {r : ℤ} (hβ : ∀ t, β t = t ^ r) (i : ℕ) (s : A) :
-    (β ^ i) s = s ^ (r ^ i) := by
-  induction i generalizing s with
-  | zero => simp
-  | succ i ih => rw [pow_succ, MulAut.mul_apply, hβ, ih, ← zpow_mul, ← pow_succ']
-
-theorem norm_surjective_of_isCyclic_zpow [Finite A] [IsCyclic A] {r : ℤ} {p : ℕ}
-    (hcard : (Nat.card A : ℤ) = |r ^ p - 1|) {β : MulAut A} (hβ : ∀ t, β t = t ^ r) :
-    ∀ t : A, β t = t → ∃ s : A, ∏ i ∈ Finset.range p, (β ^ i) s = t := by
-  have hN : ∀ s : A, ∏ i ∈ Finset.range p, (β ^ i) s = s ^ ∑ i ∈ Finset.range p, r ^ i :=
-    fun s => by
-      simp_rw [pow_apply_eq_zpow hβ]
-      exact prod_range_zpow s _ p
-  have hσ : (∑ i ∈ Finset.range p, r ^ i) * (r - 1) = r ^ p - 1 := geom_sum_mul r p
-  have hpos : 0 < Nat.card A := Nat.card_pos
-  have hr : r - 1 ≠ 0 := by
-    intro h
-    have h1 : r = 1 := by omega
-    rw [h1, one_pow, sub_self, abs_zero] at hcard
-    omega
-  intro t ht
-  obtain ⟨g, hg⟩ := IsCyclic.exists_generator (α := A)
-  have hog : orderOf g = Nat.card A := orderOf_eq_card_of_forall_mem_zpowers hg
-  obtain ⟨j, rfl⟩ := Subgroup.mem_zpowers_iff.mp (hg t)
-  have htr : (g ^ j) ^ (r - 1) = 1 := by
-    have h1 := hβ (g ^ j)
-    rw [ht] at h1
-    rw [zpow_sub_one, ← h1, mul_inv_cancel]
-  have hdvd : (∑ i ∈ Finset.range p, r ^ i) ∣ j := by
-    rw [← zpow_mul] at htr
-    have h1 : (orderOf g : ℤ) ∣ j * (r - 1) := orderOf_dvd_iff_zpow_eq_one.mpr htr
-    rw [hog, hcard, ← hσ, abs_dvd] at h1
-    exact (mul_dvd_mul_iff_right hr).mp h1
-  obtain ⟨c, rfl⟩ := hdvd
-  exact ⟨g ^ c, by rw [hN, ← zpow_mul, mul_comm]⟩
-
 end Cyclic
 
 section Group

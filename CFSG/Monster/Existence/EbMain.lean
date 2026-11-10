@@ -22,9 +22,5 @@ theorem hEb_FE
   · exact eb_case_one he hee heF hπ
   · exact eb_case_two hcen he hee hπ
 
-theorem centralizer_FE_le_GmatGriess_of_census
-    (hcensus : ∀ y ∈ GmatGriess, IsConj xGriess y → ∃ g ∈ GmatGriess, g * xGriess * g⁻¹ = y)
-    (hcen : CosetTwoBCensus) : Subgroup.centralizer (FE : Set MGriess) ≤ GmatGriess :=
-  centralizer_FE_le_GmatGriess hcensus (hEb_FE hcen)
 
 end CFSG.Monster.Existence

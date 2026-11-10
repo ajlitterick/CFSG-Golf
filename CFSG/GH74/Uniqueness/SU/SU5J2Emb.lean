@@ -140,41 +140,12 @@ theorem pRank [Finite G] (h : J2Emb S T x) : Open.pRank 2 S = 4 := by
     have := hle E hE hEE
     norm_num; exact this)
 
-theorem E16_le_T (h : J2Emb S T x) (E : Subgroup G) (hE : E ≤ S) (hEE : IsE 4 E) : E ≤ T := by
-  obtain ⟨A, B, hAB, -, huniq, -, -, -⟩ := h.exists_AB
-  rcases huniq E hE hEE with rfl | rfl
-  · exact hAB.A_le
-  · exact hAB.B_le
 
 theorem JE_eq (h : J2Emb S T x) : JE S = T := by
   obtain ⟨A, B, hAB, -, huniq, hle, -, -⟩ := h.exists_AB
   rw [JE_eq_sup (hA := hAB.A_le.trans h.T_le) (hB := hAB.B_le.trans h.T_le) hAB.A_E hAB.B_E
     (fun F hF hFE => (hle F hF hFE).trans (by norm_num)) huniq, hAB.sup_eq]
 
-theorem center_S (h : J2Emb S T x) : ∃ z ∈ S, z ≠ 1 ∧ z ^ 2 = 1 ∧ z ∈ Zc T ∧
-    ∀ y ∈ S, ((∀ s ∈ S, y * s = s * y) ↔ (y = 1 ∨ y = z)) := by
-  obtain ⟨f, hf, rfl, rfl, rfl⟩ := h
-  refine ⟨f J2Syl.z0, ⟨_, rfl⟩, ?_, ?_, ?_, ?_⟩
-  · intro h1
-    exact J2Syl.z0_ne_one (hf (by rw [h1, map_one]))
-  · rw [pow_two, ← map_mul, J2Syl.z0_sq, map_one]
-  · rw [Zc_map hf, J2Syl.Zc_W]
-    exact Subgroup.mem_map_of_mem f J2Syl.z0_mem_U
-  · rintro _ ⟨m, rfl⟩
-    constructor
-    · intro hc
-      have h2 : ∀ t : J2Syl, m * t = t * m := fun t =>
-        hf (by rw [map_mul, map_mul]; exact hc (f t) ⟨t, rfl⟩)
-      rcases (J2Syl.center_iff m).1 h2 with h3 | h3
-      · left; rw [h3, map_one]
-      · right; rw [h3]
-    · rintro (h1 | h1) _ ⟨t, rfl⟩
-      · have : m = 1 := hf (by rw [h1, map_one])
-        rw [this]; simp
-      · have : m = J2Syl.z0 := hf h1
-        rw [this]
-        have := (J2Syl.center_iff J2Syl.z0).2 (Or.inr rfl) t
-        rw [← map_mul, ← map_mul, this]
 
 theorem unique_normal_four (h : J2Emb S T x) : ∀ N : Subgroup G, N ≤ S →
     (∀ s ∈ S, ∀ n ∈ N, s * n * s⁻¹ ∈ N) → IsE 2 N → N = Zc T := by

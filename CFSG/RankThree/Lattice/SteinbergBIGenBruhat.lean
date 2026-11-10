@@ -32,16 +32,6 @@ theorem inv_mul_mem_orbitTorus {n n' : ModGL τ k} {w : WeylGroup τ} (hn : D.Is
   rw [hw'] at h2
   simpa using h1.inv.mul h2
 
-theorem fixedCell_eq_of_isOrbitLift {n n' : ModGL τ k} {w : WeylGroup τ}
-    (hn : D.IsOrbitLift n w) (hn' : D.IsOrbitLift n' w) : D.fixedCell n = D.fixedCell n' := by
-  have ht := D.orbitTorus_le_orbitBorel (D.inv_mul_mem_orbitTorus hn hn')
-  ext g
-  rw [mem_fixedCell, mem_fixedCell]
-  constructor
-  · rintro ⟨b, hb, b', hb', rfl⟩
-    exact ⟨b, hb, (n⁻¹ * n')⁻¹ * b', mul_mem (inv_mem ht) hb', by group⟩
-  · rintro ⟨b, hb, b', hb', rfl⟩
-    exact ⟨b, hb, (n⁻¹ * n') * b', mul_mem ht hb', by group⟩
 
 theorem isOrbitLift_orbitN {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
     D.IsOrbitLift (D.orbitN O) (setReflection O) :=

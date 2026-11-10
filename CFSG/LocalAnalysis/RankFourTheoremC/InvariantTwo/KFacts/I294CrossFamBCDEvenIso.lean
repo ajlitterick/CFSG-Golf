@@ -183,10 +183,6 @@ theorem inv_apply_mem_of_pow_eq_one (y : V ≃ₗ[K] V) {p : ℕ} (hp : 0 < p) (
         LinearEquiv.ofSubmodules_apply]
       exact TauCeti.BilinForm.mem_isometryGroup_iff.1 y.2 u v⟩
 
-theorem restrictIso_apply (y : TauCeti.BilinForm.isometryGroup B) (W : Submodule K V)
-    (hW : ∀ x ∈ W, (y : V ≃ₗ[K] V) x ∈ W) (hW' : ∀ x ∈ W, (y : V ≃ₗ[K] V)⁻¹ x ∈ W) (x : W) :
-    (((restrictIso y W hW hW' : TauCeti.BilinForm.isometryGroup (B.restrict W)) :
-      W ≃ₗ[K] W) x : V) = (y : V ≃ₗ[K] V) x := rfl
 
 theorem blockHom_restrictIso {D C : Submodule K V} (hDC : IsCompl D C)
     (hperp : ∀ d ∈ D, ∀ c ∈ C, B d c = 0) (hperp' : ∀ c ∈ C, ∀ d ∈ D, B c d = 0)
@@ -383,7 +379,6 @@ theorem three_le_pRank_centralizer_isometry (hp5 : 5 ≤ p) (hpK : ¬ p ∣ Nat.
     (pRank_centralizer_le_block hWC hperp hperp' y yW yC hblock)
 
 end Main
-
 
 
 end CFSG.LocalAnalysis.RankFourTheoremC.BCDEven

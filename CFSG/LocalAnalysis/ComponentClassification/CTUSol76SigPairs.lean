@@ -177,43 +177,5 @@ theorem exists_sigPair_of_third (hq : QuasisimpleTwoPartInput) (hG : SimpleAmbie
   exact ⟨V, F ⊔ zpowers t, ⟨hK, hK', hne, hV, hVK', hAQ, hAV, hAe,
     by rw [hA8, hF.card_four], hAN, F, hF, le_sup_left, hFK⟩, hfV, mem_sup_left heF⟩
 
-@[expose] def SigPairExistsTwoFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K ∈ kStarComponents N, ∀ K' ∈ kStarComponents N, K ≠ K' →
-    ∀ e ∈ K, orderOf e = 2 → ∀ f ∈ K', orderOf f = 2 → f * e = e * f →
-      ∃ V B : Subgroup G, (SigPair N K K' V B ∧ f ∈ V ∧ e ∈ B) ∨
-        (SigPair N K' K V B ∧ e ∈ V ∧ f ∈ B)
-
-theorem sigPairExistsFor_of_two (hq : QuasisimpleTwoPartInput) (h : SigPairExistsTwoFor) :
-    SigPairExistsFor := by
-  classical
-  intro G _ _ hG N hN K hK K' hK' hne e heK he2 f hfK' hf2 hfe
-  by_cases h2 : (kStarComponents N).ncard = 2
-  · exact h G hG N hN h2 K hK K' hK' hne e heK he2 f hfK' hf2 hfe
-  obtain ⟨K'', hK'', hK''K, hK''K'⟩ : ∃ K'' ∈ kStarComponents N, K'' ≠ K ∧ K'' ≠ K' := by
-    by_contra hc
-    push Not at hc
-    have hsub : kStarComponents N ⊆ {K, K'} := fun J hJ => by
-      by_cases hJK : J = K
-      · exact Or.inl hJK
-      · exact Or.inr (hc J hJ hJK)
-    have hle := Set.ncard_le_ncard hsub (Set.toFinite _)
-    rw [Set.ncard_pair hne] at hle
-    have hge : 2 ≤ (kStarComponents N).ncard := by
-      rw [← Set.ncard_pair hne]
-      exact Set.ncard_le_ncard (Set.insert_subset hK (Set.singleton_subset_iff.mpr hK'))
-        (Set.toFinite _)
-    omega
-  obtain ⟨V, B, hP⟩ := exists_sigPair_of_third hq hG hK hK' hne hK'' hK''K hK''K' heK he2 hfK' hf2
-    hfe
-  exact ⟨V, B, Or.inl hP⟩
-
-theorem lemma315bInputFor_simple_of_rest (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (h39 : Lemma39For) (hrest : GoodInvolutionsRestFor) (hsingle : SingleComponentExcludedFor)
-    (hpair : SigPairExistsTwoFor) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_good hq hR1 hF h39 (goodInvolutionsFor_of_rest hq hR1 hrest) hsingle
-    (sigPairExistsFor_of_two hq hpair)
 
 end CFSG.ComponentClassification.Sol76.Sig

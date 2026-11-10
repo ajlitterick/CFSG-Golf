@@ -36,13 +36,6 @@ theorem oddCore_map_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) :
     (CFSG.oddCore_eq_piCore Y).trans (CFSG.pPrimeCore_eq_piCore Y 2).symm]
   exact CFSG.pPrimeCore_map_iso 2 e
 
-theorem map_oddCoreSub_subgroupOf {B L : Subgroup G} (hBL : B ≤ L) :
-    ((CFSG.oddCore ↥(B.subgroupOf L)).map (B.subgroupOf L).subtype).map L.subtype =
-      oddCoreSub B := by
-  let eB : ↥(B.subgroupOf L) ≃* ↥B := Subgroup.subgroupOfEquivOfLe hBL
-  show _ = (CFSG.oddCore ↥B).map B.subtype
-  rw [← oddCore_map_mulEquiv eB, Subgroup.map_map, Subgroup.map_map]
-  rfl
 
 theorem imgOdd_eq_top_iff {B L : Subgroup G} (hBL : B ≤ L) :
     imgOdd (B.subgroupOf L) = ⊤ ↔ L = B ⊔ oddCoreSub L := by
@@ -84,23 +77,12 @@ theorem imgOdd_eq_top_iff {B L : Subgroup G} (hBL : B ≤ L) :
     rw [this]
     exact hy
 
-theorem case34_of_not_quasisimple {L : Subgroup G} (h : A36Strong L)
-    (hnq : ¬ CFSG.IsQuasisimple ↥L) : A36Case3 ↥L ∨ A36Case4 ↥L := by
-  obtain ⟨hconcl, -, -⟩ := h
-  rcases hconcl with ⟨hc, -⟩ | ⟨hc, -⟩ | h3 | h4
-  · exact absurd hc.1 hnq
-  · exact absurd hc.1 hnq
-  · exact Or.inl h3
-  · exact Or.inr h4
 
 theorem mod_five_of_sq {p : ℕ} (h : p ^ 2 % 5 = 1) : p % 5 = 1 ∨ p % 5 = 4 := by
   have h1 := Nat.pow_mod p 2 5
   have h2 : p % 5 < 5 := Nat.mod_lt _ (by norm_num)
   interval_cases hr : p % 5 <;> simp_all
 
-theorem ne_five_of_sq {p : ℕ} (h : p ^ 2 % 5 = 1) : p ≠ 5 := by
-  rintro rfl
-  norm_num at h
 
 theorem five_le_of_prime {p : ℕ} (hp : p.Prime) (h3 : 3 < p) : 5 ≤ p := by
   have h4 : p ≠ 4 := by
@@ -110,79 +92,5 @@ theorem five_le_of_prime {p : ℕ} (hp : p.Prime) (h3 : 3 < p) : 5 ≤ p := by
 
 end A313
 
-theorem a313 (hmult : L2MultiplierFact) {G : Type} [Group G] (hG : SQTKHyp G)
-    (h36 : A36Statement G) (h312 : A312Refined G) {T B L : Subgroup G}
-    (hT : IsSylowTwoOf T ⊤) (hB : B ∈ lFamily T) (hL : L ∈ cComp (⊤ : Subgroup G))
-    (hBL : B < L) (hnq : ¬ CFSG.IsQuasisimple ↥L) : A313Statement B L := by
-  have : Finite G := hG.finite
-  obtain ⟨L₀, hL₀, hBL₀, huniq, hcases⟩ := h312 T hT B hB
-  have hLL₀ : L = L₀ := huniq L hL hBL.le
-  subst hLL₀
-  have hnonq : A312Nonquasi B L := by
-    rcases hcases with h | ⟨hq, -⟩ | ⟨-, h⟩
-    · exact absurd h hBL.ne
-    · exact absurd hq hnq
-    · exact h
-  have h36L := h36 L hL
-  have hcase := A313.case34_of_not_quasisimple h36L hnq
-  obtain ⟨p₀, hp₀, hp₀3, hΛ⟩ := A312.exists_isSL2_oddCore h36L hnq
-  have hcom := h36L.2.1
-  have hr5₀ : 5 ≤ p₀ := A313.five_le_of_prime hp₀ hp₀3
-  set B' : Subgroup ↥L := B.subgroupOf L with hB'
-  have hB'top : B' ≠ ⊤ := by
-    intro h
-    apply hBL.ne
-    refine le_antisymm hBL.le (fun x hx => ?_)
-    have : (⟨x, hx⟩ : ↥L) ∈ B' := by rw [h]; trivial
-    exact this
-  have hOLnorm := A312.normal_subgroupOf_sup_oddCoreSub hBL.le
-  let eB : ↥B' ≃* ↥B := Subgroup.subgroupOfEquivOfLe hBL.le
-  have hqB : CFSG.IsQuasisimple ↥B' ↔ CFSG.IsQuasisimple ↥B :=
-    ⟨CFSG.LocalCores.isQuasisimple_of_mulEquiv eB,
-      CFSG.LocalCores.isQuasisimple_of_mulEquiv eB.symm⟩
-  unfold A312Nonquasi at hnonq
-  dsimp only at hnonq
-  rcases hnonq with ⟨hOL, hLB, p₁, hp₁, hp₁2, hpSL₁⟩ |
-    ⟨hOL, ⟨p₂, hp₂, hp₂5, hp₂8, hpSL₂⟩, N, hNn, hNeq, hN5⟩
-  ·
-    have htop : A313.imgOdd B' = ⊤ := (A313.imgOdd_eq_top_iff hBL.le).mpr hLB
-    have hM : IsSL2 p₀ ↥(A313.imgOdd B') :=
-      IsSL2.of_mulEquiv ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv).symm hΛ
-    have hcore := A313.core hmult hcom hcase hp₀ hp₀3 hΛ hB'top hp₀ hr5₀ hM (Or.inl ⟨htop, rfl⟩)
-    refine ⟨p₀, p₀, hp₀, hp₀3, hΛ, ⟨_, hOLnorm, rfl,
-      IsSL2.of_mulEquiv (A312.quotEquivImage hBL.le).symm hM⟩, Or.inl rfl, ?_⟩
-    rcases hcore with ⟨hq, hsl⟩ | ⟨hnq', hcs⟩
-    · exact Or.inl ⟨hqB.mp hq, IsSL2.of_mulEquiv eB hsl⟩
-    · refine Or.inr ⟨fun h => hnq' (hqB.mpr h), ?_⟩
-      rcases hcs with ⟨-, hlt, hr5', hp5⟩ | ⟨hntop, -⟩
-      · refine Or.inl ⟨hLB, ?_, hr5', hp5⟩
-        rw [← A313.map_oddCoreSub_subgroupOf hBL.le]
-        exact lt_of_le_of_ne (Subgroup.map_mono hlt.le) fun h =>
-          hlt.ne (Subgroup.map_injective L.subtype_injective h)
-      · exact absurd htop hntop
-  ·
-    subst hNeq
-    have hpp : p₂ = p₀ := A313.IsSL2.eq_of_isSL2 hp₂ hp₀ hpSL₂ hΛ
-    subst hpp
-    have hM : IsSL2 5 ↥(A313.imgOdd B') := IsSL2.of_mulEquiv (A312.quotEquivImage hBL.le) hN5
-    have hp0ne : p₂ ≠ 5 := A313.ne_five_of_sq hp₂5
-    have hntop : A313.imgOdd B' ≠ ⊤ := by
-      intro htop
-      have hM' : IsSL2 p₂ ↥(A313.imgOdd B') :=
-        IsSL2.of_mulEquiv ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv).symm hΛ
-      exact hp0ne (A313.IsSL2.eq_of_isSL2 hp₀ Nat.prime_five hM' hM)
-    have hcore := A313.core hmult hcom hcase hp₀ hp₀3 hΛ hB'top (r := 5) Nat.prime_five le_rfl
-      hM (Or.inr ⟨hntop, rfl, hp0ne⟩)
-    refine ⟨p₂, 5, hp₀, hp₀3, hΛ, ⟨_, hNn, rfl, hN5⟩,
-      Or.inr ⟨rfl, A313.mod_five_of_sq hp₂5, hp₂8⟩, ?_⟩
-    rcases hcore with ⟨hq, hsl⟩ | ⟨hnq', hcs⟩
-    · exact Or.inl ⟨hqB.mp hq, IsSL2.of_mulEquiv eB hsl⟩
-    · refine Or.inr ⟨fun h => hnq' (hqB.mpr h), ?_⟩
-      rcases hcs with ⟨htop, -⟩ | ⟨-, hE, hp5, hr5', heq⟩
-      · exact absurd htop hntop
-      · refine Or.inr ⟨?_, hE, hp5, hr5', ?_⟩
-        · refine lt_of_le_of_ne (sup_le hBL.le (Subgroup.map_subtype_le _)) fun h => ?_
-          exact hntop ((A313.imgOdd_eq_top_iff hBL.le).mpr h.symm)
-        · rw [← A313.map_oddCoreSub_subgroupOf hBL.le, heq]
 
 end CFSG.Quasithin

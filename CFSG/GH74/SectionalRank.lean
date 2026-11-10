@@ -87,9 +87,6 @@ theorem sectionalTwoRankLE_sectionalTwoRank {X : Type*} [Group X] [Finite X] :
     SectionalTwoRankLE X (sectionalTwoRank X) :=
   sectionalTwoRank_le_iff.mp le_rfl
 
-theorem gen4_iff_sectionalTwoRank_le {X : Type*} [Group X] [Finite X] :
-    Gen4 X ↔ sectionalTwoRank X ≤ 4 :=
-  sectionalTwoRank_le_iff.symm
 
 theorem sectionalTwoRank_le_of_injective {H X : Type*} [Group H] [Group X] [Finite X]
     (f : H →* X) (hf : Function.Injective f) : sectionalTwoRank H ≤ sectionalTwoRank X := by
@@ -97,19 +94,6 @@ theorem sectionalTwoRank_le_of_injective {H X : Type*} [Group H] [Group X] [Fini
   exact sectionalTwoRank_le_iff.mpr
     (SectionalTwoRankLE.of_injective f hf sectionalTwoRankLE_sectionalTwoRank)
 
-theorem sectionalTwoRank_subgroup_le {X : Type*} [Group X] [Finite X] (K : Subgroup X) :
-    sectionalTwoRank K ≤ sectionalTwoRank X :=
-  sectionalTwoRank_le_of_injective K.subtype K.subtype_injective
-
-theorem sectionalTwoRank_le_of_surjective {X Y : Type*} [Group X] [Group Y] [Finite X]
-    (f : X →* Y) (hf : Function.Surjective f) : sectionalTwoRank Y ≤ sectionalTwoRank X := by
-  have : Finite Y := Finite.of_surjective f hf
-  exact sectionalTwoRank_le_iff.mpr
-    (SectionalTwoRankLE.of_surjective f hf sectionalTwoRankLE_sectionalTwoRank)
-
-theorem sectionalTwoRank_quotient_le {X : Type*} [Group X] [Finite X] (N : Subgroup X)
-    [N.Normal] : sectionalTwoRank (X ⧸ N) ≤ sectionalTwoRank X :=
-  sectionalTwoRank_le_of_surjective (QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N)
 
 theorem sectionalTwoRank_eq_of_mulEquiv {X Y : Type*} [Group X] [Group Y] [Finite X]
     (e : X ≃* Y) : sectionalTwoRank X = sectionalTwoRank Y := by

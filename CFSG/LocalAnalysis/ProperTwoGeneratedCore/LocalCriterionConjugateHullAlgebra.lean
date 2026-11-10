@@ -88,9 +88,5 @@ theorem localHullConjugateEquiv_apply (z u g : G)
     (localHullConjugateEquiv z u g x : G) = g⁻¹ * x.val * g := by
   rfl
 
-theorem localHullConjugateEquiv_symm_apply (z u g : G)
-    (x : localInvolutionPointHull z (rightConjugateElem u g)) :
-    ((localHullConjugateEquiv z u g).symm x : G) = g * x.val * g⁻¹ := by
-  rfl
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionConjugateHull

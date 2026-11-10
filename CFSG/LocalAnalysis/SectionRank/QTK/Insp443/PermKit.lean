@@ -110,12 +110,6 @@ section Count
 variable (hn : n < 2 ^ 32) (Q : RawSchreierDatum n) (hQ : ValidSchreier Q)
 include hn hQ
 
-theorem exists_of_countProducts_ne_zero {f : Table → Bool} {P : Perm (Fin n) → Prop}
-    [DecidablePred P] (hfP : ∀ T g, Rep n T g → (f T = true ↔ P g))
-    (h : countProducts n f (levelTables Q) (idT n) ≠ 0) : ∃ x : Q.originalSubgroup, P x := by
-  rw [← card_subtype_eq_countProducts hn Q hQ hfP] at h
-  obtain ⟨⟨x, hx⟩⟩ := (Nat.card_ne_zero.mp h).1
-  exact ⟨x, hx⟩
 
 theorem forall_of_countProducts_eq_zero {f : Table → Bool} {P : Perm (Fin n) → Prop}
     [DecidablePred P] (hfP : ∀ T g, Rep n T g → (f T = true ↔ P g))
@@ -125,14 +119,6 @@ theorem forall_of_countProducts_eq_zero {f : Table → Bool} {P : Perm (Fin n) �
   have : Nonempty {x : Q.originalSubgroup // P x} := ⟨⟨x, hx⟩⟩
   exact (Nat.card_pos (α := {x : Q.originalSubgroup // P x})).ne' h
 
-theorem mem_of_count_tblEq {T : Table} {g : Perm (Fin n)} (hT : Rep n T g)
-    (h : countProducts n (fun S => tblEq n S T) (levelTables Q) (idT n) ≠ 0) :
-    g ∈ Q.originalSubgroup := by
-  classical
-  obtain ⟨x, hx⟩ := exists_of_countProducts_ne_zero hn Q hQ (P := fun x => x = g)
-    (fun _ _ hS => tblEq_iff_eq hS hT) h
-  rw [← hx]
-  exact x.2
 
 end Count
 
@@ -222,7 +208,6 @@ theorem mem_normalizer_liftB_iff {H : Subgroup (Perm (Fin n))} {k : ℕ}
   · intro h y
     rw [mem_eSub_liftB_iff, mem_eSub_liftB_iff]
     simpa using h (y : Perm (Fin n))
-
 
 
 @[expose] noncomputable def permB (n : ℕ) (bs : List Table) : Fin bs.length → Perm (Fin n) :=

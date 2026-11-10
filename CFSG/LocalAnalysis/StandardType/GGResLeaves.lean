@@ -11,11 +11,6 @@ open CFSG.Assembly
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-@[expose] def GGResModelInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (y : G) (K : Subgroup G), GGResHyp p B Bs x L D J y K → ∀ [Fact p.Prime],
-    GGResLeviDatum p Bs L J K ggSelAny ggTypAny ∨
-      GGResRowAt ggRowNonLevi p J L ∨ GGResRowAt ggRowNonLevi p J K
 
 @[expose] def GGResCaseIQFourInput : Prop :=
   GGResLeaf fun _ _ _ p _ _ Bs _ L _ J _ K =>

@@ -160,9 +160,6 @@ theorem evalWord_hnXP (w : List ℕ) : evalWord hnXP w = hnPi (evalWord hnX w) :
 
 theorem wVal_hnXP (w : ℕ) : wVal hnXP w = hnPi (wVal hnX w) := evalWord_hnXP _
 
-theorem hnX_eq {c : ℕ} (hc : c < 14) :
-    hnX c = if c % 2 = 0 then PresentedGroup.of (⟨c / 2 % hnTL.length, Nat.mod_lt _ (by decide)⟩)
-      else (PresentedGroup.of (⟨c / 2 % hnTL.length, Nat.mod_lt _ (by decide)⟩))⁻¹ := rfl
 
 theorem hnTL_get_lt {c : ℕ} (hc : c < 12) :
     hnTL.get ⟨c / 2 % hnTL.length, Nat.mod_lt _ (by decide)⟩ = (⟨c / 2, by omega⟩ : Fin 7) := by

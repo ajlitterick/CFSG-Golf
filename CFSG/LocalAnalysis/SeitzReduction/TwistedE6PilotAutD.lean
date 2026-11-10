@@ -145,31 +145,6 @@ theorem eq_one_of_fix_su6Levi (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
   rw [hm1, one_mul, inv_one, mul_one] at h
   exact h
 
-theorem eq_one_of_fix_su6Levi_conj (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
-    (n : graphFixedRootGroup TwistTag.E6 K σ) (β : MulAut (graphFixedRootGroup TwistTag.E6 K σ))
-    (hβX : ∀ x : graphFixedRootGroup TwistTag.E6 K σ, (x : ModGL TwistTag.E6.tag K) ∈
-      (thetaTorus (algebraMap k K)).map (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom →
-        β x = x)
-    (hβD : ∀ x : graphFixedRootGroup TwistTag.E6 K σ, (x : ModGL TwistTag.E6.tag K) ∈
-      (su6Levi σ).map (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom → β x = x)
-    (m : ℕ) (hβn : β ^ 2 ^ m = 1) : β = 1 := by
-  set β' := (MulAut.conj n)⁻¹ * β * ((MulAut.conj n)⁻¹)⁻¹ with hβ'def
-  have hfix : ∀ x : graphFixedRootGroup TwistTag.E6 K σ,
-      β (MulAut.conj n x) = MulAut.conj n x → β' x = x := by
-    intro x hx
-    rw [hβ'def, inv_inv, MulAut.mul_apply, MulAut.mul_apply, hx, ← MulAut.mul_apply,
-      inv_mul_cancel, MulAut.one_apply]
-  have hconj : ∀ {A : Subgroup (ModGL TwistTag.E6.tag K)} (x : graphFixedRootGroup TwistTag.E6 K σ),
-      (x : ModGL TwistTag.E6.tag K) ∈ A →
-      ((MulAut.conj n x : graphFixedRootGroup TwistTag.E6 K σ) : ModGL TwistTag.E6.tag K) ∈
-        A.map (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom :=
-    fun x hx => ⟨x, hx, rfl⟩
-  have h1 : β' = 1 := eq_one_of_fix_su6Levi hf2 hk hK hσ β'
-    (fun x hx => hfix x (hβX _ (hconj x hx))) (fun x hx => hfix x (hβD _ (hconj x hx))) m (by
-      rw [hβ'def, conj_pow, hβn, mul_one, mul_inv_cancel])
-  calc β = ((MulAut.conj n)⁻¹)⁻¹ * β' * (MulAut.conj n)⁻¹ := by rw [hβ'def]; group
-    _ = 1 := by rw [h1, mul_one, inv_inv, mul_inv_cancel]
 
 end AutD
 

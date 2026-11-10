@@ -20,69 +20,10 @@ open scoped Matrix
 
 variable {K : Type} [Field K] [CharP K 2]
 
-noncomputable def tv03 (t : K) : SpecialLinearGroup (Fin 4) K :=
-  SpecialLinearGroup.transvection (by decide : (0 : Fin 4) ≠ 3) t
-
-omit [CharP K 2] in
-theorem coe_tv03 (t : K) :
-    (tv03 t : Matrix (Fin 4) (Fin 4) K) = 1 + Matrix.single 0 3 t := by
-  rw [tv03, SpecialLinearGroup.transvection_coe]
 
 abbrev rootR (K : Type) [Field K] : Subgroup (SpecialLinearGroup (Fin 4) K) :=
   rootGroup K (by decide : (0 : Fin 4) ≠ 3)
 
-omit [CharP K 2] in
-theorem tv03_mem_rootR (t : K) : tv03 t ∈ rootR K := by
-  rw [rootR]
-  exact CFSG.ClassicalGroups.SpecialLinear.transvection_mem_rootGroup (by decide : (0 : Fin 4) ≠ 3) t
-
-theorem slRootGroup_isElemAbelian {ι : Type} [Fintype ι] [DecidableEq ι] {i j : ι}
-    (hij : i ≠ j) : CFSG.Open.IsElemAbelian 2 (rootGroup K hij) := by
-  refine ⟨IsMulCommutative.of_comm ?_, ?_⟩
-  · intro a b
-    apply Subtype.ext
-    simp only [Subgroup.coe_mul]
-    obtain ⟨x, hx⟩ := (CFSG.ClassicalGroups.SpecialLinear.mem_rootGroup (K := K) (hij := hij)).mp a.2
-    obtain ⟨y, hy⟩ := (CFSG.ClassicalGroups.SpecialLinear.mem_rootGroup (K := K) (hij := hij)).mp b.2
-    rw [← hx, ← hy]
-    rw [← SpecialLinearGroup.transvection_add, ← SpecialLinearGroup.transvection_add]
-    congr 1
-    exact add_comm x y
-  · intro x hx
-    obtain ⟨c, hc⟩ := (CFSG.ClassicalGroups.SpecialLinear.mem_rootGroup (K := K) (hij := hij)).mp hx
-    rw [← hc, pow_two, ← SpecialLinearGroup.transvection_add, CharTwo.add_self_eq_zero,
-      SpecialLinearGroup.transvection_coeff_zero]
-
-omit [CharP K 2] in
-theorem slRootGroup_card {ι : Type} [Fintype ι] [DecidableEq ι] {i j : ι}
-    (hij : i ≠ j) : Nat.card (rootGroup K hij) = Nat.card K := by
-  change Nat.card (CFSG.ClassicalGroups.SpecialLinear.rootHom K hij).range = Nat.card K
-  rw [MonoidHom.range_eq_map, Subgroup.card_map_of_injective (CFSG.ClassicalGroups.SpecialLinear.rootHom_injective hij)]
-  rw [Nat.card_congr Subgroup.topEquiv.toEquiv, Nat.card_congr Multiplicative.toAdd]
-
-theorem rootR_isElemAbelian : CFSG.Open.IsElemAbelian 2 (rootR K) :=
-  slRootGroup_isElemAbelian (K := K) (by decide : (0 : Fin 4) ≠ 3)
-
-omit [CharP K 2] in
-theorem rootR_card (hK : Nat.card K = 4) : Nat.card (rootR K) = 4 := by
-  rw [rootR, slRootGroup_card (by decide : (0 : Fin 4) ≠ 3), hK]
-
-theorem rootR_not_le_center :
-    ¬ rootR K ≤ Subgroup.center (SpecialLinearGroup (Fin 4) K) := by
-  intro hle
-  have hmem : tv03 (1 : K) ∈ Subgroup.center (SpecialLinearGroup (Fin 4) K) :=
-    hle (tv03_mem_rootR (1 : K))
-  rw [CFSG.RankThree.PartOne.K159.Klein.center_sl4_eq_bot] at hmem
-  have hbot : tv03 (1 : K) = 1 := Subgroup.mem_bot.mp hmem
-  have hne : tv03 (1 : K) ≠ 1 := by
-    intro h
-    have h0 : (1 : SpecialLinearGroup (Fin 4) K) =
-        SpecialLinearGroup.transvection (by decide : (0 : Fin 4) ≠ 3) (0 : K) :=
-      (SpecialLinearGroup.transvection_coeff_zero (by decide : (0 : Fin 4) ≠ 3)).symm
-    rw [h0] at h
-    exact one_ne_zero (SpecialLinearGroup.transvection_injective
-      (by decide : (0 : Fin 4) ≠ 3) h)
-  exact hne hbot
 
 section OrderFiveCentralizers
 

@@ -217,18 +217,6 @@ theorem GGSixCtxV2.d_le_centralizer (h : GGSixCtxV2 p B Bs x L D J Δ t n f ψ) 
   Subgroup.mem_centralizer_singleton_iff.mpr
     (congrArg Subtype.val (h.d_elem.1.is_comm.comm (⟨δ, hδ⟩ : ↥D) ⟨d, hd⟩))
 
-theorem GGSixCtxV2.normalizer_ggKd_le (h : GGSixCtxV2 p B Bs x L D J Δ t n f ψ)
-    (h69 : ∀ g : G, J.map (MulAut.conj g).toMonoidHom ≤ ggM p B x L D J →
-      D.map (MulAut.conj g).toMonoidHom ≤ ggM p B x L D J → g ∈ ggM p B x L D J)
-    (h66 : Subgroup.centralizer (J : Set G) ≤ ggM p B x L D J) {d : G} (hd : d ∈ D)
-    (hX : Subgroup.normalizer (ggKd p B x L D J d : Set G) ≤
-      Subgroup.normalizer ((Bs ⊔ ggKd p B x L D J d ⊔
-        Subgroup.centralizer (ggKd p B x L D J d : Set G) : Subgroup G) : Set G)) :
-    Subgroup.normalizer (ggKd p B x L D J d : Set G) ≤ ggM p B x L D J := by
-  have hKM := h.ggKd_sup_centralizer_le h66 hd
-  refine normalizer_le_of_conj_le h69 ((le_ggKd p B x L D J d).trans
-    (le_sup_right.trans le_sup_left)) (h.d_le_bstar.trans (le_sup_left.trans le_sup_left)) ?_ hX
-  exact sup_le (sup_le h.bstar_le_normalizer (le_sup_left.trans hKM)) (le_sup_right.trans hKM)
 
 theorem GGSixCtxV2.centralizer_le_ggM (h : GGSixCtxV2 p B Bs x L D J Δ t n f ψ)
     (h69 : ∀ g : G, J.map (MulAut.conj g).toMonoidHom ≤ ggM p B x L D J →

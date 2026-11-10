@@ -48,23 +48,6 @@ theorem pointClass_inter_eq_subgroupClass {H : Subgroup G} {z : G}
   · rintro ⟨g, hg, rfl⟩
     exact ⟨⟨g, rfl⟩, (pointClass_conjugate_mem_iff h g).mpr hg⟩
 
-theorem point_normalizer_eq {H : Subgroup G} {z : G}
-    (h : InvolutionPointLocalEmbedding H z) : Subgroup.normalizer (H : Set G) = H := by
-  apply le_antisymm
-  · intro g hg
-    apply H.inv_mem_iff.mp
-    apply (h.unique_containment g⁻¹).mp
-    have heq := Subgroup.mem_normalizer_iff_map_conj_eq.mp hg
-    rw [rightConjugate, Subgroup.conjBy, inv_inv]
-    have heq' : H.map (MulAut.conj g).toMonoidHom = H := by
-      have hhom : (MulAut.conj g).toMonoidHom = (↑(MulAut.conj g) : G →* G) := by
-        ext x
-        rfl
-      rw [hhom]
-      exact heq
-    rw [heq']
-    exact h.distinguished_mem
-  · exact H.le_normalizer
 
 variable [Finite G]
 
@@ -252,17 +235,6 @@ theorem pointClass_factors_mem_of_product_centralizing {H : Subgroup G} {z t s :
   have hprod := H.mul_mem htH hxH
   simpa only [← mul_assoc, htt, one_mul] using hprod
 
-theorem involution_point_product_confinement {H : Subgroup G} {z : G}
-    (h : InvolutionPointLocalEmbedding H z) :
-    (∀ u : G, orderOf u = 2 → Commute u z →
-      ¬ Subgroup.centralizer ({u} : Set G) ≤ H → u * z ∉ involutionPointClass z) ∧
-    (∀ t ∈ involutionPointClass z, Even (orderOf (t * z)) → t ∈ H) ∧
-    (∀ t ∈ involutionPointClass z, ∀ s ∈ involutionPointClass z,
-      t * s ≠ 1 → Commute (t * s) z → t ∈ H ∧ s ∈ H) :=
-  ⟨fun _ hu huz hescape => involution_point_product_not_mem h hu huz hescape,
-    fun _ ht heven => pointClass_mem_of_even_product_order h ht heven,
-    fun _ ht _ hs hne hcentral =>
-      pointClass_factors_mem_of_product_centralizing h ht hs hne hcentral⟩
 
 omit [Finite G] in
 theorem pointClass_eq_conjAct_orbit (z : G) :
@@ -358,23 +330,5 @@ theorem point_fixed_coset_unique {H : Subgroup G} {z : G}
   rw [fixed_coset_iff_mem_rightConjugate, h.unique_containment]
   rw [QuotientGroup.eq]
   simp only [mul_one]
-omit [Finite G] in
-theorem pointClass_fixed_coset_unique {H : Subgroup G} {z t : G}
-    (h : InvolutionPointLocalEmbedding H z) (ht : t ∈ involutionPointClass z) :
-    ∃! omega : conjugateCosetSpace H, t • omega = omega := by
-  obtain ⟨g, rfl⟩ := ht
-  let base : conjugateCosetSpace H := QuotientGroup.mk 1
-  have hfix : z • base = base := (point_fixed_coset_unique h base).mpr rfl
-  refine ⟨g⁻¹ • base, ?_, ?_⟩
-  · change (g⁻¹ * z * g) • (g⁻¹ • base) = g⁻¹ • base
-    simp only [mul_smul, smul_inv_smul, hfix]
-  · intro omega homega
-    have hfixed : z • (g • omega) = g • omega := by
-      have hh := congrArg (fun w : conjugateCosetSpace H => g • w) homega
-      simpa only [rightConjugateElem, ← mul_smul, mul_assoc,
-        mul_inv_cancel_left] using hh
-    have heq := (point_fixed_coset_unique h (g • omega)).mp hfixed
-    have hh := congrArg (fun w : conjugateCosetSpace H => g⁻¹ • w) heq
-    simpa only [inv_smul_smul] using hh
 
 end CFSG.ShultStronglyClosedTI

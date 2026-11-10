@@ -57,22 +57,5 @@ theorem suzukiCover_native_nontrivial_Sylow_centralizer
     (hker.symm ▸ hne)
   exact hker ▸ h
 
-theorem suzuki_nontrivial_central_two_cover_Sylow_centralizer
-    {K : Type} [Field K] [Finite K]
-    {E : Type u} [Group E] [Finite E] [Group.IsPerfect E]
-    (a : ℕ) (ha : 1 ≤ a) (hcard : Nat.card K = 2 ^ (2 * a + 1))
-    (η : E →* GLASzGroup a K) (hsurj : Function.Surjective η)
-    (hcentral : η.ker ≤ Subgroup.center E) (hp : IsPGroup 2 η.ker)
-    (hne : η.ker ≠ ⊥) :
-    (∀ P : Sylow 2 E, Subgroup.centralizer (P : Set E) = η.ker) ∧
-      η.ker = Subgroup.center E := by
-  let e := glaSzEquivNative a ha hcard
-  let φ := e.toMonoidHom.comp η
-  have hker : φ.ker = η.ker :=
-    MonoidHom.ker_comp_of_injective η e.toMonoidHom e.injective
-  have h := suzukiCover_native_nontrivial_Sylow_centralizer a ha φ
-    (e.surjective.comp hsurj) (hker.symm ▸ hcentral) (hker.symm ▸ hp)
-    (hker.symm ▸ hne)
-  exact hker ▸ h
 
 end CFSG.ShultStronglyClosedTI

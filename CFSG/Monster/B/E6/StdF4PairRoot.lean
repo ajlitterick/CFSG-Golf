@@ -92,9 +92,6 @@ theorem gL_x2_rootVecOf :
 theorem fibT_one :
     fibT 1 = repPoint 1 := rfl
 
-theorem fibT_mem_rootClass
-    (d : Fin 5) : fibT d ∈ rootClass :=
-  (mem_rootClass_iff _).2 ⟨_, rfl⟩
 
 theorem gL_a0L_of_mem
     {g : stdGroup} (hg : (g : ModGL Tag.E6 K) ∈ nativeParabolic firstJ) :

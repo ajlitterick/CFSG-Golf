@@ -364,17 +364,6 @@ theorem le_centralizer_of_le_closure [Finite G] {N : Subgroup G} [N.Normal]
   hB2.trans <| (closure_le _).2 fun _ hb =>
     mem_centralizer_of_two_pow_eq_one hNodd ht hBA hAB htB hC hb.1 hb.2.choose_spec
 
-theorem commutator_oddCore_eq_bot [Finite G] {t : G} (ht : orderOf t = 2) {A B : Subgroup G}
-    (hAB : A ≤ normalizer (B : Set G)) (htB : t ∈ normalizer (B : Set G))
-    (hBA : B ≤ ⁅A, zpowers t⁆) (hB2 : B ≤ closure {b : G | b ∈ B ∧ ∃ k : ℕ, b ^ 2 ^ k = 1})
-    (hC : ⁅oddCore G ⊓ centralizer ({t} : Set G), B⁆ = ⊥) : ⁅oddCore G, B⁆ = ⊥ := by
-  have htt : t * t = 1 := by rw [← sq, ← ht, pow_orderOf_eq_one]
-  have hOodd : Odd (Nat.card (oddCore G)) :=
-    CFSG.DisconnectedInvolutionGraph.Helpers.oddCore_odd
-  rw [commutator_eq_bot_iff_le_centralizer] at hC ⊢
-  rw [← le_centralizer_iff]
-  refine le_centralizer_of_le_closure hOodd htt hBA hAB htB (fun c hc hct => ?_) hB2
-  exact hC ⟨hc, mem_centralizer_singleton_iff.2 hct⟩
 
 theorem le_closure_two_pow_of_perfect [Finite G] {B : Subgroup G} (hB : ⁅B, B⁆ = B) :
     B ≤ closure {b : G | b ∈ B ∧ ∃ k : ℕ, b ^ 2 ^ k = 1} := by

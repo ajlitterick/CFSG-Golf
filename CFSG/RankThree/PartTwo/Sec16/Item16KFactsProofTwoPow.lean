@@ -90,6 +90,5 @@ theorem le_pCoreOf_sup_of_commutator {Y R : Subgroup G} (hR2 : IsPGroup 2 R)
 
 end KS163TwoPowProof
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec16

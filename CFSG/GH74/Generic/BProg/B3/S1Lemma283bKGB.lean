@@ -10,12 +10,6 @@ open CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.GLS.TwoThin CFSG.GH74.GLS.C3.Layer1 
   CFSG.GH74.Generic.BProg CFSG.Blueprint Subgroup S1Lemma283b
 open scoped commutatorElement MatrixGroups
 
-@[expose] def KG531BCore : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (M : Subgroup X), CFSG.IsQuasisimple ↥M →
-    GHList (↥M ⧸ center ↥M) → pPrimeCore 2 ↥M = ⊥ → ∀ t ∈ M, orderOf t = 2 →
-    ∀ L : Subgroup X, IsPCompIn 2 (centralizer ({t} : Set X) ⊓ M) L →
-    ∀ (F : Type) [Field F] [Fintype F], Odd (Fintype.card F) → 5 ≤ Fintype.card F →
-    Nonempty (↥L ⧸ pPrimeCore 2 ↥L ≃* SL(2, F)) → pPrimeCoreOf 2 L = ⊥
 
 @[expose] def KG531BPair : Prop :=
   ∀ (X : Type) [Group X] [Finite X] (M : Subgroup X), CFSG.IsQuasisimple ↥M →

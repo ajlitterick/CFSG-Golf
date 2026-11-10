@@ -97,8 +97,6 @@ theorem isPerfect_leviLift (hθ : Function.Surjective θ) (hC : θ.ker ≤ Subgr
 @[expose] def leviLiftHom : leviLift θ R →* R :=
   (θ.comp (leviLift θ R).subtype).codRestrict R fun f => leviLift_le_comap θ R f.2
 
-theorem coe_leviLiftHom (f : leviLift θ R) : (leviLiftHom θ R f : X) = θ f :=
-  rfl
 
 theorem leviLiftHom_surjective (hθ : Function.Surjective θ) [Group.IsPerfect R] :
     Function.Surjective (leviLiftHom θ R) := by

@@ -25,15 +25,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec13
       Nonempty (X ≃* alternatingGroup (Fin 10))) →
     Subgroup.center X = ⊥ ∧ ∀ σ : MulAut X, σ ^ 3 = 1 → σ ∈ (MulAut.conj : X →* MulAut X).range
 
-@[expose] def KF148PGL : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (X E : Subgroup Γ),
-    Group.IsPerfect ↥X →
-    (IsLThreePi ↥X ∨ ∃ (p f : ℕ) (_ : Fact p.Prime), p ≠ 3 ∧ 1 ≤ f ∧ IsLThreeEpsAt ↥X p f) →
-    E ≤ Subgroup.normalizer (X : Set Γ) → CFSG.Assembly.IsElemAbelian 3 E → Nat.card E = 27 →
-    (∀ g ∈ Subgroup.centralizer (E : Set Γ), g ^ 3 = 1 → g ∈ E) →
-    (∃ z : Γ, z ≠ 1 ∧ E ⊓ Subgroup.centralizer (X : Set Γ) = Subgroup.zpowers z) →
-    (∃ a ∈ E, ¬ InnerOn148 X a) →
-    ∃ (p f : ℕ), 1 ≤ f ∧ IsZ3PGLThreeAt ↥(X ⊔ E) p f
 
 section Field
 

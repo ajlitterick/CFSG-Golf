@@ -18,25 +18,6 @@ open scoped MatrixGroups commutatorElement
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K : Subgroup G} {z : G}
 
-theorem exists_local_pairIW (S : CSetupW p f 2 Ω K z) (Fr : Frame p f 2 Ω K z) {i j : Fin 3}
-    (hij : i ≠ j) : ∃ (l : Fin 3) (a b : Fin 2), a ≠ b ∧ l.succAbove a = i ∧
-      l.succAbove b = j ∧ Nonempty (LocalFrameI Fr l) := by
-  obtain ⟨l, hli, hlj⟩ := Models.SymplecticPairs.exists_ne_ne (show 3 ≤ 2 + 1 by omega) i j
-  obtain ⟨a, ha⟩ := Fin.exists_succAbove_eq (Ne.symm hli)
-  obtain ⟨b, hb⟩ := Fin.exists_succAbove_eq (Ne.symm hlj)
-  refine ⟨l, a, b, ?_, ha, hb, exists_localFrameIW S Fr l⟩
-  rintro rfl
-  exact hij (ha.symm.trans hb)
-
-theorem exists_shortNodeAtW (S : CSetupW p f 2 Ω K z) (Fr : Frame p f 2 Ω K z) {i j : Fin 3}
-    (hij : i ≠ j) : ∃ T, IsShortNodeAt Fr i j T := by
-  obtain ⟨l, a, b, hab, rfl, rfl, ⟨LF⟩⟩ := exists_local_pairIW S Fr hij
-  let X : Subgroup ↥(suppGroup (coords a ∪ coords b) : Subgroup (StatedSp 2 (GaloisField p f))) :=
-    (Models.SymplecticPairs.shortBlock (GaloisField p f) hab).range.subgroupOf
-      (suppGroup (coords a ∪ coords b))
-  have hle := LF.map_layerHom_le S hab X
-  exact ⟨X.map (LF.layerHom S hab), hle,
-    (LF.isAdaptedShortIn_iff S hab hle).mpr ⟨_, Or.inl rfl, rfl⟩⟩
 
 theorem exists_symplecticBlockStandardPairW (S : CSetupW p f 2 Ω K z) (Fr : Frame p f 2 Ω K z)
     {i₀ j₀ : Fin 3} (hij : i₀ ≠ j₀) {T : Subgroup G} (hT : IsShortNodeAt Fr i₀ j₀ T) {l : Fin 3}

@@ -143,15 +143,6 @@ theorem natCard_N3 :
     (Module.End (ZMod 2) U3)ˣ ≃* GL (Fin 3) (ZMod 2) :=
   Units.mapEquiv (LinearMap.toMatrixAlgEquiv basisU3).toMulEquiv
 
-theorem natCard_glU4 :
-    Nat.card (Module.End (ZMod 2) U4)ˣ = 20160 := by
-  rw [Nat.card_congr glU4Equiv.toEquiv, Matrix.card_GL_field, ZMod.card, Fin.prod_univ_four]
-  rfl
-
-theorem natCard_glU3 :
-    Nat.card (Module.End (ZMod 2) U3)ˣ = 168 := by
-  rw [Nat.card_congr glU3Equiv.toEquiv, Matrix.card_GL_field, ZMod.card, Fin.prod_univ_three]
-  rfl
 
 instance finite_glU4 :
     Finite (Module.End (ZMod 2) U4)ˣ :=
@@ -161,72 +152,5 @@ instance finite_glU3 :
     Finite (Module.End (ZMod 2) U3)ˣ :=
   Finite.of_equiv _ glU3Equiv.symm.toEquiv
 
-theorem resHomU4_surjective :
-    Function.Surjective (resHomU U4) := by
-  rw [← MonoidHom.range_eq_top]
-  apply Subgroup.eq_top_of_card_eq
-  have h : Nat.card (resHomU U4).range * Nat.card (resHomU U4).ker =
-      Nat.card (wSetStab U4) := natCard_range_mul_ker (resHomU U4)
-  have hker : Nat.card (resHomU U4).ker = 2 ^ 11 := by
-    rw [ker_resHomU, ← natCard_CU4]
-    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe wFix_le_wSetStab).toEquiv
-  rw [natCard_glU4]
-  have h' : Nat.card (resHomU U4).range * 2 ^ 11 = 41287680 :=
-    (congrArg (Nat.card (resHomU U4).range * ·) hker.symm).trans (h.trans natCard_N4)
-  exact Nat.eq_of_mul_eq_mul_right (by norm_num : 0 < 2 ^ 11) (h'.trans (by norm_num))
-
-theorem resHomU3_surjective :
-    Function.Surjective (resHomU U3) := by
-  rw [← MonoidHom.range_eq_top]
-  apply Subgroup.eq_top_of_card_eq
-  have h : Nat.card (resHomU U3).range * Nat.card (resHomU U3).ker =
-      Nat.card (wSetStab U3) := natCard_range_mul_ker (resHomU U3)
-  have hker : Nat.card (resHomU U3).ker = 2 ^ 15 := by
-    rw [ker_resHomU, ← natCard_CU3]
-    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe wFix_le_wSetStab).toEquiv
-  rw [natCard_glU3]
-  have h' : Nat.card (resHomU U3).range * 2 ^ 15 = 5505024 :=
-    (congrArg (Nat.card (resHomU U3).range * ·) hker.symm).trans (h.trans natCard_N3)
-  exact Nat.eq_of_mul_eq_mul_right (by norm_num : 0 < 2 ^ 15) (h'.trans (by norm_num))
-
-@[expose] def n4QuotEquiv :
-    wSetStab U4 ⧸ (wFix (U4 : Set (Wv v0))).subgroupOf (wSetStab U4) ≃* GL (Fin 4) (ZMod 2) :=
-  (QuotientGroup.quotientMulEquivOfEq ker_resHomU.symm).trans
-    ((QuotientGroup.quotientKerEquivOfSurjective _ resHomU4_surjective).trans glU4Equiv)
-
-@[expose] def n3QuotEquiv :
-    wSetStab U3 ⧸ (wFix (U3 : Set (Wv v0))).subgroupOf (wSetStab U3) ≃* GL (Fin 3) (ZMod 2) :=
-  (QuotientGroup.quotientMulEquivOfEq ker_resHomU.symm).trans
-    ((QuotientGroup.quotientKerEquivOfSurjective _ resHomU3_surjective).trans glU3Equiv)
-
-theorem native_three_four_space_normalizers :
-    Module.finrank (ZMod 2) U3 = 3 ∧ Module.finrank (ZMod 2) U4 = 4 ∧
-    (∀ k : Kstab v0, k ∈ wSetStab U3 ⊓ Mfr ↔ (k : OLq) ∈ monoSub (ceqFofAHyp A2)) ∧
-    (∀ k : Kstab v0, k ∈ wSetStab U4 ⊓ Mfr ↔ (k : OLq) ∈ monoSub (ceqFofAHyp A3)) ∧
-    FofA A2 = FA2 ∧ FofA A3 = FA3 ∧
-    Nonempty (↥(wSetStab U3 ⊓ Mfr) ≃* SDD (ceqFofAHyp A2)) ∧
-    Nonempty (↥(wSetStab U4 ⊓ Mfr) ≃* SDD (ceqFofAHyp A3)) ∧
-    Function.Surjective (resHomU U3) ∧
-    (resHomU U3).ker = (wFix (U3 : Set (Wv v0))).subgroupOf (wSetStab U3) ∧
-    Function.Surjective (resHomU U4) ∧
-    (resHomU U4).ker = (wFix (U4 : Set (Wv v0))).subgroupOf (wSetStab U4) ∧
-    Nonempty (wSetStab U3 ⧸ (wFix (U3 : Set (Wv v0))).subgroupOf (wSetStab U3) ≃*
-      GL (Fin 3) (ZMod 2)) ∧
-    Nonempty (wSetStab U4 ⧸ (wFix (U4 : Set (Wv v0))).subgroupOf (wSetStab U4) ≃*
-      GL (Fin 4) (ZMod 2)) ∧
-    Nat.card (wSetStab U3) = 5505024 ∧ Nat.card (wFix (U3 : Set (Wv v0))) = 2 ^ 15 ∧
-    Nat.card (wSetStab U4) = 41287680 ∧ Nat.card (wFix (U4 : Set (Wv v0))) = 2 ^ 11 ∧
-    IsPGroup 2 (wFix (U3 : Set (Wv v0))) ∧ IsPGroup 2 (wFix (U4 : Set (Wv v0))) := by
-  refine ⟨finrank_U3, finrank_U4, mem_wSetStab_inf_Mfr_iff pairSpace_U3,
-    mem_wSetStab_inf_Mfr_iff pairSpace_U4, rfl, rfl, ⟨?_⟩, ⟨?_⟩, resHomU3_surjective,
-    ker_resHomU, resHomU4_surjective, ker_resHomU, ⟨n3QuotEquiv⟩, ⟨n4QuotEquiv⟩, natCard_N3,
-    natCard_CU3, natCard_N4, natCard_CU4, IsPGroup.of_card natCard_CU3,
-    IsPGroup.of_card natCard_CU4⟩
-  · exact ((wSetStab U3 ⊓ Mfr).equivMapOfInjective _ Subtype.coe_injective).trans
-      ((MulEquiv.subgroupCongr (map_wSetStab_inf_Mfr_eq pairSpace_U3)).trans
-        (monoSubEquiv _).symm)
-  · exact ((wSetStab U4 ⊓ Mfr).equivMapOfInjective _ Subtype.coe_injective).trans
-      ((MulEquiv.subgroupCongr (map_wSetStab_inf_Mfr_eq pairSpace_U4)).trans
-        (monoSubEquiv _).symm)
 
 end CFSG.Monster.B.TwoA

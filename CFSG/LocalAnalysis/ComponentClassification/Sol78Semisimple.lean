@@ -21,8 +21,6 @@ theorem layer_eq_top_of_mulEquiv {A B : Type*} [Group A] [Group B] (f : A ≃* B
   rw [h, map_top_of_surjective _ f.surjective] at hle
   exact top_unique hle
 
-theorem layer_layer_eq_top {Q : Type*} [Group Q] : layer ↥(layer Q) = ⊤ :=
-  CFSG.WholeGroup.layer_layer_eq_top
 
 theorem normal_of_isComponent_of_layer_eq_top {Q : Type*} [Group Q] [Finite Q]
     (hQ : layer Q = ⊤) {K : Subgroup Q} (hK : IsComponent K) : K.Normal := by
@@ -85,14 +83,6 @@ theorem layer_eq_top_of_normal_of_perfect {Q : Type*} [Group Q] [Finite Q] (hQ :
   obtain ⟨z, hz, hzy⟩ := hle (hNS y.2)
   rwa [Subtype.ext hzy] at hz
 
-theorem layer_twoLayerIn_eq_top {X : Type} [Group X] [Finite X] {C : Subgroup X}
-    (hO : pPrimeCore 2 ↥C = ⊥) : layer ↥(FooteLit.twoLayerIn C) = ⊤ := by
-  have h1 : pLayer ↥C 2 = layer ↥C :=
-    ClassicalInvolution.LBalanceProof.pLayer_eq_layer_of_pPrimeCore_eq_bot hO
-  have e : ↥(layer ↥C) ≃* ↥(FooteLit.twoLayerIn C) := by
-    rw [FooteLit.twoLayerIn, h1]
-    exact (layer ↥C).equivMapOfInjective C.subtype C.subtype_injective
-  exact layer_eq_top_of_mulEquiv e layer_layer_eq_top
 
 theorem conjClosure_le {X : Type*} [Group X] {J E M : Subgroup X} (hJM : J ≤ M)
     (hEM : E ≤ normalizer (M : Set X)) : FooteLit.conjClosure J E ≤ M := by
@@ -133,41 +123,5 @@ theorem le_normalizer_conjClosure {X : Type*} [Group X] (J E : Subgroup X) :
   have h2 : g⁻¹ * (g * x * g⁻¹) * g⁻¹⁻¹ = x := by group
   rwa [h2] at h1
 
-theorem conjClosure_perfect {X : Type*} [Group X] {J : Subgroup X} (hJ : ⁅J, J⁆ = J)
-    (E : Subgroup X) :
-    ⁅FooteLit.conjClosure J E, FooteLit.conjClosure J E⁆ = FooteLit.conjClosure J E := by
-  refine le_antisymm (commutator_le.mpr fun x hx y hy => ?_) ?_
-  · exact mul_mem (mul_mem (mul_mem hx hy) (inv_mem hx)) (inv_mem hy)
-  · rw [FooteLit.conjClosure, closure_le]
-    intro x hx
-    simp only [Set.mem_iUnion] at hx
-    obtain ⟨e, he, hxe⟩ := hx
-    have hle : conjugate J e ≤ FooteLit.conjClosure J E := by
-      rw [FooteLit.conjClosure]
-      intro y hy
-      exact subset_closure (Set.mem_iUnion₂.mpr ⟨e, he, hy⟩)
-    have hperf : ⁅conjugate J e, conjugate J e⁆ = conjugate J e := by
-      rw [conjugate, ← Subgroup.map_commutator, hJ]
-    rw [SetLike.mem_coe, ← hperf] at hxe
-    exact commutator_mono hle hle hxe
-
-theorem layer_conjClosure_eq_top {X : Type} [Group X] [Finite X] {C J E : Subgroup X}
-    (hO : pPrimeCore 2 ↥C = ⊥) (hJ : ⁅J, J⁆ = J) (hJL : J ≤ FooteLit.twoLayerIn C)
-    (hLE : FooteLit.twoLayerIn C ≤ E)
-    (hEL : E ≤ normalizer (FooteLit.twoLayerIn C : Set X)) :
-    layer ↥(FooteLit.conjClosure J E) = ⊤ := by
-  set M := FooteLit.twoLayerIn C with hM
-  set Y := FooteLit.conjClosure J E with hY
-  have hYM : Y ≤ M := conjClosure_le hJL hEL
-  have hn : (Y.subgroupOf M).Normal := by
-    rw [normal_subgroupOf_iff_le_normalizer hYM]
-    exact hLE.trans (le_normalizer_conjClosure J E)
-  have hperf : Group.IsPerfect ↥Y := Subgroup.isPerfect_iff.mpr (conjClosure_perfect hJ E)
-  have hperf' : ⁅Y.subgroupOf M, Y.subgroupOf M⁆ = Y.subgroupOf M := by
-    rw [← Subgroup.isPerfect_iff]
-    exact Group.IsPerfect.ofSurjective (f := (subgroupOfEquivOfLe hYM).symm.toMonoidHom)
-      (subgroupOfEquivOfLe hYM).symm.surjective
-  have h := layer_eq_top_of_normal_of_perfect (layer_twoLayerIn_eq_top hO) hn hperf'
-  exact layer_eq_top_of_mulEquiv (subgroupOfEquivOfLe hYM) h
 
 end CFSG.ComponentClassification.Sol78

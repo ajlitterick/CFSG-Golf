@@ -65,12 +65,6 @@ theorem Del_comm_x0 (a : F) (ha : a ≠ 0) : Del a ha * x0 F = x0 F * Del a ha :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_four]
 
-theorem Del_mul_Del (a : F) (ha : a ≠ 0) : Del a ha * Del a⁻¹ (inv_ne_zero ha) = 1 := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_Del, coe_Del, Matrix.SpecialLinearGroup.coe_one]
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [Matrix.mul_apply, Matrix.diagonal_apply, ha]
 
 theorem Xel_conj (a : F) (ha : a ≠ 0) (β : F) :
     Xel (-a * β) * (Del a ha * Xel β * Del a⁻¹ (inv_ne_zero ha)) =

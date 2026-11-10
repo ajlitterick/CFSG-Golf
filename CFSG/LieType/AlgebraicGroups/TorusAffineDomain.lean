@@ -26,7 +26,6 @@ instance : IsDomain (TorusAffine k a b) :=
   IsLocalization.isDomain_localization
     (powers_le_nonZeroDivisors_of_noZeroDivisors (torusAffineDet_ne_zero k a b))
 
-example : Algebra.FiniteType k (TorusAffine k a b) := inferInstance
 
 @[expose] def torusCoord (i : Fin a) : TorusAffine k a b :=
   algebraMap (MvPolynomial (Fin a ⊕ Fin b) k) _ (X (Sum.inl i))

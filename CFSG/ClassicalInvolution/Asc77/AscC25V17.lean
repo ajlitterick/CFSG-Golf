@@ -53,7 +53,6 @@ def ext2 (A : Subgroup G) (a : G) (ha2 : a * a = 1) (hconj : ∀ x ∈ A, a * x 
 variable {A B : Subgroup G} {a : G} {ha2 : a * a = 1} {hA : ∀ x ∈ A, a * x * a ∈ A}
   {hB : ∀ x ∈ B, a * x * a ∈ B}
 
-theorem mem_ext2 {x : G} : x ∈ ext2 A a ha2 hA ↔ x ∈ A ∨ a * x ∈ A := Iff.rfl
 
 theorem le_ext2 : A ≤ ext2 A a ha2 hA := fun _ hx => Or.inl hx
 

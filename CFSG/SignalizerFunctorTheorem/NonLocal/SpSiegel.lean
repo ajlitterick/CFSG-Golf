@@ -148,8 +148,6 @@ theorem single_mul_self_eq_zero {i j : n} (h : i ≠ j) :
 theorem coe_transvGL (i j : n) (hij : i ≠ j) :
     ((transvGL k i j hij : GL n k) : Matrix n n k) = 1 + Matrix.single i j 1 := rfl
 
-theorem coe_transvGL_inv (i j : n) (hij : i ≠ j) :
-    (((transvGL k i j hij)⁻¹ : GL n k) : Matrix n n k) = 1 - Matrix.single i j 1 := rfl
 
 theorem coe_transvGL_pow (i j : n) (hij : i ≠ j) (m : ℕ) :
     (((transvGL k i j hij) ^ m : GL n k) : Matrix n n k) = 1 + m • Matrix.single i j 1 := by
@@ -172,12 +170,6 @@ end Transvection
 @[expose] noncomputable def spLevi (hr : 2 ≤ r) : StatedSp r k :=
   leviSp (transvGL k (⟨0, by omega⟩ : Fin r) ⟨1, hr⟩ (by simp))
 
-theorem coe_spLevi (hr : 2 ≤ r) :
-    ((spLevi r k hr : GL (Fin r ⊕ Fin r) k) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) k) =
-      Matrix.fromBlocks (1 + Matrix.single (⟨0, by omega⟩ : Fin r) ⟨1, hr⟩ 1) 0 0
-        (1 - Matrix.single (⟨1, hr⟩ : Fin r) ⟨0, by omega⟩ 1) := by
-  rw [spLevi, coe_leviSp, coe_transvGL, coe_transvGL_inv]
-  simp [Matrix.transpose_sub, Matrix.transpose_single]
 
 theorem spLevi_pow {p : ℕ} [CharP k p] (hr : 2 ≤ r) : (spLevi r k hr) ^ p = 1 := by
   rw [spLevi, ← map_pow]

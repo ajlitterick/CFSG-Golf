@@ -133,26 +133,6 @@ theorem normalize_u
       ∀ c ∈ Cz z, ∃ a ∈ A0 z, ∃ k ∈ K₁ ⊔ K₂, ∃ s ∈ (S : Subgroup G),
         ∃ y ∈ Fstar (S : Subgroup G) K₁ K₂ u, c = a * k * s * y
 
-@[expose] def LUA3Leaf : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → ∀ p f : ℕ, p.Prime → p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (z : G) (S : Sylow 2 G) (K₁ K₂ : Subgroup G) (t u : G), LUComps G (p ^ f) z K₁ K₂ →
-      LUSyl G z S K₁ K₂ t u → MaxOverCentralizerPSp4 z p f → LU61 G z S K₁ K₂ t u →
-      (∀ c ∈ Cz z, ∃ a ∈ A0 z, ∃ k ∈ K₁ ⊔ K₂, ∃ s ∈ (S : Subgroup G),
-        ∃ y ∈ Fstar (S : Subgroup G) K₁ K₂ u, c = a * k * s * y) →
-      (LUEps G (p ^ f) 1 z K₁ u →
-        ∃ (K : Type) (_ : Field K) (_ : Finite K) (u' : G) (Y : Fin 3 → Subgroup G) (h : G),
-          Nat.card K = p ^ f ∧ (u' = u ∨ u' = u * z) ∧ Y 0 = K₁ ∧ Y 2 = K₂ ∧ h⁻¹ * z * h = u' ∧
-          (Y 1 = cj K₁ h ∨ Y 1 = cj K₂ h) ∧ IsLinearA3Neighborhood K z u' Y ∧
-          ∃ T : Subgroup G, T ≤ (⨆ i, Y i : Subgroup G) ⊓ Cz z ∧ IsPGroup 2 T ∧
-            Nat.card (S : Subgroup G) ≤ Nat.card T) ∧
-      (LUEps G (p ^ f) (-1) z K₁ u →
-        ∃ (K : Type) (_ : Field K) (_ : Finite K) (_ : CharP K p) (F : Type) (_ : Field F)
-          (_ : Finite F) (u' : G) (Y : Fin 3 → Subgroup G) (h : G),
-          Nat.card K = (p ^ f) ^ 2 ∧ Nat.card F = p ^ f ∧ (u' = u ∨ u' = u * z) ∧ Y 0 = K₁ ∧
-          Y 2 = K₂ ∧ h⁻¹ * z * h = u' ∧ (Y 1 = cj K₁ h ∨ Y 1 = cj K₂ h) ∧
-          IsUnitaryA3Neighborhood (p ^ f) K F z u' Y ∧
-          ∃ T : Subgroup G, T ≤ (⨆ i, Y i : Subgroup G) ⊓ Cz z ∧ IsPGroup 2 T ∧
-            Nat.card (S : Subgroup G) ≤ Nat.card T)
 
 theorem luGenLeaf_of_sl2 (hK : SL2SylowLeaf) : LUGenLeaf := by
   intro G _ _ _ p f hp hp2 hq z S K₁ K₂ t u ε hc hs he _ h61
@@ -255,47 +235,6 @@ theorem lu_F5 [Finite G] {q : ℕ} {z : G} {S : Sylow 2 G} {K₁ K₂ : Subgroup
     group
   exact fun c hc => (le_normalizer_of_sylow_trick S hSC (fun r hr => hRN hr) hCRS hTG hTC hTp
     hTc).2 c hc
-
-theorem luLocalLeaf_of_leaves
-    (hGen : LUGenLeaf) (hA3 : LUA3Leaf) : LULocalLeaf := by
-  intro G _ _ hG p f hp hp2 hq z S K₁ K₂ t u hc hs h6A
-  constructor
-  · intro he
-    obtain ⟨u₀, hu₀, hs₀, h61⟩ := normalize_u hG hp hp2 hq hc hs he.A0_cyc h6A
-    have he₀ : LUEps G (p ^ f) 1 z K₁ u₀ := by
-      rcases hu₀ with rfl | rfl
-      · exact he
-      · exact he.mul_z hc
-    have hgen := hGen G hG p f hp hp2 hq z S K₁ K₂ t u₀ 1 hc hs₀ he₀ h6A h61
-    obtain ⟨K, hK, hKf, u', Y, h, hKc, hu', hY0, hY2, hh, hY1, hA, T, hT, hTp, hTc⟩ :=
-      (hA3 G hG p f hp hp2 hq z S K₁ K₂ t u₀ hc hs₀ h6A h61 hgen).1 he₀
-    refine ⟨K, hK, hKf, u', Y, hKc, hA, ?_⟩
-    exact lu_F5 hc hs₀ h61 hgen (u := u₀) hu' hY0 hY2 hh hY1 (fun x hx => (hT hx).1) (fun x hx => (hT hx).2) hTp hTc
-  · intro he
-    obtain ⟨u₀, hu₀, hs₀, h61⟩ := normalize_u hG hp hp2 hq hc hs he.A0_cyc h6A
-    have he₀ : LUEps G (p ^ f) (-1) z K₁ u₀ := by
-      rcases hu₀ with rfl | rfl
-      · exact he
-      · exact he.mul_z hc
-    have hgen := hGen G hG p f hp hp2 hq z S K₁ K₂ t u₀ (-1) hc hs₀ he₀ h6A h61
-    obtain ⟨K, hK, hKf, hKp, F, hF, hFf, u', Y, h, hKc, hFc, hu', hY0, hY2, hh, hY1, hA, T, hT,
-      hTp, hTc⟩ := (hA3 G hG p f hp hp2 hq z S K₁ K₂ t u₀ hc hs₀ h6A h61 hgen).2 he₀
-    refine ⟨K, hK, hKf, hKp, F, hF, hFf, u', Y, hKc, hFc, hA, ?_⟩
-    exact lu_F5 hc hs₀ h61 hgen (u := u₀) hu' hY0 hY2 hh hY1 (fun x hx => (hT hx).1) (fun x hx => (hT hx).2) hTp hTc
-
-theorem luNeighborhood_of_leaves
-    (hM : LUModelLeaf) (hGen : LUGenLeaf) (hA3 : LUA3Leaf)
-    (h6A : LUMax6A) : LUNeighborhood :=
-  luNeighborhood_of_model hM (luLocalLeaf_of_leaves hGen hA3) h6A
-
-theorem luLocalLeaf_of_sl2
-    (hK : SL2SylowLeaf) (hA3 : LUA3Leaf) : LULocalLeaf :=
-  luLocalLeaf_of_leaves (luGenLeaf_of_sl2 hK) hA3
-
-theorem luNeighborhood_of_sl2
-    (hM : LUModelLeaf) (hK : SL2SylowLeaf) (hA3 : LUA3Leaf)
-    (h6A : LUMax6A) : LUNeighborhood :=
-  luNeighborhood_of_leaves hM (luGenLeaf_of_sl2 hK) hA3 h6A
 
 
 end CFSG.GH74.GLS.LU.Local

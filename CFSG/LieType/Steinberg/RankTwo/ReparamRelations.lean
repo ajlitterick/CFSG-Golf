@@ -20,9 +20,6 @@ variable (Φ k) in
       ((O.list α β).map fun p =>
         chevOf (Φ := Φ) (p.1 • α + p.2 • β) (C α β p * c ^ p.1 * d ^ p.2)).prod⁻¹}
 
-theorem relB_eq_relBk (O : CommOrder Φ) (C : (ι → ℤ) → (ι → ℤ) → ℕ × ℕ → ℤ) :
-    relB Φ k O C = relBk Φ k O fun α β p => (C α β p : k) :=
-  rfl
 
 @[expose] def CommutatorFormulaK (x : (ι → ℤ) → k → K) (O : CommOrder Φ)
     (C : (ι → ℤ) → (ι → ℤ) → ℕ × ℕ → k) : Prop :=
@@ -30,10 +27,6 @@ theorem relB_eq_relBk (O : CommOrder Φ) (C : (ι → ℤ) → (ι → ℤ) → 
     ⁅x α c, x β d⁆ =
       ((O.list α β).map fun p => x (p.1 • α + p.2 • β) (C α β p * c ^ p.1 * d ^ p.2)).prod
 
-theorem commutatorFormula_iff_K {x : (ι → ℤ) → k → K} {O : CommOrder Φ}
-    {C : (ι → ℤ) → (ι → ℤ) → ℕ × ℕ → ℤ} :
-    CommutatorFormula x O C ↔ CommutatorFormulaK x O fun α β p => (C α β p : k) :=
-  Iff.rfl
 
 theorem chevEval_relsK {x : (ι → ℤ) → k → K} {O : CommOrder Φ}
     {C : (ι → ℤ) → (ι → ℤ) → ℕ × ℕ → k}

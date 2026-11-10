@@ -202,15 +202,6 @@ theorem D2AlmostSimple.false_of_core (hK : D2AlmostSimple p X R A X₀ K)
 
 end Fusion
 
-theorem d2IndexCaseAt_of_fusion {i : TauCeti.CFSGIndex} {Pp : ℕ → Prop}
-    (h : ∀ p, Pp p → ¬ p ∣ Nat.card (Outer i.Group) ∧ ¬ p ^ 3 ∣ Nat.card i.Group ∧
-      FusionGenerationOf i.Group p) : D2IndexCaseAt i Pp := by
-  intro G _ _ _ _ p hpc P M A H R _ _ _ Rbar K _ hK ⟨e⟩
-  obtain ⟨hout, h3, hgen⟩ := h p hpc
-  refine hK.false_of_fusion_of_card ?_ ?_
-    (CFSG.AGLEmbedding.fusionGenerationOf_of_mulEquiv e.symm hgen)
-  · rwa [CFSG.RankThree.PartOne.card_outer_eq_of_mulEquiv e]
-  · rwa [Nat.card_congr e.toEquiv]
 
 theorem glbCore_two_eq_top_of_sylow {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     (S : Sylow p G) (h : GLBCore p 2 (S : Subgroup G) = ⊤) (S' : Sylow p G) :

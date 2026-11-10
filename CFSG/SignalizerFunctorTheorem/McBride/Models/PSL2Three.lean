@@ -22,11 +22,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride
 
 open PSL2Three CFSG.SignalizerFunctorTheorem.NearModels
 
-theorem exists_aut_psl2Three {p : ℕ} (hp : p.Prime)
-    (_hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p))) :
-    ∃ f : MulAut PSL(2, GaloisField 3 p), orderOf f = p := by
-  obtain ⟨σ, hσ⟩ := PSL2Three.exists_std_aut hp
-  exact ⟨_, hσ⟩
 
 theorem frame_psl2Three
     {p : ℕ} (hp : p.Prime)
@@ -37,21 +32,6 @@ theorem frame_psl2Three
     (isA4_fixed hp hcop f hf) (eq_fixed_of_overgroup hp hcop f hf)
     (card_sylow_two hp (odd_of_coprime hp hcop))
 
-theorem isCoatom_fixedNormalizer_psl2Three
-    {p : ℕ} (hp : p.Prime)
-    (hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)))
-    (f : MulAut PSL(2, GaloisField 3 p)) (hf : orderOf f = p) :
-    IsCoatom (fixedNormalizer f) := by
-  have hF := frame_psl2Three hp hcop f hf
-  have hMtop : fixedNormalizer f ≠ ⊤ := by
-    intro htop
-    have hnorm : (fixedFitting f).Normal := Subgroup.normalizer_eq_top_iff.mp htop
-    rcases hF.simple.eq_bot_or_eq_top_of_normal (fixedFitting f) with h1 | h1
-    · exact hF.C0_ne_bot h1
-    · exact hF.C0_ne (le_antisymm (fixedFitting_le f) (h1 ▸ le_top))
-  refine ⟨hMtop, fun b hb => ?_⟩
-  by_contra hbtop
-  exact not_le_of_gt hb (hF.overgroup b ((fixed_le_fixedNormalizer f).trans hb.le) hbtop)
 
 theorem fixedNormalizer_psl2Three {p : ℕ} (hp : p.Prime)
     (hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)))
@@ -65,12 +45,6 @@ theorem fixedCore1_psl2Three {p : ℕ} (hp : p.Prime)
     fixedCore1 f = signalizerFixedSubgroup f :=
   (isA4_fixed hp hcop f hf).fixedCore1_eq
 
-theorem itemC_psl2Three {p : ℕ} (hp : p.Prime)
-    (hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)))
-    (f : MulAut PSL(2, GaloisField 3 p)) (hf : orderOf f = p) : ItemC p f := by
-  obtain ⟨σ, hσ⟩ := PSL2Three.exists_std_aut hp
-  exact ItemC.forall_of_one hp (psl2_card_pSubgroup_dvd 3 hp hcop) hσ
-    (itemC_of_transvecs hp (psl2FieldAut_transvecUp σ) (psl2FieldAut_transvecLow σ)) f hf
 
 theorem itemG_psl2Three {p : ℕ} (hp : p.Prime)
     (hcop : Nat.Coprime p (Nat.card PSL(2, GaloisField 3 p)))

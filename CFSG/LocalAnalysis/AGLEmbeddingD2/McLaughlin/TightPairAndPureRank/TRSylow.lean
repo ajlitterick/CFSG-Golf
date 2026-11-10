@@ -223,22 +223,6 @@ theorem isSylowTwoOf_barM_inf_of_parabolic {M H L T : Subgroup G}
   exact isSylowTwoOf_barM_inf_of_sylow_le hw hT hNH hT'
     (fun x hx => hnorm ⟨hT'.1 hx, Subgroup.le_normalizer hx⟩)
 
-theorem isSylowTwoOf_trX_of_nineThreeTwo {M H L₁ L₂ T : Subgroup G}
-    (h₁ : IsWeakSBlock M (pCoreOf 2 H) L₁) (h₂ : IsWeakSBlock M (pCoreOf 2 H) L₂)
-    (hne : barM M L₁ ≠ barM M L₂)
-    (hk2 : ∀ L' : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L' →
-      barM M L' = barM M L₁ ∨ barM M L' = barM M L₂)
-    (hT : IsSylowTwoOf T (H ⊓ M)) (hQT : pCoreOf 2 M ≤ T)
-    (hNH : Subgroup.normalizer (pCoreOf 2 H : Set G) = H)
-    (t₁ : NineThreeTwo M (pCoreOf 2 H) L₁) (t₂ : NineThreeTwo M (pCoreOf 2 H) L₂) :
-    IsSylowTwoOf T (trX M L₁ L₂ T) := by
-  have hTHM : T ≤ H ⊓ M := hT.1
-  have hTM : T ≤ M := hTHM.trans inf_le_right
-  have hTH : T ≤ H := hTHM.trans inf_le_left
-  have hN := normalizes_trJ h₁ h₂ hk2 hTM
-    (hTH.trans (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 H))
-  exact isSylowTwoOf_trX h₁ h₂ hne hT.2.1 hN hQT
-    (isSylowTwoOf_barM_inf_of_parabolic h₁ hT hNH t₁) (isSylowTwoOf_barM_inf_of_parabolic h₂ hT hNH t₂)
 
 theorem isSylowTwoOf_trX_of_sylow_le {M H L₁ L₂ T : Subgroup G}
     (h₁ : IsWeakSBlock M (pCoreOf 2 H) L₁) (h₂ : IsWeakSBlock M (pCoreOf 2 H) L₂)

@@ -135,15 +135,6 @@ theorem exists_other_of_isUFour_gen (hK4a : K517_4a) (hK518 : K518) (hKSMU4 : KS
   have hdata := u4DataAt_of_lift hKSMU4 hpP ctx.gn hLs.1 hnorm hL hC hle' hy hU'
   exact ctx.noU4 p hp (u4Shape_of_u4DataAt M p hdata)
 
-theorem exists_other_of_isUFour (hK4a : K517_4a) (hK518 : K518) (hKSMU4 : KSMU4) {G : Type}
-    [Group G] [Finite G] {M T : Subgroup G} {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂)
-    {p : ℕ} (hp : p ∈ sigmaM G M) (hp5 : 5 ≤ p)
-    {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    (hU : IsUFour (fun Q => p ∣ Q + 1) ↥Ls) (h2 : 2 ≤ CFSG.Open.pRank p L) :
-    ∃ Is : Subgroup (↥M ⧸ gnC (T.subgroupOf M)),
-      GNYComponent (T.subgroupOf M) T₁ T₂ Is ∧ Is ≠ Ls ∧ p ∣ Nat.card ↥Is :=
-  exists_other_of_isUFour_gen hK4a hK518 hKSMU4 (S15CtxGen.of_ctx2 ctx) hp hp5 hLs hL hU
 
 theorem three_dvd_card_gnA_of_gnYComponent {T T₁ T₂ : Subgroup X} (hthree : GNThree T T₁ T₂)
     {I : Subgroup (X ⧸ gnC T)} (hI : GNYComponent T T₁ T₂ I) : 3 ∣ Nat.card (gnA T T₁ I) := by
@@ -259,16 +250,6 @@ theorem false_of_other_component_isUFour_gen (hT : LieOddRankTable) (hKSMU4 : KS
     exact hdvd
   exact not_dvd_of_even_odd hEven hm hpP hp2 hp2n hpd
 
-theorem false_of_other_component_isUFour (hT : LieOddRankTable) (hKSMU4 : KSMU4) (hK541 : K541)
-    {G : Type} [Group G] [Finite G] {M T : Subgroup G} {T₁ T₂ : Subgroup ↥M}
-    (ctx : S15Ctx2 G M T T₁ T₂) (hLift : RowLifts G M T T₁ T₂) {p : ℕ} (hp : p ∈ sigmaM G M)
-    (hp5 : 5 ≤ p) {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    (hU : IsUFour (fun Q => p ∣ Q + 1) ↥Ls) {Is : Subgroup (↥M ⧸ gnC (T.subgroupOf M))}
-    (hIs : GNYComponent (T.subgroupOf M) T₁ T₂ Is) (hne : Is ≠ Ls) (hpI : p ∣ Nat.card ↥Is) :
-    False :=
-  false_of_other_component_isUFour_gen hT hKSMU4 hK541 (S15CtxGen.of_ctx2 ctx) hLift hp hp5
-    hLs hL hU hIs hne hpI (ctx.rank_odd 3 Nat.prime_three (by norm_num))
 
 theorem rowNotDvdSubOne_of_ctx2 (hKSMOdd : KSMOdd) (hKSMU4 : KSMU4) (hKSML3 : KSML3)
     (hK4b : K517_4b) {G : Type} [Group G] [Finite G] {M T : Subgroup G} {T₁ T₂ : Subgroup ↥M}

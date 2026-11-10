@@ -72,15 +72,6 @@ lemma mem_iff
       (φ : ClassFun k G) ∈ PElementarySpanChar p :=
   Iff.rfl
 
-/--
-For prime `p`, the fixed-prime ideal is contained in the global Brauer ideal.
--/
-lemma le_BrauerIdeal [Fact p.Prime] :
-    PElementaryIdeal p ≤ BrauerIdeal (k := k) (G := G) := by
-  exact InducedCharacterIdeal.mono
-    (P := fun H => IsPElementary p H)
-    (Q := fun H => IsBrauerElementary H)
-    (fun H hH => IsBrauerElementary.ofIsPElementary p hH)
 
 end PElementaryIdeal
 
@@ -99,27 +90,6 @@ lemma inducedCharacter_mem
   exact InducedCharacterSpan.inducedCharacter_mem
       (P := fun K => IsPElementary p K) H hH V
 
-/--
-The fixed-`p` span is contained in the global Brauer-elementary span.
--/
-lemma le_BrauerSpanChar [Fact p.Prime] :
-    PElementarySpanChar p ≤ BrauerSpanChar (k := k) (G := G) := by
-  apply InducedCharacterSpan.mono
-  intro H hH
-  exact IsBrauerElementary.ofIsPElementary p hH
-
-/--
-Multiplication on the left by a representation character preserves the
-fixed-`p` integral span.
--/
-lemma character_mul_mem
-    (V : FDRep k G)
-    {φ : ClassFun k G}
-    (hφ : φ ∈ PElementarySpanChar p) :
-    ClassFun.character V * φ ∈
-      PElementarySpanChar p := by
-  exact InducedCharacterSpan.character_mul_mem
-    (fun H => IsPElementary p H) V hφ
 
 /--
 The fixed-`p` integral span is closed under pointwise multiplication.
@@ -132,21 +102,6 @@ lemma mul_mem
   exact InducedCharacterSpan.mul_mem
      (fun H => IsPElementary p H) hφ hψ
 
-/--
-Induction from a subgroup preserves the fixed-`p` integral span.
--/
-lemma induction_mem
-    {H : Subgroup G}
-    {φ : ClassFun k H}
-    (hφ : φ ∈ PElementarySpanChar p) :
-    ClassFun.ind H φ ∈ PElementarySpanChar p := by
-  apply InducedCharacterSpan.induction_mem
-    (P := fun K : Subgroup H => IsPElementary p K)
-    (Q := fun K : Subgroup G => IsPElementary p K)
-    ?_ hφ
-  intro K hK
-  exact IsPElementary.ofMulEquiv
-    p hK (K.equivMapOfInjective H.subtype Subtype.coe_injective)
 
 end PElementarySpanChar
 

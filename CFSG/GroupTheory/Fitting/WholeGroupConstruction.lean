@@ -17,8 +17,5 @@ variable {G : Type*} [Group G]
 theorem layerOf_congr {C D : Subgroup G → Prop} (h : ∀ K, C K ↔ D K) : layerOf C = layerOf D := by
   simp only [layerOf, h]
 
-theorem fstarOf_layerOf_congr {C D : Subgroup G → Prop} (h : ∀ K, C K ↔ D K) :
-    fstarOf (layerOf C) = fstarOf (layerOf D) := by
-  rw [layerOf_congr h]
 
 end CFSG.WholeGroup

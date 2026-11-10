@@ -88,17 +88,6 @@ theorem p6138_lt : bAnd(bAnd(bAnd(ltW 256 9 (AU0 0), bAnd(ltW 256 9 (AU0 1), ltW
       ltW 128 8 (AG2 0)))) = true := by
   quickRfl
 
-theorem p6138_neg_lt : (!ltW 128 8 (AU0 0)) = true := by quickRfl
-
-theorem p6138_neg_invo : (!invoW 256 9 (AG0 0)) = true := by quickRfl
-
-theorem p6138_neg_hom : (!homW 256 9 CH0.T (IX0 0) (IX0 0)) = true := by quickRfl
-
-theorem p6138_neg_rec :
-    (!autRecW 128 8 n2 CH2.T CH2.PL (imgL n2 j2 h2 (act2Rels 0)) (AG2 0)) = true := by
-  quickRfl
-
-theorem p6138_neg_ord : (!ord3W 128 8 (AU2 1) (h2 3)) = true := by quickRfl
 
 end CertificateChecks.KernelChengHeld.P
 

@@ -425,8 +425,5 @@ theorem pair89GammaInner_of (h45 : Sec4.Item4_5) (hEv : KF89D4SecondCentEven) :
     (h3 e heA) he1 hA3 hAe Le hLe
   exact Item812Res8.innerDiag_of_isGammaIndex hEv hdm (hAN hdm.1) (h3 d hdm.1)
 
-theorem pair89GammaInner_of_y0 (h45 : Sec4.Item4_5) (hY0 : KF89D4SecondCentY0Even) :
-    Pair89GammaInner :=
-  pair89GammaInner_of h45 (kF89D4SecondCentEven_of_y0 hY0)
 
 end CFSG.RankThree.PartTwo.Sec8

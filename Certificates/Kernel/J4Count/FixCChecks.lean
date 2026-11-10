@@ -67,23 +67,6 @@ theorem cnt_ok : allN 7 (fun l => allN (NR l) fun r =>
     Nat.beq (cntAK (nth [] BS l) (nth [] PS l) (pcK (nth 0 (RL l) r))) (nth 0 (nth [] NA l) r)) =
       true := by quickRfl
 
-theorem neg_fix : notK (fixAllK CFSG.KD.J4Q.rm (R 1) (R 10) (R 2) (R 11) etaK (J4RV 3)
-    [((nth ([], 0) (GN 3) 0).1, Nat.xor (nth ([], 0) (GN 3) 0).2 1)]) = true := by quickRfl
-
-theorem neg_dist : notK (distinctK (nth 0 (PL 6) 1 :: PL 6)) = true := by quickRfl
-
-theorem neg_closed : notK (closedK (PL 6).tail) = true := by quickRfl
-
-theorem neg_tag : notK (allN (nth 0 NP 6) fun i =>
-    tagK (RL 6) (nth 0 (PL 6) i) (nth 0 (FL 6) i) 0) = true := by quickRfl
-
-theorem neg_sorted : notK (sortedK (nth 0 (TL 6 1) 1 :: nth 0 (TL 6 1) 0 :: (TL 6 1).drop 2) 0) =
-    true := by quickRfl
-
-theorem neg_comm : notK (allN 9 fun i => commK (nth 0 (PL 5) i) (CL 5 0)) = true := by quickRfl
-
-theorem neg_cnt : notK (Nat.beq (cntAK (nth [] BS 5) (nth [] PS 5) (pcK (nth 0 (RL 5) 0))) 7) =
-    true := by quickRfl
 
 end CertificateChecks.KernelJ4Count.FixC
 

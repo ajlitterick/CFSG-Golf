@@ -35,16 +35,5 @@ theorem graphField_uni {F : Type} [Field F] [Finite F] {q : ℕ} (hF : Nat.card 
     obtain ⟨P, s, hs, hP1, hP2⟩ := adapted_skew hu hp2 hu' hgg'
     exact goodFixedCentral_of_adapted hu hp2 hq α (ε := -1) (s := s) (Or.inr rfl) hs hαg' hP1 hP2
 
-theorem classify_uni_full {F : Type} [Field F] [Finite F] {q : ℕ} (hF : Nat.card F = q ^ 2)
-    (hq : q % 4 = 1) (α : MulAut ↥(StatedSU 4 q F)) (hα : α * α = 1)
-    (hout : ∀ k : ↥(StatedSU 4 q F), α ≠ MulAut.conj k) :
-    GoodFixedCentral False α ∨ IsReflection (StatedSU 4 q F) α ∨
-      IsExoticUni (StatedSU 4 q F) q α := by
-  rcases classify_uni hF hq α hα hout with h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl h)
-  · rcases graphField_uni hF hq α hα h with h' | h'
-    · exact Or.inl h'
-    · exact Or.inr (Or.inr h')
 
 end CFSG.GH74.Generic.S1

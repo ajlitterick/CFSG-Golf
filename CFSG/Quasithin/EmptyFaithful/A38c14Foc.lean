@@ -72,22 +72,5 @@ theorem false_of_central_three {B : Type} [Group B] [Finite B] (hB : commutator 
   rw [h1, orderOf_one] at hz3
   exact absurd hz3 (by norm_num)
 
-theorem false_of_central_three_of_abelian {X : Type} [Group X] [Finite X]
-    (hX : commutator X = ⊤) {m : ℕ} (hm : ¬ 3 ∣ m) (hcard : Nat.card X = 27 * m) {z : X}
-    (hz : z ∈ Subgroup.center X) (hz3 : orderOf z = 3) {Q : Subgroup X} (hQ : Nat.card Q = 27)
-    (hab : ∀ a ∈ Q, ∀ b ∈ Q, a * b = b * a) (hzQ : z ∈ Q) : False := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hQp : IsPGroup 3 Q := IsPGroup.of_card (n := 3) (by rw [hQ]; norm_num)
-  have hidx : ¬ 3 ∣ Q.index := by
-    have h1 := Subgroup.card_mul_index Q
-    rw [hQ, hcard] at h1
-    have : Q.index = m := by omega
-    rw [this]
-    exact hm
-  let P : Sylow 3 X := hQp.toSylow hidx
-  have h1 := central_mem_commutator_eq_one_of_abelian_sylow P
-    (fun a ha b hb => hab a ha b hb) hz hzQ (by rw [hX]; exact Subgroup.mem_top z)
-  rw [h1, orderOf_one] at hz3
-  exact absurd hz3 (by norm_num)
 
 end CFSG.Quasithin.A38c14

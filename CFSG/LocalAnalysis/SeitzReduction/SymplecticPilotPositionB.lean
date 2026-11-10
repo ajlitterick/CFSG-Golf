@@ -569,18 +569,6 @@ theorem exists_conj_eq_mul_spRep_le_centralizer_mulEquiv (hset : SeitzSetting G 
   rw [← hg]
   exact hP
 
-theorem exists_conj_eq_mul_spRep_le_centralizer_mulEquiv_of_two_le (hset : SeitzSetting G L)
-    [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K) (hn : 2 ≤ n) (e : L ≃* StatedSp (n + 3) K)
-    {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {X : Subgroup G} (hXodd : Odd (Nat.card X))
-    (hXJ : X ≤ ((longRootSp2 K (n + 3) 0).map e.symm.toMonoidHom).map L.subtype) :
-    ∃ (g : G) (κ : SpTwoCentral), g⁻¹ * t * g = t * (e.symm (spRep n κ) : G) ∧
-      ∃ P : Subgroup G, P ≤ centralizer (X : Set G) ⊓
-          centralizer ({t * (e.symm (spRep n κ) : G)} : Set G) ∧
-        Nonempty (P ≃* ((complSp K (0 : Fin (n + 3))).map e.symm.toMonoidHom).map L.subtype) :=
-  exists_conj_eq_mul_spRep_le_centralizer_mulEquiv hset hK (spLongRootF5_of_two_le hK hn) e ht
-    hKt hXodd hXJ
 
 end LemmaB
 

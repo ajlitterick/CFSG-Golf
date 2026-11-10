@@ -21,8 +21,5 @@ theorem c_nondegenerate : ExtraspecialNF.Nondegenerate c :=
 
 theorem c_symm : ∀ j i : Fin 8, c i j = c j i := by decide
 
-theorem card_zeros_qf :
-    (Finset.univ.filter fun v : Fin 8 → ZMod 2 => ExtraspecialNF.qf c v = 0).card = 136 := by
-  decide +kernel
 
 end CFSG.Sporadic.Th.Max3

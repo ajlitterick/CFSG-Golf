@@ -85,9 +85,5 @@ theorem stmt7_2_1_Sp4Pair_of_A6 (hA6 : Stmt7_2_1_Sp4PairA6) : Stmt7_2_1_Sp4Pair 
   exact ⟨fun n hn hnat => stmt7_2_1_Sp4Pair_binary G T L I hyp hV hN hNM hc htw n hn hnat,
     hA6 G T L I hyp hV hN hNM hc htw⟩
 
-theorem stmt7_3_5_of_inputs (h37 : A37ForSQTK) (h38 : A38ForSQTK) (h39 : A39ForSQTK)
-    (hmod : StmtFSUModule) (h732 : Stmt7_3_2) (h734 : Stmt7_3_4)
-    (hA6 : Stmt7_2_1_Sp4PairA6) : Stmt7_3_5 :=
-  stmt7_3_5_of h37 h38 h39 hmod h732 h734 (stmt7_2_1_Sp4Pair_of_A6 hA6)
 
 end CFSG.Quasithin.H13

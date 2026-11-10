@@ -34,8 +34,6 @@ open CFSG.KC.Enum
     (lo cnt : Nat) : Bool :=
   allBlk lo (fun k => bIf(Nat.blt k m, cbPt n m r STEP PTS POS PAR LAB k, true)) cnt
 
-@[expose] noncomputable def cbPosRange (n m : Nat) (PTS POS : Nat → Nat) (lo cnt : Nat) : Bool :=
-  allBlk lo (fun z => bIf(Nat.blt z n, cbPos n m PTS POS z, true)) cnt
 
 end CFSG.KS.CB
 

@@ -91,9 +91,6 @@ theorem originalOddInclusion_mem_range_iff (w : OriginalWProduct F A a hfix) :
   rw [mem_originalSlInH_range_iff, originalOddInclusion_coordinates]
   exact ⟨fun h => h.2, fun h => ⟨rfl, h⟩⟩
 
-theorem originalOddInclusion_inl (w : W F a) :
-    originalOddInclusion F A a hfix (SemidirectProduct.inl w) =
-      originalSlInH F a A hfix w.val.val := rfl
 
 omit [Field F] in
 theorem card_SL_two_congr {k k' : Type*} [Field k] [Field k'] [Finite k] [Finite k']

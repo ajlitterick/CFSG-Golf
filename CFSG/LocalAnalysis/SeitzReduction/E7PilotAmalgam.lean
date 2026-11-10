@@ -85,9 +85,6 @@ theorem isRoot_root (N : E7Neighbour) : IsRoot .E7 N.root := by
   cases N
   exacts [isRoot_highRoot _, isRoot_single _ _, isRoot_single _ _]
 
-theorem root_mem_coverRoots (N : E7Neighbour) : N.root ∈ EPilot.coverRoots .E7 := by
-  cases N <;> decide +kernel
-
 
 @[expose] noncomputable def levi (K : Type) [Field K] (N : E7Neighbour) :
     Subgroup (adjointGroup .E7 K) :=
@@ -135,10 +132,6 @@ theorem mem_nodes_seven_of_ne {j : Fin (Tag.rank .E7)} (h5 : j ≠ 5) (h6 : j �
   revert j
   decide
 
-theorem mem_nodes_four_of_ne {j : Fin (Tag.rank .E7)} (h1 : j ≠ 1) (h2 : j ≠ 2) (h3 : j ≠ 3)
-    (h4 : j ≠ 4) : j ∈ four.nodes := by
-  revert j
-  decide
 
 theorem eq_pair_of_card_le_two {J : Finset (Fin (Tag.rank .E7))} (hJ : J.card ≤ 2)
     {a b : Fin (Tag.rank .E7)} (hab : a ≠ b) (ha : a ∈ J) (hb : b ∈ J) : J = {a, b} := by
@@ -166,51 +159,6 @@ theorem subset_nodes_amalgamPlacement {J : Finset (Fin (Tag.rank .E7))} (hJ : J.
   · rw [amalgamPlacement_of_zero_not_mem h0]
     exact fun j hj => mem_nodes_high_of_ne fun h => h0 (h ▸ hj)
 
-theorem amalgamRoots_subset_orthRoots_placement {J : Finset (Fin (Tag.rank .E7))}
-    (hJ : J.card ≤ 2) : amalgamRoots J ⊆ orthRoots (amalgamPlacement J).root :=
-  amalgamRoots_subset_orthRoots_iff_subset_nodes.2 (subset_nodes_amalgamPlacement hJ)
-
-theorem amalgamRoots_subset_high_or_seven_iff {J : Finset (Fin (Tag.rank .E7))}
-    (hJ : J.card ≤ 2) :
-    amalgamRoots J ⊆ orthRoots high.root ∨ amalgamRoots J ⊆ orthRoots seven.root ↔
-      J ≠ {0, 5} ∧ J ≠ {0, 6} := by
-  rw [amalgamRoots_subset_orthRoots_iff_subset_nodes,
-    amalgamRoots_subset_orthRoots_iff_subset_nodes]
-  constructor
-  · rintro (h | h) <;> refine ⟨?_, ?_⟩ <;> rintro rfl <;> revert h <;> decide
-  · rintro ⟨h05, h06⟩
-    by_cases h0 : (0 : Fin (Tag.rank .E7)) ∈ J
-    · right
-      refine fun j hj => mem_nodes_seven_of_ne ?_ ?_
-      · rintro rfl
-        exact h05 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-      · rintro rfl
-        exact h06 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-    · left
-      exact fun j hj => mem_nodes_high_of_ne fun h => h0 (h ▸ hj)
-
-theorem amalgamRoots_subset_high_or_four_iff {J : Finset (Fin (Tag.rank .E7))}
-    (hJ : J.card ≤ 2) :
-    amalgamRoots J ⊆ orthRoots high.root ∨ amalgamRoots J ⊆ orthRoots four.root ↔
-      J ≠ {0, 1} ∧ J ≠ {0, 2} ∧ J ≠ {0, 3} ∧ J ≠ {0, 4} := by
-  rw [amalgamRoots_subset_orthRoots_iff_subset_nodes,
-    amalgamRoots_subset_orthRoots_iff_subset_nodes]
-  constructor
-  · rintro (h | h) <;> refine ⟨?_, ?_, ?_, ?_⟩ <;> rintro rfl <;> revert h <;> decide
-  · rintro ⟨h01, h02, h03, h04⟩
-    by_cases h0 : (0 : Fin (Tag.rank .E7)) ∈ J
-    · right
-      refine fun j hj => mem_nodes_four_of_ne ?_ ?_ ?_ ?_
-      · rintro rfl
-        exact h01 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-      · rintro rfl
-        exact h02 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-      · rintro rfl
-        exact h03 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-      · rintro rfl
-        exact h04 (eq_pair_of_card_le_two hJ (by decide) h0 hj)
-    · left
-      exact fun j hj => mem_nodes_high_of_ne fun h => h0 (h ▸ hj)
 
 section Placement
 
@@ -277,34 +225,11 @@ theorem levi_le_neighbourLevi {J : Finset (Fin (Tag.rank .E7))} {N : E7Neighbour
     (h : J ⊆ N.nodes) : CFSG.LieType.CurtisTits.levi (adjDatumE7 K).rootGroup J ≤ N.levi K :=
   levi_le_orthRoots fun j hj => (N.iform_root_single_eq_zero_iff j).2 (h hj)
 
-theorem levi_le_perpLevi {J : Finset (Fin (Tag.rank .E7))} (h : (0 : Fin (Tag.rank .E7)) ∉ J) :
-    CFSG.LieType.CurtisTits.levi (adjDatumE7 K).rootGroup J ≤ EPilot.perpLevi .E7 K := by
-  rw [← levi_high]
-  exact levi_le_neighbourLevi fun j hj => mem_nodes_high_of_ne fun h' => h (h' ▸ hj)
 
 theorem leviAmalgam_le_placementLevi (J : {J : Finset (Fin (adjDatumE7 K).rank) // J.card ≤ 2}) :
     (adjDatumE7 K).leviAmalgam J ≤ (amalgamPlacement J.1).levi K :=
   levi_le_neighbourLevi (subset_nodes_amalgamPlacement J.2)
 
-theorem leviAmalgam_le_perpLevi_or_seven_or_four
-    (J : {J : Finset (Fin (adjDatumE7 K).rank) // J.card ≤ 2}) :
-    ((0 : Fin (Tag.rank .E7)) ∉ J.1 → (adjDatumE7 K).leviAmalgam J ≤ EPilot.perpLevi .E7 K) ∧
-    ((5 : Fin (Tag.rank .E7)) ∉ J.1 → (6 : Fin (Tag.rank .E7)) ∉ J.1 →
-      (adjDatumE7 K).leviAmalgam J ≤ seven.levi K) ∧
-    (J.1 ⊆ four.nodes → (adjDatumE7 K).leviAmalgam J ≤ four.levi K) ∧
-    ((adjDatumE7 K).leviAmalgam J ≤ EPilot.perpLevi .E7 K ∨
-      (adjDatumE7 K).leviAmalgam J ≤ seven.levi K ∨
-      (adjDatumE7 K).leviAmalgam J ≤ four.levi K) := by
-  refine ⟨levi_le_perpLevi, fun h5 h6 => levi_le_neighbourLevi fun j hj =>
-    mem_nodes_seven_of_ne (fun h => h5 (h ▸ hj)) fun h => h6 (h ▸ hj),
-    fun h => levi_le_neighbourLevi h, ?_⟩
-  have h := leviAmalgam_le_placementLevi J
-  unfold amalgamPlacement at h
-  split_ifs at h with h0 h56
-  · exact Or.inr (Or.inr h)
-  · exact Or.inr (Or.inl h)
-  · rw [levi_high] at h
-    exact Or.inl h
 
 end Placement
 

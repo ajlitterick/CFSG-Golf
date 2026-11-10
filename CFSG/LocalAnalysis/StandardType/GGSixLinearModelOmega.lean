@@ -190,10 +190,6 @@ variable (p : ℕ) (ψ : Matrix.SpecialLinearGroup (Fin (m + 1)) F →* G) in
     rw [LinFusion.diagGL_inv]
     exact (LinFusion.ggInducedPairs ψ).inv_mem hgd
 
-theorem mem_rootTorus {p : ℕ} {ψ : Matrix.SpecialLinearGroup (Fin (m + 1)) F →* G} {g : G} :
-    g ∈ rootTorus p ψ ↔ ∃ d : Fin (m + 1) → Fˣ, (∀ i, d i ^ p = 1) ∧
-      (g, InnerDiagA.diagGL d) ∈ LinFusion.ggInducedPairs ψ :=
-  Iff.rfl
 
 theorem isElemAbelian_rootTorus {p : ℕ} {ψ : Matrix.SpecialLinearGroup (Fin (m + 1)) F →* G}
     (hC : Subgroup.centralizer (ψ.range : Set G) = ⊥) : IsElemAbelian p (rootTorus p ψ) := by

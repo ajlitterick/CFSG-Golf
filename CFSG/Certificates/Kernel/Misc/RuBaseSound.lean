@@ -69,8 +69,6 @@ theorem tr_map {n : Nat} {T L : Table} {f g : Nat → Nat} (hT : TR n T f) (hf :
   rw [h1]
   exact hL.2 _ (hf x hx)
 
-theorem tr_unique {n : Nat} {T : Table} {f g : Nat → Nat} (hf : TR n T f) (hg : TR n T g) :
-    ∀ x < n, f x = g x := fun x hx => by rw [← hf.2 x hx, hg.2 x hx]
 
 theorem invT_eq_foldl (n : Nat) (P : Table) :
     invT n P = (List.range' 0 n).foldl

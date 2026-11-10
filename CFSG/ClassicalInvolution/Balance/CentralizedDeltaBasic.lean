@@ -204,52 +204,6 @@ end Commutator
 
 section Inverted
 
-variable {G : Type*} [Group G]
-
-theorem centralizes_of_inverted {z n : G} {J : Subgroup G} (hzJ : ∀ j ∈ J, z * j = j * z)
-    (hnJ : ∀ j ∈ J, n * j * n⁻¹ ∈ J) (hinv : z * n * z⁻¹ = n⁻¹) (hodd : Odd (orderOf n)) :
-    ∀ j ∈ J, n * j = j * n := by
-  have hconj : ∀ j ∈ J, n⁻¹ * j * n = n * j * n⁻¹ := by
-    intro j hj
-    have hj' : n * j * n⁻¹ ∈ J := hnJ j hj
-    have e1 : z * (n * j * n⁻¹) * z⁻¹ = n * j * n⁻¹ := by
-      have := hzJ _ hj'
-      calc z * (n * j * n⁻¹) * z⁻¹ = (n * j * n⁻¹) * z * z⁻¹ := by rw [this]
-        _ = n * j * n⁻¹ := by group
-    have e2 : z * (n * j * n⁻¹) * z⁻¹ = (z * n * z⁻¹) * (z * j * z⁻¹) * (z * n⁻¹ * z⁻¹) := by
-      group
-    have e3 : z * j * z⁻¹ = j := by
-      have := hzJ j hj
-      calc z * j * z⁻¹ = j * z * z⁻¹ := by rw [this]
-        _ = j := by group
-    have e4 : z * n⁻¹ * z⁻¹ = n := by
-      have : z * n⁻¹ * z⁻¹ = (z * n * z⁻¹)⁻¹ := by group
-      rw [this, hinv, inv_inv]
-    rw [e2, hinv, e3, e4] at e1
-    exact e1
-  have hsq : ∀ j ∈ J, n * n * j = j * (n * n) := by
-    intro j hj
-    have h := hconj _ (hnJ j hj)
-    have e5 : n⁻¹ * (n * j * n⁻¹) * n = j := by group
-    have e6 : n * (n * j * n⁻¹) * n⁻¹ = n * n * j * (n * n)⁻¹ := by group
-    rw [e5, e6] at h
-    calc n * n * j = n * n * j * (n * n)⁻¹ * (n * n) := by group
-      _ = j * (n * n) := by rw [← h]
-  obtain ⟨r, hr⟩ := hodd
-  have h1 : n ^ (2 * r + 1) = 1 := by
-    rw [← hr]
-    exact pow_orderOf_eq_one n
-  have hn : n = (n * n) ^ (r + 1) := by
-    calc n = n ^ (2 * r + 1) * n := by rw [h1, one_mul]
-      _ = n ^ (2 * (r + 1)) := by
-          rw [← pow_succ]
-          congr 1
-      _ = (n * n) ^ (r + 1) := by rw [pow_mul, sq]
-  intro j hj
-  have hc : Commute (n * n) j := hsq j hj
-  have : Commute ((n * n) ^ (r + 1)) j := hc.pow_left (r + 1)
-  rw [← hn] at this
-  exact this
 
 end Inverted
 

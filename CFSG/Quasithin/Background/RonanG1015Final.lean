@@ -10,7 +10,6 @@ namespace CFSG.Quasithin
 
 namespace RonanG1015
 
-theorem g10_15_final : G1015Free := g10_15_of_nonsqt nonSQTSylow nonSQTOuter
 
 end RonanG1015
 

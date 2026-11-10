@@ -54,7 +54,6 @@ theorem tauMat_one : tauMat (1 : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R) =
   fin_cases r <;> fin_cases c <;> simp [tauMat, tauPair, Matrix.one_apply]
 
 
-
 structure Sc (g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R) : Prop where
   c01 : -(g ι₁ ι₁)*(g ι₃ ι₀) + (g ι₁ ι₀)*(g ι₃ ι₁) - (g ι₀ ι₁)*(g ι₂ ι₀) + (g ι₀ ι₀)*(g ι₂ ι₁) = 0
   r01 : -(g ι₀ ι₃)*(g ι₁ ι₁) - (g ι₀ ι₂)*(g ι₁ ι₀) + (g ι₀ ι₁)*(g ι₁ ι₃) + (g ι₀ ι₀)*(g ι₁ ι₂) = 0
@@ -156,41 +155,6 @@ theorem Sc.to_col {g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R} (hg : Sc g)
   · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
     ring
 
-theorem Sc.to_row {g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R} (hg : Sc g) :
-    g * jm * gᵀ = jm := by
-  apply matrix_ext16
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    ring
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r01
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r02
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r03
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r01
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    ring
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r12
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r13
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r02
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r12
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    ring
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination hg.r23
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r03
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r13
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    linear_combination (-1 : R) * hg.r23
-  · simp [Matrix.mul_apply, Fintype.sum_sum_type, Fin.sum_univ_two, jm]
-    ring
 
 theorem tauMul_00 (h2 : (2 : R) = 0) {g h : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) R}
     (hg : Sc g) (hh : Sc h) :

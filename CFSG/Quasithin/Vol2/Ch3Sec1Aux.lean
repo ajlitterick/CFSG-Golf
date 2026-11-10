@@ -17,10 +17,6 @@ section KqSylow
 
 variable {V : Type*} [CommGroup V]
 
-theorem conjBy_eq_conjSub_of_aut (g : MulAut V) (Y : Subgroup (MulAut V)) :
-    conjBy g Y = B6.conjSub g Y := by
-  ext x
-  rw [mem_conjBy_iff, B6.mem_conjSub]
 
 theorem exists_conjBy_le_of_isSylowTwoOf [Finite V] {X Y A : Subgroup (MulAut V)}
     (hY : IsSylowTwoOf Y X) (hAX : A ≤ X) (hA : IsPGroup 2 A) : ∃ g ∈ X, conjBy g A ≤ Y := by
@@ -114,11 +110,6 @@ theorem isElemAbelian_zpowers_of_orderOf_eq_two {y : G} (hy : orderOf y = 2) :
   rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul]
   simp [hy2]
 
-theorem one_le_pRank_two {T : Subgroup G} (hT : IsPGroup 2 T) (hne : T ≠ ⊥) :
-    1 ≤ CFSG.Open.pRank 2 T := by
-  obtain ⟨y, hyT, hy⟩ := exists_mem_orderOf_two_of_isPGroup hT hne
-  obtain ⟨h1, h2⟩ := isElemAbelian_zpowers_of_orderOf_eq_two hy
-  exact le_pRank Nat.prime_two (Subgroup.zpowers_le.mpr hyT) h1 (k := 1) (by simp [h2])
 
 theorem thompsonJ_ne_bot_of_isPGroup {T : Subgroup G} (hT : IsPGroup 2 T) (hne : T ≠ ⊥) :
     thompsonJ T ≠ ⊥ := by

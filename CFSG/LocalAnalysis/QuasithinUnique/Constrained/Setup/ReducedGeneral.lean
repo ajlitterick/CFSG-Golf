@@ -84,14 +84,6 @@ theorem isPrimeReduced_normalClosure_of_le_pCore (p : ℕ) [Fact p.Prime] (T : S
   have : (Subgroup.centralizer (D : Set E)).Normal := inferInstance
   exact Subgroup.le_centralizer_iff.mp (Subgroup.normalClosure_le_normal hZD)
 
-theorem qt_central_Sylow_seed_reduced_normal_closure (p : ℕ) [Fact p.Prime] (T : Sylow p E)
-    {Z : Subgroup E} (hZ1 : Z ≠ ⊥) (hZO : Z ≤ CFSG.pCore p E)
-    (hZT : Z ≤ centerTorsion p (T : Subgroup E)) :
-    IsPrimeReduced p (Subgroup.normalClosure (Z : Set E)) ∧ Z ≠ ⊥ ∧
-      Z ≤ Subgroup.normalClosure (Z : Set E) ∧
-      Subgroup.normalClosure (Z : Set E) ≤ primeReducedAggregate E p :=
-  have hW := isPrimeReduced_normalClosure_of_le_pCore p T hZO hZT
-  ⟨hW, hZ1, Subgroup.le_normalClosure, le_primeReducedAggregate hW⟩
 
 theorem qt_characteristic_p_Sylow_center_reduced_closure (p : ℕ) [Fact p.Prime]
     (hE : CFSG.IsCharacteristicP p E) (T : Sylow p E) {Z : Subgroup E}

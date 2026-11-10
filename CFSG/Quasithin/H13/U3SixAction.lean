@@ -33,10 +33,6 @@ theorem linOfMulEquiv_apply {V : Type*} [CommGroup V] [Module (ZMod 2) (Additive
     linOfMulEquiv F x = Multiplicative.toAdd (F.symm (Additive.toMul x)) :=
   rfl
 
-theorem linOfMulEquiv_symm_apply {V : Type*} [CommGroup V] [Module (ZMod 2) (Additive V)]
-    (F : Multiplicative W6 ≃* V) (w : W6) :
-    (linOfMulEquiv F).symm w = Additive.ofMul (F (Multiplicative.ofAdd w)) :=
-  rfl
 
 theorem u3_six_action_profile_producer
     (h1332 : Stmt13_3_2) : U3SixActionProfileProducer := by

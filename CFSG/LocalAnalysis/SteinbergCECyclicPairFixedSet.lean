@@ -23,7 +23,6 @@ variable {G Ω : Type*} [Group G] [MulAction G Ω]
 instance (A : Subgroup G) (α : Ω) : (pairCore A α).Normal :=
   Subgroup.normalCore_normal _
 
-variable [Finite G]
 
 end CyclicPair
 

@@ -234,16 +234,6 @@ theorem mem_invCentN {L : List (Array ℕ)} {a t : Array ℕ} {A T : Equiv.Perm 
   by_contra hc'
   exact h1 ((eqA_iff hra rep_idA).1 (by simpa using hc'))
 
-omit h in
-theorem of_mem_invCentN {L : List (Array ℕ)} {a t : Array ℕ} {A T : Equiv.Perm (Fin 64)}
-    (ha : a ∈ invCentN 64 L t) (hra : Rep 64 a A) (hrt : Rep 64 t T) :
-    a ∈ L ∧ A * T = T * A ∧ A * A = 1 ∧ A ≠ 1 := by
-  obtain ⟨haL, hb⟩ := List.mem_filter.1 ha
-  simp only [Bool.and_eq_true, Bool.not_eq_true'] at hb
-  refine ⟨haL, (commN_iff hra hrt).1 hb.1.1, (eqA_iff (rep_mulN hra hra) rep_idA).1 hb.1.2,
-    fun h1 => ?_⟩
-  rw [(eqA_iff hra rep_idA).2 h1] at hb
-  exact absurd hb.2 (by decide)
 
 theorem normT_of : hexaM ≤ normalizer (hexaT : Set (Equiv.Perm (Fin 64))) := by
   obtain ⟨hT, hM, -, -, -, -, -, hnT, -⟩ := hexaCheck_parts h

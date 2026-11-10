@@ -219,8 +219,6 @@ variable (k) in
     refine SL2_ext ?_ ?_ ?_ ?_ <;>
       simp [coe_uSL, SpecialLinearGroup.coe_mul, Matrix.mul_apply, Fin.sum_univ_two]
 
-theorem mem_sl2Unip {B : SL2 k} : B ∈ sl2Unip k ↔ ∃ a, uSL a = B :=
-  Iff.rfl
 
 theorem eq_mul_scalar_of_proj_eq {A B : SpecialLinearGroup (Fin 3) k}
     (h : proj 3 k A = proj 3 k B) :

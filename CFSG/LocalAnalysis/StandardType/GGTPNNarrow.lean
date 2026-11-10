@@ -32,20 +32,6 @@ open CFSG CFSG.Assembly
         GGTablePRow p labJ' labK' ∧
         GGHasLabel labJ' (J ⧸ Subgroup.center J) ∧ GGHasLabel labK' (K ⧸ Subgroup.center K)
 
-@[expose] def GGNbrTablePNbrInputI1 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (y : G) (K : Subgroup G), GGConfig p B Bs x L D J → GGInnerDiagOn Bs L →
-    GGInnerDiagOn Bs K → GGNbr p B x D J y K → Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D →
-    ∀ labJ labK : LargeEvenLabel, LargeEvenInLambda2 labJ → LargeEvenInLambda2 labK →
-      GGHasLabel labJ (J ⧸ Subgroup.center J) → GGHasLabel labK (K ⧸ Subgroup.center K) →
-      ∃ labJ' labK' : LargeEvenLabel, LargeEvenInLambda2 labJ' ∧ LargeEvenInLambda2 labK' ∧
-        GGTablePRow p labJ' labK' ∧
-        GGHasLabel labJ' (J ⧸ Subgroup.center J) ∧ GGHasLabel labK' (K ⧸ Subgroup.center K)
-
-theorem GGNbrTablePNbrInput.on' (h : GGNbrTablePNbrInput)
-    (R : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → Prop) : GGNbrTablePNbrInputOn R :=
-  fun G _ _ p B Bs x L D J y K hc hL hK hn labJ labK hJ hK' _ hhJ hhK =>
-    h G p B Bs x L D J y K hc hL hK hn labJ labK hJ hK' hhJ hhK
 
 theorem GGNbrTablePNbrInputOn.mono {R R' : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → Prop}
     (hR : ∀ p n a b, R p n a b → R' p n a b) (h : GGNbrTablePNbrInputOn R') :
@@ -60,11 +46,6 @@ theorem GGNbrTablePNbrInputOnL.mono
   fun G _ _ p B Bs x L D J y K hc hL hK hn labL labJ labK hL' hJ hK' hr hhL hhJ hhK =>
     h G p B Bs x L D J y K hc hL hK hn labL labJ labK hL' hJ hK' (hR _ _ _ _ _ hr) hhL hhJ hhK
 
-theorem GGNbrTablePNbrInput.onL' (h : GGNbrTablePNbrInput)
-    (R : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → LargeEvenLabel → Prop) :
-    GGNbrTablePNbrInputOnL R :=
-  fun G _ _ p B Bs x L D J y K hc hL hK hn labL labJ labK _ hJ hK' _ _ hhJ hhK =>
-    h G p B Bs x L D J y K hc hL hK hn labJ labK hJ hK' hhJ hhK
 
 theorem GGNbrTablePNbrInputOnL.toOn {R : ℕ → ℕ → LargeEvenLabel → LargeEvenLabel → Prop}
     (h : GGNbrTablePNbrInputOnL fun p n _ a b => R p n a b) : GGNbrTablePNbrInputOn R := by
@@ -183,10 +164,6 @@ theorem GGNbrTablePNbrInputNarrow.toA8Seven (h : GGNbrTablePNbrInputNarrow) :
   GGNbrTablePNbrInputOnL.toOn (GGNbrTablePNbrInputOnL.mono
     (fun _ _ _ _ _ hr => Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl hr)))))) h)
 
-theorem GGNbrTablePNbrInputNarrow.toA2Eight (h : GGNbrTablePNbrInputNarrow) :
-    GGNbrTablePNbrInputOn GGRegimeA2Eight :=
-  GGNbrTablePNbrInputOnL.toOn (GGNbrTablePNbrInputOnL.mono
-    (fun _ _ _ _ _ hr => Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl hr))))))) h)
 
 theorem GGNbrTablePNbrInputNarrow.toTypeAL (h : GGNbrTablePNbrInputNarrow) :
     GGNbrTablePNbrInputOnL GGRegimeTypeAL :=
@@ -200,8 +177,6 @@ theorem GGNbrTablePNbrInputNarrow.toA11 (h : GGNbrTablePNbrInputNarrow) :
       (fun h6 => Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h6))))))
       (fun h7 => Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h7)))))))) h)
 
-theorem GGNbrTablePNbrInput.toNarrow (h : GGNbrTablePNbrInput) : GGNbrTablePNbrInputNarrow :=
-  h.onL' _
 
 theorem ggNbrTablePNbrInputNarrow_of_regimes
     (h1 : GGNbrTablePNbrInputOnL GGRegimeA24L) (h2 : GGNbrTablePNbrInputOn GGRegimeAm2)

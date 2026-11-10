@@ -58,20 +58,5 @@ theorem componentLocalCoreOddImage_of_residual {G : Type*} [Group G] {p : ℕ} {
   rw [← relIndex_centralizer_eq_card_localCoreProductImage hL hWN]
   exact hodd
 
-theorem componentLocalCoreOddImage_of_le_centralizer {G : Type*} [Group G] {p : ℕ}
-    {E : Subgroup G} {t : G} {L : Subgroup G}
-    (hset : ((localCoreProduct p E t : Subgroup G) : Set G) =
-      ((⁅inSubgroup (aschbacherSolvableCore p) (Subgroup.centralizer ({t} : Set G)), E⁆ :
-        Subgroup G) : Set G) * (thetaT p E : Set G))
-    (hle : localCoreProduct p E t ≤ Subgroup.centralizer (L : Set G)) (hL : IsComponent L) :
-    ComponentLocalCoreOddImage p E t L := by
-  have hWN : localCoreProduct p E t ≤ Subgroup.normalizer (L : Set G) :=
-    hle.trans (Subgroup.centralizer_le_normalizer _)
-  have hodd : ¬ 2 ∣ (Subgroup.centralizer (L : Set G)).relIndex (localCoreProduct p E t) := by
-    rw [Subgroup.relIndex_eq_one.mpr hle]
-    omega
-  refine ⟨hset, hWN, ?_, twoPrimeResidual_le_centralizer_of_odd_relIndex hWN hodd⟩
-  rw [← relIndex_centralizer_eq_card_localCoreProductImage hL hWN]
-  exact hodd
 
 end CFSG.RankThree.PartOne

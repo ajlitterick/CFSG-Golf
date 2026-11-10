@@ -95,7 +95,6 @@ theorem sgnFlip_coord (i : Fin r) (v : Vn (r + 1)) (k : Fin (r + 1)) :
   · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, frameE,
       Pi.single_eq_of_ne hk, if_neg hk, mul_zero, sub_zero]
 
-theorem zmod3_trichotomy : ∀ x : ZMod 3, x = 0 ∨ x = 1 ∨ x = -1 := by decide
 
 theorem zmod3_ne_zero : ∀ x : ZMod 3, x ≠ 0 → x = 1 ∨ x = -1 := by decide
 
@@ -182,10 +181,6 @@ theorem sym_frame_B {c a : Vn (r + 1)}
 
 def optFin (r : ℕ) : Option (Fin r) ≃ Fin (r + 1) := finSuccEquivLast.symm
 
-theorem optFin_none (r : ℕ) : optFin r none = Fin.last r := finSuccEquivLast_symm_none
-
-theorem optFin_some (r : ℕ) (i : Fin r) : optFin r (some i) = i.castSucc :=
-  finSuccEquivLast_symm_some i
 
 @[expose] def extFramePerm (σ : Equiv.Perm (Fin r)) : Equiv.Perm (Fin (r + 1)) :=
   (optFin r).symm.trans ((Equiv.optionCongr σ).trans (optFin r))
@@ -270,70 +265,6 @@ theorem framePerm_xLast (σ : Equiv.Perm (Fin r)) : framePerm σ (xLast r) = xLa
         omega
       simp [xLast]
 
-theorem framePerm_conj_refl (σ : Equiv.Perm (Fin r)) (c a : Vn (r + 1))
-    (h : a ⬝ᵥ c = 2) :
-    framePerm σ * refl c a h * (framePerm σ)⁻¹ =
-      refl (c ∘ (extFramePerm σ).symm) (a ∘ (extFramePerm σ).symm)
-        (by
-          rw [dotProduct_comp_equiv_symm]
-          simpa [Function.comp_def] using h) := by
-  rw [framePerm]
-  exact permN_conj_refl (extFramePerm σ) c a h
-
-theorem framePerm_conj_sgnFlip (σ : Equiv.Perm (Fin r)) (i : Fin r) :
-    framePerm σ * sgnFlip i * (framePerm σ)⁻¹ = sgnFlip (σ i) := by
-  rw [sgnFlip, framePerm_conj_refl]
-  congr 1
-  · funext k
-    cases k using Fin.lastCases with
-    | last => simp [frameE, extFramePerm_symm_last]
-    | cast j =>
-        simp only [Function.comp_def, frameE, Pi.single_apply, extFramePerm_symm_castSucc,
-          Fin.castSucc_inj]
-        by_cases h : j = σ i
-        · have h1 : σ⁻¹ j = i := by
-            rw [h]
-            exact Equiv.symm_apply_apply σ i
-          rw [h1, h]
-          simp
-        · have h1 : σ⁻¹ j ≠ i := by
-            intro hh
-            apply h
-            rw [← hh]
-            exact (Equiv.apply_symm_apply σ j).symm
-          rw [if_neg h1, if_neg h]
-  · funext k
-    cases k using Fin.lastCases with
-    | last => simp [frameE, Pi.smul_apply, extFramePerm_symm_last]
-    | cast j =>
-        simp only [Function.comp_def, frameE, Pi.smul_apply, Pi.single_apply,
-          extFramePerm_symm_castSucc, Fin.castSucc_inj]
-        by_cases h : j = σ i
-        · have h1 : σ⁻¹ j = i := by
-            rw [h]
-            exact Equiv.symm_apply_apply σ i
-          rw [h1, h]
-          simp
-        · have h1 : σ⁻¹ j ≠ i := by
-            intro hh
-            apply h
-            rw [← hh]
-            exact (Equiv.apply_symm_apply σ j).symm
-          rw [if_neg h1, if_neg h]
-
-theorem framePerm_conj_sgnSum (σ : Equiv.Perm (Fin r)) (i j : Fin r) (h : i ≠ j)
-    (h' : σ i ≠ σ j) :
-    framePerm σ * sgnSum i j h * (framePerm σ)⁻¹ = sgnSum (σ i) (σ j) h' := by
-  rw [sgnSum, framePerm_conj_refl]
-  congr 1 <;>
-    (funext k
-     cases k using Fin.lastCases with
-     | last => simp [frameE, Pi.add_apply, extFramePerm_symm_last]
-     | cast l =>
-         simp only [Function.comp_def, frameE, Pi.add_apply, Pi.single_apply,
-           extFramePerm_symm_castSucc, Fin.castSucc_inj]
-         by_cases hi : l = σ i <;> by_cases hj : l = σ j <;>
-           simp [Equiv.symm_apply_eq, hi, hj])
 
 theorem framePerm_mem_adj {W : Subgroup (Vn (r + 1) ≃ₗ[ZMod 3] Vn (r + 1))}
     (hW : ∀ (i : Fin r) (h : i.val + 1 < r),

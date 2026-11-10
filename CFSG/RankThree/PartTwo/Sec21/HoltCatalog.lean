@@ -15,16 +15,6 @@ namespace CFSG.RankThree.PartTwo.Sec21
 
 open CFSG.Open
 
-@[expose] def HoltUniqueFixedPoint : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (Ω : Type) [MulAction X Ω] [Finite Ω],
-    FaithfulSMul X Ω → MulAction.IsPreprimitive X Ω → 2 ≤ Nat.card Ω →
-    CFSG.pPrimeCore 2 X = ⊥ → Subgroup.center X = ⊥ →
-    ∀ z : X, orderOf z = 2 →
-      (∃ S : Sylow 2 X, z ∈ (S : Subgroup X) ∧ (S : Subgroup X) ≤ Subgroup.centralizer {z}) →
-      (∃! ω : Ω, z • ω = ω) →
-      (∃ M : Subgroup X, CFSG.IsStronglyEmbedded M) ∨
-        ∃ n : ℕ, Odd n ∧ (Nonempty (X ≃* Equiv.Perm (Fin n)) ∨
-          Nonempty (X ≃* alternatingGroup (Fin n)))
 
 @[expose] def HoltUniqueFixedPointSimple : Prop :=
   ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
@@ -75,54 +65,6 @@ theorem faithfulSMul_quotient_of_simple [IsSimpleGroup G] {K : Subgroup G} (hK :
   rw [← Subgroup.normalCore_eq_ker, hcore, Subgroup.mem_bot, inv_mul_eq_one] at hker
   exact hker.symm
 
-theorem isPreprimitive_quotient_of_isCoatom [Finite G] {K : Subgroup G} (hK : IsCoatom K) :
-    MulAction.IsPreprimitive G (G ⧸ K) := by
-  have h1 : 1 < Nat.card (G ⧸ K) := Subgroup.one_lt_index_of_ne_top hK.1
-  have : Nontrivial (G ⧸ K) := Finite.one_lt_card_iff_nontrivial.mp h1
-  rw [← MulAction.isCoatom_stabilizer_iff_preprimitive G ((1 : G) : G ⧸ K),
-    MulAction.stabilizer_quotient]
-  exact hK
-
-theorem unique_fixed_of_le [Finite G] {N K : Subgroup G} (hNK : N ≤ K) {z : G}
-    (hz : orderOf z = 2) (hfix : ∀ q : G ⧸ N, z • q = q ↔ q = ((1 : G) : G ⧸ N)) :
-    ∀ q : G ⧸ K, z • q = q ↔ q = ((1 : G) : G ⧸ K) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hzN : z ∈ N := by
-    have h1 := (hfix ((1 : G) : G ⧸ N)).mpr rfl
-    rw [smul_mk_eq_iff] at h1
-    simpa using h1
-  have hodd : Odd (N.relIndex K) := by
-    have h := odd_index_of_unique_fixed hz hfix
-    rw [← Subgroup.relIndex_mul_index hNK] at h
-    exact (Nat.odd_mul.mp h).1
-  intro q
-  induction q using QuotientGroup.induction_on with
-  | H g =>
-    rw [smul_mk_eq_iff, mk_eq_mk_one_iff]
-    constructor
-    · intro hx
-      let x : K := ⟨g⁻¹ * z * g, hx⟩
-      have hxord : orderOf x = 2 := by
-        rw [Subgroup.orderOf_mk, orderOf_inv_mul_mul, hz]
-      have hP : IsPGroup 2 (Subgroup.zpowers x) :=
-        IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hxord, pow_one])
-      have hndvd : ¬ 2 ∣ Nat.card (K ⧸ N.subgroupOf K) :=
-        Nat.two_dvd_ne_zero.mpr (Nat.odd_iff.mp hodd)
-      obtain ⟨q0, hq0⟩ :=
-        hP.nonempty_fixed_point_of_prime_not_dvd_card (K ⧸ N.subgroupOf K) hndvd
-      induction q0 using QuotientGroup.induction_on with
-      | H k =>
-        have hk : x • (k : K ⧸ N.subgroupOf K) = (k : K ⧸ N.subgroupOf K) :=
-          (MulAction.mem_fixedPoints.mp hq0) ⟨x, Subgroup.mem_zpowers x⟩
-        rw [smul_mk_eq_iff] at hk
-        have hk' : (g * k)⁻¹ * z * (g * k) ∈ N := by
-          have h' := Subgroup.mem_subgroupOf.mp hk
-          simpa [x, mul_assoc] using h'
-        have hgk := (hfix ((g * k : G) : G ⧸ N)).mp ((smul_mk_eq_iff z (g * k)).mpr hk')
-        rw [mk_eq_mk_one_iff] at hgk
-        simpa using K.mul_mem (hNK hgk) (K.inv_mem k.2)
-    · intro hg
-      exact K.mul_mem (K.mul_mem (K.inv_mem hg) (hNK hzN)) hg
 
 end Simple
 
@@ -196,28 +138,6 @@ theorem inCatalog_of_isStronglyEmbedded [Finite G] [IsSimpleGroup G]
     exact CFSG.QuasithinUnique.inCatalog_of_fusionIsBenderGroup hnonab
       (fusionIsBenderGroup_of_mulEquiv e hB)
 
-theorem false_of_mulEquiv_perm [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    {n : ℕ} (hn : Odd n) (e : G ≃* Equiv.Perm (Fin n)) : False := by
-  rcases Nat.lt_or_ge n 3 with h3 | h3
-  · have hn1 : n = 1 := by
-      obtain ⟨k, rfl⟩ := hn
-      omega
-    subst hn1
-    obtain ⟨a, b, hab⟩ := hnonab
-    exact hab (e.injective (Subsingleton.elim _ _))
-  · have : Nontrivial (Fin n) := Fin.nontrivial_iff_two_le.mpr (by omega)
-    let H : Subgroup G := (alternatingGroup (Fin n)).comap e.toMonoidHom
-    have : H.Normal := Subgroup.Normal.comap inferInstance _
-    have hidx : H.index = 2 := by
-      rw [Subgroup.index_comap_of_surjective _ e.surjective, alternatingGroup.index_eq_two]
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal H with h | h
-    · rw [h, Subgroup.index_bot, Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card,
-        Fintype.card_perm, Fintype.card_fin] at hidx
-      have h6 := Nat.factorial_le h3
-      rw [hidx] at h6
-      norm_num [Nat.factorial] at h6
-    · rw [h, Subgroup.index_top] at hidx
-      norm_num at hidx
 
 theorem inCatalog_of_mulEquiv_alternating_odd (hnonab : ∃ a b : G, a * b ≠ b * a) {n : ℕ}
     (hn : Odd n) (e : G ≃* alternatingGroup (Fin n)) : CFSG.Assembly.InCatalog G := by

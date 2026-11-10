@@ -104,30 +104,5 @@ theorem proper_position_original_factorization_and_intersection
   exact ⟨hfactor, hcenter, proper_position_original_core_intersection
     hnonab n hn S e hfour p f hp hpodd hf hlocal K hcover hfactor⟩
 
-theorem proper_position_original_element_factorization
-    {G : Type} [Group G] [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (K : Subgroup G) (hxK : wreathModelHom S e (Original.x (2 ^ n)) ∈ K)
-    (P : Sylow 2 K)
-    (hxP : (⟨wreathModelHom S e (Original.x (2 ^ n)), hxK⟩ : K) ∈ P)
-    (g : G)
-    (hPS : ((P : Subgroup K).map K.subtype).map (MulAut.conj g).toMonoidHom ≤ S)
-    (hY : Original.Y (2 ^ n) ≤ (positionedSylowEmbedding S e K P g hPS).range)
-    (hproper : (positionedSylowEmbedding S e K P g hPS).range < ⊤)
-    (hx : positionedSylowEmbedding S e K P g hPS
-      ⟨(⟨wreathModelHom S e (Original.x (2 ^ n)), hxK⟩ : K), hxP⟩ =
-        Original.x (2 ^ n)) :
-    ∀ k : K, ∃ o ∈ CFSG.oddCore K,
-      ∃ c ∈ (involutionCentralizer n S e).subgroupOf K, k = o * c := by
-  have hfac := (proper_position_original_factorization
-    n hn S e K hxK P hxP g hPS hY hproper hx).1
-  have hfactor :=
-    FullSylowCoveringObstruction.internal_odd_core_factorization_iff_ambient_product.mpr hfac
-  intro k
-  have hk : k ∈ CFSG.oddCore K ⊔ (involutionCentralizer n S e).subgroupOf K := by
-    rw [hfactor]
-    exact Subgroup.mem_top k
-  obtain ⟨o, ho, c, hc, hprod⟩ := Subgroup.mem_sup_of_normal_left.mp hk
-  exact ⟨o, ho, c, hc, hprod.symm⟩
 
 end CFSG.Wreathed.SmallerRecognitionOriginalField

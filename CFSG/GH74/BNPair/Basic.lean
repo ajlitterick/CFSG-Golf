@@ -114,9 +114,6 @@ theorem inv_mem_dc {w : WeylGroup B N} {x : X} (hx : x ∈ dc B N w) : x⁻¹ �
     B.inv_mem hb, ?_⟩
   simp [mul_assoc]
 
-theorem inv_mem_dc_iff {w : WeylGroup B N} {x : X} : x⁻¹ ∈ dc B N w⁻¹ ↔ x ∈ dc B N w := by
-  refine ⟨fun h => ?_, inv_mem_dc⟩
-  simpa using inv_mem_dc h
 
 omit [(cartan B N).Normal] in
 theorem mem_dc_mul_dc_biinv (a b : WeylGroup B N) :

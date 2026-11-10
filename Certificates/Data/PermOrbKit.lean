@@ -56,12 +56,6 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Quasithin.KGC31.
     ((List.range 6).all fun r => conjIn n (ds.getD r []) (spD.getD (swap01 r) []) gT) &&
     ((List.range 6).all fun r => conjIn n (ds.getD r []) (spD.getD ((r + 1) % 6) []) hT)
 
-@[expose] def centOK (n : Nat) (lv : List (List Table)) (us ws : List Table) : Bool :=
-  let spW := spanTabs n ws
-  tabsOK n us && ebasisOK n us && tabsOK n ws && ebasisOK n ws &&
-    (us.all fun u => inSp n spW u) && (ws.all fun w => commAllT n us w) &&
-    countProducts n (commAllT n us) lv (idT n) == 2 ^ ws.length &&
-    countProducts n (fun T => commAllT n us T && !(inSp n spW T)) lv (idT n) == 0
 
 @[expose] def irrOK (n m : Nat) (x xi : Table) (us ws : List Table) : Bool :=
   let spU := spanTabs n us

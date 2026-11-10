@@ -91,12 +91,6 @@ theorem xp_mul_self
     * xp p c = 1 := by
   rw [← xp_add, CharTwo.add_self_eq_zero, xp_zero]
 
-theorem Xp_mul_self
-    [CharP K 2] {p : ℕ} (hp : p < 12)
-    {x : adjointGroup .G2 K} (hx : x ∈ Xp K p) :
-    x * x = 1 := by
-  obtain ⟨c, rfl⟩ := (mem_Xp_iff hp x).1 hx
-  exact xp_mul_self p c
 
 theorem commute_of_check
     {a b : ℕ} (ha : a < 12)
@@ -210,21 +204,6 @@ section Reduction
 open CFSG.LieType.Steinberg CFSG.LieType.CurtisTits CFSG.LieType.RootSystem
 variable (K)
 
-theorem borel_le_normalizer_X7 :
-    borel (g2Datum K) (torus (τ := .G2) K) ≤
-      Subgroup.normalizer (Xp K 7 : Set (adjointGroup .G2 K)) := by
-  refine sup_le ?_ ?_
-  · refine iSup_le fun i => ?_
-    intro h hh
-    exact mem_normalizer_rootGroup (g2_isCTGroupDatum K) hh
-      (mem_g2_roots.2 (isRoot_rt (by norm_num)))
-  · refine iSup₂_le fun γ hγ => ?_
-    obtain ⟨hγR, hγp⟩ := hγ
-    obtain ⟨k, hk, rfl⟩ :=
-      RootCertificate.exists_root_eq (Tag.rootCertificate_check .G2) (mem_g2_roots.1 hγR)
-    have hk' : k < 12 := by simpa [len_roots] using hk
-    have hkp := ht_pos_aux k hk' hγp
-    exact le_normalizer_of_commute (commute_Xp_pos7 hkp)
 
 end Reduction
 
@@ -237,13 +216,6 @@ variable (K)
     (conjSub (Xp K 7))
 
 variable {K}
-
-theorem conjSub_mem_longClass
-    {A : Subgroup (adjointGroup .G2 K)} (hA : A ∈ longClass K)
-    (g : adjointGroup .G2 K) :
-    conjSub A g ∈ longClass K := by
-  obtain ⟨h, rfl⟩ := hA
-  exact ⟨g * h, by rw [conjSub_mul]⟩
 
 
 end LongClass
@@ -284,29 +256,6 @@ end LongClass2
 section Standard
 open CFSG.Timmesfeld.ARS CFSG.LieType.Steinberg CFSG.LieType.CurtisTits CFSG.LieType.RootSystem
 
-theorem exists_standard_pair
-    {A B : Subgroup (adjointGroup .G2 K)} (hA : A ∈ longClass K)
-    (hB : B ∈ longClass K) :
-    ∃ g : adjointGroup .G2 K, ∃ t ∈ longPos, conjSub A g = Xp K 7 ∧ conjSub B g = Xp K t := by
-  obtain ⟨g₁, rfl⟩ := hA
-  obtain ⟨g₂, rfl⟩ := hB
-  have hct := g2_isCTGroupDatum K
-  have hext := g2_steinbergExtras K
-  obtain ⟨w, b₁, hb₁, b₂, hb₂, hh⟩ := exists_mem_bruhatCell hct hext (g₁⁻¹ * g₂)
-  obtain ⟨t, ht, hrt⟩ := weylAction_long K w 7 (by simp [longPos])
-  refine ⟨b₁⁻¹ * g₁⁻¹, t, ht, ?_, ?_⟩
-  · rw [← conjSub_mul, show b₁⁻¹ * g₁⁻¹ * g₁ = b₁⁻¹ by group]
-    exact conjSub_of_mem_normalizer (Subgroup.inv_mem _ (borel_le_normalizer_X7 K hb₁))
-  · rw [← conjSub_mul]
-    have e : b₁⁻¹ * g₁⁻¹ * g₂ = nrep hct w * b₂ := by
-      have : g₁⁻¹ * g₂ = b₁ * nrep hct w * b₂ := hh
-      calc b₁⁻¹ * g₁⁻¹ * g₂ = b₁⁻¹ * (g₁⁻¹ * g₂) := by group
-        _ = b₁⁻¹ * (b₁ * nrep hct w * b₂) := by rw [this]
-        _ = nrep hct w * b₂ := by group
-    rw [e, conjSub_mul, conjSub_of_mem_normalizer (borel_le_normalizer_X7 K hb₂)]
-    have hact := actsAs_nrep hct w (rt 7) (mem_g2_roots.2 (isRoot_rt (by norm_num)))
-    rw [hrt] at hact
-    exact hact
 
 end Standard
 
@@ -391,56 +340,6 @@ end Dichotomy
 section Main
 open CFSG.Timmesfeld.ARS
 
-theorem long_pair_dichotomy
-    [CharP K 2]
-    {A B : Subgroup (adjointGroup .G2 K)} (hA : A ∈ longClass K)
-    (hB : B ∈ longClass K) (hne : A ≠ B) :
-    Commuting A B ∨ Opposite A B ∨ Special (longClass K) A B := by
-  obtain ⟨g, t, ht, hgA, hgB⟩ := exists_standard_pair hA hB
-  have ht7 : t ≠ 7 := by
-    rintro rfl
-    exact hne (conjSub_inj g (hgA.trans hgB.symm))
-  have hR : ∀ A ∈ longClass K, ∀ g : adjointGroup .G2 K, conjSub A g ∈ longClass K :=
-    fun A hA g => conjSub_mem_longClass hA g
-  rcases standard_dichotomy (K := K) ht ht7 with h | h | h
-  · left
-    rw [← hgA, ← hgB] at h
-    have := commuting_conj h g⁻¹
-    rwa [conjSub_conjSub_inv', conjSub_conjSub_inv'] at this
-  · right; left
-    rw [← hgA, ← hgB] at h
-    have := opposite_conj h g⁻¹
-    rwa [conjSub_conjSub_inv', conjSub_conjSub_inv'] at this
-  · right; right
-    rw [← hgA, ← hgB] at h
-    have := special_conj hR h g⁻¹
-    rwa [conjSub_conjSub_inv', conjSub_conjSub_inv'] at this
-
-theorem longClass_mul_self
-    [CharP K 2]
-    {A : Subgroup (adjointGroup .G2 K)} (hA : A ∈ longClass K) :
-    ∀ a ∈ A, a * a = 1 := by
-  obtain ⟨g, rfl⟩ := hA
-  rintro _ ⟨x, hx, rfl⟩
-  have hxx := Xp_mul_self (K := K) (p := 7) (by norm_num) hx
-  show (MulAut.conj g).toMonoidHom x * (MulAut.conj g).toMonoidHom x = 1
-  rw [← map_mul, hxx, map_one]
-
-theorem longClass_ne_bot
-    {A : Subgroup (adjointGroup .G2 K)}
-    (hA : A ∈ longClass K) : A ≠ ⊥ := by
-  obtain ⟨g, rfl⟩ := hA
-  intro h
-  have h1 : xp 7 (1 : K) ∈ Xp K 7 := (mem_Xp_iff (by norm_num) _).2 ⟨1, rfl⟩
-  have h2 : (MulAut.conj g).toMonoidHom (xp 7 (1 : K)) ∈ conjSub (Xp K 7) g := ⟨_, h1, rfl⟩
-  rw [h] at h2
-  have h3 : xp 7 (1 : K) = 1 := by
-    have : (MulAut.conj g).toMonoidHom (xp 7 (1 : K)) = 1 := h2
-    simpa using this
-  have := xPar_injective (F := rootOperatorFamily .G2) (K := K) (γ := rt 7)
-    (isRoot_rt (by norm_num))
-  have h4 : xp 7 (1 : K) = xp 7 0 := by rw [h3, xp_zero]
-  exact one_ne_zero (this h4)
 
 end Main
 

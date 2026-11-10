@@ -175,9 +175,6 @@ theorem G93Case1.toDimensionOnly {H : Subgroup (GLV V)} {m : ℕ}
     G93Case10 H m ∨ G93Case11 Γ H m ∨ G93Case12 H m ∨ G93Case13 Γ H m ∨ G93Case14 H m ∨
     G93Case15 H m ∨ G93Case16 H m ∨ G93Case17 H m
 
-@[expose] def G93Stmt : Prop :=
-  ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
-    (Γ A L H : Subgroup (GLV V)) (m : ℕ), G93Hyp Γ A L H m → G93Concl Γ H m
 
 @[expose] def G94Concl (Γ A : Subgroup (GLV V)) (m : ℕ) : Prop :=
   (m = 1 ∧ G112Concl1 Γ) ∨

@@ -58,15 +58,6 @@ namespace HypFrame
 
 variable (F : HypFrame Q n)
 
-theorem polar_sum_vec (v : V) (i : Fin n) (s : Bool) :
-    polar Q (∑ k, ∑ r, polar Q v (F.vec k (!r)) • F.vec k r) (F.vec i s) =
-      polar Q v (F.vec i s) := by
-  rw [← polarBilin_apply_apply]
-  simp only [map_sum, map_smul, LinearMap.sum_apply, LinearMap.smul_apply, polarBilin_apply_apply,
-    smul_eq_mul, F.polar_vec_vec]
-  rw [Finset.sum_eq_single i (fun k _ hk => by simp [hk])
-    (fun h => absurd (Finset.mem_univ i) h)]
-  cases s <;> simp
 
 private def eichlerParams (Q : QuadraticForm K V) (H : Subgroup (V ≃ₗ[K] V)) (u : V) :
     AddSubgroup V where
@@ -123,10 +114,6 @@ theorem eichler_vec_mem (i : Fin n) (s : Bool) {w : V} (hw : polar Q (F.vec i s)
   rw [add_sub_cancel] at h
   exact h.2
 
-theorem rootGroup_vec_le (i : Fin n) (s : Bool) : rootGroup Q (F.vec i s) ≤ H := by
-  intro g hg
-  obtain ⟨w, hw, rfl⟩ := mem_rootGroup.mp hg
-  exact F.eichler_vec_mem hlong hperp i s hw
 
 theorem exists_mem_apply_eq_of_polar_eq (i : Fin n) (s : Bool) {x y : V} (hxy : Q x = Q y)
     {t : K} (hx : polar Q (F.vec i s) x = t) (hy : polar Q (F.vec i s) y = t) (ht : t ≠ 0) :

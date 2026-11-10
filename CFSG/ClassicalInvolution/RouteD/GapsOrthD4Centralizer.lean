@@ -202,19 +202,6 @@ theorem orth_d4_centralizer (hodd : Odd (Nat.card K)) (hQ : (polarBilin Q).Nonde
   · exact chain_twins hodd hQ hdim hdim' hc h₁ h₂ hS hS' a₁ a₂ horth hne hSc hS1 hS2 hS'c hS'1 hS'2
   · exact chain_twins hodd hQ hdim hdim' hc h₁ h₃ hS hS' a₁ a₃ horth hne hSc hS1 hS3 hS'c hS'1 hS'3
 
-theorem orth_d4_centralizer_empty (hodd : Odd (Nat.card K)) (hQ : (polarBilin Q).Nondegenerate)
-    (hdim : 9 ≤ Module.finrank K V) (hdim' : Module.finrank K V ≤ 11) :
-    ∀ c ∈ fundSet Q, ∀ l₁ ∈ fundSet Q, ∀ l₂ ∈ fundSet Q, ∀ l₃ ∈ fundSet Q,
-      ModelAdj (scalars K V) c l₁ → ModelAdj (scalars K V) c l₂ → ModelAdj (scalars K V) c l₃ →
-      l₁ ≠ l₂ → l₁ ≠ l₃ → l₂ ≠ l₃ → Commutes l₁ l₂ → Commutes l₁ l₃ → Commutes l₂ l₃ →
-      ∀ S ∈ fundSet Q, ¬ (Commutes S c ∧ Commutes S l₁ ∧ Commutes S l₂ ∧ Commutes S l₃) := by
-  rintro c ⟨ic, hc⟩ l₁ ⟨i₁, h₁⟩ l₂ ⟨i₂, h₂⟩ l₃ ⟨i₃, h₃⟩ a₁ a₂ a₃ n12 n13 n23 k12 k13 k23 S ⟨iS, hS⟩
-    ⟨hSc, hS1, hS2, hS3⟩
-  rcases star_orth_pair hodd h₁ h₂ h₃ n12 n13 n23 k12 k13 with horth | horth
-  · have := (chain_centralizer hodd hQ hdim (by omega) hc h₁ h₂ hS a₁ a₂ horth hSc hS1 hS2).1
-    omega
-  · have := (chain_centralizer hodd hQ hdim (by omega) hc h₁ h₃ hS a₁ a₃ horth hSc hS1 hS3).1
-    omega
 
 end Geometry
 

@@ -21,7 +21,6 @@ theorem fixedPhi_coe (a : RingHom.eqLocusField σ (RingHom.id K)) : fixedPhi σ 
   have h : (a : K) = a • (1 : K) := by rw [Algebra.smul_def, mul_one]; rfl
   rw [h, map_smul, fixedPhi_one, smul_eq_mul, mul_one]
 
-theorem fixedPhi_surjective : Function.Surjective (fixedPhi σ) := fun a => ⟨a, fixedPhi_coe σ a⟩
 
 theorem fixedPhi_mul (a : RingHom.eqLocusField σ (RingHom.id K)) (c : K) :
     fixedPhi σ ((a : K) * c) = a * fixedPhi σ c := by

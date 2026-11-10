@@ -71,7 +71,6 @@ theorem localB_of_isKGroupCat
   ((ProperSectionB.kGroupBConclusion_of_inputs hS hU hheld hKG).2.1
     (by rw [B5a.assembly_oddCore_eq]; exact hO)).2
 
-variable {h : Hyp52 X} {y : X}
 
 end Seven
 

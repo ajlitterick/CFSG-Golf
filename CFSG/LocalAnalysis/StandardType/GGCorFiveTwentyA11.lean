@@ -50,9 +50,6 @@ theorem GGSecFiveA11Config.toWide {G : Type} [Group G] [Finite G] {p : ℕ} {B B
       GGSecFiveA11ConfigWide p B Bs x L D J →
         ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K → GGRootCompGenAvoiding p Bs K
 
-theorem GGCorFiveTwentyInputNbrQTwoQFour.noA11Cfg (h : GGCorFiveTwentyInputNbrQTwoQFour) :
-    GGCorFiveTwentyInputNbrQTwoQFourNoA11Cfg :=
-  fun G _ _ p B Bs x L D J hH hq hN _ => h G p B Bs x L D J hH hq hN
 
 private theorem ggCorFiveTwentyNormalizer_of_tb_rootGen (hL : GGLBalanceInput)
     (hP : GGStdSubPrimeInput) {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G}

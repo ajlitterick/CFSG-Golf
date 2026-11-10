@@ -46,67 +46,6 @@ lemma mk_eq_one_iff {H K : Subgroup G} {g : G} :
     refine ⟨h⁻¹, H.inv_mem hh, k⁻¹, K.inv_mem hk, ?_⟩
     simp only [← mul_assoc, mul_inv_cancel, one_mul, inv_mul_cancel]
 
-/--
-A finite group has finitely many double cosets.
-
-This is a named local-instance provider for
-`Fintype (DoubleCoset.Quotient H K)`.
--/
-@[expose, reducible]
-noncomputable def quotientFintype
-    [Finite G] (H K : Subgroup G) :
-    Fintype (DoubleCoset.Quotient (G := G) H K) := by
-  classical
-  letI : Fintype G := Fintype.ofFinite G
-  exact Quotient.fintype (DoubleCoset.setoid (H : Set G) (K : Set G))
-
-/-- The identity double coset in `I \ G / I`. -/
-abbrev oneDC (I : Subgroup G) : DoubleCoset.Quotient (G:=G) I I :=
-  DoubleCoset.mk (G := G) I I (1 : G)
-
-/--
-If a double coset in `I \ G / I` is not the identity double coset, then its
-chosen representative is not an element of `I`.
--/
-lemma out_not_mem_of_ne_one
-    (I : Subgroup G) (d : DoubleCoset.Quotient (G := G) I I)
-      (hd : d ≠ DoubleCoset.oneDC (G := G) I) :
-    Quotient.out d ∉ I := by
-  intro hout
-  apply hd
-  have hmk : DoubleCoset.mk (G := G) I I (Quotient.out d) =
-    DoubleCoset.mk (G := G) I I (1 : G) := by
-    refine (DoubleCoset.eq (H := I) (K := I) (a := Quotient.out d) (b := (1 : G))).2 ?_
-    refine ⟨(Quotient.out d)⁻¹, I.inv_mem hout, 1, I.one_mem, ?_⟩
-    simp
-  calc
-    d = DoubleCoset.mk (G := G) I I (Quotient.out d) := by
-      exact Eq.symm (DoubleCoset.out_eq' (H := I) (K := I) d)
-    _ = DoubleCoset.mk (G := G) I I (1 : G) := hmk
-
-/--
-The chosen representative of the identity double coset belongs to `I`.
--/
-lemma out_oneDC_mem
-    (I : Subgroup G) :
-    Quotient.out (DoubleCoset.oneDC (G := G) I) ∈ I := by
-  have hmk :
-      DoubleCoset.mk (G := G) I I
-        (Quotient.out (DoubleCoset.oneDC (G := G) I))
-        =
-      DoubleCoset.mk (G := G) I I (1 : G) := by
-    calc
-      DoubleCoset.mk (G := G) I I
-          (Quotient.out (DoubleCoset.oneDC (G := G) I))
-          = DoubleCoset.oneDC (G := G) I := by
-              exact DoubleCoset.out_eq' (G := G) (H := I) (K := I)
-                (DoubleCoset.oneDC (G := G) I)
-      _ = DoubleCoset.mk (G := G) I I (1 : G) := rfl
-  obtain ⟨h, hh, k, hk, hout⟩ :=
-    (mk_eq_one_iff (H := I) (K := I)
-      (g := Quotient.out (DoubleCoset.oneDC (G := G) I))).mp hmk
-  rw [hout]
-  exact I.mul_mem hh hk
 
 /--
 The parametrisation of the double coset `I g I` used in the fibre-counting
@@ -393,30 +332,6 @@ lemma sum_over_G_eq_sum_double_cosets
   · intro d₁ _ d₂ _ h_neq
     have h_disj := DoubleCoset.disjoint_out (H := I) (K := I) h_neq
     exact Set.disjoint_toFinset.mpr h_disj
-
-
-open Classical in
-/--
-Regroup a finite sum over right cosets by double cosets.
-
-This is `Fintype.sum_fiberwise` for the map sending a right coset `q` to the
-double coset represented by `q.out`.
--/
-lemma sum_rightCosets_by_doubleCoset
-    {k : Type v} [AddCommMonoid k]
-    [Finite G] (I : Subgroup G)
-    [Fintype (_root_.Quotient (QuotientGroup.rightRel I))]
-    [Fintype (Quotient (G := G) I I)]
-    (F : _root_.Quotient (QuotientGroup.rightRel I) → k) :
-    (∑ q : _root_.Quotient (QuotientGroup.rightRel I), F q)
-      =
-    ∑ d : Quotient (G := G) I I,
-      (∑ q :
-            {q : _root_.Quotient (QuotientGroup.rightRel I) // DoubleCoset.mk I I q.out = d},
-          F q.1) := by
-  let φ : _root_.Quotient (QuotientGroup.rightRel I) → Quotient (G := G) I I :=
-    fun q => DoubleCoset.mk I I q.out
-  simpa [φ] using (Fintype.sum_fiberwise φ (fun q => F q)).symm
 
 
 open Classical in

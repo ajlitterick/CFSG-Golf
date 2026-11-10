@@ -33,25 +33,6 @@ variable {G : Type} [Group G] [Finite G]
   ∀ X T M L : Subgroup G, CharTwo X → IsSQTKCat X → IsSylowTwoOf T X → cgsIn X T ≤ M → M ≤ X →
     IsBlock2 X L → IsAltType L 7 → ⁅L, thompsonJ T⁆ = L → ¬ L ≤ M → False
 
-omit [Finite G] in
-theorem c123TwoCgs_of_gn {C₁ C₂ : Subgroup G → Subgroup G} (hC : IsGNChoice C₁ C₂)
-    (h : C123TwoStatement C₁ C₂) : C123TwoCgsStatement (G := G) := by
-  intro T Y L hT hY _hKY hL hprod hexc
-  have hT0 : T ≠ ⊥ := by
-    intro hbot
-    obtain ⟨-, ⟨α, hα, -⟩, -⟩ := hexc
-    have h1 : Nat.card (alternatingGroup (Fin 7)) ∣ Nat.card L :=
-      Subgroup.card_dvd_of_surjective hα
-    have h2 : 2 ∣ Nat.card (alternatingGroup (Fin 7)) := by
-      rw [Nat.card_eq_fintype_card, card_alternatingGroup, Fintype.card_fin]
-      decide
-    have h3 : Nat.card L ∣ Nat.card Y := Subgroup.card_dvd_of_le (le_of_mem_cComp hL)
-    have h0 : ¬ 2 ∣ T.relIndex Y := hT.2.2
-    apply h0
-    rw [hbot, Subgroup.relIndex_bot_left]
-    exact h2.trans (h1.trans h3)
-  have hY' := h T T Y L hT.2.1 (C1GN.baum_le T) le_rfl hT hY hL hprod hexc
-  exact hY'.le.trans (C1GN.le_cgsIn_of_isGNChoice (X := Y) hC hT.2.1 hT0)
 
 end Statements
 

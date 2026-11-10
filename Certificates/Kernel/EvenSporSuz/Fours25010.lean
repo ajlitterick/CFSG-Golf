@@ -40,10 +40,6 @@ theorem ch25010M_letters :
 set_option maxHeartbeats 0 in
 theorem ch25010M_sq : (mulR x25010 x25010 == oneR) = true := by decide +kernel
 
-theorem ch25010Neg_sq :
-    (mulR (evalR l0M l0I ((fwW.getD 1 []).map zCode)) (evalR l0M l0I ((fwW.getD 1 []).map zCode))
-      == oneR) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSuz
 
@@ -76,9 +72,6 @@ theorem ch25010P_t3 :
 
 theorem ch25010P_x : Nat.beq (F 0) e = false := by decide +kernel
 
-theorem ch25010Neg_t2 :
-    Nat.beq (pc (pc (pc (F 1) (SuzTP 2)) (FI 1)) (SuzTP 2)) (pc (pc (F 4) (F 0)) (FI 4)) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.S26990
 

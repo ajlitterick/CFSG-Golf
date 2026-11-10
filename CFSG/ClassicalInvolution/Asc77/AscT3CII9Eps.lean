@@ -184,65 +184,11 @@ section OutHoms
 
 variable {F : Type*} [Field F] [Finite F] {P : Type*} [Group P]
 
-@[expose] noncomputable def outEps (hK : IsOddPrimePower (Nat.card F)) (e : P ≃* SL(2, F)) :
-    MulAut P →* Multiplicative (ZMod 2) :=
-  (slEps F hK).comp (MulAut.congr e).toMonoidHom
-
-@[expose] noncomputable def outRho (e : P ≃* SL(2, F)) : MulAut P →* (F ≃+* F) :=
-  (slRho F).comp (MulAut.congr e).toMonoidHom
-
-theorem outEps_outRho_eq_one_iff (hK : IsOddPrimePower (Nat.card F)) (h4 : 4 ≤ Nat.card F)
-    (e : P ≃* SL(2, F)) (α : MulAut P) :
-    (outEps hK e α = 1 ∧ outRho e α = 1) ↔ IsInnerAut α := by
-  rw [← isInnerAut_congr e α, ← slEps_slRho_eq_one_iff F hK h4]
-  rfl
-
-theorem congr_eq_conj_congr {P' : Type*} [Group P'] (e₁ : P ≃* P') (e₂ : P ≃* P') (α : MulAut P) :
-    MulAut.congr e₂ α =
-      MulAut.congr (e₁.symm.trans e₂) (MulAut.congr e₁ α) := by
-  ext x
-  simp [MulAut.congr_apply]
 
 theorem ringAut_conj_eq (σ τ : F ≃+* F) : σ * τ * σ⁻¹ = τ := by
   rw [CFSG.LocalAnalysis.ComponentInitial.ringAut_mul_comm F σ τ]
   group
 
-theorem outEps_congr_iso (hK : IsOddPrimePower (Nat.card F)) (e₁ e₂ : P ≃* SL(2, F))
-    (α : MulAut P) : outEps hK e₂ α = outEps hK e₁ α := by
-  simp only [outEps, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
-  rw [congr_eq_conj_congr e₁ e₂ α]
-  set θ : SL(2, F) ≃* SL(2, F) := e₁.symm.trans e₂
-  have : MulAut.congr θ (MulAut.congr e₁ α) = θ * MulAut.congr e₁ α * θ⁻¹ := by
-    ext x
-    simp [MulAut.congr_apply]
-  rw [this, map_mul, map_mul, map_inv]
-  exact mul_inv_cancel_comm _ _
-
-theorem outRho_congr_iso (e₁ e₂ : P ≃* SL(2, F)) (α : MulAut P) :
-    outRho e₂ α = outRho e₁ α := by
-  simp only [outRho, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
-  rw [congr_eq_conj_congr e₁ e₂ α]
-  set θ : SL(2, F) ≃* SL(2, F) := e₁.symm.trans e₂
-  have : MulAut.congr θ (MulAut.congr e₁ α) = θ * MulAut.congr e₁ α * θ⁻¹ := by
-    ext x
-    simp [MulAut.congr_apply]
-  rw [this, map_mul, map_mul, map_inv]
-  exact ringAut_conj_eq _ _
-
-theorem outEps_congr_map (hK : IsOddPrimePower (Nat.card F)) {P' : Type*} [Group P']
-    (φ : P ≃* P') (e' : P' ≃* SL(2, F)) (e : P ≃* SL(2, F)) (α : MulAut P) :
-    outEps hK e' (MulAut.congr φ α) = outEps hK e α := by
-  have h : outEps hK e' (MulAut.congr φ α) = outEps hK (φ.trans e') α := by
-    simp only [outEps, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
-    rw [congr_trans]
-  rw [h, outEps_congr_iso hK e (φ.trans e') α]
-
-theorem outRho_congr_map {P' : Type*} [Group P'] (φ : P ≃* P') (e' : P' ≃* SL(2, F))
-    (e : P ≃* SL(2, F)) (α : MulAut P) : outRho e' (MulAut.congr φ α) = outRho e α := by
-  have h : outRho e' (MulAut.congr φ α) = outRho (φ.trans e') α := by
-    simp only [outRho, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom]
-    rw [congr_trans]
-  rw [h, outRho_congr_iso e (φ.trans e') α]
 
 end OutHoms
 

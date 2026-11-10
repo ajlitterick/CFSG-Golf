@@ -26,14 +26,6 @@ theorem algebraicCharacterSpan_value_integral {G : Type*} [Group G] [Finite G]
     change IsIntegral ℤ ((scalar : ℂ) * function element)
     exact scalar.property.mul hintegral
 
-theorem algebraicCharacterSpan_class {G : Type*} [Group G]
-    (function : G → ℂ) (hmember : function ∈ algebraicCharacterSpan G) (element conjugator : G) :
-    function (conjugator * element * conjugator⁻¹) = function element := by
-  induction hmember using Submodule.span_induction with
-  | mem character hvirtual => exact virtualCharacter_conjugation_invariant character hvirtual element conjugator
-  | zero => rfl
-  | add left right _ _ hleft hright => simp only [Pi.add_apply, hleft, hright]
-  | smul scalar function _ hequal => simp only [Pi.smul_apply, hequal]
 
 theorem algebraicCharacterSpan_mul {G : Type*} [Group G]
     (left right : G → ℂ) (hleft : left ∈ algebraicCharacterSpan G) (hright : right ∈ algebraicCharacterSpan G) :

@@ -100,8 +100,6 @@ theorem commRight_apply (x y : Q) : (commRight hc x y : Q) = ⁅x, y⁆ := rfl
         exact congrArg χ (Subtype.ext (commutatorElement_mul_left_of_mem_center
           (hc (commutatorElement_mem_commutator x' y))))) }
 
-theorem commPairing_of (χ : center Q →* Multiplicative (ZMod 2)) (x y : Q) :
-    commPairing hc χ (Abelianization.of x) (Abelianization.of y) = χ (commRight hc x y) := rfl
 
 @[expose] def commFormLeft (χ : center Q →* Multiplicative (ZMod 2))
     (w : Additive (Abelianization Q)) : Additive (Abelianization Q) →+ ZMod 2 :=

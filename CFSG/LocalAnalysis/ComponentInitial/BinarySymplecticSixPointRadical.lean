@@ -81,10 +81,6 @@ theorem mem_pairOrth {u f x : V} : x ∈ pairOrth b u f ↔ b u x = 0 ∧ b f x 
   ⟨⟨pointMap b u w c, pointMap b u w c, pointMap_comp_self hb hw c,
     pointMap_comp_self hb hw c⟩, pointMap_isometry hb hw c⟩
 
-theorem coe_pointElt (hb : b.IsAlt) {u w : V} (hw : b u w = 0) (c : ZMod 2) :
-    (((pointElt hb hw c : bilinIsometryGroup b) : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-      V →ₗ[ZMod 2] V) = pointMap b u w c :=
-  rfl
 
 theorem pointElt_ext (hb : b.IsAlt) {u w w' : V} (hw : b u w = 0) (hw' : b u w' = 0)
     {c c' : ZMod 2} (h : pointMap b u w c = pointMap b u w' c') :
@@ -169,8 +165,6 @@ theorem mem_pairStabilizer {u f : V} {g : bilinIsometryGroup b} :
 theorem zmod_two_eq_zero_or_eq_one : ∀ a : ZMod 2, a = 0 ∨ a = 1 := by
   decide
 
-theorem zmod_two_eq_one_of_ne_zero : ∀ a : ZMod 2, a ≠ 0 → a = 1 := by
-  decide
 
 theorem apply_mem_pairOrth {u f : V} {g : bilinIsometryGroup b}
     (hgu : ((g : LinearMap.GeneralLinearGroup (ZMod 2) V) : V →ₗ[ZMod 2] V) u = u)
@@ -356,21 +350,6 @@ theorem exists_mem_pointRadical_mul_mem_pairStabilizer (huf : b f u = 1)
     rw [← hnf]
     exact LinearMap.congr_fun (pointMap_comp_self hb (mem_pairOrth_left hw) _) f
 
-theorem pointRadical_inf_pairStabilizer (huf : b f u = 1) :
-    pointRadical b hb u f ⊓ pairStabilizer b u f = ⊥ := by
-  rw [eq_bot_iff]
-  rintro _ ⟨⟨⟨w, c⟩, rfl⟩, -, hgf⟩
-  have h1 : pointMap b u w c f = f := hgf
-  rw [pointMap_apply_right hb huf w.2, add_eq_left] at h1
-  have h3 := congrArg (b f) h1
-  simp only [map_add, map_smul, (mem_pairOrth.1 w.2).2, huf, smul_eq_mul, mul_one, zero_add,
-    map_zero] at h3
-  subst h3
-  rw [zero_smul, add_zero] at h1
-  rw [Subgroup.mem_bot]
-  refine Subtype.ext (Units.ext ?_)
-  change pointMap b u w 0 = LinearMap.id
-  rw [h1, pointMap_zero_zero]
 
 theorem conj_mem_pointRadical (huf : b f u = 1) {g : bilinIsometryGroup b}
     (hg : g ∈ vecStabilizer b u) {a : bilinIsometryGroup b} (ha : a ∈ pointRadical b hb u f) :
@@ -602,16 +581,6 @@ theorem finrank_pairOrth [FiniteDimensional (ZMod 2) V] (hnd : b.Nondegenerate)
     (huf : b f u = 1) : finrank (ZMod 2) (pairOrth b u f) + 2 = finrank (ZMod 2) V :=
   hb.finrank_orthogonal_span_pair_add_two hnd huf
 
-theorem card_pairStabilizer [FiniteDimensional (ZMod 2) V] (hnd : b.Nondegenerate)
-    (huf : b f u = 1) (hV : finrank (ZMod 2) V = 6) : Nat.card (pairStabilizer b u f) = 720 := by
-  have hE : finrank (ZMod 2) (pairOrth b u f) = 2 * 2 := by
-    have := finrank_pairOrth hb hnd huf
-    omega
-  rw [Nat.card_congr (Equiv.ofBijective _ (pairRestrict_bijective hb huf)),
-    Nat.card_congr (bilinIsometryEquivTauCeti _),
-    card_isometryGroup 2 (b.restrict (pairOrth b u f)) (fun z => hb.self_eq_zero z)
-      (hb.restrict_nondegenerate_orthogonal_span_pair huf hnd) hE, Nat.card_zmod]
-  decide
 
 theorem exists_pairStabilizer_apply_eq [FiniteDimensional (ZMod 2) V] (hnd : b.Nondegenerate)
     (huf : b f u = 1) {w w' : V} (hw : w ∈ pairOrth b u f) (hw' : w' ∈ pairOrth b u f)
@@ -642,54 +611,6 @@ theorem exists_pairStabilizer_apply_eq [FiniteDimensional (ZMod 2) V] (hnd : b.N
     V →ₗ[ZMod 2] V) w = ((g ⟨w, hw⟩ : pairOrth b u f) : V) at h1
   rw [h1, hgw]
 
-theorem exists_conj_pointElt_iff [FiniteDimensional (ZMod 2) V] (hnd : b.Nondegenerate)
-    (huf : b f u = 1) {w w' : V} (hw : w ∈ pairOrth b u f) (hw' : w' ∈ pairOrth b u f)
-    (c c' : ZMod 2) :
-    (∃ k ∈ pairStabilizer b u f,
-      k * pointElt hb (mem_pairOrth_left hw) c * k⁻¹ = pointElt hb (mem_pairOrth_left hw') c') ↔
-      c = c' ∧ (w = 0 ↔ w' = 0) := by
-  constructor
-  · rintro ⟨k, hk, h⟩
-    rw [conj_pointElt_of_mem_pairStabilizer hb hk hw] at h
-    obtain ⟨h1, h2⟩ := pointMap_inj hb huf (apply_mem_pairOrth (mem_pairStabilizer.1 hk).1
-      (mem_pairStabilizer.1 hk).2 hw) hw' (congrArg (fun x : bilinIsometryGroup b =>
-        ((x : LinearMap.GeneralLinearGroup (ZMod 2) V) : V →ₗ[ZMod 2] V)) h)
-    refine ⟨h2, ?_⟩
-    rw [← h1]
-    constructor
-    · rintro rfl
-      exact map_zero _
-    · intro h0
-      have h3 := congrArg
-        (((k⁻¹ : bilinIsometryGroup b) : LinearMap.GeneralLinearGroup (ZMod 2) V) :
-          V →ₗ[ZMod 2] V) h0
-      rwa [inv_apply_apply, map_zero] at h3
-  · rintro ⟨rfl, h0⟩
-    by_cases hw0 : w = 0
-    · refine ⟨1, one_mem _, ?_⟩
-      rw [one_mul, inv_one, mul_one]
-      apply pointElt_ext
-      rw [hw0, h0.1 hw0]
-    · obtain ⟨k, hk, hkw⟩ := exists_pairStabilizer_apply_eq hb hnd huf hw hw' hw0
-        fun h => hw0 (h0.2 h)
-      refine ⟨k, hk, ?_⟩
-      rw [conj_pointElt_of_mem_pairStabilizer hb hk hw]
-      apply pointElt_ext
-      rw [hkw]
-
-theorem card_pointElt_ne_zero (huf : b f u = 1) [Finite (pairOrth b u f)] (c : ZMod 2) :
-    Nat.card (Set.range fun w : {w : pairOrth b u f // w ≠ 0} =>
-      pointElt hb (mem_pairOrth_left w.1.2) c) = Nat.card (pairOrth b u f) - 1 := by
-  classical
-  have hinj : Function.Injective fun w : {w : pairOrth b u f // w ≠ 0} =>
-      pointElt hb (mem_pairOrth_left w.1.2) c := by
-    intro w w' h
-    exact Subtype.ext (Subtype.ext (pointMap_inj hb huf w.1.2 w'.1.2
-      (congrArg (fun x : bilinIsometryGroup b =>
-        ((x : LinearMap.GeneralLinearGroup (ZMod 2) V) : V →ₗ[ZMod 2] V)) h)).1)
-  have : Fintype (pairOrth b u f) := Fintype.ofFinite _
-  rw [Nat.card_range_of_injective hinj, Nat.card_eq_fintype_card, Nat.card_eq_fintype_card]
-  exact Set.card_ne_eq (0 : pairOrth b u f)
 
 end Pair
 

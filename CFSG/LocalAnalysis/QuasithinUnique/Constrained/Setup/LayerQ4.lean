@@ -25,7 +25,6 @@ variable (k : Type*) {F : Type*} [Field k] [Field F] [Algebra k F] {W : Type*} [
 
 variable {k}
 
-theorem resK_apply (f : W ≃ₗ[F] W) (w : W) : resK k f w = f w := rfl
 
 theorem resK_injective : Function.Injective (resK k : (W ≃ₗ[F] W) →* (W ≃ₗ[k] W)) := fun f g h =>
   LinearEquiv.ext fun w => by

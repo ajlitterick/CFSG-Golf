@@ -26,8 +26,6 @@ theorem coord_surjective (h : P.Orth P') (hdim : Module.finrank K V = 4) :
     Matrix (Fin 2) (Fin 2) K ≃ₗ[K] V :=
   LinearEquiv.ofBijective (coord P P') ⟨coord_injective h, coord_surjective h hdim⟩
 
-theorem coordEquiv_apply (m : Matrix (Fin 2) (Fin 2) K) : coordEquiv h hdim m = coord P P' m :=
-  rfl
 
 @[expose] noncomputable def thetaL : SL(2, K) →* (V ≃ₗ[K] V) :=
   (conjHom (coordEquiv h hdim)).comp lmulHom

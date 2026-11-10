@@ -88,27 +88,6 @@ end Transport
 
 section SL2
 
-variable {E : Type} [Field E]
-
-theorem uSL_one_mul_self (h2 : (2 : E) = 0) : (uSL 1 : SL2 E) * uSL 1 = 1 := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_uSL, Matrix.SpecialLinearGroup.coe_one]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
-  rw [one_add_one_eq_two, h2]
-
-theorem vSL_one_mul_self (h2 : (2 : E) = 0) : (vSL 1 : SL2 E) * vSL 1 = 1 := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_vSL, Matrix.SpecialLinearGroup.coe_one]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
-  rw [one_add_one_eq_two, h2]
-
-theorem uSL_vSL_noncomm : (uSL 1 : SL2 E) * vSL 1 ≠ vSL 1 * uSL 1 := by
-  intro h
-  have := congrFun (congrFun (congrArg (fun M : SL2 E => (M : Matrix (Fin 2) (Fin 2) E)) h) 0) 0
-  simp [Matrix.SpecialLinearGroup.coe_mul, coe_uSL, coe_vSL, Matrix.mul_apply,
-    Fin.sum_univ_two] at this
 
 end SL2
 

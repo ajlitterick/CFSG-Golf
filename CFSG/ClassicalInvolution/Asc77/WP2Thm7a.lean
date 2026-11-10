@@ -47,13 +47,6 @@ structure Hyp21 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' : 
         ∀ A : Subgroup G, A ≤ Subgroup.closure {z, u, t} → IsElemAbelian2 A 2 →
           alphaOf A = alphaOf (Subgroup.closure {u, z})
 
-@[expose] def C21_4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K K' : Subgroup G)
-    (z u : G) (J : Subgroup G) (t : G) (W : Subgroup G), Hyp21 p f Ω K K' z u J t W →
-      (∀ M ∈ dComp Ω K, M ≤ Subgroup.normalizer (alphaOf (Subgroup.closure {u, z}) : Set G)) ∧
-        ∀ c ∈ Subgroup.centralizer ({z} : Set G),
-          conjSub c (alphaOf (Subgroup.closure {u, z}) ⊔ sigmaGen Ω K) =
-            alphaOf (Subgroup.closure {u, z}) ⊔ sigmaGen Ω K
 
 @[expose] def C21_12 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K K' : Subgroup G)
@@ -114,19 +107,6 @@ structure Hyp21 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K K' : 
 
 variable {p f}
 
-theorem c21_false_of_steps (h13 : C21_13 p f) (h15 : C21_15 p f) (h16 : C21_16 p f)
-    (h17 : C21_17 p f) (hE : C21_E p f) :
-    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))
-      (K K' : Subgroup G) (z u : G) (J : Subgroup G) (t : G) (W : Subgroup G),
-      Hyp21 p f Ω K K' z u J t W → False := by
-  intro G _ _ _ Ω K K' z u J t W h
-  have hα := h16 G Ω K K' z u J t W h
-  have hD := h17 G Ω K K' z u J t W h
-  obtain ⟨-, h13'⟩ := h13 G Ω K K' z u J t W h
-  rw [hα, bot_sup_eq] at h13'
-  rcases h13' with hle | ⟨hmu, -⟩
-  · exact hD hle
-  · exact hE G Ω K K' z u J t W h hα hD (h15 G Ω K K' z u J t W h hα hD) hmu
 
 theorem c21_2_of_steps (hsetup : C21_setup p f)
     (hfalse : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G))

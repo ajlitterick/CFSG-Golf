@@ -18,15 +18,6 @@ open CFSG.ComponentClassification.FixedCommutingProduct (fixedSubgroup)
 set_option linter.unusedSectionVars false
 
 
-def TwistedE6DiagCase : Prop :=
-  ∀ (ℓ f : ℕ), ℓ.Prime → 1 ≤ f → ∀ (K : Type) [Field K] [Finite K], Nat.card K = (ℓ ^ f) ^ 2 →
-    ∀ (σ : K ≃+* K), (∀ c, σ c = c ^ ℓ ^ f) → 3 ∣ ℓ ^ f + 1 →
-    ∀ (g : twistedE6RootGroup K σ)
-      (u : (a : Fin TwistTag.E6.foldedTag.rank) → (orbitField TwistTag.E6 K σ.toRingHom a)ˣ)
-      (β : MulAut (twistedE6RootGroup K σ)),
-    β = MulAut.conj g * compatDiagAutHom TwistTag.E6 K σ.toRingHom u → β ^ 3 = 1 →
-    β ∉ twistedE6Inn K σ → 27 ∣ Nat.card (fixedSubgroup β)
-
 theorem fieldActor_one {K : Type} [Field K] [Finite K] (σ : K ≃+* K) :
     fieldActor (t := TwistTag.E6) σ (1 : K ≃+* K) = 1 :=
   MulEquiv.ext fun x => Subtype.ext (by
@@ -98,47 +89,5 @@ theorem twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag' {ℓ f : ℕ} 
     rw [CFSG.HardMathSupport.Lang.E6Descent.fixedSubgroup_pow_eq hβj, hconj]
     exact twentySeven_dvd_card_fixedSubgroup_fieldActor hℓ hd0 K hKd σ ε hσ' hε
 
-theorem twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag (hD : TwistedE6DiagCase)
-    {ℓ f : ℕ} (hℓ : ℓ.Prime) (hf : 1 ≤ f) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = (ℓ ^ f) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ ℓ ^ f)
-    (β : MulAut (twistedE6RootGroup K σ)) (hβ3 : β ^ 3 = 1) (hβ : β ∉ twistedE6Inn K σ) :
-    27 ∣ Nat.card (fixedSubgroup β) :=
-  twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag' hℓ hf K hK σ hσ β hβ3 hβ
-    fun g u h3 hgu => hD ℓ f hℓ hf K hK σ hσ h3 g u β hgu hβ3 hβ
-
-theorem twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_char_three {f : ℕ} (hf : 1 ≤ f)
-    (K : Type) [Field K] [Finite K] (hK : Nat.card K = (3 ^ f) ^ 2) (σ : K ≃+* K)
-    (hσ : ∀ c, σ c = c ^ 3 ^ f) (β : MulAut (twistedE6RootGroup K σ)) (hβ3 : β ^ 3 = 1)
-    (hβ : β ∉ twistedE6Inn K σ) : 27 ∣ Nat.card (fixedSubgroup β) := by
-  refine twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag' Nat.prime_three hf K hK σ hσ
-    β hβ3 hβ fun g u h3 _ => ?_
-  exfalso
-  obtain ⟨m, hm⟩ : 3 ∣ 3 ^ f := dvd_pow_self 3 (by omega)
-  omega
-
-theorem twentySeven_dvd_fixedSubgroup_derivedCentralQuotient_of_diag (hD : TwistedE6DiagCase)
-    {ℓ f : ℕ} (hℓ : ℓ.Prime) (hf : 1 ≤ f) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = (ℓ ^ f) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ ℓ ^ f)
-    (α : MulAut (DerivedCentralQuotient (twistedFixedGroup TwistTag.E6 K σ.toRingHom)))
-    (hα3 : α ^ 3 = 1)
-    (hα : α ∉ inner (DerivedCentralQuotient (twistedFixedGroup TwistTag.E6 K σ.toRingHom))) :
-    27 ∣ Nat.card (fixedSubgroup α) := by
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, ⟨e⟩, -⟩ :=
-    twisted_E6_all_characteristic_exact_automorphism_normal_form hℓ hf K hK σ hσ
-  rw [← CFSG.HardMathSupport.Lang.Coordinator.card_fixedSubgroup_congr e α]
-  refine twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag hD hℓ hf K hK σ hσ
-    (MulAut.congr e α) (by rw [← map_pow, hα3, map_one]) fun hin =>
-      hα ((congr_mem_inner_iff e α).mp hin)
-
-theorem twentySeven_dvd_fixedSubgroup_twistedE6_model_of_diag (hD : TwistedE6DiagCase)
-    {ℓ f : ℕ} {G : Type} [Group G] (hG : ChevalleyExceptionalModel G .twistedE6 ℓ f)
-    (α : MulAut G) (hα3 : α ^ 3 = 1) (hα : α ∉ inner G) :
-    27 ∣ Nat.card (fixedSubgroup α) := by
-  obtain ⟨hℓ, hf, -⟩ := hG.1
-  obtain ⟨K, _, _, σ, hK, hσ, ⟨e⟩⟩ := exists_mulEquiv_graphFixedRootGroup_E6 hG
-  rw [← CFSG.HardMathSupport.Lang.Coordinator.card_fixedSubgroup_congr e α]
-  exact twentySeven_dvd_fixedSubgroup_twistedE6RootGroup_of_diag hD hℓ hf K hK σ hσ
-    (MulAut.congr e α) (by rw [← map_pow, hα3, map_one]) fun hin =>
-      hα ((congr_mem_inner_iff e α).mp hin)
 
 end CFSG.HardMathSupport.Lang.Coordinator

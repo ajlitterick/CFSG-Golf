@@ -213,10 +213,6 @@ theorem multiStar_of_sharedInvolution (hconn : ModelConnFactNe p) (hstar : Model
     hstd hRK hp₀, hstd ha₁' hp₁, hstd ha₂' hp₂⟩
 
 
-theorem multiPiece_of_sharedInvolution (hconn : ModelConnFactNe p) (hstar : ModelStarFact p)
-    (hSI : G2D4SharedInvolution p) : MultiPiece p f :=
-  multiPiece_of_multiStar (multiStar_of_sharedInvolution hconn hstar hSI)
-
 end Reduction
 
 end CFSG.ClassicalInvolution.RouteD

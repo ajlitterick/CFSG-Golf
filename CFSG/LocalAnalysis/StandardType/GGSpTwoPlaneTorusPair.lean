@@ -39,17 +39,6 @@ private theorem planeBlockIncl_apply_inr_of_ne {j k : Fin r} (h : j ≠ k) (u : 
     planeBlockIncl k u (Sum.inr j) = 0 := by
   simp [planeBlockIncl, h]
 
-private theorem planeBlockIncl_injective (k : Fin r) :
-    Function.Injective (planeBlockIncl (K := K) (r := r) k) := by
-  intro u v h
-  have h0 : u 0 = v 0 := by
-    simpa [planeBlockIncl_apply_inl] using congrFun h (Sum.inl k)
-  have h1 : u 1 = v 1 := by
-    simpa [planeBlockIncl_apply_inr] using congrFun h (Sum.inr k)
-  funext t
-  fin_cases t
-  · exact h0
-  · exact h1
 
 private noncomputable def planeBlockSub (k : Fin r) : Submodule K (Fin r ⊕ Fin r → K) :=
   LinearMap.range (planeBlockIncl k)
@@ -260,13 +249,6 @@ private theorem permMatrix_conj {n R : Type*} [Fintype n] [DecidableEq n] [Field
   rw [PEquiv.toMatrix_toPEquiv_mul, PEquiv.mul_toMatrix_toPEquiv, Matrix.submatrix_submatrix]
   rfl
 
-private theorem permMatrix_inv {n R : Type*} [Fintype n] [DecidableEq n] [Field R]
-    (σ : Equiv.Perm n) :
-    Equiv.Perm.permMatrix R (σ⁻¹) = (Equiv.Perm.permMatrix R σ)⁻¹ := by
-  have h : Equiv.Perm.permMatrix R σ * Equiv.Perm.permMatrix R (σ⁻¹) = 1 := by
-    rw [← Matrix.permMatrix_mul (σ := σ⁻¹) (τ := σ), inv_mul_cancel]
-    simp
-  exact (Matrix.inv_eq_right_inv h).symm
 
 private theorem planePermGL_conj_planeInvGL (σ : Equiv.Perm (Fin r)) (k : Fin r) :
     planePermGL (K := K) σ * planeInvGL (K := K) k * (planePermGL (K := K) σ)⁻¹ =
@@ -525,10 +507,6 @@ private theorem mul_self_ne_one_of_ne_one {a : Multiplicative (ZMod 3)} (ha : a 
   · decide
   · decide
 
-private theorem inv_ne_one_of_ne_one {a : Multiplicative (ZMod 3)} (ha : a ≠ 1) :
-    a⁻¹ ≠ 1 := by
-  intro h
-  exact ha (inv_eq_one.mp h)
 
 private theorem mul_mul_inv_exactly_one {a c : Multiplicative (ZMod 3)}
     (ha : a ≠ 1) (hc : c ≠ 1) :

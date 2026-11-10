@@ -152,10 +152,6 @@ theorem supportedOn_of_mem_memKStar (ι : Fin 4 ↪ Fin n) {a : Wr n} (ha : a �
 theorem yOf_supportedOn (ι : Fin 4 ↪ Fin n) : SupportedOn (yOf ι) (Set.range ι) :=
   embed_supportedOn ι yQ
 
-theorem comm_of_disjoint_range {ι κ : Fin 4 ↪ Fin n} (h : Disjoint (Set.range ι) (Set.range κ))
-    {a b : Wr n} (ha : SupportedOn a (Set.range ι)) (hb : SupportedOn b (Set.range κ)) :
-    a * b = b * a :=
-  comm_of_disjoint ha hb h
 
 theorem zOf_vec_apply (ι : Fin 4 ↪ Fin n) (x : Fin n) :
     (zOf ι).vec x = if x ∈ Set.range ι then 1 else 0 := by

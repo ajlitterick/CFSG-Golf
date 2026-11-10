@@ -123,18 +123,6 @@ private theorem mem_flag_three_of_sub_rootElt {u : F n} (hu : u ≠ 0) (w : F n)
   have : u * x 3 = 0 := by linear_combination e
   exact (mul_eq_zero.mp this).resolve_left hu
 
-private theorem mem_flag_three_of_sub_rootElt_zero {w : F n} (hw : w ≠ 0) {x : Fin 4 → F n}
-    (h : act n (rootElt n 0 w) x - x ∈ flag n 1) : x ∈ flag n 3 := by
-  rw [mem_flag_one] at h
-  rw [mem_flag_three]
-  have e := h.1
-  rw [Pi.sub_apply, act_rootElt] at e
-  simp only [Fin.isValue, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.head_cons,
-    zero_pow_theta, zero_mul, add_zero] at e
-  have h0 : (0 : F n) ^ (1 + 2 ^ (n + 1)) = 0 := zero_pow (by positivity)
-  rw [h0, zero_add] at e
-  have : w * x 3 = 0 := by linear_combination e
-  exact (mul_eq_zero.mp this).resolve_left hw
 
 private theorem commElt_rootElt_zero_flag_three {w : F n} (hw : w ≠ 0) :
     commElt n (rootElt n 0 w) (flag n 3) = flag n 1 := by
@@ -194,13 +182,6 @@ theorem mem_series_three_of_sub_mem_series_two (hn : 1 ≤ n) (P : Sylow 2 (Sz n
   rw [act_conj_sub] at h
   exact mem_flag_three_of_sub_rootElt hu w h
 
-theorem mem_series_three_of_sub_mem_series_one (hn : 1 ≤ n) (P : Sylow 2 (Sz n)) {z : Sz n}
-    (hz : z ∈ (P : Subgroup (Sz n)) ⊓ centralizer ((P : Subgroup (Sz n)) : Set (Sz n)))
-    (hz1 : z ≠ 1) {x : Fin 4 → F n} (h : act n z x - x ∈ series n P 1) : x ∈ series n P 3 := by
-  obtain ⟨g, w, hw, rfl, hser⟩ := exists_conj_rootElt_zero hn P hz hz1
-  rw [hser, mem_map_act] at h ⊢
-  rw [act_conj_sub] at h
-  exact mem_flag_three_of_sub_rootElt_zero hw h
 
 theorem commElt_series_three_eq_series_one (hn : 1 ≤ n) (P : Sylow 2 (Sz n)) {z : Sz n}
     (hz : z ∈ (P : Subgroup (Sz n)) ⊓ centralizer ((P : Subgroup (Sz n)) : Set (Sz n)))
@@ -433,10 +414,6 @@ theorem map_mem_of_centralizes (D : Setting28Sz ψ c S W P)
     · calc g⁻¹ * y * g⁻¹⁻¹ = g⁻¹ * (g * y * g⁻¹) * g := by rw [hC y hy, inv_inv]
         _ = y := by group
 
-theorem mem_qSub (D : Setting28Sz ψ c S W P) {g : H} :
-    g ∈ D.qSub ↔ g ∈ S ∧ (∀ w ∈ W, g * w * g⁻¹ * w⁻¹ ∈ cSub c W P) ∧
-      ∀ y ∈ cSub c W P, g * y * g⁻¹ = y :=
-  Iff.rfl
 
 theorem le_qSub (D : Setting28Sz ψ c S W P) : W ≤ D.qSub := by
   intro w hw
@@ -1016,50 +993,6 @@ theorem ale_one_autOn_of_isNatSzExt_of_isPGroup {H : Type u} [Group H] [Finite H
       sq_mem := hsq }
   exact D.ale_one
 
-theorem ale_one_autOn_of_isNatSzExt {G : Type u} [Group G] [Finite G] {H S W : Subgroup G}
-    [IsMulCommutative W] (hSH : S ≤ H) (hS : IsPGroup 2 S) (hSi : ¬ 2 ∣ S.relIndex H)
-    (hWel : IsElemAbelian 2 W) (hWS : W ≤ S)
-    (hWN : H ⊓ normalizer (S : Set G) ≤ normalizer (W : Set G))
-    (hC : H ⊓ centralizer ((oTwo ↥H).map H.subtype : Set G) ≤ (oTwo ↥H).map H.subtype)
-    (hWO : ¬ W ≤ (oTwo ↥H).map H.subtype) {n : ℕ} (hn : 1 ≤ n) (hnat : IsNatSzExt ↥H n) :
-    ALe (autOn S W) ⊤ 1 := by
-  have hWH : W ≤ H := hWS.trans hSH
-  set S' := S.subgroupOf H with hS'
-  set W' := W.subgroupOf H with hW'
-  haveI : IsMulCommutative W' := ⟨⟨fun a b => by
-    have h := congrArg (fun t : W => (t : G))
-      (hWel.1.is_comm.comm (⟨(a : H), a.2⟩ : W) ⟨(b : H), b.2⟩)
-    exact Subtype.ext (Subtype.ext h)⟩⟩
-  have hWel' : IsElemAbelian 2 W' :=
-    ⟨inferInstance, fun x hx => Subtype.ext (by simpa using hWel.2 _ hx)⟩
-  have hWS' : W' ≤ S' := fun x hx => hWS hx
-  have hWN' : normalizer (S' : Set H) ≤ normalizer (W' : Set H) := by
-    intro h hh
-    have hhS : (h : G) ∈ H ⊓ normalizer (S : Set G) := by
-      refine ⟨h.2, mem_normalizer_iff.mpr fun g => ?_⟩
-      by_cases hg : g ∈ H
-      · exact (mem_normalizer_iff.mp hh ⟨g, hg⟩)
-      · have h1 : g ∉ S := fun h' => hg (hSH h')
-        have h2 : (h : G) * g * (h : G)⁻¹ ∉ S := fun h' => hg (by
-          have := H.mul_mem (H.mul_mem (H.inv_mem h.2) (hSH h')) h.2
-          rwa [show (h : G)⁻¹ * ((h : G) * g * (h : G)⁻¹) * h = g by group] at this)
-        exact iff_of_false h1 h2
-    have hhW := hWN hhS
-    exact mem_normalizer_iff.mpr fun x => mem_normalizer_iff.mp hhW x
-  have hC' : centralizer (oTwo ↥H : Set ↥H) ≤ oTwo ↥H := by
-    intro h hh
-    have hhC : (h : G) ∈ H ⊓ centralizer ((oTwo ↥H).map H.subtype : Set G) := by
-      refine ⟨h.2, mem_centralizer_iff.mpr ?_⟩
-      rintro _ ⟨x, hx, rfl⟩
-      exact congrArg Subtype.val (mem_centralizer_iff.mp hh x hx)
-    obtain ⟨x, hx, hxh⟩ := hC hhC
-    rwa [show x = h from Subtype.ext hxh] at hx
-  have hWO' : ¬ W' ≤ oTwo ↥H := fun hle => hWO fun g hg => ⟨⟨g, hWH hg⟩, hle hg, rfl⟩
-  have h := ale_one_autOn_of_isNatSzExt_of_isPGroup (S := S') (W := W')
-    (hS.comap_of_injective H.subtype H.subtype_injective) hSi hWel' hWS' hWN' hC' hWO' hn hnat
-  refine ALe.autOn_map H.subtype_injective (fun x hx => hWN' (Subgroup.le_normalizer hx)) ?_ ?_ h
-  · rw [hS', Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr hSH]
-  · rw [hW', Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr hWH]
 
 end Main
 

@@ -176,16 +176,6 @@ theorem weylRep_not_mem_borelSubgroup (k : Fin 2) : weylRep K k ∉ borelSubgrou
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff, not_not]
   omega
 
-theorem borelCuts_borelSubgroup : borelCuts K (borelSubgroup 2 K) = {1, 2} := by
-  ext i
-  constructor
-  · rintro ⟨k, rfl, -⟩
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff]
-    have := k.isLt
-    omega
-  · intro hi
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hi
-    exact ⟨⟨i - 1, by omega⟩, by simp; omega, weylRep_not_mem_borelSubgroup _⟩
 
 theorem mem_borelCuts_of_le_Q2 {j : Fin 2} {A : Subgroup (StatedSp 2 K)} (hAQ : A ≤ Q2 K j) :
     (j : ℕ) + 1 ∈ borelCuts K A := by

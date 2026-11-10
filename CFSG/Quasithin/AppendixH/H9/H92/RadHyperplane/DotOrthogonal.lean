@@ -51,35 +51,5 @@ namespace CFSG.ASVolI.ChH
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
   instCommGroupOfIsSimpleGroupOfIsNilpotent
 
-@[expose] def dotBilin (n : ℕ) : LinearMap.BilinForm (ZMod 2) (Fin n → ZMod 2) :=
-  dotProductBilin (ZMod 2) (ZMod 2)
-
-theorem dotBilin_apply {n : ℕ} (x y : Fin n → ZMod 2) : dotBilin n x y = x ⬝ᵥ y := rfl
-
-theorem dotBilin_isSymm (n : ℕ) : (dotBilin n).IsSymm :=
-  ⟨fun x y => by rw [dotBilin_apply, dotBilin_apply, dotProduct_comm]⟩
-
-theorem dotBilin_nondegenerate (n : ℕ) : (dotBilin n).Nondegenerate := by
-  have key : ∀ x : Fin n → ZMod 2, (∀ y, x ⬝ᵥ y = 0) → x = 0 := by
-    intro x hx
-    funext i
-    have h := hx (Pi.single i 1)
-    simpa using h
-  refine ⟨fun x hx => key x hx, fun y hy => key y fun x => ?_⟩
-  rw [dotProduct_comm]
-  exact hy x
-
-theorem finrank_dotBilin_orthogonal_add (n : ℕ) (D : Submodule (ZMod 2) (Fin n → ZMod 2)) :
-    Module.finrank (ZMod 2) ((dotBilin n).orthogonal D) + Module.finrank (ZMod 2) D = n := by
-  have h := LinearMap.BilinForm.finrank_orthogonal (dotBilin_nondegenerate n) D
-  have hle : Module.finrank (ZMod 2) D ≤ n := by
-    simpa using Submodule.finrank_le D
-  simp only [Module.finrank_fin_fun] at h
-  omega
-
-theorem dotBilin_orthogonal_orthogonal (n : ℕ) (D : Submodule (ZMod 2) (Fin n → ZMod 2)) :
-    (dotBilin n).orthogonal ((dotBilin n).orthogonal D) = D :=
-  LinearMap.BilinForm.orthogonal_orthogonal (dotBilin_nondegenerate n)
-    (dotBilin_isSymm n).isRefl D
 
 end CFSG.ASVolI.ChH

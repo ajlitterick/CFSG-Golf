@@ -404,36 +404,5 @@ theorem ggActualMember_F4_selected
   · have h := hSP.map ψ
     simpa only [MonoidHom.comp_id] using h
 
-theorem GGSecFiveRouteCfg.exists_selected_F4_of_guarded
-    {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {𝒦 : Finset (Subgroup G)}
-    (hcfg : GGSecFiveRouteCfg p B Bs x L D J 𝒦)
-    {n f : ℕ} (ψ : (ggU .F4 n f).K →* G)
-    (hpres : GGPresentsG0 (ggG0 p B x L D J) (ggU .F4 n f).D .F4 n f ψ)
-    (hx : x ∈ ggG0 p B x L D J)
-    (hmark : LargeEvenMarking ↥L (fun lab _ _ _ _ _ => GuardedLargeEvenLabel lab)) :
-    ∃ S : Subgroup G, MemberSelectedSL2At L S ∧ PresentedSelectedSL2At ψ S :=
-  ggActualMember_F4_selected hcfg.1.1 ψ hpres (Or.inl ⟨rfl, hx⟩) hmark
-
-theorem ggF4Join_selectedAt_originalL
-    {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {𝒦 : Finset (Subgroup G)}
-    (hcfg : GGSecFiveRouteCfg p B Bs x L D J 𝒦)
-    (_hReg : ¬ GGSecFiveTier1Region p B Bs x L D J)
-    {ι : Type} {M : CoxeterMatrix ι}
-    {e : M.Group ≃* ↥(ggAutomizerJoin L Bs 𝒦)}
-    (_hP : GGCoxeterPres p (ggAutomizerJoin L Bs 𝒦) M e)
-    (_hF4 : GGIsWeylMatrixF4 M)
-    (_hB3 : GGWeylOfType p (CoxeterMatrix.B 3) (ggAutomizer L Bs))
-    {n f : ℕ} (ψ : (ggU .F4 n f).K →* G)
-    (hpres : GGPresentsG0 (ggG0 p B x L D J) (ggU .F4 n f).D .F4 n f ψ)
-    (hx : x ∈ ggG0 p B x L D J)
-    (hmark : LargeEvenMarking ↥L (fun lab _ _ _ _ _ => GuardedLargeEvenLabel lab)) :
-    ∃ S : Subgroup G, MemberSelectedSL2At L S ∧ PresentedSelectedSL2At ψ S :=
-  hcfg.exists_selected_F4_of_guarded ψ hpres hx hmark
-
-theorem ggF4JoinMemberAt_F4 : GGF4JoinMemberAt .F4 := by
-  intro G _ _ p B Bs x L D J 𝒦 hcfg hReg _ _ ι M e hP hF4 _ hB3 n f ψ hpres _ hx hmark
-  exact ggF4Join_selectedAt_originalL hcfg hReg hP hF4 hB3 ψ hpres hx hmark
 
 end CFSG.StandardType

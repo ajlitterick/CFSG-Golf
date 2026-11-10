@@ -10,10 +10,6 @@ namespace CFSG.SeitzReduction
 open Subgroup CFSG.LieType.Chevalley
 open CFSG.ComponentClassification.UnbalancedCatalog (conj_injective)
 
-theorem innerInvolutionInput_of_criterion {C : Type*} [Group C]
-    (h : ∀ t : C, orderOf (MulAut.conj t) = 2 → InnerCentralizerCriterion t) :
-    InnerInvolutionInput C :=
-  innerInvolution_noNormalZ4OrZ2xZ4_of_forall h
 
 theorem innerInvolutionInput_of_representatives {C : Type*} [Group C] {T : Set C}
     (hT : ∀ s ∈ T, InnerCentralizerCriterion s)

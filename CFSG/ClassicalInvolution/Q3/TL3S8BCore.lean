@@ -15,25 +15,11 @@ open CFSG CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
   CFSG.ClassicalInvolution.Asc77 CFSG.ClassicalInvolution.Disconnected
   CFSG.ClassicalInvolution.Disconnected.AschTight
 
-@[expose] def TightC19_11b (IH : ℕ → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IH (Nat.card G) →
-    ∀ (R : Subgroup G) (S : Sylow 2 R) (t : G) (T : Sylow 2 G) (W L : Subgroup G) (t' : G)
-      (V : Subgroup G), TightFStarOK G t → TightSylowStd R S t T →
-    TightSylowDataT (tightCore R) t T W L t' V →
-      (T : Subgroup G) ⊓
-          Subgroup.centralizer (((T : Subgroup G) ⊓ tightCore R : Subgroup G) : Set G) ⊓
-          Subgroup.centralizer (W : Set G) ⊓ centralizerModOdd ⊤ L = ⊥
 
 section E2
 
 variable {G : Type} [Group G] [Finite G] {R : Subgroup G} {S : Sylow 2 R} {t : G} {T : Sylow 2 G}
 
-theorem TightSylowStd.tightE2Prime_of_core {IH : ℕ → Prop} (hF : TightFStarOK G t)
-    (h11b : TightC19_11b IH) (hbelow : IH (Nat.card G)) (h : TightSylowStd R S t T)
-    (hmu : ¬ AllTypeTwo (tightCore R) t) : TightE2Prime (tightCore R) T := by
-  obtain ⟨W₀, hW₀, hW₀S, -⟩ := h.tightMemStd.exists_wSet_le_normal T
-  exact (h.sylowData hmu hW₀ hW₀S).tightE2Prime fun W₁ L t' V hdT =>
-    h11b G hbelow R S t T W₁ L t' V hF h hdT
 
 end E2
 
@@ -125,30 +111,5 @@ end TightSylowDataT
 
 end Core
 
-@[expose] def TightF1 (IH : ℕ → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IH (Nat.card G) →
-    ∀ (R : Subgroup G) (S : Sylow 2 R) (t : G) (T : Sylow 2 G) (W L : Subgroup G) (t' : G)
-      (V : Subgroup G), TightFStarOK G t → TightSylowStd R S t T →
-    TightSylowDataT (tightCore R) t T W L t' V →
-      ∀ x ∈ S19B.sec19BPrime (tightCore R) T W L, x ≠ 1 → ∀ g : G,
-        g * t * g⁻¹ ∈ Subgroup.centralizer ({x} : Set G) →
-          ∃ c ∈ Subgroup.centralizer ({x} : Set G), c * t * c⁻¹ = g * t * g⁻¹
-
-@[expose] def TightEndGame (IH : ℕ → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IH (Nat.card G) →
-    ∀ (R : Subgroup G) (S : Sylow 2 R) (t : G) (T : Sylow 2 G), TightFStarOK G t →
-    TightSylowStd R S t T →
-    ∀ B : Subgroup G, B ≤ (T : Subgroup G) → B ≠ ⊥ →
-      fusionStronglyClosed (B : Set G) (T : Subgroup G) → B ≤ centralizerModOdd ⊤ (tightCore R) →
-      t ∈ Subgroup.centralizer (B : Set G) →
-      (∃ g ∈ Subgroup.centralizer (B : Set G),
-        g * t * g⁻¹ ≠ t ∧ g * t * g⁻¹ * t = t * (g * t * g⁻¹)) → False
-
-theorem tightC19_11b_of_F1_endgame {IH : ℕ → Prop} (hF1 : TightF1 IH)
-    (hEnd : TightEndGame IH) : TightC19_11b IH := by
-  intro G _ _ hIH R S t T W L t' V hF h hd
-  by_contra hne
-  exact hd.false_of_F1_endgame (hF1 G hIH R S t T W L t' V hF h hd)
-    (hEnd G hIH R S t T hF h) hne
 
 end CFSG.ClassicalInvolution.Q3

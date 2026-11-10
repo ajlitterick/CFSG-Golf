@@ -24,10 +24,6 @@ theorem tabRep_comp_of_rep {n : ℕ} {t s : Tab} {g h : Equiv.Perm (Fin n)} (ht 
     (hs : Rep n s h) : TabRep (comp n t s) (g * h) :=
   ⟨Array.size_ofFn, rep_comp ht hs⟩
 
-theorem size_wordTabS (m : ℕ) (gs : Array Tab) (w : List ℕ) : (wordTabS m gs w).size = m := by
-  cases w with
-  | nil => simp [wordTabS, idTab]
-  | cons j w => simp [wordTabS, comp]
 
 theorem genGroup_preserves {n : ℕ} {L : List ℕ} {gens : Array Tab} {f : ℕ → Equiv.Perm (Fin n)}
     (hgs : ∀ j < gens.size, Rep n gens[j]! (f j))

@@ -23,8 +23,6 @@ variable (p f) in
     ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod p f Ω →
       ∀ (N : Subgroup G) [N.Normal], Odd (Nat.card N) → HypOmegaMod p f (quotFamily Ω N)
 
-theorem mem_quotFamily_iff {N : Subgroup G} [N.Normal] {M : Subgroup (G ⧸ N)} :
-    M ∈ quotFamily Ω N ↔ ∃ K ∈ Ω, K.map (QuotientGroup.mk' N) = M := Iff.rfl
 
 theorem map_mem_quotFamily {N : Subgroup G} [N.Normal] {K : Subgroup G} (hK : K ∈ Ω) :
     K.map (QuotientGroup.mk' N) ∈ quotFamily Ω N := ⟨K, hK, rfl⟩
@@ -82,13 +80,6 @@ theorem exists_isPGroup_lift_of_mem_map {K : Subgroup G} {b : G ⧸ N}
   rw [Nat.card_zpowers, Subgroup.orderOf_coe, ← Nat.card_zpowers]
   exact hn
 
-theorem eight_le_natCard_of_mem (hp : p ≠ 2) (hΩ : HypOmegaMod p f Ω) {K : Subgroup G}
-    (hK : K ∈ Ω) : 8 ≤ Nat.card K := by
-  obtain ⟨R, hR, hRK, -⟩ := exists_mem_RSet_ge hK (IsPGroup.of_bot : IsPGroup 2 (⊥ : Subgroup G))
-    bot_le
-  have h8 := hΩ.eight_le_of_mem_RSet hp hR
-  have := Subgroup.card_le_of_le hRK.1
-  omega
 
 omit [Finite G] in
 theorem exists_conj_eq_of_map_eq (hN : Odd (Nat.card N)) {z t : G} (hz : z * z = 1)
@@ -148,15 +139,6 @@ theorem E187C.eq_one_or_eq_of_map_eq_of_twin_of
   rw [e]
   exact (oddCoreOf K).mul_mem hn₁O hc
 
-theorem eq_one_or_eq_of_map_eq_of_twin (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (hN : Odd (Nat.card N)) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKJ : K ≠ J) {z : G}
-    (hzK : IsUniqueInvolution K z) (hzJ : IsUniqueInvolution J z) {x k : G} (hx : x ∈ J)
-    (hk : k ∈ K) (hk2 : IsPGroup 2 (Subgroup.zpowers k))
-    (hxk : QuotientGroup.mk' N x = QuotientGroup.mk' N k) : k = 1 ∨ k = z :=
-  E187C.eq_one_or_eq_of_map_eq_of_twin_of
-    (fun hK hJ hKJ hzK hzJ => hΩ.comm_le_oddCore_of_twin hK hJ hKJ hzK hzJ)
-    (fun hK hz => hΩ.center_two hp hq hK hz)
-    hN hK hJ hKJ hzK hzJ hx hk hk2 hxk
 
 theorem E187C.exists_conj_of_map_eq_of
     (hzK : ∀ {K : Subgroup G}, K ∈ Ω → ∃ z : G, IsUniqueInvolution K z)
@@ -395,7 +377,6 @@ theorem E187C.exists_lift_USet_of
   exact ⟨U, mem_USet_of_natCard hJ hRsyl hUR (by rw [hU]; infer_instance) hRcard, hUJ, hUmap⟩
 
 
-
 theorem exists_lift_USet (hp : p ≠ 2) (hΩ' : HypOmegaMod p f (quotFamily Ω N))
     (hN : Odd (Nat.card N)) {J : Subgroup G} (hJ : J ∈ Ω)
     {Ub : Subgroup (G ⧸ N)} (hUb : Ub ∈ USet (quotFamily Ω N))
@@ -427,7 +408,6 @@ theorem E187C.exists_conj_omegaStarNbr_of
   apply hne
   rw [hJK, AscQuot.map_conjSub, show QuotientGroup.mk' N n = 1 from
     (QuotientGroup.eq_one_iff _).mpr hn, conjSub_one]
-
 
 
 theorem exists_conj_omegaStarNbr (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
@@ -523,7 +503,6 @@ theorem E187C.aEmpty_quotFamily_of (hc : ConjInvariant Ω)
   · have h3 := congrArg (Subgroup.map (QuotientGroup.mk' N)) hgK
     rw [AscQuot.map_conjSub, himg] at h3
     exact h3
-
 
 
 theorem aEmpty_quotFamily (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)

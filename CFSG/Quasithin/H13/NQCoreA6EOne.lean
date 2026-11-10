@@ -264,14 +264,5 @@ theorem stmtA6AutEOneWitnessesAll :
     ← MonoidHom.range_eq_map, hφ'X]
   exact hgen
 
-theorem stmtA6AutEOneWitnesses :
-    ∀ (B : Type) [Group B] [Finite B] (S₀ : Subgroup B) [S₀.Normal],
-      Nonempty (↥S₀ ≃* alternatingGroup (Fin 6)) → centralizer (S₀ : Set B) = ⊥ →
-      ∀ T : Subgroup B, IsSylowIn 2 T ⊤ → ∀ Ω : Set (Subgroup B), E1.IsInvColl ⊤ Ω →
-        (∀ A ∈ Ω, Nat.card A ≠ 2) →
-        ∃ F : Set (Subgroup B × Subgroup B),
-          (∀ AK ∈ F, AK.1 ∈ Ω ∧ AK.1 ≤ T ∧ E1TypeOne ⊤ T AK.1 AK.2) ∧
-            (⨆ AK ∈ F, AK.2) ⊔ normalizer (E1.weakClosure T Ω : Set B) = ⊤ :=
-  fun B _ _ S₀ _ he hC T hT Ω hΩ _ => stmtA6AutEOneWitnessesAll B S₀ he hC T hT Ω hΩ
 
 end CFSG.Quasithin.H13.NQCore

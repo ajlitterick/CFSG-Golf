@@ -1059,9 +1059,6 @@ section Inputs
 theorem ggSixRootFusionSLRepResidualInput_holds : GGSixRootFusionSLRepResidualInput :=
   ggSixRootFusionSLRepResidualInput_of_alpha ggSLSixAlphaInput_holds
 
-theorem ggSixRootFusionSLRepInput_of_nonsplit (hN : GGSixRootFusionSLRepNonsplitInput) :
-    GGSixRootFusionSLRepInput :=
-  ggSixRootFusionSLRepInput_of_nonsplit_alpha hN ggSLSixAlphaInput_holds
 
 end Inputs
 

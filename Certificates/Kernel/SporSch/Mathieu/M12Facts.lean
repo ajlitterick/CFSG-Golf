@@ -72,15 +72,6 @@ theorem disjOK : clsDisj 12 4 M12CL = true := by quickRfl
 theorem neOK : allC (fun d => Nat.blt 0 (CFSG.KS.Mathieu.lenN d.2.2.2.2.2.2)) M12CL = true := by
   quickRfl
 
-theorem emptyCls : allC (clsOneR 12 4 tA tB 2 1000)
-      [(0, 0, (M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
-        [(M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])] = true ∧
-    clsDisj 12 4 [(0, 0, (M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
-        [(M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])] = true ∧
-    (allC (fun d => Nat.blt 0 (CFSG.KS.Mathieu.lenN d.2.2.2.2.2.2))
-      [(0, 0, (M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1,
-        [(M12CL.getD 0 (0, 0, 0, [], [], [], [])).2.2.1], [], [], [])]).not = true := by
-  refine ⟨by quickRfl, by quickRfl, by quickRfl⟩
 
 theorem szOK' : szOK 12 4 = true := by quickRfl
 

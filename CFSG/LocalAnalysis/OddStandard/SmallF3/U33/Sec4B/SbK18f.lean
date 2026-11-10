@@ -12,18 +12,6 @@ open Subgroup
 variable {G : Type} [Group G] [Finite G] {t : G} {L S : Subgroup G}
   {x₁ x₂ lam rho tau om : G} {𝒮 : Subgroup G}
 
-private theorem fixSub_conj_le_centralizer {H : Type*} [Group H] (g : H) :
-    Outside.fixSub (MulAut.conj g) ≤ Subgroup.centralizer ({g} : Set H) := by
-  intro x hx
-  rw [Outside.mem_fixSub, MulAut.conj_apply] at hx
-  rw [Subgroup.mem_centralizer_iff]
-  intro y hy
-  rw [Set.mem_singleton_iff] at hy
-  rw [hy]
-  have h : g * x = x * g := by
-    have h' := congrArg (· * g) hx
-    simpa [mul_assoc] using h'
-  exact h
 
 theorem k18_Xi_cap_cent_rho (hc : Ctx18 t L S x₁ x₂ lam rho tau om 𝒮) :
     ctxXi t tau x₁ x₂ rho ⊓ centralizer ({rho} : Set G) = ⊥ := by

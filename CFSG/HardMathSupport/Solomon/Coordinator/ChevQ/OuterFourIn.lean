@@ -540,45 +540,6 @@ theorem d4_cube_trichotomy_model {K : Type} [Field K] [Finite K] (hK : Nat.card 
     refine ⟨g, a, σ, ε, ?_, hαeq⟩
     omega
 
-theorem d4_cube_trichotomy {S : Type} [Group S] {q : TauCeti.PrimePower}
-    (hv : (TauCeti.LieTypeIndex.D 4 q).Valid) (hq : IsTwoPow q 3)
-    (e : S ≃* TauCeti.ValidLieTypeIndex.Group ⟨.D 4 q, hv⟩) (φ : MulAut S) (hφ : φ ^ 3 = 1) :
-    φ ∈ (MulAut.conj : S →* MulAut S).range ∨ FieldAutD4 S φ ∨ GraphAutD4 S φ := by
-  obtain ⟨K, _, _, e', hK⟩ := exists_mulEquiv_adjointD4 hv hq e
-  have hβ3 : MulAut.congr e' φ ^ 3 = 1 := by rw [← map_pow, hφ, map_one]
-  rcases d4_cube_trichotomy_model hK (MulAut.congr e' φ) hβ3 with ⟨g, hg⟩ | ⟨σ, ψ, hσ, hψ⟩ |
-    ⟨g, a, σ, ε, hε, hαeq⟩
-  · exact Or.inl ⟨e'.symm g, (congr_eq_conj_imp e' φ g hg.symm).symm⟩
-  · refine Or.inr (Or.inl ⟨K, inferInstance, inferInstance, e', σ, ψ, hK, hσ, fun h => ?_⟩)
-    exact ⟨entrywiseAdjointAut Tag.D4 σ h, rfl, by rw [hψ]⟩
-  · refine Or.inr (Or.inr ⟨K, inferInstance, inferInstance, e', g, a, σ, ε, hK, hε, fun h => ?_⟩)
-    refine ⟨MulAut.congr e' φ h, ?_, rfl⟩
-    rw [hαeq]
-    simp only [MulAut.mul_apply, MulAut.conj_apply, Subgroup.coe_mul, Subgroup.coe_inv,
-      coe_exactNormalAut, coe_d4Graph]
-    rfl
-
-theorem fieldAutD4_entrywiseAdjointAut {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2 ^ 3)
-    {T : K ≃+* K} (hT : T ≠ 1) :
-    FieldAutD4 ↥(adjointGroup Tag.D4 K) (entrywiseAdjointAut Tag.D4 T) := by
-  refine ⟨K, inferInstance, inferInstance, MulEquiv.refl _, T, 1, hK, hT, fun g => ?_⟩
-  refine ⟨entrywiseAdjointAut Tag.D4 T g, rfl, ?_⟩
-  simp only [MulAut.mul_apply, MulAut.one_apply, inv_one]
-  rfl
-
-theorem graphAutD4_d4Graph {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2 ^ 3) {ε : ℕ}
-    (hε : ε = 1 ∨ ε = 2) : GraphAutD4 ↥(adjointGroup Tag.D4 K) (d4Graph K ε) := by
-  refine ⟨K, inferInstance, inferInstance, MulEquiv.refl _, 1, (1 : Fin Tag.D4.rank → Kˣ), 1, ε, hK, hε,
-    fun h => ⟨d4Graph K ε h, ?_, rfl⟩⟩
-  rw [coe_d4Graph]
-  simp only [MulAut.mul_apply, MulAut.conj_apply, exactNormalAutGL_apply, rootDiagUnit_one,
-    exactQ_D4, inv_one, mul_one, one_mul, Subgroup.coe_one]
-  have h1 : (1 : K ≃+* K).toRingHom = RingHom.id K := RingHom.ext fun _ => rfl
-  rw [h1]
-  have h2 : ∀ g : ModGL Tag.D4 K, Units.map (entrywiseHom (RingHom.id K)) g = g := fun g =>
-    Units.ext (entrywise_id (R := K) _)
-  rw [h2]
-  rfl
 
 theorem exists_mulEquiv_twE6 {S : Type} [Group S] {q : TauCeti.PrimePower}
     (hv : (TauCeti.LieTypeIndex.twistedE6 q).Valid) (hq : IsTwoPow q 3)

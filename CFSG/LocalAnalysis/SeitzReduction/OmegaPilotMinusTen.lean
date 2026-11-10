@@ -120,51 +120,6 @@ section Main
 
 variable {K : Type} [Field K] [Finite K] [CharP K 2] {n : ℕ}
 
-theorem centralizer_longRoot_decomp_minus_of_five_le (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n)
-    {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1)) :
-    ∃ (z : matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))
-      (Qz Mz : Subgroup (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))),
-      z ∈ minusPairPerp (by omega) b c k ∧ IsLongRoot _ z ∧
-        perfectCore (centralizer ({z} : Set _)) = centralizer {z} ∧
-        centralizer {z} = Qz ⊔ Mz ∧ IsPGroup 2 Qz ∧
-        Mz ≤ normalizer (Qz : Set (matrixProjectiveDerived
-          (coordinateQuadMinus n K (by omega) b c))) ∧
-        Disjoint Qz Mz ∧ (∀ N : Subgroup Mz, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-        minusPairTorus (by omega) b c k ≤ Mz := by
-  have hn1 : 1 ≤ n := by omega
-  obtain ⟨i, j, hij, hik, hjk⟩ := exists_pair_ne_fin (by omega : 3 ≤ n - 1) k
-  obtain ⟨hQ, hT⟩ := regular_coordinateQuadMinus n K b c (by omega) hirr
-  have hi := isHypCoord_coordinateQuadMinus (K := K) hn1 b c i
-  have hj := isHypCoord_coordinateQuadMinus (K := K) hn1 b c j
-  have hk := isHypCoord_coordinateQuadMinus (K := K) hn1 b c k
-  have hd := pairDisjoint_minus hn1 hij
-  have h₁₂ := hi.orth hj hd
-  have h₁₃ := hi.orth hk (pairDisjoint_minus hn1 hik)
-  have h₂₃ := hj.orth hk (pairDisjoint_minus hn1 hjk)
-  obtain ⟨l, hl0, hl1⟩ := exists_ne_zero_mul_self_ne_one hq
-  have hS := isQuasisimple_minusStabPairsBar_of_five_le (K := K) hn hirr hij
-  refine ⟨rootPairElt hQ h₁₂ h₁₃ h₂₃, rootRadicalBar _ hi.hypPair hj.hypPair,
-    rootLeviBar _ hi.hypPair hj.hypPair, ?_, isLongRoot_rootPairElt hQ h₁₂ h₁₃ h₂₃,
-    CFSG.Quasithin.perfectCore_eq_self_of_perfect
-      (commutator_centralizer_rootPairElt_of hi hj hd hQ h₁₃ h₂₃ hl0 hl1
-        (Subgroup.isPerfect_iff.mp hS.1.1)),
-    centralizer_rootPairElt hQ h₁₂ h₁₃ h₂₃, isPGroup_rootRadicalBar _ _,
-    rootLeviBar_le_normalizer h₁₂, disjoint_rootRadicalBar_rootLeviBar h₁₂,
-    fun N hN h2 => rootLeviBar_normal_isPGroup_eq_bot_of hi hj hd hQ hT hS N hN h2, ?_⟩
-  · exact rootPairElt_mem_pairPerpOf hQ h₁₂ h₁₃ h₂₃ hk
-      ⟨single_minus_apply_eq_zero hn1 hik _ _ (.inl rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_minus_apply_eq_zero hn1 hjk _ _ (.inl rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hjk _ _ (.inl rfl) (.inr rfl)⟩
-  · exact pairTorusOf_le_rootLeviBar hk
-      ⟨single_minus_apply_eq_zero hn1 hik _ _ (.inl rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hik _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_minus_apply_eq_zero hn1 hik _ _ (.inr rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hik _ _ (.inr rfl) (.inr rfl)⟩
-      ⟨single_minus_apply_eq_zero hn1 hjk _ _ (.inl rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hjk _ _ (.inl rfl) (.inr rfl)⟩
-      ⟨single_minus_apply_eq_zero hn1 hjk _ _ (.inr rfl) (.inl rfl),
-        single_minus_apply_eq_zero hn1 hjk _ _ (.inr rfl) (.inr rfl)⟩
 
 theorem minusRootElt_decomp_of_five_le (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n) {b c : K}
     (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) {i j k : Fin (n - 1)} (hij : i ≠ j) (hik : i ≠ k)

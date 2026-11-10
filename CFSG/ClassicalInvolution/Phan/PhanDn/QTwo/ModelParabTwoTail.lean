@@ -37,14 +37,6 @@ theorem qttTailIdx_injective (m : ℕ) (hm : 3 ≤ m) :
   simp only [qttTailIdx, Fin.val_mk] at this
   omega
 
-theorem qttPrefixIdx_ne_tailIdx (m : ℕ) (hm : 3 ≤ m) (i : Fin (m - 1)) (t : Fin 2) :
-    qttPrefixIdx m hm i ≠ qttTailIdx m hm t := by
-  intro h
-  have := congrArg Fin.val h
-  simp only [qttPrefixIdx, qttTailIdx, Fin.val_mk] at this
-  have hi := i.isLt
-  have ht := t.isLt
-  omega
 
 @[expose] noncomputable def qttPrefixLift (m : ℕ) (hm : 3 ≤ m) :
     (Fin (m - 1) → K) →ₗ[F] (Fin (m + 1) → K) where
@@ -89,21 +81,6 @@ theorem qttTailCoords_tailLift (m : ℕ) (hm : 3 ≤ m) (x : Fin 2 → K) :
   · intro h
     exact absurd (Finset.mem_univ t) h
 
-theorem qttPrefixCoords_prefixLift (m : ℕ) (hm : 3 ≤ m) (x : Fin (m - 1) → K) :
-    qttPrefixCoords (F := F) (K := K) m hm (qttPrefixLift (F := F) (K := K) m hm x) = x := by
-  ext i
-  change (∑ b : Fin (m - 1), x b • Pi.single (qttPrefixIdx m hm b) (1 : K))
-    (qttPrefixIdx m hm i) = x i
-  rw [Finset.sum_apply]
-  simp only [Pi.smul_apply, Pi.single_apply, smul_eq_mul]
-  rw [Finset.sum_eq_single i]
-  · simp
-  · intro b _ hb
-    have hne : qttPrefixIdx m hm i ≠ qttPrefixIdx m hm b :=
-      fun h => hb ((qttPrefixIdx_injective m hm h).symm)
-    simp [hne]
-  · intro h
-    exact absurd (Finset.mem_univ i) h
 
 theorem qttTailLift_apply_prefix (m : ℕ) (hm : 3 ≤ m) (x : Fin 2 → K)
     (i : Fin (m + 1)) (hi : i.val < m - 1) :
@@ -231,23 +208,6 @@ theorem qttPrefixLift_single (m : ℕ) (hm : 3 ≤ m) (i : Fin (m - 1)) (a : K) 
   · intro h
     exact absurd (Finset.mem_univ i) h
 
-theorem qttTailLift_single (m : ℕ) (hm : 3 ≤ m) (t : Fin 2) (a : K) :
-    qttTailLift (F := F) (K := K) m hm (Pi.single t a) =
-      (Pi.single (qttTailIdx m hm t) a : Fin (m + 1) → K) := by
-  ext j
-  change (∑ b : Fin 2,
-      (Pi.single t a : Fin 2 → K) b •
-        (Pi.single (qttTailIdx m hm b) (1 : K) : Fin (m + 1) → K)) j =
-    (Pi.single (qttTailIdx m hm t) a : Fin (m + 1) → K) j
-  rw [Finset.sum_apply, Finset.sum_eq_single t]
-  · by_cases hj : j = qttTailIdx m hm t
-    · subst hj
-      simp
-    · simp [Pi.single_eq_of_ne hj]
-  · intro b _ hb
-    rw [Pi.single_eq_of_ne hb, zero_smul, Pi.zero_apply]
-  · intro h
-    exact absurd (Finset.mem_univ t) h
 
 theorem qttPrefixLift_mem_qttP (m : ℕ) (hm : 3 ≤ m) (x : Fin (m - 1) → K) :
     qttPrefixLift (F := F) (K := K) m hm x ∈ qttP (F := F) (K := K) m hm := by
@@ -302,26 +262,6 @@ theorem qttT_apply_prefix {m : ℕ} (hm : 3 ≤ m) {v : Fin (m + 1) → K}
   change v (qttPrefixIdx m hm t) = 0 at h
   simpa [hit] using h
 
-theorem qttP_sup_qttT (m : ℕ) (hm : 3 ≤ m) :
-    qttP (F := F) (K := K) m hm ⊔ qttT (F := F) (K := K) m hm = ⊤ := by
-  rw [eq_top_iff]
-  intro v _
-  have h := qtt_eq_prefix_add_tail (F := F) (K := K) m hm v
-  exact Submodule.mem_sup.mpr
-    ⟨qttPrefixLift m hm (qttPrefixCoords m hm v), qttPrefixLift_mem_qttP m hm _,
-      qttTailLift m hm (qttTailCoords m hm v), qttTailLift_mem_qttT m hm _, h⟩
-
-theorem qttP_inf_qttT (m : ℕ) (hm : 3 ≤ m) :
-    qttP (F := F) (K := K) m hm ⊓ qttT (F := F) (K := K) m hm = ⊥ := by
-  rw [eq_bot_iff]
-  intro v hv
-  rw [Submodule.mem_bot]
-  ext i
-  by_cases hi : i.val < m - 1
-  · have h := qttT_apply_prefix hm hv.2 hi
-    simpa using h
-  · have hi' : m - 1 ≤ i.val := by omega
-    exact qttP_apply_tail hm hv.1 hi'
 
 theorem qttPolar_prefixLift_single (m : ℕ) (hm : 3 ≤ m) (i : Fin (m - 1)) (a : K)
     (w : Fin (m + 1) → K) :
@@ -336,18 +276,6 @@ theorem qttPolar_prefixLift_single (m : ℕ) (hm : 3 ≤ m) (i : Fin (m - 1)) (a
   · intro h
     exact absurd (Finset.mem_univ _) h
 
-theorem qttPolar_tailLift_single (m : ℕ) (hm : 3 ≤ m) (t : Fin 2) (a : K)
-    (w : Fin (m + 1) → K) :
-    QuadraticMap.polar (Qn E (m + 1))
-        (qttTailLift (F := F) (K := K) m hm (Pi.single t a)) w =
-      QuadraticMap.polar (normQuad E) a (w (qttTailIdx m hm t)) := by
-  rw [qttTailLift_single, polar_Qn]
-  rw [Finset.sum_eq_single (qttTailIdx m hm t)]
-  · simp
-  · intro j _ hj
-    simp [Pi.single_eq_of_ne hj]
-  · intro h
-    exact absurd (Finset.mem_univ _) h
 
 theorem qttT_le_orthogonal_qttP (m : ℕ) (hm : 3 ≤ m) :
     qttT (F := F) (K := K) m hm ≤
@@ -539,7 +467,6 @@ theorem qtt_x_map_qttP (m : ℕ) (hm : 3 ≤ m)
   · rintro _ ⟨v, hv, rfl⟩
     exact qtt_x_mem_qttP E m hm hprefix hv
   · rw [LinearEquiv.finrank_map_eq]
-
 
 
 theorem qtt_x_mem_qttT (m : ℕ) (hm : 3 ≤ m)
@@ -959,7 +886,6 @@ theorem qTwo_twoTail_correction (hK : Nat.card K = 4) (m : ℕ) (hm : 3 ≤ m)
       omega
     refine Or.inr ?_
     simpa [C, hfirst, hlast] using hlin
-
 
 
 end CFSG.ClassicalInvolution.PhanDn.QTwo

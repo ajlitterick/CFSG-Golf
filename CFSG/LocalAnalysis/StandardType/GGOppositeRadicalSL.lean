@@ -87,17 +87,6 @@ theorem exists_opposite_stdU (p : ℕ) [Fact p.Prime] [CharP K p] {ℓ : ι → 
   rw [← map_tInv_stdUop hD.idx, heq]
   rfl
 
-theorem ggOppRadGood_stdU [CharP K 2] {ℓ : ι → ℕ} (hQ : GGRadicalTwo ⊤ (stdU (K := K) ℓ))
-    (hN : (⊤ : Subgroup (Matrix.SpecialLinearGroup ι K)) ⊓
-      Subgroup.normalizer (stdU (K := K) ℓ : Set (Matrix.SpecialLinearGroup ι K)) = stdP ℓ)
-    (hne : stdU (K := K) ℓ ≠ ⊥) : GGOppRadGood ⊤ (stdU (K := K) ℓ) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hQ' : pCoreOf 2 ((⊤ : Subgroup (Matrix.SpecialLinearGroup ι K)) ⊓
-      Subgroup.normalizer (stdU (K := K) ℓ : Set (Matrix.SpecialLinearGroup ι K))) = stdU ℓ := hQ
-  rw [top_inf_eq] at hQ' hN
-  rw [ggOppRadGood_iff]
-  simp only [top_inf_eq]
-  exact ⟨stdUop ℓ, exists_opposite_stdU 2 hQ' hN hne⟩
 
 theorem exists_opposite_sl (p : ℕ) [Fact p.Prime] [CharP K p]
     {Q : Subgroup (Matrix.SpecialLinearGroup ι K)} (hQne : Q ≠ ⊥)

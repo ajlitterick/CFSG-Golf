@@ -520,11 +520,6 @@ private lemma ggCZSP_sign_eq {s : Fin m → ZMod p} {σ : Equiv.Perm (Fin m)}
     _ = s k * 1 := by rw [hss k]
     _ = s k := by rw [mul_one]
 
-private lemma ggCZSP_sign_ne_zero {s : Fin m → ZMod p}
-    (hs : ∀ k, s k = 1 ∨ s k = -1) (k : Fin m) : s k ≠ 0 := by
-  rcases hs k with h | h
-  · rw [h]; exact one_ne_zero
-  · rw [h]; exact neg_ne_zero.mpr one_ne_zero
 
 private lemma ggCZ_move_apply (g : V ≃ₗ[ZMod p] V) (x : V) : g x - x ∈ ggLinMove g := by
   rw [ggLinMove]
@@ -933,21 +928,6 @@ private lemma ggCZD_conj_exists {e : Fin m → V} {φ : Fin m → Module.Dual (Z
             Subgroup.mul_mem _ (ggCZD_mem hd hjl') (ggCZD_mem hd hik'), ?_⟩
           exact ggCZD_conj_mul h1 h2
 
-
-private lemma ggCZreflS_apply_e {e : Fin m → V} {φ : Fin m → Module.Dual (ZMod p) V}
-    (hd : GGCZDual e φ) (i c : Fin m) :
-    ggCZreflS (φ := φ) i (ggCZdualS_root hd i) (e c) =
-      if c = i then -e c else e c := by
-  rw [ggCZreflS_apply]
-  by_cases hci : c = i
-  · rw [hci, hd i i, if_pos rfl, if_pos rfl, mul_one, two_smul]
-    abel
-  · rw [hd i c, if_neg (Ne.symm hci), if_neg hci, mul_zero, zero_smul, sub_zero]
-
-private lemma ggCZreflS_fix {e : Fin m → V} {φ : Fin m → Module.Dual (ZMod p) V}
-    (hd : GGCZDual e φ) {i : Fin m} {v : V} (hv : ∀ k, φ k v = 0) :
-    ggCZreflS (φ := φ) i (ggCZdualS_root hd i) v = v := by
-  rw [ggCZreflS_apply, hv i, mul_zero, zero_smul, sub_zero]
 
 private lemma ggCZreflS_conj_D {e : Fin m → V} {φ : Fin m → Module.Dual (ZMod p) V}
     (hd : GGCZDual e φ) {i k : Fin m} (hik : i ≠ k) :

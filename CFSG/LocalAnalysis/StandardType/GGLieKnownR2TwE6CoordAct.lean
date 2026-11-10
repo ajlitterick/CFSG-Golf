@@ -15,10 +15,6 @@ open CFSG.Open CFSG.StandardType CFSG.LieType.Universal CFSG.LieType.RootSystem
   CFSG.LieType.Steinberg.Minuscule
 open scoped commutatorElement
 
-private lemma twE6ShiftMap_zero {k : Type} [AddCommMonoid k] (j : Fin 12) :
-    twE6ShiftMap j (0 : Fin 8 → k) = 0 := by
-  ext i
-  simp [twE6ShiftMap]
 
 private lemma twE6ShiftMap_add {k : Type} [AddCommMonoid k] (j : Fin 12) (a b : Fin 8 → k) :
     twE6ShiftMap j (a + b) = twE6ShiftMap j a + twE6ShiftMap j b := by

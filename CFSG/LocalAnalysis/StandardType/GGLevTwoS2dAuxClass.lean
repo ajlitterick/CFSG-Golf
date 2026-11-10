@@ -30,16 +30,6 @@ theorem levTwoS2d_mem_Phi_iff {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n) 
       exact ⟨a, b, s, t, hab, hs, ht, hβ⟩
     · rwa [levTwoS2d_lam_eps n hn hp2 c hβ]
 
-theorem levTwoS2d_mem_Phi_diff {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n) (hp2 : p ≠ 2)
-    (c : Fin n → ZMod p) {Φ : Set (Fin n → ℤ)}
-    (hΦ : LevTwoData (isFiniteType_cartanD n) p c Φ) {a b : Fin n} (hab : a ≠ b)
-    {β : Fin n → ℤ} (hβ : toStdD n β = Pi.single a 1 - Pi.single b 1) :
-    β ∈ Φ ↔ levTwoS2d_d n hn c a = levTwoS2d_d n hn c b := by
-  have hβ' : toStdD n β = Pi.single a (1 : ℤ) + Pi.single b (-1) := by
-    rw [hβ, Pi.single_neg, sub_eq_add_neg]
-  rw [levTwoS2d_mem_Phi_iff n hn hp2 c hΦ hab (Or.inl rfl) (Or.inr rfl) hβ']
-  simp only [Int.cast_one, Int.cast_neg, one_mul, neg_one_mul]
-  exact add_neg_eq_zero
 
 theorem levTwoS2d_mem_Phi_add {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n) (hp2 : p ≠ 2)
     (c : Fin n → ZMod p) {Φ : Set (Fin n → ℤ)}
@@ -50,19 +40,6 @@ theorem levTwoS2d_mem_Phi_add {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 4 ≤ n) 
   simp only [Int.cast_one, one_mul]
   exact eq_neg_iff_add_eq_zero.symm
 
-theorem levTwoS2d_d_eq_zero_of_eq_neg {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
-    {x : ZMod p} (h : x = - x) : x = 0 := by
-  have h2 : (2 : ZMod p) ≠ 0 := by
-    intro hzero
-    have hdvd : p ∣ 2 := (CharP.cast_eq_zero_iff (ZMod p) p 2).mp hzero
-    have hle : p ≤ 2 := Nat.le_of_dvd (by norm_num) hdvd
-    have hge : 2 ≤ p := (Fact.out : p.Prime).two_le
-    omega
-  have hx : (2 : ZMod p) * x = 0 := by
-    rw [two_mul]
-    nth_rewrite 2 [h]
-    exact add_neg_cancel x
-  exact (mul_eq_zero.mp hx).resolve_left h2
 
 private theorem levTwoS2d_not_dvd_det {p : ℕ} [Fact p.Prime] (n : ℕ) (hn : 2 ≤ n) (hp2 : p ≠ 2) :
     ¬ (p : ℤ) ∣ (cartanD n).det := by

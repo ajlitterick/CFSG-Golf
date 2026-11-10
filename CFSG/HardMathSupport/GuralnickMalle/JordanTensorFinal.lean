@@ -13,13 +13,6 @@ section Jordan
 
 variable {K : Type*} [Field K]
 
-noncomputable def jordanDualBasis (n : ℕ) :
-    Basis (Fin n) K (Module.Dual K (Fin n → K)) :=
-  (Pi.basisFun K (Fin n)).dualBasis
-
-noncomputable def jordanCyclicBasis (n : ℕ) :
-    Basis (Fin n) K (Module.Dual K (Fin n → K)) :=
-  (jordanDualBasis (K := K) n).reindex (Fin.revPerm (n := n))
 
 end Jordan
 
@@ -27,11 +20,6 @@ section Contraction
 
 variable {K : Type*} [Field K]
 
-def linearMapEval {V W : Type*} [AddCommGroup V] [Module K V]
-    [AddCommGroup W] [Module K W] (v : V) : (V →ₗ[K] W) →ₗ[K] W where
-  toFun f := f v
-  map_add' f g := rfl
-  map_smul' a f := rfl
 
 noncomputable def tensorContractionBilin (V W : Type*) [AddCommGroup V] [Module K V]
     [AddCommGroup W] [Module K W] : V →ₗ[K] W →ₗ[K] (Module.Dual K V →ₗ[K] W) where

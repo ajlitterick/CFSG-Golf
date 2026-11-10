@@ -15,9 +15,6 @@ open CFSG.Monster CFSG.Monster.AxisCount CFSG.Monster.Griess CFSG.Monster.Genera
 
 @[expose] def hnWW : List Native.Gen := hnWU[0]! ++ hnWU[3]!
 
-@[expose, noinline] def hnTwoBCheck : Bool :=
-  (hnXWord ++ hnCW ++ (hnCW ++ hnWW)).all Native.Gen.validB &&
-    checkP4 (HS.pw (hnXWord ++ hnCW)) (HS.pw (hnCW ++ hnWW))
 
 theorem hn_wordLin_twoB
     (h : wordLin (hnXWord ++ hnCW) = wordLin (hnCW ++ hnWW)) :

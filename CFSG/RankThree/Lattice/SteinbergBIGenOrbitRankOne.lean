@@ -47,13 +47,6 @@ theorem map_conj_fixedRootSpan {w : WeylGroup τ} {x : adjointGroup τ k}
     · show x * (x⁻¹ * z * x) * x⁻¹ = z
       group
 
-theorem exists_mulEquiv_fixedRootSpan {w : WeylGroup τ} {x : adjointGroup τ k}
-    (hxN : (x : ModGL τ k) ∈ monomialSubgroup τ k) (hxw : weylQuotientHom τ k ⟨_, hxN⟩ = w)
-    (hxF : D.F x = x) {S : Set (Fin τ.rank → ℤ)} (hS : ∀ γ ∈ S, IsRoot τ γ) :
-    ∃ e : D.fixedRootSpan S ≃* D.fixedRootSpan ((fun γ => w • γ) '' S),
-      ∀ y, (e y : adjointGroup τ k) = x * y * x⁻¹ :=
-  ⟨((MulAut.conj x).subgroupMap (D.fixedRootSpan S)).trans
-    (MulEquiv.subgroupCongr (D.map_conj_fixedRootSpan hxN hxw hxF hS)), fun _ => rfl⟩
 
 end GenFixedRootDatum
 
@@ -223,26 +216,6 @@ end GenFixedRootDatum
 
 namespace GenFixedRootDatum
 
-variable {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k p₀] [IsAlgClosed k]
-  {M : Type} [CommGroup M]
-  (D : GenFixedRootDatum τ p₀ k M)
-
-theorem exists_orbitFixedHom {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
-    ∃ R : SL2 (D.orbitField O) →* D.fixedGroup,
-      ∀ A, (((R A : D.fixedGroup) : adjointGroup τ k) : ModGL τ k) = D.orbitMap O A :=
-  ⟨D.orbitFixedHom hO, D.coe_orbitFixedHom hO⟩
-
-theorem exists_mulEquiv_fixedRootSpan_thetaOrbit {α : Fin τ.rank → ℤ} {w : WeylGroup τ}
-    {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) (hwO : (fun γ => w • γ) '' O = thetaOrbit D.θ α)
-    {n : ModGL τ k} (hn : D.IsOrbitLift n w) {x : adjointGroup τ k} (hx : (x : ModGL τ k) = n) :
-    ∃ e : D.fixedRootSpan O ≃* D.fixedRootSpan (thetaOrbit D.θ α),
-      ∀ y, (e y : adjointGroup τ k) = x * y * x⁻¹ := by
-  subst hx
-  obtain ⟨-, ⟨hN, hw⟩, x', hx', hx'F⟩ := D.isOrbitLift_spec hn
-  have hxx : x' = x := Subtype.ext hx'
-  subst hxx
-  rw [← hwO]
-  exact D.exists_mulEquiv_fixedRootSpan hN hw hx'F (fun γ hγ => D.isRoot_of_mem_orbits hO hγ)
 
 end GenFixedRootDatum
 

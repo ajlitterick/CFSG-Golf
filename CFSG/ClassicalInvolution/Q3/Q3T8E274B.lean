@@ -31,23 +31,6 @@ theorem le_centralizer_mul {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup 
     R ≤ Subgroup.centralizer ({z * t} : Set G) :=
   Q3CL.Frame.T8.le_centralizer_mul hs.toFrame
 
-theorem exists_sylow_centralizer {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) :
-    ∃ S' : Sylow 2 G, R ≤ (S' : Subgroup G) ∧
-      IsSylow2In ((S' : Subgroup G) ⊓ Subgroup.centralizer ({z * t} : Set G))
-        (Subgroup.centralizer ({z * t} : Set G)) :=
-  Q3CL.Frame.T8.exists_sylow_centralizer hs.toFrame
-
-theorem sylow_le_H274_of_ge {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
-    (hs : Std8 Ω K J S R T W z t) {S' : Sylow 2 G} (hRS' : R ≤ (S' : Subgroup G)) :
-    (S' : Subgroup G) ≤ H274 Ω K z :=
-  Q3CL.Frame.T8.sylow_le_H274_of_ge hs.toFrame hRS'
-
-theorem not_commute_of_not_mem_H274 {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {g w : G}
-    (hg : g ∉ H274 Ω K z) (hw : IsConj z w) (hwH : w ∈ H274 Ω K z) :
-    g⁻¹ * (z * t) * g * w ≠ w * (g⁻¹ * (z * t) * g) :=
-  Q3CL.Frame.T8.not_commute_of_not_mem_H274 hs.toFrame hcomp hg hw hwH
 
 theorem frame_facts {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
     (hs : Std8 Ω K J S R T W z t) {S' : Sylow 2 G}
@@ -56,33 +39,6 @@ theorem frame_facts {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t
     x ∈ X ∧ x ∈ H274 Ω K z ∧ IsConj z x ∧ (∀ y ∈ X, x * y = y * x) :=
   Q3CL.Frame.T8.frame_facts hs.toFrame hS'H hXS hM hXM hXΩ hx
 
-theorem conjSub_ne_of_not_mem_H274 {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K)
-    {S' : Sylow 2 G} (hS'H : (S' : Subgroup G) ≤ H274 Ω K z) {g : G} (hg : g ∉ H274 Ω K z)
-    {X M : Subgroup G} {x : G} (hXS : X ≤ (S' : Subgroup G)) (hM : M ∈ Ω)
-    (hXM : IsSylow2In X M) (hXΩ : X ∈ RSet Ω) (hx : IsUniqueInvolution M x) :
-    conjSub (g⁻¹ * (z * t) * g) X ≠ X :=
-  Q3CL.Frame.T8.conjSub_ne_of_not_mem_H274 hs.toFrame hcomp hS'H hg hXS hM hXM hXΩ hx
-
-theorem exists_normalized_conj {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) {S' : Sylow 2 G}
-    (hS'a : IsSylow2In ((S' : Subgroup G) ⊓ Subgroup.centralizer ({z * t} : Set G))
-      (Subgroup.centralizer ({z * t} : Set G)))
-    (hS'H : (S' : Subgroup G) ≤ H274 Ω K z) {g : G} (hg : g ∉ H274 Ω K z)
-    (hgH : g⁻¹ * (z * t) * g ∈ H274 Ω K z) :
-    ∃ g' : G, g' ∉ H274 Ω K z ∧ g'⁻¹ * (z * t) * g' ∈ (S' : Subgroup G) ∧
-      ∀ s ∈ (S' : Subgroup G), (g'⁻¹ * (z * t) * g') * s = s * (g'⁻¹ * (z * t) * g') →
-        g' * s * g'⁻¹ ∈ (S' : Subgroup G) :=
-  Q3CL.Frame.T8.exists_normalized_conj hs.toFrame hS'a hS'H hg hgH
-
-theorem eight_le_card_RSet {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
-    (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {S' : Sylow 2 G}
-    (hRS' : R ≤ (S' : Subgroup G)) (hS'H : (S' : Subgroup G) ≤ H274 Ω K z) {g : G}
-    (hg : g ∉ H274 Ω K z) (hdS : g⁻¹ * (z * t) * g ∈ (S' : Subgroup G))
-    (hCS : ∀ s ∈ (S' : Subgroup G), (g⁻¹ * (z * t) * g) * s = s * (g⁻¹ * (z * t) * g) →
-      g * s * g⁻¹ ∈ (S' : Subgroup G)) :
-    8 ≤ Nat.card {X : Subgroup G // X ∈ RSet Ω ∧ X ≤ (S' : Subgroup G)} :=
-  Q3CL.Frame.T8.eight_le_card_RSet hs.toFrame hcomp hRS' hS'H hg hdS hCS
 
 theorem IsFrameInv.mem (hΩ : HypOmegaMod Ω) {X : Subgroup G} {x : G}
     (hX : X ∈ RSet Ω) (h : IsFrameInv Ω X x) : x ∈ X :=

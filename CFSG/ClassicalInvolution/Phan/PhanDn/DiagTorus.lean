@@ -72,30 +72,5 @@ theorem diagSingle_apply (n : ℕ) (i : Fin n) (u : normOne σ) :
     diagSingle F σ n i u = diagHom F σ n (Pi.mulSingle i u) :=
   rfl
 
-theorem diagSingle_mem_diagTorusV (n : ℕ) (i : Fin n) (u : normOne σ) :
-    diagSingle F σ n i u ∈ diagTorusV F σ n :=
-  ⟨Pi.mulSingle i u, rfl⟩
-
-theorem diagSingle_commute (n : ℕ) (i j : Fin n)
-    (u v : normOne σ) :
-    Commute (diagSingle F σ n i u) (diagSingle F σ n j v) := by
-  rw [diagSingle_apply, diagSingle_apply]
-  show diagHom F σ n (Pi.mulSingle i u) * diagHom F σ n (Pi.mulSingle j v) =
-    diagHom F σ n (Pi.mulSingle j v) * diagHom F σ n (Pi.mulSingle i u)
-  rw [← map_mul, ← map_mul, mul_comm]
-
-private theorem iSup_mulSingle_eq_top (n : ℕ) :
-    (⨆ i : Fin n, (MonoidHom.mulSingle (fun _ : Fin n => normOne σ) i).range) = ⊤ := by
-  rw [eq_top_iff]
-  intro t _
-  have ht : t = ∏ i, Pi.mulSingle i (t i) := (Finset.univ_prod_mulSingle t).symm
-  rw [ht]
-  exact Subgroup.prod_mem _ (fun i _ => Subgroup.mem_iSup_of_mem i (Set.mem_range_self (t i)))
-
-theorem diagTorusV_eq_iSup (n : ℕ) :
-    diagTorusV F σ n = ⨆ i, (diagSingle F σ n i).range := by
-  rw [diagTorusV, ← Subgroup.map_top (f := diagHom F σ n), ← iSup_mulSingle_eq_top (σ := σ) n,
-    Subgroup.map_iSup]
-  exact iSup_congr fun i => by rw [MonoidHom.map_range]; rfl
 
 end CFSG.ClassicalInvolution.PhanDn

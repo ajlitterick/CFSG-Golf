@@ -26,12 +26,6 @@ noncomputable def y443Parity : MonsterY443 →* Multiplicative (ZMod 2) :=
     y443Parity (PresentedGroup.of g) = Multiplicative.ofAdd 1 :=
   PresentedGroup.toGroup.of _
 
-theorem y443Parity_surjective : Function.Surjective y443Parity := by
-  intro x
-  have h : x = 1 ∨ x = Multiplicative.ofAdd 1 := by revert x; decide
-  rcases h with rfl | rfl
-  · exact ⟨1, map_one _⟩
-  · exact ⟨PresentedGroup.of none, y443Parity_of none⟩
 
 namespace Y443
 
@@ -93,28 +87,5 @@ theorem y443Parity_ker : y443Parity.ker = commutator MonsterY443 := by
       y443Parity_of] at h1
     exact absurd h1.symm (by decide)
 
-theorem y443_commutator_index : (commutator MonsterY443).index = 2 := by
-  rw [← y443Parity_ker, Subgroup.index_ker, MonoidHom.range_eq_top_of_surjective _
-    y443Parity_surjective, Subgroup.card_top, Nat.card_eq_fintype_card]
-  rfl
-
-theorem y443_abelianization_equiv :
-    Nonempty (Abelianization MonsterY443 ≃* Multiplicative (ZMod 2)) := by
-  refine ⟨MulEquiv.ofBijective (Abelianization.lift y443Parity) ⟨?_, ?_⟩⟩
-  · rw [injective_iff_map_eq_one]
-    intro x hx
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective x
-    have hg : g ∈ y443Parity.ker := hx
-    rw [y443Parity_ker, ← Abelianization.ker_of] at hg
-    exact hg
-  · intro y
-    obtain ⟨g, rfl⟩ := y443Parity_surjective y
-    exact ⟨Abelianization.of g, Abelianization.lift_apply_of _ _⟩
-
-theorem y443_abelianization :
-    Function.Surjective y443Parity ∧ y443Parity.ker = commutator MonsterY443 ∧
-      (commutator MonsterY443).index = 2 ∧
-      Nonempty (Abelianization MonsterY443 ≃* Multiplicative (ZMod 2)) :=
-  ⟨y443Parity_surjective, y443Parity_ker, y443_commutator_index, y443_abelianization_equiv⟩
 
 end CFSG.YGroups

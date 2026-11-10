@@ -21,69 +21,6 @@ universe u
 
 /-! The first source identity, counting involutions in `H` and `Ĥ`. -/
 
-private theorem firstCase_H_product_equiv_base
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) :
-    Nonempty (c.S × c.U ≃ c.H) := by
-  classical
-  have hSU : (c.S : Subgroup G) ⊔ c.U = c.H :=
-    fact_2_preamble_H_eq_SU hmin c
-  have hUnorm : IsNormalIn c.U c.H := by
-    change IsNormalIn (oddCoreOf c.H) c.H
-    refine ⟨?_, ?_⟩
-    · intro x hx
-      rcases Subgroup.mem_map.mp hx with ⟨y, _hy, rfl⟩
-      exact y.2
-    · intro h hh x hx
-      rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
-      refine Subgroup.mem_map.mpr ⟨
-        (⟨h, hh⟩ : c.H) * y * (⟨h, hh⟩ : c.H)⁻¹, ?_, by simp⟩
-      exact (pPrimeCore_normal (p := 2) (G := c.H)).conj_mem
-        y hy (⟨h, hh⟩ : c.H)
-  have hSleH : (c.S : Subgroup G) ≤ c.H := centralizerSetup_S_le_H c
-  have hSnormU : (c.S : Subgroup G) ≤ Subgroup.normalizer (c.U : Set G) :=
-    hSleH.trans (le_normalizer_of_isNormalIn hUnorm)
-  have hUcop : Nat.Coprime 2 (Nat.card c.U) := by
-    change Nat.Coprime 2 (Nat.card (oddCoreOf c.H))
-    rw [show Nat.card (oddCoreOf c.H) = Nat.card (pPrimeCore 2 c.H) by
-      simpa [oddCoreOf] using
-        (Subgroup.card_map_of_injective (K := pPrimeCore 2 c.H)
-          c.H.subtype_injective)]
-    exact pPrimeCore_coprime_card (p := 2) (G := c.H)
-  have hScop : Nat.Coprime (Nat.card (c.S : Subgroup G)) (Nat.card c.U) := by
-    have hSpow : ∃ n : ℕ, Nat.card (c.S : Subgroup G) = 2 ^ n := by
-      have hcard : Nat.card (c.S : Subgroup G) = 2 * 2 ^ c.m := by
-        obtain ⟨e⟩ := c.dihedralEquiv
-        simpa using (Nat.card_congr e.toEquiv).trans DihedralGroup.nat_card
-      refine ⟨c.m + 1, ?_⟩
-      calc
-        Nat.card (c.S : Subgroup G) = 2 * 2 ^ c.m := hcard
-        _ = 2 ^ (c.m + 1) := by rw [pow_succ]; ring
-    obtain ⟨n, hn⟩ := hSpow
-    rw [hn]
-    exact hUcop.pow_left _
-  have hdisj : Disjoint (c.S : Subgroup G) c.U :=
-    Subgroup.disjoint_of_coprime_natCard hScop
-  have hset : (c.H : Set G) = (c.S : Set G) * (c.U : Set G) := by
-    rw [← hSU, Subgroup.coe_mul_of_left_le_normalizer_right c.S c.U hSnormU]
-    rfl
-  let f : c.S × c.U → c.H := fun z =>
-    ⟨(z.1 : G) * (z.2 : G), by
-      rw [← hSU]
-      exact Subgroup.mul_mem_sup z.1.2 z.2.2⟩
-  have hf_inj : Function.Injective f := by
-    intro x y hxy
-    apply Subgroup.mul_injective_of_disjoint hdisj
-    exact congrArg Subtype.val hxy
-  have hf_surj : Function.Surjective f := by
-    intro z
-    have hz : (z : G) ∈ (c.S : Set G) * (c.U : Set G) := by
-      rw [← hset]
-      exact z.2
-    rcases Set.mem_mul.mp hz with ⟨s, hs, u, hu, hsu⟩
-    exact ⟨⟨⟨s, hs⟩, ⟨u, hu⟩⟩, Subtype.ext hsu⟩
-  exact ⟨Equiv.ofBijective f ⟨hf_inj, hf_surj⟩⟩
 
 public theorem firstCase_product_involution_component
     {G : Type u} [Group G] [Finite G]

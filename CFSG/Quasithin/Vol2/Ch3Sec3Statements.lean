@@ -123,18 +123,6 @@ abbrev tildeComm (L T X : Subgroup G) : Subgroup ↥(vPlus L T) :=
     (∀ n : ℕ, ¬ LieModel ↥(autOn (mPlus L T) (vPlus L T)) .PSL 2 2 n) ∧
     (¬ T ≤ Subgroup.normalizer (L : Set G) → IsPSL 3 2 1 ↥(autOn L (vPlus L T)))
 
-@[expose] def OuterU35Action (D K : Subgroup G) : Prop :=
-  Nat.card D = 3 ∧
-    (∀ d ∈ D, d ≠ 1 → ¬ ∃ k ∈ K, ∀ x ∈ K, (d * x * d⁻¹) * (k * x * k⁻¹)⁻¹ ∈ pCoreOf 2 K) ∧
-    ∃ C : Subgroup G, pCoreOf 2 K ≤ C ∧ C ≤ K ∧
-      (∀ d ∈ D, ∀ c ∈ C, d * c * d⁻¹ * c⁻¹ ∈ pCoreOf 2 K) ∧
-      ∃ _ : ((pCoreOf 2 K).subgroupOf C).Normal,
-        IsDoubleCoverS5NotGL25 (↥C ⧸ (pCoreOf 2 K).subgroupOf C)
-
-@[expose] def Stmt3_3_13 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M L D H : Subgroup G), Hyp331 G T M L D →
-    InH T H → Nonempty (↥H ⧸ CFSG.pCore 2 ↥H ≃* ↥wreathS3Z2) →
-      D ≤ Subgroup.normalizer (H : Set G)
 
 @[expose] def Stmt3_3_14 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M L D : Subgroup G), Hyp331 G T M L D →

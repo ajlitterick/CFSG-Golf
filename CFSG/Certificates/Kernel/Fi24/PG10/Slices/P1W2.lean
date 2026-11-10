@@ -7,8 +7,6 @@ public section
 
 namespace CFSG.KD.PG10P1
 
-theorem okW_2 : ∀ t < 592, okW (592 * 2 + t) = true := by
-  kc_cover 1
 
 end CFSG.KD.PG10P1
 

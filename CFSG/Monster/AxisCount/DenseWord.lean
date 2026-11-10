@@ -259,13 +259,6 @@ theorem wordLin_tauPow (e : ℕ) : wordLin (Native.Gen.tauPow e) = tauB ^ e := b
     rw [pow_succ']
     rfl
 
-theorem wordLin_xiPow (e : ℕ) : wordLin (Native.Gen.xiPow e) = thetaEquiv xiPair ^ e := by
-  induction e with
-  | zero => rfl
-  | succ e ih =>
-    rw [Native.Gen.xiPow, List.replicate_succ', wordLin_append, ← Native.Gen.xiPow, ih]
-    rw [pow_succ']
-    rfl
 
 theorem wordLin_tauPow_two : wordLin (Native.Gen.tauPow 2) = tauB⁻¹ := by
   rw [wordLin_tauPow]
@@ -298,9 +291,6 @@ theorem checkWordC_sound {w : List Native.Gen} {v v' : Native.DVec}
   rw [← evalWordC_sound w hw v]
   exact eqv_sound he
 
-theorem checkWord_sound {w : List Native.Gen} {v v' : Native.DVec}
-    (h : Native.checkWord w v v' = true) : wordLin w (interp v) = interp v' :=
-  checkWordC_sound h
 
 theorem checkWordsC_sound
     {ws : List (List Native.Gen × Native.DVec × Native.DVec)}
@@ -313,15 +303,5 @@ theorem checkWords_sound
     (h : Native.checkWords ws = true) :
     ∀ x ∈ ws, wordLin x.1 (interp x.2.1) = interp x.2.2 := checkWordsC_sound h
 
-theorem checkEqsC_sound
-    {vs : Array Native.DVec} {items : List (List Native.Gen × ℕ × ℕ)}
-    (h : Native.checkEqsC (Native.mkCtx ()) vs items = true) :
-    ∀ x ∈ items, wordLin x.1 (interp vs[x.2.1]!) = interp vs[x.2.2]! := fun x hx =>
-  checkWordC_sound (List.all_eq_true.1 h x hx)
-
-theorem checkEqs_sound
-    {vs : Array Native.DVec} {items : List (List Native.Gen × ℕ × ℕ)}
-    (h : Native.checkEqs vs items = true) :
-    ∀ x ∈ items, wordLin x.1 (interp vs[x.2.1]!) = interp vs[x.2.2]! := checkEqsC_sound h
 
 end CFSG.Monster.AxisCount

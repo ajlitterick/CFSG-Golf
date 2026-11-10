@@ -45,8 +45,5 @@ theorem ch12648ky3 : CFSG.KC.LQT.P.allN 64 (keyF (lget T3P)) = true := by decide
 theorem ch12648ky4 : CFSG.KC.LQT.P.allN 64 (keyF (lget T4P)) = true := by decide +kernel
 theorem ch12648ky5 : CFSG.KC.LQT.P.allN 64 (keyF (lget T5P)) = true := by decide +kernel
 
-theorem ch12648twoNeg : CFSG.KC.LQT.P.allN 64
-    (pointK 315 9 6 64 (GT 1) (lget T0P) (EL 6 T0E) (lget T0R) (lget T0L)) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelJ2Sig

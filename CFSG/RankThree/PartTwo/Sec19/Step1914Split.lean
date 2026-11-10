@@ -28,14 +28,9 @@ open CFSG.Assembly.RankThreeEven (projSL)
 theorem step1914_of_split (hT : Step1914Tri) (hM : Step1914More) : Step1914 :=
   fun G _ _ A c L E M h => ⟨hT G A c L E M h, hM G A c L E M h⟩
 
-theorem step1914Tri_of_step1914 (h : Step1914) : Step1914Tri :=
-  fun G _ _ A c L E M hctx => (h G A c L E M hctx).1
 
 theorem step1914More_of_step1914 (h : Step1914) : Step1914More :=
   fun G _ _ A c L E M hctx => (h G A c L E M hctx).2
 
-theorem step1914_iff_split : Step1914 ↔ Step1914Tri ∧ Step1914More :=
-  ⟨fun h => ⟨step1914Tri_of_step1914 h, step1914More_of_step1914 h⟩,
-    fun h => step1914_of_split h.1 h.2⟩
 
 end CFSG.RankThree.PartTwo.Sec19

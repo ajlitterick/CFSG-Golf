@@ -12,9 +12,6 @@ open CFSG.Assembly
   ∀ (S : Type) [Group S] [Finite S] [IsSimpleGroup S], Nonempty (S ≃* i.Group) →
     CFSG.Blueprint.Catalog S
 
-theorem catalog_of_comm (S : Type) [Group S] [Finite S] [IsSimpleGroup S]
-    (hcomm : ∀ a b : S, a * b = b * a) : CFSG.Blueprint.Catalog S :=
-  CFSG.SectionRank.catalog_containsAbelianSimple S hcomm
 
 theorem catalogBridgeFor_cyclic (p : ℕ) (hp : p.Prime) :
     CatalogBridgeFor (.cyclic p hp) := by

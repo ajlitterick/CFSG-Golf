@@ -32,6 +32,5 @@ theorem sylow_isPretransitive_of_primePower_card
   rw [hfull]
   exact Set.mem_univ y
 
-variable {B : Type w} [Group B]
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

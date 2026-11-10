@@ -55,9 +55,6 @@ variable {F : Type} [Field F] {m : ℕ}
 @[expose] noncomputable def monoSL (hn : 0 < m + 1) (σ : Equiv.Perm (Fin (m + 1))) : SL(m + 1, F) :=
   ⟨monoMat F σ, det_monoMat hn σ⟩
 
-theorem coe_monoSL (hn : 0 < m + 1) (σ : Equiv.Perm (Fin (m + 1))) :
-    ((monoSL (F := F) hn σ : SL(m + 1, F)) : Matrix (Fin (m + 1)) (Fin (m + 1)) F) =
-      monoMat F σ := rfl
 
 theorem monoSL_conj_zElt (hn : 0 < m + 1) (σ : Equiv.Perm (Fin (m + 1))) (T T' : Pair (m + 1))
     (hT : T'.1 = T.1.map σ.toEmbedding) :

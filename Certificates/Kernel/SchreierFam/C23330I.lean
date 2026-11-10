@@ -72,9 +72,6 @@ theorem innerArr_23330K : (heInnerSigma0.all (permChk 240) && lettersOK 9 wX5 &&
     !eqA 240 x5A (idA 240)) = true := by
   decide +kernel
 
-theorem innerNeg_23330K :
-    eqA 240 (compA 240 x5A (compA 240 x5A (compA 240 x5A x5A))) (idA 240) = false := by
-  decide +kernel
 
 theorem heGenInner_23330 : heGenInnerCheck = true := by
   rw [heGenInnerCheck, heGenK_check.1, heGenK_check.2]

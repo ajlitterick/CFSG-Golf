@@ -78,8 +78,6 @@ namespace CFSG.CGT.A8S
      (0, true), (1, false)],
     [(4, true), (0, true), (1, false), (0, true), (1, true), (0, true)]]
 
-@[expose] def uWordA8 : A8Word :=
-  [(4, true), (1, false), (0, true), (1, true)]
 
 @[expose] def nWordA8 : A8Word :=
   [(1, true)]
@@ -87,11 +85,6 @@ namespace CFSG.CGT.A8S
 @[expose] def wWordA8 : A8Word :=
   [(0, true), (1, true), (0, true), (3, true), (1, false), (0, true)]
 
-@[expose] def bWordA8 : A8Word :=
-  [(0, true), (3, true)]
-
-@[expose] def dAWordA8 : A8Word :=
-  [(2, true)]
 
 @[expose] def yWordA8 : Fin 3 → A8Word :=
   ![[(0, true), (1, true), (0, true), (2, true), (1, false), (0, true), (1, true), (0, true),
@@ -115,13 +108,5 @@ namespace CFSG.CGT.A8S
     [(0, true), (1, true), (0, true), (3, true), (4, true), (1, false)],
     [(1, true), (0, true), (2, true), (3, true), (1, false)]]
 
-@[expose] def bGenWordA8 : Fin 2 → A8Word :=
-  ![[(0, true), (1, false), (0, true), (1, true), (0, true), (2, true), (1, false), (0, true),
-     (1, true)],
-    [(0, true), (3, true)]]
-
-@[expose] def aGenWordA8 : Fin 2 → A8Word :=
-  ![[(2, true)],
-    [(2, true), (3, true)]]
 
 end CFSG.CGT.A8S

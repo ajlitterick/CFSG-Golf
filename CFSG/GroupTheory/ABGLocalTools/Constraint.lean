@@ -35,12 +35,6 @@ variable {H} in
       IsPGroup p A → A ≤ normalizer (P : Set H) → ⁅⁅P, A⁆, A⁆ = ⊥ →
         A ≤ normalizerPCoreModCentralizer p P
 
-@[expose] def IsPStableWrt (R : Subgroup H) : Prop :=
-  pCore p H ≠ ⊥ ∧ IsPGroup p R ∧ IsSylowOf p (R ⊓ Op_p'p p H) (Op_p'p p H) ∧
-    ((∃ S : Sylow p H, R ≤ S ∧ (S : Subgroup H) ≤ normalizer (R : Set H)) ∨
-      ∀ (K : Subgroup H) [K.Normal], pCore p (H ⧸ K) ≤ R.map (QuotientGroup.mk' K)) ∧
-    ∀ P A : Subgroup H, P ≠ ⊥ → P ≤ R → (pPrimeCore p H ⊔ P).Normal → A ≤ R →
-      ⁅⁅P, A⁆, A⁆ = ⊥ → A ≤ normalizerPCoreModCentralizer p P
 
 end Defs
 
@@ -157,14 +151,6 @@ theorem isPConstrained_of_isSolvable [Finite H] [Fact p.Prime] (hsolv : Group.Is
   rintro _ ⟨T, rfl⟩
   exact centralizer_sylow_subgroup_le_op_p_prime_p_of_solvable hsolv p T
 
-theorem pConstrainedWithin_oddCore_iff [Finite H] [Fact p.Prime] (hp : p ≠ 2) :
-    PConstrainedWithin p H (oddCore H) ↔ IsPConstrained p H ∧ pPrimeCore p H ≤ oddCore H :=
-  ⟨fun h => ⟨h.2, pPrimeCore_le_Op_p'p.trans h.1⟩, fun h => ⟨Op_p'p_le_oddCore hp h.2, h.1⟩⟩
-
-theorem pConstrainedWithin_solvableRadical_iff [Finite H] [Fact p.Prime] :
-    PConstrainedWithin p H (solvableRadical H) ↔
-      IsPConstrained p H ∧ pPrimeCore p H ≤ solvableRadical H :=
-  ⟨fun h => ⟨h.2, pPrimeCore_le_Op_p'p.trans h.1⟩, fun h => ⟨Op_p'p_le_solvableRadical h.2, h.1⟩⟩
 
 end Cores
 

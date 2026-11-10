@@ -12,8 +12,6 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.LceS CFSG.KC.MonsterConv.Perm CFSG.KC.Benes CF
 
 @[expose] def memS (s N : Nat) : Bool := s.testBit (N % 3 * 524288 + N / 3)
 
-@[expose] def Clean (s : Nat) : Prop :=
-  ∀ q, s.testBit q = true → q / 524288 < 3 ∧ q % 524288 < 306936
 
 @[expose] def Small (v : Nat) : Prop := ∀ q, 524288 ≤ q → v.testBit q = false
 
@@ -63,10 +61,6 @@ theorem small_and_left {a b : Nat} (ha : Small a) : Small (Nat.land a b) := by
   rw [nland, Nat.testBit_and, ha q hq]
   rfl
 
-theorem small_and_right {a b : Nat} (hb : Small b) : Small (Nat.land a b) := by
-  intro q hq
-  rw [nland, Nat.testBit_and, hb q hq]
-  simp
 
 theorem small_or {a b : Nat} (ha : Small a) (hb : Small b) : Small (Nat.lor a b) := by
   intro q hq

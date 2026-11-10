@@ -35,8 +35,6 @@ theorem leviTorus_anti {J J' : Finset (Fin (Tag.rank .F4))} (h : J ⊆ J') :
   obtain ⟨b, hb, rfl⟩ := mem_leviTorus.1 hg
   exact rootDiagUnit_mem_leviTorus fun j hj => hb j (h hj)
 
-variable (K) in
-theorem antitone_leviTorus : Antitone (leviTorus K) := fun _ _ h => leviTorus_anti h
 
 private theorem eq_vec_four (b : Fin (Tag.rank .F4) → Kˣ) : b = ![b 0, b 1, b 2, b 3] := by
   funext i
@@ -183,28 +181,6 @@ theorem AmalgamNeighbour.torus_le_adjointGroup (N : AmalgamNeighbour) :
 
 end Adjoint
 
-private theorem rootChar_mulSingle_eq (i : Fin (Tag.rank .F4)) (c : Kˣ)
-    (v : Fin (Tag.rank .F4) → ℤ) : rootChar (Pi.mulSingle i c) v = c ^ v i := by
-  rw [rootChar, Finset.prod_eq_single i (fun j _ hj => by
-      rw [Pi.mulSingle_eq_of_ne hj, one_zpow])
-    (fun h => absurd (Finset.mem_univ i) h), Pi.mulSingle_eq_same]
-
-theorem leviTorus_kill_check : ∀ γ ∈ rootFinset .F4, (∀ i : Fin (Tag.rank .F4), |γ i| ≤ 4) ∧
-    ∀ m ∈ ([3, 4] : List ℤ),
-      (Finset.univ.filter fun i : Fin (Tag.rank .F4) => ¬m ∣ γ i).card ≤ 2 →
-        ∀ i : Fin (Tag.rank .F4), m ∣ γ i → γ i = 0 := by
-  decide +kernel
-
-@[expose] def root1342 : Fin (Tag.rank .F4) → ℤ := ![1, 3, 4, 2]
-
-theorem root1342_mem_rootFinset : root1342 ∈ rootFinset .F4 := by decide +kernel
-
-theorem isRoot_root1342 : IsRoot .F4 root1342 :=
-  mem_rootFinset.1 root1342_mem_rootFinset
-
-theorem root1342_coeff_check : ∀ i ∉ ({0, 2, 3} : Finset (Fin (Tag.rank .F4))),
-    ((4 - 1 : ℕ) : ℤ) ∣ root1342 i := by
-  decide +kernel
 
 section Kill
 
@@ -243,97 +219,6 @@ theorem rootSpan_amalgamRoots_le_centralizer_leviTorus (J : Finset (Fin (Tag.ran
   · exact Pi.single_eq_of_ne hij _
   · rw [Pi.neg_apply, Pi.single_eq_of_ne hij, neg_zero]
 
-theorem dvd_coeff_of_rootSubgroup_le_centralizer_leviTorus [Finite K]
-    {J : Finset (Fin (Tag.rank .F4))} {γ : Fin (Tag.rank .F4) → ℤ} (hγ : IsRoot .F4 γ)
-    (h : rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K))) :
-    ∀ i ∉ J, ((Nat.card K - 1 : ℕ) : ℤ) ∣ γ i := by
-  intro i hi
-  obtain ⟨c, hc⟩ := IsCyclic.exists_ofOrder_eq_natCard (α := Kˣ)
-  have hT : rootDiagUnit .F4 (Pi.mulSingle i c) ∈ leviTorus K J :=
-    rootDiagUnit_mem_leviTorus fun j hj => by
-      have hji : j ≠ i := fun h => hi (h ▸ hj)
-      exact Pi.mulSingle_eq_of_ne (M := fun _ => Kˣ) hji c
-  have hcomm := mem_centralizer_iff.1 (h (mem_rootSubgroup.2 ⟨1, rfl⟩)) _ hT
-  have hconj := rootDiagUnit_conj_pinnedX (Pi.mulSingle i c) hγ (1 : K)
-  rw [hcomm, mul_inv_cancel_right, mul_one] at hconj
-  have h1 : ((rootChar (Pi.mulSingle i c) γ : Kˣ) : K) = 1 :=
-    (pinnedX_injective .F4 K γ hconj).symm
-  rw [rootChar_mulSingle_eq] at h1
-  have h2 : c ^ γ i = 1 := Units.ext h1
-  rw [← orderOf_dvd_iff_zpow_eq_one, hc, Nat.card_units] at h2
-  exact h2
-
-theorem rootSubgroup_le_centralizer_leviTorus_iff_dvd [Finite K]
-    {J : Finset (Fin (Tag.rank .F4))} {γ : Fin (Tag.rank .F4) → ℤ} (hγ : IsRoot .F4 γ) :
-    rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K)) ↔
-      ∀ i ∉ J, ((Nat.card K - 1 : ℕ) : ℤ) ∣ γ i := by
-  refine ⟨dvd_coeff_of_rootSubgroup_le_centralizer_leviTorus hγ, fun h => ?_⟩
-  refine rootSubgroup_le_centralizer_leviTorus_of_rootChar hγ fun b hb =>
-    Finset.prod_eq_one fun i _ => ?_
-  by_cases hi : i ∈ J
-  · rw [hb i hi, one_zpow]
-  · have hord : (orderOf (b i) : ℤ) ∣ γ i := by
-      refine (Int.natCast_dvd_natCast.2 ?_).trans (h i hi)
-      rw [← Nat.card_units]
-      exact orderOf_dvd_natCard (b i)
-    exact orderOf_dvd_iff_zpow_eq_one.1 hord
-
-theorem rootSubgroup_root1342_le_centralizer_leviTorus_of_card_eq_four [Finite K]
-    (hq : Nat.card K = 4) :
-    rootSubgroup .F4 K root1342 ≤ centralizer (leviTorus K {0, 2, 3} : Set (ModGL .F4 K)) ∧
-      root1342 1 ≠ 0 := by
-  refine ⟨(rootSubgroup_le_centralizer_leviTorus_iff_dvd isRoot_root1342).2 ?_, by decide⟩
-  rw [hq]
-  exact root1342_coeff_check
-
-theorem coeff_eq_zero_of_rootSubgroup_le_centralizer_leviTorus_of_six_le [Finite K]
-    (hq : 6 ≤ Nat.card K) {J : Finset (Fin (Tag.rank .F4))} {γ : Fin (Tag.rank .F4) → ℤ}
-    (hγ : IsRoot .F4 γ)
-    (h : rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K))) :
-    ∀ i ∉ J, γ i = 0 := by
-  intro i hi
-  have hd := dvd_coeff_of_rootSubgroup_le_centralizer_leviTorus hγ h i hi
-  have hb := (leviTorus_kill_check γ (mem_rootFinset.2 hγ)).1 i
-  refine Int.eq_zero_of_abs_lt_dvd hd ?_
-  have : (5 : ℤ) ≤ ((Nat.card K - 1 : ℕ) : ℤ) := by omega
-  omega
-
-theorem coeff_eq_zero_of_rootSubgroup_le_centralizer_leviTorus [Finite K] (hq : 4 ≤ Nat.card K)
-    {J : Finset (Fin (Tag.rank .F4))} (hJ : J.card ≤ 2) {γ : Fin (Tag.rank .F4) → ℤ}
-    (hγ : IsRoot .F4 γ)
-    (h : rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K))) :
-    ∀ i ∉ J, γ i = 0 := by
-  have hd := dvd_coeff_of_rootSubgroup_le_centralizer_leviTorus hγ h
-  obtain ⟨hb, hcheck⟩ := leviTorus_kill_check γ (mem_rootFinset.2 hγ)
-  set m : ℤ := ((Nat.card K - 1 : ℕ) : ℤ) with hm
-  have hm3 : 3 ≤ m := by omega
-  by_cases hm5 : 5 ≤ m
-  · intro i hi
-    refine Int.eq_zero_of_abs_lt_dvd (hd i hi) ?_
-    have := hb i
-    omega
-  · have hmem : m ∈ ([3, 4] : List ℤ) := by
-      simp only [List.mem_cons, List.not_mem_nil, or_false]
-      omega
-    have hsub : (Finset.univ.filter fun i : Fin (Tag.rank .F4) => ¬m ∣ γ i) ⊆ J := by
-      intro i hi
-      by_contra hiJ
-      exact (Finset.mem_filter.1 hi).2 (hd i hiJ)
-    have hcard := (Finset.card_le_card hsub).trans hJ
-    exact fun i hi => hcheck m hmem hcard i (hd i hi)
-
-theorem rootSubgroup_le_centralizer_leviTorus_iff [Finite K] (hq : 4 ≤ Nat.card K)
-    {J : Finset (Fin (Tag.rank .F4))} (hJ : J.card ≤ 2) {γ : Fin (Tag.rank .F4) → ℤ}
-    (hγ : IsRoot .F4 γ) :
-    rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K)) ↔ ∀ i ∉ J, γ i = 0 :=
-  ⟨coeff_eq_zero_of_rootSubgroup_le_centralizer_leviTorus hq hJ hγ,
-    rootSubgroup_le_centralizer_leviTorus hγ⟩
-
-theorem rootSubgroup_le_centralizer_leviTorus_iff_of_six_le [Finite K] (hq : 6 ≤ Nat.card K)
-    {J : Finset (Fin (Tag.rank .F4))} {γ : Fin (Tag.rank .F4) → ℤ} (hγ : IsRoot .F4 γ) :
-    rootSubgroup .F4 K γ ≤ centralizer (leviTorus K J : Set (ModGL .F4 K)) ↔ ∀ i ∉ J, γ i = 0 :=
-  ⟨coeff_eq_zero_of_rootSubgroup_le_centralizer_leviTorus_of_six_le hq hγ,
-    rootSubgroup_le_centralizer_leviTorus hγ⟩
 
 end Kill
 

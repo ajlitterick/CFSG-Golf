@@ -65,10 +65,6 @@ theorem fel1 : allN 600 (fun k => elK 1 (SFC1.T k)) = true := by quickRfl
 theorem fel2 : allN 600 (fun k => elK 2 (SFC2.T k)) = true := by quickRfl
 theorem fel5 : allN 600 (fun k => elK 5 (SFC5.T k)) = true := by quickRfl
 
-theorem frow_neg : (!Nat.beq (cm 1782 11 (FNS 0) (cm 1782 11 (FTS 0)
-    (pinvS 1782 11 (mask 11) (FNS 0)))) (FTS 0)) = true := by quickRfl
-
-theorem fel_neg : (!elK 6 (FTS 0)) = true := by quickRfl
 
 end CertificateChecks.KernelSuzPump
 

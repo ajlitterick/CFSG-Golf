@@ -46,11 +46,6 @@ include H in
 noncomputable def isoPbar : ↥(T ⊓ K) ≃* ↥(H.B ⊓ innAut (kBar K)) :=
   (MonoidHom.ofInjective H.phiP_injective).trans (MulEquiv.subgroupCongr H.range_phiP)
 
-include H in
-theorem isoPbar_apply (p : ↥(T ⊓ K)) :
-    ((H.isoPbar p : ↥(H.B ⊓ innAut (kBar K))) : MulAut (kBar K)) = act H.KN (p : G) := by
-  rw [← H.phiP_apply]
-  rfl
 
 section Aut
 

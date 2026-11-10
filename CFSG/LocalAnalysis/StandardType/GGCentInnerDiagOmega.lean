@@ -144,13 +144,6 @@ open CFSG.LieType.Universal.Spin (quadPlus quadMinus)
 
 variable {K : Type} [Field K]
 
-private theorem mulAut_congr_congr_symm {G H : Type} [Group G] [Group H]
-    (e : G ≃* H) (a : MulAut H) :
-    MulAut.congr e (MulAut.congr e.symm a) = a := by
-  apply MulEquiv.ext
-  intro x
-  simp only [MulAut.congr_apply, MulEquiv.trans_apply, MulEquiv.symm_apply_apply,
-    MulEquiv.apply_symm_apply]
 
 theorem largeEvenMarking_omegaPlus_inn
     {X : Type} [Group X] (hX : CFSG.Assembly.IsQuasisimple X) {m f : ℕ} (hm : 4 ≤ m)

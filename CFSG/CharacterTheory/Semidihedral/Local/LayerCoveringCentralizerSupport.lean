@@ -33,8 +33,6 @@ variable {X : Type*} [Group X]
             rw [ha _ (P.inv_mem hx), inv_inv x]
         _ = x⁻¹ := by group
 
-theorem mem_idOrInv {P : Subgroup X} {c : X} :
-    c ∈ idOrInv P ↔ (∀ x ∈ P, c * x * c⁻¹ = x) ∨ (∀ x ∈ P, c * x * c⁻¹ = x⁻¹) := Iff.rfl
 
 theorem centralizer_le_idOrInv (P : Subgroup X) :
     Subgroup.centralizer (P : Set X) ≤ idOrInv P := fun c hc => Or.inl fun x hx => by

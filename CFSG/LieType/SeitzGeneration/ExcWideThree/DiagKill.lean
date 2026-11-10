@@ -359,52 +359,6 @@ theorem langGL_diag_exponent {K : Type} [Field K] [Finite K] {A : Subgroup (ModG
   choose k hk using fun i => hpow (a i) (ha3 i)
   exact ⟨a, ha.trans hdiag.symm, k, hk⟩
 
-theorem langGL_kills_of_outer {K : Type} [Field K] [Finite K] {A : Subgroup (ModGL Tag.E6 K)}
-    (hexp : ∀ x ∈ A, x ^ 3 = 1) (hcard : Nat.card A = 3 ^ 2) (D : LangGLData Tag.E6 K A)
-    (ω : (AlgebraicClosure K)ˣ) (hω : IsPrimitiveRoot (ω : AlgebraicClosure K) 3)
-    {x₁ : ModGL Tag.E6 K} (hx₁ : x₁ ∈ A) (hx₁1 : x₁ ≠ 1)
-    (a₁ : Fin Tag.E6.rank → (AlgebraicClosure K)ˣ)
-    (ha₁ : rootDiagUnit Tag.E6 a₁ = D.g0⁻¹ * baseChangeGL (algebraMap K (AlgebraicClosure K))
-      (D.c * x₁ * D.c⁻¹ : ModGL Tag.E6 K) * D.g0)
-    (k₁ : Fin Tag.E6.rank → ℕ) (hk₁ : ∀ i, a₁ i = ω ^ k₁ i)
-    (hout : ¬ (3 : ℤ) ∣ ∑ i, e6DiagCoeff i * (k₁ i : ℤ)) :
-    ∃ α : Fin Tag.E6.rank → ℤ, IsRoot Tag.E6 α ∧ D.Kills α := by
-  obtain ⟨x₂, hx₂, hx₂n⟩ := exists_mem_not_mem_zpowers A hcard hx₁ (hexp x₁ hx₁) hx₁1
-  have hgen : Subgroup.closure ({x₁, x₂} : Set (ModGL Tag.E6 K)) = A :=
-    closure_pair_eq_of_not_mem A hcard hx₁ hx₂ (hexp x₁ hx₁) hx₁1 hx₂n
-  obtain ⟨a₂, ha₂, k₂, hk₂⟩ := langGL_diag_exponent D ω hω hx₂ (hexp x₂ hx₂)
-  obtain ⟨α, hα, h1, h2⟩ := e6_diagPair_killed k₁ k₂ (Or.inl hout)
-  have hω3 : ω ^ 3 = 1 := Units.ext (by simpa using hω.pow_eq_one)
-  have hr₁ : rootChar a₁ α = 1 := rootChar_eq_one_of_dvd hω3 hk₁ h1
-  have hr₂ : rootChar a₂ α = 1 := rootChar_eq_one_of_dvd hω3 hk₂ h2
-  set Sg : Subgroup (ModGL Tag.E6 K) :=
-    ((rootCharHom (τ := Tag.E6) (L := AlgebraicClosure K) α).ker.map
-      (rootDiagUnitHom Tag.E6 (AlgebraicClosure K))).comap (diagMapGL D) with hSg
-  have hker : ∀ a : Fin Tag.E6.rank → (AlgebraicClosure K)ˣ, rootChar a α = 1 →
-      a ∈ (rootCharHom (τ := Tag.E6) (L := AlgebraicClosure K) α).ker :=
-    fun a h => MonoidHom.mem_ker.2 (show rootCharHom (τ := Tag.E6) (L := AlgebraicClosure K) α a = 1 from h)
-  have hmem : ∀ (x : ModGL Tag.E6 K) (a : Fin Tag.E6.rank → (AlgebraicClosure K)ˣ),
-      rootDiagUnit Tag.E6 a = D.g0⁻¹ * baseChangeGL (algebraMap K (AlgebraicClosure K))
-        (D.c * x * D.c⁻¹ : ModGL Tag.E6 K) * D.g0 → rootChar a α = 1 → x ∈ Sg := by
-    intro x a hax hr
-    refine Subgroup.mem_comap.2 (Subgroup.mem_map.2 ⟨a, hker a hr, ?_⟩)
-    rw [diagMapGL_apply]
-    exact hax
-  have hx₁S : x₁ ∈ Sg := hmem x₁ a₁ ha₁ hr₁
-  have hx₂S : x₂ ∈ Sg := hmem x₂ a₂ ha₂ hr₂
-  have hAS : A ≤ Sg := by
-    rw [← hgen]
-    refine (Subgroup.closure_le Sg).2 ?_
-    intro z hz
-    rcases hz with rfl | rfl
-    · exact hx₁S
-    · exact hx₂S
-  refine ⟨α, hα, fun y hy => ?_⟩
-  obtain ⟨a, ha, hay⟩ := Subgroup.mem_map.1 (Subgroup.mem_comap.1 (hAS hy))
-  refine ⟨a, ?_, ?_⟩
-  · rw [diagMapGL_apply] at hay
-    exact hay
-  · exact (show rootCharHom (τ := Tag.E6) (L := AlgebraicClosure K) α a = 1 from MonoidHom.mem_ker.1 ha)
 
 end GLKill
 

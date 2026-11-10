@@ -334,12 +334,6 @@ theorem axisInf_map_center_mulVec (ρ : SL(m, K) →* (V ≃ₗ[K] V)) (g : SL(m
       (axisInf ((tvCenterSL c).map ρ)).map ((ρ g : V ≃ₗ[K] V) : V →ₗ[K] V) := by
   rw [map_center_mulVec, axisInf_conjSubgroup]
 
-omit [FiniteDimensional K V] in
-theorem commutatorSpace_map_center_mulVec (ρ : SL(m, K) →* (V ≃ₗ[K] V)) (g : SL(m, K))
-    (c : Fin m → K) :
-    commutatorSpace ((tvCenterSL ((g : Matrix (Fin m) (Fin m) K) *ᵥ c)).map ρ) =
-      (commutatorSpace ((tvCenterSL c).map ρ)).map ((ρ g : V ≃ₗ[K] V) : V →ₗ[K] V) := by
-  rw [map_center_mulVec, commutatorSpace_conjSubgroup]
 
 omit [FiniteDimensional K V] in
 theorem isStar_map_center_mulVec_iff (ρ : SL(m, K) →* (V ≃ₗ[K] V)) (g : SL(m, K))

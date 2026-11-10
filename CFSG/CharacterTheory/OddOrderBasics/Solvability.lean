@@ -6,40 +6,6 @@ public section
 
 namespace CFSG.OddOrderBasics
 
-theorem derived_series_transport {G K : Type*} [Group G] [Group K] (f : G →* K)
-    (H : Subgroup G) (r : ℕ) :
-    (derivedSeries G r).map f = (derivedSeries f.range r).map f.range.subtype ∧
-    (derivedSeries H r).map H.subtype ≤ derivedSeries G r ∧
-    (Group.IsSolvable G → Group.IsSolvable H ∧ Group.IsSolvable f.range) := by
-  refine ⟨?_, map_derivedSeries_le_derivedSeries H.subtype r, fun _ =>
-    ⟨inferInstance, Group.isSolvable_of_surjective f.rangeRestrict_surjective⟩⟩
-  rw [← map_derivedSeries_eq f.rangeRestrict_surjective r, Subgroup.map_map,
-    MonoidHom.subtype_comp_rangeRestrict]
-
-theorem derivedSeries_add_le_map {G : Type*} [Group G] (N : Subgroup G) {b : ℕ}
-    (hb : derivedSeries G b ≤ N) (a : ℕ) :
-    derivedSeries G (b + a) ≤ (derivedSeries N a).map N.subtype := by
-  induction a with
-  | zero =>
-    rw [add_zero, derivedSeries_zero, Subgroup.map_top, Subgroup.range_subtype]
-    exact hb
-  | succ a ih =>
-    rw [← add_assoc, derivedSeries_succ, derivedSeries_succ, Subgroup.map_commutator]
-    exact Subgroup.commutator_mono ih ih
-
-theorem solvability_extensions {G : Type*} [Group G] (N : Subgroup G) [N.Normal] :
-    (Group.IsSolvable G ↔ Group.IsSolvable N ∧ Group.IsSolvable (G ⧸ N)) ∧
-    ∀ a b : ℕ, derivedSeries N a = ⊥ → derivedSeries (G ⧸ N) b = ⊥ →
-      derivedSeries G (a + b) = ⊥ := by
-  refine ⟨Group.isSolvable_iff_subgroup_quotient N, fun a b ha hb => ?_⟩
-  have hGb : derivedSeries G b ≤ N := by
-    have h := map_derivedSeries_eq (QuotientGroup.mk'_surjective N) b
-    rw [hb, Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk'] at h
-    exact h
-  have hle := derivedSeries_add_le_map N hGb a
-  rw [ha, Subgroup.map_bot] at hle
-  rw [add_comm]
-  exact le_bot_iff.mp hle
 
 theorem p_group_maximal_index {p : ℕ} [hp : Fact p.Prime] {P : Type*} [Group P] [Finite P]
     (hP : IsPGroup p P) (M : Subgroup P) (hM : IsCoatom M) : M.Normal ∧ M.index = p := by

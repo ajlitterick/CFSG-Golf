@@ -127,10 +127,5 @@ theorem bridgeOmega8MinusTwo : BridgeOmega8MinusTwo := fun q hv hp he => by
   rw [hp, he] at h
   exact CFSG.RankThree.PartOne.projOmegaMinus_of_statedClassicalModel h
 
-theorem catalogBridgeFor_twistedD_even (r : ℕ) (q : PrimePower)
-    (hv : (LieTypeIndex.twistedD r q).Valid) (hp : q.p = 2) :
-    CFSG.QuasithinUnique.B1.CatalogBridgeFor (.lie ⟨.twistedD r q, hv⟩) := by
-  intro G _ _ _ ⟨e⟩
-  exact Or.inr (Or.inr (Or.inl ⟨_, _, _, _, statedClassicalModel_typeTwistedD_even r q hv hp e⟩))
 
 end CFSG.RankThree.PartTwo.Census

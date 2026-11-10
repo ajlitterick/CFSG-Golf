@@ -459,13 +459,6 @@ theorem qTwoSixGen_block123_le {K : Type} [Field K] [Finite K] [CharP K 2] (hK :
     (qTwoSixGen_nativeSu_mem hK 13 (qTwoSixGen_support123 13 (Or.inr rfl)))
     (Subgroup.subset_closure ⟨_, rfl⟩) (Subgroup.subset_closure ⟨_, rfl⟩)
 
-theorem qTwoSixGen_block234_le {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 4) :
-    coordBlockSU K 2 1 qTwoSixGen_J234 ≤
-      Subgroup.closure (Set.range (nativeSu hK)) :=
-  qTwoSixGen_block_le_of_mem hK (by decide) 14 15 qTwoSixGen_nodup234
-    (qTwoSixGen_nativeSu_mem hK 14 (qTwoSixGen_support234 14 (Or.inl rfl)))
-    (qTwoSixGen_nativeSu_mem hK 15 (qTwoSixGen_support234 15 (Or.inr rfl)))
-    (Subgroup.subset_closure ⟨_, rfl⟩) (Subgroup.subset_closure ⟨_, rfl⟩)
 
 end Gen
 

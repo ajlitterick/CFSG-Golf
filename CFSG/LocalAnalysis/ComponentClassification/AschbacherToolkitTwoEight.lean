@@ -19,8 +19,6 @@ theorem centralizer_le_centralizerJoin (U : Subgroup G) {w : G} (hw : w ∈ U) (
     Subgroup.centralizer ({w} : Set G) ≤ centralizerJoin U :=
   le_iSup₂_of_le (⟨w, hw⟩ : U) hne le_rfl
 
-theorem centralizerJoin_le_gammaOne (U : Subgroup G) : centralizerJoin U ≤ gammaOne U :=
-  iSup₂_le fun w hne => centralizer_le_gammaOne U w w.2 hne
 
 theorem movedCentralizerPair_le_centralizerJoin (U L : Subgroup G) (u v : G)
     (hu : u ∈ U) (huNe : u ≠ 1) (huv : u * v ∈ U) (huvNe : u * v ≠ 1) :

@@ -67,14 +67,6 @@ theorem involution_ne {j : Fin C.D.card} (hj : ¬ (C.D.tag j = .PSL ∧ C.D.rank
       ⟨z, XCtx.hzC z⟩ := Subtype.ext h
   exact congrArg (oddQuotMk z) this
 
-theorem compMem_ne_K {j : Fin C.D.card} (hj : ¬ (C.D.tag j = .PSL ∧ C.D.rank j = 2))
-    (m : CompMem C j) : m.N ≠ C.K := by
-  intro h
-  have hn := m.hn
-  rw [h] at hn
-  exact involution_ne hj m
-    (hn.eq_of_isCentralInvolution C.hp (pos_exp_of_five_le C.hq)
-      (isCentralInvolution_of_isClassicalMember C.K_cl)).symm
 
 theorem nb_comm_of_range {b j : Fin C.D.card} (hjb : j ≠ b) (mb : CompMem C b) {y : OddQuot z}
     (hy : y ∈ (C.psi j).range) : nb mb * y = y * nb mb := by

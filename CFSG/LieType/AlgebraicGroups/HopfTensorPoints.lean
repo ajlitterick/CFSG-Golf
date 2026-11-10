@@ -77,10 +77,6 @@ theorem tensorPointMulEquiv_symm_apply (p : WithConv (A →ₐ[k] k)) (q : WithC
     (tensorPointMulEquiv.symm (p, q)).ofConv = tensorPointEquiv (p.ofConv, q.ofConv) :=
   rfl
 
-theorem tensorPointMulEquiv_apply (y : WithConv (A ⊗[k] B →ₐ[k] k)) :
-    ((tensorPointMulEquiv y).1.ofConv, (tensorPointMulEquiv y).2.ofConv) =
-      tensorPointEquiv.symm y.ofConv :=
-  rfl
 
 @[simp] theorem tensorPointMulEquiv_apply_fst (y : WithConv (A ⊗[k] B →ₐ[k] k)) :
     (tensorPointMulEquiv y).1.ofConv = y.ofConv.comp Algebra.TensorProduct.includeLeft :=

@@ -69,12 +69,6 @@ theorem conj_mem_coset (h : NSetting Q a) {y : P} (hyQ : y ∈ Q) (g : P) :
         _ = a * (y⁻¹ * (g * y * g⁻¹)) := by rw [hcomm]
   exact ⟨y⁻¹ * (g * y * g⁻¹), hd, by group⟩
 
-theorem normal_of_between (h : NSetting Q a) {X : Subgroup P} (hAX : zpowers a ≤ X)
-    (hXQ : X ≤ Q) : X.Normal := by
-  refine ⟨fun x hx g => ?_⟩
-  obtain ⟨c, hc, hxc⟩ := h.conj_mem_coset (hXQ hx) g
-  rw [hxc]
-  exact X.mul_mem hx (hAX hc)
 
 end NSetting
 

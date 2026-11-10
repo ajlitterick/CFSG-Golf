@@ -49,9 +49,6 @@ theorem blocks_of_symplectic {M : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F}
     rw [map_mul, Units.val_mul, mul_eq_fromBlocks, toBlocks_fromBlocks₁₁, hf y,
       Matrix.mul_zero, add_zero]
 
-theorem blockHom_apply {Λ : Type} [Group Λ] (f : Λ →* GL (Fin 2 ⊕ Fin 2) F)
-    (hf : ∀ x, (f x : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F).toBlocks₂₁ = 0) (x : Λ) :
-    blockHom f hf x = (f x : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F).toBlocks₁₁ := rfl
 
 end Blocks
 

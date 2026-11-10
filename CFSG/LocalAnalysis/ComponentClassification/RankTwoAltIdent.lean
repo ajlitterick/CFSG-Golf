@@ -105,18 +105,6 @@ omit h in
 theorem stabO_inv {π : Perm (Fin n)} (hπ : StabO π) : StabO π⁻¹ := fun i => by
   rw [← hπ (π⁻¹ i), perm_apply_inv]
 
-omit h in
-theorem restrictO_mul {π π' : Perm (Fin n)} (hπ : StabO π) (hπ' : StabO π') :
-    restrictO (π * π') = restrictO π * restrictO π' := by
-  have hππ' := stabO_mul hπ hπ'
-  apply Equiv.ext
-  intro i
-  by_cases hi : 4 ≤ (i : ℕ)
-  · rw [Perm.mul_apply, restrictO_apply_of_ge hππ' hi, restrictO_apply_of_ge hπ' hi,
-      restrictO_apply_of_ge hπ ((hπ' i).mpr hi), Perm.mul_apply]
-  · push Not at hi
-    rw [Perm.mul_apply, restrictO_apply_of_lt hππ' hi, restrictO_apply_of_lt hπ' hi,
-      restrictO_apply_of_lt hπ hi]
 
 omit h in
 theorem stabO_ofSubtype (q : Perm (OSet n)) : StabO (ofSubtype q) := fun i =>

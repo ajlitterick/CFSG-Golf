@@ -76,14 +76,6 @@ theorem rootSL2_rootR_mem_adjointGroup (A : SL2 K) :
     rootSL2 .F4 K rootR A ∈ adjointGroup .F4 K :=
   (exceptional_Lang_root_rank_one_data .F4 K rootR).2.2.2.2.1 A
 
-theorem exists_nonsplit_le_highestRootRankOne [Finite K] [CharP K 2] :
-    ∃ X : Subgroup (ModGL .F4 K), X ≤ highestRootRankOne K ∧ IsCyclic X ∧
-      Nat.card X = Nat.card K + 1 := by
-  obtain ⟨A, hA⟩ := exists_orderOf_eq_natCard_add_one (K := K)
-  refine ⟨Subgroup.zpowers (rootSL2 .F4 K rootR A), ?_, Subgroup.isCyclic_zpowers _, ?_⟩
-  · rw [Subgroup.zpowers_le, highestRootRankOne_eq_rootSL2R, ← range_rootSL2_rootR]
-    exact ⟨A, rfl⟩
-  · rw [Nat.card_zpowers, orderOf_injective _ rootSL2_rootR_injective, hA]
 
 theorem exists_nonsplit_le_subgroupOf_highestRootRankOne [Finite K] [CharP K 2] :
     ∃ X : Subgroup (adjointGroup .F4 K),
@@ -109,18 +101,6 @@ private theorem c3LeviRoots_eq_C3Set : c3LeviRoots = C3Set := by
   rw [mem_c3LeviRoots, mem_C3Set_iff]
   rfl
 
-private theorem c3PerpRoots_eq_C3Set : c3PerpRoots = C3Set := by
-  ext γ
-  rw [mem_c3PerpRoots_iff, mem_C3Set_iff]
-  rfl
-
-
-private theorem c3PerpLevi_eq_rootSpan_C3Set : c3PerpLevi K = rootSpan .F4 K C3Set := by
-  rw [c3PerpLevi, c3PerpRoots_eq_C3Set]
-
-theorem map_subtype_C3Levi_eq_rootSpan_C3Set :
-    (C3Levi K).map (adjointGroup .F4 K).subtype = rootSpan .F4 K C3Set := by
-  rw [map_subtype_C3Levi, c3LeviRoots_eq_C3Set]
 
 theorem mem_C3Levi_iff_mem_rootSpan_C3Set {g : adjointGroup .F4 K} :
     g ∈ C3Levi K ↔ (g : ModGL .F4 K) ∈ rootSpan .F4 K C3Set := by
@@ -297,25 +277,6 @@ theorem exists_mem_zpowers_mul_of_commute_nonsplit [Finite K] [CharP K 2] {x : M
   obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hBA
   exact Subgroup.mem_zpowers_iff.2 ⟨k, (map_zpow (rootSL2 .F4 K rootR) A k).symm⟩
 
-theorem adjointGroup_inf_centralizer_nonsplit [Finite K] [CharP K 2]
-    {X : Subgroup (ModGL .F4 K)} (hXJ : X ≤ highestRootRankOne K) (hcyc : IsCyclic X)
-    (hX : Nat.card X = Nat.card K + 1) :
-    adjointGroup .F4 K ⊓ centralizer (X : Set (ModGL .F4 K)) = X ⊔ c3PerpLevi K ∧
-      Disjoint X (c3PerpLevi K) ∧ X ≤ centralizer (c3PerpLevi K : Set (ModGL .F4 K)) := by
-  rw [highestRootRankOne_eq_rootSL2R] at hXJ
-  rw [c3PerpLevi_eq_rootSpan_C3Set]
-  obtain ⟨x, -, rfl⟩ := exists_eq_zpowers_of_isCyclic hcyc
-  have hx : orderOf x = Nat.card K + 1 := by rw [← Nat.card_zpowers, hX]
-  have hxJ : x ∈ rootSL2R K := hXJ (Subgroup.mem_zpowers x)
-  have hXD : Subgroup.zpowers x ≤ centralizer (rootSpan .F4 K C3Set : Set (ModGL .F4 K)) :=
-    hXJ.trans (Subgroup.le_centralizer_iff.1 rootSpan_C3Set_le_centralizer_rootSL2R)
-  refine ⟨le_antisymm (fun g hg => ?_) (sup_le (le_inf (hXJ.trans rootSL2R_le_adjointGroup)
-    (zpowers_le_centralizer_zpowers x)) (le_inf (rootSpan_le_adjointGroup K C3Set)
-      (Subgroup.le_centralizer_iff.1 hXD))), disjoint_rootSL2R_rootSpan_C3Set.mono_left hXJ, hXD⟩
-  obtain ⟨hgC, hgX⟩ := Subgroup.mem_inf.1 hg
-  have hgx : g * x = x * g := (Subgroup.mem_centralizer_iff.1 hgX x (Subgroup.mem_zpowers x)).symm
-  obtain ⟨y, hy, d, hd, rfl⟩ := exists_mem_zpowers_mul_of_commute_nonsplit hxJ hx hgC hgx
-  exact mul_mem (Subgroup.mem_sup_left hy) (Subgroup.mem_sup_right hd)
 
 theorem exists_mul_of_mem_centralizer_nonsplit [Finite K] [CharP K 2]
     {X : Subgroup (adjointGroup .F4 K)}

@@ -197,15 +197,6 @@ theorem mulAutCongr_conjugation_linear (Q : QuadraticForm K (Fin d → K))
   change projectiveEquiv Q hQ (matrixProjectiveConjugation Q g ((projectiveEquiv Q hQ).symm y)) = _
   rw [projectiveEquiv_conjugation_linear Q hQ g hg, MulEquiv.apply_symm_apply]
 
-theorem mulAutCongr_conjugation (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) (g : similarityPairs Q) :
-    MulAut.congr (projectiveEquiv Q hQ) (matrixProjectiveConjugation Q g) =
-      projectiveSemilinearConjugation Q g.val.right (coordinateSemilinearMap g.val)
-        (multiplier Q g) (coordinateSemilinearMap_smul g.val) (multiplier_spec Q g) := by
-  apply MulEquiv.ext
-  intro y
-  change projectiveEquiv Q hQ (matrixProjectiveConjugation Q g ((projectiveEquiv Q hQ).symm y)) = _
-  rw [projectiveEquiv_conjugation, MulEquiv.apply_symm_apply]
 
 theorem fixedSubgroup_map_of_intertwining {G H : Type*} [Group G] [Group H] (e : G ≃* H)
     (α : MulAut G) (β : MulAut H) (h : ∀ x, e (α x) = β (e x)) :
@@ -221,10 +212,6 @@ theorem fixedSubgroup_map_of_intertwining {G H : Type*} [Group G] [Group H] (e :
     FixedCommutingProduct.fixedSubgroup α ≃* FixedCommutingProduct.fixedSubgroup β :=
   (e.subgroupMap _).trans (MulEquiv.subgroupCongr (fixedSubgroup_map_of_intertwining e α β h))
 
-theorem fixedEquivOfIntertwining_val {G H : Type*} [Group G] [Group H] (e : G ≃* H)
-    (α : MulAut G) (β : MulAut H) (h : ∀ x, e (α x) = β (e x))
-    (x : FixedCommutingProduct.fixedSubgroup α) :
-    (fixedEquivOfIntertwining e α β h x).val = e x.val := rfl
 
 @[expose] def linearFixedEquiv (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 0)
     (g : similarityPairs Q) (hg : g.val.right = 1) :
@@ -234,10 +221,6 @@ theorem fixedEquivOfIntertwining_val {G H : Type*} [Group G] [Group H] (e : G �
   fixedEquivOfIntertwining (projectiveEquiv Q hQ) _ _
     (projectiveEquiv_conjugation_linear Q hQ g hg)
 
-theorem linearFixedEquiv_val (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 0)
-    (g : similarityPairs Q) (hg : g.val.right = 1)
-    (x : FixedCommutingProduct.fixedSubgroup (matrixProjectiveConjugation Q g)) :
-    (linearFixedEquiv Q hQ g hg x).val = projectiveEquiv Q hQ x.val := rfl
 
 @[expose] def semilinearFixedEquiv (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 0)
     (g : similarityPairs Q) :
@@ -247,10 +230,6 @@ theorem linearFixedEquiv_val (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q 
         (multiplier_spec Q g)) :=
   fixedEquivOfIntertwining (projectiveEquiv Q hQ) _ _ (projectiveEquiv_conjugation Q hQ g)
 
-theorem semilinearFixedEquiv_val (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 0)
-    (g : similarityPairs Q)
-    (x : FixedCommutingProduct.fixedSubgroup (matrixProjectiveConjugation Q g)) :
-    (semilinearFixedEquiv Q hQ g x).val = projectiveEquiv Q hQ x.val := rfl
 
 theorem exists_ne_zero_of_polarBilin_nondegenerate (Q : QuadraticForm K (Fin d → K))
     (hQ : Q.polarBilin.Nondegenerate) (hd : 0 < d) : ∃ v, Q v ≠ 0 := by

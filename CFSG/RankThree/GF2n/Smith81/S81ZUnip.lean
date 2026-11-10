@@ -47,8 +47,6 @@ theorem xE_zero (α : Rt) : xE α (0 : K) = 1 := e7Data_valid.xm_zero K α
 
 theorem xE_inv (α : Rt) (c : K) : (xE α c)⁻¹ = xE α (-c) := e7Data_valid.xm_neg K α c
 
-theorem xE_injective {α : Rt} (hα : IsRoot .E7 α) : Function.Injective (xE (K := K) α) :=
-  e7Data_valid.xm_injective K hα
 
 open _root_.Classical in
 theorem comm_xE [CharP K 2] {α β : Rt} (hα : IsRoot .E7 α) (hβ : IsRoot .E7 β) (hne : α + β ≠ 0)
@@ -756,37 +754,6 @@ theorem layHom_eq_one_iff (hR : Closed R) [CharP K 2] {h : ℕ} (hh : 1 ≤ h) (
       simpa [Cong] using hg
     exact h1
 
-theorem layHom_xE (hR : Closed R) [CharP K 2] {h : ℕ} (hh : 1 ≤ h) {α : Rt} (hα : α ∈ Lay R h)
-    (d : K) :
-    layHom hR hh ⟨xE α d, xE_mem_URge (mem_Lay.1 hα).1 (mem_Lay.1 hα).2.ge d⟩ =
-      Multiplicative.ofAdd (Pi.single (⟨α, hα⟩ : ↥(Lay R h)) d) := by
-  rw [layHom_apply]
-  congr 1
-  have hcong : Cong R h (Pl R h (Pi.single α d))
-      (xE α d : Gp K) := by
-    rw [Pl_single R hα]
-    exact Cong.refl R h _
-  have := layCoord_eq_of_cong hR hh
-    (⟨xE α d, xE_mem_URge (mem_Lay.1 hα).1 (mem_Lay.1 hα).2.ge d⟩ : ↥(URge K R h)) hcong
-  rw [this]
-  funext β
-  by_cases hβ : β = (⟨α, hα⟩ : ↥(Lay R h))
-  · subst hβ; simp
-  · have : β.1 ≠ α := fun e => hβ (Subtype.ext e)
-    simp [Pi.single_apply, hβ, this]
-
-theorem layHom_surjective (hR : Closed R) [CharP K 2] {h : ℕ} (hh : 1 ≤ h) :
-    Function.Surjective (layHom (K := K) hR hh) := by
-  intro x
-  let c := Multiplicative.toAdd x
-  refine ⟨⟨Pl R h (extLay R h c), Pl_mem R _⟩, ?_⟩
-  rw [layHom_apply]
-  have := layCoord_eq_of_cong hR hh ⟨Pl R h (extLay R h c), Pl_mem R _⟩
-    (c := extLay R h c) (Cong.refl R h _)
-  rw [this]
-  apply Multiplicative.toAdd.injective
-  funext α
-  simp [c, extLay, α.2]
 
 theorem layHom_conj_tau (hR : Closed R) [CharP K 2] {h : ℕ} (hh : 1 ≤ h) (t : Tt K)
     (g : ↥(URge K R h)) :
@@ -883,10 +850,6 @@ theorem HasRaiseL.mul {lev : Fin e7Data.d → ℤ} {n m : ℤ} {φ ψ : Module.E
     convert this using 2
     ring
 
-theorem HasRaiseL.sub {lev : Fin e7Data.d → ℤ} {n : ℤ} {φ ψ : Module.End K (V K)}
-    (hφ : HasRaiseL lev n φ) (hψ : HasRaiseL lev n ψ) : HasRaiseL lev n (φ - ψ) := fun b => by
-  rw [LinearMap.sub_apply]
-  exact Submodule.sub_mem _ (hφ b) (hψ b)
 
 @[expose] def levF (f : (Fin (Tag.rank .E7) → ℤ) →+ ℤ) : Fin e7Data.d → ℤ := e7Data.fgrade f
 

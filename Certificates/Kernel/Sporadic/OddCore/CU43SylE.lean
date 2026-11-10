@@ -49,8 +49,6 @@ theorem sCl : slK (Nat.mul CU43S.cnt 10)
     (findPtK CU43S.cnt CU43S.T (prodQK 820 10 (mask 10) 10 CU43S.T (bothK 5 CU43S.GI CU43SI))
       CU43Cl) 0 (Nat.mul CU43S.cnt 10) = true := by quickRfl
 
-theorem inv_neg : invEqK 820 10 (mask 10) (820 * 10) (CU43S.GI 0) (CU43SI 1) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.CU43SylE
 

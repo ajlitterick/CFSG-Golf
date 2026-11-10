@@ -135,7 +135,6 @@ theorem a4Graph_adj_smul_iff (g : ↥suzM) {x y : Vtx} :
   toEquiv := MulAction.toPerm g
   map_rel_iff' := a4Graph_adj_smul_iff g
 
-theorem conjIso_apply (g : ↥suzM) (x : Vtx) : conjIso g x = g • x := rfl
 
 @[expose] def fixSet (x : Vtx) : Set (Fin 1782) :=
   {p | ∀ a ∈ (x : Subgroup (Equiv.Perm (Fin 1782))), a p = p}

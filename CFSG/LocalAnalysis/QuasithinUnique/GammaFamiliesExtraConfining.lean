@@ -66,25 +66,6 @@ section Basic
 
 variable {G : Type} [Group G] [Finite G] {T M : Subgroup G}
 
-theorem IsWitnessPair.isS2e_pCoreOf (h : UniqueSetting G T M) {U HU : Subgroup G}
-    (hp : IsWitnessPair M U HU) : IsS2e (pCoreOf 2 HU) := by
-  obtain ⟨hne, hchar⟩ := hp.1.charTwo_normalizer_core h hp.2.1 hp.2.2.2.1
-  exact ⟨hne, CFSG.RankThreeCoreUniqueness.Helpers.pCoreOf_isPGroup 2 HU, hchar⟩
-
-omit [Finite G] in
-theorem IsGamma.core_normalizer_isGamma {H : Subgroup G} (hH : IsGamma M H) :
-    IsGamma M (Subgroup.normalizer (pCoreOf 2 H : Set G)) ∧
-      ∀ U HU : Subgroup G, IsWitnessPair M U HU → HU ≤ H →
-        HU ≤ Subgroup.normalizer (pCoreOf 2 H : Set G) := by
-  have hHN : H ≤ Subgroup.normalizer (pCoreOf 2 H : Set G) :=
-    CFSG.RankThreeCoreUniqueness.Helpers.localGroup_le_normalizer_pCoreOf 2 H
-  refine ⟨?_, fun U HU _ hle => hle.trans hHN⟩
-  obtain ⟨hcore, U, HU, hp, hle⟩ := hH
-  refine ⟨fun hbot => hcore (le_bot_iff.mp ?_), U, HU, hp, hle.trans hHN⟩
-  have : pCoreOf 2 H ≤ pCoreOf 2 (Subgroup.normalizer (pCoreOf 2 H : Set G)) :=
-    le_pCoreOf_of_normalizes Subgroup.le_normalizer le_rfl
-      (CFSG.RankThreeCoreUniqueness.Helpers.pCoreOf_isPGroup 2 H)
-  rwa [hbot] at this
 
 end Basic
 

@@ -144,9 +144,6 @@ theorem galois_U' (hF : ringChar F ≠ 2) (h8 : Fintype.card F % 8 = 3 ∨ Finty
     halfMinus_unip hF hψ hν ht, hχ]
   constructor <;> ring
 
-theorem conj_eps (hε : epsSign F = 1 ∨ epsSign F = -1) :
-    starRingEnd ℂ (epsSign F) = epsSign F := by
-  rcases hε with h | h <;> rw [h] <;> simp
 
 end PSLTable
 

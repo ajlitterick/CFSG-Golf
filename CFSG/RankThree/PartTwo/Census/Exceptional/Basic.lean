@@ -62,41 +62,6 @@ theorem toQuot_comp_injective (hΨ : Function.Injective Ψ) (hC : commutator C =
   intro A hA
   exact hρ A (mem_center_of_toQuot_eq_one hΨ hC (MonoidHom.mem_ker.1 hA))
 
-theorem toQuot_injOn (hΨ : Function.Injective Ψ) (hC : commutator C = ⊤) {E : Subgroup C}
-    (hEZ : E ⊓ Subgroup.center C = ⊥) : Set.InjOn (toQuot Ψ hC) E := by
-  intro a ha b hb hab
-  have h1 : toQuot Ψ hC (a⁻¹ * b) = 1 := by rw [map_mul, map_inv, hab, inv_mul_cancel]
-  have h2 : a⁻¹ * b ∈ E ⊓ Subgroup.center C :=
-    ⟨E.mul_mem (E.inv_mem ha) hb, mem_center_of_toQuot_eq_one hΨ hC h1⟩
-  rw [hEZ, Subgroup.mem_bot] at h2
-  exact inv_mul_eq_one.mp h2
-
-theorem le_localRank_of_toQuot [Finite (TauCeti.DerivedCentralQuotient H)]
-    (hΨ : Function.Injective Ψ) (hC : commutator C = ⊤) {p k : ℕ} (hp : p.Prime)
-    {E P : Subgroup C} (hE : IsElemAbelian p E) (hc : Nat.card E = p ^ k)
-    (hEZ : E ⊓ Subgroup.center C = ⊥) (hP2 : IsPGroup 2 P) (hPZ : ¬ P ≤ Subgroup.center C)
-    (hEP : E ≤ Subgroup.normalizer (P : Set C)) :
-    k ≤ localRank p (TauCeti.DerivedCentralQuotient H) := by
-  set θ := toQuot Ψ hC
-  refine le_localRank_of_le_normalizer hp (P := P.map θ) (E := E.map θ) ?_ (hP2.map θ) ?_ ?_
-    ((Subgroup.map_mono hEP).trans (Subgroup.le_normalizer_map θ))
-  · intro hbot
-    apply hPZ
-    intro x hx
-    have h1 : θ x = 1 := by
-      have : θ x ∈ P.map θ := ⟨x, hx, rfl⟩
-      rwa [hbot, Subgroup.mem_bot] at this
-    exact mem_center_of_toQuot_eq_one hΨ hC h1
-  · refine ⟨⟨⟨fun a b => Subtype.ext ?_⟩⟩, ?_⟩
-    · obtain ⟨a', ha', ha⟩ := a.2
-      obtain ⟨b', hb', hb⟩ := b.2
-      change (a : TauCeti.DerivedCentralQuotient H) * b = b * a
-      rw [← ha, ← hb, ← map_mul, ← map_mul]
-      exact congrArg θ (congrArg Subtype.val (hE.1.is_comm.comm ⟨a', ha'⟩ ⟨b', hb'⟩))
-    · rintro _ ⟨x, hx, rfl⟩
-      rw [← map_pow, hE.2 x hx, map_one]
-  · rw [← hc]
-    exact Nat.card_image_of_injOn (toQuot_injOn hΨ hC hEZ)
 
 end ToQuot
 

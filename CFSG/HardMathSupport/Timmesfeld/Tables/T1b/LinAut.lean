@@ -67,20 +67,6 @@ instance conjRange_normal (X : Type*) [Group X] :
   ext z
   simp [MulAut.conj_apply]
 
-theorem mem_of_odd_pow_mem_of_index_le_two {Γ : Type*} [Group Γ] [Finite Γ] (E : Subgroup Γ)
-    (h : E.index ≤ 2) {α : Γ} {N : ℕ} (hN : Odd N) (hα : α ^ N ∈ E) : α ∈ E := by
-  have h0 : E.index ≠ 0 := Subgroup.index_ne_zero_of_finite
-  by_cases h1 : E.index = 1
-  · rw [Subgroup.index_eq_one.mp h1]
-    exact Subgroup.mem_top α
-  · have h2 : E.index = 2 := by omega
-    obtain ⟨m, rfl⟩ := hN
-    have hsq : α * α ∈ E := Subgroup.mul_self_mem_of_index_two h2 α
-    have : α = ((α * α) ^ m)⁻¹ * α ^ (2 * m + 1) := by
-      rw [pow_succ, pow_mul, sq, ← mul_assoc]
-      group
-    rw [this]
-    exact mul_mem (inv_mem (pow_mem hsq m)) hα
 
 section Matrices
 

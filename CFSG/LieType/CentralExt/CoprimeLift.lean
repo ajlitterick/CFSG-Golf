@@ -134,11 +134,6 @@ theorem conj_pLift (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.ce
     rw [← hn]
     exact (SemiconjBy.orderOf_eq e (by simp [SemiconjBy, mul_assoc])).symm
 
-theorem pLift_inv (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E)
-    (hC : ¬p ∣ Nat.card π.ker) {u : G} (hu : ∃ n : ℕ, orderOf u = p ^ n) :
-    pLift p π u⁻¹ = (pLift p π u)⁻¹ := by
-  obtain ⟨h1, n, hn⟩ := pLift_spec hπ hC hu
-  exact pLift_unique hcen hC (by rw [map_inv, h1]) ⟨n, by rw [orderOf_inv, hn]⟩
 
 theorem pLift_pow (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E)
     (hC : ¬p ∣ Nat.card π.ker) {u : G} (hu : ∃ n : ℕ, orderOf u = p ^ n) (k : ℕ) :
@@ -248,47 +243,6 @@ theorem map_liftSubgroup (hπ : Function.Surjective π)
           rw [← Subgroup.subgroupOf_self U]
           exact Subgroup.map_subgroupOf_eq_of_le le_rfl
 
-theorem liftSubgroup_ne_bot (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) {U : Subgroup G} (hU : IsPGroup p U)
-    (hUbot : U ≠ ⊥) : liftSubgroup p π U ≠ ⊥ := by
-  intro hbot
-  apply hUbot
-  rw [← map_liftSubgroup hπ hcen hU, hbot, Subgroup.map_bot]
-
-theorem map_liftSubgroup_mulAut (hcen : π.ker ≤ Subgroup.center E)
-    (a : MulAut E) (b : MulAut G) (hcomm : ∀ x : E, π (a x) = b (π x))
-    {U : Subgroup G} (hU : IsPGroup p U) (hbU : U.map b.toMonoidHom = U) :
-    (liftSubgroup p π U).map a.toMonoidHom = liftSubgroup p π U := by
-  have hcomm_inv : ∀ x : E, π (a.symm x) = b.symm (π x) := by
-    intro x
-    apply b.injective
-    rw [b.apply_symm_apply, ← hcomm, a.apply_symm_apply]
-  have hbU_inv : ∀ u : G, u ∈ U → b.symm u ∈ U := by
-    intro u hu
-    have hu' : u ∈ U.map b.toMonoidHom := by rwa [hbU]
-    obtain ⟨v, hv, hvu⟩ := Subgroup.mem_map.1 hu'
-    have hbvu : b.symm u = v := by
-      rw [← hvu]
-      simp
-    rwa [hbvu]
-  ext y
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    obtain ⟨hxU, n, hn⟩ := (mem_liftSubgroup_iff hcen hU).1 hx
-    refine (mem_liftSubgroup_iff hcen hU).2 ⟨?_, n, ?_⟩
-    · have h := hcomm x
-      change π (a.toMonoidHom x) = b.toMonoidHom (π x) at h
-      rw [h]
-      exact hbU ▸ ⟨π x, hxU, rfl⟩
-    · change orderOf (a x) = p ^ n
-      rw [MulEquiv.orderOf_eq a x, hn]
-  · intro hy
-    obtain ⟨hyU, n, hn⟩ := (mem_liftSubgroup_iff hcen hU).1 hy
-    refine ⟨a.symm y, ?_, a.apply_symm_apply y⟩
-    refine (mem_liftSubgroup_iff hcen hU).2 ⟨?_, n, ?_⟩
-    · rw [hcomm_inv]
-      exact hbU_inv (π y) hyU
-    · rw [MulEquiv.orderOf_eq a.symm y, hn]
 
 theorem pLift_mem_liftSubgroup (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E)
     (hC : ¬p ∣ Nat.card π.ker) {U : Subgroup G} (hU : IsPGroup p U) {u : G} (hu : u ∈ U) :
@@ -341,17 +295,6 @@ theorem range_pLiftHom (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgrou
   right_inv u := Subtype.ext (map_pLift hπ hC (exists_orderOf_eq_pow_of_mem hU u))
   map_mul' x y := Subtype.ext (map_mul π (x : E) (y : E))
 
-theorem liftSubgroupEquiv_apply (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (hC : ¬p ∣ Nat.card π.ker) {U : Subgroup G}
-    (hU : IsPGroup p U) (x : liftSubgroup p π U) :
-    (liftSubgroupEquiv hπ hcen hC hU x : G) = π (x : E) :=
-  rfl
-
-theorem liftSubgroupEquiv_symm_apply (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (hC : ¬p ∣ Nat.card π.ker) {U : Subgroup G}
-    (hU : IsPGroup p U) (u : U) :
-    ((liftSubgroupEquiv hπ hcen hC hU).symm u : E) = pLift p π u :=
-  rfl
 
 @[expose] noncomputable def kerProdLiftSubgroupHom (hcen : π.ker ≤ Subgroup.center E)
     {U : Subgroup G} (hU : IsPGroup p U) : π.ker × liftSubgroup p π U →* U.comap π :=
@@ -360,10 +303,6 @@ theorem liftSubgroupEquiv_symm_apply (hπ : Function.Surjective π)
     (Subgroup.inclusion (liftSubgroup_le_comap hcen hU))
     (fun c x => Subtype.ext (Subgroup.mem_center_iff.1 (hcen c.2) x).symm)
 
-theorem kerProdLiftSubgroupHom_apply (hcen : π.ker ≤ Subgroup.center E) {U : Subgroup G}
-    (hU : IsPGroup p U) (x : π.ker × liftSubgroup p π U) :
-    (kerProdLiftSubgroupHom hcen hU x : E) = x.1 * x.2 :=
-  rfl
 
 theorem kerProdLiftSubgroupHom_bijective (hπ : Function.Surjective π)
     (hcen : π.ker ≤ Subgroup.center E) (hC : ¬p ∣ Nat.card π.ker) {U : Subgroup G}
@@ -399,26 +338,6 @@ theorem kerProdLiftSubgroupEquiv_apply (hπ : Function.Surjective π)
     (kerProdLiftSubgroupEquiv hπ hcen hC hU x : E) = x.1 * x.2 :=
   rfl
 
-theorem central_coprime_canonical_pLifts (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (hC : ¬p ∣ Nat.card π.ker) :
-    (∀ (U : Subgroup G) (hU : IsPGroup p U),
-      (∀ P : Sylow p (U.comap π),
-        (P : Subgroup (U.comap π)).map (U.comap π).subtype = liftSubgroup p π U) ∧
-      Function.Bijective (kerProdLiftSubgroupHom hcen hU) ∧
-      Function.Bijective
-        (fun x : liftSubgroup p π U => (⟨π x, liftSubgroup_le_comap hcen hU x.2⟩ : U))) ∧
-    (∀ u : G, (∃ n : ℕ, orderOf u = p ^ n) →
-      (π (pLift p π u) = u ∧ ∃ n : ℕ, orderOf (pLift p π u) = p ^ n) ∧
-      ∀ e : E, π e = u → (∃ n : ℕ, orderOf e = p ^ n) → e = pLift p π u) ∧
-    (∀ U : Subgroup G, IsPGroup p U → ∀ u ∈ U, ∀ v ∈ U,
-      pLift p π (u * v) = pLift p π u * pLift p π v) ∧
-    (∀ (e : E) (u : G), (∃ n : ℕ, orderOf u = p ^ n) →
-      e * pLift p π u * e⁻¹ = pLift p π (π e * u * (π e)⁻¹)) :=
-  ⟨fun _ hU => ⟨sylow_map_eq_liftSubgroup hcen hU, kerProdLiftSubgroupHom_bijective hπ hcen hC hU,
-      (liftSubgroupEquiv hπ hcen hC hU).bijective⟩,
-    fun _ hu => ⟨pLift_spec hπ hC hu, fun _ he hpe => (pLift_unique hcen hC he hpe).symm⟩,
-    fun _ hU _ hu _ hv => pLift_mul hπ hcen hC hU hu hv,
-    fun e _ hu => conj_pLift hπ hcen hC e hu⟩
 
 end Subgroup
 

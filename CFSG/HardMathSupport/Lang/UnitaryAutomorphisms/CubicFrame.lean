@@ -132,9 +132,6 @@ theorem hpair_add_left (x y z : Fin n → K) : hpair h (x + y) z = hpair h x z +
 theorem hpair_smul_left (x y : Fin n → K) (c : K) : hpair h (c • x) y = h.bar c * hpair h x y := by
   simp [hpair, Finset.mul_sum, mul_assoc]
 
-theorem hpair_zero_right (x : Fin n → K) : hpair h x 0 = 0 := by simp [hpair]
-
-theorem hpair_zero_left (x : Fin n → K) : hpair h 0 x = 0 := by simp [hpair]
 
 theorem hpair_pow_shift {B : Matrix (Fin n) (Fin n) K} (hB : (B.map h.bar)ᵀ * B = 1) (a : ℕ)
     (x y : Fin n → K) : hpair h ((B ^ a) *ᵥ x) ((B ^ a) *ᵥ y) = hpair h x y := by

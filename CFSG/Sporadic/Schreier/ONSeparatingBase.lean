@@ -10,7 +10,6 @@ namespace CFSG.ONSchreier
 open CFSG.Sporadic.ON CFSG.Sporadic.ON.Native CFSG.ONSchreier.Native Matrix
 open CFSG.F3.Native CFSG.Sporadic.Fi23.Native CFSG.Sporadic.Th.Native
 
-theorem formRows_size : (rowsOf 154 Data.formPayload).size = 154 := rowsOf_size _
 
 theorem toMat_formRows : toMat 154 (rowsOf 154 Data.formPayload) = invariantForm :=
   toMat_rowsOf 154 _
@@ -42,11 +41,6 @@ theorem form_parts : invariantFormᵀ = invariantForm ∧
 
 theorem form_symm : invariantFormᵀ = invariantForm := form_parts.1
 
-theorem form_det_ne_zero : invariantForm.det ≠ 0 := by
-  intro h
-  have := congrArg Matrix.det form_parts.2.1
-  rw [Matrix.det_mul, h, mul_zero, Matrix.det_one] at this
-  exact zero_ne_one this
 
 theorem mat_transpose_form
     (g : J) : (mat g)ᵀ * invariantForm * mat g = invariantForm := by
@@ -196,8 +190,6 @@ theorem baseIndex_lt {k : ℕ} (hk : k < 29) : baseIndex k < N := by
 theorem baseList_getElem! {k : ℕ} (hk : k < 29) : Data.baseList[k]! = baseIndex k := by
   rw [baseIndex_eq hk, getElem!_pos Data.baseList k (by rw [baseList_length]; exact hk)]
 
-theorem sigRows_size : (sigRows vectorOrbit (rowsOf 154 Data.formPayload) Data.baseList).size =
-    154 := by simp [sigRows]
 
 theorem toMat_sigRows (k j : Fin 154) :
     toMat 154 (sigRows vectorOrbit (rowsOf 154 Data.formPayload) Data.baseList) k j =
@@ -276,16 +268,5 @@ theorem pv_inf_fixing_base :
     ⟨baseIndex k, baseIndex_lt k.isLt⟩ ⟨k, k.isLt, rfl⟩
   rwa [Equiv.Perm.smul_def] at this
 
-theorem fam_on_invariant_form_and_separating_base :
-    invariantFormᵀ = invariantForm ∧ invariantForm.det ≠ 0 ∧
-      mAᵀ * invariantForm * mA = invariantForm ∧ mBᵀ * invariantForm * mB = invariantForm ∧
-      (∀ g ∈ Pv, ∀ i j : Fin N, pairing (g i) (g j) = pairing i j) ∧
-      (∀ i j : Fin 154, gramGraph.Adj i j ↔ i ≠ j ∧ pairing (spanIndex i) (spanIndex j) ≠ 0) ∧
-      gramGraph.Connected ∧
-      Function.Injective (fun i : Fin N => fun k : Fin 29 => pairing i (baseIndex k)) ∧
-      Pv ⊓ fixingSubgroup (Equiv.Perm (Fin N)) baseSet = ⊥ :=
-  ⟨form_symm, form_det_ne_zero, form_parts.2.2.1, form_parts.2.2.2,
-    fun _ hg => pairing_invariant hg, gramGraph_adj, gramGraph_connected, signature_injective,
-    pv_inf_fixing_base⟩
 
 end CFSG.ONSchreier

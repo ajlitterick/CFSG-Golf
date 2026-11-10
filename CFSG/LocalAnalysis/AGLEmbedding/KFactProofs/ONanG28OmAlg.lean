@@ -58,9 +58,6 @@ theorem decode_invDiag {u : Array ℕ} (hu : Valid u) : decode (invDiag u) = dec
     rw [ite_eq_right h7, ite_eq_right h]
     exact (add_zero _).symm
 
-theorem invDiag_invDiag {u : Array ℕ} (hu : Valid u) : invDiag (invDiag u) = u := by
-  apply eq_of_decode_eq (valid_invDiag (valid_invDiag hu)) hu
-  rw [decode_invDiag (valid_invDiag hu), decode_invDiag hu, add_assoc, add_self_mat, add_zero]
 
 theorem xor_one_mod_two : ∀ a : Fin 8, ((a : ℕ) ^^^ 1) % 2 = ((a : ℕ) % 2 + 1) % 2 := by decide
 
@@ -179,39 +176,6 @@ theorem isCC_step {c G Gi : Array ℕ} (hc : Valid c) (hG : Valid G) (hGi : Vali
   · exact Or.inl (key _ h)
   · exact Or.inr (key _ h)
 
-theorem tree_sem (hq : quadOK tzc = true) (D : TreeData) (hok : D.ok = true)
-    (gE rE : ℕ → adjointGroup .G2 K)
-    (hgens : ∀ s < D.gens.size, Valid D.gens[s]! ∧ Valid D.ginvs[s]! ∧
-      M.rho (gE s) = decode D.gens[s]! ∧ M.rho (gE s)⁻¹ = decode D.ginvs[s]!)
-    (hroots : ∀ k < D.R, Valid D.roots[k]! ∧ (D.roots[k]!)[0]! % 2 = 0 ∧
-      IsCC M D.roots[k]! (rE k)) :
-    ∀ n < D.N, (D.build[n]!).2 < D.R ∧ Valid (D.build[n]!).1 ∧ (D.build[n]!).1[0]! % 2 = 0 ∧
-      ∃ p ∈ Subgroup.closure {x | ∃ s < D.gens.size, x = gE s},
-        IsCC M (D.build[n]!).1 (p * rE (D.build[n]!).2) := by
-  obtain ⟨-, hspec⟩ := TreeData.build_spec D hok
-  intro n
-  induction n using Nat.strong_induction_on with
-  | _ n ih =>
-    intro hn
-    obtain ⟨hroot, hnon⟩ := hspec n hn
-    by_cases hnR : n < D.R
-    · rw [hroot hnR]
-      obtain ⟨hv, he, hc⟩ := hroots n hnR
-      exact ⟨hnR, hv, he, 1, Subgroup.one_mem _, by simpa using hc⟩
-    · obtain ⟨hp, hs, hbuild⟩ := hnon (not_lt.mp hnR)
-      obtain ⟨hr, hv, -, p, hpmem, hc⟩ := ih (D.par n) hp (lt_trans hp hn)
-      obtain ⟨hg1, hg2, hg3, hg4⟩ := hgens (D.sym n) hs
-      have e1 : (D.build[n]!).1 = canonCode (conjCode D.gens[D.sym n]! D.ginvs[D.sym n]!
-          (D.build[D.par n]!).1) := by rw [hbuild]
-      have e2 : (D.build[n]!).2 = (D.build[D.par n]!).2 := by rw [hbuild]
-      rw [e1, e2]
-      have hvv := valid_mulCode (valid_mulCode hg1 hv) hg2
-      refine ⟨hr, valid_canonCode hvv, canon_even hvv,
-        gE (D.sym n) * p, Subgroup.mul_mem _ (Subgroup.subset_closure ⟨D.sym n, hs, rfl⟩) hpmem,
-        ?_⟩
-      have := isCC_step M hv hg1 hg2 hg3 hg4 hc
-      rw [← mul_assoc] at this
-      exact isCC_canon M hvv hq this
 
 end IsCC
 

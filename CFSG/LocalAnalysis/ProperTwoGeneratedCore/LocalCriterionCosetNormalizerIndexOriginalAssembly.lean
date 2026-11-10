@@ -95,48 +95,5 @@ theorem original_native_full_index_of_central_oddCore_and_sylow_geometry
     a, i, ha, hi, hAt, hq, hqfour, hk, helem, hUle, hUset, rfl, ?_⟩
   exact hindex
 
-theorem original_native_full_index_of_triple_and_sylow_geometry
-    {H : Subgroup G} {z u : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hcomm : ProperStrongEmbeddingCommutingImages G)
-    (htriple : distinguishedTripleCentralization H z)
-    (beta : pointRightCosetSpace H) (hb : beta ≠ rightCosetMk H 1)
-    (huD : u ∈ pairPointStabilizer H beta) (hu : orderOf u = 2)
-    (huz : Commute u z) (hescape : ¬ Subgroup.centralizer ({u} : Set G) ≤ H)
-    (hrank : 2 ≤ twoRank (localInvolutionPointHull z u))
-    (hfour : ¬ TwoRankAtLeastTwo (pairPointStabilizer H beta))
-    (T1 : Sylow 2 (Subgroup.centralizer ({u} : Set G)))
-    (hpartition : ∀ x : G,
-      x ∈ (T1 : Subgroup (Subgroup.centralizer ({u} : Set G))).map
-        (Subgroup.centralizer ({u} : Set G)).subtype → IsInvolution x →
-      x ∈ originalPointRoot H z u ∨ x ∈ translatedCosetUnitSet H z u)
-    (hDelta : involutionPointClass u ∩
-      (((T1 : Subgroup (Subgroup.centralizer ({u} : Set G))).map
-        (Subgroup.centralizer ({u} : Set G)).subtype : Subgroup G) : Set G) =
-      translatedCosetUnitSet H z u) :
-    let D := pairPointStabilizer H beta
-    let Delta := involutionPointClass u ∩
-      (((T1 : Subgroup (Subgroup.centralizer ({u} : Set G))).map
-        (Subgroup.centralizer ({u} : Set G)).subtype : Subgroup G) : Set G)
-    let N := Subgroup.normalizer Delta
-    let q := Nat.card (cosetUnitSet H z u)
-    let k := Nat.card (cosetFixedSet H u)
-    (∃ a i : ℕ, 2 ≤ a ∧ i ∈ ({1, 2, 3} : Set ℕ) ∧ q = 2 ^ a ∧ 4 ≤ q ∧ k = q ^ i + 1) ∧
-      Delta = translatedCosetUnitSet H z u ∧ Delta ∩ (D : Set G) = {u} ∧ N ≤ H ∧
-      N ⊓ D = (N ⊓ Subgroup.centralizer ({u} : Set G)) ⊓ D ∧
-      (∃ Q : Sylow 2 D, (Q : Subgroup D).map D.subtype ≤ N ⊓ D) ∧
-      D.relIndex N = q * (k - 1) ∧
-      (∀ S : Sylow 2 N, D.relIndex ((S : Subgroup N).map N.subtype) = q * (k - 1)) ∧
-      q * (k - 1) ∣ Nat.card (pointRightCosetSpace H) - 1 ∧
-      (Nat.card (pointRightCosetSpace H) - 1 = q * (k - 1) →
-        ∀ S : Sylow 2 N, ∃ R : Sylow 2 G,
-          (R : Subgroup G) = (S : Subgroup N).map N.subtype) := by
-  have hcentral := (original_centralizer_rank_two_retained_odd_cores_of_triple
-    h htriple u hu huz hescape hrank).2.2.2.1
-  obtain ⟨_hLM, _hP, _hmodel, _hB, _hcore, a, i, ha, hi, _hAt, hq, hqfour, hk,
-    _helem, _hUle, _hUset, hDeltaliteral, hsingle, hNH, hinter, hQ, hindex, hSylow,
-    hdiv, hglobal⟩ := original_native_full_index_of_central_oddCore_and_sylow_geometry
-      h hcomm beta hb huD hu huz hescape hrank hfour hcentral T1 hpartition hDelta
-  exact ⟨⟨a, i, ha, hi, hq, hqfour, hk⟩, hDeltaliteral, hsingle, hNH,
-    hinter, hQ, hindex, hSylow, hdiv, hglobal⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

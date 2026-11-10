@@ -222,10 +222,6 @@ theorem baseOmega_isKleinFour (n : ℕ) (hn : 1 ≤ n) : IsKleinFour (baseOmega 
     ((baseFrattiniOmegaEquiv n hn).symm.trans (baseFrattiniQuotientEquiv n hn))]
   exact CFSG.standardHomocyclicCover_exponent (Multiplicative (ZMod 2)) 2
 
-theorem baseOmega_nonidentity_card (n : ℕ) (hn : 1 ≤ n) :
-    Nat.card {b : baseOmega (2 ^ n) // b ≠ 1} = 3 := by
-  let := baseOmega_isKleinFour n hn
-  exact CFSG.kleinFour_nonidentity_card _
 
 theorem baseOmegaAutAction_image_card (n : ℕ) (hn : 1 ≤ n)
     (H : Subgroup (MulAut (baseSubgroup (2 ^ n)))) :

@@ -107,13 +107,5 @@ theorem sporadic_residual_of_center
     exact Or.inr (Or.inl ⟨rfl, by simp⟩)
   · exact Or.inr (Or.inr rfl)
 
-theorem sporadicCenterSmallPrimes_of_residual
-    
-    (hres : SporadicResidualKernels) : SporadicCenterSmallPrimes := by
-  intro K _ _ hK hrep p hp hp3 hpZ
-  obtain ⟨s, ⟨e⟩⟩ := hrep
-  have : Group.IsPerfect K := hK.1
-  obtain ⟨hpair, hnot⟩ := sporadic_residual_of_center e hp hp3 hpZ
-  exact hnot (hres.trivial_of_pair hp hp3 hpair)
 
 end CFSG.RankThree.PartOne.Mult

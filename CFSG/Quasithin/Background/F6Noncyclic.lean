@@ -807,14 +807,6 @@ theorem pPrimeCore_eq_bot_and_pRank_le {X : Type*} [Group X] [Finite X]
   rw [pRank_top_eq_of_mulEquiv Nat.prime_three.one_lt e, pRank_quotient_eq _ hcop]
   exact hX
 
-theorem f6_16_of_sqtk {X : Type} [Group X] [Finite X] (hX : SQTKTauCeti.StronglyQuasithin X)
-    (e : D ≃* X ⧸ CFSG.pPrimeCore 3 X) (h : IsGoldschmidtTriple G₁ G₂)
-    (hnc : ¬ IsCyclic ↥(Open.pCore 3 D)) :
-    IsPGroup 3 ↥(twoResidual (⊤ : Subgroup D)) ∧
-      ((Nonempty (↥(G₁ ⊓ G₂) ≃* Multiplicative (ZMod 2)) ∧ pCoreOf 2 G₁ = ⊥ ∧
-          pCoreOf 2 G₂ = ⊥) ∨ IsF618CaseTwo D) := by
-  obtain ⟨hO, hm⟩ := pPrimeCore_eq_bot_and_pRank_le (hX 3 Nat.prime_three (by norm_num)) e
-  exact f6_16 h hO hm hnc
 
 theorem isF618CaseOne_or_two_of_noncyclic {D : Type} [Group D] [Finite D] {G₁ G₂ : Subgroup D}
     (h : IsGoldschmidtTriple G₁ G₂) (hO : CFSG.pPrimeCore 3 D = ⊥)
@@ -824,21 +816,6 @@ theorem isF618CaseOne_or_two_of_noncyclic {D : Type} [Group D] [Finite D] {G₁ 
   · exact Or.inl ⟨he, h₁, h₂, hnc⟩
   · exact Or.inr h2
 
-@[expose] def TheoremF618Cyclic : Prop :=
-  ∀ (D : Type) [Group D] [Finite D] (G₁ G₂ : Subgroup D), IsGoldschmidtTriple G₁ G₂ →
-    (∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
-      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X)) →
-    IsCyclic ↥(Open.pCore 3 D) → F618Conclusion G₁ G₂
-
-theorem theoremF618_of_cyclic (hcyc : TheoremF618Cyclic) : TheoremF618 := by
-  intro D _ _ G₁ G₂ h hX
-  by_cases hc : IsCyclic ↥(Open.pCore 3 D)
-  · exact hcyc D G₁ G₂ h hX hc
-  · obtain ⟨X, _, _, hsq, -, ⟨e⟩⟩ := hX
-    obtain ⟨hO, hm⟩ := pPrimeCore_eq_bot_and_pRank_le (hsq 3 Nat.prime_three (by norm_num)) e
-    rcases isF618CaseOne_or_two_of_noncyclic h hO hm hc with h1 | h2
-    · exact Or.inl (Or.inl h1)
-    · exact Or.inl (Or.inr (Or.inl h2))
 
 end F6
 

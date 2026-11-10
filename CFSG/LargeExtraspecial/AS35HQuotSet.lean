@@ -29,7 +29,6 @@ theorem pow_four_of_mem_QG [Finite G] {y : G} (hy : y ∈ S.QG) : y ^ 4 = 1 := b
   · rw [show (4 : ℕ) = 2 * 2 from rfl, pow_mul, h, one_pow]
   · rw [show (4 : ℕ) = 2 * 2 from rfl, pow_mul, h, pow_two, S.z_mul_z]
 
-variable [Finite G]
 
 end Quot
 

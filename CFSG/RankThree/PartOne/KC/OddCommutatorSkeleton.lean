@@ -45,9 +45,6 @@ theorem normal_center_map {N : Subgroup C} (hN : N.Normal) :
     rintro a ⟨haZ, ha⟩
     exact ⟨Z.inv_mem haZ, by rwa [orderOf_inv]⟩
 
-theorem mem_oddPart {Z : Subgroup C} {hZ : ∀ a ∈ Z, ∀ b ∈ Z, a * b = b * a} {c : C} :
-    c ∈ oddPart Z hZ ↔ c ∈ Z ∧ Odd (orderOf c) :=
-  Iff.rfl
 
 theorem normal_oddPart {Z : Subgroup C} (hZn : Z.Normal) (hZ : ∀ a ∈ Z, ∀ b ∈ Z, a * b = b * a) :
     (oddPart Z hZ).Normal := by

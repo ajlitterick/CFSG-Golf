@@ -19,8 +19,6 @@ namespace GoldschmidtApp
 
 variable {G : Type*} [Group G]
 
-theorem goldschmidtOddCore_eq_oddCore (H : Type*) [Group H] :
-    goldschmidtOddCore H = CFSG.oddCore H := rfl
 
 theorem openPCore_characteristic (H : Type*) [Group H] :
     (CFSG.Open.pCore 2 H).Characteristic := by

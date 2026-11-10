@@ -73,21 +73,5 @@ theorem Pc_le_Shat
 theorem Eam_le_Shat :
     Eam ≤ Shat := iSup_le Pc_le_Shat
 
-theorem short_four_centralizer_amalgam_data :
-    Pc 0 = Jhat ⊓ Subgroup.centralizer {cQ} ∧ Pc 1 = Ntwo ⊓ Subgroup.centralizer {cQ} ∧
-    Pc 2 = Subgroup.normalizer (E3 : Set Dfull) ⊓ Subgroup.centralizer {cQ} ∧
-    Pc 3 = Xgrp ⊓ Subgroup.centralizer {cQ} ∧ Pc 1 = Par2.H2 ∧
-    (∀ i, Nc i = (CFSG.pCore 2 (Pc i)).map (Pc i).subtype) ∧
-    Eam = ⨆ i, Pc i ∧ Bam = ⨅ i, Pc i ∧ (∀ i, Qam i = ⨅ (j : Fin 4) (_ : j ≠ i), Pc j) ∧
-    (∀ i, Pc i ≤ Subgroup.centralizer {cQ}) ∧ Eam ≤ Subgroup.centralizer {cQ} ∧ Eam ≤ Shat ∧
-    Finite Dfull ∧
-    Tsp = Submodule.span CFSG.Fischer.F4 {e6 0, e6 1, e6 2} ∧
-    Hsp = Submodule.span CFSG.Fischer.F4 {e6 1, e6 2} ∧
-    Rsp = Submodule.span CFSG.Fischer.F4 {e6 2} ∧
-    pPt = Projectivization.mk CFSG.Fischer.F4 ![1, 0, 0] vec100_ne_zero ∧
-    ellLine = {x | ∃ (a b : CFSG.Fischer.F4) (h : (![a, b, 0] : Fin 3 → CFSG.Fischer.F4) ≠ 0),
-      x = Projectivization.mk CFSG.Fischer.F4 ![a, b, 0] h} :=
-  ⟨rfl, rfl, rfl, rfl, rfl, fun _ => rfl, rfl, rfl, fun _ => rfl, Pc_le_centralizer,
-    Eam_le_centralizer, Eam_le_Shat, inferInstance, rfl, rfl, rfl, rfl, rfl⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

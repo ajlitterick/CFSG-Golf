@@ -300,7 +300,6 @@ theorem subAB_le : subAB ≤ sp4 (ZMod 2) := by
 @[expose] def muAB : ↥subAB →* AddMonoid.End (Ix → ZMod 2) :=
   muSp.comp (Subgroup.inclusion subAB_le)
 
-theorem muAB_apply (g : ↥subAB) (v : Ix → ZMod 2) : muAB g v = (g : GL Ix (ZMod 2)) • v := rfl
 
 @[expose] def gensAB : Fin 2 → ↥subAB := ![⟨gA, gens_mem_subAB 0⟩, ⟨gB, gens_mem_subAB 1⟩]
 
@@ -357,9 +356,6 @@ theorem sol_AB : ∀ a b c d a' b' c' d' : ZMod 2,
         vec4 a' b' c' d' = vec4 0 0 1 0 + (matB *ᵥ vec4 x y z w - vec4 x y z w)) := by
   decide +kernel
 
-theorem not_cob_AB : ¬∃ x y z w : ZMod 2, (0 : Ix → ZMod 2) = matA *ᵥ vec4 x y z w - vec4 x y z w ∧
-    vec4 (0 : ZMod 2) 0 1 0 = matB *ᵥ vec4 x y z w - vec4 x y z w := by
-  decide +kernel
 
 theorem Z1A_comp {H G M : Type*} [Group H] [Group G] [AddCommGroup M]
     {μ : G →* AddMonoid.End M} (ι : H →* G) {f : G → M} (hf : f ∈ Z1A μ) :
@@ -400,77 +396,6 @@ theorem eq_of_agree_AB {f f' : ↥subAB → (Ix → ZMod 2)} (hf : f ∈ Z1A muA
     · exact sub_eq_zero.mpr h1)
   exact sub_eq_zero.mp h
 
-theorem cocAB_not_mem : cocAB ∉ B1A muAB := by
-  rintro ⟨v, hv⟩
-  apply not_cob_AB
-  refine ⟨v (.inl 0), v (.inl 1), v (.inr 0), v (.inr 1), ?_, ?_⟩
-  · rw [← vec4_eta v, ← cocAB_gen0, ← hv]
-    rfl
-  · rw [← vec4_eta v, ← cocAB_gen1, ← hv]
-    rfl
-
-theorem card_Z1A_AB : Nat.card (Z1A muAB) = 2 * Nat.card (B1A muAB) := by
-  let Φ : ZMod 2 × B1A muAB → Z1A muAB := fun p =>
-    ⟨p.1.val • cocAB + p.2.1, add_mem (AddSubgroup.nsmul_mem _ cocAB_mem _) (B1A_le_Z1A _ p.2.2)⟩
-  have hΦ : Function.Bijective Φ := by
-    constructor
-    · rintro ⟨c, b⟩ ⟨c', b'⟩ h
-      have h' : c.val • cocAB + b.1 = c'.val • cocAB + b'.1 := by
-        simpa [Φ] using congrArg Subtype.val h
-      have hc : ∀ x : ZMod 2, x = 0 ∨ x = 1 := by decide
-      have key : c = c' := by
-        rcases hc c with rfl | rfl <;> rcases hc c' with rfl | rfl
-        · rfl
-        · exfalso
-          apply cocAB_not_mem
-          have : cocAB = b.1 - b'.1 := by
-            simp only [ZMod.val_zero, zero_smul, zero_add, ZMod.val_one, one_smul] at h'
-            rw [h']
-            abel
-          rw [this]
-          exact sub_mem b.2 b'.2
-        · exfalso
-          apply cocAB_not_mem
-          have : cocAB = b'.1 - b.1 := by
-            simp only [ZMod.val_zero, zero_smul, zero_add, ZMod.val_one, one_smul] at h'
-            rw [← h']
-            abel
-          rw [this]
-          exact sub_mem b'.2 b.2
-        · rfl
-      subst key
-      exact Prod.ext rfl (Subtype.ext (add_left_cancel h'))
-    · rintro ⟨f, hf⟩
-      have hrel : ∀ r ∈ relsAB, foxIx ![matA, matB] ![f (gensAB 0), f (gensAB 1)] r = 0 := by
-        intro r hr
-        have h := (foxEval_AB (fun i => f (gensAB i)) r).symm.trans
-          (Z1A_wordEval hf gensAB r).symm
-        have h1 : wordEval gensAB r = 1 :=
-          Subtype.ext ((wordEval_gensAB r).trans (relsAB_spec r hr))
-        rw [h1, Z1A_one hf] at h
-        have hv : (![f (gensAB 0), f (gensAB 1)] : Fin 2 → Ix → ZMod 2) =
-            fun i => f (gensAB i) := by
-          funext i
-          fin_cases i <;> rfl
-        rw [hv]
-        exact h
-      rw [vec4_eta (f (gensAB 0)), vec4_eta (f (gensAB 1))] at hrel
-      rcases sol_AB _ _ _ _ _ _ _ _ hrel with ⟨x, y, z, w, hv₀, hv₁⟩ | ⟨x, y, z, w, hv₀, hv₁⟩
-      · refine ⟨(0, ⟨coboundaryA muAB (vec4 x y z w), ⟨_, rfl⟩⟩), Subtype.ext ?_⟩
-        simp only [Φ, ZMod.val_zero, zero_smul, zero_add]
-        refine (eq_of_agree_AB hf (B1A_le_Z1A _ ⟨_, rfl⟩) ?_ ?_).symm
-        · rw [vec4_eta (f (gensAB 0)), hv₀]
-          rfl
-        · rw [vec4_eta (f (gensAB 1)), hv₁]
-          rfl
-      · refine ⟨(1, ⟨coboundaryA muAB (vec4 x y z w), ⟨_, rfl⟩⟩), Subtype.ext ?_⟩
-        simp only [Φ, ZMod.val_one, one_smul]
-        refine (eq_of_agree_AB hf (add_mem cocAB_mem (B1A_le_Z1A _ ⟨_, rfl⟩)) ?_ ?_).symm
-        · rw [vec4_eta (f (gensAB 0)), hv₀, Pi.add_apply, cocAB_gen0]
-          exact (zero_add _).symm
-        · rw [vec4_eta (f (gensAB 1)), hv₁, Pi.add_apply, cocAB_gen1]
-          rfl
-  rw [← Nat.card_congr (Equiv.ofBijective Φ hΦ), Nat.card_prod, Nat.card_zmod]
 
 end Fox
 

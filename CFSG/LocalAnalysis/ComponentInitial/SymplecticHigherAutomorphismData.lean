@@ -299,23 +299,5 @@ theorem fieldAut_mem_spSemilinearAutGroup (σ : K ≃+* K) :
     fieldAut r K σ ∈ spSemilinearAutGroup r K :=
   Subgroup.subset_closure (Or.inr ⟨σ, rfl⟩)
 
-theorem standard_automorphism_data [NeZero r] :
-    StatedSp r K ≤ gsp r K ∧
-    (∀ (A : gsp r K) (μ : Kˣ),
-      ((A : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K)ᵀ * formJ r K *
-        ((A : GL (Fin r ⊕ Fin r) K) : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) =
-        (μ : K) • formJ r K ↔ multiplier r K A = μ) ∧
-    (multiplier r K).ker = (StatedSp r K).subgroupOf (gsp r K) ∧
-    (∀ (A : gsp r K) (g : StatedSp r K), conjAut r K A (proj r K g) =
-      proj r K ⟨(A : GL (Fin r ⊕ Fin r) K) * g * (A : GL (Fin r ⊕ Fin r) K)⁻¹,
-        conj_mem_statedSp A.2 g.2⟩) ∧
-    (∀ (σ : K ≃+* K) (g : StatedSp r K), fieldAut r K σ (proj r K g) =
-      proj r K ⟨glFieldEquiv (Fin r ⊕ Fin r) σ g, fieldEquiv_mem_statedSp σ g.2⟩) ∧
-    (∀ A : gsp r K, (conjAut r K A)⁻¹ = conjAut r K A⁻¹) ∧
-    (∀ σ : K ≃+* K, (fieldAut r K σ)⁻¹ = fieldAut r K σ⁻¹) ∧
-    spLinearAutGroup r K ≤ spSemilinearAutGroup r K :=
-  ⟨statedSp_le_gsp, fun A _ => ⟨multiplier_eq A, fun h => h ▸ multiplier_spec A⟩,
-    ker_multiplier, fun _ _ => rfl, fun _ _ => rfl, fun A => (map_inv _ A).symm,
-    fun σ => (map_inv _ σ).symm, spLinearAutGroup_le_spSemilinearAutGroup⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.SymplecticHigher

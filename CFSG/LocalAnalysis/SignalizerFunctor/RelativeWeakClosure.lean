@@ -50,38 +50,6 @@ theorem normalized_conjugate_hull_map {ImageType : Type imageUniverse} [Group Im
       le_iSup_of_le (⟨original, original_member⟩ : actor) le_rfl
     rwa [conjugate_subgroup_map, equal] at term
 
-theorem relative_weak_closure_map_subtype (parent target bound : Subgroup GroupType)
-    (target_le : target ≤ parent) (bound_le : bound ≤ parent) :
-    (subgroupWeakClosure (target.subgroupOf parent) (bound.subgroupOf parent)).map parent.subtype =
-      relativeWeakClosure parent target bound := by
-  unfold subgroupWeakClosure relativeWeakClosure
-  rw [Subgroup.map_iSup]
-  apply le_antisymm
-  · apply iSup_le
-    intro conjugator
-    rw [Subgroup.map_iSup]
-    apply iSup_le
-    intro contained
-    have mapped_contained := Subgroup.map_mono (f := parent.subtype) contained
-    rw [conjugate_subgroup_map, Subgroup.map_subgroupOf_eq_of_le target_le,
-      Subgroup.map_subgroupOf_eq_of_le bound_le] at mapped_contained
-    rw [conjugate_subgroup_map, Subgroup.map_subgroupOf_eq_of_le target_le]
-    exact le_iSup_of_le conjugator (le_iSup_of_le mapped_contained le_rfl)
-  · apply iSup_le
-    intro conjugator
-    apply iSup_le
-    intro contained
-    have internal_contained : conjugateSubgroup conjugator (target.subgroupOf parent) ≤ bound.subgroupOf parent := by
-      intro element member
-      have mapped_member := Subgroup.mem_map_of_mem parent.subtype member
-      rw [conjugate_subgroup_map, Subgroup.map_subgroupOf_eq_of_le target_le] at mapped_member
-      exact contained mapped_member
-    have term : (conjugateSubgroup conjugator (target.subgroupOf parent)).map parent.subtype ≤
-        ⨆ internal : parent, (⨆ (_ : conjugateSubgroup internal (target.subgroupOf parent) ≤ bound.subgroupOf parent),
-          conjugateSubgroup internal (target.subgroupOf parent)).map parent.subtype := by
-      apply le_iSup_of_le conjugator
-      exact Subgroup.map_mono (le_iSup_of_le internal_contained le_rfl)
-    rwa [conjugate_subgroup_map, Subgroup.map_subgroupOf_eq_of_le target_le] at term
 
 theorem relative_weak_closure_normalized (external parent target bound : Subgroup GroupType)
     (parent_normalized : external ≤ Subgroup.normalizer (parent : Set GroupType))

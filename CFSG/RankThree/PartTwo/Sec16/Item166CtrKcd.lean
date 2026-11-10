@@ -22,15 +22,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
   CFSG.RankThree.PartTwo.Sec13 CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.PartTwo.Sec15
   CFSG.RankThree.PartTwo.Sec17 CFSG.GH74.GLS
 
-@[expose] def Step166ThetaLdTwo : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),
-    Sec17Std G A c L Y₀ →
-    Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2) →
-    ∀ d ∈ A, d ≠ 1 → IsThreeCentralIn L d →
-    ∀ b ∈ ({c * d, c * d ^ 2} : Set G),
-    ∀ X ∈ thetaComponentsAt 3 b,
-      X = lB A (Subgroup.closure {c, d}) ⊔ inSubgroup (aschbacherSolvableCore 3) X →
-      CFSG.Open.pCoreOf 2 X = ⊥ → inSubgroup (aschbacherSolvableCore 3) X = ⊥
 
 end CFSG.RankThree.PartTwo.Sec16
 

@@ -314,33 +314,5 @@ theorem e7StdInput_lang_adjoint_spec (θ : K →+* K) (hθ : ∀ c, θ (θ c) = 
   rw [e7MinEquivAdjoint_minBC] at h
   exact h
 
-theorem exists_e7_original_lang_comparison {f : ℕ}
-    (hK : Nat.card K = (2 ^ f) ^ 2) (hf : 1 ≤ f) :
-    let S := e7StdInput (unitaryInvolution K 2 f : K →+* K) (unitaryInvolution_involutive hK)
-      (unitaryInvolution_ne hK hf) (exists_mul_unitaryInvolution_eq hK)
-    let z := e7MinEquivAdjoint K S.lang
-    let F := adjointBaseChangeHom .E7 (unitaryInvolution K 2 f).toRingHom
-    let A := (CFSG.SeitzReduction.EPilot.highRootSL2 .E7 K).subgroupOf (adjointGroup .E7 K)
-    let n0 := e7MinEquivAdjoint K (nrep (e7Datum_isCTGroupDatum K) (e7W0 K))
-    ∃ g : adjointGroup .E7 K, g ∈ Subgroup.normalizer (A : Set (adjointGroup .E7 K)) ∧
-      g⁻¹ * F g = n0 ∧ F (g * z⁻¹) = g * z⁻¹ ∧
-      (A ⊓ MonoidHom.eqLocus ((MulAut.conj n0).toMonoidHom.comp F) (MonoidHom.id _)).map
-          (MulAut.conj g).toMonoidHom = A ⊓ MonoidHom.eqLocus F (MonoidHom.id _) := by
-  let S := e7StdInput (unitaryInvolution K 2 f : K →+* K) (unitaryInvolution_involutive hK)
-    (unitaryInvolution_ne hK hf) (exists_mul_unitaryInvolution_eq hK)
-  let z := e7MinEquivAdjoint K S.lang
-  let F := adjointBaseChangeHom .E7 (unitaryInvolution K 2 f).toRingHom
-  let A := (CFSG.SeitzReduction.EPilot.highRootSL2 .E7 K).subgroupOf (adjointGroup .E7 K)
-  let n0 := e7MinEquivAdjoint K (nrep (e7Datum_isCTGroupDatum K) (e7W0 K))
-  obtain ⟨g, hgN, hg⟩ := exists_e7_highRootNormalizer_lang hK hf
-  have hz : z⁻¹ * F z = n0 := by
-    have h := e7StdInput_lang_adjoint_spec (unitaryInvolution K 2 f : K →+* K)
-      (unitaryInvolution_involutive hK) (unitaryInvolution_ne hK hf) (exists_mul_unitaryInvolution_eq hK)
-    dsimp only [z, F, n0, S]
-    rw [RingEquiv.toRingHom_eq_coe]
-    exact h
-  refine ⟨g, hgN, hg, ?_, ?_⟩
-  · exact MonoidHom.apply_mul_inv_eq_of_inv_mul_apply_eq F (hg.trans hz.symm)
-  · exact Subgroup.map_inf_eqLocus_conj_of_inv_mul_apply_eq A F hgN hg
 
 end CFSG.ClassicalInvolution.Phan.PhanE

@@ -73,10 +73,6 @@ theorem conjugation_action_prime_core_normal (prime : ℕ) (base : Subgroup Grou
     [base.Normal] : (conjugationActionPrimeCore prime base).Normal :=
   quotient_action_prime_core_normal prime _
 
-omit [Finite GroupType] in
-theorem centralizer_le_conjugation_action_prime_core (prime : ℕ) (base : Subgroup GroupType)
-    [base.Normal] : Subgroup.centralizer (base : Set GroupType) ≤ conjugationActionPrimeCore prime base :=
-  kernel_le_quotient_action_prime_core prime _
 
 theorem conjugation_action_prime_core_eq_prime_core (prime : ℕ) (prime_prime : prime.Prime)
     (base : Subgroup GroupType) [base.Normal]

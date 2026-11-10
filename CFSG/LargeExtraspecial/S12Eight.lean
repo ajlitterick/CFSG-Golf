@@ -169,12 +169,6 @@ theorem conj_eq_or_CXbar12 {g : G} (haQ : g * S.z * g⁻¹ ∈ S.QG)
     refine eq_of_agree_CXbar12 haQ hne hn ht htA hz' ((S.CXbar12 g).pow_mem hz 2) fun w hw => ?_
     rw [h w hw, Subgroup.coe_pow]
 
-theorem fixSpace_sq_eq_of_pow_three {z : S.O} (hz3 : z ^ 3 = 1) {v : S.Qt}
-    (hv : ((z ^ 2 : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) v = v) :
-    (z : S.Qt ≃ₗ[ZMod 2] S.Qt) v = v := by
-  have e3 : ((z ^ 3 : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) v = v := by rw [hz3]; rfl
-  rw [pow_succ', Subgroup.coe_mul, LinearEquiv.mul_apply, hv] at e3
-  exact e3
 
 theorem fixSpace_eq_bot_or_isReducible12 {g : G} (haQ : g * S.z * g⁻¹ ∈ S.QG)
     (hne : g * S.z * g⁻¹ ≠ S.z) (hn : 3 ≤ S.width) {t : S.O} (ht : t ∈ S.Lbar g)

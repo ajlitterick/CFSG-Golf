@@ -149,32 +149,6 @@ theorem IsClassical2A7.map_centerQuotient (hO : classicalInvolutionOddCore Y = �
       MulEquiv.ofBijective (π.subgroupMap L) ⟨hinj, MonoidHom.subgroupMap_surjective _ _⟩
     exact A7Witness.of_mulEquiv eL h.witness
 
-theorem inClass2A7_centerQuotient (hO : classicalInvolutionOddCore Y = ⊥) {Λ : Set (Subgroup Y)}
-    (hΛ : InClass2A7 Λ)
-    (hz : ∀ L ∈ Λ, ∀ z, IsClassical2A7 ⊤ L z → z ∉ Subgroup.center Y) :
-    InClass2A7 (Subgroup.map (QuotientGroup.mk' (Subgroup.center Y)) '' Λ) where
-  nonempty := hΛ.nonempty.image _
-  conjInvariant := by
-    rintro n _ ⟨L, hL, rfl⟩
-    obtain ⟨y, rfl⟩ := QuotientGroup.mk'_surjective _ n
-    exact ⟨conjSub y L, hΛ.conjInvariant.toConjInvariant y L hL,
-      (conjSub_map (QuotientGroup.mk' _) y L).symm⟩
-  generated := by
-    set π := QuotientGroup.mk' (Subgroup.center Y)
-    have h : ⨆ M ∈ Subgroup.map π '' Λ, M = (⨆ L ∈ Λ, L).map π := by
-      refine le_antisymm (iSup₂_le fun M hM => ?_) ?_
-      · obtain ⟨L, hL, rfl⟩ := hM
-        exact Subgroup.map_mono (le_iSup₂ (f := fun (L : Subgroup Y) (_ : L ∈ Λ) => L) L hL)
-      · rw [Subgroup.map_le_iff_le_comap]
-        refine iSup₂_le fun L hL => ?_
-        exact Subgroup.map_le_iff_le_comap.mp (le_iSup₂
-          (f := fun (M : Subgroup (Y ⧸ Subgroup.center Y)) (_ : M ∈ Subgroup.map π '' Λ) => M)
-          (L.map π) ⟨L, hL, rfl⟩)
-    rw [h, hΛ.generated, Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _)]
-  classical := by
-    rintro _ ⟨L, hL, rfl⟩
-    obtain ⟨z, hzL⟩ := hΛ.classical L hL
-    exact ⟨_, hzL.map_centerQuotient hO (hz L hL z hzL)⟩
 
 end Member
 

@@ -151,7 +151,6 @@ theorem par16_land_lc (f : ℕ → ℕ) (K x : ℕ) :
 private theorem lowM_bits : ∀ j < 5, ∀ i < 32,
     (lowM j).testBit i = !(i.testBit j) := by decide
 
-private theorem lowM_lt : ∀ j < 5, lowM j < 2 ^ 32 := by decide
 
 private theorem table_set : ∀ j < 5, ∀ x < 32, x.testBit j = true →
     2 ^ j ≤ x ∧ x - 2 ^ j = x ^^^ 2 ^ j ∧ (x - 2 ^ j).testBit j = false := by decide

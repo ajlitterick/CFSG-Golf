@@ -99,21 +99,6 @@ theorem largeEvenLabelAll_rank_typeA {p n f : ℕ} (hp : p.Prime) (hpf : p ∣ 2
     (by omega) hQ
   exact h
 
-theorem ggInnerDiagOn_split_of_typeA (hRig : GGLabelRigidInput) {G : Type} [Group G]
-    {p n f : ℕ} (hp : p.Prime) {Bs K : Subgroup G} (h : GGInnerDiagOn Bs K)
-    (hmod : StatedClassicalModel (↥K ⧸ Subgroup.center ↥K) .PSL (n + 1) 2 f)
-    (hpf : p ∣ 2 ^ f - 1) : LargeEvenMarking ↥K fun lab _ _ _ _ _ => GGNbrSplitLabel p lab := by
-  have hf : 1 ≤ f := hmod.1.2.1
-  have hf2 : 2 ≤ f := by
-    by_contra hf2
-    have hf1 : f = 1 := by omega
-    rw [hf1] at hpf
-    exact hp.one_lt.ne' (Nat.dvd_one.mp (by simpa using hpf))
-  have hmark := ggInnerDiagOn_relabel hRig h (largeEvenInLambda2_typeA hmod)
-    (ggHasLabel_typeA hmod)
-  refine largeEvenMarking_mono (fun lab' R _ I F θ hP => ?_) hmark
-  rw [hP.1]
-  exact ⟨trivial, hf2, hpf⟩
 
 section Config
 
@@ -144,14 +129,6 @@ theorem GGConfig.card_bstar_le_of_typeA_marking {p n f : ℕ}
     _ ≤ p ^ n * p := Nat.mul_le_mul_right p hle
     _ = p ^ (n + 1) := (pow_succ p n).symm
 
-theorem GGConfig.card_bstar_le_of_typeA (hRig : GGLabelRigidInput) {p n f : ℕ}
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J)
-    (hInn : GGInnerDiagOn Bs L)
-    (hmod : StatedClassicalModel (↥L ⧸ Subgroup.center ↥L) .PSL (n + 1) 2 f)
-    (hpf : p ∣ 2 ^ f - 1) : Nat.card Bs ≤ p ^ (n + 1) :=
-  hcfg.card_bstar_le_of_typeA_marking
-    (ggInnerDiagOn_relabel hRig hInn (largeEvenInLambda2_typeA hmod)
-      (ggHasLabel_typeA hmod)) hpf
 
 theorem GGConfig.three_le_rank_of_typeA_marking {p n f : ℕ}
     {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J)

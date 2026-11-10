@@ -666,146 +666,6 @@ section Perm
 
 variable {Q : Type} [Group Q] {n : ℕ}
 
-open Equiv in
-theorem exists_kleinFour_perm {n : ℕ} (Ω : Finset (Fin n)) (hΩ : Ω.card = 4) :
-    ∃ V : Subgroup (Equiv.Perm (Fin n)), IsElemAbelian 2 V ∧ Nat.card ↥V = 4 ∧
-      (∀ v ∈ V, Equiv.Perm.sign v = 1) ∧ {i | ∃ v ∈ V, v i ≠ i} = (Ω : Set (Fin n)) ∧
-      (∀ a ∈ Ω, ∀ b ∈ Ω, ∃ v ∈ V, v a = b) ∧
-      ∀ g : Equiv.Perm (Fin n), (∀ i ∈ Ω, g i ∈ Ω) →
-        g ∈ Subgroup.normalizer (V : Set (Equiv.Perm (Fin n))) := by
-  classical
-  have hΩ' : Nat.card ↥Ω = 4 := by simp [hΩ]
-  let ψ : ↥(alternatingGroup ↥Ω) →* Perm (Fin n) :=
-    (alternatingGroup (Fin n)).subtype.comp (alternatingGroup.ofSubtype Ω)
-  set V : Subgroup (Perm (Fin n)) := (alternatingGroup.kleinFour ↥Ω).map ψ with hV
-  have hmem : ∀ v : Perm (Fin n), v ∈ V ↔ v.support ⊆ Ω ∧ (v = 1 ∨ v.cycleType = {2, 2}) := by
-    intro v
-    constructor
-    · rintro ⟨w, hw, rfl⟩
-      exact (alternatingGroup.mem_map_kleinFour_ofSubtype hΩ (alternatingGroup.ofSubtype Ω w)).1
-        ⟨w, hw, rfl⟩
-    · intro h
-      have hv : v ∈ alternatingGroup (Fin n) := by
-        rcases h.2 with h1 | h1
-        · rw [h1]; exact Subgroup.one_mem _
-        · exact Equiv.Perm.cycleType_eq_two_two_subset_alternatingGroup h1
-      obtain ⟨w, hw, hwv⟩ := (alternatingGroup.mem_map_kleinFour_ofSubtype hΩ ⟨v, hv⟩).2 h
-      exact ⟨w, hw, by simp [ψ, hwv]⟩
-  have hψinj : Function.Injective ψ :=
-    (alternatingGroup (Fin n)).subtype_injective.comp alternatingGroup.ofSubtype_injective
-  haveI hK : IsKleinFour (alternatingGroup.kleinFour ↥Ω) := alternatingGroup.kleinFour_isKleinFour hΩ'
-  have hcard : Nat.card ↥V = 4 := by
-    rw [hV, Subgroup.card_map_of_injective hψinj]; exact IsKleinFour.card_four
-  have hsq : ∀ v ∈ V, v ^ 2 = 1 := by
-    intro v hv
-    rcases ((hmem v).1 hv).2 with h1 | h1
-    · rw [h1, one_pow]
-    · have : orderOf v = 2 := by rw [← Equiv.Perm.lcm_cycleType, h1]; decide
-      rw [← this]; exact pow_orderOf_eq_one v
-  have hcomm : IsMulCommutative ↥V := by
-    have hc := (IsKleinFour.isMulCommutative (G := ↥(alternatingGroup.kleinFour ↥Ω))).is_comm
-    refine ⟨⟨fun a b => ?_⟩⟩
-    obtain ⟨a', ha', haa⟩ := a.2
-    obtain ⟨b', hb', hbb⟩ := b.2
-    apply Subtype.ext
-    simp only [Subgroup.coe_mul]
-    rw [← haa, ← hbb, ← map_mul, ← map_mul]
-    have := congrArg Subtype.val (hc.comm (⟨a', ha'⟩ : ↥(alternatingGroup.kleinFour ↥Ω)) ⟨b', hb'⟩)
-    simp only [Subgroup.coe_mul] at this
-    rw [this]
-  have htrans : ∀ a ∈ Ω, ∀ b ∈ Ω, ∃ v ∈ V, v a = b := by
-    intro a ha b hb
-    by_cases hab : a = b
-    · exact ⟨1, V.one_mem, by simp [hab]⟩
-    have h2 : 2 ≤ ((Ω.erase a).erase b).card := by
-      have h1 := Finset.card_erase_of_mem ha
-      have h1' := Finset.card_erase_of_mem (Finset.mem_erase.2 ⟨Ne.symm hab, hb⟩)
-      omega
-    obtain ⟨c, hc, d, hd, hcd⟩ := Finset.one_lt_card.1 (by omega : 1 < ((Ω.erase a).erase b).card)
-    have hcb := Finset.ne_of_mem_erase hc
-    have hca := Finset.ne_of_mem_erase (Finset.mem_of_mem_erase hc)
-    have hcΩ := Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hc)
-    have hdb := Finset.ne_of_mem_erase hd
-    have hda := Finset.ne_of_mem_erase (Finset.mem_of_mem_erase hd)
-    have hdΩ := Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hd)
-    have hdisj : Equiv.Perm.Disjoint (swap a b) (swap c d) := by
-      intro i
-      by_cases hi : i = a ∨ i = b
-      · right; rcases hi with rfl | rfl
-        · exact swap_apply_of_ne_of_ne (Ne.symm hca) (Ne.symm hda)
-        · exact swap_apply_of_ne_of_ne (Ne.symm hcb) (Ne.symm hdb)
-      · left; push Not at hi; exact swap_apply_of_ne_of_ne hi.1 hi.2
-    refine ⟨swap a b * swap c d, (hmem _).2 ⟨?_, Or.inr ?_⟩, ?_⟩
-    · intro i hi
-      have := Equiv.Perm.support_mul_le (swap a b) (swap c d) hi
-      rcases Finset.mem_union.1 this with h | h
-      · rcases Equiv.eq_or_eq_of_swap_apply_ne_self (Equiv.Perm.mem_support.1 h) with rfl | rfl
-        · exact ha
-        · exact hb
-      · rcases Equiv.eq_or_eq_of_swap_apply_ne_self (Equiv.Perm.mem_support.1 h) with rfl | rfl
-        · exact hcΩ
-        · exact hdΩ
-    · rw [hdisj.cycleType_mul, (Equiv.Perm.isCycle_swap hab).cycleType,
-        (Equiv.Perm.isCycle_swap hcd).cycleType, Equiv.Perm.card_support_swap hab,
-        Equiv.Perm.card_support_swap hcd]
-      rfl
-    · simp [Perm.mul_apply, swap_apply_of_ne_of_ne (Ne.symm hca) (Ne.symm hda)]
-  refine ⟨V, ⟨hcomm, hsq⟩, hcard, ?_, ?_, htrans, ?_⟩
-  · intro v hv
-    obtain ⟨w, -, rfl⟩ := hv
-    exact (alternatingGroup.ofSubtype Ω w).2
-  · ext i
-    constructor
-    · rintro ⟨v, hv, hvi⟩
-      exact ((hmem v).1 hv).1 (Equiv.Perm.mem_support.2 hvi)
-    · intro hi
-      have hi' : i ∈ Ω := hi
-      obtain ⟨j, hj, hji⟩ : ∃ j ∈ Ω, j ≠ i := by
-        by_contra hcon
-        push Not at hcon
-        have : Ω ⊆ {i} := fun j hj => Finset.mem_singleton.2 (hcon j hj)
-        have := Finset.card_le_card this
-        rw [hΩ, Finset.card_singleton] at this
-        omega
-      obtain ⟨v, hv, hvi⟩ := htrans i hi' j hj
-      exact ⟨v, hv, by rw [hvi]; exact hji⟩
-  · intro g hg
-    have hgΩ : Ω.map g.toEmbedding = Ω := by
-      apply Finset.eq_of_subset_of_card_le
-      · intro i hi
-        obtain ⟨j, hj, rfl⟩ := Finset.mem_map.1 hi
-        exact hg j hj
-      · rw [Finset.card_map]
-    have hginv : ∀ i ∈ Ω, g⁻¹ i ∈ Ω := by
-      intro i hi
-      rw [← hgΩ] at hi
-      obtain ⟨j, hj, rfl⟩ := Finset.mem_map.1 hi
-      simpa using hj
-    rw [Subgroup.mem_normalizer_iff]
-    intro h
-    rw [hmem, hmem, Equiv.Perm.cycleType_conj]
-    have h1 : g * h * g⁻¹ = 1 ↔ h = 1 := by
-      constructor
-      · intro e; have := congrArg (fun z => g⁻¹ * z * g) e; simpa [mul_assoc] using this
-      · rintro rfl; simp
-    rw [h1]
-    have h2 : (g * h * g⁻¹).support ⊆ Ω ↔ h.support ⊆ Ω := by
-      constructor
-      · intro hs i hi
-        have : g i ∈ (g * h * g⁻¹).support := by
-          rw [Equiv.Perm.mem_support]; simpa [Perm.mul_apply] using (Equiv.Perm.mem_support.1 hi)
-        have := hginv _ (hs this)
-        simpa using this
-      · intro hs i hi
-        have : g⁻¹ i ∈ h.support := by
-          rw [Equiv.Perm.mem_support]
-          intro e
-          apply Equiv.Perm.mem_support.1 hi
-          have e' : h (g.symm i) = g.symm i := e
-          simp [Perm.mul_apply, e']
-        have := hg _ (hs this)
-        simpa using this
-    rw [h2]
 
 private theorem y5x_dbl_disj_comm {α : Type} [DecidableEq α] (p q r s : α) (hpr : p ≠ r) (hps : p ≠ s)
     (hqr : q ≠ r) (hqs : q ≠ s) :
@@ -2274,22 +2134,6 @@ theorem imageMod_fixed_lift {K N Dd : Subgroup G} (hDp : IsPGroup 3 Dd) (hDK : D
       _ = g.1 * d := by rw [this]
   exact ⟨⟨g.1, hNK hgN⟩, Subgroup.mem_subgroupOf.2 ⟨hgN, hgC⟩, hgq⟩
 
-theorem imageMod_centralizer_inf_le {K N Dd : Subgroup G} (hDp : IsPGroup 3 Dd) (hDK : Dd ≤ Subgroup.normalizer (K : Set G))
-    (hDN : Dd ≤ Subgroup.normalizer (N : Set G)) (hNK : N ≤ K) :
-    imageMod 3 K (K ⊓ Subgroup.centralizer (Dd : Set G)) ⊓ imageMod 3 K N ≤
-      imageMod 3 K (N ⊓ Subgroup.centralizer (Dd : Set G)) := by
-  rintro q ⟨⟨g, hg, rfl⟩, hqN⟩
-  refine imageMod_fixed_lift hDp hDK hDN hNK hqN ?_
-  intro d hd
-  have hgC : (g : G) ∈ Subgroup.centralizer (Dd : Set G) := (Subgroup.mem_inf.1 (Subgroup.mem_subgroupOf.1 hg)).2
-  have hcomm : d * (g : G) = (g : G) * d := Subgroup.mem_centralizer_iff.1 hgC d hd
-  show barAut 3 K ⟨d, hDK hd⟩ (pQuotHom 3 K g) = pQuotHom 3 K g
-  rw [barAut_pQuotHom]
-  congr 1
-  apply Subtype.ext
-  show d * (g : G) * d⁻¹ = g
-  rw [hcomm]
-  group
 
 theorem imageMod_inf_centralizer_le {L N : Subgroup G} {y : G} (hy : y ∈ L) (hy3 : y ^ 3 = 1) (hNL : N ≤ L)
     (hyN : y ∈ Subgroup.normalizer (N : Set G)) :
@@ -2368,8 +2212,6 @@ theorem imageMod_normCent {L T : Subgroup G} {x y : G} (hxL : L ≤ Subgroup.cen
     exact ⟨hg.1.2, hg.2⟩
   exact ⟨⟨hg.1.1, hgD.2⟩, hg.1.2⟩
 
-theorem genByPElts_of_isElemAbelian {p : ℕ} {I : Subgroup G} (hI : IsElemAbelian p I) : GenByPElts p I :=
-  fun g hg => Subgroup.subset_closure ⟨hg, isPGroup_zpowers_of_pow_eq_one (hI.2 g hg)⟩
 
 theorem genByPElts_layer {p : ℕ} (hp : p.Prime) (X : Subgroup G) : GenByPElts p (GLAPLayer p X) := by
   haveI : Fact p.Prime := ⟨hp⟩

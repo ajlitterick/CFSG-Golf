@@ -118,13 +118,6 @@ theorem R_mem {θ : L → ℂ} (hθ : θ ∈ W.RFam) : θ ∈ BlocksIrr L := by
 theorem S_mem {θ : L → ℂ} (hθ : θ ∈ W.SFam) : θ ∈ BlocksIrr L := by
   rw [W.irr]; simp [hθ]
 
-include W in
-theorem q_complex_ge : (7 : ℝ) ≤ (q : ℝ) := by exact_mod_cast W.q_ge
-
-omit [Fintype L] in
-theorem ne_of_deg {θ θ' : L → ℂ} (h : θ 1 ≠ θ' 1) : θ ≠ θ' := fun h' => h (by rw [h'])
-
-theorem deg_ne_aux {a b : ℤ} (h : a ≠ b) : ((a : ℂ)) ≠ (b : ℂ) := by exact_mod_cast h
 
 theorem mem_irr_iff (θ : L → ℂ) : θ ∈ BlocksIrr L ↔
     θ = 1 ∨ θ = W.θ2 ∨ θ = W.θ3 ∨ θ = W.θ4 ∨ θ ∈ W.RFam ∨ θ ∈ W.SFam := by

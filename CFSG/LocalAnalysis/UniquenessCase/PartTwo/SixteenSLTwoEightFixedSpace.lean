@@ -237,18 +237,5 @@ theorem s168e3_seven_mem_and_fixV_eq_bot_of_sl2_eight_of_s_eq_one
   exact s168e3_seven_mem_and_fixV_eq_bot_of_sl2_eight_realization
     (K := K) (fieldK := hKf) (finiteK := hKfin) c hthin hs hK8 hreal
 
-theorem s168e3_fixV_eq_bot_of_sl2_eight_of_s_eq_one
-    {G : Type} [Group G] [Finite G]
-    {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV)
-    (_hcomp : IsComponentOf (lBar V₀ V hV L) (Mbar D.M V₀ V hV))
-    (hthin : ∀ q : ℕ, q.Prime → q ≠ 2 → CFSG.Open.pRank q (lBar V₀ V hV L) ≤ 1)
-    (hs : s15 D.M V₀ V hV L = 1)
-    (hrow : s16h_H5RowSL2 (lBar V₀ V hV L)
-      (commSub ⊤ (lBar V₀ V hV L))
-      (commSub ⊤ (lBar V₀ V hV L) ⊓ fixV (lBar V₀ V hV L)) 3) :
-    fixV (lBar V₀ V hV L) = ⊥ :=
-  (s168e3_seven_mem_and_fixV_eq_bot_of_sl2_eight_of_s_eq_one
-    c _hcomp hthin hs hrow).2
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

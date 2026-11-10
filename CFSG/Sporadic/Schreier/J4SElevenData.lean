@@ -12,8 +12,6 @@ open scoped Matrix
 
 @[expose] def max7Text : String := include_str "../../../Certificates/Data/CFSGNative/J4Schreier/max7-slp.txt"
 
-@[expose] def max7Sha : ℕ :=
-  0xce71b65dec7b02b2b52fdbf53fc7856efc12f1cce0777c3f0939c3f906659e53
 
 @[expose] def slpTokens (s : String) : List String := (s.splitOn " ").filter fun t => !t.isEmpty
 

@@ -93,27 +93,6 @@ theorem block_commutes {G : Type*} [Group G] [Finite G] (component : Subgroup G)
   intro first hfirst second hsecond hne
   exact (block_related component heven huniversal first second hfirst hsecond).resolve_left hne
 
-theorem generated_perfect {G : Type*} [Group G] (component : Subgroup G)
-    (hquasisimple : IsQuasisimple component) : Group.IsPerfect (generated component) := by
-  apply CommutingComponentFamily.perfect
-  intro factor hfactor
-  exact ⟨(orbit_quasisimple component hquasisimple factor hfactor.1).1⟩
-
-theorem factor_normal {G : Type*} [Group G] [Finite G] (component : Subgroup G)
-    (heven : Even (Nat.card component)) (huniversal : UniversalComponentBlock.Universal component)
-    (factor : Subgroup G) (hfactor : factor ∈ block component) :
-    (factor.subgroupOf (generated component)).Normal :=
-  CommutingComponentFamily.factor_normal (block component)
-    (block_commutes component heven huniversal) factor hfactor
-
-theorem components_exact {G : Type*} [Group G] [Finite G] (component : Subgroup G)
-    (heven : Even (Nat.card component)) (huniversal : UniversalComponentBlock.Universal component)
-    (hquasisimple : IsQuasisimple component) (factor : Subgroup G)
-    (hfactorLe : factor ≤ generated component) :
-    IsComponentOf (factor.subgroupOf (generated component)) ⊤ ↔ factor ∈ block component :=
-  CommutingComponentFamily.components_exact (block component)
-    (block_commutes component heven huniversal)
-    (fun factor hfactor => orbit_quasisimple component hquasisimple factor hfactor.1) factor hfactorLe
 
 theorem factor_component_normalizer {G : Type*} [Group G] [Finite G] (component : Subgroup G)
     (heven : Even (Nat.card component)) (huniversal : UniversalComponentBlock.Universal component)
@@ -191,36 +170,5 @@ theorem involution_centralizer_le {G : Type*} [Group G] [Finite G] (component : 
       (orbit_universal component huniversal _ horbit) huniversal hrelated hfactor.2⟩
   exact normalizes_of_anchor_image component heven huniversal hquasisimple factor hfactor actor hblock
 
-theorem normalizer_proper {G : Type*} [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ left right : G, left * right ≠ right * left) (component : Subgroup G)
-    (heven : Even (Nat.card component)) (huniversal : UniversalComponentBlock.Universal component)
-    (hquasisimple : IsQuasisimple component)
-    (hcentralizer : Even (Nat.card (Subgroup.centralizer (component : Set G)))) :
-    normalizer component ≠ ⊤ := by
-  intro htop
-  have hnormal : (generated component).Normal := Subgroup.normalizer_eq_top_iff.mp htop
-  have hcomponentLe : component ≤ generated component :=
-    CommutingComponentFamily.factor_le (block component) component (mem_block_self component)
-  have hgeneratedNe : generated component ≠ ⊥ := by
-    intro hbot
-    have hcomponentBot := le_bot_iff.mp (hbot ▸ hcomponentLe)
-    exact (component.nontrivial_iff_ne_bot.mp (Quasisimple.nontrivial hquasisimple)) hcomponentBot
-  have hgeneratedTop : generated component = ⊤ := hnormal.eq_bot_or_eq_top.resolve_left hgeneratedNe
-  have hcomponentNormalLocal := factor_normal component heven huniversal component (mem_block_self component)
-  have hnormalizes : generated component ≤ Subgroup.normalizer (component : Set G) :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hcomponentLe).mp hcomponentNormalLocal
-  have hcomponentNormalizerTop : Subgroup.normalizer (component : Set G) = ⊤ := by
-    apply top_unique
-    rwa [hgeneratedTop] at hnormalizes
-  have hcomponentNormal : component.Normal := Subgroup.normalizer_eq_top_iff.mp hcomponentNormalizerTop
-  have hcomponentTop : component = ⊤ := hcomponentNormal.eq_bot_or_eq_top.resolve_left
-    (component.nontrivial_iff_ne_bot.mp (Quasisimple.nontrivial hquasisimple))
-  have hcenter := Helpers.center_eq_bot G hnonab
-  have hcentralizerBot : Subgroup.centralizer (component : Set G) = ⊥ := by
-    rw [hcomponentTop]
-    simpa only [Subgroup.coe_top, Subgroup.centralizer_univ] using hcenter
-  rw [hcentralizerBot, Subgroup.card_bot] at hcentralizer
-  have hnot : ¬ Even (1 : ℕ) := by rw [Nat.even_iff]; decide
-  exact hnot hcentralizer
 
 end CFSG.ComponentClassification.UniversalOrbitBlock

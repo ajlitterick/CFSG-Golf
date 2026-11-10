@@ -651,41 +651,6 @@ theorem centralizer_le_range_of_twoD
   obtain ⟨g, rfl⟩ := isConj_iff.1 ha
   exact ⟨Φ g, ⟨g, rfl⟩, by rw [map_mul, map_mul, map_inv, hΦc]⟩
 
-theorem centralizer_le_range_of_rankS_eq_2168
-    {G : Type} [Group G] [Finite G] {d : G}
-    (hd : d ≠ 1) (ψ : Subgroup.centralizer {d} ≃* vStab cv0) (Φ : Shat →* G)
-    (hΦ : ∀ a : vStab cv0, Φ a = psiInvHom ψ a)
-    (hDM : conjugatesOf d ∩ (Φ.range : Set G) = dZero Φ.range d) (hGold : GoldschmidtTheorem)
-    (t₀ : Shat) (X₀ W₀ : Subgroup Shat)
-    (hN1 : orderOf t₀ = 2 ∧ rankS t₀ = 2168 ∧ t₀ ∈ X₀ ∧ t₀ ∉ W₀)
-    (hN2 : (∀ x ∈ X₀, x * x = 1) ∧ (∀ x ∈ X₀, ∀ y ∈ X₀, x * y = y * x) ∧ W₀ ≤ X₀)
-    (hN3 : ∃ a ∈ X₀, IsConj (cV0 : Shat) a)
-    (hN4 : ∀ x ∈ W₀, x ≠ 1 → orderOf x = 2 ∧ rankS x = 2048)
-    (hN4a : ∃ a ∈ W₀, ∃ b ∈ W₀, a ≠ 1 ∧ b ≠ 1 ∧ a ≠ b)
-    (hN4b : ∀ g ∈ Subgroup.centralizer {t₀}, ∀ w ∈ W₀, g * w * g⁻¹ ∈ W₀)
-    (hN6 : Subgroup.centralizer {t₀} ≤ Subgroup.normalizer (X₀ : Set Shat))
-    (hN7 : ∀ R : Subgroup Shat, R ≤ X₀ →
-      (∀ g ∈ Subgroup.centralizer {t₀}, ∀ r ∈ R, g * r * g⁻¹ ∈ R) →
-      R = ⊥ ∨ R = Subgroup.zpowers t₀ ∨ R = W₀ ∨ R = X₀)
-    (hN8 : ∀ g ∈ Subgroup.centralizer {t₀},
-      (∀ x ∈ X₀, g * x * g⁻¹ = x ∨ g * x * g⁻¹ = x * t₀) → ∀ x ∈ X₀, g * x * g⁻¹ = x)
-    (hN9 : IsPGroup 2 (Subgroup.centralizer (X₀ : Set Shat)))
-    {O : Type} [Group O] (ρ : ↥(Subgroup.centralizer {t₀}) →* O) (hρ : Function.Surjective ρ)
-    (hker : ∀ g : ↥(Subgroup.centralizer {t₀}),
-      ρ g = 1 ↔ ∀ x ∈ X₀, (g : Shat) * x * (g : Shat)⁻¹ = x)
-    (Ω : Subgroup O) (hΩ : IsSimpleGroup Ω)
-    (hΩmin : ∀ R : Subgroup O, R.Normal → R ≠ ⊥ → Ω ≤ R)
-    (hΩcard : 2 ^ 12 * 3 ^ 5 * 5 ^ 2 * 7 ∣ Nat.card Ω)
-    (hN11 : Nat.card (Subgroup.centralizer {t₀} : Subgroup Shat) = 2 ^ 38 * 3 ^ 5 * 5 ^ 2 * 7)
-    (hN12 : CFSG.oddCore ↥(Subgroup.centralizer {t₀} : Subgroup Shat) = ⊥)
-    (hN13 : ∀ s : Shat, s * s = 1 → ∃ a, IsConj (cV0 : Shat) a ∧ a * s = s * a) :
-    ∀ s : Shat, orderOf s = 2 → rankS s = 2168 → Subgroup.centralizer {Φ s} ≤ Φ.range := by
-  intro s hs hrk
-  obtain ⟨g, rfl⟩ := isConj_iff.1 (isConj_of_rankS_eq hN1.1 hs (hN1.2.1.trans hrk.symm))
-  rw [map_mul, map_mul, map_inv]
-  exact centralizer_conj_le_range (centralizer_le_range_of_twoD hd ψ Φ hΦ hDM hGold t₀ X₀ W₀
-    hN1 hN2 hN3 hN4 hN4a hN4b hN6 hN7 hN8 hN9 ρ hρ hker Ω hΩ hΩmin hΩcard hN11 hN12
-    hN13) ⟨g, rfl⟩
 
 theorem centralizer_le_range_of_twoD_native
     {G : Type} [Group G] [Finite G] {d : G}

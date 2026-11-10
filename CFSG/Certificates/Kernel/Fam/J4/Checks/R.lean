@@ -18,7 +18,6 @@ theorem rinv : CFSG.KC.Fam.invPairs RW (CFSG.KC.Ord.mulR 2 8 896 112 5 L H CM RM
     0x23001a0016 0x2600250024 3 = true := by
   quickRfl
 
-theorem rlen : Nat.beq (CFSG.KC.Ord.lenRels rels) 12 = true := by quickRfl
 
 @[expose] def relC (r : Nat) : Bool :=
   CFSG.KC.Fam.relOKL RW (CFSG.KC.Ord.mulR 2 8 896 112 5 L H CM RM) rels ONE 0x23001a0016

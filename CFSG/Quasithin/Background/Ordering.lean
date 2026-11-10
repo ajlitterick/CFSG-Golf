@@ -80,10 +80,6 @@ theorem VZ_le_of_ordLE {T H₁ H₂ : Subgroup G} (hle : OrdLE T H₁ H₂) :
   rw [heq]
   exact mem_conjClosure ha.2 hz
 
-theorem centralizer_VZ_le_of_ordLE {T H₁ H₂ : Subgroup G} (hle : OrdLE T H₁ H₂) :
-    H₂ ⊓ Subgroup.centralizer (VZ T H₂ : Set G) ≤
-      H₂ ⊓ Subgroup.centralizer (VZ T H₁ : Set G) :=
-  inf_le_inf_left _ (Subgroup.centralizer_le (VZ_le_of_ordLE hle))
 
 theorem centralizer_VZ_le_of_ordLE_of_isHv {T H₁ H₂ : Subgroup G} (hle : OrdLE T H₁ H₂)
     (hv : IsHv T H₁) :
@@ -110,13 +106,6 @@ theorem eq_of_ordLE_antisymm {T H₁ H₂ : Subgroup G} (hv₁ : IsHv T H₁) (h
     (h₁₂ : OrdLE T H₁ H₂) (h₂₁ : OrdLE T H₂ H₁) : H₁ = H₂ :=
   eq_of_VZ_eq hv₁ hv₂ (le_antisymm (VZ_le_of_ordLE h₁₂) (VZ_le_of_ordLE h₂₁))
 
-theorem isHv_eq_tfae {T H₁ H₂ : Subgroup G} (hv₁ : IsHv T H₁) (hv₂ : IsHv T H₂) :
-    List.TFAE [H₁ = H₂, VZ T H₁ = VZ T H₂, OrdLE T H₁ H₂ ∧ OrdLE T H₂ H₁] := by
-  tfae_have 1 → 2 := fun h => by rw [h]
-  tfae_have 2 → 1 := eq_of_VZ_eq hv₁ hv₂
-  tfae_have 1 → 3 := fun h => by subst h; exact ⟨ordLE_refl T H₁, ordLE_refl T H₁⟩
-  tfae_have 3 → 1 := fun h => eq_of_ordLE_antisymm hv₁ hv₂ h.1 h.2
-  tfae_finish
 
 theorem ordLE_trans {T H₁ H₂ H₃ : Subgroup G} (hv₁ : IsHv T H₁) (h₁₂ : OrdLE T H₁ H₂)
     (h₂₃ : OrdLE T H₂ H₃) : OrdLE T H₁ H₃ := by

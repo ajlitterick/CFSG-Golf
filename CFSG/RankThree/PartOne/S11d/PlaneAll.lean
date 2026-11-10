@@ -46,13 +46,6 @@ end PlaneCases
     (∃ a b : T, a * b ≠ b * a) → Nonempty (T ≃* NativeSporadic.Carrier s) →
       Nat.card (Outer T) < 25 ∨ ∀ q : ℕ, q.Prime → 5 ≤ q → ¬ q ∣ Nat.card (Outer T)
 
-@[expose] def PlaneCenterP : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (p : ℕ) (J A : Subgroup H) (c : H),
-    p.Prime → 5 ≤ p → localRank p H ≤ 3 → CFSG.IsQuasisimple ↥J →
-    Catalog (↥J ⧸ Subgroup.center ↥J) → p ∣ Nat.card (Subgroup.center ↥J) →
-    A ≤ Subgroup.normalizer (J : Set H) → IsElementaryAbelian p A → Nat.card A = p ^ 3 →
-    c ∈ A → c ≠ 1 → c ∈ Subgroup.centralizer (J : Set H) →
-    (∀ x ∈ A, x ∈ J ⊔ Subgroup.centralizer (J : Set H) → x ∈ Subgroup.zpowers c) → False
 
 @[expose] def PlaneCenterP' : Prop :=
   ∀ (H : Type) [Group H] [Finite H] (p : ℕ) (J A : Subgroup H) (c : H),

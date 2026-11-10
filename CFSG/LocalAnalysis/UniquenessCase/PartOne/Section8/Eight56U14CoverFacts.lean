@@ -186,6 +186,5 @@ theorem kFactGammaStrong : KFactGammaStrong := by
   rw [CFSG.AGLEmbedding.Norton.OrdinaryProofs.GLBCore_map_conj]
   exact hdvd
 
-open CFSG.Blueprint (LieModel)
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

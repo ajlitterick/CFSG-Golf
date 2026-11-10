@@ -118,14 +118,6 @@ section Families
 @[expose] def Item434SmallTwoOtherAtTits : Prop :=
   Item434SecFor IsSmallTwoOtherTits
 
-@[expose] def Item434SmallTwoOtherAtL52 : Prop :=
-  Item434SecFor IsSmallTwoOtherL52
-
-@[expose] def Item434SmallTwoOtherAtL62 : Prop :=
-  Item434SecFor IsSmallTwoOtherL62
-
-@[expose] def Item434SmallTwoOtherAtL72 : Prop :=
-  Item434SecFor IsSmallTwoOtherL72
 
 @[expose] def Item434SmallTwoOtherAtL44 : Prop :=
   Item434SecFor IsSmallTwoOtherL44

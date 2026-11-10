@@ -78,29 +78,6 @@ theorem units_map_entrywiseHom_rootDiagUnit (σ : L →+* L) (a : Fin τ.rank �
       rootDiagUnit τ fun i => Units.map σ.toMonoidHom (a i) :=
   Units.ext (entrywise_rootDiag σ a)
 
-theorem exists_label_of_conj_rootDiagUnit {ι : Type*} (z : ModGL τ L)
-    (a a' : ι → Fin τ.rank → Lˣ)
-    (hz : ∀ t, z * rootDiagUnit τ (a' t) * z⁻¹ = rootDiagUnit τ (a t)) (α : Label τ) :
-    ∃ b, ∀ t, rootChar (a t) (labelWt τ b) = rootChar (a' t) (labelWt τ α) := by
-  obtain ⟨b, hb⟩ := exists_label_of_conj_diag z (fun t => rootDiag (a t))
-    (fun t => rootDiag (a' t)) (fun t b => (rootChar (a t) (labelWt τ b) : L))
-    (fun t b => (rootChar (a' t) (labelWt τ b) : L)) (fun t b => rootDiag_single (a t) b)
-    (fun t b => rootDiag_single (a' t) b) (fun t => by
-      have h : z * rootDiagUnit τ (a' t) = rootDiagUnit τ (a t) * z := by
-        rw [← hz t]
-        group
-      exact congrArg Units.val h) α
-  exact ⟨b, fun t => Units.ext (hb t)⟩
-
-theorem exists_label_of_conj_entrywise_rootDiagUnit {ι : Type*} (σ : L →+* L) (z : ModGL τ L)
-    (a : ι → Fin τ.rank → Lˣ)
-    (hz : ∀ t, z * Units.map (entrywiseHom σ) (rootDiagUnit τ (a t)) * z⁻¹ =
-      rootDiagUnit τ (a t)) (α : Label τ) :
-    ∃ b, ∀ t, rootChar (a t) (labelWt τ b) =
-      Units.map σ.toMonoidHom (rootChar (a t) (labelWt τ α)) := by
-  simp only [units_map_entrywiseHom_rootDiagUnit] at hz
-  obtain ⟨b, hb⟩ := exists_label_of_conj_rootDiagUnit z a _ hz α
-  exact ⟨b, fun t => (hb t).trans (units_map_rootChar σ (a t) _).symm⟩
 
 theorem entrywise_torusElt'
     (σ : L →+* L) (i : Fin τ.rank) (t : Lˣ) :

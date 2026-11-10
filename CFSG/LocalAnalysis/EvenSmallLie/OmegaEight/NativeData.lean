@@ -220,15 +220,6 @@ open CFSG.ComponentClassification.J2Cover (arrTable chainTables)
 
 @[expose] def conjArrs : List (Array ℕ) := conjWords.map autW
 
-@[expose] def sylowRepsCheck : Bool :=
-  repsOK 360 sylowGensT sylowGensInvT invList (repArrs.map (arrTable 360)) 100 &&
-    repArrs.all (fun r => ordTest 360 2 (arrTable 360 r)) &&
-    (List.range 38).all fun j =>
-      siftA 360 (rawLevels 360 omegaS (omegaBase.map Fin.val).toArray)
-          (omegaBase.map Fin.val).toArray 0 (repArrs.getD j #[]) ==
-        decide (repTypes.getD j 0 < 3) &&
-      eqA 360 (conjArr (conjArrs.getD j #[]) (mainArrs.getD (repTypes.getD j 0) #[]))
-        (repArrs.getD j #[])
 
 @[expose] def cent0Words : List (List (List ℤ)) :=
   [[[7, 1, 3, 1, 6, 7, 11], [2, 1, 3, 1, 3, 15, 11], [7, 1, 3, 1, 7],

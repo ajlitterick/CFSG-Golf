@@ -32,9 +32,6 @@ theorem hstar_smul (c : K) (A : Matrix ι ι K) : hstar σ (c • A) = σ c • 
   rw [hstar, Matrix.map_smul' _ _ _ (map_mul σ), transpose_smul]
   rfl
 
-theorem hstar_neg (A : Matrix ι ι K) : hstar σ (-A) = -hstar σ A := by
-  rw [hstar, Matrix.map_neg _ (map_neg σ), transpose_neg]
-  rfl
 
 end Hstar
 

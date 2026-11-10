@@ -123,24 +123,12 @@ theorem card : Nat.card (PHat n) = 2 ^ (3 * n + 4) := by
   map_one' := rfl
   map_mul' x y := by ext <;> simp
 
-theorem blockHom_apply (x : SD n × SD n × SD n) : blockHom x = ⟨x.1, x.2.1, x.2.2, 0⟩ := rfl
-
-theorem blockHom_injective : Function.Injective (blockHom (n := n)) := by
-  intro x y h
-  have h1 := congrArg PHat.x₁ h
-  have h2 := congrArg PHat.x₂ h
-  have h3 := congrArg PHat.x₃ h
-  exact Prod.ext h1 (Prod.ext h2 h3)
 
 theorem mk_zero_pow (x₁ x₂ x₃ : SD n) (k : ℕ) :
     (⟨x₁, x₂, x₃, 0⟩ : PHat n) ^ k = ⟨x₁ ^ k, x₂ ^ k, x₃ ^ k, 0⟩ := by
   rw [show (⟨x₁, x₂, x₃, 0⟩ : PHat n) = blockHom (x₁, x₂, x₃) from rfl, ← map_pow]
   rfl
 
-theorem orderOf_mk_zero (x₁ x₂ x₃ : SD n) :
-    orderOf (⟨x₁, x₂, x₃, 0⟩ : PHat n) = orderOf (x₁, x₂, x₃) := by
-  rw [show (⟨x₁, x₂, x₃, 0⟩ : PHat n) = blockHom (x₁, x₂, x₃) from rfl,
-    orderOf_injective _ blockHom_injective]
 
 @[expose] def c : PHat n := ⟨SD.z, SD.z, SD.z, 0⟩
 

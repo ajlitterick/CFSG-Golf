@@ -82,9 +82,6 @@ theorem pow_mem_of_eq_mul {H : Type*} [Group H] {N : Subgroup H} [N.Normal] {a b
     QuotientGroup.eq_one_iff]
   exact hb
 
-theorem pow_two_pow_mem {H : Type*} [Group H] {N : Subgroup H} {a : H} {k m : ℕ}
-    (h : (a ^ (2 ^ k)) ^ (2 ^ m) ∈ N) : a ^ (2 ^ (k + m)) ∈ N := by
-  rwa [pow_add, pow_mul]
 
 theorem restrict_pow_apply (t : G) (α : fixAut t) (n : ℕ) (x : Subgroup.centralizer {t}) :
     ((restrictCent t α ^ n) x : G) = ((α : MulAut G) ^ n) (x : G) := by
@@ -155,15 +152,6 @@ theorem pow_mem_innerAut_of_centralizers {t t₁ : G} {α : MulAut G}
     (by rw [hα₁one]; exact (innerAut G).one_mem)
   rw [hα₁def, ← mul_assoc, ← map_mul, mul_inv_cancel, map_one, one_mul]
 
-theorem outTwo_of_centralizers {t t₁ : G}
-    (hcls : ∀ α : MulAut G, ∃ g : G, α t = g * t * g⁻¹)
-    (hH : OutTwo (Subgroup.centralizer {t})) (hH₁ : OutTwo (Subgroup.centralizer {t₁}))
-    (ht₁ : t₁ ∈ Subgroup.centralizer {t})
-    (hgen : Subgroup.centralizer {t} ⊔ Subgroup.centralizer {t₁} = ⊤)
-    (hC : ∀ y ∈ Subgroup.centralizer {t₁}, (∀ x ∈ Subgroup.centralizer {t},
-      x ∈ Subgroup.centralizer {t₁} → y * x = x * y) → ∃ r : ℕ, y ^ (2 ^ r) = 1) :
-    ∀ α : MulAut G, ∃ k : ℕ, α ^ (2 ^ k) ∈ innerAut G :=
-  fun α => pow_mem_innerAut_of_centralizers (hcls α) hH hH₁ ht₁ hgen hC
 
 theorem finite_mulAut [Finite G] : Finite (MulAut G) :=
   Finite.of_injective (fun f : MulAut G => (f : G → G)) fun _ _ h => MulEquiv.ext (congrFun h)

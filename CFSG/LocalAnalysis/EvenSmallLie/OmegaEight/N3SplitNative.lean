@@ -255,31 +255,5 @@ theorem card_burnSet_eq (hE : enumOK gs E = true) {s : GL12} {sK : ℕ} (hs : Re
   rw [← burnPairs_eq]
   exact card_burnSet_pairs hE hs
 
-@[expose] def maxCheck (E : Enum) (tK : ℕ) : Bool :=
-  let b := burnCount E tK
-  E.keys.all fun s => mulK s s != idK || fixCountF s != 64 || commCount E s != 256 ||
-    burnCount E s != b || E.keys.any fun y => mulK y tK == mulK s y
-
-theorem conj_of_maxCheck (hE : enumOK gs E = true) {tK : ℕ} (h : maxCheck E tK = true)
-    {tb : GL12} (ht : Rep tK tb) {s : GL12} (hs : s ∈ grpOf gs) (hs2 : s * s = 1)
-    (hfix : Nat.card (fixM (s : Mat12)) = 2 ^ 6)
-    (hcs : Nat.card ↥(grpOf gs ⊓ centralizer ({s} : Set GL12)) = 2 ^ 8)
-    (hb : Nat.card (burnSet (grpOf gs) s) = Nat.card (burnSet (grpOf gs) tb)) :
-    ∃ y ∈ grpOf gs, s = y * tb * y⁻¹ := by
-  obtain ⟨i, hi, hri⟩ := Enum.exists_key hE hs
-  simp only [maxCheck, Array.all_eq_true, Bool.or_eq_true, bne_iff_ne, ne_eq,
-    Array.any_eq_true, beq_iff_eq] at h
-  rcases h i hi with ((((h1 | h1) | h1) | h1) | ⟨j, hj, h1⟩)
-  · rw [← getD_mem hi] at h1
-    exact absurd ((hri.mul hri).key_unique (by rw [hs2]; exact rep_one) (mulK_lt _ _) idK_lt) h1
-  · rw [← getD_mem hi] at h1
-    exact absurd (by rw [fixCountF_eq, ← card_fixM_eq, hri, hfix]; norm_num) h1
-  · rw [← getD_mem hi] at h1
-    exact absurd (by rw [← card_inf_centralizer_eq hE hri, hcs]; norm_num) h1
-  · rw [← getD_mem hi] at h1
-    exact absurd (by rw [← card_burnSet_eq hE hri, ← card_burnSet_eq hE ht, hb]) h1
-  · obtain ⟨y, hy, hry⟩ := Enum.exists_mem hE j hj
-    rw [← getD_mem hi, ← getD_mem hj] at h1
-    exact ⟨y, hy, conj_of_key hri ht hry h1⟩
 
 end CFSG.EvenSmallLie.OmegaEight.N3Split

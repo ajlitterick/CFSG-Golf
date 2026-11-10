@@ -325,22 +325,5 @@ theorem stepB (h9 : Stage1469) (h66 : Stage1466Six) (h661 : Stage1466One)
   rw [hconj, hrk] at hrank
   norm_num at hrank
 
-@[expose] def Stage146BranchA : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
-    (∃ H : Subgroup G, IsHTM T M H ∧ ¬ OddCoreModTwoTrivial H) → FinalData146 T M
-
-@[expose] def Stage146BranchB : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
-    (∀ H : Subgroup G, IsHTM T M H → OddCoreModTwoTrivial H) → FinalData146 T M
-
-theorem stageSection146_of_parts (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hA : Stage146BranchA) (hB : Stage146BranchB) (h9 : Stage1469) (h66 : Stage1466Six)
-    (h661 : Stage1466One) (h105 : Stage14610Five) : StageSection146 := by
-  intro G _ _ T M hyp hnot hab
-  have S : Setting146 G T M := ⟨hyp, hyp.facts1422 h11 h113, hnot, hab⟩
-  by_cases h : ∀ H : Subgroup G, IsHTM T M H → OddCoreModTwoTrivial H
-  · exact stepB h9 h66 h661 h105 S (hB G T M S h)
-  · push Not at h
-    exact stepB h9 h66 h661 h105 S (hA G T M S h)
 
 end CFSG.Quasithin

@@ -33,24 +33,6 @@ theorem oddNormal_action_eq_one
   simpa only [map_mul, Representation.asAlgebraHom_single_one, hρ,
     mul_one] using hmap
 
-theorem oddNormal_le_ker
-    (ρ : Representation (ZMod 2) G V)
-    (hρ : PrincipalBlockActsAsIdentity ρ)
-    (N : Subgroup G) [N.Normal] (hNodd : Odd (Nat.card N)) :
-    N ≤ ρ.ker := by
-  intro n hn
-  apply MonoidHom.mem_ker.mpr
-  exact oddNormal_action_eq_one ρ hρ N hNodd ⟨n, hn⟩
-
-theorem oddNormal_action_apply
-    (ρ : Representation (ZMod 2) G V)
-    (hρ : PrincipalBlockActsAsIdentity ρ)
-    (N : Subgroup G) [N.Normal] (hNodd : Odd (Nat.card N))
-    (n : N) (v : V) :
-    ρ (n : G) v = v := by
-  have h := congrArg (fun f : Module.End (ZMod 2) V => f v)
-    (oddNormal_action_eq_one ρ hρ N hNodd n)
-  simpa using h
 
 end ZStar.PrincipalBlockKernel
 

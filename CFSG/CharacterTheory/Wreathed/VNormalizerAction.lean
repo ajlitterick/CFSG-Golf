@@ -261,24 +261,6 @@ theorem modelVQuotientAction_ker [Finite G] (n : ℕ) (hn : 2 ≤ n)
   (QuotientGroup.quotientMulEquivOfEq (modelVQuotientAction_ker n hn S e).symm).trans
     (QuotientGroup.quotientKerEquivRange (modelVQuotientAction S e))
 
-@[expose] def modelVNormalizerQuotientAction [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e →*
-      MulAut (Original.V (2 ^ n) ⧸ Subgroup.center (Original.V (2 ^ n))) :=
-  (modelVQuotientAction S e).range.subtype.comp
-    (modelVNormalizerQuotientEquiv n hn S e).toMonoidHom
-
-theorem modelVNormalizerQuotientAction_injective [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Function.Injective (modelVNormalizerQuotientAction n hn S e) :=
-  (modelVQuotientAction S e).range.subtype_injective.comp
-    (modelVNormalizerQuotientEquiv n hn S e).injective
-
-theorem modelVNormalizerQuotientAction_mk [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (g : Subgroup.normalizer (modelV S e : Set G)) :
-    modelVNormalizerQuotientAction n hn S e
-      ((QuotientGroup.mk' (modelVInnerCentralizer S e)) g) = modelVQuotientAction S e g := rfl
 
 theorem modelVQuotientAction_image_alternatives (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -307,10 +289,6 @@ theorem modelVNormalizerQuotient_alternatives [Finite G] (n : ℕ) (hn : 2 ≤ n
     (fun g => (mem_centerFixingAutomorphisms_iff _).mpr
       (modelVAction_fixes_center n hn S e g))
 
-theorem modelVCenterFixingAction_quotient [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centerFixingQuotientAction (Original.V (2 ^ n))).comp
-      (modelVCenterFixingAction n hn S e) = modelVQuotientAction S e := rfl
 
 theorem modelVAction_image_isPGroup_of_quotient_order_two [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))

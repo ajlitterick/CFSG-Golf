@@ -181,34 +181,6 @@ theorem index_eq_nine {P : Subgroup W3} (hP : IsSylowTwoOf P ⊤) : P.index = 9 
 theorem mem_N0_of_pow_three : ∀ w : W3, w ^ 3 = 1 → w ∈ N0 := by
   decide +kernel
 
-theorem no_normal_of_three_dvd {N : Subgroup W3} (hN : N.Normal) (h3 : 3 ∣ Nat.card N)
-    (h9 : ¬ 9 ∣ Nat.card N) : False := by
-  have hinv : ∀ p ∈ P0, ∀ c ∈ N ⊓ N0, p * c * p⁻¹ ∈ N ⊓ N0 := fun p _ c hc =>
-    ⟨hN.conj_mem c hc.1 p, N0_normal.conj_mem c hc.2 p⟩
-  rcases N0_irred inf_le_right hinv with h | h
-  · have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    obtain ⟨x, hx⟩ := exists_prime_orderOf_dvd_card' (G := N) 3 h3
-    have hx3 : (x : W3) ^ 3 = 1 := by
-      have := pow_orderOf_eq_one x
-      rw [hx] at this
-      simpa using congrArg Subtype.val this
-    have hxm : (x : W3) ∈ N ⊓ N0 := ⟨x.2, mem_N0_of_pow_three _ hx3⟩
-    rw [h] at hxm
-    have hx1 : x = 1 := Subtype.ext (Subgroup.mem_bot.mp hxm)
-    rw [hx1, orderOf_one] at hx
-    omega
-  · have hle : N0 ≤ N := fun x hx => by
-      have : x ∈ N ⊓ N0 := by rw [h]; exact hx
-      exact this.1
-    exact h9 (card_N0 ▸ Subgroup.card_dvd_of_le hle)
-
-theorem no_normal_order_twelve {N : Subgroup W3} (hN : N.Normal) : Nat.card N ≠ 12 := by
-  intro h12
-  exact no_normal_of_three_dvd hN (by rw [h12]; norm_num) (by rw [h12]; norm_num)
-
-theorem no_normal_order_six {N : Subgroup W3} (hN : N.Normal) : Nat.card N ≠ 6 := by
-  intro h6
-  exact no_normal_of_three_dvd hN (by rw [h6]; norm_num) (by rw [h6]; norm_num)
 
 end W3
 

@@ -54,47 +54,9 @@ theorem glAut_conj_hermitianUnipotentGL (z : hermitianUnipotentCoord J) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp [hermitianUnipotentMatrix, J.conj_involutive _]
 
-theorem diag3_one_smul_point (e : Kˣ) {i : Fin 3} (hi : i ≠ 1) :
-    ProjGenLinGroup.mk (diag3 1 e 1) • unitaryCoordinatePoint (K := K) i =
-      unitaryCoordinatePoint i := by
-  rw [unitary_projective_coordinate_maps_iff]
-  intro k hk
-  rw [coe_diag3]
-  fin_cases i <;> fin_cases k <;> simp_all
 
 variable [CharP K 2] [Finite K]
 
-omit [CharP K 2] in
-theorem coverToPGL_sublineAutHom_inl (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
-    (hC : C ≤ scalarCenter J) (e : normOne J) (x : J.specialSubgroup ⧸ C) :
-    coverToPGL J C hJ hC (sublineAutHom J C hJ hC (SemidirectProduct.inl e) x) =
-      ProjGenLinGroup.mk (diag3 1 (e : Kˣ) 1) * coverToPGL J C hJ hC x *
-        (ProjGenLinGroup.mk (diag3 1 (e : Kˣ) 1))⁻¹ := by
-  obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective C x
-  obtain ⟨hg, h⟩ := sublineAutHom_mk hJ hC (SemidirectProduct.inl e) g
-  change coverToPGL J C hJ hC (sublineAutHom J C hJ hC (SemidirectProduct.inl e)
-    (g : J.specialSubgroup ⧸ C)) = _
-  rw [h, coverToPGL_mk, show coverToPGL J C hJ hC ((QuotientGroup.mk' C) g) =
-    ProjGenLinGroup.mk (g : GL (Fin 3) K) from rfl]
-  simp only [SemidirectProduct.left_inl, SemidirectProduct.right_inl, OneMemClass.coe_one,
-    map_one, MulAut.one_apply, map_mul, map_inv]
-
-omit [CharP K 2] in
-theorem sublineAutHom_inl_smul_iff (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
-    (hC : C ≤ scalarCenter J) (e : normOne J) (x : J.specialSubgroup ⧸ C) {i : Fin 3}
-    (hi : i ≠ 1) :
-    coverToPGL J C hJ hC (sublineAutHom J C hJ hC (SemidirectProduct.inl e) x) •
-        unitaryCoordinatePoint (K := K) 0 = unitaryCoordinatePoint i ↔
-      coverToPGL J C hJ hC x • unitaryCoordinatePoint (K := K) 0 = unitaryCoordinatePoint i := by
-  rw [coverToPGL_sublineAutHom_inl, mul_smul, mul_smul,
-    inv_smul_eq_iff.mpr (diag3_one_smul_point (e : Kˣ) (i := 0) (by decide)).symm]
-  constructor
-  · intro h
-    have h' := congrArg (fun P => (ProjGenLinGroup.mk (diag3 1 (e : Kˣ) 1))⁻¹ • P) h
-    simp only [inv_smul_smul] at h'
-    rw [h', inv_smul_eq_iff, diag3_one_smul_point _ hi]
-  · intro h
-    rw [h, diag3_one_smul_point _ hi]
 
 theorem sublineAutHom_bar_heisL {f : ℕ} (hf : 2 ≤ f) (hcard : Nat.card K = (2 ^ f) ^ 2)
     (hfixed : Nat.card {x : K // J.conj x = x} = 2 ^ f)

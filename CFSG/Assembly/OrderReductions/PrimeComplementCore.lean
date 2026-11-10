@@ -148,23 +148,6 @@ theorem core_quotient_eq_bot (prime : ℕ) (group : Type*) [Group group] [Finite
     QuotientGroup.map_mk'_self] at image_le
   exact le_antisymm image_le bot_le
 
-theorem normal_subgroup_core_map_le {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (normal : Subgroup group) [normal.Normal] :
-    (primeComplementCore prime normal).map normal.subtype ≤ primeComplementCore prime group := by
-  have : ((primeComplementCore prime normal).map normal.subtype).Normal :=
-    CFSG.OrderReductions.OddCore.characteristic_subgroup_map_normal normal (primeComplementCore prime normal)
-  apply normal_le_primeComplementCore prime
-  rw [Subgroup.card_map_of_injective Subtype.val_injective]
-  exact primeComplementCore_coprime prime normal
-
-theorem primeComplementCore_two_eq_oddCore (group : Type*) [Group group] [Finite group] :
-    let prime_two : Fact (Nat.Prime 2) := ⟨by decide⟩
-    primeComplementCore 2 group = CFSG.OrderReductions.OddCore.oddCore group := by
-  have : Fact (Nat.Prime 2) := ⟨by decide⟩
-  apply le_antisymm
-  · apply CFSG.OrderReductions.OddCore.normal_le_oddCore
-    exact Nat.not_even_iff_odd.mp (fun even_core => primeComplementCore_coprime 2 group even_core.two_dvd)
-  · exact normal_le_primeComplementCore 2 _ (CFSG.OrderReductions.OddCore.oddCore_odd group).not_two_dvd_nat
 
 @[expose] noncomputable def ambientCore {group : Type*} [Group group] [Finite group]
     (prime : ℕ) [Fact (Nat.Prime prime)] (subgroup : Subgroup group) : Subgroup group :=
@@ -222,45 +205,5 @@ theorem ambientCore_map_equiv {source target : Type*}
   rw [intertwines, ← Subgroup.map_map] at image_eq
   exact image_eq
 
-theorem ambientCore_le_ambientCore_of_normal_inclusion {group : Type*}
-    [Group group] [Finite group] (prime : ℕ) [Fact (Nat.Prime prime)]
-    (smaller larger : Subgroup group) (contains : smaller ≤ larger)
-    [(smaller.subgroupOf larger).Normal] :
-    ambientCore prime smaller ≤ ambientCore prime larger := by
-  let internal := smaller.subgroupOf larger
-  let equivalence := Subgroup.subgroupOfEquivOfLe contains
-  have internal_le := normal_subgroup_core_map_le prime internal
-  have image_le := Subgroup.map_mono (f := larger.subtype) internal_le
-  rw [Subgroup.map_map] at image_le
-  have core_eq := map_core_eq_of_equiv prime equivalence
-  have core_image_eq := congrArg (Subgroup.map smaller.subtype) core_eq
-  rw [Subgroup.map_map] at core_image_eq
-  have intertwines : smaller.subtype.comp equivalence.toMonoidHom =
-      larger.subtype.comp internal.subtype := by
-    ext element
-    rfl
-  rw [intertwines] at core_image_eq
-  rw [core_image_eq] at image_le
-  exact image_le
-
-theorem core_preimage_eq_of_coprime_kernel {source target : Type*}
-    [Group source] [Finite source] [Group target] [Finite target]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (homomorphism : source →* target)
-    (surjective : Function.Surjective homomorphism) (kernel_coprime : ¬ prime ∣ Nat.card homomorphism.ker) :
-    (primeComplementCore prime target).comap homomorphism = primeComplementCore prime source := by
-  apply le_antisymm
-  · have : ((primeComplementCore prime target).comap homomorphism).Normal :=
-      (inferInstance : (primeComplementCore prime target).Normal).comap homomorphism
-    exact normal_le_primeComplementCore prime _ (primeComplement_preimage prime homomorphism
-      surjective kernel_coprime _ (primeComplementCore_coprime prime target))
-  · exact Subgroup.map_le_iff_le_comap.mp (map_core_le_of_surjective prime homomorphism surjective)
-
-theorem core_image_eq_of_coprime_kernel {source target : Type*}
-    [Group source] [Finite source] [Group target] [Finite target]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (homomorphism : source →* target)
-    (surjective : Function.Surjective homomorphism) (kernel_coprime : ¬ prime ∣ Nat.card homomorphism.ker) :
-    (primeComplementCore prime source).map homomorphism = primeComplementCore prime target := by
-  rw [← core_preimage_eq_of_coprime_kernel prime homomorphism surjective kernel_coprime,
-    Subgroup.map_comap_eq_self_of_surjective surjective]
 
 end CFSG.OrderReductions.PrimeComplementCore

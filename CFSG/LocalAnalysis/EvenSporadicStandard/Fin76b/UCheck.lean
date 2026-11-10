@@ -25,11 +25,6 @@ namespace UCheckAux
     peqB m tI (dMul (f a).1 u.1, m (f a).2 u.2) (dMul u.1 (f a).1, m u.2 (f a).2)) &&
   (List.range 32).all (fun a => !peqB m tI (f a) u)
 
-@[expose] def uGlobal (m : ℕ → ℕ → ℕ) (tI : ℕ) : Bool :=
-  decide (tI < 32) && decide (tI ≠ 0) && decide (m tI tI = 0) &&
-  (List.range 32).all (fun a => (List.range 32).all fun b => decide (m a b < 32)) &&
-  (List.range 32).all (fun a =>
-    !((List.range 32).all fun b => m a b == m b a) || decide (a = 0) || decide (a = tI))
 
 @[expose] def ucanon (m : ℕ → ℕ → ℕ) (tI p : ℕ) : ℕ :=
   if (p / 32) % 4 < 2 then p else 32 * dMul (p / 32) 2 + m (p % 32) tI
@@ -63,99 +58,14 @@ namespace UCheckAux
       let v := ev NU (fun i => q.getD i 0) (wd W a)
       (v / 32, v % 32)
 
-@[expose] def uCheckAux (m : ℕ → ℕ → ℕ) (tI : ℕ) : Bool :=
-  uGlobal m tI &&
-    let E := tab2 32 m
-    let gw := mkGens 32 E
-    let W := gw.2.map fun o => o.getD []
-    let NU := tab2 256 (umul m tI)
-    (List.range 8).all fun i => (List.range 32).all fun k =>
-      !(peqB m tI (dMul i i, m k k) (0, 0) && !peqB m tI (i, k) (0, 0) &&
-          !peqB m tI (i, k) (0, tI)) ||
-        (usearch m tI E NU gw.1 W (i, k)).any (uVerify m tI (i, k))
 
 end UCheckAux
 
 open UCheckAux
 
-@[expose] def uCheck (mulE : ℕ → ℕ → ℕ) (tI : ℕ) : Bool :=
-  uCheckAux (mt (tab2 32 mulE)) tI
-
 
 namespace UCheckAux
 
-theorem peqB_iff {m : ℕ → ℕ → ℕ} {tI : ℕ} {x y : ℕ × ℕ} :
-    peqB m tI x y = true ↔ UPeq m tI x y := by
-  simp [peqB, UPeq]
-
-theorem uVerify_spec {m : ℕ → ℕ → ℕ} {tI : ℕ} {u : ℕ × ℕ} {φ : Array (ℕ × ℕ)}
-    (h : uVerify m tI u φ = true) : UWitness m tI u (fun a => φ.getD a (0, 0)) := by
-  unfold uVerify at h
-  simp only [Bool.and_eq_true] at h
-  obtain ⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩ := h
-  refine ⟨fun a ha => ?_, fun a ha b hb => ?_, fun a ha b hb hab => ?_, fun a ha => ?_,
-    fun a ha hu => ?_⟩
-  · have := List.all_eq_true.1 h1 a (List.mem_range.2 ha)
-    simpa using this
-  · exact peqB_iff.1 (List.all_eq_true.1 (List.all_eq_true.1 h2 a (List.mem_range.2 ha)) b
-      (List.mem_range.2 hb))
-  · have := List.all_eq_true.1 (List.all_eq_true.1 h3 a (List.mem_range.2 ha)) b
-      (List.mem_range.2 hb)
-    have hp : peqB m tI (φ.getD a (0, 0)) (φ.getD b (0, 0)) = true := peqB_iff.2 hab
-    rw [hp] at this
-    simpa only [Bool.not_true, Bool.false_or, decide_eq_true_eq] using this
-  · exact peqB_iff.1 (List.all_eq_true.1 h4 a (List.mem_range.2 ha))
-  · have := List.all_eq_true.1 h5 a (List.mem_range.2 ha)
-    have hp : peqB m tI (φ.getD a (0, 0)) u = true := peqB_iff.2 hu
-    rw [hp] at this
-    exact absurd this (by simp)
-
-theorem uGlobal_spec {m : ℕ → ℕ → ℕ} {tI : ℕ} (h : uGlobal m tI = true) :
-    tI < 32 ∧ tI ≠ 0 ∧ m tI tI = 0 ∧ (∀ a < 32, ∀ b < 32, m a b < 32) ∧
-      ∀ a < 32, (∀ b < 32, m a b = m b a) → a = 0 ∨ a = tI := by
-  unfold uGlobal at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq] at h
-  obtain ⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩ := h
-  refine ⟨h1, h2, h3, fun a ha b hb => ?_, fun a ha hc => ?_⟩
-  · have := List.all_eq_true.1 (List.all_eq_true.1 h4 a (List.mem_range.2 ha)) b
-      (List.mem_range.2 hb)
-    simpa using this
-  · have := List.all_eq_true.1 h5 a (List.mem_range.2 ha)
-    have hcen : ((List.range 32).all fun b => m a b == m b a) = true := by
-      simp only [List.all_eq_true, List.mem_range, beq_iff_eq]
-      exact hc
-    simpa [hcen] using this
-
-
-theorem any_exists {α : Type} {p : α → Bool} {o : Option α} (h : o.any p = true) :
-    ∃ x, p x = true := by
-  cases o with
-  | none => simp at h
-  | some x => exact ⟨x, h⟩
-
-theorem uCheckAux_spec {m : ℕ → ℕ → ℕ} {tI : ℕ} (h : uCheckAux m tI = true) :
-    (∀ a < 32, ∀ b < 32, m a b < 32) ∧ UTableSpec m tI := by
-  unfold uCheckAux at h
-  simp only [Bool.and_eq_true] at h
-  obtain ⟨hg, hall⟩ := h
-  obtain ⟨htlt, htne, htsq, hclos, hcen⟩ := uGlobal_spec hg
-  refine ⟨hclos, ⟨htlt, htne, htsq, hcen, ?_⟩⟩
-  intro i hi k hk hg1 hg2 hg3
-  have h2 := List.all_eq_true.1 (List.all_eq_true.1 hall i (List.mem_range.2 hi)) k
-    (List.mem_range.2 hk)
-  have e1 : peqB m tI (dMul i i, m k k) (0, 0) = true := peqB_iff.2 hg1
-  have e2 : peqB m tI (i, k) (0, 0) = false := by
-    cases hh : peqB m tI (i, k) (0, 0)
-    · rfl
-    · exact absurd (peqB_iff.1 hh) hg2
-  have e3 : peqB m tI (i, k) (0, tI) = false := by
-    cases hh : peqB m tI (i, k) (0, tI)
-    · rfl
-    · exact absurd (peqB_iff.1 hh) hg3
-  rw [e1, e2, e3] at h2
-  simp only [Bool.not_false, Bool.and_self, Bool.not_true, Bool.false_or] at h2
-  obtain ⟨φ, hφ⟩ := any_exists h2
-  exact ⟨_, uVerify_spec hφ⟩
 
 end UCheckAux
 
@@ -200,10 +110,5 @@ theorem UTableSpec_congr {m m' : ℕ → ℕ → ℕ} {tI : ℕ} (hlt : ∀ a < 
       exact (UPeq_congr htI hmm (x := (dMul (φ a).1 i, m' (φ a).2 k)) hx).1 this
     · exact hφ.ne a ha ((UPeq_congr htI hmm (hφ.range a ha).2).2 hu)
 
-theorem uCheck_spec {mulE : ℕ → ℕ → ℕ} {tI : ℕ} (h : uCheck mulE tI = true) :
-    UTableSpec mulE tI := by
-  obtain ⟨hlt, hs⟩ := uCheckAux_spec h
-  refine UTableSpec_congr hlt (fun a ha b hb => ?_) hs
-  exact mt_tab2 mulE ha hb
 
 end CFSG.EvenSporadicStandard.Fin76b

@@ -37,20 +37,6 @@ theorem sxKS_le_sxN : sxKS ≤ sxN := by
   rw [mem_sxN_iff]
   exact ⟨sxKS_le_sxGen hk, sxAct_of_mem_sxKS ⟨k, sxKS_le_sxGen hk⟩ hk⟩
 
-theorem sxN_conj_mem : ∀ g ∈ sxGen, ∀ n ∈ sxN, g * n * g⁻¹ ∈ sxN := by
-  intro g hg n hn
-  obtain ⟨hnGen, hnKer⟩ := (mem_sxN_iff n).1 hn
-  rw [mem_sxN_iff]
-  refine ⟨sxGen.mul_mem (sxGen.mul_mem hg hnGen) (sxGen.inv_mem hg), ?_⟩
-  have h1 : (⟨g * n * g⁻¹, sxGen.mul_mem (sxGen.mul_mem hg hnGen) (sxGen.inv_mem hg)⟩ : ↥sxGen)
-      = ⟨g, hg⟩ * ⟨n, hnGen⟩ * ⟨g, hg⟩⁻¹ := by
-    apply Subtype.ext
-    rfl
-  rw [h1, map_mul, map_mul, map_inv, hnKer, mul_one, mul_inv_cancel]
-
-theorem sxN_subgroupOf : sxN.subgroupOf sxGen = sxAct.ker := by
-  show (sxAct.ker.map sxGen.subtype).comap sxGen.subtype = sxAct.ker
-  exact Subgroup.comap_map_eq_self_of_injective (Subgroup.subtype_injective sxGen) sxAct.ker
 
 theorem card_sxN :
     Nat.card ↥sxN = 192 := by
@@ -90,37 +76,5 @@ theorem sxN_pow_three_mem :
   have hmem := Subgroup.mem_subgroupOf.mp ((QuotientGroup.eq_one_iff _).mp h2)
   simpa [Subgroup.coe_pow] using hmem
 
-@[expose] noncomputable def sxPi : ↥sxGen →* ↥(StatedSp 2 (ZMod 2)) :=
-  S6B.thetaTwo.toMonoidHom.comp sxAct
-
-theorem sxPi_surjective :
-    Function.Surjective sxPi := by
-  change Function.Surjective (S6B.thetaTwo.toMonoidHom ∘ sxAct)
-  exact Function.Surjective.comp S6B.thetaTwo.surjective sxAct_surjective
-
-theorem sxPi_ker : sxPi.ker = sxN.subgroupOf sxGen := by
-  change (S6B.thetaTwo.toMonoidHom.comp sxAct).ker = sxN.subgroupOf sxGen
-  rw [sxN_subgroupOf]
-  exact MonoidHom.ker_comp_of_injective sxAct S6B.thetaTwo.toMonoidHom S6B.thetaTwo.injective
-
-theorem fixes_US_iff_mem_sxN (g : ↥AutPerm) (hg : (g : S24) ∈ sxGen) :
-    (∀ x ∈ US, (rhoC11 AutPerm le_rfl g) x = x) ↔ (g : S24) ∈ sxN := by
-  rw [mem_sxN_iff]
-  constructor
-  · intro hfix
-    refine ⟨hg, ?_⟩
-    rw [sxAct_eq_one_iff]
-    intro u hu
-    have hrho : sxRho ⟨(g : S24), hg⟩ = rhoC11 AutPerm le_rfl g := by
-      rw [sxRho_apply]
-      exact congrArg (fun x => rhoC11 AutPerm le_rfl x) (Subtype.ext rfl)
-    rw [hrho]
-    exact hfix u hu
-  · rintro ⟨h, hker⟩ x hx
-    have hrho : sxRho ⟨(g : S24), h⟩ = rhoC11 AutPerm le_rfl g := by
-      rw [sxRho_apply]
-      exact congrArg (fun x => rhoC11 AutPerm le_rfl x) (Subtype.ext rfl)
-    rw [← hrho]
-    exact (sxAct_eq_one_iff ⟨(g : S24), h⟩).1 hker x hx
 
 end CFSG.ASVolI.H16

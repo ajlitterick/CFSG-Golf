@@ -41,13 +41,6 @@ theorem cofK_dec (x : ℕ) : cofK x = codeR (rcof (dec x)) := by
   simp only [minor_eq, m3n]
   rfl
 
-theorem detK_dec (x : ℕ) : detK x = (rdet (dec x)).val := by
-  rw [detK_eq]
-  refine val_of ?_
-  push_cast
-  simp only [rdet, dec]
-  linear_combination ((ent x 0 : ZMod 3) * ent x 5 * ent x 7 + (ent x 1 : ZMod 3) * ent x 3 * ent x 8 +
-    (ent x 2 : ZMod 3) * ent x 4 * ent x 6) * three_eq
 
 theorem pwK_dec (x n : ℕ) : pwK x n = codeR (rpw (dec x) n) := by
   induction n with
@@ -157,10 +150,6 @@ theorem rdet_cjw {a b : R9} (hab : rmul a b = rone) (x : R9) : rdet (cjw a b x) 
   rw [cjw, rdet_mul, rdet_mul]
   linear_combination (rdet x) * h
 
-theorem rdet_adj {g : R9} (hg : rdet g = 1) : rdet (adj g) = 1 := by
-  have h := congrArg rdet (mul_adj hg)
-  rw [rdet_mul, rdet_one, hg, one_mul] at h
-  exact h
 
 theorem inv_unique {c a b : R9} (hca : rmul c a = rone) (hbc : rmul b c = rone) : a = b := by
   rw [← one_rmul a, ← hbc, rmul_assoc, hca, rmul_one]

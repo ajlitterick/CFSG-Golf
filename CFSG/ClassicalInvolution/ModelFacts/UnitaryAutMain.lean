@@ -95,15 +95,6 @@ theorem coe_suEquivUnitarySU_symm (hK : Nat.card K = (p ^ f) ^ 2) {d : ℕ}
 
 variable (K p f)
 
-@[expose] def UnitaryAutClassification (d : ℕ) : Prop :=
-  ∀ (X : Type) [Group X] (θ : Su K p f d →* X), Function.Surjective θ →
-    θ.ker ≤ Subgroup.center (Su K p f d) → ∀ σ : X ≃* X,
-    ∃ (α : Su K p f d →* Su K p f d) (g : GL (Fin d) K) (φ : K ≃+* K),
-      (∀ x, θ (α x) = σ (θ x)) ∧
-      ∀ x, ((α x : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) =
-        (g : Matrix (Fin d) (Fin d) K) *
-          φ.mapMatrix ((x : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) *
-            ((g⁻¹ : GL (Fin d) K) : Matrix (Fin d) (Fin d) K)
 
 variable {K p f}
 
@@ -163,12 +154,6 @@ theorem unitaryAutClassification_isometry_of_card (hK : Nat.card K = (p ^ f) ^ 2
       MonoidHom.id_apply] at this ⊢
     rw [this, MulEquiv.symm_apply_apply]
 
-theorem unitaryAutClassification_of_card (hK : Nat.card K = (p ^ f) ^ 2) (hp2 : p ≠ 2)
-    (hq : 5 ≤ p ^ f) {d : ℕ} (hd : 3 ≤ d) : UnitaryAutClassification K p f d := by
-  intro X _ θ hθ hker σ
-  obtain ⟨α, g, φ, h1, h2, -⟩ :=
-    unitaryAutClassification_isometry_of_card hK hp2 hq hd X θ hθ hker σ
-  exact ⟨α, g, φ, h1, h2⟩
 
 end Statement
 
@@ -183,33 +168,6 @@ theorem card_galoisField_two_mul_eq (hq : 5 ≤ p ^ f) :
     simp at hq
   rw [GaloisField.card p (2 * f) (by omega), ← pow_mul, mul_comm]
 
-theorem unitaryAutClassification (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) {d : ℕ} (hd : 3 ≤ d) :
-    UnitaryAutClassification (GaloisField p (2 * f)) p f d :=
-  unitaryAutClassification_of_card (card_galoisField_two_mul_eq hq) hp2 hq hd
-
-theorem unitaryAutClassification_isometry (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) {d : ℕ} (hd : 3 ≤ d)
-    (X : Type) [Group X] (θ : Su (GaloisField p (2 * f)) p f d →* X)
-    (hθ : Function.Surjective θ)
-    (hker : θ.ker ≤ Subgroup.center (Su (GaloisField p (2 * f)) p f d)) (σ : X ≃* X) :
-    ∃ (α : Su (GaloisField p (2 * f)) p f d →* Su (GaloisField p (2 * f)) p f d)
-      (g : GL (Fin d) (GaloisField p (2 * f)))
-      (φ : GaloisField p (2 * f) ≃+* GaloisField p (2 * f)),
-      (∀ x, θ (α x) = σ (θ x)) ∧
-      (∀ x, ((α x : GL (Fin d) (GaloisField p (2 * f))) :
-          Matrix (Fin d) (Fin d) (GaloisField p (2 * f))) =
-        (g : Matrix (Fin d) (Fin d) (GaloisField p (2 * f))) *
-          φ.mapMatrix ((x : GL (Fin d) (GaloisField p (2 * f))) :
-            Matrix (Fin d) (Fin d) (GaloisField p (2 * f))) *
-            ((g⁻¹ : GL (Fin d) (GaloisField p (2 * f))) :
-              Matrix (Fin d) (Fin d) (GaloisField p (2 * f)))) ∧
-      ((g : Matrix (Fin d) (Fin d) (GaloisField p (2 * f))).map
-          (unitaryInvolution (GaloisField p (2 * f)) p f))ᵀ *
-        (g : Matrix (Fin d) (Fin d) (GaloisField p (2 * f))) = 1 ∧
-      ((∀ x, σ (σ x) = x) →
-        (φ = RingEquiv.refl (GaloisField p (2 * f)) ∨
-          φ = unitaryInvolution (GaloisField p (2 * f)) p f) ∧ α.comp α = MonoidHom.id _) :=
-  unitaryAutClassification_isometry_of_card (card_galoisField_two_mul_eq hq) hp2 hq hd X θ hθ
-    hker σ
 
 end Galois
 

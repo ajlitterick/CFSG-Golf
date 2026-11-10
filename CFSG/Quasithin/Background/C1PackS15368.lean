@@ -602,20 +602,5 @@ end Final
 
 end C1Pack153
 
-@[expose] def Stage15368Two : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t s : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-      Res15350 T M → LineData153 T M V₁ V₂ E → Res15366B T Mc M V₁ V₂ E →
-        Res15367 T Mc M V₁ V₂ E → GoldLine153 T V₁ E s →
-          G0_153 T Mc M E s ≤ Subgroup.normalizer (YE153 Mc M E : Set G) →
-          VZ T M ≤ pCoreOf 2 (G0_153 T Mc M E s) →
-          (∀ M₀ : Subgroup G, InM (G0_153 T Mc M E s) M₀ → IsSylowTwoOf (TE153 T E) M₀) →
-          F6.IsGoldschmidtTripleIn (G0_153 T Mc M E s) (G1_153 T Mc M E s) (G2_153 T E) →
-            pCoreOf 2 (G0_153 T Mc M E s) ≤ Subgroup.centralizer (VZ T M : Set G)
-
-theorem stage15368Rest2_of_two (h113 : StageLemma14113) (i : Stage15368Two) : Stage15368Rest2 := by
-  intro G _ _ T Mc M V₁ V₂ E t s c r45 r46 r49 r50 L r66 r67 gl h1 hV hSyl htriple
-  exact ⟨i G T Mc M V₁ V₂ E t s c r45 r46 r49 r50 L r66 r67 gl h1 hV hSyl htriple,
-    C1Pack153.pCore_eq_of h113 c r49 L r66 r67 gl hV htriple⟩
 
 end CFSG.Quasithin

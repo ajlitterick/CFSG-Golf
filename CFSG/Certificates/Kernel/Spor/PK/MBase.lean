@@ -107,20 +107,6 @@ theorem mpk_fd_pinv {n w g : Nat} {σ : Equiv.Perm (Fin n)} (hn0 : 0 < n) (hw : 
   intro x hx
   rw [mb_pinv_eq hw h, fd_enc (fun i _ => hfv i) hx]
 
-theorem mpk_inv {n w g : Nat} {σ : Equiv.Perm (Fin n)} (hn0 : 0 < n) (hw : n < 2 ^ w)
-    (h : MPK n w g σ) : MPK n w (pinvS n w (mask w) g) σ⁻¹ := by
-  have hfd := mpk_fd_pinv hn0 hw h
-  have hpinv := mb_pinv_eq hw h
-  obtain ⟨hlt, hperm, hσ⟩ := h
-  have hfv : ∀ i, finv n (fd w g) i < 2 ^ w := fun i => by
-    have := finv_lt (n := n) hn0 (fd w g) i
-    omega
-  refine ⟨?_, ?_, ?_⟩
-  · rw [hpinv]
-    exact enc_lt (fun i _ => hfv i)
-  · exact mb_isPermN_congr (fun x hx => (hfd x hx).symm) hperm.finv
-  · rw [← hσ, permOf_inv hperm]
-    exact permOf_congr hfd
 
 @[expose] def mbGens (n : Nat) (fa fb : Nat → Nat) (z : Int) : Nat → Nat :=
   if z = 1 then fa else if z = -1 then finv n fa else if z = 2 then fb else finv n fb

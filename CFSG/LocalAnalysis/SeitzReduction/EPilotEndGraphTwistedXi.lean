@@ -144,6 +144,5 @@ theorem twistedE6_xi_complement (hfe : Even f) :
 
 end Xi
 
-variable {G : Type*} [Group G] [Finite G] {G₀ : Subgroup G}
 
 end CFSG.SeitzReduction.EPilot

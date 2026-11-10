@@ -327,9 +327,6 @@ theorem isCyclic_and_card_fixSub [Finite F] (hA : IsInvolDiag A) (hodd : Odd (Na
       push_cast
       ring
 
-theorem isCyclic_fixSub [Finite F] (hA : IsInvolDiag A) (hodd : Odd (Nat.card F)) :
-    IsCyclic (fixSub A) :=
-  (hA.isCyclic_and_card_fixSub hodd).1
 
 end IsInvolDiag
 

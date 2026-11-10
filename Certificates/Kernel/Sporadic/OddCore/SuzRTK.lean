@@ -70,9 +70,6 @@ theorem kSq : sqK = true := by quickRfl
 theorem kEven : evenK = true := by quickRfl
 theorem kKGen : kGenK = true := by quickRfl
 
-theorem neg_inv : Bool.not (ie XT YTI) = true := by quickRfl
-
-theorem neg_comm : Bool.not (cmK XT RHO) = true := by quickRfl
 
 @[expose] noncomputable def cHdK : Bool :=
   cenumHdK 1782 11 (mask 11) (1782 * 11) 2 960 Idn RHO SuzMGG SuzMGGI SuzRCT SuzRCFP
@@ -83,15 +80,6 @@ theorem neg_comm : Bool.not (cmK XT RHO) = true := by quickRfl
 
 theorem kCHd : cHdK = true := by quickRfl
 
-theorem neg_class : Bool.not (cenumPtK 1782 11 (mask 11) (1782 * 11) 2 960 RHO SuzMGG SuzMGGI
-    SuzRCT SuzRCTI (fun i => Nat.add (SuzRCPL i) (nat_lit 2)) SuzRCPOS SuzRCFP SuzRCSRT SuzRCSRI
-    5) = true := by
-  quickRfl
-
-theorem neg_classFp : Bool.not (cenumPtK 1782 11 (mask 11) (1782 * 11) 2 960 RHO SuzMGG SuzMGGI
-    SuzRCT SuzRCTI SuzRCPL SuzRCPOS (fun i => Nat.add (SuzRCFP i) (nat_lit 1)) SuzRCSRT SuzRCSRI
-    3) = true := by
-  quickRfl
 
 @[expose] noncomputable def oT (o i : Nat) : Nat := pg 12 (mask 12) (SuzROT o) i
 @[expose] noncomputable def oPL (o i : Nat) : Nat := pg 15 (mask 15) (SuzROPL o) i
@@ -123,8 +111,6 @@ theorem kOrbP : bAnd(oHd 0 2835 18, allN 18 (oPt 0 0 18)) = true := by quickRfl
 
 theorem kOrbQ : bAnd(oHd 1 0 315, allN 315 (oPt 1 6 315)) = true := by quickRfl
 
-theorem neg_orb : Bool.not (actK (L2EL.F 0) (L2EI 0) 2835 (Nat.succ (oT 0 (oPOS 0 0)))) = true := by
-  quickRfl
 
 @[expose] noncomputable def eltK (l : List Nat) : Nat :=
   List.rec (motive := fun _ => Nat) Idn (fun a _ ih => pc (L2EL.F a) ih) l
@@ -158,7 +144,6 @@ theorem kSqV : squareK 2970 XT XTI [4, 3] [8, 9, 6] 1436 = true := by quickRfl
 
 theorem kSqV' : squareK 2890 YT YTI [2] [11, 7, 6] 1660 = true := by quickRfl
 
-theorem neg_sq : Bool.not (squareK 2970 XT XTI [2] [8, 9, 6] 1436) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzRTK
 

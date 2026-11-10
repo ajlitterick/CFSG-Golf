@@ -136,9 +136,6 @@ theorem SwapNeighbourIso.fst_injective (hJ : J ⊆ N.nodes) : Function.Injective
   fun _ _ hxy => Subtype.ext (congrArg (fun z : N.levi K × N.levi K => (z.1 : adjointGroup .F4 K))
     (h.coe_injective hxy))
 
-theorem SwapNeighbourIso.snd_injective (hJ : J ⊆ N.nodes) : Function.Injective (h.snd hJ) :=
-  fun _ _ hxy => Subtype.ext (congrArg (fun z : N.levi K × N.levi K => (z.2 : adjointGroup .F4 K))
-    (h.coe_injective hxy))
 
 theorem SwapNeighbourIso.fst_eq_of_coe_eq (hI : I ⊆ N.nodes) (hJ : J ⊆ N.nodes)
     (x : CFSG.LieType.CurtisTits.levi (Adjoint.f4Datum K).rootGroup I)
@@ -211,13 +208,6 @@ variable {K : Type} [Field K] {G : Type} [Group G] [Finite G] {L : Subgroup G}
     exact (e1 _).trans (congrArg (fun z => ((e.symm (n1242 K) : L) : G) * z *
       ((e.symm (n1242 K) : L) : G)⁻¹) key)
 
-theorem SwapNeighbourIso.toX'_apply (h : SwapNeighbourIso e t .X)
-    (htn : Commute t ((e.symm (n1242 K) : L) : G)) (x y : AmalgamNeighbour.X'.levi K) :
-    (((h.toX' htn).Φ (x, y) : neighbourCore e .X') : G) =
-      ((e.symm (n1242 K) : L) : G) *
-        (h.Φ ((c3LeviConjEquiv K).symm x, (c3LeviConjEquiv K).symm y) : G) *
-          ((e.symm (n1242 K) : L) : G)⁻¹ :=
-  rfl
 
 end ToX'
 

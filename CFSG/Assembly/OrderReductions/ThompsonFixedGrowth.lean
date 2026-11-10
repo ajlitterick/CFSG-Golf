@@ -18,8 +18,6 @@ instance fixedPreimage_normal {group : Type*} [Group group]
     (fixedPreimage subgroup kernel).Normal :=
   inferInstanceAs (subgroup ⊓ (Subgroup.center (group ⧸ kernel)).comap (QuotientGroup.mk' kernel)).Normal
 
-theorem fixedPreimage_le {group : Type*} [Group group]
-    (subgroup kernel : Subgroup group) [kernel.Normal] : fixedPreimage subgroup kernel ≤ subgroup := inf_le_left
 
 theorem kernel_le_fixedPreimage {group : Type*} [Group group]
     (subgroup kernel : Subgroup group) [kernel.Normal] (contains : kernel ≤ subgroup) :

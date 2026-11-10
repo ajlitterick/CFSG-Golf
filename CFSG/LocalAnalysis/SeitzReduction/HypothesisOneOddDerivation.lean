@@ -226,7 +226,6 @@ theorem heightSeries_le_rootSpan_of_oddDerivTailB
 section Sound
 
 
-
 theorem commutatorElement_pinnedX_of_rowFactor {R : Type u} [CommRing R] (h2 : (2 : R) = 0)
     {a b : Fin τ.rank → ℤ} (ha : IsRoot τ a) (hb : IsRoot τ b) (hne : a ≠ b) (hne' : a ≠ -b)
     (hrow : ∀ r ∈ pairTable τ, ∀ w : WeylGroup τ, w • orbitCertRoot τ r.1 = a →
@@ -442,17 +441,6 @@ theorem rootSpan_le_closure_odd_of_oddDerivFrame [Finite K] [CharP K 2] {t : adj
   exact (commute_pinnedX_list_prod_of_oddDerivCommB (hroots γ hγ)
     (fun σ hσ => isRoot_of_oddDerivIsRootB (hFr σ hσ)) (List.all_eq_true.2 (hFc γ hγ)) c cF).eq
 
-theorem pinnedX_mem_closure_odd_of_oddDerivFrame [Finite K] [CharP K 2] {t : adjointGroup τ K}
-    (F : List (Fin τ.rank → ℤ)) (cF : (Fin τ.rank → ℤ) → K)
-    (htF : (t : ModGL τ K) = (F.map fun σ => pinnedX τ K σ (cF σ)).prod)
-    {SA SP : List (Fin τ.rank → ℤ)}
-    {D : List ((Fin τ.rank → ℤ) × (Fin τ.rank → ℤ) × (Fin τ.rank → ℤ))}
-    (hD : oddDerivOK τ SA SP D = true) (hcov : ∀ δ ∈ SA, ∃ e ∈ D, e.1 = δ)
-    (hF : oddDerivFrameB τ F (SA ++ SP) = true) :
-    ∀ δ ∈ SA, ∀ a : K, (⟨pinnedX τ K δ a, pinnedX_mem_adjointGroup _ _⟩ : adjointGroup τ K) ∈
-      closure {c : adjointGroup τ K | c * t = t * c ∧ Odd (orderOf c)} :=
-  fun _ hδ a => rootSpan_le_closure_odd_of_oddDerivFrame F cF htF hD hcov hF _
-    (pinnedX_mem_rootSpan_oddDeriv (S := {γ | γ ∈ SA}) hδ a)
 
 theorem heightSeries_le_closure_odd_of_oddDerivCheck [Finite K] [CharP K 2] {t : adjointGroup τ K}
     {h : ℤ} (F : List (Fin τ.rank → ℤ)) (cF : (Fin τ.rank → ℤ) → K)

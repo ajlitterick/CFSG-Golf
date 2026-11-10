@@ -8,11 +8,6 @@ namespace CFSG.ASVolI
 
 section F423
 
-set_option linter.unusedSectionVars false
-
-
-theorem as_F_4_23 : F_4_23 :=
-  burnsideF423s_F_4_23
 
 end F423
 

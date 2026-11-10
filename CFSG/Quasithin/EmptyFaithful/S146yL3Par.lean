@@ -221,24 +221,6 @@ theorem fixesVec_iff_fixesCov_map_tau (H : Subgroup SL3F2) :
     rw [CatalogueBGraphForm.slGraphAut_matrix, inv_inv, Matrix.vecMul_transpose] at h1
     exact h1
 
-theorem fixesCov_iff_fixesVec_map_tau (H : Subgroup SL3F2) :
-    FixesCov H ↔
-      FixesVec (H.map (CatalogueBGraphForm.slGraphAut 3 (ZMod 2)).toMonoidHom) := by
-  constructor
-  · rintro ⟨φ, hφ, hfix⟩
-    refine ⟨φ, hφ, fun y hy => ?_⟩
-    obtain ⟨h, hh, rfl⟩ := Subgroup.mem_map.mp hy
-    change ((CatalogueBGraphForm.slGraphAut 3 (ZMod 2) h : SL3F2) :
-      Matrix (Fin 3) (Fin 3) (ZMod 2)) *ᵥ φ = φ
-    rw [CatalogueBGraphForm.slGraphAut_matrix, Matrix.mulVec_transpose]
-    exact hfix _ (H.inv_mem hh)
-  · rintro ⟨w, hw, hfix⟩
-    refine ⟨w, hw, fun h hh => ?_⟩
-    have h1 := hfix _ (Subgroup.mem_map_of_mem _ (H.inv_mem hh))
-    change ((CatalogueBGraphForm.slGraphAut 3 (ZMod 2) (h⁻¹) : SL3F2) :
-      Matrix (Fin 3) (Fin 3) (ZMod 2)) *ᵥ w = w at h1
-    rw [CatalogueBGraphForm.slGraphAut_matrix, inv_inv, Matrix.mulVec_transpose] at h1
-    exact h1
 
 end Fixes
 

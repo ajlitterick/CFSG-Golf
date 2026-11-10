@@ -46,7 +46,5 @@ open CFSG.Certificates.Native
 @[expose] def candCheck : Bool :=
   ((List.range 6).map fun k => (candSet k).length).prod == 3317760
 
-@[expose] def check27820 : Bool :=
-  tableCheck && autCheck && chainCheck && genCheck && candCheck
 
 end CFSG.EvenSporadicStandard.Fin76b.W16

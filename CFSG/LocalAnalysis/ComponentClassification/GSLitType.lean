@@ -95,16 +95,6 @@ theorem unbalancing_component_type_of_small (hTB : ThompsonBurgoyneInput)
   · exact h
   · exact absurd ⟨x, y, L, hL, h⟩ hsmall
 
-theorem unbalancing_component_type (hTB : ThompsonBurgoyneInput)
-    (hSA : SolAltLit.SolomonAlternatingOddInput) (hGS : GriessSolomonInput)
-    (hnonab : ∃ a b : X, a * b ≠ b * a) (hK : Assembly.KProper Blueprint.Catalog X)
-    (hz : ∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥)
-    (hU : ¬ OutcomeLocal.UOutcome X) {x y : X} {L : Subgroup X}
-    (hL : GSUnbalancingTriple x y L) :
-    Nonempty (L ⧸ pPrimeCore 2 L ≃* alternatingGroup (Fin 7)) ∨
-      ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ 5 ≤ p ^ f ∧
-        Blueprint.LieModel (L ⧸ pPrimeCore 2 L) .PSL 2 p f :=
-  unbalancing_component_type_of_small hTB hSA hnonab hK hz hU (hGS X hnonab hK hz hU) hL
 
 theorem two_le_pRank_of_gsUnbalancingTriple (hTB : ThompsonBurgoyneInput)
     (hSA : SolAltLit.SolomonAlternatingOddInput)

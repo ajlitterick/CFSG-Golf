@@ -74,11 +74,6 @@ theorem spTransvection_mul_mem_spDer (hβ : β.IsAlt) {x y : V} (hx : x ≠ 0) (
     spTransvection β hβ x * spTransvection β hβ y ∈ spDer β hβ :=
   subset_closure ⟨x, y, hx, hy, rfl⟩
 
-omit [FiniteDimensional (ZMod 2) V] in
-theorem spDer_le_isometryGroup (hβ : β.IsAlt) : spDer β hβ ≤ TauCeti.BilinForm.isometryGroup β := by
-  rw [spDer, closure_le]
-  rintro _ ⟨x, y, -, -, rfl⟩
-  exact mul_mem (spTransvection_mem_isometryGroup hβ x) (spTransvection_mem_isometryGroup hβ y)
 
 omit [FiniteDimensional (ZMod 2) V] in
 theorem conj_mem_spDer (hβ : β.IsAlt) {g u : V ≃ₗ[ZMod 2] V}

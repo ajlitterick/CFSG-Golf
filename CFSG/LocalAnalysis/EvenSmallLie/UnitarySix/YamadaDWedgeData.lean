@@ -35,31 +35,6 @@ abbrev WRow (n m : ℕ) := (Fin m × Fin n × Fin n × Fin n) ⊕ (Fin n × Fin 
 @[expose] def wedgeR {n m : ℕ} (M : Fin m → Matrix (Fin n) (Fin n) (ZMod 2)) : Array ℕ :=
   matBits _ _ (wedgeEq M)
 
-@[expose] def leftInvF2 (w : ℕ) (R : Array ℕ) : Array ℕ := Id.run do
-  let n := R.size
-  let mut vals : Array ℕ := R
-  let mut tags : Array ℕ := Array.ofFn (n := n) fun i => 2 ^ i.val
-  let mut used : Array Bool := Array.replicate n false
-  let mut piv : Array ℕ := Array.replicate w 0
-  for u in [0:w] do
-    let mut p := n
-    for i in [0:n] do
-      if p == n && !(used.getD i true) && (vals.getD i 0).testBit u then
-        p := i
-    if p < n then
-      used := used.set! p true
-      piv := piv.set! u p
-      let vp := vals.getD p 0
-      let tp := tags.getD p 0
-      for i in [0:n] do
-        if i != p && (vals.getD i 0).testBit u then
-          vals := vals.set! i (vals.getD i 0 ^^^ vp)
-          tags := tags.set! i (tags.getD i 0 ^^^ tp)
-  return Array.ofFn (n := w) fun u => tags.getD (piv.getD u.val 0) 0
-
-@[expose] def wedgeCheckGen (n m : ℕ) (M : Fin m → Matrix (Fin n) (Fin n) (ZMod 2)) : Bool :=
-  bIsId (n * (n * n)) (bmul (n * (n * n)) (m * (n * (n * n)) + n * (n * n))
-    (leftInvF2 (n * (n * n)) (wedgeR M)) (wedgeR M))
 
 @[expose] def wedgeGensN : Array (Array ℕ) :=
   #[#[1, 2, 5, 10, 16, 32, 80, 160], #[1, 2, 6, 11, 16, 32, 112, 144],
@@ -69,13 +44,11 @@ abbrev WRow (n m : ℕ) := (Fin m × Fin n × Fin n × Fin n) ⊕ (Fin n × Fin 
 @[expose] def wedgeMatN (g : Fin 5) : Matrix (Fin 8) (Fin 8) (ZMod 2) :=
   toMat 8 8 (wedgeGensN.getD g #[])
 
-@[expose] def wedgeCheckN : Bool := wedgeCheckGen 8 5 wedgeMatN
 
 @[expose] def wedgeGensW : Array (Array ℕ) := #[#[1, 3, 4, 13], #[1, 2, 5, 11], #[8, 6, 4, 1]]
 
 @[expose] def wedgeMatW (g : Fin 3) : Matrix (Fin 4) (Fin 4) (ZMod 2) :=
   toMat 4 4 (wedgeGensW.getD g #[])
 
-@[expose] def wedgeCheckW : Bool := wedgeCheckGen 4 3 wedgeMatW
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaD

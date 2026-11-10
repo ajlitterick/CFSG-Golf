@@ -96,11 +96,6 @@ section Sections
 
 variable {C : Type*} [Group C] [Finite C] (E : Subgroup (MulAut C)) (fp : E →* (K ≃+* K))
 
-omit [Finite K] in
-theorem spLeviSectionE_of_isEmpty (X : Subgroup C) (N : Subgroup ↥X) [N.Normal]
-    (h : ∀ r : ℕ, 1 ≤ r → IsEmpty (↥X ⧸ N ≃* StatedProj (StatedSp r K))) :
-    SpLeviSectionE E fp X N :=
-  Or.inl h
 
 theorem spLeviSectionE_top (X : Subgroup C) : SpLeviSectionE E fp X ⊤ :=
   Or.inl fun _ hr => isEmpty_quotient_top_mulEquiv X hr
@@ -179,15 +174,6 @@ theorem spLeviDataE_two_of_isEmpty_mulEquiv (hq4 : 4 ≤ Nat.card K) {X : Subgro
     · exact hs₂
     · exact spLeviSectionE_top E fp X
 
-theorem spLeviDataE_one (hq4 : 4 ≤ Nat.card K) {X : Subgroup C} (N₁ : Subgroup ↥X) [N₁.Normal]
-    (h1 : IsPGroup 2 ↥N₁) (hs₁ : SpLeviSectionE E fp X N₁) {r : ℕ} (hr : 1 ≤ r)
-    (e : ↥X ⧸ N₁ ≃* StatedProj (StatedSp r K)) : SpLeviDataE E fp X := by
-  obtain ⟨hsimple, -⟩ := simple_perfect_statedProj_of_one_le hq4 hr
-  have : IsSimpleGroup (↥X ⧸ N₁) := MulEquiv.isSimpleGroup e
-  exact spLeviDataE_two_of_isEmpty_mulEquiv E fp hq4 N₁ ⊤ (by rwa [inf_top_eq])
-    (eq_or_eq_top_of_simple_quotient (N := N₁))
-    (fun M _ hle => Or.inr (top_le_iff.mp hle)) hs₁ (spLeviSectionE_top E fp X) hr e
-    (isEmpty_quotient_top_mulEquiv X hr)
 
 end Data
 

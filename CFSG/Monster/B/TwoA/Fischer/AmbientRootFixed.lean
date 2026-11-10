@@ -33,9 +33,6 @@ def mapsToSubgroup {G X : Type*} [Group G] (π : G →* Equiv.Perm X) {O : Set X
     rw [map_inv, Equiv.Perm.coe_inv, Equiv.symm_apply_apply]
     exact hw'
 
-theorem mem_mapsToSubgroup {G X : Type*} [Group G] {π : G →* Equiv.Perm X} {O : Set X}
-    {hO : O.Finite} {g : G} : g ∈ mapsToSubgroup π hO ↔ Set.MapsTo (π g) O O :=
-  Iff.rfl
 
 variable {S V : Type*} [Group S] {act : S →* Equiv.Perm V} {lab : V → S} {Y : Set V}
 
@@ -57,17 +54,6 @@ variable (act) in
     (C : Set V) (ρ : sliceGroup lab Y →* stdGroup) (u : fixedL) : Set fixedL :=
   {u' | ∃ f : setStab act lab Y C, u' = actStar (SemidirectProduct.inl (ρ ⟨f, f.2.1⟩)) u}
 
-theorem orbRep_eq (t : Fin 8) :
-    (![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t = Cert.orbRep t := by
-  fin_cases t <;> rfl
-
-theorem orbLen_eq (t : Fin 8) :
-    (![1, 22, 231, 770, 770, 231, 22, 1] : Fin 8 → ℕ) t = Cert.orbLen t := by
-  fin_cases t <;> rfl
-
-theorem orbRank_eq (t : Fin 8) :
-    (![0, 22, 32, 38, 38, 32, 22, 22] : Fin 8 → ℕ) t = Cert.orbRank t := by
-  fin_cases t <;> rfl
 
 theorem orbRank_eq_22 {t : ℕ} (ht : t < 8) (h : Cert.orbRank t = 22) : t = 1 ∨ t = 6 ∨ t = 7 := by
   interval_cases t <;> first | (left; rfl) | (right; left; rfl) | (right; right; rfl) |
@@ -174,11 +160,6 @@ theorem span_cliqueVecs :
   rw [H.cliqueVecs_eq hΦ hΨ, Cert.cliqueSpan, ← Submodule.span_image]
   rfl
 
-include hΨ in
-theorem finrank_span_cliqueVecs :
-    Module.finrank (ZMod 2) (Submodule.span (ZMod 2) (cliqueVecs Ψ C)) = 11 := by
-  rw [H.span_cliqueVecs hΦ hΨ, LinearEquiv.finrank_map_eq]
-  exact Cert.finrank_span_clique
 
 include hΨ in
 theorem mem_span_cliqueVecs
@@ -198,12 +179,6 @@ theorem fixed_setStab_eq :
     H.cliqueFixedVec_eq hΦ hΨ, ← map_zero (H.coordEquiv hΦ Ψ),
     (H.coordEquiv hΦ Ψ).injective.eq_iff, (H.coordEquiv hΦ Ψ).injective.eq_iff]
 
-include hΨ in
-theorem cliqueFixedVec_ne_zero :
-    cliqueFixedVec Φ Ψ ≠ 0 := by
-  rw [H.cliqueFixedVec_eq hΦ hΨ, ← map_zero (H.coordEquiv hΦ Ψ),
-    (H.coordEquiv hΦ Ψ).injective.ne_iff]
-  exact Cert.fischer_clique_fixed_certificate.2.2.2.2.1
 
 include hΨ in
 theorem cliqueFixedVec_ne
@@ -211,28 +186,6 @@ theorem cliqueFixedVec_ne
   rw [H.cliqueFixedVec_eq hΦ hΨ, H.psi_ncommVec_eq hΦ hΨ, (H.coordEquiv hΦ Ψ).injective.ne_iff]
   exact (Cert.ne_labelCoord (Φ y)).symm
 
-include hroot hΨ in
-theorem eq_cliqueFixedVec_iff
-    (u : fixedL) :
-    (u ≠ 0 ∧ ∀ f : setStab act lab Y C, actStar (SemidirectProduct.inl (ρ ⟨f, f.2.1⟩)) u = u) ↔
-      u = cliqueFixedVec Φ Ψ := by
-  have h := Set.ext_iff.1 (H.fixed_setStab_eq hΦ hroot hΨ) u
-  rw [Set.mem_insert_iff, Set.mem_singleton_iff] at h
-  change (∀ f : setStab act lab Y C, _) ↔ _ at h
-  constructor
-  · rintro ⟨h0, hf⟩
-    exact (h.1 hf).resolve_left h0
-  · rintro rfl
-    exact ⟨H.cliqueFixedVec_ne_zero hΦ hΨ, h.2 (Or.inr rfl)⟩
-
-theorem bijective_gramComb :
-    Function.Bijective fun c : Fin 78 → ZMod 2 =>
-      ∑ i : Fin 78, c i • Ψ (ncommVec lab Y (Φ.symm (decY (Cert.basisPt i)))) := by
-  convert (H.coordEquiv hΦ Ψ).bijective using 1
-  funext c
-  rw [coordEquiv_apply]
-  refine Finset.sum_congr rfl fun i _ => ?_
-  rw [gramPt_eq_symm_decY Φ i.2]
 
 include hroot hΨ in
 theorem fOrbit_coordEquiv
@@ -277,11 +230,6 @@ theorem fixed_ptStab_eq :
   rw [H.fixed_ptStab_iff hΦ hroot hΨ, Cert.radical_fixed_iff, SetLike.mem_coe,
     H.mem_span_cliqueVecs hΦ hΨ]
 
-include hΨ in
-theorem ncard_span_cliqueVecs :
-    ((Submodule.span (ZMod 2) (cliqueVecs Ψ C) : Set fixedL)).ncard = 2048 := by
-  rw [H.span_cliqueVecs hΦ hΨ, Submodule.map_coe, LinearEquiv.coe_coe,
-    Set.ncard_image_of_injective _ (H.coordEquiv hΦ Ψ).injective, Cert.ncard_cliqueSpan]
 
 include hroot hΨ in
 theorem fOrbit_gramVec_orbRep
@@ -292,38 +240,6 @@ theorem fOrbit_gramVec_orbRep
   ext v
   exact Cert.freach_iff ht v
 
-include hroot hΨ in
-theorem existsUnique_fOrbit
-    (u : fixedL) (hu : u ∈ Submodule.span (ZMod 2) (cliqueVecs Ψ C)) :
-    ∃! t : Fin 8, u ∈ fOrbit act C ρ (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] :
-      Fin 8 → ℕ) t)) := by
-  obtain ⟨c, rfl⟩ := (H.coordEquiv hΦ Ψ).surjective u
-  have hc : c ∈ Cert.cliqueSpan := (H.mem_span_cliqueVecs hΦ hΨ c).1 hu
-  obtain ⟨t, ht, hct⟩ := (Cert.mem_cliqueSpan_iff_orbSet c).1 hc
-  refine ⟨⟨t, ht⟩, ?_, fun t' ht' => ?_⟩
-  · dsimp only
-    rw [orbRep_eq, H.fOrbit_gramVec_orbRep hΦ hroot hΨ ht]
-    exact ⟨c, hct, rfl⟩
-  · dsimp only at ht'
-    rw [orbRep_eq, H.fOrbit_gramVec_orbRep hΦ hroot hΨ t'.2] at ht'
-    obtain ⟨c', hc', e⟩ := ht'
-    obtain rfl := (H.coordEquiv hΦ Ψ).injective e
-    by_contra hne
-    exact Set.disjoint_left.1 (Cert.orbSet_disjoint fun h => hne (Fin.ext h)) hc' hct
-
-include hρ hroot hΨ in
-theorem ncard_rank_fOrbit
-    (t : Fin 8) :
-    (fOrbit act C ρ (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t))).ncard =
-        (![1, 22, 231, 770, 770, 231, 22, 1] : Fin 8 → ℕ) t ∧
-      ∀ u ∈ fOrbit act C ρ (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t)),
-        Module.finrank (ZMod 2) (LinearMap.range (adL u)) =
-          (![0, 22, 32, 38, 38, 32, 22, 22] : Fin 8 → ℕ) t := by
-  rw [orbRep_eq, H.fOrbit_gramVec_orbRep hΦ hroot hΨ t.2, orbLen_eq, orbRank_eq]
-  refine ⟨?_, ?_⟩
-  · rw [Set.ncard_image_of_injective _ (H.coordEquiv hΦ Ψ).injective, Cert.ncard_orbSet t.2]
-  · rintro _ ⟨v, hv, rfl⟩
-    rw [H.finrank_range_adL_coordEquiv hΦ hρ hroot hΨ, Cert.rank_orbSet hv]
 
 include hroot hΨ in
 theorem fOrbit_one :
@@ -386,31 +302,6 @@ theorem disjoint_cliqueShift :
     Set.disjoint_image_iff (H.coordEquiv hΦ Ψ).injective]
   exact Cert.orbSet_disjoint (by norm_num)
 
-include hroot hΨ in
-theorem cliqueFixedVec_not_mem :
-    cliqueFixedVec Φ Ψ ∉ cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C := by
-  rw [H.cliqueShift_eq_orbSet hΦ hroot hΨ, H.cliqueVecs_eq_orbSet hΦ hroot hΨ,
-    H.cliqueFixedVec_eq hΦ hΨ, Set.mem_union, (H.coordEquiv hΦ Ψ).injective.mem_set_image,
-    (H.coordEquiv hΦ Ψ).injective.mem_set_image]
-  have h7 : toVecD 78 949 ∈ Cert.orbSet 7 := by
-    rw [Cert.orbSet_seven]
-    rfl
-  rintro (h | h)
-  · exact Set.disjoint_left.1 (Cert.orbSet_disjoint (by norm_num : (1 : ℕ) ≠ 7)) h h7
-  · exact Set.disjoint_left.1 (Cert.orbSet_disjoint (by norm_num : (6 : ℕ) ≠ 7)) h h7
-
-include hroot hΨ in
-theorem ncard_rank22 :
-    (cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∪
-      {cliqueFixedVec Φ Ψ}).ncard = 45 := by
-  have := finite_fixedL
-  rw [Set.ncard_union_eq (Set.disjoint_singleton_right.2 (H.cliqueFixedVec_not_mem hΦ hroot hΨ)),
-    Set.ncard_union_eq (H.disjoint_cliqueShift hΦ hroot hΨ), Set.ncard_singleton,
-    H.cliqueShift_eq_orbSet hΦ hroot hΨ, H.cliqueVecs_eq_orbSet hΦ hroot hΨ,
-    Set.ncard_image_of_injective _ (H.coordEquiv hΦ Ψ).injective,
-    Set.ncard_image_of_injective _ (H.coordEquiv hΦ Ψ).injective,
-    Cert.ncard_orbSet (by norm_num), Cert.ncard_orbSet (by norm_num)]
-  rfl
 
 include hρ hroot hΨ in
 theorem bracketL_cliqueFixedVec_eq_zero_iff
@@ -434,134 +325,6 @@ end FullIntertwinerHyp
 
 namespace IsFischerSlice
 
-theorem clique_unique_fixed_adjoint_vector
-    (hS : IsFischerSlice act lab Y) {C : Set V}
-    (hC : IsSliceMaxClique lab Y C) [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))]
-    {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {η : C ≃ X₀}
-    {θ : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
-      CFSG.Blueprint.NativeSporadic.M22}
-    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
-      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
-    (hθ : ∀ (f : setStab act lab Y C) (z : C),
-      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
-    {φ : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
-    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
-    {α : setStab act lab Y C →* F₀}
-    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
-      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
-    {Φ : Y ≃ CFSG.Monster.B.Fischer.Y} (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ)
-    {ρ : sliceGroup lab Y →* stdGroup}
-    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass)
-    {Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL} (hΨ : ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y) :
-    Module.finrank (ZMod 2) (Submodule.span (ZMod 2) (cliqueVecs Ψ C)) = 11 ∧
-    {u : fixedL | ∀ f : setStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨f, f.2.1⟩)) u = u} = {0, cliqueFixedVec Φ Ψ} ∧
-    cliqueFixedVec Φ Ψ ≠ 0 ∧
-    Function.Bijective (fun c : Fin 78 → ZMod 2 =>
-      ∑ i : Fin 78, c i • Ψ (ncommVec lab Y (Φ.symm (decY (Cert.basisPt i))))) ∧
-    cliqueFixedVec Φ Ψ = gramVec Φ Ψ 949 ∧
-    (∀ y : Y, cliqueFixedVec Φ Ψ ≠ Ψ (ncommVec lab Y y)) ∧
-    ∀ u : fixedL, (u ≠ 0 ∧ ∀ f : setStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨f, f.2.1⟩)) u = u) ↔ u = cliqueFixedVec Φ Ψ := by
-  have H := FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα
-  exact ⟨H.finrank_span_cliqueVecs hΦ hΨ, H.fixed_setStab_eq hΦ hroot hΨ,
-    H.cliqueFixedVec_ne_zero hΦ hΨ, H.bijective_gramComb hΦ,
-    by rw [H.cliqueFixedVec_eq hΦ hΨ, H.gramVec_eq hΦ], H.cliqueFixedVec_ne hΦ hΨ,
-    H.eq_cliqueFixedVec_iff hΦ hroot hΨ⟩
-
-theorem cliqueFixedVec_eq_of
-    (hS : IsFischerSlice act lab Y) {C : Set V}
-    (hC : IsSliceMaxClique lab Y C) [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))]
-    {x x' : V} (hx : x ∈ hexadFiber lab Y C ∅) (hx' : x' ∈ hexadFiber lab Y C ∅)
-    {η η' : C ≃ X₀}
-    {θ θ' : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
-      CFSG.Blueprint.NativeSporadic.M22}
-    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
-      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
-    (hη' : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
-      T.image (fun z => (η' z : Fin 24)) ∈ ℬ₀)
-    (hθ : ∀ (f : setStab act lab Y C) (z : C),
-      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
-    (hθ' : ∀ (f : setStab act lab Y C) (z : C),
-      (η' (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ' f) (η' z))
-    {φ φ' : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
-    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
-    (hφ' : ∀ z : C, φ' (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η' z)))
-    {α α' : setStab act lab Y C →* F₀}
-    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
-      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
-    (hα' : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
-      (f : S) = r * k → act (k : S) x' = x' → α' f = wF (φ' (Additive.ofMul r)) * kF (θ' k))
-    {Φ Φ' : Y ≃ CFSG.Monster.B.Fischer.Y} (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ)
-    (hΦ' : IsCliqueIntertwiner act lab Y C x' η' φ' α' Φ')
-    {ρ : sliceGroup lab Y →* stdGroup}
-    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass)
-    {Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL} (hΨ : ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y) :
-    cliqueFixedVec Φ' Ψ = cliqueFixedVec Φ Ψ := by
-  have H := FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα
-  have H' := FullIntertwinerHyp.mk hS hC hx' hη' hθ' hφ' hα'
-  exact (H.eq_cliqueFixedVec_iff hΦ hroot hΨ _).1
-    ((H'.eq_cliqueFixedVec_iff hΦ' hroot hΨ _).2 rfl)
-
-theorem clique_radical_fixed_space_rank_sieve
-    (hS : IsFischerSlice act lab Y) {C : Set V}
-    (hC : IsSliceMaxClique lab Y C) [CFSG.IsElementaryAbelian 2 (Subgroup.closure (lab '' C))]
-    {x : V} (hx : x ∈ hexadFiber lab Y C ∅) {η : C ≃ X₀}
-    {θ : setStab act lab Y C ⧸ (ptStab act lab Y C).subgroupOf (setStab act lab Y C) ≃*
-      CFSG.Blueprint.NativeSporadic.M22}
-    (hη : ∀ T : Finset C, Subtype.val '' (T : Set C) ∈ cliqueBlocks lab C ↔
-      T.image (fun z => (η z : Fin 24)) ∈ ℬ₀)
-    (hθ : ∀ (f : setStab act lab Y C) (z : C),
-      (η (setStabPerm act lab Y C f z) : Fin 24) = psiHom (θ f) (η z))
-    {φ : Additive (Subgroup.closure (lab '' C)) ≃ₗ[ZMod 2] W₀}
-    (hφ : ∀ z : C, φ (Additive.ofMul (cliqueGen z)) = K₀.mkQ (e (η z)))
-    {α : setStab act lab Y C →* F₀}
-    (hα : ∀ (r : Subgroup.closure (lab '' C)) (f k : setStab act lab Y C),
-      (f : S) = r * k → act (k : S) x = x → α f = wF (φ (Additive.ofMul r)) * kF (θ k))
-    {Φ : Y ≃ CFSG.Monster.B.Fischer.Y} (hΦ : IsCliqueIntertwiner act lab Y C x η φ α Φ)
-    {ρ : sliceGroup lab Y →* stdGroup} (hρ : Function.Injective ρ)
-    (hroot : ∀ y : Y, ρ ⟨lab y, lab_mem_sliceGroup y.2⟩ ∈ rootClass)
-    {Ψ : NcommQuot lab Y ≃ₗ[ZMod 2] fixedL} (hΨ : ∀ y : Y, Ψ (ncommVec lab Y y) = adjVec ρ y) :
-    {u : fixedL | ∀ r : ptStab act lab Y C,
-        actStar (SemidirectProduct.inl (ρ ⟨r, r.2.1⟩)) u = u} =
-      Submodule.span (ZMod 2) (cliqueVecs Ψ C) ∧
-    Module.finrank (ZMod 2) (Submodule.span (ZMod 2) (cliqueVecs Ψ C)) = 11 ∧
-    ((Submodule.span (ZMod 2) (cliqueVecs Ψ C) : Set fixedL)).ncard = 2048 ∧
-    (∀ u ∈ Submodule.span (ZMod 2) (cliqueVecs Ψ C),
-      ∃! t : Fin 8, u ∈ fOrbit act C ρ
-        (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t))) ∧
-    (∀ t : Fin 8,
-      (fOrbit act C ρ (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t))).ncard =
-          (![1, 22, 231, 770, 770, 231, 22, 1] : Fin 8 → ℕ) t ∧
-        ∀ u ∈ fOrbit act C ρ (gramVec Φ Ψ ((![0, 1, 3, 7, 39, 117, 437, 949] : Fin 8 → ℕ) t)),
-          Module.finrank (ZMod 2) (LinearMap.range (adL u)) =
-            (![0, 22, 32, 38, 38, 32, 22, 22] : Fin 8 → ℕ) t) ∧
-    fOrbit act C ρ (gramVec Φ Ψ 1) = cliqueVecs Ψ C ∧
-    fOrbit act C ρ (gramVec Φ Ψ 437) = (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∧
-    fOrbit act C ρ (gramVec Φ Ψ 949) = {cliqueFixedVec Φ Ψ} ∧
-    {u | u ∈ Submodule.span (ZMod 2) (cliqueVecs Ψ C) ∧
-        Module.finrank (ZMod 2) (LinearMap.range (adL u)) = 22} =
-      cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∪ {cliqueFixedVec Φ Ψ} ∧
-    Disjoint (cliqueVecs Ψ C) ((cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C) ∧
-    cliqueFixedVec Φ Ψ ∉ cliqueVecs Ψ C ∪ (cliqueFixedVec Φ Ψ + ·) '' cliqueVecs Ψ C ∧
-    {u | u ∈ Submodule.span (ZMod 2) (cliqueVecs Ψ C) ∧
-        Module.finrank (ZMod 2) (LinearMap.range (adL u)) = 22}.ncard = 45 ∧
-    {y : Y | bracketL (cliqueFixedVec Φ Ψ) (Ψ (ncommVec lab Y y)) = 0} = {y : Y | (y : V) ∈ C} ∧
-    ∀ y₀ : Y, (y₀ : V) ∈ C →
-      {y : Y | bracketL (cliqueFixedVec Φ Ψ + Ψ (ncommVec lab Y y₀)) (Ψ (ncommVec lab Y y)) = 0} =
-        {y : Y | (y : V) ∈ C} := by
-  have H := FullIntertwinerHyp.mk hS hC hx hη hθ hφ hα
-  refine ⟨H.fixed_ptStab_eq hΦ hroot hΨ, H.finrank_span_cliqueVecs hΦ hΨ,
-    H.ncard_span_cliqueVecs hΦ hΨ, H.existsUnique_fOrbit hΦ hroot hΨ,
-    H.ncard_rank_fOrbit hΦ hρ hroot hΨ, H.fOrbit_one hΦ hroot hΨ, H.fOrbit_six hΦ hroot hΨ,
-    H.fOrbit_seven hΦ hroot hΨ, H.rank22_eq hΦ hρ hroot hΨ, H.disjoint_cliqueShift hΦ hroot hΨ,
-    H.cliqueFixedVec_not_mem hΦ hroot hΨ, ?_, ?_, fun y₀ hy₀ => ?_⟩
-  · rw [H.rank22_eq hΦ hρ hroot hΨ]
-    exact H.ncard_rank22 hΦ hroot hΨ
-  · ext y
-    exact H.bracketL_cliqueFixedVec_eq_zero_iff hΦ hρ hroot hΨ y
-  · ext y
-    exact H.bracketL_cliqueFixedVec_add_eq_zero_iff hΦ hρ hroot hΨ hy₀ y
 
 end IsFischerSlice
 

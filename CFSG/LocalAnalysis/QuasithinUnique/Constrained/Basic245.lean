@@ -68,44 +68,6 @@ variable {G : Type*} [Group G]
             ((∀ s ∈ S, conjR A s = A) ↔
               (A = baumD S L ⊔ blockU0 S L ∨ A = baumD S L ⊔ conjR (blockU0 S L) x)))
 
-@[expose] def Lemma245_3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
-    (IsAltType L 3 ∨ (conjJoin S L = L ∧ ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 5))) →
-      (S.relIndex (normT T S) = 2 ∧
-        ∀ x ∈ normT T S, x ∉ S →
-          CFSG.Quasithin.thompsonJ S = CFSG.Quasithin.baum S ∧
-          CFSG.Quasithin.baum S = pCoreOf 2 H ⊔ conjR (pCoreOf 2 H) x) ∧
-      (conjJoin S L = L →
-        ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) →
-          (∀ x ∈ normT T S, x ∉ S → ∀ A : Subgroup G, CFSG.Quasithin.IsMaxElemAbelian S A ↔
-            A = pCoreOf 2 H ∨ A = conjR (pCoreOf 2 H) x) ∧
-          ((IsAltType L 3 → Nat.card (blockD S L) ≤ 2 ^ 1) ∧
-            ∀ n : ℕ, 1 < n → IsLin2Type L n → Nat.card (blockD S L) ≤ 2 ^ n)) ∧
-      ((IsAltType L 5 ∧ conjJoin S L = L) ∨ (IsAltType L 3 ∧ conjJoin S L ≠ L) →
-        ∀ x ∈ normT T S, x ∉ S → ∀ r ∈ S, r ∉ CFSG.Quasithin.thompsonJ S →
-          ∃ A₁ : Subgroup G, (A₁ ⊓ pCoreOf 2 H).relIndex A₁ = 2 ∧
-            ∀ B : Subgroup G, CFSG.Quasithin.IsMaxElemAbelian S B ↔
-              B = pCoreOf 2 H ∨ B = conjR (pCoreOf 2 H) x ∨ B = A₁ ∨ B = conjR A₁ r) ∧
-      pCoreOf 2 H = blockD S L ⊔ pCoreOf 2 (conjJoin S L) ∧
-      ((S.relIndex T = 2 ∧ CFSG.Quasithin.thompsonJ S = CFSG.Quasithin.thompsonJ T ∧
-          (IsAltType L 3 → conjJoin S L = L →
-            Nonempty (H ≃* (Equiv.Perm (Fin 4) × Multiplicative (ZMod 2))))) ∨
-        (IsAltType L 3 ∧ conjJoin S L = L ∧ Nonempty (H ≃* Equiv.Perm (Fin 4)) ∧
-          IsDihedralOrSemidihedral T) ∨
-        (((IsAltType L 5 ∧ conjJoin S L = L) ∨ (IsAltType L 3 ∧ conjJoin S L ≠ L)) ∧
-          CFSG.Quasithin.thompsonJ S = CFSG.Quasithin.thompsonJ (normT T S) ∧
-          (∃ f : ↥(T ⊓ Subgroup.normalizer (normT T S : Set G)) →* DihedralGroup 4,
-            Function.Surjective f ∧
-              f.ker = (CFSG.Quasithin.thompsonJ S).subgroupOf
-                (T ⊓ Subgroup.normalizer (normT T S : Set G))) ∧
-          ∀ A₁ : Subgroup G, CFSG.Quasithin.IsMaxElemAbelian S A₁ → A₁ ≠ pCoreOf 2 H →
-            (∀ x ∈ normT T S, x ∉ S → A₁ ≠ conjR (pCoreOf 2 H) x) →
-              Nat.card S ≤ Nat.card ↥(T ⊓ Subgroup.normalizer ((A₁ ⊔ pCoreOf 2 H : Subgroup G) :
-                Set G))))
-
-@[expose] def Lemma246 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
-    Subgroup.normalizer (pCoreOf 2 H : Set G) ≤ Subgroup.normalizer (conjJoin S L : Set G)
 
 @[expose] def Lemma246Chi : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →

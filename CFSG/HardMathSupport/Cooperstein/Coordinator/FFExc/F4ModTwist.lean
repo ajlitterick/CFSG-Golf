@@ -96,16 +96,6 @@ theorem phi_mem_H {h : adjointGroup Tag.F4 K} (hh : h ∈ (DF4 K).H) : phiF4 K h
       exact dC_mem_H _ _
   exact this hh
 
-theorem exists_phi_H {h : adjointGroup Tag.F4 K} (hh : h ∈ (DF4 K).H) :
-    ∃ h' ∈ (DF4 K).H, phiF4 K h' = h := by
-  have : (DF4 K).H ≤ (DF4 K).H.map (phiF4 K).toMonoidHom :=
-    H_le_of_dC K fun i t => by
-      obtain ⟨s, hs⟩ := unit_pow_surj K (permF4 i) t
-      refine ⟨dC Tag.F4 K (permF4 i) s, dC_mem_H _ _, ?_⟩
-      change phiF4 K (dC Tag.F4 K (permF4 i) s) = dC Tag.F4 K i t
-      rw [phi_dC, permF4_permF4, hs]
-  obtain ⟨h', hh', e⟩ := this hh
-  exact ⟨h', hh', e⟩
 
 theorem pow_exp_bijective (i : Fin Tag.F4.rank) : Function.Bijective fun c : K => c ^ expF4 i := by
   have hs : Function.Surjective fun c : K => c ^ expF4 i :=
@@ -299,46 +289,6 @@ section Chars
 
 variable {V₁ V₂ : Type} [AddCommGroup V₁] [Module K V₁] [AddCommGroup V₂] [Module K V₂]
 
-theorem chi_mul_of_scalar {V : Type} [AddCommGroup V] [Module K V]
-    (ρ : Representation K (adjointGroup Tag.F4 K) V) {y : V} (hy : y ≠ 0)
-    {χ : adjointGroup Tag.F4 K → K} (hH : ∀ h ∈ (DF4 K).H, ρ h y = χ h • y)
-    {a b : adjointGroup Tag.F4 K} (ha : a ∈ (DF4 K).H) (hb : b ∈ (DF4 K).H) :
-    χ (a * b) = χ a * χ b := by
-  have h1 := hH (a * b) (mul_mem ha hb)
-  rw [map_mul, Module.End.mul_apply, hH b hb, map_smul, hH a ha, smul_smul] at h1
-  exact (smul_left_injective K hy h1.symm).trans (mul_comm _ _)
-
-theorem chi_one_of_scalar {V : Type} [AddCommGroup V] [Module K V]
-    (ρ : Representation K (adjointGroup Tag.F4 K) V) {y : V} (hy : y ≠ 0)
-    {χ : adjointGroup Tag.F4 K → K} (hH : ∀ h ∈ (DF4 K).H, ρ h y = χ h • y) : χ 1 = 1 := by
-  have h1 := hH 1 (one_mem _)
-  rw [map_one, Module.End.one_apply] at h1
-  exact (smul_left_injective K hy (h1.symm.trans (one_smul K y).symm))
-
-theorem chi_eq_on_H (ρ₁ : Representation K (adjointGroup Tag.F4 K) V₁) {y₁ : V₁} (hy₁ : y₁ ≠ 0)
-    {χ₁ : adjointGroup Tag.F4 K → K} (h₁ : ∀ h ∈ (DF4 K).H, ρ₁ h y₁ = χ₁ h • y₁)
-    (ρ₂ : Representation K (adjointGroup Tag.F4 K) V₂) {y₂ : V₂} (hy₂ : y₂ ≠ 0)
-    {χ₂ : adjointGroup Tag.F4 K → K} (h₂ : ∀ h ∈ (DF4 K).H, ρ₂ h y₂ = χ₂ h • y₂)
-    (hd : ∀ (i : Fin Tag.F4.rank) (t : Kˣ), χ₁ (dC Tag.F4 K i t) = χ₂ (dC Tag.F4 K i t)) :
-    ∀ h ∈ (DF4 K).H, χ₁ h = χ₂ h := by
-  let E : Subgroup (adjointGroup Tag.F4 K) :=
-    { carrier := {h | h ∈ (DF4 K).H ∧ χ₁ h = χ₂ h}
-      mul_mem' := fun {a b} ha hb => ⟨mul_mem ha.1 hb.1, by
-        rw [chi_mul_of_scalar K ρ₁ hy₁ h₁ ha.1 hb.1, chi_mul_of_scalar K ρ₂ hy₂ h₂ ha.1 hb.1,
-          ha.2, hb.2]⟩
-      one_mem' := ⟨one_mem _, by rw [chi_one_of_scalar K ρ₁ hy₁ h₁, chi_one_of_scalar K ρ₂ hy₂ h₂]⟩
-      inv_mem' := fun {a} ha => ⟨inv_mem ha.1, by
-        have e1 := chi_mul_of_scalar K ρ₁ hy₁ h₁ ha.1 (inv_mem ha.1)
-        have e2 := chi_mul_of_scalar K ρ₂ hy₂ h₂ ha.1 (inv_mem ha.1)
-        rw [mul_inv_cancel, chi_one_of_scalar K ρ₁ hy₁ h₁] at e1
-        rw [mul_inv_cancel, chi_one_of_scalar K ρ₂ hy₂ h₂] at e2
-        have h0 : χ₁ a ≠ 0 := fun h => by rw [h, zero_mul] at e1; exact zero_ne_one e1.symm
-        have : χ₁ a⁻¹ = χ₂ a⁻¹ := by
-          rw [ha.2] at e1 h0
-          exact mul_left_cancel₀ h0 (e1.symm.trans e2)
-        exact this⟩ }
-  have hle : (DF4 K).H ≤ E := H_le_of_dC K fun i t => ⟨dC_mem_H i t, hd i t⟩
-  exact fun h hh => (hle hh).2
 
 end Chars
 
@@ -350,58 +300,6 @@ theorem isSimpleRep_m26Phi (k : ℕ) : IsSimpleRep (m26Phi K k) := by
   have hs : Function.Surjective (phiF4 K ^ k).toMonoidHom := (phiF4 K ^ k).surjective
   exact (isSimpleRep_comp_iff (m26Rep K) hs).2 (isSimpleRep_m26 K)
 
-theorem iso_m26Phi_even (m : ℕ) (ρ : Representation K (adjointGroup Tag.F4 K) V)
-    (hρ : IsSimpleRep ρ) {y : V} {χ : adjointGroup Tag.F4 K → K}
-    (ht : IsChevType Tag.F4 K 2 exists_weyl_neg_F4' ρ y χ (Finset.univ.erase (nodeK (2 * m))))
-    (hw : ∀ t : Kˣ, χ (dC Tag.F4 K j3 t) = (t : K) ^ 2 ^ m) :
-    ∃ β : V ≃ₗ[K] (Idx26 → K), ∀ (g : adjointGroup Tag.F4 K) (v : V),
-      β (ρ g v) = m26Phi K (2 * m) g (β v) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨χk, hχk⟩ := exists_chi_m26Phi K (2 * m)
-  have hd : ∀ (i : Fin Tag.F4.rank) (t : Kˣ), χ (dC Tag.F4 K i t) = χk (dC Tag.F4 K i t) := by
-    intro i t
-    rw [m26Phi_chi_even K m χk hχk i t]
-    by_cases hi : i.val = 3
-    · have : i = j3 := Fin.ext hi
-      subst this
-      rw [hw t]; simp
-    · have hmem : i ∈ Finset.univ.erase (nodeK (2 * m)) := by
-        have : nodeK (2 * m) = j3 := by simp [nodeK]
-        rw [this, Finset.mem_erase]
-        exact ⟨fun h => hi (by rw [h]), Finset.mem_univ _⟩
-      have := ((ht.2.2.2 i).1 hmem).1 t
-      simp [this, hi]
-  have hχ : ∀ h ∈ (DF4 K).H, m26Phi K (2 * m) h (y26 K) = χ h • y26 K := by
-    intro h hh
-    rw [hχk h hh, ← chi_eq_on_H K ρ ht.2.1 ht.2.2.1 (m26Phi K (2 * m)) (y26_ne_zero K) hχk hd h hh]
-  exact iso_of_isChevType hρ (isSimpleRep_m26Phi K (2 * m)) ht (m26Phi_isChevType K (2 * m) χ hχ)
-
-theorem iso_m26Phi_odd (m : ℕ) (ρ : Representation K (adjointGroup Tag.F4 K) V)
-    (hρ : IsSimpleRep ρ) {y : V} {χ : adjointGroup Tag.F4 K → K}
-    (ht : IsChevType Tag.F4 K 2 exists_weyl_neg_F4' ρ y χ (Finset.univ.erase (nodeK (2 * m + 1))))
-    (hw : ∀ t : Kˣ, χ (dC Tag.F4 K ⟨0, by decide⟩ t) = (t : K) ^ 2 ^ m) :
-    ∃ β : V ≃ₗ[K] (Idx26 → K), ∀ (g : adjointGroup Tag.F4 K) (v : V),
-      β (ρ g v) = m26Phi K (2 * m + 1) g (β v) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨χk, hχk⟩ := exists_chi_m26Phi K (2 * m + 1)
-  have hd : ∀ (i : Fin Tag.F4.rank) (t : Kˣ), χ (dC Tag.F4 K i t) = χk (dC Tag.F4 K i t) := by
-    intro i t
-    rw [m26Phi_chi_odd K m χk hχk i t]
-    by_cases hi : i.val = 0
-    · have : i = ⟨0, by decide⟩ := Fin.ext hi
-      subst this
-      rw [hw t]; simp
-    · have hmem : i ∈ Finset.univ.erase (nodeK (2 * m + 1)) := by
-        have : nodeK (2 * m + 1) = ⟨0, by decide⟩ := by simp [nodeK]
-        rw [this, Finset.mem_erase]
-        exact ⟨fun h => hi (by rw [h]), Finset.mem_univ _⟩
-      have := ((ht.2.2.2 i).1 hmem).1 t
-      simp [this, hi]
-  have hχ : ∀ h ∈ (DF4 K).H, m26Phi K (2 * m + 1) h (y26 K) = χ h • y26 K := by
-    intro h hh
-    rw [hχk h hh, ← chi_eq_on_H K ρ ht.2.1 ht.2.2.1 (m26Phi K (2 * m + 1)) (y26_ne_zero K) hχk hd h hh]
-  exact iso_of_isChevType hρ (isSimpleRep_m26Phi K (2 * m + 1)) ht
-    (m26Phi_isChevType K (2 * m + 1) χ hχ)
 
 end IsoTwist
 

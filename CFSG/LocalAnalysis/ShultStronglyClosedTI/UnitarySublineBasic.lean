@@ -160,10 +160,6 @@ theorem coverToPSU_mk (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) (hC : C ≤ 
     (g : J.specialSubgroup) : coverToPSU J C hJ hC (g : J.specialSubgroup ⧸ C) = psuMk J g :=
   rfl
 
-theorem coverToPGL_mk (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) (hC : C ≤ scalarCenter J)
-    (g : J.specialSubgroup) :
-    coverToPGL J C hJ hC (g : J.specialSubgroup ⧸ C) = ProjGenLinGroup.mk (g : GL (Fin 3) K) :=
-  rfl
 
 theorem coverToPSU_surjective (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
     (hC : C ≤ scalarCenter J) : Function.Surjective (coverToPSU J C hJ hC) := by
@@ -219,9 +215,6 @@ theorem sublineMatrix_injective :
 @[expose] def sl2Embed : SpecialLinearGroup (Fin 2) K →* GL (Fin 3) K :=
   (Units.map sublineMonoidHom).comp SpecialLinearGroup.toGL
 
-theorem coe_sl2Embed (m : SpecialLinearGroup (Fin 2) K) :
-    (sl2Embed m : Matrix (Fin 3) (Fin 3) K) = sublineMatrix (m : Matrix (Fin 2) (Fin 2) K) :=
-  rfl
 
 theorem sl2Embed_injective : Function.Injective (sl2Embed : SpecialLinearGroup (Fin 2) K → _) :=
   fun _ _ h => Subtype.ext (sublineMatrix_injective (congrArg Units.val h))

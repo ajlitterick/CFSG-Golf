@@ -197,44 +197,21 @@ end S_fi24FiveA9_holds
 
 section Structure3
 
-structure SporDownResidual3 : Prop where
-  B_three : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp
-  M_three : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp
-  B_five : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp
-  M_five : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)
-  M_eleven : SporTables2.MElevenDown
 
 end Structure3
 
 section S_sporDownResidualPP_of_residual3
 
-theorem sporDownResidual''_of_residual3
-    (h : SporDownResidual3) : SporTables2.SporDownResidual'' where
-  B_three := h.B_three
-  M_three := h.M_three
-  Fi23_five := fi23FiveNoA6_holds
-  Fi24Prime_five := fi24FiveA9_holds
-  B_five := h.B_five
-  M_five := h.M_five
-  B_seven := bSevenNoL28_holds
-  M_eleven := h.M_eleven
-  M_thirteen_A := mThirteenADown_holds
 
 end S_sporDownResidualPP_of_residual3
 
 section S_sporDownResidualP_of_residual3
 
-theorem sporDownResidual'_of_residual3
-    (h : SporDownResidual3) : Claims1116d.SporDownResidual' :=
-  SporTables2.sporDownResidual'_of_residual'' (sporDownResidual''_of_residual3 h)
 
 end S_sporDownResidualP_of_residual3
 
 section S_inputSporDownChev_of_residual3
 
-theorem inputSporDownChev_of_residual3
-    (h : SporDownResidual3) : Claims1116b.InputSporDownChev :=
-  SporTables2.inputSporDownChev_of_residual'' (sporDownResidual''_of_residual3 h)
 
 end S_inputSporDownChev_of_residual3
 
@@ -252,11 +229,6 @@ end S_sporDownResidualK_of_mElevenDown
 
 section S_sporDownResidualP_of_mElevenDown_kGroup
 
-theorem sporDownResidual'_of_mElevenDown_kGroup
-    (hB : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .B).Group)
-    (hM : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .M).Group) (h : SporTables2.MElevenDown) :
-    Claims1116d.SporDownResidual' :=
-  SporTables2.sporDownResidual'_of_residualK hB hM (sporDownResidualK_of_mElevenDown h)
 
 end S_sporDownResidualP_of_mElevenDown_kGroup
 

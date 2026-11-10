@@ -87,30 +87,6 @@ theorem ggThree_le_card_of_fix (hFix : GGTBFixInput) {G : Type} [Group G] [Finit
   have h4'' : 4 ≤ Module.finrank (ZMod p) V := (Nat.pow_le_pow_iff_right hp.one_lt).mp h4'
   omega
 
-theorem ggFinrank_eq_of_fix (hFix : GGTBFixInput) {G : Type} [Group G] [Finite G] {p : ℕ}
-    [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hC : GGConfig p B Bs x L D J) (hO : GGOpAutTrivial p Bs)
-    (hI : GGInnerDiagAll p B Bs x L D J) (hNT : GGNoTransvection p Bs) {y : G} {K : Subgroup G}
-    (hN : GGNbr p B x D J y K) (hR : GGReflGenerated p (ggAutomizer K Bs))
-    (hPm : GGScalarsOrWeyl' p B Bs x D J) {Λ : Type} [Fintype Λ] {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] (ι : Additive ↥Bs ≃+ V) (φ : Λ → MulAut ↥Bs) (h : Λ → V)
-    (α : Λ → Module.Dual (ZMod p) V) (ha : V)
-    (hlin : ∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i)
-    (hind : LinearIndependent (ZMod p) (ggOptFam ha h))
-    (hL : ggAutomizer L Bs = Subgroup.closure (Set.range φ)) :
-    Module.finrank (ZMod p) V = Fintype.card Λ + 1 := by
-  classical
-  obtain ⟨hp, hBs, hxB, -, -⟩ := hC.tableB_facts
-  have hx : x ^ p = 1 := hBs.2 x hxB
-  have hfin := ggFinrank_le_of_fix_le hx ι φ h α hlin fun b hb =>
-    hFix G p B Bs x L D J hC hO hI hNT y K hN hR hPm b (by
-      rw [hL]
-      exact ggFixed_of_mem_closure φ b hb)
-  have : Finite V := Finite.of_equiv _ ι.toEquiv
-  have : Module.Finite (ZMod p) V := Module.Finite.of_finite
-  have hle := hind.fintype_card_le_finrank
-  rw [Fintype.card_option] at hle
-  omega
 
 theorem ggForkCrossGe5Input_of_f1_split (hFix : GGTBFixInput) (h₁ : GGForkCrossGe5MainInput)
     (h₂ : GGForkCrossGe5ExcInput) : GGForkCrossGe5Input := by
@@ -123,18 +99,5 @@ theorem ggForkCrossGe5Input_of_f1_split (hFix : GGTBFixInput) (h₁ : GGForkCros
       hlin hlina hind hL hK hf
       (ggThree_le_card_of_fix hFix hC hO hI hNT hN hR hPm ι φ h α hlin hL)
 
-theorem ggForkCrossGe5Main_of_input (h : GGForkCrossGe5Input) : GGForkCrossGe5MainInput := by
-  intro G _ _ p B Bs x L D J hC hO hI hNT y K hN hR hPm _ h5 Λ _ _ M C V _ _ ι φ φa h' α ha αa b c
-    hM hCM hF hlin hlina hind hL hK _ _
-  exact h G p B Bs x L D J hC hO hI hNT y K hN hR hPm h5 Λ M C V ι φ φa h' α ha αa b c hM hCM hF
-    hlin hlina hind hL hK
-
-theorem ggForkCrossGe5Exc_of_input (h : GGForkCrossGe5Input) : GGForkCrossGe5ExcInput := by
-  intro G _ _ p B Bs x L D J hC hO hI hNT y K hN hR hPm _ h5 Λ _ _ M C V _ _ ι φ φa h' α ha αa b c
-    hM hCM hF hlin hlina hind hL hK _
-  exact h G p B Bs x L D J hC hO hI hNT y K hN hR hPm h5 Λ M C V ι φ φa h' α ha αa b c hM hCM hF
-    hlin hlina hind hL hK
-
-example : GGForkF1Fails CoxeterMatrix.F₄ := Or.inr ⟨Equiv.refl _, fun _ _ => rfl⟩
 
 end CFSG.StandardType

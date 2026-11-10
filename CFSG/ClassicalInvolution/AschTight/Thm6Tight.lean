@@ -14,10 +14,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 
 variable (p f : ℕ) [Fact p.Prime]
 
-@[expose] def E2StarS3Tmp : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    TightBranchD p f K z → ¬ AllTypeTwo K z → CITBelowAll p (Nat.card G) → ¬ ConcOrTF4 G →
-      CStarTwoRankOne K
 
 variable {p f}
 
@@ -66,47 +62,5 @@ theorem exists_sylow_setup (ht : S19R.TightStd p f K z) :
     rw [heq] at this
     exact ⟨⟨x, hxK⟩, this, rfl⟩
 
-theorem ascStand_of_tightD [IsSimpleGroup G] (hIH : IHAllD p f) (h8 : IHInterface8 p)
-    (hAE : AEmptyD p f) (ht : S19R.TightStd p f K z) :
-    AscStand p f (CoreAssembly.conjClass K) K where
-  odd := ht.branch.odd
-  five := ht.branch.five
-  hyp := hypOmegaMod_of_tightD ht
-  below := hIH G K z ht.branch
-  ih := h8 _ (hIH G K z ht.branch)
-  aEmpty := hAE G K z ht.branch
-  mem := CoreAssembly.mem_conjClass_self K
-  trans := fun J hJ => by
-    obtain ⟨g, rfl⟩ := CoreAssembly.single_class K J hJ
-    exact ⟨g, rfl⟩
-  gen := (inClass_conjugates ht.branch.member).generated
-
-variable (p f) in
-theorem tightControlledD_of_inputs (hB3 : GoldschmidtB3Tmp) (h62 : L6_2ModTmp p f)
-    (h5 : C19_5 p f) (h16 : C19_16Tmp p f) (hE2 : E2StarS3Tmp p f) (hW : W69 p f)
-    (hIH : IHAllD p f) (h8 : IHInterface8 p) (hAE : AEmptyD p f) : TightControlledD p f := by
-  intro G _ _ _ K z ht0
-  have ht := S19R.tightStd_of_tightBranchD ht0
-  by_cases hc : ConcOrTF4 G
-  · exact hc.conclusionD ht.branch.notFourGenerated
-  exfalso
-  by_cases hA : AllTypeTwo K z
-  · exact false_of_allTypeTwo hB3 ht hA
-  have htb := ht.toTightBranch
-  have hI := isUniqueInvolution_of_tight htb
-  have hstand := ascStand_of_tightD hIH h8 hAE ht
-  obtain ⟨Q₀, S, hRS, -, hSz, -⟩ := exists_sylow_setup ht
-  set R : Subgroup G := (Q₀ : Subgroup K).map K.subtype with hRdef
-  have hstd : Std6 p f (CoreAssembly.conjClass K) K S R z :=
-    ⟨hstand, ht.edgeless, hI, ⟨K, CoreAssembly.mem_conjClass_self K, Q₀, rfl⟩,
-      Subgroup.map_subtype_le _, hRS, hc⟩
-  obtain ⟨W, hWmem, hWS⟩ := hW G _ K hstand S
-  obtain ⟨L, hL, t, htL, htz, V, hV, hVS, htV⟩ := exists_data_of_not_allTypeTwo h62 ht hA S hSz
-  have hE3 := normalizerQuotientTwoGeneratedStar_of_c19_5 h5 h16 ht (hIH G K z ht.branch) hstd
-    hWmem hWS hL htL htz hV hVS htV
-  have hE2' := hE2 G K z ht0 hA (hIH G K z ht.branch) hc
-  exact ht.branch.notFourGenerated (twoSubgroupsFourGenerated_of_edgeless_star ht.branch.odd
-    ht.branch.five ht.branch.member ht0.control (deltaEdgeless_of_dEdgeless ht.edgeless)
-    (commutingSylowForcesCommuting_of_tightD ht) hE2' hE3)
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight

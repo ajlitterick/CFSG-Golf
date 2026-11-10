@@ -60,31 +60,6 @@ theorem linearBlockStandardPair_minusDatum (h2 : (2 : F) ≠ 0) (hn : 4 ≤ n) {
   exact linearBlockStandardPair_of_levi emb hinj (by rw [rankOne_minusDatum_long hirr hi, h0])
     (by rw [rankOne_minusDatum_long hirr hj, h1])
 
-theorem twistedB2BlockStandardPair_minusDatum (h2 : (2 : F) ≠ 0) (hn : 4 ≤ n) {i j : Fin (n - 1)}
-    (hia : i.val + 3 = n) (hjb : j.val + 2 = n) :
-    ∃ W, TwistedB2BlockStandardPair hirr W (CurtisTits.rankOne (minusDatum n hirr).rootGroup i)
-      (CurtisTits.rankOne (minusDatum n hirr).rootGroup j) := by
-  have := fact_shortField hirr
-  have hn3 : 3 ≤ n := by omega
-  have hi : i.val + 1 < n - 1 := by omega
-  have hj : ¬ j.val + 1 < n - 1 := by omega
-  have hinj := spinGroupMap_minusShift_injective h2 n hn3 hirr
-  have hl := minusShift_comp_longBlock (b := b) (c := c) hn3 hia hi
-  have hs := minusShift_comp_shortBlock hn3 hirr hjb
-  refine ⟨((minusShift n hn3 b c).spinGroupMap).range, (minusShift n hn3 b c).spinGroupMap, rfl,
-    ?_, ?_, ?_, ?_, ?_⟩
-  · rw [(MonoidHom.ker_eq_bot_iff _).mpr hinj]
-    exact bot_le
-  · change Function.Injective ((minusShift n hn3 b c).spinGroupMap.comp (minusLongBlock b c))
-    rw [hl]
-    exact rLong_injective hi
-  · change Function.Injective ((minusShift n hn3 b c).spinGroupMap.comp (shortBlock hirr 3 finOne))
-    rw [hs]
-    exact shortBlock_injective hirr h2 n j
-  · change (minusLongBlock b c).range.map (minusShift n hn3 b c).spinGroupMap = _
-    rw [← MonoidHom.range_comp, hl, rankOne_minusDatum_long hirr hi]
-  · change (shortBlock hirr 3 finOne).range.map (minusShift n hn3 b c).spinGroupMap = _
-    rw [← MonoidHom.range_comp, hs, rankOne_minusDatum_short hirr hj]
 
 end Model
 

@@ -173,13 +173,5 @@ theorem ThLocalIn.card_S (W : ThLocalIn L S A B z) : Nat.card S = 2 ^ 15 := by
   rw [← hSNcard]
   exact hSN
 
-theorem ThLocalIn.relIndex_B_S (W : ThLocalIn L S A B z) : B.relIndex S = 64 := by
-  have h := Subgroup.relIndex_mul_card (H := B) (K := S)
-  rw [inf_of_le_left W.B_le_S] at h
-  have hS : Nat.card S = 64 * Nat.card B := by
-    rw [ThLocalIn.card_S W, W.B_card]
-    norm_num
-  rw [hS] at h
-  exact Nat.eq_of_mul_eq_mul_right Nat.card_pos h
 
 end CFSG.EvenSporadicStandard.ThStd

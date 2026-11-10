@@ -20,9 +20,6 @@ variable {R S : Type} [CommRing R] [CommRing S]
     t * v 2 * v 3, t * v 2 * v 2, 1 + t * v 2 * v 1, t * v 2 * v 0;
     t * v 3 * v 3, t * v 3 * v 2, t * v 3 * v 1, 1 + t * v 3 * v 0]
 
-theorem transvMatR_eq_transvMat {K : Type} [Field K] (v : Fin 4 → K) (t : K) :
-    transvMatR v t = transvMat v t :=
-  rfl
 
 theorem transvMatR_eq_one_add (v : Fin 4 → R) (t : R) :
     transvMatR v t = 1 + Matrix.vecMulVec (t • v) (fun j => v (Fin.rev j)) := by
@@ -35,9 +32,6 @@ theorem transvMatR_map {F : Type*} [FunLike F R S] [RingHomClass F R S] (f : F)
   ext i j
   fin_cases i <;> fin_cases j <;> simp [transvMatR]
 
-theorem transvMatR_zero (v : Fin 4 → R) : transvMatR v 0 = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [transvMatR]
 
 theorem det_transvMatR [CharP R 2] (v : Fin 4 → R) (t : R) : (transvMatR v t).det = 1 := by
   have h2 : (2 : R) = 0 := CharTwo.two_eq_zero
@@ -47,30 +41,6 @@ theorem det_transvMatR [CharP R 2] (v : Fin 4 → R) (t : R) : (transvMatR v t).
   simp
   linear_combination (t * (v 0 * v 3 + v 1 * v 2)) * h2
 
-theorem transvMatR_mul_self [CharP R 2] (v : Fin 4 → R) (t : R) :
-    transvMatR v t * transvMatR v t = 1 := by
-  have h2 : (2 : R) = 0 := CharTwo.two_eq_zero
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [Matrix.mul_apply, Fin.sum_univ_four, transvMatR]
-  all_goals first
-    | ring1
-    | linear_combination (t * v 0 * v 0 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 0 * v 1 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 0 * v 2 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 0 * v 3 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 1 * v 0 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 1 * v 1 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 1 * v 2 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 1 * v 3 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 2 * v 0 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 2 * v 1 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 2 * v 2 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 2 * v 3 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 3 * v 0 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 3 * v 1 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 3 * v 2 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
-    | linear_combination (t * v 3 * v 3 * (1 + t * (v 0 * v 3 + v 1 * v 2))) * h2
 
 theorem map_ofFn_prod {F : Type*} [FunLike F R S] [RingHomClass F R S] (z : F) {n : ℕ}
     (f : Fin n → Matrix (Fin 4) (Fin 4) R) :

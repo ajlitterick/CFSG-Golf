@@ -87,13 +87,6 @@ theorem ggOppositeRadicalCountNormalAt_of_universal {t : StatedLieTag}
   exact (GGOppRad.GGOppRadGood.of_lift ψ hker (fun z hz h2 => hinv z (hker hz) h2)
     (fun Q' hQ'ne hQ' => hgood Q' hQ'ne hQ') hQne hQ).countNormal hQ
 
-theorem ggOppositeRadicalUniversalAt_PSL : GGOppositeRadicalUniversalAt .PSL := by
-  intro n f hadm _
-  obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 := ⟨n - 1, by have := hadm.2.2.1; omega⟩
-  have hf : Finite (Matrix.SpecialLinearGroup (Fin (m + 1)) (GaloisField 2 f)) := inferInstance
-  exact ⟨hf, fun z hz h2 => GGOppRad.eq_one_of_mem_center_of_sq_eq_one
-      (ι := Fin (m + 1)) (K := GaloisField 2 f) hz h2,
-    fun Q hQne hQ => GGOppRad.ggOppRadGood_sl (ι := Fin (m + 1)) (K := GaloisField 2 f) hQne hQ⟩
 
 end Inputs
 

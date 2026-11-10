@@ -118,10 +118,6 @@ theorem tensorEquiv_one_tmul
       Module.Basis.equiv_apply, Equiv.refl_apply]
   exact congrArg (fun φ => φ u) key
 
-theorem tensorEquiv_tmul
-    (c : K) (u : fixedL) : tensorEquiv (c ⊗ₜ u) = c • (u : V) := by
-  rw [show c ⊗ₜ[ZMod 2] u = c • ((1 : K) ⊗ₜ[ZMod 2] u) by
-    rw [TensorProduct.smul_tmul', smul_eq_mul, mul_one], map_smul, tensorEquiv_one_tmul]
 
 theorem sqV_eq_mapRange (v : V) :
     sqV v = Finsupp.mapRange (fun x : K => x ^ 2) (zero_pow two_ne_zero) v := rfl
@@ -168,17 +164,6 @@ theorem formL_apply (u v : fixedL) : formL u v = t0 (form K u v) := rfl
 theorem algebraMap_formL (u v : fixedL) : algebraMap (ZMod 2) K (formL u v) = form K u v :=
   algebraMap_t0 (form_sq_eq u v)
 
-theorem t0_zero : t0 (0 : K) = 0 := by
-  rw [show (0 : K) = algebraMap (ZMod 2) K 0 from (map_zero _).symm, t0_coe]
-
-theorem formL_self
-    (u : fixedL) : formL u u = 0 := by
-  rw [formL_apply, form_self, t0_zero]
-
-theorem formL_bracketL
-    (u v w : fixedL) : formL (bracketL u v) w = formL u (bracketL v w) := by
-  rw [formL_apply, formL_apply]
-  exact congrArg t0 (form_bracket (u : V) v w)
 
 theorem form_eq_zero_of_forall
     {u : V} (hu : ∀ v ∈ fixedL, form K u v = 0) (w : V) :
@@ -232,12 +217,6 @@ theorem stdGroup_mem_adjointGroup
   ((mem_twistedFixedGroup_iff_twistHom TwistTag.E6 K barHom).1
     (graphFixedRootGroup_le _ _ _ g.2)).1
 
-theorem eq_of_forall_mem_fixedL
-    {g h : stdGroup} (H : ∀ u ∈ fixedL, gEnd g u = gEnd h u) :
-    g = h := by
-  have hl : gEnd g = gEnd h :=
-    basisK.ext fun l => by rw [basisK_apply]; exact H _ (basisVec_mem_fixedL l)
-  exact Subtype.ext (Units.ext hl)
 
 theorem fixedMap_sqV (v : V) : fixedMap (sqV v) = sqV (fixedMap v) := by
   ext l
@@ -343,19 +322,6 @@ theorem actStar_inl
   rw [coe_actStar_apply, SemidirectProduct.left_inl, SemidirectProduct.right_inl,
     sigmaPow_of_eq_one (by rfl)]
 
-abbrev betaB :
-    betaGroup := ⟨betaG, Subgroup.mem_zpowers betaG⟩
-
-theorem actStar_inr_betaB
-    (u : fixedL) :
-    (actStar (SemidirectProduct.inr betaB) u : V) = sqV u := by
-  rw [coe_actStar_apply, SemidirectProduct.left_inr, SemidirectProduct.right_inr,
-    sigmaPow_of_eq_betaG rfl]
-  rfl
-
-theorem gEnd_betaG
-    (g : stdGroup) (v : V) : gEnd (betaG g) v = sqV (gEnd g (sqV v)) := by
-  rw [sqV_gEnd, sqV_sqV]
 
 theorem gEnd_mul
     (x y : stdGroup) : gEnd (x * y) = gEnd x * gEnd y := rfl
@@ -363,41 +329,6 @@ theorem gEnd_mul
 theorem gEnd_one_apply
     (v : V) : gEnd 1 v = v := rfl
 
-theorem actStar_injective :
-    Function.Injective actStar := by
-  rw [injective_iff_map_eq_one]
-  intro γ hγ
-  have htriv : ∀ u ∈ fixedL, gEnd γ.left (sigmaPow γ.right u) = u := fun u hu =>
-    congrArg Subtype.val (Equiv.ext_iff.1 hγ ⟨u, hu⟩)
-  rcases mem_betaGroup_iff.mp γ.right.2 with h | h
-  · have hl : γ.left = 1 := eq_of_forall_mem_fixedL fun u hu => by
-      have := htriv u hu
-      rw [sigmaPow_of_eq_one h u] at this
-      rw [this, gEnd_one_apply]
-    exact SemidirectProduct.ext hl (Subtype.ext h)
-  · exfalso
-    set n := γ.left
-    have hσ : ∀ u ∈ fixedL, gEnd n (sqV u) = u := fun u hu => by
-      rw [← sigmaPow_of_eq_betaG h u]
-      exact htriv u hu
-    have hσ' : ∀ u ∈ fixedL, sqV u = gEnd n⁻¹ u := fun u hu => by
-      have := congrArg (gEnd n⁻¹) (hσ u hu)
-      rwa [← Module.End.mul_apply, ← Units.val_mul, ← Subgroup.coe_mul, inv_mul_cancel,
-        Subgroup.coe_one, Units.val_one, Module.End.one_apply] at this
-    have hn : n⁻¹ = n := by
-      have hsq : n⁻¹ * n⁻¹ = 1 := eq_of_forall_mem_fixedL fun u hu => by
-        have h1 := hσ' (sqV u) (sqV_mem_fixedL hu)
-        rw [sqV_sqV, hσ' u hu] at h1
-        rw [gEnd_mul, Module.End.mul_apply, ← h1, gEnd_one_apply]
-      have := mul_eq_one_iff_eq_inv.1 hsq
-      rwa [inv_inv] at this
-    have hβ : ∀ x : stdGroup, betaG x = n⁻¹ * x * n := fun x =>
-      eq_of_forall_mem_fixedL fun u hu => by
-        rw [gEnd_betaG, hσ' u hu, hσ' _ (stdGroup_mem_fixedL x (stdGroup_mem_fixedL _ hu))]
-        conv_lhs => rw [show gEnd n⁻¹ u = gEnd n u by rw [hn]]
-        rfl
-    exact betaG_ne_conj n⁻¹ (MulEquiv.ext fun x => by
-      rw [hβ x, MulAut.conj_apply, inv_inv])
 
 @[expose] def FixedLabel : Label Tag.E6 → Prop
   | .inl i => rhoE6 i = i
@@ -406,75 +337,5 @@ theorem actStar_injective :
 instance : DecidablePred FixedLabel := fun l => by
   cases l <;> unfold FixedLabel <;> infer_instance
 
-theorem labelRho_eq_iff_fixedLabel (l : Label Tag.E6) : labelRho l = l ↔ FixedLabel l := by
-  rcases l with i | α
-  · rw [labelRho_inl]
-    exact ⟨fun h => Sum.inl_injective h, fun h => by rw [show rhoE6 i = i from h]⟩
-  · rw [labelRho_inr]
-    exact ⟨fun h => congrArg Subtype.val (Sum.inr_injective h),
-      fun h => congrArg Sum.inr (Subtype.ext h)⟩
-
-set_option maxRecDepth 20000 in
-theorem card_fixedLabel :
-    (Finset.univ.filter FixedLabel).card = 26 := by
-  have h : (∑ i : Fin Tag.E6.rank, if FixedLabel (Sum.inl i) then 1 else 0) +
-      ∑ v ∈ rootFinset Tag.E6, (if permLattice rhoE6 v = v then 1 else 0) = 26 := by
-    decide +kernel
-  rw [Finset.sum_subtype (F := inferInstance) (rootFinset Tag.E6) (fun _ => mem_rootFinset)] at h
-  rw [Finset.card_filter, Fintype.sum_sum_type]
-  exact h
-
-set_option maxRecDepth 20000 in
-theorem card_not_fixedLabel :
-    (Finset.univ.filter fun l => ¬FixedLabel l).card = 52 := by
-  have h : (∑ i : Fin Tag.E6.rank, if ¬FixedLabel (Sum.inl i) then 1 else 0) +
-      ∑ v ∈ rootFinset Tag.E6, (if ¬permLattice rhoE6 v = v then 1 else 0) = 52 := by
-    decide +kernel
-  rw [Finset.sum_subtype (F := inferInstance) (rootFinset Tag.E6) (fun _ => mem_rootFinset)] at h
-  rw [Finset.card_filter, Fintype.sum_sum_type]
-  exact h
-
-theorem card_fixed_labels :
-    (Finset.univ.filter fun l : Label Tag.E6 => labelRho l = l).card = 26 ∧
-      (Finset.univ.filter fun l : Label Tag.E6 => labelRho l ≠ l).card = 52 := by
-  simp only [labelRho_eq_iff_fixedLabel, ne_eq]
-  exact ⟨card_fixedLabel, card_not_fixedLabel⟩
-
-theorem fixed_E6_binary_adjoint_descent :
-    (∀ u : V, u ∈ fixedL ↔ PV (sqV u) = u) ∧
-    Module.finrank (ZMod 2) fixedL = 78 ∧
-    Submodule.span K (fixedL : Set V) = ⊤ ∧
-    (∃ e : TensorProduct (ZMod 2) K fixedL ≃ₗ[K] V,
-      ∀ (c : K) (u : fixedL), e (c ⊗ₜ u) = c • (u : V)) ∧
-    (∀ u ∈ fixedL, ∀ v ∈ fixedL, bracket K u v ∈ fixedL) ∧
-    (∀ u v : fixedL, (bracketL u v : V) = bracket K u v) ∧
-    (∀ u v : fixedL, algebraMap (ZMod 2) K (formL u v) = form K u v) ∧
-    formL.Nondegenerate ∧ (∀ u : fixedL, formL u u = 0) ∧
-    (∀ u v w : fixedL, formL (bracketL u v) w = formL u (bracketL v w)) ∧
-    (∀ l : Label Tag.E6, labelRho l = l → basisVec l = Finsupp.single l 1) ∧
-    (∀ l : Label Tag.E6, labelRho l ≠ l → (IsFirst l ↔ ¬IsFirst (labelRho l))) ∧
-    (∀ l : Label Tag.E6, labelRho l ≠ l → IsFirst l →
-      basisVec l = Finsupp.single l 1 + Finsupp.single (labelRho l) 1 ∧
-      basisVec (labelRho l) = ω • Finsupp.single l 1 + ω ^ 2 • Finsupp.single (labelRho l) 1) ∧
-    (Finset.univ.filter fun l : Label Tag.E6 => labelRho l = l).card = 26 ∧
-    (Finset.univ.filter fun l : Label Tag.E6 => labelRho l ≠ l).card = 52 ∧
-    (∀ l, (basisL l : V) = basisVec l) ∧
-    (∀ (g : stdGroup) (u : V), u ∈ fixedL → gEnd g u ∈ fixedL) ∧
-    (∀ (g : stdGroup) (u v : V), gEnd g (bracket K u v) = bracket K (gEnd g u) (gEnd g v) ∧
-      form K (gEnd g u) (gEnd g v) = form K u v) ∧
-    (∀ (g : stdGroup) (u : fixedL), (actStar (SemidirectProduct.inl g) u : V) = gEnd g u) ∧
-    (∀ u : fixedL, (actStar (SemidirectProduct.inr betaB) u : V) = sqV u) ∧
-    Function.Injective (actStar.comp SemidirectProduct.inl) ∧ Function.Injective actStar := by
-  refine ⟨fun u => Iff.rfl, finrank_fixedL, span_K_fixedL, ⟨tensorEquiv, tensorEquiv_tmul⟩,
-    fun u hu v hv => bracket_mem_fixedL hu hv, fun u v => rfl, algebraMap_formL,
-    formL_nondegenerate, formL_self, formL_bracketL, fun l h => basisVec_of_fixed h,
-    fun l h => isFirst_iff_not_isFirst h, fun l h hf => ?_, card_fixed_labels.1,
-    card_fixed_labels.2, basisL_apply, fun g u hu => stdGroup_mem_fixedL g hu,
-    fun g u v => ⟨adjointGroup_bracket (stdGroup_mem_adjointGroup g) u v,
-      adjointGroup_form (stdGroup_mem_adjointGroup g) u v⟩, actStar_inl, actStar_inr_betaB,
-    actStar_injective.comp SemidirectProduct.inl_injective, actStar_injective⟩
-  have h' : labelRho (labelRho l) ≠ labelRho l := labelRho_ne_iff.2 h
-  refine ⟨basisVec_of_first h hf, ?_⟩
-  rw [basisVec_of_second h' ((isFirst_iff_not_isFirst h).1 hf), labelRho_labelRho]
 
 end CFSG.Monster.B.E6.FixedE6

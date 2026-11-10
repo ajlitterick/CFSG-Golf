@@ -146,29 +146,6 @@ theorem isInner_of_compRank_three_ncard_eighteen
   obtain ⟨u, hu, hfu⟩ := exists_smul_eq_of_isIsometry hΨ hf hw hfix
   exact ⟨u, hu, hfu⟩
 
-theorem f4_rankThree_component_rho_isInner
-    {L : Type} [Field L] {D : LangDatum Tag.F4 L}
-    {ρ : Equiv.Perm (Fin Tag.F4.rank → ℤ)} (hρ : FrobRootMap D ρ)
-    {a : Fin Tag.F4.rank → Lˣ} (i : KernelComponent (rootCharHom a))
-    (hr : compRank (componentRoots (rootCharHom a) i) = 3)
-    (hc : (componentRoots (rootCharHom a) i).ncard = 18)
-    (hstable : (fun γ => ρ γ) '' componentRoots (rootCharHom a) i =
-      componentRoots (rootCharHom a) i) :
-    ∃ u ∈ componentWeylGroup (componentRoots (rootCharHom a) i),
-      ∀ γ ∈ componentRoots (rootCharHom a) i, ρ γ = u • γ := by
-  have hΨ : IsRootComponent (componentRoots (rootCharHom a) i) :=
-    isRootComponent_componentRoots i
-  have hbij : Set.BijOn (fun γ => ρ γ)
-      (componentRoots (rootCharHom a) i) (componentRoots (rootCharHom a) i) :=
-    ⟨fun γ hγ => by rw [← hstable]; exact ⟨γ, hγ, rfl⟩,
-      ρ.injective.injOn,
-      fun γ hγ => by
-        rw [← hstable] at hγ
-        obtain ⟨δ, hδ, hδγ⟩ := hγ
-        exact ⟨δ, hδ, hδγ⟩⟩
-  have hf : IsIsometry (componentRoots (rootCharHom a) i) (fun γ => ρ γ) :=
-    ⟨hbij, fun γ _ δ _ => hρ.iform_eq γ δ, fun γ _ => hρ.neg_eq γ⟩
-  exact isInner_of_compRank_three_ncard_eighteen hΨ hr hc hf
 
 end CFSG.StandardType.F4ExplicitPos.RankThreeInner
 

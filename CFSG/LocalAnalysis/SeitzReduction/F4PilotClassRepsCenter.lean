@@ -145,17 +145,6 @@ theorem exists_conj_eq_f4x_44_mul_f4x_47_of_mem_centralizer [Finite K] [CharP K 
     _ = (g : ModGL .F4 K)⁻¹ * ((g * u * (g : ModGL .F4 K)⁻¹) * z) * g := by rw [hc']
     _ = u * ((g : ModGL .F4 K)⁻¹ * z * g) := by group
 
-theorem centralizer_sylow_le [Finite K] [CharP K 2] (U : Sylow 2 (adjointGroup .F4 K)) :
-    centralizer ((U : Subgroup (adjointGroup .F4 K)) : Set (adjointGroup .F4 K)) ≤ U := by
-  intro z hz
-  obtain ⟨g, hU, c, d, hcd⟩ := exists_conj_eq_f4x_44_mul_f4x_47_of_mem_centralizer U hz
-  rw [hU]
-  refine ⟨g⁻¹ * z * g, mem_posUnipotentSylow.2 ?_, by
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    group⟩
-  rw [hcd]
-  exact mul_mem (f4x_mem_posUnipotent ⟨by norm_num, by norm_num⟩ c)
-    (f4x_mem_posUnipotent ⟨by norm_num, by norm_num⟩ d)
 
 end Center
 

@@ -41,37 +41,6 @@ namespace CFSG.GH74.E2
 
 variable {M : Type*} [Group M] {k : ℕ}
 
-theorem lift_comp_aut (g : Fin k → M) (ψ : MulAut M) (w : FreeGroup (Fin k)) :
-    ψ (FreeGroup.lift g w) = FreeGroup.lift (fun i => ψ (g i)) w := by
-  have h : (ψ : M →* M).comp (FreeGroup.lift g) = FreeGroup.lift (fun i => ψ (g i)) := by
-    apply FreeGroup.ext_hom
-    intro i
-    simp
-  exact DFunLike.congr_fun h w
-
-theorem lift_comp_aut_rel (g : Fin k → M) (rs : List (FreeGroup (Fin k)))
-    (hrs : ∀ r ∈ rs, FreeGroup.lift g r = 1) (ψ : MulAut M) :
-    ∀ r ∈ rs, FreeGroup.lift (fun i => ψ (g i)) r = 1 := by
-  intro r hr
-  rw [← lift_comp_aut, hrs r hr, map_one]
-
-theorem fix_of_relators (g : Fin k → M) (rs : List (FreeGroup (Fin k)))
-    (hrs : ∀ r ∈ rs, FreeGroup.lift g r = 1) (wt : FreeGroup (Fin k))
-    (hcert : ∀ h : Fin k → M, (∀ r ∈ rs, FreeGroup.lift h r = 1) →
-      FreeGroup.lift h wt ∈ Subgroup.center M → FreeGroup.lift h wt = FreeGroup.lift g wt) :
-    ∀ ψ : MulAut M, ψ (FreeGroup.lift g wt) ∈ Subgroup.center M →
-      ψ (FreeGroup.lift g wt) = FreeGroup.lift g wt := by
-  intro ψ hψ
-  rw [lift_comp_aut] at hψ ⊢
-  exact hcert _ (lift_comp_aut_rel g rs hrs ψ) hψ
-
-theorem inner_of_relators (g : Fin k → M) (rs : List (FreeGroup (Fin k)))
-    (hrs : ∀ r ∈ rs, FreeGroup.lift g r = 1)
-    (hcert : ∀ h : Fin k → M, (∀ r ∈ rs, FreeGroup.lift h r = 1) →
-      ∃ a : M, ∀ i, h i = a * g i * a⁻¹) :
-    ∀ ψ : MulAut M, ∃ a : M, ∀ i, ψ (g i) = a * g i * a⁻¹ := by
-  intro ψ
-  exact hcert _ (lift_comp_aut_rel g rs hrs ψ)
 
 theorem fix_of_cert4 (a b c d : M) (R : M → M → M → M → Prop)
     (hRaut : ∀ (ψ : MulAut M) (a b c d : M), R a b c d → R (ψ a) (ψ b) (ψ c) (ψ d))

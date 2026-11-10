@@ -81,14 +81,6 @@ universe actingUniverse sourceUniverse targetUniverse
     rw [map_mul]
     group }
 
-theorem invariantSubgroupConjugation_apply {Acting : Type actingUniverse} [Group Acting]
-    {Ambient : Type sourceUniverse} [Group Ambient] (action : Acting →* Ambient)
-    (Invariant : Subgroup Ambient)
-    (hstable : ∀ conjugator : Acting, ∀ element : Ambient, element ∈ Invariant →
-      action conjugator * element * (action conjugator)⁻¹ ∈ Invariant)
-    (conjugator : Acting) (element : Invariant) :
-    (invariantSubgroupConjugation action Invariant hstable conjugator element : Ambient) =
-      action conjugator * element * (action conjugator)⁻¹ := rfl
 
 theorem pGroup_invariant_kernel_fixed_element {Acting : Type actingUniverse} [Group Acting]
     {Source : Type sourceUniverse} [Group Source] [Finite Source]

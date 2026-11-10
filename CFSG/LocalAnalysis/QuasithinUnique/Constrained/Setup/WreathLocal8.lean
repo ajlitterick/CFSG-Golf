@@ -110,9 +110,6 @@ theorem exists_quotient_iso
     (QuotientGroup.quotientKerEquivOfSurjective f hsurj), fun x => ?_⟩
   rfl
 
-variable {h} {i : Fin r} {P : Subgroup H} (hP : h.IsSelected i P)
-
-include hP
 
 end WreathHyp
 

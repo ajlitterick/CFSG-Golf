@@ -37,10 +37,6 @@ theorem preimage_conjFactors_inv (g : G) (k : Fin r) :
       aschbacherThm5Preimage D (Abar k) := by
   rw [preimage_conjFactors, preimage_conjFactors, rightConjugate_rightConjugate_inv]
 
-omit [Finite G] in
-theorem core_conj_inv (g : G) :
-    aschbacherThm5Core (rightConjugate (rightConjugate D g) g⁻¹) = aschbacherThm5Core D := by
-  rw [core_conj, core_conj, rightConjugate_rightConjugate_inv]
 
 omit [Finite G] in
 theorem centralizes_pow {A : Subgroup G} (hAD : A ≤ D) {y : G}

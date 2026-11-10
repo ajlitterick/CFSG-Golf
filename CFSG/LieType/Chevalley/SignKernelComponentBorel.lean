@@ -381,25 +381,6 @@ theorem componentWeylElt_mem_componentMonomial
     componentWeylElt K v j β ∈ componentMonomial K χ i v j :=
   Subgroup.subset_closure (Or.inr ⟨β, hβ, rfl⟩)
 
-theorem exists_mapsRootLines_of_mem_componentMonomial
-    {g : ModGL τ K}
-    (hg : g ∈ componentMonomial K χ i v j) :
-    ∃ w ∈ componentWeylGroup (componentRoots χ i), MapsRootLines g w := by
-  induction hg using Subgroup.closure_induction with
-  | mem x hx =>
-    rcases hx with hx | ⟨β, hβ, rfl⟩
-    · exact ⟨1, one_mem _,
-        mapsRootLines_of_mem_torusGroup (componentTorus_le_torusGroup K χ i hx)⟩
-    · exact ⟨_, rootReflection_mem_componentWeylGroup hβ,
-        mapsRootLines_componentWeylElt (hvj β hβ)⟩
-  | one => exact ⟨1, one_mem _, mapsRootLines_one⟩
-  | mul x y _ _ hx hy =>
-    obtain ⟨w, hw, h⟩ := hx
-    obtain ⟨w', hw', h'⟩ := hy
-    exact ⟨w * w', mul_mem hw hw', h.mul h'⟩
-  | inv x _ hx =>
-    obtain ⟨w, hw, h⟩ := hx
-    exact ⟨w⁻¹, inv_mem hw, h.inv⟩
 
 theorem exists_mem_componentMonomial_mapsRootLines
     {w : WeylGroup τ}
@@ -454,37 +435,6 @@ theorem componentWeylHom_eq_iff
   exact mapsRootLines_weylQuotientHom
     (Subgroup.inclusion (componentMonomial_le_monomialSubgroup K χ i v j) g)
 
-theorem ker_componentWeylHom :
-    (componentWeylHom K χ i v j).ker =
-      (componentTorus K χ i).subgroupOf (componentMonomial K χ i v j) := by
-  ext g
-  rw [MonoidHom.mem_ker, Subgroup.mem_subgroupOf, componentWeylHom_eq_iff]
-  exact ⟨fun h => mem_componentTorus_of_mapsRootLines_one hvj g.2 h,
-    fun h => mapsRootLines_of_mem_torusGroup (componentTorus_le_torusGroup K χ i h)⟩
-
-theorem range_componentWeylHom :
-    (componentWeylHom K χ i v j).range = componentWeylGroup (componentRoots χ i) := by
-  ext w
-  rw [MonoidHom.mem_range]
-  constructor
-  · rintro ⟨g, rfl⟩
-    obtain ⟨w', hw', h⟩ := exists_mapsRootLines_of_mem_componentMonomial hvj g.2
-    rwa [componentWeylHom_eq_iff.2 h]
-  · intro hw
-    obtain ⟨g, hg, h⟩ := exists_mem_componentMonomial_mapsRootLines (K := K) hvj hw
-    exact ⟨⟨g, hg⟩, componentWeylHom_eq_iff.2 h⟩
-
-omit hvj in
-theorem componentBorel_inf_componentMonomial :
-    componentBorel K χ i ⊓ componentMonomial K χ i v j = componentTorus K χ i := by
-  refine le_antisymm (fun g hg => ?_)
-    (le_inf componentTorus_le_componentBorel componentTorus_le_componentMonomial)
-  obtain ⟨hB, hN⟩ := Subgroup.mem_inf.1 hg
-  have hH : g ∈ torusGroup τ K := by
-    rw [← (borel_weyl_intersection τ K).1]
-    exact Subgroup.mem_inf.2 ⟨componentBorel_le_borelGroup hB,
-      componentMonomial_le_monomialSubgroup K χ i v j hN⟩
-  exact Subgroup.mem_inf.2 ⟨componentBorel_le_componentRootSpan hB, hH⟩
 
 omit hvj in
 theorem mem_componentLifts

@@ -83,9 +83,6 @@ theorem c27_Oab_of_alphaNorm (h2 : C27_2 p f) (h4a : C27_4a p f) (hN : T8T.C27_A
       exact (Nat.not_even_iff_odd.mpr hodd) (even_iff_two_dvd.mpr hdvd)
   exact T8.oddCoreOf_layerJoin_le_of_alpha hs hα
 
-theorem c27_Oab_of_alphaConst'' (hD4 : Ih8D4Star p f) (h2 : C27_2 p f) (h4a : C27_4a p f)
-    (hA : T8T.C27_AlphaConst p f) : C27_Oab p f :=
-  c27_Oab_of_alphaNorm p f h2 h4a (c27_alphaNorm_of_alphaConst p f hD4 h2 hA)
 
 end Main
 

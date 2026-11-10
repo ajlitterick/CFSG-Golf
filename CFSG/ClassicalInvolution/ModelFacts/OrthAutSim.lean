@@ -15,10 +15,6 @@ open Matrix CFSG.ComponentClassification CFSG.ComponentClassification.CatalogueB
 open CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail
   (orthogonal_geometry_tail_model_point_family_invariant)
 
-theorem reindexMatrixEquiv_glFieldEquiv {ι : Type} [Fintype ι] [DecidableEq ι] {F : Type}
-    [Field F] {d : ℕ} (e : ι ≃ Fin d) (φ : F ≃+* F) (A : GL ι F) :
-    reindexMatrixEquiv e (glFieldEquiv ι φ A) = glFieldEquiv (Fin d) φ (reindexMatrixEquiv e A) :=
-  rfl
 
 section Glue
 

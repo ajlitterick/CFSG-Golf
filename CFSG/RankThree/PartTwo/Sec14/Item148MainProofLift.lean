@@ -421,16 +421,6 @@ theorem step148Lift429_of
   · exact Or.inr (Or.inr (Or.inl h3))
   · exact Or.inr (Or.inr (Or.inr h4))
 
-theorem step148Lift429Eps_of_step148Lift429 (h : Step148Lift429) : Step148Lift429Eps := by
-  intro G _ _ A c L hS Y hY hs e he he1 K hK hAK hsec hE J hJ hKJ hAJ
-  let := ker148_normal hY.2
-  obtain ⟨p, f, hp, hp3, hf, hcase⟩ := hE
-  have htype : Type148 ↥(img148 A Y K) := by
-    refine Or.inr (Or.inl ⟨p, f, hp, hp3, hf, ?_⟩)
-    rcases hcase with ⟨-, hφ⟩ | ⟨-, hq, hφ⟩
-    · exact Or.inl hφ
-    · exact Or.inr ⟨hq, hφ⟩
-  exact h G A c L hS Y hY hs e he he1 K hK hAK hsec htype J hJ hKJ hAJ
 
 end Certificates
 

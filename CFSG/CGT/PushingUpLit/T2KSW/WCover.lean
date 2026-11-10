@@ -345,12 +345,6 @@ theorem card_oTwoIn_le_two_mul (h : NatBlock L n) :
     rw [hidx, h2] at h1
     exact h1.symm.le
 
-omit [Finite G] in
-theorem wleVE_of_eq (hWV : oTwoIn L = blockU L) : oTwoIn L ≤ blockU L ⊔ Ec L T :=
-  hWV.le.trans le_sup_left
-
-theorem wleVE_of_three_le (h : NatBlock L n) (hn : 3 ≤ n) : oTwoIn L ≤ blockU L ⊔ Ec L T :=
-  wleVE_of_eq (h.oTwoIn_eq_blockU_of_three_le hn)
 
 theorem wleVE_iff_of_sylow (h : NatBlock L n) (hLM : L ≤ M)
     (hMN : M ≤ Subgroup.normalizer (L : Set G)) (hT : CFSG.ABGLocalTools.IsSylowOf 2 T M)

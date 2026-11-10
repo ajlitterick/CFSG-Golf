@@ -251,48 +251,6 @@ theorem iotaU_eq_kappaU_comp (k : Fin r) :
   rw [this]
   rfl
 
-theorem iota3_sl2Diag_neg_one : iota3 h hc hc0 (sl2Diag (-1)) = dkHom h (-1) := by
-  apply Subtype.ext
-  apply Units.ext
-  rw [coe_iota3, coe_dkHom]
-  ext x y
-  fin_cases x <;> fin_cases y <;> simp [iota3Mat, dkVec]
-
-@[expose] noncomputable def barInv (a : Kˣ) : Kˣ := (Units.map (h.bar : K →* K) a)⁻¹
-
-theorem coe_barInv (a : Kˣ) : ((barInv h a : Kˣ) : K) = (h.bar a)⁻¹ := by
-  simp [barInv]
-
-theorem iota3_sl2W_conj_dk (a : Kˣ) :
-    iota3 h hc hc0 sl2W * dkHom h a * (iota3 h hc hc0 sl2W)⁻¹ = dkHom h (barInv h a) := by
-  have hcinv : ((sl2W : SpecialLinearGroup (Fin 2) h.fixedField)⁻¹ :
-      SpecialLinearGroup (Fin 2) h.fixedField) = sl2W * sl2Diag (-1) := by
-    refine Matrix.SpecialLinearGroup.ext _ _ fun x y => ?_
-    rw [CFSG.LocalAnalysis.ComponentInitial.SymplecticTorusWeyl.coe_sl2W_inv,
-      Matrix.SpecialLinearGroup.coe_mul]
-    fin_cases x <;> fin_cases y <;> simp [Matrix.mul_apply, Fin.sum_univ_two]
-  rw [← map_inv, hcinv]
-  apply Subtype.ext
-  apply Units.ext
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, Units.val_mul, Units.val_mul, coe_iota3, coe_iota3,
-    coe_dkHom, coe_dkHom]
-  have ha := a.ne_zero
-  have hba : h.bar a ≠ 0 := (h.bar_eq_zero_iff).not.mpr ha
-  have hw : iota3Mat h (c := c) sl2W = !![0, 0, -c⁻¹; 0, 1, 0; c, 0, 0] := by
-    ext x y; fin_cases x <;> fin_cases y <;> simp [iota3Mat]
-  have hw' : iota3Mat h (c := c) (sl2W * sl2Diag (-1)) = !![0, 0, c⁻¹; 0, 1, 0; -c, 0, 0] := by
-    ext x y
-    fin_cases x <;> fin_cases y <;>
-      simp [iota3Mat, Matrix.SpecialLinearGroup.coe_mul, Matrix.mul_apply, Fin.sum_univ_two]
-  have hd : diagonal (dkVec h a) = !![(a : K), 0, 0; 0, h.bar a / a, 0; 0, 0, (h.bar a)⁻¹] := by
-    ext x y; fin_cases x <;> fin_cases y <;> simp [dkVec]
-  have hd' : diagonal (dkVec h (barInv h a)) =
-      !![(h.bar a)⁻¹, 0, 0; 0, a⁻¹ * h.bar a, 0; 0, 0, (a : K)] := by
-    ext x y
-    fin_cases x <;> fin_cases y <;> simp [dkVec, coe_barInv, map_inv₀, h.bar_bar]
-  rw [hw, hw', hd, hd', Matrix.mul_fin_three, Matrix.mul_fin_three]
-  ext x y
-  fin_cases x <;> fin_cases y <;> simp <;> field_simp
 
 end Iota3
 
@@ -388,22 +346,6 @@ theorem conj_rhoU_sl2W_kappaU {i j : Fin r} (hij : i ≠ j) (k : Fin r)
     rw [Equiv.symm_apply_apply]
     exact wSignU_mul_inv j x
 
-theorem commute_rhoU_kappaU {i j : Fin r} (hij : i ≠ j) {k : Fin r} (hik : i ≠ k)
-    (hjk : j ≠ k) (g : SpecialLinearGroup (Fin 2) K) (X : gramSU h (gramJ3 K)) :
-    Commute (rhoU h hij g) (kappaU h k X) := by
-  refine hypSU_commute_of_val h ?_
-  rw [coe_rhoU, coe_kappaU]
-  refine commute_blockMat ?_ _ _
-  rintro (a | a) b <;> fin_cases a <;> fin_cases b <;> simp_all [quadIdx, tripIdx]
-
-theorem commute_iotaU_kappaU {c : K} (hc : c ∈ h.traceZero) (hc0 : c ≠ 0) {k l : Fin r}
-    (hkl : k ≠ l) (g : SpecialLinearGroup (Fin 2) h.fixedField) (X : gramSU h (gramJ3 K)) :
-    Commute (iotaU (ε := 1) h hc hc0 k g) (kappaU h l X) := by
-  refine hypSU_commute_of_val h ?_
-  rw [coe_iotaU, coe_kappaU]
-  refine commute_blockMat ?_ _ _
-  intro a b
-  fin_cases a <;> fin_cases b <;> simp_all [pairIdx, tripIdx]
 
 end Kappa
 

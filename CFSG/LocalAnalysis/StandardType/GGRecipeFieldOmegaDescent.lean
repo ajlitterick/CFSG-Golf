@@ -19,7 +19,6 @@ variable {K : Type} [Field K] (K₀ : Subfield K)
 
 @[expose] def inclVec {ι : Type*} (w : ι → K₀) : ι → K := fun i => (w i : K)
 
-theorem inclVec_apply {ι : Type*} (w : ι → K₀) (i : ι) : inclVec K₀ w i = w i := rfl
 
 theorem inclVec_add {ι : Type*} (w w' : ι → K₀) :
     inclVec K₀ (w + w') = inclVec K₀ w + inclVec K₀ w' := by

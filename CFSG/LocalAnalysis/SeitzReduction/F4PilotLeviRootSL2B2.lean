@@ -48,8 +48,6 @@ theorem spEmbed_elt (r : RootSubgroupIndex 2) (c : K) :
     funext i
     fin_cases i <;> simp
 
-theorem shiftC2_apply (v : Fin 2 → ℤ) : shiftC2 v = ![0, v 0, v 1] :=
-  rfl
 
 theorem toStd_shiftC2 (v : Fin 2 → ℤ) :
     toStd 3 (shiftC2 v) = ![0, toStd 2 v 0, toStd 2 v 1] := by
@@ -122,14 +120,6 @@ theorem exists_c2ToF4_eq_of_mem_b2LeviRoots {γ : Fin (Tag.rank .F4) → ℤ}
   obtain ⟨v, hv, rfl⟩ := c3Roots_shift_check w hw hw0
   exact ⟨v, mem_roots_of_mem_c2Roots hv, rfl⟩
 
-theorem image_c2ToF4_roots : c2ToF4 '' roots (isFiniteType_cartanC 2) ∅ = b2LeviRoots := by
-  ext γ
-  constructor
-  · rintro ⟨v, hv, rfl⟩
-    exact c2ToF4_mem_b2LeviRoots hv
-  · intro hγ
-    obtain ⟨v, hv, rfl⟩ := exists_c2ToF4_eq_of_mem_b2LeviRoots hγ
-    exact ⟨v, hv, rfl⟩
 
 end Roots
 
@@ -146,11 +136,6 @@ theorem map_subtype_B2Levi :
     (B2Levi K).map (adjointGroup .F4 K).subtype = rootSpan .F4 K b2LeviRoots := by
   rw [B2Levi, subgroupOf_map_subtype, inf_of_le_left]
   exact iSup₂_le fun α _ => rootSubgroup_le_adjointGroup α
-
-theorem B2Levi_le_C3Levi : B2Levi K ≤ C3Levi K := by
-  have hle : rootSpan .F4 K b2LeviRoots ≤ rootSpan .F4 K c3LeviRoots :=
-    biSup_mono fun _ hγ => b2LeviRoots_subset_c3LeviRoots hγ
-  exact fun _ hg => mem_C3Levi_iff.2 (hle (mem_B2Levi_iff.1 hg))
 
 
 theorem B2Levi_eq_iSup_rootGroup :
@@ -221,24 +206,11 @@ theorem isSimpleGroup_B2Levi (hq : 4 ≤ Nat.card K) : IsSimpleGroup (B2Levi K) 
   exact ((QuotientGroup.quotientMulEquivOfEq center_B2Levi_eq_bot).trans
     QuotientGroup.quotientBot).symm.isSimpleGroup
 
-variable (K) in
-@[expose] noncomputable def b2LeviEquivOfRingEquiv {L : Type} [Field L] (e : K ≃+* L) :
-    ↥(B2Levi K) ≃* ↥(StatedSp 2 L) :=
-  (b2LeviEquiv K).symm.trans (statedSpCongr e 2)
 
 end Iso
 
 section Main
 
-
-variable {K : Type} [Field K] {f : ℕ}
-
-theorem B2Levi_mulEquiv (hK : Nat.card K = 2 ^ f) :
-    Nonempty (↥(B2Levi K) ≃* (lieUniversal .PSp 2 2 f Nat.prime_two).K) := by
-  have := finite_of_natCard_eq_two_pow hK
-  have := charP_two_of_natCard_eq_two_pow hK
-  obtain ⟨e⟩ := nonempty_ringEquiv_galoisField hK
-  exact ⟨b2LeviEquivOfRingEquiv K e⟩
 
 end Main
 

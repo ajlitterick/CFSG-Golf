@@ -85,11 +85,6 @@ theorem length_gen (φ ψ l : ℕ) : (gen φ ψ l).length = 6 := by
   unfold gen
   split <;> simp
 
-theorem toMat_pow (A : Mat) (hA : A.length = 6) :
-    ∀ k, toMat 6 6 (pow A k) = toMat 6 6 A ^ k
-  | 0 => by simpa [pow] using toMat_one
-  | k + 1 => by
-    rw [pow, toMat_mul 6 6 6 A _ hA, toMat_pow A hA k, pow_succ']
 
 theorem getD_add (A B : Mat) (hAB : A.length = B.length) (j : ℕ) :
     (add A B).getD j 0 = A.getD j 0 ^^^ B.getD j 0 := by
@@ -159,14 +154,6 @@ theorem bnd_chartT : Bnd chartT := by
   simp only [chartT, List.mem_cons, List.not_mem_nil, or_false] at hx
   omega
 
-theorem bnd_gen (φ ψ l : ℕ) : Bnd (gen φ ψ l) := by
-  unfold gen
-  split
-  · exact bnd_chartY φ
-  · exact bnd_chartD ψ
-  · exact bnd_chartT
-  · exact bnd_mul _ _ (bnd_chartY φ)
-  · exact bnd_mul _ _ (bnd_chartD ψ)
 
 theorem bnd_pow (A : Mat) (hA : Bnd A) : ∀ k, Bnd (pow A k)
   | 0 => bnd_one
@@ -187,13 +174,6 @@ theorem length_foldl (φ ψ : ℕ) : ∀ (w : List ℕ) (A : Mat), A.length = 6 
 theorem length_evalW (φ ψ : ℕ) (w : List ℕ) : (evalW φ ψ w).length = 6 :=
   length_foldl φ ψ w _ length_one
 
-theorem toMat_foldl (φ ψ : ℕ) : ∀ (w : List ℕ) (A : Mat), A.length = 6 →
-    toMat 6 6 (w.foldl (fun acc l => mul acc (gen φ ψ l)) A) =
-      w.foldl (fun acc l => acc * toMat 6 6 (gen φ ψ l)) (toMat 6 6 A)
-  | [], _, _ => rfl
-  | _ :: w, A, hA => by
-    simp only [List.foldl_cons]
-    rw [toMat_foldl φ ψ w _ (by simp [length_gen]), toMat_mul 6 6 6 A _ hA]
 
 theorem foldl_mul_intertwine {n : ℕ} (E : Matrix (Fin n) (Fin 6) (ZMod 2))
     (Gm : ℕ → Matrix (Fin n) (Fin n) (ZMod 2)) (φ ψ : ℕ)

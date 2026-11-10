@@ -161,19 +161,6 @@ theorem charVal_sub_col8 (z z' : Fin Tag.E8.rank → K) (x : Fin Tag.E8.rank →
     charVal (z - z') x = charVal z x - charVal z' x := by
   simp only [charVal, Pi.sub_apply, mul_sub, Finset.sum_sub_distrib]
 
-theorem e8F5U_smul_col (j : Fin Tag.E8.rank) :
-    e8F5U • (fun i => toMat Tag.E8.rank e8F5BList i j) =
-      toMat Tag.E8.rank e8F5BList *ᵥ fun m => toMat Tag.E8.rank e8F5Conj m j := by
-  rw [e8F5_smul_U]
-  have h : toMat Tag.E8.rank e8F5BList * toMat Tag.E8.rank e8F5Conj =
-      toMat Tag.E8.rank e8F5UList * toMat Tag.E8.rank e8F5BList := by
-    rw [e8F5Conj, toMat_lmul, toMat_lmul, ← Matrix.mul_assoc, ← Matrix.mul_assoc, e8F5B_mul_inv,
-      Matrix.one_mul]
-  funext i
-  have := congrFun (congrFun h i) j
-  simp only [Matrix.mul_apply] at this
-  simp only [Matrix.mulVec, dotProduct]
-  rw [← this]
 
 theorem e8F5Y_vals (r a b : K) :
     e8F5Y r a b 0 = a ∧ e8F5Y r a b 1 = r * a ∧ e8F5Y r a b 2 = r ^ 2 * a ∧

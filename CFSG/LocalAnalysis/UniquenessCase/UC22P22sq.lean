@@ -122,12 +122,10 @@ theorem exists_mulVec_sub_eq {F : Type} [Field F] [Finite F] [CharP F 2] {g : â†
     exact sub_eq_zero.1 (eq_zero_of_mulVec_eq_self hg3 hg1 h1)
   exact Finite.injective_iff_surjective.1 hinj y
 
-variable {G : Type} [Group G] [Finite G]
 
 end P22sq
 
 open P22sq
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22

@@ -25,9 +25,6 @@ variable [(M.subgroupOf (A ⊔ Ab)).Normal]
 
 local notation "πm" => QuotientGroup.mk' (Subgroup.subgroupOf M (A ⊔ Ab))
 
-variable (P : QuotPair ((A.subgroupOf (A ⊔ Ab)).map (QuotientGroup.mk' (M.subgroupOf (A ⊔ Ab))))
-  ((Ab.subgroupOf (A ⊔ Ab)).map (QuotientGroup.mk' (M.subgroupOf (A ⊔ Ab)))))
-include P
 
 end Quot
 

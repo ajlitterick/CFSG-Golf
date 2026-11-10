@@ -214,22 +214,5 @@ theorem IsSuzukiTwoGroup.higman {S : Type u} [Group S] (hS : IsSuzukiTwoGroup S)
 
 universe v w
 
-theorem higman_suzuki_two_groups :
-    (∀ (S : Type u) [Group S], IsSuzukiTwoGroup S →
-      omega₁ S (p := 2) = center S ∧ center S = frattini S ∧
-        frattini S = _root_.commutator S ∧ IsElementaryAbelian 2 (center S) ∧
-        ∃ n : ℕ, 2 ≤ n ∧ Nat.card (center S) = 2 ^ n ∧ Monoid.exponent S = 4 ∧
-          Group.nilpotencyClass S = 2 ∧
-          (Nat.card S = (2 ^ n) ^ 2 ∨ Nat.card S = (2 ^ n) ^ 3)) ∧
-    (∀ (U : Type v) (Y : Type w) [Group U] [Group Y] [Finite U] [Finite Y] [IsCyclic Y] (n : ℕ),
-      1 ≤ n → Nat.card U = (2 ^ n) ^ 2 → Nat.card Y = 2 ^ n - 1 →
-      ∀ ρ : Y →* MulAut U, (∀ y : Y, y ≠ 1 → ∀ u : U, ρ y u = u → u = 1) →
-      ∀ (V : Subgroup U) [V.Normal], (∀ y : Y, ∀ v ∈ V, ρ y v ∈ V) →
-      ∀ [IsElementaryAbelian 2 V] [IsElementaryAbelian 2 (U ⧸ V)] (θ : U ⧸ V ≃* V),
-      (∀ (y : Y) (u : U),
-        ((θ ((ρ y u : U) : U ⧸ V) : V) : U) = ρ y ((θ (u : U ⧸ V) : V) : U)) →
-      IsMulCommutative U) :=
-  ⟨fun _ _ hS => hS.higman, fun _ _ _ _ _ _ _ _ hn hU hY ρ hfix V _ hVY _ _ θ hθ =>
-    isMulCommutative_of_fixedPointFree_cyclic hn hU hY ρ hfix V hVY θ hθ⟩
 
 end CFSG.GroupTheory

@@ -221,26 +221,6 @@ theorem card_ggAutomizer_eq_factorial_of_model [Finite K] (hp : p.Prime) (hp2 : 
     permAut_injective hp hp2 hpK hd hφ's hφker hA hsc hdiag hN
   rw [← Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv, Nat.card_perm, Nat.card_fin]
 
-theorem ggAutomizer_card_six_of_nine_le_card
-    {K : Type} [Field K] [Finite K] [CharP K 2] {L' : Type} [Group L'] [Finite L']
-    {φ' : SpecialLinearGroup (Fin 3) K →* L'}
-    (hφ's : Function.Surjective φ')
-    (hφker : ∀ g, φ' g = 1 → g ∈ scalars 3 K)
-    {A : Subgroup (MulAut L')} (hA : IsElemAbelian 3 A)
-    (hsc : GGTorusSelfCent 3 A)
-    (hdiag : ∀ a ∈ A, ∃ t : Fin 3 → K, ActsDiag φ' a t)
-    (h3K : 3 ∣ Nat.card K - 1) (h9 : 9 ≤ Nat.card ↥A) :
-    Nat.card (ggAutomizer (MulAut.conj : L' →* MulAut L').range A) = 6 := by
-  classical
-  let hN : ∀ σ, NbrInnerWeylA.permConj φ' σ ∈ Subgroup.normalizer (A : Set (MulAut L')) :=
-    fun σ => permConj_mem_normalizer_of_selfCent hφ's hφker hA.2 hsc hdiag σ
-  have hinj : Function.Injective (permAut φ' A hN) :=
-    permAut_injective_of_nine_le_card hN hφ's hφker
-      (fun a => hdiag a a.2) h9
-  rw [ggAutomizer_eq_range_permAut (p := 3) (by norm_num : Nat.Prime 3)
-    (by norm_num : (3 : ℕ) ≠ 2) h3K hφ's hφker hA hsc hdiag hN]
-  rw [← Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv, Nat.card_perm, Nat.card_fin]
-  norm_num
 
 end TypeANbrDvd
 

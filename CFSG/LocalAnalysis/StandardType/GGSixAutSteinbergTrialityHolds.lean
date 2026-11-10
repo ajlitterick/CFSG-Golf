@@ -240,14 +240,6 @@ section Family
 
 open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal
 
-theorem ggAutModelPlusFourInput_holds : GGAutModelPlusFourInput :=
-  plusFourInput_of_triality plusFourTrialityInput_holds
-
-theorem ggAutModelAt_POmegaPlus : GGAutModelAt .POmegaPlus :=
-  ggAutModelAt_POmegaPlus_of_triality plusFourTrialityInput_holds
-
-theorem ggAutStructureAt_POmegaPlus : GGAutStructureAt .POmegaPlus :=
-  ggAutStructureAt_POmegaPlus_of_triality plusFourTrialityInput_holds
 
 end Family
 

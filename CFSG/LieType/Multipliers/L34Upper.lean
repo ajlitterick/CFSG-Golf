@@ -222,22 +222,6 @@ private theorem nonempty_mulEquiv_of_lieModel {X : Type} [Group X]
   · exact nonempty_mulEquiv_PSL3 hK e
   all_goals exact absurd h0 (by norm_num)
 
-theorem card_griessHopfMultiplier_le
-    (X : Type) [Group X]
-    (h : CFSG.Blueprint.LieModel X .PSL 3 2 2) :
-    Nat.card (CFSG.Open.griessHopfMultiplier X) ≤ 48 := by
-  obtain ⟨ψ⟩ := nonempty_mulEquiv_of_lieModel h
-  have hP := isPresentation_genX.mulEquiv ψ
-  have hwg : ∀ i, FreeGroup.lift (fun j => ψ (genX j)) (FreeGroup.mk (commWords (coverPairs i))) =
-      ψ (genX i) := fun i => by rw [lift_mulEquiv, lift_genX_commWords]
-  have hc := card_presentedCover hP commWords_mem_commutator hwg
-  obtain ⟨-, hle⟩ := finite_card_presentedCover_le
-  have hX : 20160 ≤ Nat.card X := by
-    rw [← Nat.card_congr ψ.toEquiv]
-    exact card_PSL3_ge
-  rw [hc] at hle
-  by_contra! hlt
-  nlinarith
 
 theorem multiplier_PSL_three_four
     (X : Type) [Group X]
@@ -614,9 +598,6 @@ private theorem deltaHat_zTwo
   rw [deltaHat_zHat, eq_inv_iff_mul_eq_one, ← mul_assoc]
   exact h
 
-private theorem deltaHat_mem_ker
-    {m : Cover} (hm : m ∈ pSL.ker) : deltaHat m ∈ pSL.ker := by
-  rw [MonoidHom.mem_ker, pSL_deltaHat, MonoidHom.mem_ker.mp hm, map_one]
 
 private theorem dGL_mul_three : dGL * dGL * dGL = 1 := by
   rw [← dGL_pow_three, pow_succ, pow_two]

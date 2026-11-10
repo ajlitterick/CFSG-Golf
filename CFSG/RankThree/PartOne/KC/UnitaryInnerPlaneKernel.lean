@@ -23,9 +23,6 @@ variable {ℓ f n p : ℕ} {K : Type} [Field K] (h : UnitaryFieldData ℓ f K)
 
 variable {h}
 
-theorem toUnitary_apply (x : gramSU h (idGram K n)) :
-    ((toUnitary h n x : primeFormUnitary h (idGram K n)) : GL (Fin n) K) =
-      ((x : gramSU h (idGram K n)) : GL (Fin n) K) := rfl
 
 theorem toUnitary_injective : Function.Injective (toUnitary h n) := fun _ _ hxy =>
   Subtype.ext (by

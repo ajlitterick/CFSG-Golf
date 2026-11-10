@@ -318,8 +318,6 @@ theorem orbit_reflection' {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ kernelRoo
 @[expose] def psiAut : MulAut (ModGL Tag.E6 Ω) :=
   (exactEntrywiseAut Tag.E6 (iterateFrobeniusEquiv Ω 2 D.f)).trans (MulAut.conj D.psiRep)
 
-theorem psiAut_apply (g : ModGL Tag.E6 Ω) : D.psiAut g = D.psi g :=
-  rfl
 
 theorem psi_eq_frobTwistGL : D.psi = frobTwistGL Tag.E6 Ω 2 D.f D.psiRep :=
   rfl

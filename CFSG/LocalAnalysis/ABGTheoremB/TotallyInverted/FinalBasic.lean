@@ -132,16 +132,6 @@ theorem conjSub_centralizer_singleton (g t : G) :
       _ = g⁻¹ * (g * t * g⁻¹ * y) * g := by rw [h]
       _ = t * (g⁻¹ * y * g) := by group
 
-theorem conjSub_pCoreIn (p : ℕ) (g : G) (H : Subgroup G) :
-    conjSub g (pCoreIn p H) = pCoreIn p (conjSub g H) := by
-  set f : G →* G := (MulAut.conj g).toMonoidHom
-  have hf : Function.Injective f := (MulAut.conj g).injective
-  set e : H ≃* conjSub g H := H.equivMapOfInjective f hf
-  have hcomm : (conjSub g H).subtype.comp e.toMonoidHom = f.comp H.subtype := by
-    ext h
-    rfl
-  rw [pCoreIn, pCoreIn, ← CFSG.pCore_map_iso p e, Subgroup.map_map, hcomm, conjSub,
-    Subgroup.map_map]
 
 theorem mem_normalizer_of_conj_mem [Finite G] {g : G} {X : Subgroup G}
     (h : ∀ x ∈ X, g * x * g⁻¹ ∈ X) : g ∈ Subgroup.normalizer (X : Set G) := by

@@ -80,16 +80,6 @@ variable [NeZero r] {n : ℕ}
 @[expose] def zetaDiag (ζ : Kˣ) (v : Fin n → ZMod r) : Matrix (Fin n) (Fin n) K :=
   diagonal fun i => ((ζ ^ (v i).val : Kˣ) : K)
 
-theorem zetaDiag_add {ζ : Kˣ} (hζ : ζ ^ r = 1) (v w : Fin n → ZMod r) :
-    zetaDiag ζ (v + w) = zetaDiag ζ v * zetaDiag ζ w := by
-  rw [zetaDiag, zetaDiag, zetaDiag, diagonal_mul_diagonal]
-  congr 1
-  funext i
-  rw [Pi.add_apply, ZMod.val_add, ← pow_eq_pow_mod _ hζ, pow_add, Units.val_mul]
-
-omit [NeZero r] in
-theorem zetaDiag_zero (ζ : Kˣ) : zetaDiag ζ (0 : Fin n → ZMod r) = 1 := by
-  simp [zetaDiag]
 
 theorem prod_zeta_eq_one {ζ : Kˣ} (hζ : ζ ^ r = 1) {v : Fin n → ZMod r} (hv : ∑ i, v i = 0) :
     ∏ i, ζ ^ (v i).val = 1 := by

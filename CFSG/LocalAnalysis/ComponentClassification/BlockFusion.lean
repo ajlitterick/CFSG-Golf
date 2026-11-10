@@ -86,18 +86,5 @@ theorem transporter_iff {G : Type*} [Group G] [Finite G]
   · intro hactor
     exact image_mem component heven huniversal hquasisimple actor hactor element hmem
 
-theorem conjugate_intersection_iff {G : Type*} [Group G] [Finite G]
-    (component : Subgroup G) (heven : Even (Nat.card component))
-    (huniversal : UniversalComponentBlock.Universal component) (hquasisimple : IsQuasisimple component)
-    (hcentralizer : Even (Nat.card (Subgroup.centralizer (component : Set G)))) (actor : G) :
-    ((involutions component) ∩ (MulAut.conj actor) '' (involutions component)).Nonempty ↔
-      actor ∈ UniversalOrbitBlock.normalizer component := by
-  constructor
-  · rintro ⟨_, hmem, element, helement, rfl⟩
-    exact (transporter_iff component heven huniversal hquasisimple element helement actor).mp hmem
-  · intro hactor
-    obtain ⟨element, hmem⟩ := nonempty component hcentralizer
-    exact ⟨(MulAut.conj actor) element, image_mem component heven huniversal hquasisimple actor hactor element hmem,
-      element, hmem, rfl⟩
 
 end CFSG.ComponentClassification.BlockFusion

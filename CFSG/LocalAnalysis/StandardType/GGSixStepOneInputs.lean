@@ -101,15 +101,6 @@ section Inputs
         D ≤ Subgroup.normalizer (X : Set G) → Nat.Coprime p (Nat.card X) → ⁅X, D⁆ = X →
           X ≤ ggKd p B x L D J d ⊔ Subgroup.centralizer (ggKd p B x L D J d : Set G)
 
-@[expose] def GGSixInndiagNormalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ →
-    (∀ d ∈ D, d ≠ 1 → IsComponentOf (ggKd p B x L D J d) (Subgroup.centralizer {d})) →
-    Subgroup.centralizer (J : Set G) ≤ ggM p B x L D J →
-      ∀ d ∈ D, d ≠ 1 → Subgroup.normalizer (ggKd p B x L D J d : Set G) ≤
-        Subgroup.normalizer ((Bs ⊔ ggKd p B x L D J d ⊔
-          Subgroup.centralizer (ggKd p B x L D J d : Set G) : Subgroup G) : Set G)
 
 @[expose] def GGSchreierPerfectInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G)

@@ -41,11 +41,6 @@ theorem sec5g_card_img [Finite X] (hAsq : ∀ a ∈ A, a * a = 1) (hA4 : Nat.car
   rw [Sec5GImg, card_map_eq_of_injOn _ _ hinjA]
   exact (Nat.card_congr (Subgroup.subgroupOfEquivOfLe subset_normalClosure).toEquiv).trans hA4
 
-theorem sec5g_eq_one_of_pi [Finite X] (hAsq : ∀ a ∈ A, a * a = 1) {a : X} (ha : a ∈ A)
-    (h : sec5g_pi A ⟨a, subset_normalClosure ha⟩ = 1) : a = 1 := by
-  have hO1 : (⟨a, subset_normalClosure ha⟩ : ↥(normalClosure (A : Set X))) ∈
-      goldschmidtOddCore ↥(normalClosure (A : Set X)) := (QuotientGroup.eq_one_iff _).1 h
-  exact congrArg Subtype.val (eq_one_of_mem_oddCore_of_sq hO1 (Subtype.ext (hAsq a ha)))
 
 theorem sec5g_pCore_psiAut [Finite X] (g : X) {u : Sec5GBar A}
     (hu : u ∈ CFSG.Open.pCore 2 (Sec5GBar A)) :

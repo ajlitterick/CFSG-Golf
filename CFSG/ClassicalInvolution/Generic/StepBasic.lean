@@ -20,9 +20,6 @@ variable {Y : Type} [Group Y]
     ⟨(MonoidHom.ker_eq_bot_iff _).mp (by rw [QuotientGroup.ker_mk', hO]),
       QuotientGroup.mk'_surjective _⟩
 
-theorem oddQuotientEquivOfCorefree_toMonoidHom (hO : classicalInvolutionOddCore Y = ⊥) :
-    (oddQuotientEquivOfCorefree hO).toMonoidHom =
-      QuotientGroup.mk' (classicalInvolutionOddCore Y) := rfl
 
 variable {p f}
 

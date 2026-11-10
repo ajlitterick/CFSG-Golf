@@ -207,14 +207,6 @@ theorem isSimpleGroup_of_statedClassicalModel_POmegaMinus (G : Type) [Group G] (
   exact ⟨inferInstance, hG⟩
 
 
-theorem isSimpleGroup_of_statedClassicalModel_orthogonal_of_odd (G : Type) [Group G]
-    (t : StatedLieTag) (ht : t = .POmegaOdd ∨ t = .POmegaPlus ∨ t = .POmegaMinus) (n p f : ℕ)
-    (_hp : Odd p) (h : StatedClassicalModel G t n p f) : Nontrivial G ∧ IsSimpleGroup G := by
-  rcases ht with rfl | rfl | rfl
-  · exact isSimpleGroup_of_statedClassicalModel_POmegaOdd G n p f h
-  · exact isSimpleGroup_of_statedClassicalModel_POmegaPlus G n p f h
-  · exact isSimpleGroup_of_statedClassicalModel_POmegaMinus G n p f h
-
 theorem isSimpleGroup_of_statedClassicalModel_orthogonal_two (G : Type) [Group G]
     (t : StatedLieTag) (ht : t = .POmegaPlus ∨ t = .POmegaMinus) (n f : ℕ)
     (h : StatedClassicalModel G t n 2 f) : Nontrivial G ∧ IsSimpleGroup G := by

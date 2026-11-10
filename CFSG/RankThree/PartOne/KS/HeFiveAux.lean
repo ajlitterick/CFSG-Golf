@@ -3945,9 +3945,6 @@ open CFSG.Certificates CFSG.Monster.B.Co2.Native
 @[expose] def heFiveCase0Base : List (Fin 8330) :=
   [283, 471, 3777, 4371, 0, 7182, 7663, 2668, 3002]
 
-@[expose] def heFiveCase0Chain : RawSchreierDatum 8330 :=
-  RawSchreierDatum.ofArrays 8330 (by decide) heFiveCase0Arrs 3 (by simp [heFiveCase0Arrs])
-    heFiveCase0Base (by decide) heFiveCase0Words
 
 @[expose] def heFiveCase0Rels : List (ℕ × ℕ × ℕ) :=
     [(0, 0, 1), (0, 0, 2), (0, 0, 3), (0, 0, 4), (1, 1, 1), (1, 1, 2), (1, 1, 3), (1, 1, 4),

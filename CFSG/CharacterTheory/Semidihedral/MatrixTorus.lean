@@ -153,9 +153,6 @@ theorem normOneToTorus_surjective : Function.Surjective (normOneToTorus F a) := 
   MulEquiv.ofBijective (normOneToTorus F a)
     ⟨normOneToTorus_injective F a, normOneToTorus_surjective F a⟩
 
-theorem normOneEquivTorus_matrix (w : NormOne F a) :
-    ((normOneEquivTorus F a w).val : Matrix (Fin 2) (Fin 2) F) =
-      torusMatrix F a (w.val : Quad F a).re (w.val : Quad F a).im := rfl
 
 theorem nonsplit_norm_surjective [Finite F]
     (ha : ¬IsSquare (-(a : F))) : Function.Surjective (normUnits F a) := by
@@ -438,15 +435,6 @@ theorem torus_internal_direct [Finite F] (hodd : Odd (Nat.card F))
   · rw [Nat.card_zpowers, z_orderOf F a hodd, W_card F a hodd ha]
     exact (torusSize_half_odd hodd).coprime_two_left
 
-@[expose] def torusDirectEquiv [Finite F] (hodd : Odd (Nat.card F))
-    (ha : ¬IsSquare a) : Subgroup.zpowers (z F a) × W F a ≃* Torus F a :=
-  OddFieldLift.internalDirectEquiv _ _ (by
-    rw [Subgroup.center_eq_top]
-    exact le_top) (torus_internal_direct F a hodd ha)
-
-theorem torusDirectEquiv_apply [Finite F] (hodd : Odd (Nat.card F))
-    (ha : ¬IsSquare a) (x : Subgroup.zpowers (z F a) × W F a) :
-    torusDirectEquiv F a hodd ha x = (x.1 : Torus F a) * x.2 := rfl
 
 theorem torus_field_invariant (sigma : F ≃+* F)
     (ha : sigma (a : F) = a) (X : Torus F a) :
@@ -471,10 +459,6 @@ theorem torus_field_invariant (sigma : F ≃+* F)
   right_inv X := Subtype.ext ((MatrixCover.slFieldEquiv F sigma).apply_symm_apply X.val)
   map_mul' X Y := Subtype.ext ((MatrixCover.slFieldEquiv F sigma).map_mul X.val Y.val)
 
-theorem torusFieldEquiv_matrix (sigma : F ≃+* F)
-    (ha : sigma (a : F) = a) (X : Torus F a) :
-    ((torusFieldEquiv F a sigma ha X).val : Matrix (Fin 2) (Fin 2) F) =
-      sigma.toRingHom.mapMatrix (X.val : Matrix (Fin 2) (Fin 2) F) := rfl
 
 theorem torusFieldEquiv_z (sigma : F ≃+* F) (ha : sigma (a : F) = a) :
     torusFieldEquiv F a sigma ha (z F a) = z F a := by
@@ -908,44 +892,6 @@ theorem OddSemilinear_le_centralizer :
 @[expose] def oddFactorEquiv : WFieldProduct F A b ≃* OddSemilinear F A b :=
   MonoidHom.ofInjective (oddFactor_injective F A b)
 
-@[expose] def centralizerInternalEquiv [Finite F] (hodd : Odd (Nat.card F))
-    (hb : ¬IsSquare (MatrixCover.fixedUnit F A b)) :
-    (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ×
-      (OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ≃*
-        Subgroup.centralizer {uInH F A b} :=
-  ((Subgroup.subgroupOfEquivOfLe (V0_le_centralizer F A b)).prodCongr
-    ((Subgroup.subgroupOfEquivOfLe (OddSemilinear_le_centralizer F A b)).trans
-      (oddFactorEquiv F A b).symm)).trans (centralizerExactEquiv F A b hodd hb)
-
-theorem centralizerInternalEquiv_apply [Finite F] (hodd : Odd (Nat.card F))
-    (hb : ¬IsSquare (MatrixCover.fixedUnit F A b))
-    (x : (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ×
-      (OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b})) :
-    centralizerInternalEquiv F A b hodd hb x = x.1.val * x.2.val := by
-  apply Subtype.ext
-  change (centralizerExactEquiv F A b hodd hb
-    ((Subgroup.subgroupOfEquivOfLe (V0_le_centralizer F A b)) x.1,
-      (oddFactorEquiv F A b).symm
-        ((Subgroup.subgroupOfEquivOfLe (OddSemilinear_le_centralizer F A b)) x.2))).val = _
-  rw [centralizerExactEquiv_apply]
-  have he := congrArg Subtype.val ((oddFactorEquiv F A b).apply_symm_apply
-    ((Subgroup.subgroupOfEquivOfLe (OddSemilinear_le_centralizer F A b)) x.2))
-  exact congrArg (fun g : MatrixCover.MatrixFieldModel F A b => x.1.val.val * g) he
-
-theorem centralizer_internal_complement [Finite F] (hodd : Odd (Nat.card F))
-    (hb : ¬IsSquare (MatrixCover.fixedUnit F A b)) :
-    ((V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b})).IsComplement'
-      ((OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b})) := by
-  change Function.Bijective (fun x :
-    (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ×
-      (OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) => x.1.val * x.2.val)
-  have he : (fun x :
-    (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ×
-      (OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) => x.1.val * x.2.val) =
-        centralizerInternalEquiv F A b hodd hb :=
-    funext (fun x => (centralizerInternalEquiv_apply F A b hodd hb x).symm)
-  rw [he]
-  exact (centralizerInternalEquiv F A b hodd hb).bijective
 
 theorem V0_central_in_centralizer :
     (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ≤
@@ -1019,56 +965,6 @@ theorem semilinear_centralizer_card [Finite F] (hodd : Odd (Nat.card F))
   ring
 
 
-theorem nonsquare_matrix_semilinear_involution_centralizer_fixed [Finite F]
-    (hodd : Odd (Nat.card F)) (hb : ¬IsSquare (MatrixCover.fixedUnit F A b)) :
-    (∀ X : SL F, X ∈ Torus F (MatrixCover.fixedUnit F A b) ↔
-      ∃ x y : F, (X : Matrix (Fin 2) (Fin 2) F) =
-        torusMatrix F (MatrixCover.fixedUnit F A b) x y ∧
-          x ^ 2 + (MatrixCover.fixedUnit F A b : F) * y ^ 2 = 1) ∧
-    IsCyclic (Torus F (MatrixCover.fixedUnit F A b)) ∧
-    Nat.card (Torus F (MatrixCover.fixedUnit F A b)) = torusSize (Nat.card F) ∧
-    (∀ X : Torus F (MatrixCover.fixedUnit F A b), orderOf X = 2 ↔
-      X = z F (MatrixCover.fixedUnit F A b)) ∧
-    (W F (MatrixCover.fixedUnit F A b)).Characteristic ∧
-    IsCyclic (W F (MatrixCover.fixedUnit F A b)) ∧
-    Nat.card (W F (MatrixCover.fixedUnit F A b)) = torusSize (Nat.card F) / 2 ∧
-    (∀ X : Torus F (MatrixCover.fixedUnit F A b),
-      X ∈ W F (MatrixCover.fixedUnit F A b) ↔ Odd (orderOf X)) ∧
-    (∀ sigma : A, ∀ X : W F (MatrixCover.fixedUnit F A b),
-      torusAction F A b sigma X.val ∈ W F (MatrixCover.fixedUnit F A b)) ∧
-    (Subgroup.zpowers (z F (MatrixCover.fixedUnit F A b))).IsComplement'
-      (W F (MatrixCover.fixedUnit F A b)) ∧
-    (∀ sigma : A, ∀ X : W F (MatrixCover.fixedUnit F A b),
-      ((WAction F A b sigma X).val.val : Matrix (Fin 2) (Fin 2) F) =
-        (sigma : F ≃+* F).toRingHom.mapMatrix (X.val.val : Matrix (Fin 2) (Fin 2) F)) ∧
-    Nonempty (V0 F A b ≃* C2 × C2) ∧
-    (V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b}) ≤
-      Subgroup.center (Subgroup.centralizer {uInH F A b}) ∧
-    ((V0 F A b).subgroupOf (Subgroup.centralizer {uInH F A b})).IsComplement'
-      ((OddSemilinear F A b).subgroupOf (Subgroup.centralizer {uInH F A b})) ∧
-    (∃ e : V0 F A b × WFieldProduct F A b ≃* Subgroup.centralizer {uInH F A b},
-      ∀ x, (e x).val = x.1.val * oddFactor F A b x.2) ∧
-    (∀ g : MatrixCover.MatrixFieldModel F A b,
-      g ∈ Subgroup.centralizer {uInH F A b} ↔
-        ∃ w : W F (MatrixCover.fixedUnit F A b), ∃ v : V0 F A b, ∃ sigma : A,
-          g = slInH F A b w.val.val * v.val * fieldInH F A b sigma) ∧
-    Nat.card (MatrixCover.MatrixFieldModel F A b) =
-      2 * Nat.card A * Nat.card F * (Nat.card F ^ 2 - 1) ∧
-    Nat.card (Subgroup.centralizer {uInH F A b}) =
-      2 * Nat.card A * torusSize (Nat.card F) := by
-  refine ⟨torus_coordinates F _, torus_cyclic F _ hodd hb, torus_card F _ hodd hb,
-    torus_unique_involution F _ hodd, W_characteristic F _, W_cyclic F _ hodd hb,
-    W_card F _ hodd hb, mem_W_iff_odd_order F _ hodd hb, ?_,
-    torus_internal_direct F _ hodd hb, ?_, ⟨V0EquivC2 F A b hodd⟩,
-    V0_central_in_centralizer F A b, centralizer_internal_complement F A b hodd hb,
-    ⟨centralizerExactEquiv F A b hodd hb, centralizerExactEquiv_apply F A b hodd hb⟩,
-    centralizer_factorization_iff F A b hodd hb, semilinear_card F A b,
-    semilinear_centralizer_card F A b hodd hb⟩
-  · intro sigma X
-    exact W_field_invariant F _ sigma ((b : MatrixCover.FixedField F A).property sigma) X
-  · intro sigma X
-    rfl
-
 end Semilinear
 
 
@@ -1108,7 +1004,6 @@ theorem originalFieldAction_pair (sigma : A) (x : M F a) :
       ⟨SpecialLinearGroup.map (sigma : F ≃+* F).toRingHom x.left, x.right⟩ := rfl
 
 
-
 @[expose] def originalModelEquiv :
     MatrixCover.MatrixFieldModel F A (originalCoefficient F a A hfix) ≃* OriginalH F a A hfix where
   toFun g := ⟨⟨g.left.left, g.left.right⟩, g.right⟩
@@ -1133,12 +1028,6 @@ theorem originalFieldAction_pair (sigma : A) (x : M F a) :
       · rfl
     · rfl
 
-theorem originalModelEquiv_coordinates
-    (g : MatrixCover.MatrixFieldModel F A (originalCoefficient F a A hfix)) :
-    (originalModelEquiv F a A hfix g).left.left = g.left.left ∧
-    (originalModelEquiv F a A hfix g).left.right = g.left.right ∧
-    (originalModelEquiv F a A hfix g).right = g.right := ⟨rfl, rfl, rfl⟩
-
 
 @[expose] def originalSlInH : SL F →* OriginalH F a A hfix :=
   (SemidirectProduct.inl : M F a →* OriginalH F a A hfix).comp (MatrixCoverData.inclusion F a)
@@ -1160,13 +1049,6 @@ theorem originalModelEquiv_z :
     originalModelEquiv F a A hfix (zInH F A (originalCoefficient F a A hfix)) =
       originalZ F a A hfix := rfl
 
-theorem originalModelEquiv_sl (X : SL F) :
-    originalModelEquiv F a A hfix (slInH F A (originalCoefficient F a A hfix) X) =
-      originalSlInH F a A hfix X := rfl
-
-theorem originalModelEquiv_field (sigma : A) :
-    originalModelEquiv F a A hfix (fieldInH F A (originalCoefficient F a A hfix) sigma) =
-      originalFieldInH F a A hfix sigma := rfl
 
 theorem originalV0_map :
     (V0 F A (originalCoefficient F a A hfix)).map (originalModelEquiv F a A hfix).toMonoidHom =

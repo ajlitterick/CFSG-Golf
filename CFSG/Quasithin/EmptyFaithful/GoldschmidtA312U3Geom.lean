@@ -158,32 +158,6 @@ theorem exists_block (h : UnitaryFieldData p f F) (h2 : (2 : F) ≠ 0)
       exact hik (Finset.mem_singleton.mp this)
     exact (hblock g hg i hiT k hkT).symm
 
-theorem commute_dsign_of_block {g : Matrix (Fin 3) (Fin 3) F} {k : Fin 3}
-    (hg : ∀ i, i ≠ k → g i k = 0 ∧ g k i = 0) : g * dsign F k = dsign F k * g := by
-  ext i j
-  simp only [dsign, Matrix.mul_diagonal, Matrix.diagonal_mul]
-  by_cases hi : i = k <;> by_cases hj : j = k
-  · simp [hi, hj]
-  · obtain rfl : i = k := hi
-    have := (hg j hj).2
-    simp [hj, this]
-  · obtain rfl : j = k := hj
-    have := (hg i hi).1
-    simp [hi, this]
-  · simp [hi, hj, mul_comm]
-
-theorem exists_central_dsign (h : UnitaryFieldData p f F) (h2 : (2 : F) ≠ 0)
-    {M : Subgroup (GL (Fin 3) F)}
-    (hM : ∀ g ∈ M,
-      ((g : Matrix (Fin 3) (Fin 3) F).map h.bar)ᵀ * (g : Matrix (Fin 3) (Fin 3) F) = 1)
-    (hd : ∀ k, dsignGL F k ∈ M) {W : Submodule F (Fin 3 → F)}
-    (hW : ∀ g ∈ M, ∀ w ∈ W, (g : Matrix (Fin 3) (Fin 3) F) *ᵥ w ∈ W) (hbot : W ≠ ⊥)
-    (htop : W ≠ ⊤) :
-    ∃ k : Fin 3, dsignGL F k ∈ M ∧ ∀ g ∈ M, g * dsignGL F k = dsignGL F k * g := by
-  obtain ⟨k, hk⟩ := exists_block h h2 hM hd hW hbot htop
-  refine ⟨k, hd k, fun g hg => Units.ext ?_⟩
-  rw [Units.val_mul, Units.val_mul, coe_dsignGL]
-  exact commute_dsign_of_block (hk g hg)
 
 end Block
 

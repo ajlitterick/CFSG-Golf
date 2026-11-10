@@ -135,13 +135,5 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.Griess.ModP
 
 instance fact_prime_seven : Fact (Nat.Prime 7) := ⟨by norm_num⟩
 
-theorem eq_axis_of_cong7 {g h : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ AutO) (hh : h ∈ AutO)
-    (hgB : ∀ x ∈ BR, g x ∈ BR) {r₁ r₂ : Q} (hr₁ : IsShortCoord (coordOf r₁))
-    (hr₂ : IsShortCoord (coordOf r₂))
-    (hd : ∀ i, basisB.repr (g (axis r₁) - h (axis r₂)) i / 7 ∈ ratLocal 7) :
-    g (axis r₁) = h (axis r₂) :=
-  eq_axis_of_sub_mem_LatP (p := 7) (by norm_num) hg hh hgB hr₁ hr₂ fun i => by
-    rw [pow_one]
-    exact_mod_cast hd i
 
 end CFSG.Monster.Griess.ModSeven

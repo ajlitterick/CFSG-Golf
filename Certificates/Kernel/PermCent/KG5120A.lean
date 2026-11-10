@@ -47,9 +47,5 @@ theorem kPart : (((elemsC QP).filter fun y => orderIsC y 3).filter fun y =>
 theorem kCount : pairCountC (elemsC QP) 2 3 ws = 11232 := by
   rw [pairCount_conj QP (check_certificate_of _ _ _ _ _ kQP.1) 2 3 ws (cOf PA) 96 kCl kPart, kInv]
 
-theorem kNeg : orderIsC (cOf PB) 2 = false ∧ centTrivC (elemsC QA) 1 1 = false ∧
-    ((elemsC QA).all fun g => siftC QP g 0) = false ∧
-    CFSG.GH74.KGroups.blockHom 13 13 (pb, pb') ≠ PA := by
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5120

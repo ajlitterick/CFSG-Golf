@@ -122,13 +122,5 @@ theorem mul_sq_sq_eq_of_orderOf_eq_three (hclass : ∃ d₀ : G, D = {g | IsConj
     _ = c₂ * c₁ := by rw [hac2a]
     _ = c := by rw [hc2eq, mul_assoc, hc12, mul_one]
 
-theorem mul_sq_eq_of_orderOf_eq_three (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
-    (hD : IsRootInvolutionSet D) {y x₁ x₂ c : G} (hy : y ∈ D) (hx₁ : x₁ ∈ D) (hx₂ : x₂ ∈ D)
-    (hc : c ∈ D) (hx₁y : Commute x₁ y) (hx₁yD : x₁ * y ∈ D) (h4 : orderOf (x₁ * x₂) = 4)
-    (h3 : orderOf (x₁ * c) = 3) (hyc : orderOf (y * c) = 4) (hw : (y * c) ^ 2 = x₂) :
-    (x₁ * x₂) ^ 2 = y := by
-  have key := mul_sq_sq_eq_of_orderOf_eq_three hclass hD hx₁ hc hy h3 hx₁y hx₁yD hyc
-  rw [hw] at key
-  rw [mul_sq_eq_mul_sq_comm (hD.mul_self_eq_one hx₁) (hD.mul_self_eq_one hx₂) h4, key]
 
 end CFSG.Timmesfeld.Moufang

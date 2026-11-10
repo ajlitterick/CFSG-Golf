@@ -9,10 +9,6 @@ namespace CFSG.Quasithin.Background.Harris.R1
 
 open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin
 
-@[expose] def AbelStmt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (K1 L2 S Zs : Subgroup G), R1SettingLegacyBare K1 L2 S Zs →
-    (∃ n : ℕ, 2 ≤ n ∧ IsBenderQuot n (OTwoQuot K1)) →
-    ⁅vBeta K1 L2 S Zs, vBeta K1 L2 S Zs⁆ = ⊥ → False
 
 @[expose] def NonabStmt : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K1 L2 S Zs : Subgroup G), R1SettingLegacyBare K1 L2 S Zs →

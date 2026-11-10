@@ -77,18 +77,6 @@ private theorem isInvolution_conj
       _ = 1 := by
         group
 
-private theorem mem_inverted_card_one
-    {G : Type u} [Group G] [Finite G]
-    (H : Subgroup G) {z : G}
-    (hcard : Nat.card {h : G // h ∈ invertedElements H z} = 1) :
-    ∀ h : G, h ∈ invertedElements H z → h = 1 := by
-  classical
-  intro h hh
-  have hone : (1 : G) ∈ invertedElements H z := ⟨H.one_mem, by simp⟩
-  obtain ⟨z0, hz0⟩ := Nat.card_eq_one_iff_exists.mp hcard
-  have hEq : (⟨h, hh⟩ : {w : G // w ∈ invertedElements H z}) = z0 := hz0 _
-  have h1Eq : (⟨1, hone⟩ : {w : G // w ∈ invertedElements H z}) = z0 := hz0 _
-  exact congrArg Subtype.val (hEq.trans h1Eq.symm)
 
 public theorem firstCase_klein_eight_dvd_b1
     {G : Type u} [Group G] [Finite G]

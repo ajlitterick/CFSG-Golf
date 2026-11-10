@@ -31,7 +31,6 @@ variable {K : Type} [Field K]
 section Small
 
 
-
 theorem f4Desc_eq_pinnedX_of_mem_single {i : Fin Tag.F4.rank} {z : ModGL .F4 K}
     (hz : z ∈ rootSpan .F4 K (parabolicPosRoots .F4 {j | j ∈ [i]})) :
     ∃ a : K, z = pinnedX .F4 K (Pi.single i 1) a := by
@@ -212,27 +211,6 @@ theorem exists_mulAut_eq_f4DescProd {t : adjointGroup .F4 K} (ht : t ^ 2 = 1) (h
   obtain ⟨hx, ψ, L, hL, he⟩ := f4DescGood_of_sq_eq_one ht ht1
   exact ⟨ψ, L, hL, he⟩
 
-theorem exists_mulAut_eq_f4_candidate {t : adjointGroup .F4 K} (ht : t ^ 2 = 1) (ht1 : t ≠ 1) :
-    ∃ ψ : MulAut (adjointGroup .F4 K),
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 47 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 47 1 * f4x K 32 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 47 1 * f4x K 32 1 * f4x K 30 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) =
-        f4x K 47 1 * f4x K 32 1 * f4x K 30 1 * f4x K 27 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 44 1 * f4x K 35 1 * f4x K 30 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) =
-        f4x K 44 1 * f4x K 35 1 * f4x K 30 1 * f4x K 27 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 44 1 * f4x K 40 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 44 1 * f4x K 40 1 * f4x K 33 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) = f4x K 44 1 * f4x K 40 1 * f4x K 25 1 ∨
-      ((ψ t : adjointGroup .F4 K) : ModGL .F4 K) =
-        f4x K 44 1 * f4x K 40 1 * f4x K 33 1 * f4x K 25 1 := by
-  obtain ⟨ψ, L, hL, he⟩ := exists_mulAut_eq_f4DescProd ht ht1
-  refine ⟨ψ, ?_⟩
-  simp only [f4DescCandidates, List.mem_cons, List.not_mem_nil, or_false] at hL
-  rcases hL with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
-    simp only [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] at he <;>
-    simp only [he, mul_assoc] <;> simp
 
 omit [CharP K 2] in
 theorem f4Desc_sq_eq_one_of_orderOf_conj {x : adjointGroup .F4 K}

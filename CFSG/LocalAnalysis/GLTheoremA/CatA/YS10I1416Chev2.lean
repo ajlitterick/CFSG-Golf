@@ -22,11 +22,6 @@ open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup)
 
 open scoped commutatorElement
 
-@[expose] def I1416Chev2SporS : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (s : TauCeti.SporadicName),
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ β : MulAut S, β ^ p = 1 → β ≠ 1 → ∀ K : Subgroup S,
-      GLAPComponent p (fixSubgroup β) K → IsChevSimple 2 (PSimple p K) → 6 ≤ twoRank ↥K → False
 
 @[expose] def chev2Small : TauCeti.CFSGIndex → Prop
   | .alternating n _ => n = 5 ∨ n = 6 ∨ n = 8

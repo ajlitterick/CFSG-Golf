@@ -29,10 +29,6 @@ include m
 theorem sylow_le : (S : Subgroup G) ≤ overlapClosure A₁ A₂ :=
   m.hyp.sylow_le_overlapClosure m.not_le₁₂ m.not_le₂₁
 
-theorem mem_sylow {a : G} (ha : a ∈ (A₁ : Set G) ∪ A₂) : a ∈ (S : Subgroup G) := by
-  rcases ha with ha | ha
-  · exact m.hyp.le_one ha
-  · exact m.hyp.le_two ha
 
 theorem mem_of_conj {a g : G} (ha : a ∈ (A₁ : Set G) ∪ A₂) (ha1 : a ≠ 1)
     (hS : g⁻¹ * a * g ∈ (S : Subgroup G)) : g ∈ overlapClosure A₁ A₂ :=

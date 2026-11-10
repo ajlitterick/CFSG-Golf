@@ -17,11 +17,9 @@ open Equiv CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin
 
 instance (σ : Perm (Fin 6)) : Decidable (RedWit σ) := by unfold RedWit; infer_instance
 
-variable {G : Type} [Group G]
 
 namespace Setting4
 
-variable [Finite G] {T L V : Subgroup G} (S : Setting4 G T L V)
 
 end Setting4
 

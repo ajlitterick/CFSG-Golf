@@ -94,32 +94,5 @@ theorem glHom3_surjective : Function.Surjective glHom3 := by
   rintro _ ⟨k, hk, rfl⟩
   exact ⟨witF3 k, glHom3_witF3 k hk⟩
 
-theorem native_three_seven_pair_stabilizers :
-    (∀ p : AutPerm, p ∈ FA2 ↔ p ∈ Ppair ∧ p • A2 = A2) ∧
-    (∀ p : AutPerm, p ∈ FA3 ↔ p ∈ Ppair ∧ p • A3 = A3) ∧
-    (∀ ℓ : Fin 4, ℓ ≠ 0 → duad (labA ⟨ℓ, by omega⟩) (labB ⟨ℓ, by omega⟩) (labA_ne_labB _) ∈ A2) ∧
-    (∀ ℓ : Fin 8, ℓ ≠ 0 → duad (labA ℓ) (labB ℓ) (labA_ne_labB ℓ) ∈ A3) ∧
-    A2.card = 3 ∧ A3.card = 7 ∧
-    LinearIndependent (ZMod 2) zb2 ∧
-    (∀ ℓ : Fin 4, ℓ ≠ 0 →
-      zPair (labA ⟨ℓ, by omega⟩) (labB ⟨ℓ, by omega⟩) = ∑ i : Fin 2, digit ℓ i • zb2 i) ∧
-    LinearIndependent (ZMod 2) zb3 ∧
-    (∀ ℓ : Fin 8, ℓ ≠ 0 → zPair (labA ℓ) (labB ℓ) = ∑ i : Fin 3, digit ℓ i • zb3 i) ∧
-    (∀ (p : Ppair) (x y : Fin 24), zAct p (zPair x y) =
-      zPair (((p : AutPerm) : Equiv.Perm (Fin 24)) x) (((p : AutPerm) : Equiv.Perm (Fin 24)) y)) ∧
-    (∀ p : FA2, ((glHom2 p : GL (Fin 2) (ZMod 2)) : Matrix (Fin 2) (Fin 2) (ZMod 2)) =
-      LinearMap.toMatrix basis2 basis2 (linEnd2 p)) ∧
-    (∀ p : FA3, ((glHom3 p : GL (Fin 3) (ZMod 2)) : Matrix (Fin 3) (Fin 3) (ZMod 2)) =
-      LinearMap.toMatrix basis3 basis3 (linEnd3 p)) ∧
-    Function.Surjective glHom2 ∧ Function.Surjective glHom3 ∧
-    (FA2.subgroupOf Ppair).index = 1155 ∧ Nat.card FA2 = 768 ∧
-    (FA3.subgroupOf Ppair).index = 330 ∧ Nat.card FA3 = 2688 ∧
-    Function.Surjective evalMap2 ∧ Function.Surjective evalMap3 :=
-  ⟨fun p => by rw [FA2, Subgroup.mem_inf, MulAction.mem_stabilizer_iff],
-    fun p => by rw [FA3, Subgroup.mem_inf, MulAction.mem_stabilizer_iff],
-    by decide, by decide, by decide, by decide, linearIndependent_zb2, zPair_lab2,
-    linearIndependent_zb3, zPair_lab3, zAct_zPair, fun _ => rfl, fun _ => rfl,
-    glHom2_surjective, glHom3_surjective, index_FA2, natCard_FA2, index_FA3, natCard_FA3,
-    evalMap2_surjective, evalMap3_surjective⟩
 
 end CFSG.Monster.B.TwoA

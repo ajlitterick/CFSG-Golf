@@ -242,34 +242,5 @@ theorem actual_root_signed_even_average {G : Type} [Group G]
   · exact isConj_iff.mpr ⟨wreathModelHom S e (Original.x2 (2 ^ n)),
       actualRoot_conjugate_half n (by omega) S e⟩
 
-theorem signedEvenEigenmultiplicity_zero {G : Type*} [Group G]
-    (data : FiniteComplexRepresentation G) (y : G) (root : ℂ) (m : ℕ) :
-    signedEvenEigenmultiplicity data y root m 0 = oddPowerCoefficient data y root m := by
-  simp only [signedEvenEigenmultiplicity, oddPowerCoefficient, Nat.mul_zero, Nat.zero_add]
-
-theorem actual_root_integral_column_half_average {G : Type} [Group G] [Fintype G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (basis : FiniteIrreducibleCharacterBasis G) (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2]
-    (principal : basis.index) (hprincipal : (basis.representation principal).character = 1)
-    (root : ℂ) (hroot : IsPrimitiveRoot root (2 * 2 ^ n)) :
-    (∀ χ : basis.index,
-      (oddPowerCoefficient (basis.representation χ) (actualRoot S e) root (2 ^ n) : ℂ) =
-        ((2 ^ n / 2 : ℕ) : ℂ)⁻¹ * ∑ k : Fin (2 ^ n / 2),
-          (basis.representation χ).character (actualRoot S e ^ (2 * (k : ℤ) + 1))) ∧
-      ∀ g ∉ squareRootSection (actualRoot S e),
-        oddPowerPrincipalColumn basis ideal principal (actualRoot S e) root (2 ^ n) g = 0 := by
-  refine ⟨?_, actual_root_odd_power_column_support n hn S e basis ideal
-    principal hprincipal root hroot⟩
-  intro χ
-  have h := actual_root_signed_even_average n hn S e (basis.representation χ) root hroot 0
-  simp only [Nat.zero_mul, pow_zero, one_mul, signedEvenEigenmultiplicity_zero] at h
-  rw [← h, ← Fin.sum_univ_eq_sum_range]
-  congr 1
-  apply Finset.sum_congr rfl
-  intro k _
-  congr 1
-  rw [← zpow_natCast]
-  congr 1
 
 end CFSG.Wreathed.SquareRootSmallCharacterRigidity

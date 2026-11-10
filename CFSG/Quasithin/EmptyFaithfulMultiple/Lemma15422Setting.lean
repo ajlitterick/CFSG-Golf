@@ -317,7 +317,6 @@ theorem swapSetting_G₁ (s : Setting15419 G T) : (swapSetting s).G₁ = s.G₂ 
   simp only [Setting15419.G₁, Setting15419.G₂, swapSetting_T₀]
   rfl
 
-theorem swapSetting_V₁ (s : Setting15419 G T) : (swapSetting s).V₁ = s.V₂ := rfl
 
 variable (s : Setting15419 G T)
 

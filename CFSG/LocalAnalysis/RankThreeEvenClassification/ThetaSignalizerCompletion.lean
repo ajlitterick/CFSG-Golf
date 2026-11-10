@@ -21,16 +21,6 @@ theorem thetaActorSignalizer_le_generated {G : Type u} [Group G]
     thetaActorSignalizer prime actor element ≤ thetaActorGenerated prime actor := by
   exact le_iSup_of_le element (le_iSup_of_le hmem (le_iSup_of_le hne le_rfl))
 
-theorem thetaActorGenerated_normalized {G : Type u} [Group G]
-    (prime : ℕ) (actor : Subgroup G) :
-    actor ≤ Subgroup.normalizer (thetaActorGenerated prime actor : Set G) := by
-  apply normalizes_iSup
-  intro element
-  apply normalizes_iSup
-  intro _
-  apply normalizes_iSup
-  intro _
-  exact thetaActorSignalizer_normalized prime actor element
 
 theorem thetaPlaneIntersection_actor_fixed_le_core
     {G : Type u} [Group G] [Finite G]
@@ -108,19 +98,5 @@ theorem thetaPlaneAlpha_prime_complement_of_generated_prime_complement
     (isElemAbelian_isPGroup prime actor hab) hplaneLe element hmem hne
   exact fun hdiv => hcompletion (hdiv.trans (Subgroup.card_dvd_of_le hle))
 
-theorem ThetaPlaneCondition.comparison_or_obstruction
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (hab : IsElemAbelian prime actor)
-    (hactorCard : Nat.card actor = prime ^ 3) (hcondition : ThetaPlaneCondition prime actor)
-    (firstPlane secondPlane : Subgroup G) (hfirstLe : firstPlane ≤ actor)
-    (hsecondLe : secondPlane ≤ actor) (hfirstCard : Nat.card firstPlane = prime ^ 2)
-    (hsecondCard : Nat.card secondPlane = prime ^ 2) :
-    thetaPlaneAlpha prime firstPlane ≤ thetaPlaneAlpha prime secondPlane ∨
-      ∃ element ∈ secondPlane, element ∉ firstPlane ∧ ¬CentralLineThetaAt prime actor element := by
-  exact thetaPlaneAlpha_comparison_or_central_line_obstruction prime hprime actor hab hactorCard
-    firstPlane secondPlane hfirstLe hsecondLe hfirstCard hsecondCard
-    (fun first hfirst hfirstNe second hsecond hsecondNe =>
-      ThetaPlaneCondition.mixed_balance prime hprime actor hab hcondition first second
-        hfirst hsecond hfirstNe hsecondNe)
 
 end CFSG.RankThreeEvenClassification.Helpers

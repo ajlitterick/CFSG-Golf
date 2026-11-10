@@ -39,11 +39,6 @@ theorem mk_mem_of_mem_map {T g : GL (Fin n) K} {L : Subgroup (centralizer {T})}
   map_one' := Subtype.ext (Subtype.ext (map_one _))
   map_mul' _ _ := Subtype.ext (Subtype.ext (map_mul _ _ _))
 
-theorem mkRestrict_apply {T : GL (Fin n) K} {L : Subgroup (centralizer {T})}
-    {B : Subgroup (centralizer {ProjGenLinGroup.mk T})}
-    (hLB : L.map (ordinaryCentralizerProjection T) = B) (g : L.map (centralizer {T}).subtype) :
-    ((mkRestrict hLB g : centralizer {ProjGenLinGroup.mk T}) : ProjGenLinGroup (Fin n) K) =
-      ProjGenLinGroup.mk (g : GL (Fin n) K) := rfl
 
 theorem mkRestrict_surjective {T : GL (Fin n) K} {L : Subgroup (centralizer {T})}
     {B : Subgroup (centralizer {ProjGenLinGroup.mk T})}

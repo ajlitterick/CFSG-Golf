@@ -28,11 +28,6 @@ variable {K : Type u} [Field K] {n : ℕ}
   map_add' := sCoord_add sigma
   map_smul' := sCoord_smul sigma
 
-theorem splitFieldEquiv_apply (sigma : K ≃+* K) (v : Fin n ⊕ Fin n → K) :
-    splitFieldEquiv sigma v = sCoord sigma v := rfl
-
-theorem splitFieldEquiv_symm_apply (sigma : K ≃+* K) (v : Fin n ⊕ Fin n → K) :
-    (splitFieldEquiv sigma).symm v = sCoord sigma.symm v := rfl
 
 @[expose] def splitSemilinear (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
     (sigma : K ≃+* K) :
@@ -42,15 +37,6 @@ theorem splitFieldEquiv_symm_apply (sigma : K ≃+* K) (v : Fin n ⊕ Fin n → 
       change A (sCoord sigma (c • v)) = sigma c • A (sCoord sigma v)
       rw [sCoord_smul, A.map_smul] }
 
-theorem splitSemilinear_apply
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (v : Fin n ⊕ Fin n → K) :
-    splitSemilinear A sigma v = A (sCoord sigma v) := rfl
-
-theorem splitSemilinear_symm_apply
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (v : Fin n ⊕ Fin n → K) :
-    (splitSemilinear A sigma).symm v = sCoord sigma.symm (A.symm v) := rfl
 
 theorem splitSemilinear_submodule
     (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
@@ -60,13 +46,6 @@ theorem splitSemilinear_submodule
   rw [Submodule.mem_map_equiv, semiImage, Submodule.mem_map_equiv, mem_sCoordImage]
   rfl
 
-theorem splitSemilinear_inverse_submodule
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (W : Submodule K (Fin n ⊕ Fin n → K)) :
-    W.map (splitSemilinear A sigma).symm.toLinearMap = semiPreimage A sigma W := by
-  ext v
-  rw [Submodule.mem_map_equiv, semiPreimage, mem_sCoordImage, Submodule.mem_map_equiv]
-  rfl
 
 @[expose] def coordinateSemilinear
     (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K)) (sigma : K ≃+* K) :
@@ -85,24 +64,6 @@ theorem coordinateSemilinear_apply
     coordinateSemilinear A sigma v =
       coordinatePlusIsometry n K (A (sCoord sigma ((coordinatePlusIsometry n K).symm v))) := rfl
 
-theorem coordinateSemilinear_entry
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (v : Fin (2 * n) → K) (i : Fin (2 * n)) :
-    coordinateSemilinear A sigma v i =
-      A (fun j => sigma (v (plusIndexEquiv n j))) ((plusIndexEquiv n).symm i) := rfl
-
-theorem coordinateSemilinear_symm_apply
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (v : Fin (2 * n) → K) :
-    (coordinateSemilinear A sigma).symm v =
-      coordinatePlusIsometry n K
-        (sCoord sigma.symm (A.symm ((coordinatePlusIsometry n K).symm v))) := rfl
-
-theorem coordinateSemilinear_symm_entry
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (v : Fin (2 * n) → K) (i : Fin (2 * n)) :
-    (coordinateSemilinear A sigma).symm v i =
-      sigma.symm (A.symm (fun j => v (plusIndexEquiv n j)) ((plusIndexEquiv n).symm i)) := rfl
 
 theorem coordinateSemilinear_submodule
     (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
@@ -119,20 +80,6 @@ theorem coordinateSemilinear_submodule
   · rintro ⟨z, ⟨y, ⟨x, hx, rfl⟩, rfl⟩, rfl⟩
     exact ⟨x, hx, rfl⟩
 
-theorem coordinateSemilinear_inverse_submodule
-    (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))
-    (sigma : K ≃+* K) (W : Submodule K (Fin (2 * n) → K)) :
-    W.map (coordinateSemilinear A sigma).symm.toLinearMap =
-      (semiPreimage A sigma (W.map (coordinatePlusIsometry n K).symm.toLinearMap)).map
-        (coordinatePlusIsometry n K).toLinearMap := by
-  rw [← splitSemilinear_inverse_submodule]
-  ext v
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    exact ⟨(splitSemilinear A sigma).symm ((coordinatePlusIsometry n K).symm x),
-      ⟨(coordinatePlusIsometry n K).symm x, ⟨x, hx, rfl⟩, rfl⟩, rfl⟩
-  · rintro ⟨z, ⟨y, ⟨x, hx, rfl⟩, rfl⟩, rfl⟩
-    exact ⟨x, hx, rfl⟩
 
 theorem coordinateSemilinear_similarity
     (A : (Fin n ⊕ Fin n → K) ≃ₗ[K] (Fin n ⊕ Fin n → K))

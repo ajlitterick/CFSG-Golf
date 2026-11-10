@@ -155,17 +155,6 @@ theorem exists_submodule_between {W T : Submodule K V} (h : W ≤ T) {k : ℕ}
       _ _).2 hxT), ?_⟩
     rw [finrank_sup_span_singleton_of_not_mem hxU, hU]
 
-theorem finrank_sup_of_ne_of_le {W P Q : Submodule K V} (hP : W ≤ P) (hQ : W ≤ Q)
-    (hPd : finrank K P = finrank K W + 1) (hQd : finrank K Q = finrank K W + 1) (hne : P ≠ Q) :
-    finrank K ↥(P ⊔ Q) = finrank K W + 2 := by
-  have h1 := Submodule.finrank_sup_add_finrank_inf_eq P Q
-  have hWi : W ≤ P ⊓ Q := le_inf hP hQ
-  have h2 : finrank K W ≤ finrank K ↥(P ⊓ Q) := Submodule.finrank_mono hWi
-  have h3 : finrank K ↥(P ⊓ Q) < finrank K P := by
-    refine Submodule.finrank_lt_finrank_of_lt (lt_of_le_of_ne inf_le_left fun e => hne ?_)
-    have hPQ : P ≤ Q := e ▸ inf_le_right
-    exact Submodule.eq_of_le_of_finrank_eq hPQ (by rw [hPd, hQd])
-  omega
 
 end Lin
 
@@ -173,42 +162,14 @@ section Corr
 
 variable {G : Type*} [Group G] (E : Subgroup G) [CFSG.IsElementaryAbelian 2 E]
 
-@[expose] def ofSub (S : Submodule (ZMod 2) (Additive E)) : Subgroup G where
-  carrier := {g | ∃ h : g ∈ E, Additive.ofMul (⟨g, h⟩ : E) ∈ S}
-  mul_mem' {a b} ha hb := by
-    obtain ⟨ha', haS⟩ := ha
-    obtain ⟨hb', hbS⟩ := hb
-    exact ⟨E.mul_mem ha' hb', S.add_mem haS hbS⟩
-  one_mem' := ⟨E.one_mem, S.zero_mem⟩
-  inv_mem' {a} ha := by
-    obtain ⟨ha', haS⟩ := ha
-    exact ⟨E.inv_mem ha', S.neg_mem haS⟩
 
 variable {E}
 
-theorem ofSub_le (S : Submodule (ZMod 2) (Additive E)) : ofSub E S ≤ E := fun _ h => h.1
-
-theorem subOf_ofSub (S : Submodule (ZMod 2) (Additive E)) : subOf E (ofSub E S) = S := by
-  ext x
-  rw [mem_subOf]
-  exact ⟨fun ⟨_, h⟩ => h, fun h => ⟨(Additive.toMul x).2, h⟩⟩
-
-theorem ofSub_subOf {F : Subgroup G} (hF : F ≤ E) : ofSub E (subOf E F) = F := by
-  ext g
-  exact ⟨fun ⟨_, h⟩ => h, fun h => ⟨hF h, h⟩⟩
 
 theorem subOf_le_subOf_iff {F F' : Subgroup G} (hF : F ≤ E) :
     subOf E F ≤ subOf E F' ↔ F ≤ F' :=
   ⟨fun h g hg => h (x := Additive.ofMul ⟨g, hF hg⟩) hg, fun h _ hx => h hx⟩
 
-theorem subOf_injective {F F' : Subgroup G} (hF : F ≤ E) (hF' : F' ≤ E)
-    (h : subOf E F = subOf E F') : F = F' :=
-  le_antisymm ((subOf_le_subOf_iff hF).1 h.le) ((subOf_le_subOf_iff hF').1 h.ge)
-
-theorem finrank_subOf_iff [Finite G] {F : Subgroup G} (hF : F ≤ E) {j : ℕ} :
-    finrank (ZMod 2) (subOf E F) = j ↔ Nat.card F = 2 ^ j := by
-  refine ⟨fun h => ?_, finrank_subOf E hF⟩
-  rw [← natCard_subOf E hF, ← FiniteField.pow_finrank_eq_natCard 2 (subOf E F), h]
 
 end Corr
 

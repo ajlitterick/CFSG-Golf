@@ -349,8 +349,6 @@ theorem theoremB_of_theoremOne_theoremTwo' (h1 : TheoremOne) (h2 : TheoremTwo) :
           ∀ p ∈ GLABeta m G, GLAWeakCoreLocal G p ∨ GLADeltaZero G p :=
   theoremB_of_theoremOne_theoremTwo h1 h2 normalPlaneLemma
 
-theorem theoremB_holds' (h1 : TheoremOne) (h2 : TheoremTwo) : TheoremB :=
-  theoremB_of_theoremOne_theoremTwo' h1 h2
 
 end Subgroups
 

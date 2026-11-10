@@ -74,12 +74,6 @@ section Second
 
 variable {L : Type} [Field L] [IsAlgClosed L]
 
-omit [IsAlgClosed L] in
-theorem snd_modGLPairPoint_symm {τ : Tag} {M : ℕ}
-    (y : WithConv (GLCoord L (Label τ) ⊗[L] GLCoord L (Fin M) →ₐ[L] L)) :
-    ((modGLPairPoint τ L M).symm y).2 =
-      glPointEquiv.symm (toConv (y.ofConv.comp Algebra.TensorProduct.includeRight)) :=
-  rfl
 
 @[expose] def g2GraphSndCoGL
     (Φ : MulAut (adjointGroup Tag.G2 L)) :

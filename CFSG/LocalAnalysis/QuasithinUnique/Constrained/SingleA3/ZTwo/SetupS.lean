@@ -23,7 +23,6 @@ theorem y_ne_one : y ≠ 1 := by
   rw [e, orderOf_one] at this
   omega
 
-theorem R_le_S : R ≤ S := h.R_le
 
 theorem R_le_normalizer_zpowers_y : R ≤ normalizer ((zpowers y : Subgroup G) : Set G) :=
   fun r hr => mem_normalizer_zpowers_of_comm (h.y_comm r (h.R_le hr))

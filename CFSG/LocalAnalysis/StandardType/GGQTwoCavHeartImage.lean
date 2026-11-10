@@ -75,13 +75,6 @@ theorem GGQ2LDatum.bstar_le_sup_zpowers_of_heartShape (M : GGQ2LDatum p Bs L x)
   apply (ofMul_mem_ggLinImage (p := p) M.model _ ⟨b, hb⟩).mp
   exact (htop ▸ (sup_le hco' hx')) Submodule.mem_top
 
-theorem GGQ2LDatum.beta_image_inner_of_heartShape (M : GGQ2LDatum p Bs L x)
-    (hp2 : p ≠ 2) (hN : Bs ≤ Subgroup.normalizer (L : Set G)) (h : M.HeartShape)
-    (hxC : x ∈ Subgroup.centralizer (L : Set G))
-    {R : Type} [Group R] (θ : L ⧸ Subgroup.center L ≃* R) :
-    (ggBeta L θ hN).range ≤ (MulAut.conj : R →* MulAut R).range :=
-  beta_image_inner_of_le_sup_zpowers hN
-    (M.bstar_le_sup_zpowers_of_heartShape hp2 hN h) hxC θ
 
 end CFSG.StandardType
 

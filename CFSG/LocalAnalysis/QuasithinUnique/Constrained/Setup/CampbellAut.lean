@@ -160,13 +160,6 @@ theorem aimg_sup (hY : Y ≤ S) (hY' : Y' ≤ S) :
   rw [← Subgroup.map_sup, aimg_map_subtype, aimg_map_subtype, aimg_map_subtype,
     ← Subgroup.map_sup, ← Subgroup.map_sup]
 
-theorem aimg_inf (hY : Y ≤ S) (hY' : Y' ≤ S) :
-    aimg S α (Y ⊓ Y') = aimg S α Y ⊓ aimg S α Y' := by
-  obtain ⟨A, rfl⟩ := exists_map_subtype hY
-  obtain ⟨A', rfl⟩ := exists_map_subtype hY'
-  rw [← Subgroup.map_inf_eq _ _ _ S.subtype_injective, aimg_map_subtype, aimg_map_subtype,
-    aimg_map_subtype, ← Subgroup.map_inf_eq _ _ _ S.subtype_injective,
-    ← Subgroup.map_inf_eq _ _ _ α.injective]
 
 theorem aimg_commutator (hY : Y ≤ S) (hY' : Y' ≤ S) :
     aimg S α ⁅Y, Y'⁆ = ⁅aimg S α Y, aimg S α Y'⁆ := by

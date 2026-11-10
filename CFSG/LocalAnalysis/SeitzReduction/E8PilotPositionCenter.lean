@@ -100,18 +100,6 @@ theorem exists_conj_eq_pinnedX_highRoot_of_mem_centralizer (hτ : τ = .E6 ∨ �
   obtain ⟨d, hd⟩ := mem_rootSubgroup.1 (mem_rootSubgroup_highRoot_of_commute_posUnipotent hτ hcomm)
   exact ⟨g, hU, d, hd.symm⟩
 
-theorem centralizer_sylow_le (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) [Finite K] [CharP K 2]
-    (U : Sylow 2 (adjointGroup τ K)) :
-    centralizer ((U : Subgroup (adjointGroup τ K)) : Set (adjointGroup τ K)) ≤ U := by
-  intro z hz
-  obtain ⟨g, hU, d, hd⟩ := exists_conj_eq_pinnedX_highRoot_of_mem_centralizer hτ U hz
-  rw [hU]
-  refine ⟨g⁻¹ * z * g, mem_posUnipotentSylowE.2 ?_, by
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    group⟩
-  rw [hd]
-  exact rootSubgroup_le_posUnipotent_of_height_pos (isRoot_highRoot τ)
-    (height_highRoot_pos τ) (mem_rootSubgroup.2 ⟨d, rfl⟩)
 
 theorem exists_conj_eq_pinnedElt_highRoot_of_mem_centralizer_sylow
     (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) [Finite K] [CharP K 2] (U : Sylow 2 (adjointGroup τ K))
@@ -164,29 +152,5 @@ theorem exists_conj_eq_pinnedElt_of_mem_centralizer_sylow (hτ : τ = .E6 ∨ τ
   rw [← hn, ← hc]
   group
 
-theorem exists_sylow_le_centralizer_pinnedElt (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) [Finite K]
-    [CharP K 2] {γ : Fin τ.rank → ℤ} (hγ : IsRoot τ γ) :
-    ∃ U : Sylow 2 (adjointGroup τ K), EPilot.pinnedElt τ γ (1 : K) ∈
-      centralizer ((U : Subgroup (adjointGroup τ K)) : Set (adjointGroup τ K)) := by
-  obtain ⟨n, hn⟩ := exists_conj_pinnedElt_highRoot_eq (K := K) hτ hγ
-  have hθ : EPilot.pinnedElt τ (highRoot τ) (1 : K) ∈ centralizer
-      ((posUnipotentSylowE τ K : Subgroup (adjointGroup τ K)) : Set (adjointGroup τ K)) := by
-    rw [mem_centralizer_iff]
-    intro u hu
-    refine Subtype.ext ?_
-    have h := posUnipotent_le_centralizer_pinnedX_highRoot (τ := τ) (1 : K)
-      (mem_posUnipotentSylowE.1 hu)
-    exact Subgroup.mem_centralizer_singleton_iff.1 h
-  refine ⟨n • posUnipotentSylowE τ K, ?_⟩
-  rw [mem_centralizer_iff]
-  intro u hu
-  rw [SetLike.mem_coe, Sylow.coe_subgroup_smul, mem_smul_pointwise_iff_exists] at hu
-  obtain ⟨v, hv, rfl⟩ := hu
-  have hc := mem_centralizer_iff.1 hθ v hv
-  rw [← hn, MulAut.smul_def, MulAut.conj_apply]
-  calc n * v * n⁻¹ * (n * EPilot.pinnedElt τ (highRoot τ) 1 * n⁻¹) =
-        n * (v * EPilot.pinnedElt τ (highRoot τ) 1) * n⁻¹ := by group
-    _ = n * (EPilot.pinnedElt τ (highRoot τ) 1 * v) * n⁻¹ := by rw [hc]
-    _ = n * EPilot.pinnedElt τ (highRoot τ) 1 * n⁻¹ * (n * v * n⁻¹) := by group
 
 end CFSG.SeitzReduction.E8Pilot

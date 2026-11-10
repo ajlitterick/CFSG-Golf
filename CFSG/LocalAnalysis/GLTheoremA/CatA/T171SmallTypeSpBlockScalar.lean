@@ -13,49 +13,6 @@ open Matrix CFSG.LieType.SteinbergBR.EvenSp
 
 variable {W : Type} [AddCommGroup W] [Module (ZMod 2) W] [FiniteDimensional (ZMod 2) W]
 
-private theorem eigen_of_commute
-    (B : BilinForm (ZMod 2) W) (hAlt : B.IsAlt) (hBn : B.Nondegenerate)
-    (φ : W →ₗ[ZMod 2] W)
-    (hφ : ∀ g ∈ linIsometryGroup B, ∀ v, φ (g v) = g (φ v))
-    {v : W} (hv : v ≠ 0) : ∃ c : ZMod 2, φ v = c • v := by
-  obtain ⟨x, hx⟩ : ∃ x : W, B x v ≠ 0 := by
-    by_contra h
-    push Not at h
-    exact hv (hBn.2 v h)
-  have hx1 : B x v = 1 := CFSG.ClassicalGroups.Orthogonal.zmod_two_eq_one_of_ne_zero hx
-  let g : W ≃ₗ[ZMod 2] W :=
-    LinearMap.GeneralLinearGroup.generalLinearEquiv (ZMod 2) W
-      (symplecticTransvection B hAlt v 1)
-  have hg : g ∈ linIsometryGroup B := by
-    rw [linIsometryGroup, Subgroup.mem_map_equiv]
-    simpa [g] using symplecticTransvection_mem_bilinIsometryGroup hAlt v 1
-  have hcomm := hφ g hg x
-  have hgx : g x = x + B x v • v := by
-    simp [g, symplecticTransvection_apply]
-  have hgy : g (φ x) = φ x + B (φ x) v • v := by
-    simp [g, symplecticTransvection_apply]
-  rw [hgx, hgy, map_add, map_smul] at hcomm
-  refine ⟨B (φ x) v, ?_⟩
-  have h := add_left_cancel hcomm
-  rwa [hx1, one_smul] at h
-
-theorem scalar_of_commute_linIsometryGroup
-    (B : BilinForm (ZMod 2) W) (hAlt : B.IsAlt) (hBn : B.Nondegenerate)
-    (φ : W →ₗ[ZMod 2] W)
-    (hφ : ∀ g ∈ linIsometryGroup B, ∀ v, φ (g v) = g (φ v)) :
-    ∃ c : ZMod 2, ∀ v, φ v = c • v := by
-  have hdep : ∀ v : W, ¬ LinearIndependent (ZMod 2) ![v, φ v] := by
-    intro v hli
-    by_cases hv : v = 0
-    · subst hv
-      have h := LinearIndependent.pair_iff.mp hli 1 0 (by simp)
-      exact one_ne_zero h.1
-    · obtain ⟨c, hc⟩ := eigen_of_commute B hAlt hBn φ hφ hv
-      have h := LinearIndependent.pair_iff.mp hli c (-1)
-        (by rw [hc, neg_one_smul, add_neg_cancel])
-      exact one_ne_zero (neg_eq_zero.mp h.2)
-  obtain ⟨a, ha⟩ := LinearMap.exists_eq_smul_id_of_forall_notLinearIndependent hdep
-  exact ⟨a, fun v => by rw [ha]; simp⟩
 
 private theorem GL2_zmod2_centralizer_disj (y M : GL (Fin 2) (ZMod 2))
     (hy3 : y ^ 3 = 1) (hy1 : y ≠ 1) (hM : M * y = y * M) :
@@ -75,10 +32,6 @@ theorem GL2_zmod2_centralizer_mem_zpowers (y M : GL (Fin 2) (ZMod 2))
   · rw [Subgroup.mem_zpowers_iff]
     exact ⟨2, by simp⟩
 
-theorem centralizer_tGL_mem_zpowers (M : GL (Fin 2) (ZMod 2))
-    (hM : M * tGL (K := ZMod 2) = tGL (K := ZMod 2) * M) :
-    M ∈ Subgroup.zpowers (tGL (K := ZMod 2)) :=
-  GL2_zmod2_centralizer_mem_zpowers _ _ tGL_pow_three tGL_ne_one hM
 
 noncomputable def linearEquivMulEquivGL {P : Type*} [AddCommGroup P] [Module (ZMod 2) P]
     [FiniteDimensional (ZMod 2) P] (hP : Module.finrank (ZMod 2) P = 2) :

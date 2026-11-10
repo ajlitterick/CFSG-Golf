@@ -38,22 +38,6 @@ theorem natCard_blocksIrr_of_isMulCommutative (H : Type) [Group H] [Fintype H]
 
 variable {N : Type} [Group N] {K : Subgroup N}
 
-theorem conj_eq_self_iff_mem (hab : IsMulCommutative K)
-    (hfree : ∀ n : N, n ∉ K → K ⊓ Subgroup.centralizer ({n} : Set N) = ⊥) {k : N}
-    (hk : k ∈ K) (hk1 : k ≠ 1) (n : N) : n⁻¹ * k * n = k ↔ n ∈ K := by
-  constructor
-  · intro h
-    by_contra hn
-    have hmem : k ∈ K ⊓ Subgroup.centralizer ({n} : Set N) := by
-      refine ⟨hk, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-      calc k * n = n * (n⁻¹ * k * n) := by group
-        _ = n * k := by rw [h]
-    rw [hfree n hn, Subgroup.mem_bot] at hmem
-    exact hk1 hmem
-  · intro hn
-    have : IsMulCommutative K := hab
-    rw [setLike_mul_comm (s := K) (K.inv_mem hn) hk]
-    group
 
 theorem commutator_map_injective [K.Normal]
     (hfree : ∀ n : N, n ∉ K → K ⊓ Subgroup.centralizer ({n} : Set N) = ⊥) {n : N}
@@ -98,31 +82,5 @@ theorem conjugateNormalCharacter_eq_self_iff [Finite N] [K.Normal] (hab : IsMulC
   rw [hsplit, hmul, hconj, linear_inv_mul_self h1 hmul]
   rfl
 
-theorem natCard_range_conj [K.Normal] (hab : IsMulCommutative K)
-    (hfree : ∀ n : N, n ∉ K → K ⊓ Subgroup.centralizer ({n} : Set N) = ⊥) {k : N}
-    (hk : k ∈ K) (hk1 : k ≠ 1) :
-    Nat.card (Set.range fun n : N => n⁻¹ * k * n) = K.index := by
-  apply natCard_range_eq_index
-  intro n m
-  have key : n⁻¹ * k * n = m⁻¹ * k * m ↔ (m * n⁻¹)⁻¹ * k * (m * n⁻¹) = k := by
-    constructor
-    · intro h
-      calc (m * n⁻¹)⁻¹ * k * (m * n⁻¹) = n * (m⁻¹ * k * m) * n⁻¹ := by group
-        _ = n * (n⁻¹ * k * n) * n⁻¹ := by rw [h]
-        _ = k := by group
-    · intro h
-      calc n⁻¹ * k * n = n⁻¹ * ((m * n⁻¹)⁻¹ * k * (m * n⁻¹)) * n := by rw [h]
-        _ = m⁻¹ * k * m := by group
-  rw [key, conj_eq_self_iff_mem hab hfree hk hk1]
-  exact (inferInstance : K.Normal).mem_comm_iff
-
-theorem natCard_range_conjugateNormalCharacter [Finite N] [K.Normal] (hab : IsMulCommutative K)
-    (hfree : ∀ n : N, n ∉ K → K ⊓ Subgroup.centralizer ({n} : Set N) = ⊥) {μ : K → ℂ}
-    (hμ : μ ∈ BlocksIrr K) (hμ1 : μ ≠ 1) :
-    Nat.card (Set.range (conjugateNormalCharacter K μ)) = K.index := by
-  apply natCard_range_eq_index
-  intro n m
-  rw [conjugateNormalCharacter_eq_iff, QuotientGroup.eq, mem_characterInertiaSubgroup_iff,
-    conjugateNormalCharacter_eq_self_iff hab hfree hμ hμ1]
 
 end CFSG.DihedralTIFusion

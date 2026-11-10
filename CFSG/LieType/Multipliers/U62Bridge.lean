@@ -151,16 +151,6 @@ theorem closure_genE :
   · rw [hx]; exact lift_genE_mem_closure _
   · rw [hy]; exact lift_genE_mem_closure _
 
-theorem card_le_of_subsetCheckShortCC_nil {m : ℕ} (ws : List (List (Fin m × Bool)))
-    {k cap n : ℕ} (h : subsetCheckShortCC ws [] k cap n = true) :
-    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n := by
-  have hS : subsetOf m [] = [] := by simp [subsetOf]
-  have : Finite (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) := by
-    rw [hS]; exact (inferInstance : Finite (PG 0 _))
-  have hc : Nat.card (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) = 1 := by
-    rw [hS]; exact card_PG_zero _
-  have := card_le_of_subsetCheckShortCC ws [] h
-  rwa [hc, mul_one] at this
 
 theorem finite_card_le :
     Finite (PG 5 rels) ∧ Nat.card (PG 5 rels) ≤ 9196830720 :=

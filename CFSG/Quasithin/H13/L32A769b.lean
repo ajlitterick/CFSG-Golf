@@ -66,10 +66,6 @@ theorem inf_QW : fsuU T V ⊓ conjSub x (pCoreOf 2 (hz T V)) = V ⊔ u0 T V := b
   exact inf_centralizerMod_eq C.hyp C.hMod C.h63 C.hF C.h1222 C.h1332 C.h1334 C.h64 C.le_R1
     C.sup_eq C.comm_le C.comm Z_le C.card_Z C.U_le C.GW_le
 
-theorem exists_comm_not_mem {u : G} (hu : u ∈ fsuU T V) (huV : u ∉ V ⊔ u0 T V) :
-    ∃ w ∈ conjSub x (fsuU T V), u * w * u⁻¹ * w⁻¹ ∉ conjSub x (fsuV1 T V) :=
-  L32A.exists_comm_not_mem C.hyp C.hMod C.h63 C.hF C.h1222 C.h1332 C.h1334 C.le_R1 C.sup_eq
-    C.comm Z_le C.card_Z hu huV
 
 end Conf69
 

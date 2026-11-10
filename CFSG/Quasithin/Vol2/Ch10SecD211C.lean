@@ -16,8 +16,6 @@ theorem mem_oPrimeResidualOf_of_pow {p : ℕ} (hp : p.Prime) {X : Subgroup G} {x
   obtain ⟨j, -, hj⟩ := (Nat.dvd_prime_pow hp).1 (orderOf_dvd_of_pow_eq_one hk)
   exact Subgroup.subset_closure ⟨hx, j, hj⟩
 
-theorem oPrimeResidualOf_le' (p : ℕ) (X : Subgroup G) : oPrimeResidualOf p X ≤ X :=
-  (Subgroup.closure_le X).mpr fun _ hx => hx.1
 
 theorem oPrimeResidualOf_mono' (p : ℕ) {X Y : Subgroup G} (h : X ≤ Y) :
     oPrimeResidualOf p X ≤ oPrimeResidualOf p Y :=

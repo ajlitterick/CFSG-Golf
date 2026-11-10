@@ -142,7 +142,5 @@ theorem le_normalizer_of_tight (hO : classicalInvolutionOddCore Y = ⊥) {z : Y}
 theorem tightNormalizesComponentConn_proved : Q3B.TightNormalizesComponentConn :=
   fun _ _ _ _ hO _ _ hz _ hT hTL _ _ hTz => le_normalizer_of_tight hO hz hT hTL hTz
 
-theorem tightNormalizesComponent_proved : TightNormalizesComponent :=
-  fun _ _ _ _ hO _ _ hz _ hT hTL hTz => le_normalizer_of_tight hO hz hT hTL hTz
 
 end CFSG.ClassicalInvolution.Q3.Q3T

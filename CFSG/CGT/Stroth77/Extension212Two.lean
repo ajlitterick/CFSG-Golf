@@ -217,21 +217,6 @@ theorem restrict_t120_t320 (h : 3 ≤ m + 1) (hm : 3 ≤ m) :
 
 end Target
 
-theorem hasStrothType_t320_or_t330_of_data {m : ℕ} {hm : 3 ≤ m}
-    (D : StrothTypeData B (StrothTypeIndex.t120 m hm)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    HasStrothType C (StrothTypeIndex.t320 (m + 1) (by omega)) ∨
-      HasStrothType C (StrothTypeIndex.t330 (m + 1) (by omega)) := by
-  have h : 3 ≤ m + 1 := by omega
-  obtain ⟨cV, cW, cU, cR⟩ := restrict_t120_t320 m h hm
-  rcases hasStrothType_or_of_index_two_of_data D hBC hC hrel hL hH hcS
-      (fun v _ _ _ hρ => sec_t120 hm v hρ) (StrothTypeIndex.t320 (m + 1) h) rfl rfl rfl
-      (fun j => by rw [k_t320_succ]; omega) (by rw [k_t320_succ]; omega)
-      (StrothTypeIndex.t330 (m + 1) h).action (profile2_t320 m h) (twist2_t320 m h)
-      cV cW cU cR with h1 | ⟨E, φ, h2⟩
-  · exact Or.inl h1
-  · exact Or.inr (hasStrothType_of_basisChange D hL (StrothTypeIndex.t330 (m + 1) h) E φ h2)
 
 theorem hasStrothTypeOver_t320_or_t330_of_data {m : ℕ} {hm : 3 ≤ m}
     (D : StrothTypeData B (StrothTypeIndex.t120 m hm)) (hBC : B ≤ C)

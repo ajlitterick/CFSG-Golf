@@ -217,7 +217,6 @@ end Injective
 
 noncomputable abbrev K0 : Subgroup B0 := M0.subgroupOf B0
 
-theorem mem_K0 {g : B0} : g ∈ K0 ↔ (g : Perm (Fin deg)) ∈ M0 := Iff.rfl
 
 theorem closure_cB_dB : closure ({cB, dB} : Set B0) = ⊤ := by
   have h := Subgroup.closure_closure_coe_preimage (k := ({cG, dG} : Set (Perm (Fin deg))))
@@ -423,40 +422,12 @@ theorem coe_nB : (nB : Perm (Fin deg)) = nG := rfl
 
 theorem coe_gB : (gB : Perm (Fin deg)) = gG := rfl
 
-theorem coe_uB (j : ℕ) : (uB j : Perm (Fin deg)) = uG j := rfl
-
-theorem coe_tB : (tB : Perm (Fin deg)) = t0G := rfl
 
 section Mark
 
 variable (h : tabCheck = true) (hs : structCheck = true) (hm : markCheck = true)
 include h hs hm
 
-theorem tB_mul_self : tB * tB = 1 := by
-  apply Subtype.ext
-  rw [Subgroup.coe_mul, coe_tB, Subgroup.coe_one]
-  exact (mark_facts h hs hm).1
-
-theorem tB_ne_one : tB ≠ 1 := by
-  intro h1
-  apply (mark_facts h hs hm).2.1
-  have := congrArg Subtype.val h1
-  rwa [coe_tB, Subgroup.coe_one] at this
-
-theorem tB_comm_xB : tB * xB = xB * tB := by
-  apply Subtype.ext
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, coe_tB, coe_xB]
-  exact (mark_facts h hs hm).2.2.1
-
-theorem tB_comm_yB : tB * yB = yB * tB := by
-  apply Subtype.ext
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, coe_tB, coe_yB]
-  exact (mark_facts h hs hm).2.2.2.1
-
-theorem tB_comm_wB : tB * wB = wB * tB := by
-  apply Subtype.ext
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, coe_tB, coe_wB]
-  exact (mark_facts h hs hm).2.2.2.2
 
 end Mark
 

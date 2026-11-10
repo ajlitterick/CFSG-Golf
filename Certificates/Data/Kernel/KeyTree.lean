@@ -35,10 +35,6 @@ inductive KT where
 
 @[expose] noncomputable def KT.ofList (n : Nat) (l : List (Nat × Nat)) : KT := (KT.go 64 n l).1
 
-@[expose] noncomputable def keys0 (ks : List Nat) : List (Nat × Nat) :=
-  List.rec (motive := fun _ => List (Nat × Nat)) [] (fun k _ ih => (k, 0) :: ih) ks
-
-@[expose] noncomputable def KT.ofKeys (n : Nat) (ks : List Nat) : KT := KT.ofList n (keys0 ks)
 
 @[expose] noncomputable def reachOK (isRoot : Nat → Bool) (edge : Nat → Nat → Nat → Bool) (M : KT)
     (r : Nat × Nat × Nat × Nat) : Bool :=

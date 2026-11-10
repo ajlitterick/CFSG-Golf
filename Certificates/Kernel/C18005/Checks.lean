@@ -89,7 +89,5 @@ open CFSG.KC.C18005
 #kc_forall_tree ch18005_wC (fun q => strictB (GP 12) (fun neg => chkC B BI neg q) = true) 400
   CertificateChecks.KernelC18005.ch18005w.c
 
-theorem ch18005_wE : strictB (GP 12) (fun neg => wordOK B BI neg (lettersC 0 10) 16) = true :=
-  CertificateChecks.KernelC18005.ch18005w.e0
 
 end CertificateChecks.KernelC18005

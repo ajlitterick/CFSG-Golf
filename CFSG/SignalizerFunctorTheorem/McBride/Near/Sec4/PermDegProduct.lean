@@ -19,13 +19,9 @@ variable {ι : Type*} {G : ι → Type*} [∀ i, Group (G i)]
   mul_mem' {a b} ha hb i hi := by simp [ha i hi, hb i hi]
   inv_mem' {a} ha i hi := by simp [ha i hi]
 
-theorem mem_suppSubgroup {p : ι → Prop} {x : ∀ i, G i} :
-    x ∈ suppSubgroup G p ↔ ∀ i, ¬ p i → x i = 1 := Iff.rfl
 
 @[expose] def suppOf (N : Subgroup (∀ i, G i)) : ι → Prop := fun i => ∃ y ∈ N, y i ≠ 1
 
-theorem suppOf_iff {N : Subgroup (∀ i, G i)} {i : ι} : suppOf N i ↔ ∃ y ∈ N, y i ≠ 1 :=
-  Iff.rfl
 
 theorem eq_one_of_forall_commute {J : Type*} [Group J] [IsSimpleGroup J]
     (hnc : ¬ IsMulCommutative J) {z : J} (hz : ∀ g : J, g * z = z * g) : z = 1 := by

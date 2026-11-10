@@ -105,16 +105,6 @@ structure IsChainThree (K₀ K₁ K₂ : ↥S) : Prop where
   nadj : ¬ (Fr.datum K₀).Adj (Fr.datum K₂)
   ne : Fr.datum K₀ ≠ Fr.datum K₂
 
-structure IsStarFour (K₀ K₁ K₂ K₃ : ↥S) : Prop where
-  adj₀ : (Fr.datum K₁).Adj (Fr.datum K₀)
-  adj₂ : (Fr.datum K₁).Adj (Fr.datum K₂)
-  adj₃ : (Fr.datum K₁).Adj (Fr.datum K₃)
-  nadj₀₂ : ¬ (Fr.datum K₀).Adj (Fr.datum K₂)
-  nadj₀₃ : ¬ (Fr.datum K₀).Adj (Fr.datum K₃)
-  nadj₂₃ : ¬ (Fr.datum K₂).Adj (Fr.datum K₃)
-  ne₀₂ : Fr.datum K₀ ≠ Fr.datum K₂
-  ne₀₃ : Fr.datum K₀ ≠ Fr.datum K₃
-  ne₂₃ : Fr.datum K₂ ≠ Fr.datum K₃
 
 theorem exists_isChainThree [Finite ↥A] (hcard : Nat.card A = 8) (hS : S.Nonempty)
     (hA2 : A2Dichotomy A S) (hfib : FibreLE2 S) (hconn : NonCommConnected S)
@@ -128,48 +118,9 @@ theorem exists_isChainThree [Finite ↥A] (hcard : Nat.card A = 8) (hS : S.Nonem
     obtain ⟨K₂, rfl⟩ := Fr.mem_dataFinset.mp hx₂
     exact ⟨K₀, K₁, K₂, a₀, a₂, n, hne⟩
 
-theorem exists_isStarFour [Finite ↥A] (hcard : Nat.card A = 16) (hS : S.Nonempty)
-    (hA2 : A2Dichotomy A S) (hfib : FibreLE2 S) (hconn : NonCommConnected S)
-    (hd : Fr.dataFinset.card = 12) : ∃ K₀ K₁ K₂ K₃ : ↥S, Fr.IsStarFour K₀ K₁ K₂ K₃ := by
-  obtain ⟨c, hc, a, ha, b, hb, d, hd', e1, e2, e3, hab, had, hbd, n1, n2, n3⟩ :=
-    (rootSet_triStar_four Fr.additive_add_self
-      (by rw [Nat.card_congr Additive.toMul]; exact hcard) _ (Fr.dataFinset_nonempty hS)
-      (Fr.dataFinset_isSymm hA2) Fr.dataFinset_isClosed
-      (Fr.dataFinset_isConn hA2 hfib hconn)).1 hd
-  obtain ⟨K₁, rfl⟩ := Fr.mem_dataFinset.mp hc
-  obtain ⟨K₀, rfl⟩ := Fr.mem_dataFinset.mp ha
-  obtain ⟨K₂, rfl⟩ := Fr.mem_dataFinset.mp hb
-  obtain ⟨K₃, rfl⟩ := Fr.mem_dataFinset.mp hd'
-  exact ⟨K₀, K₁, K₂, K₃, e1, e2, e3, n1, n2, n3, hab, had, hbd⟩
 
 @[expose] def DatumInjective : Prop := ∀ K L : ↥S, Fr.datum K = Fr.datum L → K = L
 
-theorem datumInjective_of_card_le [Finite ↥A] [Finite ↥S]
-    (h : Nat.card ↥S ≤ Fr.dataFinset.card) : Fr.DatumInjective := by
-  have hcard : Fr.dataFinset.card = Nat.card (Set.range Fr.datum) := by
-    unfold dataFinset
-    exact (Set.ncard_eq_toFinset_card _ (Set.toFinite _)).symm.trans (Nat.card_coe_set_eq _).symm
-  have hbij : (Set.rangeFactorization Fr.datum).Bijective :=
-    (Set.rangeFactorization_surjective (f := Fr.datum)).bijective_of_nat_card_le (by omega)
-  intro K L hKL
-  exact hbij.1 (Subtype.ext hKL)
-
-theorem datumInjective_of_fibre (hfib : FibreLE2 S)
-    (h : ∀ K : ↥S, ∃ L : ↥S, Fr.zOf L = Fr.zOf K ∧ Fr.datum L ≠ Fr.datum K) :
-    Fr.DatumInjective := by
-  intro K K' hKK'
-  by_contra hne
-  obtain ⟨L, hLz, hLd⟩ := h K
-  have hz' : Fr.zOf K' = Fr.zOf K := by
-    have := congrArg (fun p : Datum (Additive ↥A) => ((Additive.toMul p.vec : ↥A) : G)) hKK'
-    exact this.symm
-  rcases hfib (Fr.zOf K) K K.2 K' K'.2 L L.2 (Fr.isUniqueInvolution_zOf K)
-    (hz' ▸ Fr.isUniqueInvolution_zOf K') (hLz ▸ Fr.isUniqueInvolution_zOf L) with h1 | h1 | h1
-  · exact hne (Subtype.ext h1)
-  · have e : K = L := Subtype.ext h1
-    exact hLd (by rw [e])
-  · have e : K' = L := Subtype.ext h1
-    exact hLd (by rw [← e, ← hKK'])
 
 @[expose] noncomputable def dataIn [Finite ↥A] (V : Subgroup G) : Finset (Datum (Additive ↥A)) :=
   by classical exact Fr.dataFinset.filter fun x => ∃ M : ↥S, (M : Subgroup G) ≤ V ∧ Fr.datum M = x
@@ -225,24 +176,6 @@ theorem le_of_isChainThree [Finite ↥A] (hcard : Nat.card A = 8) (hA2 : A2Dicho
   rw [hMK] at hMV
   exact hMV
 
-theorem le_of_isStarFour [Finite ↥A] (hcard : Nat.card A = 16) (hA2 : A2Dichotomy A S)
-    (hinj : Fr.DatumInjective) (hd : Fr.dataFinset.card = 12) {V : Subgroup G} {K₀ K₁ K₂ K₃ : ↥S}
-    (h : Fr.IsStarFour K₀ K₁ K₂ K₃) (h₀ : (K₀ : Subgroup G) ≤ V) (h₁ : (K₁ : Subgroup G) ≤ V)
-    (h₂ : (K₂ : Subgroup G) ≤ V) (h₃ : (K₃ : Subgroup G) ≤ V) : ∀ K ∈ S, K ≤ V := by
-  have hR := rootSet_eq_of_star_four Fr.additive_add_self
-    (by rw [Nat.card_congr Additive.toMul]; exact hcard) hd (Fr.dataIn_subset V)
-    (Fr.dataIn_isSymm hA2 V) (Fr.dataIn_isClosed V) (x₀ := Fr.datum K₀) (x₁ := Fr.datum K₁)
-    (x₂ := Fr.datum K₂) (x₃ := Fr.datum K₃) (Fr.mem_dataIn.mpr ⟨K₀, h₀, rfl⟩)
-    (Fr.mem_dataIn.mpr ⟨K₁, h₁, rfl⟩) (Fr.mem_dataIn.mpr ⟨K₂, h₂, rfl⟩)
-    (Fr.mem_dataIn.mpr ⟨K₃, h₃, rfl⟩) h.adj₀ h.adj₂ h.adj₃ h.nadj₀₂ h.nadj₀₃ h.nadj₂₃ h.ne₀₂
-    h.ne₀₃ h.ne₂₃
-  intro K hK
-  have hmem : Fr.datum ⟨K, hK⟩ ∈ Fr.dataFinset := Fr.mem_dataFinset.mpr ⟨_, rfl⟩
-  rw [← hR] at hmem
-  obtain ⟨M, hMV, hMd⟩ := Fr.mem_dataIn.mp hmem
-  have hMK : M = ⟨K, hK⟩ := hinj M ⟨K, hK⟩ hMd
-  rw [hMK] at hMV
-  exact hMV
 
 end RankFrame
 

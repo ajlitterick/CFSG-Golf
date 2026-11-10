@@ -66,9 +66,6 @@ theorem normalizer_twoCore_H (h : D1Escape p P M H R) :
     Subgroup.normalizer (pCoreOf 2 H : Set G) = H :=
   h.toTwoLocalPair.normalizer_twoCore_H
 
-theorem normalizer_twoCore_M (h : D1Escape p P M H R) :
-    Subgroup.normalizer (pCoreOf 2 M : Set G) = M :=
-  h.toTwoLocalPair.normalizer_twoCore_M
 
 theorem twoCore_M_le (h : D1Escape p P M H R) (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :
     pCoreOf 2 M ≤ pCoreOf 2 H :=
@@ -81,55 +78,6 @@ theorem inf_eq_inf_normalizer_twoCore_M (h : D1Escape p P M H R) :
     H ⊓ M = H ⊓ Subgroup.normalizer (pCoreOf 2 M : Set G) :=
   h.toTwoLocalPair.inf_eq_inf_normalizer_twoCore_M
 
-theorem center_twoCore_le_twoCore_M (h : D1Escape p P M H R) (hchar : IsCharTwoType G)
-    (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :
-    (Subgroup.center (pCoreOf 2 H)).map (pCoreOf 2 H).subtype ≤ pCoreOf 2 M := by
-  rintro _ ⟨z, hz, rfl⟩
-  have hcent : ((z : pCoreOf 2 H) : G) ∈ Subgroup.centralizer (pCoreOf 2 M : Set G) := by
-    rw [Subgroup.mem_centralizer_iff]
-    intro x hx
-    have := Subgroup.mem_center_iff.mp hz ⟨x, h.twoCore_M_le hS hx⟩
-    simpa using congrArg Subtype.val this
-  exact hchar M h.maxTwoLocal_M.1 ⟨h.twoCore_le z.property, hcent⟩
-
-theorem centralizer_center_twoCore_le (h : D1Escape p P M H R) :
-    M ⊓ Subgroup.centralizer
-        ((Subgroup.center (pCoreOf 2 H)).map (pCoreOf 2 H).subtype : Set G) ≤ H ⊓ M := by
-  intro x hx
-  refine ⟨?_, hx.1⟩
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hnt : Nontrivial (pCoreOf 2 H) :=
-    (Subgroup.nontrivial_iff_ne_bot _).mpr (twoLocal_pCoreOf_ne_bot H h.maxTwoLocal_H.1)
-  have hcnt : Nontrivial (Subgroup.center (pCoreOf 2 H)) :=
-    (CFSG.RankThreeCoreUniqueness.Helpers.pCoreOf_isPGroup 2 H).center_nontrivial
-  have hne : (Subgroup.center (pCoreOf 2 H)).map (pCoreOf 2 H).subtype ≠ ⊥ := by
-    rw [Ne, Subgroup.map_eq_bot_iff_of_injective _ (pCoreOf 2 H).subtype_injective]
-    exact (Subgroup.nontrivial_iff_ne_bot _).mp hcnt
-  have hchar : (((Subgroup.center (pCoreOf 2 H)).map (pCoreOf 2 H).subtype).subgroupOf
-      (pCoreOf 2 H)).Characteristic := by
-    rw [Subgroup.subgroupOf, Subgroup.comap_map_eq_self_of_injective
-      (pCoreOf 2 H).subtype_injective]
-    infer_instance
-  have hle := (maxTwoLocal_normalizer_char_eq h.maxTwoLocal_H (Subgroup.map_subtype_le _) hne
-    hchar).le
-  exact hle (Subgroup.centralizer_le_normalizer _ hx.2)
-
-theorem center_twoCore_le_center_twoCore_M (h : D1Escape p P M H R) (hchar : IsCharTwoType G)
-    (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :
-    (Subgroup.center (pCoreOf 2 H)).map (pCoreOf 2 H).subtype ≤
-      (Subgroup.center (pCoreOf 2 M)).map (pCoreOf 2 M).subtype := by
-  rintro _ ⟨z, hz, rfl⟩
-  have hzQ : (z : G) ∈ pCoreOf 2 M := h.center_twoCore_le_twoCore_M hchar hS ⟨z, hz, rfl⟩
-  refine ⟨⟨z, hzQ⟩, Subgroup.mem_center_iff.mpr fun y => Subtype.ext ?_, rfl⟩
-  have := Subgroup.mem_center_iff.mp hz ⟨y, h.twoCore_M_le hS y.property⟩
-  simpa using congrArg Subtype.val this
-
-theorem centralizer_center_twoCore_M_le (h : D1Escape p P M H R) (hchar : IsCharTwoType G)
-    (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :
-    M ⊓ Subgroup.centralizer
-        ((Subgroup.center (pCoreOf 2 M)).map (pCoreOf 2 M).subtype : Set G) ≤ H ⊓ M :=
-  fun _ hx => h.centralizer_center_twoCore_le
-    ⟨hx.1, Subgroup.centralizer_le (h.center_twoCore_le_center_twoCore_M hchar hS) hx.2⟩
 
 end D1Escape
 

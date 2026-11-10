@@ -75,9 +75,6 @@ theorem ActsAsConj.inv {H : Subgroup (GL (Fin n) F)} {θ : (Y ⧸ Subgroup.cente
     rintro b ⟨g, hg, hb⟩
     exact ⟨g⁻¹, Γ.inv_mem hg, ActsAsConj.inv hb⟩
 
-theorem mem_innDiag {H Γ : Subgroup (GL (Fin n) F)} {θ : (Y ⧸ Subgroup.center Y) ≃* StatedProj H}
-    {b : MulAut Y} : b ∈ innDiag H Γ θ ↔ ∃ g ∈ Γ, ActsAsConj H θ g b :=
-  Iff.rfl
 
 theorem exists_actsAsConj_conj (H : Subgroup (GL (Fin n) F))
     (θ : (Y ⧸ Subgroup.center Y) ≃* StatedProj H) (y : Y) :

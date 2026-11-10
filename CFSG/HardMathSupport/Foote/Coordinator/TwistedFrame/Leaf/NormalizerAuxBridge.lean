@@ -14,7 +14,6 @@ open CFSG.HardMathSupport.Foote.Coordinator.SplitFrame CFSG.HardMathSupport.Foot
 set_option linter.unusedSectionVars false
 
 
-
 variable {τ : Tag} {K : Type} [Field K] [Finite K] {w : WeylGroup τ} (D : LangLevi τ K w)
 
 abbrev frobGL : ModGL τ D.L →* ModGL τ D.L := Units.map (entrywiseHom D.Fr)
@@ -164,10 +163,6 @@ theorem frameToFixedRoot_injective (S : Set (Fin τ.rank → ℤ)) :
   MulEquiv.ofBijective (frameToFixedRoot D S) ⟨frameToFixedRoot_injective D S, fun y => by
     obtain ⟨x, hx, hxy⟩ := exists_frame_of_fixedRoot D hperf y.2
     exact ⟨⟨x, hx⟩, Subtype.ext (by rw [coe_frameToFixedRoot D]; exact hxy)⟩⟩
-
-theorem isQuasisimple_frame {S : Set (Fin τ.rank → ℤ)}
-    (hq : CFSG.IsQuasisimple ↥(fixedRoot D S)) : CFSG.IsQuasisimple ↥(D.frame S) :=
-  CFSG.IsQuasisimple.of_mulEquiv (frameEquivFixedRoot D hq.1) hq
 
 
 @[expose] def frameImage (S : Set (Fin τ.rank → ℤ)) : Subgroup (ModGL τ D.L) :=

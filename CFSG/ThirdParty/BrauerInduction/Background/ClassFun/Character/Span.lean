@@ -75,44 +75,5 @@ over `k`.
       (_ : Simple S),
       ψ = ClassFun.character S }
 
-/--
-The character of a finite-dimensional representation belongs to the
-`ℤ`-linear span of the characters of simple representations.
--/
-theorem character_mem_span_irreducibles
-    [Finite G] [NeZero (Nat.card G : k)]
-    (V : FDRep k G) :
-    ClassFun.character V ∈
-      Submodule.span ℤ
-        (irreducibleCharacterSet k G) := by
-  obtain ⟨ι, S, hι, hSimple, hchar⟩ :=
-    char_eq_sum_simples (k := k) (G := G) V
-  letI : Fintype ι := hι
-  rw [hchar]
-  exact Submodule.sum_mem _ fun i _ =>
-    Submodule.subset_span
-      ⟨S i, hSimple i, rfl⟩
-
-theorem character_mem_span_irreducibles_of_eq
-    [Finite G] [NeZero (Nat.card G : k)]
-    (φ : ClassFun k G)
-    (h_rep : ∃ V : FDRep k G,
-      φ = ClassFun.character V) :
-    φ ∈
-      Submodule.span ℤ
-        (irreducibleCharacterSet k G) := by
-  obtain ⟨V, rfl⟩ := h_rep
-  exact character_mem_span_irreducibles V
-
-/--
-The virtual character group of `G`: the `ℤ`-span of irreducible characters
-inside the group of `k`-valued class functions.
--/
-@[expose] def virtualCharacterSubmodule
-    (k : Type u) [Field k]
-    (G : Type v) [Group G] :
-    Submodule ℤ (ClassFun k G) :=
-  Submodule.span ℤ (ClassFun.irreducibleCharacterSet k G)
-
 
 end CFSG.ClassFun

@@ -37,10 +37,6 @@ theorem act_act_inv (act : W →* (E ≃ₗᵢ[ℝ] E)) (a : W) (x : E) : act a 
     rw [OneMemClass.coe_one, map_one, LinearIsometryEquiv.coe_one, id])
   map_mul' w w' := LinearIsometryEquiv.ext fun x => Subtype.ext (act_mul_apply act w w' x)
 
-theorem coe_restrictAct_apply (act : W →* (E ≃ₗᵢ[ℝ] E)) (W' : Subgroup W) (E' : Submodule ℝ E)
-    (hE' : ∀ w ∈ W', ∀ x ∈ E', act w x ∈ E') (w : W') (x : E') :
-    (restrictAct act W' E' hE' w x : E) = act w x :=
-  rfl
 
 theorem starProjection_act (act : W →* (E ≃ₗᵢ[ℝ] E)) {W' : Subgroup W} {E' : Submodule ℝ E}
     [E'.HasOrthogonalProjection] (hE' : ∀ w ∈ W', ∀ x ∈ E', act w x ∈ E') {w : W}

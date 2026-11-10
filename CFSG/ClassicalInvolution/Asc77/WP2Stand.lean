@@ -54,9 +54,6 @@ theorem ConcOrTF4.conclusionD {G : Type} [Group G] (h : ConcOrTF4 G)
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
     DBranchD p f K z → ExactMembers (CoreAssembly.conjClass K)
 
-@[expose] def HypOmegaD : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    DBranchD p f K z → HypOmega p f (CoreAssembly.conjClass K)
 
 @[expose] def AEmptyD : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
@@ -89,8 +86,6 @@ theorem gen_conjClass {G : Type} [Group G] [Finite G] [IsSimpleGroup G] (K : Sub
   · exact absurd (hK hz) (by rw [h]; simpa using hz1)
   · exact h
 
-theorem hypOmegaD_of (hm : HypOmegaModD p f) (he : ExactD p f) : HypOmegaD p f :=
-  fun G _ _ _ K z h => (hm G K z h).toExact (he G K z h)
 
 theorem ascStandOfBranch_of (hΩ : HypOmegaModD p f) (hA : AEmptyD p f) (hall : IHAllD p f)
     (hih : IHInterface8 p) : AscStandOfBranch p f := by

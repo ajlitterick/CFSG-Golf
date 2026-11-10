@@ -277,22 +277,5 @@ theorem natCard_PLam {Λ : Submodule (ZMod 2) V8} (hΛ : IsTotallyIsotropic b0 �
   rw [hEqcard, hcard, hRcard]
   norm_num
 
-theorem PLam_le_H1 {Λ : Submodule (ZMod 2) V8} (h : e0 ∈ Λ) : PLam Λ ≤ H1 := by
-  have h1 : PLam Λ ≤ Xgrp := by
-    show Xgrp ⊓ Subgroup.centralizer
-      ((fun v : V8 => (aEquiv (Multiplicative.ofAdd v) : Dfull)) '' (Λ : Set V8)) ≤ Xgrp
-    exact inf_le_left
-  have h2 : PLam Λ ≤ Subgroup.centralizer {xhat} := by
-    show Xgrp ⊓ Subgroup.centralizer
-      ((fun v : V8 => (aEquiv (Multiplicative.ofAdd v) : Dfull)) '' (Λ : Set V8)) ≤
-        Subgroup.centralizer {xhat}
-    refine le_trans inf_le_right ?_
-    apply Subgroup.centralizer_le
-    intro z hz
-    rw [Set.mem_singleton_iff] at hz
-    subst hz
-    exact ⟨e0, h, aEquiv_e0⟩
-  rw [← Xgrp_inf_centralizer_xhat]
-  exact le_inf h1 h2
 
 end CFSG.Monster.B.TwoA.Sp8

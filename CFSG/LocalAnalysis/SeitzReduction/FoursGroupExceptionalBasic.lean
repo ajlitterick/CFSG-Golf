@@ -125,10 +125,6 @@ theorem foursGroupCondition_of_center_eq_bot (hZ : center L = ⊥)
   have h := hcon l hl
   rwa [hZ, mem_bot] at h
 
-theorem foursGroupCondition_of_oddCore_eq_bot (hZ : center L = ⊥)
-    (hO : standardComponentOddCore L = ⊥) : FoursGroupCondition L :=
-  foursGroupCondition_of_center_eq_bot hZ fun _ hM hModd =>
-    le_bot_iff.1 (hO ▸ le_sSup ⟨hM, hModd⟩)
 
 theorem foursGroupCondition_of_isSimpleGroup [IsSimpleGroup L]
     (hnonab : ∃ a b : L, a * b ≠ b * a) : FoursGroupCondition L := by

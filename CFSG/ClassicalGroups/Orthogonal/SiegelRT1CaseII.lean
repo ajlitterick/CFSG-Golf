@@ -73,8 +73,6 @@ variable {K : Type} [Field K] {N : Type*} [AddCommGroup N] [Module K N]
     calc ρ g⁻¹ w = ρ g⁻¹ (ρ g w) := by rw [hg w hw]
       _ = w := by rw [← LinearEquiv.mul_apply, ← map_mul, inv_mul_cancel, map_one]; rfl
 
-theorem mem_rhoFixSubgroup {S : Submodule K V} {g : Gsp BN} :
-    g ∈ rhoFixSubgroup ρ S ↔ ∀ w ∈ S, ρ g w = w := Iff.rfl
 
 theorem rho_conj_Tsp (g : Gsp BN) (x : N) (c : K) :
     ρ g * ρ (Tsp hBN x c) * (ρ g)⁻¹ = ρ (Tsp hBN (g.app x) c) := by

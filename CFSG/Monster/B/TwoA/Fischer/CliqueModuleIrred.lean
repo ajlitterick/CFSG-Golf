@@ -92,8 +92,6 @@ variable {X : Type*} [AddCommGroup X] [Module (ZMod 2) X]
   map_one' := LinearMap.ext fun x => Subtype.ext (by simp)
   map_mul' g h := LinearMap.ext fun x => Subtype.ext (by simp)
 
-theorem coe_restrictRep_apply (U : Submodule (ZMod 2) X) (hU : ∀ g, U ≤ U.comap (ρ g)) (g)
-    (x : U) : (restrictRep ρ U hU g x : X) = ρ g x := rfl
 
 theorem eq_bot_or_eq_top_of_faithful [FiniteDimensional (ZMod 2) X]
     (hX : Module.finrank (ZMod 2) X = 10)

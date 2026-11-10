@@ -18,14 +18,6 @@ open Subgroup CFSG.Blueprint CFSG.Blueprint.NativeSporadic CFSG.EvenSporadicStan
       SolomonGlobalQ H L K t u → fiLoc (2 * 64561751654400) H L K u →
         ∀ S : Sylow 2 (centralizer (L : Set H)), Nat.card S = 2
 
-@[expose] def Fi23ClaimMax : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (N L K : Subgroup H) (t u : H), FStarSimple N → N.index ≤ 2 →
-    CFSG.Assembly.KProper CFSG.Blueprint.Catalog H → OddCover .Fi23 L →
-      SolomonGlobalQ H L K t u → fiLoc (2 * 64561751654400) H L K u → Fi23Transposition L u →
-        (∃ L₀ : Subgroup H, SolStd L₀ ∧ OddCover .Fi24Prime L₀) →
-          (∀ P : Subgroup H, InL P → IsSporadic (↥P ⧸ center ↥P) .Fi23 → Maximal P) →
-            (∀ S : Sylow 2 (centralizer (L : Set H)), Nat.card S = 2) →
-              ∀ a : H, a ∈ L → orderOf a = 2 → (¬ ∃ l ∈ L, a = l * u * l⁻¹) → ¬ IsConj t (t * a)
 
 @[expose] def Fi23ClaimMaxAt (H : Type) [Group H] [Finite H] : Prop :=
   ∀ (N L K : Subgroup H) (t u : H), FStarSimple N → N.index ≤ 2 →

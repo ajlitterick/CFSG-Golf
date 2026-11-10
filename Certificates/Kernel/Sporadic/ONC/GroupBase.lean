@@ -61,7 +61,6 @@ noncomputable abbrev J0 : Subgroup (GL (Fin 154) (ZMod 3)) := Subgroup.closure {
 noncomputable abbrev mat0 (g : J0) : Matrix (Fin 154) (Fin 154) (ZMod 3) :=
   ((g : GL (Fin 154) (ZMod 3)) : Matrix (Fin 154) (Fin 154) (ZMod 3))
 
-theorem mat0_mul (g h : J0) : mat0 (g * h) = mat0 g * mat0 h := rfl
 
 theorem mat0_one : mat0 (1 : J0) = 1 := rfl
 

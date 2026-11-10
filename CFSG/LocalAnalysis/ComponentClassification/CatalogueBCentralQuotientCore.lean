@@ -89,13 +89,6 @@ theorem coreQuotientMap_mk {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite 
       (QuotientGroup.mk' (pPrimeCore p Y)) (f x) :=
   QuotientGroup.map_mk _ _ f _ x
 
-theorem coreQuotientMap_surjective {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite Y]
-    (p : ℕ) [Fact p.Prime] (f : X →* Y) (hsurjective : Function.Surjective f) :
-    Function.Surjective (coreQuotientMap p f hsurjective) := by
-  intro y
-  obtain ⟨z, rfl⟩ := QuotientGroup.mk'_surjective (pPrimeCore p Y) y
-  obtain ⟨x, rfl⟩ := hsurjective z
-  exact ⟨(QuotientGroup.mk' (pPrimeCore p X)) x, coreQuotientMap_mk p f hsurjective x⟩
 
 theorem coreQuotientMap_kernel_central {X Y : Type*} [Group X] [Finite X]
     [Group Y] [Finite Y] (p : ℕ) [Fact p.Prime] (f : X →* Y)

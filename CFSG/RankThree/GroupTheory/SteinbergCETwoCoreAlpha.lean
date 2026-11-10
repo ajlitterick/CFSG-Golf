@@ -20,17 +20,6 @@ variable {G : Type*} [Group G]
 @[expose] def twoCoreAlpha (B : Subgroup G) : Subgroup G :=
   twoCoreJ B ⊔ twoCoreX B
 
-theorem commutator_eq_closure_inv_mul (U V : Subgroup G) :
-    ⁅U, V⁆ = Subgroup.closure {x | ∃ u ∈ U, ∃ v ∈ V, x = u⁻¹ * v⁻¹ * u * v} := by
-  apply le_antisymm
-  · rw [Subgroup.commutator_le]
-    intro u hu v hv
-    refine Subgroup.subset_closure ⟨u⁻¹, U.inv_mem hu, v⁻¹, V.inv_mem hv, ?_⟩
-    rw [commutatorElement_def, inv_inv, inv_inv]
-  · rw [Subgroup.closure_le]
-    rintro _ ⟨u, hu, v, hv, rfl⟩
-    have h := Subgroup.commutator_mem_commutator (U.inv_mem hu) (V.inv_mem hv)
-    rwa [commutatorElement_def, inv_inv, inv_inv] at h
 
 theorem mem_twoCoreX_iff {B : Subgroup G} {x : G} :
     x ∈ twoCoreX B ↔

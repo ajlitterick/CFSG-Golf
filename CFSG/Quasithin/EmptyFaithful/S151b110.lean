@@ -150,30 +150,5 @@ theorem rank_bound_five151b {T Mc M : Subgroup G} (hM : IsMf T Mc M)
     exact mem_Jhat_conj ((autI_mono hV hTM) (hET hg)) hz
   exact S.card_le_four_of_elemAbelian hW hcard hE hnorm
 
-theorem stageLemma15110_of (h1416 : StageLemma1416) (h1515 : StageLemma1515) : StageLemma15110 := by
-  intro G _ _ T Mc M h hM _ c6
-  have hred := (h1515 G T Mc M h hM).reduced
-  exact lemma15110_of151b h hM hred
-    (isSolvable_autOn_of_perfectCore_le hred.2.1 ((h1416 G T Mc h).1 M _ hM.1.1 hred)) c6
-
-theorem stageLemma15113Three_of (h157 : StageLemma1517) (h158 : StageLemma1518)
-    (h159 : StageLemma1519) (h1515 : StageLemma1515) (h15110 : StageLemma15110) :
-    StageLemma15113Three := by
-  intro G _ _ T Mc M h hM hCE
-  have hred := (h1515 G T Mc M h hM).reduced
-  exact lemma15113Three_of_cases151b h hM (h157 G T Mc M h hM hCE) (h158 G T Mc M h hM hCE)
-    (h159 G T Mc M h hM hCE) hred (h15110 G T Mc M h hM hCE)
-    (fun hV => rank_bound_five151b hM hV)
-
-theorem stageLemma15113Four_of (h157 : StageLemma1517) (h158 : StageLemma1518)
-    (h159 : StageLemma1519) (h1515 : StageLemma1515) (h15110 : StageLemma15110)
-    (h1512four : StageLemma15112Four) : StageLemma15113Four := by
-  intro G _ _ T Mc M h hM hCE
-  have hred := (h1515 G T Mc M h hM).reduced
-  have hone := lemma_15_1_13_one h hM (fun H hH => h1512four G T Mc M h hM hCE H hH)
-  have h2 := lemma_15_1_13_two h hM (h157 G T Mc M h hM hCE) (h159 G T Mc M h hM hCE) hone
-  exact lemma15113Four_of_cases151b h hM (h157 G T Mc M h hM hCE) (h158 G T Mc M h hM hCE)
-    (h159 G T Mc M h hM hCE) hred (h15110 G T Mc M h hM hCE)
-    (fun hV => rank_bound_five151b hM hV) h2
 
 end CFSG.Quasithin

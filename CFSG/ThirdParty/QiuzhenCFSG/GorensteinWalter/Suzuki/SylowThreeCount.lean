@@ -520,37 +520,6 @@ theorem firstCase_sylow3_inside_card_eq_two
   have hcard := Nat.card_congr e
   rwa [hfix] at hcard
 
-/-- In the first case every Sylow 3-subgroup contains two distinct conjugates
-of `U`.  Public wrapper over plain subgroup statements (the private count
-above cannot be exported because it mentions the locally defined
-`UConjugates` type). -/
-public theorem firstCase_sylow3_two_UConjugates_inside
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (hfirst : FirstCase c) (d : FirstCaseCountData c)
-    (P : Sylow 3 G) :
-    ∃ U1 U2 : Subgroup G,
-      U1 ≠ U2 ∧ U1 ≤ (P : Subgroup G) ∧ U2 ≤ (P : Subgroup G) ∧
-        (∃ g : G, U1 = conjugateSubgroup c.U g) ∧
-        (∃ g : G, U2 = conjugateSubgroup c.U g) := by
-  classical
-  have hIn : Nat.card {V : UConjugates c // V.1 ≤ (P : Subgroup G)} = 2 :=
-    firstCase_sylow3_inside_card_eq_two hmin c hfirst d P
-  let α := {V : UConjugates c // V.1 ≤ (P : Subgroup G)}
-  have hpair : ∃ a b : α, a ≠ b := by
-    have hgt : 1 < Nat.card α := by
-      change 1 < Nat.card {V : UConjugates c // V.1 ≤ (P : Subgroup G)}
-      rw [hIn]
-      norm_num
-    have hnt : Nontrivial α := (Finite.one_lt_card_iff_nontrivial).mp hgt
-    exact exists_pair_ne α
-  rcases hpair with ⟨V1, V2, hVne⟩
-  refine ⟨V1.1.1, V2.1.1, ?_, V1.2, V2.2, V1.1.2, V2.1.2⟩
-  intro h
-  apply hVne
-  apply Subtype.ext
-  apply Subtype.ext
-  exact h
 
 /-- In the first case every Sylow 3-subgroup contains exactly two conjugates
 of `U`.  Public wrapper over plain subgroup statements: the two subgroups

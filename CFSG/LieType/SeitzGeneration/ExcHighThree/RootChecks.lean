@@ -359,9 +359,5 @@ theorem e6_regular_threeA {v u : List ℕ} (hv : v.length = 6) (hu : u.length = 
   regKill_sound (fun a ha => length_of_mem_artifactRoots (τ := .E6) ha) e6_regKill hv hu hv3 hu3 hv0
     hreg
 
-theorem f4_hasRegular : ∃ v u : List ℕ, v.length = 4 ∧ u.length = 4 ∧ (∀ x ∈ v, x < 3) ∧
-    (∀ x ∈ u, x < 3) ∧ (∃ x ∈ v, x ≠ 0) ∧
-    ∀ a ∈ f4ArtifactRoots, ¬ (rootDot a v % 3 = 0 ∧ rootDot a u % 3 = 0) :=
-  ⟨[0, 0, 1, 0], [1, 1, 0, 1], rfl, rfl, by decide, by decide, ⟨1, by simp, by decide⟩, by decide +kernel⟩
 
 end CFSG.LieType.SeitzGeneration.ExcHighThree

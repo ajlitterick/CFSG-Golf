@@ -125,10 +125,6 @@ theorem mem_unitaryCentralizer_iff_blocks {g : LinearMap.GeneralLinearGroup K V}
       (primaryProjection_mem hsq (dualPoly_mem_primaryFactors H hb) w)
 
 
-@[expose] noncomputable def dualFactor (b : primaryFactors (x : Module.End K V)) :
-    primaryFactors (x : Module.End K V) :=
-  ⟨dualPoly σ (b : K[X]), dualPoly_mem_primaryFactors H b.2⟩
-
 omit H in
 @[expose] def supportedUnitary (B : V →ₛₗ[σ] V →ₗ[K] K) (x : LinearMap.GeneralLinearGroup K V)
     (S : Set K[X]) : Subgroup (LinearMap.GeneralLinearGroup K V) where
@@ -184,9 +180,6 @@ theorem adj_commute {r : Module.End K V} (hr : Commute r (x : Module.End K V)) :
       rw [UnitaryPrimaryData.adj, UnitaryPrimaryData.adj, ← hermAdjoint_mul, ← Units.val_mul,
         mul_inv_cancel, Units.val_one, hermAdjoint_one]⟩
 
-theorem coe_adjUnit (g : LinearMap.GeneralLinearGroup K V) :
-    ((adjUnit H g : LinearMap.GeneralLinearGroup K V) : Module.End K V) =
-      H.adj (g : Module.End K V) := rfl
 
 theorem adjUnit_mem_gl_centralizer {g : LinearMap.GeneralLinearGroup K V}
     (hg : g ∈ gl_centralizer x) : adjUnit H g ∈ gl_centralizer x :=

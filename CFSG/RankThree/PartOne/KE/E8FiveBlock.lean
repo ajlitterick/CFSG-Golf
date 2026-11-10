@@ -16,9 +16,6 @@ open scoped Matrix Polynomial
 @[expose] def e8FiveM (δ : ℤ) : Matrix (Fin Tag.E8.rank) (Fin Tag.E8.rank) ℤ :=
   δ • weylMatrix e8F5U
 
-theorem e8FiveM_mulVec (δ : ℤ) (x : Fin Tag.E8.rank → ℤ) :
-    e8FiveM δ *ᵥ x = δ • (e8F5U • x) := by
-  rw [e8FiveM, Matrix.smul_mulVec, weylMatrix_mulVec]
 
 theorem e8FiveM_pow_mulVec (δ : ℤ) (i : ℕ) (x : Fin Tag.E8.rank → ℤ) :
     (e8FiveM δ ^ i) *ᵥ x = (δ ^ i) • ((e8F5U ^ i) • x) := by

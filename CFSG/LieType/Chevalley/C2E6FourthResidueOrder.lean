@@ -269,10 +269,6 @@ theorem rhoMinus_mem_elementaryGroup
     : stdLevi fourthJ ≃* orthElementaryGroup Qminus :=
   (MonoidHom.ofInjective rhoMinus_injective).trans (MulEquiv.subgroupCongr range_rhoMinus)
 
-theorem coe_leviEquiv
-    (l : stdLevi fourthJ) :
-    ((leviEquiv l : orthElementaryGroup Qminus) : V0 ≃ₗ[ZMod 2] V0) = rhoMinus l :=
-  rfl
 
 theorem rhoMinus_mem_tailBorel_of_mem
     {l : stdLevi fourthJ}

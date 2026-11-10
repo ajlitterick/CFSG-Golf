@@ -25,9 +25,6 @@ theorem unitTranslateEquiv_apply (U : Subgroup G) (u : G) (x : U) :
     ((unitTranslateEquiv U u x : ((fun y : G => u * y) '' (U : Set G))) : G) =
       u * (x : G) := rfl
 
-theorem unitTranslateEquiv_symm_apply (U : Subgroup G) (u : G)
-    (y : ((fun x : G => u * x) '' (U : Set G))) :
-    ((unitTranslateEquiv U u).symm y : G) = u⁻¹ * (y : G) := rfl
 
 @[expose] def unitCoordinatePerm (U : Subgroup G) (u : G) :
     Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G)) →* Equiv.Perm U :=
@@ -97,25 +94,6 @@ theorem unitLinearConjugation_apply (U : Subgroup G) (u : G)
     ((unitLinearConjugation U u hu hcentral n x : U) : G) =
       (n : G) * (x : G) * (n : G)⁻¹ := rfl
 
-theorem unitLinearConjugation_ker (U : Subgroup G) (u : G)
-    (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x) :
-    (unitLinearConjugation U u hu hcentral).ker =
-      (Subgroup.centralizer (U : Set G)).subgroupOf
-        (Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))) := by
-  ext n
-  change U.normalizerMonoidHom
-      (Subgroup.inclusion (involution_translate_normalizer_le_unit_normalizer
-        U u hu hcentral) n) = 1 ↔ (n : G) ∈ Subgroup.centralizer (U : Set G)
-  rw [← MonoidHom.mem_ker, Subgroup.normalizerMonoidHom_ker]
-  rfl
-
-theorem unitLinearConjugation_ker_map (U : Subgroup G) (u : G)
-    (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x) :
-    (unitLinearConjugation U u hu hcentral).ker.map
-        (Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))).subtype =
-      Subgroup.centralizer (U : Set G) ⊓
-        Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G)) := by
-  rw [unitLinearConjugation_ker, Subgroup.subgroupOf_map_subtype]
 
 theorem unitCoordinatePerm_displacement_mul_conjugation (U : Subgroup G) (u : G)
     (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x)
@@ -127,24 +105,6 @@ theorem unitCoordinatePerm_displacement_mul_conjugation (U : Subgroup G) (u : G)
     Subgroup.coe_one, mul_one]
   simp only [mul_assoc, inv_mul_cancel_left]
 
-theorem unitCoordinatePerm_one_eq_one_iff (U : Subgroup G) (u : G)
-    (n : Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))) :
-    unitCoordinatePerm U u n 1 = 1 ↔ (n : G) ∈ Subgroup.centralizer ({u} : Set G) := by
-  rw [Subgroup.mem_centralizer_singleton_iff]
-  constructor
-  · intro heq
-    have h := congrArg (fun x : U => (x : G)) heq
-    rw [unitCoordinatePerm_apply, Subgroup.coe_one, mul_one] at h
-    have hmul := congrArg (fun x : G => u * x * (n : G)) h
-    simpa only [mul_assoc, mul_inv_cancel_left, inv_mul_cancel_left,
-      inv_mul_cancel, mul_one, one_mul] using hmul
-  · intro hn
-    apply Subtype.ext
-    rw [unitCoordinatePerm_apply]
-    simp only [Subgroup.coe_one, mul_one]
-    rw [hn]
-    simp only [mul_assoc, mul_inv_cancel, mul_one]
-    exact inv_mul_cancel u
 
 theorem unitCoordinatePerm_displacement_mul (U : Subgroup G) (u : G)
     (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x)
@@ -157,18 +117,5 @@ theorem unitCoordinatePerm_displacement_mul (U : Subgroup G) (u : G)
       congrArg (fun e : Equiv.Perm U => e 1) ((unitCoordinatePerm U u).map_mul n m)
     _ = _ := unitCoordinatePerm_displacement_mul_conjugation U u hu hcentral n _
 
-theorem unitCoordinatePerm_ker_eq_linear_ker_inter_u_centralizer (U : Subgroup G) (u : G)
-    (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x) :
-    (unitCoordinatePerm U u).ker =
-      (unitLinearConjugation U u hu hcentral).ker ⊓
-        (Subgroup.centralizer ({u} : Set G)).subgroupOf
-          (Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))) := by
-  rw [unitCoordinatePerm_ker, unitLinearConjugation_ker]
-  ext n
-  change ((n : G) ∈ Subgroup.centralizer ({u} : Set G) ∧
-      (n : G) ∈ Subgroup.centralizer (U : Set G)) ↔
-    ((n : G) ∈ Subgroup.centralizer (U : Set G) ∧
-      (n : G) ∈ Subgroup.centralizer ({u} : Set G))
-  exact and_comm
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

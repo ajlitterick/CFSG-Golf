@@ -104,12 +104,5 @@ open CFSG.Open CFSG.Quasithin CFSG.Blueprint
       Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ≃* NativeSporadic.Carrier .M23)) →
     Subgroup.center ↥L = ⊥
 
-@[expose] def L239M22NoCover : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), UniqueSetting G T M →
-    ∀ (H S T' : Subgroup G) (z : G), IsGamma0 M H → IsSylowTwoOf S (H ⊓ M) →
-      IsSylowTwoOf T' M → S ≤ T' → z ∈ T' ⊓ Subgroup.centralizer (T' : Set G) → z ≠ 1 →
-      z ^ 2 = 1 → ∀ L : Subgroup G, IsComponentIn L H →
-        Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ≃* NativeSporadic.Carrier .M22) →
-          Subgroup.center ↥L = ⊥
 
 end CFSG.QuasithinUnique.Vol2Native.L239

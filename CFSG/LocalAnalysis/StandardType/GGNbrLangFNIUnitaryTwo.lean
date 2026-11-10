@@ -372,22 +372,6 @@ theorem unitaryTwo_fieldAction_oneMarking_no_hf {f : ℕ} {K : Type} [Field K]
     (unitaryTwo_two_le_f_of_fixedField h z hz) f' hB hpoint z hz
 
 
-
-theorem unitaryTwo_fieldAction_allMarkings {f : ℕ} {K : Type} [Field K] [Finite K]
-    [CharP K 2] (h : UnitaryFieldData 2 f K)
-    (f' : MulAut ↥(LargeEvenSUGroup (Fin 2) K (2 ^ f)))
-    {B : GL (Fin 2) K} (hB : B ∈ LargeEvenGUSet (Fin 2) K (2 ^ f))
-    {τ : K ≃+* K}
-    (hpoint : ∀ c : ↥(LargeEvenSUGroup (Fin 2) K (2 ^ f)),
-      (f' c : GL (Fin 2) K) =
-        B * CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher.glAut τ
-          (c : GL (Fin 2) K) * B⁻¹)
-    (z : h.fixedField) (hz : τ (z : K) ≠ (z : K)) :
-    GGMarkingAll (K := ↥(LargeEvenSUGroup (Fin 2) K (2 ^ f)))
-      fun _ _ _ I _ θ => kgInducedAut θ f' ∉ I :=
-  kgFieldRestriction_of_oneMarking f'
-    (unitaryTwo_fieldAction_oneMarking_no_hf h f' hB hpoint z hz)
-
 theorem unitaryTwo_fieldAction_allMarkings_congr {f : ℕ} {K : Type} [Field K]
     [Finite K] [CharP K 2] (h : UnitaryFieldData 2 f K)
     {X : Type} [Group X] (e : X ≃* ↥(LargeEvenSUGroup (Fin 2) K (2 ^ f)))

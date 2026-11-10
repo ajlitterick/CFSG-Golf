@@ -39,8 +39,6 @@ variable {X : Type*} [Group X]
     · simp [inv_eq_of_mul_eq_one_right hb]
     · simp [h6]
 
-theorem mem_fourSub {a b : X} {ha : a * a = 1} {hb : b * b = 1} {hab : a * b = b * a} {x : X} :
-    x ∈ fourSub a b ha hb hab ↔ x = 1 ∨ x = a ∨ x = b ∨ x = a * b := Iff.rfl
 
 theorem card_fourSub [Finite X] {a b : X} {ha : a * a = 1} {hb : b * b = 1}
     {hab : a * b = b * a} (ha1 : a ≠ 1) (hb1 : b ≠ 1) (hne : a ≠ b) :

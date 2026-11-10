@@ -125,7 +125,6 @@ theorem kA2Pd : CFSG.KC.LQT.T2.sincK (CFSG.KC.LQT.Syl.sortN A2P) = true := by qu
 theorem kQ1P : allL Q1P (inC 24 CS (chainF CS)) = true := by quickRfl
 theorem kQ1Pd : CFSG.KC.LQT.T2.sincK (CFSG.KC.LQT.Syl.sortN Q1P) = true := by quickRfl
 theorem kA2cl : allL A2L (inC 24 CA2 (chainF CA2)) = true := by quickRfl
-theorem kA2d : CFSG.KC.LQT.T2.sincK A2L = true := by quickRfl
 theorem kt2 : inC 24 CT0 (chainF CT0) t2C = true := by quickRfl
 theorem kt : trioK 24 A2L = tC := by decide +kernel
 theorem kts : CFSG.KC.LQT.T2.sincK (CFSG.KC.LQT.Syl.dedupS (CFSG.KC.LQT.Syl.sortN

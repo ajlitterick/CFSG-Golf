@@ -51,17 +51,6 @@ theorem isComponentOf_map_conj {K M : Subgroup G} (hK : IsComponentOf K M) {m : 
     exact A3.isQuasisimple_iff_open.mp (CFSG.LocalCores.isQuasisimple_of_mulEquiv
       (K.equivMapOfInjective (MulAut.conj m).toMonoidHom (MulAut.conj m).injective) hq)
 
-theorem map_conj_eq_of_pRank_le_one [Finite G] {M Y K : Subgroup G} (hK : IsComponentOf K M)
-    (hn : HasNoncentral3 K) (hKY : K ≤ Y)
-    (hYK : ∀ m ∈ M, K.map (MulAut.conj m).toMonoidHom ≤ Y)
-    (hr : CFSG.Assembly.pRank 3 Y ≤ 1) :
-    ∀ m ∈ M, K.map (MulAut.conj m).toMonoidHom = K := by
-  intro m hm
-  by_contra hne
-  rcases isComponentOf_eq_or_commute hK (isComponentOf_map_conj hK hm) with h | hcomm
-  · exact hne h.symm
-  · have := two_le_pRank_of_commuting hKY (hYK m hm) hcomm hn (hn.map_conj m)
-    omega
 
 end F918V5G
 

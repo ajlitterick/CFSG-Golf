@@ -141,9 +141,6 @@ variable (b) in
     (LinearMap.ext fun w => Subtype.ext (coe_commutingUnitary_mul_inv g w))
     (LinearMap.ext fun w => Subtype.ext (coe_commutingUnitary_inv_mul g w))
 
-theorem coe_restrictConjFixed (g : commutingUnitary Hf τ₀) (w : conjFixed h (b • τ₀)) :
-    (restrictConjFixed b g w : V) = ((g : LinearMap.GeneralLinearGroup E V) : V →ₗ[E] V) w :=
-  rfl
 
 variable (b) in
 @[expose] noncomputable def restrictConjFixedHom :

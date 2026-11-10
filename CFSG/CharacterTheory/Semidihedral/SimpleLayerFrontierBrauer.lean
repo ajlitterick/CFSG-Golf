@@ -15,8 +15,6 @@ variable {F : Type} [Field F]
 @[expose] def unitSquares (F : Type) [Field F] : Subgroup Fˣ :=
   (powMonoidHom 2 : Fˣ →* Fˣ).range
 
-theorem mem_unitSquares_iff (c : Fˣ) : c ∈ unitSquares F ↔ ∃ d : Fˣ, d ^ 2 = c := by
-  rfl
 
 theorem not_isSquare_neg_one_field [Finite F] (hq : Nat.card F % 4 = 3) : ¬ IsSquare (-1 : F) := by
   have := Fintype.ofFinite F

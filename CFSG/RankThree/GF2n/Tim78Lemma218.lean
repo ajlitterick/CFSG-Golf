@@ -570,21 +570,5 @@ theorem tim78_2_18_cartan {M V Q P : Subgroup G} {g : G} (hM : IsMaximalTwoLocal
     hP, rfl⟩
   exact (h.conclusions hq rfl).2.2.2.2.2.2.2.2
 
-theorem cartan_element_of_isMaximalAbelian {M B : Subgroup G} (hM : IsMaximalTwoLocal M)
-    (hF : generalizedFitting M = pCore 2 M)
-    (hBmax : Maximal (fun U : Subgroup G => U ≤ M ∧ M ≤ Subgroup.normalizer (U : Set G) ∧
-      IsMulCommutative U) B)
-    (hB2 : ∀ x ∈ B, x ^ 2 = 1) (hTI : IsTI B) (hq : 4 ≤ Nat.card B) {g : G}
-    (hgQ : conjSubgroup g B ≤ inSubgroup (pCore 2) M) (hgB : conjSubgroup g B ≠ B) :
-    Subgroup.normalizer (B : Set G) = M ∧
-      ∃ k ∈ M, orderOf k = Nat.card B - 1 ∧ ∀ b ∈ B, k * b * k⁻¹ = b → b = 1 := by
-  have h : Hyp218 M B (inSubgroup (pCore 2) M)
-      (inSubgroup (pCore 2) M ⊓ Subgroup.centralizer (B : Set G)) (B ⊔ conjSubgroup g B) g :=
-    ⟨hM, hF, hBmax, hB2, hTI, hgB, hgQ, rfl, rfl, rfl⟩
-  obtain ⟨k, hk, hko, hkreg⟩ := (h.conclusions hq rfl).2.2.2.2.2.2.2.2
-  refine ⟨h.normalizer_eq, k, hk.1, hko, fun b hb hkb => hkreg 1 one_pos (by omega) b hb ?_⟩
-  rw [pow_one]
-  calc k * b = k * b * k⁻¹ * k := by group
-    _ = b * k := by rw [hkb]
 
 end CFSG.RankThree.GF2n.Tim78

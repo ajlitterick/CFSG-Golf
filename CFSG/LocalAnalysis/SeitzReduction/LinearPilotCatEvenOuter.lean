@@ -19,8 +19,6 @@ open CFSG.SeitzReduction.F4Pilot (FixedCentralizerTwoFree)
       LieModel (D ⧸ center D) .PSL m 2 f → FixedCentralizerTwoFree σ D →
         LieModel S .PSL m 2 (2 * f)
 
-@[expose] def CatSLmEvenOuterFamily (τ : StatedLieTag) : Prop :=
-  ∀ m : ℕ, 3 ≤ m → CatSLmEvenOuterFamilyAt τ m
 
 theorem catSLmEvenOuterAt_of_families {m : ℕ} (h : ∀ τ, CatSLmEvenOuterFamilyAt τ m) :
     CatSLmEvenOuterAt m := by
@@ -28,8 +26,6 @@ theorem catSLmEvenOuterAt_of_families {m : ℕ} (h : ∀ τ, CatSLmEvenOuterFami
   obtain ⟨τ, n, e, hadm, hmS⟩ := heven
   exact h τ S hS hna n e hadm hmS σ hσ hout f D hD hDm hodd
 
-theorem catSLmEvenOuter_of_families (h : ∀ τ, CatSLmEvenOuterFamily τ) : CatSLmEvenOuter :=
-  fun m hm => catSLmEvenOuterAt_of_families fun τ => h τ m hm
 
 theorem catSLmEvenOuterFamily_of_not_admissible {τ : StatedLieTag}
     (hτ : ∀ n e : ℕ, ¬ StatedLieAdmissible τ n 2 e) (m : ℕ) : CatSLmEvenOuterFamilyAt τ m :=
@@ -110,15 +106,6 @@ theorem catSLmEvenOuterAt_of_open_families {m : ℕ} (hPSL : CatSLmEvenOuterFami
   · exact catSLmEvenOuterFamily_twistedF4 m
   · exact catSLmEvenOuterFamily_Tits m
 
-theorem catSLmEvenOuter_of_open_families (hPSL : CatSLmEvenOuterFamily .PSL)
-    (hPSU : CatSLmEvenOuterFamily .PSU) (hPSp : CatSLmEvenOuterFamily .PSp)
-    (hOp : CatSLmEvenOuterFamily .POmegaPlus) (hOm : CatSLmEvenOuterFamily .POmegaMinus)
-    (hG2 : CatSLmEvenOuterFamily .G2) (hF4 : CatSLmEvenOuterFamily .F4)
-    (hE6 : CatSLmEvenOuterFamily .E6) (hE7 : CatSLmEvenOuterFamily .E7)
-    (hE8 : CatSLmEvenOuterFamily .E8) (h2E6 : CatSLmEvenOuterFamily .twistedE6)
-    (h3D4 : CatSLmEvenOuterFamily .trialityD4) : CatSLmEvenOuter := fun m hm =>
-  catSLmEvenOuterAt_of_open_families (hPSL m hm) (hPSU m hm) (hPSp m hm) (hOp m hm) (hOm m hm)
-    (hG2 m hm) (hF4 m hm) (hE6 m hm) (hE7 m hm) (hE8 m hm) (h2E6 m hm) (h3D4 m hm)
 
 end SuzukiReeTits
 

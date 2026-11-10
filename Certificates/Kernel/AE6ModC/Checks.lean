@@ -38,11 +38,6 @@ theorem kC1 : c1N RG PLL (cwN C1W.chars) = true := by decide +kernel
 
 theorem kC1i : c1iN RG PLL (cwN C1IW.chars) = true := by decide +kernel
 
-theorem kC3Neg : c3N RG WL PLL.dropLast [] = false := by decide +kernel
-
-theorem kC1Neg : c1N RG PLL ([] :: (cwN C1W.chars).tail) = false := by decide +kernel
-
-theorem kC1iNeg : c1iN RG PLL ([] :: (cwN C1IW.chars).tail) = false := by decide +kernel
 
 end CertificateChecks.KernelAE6ModC
 

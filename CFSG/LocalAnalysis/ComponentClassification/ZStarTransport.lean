@@ -74,12 +74,5 @@ theorem equiv {G H : Type*} [Group G] [Group H] [Finite G] [Finite H]
     exact Subgroup.mem_map.mpr ⟨equivalence.symm member, Subgroup.mem_top _, equivalence.apply_symm_apply member⟩
   exact hmap.trans htop
 
-theorem subgroup_of_quotients {G : Type*} [Group G] [Finite G]
-    (hquotient : ∀ subgroup : Subgroup G, ∀ normal : Subgroup subgroup, ∀ hnormal : normal.Normal,
-      letI := hnormal
-      TwoActionZStarEscape.ZStar (subgroup ⧸ normal)) :
-    ∀ subgroup : Subgroup G, TwoActionZStarEscape.ZStar subgroup := by
-  intro subgroup
-  exact equiv (QuotientGroup.quotientBot (G := subgroup)) (hquotient subgroup ⊥ inferInstance)
 
 end CFSG.ComponentClassification.ZStarTransport

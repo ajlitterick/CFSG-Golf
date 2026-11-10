@@ -207,9 +207,6 @@ theorem xSU_neg_mul (H : SUInv σ) (a : K) :
     xSU H a * xSU H (-a) = zSU H (gamSU H a (-a)) := by
   rw [xSU_mul, add_neg_cancel, xSU_zero, one_mul]
 
-theorem zSU_mul_assoc_comm (H : SUInv σ) (a : K) (β β' : traceZero σ) :
-    xSU H a * zSU H β * zSU H β' = xSU H a * zSU H (β + β') := by
-  rw [mul_assoc, zSU_mul]
 
 @[expose] def Usu (H : SUInv σ) : Subgroup (SU σ 3) where
   carrier := {g | ∃ (a : K) (β : traceZero σ), g = xSU H a * zSU H β}
@@ -250,11 +247,6 @@ theorem zSU_mul_assoc_comm (H : SUInv σ) (a : K) (β β' : traceZero σ) :
     rintro _ ⟨β, rfl⟩
     exact ⟨-β, zSU_inv H β⟩
 
-theorem mem_Usu (H : SUInv σ) {g : SU σ 3} :
-    g ∈ Usu H ↔ ∃ (a : K) (β : traceZero σ), g = xSU H a * zSU H β := Iff.rfl
-
-theorem mem_Zsu (H : SUInv σ) {g : SU σ 3} : g ∈ Zsu H ↔ ∃ β : traceZero σ, g = zSU H β :=
-  Iff.rfl
 
 theorem zSU_mem_Zsu (H : SUInv σ) (β : traceZero σ) : zSU H β ∈ Zsu H := ⟨β, rfl⟩
 

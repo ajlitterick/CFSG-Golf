@@ -173,11 +173,6 @@ theorem triD4LineMk_pow (k K : Type) [Field k] [Field K] [Algebra k K]
     triD4LineMk k K g c h ^ j = triD4LineMk k K (g ^ j) (c ^ j) h' := by
   rfl
 
-theorem triD4LineMk_one (k K : Type) [Field k] [Field K] [Algebra k K]
-    (h : Matrix.GeneralLinearGroup.det (1 : GL (Fin 3) k) =
-      Units.map (Algebra.norm k (S := K)) 1) :
-    triD4LineMk k K 1 1 h = 1 := by
-  rfl
 
 theorem triD4LineMk_eq_mk_iff (k K : Type) [Field k] [Field K] [Algebra k K]
     (g g' : GL (Fin 3) k) (c c' : Kˣ)

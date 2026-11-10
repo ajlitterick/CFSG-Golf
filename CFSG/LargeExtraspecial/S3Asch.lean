@@ -144,19 +144,6 @@ theorem aschbacher_8_6 {x : G} (hxM : x ∈ S.M) (hdim : finrank (ZMod 2) (S.com
       rw [this]
       exact mul_mem hmem hz'
 
-theorem aschbacher_8_6_cyclic {x : G} (hxM : x ∈ S.M)
-    (hdim : finrank (ZMod 2) (S.commQt x) = 1) :
-    IsCyclic (⁅zpowers x, S.QG⁆ : Subgroup G) ∧
-      Nat.card (⁅zpowers x, S.QG⁆ : Subgroup G) = 4 := by
-  obtain ⟨-, c, hcQ, hc2, heq⟩ := S.aschbacher_8_6 hxM hdim
-  rw [heq]
-  refine ⟨isCyclic_zpowers c, ?_⟩
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rw [Nat.card_zpowers]
-  refine orderOf_eq_prime_pow (n := 1) (p := 2) ?_ ?_
-  · rw [pow_one, hc2]
-    exact S.z_ne_one
-  · exact S.pow_four_eq_one hcQ
 
 theorem relIndex_mul_card_clSub {X : Subgroup G} (hX : X ≤ S.QG) (hz : S.z ∈ X) :
     X.relIndex S.QG * 2 ^ finrank (ZMod 2) (S.clSub X) = 2 ^ finrank (ZMod 2) S.Qt := by
@@ -214,25 +201,6 @@ theorem aschbacher_4_5 {x : G} (hxM : x ∈ S.M) (hx2 : x ^ 2 = 1) (hxQ : x ∉ 
       rw [← S.commQt_of_mem hxM] at hv
       exact S.q_eq_zero_of_mem_commQt hxM hx2 hfix v hv
 
-theorem aschbacher_4_5_of_finrank_eq_two {x : G} (hxM : x ∈ S.M) (hx2 : x ^ 2 = 1)
-    (hdim : finrank (ZMod 2) (S.commQt x) = 2) {Y : Subgroup G} (hYQ : Y ≤ S.QG)
-    (hY : Y.relIndex S.QG ≤ 4) (hxY : ∀ y ∈ Y, x * y = y * x) :
-    S.IsTypeAOn ⟨x, hxM⟩ 2 := by
-  have hxQ : x ∉ S.QG := fun h => by
-    have h1 : S.ρ ⟨x, hxM⟩ = 1 := (S.ρ_eq_one_iff ⟨x, hxM⟩).mpr h
-    have h0 : commSpace (1 : S.Qt ≃ₗ[ZMod 2] S.Qt) = ⊥ := by
-      rw [eq_bot_iff]
-      intro v hv
-      obtain ⟨w, rfl⟩ := mem_commSpace.mp hv
-      simp
-    rw [S.commQt_of_mem hxM, h1, OneMemClass.coe_one, h0, finrank_bot] at hdim
-    exact absurd hdim (by norm_num)
-  rcases S.aschbacher_4_5 hxM hx2 hxQ hYQ hY hxY with h | h
-  · exact h
-  · exfalso
-    have := h.2.2.1
-    rw [← S.commQt_of_mem hxM, hdim] at this
-    exact absurd this (by norm_num)
 
 end Setting
 

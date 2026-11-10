@@ -53,7 +53,6 @@ end Transport
 
 theorem encN_mulK (a b : Mns) : encN (a * b) = mulK (encN a) (encN b) := encN_mul a b
 
-theorem encN_inj : Function.Injective encN := fun _ _ h => encN_injective h
 
 theorem bfsList_map_encN (gens : List Mns) (n : ℕ) :
     (bfsList gens n).map encN = bfsListK (gens.map encN) n := by

@@ -13,42 +13,6 @@ section LeAutSec
 
 variable {V : Type} [CommGroup V] {X : Subgroup (MulAut V)} {C : Subgroup V}
 
-theorem realizes_of_le_autSec (hX : X ≤ stabSub C) (hfX : X ⊓ centSec ⊤ C = ⊥)
-    {H' : Subgroup (MulAut (Sec ⊤ C))} (hH' : H' ≤ autSec X ⊤ C) {D : FFModel}
-    (h : D.Realizes H' ⊤ ⊥) :
-    ∃ H : Subgroup (MulAut V), H ≤ X ∧ autSec H ⊤ C = H' ∧ D.Realizes H ⊤ C := by
-  have hXs : X ≤ stabSub ⊤ ⊓ stabSub C := fun g hg => ⟨mem_stabSub_top g, hX hg⟩
-  set H : Subgroup (MulAut V) :=
-    ((H'.subgroupOf (autSec X ⊤ C)).comap (secRestrict hXs)).map X.subtype with hHdef
-  have hHX : H ≤ X := Subgroup.map_subtype_le _
-  have hHs : H ≤ stabSub ⊤ ⊓ stabSub C := hHX.trans hXs
-  have hmemH : ∀ g : ↥(stabSub ⊤ ⊓ stabSub C), (g : MulAut V) ∈ H ↔
-      (g : MulAut V) ∈ X ∧ secHom ⊤ C g ∈ H' := by
-    intro g
-    constructor
-    · rintro ⟨x, hx, hxg⟩
-      have hx' : secHom ⊤ C (Subgroup.inclusion hXs x) ∈ H' := hx
-      have he : Subgroup.inclusion hXs x = g := Subtype.ext hxg
-      rw [he] at hx'
-      exact ⟨hxg ▸ x.2, hx'⟩
-    · rintro ⟨hgX, hgH⟩
-      refine ⟨⟨g, hgX⟩, ?_, rfl⟩
-      show secHom ⊤ C (Subgroup.inclusion hXs ⟨g, hgX⟩) ∈ H'
-      have he : Subgroup.inclusion hXs ⟨(g : MulAut V), hgX⟩ = g := Subtype.ext rfl
-      rw [he]
-      exact hgH
-  have hAut : autSec H ⊤ C = H' := by
-    ext ψ
-    rw [mem_autSec_iff_secHom hHs]
-    constructor
-    · rintro ⟨g, hgH, rfl⟩
-      exact ((hmemH g).1 hgH).2
-    · intro hψ
-      obtain ⟨g, hgX, rfl⟩ := (mem_autSec_iff_secHom hXs).1 (hH' hψ)
-      exact ⟨g, (hmemH g).2 ⟨hgX, hψ⟩, rfl⟩
-  have hfH : H ⊓ centSec ⊤ C = ⊥ := le_bot_iff.1 (hfX ▸ inf_le_inf_right _ hHX)
-  have h' : D.Realizes (autSec H ⊤ C) ⊤ ⊥ := by rw [hAut]; exact h
-  exact ⟨H, hHX, hAut, realizes_of_autSec (hHX.trans hX) hfH h'⟩
 
 end LeAutSec
 

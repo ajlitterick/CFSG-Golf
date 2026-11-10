@@ -346,27 +346,6 @@ theorem sum_normalizer :
   push_cast [Nat.cast_sub hq1]
   ring
 
-include B hq hK hG hP1P hPc hPn hN1c in
-theorem xi3_cases {n : G} (hn : n ∈ Subgroup.normalizer (P : Set G)) :
-    n = 1 ∨ orderOf n = 2 ∨ B.ξ₃ n = 0 ∨ B.ξ₃ n = 1 := by
-  obtain ⟨himg, -⟩ := B.image_mul_eq hq hK hG hP1P hPc hPn hN1c
-  have hn' : n ∈ Finset.univ.filter (· ∈ Subgroup.normalizer (P : Set G)) := by simp [hn]
-  rw [← himg] at hn'
-  obtain ⟨⟨u, w⟩, huw, rfl⟩ := Finset.mem_image.mp hn'
-  simp only [Finset.mem_product, Finset.mem_filter, Finset.mem_univ, true_and] at huw
-  obtain ⟨hu, hw⟩ := huw
-  by_cases hw1 : w = 1
-  · subst hw1
-    rw [mul_one]
-    by_cases hu1 : u = 1
-    · exact Or.inl hu1
-    · exact Or.inr (Or.inr (Or.inl (B.xi3_P hq hG hPc hu hu1)))
-  by_cases hwJ : w = S.J
-  · subst hwJ
-    by_cases h : S.J * u * S.J = u⁻¹
-    · exact Or.inr (Or.inl (orderOf_mul_J hq hPc hu h))
-    · exact Or.inr (Or.inr (Or.inl (B.xi3_mul_J hq hK hG hPc hPn hu h)))
-  · exact Or.inr (Or.inr (Or.inr (B.xi3_mul_W hq hK hG hP1P hPc hPn hN1c hu hw hw1 hwJ)))
 
 end Block
 

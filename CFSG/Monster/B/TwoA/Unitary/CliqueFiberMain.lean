@@ -162,43 +162,5 @@ theorem ncard_lines {W : Submodule F4 V} (hW : IsMaxIso W) :
   rw [Set.ncard_eq_toFinset_card 𝒜 hfin]
   omega
 
-theorem unitary_six_plane_complement_unipotent_fibers :
-    (∀ (p : IsoPt) (v : V), v ∈ perpSub p ↔ ∀ w ∈ p.1.submodule, herm v w = 0) ∧
-    (∀ (p : IsoPt) (x : ProjSU), x ∈ fixL p ↔ projAct x p = p) ∧
-    ∀ W : Submodule F4 V, IsMaxIso W →
-      (∀ p : IsoPt, p ∉ planePts W →
-        ∃! A : Submodule F4 V, A ≤ W ∧ Module.finrank F4 A = 2 ∧ p ∈ fiberY W A) ∧
-      {A : Submodule F4 V | A ≤ W ∧ Module.finrank F4 A = 2}.ncard = 21 ∧
-      ∀ A : Submodule F4 V, A ≤ W → Module.finrank F4 A = 2 →
-        (fiberY W A).ncard = 32 ∧
-        (∀ x ∈ kerL W, ∀ p ∈ fiberY W A, projAct x p ∈ fiberY W A) ∧
-        (∀ p ∈ fiberY W A, ∀ q ∈ fiberY W A, ∃ x ∈ kerL W, projAct x p = q) ∧
-        (planePts A).ncard = 5 ∧
-        (∀ p ∈ fiberY W A, kerL W ⊓ fixL p = Subgroup.closure (tPt '' planePts A)) ∧
-        CFSG.IsElementaryAbelian 2 (Subgroup.closure (tPt '' planePts A)) ∧
-        Nat.card (Subgroup.closure (tPt '' planePts A)) = 16 ∧
-        (∀ p ∈ fiberY W A, ∀ q ∈ planePts W, isoGraph.Adj p q ↔ q ∈ planePts A) := by
-  refine ⟨fun _ _ => mem_perpSub_iff, fun _ _ => mem_fixL, fun W hW => ⟨?_, ncard_lines hW,
-    fun A hAW hA => ?_⟩⟩
-  · intro p hp
-    refine ⟨perpSub p ⊓ W, ⟨inf_le_right, finrank_perpSub_inf hW hp, hp, rfl⟩, ?_⟩
-    rintro A ⟨-, -, -, hA⟩
-    exact hA.symm
-  · have hne : (fiberY W A).Nonempty := Set.nonempty_of_ncard_ne_zero (by
-      rw [ncard_fiberY hW hAW hA]
-      decide)
-    obtain ⟨p₀, hp₀⟩ := hne
-    have hcl : Subgroup.closure (tPt '' planePts A) ≤ kerL W := by
-      rw [Subgroup.closure_le]
-      rintro _ ⟨q, hq, rfl⟩
-      exact tPt_mem_kerL hW.2 (planePts_mono hAW hq)
-    refine ⟨ncard_fiberY hW hAW hA, fun x hx p hp => projAct_mem_fiberY hW.2 hx hp,
-      fun p hp q hq => exists_kerL_of_mem_fiberY hW hAW hA hp hq, ncard_planePts_line hW hAW hA,
-      fun p hp => kerL_inf_fixL hW hAW hA hp, ?_, ?_,
-      fun p hp q hq => adj_iff_of_mem_fiberY hp hq⟩
-    · exact isElementaryAbelian_two_of _ (fun x hx y hy => hW.kerL_comm x (hcl hx) y (hcl hy))
-        (fun x hx => hW.kerL_sq x (hcl hx))
-    · rw [← kerL_inf_fixL hW hAW hA hp₀]
-      exact natCard_kerL_inf_fixL hW hAW hA hp₀
 
 end CFSG.Monster.B.TwoA.Unitary.Clique

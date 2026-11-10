@@ -93,13 +93,5 @@ theorem exists_shortElt_eq_iff {e : Fin n → ℤ} {i : Fin n} {s : Bool}
     rw [shortElt_eq F he]
     exact ⟨_, rfl⟩
 
-theorem conj_shortElt (g : spinGroup Q) {e e' : Fin n → ℤ} {i i' : Fin n} {s s' : Bool}
-    (he : e = Pi.single i (boolSign s)) (he' : e' = Pi.single i' (boolSign s')) {μ l : K}
-    (hz : spinAction Q g F.z = μ • F.z)
-    (hi : spinAction Q g (F.vec i s) = l • F.vec i' s') (c : K) :
-    g * shortElt F e c * g⁻¹ =
-      shortElt F e' ((boolSign s : K) * boolSign s' * μ * l * c) := by
-  rw [shortElt_eq F he, F.conj_shortRoot g i s i' s' hz hi, shortRoot_eq_shortElt F he']
-  ring_nf
 
 end CFSG.LieType.Steinberg.SpinOdd

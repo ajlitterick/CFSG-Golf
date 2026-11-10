@@ -18,6 +18,5 @@ open CFSG.ClassicalInvolution.Models.OrthogonalPairs QuadraticMap
 
 local notation "𝒞" => CoreAssembly.conjClass
 
-set_option linter.unusedSectionVars false
 
 end CFSG.ClassicalInvolution.RouteD.TWS6

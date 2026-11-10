@@ -15,19 +15,6 @@ open CFSG.Open Subgroup
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def R869MRest3 (D : Data G) : Prop :=
-  ∀ L : Subgroup G,
-    (L ∈ calC D.M ∨ (L ≤ D.M ∧ D.M ≤ normalizer (L : Set G) ∧ IsProdOfCalC D.M L)) →
-    ¬ Thin8 L → (∀ p ∈ D.sig, CFSG.Open.pRank p L ≤ 1) →
-    (∀ q : ℕ, q.Prime → q ≠ 2 → ∀ Q : Subgroup G, Q ≤ L → IsPGroup q Q →
-      2 ≤ CFSG.Open.pRank q Q → ¬ rankThreeGamma 1 q Q ≤ D.M) →
-    (D.M ≤ normalizer (L : Set G) →
-      ¬ (center (Bar2 L) = ⊥ ∧
-        IsCyclic (CFSG.ComponentClassification.OuterAutomorphisms.Outer (Bar2 L))) ∧
-      ∀ p ∈ D.sig, p ∣ Nat.card L ∧
-        ∀ A : Subgroup G, A ≤ D.M → IsElemAbelian p A → Nat.card A = p ^ 2 →
-          ¬ ∀ a ∈ A, ∀ l ∈ L, a * l * a⁻¹ * l⁻¹ ∈ pCoreOf 2 L) →
-    UniqueMax D.M L
 
 @[expose] def R869MConsRest3 (D : Data G) : Prop :=
   ∀ L : Subgroup G, L ∈ calC D.M → D.M ≤ normalizer (L : Set G) → ¬ Thin8 L →

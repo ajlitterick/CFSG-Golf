@@ -171,16 +171,6 @@ theorem isGallery_liftCls {α η : List (I × C)} (hα : X.IsGallery c₀ α)
     refine ⟨(universalCover_adj_cls_iff hα).mpr ⟨p.2, h1, rfl⟩, ih hαp ?_⟩
     rwa [galleryEnd_concat]
 
-theorem galleryMap_coverProj_liftCls {α η : List (I × C)} (hα : X.IsGallery c₀ α)
-    (hη : X.IsGallery (galleryEnd c₀ α) η) :
-    galleryMap (X.coverProj c₀) (X.liftCls c₀ α η) = η := by
-  induction η generalizing α with
-  | nil => rfl
-  | cons p η ih =>
-    obtain ⟨h1, h2⟩ := hη
-    have hαp : X.IsGallery c₀ (α ++ [p]) := (isGallery_concat _ _ _).mpr ⟨hα, h1⟩
-    rw [liftCls_cons, galleryMap_cons, coverProj_cls hαp, galleryEnd_concat,
-      ih hαp (by rwa [galleryEnd_concat])]
 
 theorem liftCls_congr {α α' : List (I × C)} (h : X.TwoHomotopic c₀ α α') (η : List (I × C)) :
     X.liftCls c₀ α η = X.liftCls c₀ α' η := by
@@ -309,161 +299,12 @@ theorem bijOn_coverProj_panel (i : I) (a : X.Cover c₀) :
       (X.residue {i} (X.coverProj c₀ a)) :=
   (isResidueIso_coverProj (encard_singleton_le_two i) a).1
 
-theorem simplyTwoConnected_universalCover : (X.universalCover c₀).SimplyTwoConnected := by
-  intro a Γ hΓ hclosed
-  obtain ⟨γ, hγ, rfl⟩ := exists_eq_cls a
-  set η := galleryMap (X.coverProj c₀) Γ with hη_def
-  have hΓeq : Γ = X.liftCls c₀ γ η := eq_liftCls hγ hΓ
-  have hη : X.IsGallery (galleryEnd c₀ γ) η := by
-    have := isMorphism_coverProj.isGallery hΓ
-    rwa [coverProj_cls hγ] at this
-  have hγη : X.IsGallery c₀ (γ ++ η) := hγ.append hη
-  have hloop : X.TwoHomotopic c₀ (γ ++ η) γ := by
-    refine (cls_eq_iff hγη hγ).mp ?_
-    rw [← galleryEnd_liftCls, ← hΓeq, hclosed]
-  set L := X.liftCls c₀ [] γ with hL
-  have hLg : (X.universalCover c₀).IsGallery (X.cls c₀ []) L :=
-    isGallery_liftCls (α := []) trivial hγ
-  have hLend : galleryEnd (X.cls c₀ []) L = X.cls c₀ γ := by
-    rw [hL, galleryEnd_liftCls, List.nil_append]
-  have h1 : (X.universalCover c₀).TwoHomotopic (X.cls c₀ []) (L ++ Γ) L := by
-    have := TwoHomotopic.liftCls (α := []) trivial hloop hγη
-    rwa [liftCls_append, List.nil_append, ← hΓeq] at this
-  have h2 := twoHomotopic_reverse_append hLg
-  rw [hLend] at h2
-  have h3 : (X.universalCover c₀).TwoHomotopic (X.cls c₀ γ)
-      (galleryReverse (X.cls c₀ []) L ++ (L ++ Γ)) (galleryReverse (X.cls c₀ []) L ++ L) := by
-    refine TwoHomotopic.append_left _ ?_
-    rw [← hLend, galleryEnd_galleryReverse]
-    exact h1
-  have h4 : (X.universalCover c₀).TwoHomotopic (X.cls c₀ γ) Γ
-      (galleryReverse (X.cls c₀ []) L ++ (L ++ Γ)) := by
-    have := (h2.append_right Γ).symm
-    rwa [List.nil_append, List.append_assoc] at this
-  exact (h4.trans h3).trans h2
 
 section Universal
 
-variable {E : Type w} {Y : ChamberSystem I E}
-
-variable (X c₀) in
-@[expose] noncomputable def coverLift (Y : ChamberSystem I E) (q : E → C) (d₀ : E) :
-    X.Cover c₀ → E :=
-  fun a => galleryEnd d₀ (liftGallery Y q d₀ (Quotient.out a).1)
-
-variable {q : E → C} {d₀ : E} (hq : ∀ J : Set I, J.encard ≤ 2 → ∀ e, IsResidueIso Y X q J e)
-  (hd₀ : q d₀ = c₀)
-include hq hd₀
-
-omit hd₀ in
-theorem bijOn_panel_of_isResidueIso (i : I) (e : E) :
-    Set.BijOn q (Y.residue {i} e) (X.residue {i} (q e)) :=
-  (hq {i} (encard_singleton_le_two i) e).1
-
-theorem coverLift_cls {γ : List (I × C)} (hγ : X.IsGallery c₀ γ) :
-    X.coverLift c₀ Y q d₀ (X.cls c₀ γ) = galleryEnd d₀ (liftGallery Y q d₀ γ) := by
-  have hout : X.TwoHomotopic c₀ (Quotient.out (X.cls c₀ γ)).1 γ := by
-    rw [cls_of_isGallery hγ]
-    exact Quotient.mk_out (s := X.coverSetoid c₀) ⟨γ, hγ⟩
-  have hgal : X.IsGallery c₀ (Quotient.out (X.cls c₀ γ)).1 := (Quotient.out (X.cls c₀ γ)).2
-  subst hd₀
-  exact galleryEnd_liftGallery_eq (bijOn_panel_of_isResidueIso hq)
-    (fun J hJ e => (hq J hJ e).injOn) hout hgal
-
-theorem coverLift_coverBase : X.coverLift c₀ Y q d₀ (X.coverBase c₀) = d₀ :=
-  coverLift_cls hq hd₀ (γ := []) trivial
-
-theorem coverLift_spec (a : X.Cover c₀) : q (X.coverLift c₀ Y q d₀ a) = X.coverProj c₀ a := by
-  obtain ⟨γ, hγ, rfl⟩ := exists_eq_cls a
-  rw [coverLift_cls hq hd₀ hγ, coverProj_cls hγ]
-  have hγ' : X.IsGallery (q d₀) γ := hd₀ ▸ hγ
-  rw [galleryEnd_liftGallery (bijOn_panel_of_isResidueIso hq) hγ', hd₀]
-
-theorem isMorphism_coverLift : IsMorphism (X.universalCover c₀) Y (X.coverLift c₀ Y q d₀) := by
-  intro i a b h
-  obtain ⟨γ, hγ, rfl⟩ := exists_eq_cls a
-  obtain ⟨y, hy, rfl⟩ := (universalCover_adj_cls_iff hγ).mp h
-  have hγy : X.IsGallery c₀ (γ ++ [(i, y)]) := (isGallery_concat _ _ _).mpr ⟨hγ, hy⟩
-  rw [coverLift_cls hq hd₀ hγ, coverLift_cls hq hd₀ hγy, liftGallery_append, galleryEnd_append]
-  simp only [liftGallery_cons, liftGallery_nil, galleryEnd_cons, galleryEnd_nil]
-  refine (liftStep_spec (bijOn_panel_of_isResidueIso hq) ?_).1
-  have hγ' : X.IsGallery (q d₀) γ := hd₀ ▸ hγ
-  rw [galleryEnd_liftGallery (bijOn_panel_of_isResidueIso hq) hγ', hd₀]
-  exact hy
-
-theorem eq_coverLift {g : X.Cover c₀ → E} (hg : IsMorphism (X.universalCover c₀) Y g)
-    (hg₀ : g (X.coverBase c₀) = d₀) (hgq : ∀ a, q (g a) = X.coverProj c₀ a) :
-    g = X.coverLift c₀ Y q d₀ :=
-  eq_of_comp_eq universalCover_connected (fun i e => (bijOn_panel_of_isResidueIso hq i e).injOn)
-    hg (isMorphism_coverLift hq hd₀) (fun a => by rw [hgq, coverLift_spec hq hd₀])
-    (hg₀.trans (coverLift_coverBase hq hd₀).symm)
-
-theorem coverLift_surjective (hY : Y.Connected) (hqm : IsMorphism Y X q) :
-    Function.Surjective (X.coverLift c₀ Y q d₀) := by
-  intro e
-  obtain ⟨Δ, hΔ, rfl⟩ := hY d₀ e
-  have hγ : X.IsGallery c₀ (galleryMap q Δ) := hd₀ ▸ hqm.isGallery hΔ
-  refine ⟨X.cls c₀ (galleryMap q Δ), ?_⟩
-  rw [coverLift_cls hq hd₀ hγ, liftGallery_galleryMap (bijOn_panel_of_isResidueIso hq) hΔ]
-
-theorem isResidueIso_coverLift (hqm : IsMorphism Y X q) {J : Set I} (hJ : J.encard ≤ 2)
-    (a : X.Cover c₀) : IsResidueIso (X.universalCover c₀) Y (X.coverLift c₀ Y q d₀) J a := by
-  set f := X.coverLift c₀ Y q d₀ with hf
-  have hfm : IsMorphism (X.universalCover c₀) Y f := isMorphism_coverLift hq hd₀
-  have hπ := isResidueIso_coverProj (X := X) (c₀ := c₀) hJ a
-  have hqJ := hq J hJ (f a)
-  have hfa : q (f a) = X.coverProj c₀ a := coverLift_spec hq hd₀ a
-  refine ⟨⟨hfm.mapsTo_residue J a, fun b hb b' hb' hbb' => hπ.injOn hb hb' ?_, ?_⟩, ?_⟩
-  · rw [← coverLift_spec hq hd₀ b, ← coverLift_spec hq hd₀ b', ← hf, hbb']
-  · intro e he
-    have hqe : q e ∈ X.residue J (X.coverProj c₀ a) := hfa ▸ hqm.mapsTo_residue J (f a) he
-    obtain ⟨b, hb, hbe⟩ := hπ.1.surjOn hqe
-    refine ⟨b, hb, hqJ.injOn (hfm.mapsTo_residue J a hb) he ?_⟩
-    rw [hf, coverLift_spec hq hd₀ b, hbe]
-  · intro b hb b' hb' j hj
-    refine ⟨fun h => ?_, hfm j b b'⟩
-    have h' := hqm j _ _ h
-    rw [coverLift_spec hq hd₀ b, coverLift_spec hq hd₀ b'] at h'
-    exact (hπ.2 b hb b' hb' j hj).mp h'
 
 end Universal
 
-theorem chamber_universal_two_cover (hX : X.Connected) :
-    (X.universalCover c₀).Connected ∧
-    IsMorphism (X.universalCover c₀) X (X.coverProj c₀) ∧
-    Function.Surjective (X.coverProj c₀) ∧
-    X.coverProj c₀ (X.coverBase c₀) = c₀ ∧
-    (∀ J : Set I, J.encard ≤ 2 → ∀ a,
-      IsResidueIso (X.universalCover c₀) X (X.coverProj c₀) J a) ∧
-    (∀ {E : Type w} (Y : ChamberSystem I E) (d₀ : E) (q : E → C), Y.Connected →
-      IsMorphism Y X q → q d₀ = c₀ → (∀ J : Set I, J.encard ≤ 2 → ∀ e, IsResidueIso Y X q J e) →
-      ∃ f : X.Cover c₀ → E,
-        (IsMorphism (X.universalCover c₀) Y f ∧ f (X.coverBase c₀) = d₀ ∧
-          q ∘ f = X.coverProj c₀) ∧
-        Function.Surjective f ∧
-        (∀ J : Set I, J.encard ≤ 2 → ∀ a, IsResidueIso (X.universalCover c₀) Y f J a) ∧
-        ∀ g : X.Cover c₀ → E, IsMorphism (X.universalCover c₀) Y g →
-          g (X.coverBase c₀) = d₀ → q ∘ g = X.coverProj c₀ → g = f) ∧
-    (X.universalCover c₀).SimplyTwoConnected ∧
-    (∀ a : X.Cover c₀, ∃ γ, X.IsGallery c₀ γ ∧ a = X.cls c₀ γ) ∧
-    (∀ γ γ', X.IsGallery c₀ γ → X.IsGallery c₀ γ' →
-      (X.cls c₀ γ = X.cls c₀ γ' ↔ X.TwoHomotopic c₀ γ γ')) ∧
-    (∀ γ, X.IsGallery c₀ γ → X.coverProj c₀ (X.cls c₀ γ) = galleryEnd c₀ γ) ∧
-    (∀ (i : I) (a b : X.Cover c₀), (X.universalCover c₀).adj i a b ↔
-      ∃ γ y, X.IsGallery c₀ γ ∧ X.adj i (galleryEnd c₀ γ) y ∧
-        ((a = X.cls c₀ γ ∧ b = X.cls c₀ (γ ++ [(i, y)])) ∨
-          (b = X.cls c₀ γ ∧ a = X.cls c₀ (γ ++ [(i, y)])))) ∧
-    X.coverBase c₀ = X.cls c₀ [] := by
-  refine ⟨universalCover_connected, isMorphism_coverProj, coverProj_surjective hX,
-    coverProj_coverBase, fun J hJ a => isResidueIso_coverProj hJ a, ?_,
-    simplyTwoConnected_universalCover, exists_eq_cls, fun γ γ' hγ hγ' => cls_eq_iff hγ hγ',
-    fun γ hγ => coverProj_cls hγ, fun i a b => Iff.rfl, rfl⟩
-  intro E Y d₀ q hY hqm hd₀ hq
-  refine ⟨X.coverLift c₀ Y q d₀, ⟨isMorphism_coverLift hq hd₀, coverLift_coverBase hq hd₀,
-    funext (coverLift_spec hq hd₀)⟩, coverLift_surjective hq hd₀ hY hqm,
-    fun J hJ a => isResidueIso_coverLift hq hd₀ hqm hJ a, ?_⟩
-  intro g hg hg₀ hgq
-  exact eq_coverLift hq hd₀ hg hg₀ fun a => congrFun hgq a
 
 end ChamberSystem
 

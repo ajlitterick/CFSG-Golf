@@ -92,14 +92,6 @@ instance quaternionSubgroup_normal (h : ℕ) : (quaternionSubgroup h).Normal := 
     (QuotientGroup.quotientKerEquivOfSurjective (quaternionQuotientProjection h)
       (quaternionQuotientProjection_surjective h))
 
-theorem card_quaternion_quotient (h : ℕ) :
-    Nat.card (Wreath (2 * h) ⧸ quaternionSubgroup h) = 2 * h := by
-  rw [Nat.card_congr (quaternionQuotientEquivCyclic h).toEquiv,
-    Nat.card_congr Multiplicative.toAdd, Nat.card_zmod]
-
-theorem quaternion_quotient_isCyclic (h : ℕ) :
-    IsCyclic (Wreath (2 * h) ⧸ quaternionSubgroup h) :=
-  (quaternionQuotientEquivCyclic h).isCyclic.mpr inferInstance
 
 theorem normalClosure_d_eq_quaternionSubgroup (h : ℕ) :
     Subgroup.normalClosure {element (2 * h) h 0 1} = quaternionSubgroup h := by

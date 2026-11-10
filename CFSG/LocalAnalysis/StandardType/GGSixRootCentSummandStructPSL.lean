@@ -498,14 +498,6 @@ theorem ggRootCentDerivedTag_PSL : GGRootCentDerivedTag .PSL := by
     rw [hr']
     exact RCSPSL.derivedAt_fourTwo hF2 hp hp2 ψ' hker'
 
-theorem ggRootCentSummandStructInput_of_nineTags (hPSU : GGRootCentDerivedTag .PSU)
-    (hPSp : GGRootCentLayerTag .PSp) (hPlus : GGRootCentLayerTag .POmegaPlus)
-    (hMinus : GGRootCentLayerTag .POmegaMinus) (hF4 : GGRootCentDerivedTag .F4)
-    (hE6 : GGRootCentDerivedTag .E6) (hE7 : GGRootCentDerivedTag .E7)
-    (hE8 : GGRootCentDerivedTag .E8) (hTwE6 : GGRootCentDerivedTag .twistedE6) :
-    GGRootCentSummandStructInput :=
-  ggRootCentSummandStructInput_of_layerTags ggRootCentDerivedTag_PSL hPSU hPSp hPlus hMinus hF4
-    hE6 hE7 hE8 hTwE6
 
 end Tag
 

@@ -272,8 +272,6 @@ theorem diagAbelianPlaneNonsplit_holds : DiagAbelianPlaneNonsplit := by
 theorem diagAbelianPlaneBalance_holds : DiagAbelianPlaneBalance :=
   diagAbelianPlaneBalance_of_nonsplit diagAbelianPlaneNonsplit_holds
 
-theorem diagLinearBalance_holds : DiagLinearBalance :=
-  diagLinearBalance_of_plane diagAbelianPlaneBalance_holds
 
 theorem crossCharFamCat_A : CrossCharFamCat .A :=
   crossCharFamCat_A_of_nonsplit diagAbelianPlaneNonsplit_holds

@@ -91,19 +91,6 @@ theorem vanishes_of_mem_nativeCarrier
   rw [← e']
   exact hP g hg
 
-theorem mem_adjointGroup_of_mem_nativeCarrier
-    (hgen : GeckRootGenerated t ht) {L : Type}
-    [Field L] [IsAlgClosed L] {h : ModGL τ L} (hh : h ∈ M.nativeCarrier L)
-    (hΔ : bigCellDet (natMat τ L (h : Module.End L (RootModule τ L))) ≠ 0) :
-    h ∈ adjointGroup τ L :=
-  mem_adjointGroup_of_isUnit_bigCellDet h (M.vanishes_of_mem_nativeCarrier hgen L hh) hΔ
-
-theorem nativeCarrier_le_normalizer
-    (hgen : GeckRootGenerated t ht) (L : Type) [Field L]
-    [IsAlgClosed L] :
-    M.nativeCarrier L ≤ Subgroup.normalizer (adjointGroup τ L : Set (ModGL τ L)) :=
-  le_normalizer_adjointGroup _ (M.adjointGroup_le_nativeCarrier L)
-    fun _ hh => M.vanishes_of_mem_nativeCarrier hgen L hh
 
 end GeckMatch
 

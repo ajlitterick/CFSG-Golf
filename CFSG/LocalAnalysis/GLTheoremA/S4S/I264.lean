@@ -161,6 +161,5 @@ theorem fullCoverLevel_congr {p : ℕ} (e : Q ≃* Q') : fullCoverLevel p Q = fu
 
 end CoverTransport
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.GLTheoremA

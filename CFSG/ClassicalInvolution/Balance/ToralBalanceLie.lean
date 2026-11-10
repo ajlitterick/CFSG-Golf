@@ -173,14 +173,6 @@ theorem involutionFixedB_of_lieModel {G : Type} [Group G] [Finite G] [IsSimpleGr
     subst htb
     rcases ht with ht | ht <;> simp [classicalTags, chevalleyExceptionalTags] at ht
 
-theorem involutionCentralizerB_of_statedClassicalModel {X : Type} [Group X] [Finite X]
-    {L : Subgroup X} [IsSimpleGroup (↥L ⧸ Subgroup.center ↥L)]
-    (hnonab : ∃ a b : ↥L ⧸ Subgroup.center ↥L, a * b ≠ b * a) {t : StatedLieTag} {n p f : ℕ}
-    (hp : p ≠ 2) (hn : t = .PSL → 3 ≤ n)
-    (hmodel : StatedClassicalModel (↥L ⧸ Subgroup.center ↥L) t n p f) :
-    InvolutionCentralizerB L :=
-  involutionCentralizerB_of_involutionFixedB
-    (involutionFixedB_of_statedClassicalModel hnonab hp hn hmodel)
 
 theorem exists_not_comm_of_isQuasisimple {L : Type*} [Group L] (hL : CFSG.Open.IsQuasisimple L) :
     ∃ a b : L ⧸ Subgroup.center L, a * b ≠ b * a := by

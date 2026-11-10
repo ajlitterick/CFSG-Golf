@@ -81,17 +81,6 @@ theorem symplecticTransvection_mem_bilinIsometryGroup (hB : B.IsAlt) (a : V) (c 
   rw [← hB.neg_eq a y]
   ring
 
-theorem alternating_transvection_identities (hB : B.IsAlt) (a : V) :
-    (∀ (c : K) (x : V),
-      (symplecticTransvection B hB a c : V →ₗ[K] V) x = x + (c * B x a) • a) ∧
-    (∀ c : K, symplecticTransvection B hB a c ∈ bilinIsometryGroup B) ∧
-    (∀ c d : K, symplecticTransvection B hB a c * symplecticTransvection B hB a d =
-      symplecticTransvection B hB a (c + d)) ∧
-    (∀ c : K, (symplecticTransvection B hB a c)⁻¹ = symplecticTransvection B hB a (-c)) ∧
-    symplecticTransvection B hB a 0 = 1 :=
-  ⟨symplecticTransvection_apply hB a, symplecticTransvection_mem_bilinIsometryGroup hB a,
-    symplecticTransvection_mul hB a, symplecticTransvection_inv hB a,
-    symplecticTransvection_zero hB a⟩
 
 theorem symplecticTransvection_apply_of_apply_eq_zero (hB : B.IsAlt) {a x : V} (c : K)
     (hx : B x a = 0) : (symplecticTransvection B hB a c : V →ₗ[K] V) x = x := by

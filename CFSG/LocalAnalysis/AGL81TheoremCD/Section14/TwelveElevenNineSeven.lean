@@ -92,17 +92,5 @@ theorem twelveElevenGen_of_nineSevenOneGen (h1210 : TwelveTenGen) (h971 : NineSe
     (by simpa [sigmaSet, CFSG.LocalAnalysis.RankThreeUC.S15.sigmaM] using hqσ)
     E hEM hE hEc hΓ H hH hEH
 
-theorem o1211_of_nineSevenOne (h1210 : TwelveTenGen) (h971 : NineSevenOne) :
-    CFSG.LocalAnalysis.RankThreeUC.S15.O1211 := by
-  intro G _ _ hS hUC M hM hwit _ q hq hq5 hqσ E hEM hE hEc hΓ H hH hEH
-  have hCS : CStarSetting G M := ⟨hS, hUC, hM, hwit⟩
-  exact o1211At_of_nineSevenOneAt h1210 hCS.toGen (h971.nineSevenOneAt hCS) q hq hq5 hqσ
-    E hEM hE hEc hΓ H hH hEH
-
-theorem o1211_of_kFacts
-    (h1210 : TwelveTenGen) (hB5 : KFactThreeSevenTwoGe5)
-    (h5c : KFactCenterRankFive) (h2c : KFactCenterRankTwo) :
-    CFSG.LocalAnalysis.RankThreeUC.S15.O1211 :=
-  o1211_of_nineSevenOne h1210 (nineSevenOne_of_kFacts hB5 kFactFi22ThreeRank_holds h5c h2c)
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section14

@@ -566,13 +566,6 @@ theorem Z_four_le_Gi_zero (hc : CharTwoStab (V := V) (G := G))
     exact (X.isSylowTwoOf_edgeSylow 0).1.trans inf_le_left
   exact (le_sup_left : X.Z 4 ≤ X.Z 4 ⊔ X.Q 0).trans ((le_of_eq h).trans hS)
 
-theorem Z_four_le_L_zero (hc : CharTwoStab (V := V) (G := G))
-    (hmax : 2 ≤ X.n 0 ∨ 2 ≤ X.n 1) (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) (hGT : Even (Nat.card X.GT))
-    {m : ℕ} (hreg : X.IsMaxReg 0 (2 * (m : ℤ))) : X.Z 4 ≤ X.L 0 :=
-  le_oTwoPrime_of_isPGroup
-    ((pCoreOf_isPGroup' (X.Gi 4)).to_le (X.Z_le_Q 4))
-    (X.Z_four_le_Gi_zero hc hmax hs hodd h5 hX hGT hreg)
 
 theorem Z_neg_four_sup_Q_zero (hc : CharTwoStab (V := V) (G := G))
     (hmax : 2 ≤ X.n 0 ∨ 2 ≤ X.n 1)
@@ -1058,13 +1051,6 @@ theorem Z_one_le_Q_zero {m : ℕ} (hc : CharTwoStab (V := V) (G := G))
   exact X.Z_le_Q_of_le_Gi 1 (-2) 0 ((X.Z_one_b_facts hc hmax hs hodd h5 hX hGT
     hreg).1.trans inf_le_left) (Or.inr ⟨by omega, by omega⟩)
 
-private theorem Z_one_le_Q_two {m : ℕ} (hc : CharTwoStab (V := V) (G := G))
-    (hmax : 2 ≤ X.n 0 ∨ 2 ≤ X.n 1) (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) (hGT : Even (Nat.card X.GT))
-    (hreg : X.IsMaxReg 0 (2 * (m : ℤ))) :
-    X.Z 1 ≤ X.Q 2 := by
-  exact X.Z_le_Q_of_le_Gi 1 4 2 ((X.Z_one_b_facts hc hmax hs hodd h5 hX hGT
-    hreg).1.trans inf_le_right) (Or.inr ⟨by omega, by omega⟩)
 
 theorem L_one_inf_centralizer_Z_one (hc : CharTwoStab (V := V) (G := G))
     (hmax : 2 ≤ X.n 0 ∨ 2 ≤ X.n 1)
@@ -1154,39 +1140,6 @@ private theorem Z_one_inf_centralizer_eq {T : Set G} {W Y : Subgroup G}
   rw [hcardW]
   exact hcardC
 
-theorem centralizer_S_eq (hc : CharTwoStab (V := V) (G := G))
-    (hmax : 2 ≤ X.n 0 ∨ 2 ≤ X.n 1)
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) (hGT : Even (Nat.card X.GT))
-    {m : ℕ} (hreg : X.IsMaxReg 0 (2 * (m : ℤ))) :
-    X.Z 1 ⊓ Subgroup.centralizer (X.S : Set G) = X.Z 0 := by
-  have hsup := X.Z_zero_sup_Z_two_le hc hmax hs hodd h5 hX hGT hreg
-  have hZ0_le_Z1 : X.Z 0 ≤ X.Z 1 := le_sup_left.trans hsup
-  have hZ2_le_Z1 : X.Z 2 ≤ X.Z 1 := le_sup_right.trans hsup
-  have hZ0_le_C : X.Z 0 ≤ X.Z 1 ⊓ Subgroup.centralizer (X.S : Set G) := by
-    refine le_inf hZ0_le_Z1 ?_
-    exact (X.Z_zero_le_centerOf_S hc hmax hs hodd h5 hX hGT).trans inf_le_right
-  have hS0 : IsSylowTwoOf X.S (X.Gi 0) := X.isSylowTwoOf_S_Gi_zero
-  have hdisj : X.Z 1 ⊓ Subgroup.centralizer (X.S : Set G) ⊓ X.Z 2 = ⊥ := by
-    rw [Subgroup.eq_bot_iff_forall]
-    intro x hx
-    obtain ⟨hxC, hxZ2⟩ := Subgroup.mem_inf.mp hx
-    obtain ⟨hxZ1, hxcentS⟩ := Subgroup.mem_inf.mp hxC
-    have hxS : x ∈ X.S := X.Z_one_le_S hxZ1
-    have hxZS : x ∈ centerOf X.S := Subgroup.mem_inf.mpr ⟨hxS, hxcentS⟩
-    have hxZ0 : x ∈ X.Z 0 := by
-      have hle : centerOf X.S ⊓ X.Q 0 ≤ X.Z 0 :=
-        X.le_Z_of_le_centerOf_sylow 0 hS0 inf_le_left inf_le_right
-      exact hle (Subgroup.mem_inf.mpr
-        ⟨hxZS, X.Z_one_le_Q_zero hc hmax hs hodd h5 hX hGT hreg hxZ1⟩)
-    have hx0 : x ∈ X.Z 0 ⊓ X.Z 2 := Subgroup.mem_inf.mpr ⟨hxZ0, hxZ2⟩
-    rw [X.Z_zero_inf_Z_two hc hmax hs hodd h5 hX hGT hreg] at hx0
-    simpa using hx0
-  exact X.Z_one_inf_centralizer_eq (T := X.S) (W := X.Z 0) (Y := X.Z 2)
-    hZ0_le_C hZ2_le_Z1 hdisj
-    (X.card_Z_two hc hmax hs hodd h5 hX hGT hreg)
-    (X.card_Z_zero hc hmax hs hodd h5 hX hGT hreg)
-    (X.card_Z_one_sq hc hmax hs hodd h5 hX hGT hreg)
 
 private theorem Q_one_comm_Z_one : ∀ q ∈ X.Q 1, ∀ z ∈ X.Z 1, q * z = z * q := by
   intro q hq z hz
@@ -1686,13 +1639,6 @@ theorem n_one_le_n_zero (hc : CharTwoStab (V := V) (G := G))
   have := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp hle
   omega
 
-theorem false_of_n_one_two (hc : CharTwoStab (V := V) (G := G))
-    (hn0 : X.n 0 = 1) (hn1 : X.n 1 = 2) (hmax : X.n 0 = 2 ∨ X.n 1 = 2)
-    (hs : IsSingularity Γ G s) (hodd : Odd s)
-    (h5 : 5 ≤ s) (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s)
-    (hGT : Even (Nat.card X.GT)) : False := by
-  have := X.n_one_le_n_zero hc (hmax.imp Eq.ge Eq.ge) hs hodd h5 hX hGT
-  omega
 
 end Setup
 

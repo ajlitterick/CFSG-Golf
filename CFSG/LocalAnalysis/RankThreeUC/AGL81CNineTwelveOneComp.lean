@@ -105,26 +105,6 @@ theorem IsPComponentIn.isSubnormal_of_kSub {L : Subgroup G} (hL : ¬ pLayerIn p 
   CFSG.Walter.isSubnormal_subgroupOf_trans hLK.1 hLK.2.choose_spec.2.1
     (isSubnormal_kSub_of_not_le hL)
 
-private theorem relPPrimeCore_eq_map' (hp : p.Prime) (C : Subgroup G) :
-    CFSG.Open.relPPrimeCore p C = (CFSG.pPrimeCore p ↥C).map C.subtype := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  apply le_antisymm
-  · refine sSup_le fun N hN => ?_
-    obtain ⟨hNC, hNn, hNc⟩ := hN
-    have h1 : N.subgroupOf C ≤ CFSG.pPrimeCore p ↥C := by
-      refine le_sSup ⟨hNn, ?_⟩
-      rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hNC).toEquiv]
-      exact hNc
-    calc N = (N.subgroupOf C).map C.subtype := (Subgroup.map_subgroupOf_eq_of_le hNC).symm
-      _ ≤ _ := Subgroup.map_mono h1
-  · refine le_sSup ⟨?_, ?_, ?_⟩
-    · rintro _ ⟨y, -, rfl⟩
-      exact y.2
-    · show (Subgroup.comap C.subtype ((CFSG.pPrimeCore p ↥C).map C.subtype)).Normal
-      rw [Subgroup.comap_map_eq_self_of_injective C.subtype_injective]
-      exact CFSG.pPrimeCore_normal
-    · rw [Subgroup.card_map_of_injective C.subtype_injective]
-      exact CFSG.pPrimeCore_coprime_card
 
 theorem isTwoPrimeComponentIn_of_le_center (hp : p.Prime) (hp2 : p ≠ 2)
     (hL : ¬ pLayerIn p H ≤ M) {L : Subgroup G} (hLK : IsPComponentIn p L (kSub p M H))

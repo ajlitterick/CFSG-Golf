@@ -220,25 +220,5 @@ theorem le_localRank_PSp_two [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p] (
     · exact absurd (diagonal_apply_ne _ h) hkl
   · rw [Nat.card_fun, Nat.card_fin, hK, ← pow_mul, mul_comm]
 
-theorem excluded433_B2_odd_of_two_le (q : TauCeti.PrimePower)
-    (hv : (TauCeti.LieTypeIndex.B 2 q).Valid) (hq : q.p ≠ 2) (hf : 2 ≤ q.exponent) :
-    Excluded433 (.lie ⟨.B 2 q, hv⟩) := by
-  intro G _ _ hG e
-  have hc : TauCeti.ValidLieTypeIndex.characteristic ⟨.B 2 q, hv⟩ = q.p :=
-    TauCeti.LieTypeIndex.characteristic_B 2 q
-  have := CFSG.QuasithinUnique.SQTK.finite_validIndex_fixedField ⟨.B 2 q, hv⟩
-  refine hG.false_of_four_le_localRank
-    (p := TauCeti.ValidLieTypeIndex.characteristic ⟨.B 2 q, hv⟩)
-    (e.trans (CFSG.QuasithinUnique.SQTK.typeB2GroupEquivStatedProj q hv)) Fact.out
-    (by rw [hc]; exact hq) ?_
-  have he : TauCeti.ValidLieTypeIndex.fieldExponent ⟨.B 2 q, hv⟩ = q.exponent :=
-    TauCeti.LieTypeIndex.fieldExponent_B 2 q
-  have := le_localRank_PSp_two (p := TauCeti.ValidLieTypeIndex.characteristic ⟨.B 2 q, hv⟩)
-    (f := TauCeti.ValidLieTypeIndex.fieldExponent ⟨.B 2 q, hv⟩)
-    (K := ↥(TauCeti.ValidLieTypeIndex.fixedField ⟨.B 2 q, hv⟩)) (by rw [hc]; exact hq) (by
-      rw [TauCeti.ValidLieTypeIndex.card_fixedField,
-        TauCeti.ValidLieTypeIndex.fieldOrder_eq_characteristic_pow])
-  rw [he] at this
-  omega
 
 end CFSG.RankThree.PartTwo.Census

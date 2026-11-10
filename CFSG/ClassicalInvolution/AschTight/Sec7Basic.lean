@@ -18,9 +18,6 @@ theorem conjSub_eq_of_le_self [Finite G] {A : Subgroup G} {g : G} (h : conjSub g
     conjSub g A = A :=
   Subgroup.eq_of_le_of_card_ge h (by rw [natCard_conjSub])
 
-theorem conjSub_eq_of_le_self' [Finite G] {A : Subgroup G} {g : G} (h : A ≤ conjSub g A) :
-    conjSub g A = A :=
-  (Subgroup.eq_of_le_of_card_ge h (by rw [natCard_conjSub])).symm
 
 theorem conjSub_inv_eq {A : Subgroup G} {k : G} (h : conjSub k A = A) : conjSub k⁻¹ A = A := by
   conv_lhs => rw [← h]

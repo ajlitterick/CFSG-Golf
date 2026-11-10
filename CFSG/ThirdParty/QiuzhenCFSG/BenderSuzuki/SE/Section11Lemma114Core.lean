@@ -24,17 +24,6 @@ open scoped Pointwise
 
 universe u
 
-/-- The Lemma 10.1 subgroup `A` has order prime to the selected prime `p`. -/
-public theorem lemma114_A1_coprime_card
-    {X : Type u} [Group X] [Finite X]
-    {M W D E : Subgroup X} {t : X}
-    (d : Lemma101Conclusion M W D E (peterfalviV D t) t) :
-    Nat.Coprime d.choice.p (Nat.card d.choice.initial.A1) := by
-  letI : Fact d.choice.p.Prime := ⟨d.choice.p_prime⟩
-  rw [d.A1_eq_pPrimeCore]
-  rw [Subgroup.card_map_of_injective
-    (peterfalviV D t).subtype_injective]
-  exact pPrimeCore_coprime_card
 
 /-- Proposition 10.2(a,c) makes the commutator `[A,P]` nontrivial. -/
 public theorem lemma114_commutator_A1_P_ne_bot
@@ -47,39 +36,6 @@ public theorem lemma114_commutator_A1_P_ne_bot
   exact ne_bot_of_le_ne_bot h102.exponent.R_ne_bot
     h102.exponent.R_le_derived_inf_V
 
-/-- The subgroup selected in Lemma 10.1 satisfies Peterfalvi's rank-one
-hypothesis `(B1)`.  The rank bound is inherited from the stronger Section 10
-statement that the full normalizer `N_X(P)` has 2-rank one. -/
-public theorem lemma114_hypothesisB1
-    {X : Type u} [Group X] [Finite X]
-    {M W : Subgroup X} {t : X}
-    (d : Lemma101Conclusion M W
-      (M ⊓ rightConjugate M t)
-      (W ⊓ (M ⊓ rightConjugate M t))
-      (peterfalviV (M ⊓ rightConjugate M t) t) t)
-    (hM : IsStronglyEmbedded M)
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (d83 : Lemma83Data M t) :
-    PFchapter2.HypothesisB1 X
-      (peterfalviV (M ⊓ rightConjugate M t) t)
-      d.choice.P d.choice.p := by
-  refine
-    { p_prime := d.choice.p_prime
-      P_le_V := d.choice.P_le_V
-      P_card := d.P_card
-      centralizer_has_involution := ?_
-      centralizer_has_two_rank_one := ?_ }
-  · refine ⟨t, ?_, ht⟩
-    rw [Subgroup.mem_centralizer_iff]
-    intro p hpP
-    exact Subgroup.mem_centralizer_singleton_iff.mp
-      (d.choice.P_le_V hpP).2
-  · intro hcentralizerRank
-    apply d.not_twoRankAtLeastTwo_normalizer hM ht htM d83
-    exact hcentralizerRank.map_of_injective
-      (Subgroup.inclusion (centralizer_le_normalizer d.choice.P))
-      (Subgroup.inclusion_injective
-        (centralizer_le_normalizer d.choice.P))
 
 /-! The source next proves `C_V(A) ≤ A`.  The core argument only uses that
 `V = AP`, with `A ◁ V`, `A ∩ P = 1`, and `P` a Sylow subgroup of prime

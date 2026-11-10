@@ -68,14 +68,5 @@ theorem compatible_image (rho : G →* Equiv.Perm X)
     apply Subtype.ext
     exact congrArg Subtype.val (normalizerEquiv_compatible rho hrho hs kappa eta hcov t) |>.trans ht
 
-theorem compatible_image_ambient (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (kappa : Gamma →* MulAut G) (eta : Gamma →* Equiv.Perm X)
-    (hcov : ∀ t g, eta t * rho g * (eta t)⁻¹ = rho (kappa t g)) :
-    (kappa.range.subgroupOf (familyAut rho)).map
-        ((imageNormalizer rho).subtype.comp (normalizerEquiv rho hrho hs).toMonoidHom) =
-      eta.range := by
-  rw [← Subgroup.map_map, compatible_image rho hrho hs kappa eta hcov]
-  exact Subgroup.map_subgroupOf_eq_of_le (compatible_perm_range rho kappa eta hcov)
 
 end CFSG.ComponentClassification.CatalogueBStabilizerFamily

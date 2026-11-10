@@ -69,25 +69,6 @@ theorem cross_factor_centralizes {G Index : Type*} [Group G] (D : Subgroup G)
   intro a ha
   exact (hcomm i j hij a ha _ ((mem_preimage_iff D (Abar j) lift).mp hy)).symm
 
-theorem centralizes_iff_central_in_factor {G : Type*} [Group G] (D : Subgroup G)
-    (Abar : Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (a : D) (ha : a.val ∈ aschbacherThm5Preimage D Abar) :
-    aschbacherThm5Centralizes (aschbacherThm5Core D) (aschbacherThm5Preimage D Abar) a.val ↔
-      (⟨QuotientGroup.mk' (aschbacherThm5OddCore D) a,
-        (mem_preimage_iff D Abar a).mp ha⟩ : Abar) ∈ Subgroup.center Abar := by
-  rw [centralizes_iff_quotient_commutes, Subgroup.mem_center_iff]
-  constructor
-  · intro hcomm b
-    exact Subtype.ext ((hcomm b.val b.property).symm)
-  · intro hcomm b hb
-    exact (congrArg Subtype.val (hcomm (⟨b, hb⟩ : Abar))).symm
-
-theorem centralizes_transport {G H : Type*} [Group G] [Group H] (e : G ≃* H)
-    (O A : Subgroup G) (y : G) (hcentral : aschbacherThm5Centralizes O A y) :
-    aschbacherThm5Centralizes (O.map e.toMonoidHom) (A.map e.toMonoidHom) (e y) := by
-  rintro a ⟨lift, hlift, rfl⟩
-  have hmap := Subgroup.mem_map_of_mem e.toMonoidHom (hcentral lift hlift)
-  simpa only [map_mul, map_inv, MulEquiv.toMonoidHom_eq_coe, MonoidHom.coe_ofClass] using hmap
 
 theorem centralizer_le_normalizer_of_control {G : Type*} [Group G]
     (D : Subgroup G) (r : ℕ) (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D))
@@ -107,18 +88,5 @@ theorem centralizer_le_normalizer_of_control {G : Type*} [Group G]
     group
   rwa [hfixed]
 
-theorem fusion_exclusion_of_control {G : Type*} [Group G]
-    (D : Subgroup G) (r : ℕ) (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (hi : ∀ (i j : Fin r) (t g : G), (∃ k : ℕ, t ^ (2 ^ k) = 1) → t ∉ Subgroup.center G →
-      aschbacherThm5Centralizes (aschbacherThm5Core D) (aschbacherThm5Preimage D (Abar i)) t →
-      aschbacherThm5Centralizes (aschbacherThm5Core D) (aschbacherThm5Preimage D (Abar j))
-        (g⁻¹ * t * g) → g ∈ Subgroup.normalizer (D : Set G))
-    (i j : Fin r) (t g : G) (htwo : ∃ k : ℕ, t ^ (2 ^ k) = 1)
-    (hnoncentral : t ∉ Subgroup.center G)
-    (hcentral : aschbacherThm5Centralizes (aschbacherThm5Core D)
-      (aschbacherThm5Preimage D (Abar i)) t) (hg : g ∉ Subgroup.normalizer (D : Set G)) :
-    ¬ aschbacherThm5Centralizes (aschbacherThm5Core D)
-      (aschbacherThm5Preimage D (Abar j)) (g⁻¹ * t * g) :=
-  fun hconjugate => hg (hi i j t g htwo hnoncentral hcentral hconjugate)
 
 end CFSG.ComponentClassification.AschbacherTheorem5

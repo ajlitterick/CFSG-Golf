@@ -68,9 +68,6 @@ theorem lc_succ' (f : ℕ → ℕ) (x : ℕ) : ∀ n, lc f x (n + 1) =
   | n + 1 => by
     rw [lc, lc_succ' f x n, lc, Nat.testBit_div_two, Nat.xor_assoc]
 
-theorem lc_zero_x (f : ℕ → ℕ) : ∀ n, lc f 0 n = 0
-  | 0 => rfl
-  | n + 1 => by simp [lc, lc_zero_x f n]
 
 theorem pAct_zero_x (w m : ℕ) : ∀ n p, pAct w m n p 0 = 0
   | 0, _ => rfl

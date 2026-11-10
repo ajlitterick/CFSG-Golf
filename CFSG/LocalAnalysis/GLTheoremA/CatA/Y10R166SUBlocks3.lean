@@ -265,15 +265,6 @@ theorem inf_centralizer_unitaryLineRadical_le_zpowers (h : UnitaryFieldData 2 f 
   simp only [hd0n]
   exact (diagFiveLast_pow h hζ n _).symm
 
-theorem inf_unitaryBlock_centralizer_le_zpowers (h : UnitaryFieldData 2 f K)
-    {B : Subgroup (unitarySU 2 f K 6)} {ζu : Kˣ} (hζ : h.norm (ζu : K) = 1)
-    (hB : ∀ A ∈ B, ∃ (d : Fin 6 → K) (hd : ∀ i, h.norm (d i) = 1) (hdet : ∏ i, d i = 1)
-      (n : ℕ), A = diagSU h d hd hdet ∧ d 0 = d 1 ∧ d 0 = ((ζu ^ n : Kˣ) : K))
-    (I : Finset (Fin 6)) :
-    B ⊓ unitaryBlock h I ⊓
-        Subgroup.centralizer (unitaryLineRadical h : Set (unitarySU 2 f K 6)) ≤
-      Subgroup.zpowers (diagFiveLast h (ζu : K) hζ) :=
-  (inf_le_inf_right _ inf_le_left).trans (inf_centralizer_unitaryLineRadical_le_zpowers h hζ hB)
 
 theorem map_unitaryProj_inf_centralizer_le_zpowers (h : UnitaryFieldData 2 f K)
     {B : Subgroup (unitarySU 2 f K 6)} {ζu : Kˣ} (hζ : h.norm (ζu : K) = 1)

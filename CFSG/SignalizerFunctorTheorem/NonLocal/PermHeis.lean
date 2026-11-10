@@ -79,8 +79,6 @@ def antiInv {Λ : Type*} (σ : Equiv.Perm Λ) : Submodule ℂ (Λ → ℂ) where
   smul_mem' := fun c f hf x => by
     simp only [Pi.smul_apply, hf x, smul_neg]
 
-theorem mem_antiInv {Λ : Type*} {σ : Equiv.Perm Λ} {f : Λ → ℂ} :
-    f ∈ antiInv σ ↔ ∀ x, f (σ x) = - f x := Iff.rfl
 
 theorem permFunHom_mem_antiInv {Λ : Type*} {σ τ : Equiv.Perm Λ} (h : τ * σ = σ * τ) {f : Λ → ℂ}
     (hf : f ∈ antiInv σ) : permFunHom Λ τ f ∈ antiInv σ := by

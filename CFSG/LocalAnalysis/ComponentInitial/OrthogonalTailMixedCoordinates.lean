@@ -69,16 +69,6 @@ theorem hPoint_splitPart (M : Points (quadTail r q)) (hM : ∀ x ∈ M.val, x.2 
     hPoint q (splitPart M hM) = M :=
   Subtype.ext (eq_map_inl_map_fst hM).symm
 
-theorem splitPart_hPoint (L : Points (quadPlus r K)) (h : ∀ x ∈ (hPoint q L).val, x.2 = 0) :
-    splitPart (hPoint q L) h = L := by
-  refine Subtype.ext ?_
-  change (L.val.map (LinearMap.inl K _ A)).map (LinearMap.fst K _ A) = L.val
-  rw [← Submodule.map_comp, LinearMap.fst_comp_inl, Submodule.map_id]
-
-theorem snd_eq_zero_of_mem_hPoint {L : Points (quadPlus r K)} {x : (Fin r ⊕ Fin r → K) × A}
-    (hx : x ∈ (hPoint q L).val) : x.2 = 0 := by
-  obtain ⟨u, -, rfl⟩ := hx
-  rfl
 
 theorem polarOrtho_hPoint (L M : Points (quadPlus r K)) :
     PolarOrtho (quadTail r q) (hPoint q L).val (hPoint q M).val ↔

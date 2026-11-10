@@ -60,55 +60,6 @@ theorem omMinus_two_mu_cases (hK : Nat.card K = 2) {k : Type} [Field k] [CharP k
         rw [hs2] at h ⊢
         exact Or.inr (by rw [h, hd.2])
 
-theorem omMinus_two_seventeen_le_finrank_of_pair (hK : Nat.card K = 2) {k : Type} [Field k]
-    [CharP k 2] {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]
-    {ρ : Representation k (spinGroup (quadMinus 4 K b c)) V} (hρ : IsSimpleRep ρ) {y : V}
-    {χ : spinGroup (quadMinus 4 K b c) → k} {μ : Fin 3 → k}
-    (ht : (o8mDatum hirrQ).IsCurtisType ρ y χ μ) (hχ : ∀ h ∈ (o8mDatum hirrQ).H, χ h = 1)
-    {i j : Fin 3} (hij : i ≠ j) (hi : μ i = 1) (hj : μ j = 1) :
-    17 ≤ Module.finrank k V := by
-  classical
-  have hd1 : ∀ s : Fin 3, (o8mDatum hirrQ).dScalar χ s = 1 := by
-    intro s
-    by_cases hs : s.val < 2
-    · exact o8mDatum_dScalar_long (hirrQ := hirrQ) hK ht.chi_one hs
-    · have hs2 : s = 2 := Fin.ext (by have := s.isLt; omega)
-      rw [hs2]
-      exact (o8mDatum_dScalar_short_of_trivial (hirrQ := hirrQ) hK hχ).1
-  have hcard : ({i, j} : Finset (Fin 3)).card < (Finset.univ : Finset (Fin 3)).card := by
-    rw [Finset.card_univ, Fintype.card_fin]
-    have h2 : ({i, j} : Finset (Fin 3)).card = 2 := by
-      rw [Finset.card_insert_of_notMem (by simpa using hij), Finset.card_singleton]
-    omega
-  obtain ⟨l, -, hlnot⟩ := Finset.exists_mem_notMem_of_card_lt_card hcard
-  have hli : l ≠ i := fun h => hlnot (by simp [h])
-  have hlj : l ≠ j := fun h => hlnot (by simp [h])
-  let : MulAction (coxeterMatrix (isFiniteType_cartanB 3)).Group (Fin 3 → ℤ) :=
-    MulAction.compHom (Fin 3 → ℤ) (weylAction (isFiniteType_cartanB 3))
-  have hv : ∀ s, μ s ≠ (o8mDatum hirrQ).dScalar χ s →
-      o8mSimple s • (o8mWtPair l) = o8mWtPair l := by
-    intro s hne
-    have hsi : s ≠ i := fun h => hne (by rw [h, hi, hd1 i])
-    have hsj : s ≠ j := fun h => hne (by rw [h, hj, hd1 j])
-    have hsl : s = l := by
-      apply Fin.ext
-      have h1 : s.val ≠ i.val := fun h => hsi (Fin.ext h)
-      have h2 : s.val ≠ j.val := fun h => hsj (Fin.ext h)
-      have h3 : l.val ≠ i.val := fun h => hli (Fin.ext h)
-      have h4 : l.val ≠ j.val := fun h => hlj (Fin.ext h)
-      have h5 : i.val ≠ j.val := fun h => hij (Fin.ext h)
-      have := s.isLt; have := i.isLt; have := j.isLt; have := l.isLt
-      omega
-    rw [hsl]
-    simpa [MulAction.compHom_smul_def, Module.End.smul_def, o8mAct] using o8mWtPair_fixed l
-  obtain ⟨u, hu_mem, hu_inj⟩ := exists_seventeen_orbit_o8mWtPair l
-  have hu : ∀ a, u a ∈ MulAction.orbit (coxeterMatrix (isFiniteType_cartanB 3)).Group
-      (o8mWtPair l) := by
-    intro a
-    obtain ⟨w, hw⟩ := hu_mem a
-    exact MulAction.mem_orbit_iff.mpr ⟨w, by
-      simpa [MulAction.compHom_smul_def, Module.End.smul_def, o8mAct] using hw.symm⟩
-  exact card_le_finrank_of_mem_orbit (D := o8mDatum hirrQ) hρ ht hv u hu hu_inj
 
 private abbrev omMinusEndField {G : Type*} [Group G] {V : Type*} [AddCommGroup V]
     [Module (ZMod 2) V] (ρ : Representation (ZMod 2) G V) : Type _ :=

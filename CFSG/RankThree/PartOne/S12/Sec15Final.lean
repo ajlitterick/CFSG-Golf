@@ -65,14 +65,6 @@ theorem normalizer_le_of_forall_maximal [Finite G] {N Z X : Subgroup G} (hZ1 : Z
     ⟨Z, hZ1, hZ2, rfl⟩
   exact hle.trans (hMX M ⟨hmax, fun x hx => hle (hX hx)⟩)
 
-theorem characteristic_iSup_map_mulAut {M : Type*} [Group M] (X : Subgroup M) :
-    (⨆ α : MulAut M, X.map α.toMonoidHom).Characteristic := by
-  rw [Subgroup.characteristic_iff_map_le]
-  intro φ
-  rw [Subgroup.map_iSup]
-  refine iSup_le fun α => ?_
-  rw [Subgroup.map_map]
-  exact le_iSup (fun β : MulAut M => X.map β.toMonoidHom) (φ * α)
 
 theorem conj_mem_map_subtype_of_characteristic {S : Subgroup G} {K : Subgroup S}
     (hK : K.Characteristic) {g : G} (hg : g ∈ Subgroup.normalizer (S : Set G)) {w : G}
@@ -99,22 +91,6 @@ theorem normalizer_le_normalizer_of_characteristic {S T₁ : Subgroup G} (hT₁ 
   have := normalizer_le_normalizer_map_subtype_of_characteristic (S := S) hchar
   rwa [Subgroup.map_subgroupOf_eq_of_le hT₁] at this
 
-private theorem map_mulAut_centerTorsion_le {M : Type*} [Group M] (φ : MulAut M) :
-    (BlueprintB2.centerTorsion 2 (⊤ : Subgroup M)).map φ.toMonoidHom ≤
-      BlueprintB2.centerTorsion 2 (⊤ : Subgroup M) := by
-  rintro _ ⟨x, hx, rfl⟩
-  obtain ⟨-, hc, hp⟩ := BlueprintB2.mem_centerTorsion_iff.mp hx
-  rw [BlueprintB2.mem_centerTorsion_iff]
-  refine ⟨trivial, fun k _ => ?_, ?_⟩
-  · have h2 := congrArg φ (hc (φ.symm k) trivial)
-    simpa using h2
-  · show φ x ^ 2 = 1
-    rw [← map_pow, hp, map_one]
-
-private theorem iSup_map_mulAut_le_centerTorsion {M : Type*} [Group M] {X : Subgroup M}
-    (hX : X ≤ BlueprintB2.centerTorsion 2 (⊤ : Subgroup M)) :
-    (⨆ α : MulAut M, X.map α.toMonoidHom) ≤ BlueprintB2.centerTorsion 2 (⊤ : Subgroup M) :=
-  iSup_le fun α => (Subgroup.map_mono hX).trans (map_mulAut_centerTorsion_le α)
 
 theorem exists_mem_center_orderOf_two {K : Type*} [Group K] [Finite K] [Nontrivial K]
     (hK : IsPGroup 2 K) : ∃ z ∈ Subgroup.center K, orderOf z = 2 := by
@@ -145,35 +121,6 @@ omit [Finite G] in
 theorem pushingUpS_le (P : Subgroup G) : pushingUpS P ≤ P :=
   inf_le_left
 
-theorem elemThompson_le_pushingUpS (P : Subgroup G) :
-    elemThompson P 2 ≤ (pushingUpS P).subgroupOf P := by
-  intro x hx
-  rw [Subgroup.mem_subgroupOf, mem_pushingUpS_iff]
-  refine ⟨x.2, ?_⟩
-  rintro _ ⟨e, he, rfl⟩
-  have hc := (BlueprintB2.mem_elemThompsonCenterTorsion_iff_centralizer.mp he).1
-  exact (congrArg Subtype.val (Subgroup.mem_centralizer_iff.mp hc x hx)).symm
-
-private theorem elemCenterIn_pushingUpS (P : Subgroup G) :
-    elemCenterIn 2 (pushingUpS P) = elemCenterIn 2 P := by
-  have hle : pushingUpS P ≤ P := pushingUpS_le P
-  have h1 := BlueprintB2.elemThompsonCenterTorsion_map_subtype (p := 2) (R := ↥P)
-    (Y := (pushingUpS P).subgroupOf P) (elemThompson_le_pushingUpS P)
-  have h2 := elemCenterIn_map_subtype (S := G) 2 (A := P) ((pushingUpS P).subgroupOf P)
-  rw [Subgroup.map_subgroupOf_eq_of_le hle] at h2
-  rw [← h2]
-  exact congrArg (Subgroup.map P.subtype) h1
-
-theorem centralizer_elemThompsonCenterTorsion_pushingUpS (P : Subgroup G) :
-    Subgroup.centralizer
-      (elemThompsonCenterTorsion ↥(pushingUpS P) 2 : Set ↥(pushingUpS P)) = ⊤ := by
-  refine eq_top_iff.mpr fun s _ => ?_
-  rw [Subgroup.mem_centralizer_iff]
-  intro z hz
-  have hzG : (z : G) ∈ inSubgroup (fun K _ => elemThompsonCenterTorsion K 2) P := by
-    have : (z : G) ∈ elemCenterIn 2 (pushingUpS P) := ⟨z, hz, rfl⟩
-    rwa [elemCenterIn_pushingUpS] at this
-  exact Subtype.ext ((mem_pushingUpS_iff.mp s.2).2 _ hzG)
 
 private theorem conj_mem_elemCenterIn {P : Subgroup G} {g : G}
     (hg : g ∈ Subgroup.normalizer (P : Set G)) {z : G} (hz : z ∈ elemCenterIn 2 P) :
@@ -247,17 +194,6 @@ theorem pushingUpS_ne_bot {P : Subgroup G} (hP : IsPGroup 2 P) (hP1 : P ≠ ⊥)
   omegaOneCenterIn_ne_bot hP hP1
     (le_bot_iff.mp ((omegaOneCenterIn_le_pushingUpS P).trans h.le))
 
-omit [Finite G] in
-theorem subgroupOf_omegaOneCenterIn_le (P : Subgroup G) :
-    (omegaOneCenterIn P).subgroupOf (pushingUpS P) ≤
-      omegaOne 2 (Subgroup.center ↥(pushingUpS P)) := by
-  intro s hs
-  obtain ⟨-, hc, hsq⟩ := mem_omegaOneCenterIn_iff.mp (Subgroup.mem_subgroupOf.mp hs)
-  refine Subgroup.subset_closure ⟨?_, ?_⟩
-  · rw [Subgroup.mem_center_iff]
-    intro k
-    exact Subtype.ext (hc k (pushingUpS_le P k.2))
-  · exact Subtype.ext hsq
 
 end PushingUpS
 

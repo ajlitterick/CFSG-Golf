@@ -226,16 +226,6 @@ theorem zjCovering_normalizer_le (hp : p ≠ 2) {K O U B : Subgroup G} (hOK : O 
   exact Subgroup.mul_mem_sup (Subgroup.mem_inf.mpr ⟨K.mul_mem (hXK hnX) hcK,
     Subgroup.mul_mem _ hnZ hcZ⟩) ho'
 
-theorem zjCovering_eq_of_le (hp : p ≠ 2) {K O U B : Subgroup G} (hOK : O ≤ K)
-    (hKO : K ≤ Subgroup.normalizer (O : Set G)) (hO : Odd (Nat.card O)) (hUK : U ≤ K)
-    (hU : IsPGroup p U) (hUO : IsSylowOf p (U ⊓ O) O) (hB : B ≠ ⊥) (hBp : IsPGroup p B)
-    (hBO : B ≤ O) (hKB : K ≤ Subgroup.normalizer (B : Set G)) (hUO' : U ≤ O) :
-    (K ⊓ Subgroup.normalizer (thompsonCenter (G := G) U : Set G)) ⊔ O = K := by
-  refine le_antisymm (sup_le inf_le_left hOK) fun g hg => ?_
-  apply zjCovering_normalizer_le hp hOK hKO hO hUK hU hUO hB hBp hBO hKB
-  refine Subgroup.mem_inf.mpr ⟨hg, ?_⟩
-  rw [sup_eq_left.mpr hUO']
-  exact hKO hg
 
 theorem zjCovering_upgrade (hp : p ≠ 2) {K O U B : Subgroup G} (hOK : O ≤ K)
     (hKO : K ≤ Subgroup.normalizer (O : Set G)) (hO : Odd (Nat.card O)) (hUK : U ≤ K)

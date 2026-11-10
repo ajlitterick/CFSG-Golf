@@ -28,11 +28,6 @@ theorem ratVec_dotProduct_self {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :
   simp only [dotProduct, ratVec]
   exact_mod_cast h
 
-theorem ratVec_ne_zero {u : Fin 24 → ℤ} (hu : u ∈ minVecs) : ratVec u ≠ 0 := by
-  intro h
-  have := ratVec_dotProduct_self hu
-  rw [h, dotProduct_zero] at this
-  norm_num at this
 
 theorem projMat_neg (u : Fin 24 → ℤ) : projMat (-u) = projMat u := by
   rw [projMat, projMat, ratVec_neg, neg_vecMulVec, vecMulVec_neg, neg_neg]
@@ -61,28 +56,6 @@ theorem vecMul_projMat_self {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :
   rw [vecMul_projMat, ratVec_dotProduct_self hu]
   norm_num
 
-theorem range_vecMulLinear_projMat {u : Fin 24 → ℤ} (hu : u ∈ minVecs) :
-    LinearMap.range (projMat u).vecMulLinear = Submodule.span ℚ {ratVec u} := by
-  apply le_antisymm
-  · rintro _ ⟨v, rfl⟩
-    rw [vecMulLinear_apply, vecMul_projMat]
-    exact Submodule.smul_mem _ _ (Submodule.subset_span rfl)
-  · rw [Submodule.span_le, Set.singleton_subset_iff]
-    exact ⟨ratVec u, vecMul_projMat_self hu⟩
-
-theorem vecMul_projMat_eq_zero_iff {u : Fin 24 → ℤ} (hu : u ∈ minVecs) (v : Fin 24 → ℚ) :
-    v ᵥ* projMat u = 0 ↔ v ⬝ᵥ ratVec u = 0 := by
-  rw [vecMul_projMat, smul_eq_zero, div_eq_zero_iff]
-  have h1 : (32 : ℚ) ≠ 0 := by norm_num
-  simp only [h1, or_false, ratVec_ne_zero hu]
-
-theorem rank_projMat {u : Fin 24 → ℤ} (hu : u ∈ minVecs) : (projMat u).rank = 1 := by
-  have h : LinearMap.range (projMat u).mulVecLin = LinearMap.range (projMat u).vecMulLinear := by
-    congr 1
-    apply LinearMap.ext
-    intro v
-    rw [mulVecLin_apply, vecMulLinear_apply, ← vecMul_transpose, transpose_projMat]
-  rw [Matrix.rank, h, range_vecMulLinear_projMat hu, finrank_span_singleton (ratVec_ne_zero hu)]
 
 @[expose] noncomputable def coordAxisE (p : C × Cocode) : symMat :=
   open Classical in
@@ -147,34 +120,5 @@ theorem axis_zQ_mul {r : Q} (h : IsShortCoord (coordOf r)) :
   congr 1
   ext <;> simp
 
-theorem short_spin_axis_data (r : Q) (h : IsShortCoord (coordOf r)) :
-    let u := ratVec (uvec ⟨coordOf r, h⟩)
-    let E := (axisE r : Matrix (Fin 24) (Fin 24) ℚ)
-    u ⬝ᵥ u = 32 ∧ E = (32 : ℚ)⁻¹ • vecMulVec u u ∧ Eᵀ = E ∧ E * E = E ∧ trace E = 1 ∧
-    (∀ v : Fin 24 → ℚ, v ᵥ* E = ((v ⬝ᵥ u) / 32) • u) ∧ u ᵥ* E = u ∧
-    LinearMap.range E.vecMulLinear = Submodule.span ℚ {u} ∧
-    (∀ v : Fin 24 → ℚ, v ᵥ* E = 0 ↔ v ⬝ᵥ u = 0) ∧ E.rank = 1 ∧
-    (∀ v ∈ minVecs, classOf v = phi0 (coordOf r) →
-      E = (32 : ℚ)⁻¹ • vecMulVec (ratVec v) (ratVec v)) ∧
-    axis r = (2 : ℚ) • ((axisE r, 0, 0) : SpaceB) - (2 : ℚ) • ((0, Xlift r, 0) : SpaceB) ∧
-    IsShortCoord (coordOf (zQ * r)) ∧ coordOf (zQ * r) = coordOf r ∧ axisE (zQ * r) = axisE r ∧
-    Xlift (zQ * r) = -Xlift r ∧
-    axis (zQ * r) =
-      (2 : ℚ) • ((axisE r, 0, 0) : SpaceB) + (2 : ℚ) • ((0, Xlift r, 0) : SpaceB) := by
-  intro u E
-  have hu := uvec_mem ⟨coordOf r, h⟩
-  have hE : E = projMat (uvec ⟨coordOf r, h⟩) := coe_axisE h
-  refine ⟨ratVec_dotProduct_self hu, hE, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, rfl,
-    isShortCoord_zQ_mul h, coordOf_zQ_mul r, axisE_zQ_mul r, Xlift_zQ_mul h, axis_zQ_mul h⟩
-  · rw [hE]; exact transpose_projMat _
-  · rw [hE]; exact projMat_mul_self hu
-  · rw [hE]; exact trace_projMat hu
-  · intro v; rw [hE]; exact vecMul_projMat _ v
-  · rw [hE]; exact vecMul_projMat_self hu
-  · rw [hE]; exact range_vecMulLinear_projMat hu
-  · intro v; rw [hE]; exact vecMul_projMat_eq_zero_iff hu v
-  · rw [hE]; exact rank_projMat hu
-  · intro v hv hcl
-    exact axisE_eq_projMat h hv hcl
 
 end CFSG.Monster.Griess

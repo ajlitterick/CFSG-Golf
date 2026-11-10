@@ -39,18 +39,9 @@ theorem isPGroup_zpowers_of_sq_eq_one (hc : c * c = 1) : IsPGroup 2 (Subgroup.zp
   obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.mp hx
   rw [← (Commute.refl c).mul_zpow, hc, one_zpow]
 
-theorem isPGroup_zpowers_of_mem_isElemAbelian {B : Subgroup G} (hB : IsElemAbelian 2 B)
-    (hc : c ∈ B) : IsPGroup 2 (Subgroup.zpowers c) :=
-  isPGroup_zpowers_of_sq_eq_one (by simpa only [pow_two] using hB.2 c hc)
 
 variable [Finite G]
 
-theorem cover_centralizer (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hcK : c ∈ trivialOnQuot K) :
-    ∀ x ∈ K, ∃ h ∈ K ⊓ Subgroup.centralizer ({c} : Set G), ∃ n ∈ oddCoreIn K, x = h * n := by
-  intro x hx
-  obtain ⟨h, hh, n, hn, hxhn⟩ :=
-    exists_mem_inf_centralizer_mul hc2 (Subgroup.zpowers_le.mpr hcK) hx
-  exact ⟨h, by rwa [centralizer_zpowers_eq_singleton'] at hh, n, hn, hxhn⟩
 
 theorem axisResidual_exactCore (hK : IsClassicalMember p f K z)
     (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hcK : c ∈ trivialOnQuot K) :
@@ -135,9 +126,6 @@ theorem mem_trivialOnQuot_of_le_centralizer (hKc : K ≤ Subgroup.centralizer ({
   mem_trivialOnQuot_of_centralizes fun _ hj =>
     (Subgroup.mem_centralizer_singleton_iff.mp (hKc hj)).symm
 
-theorem mem_trivialOnQuot_exactCore_self (c : G) (K : Subgroup G) :
-    c ∈ trivialOnQuot (exactCore c K) :=
-  mem_trivialOnQuot_of_le_centralizer (exactCore_le_centralizer c K)
 
 variable (hK : IsClassicalMember p f K z) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
   (hcK : c ∈ trivialOnQuot K)
@@ -152,9 +140,6 @@ theorem mem_trivialOnQuot_exactCore {b : G} (hb : b ∈ trivialOnQuot K)
     mem_normalizer_inf hb.1 (Subgroup.le_normalizer hbc)
   exact perfectResidualOf_normalizer_contains _ hnorm
 
-theorem le_trivialOnQuot_exactCore {B : Subgroup G} (hBc : B ≤ Subgroup.centralizer ({c} : Set G))
-    (hB : B ≤ trivialOnQuot K) : B ≤ trivialOnQuot (exactCore c K) := fun _ hb =>
-  mem_trivialOnQuot_exactCore hK hc2 hcK (hB hb) (hBc hb)
 
 end Action
 
@@ -171,8 +156,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (S
 
 theorem mem_tqMembers_iff : K ∈ tqMembers Ω c ↔ K ∈ Ω ∧ c ∈ trivialOnQuot K := Iff.rfl
 
-theorem mem_exactFamily_iff :
-    K' ∈ exactFamily Ω c ↔ ∃ K ∈ tqMembers Ω c, K' = exactCore c K := Iff.rfl
 
 theorem exactCore_mem_exactFamily (hK : K ∈ tqMembers Ω c) : exactCore c K ∈ exactFamily Ω c :=
   ⟨K, hK, rfl⟩
@@ -182,18 +165,11 @@ theorem le_centralizer_of_mem_exactFamily (hK' : K' ∈ exactFamily Ω c) :
   obtain ⟨K, -, rfl⟩ := hK'
   exact exactCore_le_centralizer c K
 
-theorem mem_tqMembers_of_le_trivialOnQuot {B : Subgroup G} (hcB : c ∈ B)
-    (hB : B ≤ trivialOnQuot K) (hK : K ∈ Ω) : K ∈ tqMembers Ω c :=
-  ⟨hK, hB hcB⟩
 
 theorem mem_tqMembers_of_isClassicalMember {M : Subgroup G} (hM : M ∈ Ω)
     (hMc : IsClassicalMember p f M c) : M ∈ tqMembers Ω c :=
   ⟨hM, mem_trivialOnQuot_of_le_centralizer (isSubnormal_le hMc.subnormal)⟩
 
-theorem mem_exactFamily_of_isClassicalMember {M : Subgroup G} (hM : M ∈ Ω)
-    (hMc : IsClassicalMember p f M c) : M ∈ exactFamily Ω c :=
-  ⟨M, mem_tqMembers_of_isClassicalMember hM hMc,
-    (exactCore_eq_self hMc.perfect (isSubnormal_le hMc.subnormal)).symm⟩
 
 theorem conjSub_mem_tqMembers (hΩ : ConjInvariant Ω) {n : G}
     (hn : n ∈ Subgroup.centralizer ({c} : Set G)) (hK : K ∈ tqMembers Ω c) :
@@ -219,17 +195,6 @@ theorem secData_exactFamily (hΩ : ConjInvariant Ω)
     obtain ⟨z, hz⟩ := hcls K hK.1
     exact ⟨z, isSectionMember_exactCore hz hc2 hK.2⟩
 
-theorem secData_exactFamily_of_inClass (hΩ : InClass p f Ω) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hne : (tqMembers Ω c).Nonempty) : SecData p f c (exactFamily Ω c) :=
-  secData_exactFamily hΩ.conjInvariant hΩ.classical hc2 hne
-
-theorem exactFamily_eq_linkFamily (hcls : ∀ K ∈ Ω, ∃ z, IsClassicalMember p f K z) :
-    exactFamily Ω c = linkFamily p f Ω c := by
-  have h : tqMembers Ω c = Ω ∩ linkMembers p f c := by
-    ext K
-    exact ⟨fun hK => ⟨hK.1, hcls K hK.1, hK.2⟩, fun hK => ⟨hK.1, hK.2.2⟩⟩
-  unfold exactFamily linkFamily
-  rw [h]
 
 end Family
 

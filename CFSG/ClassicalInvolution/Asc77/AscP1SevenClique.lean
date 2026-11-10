@@ -41,7 +41,6 @@ namespace Ctx
 
 variable (c : Ctx p f Ω W)
 
-theorem mem_U4 {ρ : Rep Ω W} {x : G} : x ∈ c.U4 ρ ↔ x ∈ ρ.K ∧ x ∈ W ∧ x ^ 4 = 1 := Iff.rfl
 
 theorem U4_le_W (ρ : Rep Ω W) : c.U4 ρ ≤ W :=
   T8V.U4_le_WE (cliqueHooks c) ρ
@@ -347,7 +346,5 @@ theorem thompsonClique : ThompsonClique p f := by
 
 theorem l7_10_proved : L7_10 p f := l7_10_of_inputs thompsonCube thompsonStar thompsonClique
 
-theorem l7_12_of_sub (h4 : ThompsonSub p f) : L7_12 p f :=
-  l7_12_of_inputs thompsonCube thompsonStar thompsonClique h4
 
 end CFSG.ClassicalInvolution.Asc77

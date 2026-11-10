@@ -39,13 +39,6 @@ theorem isoInv_psp4 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3PSp4
   let ⟨f, hf, hm⟩ := h
   ⟨f, hf, CFSG.LieType.CurtisTits.statedClassicalModel_of_mulEquiv e hm⟩
 
-theorem isoInv_g2 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3G2 X) : Kc3G2 Y :=
-  let ⟨f, hf, hm⟩ := h
-  ⟨f, hf, chevalleyExceptionalModel_of_mulEquiv e hm⟩
-
-theorem isoInv_d4 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3D4 X) : Kc3D4 Y :=
-  let ⟨f, hf, hm⟩ := h
-  ⟨f, hf, chevalleyExceptionalModel_of_mulEquiv e hm⟩
 
 theorem isoInv_f4 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3F4 X) : Kc3F4 Y :=
   let ⟨f, hodd, hf, hm⟩ := h
@@ -54,8 +47,6 @@ theorem isoInv_f4 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3F4 X) 
 theorem isoInv_tits (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3Tits X) : Kc3Tits Y :=
   reeTitsModel_of_mulEquiv e h
 
-theorem isoInv_l4 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3L4 X) : Kc3L4 Y :=
-  CFSG.LieType.CurtisTits.statedClassicalModel_of_mulEquiv e h
 
 theorem isoInv_l5 (X Y : Type) [Group X] [Group Y] (e : X ≃* Y) (h : Kc3L5 X) : Kc3L5 Y :=
   CFSG.LieType.CurtisTits.statedClassicalModel_of_mulEquiv e h

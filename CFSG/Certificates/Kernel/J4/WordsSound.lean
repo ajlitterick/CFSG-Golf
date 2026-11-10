@@ -15,17 +15,10 @@ variable {G : Type*} [Group G]
 
 theorem wLet_eq : CFSG.KJ4.wLet = CFSG.KC.Th.wLet := rfl
 theorem lInv_eq : CFSG.KJ4.lInv = CFSG.KC.Th.lInv := rfl
-theorem strip_eq : CFSG.KJ4.strip = CFSG.KC.Th.strip := rfl
-theorem rot_eq : CFSG.KJ4.rot = CFSG.KC.Th.rot := rfl
 theorem isRot_eq : CFSG.KJ4.isRot = CFSG.KC.Th.isRot := rfl
-theorem isRelRot_eq : CFSG.KJ4.isRelRot = CFSG.KC.Th.isRelRot := rfl
-theorem freeRed_eq : CFSG.KJ4.freeRed = CFSG.KC.Th.freeRed := rfl
-theorem chkWord_eq : CFSG.KJ4.chkWord = CFSG.KC.Th.chkWord := rfl
 theorem wInv_eq : CFSG.KJ4.wInv = CFSG.KC.Th.wInv := rfl
 theorem wCat_eq : CFSG.KJ4.wCat = CFSG.KC.Th.wCat := rfl
 
-theorem chkPsiRel_eq (inv T sw ns pw np r m : ℕ) :
-    CFSG.KJ4.chkPsiRel inv T sw ns pw np r m = CFSG.KC.Th.chkPsiRel inv T T sw ns pw np r m := rfl
 
 theorem andB_iff {a b : Bool} : CFSG.KJ4.andB a b = true ↔ a = true ∧ b = true := by
   cases a <;> cases b <;> decide
@@ -88,38 +81,12 @@ theorem wv_wInv (v : ℕ → G) (inv w n : ℕ)
     have := hinv q hq
     rwa [lInv_eq, wLet_byteG, DceWord.lInv_eq] at this)
 
-theorem strip_spec (w n : ℕ) : CFSG.KJ4.strip w n =
-    (pkb 256 ((bytes w n).filter (· ≠ 255)), ((bytes w n).filter (· ≠ 255)).length) :=
-  DceWord.strip_spec w n
 
 theorem isRot_val (v : ℕ → G) {r n w : ℕ} (hr : r < 256 ^ n) (h1 : wv v r n = 1)
     (h : CFSG.KJ4.isRot r n w = true) : wv v w n = 1 := by
   obtain ⟨s, -, rfl⟩ := isRot_spec h
   exact wv_rot v hr h1 s
 
-theorem isRelRot_val (f : ℕ → G) {r m w n : ℕ} (hr : r < 256 ^ m) (hr1 : wv f r m = 1)
-    (h : CFSG.KJ4.isRelRot r m w n = true) : wv (lvE f) w n = 1 := by
-  rw [isRelRot_eq] at h
-  unfold CFSG.KC.Th.isRelRot at h
-  rw [DceWord.strip_spec] at h
-  change CFSG.KC.Th.andB _ _ = true at h
-  obtain ⟨h1, h2⟩ := thAnd_iff.1 h
-  obtain ⟨s, -, hs⟩ := isRot_spec h2
-  set l := (bytes w n).filter (· ≠ 255)
-  have hm : l.length = m := Nat.eq_of_beq_eq_true h1
-  have hl256 : ∀ d ∈ l, d < 256 := fun d hd => bytes_lt w n d (List.mem_of_mem_filter hd)
-  have e1 : bytes (pkb 256 l) m = l := by
-    rw [← hm]
-    exact bytes_pkb l hl256
-  have hrot := wv_rot f hr hr1 s
-  rw [hs, wv_eq, e1] at hrot
-  rw [wv_eq, ← lv_filter (lvE f) 255 (by simp [lvE])]
-  rw [← hrot]
-  unfold lv
-  congr 1
-  refine List.map_congr_left fun d hd => ?_
-  have : d ≠ 255 := by simpa using (List.mem_filter.1 hd).2
-  simp [lvE, this]
 
 theorem chkWord_val (f : ℕ → G) {inv w n r m : ℕ} (hr : r < 256 ^ m) (hr1 : wv f r m = 1)
     (hinv : ∀ q < n, CFSG.KJ4.wLet w q ≠ 255 →
@@ -228,16 +195,6 @@ theorem substZ_val (f : ℕ → G) (w zw zwi m : ℕ) (hzw : zw < 256 ^ m) (hzwi
       rw [wv_wCat _ ih1 hzw]
       simp [lvE, zsub, he5]
 
-theorem chkSubst_val (f : ℕ → G) {w n zw zwi m u k : ℕ} (hzw : zw < 256 ^ m)
-    (hzwi : zwi < 256 ^ m) (h : CFSG.KJ4.chkSubst w n zw zwi m u k = true) :
-    wv (lvE (zsub f (wv (lvE f) zw m) (wv (lvE f) zwi m))) w n = wv (lvE f) u k := by
-  obtain ⟨-, h2⟩ := substZ_val f w zw zwi m hzw hzwi n
-  unfold CFSG.KJ4.chkSubst at h
-  rcases hp : CFSG.KJ4.substZ w n zw zwi m with ⟨v, l⟩
-  rw [hp] at h h2
-  change CFSG.KJ4.andB _ _ = true at h
-  obtain ⟨e1, e2⟩ := andB_iff.1 h
-  rw [← h2, Nat.eq_of_beq_eq_true e1, Nat.eq_of_beq_eq_true e2]
 
 theorem chkSubstRed_val (f : ℕ → G) {inv w n zw zwi m u k : ℕ}
     (hI : ∀ c < 255, f (CFSG.KJ4.lInv inv c) = (f c)⁻¹) (hzw : zw < 256 ^ m)

@@ -244,24 +244,5 @@ theorem fa_data_sizes :
     FAData.gamma.size = 50 :=
   Certificates.certificate16041
 
-theorem ctuc_hn_full_automorphism_local_data :
-    (∀ k < 4, sJ k ∈ HJ ∧ (thetaJ ⟨sJ k, sJ_mem k⟩ : Perm (Fin 12)) = tripleNat (k + 1)) ∧
-    fJ ∈ HJ ∧ (thetaJ ⟨fJ, fJ_mem⟩ : Perm (Fin 12)) = fiveNat ∧
-    g3J = seedWordJ FAData.g3Root * hWordJ FAData.g3H ∧ g5J = seedWordJ FAData.g5Root ∧
-    PJ = Subgroup.closure (Set.range fun j : Fin 6 => pGenJ j) ∧
-    (∀ j < 5, aGenJ j ∈ HJ ∧ (⟨aGenJ j, aGenJ_mem j⟩ : HJ) ∈ AH) ∧
-    AH = alt5.comap (thetaJ : HJ →* alternatingGroup (Fin 12)) ∧
-    IJ = Subgroup.closure ((AH.map HJ.subtype : Set JH) ∪ {commJ}) ∧
-    commJ = (aGenJ 0)⁻¹ * g5J⁻¹ * aGenJ 0 * g5J ∧
-    (∀ k < 4, (FAData.sFixed[k]!).length = [645, 645, 60, 645][k]!) ∧
-    FAData.c1Words.size = 8 ∧ FAData.c3Words.size = 6 ∧ FAData.pLift.size = 5 ∧
-    FAData.pParents.size = 729 ∧ FAData.pLeft.size = 6 ∧ (∀ j < 6, FAData.pLeft[j]!.size = 729) ∧
-    FAData.wRep.size = 48 ∧ FAData.fFixed.length = 50 ∧ FAData.iParents.size = 50 ∧
-    FAData.iSchreier.size = 50 ∧ (∀ i < 50, FAData.iSchreier[i]!.size = 6) ∧
-    FAData.gamma.size = 50 := by
-  obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13⟩ := fa_data_sizes
-  exact ⟨fun k hk => ⟨sJ_mem k, thetaJ_sJ hk⟩, fJ_mem, thetaJ_fJ, rfl, rfl, rfl,
-    fun j hj => ⟨aGenJ_mem j, aGenJ_mem_AH hj⟩, rfl, rfl, rfl, h1, h2, h3, h4, h5, h6, h7, h8,
-    h9, h10, h11, h12, h13⟩
 
 end CFSG.Sporadic.HNSchreier

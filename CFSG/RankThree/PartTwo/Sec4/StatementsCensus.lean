@@ -121,26 +121,5 @@ instance oTwoP_normal (p : ℕ) (X : Type*) [Group X] : (oTwoP p X).Normal :=
               IsExtOf (G ⧸ CFSG.oddCore G) (alternatingGroup (Fin 5)) Z4Q8Q8 ∨
               IsExtOf (G ⧸ CFSG.oddCore G) (alternatingGroup (Fin 6)) Z4Q8Q8))))
 
-@[expose] def omegaOneCenterThree {G : Type*} [Group G] (P : Subgroup G) : Subgroup G :=
-  Subgroup.closure {x | x ∈ P ∧ x ∈ Subgroup.centralizer (P : Set G) ∧ x ^ 3 = 1}
-
-@[expose] def Item4_40 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M Q : Subgroup G), Ctx434 G A M Q →
-    haveI : (layer G).Characteristic := CFSG.LocalCores.layer_characteristic;
-    ∃ a ∈ A, a ∉ Subgroup.centralizer (layer G : Set G) ∧
-      (∃ X ∈ invariantPiSubgroups
-          (Subgroup.centralizer
-            {QuotientGroup.mk' (Subgroup.centralizer (layer G : Set G)) a})
-          (A.map (QuotientGroup.mk' (Subgroup.centralizer (layer G : Set G)))) (piCompl 3),
-        X ≠ ⊥) ∧
-      inSubgroup generalizedFitting (Subgroup.centralizer
-          {QuotientGroup.mk' (Subgroup.centralizer (layer G : Set G)) a}) ≠
-        inSubgroup (CFSG.pCore 3) (Subgroup.centralizer
-          {QuotientGroup.mk' (Subgroup.centralizer (layer G : Set G)) a}) ∧
-      (3 < CFSG.Open.pRank 3 (Subgroup.centralizer {a}) →
-        ∀ P : Sylow 3 (Subgroup.centralizer {a}),
-          Subgroup.zpowers a =
-            omegaOneCenterThree ((P : Subgroup (Subgroup.centralizer {a})).map
-              (Subgroup.centralizer {a}).subtype))
 
 end CFSG.RankThree.PartTwo.Sec4

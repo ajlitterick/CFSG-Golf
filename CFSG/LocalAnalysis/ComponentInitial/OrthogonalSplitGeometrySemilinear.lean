@@ -88,11 +88,6 @@ theorem sCoordImage_mono {σ : K ≃+* K} {W W' : Submodule K (Fin r ⊕ Fin r �
     sCoordImage σ W ≤ sCoordImage σ W' :=
   fun _ hv => h hv
 
-theorem sCoordImage_le_iff {σ : K ≃+* K} {W W' : Submodule K (Fin r ⊕ Fin r → K)} :
-    sCoordImage σ W ≤ sCoordImage σ W' ↔ W ≤ W' := by
-  refine ⟨fun h => ?_, sCoordImage_mono⟩
-  rw [← sCoordImage_symm_sCoordImage σ W, ← sCoordImage_symm_sCoordImage σ W']
-  exact sCoordImage_mono h
 
 theorem sCoordImage_span_singleton (σ : K ≃+* K) (v : Fin r ⊕ Fin r → K) :
     sCoordImage σ (K ∙ v) = K ∙ sCoord σ v := by
@@ -106,10 +101,6 @@ theorem sCoordImage_span_singleton (σ : K ≃+* K) (v : Fin r ⊕ Fin r → K) 
     refine ⟨σ.symm c, ?_⟩
     rw [sCoord_smul, sCoord_symm_sCoord]
 
-theorem sCoordImage_refl (W : Submodule K (Fin r ⊕ Fin r → K)) :
-    sCoordImage (RingEquiv.refl K) W = W := by
-  ext v
-  rfl
 
 end Coord
 
@@ -150,11 +141,6 @@ theorem semiImage_mono {W W' : Submodule K (Fin r ⊕ Fin r → K)} (h : W ≤ W
     semiImage A σ W ≤ semiImage A σ W' :=
   Submodule.map_mono (sCoordImage_mono h)
 
-theorem semiImage_le_iff {W W' : Submodule K (Fin r ⊕ Fin r → K)} :
-    semiImage A σ W ≤ semiImage A σ W' ↔ W ≤ W' := by
-  refine ⟨fun h => ?_, semiImage_mono A σ⟩
-  rw [← semiPreimage_semiImage A σ W, ← semiPreimage_semiImage A σ W']
-  exact sCoordImage_mono (Submodule.map_mono h)
 
 theorem semiPreimage_mono {W W' : Submodule K (Fin r ⊕ Fin r → K)} (h : W ≤ W') :
     semiPreimage A σ W ≤ semiPreimage A σ W' :=
@@ -177,9 +163,6 @@ theorem quadPlus_semi (v : Fin r ⊕ Fin r → K) :
     quadPlus r K (A (sCoord σ v)) = σ (quadPlus r K v) := by
   rw [map_of_mem hA, quadPlus_sCoord]
 
-theorem quadPlus_semiInv (v : Fin r ⊕ Fin r → K) :
-    quadPlus r K (sCoord σ.symm (A.symm v)) = σ.symm (quadPlus r K v) := by
-  rw [quadPlus_sCoord, ← map_of_mem hA (A.symm v), LinearEquiv.apply_symm_apply]
 
 theorem polar_semi (v w : Fin r ⊕ Fin r → K) :
     polar (quadPlus r K) (A (sCoord σ v)) (A (sCoord σ w)) =
@@ -234,17 +217,6 @@ theorem polarOrtho_semiPointEquiv (L M : Points (quadPlus r K)) :
     semiImage_span_singleton, polarOrtho_span_singleton, polarOrtho_span_singleton,
     polar_semi σ hA, map_eq_zero_iff σ σ.injective]
 
-theorem image_ptsIn_semiPointEquiv (W : Submodule K (Fin r ⊕ Fin r → K)) :
-    semiPointEquiv σ hA '' ptsIn (quadPlus r K) W = ptsIn (quadPlus r K) (semiImage A σ W) := by
-  ext L
-  constructor
-  · rintro ⟨M, hM, rfl⟩
-    exact semiImage_mono A σ hM
-  · intro hL
-    refine ⟨(semiPointEquiv σ hA).symm L, ?_, Equiv.apply_symm_apply _ _⟩
-    change semiPreimage A σ L.val ≤ W
-    rw [← semiPreimage_semiImage A σ W]
-    exact semiPreimage_mono A σ hL
 
 theorem image_ptsIn_semiPointEquiv_symm (W : Submodule K (Fin r ⊕ Fin r → K)) :
     (semiPointEquiv σ hA).symm '' ptsIn (quadPlus r K) W =

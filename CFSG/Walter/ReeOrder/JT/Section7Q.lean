@@ -189,18 +189,6 @@ theorem lemma_7_8
       hcard]
   · rw [hPmap, ← map_omegaZ (MulAut.conj g), ← map_omegaOne (MulAut.conj g), hΩ]
 
-theorem lemma_7_8_card
-    (c : TorusConf h) {p : ℕ} [hp : Fact p.Prime] (hpq : p ∣ (h.q - 1) / 2)
-    (P : Sylow p G) (hnc : ¬ IsCyclic (P : Subgroup G)) :
-    4 ∣ Nat.card (Subgroup.normalizer ((P : Subgroup G) : Set G)) ∧
-      ¬ 9 ∣ Nat.card (Subgroup.normalizer ((P : Subgroup G) : Set G)) := by
-  obtain ⟨⟨V, hV, hVP, -⟩, -⟩ := h.lemma_7_8 hp3 c hpq P hnc
-  have h4 : 4 ∣ Nat.card (Subgroup.normalizer ((P : Subgroup G) : Set G)) := by
-    have := Subgroup.card_dvd_of_le hVP
-    rwa [hV.card_four] at this
-  have hP1 : (P : Subgroup G) ≠ ⊥ := fun h0 => hnc (by rw [h0]; infer_instance)
-  exact ⟨h4, h.not_nine_dvd_card hp3 (h.isSolvable_normalizer_of_isPGroup_pi hp3 hpq
-    P.isPGroup' hP1) h4⟩
 
 end JTHyp
 

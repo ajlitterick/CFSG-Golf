@@ -91,18 +91,6 @@ theorem TwinYRank.on (h : TwinYRank p f) : TwinYRankOn p f P :=
   fun G _ _ _ hnab K z S tY nY hrow _ hshape T hT clsT e =>
     h G hnab K z S tY nY hrow hshape T hT clsT e
 
-theorem TwinYP1On.of_true (h : TwinYP1On p f fun _ _ => True) : TwinYP1 p f :=
-  fun G _ _ _ hnab K z S t n hrow hshape T hT clsT e =>
-    h G hnab K z S t n hrow trivial hshape T hT clsT e
-
-theorem TwinYTypeOn.of_true (h : TwinYTypeOn p f fun _ _ => True) : TwinYType p f :=
-  fun G _ _ _ hnab K z S t n hrow hshape T hT clsT e hP1 =>
-    h G hnab K z S t n hrow trivial hshape T hT clsT e hP1
-
-theorem TwinYTransitiveOn.of_true (h : TwinYTransitiveOn p f fun _ _ => True) :
-    TwinYTransitive p f :=
-  fun G _ _ _ hnab K z S tY nY hrow hshape T hT clsT e =>
-    h G hnab K z S tY nY hrow trivial hshape T hT clsT e
 
 end Statements
 

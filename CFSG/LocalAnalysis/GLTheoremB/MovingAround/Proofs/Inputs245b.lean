@@ -474,9 +474,6 @@ theorem isPGroup_sup_inf_centralizer {p : ℕ} (hp : p.Prime) (hO : GLAPPrimeCor
     rw [e1]
     exact Subgroup.inv_mem _ hax
 
-theorem mem_liftIn {K E : Subgroup X} {k : X} :
-    k ∈ liftIn K E ↔ k ∈ K ∧ ∃ x ∈ E, k⁻¹ * x ∈ Subgroup.centralizer (K : Set X) :=
-  Iff.rfl
 
 theorem liftIn_comm {K E : Subgroup X} (hE : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x)
     (hC : ∀ k ∈ K, ∀ l ∈ K, ∀ x ∈ E, ∀ y ∈ E, k⁻¹ * x ∈ Subgroup.centralizer (K : Set X) →
@@ -763,16 +760,6 @@ theorem input24_5_small_of_three
     (by rw [Claims1211.card_gLBConj, hE'c])
   omega
 
-theorem input24_5_of_residuals (hList : GL83.I243.PCoverList)
-    (hSmall : GL83.I243.SmallThreeFacts) (hL4 : GL83.I243.LFourFacts)
-    (hS : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo)
-    (hRank : CFSG.LocalAnalysis.RankThreeTheoremC.SchurMultiplierRankFact)
-    (hJ3 : CFSG.AGLEmbedding.KFactJ3OuterRank)
-    (hSpo : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hON : Nat.card (TauCeti.CFSGIndex.sporadic .ONan).Group = 460815505920)
-    (hComp : Input24_5_compCover) (hSm : Input24_5_smallThree) : Lemma1211.Input24_5 :=
-  Inputs245.input24_5_of_inputs (input24_5_comp_of_cover hList hSmall hL4 hS hJ3 hSpo hON hComp)
-    (input24_5_small_of_three hRank hSm)
 
 section ThreeGroups
 
@@ -1039,9 +1026,6 @@ variable {X : Type} [Group X] [Finite X]
     rw [e]
     exact Subgroup.inv_mem _ (hy _ hw')
 
-theorem mem_trivMod {W : Subgroup X} {hW : W.Normal} {y : X} :
-    y ∈ trivMod W hW ↔ ∀ w ∈ W, ⁅y, w⁆ ∈ ⁅W, W⁆ :=
-  Iff.rfl
 
 theorem trivMod_normal (W : Subgroup X) (hW : W.Normal) : (trivMod W hW).Normal := by
   refine ⟨fun y hy g w hw => ?_⟩
@@ -1958,17 +1942,6 @@ theorem input24_5_outClosed_of_outThree
   rw [e]
   exact Subgroup.mul_mem _ (hYle hgy) (Subgroup.mem_sup_left (hAn.conj_mem a ha g))
 
-theorem input24_5_of_comp_out (hList : GL83.I243.PCoverList)
-    (hSmall : GL83.I243.SmallThreeFacts) (hL4 : GL83.I243.LFourFacts)
-    (hS : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo)
-    (hRank : CFSG.LocalAnalysis.RankThreeTheoremC.SchurMultiplierRankFact)
-    (hT : CFSG.HardMathSupport.Timmesfeld.ComponentBalance.Tables112)
-    (hJ3 : CFSG.AGLEmbedding.KFactJ3OuterRank)
-    (hSpo : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hON : Nat.card (TauCeti.CFSGIndex.sporadic .ONan).Group = 460815505920)
-    (hComp : Input24_5_compCover) (hOut : Input24_5_outThree) : Lemma1211.Input24_5 :=
-  input24_5_of_residuals hList hSmall hL4 hS hRank hJ3 hSpo hON hComp
-    (input24_5_smallThree_of_outClosed (input24_5_outClosed_of_outThree hT hOut))
 
 theorem threeMod_closed_of_outTwo {K : Type} [Group K] (hOut : CFSG.AGLEmbedding.KOutTwoGroup K)
     (α β : MulAut K) (hα : ∃ i : ℕ, α ^ 3 ^ i ∈ (MulAut.conj : K →* MulAut K).range)
@@ -2040,19 +2013,6 @@ theorem input24_5_outThree_holds (hW : CFSG.LocalAnalysis.RankThreeTheoremC.KFac
       α β hα hβ
   · exact threeMod_closed_of_normalSylow (hSL3 K hq d hd he) α β hα hβ
 
-theorem input24_5_of_comp (hList : GL83.I243.PCoverList)
-    (hSmall : GL83.I243.SmallThreeFacts) (hL4 : GL83.I243.LFourFacts)
-    (hS : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo)
-    (hRank : CFSG.LocalAnalysis.RankThreeTheoremC.SchurMultiplierRankFact)
-    (hT : CFSG.HardMathSupport.Timmesfeld.ComponentBalance.Tables112)
-    (hW : CFSG.LocalAnalysis.RankThreeTheoremC.KFactAlphaListM3Wide)
-    (hSpo : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hSL3 : CFSG.LocalAnalysis.RankThreeTheoremC.KFactSL3OutNormalSylow)
-    (hJ3 : CFSG.AGLEmbedding.KFactJ3OuterRank)
-    (hON : Nat.card (TauCeti.CFSGIndex.sporadic .ONan).Group = 460815505920)
-    (hComp : Input24_5_compCover) : Lemma1211.Input24_5 :=
-  input24_5_of_comp_out hList hSmall hL4 hS hRank hT hJ3 hSpo hON hComp
-    (input24_5_outThree_holds hW hSmall hSpo hSL3)
 
 end OutClosed
 

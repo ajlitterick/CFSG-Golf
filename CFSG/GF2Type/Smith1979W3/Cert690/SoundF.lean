@@ -11,8 +11,6 @@ namespace CFSG.GF2Type.Smith1979W3.Cert690
 
 open CFSG.LargeExtraspecial CFSG.LargeExtraspecial.O62 Module
 
-class PGLFactsCert : Prop where
-  proof : pglFactsCheck () = true
 
 theorem natCard_KPGL_of_enum {D : PGLData} (hK : EnumCert kPGLGens D.elems.toList)
     (h3 : pglF3Of D = true) : Nat.card KPGL = 336 := by
@@ -26,7 +24,6 @@ theorem natCard_KPGL0_of_enum {D : PGLData} (hK0 : EnumCert kPGL0Gens D.elems0.t
   have hsize := (pglF3Of_facts h3).2
   simpa [KPGL0, Array.length_toList, hsize] using h
 
-theorem KPGL_le_O₀_sound : KPGL ≤ O₀ false := KPGL_le_O₀
 
 theorem pglFacts_core_of (hK : EnumCert kPGLGens (pglData ()).elems.toList)
     (hK0 : EnumCert kPGL0Gens (pglData ()).elems0.toList) (h : pglFactsCheck () = true) :

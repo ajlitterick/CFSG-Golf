@@ -71,18 +71,5 @@ theorem original_minimal_failure_entire_point_index_and_oddness
   exact original_central_sylow_entire_point_index_and_oddness h.local_datum
     S hzS hzcenter u huH hu huz hescape hrank
 
-theorem every_original_point_sylow_is_entire_centralizer_sylow
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (u : G) (huH : u ∈ H) (hu : orderOf u = 2) (huz : Commute u z)
-    (hescape : ¬ Subgroup.centralizer ({u} : Set G) ≤ H)
-    (hrank : 2 ≤ twoRank (localInvolutionPointHull z u)) :
-    let M := Subgroup.centralizer ({u} : Set G)
-    ∀ T1 : Sylow 2 ↥(H ⊓ M),
-      ∃ T : Sylow 2 M,
-        (T : Subgroup M).map M.subtype = (T1 : Subgroup ↥(H ⊓ M)).map (H ⊓ M).subtype := by
-  dsimp only
-  intro T1
-  exact every_relative_point_sylow_is_sylow _ _ inf_le_right
-    (original_minimal_failure_entire_point_index_and_oddness h u huH hu huz hescape hrank).2 T1
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCentralizerHull

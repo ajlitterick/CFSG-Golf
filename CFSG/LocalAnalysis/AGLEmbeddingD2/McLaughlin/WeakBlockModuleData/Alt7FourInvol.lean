@@ -44,6 +44,5 @@ theorem range_le_ker_nilMap (ρ : Representation (ZMod 2) G Q) {g : G} (hg : g ^
   rintro _ ⟨v, rfl⟩
   exact LinearMap.mem_ker.2 (nilMap_sq ρ hg v)
 
-variable [Finite Q]
 
 end CFSG.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData

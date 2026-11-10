@@ -502,18 +502,5 @@ theorem center_card (m : ℕ) (hm : 2 ≤ m) :
   rw [Nat.card_coe_set_eq, hset]
   exact Set.ncard_pair (centralHalf_ne_one m (by omega)).symm
 
-theorem automorphism_fixes_centralHalf (m : ℕ) (hm : 0 < m)
-    (beta : MulAut (QuaternionGroup m)) : beta (a (m : ZMod (2 * m))) = a (m : ZMod (2 * m)) := by
-  apply (unique_involution m hm _).mp
-  rw [beta.orderOf_eq]
-  exact (unique_involution m hm _).mpr rfl
-
-theorem center_quotient_automorphism_lifts_int (n : ℤ) (hn : 3 ≤ n)
-    (delta : MulAut (QuaternionGroup (2 ^ (n.toNat - 2)) ⧸
-      Subgroup.center (QuaternionGroup (2 ^ (n.toNat - 2))))) :
-    ∃ beta : MulAut (QuaternionGroup (2 ^ (n.toNat - 2))), ∀ q,
-      QuotientGroup.mk' (Subgroup.center (QuaternionGroup (2 ^ (n.toNat - 2)))) (beta q) =
-        delta (QuotientGroup.mk' (Subgroup.center (QuaternionGroup (2 ^ (n.toNat - 2)))) q) := by
-  exact center_quotient_automorphism_lifts n.toNat (by omega) delta
 
 end CFSG.Semidihedral.QuaternionAutomorphismLifting

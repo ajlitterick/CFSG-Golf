@@ -24,9 +24,6 @@ theorem conj_mem_conjSub {c : MulAut W} {B : Subgroup (MulAut W)} {b : MulAut W}
     c * b * c⁻¹ ∈ conjSub c B :=
   mem_conjSub.2 ⟨b, hb, rfl⟩
 
-theorem fixV_conjSub (c : MulAut W) (B : Subgroup (MulAut W)) :
-    fixV (conjSub c B) = (fixV B).map (c : W ≃* W).toMonoidHom :=
-  CFSG.Quasithin.fixV_map_conj_eq B c
 
 theorem index_fixV_conjSub (c : MulAut W) (B : Subgroup (MulAut W)) :
     (fixV (conjSub c B)).index = (fixV B).index :=

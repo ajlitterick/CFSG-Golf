@@ -25,21 +25,8 @@ set_option compiler.extract_closed false
 
 @[expose] def n3 : Nat := 15
 
-@[expose] def regs3 (_ : Unit := ()) : Array (Array V4) :=
-  slpRows (rowsOf seedA) (rowsOf seedB) n3 prog3
-
-@[expose] def ordOK (X : Array V4) (p : Nat) : Bool :=
-  eqRows (powRowsN X p) idRows && rowsDiffer X idRows
 
 @[expose] def commOK (X Y : Array V4) : Bool := eqRows (mulRows X Y) (mulRows Y X)
 
-@[expose] def th3LocalOK (_ : Unit := ()) : Bool :=
-  let R := regs3 ()
-  prog3.all (Op.lt n3) && ordOK R[11]! 3 && ordOK R[14]! 7 && ordOK R[12]! 13 &&
-    commOK R[11]! R[14]! && commOK R[11]! R[12]!
-
-@[expose] def th3ScanOK (c : Nat) : Bool :=
-  let R := regs3 ()
-  centCheckMulti R[11]! 63685439 c 0 10000
 
 end CFSG.HardMathSupport.Dickson.Sec6.Up34Th.ThThreeNative

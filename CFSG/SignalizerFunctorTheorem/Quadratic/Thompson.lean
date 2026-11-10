@@ -423,9 +423,6 @@ private theorem thm_core {q r : ℕ} {U A T : Subgroup G} (h : Reduced q r U A T
     h.elem (fun a ha => mem_normalizer_thompsonJ q (h.normU ha))
     (Nat.Coprime.coprime_dvd_right (Subgroup.card_dvd_of_le hJU) h.cop)
 
-theorem reduced_factorizable {q r : ℕ} {U A T : Subgroup G} (h : Reduced q r U A T)
-    (hnot : ¬ ThompsonFactorizable q U T) : q = 2 ∨ q = 3 :=
-  (thm_core h hnot).1
 
 theorem reduced_generation {q r : ℕ} {U A T : Subgroup G} (h : Reduced q r U A T) :
     primeCoreIn ({q}ᶜ : Set ℕ) U ⊔ (U ⊓ Subgroup.normalizer (thompsonJ q T : Set G)) ⊔

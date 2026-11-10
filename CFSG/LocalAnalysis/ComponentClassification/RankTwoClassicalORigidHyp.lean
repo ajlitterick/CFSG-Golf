@@ -91,9 +91,6 @@ variable {K : Type} [Field K] {ι : Type} [Fintype ι] [DecidableEq ι]
   zero_mem' Y _ := mulVec_zero _
   smul_mem' c a ha Y hY := by rw [mulVec_smul, ha Y hY]
 
-theorem mem_fixVec {H : Subgroup (GL ι K)} {w : ι → K} :
-    w ∈ fixVec H ↔ ∀ Y ∈ H, (Y : Matrix ι ι K) *ᵥ w = w :=
-  Iff.rfl
 
 theorem fixVec_anti {H H' : Subgroup (GL ι K)} (h : H ≤ H') : fixVec H' ≤ fixVec H :=
   fun _ hw Y hY => hw Y (h hY)
@@ -170,12 +167,6 @@ theorem coe_oInnerGL (X : GL (Fin 2 ⊕ Fin 2) K) :
     ((oInnerGL oe₂ X : GL ι₂ K) : Matrix ι₂ ι₂ K) = oblk oe₂ 1 (X : Matrix _ _ K) :=
   rfl
 
-omit [Fintype K] [DecidableEq K] [CharP K 2] in
-theorem oInnerGL_injective : Function.Injective (oInnerGL (K := K) oe₂) := by
-  intro X X' h
-  have h1 := congrArg (fun g : GL ι₂ K => (g : Matrix ι₂ ι₂ K)) h
-  simp only [coe_oInnerGL] at h1
-  exact Units.ext (oblk_injective h1).2
 
 omit [Fintype K] [DecidableEq K] [CharP K 2] in
 theorem eq_oblk_of_fix_preserve {M : Matrix ι₂ ι₂ K}

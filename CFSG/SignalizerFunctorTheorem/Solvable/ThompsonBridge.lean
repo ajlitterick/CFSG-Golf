@@ -14,18 +14,6 @@ open CFSG.SignalizerFunctor.Helpers CFSG.RankThreeEvenClassification.Helpers
 
 variable {G : Type*} [Group G] [Finite G]
 
-theorem maximumOrderAbelian_iff_mem_family (H : Subgroup G) :
-    MaximumOrderAbelian H ↔ H ∈ maximumOrderAbelianFamily G := by
-  rw [maximumOrderAbelian_iff_mem_maxOrderAbelianFamily,
-    maximum_order_abelian_family_eq_maxOrderAbelianFamily]
-
-theorem thompsonOrderSubgroup_eq_orderThompsonSubgroup :
-    thompsonOrderSubgroup G = orderThompsonSubgroup G := by
-  rw [thompsonOrderSubgroup_eq_orderThompson, order_thompson_subgroup_eq_orderThompson]
-
-theorem thompsonOrderCenter_eq_orderThompsonCenter :
-    thompsonOrderCenter G = orderThompsonCenter G := by
-  rw [thompsonOrderCenter_eq_orderZJ, order_thompson_center_eq_orderZJ]
 
 theorem thompsonCenterOf_eq_embeddedOrderThompsonCenter (T : Subgroup G) :
     thompsonCenterOf T = embeddedOrderThompsonCenter T := by

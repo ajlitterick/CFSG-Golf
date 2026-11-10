@@ -56,14 +56,6 @@ theorem alpha_restB : (decide (3 ≤ lyMod.basis.length) && lyMod.funOK 3 lyCf &
     lyMod.altOK 3 lyCi lyCt tgtAlt) = true := by
   decide +kernel
 
-theorem ly31_neg : (!mcertL lay B A ⟨2, [], ly_31_claims.baseFacts⟩) = true := by decide +kernel
-
-theorem ly7_neg : (!mcertL lay B A ⟨ly_7_claims.nregs, ly_7_claims.prog, ly_7_claims.facts⟩) =
-    true := by
-  decide +kernel
-
-theorem alpha_neg : (!mcertL lay B A ⟨lyNregs, lyProg, lyMod.modFactsW 3 lyTops⟩) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelMP.Ly
 

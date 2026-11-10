@@ -28,7 +28,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
       simp only [Prod.smul_fst, Prod.smul_snd, map_smul, pair_smul_left, smul_eq_mul]
       ring)
 
-theorem commForm_apply (w v : C × Cocode) : commForm w v = pair v.1 w.2 + pair w.1 v.2 := rfl
 
 theorem commForm_injective : Function.Injective commForm := by
   rw [← LinearMap.ker_eq_bot, LinearMap.ker_eq_bot']
@@ -268,7 +267,6 @@ theorem mem_unop_range_piVis {x : latticeO ⧸ Subgroup.zpowers negOneO} :
 theorem piVis_eq_one_iff (f : Gvis) : piVis f = 1 ↔ ∃ r : Q, rhoEquiv r = f := by
   rw [← MonoidHom.mem_ker, ker_piVis, Subgroup.mem_subgroupOf, mem_rhoQ]
 
-theorem piOp_op (f : Gvis) : piOp (MulOpposite.op f) = (piVis f).unop := rfl
 
 theorem ker_piOp : piOp.ker = (rhoQ.subgroupOf Gvis).op := by
   ext f
@@ -300,29 +298,5 @@ theorem quotEquivRangeOp_mk (p : Pvis) :
       QuotientGroup.mk p.1.2 :=
   piOp_thetaGvis p
 
-theorem visible_lattice_quotient_kernel :
-    (∀ g : GL (Fin 24) ℚ, g ∈ latticeO ↔
-      (g : Matrix (Fin 24) (Fin 24) ℚ) ∈ orthogonalGroup (Fin 24) ℚ ∧
-        (fun x => x ᵥ* (g : Matrix (Fin 24) (Fin 24) ℚ)) '' latticeQ = latticeQ) ∧
-    mat negOneO = -1 ∧
-    (∀ p q : Pvis, thetaEquiv p = thetaEquiv q →
-      (QuotientGroup.mk p.1.2 : latticeO ⧸ Subgroup.zpowers negOneO) = QuotientGroup.mk q.1.2) ∧
-    (∀ p : Pvis, piVis ⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩ =
-      MulOpposite.op (QuotientGroup.mk p.1.2)) ∧
-    (∀ p : Pvis, piOp (thetaGvis p) = QuotientGroup.mk p.1.2) ∧
-    piVis.ker = rhoQ.subgroupOf Gvis ∧
-    (∀ f : Gvis, piVis f = 1 ↔ ∃ r : Q, rhoEquiv r = f) ∧
-    piOp.ker = (rhoQ.subgroupOf Gvis).op ∧
-    (rhoQ.subgroupOf Gvis).Normal ∧
-    (∀ f : Gvis, (quotEquivRange (QuotientGroup.mk f) :
-      (latticeO ⧸ Subgroup.zpowers negOneO)ᵐᵒᵖ) = piVis f) ∧
-    (∀ p : Pvis, (quotEquivRangeOp (QuotientGroup.mk (thetaGvis p)) :
-      latticeO ⧸ Subgroup.zpowers negOneO) = QuotientGroup.mk p.1.2) ∧
-    piOp.range = piVis.range.unop ∧
-    (∀ x : latticeO ⧸ Subgroup.zpowers negOneO, x ∈ piVis.range.unop ↔
-      ∃ p : Pvis, QuotientGroup.mk p.1.2 = x) :=
-  ⟨fun _ => Iff.rfl, mat_negOneO, fun _ _ h => mk_eq_of_thetaEquiv_eq h, piVis_thetaEquiv,
-    piOp_thetaGvis, ker_piVis, piVis_eq_one_iff, ker_piOp, normal_rhoQ_subgroupOf,
-    quotEquivRange_mk, quotEquivRangeOp_mk, range_piOp, fun _ => mem_unop_range_piVis⟩
 
 end CFSG.Monster.Visible

@@ -87,9 +87,6 @@ theorem conjSub_rel_trans {A B C : Subgroup X} (h₁ : ∃ g, conjSub g A = B)
   obtain ⟨b, rfl⟩ := h₂
   exact ⟨b * a, conjSub_mul b a A⟩
 
-theorem conjSub_rel_symm {A B : Subgroup X} (h : ∃ g, conjSub g A = B) : ∃ g, conjSub g B = A := by
-  obtain ⟨a, rfl⟩ := h
-  exact ⟨a⁻¹, conjSub_inv_conjSub a A⟩
 
 end Conj
 

@@ -235,11 +235,6 @@ variable {K : Type} [Field K]
   map_one' := blkIdx_one hσ
   map_mul' g g' := blkIdx_mul hσ _ _ (h g.1 g.2 g'.1 g'.2)
 
-theorem blkSp_apply (H : Subgroup (StatedSp 2 K)) {m : ℕ} (σ : Fin m → Fin 2 ⊕ Fin 2)
-    (hσ : Function.Injective σ)
-    (h : ∀ g ∈ H, ∀ g' ∈ H, ∀ k, k ∉ Set.range σ →
-      (∀ i, spMat g (σ i) k = 0) ∨ (∀ j, spMat g' k (σ j) = 0)) (g : ↥H) :
-    blkSp H σ hσ h g = blkIdx σ (spMat g.1) := rfl
 
 theorem det_blkSp_eq_one (H : Subgroup (StatedSp 2 K)) {m : ℕ} (σ : Fin m → Fin 2 ⊕ Fin 2)
     (hσ : Function.Injective σ)

@@ -149,7 +149,6 @@ variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
 
 include e
 
-theorem finite_K : Finite K := Finite.of_equiv QP.originalSubgroup e.symm.toEquiv
 
 theorem finite_mulAut : Finite (MulAut K) := by
   obtain ⟨M, -, -⟩ := autModel e

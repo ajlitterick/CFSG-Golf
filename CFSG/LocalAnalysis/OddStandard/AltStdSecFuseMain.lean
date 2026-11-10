@@ -29,6 +29,5 @@ theorem fusionAll_of_shape_one {G : Type} [Group G] [Finite G] {L : Subgroup G} 
   fusionAll_of_shape_one_of_props hN4 hN3 farOnlyFalse rootCover (nearCover 3) farClass
     nearOnlyFalse12 h d hQ2 hE hn
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {n : ℕ} {Q : Subgroup G} {z : G}
 
 end CFSG.OddStandard.AltStdSec

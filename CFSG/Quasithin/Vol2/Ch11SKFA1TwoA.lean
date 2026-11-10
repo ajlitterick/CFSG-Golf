@@ -71,6 +71,5 @@ theorem exists_two_subgroup_normalized {R : Subgroup (Y â§¸ center Y)} (hR : R â
 
 end Lift
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.Vol2.Ch11.SecS.KF

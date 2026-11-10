@@ -244,27 +244,5 @@ theorem exists_spinAction_planeVec_eq_POmegaMinus (n : ℕ) {F : Type} [Field F]
     simpa [Q, B, w, Spin.Twisted.planeVec] using h0
   · simp [Q, B, w, Spin.Twisted.planeVec]
 
-theorem ggTorus_apply_eq_zero_POmegaMinus (n : ℕ) {F : Type} [Field F]
-    {bq cq : F}
-    (hirr : ∀ s : F, s ^ 2 + bq * s + cq ≠ 0) (hn : 4 ≤ n)
-    {h : ↥(spinGroup (Spin.quadMinus n F bq cq))}
-    (hh : h ∈ ggTorus (Spin.Twisted.minusDatum n hirr)) {i j : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2}
-    (hij : i ≠ j ∧ ¬ ((∃ a, i = Sum.inr (Sum.inr a)) ∧ ∃ a, j = Sum.inr (Sum.inr a))) :
-    (((Spin.spinMatrix (Spin.quadMinus n F bq cq)) h : GL (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2) F) :
-      Matrix (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2) (Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2) F) i j = 0 :=
-      by
-  let Q := Spin.quadMinus n F bq cq
-  have hv : ∀ (l : Fin (n - 1)) (r : Bool),
-      ∃ μ : F, ((Spin.spinAction Q) h) (Spin.Twisted.minusVec n l r) =
-        μ • Spin.Twisted.minusVec n l r :=
-    fun l r => exists_spinAction_minusVec_eq_smul_POmegaMinus (n := n) hirr hh hn l r
-  have hA : ∀ p : Fin 2 → F,
-      ∃ q : Fin 2 → F,
-        ((Spin.spinAction Q) h) (Spin.Twisted.planeVec n p) = Spin.Twisted.planeVec n q :=
-    fun p => exists_spinAction_planeVec_eq_POmegaMinus (n := n) hirr hh hn p
-  have hblock := Spin.Twisted.blockDiag_mat_of (n := n) hv hA
-  by_contra hne
-  refine hij.2 (hblock i j hij.1 ?_)
-  simpa [Q, Spin.Twisted.mat] using hne
 
 end CFSG.StandardType.ClassicalPosition

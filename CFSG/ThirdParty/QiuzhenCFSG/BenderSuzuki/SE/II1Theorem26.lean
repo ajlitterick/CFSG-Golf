@@ -904,79 +904,6 @@ private theorem ii1Theorem26_permutationCharacter_restrict_regular
         exact hk (hka.trans h1a.symm)⟩
     simp
 
-private theorem ii1Theorem26_coset_regular
-    {X : Type u} {Omega : Type v}
-    [Group X] [Finite X] [MulAction X Omega]
-    (K : Subgroup X)
-    (hreg : IsRegularOn K (Set.univ : Set Omega))
-    (alpha : Omega) :
-    let H := MulAction.stabilizer X alpha
-    IsRegularOn K (Set.univ : Set (X ⧸ H)) := by
-  dsimp only
-  intro q r _hq _hr
-  obtain ⟨k, hk, huniq⟩ :=
-    hreg
-      (alpha := MulAction.ofQuotientStabilizer X alpha q)
-      (beta := MulAction.ofQuotientStabilizer X alpha r)
-      (by trivial) (by trivial)
-  refine ⟨k, ?_, ?_⟩
-  · apply MulAction.injective_ofQuotientStabilizer X alpha
-    change MulAction.ofQuotientStabilizer X alpha ((k : X) • q) =
-      MulAction.ofQuotientStabilizer X alpha r
-    rw [MulAction.ofQuotientStabilizer_smul]
-    exact hk
-  · intro l hl
-    apply huniq l
-    calc
-      (l : X) • MulAction.ofQuotientStabilizer X alpha q =
-          MulAction.ofQuotientStabilizer X alpha ((l : X) • q) := by
-            rw [MulAction.ofQuotientStabilizer_smul]
-      _ = MulAction.ofQuotientStabilizer X alpha r := by rw [hl]
-
-private theorem ii1Theorem26_two_pretransitive_of_coset
-    {X : Type u} {Omega : Type v}
-    [Group X] [MulAction X Omega]
-    (alpha : Omega)
-    (htrans : MulAction.IsPretransitive X Omega)
-    (htwo : MulAction.IsMultiplyPretransitive X
-      (X ⧸ MulAction.stabilizer X alpha) 2) :
-    MulAction.IsMultiplyPretransitive X Omega 2 := by
-  have hsurj : Function.Surjective
-      (MulAction.ofQuotientStabilizer X alpha) := by
-    intro beta
-    letI : MulAction.IsPretransitive X Omega := htrans
-    obtain ⟨g, hg⟩ := MulAction.exists_smul_eq X alpha beta
-    exact ⟨(g : X ⧸ MulAction.stabilizer X alpha), by simpa using hg⟩
-  rw [MulAction.is_two_pretransitive_iff] at htwo ⊢
-  intro a b c d hab hcd
-  obtain ⟨qa, hqa⟩ := hsurj a
-  obtain ⟨qb, hqb⟩ := hsurj b
-  obtain ⟨qc, hqc⟩ := hsurj c
-  obtain ⟨qd, hqd⟩ := hsurj d
-  have hqab : qa ≠ qb := by
-    intro h
-    apply hab
-    exact hqa.symm.trans ((congrArg
-      (MulAction.ofQuotientStabilizer X alpha) h).trans hqb)
-  have hqcd : qc ≠ qd := by
-    intro h
-    apply hcd
-    exact hqc.symm.trans ((congrArg
-      (MulAction.ofQuotientStabilizer X alpha) h).trans hqd)
-  obtain ⟨g, hga, hgb⟩ := htwo hqab hqcd
-  refine ⟨g, ?_, ?_⟩
-  · calc
-      g • a = g • MulAction.ofQuotientStabilizer X alpha qa := by rw [hqa]
-      _ = MulAction.ofQuotientStabilizer X alpha (g • qa) := by
-        rw [MulAction.ofQuotientStabilizer_smul]
-      _ = MulAction.ofQuotientStabilizer X alpha qc := by rw [hga]
-      _ = c := hqc
-  · calc
-      g • b = g • MulAction.ofQuotientStabilizer X alpha qb := by rw [hqb]
-      _ = MulAction.ofQuotientStabilizer X alpha (g • qb) := by
-        rw [MulAction.ofQuotientStabilizer_smul]
-      _ = MulAction.ofQuotientStabilizer X alpha qd := by rw [hgb]
-      _ = d := hqd
 
 private theorem ii1Theorem26_two_pretransitive_of_permutationCharacter_self
     {G : Type u} {Q : Type v}
@@ -1551,7 +1478,6 @@ private theorem ii1Theorem26_coherent_signed_family_common
     simpa [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, mul_sub] using hzeroTau
   exact ⟨tau, epsilon, mu, htau, hepsilon, hmuIrr, htauMu, hmuInj,
     hepsilonEq, hmuDegree, hmuCommon⟩
-
 
 
 private theorem ii1Theorem26_scalarProduct_subgroupOf_transport
@@ -2170,7 +2096,6 @@ private theorem ii1Theorem26_ti_outside_sum
             (N.index : ℂ) * f 1 := by ring
     _ = 0 + (N.index : ℂ) * f 1 := by rw [← hpartition]
     _ = (N.index : ℂ) * f 1 := zero_add _
-
 
 
 private theorem ii1Theorem26_irreducible_value_isIntegral

@@ -51,24 +51,6 @@ theorem inducedPerm_mem_typeAut (g : QuadraticMap.IsometryEquiv Q Q) :
     rw [Submodule.map_le_map_iff_of_injective g.toLinearEquiv.injective,
       Submodule.map_le_map_iff_of_injective g.toLinearEquiv.injective]
 
-theorem inducedPerm_trans (g h : QuadraticMap.IsometryEquiv Q Q) :
-    inducedPerm (g.trans h) = inducedPerm h * inducedPerm g := by
-  ext x : 1
-  apply Subtype.ext
-  simp only [coe_inducedPerm, Equiv.Perm.mul_apply]
-  rw [← Submodule.map_comp]
-  rfl
-
-theorem inducedPerm_symm (g : QuadraticMap.IsometryEquiv Q Q) :
-    inducedPerm g.symm = (inducedPerm g)⁻¹ := rfl
-
-theorem inducedPerm_ptVertex (g : QuadraticMap.IsometryEquiv Q Q) {i i' : Fin 27}
-    (h : g (ptVec i) = ptVec i') : inducedPerm g (ptVertex i) = ptVertex i' := by
-  apply Subtype.ext
-  rw [coe_inducedPerm]
-  simp only [ptVertex, ptSub]
-  rw [Submodule.map_span, Set.image_singleton]
-  exact congrArg (fun v => (ZMod 2) ∙ v) h
 
 theorem inducedPerm_lnVertex (g : QuadraticMap.IsometryEquiv Q Q) {j j' : Fin 45} {p q : Fin 27}
     (hp : g (ptVec (lnA j)) = ptVec p) (hq : g (ptVec (lnB j)) = ptVec q) (hpj : PtOn p j')
@@ -110,7 +92,6 @@ theorem tailLin_one (x : X) : tailLin 1 x = x := by
     (LinearMap.ext fun x => by
       rw [LinearMap.comp_apply, ← tailLin_mul, Units.inv_mul, tailLin_one, LinearMap.id_apply])
 
-theorem tailMap_apply (A : GL (Fin 2) (ZMod 2)) (x : X) : tailMap A x = tailLin A x := rfl
 
 theorem tail_norm_invariant : ∀ a b c d t u : ZMod 2, a * d - b * c ≠ 0 →
     (a * t + b * u) ^ 2 + (a * t + b * u) * (c * t + d * u) + (c * t + d * u) ^ 2 =

@@ -19,11 +19,6 @@ namespace CFSG.TwoRankLowerBound.Helpers
       intro coefficient value
       exact smul_comm scalar coefficient value }
 
-theorem scalarActionEndomorphism_apply (ring : Type*) [CommRing ring]
-    {algebra vector : Type*} [Ring algebra] [Algebra ring algebra]
-    [AddCommGroup vector] [Module ring vector] [Module algebra vector]
-    [IsScalarTower ring algebra vector] (scalar : algebra) (value : vector) :
-    scalarActionEndomorphism ring scalar value = scalar • value := rfl
 
 theorem scalarActionEndomorphism_conjugate {ring algebra vector target : Type*}
     [CommRing ring] [Ring algebra] [Algebra ring algebra]

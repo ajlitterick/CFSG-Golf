@@ -46,11 +46,6 @@ theorem fullExtArrs_get {k j : ℕ} (hk : k ≤ 6) (hj : j < 8 + k) :
   rw [show k + (6 - k) = 6 by omega] at this
   exact this.symm
 
-theorem fullExt_get {k j : ℕ} (hk : k ≤ 6) (hj : j < 8 + k) :
-    (fullExtList k).getD j 1 = fullExt j := by
-  have := fullExtList_prefix k (6 - k) hj
-  rw [show k + (6 - k) = 6 by omega] at this
-  exact this.symm
 
 theorem localDerivs_letters {k : ℕ} (hk : k < 6) :
     lettersOK (8 + k) (localDerivs.getD (8 + k) []) = true := by
@@ -136,14 +131,6 @@ theorem fullExt_mem (j : ℕ) : fullExt j ∈ suzH0 := by
   | none => exact suzH0.one_mem
   | some a => exact fullExtList_mem 6 a (List.mem_of_getElem? hh)
 
-@[expose] def fullExtH0 (j : ℕ) : suzH0 := ⟨fullExt j, fullExt_mem j⟩
-
-theorem suzRho_fullExt
-    {j : ℕ} (hj : j < 14) (hj' : j < localChain.strongCount) :
-    suzRho (fullExtH0 j) = localChain.strong.get ⟨j, hj'⟩ := by
-  have h2 := (tabRep_suzRho (fullExtH0 j) (rep_fullExt hj)).2
-  rw [(localChecks_facts.2.2.2.1 j hj).2] at h2
-  exact Rep.unique (n := 280) h2 (localChain_arrays.strong ⟨j, hj'⟩)
 
 theorem tFullOf_size : (tFullOf fullExtArrs).size = 5 := by
   rw [tFullOf, Array.size_ofFn]
@@ -206,9 +193,6 @@ theorem suzZ_mem_suzS3 : suzZ ∈ suzS3 := Subgroup.subset_closure (Set.mem_inse
 theorem suzSylowT_mem_suzS3 {i : ℕ} (hi : i < 5) : suzSylowT i ∈ suzS3 :=
   Subgroup.subset_closure (Set.mem_insert_of_mem _ ⟨i, hi, rfl⟩)
 
-theorem suzQ_le_suzS3 : suzQ ≤ suzS3 := by
-  rw [suzQ, Subgroup.zpowers_le]
-  exact suzZ_mem_suzS3
 
 @[expose] def sylowTBar :
 

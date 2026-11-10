@@ -14,19 +14,6 @@ open CFSG.RankThree.PartTwo.Late
 open CFSG.Assembly.RankThreeEven (projSL)
 open scoped Pointwise
 
-@[expose] def Gap182ii : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M : Subgroup G), Sec18Std G A M →
-    ∀ H ∈ scriptH A M, ∀ X : Subgroup G, H ≤ X → X ≠ ⊤ → ∀ K J : Subgroup G,
-      K ∈ oTwoComponentsIn X → J ∈ oTwoComponentsIn X → ¬ K ≤ M →
-      Nonempty (inSubgroup perfectResidual H ⧸
-        CFSG.pCore 2 (inSubgroup perfectResidual H) ≃* projSL 3 (GaloisField 2 2)) →
-      ⁅inSubgroup perfectResidual H, X⁆ = K ⊔ J →
-      Nonempty (K ⧸ CFSG.pCore 2 K ≃* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)) →
-      ((∃ n : ℕ, 1 ≤ n ∧ Nonempty (J ⧸ CFSG.pCore 2 J ≃*
-          Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 (2 * n)))) ∨
-        Sec4.IsExtOf (J ⧸ CFSG.pCore 2 J) CFSG.Blueprint.NativeSporadic.M22
-          (Multiplicative (ZMod 3))) →
-      K ⊔ A ⊔ CFSG.Open.pCoreOf 2 (H ⊓ M) ∈ scriptH A M ∧ J ∈ thetaComponentsIn X
 
 variable {G : Type} [Group G] [Finite G]
 
@@ -217,69 +204,5 @@ theorem mem_scriptH_of_eq_sup {A M H X K : Subgroup G} (h : Sec18Std G A M)
         ((CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 H₁).to_le inf_le_left)
     exact (le_inf h1 hTH).trans h2
 
-theorem rank3II_18_2_of (h444 : Sec4.Item4_44_3) (hgap : Gap182ii) : Item182 := by
-  intro G _ _ A M h H hH X hHX hX
-  have hH₀ := (mem_scriptH_iff_mem_scriptH₀.mp hH).1
-  have hAH := le_of_mem_scriptH₀ hH₀
-  have hAX : A ≤ X := hAH.trans hHX
-  have hXM : X ⊓ M ≠ X := by
-    intro heq
-    apply inf_ne_of_mem_scriptH₀ hH₀
-    exact inf_eq_left.mpr (hHX.trans (inf_eq_left.mp heq))
-  have hctx := ctx444_subgroupOf h hAX hX hXM
-  obtain ⟨K', hK', hK'M, hcase⟩ :=
-    h444 X _ _ hctx (H.subgroupOf X) (subgroupOf_mem_scriptH₀ hAX hHX hH)
-  set K := K'.map X.subtype with hKdef
-  have hK : K ∈ oTwoComponentsIn X := ⟨K', hK', rfl⟩
-  have hKM : ¬ K ≤ M := by
-    intro hle
-    apply hK'M
-    intro x hx
-    exact Subgroup.mem_subgroupOf.mpr ⟨x.2, hle (Subgroup.mem_map_of_mem X.subtype hx)⟩
-  have hres : (inSubgroup perfectResidual (H.subgroupOf X)).map X.subtype =
-      inSubgroup perfectResidual H := by
-    rw [← inSubgroup_perfectResidual_map X.subtype X.subtype_injective,
-      Subgroup.map_subgroupOf_eq_of_le hHX]
-  have hO2 : (inSubgroup (CFSG.pCore 2) K').map X.subtype = CFSG.Open.pCoreOf 2 K := by
-    rw [inSubgroup_pCore_eq_pCoreOf, ← pCoreOf_map X.subtype X.subtype_injective]
-  rcases hcase with hi | ⟨hL34, J', hJ', hLX, hK34, hJ⟩
-  ·
-    have hKL : K = inSubgroup perfectResidual H ⊔ CFSG.Open.pCoreOf 2 K := by
-      conv_lhs => rw [hKdef, hi]
-      rw [Subgroup.map_sup, hres, hO2]
-    exact ⟨K, hK, hKM, mem_scriptH_of_eq_sup h hH hHX hX hK hKL, Or.inl hKL⟩
-  ·
-    set J := J'.map X.subtype with hJdef
-    have hJm : J ∈ oTwoComponentsIn X := ⟨J', hJ', rfl⟩
-    have hiso : ∀ (Y : Type) [Group Y], ∀ W : Subgroup X,
-        Nonempty (W ⧸ CFSG.pCore 2 W ≃* Y) →
-          Nonempty ((W.map X.subtype : Subgroup G) ⧸ CFSG.pCore 2 (W.map X.subtype) ≃* Y) := by
-      intro Y _ W ⟨φ⟩
-      set e : W ≃* (W.map X.subtype : Subgroup G) := W.equivMapOfInjective _ X.subtype_injective
-      exact ⟨(QuotientGroup.congr _ _ e (CFSG.pCore_map_iso 2 e)).symm.trans φ⟩
-    have hL34' : Nonempty (inSubgroup perfectResidual H ⧸
-        CFSG.pCore 2 (inSubgroup perfectResidual H) ≃* projSL 3 (GaloisField 2 2)) := by
-      have := hiso _ _ hL34
-      rwa [hres] at this
-    have hK34' := hiso _ K' hK34
-    have hLX' : ⁅inSubgroup perfectResidual H, X⁆ = K ⊔ J := by
-      have h1 := congrArg (Subgroup.map X.subtype) hLX
-      rwa [Subgroup.map_commutator, hres, ← MonoidHom.range_eq_map, Subgroup.range_subtype,
-        Subgroup.map_sup] at h1
-    have hJ'' : (∃ n : ℕ, 1 ≤ n ∧ Nonempty (J ⧸ CFSG.pCore 2 J ≃*
-          Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 (2 * n)))) ∨
-        Sec4.IsExtOf (J ⧸ CFSG.pCore 2 J) CFSG.Blueprint.NativeSporadic.M22
-          (Multiplicative (ZMod 3)) := by
-      rcases hJ with ⟨n, hn, hJn⟩ | ⟨N, hN, hNiso, hq⟩
-      · exact Or.inl ⟨n, hn, hiso _ J' hJn⟩
-      · right
-        set e : J' ≃* J := J'.equivMapOfInjective _ X.subtype_injective
-        set φ := QuotientGroup.congr _ _ e (CFSG.pCore_map_iso 2 e)
-        have hN' : (N.map φ.toMonoidHom).Normal := hN.map _ φ.surjective
-        exact ⟨N.map φ.toMonoidHom, hN',
-          ⟨(N.equivMapOfInjective _ φ.injective).symm.trans hNiso.some⟩,
-          ⟨(QuotientGroup.congr N (N.map φ.toMonoidHom) φ rfl).symm.trans hq.some⟩⟩
-    obtain ⟨hmem, hJL⟩ := hgap G A M h H hH X hHX hX K J hK hJm hKM hL34' hLX' hK34' hJ''
-    exact ⟨K, hK, hKM, hmem, Or.inr ⟨hL34', J, hJL, hLX', hK34', hJ''⟩⟩
 
 end CFSG.RankThree.PartTwo.Sec18

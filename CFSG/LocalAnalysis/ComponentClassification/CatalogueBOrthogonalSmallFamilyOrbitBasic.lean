@@ -18,10 +18,6 @@ variable {G : Type u} [Group G]
 @[expose] def familyStabilizer (H : Subgroup G) : Subgroup (MulAut G) :=
   MulAction.stabilizer (MulAut G) (conjugacyFamily H)
 
-theorem mem_familyStabilizer_iff (H : Subgroup G) (alpha : MulAut G) :
-    alpha ∈ familyStabilizer H ↔
-      (fun U : Subgroup G => U.map alpha.toMonoidHom) '' conjugacyFamily H =
-        conjugacyFamily H := Iff.rfl
 
 theorem subgroup_conj_covariance (H : Subgroup G) (alpha : MulAut G) (g : G) :
     (H.map (MulAut.conj g).toMonoidHom).map alpha.toMonoidHom =
@@ -103,9 +99,6 @@ theorem orbitKernel_le_familyStabilizer (H : Subgroup G) :
   intro alpha halpha
   exact (mem_orbitKernel_iff H alpha).mp halpha (familyOrbitBase H)
 
-theorem inner_le_familyStabilizer (H : Subgroup G) :
-    OuterAutomorphisms.inner G ≤ familyStabilizer H :=
-  (inner_le_orbitKernel H).trans (orbitKernel_le_familyStabilizer H)
 
 @[expose] noncomputable def familyInner (H : Subgroup G) : Subgroup (familyStabilizer H) :=
   (OuterAutomorphisms.inner G).subgroupOf (familyStabilizer H)

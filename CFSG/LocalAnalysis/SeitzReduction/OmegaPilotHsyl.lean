@@ -96,111 +96,6 @@ theorem eq_one_of_two_pow_fix_pairTorusOf (hQ : (polarBilin Q).Nondegenerate)
   exact orderOf_eq_one_iff.mp (Nat.eq_one_of_dvd_coprimes hcop (orderOf_dvd_of_pow_eq_one hβ)
     (orderOf_dvd_of_pow_eq_one h1))
 
-theorem centralizer_pairPerpOf (hQ : (polarBilin Q).Nondegenerate)
-    (h : IsHypCoord Q a b) (h₂ : IsHypCoord Q a₂ b₂) (h₃ : IsHypCoord Q a₃ b₃)
-    (d₂ : PairDisjoint a b a₂ b₂) (d₃ : PairDisjoint a b a₃ b₃) (d₂₃ : PairDisjoint a₂ b₂ a₃ b₃) :
-    centralizer (pairPerpOf Q a b : Set (matrixProjectiveDerived Q)) = pairTorusOf Q a b := by
-  refine le_antisymm (fun z hz => ?_) h.pairTorusOf_le_centralizer_pairPerpOf
-  have hT := exists_threeSingular_of_isHypCoord h h₂ h₃ d₂ d₃ d₂₃
-  have hQ' := h.exists_ne_zero
-  obtain ⟨g, rfl⟩ := projHom_surjective Q z
-  set G := (g : (Fin d → K) ≃ₗ[K] (Fin d → K)) with hG
-  have hgO : G ∈ TauCeti.QuadraticMap.orthogonalGroup Q := Subgroup.commutator_le_self _ g.2
-  have hu₂ : (Pi.single a₂ 1 : Fin d → K) ∈ perpSub K a b ∧
-      (Pi.single b₂ 1 : Fin d → K) ∈ perpSub K a b := h₂.hypPair_mem_perpSub d₂
-  have hcomm : ∀ u ∈ perpSub K a b, ∀ w ∈ perpSub K a b, ∀ x,
-      G (eichler Q u w x) = eichler Q u w (G x) := by
-    intro u hu w hw x
-    have h1 := mem_centralizer_iff.mp hz _
-      ⟨⟨eichler Q u w, eichler_mem_orthDerived hQ hT u w⟩, h.eichler_mem_stabSub hu hw, rfl⟩
-    rw [← map_mul, ← map_mul] at h1
-    have h2 := congrArg (fun A : orthDerived Q => (A : (Fin d → K) ≃ₗ[K] (Fin d → K)) x)
-      (projHom_injective hQ' h1)
-    exact h2.symm
-  obtain ⟨-, ⟨γ, -, hgγ⟩, hea, heb⟩ := eq_smul_on_perpSub_of_commute (φ := G.toAddEquiv)
-    (σ := RingEquiv.refl K) (μ := 1) hQ h h₂ h₃ d₂ d₃ d₂₃ one_ne_zero (fun c x => by simp)
-    (fun x => by simp [map_of_mem hgO]) (fun w hw _ x => hcomm _ hu₂.1 w hw x)
-    (fun w hw _ x => hcomm _ hu₂.2 w hw x)
-  have hgγ' : ∀ x ∈ perpSub K a b, G x = γ • x := hgγ
-  have hea' : G (Pi.single a 1) = G (Pi.single a 1) a • Pi.single a 1 +
-      G (Pi.single a 1) b • Pi.single b 1 := hea
-  have heb' : G (Pi.single b 1) = G (Pi.single b 1) a • Pi.single a 1 +
-      G (Pi.single b 1) b • Pi.single b 1 := heb
-  have hγ : γ = 1 := by
-    apply eq_one_of_mul_self_eq_one
-    have h1 := map_of_mem hgO (Pi.single a₂ 1 + Pi.single b₂ 1)
-    rw [hgγ' _ ((perpSub K a b).add_mem hu₂.1 hu₂.2), map_smul_eq_sq, h₂.map_single_add] at h1
-    linear_combination h1
-  have hGU : ∀ x ∈ perpSub K a b, G x = x := fun x hx => by rw [hgγ' x hx, hγ, one_smul]
-  set s := G (Pi.single a 1) a with hs
-  set t := G (Pi.single a 1) b with ht
-  set s'' := G (Pi.single b 1) a with hs''
-  set s' := G (Pi.single b 1) b with hs'
-  have hQW : ∀ x y : K, Q (x • Pi.single a 1 + y • Pi.single b 1) = x * y := by
-    intro x y
-    have := h.map_add_smul x y (p := 0) rfl rfl
-    simpa using this
-  have hpolW : ∀ x y x' y' : K, polar Q (x • Pi.single a 1 + y • Pi.single b 1)
-      (x' • Pi.single a 1 + y' • Pi.single b 1) = x * y' + y * x' := by
-    intro x y x' y'
-    rw [polar_add_left, polar_smul_left, polar_smul_left, h.polar_left, h.polar_right]
-    simp [h.ne, h.ne.symm]
-  have hst : s * t = 0 := by
-    have h1 := map_of_mem hgO (Pi.single a 1)
-    rw [hea', hQW, h.map_left] at h1
-    exact h1
-  have hs's'' : s'' * s' = 0 := by
-    have h1 := map_of_mem hgO (Pi.single b 1)
-    rw [heb', hQW, h.map_right] at h1
-    exact h1
-  have hB : s * s' + t * s'' = 1 := by
-    have h1 := polar_map_of_mem hgO (Pi.single a 1) (Pi.single b 1)
-    rw [hea', heb', hpolW, h.polar_left, Pi.single_eq_same] at h1
-    exact h1
-  by_cases ht0 : t = 0
-  ·
-    have hss' : s * s' = 1 := by rw [ht0, zero_mul, add_zero] at hB; exact hB
-    have hs0 : s ≠ 0 := left_ne_zero_of_mul_eq_one hss'
-    have hs'0 : s' ≠ 0 := right_ne_zero_of_mul_eq_one hss'
-    have hs''0 : s'' = 0 := (mul_eq_zero.mp hs's'').resolve_right hs'0
-    refine ⟨g, ⟨Units.mk0 s hs0, ?_⟩, rfl⟩
-    change torusLin a b (Units.mk0 s hs0) = G
-    refine h.linearEquiv_ext ?_ ?_ fun x hx => ?_
-    · rw [torusLin_single_left h.ne, hea', ht0, zero_smul, add_zero, Units.val_mk0]
-    · rw [torusLin_single_right h.ne, heb', hs''0, zero_smul, zero_add, Units.val_inv_eq_inv_val,
-        Units.val_mk0, eq_inv_of_mul_eq_one_right hss']
-    · rw [torusLin_eq_self_of hx.1 hx.2, hGU x hx]
-  ·
-    exfalso
-    have hs0 : s = 0 := (mul_eq_zero.mp hst).resolve_right ht0
-    have hts'' : t * s'' = 1 := by rw [hs0, zero_mul, zero_add] at hB; exact hB
-    have hs''0 : s'' ≠ 0 := right_ne_zero_of_mul_eq_one hts''
-    have hs'0 : s' = 0 := (mul_eq_zero.mp hs's'').resolve_left hs''0
-    set v₀ : Fin d → K := Pi.single a 1 - t • Pi.single b 1 with hv₀
-    have hv₀0 : v₀ ≠ 0 := by
-      intro h0
-      have := congrFun h0 a
-      simp [hv₀, h.ne] at this
-    have hcs : commSpace G = K ∙ v₀ := by
-      apply le_antisymm
-      · rintro _ ⟨x, rfl⟩
-        rw [Submodule.mem_span_singleton]
-        refine ⟨x b * s'' - x a, ?_⟩
-        change _ = G x - x
-        have hp := perpPart_mem h.ne x
-        conv_rhs => rw [eq_add_perpPart a b x]
-        rw [map_add, map_add, map_smul, map_smul, hea', heb', hGU _ hp, hs0, hs'0, hv₀,
-          eq_inv_of_mul_eq_one_right hts'']
-        have ht' : t ≠ 0 := ht0
-        match_scalars <;> field_simp <;> ring
-      · rw [Submodule.span_le, Set.singleton_subset_iff]
-        refine mem_commSpace.mpr ⟨-Pi.single a 1, ?_⟩
-        rw [map_neg, hea', hs0, zero_smul, zero_add, hv₀]
-        abel
-    have hev := (mem_omegaGroup.mp
-      (CFSG.RankThree.PartOne.FieldFix.orthDerived_le_omegaGroup hQ g.2)).2
-    rw [hcs, finrank_span_singleton hv₀0] at hev
-    exact Nat.not_even_one hev
 
 end General
 
@@ -212,25 +107,6 @@ open CFSG.ComponentClassification.CatalogueBOrthogonalPointData
 
 variable {K : Type} [Field K] [Finite K] [CharP K 2]
 
-theorem centralizer_pairPerp {n : ℕ} (hn : 3 ≤ n) (k : Fin n) :
-    centralizer (pairPerp (K := K) k : Set (matrixProjectiveDerived (coordinateQuadPlus n K))) =
-      pairTorus k := by
-  obtain ⟨i, j, hik, hjk, hij⟩ := exists_two_ne hn k
-  exact centralizer_pairPerpOf (regular_coordinateQuadPlus n K hn).1
-    (isHypCoord_coordinateQuadPlus k) (isHypCoord_coordinateQuadPlus i)
-    (isHypCoord_coordinateQuadPlus j) (pairDisjoint_plus hik.symm) (pairDisjoint_plus hjk.symm)
-    (pairDisjoint_plus hij)
-
-theorem centralizer_minusPairPerp {n : ℕ} (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1)) :
-    centralizer (minusPairPerp (K := K) (by omega : 1 ≤ n) b c k :
-      Set (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))) =
-      minusPairTorus (by omega) b c k := by
-  obtain ⟨i, j, hik, hjk, hij⟩ := exists_two_ne (by omega : 3 ≤ n - 1) k
-  exact centralizer_pairPerpOf (regular_coordinateQuadMinus n K b c hn hirr).1
-    (isHypCoord_coordinateQuadMinus _ b c k) (isHypCoord_coordinateQuadMinus _ b c i)
-    (isHypCoord_coordinateQuadMinus _ b c j) (pairDisjoint_minus _ hik.symm)
-    (pairDisjoint_minus _ hjk.symm) (pairDisjoint_minus _ hij)
 
 theorem exists_mem_pairTorus_eq_conj (hq : 4 ≤ Nat.card K) {n : ℕ} (hn : 5 ≤ n) (k : Fin n)
     {β : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))}
@@ -388,28 +264,6 @@ open CFSG.ComponentClassification.CatalogueBOrthogonalPointData
 
 variable {G : Type} [Group G] {L : Subgroup G} {K : Type} [Field K] [Finite K] [CharP K 2]
 
-theorem eq_one_of_fix_map_pairTorus (hq : 4 ≤ Nat.card K) {n : ℕ} (hn : 5 ≤ n) (k : Fin n)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {X D : Subgroup G}
-    (hXe : X = ((pairTorus (K := K) k).map e.symm.toMonoidHom).map L.subtype)
-    (hDe : D = ((pairPerp (K := K) k).map e.symm.toMonoidHom).map L.subtype) :
-    ∀ β : MulAut L, (∀ a : L, (a : G) ∈ X → β a = a) → (∀ a : L, (a : G) ∈ D → β a = a) →
-      ∀ m : ℕ, β ^ 2 ^ m = 1 → β = 1 := by
-  subst hXe hDe
-  exact eq_one_of_fix_map_of_mulEquiv e fun β hX hD m hβ =>
-    eq_one_of_two_pow_fix_pairTorus hq hn k hβ hX hD
-
-theorem card_le_two_of_pairTorus [Finite G] {t : G}
-    (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (ht : orderOf t = 2)
-    (hq : 4 ≤ Nat.card K) {n : ℕ} (hn : 5 ≤ n) (k : Fin n)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {X D : Subgroup G}
-    (hXe : X = ((pairTorus (K := K) k).map e.symm.toMonoidHom).map L.subtype)
-    (hDe : D = ((pairPerp (K := K) k).map e.symm.toMonoidHom).map L.subtype)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ⊓ centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hK ht
-    (eq_one_of_fix_map_pairTorus hq hn k e hXe hDe) hU hUC
 
 theorem mem_of_odd_of_commute_pairTorus {t : G} (htC : t ∈ centralizer (L : Set G))
     (ht : orderOf t = 2) (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
@@ -425,36 +279,6 @@ theorem mem_of_odd_of_commute_pairTorus {t : G} (htC : t ∈ centralizer (L : Se
   exact mem_of_odd_of_commute_of_mulEquiv e (odd_card_pairTorus hKf k)
     (fun β hX hD => exists_mem_pairTorus_eq_conj hq hn k hX hD) htC ht hCtN hK
 
-theorem eq_one_of_fix_map_minusPairTorus (hq : 4 ≤ Nat.card K) {n : ℕ} (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1))
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (one_le_of_four_le hn) b c))
-    {X D : Subgroup G}
-    (hXe : X = ((minusPairTorus (K := K) (one_le_of_four_le hn) b c k).map
-      e.symm.toMonoidHom).map L.subtype)
-    (hDe : D = ((minusPairPerp (K := K) (one_le_of_four_le hn) b c k).map
-      e.symm.toMonoidHom).map L.subtype) :
-    ∀ β : MulAut L, (∀ a : L, (a : G) ∈ X → β a = a) → (∀ a : L, (a : G) ∈ D → β a = a) →
-      ∀ m : ℕ, β ^ 2 ^ m = 1 → β = 1 := by
-  subst hXe hDe
-  exact eq_one_of_fix_map_of_mulEquiv e fun β hX hD m hβ =>
-    eq_one_of_two_pow_fix_minusPairTorus hq hn hirr k hβ hX hD
-
-theorem card_le_two_of_minusPairTorus [Finite G] {t : G}
-    (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (ht : orderOf t = 2)
-    (hq : 4 ≤ Nat.card K) {n : ℕ} (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1))
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (one_le_of_four_le hn) b c))
-    {X D : Subgroup G}
-    (hXe : X = ((minusPairTorus (K := K) (one_le_of_four_le hn) b c k).map
-      e.symm.toMonoidHom).map L.subtype)
-    (hDe : D = ((minusPairPerp (K := K) (one_le_of_four_le hn) b c k).map
-      e.symm.toMonoidHom).map L.subtype)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ⊓ centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hK ht
-    (eq_one_of_fix_map_minusPairTorus hq hn hirr k e hXe hDe) hU hUC
 
 theorem mem_of_odd_of_commute_minusPairTorus {t : G} (htC : t ∈ centralizer (L : Set G))
     (ht : orderOf t = 2) (hCtN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))

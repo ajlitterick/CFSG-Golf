@@ -82,13 +82,6 @@ theorem mem_of_zpow_mem {p : ℕ} (hp : p.Prime) {b : X} (hb : b ^ p = 1) {H : S
   rw [this]
   exact H.zpow_mem h t
 
-theorem lbp_add {p : ℕ} [NeZero p] {b : X} (hb : b ^ p = 1) (k k' : ZMod p) :
-    lbp p b (k + k') = lbp p b k * lbp p b k' := by
-  have h1 : k + k' = ((k.val + k'.val : ℕ) : ZMod p) := by
-    push_cast
-    rw [ZMod.natCast_zmod_val, ZMod.natCast_zmod_val]
-  rw [h1, lbp_natCast p b hb, pow_add]
-  rfl
 
 theorem gLBConj_lbp_ne {p : ℕ} [NeZero p] (hp : p.Prime) {b : X} (hb : b ^ p = 1)
     {L : Subgroup X} (hbn : b ∉ Subgroup.normalizer (L : Set X)) {i j : ZMod p} (hij : i ≠ j) :

@@ -100,41 +100,6 @@ end Defs
       GGL44i p Bs x X → GGL44ii Bs x X B₂ →
       ∃ (d y : G) (K : Subgroup G), GGL44iii p B Bs x D J X d y K
 
-@[expose] def GGL45Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U : Subgroup G),
-    GGFieldCase p B Bs x L D J X → GGTableBModule p Bs x L B₂ → GGL43 Bs x X →
-      GGL44i p Bs x X → GGL44ii Bs x X B₂ →
-      GGL44iii p B Bs x D J X d y K → GGL45Setup p Bs X U →
-      U ≤ Subgroup.normalizer (K : Set G) →
-      ∃ U₁ : Subgroup G, GGInnerDiagPart U K U₁ ∧
-        Subgroup.normalizer (U : Set G) ⊓
-            Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G) ≤
-          Subgroup.normalizer (U₁ : Set G)
-
-@[expose] def GGL46Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁
-
-@[expose] def GGL47Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R →
-        R ≤ Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G) →
-        (∀ Q : Subgroup G,
-          Q ≤ Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G) →
-          IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → ∀ A ∈ thompsonAbelianSubgroups R, ⁅⁅U₁, A⁆, A⁆ = ⊥ → A ≤ U
-
-@[expose] def GGL48Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        x ∉ ⁅Subgroup.normalizer (U₁ : Set G), Subgroup.normalizer (U₁ : Set G)⁆
 
 end CFSG.StandardType
 

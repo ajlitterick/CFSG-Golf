@@ -84,10 +84,6 @@ theorem slFixedNodeE_mem {a : Fin (Tag.rank .E6)} (ha : rhoPerm a = a)
     Matrix.SpecialLinearGroup (Fin 2) (fixedSubfield θ) →* fixedGroup k θ :=
   (slFixedNodeE θ a).codRestrict _ (slFixedNodeE_mem θ ha)
 
-theorem slFixedNodeHom_val {a : Fin (Tag.rank .E6)} (ha : rhoPerm a = a)
-    (M : Matrix.SpecialLinearGroup (Fin 2) (fixedSubfield θ)) :
-    (slFixedNodeHom θ ha M : e6Data_valid.minGroup k) = slFixedNodeE θ a M :=
-  rfl
 
 theorem slFixedNodeHom_injective {a : Fin (Tag.rank .E6)} (ha : rhoPerm a = a) :
     Function.Injective (slFixedNodeHom θ ha) := by

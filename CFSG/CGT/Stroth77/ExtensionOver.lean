@@ -12,10 +12,6 @@ variable {S : Type*} [Group S] {B C : Subgroup S} {τ τ' : StrothTypeIndex}
     (τ' : StrothTypeIndex) : Prop :=
   ∃ D' : StrothTypeData C τ', D'.uv = D.uv ∧ D'.t = D.t ∧ D'.u = D.u ∧ D'.ρ = D.ρ
 
-theorem HasStrothTypeOver.hasStrothType {D : StrothTypeData B τ}
-    (h : HasStrothTypeOver D C τ') : HasStrothType C τ' := by
-  obtain ⟨D', -⟩ := h
-  exact ⟨D'⟩
 
 theorem HasStrothTypeOver.of_gen_eq {B₁ B₂ : Subgroup S} {τ₁ τ₂ : StrothTypeIndex}
     {D₁ : StrothTypeData B₁ τ₁} {D₂ : StrothTypeData B₂ τ₂} (huv : D₁.uv = D₂.uv)

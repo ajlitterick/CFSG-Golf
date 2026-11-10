@@ -350,7 +350,6 @@ theorem exists_central_of_card_eq_81 [Finite Q] {β : Q} (hβ : β ^ 3 = 1) (hβ
     ((show Subgroup.zpowers x ≤ A from le_sup_left) (Subgroup.zpow_mem _ (Subgroup.mem_zpowers x) k))
 
 
-
 theorem no_abelian_index_three [Finite Q] {β : Q} (hβ3 : β ^ 3 = 1) (hβ1 : β ≠ 1)
     (hcard : Nat.card Q = 243)
     (hc : ∀ x y : Q, ⁅x, y⁆ ∈ Subgroup.zpowers β) (hcen : ∀ g : Q, g * β = β * g)
@@ -1265,9 +1264,6 @@ theorem mem_centralizerQuot_iff_barAut_aux (p : ℕ) {J : Subgroup G}
       have h2 : J.subtype _ ∈ GLAPPrimeCoreOf p J := Subgroup.mem_map_of_mem J.subtype h1
       simpa [mul_assoc, hs] using h2
 
-theorem oPrime_le {L : Subgroup G} : GLAPPrimeCoreOf 3 L ≤ L := by
-  rintro _ ⟨y, -, rfl⟩
-  exact y.2
 
 theorem normalizer_le_normalizer_oPrime {L : Subgroup G} {g : G}
     (hg : g ∈ Subgroup.normalizer (L : Set G)) :

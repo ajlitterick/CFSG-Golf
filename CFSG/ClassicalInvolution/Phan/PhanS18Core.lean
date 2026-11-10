@@ -14,9 +14,6 @@ variable {K K' : Type} [Field K] [Field K']
   ∀ B D : FFPt M, (ffGraph M).Adj A B → (ffGraph M).Adj C B → (ffGraph M).Adj A D →
     (ffGraph M).Adj C D → Relation.ReflTransGen (MuAdj M A C) B D
 
-theorem muConnected_iff_at (M : Model K) :
-    MuConnected M ↔ ∀ A C : FFPt M, bf M A.1.rep C.1.rep ≠ 0 → MuConnectedAt M A C :=
-  Iff.rfl
 
 theorem ffPt_eq_iff {M : Model K} (A B : FFPt M) :
     A = B ↔ ∃ c : K, c ≠ 0 ∧ A.1.rep = c • B.1.rep := by
@@ -114,24 +111,6 @@ theorem symm_ptMap_ptMap (A : FFPt M) : S.symm.ptMap (S.ptMap A) = A := by
     simp
   rw [this, smul_smul, inv_mul_cancel₀ (by simpa using hc), one_smul]
 
-theorem ptMap_symm_ptMap (B : FFPt M') : S.ptMap (S.symm.ptMap B) = B := by
-  obtain ⟨c, hc, hB⟩ := S.symm.ptMap_rep B
-  refine S.ptMap_eq_of_rep (d := (S.φ c)⁻¹) (inv_ne_zero (by simpa using hc)) ?_
-  have : S.T (S.symm.ptMap B).1.rep = S.φ c • B.1.rep := by
-    rw [hB, S.smul]
-    change S.φ c • S.T (S.T.symm B.1.rep) = _
-    simp
-  rw [this, smul_smul, inv_mul_cancel₀ (by simpa using hc), one_smul]
-
-noncomputable def ptEquiv : FFPt M ≃ FFPt M' where
-  toFun := S.ptMap
-  invFun := S.symm.ptMap
-  left_inv := S.symm_ptMap_ptMap
-  right_inv := S.ptMap_symm_ptMap
-
-noncomputable def graphIso : ffGraph M ≃g ffGraph M' where
-  toEquiv := S.ptEquiv
-  map_rel_iff' := fun {A B} => S.adj_ptMap A B
 
 theorem bf_ptMap_ne_iff (A C : FFPt M) :
     bf M' (S.ptMap A).1.rep (S.ptMap C).1.rep ≠ 0 ↔ bf M A.1.rep C.1.rep ≠ 0 := by

@@ -64,20 +64,6 @@ theorem co3M1_preserves :
   (MulAut.conj co3C12).toMonoidHom.comp ((finCongr co3It_length).permCongrHom.toMonoidHom.comp
     (restrictHom co3It co3M1 co3M1_preserves co3It_nodup))
 
-@[expose] def co3ItLab (k : Fin 12) : Fin 276 :=
-  co3It.get ((finCongr co3It_length).symm (co3C12⁻¹ k))
-
-theorem co3_permCongrHom_apply {α β : Type*} (e : α ≃ β) (σ : Equiv.Perm α) (y : β) :
-    e.permCongrHom σ y = e (σ (e.symm y)) := rfl
-
-theorem co3ItLab_kappa1
-    (m : co3M1) (k : Fin 12) :
-    co3ItLab (co3Kappa1 m k) = (m : Equiv.Perm (Fin 276)) (co3ItLab k) := by
-  unfold co3ItLab co3Kappa1
-  simp only [MonoidHom.coe_comp, Function.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply,
-    Equiv.Perm.mul_apply]
-  rw [Equiv.Perm.coe_inv, Equiv.symm_apply_apply, co3_permCongrHom_apply, Equiv.symm_apply_apply,
-    get_restrictHom]
 
 theorem co3C12_inv :
     isInvA 12 co3C12Arr (invCand 12 co3C12Arr) = true :=
@@ -362,9 +348,6 @@ theorem co3Kappa1L_range :
     co3L ≃* NativeSporadic.M12 :=
   (MonoidHom.ofInjective co3Kappa1L_injective).trans (MulEquiv.subgroupCongr co3Kappa1L_range)
 
-theorem co3LEquivM12_apply
-    (l : co3L) :
-    (co3LEquivM12 l : Equiv.Perm (Fin 12)) = co3Kappa1 (Subgroup.inclusion co3L_le_M1 l) := rfl
 
 theorem m12_not_comm : m12a * m12b ≠ m12b * m12a := by
   intro h
@@ -502,17 +485,5 @@ theorem co3M1_outer_solvable :
   CFSG.ComponentClassification.CatalogueSchreierCyclicCentralFactor.internal_outer_solvable
     co3L1 co3Z1 co3Z1_le_center co3L1_center co3L1_sup_Z1
 
-theorem AT_Co3_second_centralizer_Schreier :
-    (∀ (m : co3M1) (k : Fin 12),
-      co3ItLab (co3Kappa1 m k) = (m : Equiv.Perm (Fin 276)) (co3ItLab k)) ∧
-    co3Kappa1.range = NativeSporadic.M12 ∧ co3Kappa1.ker = Subgroup.zpowers co3TtM1 ∧
-    Nat.card co3Kappa1.ker = 2 ∧ co3L ≤ co3M1 ∧
-    (∃ e : co3L ≃* NativeSporadic.M12,
-      ∀ l, (e l : Equiv.Perm (Fin 12)) = co3Kappa1 (Subgroup.inclusion co3L_le_M1 l)) ∧
-    co3L1.Normal ∧ co3Z1 ≤ Subgroup.center co3M1 ∧ co3L1 ⊓ co3Z1 = ⊥ ∧ co3L1 ⊔ co3Z1 = ⊤ ∧
-    Group.IsPerfect co3L ∧ Subgroup.center co3L = ⊥ ∧ Group.IsSolvable (Outer co3M1) :=
-  ⟨co3ItLab_kappa1, co3Kappa1_range, co3Kappa1_ker, card_ker_co3Kappa1, co3L_le_M1,
-    ⟨co3LEquivM12, co3LEquivM12_apply⟩, co3L1_normal, co3Z1_le_center, co3L1_inf_Z1,
-    co3L1_sup_Z1, co3L_isPerfect, co3L_center, co3M1_outer_solvable⟩
 
 end CFSG.Sporadic.Schreier.Co3

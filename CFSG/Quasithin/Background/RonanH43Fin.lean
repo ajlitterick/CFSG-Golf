@@ -41,21 +41,5 @@ namespace CFSG.Quasithin.RonanH43
 
 open Matrix
 
-theorem inv_eq_trv :
-    ∀ M : Matrix (Fin 3) (Fin 3) (ZMod 2), M * M = 1 → M ≠ 1 →
-      ∃ c φ : Fin 3 → ZMod 2, c ≠ 0 ∧ φ ≠ 0 ∧ φ ⬝ᵥ c = 0 ∧ M = 1 + vecMulVec c φ := by
-  decide +kernel
-
-theorem symm_mulVec_eq :
-    ∀ c φ : Fin 3 → ZMod 2, c ≠ 0 → φ ≠ 0 → φ ⬝ᵥ c = 0 →
-    ∀ H : Matrix (Fin 3) (Fin 3) (ZMod 2), Hᵀ = H → (∀ v, H *ᵥ v = 0 → v = 0) →
-      (1 + vecMulVec φ c) * H = H * (1 + vecMulVec c φ) → H *ᵥ c = φ := by
-  decide +kernel
-
-theorem exists_mulVec_eq_single :
-    ∀ c : Fin 3 → ZMod 2, c ≠ 0 →
-      ∃ M : Matrix (Fin 3) (Fin 3) (ZMod 2), (∀ v, M *ᵥ v = 0 → v = 0) ∧
-        M *ᵥ c = Pi.single 0 1 := by
-  decide +kernel
 
 end CFSG.Quasithin.RonanH43

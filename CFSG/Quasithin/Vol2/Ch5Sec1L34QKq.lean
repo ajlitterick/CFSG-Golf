@@ -71,9 +71,6 @@ theorem commSeries_map_congr (A : Subgroup (MulAut V)) (k : ℕ) :
     commSeries (A.map (congrHom e)) k = (commSeries A k).map e.toMonoidHom :=
   commSeries_map_mulAutCongr e A k
 
-private theorem fixV_map_congr (A : Subgroup (MulAut V)) :
-    fixV (A.map (congrHom e)) = (fixV A).map e.toMonoidHom :=
-  fixV_map_congr_equiv e A
 
 theorem rAV_map_congr (A : Subgroup (MulAut V)) : rAV (A.map (congrHom e)) = rAV A :=
   rAV_map_mulAutCongr e A

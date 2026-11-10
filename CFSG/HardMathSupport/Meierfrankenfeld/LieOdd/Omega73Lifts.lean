@@ -63,8 +63,6 @@ theorem x_short_eq {γ : Fin 3 → ℤ} {k : Fin 3} {u : Bool}
 theorem std_baseLong : toStdB 3 baseLong = Pi.single 0 (boolSign true) + Pi.single 1 (boolSign true) := by
   rw [baseLong, toStdB_ofStdB]; rfl
 
-theorem std_baseShort : toStdB 3 baseShort = Pi.single 2 (boolSign true) := by
-  rw [baseShort, toStdB_ofStdB]; rfl
 
 theorem std_rootX1 : toStdB 3 rootX1 = Pi.single 0 (boolSign true) + Pi.single 2 (boolSign false) := by
   rw [rootX1, toStdB_ofStdB]
@@ -81,8 +79,6 @@ theorem std_rootY2 : toStdB 3 rootY2 = Pi.single 0 (boolSign true) := by
 theorem mem_roots_baseLong : baseLong ∈ roots (isFiniteType_cartanB 3) ∅ :=
   (mem_roots_of_isOrthPair isOrthPair_base).1
 
-theorem mem_roots_baseShort : baseShort ∈ roots (isFiniteType_cartanB 3) ∅ :=
-  (mem_roots_of_isOrthPair isOrthPair_base).2
 
 theorem mem_roots_rootX1 : rootX1 ∈ roots (isFiniteType_cartanB 3) ∅ :=
   SpinOdd.mem_roots_iff.2 (Or.inl ⟨0, 2, by decide, true, false, std_rootX1⟩)

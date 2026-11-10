@@ -116,12 +116,6 @@ theorem t121_preimage_case1 (m : ℕ) (hm : 3 ≤ m) (X : ℤ) (h1 : (X : ZMod 8
       = -(3 * 2 ^ (m - 2) * (X - 1) - 2 ^ (m - 1)) by ring]
   exact dvd_neg.mpr hdiv
 
-theorem t121_preimage_case1_any (m : ℕ) (hm : 3 ≤ m) (a : ZMod (2 ^ (m + 1))) (X : ℤ)
-    (ha : a = ((3 * 2 ^ (m - 2) : ℕ) : ZMod (2 ^ (m + 1))))
-    (h1 : (X : ZMod 8) = 7) :
-    a * (X : ZMod (2 ^ (m + 1))) - a = ((2 ^ (m - 1) : ℕ) : ZMod (2 ^ (m + 1))) := by
-  rw [ha]
-  simpa [mul_sub] using t121_preimage_case1 m hm X h1
 
 theorem t121_preimage_case1_zmod (m : ℕ) (hm : 3 ≤ m) (X : ℤ) (h1 : (X : ZMod 8) = 7) :
     (3 * 2 ^ (m - 2) : ZMod (2 ^ (m + 1))) * (X : ZMod (2 ^ (m + 1))) -

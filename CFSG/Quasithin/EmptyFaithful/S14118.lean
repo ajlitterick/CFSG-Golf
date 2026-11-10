@@ -33,10 +33,6 @@ private theorem s14118_card_mulAut_le_six {V : Type*} [Group V] [Finite V]
         Nat.card_le_card_of_injective f hf
     _ = 6 := by rw [Nat.card_perm, hthree]; rfl
 
-omit [Finite G] in
-private theorem s14118_conjAct_coe (V : Subgroup G) (g : Subgroup.normalizer (V : Set G))
-    (x : V) : ((conjAct V g x : V) : G) = g * x * (g : G)⁻¹ :=
-  CFSG.Quasithin.AutOn.coe_conjAct_apply V g x
 
 omit [Finite G] in
 private theorem s14118_conjAct_eq_one_iff {V : Subgroup G} {g : Subgroup.normalizer (V : Set G)} :

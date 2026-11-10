@@ -31,14 +31,6 @@ open scoped IsMulCommutative
         pCoreOf 2 (L ⊔ T) ≤ Subgroup.centralizer (pCoreOf 2 L : Set G)) ∧
       (IsAltBlockType L 6 → pCoreOf 2 (L ⊔ T) ≤ Subgroup.centralizer (pCoreOf 2 L : Set G))
 
-@[expose] def AS_E_3_39 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T V M : Subgroup G) (hV : IsElemAbelian 2 V), V ≠ ⊥ →
-    E3.HypE336 T V M → (E3.nPrime (autI hV ⊤) : ℕ∞) < E3.rParam V →
-    ∀ H : Subgroup G, IsHStar T M H →
-      (E3.wParam T V ≤ E1.nParam H ∧ E1.nParam H ≤ (E3.nPrime (autI hV ⊤) : ℕ∞)) ∧
-      (E3.aParam (autI hV ⊤) < E3.sParam hV →
-        0 < E3.sParam hV - E3.aParam (autI hV ⊤) ∧
-          ((E3.sParam hV - E3.aParam (autI hV ⊤) : ℕ) : ℕ∞) ≤ E3.wParam T V)
 
 @[expose] def AS_E_6_3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M V : Subgroup G) (hV : IsElemAbelian 2 V),

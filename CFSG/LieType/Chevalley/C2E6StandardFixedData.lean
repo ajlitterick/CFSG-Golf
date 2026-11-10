@@ -49,9 +49,6 @@ theorem nativeRefl_eq
     (J : Set (Fin 4)) : Subgroup (ModGL Tag.E6 K) :=
   Subgroup.closure ((stdBorel : Set (ModGL Tag.E6 K)) ∪ nativeRep '' J)
 
-@[expose] def nativeWeyl
-    (J : Set (Fin 4)) : Subgroup (WeylGroup Tag.E6) :=
-  Subgroup.closure (nativeRefl '' J)
 
 theorem image_nativeRep
     (J : Set (Fin 4)) :
@@ -69,12 +66,6 @@ theorem nativeParabolic_eq
     image_nativeRep]
   rfl
 
-theorem nativeWeyl_eq
-    (J : Set (Fin 4)) :
-    nativeWeyl J = foldedParabolicWeylGroup TwistTag.E6 (foldedIndex '' J) := by
-  rw [nativeWeyl, foldedParabolicWeylGroup, Set.image_image]
-  congr 1
-  exact Set.image_congr fun i _ => nativeRefl_eq i
 
 @[expose] def setA : Set (Fin 6) := {0, 2, 3, 4, 5}
 
@@ -110,7 +101,5 @@ abbrev betaStar : Module.End K (RootModule Tag.E6 K) →* Module.End K (RootModu
 
 abbrev betaGL : ModGL Tag.E6 K →* ModGL Tag.E6 K := Units.map betaStar
 
-theorem betaStar_apply (A : Module.End K (RootModule Tag.E6 K)) :
-    betaStar A = entrywise barHom A := rfl
 
 end CFSG.LieType.Chevalley.C2E6Std

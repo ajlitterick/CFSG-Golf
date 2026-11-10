@@ -59,30 +59,6 @@ theorem two_le_ncard_kStarComponents (hN : IsSolomonChoice N) :
   rw [← Set.ncard_pair (Ne.symm hK₂₁)]
   exact Set.ncard_le_ncard (Set.insert_subset hK₁ (Set.singleton_subset_iff.mpr hK₂))
 
-theorem ncard_kStarComponents_le_of_cover (hq : QuasisimpleTwoPartInput) (hKK : KStarKProper G)
-    (hN : IsSolomonChoice N) {X : Subgroup G}
-    (hcov : ∀ K ∈ kStarComponents N, ∃ K' ∈ kStarComponents X, K ≤ K') :
-    (kStarComponents X).ncard ≤ (kStarComponents N).ncard := by
-  by_contra hlt
-  push Not at hlt
-  have h2 := two_le_ncard_kStarComponents hN
-  have hX := isKBalanced_of_three_le hq hKK (by omega : 3 ≤ (kStarComponents X).ncard)
-  have hle : solomonKStarOf N ≤ solomonKStarOf X := iSup₂_le fun K hK => by
-    obtain ⟨K', hK', hKK'⟩ := hcov K hK
-    exact hKK'.trans (le_iSup₂_of_le K' hK' le_rfl)
-  have hviol : ¬ solomonKStarOf X ≤ solomonKStarOf (⊤ : Subgroup G) := fun h =>
-    hN.2.1 (hle.trans h)
-  have hmeas := hN.2.2 X hX hviol
-  apply absurd hmeas
-  rw [not_le]
-  unfold kStarMeasure
-  exact Prod.Lex.toLex_lt_toLex.mpr (Or.inl hlt)
-
-theorem eq_kStarComponents_of_subset (hq : QuasisimpleTwoPartInput) (hKK : KStarKProper G)
-    (hN : IsSolomonChoice N) {X : Subgroup G} (hsub : kStarComponents N ⊆ kStarComponents X) :
-    kStarComponents X = kStarComponents N :=
-  (Set.eq_of_subset_of_ncard_le hsub
-    (ncard_kStarComponents_le_of_cover hq hKK hN fun K hK => ⟨K, hsub hK, le_rfl⟩)).symm
 
 theorem mem_kStarComponents_normalizer_solomonKStarOf {K : Subgroup G}
     (hK : K ∈ kStarComponents N) :
@@ -97,12 +73,6 @@ theorem mem_kStarComponents_normalizer_solomonKStarOf {K : Subgroup G}
   exact (CatalogueBPrimeJoin.pComponent_subgroupOf_iff_of_subnormal hKD le_normalizer
     hDn.isSubnormal).mpr hKDc.2
 
-theorem solomonKStarOf_normalizer_eq (hq : QuasisimpleTwoPartInput) (hKK : KStarKProper G)
-    (hN : IsSolomonChoice N) :
-    solomonKStarOf (normalizer (solomonKStarOf N : Set G)) = solomonKStarOf N := by
-  have h := eq_kStarComponents_of_subset hq hKK hN
-    fun K hK => mem_kStarComponents_normalizer_solomonKStarOf hK
-  rw [solomonKStarOf_eq_sSup, h, ← solomonKStarOf_eq_sSup]
 
 theorem ncard_kStarComponents_le_of_simple (hq : QuasisimpleTwoPartInput) (hG : SimpleAmbient G)
     (hN : IsSolomonChoice N) (X : Subgroup G) :

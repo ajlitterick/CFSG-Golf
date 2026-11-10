@@ -45,7 +45,6 @@ theorem letterElt_xor (r : ℕ) {a b : ℕ} (ha : a < 8) (hb : b < 8) :
   rw [ofNat'_xor' ha hb, map_add]
   exact xPar_add (F := rootOperatorFamily .G2) (rootVec r) _ _
 
-theorem wordElt_nil : M.wordElt [] = 1 := rfl
 
 theorem wordElt_append (w₁ w₂ : List ℕ) : M.wordElt (w₁ ++ w₂) = M.wordElt w₁ * M.wordElt w₂ := by
   simp [wordElt, List.map_append, List.prod_append]

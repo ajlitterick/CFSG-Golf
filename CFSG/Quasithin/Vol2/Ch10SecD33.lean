@@ -148,46 +148,5 @@ theorem le_of_case_two
           ⟨(MulEquiv.subgroupCongr hAeq).trans eP⟩
         exact false_of_alt5 hW hA hK h37 hX hK₁ hs hTK hT hTH hHX hO e hp7 φ hA5
 
-omit [Finite G] in
-theorem nonempty_quot_equiv_of_eq {W : Type} [Group W] {A B : Subgroup G} (h : A = B)
-    (e : Nonempty (↥B ⧸ CFSG.pCore 2 ↥B ≃* W)) : Nonempty (↥A ⧸ CFSG.pCore 2 ↥A ≃* W) := by
-  subst h
-  exact e
-
-theorem stmt10_3_3_of
-    (hW : FactSymFiveWrTwo) (hA : FactPSL2NormA5) (hAut : FactAutSL)
-    (hMax : FactMaxP) (h37 : Vol2Native.A37ForSQTKCat) (h38 : Vol2Native.A38ForSQTKCat)
-    (h1023 : Stmt10_2_3) (h1024 : Stmt10_2_4) (h10213 : Stmt10_2_13) (h1031 : Stmt10_3_1)
-    (h1032 : Stmt10_3_2) : Stmt10_3_3 := by
-  intro G _ _ T L I h t v₁ v₂ hd
-  have h3 := (h10213 G T L I h).1
-  have hc := (h1031 G T L I h).1
-  have := h.fsu.simple
-  have hK : LocalSQTK G := (qtkeCore_of_cat h.fsu.nonabelian h.fsu.qtke).1
-  obtain ⟨H, hH, hHz, hO, hHK, ⟨e⟩⟩ := exists_isHStar_le_KzT hW h37 h38 h1023 h10213 h1032 h
-    h3 hc hd
-  have hTz := T_le_centralizer_z h37 h38 h h3 hc hd
-  have hT : IsSylowTwoOf T (Subgroup.centralizer ({v₁ * v₂} : Set G)) :=
-    isSylowTwoOf_of_quasithinIsSylowTwo h.fsu.sylow hTz
-  have hX := pCoreOf_Gz_ne_bot h37 h38 h hc hd
-  have hGzK : Subgroup.centralizer ({v₁ * v₂} : Set G) ≤
-      Subgroup.normalizer (Kz T L (v₁ * v₂) : Set G) := le_normalizer_conjClosure _ _
-  rcases concl10_2_4_Kz hW h37 h38 h1023 h1024 h10213 h1032 hMax h h3 hc hd with
-    ⟨K₁, s, hs, hK₁, hsn, hKz, htype⟩ | ⟨-, k, hk, ⟨eA⟩⟩
-  · have hTK : T ≤ Subgroup.normalizer ((K₁ ⊔ CFSG.conjugate K₁ s : Subgroup G) : Set G) := by
-      rw [← hKz]
-      exact hTz.trans hGzK
-    have hK1H : K₁ ≤ H := le_of_case_two hW hA hK h37 hX hK₁ hs hsn hTK hT hH.1.1 hHz
-      (hKz ▸ hO) e htype
-    have hK2H : CFSG.conjugate K₁ s ≤ H := by
-      intro x hx
-      rw [SecA.mem_conjugate_iff] at hx
-      have e1 : x = s⁻¹ * (s * x * s⁻¹) * s := by group
-      rw [e1]
-      exact H.mul_mem (H.mul_mem (H.inv_mem (hH.1.1 hs)) (hK1H hx)) (hH.1.1 hs)
-    have heq : Kz T L (v₁ * v₂) ⊔ T = H :=
-      le_antisymm (sup_le (hKz ▸ sup_le hK1H hK2H) hH.1.1) hHK
-    exact nonempty_quot_equiv_of_eq heq ⟨e⟩
-  · exact (not_case_three_Kz hW hAut h37 h38 h1023 h10213 h1032 h h3 hc hd k hk eA).elim
 
 end CFSG.Quasithin.Vol2.Ch10.SecD

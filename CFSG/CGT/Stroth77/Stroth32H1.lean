@@ -126,26 +126,6 @@ theorem t100_cocycle_ints (x y : Fin 3 → ℤ)
   · have h : 2 * (y 0 - y 1) = 2 * (x 2 + 2 ^ m * k3) := by linear_combination e3
     exact mul_left_cancel₀ two_ne_zero h
 
-theorem t100_cocycle_of_ints (x y : Fin 3 → ℤ) {κ₁ κ₂ κ₃ : ℤ}
-    (e1 : x 1 + x 2 = x 0 + 2 ^ m * κ₁) (e2 : y 2 = y 0 + 2 ^ m * κ₂)
-    (e3 : y 0 - y 1 = x 2 + 2 ^ m * κ₃) :
-    Torus.ofInt (StrothTypeIndex.t100 m).k x +
-        (StrothTypeIndex.t100 m).action.φuv (Torus.ofInt _ x) = 0 ∧
-      Torus.ofInt (StrothTypeIndex.t100 m).k y +
-        (StrothTypeIndex.t100 m).action.φt (Torus.ofInt _ y) = 0 ∧
-      Torus.ofInt (StrothTypeIndex.t100 m).k x +
-          (StrothTypeIndex.t100 m).action.φuv (Torus.ofInt _ y) =
-        Torus.ofInt _ y + (StrothTypeIndex.t100 m).action.φt (Torus.ofInt _ x) := by
-  simp only [t100_φuv, t100_φt, ← Torus.ofInt_add]
-  rw [t100_ofInt_eq_zero_iff, t100_ofInt_eq_zero_iff, t100_ofInt_eq_iff]
-  simp only [Pi.add_apply, Matrix.cons_val_zero, Matrix.cons_val_one, Matrix.cons_val_two,
-    Matrix.head_cons, Matrix.tail_cons]
-  exact ⟨⟨⟨2 * κ₁, by linear_combination 2 * e1⟩, ⟨κ₁, by linear_combination 2 * e1⟩,
-      ⟨κ₁, by linear_combination 2 * e1⟩⟩,
-    ⟨⟨-2 * κ₂, by linear_combination -2 * e2⟩, ⟨-κ₂, by linear_combination -2 * e2⟩,
-      ⟨0, by ring⟩⟩,
-    ⟨2 * (κ₃ - κ₂), by linear_combination -2 * e2 + 2 * e3⟩,
-    ⟨-κ₁ - κ₂, by linear_combination -2 * e1 - 2 * e2⟩, ⟨κ₃, by linear_combination 2 * e3⟩⟩
 
 theorem t100_cob_uv_vec (a b c : ℤ) :
     Torus.ofInt (StrothTypeIndex.t100 m).k ![a, b, c] -
@@ -222,43 +202,6 @@ theorem t100_even_of_cob (hm : 1 ≤ m) (x y : Fin 3 → ℤ) {κ₂ κ₃ : ℤ
     ⟨c - 2 ^ n * i0, by linear_combination -g0⟩,
     ⟨i1 + j2 - i2, mul_left_cancel₀ (pow_ne_zero _ two_ne_zero) hκ⟩⟩
 
-theorem t100_not_rho_triv (hm : 1 ≤ m) :
-    ¬ ∀ ruv rt : Torus (StrothTypeIndex.t100 m).k,
-      ruv + (StrothTypeIndex.t100 m).action.φuv ruv = 0 →
-      rt + (StrothTypeIndex.t100 m).action.φt rt = 0 →
-      ruv + (StrothTypeIndex.t100 m).action.φuv rt =
-        rt + (StrothTypeIndex.t100 m).action.φt ruv →
-      ∃ d₀ : Torus (StrothTypeIndex.t100 m).k,
-        (StrothTypeIndex.t100 m).action.φρ (ruv + (StrothTypeIndex.t100 m).action.φuv rt) =
-            ruv - d₀ + (StrothTypeIndex.t100 m).action.φuv d₀ ∧
-          (StrothTypeIndex.t100 m).action.φρ ruv =
-            rt - d₀ + (StrothTypeIndex.t100 m).action.φt d₀ := by
-  intro hρ
-  obtain ⟨c1, c2, c3⟩ := t100_cocycle_of_ints (m := m) ![1, 1, 0] ![0, 0, 0] (κ₁ := 0) (κ₂ := 0)
-    (κ₃ := 0) (by simp) (by simp) (by simp)
-  obtain ⟨d₀, s1, s2⟩ := hρ _ _ c1 c2 c3
-  have hl1 : (StrothTypeIndex.t100 m).action.φρ (Torus.ofInt _ ![1, 1, 0] +
-      (StrothTypeIndex.t100 m).action.φuv (Torus.ofInt _ ![0, 0, 0])) =
-        Torus.ofInt _ ![1, 0, 1] := by
-    rw [t100_φuv_vec, t100_add_vec, t100_φρ_vec, t100_vec_eq_iff]
-    exact ⟨⟨0, by ring⟩, ⟨0, by ring⟩, ⟨0, by ring⟩⟩
-  have hl2 : (StrothTypeIndex.t100 m).action.φρ (Torus.ofInt _ ![1, 1, 0]) =
-      Torus.ofInt _ ![1, 0, 1] := by
-    rw [t100_φρ_vec, t100_vec_eq_iff]
-    exact ⟨⟨0, by ring⟩, ⟨0, by ring⟩, ⟨0, by ring⟩⟩
-  have hz : Torus.ofInt (StrothTypeIndex.t100 m).k ![0, 0, 0] = 0 := by
-    rw [t100_vec_eq_zero_iff]
-    simp
-  have hd : Torus.ofInt (StrothTypeIndex.t100 m).k ![0, -1, 1] =
-      Torus.ofInt _ ![1, 0, 1] - Torus.ofInt _ ![1, 1, 0] := by
-    rw [t100_sub_vec, t100_vec_eq_iff]
-    exact ⟨⟨0, by ring⟩, ⟨0, by ring⟩, ⟨0, by ring⟩⟩
-  rw [hl1] at s1
-  rw [hl2, hz] at s2
-  obtain ⟨⟨r, hr⟩, -⟩ := t100_even_of_cob hm ![0, -1, 1] ![1, 0, 1] (κ₂ := 0) (κ₃ := 0)
-    (by simp) (by simp) (-d₀) (by rw [hd, s1, map_neg]; abel) (by rw [s2, map_neg]; abel)
-  simp only [Matrix.cons_val_one, Matrix.cons_val_zero] at hr
-  omega
 
 theorem t100_u_triv_of_rho (hm : 1 ≤ m) (ruv rt : Torus (StrothTypeIndex.t100 m).k)
     (h1 : ruv + (StrothTypeIndex.t100 m).action.φuv ruv = 0)

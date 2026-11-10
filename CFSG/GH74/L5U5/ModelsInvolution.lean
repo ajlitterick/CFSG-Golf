@@ -58,7 +58,6 @@ theorem xK_mul_self : M.xK * M.xK = 1 := Subtype.ext xGL_mul_self
 
 theorem xK_eq_yK_mul_xyK : M.xK = M.yK * M.xyK := Subtype.ext xGL_eq_yGL_mul_xyGL
 
-theorem yK_mul_xyK_comm : M.yK * M.xyK = M.xyK * M.yK := Subtype.ext yGL_mul_xyGL_comm
 
 theorem xK_mul_yK : M.xK * M.yK = M.xyK := Subtype.ext (by
   change xGL F * yGL F = xyGL F
@@ -121,9 +120,6 @@ theorem blkR_comm_xyGL (a : GL (Fin 2) F) : blkR F a * xyGL F = xyGL F * blkR F 
   rw [blkR_apply, xyGL, diagGL_mul, diagGL_mul]
   simp only [mul_neg, neg_mul, mul_one, one_mul]
 
-theorem blkL_comm_xyGL (a : GL (Fin 2) F) : blkL F a * xyGL F = xyGL F * blkL F a := by
-  rw [blkL_apply, xyGL, diagGL_mul, diagGL_mul]
-  simp only [mul_one, one_mul]
 
 theorem J2_le_centralizer : M.J2 ≤ Subgroup.centralizer ({M.yK} : Set ↥M.K4) := by
   intro g hg

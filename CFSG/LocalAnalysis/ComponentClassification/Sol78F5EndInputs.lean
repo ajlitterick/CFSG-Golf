@@ -11,17 +11,6 @@ open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
   CFSG.ComponentClassification.UnbalancedCorr CFSG.ComponentClassification.FooteLit
   CFSG.ComponentClassification.Foote5 CFSG.Goldschmidt CFSG.Goldschmidt75 CFSG.ABGLocalTools
 
-@[expose] def EndPointedMaximalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L₀ L Q S T : Subgroup G) (z t s : G) (𝕊 : Type) [Group 𝕊]
-    [Finite 𝕊] (ε : L ⧸ pPrimeCore 2 L ≃* 𝕊) (Lin : Subgroup (MulAut 𝕊)),
-    Hyp L₀ L Q S T z t s ε Lin → FooteMinimal G → ∀ W : Subgroup G, W ≠ ⊥ → Odd (Nat.card W) →
-    (∀ B₁ B₂ : Subgroup G, B₁ ≤ S ⊓ L → B₂ ≤ conjugate (S ⊓ L) s → B₁ ≠ ⊥ → B₂ ≠ ⊥ →
-      W ∈ NSet (B₁ ⊔ B₂) ∧ ∀ X ∈ NSet (B₁ ⊔ B₂), X ≤ W) →
-    (∀ t₁ ∈ S ⊓ L, orderOf t₁ = 2 → ∀ t₂ ∈ conjugate (S ⊓ L) s, orderOf t₂ = 2 →
-      ⁅oddCent t₁, zpowers t₂⁆ ≤ W ∧ ⁅oddCent t₂, zpowers t₁⁆ ≤ W) →
-    ∀ hzN : z ∈ normalizer (W : Set G),
-      FootePointedMaximal (⟨z, hzN⟩ : normalizer (W : Set G))
-        (L.subgroupOf (normalizer (W : Set G)))
 
 @[expose] def EndOddLieInput : Prop :=
   ∀ (X : Type) [Group X] [Finite X], IsSimpleGroup X → Blueprint.OddLieType X →

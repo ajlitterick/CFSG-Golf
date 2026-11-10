@@ -47,17 +47,6 @@ theorem add_self_eq_zero (x : V) : x + x = 0 := by
 @[simp] theorem datum_form_apply (hT : T.Nondegenerate) (i : ι) (x : V) :
     (T.datum hT i).form x = T.χ i x := rfl
 
-theorem datum_eq_iff (hT : T.Nondegenerate) {i j : ι} :
-    T.datum hT i = T.datum hT j ↔ T.z i = T.z j ∧ T.χ i = T.χ j := by
-  constructor
-  · intro h
-    refine ⟨congrArg Datum.vec h, LinearMap.ext fun x => ?_⟩
-    have := congrArg (fun p : Datum V => p.form x) h
-    simpa using this
-  · rintro ⟨h1, h2⟩
-    refine Datum.ext h1 ?_
-    ext x
-    simp [h2]
 
 theorem datum_adj_iff (hT : T.Nondegenerate) {i j : ι} :
     (T.datum hT i).Adj (T.datum hT j) ↔ T.χ i (T.z j) = 1 := by
@@ -120,32 +109,6 @@ theorem dataFinset_isConn [Finite V] (hT : T.Nondegenerate) : IsConn (T.dataFins
   exact ⟨(T.mem_dataFinset hT).mpr ⟨a, rfl⟩, (T.mem_dataFinset hT).mpr ⟨b, rfl⟩,
     (T.datum_adj_iff hT).mpr hab⟩
 
-theorem dataFinset_classification_two [Finite V] [Nonempty ι] (hT : T.Nondegenerate)
-    (hV : Nat.card V = 4) :
-    (T.dataFinset hT).card = 1 ∨ ((T.dataFinset hT).card = 3 ∧
-      ∀ i j, T.datum hT i ≠ T.datum hT j → T.χ i (T.z j) = 1) := by
-  rcases rootSet_classification_two add_self_eq_zero hV (T.dataFinset hT)
-    (T.dataFinset_nonempty hT) (T.dataFinset_isSymm hT) (T.dataFinset_isClosed hT)
-    (T.dataFinset_isConn hT) with h | ⟨h3, hadj⟩
-  · exact Or.inl h
-  · refine Or.inr ⟨h3, fun i j hij => ?_⟩
-    exact (T.datum_adj_iff hT).mp (hadj _ ((T.mem_dataFinset hT).mpr ⟨i, rfl⟩) _
-      ((T.mem_dataFinset hT).mpr ⟨j, rfl⟩) hij)
-
-theorem dataFinset_classification_three [Finite V] [Nonempty ι] (hT : T.Nondegenerate)
-    (hV : Nat.card V = 8) :
-    (T.dataFinset hT).card = 1 ∨ ((T.dataFinset hT).card = 3 ∧
-      ∀ i j, T.datum hT i ≠ T.datum hT j → T.χ i (T.z j) = 1) ∨
-      ((T.dataFinset hT).card = 6 ∧ ∀ i, ∃! q, q ∈ T.dataFinset hT ∧ q ≠ T.datum hT i ∧
-        ¬ (T.datum hT i).Adj q) := by
-  rcases rootSet_classification_three add_self_eq_zero hV (T.dataFinset hT)
-    (T.dataFinset_nonempty hT) (T.dataFinset_isSymm hT) (T.dataFinset_isClosed hT)
-    (T.dataFinset_isConn hT) with h | ⟨h3, hadj⟩ | ⟨h6, hu⟩
-  · exact Or.inl h
-  · refine Or.inr (Or.inl ⟨h3, fun i j hij => ?_⟩)
-    exact (T.datum_adj_iff hT).mp (hadj _ ((T.mem_dataFinset hT).mpr ⟨i, rfl⟩) _
-      ((T.mem_dataFinset hT).mpr ⟨j, rfl⟩) hij)
-  · exact Or.inr (Or.inr ⟨h6, fun i => hu _ ((T.mem_dataFinset hT).mpr ⟨i, rfl⟩)⟩)
 
 end RootFamily
 

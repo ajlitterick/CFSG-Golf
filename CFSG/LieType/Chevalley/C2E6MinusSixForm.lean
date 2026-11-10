@@ -24,9 +24,6 @@ theorem polarQ_add_left (x x' y : X) : polarQ (x + x') y = polarQ x y + polarQ x
   simp only [polarQ, Pi.add_apply]
   ring
 
-theorem polarQ_add_right (x y y' : X) : polarQ x (y + y') = polarQ x y + polarQ x y' := by
-  simp only [polarQ, Pi.add_apply]
-  ring
 
 theorem polarQ_smul_left (c : ZMod 2) (x y : X) : polarQ (c • x) y = c * polarQ x y := by
   simp only [polarQ, Pi.smul_apply, smul_eq_mul]
@@ -67,8 +64,6 @@ theorem nondegenerate_polarBilin_Q : (QuadraticMap.polarBilin Q).Nondegenerate :
 theorem nondegenerate_Q : Q.Nondegenerate :=
   CFSG.LieType.Universal.Spin.nondegenerate_of_nondegenerate_polarBilin nondegenerate_polarBilin_Q
 
-theorem tail_anisotropic : ∀ t u : ZMod 2, t ^ 2 + t * u + u ^ 2 = 0 → t = 0 ∧ u = 0 := by
-  decide
 
 @[expose] def minusCoords : (Fin (3 - 1) ⊕ Fin (3 - 1) ⊕ Fin 2) ≃ Fin 6 where
   toFun
@@ -135,10 +130,5 @@ theorem finrank_le_two_of_isTotallySingular {U : Submodule (ZMod 2) X}
     (polarQ_eq_zero_of_isTotallySingular hU ha hb) (polarQ_eq_zero_of_isTotallySingular hU ha hc)
     (polarQ_eq_zero_of_isTotallySingular hU hb hc))
 
-theorem wittIndex_two :
-    (∃ U : Submodule (ZMod 2) X, IsTotallySingular U ∧ finrank (ZMod 2) U = 2) ∧
-      ∀ U : Submodule (ZMod 2) X, IsTotallySingular U → finrank (ZMod 2) U ≤ 2 :=
-  ⟨⟨lnSub 0, isTotallySingular_lnSub 0, finrank_lnSub 0⟩,
-    fun _ hU => finrank_le_two_of_isTotallySingular hU⟩
 
 end CFSG.LieType.Chevalley.C2E6Overlap

@@ -18,15 +18,12 @@ variable {G : Type*} [Group G]
 @[expose] def lineProd (π : ℕ → G) (l : List ℤ) : G :=
   ((pairsOf l).map fun p => π (p.1 - 1) ^ p.2).prod
 
-theorem runSLPG_nil (regs : ℕ → G) : runSLPG [] regs = regs := rfl
 
 theorem runSLPG_append (p q : List Instr) (regs : ℕ → G) :
     runSLPG (p ++ q) regs = runSLPG q (runSLPG p regs) := by
   unfold runSLPG
   rw [List.foldl_append]
 
-theorem runSLPG_cons (ins : Instr) (p : List Instr) (regs : ℕ → G) :
-    runSLPG (ins :: p) regs = runSLPG p (stepG regs ins) := rfl
 
 theorem runSLPG_powInstrs (s i : ℕ) (e : ℤ) (regs : ℕ → G) :
     runSLPG (powInstrs s i e) regs = Function.update regs s (regs i ^ e) := by
@@ -105,9 +102,6 @@ theorem runSLPG_lineInstrs (t sc : ℕ) (hts : t ≠ sc) (ps : List (ℕ × ℤ)
 @[expose] def LinesOK (g : ℕ) (ls : Array (List ℤ)) : Prop :=
   ∀ ℓ < ls.size, ∀ p ∈ pairsOf ls[ℓ]!, 1 ≤ p.1 ∧ p.1 ≤ g + ℓ
 
-theorem compileSLP_eq (g : ℕ) (ls : Array (List ℤ)) :
-    compileSLP g ls = (List.range ls.size).flatMap fun l =>
-      lineInstrs (g + l) (g + ls.size) (pairsOf ls[l]!) := rfl
 
 theorem runSLPG_flatMap (f : ℕ → List Instr) (regs : ℕ → G) (k : ℕ) :
     runSLPG ((List.range (k + 1)).flatMap f) regs =

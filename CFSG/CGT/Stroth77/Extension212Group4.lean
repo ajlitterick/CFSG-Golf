@@ -365,30 +365,5 @@ theorem hasStrothTypeOver_or_of_index_four_of_data (D : StrothTypeData B τ) (hB
   · exact Or.inl (hasStrothTypeOver_of_basisChange D hL τ₁ E φ h1)
   · exact Or.inr ⟨E, φ, h2⟩
 
-theorem hasStrothType_or_of_index_four_of_data (D : StrothTypeData B τ) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hk : ∀ i, 1 ≤ τ.k i)
-    (hρpar : ∀ v, parityTorus _ hk (τ.action.φρ v) = rhoBar300 (parityTorus _ hk v))
-    (hρa : τ.action.φρ (gen τ.k 1) = gen τ.k 2)
-    (hfix : ∀ v : Torus τ.k, τ.action.φρ v = v → τ.action.φt v = v → v = 0)
-    (hfix4 : ∀ v : Torus τ.k, (∃ z, 4 • z = τ.action.φρ v - v) →
-      (∃ z, 4 • z = τ.action.φt v - v) → ∃ z, 2 • z = v)
-    (τ₁ : StrothTypeIndex) (hK0 : τ₁.k 0 = τ.k 0) (hK1 : τ₁.k 1 = τ.k 1 + 1)
-    (hK2 : τ₁.k 2 = τ.k 2 + 1) (A' : SigmaFourAction τ₁.k)
-    (hP : Profile4 τ₁.k τ₁.action.φuv τ₁.action.φt τ₁.action.φu τ₁.action.φρ)
-    (hT : Twist4 τ₁.k τ₁.action.φuv τ₁.action.φt τ₁.action.φu τ₁.action.φρ A'.φuv A'.φt A'.φu
-      A'.φρ)
-    (cV : MatEq τ₁.k (τ₁.action.uv * diag4) (diag4 * τ.action.uv))
-    (cW : MatEq τ₁.k (τ₁.action.t * diag4) (diag4 * τ.action.t))
-    (cU : MatEq τ₁.k (τ₁.action.u * diag4) (diag4 * τ.action.u))
-    (cR : MatEq τ₁.k (τ₁.action.ρ * diag4) (diag4 * τ.action.ρ)) :
-    HasStrothType C τ₁ ∨ ∃ (E : Torus τ₁.k ≃+ Additive C) (φ : Torus τ₁.k ≃+ Torus τ₁.k),
-      ∀ j, φ.symm (conjTorusIdx4 E (hL D.uv_mem_L) (φ (gen τ₁.k j))) = A'.φuv (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.t_mem_L) (φ (gen τ₁.k j))) = A'.φt (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.u_mem_L) (φ (gen τ₁.k j))) = A'.φu (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.ρ_mem_L) (φ (gen τ₁.k j))) = A'.φρ (gen τ₁.k j) :=
-  (hasStrothTypeOver_or_of_index_four_of_data D hBC hC hrel hL hH hcS hk hρpar hρa hfix hfix4 τ₁ hK0
-    hK1 hK2 A' hP hT cV cW cU cR).imp_left (·.hasStrothType)
 
 end CFSG.CGT.Stroth77

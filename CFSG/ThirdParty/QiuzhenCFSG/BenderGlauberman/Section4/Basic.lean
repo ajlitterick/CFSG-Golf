@@ -528,13 +528,6 @@ private lemma s_conj_sq_s4 (c : Hyp11 G) (x : G) :
       rw [hs2, hs2']
       simp
 
-/-- Conjugation by `s` is an involution on `H0`. -/
-private lemma conjMonoidHom_conjMonoidHom_s4 (c : Hyp11 G) (h12 : Hyp12 c)
-    (x : ↥c.H0) :
-    (conjMonoidHom c.H0 c.s (s_normalizes_H0 c h12)
-      (conjMonoidHom c.H0 c.s (s_normalizes_H0 c h12) x) : ↥c.H0) = x := by
-  apply Subtype.ext
-  exact s_conj_sq_s4 c (x : G)
 
 /-- Conjugation by `s` maps the orbit of `ν^s` into the orbit of `ν`:
 `μ ∈ orbit(ν^s)` implies `μ^s ∈ orbit ν`. -/

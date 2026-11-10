@@ -9,9 +9,6 @@ namespace CFSG.EvenSporadicStandard.M24Std.KForm
 open Subgroup CFSG.ComponentClassification.CatFC
 open CFSG.ComponentClassification.FixedCommutingProduct (fixedSubgroup)
 
-@[expose] def Order8Stmt {S : Type} [Group S] (σ : MulAut S) : Prop :=
-  ∀ D : Subgroup ↥(fixedSubgroup σ), A6Hyp σ D → σ ∉ (MulAut.conj : S →* MulAut S).range →
-    Nat.card ↥(fixedSubgroup σ) ≤ 720 → ∃ x : ↥(fixedSubgroup σ), orderOf x = 8
 
 @[expose] def HasOrder8 {S : Type} [Group S] (σ : MulAut S) : Prop :=
   ∃ x : ↥(fixedSubgroup σ), orderOf x = 8

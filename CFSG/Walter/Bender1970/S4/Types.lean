@@ -99,12 +99,6 @@ theorem isTypeL2Even_map_conj_iff (K : Subgroup G) (g : G) :
   obtain ⟨e⟩ := nonempty_quotientCenter_map_conj K g
   exact ⟨fun h => h.of_mulEquiv e.symm, fun h => h.of_mulEquiv e⟩
 
-theorem isTypeJR_map_conj_iff [Finite G] (K : Subgroup G) (g : G) :
-    IsTypeJR ((K.map (MulAut.conj g).toMonoidHom) ⧸
-      Subgroup.center (K.map (MulAut.conj g).toMonoidHom)) ↔
-      IsTypeJR (K ⧸ Subgroup.center K) := by
-  obtain ⟨e⟩ := nonempty_quotientCenter_map_conj K g
-  exact ⟨fun h => h.of_mulEquiv e.symm, fun h => h.of_mulEquiv e⟩
 
 end Conj
 

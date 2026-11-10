@@ -171,46 +171,5 @@ theorem lemma44b_closure {p : ℕ} (hp : p.Prime) {Exc Club : Subgroup G → Pro
   exact (hEC.club_congr I L ⟨eIL⟩).1
     (hEC.club_down Cx' L₀ x hL₀C (hB'.1.2 x hxB') (hB'L₀ hxB') I hIL₀x hclub)
 
-theorem lemma44b {p : ℕ} (hp : p.Prime) {Exc Club : Subgroup G → Prop}
-    (hEC : ExcClubHyp G p Exc Club) (h183 : Input18_3_4) (hKP : CFSG.Open.IsKProper G)
-    (hsimple : IsSimpleGroup G) (hnonab : ∃ a b : G, a * b ≠ b * a)
-    {B' L L' : Subgroup G} {x x' : G}
-    (hB' : GLAIsBmax p B') (hx' : IsEssential p B' x') (hxB' : x ∈ B')
-    (hB'L : B' ≤ Subgroup.normalizer (L : Set G))
-    (hL : GLAPComponent p (Subgroup.centralizer ({x} : Set G)) L) (hx'L : CentMod p L x')
-    (hL' : GLAPComponent p (closureIn (GLAPLayer p (L ⊓ Subgroup.centralizer ({x'} : Set G)))
-      (GLAPLayer p (Subgroup.centralizer ({x'} : Set G)))) L')
-    (hnc : ¬ Club L) :
-    IsGoodComp p Club B' x' L' := by
-  obtain ⟨hgood, huniq⟩ :=
-    lemma44b_closure hp hEC h183 hKP hsimple hnonab hB' hx' hxB' hB'L hL hx'L hnc
-  rw [huniq L' hL']
-  exact hgood
-
-theorem isGoodComp_of_pumpRel {p : ℕ} (hp : p.Prime) {Exc Club : Subgroup G → Prop}
-    (hEC : ExcClubHyp G p Exc Club) (h183 : Input18_3_4) (hKP : CFSG.Open.IsKProper G)
-    (hsimple : IsSimpleGroup G) (hnonab : ∃ a b : G, a * b ≠ b * a)
-    {t t' : Triple G} (hrel : PumpRel p t t') (hL : IsGoodComp p Club t.1 t.2.1 t.2.2) :
-    IsGoodComp p Club t'.1 t'.2.1 t'.2.2 := by
-  obtain ⟨-, ⟨hB', hx', -⟩, hxB', hdec, -, hx'L, hL'⟩ := hrel
-  refine lemma44b hp hEC h183 hKP hsimple hnonab hB' hx' hxB' ?_ hL.1 hx'L hL' hL.2.2
-  intro b hb
-  obtain ⟨u, hu, v, -, hv, rfl⟩ := hdec b hb
-  exact Subgroup.mul_mem _ (hL.2.1 hu.1) hv.1
-
-theorem lemma44a {p : ℕ} (hp : p.Prime) {Exc Club : Subgroup G → Prop}
-    (hEC : ExcClubHyp G p Exc Club) (h183 : Input18_3_4) (hKP : CFSG.Open.IsKProper G)
-    (hsimple : IsSimpleGroup G) (hnonab : ∃ a b : G, a * b ≠ b * a)
-    {B B' L L' : Subgroup G} {x x' : G} (hS : IsSTriple p B x L)
-    (hrel : Relation.ReflTransGen (PumpRel p) (B, x, L) (B', x', L'))
-    (hL : L ≤ MxB p Club B x) :
-    L' ≤ MxB p Club B' x' := by
-  have key : ∀ t' : Triple G, Relation.ReflTransGen (PumpRel p) (B, x, L) t' →
-      IsGoodComp p Club t'.1 t'.2.1 t'.2.2 := by
-    intro t' h
-    induction h with
-    | refl => exact isGoodComp_of_le_MxB hp hS.2.2 hL
-    | tail _ hstep ih => exact isGoodComp_of_pumpRel hp hEC h183 hKP hsimple hnonab hstep ih
-  exact le_MxB (key _ hrel)
 
 end CFSG.LocalAnalysis.GLTheoremA

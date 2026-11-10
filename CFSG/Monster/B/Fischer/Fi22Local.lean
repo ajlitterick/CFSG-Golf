@@ -38,8 +38,6 @@ theorem fi22OuterChainT_arrays : ChainArrays fi22OuterChainT
   rw [hb] at h
   exact h
 
-theorem fi22OuterChainM_valid : ValidSchreier fi22OuterChainM :=
-  (validSchreier_of_chainOK fi22OuterChainM_arrays (by norm_num) fi22Local_check.1).1
 
 theorem fi22OuterChainT_valid : ValidSchreier fi22OuterChainT :=
   (validSchreier_of_chainOK fi22OuterChainT_arrays (by norm_num) fi22Local_check.2.2.1).1
@@ -102,19 +100,5 @@ theorem fi22OuterT_sylow :
     norm_num
   exact ⟨Sylow.ofCard _ hcard, rfl⟩
 
-theorem AT_Fi22_local_subgroup_orders :
-    fi22OuterM = fi22P ⊓ MulAction.stabilizer (Equiv.Perm (Fin 3510)) (0 : Fin 3510) ∧
-    Nat.card fi22OuterM = 18393661440 ∧
-    fi22OuterT ≤ fi22P ∧ Nat.card fi22OuterT = 131072 ∧
-    (∃ S : Sylow 2 fi22P, (S : Subgroup fi22P) = fi22OuterT.subgroupOf fi22P) ∧
-    ValidSchreier fi22OuterChainM ∧ ValidSchreier fi22OuterChainT ∧
-    (∀ p ∈ ([0, 1, 2, 3, 6, 4] : List (Fin 3510)), p ∈ fi22OuterChainM.base.toList) ∧
-    (∀ p ∈ ([0, 1, 2, 3, 6, 4] : List (Fin 3510)), p ∈ fi22OuterChainT.base.toList) := by
-  refine ⟨fi22OuterM_eq, card_fi22OuterM, fi22OuterT_le, card_fi22OuterT, fi22OuterT_sylow,
-    fi22OuterChainM_valid, fi22OuterChainT_valid, ?_, ?_⟩
-  · rw [fi22OuterChainM, RawSchreierDatum.ofArrays_base_toList]
-    simp [fi22FinList, fi22OuterMBase]
-  · rw [fi22OuterChainT, RawSchreierDatum.ofArrays_base_toList]
-    simp [fi22FinList, fi22OuterTBase]
 
 end CFSG.Monster.B.Fischer

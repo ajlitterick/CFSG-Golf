@@ -43,19 +43,6 @@ theorem conj_comp_sl2FieldAction (sigma : RingAut F) :
     gammaToMulAut F (SemidirectProduct.inr sigma) = sl2FieldAction sigma :=
   SemidirectProduct.lift_inr _ _ _ sigma
 
-theorem gammaToMulAut_mulVec_semilinearApply (a : Gamma F) (g : SL(2, F)) (v : Fin 2 → F) :
-    Matrix.mulVec (gammaToMulAut F a g : Matrix (Fin 2) (Fin 2) F)
-        (semilinearApply a.left a.right v) =
-      semilinearApply a.left a.right (Matrix.mulVec (g : Matrix (Fin 2) (Fin 2) F) v) := by
-  have hinv : ((a.left⁻¹ : SL(2, F)) : Matrix (Fin 2) (Fin 2) F) * a.left = 1 := by
-    rw [← Matrix.SpecialLinearGroup.coe_mul, inv_mul_cancel, Matrix.SpecialLinearGroup.coe_one]
-  have hmap : (fun i => a.right (Matrix.mulVec (g : Matrix (Fin 2) (Fin 2) F) v i)) =
-      Matrix.mulVec (a.right.toRingHom.mapMatrix (g : Matrix (Fin 2) (Fin 2) F))
-        (fun i => a.right (v i)) :=
-    funext fun i => a.right.toRingHom.map_mulVec (g : Matrix (Fin 2) (Fin 2) F) v i
-  rw [gammaToMulAut_apply, semilinearApply, semilinearApply, hmap, Matrix.mulVec_mulVec,
-    Matrix.mulVec_mulVec, Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_mul,
-    Matrix.mul_assoc, hinv, Matrix.mul_one, Matrix.SpecialLinearGroup.map_apply_coe]
 
 theorem linearKernel_map_gammaToMulAut :
     (linearKernel F).map (gammaToMulAut F) =

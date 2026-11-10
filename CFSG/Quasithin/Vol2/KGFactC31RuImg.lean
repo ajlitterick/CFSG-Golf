@@ -48,10 +48,6 @@ theorem img_inf (X Y : Subgroup (Equiv.Perm (Fin 4060))) :
   ext a
   simp only [Subgroup.mem_inf, mem_img]
 
-theorem img_top_le : img e ruP = ⊤ := by
-  ext a
-  simp only [mem_img, Subgroup.mem_top, iff_true]
-  exact (e.symm a).2
 
 theorem eq_img (Y : Subgroup A) :
     Y = img e ((Y.comap e.toMonoidHom).map ruP.subtype) := by

@@ -27,8 +27,6 @@ variable {G : Type*} [Group G]
     show ((g : G) * h) * x * ((g : G) * h)⁻¹ = g * (h * x * (h : G)⁻¹) * (g : G)⁻¹
     group)
 
-theorem conjOnHom_apply {P Q : Subgroup G} (hPQ : ∀ g ∈ P, ∀ x ∈ Q, g * x * g⁻¹ ∈ Q)
-    (g : ↥P) (x : ↥Q) : ((conjOnHom hPQ g x : ↥Q) : G) = (g : G) * x * (g : G)⁻¹ := rfl
 
 theorem exists_sylow_invariant [Finite G] {p q : ℕ} (hp : p.Prime) (hq : q.Prime)
     {P Q : Subgroup G} (hPp : IsPGroup p P) (hPQ : ∀ g ∈ P, ∀ x ∈ Q, g * x * g⁻¹ ∈ Q)

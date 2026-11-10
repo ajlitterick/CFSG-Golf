@@ -136,12 +136,6 @@ theorem sixGram_eq : sixGram = sixGramLit := by
   !![0, 1, 1, 0, 1, 0; 1, 0, 0, 1, 0, 0; 1, 0, 0, 0, 1, 1; 0, 1, 0, 0, 0, 1; 1, 0, 1, 0, 0, 1;
     0, 0, 1, 1, 1, 0]
 
-theorem sixGramLit_symm : sixGramLitᵀ = sixGramLit := by
-  decide
-
-theorem sixGramLit_diag (k : Fin 6) : sixGramLit k k = 0 := by
-  revert k
-  decide
 
 theorem sixGramLit_mul_inv : sixGramLit * sixGramInv = 1 := by
   decide

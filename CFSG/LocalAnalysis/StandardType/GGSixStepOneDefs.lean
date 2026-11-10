@@ -89,8 +89,6 @@ theorem bstar_le_normalizer : Bs ≤ ggM p B x L D J := h.2.2.2.2.2.2.1.1
 theorem normalizer_bstar_le : Subgroup.normalizer (Bs : Set G) ≤ ggM p B x L D J :=
   h.2.2.2.2.2.2.2.2
 
-theorem normalizer_b_le : Subgroup.normalizer (B : Set G) ≤ ggM p B x L D J :=
-  h.2.2.2.2.2.2.2.1
 
 theorem j_le_inf : J ≤ L ⊓ Subgroup.centralizer (D : Set G) := h.stdSub.1.2.2.2.2.2.1.1
 

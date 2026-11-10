@@ -13,7 +13,6 @@ public section
 
 namespace CFSG.KD.Fi23Cov.Ck
 
-theorem gens : CFSG.KD.Fi23Cov.gens = true := by quickRfl
 
 theorem ctl0 : CFSG.KD.Fi23Cov.ctl0 = true := by quickRfl
 

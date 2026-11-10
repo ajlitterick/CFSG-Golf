@@ -28,8 +28,6 @@ theorem spHom_injective (n : ℕ) (K : Type) [Field K] : Function.Injective (spH
   apply Subtype.ext
   exact congrArg (fun u : GL (Fin n ⊕ Fin n) K => (u : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K)) h
 
-theorem coe_spHom (n : ℕ) (K : Type) [Field K] (A : Matrix.symplecticGroup (Fin n) K) :
-    ((spHom n K A : GL (Fin n ⊕ Fin n) K) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) = A := rfl
 
 theorem range_spHom (n : ℕ) (K : Type) [Field K] : (spHom n K).range = StatedSp n K := by
   apply le_antisymm

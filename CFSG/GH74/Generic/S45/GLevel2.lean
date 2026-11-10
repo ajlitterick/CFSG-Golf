@@ -171,9 +171,6 @@ theorem Msub_le_C (x : G) (T : Subgroup G) : Msub x T ≤ centralizer ({x} : Set
 @[expose] noncomputable def rhoT (x : G) (T : Subgroup G) : ↥(Msub x T) →* MulAut ↥T :=
   T.normalizerMonoidHom.comp (Subgroup.inclusion (Msub_le_N x T))
 
-omit [Finite G] in
-theorem rhoT_coe (n : ↥(Msub x T)) (t : ↥T) :
-    (((rhoT x T) n t : ↥T) : G) = (n : G) * (t : G) * (n : G)⁻¹ := rfl
 
 @[expose] noncomputable def piM (x : G) (T : Subgroup G) : ↥(Msub x T) →* CentralizerBar x :=
   (proj x).comp (Subgroup.inclusion (Msub_le_C x T))

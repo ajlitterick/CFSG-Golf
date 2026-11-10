@@ -124,13 +124,6 @@ theorem pre_img_of_zK_le {A : Subgroup G} (hAN : A ≤ nK K) (hZA : zK K ≤ A) 
 theorem le_pre_img {A : Subgroup G} (hAN : A ≤ nK K) : A ≤ pre K (img K A) := fun g hg =>
   (mem_pre K).2 ⟨hAN hg, (mem_img K).2 ⟨g, hAN hg, hg, rfl⟩⟩
 
-theorem zK_le_pre (B : Subgroup (Gbar K)) : zK K ≤ pre K B := by
-  intro z hz
-  have hzN : z ∈ nK K := K_le_nK K (zK_le K hz)
-  refine (mem_pre K).2 ⟨hzN, ?_⟩
-  have : psi K ⟨z, hzN⟩ = 1 := (psi_eq_one K).2 hz
-  rw [this]
-  exact B.one_mem
 
 theorem img_sup {A B : Subgroup G} (hA : A ≤ nK K) (hB : B ≤ nK K) :
     img K (A ⊔ B) = img K A ⊔ img K B := by

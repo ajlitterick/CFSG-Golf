@@ -55,12 +55,6 @@ theorem not_isInvolutionClass_one_conj (hset : SeitzSetting G L) {n f : ℕ} (hn
     have h := mem_centralizer_singleton_iff.1 (perfectCore_le _ hx)
     rw [mem_centralizer_singleton_iff, ← hφw, ← map_mul, ← map_mul, h]
 
-theorem not_isInvolutionClass_one_conj_of_inf_eq_zpowers (hset : SeitzSetting G L) {n f : ℕ}
-    (hn : 4 ≤ n) {K : Type} [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* projectiveSL n K)
-    {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) (g : G)
-    (hgL : g⁻¹ * t * g ∈ L) : ¬ IsInvolutionClass 1 (e ⟨g⁻¹ * t * g, hgL⟩) :=
-  not_isInvolutionClass_one_conj hset hn hK e (mem_centralizer_of_inf_eq_zpowers hKt) ht g hgL
 
 theorem not_forall_commute_sylow_of_isInvolutionClass_one (hset : SeitzSetting G L) {n f : ℕ}
     (hn : 4 ≤ n) {K : Type} [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* projectiveSL n K)

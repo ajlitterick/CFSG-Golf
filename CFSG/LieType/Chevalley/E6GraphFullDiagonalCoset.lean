@@ -102,15 +102,6 @@ theorem inner_case {P t : M} (ht : t ∈ G) {η : MulAut G} (hη : ∀ g : G, (�
     change (g * ((c : M) * P) * g⁻¹) * h * (g * ((c : M) * P) * g⁻¹)⁻¹ = _
     rw [hgc]
 
-theorem mem_normalizer_of_mul_self {P : M} (hPP : P * P = 1)
-    (hPG : ∀ g ∈ G, P * g * P⁻¹ ∈ G) : P ∈ Subgroup.normalizer (G : Set M) := by
-  refine Subgroup.mem_normalizer_iff.2 fun g => ⟨hPG g, fun h => ?_⟩
-  have hPinv : P⁻¹ = P := (eq_inv_of_mul_eq_one_left hPP).symm
-  have := hPG _ h
-  rwa [show P * (P * g * P⁻¹) * P⁻¹ = g by
-    rw [hPinv]
-    calc P * (P * g * P) * P = (P * P) * g * (P * P) := by group
-      _ = g := by rw [hPP, one_mul, mul_one]] at this
 
 end Generic
 

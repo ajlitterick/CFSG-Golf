@@ -82,22 +82,6 @@ theorem qtwoDL1_mem_omegaGroup_of_isKLinear [CharP F 2] [CharP K 2] [FiniteDimen
   rw [hEq, ← htower, E.finrank_eq]
   exact even_two_mul _
 
-theorem qtwoDL1_tauAt_not_mem_omegaGroup [CharP F 2] [CharP K 2] [FiniteDimensional F K]
-    {σ : K ≃+* K} (E : QuadExt F K σ) {n : ℕ} (k : Fin n) :
-    tauAt E k ∉ omegaGroup (Qn E n) (Qn_polarBilin_nondegenerate E n) := by
-  intro hmem
-  rw [mem_omegaGroup] at hmem
-  have hQ : Qn E n (Pi.single k 1) = 1 := Qn_single_one E k
-  haveI : Invertible (Qn E n (Pi.single k 1)) :=
-    invertibleOfNonzero (by rw [hQ]; exact one_ne_zero)
-  have hrefl : tauAt E k = TauCeti.QuadraticMap.reflection (Qn E n) (Pi.single k 1) := by
-    rw [tauAt_eq_reflect E k, CFSG.ClassicalGroups.Orthogonal.reflect_eq_reflection]
-  have hfin : Module.finrank F (commSpace (tauAt E k)) = 1 := by
-    rw [hrefl]
-    exact finrank_commSpace_reflection (Qn_polarBilin_nondegenerate E n) (Pi.single k 1)
-  rw [hfin] at hmem
-  obtain ⟨m, hm⟩ := hmem.2
-  omega
 
 theorem qtwoDL1_orthBlock [Finite K] [CharP K 2] (hK4 : Nat.card K = 4)
     (E : QuadExt F K (unitaryInvolution K 2 1)) {n : ℕ} {i j k : Fin n}

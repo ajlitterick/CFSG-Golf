@@ -18,9 +18,6 @@ open CFSG.Open
 
 variable {G : Type} [Group G]
 
-theorem catalog_of_commutative (S : Type) [Group S] [Finite S] [IsSimpleGroup S]
-    (hcomm : ∀ a b : S, a * b = b * a) : CFSG.Blueprint.Catalog S :=
-  CFSG.SectionRank.catalog_containsAbelianSimple S hcomm
 
 theorem ne_top_of_pCoreOf_ne_bot_of_simple [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a) {P : Subgroup G} (hP : pCoreOf 2 P ≠ ⊥) : P ≠ ⊤ := by
@@ -85,20 +82,5 @@ theorem qtkeCore_of_cat [Finite G] [IsSimpleGroup G] (hnonab : ∃ a b : G, a * 
   ⟨fun _ hP => ⟨isStronglyQuasithin_of_pCoreOf_ne_bot_of_evenRank h.2.2 hP,
     isKGroupCat_of_kProper h.1 (ne_top_of_pCoreOf_ne_bot_of_simple hnonab hP)⟩, h.2.1, h.2.2⟩
 
-@[expose] def TCKGroupBridgeSQT : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CFSG.IsStronglyQuasithin X →
-    CFSG.Open.SQTKTauCeti.KGroup X → CFSG.SectionRank.IsKGroupCat X
-
-theorem tcKGroup_of_kProper (hK : CFSG.Assembly.KProper CFSG.Assembly.InCatalog G)
-    {P : Subgroup G} (hP : P ≠ ⊤) : CFSG.Open.SQTKTauCeti.KGroup P :=
-  CFSG.KCore.KProperNonab.kGroupNonab CFSG.Assembly.inCatalog_isoInvariant hK P hP
-
-theorem qtkeCore_of_tauCeti (hB : TCKGroupBridgeSQT) [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (h : CFSG.Assembly.Quasithin.quasithinIsQTKE G) :
-    QTKECore G :=
-  ⟨fun P hP =>
-    have hSQT := isStronglyQuasithin_of_pCoreOf_ne_bot_of_evenRank h.2.2 hP
-    ⟨hSQT, hB P hSQT (tcKGroup_of_kProper h.1 (ne_top_of_pCoreOf_ne_bot_of_simple hnonab hP))⟩,
-    h.2.1, h.2.2⟩
 
 end CFSG.QuasithinUnique

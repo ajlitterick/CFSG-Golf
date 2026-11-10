@@ -22,16 +22,6 @@ open CFSG.Yardstones.Md0ec50421ce4 (IsChevSimple)
     ∀ k : S, k ∈ CFSG.HardMathSupport.Solomon.Coordinator.fixSubgroup β → IsPGroup 2 ↥(Subgroup.zpowers k) →
       InducesInner 3 J k
 
-@[expose] def Input14_1StructSimple : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) → IsChevSimple 2 S →
-    ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 →
-    ∀ J : Subgroup S, GLAPComponent 3 (CFSG.HardMathSupport.Solomon.Coordinator.fixSubgroup β) J →
-      IsLThreeFour (barOf 3 J ⧸ Subgroup.center (barOf 3 J)) →
-    ∃ 𝓛 : Set (Subgroup S),
-      (∀ L ∈ 𝓛, ∀ L' ∈ 𝓛, L ≠ L' → ∀ x ∈ L, ∀ y ∈ L', x * y = y * x) ∧
-      (∀ k ∈ CFSG.HardMathSupport.Solomon.Coordinator.fixSubgroup β, IsPGroup 2 ↥(Subgroup.zpowers k) →
-        k ∈ sSup 𝓛) ∧
-      J ≤ ⨆ (L ∈ 𝓛) (_ : CFSG.Open.IsComponentOf L (CFSG.HardMathSupport.Solomon.Coordinator.fixSubgroup β)), L
 
 section Family
 
@@ -80,10 +70,6 @@ theorem mem_of_le_iSup_components {C J : Subgroup G} {𝓛 : Set (Subgroup G)} (
 
 end Family
 
-theorem input14_1CoreSimple_of_struct (h : Input14_1StructSimple) : Input14_1CoreSimple := by
-  intro S _ _ hS hnc hchev β hβ3 hβ1 J hJ hJt k hk hk2
-  obtain ⟨𝓛, hcomm, h2, hJle⟩ := h S hS hnc hchev β hβ3 hβ1 J hJ hJt
-  exact inducesInner_of_mem_family (mem_of_le_iSup_components hJ hJle) hcomm (h2 k hk hk2)
 
 section Transfer
 
@@ -322,8 +308,6 @@ theorem input14_1CoreCyc_of_coreSimple (h : Input14_1CoreSimple) : Inputs141.Inp
     exact Subgroup.mem_inf.2 ⟨⟨⟨c, hcN⟩, hγ1, rfl⟩, Subgroup.mem_top _⟩
   exact ⟨(j₀ : Y), hj₀J, hcC⟩
 
-theorem input14_1CoreCyc_of_struct (h : Input14_1StructSimple) : Inputs141.Input14_1CoreCyc :=
-  input14_1CoreCyc_of_coreSimple (input14_1CoreSimple_of_struct h)
 
 end Transfer
 
@@ -339,11 +323,6 @@ variable {Q : Type} [Group Q]
     (∀ k ∈ fixSubgroup β, IsPGroup 2 ↥(Subgroup.zpowers k) → k ∈ sSup 𝓛) ∧
     J ≤ ⨆ (L ∈ 𝓛) (_ : CFSG.Open.IsComponentOf L (fixSubgroup β)), L
 
-theorem input14_1StructSimple_iff : Input14_1StructSimple ↔
-    ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) → IsChevSimple 2 S →
-      ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 → ∀ J : Subgroup S, GLAPComponent 3 (fixSubgroup β) J →
-        IsLThreeFour (barOf 3 J ⧸ Subgroup.center (barOf 3 J)) → StructAt β J :=
-  Iff.rfl
 
 theorem inducesInner_of_structAt [Finite Q] {β : MulAut Q} {J : Subgroup Q}
     (hJ : GLAPComponent 3 (fixSubgroup β) J) (h : StructAt β J) {k : Q} (hk : k ∈ fixSubgroup β)
@@ -571,18 +550,6 @@ open CFSG.Yardstones.Md0ec50421ce4 (ambiguousChev onLie)
     ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 → ∀ J : Subgroup S, GLAPComponent 3 (fixSubgroup β) J →
       IsLThreeFour (barOf 3 J ⧸ Subgroup.center (barOf 3 J)) → StructAt β J
 
-theorem input14_1StructFor_or {P P' : TauCeti.LieTypeIndex → Prop} (h : Input14_1StructFor P)
-    (h' : Input14_1StructFor P') : Input14_1StructFor fun d => P d ∨ P' d := by
-  intro S _ _ hS hnc d hd
-  rcases hd with hd | hd
-  · exact h S hS hnc d hd
-  · exact h' S hS hnc d hd
-
-theorem input14_1StructFor_of_families
-    (h : ∀ F : CFSG.Yardstones.Md42047359a2a.LieFamily,
-      Input14_1StructFor fun d => CFSG.Yardstones.Md42047359a2a.lieFamily d = F) :
-    Input14_1StructFor fun _ => True :=
-  fun S _ _ hS hnc d _ => h _ S hS hnc d rfl
 
 theorem card_le_of_ambiguousChev_two {S : Type} [Group S] {i : TauCeti.CFSGIndex} (hi : ambiguousChev 2 i)
     (e : S ≃* i.Group) : Nat.card S ≤ 20160 := by
@@ -637,21 +604,6 @@ theorem card_le_of_ambiguousChev_two {S : Type} [Group S] {i : TauCeti.CFSGIndex
   | cyclic _ _ => simp [ambiguousChev] at hi
   | sporadic _ => simp [ambiguousChev] at hi
 
-theorem input14_1StructSimple_of_for (h : Input14_1StructFor fun _ => True) : Input14_1StructSimple := by
-  intro S _ _ hS hnc hchev β hβ3 hβ1 J hJ hJt
-  rcases hchev with ⟨i, hi, ⟨e⟩⟩ | ⟨i, hi, ⟨e⟩⟩
-  · cases i with
-    | lie d => exact h S hS hnc d trivial hi ⟨e⟩ β hβ3 hβ1 J hJ hJt
-    | cyclic _ _ => exact absurd hi (by simp [onLie])
-    | alternating _ _ => exact absurd hi (by simp [onLie])
-    | sporadic _ => exact absurd hi (by simp [onLie])
-  · exfalso
-    have hlt := lt_card_of_glaPComponent hβ1 hJ hJt
-    have hle := card_le_of_ambiguousChev_two hi e
-    omega
-
-theorem input14_1CoreCyc_of_for (h : Input14_1StructFor fun _ => True) : Inputs141.Input14_1CoreCyc :=
-  input14_1CoreCyc_of_struct (input14_1StructSimple_of_for h)
 
 @[expose] def Input14_1CoreFor (P : TauCeti.LieTypeIndex → Prop) : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -666,12 +618,6 @@ theorem input14_1CoreFor_of_struct {P : TauCeti.LieTypeIndex → Prop} (h : Inpu
   fun S _ _ hS hnc d hd hchar he β hβ3 hβ1 J hJ hJt _ hk hk2 =>
     inducesInner_of_structAt hJ (h S hS hnc d hd hchar he β hβ3 hβ1 J hJ hJt) hk hk2
 
-theorem input14_1CoreFor_or {P P' : TauCeti.LieTypeIndex → Prop} (h : Input14_1CoreFor P)
-    (h' : Input14_1CoreFor P') : Input14_1CoreFor fun d => P d ∨ P' d := by
-  intro S _ _ hS hnc d hd
-  rcases hd with hd | hd
-  · exact h S hS hnc d hd
-  · exact h' S hS hnc d hd
 
 theorem input14_1CoreSimple_of_coreFor (h : Input14_1CoreFor fun _ => True) : Input14_1CoreSimple := by
   intro S _ _ hS hnc hchev β hβ3 hβ1 J hJ hJt k hk hk2
@@ -695,11 +641,6 @@ theorem input14_1CoreCyc_of_coreFamilies
     Inputs141.Input14_1CoreCyc :=
   input14_1CoreCyc_of_coreFor fun S _ _ hS hnc d _ => h _ S hS hnc d rfl
 
-theorem input14_1CoreCyc_of_families
-    (h : ∀ F : CFSG.Yardstones.Md42047359a2a.LieFamily,
-      Input14_1StructFor fun d => CFSG.Yardstones.Md42047359a2a.lieFamily d = F) :
-    Inputs141.Input14_1CoreCyc :=
-  input14_1CoreCyc_of_for (input14_1StructFor_of_families h)
 
 end Indices
 

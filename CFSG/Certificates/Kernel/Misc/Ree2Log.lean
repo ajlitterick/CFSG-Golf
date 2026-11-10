@@ -82,8 +82,6 @@ theorem phi_ne_zero {a : ℕ} (ha : a ≤ q1) (h : a ≠ q1) : phi q1 γ a ≠ 0
   rw [phi_lt (by omega)]
   exact pow_ne_zero _ E.ne_zero
 
-theorem phi_eq_zero_iff {a : ℕ} (ha : a ≤ q1) : phi q1 γ a = 0 ↔ a = q1 :=
-  ⟨fun h => by_contra fun h' => E.phi_ne_zero ha h' h, fun h => h ▸ phi_q1⟩
 
 theorem phi_zero : phi q1 γ 0 = 1 := by rw [phi_lt E.pos, pow_zero]
 
@@ -195,9 +193,6 @@ section evalL
 
 variable {q1 hf ZT : ℕ} {ρ α : ℕ → ℕ}
 
-theorem evalL_var (i : ℕ) : evalL q1 hf ZT ρ α (PE.var i) = ρ i := rfl
-
-theorem evalL_atom (k : ℕ) : evalL q1 hf ZT ρ α (PE.atom k) = α k := rfl
 
 theorem evalL_const (c : ℤ) : evalL q1 hf ZT ρ α (PE.const c) = constL q1 hf c := rfl
 

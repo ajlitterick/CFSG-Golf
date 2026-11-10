@@ -46,22 +46,6 @@ theorem pCentral_exists_conj {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.
     exact le_inf hHT hHc
   · rw [hcard, hH]
 
-theorem pCentral_conj {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] (T₀ : Subgroup G)
-    (hT₀ : Nat.card T₀ = p ^ (Nat.card G).factorization p)
-    (hZ : Nat.card ↥(T₀ ⊓ centralizer (T₀ : Set G)) = p) :
-    (∃ H : Subgroup G, IsPCentralSubgroup p H) ∧
-    ∀ H K : Subgroup G, IsPCentralSubgroup p H → IsPCentralSubgroup p K →
-      ∃ g : G, H.map (MulAut.conj g).toMonoidHom = K := by
-  have hcen := pCentral_exists_conj T₀ hT₀ hZ
-  refine ⟨⟨T₀ ⊓ centralizer (T₀ : Set G), hZ, T₀, hT₀, inf_le_left, inf_le_right⟩, ?_⟩
-  intro H K hH hK
-  obtain ⟨g₁, rfl⟩ := hcen H hH
-  obtain ⟨g₂, rfl⟩ := hcen K hK
-  refine ⟨g₂ * g₁⁻¹, ?_⟩
-  rw [Subgroup.map_map]
-  congr 1
-  ext x
-  simp [mul_assoc]
 
 theorem isPCentralSubgroup_iff_exists_conj {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     (T₀ : Subgroup G) (hT₀ : Nat.card T₀ = p ^ (Nat.card G).factorization p)
@@ -87,33 +71,6 @@ theorem isPCentralSubgroup_iff_exists_conj {G : Type*} [Group G] [Finite G] {p :
       calc g * t * g⁻¹ * (g * y * g⁻¹) = g * (t * y) * g⁻¹ := by group
         _ = g * (y * t) * g⁻¹ := by rw [hty]
         _ = g * y * g⁻¹ * (g * t * g⁻¹) := by group
-
-theorem exists_subgroup_of_equiv {n : ℕ} {T : Type*} [Group T] {P : Subgroup (Equiv.Perm (Fin n))}
-    (e : T ≃* P) {T₀ : Subgroup (Equiv.Perm (Fin n))} (hT₀P : T₀ ≤ P) {m c : ℕ}
-    (hcard : Nat.card T₀ = m)
-    (hZ : Nat.card ↥(T₀ ⊓ centralizer (T₀ : Set (Equiv.Perm (Fin n)))) = c) :
-    ∃ T' : Subgroup T, Nat.card T' = m ∧ Nat.card ↥(T' ⊓ centralizer (T' : Set T)) = c := by
-  let ι : T →* Equiv.Perm (Fin n) := P.subtype.comp e.toMonoidHom
-  have hι : Function.Injective ι := Subtype.val_injective.comp e.injective
-  have hrange : ι.range = P := by
-    rw [MonoidHom.range_comp, MonoidHom.range_eq_top.mpr e.surjective, ← MonoidHom.range_eq_map,
-      range_subtype]
-  let T' : Subgroup T := T₀.comap ι
-  have hmapT : T'.map ι = T₀ := by
-    rw [Subgroup.map_comap_eq, hrange]
-    exact inf_eq_right.2 hT₀P
-  have himg : ι '' (T' : Set T) = (T₀ : Set (Equiv.Perm (Fin n))) := by
-    rw [← Subgroup.coe_map, hmapT]
-  refine ⟨T', ?_, ?_⟩
-  · rw [← Subgroup.card_map_of_injective hι, hmapT, hcard]
-  · rw [← hZ, ← Subgroup.card_map_of_injective hι, Subgroup.map_inf _ _ _ hι, hmapT,
-      map_centralizer_eq_inf hι, himg, hrange]
-    have : T₀ ⊓ (P ⊓ centralizer (T₀ : Set (Equiv.Perm (Fin n)))) =
-        T₀ ⊓ centralizer (T₀ : Set (Equiv.Perm (Fin n))) := by
-      ext x
-      simp only [mem_inf]
-      exact ⟨fun ⟨a, _, c⟩ => ⟨a, c⟩, fun ⟨a, c⟩ => ⟨a, hT₀P a, c⟩⟩
-    rw [this]
 
 
 theorem sylowThreeOK_spec
@@ -220,22 +177,5 @@ theorem sylowThreeOK_spec
   have hrj : Rep 275 E.1[j]! three₁ := h3eq ▸ hrepE j hj
   exact (commTT_iff hrj (rep_tp (hg g hgs))).2 h8g
 
-theorem mcl_threeCentral_transitive
-    (h : sylowThreeOK = true) :
-    (∃ H : Subgroup CFSG.Blueprint.NativeSporadic.McL, IsPCentralSubgroup 3 H) ∧
-    ∀ H K : Subgroup CFSG.Blueprint.NativeSporadic.McL, IsPCentralSubgroup 3 H →
-      IsPCentralSubgroup 3 K → ∃ g : CFSG.Blueprint.NativeSporadic.McL,
-        H.map (@MulAut.conj CFSG.Blueprint.NativeSporadic.McL inferInstance g).toMonoidHom = K := by
-  obtain ⟨T₀, hT₀P, hcard, hZ, -⟩ := sylowThreeOK_spec h
-  have hfac : (Nat.card CFSG.Blueprint.NativeSporadic.McL).factorization 3 = 6 := by
-    rw [CFSG.Sporadic.McL.card_McL, show (898128000 : ℕ) = 3 ^ 6 * 1232000 by norm_num,
-      Nat.factorization_mul (by norm_num) (by norm_num), Finsupp.add_apply,
-      Nat.Prime.factorization_pow (by norm_num : Nat.Prime 3), Finsupp.single_eq_same,
-      Nat.factorization_eq_zero_of_not_dvd (by norm_num)]
-  obtain ⟨T', hT'card, hT'Z⟩ := @exists_subgroup_of_equiv 275 CFSG.Blueprint.NativeSporadic.McL
-    inferInstance mclP mclPermEquiv T₀ hT₀P 729 3 hcard hZ
-  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  exact @pCentral_conj CFSG.Blueprint.NativeSporadic.McL inferInstance inferInstance 3 this T'
-    (by rw [hfac]; exact hT'card) hT'Z
 
 end CFSG.Sporadic.Recognition.McLAS

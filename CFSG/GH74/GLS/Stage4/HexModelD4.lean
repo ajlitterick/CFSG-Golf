@@ -204,9 +204,6 @@ theorem card_d4ModelSystem_root
     exact (card_twistedRootGroup_long (sigma_three_of_card hK hσq) hγ hl).trans
       (card_fixedField_of_cube σ hq hK hσq)
 
-theorem d4Model_rootOrders :
-    RootOrdersD4 (d4ModelSystem σ hq hK hσq).root q :=
-  Or.inl fun _ h1 h6 => card_d4ModelSystem_root σ hq hK hσq h1 h6
 
 end Model
 

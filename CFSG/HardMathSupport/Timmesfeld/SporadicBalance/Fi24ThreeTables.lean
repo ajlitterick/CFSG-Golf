@@ -69,19 +69,6 @@ theorem commB_iff (k l : Fin 306936) : commB ctx k l = true ↔ cls k * cls l = 
   unfold commB
   rw [beq_iff_eq, clsPt_eq_smul, ← cls_smul_eq_iff, Fin.val_eq_val]
 
-theorem rep_clsTab (k : Fin 306936) : Rep 306936 (clsTab ctx k) (cls k) := by
-  intro i hi
-  have h := rep_fo24Cls k i hi
-  have hs : (fo24Cls k (Array.range nPts)).size = nPts := by
-    rw [(fo24Cls_spec k (Array.range nPts) fun j hj => by
-      rw [getElem!_pos _ j hj, Array.getElem_range]
-      rw [Array.size_range] at hj
-      exact hj).1, Array.size_range]
-  have hi' : i < (fo24Cls k (Array.range nPts)).size := by rw [hs]; exact hi
-  unfold clsTab ap
-  rw [clsAtN_ctx, getElem!_pos _ i (by simpa using hi'), Array.getElem_map,
-    ← getElem!_pos _ i hi', h, UInt32.toNat_ofNat', Nat.mod_eq_of_lt]
-  exact lt_trans (idx_lt _ hi) (by norm_num)
 
 theorem letters_size_eq : CFSG.Sporadic.Fi24.letters.size = 26 := by
   rw [CFSG.Sporadic.Fi24.letters_size, CFSG.Sporadic.Fi24.actionFacts.words_size]
@@ -117,9 +104,6 @@ theorem smul_val_of_rep {T : Table} {g : J} (hT : Rep 306936 T g) (p : Fin 30693
     (g • p).val = ap T p := by
   rw [hT p p.2, idx_of_lt _ p.2]
 
-theorem smul_val_of_rep_R {T : Table} {g : R} (hT : Rep 306936 T g) (p : Fin 306936) :
-    (g • p).val = ap T p := by
-  rw [hT p p.2, idx_of_lt _ p.2]
 
 theorem cls_not_mem_JR (k : Fin 306936) : cls k ∉ JR := by
   intro h

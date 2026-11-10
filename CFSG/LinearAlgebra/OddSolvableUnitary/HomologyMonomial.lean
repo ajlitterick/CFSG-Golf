@@ -175,10 +175,6 @@ theorem apply_inv_apply (x : V) :
   rw [← Module.End.mul_apply, ← Units.val_mul, mul_inv_cancel, Units.val_one,
     Module.End.one_apply]
 
-theorem inv_apply_apply (x : V) :
-    ((g⁻¹ : LinearMap.GeneralLinearGroup K V) : V →ₗ[K] V) ((g : V →ₗ[K] V) x) = x := by
-  rw [← Module.End.mul_apply, ← Units.val_mul, inv_mul_cancel, Units.val_one,
-    Module.End.one_apply]
 
 theorem map_mul_eq (L : Submodule K V) :
     L.map ((g * h : LinearMap.GeneralLinearGroup K V) : V →ₗ[K] V) =

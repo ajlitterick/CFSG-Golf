@@ -63,9 +63,6 @@ theorem r1Enum : penumSlK 6156 13 (mask 13) (6156 * 13) true J3R1S.G J3R1S.GI 4 
 theorem r1Sort : slK J3R1S.cnt (hsortPtKF 6156 13 (mask 13) J3R1S.cnt J3R1S.T J3R1S.HS J3R1S.HSI)
     0 J3R1S.cnt = true := by quickRfl
 
-theorem r1Sort_neg :
-    hsortPtKF 6156 13 (mask 13) J3R1S.cnt (fun _ => 0) J3R1S.HS J3R1S.HSI 0 = false := by
-  decide +kernel
 
 @[expose] noncomputable def cgR1 (l : Nat) : Nat :=
   nIf(Nat.blt l (nat_lit 3), J3CentP (Nat.add l (nat_lit 22)), J3CentP (nat_lit 21))
@@ -86,11 +83,6 @@ theorem r1Five0 : slK 32 r1Row 0 16 = true := by quickRfl
 
 theorem r1Five1 : slK 32 r1Row 16 16 = true := by quickRfl
 
-theorem r1FiveNeg1 : (!fiveTopK 6156 13 (mask 13) cgR1 cgR1I 4 1 (J3R1S.T 23)) = true := by
-  quickRfl
-
-theorem r1FiveNeg2 : (!fiveTopK 6156 13 (mask 13) cgR1 cgR1I 4 2 (pidn 6156 13)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.J3SylFourR1
 

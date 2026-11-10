@@ -50,8 +50,6 @@ theorem piC_x (x : G) : piC x x = xbar x := by
     rintro a ⟨ha, ha'⟩
     exact ⟨inv_mem ha, by rw [piC_inv x ha]; exact inv_mem ha'⟩
 
-theorem mem_Pre {x : G} {S : Subgroup (CentralizerBar x)} {g : G} :
-    g ∈ Pre x S ↔ g ∈ centralizer ({x} : Set G) ∧ piC x g ∈ S := Iff.rfl
 
 structure SylowLift (x : G) (S₀ : Subgroup (CentralizerBar x)) (T : Subgroup G) : Prop where
   sylow : IsSylowOf 2 T (centralizer ({x} : Set G))

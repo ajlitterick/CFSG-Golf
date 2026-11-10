@@ -199,11 +199,6 @@ end ScalarProductProd
 
 section StarBridge
 
-/-- star (trace (ρ g)) = trace (ρ g⁻¹) for a finite-group representation. -/
-public theorem star_trace_char_inv {G : Type u} [Group G] [Fintype G] {V : Type v}
-    [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V] (ρ : Representation ℂ G V) (g : G) :
-    star ((LinearMap.trace ℂ V) (ρ g)) = (LinearMap.trace ℂ V) (ρ g⁻¹) :=
-  (Theory.Representation.representation_character_inv_eq_star_character ρ g).symm
 
 /-- For a character χ: star (χ g) = χ g⁻¹. -/
 public theorem star_char_eq_char_inv {G : Type u} [Group G] [Fintype G] {χ : ClassFunction G}
@@ -454,31 +449,6 @@ public theorem multiplicity_int {χ : ClassFunction G} (hχ : IsIrreducibleChara
     _ = (a₁ : ℂ) - (a₂ : ℂ) := by rw [ha₁, ha₂]
     _ = ((a₁ - a₂ : ℤ) : ℂ) := by norm_num
 
-/-- The scalar product of an irreducible character with a character is a
-nonnegative real number (the multiplicity of the irreducible in the
-character). -/
-public theorem scalarProduct_irreducible_char_nonneg {G : Type u} [Group G] [Fintype G]
-    {χ ψ : ClassFunction G} (hχ : IsIrreducibleCharacter χ) (hψ : IsCharacter ψ) :
-    ∃ r : ℝ, 0 ≤ r ∧ scalarProduct G χ ψ = (r : ℂ) := by
-  classical
-  rcases hχ with ⟨n, ρχ, hρχ, hχeq⟩
-  rcases hψ with ⟨m, ρψ, hψeq⟩
-  have : Invertible (Nat.card G : ℂ) :=
-    invertibleOfNonzero (by exact_mod_cast (Nat.card_pos (α := G)).ne')
-  have hfin : scalarProductInv G χ ψ =
-      (Module.finrank ℂ (Representation.IntertwiningMap ρψ ρχ) : ℂ) := by
-    have h := Representation.card_inv_mul_sum_char_mul_char_eq_finrank (ρ := ρψ) (σ := ρχ)
-    simpa [scalarProductInv, characterProduct, hχeq, hψeq] using h
-  have hb : star (scalarProduct G χ ψ) = scalarProductInv G χ ψ :=
-    star_scalarProduct_eq_inv_of_char (isCharacter_of_isIrreducibleCharacter ⟨n, ρχ, ⟨hρχ, hχeq⟩⟩)
-  refine ⟨(Module.finrank ℂ (Representation.IntertwiningMap ρψ ρχ) : ℝ), ?_, ?_⟩
-  · exact_mod_cast (Nat.zero_le _)
-  · calc
-      scalarProduct G χ ψ = star (scalarProductInv G χ ψ) := by
-        simpa using congrArg star hb
-      _ = star ((Module.finrank ℂ (Representation.IntertwiningMap ρψ ρχ) : ℂ)) := by rw [hfin]
-      _ = (Module.finrank ℂ (Representation.IntertwiningMap ρψ ρχ) : ℂ) := by simp
-      _ = ((Module.finrank ℂ (Representation.IntertwiningMap ρψ ρχ) : ℝ) : ℂ) := by norm_num
 
 /-- The degree of an irreducible character is nonzero. -/
 public lemma irreducible_char_one_ne_zero [Fintype G] {χ : ClassFunction G}
@@ -587,64 +557,6 @@ public theorem scalarProduct_decomp_left {ι : Type*} [Fintype ι]
   · have hne : χ ≠ χs i := fun h' => h h'.symm
     simp [h, hne]
 
-/-- The scalar product of two decomposed generalized characters. -/
-public theorem scalarProduct_decomp_cross {ι : Type*} [Fintype ι] {κ : Type*} [Fintype κ]
-    {χs : ι → ClassFunction G} {ms : ι → ℤ} {ψs : κ → ClassFunction G} {ns : κ → ℤ}
-    (hχ : ∀ i, IsIrreducibleCharacter (χs i)) (hψ : ∀ j, IsIrreducibleCharacter (ψs j)) :
-    scalarProduct G (∑ i, (ms i : ℂ) • χs i) (∑ j, (ns j : ℂ) • ψs j) =
-      ∑ i, ∑ j, (ms i : ℂ) * (ns j : ℂ) * (if χs i = ψs j then 1 else 0) := by
-  classical
-  calc
-    scalarProduct G (∑ i, (ms i : ℂ) • χs i) (∑ j, (ns j : ℂ) • ψs j)
-        = ∑ i, scalarProduct G ((ms i : ℂ) • χs i) (∑ j, (ns j : ℂ) • ψs j) := by
-            rw [scalarProduct_sum_left]
-    _ = ∑ i, (ms i : ℂ) * scalarProduct G (χs i) (∑ j, (ns j : ℂ) • ψs j) := by
-            refine Finset.sum_congr rfl ?_
-            intro i hi
-            rw [scalarProduct_smul_left]
-    _ = ∑ i, (ms i : ℂ) * (∑ j, scalarProduct G (χs i) ((ns j : ℂ) • ψs j)) := by
-            refine Finset.sum_congr rfl ?_
-            intro i hi
-            congr 1
-            rw [scalarProduct_sum_right]
-    _ = ∑ i, ∑ j, (ms i : ℂ) * (ns j : ℂ) * (if χs i = ψs j then 1 else 0) := by
-            refine Finset.sum_congr rfl ?_
-            intro i hi
-            rw [Finset.mul_sum]
-            refine Finset.sum_congr rfl ?_
-            intro j hj
-            rw [scalarProduct_smul_right, scalarProduct_irr_ite (hχ i) (hψ j)]
-            by_cases h : χs i = ψs j
-            · simp [h]
-            · simp [h]
-
-/-- The norm of a decomposed generalized character is the sum of the squared
-multiplicities. -/
-public theorem normSq_decomp {ι : Type*} [Fintype ι]
-    {χs : ι → ClassFunction G} {ms : ι → ℤ}
-    (hχ : ∀ i, IsIrreducibleCharacter (χs i)) (hdist : ∀ i j, i ≠ j → χs i ≠ χs j) :
-    normSq G (∑ i, (ms i : ℂ) • χs i) = ∑ i, (ms i : ℂ) * (ms i : ℂ) := by
-  classical
-  unfold normSq
-  calc
-    scalarProduct G (∑ i, (ms i : ℂ) • χs i) (∑ i, (ms i : ℂ) • χs i)
-        = ∑ i, ∑ j, (ms i : ℂ) * (ms j : ℂ) * (if χs i = χs j then 1 else 0) :=
-          scalarProduct_decomp_cross hχ hχ
-    _ = ∑ i, (ms i : ℂ) * (ms i : ℂ) := by
-        refine Finset.sum_congr rfl ?_
-        intro i hi
-        calc
-          (∑ j, (ms i : ℂ) * (ms j : ℂ) * (if χs i = χs j then 1 else 0))
-              = (ms i : ℂ) * (ms i : ℂ) * (if χs i = χs i then 1 else 0) := by
-                  refine Finset.sum_eq_single (s := Finset.univ)
-                    (f := fun j => (ms i : ℂ) * (ms j : ℂ) * (if χs i = χs j then 1 else 0)) i ?_ ?_
-                  · intro b hb hbi
-                    have hne : χs i ≠ χs b := hdist i b hbi.symm
-                    simp [hne]
-                  · intro hnot
-                    exfalso
-                    exact hnot (Finset.mem_univ i)
-          _ = (ms i : ℂ) * (ms i : ℂ) := by simp
 
 end DecompScalar
 
@@ -1885,10 +1797,6 @@ public theorem linearChar_inv {G : Type u} [Group G] {lam : ClassFunction G}
     rw [mul_inv_cancel, hlam.2]
   exact (inv_eq_of_mul_eq_one_right h).symm
 
-/-- The conjugate of a linear character value is the value at the inverse. -/
-public theorem linearChar_star {G : Type u} [Group G] [Fintype G] {lam : ClassFunction G}
-    (hlam : IsLinearCharacter lam) (x : G) : star (lam x) = lam x⁻¹ := by
-  exact star_char_eq_char_inv (isCharacter_of_isIrreducibleCharacter hlam.1) x
 
 /-- The product of two scalar endomorphisms of a one-dimensional space. -/
 private lemma scalar_mul_one (c d : ℂ) :
@@ -2442,12 +2350,6 @@ public theorem inducedClassFunction_neg {G : Type u} [Group G] [Fintype G]
           (∑ x : G, (if hx : x⁻¹ * g * x ∈ H then δ ⟨x⁻¹ * g * x, hx⟩ else 0))) := by
             rw [mul_neg]
 
-/-- The induced class function is linear in the second argument of the scalar product. -/
-public theorem scalarProduct_induced_neg {G : Type u} [Group G] [Fintype G]
-    (H : Subgroup G) (χ : ClassFunction G) (δ : ClassFunction (↥H)) :
-    scalarProduct G χ (inducedClassFunction H (-δ)) =
-      -scalarProduct G χ (inducedClassFunction H δ) := by
-  rw [inducedClassFunction_neg, scalarProduct_neg_right]
 
 /-- Frobenius reciprocity: `(δ^G, χ)_G = (δ, χ|_H)_H` for a class function `χ`. -/
 public theorem frobenius_reciprocity {G : Type u} [Group G] [Fintype G] (H : Subgroup G)

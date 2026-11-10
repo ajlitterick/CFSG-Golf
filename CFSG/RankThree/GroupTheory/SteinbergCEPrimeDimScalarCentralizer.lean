@@ -49,8 +49,6 @@ variable {R : Type*} [CommGroup R] [Module (ZMod 2) (Additive R)]
 @[expose] def mulAutLinear (σ : MulAut R) : Additive R →ₗ[ZMod 2] Additive R :=
   (MonoidHom.toAdditive σ.toMonoidHom).toZModLinearMap 2
 
-theorem mulAutLinear_ofMul (σ : MulAut R) (a : R) :
-    mulAutLinear σ (Additive.ofMul a) = Additive.ofMul (σ a) := rfl
 
 @[expose] def dualAct (σ : MulAut R) :
     Module.Dual (ZMod 2) (Additive R) →ₗ[ZMod 2] Module.Dual (ZMod 2) (Additive R) :=

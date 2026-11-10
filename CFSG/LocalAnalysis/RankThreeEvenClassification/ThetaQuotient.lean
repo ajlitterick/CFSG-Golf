@@ -45,42 +45,6 @@ theorem solvable_of_solvable_kernel_and_range {G : Type u} {otherGroup : Type v}
   exact Group.isSolvable_of_surjective (f := equivalence.symm.toMonoidHom)
     equivalence.symm.surjective
 
-theorem solvablePrimeComplementCore_covers_central_pKernel_quotient {G : Type u}
-    {otherGroup : Type v} [Group G] [Group otherGroup] [Finite G] [Finite otherGroup]
-    (prime : ℕ) (hprime : prime.Prime) (homomorphism : G →* otherGroup)
-    (hsurjective : Function.Surjective homomorphism)
-    (hcentral : homomorphism.ker ≤ Subgroup.center G)
-    (hkernel : IsPGroup prime homomorphism.ker) (hsolvable : Group.IsSolvable otherGroup)
-    (hcomplement : ¬prime ∣ Nat.card otherGroup) :
-    (solvablePrimeComplementCore G prime).map homomorphism = ⊤ := by
-  have : Fact prime.Prime := ⟨hprime⟩
-  have hkernelSolvable : Group.IsSolvable homomorphism.ker := by
-    have : Group.IsNilpotent homomorphism.ker := hkernel.isNilpotent
-    infer_instance
-  have hgroupSolvable := solvable_of_solvable_kernel_and_range homomorphism hsurjective
-    hkernelSolvable hsolvable
-  obtain ⟨exponent, hcard⟩ := IsPGroup.iff_card.mp hkernel
-  let equivalence := QuotientGroup.quotientKerEquivOfSurjective homomorphism hsurjective
-  have hindex : homomorphism.ker.index = Nat.card otherGroup :=
-    (Subgroup.index_eq_card homomorphism.ker).trans (Nat.card_congr equivalence.toEquiv)
-  have hcoprime : (Nat.card homomorphism.ker).Coprime homomorphism.ker.index := by
-    rw [hcard, hindex]
-    exact (hprime.coprime_pow_of_not_dvd hcomplement).symm
-  obtain ⟨complement, hcomplementKernel⟩ := Subgroup.exists_left_complement'_of_coprime hcoprime
-  have hnormal := complement_normal_of_central_kernel homomorphism.ker complement hcentral
-    hcomplementKernel
-  have hcomplementCard : Nat.card complement = Nat.card otherGroup :=
-    hcomplementKernel.index_eq_card.symm.trans hindex
-  have : Group.IsSolvable G := hgroupSolvable
-  have hcore := le_solvablePrimeComplementCore prime complement hnormal inferInstance
-    (hcomplementCard.symm ▸ hcomplement)
-  have hmapped : complement.map homomorphism = ⊤ := by
-    have heq := congrArg (Subgroup.map homomorphism) hcomplementKernel.sup_eq_top
-    simpa only [Subgroup.map_sup, Subgroup.map_ker_self, sup_bot_eq,
-      Subgroup.map_top_of_surjective homomorphism hsurjective] using heq
-  apply top_le_iff.mp
-  rw [← hmapped]
-  exact Subgroup.map_mono hcore
 
 theorem solvablePrimeComplementCore_covers_central_kernel_quotient {G : Type u}
     {otherGroup : Type v} [Group G] [Group otherGroup] [Finite G] [Finite otherGroup]

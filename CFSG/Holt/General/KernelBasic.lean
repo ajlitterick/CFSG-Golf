@@ -15,6 +15,5 @@ theorem rangeRestrict_toPermHom_smul (g : G) (ω : Ω) :
     (toPermHom G Ω).rangeRestrict g • ω = g • ω :=
   rfl
 
-variable {z : G} {α : Ω}
 
 end CFSG.Holt.General

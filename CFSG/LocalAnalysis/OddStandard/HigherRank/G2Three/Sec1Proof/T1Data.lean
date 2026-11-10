@@ -401,7 +401,5 @@ open CFSG.RankThree.PartTwo.Census.Carrier.G2Three
 @[expose] def t1G (_ : Unit := ()) : GenData :=
   ⟨1152, 6, decodeRt t1RtStr, decodePar t1ParStr⟩
 
-@[expose] def t1Check (_ : Unit := ()) : Bool :=
-  wordsCheck () && pcTabCheck (frameGensP ()) (t1G ())
 
 end CFSG.OddStandard.HigherRank.G2Three.Sec1Proof.Tab

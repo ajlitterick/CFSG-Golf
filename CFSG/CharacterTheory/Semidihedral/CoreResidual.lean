@@ -110,19 +110,6 @@ theorem centralizerCore_le_residual (n : ℕ) (S : Sylow 2 G)
     pPrimeCore 2 (involutionCentralizer n S f) ≤ oddResidual n S f :=
   pPrimeCore_le_primeResidual 2
 
-theorem centralizerCore_eq_residualCore_map (n : ℕ) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) :
-    pPrimeCore 2 (involutionCentralizer n S f) =
-      (pPrimeCore 2 (oddResidual n S f)).map (oddResidual n S f).subtype :=
-  (pPrimeCore_primeResidual_map 2).symm
-
-theorem centralizerCore_disjoint_involution (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    Disjoint (pPrimeCore 2 (involutionCentralizer n S f))
-      (Subgroup.zpowers (centralInvolution n S f)) := by
-  apply Subgroup.disjoint_of_coprime_natCard
-  rw [Nat.card_zpowers, centralInvolution_order n hn S f]
-  exact (pPrimeCore_coprime_card (p := 2)).symm
 
 @[expose] noncomputable def residualSylow (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -145,12 +132,6 @@ theorem residualSylow_eq (n : ℕ) (hn : 4 ≤ n)
       (centralizerQuaternion_le_oddResidual n hn S f hG)).symm.trans
         (MulEquiv.subgroupCongr (residualSylow_eq n hn S f hG).symm))
 
-theorem residualQuaternionEquiv_coe (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) (x : QuaternionGroup (2 ^ (n - 3))) :
-    ((residualQuaternionEquiv n hn S f hG x : oddResidual n S f) :
-      involutionCentralizer n S f) =
-        (centralizerQuaternionEquiv n hn S f x : involutionCentralizer n S f) := rfl
 
 @[expose] def residualInvolution (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -214,24 +195,5 @@ theorem residualCoreQuotient_involution_iff (n : ℕ) (hn : 4 ≤ n)
   (residualQuaternionEquiv n hn S f hG).trans
     (coreQuotientSylowEquiv 2 (residualSylow n hn S f hG))
 
-theorem residualCoreQuotientQuaternionEquiv_coe (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) (x : QuaternionGroup (2 ^ (n - 3))) :
-    (residualCoreQuotientQuaternionEquiv n hn S f hG x :
-      oddResidual n S f ⧸ pPrimeCore 2 (oddResidual n S f)) =
-    QuotientGroup.mk' (pPrimeCore 2 (oddResidual n S f))
-      (residualQuaternionEquiv n hn S f hG x : oddResidual n S f) := rfl
-
-omit [Finite G] in
-theorem residualCoreQuotient_hom_eq_one (n : ℕ) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) {P : Type*} [Group P]
-    (hP : IsPGroup 2 P)
-    (φ : oddResidual n S f ⧸ pPrimeCore 2 (oddResidual n S f) →* P) : φ = 1 := by
-  have h := oddResidual_hom_eq_one n S f hP
-    (φ.comp (QuotientGroup.mk' (pPrimeCore 2 (oddResidual n S f))))
-  apply MonoidHom.ext
-  intro x
-  obtain ⟨y, rfl⟩ := QuotientGroup.mk'_surjective (pPrimeCore 2 (oddResidual n S f)) x
-  exact DFunLike.congr_fun h y
 
 end CFSG.Semidihedral.CoreResidual

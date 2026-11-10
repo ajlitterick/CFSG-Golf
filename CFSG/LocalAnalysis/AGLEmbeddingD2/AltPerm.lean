@@ -292,15 +292,7 @@ open Equiv Equiv.Perm Finset
 
 variable {α : Type*} [Fintype α] [DecidableEq α]
 
-alias swap_mul_swap_rotate := CFSG.AGLEmbedding.swap_mul_swap_rotate
-alias swap_mul_swap_eq_mul := CFSG.AGLEmbedding.swap_mul_swap_eq_mul
-alias support_swap_mul_swap_of_ne := CFSG.AGLEmbedding.support_swap_mul_swap_of_ne
 alias isThreeCycle_swap_mul_swap := CFSG.AGLEmbedding.isThreeCycle_swap_mul_swap
-alias alternatingGroup_le_of_swap_mul_swap_mem :=
-  CFSG.AGLEmbedding.alternatingGroup_le_of_swap_mul_swap_mem
-alias swap_mul_swap_mem_of_notMem := CFSG.AGLEmbedding.swap_mul_swap_mem_of_notMem
-alias swap_mul_swap_mem_of_mem := CFSG.AGLEmbedding.swap_mul_swap_mem_of_mem
-alias swap_mul_swap_mem_of_notMem_union := CFSG.AGLEmbedding.swap_mul_swap_mem_of_notMem_union
 alias alternatingGroup_le_of_disjoint := CFSG.AGLEmbedding.alternatingGroup_le_of_disjoint
 
 theorem mem_map_centralizer_of_disjoint {β : Type*} [Fintype β] [DecidableEq β]

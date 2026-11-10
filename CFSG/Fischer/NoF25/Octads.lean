@@ -181,11 +181,6 @@ theorem Realizes.inv {r : Y} {τ : Equiv.Perm ι} (h : Realizes d r τ) : Realiz
   rw [e]
   group
 
-omit [Group Y] [Fintype ι] [DecidableEq ι] in
-theorem ofInjective_symm_val (hinj : Function.Injective d) (x : Set.range d) :
-    d ((Equiv.ofInjective d hinj).symm x) = x := by
-  have := Equiv.apply_ofInjective_symm hinj x
-  exact this
 
 omit [Group Y] [DecidableEq ι] in
 theorem fix_eq_image (hinj : Function.Injective d) (σ : Equiv.Perm (Set.range d))

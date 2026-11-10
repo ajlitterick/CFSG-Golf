@@ -39,10 +39,6 @@ theorem fixedNormalEquiv_apply (N : Subgroup X) (ψ : MulAut X)
     (x : FixedCommutingProduct.fixedSubgroup (restrictAutomorphism N ψ hN)) :
     (fixedNormalEquiv N ψ hN x).val.val = x.val.val := rfl
 
-theorem fixedNormalEquiv_symm_apply (N : Subgroup X) (ψ : MulAut X)
-    (hN : N.map ψ.toMonoidHom = N)
-    (x : N.subgroupOf (FixedCommutingProduct.fixedSubgroup ψ)) :
-    ((fixedNormalEquiv N ψ hN).symm x).val.val = x.val.val := rfl
 
 theorem central_subgroupOf (N Z : Subgroup X) (hZ : Z ≤ Subgroup.center X) :
     Z.subgroupOf N ≤ Subgroup.center N := by
@@ -120,20 +116,5 @@ theorem normal_central_quotient_fixed_pComponent_quasisimple
     (restrictAutomorphism N ψ hN) (restricted_central_invariant N Z ψ hN hZ) p
     (normal_fixed_pComponent_quasisimple N ψ hN p hfixed) L hL
 
-theorem normal_central_quotient_fixed_p_component_transfer
-    (N Z : Subgroup X) [N.Normal] (hcentral : Z ≤ Subgroup.center X)
-    (ψ : MulAut X) (hN : N.map ψ.toMonoidHom = N) (hZ : Z.map ψ.toMonoidHom = Z) :
-    letI := Subgroup.normal_of_le_center hcentral
-    ∀ p : ℕ, p.Prime →
-      (∀ L : Subgroup (FixedCommutingProduct.fixedSubgroup ψ),
-        CFSG.IsPComponent p L → CFSG.IsQuasisimple L) →
-      ∀ L : Subgroup (FixedCommutingProduct.fixedSubgroup
-        (onNormalCentralQuotient N Z ψ hN hZ)),
-        CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  let := Subgroup.normal_of_le_center hcentral
-  intro p hp hfixed L hL
-  let : Fact p.Prime := ⟨hp⟩
-  exact normal_central_quotient_fixed_pComponent_quasisimple
-    N Z hcentral ψ hN hZ p hfixed L hL
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalLinearFixed

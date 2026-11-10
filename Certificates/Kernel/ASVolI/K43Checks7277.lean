@@ -12,20 +12,6 @@ namespace CertificateChecks.KernelASVolI
 
 open CFSG.KS.ASVolI CertificateChecks.KernelHMathieu
 
-theorem k43_listsK : listsK T24.E = true := by
-  decide +kernel
-
-theorem k43_listsS : listsS = true := by
-  decide +kernel
-
-theorem k43_f3K : f3K T24.E = true := by
-  decide +kernel
-
-theorem k43_f3S : f3S = true := by
-  decide +kernel
-
-theorem k43_f4S : f4S = true := by
-  decide +kernel
 
 end CertificateChecks.KernelASVolI
 

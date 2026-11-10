@@ -160,41 +160,6 @@ theorem exists_conj_mem_of_twoPow {C : Type*} [Group C] [Finite C] (T : Subgroup
   rw [hg] at h2
   exact h2
 
-theorem not_uniqueInvNormal_of_witness_sylow [Finite X] (T : Subgroup X) (hT : IsPGroup 2 T)
-    (hidx : ¬ 2 ∣ (T.subgroupOf (Subgroup.centralizer ({t} : Set X))).index)
-    (hw : ∀ c ∈ T, c * c = t →
-      ∃ g ∈ Subgroup.centralizer ({t} : Set X),
-        (c * (g * c * g⁻¹)) * (c * (g * c * g⁻¹)) = 1 ∧ c * (g * c * g⁻¹) ≠ 1 ∧
-          c * (g * c * g⁻¹) ≠ t) :
-    ¬ UniqueInvNormal t N := by
-  intro h
-  obtain ⟨s, hs, hst, hs4⟩ := h.exists_sq_eq
-  set C := Subgroup.centralizer ({t} : Set X) with hC
-  have hTp : IsPGroup 2 (T.subgroupOf C) := hT.comap_of_injective C.subtype C.subtype_injective
-  have hsC : s ∈ C := h.le_centralizer hs
-  have hu : (⟨s, hsC⟩ : C) ^ (2 ^ 2) = 1 := by
-    apply Subtype.ext
-    simp [← hs4, pow_orderOf_eq_one]
-  obtain ⟨c₀, hc₀⟩ := exists_conj_mem_of_twoPow (T.subgroupOf C) hTp hidx hu
-  have hcT : (c₀ : X) * s * (c₀ : X)⁻¹ ∈ T := by
-    have := Subgroup.mem_subgroupOf.1 hc₀
-    simpa using this
-  have hcN : (c₀ : X) * s * (c₀ : X)⁻¹ ∈ N := h.conj_mem c₀ c₀.2 s hs
-  have hc2 : ((c₀ : X) * s * (c₀ : X)⁻¹) * ((c₀ : X) * s * (c₀ : X)⁻¹) = t := by
-    have hct : (c₀ : X) * t * (c₀ : X)⁻¹ = t := by
-      have := Subgroup.mem_centralizer_singleton_iff.mp c₀.2
-      rw [mul_inv_eq_iff_eq_mul]
-      exact this
-    calc ((c₀ : X) * s * (c₀ : X)⁻¹) * ((c₀ : X) * s * (c₀ : X)⁻¹)
-        = (c₀ : X) * (s * s) * (c₀ : X)⁻¹ := by group
-      _ = t := by rw [hst, hct]
-  obtain ⟨g, hg, hx2, hx1, hxt⟩ := hw _ hcT hc2
-  have hx : ((c₀ : X) * s * (c₀ : X)⁻¹) * (g * ((c₀ : X) * s * (c₀ : X)⁻¹) * g⁻¹) ∈ N :=
-    N.mul_mem hcN (h.conj_mem g hg _ hcN)
-  have hord : orderOf (((c₀ : X) * s * (c₀ : X)⁻¹) *
-      (g * ((c₀ : X) * s * (c₀ : X)⁻¹) * g⁻¹)) = 2 :=
-    orderOf_eq_prime (by rwa [pow_two]) hx1
-  exact hxt (h.eq_of_orderOf_eq_two _ hx hord)
 
 end Criteria
 

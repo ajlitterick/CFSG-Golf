@@ -198,18 +198,5 @@ theorem card_ge_of_inB2 {K : Type} [Group K] [Finite K] (h : InB2 K) : 120 ≤ N
   calc 120 = 60 * 2 := by norm_num
     _ ≤ _ := Nat.mul_le_mul h60 h2
 
-theorem false_of_card_centralizers
-    {L : Type} [Group L] [Finite L] {I : Subgroup L}
-    {K₀ : Type} [Group K₀] (hK₀ : InB2 K₀) (φ : ↥I →* K₀) (hφs : Function.Surjective φ)
-    (hφo : Odd (Nat.card φ.ker))
-    (hcard : ∀ z : L, orderOf z = 2 → Nat.card ↥(centralizer ({z} : Set L)) < 120) : False := by
-  obtain ⟨z, hz2, H, hzH, ψ, hHle, hψs, -, -⟩ := exists_involution_section hK₀ φ hφs hφo
-  have : Finite K₀ := Finite.of_surjective φ hφs
-  have h1 : Nat.card K₀ ≤ Nat.card ↥H := Nat.card_le_card_of_surjective ψ hψs
-  have h2 : Nat.card ↥H ≤ Nat.card ↥(centralizer ({z} : Set L)) :=
-    Nat.card_le_card_of_injective (Subgroup.inclusion hHle) (Subgroup.inclusion_injective hHle)
-  have h3 := hcard z hz2
-  have h4 := card_ge_of_inB2 hK₀
-  omega
 
 end CFSG.GH74.GLS.TwoThin

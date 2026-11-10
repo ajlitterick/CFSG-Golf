@@ -262,11 +262,6 @@ theorem zetaEl_add (t t' : h₀.fixedField) :
   refine eichSU_ext hι _ _ ?_
   simp [mul_add]
 
-theorem zetaEl_zero : zetaEl (m := m) hι hκ₀ 0 = 1 := by
-  unfold zetaEl
-  rw [← eichSU_zero h₀ hι (m := m)]
-  refine eichSU_ext hι _ _ ?_
-  simp
 
 noncomputable def zetaSub :
     Subgroup (gramSU h₀ ((1 : GL (Fin (m + 2)) k) : Matrix (Fin (m + 2)) (Fin (m + 2)) k)) :=

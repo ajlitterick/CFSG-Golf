@@ -264,8 +264,6 @@ def mulClosedSubgroup (P : G → Prop) (h1 : P 1) (hmul : ∀ a b, P a → P b �
     rw [e]
     exact hpow _
 
-theorem mem_mulClosedSubgroup {P : G → Prop} {h1 : P 1} {hmul : ∀ a b, P a → P b → P (a * b)}
-    {x : G} : x ∈ mulClosedSubgroup P h1 hmul ↔ P x := Iff.rfl
 
 omit [Finite G] in
 theorem exists_mul_of_mem_sup_gammaOneThree {K : Subgroup G}

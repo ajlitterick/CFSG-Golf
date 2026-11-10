@@ -82,15 +82,6 @@ theorem IsSymplecticBasis.toMatrix_eq (hB : B.IsAlt) (hb : IsSymplecticBasis B b
     split_ifs <;> simp
   · simp [hb.2.1 i j]
 
-theorem isSymplecticBasis_iff_toMatrix_eq (hB : B.IsAlt) :
-    IsSymplecticBasis B b ↔ BilinForm.toMatrix b B = Matrix.fromBlocks 0 1 (-1) 0 := by
-  refine ⟨fun hb => hb.toMatrix_eq hB, fun h => ⟨fun i j => ?_, fun i j => ?_, fun i j => ?_⟩⟩
-  · have := congrFun (congrFun h (Sum.inl i)) (Sum.inl j)
-    simpa [BilinForm.toMatrix_apply] using this
-  · have := congrFun (congrFun h (Sum.inr i)) (Sum.inr j)
-    simpa [BilinForm.toMatrix_apply] using this
-  · have := congrFun (congrFun h (Sum.inl i)) (Sum.inr j)
-    simpa [BilinForm.toMatrix_apply, Matrix.one_apply] using this
 
 theorem IsSymplecticBasis.apply_eq (hB : B.IsAlt) (hb : IsSymplecticBasis B b) (x y : V) :
     B x y = ⇑(b.repr x) ⬝ᵥ (Matrix.fromBlocks 0 1 (-1) 0).mulVec ⇑(b.repr y) := by
@@ -161,27 +152,5 @@ end KCAlternating
 
 open Module KCAlternating
 
-theorem alternating_symplectic_basis {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
-    [FiniteDimensional K V] (B : LinearMap.BilinForm K V) (hB : B.IsAlt)
-    (hBn : B.Nondegenerate) :
-    (∃ (n : ℕ) (b : Basis (Fin n ⊕ Fin n) K V), finrank K V = 2 * n ∧
-        (∀ i j, B (b (Sum.inl i)) (b (Sum.inl j)) = 0) ∧
-        (∀ i j, B (b (Sum.inr i)) (b (Sum.inr j)) = 0) ∧
-        ∀ i j, B (b (Sum.inl i)) (b (Sum.inr j)) = if i = j then 1 else 0) ∧
-    (∀ (W : Type*) [AddCommGroup W] [Module K W] [FiniteDimensional K W]
-        (B' : LinearMap.BilinForm K W), B'.IsAlt → B'.Nondegenerate →
-        finrank K W = finrank K V → ∃ φ : V ≃ₗ[K] W, ∀ x y, B' (φ x) (φ y) = B x y) ∧
-    (∀ a b : V, B a b = 1 → ∃ (n : ℕ) (c : Basis (Fin (n + 1) ⊕ Fin (n + 1)) K V),
-        finrank K V = 2 * (n + 1) ∧
-        (∀ i j, B (c (Sum.inl i)) (c (Sum.inl j)) = 0) ∧
-        (∀ i j, B (c (Sum.inr i)) (c (Sum.inr j)) = 0) ∧
-        (∀ i j, B (c (Sum.inl i)) (c (Sum.inr j)) = if i = j then 1 else 0) ∧
-        c (Sum.inl 0) = a ∧ c (Sum.inr 0) = b) :=
-  ⟨exists_isSymplecticBasis hB hBn,
-    fun _ _ _ _ _ hB' hBn' h => exists_isometry_of_finrank_eq hB hBn hB' hBn' h.symm,
-    fun _ _ hab => by
-      obtain ⟨n, c, hn, ⟨h1, h2, h3⟩, hc1, hc2⟩ :=
-        exists_isSymplecticBasis_of_apply_eq_one hB hBn hab
-      exact ⟨n, c, hn, h1, h2, h3, hc1, hc2⟩⟩
 
 end CFSG.RankThree.PartOne

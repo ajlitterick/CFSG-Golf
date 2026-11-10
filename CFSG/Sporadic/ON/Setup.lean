@@ -98,9 +98,5 @@ noncomputable def onEquivJ : Blueprint.NativeSporadic.ON ≃* J :=
   Blueprint.NativeSporadic.matrixSeedEquiv 3 154 (by norm_num) mA mB det_mA_ne_zero
     det_mB_ne_zero
 
-theorem mat_onEquivJ
-    (u : Blueprint.NativeSporadic.ON) : mat (onEquivJ u) = u.val.val :=
-  Blueprint.NativeSporadic.matrixSeedEquiv_val 3 154 (by norm_num) mA mB det_mA_ne_zero
-    det_mB_ne_zero u
 
 end CFSG.Sporadic.ON

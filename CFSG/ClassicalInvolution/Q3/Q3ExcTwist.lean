@@ -34,10 +34,6 @@ theorem exc3Big_map_conj {A : Subgroup B} (u : B) (h : Exc3Big A) :
   rw [conj_pow, hm]
   group
 
-theorem exc3Small_map_conj {A : Subgroup B} (u : B) (h : Exc3Small A) :
-    Exc3Small (A.map (MulAut.conj u).toMonoidHom) := by
-  obtain ⟨e⟩ := h
-  exact ⟨e.trans (A.equivMapOfInjective (MulAut.conj u).toMonoidHom (MulAut.conj u).injective)⟩
 
 end Conj
 

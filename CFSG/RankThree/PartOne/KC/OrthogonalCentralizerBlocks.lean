@@ -45,8 +45,6 @@ theorem symm_mem_centralizer {g : V ≃ₗ[K] V}
     ((u⁻¹ : (commutant x.toLinearMap)ˣ) : commutant x.toLinearMap).1
     (congrArg Subtype.val u.mul_inv) (congrArg Subtype.val u.inv_mul)
 
-theorem unitToEquiv_apply (u : (commutant x.toLinearMap)ˣ) (v : V) :
-    unitToEquiv x u v = (u : commutant x.toLinearMap).1 v := rfl
 
 @[expose] noncomputable def centralizerUnits :
     (Subgroup.centralizer ({x} : Set (V ≃ₗ[K] V)) : Subgroup (V ≃ₗ[K] V)) ≃*

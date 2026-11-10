@@ -42,14 +42,6 @@ theorem symOn_mem_iff {F : Finset Ω} {g : Perm Ω} (hg : g ∈ symOn F) (x : Ω
 theorem symOn_mono {F F' : Finset Ω} (h : F ⊆ F') : symOn F ≤ symOn F' :=
   fun _ hg x hx => hg x fun hxF => hx (h hxF)
 
-@[expose] noncomputable def symOnEquiv [DecidableEq Ω] (F : Finset Ω) : Perm {x // x ∈ F} ≃* symOn F :=
-  MulEquiv.ofBijective
-    ((Equiv.Perm.ofSubtype (p := fun x => x ∈ F)).codRestrict (symOn F)
-      (fun f x hx => Equiv.Perm.ofSubtype_apply_of_not_mem f hx))
-    ⟨fun f g h => Equiv.Perm.ofSubtype_injective (congrArg Subtype.val h), fun g => by
-      refine ⟨(g : Perm Ω).subtypePerm (symOn_mem_iff g.2), Subtype.ext ?_⟩
-      exact Equiv.Perm.ofSubtype_subtypePerm (symOn_mem_iff g.2)
-        (fun x hx => by by_contra h; exact hx (g.2 x h))⟩
 
 end Basic
 

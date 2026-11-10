@@ -47,13 +47,6 @@ variable {V : Type*} {G : SimpleGraph V}
     (s : Finset (Sym2 V)) : Prop :=
   ∃ (u : V) (p : G.Walk u u), p.IsCycle ∧ p.length = m ∧ p.edges.toFinset = s
 
-theorem edges_toFinset_rotate [DecidableEq V] {u : V} (p : G.Walk u u) (w : V)
-    (h : w ∈ p.support) : (p.rotate w h).edges.toFinset = p.edges.toFinset :=
-  List.toFinset_eq_of_perm _ _ (p.rotate_edges w h).perm
-
-theorem edges_toFinset_reverse [DecidableEq V] {u w : V} (p : G.Walk u w) :
-    p.reverse.edges.toFinset = p.edges.toFinset := by
-  rw [SimpleGraph.Walk.edges_reverse, List.toFinset_reverse]
 
 theorem exists_other_cycle_edge {u : V} {p : G.Walk u u} (hp : p.IsCycle) {a b : V}
     (hab : s(a, b) ∈ p.edges) :

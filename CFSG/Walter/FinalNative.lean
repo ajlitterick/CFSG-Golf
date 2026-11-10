@@ -111,14 +111,6 @@ theorem walter_modelsForm_of
   · obtain ⟨e⟩ := hJ
     exact Or.inr (Or.inr (Or.inr (isSporadic_J1_of_mulEquiv e)))
 
-theorem walterNativeModels_of (h : WalterModelsForm) : WalterNativeModels := by
-  intro G _ _ _ hnonab P hP
-  rcases h G hnonab P hP with ⟨f, hf, hc⟩ | ⟨p, f, hp, hp2, hf, h5, h8, hc⟩ | ⟨f, hfo, hf3, hr⟩ |
-    hJ
-  · exact Or.inl ⟨f, hf, Or.inl ⟨by decide, hc⟩⟩
-  · exact Or.inr (Or.inl ⟨p, f, hp, hp2, hf, h5, h8, Or.inl ⟨by decide, hc⟩⟩)
-  · exact Or.inr (Or.inr (Or.inl ⟨f, hfo, hf3, Or.inr (Or.inr (Or.inl ⟨rfl, by decide, hr⟩))⟩))
-  · exact Or.inr (Or.inr (Or.inr hJ))
 
 theorem walter_modelsForm_of_base
     (h62 : W67.S_lemma_6_2) (h65 : W67.S_lemma_6_5)

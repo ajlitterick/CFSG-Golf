@@ -26,8 +26,6 @@ variable {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k
 @[expose] def inversionRootsJ (w : WeylGroup τ) : Set (Fin τ.rank → ℤ) :=
   {α | α ∈ D.posRootsJ ∧ w • α ∈ negRoots D.roots}
 
-@[expose] def orbitMonomial : Subgroup (ModGL τ k) :=
-  Subgroup.closure ((D.orbitTorus : Set (ModGL τ k)) ∪ {g | ∃ O ∈ D.orbits, g = D.orbitN O})
 
 theorem orbitGroup_le_adjointGroup : D.orbitGroup ≤ adjointGroup τ k := by
   refine (Subgroup.closure_le _).2 ?_
@@ -488,13 +486,6 @@ theorem coe_orbitBorel_eq_mul :
     have hu' := D.fixedUnipotentM_le_orbitBorel ⟨u, hu, rfl⟩
     exact mul_mem (⟨ht.1, torusGroup_le_borelGroup ht.2⟩ : t ∈ D.orbitBorel) hu'
 
-theorem eq_and_eq_of_orbitBorel {t t' u u' : ModGL τ k} (ht : t ∈ D.orbitTorus)
-    (ht' : t' ∈ D.orbitTorus) (hu : u ∈ D.fixedUnipotentM) (hu' : u' ∈ D.fixedUnipotentM)
-    (h : t * u = t' * u') : t = t' ∧ u = u' := by
-  obtain ⟨u₀, hu₀, rfl⟩ := hu
-  obtain ⟨u₀', hu₀', rfl⟩ := hu'
-  exact eq_and_eq_of_mul_eq_mul (D.orbitTorus_le_torusJ ht) (D.orbitTorus_le_torusJ ht')
-    (D.mem_fixedUnipotent.1 hu₀).1 (D.mem_fixedUnipotent.1 hu₀').1 h
 
 theorem fixedUnipotentM_normal : (D.fixedUnipotentM.subgroupOf D.orbitBorel).Normal := by
   refine ⟨fun n hn b => ?_⟩
@@ -524,19 +515,6 @@ theorem fixedUnipotentM_normal : (D.fixedUnipotentM.subgroupOf D.orbitBorel).Nor
       Subgroup.coe_inv, ← hun]
     rfl
 
-theorem isNilpotent_fixedUnipotent : Group.IsNilpotent D.fixedUnipotent := by
-  have := isNilpotent_unionUnipotent (K := k) (χ := D.χ) (J := D.J)
-  let f : D.fixedUnipotent →* unionUnipotent k D.χ D.J :=
-    { toFun := fun x => ⟨((x : adjointGroup τ k) : ModGL τ k), (D.mem_fixedUnipotent.1 x.2).1⟩
-      map_one' := rfl
-      map_mul' := fun _ _ => rfl }
-  refine Subgroup.isNilpotent_of_ker_le_center f ?_
-  have hker : f.ker = ⊥ := by
-    refine (MonoidHom.ker_eq_bot_iff f).2 fun x y h => Subtype.ext (Subtype.ext ?_)
-    have := congrArg Subtype.val h
-    exact this
-  rw [hker]
-  exact bot_le
 
 theorem mul_comm_of_mem_orbitTorus {x y : ModGL τ k} (hx : x ∈ D.orbitTorus)
     (hy : y ∈ D.orbitTorus) : x * y = y * x :=
@@ -550,99 +528,6 @@ variable {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k
   {M : Type} [CommGroup M]
   (D : GenFixedRootDatum τ p₀ k M)
 
-theorem orbitN_mem_orbitMonomial {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
-    D.orbitN O ∈ D.orbitMonomial :=
-  Subgroup.subset_closure (Or.inr ⟨O, hO, rfl⟩)
-
-theorem orbitTorus_le_orbitMonomial : D.orbitTorus ≤ D.orbitMonomial := fun _ ht =>
-  Subgroup.subset_closure (Or.inl ht)
-
-theorem orbitMonomial_le_monomialSubgroup : D.orbitMonomial ≤ monomialSubgroup τ k := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ (ht | ⟨O, hO, rfl⟩)
-  · exact Subgroup.mem_sup_left ht.2
-  · exact (D.orbitN_mem_monomialSubgroup hO).1
-
-theorem orbitMonomial_le_orbitGroup : D.orbitMonomial ≤ D.orbitGroup := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ (ht | ⟨O, hO, rfl⟩)
-  · exact ht.1
-  · exact D.orbitMap_mem_orbitGroup hO _
-
-theorem weylQuotientHom_mem_fixedWeyl {n : ModGL τ k} (hn : n ∈ D.orbitMonomial) :
-    weylQuotientHom τ k ⟨n, D.orbitMonomial_le_monomialSubgroup hn⟩ ∈ D.fixedWeyl := by
-  induction hn using Subgroup.closure_induction with
-  | mem g hg =>
-    rcases hg with ht | ⟨O, hO, rfl⟩
-    · rw [weylQuotientHom_eq (mapsRootLines_of_mem_torusGroup ht.2)]
-      exact one_mem _
-    · rw [D.weylQuotientHom_orbitN hO]
-      exact D.setReflection_mem_fixedWeyl hO
-  | one =>
-    have e : (⟨1, D.orbitMonomial_le_monomialSubgroup (one_mem _)⟩ : monomialSubgroup τ k) = 1 :=
-      rfl
-    rw [e, map_one]
-    exact one_mem _
-  | mul x y hx hy ihx ihy =>
-    have e : (⟨x * y, D.orbitMonomial_le_monomialSubgroup (mul_mem hx hy)⟩ :
-        monomialSubgroup τ k) = ⟨x, D.orbitMonomial_le_monomialSubgroup hx⟩ *
-          ⟨y, D.orbitMonomial_le_monomialSubgroup hy⟩ := rfl
-    rw [e, map_mul]
-    exact mul_mem ihx ihy
-  | inv x hx ihx =>
-    have e : (⟨x⁻¹, D.orbitMonomial_le_monomialSubgroup (inv_mem hx)⟩ :
-        monomialSubgroup τ k) = (⟨x, D.orbitMonomial_le_monomialSubgroup hx⟩)⁻¹ := rfl
-    rw [e, map_inv]
-    exact inv_mem ihx
-
-@[expose] def orbitWeylHom : D.orbitMonomial →* D.fixedWeyl :=
-  MonoidHom.codRestrict ((weylQuotientHom τ k).comp
-    (Subgroup.inclusion D.orbitMonomial_le_monomialSubgroup)) D.fixedWeyl
-    fun n => D.weylQuotientHom_mem_fixedWeyl n.2
-
-theorem coe_orbitWeylHom (n : D.orbitMonomial) :
-    (D.orbitWeylHom n : WeylGroup τ) =
-      weylQuotientHom τ k ⟨n, D.orbitMonomial_le_monomialSubgroup n.2⟩ :=
-  rfl
-
-theorem orbitWeylHom_surjective : Function.Surjective D.orbitWeylHom := by
-  intro w
-  have key : ∀ u ∈ Subgroup.closure (setReflection '' D.orbits),
-      ∃ n : D.orbitMonomial, (D.orbitWeylHom n : WeylGroup τ) = u := by
-    intro u hu
-    induction hu using Subgroup.closure_induction with
-    | mem x hx =>
-      obtain ⟨O, hO, rfl⟩ := hx
-      exact ⟨⟨_, D.orbitN_mem_orbitMonomial hO⟩, D.weylQuotientHom_orbitN hO⟩
-    | one => exact ⟨1, by rw [map_one]; rfl⟩
-    | mul x y _ _ hx hy =>
-      obtain ⟨n, hn⟩ := hx
-      obtain ⟨n', hn'⟩ := hy
-      exact ⟨n * n', by rw [map_mul, Subgroup.coe_mul, hn, hn']⟩
-    | inv x _ hx =>
-      obtain ⟨n, hn⟩ := hx
-      exact ⟨n⁻¹, by rw [map_inv, Subgroup.coe_inv, hn]⟩
-  obtain ⟨n, hn⟩ := key w (D.fixedWeyl_eq_closure ▸ w.2)
-  exact ⟨n, Subtype.ext hn⟩
-
-theorem ker_orbitWeylHom : D.orbitWeylHom.ker = D.orbitTorus.subgroupOf D.orbitMonomial := by
-  ext n
-  rw [MonoidHom.mem_ker, Subgroup.mem_subgroupOf]
-  constructor
-  · intro h
-    have h1 : weylQuotientHom τ k ⟨n, D.orbitMonomial_le_monomialSubgroup n.2⟩ = 1 := by
-      rw [← D.coe_orbitWeylHom, h]
-      rfl
-    have hmaps := mapsRootLines_weylQuotientHom
-      (⟨n, D.orbitMonomial_le_monomialSubgroup n.2⟩ : monomialSubgroup τ k)
-    rw [h1] at hmaps
-    exact ⟨D.orbitMonomial_le_orbitGroup n.2,
-      mem_torusGroup_of_mapsRootLines_one (D.orbitMonomial_le_monomialSubgroup n.2) hmaps⟩
-  · intro h
-    apply Subtype.ext
-    rw [D.coe_orbitWeylHom, weylQuotientHom_eq (g := ⟨n, D.orbitMonomial_le_monomialSubgroup n.2⟩)
-      (mapsRootLines_of_mem_torusGroup h.2)]
-    rfl
 
 @[expose] def fixedCell (n : ModGL τ k) : Set (ModGL τ k) :=
   (D.orbitBorel : Set (ModGL τ k)) * {n} * (D.orbitBorel : Set (ModGL τ k))
@@ -656,12 +541,6 @@ theorem mem_fixedCell {n g : ModGL τ k} :
   · rintro ⟨b, hb, b', hb', rfl⟩
     exact ⟨_, ⟨b, hb, _, rfl, rfl⟩, b', hb', rfl⟩
 
-theorem fixedCell_subset_unionCell {n : ModGL τ k} {w : WeylGroup τ} (hn : D.IsOrbitLift n w) :
-    D.fixedCell n ⊆ unionCell k D.χ D.J (rootWeylOne τ k) w := by
-  intro g hg
-  obtain ⟨b, hb, b', hb', rfl⟩ := D.mem_fixedCell.1 hg
-  exact mem_unionCell.2 ⟨b, D.orbitBorel_le_unionBorel hb, n,
-    D.mem_unionLifts_of_isOrbitLift hn, b', D.orbitBorel_le_unionBorel hb', rfl⟩
 
 theorem fixedCell_subset_orbitGroup {n : ModGL τ k} {w : WeylGroup τ} (hn : D.IsOrbitLift n w) :
     D.fixedCell n ⊆ D.orbitGroup := by
@@ -701,29 +580,6 @@ theorem exists_orbitBorel_mul_of_mem {w : WeylGroup τ} (hw : w ∈ D.fixedWeyl)
   · exact mul_mem (torusGroup_le_borelGroup (unionTorus_le_torusGroup (D.mem_fixedTorus.1 ht).1))
       (Subgroup.mem_sup_right (unionUnipotent_le_posUnipotent (D.mem_fixedUnipotent.1 hu).1))
 
-theorem bijOn_mul_fixedCell {w : WeylGroup τ} (hw : w ∈ D.fixedWeyl) {x : adjointGroup τ k}
-    (hx : D.IsOrbitLift (x : ModGL τ k) w) (hxF : D.F x = x) :
-    Set.BijOn (fun p : ModGL τ k × ModGL τ k => p.1 * x * p.2)
-      ((D.orbitBorel : Set (ModGL τ k)) ×ˢ
-        (Subtype.val '' (D.fixedRootSpan (D.inversionRootsJ w) : Set (adjointGroup τ k))))
-      (D.fixedCell x) := by
-  have hwJ := D.mem_unionWeylGroup_of_mem_fixedWeyl hw
-  have hbij := bijOn_mul_unionCell D.rootWeylOne_union_spec hwJ
-    (D.mem_unionLifts_of_isOrbitLift hx)
-  refine ⟨?_, ?_, ?_⟩
-  · rintro ⟨b, _⟩ ⟨hb, ⟨v, hv, rfl⟩⟩
-    exact D.mem_fixedCell.2 ⟨b, hb, _, D.mem_orbitBorel_of_fixedRootSpan hw hv, rfl⟩
-  · rintro ⟨b, _⟩ ⟨hb, ⟨v, hv, rfl⟩⟩ ⟨b', _⟩ ⟨hb', ⟨v', hv', rfl⟩⟩ h
-    refine hbij.injOn ⟨D.orbitBorel_le_unionBorel hb, ?_⟩
-      ⟨D.orbitBorel_le_unionBorel hb', ?_⟩ h
-    · rw [← D.inversionRootsJ_eq hwJ]
-      exact (D.mem_fixedRootSpan.1 hv).1
-    · rw [← D.inversionRootsJ_eq hwJ]
-      exact (D.mem_fixedRootSpan.1 hv').1
-  · intro g hg
-    obtain ⟨b, hb, v, hv, e⟩ := D.exists_orbitBorel_mul_of_mem hw hx hxF
-      (D.fixedCell_subset_orbitGroup hx hg) (D.fixedCell_subset_unionCell hx hg)
-    exact ⟨(b, v), ⟨hb, ⟨v, hv, rfl⟩⟩, e⟩
 
 theorem coe_orbitGroup_eq_iUnion {nw : WeylGroup τ → adjointGroup τ k}
     (hnw : ∀ w ∈ D.fixedWeyl, D.IsOrbitLift (nw w : ModGL τ k) w ∧ D.F (nw w) = nw w) :
@@ -739,12 +595,6 @@ theorem coe_orbitGroup_eq_iUnion {nw : WeylGroup τ → adjointGroup τ k}
   · rintro ⟨w, hw, hc⟩
     exact D.fixedCell_subset_orbitGroup (hnw w hw).1 hc
 
-theorem disjoint_fixedCell {nw : WeylGroup τ → adjointGroup τ k}
-    (hnw : ∀ w ∈ D.fixedWeyl, D.IsOrbitLift (nw w : ModGL τ k) w)
-    {w w' : WeylGroup τ} (hw : w ∈ D.fixedWeyl) (hw' : w' ∈ D.fixedWeyl) (hne : w ≠ w') :
-    Disjoint (D.fixedCell (nw w)) (D.fixedCell (nw w')) :=
-  (disjoint_unionCell D.rootWeylOne_union_spec hne).mono (D.fixedCell_subset_unionCell (hnw w hw))
-    (D.fixedCell_subset_unionCell (hnw w' hw'))
 
 theorem orbitGroup_eq_closure :
     D.orbitGroup = Subgroup.closure ((D.orbitBorel : Set (ModGL τ k)) ∪

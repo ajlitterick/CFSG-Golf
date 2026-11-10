@@ -38,9 +38,6 @@ theorem matrixDerived_comap_native (Q : QuadraticForm K (Fin d → K)) :
   (matrixLinearIso.subgroupMap (matrixDerived Q)).trans
     (MulEquiv.subgroupCongr (matrixDerived_map_native Q))
 
-theorem matrixNativeDerivedEquiv_val (Q : QuadraticForm K (Fin d → K))
-    (A : matrixDerived Q) :
-    (matrixNativeDerivedEquiv Q A).val = matrixLinearEquiv A.val := rfl
 
 @[expose] def matrixNativeElementaryEquiv (Q : QuadraticForm K (Fin d → K))
     (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
@@ -120,11 +117,5 @@ theorem projectivePointAction_native (Q : QuadraticForm K (Fin d → K))
     CatalogueBOrthogonalPointAction.projectivePointAction_mk]
   exact derivedPointAction_native Q hE A
 
-theorem projectivePointAction_native_symm (Q : QuadraticForm K (Fin d → K))
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (g : CatalogueBOrthogonalPointAction.ProjectiveGroup Q) :
-    CatalogueBOrthogonalPointAction.projectivePointAction Q g =
-      projectivePointAction Q ((matrixNativeProjectiveEquiv Q hE).symm g) := by
-  rw [projectivePointAction_native Q hE, MulEquiv.apply_symm_apply]
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

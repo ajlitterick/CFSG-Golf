@@ -538,18 +538,6 @@ private lemma uc22s2112r34q35_blk5_mul {K : Type} [Field K]
   rw [Matrix.fromBlocks_multiply]
   simp [Matrix.mul_zero, Matrix.zero_mul]
 
-private lemma uc22s2112r34q35_blk5_one {K : Type} [Field K] :
-    uc22s2112r34q35_blk5 (1 : Matrix (Fin 4) (Fin 4) K) 1 = 1 := by
-  rw [uc22s2112r34q35_blk5,
-    show Matrix.scalar (Fin 1) (1 : K) = 1 by
-      ext i j
-      fin_cases i
-      fin_cases j
-      simp [Matrix.scalar],
-    Matrix.fromBlocks_one,
-    ← Matrix.toEquiv_reindexLinearEquiv (R := K) (A := K)
-      (eₘ := finSumFinEquiv) (eₙ := finSumFinEquiv)]
-  exact Matrix.reindexLinearEquiv_one (R := K) (A := K) finSumFinEquiv
 
 private lemma uc22s2112r34q35_blk5_transpose {K : Type} [Field K]
     (A : Matrix (Fin 4) (Fin 4) K) (c : K) :

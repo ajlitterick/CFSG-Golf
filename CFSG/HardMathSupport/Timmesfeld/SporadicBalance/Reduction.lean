@@ -326,12 +326,6 @@ theorem NoOuterFixesCentralizer.of_mulEquiv {K' : Type*} [Group K'] (e : K ≃* 
     have : MulAut.congr e σ t' = e (σ (e.symm t')) := by simp [MulAut.congr_apply]
     rw [this, hc, MulEquiv.apply_symm_apply]
 
-theorem isLocallyOneBalancedAbs_of_parts_mulEquiv {K' : Type*} [Group K'] [Finite K]
-    (e : K ≃* K') (hp : p.Prime) (hp2 : p ≠ 2) (hcen : Subgroup.center K = ⊥)
-    (hout : Nat.card (Outer K) ≤ 2) (h1 : OPrimeCoreTrivialAt p K')
-    (h2 : NoOuterFixesCentralizer p K') : IsLocallyOneBalancedAbs p K :=
-  isLocallyOneBalancedAbs_of_parts hp hp2 hcen hout (OPrimeCoreTrivialAt.of_mulEquiv e h1)
-    (h2.of_mulEquiv e)
 
 end General
 

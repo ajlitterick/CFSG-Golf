@@ -194,13 +194,6 @@ end Stages
     (g : G), AS76b.Hyp31 A → RankTwoClassicalEvenType (rankTwoQuot A) → Choice74 D R T g →
       ∃ Y W L : Subgroup G, Levi75 D T Y W L
 
-@[expose] def Step76 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A)
-    (R T Y W L : Subgroup G) (g : G), RankTwoHyp G A → AS76b.Hyp31 A →
-    RankTwoClassicalEvenType (rankTwoQuot A) → Choice74 D R T g → Levi75 D T Y W L →
-    (∀ (G' : Type) [Group G'] [Finite G'] (A' : Subgroup G'), Nat.card G' < Nat.card G →
-      RankTwoHyp G' A' → standardComponentOddCore G' = ⊥ →
-        ¬ RankTwoClassicalEvenType (rankTwoQuot A')) → False
 
 @[expose] def ClassicalHypII : Prop :=
   ∀ (A : Type) [Group A] [Finite A], commutator A = ⊤ →
@@ -271,10 +264,6 @@ structure LeviChoice (D : ClassicalModel A) (p : G) (W Y : Subgroup G) : Prop wh
     AS76b.layerCentralizer A (D' ⊔ zpowers x) = W ∧
     NoInvolutoryCentralizing A (D' ⊔ zpowers x ⊔ W)
 
-@[expose] def LeviChoiceFor (fam : Family) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A), D.family = fam →
-    CFSG.Open.IsQuasisimple ↥A → Odd (Nat.card (center A)) → 4 ≤ D.q →
-      ∀ p : G, D.IsPrimary p → ∃ W Y : Subgroup G, LeviChoice D p W Y
 
 @[expose] def LeviRigid (A : Subgroup G) (p : G) (Y : Subgroup G) : Prop :=
   ∀ h p' : G, p' ∈ rightConjugate A h → orderOf p' = 2 →
@@ -283,21 +272,8 @@ structure LeviChoice (D : ClassicalModel A) (p : G) (W Y : Subgroup G) : Prop wh
       CFSG.Quasithin.perfectCore (rightConjugate A h ⊓ centralizer ({p'} : Set G)) →
     NoNormalTwo (rightConjugate A h ⊓ centralizer (Y : Set G))
 
-@[expose] def LeviRigidFor (fam : Family) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A), D.family = fam →
-    CFSG.Open.IsQuasisimple ↥A → Odd (Nat.card (center A)) → 4 ≤ D.q →
-      ∀ (p : G) (W Y : Subgroup G), D.IsPrimary p → LeviChoice D p W Y → LeviRigid A p Y
 
 end Levi
 
-@[expose] def LinearLeviChoice : Prop := LeviChoiceFor .linear
-
-@[expose] def UnitaryLeviChoice : Prop := LeviChoiceFor .unitary
-
-@[expose] def SymplecticLeviChoice : Prop := LeviChoiceFor .symplectic
-
-@[expose] def OrthPlusLeviChoice : Prop := LeviChoiceFor .orthPlus
-
-@[expose] def OrthMinusLeviChoice : Prop := LeviChoiceFor .orthMinus
 
 end CFSG.ComponentClassification.RankTwoClassical

@@ -73,40 +73,5 @@ theorem unitary_projective_root_involution_iff (J : HermitianForm 3 K)
       (h.trans (map_one (hermitianUnipotentPSU J hJ)).symm)
     exact hsecond (congrArg (fun w : hermitianUnipotentCoord J => w.1.2) hz)
 
-theorem unitary_entire_root_middle_set (J : HermitianForm 3 K)
-    (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) :
-    (((hermitianUnipotentPSU J hJ).range ⊓ unitaryMiddleStabilizer J :
-        Subgroup (ProjectiveSpecialUnitaryMatrixGroup J)) : Set _) =
-      {g : ProjectiveSpecialUnitaryMatrixGroup J |
-        g ∈ (hermitianUnipotentPSU J hJ).range ∧ (g = 1 ∨ orderOf g = 2)} := by
-  ext g
-  constructor
-  · rintro ⟨⟨z, rfl⟩, hmiddle⟩
-    have hfirst := (unitary_root_mem_middle_iff J hJ z).mp hmiddle
-    refine ⟨⟨z, rfl⟩, ?_⟩
-    by_cases hsecond : z.1.2 = 0
-    · left
-      have hz : z = 1 := by
-        apply Subtype.ext
-        exact Prod.ext hfirst hsecond
-      rw [hz, map_one]
-    · exact Or.inr ((unitary_projective_root_involution_iff J hJ z).mpr
-        ⟨hfirst, hsecond⟩)
-  · rintro ⟨hg, horder⟩
-    refine ⟨hg, ?_⟩
-    rcases horder with rfl | horder
-    · exact (unitaryMiddleStabilizer J).one_mem
-    · obtain ⟨z, rfl⟩ := hg
-      exact (unitary_root_mem_middle_iff J hJ z).mpr
-        ((unitary_projective_root_involution_iff J hJ z).mp horder).1
-
-theorem unitary_entire_root_involutions_fix_middle (J : HermitianForm 3 K)
-    (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0])
-    {g : ProjectiveSpecialUnitaryMatrixGroup J}
-    (hg : g ∈ (hermitianUnipotentPSU J hJ).range) (horder : orderOf g = 2) :
-    g ∈ unitaryMiddleStabilizer J := by
-  obtain ⟨z, rfl⟩ := hg
-  exact (unitary_root_mem_middle_iff J hJ z).mpr
-    ((unitary_projective_root_involution_iff J hJ z).mp horder).1
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowth

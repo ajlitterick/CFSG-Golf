@@ -34,7 +34,6 @@ theorem R_le
   exact mem_of_mem_sup_of_pow_two_pow_eq_one (AS76b.odd_card_oddCoreIn _) hfr.inf_eq
     hfr.centralizer_eq.ge hrN hrk
 
-variable {μ : G → ℕ} {ν : G → Fin 8} {f : G} {X : Subgroup G}
 
 end Sec3.B1Frame
 

@@ -60,15 +60,6 @@ theorem unitAffinePerm_injective (U : Subgroup G) :
     · exact unitCoordinatePerm_displacement_mul U u hu hcentral n m
     · exact (unitLinearConjugation U u hu hcentral).map_mul n m
 
-theorem unitAffineHom_left (U : Subgroup G) (u : G)
-    (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x)
-    (n : Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))) :
-    (unitAffineHom U u hu hcentral n).left = unitCoordinatePerm U u n 1 := rfl
-
-theorem unitAffineHom_right (U : Subgroup G) (u : G)
-    (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x)
-    (n : Subgroup.normalizer ((fun x : G => u * x) '' (U : Set G))) :
-    (unitAffineHom U u hu hcentral n).right = unitLinearConjugation U u hu hcentral n := rfl
 
 theorem unitAffinePerm_comp_unitAffineHom (U : Subgroup G) (u : G)
     (hu : u * u = 1) (hcentral : ∀ x ∈ U, Commute u x) :

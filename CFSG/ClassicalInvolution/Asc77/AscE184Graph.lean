@@ -63,16 +63,5 @@ theorem dstarComp_subset_insert (K : Subgroup G) : dstarComp Ω K ⊆ insert K �
   · exact Or.inl h
   · exact Or.inr (mem_of_mem_dstarComp hJ h)
 
-theorem trans_top_of_transitive {K : Subgroup G} (hall : ∀ J ∈ Ω, ∃ g : G, conjSub g K = J) :
-    ∀ J ∈ dstarComp Ω K, ∃ h ∈ (⊤ : Subgroup G), conjSub h K = J := by
-  intro J hJ
-  rcases dstarComp_subset_insert K hJ with rfl | hJΩ
-  · exact ⟨1, Subgroup.mem_top _, conjSub_one _⟩
-  · obtain ⟨g, hg⟩ := hall J hJΩ
-    exact ⟨g, Subgroup.mem_top _, hg⟩
-
-theorem eHyp_top {K : Subgroup G} (W : Subgroup G) (hall : ∀ J ∈ Ω, ∃ g : G, conjSub g K = J) :
-    EHyp Ω K W ⊤ :=
-  ⟨trans_top_of_transitive hall, fun _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ => le_top⟩
 
 end CFSG.ClassicalInvolution.Asc77

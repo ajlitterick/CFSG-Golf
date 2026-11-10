@@ -174,14 +174,9 @@ variable {K : Type} [Field K] [Finite K] [CharP K 2] {n : ℕ}
   heckeDeg_mul := fun w s h => heckeDeg_mul_G4 hK w s h
   cover := fun g => cover_G4 hK g
 
-theorem datum4_U (hK : Nat.card K = (2 ^ n) ^ 2) : (datum4 hK).U = UpperU K n := rfl
-
-theorem datum4_L (hK : Nat.card K = (2 ^ n) ^ 2) : (datum4 hK).L = LowerU K n := rfl
 
 theorem datum4_H (hK : Nat.card K = (2 ^ n) ^ 2) : (datum4 hK).H = Hd K n := rfl
 
-theorem datum4_nW_w0 (hK : Nat.card K = (2 ^ n) ^ 2) : (datum4 hK).nW w0 = jSU K n :=
-  nHom_w0
 
 @[expose] noncomputable def cover4 (hK : Nat.card K = (2 ^ n) ^ 2) :
     CentralCoverData (datum4 hK) (MonoidHom.id (G4 K n)) 2 where
@@ -209,13 +204,6 @@ theorem cover4_lU (hK : Nat.card K = (2 ^ n) ^ 2) : (cover4 hK).lU = UpperU K n 
   · intro hx
     exact ⟨hx, isPElt_of_mem_U hx⟩
 
-theorem cover4_lL (hK : Nat.card K = (2 ^ n) ^ 2) : (cover4 hK).lL = LowerU K n := by
-  ext x
-  constructor
-  · intro hx
-    exact hx.1
-  · intro hx
-    exact ⟨hx, isPElt_of_mem_L hx⟩
 
 theorem fq_neg (x : Fq K n) : -x = x :=
   Subtype.ext (by rw [NegMemClass.coe_neg, CharTwo.neg_eq])

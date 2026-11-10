@@ -45,11 +45,6 @@ theorem mul_sq_of_commute {a y : 𝔾} (ha : a ^ 2 = 1) (h : Commute ⁅y, a⁆ 
 
 end Grp
 
-variable {G : Type} [Group G] [Finite G] {M T L : Subgroup G} {F : Type} [Field F] [Fintype F]
-  {φ : ↥M →* ↥(StatedSL 3 F)} {c : Hyp46 M T L φ} {α β γ : Vtx (puAmalgam c.pu.le)}
-  {ψ : ↥(stab (puAmalgam c.pu.le) α) →* ↥(StatedSL 3 F)}
-
-variable [CharP F 2]
 
 end KC2
 

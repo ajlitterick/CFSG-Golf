@@ -29,17 +29,14 @@ open CFSG.Monster CFSG.Monster.Generated CFSG.Monster.Visible CFSG.Monster.VisQu
 theorem QyMat_le_Gmat : QyMat ≤ Gmat :=
   mem_conjSub_of_mem tauB_mem_Gmat (Qmat_le_Hmat.trans Hmat_le_Gmat)
 
-theorem CyMat_le_Gmat : CyMat ≤ Gmat := mem_conjSub_of_mem tauB_mem_Gmat Hmat_le_Gmat
 
 theorem QyMat_le_CyMat : QyMat ≤ CyMat := conjSub_mono tauB Qmat_le_Hmat
 
 theorem CVMat_le_Hmat : CVMat ≤ Hmat := inf_le_left
 
-theorem CVMat_le_Gmat : CVMat ≤ Gmat := CVMat_le_Hmat.trans Hmat_le_Gmat
 
 theorem RMat_le_CVMat : RMat ≤ CVMat := fun _ hr => ⟨hr.2, QyMat_le_CyMat hr.1⟩
 
-theorem RMat_le_QyMat : RMat ≤ QyMat := inf_le_left
 
 theorem norm_Qmat : ∀ g ∈ Hmat, ∀ a ∈ Qmat, g * a * g⁻¹ ∈ Qmat := by
   intro g hg a ha
@@ -146,7 +143,6 @@ theorem xmat_mem_QyMat : xmat ∈ QyMat := by
 
 theorem xmatTau_mem_QyMat : xmatTau ∈ QyMat := isExtraspecialAmbient_QyMat.mem
 
-theorem xmat_mem_ZMat : xmat ∈ ZMat := ⟨xmat_mem_Qmat, xmat_mem_QyMat⟩
 
 theorem xmatTau_mem_ZMat :
     xmatTau ∈ ZMat := ⟨xmatTau_mem_Qmat, xmatTau_mem_QyMat⟩

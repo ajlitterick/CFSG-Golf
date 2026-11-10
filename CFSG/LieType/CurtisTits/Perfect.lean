@@ -53,16 +53,5 @@ theorem isPerfect_of_rootGroup_single_le_commutator
     rw [← map_nsmul]
     exact rootGroup_weylAction_le hct h2i ((h2 _ (hsingle i) h2i).trans (hfund i)) w
 
-theorem isPerfect_of_exists_weylAction_eq
-    (hct : IsCTGroupDatum (coxeterMatrix D.isFiniteType).toCoxeterSystem
-      (weylAction D.isFiniteType) D.roots D.rootGroup nw H)
-    (h2 : ∀ γ ∈ D.roots, 2 • γ ∈ D.roots → D.rootGroup (2 • γ) ≤ D.rootGroup γ)
-    (hfund : ∀ i, ∃ v ∈ D.roots, D.rootGroup v ≤ commutator K ∧
-      ∃ w : (coxeterMatrix D.isFiniteType).Group, weylAction D.isFiniteType w v = Pi.single i 1) :
-    Group.IsPerfect K :=
-  isPerfect_of_rootGroup_single_le_commutator hct h2 fun i => by
-    obtain ⟨v, hv, hle, w, hw⟩ := hfund i
-    rw [← hw]
-    exact rootGroup_weylAction_le hct hv hle w
 
 end CFSG.LieType.CurtisTits

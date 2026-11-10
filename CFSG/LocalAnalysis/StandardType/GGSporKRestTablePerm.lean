@@ -31,10 +31,5 @@ theorem tablePermOK_spec {n : ℕ} {T : Table} (h : tablePermOK n T = true) {i :
       fun i => Fin.ext (tablePermOK_spec h i.2).2.2.1, fun i => Fin.ext (tablePermOK_spec h i.2).2.2.2⟩
   else 1
 
-theorem tablePerm_apply {n : ℕ} {T : Table} (h : tablePermOK n T = true) (i : Fin n) :
-    ((tablePerm n T) i).val = ap T i.1 := by
-  unfold tablePerm
-  rw [dif_pos h]
-  simp only [Equiv.coe_fn_mk]
 
 end CFSG.StandardType.SporadicShape.PermCover

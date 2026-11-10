@@ -103,9 +103,6 @@ theorem mem_S_iff_θ {g : G} (hg : g ∈ M.L) : g ∈ ruS M.L ↔ M.θ ⟨g, hg�
   have : M.θ ⟨g, hg⟩ = 1 ↔ (⟨g, hg⟩ : M.L) ∈ M.θ.ker := Iff.rfl
   rw [this, M.θ_ker, Subgroup.mem_subgroupOf]
 
-theorem ael_not_mem_S : M.ael ∉ ruS M.L := by
-  rw [M.mem_S_iff_θ M.ael_mem_L, M.θ_ael]
-  exact SL3.zP0_ne_one
 
 theorem ael_sq_mem_W : M.ael ^ 2 ∈ M.W := by
   have hS : M.ael ^ 2 ∈ ruS M.L := by

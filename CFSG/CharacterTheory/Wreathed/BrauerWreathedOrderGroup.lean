@@ -11,89 +11,6 @@ open CFSG.Wreathed.BrauerWong
 
 universe u
 
-theorem modelV_eq_closure {G : Type u} [Group G] [Finite G] {n : ℕ} (hn : 1 ≤ n)
-    {S : Sylow 2 G} {S₁ S₂ T : G} (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T) :
-    modelV S (hW.equiv hn) = Subgroup.closure {S₁ * S₂, S₁ ^ 2 ^ (n - 1), T} := by
-  rw [modelV, Original.V, MonoidHom.map_closure, Set.image_insert_eq, Set.image_pair,
-    hW.modelHom_a hn, hW.modelHom_x2 hn, hW.modelHom_z hn]
-
-theorem caseA_iff_central_product_sym3 {G : Type u} [Group G] [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (S₁ S₂ T : G) (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T) :
-    let J := (S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1)
-    let J₁ := S₁ ^ 2 ^ (n - 1)
-    let V := Subgroup.closure {S₁ * S₂, J₁, T}
-    (∃ g ∈ Subgroup.centralizer {J}, g⁻¹ * T * g = J₁) ↔
-      Nonempty (Subgroup.normalizer (V : Set G) ⧸
-        (V.subgroupOf (Subgroup.normalizer (V : Set G)) ⊔
-          (Subgroup.centralizer (V : Set G)).subgroupOf (Subgroup.normalizer (V : Set G))) ≃*
-        Equiv.Perm (Fin 3)) := by
-  intro J J₁ V
-  have hn1 : 1 ≤ n := by omega
-  have hJ : wreathModelHom S (hW.equiv hn1) (Original.x (2 ^ n)) = J := hW.modelHom_x hn
-  have hJ₁ : wreathModelHom S (hW.equiv hn1) (Original.x2 (2 ^ n)) = J₁ := hW.modelHom_x2 hn1
-  have hz : wreathModelHom S (hW.equiv hn1) (Original.z (2 ^ n)) = T := hW.modelHom_z hn1
-  have hV : modelV S (hW.equiv hn1) = V := modelV_eq_closure hn1 hW
-  have key : Nonempty (Subgroup.normalizer (modelV S (hW.equiv hn1) : Set G) ⧸
-      modelVInnerCentralizer S (hW.equiv hn1) ≃* Equiv.Perm (Fin 3)) ↔
-      Nonempty (Subgroup.normalizer (V : Set G) ⧸
-        (V.subgroupOf (Subgroup.normalizer (V : Set G)) ⊔
-          (Subgroup.centralizer (V : Set G)).subgroupOf (Subgroup.normalizer (V : Set G))) ≃*
-        Equiv.Perm (Fin 3)) := by
-    rw [← hV]
-    rfl
-  constructor
-  · intro h
-    exact key.mp (vSym3_of_swap_conj n hn S (hW.equiv hn1) (by rw [hJ, hz, hJ₁]; exact h))
-  · intro h
-    have h'' := swap_conj_of_vSym3 n hn S (hW.equiv hn1) (key.mpr h)
-    rw [hJ, hz, hJ₁] at h''
-    exact h''
-
-theorem noAbelianTwoPowerIndexIntersection_of_caseA {G : Type u} [Group G] [Finite G] (n : ℕ)
-    (hn : 2 ≤ n) (S : Sylow 2 G) (S₁ S₂ T : G)
-    (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T)
-    (hA : ∃ g ∈ Subgroup.centralizer {(S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1)},
-      g⁻¹ * T * g = S₁ ^ 2 ^ (n - 1)) :
-    NoAbelianTwoPowerIndexIntersection G (S : Subgroup G) := by
-  have hn1 : 1 ≤ n := by omega
-  have hJ : wreathModelHom S (hW.equiv hn1) (Original.x (2 ^ n)) =
-      (S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1) := hW.modelHom_x hn
-  have hJ₁ : wreathModelHom S (hW.equiv hn1) (Original.x2 (2 ^ n)) = S₁ ^ 2 ^ (n - 1) :=
-    hW.modelHom_x2 hn1
-  have hz : wreathModelHom S (hW.equiv hn1) (Original.z (2 ^ n)) = T := hW.modelHom_z hn1
-  exact noAbelian_of_vSym3 n hn S (hW.equiv hn1)
-    (vSym3_of_swap_conj n hn S (hW.equiv hn1) (by rw [hJ, hz, hJ₁]; exact hA))
-
-theorem centralizer_J_typeII_of_caseA {G : Type u} [Group G] [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (S₁ S₂ T : G) (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T)
-    (hA : ∃ g ∈ Subgroup.centralizer {(S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1)},
-      g⁻¹ * T * g = S₁ ^ 2 ^ (n - 1)) :
-    let J := (S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1)
-    (S : Subgroup G) ≤ Subgroup.centralizer {J} ∧
-      NoAbelianTwoPowerIndexIntersection ↥(Subgroup.centralizer ({J} : Set G))
-        ((S : Subgroup G).subgroupOf (Subgroup.centralizer {J})) ∧
-      IsTypeII ↥(Subgroup.centralizer ({J} : Set G))
-        ((S : Subgroup G).subgroupOf (Subgroup.centralizer {J})) n := by
-  intro J
-  have hn1 : 1 ≤ n := by omega
-  have hJ : wreathModelHom S (hW.equiv hn1) (Original.x (2 ^ n)) = J := hW.modelHom_x hn
-  have hJ₁ : wreathModelHom S (hW.equiv hn1) (Original.x2 (2 ^ n)) = S₁ ^ 2 ^ (n - 1) :=
-    hW.modelHom_x2 hn1
-  have hz : wreathModelHom S (hW.equiv hn1) (Original.z (2 ^ n)) = T := hW.modelHom_z hn1
-  have hsix := vSym3_of_swap_conj n hn S (hW.equiv hn1) (by rw [hJ, hz, hJ₁]; exact hA)
-  have hJZ : wreathModelHom S (hW.equiv hn1) (Original.x (2 ^ n)) ∈
-      modelCenter S (hW.equiv hn1) :=
-    ⟨_, (Original.Z _).pow_mem (Subgroup.mem_zpowers _) _, rfl⟩
-  have hJ1 : wreathModelHom S (hW.equiv hn1) (Original.x (2 ^ n)) ≠ 1 := by
-    intro h
-    have h' := (orderOf_injective _ (wreathModelHom_injective S (hW.equiv hn1))
-      (Original.x (2 ^ n))).symm
-    have hx2 := (wreath_center_involution_and_quaternion_coordinates n hn).involution_orders.1
-    rw [h, orderOf_one, hx2] at h'
-    omega
-  have h := centralizer_noAbelian_and_typeII S (hW.equiv hn1) hn hsix hJZ hJ1
-  rw [hJ] at h
-  exact h
 
 theorem case_one_three_cycle {G : Type u} [Group G] [Finite G] (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (S₁ S₂ T : G) (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T) :
@@ -138,14 +55,6 @@ theorem case_one_a_no_index_two {G : Type u} [Group G] [Finite G] (n : ℕ) (hn 
   · exact typeI_of_base_sym3 n hn S (hW.equiv hn1) hbase
       (vSym3_of_swap_conj n hn S (hW.equiv hn1) (by rw [hJ, hz, hJ₁]; exact hA))
 
-theorem case_one_a_isTypeI {G : Type u} [Group G] [Finite G] (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (S₁ S₂ T : G) (hW : WreathGenerators n (S : Subgroup G) S₁ S₂ T)
-    (h6 : (Subgroup.centralizer ((Subgroup.closure {S₁, S₂} : Subgroup G) : Set G)).relIndex
-      (Subgroup.normalizer ((Subgroup.closure {S₁, S₂} : Subgroup G) : Set G)) = 6)
-    (hA : ∃ g ∈ Subgroup.centralizer {(S₁⁻¹ * S₂⁻¹) ^ 2 ^ (n - 1)},
-      g⁻¹ * T * g = S₁ ^ 2 ^ (n - 1)) :
-    IsTypeI G :=
-  case_one_a_no_index_two n hn S S₁ S₂ T hW h6 hA
 
 theorem case_one_a_all_involutions_conjugate {G : Type u} [Group G] [Finite G] (n : ℕ)
     (hn : 2 ≤ n) (S : Sylow 2 G) (S₁ S₂ T : G)

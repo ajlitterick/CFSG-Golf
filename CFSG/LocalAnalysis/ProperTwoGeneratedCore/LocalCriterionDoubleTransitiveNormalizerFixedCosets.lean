@@ -15,8 +15,6 @@ open CFSG.ProperTwoGeneratedCore.LocalCriterionSubgroupSylow
 
 variable {G : Type*} [Group G]
 
-theorem restrictedRightCosetEmbedding_eq_native (H N : Subgroup G) :
-    restrictedRightCosetEmbedding H N = subgroupRightCosetInclusion H N := rfl
 
 theorem normalizerRightCosetFixedEmbedding_surjective
     (H A : Subgroup G) (hAH : A ≤ H)

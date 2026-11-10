@@ -836,11 +836,6 @@ private theorem unitaryPlane_e1_ne_zero :
   have := congrFun h 0
   simp at this
 
-private theorem unitaryPlane_e2_ne_zero :
-    (![0, 1] : Fin 2 → fixSub (unitaryInvolution F 2 f)) ≠ 0 := by
-  intro h
-  have := congrFun h 1
-  simp at this
 
 private theorem unitaryPlane_mulVec_ne_zero
     (B : Matrix.SpecialLinearGroup (Fin 2) (fixSub (unitaryInvolution F 2 f)))

@@ -56,9 +56,6 @@ theorem mem_Ze''_iff {g : Q3} :
 theorem mem_L0_iff {g : Q3} : g ∈ L0 ↔ g ∈ Zp ∧ g • x1 = x1 :=
   by simp [L0, MulAction.mem_stabilizer_iff]
 
-theorem tauElt_mem_Ze :
-    tauElt ∈ Ze :=
-  mem_Ze_iff.2 (Or.inr ⟨tauElt_smul_x0, tauElt_smul_x1⟩)
 
 theorem L0_le_Zp : L0 ≤ Zp := inf_le_left
 

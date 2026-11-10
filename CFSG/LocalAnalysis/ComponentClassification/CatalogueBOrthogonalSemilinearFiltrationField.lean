@@ -22,10 +22,6 @@ theorem fieldProjection_range_cyclic [Finite K]
     similarityPairs Q ⧸ linearSimilarityPairs Q ≃* (fieldProjection Q).range :=
   QuotientGroup.quotientKerEquivRange (fieldProjection Q)
 
-theorem fieldQuotientEquivRange_mk (Q : QuadraticForm K (Fin d → K))
-    (g : similarityPairs Q) :
-    (fieldQuotientEquivRange Q ((QuotientGroup.mk' (linearSimilarityPairs Q)) g)).val =
-      g.val.right := rfl
 
 theorem fieldQuotient_cyclic [Finite K] (Q : QuadraticForm K (Fin d → K)) :
     IsCyclic (similarityPairs Q ⧸ linearSimilarityPairs Q) := by

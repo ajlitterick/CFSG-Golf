@@ -418,30 +418,6 @@ theorem central_p_cover_full_negative_dimension_and_equality
         hpker t htβ ρ hirr hminus
     exact ⟨hspace, hirr, hkerEq, hker, hinj, hcomp⟩
 
-@[expose] def quotientIntertwiner (ρ : Representation k G V) (N : Subrepresentation ρ) :
-    ρ.IntertwiningMap N.quotient where
-  toLinearMap := N.toSubmodule.mkQ
-  isIntertwining' _ := rfl
-
-theorem quotientIntertwiner_surjective (ρ : Representation k G V) (N : Subrepresentation ρ) :
-    Function.Surjective (quotientIntertwiner ρ N) :=
-  N.toSubmodule.mkQ_surjective
-
-theorem negative_nested_quotient_factor_bound
-    {H : Type*} [Group H] (β : G →* H) (hβ : Function.Surjective β)
-    (ρ : Representation k G V) (t : G) (ht : t ∈ Subgroup.center G) (n : ℕ)
-    (hbound : AllNegativeIrreducibleSubquotientsBound β hβ ρ t ht n)
-    (U : Subrepresentation (negativeRepresentation ρ t ht))
-    (N : Subrepresentation U.toRepresentation) (hirr : Representation.IsIrreducible N.quotient) :
-    (β.ker ≤ N.quotient.ker) ∧
-      ∃ (hker : β.ker ≤ N.quotient.ker),
-        Function.Injective (descendedAction β hβ N.quotient hker) ∧
-          n ≤ Module.finrank k (U.toSubmodule ⧸ N.toSubmodule) ∧
-          N.quotient.ker = β.ker ∧
-          (descendedAction β hβ N.quotient hker).comp β = N.quotient.asGroupHom :=
-  hbound U (U.toSubmodule ⧸ N.toSubmodule) N.quotient hirr
-    (quotientIntertwiner U.toRepresentation N)
-    (quotientIntertwiner_surjective U.toRepresentation N)
 
 theorem asGroupHom_coeHom_comp
     (ρ : G →* LinearMap.GeneralLinearGroup k V) :

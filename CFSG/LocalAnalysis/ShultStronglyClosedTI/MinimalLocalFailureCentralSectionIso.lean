@@ -32,12 +32,6 @@ omit [Finite G] in
       _ = (b * j * (b : G)⁻¹ * j⁻¹) * (a * j * (a : G)⁻¹ * j⁻¹) := by group
       _ = (a * j * (a : G)⁻¹ * j⁻¹) * (b * j * (b : G)⁻¹ * j⁻¹) := h2.symm)
 
-omit [Finite G] in
-theorem sectionCommutatorHom_apply {A Q M : Subgroup G}
-    (hAQ : ∀ a ∈ A, ∀ y ∈ Q, a * y = y * a) (hQab : ∀ y ∈ Q, ∀ y' ∈ Q, y * y' = y' * y)
-    (hcomm : ∀ a ∈ A, ∀ m ∈ M, a * m * a⁻¹ * m⁻¹ ∈ Q) {j : G} (hj : j ∈ M) (a : A) :
-    (sectionCommutatorHom hAQ hQab hcomm hj a : G) = a * j * (a : G)⁻¹ * j⁻¹ :=
-  rfl
 
 namespace FinalHyps
 

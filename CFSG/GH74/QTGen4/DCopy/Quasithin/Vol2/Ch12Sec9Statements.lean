@@ -9,27 +9,6 @@ namespace CFSG.Quasithin.H13
 
 open CFSG.Open CFSG.Blueprint
 
-@[expose] def Lemma12_9_3_F4 : Prop :=
-  ∀ (G : Type) [Group G] [CFSG.GH74.QTGen4.Finite4 G] (T L V : Subgroup G) (n : ℕ), Cx1291 G T L V n →
-    ∀ (i : ℕ) (Vi : Subgroup G), IsTSub T V Vi i →
-      ((n = 5 ∧ 1 ≤ i ∧ i < 5) ∨ (n = 4 ∧ (i = 1 ∨ i = 3))) →
-      ∃ Ki : Subgroup G, li128 n i L Vi ≤ Ki ∧
-        quasithinIsCComponent Ki (Subgroup.normalizer (Vi : Set G)) ∧
-        Subgroup.normalizer (Vi : Set G) ≤ Subgroup.normalizer (Ki : Set G) ∧
-        (li128 n i L Vi = Ki ∨
-          (i = 1 ∧
-            (Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* Matrix.SpecialLinearGroup (Fin 5) (ZMod 2)) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.M24) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.J4))) ∨
-          (i = 1 ∧ n = 4 ∧
-            (Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* Matrix.SpecialLinearGroup (Fin 4) (ZMod 2)) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* alternatingGroup (Fin 7)) ∨
-              IsHatA7 (↥Ki ⧸ CFSG.pCore 2 ↥Ki) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.M23) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.HS) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.He) ∨
-              Nonempty (↥Ki ⧸ CFSG.pCore 2 ↥Ki ≃* NativeSporadic.Ru) ∨
-              IsSL27OverE49 (↥Ki ⧸ CFSG.pCore 2 ↥Ki))))
 
 @[expose] def Lemma12_9_4_F4 : Prop :=
   ∀ (G : Type) [Group G] [CFSG.GH74.QTGen4.Finite4 G] (T L V : Subgroup G) (n : ℕ), Cx1291 G T L V n →

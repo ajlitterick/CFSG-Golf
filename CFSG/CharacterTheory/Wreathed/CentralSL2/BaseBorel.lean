@@ -68,19 +68,6 @@ theorem splitTorus_conj_unipotent (g : CentralExtension F b m hm heven)
   rw [← torusDiag_conj_unipotent F b m hm heven c s, ← hs]
   group
 
-theorem unipotentSubgroup_normal_in_borel (g : CentralExtension F b m hm heven)
-    (hg : g ∈ borelSubgroup F b m hm heven) (u : CentralExtension F b m hm heven)
-    (hu : u ∈ unipotentSubgroup F b m hm heven) :
-    g * u * g⁻¹ ∈ unipotentSubgroup F b m hm heven := by
-  obtain ⟨β, hβ⟩ := borel_decomposition F b m hm heven g hg
-  obtain ⟨t, rfl⟩ := (mem_unipotentSubgroup_iff F b m hm heven u).mp hu
-  set τ := (unipotentElement F b m hm heven β)⁻¹ * g with hτ
-  have hg' : g = unipotentElement F b m hm heven β * τ := by rw [hτ, mul_inv_cancel_left]
-  obtain ⟨s, hs⟩ := splitTorus_conj_unipotent F b m hm heven τ hβ t
-  rw [hg', mem_unipotentSubgroup_iff]
-  refine ⟨β + s + -β, ?_⟩
-  rw [unipotentElement_add, unipotentElement_add, ← hs, ← unipotentElement_neg_eq]
-  group
 
 end Borel
 

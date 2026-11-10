@@ -441,10 +441,6 @@ theorem cG_xG (h : tabCheck = true) (hs : structCheck = true) :
   rw [(structCheck_spec hs).2.2.2.2.2.2.2.2.2.2] at h1
   exact eq_of_rep h1 (by simpa [xG] using rep_R0 h)
 
-theorem xword_eq (h : tabCheck = true) (hs : structCheck = true) : wG gens0 wordX = xG := by
-  refine eq_of_rep ?_ (rep_X h hs)
-  rw [← (structCheck_spec hs).2.2.2.2.2.1]
-  exact rep_word0 h _ (decodeWord_mem _)
 
 theorem mem_invW {w : List ℤ} {l : ℤ} (hl : l ∈ invW w) : -l ∈ w := by
   simp only [invW, List.mem_reverse, List.mem_map] at hl
@@ -627,36 +623,5 @@ theorem rep_tabT0 (h : tabCheck = true) : Rep deg tabT0 t0G := by
   rw [t0G_def]
   exact rep_word0 h wordT0 (decodeWord_mem _)
 
-theorem markCheck_spec (hm : markCheck = true) :
-    compT deg tabT0 tabT0 = idT deg ∧ tabT0 ≠ idT deg ∧
-      compT deg tabT0 tabX = compT deg tabX tabT0 ∧
-      compT deg tabT0 tabYw = compT deg tabYw tabT0 ∧
-      compT deg tabT0 tabW = compT deg tabW tabT0 := by
-  unfold markCheck at hm
-  simpa only [Bool.and_eq_true, Bool.not_eq_true', beq_iff_eq, and_assoc, ne_eq,
-    Bool.not_eq_true, beq_eq_false_iff_ne] using hm
-
-theorem mark_facts (h : tabCheck = true) (hs : structCheck = true) (hm : markCheck = true) :
-    t0G * t0G = 1 ∧ t0G ≠ 1 ∧ t0G * xG = xG * t0G ∧ t0G * y0G = y0G * t0G ∧
-      t0G * w0G = w0G * t0G := by
-  obtain ⟨m1, m2, m3, m4, m5⟩ := markCheck_spec hm
-  have rT := rep_tabT0 h
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩
-  · have r1 : Rep deg (compT deg tabT0 tabT0) (t0G * t0G) := Rep.compT rT rT
-    rw [m1] at r1
-    exact eq_of_rep r1 (Rep.idT deg_lt)
-  · exact ne_of_tab_ne (wT_size _ _ _) idT_size rT (Rep.idT deg_lt) m2
-  · have r1 : Rep deg (compT deg tabT0 tabX) (t0G * xG) := Rep.compT rT (rep_X h hs)
-    have r2 : Rep deg (compT deg tabX tabT0) (xG * t0G) := Rep.compT (rep_X h hs) rT
-    rw [m3] at r1
-    exact eq_of_rep r1 r2
-  · have r1 : Rep deg (compT deg tabT0 tabYw) (t0G * y0G) := Rep.compT rT (rep_tabYw h)
-    have r2 : Rep deg (compT deg tabYw tabT0) (y0G * t0G) := Rep.compT (rep_tabYw h) rT
-    rw [m4] at r1
-    exact eq_of_rep r1 r2
-  · have r1 : Rep deg (compT deg tabT0 tabW) (t0G * w0G) := Rep.compT rT (rep_tabW h)
-    have r2 : Rep deg (compT deg tabW tabT0) (w0G * t0G) := Rep.compT (rep_tabW h) rT
-    rw [m5] at r1
-    exact eq_of_rep r1 r2
 
 end CFSG.Sporadic.Recognition.LyonsSims.Ly0

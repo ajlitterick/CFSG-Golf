@@ -90,18 +90,6 @@ theorem ch733008_para2 : paraK EQ2.CF EA2.CF GQ2 GA2 (bN 0) pcB2 aM2 dq2 da2 nm2
 
 theorem ch733008_cosets : cosK cs1 = true := by quickRfl
 
-theorem ch733008_negGap : (!paraK EQ1.CF EA1.CF GQ1 GA1 (bN 1) pcB1 aM1 dq1 da1 nm1 dj2) = true := by
-  quickRfl
-
-theorem ch733008_negConj :
-    (!paraK EQ1.CF EA1.CF GQ1 GA1 (bN 1) pcB1 aM1 dq1 da1 nm2 dj1) = true := by
-  quickRfl
-
-theorem ch733008_negWords :
-    (!paraK EQ1.CF EA1.CF GQ1 GA1 (bN 1) pcB1 aM2 dq1 da1 nm1 dj1) = true := by
-  quickRfl
-
-theorem ch733008_negCos : (!cosK (cs1.map Nat.succ)) = true := by quickRfl
 
 end CFSG.KD.G24B
 

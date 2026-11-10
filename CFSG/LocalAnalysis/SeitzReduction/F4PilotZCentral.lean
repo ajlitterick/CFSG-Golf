@@ -175,91 +175,6 @@ theorem centralizer_map_oddCore_eq_zpowers {t : H} (ht : orderOf t = 2) {D : Sub
   rw [Nat.card_zpowers, hord]
   exact hcard
 
-theorem mk_apply_mem_center_of_mk_mem_center (h : MulAut H) {t : H}
-    (ht : QuotientGroup.mk' (oddCore H) t ∈ center (H ⧸ oddCore H)) :
-    QuotientGroup.mk' (oddCore H) (h t) ∈ center (H ⧸ oddCore H) := by
-  have hOh : ∀ z ∈ oddCore H, h z ∈ oddCore H := by
-    intro z hz
-    have hn : ((oddCore H).map h.toMonoidHom).Normal :=
-      (CFSG.oddCore_normal H).map h.toMonoidHom h.surjective
-    have hodd : Odd (Nat.card ((oddCore H).map h.toMonoidHom)) := by
-      rw [card_map_of_injective h.injective]
-      exact odd_card_oddCore H
-    have hle : (oddCore H).map h.toMonoidHom ≤ oddCore H := le_sSup ⟨hn, hodd⟩
-    exact hle ⟨z, hz, rfl⟩
-  rw [mem_center_iff]
-  intro q
-  obtain ⟨x, rfl⟩ := QuotientGroup.mk'_surjective (oddCore H) q
-  obtain ⟨x', rfl⟩ := h.surjective x
-  have hc := mem_center_iff.1 ht (QuotientGroup.mk' (oddCore H) x')
-  rw [← map_mul, ← map_mul, QuotientGroup.mk'_apply, QuotientGroup.mk'_apply,
-    QuotientGroup.eq] at hc
-  rw [← map_mul (QuotientGroup.mk' (oddCore H)), ← map_mul (QuotientGroup.mk' (oddCore H)),
-    QuotientGroup.mk'_apply, QuotientGroup.mk'_apply, QuotientGroup.eq]
-  have e : h ((x' * t)⁻¹ * (t * x')) = (h x' * h t)⁻¹ * (h t * h x') := by
-    rw [map_mul, map_inv, map_mul, map_mul]
-  rw [← e]
-  exact hOh _ hc
-
-theorem mk_not_mem_center_of_mem {D : Subgroup H} (hDq : CFSG.Open.IsQuasisimple D)
-    (hZD : center D = ⊥) {y : H} (hyD : y ∈ D) (hy : orderOf y = 2) :
-    QuotientGroup.mk' (oddCore H) y ∉ center (H ⧸ oddCore H) := by
-  intro hyc
-  have hsimple : IsSimpleGroup D := isSimpleGroup_of_isQuasisimple hDq hZD
-  have hN : (oddCore H).subgroupOf D = ⊥ := by
-    have hn : ((oddCore H).subgroupOf D).Normal := (CFSG.oddCore_normal H).subgroupOf D
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal ((oddCore H).subgroupOf D) with h | h
-    · exact h
-    · exfalso
-      have hyO : y ∈ oddCore H := by
-        have : (⟨y, hyD⟩ : D) ∈ (oddCore H).subgroupOf D := h ▸ mem_top _
-        exact mem_subgroupOf.1 this
-      have h2 := (oddCore H).orderOf_dvd_natCard hyO
-      rw [hy] at h2
-      exact (Nat.not_even_iff_odd.2 (odd_card_oddCore H)) (even_iff_two_dvd.2 h2)
-  have hyZ : (⟨y, hyD⟩ : D) ∈ center D := by
-    rw [mem_center_iff]
-    intro d
-    have hc := mem_center_iff.1 hyc (QuotientGroup.mk' (oddCore H) d)
-    rw [← map_mul, ← map_mul, QuotientGroup.mk'_apply, QuotientGroup.mk'_apply,
-      QuotientGroup.eq] at hc
-    have hmem : (⟨((d : H) * y)⁻¹ * (y * d), D.mul_mem (D.inv_mem (D.mul_mem d.2 hyD))
-        (D.mul_mem hyD d.2)⟩ : D) ∈ (oddCore H).subgroupOf D := mem_subgroupOf.2 hc
-    rw [hN, mem_bot] at hmem
-    have h1 : ((d : H) * y)⁻¹ * (y * d) = 1 := congrArg Subtype.val hmem
-    apply Subtype.ext
-    exact inv_mul_eq_one.1 h1
-  rw [hZD, mem_bot] at hyZ
-  have hy1 : y = 1 := congrArg Subtype.val hyZ
-  rw [hy1, orderOf_one] at hy
-  exact absurd hy (by decide)
-
-theorem false_of_normal_of_conj {t : H} {D : Subgroup H} (hDq : CFSG.Open.IsQuasisimple D)
-    (hZD : center D = ⊥)
-    (hsyl : ∀ U : Subgroup (H ⧸ oddCore H), IsPGroup 2 U →
-      U ≤ centralizer (D.map (QuotientGroup.mk' (oddCore H)) : Set (H ⧸ oddCore H)) →
-      Nat.card U ≤ 2)
-    (hDt : D ≤ centralizer ({t} : Set H))
-    (hnorm : (D.map (QuotientGroup.mk' (oddCore H))).Normal)
-    (h : MulAut H) {y : H} (hyD : y ∈ D) (hy : orderOf y = 2)
-    (hty : h t = t * y ∨ h t = y) : False := by
-  have ht := mk_mem_center_of_normal_map_oddCore hDt hsyl hnorm
-  have hht := mk_apply_mem_center_of_mk_mem_center h ht
-  apply mk_not_mem_center_of_mem hDq hZD hyD hy
-  rcases hty with e | e
-  · rw [e, map_mul] at hht
-    simpa using (center _).mul_mem ((center _).inv_mem ht) hht
-  · rwa [e] at hht
-
-theorem not_normal_map_oddCore_of_conj {t : H} {D : Subgroup H}
-    (hDq : CFSG.Open.IsQuasisimple D) (hZD : center D = ⊥)
-    (hsyl : ∀ U : Subgroup (H ⧸ oddCore H), IsPGroup 2 U →
-      U ≤ centralizer (D.map (QuotientGroup.mk' (oddCore H)) : Set (H ⧸ oddCore H)) →
-      Nat.card U ≤ 2)
-    (hDt : D ≤ centralizer ({t} : Set H)) (h : MulAut H) {y : H} (hyD : y ∈ D)
-    (hy : orderOf y = 2) (hty : h t = t * y ∨ h t = y) :
-    ¬ (D.map (QuotientGroup.mk' (oddCore H))).Normal :=
-  fun hnorm => false_of_normal_of_conj hDq hZD hsyl hDt hnorm h hyD hy hty
 
 end Quotient
 
@@ -294,47 +209,6 @@ private theorem mem_normalizer_centralizer_of_mem_normalizer {X : Subgroup G} {g
       _ = g⁻¹ * ((g * c * g⁻¹) * (g * x * g⁻¹)) * g := by rw [hcx]
       _ = c * x := by group
 
-theorem not_normal_map_oddCore_of_mem_normalizer {H : Subgroup G} {t : G} (htH : t ∈ H)
-    {D : Subgroup G} (hDH : D ≤ H) (hDq : CFSG.Open.IsQuasisimple D) (hZD : center D = ⊥)
-    (hDt : D ≤ centralizer ({t} : Set G))
-    (hsyl : ∀ U : Subgroup (H ⧸ oddCore H), IsPGroup 2 U →
-      U ≤ centralizer ((D.subgroupOf H).map (QuotientGroup.mk' (oddCore H)) :
-        Set (H ⧸ oddCore H)) → Nat.card U ≤ 2)
-    {g : G} (hg : g ∈ normalizer (H : Set G)) {y : G} (hyD : y ∈ D) (hy : orderOf y = 2)
-    (hty : g⁻¹ * t * g = t * y ∨ g⁻¹ * t * g = y) :
-    ¬ ((D.subgroupOf H).map (QuotientGroup.mk' (oddCore H))).Normal := by
-  set e : D ≃* D.subgroupOf H := (subgroupOfEquivOfLe hDH).symm with he
-  have hDq' : CFSG.Open.IsQuasisimple (D.subgroupOf H) := isQuasisimple_of_mulEquiv e hDq
-  have hZD' : center (D.subgroupOf H) = ⊥ := by
-    rw [← map_center_eq e, hZD, Subgroup.map_bot]
-  have hDt' : D.subgroupOf H ≤ centralizer ({⟨t, htH⟩} : Set H) := fun d hd =>
-    mem_centralizer_singleton_iff.2 (Subtype.ext
-      (mem_centralizer_singleton_iff.1 (hDt (mem_subgroupOf.1 hd))))
-  set φ : MulAut H := H.normalizerMonoidHom ⟨g⁻¹, inv_mem hg⟩ with hφdef
-  have hφ : ∀ x : H, ((φ x : H) : G) = g⁻¹ * x * g := by
-    intro x
-    simp [hφdef, normalizerMonoidHom_apply_apply_coe]
-  refine not_normal_map_oddCore_of_conj hDq' hZD' hsyl hDt' φ (y := ⟨y, hDH hyD⟩)
-    (mem_subgroupOf.2 hyD) (by rw [orderOf_mk, hy]) ?_
-  rcases hty with h1 | h1
-  · exact Or.inl (Subtype.ext (by rw [hφ]; exact h1))
-  · exact Or.inr (Subtype.ext (by rw [hφ]; exact h1))
-
-theorem not_normal_map_oddCore_centralizer {X : Subgroup G} {t : G}
-    (htX : t ∈ centralizer (X : Set G)) {D : Subgroup G} (hDX : D ≤ centralizer (X : Set G))
-    (hDq : CFSG.Open.IsQuasisimple D) (hZD : center D = ⊥) (hDt : D ≤ centralizer ({t} : Set G))
-    (hsyl : ∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-      IsPGroup 2 U →
-      U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-        Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-      Nat.card U ≤ 2)
-    {g : G} (hg : g ∈ normalizer (X : Set G)) {y : G} (hyD : y ∈ D) (hy : orderOf y = 2)
-    (hty : g⁻¹ * t * g = t * y ∨ g⁻¹ * t * g = y) :
-    ¬ ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))).Normal :=
-  not_normal_map_oddCore_of_mem_normalizer htX hDX hDq hZD hDt hsyl
-    (mem_normalizer_centralizer_of_mem_normalizer hg) hyD hy hty
 
 end Neighbour
 

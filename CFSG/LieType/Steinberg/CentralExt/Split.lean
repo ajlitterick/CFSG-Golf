@@ -61,9 +61,6 @@ variable {E K : Type*} [Group E] [Group K] {π : E →* K}
   MonoidHom.noncommCoprod π.ker.subtype σ.range.subtype fun c x =>
     (Subgroup.mem_center_iff.1 (hker c.2) x).symm
 
-theorem kerProdRangeHom_apply (hker : π.ker ≤ Subgroup.center E) (σ : K →* E)
-    (x : π.ker × σ.range) : kerProdRangeHom hker σ x = (x.1 : E) * x.2 :=
-  rfl
 
 theorem kerProdRangeHom_bijective (hker : π.ker ≤ Subgroup.center E) {σ : K →* E}
     (hσ : ∀ x, π (σ x) = x) : Function.Bijective (kerProdRangeHom hker σ) := by

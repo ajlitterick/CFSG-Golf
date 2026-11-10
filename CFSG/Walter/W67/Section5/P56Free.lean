@@ -311,12 +311,6 @@ theorem card_fix_pow_three_and_lift (hN : IsPGroup 3 N) {x : Γ} (hx : orderOf x
       subst hn
       exact ⟨1, Subgroup.one_mem _, smul_one x, 1, Subgroup.one_mem _, by rw [mul_one]⟩
 
-theorem card_fix_pow_three (hN : IsPGroup 3 N) {x : Γ} (hx : orderOf x = 3) (N₀ : Subgroup Γ)
-    (hN₀ab : IsMulCommutative N₀) (hN₀3 : ¬ 3 ∣ Nat.card N₀)
-    (hxN₀ : x ∈ Subgroup.normalizer (N₀ : Set Γ)) (hxfpf : ∀ n ∈ N₀, x * n * x⁻¹ = n → n = 1)
-    (hfix : ∀ a : N, (∀ r ∈ N₀, r • a = a) → a = 1) :
-    {n : N | x • n = n}.ncard ^ 3 = Nat.card N :=
-  (card_fix_pow_three_and_lift hN hx N₀ hN₀ab hN₀3 hxN₀ hxfpf hfix).1
 
 end Sec56
 

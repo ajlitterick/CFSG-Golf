@@ -47,8 +47,6 @@ section LLevel
     obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective x
     rfl
 
-theorem descL_mk {L : Type} [Group L] (α : MulAut L) (x : L) :
-    descL L α (QuotientGroup.mk x) = QuotientGroup.mk (α x) := rfl
 
 variable {G : Type} [Group G]
 

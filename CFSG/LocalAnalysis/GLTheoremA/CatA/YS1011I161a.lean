@@ -88,10 +88,6 @@ theorem tab_dvd_of_char2 {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (t : StatedLie
       ((Nat.Prime.coprime_iff_not_dvd hp).2 (not_dvd_sixteen hp hp2))
   exact hcop.dvd_of_dvd_mul_right h
 
-theorem false_of_dvd_four {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {X : ℕ} (hX : X ∣ 4)
-    (h : p ∣ X) : False :=
-  hp2 ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).1 (hp.dvd_of_dvd_pow (n := 2)
-    (by norm_num; exact h.trans hX)))
 
 theorem gen_PSL (n f : ℕ) : (genericOrders .PSL n 2 f).1 * (genericOrders .PSL n 2 f).2 =
     Nat.gcd n (2 ^ f - 1) := by simp [genericOrders]
@@ -115,14 +111,6 @@ theorem gen_POmegaMinus (n f : ℕ) :
     (genericOrders .POmegaMinus n 2 f).1 * (genericOrders .POmegaMinus n 2 f).2 ∣ 4 := by
   simp [genericOrders]; exact Nat.gcd_dvd_left _ _
 
-theorem gen_PSL_four (f : ℕ) : (genericOrders .PSL 4 2 f).1 * (genericOrders .PSL 4 2 f).2 ∣ 4 := by
-  rw [gen_PSL]; exact (Nat.gcd_dvd_left _ _)
-
-theorem gen_PSL_two (f : ℕ) : (genericOrders .PSL 2 2 f).1 * (genericOrders .PSL 2 2 f).2 ∣ 2 := by
-  rw [gen_PSL]; exact (Nat.gcd_dvd_left _ _)
-
-theorem gen_PSU_four (f : ℕ) : (genericOrders .PSU 4 2 f).1 * (genericOrders .PSU 4 2 f).2 ∣ 4 := by
-  rw [gen_PSU]; exact (Nat.gcd_dvd_left _ _)
 
 theorem gen_default (t : StatedLieTag) (n f : ℕ) (ht : t = .E8 ∨ t = .F4 ∨ t = .G2 ∨
     t = .trialityD4 ∨ t = .twistedB2 ∨ t = .twistedF4 ∨ t = .Tits) :
@@ -403,7 +391,6 @@ theorem compat_subset_torus_even [Finite K] {q : ℕ} (hq : 2 ≤ q) (hK : Nat.c
   exact (torus₀ σ).mul_mem hx (edge_mem_torus_even hK hq3 hσ x)
 
 
-
 theorem two_pow_mod_three_of_even {n : ℕ} (hev : n % 2 = 0) : 2 ^ n % 3 = 1 := by
   obtain ⟨k, rfl⟩ : ∃ k, n = 2 * k := ⟨n / 2, by omega⟩
   rw [pow_mul]
@@ -470,17 +457,6 @@ open CFSG.Assembly CFSG.StandardType
 abbrev OutGuard (p : ℕ) : LargeEvenRawCont :=
   LargeEvenSimpleGuard fun R _ I _ => GGOutdiagPrime p R I
 
-theorem canon_iff_legacy {lab : LargeEvenLabel}
-    (hspec : lab.tag ≠ LargeEvenLieTag.G2der ∧ lab.tag ≠ LargeEvenLieTag.twF4der ∧
-      lab.tag ≠ LargeEvenLieTag.twF4) (Q : LargeEvenRawCont) :
-    CFSG.Assembly.LargeEvenRawDatum lab Q ↔ CFSG.StandardType.LargeEvenRawDatum lab Q := by
-  obtain ⟨t, l, n⟩ := lab
-  cases t
-  all_goals first
-    | exact Iff.rfl
-    | exact absurd rfl hspec.1
-    | exact absurd rfl hspec.2.1
-    | exact absurd rfl hspec.2.2
 
 theorem canon_of_legacy {lab : LargeEvenLabel} {P : LargeEvenRawCont}
     (hiff : ∀ Q, CFSG.Assembly.LargeEvenRawDatum lab Q ↔ CFSG.StandardType.LargeEvenRawDatum lab Q)

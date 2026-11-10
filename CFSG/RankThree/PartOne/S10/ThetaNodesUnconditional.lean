@@ -38,9 +38,5 @@ theorem moving_theta_component_quasisimplicity_reduces_to_odd_core_centralizatio
   moving_theta_component_quasisimplicity_reduces_to_odd_core_centralization_of
     selected_prime_elements_normalize_theta_components
 
-theorem normal_p_core_centralizing_two_commutator_produces_theta_component :
-    NormalPCoreCentralizingTwoCommutatorProducesThetaComponent :=
-  normal_p_core_centralizing_two_commutator_produces_theta_component_of
-    selected_prime_elements_normalize_theta_components
 
 end CFSG.RankThree.PartOne

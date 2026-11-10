@@ -41,7 +41,6 @@ theorem resBlock_pow_three : resBlock (K := K) ^ 3 = 1 := by
     simpa [one_add_one_eq_two] using h2
   fin_cases i <;> fin_cases j <;> simp [h11]
 
-theorem resBlock_apply_zero_one : resBlock (K := K) 0 1 = 1 := rfl
 
 private noncomputable def resFinEquiv (hr : 2 ≤ r) : Fin r ≃ Fin 2 ⊕ Fin (r - 2) :=
   (finCongr (by omega : 2 + (r - 2) = r)).symm.trans finSumFinEquiv.symm

@@ -135,8 +135,6 @@ variable {F : Type} [Field F] [Finite F]
     (∀ (s : Fˣ) (u v : F) (h : u ^ 2 - (κ : F) * v ^ 2 = 1),
       normTorusSL (κ : F) s u v h ∈ H) → H = ⊤
 
-theorem normTorusGen_of_seven (h7 : 7 ≤ Nat.card F) (h2 : (2 : F) ≠ 0) (κ : Fˣ) :
-    NormTorusGen F κ := fun _ hA hB => eq_top_of_normTorus_seven h7 h2 κ hA hB
 
 theorem normTorusGen_of_five (h5 : Nat.card F = 5) (κ : Fˣ) (hκ : ∀ r : F, (κ : F) ≠ r * r) :
     NormTorusGen F κ := fun _ hA hB => eq_top_of_normTorus_five h5 κ hκ hA hB

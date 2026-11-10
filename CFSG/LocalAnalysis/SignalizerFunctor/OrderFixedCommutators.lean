@@ -82,20 +82,5 @@ theorem solvable_order_fixed_action_commutator_hull [Finite ActorType] [Finite G
     SecondActorType actor_pgroup second_pgroup GroupType coprime second_coprime commuting]
   exact fixed_action_commutator_hull_le_order_hull prime rank prime_prime exponent large commuting
 
-theorem coprime_action_fixed_commutator_product [Finite GroupType]
-    (prime : ℕ) (prime_prime : prime.Prime) (actor_pgroup : IsPGroup prime SecondActorType)
-    (coprime : Nat.Coprime prime (Nat.card GroupType)) :
-    subgroupProduct (FixedPoints.subgroup SecondActorType GroupType)
-      (actionCommutator (ActorType := SecondActorType) (GroupType := GroupType)) = Set.univ := by
-  let _normal := action_commutator_normal (ActorType := SecondActorType) (GroupType := GroupType)
-  apply (subgroup_product_eq_univ_iff _ _).mpr
-  intro element
-  have factorization := coprime_action_commutator_factorization prime prime_prime actor_pgroup coprime
-  rw [sup_comm] at factorization
-  have member : element ∈ FixedPoints.subgroup SecondActorType GroupType ⊔
-      actionCommutator (ActorType := SecondActorType) (GroupType := GroupType) := by
-    rw [factorization]
-    trivial
-  exact Subgroup.mem_sup_of_normal_right.mp member
 
 end CFSG.SignalizerFunctor.Helpers

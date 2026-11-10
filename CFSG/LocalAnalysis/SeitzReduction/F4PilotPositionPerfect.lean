@@ -30,11 +30,6 @@ theorem injective_subgroupMap_mk'_of_inf_eq_bot (N : Subgroup H) [N.Normal] {P :
   MulEquiv.ofBijective ((QuotientGroup.mk' N).subgroupMap P)
     ⟨injective_subgroupMap_mk'_of_inf_eq_bot N hPN, (QuotientGroup.mk' N).subgroupMap_surjective P⟩
 
-theorem coe_mapMkEquivOfInfEqBot_apply (N : Subgroup H) [N.Normal] (P : Subgroup H)
-    (hPN : P ⊓ N = ⊥) (x : P) :
-    ((mapMkEquivOfInfEqBot N P hPN x : P.map (QuotientGroup.mk' N)) : H ⧸ N) =
-      QuotientGroup.mk' N (x : H) :=
-  rfl
 
 theorem card_map_mk'_of_inf_eq_bot (N : Subgroup H) [N.Normal] {P : Subgroup H}
     (hPN : P ⊓ N = ⊥) : Nat.card (P.map (QuotientGroup.mk' N)) = Nat.card P :=

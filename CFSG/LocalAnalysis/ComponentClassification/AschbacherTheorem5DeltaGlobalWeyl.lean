@@ -250,21 +250,6 @@ theorem comm_mem_of_mem_sup {X Q : Subgroup G} (hXQ : X ≤ Subgroup.normalizer 
   rw [e]
   exact Q.mul_mem h1 hq
 
-omit [Finite G] in
-theorem sup_inf_le_of_inf_eq_bot {X Y Q : Subgroup G} (hXY : X ≤ Subgroup.normalizer (Y : Set G))
-    (hYQ : Y ≤ Q) (hXQ : X ⊓ Q = ⊥) : (X ⊔ Y) ⊓ Q ≤ Y := by
-  rintro k ⟨hk, hkQ⟩
-  have hk' : k ∈ ((X ⊔ Y : Subgroup G) : Set G) := hk
-  rw [Subgroup.coe_mul_of_left_le_normalizer_right X Y hXY] at hk'
-  obtain ⟨x, hx, y, hy, rfl⟩ := Set.mem_mul.mp hk'
-  have hxQ : x ∈ X ⊓ Q := by
-    refine ⟨hx, ?_⟩
-    have : x = (x * y) * y⁻¹ := by group
-    rw [this]
-    exact Q.mul_mem hkQ (Q.inv_mem (hYQ hy))
-  rw [hXQ, Subgroup.mem_bot] at hxQ
-  rw [hxQ, one_mul]
-  exact hy
 
 end DeltaGlobal
 

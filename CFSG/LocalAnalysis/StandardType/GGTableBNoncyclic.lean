@@ -216,13 +216,6 @@ theorem ggLNoncyclicInputOn_of_labels {S : LargeEvenLabel → Prop}
   exact exists_noncyclic_of_marking_outdiag hβ.1 hS hβ.2.2.2
     (largeEvenMarking_mono (fun _ _ _ _ _ _ h => ⟨h.1.2.2, h.2⟩) hM')
 
-theorem ggLNoncyclicInput_of_labels
-    (h : ∀ lab, LargeEvenInLambda2 lab → LargeEvenLabelAll lab fun R _ I _ => GGOutdiagCyclic R I) :
-    GGLNoncyclicInput := by
-  intro G _ _ p B x L hT
-  have hon := ggLNoncyclicInputOn_of_labels (S := fun _ => True) (fun lab hlab _ => h lab hlab)
-  exact hon G p B x L hT
-    (largeEvenMarking_mono (fun _ _ _ _ _ _ h => ⟨trivial, h⟩) hT.2.2.2.2.2.2.2.1)
 
 end Input
 

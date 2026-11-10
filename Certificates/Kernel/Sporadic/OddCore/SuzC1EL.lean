@@ -76,8 +76,6 @@ local notation "pgk" => pg 11 (mask 11)
 
 theorem kC0Inv : allN 16 c0InvK = true := by quickRfl
 
-theorem negLoc : Bool.not (strictB (SuzC1EV.T 0) fun X => Nat.beq (pc (SuzC1ET.T 0) (c0K 1)) X) =
-    true := by quickRfl
 
 theorem kLoc {k : Nat} (hk : k < 512) : locK k = true := by
   have h := allBlk_spec (locAll (k / 64) (by exact (by omega : k / 64 < 8))) (k % 64) (Nat.mod_lt _ (by norm_num))

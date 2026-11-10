@@ -292,10 +292,6 @@ theorem ggKacShIndicator_zero (s : List ℕ) (i : ℕ) :
   rw [ggKacShIndicator_getD]
   by_cases h : s.getD i 0 = 0 <;> simp [h]
 
-theorem ggKacShIndicator_pos (s : List ℕ) (i : ℕ) :
-    0 < (ggKacShIndicator s).getD i 0 ↔ 0 < s.getD i 0 := by
-  rw [ggKacShIndicator_getD]
-  by_cases h : s.getD i 0 = 0 <;> simp [h, Nat.pos_iff_ne_zero]
 
 theorem ggKacShIndicator_supports (s : List ℕ) :
     ggKacShIndicator s ∈ ggKacSupports s.length := by
@@ -304,13 +300,6 @@ theorem ggKacShIndicator_supports (s : List ℕ) :
     (fun x => by by_cases hx : x = 0 <;> simp [hx]) s 0 [] h0
   simpa [ggKacShIndicator] using h
 
-private theorem ggKacShZero_congr {s s' : List ℕ}
-    (h : ∀ i, s'.getD i 0 = 0 ↔ s.getD i 0 = 0) (N : ℕ) :
-    (List.range N).filter (fun i => decide (s'.getD i 0 = 0)) =
-      (List.range N).filter (fun i => decide (s.getD i 0 = 0)) := by
-  apply List.filter_congr
-  intro i _
-  exact decide_eq_decide.mpr (h i)
 
 theorem ggKacShShapes_congr {D : K0Diag} {s s' : List ℕ} {rho : List ℕ} {d : ℕ}
     (h : ∀ i, s'.getD i 0 = 0 ↔ s.getD i 0 = 0) :

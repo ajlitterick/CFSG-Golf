@@ -67,8 +67,6 @@ theorem inv_apply_vInf {σ : Equiv.Perm (Vert 𝓑)} (h : σ vInf = vInf) : σ�
     simp only [Equiv.Perm.coe_inv, Equiv.apply_symm_apply] at e2
     exact (vPt_injective e2).symm
 
-theorem resPerm_apply {σ : Equiv.Perm (Vert 𝓑)} (hσ : σ ∈ autGroup 𝓑) (h : σ vInf = vInf)
-    (a : Ω) : resPerm σ hσ h a = resFun σ a := rfl
 
 theorem apply_vPt' {σ : Equiv.Perm (Vert 𝓑)} (hσ : σ ∈ autGroup 𝓑) (h : σ vInf = vInf) (a : Ω) :
     σ (vPt a) = vPt (resPerm σ hσ h a) :=

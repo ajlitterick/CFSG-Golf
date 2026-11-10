@@ -23,13 +23,6 @@ theorem ggStepTwoCoordModelOn_POmegaMinus_of_move (hmove : GGOmFrameMoveInput) :
     GGStepTwoCoordModelOn .POmegaMinus :=
   ggStepTwoCoordModelOn_POmegaMinus_of_coord (ggOmCoordInput_of_move hmove)
 
-theorem ggStepTwoToralWitnessOn_POmegaPlus_of_move (hmove : GGOmFrameMoveInput) :
-    GGStepTwoToralWitnessOn .POmegaPlus :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_POmegaPlus_of_move hmove)
-
-theorem ggStepTwoToralWitnessOn_POmegaMinus_of_move (hmove : GGOmFrameMoveInput) :
-    GGStepTwoToralWitnessOn .POmegaMinus :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_POmegaMinus_of_move hmove)
 
 end Certified
 

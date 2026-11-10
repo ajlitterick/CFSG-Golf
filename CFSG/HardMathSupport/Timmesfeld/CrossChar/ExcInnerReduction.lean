@@ -24,8 +24,6 @@ variable {K K' : Type*} [Group K] [Group K'] {p : ℕ}
     ∀ H : Subgroup (MulAut K), innerAut K ≤ H → D ≤ Subgroup.normalizer (H : Set (MulAut K)) →
       localDeltaIn p H D = ⊥
 
-theorem IsLocallyBalancedAbs.isInnerLocallyBalanced (h : IsLocallyBalancedAbs p 3 K) :
-    IsInnerLocallyBalanced p K := fun D hD hcard _ H hH hDH => h D hD hcard H hH hDH
 
 theorem IsInnerLocallyBalanced.of_mulEquiv (e : K ≃* K') (h : IsInnerLocallyBalanced p K') :
     IsInnerLocallyBalanced p K := by
@@ -78,9 +76,6 @@ theorem isLocallyBalancedAbs_of_inner_of_fieldCore [Finite K] (hp : p.Prime)
   ∀ idx : TauCeti.ValidLieTypeIndex, k.Matches idx.1 → ∀ p : ℕ, p.Prime → p ≠ 2 →
     idx.1.characteristic ≠ p → R idx p → IsInnerLocallyBalanced p (Cat idx)
 
-theorem CrossCharFamAt.innerAt {k : LieFamily} {R : TauCeti.ValidLieTypeIndex → ℕ → Prop}
-    (h : CrossCharFamAt k R) : CrossCharInnerAt k R := fun idx hk p hp hp2 hc hR =>
-  IsLocallyBalancedAbs.isInnerLocallyBalanced (h idx hk p hp hp2 hc hR)
 
 end Inner
 

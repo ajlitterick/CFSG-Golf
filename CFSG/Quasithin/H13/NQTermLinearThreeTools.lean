@@ -61,7 +61,6 @@ theorem weight_map_one {E U Γ : Type*} [Field E] [AddCommGroup U] [Module E U] 
   rw [Subgroup.coe_one, map_one, Module.End.one_apply] at h1
   exact (smul_left_injective E hw0 (h1.symm.trans (one_smul E w).symm))
 
-variable {k : Type} [Field k]
 
 end Plane
 

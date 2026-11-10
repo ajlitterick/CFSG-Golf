@@ -102,16 +102,6 @@ theorem eq_neg_highRoot_of_coeff_highNode_eq_neg_two
   have h' : (-γ) (highNode τ) = 2 := by rw [Pi.neg_apply, h]; norm_num
   rw [← eq_highRoot_of_coeff_highNode_eq_two hτ (IsRoot.neg hγ) h', neg_neg]
 
-theorem abs_coeff_highNode_le_one
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hγ : IsRoot τ γ) (h1 : γ ≠ highRoot τ)
-    (h2 : γ ≠ -highRoot τ) : |γ (highNode τ)| ≤ 1 := by
-  have h := abs_le.1 (abs_coeff_highNode_le_two hτ hγ)
-  rw [abs_le]
-  refine ⟨?_, ?_⟩
-  · by_contra hc
-    exact h2 (eq_neg_highRoot_of_coeff_highNode_eq_neg_two hτ hγ (by omega))
-  · by_contra hc
-    exact h1 (eq_highRoot_of_coeff_highNode_eq_two hτ hγ (by omega))
 
 theorem mem_perpRoots_iff : γ ∈ perpRoots τ ↔ IsRoot τ γ ∧ γ (highNode τ) = 0 := Iff.rfl
 
@@ -138,15 +128,6 @@ theorem iform_eq_zero_of_mem_perpRoots
   refine ⟨h0, ?_⟩
   rw [← neg_one_smul ℤ (highRoot τ), iform_smul_right, h0, mul_zero]
 
-theorem highRoot_not_mem_perpRoots (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) :
-    highRoot τ ∉ perpRoots τ ∧ -highRoot τ ∉ perpRoots τ := by
-  have h2 := highRoot_highNode hτ
-  refine ⟨fun h => ?_, fun h => ?_⟩
-  · have := h.2
-    omega
-  · have := h.2
-    rw [Pi.neg_apply, h2] at this
-    omega
 
 end Membership
 
@@ -277,42 +258,9 @@ theorem exists_smul_highRoot_eq
 
 end Weyl
 
-@[expose] def coverRoots : (τ : Tag) → List (Fin τ.rank → ℤ)
-  | .E6 => [highRoot .E6, (Pi.single (5 : Fin 6) 1 : Fin 6 → ℤ),
-      (Pi.single (2 : Fin 6) 1 : Fin 6 → ℤ)]
-  | .E7 => [highRoot .E7, (Pi.single (6 : Fin 7) 1 : Fin 7 → ℤ),
-      (Pi.single (3 : Fin 7) 1 : Fin 7 → ℤ)]
-  | .E8 => [highRoot .E8, (Pi.single (1 : Fin 8) 1 : Fin 8 → ℤ),
-      (Pi.single (5 : Fin 8) 1 : Fin 8 → ℤ)]
-  | _ => []
-
-theorem coverRoots_check (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) :
-    (∀ a ∈ coverRoots τ, ∀ b ∈ coverRoots τ, a ≠ b → iform a b = 0) ∧
-      ∀ i j : Fin τ.rank, ∃ γ ∈ coverRoots τ,
-        iform γ (Pi.single i 1) = 0 ∧ iform γ (Pi.single j 1) = 0 := by
-  rcases hτ with rfl | rfl | rfl <;> decide +kernel
-
-theorem isRoot_of_mem_coverRoots (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    {γ : Fin τ.rank → ℤ} (hγ : γ ∈ coverRoots τ) : IsRoot τ γ := by
-  have key : ∀ γ ∈ coverRoots τ, IsRoot τ γ := by
-    rcases hτ with rfl | rfl | rfl <;>
-      exact List.forall_mem_cons.2 ⟨isRoot_highRoot _, List.forall_mem_cons.2
-        ⟨isRoot_single _ _, List.forall_mem_singleton.2 (isRoot_single _ _)⟩⟩
-  exact key γ hγ
-
-theorem highRoot_mem_coverRoots (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) :
-    highRoot τ ∈ coverRoots τ := by
-  rcases hτ with rfl | rfl | rfl <;> exact List.mem_cons_self
-
-theorem exists_weyl_smul_highRoot_eq
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {γ : Fin τ.rank → ℤ} (hγ : γ ∈ coverRoots τ) :
-    ∃ w : WeylGroup τ, w • highRoot τ = γ :=
-  exists_smul_highRoot_eq hτ (isRoot_of_mem_coverRoots hτ hγ)
 
 local instance ePilotRootsNeZeroE6 : NeZero Tag.E6.rank := ⟨by decide⟩
 
-@[expose] def e6RepRoots : List (List (Fin (Tag.rank .E6) → ℤ)) :=
-  [[Pi.single 0 1], [Pi.single 0 1, Pi.single 3 1], [Pi.single 0 1, Pi.single 3 1, Pi.single 5 1]]
 
 @[expose] def e6PairPerp : List (Fin (Tag.rank .E6) → ℤ) :=
   [![1, 2, 2, 3, 2, 1], ![1, 1, 2, 2, 1, 1], ![1, 1, 2, 2, 1, 0], ![0, 1, 0, 1, 1, 1],
@@ -320,12 +268,6 @@ local instance ePilotRootsNeZeroE6 : NeZero Tag.E6.rank := ⟨by decide⟩
     ![-1, -1, -2, -2, -1, 0], ![0, -1, 0, -1, -1, -1], ![0, -1, 0, -1, -1, 0],
     ![0, 0, 0, 0, 0, -1]]
 
-theorem e6RepRoots_check :
-    (∀ S ∈ e6RepRoots, ∀ β ∈ S, β ∈ rootFinset .E6 ∧ β (highNode .E6) = 0) ∧
-      (∀ S ∈ e6RepRoots, ∀ β ∈ S, ∀ β' ∈ S, β ≠ β' → iform β β' = 0) ∧
-      ∀ γ ∈ rootFinset .E6, (∀ β ∈ ([Pi.single 0 1, Pi.single 3 1, Pi.single 5 1] :
-        List (Fin (Tag.rank .E6) → ℤ)), iform γ β = 0) → γ = highRoot .E6 ∨ γ = -highRoot .E6 := by
-  decide +kernel
 
 theorem e6PairPerp_check :
     (∀ γ ∈ e6PairPerp, γ ∈ rootFinset .E6 ∧ iform γ (Pi.single 0 1) = 0 ∧
@@ -337,16 +279,6 @@ theorem e6PairPerp_check :
 
 section E6Reps
 
-
-theorem mem_perpRoots_of_mem_e6RepRoots {S : List (Fin (Tag.rank .E6) → ℤ)}
-    (hS : S ∈ e6RepRoots) {β : Fin (Tag.rank .E6) → ℤ} (hβ : β ∈ S) : β ∈ perpRoots .E6 :=
-  ⟨mem_rootFinset.1 (e6RepRoots_check.1 S hS β hβ).1, (e6RepRoots_check.1 S hS β hβ).2⟩
-
-theorem eq_highRoot_or_neg_of_perp_e6Triple {γ : Fin (Tag.rank .E6) → ℤ} (hγ : IsRoot .E6 γ)
-    (h : ∀ β ∈ ([Pi.single 0 1, Pi.single 3 1, Pi.single 5 1] :
-      List (Fin (Tag.rank .E6) → ℤ)),
-      iform γ β = 0) : γ = highRoot .E6 ∨ γ = -highRoot .E6 :=
-  e6RepRoots_check.2.2 γ (mem_rootFinset.2 hγ) h
 
 end E6Reps
 

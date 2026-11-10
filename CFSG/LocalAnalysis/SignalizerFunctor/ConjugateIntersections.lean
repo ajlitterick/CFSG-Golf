@@ -47,26 +47,6 @@ theorem conjugate_intersection_normalized (actor target : Subgroup GroupType) :
     (conjugateSubgroup (conjugator⁻¹ * actorElement.val) target) at image_member
   rwa [conjugate_subgroup_mul, mul_inv_cancel_left] at image_member
 
-theorem conjugate_intersection_invariant
-    {ActorType : Type actorUniverse} [Group ActorType] [MulDistribMulAction ActorType GroupType]
-    (actor target : Subgroup GroupType)
-    (actor_invariant : ∀ actorElement : ActorType, ∀ element ∈ actor, actorElement • element ∈ actor)
-    (target_invariant : ∀ actorElement : ActorType, ∀ element ∈ target, actorElement • element ∈ target) :
-    ∀ actorElement : ActorType, ∀ element ∈ conjugateIntersection actor target,
-      actorElement • element ∈ conjugateIntersection actor target := by
-  intro actorElement element member
-  apply Subgroup.mem_iInf.mpr
-  intro conjugator
-  let preimage : actor := ⟨actorElement⁻¹ • conjugator.val,
-    actor_invariant actorElement⁻¹ conjugator.val conjugator.property⟩
-  have original_member := (iInf_le (fun original : actor => conjugateSubgroup original.val target) preimage) member
-  obtain ⟨representative, representative_member, product⟩ := original_member
-  refine ⟨actorElement • representative, target_invariant actorElement representative representative_member, ?_⟩
-  change conjugator.val * (actorElement • representative) * conjugator.val⁻¹ = actorElement • element
-  rw [← product]
-  change conjugator.val * (actorElement • representative) * conjugator.val⁻¹ =
-    actorElement • ((actorElement⁻¹ • conjugator.val) * representative * (actorElement⁻¹ • conjugator.val)⁻¹)
-  rw [MulDistribMulAction.smul_mul, MulDistribMulAction.smul_mul, smul_inv', smul_inv_smul]
 
 theorem conjugate_intersection_prime_core_normalized [Finite GroupType]
     (primes : Set ℕ) (actor target : Subgroup GroupType) :

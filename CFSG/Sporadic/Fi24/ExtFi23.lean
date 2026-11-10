@@ -19,7 +19,6 @@ theorem mem_M_iff
     (g : J) : g ∈ M ↔ (g : GL (Fin 781) (ZMod 3)) * tT = tT * g :=
   mem_stabilizer_iff_commute g
 
-theorem M_eq_lvl_one : M = lvl 1 := stabilizer_root
 
 noncomputable abbrev mL : Matrix (Fin 253) (Fin 781) (ZMod 3) := mS * (mR * mF)
 
@@ -283,27 +282,6 @@ theorem fi23EquivM_mGen0 :
 theorem fi23EquivM_mGen1 :
     fi23EquivM mGen1 = Fi23.b := Subtype.ext fi23Hom_mGen1
 
-theorem closure_mGen :
-    Subgroup.closure ({mGen0, mGen1} : Set M) = ⊤ := by
-  have key : ∀ y ∈ Subgroup.closure ({Fi23.a, Fi23.b} : Set Fi23.J),
-      fi23EquivM.symm y ∈ Subgroup.closure ({mGen0, mGen1} : Set M) := by
-    intro y hy
-    induction hy using Subgroup.closure_induction with
-    | mem z hz =>
-      rcases hz with rfl | rfl
-      · rw [← fi23EquivM_mGen0, MulEquiv.symm_apply_apply]
-        exact Subgroup.subset_closure (Set.mem_insert _ _)
-      · rw [← fi23EquivM_mGen1, MulEquiv.symm_apply_apply]
-        exact Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
-    | one => rw [map_one]; exact Subgroup.one_mem _
-    | mul y z _ _ hy hz => rw [map_mul]; exact Subgroup.mul_mem _ hy hz
-    | inv y _ hy => rw [map_inv]; exact Subgroup.inv_mem _ hy
-  rw [eq_top_iff]
-  intro x _
-  have hx : fi23EquivM x ∈ Subgroup.closure ({Fi23.a, Fi23.b} : Set Fi23.J) := by
-    rw [Fi23.closure_ab]; trivial
-  have := key _ hx
-  rwa [MulEquiv.symm_apply_apply] at this
 
 @[expose] noncomputable def fi23Equiv :
     M ≃* Blueprint.NativeSporadic.Fi23 :=

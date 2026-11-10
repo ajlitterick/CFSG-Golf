@@ -1066,14 +1066,6 @@ theorem alpha_fix_of_disjoint [Finite K] [CharP K 2] (h4 : 4 ≤ Nat.card K)
 
 end Perp
 
-theorem curtisDatum_X_sup_Y_zero {K : Type} [Field K] [Finite K] [CharP K 2] {b c : K}
-    (hirrQ : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :
-    (SmallO8mCurtis.curtisDatum 4 (by norm_num) hirrQ).X 0 ⊔
-        (SmallO8mCurtis.curtisDatum 4 (by norm_num) hirrQ).Y 0 = longL b c := by
-  change minusRootGroup 4 hirrQ (Pi.single 0 1) ⊔ minusRootGroup 4 hirrQ (-Pi.single 0 1) = _
-  rw [minusRootGroup_single_of_lt 4 hirrQ (k := 0) (by norm_num),
-    minusRootGroup_neg_single_of_lt 4 hirrQ (k := 0) (by norm_num)]
-  rfl
 
 theorem longN_le_perpS {K W : Type} [Field K] [Finite K] [CharP K 2]
     [AddCommGroup W] [Module (ZMod 2) W] [Finite W] {e : ℕ} (he : 2 ≤ e)
@@ -1133,28 +1125,6 @@ theorem longN_le_perpS {K W : Type} [Field K] [Finite K] [CharP K 2]
     rwa [hback] at h
   exact sup_le hLP hL'P
 
-theorem shortSL2_perp_longSL2 {K W : Type} [Field K] [Finite K] [CharP K 2]
-    [AddCommGroup W] [Module (ZMod 2) W] [Finite W] {e : ℕ} (he : 2 ≤ e)
-    (hK : Nat.card K = 2 ^ e) {b c : K} (hirrQ : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (ρ : Representation (ZMod 2) (spinGroup (quadMinus 4 K b c)) W) [ρ.IsIrreducible]
-    (a : W ≃ₗ[ZMod 2] W) (ha : a * a = 1) (ha1 : a ≠ 1)
-    (hrank : Module.finrank (ZMod 2) (LinearMap.range (a.toLinearMap - 1)) ≤ 2 * e + 1)
-    (r : Vm 4 K ≃ₗ[K] Vm 4 K)
-    (hr : r ∈ TauCeti.QuadraticMap.orthogonalGroup (quadMinus 4 K b c)) (hr2 : r * r = 1)
-    (hre : r (eVec 4 2) = eVec 4 2) (hrf : r (fVec 4 2) = fVec 4 2)
-    (hrp : ∀ p : Fin 2 → K, r (planeVec 4 p) = planeVec 4 p)
-    (α : MulAut (spinGroup (quadMinus 4 K b c)))
-    (hα : ∀ g, spinAction (quadMinus 4 K b c) (α g) =
-      r * spinAction (quadMinus 4 K b c) g * r⁻¹)
-    (heq : ∀ g w, a (ρ g w) = ρ (α g) (a w)) :
-    ∀ g ∈ (shortPosHom 4 hirrQ 2).range ⊔ (shortNegHom 4 hirrQ 2).range,
-      ∀ n ∈ (SmallO8mCurtis.curtisDatum 4 (by norm_num) hirrQ).X 0 ⊔
-          (SmallO8mCurtis.curtisDatum 4 (by norm_num) hirrQ).Y 0,
-        (ρ g - 1) * (ρ n - 1) = 0 ∧ (ρ n - 1) * (ρ g - 1) = 0 := by
-  have hNP := longN_le_perpS he hK hirrQ ρ a ha ha1 hrank r hr hr2 hre hrf hrp α hα heq
-  intro g hg n hn
-  rw [curtisDatum_X_sup_Y_zero hirrQ] at hn
-  exact ((mem_perpS hirrQ ρ).mp (hNP (Subgroup.mem_sup_left hn)) g hg).symm
 
 theorem shortSL2_perp_longSL2_of_ne {K W : Type} [Field K] [Finite K] [CharP K 2]
     [AddCommGroup W] [Module (ZMod 2) W] [Finite W] {e : ℕ} (he : 2 ≤ e)
@@ -1219,29 +1189,6 @@ theorem shortTorusHom_mem {K : Type} [Field K] [Finite K] {b c : K}
   rw [shortTorusHom_apply, shortTorusElt, shortWeyl]
   exact mul_mem (hw _) (inv_mem (hw _))
 
-theorem shortTorus_perp_longTorus_of_ne {K W : Type} [Field K] [Finite K] [CharP K 2]
-    [AddCommGroup W] [Module (ZMod 2) W] [Finite W] {e : ℕ} (he : 2 ≤ e)
-    (hK : Nat.card K = 2 ^ e) {b c : K} (hirrQ : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (ρ : Representation (ZMod 2) (spinGroup (quadMinus 4 K b c)) W) [ρ.IsIrreducible]
-    (a : W ≃ₗ[ZMod 2] W) (ha : a * a = 1) (ha1 : a ≠ 1)
-    (hrank : Module.finrank (ZMod 2) (LinearMap.range (a.toLinearMap - 1)) ≤ 2 * e + 1)
-    (r : Vm 4 K ≃ₗ[K] Vm 4 K)
-    (hr : r ∈ TauCeti.QuadraticMap.orthogonalGroup (quadMinus 4 K b c)) (hr2 : r * r = 1)
-    (hre : r (eVec 4 2) = eVec 4 2) (hrf : r (fVec 4 2) = fVec 4 2)
-    (hrp : ∀ p : Fin 2 → K, r (planeVec 4 p) = planeVec 4 p)
-    (α : MulAut (spinGroup (quadMinus 4 K b c)))
-    (hα : ∀ g, spinAction (quadMinus 4 K b c) (α g) =
-      r * spinAction (quadMinus 4 K b c) g * r⁻¹)
-    (heq : ∀ g w, a (ρ g w) = ρ (α g) (a w)) :
-    ∀ (l : Fin (4 - 1)) (u : (ShortField b c)ˣ) {i j : Fin (4 - 1)} (hij : i ≠ j), i ≠ l →
-      j ≠ l → ∀ (s t : Bool) (τ : Kˣ),
-        (ρ (shortTorusHom 4 hirrQ l u) - 1) * (ρ ((minusFrame 4 b c).longTorus hij s t τ) - 1) =
-            0 ∧
-          (ρ ((minusFrame 4 b c).longTorus hij s t τ) - 1) * (ρ (shortTorusHom 4 hirrQ l u) - 1) =
-            0 :=
-  fun l u _ _ hij hi hj s t τ =>
-    shortSL2_perp_longSL2_of_ne he hK hirrQ ρ a ha ha1 hrank r hr hr2 hre hrf hrp α hα heq l _
-      (shortTorusHom_mem hirrQ l u) hij hi hj s t _ ⟨diagSL2 τ, rfl⟩
 
 end SmallO8mPerpPair
 

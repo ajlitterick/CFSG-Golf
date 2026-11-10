@@ -105,10 +105,5 @@ theorem specialLinearFrobeniusEmbedding_bijective
   MulEquiv.ofBijective (specialLinearFrobeniusEmbedding d ι)
     (specialLinearFrobeniusEmbedding_bijective d ι)
 
-theorem specialLinearEquivFrobeniusFixedPoints_coe
-    (d : ValidLieTypeIndex) (ι : Type*) [Fintype ι] [DecidableEq ι]
-    (g : SpecialLinearGroup ι (GaloisField d.characteristic d.fieldExponent)) :
-    ((specialLinearEquivFrobeniusFixedPoints d ι g : SpecialLinearGroup ι d.Closure) :
-      Matrix ι ι d.Closure) = (g : Matrix ι ι _).map d.galoisFieldEmbedding := rfl
 
 end CFSG.ClassicalModels

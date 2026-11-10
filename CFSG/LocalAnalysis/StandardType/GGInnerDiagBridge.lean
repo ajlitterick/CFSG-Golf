@@ -118,65 +118,16 @@ theorem ggInnerDiagOn_of_presents_mk (hR : GGInnerDiagMarkingInput) {G₀ Bs : S
   largeEvenMarking_mono (fun _ _ _ _ _ _ hP => ⟨hBsN, fun b hb => hP b (hBsN hb) (hVI b hb)⟩)
     (hR t G n f ψ G₀ hpres)
 
-theorem ggSecOneFiveV2Input_of_inputs_mk (ha : GGBstarInput) (ha₀ : GGLNoncyclicInput)
-    (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput) (hc₁ : GGProp41Input)
-    (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput) (hd : GGCoxeterLabelInput)
-    (he : GGPropFiveTwentyOneV2Input) (hf : GGHypSixV2Input) (hg₁ : GGCorFiveTwentyInput)
-    (hg₂ : GGOmegaOneInput) (hR : GGInnerDiagMarkingInput) : GGSecOneFiveV2Input := by
-  intro G _ _ _ hnonab hK hchar he4 p hp B x L hS hst
-  have hI : GGThmIHyp p B x L := ⟨inferInstance, hnonab, hK, hchar, he4, hp, hS, hst⟩
-  obtain ⟨Bs, hBs⟩ := ha G p B x L hI
-  obtain ⟨D, J, hDJ⟩ := exists_stdSub_of_stdSubPre (hb G p B x L hI)
-  have hcfg : GGConfig p B Bs x L D J := ⟨hI, hBs, hDJ⟩
-  have hOp := hc₁ G p B Bs x L D J hcfg (hc₀ G p B Bs x L D J hcfg)
-  have hInn := hc₂ G p B Bs x L D J hcfg hOp
-  have hNoTr := hc₃ G p B Bs x L D J hcfg hOp hInn
-  have hW := hd G p B Bs x L D J hcfg hOp hInn hNoTr
-  obtain ⟨t, n, f, ψ, hpres⟩ := he G p B Bs x L D J hcfg hOp hInn hNoTr hW
-  have hnc := ha₀ G p B x L hI
-  have hBsN := bstar_le_normalizer_ggG0 hS hnc hDJ.1 hBs
-  have hVI := hf G p B Bs x L D J hcfg hOp hInn t n f ψ hpres hBsN
-  have hNBs := hg₁ G p B Bs x L D J hcfg hOp hInn hNoTr
-    (ggInnerDiagOn_of_presents_mk hR hpres hBsN hVI)
-  have hCB := centralizer_le_normalizer_ggG0 hS hnc hDJ.1
-  have hNB := normalizer_le_of_frattini hp.1 hBs (hg₂ G p B Bs x L D J hcfg hOp hInn) hCB hNBs
-  obtain ⟨⟨hadm, hrk⟩, ⟨hrange, hker⟩, hperf, hmodel⟩ := hpres
-  exact ⟨Bs, D, J, t, n, f, ψ, hBs, hDJ, ⟨hadm, hrk⟩, ⟨hrange, hker⟩, ⟨hperf, hmodel⟩,
-    ⟨hBsN, hVI⟩, hNB, hNBs⟩
 
 end Genuine
 
 section Bridge
 
-theorem ggInnerDiagMarkingInput_of_bridge (hR : GGInnerDiagBridgeInput) :
-    GGInnerDiagMarkingInput := by
-  intro t G _ _ n f ψ G₀ hpres
-  obtain ⟨⟨hadm, hrk⟩, ⟨hrange, hker⟩, hperf, hmodel⟩ := hpres
-  exact largeEvenMarking_mono (fun _ _ _ _ _ _ hP c hc hd => (hP.2 c hc).mpr hd)
-    (hR G t n f ψ hadm hrk hker G₀ hrange _
-      (ggLieModelMarkingInput_holds _ t n f hadm hperf hmodel))
 
 end Bridge
 
 section Assembly
 
-theorem lc_gl_std_of_v2_steps_mk (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (he : GGPropFiveTwentyOneV2Input) (hf : GGHypSixV2Input)
-    (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput) (hR : GGInnerDiagMarkingInput)
-    (h1 : GGSixStepOneV2Input) (h2 : GGSixStepTwoV2Input) (h3a : GGSixStepThreeAInput)
-    (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_v2_inputs hHolt
-    (ggSecOneFiveV2Input_of_inputs_mk ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd he hf hg₁ hg₂ hR)
-    (ggSecSixV2Input_of_inputs h1 h2 h3a h3b h3c h3d hKG)
-    G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

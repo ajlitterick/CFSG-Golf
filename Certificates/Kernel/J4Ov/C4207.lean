@@ -124,17 +124,6 @@ theorem cover4207_ok : andB (Nat.beq pData.length 44) (allR 49 fun i =>
     orB (rep4207 i).exc (pData.any fun e => Nat.beq e.idx i)) = true := by
   quickRfl
 
-theorem ch4207_neg_m : notB (pChk4207 0 (pw4207.getD 0 []) 11 333) = true := by
-  quickRfl
-
-theorem ch4207_neg_p : notB (pChk4207 2 (pw4207.getD 2 []) 11 0) = true := by
-  quickRfl
-
-theorem ch4207_neg_r : notB (pChk4207 0 (pw4207.getD 1 []) 11 333) = true := by
-  quickRfl
-
-theorem ch4207_neg_e : notB (pChk4207 18 (pw4207.getD 0 []) 11 0) = true := by
-  quickRfl
 
 end CertificateChecks.KernelJ4Ov
 

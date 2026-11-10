@@ -94,8 +94,6 @@ theorem K_CartanRank.at (h : K_CartanRank) (t : StatedLieTag) (m f : ℕ) :
   fun K _ _ hLM hq hodd S hS r hr hr2 hrd hPSL hE6 =>
     h K t m f hLM.admissible hLM hq hodd S hS r hr hr2 hrd hPSL hE6
 
-theorem K_CartanRank.leThree (h : K_CartanRank) : K_CartanRankLeThree :=
-  fun t m f _ => h.at t m f
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719
 

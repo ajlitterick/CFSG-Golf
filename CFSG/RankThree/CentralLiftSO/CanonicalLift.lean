@@ -28,8 +28,6 @@ theorem vSL_zero : vSL (0 : k) = 1 := by
 theorem uSL_inv (t : k) : (uSL t)⁻¹ = uSL (-t) :=
   inv_eq_of_mul_eq_one_right (by rw [← uSL_add, add_neg_cancel, uSL_zero])
 
-theorem vSL_inv (t : k) : (vSL t)⁻¹ = vSL (-t) :=
-  inv_eq_of_mul_eq_one_right (by rw [← vSL_add, add_neg_cancel, vSL_zero])
 
 theorem uSL_pow (t : k) (n : ℕ) : uSL t ^ n = uSL ((n : k) * t) := by
   induction n with

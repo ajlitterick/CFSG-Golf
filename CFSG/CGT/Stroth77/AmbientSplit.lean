@@ -20,18 +20,6 @@ theorem NoInvolutionsCentralizing.mono {S B C : Subgroup G}
   refine hBC (h z hzS hz2 ?_)
   exact (Subgroup.centralizer_le (s := (B : Set G)) (t := (C : Set G)) hBC) hzC
 
-def IsSplitOver (B C : Subgroup G) : Prop :=
-  ∃ z : G, z * z = 1 ∧ z ∉ B ∧ C = B ⊔ Subgroup.zpowers z
-
-theorem not_isSplitOver_of_noInvolutionsCentralizing
-    {S B C : Subgroup G} (hH : NoInvolutionsCentralizing S B)
-    (hCS : C ≤ S) (hC : C ≤ Subgroup.centralizer (B : Set G)) :
-    ¬ IsSplitOver B C := by
-  rintro ⟨z, hz2, hzB, hCeq⟩
-  have hzC : z ∈ C := by
-    rw [hCeq]
-    exact Subgroup.mem_sup_right (Subgroup.mem_zpowers z)
-  exact hzB (hH z (hCS hzC) hz2 (hC hzC))
 
 def IsSquareInSubgroup (B : Subgroup G) (x : G) : Prop :=
   ∃ b : B, (b : G) * (b : G) = x
@@ -260,49 +248,6 @@ theorem isSquareInSubgroup_zpow_of_even
 section MnsModel
 
 
-theorem mns_centralizer_Ag_eq : Subgroup.centralizer (Ag : Set Mns) = Ag := by
-  apply le_antisymm
-  · intro z hz
-    have hzN : z ∈ NAg := Subgroup.centralizer_le_normalizer (Ag : Set Mns) hz
-    have hnorm : normB z = true := (mem_normalizer_iff_normB (g := z)).1 hzN
-    obtain ⟨l, hl, hal⟩ := normB_decomp z hnorm
-    have hz_eq : z = (z * l⁻¹) * l := by group
-    have hz' : (z * l⁻¹) * l ∈ Subgroup.centralizer (Ag : Set Mns) := by
-      rw [hz_eq] at hz
-      exact hz
-    have hcheck : (bfsList gensL 40).all (fun l =>
-        (gensA.all fun a => decide (l * a = a * l)) → decide (l = 1)) = true := by
-      decide
-    have hcheck' : ∀ l ∈ bfsList gensL 40,
-        (∀ a ∈ gensA, l * a = a * l) → l = 1 := by
-      intro l hl hcomm
-      have h := List.all_eq_true.mp hcheck l hl
-      have hg : (gensA.all fun a => decide (l * a = a * l)) = true := by
-        apply List.all_eq_true.mpr
-        intro a ha
-        exact decide_eq_true (hcomm a ha)
-      simp [hg] at h
-      exact h
-    have ha : z * l⁻¹ ∈ Ag := mem_Ag.2 hal
-    have ha_cent : z * l⁻¹ ∈ Subgroup.centralizer (Ag : Set Mns) :=
-      (Subgroup.le_centralizer_iff_isMulCommutative (K := Ag)).mpr Ag_commutative ha
-    have hl_cent : l ∈ Subgroup.centralizer (Ag : Set Mns) := by
-      have h1 : (z * l⁻¹)⁻¹ ∈ Subgroup.centralizer (Ag : Set Mns) := Subgroup.inv_mem _ ha_cent
-      have h2 : (z * l⁻¹)⁻¹ * ((z * l⁻¹) * l) ∈ Subgroup.centralizer (Ag : Set Mns) :=
-        Subgroup.mul_mem _ h1 hz'
-      simpa [mul_assoc] using h2
-    have hl1 : l = 1 := by
-      exact hcheck' l hl (fun a ha' => by
-        exact ((Subgroup.mem_centralizer_iff.mp hl_cent) a (Subgroup.subset_closure ha')).symm)
-    rw [hz_eq]
-    simpa [hl1] using ha
-  · exact (Subgroup.le_centralizer_iff_isMulCommutative (K := Ag)).mpr Ag_commutative
-
-theorem mns_noInvolutionsCentralizing_Ag : NoInvolutionsCentralizing Tg Ag := by
-  intro z _ hz2 hz
-  rw [mns_centralizer_Ag_eq] at hz
-  exact hz
-
 end MnsModel
 
 
@@ -442,16 +387,5 @@ theorem exists_square_root_c
       have := congrArg (fun z : C => (z : G)) hd'C
       simpa [d'C, dC, sC, cC] using this
 
-
-theorem exists_square_root_c_of_hasStrothType
-    [Finite G] {m : ℕ} {B C S : Subgroup G}
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set G))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S B) (hCS : C ≤ S) (hne : C ≠ B) :
-    ∃ d : G, d ∈ C ∧ d ∉ B ∧ d * d = (hB.data.c : G) :=
-  exists_square_root_c hB.data hBC hC hrel (hL hB.data.u_mem_L) (hL hB.data.ρ_mem_L)
-    hH hCS hne
 
 end CFSG.CGT.Stroth77

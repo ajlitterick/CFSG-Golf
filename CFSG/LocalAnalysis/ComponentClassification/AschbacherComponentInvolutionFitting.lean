@@ -11,67 +11,9 @@ open CFSG.Open
 
 variable {G : Type*} [Group G]
 
-@[expose] def fittingOddCoreImage (G : Type*) [Group G] : Subgroup G :=
-  (_root_.CFSG.oddCore (Fitting.subgroup G)).map (Fitting.subgroup G).subtype
-
-theorem fitting_odd_core_eq_native (G : Type*) [Group G] :
-    fittingOddCoreImage G =
-      (componentClassificationOddCore (Fitting.subgroup G)).map (Fitting.subgroup G).subtype := rfl
-
-theorem fitting_odd_core_normal (G : Type*) [Group G] :
-    (fittingOddCoreImage G).Normal := by
-  let : (Fitting.subgroup G).Normal := Fitting.normal G
-  let : (componentClassificationOddCore (Fitting.subgroup G)).Characteristic :=
-    OddCore.characteristic _
-  rw [fitting_odd_core_eq_native]
-  exact ConjAct.normal_of_characteristic_of_normal
 
 variable [Finite G]
 
-theorem fitting_odd_core_odd (G : Type*) [Group G] [Finite G] :
-    Odd (Nat.card (fittingOddCoreImage G)) := by
-  rw [fitting_odd_core_eq_native, Subgroup.card_subtype]
-  exact OddCore.odd_card _
-
-theorem odd_prime_core_le_fitting_odd_core (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) :
-    PrimeCore.subgroup p G ≤ fittingOddCoreImage G := by
-  let F := Fitting.subgroup G
-  let Q := PrimeCore.subgroup p G
-  have hQF : Q ≤ F := PrimeCore.le_fitting p G
-  let : Q.Normal := PrimeCore.normal p G
-  have hQodd : Odd (Nat.card Q) := by
-    obtain ⟨n, hn⟩ := (PrimeCore.isPGroup p G).exists_card_eq
-    rw [hn]
-    exact ((Fact.out : p.Prime).odd_of_ne_two hp).pow
-  have hlocalOdd : Odd (Nat.card (Q.subgroupOf F)) := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hQF).toEquiv]
-    exact hQodd
-  have hle := OddCore.maximal F (Q.subgroupOf F) inferInstance hlocalOdd
-  have hmap := Subgroup.map_mono (f := F.subtype) hle
-  rw [Subgroup.map_subgroupOf_eq_of_le hQF] at hmap
-  exact hmap
-
-theorem involution_component_centralizes_fitting (a : G) (ha : orderOf a = 2)
-    (K : Subgroup G) (hKC : K ≤ Subgroup.centralizer ({a} : Set G))
-    (hK : IsComponentOf (K.subgroupOf (Subgroup.centralizer ({a} : Set G))) ⊤)
-    (hodd : ⁅K, fittingOddCoreImage G⁆ = ⊥) : ⁅K, Fitting.subgroup G⁆ = ⊥ := by
-  apply Subgroup.commutator_eq_bot_iff_le_centralizer.mpr
-  apply Subgroup.le_centralizer_iff.mpr
-  rw [PrimeCore.fitting_eq_join]
-  apply iSup_le
-  intro p
-  let : Fact p.val.Prime := ⟨p.property⟩
-  by_cases hp : p.val = 2
-  · rw [hp]
-    let : (PrimeCore.subgroup 2 G).Normal := PrimeCore.normal 2 G
-    have hle := InvolutionLayer.component_centralizes_normal_two a ha
-      (PrimeCore.subgroup 2 G) (PrimeCore.isPGroup 2 G) (K.subgroupOf _) hK
-    rw [Subgroup.map_subgroupOf_eq_of_le hKC] at hle
-    exact Subgroup.le_centralizer_iff.mp hle
-  · have hcommutes : K ≤ Subgroup.centralizer ((PrimeCore.subgroup p.val G : Subgroup G) : Set G) :=
-      (Subgroup.commutator_eq_bot_iff_le_centralizer.mp hodd).trans
-        (Subgroup.centralizer_le (odd_prime_core_le_fitting_odd_core p.val hp))
-    exact Subgroup.le_centralizer_iff.mp hcommutes
 
 theorem perfect_layer_centralizer_product_absorption (K : Subgroup G)
     [Group.IsPerfect K]

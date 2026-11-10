@@ -124,19 +124,6 @@ variable {Ambient : Type groupUniverse} [Group Ambient] [Finite Ambient]
 variable (hpgroup : IsPGroup 2 Ambient) (Normal : Subgroup Ambient) [Normal.Normal]
 variable (hcommutative : IsMulCommutative Normal)
 
-theorem normalFrattiniEmbedding_conjugation (conjugator : Ambient)
-    (coset : Normal ⧸ frattini Normal) :
-    let _ := normalPowerSubgroup_normal Normal hcommutative 2
-    normalFrattiniEmbedding hpgroup Normal hcommutative
-      (normalFrattiniConjugation Normal conjugator coset) =
-        (QuotientGroup.mk' (normalPowerSubgroup Normal hcommutative 2)) conjugator *
-          normalFrattiniEmbedding hpgroup Normal hcommutative coset *
-            ((QuotientGroup.mk' (normalPowerSubgroup Normal hcommutative 2)) conjugator)⁻¹ := by
-  dsimp only
-  let _ := normalPowerSubgroup_normal Normal hcommutative 2
-  obtain ⟨element, rfl⟩ := QuotientGroup.mk'_surjective (frattini Normal) coset
-  rw [normalFrattiniConjugation_apply, normalFrattiniEmbedding_apply,
-    normalFrattiniEmbedding_apply, MulAut.conjNormal_apply, map_mul, map_mul, map_inv]
 
 end QuotientConjugation
 

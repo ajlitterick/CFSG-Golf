@@ -200,122 +200,6 @@ theorem ggExactThreeAtK_false_of_dep
     obtain ⟨c, hc⟩ := hjoin
     exact ⟨c, hc⟩
 
-theorem ggExactThreeAtK_false_of_yNotMem
-    (hLB : GGLBalanceInput) (hKG : GGReflClassLargeInput')
-    (hOrbK : GGResCentBoundNbrInput) (hFix : GGTBFixInput)
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hy : y ∈ Bs) (hyK : y ∉ K) {N : ℕ}
-    (hN : 11 ≤ N) (hpN : p ∣ N) {Λ : Type} [Fintype Λ] [DecidableEq Λ]
-    {MK : CoxeterMatrix Λ} {CK : Matrix Λ Λ ℤ} (e : Fin (N - 1) ≃ Λ)
-    (hMK : MK = (CoxeterMatrix.A (N - 1)).reindex e)
-    (hCK : GGIntCartan MK CK) {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {ι : Additive ↥Bs ≃+ V} {φ : Λ → MulAut ↥Bs} {h : Λ → V}
-    {α : Λ → Module.Dual (ZMod p) V}
-    (hφ : ∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i)
-    (hpair : ∀ i j, α i (h j) = (CK i j : ZMod p))
-    (hAK : ggAutomizer K Bs = Subgroup.closure (Set.range φ))
-    (hcardBs : Nat.card Bs = p ^ (N - 1))
-    (h3 : GGResLeviDatumExact3 p Bs K J L (fun _ _ => True) (fun _ _ => True))
-    {r : ℕ} (hAJ : Nat.card (ggAutomizer J Bs) = (r - 2).factorial) (hr : 10 ≤ r) : False := by
-  have hfixK : ∀ b : ↥Bs, (∀ ψ ∈ ggAutomizer K Bs, ψ b = b) →
-      (b : G) ∈ Subgroup.zpowers y :=
-    ggXDatumA_fix_K_of_card hp2 hH hy (by omega) hpN hcardBs e hMK hCK hφ hpair hAK
-  exact ggExactThreeAtK_false_of_dep hKG hOrbK hFix hp2 hH hy hN hpN e hMK hCK hφ hpair hAK
-    hcardBs (ggXDatumA_dep_K hp2 hH hy hyK hfixK (by omega) hpN e hMK hCK hφ hpair hAK) h3 hAJ hr
-
-theorem ggResExactThree_K_highDegree_of_yNotMem
-    (hLB : GGLBalanceInput) {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    {n d p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 n F d) →* ↥K} (hModel : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 11 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin d → F, LineU.ActsDiagU ψ a t)
-    (hKG : GGReflClassLargeInput')
-    (hOrbK : GGResCentBoundNbrInput) (hFix : GGTBFixInput)
-    (hy : y ∈ Bs) (hyK : y ∉ K)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny)
-    (_hF : ¬ GGCoxeterForkDatum p Bs L K) (_hS : ¬ GGCoxeterStdDatum p Bs L K)
-    (_hE : ¬ GGE6DepPerpCfg p Bs L K) : False := by
-  classical
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  obtain ⟨r, hd_eq, hpd, hXD, hcard, hcent, hBlt, hAJ⟩ :=
-    hH.unitary_exactThree_typeA_card_J_of_K hLB hModel hpq (by omega) hdiag h3
-  obtain ⟨Λ, i1, i2, M, C, V, i3, i4, ι, φ, h, α, e, hMeq, hWM, hC, hlin, hrefl, hpair,
-    hf, hclos⟩ := hXD
-  let := i1
-  let := i2
-  let := i3
-  let := i4
-  refine ggExactThreeAtK_false_of_yNotMem hLB hKG hOrbK hFix hp2 hH hy hyK (N := r + 1)
-    (by omega) (by simpa [hd_eq] using hpd) (e := ?_) (MK := M) (CK := C) ?_ hC hlin hpair
-    hclos (by simpa using hcard) h3 hAJ (by omega)
-  · simpa using e
-  · simpa using hMeq
-
-theorem ggResExactThree_K_highDegree_join_of_yNotMem
-    (hLB : GGLBalanceInput) {G : Type} [Group G] [Finite G]
-    {F : Type} [Field F] [Finite F] {n d p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    {ψ : ↥(unitarySU 2 n F d) →* ↥K} (hModel : UnitTB.Model ψ)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 11 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma K (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer).range,
-      ∃ t : Fin d → F, LineU.ActsDiagU ψ a t)
-    (hKG : GGReflClassLargeInput')
-    (hOrbK : GGResCentBoundNbrInput) (hFix : GGTBFixInput)
-    (hy : y ∈ Bs) (hyK : y ∉ K)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny)
-    (hF : ¬ GGCoxeterForkDatum p Bs L K) (hS : ¬ GGCoxeterStdDatum p Bs L K)
-    (hE : ¬ GGE6DepPerpCfg p Bs L K) :
-    GGWeylReflectionGroup p (ggAutomizer L Bs ⊔ ggAutomizer K Bs) :=
-  (ggResExactThree_K_highDegree_of_yNotMem hLB hH hModel hpq hd hdiag hKG hOrbK hFix hy hyK h3 hF hS hE).elim
-
-theorem ggResExactThree_K_highDegree_externalAxis
-    (hLB : GGLBalanceInput) (hKG : GGReflClassLargeInput')
-    (hOrbK : GGResCentBoundNbrInput) (hFix : GGTBFixInput)
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hU : GGInnerDiagOnLabel
-      (fun p lab => lab.tag = .twA ∧ 10 ≤ lab.rank ∧ 2 ≤ lab.n ∧ p ∣ 2 ^ lab.n + 1)
-      p Bs K)
-    (h3 : GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny)
-    (hF : ¬ GGCoxeterForkDatum p Bs L K) (hS : ¬ GGCoxeterStdDatum p Bs L K)
-    (hE : ¬ GGE6DepPerpCfg p Bs L K)
-    (_hreserved : ¬ ggReservedRows p J L K)
-    (_htwo : ¬ (GGResRowAt ggRowTwoNode p J L ∨ GGResRowAt ggRowTwoNode p J K))
-    (_hC2 : ¬ (GGResRowAt ggRowCorank2C p J L ∨ GGResRowAt ggRowCorank2C p J K))
-    (_hSU2 : ¬ (GGResRowAt ggRowSUCorank2 p J L ∨ GGResRowAt ggRowSUCorank2 p J K))
-    (hyK : y ∉ K) :
-    GGWeylReflectionGroup p (ggAutomizer L Bs ⊔ ggAutomizer K Bs) := by
-  classical
-  have hy : y ∈ Bs := hH.1.2.1.1 hH.2.2.2.2.1.1.2.1
-  have hN : Bs ≤ Subgroup.normalizer (K : Set G) :=
-    (hH.2.2.1.2 y K hH.2.2.2.2.1).le_normalizer
-  obtain ⟨hperf, lab, hΛ, hraw⟩ := hU
-  obtain ⟨R₀, iR₀, I₀, F₀, hQ₀⟩ := largeEvenRawDatum_exists hraw
-  obtain ⟨-, -, θ₀, hP₀⟩ := hQ₀
-  dsimp only at hP₀
-  obtain ⟨⟨htag, hr10, hn2, hpq⟩, hN₀, hact₀⟩ := hP₀
-  obtain ⟨tag, rank, n⟩ := lab
-  change tag = .twA at htag
-  change 10 ≤ rank at hr10
-  change 2 ≤ n at hn2
-  change p ∣ 2 ^ n + 1 at hpq
-  subst tag
-  dsimp only [LargeEvenRawDatumLegacy] at hraw
-  obtain ⟨F, hField, hFinite, hFK, hQ⟩ := hraw
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  obtain ⟨hSimple, hNonAb, θ, hP⟩ := hQ
-  obtain ⟨hlabel, hN', hact⟩ := hP
-  have h63 : ¬ (rank + 1 = 6 ∧ p = 3) := by omega
-  obtain ⟨ψ, hModel, hdiag⟩ :=
-    GGResHyp.exists_unitaryModel_K_of_marking_data hH hFK (by omega : 1 ≤ n)
-      (by omega : 5 ≤ rank + 1) hpq h63 θ hN hact
-  exact (ggResExactThree_K_highDegree_of_yNotMem hLB hH hModel (by omega) (by omega)
-    hdiag hKG hOrbK hFix hy hyK h3 hF hS hE).elim
 
 section HighDegreeBothAxes
 
@@ -499,32 +383,6 @@ theorem ggResLeaf_unitary_highDegree_exactThree_K (hKG : GGReflClassLargeInput')
     ggResCentBoundNbrInput_holds ggGammaSuppliers_proved.1
     (GGInnerDiagOnLabel.mono_label (fun _ h => ⟨h.1, h.2.1, h.2.2.2⟩) hU) h3
 
-theorem ggResLeaf_unitary_highDegree_exactThree_K_yInK (hKG : GGReflClassLargeInput') :
-    GGResLeaf fun _ _ _ p _ _ Bs _ L _ J y K =>
-      y ∈ K ∧
-      GGInnerDiagOnLabel
-        (fun p lab => lab.tag = .twA ∧ 10 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-          p ∣ 2 ^ lab.n + 1) p Bs K ∧
-      GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny ∧
-      ¬ ggReservedRows p J L K ∧
-      ¬ (GGResRowAt ggRowTwoNode p J L ∨ GGResRowAt ggRowTwoNode p J K) ∧
-      ¬ (GGResRowAt ggRowCorank2C p J L ∨ GGResRowAt ggRowCorank2C p J K) ∧
-      ¬ (GGResRowAt ggRowSUCorank2 p J L ∨ GGResRowAt ggRowSUCorank2 p J K) := by
-  intro G _ _ p B Bs x L D J y K hH _ hF hS hl hP
-  exact ggResLeaf_unitary_highDegree_exactThree_K hKG G p B Bs x L D J y K hH hF hS hl hP.2
-
-theorem ggResLeaf_threeResidualK_highDegree (hKG : GGReflClassLargeInput') :
-    GGResLeaf fun _ _ _ p _ _ Bs _ L _ J _ K =>
-      GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny ∧
-      ∃ lab : LargeEvenLabel, ggThreeResidualLabelK p lab ∧ 10 ≤ lab.rank ∧
-        GGInnerDiagOnLabel (fun _ lab' => lab' = lab) p Bs K := by
-  intro G _ _ p B Bs x L D J y K hH _ _ _ _ hP
-  obtain ⟨h3, lab, ⟨htag, -, -, hpq⟩, hrank, hU⟩ := hP
-  refine hH.weyl_of_unitary_highDegree_exactThree_K hKG ggTBFixInput_holds
-    ggResCentBoundNbrInput_holds ggGammaSuppliers_proved.1
-    (GGInnerDiagOnLabel.mono_label (fun lab' hlab => ?_) hU) h3
-  rw [hlab]
-  exact ⟨htag, hrank, hpq⟩
 
 end Cert
 
@@ -532,26 +390,6 @@ end HighDegreeBothAxes
 
 section OriginalLeaf
 
-
-theorem ggResLeaf_unitary_highDegree_exactThree_K_yNotMem :
-    GGResLeaf fun _ _ _ p _ _ Bs _ L _ J y K =>
-      GGInnerDiagOnLabel
-        (fun p lab => lab.tag = .twA ∧ 10 ≤ lab.rank ∧ 2 ≤ lab.n ∧
-          p ∣ 2 ^ lab.n + 1) p Bs K ∧
-      GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny ∧
-      ¬ ggReservedRows p J L K ∧
-      ¬ (GGResRowAt ggRowTwoNode p J L ∨ GGResRowAt ggRowTwoNode p J K) ∧
-      ¬ (GGResRowAt ggRowCorank2C p J L ∨ GGResRowAt ggRowCorank2C p J K) ∧
-      ¬ (GGResRowAt ggRowSUCorank2 p J L ∨ GGResRowAt ggRowSUCorank2 p J K) ∧
-      y ∉ K := by
-  intro G _ _ p B Bs x L D J y K hH _ hF hS hE hP
-  obtain ⟨hU, h3, hreserved, htwo, hC2, hSU2, hyK⟩ := hP
-  have hKG : GGReflClassLargeInput' :=
-    ggReflClassLargeInput_of_omega
-      (ZS.ggReflClassOmegaLarge_of_useInput ZS.useInput_holds)
-  exact ggResExactThree_K_highDegree_externalAxis ggGammaSuppliers_proved.1 hKG
-    ggResCentBoundNbrInput_holds ggTBFixInput_holds hH hU h3 hF hS hE
-    hreserved htwo hC2 hSU2 hyK
 
 theorem ggResLeaf_unitary_highDegree_exactThree_K_holds :
     GGResLeaf fun _ _ _ p _ _ Bs _ L _ J _ K =>

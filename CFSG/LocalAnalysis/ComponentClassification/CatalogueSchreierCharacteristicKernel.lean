@@ -126,14 +126,5 @@ theorem pointwiseKernel_mul_comm (D : Subgroup H) [D.Characteristic]
   rw [map_mul, map_mul]
   exact mul_comm' _ _
 
-theorem pointwiseKernel_isMulCommutative (D : Subgroup H) [D.Characteristic]
-    (hcentralizer : Subgroup.centralizer (D : Set H) ≤ D) :
-    IsMulCommutative (pointwiseKernel D) :=
-  isMulCommutative_iff.mpr (pointwiseKernel_mul_comm D hcentralizer)
-
-theorem pointwiseKernel_solvable (D : Subgroup H) [D.Characteristic]
-    (hcentralizer : Subgroup.centralizer (D : Set H) ≤ D) :
-    Group.IsSolvable (pointwiseKernel D) :=
-  Group.isSolvable_of_isSolvable_injective (displacementHom_injective D hcentralizer)
 
 end CFSG.ComponentClassification.CatalogueSchreierCharacteristic

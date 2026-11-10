@@ -39,6 +39,5 @@ theorem pCore_two_specialLinearGroup_eq_bot {n : ℕ} (hn : 1 ≤ n) (hk : Nat.c
   have := (pCore_normal (p := 2) (G := SpecialLinearGroup (Fin 2) k)).conj_mem x hx g⁻¹
   simpa using this
 
-variable {X : Type*} [Group X]
 
 end CFSG.Quasithin.SteinbergBK

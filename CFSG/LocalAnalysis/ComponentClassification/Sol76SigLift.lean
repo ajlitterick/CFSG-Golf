@@ -144,20 +144,6 @@ theorem involutionGraph_preconnected_of_quot (hK : K ∈ kStarComponents N) {S :
   obtain ⟨p⟩ := hconn (ρ t₁) (ρ t₂)
   exact hwalk _ _ p t₁ t₂ rfl rfl
 
-@[expose] def Lemma39TwoDiscSEFor : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →
-    (kStarComponents N).ncard = 2 →
-    ∀ K K' V B : Subgroup G, SigPair N K K' V B → wGroup B V ≠ ⊥ →
-      (K' ≤ normalizer (wGroup B V : Set G) →
-        (∀ U E : Subgroup G, IsKleinFour U → U ≤ K' ⊓ centralizer (B : Set G) → IsKleinFour E →
-          E ≤ B → E ≤ K →
-          ¬ ∀ F : Subgroup G, IsKleinFour F → F ≤ K ⊓ centralizer (U : Set G) →
-            Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (U : Set G))) E F) →
-        K ≤ normalizer (wGroup B V : Set G)) ∧
-      ((∃ M : Subgroup (coreQuot K'), Assembly.Dichotomy.dichotomyStronglyEmbedded M) →
-        (∀ E : Subgroup G, IsKleinFour E → E ≤ B → E ≤ K →
-          ¬ (CFSG.Assembly.involutionGraph ↥(K' ⊓ centralizer (E : Set G))).Preconnected) →
-        K' ≤ normalizer (wGroup B V : Set G))
 
 @[expose] def Lemma39TwoDiscSEAt (R : SigOrientation) : Prop :=
   ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G, IsSolomonChoice N →

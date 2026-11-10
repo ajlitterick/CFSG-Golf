@@ -112,20 +112,5 @@ theorem partnerPatternBPair_two [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) {�
     (mem_centralizingMembers_of_commutes hK₂ hz₀.mem c02.symm) hK₂i
   exact Λ.partnerPattern_of_shortNode hq hK₀ hz₀ hK₂ c02 hsn hUs p12
 
-theorem smallEndpoint_omega9_toral [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) (hconn : DeltaConnected Ω)
-    {K₀ K₁ K₂ : Subgroup G} (hK₀ : K₀ ∈ Ω) (hK₁ : K₁ ∈ Ω) (hK₂ : K₂ ∈ Ω)
-    (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K₀) {z₀ z₁ : G}
-    (hz₀ : IsClassicalMember p f K₀ z₀) (hz₁ : IsClassicalMember p f K₁ z₁)
-    (hP1 : LocalOddCentral Ω {z₀}) (Λ : SpLayer p f 2 Ω z₀) (c02 : Commutes K₀ K₂)
-    (p01 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₀ K₁)
-    (p12 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₁ K₂)
-    (hK₂i : locImg Ω z₀ K₂ ≤ (Λ.D.hom Λ.i₁).range) :
-    ∃ Ψ : spinGroup (Spin.quadOdd 4 (GaloisField p f)) →* G, Function.Surjective Ψ ∧
-      Ψ.ker ≤ Subgroup.center _ ∧ CFSG.IsQuasisimple G ∧
-      CFSG.Blueprint.LieModel (G ⧸ Subgroup.center G) .POmegaOdd 4 p f :=
-  smallEndpoint_omega9 hp2 hq hΩ hconn hK₀ hK₁ hsingle hz₀ hz₁ hP1 Λ c02 p01 p12
-    (omega9_shortNode hp2 hq hΩ hP1 Λ hz₀ hz₁ p01 p12
-      (mem_centralizingMembers_of_commutes hK₂ hz₀.mem c02.symm) hK₂i)
 
 end CFSG.ClassicalInvolution.RouteD

@@ -271,20 +271,6 @@ theorem three_group_card_dvd_nine (hV : ∀ v : V, v ^ 2 = 1) (hrk : rk V = 4)
     omega
   exact (pow_dvd_pow 3 ha2)
 
-theorem three_group_card_dvd_81 (hV : ∀ v : V, v ^ 2 = 1) (hrk : rk V = 6)
-    {P : Subgroup (MulAut V)} (hP : IsPGroup 3 P) : Nat.card P ∣ 81 := by
-  have hdvd : Nat.card P ∣ Nat.card (MulAut V) := Subgroup.card_subgroup_dvd_card P
-  rw [card_mulAut_eq hV, hrk] at hdvd
-  have hprod : (∏ i : Fin 6, (2 ^ 6 - 2 ^ (i : ℕ))) = 20158709760 := by decide
-  rw [hprod] at hdvd
-  obtain ⟨a, ha⟩ := hP.exists_card_eq
-  rw [ha] at hdvd ⊢
-  have ha2 : a ≤ 4 := by
-    by_contra h
-    have h3 : 3 ^ 5 ∣ 3 ^ a := pow_dvd_pow 3 (by omega)
-    have := h3.trans hdvd
-    omega
-  exact (pow_dvd_pow 3 ha2)
 
 omit [Finite V] in
 theorem card_mulAut_of_rk_two [Finite V] (hV : ∀ v : V, v ^ 2 = 1) (hrk : rk V = 2) :

@@ -462,35 +462,6 @@ theorem _root_.CFSG.RankThree.S4Free.F2Host.minimal_counterexample (h24 : Hyp29.
     exact hW ((hι.normal_map_iff_pResidual_le_centralizer h24 hU hel).mpr
       ((hι.pResidual_le_centralizer_or_not_le_oTwo h24 hU hel).resolve_right (not_not.mpr hle)))
 
-theorem _root_.CFSG.RankThree.S4Free.F2Host.map_mulEquiv {S : Type*} [Group S] {X Y : Type*}
-    [Group X] [Group Y] {ι : S →* X} (h : F2Host 𝒦 ι) (e : X ≃* Y) :
-    F2Host 𝒦 (e.toMonoidHom.comp ι) := by
-  have := h.admissible.finite
-  have hO : (oTwo X).map e.toMonoidHom = oTwo Y := oTwo_map_mulEquiv e
-  refine ⟨h.admissible.map_mulEquiv e, h.holds.of_mulEquiv e, fun N hN => ?_, fun hn => ?_⟩
-  · have hN' : (N.comap e.toMonoidHom).Normal := hN.comap _
-    rcases h.condM _ hN' with h1 | h1
-    · left
-      have := Subgroup.map_mono (f := e.toMonoidHom) h1
-      rwa [Subgroup.map_inf _ _ _ e.injective, ← MonoidHom.range_comp,
-        Subgroup.map_comap_eq_self_of_surjective e.surjective, hO] at this
-    · right
-      have := Subgroup.map_mono (f := e.toMonoidHom) h1
-      rwa [map_pResidual_mulEquiv, Subgroup.map_comap_eq_self_of_surjective e.surjective] at this
-  · apply h.not_normal_thompsonJ
-    have h2 := hn.map e.symm.toMonoidHom e.symm.surjective
-    rwa [← Subgroup.map_map, Subgroup.map_map (f := e.toMonoidHom), show
-      e.symm.toMonoidHom.comp e.toMonoidHom = MonoidHom.id X by ext; simp, Subgroup.map_id] at h2
-
-theorem stellW_normal_of_f2_of_type.{v} [Finite S]
-    (hF2 : ∀ (Y : Type u) [Group Y] (κ : S →* Y), F2Host 𝒦 κ → ((stellW 𝒦 S).map κ).Normal)
-    {X : Type v} [Group X] {ι : S →* X} (h : F2Host 𝒦 ι) : ((stellW 𝒦 S).map ι).Normal := by
-  have := h.admissible.finite
-  let e : X ≃* Shrink.{u} X := Shrink.mulEquiv.symm
-  have h' := hF2 _ _ (h.map_mulEquiv e)
-  have h'' := h'.map e.symm.toMonoidHom e.symm.surjective
-  rwa [Subgroup.map_map, ← MonoidHom.comp_assoc, show e.symm.toMonoidHom.comp e.toMonoidHom =
-    MonoidHom.id X by ext; simp, MonoidHom.id_comp] at h''
 
 end ThreeTwo
 

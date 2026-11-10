@@ -53,16 +53,6 @@ instance centralizerSylowY_normal (n : ℕ) (hn : 2 ≤ n)
     ((Subgroup.map_symm_eq_iff_map_eq _).mp
       (centralizerSylowY_eq_original_map n hn S e).symm)).trans E
 
-theorem centralizerSylowY_quotient_card (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (centralizerSylow n hn S e ⧸ centralizerSylowY n hn S e) = 2 ^ n := by
-  rw [Nat.card_congr (centralizerSylowYQuotientEquiv n hn S e).toEquiv,
-    Nat.card_congr Multiplicative.toAdd, Nat.card_zmod]
-
-theorem centralizerSylowY_quotient_isCyclic (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    IsCyclic (centralizerSylow n hn S e ⧸ centralizerSylowY n hn S e) :=
-  (centralizerSylowYQuotientEquiv n hn S e).isCyclic.mpr inferInstance
 
 @[expose] def centralizerQuaternionEquiv (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -260,13 +250,6 @@ theorem hom_to_two_group_eq_one_of_no_index_two {E : Type u} [Group E]
   exact hE (M.comap f.rangeRestrict)
     ((M.index_comap_of_surjective f.rangeRestrict_surjective).trans hM)
 
-theorem centralizerTransferKernel_hom_to_two_group_eq_one [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {P : Type v} [Group P] [Finite P] (hP : IsPGroup 2 P)
-    (f : centralizerTransferKernel n hn S e →* P) : f = 1 :=
-  hom_to_two_group_eq_one_of_no_index_two
-    (centralizerTransferKernel_no_index_two hnonab n hn S e) hP f
 
 structure WreathedCentralizerQuaternionResidualData [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Prop where

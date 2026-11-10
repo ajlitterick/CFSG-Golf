@@ -74,16 +74,10 @@ theorem stage1469W_of_main (h3 : Stage1466Three) (h1 : Stage1463One) (h2 : Stage
   obtain ⟨J, hJ⟩ := S.exists_ctx1469 h3 h1 h2 h4 hH hu hI hbig hrank hnot
   exact hmain G T M H u J hJ
 
-theorem stage1469_of_main (h3 : Stage1466Three) (h1 : Stage1463One) (h2 : Stage1463Two)
-    (h4 : Stage1463Four) (hmain : Main1469) : Stage1469 :=
-  stage1469_of_W (stage1469W_of_main h3 h1 h2 h4 hmain)
 
 theorem stage1469W_of_main' (h1 : Stage1463One) (h2 : Stage1463Two) (h3 : Stage1463Three)
     (h4 : Stage1463Four) (hmain : Main1469) : Stage1469W :=
   stage1469W_of_main (stage1466_three_of h3) h1 h2 h4 hmain
 
-theorem stage1469_of_main' (h1 : Stage1463One) (h2 : Stage1463Two) (h3 : Stage1463Three)
-    (h4 : Stage1463Four) (hmain : Main1469) : Stage1469 :=
-  stage1469_of_W (stage1469W_of_main' h1 h2 h3 h4 hmain)
 
 end CFSG.Quasithin

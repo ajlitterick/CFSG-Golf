@@ -97,8 +97,6 @@ theorem fold_add_lane_le (f : ℕ → W14) (B : ℕ) :
     have : n * B + B = (n + 1) * B := by ring
     omega
 
-theorem actYs_size (T : Array W14) (key : ByteArray) : (actYs T key).size = 7 := by
-  simp [actYs]
 
 theorem actYs_get (T : Array W14) (key : ByteArray) {k : ℕ} (hk : k < 7) :
     (actYs T key)[k]! = (rowProd T key k).red := by
@@ -122,8 +120,6 @@ theorem pivMat_get (ys : Array W14) (piv : Array ℕ) {m k : ℕ} (hm : m < 7) (
   simp only
   rw [show (7 * m + k) % 7 = k by omega, show (7 * m + k) / 7 = m by omega]
 
-theorem combine_size (ys : Array W14) (Pinv : Array ℕ) : (combine ys Pinv).size = 7 := by
-  simp [combine]
 
 theorem combine_get (ys : Array W14) (Pinv : Array ℕ)
     (hys : ∀ k < 7, ∀ i < 112, (ys[k]!).lane i ≤ 4) {m j : ℕ} (hm : m < 7) (hj : j < 112) :

@@ -266,59 +266,5 @@ theorem isInfOfMax_quadTail : IsInfOfMax (quadTail r qA) := by
 
 end Tail
 
-theorem orthogonal_geometry_tail_polar_subspaces {K : Type*} [Field K] {A : Type*}
-    [AddCommGroup A] [Module K A] [FiniteDimensional K A] {r : ℕ} {q₁ q₂ : QuadraticForm K A}
-    (hani₁ : q₁.Anisotropic) (hreg₁ : (polarBilin q₁).Nondegenerate)
-    (hani₂ : q₂.Anisotropic) (hreg₂ : (polarBilin q₂).Nondegenerate)
-    (φ : Points (quadTail r q₁) ≃ Points (quadTail r q₂))
-    (hφ : ∀ L M : Points (quadTail r q₁),
-      PolarOrtho (quadTail r q₁) L.val M.val ↔ PolarOrtho (quadTail r q₂) (φ L).val (φ M).val) :
-    (∀ W : Submodule K ((Fin r ⊕ Fin r → K) × A), (∀ v ∈ W, quadTail r q₁ v = 0) →
-      (∀ v ∈ polarImage₂ φ W, quadTail r q₂ v = 0) ∧
-      φ '' ptsIn (quadTail r q₁) W = ptsIn (quadTail r q₂) (polarImage₂ φ W) ∧
-      ∀ W' : Submodule K ((Fin r ⊕ Fin r → K) × A), (∀ v ∈ W', quadTail r q₂ v = 0) →
-        φ '' ptsIn (quadTail r q₁) W = ptsIn (quadTail r q₂) W' → W' = polarImage₂ φ W) ∧
-    (∀ W : Submodule K ((Fin r ⊕ Fin r → K) × A), (∀ v ∈ W, quadTail r q₁ v = 0) →
-      finrank K (polarImage₂ φ W) = finrank K W) ∧
-    (∀ W₁ W₂ : Submodule K ((Fin r ⊕ Fin r → K) × A), (∀ v ∈ W₁, quadTail r q₁ v = 0) →
-      (∀ v ∈ W₂, quadTail r q₁ v = 0) → (W₁ ≤ W₂ ↔ polarImage₂ φ W₁ ≤ polarImage₂ φ W₂)) ∧
-    ∀ W : Submodule K ((Fin r ⊕ Fin r → K) × A), IsMaxSing (quadTail r q₁) W →
-      (∀ L : Points (quadTail r q₁), L.val ≤ W ↔ (φ L).val ≤ polarImage₂ φ W) ∧
-      (∀ H : Submodule K ((Fin r ⊕ Fin r → K) × A), H ≤ W → finrank K H + 1 = finrank K W →
-        polarImage₂ φ H ≤ polarImage₂ φ W ∧
-          finrank K (polarImage₂ φ H) + 1 = finrank K (polarImage₂ φ W) ∧
-          ∀ L : Points (quadTail r q₁), (L.val ≤ H ↔ (φ L).val ≤ polarImage₂ φ H)) ∧
-      ∀ H' : Submodule K ((Fin r ⊕ Fin r → K) × A), H' ≤ polarImage₂ φ W →
-        finrank K H' + 1 = finrank K (polarImage₂ φ W) →
-        ∃ H : Submodule K ((Fin r ⊕ Fin r → K) × A), H ≤ W ∧ finrank K H + 1 = finrank K W ∧
-          polarImage₂ φ H = H' := by
-  have h₁ := isInfOfMax_quadTail (r := r) hani₁ hreg₁
-  have h₂ := isInfOfMax_quadTail (r := r) hani₂ hreg₂
-  refine ⟨fun W hW => ⟨totSing_polarImage₂ φ hφ hW, (ptsIn_polarImage₂ φ hφ h₁ hW).symm,
-    fun W' hW' h => eq_polarImage₂ φ hW' h⟩, fun W hW => finrank_polarImage₂ φ hφ h₁ h₂ hW,
-    fun W₁ W₂ hW₁ hW₂ => (polarImage₂_le_iff φ hφ h₁ hW₁ hW₂).symm, fun W hW => ⟨?_, ?_, ?_⟩⟩
-  · intro L
-    rw [← polarImage₂_point φ L]
-    exact (polarImage₂_le_iff φ hφ h₁ L.2.2 hW.1).symm
-  · intro H hH hd
-    have hHs : ∀ v ∈ H, quadTail r q₁ v = 0 := fun v hv => hW.1 v (hH hv)
-    refine ⟨(polarImage₂_le_iff φ hφ h₁ hHs hW.1).2 hH, by
-      rw [finrank_polarImage₂ φ hφ h₁ h₂ hHs, finrank_polarImage₂ φ hφ h₁ h₂ hW.1, hd],
-      fun L => ?_⟩
-    rw [← polarImage₂_point φ L]
-    exact (polarImage₂_le_iff φ hφ h₁ L.2.2 hHs).symm
-  · intro H' hH' hd
-    have hWs := totSing_polarImage₂ φ hφ hW.1
-    have hHs : ∀ v ∈ H', quadTail r q₂ v = 0 := fun v hv => hWs v (hH' hv)
-    have hφ' := polarOrtho_symm_iff₂ φ hφ
-    set H := polarImage₂ φ.symm H' with hHdef
-    have hHs' := totSing_polarImage₂ φ.symm hφ' hHs
-    have hHH : polarImage₂ φ H = H' := by
-      have := polarImage₂_symm_polarImage₂ φ.symm hφ' h₂ hHs
-      rwa [Equiv.symm_symm] at this
-    refine ⟨H, ?_, ?_, hHH⟩
-    · rw [← polarImage₂_le_iff φ hφ h₁ hHs' hW.1, hHH]
-      exact hH'
-    · rw [← finrank_polarImage₂ φ hφ h₁ h₂ hHs', hHH, hd, finrank_polarImage₂ φ hφ h₁ h₂ hW.1]
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

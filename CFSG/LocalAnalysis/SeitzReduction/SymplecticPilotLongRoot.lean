@@ -177,12 +177,6 @@ theorem commutator_spCompl12 [Finite K] (hK : 4 ≤ Nat.card K) :
   rw [spCompl12, MonoidHom.range_eq_map, ← Subgroup.map_commutator, ← _root_.commutator_def,
     Group.IsPerfect.commutator_eq_top]
 
-theorem spCompl12_le_perfectCore_centralizer_spRep [Finite K] (hK : 4 ≤ Nat.card K)
-    (κ : SpTwoCentral) :
-    spCompl12 K n ≤
-      perfectCore (centralizer ({spRep (K := K) n κ} : Set (StatedSp (n + 3) K))) :=
-  le_perfectCore_of_perfect (spCompl12_le_centralizer_twoCentralElt n _ _)
-    (commutator_spCompl12 n hK)
 
 theorem isAutConjIn_spCompl12_longRootSp2 [Finite K] [CharP K 2] (hn : 2 ≤ n) :
     IsAutConjIn (spCompl12 K n) (longRootSp2 K (n + 3) 0) := by

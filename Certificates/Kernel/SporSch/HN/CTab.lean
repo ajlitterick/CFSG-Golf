@@ -104,11 +104,6 @@ theorem cTab_eq :
   rw [cRec_eq, cABTab_eq, parTab_eq, kTab_eq, wTab_eq, dTab_eq, uTab_eq]
   rfl
 
-theorem cTab_prep :
-    PRep hnsData.n (cTab hnsData.n (natTab (hnsData.orbit ()).alpha)
-      (natTab (hnsData.orbit ()).beta) hStrongArr) (CFSG.Sporadic.HNOddCore.permR cR) := by
-  rw [cTab_eq]
-  exact prep_cRec'
 
 theorem cChecks_ok :
     cChecksO (hnsData.orbit ()) = true := by

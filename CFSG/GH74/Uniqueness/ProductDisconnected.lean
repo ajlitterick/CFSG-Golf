@@ -22,10 +22,6 @@ theorem IsProductDisconnected.mem_of_conj_mem (h : IsProductDisconnected Z M) {z
 theorem IsInvariantInvolutionSet.orderOf_eq {Z : Set X} (hZ : IsInvariantInvolutionSet Z) {z : X}
     (hz : z ∈ Z) : orderOf z = 2 := hZ.1 z hz
 
-theorem IsProductDisconnected.mem_uniqU [Finite X] (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {z : X} (hz : z ∈ Z) (hzM : z ∈ M) : z ∈ uniqU M 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact (mem_uniqU_iff 2).mpr ⟨hZ.1 z hz, hzM, fun _ hg => h.mem_of_conj_mem hz hzM hg⟩
 
 theorem IsProductDisconnected.mem_uniqC (h : IsProductDisconnected Z M) {u : X}
     (hu : u ∈ productInvolutions Z) (huM : u ∈ M) : u ∈ uniqC M 2 :=
@@ -45,7 +41,6 @@ theorem IsProductDisconnected.not_closure_le (hZ : IsInvariantInvolutionSet Z)
   intro hle
   obtain ⟨z, hz, hzM⟩ := h.exists_mem_not_mem hZ
   exact hzM (hle (Subgroup.subset_closure hz))
-
 
 
 theorem IsProductDisconnected.centralizer_le_of_mem {Z : Set X} {M : Subgroup X}
@@ -554,13 +549,6 @@ theorem IsProductDisconnected.card_leftCoset (hZ : IsInvariantInvolutionSet Z)
   rw [hZM', ← hcardF] at hZM
   exact (Nat.eq_of_mul_eq_mul_right hCpos hZM).symm
 
-theorem IsProductDisconnected.card_rightCoset (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {z : X} (hz : z ∈ Z) (hzM : z ∈ M) (g : X) :
-    Nat.card {s : X // s ∈ Z ∧ s * g⁻¹ ∈ M} = Nat.card {s : X // s ∈ Z ∧ s ∈ M} := by
-  rw [← h.card_leftCoset hZ hz hzM g⁻¹]
-  refine Nat.card_congr (Equiv.subtypeEquivRight fun s => and_congr_right fun hs => ?_)
-  have hsi : s⁻¹ = s := inv_eq_of_mul_eq_one_right (hZ.mul_self_eq_one hs)
-  rw [← M.inv_mem_iff, mul_inv_rev, inv_inv, hsi]
 
 theorem IsProductDisconnected.exists_mem_rightCoset (hZ : IsInvariantInvolutionSet Z)
     (h : IsProductDisconnected Z M) (g : X) : ∃ s ∈ Z, s * g⁻¹ ∈ M := by

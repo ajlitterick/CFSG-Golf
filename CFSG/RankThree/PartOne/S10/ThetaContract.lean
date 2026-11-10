@@ -79,16 +79,6 @@ open scoped commutatorElement Pointwise
     ∀ L ∈ sectionTenStar p A,
       A ≤ Subgroup.normalizer (L : Set G) ∧ IsCyclic ↥(thetaQuotientCentralizer p A L)
 
-@[expose] def NormalPCoreCentralizingTwoCommutatorProducesThetaComponent : Prop :=
-  ∀ (H : Type) [Group H] [Finite H], evenRank H ≤ 3 → ∀ p : ℕ, p.Prime → 3 < p →
-    ∀ A : Subgroup H, IsPGroup p A → ∀ Q : Subgroup H, IsPGroup 2 Q →
-    A ≤ Subgroup.normalizer (Q : Set H) → ⁅Q, A⁆ = Q →
-    ⁅A, Q ⊓ aschbacherSolvableCore p H⁆ = ⊥ →
-    ⁅Q.map (QuotientGroup.mk' (aschbacherSolvableCore p H)),
-      pCore p (H ⧸ aschbacherSolvableCore p H)⁆ = ⊥ →
-    ∀ a ∈ A, ⁅Q, Subgroup.zpowers a⁆ ≠ ⊥ →
-      ∃ L ∈ thetaComponents p H, A ≤ Subgroup.normalizer (L : Set H) ∧
-        ⁅L, Subgroup.zpowers a⁆ = L
 
 @[expose] def SectionTenFiveNormalPCoreTwoGroupWitnessFrontier : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G), SteinbergBM.SectionTenSetup G p A →
@@ -100,10 +90,6 @@ open scoped commutatorElement Pointwise
         pCore p (↥(Subgroup.centralizer ({b} : Set G)) ⧸
           aschbacherSolvableCore p ↥(Subgroup.centralizer ({b} : Set G)))⁆ = ⊥
 
-@[expose] def SectionTenFiveActorMovedThetaComponentExistence : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G), SteinbergBM.SectionTenSetup G p A →
-    ∀ a ∈ A, a ≠ 1 → ∃ L ∈ thetaComponentFamily p A,
-      A ≤ Subgroup.normalizer (L : Set G) ∧ ⁅L, Subgroup.zpowers a⁆ = L
 
 @[expose] def SectionTenMovingTwoStratumUpwardClosure : Prop :=
   ∀ (G : Type) [Group G] [Finite G], evenRank G ≤ 3 → ∀ p : ℕ, p.Prime → 3 < p →

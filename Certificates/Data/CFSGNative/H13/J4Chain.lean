@@ -133,6 +133,5 @@ where
 @[expose] def chainOK (L : Array Lvl) : Bool :=
   (List.range L.size).all (levelOK L)
 
-@[expose] def orbitSizes (L : Array Lvl) : List Nat := L.toList.map fun Lj => Lj.pts.size
 
 end CFSG.Quasithin.H13.J4.Native

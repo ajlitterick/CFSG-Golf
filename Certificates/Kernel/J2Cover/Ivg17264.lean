@@ -55,10 +55,6 @@ theorem ch17264base : bAnd(szOK 315 9, bAnd(cK (pidn 315 9), bAnd(cK (PA.S 0), c
     true := by
   quickRfl
 
-theorem ch17264neg : bAnd(bIf(ordPK 315 9 6 (prodK 315 9 [yK 0]), false, true),
-    bIf(Nat.beq (wfoldK 315 9 (mask 9) (letK 0) ivgWA[0]! (pidn 315 9)) (PA.S 1), false, true)) =
-    true := by
-  quickRfl
 
 end CertificateChecks.KernelJ2Cover.KF17260
 

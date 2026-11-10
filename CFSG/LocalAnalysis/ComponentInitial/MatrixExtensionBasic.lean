@@ -202,9 +202,6 @@ theorem act_inv_apply_act (act : G →* AddMonoid.End M) (g : G) (x : M) :
     act g⁻¹ (act g x) = x := by
   rw [← act_mul_apply, inv_mul_cancel, act_one_apply]
 
-theorem act_apply_act_inv (act : G →* AddMonoid.End M) (g : G) (x : M) :
-    act g (act g⁻¹ x) = x := by
-  rw [← act_mul_apply, mul_inv_cancel, act_one_apply]
 
 theorem act_commutatorElement_apply_eq (act : G →* AddMonoid.End M) {C : AddSubgroup M}
     (hC : ∀ g, ∀ c ∈ C, act g c = c) {g₁ g₂ : G} {x : M} (h₁ : act g₁ x - x ∈ C)

@@ -25,9 +25,6 @@ meta def inv (t : Array Nat) : Array Nat := Id.run do
 
 meta def one : Array Nat := Array.range 276
 
-meta def pwr (t : Array Nat) : Nat → Array Nat
-  | 0 => one
-  | e + 1 => cmp t (pwr t e)
 
 meta def lines : Array (Array Nat) := (Array.range 36).map perm
 
@@ -50,59 +47,6 @@ meta def cK : List Nat := Id.run do
   return (List.range 121).flatMap fun j => (List.range 7).map fun l =>
     ((List.range 243).find? fun k => (e[k]!)[(g[j]!)[0]!]! == (g[j]!)[l]!).getD 243
 
-meta def dIdx : Std.HashMap (Array Nat) Nat := Id.run do
-  let e := dE
-  return (List.range 243).foldl (fun m k => if m.contains e[k]! then m else m.insert e[k]! k) {}
-
-meta def qPts : Array (Array Nat) := (CFSG.KC.BfsGen.search 276 9 (qGens ())).1
-
-meta def conjIdx : Std.HashMap (Array Nat) (Nat × Nat) := Id.run do
-  let ys := (List.range 24).toArray.map fun j =>
-    if j < 12 then ln (12 + j) else cmp (ln (12 + (j - 12))) (ln (12 + (j - 12)))
-  let q := qPts
-  let mut m : Std.HashMap (Array Nat) (Nat × Nat) := {}
-  for u in [0:q.size] do
-    let g := q[u]!
-    let gi := inv g
-    for j in [0:24] do
-      let t := cmp gi (cmp ys[j]! g)
-      if !m.contains t then
-        m := m.insert t (u, j)
-  return m
-
-meta def fusL : List (Nat × Nat × Nat) := Id.run do
-  let di := dIdx
-  let ci := conjIdx
-  return qPts.toList.map fun t =>
-    if pwr t 3 != one || t == one then (0, 0, 0)
-    else match di.get? t with
-      | some k => (1, k, 0)
-      | none => match ci.get? t with
-        | some (u, j) => (2, u, j)
-        | none => (0, 0, 0)
-
-meta def fwL : List Nat := fusL.map (·.1)
-meta def faL : List Nat := fusL.map (·.2.1)
-meta def fbL : List Nat := fusL.map (·.2.2)
-
-meta def tdL : List Nat := Id.run do
-  let di := dIdx
-  return (List.range 12).map fun j =>
-    let h := ln (24 + j)
-    (di.get? (cmp h (cmp (ln (12 + j)) (inv h)))).getD 0
-
-meta def cPts : Array (Array Nat) := (CFSG.KC.BfsGen.search 276 9 (cGens ())).1
-
-meta def movedBy (x : Array Nat) : Nat := ((List.range 276).find? fun p => x[p]! != p).getD 0
-
-meta def clsL : List (Nat × Nat × Nat) := cPts.toList.map fun w =>
-  let w2 := pwr w 2
-  let w7 := pwr w 7
-  (if w == one then 0 else if w2 == one || w7 == one then 1 else 0, movedBy w2, movedBy w7)
-
-meta def cwL : List Nat := clsL.map (·.1)
-meta def c2L : List Nat := clsL.map (·.2.1)
-meta def c7L : List Nat := clsL.map (·.2.2)
 
 end CertificateChecks.KernelCo3T.E
 

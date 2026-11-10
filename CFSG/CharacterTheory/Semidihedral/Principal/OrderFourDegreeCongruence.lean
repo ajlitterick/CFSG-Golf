@@ -210,13 +210,6 @@ theorem det_representation_eq_one_of_mem_commutator {G V : Type*} [Group G] [Add
   have h : D g = 1 := Abelianization.commutator_subset_ker D hg
   simpa [D] using congrArg Units.val h
 
-theorem perfect_real_order_four_degree_congruence {G V : Type*} [Group G] [Finite G]
-    [Group.IsPerfect G] [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
-    (ρ : Representation ℂ G V) {u : G} (hu : orderOf u = 4) (hconj : IsConj u u⁻¹) :
-    (∃ y : ℤ, ρ.character u = y) ∧ (∃ z : ℤ, ρ.character (u ^ 2) = z) ∧
-      ∃ k : ℤ, ρ.character 1 + ρ.character (u ^ 2) - 2 * ρ.character u = 8 * k :=
-  degree_congruence_of_det_eq_one ρ (hu ▸ pow_orderOf_eq_one u) hconj
-    (det_representation_eq_one_of_mem_commutator ρ Group.IsPerfect.mem_commutator)
 
 theorem no_index_two_real_order_four_degree_congruence {G V : Type*} [Group G] [Finite G]
     (hG : ∀ H : Subgroup G, H.index ≠ 2) [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]

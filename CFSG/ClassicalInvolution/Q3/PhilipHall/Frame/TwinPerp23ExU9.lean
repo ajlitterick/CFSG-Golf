@@ -146,7 +146,6 @@ theorem oddCent_exit_gen2 (hD4 : TwinCentRes.ModelFactD42) {n : ℕ} {Y : Type} 
   · exact TwinExitPf12.oddCoreIn_centralizer_eq_bot_of_mem_normal hS.oddFree hPn hP2 (hmem K hK z hz)
   · exact hall z hz.sq
 
-variable {n : ℕ}
 
 end U9
 

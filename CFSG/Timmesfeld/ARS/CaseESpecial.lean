@@ -284,20 +284,6 @@ theorem highest_of_commuting_negUnipotent (h : Hyp G R) (hA : A ∈ R)
     (fun y j h1 h2 => hnat y y.2 j h1 h2)
   exact ⟨hC, hCU, hCT, hs, hEC⟩
 
-theorem exists_highest_of_commuting_negUnipotent (h : Hyp G R) (hA : A ∈ R)
-    (hAne : sigmaSet R A ≠ lambdaSet R A) (hmax : IsSigmaMaximal R (centralGroup R A))
-    (hA₀ : A₀ ∈ omegaSet R A) (hF : LeviFrame R A A₀ D n H Ψ) {E : Subgroup G}
-    (hE : E ∈ lambdaStar R A A₀) (hEU : Commuting E ((negUnipotent D).map Ψ))
-    (hnat : ∀ x ∈ weylN n H, ∀ j,
-      Commuting (conjSub E (Ψ x)) ((D.rootGroup (-Pi.single j 1)).map Ψ) →
-      ¬ Commuting (conjSub E (Ψ x)) ((D.rootGroup (Pi.single j 1)).map Ψ) →
-      conjSub E (Ψ x) ∈ lambdaSet R ((D.rootGroup (-Pi.single j 1)).map Ψ)) :
-    ∃ C ∈ lambdaStar R A A₀, Commuting C ((posUnipotent D).map Ψ) ∧
-      (⨆ i, H i).map Ψ ≤ Subgroup.normalizer (C : Set G) ∧ Special R E C ∧ ⁅E, C⁆ = A := by
-  obtain ⟨w₀, hw₀⟩ := exists_forall_isRightDescent (D := D)
-  obtain ⟨h1, h2, h3, h4, h5⟩ :=
-    highest_of_commuting_negUnipotent h hA hAne hmax hA₀ hF hE hEU hnat hw₀
-  exact ⟨_, h1, h2, h3, h4, h5⟩
 
 end Steinberg
 

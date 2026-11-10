@@ -55,11 +55,6 @@ theorem lemma135_ii_of_inputs''
 
 end Cor135ii
 
-theorem lemma136_of_inputs'' (hP95 : Prop95) (h111 : Prop111Statement)
-    (h121 : Prop121_of_cexStatement) (hP1 : Lemma136.P1BarInput)
-    (hO2 : Cex134_O2Statement) (h121c : Prop121_corStatement) (hII : Lemma136.IIHardInput) :
-    Lemma136Statement :=
-  lemma136_of_inputs' hP95 h111 h121 sec13_comp_holds hP1 hO2 h121c hII
 
 theorem prop134_of_cex_of_inputs' (hP95 : Prop95) (h111 : Prop111Statement)
     (h121 : Prop121_of_cexStatement) (h136 : Lemma136Statement)

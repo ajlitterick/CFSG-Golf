@@ -161,14 +161,6 @@ theorem XData.exists_mul_centralizer_L (hD : XData Z M L D O u) {l : X} (hl : l 
   obtain ⟨hcL, hcu⟩ := Subgroup.mem_inf.mp hc
   exact ⟨n, hn, c, hcL, (Subgroup.mem_centralizer_singleton_iff.mp hcu).symm, rfl⟩
 
-theorem XData.exists_mul_centralizer_D (hD : XData Z M L D O u) {d : X} (hd : d ∈ D) :
-    ∃ o ∈ O, ∃ c ∈ D, u * c = c * u ∧ d = o * c := by
-  rcases hD.eq_one_or_orderOf_eq_two with hu1 | hu2
-  · exact ⟨1, O.one_mem, d, hd, by rw [hu1, one_mul, mul_one], (one_mul d).symm⟩
-  obtain ⟨n, hn, c, hc, rfl⟩ := exists_mul_centralizer hu2 hD.O_le
-    (hD.mem_normalizer_O hD.mem) hD.O_odd (fun a ha => hD.comm_D ha) hd
-  obtain ⟨hcD, hcu⟩ := Subgroup.mem_inf.mp hc
-  exact ⟨n, hn, c, hcD, (Subgroup.mem_centralizer_singleton_iff.mp hcu).symm, rfl⟩
 
 theorem XData.exists_mem_Z_centralizer (hD : XData Z M L D O u) (hZ : IsInvariantInvolutionSet Z)
     {z : X} (hz : z ∈ Z) (hzL : z ∈ L) :

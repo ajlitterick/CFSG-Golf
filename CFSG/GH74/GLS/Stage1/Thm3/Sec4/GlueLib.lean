@@ -19,7 +19,6 @@ theorem cj_eq_conjugate (H : Subgroup G) (g : G) : M.cj H g = conjugate H g := b
   show _ ↔ x ∈ cmap g⁻¹ H
   rw [mem_cmap, inv_inv]
 
-theorem secCent_eq (K N : Subgroup G) : M.secCent K N = centralizerSection K N := rfl
 
 theorem syl2In_of_isSylowOf [Finite G] {P H : Subgroup G}
     (h : CFSG.ABGLocalTools.IsSylowOf 2 P H) : M.Syl2In P H := by

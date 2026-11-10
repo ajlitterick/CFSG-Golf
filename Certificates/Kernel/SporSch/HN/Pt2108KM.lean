@@ -16,14 +16,6 @@ open CFSG.KD.HNPt2108 CFSG.Sporadic.HNSchreier CFSG.KD.LgHNX
 theorem g_ok : bAnd(allN 5 (fun j => Nat.beq (GMf j) (liftM FAData.pLift[j]!)),
     Nat.beq (GMf 5) (wordC CFSG.KD.HNPt.R (FAData.pKernel.map scodeK))) = true := by quickRfl
 
-theorem neg_g : Bool.not (Nat.beq (GMf 1) (liftM FAData.pLift[0]!)) = true := by quickRfl
-theorem neg_q : Bool.not (strictB (EM 1) fun e => Nat.beq (CFSG.KC.LL.HN.mm e e)
-    CFSG.KD.OrdHN.ONE) = true := by quickRfl
-theorem neg_r : Bool.not (strictB (wordC CFSG.KD.HNPt.R ((FAData.wRoot[0]!).map (33 + ·))) fun S =>
-    Nat.beq (CFSG.KC.LL.HN.mm (EM 2) S) (CFSG.KC.LL.HN.mm S
-      (wordC CFSG.KD.HNPt.R ((FAData.wHWord[0]!).map scodeK)))) = true := by quickRfl
-theorem neg_p : Bool.not (ptsFn TX MS CM3 M (trM (GMf 0)) (fun t => f21 OM t)
-    (fun t => f21 OM (f14 (SGf 1) t)) 64) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2108
 

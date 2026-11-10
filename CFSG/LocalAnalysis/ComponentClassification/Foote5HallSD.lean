@@ -78,10 +78,5 @@ theorem conj_not_mem_zpowers {x v : G} (hxN : x ∈ normalizer (D : Set G)) (hcD
   rw [h2, ← conj_zpow]
   exact zpow_mem h1 i
 
-variable {x u : G} (hxN : x ∈ normalizer (D : Set G)) (hx2 : x * x = cz c)
-
-variable (hxc : x * c * x⁻¹ = c⁻¹) (huD : u ∈ D) (huC : u ∉ zpowers c)
-  (hxu : x * u * x⁻¹ * u ∉ zpowers (c ^ 2))
-include hxN hx2 hxc huD huC hxu
 
 end CFSG.ComponentClassification.Foote5.HallGen

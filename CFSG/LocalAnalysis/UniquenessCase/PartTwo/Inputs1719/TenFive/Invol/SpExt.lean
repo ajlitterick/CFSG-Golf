@@ -12,9 +12,6 @@ open CFSG.LocalAnalysis.ComponentInitial.SymplecticHigher (formJ)
 
 variable {r : ℕ} {K : Type} [Field K]
 
-private lemma spForm_add_right (y z w : Fin r ⊕ Fin r → K) :
-    spForm y (z + w) = spForm y z + spForm y w := by
-  simp [spForm, Matrix.mulVec_add, dotProduct_add]
 
 private lemma spForm_smul_right (y z : Fin r ⊕ Fin r → K) (c : K) :
     spForm y (c • z) = c * spForm y z := by

@@ -213,7 +213,6 @@ theorem heK_D_Om : heCtxK.D.Om = heLatK.Om := rfl
 
 theorem heK_D_mw : heCtxK.D.mw = heMwLit := rfl
 
-theorem heK_orbit_card : heCtxK.D.O.lbl.size = 3935925 := LatCtx.ofFacts_O_size ..
 
 theorem heK_J : heCtxK.J = 11 := by
   unfold LatCtx.J
@@ -234,10 +233,6 @@ theorem heK_Om_size (j : ℕ) (hj : j < 11) :
   rw [heK_D_Om, Om_get hj]
   interval_cases j <;> rfl
 
-theorem heK_Ot_size (j : ℕ) (hj : j < 11) :
-    heOtK[j]!.lbl.size = #[1, 2, 4, 16, 16, 4, 2, 8, 2, 4, 2][j]! := by
-  rw [Ot_get hj]
-  interval_cases j <;> rfl
 
 theorem heK_member_card (j : ℕ) (hj : j < 11) :
     Nat.card (heCtxK.Y j) = #[1, 3, 9, 135, 135, 9, 3, 21, 3, 9, 3][j]! * 1024 := by
@@ -275,27 +270,6 @@ theorem heK_Y_le_iff {j jj : ℕ} (hj : j < 11) (hjj : jj < 11) :
   rw [beq_iff_eq] at h
   rw [h, List.contains_iff_mem]
 
-def heMemsK : List Mem :=
-  [⟨1024, 1024, 1024⟩, ⟨3072, 512, 3072⟩, ⟨9216, 256, 9216⟩, ⟨138240, 64, 138240⟩,
-    ⟨138240, 64, 138240⟩, ⟨9216, 256, 9216⟩, ⟨3072, 512, 3072⟩, ⟨21504, 128, 21504⟩,
-    ⟨3072, 512, 3072⟩, ⟨9216, 256, 9216⟩, ⟨3072, 512, 3072⟩]
-
-theorem heK_rows_default : (List.range 11).map (defaultRow 10 heCtxK.D heOtK) = heMemsK := by
-  have h : (List.range 11).map (defaultRow 10 heCtxK.D heOtK) =
-      (List.range 11).map fun j => (⟨#[1, 3, 9, 135, 135, 9, 3, 21, 3, 9, 3][j]! * 2 ^ 10,
-        2 ^ 10 / #[1, 2, 4, 16, 16, 4, 2, 8, 2, 4, 2][j]!,
-        #[1, 3, 9, 135, 135, 9, 3, 21, 3, 9, 3][j]! * 2 ^ 10⟩ : Mem) := by
-    apply List.map_congr_left
-    intro j hj
-    have hj' := List.mem_range.mp hj
-    simp only [defaultRow, heK_Om_size j hj', heK_Ot_size j hj']
-  rw [h]
-  rfl
-
-theorem heK_row (j : ℕ) (hj : j < 11) : ∃ m ∈ heMemsK, MemStmt (heCtxK.Y j) m := by
-  refine heCtxK.rows_of_default (Ot := heOtK) heK_o2OK heMemsK ?_ j (by rw [heK_J]; exact hj)
-  rw [heK_J]
-  exact heK_rows_default
 
 theorem heK_S_index : heCtxK.S.index = 3935925 := by
   have h1 := Subgroup.card_mul_index heCtxK.S
@@ -307,15 +281,6 @@ theorem heK_S_sylow : IsSylowTwoOf heCtxK.S ⊤ := by
   rw [heK_S_index]
   norm_num
 
-open CFSG.Blueprint.NativeSporadic in
-theorem heK_overgroups {X : Type} [Group X] [Finite X] (hX : Nonempty (X ≃* Carrier .He))
-    {T Y : Subgroup X} (hT : IsSylowTwoOf T ⊤) (hTY : T ≤ Y) :
-    Y = ⊤ ∨ ∃ m ∈ heMemsK, Nat.card Y = m.order ∧ Nat.card (pCoreOf 2 Y) = m.o2 ∧
-      ∀ (N : Subgroup Y) [N.Normal], IsPGroup 2 (Y ⧸ N) → Nat.card (Y ⧸ N) ≤ m.quot2 := by
-  obtain ⟨e⟩ := hX
-  have hX' : Nonempty (X ≃* CFSG.Sporadic.He.J) := ⟨e.trans CFSG.Sporadic.He.heEquivJ⟩
-  exact overgroups_of_lattice heCtxK.S heK_S_sylow 11 heCtxK.Y heMemsK heK_complete
-    (fun j hj => heK_row j hj) hX' hT hTY
 
 end CFSG.KD.HeDc
 

@@ -102,16 +102,9 @@ theorem ggTableBNbrInnerInputOn_round6_of_round10
     GGTableBNbrInnerInputOn GGTableBNbrInnerRound6Label :=
   ggTableBNbrInnerInputOn_round6_of_round9 (ggTableBNbrInnerInputOn_round9_of_round10 h)
 
-theorem ggTableBNbrInnerInput_of_round10
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound10Label) : GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_round9 (ggTableBNbrInnerInputOn_round9_of_round10 h)
 
 end Round10
 
-theorem ggTableBNbrInnerInputOn_round10_of_round9
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound9Label) :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerRound10Label :=
-  h.mono fun _ _ h10 => h10.1
 
 end CFSG.StandardType
 

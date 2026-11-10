@@ -114,14 +114,5 @@ theorem exists_normal_index_two_of_unique_of_quotient {M G₀ : Subgroup G}
   rw [hxo]
   exact Nat.le_of_dvd (orderOf_pos y) (h1.trans h2)
 
-theorem false_of_simple_of_unique_of_quotient [IsSimpleGroup G] (hG : 2 < Nat.card G)
-    {M G₀ : Subgroup G} [(G₀.subgroupOf M).Normal] {t : G}
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) {x : G} (hxM : x ∈ M) {a : ℕ} (ha : 1 ≤ a)
-    (hxo : orderOf x = 2 ^ a)
-    (hxQ : orderOf (QuotientGroup.mk' (G₀.subgroupOf M) ⟨x, hxM⟩) = 2 ^ a)
-    (hQ : ¬ 2 ^ (a + 1) ∣ Nat.card (M ⧸ G₀.subgroupOf M)) {n : ℕ} (hpow : IsConj t (x ^ n)) :
-    False :=
-  CFSG.SeitzReduction.not_exists_normal_index_two_of_simple hG
-    (exists_normal_index_two_of_unique_of_quotient huniq hxM ha hxo hxQ hQ hpow)
 
 end CFSG.SeitzReduction.F4Pilot

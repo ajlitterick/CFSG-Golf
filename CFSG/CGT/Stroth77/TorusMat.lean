@@ -15,7 +15,6 @@ open Matrix
 
 abbrev Torus (k : Fin 3 → ℕ) := (i : Fin 3) → ZMod (2 ^ k i)
 
-abbrev StrothTorus (m n : ℕ) := Torus ![m, n, n]
 
 abbrev IntMat := Matrix (Fin 3) (Fin 3) ℤ
 

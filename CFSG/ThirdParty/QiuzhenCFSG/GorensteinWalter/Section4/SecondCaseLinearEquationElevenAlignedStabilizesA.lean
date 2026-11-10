@@ -101,14 +101,6 @@ private lemma natCard_sup_of_disjoint {G : Type u} [Group G] [Finite G]
     Nat.card (↥(K ⊔ B)) = Nat.card (↥K × ↥B) := hc.symm
     _ = Nat.card (↥K) * Nat.card (↥B) := by simp
 
-/-- Conjugating a join conjugates both summands. -/
-private lemma sup_conjugate
-    {G : Type u} [Group G] {A B : Subgroup G} (g : G) :
-    conjugateSubgroup (A ⊔ B) g =
-      conjugateSubgroup A g ⊔ conjugateSubgroup B g := by
-  change (A ⊔ B).map (MulAut.conj g).toMonoidHom =
-    A.map (MulAut.conj g).toMonoidHom ⊔ B.map (MulAut.conj g).toMonoidHom
-  exact Subgroup.map_sup A B (MulAut.conj g).toMonoidHom
 
 /-- Conjugation preserves cardinality. -/
 private lemma card_conjugate

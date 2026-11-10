@@ -36,10 +36,6 @@ private abbrev R (m : ℕ) : Subgroup (D m) :=
 private lemma rotation_ne_zero (m : ℕ) : 2 ^ m ≠ 0 := by
   positivity
 
-private lemma rotation_ne_one (m : ℕ) (hm : 2 ≤ m) : 2 ^ m ≠ 1 := by
-  have : 4 ≤ 2 ^ m := by
-    simpa using (Nat.pow_le_pow_right (by decide : 0 < 2) hm)
-  omega
 
 private lemma rotation_card (m : ℕ) (_hm : 1 ≤ m) :
     Nat.card (↥(R m)) = 2 ^ m := by
@@ -121,11 +117,6 @@ private lemma restriction_apply_coe (m : ℕ) (hm : 2 ≤ m)
   let : (R m).Characteristic := rotation_characteristic m hm
   rfl
 
-private lemma reflection_image_one (m : ℕ) (hm : 2 ≤ m) :
-    reflection_image m hm (1 : MulAut (D m)) = 1 := by
-  apply Subtype.ext
-  apply mul_left_cancel (a := (DihedralGroup.sr 0 : D m))
-  simpa using (reflection_image_spec m hm (1 : MulAut (D m))).symm
 
 private lemma reflection_image_mul (m : ℕ) (hm : 2 ≤ m)
     (f g : MulAut (D m)) :

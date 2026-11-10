@@ -67,9 +67,6 @@ theorem exists_conj_eq_of_mem {T L V : Subgroup G} (h : Hyp1281One G T L V 3) {v
 
 variable {T L V H : Subgroup G}
 
-theorem lemma14_7_3_one (hF : HypF98 T V L (fsuV1 T V) V H) :
-    3 ≤ F8.b T V L H ∧ Odd (F8.b T V L H) :=
-  hF.three_le_b_and_odd
 
 theorem lemma14_7_3_two (S : Setting147 G T L V H) (hF : HypF98 T V L (fsuV1 T V) V H) :
     conjClosure (conjClosure V H) L ≤ pCoreOf 2 (L ⊔ T) := by

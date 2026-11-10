@@ -75,13 +75,5 @@ open CFSG.ComponentClassification.OuterAutomorphisms (inner)
     (∃ P : Subgroup S, IsElemAbelian 3 P ∧ Nat.card P = 27) ∧
     ∀ D : Subgroup (MulAut S), IsElemAbelian 3 D → ¬ D ≤ inner S → Nat.card D ≤ 9
 
-@[expose] def KDL227Pump : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (S : Subgroup Y), S.Normal → IsSimpleGroup ↥S →
-    (∃ a b : ↥S, a * b ≠ b * a) → CFSG.Open.IsCatalogGroup ↥S →
-    Subgroup.centralizer (S : Set Y) = ⊥ →
-    ∀ (I : Subgroup Y) (b x : Y), b ^ 3 = 1 → x ^ 3 = 1 → b * x = x * b →
-      GLAPComponent 3 (S ⊓ Subgroup.centralizer ({b} : Set Y)) I →
-      catalogIs (PSimple 3 I) (onLie (isL2 27)) → x ∈ Subgroup.normalizer (I : Set Y) →
-      ¬ InducesInnerMod 3 I x → b = 1
 
 end CFSG.LocalAnalysis.GLTheoremA

@@ -60,52 +60,6 @@ theorem burnsideA315y_u3_exists_xyc (hU : UnitaryFieldData p 1 K) (hp2 : p ≠ 2
     (A : Matrix (Fin 3) (Fin 3) K) (hA : (A.map hU.bar)ᵀ * A = 1) : ↥(unitaryIsom3 hU) :=
   ⟨⟨A, (A.map hU.bar)ᵀ, mul_eq_one_comm.mp hA, hA⟩, hA⟩
 
-theorem burnsideA315y_u3Mk_val (hU : UnitaryFieldData p 1 K) (A : Matrix (Fin 3) (Fin 3) K)
-    (hA : (A.map hU.bar)ᵀ * A = 1) :
-    (((burnsideA315y_u3Mk hU A hA : ↥(unitaryIsom3 hU)) : GL (Fin 3) K) :
-      Matrix (Fin 3) (Fin 3) K) = A :=
-  rfl
-
-theorem burnsideA315y_u3_mem (hU : UnitaryFieldData p 1 K) (g : ↥(unitaryIsom3 hU)) :
-    ((((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K)).map hU.bar)ᵀ *
-      ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = 1 :=
-  g.2
-
-theorem burnsideA315y_u3_entry (hU : UnitaryFieldData p 1 K) (g : ↥(unitaryIsom3 hU))
-    (i j : Fin 3) :
-    hU.bar (((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 0 i) *
-        ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 0 j +
-      hU.bar (((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 1 i) *
-        ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 1 j +
-      hU.bar (((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 2 i) *
-        ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 2 j =
-      (1 : Matrix (Fin 3) (Fin 3) K) i j := by
-  have h := congrFun (congrFun (burnsideA315y_u3_mem hU g) i) j
-  rw [Matrix.mul_apply, Fin.sum_univ_three] at h
-  simpa using h
-
-theorem burnsideA315y_u3_norm_det (hU : UnitaryFieldData p 1 K) (g : ↥(unitaryIsom3 hU)) :
-    hU.bar (((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K).det) *
-      ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K).det = 1 := by
-  have h := congrArg Matrix.det (burnsideA315y_u3_mem hU g)
-  rw [Matrix.det_mul, Matrix.det_transpose, Matrix.det_one, ← RingHom.mapMatrix_apply,
-    ← RingHom.map_det] at h
-  exact h
-
-theorem burnsideA315y_u3_scalar_mem (hU : UnitaryFieldData p 1 K) {μ : Kˣ}
-    (hμ : hU.bar (μ : K) * μ = 1) :
-    Matrix.GeneralLinearGroup.scalar (Fin 3) μ ∈ unitaryIsom3 hU := by
-  rw [mem_unitaryIsom3, Matrix.GeneralLinearGroup.coe_scalar]
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [Matrix.mul_apply, Fin.sum_univ_three, Matrix.scalar_apply, Matrix.diagonal, hμ]
-
-theorem burnsideA315y_u3_dgl_mem (hU : UnitaryFieldData p 1 K) {s : Kˣ}
-    (hs : hU.bar (s : K) * s = 1) : burnsideA315y_dgl s ∈ unitaryIsom3 hU := by
-  rw [mem_unitaryIsom3, burnsideA315y_dgl_val]
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [Matrix.mul_apply, Fin.sum_univ_three, blkMat, hs]
 
 theorem burnsideA315y_u3_blkMat_conjTr (hU : UnitaryFieldData p 1 K)
     (A : Matrix (Fin 2) (Fin 2) K) :
@@ -179,10 +133,6 @@ variable (hU : UnitaryFieldData p 1 K) [Finite K] (two_ne : (2 : K) ≠ 0) {x y 
     (burnsideA315y_u3zh hU) rfl x y cc hdet (burnsideA315y_u3Da hU)
     (burnsideA315y_u3Db hU hdet hx hy hc) rfl rfl two_ne
 
-theorem burnsideA315y_u3_hS₀ :
-    ¬ 2 ∣ (burnsideA315y_u3Model hU two_ne hdet hx hy hc).S₀.relIndex
-      (burnsideA315y_u3Model hU two_ne hdet hx hy hc).C₁ :=
-  burnsideA315y_Model.ofData_relIndex _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 end Model
 

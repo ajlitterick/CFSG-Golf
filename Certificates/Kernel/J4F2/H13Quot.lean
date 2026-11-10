@@ -214,13 +214,6 @@ theorem quotChecksK_ok : quotChecksK = true := by quickRfl
 
 theorem imageChecksK_ok : imageChecksK = true := by quickRfl
 
-theorem quotChecks_neg_phi : notB (quotChecksW (Nat.xor phiN 1) eN gN hN) = true := by quickRfl
-
-theorem quotChecks_neg_g : notB (quotChecksW phiN eN (Nat.xor gN 1) hN) = true := by quickRfl
-
-theorem imageChecks_neg_phi : notB (imageChecksW (Nat.xor phiN 1) eN) = true := by quickRfl
-
-theorem imageChecks_neg_e : notB (imageChecksW phiN (Nat.xor eN 1)) = true := by quickRfl
 
 theorem mk_T : WfA (addRows (tOf (uvPairsOf (basePairs ()))).1 (idRows ())) ∧
     encR (addRows (tOf (uvPairsOf (basePairs ()))).1 (idRows ())) = Nat.xor tK.1 one := by

@@ -9,9 +9,6 @@ namespace CFSG.ClassicalInvolution.Solomon73.Yamaki
 
 open CFSG.Open Matrix
 
-theorem zmod2_val_le_one (a : ZMod 2) : a.val ≤ 1 := by
-  have := ZMod.val_lt a
-  omega
 
 @[expose] def vec6 (x₀ x₁ x₂ x₃ x₄ x₅ : ZMod 2) : Fin 3 ⊕ Fin 3 → ZMod 2 :=
   Sum.elim ![x₀, x₁, x₂] ![x₃, x₄, x₅]

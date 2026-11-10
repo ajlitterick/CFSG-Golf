@@ -43,24 +43,5 @@ open scoped Matrix
 
 namespace CFSG.ASVolI.ChH
 
-theorem card_le_sixteen_of_not_quadratic (E : Subgroup (GL (Fin 5) (ZMod 2)))
-    (hcomm : ∀ a ∈ E, ∀ b ∈ E, a * b = b * a) (hsq : ∀ a ∈ E, a * a = 1)
-    (hnq : ∃ g ∈ E, ∃ h ∈ E, ((g : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1) *
-      ((h : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1) ≠ 0) :
-    Nat.card E ≤ 16 := by
-  obtain ⟨g, hg, h', hh, hne⟩ := hnq
-  have hcov := subOneCover_subOneSpan hcomm hsq
-  have hA : ((g : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1) ∈ subOneSpan E := hcov.sub_one_mem g hg
-  have hB : ((h' : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1) ∈ subOneSpan E := hcov.sub_one_mem h' hh
-  have hp : NilPair ((g : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1)
-      ((h' : Matrix (Fin 5) (Fin 5) (ZMod 2)) - 1) :=
-    ⟨hcov.mul_self _ hA, hcov.mul_self _ hB, hcov.mul_comm _ hA _ hB⟩
-  obtain ⟨v, hv⟩ := exists_vec_mulVec_ne_zero hne
-  have hv0 : v ≠ 0 := fun hv0 => hv (by rw [hv0, Matrix.mulVec_zero])
-  have h3 := three_le_finrank_nilOrbitSpace hcov hp hA hB hv
-  have h5 := finrank_nilOrbitSpace_lt_dim hcov hv0
-  by_cases h4 : Module.finrank (ZMod 2) (nilOrbitSpace (subOneSpan E) v) = 4
-  · exact card_le_sixteen_of_finrank_nilOrbitSpace_eq_four hcov hv0 h4
-  · exact card_le_sixteen_of_finrank_nilOrbitSpace_eq_three hcov hsq hg hh hv (by omega)
 
 end CFSG.ASVolI.ChH

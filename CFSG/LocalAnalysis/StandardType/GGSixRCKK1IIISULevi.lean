@@ -83,14 +83,6 @@ private theorem rckSUl_add_self (x : SUF) : x + x = 0 := by
   have h2 : (2 : SUF) = 0 := CharP.cast_eq_zero SUF 2
   rw [← two_mul, h2, zero_mul]
 
-private theorem rckSUl_nsmul2 (x : SUF) : (2 : ℕ) • x = 0 := by
-  rw [two_nsmul, rckSUl_add_self]
-
-private theorem rckSUl_nsmul3 (x : SUF) : (3 : ℕ) • x = x := by
-  rw [show (3 : ℕ) = 2 + 1 by norm_num, add_nsmul, rckSUl_nsmul2, one_nsmul, zero_add]
-
-private theorem rckSUl_nsmul6 (x : SUF) : (6 : ℕ) • x = 0 := by
-  rw [show (6 : ℕ) = 2 * 3 by norm_num, mul_nsmul, rckSUl_nsmul3, rckSUl_nsmul2]
 
 private theorem rckSUl_add_sq (x y : SUF) : (x + y) ^ 2 = x ^ 2 + y ^ 2 := by
   have hxy : x * y + y * x = 0 := by
@@ -155,26 +147,6 @@ private theorem rckSUl_suCorner_eq (hk : 4 ≤ k) (v : Fin 4 → ZMod 2) :
   simp only [suCorner, rckSUl_M, rckSUl_b]
   abel
 
-private theorem rckSUl_K_mul_K (hk : 4 ≤ k) : rckSUl_K hk * rckSUl_K hk = 0 := by
-  have h10 := rckSUl_sI1_ne_sI0 hk
-  have h1r := rckSUl_sI1_ne_rev_sI1 hk
-  have hr0 := rckSUl_rev_sI0_ne_sI0 hk
-  have hr1 := rckSUl_rev_sI0_ne_rev_sI1 hk
-  simp only [rckSUl_K, Matrix.add_mul, Matrix.mul_add, Matrix.mul_zero, Matrix.zero_mul,
-    add_zero, zero_add, single_mul_single_of_ne _ _ _ _ h10,
-    single_mul_single_of_ne _ _ _ _ h1r, single_mul_single_of_ne _ _ _ _ hr0,
-    single_mul_single_of_ne _ _ _ _ hr1]
-
-private theorem rckSUl_M_mul_M (hk : 4 ≤ k) (a b bσ c a' b' bσ' c' : SUF) :
-    rckSUl_M hk a b bσ c * rckSUl_M hk a' b' bσ' c' = 0 := by
-  have hr0u0 := rckSUl_rev_sI0_ne_sI0 hk
-  have hr0u1 := rckSUl_rev_sI0_ne_sI1 hk
-  have hr1u0 := rckSUl_rev_sI1_ne_sI0 hk
-  have hr1u1 := rckSUl_rev_sI1_ne_sI1 hk
-  simp only [rckSUl_M, Matrix.add_mul, Matrix.mul_add, Matrix.mul_zero, Matrix.zero_mul,
-    add_zero, zero_add, single_mul_single_of_ne _ _ _ _ hr0u0,
-    single_mul_single_of_ne _ _ _ _ hr0u1, single_mul_single_of_ne _ _ _ _ hr1u0,
-    single_mul_single_of_ne _ _ _ _ hr1u1]
 
 private theorem rckSUl_K_mul_M (hk : 4 ≤ k) (a b bσ c : SUF) :
     rckSUl_K hk * rckSUl_M hk a b bσ c =
@@ -200,17 +172,6 @@ private theorem rckSUl_M_mul_K (hk : 4 ≤ k) (a b bσ c : SUF) :
     single_mul_single_of_ne _ _ _ _ hu0r0, single_mul_single_of_ne _ _ _ _ hu0r1,
     single_mul_single_of_ne _ _ _ _ hr0r1]
 
-private theorem rckSUl_K_mul_M_mul_K (hk : 4 ≤ k) (a b bσ c : SUF) :
-    rckSUl_K hk * rckSUl_M hk a b bσ c * rckSUl_K hk =
-      Matrix.single (sI0 hk) (Fin.rev (sI0 hk)) c := by
-  have hr0u0 := rckSUl_rev_sI0_ne_sI0 hk
-  have hr0r1 := rckSUl_rev_sI0_ne_rev_sI1 hk
-  have hr1u0 := rckSUl_rev_sI1_ne_sI0 hk
-  rw [rckSUl_K_mul_M]
-  simp only [rckSUl_K, Matrix.add_mul, Matrix.mul_add, Matrix.mul_zero, Matrix.zero_mul,
-    add_zero, zero_add, single_mul_single_same, mul_one, one_mul,
-    single_mul_single_of_ne _ _ _ _ hr0u0, single_mul_single_of_ne _ _ _ _ hr0r1,
-    single_mul_single_of_ne _ _ _ _ hr1u0]
 
 private theorem rckSUl_c1_one_sided (hk : 4 ≤ k) (a b bσ c : SUF) :
     (1 + rckSUl_K hk) * (1 + rckSUl_M hk a b bσ c) =

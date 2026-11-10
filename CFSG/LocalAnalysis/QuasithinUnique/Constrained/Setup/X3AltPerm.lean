@@ -12,8 +12,6 @@ open Equiv CFSG.QuasithinUnique
 
 section Generic
 
-theorem mem_relStab {n : ℕ} {b : Fin n → ℕ} {σ : Perm (Fin n)} :
-    σ ∈ relStab b ↔ ∀ i j, b i = b j ↔ b (σ i) = b (σ j) := Iff.rfl
 
 variable {α : Type*} [Fintype α] [DecidableEq α]
 
@@ -191,67 +189,11 @@ end Case6
 
 section Case7
 
-theorem sup7 : relStab blkX7 ⊔ relStab blkY7 = ⊤ := by
-  refine top_of_adjacent_swaps (m := 6) fun i => ?_
-  have h01 : swap (0 : Fin 7) 1 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h12 : swap (1 : Fin 7) 2 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h23 : swap (2 : Fin 7) 3 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h34 : swap (3 : Fin 7) 4 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h45 : swap (4 : Fin 7) 5 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h56 : swap (5 : Fin 7) 6 ∈ relStab blkX7 ⊔ relStab blkY7 :=
-    Subgroup.mem_sup_right (by decide +kernel)
-  fin_cases i
-  exacts [h01, h12, h23, h34, h45, h56]
-
-theorem card7_h :
-    Fintype.card
-      {σ : Perm (Fin 7) // σ ∈ relStab blkX7 ∧ σ ∈ relStab blkY7} = 48 :=
-  Certificates.certificate4138.1
 
 end Case7
 
 section Case8
 
-theorem sup8 : relStab blkX8 ⊔ relStab blkY8 = ⊤ := by
-  refine top_of_adjacent_swaps (m := 7) fun i => ?_
-  have h01 : swap (0 : Fin 8) 1 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h12 : swap (1 : Fin 8) 2 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h23 : swap (2 : Fin 8) 3 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h45 : swap (4 : Fin 8) 5 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h56 : swap (5 : Fin 8) 6 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h67 : swap (6 : Fin 8) 7 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have h13 : swap (1 : Fin 8) 3 ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_left (by decide +kernel)
-  have hy : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) ∈ relStab blkX8 ⊔ relStab blkY8 :=
-    Subgroup.mem_sup_right (by decide +kernel)
-  have h14 : swap (1 : Fin 8) 4 ∈ relStab blkX8 ⊔ relStab blkY8 := by
-    have h := swap_apply_mem_of_mem hy h12
-    have e1 : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) 1 = 1 := by decide
-    have e2 : (swap (2 : Fin 8) 4 * swap 3 5 : Perm (Fin 8)) 2 = 4 := by decide
-    rwa [e1, e2] at h
-  have h34 : swap (3 : Fin 8) 4 ∈ relStab blkX8 ⊔ relStab blkY8 := by
-    have h := swap_apply_mem_of_mem h13 h14
-    have e1 : (swap (1 : Fin 8) 3 : Perm (Fin 8)) 1 = 3 := by decide
-    have e2 : (swap (1 : Fin 8) 3 : Perm (Fin 8)) 4 = 4 := by decide
-    rwa [e1, e2] at h
-  fin_cases i
-  exacts [h01, h12, h23, h34, h45, h56, h67]
-
-theorem card8_h :
-    Fintype.card
-      {σ : Perm (Fin 8) // σ ∈ relStab blkX8 ∧ σ ∈ relStab blkY8} = 128 :=
-  Certificates.certificate4138.2
 
 end Case8
 
@@ -259,23 +201,6 @@ section Abstract
 
 variable {Γ Γ' : Type*} [Group Γ] [Group Γ']
 
-theorem two_gen_of_map_injective {φ : Γ →* Γ'} (hφ : Function.Injective φ) {T : Subgroup Γ}
-    {X' Y' : Subgroup Γ'} (hTX : T.map φ ≤ X') (hTY : T.map φ ≤ Y') (hX : X' < φ.range)
-    (hY : Y' < φ.range) (hgen : X' ⊔ Y' = φ.range) :
-    ∃ X Y : Subgroup Γ, T ≤ X ∧ T ≤ Y ∧ X < ⊤ ∧ Y < ⊤ ∧ X ⊔ Y = ⊤ := by
-  have hprop : ∀ Z : Subgroup Γ', Z < φ.range → Z.comap φ < ⊤ := by
-    intro Z hZ
-    refine lt_top_iff_ne_top.mpr fun h => ?_
-    have : φ.range ≤ Z := by
-      rintro _ ⟨g, rfl⟩
-      have hg : g ∈ Z.comap φ := h ▸ Subgroup.mem_top g
-      exact hg
-    exact not_le_of_gt hZ this
-  refine ⟨X'.comap φ, Y'.comap φ, Subgroup.map_le_iff_le_comap.mp hTX,
-    Subgroup.map_le_iff_le_comap.mp hTY, hprop X' hX, hprop Y' hY, ?_⟩
-  apply Subgroup.map_injective hφ
-  rw [Subgroup.map_sup, Subgroup.map_comap_eq, Subgroup.map_comap_eq,
-    inf_eq_right.mpr hX.le, inf_eq_right.mpr hY.le, hgen, ← MonoidHom.range_eq_map]
 
 @[expose] def TwoGenPerm (n : ℕ) : Prop :=
   ∀ {D R : Subgroup (Perm (Fin n))}, (D = ⊤ ∨ D = alternatingGroup (Fin n)) →
@@ -284,29 +209,6 @@ theorem two_gen_of_map_injective {φ : Γ →* Γ'} (hφ : Function.Injective φ
 
 theorem twoGenPerm_six : TwoGenPerm 6 := fun hD hR => two_gen_6 hD hR
 
-theorem two_generating_overgroups_of_iso {n : ℕ} (h : TwoGenPerm n)
-    (hΓ : Nonempty (Γ ≃* Perm (Fin n)) ∨ Nonempty (Γ ≃* alternatingGroup (Fin n)))
-    {T : Subgroup Γ} (hT : IsSylowTwoOf T ⊤) :
-    ∃ X Y : Subgroup Γ, T ≤ X ∧ T ≤ Y ∧ X < ⊤ ∧ Y < ⊤ ∧ X ⊔ Y = ⊤ := by
-  obtain ⟨φ, hφ, hrange⟩ : ∃ φ : Γ →* Perm (Fin n), Function.Injective φ ∧
-      (φ.range = ⊤ ∨ φ.range = alternatingGroup (Fin n)) := by
-    rcases hΓ with ⟨⟨e⟩⟩ | ⟨⟨e⟩⟩
-    · exact ⟨e.toMonoidHom, e.injective, Or.inl (MonoidHom.range_eq_top.mpr e.surjective)⟩
-    · refine ⟨(alternatingGroup (Fin n)).subtype.comp e.toMonoidHom,
-        (alternatingGroup (Fin n)).subtype_injective.comp e.injective, Or.inr ?_⟩
-      rw [MonoidHom.range_comp, MonoidHom.range_eq_top.mpr e.surjective, ← MonoidHom.range_eq_map,
-        Subgroup.range_subtype]
-  have : Finite Γ := Finite.of_injective φ hφ
-  have hS := CFSG.QuasithinUnique.Setup.X35.isSylowTwoOf_map_of_injective hφ hT
-  rw [← MonoidHom.range_eq_map] at hS
-  obtain ⟨X', Y', hRX, hRY, hX, hY, hgen⟩ := h hrange hS
-  exact two_gen_of_map_injective hφ hRX hRY hX hY hgen
-
-theorem small_alternating_six_two_generating_overgroups
-    (hΓ : Nonempty (Γ ≃* Perm (Fin 6)) ∨ Nonempty (Γ ≃* alternatingGroup (Fin 6)))
-    {T : Subgroup Γ} (hT : IsSylowTwoOf T ⊤) :
-    ∃ X Y : Subgroup Γ, T ≤ X ∧ T ≤ Y ∧ X < ⊤ ∧ Y < ⊤ ∧ X ⊔ Y = ⊤ :=
-  two_generating_overgroups_of_iso twoGenPerm_six hΓ hT
 
 end Abstract
 

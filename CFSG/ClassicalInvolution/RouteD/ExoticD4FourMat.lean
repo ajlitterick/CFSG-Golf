@@ -54,9 +54,6 @@ theorem det_mVec {a b : F} (hab : a ^ 2 + b ^ 2 = -1) (j : Fin 4) : (mVec a b j)
   · simpa [mVec] using det_mW hab
   · simpa [mVec] using det_mWB hab
 
-theorem mWB_eq (a b : F) : mW a b * mB = !![b, -a; -a, -b] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [mB, mW, Matrix.mul_apply, Fin.sum_univ_two]
 
 theorem mVec_zero (a b : F) : mVec a b 0 = 1 := rfl
 

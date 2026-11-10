@@ -49,20 +49,12 @@ theorem commuting_abelian_sup (first second : Subgroup GroupType)
     _ = secondLeft * (secondRight * firstLeft) * firstRight := by rw [second_cross]
     _ = (secondLeft * secondRight) * (firstLeft * firstRight) := by group
 
-theorem maximum_order_abelian_self_centralizing (target : Subgroup GroupType)
-    (member : target ∈ maximumOrderAbelianFamily GroupType) :
-    Subgroup.centralizer (target : Set GroupType) = target :=
-  CFSG.centralizer_eq_self_of_mem_maxOrderAbelianFamily
-    (CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.mp member)
 
 theorem order_thompson_center_eq_intersection :
     orderThompsonCenter GroupType = ⨅ target ∈ maximumOrderAbelianFamily GroupType, target := by
   rw [order_thompson_center_eq_orderZJ, maximum_order_abelian_family_eq_maxOrderAbelianFamily]
   exact CFSG.orderZJ_eq_iInf
 
-theorem center_le_order_thompson_center : Subgroup.center GroupType ≤ orderThompsonCenter GroupType := by
-  rw [order_thompson_center_eq_orderZJ]
-  exact CFSG.center_le_orderZJ_of_finite
 
 theorem order_thompson_center_pgroup_nontrivial (prime : ℕ) (prime_prime : prime.Prime)
     (pgroup : IsPGroup prime GroupType) [Nontrivial GroupType] : orderThompsonCenter GroupType ≠ ⊥ := by

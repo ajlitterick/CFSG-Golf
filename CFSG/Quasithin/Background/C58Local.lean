@@ -42,10 +42,6 @@ theorem baum_facts [Finite G] (hR2 : IsPGroup 2 R) (hRT : R ≤ T) :
   exact C56.a3_not_le_centralizer hcfg.short hcfg.alt hcfg.comm_J
     ((thompsonJ_le_baum' R).trans hle)
 
-omit hcfg in
-theorem conj_le_iSup {T U : Subgroup G} {g : G} (hg : g ∈ T) :
-    conjSubgroup U g ≤ ⨆ (g : G) (_ : g ∈ T), conjSubgroup U g :=
-  le_iSup₂_of_le g hg le_rfl
 
 theorem exists_conj_not_le_centralizer [Finite G] {M₀ : Subgroup G} (hNC : NoCommonNormal R H M₀)
     (hTM₀ : T ≤ M₀) (hM₀R : M₀ ≤ normalizer (R : Set G)) (hRT : R ≤ T) (hTH : T ≤ H)

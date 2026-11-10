@@ -14,7 +14,5 @@ namespace CFSG.Quasithin.RuRank3
 
 open CFSG.Monster.B.Co2.Native
 
-theorem ruParam_check : ruCntD ruTI1 = 730 ∧ ruCntD ruTIG0 = 780 :=
-  Certificates.certificate7048
 
 end CFSG.Quasithin.RuRank3

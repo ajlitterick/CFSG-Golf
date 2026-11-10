@@ -92,6 +92,5 @@ namespace CFSG.EvenSmallLie.UnitarySix.YamadaPar
 
 @[expose] def y0Check : Bool := dFb dY0 == dTarget
 
-@[expose] def dCheck : Bool := certCheck (5 * 64) 19 (13 * 64) (linBits (5 * 64) (13 * 64) dFb) dCols
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaPar

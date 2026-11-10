@@ -217,18 +217,6 @@ section Marking
 
 open CFSG.ASVolI.ChF.ClassicalRoots
 
-theorem burnsideF45U_nonempty_marking {c : ClassicalRoots.Kind} {p f : ℕ} {E : Type} [Group E]
-    {Gp M₁ M₂ : Subgroup E} (h : HypF_4_4g (classicalKind c) p f Gp M₁ M₂) :
-    Nonempty (ClassicalRoots.Marking c p f Gp) := by
-  obtain ⟨chart, -⟩ := h.lie_amalgam
-  rcases chart.coordinates with
-    ⟨c', hk, marking, -⟩ | ⟨hk, -⟩ | ⟨hk, -⟩ | ⟨hk, -⟩ |
-    ⟨-, exponent, K, fK, finK, charK, scope, ⟨hk, -⟩ | ⟨hk, -⟩⟩
-  · have hc : c' = c := by
-      cases c <;> cases c' <;> first | rfl | exact absurd hk (by decide)
-    subst hc
-    exact ⟨marking⟩
-  all_goals exact absurd hk (by cases c <;> decide)
 
 end Marking
 
@@ -237,40 +225,6 @@ section Facts
 open CFSG.LieType.Universal.Unitary CFSG.LieType.BorelTits CFSG.Quasithin.H13.F431.Un
   CFSG.ASVolI.ChF.ClassicalRoots
 
-
-theorem burnsideF45_facts45L_U4 {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
-    (hyp : HypF_4_4 .U4 p f Gp M₁ M₂) (hp : p.Prime) (hm : 3 ≤ GLKind.U4.m) :
-    (burnsideF45_setting hyp hp hm).Facts45L := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨marking⟩ := burnsideF45U_nonempty_marking (c := .U4) hyp.toHypF_4_4g
-  have hF : Nat.card marking.field = (p ^ f) ^ 2 := marking.field_card.trans (if_pos (Or.inl rfl))
-  haveI : CharP marking.field p := CFSG.ClassicalGroups.Unitary.charP_of_card_sq hF
-  obtain ⟨ζ, hζ⟩ := exists_traceZero_ne_zero hF
-  haveI : Fact ((ζ : marking.field) ≠ 0) := ⟨hζ⟩
-  have hU := burnsideF45U4_system_isSylow hF ζ
-  let θ₀ : StatedProj (StatedSU 4 (p ^ f) marking.field) ≃* ↥Gp :=
-    (MulEquiv.refl _ : StatedProj (StatedSU 4 (p ^ f) marking.field) ≃*
-      StatedProj (nativeGroup .U4 (p ^ f) marking.field)).trans marking.identification
-  exact burnsideF45_facts45L_of_system hyp hp hm (burnsideF45_parabolics hyp.toHypF_4_4g) θ₀
-    (burnsideF45U4_system hF ζ) rfl hU
-    (fun i => burnsideF45_bn_modelBase (burnsideF45U4_system hF ζ) hp hU i)
-
-theorem burnsideF45_facts45L_U5 {p f : ℕ} {E : Type} [Group E] {Gp M₁ M₂ : Subgroup E}
-    (hyp : HypF_4_4 .U5 p f Gp M₁ M₂) (hp : p.Prime) (hm : 3 ≤ GLKind.U5.m) :
-    (burnsideF45_setting hyp hp hm).Facts45L := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨marking⟩ := burnsideF45U_nonempty_marking (c := .U5) hyp.toHypF_4_4g
-  have hF : Nat.card marking.field = (p ^ f) ^ 2 := marking.field_card.trans (if_pos (Or.inr rfl))
-  haveI : CharP marking.field p := CFSG.ClassicalGroups.Unitary.charP_of_card_sq hF
-  obtain ⟨ζ, hζ⟩ := exists_traceZero_ne_zero hF
-  haveI : Fact ((ζ : marking.field) ≠ 0) := ⟨hζ⟩
-  have hU := burnsideF45U5_system_isSylow hF ζ
-  let θ₀ : StatedProj (StatedSU 5 (p ^ f) marking.field) ≃* ↥Gp :=
-    (MulEquiv.refl _ : StatedProj (StatedSU 5 (p ^ f) marking.field) ≃*
-      StatedProj (nativeGroup .U5 (p ^ f) marking.field)).trans marking.identification
-  exact burnsideF45_facts45L_of_system hyp hp hm (burnsideF45_parabolics hyp.toHypF_4_4g) θ₀
-    (burnsideF45U5_system hF ζ) rfl hU
-    (fun i => burnsideF45_bn_modelBase (burnsideF45U5_system hF ζ) hp hU i)
 
 end Facts
 

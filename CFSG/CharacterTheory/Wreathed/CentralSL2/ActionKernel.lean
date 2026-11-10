@@ -181,11 +181,6 @@ theorem semilinearAction_ker (hb : ¬ IsSquare b) :
   · rw [Subgroup.zpowers_le, MonoidHom.mem_ker, semilinearAction_inl,
       projAction_cyclicGenerator_sq]
 
-theorem card_zpowers_inl_sq (h2 : (2 : F) ≠ 0) :
-    Nat.card (Subgroup.zpowers (SemidirectProduct.inl (cyclicGenerator F b m hm heven ^ 2) :
-      SemilinearExtension F b m hm heven Sigma hSigma)) = m := by
-  rw [Nat.card_zpowers, orderOf_injective _ SemidirectProduct.inl_injective,
-    orderOf_cyclicGenerator_sq F b m hm heven h2]
 
 end Kernel
 

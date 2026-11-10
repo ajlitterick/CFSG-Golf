@@ -57,11 +57,6 @@ theorem puHyp_of_msPair_of_simple (hS : RankTwoLieSimple) {G₀ R L : Subgroup G
       rankTwo := hrank
       sqtk := hsqtk }
 
-theorem puHyp_of_msPair
-    {G₀ R L : Subgroup G}
-    (h : IsMSPair G₀ R) (hL : L ∈ cComp G₀) (hG : (G₀ : Set G) = (L : Set G) * (R : Set G)) :
-    PUHyp G₀ R L :=
-  puHyp_of_msPair_of_simple rankTwoLieSimple_holds h hL hG
 
 theorem isOddRadical_of_msPair {G₀ R : Subgroup G} (hRG : R ≤ G₀)
     (ha : ∃ H' : Subgroup G, H' < G₀ ∧ ¬ 2 ∣ H'.relIndex G₀ ∧ R = pCoreOf 2 H') :

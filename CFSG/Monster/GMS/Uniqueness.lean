@@ -26,7 +26,6 @@ theorem oddTypeOrders_of
     exact hT.card hx ⟨hy, hk⟩
   · exact hCF x y k h0 hx hy hk
 
-variable [Finite G] {d₀ : B} {a z₀ : G}
 
 end Group
 

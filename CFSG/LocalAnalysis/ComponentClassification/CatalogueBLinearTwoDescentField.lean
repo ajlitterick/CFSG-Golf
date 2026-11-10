@@ -44,8 +44,6 @@ theorem fixedSubfield_finrank (K : Type u) [Field K] [Finite K]
   toRingEquiv := sigma
   commutes' x := (mem_fixedSubfield K sigma x).mp x.property
 
-theorem fixedSubfieldAut_apply (K : Type u) [Field K] (sigma : K ≃+* K) (x : K) :
-    fixedSubfieldAut K sigma x = sigma x := rfl
 
 theorem fixedSubfield_norm (K : Type u) [Field K] [Finite K]
     (sigma : K ≃+* K) (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1) (x : K) :

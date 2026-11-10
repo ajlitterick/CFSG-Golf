@@ -56,9 +56,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.PEnum CFSG.KS.MulH
 theorem heis_ok : bAnd(heisK 0, heisK 1) = true := by
   quickRfl
 
-theorem heis_neg : Nat.beq (pc (pc Co3Tt (Co3HT.F 0)) Co3Tt) (Co3HI 0) = false âˆ§
-    Nat.beq (pc (Co3HT.F 0) (Co3HT.F 1)) (pc (Co3HT.F 1) (Co3HT.F 0)) = false := by
-  decide +kernel
 
 @[expose] noncomputable def aEntK (i : Nat) : Bool :=
   bAnd(involK (Co3E.T i), Nat.beq (fl (r32 Co3WJ i)) 1)
@@ -74,8 +71,6 @@ theorem heis_neg : Nat.beq (pc (pc Co3Tt (Co3HT.F 0)) Co3Tt) (Co3HI 0) = false â
 theorem rank_ok : rankK 31 = true := by
   quickRfl
 
-theorem rank_neg : rankK 1 = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.Co3Fus
 

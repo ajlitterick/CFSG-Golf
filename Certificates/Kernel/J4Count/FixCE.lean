@@ -81,8 +81,6 @@ end Sizes
 
 section Fix
 
-theorem card_fix_cE_le : Nat.card {w : Row // w ∈ orbit J v ∧ cE • w = w} ≤ 737 :=
-  FixC.card_fix_le_of hcov hsz cE_mem_H cE_pow_three' card_cent_N card_cent_H_le
 
 end Fix
 
@@ -104,9 +102,6 @@ theorem fix_cE_eq : ∀ w, w ∈ orbit J v ∧ cE • w = w → w ∈ ptSet :=
   (FixC.fix_eq_of_card hcov hsz cE_mem_H cE_pow_three' card_cent_N card_cent_H_le ptSet ptSet_fixed
     card_ptSet).1
 
-theorem card_fix_cE : Nat.card {w : Row // w ∈ orbit J v ∧ cE • w = w} = 737 :=
-  (FixC.fix_eq_of_card hcov hsz cE_mem_H cE_pow_three' card_cent_N card_cent_H_le ptSet ptSet_fixed
-    card_ptSet).2
 
 theorem card_stab_eq' :
     Nat.card ↥(stabilizer ↥(Subgroup.centralizer ({cE} : Set J)) v) =

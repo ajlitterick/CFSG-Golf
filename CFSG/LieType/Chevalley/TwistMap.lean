@@ -532,28 +532,12 @@ theorem RootOperatorFamily.twistC_mem_rootSubgroup (Fam : RootOperatorFamily t.t
   rw [h c]
   exact Fam.eltElement_mem_rootSubgroup _ _
 
-theorem RootOperatorFamily.map_twistC_rootSubgroup (Fam : RootOperatorFamily t.tag)
-    (hσ : Function.Surjective σ) (α : Root t.tag) :
-    (Fam.rootSubgroup K α).map (twistC t K σ) = Fam.rootSubgroup K (rootTwist t α) := by
-  obtain ⟨ε, hε, h⟩ := Fam.exists_twistC_eltElement t K σ α
-  refine le_antisymm (Subgroup.map_le_iff_le_comap.2 fun x hx =>
-    Fam.twistC_mem_rootSubgroup t K σ hx) fun y hy => ?_
-  obtain ⟨d, rfl⟩ := Fam.mem_rootSubgroup.1 hy
-  obtain ⟨c, hc⟩ := hσ ((ε : K) * d)
-  refine ⟨Fam.eltElement α c, Fam.eltElement_mem_rootSubgroup _ _, ?_⟩
-  have hεε : (ε : K) * ε = 1 := by
-    rcases hε with rfl | rfl <;> norm_num
-  rw [h c, hc, ← mul_assoc, hεε, one_mul]
 
 theorem twistC_mem_nativeRootSubgroups {α : Root t.tag} {x : adjointGroup t.tag K}
     (hx : x ∈ (nativeRootSubgroups t.tag K).X α) :
     twistC t K σ x ∈ (nativeRootSubgroups t.tag K).X (rootTwist t α) :=
   (rootOperatorFamily t.tag).twistC_mem_rootSubgroup t K σ hx
 
-theorem map_twistC_nativeRootSubgroups (hσ : Function.Surjective σ) (α : Root t.tag) :
-    ((nativeRootSubgroups t.tag K).X α).map (twistC t K σ) =
-      (nativeRootSubgroups t.tag K).X (rootTwist t α) :=
-  (rootOperatorFamily t.tag).map_twistC_rootSubgroup t K σ hσ α
 
 theorem Uminus_le_comap_twistC (w : WeylGroup t.tag) :
     Uminus t.tag K w ≤ (Uminus t.tag K (weylTwist t w)).comap (twistC t K σ) :=
@@ -568,16 +552,6 @@ theorem twistC_mem_Uminus {w : WeylGroup t.tag} {u : adjointGroup t.tag K}
     (hu : u ∈ Uminus t.tag K w) : twistC t K σ u ∈ Uminus t.tag K (weylTwist t w) :=
   Uminus_le_comap_twistC t K σ w hu
 
-theorem map_twistC_Uminus (hσ : Function.Surjective σ) (w : WeylGroup t.tag) :
-    (Uminus t.tag K w).map (twistC t K σ) = Uminus t.tag K (weylTwist t w) := by
-  refine le_antisymm (Subgroup.map_le_iff_le_comap.2 (Uminus_le_comap_twistC t K σ w)) ?_
-  refine iSup₂_le fun β hβ => ?_
-  obtain ⟨α, rfl⟩ := (rootTwist t).surjective β
-  rw [← map_twistC_nativeRootSubgroups t K σ hσ]
-  refine Subgroup.map_mono (le_iSup₂_of_le (f := fun (γ : Root t.tag)
-      (_ : 0 < height γ.1 ∧ height (w • γ).1 < 0) => (nativeRootSubgroups t.tag K).X γ) α ?_ le_rfl)
-  rw [weylTwist_smul_rootTwist, height_rootTwist, height_rootTwist] at hβ
-  exact hβ
 
 end RootSubgroups
 
@@ -600,23 +574,6 @@ theorem twistC_mem_monomialGroup {m : adjointGroup t.tag K} (hm : m ∈ monomial
     twistC t K σ m ∈ monomialGroup t.tag K :=
   monomialGroup_le_comap_twistC t K σ hm
 
-theorem map_twistC_monomialGroup (hσ : Function.Surjective σ) :
-    (monomialGroup t.tag K).map (twistC t K σ) = monomialGroup t.tag K := by
-  refine le_antisymm (Subgroup.map_le_iff_le_comap.2 (monomialGroup_le_comap_twistC t K σ)) ?_
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ (⟨j, rfl⟩ | ⟨⟨j, u⟩, rfl⟩)
-  · refine ⟨weylElement t.tag K (t.perm.symm j), weylElement_mem_monomialGroup _, ?_⟩
-    rw [twistC_weylElement, Equiv.apply_symm_apply]
-  · obtain ⟨c, hc⟩ := hσ u
-    have hc0 : c ≠ 0 := by
-      rintro rfl
-      rw [map_zero] at hc
-      exact u.ne_zero hc.symm
-    refine ⟨torusElement t.tag K (t.perm.symm j) (Units.mk0 c hc0),
-      torusElement_mem_monomialGroup _ _, ?_⟩
-    rw [twistC_torusElement, Equiv.apply_symm_apply]
-    congr 1
-    exact Units.ext (by simpa using hc)
 
 @[expose] noncomputable def twistN : monomialGroup t.tag K →* monomialGroup t.tag K where
   toFun m := ⟨twistC t K σ m, twistC_mem_monomialGroup t K σ m.2⟩
@@ -659,16 +616,6 @@ theorem twistC_mem_U {u : adjointGroup t.tag K} (hu : u ∈ (nativeData t.tag K)
       (twistC_mem_nativeRootSubgroups t K σ hx)
   exact hle hu
 
-theorem map_twistC_U (hσ : Function.Surjective σ) :
-    (nativeData t.tag K).U.map (twistC t K σ) = (nativeData t.tag K).U := by
-  refine le_antisymm (Subgroup.map_le_iff_le_comap.2 fun u hu => twistC_mem_U t K σ hu) ?_
-  refine iSup₂_le fun β hβ => ?_
-  obtain ⟨α, rfl⟩ := (rootTwist t).surjective β
-  change (nativeRootSubgroups t.tag K).X (rootTwist t α) ≤ _
-  rw [← map_twistC_nativeRootSubgroups t K σ hσ]
-  refine Subgroup.map_mono ((nativeData t.tag K).X_le_U (α := α) ?_)
-  rw [rootCombinatorics_pos] at hβ ⊢
-  rwa [height_rootTwist] at hβ
 
 theorem twistC_mem_H {h : adjointGroup t.tag K} (hh : h ∈ (nativeData t.tag K).H) :
     twistC t K σ h ∈ (nativeData t.tag K).H := by
@@ -680,19 +627,6 @@ theorem twistC_mem_H {h : adjointGroup t.tag K} (hh : h ∈ (nativeData t.tag K)
   change weylHom t.tag K (twistN t K σ ⟨k, hkN'⟩) = 1
   rw [weylHom_twistN, hk', map_one]
 
-theorem map_twistC_H (hσ : Function.Surjective σ) :
-    (nativeData t.tag K).H.map (twistC t K σ) = (nativeData t.tag K).H := by
-  refine le_antisymm (Subgroup.map_le_iff_le_comap.2 fun h hh => twistC_mem_H t K σ hh)
-    fun h hh => ?_
-  obtain ⟨⟨k, hkN⟩, hk, rfl⟩ := RootGroupData.mem_H_iff.1 hh
-  have hkN' : k ∈ monomialGroup t.tag K := hkN
-  have hk' : weylHom t.tag K ⟨k, hkN'⟩ = 1 := hk
-  rw [← map_twistC_monomialGroup t K σ hσ] at hkN'
-  obtain ⟨m, hm, rfl⟩ := hkN'
-  refine ⟨m, RootGroupData.mem_H_iff.2 ⟨⟨m, hm⟩, ?_, rfl⟩, rfl⟩
-  change weylHom t.tag K ⟨m, hm⟩ = 1
-  change weylHom t.tag K (twistN t K σ ⟨m, hm⟩) = 1 at hk'
-  rwa [weylHom_twistN, map_eq_one_iff _ (weylTwist t).injective] at hk'
 
 theorem twistC_mem_B {b : adjointGroup t.tag K} (hb : b ∈ (nativeData t.tag K).B) :
     twistC t K σ b ∈ (nativeData t.tag K).B := by
@@ -701,11 +635,6 @@ theorem twistC_mem_B {b : adjointGroup t.tag K} (hb : b ∈ (nativeData t.tag K)
       (fun u hu => (nativeData t.tag K).U_le_B (twistC_mem_U t K σ hu))
   exact hle hb
 
-theorem map_twistC_B (hσ : Function.Surjective σ) :
-    (nativeData t.tag K).B.map (twistC t K σ) = (nativeData t.tag K).B := by
-  change ((nativeData t.tag K).H ⊔ (nativeData t.tag K).U).map (twistC t K σ) = _
-  rw [Subgroup.map_sup, map_twistC_H t K σ hσ, map_twistC_U t K σ hσ]
-  rfl
 
 end Borel
 
@@ -734,32 +663,6 @@ theorem twistEquiv_nrep : ∀ w, weylTwist t w = w →
     twistEquiv t K σ hσ (nrep t.tag K w) = nrep t.tag K w := fun w hw => by
   rw [twistEquiv_apply, twistC_nrep, hw]
 
-theorem exists_twistEquiv_fixed_mul [Finite K]
-    (hcover : ∀ g : adjointGroup t.tag K, ∃ m : monomialGroup t.tag K,
-      ∃ b₁ ∈ (nativeData t.tag K).B, ∃ b₂ ∈ (nativeData t.tag K).B,
-        g = b₁ * (m : adjointGroup t.tag K) * b₂)
-    (hdisj : ∀ m m' : monomialGroup t.tag K, ∀ b₁ ∈ (nativeData t.tag K).B,
-      ∀ b₂ ∈ (nativeData t.tag K).B, ∀ b₃ ∈ (nativeData t.tag K).B,
-      ∀ b₄ ∈ (nativeData t.tag K).B,
-      b₁ * (m : adjointGroup t.tag K) * b₂ = b₃ * (m' : adjointGroup t.tag K) * b₄ →
-        weylHom t.tag K m = weylHom t.tag K m')
-    (hexists : ∀ m : monomialGroup t.tag K, ∀ b₁ ∈ (nativeData t.tag K).B,
-      ∀ b₂ ∈ (nativeData t.tag K).B, ∃ b ∈ (nativeData t.tag K).B,
-      ∃ u ∈ (Uminus t.tag K (weylHom t.tag K m) : Set (adjointGroup t.tag K)),
-        b₁ * (m : adjointGroup t.tag K) * b₂ = b * nrep t.tag K (weylHom t.tag K m) * u)
-    (hunique : ∀ w, ∀ b ∈ (nativeData t.tag K).B, ∀ b' ∈ (nativeData t.tag K).B,
-      ∀ u ∈ (Uminus t.tag K w : Set (adjointGroup t.tag K)),
-      ∀ u' ∈ (Uminus t.tag K w : Set (adjointGroup t.tag K)),
-      b * nrep t.tag K w * u = b' * nrep t.tag K w * u' → b = b' ∧ u = u')
-    {g : adjointGroup t.tag K} (hg : twistEquiv t K σ hσ g = g) :
-    ∃ w, weylTwist t w = w ∧ ∃ b ∈ (nativeData t.tag K).B, twistEquiv t K σ hσ b = b ∧
-      ∃ u ∈ (Uminus t.tag K w : Set (adjointGroup t.tag K)), twistEquiv t K σ hσ u = u ∧
-        g = b * nrep t.tag K w * u :=
-  exists_fixed_mul_of_fixed (nativeData t.tag K).B (monomialGroup t.tag K) (weylHom t.tag K)
-    (nrep t.tag K) (fun w => (Uminus t.tag K w : Set (adjointGroup t.tag K)))
-    (twistEquiv t K σ hσ) (weylTwist t) hcover hdisj hexists hunique
-    (twistEquiv_mem_B t K σ hσ) (twistEquiv_mem_monomialGroup t K σ hσ)
-    (weylHom_twistEquiv t K σ hσ) (twistEquiv_mem_Uminus t K σ hσ) (twistEquiv_nrep t K σ hσ) hg
 
 end FixedBruhat
 

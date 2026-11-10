@@ -169,94 +169,12 @@ theorem orbitTree_schreier (S : Set G) (hS : Subgroup.closure S = ⊤) (n : ℕ)
 
 section Skip
 
-variable {S : Set G} {n : ℕ} {P : ℕ → X}
-
-theorem exists_eq_pow_smul {s : G} (hs : ∀ i < n, ∃ j < n, P j = s • P i) (m : ℕ) {i : ℕ}
-    (hi : i < n) : ∃ j < n, P j = s ^ m • P i := by
-  induction m with
-  | zero => exact ⟨i, hi, by rw [pow_zero, one_smul]⟩
-  | succ m ih =>
-    obtain ⟨k, hk, ek⟩ := ih
-    obtain ⟨j, hj, ej⟩ := hs k hk
-    exact ⟨j, hj, by rw [ej, ek, pow_succ', mul_smul]⟩
-
-theorem schreier_mem_of_cycle (hPinj : ∀ i < n, ∀ j < n, P i = P j → i = j) {s : G}
-    (hs : ∀ i < n, ∃ j < n, P j = s • P i) {τ : ℕ → G} {K : Subgroup G} {d : ℕ} (hd0 : 0 < d)
-    (hd : s ^ d = 1) {i : ℕ} (hi : i < n)
-    (hcyc : ∀ k, 0 < k → k < d → ∀ j < n, P j = s ^ k • P i → ∀ j' < n, P j' = s • P j →
-      (τ j')⁻¹ * s * τ j ∈ K)
-    {j : ℕ} (hj : j < n) (hij : P j = s • P i) : (τ j)⁻¹ * s * τ i ∈ K := by
-  have key : ∀ m < d, ∀ j' < n, P j' = s ^ m • P j → (τ j')⁻¹ * s ^ m * τ j ∈ K := by
-    intro m
-    induction m with
-    | zero =>
-      intro _ j' hj' e
-      rw [hPinj j' hj' j hj (by rw [e, pow_zero, one_smul]), pow_zero, mul_one, inv_mul_cancel]
-      exact K.one_mem
-    | succ m ih =>
-      intro hm j' hj' e
-      obtain ⟨k, hk, ek⟩ := exists_eq_pow_smul hs m hj
-      have h1 := ih (by omega) k hk ek
-      have h2 := hcyc (m + 1) (by omega) hm k hk (by rw [ek, hij, smul_smul, ← pow_succ]) j' hj'
-        (by rw [e, ek, pow_succ', mul_smul])
-      rw [pow_succ']
-      simpa only [mul_assoc, mul_inv_cancel_left] using K.mul_mem h2 h1
-  have hinv : s ^ (d - 1) = s⁻¹ :=
-    eq_inv_of_mul_eq_one_left (by rw [← pow_succ, Nat.sub_add_cancel hd0, hd])
-  have := K.inv_mem (key (d - 1) (by omega) i hi (by rw [hij, hinv, inv_smul_smul]))
-  rwa [hinv, mul_inv_rev, mul_inv_rev, inv_inv, inv_inv, ← mul_assoc] at this
-
-theorem schreier_mem_of_cycles (hPinj : ∀ i < n, ∀ j < n, P i = P j → i = j)
-    (hclosed : ∀ i < n, ∀ s ∈ S, ∃ j < n, P j = s • P i) {τ : ℕ → G} {K : Subgroup G}
-    {E : ℕ → G → Prop}
-    (hK : ∀ i < n, ∀ s ∈ S, E i s → ∀ j < n, P j = s • P i → (τ j)⁻¹ * s * τ i ∈ K)
-    (hcyc : ∀ i < n, ∀ s ∈ S, E i s ∨ ∃ d, 0 < d ∧ s ^ d = 1 ∧
-      ∀ k, 0 < k → k < d → ∀ j < n, P j = s ^ k • P i → E j s) :
-    ∀ i < n, ∀ s ∈ S, ∀ j < n, P j = s • P i → (τ j)⁻¹ * s * τ i ∈ K := by
-  intro i hi s hs j hj e
-  rcases hcyc i hi s hs with hE | ⟨d, hd0, hd, hE⟩
-  · exact hK i hi s hs hE j hj e
-  · exact schreier_mem_of_cycle hPinj (fun i hi => hclosed i hi s hs) hd0 hd hi
-      (fun k hk0 hkd j hj ej j' hj' ej' => hK j hj s hs (hE k hk0 hkd j hj ej) j' hj' ej') hj e
 
 end Skip
 
-theorem orbitTree_schreier_of_cycles (S : Set G) (hS : Subgroup.closure S = ⊤) (n : ℕ)
-    (hn : 0 < n) (P : ℕ → X) (hPinj : ∀ i < n, ∀ j < n, P i = P j → i = j)
-    (hclosed : ∀ i < n, ∀ s ∈ S, ∃ j < n, P j = s • P i)
-    (par lab : ℕ → ℕ) (ℓ : ℕ → G)
-    (hpar : ∀ i, 0 < i → i < n → par i < i)
-    (htree : ∀ i, 0 < i → i < n → P i = ℓ (lab i) • P (par i))
-    (K : Subgroup G) (E : ℕ → G → Prop)
-    (hK : ∀ i < n, ∀ s ∈ S, E i s → ∀ j < n, P j = s • P i →
-      (treeWord par lab ℓ j)⁻¹ * s * treeWord par lab ℓ i ∈ K)
-    (hcyc : ∀ i < n, ∀ s ∈ S, E i s ∨ ∃ d, 0 < d ∧ s ^ d = 1 ∧
-      ∀ k, 0 < k → k < d → ∀ j < n, P j = s ^ k • P i → E j s) :
-    MulAction.stabilizer G (P 0) ≤ K ∧
-      Nat.card G = n * Nat.card (MulAction.stabilizer G (P 0)) :=
-  orbitTree_schreier S hS n hn P hPinj hclosed par lab ℓ hpar htree K
-    (schreier_mem_of_cycles hPinj hclosed hK hcyc)
 
 section Edges
 
-variable {n : ℕ} {P : ℕ → X} {par lab : ℕ → ℕ} {ℓ : ℕ → G}
-
-theorem orbitTree_schreier_child_mem (hPinj : ∀ i < n, ∀ j < n, P i = P j → i = j)
-    (K : Subgroup G) {i : ℕ} (hi0 : 0 < i) (hi : i < n) (hp : par i < i)
-    (ht : P i = ℓ (lab i) • P (par i)) {s : G} (hs : ℓ (lab i) = s) {j : ℕ} (hj : j < n)
-    (e : P j = s • P (par i)) :
-    (treeWord par lab ℓ j)⁻¹ * s * treeWord par lab ℓ (par i) ∈ K := by
-  rw [hPinj j hj i hi (by rw [e, ht, hs]), treeWord_of_pos lab ℓ hi0 hp, hs, mul_inv_rev,
-    mul_assoc, mul_assoc, inv_mul_cancel_left, inv_mul_cancel]
-  exact K.one_mem
-
-theorem orbitTree_schreier_parent_mem (hPinj : ∀ i < n, ∀ j < n, P i = P j → i = j)
-    (K : Subgroup G) {i : ℕ} (hi0 : 0 < i) (hi : i < n) (hp : par i < i)
-    (ht : P i = ℓ (lab i) • P (par i)) {s : G} (hs : s * ℓ (lab i) = 1) {j : ℕ} (hj : j < n)
-    (e : P j = s • P i) : (treeWord par lab ℓ j)⁻¹ * s * treeWord par lab ℓ i ∈ K := by
-  rw [hPinj j hj (par i) (hp.trans hi) (by rw [e, ht, smul_smul, hs, one_smul]),
-    treeWord_of_pos lab ℓ hi0 hp, ← mul_assoc, mul_assoc _ s, hs, mul_one, inv_mul_cancel]
-  exact K.one_mem
 
 end Edges
 

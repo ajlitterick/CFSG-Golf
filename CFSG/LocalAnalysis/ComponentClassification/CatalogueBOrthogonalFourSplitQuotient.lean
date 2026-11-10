@@ -55,8 +55,6 @@ theorem quotientLeftRightImage_index_dvd_two : (quotientLeftRightImage K).index 
   rw [quotientLeftRightImage_index]
   exact leftRightImage_index_dvd_two
 
-theorem quotientLeftRightImage_index_le_two : (quotientLeftRightImage K).index ≤ 2 :=
-  Nat.le_of_dvd (by decide) quotientLeftRightImage_index_dvd_two
 
 instance quotientByLeftRightImageCyclic :
     IsCyclic (SpecialQuotient K ⧸ quotientLeftRightImage K) := by
@@ -66,26 +64,5 @@ instance quotientByLeftRightImageCyclic :
 instance specialQuotientSolvable : Group.IsSolvable (SpecialQuotient K) :=
   Group.isSolvable_of_subgroup_quotient (quotientLeftRightImage K)
 
-theorem determinant_isometry_quotient_structure :
-    ∃ A : Subgroup (SpecialQuotient K), A.Normal ∧ IsMulCommutative A ∧
-      A.index ≤ 2 ∧ Group.IsSolvable (SpecialQuotient K) :=
-  ⟨quotientLeftRightImage K, inferInstance, inferInstance,
-    quotientLeftRightImage_index_le_two, inferInstance⟩
-
-theorem determinant_four_full_isometry_structure :
-    (∀ g : DeterminantIsometries K, ∃ z : equalDeterminants K,
-      g = rho z ∨ g = rho z * tau) ∧
-    (∀ z : equalDeterminants K, rho z = 1 ↔ ∃ c : Kˣ, z = scalarPair c) ∧
-    (∀ z : Matrix.SpecialLinearGroup (Fin 2) K × Matrix.SpecialLinearGroup (Fin 2) K,
-      specialRho z = 1 ↔ ∃ c : Kˣ, c ^ 2 = 1 ∧
-        Matrix.SpecialLinearGroup.toGL z.1 = Matrix.GeneralLinearGroup.scalar (Fin 2) c ∧
-        Matrix.SpecialLinearGroup.toGL z.2 = Matrix.GeneralLinearGroup.scalar (Fin 2) c) ∧
-    (specialRho (K := K)).ker ≤ Subgroup.center
-      (Matrix.SpecialLinearGroup (Fin 2) K × Matrix.SpecialLinearGroup (Fin 2) K) ∧
-    (specialImage K).Normal ∧
-    (∃ A : Subgroup (SpecialQuotient K), A.Normal ∧ IsMulCommutative A ∧
-      A.index ≤ 2 ∧ Group.IsSolvable (SpecialQuotient K)) :=
-  ⟨determinant_isometry_exhaustion, rho_eq_one_iff, specialRho_eq_one_iff,
-    specialRho_kernel_le_center, inferInstance, determinant_isometry_quotient_structure⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalFourSplit

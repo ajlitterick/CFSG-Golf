@@ -143,12 +143,6 @@ theorem permChar_mem_blocksVChar : permChar F ∈ BlocksVChar PSL(2, F) := by
   rw [permChar_eq_character]
   exact CFSG.DirectProduct.representation_character_mem_blocksVChar _
 
-omit [DecidableEq F] in
-theorem permChar_conj (g x : PSL(2, F)) : permChar F (g * x * g⁻¹) = permChar F x := by
-  classical
-  let _ : Fintype (ProjLine F) := Fintype.ofFinite _
-  rw [permChar_eq_character]
-  exact Representation.char_conj _ x g
 
 omit [DecidableEq F] in
 theorem permChar_one : permChar F 1 = Fintype.card F + 1 := by
@@ -190,18 +184,6 @@ theorem permChar_of_mem_nonsplitTorus {ν : F} (hν : ¬ IsSquare ν) {x : PSL(2
   obtain ⟨C, hC, hy, rfl⟩ := exists_of_mem_nonsplitTorus hx hx1
   exact permChar_nonsplit hν hC hy
 
-omit [DecidableEq F] in
-theorem permChar_of_mem_conjSet {H : Subgroup PSL(2, F)} {c : ℂ}
-    (hH : ∀ x ∈ H, x ≠ 1 → permChar F x = c) {y : PSL(2, F)} (hy : y ∈ conjSet H) :
-    permChar F y = c := by
-  obtain ⟨hy1, g, hg⟩ := hy
-  have hne : g * y * g⁻¹ ≠ 1 := by
-    intro h
-    apply hy1
-    have := congrArg (fun z => g⁻¹ * z * g) h
-    simpa [mul_assoc] using this
-  rw [← permChar_conj g y]
-  exact hH _ hg hne
 
 section Split
 

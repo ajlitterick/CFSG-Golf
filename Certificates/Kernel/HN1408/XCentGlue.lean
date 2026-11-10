@@ -223,7 +223,6 @@ theorem inZ_of {Et : Nat → Nat} {R g0 g1 : Nat} (h : inZ Et R g0 g1 = true) :
   rw [ha] at h
   exact absurd h (by decide)
 
-theorem nC_le' : nC ≤ P1408 ⊓ centralizer ({elemZ} : Set (Equiv.Perm (Fin 1408))) := nC_le
 
 theorem central_eP {k : Nat} (hk : k < 8) : ∀ x ∈ nC, eP k * x = x * eP k := by
   intro x hx

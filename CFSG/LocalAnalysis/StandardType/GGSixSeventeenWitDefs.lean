@@ -43,17 +43,6 @@ theorem GGSixSeventeenWitnessInputFor.on {P : StatedLieTag → Prop}
     (h : GGSixSeventeenWitnessInputFor P) : GGSixSeventeenWitnessOn fun t _ _ _ => P t :=
   fun G _ _ p B Bs x L D J t n f ψ hP => h G p B Bs x L D J t n f ψ hP
 
-theorem ggSixSeventeenWitnessOn_of_root {P : StatedLieTag → Prop}
-    (h : GGSixSeventeenRootWitnessInputFor P) :
-    GGSixSeventeenWitnessOn fun t _ f p => P t ∧ ¬ (t = .E8 ∧ f = 1 ∧ p = 7) := by
-  intro G _ _ p B Bs x L D J t n f ψ hP hctx s1 b L₁ hpair
-  obtain ⟨e, heL, heB, he1, h15 | h16⟩ := h G p B Bs x L D J t n f ψ hP.1 hP.2 hctx s1 b L₁ hpair
-  · exact Or.inr ⟨e, heL, Or.inl ⟨heB, he1, Or.inr h15⟩⟩
-  · exact Or.inr ⟨e, heL, Or.inr ⟨heB, he1, h16⟩⟩
-
-theorem ggSixSeventeenWitnessOn_of_linear (h : GGSixSeventeenLinearWitnessInput) :
-    GGSixSeventeenWitnessOn fun t _ _ _ => GGLinearUnitaryTag t :=
-  (ggSixSeventeenWitnessInputFor_linearUnitary h).on
 
 theorem ggSixSeventeenWitnessOn_of_not_admissible {P : StatedLieTag → ℕ → ℕ → ℕ → Prop}
     (hP : ∀ t n f p, P t n f p → ¬ StatedLieAdmissible t n 2 f) : GGSixSeventeenWitnessOn P := by

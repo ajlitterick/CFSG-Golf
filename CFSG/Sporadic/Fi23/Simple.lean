@@ -276,7 +276,6 @@ theorem treeFacts_one :
 theorem treeFacts_two : TreeFacts 31671 T2 lv1 (pairG gs) subRoot :=
   treeOK_facts (fun l hl => rep_pairG_all l (levelLetters_lt hl)) actionFacts.tree2
 
-theorem lvl_one_eq : lettersGroup lv1 (pairG gs) = lvl 1 := rfl
 
 theorem cover
     (p : ℕ) (hp : p < 31671) : p = 0 ∨ InTree trees[1]! p ∨ InTree T2 p := by

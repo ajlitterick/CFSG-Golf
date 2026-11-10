@@ -134,8 +134,6 @@ variable (B : LinearMap.BilinForm K V) (T : Module.End K V) (d : K) (s : E)
   (hspan : ∀ z : E, ∃ a c : K, z = algebraMap K E a + algebraMap K E c * s)
   (hadj : ∀ x y, B (T x) y = B x (T y))
 
-theorem positiveBilinear_apply (x y : V) :
-    positiveBilinear B T d s hd hs hT hact hspan hadj x y = positiveFormula B T d s x y := rfl
 
 theorem positiveBilinear_isSymm (hB : B.IsSymm) :
     (positiveBilinear B T d s hd hs hT hact hspan hadj).IsSymm :=
@@ -172,13 +170,6 @@ variable (B : LinearMap.BilinForm K V) (T : Module.End K V) (d : K) (s : E)
   (bar : E ≃ₐ[K] E) (hbar : bar s = -s)
   (hadj : ∀ x y, B (T x) y = -B x (T y))
 
-theorem negativeSesquilinear_apply (x y : V) :
-    negativeSesquilinear B T d s hd hs hT hact hspan bar hbar hadj x y =
-      negativeFormula B T d s x y := rfl
-
-theorem negativeSesquilinear_isSymm (hB : B.IsSymm) :
-    (negativeSesquilinear B T d s hd hs hT hact hspan bar hbar hadj).IsSymm :=
-  ⟨fun x y => (negativeFormula_hermitian B T d s bar hbar hB hadj x y).symm⟩
 
 theorem negativeSesquilinear_nondegenerate (b : Module.Basis (Fin 2) K E)
     (h0 : b 0 = 1) (h1 : b 1 = s) (hnd : B.Nondegenerate) :

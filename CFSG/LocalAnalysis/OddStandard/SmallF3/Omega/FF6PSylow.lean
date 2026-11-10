@@ -23,23 +23,12 @@ theorem mem_ffD8p_iff (σ : Equiv.Perm (Fin 5)) : σ ∈ ffD8p ↔ σ * ffD8g = 
 private instance ffD8pDecidableMem : DecidablePred (· ∈ ffD8p) := fun σ =>
   decidable_of_iff' (σ * ffD8g = ffD8g * σ) (mem_ffD8p_iff σ)
 
-private theorem ffD8g_eq_self_iff (i : Fin 5) : ffD8g i = i ↔ i = 4 := by
-  revert i; decide
-
-private theorem ffD8g_four : ffD8g 4 = 4 := by decide
 
 theorem ffD8p_card : Nat.card ↥ffD8p = 8 := by
   rw [Nat.card_eq_fintype_card,
     Fintype.card_subtype (fun σ : Equiv.Perm (Fin 5) => σ ∈ ffD8p)]
   decide
 
-theorem ffD8p_apply_four {σ : Equiv.Perm (Fin 5)} (hσ : σ ∈ ffD8p) : σ 4 = 4 := by
-  have h := (mem_ffD8p_iff σ).mp hσ
-  have happ : σ (ffD8g 4) = ffD8g (σ 4) := by
-    have hc := congrFun (congrArg (fun e : Equiv.Perm (Fin 5) => (e : Fin 5 → Fin 5)) h) 4
-    simpa only [Equiv.Perm.mul_apply] using hc
-  rw [ffD8g_four] at happ
-  exact (ffD8g_eq_self_iff (σ 4)).mp happ.symm
 
 @[expose] noncomputable def ffP0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
     Subgroup (OGroup Q) where
@@ -62,20 +51,12 @@ theorem ffD8p_apply_four {σ : Equiv.Perm (Fin 5)} (hσ : σ ∈ ffD8p) : σ 4 =
     rw [symmDiff_self, Finset.bot_eq_empty, fr.signChange_empty, mul_inv_cancel,
       fr.pOrth_one, one_mul]
 
-theorem mem_ffP0p_iff (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC)
-    {g : OGroup Q} :
-    g ∈ ffP0p hQ fr ↔ ∃ σ ∈ ffD8p, ∃ K : Finset (Option (Fin 5)),
-      g = fr.pOrth σ * fr.signChange K ∧ g ∈ omegaGroup hQ :=
-  Iff.rfl
 
 theorem ffP0p_le_omega (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
     ffP0p hQ fr ≤ omegaGroup hQ := by
   rintro g ⟨σ, -, K, -, hgω⟩
   exact hgω
 
-private theorem ffOptionCongr_eq_none_iff (σ : Equiv.Perm (Fin 5)) (i : Option (Fin 5)) :
-    Equiv.optionCongr σ i = none ↔ i = none := by
-  cases i <;> simp
 
 private theorem ffSymmDiff_erase (K : Finset (Option (Fin 5))) (σ : Equiv.Perm (Fin 5))
     (h : none ∈ K ↔ Equiv.Perm.sign σ = -1) :
@@ -171,20 +152,5 @@ theorem ffP0p_card (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
     _ = 8 * 16 := by rw [ffD8p_card, ffB0p_card]
     _ = 2 ^ 7 := by norm_num
 
-theorem ffB0p_normal_ffP0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ((ffB0p fr).subgroupOf (ffP0p hQ fr)).Normal := by
-  refine ⟨fun n hn g => ?_⟩
-  rw [Subgroup.mem_subgroupOf] at hn
-  rw [Subgroup.mem_subgroupOf]
-  obtain ⟨J, hJn, hJ, hnJ⟩ := (mem_ffB0p_iff fr).mp hn
-  obtain ⟨σ, hσ, K, hgK, -⟩ := (mem_ffP0p_iff hQ fr).mp g.2
-  change (g : OGroup Q) * (n : OGroup Q) * (g : OGroup Q)⁻¹ ∈ ffB0p fr
-  rw [hnJ, hgK, ffMonoP_conj_signChange fr σ K J]
-  exact (mem_ffB0p_iff fr).mpr ⟨J.map (Equiv.optionCongr σ).toEmbedding,
-    by
-      rw [Finset.mem_map]
-      rintro ⟨i, hi, hσi⟩
-      exact hJn ((ffOptionCongr_eq_none_iff σ i).mp hσi ▸ hi),
-    by rw [Finset.card_map]; exact hJ, rfl⟩
 
 end CFSG.OddStandard.SmallF3.Omega

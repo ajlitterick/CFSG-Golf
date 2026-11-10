@@ -51,15 +51,6 @@ theorem signalizer_restriction_properties [Finite GroupType]
       ((inf_le_inf_right _ inf_le_left).trans (balanced subgroup member other other_member))
       (inf_le_left.trans inf_le_right)
 
-theorem signalizer_restriction_mcBride [Finite GroupType]
-    (prime rank : ℕ) (actor ambient : Subgroup GroupType)
-    (values : Subgroup GroupType → Subgroup GroupType)
-    (hypothesis : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      signalizerMcBrideHypothesisB prime (values subgroup)) :
-    ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      signalizerMcBrideHypothesisB prime (signalizerRestriction values ambient subgroup) := by
-  intro subgroup member
-  exact mcBrideHypothesisB_of_le prime inf_le_left (hypothesis subgroup member)
 
 theorem signalizer_restriction_solvable
     (prime rank : ℕ) (actor ambient : Subgroup GroupType)
@@ -113,66 +104,5 @@ theorem signalizer_restriction_compatible_iff [Finite GroupType]
     exact (signalizer_restriction_compatible_of_le prime rank actor ambient target values
       contained).mpr compatible
 
-theorem signalizer_restriction_completion [Finite GroupType]
-    (prime rank : ℕ) (prime_prime : prime.Prime)
-    (actor ambient : Subgroup GroupType) (elementary : IsElemAbelian prime actor)
-    (large : prime ^ (rank + 1) ≤ Nat.card actor)
-    (values : Subgroup GroupType → Subgroup GroupType)
-    (coprime : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      Nat.Coprime prime (Nat.card (values subgroup)))
-    (normalized : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      actor ≤ Subgroup.normalizer (values subgroup : Set GroupType))
-    (ambient_normalized : actor ≤ Subgroup.normalizer (ambient : Set GroupType))
-    (bounds : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      (⨆ selected ∈ signalizerFunctorEk prime rank actor, values selected) ⊓
-        Subgroup.centralizer (subgroup : Set GroupType) ≤ values subgroup) :
-    (⨆ selected ∈ signalizerFunctorEk prime rank actor,
-      signalizerRestriction values ambient selected) =
-      (⨆ selected ∈ signalizerFunctorEk prime rank actor, values selected) ⊓ ambient := by
-  let completion := ⨆ selected ∈ signalizerFunctorEk prime rank actor, values selected
-  have compatible : signalizerCompatible prime rank actor values (completion ⊓ ambient) :=
-    signalizer_compatible_inf prime rank actor values completion ambient
-      ⟨signalizer_completion_normalized prime rank actor values normalized, bounds⟩
-      ambient_normalized
-  have restricted_compatible :=
-    (signalizer_restriction_compatible_of_le prime rank actor ambient
-      (completion ⊓ ambient) values inf_le_right).mpr compatible
-  apply le_antisymm
-  · apply iSup_le
-    intro selected
-    apply iSup_le
-    intro member
-    exact le_inf
-      (inf_le_left.trans (signalizer_value_le_completion prime rank actor values member))
-      inf_le_right
-  · exact signalizer_maximality prime rank prime_prime actor elementary large
-      (signalizerRestriction values ambient)
-      (fun subgroup member =>
-        (coprime subgroup member).of_dvd_right (Subgroup.card_dvd_of_le inf_le_left))
-      (completion ⊓ ambient) restricted_compatible.1 restricted_compatible.2
-
-theorem signalizer_restriction_completion_bounds [Finite GroupType]
-    (prime rank : ℕ) (prime_prime : prime.Prime)
-    (actor ambient : Subgroup GroupType) (elementary : IsElemAbelian prime actor)
-    (large : prime ^ (rank + 1) ≤ Nat.card actor)
-    (values : Subgroup GroupType → Subgroup GroupType)
-    (coprime : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      Nat.Coprime prime (Nat.card (values subgroup)))
-    (normalized : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      actor ≤ Subgroup.normalizer (values subgroup : Set GroupType))
-    (ambient_normalized : actor ≤ Subgroup.normalizer (ambient : Set GroupType))
-    (bounds : ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      (⨆ selected ∈ signalizerFunctorEk prime rank actor, values selected) ⊓
-        Subgroup.centralizer (subgroup : Set GroupType) ≤ values subgroup) :
-    ∀ subgroup ∈ signalizerFunctorEk prime rank actor,
-      (⨆ selected ∈ signalizerFunctorEk prime rank actor,
-        signalizerRestriction values ambient selected) ⊓
-          Subgroup.centralizer (subgroup : Set GroupType) ≤
-            signalizerRestriction values ambient subgroup := by
-  rw [signalizer_restriction_completion prime rank prime_prime actor ambient elementary
-    large values coprime normalized ambient_normalized bounds]
-  intro subgroup member
-  exact le_inf ((inf_le_inf_right _ inf_le_left).trans (bounds subgroup member))
-    (inf_le_left.trans inf_le_right)
 
 end CFSG.SignalizerFunctor.Helpers

@@ -971,16 +971,6 @@ theorem stage_two {p : ℕ} (hc : S3Ctx G p) (hI18 : Input18_3_4) (h1135 : I1135
 
 end S3
 
-theorem i321_holds :
-    ∀ (G : Type) [Group G] [Finite G] (R J : Subgroup G), IsPGroup 2 R → (⁅J, J⁆ : Subgroup G) = J →
-      J ≤ Subgroup.normalizer (R : Set G) → (⁅(⁅R, J⁆ : Subgroup G), J⁆ : Subgroup G) = ⁅R, J⁆ :=
-  fun _ _ _ _ _ hR hJ hJR => S3.i321 hR hJ hJR
-
-theorem i68_holds (p : ℕ) :
-    p.Prime → p ≠ 2 → ∀ X J : Subgroup G, GLAPComponent p X J →
-      ∀ P : Sylow p (PQuot p J), ∃ x ∈ (P : Subgroup (PQuot p J)), x ^ p = 1 ∧
-        x ∉ Subgroup.center (PQuot p J) := fun hp hp2 _ _ hJ P =>
-  S3.exists_order_p_not_central hp hp2 hJ P
 
 theorem lemma36 {p : ℕ} (hc : S3Ctx G p) (hI18 : Input18_3_4) (h1135 : I1135At G p)
     (hCl : ChevClosureAt G p) (hUn : ChevUniqueAt G p) (hInn : ChevInnerAt G p)

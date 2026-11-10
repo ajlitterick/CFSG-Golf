@@ -128,20 +128,6 @@ variable (B : LinearMap.BilinForm (ZMod 2) V) (Γ : Subgroup (GLV V)) (v₁ : V)
           I = commSpace L ⊤ ∧ IsA5Module L I ∧ conjSub x I = fixedSpace L)) ∧
     (¬ AutAll (normalClosure Γ L) I ∨ Module.finrank (ZMod 2) I = 4)
 
-@[expose] def G1016Concl : Prop :=
-  ∀ a ∈ X, a ≠ 1 → Module.finrank (ZMod 2) (LinearMap.range (a.toLinearMap - LinearMap.id)) ≤ 2 →
-    (∃ h ∈ normalClosure Γ L, a * h ≠ h * a) ∧
-    (∀ I : Submodule (ZMod 2) V, IrrPlus (normalClosure Γ L) I → conjSub a I = I) ∧
-    (normalClosure Γ L ≤ normalClosure Γ (Subgroup.zpowers a) ∧
-      ∀ I : Submodule (ZMod 2) V, IrrPlus (normalClosure Γ L) I ↔
-        IrrPlus (normalClosure Γ (Subgroup.zpowers a)) I) ∧
-    (IsIrr (normalClosure Γ L) ⊤ ∨
-      ∃ I₁ I₂ : Submodule (ZMod 2) V, IsCompl I₁ I₂ ∧
-        Invariant (normalClosure Γ L ⊔ Subgroup.zpowers a) I₁ ∧
-        Invariant (normalClosure Γ L ⊔ Subgroup.zpowers a) I₂ ∧
-        (HIso (normalClosure Γ L ⊔ Subgroup.zpowers a) I₁ I₂ ∨
-          (Module.finrank (ZMod 2) I₁ = 4 ∧ AutAll (normalClosure Γ L) I₁)) ∧
-        (∃ c₁ : V, InducesTransvection a I₁ c₁) ∧ (∃ c₂ : V, InducesTransvection a I₂ c₂))
 
 @[expose] def G1007Stmt : Prop :=
   ∀ (V : Type) [AddCommGroup V] [Module (ZMod 2) V] [Finite V]

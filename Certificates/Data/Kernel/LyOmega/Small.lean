@@ -87,10 +87,6 @@ structure SConsts where
       (fun s ih => bAnd(Nat.beq (sBlk C (sGather KX PT n b s false) (pickL Ks s))
         (sGather KX PT n b s true), ih)) m)
 
-@[expose] noncomputable def sRange (C : SConsts) (KX PT : Nat → Nat) (Ks : List Nat) (m n b₀ c : Nat) :
-    Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun j ih => bAnd(sLeaf C KX PT Ks m n (Nat.add b₀ j), ih)) c
 
 @[expose] noncomputable def sSort (KX SG : Nat → Nat) (n k₀ c : Nat) : Bool :=
   allBelow c (Nat.add (Nat.shiftRight c (nat_lit 6)) (nat_lit 1)) (fun j =>

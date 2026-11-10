@@ -155,8 +155,6 @@ theorem admits_A_N : Admits A N := (A_le_H R D A).trans H.H_le_N
 theorem cent_normalizes_N {g : Γ} (hg : g ∈ A ⊔ R) : g ∈ Subgroup.normalizer (N : Set Γ) :=
   (mem_sectionCentralizer_iff.mp (Subgroup.mem_inf.mp (H.cent hg)).2).1
 
-theorem cent_normalizes_L {g : Γ} (hg : g ∈ A ⊔ R) : g ∈ Subgroup.normalizer (L : Set Γ) :=
-  (mem_sectionCentralizer_iff.mp (Subgroup.mem_inf.mp (H.cent hg)).2).2.1
 
 theorem cent_comm {g : Γ} (hg : g ∈ A ⊔ R) {y : Γ} (hy : y ∈ L) : ⁅g, y⁆ ∈ N :=
   (mem_sectionCentralizer_iff.mp (Subgroup.mem_inf.mp (H.cent hg)).2).2.2 y hy

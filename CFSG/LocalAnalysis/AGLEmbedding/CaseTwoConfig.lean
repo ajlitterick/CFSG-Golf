@@ -49,13 +49,6 @@ theorem D1CaseTwoData.nclIn_nclIn (hd : D1CaseTwoData p P M H R Rbar) :
     nclIn (nclIn H (d1LayerX p H R)) (d1LayerX p H R) = nclIn H (d1LayerX p H R) :=
   hd.toAt.nclIn_nclIn
 
-theorem D1CaseTwoData.d1LayerX_le_nclIn (hβ : KFactBeta) (hS : KFactSeitzCyc)
-    (hKL : KFactCaseTwoLocal) (h84 : Asc81bEightFour) (hD2 : D1NoXBlock)
-    (hd : D1CaseTwoData p P M H R Rbar)
-    (hmeet : ∀ L : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf L ⊤ →
-      d1MapPCore p M H ⊓ ((Rbar : Subgroup (H ⧸ primeComplementCore (G := H) p)) ⊓ L) ≠ ⊥) :
-    d1LayerX p H R ≤ nclIn H (pCorePreimage p M ⊓ d1LayerX p H R) :=
-  hd.toAt.d1LayerX_le_nclIn (kFactCycAut_of_kFactBeta hβ) hS hKL h84 hD2 hmeet
 
 end Data
 

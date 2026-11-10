@@ -22,8 +22,6 @@ omit [Finite X] in
 theorem E_le_R1 (H : Hyp156 M n L D K J Mo V U Y) : Mo ⊔ U ≤ R1 V Mo U :=
   le_inf H.E_le_V le_normalizer
 
-omit [Finite X] in
-theorem R1_le_V : R1 V Mo U ≤ V := inf_le_left
 
 omit [Finite X] in
 theorem K_conj_V (H : Hyp156 M n L D K J Mo V U Y) {k : X} (hk : k ∈ K) {x : X} (hx : x ∈ V) :
@@ -101,8 +99,6 @@ theorem odd_orderOf_K (H : Hyp156 M n L D K J Mo V U Y) {k : X} (hk : k ∈ K) :
   rw [Subgroup.orderOf_mk] at this
   exact Odd.of_dvd_nat H.F.odd_card_K this
 
-omit [Finite X] in
-theorem pow_mem_K {k : X} (hk : k ∈ K) (e : ℕ) : k ^ e ∈ K := pow_mem hk e
 
 theorem free_R1 (H : Hyp156 M n L D K J Mo V U Y) {k : X} (hk : k ∈ K) (hk1 : k ≠ 1) {x : X}
     (hx : x ∈ R1 V Mo U) (hxk : x⁻¹ * (k * x * k⁻¹) ∈ Mo ⊔ U) : x ∈ Mo ⊔ U := by

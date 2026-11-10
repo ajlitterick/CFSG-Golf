@@ -97,7 +97,6 @@ theorem stK_cases (t m : Nat) : stK t m = if t < m then m else if t = m then m +
     · rw [h2, Nat.beq_refl, iteT rfl, iteT rfl]
     · rw [beq_false h2, iteF Bool.false_ne_true, iteF h2]
 
-theorem BAD_eq : BAD = 2 ^ 19 := rfl
 
 theorem stK_step {E : Nat → Nat → Nat} {i j m : Nat} (ht : E i j < BAD) (hm : m ≤ BAD) :
     stK (E i j) m ≤ BAD ∧ (stK (E i j) m < BAD → rStep E i (some m) j = some (stK (E i j) m)) ∧

@@ -17,10 +17,6 @@ variable (σ) in
 
 variable (hσ : ∀ c, σ (σ c) = c)
 
-omit [Field F] in
-theorem ite_mul_ite_eq {M : Type*} [Monoid M] (p : Prop) [Decidable p] (a b x y : M) :
-    (if p then a else x) * (if p then b else y) = if p then a * b else x * y := by
-  split_ifs <;> rfl
 
 theorem tFun_one (k : Fin (n / 2)) : tFun σ k 1 = 1 := by
   funext s

@@ -64,7 +64,5 @@ namespace CFSG.EvenSporadicStandard.HNRecog.HaradaModel
   [
     [1, 3, 41, 65], [133, 153, 156, 675]]
 
-@[expose] def e64Conj : List (List ℕ) :=
-  [[], [2, 7, 1, 7, 3, 4, 3, 2, 6]]
 
 end CFSG.EvenSporadicStandard.HNRecog.HaradaModel

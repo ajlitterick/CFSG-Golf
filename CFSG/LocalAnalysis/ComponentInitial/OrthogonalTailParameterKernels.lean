@@ -124,9 +124,6 @@ theorem hypEntry_uMap (i j : Fin r) (L : Fin r → A) (C : Matrix (Fin r) (Fin r
   have h : uMap qA L C = dMap 1 1 * uMap qA L C := by rw [dMap_one_one, one_mul]
   rw [h, hypEntry_dMap_uMap, Units.val_one, one_apply]
 
-theorem hypEntry_prodHom (i j : Fin r) (b : (Fin r ⊕ Fin r → K) ≃ₗ[K] (Fin r ⊕ Fin r → K)) :
-    hypEntry K A i j (prodHom A b) = b (Pi.single (.inl j) 1) (.inl i) :=
-  rfl
 
 theorem eichler_inl_apply_hypVec_inl {a j : Fin r} {w : (Fin r ⊕ Fin r → K) × A}
     (hw : polar (quadTail r qA) (hypVec K A (.inl a)) w = 0) :

@@ -23,11 +23,5 @@ theorem complex_irreducible_commuting_scalar {G V : Type*} [Group G] [AddCommGro
   rw [LinearMap.smul_apply, LinearMap.id_apply]
   exact h.symm
 
-theorem abelian_irreducible_character_linear {H : Type} [CommGroup H] (θ : H → ℂ)
-    (hθ : θ ∈ BlocksIrr H) : θ 1 = 1 := by
-  obtain ⟨V, _, _, _, ρ, hirr, rfl⟩ := hθ
-  have : IsMulCommutative H := ⟨⟨mul_comm⟩⟩
-  have hdim := Representation.IsIrreducible.finrank_eq_one_of_isMulCommutative ρ
-  rw [Representation.char_one, hdim, Nat.cast_one]
 
 end CFSG.OddOrderBasics

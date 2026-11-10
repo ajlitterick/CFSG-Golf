@@ -18,24 +18,6 @@ open CFSG.Assembly CFSG.RankThree.LocalRank CFSG.RankThree.GroupTheory
         (Outcome152Five p E A (lieGenerated p E) ∧ B = A)) →
       ∀ M ∈ CFSG.maximalTwoLocalsContaining (B : Set G), M ≤ lieNormalizer p E
 
-@[expose] def Node1514 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
-    Sec15Hyp G p A c L E → Sec12Facts G p A c L E → Outcome152 p E A (lieGenerated p E) →
-    ∃ T : Subgroup G, IsSylowOf 2 T (lieNormalizer p E) ∧
-      (E = A → ∃ n ∈ lieNormalizer p E, ∃ B₁ : Subgroup G, B₁ ≤ A ∧
-        B₁.map (MulAut.conj n).toMonoidHom ≤
-          (lieGenerated p E ⊔ E) ⊓ Subgroup.normalizer (pushingUpS T : Set G) ∧
-        Nat.card A ≤ p * Nat.card B₁) ∧
-      (E = A →
-        ∃ n ∈ lieNormalizer p E, ∃ B₂ : Subgroup G, B₂ ≤ A ∧
-        B₂.map (MulAut.conj n).toMonoidHom ≤
-          (lieGenerated p E ⊔ E) ⊓ Subgroup.centralizer (omegaOneCenterIn T : Set G) ∧
-        Nat.card A ≤ p * Nat.card B₂) ∧
-      (Outcome152Five p E A (lieGenerated p E) →
-        A ≤ (lieGenerated p E ⊔ E) ⊓ Subgroup.centralizer (omegaOneCenterIn T : Set G) ∧
-        ∃ B : Subgroup G, B ≤ E ∧
-          B ≤ (lieGenerated p E ⊔ E) ⊓ Subgroup.normalizer (pushingUpS T : Set G) ∧
-          IsElementaryAbelian p B ∧ Nat.card B = p ^ 2)
 
 @[expose] def Node1514' : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
@@ -68,9 +50,6 @@ open CFSG.Assembly CFSG.RankThree.LocalRank CFSG.RankThree.GroupTheory
         (((lieGenerated p E ⊔ E) ⊓ Subgroup.normalizer (pushingUpS T : Set G) : Subgroup G) :
           Set G), M ≤ lieNormalizer p E
 
-theorem maximalTwoLocalsContaining_mono {G : Type} [Group G] {B X : Set G} (h : B ⊆ X) :
-    CFSG.maximalTwoLocalsContaining X ⊆ CFSG.maximalTwoLocalsContaining B :=
-  fun _ hM => ⟨hM.1, fun _ hx => hM.2 (h hx)⟩
 
 theorem le_of_conj_maximalTwoLocals {G : Type} [Group G] {B X N M : Subgroup G} {n : G}
     (hnN : n ∈ N) (hBX : B.map (MulAut.conj n).toMonoidHom ≤ X)
@@ -98,29 +77,6 @@ theorem Outcome152.five_of_ne {G : Type} [Group G] {p : ℕ} {E A I : Subgroup G
   · exact absurd hEA hAE
   · exact h
 
-theorem node1515_of_items (h122 : Node122) (h122b : Node122b) (h123 : Node123) (h124 : Node124)
-    (h125 : Node125) (h1511 : Node1511) (h1514 : Node1514)
-    (h15u5 : Node1515U5) : Node1515 := by
-  intro G _ _ p A c L E h15 hout
-  have hF12 := Sec12Facts.of_nodes h122 h122b h123 h124 h125 h15.h12
-  obtain ⟨T, hT, hX, hY, h5⟩ := h1514 G p A c L E h15 hF12 hout
-  refine ⟨T, hT, ?_, ?_⟩
-  · intro M hM
-    by_cases hAE : E = A
-    · obtain ⟨n, hn, B₁, hB₁A, hB₁X, hB₁c⟩ := hX hAE
-      exact le_of_conj_maximalTwoLocals hn hB₁X hM
-        (h1511 G p A c L E h15 hF12 hout B₁ hB₁A (Or.inl ⟨hAE, hB₁c⟩))
-    · have hfive : Outcome152Five p E A (lieGenerated p E) := hout.five_of_ne hAE
-      obtain ⟨hAY, hB⟩ := h5 hfive
-      exact h15u5 G p A c L E h15 hF12 hfive T hT hAY hB M hM
-  · intro M hM
-    by_cases hAE : E = A
-    · obtain ⟨n, hn, B₂, hB₂A, hB₂Y, hB₂c⟩ := hY hAE
-      exact le_of_conj_maximalTwoLocals hn hB₂Y hM
-        (h1511 G p A c L E h15 hF12 hout B₂ hB₂A (Or.inl ⟨hAE, hB₂c⟩))
-    · have hfive : Outcome152Five p E A (lieGenerated p E) := hout.five_of_ne hAE
-      exact h1511 G p A c L E h15 hF12 hout A le_rfl (Or.inr ⟨hfive, rfl⟩) M
-        (maximalTwoLocalsContaining_mono (fun x hx => (h5 hfive).1 hx) hM)
 
 theorem centralizer_singleton_le_normalizer_zpowers_aux {G : Type} [Group G] (x : G) :
     Subgroup.centralizer ({x} : Set G) ≤ Subgroup.normalizer (Subgroup.zpowers x : Set G) := by

@@ -63,13 +63,5 @@ theorem exists_induced_mulAut {K Q : Type*} [Group K] [Group Q] (α : K →* Q)
     exact ⟨α k, hf k⟩
   exact ⟨MulEquiv.ofBijective f ⟨hinj, hsurj⟩, fun k => hf k⟩
 
-theorem exists_hom_induced {K Q Γ : Type*} [Group K] [Group Q] [Group Γ] (α : K →* Q)
-    (hα : Function.Surjective α) (ι : Γ →* MulAut K) (hι : ∀ γ k, α (ι γ k) = 1 ↔ α k = 1) :
-    ∃ ρ : Γ →* MulAut Q, ∀ γ k, ρ γ (α k) = α (ι γ k) := by
-  choose ρ₀ hρ₀ using fun γ => exists_induced_mulAut α hα (ι γ) (hι γ)
-  refine ⟨MonoidHom.mk' ρ₀ fun γ γ' => ?_, hρ₀⟩
-  ext q
-  obtain ⟨k, rfl⟩ := hα q
-  rw [MulAut.mul_apply, hρ₀, hρ₀, hρ₀, map_mul, MulAut.mul_apply]
 
 end CFSG.ASVolI.AppH

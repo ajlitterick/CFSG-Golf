@@ -37,7 +37,6 @@ theorem pw_one : pw σ (1 : K) = 1 := by simp [pw]
 
 theorem pw_neg (x : K) : pw σ (-x) = -pw σ x := by simp [pw]
 
-theorem pw_mul (x y : K) : pw σ (x * y) = pw σ x * pw σ y := by simp [pw]; ring
 
 theorem pw_inv (x : K) : pw σ x⁻¹ = (pw σ x)⁻¹ := by simp [pw, mul_comm]
 

@@ -303,9 +303,6 @@ theorem lemma_12_8_4_two (h : Hyp1281Two G T M L) {H : Subgroup G} (hH : IsHz T 
         (tildeOf (quasithinOmegaOneCenter T) (conjClosure (VZ T M) H)) :=
   ⟨(h.almostSpecialHyp hH).G22_one.2, (h.almostSpecialHyp hH).G22_four⟩
 
-theorem lemma_12_8_4_three (h : Hyp1281Two G T M L) {H : Subgroup G} (hH : IsHz T M L H) :
-    frattiniOf (conjClosure (VZ T M) H) ≤ quasithinOmegaOneCenter T :=
-  (h.almostSpecialHyp hH).G22_two
 
 end Hyp1281Two
 

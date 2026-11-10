@@ -102,15 +102,6 @@ theorem mem_coreActionKernel_of_sup {T K : Subgroup G} {d : G} (hTK : T ≤ K)
   rw [show (t * o)⁻¹ * d⁻¹ * (t * o) * d = o⁻¹ * (t⁻¹ * d⁻¹ * t * d) * (d⁻¹ * o * d) by group]
   exact mul_mem (mul_mem (inv_mem ho) h1) h2
 
-theorem mem_coreActionKernel_iff_of_common_odd_cover {D L K : Subgroup G} {d : G}
-    (hDL : D ≤ L) (hDK : D ≤ K) (hsupL : D ⊔ oddCoreIn L = L)
-    (hsupK : D ⊔ oddCoreIn K = K) (hdL : d ∈ normalizer (L : Set G))
-    (hdK : d ∈ normalizer (K : Set G)) (hdD : d ∈ normalizer (D : Set G)) :
-    d ∈ coreActionKernel L ↔ d ∈ coreActionKernel K :=
-  ⟨fun hd => mem_coreActionKernel_of_sup hDK hsupK hdK
-      (mem_coreActionKernel_of_le hDL hdD hd),
-    fun hd => mem_coreActionKernel_of_sup hDL hsupL hdL
-      (mem_coreActionKernel_of_le hDK hdD hd)⟩
 
 theorem mem_coreActionKernel_of_sup_conjugate {J J' T : Subgroup G} {d : G}
     (hJ'J : J' ≤ normalizer (J : Set G)) (hJJ' : J ≤ normalizer (J' : Set G))

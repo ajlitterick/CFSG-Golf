@@ -67,397 +67,9 @@ open scoped commutatorElement
 
 section BurnsideB5b2
 
-private theorem burnsideB5b_eq_top_of_sup_le_frattini {H : Type*} [Group H] [Finite H] {A K :
-    Subgroup H}
-    (hK : K ≤ frattini H) (h : A ⊔ K = ⊤) : A = ⊤ :=
-  frattini_nongenerating (top_le_iff.mp (h ▸ sup_le_sup_left hK A))
-
-private theorem burnsideB5b_nilpotent_comap_of_ker_le_frattini {H Q : Type*} [Group H] [Finite H]
-    [Group Q] (ψ : H →* Q) (hψ : Function.Surjective ψ) (hker : ψ.ker ≤ frattini H)
-    {F : Subgroup Q} [F.Normal] (hF : Group.IsNilpotent ↥F) :
-    Group.IsNilpotent ↥(F.comap ψ) := by
-  classical
-  haveI := hF
-  haveI : Finite Q := Finite.of_surjective ψ hψ
-  set M := F.comap ψ with hM
-  have hMn : M.Normal := Subgroup.Normal.comap inferInstance ψ
-  refine ((Group.isNilpotent_of_finite_tfae (G := ↥M)).out 1 4).mpr ?_
-  intro p hp P
-  let f : ↥M →* ↥F :=
-    { toFun := fun x => ⟨ψ x, x.2⟩
-      map_one' := Subtype.ext (by simp)
-      map_mul' := fun a b => Subtype.ext (by simp) }
-  have hf : Function.Surjective f := by
-    intro y
-    obtain ⟨h, hh⟩ := hψ y
-    refine ⟨⟨h, ?_⟩, ?_⟩
-    · rw [hM, Subgroup.mem_comap, hh]; exact y.2
-    · apply Subtype.ext
-      simpa [f] using hh
-  have hPbar : (P.mapSurjective hf : Subgroup ↥F).Normal :=
-    ((Group.isNilpotent_of_finite_tfae (G := ↥F)).out 1 4 rfl rfl).mp hF p hp (P.mapSurjective hf)
-  have hN₂ : ((P : Subgroup ↥M).map f).comap f |>.Normal := by
-    rw [← Sylow.coe_mapSurjective hf P]
-    exact Subgroup.Normal.comap hPbar f
-  have hPN₂ : (P : Subgroup ↥M) ≤ ((P : Subgroup ↥M).map f).comap f := Subgroup.le_comap_map f _
-  haveI := hN₂
-  have h1 := Sylow.normalizer_sup_eq_top' P hPN₂
-  have h1' := Sylow.normalizer_sup_eq_top P
-  have h2 : Subgroup.normalizer (P : Set ↥M) ⊔ f.ker = ⊤ := by
-    have hle : ((P : Subgroup ↥M).map f).comap f ≤ Subgroup.normalizer (P : Set ↥M) ⊔ f.ker := by
-      rw [Subgroup.comap_map_eq]
-      exact sup_le (le_sup_of_le_left Subgroup.le_normalizer) le_sup_right
-    exact top_le_iff.mp (h1 ▸ sup_le le_sup_left hle)
-  have h3 : Subgroup.normalizer (((P : Subgroup ↥M).map M.subtype : Subgroup H) : Set H) ⊔
-      ψ.ker = ⊤ := by
-    refine top_le_iff.mp fun h _ => ?_
-    have hmem : h ∈ Subgroup.normalizer (((P : Subgroup ↥M).map M.subtype : Subgroup H) : Set H) ⊔
-        M := by
-      rw [h1']
-      exact Subgroup.mem_top h
-    obtain ⟨n, hn, m, hm, hnm⟩ := Subgroup.mem_sup_of_normal_right.mp hmem
-    have hmem2 : (⟨m, hm⟩ : ↥M) ∈ Subgroup.normalizer (P : Set ↥M) ⊔ f.ker := by
-      rw [h2]
-      exact Subgroup.mem_top _
-    obtain ⟨a, ha, k, hk, hak⟩ := Subgroup.mem_sup_of_normal_right.mp hmem2
-    have hkψ : (k : H) ∈ ψ.ker := by
-      have := congrArg Subtype.val (MonoidHom.mem_ker.mp hk)
-      simpa [f] using this
-    have haN : (a : H) ∈ Subgroup.normalizer
-        (((P : Subgroup ↥M).map M.subtype : Subgroup H) : Set H) :=
-      Subgroup.le_normalizer_map M.subtype (Subgroup.mem_map_of_mem _ ha)
-    have hh : h = (n * a) * k := by
-      rw [← hnm, mul_assoc]
-      congr 1
-      exact (congrArg Subtype.val hak).symm
-    rw [hh]
-    exact Subgroup.mul_mem_sup (mul_mem hn haN) hkψ
-  have h4 := burnsideB5b_eq_top_of_sup_le_frattini hker h3
-  have hP'n : ((P : Subgroup ↥M).map M.subtype).Normal := Subgroup.normalizer_eq_top_iff.mp h4
-  exact hP'n.of_map_subtype
-
-private theorem burnsideB5b_odd_card_map_mk {H : Type*} [Group H] [Finite H] (K : Subgroup H)
-    [K.Normal]
-    [Group.IsNilpotent K] :
-    Odd (Nat.card ↥(K.map (QuotientGroup.mk' (K ⊓ CFSG.pCore 2 H)))) := by
-  classical
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  by_contra hodd
-  rw [Nat.not_odd_iff_even, even_iff_two_dvd] at hodd
-  obtain ⟨z, hz⟩ := exists_prime_orderOf_dvd_card' 2 hodd
-  obtain ⟨x, hx, hxz⟩ := z.2
-  have hz2 : (z : H ⧸ (K ⊓ CFSG.pCore 2 H)) ^ 2 = 1 := by
-    have := pow_orderOf_eq_one z
-    rw [hz] at this
-    exact congrArg Subtype.val this
-  have hz1 : (z : H ⧸ (K ⊓ CFSG.pCore 2 H)) ≠ 1 := by
-    intro h
-    have : z = 1 := Subtype.ext h
-    rw [this, orderOf_one] at hz
-    exact absurd hz (by norm_num)
-  have hxP : x ∉ K ⊓ CFSG.pCore 2 H := by
-    intro h
-    apply hz1
-    rw [← hxz]
-    exact (QuotientGroup.eq_one_iff x).2 h
-  have hx2 : x ^ 2 ∈ K ⊓ CFSG.pCore 2 H := by
-    have h1 : (QuotientGroup.mk' (K ⊓ CFSG.pCore 2 H)) (x ^ 2) = 1 := by
-      rw [map_pow, hxz, hz2]
-    exact (QuotientGroup.eq_one_iff (x ^ 2)).1 h1
-  have hP2 : IsPGroup 2 ↥(CFSG.pCore 2 H) := CFSG.pCore_isPGroup
-  obtain ⟨k, hk⟩ := (IsPGroup.iff_orderOf.1 hP2) ⟨x ^ 2, hx2.2⟩
-  rw [Subgroup.orderOf_mk] at hk
-  set y : ↥K := ⟨x, hx⟩ with hy
-  have hyx : orderOf y = orderOf x := Subgroup.orderOf_mk x hx
-  have hdvd : orderOf x ∣ 2 ^ (k + 1) := by
-    apply orderOf_dvd_of_pow_eq_one
-    have := pow_orderOf_eq_one (x ^ 2)
-    rw [hk, ← pow_mul] at this
-    rw [pow_succ, mul_comm]
-    exact this
-  obtain ⟨m, -, hm⟩ := (Nat.dvd_prime_pow Nat.prime_two).1 hdvd
-  have hZ : IsPGroup 2 ↥(Subgroup.zpowers y) :=
-    IsPGroup.of_card (n := m) (by rw [Nat.card_zpowers, hyx, hm])
-  obtain ⟨T, hT⟩ := hZ.exists_le_sylow
-  have hTc := Sylow.characteristic_of_normal T inferInstance
-  have hle : (T : Subgroup ↥K).map K.subtype ≤ CFSG.pCore 2 H :=
-    le_sSup ⟨inferInstance, T.isPGroup'.map _⟩
-  have hxT : x ∈ (T : Subgroup ↥K).map K.subtype :=
-    Subgroup.mem_map_of_mem K.subtype (hT (Subgroup.mem_zpowers y))
-  exact hxP ⟨hx, hle hxT⟩
-
-private theorem burnsideB5b_ker_le_frattini {T Q : Type*} [Group T] [Group Q] (ψ : T →* Q)
-    (hψ : Function.Surjective ψ) (hmin : ∀ H : Subgroup T, H.map ψ = ⊤ → H = ⊤) :
-    ψ.ker ≤ frattini T := by
-  refine le_iInf₂ fun H hH => ?_
-  have hH' : IsCoatom H := hH
-  by_contra hKH
-  have hsup : H ⊔ ψ.ker = ⊤ := hH'.2 _ (left_lt_sup.mpr hKH)
-  refine hH'.1 (hmin H (eq_top_iff.mpr fun q _ => ?_))
-  obtain ⟨t, rfl⟩ := hψ q
-  have ht : t ∈ H ⊔ ψ.ker := hsup ▸ Subgroup.mem_top t
-  rw [← Subgroup.comap_map_eq] at ht
-  exact ht
-
-private theorem burnsideB5b_exists_cover {G : Type} [Group G] [Finite G]
-    (hG : CFSG.Quasithin.IsQuotientOfSQTK G) :
-    ∃ (Gh : Type) (_ : Group Gh) (_ : Finite Gh) (α : Gh →* G), Function.Surjective α ∧
-      CFSG.SectionRank.IsSQTKCat Gh ∧ Group.IsNilpotent ↥α.ker ∧ Odd (Nat.card ↥α.ker) ∧
-      Group.IsNilpotent ↥((CFSG.fittingSubgroup G).comap α) := by
-  classical
-  obtain ⟨S, _, _, hS, φ₀, hφ₀⟩ := hG
-  obtain ⟨S₁, hS₁⟩ := (Set.toFinite {H : Subgroup S | H.map φ₀ = ⊤}).exists_minimal
-    ⟨⊤, Subgroup.map_top_of_surjective φ₀ hφ₀⟩
-  set ψ : ↥S₁ →* G := φ₀.comp S₁.subtype with hψdef
-  have hψ : Function.Surjective ψ := by
-    intro q
-    have hq : q ∈ S₁.map φ₀ := by rw [hS₁.prop]; exact Subgroup.mem_top q
-    obtain ⟨s, hs, rfl⟩ := hq
-    exact ⟨⟨s, hs⟩, rfl⟩
-  have hmin : ∀ H : Subgroup ↥S₁, H.map ψ = ⊤ → H = ⊤ := by
-    intro H hH
-    have h1 : (H.map S₁.subtype).map φ₀ = ⊤ := by rw [Subgroup.map_map]; exact hH
-    have h2 : H.map S₁.subtype = S₁ := hS₁.eq_of_le h1 (Subgroup.map_subtype_le H)
-    refine Subgroup.map_injective S₁.subtype_injective ?_
-    rw [h2, ← MonoidHom.range_eq_map, Subgroup.range_subtype]
-  have hfr : ψ.ker ≤ frattini ↥S₁ := burnsideB5b_ker_le_frattini ψ hψ hmin
-  have hKnil : Group.IsNilpotent ↥ψ.ker := by
-    have : Group.IsNilpotent ↥(frattini ↥S₁) := frattini_nilpotent
-    exact Group.nilpotent_of_mulEquiv (Subgroup.subgroupOfEquivOfLe hfr)
-  haveI : ψ.ker.Normal := MonoidHom.normal_ker ψ
-  haveI := hKnil
-  set P := ψ.ker ⊓ CFSG.pCore 2 ↥S₁ with hP
-  have hPK : P ≤ ψ.ker := inf_le_left
-  have hP2 : IsPGroup 2 ↥P := (CFSG.pCore_isPGroup (p := 2) (G := ↥S₁)).to_le inf_le_right
-  let α : (↥S₁ ⧸ P) →* G := QuotientGroup.lift P ψ hPK
-  have hα : Function.Surjective α := by
-    intro q
-    obtain ⟨s, rfl⟩ := hψ q
-    exact ⟨QuotientGroup.mk s, rfl⟩
-  have hαker : α.ker = ψ.ker.map (QuotientGroup.mk' P) := QuotientGroup.ker_lift P ψ hPK
-  refine ⟨↥S₁ ⧸ P, inferInstance, inferInstance, α, hα, ?_, ?_, ?_, ?_⟩
-  · exact ⟨(CFSG.SectionRank.isStronglyQuasithin_quotient_two_group_iff P hP2).2
-      (hS.subgroup S₁).1, (hS.subgroup S₁).2.quotient P⟩
-  · rw [hαker]
-    exact Group.nilpotent_of_surjective ((QuotientGroup.mk' P).subgroupMap ψ.ker)
-      (MonoidHom.subgroupMap_surjective _ _)
-  · rw [hαker]
-    exact burnsideB5b_odd_card_map_mk ψ.ker
-  · have hF : Group.IsNilpotent ↥((CFSG.fittingSubgroup G).comap ψ) :=
-      burnsideB5b_nilpotent_comap_of_ker_le_frattini ψ hψ hfr (inferInstance)
-    have hψα : ψ = α.comp (QuotientGroup.mk' P) := by ext x; rfl
-    have hcomap : ((CFSG.fittingSubgroup G).comap ψ).map (QuotientGroup.mk' P) =
-        (CFSG.fittingSubgroup G).comap α := by
-      have h1 : (CFSG.fittingSubgroup G).comap ψ =
-          ((CFSG.fittingSubgroup G).comap α).comap (QuotientGroup.mk' P) := by
-        rw [Subgroup.comap_comap]
-        exact congrArg (fun f : ↥S₁ →* G => (CFSG.fittingSubgroup G).comap f) hψα
-      rw [h1, Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective P)]
-    rw [← hcomap]
-    exact Group.nilpotent_of_surjective
-      ((QuotientGroup.mk' P).subgroupMap ((CFSG.fittingSubgroup G).comap ψ))
-      (MonoidHom.subgroupMap_surjective _ _)
-
-private theorem burnsideB5b_component_mod_fitting {G : Type} [Group G] [Finite G] {L : Subgroup G}
-    (hL : CFSG.IsComponent L) :
-    (∀ x ∈ L ⊓ CFSG.fittingSubgroup G, ∀ l ∈ L, x * l = l * x) ∧
-      IsSimpleGroup ↥(L.map (QuotientGroup.mk' (CFSG.fittingSubgroup G))) ∧
-      ∃ a b : ↥(L.map (QuotientGroup.mk' (CFSG.fittingSubgroup G))), a * b ≠ b * a := by
-  classical
-  set F := CFSG.fittingSubgroup G with hF
-  have hLle : L ≤ CFSG.layer G := CFSG.LocalCores.component_le_layer hL
-  have ha : ∀ x ∈ L ⊓ F, ∀ l ∈ L, x * l = l * x := by
-    intro x hx l hl
-    have h1 : F ≤ Subgroup.centralizer (CFSG.layer G : Set G) :=
-      Subgroup.commutator_eq_bot_iff_le_centralizer.mp
-        (CFSG.LocalCores.fitting_layer_commute (G := G))
-    exact (Subgroup.mem_centralizer_iff.mp (h1 hx.2) l (hLle hl)).symm
-  have hb : ∀ x ∈ L, (∀ l ∈ L, l * x = x * l) → x ∈ F := by
-    intro x hx hcen
-    have hxc : x ∈ Subgroup.centralizer (CFSG.layer G : Set G) :=
-      CFSG.WholeGroup.mem_centralizer_layer_of_mem_component hL hx hcen
-    refine CFSG.WholeGroup.center_layer_le_fittingSubgroup ⟨⟨x, hLle hx⟩, ?_, rfl⟩
-    refine Subgroup.mem_center_iff.mpr fun g => ?_
-    exact Subtype.ext (Subgroup.mem_centralizer_iff.mp hxc (g : G) g.2)
-  let π : G →* G ⧸ F := QuotientGroup.mk' F
-  let f : ↥L →* ↥(L.map π) := π.subgroupMap L
-  have hf : Function.Surjective f := π.subgroupMap_surjective L
-  have hker : f.ker = Subgroup.center ↥L := by
-    ext x
-    rw [MonoidHom.mem_ker, Subgroup.mem_center_iff]
-    constructor
-    · intro h l
-      have hxF : (x : G) ∈ F := (QuotientGroup.eq_one_iff (x : G)).1 (congrArg Subtype.val h)
-      exact Subtype.ext (ha x ⟨x.2, hxF⟩ l l.2).symm
-    · intro h
-      apply Subtype.ext
-      exact (QuotientGroup.eq_one_iff (x : G)).2
-        (hb x x.2 fun l hl => congrArg Subtype.val (h ⟨l, hl⟩))
-  let e : ↥L ⧸ Subgroup.center ↥L ≃* ↥(L.map π) :=
-    (QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-      (QuotientGroup.quotientKerEquivOfSurjective f hf)
-  refine ⟨ha, ?_, ?_⟩
-  · have := hL.1.2.1
-    exact MulEquiv.isSimpleGroup e.symm
-  · obtain ⟨a, b, hab⟩ := hL.1.2.2
-    exact ⟨e a, e b, fun h => hab (e.injective (by simpa using h))⟩
-
-open scoped commutatorElement in
-private theorem burnsideB5b_lift_component {G Gh : Type} [Group G] [Finite G] [Group Gh] [Finite Gh]
-    (α : Gh →* G) (hα : Function.Surjective α) (hSQT : CFSG.IsStronglyQuasithin Gh)
-    (hnil : Group.IsNilpotent ↥α.ker) (hodd : Odd (Nat.card ↥α.ker))
-    (hM : Group.IsNilpotent ↥((CFSG.fittingSubgroup G).comap α))
-    {L : Subgroup G} (hL : IsComponentOf L ⊤) :
-    ∃ Lh : Subgroup Gh, IsComponentOf Lh ⊤ ∧ Lh.map α = L := by
-  classical
-  have hLC : CFSG.IsComponent L :=
-    ⟨CFSG.Quasithin.B1Red.isQuasisimple_of_open hL.2.2,
-      CFSG.Quasithin.A3.subnormal_top_iff.mp hL.2.1⟩
-  have hLc : L ∈ CFSG.Quasithin.cComp (⊤ : Subgroup G) :=
-    CFSG.Quasithin.mem_cComp_top_of_isComponent hLC
-  have hsolv : Group.IsSolvable ↥α.ker := by
-    have := hnil
-    infer_instance
-  obtain ⟨Lh, hLh, hmap⟩ := CFSG.Quasithin.map_surjOn_cComp_top α hα hsolv hLc
-  refine ⟨Lh, ?_, hmap⟩
-  set F := CFSG.fittingSubgroup G with hF
-  obtain ⟨hcentL, hsimpL, hnabL⟩ := burnsideB5b_component_mod_fitting hLC
-  let π : G →* G ⧸ F := QuotientGroup.mk' F
-  let ρ : Gh →* G ⧸ F := π.comp α
-  have hρker : ρ.ker = F.comap α := by
-    ext x
-    simp [ρ, π, MonoidHom.mem_ker, QuotientGroup.eq_one_iff]
-  haveI hMn : (F.comap α).Normal := Subgroup.Normal.comap inferInstance α
-  haveI := hM
-  set N := (F.comap α) ⊓ CFSG.pCore 2 Gh with hN
-  have hNM : N ≤ ρ.ker := by rw [hρker]; exact inf_le_left
-  have hN2 : IsPGroup 2 ↥N := (CFSG.pCore_isPGroup (p := 2) (G := Gh)).to_le inf_le_right
-  haveI : N.Normal := inferInstance
-  let ρ' : (Gh ⧸ N) →* G ⧸ F := QuotientGroup.lift N ρ hNM
-  have hρ'ker : ρ'.ker = (F.comap α).map (QuotientGroup.mk' N) := by
-    rw [QuotientGroup.ker_lift N ρ hNM, hρker]
-  have hnil' : Group.IsNilpotent ↥ρ'.ker := by
-    rw [hρ'ker]
-    exact Group.nilpotent_of_surjective ((QuotientGroup.mk' N).subgroupMap (F.comap α))
-      (MonoidHom.subgroupMap_surjective _ _)
-  have hodd' : Odd (Nat.card ↥ρ'.ker) := by
-    rw [hρ'ker]
-    exact burnsideB5b_odd_card_map_mk (F.comap α)
-  have hSQT' : CFSG.IsStronglyQuasithin (Gh ⧸ N) :=
-    (CFSG.SectionRank.isStronglyQuasithin_quotient_two_group_iff N hN2).2 hSQT
-  have hperf : Group.IsPerfect ↥Lh :=
-    Subgroup.isPerfect_iff.2 (CFSG.Quasithin.perfect_of_mem_cComp hLh)
-  have hperf' : Group.IsPerfect ↥(Lh.map (QuotientGroup.mk' N)) := by
-    refine Subgroup.isPerfect_iff.2 ?_
-    rw [← Subgroup.map_commutator, Subgroup.isPerfect_iff.1 hperf]
-  have hLρ : Lh.map ρ = L.map π := by
-    show Lh.map (π.comp α) = _
-    rw [← Subgroup.map_map, hmap]
-  have hcomp : ρ'.comp (QuotientGroup.mk' N) = ρ := QuotientGroup.lift_comp_mk' N ρ hNM
-  have hmapρ : (Lh.map (QuotientGroup.mk' N)).map ρ' = L.map π := by
-    rw [Subgroup.map_map, hcomp, hLρ]
-  have hsimp' : IsSimpleGroup ↥((Lh.map (QuotientGroup.mk' N)).map ρ') := by
-    rw [hmapρ]; exact hsimpL
-  have hcent' := CFSG.Quasithin.SmithD321.comm_of_mem_inf_ker hSQT' ρ' hnil' hodd' hperf' hsimp'
-  have hcent : ∀ k ∈ Lh ⊓ ρ.ker, ∀ l ∈ Lh, k * l = l * k := by
-    intro k hk l hl
-    have hk1 : (QuotientGroup.mk' N k) ∈ Lh.map (QuotientGroup.mk' N) ⊓ ρ'.ker :=
-      ⟨Subgroup.mem_map_of_mem _ hk.1, hk.2⟩
-    have h2 := hcent' _ hk1 _ (Subgroup.mem_map_of_mem _ hl)
-    have hcN : ⁅k, l⁆ ∈ N := by
-      have h3 : (QuotientGroup.mk' N) ⁅k, l⁆ = 1 := by
-        rw [map_commutatorElement]
-        exact commutatorElement_eq_one_iff_mul_comm.2 h2
-      exact (QuotientGroup.eq_one_iff _).1 h3
-    have hαk : α k ∈ L ⊓ F := by
-      refine ⟨hmap ▸ Subgroup.mem_map_of_mem α hk.1, ?_⟩
-      have h4 : π (α k) = 1 := hk.2
-      exact (QuotientGroup.eq_one_iff _).1 h4
-    have hαl : α l ∈ L := hmap ▸ Subgroup.mem_map_of_mem α hl
-    have hcα : ⁅k, l⁆ ∈ α.ker := by
-      rw [MonoidHom.mem_ker, map_commutatorElement]
-      exact commutatorElement_eq_one_iff_mul_comm.2 (hcentL _ hαk _ hαl)
-    have hc1 : ⁅k, l⁆ = 1 := by
-      obtain ⟨j, hj⟩ := (IsPGroup.iff_orderOf.1 (CFSG.pCore_isPGroup (p := 2) (G := Gh)))
-        ⟨⁅k, l⁆, hcN.2⟩
-      rw [Subgroup.orderOf_mk] at hj
-      have hd : orderOf ⁅k, l⁆ ∣ Nat.card α.ker := by
-        have := orderOf_dvd_natCard (⟨⁅k, l⁆, hcα⟩ : ↥α.ker)
-        rwa [Subgroup.orderOf_mk] at this
-      have hoddc : Odd (orderOf ⁅k, l⁆) := Odd.of_dvd_nat hodd hd
-      rw [hj] at hoddc
-      rcases j with _ | j
-      · rw [pow_zero] at hj
-        exact orderOf_eq_one_iff.1 hj
-      · exact absurd hoddc (Nat.not_odd_iff_even.2 (Nat.even_pow.2 ⟨even_two, j.succ_ne_zero⟩))
-    exact commutatorElement_eq_one_iff_mul_comm.1 hc1
-  have hnab : ∃ a b : ↥(Lh.map ρ), a * b ≠ b * a := by
-    rw [hLρ]; exact hnabL
-  have hsimp : IsSimpleGroup ↥(Lh.map ρ) := by
-    rw [hLρ]; exact hsimpL
-  have hLq : CFSG.IsQuasisimple ↥Lh :=
-    CFSG.Quasithin.SmithD321.isQuasisimple_of_comm_ker ρ hperf hsimp hnab hcent
-  exact ⟨le_top, CFSG.Quasithin.subnormal_of_mem_cComp hLh,
-    CFSG.Quasithin.B1Red.isQuasisimple_to_open hLq⟩
-
-private theorem burnsideB5b_genFitting_map {G Gh : Type} [Group G] [Finite G] [Group Gh] [Finite Gh]
-    (α : Gh →* G) (hα : Function.Surjective α)
-    (hM : Group.IsNilpotent ↥((CFSG.fittingSubgroup G).comap α))
-    (hlift : ∀ L : Subgroup G, IsComponentOf L ⊤ →
-      ∃ Lh : Subgroup Gh, IsComponentOf Lh ⊤ ∧ Lh.map α = L) :
-    genFittingFStar G = (genFittingFStar Gh).map α := by
-  classical
-  rw [genFittingFStar.eq_sup, genFittingFStar.eq_sup, Subgroup.map_sup]
-  have hF : genFittingFitting G = (genFittingFitting Gh).map α := by
-    show CFSG.fittingSubgroup G = (CFSG.fittingSubgroup Gh).map α
-    apply le_antisymm
-    · have hnorm : ((CFSG.fittingSubgroup G).comap α).Normal :=
-        Subgroup.Normal.comap inferInstance α
-      have h1 : (CFSG.fittingSubgroup G).comap α ≤ CFSG.fittingSubgroup Gh :=
-        (CFSG.LocalCores.fitting_characteristic).2.2 _ hnorm hM
-      calc CFSG.fittingSubgroup G = ((CFSG.fittingSubgroup G).comap α).map α :=
-            (Subgroup.map_comap_eq_self_of_surjective hα _).symm
-        _ ≤ _ := Subgroup.map_mono h1
-    · have hn : ((CFSG.fittingSubgroup Gh).map α).Normal :=
-        Subgroup.Normal.map inferInstance α hα
-      have hnil : Group.IsNilpotent ↥((CFSG.fittingSubgroup Gh).map α) :=
-        Group.nilpotent_of_surjective (α.subgroupMap (CFSG.fittingSubgroup Gh))
-          (MonoidHom.subgroupMap_surjective _ _)
-      exact (CFSG.LocalCores.fitting_characteristic).2.2 _ hn hnil
-  have hE : genFittingLayer G = (genFittingLayer Gh).map α := by
-    have hEG : genFittingLayer G = sSup {L : Subgroup G | IsComponentOf L ⊤} := rfl
-    have hEGh : genFittingLayer Gh = sSup {L : Subgroup Gh | IsComponentOf L ⊤} := rfl
-    apply le_antisymm
-    · rw [hEG]
-      refine sSup_le fun L hL => ?_
-      obtain ⟨Lh, hLh, rfl⟩ := hlift L hL
-      exact Subgroup.map_mono (hEGh ▸ le_sSup hLh)
-    · rw [hEGh, Subgroup.map_le_iff_le_comap]
-      refine sSup_le fun Lh hLh => ?_
-      rw [← Subgroup.map_le_iff_le_comap]
-      by_cases hker : Lh ≤ α.ker
-      · rw [(Subgroup.map_eq_bot_iff Lh).2 hker]
-        exact bot_le
-      · have hq : CFSG.IsQuasisimple ↥(Lh.map α) :=
-          CFSG.LocalCores.isQuasisimple_map
-            (CFSG.Quasithin.B1Red.isQuasisimple_of_open hLh.2.2) α hker
-        exact hEG ▸ le_sSup ⟨le_top, CFSG.Quasithin.A3.subnormal_top_map hα hLh.2.1,
-          CFSG.Quasithin.B1Red.isQuasisimple_to_open hq⟩
-  rw [hF, hE]
 
 end BurnsideB5b2
 
-theorem as_B_5_2 : B_5_2 := by
-  intro G _ _ hG
-  obtain ⟨Gh, _, _, α, hα, hSQTK, hnil, hodd, hM⟩ := burnsideB5b_exists_cover hG
-  have hlift : ∀ L : Subgroup G, IsComponentOf L ⊤ →
-      ∃ Lh : Subgroup Gh, IsComponentOf Lh ⊤ ∧ Lh.map α = L := fun L hL =>
-    burnsideB5b_lift_component α hα hSQTK.1 hnil hodd hM hL
-  refine ⟨Gh, inferInstance, inferInstance, α, hα, hSQTK, hM, ⟨hnil, hodd⟩, ?_, ?_⟩
-  · intro L hL
-    obtain ⟨Lh, hLh, hmap⟩ := hlift L hL
-    exact ⟨Lh, hLh, hmap.symm⟩
-  · exact burnsideB5b_genFitting_map α hα hM hlift
 
 @[expose] def B_5_5 : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
@@ -1282,10 +894,6 @@ end
 
 section
 
-theorem as_B_5_7
-    : B_5_7 := by
-  intro V _ _ G hV hne hB hnot _ _
-  exact (hnot (CFSG.Quasithin.asB56_holds V hV G hne hB)).elim
 
 end
 
@@ -1295,9 +903,6 @@ end
 
 section
 
-theorem as_B_5_8 : B_5_8 := by
-  intro V _ _ G hc A hA
-  exact CFSG.Quasithin.FFC.asB58 V G hc A hA
 
 end
 
@@ -1308,18 +913,6 @@ end
 
 section
 
-theorem as_B_5_9
-    : B_5_9 := by
-  have hP4 := CFSG.Quasithin.B15P4.asB15Part4
-  have hB51 := CFSG.Quasithin.B5.asB51_holds
-  have hB42 := CFSG.Quasithin.asB42_holds
-  have hA21 := CFSG.Quasithin.asA21SQTKSection
-  have h57 := CFSG.Quasithin.FFC.b57Input_of hP4 hB51 hA21
-    (CFSG.Quasithin.FFC.b57Exc_of hP4 hB51 hA21)
-  have hLast := CFSG.Quasithin.SmithB57.b59Last_holds hB51 hB42 hA21
-  have hI16 := CFSG.Quasithin.asI16Cover_of
-  intro V _ _ G hc A L hA hL hAL
-  exact CFSG.Quasithin.FFC.B59.asB59_of_inputs hP4 hB51 hB42 hA21 h57 hLast hI16 V G hc A L hA hL hAL
 
 end
 
@@ -1336,10 +929,6 @@ end
 
 section
 
-theorem as_B_5_10
-    : B_5_10 := by
-  intro V _ _ G hc A L _ _ _ _ _
-  exact (hc.not_cases (CFSG.Quasithin.asB56_holds V hc.hV G hc.ne_bot hc.hyp)).elim
 
 end
 
@@ -1360,10 +949,6 @@ end
 
 section
 
-theorem as_B_5_11
-    : B_5_11 := by
-  intro V _ _ G hc A L _ _ _ _ _
-  exact (hc.not_cases (CFSG.Quasithin.asB56_holds V hc.hV G hc.ne_bot hc.hyp)).elim
 
 end
 
@@ -1374,10 +959,6 @@ end
 
 section
 
-theorem as_B_5_12
-    : B_5_12 := by
-  intro V _ _ G hc A L _ _ _ _ _
-  exact (hc.not_cases (CFSG.Quasithin.asB56_holds V hc.hV G hc.ne_bot hc.hyp)).elim
 
 end
 
@@ -1387,11 +968,6 @@ end
 
 section
 
-theorem as_B_5_13
-    : B_5_13 := by
-  intro V _ _ hV G hne hB
-  have hsq := CFSG.Quasithin.FFC.isQuotientOfSQTKTauCeti_of_b53 hB
-  exact CFSG.Quasithin.b513_of_nonsolvable CFSG.Quasithin.B513N.b513Nonsolvable_holds V hV G hne hB.1 hB.2.1 hsq
 
 end
 

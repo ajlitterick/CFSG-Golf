@@ -141,14 +141,6 @@ private lemma centralizer_conj_mem
     _ = g * (t * x) * g⁻¹ := by rw [hx]
     _ = (g * t * g⁻¹) * (g * x * g⁻¹) := by group
 
-private lemma card_le_three_of_three_power_dvd_24 {n : ℕ}
-    (h : 3 ^ n ∣ 24) : 3 ^ n ≤ 3 := by
-  by_cases hn : n ≤ 1
-  · exact Nat.pow_le_pow_right (by norm_num : 0 < 3) hn
-  · exfalso
-    have h2 : 2 ≤ n := by omega
-    have h9 : 9 ∣ 24 := (pow_dvd_pow 3 h2).trans h
-    norm_num at h9
 
 /-- If a `3`-subgroup of `A₇` centralizes a Klein four subgroup, then its
 cardinality is at most `3`. -/

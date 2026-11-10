@@ -34,10 +34,6 @@ theorem mem_fixedSubspace (T : V ≃+ V)
     (hsemi : ∀ a x, T (a • x) = sigma a • T x) (x : V) :
     x ∈ fixedSubspace sigma T hsemi ↔ T x = x := Iff.rfl
 
-theorem fixedSubspace_scalar_apply (T : V ≃+ V)
-    (hsemi : ∀ a x, T (a • x) = sigma a • T x)
-    (a : fixedSubfield K sigma) (x : fixedSubspace sigma T hsemi) :
-    ((a • x : fixedSubspace sigma T hsemi) : V) = (a : K) • (x : V) := rfl
 
 theorem fixed_basis_repr_fixed {ι : Type w} [Fintype ι] (sigma : K ≃+* K)
     (T : V ≃+ V) (hsemi : ∀ a x, T (a • x) = sigma a • T x)

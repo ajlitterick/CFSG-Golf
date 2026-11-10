@@ -94,17 +94,6 @@ theorem closure_le (hO : OrbHyp Gm Δ₀ F Δ) (i : Fin s) :
     rintro t ⟨x, hx, φ, hφ, h, rfl⟩
     exact ⟨x, hO.subset i hx, φ, hφ, h, rfl⟩)
 
-theorem closure_eq_iSup (hO : OrbHyp Gm Δ₀ F Δ) :
-    Subgroup.closure (gens Δ₀ F) = ⨆ i, Subgroup.closure (gens (Δ i) F) := by
-  rw [← Subgroup.closure_iUnion]
-  congr 1
-  ext t
-  simp only [gens, Set.mem_iUnion, ← hO.union]
-  constructor
-  · rintro ⟨x, ⟨i, hx⟩, rest⟩
-    exact ⟨i, x, hx, rest⟩
-  · rintro ⟨i, x, hx, rest⟩
-    exact ⟨x, ⟨i, hx⟩, rest⟩
 
 variable [Finite W]
 

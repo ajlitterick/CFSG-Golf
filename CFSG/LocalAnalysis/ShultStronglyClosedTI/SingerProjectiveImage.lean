@@ -201,9 +201,6 @@ variable (k) (l : IntermediateField k F)
 
 variable {k} {l}
 
-theorem restrictScalarsHom_apply (g : F ≃ₗ[l] F) (x : F) :
-    restrictScalarsHom k l g x = g x :=
-  rfl
 
 theorem restrictScalarsHom_injective : Function.Injective (restrictScalarsHom k l) := by
   intro g h hgh

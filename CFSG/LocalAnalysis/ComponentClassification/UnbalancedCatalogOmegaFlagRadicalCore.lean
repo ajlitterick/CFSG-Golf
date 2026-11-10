@@ -17,10 +17,6 @@ theorem polar_map_semilinear {σ : K ≃+* K} {T : V ≃+ V} (hTQ : ∀ v, Q (T 
     (x y : V) : polar Q (T x) (T y) = σ (polar Q x y) := by
   rw [polar, polar, ← map_add T, hTQ, hTQ, hTQ, map_sub, map_sub]
 
-theorem symm_smul {σ : K ≃+* K} {T : V ≃+ V} (hTs : ∀ (a : K) v, T (a • v) = σ a • T v)
-    (a : K) (v : V) : T.symm (a • v) = σ.symm a • T.symm v := by
-  apply T.injective
-  rw [T.apply_symm_apply, hTs, RingEquiv.apply_symm_apply, T.apply_symm_apply]
 
 theorem indep3_of_not_mem_span {p q r : V} (hpq : LinearIndependent K ![p, q])
     (hr : r ∉ span K {p, q}) :

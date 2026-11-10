@@ -28,12 +28,6 @@ structure Setting443 (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G
       (Tp ⊓ Subgroup.normalizer (B : Set G))) M →
       oddCoreIn (Subgroup.normalizer (B : Set G)) ≤ M ⊓ Subgroup.normalizer (B : Set G)
 
-@[expose] def Lemma443End : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G),
-    Setting443 G T M L B Tp VB →
-    IsUniqueM (perfectCore (conjClosure L T ⊓ Subgroup.centralizer (B : Set G)) ⊔
-      (Tp ⊓ Subgroup.normalizer (B : Set G))) M →
-    oddCoreIn (Subgroup.normalizer (B : Set G)) ≤ M ⊓ Subgroup.normalizer (B : Set G) → False
 
 variable {G : Type} [Group G] [Finite G]
 
@@ -76,28 +70,8 @@ theorem pCoreOf_normalizer_eq_bot (hU : IsUniqueM (perfectCore (conjClosure L T 
     (s.sup_le_normalizer.trans (inf_le_right.trans (le_normalizer_pCoreOf 2 _)))
   exact s.not_normalizer_le ((le_normalizer_pCoreOf 2 _).trans hN)
 
-theorem le_of_isTwoLocal (hU : IsUniqueM (perfectCore (conjClosure L T ⊓
-    Subgroup.centralizer (B : Set G)) ⊔ (Tp ⊓ Subgroup.normalizer (B : Set G))) M)
-    {P : Subgroup G} (hP : P ≠ ⊥) (hP2 : IsPGroup 2 P)
-    (hMP : M ⊓ Subgroup.normalizer (B : Set G) ≤ Subgroup.normalizer (P : Set G)) :
-    Subgroup.normalizer (B : Set G) ⊓ Subgroup.normalizer (P : Set G) ≤
-      M ⊓ Subgroup.normalizer (B : Set G) := by
-  have hN := isUniqueM_normalizer_le hU hP hP2 (s.sup_le_normalizer.trans hMP)
-  exact fun x hx => ⟨hN hx.2, hx.1⟩
 
 end Setting443
 
-theorem stmt4_4_3Orbit_of_steps (h446 : Lemma446One) (h448 : Lemma448) (hEnd : Lemma443End) :
-    Stmt4_4_3Orbit := by
-  rw [stmt4_4_3Orbit_iff]
-  intro G _ _ T M L B Tp VB hH
-  by_contra hc
-  have s : Setting443 G T M L B Tp VB := ⟨hH, hc⟩
-  have hU := h446 G T M L B Tp VB s
-  exact hEnd G T M L B Tp VB s hU (h448 G T M L B Tp VB s hU)
-
-theorem stmt4_4_3_of_steps (h446 : Lemma446One) (h448 : Lemma448) (hEnd : Lemma443End) :
-    Stmt4_4_3 :=
-  stmt4_4_3_of_orbit (stmt4_4_3Orbit_of_steps h446 h448 hEnd)
 
 end CFSG.Quasithin.H13.Ch4

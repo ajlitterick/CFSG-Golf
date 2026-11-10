@@ -39,18 +39,6 @@ theorem levi_cases (h : Hyp G R) {A A₀ : Subgroup G} (hA : A ∈ R)
   exact isSL2Comp_of_single h hA hAne hA₀ hBlk.1 hBlk.2 h3 hΔ₂ h2out honly
     (hH6 Blk hBlk h3 Δ₂ hΔ₂ h2out) (h813 Δ₂ hΔ₂ hdeg)
 
-theorem levi_cases_or_lieModel {G : Type} [Group G] {R : Set (Subgroup G)} (h : Hyp G R)
-    {A A₀ : Subgroup G} (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A)
-    (hmax : IsSigmaMaximal R (centralGroup R A)) (hA₀ : A₀ ∈ omegaSet R A)
-    (h813 : ∀ Δ ∈ leviComps R A A₀, (∀ X ∈ Δ, ∀ Y ∈ Δ, ¬ Special R X Y) → ∀ E ∈ Δ, ∀ E' ∈ Δ,
-      (∀ X ∈ leviSet R A A₀, Commuting E X ↔ Commuting E' X) → E = E')
-    (hr : 1 < Nat.card (leviComps R A A₀)) :
-    (Nat.card (leviComps R A A₀) = 2 ∧ ∃ Δ₁ ∈ leviComps R A A₀, ∃ Δ₂ ∈ leviComps R A A₀,
-      Δ₁ ≠ Δ₂ ∧ ¬ IsSL2Comp Δ₁ ∧ IsSL2Comp Δ₂) ∨
-    ∃ f : ℕ, 1 ≤ f ∧ (∀ E ∈ R, Nat.card E = 2 ^ f) ∧ Blueprint.LieModel G .POmegaPlus 4 2 f := by
-  rcases levi_cases h hA hAne hmax hA₀ h813 hr with h2 | ⟨-, hall⟩
-  · exact Or.inl h2
-  · exact Or.inr (lieModel_of_forall_isSL2Comp h hA hAne hmax hA₀ hr hall)
 
 end Sec9
 

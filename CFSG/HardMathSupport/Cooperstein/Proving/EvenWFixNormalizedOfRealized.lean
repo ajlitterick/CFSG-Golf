@@ -29,6 +29,5 @@ theorem mem_normalizer_of_conj_le {G : Type*} [Group G] [Finite G] {H : Subgroup
       simpa [MulAut.conj_apply] using hxh
     exact hxe ▸ hx
 
-variable {M : Type*} [Group M] {n : ℕ}
 
 end CFSG.HardMathSupport.Cooperstein.Proving

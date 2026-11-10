@@ -47,45 +47,6 @@ theorem exists_big_elem_abelian {Ω : Type} [Group Ω] [Finite Ω] {S E₀ : Sub
         rw [h2, mul_comm]
   exact Nat.le_of_mul_le_mul_right h4 hz
 
-theorem four_le_card_of_noncomm {X : Type} [Group X] {T A : Subgroup X} [Finite T]
-    (hT : IsPGroup 2 T) (hnorm : ∀ a ∈ A, ∀ τ ∈ T, a * τ * a⁻¹ ∈ T)
-    (hnc : ∃ a ∈ A, ∃ τ ∈ T, a * τ ≠ τ * a) : 4 ≤ Nat.card T := by
-  obtain ⟨a, ha, τ, hτ, hne⟩ := hnc
-  have hτ1 : τ ≠ 1 := by
-    rintro rfl
-    exact hne (by simp)
-  have hτ' : a * τ * a⁻¹ ∈ T := hnorm a ha τ hτ
-  have hτ'1 : a * τ * a⁻¹ ≠ 1 := by
-    intro h
-    apply hτ1
-    have h1 : a * τ = a := by
-      have := mul_inv_eq_one.1 h
-      exact this
-    exact mul_left_cancel (a := a) (by rw [h1, mul_one])
-  have hττ' : a * τ * a⁻¹ ≠ τ := fun h => hne (mul_inv_eq_iff_eq_mul.1 h)
-  have h3 : 3 ≤ Nat.card T := by
-    let f : Fin 3 → T := ![1, ⟨τ, hτ⟩, ⟨a * τ * a⁻¹, hτ'⟩]
-    have hf : Function.Injective f := by
-      intro i j hij
-      fin_cases i <;> fin_cases j <;> first
-        | rfl
-        | (exfalso; simp [f, Subtype.ext_iff] at hij
-           first
-            | exact hτ1 hij.symm
-            | exact hτ1 hij
-            | exact hτ'1 hij.symm
-            | exact hτ'1 hij
-            | exact hττ' hij.symm
-            | exact hττ' hij)
-    have := Nat.card_le_card_of_injective f hf
-    simpa using this
-  obtain ⟨n, hn⟩ := (IsPGroup.iff_card).1 hT
-  rw [hn] at h3 ⊢
-  rcases n with _ | _ | n
-  · norm_num at h3
-  · norm_num at h3
-  · calc 4 = 2 ^ 2 := by norm_num
-      _ ≤ 2 ^ (n + 2) := Nat.pow_le_pow_right (by norm_num) (by omega)
 
 end CFSG.LocalAnalysis.GLTheoremA.S265D
 

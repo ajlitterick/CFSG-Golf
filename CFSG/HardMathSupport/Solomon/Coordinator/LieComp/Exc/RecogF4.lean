@@ -66,7 +66,6 @@ section Levi
 
 theorem f4_cartan_02 : Tag.cartan .F4 (f4Node 0) (f4Node 2) = 0 := by decide
 
-theorem f4Node_one_ne_two : f4Node 1 ≠ f4Node 2 := by decide
 
 theorem map_subtype_iSup_b3 {K : Type} [Field K] :
     (⨆ k, rankOne (f4Datum K).rootGroup (b3Node k)).map (adjointGroup .F4 K).subtype =

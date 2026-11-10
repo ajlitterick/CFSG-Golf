@@ -52,17 +52,6 @@ theorem link_T6 : KB.linkOk T7.amap T6.words = true := by quickRfl
 
 theorem link_T7 : KB.linkOk T8.amap T7.words = true := by quickRfl
 
-theorem order_from_T2 : Nat.beq (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul T2.N T3.N) T4.N) T5.N) T6.N) T7.N) T8.N) (nat_lit 129123503308800) = true := by quickRfl
-
-theorem order_from_T3 : Nat.beq (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul T3.N T4.N) T5.N) T6.N) T7.N) T8.N) (nat_lit 9170703360) = true := by quickRfl
-
-theorem order_from_T4 : Nat.beq (Nat.mul (Nat.mul (Nat.mul (Nat.mul T4.N T5.N) T6.N) T7.N) T8.N) (nat_lit 2903040) = true := by quickRfl
-
-theorem order_from_T5 : Nat.beq (Nat.mul (Nat.mul (Nat.mul T5.N T6.N) T7.N) T8.N) (nat_lit 51840) = true := by quickRfl
-
-theorem order_from_T6 : Nat.beq (Nat.mul (Nat.mul T6.N T7.N) T8.N) (nat_lit 1920) = true := by quickRfl
-
-theorem order_from_T7 : Nat.beq (Nat.mul T7.N T8.N) (nat_lit 192) = true := by quickRfl
 
 theorem order : Nat.beq (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul T1.N T2.N) T3.N) T4.N) T5.N) T6.N) T7.N) T8.N) (nat_lit 4089470473293004800) = true := by quickRfl
 

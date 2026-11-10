@@ -171,16 +171,6 @@ theorem card_centralizer_map_mulEquiv (e : G ≃* G') (E : Subgroup G) :
   rw [centralizer_map_mulEquiv]
   exact Subgroup.card_map_of_injective (f := e.toMonoidHom) e.injective
 
-theorem exists_mem_centralizer_orderOf_eq_map_mulEquiv_iff (e : G ≃* G') (E : Subgroup G)
-    (n : ℕ) :
-    (∃ y ∈ Subgroup.centralizer ((E.map e.toMonoidHom : Subgroup G') : Set G'),
-        orderOf y = n) ↔ ∃ x ∈ Subgroup.centralizer (E : Set G), orderOf x = n := by
-  rw [centralizer_map_mulEquiv e E]
-  constructor
-  · rintro ⟨y, ⟨x, hx, rfl⟩, hy⟩
-    exact ⟨x, hx, by simpa using hy⟩
-  · rintro ⟨x, hx, hn⟩
-    exact ⟨e x, ⟨x, hx, rfl⟩, by simpa using hn⟩
 
 theorem le_pRank_centralizer_of_mulEquiv [Finite G] [Finite G'] [Fact p.Prime] (e : G ≃* G')
     {k : ℕ} (h : ∀ y : G', orderOf y = p → k ≤ CFSG.Open.pRank p (Subgroup.centralizer {y})) :
@@ -190,40 +180,6 @@ theorem le_pRank_centralizer_of_mulEquiv [Finite G] [Finite G'] [Fact p.Prime] (
   have e1 : (e '' {x} : Set G') = {e x} := Set.image_singleton
   rwa [← e1, pRank_centralizer_image_mulEquiv e] at h1
 
-theorem le_pRank_centralizer_of_quotientEquiv [Finite G] [Finite G'] [Fact p.Prime]
-    (hN : ¬ p ∣ Nat.card N) (e : G ⧸ N ≃* G') {k : ℕ}
-    (h : ∀ y : G', orderOf y = p → k ≤ CFSG.Open.pRank p (Subgroup.centralizer {y})) :
-    ∀ x : G, orderOf x = p → k ≤ CFSG.Open.pRank p (Subgroup.centralizer {x}) :=
-  le_pRank_centralizer_of_quotient hN (le_pRank_centralizer_of_mulEquiv e h)
-
-theorem pRank_centralizer_image_quotientEquiv [Finite G] [Finite G'] [Fact s.Prime]
-    [Fact p.Prime] (hs : ¬ s ∣ Nat.card N) (hp : ¬ p ∣ Nat.card N) (e : G ⧸ N ≃* G')
-    {E : Subgroup G} (hE : IsPGroup s E) {S : Set G} (hSE : S ⊆ E) :
-    CFSG.Open.pRank p (Subgroup.centralizer (e '' (QuotientGroup.mk' N '' S))) =
-      CFSG.Open.pRank p (Subgroup.centralizer S) := by
-  rw [pRank_centralizer_image_mulEquiv e, pRank_centralizer_image_mk_eq hs hp hE hSE]
-
-theorem dvd_card_centralizer_map_quotientEquiv_iff [Finite G] [Fact s.Prime] [Fact p.Prime]
-    (hs : ¬ s ∣ Nat.card N) (hp : ¬ p ∣ Nat.card N) (e : G ⧸ N ≃* G') {E : Subgroup G}
-    (hE : IsPGroup s E) :
-    p ∣ Nat.card (Subgroup.centralizer
-      (((E.map (QuotientGroup.mk' N)).map e.toMonoidHom : Subgroup G') : Set G')) ↔
-      p ∣ Nat.card (Subgroup.centralizer (E : Set G)) := by
-  rw [card_centralizer_map_mulEquiv e (E.map (QuotientGroup.mk' N))]
-  exact dvd_card_centralizer_map_mk_iff hs hp hE
-
-theorem exists_mem_centralizer_orderOf_eq_prime_map_quotientEquiv [Finite G] [Fact s.Prime]
-    [Fact p.Prime] (hs : ¬ s ∣ Nat.card N) (hp : ¬ p ∣ Nat.card N) (e : G ⧸ N ≃* G')
-    {E : Subgroup G} (hE : IsPGroup s E) {y : G'}
-    (hyC : y ∈ Subgroup.centralizer
-      (((E.map (QuotientGroup.mk' N)).map e.toMonoidHom : Subgroup G') : Set G'))
-    (hy : orderOf y = p) :
-    ∃ x ∈ Subgroup.centralizer (E : Set G), orderOf x = p ∧ e (QuotientGroup.mk' N x) = y := by
-  rw [centralizer_map_mulEquiv e _] at hyC
-  obtain ⟨yb, hyb, rfl⟩ := hyC
-  obtain ⟨x, hx, hxo, rfl⟩ := exists_mem_centralizer_orderOf_eq_prime_mk_eq hs hp hE hyb
-    (by simpa using hy)
-  exact ⟨x, hx, hxo, rfl⟩
 
 end Equiv
 

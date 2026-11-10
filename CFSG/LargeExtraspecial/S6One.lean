@@ -132,26 +132,6 @@ variable (H : Hyp4 S g) (C : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar g) (ht1 :
   (hb : (h : G) * g * S.z * ((h : G) * g)⁻¹ ∉ S.Qa g)
 include H C ht ht1 hVQ hh hb
 
-theorem timmesfeld_6_1_one_W (hΩ : OmegaCase H C ht ht1 hVQ) :
-    W S g t = (S.Qa g ⊓ W S g t) ⊔ (S.Qa ((h : G) * g) ⊓ W S g t) := by
-  have hdec := sup_eq_Wt H C ht ht1 hVQ hh hb (clSub_inf_clSub_le_Vt H C ht ht1 hVQ hh hb
-    (radBound_of_omegaCase H C ht ht1 hVQ hΩ))
-  refine le_antisymm (fun x hx => ?_) (sup_le inf_le_right inf_le_right)
-  have hxQ : x ∈ S.QG := hx.1
-  have hxW : S.cl x ∈ Wt S g t := clSub_W (S := S) ▸ S.cl_mem_clSub hx hxQ
-  rw [← hdec] at hxW
-  obtain ⟨u, hu, v, hv, huv⟩ := Submodule.mem_sup.mp hxW
-  obtain ⟨y, hy, hyQ, rfl⟩ := S.mem_clSub_iff.mp hu.1
-  obtain ⟨y', hy', hy'Q, rfl⟩ := S.mem_clSub_iff.mp hv.1
-  have hyW : y ∈ W S g t := by rw [W_eq_clPre]; exact ⟨hyQ, hu.2⟩
-  have hy'W : y' ∈ W S g t := by rw [W_eq_clPre]; exact ⟨hy'Q, hv.2⟩
-  have hzW : S.z ∈ W S g t := by rw [W_eq_clPre]; exact S.z_mem_clPre _
-  have hmem : y * y' ∈ (S.Qa g ⊓ W S g t) ⊔ (S.Qa ((h : G) * g) ⊓ W S g t) :=
-    mul_mem (mem_sup_left ⟨hy.2, hyW⟩) (mem_sup_right ⟨hy'.2, hy'W⟩)
-  rw [← S.cl_mul hyQ hy'Q] at huv
-  rcases (S.cl_eq_cl_iff (S.QG.mul_mem hyQ hy'Q) hxQ).mp huv with rfl | rfl
-  · exact hmem
-  · exact mul_mem hmem (mem_sup_left ⟨S.z_mem_Qa H.conj_mem H.conj_ne, hzW⟩)
 
 theorem timmesfeld_6_1_one (hCE : CentralExtInput.{u}) (hNo : NoA2 S g)
     (hΩ : OmegaCase H C ht ht1 hVQ) {x : S.O} (hx : x ∈ Nbar S g t) {w : S.Qt}

@@ -37,10 +37,6 @@ section Rows
     ∀ (X : Type) [Group X] [Finite X] (ψ : (modelUniv t n 3 1 hp).K →* X),
       Function.Surjective ψ → ψ.ker ≤ Subgroup.center _ → AutOddFreeInner X
 
-@[expose] def AutOddFreeTag (t : StatedLieTag) (n : ℕ) : Prop :=
-  ∀ (hp : Nat.Prime 3), IsFundTag t → StatedLieAdmissible t n 3 1 →
-    ∀ (X : Type) [Group X] [Finite X] (ψ : (modelUniv t n 3 1 hp).K →* X),
-      Function.Surjective ψ → ψ.ker ≤ Subgroup.center _ → AutOddFree X
 
 theorem centralQuotientData {t : StatedLieTag} {n : ℕ} (hp : Nat.Prime 3) (hFT : IsFundTag t)
     (hadm : StatedLieAdmissible t n 3 1) (X : Type) [Group X]

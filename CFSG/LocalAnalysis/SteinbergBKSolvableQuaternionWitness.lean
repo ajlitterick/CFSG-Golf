@@ -111,15 +111,6 @@ theorem pow_mul_eq_mul_inv_pow_of_conj {x y : H} (hyx : y * x * y⁻¹ = x⁻¹)
             ← mul_assoc y, ← mul_assoc y, ← pow_two y, hy, mul_assoc]
         rw [e1, e2, hc, mul_assoc]
 
-theorem quaternionEightLift_a (x y : H) (hx : x ^ 4 = 1) (hy : y ^ 2 = x ^ 2)
-    (hyx : y * x * y⁻¹ = x⁻¹) (i : ZMod (2 * 2)) :
-    quaternionEightLift x y hx hy hyx (QuaternionGroup.a i) = x ^ i.val :=
-  rfl
-
-theorem quaternionEightLift_xa (x y : H) (hx : x ^ 4 = 1) (hy : y ^ 2 = x ^ 2)
-    (hyx : y * x * y⁻¹ = x⁻¹) (i : ZMod (2 * 2)) :
-    quaternionEightLift x y hx hy hyx (QuaternionGroup.xa i) = y * x ^ i.val :=
-  rfl
 
 end QuaternionLift
 
@@ -269,27 +260,10 @@ theorem map_conj_one (A : Subgroup R) : A.map (MulAut.conj (1 : R)).toMonoidHom 
       (A.1.map (MulAut.conj h).toMonoidHom).map (MulAut.conj g).toMonoidHom
     rw [map_conj_map_conj])
 
-theorem conjPermOfInvariant_apply (𝒜 : Set (Subgroup R))
-    (h𝒜 : ∀ g : R, ∀ A ∈ 𝒜, A.map (MulAut.conj g).toMonoidHom ∈ 𝒜) (g : R) (A : 𝒜) :
-    ((conjPermOfInvariant 𝒜 h𝒜 g A : 𝒜) : Subgroup R) = A.1.map (MulAut.conj g).toMonoidHom :=
-  rfl
 
 @[expose] def threeCoreInverseImage (P : Subgroup R) [P.Normal] : Subgroup R :=
   (CFSG.pCore 3 (R ⧸ P)).comap (QuotientGroup.mk' P)
 
-theorem threeCoreInverseImage_characteristic (P : Subgroup R) [P.Characteristic] :
-    (threeCoreInverseImage P).Characteristic := by
-  rw [characteristic_iff_comap_eq]
-  intro φ
-  have hφP : P.map (φ : R →* R) = P := characteristic_iff_map_eq.mp inferInstance φ
-  let φbar : (R ⧸ P) ≃* (R ⧸ P) := QuotientGroup.congr P P φ hφP
-  have hcomp : (QuotientGroup.mk' P).comp φ.toMonoidHom =
-      φbar.toMonoidHom.comp (QuotientGroup.mk' P) := by
-    ext x
-    rfl
-  unfold threeCoreInverseImage
-  rw [Subgroup.comap_comap, hcomp, ← Subgroup.comap_comap,
-    characteristic_iff_comap_eq.mp inferInstance φbar]
 
 theorem map_normal_of_characteristic {J : Subgroup R} [J.Characteristic] {H : Type*} [Group H]
     (ι : R →* H) (hι : Function.Injective ι) (hn : ι.range.Normal) : (J.map ι).Normal := by
@@ -373,94 +347,6 @@ theorem quaternionGroup_not_commute {m : ℕ} (hm : 2 ≤ m) :
   have := Nat.le_of_dvd (by norm_num) h2
   omega
 
-theorem solvable_quaternion_two_core {R : Type*} [Group R] [Finite R] [Group.IsSolvable R]
-    (hO : CFSG.pPrimeCore 2 R = ⊥) (S : Sylow 2 R) {r : ℕ} (hr : 3 ≤ r)
-    (eS : (S : Subgroup R) ≃* QuaternionGroup (2 ^ (r - 2))) :
-    CFSG.fittingSubgroup R = CFSG.pCore 2 R ∧
-    centralizer (CFSG.pCore 2 R : Set R) ≤ CFSG.pCore 2 R ∧
-    ∃ t : R, t ∈ CFSG.pCore 2 R ∧ orderOf t = 2 ∧ (∀ u : R, orderOf u = 2 → u = t) ∧
-      (∃ k : ℕ, 1 ≤ k ∧ Nonempty (CFSG.pCore 2 R ≃* QuaternionGroup (2 ^ k))) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set P := CFSG.pCore 2 R with hPdef
-  have hF : CFSG.fittingSubgroup R = P := CFSG.Fitting_eq_pcore R 2 hO
-  have hCP : centralizer (P : Set R) ≤ P := by
-    have := CFSG.RankThree.PGroups.solvable_fitting_self_centralizing R
-    rwa [hF] at this
-  have hPp : IsPGroup 2 P := CFSG.pCore_isPGroup
-  have hm : 2 ≤ 2 ^ (r - 2) := by
-    calc 2 = 2 ^ 1 := by norm_num
-      _ ≤ 2 ^ (r - 2) := Nat.pow_le_pow_right (by norm_num) (by omega)
-  have hne : NeZero (2 ^ (r - 2)) := ⟨by positivity⟩
-  have hSnc : ¬ ∀ u v : (S : Subgroup R), u * v = v * u := by
-    intro h
-    apply quaternionGroup_not_commute hm
-    have := h (eS.symm (QuaternionGroup.a 1)) (eS.symm (QuaternionGroup.xa 0))
-    simpa [← map_mul] using congrArg eS this
-  have hPne : P ≠ ⊥ := by
-    intro hP
-    apply hSnc
-    intro u v
-    have htop : (⊤ : Subgroup R) ≤ ⊥ := by
-      calc (⊤ : Subgroup R) = centralizer (P : Set R) := by
-            rw [hP, Subgroup.coe_bot]
-            exact (Subgroup.centralizer_eq_top_iff_subset.mpr
-              (Set.singleton_subset_iff.mpr (one_mem _))).symm
-        _ ≤ P := hCP
-        _ = ⊥ := hP
-    have h1 : (u : R) = 1 := (Subgroup.mem_bot).mp (htop (mem_top _))
-    have h2 : (v : R) = 1 := (Subgroup.mem_bot).mp (htop (mem_top _))
-    have hu1 : u = 1 := Subtype.ext (by rw [h1]; rfl)
-    have hv1 : v = 1 := Subtype.ext (by rw [h2]; rfl)
-    rw [hu1, hv1]
-  have hTuniq : ∀ T : Sylow 2 R, ∀ u v : R, u ∈ (T : Subgroup R) → v ∈ (T : Subgroup R) →
-      orderOf u = 2 → orderOf v = 2 → u = v := by
-    intro T u v hu hv hou hov
-    let f : (T : Subgroup R) ≃* QuaternionGroup (2 ^ (r - 2)) := (Sylow.equiv T S).trans eS
-    have h1 := (CFSG.Semidihedral.QuaternionAutomorphismLifting.unique_involution (2 ^ (r - 2))
-      (by positivity) (f ⟨u, hu⟩)).mp (by rw [MulEquiv.orderOf_eq, Subgroup.orderOf_mk]; exact hou)
-    have h2 := (CFSG.Semidihedral.QuaternionAutomorphismLifting.unique_involution (2 ^ (r - 2))
-      (by positivity) (f ⟨v, hv⟩)).mp (by rw [MulEquiv.orderOf_eq, Subgroup.orderOf_mk]; exact hov)
-    exact congrArg Subtype.val (f.injective (h1.trans h2.symm))
-  have hinT : ∀ u : R, orderOf u = 2 → ∃ T : Sylow 2 R, u ∈ (T : Subgroup R) ∧
-      P ≤ (T : Subgroup R) := by
-    intro u hu
-    have hzp : IsPGroup 2 (zpowers u) :=
-      IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hu, pow_one])
-    obtain ⟨T, hT⟩ := hzp.exists_le_sylow
-    refine ⟨T, hT (mem_zpowers u), ?_⟩
-    have hsup : IsPGroup 2 (P ⊔ (T : Subgroup R) : Subgroup R) :=
-      hPp.to_sup_of_normal_left T.isPGroup'
-    have := T.is_maximal' hsup le_sup_right
-    rw [← this]
-    exact le_sup_left
-  obtain ⟨n, hn⟩ := hPp.exists_card_eq
-  have hn0 : n ≠ 0 := by
-    rintro rfl
-    exact hPne (Subgroup.eq_bot_of_card_eq P (by rw [hn, pow_zero]))
-  obtain ⟨t₀, ht₀⟩ := exists_prime_orderOf_dvd_card' (G := P) 2
-    (by rw [hn]; exact dvd_pow_self 2 hn0)
-  have ht : orderOf (t₀ : R) = 2 := by rw [Subgroup.orderOf_coe]; exact ht₀
-  have huniq : ∀ u : R, orderOf u = 2 → u = t₀ := by
-    intro u hu
-    obtain ⟨T, huT, hPT⟩ := hinT u hu
-    exact hTuniq T u t₀ huT (hPT t₀.2) hu ht
-  have hrank : CFSG.pRank 2 P ≤ 1 :=
-    CFSG.ComponentClassification.UnbalancedAltSeven.pRank_le_one_of_unique (z := t₀) ht₀
-      (fun y hy => Subtype.ext (huniq y (by rw [Subgroup.orderOf_coe]; exact hy)))
-  refine ⟨hF, hCP, t₀, t₀.2, ht, huniq, ?_⟩
-  rcases (CFSG.LocalAnalysis.ComponentInitial.pgroup_rank_one_classification Nat.prime_two
-    hPp).mp hrank with hcyc | ⟨-, n', hn', ⟨eP⟩⟩
-  · exfalso
-    have hA := CFSG.TwoRankLowerBound.Helpers.cyclic_two_group_automorphisms_isPGroup P hPp
-    have hR := isPGroup_of_centralizer_le_of_isPGroup_mulAut hPp hCP hA
-    have hPtop : (⊤ : Subgroup R) ≤ P := le_sSup ⟨inferInstance, hR.to_subgroup ⊤⟩
-    have hSc : IsCyclic (S : Subgroup R) :=
-      isCyclic_of_injective (Subgroup.inclusion (le_top.trans hPtop))
-        (Subgroup.inclusion_injective _)
-    apply hSnc
-    intro u v
-    exact (IsMulCommutative.is_comm (M := (S : Subgroup R))).comm u v
-  · exact ⟨n' - 2, by omega, ⟨eP⟩⟩
 
 theorem solvable_quaternion_centers {R : Type*} [Group R] {P : Subgroup R} {t : R}
     (htP : t ∈ P) (ht : orderOf t = 2) (huniq : ∀ u : R, orderOf u = 2 → u = t)
@@ -973,48 +859,6 @@ section OddCore
 
 variable {R : Type*} [Group R]
 
-theorem pPrimeCore_two_eq_bot_of_centralizer [Finite R] {P J : Subgroup R} [P.Normal]
-    (hPJ : P ≤ J) (hP2 : IsPGroup 2 P) {t : R} (ht : orderOf t = 2)
-    (hC : centralizer (P : Set R) = zpowers t) : CFSG.pPrimeCore 2 J = ⊥ := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  refine sSup_eq_bot.mpr fun K ⟨hKn, hKc⟩ => ?_
-  have hKodd : Odd (Nat.card K) := Nat.coprime_two_left.mp hKc
-  have hcoprime : ∀ n ∈ K, ∀ j : ℕ, orderOf (n : R) ∣ 2 ^ j → n = 1 := by
-    intro n hn j hj
-    have h1 : orderOf n ∣ Nat.card K := by
-      have := orderOf_dvd_natCard (⟨n, hn⟩ : K)
-      rwa [Subgroup.orderOf_mk] at this
-    have h2 : orderOf n ∣ 2 ^ j := by rwa [← Subgroup.orderOf_coe]
-    have h3 : Nat.Coprime (2 ^ j) (Nat.card K) :=
-      Nat.Coprime.pow_left _ (Nat.coprime_two_left.mpr hKodd)
-    exact orderOf_eq_one_iff.mp (Nat.Coprime.eq_one_of_dvd (Nat.Coprime.coprime_dvd_left h2 h3) h1)
-  refine (Subgroup.eq_bot_iff_forall K).mpr fun n hn => ?_
-  have hnC : (n : R) ∈ centralizer (P : Set R) := by
-    rw [mem_centralizer_iff]
-    intro p hp
-    set p' : J := ⟨p, hPJ hp⟩
-    set c : J := n * p' * n⁻¹ * p'⁻¹ with hc
-    have hcK : c ∈ K := by
-      have : p' * n⁻¹ * p'⁻¹ ∈ K := hKn.conj_mem _ (K.inv_mem hn) p'
-      have h : c = n * (p' * n⁻¹ * p'⁻¹) := by rw [hc]; group
-      rw [h]
-      exact K.mul_mem hn this
-    have hcP : (c : R) ∈ P := by
-      have h1 : (n : R) * p * (n : R)⁻¹ ∈ P := (inferInstance : P.Normal).conj_mem p hp n
-      have h : (c : R) = ((n : R) * p * (n : R)⁻¹) * p⁻¹ := by rw [hc]; rfl
-      rw [h]
-      exact P.mul_mem h1 (P.inv_mem hp)
-    obtain ⟨j, hj⟩ := IsPGroup.iff_orderOf.mp hP2 ⟨c, hcP⟩
-    have hc1 := hcoprime c hcK j (by rw [← Subgroup.orderOf_mk (c : R) hcP, hj])
-    have h : (n : R) * p * (n : R)⁻¹ * p⁻¹ = 1 := by
-      have := congrArg Subtype.val hc1
-      exact this
-    have h' : (n : R) * p = p * n := by
-      calc (n : R) * p = (n : R) * p * (n : R)⁻¹ * p⁻¹ * (p * n) := by group
-        _ = p * n := by rw [h, one_mul]
-    exact h'.symm
-  rw [hC] at hnC
-  exact hcoprime n hn 1 (by rw [pow_one, ← ht]; exact orderOf_dvd_of_mem_zpowers hnC)
 
 end OddCore
 
@@ -1401,130 +1245,5 @@ theorem exists_mulEquiv_slTwoThree [Finite R] {P J : Subgroup R} [P.Normal] (hPJ
 
 end Psi
 
-theorem coe_slTwoThreeNormalForm (ε u v : Fin 2) (e : Fin 3) :
-    ((slTwoThreeNormalForm (ε, u, v, e) : SL(2, ZMod 3)) : Matrix (Fin 2) (Fin 2) (ZMod 3)) =
-      (-1) ^ (ε : ℕ) * !![0, 1; -1, 0] ^ (u : ℕ) * !![1, 1; 1, -1] ^ (v : ℕ) *
-        !![0, 1; -1, -1] ^ (e : ℕ) := by
-  simp only [slTwoThreeNormalForm, Matrix.SpecialLinearGroup.coe_mul,
-    Matrix.SpecialLinearGroup.coe_pow, Matrix.SpecialLinearGroup.coe_neg,
-    Matrix.SpecialLinearGroup.coe_one]
-  rfl
-
-theorem solvable_quaternion_witness_characteristic_field_three_subgroup
-    {R : Type*} [Group R] [Finite R] [Group.IsSolvable R] (hO : CFSG.pPrimeCore 2 R = ⊥)
-    (S : Sylow 2 R) {r : ℕ} (hr : 3 ≤ r)
-    (eS : (S : Subgroup R) ≃* QuaternionGroup (2 ^ (r - 2))) :
-    let P := CFSG.pCore 2 R
-    let J := threeCoreInverseImage P
-    (∃ k : ℕ, 1 ≤ k ∧ Nonempty (P ≃* QuaternionGroup (2 ^ k))) ∧
-    (∃ u v : P, u * v ≠ v * u) ∧
-    ∃ t : R, orderOf t = 2 ∧ (∀ u : R, orderOf u = 2 → u = t) ∧
-      CFSG.fittingSubgroup R = P ∧ centralizer (P : Set R) = zpowers t ∧
-      (center P).map P.subtype = zpowers t ∧ center R = zpowers t ∧
-      ((IsPGroup 2 R ∧ P = ⊤ ∧ (S : Subgroup R) = ⊤ ∧
-          ∃ e : R ≃* QuaternionGroup (2 ^ (r - 2)),
-            ∀ (g : R) (hg : g ∈ (S : Subgroup R)), e g = eS ⟨g, hg⟩) ∨
-        (¬ IsPGroup 2 R ∧ Nat.card P = 8 ∧ Nat.card (cyclicOrderFourSubgroups P) = 3 ∧
-          (axisAction P).ker = P ∧
-          ((axisAction P).range = finiteAlternatingGroup (cyclicOrderFourSubgroups P) ∨
-            (axisAction P).range = ⊤) ∧
-          (Nat.card R = 24 ∨ Nat.card R = 48) ∧
-          J.Characteristic ∧ Nat.card J = 24 ∧ J.index ≤ 2 ∧
-          (∃ T : Sylow 2 J, (T : Subgroup J).map J.subtype = P) ∧ CFSG.pPrimeCore 2 J = ⊥ ∧
-          (∃ a x y : R, a ∈ J ∧ x ∈ P ∧ y ∈ P ∧ orderOf a = 3 ∧ x ^ 2 = t ∧ y ^ 2 = t ∧
-            y * x * y⁻¹ = x⁻¹ ∧ a * x * a⁻¹ = y ∧ a * y * a⁻¹ = x * y ∧
-            (∀ j ∈ J, ∃! f : Fin 2 × Fin 2 × Fin 2 × Fin 3,
-              t ^ (f.1 : ℕ) * x ^ (f.2.1 : ℕ) * y ^ (f.2.2.1 : ℕ) * a ^ (f.2.2.2 : ℕ) = j) ∧
-            ∃ ψ : J ≃* SL(2, ZMod 3),
-              (∀ j : J, (j : R) = t → ((ψ j : SL(2, ZMod 3)) : Matrix (Fin 2) (Fin 2) (ZMod 3)) =
-                -1) ∧
-              (∀ (j : J) (ε u v : Fin 2) (e : Fin 3),
-                (j : R) = t ^ (ε : ℕ) * x ^ (u : ℕ) * y ^ (v : ℕ) * a ^ (e : ℕ) →
-                ((ψ j : SL(2, ZMod 3)) : Matrix (Fin 2) (Fin 2) (ZMod 3)) =
-                  (-1) ^ (ε : ℕ) * !![0, 1; -1, 0] ^ (u : ℕ) * !![1, 1; 1, -1] ^ (v : ℕ) *
-                    !![0, 1; -1, -1] ^ (e : ℕ)) ∧
-              (P.subgroupOf J).map ψ.toMonoidHom = Subgroup.closure {slTwoThreeX, slTwoThreeY} ∧
-              Nat.card (Subgroup.closure ({slTwoThreeX, slTwoThreeY} : Set SL(2, ZMod 3))) = 8 ∧
-              Nonempty (Subgroup.closure ({slTwoThreeX, slTwoThreeY} : Set SL(2, ZMod 3)) ≃*
-                QuaternionGroup 2)) ∧
-          ∀ (H : Type*) [Group H] (ι : R →* H), Function.Injective ι → ι.range.Normal →
-            (J.map ι).Normal ∧ ι t ∈ J.map ι)) := by
-  intro P J
-  obtain ⟨hF, hCP, t, htP, ht, huniq, k, hk, ⟨eP⟩⟩ := solvable_quaternion_two_core hO S hr eS
-  obtain ⟨hC, hZ, hZR, hnab⟩ := solvable_quaternion_centers htP ht huniq hCP hk eP
-  refine ⟨⟨k, hk, ⟨eP⟩⟩, hnab, t, ht, huniq, hF, hC, hZ, hZR, ?_⟩
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  by_cases hR2 : IsPGroup 2 R
-  · left
-    have hPtop : P = ⊤ := top_le_iff.mp (le_sSup ⟨inferInstance, hR2.to_subgroup ⊤⟩)
-    have hStop : (S : Subgroup R) = ⊤ := (S.is_maximal' (hR2.to_subgroup ⊤) le_top).symm
-    exact ⟨hR2, hPtop, hStop,
-      Subgroup.topEquiv.symm.trans ((MulEquiv.subgroupCongr hStop.symm).trans eS),
-      fun g hg => rfl⟩
-  · right
-    have hk1 : k = 1 := by
-      by_contra hk1
-      have hA : IsPGroup 2 (MulAut P) :=
-        (isPGroup_mulAut_quaternionGroup (by omega : 2 ≤ k)).of_equiv (MulAut.congr eP).symm
-      exact hR2 (isPGroup_of_centralizer_le_of_isPGroup_mulAut CFSG.pCore_isPGroup hCP hA)
-    subst hk1
-    have e8 : P ≃* QuaternionGroup 2 := eP
-    have hP8 : Nat.card P = 8 := by
-      rw [Nat.card_congr e8.toEquiv, Nat.card_eq_fintype_card, QuaternionGroup.card]
-    have ht1 : t ≠ 1 := by
-      intro h
-      rw [h, orderOf_one] at ht
-      exact absurd ht (by norm_num)
-    have ht2 : t ^ 2 = 1 := ht ▸ pow_orderOf_eq_one t
-    obtain ⟨hcardR, h36, hrange⟩ := axisAction_range rfl e8 huniq hC ht hR2
-    have hker := axisAction_ker rfl e8 huniq hC ht
-    have hQ : Nat.card (R ⧸ P) = 3 ∨ Nat.card (R ⧸ P) = 6 := by
-      have h1 : Nat.card (R ⧸ P) = Nat.card (axisAction P).range := by
-        rw [← Nat.card_congr (QuotientGroup.quotientKerEquivRange (axisAction P)).toEquiv, hker]
-      rwa [h1]
-    obtain ⟨hJ24, hJidx, hPJ, hSyl⟩ := threeCoreInverseImage_facts hP8 hQ
-    have hJodd := pPrimeCore_two_eq_bot_of_centralizer hPJ CFSG.pCore_isPGroup ht hC
-    obtain ⟨a, x, y, haJ, hxP, hyP, ha3, hx2, hy2, hyx, hax, hay⟩ :=
-      exists_quaternion_triple (J := J) e8 ht huniq hC (by rw [hJ24]; norm_num)
-    obtain ⟨ψ, hψt, hψnf, hψP⟩ := exists_mulEquiv_slTwoThree hPJ hP8 hJ24 haJ hxP hyP ha3 hx2
-      hy2 hyx hax hay ht1 ht2
-    have hmemJ : ∀ f : Fin 2 × Fin 2 × Fin 2 × Fin 3,
-        t ^ (f.1 : ℕ) * x ^ (f.2.1 : ℕ) * y ^ (f.2.2.1 : ℕ) * a ^ (f.2.2.2 : ℕ) ∈ J := fun f =>
-      J.mul_mem (J.mul_mem (J.mul_mem (J.pow_mem (hPJ htP) _) (J.pow_mem (hPJ hxP) _))
-        (J.pow_mem (hPJ hyP) _)) (J.pow_mem haJ _)
-    have hPJcard : Nat.card (P.subgroupOf J) = 8 := by
-      rw [Nat.card_congr (subgroupOfEquivOfLe hPJ).toEquiv, hP8]
-    refine ⟨hR2, hP8, card_cyclicOrderFourSubgroups e8, hker, hrange, ?_,
-      threeCoreInverseImage_characteristic P, hJ24, hJidx, hSyl, hJodd,
-      ⟨a, x, y, haJ, hxP, hyP, ha3, hx2, hy2, hyx, hax, hay, ?_, ψ, ?_, ?_, hψP, ?_, ?_⟩, ?_⟩
-    · rcases h36 with h | h
-      · left; rw [hcardR, h]
-      · right; rw [hcardR, h]
-    · intro j hj
-      obtain ⟨f, hf⟩ := slTwoThreeNormalForm_bijective.2 (ψ ⟨j, hj⟩)
-      have hNf : ∀ g : Fin 2 × Fin 2 × Fin 2 × Fin 3,
-          ψ ⟨_, hmemJ g⟩ = slTwoThreeNormalForm g := fun g => hψnf ⟨_, hmemJ g⟩ g rfl
-      have hfj : t ^ (f.1 : ℕ) * x ^ (f.2.1 : ℕ) * y ^ (f.2.2.1 : ℕ) * a ^ (f.2.2.2 : ℕ) = j :=
-        congrArg Subtype.val (ψ.injective ((hNf f).trans hf))
-      refine ⟨f, hfj, fun f' hf' => ?_⟩
-      have hf'' : t ^ (f'.1 : ℕ) * x ^ (f'.2.1 : ℕ) * y ^ (f'.2.2.1 : ℕ) *
-          a ^ (f'.2.2.2 : ℕ) = j := hf'
-      apply slTwoThreeNormalForm_bijective.1
-      rw [← hNf f', ← hNf f]
-      congr 1
-      apply Subtype.ext
-      exact hf''.trans hfj.symm
-    · intro j hj
-      rw [hψt j hj, Matrix.SpecialLinearGroup.coe_neg, Matrix.SpecialLinearGroup.coe_one]
-      rfl
-    · intro j ε u v e hj
-      rw [hψnf j (ε, u, v, e) hj, coe_slTwoThreeNormalForm]
-    · rw [← hψP, card_map_of_injective ψ.injective, hPJcard]
-    · rw [← hψP]
-      exact ⟨((P.subgroupOf J).equivMapOfInjective ψ.toMonoidHom ψ.injective).symm.trans
-        ((subgroupOfEquivOfLe hPJ).trans e8)⟩
-    · intro H _ ι hι hn
-      have := threeCoreInverseImage_characteristic P
-      exact ⟨map_normal_of_characteristic ι hι hn, ⟨t, hPJ htP, rfl⟩⟩
 
 end CFSG.LocalAnalysis.SteinbergBK

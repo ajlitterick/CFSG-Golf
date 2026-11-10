@@ -118,25 +118,6 @@ structure Facts1469A5 (T M : Subgroup G) (u : G) (I K₁ K₂ : Subgroup G) : Pr
     E2.IsDiagramNontrivial (E2.star Iz I S) (E2.star Iz I K) (E2.star Iz I (S ⊓ K))) ∨
   IsPSL 3 3 1 ↥(E2.star Iz I K)
 
-@[expose] def Input1469B1 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (I S Iz : Subgroup G) (z : G),
-    IsSQTKTC I → ¬ CharTwo I → MinParabolic I S Iz →
-    z ∈ quasithinOmegaOneCenter S → z ≠ 1 → Iz = I ⊓ Subgroup.centralizer ({z} : Set G) →
-    (∃ L : Subgroup G, IsComponentIn L I) →
-    (∀ L : Subgroup G, IsComponentIn L I → ⁅L, Subgroup.zpowers z⁆ = L ∧ Lemma115Cases L z) →
-    (∃ K : Subgroup G, K ∈ cComp I ∧ I = K ⊔ S ∧
-      CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) ∧ E2.E22Cases I S Iz K) →
-    ∃ K : Subgroup G, K ∈ cComp I ∧ I = K ⊔ S ∧
-      CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) ∧ E2.E22Cases I S Iz K ∧
-      Shape1469B S Iz K I
-
-@[expose] def Input1469B2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (I S Iz K : Subgroup G),
-    IsSQTKTC I → ¬ CharTwo I → MinParabolic I S Iz → K ∈ cComp I → I = K ⊔ S →
-    CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) → E2.E22Cases I S Iz K →
-    Shape1469B S Iz K I →
-    ∀ A : Subgroup G, A ≤ S → S ≤ Subgroup.normalizer (A : Set G) → IsElemAbelian 2 A →
-      4 ≤ mIdx A (pCoreOf 2 I) → False
 
 @[expose] def i1Of1469 (T M I : Subgroup G) : Subgroup G := lI T M I ⊔ (T ⊓ I)
 
@@ -186,35 +167,12 @@ structure Concl14610List (T M : Subgroup G) (I I₂ K : Subgroup G) : Prop where
          (Nat.card (wOf1469 K) = 2 ^ 4 ∨ Nat.card (wOf1469 K) = 2 ^ 6))))
   v_le_w : VZ T M ≤ wOf1469 K
 
-@[expose] def Input14610List : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ : Subgroup G),
-    ASC27Statement G → Facts14610 T M H u I I₂ →
-    F6.IsGoldschmidtTripleIn I (i1Of1469 T M I) I₂ →
-    F6.F618ConclusionCat
-      (((i1Of1469 T M I).subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I)))
-      ((I₂.subgroupOf I).map (QuotientGroup.mk' (CFSG.pPrimeCore 3 ↥I))) →
-    ∃ K : Subgroup G, Concl14610List T M I I₂ K
-
-@[expose] def Input14610L32 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ K : Subgroup G),
-    Facts14610 T M H u I I₂ → Concl14610List T M I I₂ K →
-    IsPSL 3 2 1 (OTwoQuot K) → Nat.card (conjClosure (VZ T M) I₂) = 2 ^ 3
 
 @[expose] def Input14610Hat6 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G),
     IsHatA6Block K →
       wOf1469 K ⊓ Subgroup.centralizer ((oTwoUpper (oTwoZIn K) : Subgroup G) : Set G) = ⊥
 
-@[expose] def Input14610G22 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ K : Subgroup G),
-    Facts14610 T M H u I I₂ → Concl14610List T M I I₂ K →
-    IsG2Block K → Nat.card (conjClosure (VZ T M) I₂) = 2 ^ 3
-
-@[expose] def Input14610Rank4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ K : Subgroup G),
-    Facts14610 T M H u I I₂ → Concl14610List T M I I₂ K →
-    (IsAlt 6 (OTwoQuot K) ∨ IsAlt 7 (OTwoQuot K)) → Nat.card (wOf1469 K) = 2 ^ 4 →
-    Nat.card (conjClosure (VZ T M) I₂) = 2 ^ 3
 
 @[expose] def Input14610PermFixed : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ K : Subgroup G),
@@ -223,11 +181,5 @@ structure Concl14610List (T M : Subgroup G) (I I₂ K : Subgroup G) : Prop where
       (IsAlt 7 (OTwoQuot K) ∧ Nat.card (wOf1469 K) = 2 ^ 6)) →
     wOf1469 K ⊓ Subgroup.centralizer ((lI T M I : Subgroup G) : Set G) ≠ ⊥
 
-@[expose] def Input14610PermTu : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G) (u : G) (I I₂ K : Subgroup G),
-    Facts14610 T M H u I I₂ → Concl14610List T M I I₂ K →
-    ((IsAlt 6 (OTwoQuot K) ∧ Nat.card (wOf1469 K) = 2 ^ 5) ∨
-      (IsAlt 7 (OTwoQuot K) ∧ Nat.card (wOf1469 K) = 2 ^ 6)) →
-    T ⊓ I = tU T u → Nat.card (conjClosure (VZ T M) I₂) ≠ 2 ^ 3 → False
 
 end CFSG.Quasithin

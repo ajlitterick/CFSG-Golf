@@ -20,10 +20,6 @@ theorem beq_dec (a b : Nat) : Nat.beq a b = decide (a = b) := by
   · rw [beq_true e, decide_eq_true e]
   · rw [beq_false e, decide_eq_false e]
 
-theorem blt_dec (a b : Nat) : Nat.blt a b = decide (a < b) := by
-  by_cases e : a < b
-  · rw [blt_true e, decide_eq_true e]
-  · rw [blt_false e, decide_eq_false e]
 
 theorem ent_al (hO : OrbOK) (h : LHChecks D) {x : Nat} (hx : x < 3510) :
     ap orbL.alpha x = ent D.al x ∧ ent D.al x < 3510 ∧ ent D.al (ent D.al x) = x := by

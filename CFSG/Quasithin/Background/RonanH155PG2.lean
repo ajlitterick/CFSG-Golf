@@ -153,47 +153,6 @@ instance instGroup : Group PG2 :=
     (fun a => toPerm_injective (by rw [toPerm_mul, toPerm_one, one_mul]))
     (fun a => toPerm_injective (by rw [toPerm_mul, toPerm_inv, toPerm_one, inv_mul_cancel]))
 
-@[expose] def toPermHom : PG2 →* P24 where
-  toFun := toPerm
-  map_one' := toPerm_one
-  map_mul' := toPerm_mul
-
-theorem toPermHom_apply (x : PG2) :
-    toPermHom x = koPerm x.t * dPerm x.j * (if x.ε = 1 then ePerm else 1) := rfl
-
-theorem toPerm_mem_P2 (x : PG2) : toPerm x ∈ P2 := by
-  obtain ⟨t, j, ε⟩ := x
-  refine mem_P2_iff.2 ⟨koPerm t * dPerm j, ⟨t, j, rfl⟩, ?_⟩
-  by_cases hε : ε = 1
-  · subst hε
-    right
-    simp [toPerm]
-  · left
-    simp [toPerm, hε]
-
-theorem range_toPermHom : toPermHom.range = P2 := by
-  ext y
-  constructor
-  · rintro ⟨x, rfl⟩
-    exact toPerm_mem_P2 x
-  · intro hy
-    obtain ⟨z, ⟨t, j, rfl⟩, hzy | hzy⟩ := mem_P2_iff.1 hy
-    · exact ⟨⟨t, j, 0⟩, by simp [toPermHom_apply, hzy]⟩
-    · exact ⟨⟨t, j, 1⟩, by simp [toPermHom_apply, hzy]⟩
-
-@[expose] def all : List PG2 :=
-  (List.finRange 16).flatMap fun t => (List.finRange 8).flatMap fun j =>
-    (List.finRange 2).map fun ε => ⟨t, j, ε⟩
-
-theorem mem_all (x : PG2) : x ∈ PG2.all := by
-  simp only [PG2.all, List.mem_flatMap, List.mem_map, List.mem_finRange, true_and]
-  exact ⟨x.t, x.j, x.ε, by cases x; rfl⟩
-
-@[expose] def invs : List PG2 := PG2.all.filter fun x => decide (x ≠ 1) && decide (x * x = 1)
-
-theorem mem_invs {x : PG2} (h1 : x ≠ 1) (h2 : x * x = 1) : x ∈ PG2.invs := by
-  simp only [PG2.invs, List.mem_filter, Bool.and_eq_true, decide_eq_true_eq]
-  exact ⟨PG2.mem_all x, h1, h2⟩
 
 end PG2
 

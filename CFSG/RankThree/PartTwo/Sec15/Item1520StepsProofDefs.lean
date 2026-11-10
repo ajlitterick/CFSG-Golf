@@ -50,12 +50,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
     Sec15R G A c L → ∀ Y, Ctx1514 A (lB A) c L Y →
       ∀ (p : ℕ) (P : Subgroup G), Data1519 A (lB A) L p P → Nat.card ↥(A ⊓ Y) = 9
 
-@[expose] noncomputable def Step1522HypE9 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec15R G A c L → ∀ Y, Ctx1514 A (lB A) c L Y →
-      ∀ (p : ℕ) (P : Subgroup G), Data1519 A (lB A) L p P →
-        ∃ E : Subgroup (↥Y ⧸ CFSG.pCore 2 ↥Y), CFSG.Assembly.IsElemAbelian 3 E ∧
-          Nat.card ↥E = 9
 
 @[expose] noncomputable def Step1522HypNotL34 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),

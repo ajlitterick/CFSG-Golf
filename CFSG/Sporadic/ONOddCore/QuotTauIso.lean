@@ -92,10 +92,6 @@ theorem tauAut_val
     ((tauAut k x : RM) : Equiv.Perm (Fin 120)) = quotHom k (toQ x) := by
   rw [tauAut, dite_eq_left hk, MulEquiv.ofBijective_apply, tauHom_val hk]
 
-theorem tauAut_eq_quotFun
-    {k : ℕ} (hk : k < 12) (x : RM) :
-    ((tauAut k x : RM) : Equiv.Perm (Fin 120)) = quotFun (recK k) (toQ x) := by
-  rw [tauAut_val hk, quotHom_eq_quotFun hk]
 
 theorem tauAut_gen
     {k : ℕ} (hk : k < 12) {j : ℕ} (hj : j < 2) :
@@ -111,25 +107,5 @@ theorem tauAut_X
   rw [tauAut_val hk]
   exact quotHom_eq_sigma hk x
 
-theorem iotaR_tauAut
-    {k : ℕ} (hk : k < 12) (r : RM) :
-    iotaR (tauAut k r) = sigmaX (recK k).diag (recK k).field (recK k).graph * iotaR r *
-      (sigmaX (recK k).diag (recK k).field (recK k).graph)⁻¹ := by
-  set σ := sigmaX (recK k).diag (recK k).field (recK k).graph
-  refine MulEquiv.ext fun x => Subtype.ext ?_
-  set y := σ⁻¹ x
-  have hy : σ y = x := by simp [y]
-  rw [MulAut.mul_apply, MulAut.mul_apply, iotaR_apply]
-  have hry : (r : Equiv.Perm (Fin 120)) * y * (r : Equiv.Perm (Fin 120))⁻¹ ∈ onX :=
-    conj_mem_X r.2 y.2
-  have e1 : ((σ (iotaR r y) : onX) : Equiv.Perm (Fin 120)) =
-      ((tauAut k ⟨_, onX_le_RM hry⟩ : RM) : Equiv.Perm (Fin 120)) := by
-    have := tauAut_X hk ⟨_, hry⟩
-    rw [this]
-    rfl
-  have e2 : (⟨_, onX_le_RM hry⟩ : RM) = r * ⟨y, onX_le_RM y.2⟩ * r⁻¹ := Subtype.ext rfl
-  rw [e1, e2, map_mul, map_mul, map_inv]
-  simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-  rw [tauAut_X hk y, hy]
 
 end CFSG.Sporadic.ONOddCore

@@ -52,51 +52,5 @@ open scoped MatrixGroups commutatorElement
           (HasOrthTypeU p f Ω 8 true → MuIsoWylD4 Ω W) ∧
           (¬ Disconnected.DConnected Ω → MuIsoWylD4 Ω W → HasOrthTypeU p f Ω 8 true)
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem thm6TypedBelowU_iff (h3 : p ^ f ≠ 3) (n : ℕ) :
-    Thm6TypedBelowU p f n ↔ Thm6TypedBelow p f n := by
-  unfold Thm6TypedBelowU Thm6TypedBelow
-  by_cases hp2 : p = 2
-  · simp [hp2]
-  by_cases hq : 5 ≤ p ^ f
-  · have hq3 : 3 ≤ p ^ f := by omega
-    simp only [ne_eq, hp2, not_false_eq_true, hq3, hq, forall_const,
-      hypOmegaModU_iff_hypOmegaMod hp2 hq, hasLieTypeU_iff h3, not_hasM11TypeU h3, or_false]
-  · simp [hp2, hq, not_three_le_of_lt_five hp2 h3 hq]
-
-theorem thm7TypedBelowU_iff (h3 : p ^ f ≠ 3) (n : ℕ) :
-    Thm7TypedBelowU p f n ↔ Thm7TypedBelow p f n := by
-  unfold Thm7TypedBelowU Thm7TypedBelow
-  by_cases hp2 : p = 2
-  · simp [hp2]
-  by_cases hq : 5 ≤ p ^ f
-  · have hq3 : 3 ≤ p ^ f := by omega
-    simp only [ne_eq, hp2, not_false_eq_true, hq3, hq, forall_const,
-      hypOmegaModU_iff_hypOmegaMod hp2 hq, hasOrthTypeU_iff h3]
-  · simp [hp2, hq, not_three_le_of_lt_five hp2 h3 hq]
-
-theorem thm8TypedBelowU_iff (h3 : p ^ f ≠ 3) (n : ℕ) :
-    Thm8TypedBelowU p f n ↔ Thm8TypedBelow p f n := by
-  unfold Thm8TypedBelowU Thm8TypedBelow
-  by_cases hp2 : p = 2
-  · simp [hp2]
-  by_cases hq : 5 ≤ p ^ f
-  · have hq3 : 3 ≤ p ^ f := by omega
-    simp only [ne_eq, hp2, not_false_eq_true, hq3, hq, forall_const,
-      hypOmegaModU_iff_hypOmegaMod hp2 hq, hasOrthTypeU_iff h3]
-  · simp [hp2, hq, not_three_le_of_lt_five hp2 h3 hq]
-
-theorem muTableBelowU_iff (h3 : p ^ f ≠ 3) (n : ℕ) :
-    MuTableBelowU p f n ↔ MuTableBelow p f n := by
-  unfold MuTableBelowU MuTableBelow
-  by_cases hp2 : p = 2
-  · simp [hp2]
-  by_cases hq : 5 ≤ p ^ f
-  · have hq3 : 3 ≤ p ^ f := by omega
-    simp only [ne_eq, hp2, not_false_eq_true, hq3, hq, forall_const,
-      hypOmegaModU_iff_hypOmegaMod hp2 hq, hasLieTypeU_iff h3, hasOrthTypeU_iff h3,
-      not_hasM11TypeU h3, or_false]
-  · simp [hp2, hq, not_three_le_of_lt_five hp2 h3 hq]
 
 end CFSG.ClassicalInvolution.Uniform

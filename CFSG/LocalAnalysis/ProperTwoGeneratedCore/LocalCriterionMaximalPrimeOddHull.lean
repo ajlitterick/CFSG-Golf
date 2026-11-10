@@ -24,24 +24,6 @@ theorem mem_involution_zpowers_iff {s x : G} (hs : orderOf s = 2) :
     · exact ⟨0, by omega, pow_zero _⟩
     · exact ⟨1, by omega, pow_one _⟩
 
-omit [Finite G] in
-theorem pointClass_hull_normal (s : G) : (involutionPointHull s).Normal := by
-  constructor
-  intro x hx g
-  change g * x * g⁻¹ ∈ Subgroup.closure (involutionPointClass s)
-  apply Subgroup.closure_induction (p := fun x _ =>
-    g * x * g⁻¹ ∈ Subgroup.closure (involutionPointClass s)) ?_ ?_ ?_ ?_ hx
-  · intro a ha
-    apply Subgroup.subset_closure
-    simpa only [inv_inv, rightConjugateElem] using pointClass_right_conjugate_mem ha g⁻¹
-  · simpa only [mul_one, mul_inv_cancel] using
-      (Subgroup.closure (involutionPointClass s)).one_mem
-  · intro a b _ _ ha hb
-    simpa only [mul_assoc, inv_mul_cancel_left] using
-      (Subgroup.closure (involutionPointClass s)).mul_mem ha hb
-  · intro a _ ha
-    simpa only [mul_inv_rev, inv_inv, mul_assoc] using
-      (Subgroup.closure (involutionPointClass s)).inv_mem ha
 
 omit [Finite G] in
 theorem pointClass_hull_le_odd_involution_sup

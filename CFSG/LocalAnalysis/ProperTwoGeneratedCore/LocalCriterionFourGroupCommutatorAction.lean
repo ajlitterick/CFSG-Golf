@@ -46,19 +46,6 @@ theorem actorCommutatorSubgroup_mono (b : A) {J K : Subgroup I} (hJK : J ≤ K) 
   intro x hx
   exact actorCommutatorSubgroup_generator_mem b (hJK hx)
 
-theorem actorCommutatorSubgroup_le_self (b : A) (J : Subgroup I)
-    [IsInvariant A I J] : actorCommutatorSubgroup b J ≤ J := by
-  apply (actorCommutatorSubgroup_le b J J).2
-  intro x hx
-  exact J.mul_mem (J.inv_mem hx)
-    ((IsInvariant.invariant (A := A) (G := I) (H := J) b x).1 hx)
-
-theorem actorCommutatorSubgroup_eq_bot_of_fixed (b : A) (J : Subgroup I)
-    (hfixed : ∀ x ∈ J, b • x = x) : actorCommutatorSubgroup b J = ⊥ := by
-  apply le_antisymm _ bot_le
-  apply (actorCommutatorSubgroup_le b J ⊥).2
-  intro x hx
-  simp [hfixed x hx]
 
 theorem actor_smul_comm [IsMulCommutative A] (a b : A) (x : I) :
     a • (b • x) = b • (a • x) := by

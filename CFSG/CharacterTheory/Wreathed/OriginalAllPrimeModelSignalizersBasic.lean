@@ -54,11 +54,6 @@ theorem mem_modelC_iff (h : SemilinearExtension F b m hm heven Sigma hSigma) :
       h.left ∈ Subgroup.centralizer {involutionY F b m hm heven} :=
   mem_centralizer_inl_iff (fun σ => fieldAction_involutionY σ) h
 
-theorem inr_mem_modelC (σ : Sigma) :
-    (SemidirectProduct.inr σ : SemilinearExtension F b m hm heven Sigma hSigma) ∈
-      modelC b m hm heven Sigma hSigma := by
-  rw [mem_modelC_iff, SemidirectProduct.left_inr]
-  exact Subgroup.one_mem _
 
 theorem inl_mem_modelC_iff (v : CentralExtension F b m hm heven) :
     (SemidirectProduct.inl v : SemilinearExtension F b m hm heven Sigma hSigma) ∈

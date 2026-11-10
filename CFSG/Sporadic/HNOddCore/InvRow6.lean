@@ -92,10 +92,6 @@ theorem card_fix_t6 :
     Nat.card {x : X // jR aJ • x = x} = 8800 := by
   rw [card_fix_listed (by rw [permR_jR]; exact prep_a0J) row6_parts.2.2.1, data_parts.2.2.1]
 
-theorem fix_t6_set :
-    {x : X | jR aJ • x = x} = Set.range hF6.pt := by
-  ext x
-  exact fix_t6 x
 
 theorem c6Nat_size :
     InvData.c6Nat.size = 10 := by

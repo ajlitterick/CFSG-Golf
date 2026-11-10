@@ -319,45 +319,5 @@ theorem isMaxIso_sigmaAct
   rw [hi']
   exact isMaxIso_plane _
 
-theorem thetaEquiv_inl (g : SUh) :
-    thetaEquiv ⟨(g : SUh ⧸ Zh), 1⟩ = ⟨(psiSU g : unitaryPSU hF4 6), 1⟩ := by
-  change theta ⟨(g : SUh ⧸ Zh), Multiplicative.ofAdd 0⟩ = _
-  rw [theta_mk, ite_eq_left rfl, mul_one]
-  rfl
-
-theorem thetaEquiv_frob :
-    thetaEquiv ⟨1, Multiplicative.ofAdd 1⟩ =
-      ⟨(PiSU : unitaryPSU hF4 6), Multiplicative.ofAdd 1⟩ := by
-  change theta ⟨1, Multiplicative.ofAdd 1⟩ = _
-  rw [theta_mk, ite_eq_right (by decide), map_one, one_mul]
-  rfl
-
-theorem native_unitary_six_semilinear_isomorphism :
-    (∀ j, IsMaxIso (plane j)) ∧ Function.Injective plane ∧
-    (∀ P : Submodule F4 V6, IsMaxIso P → ∃ j, plane j = P) ∧
-    (∀ (P : Submodule F4 V6) (x : SigmaU6), IsMaxIso P → IsMaxIso (sigmaAct P x)) ∧
-    (∀ x : SigmaU6, (∀ j, sigmaAct (plane j) x = plane j) → x = 1) ∧
-    Function.Bijective b6Iso ∧
-    (∀ k : Fin 17, (b6Mat k).det = 1 ∧ b6Mat k * hGram * (barM (b6Mat k))ᵀ = hGram) ∧
-    (∀ k : Fin 17, b6Frob k = if (k : ℕ) = 5 then 1 else 0) ∧
-    (∀ (P : Submodule F4 V6) (k : Fin 17),
-      sigmaAct P (slElt k) = subMul (subBarPow (b6Frob k) P) (b6Mat k)) ∧
-    (∀ (k : Fin 17) (j : Fin 891),
-      plane (b6Iso (n6perm k j)) = sigmaAct (plane (b6Iso j)) (slElt k)) ∧
-    (∃ Φ : Usig ≃* SigmaU6,
-      (∀ (u : Usig) (j : Fin 891),
-        plane (b6Iso (natIdx u j)) = sigmaAct (plane (b6Iso j)) (Φ u)) ∧
-      ∀ k : Fin 17, Φ (genU k) = slElt k) ∧
-    (∃ Θ : SigmaU6 ≃* PSU62,
-      (∀ g : SUh, Θ ⟨(g : SUh ⧸ Zh), 1⟩ = ⟨(psiSU g : unitaryPSU hF4 6), 1⟩) ∧
-      Θ ⟨1, Multiplicative.ofAdd 1⟩ = ⟨(PiSU : unitaryPSU hF4 6), Multiplicative.ofAdd 1⟩) ∧
-    IsSimpleGroup (unitaryPSU hF4 6) ∧
-    Nat.card (unitaryPSU hF4 6) = 9196830720 ∧ Nat.card SigmaU6 = 18393661440 :=
-  ⟨isMaxIso_plane, plane_injective, fun _ hP => exists_plane_of_isMaxIso hP,
-    fun _ x hP => isMaxIso_sigmaAct hP x, eq_one_of_sigmaAct_plane, b6Iso_bijective,
-    fun k => ⟨b6Mat_det k, b6Mat_gram k⟩, b6Frob_eq, sigmaAct_slElt,
-    fun k j => (sigmaAct_slElt_plane k j).symm, ⟨phiU, plane_natIdx, phiU_genU⟩,
-    ⟨thetaEquiv, thetaEquiv_inl, thetaEquiv_frob⟩, isSimpleGroup_unitaryPSU, natCard_unitaryPSU,
-    natCard_SigmaU6⟩
 
 end CFSG.Monster.B.TwoA.Unitary

@@ -208,58 +208,6 @@ theorem stroth_2_26_frame_of_contracts
   stroth_2_26_frame_of_H4 @false_of_le_R_of_le_normalizer_of_two_le H2b H3two H3three h hns hBR
     hBn hne hconj
 
-theorem stroth_2_26_frame_allConj
-    (H2b : ∀ {G : Type} [Group G] [Finite G] {F : StrothFrame G} {D : Subgroup G}
-      {τ : StrothTypeIndex} {dD : StrothWeakTypeData D τ}, F.IsD D dD → τ.m + 1 = τ.n →
-      2 ≤ τ.m →
-      IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G)) →
-      ∀ (k : ℕ), k ≤ τ.n - 1 → ∀ (B : Subgroup G),
-        B ≤ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((mhoOne D : Subgroup G) : Set G) →
-        Nonempty (Additive ↥B ≃+ (ZMod (2 ^ k) × ZMod (2 ^ (k + 1)) × ZMod (2 ^ (k + 1)))) →
-        B ≤ D)
-    (H3two : ∀ {G : Type} [Group G] [Finite G] {F : StrothFrame G} {D : Subgroup G}
-      {τ : StrothTypeIndex} {dD : StrothWeakTypeData D τ}, F.IsD D dD → τ.m + 2 = τ.n →
-      2 ≤ τ.m →
-      IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G)) →
-      ∀ (k : ℕ), k ≤ τ.n - 2 → ∀ (B : Subgroup G),
-        B ≤ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((mhoOne D : Subgroup G) : Set G) →
-        Nonempty (Additive ↥B ≃+ (ZMod (2 ^ k) × ZMod (2 ^ (k + 2)) × ZMod (2 ^ (k + 2)))) →
-        B ≤ Subgroup.centralizer ((omegaIn (τ.n - 2) D : Subgroup G) : Set G))
-    (H3three : ∀ {G : Type} [Group G] [Finite G] {F : StrothFrame G} {D : Subgroup G}
-      {τ : StrothTypeIndex} {dD : StrothWeakTypeData D τ}, F.IsD D dD → τ.m + 2 = τ.n →
-      2 ≤ τ.m →
-      IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G)) →
-      (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((mhoOne D : Subgroup G) : Set G) ⊓
-          Subgroup.centralizer ((omegaIn (τ.n - 2) D : Subgroup G) : Set G) ≠ D →
-      ∃ s ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((mhoOne D : Subgroup G) : Set G) ⊓
-          Subgroup.centralizer ((omegaIn (τ.n - 2) D : Subgroup G) : Set G),
-        (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-            Subgroup.centralizer ((mhoOne D : Subgroup G) : Set G) ⊓
-            Subgroup.centralizer ((omegaIn (τ.n - 2) D : Subgroup G) : Set G) =
-          D ⊔ Subgroup.zpowers s ∧
-        s * s = (dD.c : G) ∧ ⁅Subgroup.zpowers s, D⁆ = ⁅Subgroup.zpowers dD.ρ, omegaIn 1 D⁆)
-    {G : Type} [Group G] [Finite G] {F : StrothFrame G} {D' : Subgroup G} {τ' : StrothTypeIndex}
-    {dD' : StrothWeakTypeData D' τ'} (h : F.IsD D' dD')
-    (hns : IsSylowIn 2 (Subgroup.normalizer (D' : Set G))
-      ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G)))
-    (_hall : ∀ x : G, x ∈ omegaIn 1 D' → orderOf x = 2 →
-      ∀ y : G, y ∈ omegaIn 1 D' → orderOf y = 2 → ∃ g : G, y = g * x * g⁻¹)
-    {B : Subgroup G}
-    (hBR : B ≤ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) ⊓
-      Subgroup.centralizer ((omegaIn 1 D' : Subgroup G) : Set G))
-    (hBn : ∀ x ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) ⊓
-        Subgroup.centralizer ((omegaIn 1 D' : Subgroup G) : Set G), ∀ b ∈ B,
-      x * b * x⁻¹ ∈ B)
-    (hne : B ≠ D') (hconj : ∃ g : G, B = D'.map (MulAut.conj g).toMonoidHom) :
-    τ'.m = τ'.n :=
-  stroth_2_26_frame_of_contracts H2b H3two H3three h hns hBR hBn hne hconj
 
 end StrothFrame.IsD
 

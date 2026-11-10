@@ -26,34 +26,6 @@ open CFSG.RankThree.PartOne (IsStronglyPEmbedded)
 section OfK35
 
 
-theorem k35w_of_k35 (hK : K35) : K35w := by
-  intro G _ _ hX p hp hp2 M hM h2 hO
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨P, hP⟩ := CFSG.ABGLocalTools.exists_isSylowOf p M
-  obtain ⟨-, hcases⟩ := hK G hX p hp hp2 M hM (by omega) hO P hP
-  rcases hcases with ⟨-, -, hM1⟩ | ⟨hAlt, -⟩ | ⟨-, -, hM3⟩ | ⟨n4, hshape4, hdvd4⟩ |
-    ⟨-, -, hM5⟩ | ⟨hp5, hFi, -⟩ | ⟨-, -, hM7⟩ | ⟨-, -, hM8⟩
-  · exact Or.inl (isPSolvable_of_normal_sylow hP hM1)
-  · exact Or.inr (Or.inl hAlt)
-  · exact Or.inl (isPSolvable_of_normal_sylow hP hM3)
-  · exfalso
-    have h2L : 2 ≤ CFSG.Open.pRank p (⊤ : Subgroup ↥(Opp p (⊤ : Subgroup G))) := by
-      have h1 : CFSG.Open.pRank p (Opp p (⊤ : Subgroup G)) =
-          CFSG.Open.pRank p (⊤ : Subgroup G) :=
-        CFSG.LocalAnalysis.UniquenessCase.PartTwo.s13_pRank_pElementSubgroup hp ⊤
-      rw [← CFSG.SectionRank.pRank_eq_pRank_top_subgroup, h1]
-      exact h2
-    obtain ⟨E, -, hEel, hEcard⟩ :=
-      CFSG.SectionRank.exists_pRank hp.one_lt (⊤ : Subgroup ↥(Opp p (⊤ : Subgroup G)))
-    have hE2 : p ^ 2 ≤ Nat.card E := by
-      rw [hEcard]
-      exact Nat.pow_le_pow_right hp.pos h2L
-    exact false_of_lieModel_twistedG2_of_dvd hshape4 hp hp2 hdvd4 hEel hE2
-  · exact Or.inl (isPSolvable_of_normal_sylow hP hM5)
-  · exact Or.inr (Or.inr ⟨hp5, hFi⟩)
-  · exact Or.inl (isPSolvable_of_normal_sylow hP hM7)
-  · exact Or.inl (isPSolvable_of_normal_sylow hP hM8)
-
 end OfK35
 
 section Holds

@@ -101,9 +101,6 @@ theorem e6FrameCentral_holds : E6FrameCentral := by
           group
   exact sup_le (hcomm _ hS₁) (hcomm _ hS₂)
 
-theorem twistedFrameTwo_of_central (hNR : LangPlaneKillsRoot Tag.F4) (hT : E6TwistedTransport)
-    (hTwo : E6FrameAtTwo) : TwistedFrameTwo :=
-  twistedFrameTwo_of hNR hT e6FrameCentral_holds hTwo
 
 end CFSG.LieType.SeitzGeneration.ExcHighThree
 

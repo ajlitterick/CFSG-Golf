@@ -112,12 +112,6 @@ theorem glFieldAut_mem_matrixIsometries
     congr 2
     exact finrank_commSpace_glFieldAut _ _
 
-theorem unitPairDickson_apply [CharP K 2] (hQ : Q.polarBilin.Nondegenerate)
-    (hσQ : ∀ (σ : K ≃+* K) (v : Fin d → K), Q (coordinateFieldMap d σ v) = σ (Q v))
-    (g : unitMultiplierPairs Q) :
-    unitPairDickson hQ hσQ g =
-      matrixDickson Q hQ ⟨_, left_mem_matrixIsometries_of_unit hσQ g⟩ :=
-  rfl
 
 theorem matrixIsometryInclusion_mem_unitMultiplierPairs (A : matrixIsometries Q) :
     matrixIsometryInclusion Q A ∈ unitMultiplierPairs Q := fun v => by
@@ -220,13 +214,6 @@ theorem false_of_spOmegaPlusRow_of_recognition (hrec : SpOmegaRecognitionInput .
     (huniq : SpOmegaRowUniqueInput .omegaPlus) : SpOmegaPlusRowInput :=
   false_of_spOmegaPlusRow hrec huniq omegaPlusDicksonInput_holds
 
-theorem spGraphRowsInput_of_omegaInputs' (hLE : SpLinearEvenRowInput)
-    (hUE : SpUnitaryEvenRowInput) (hLO : SpLinearOddRowInput) (hUO : SpUnitaryOddRowInput)
-    (hrecP : SpOmegaRecognitionInput .omegaPlus) (huniqP : SpOmegaRowUniqueInput .omegaPlus)
-    (hrecM : SpOmegaRecognitionInput .omegaMinus) (huniqM : SpOmegaRowUniqueInput .omegaMinus)
-    (hO : OmegaMinusOutInput) : SpGraphRowsInput :=
-  spGraphRowsInput_of_omegaInputs hLE hUE hLO hUO hrecP huniqP omegaPlusDicksonInput_holds hrecM
-    huniqM hO
 
 end Rows
 

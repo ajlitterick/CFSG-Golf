@@ -32,12 +32,5 @@ theorem exists_fixBarFull_of_fixThreeHyp {u : Y} (h : FixThreeHyp L J u)
     h.not_mem h.fix hZ
   exact ⟨v, ⟨hb, hf⟩⟩
 
-theorem exists_fixBarFull_of_fixPrimeHyp {p : ℕ} {u : Y} (h : FixPrimeHyp L J p u)
-    (hZ : Nat.card (Subgroup.center ↥L) = 1) :
-    ∃ v : ↥L ⧸ Subgroup.center ↥L,
-      FixBarFull ((J.subgroupOf L).map (QuotientGroup.mk' (Subgroup.center ↥L))) p v := by
-  obtain ⟨v, hb, hf⟩ := exists_fixBarData_full_of_census h.parab h.prime h.cyc h.join h.pow
-    h.not_mem h.fix hZ
-  exact ⟨v, ⟨hb, hf⟩⟩
 
 end CFSG.HardMathSupport.Curtis.NaturalModuleCensus

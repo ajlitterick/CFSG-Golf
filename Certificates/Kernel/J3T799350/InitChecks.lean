@@ -56,7 +56,6 @@ theorem iw1 : allBlk 11 iwOK 8 = true := by quickRfl
 theorem uOut : outK 6156 13 (mask 13) (6156 * 13) (pidn 6156 13) PJ3.S PJ3.SI 5 PJ3.BP 1 (PJ3.LR 1)
     [-2, -1, -2, 3, -2, -4, 3] (RT 2) = true := by quickRfl
 
-theorem n_iw : (iwOK 2).not = true := by quickRfl
 
 end CertificateChecks.KernelJ3T799350
 

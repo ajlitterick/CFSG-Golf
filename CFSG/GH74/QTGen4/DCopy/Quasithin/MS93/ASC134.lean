@@ -19,6 +19,5 @@ open scoped Pointwise
       Fintype.card F = 2 ^ n ∧ IsModO2Surj L α) →
       ∃ i : ℕ, IsC134CaseCorr i G₀ R L
 
-variable {G : Type} [Group G] [CFSG.GH74.QTGen4.Finite4 G]
 
 end CFSG.Quasithin.MS93

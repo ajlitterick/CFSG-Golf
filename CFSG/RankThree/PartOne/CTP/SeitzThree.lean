@@ -62,19 +62,5 @@ theorem extSeitzAt_of_inner_outer {d : TauCeti.LieTypeIndex} (hi : ExtSeitzAtInn
   · exact hi K hnab hiso p hp hp5 hpd E hE hc h
   · exact ho K hnab hiso p hp hp5 hpd E hE hc h
 
-theorem extSeitzThree_of_extSeitz (hSeitz : ExtSeitz) (hBridge : SeitzBridge) : ExtSeitzThree := by
-  intro d _ K _ _ _ _ hiso p hp hp5 hpd E hE hc
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨t, n, r, f, hadm, hmodel, hr, hT, hSz⟩ := hBridge K d hiso
-  have hnc : ¬ IsCyclic E := CFSG.IsElementaryAbelian.not_isCyclic_of_card_eq_prime_sq hc
-  rcases hSeitz K t n r f hadm hmodel p hp hp5 (fun h => hpd (h.trans hr)) E hE hnc with
-    hgen | ⟨hcard, hexc⟩
-  · exact Or.inl hgen
-  · refine Or.inr ⟨?_, ?_⟩
-    · have h25 : p ^ 2 = 5 ^ 2 := by rw [← hc, hcard]; norm_num
-      exact Nat.pow_left_injective (by norm_num : 2 ≠ 0) h25
-    · rcases hexc with h | h
-      · exact Or.inl (hT h)
-      · exact Or.inr (hSz h)
 
 end CFSG.RankThree.PartOne.CTP

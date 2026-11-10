@@ -225,8 +225,6 @@ namespace SixCtx
       altAct (σ * c.θs (πN T L g) * σ⁻¹) (altAct σ (Multiplicative.toAdd (c.φ u)))
     rw [c.hφe g u v h, altAct_mul, altAct_mul, altAct_inv_apply]
 
-theorem conj_θ (c : SixCtx T L) (σ : Perm (Fin 7)) (g : ↥(nL T L)) :
-    (c.conj σ).θ g = σ * c.θ g * σ⁻¹ := rfl
 
 theorem img_conj (c : SixCtx T L) (σ : Perm (Fin 7)) (A : Subgroup X) :
     (c.conj σ).img A = (c.img A).map (MulAut.conj σ).toMonoidHom := by

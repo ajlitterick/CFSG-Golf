@@ -59,8 +59,6 @@ theorem chi_permute (h : sympFour) (x : Fin 6 → ZMod 2) (hx : ∑ i, x i = 0) 
   map_mul' x y := by
     exact congrArg Multiplicative.ofAdd (chi_add (Multiplicative.toAdd x) (Multiplicative.toAdd y))
 
-theorem toAdd_chiHom (x : G6.PermMod 6) :
-    Multiplicative.toAdd (chiHom x) = chi (Multiplicative.toAdd x) := rfl
 
 theorem chiHom_permAct (h : sympFour) {x : G6.PermMod 6} (hx : x ∈ G6.coreMod 6) :
     chiHom (G6.permAct 6 (omegaPerm h) x) =

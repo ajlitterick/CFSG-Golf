@@ -235,13 +235,6 @@ theorem det_diagOmegaGL_ne_one : (diagOmegaGL : Matrix (Fin 3) (Fin 3) K).det �
   rw [det_diagOmegaGL]
   decide
 
-theorem diagOmegaGL_pow_three : diagOmegaGL ^ 3 = 1 := by
-  have hω : ω ^ 3 = 1 := by decide
-  refine Units.ext ?_
-  rw [Units.val_pow_eq_pow_val, coe_diagOmegaGL, pow_succ, pow_two, Matrix.mul_fin_three,
-    Matrix.mul_fin_three, Units.val_one, Matrix.one_fin_three]
-  simp only [mul_zero, zero_mul, add_zero, zero_add, mul_one]
-  rw [← pow_two, ← pow_succ, hω]
 
 @[expose] def conjSL3 (g : GL (Fin 3) K) :
     Matrix.SpecialLinearGroup (Fin 3) K →* Matrix.SpecialLinearGroup (Fin 3) K where
@@ -321,22 +314,6 @@ theorem range_levi34HomK
   ((MonoidHom.ofInjective levi34HomK_injective).trans
     (MulEquiv.subgroupCongr range_levi34HomK)).symm
 
-theorem coe_levi34Equiv_symm
-    (A : Matrix.SpecialLinearGroup (Fin 3) K) :
-    ((levi34Equiv.symm A : (twistedE6Datum 2 1).levi levi34) : twistedE6Group 2 1) =
-      levi34HomK A :=
-  rfl
-
-theorem levi34Equiv_symm_tv
-    (i j : Fin 3) (c : K) :
-    ((levi34Equiv.symm (tv i j c) : (twistedE6Datum 2 1).levi levi34) : twistedE6Group 2 1) =
-      levi34Hom (tv i j (fieldEquiv.symm c)) :=
-  levi34HomK_tv i j c
-
-theorem levi34HomK_levi34Equiv
-    (x : (twistedE6Datum 2 1).levi levi34) :
-    levi34HomK (levi34Equiv x) = x := by
-  rw [← coe_levi34Equiv_symm, MulEquiv.symm_apply_apply]
 
 theorem levi34Diag_comp_isogenyStd :
     (levi34Diag.toMonoidHom.comp (isogenyStd.comp levi34HomK)) =
@@ -358,73 +335,5 @@ theorem levi34Diag_comp_isogenyStd :
     exact coe_levi34Diag_yB (by rw [levi34HomK_tv, coe_isogenyStd_levi34Hom_tv21,
       fieldEquiv.apply_symm_apply])
 
-theorem levi34Diag_isogenyStd
-    {x y : (twistedE6Datum 2 1).levi levi34}
-    (h : (levi34Equiv y : Matrix (Fin 3) (Fin 3) K) =
-      (diagOmegaGL : Matrix (Fin 3) (Fin 3) K) * levi34Equiv x *
-        ((diagOmegaGL⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K)) :
-    levi34Diag (isogenyStd x) = isogenyStd y := by
-  have hy : levi34Equiv y = conjSL3 diagOmegaGL (levi34Equiv x) := Subtype.ext h
-  have e := DFunLike.congr_fun levi34Diag_comp_isogenyStd (levi34Equiv x)
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, ← hy, levi34HomK_levi34Equiv] at e
-  exact e
-
-theorem levi34Diag_pow_isogenyStd
-    (k : ℕ) {x y : (twistedE6Datum 2 1).levi levi34}
-    (h : (levi34Equiv y : Matrix (Fin 3) (Fin 3) K) =
-      ((diagOmegaGL ^ k : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) * levi34Equiv x *
-        (((diagOmegaGL ^ k)⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K)) :
-    (levi34Diag ^ k) (isogenyStd x) = isogenyStd y := by
-  induction k generalizing y with
-  | zero =>
-    rw [pow_zero, inv_one, Units.val_one, Matrix.one_mul, Matrix.mul_one] at h
-    rw [pow_zero, MulAut.one_apply, levi34Equiv.injective (Subtype.ext h)]
-  | succ k ih =>
-    obtain ⟨z, hz⟩ : ∃ z : (twistedE6Datum 2 1).levi levi34,
-        levi34Equiv z = conjSL3 (diagOmegaGL ^ k) (levi34Equiv x) :=
-      ⟨levi34Equiv.symm _, MulEquiv.apply_symm_apply _ _⟩
-    have hz' := congrArg (fun A : Matrix.SpecialLinearGroup (Fin 3) K =>
-      (A : Matrix (Fin 3) (Fin 3) K)) hz
-    rw [pow_succ', MulAut.mul_apply, ih hz']
-    refine levi34Diag_isogenyStd ?_
-    have hd : ((diagOmegaGL ^ (k + 1) : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-        (diagOmegaGL : Matrix (Fin 3) (Fin 3) K) *
-          ((diagOmegaGL ^ k : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) := by
-      rw [pow_succ', Units.val_mul]
-    have hd' : (((diagOmegaGL ^ (k + 1))⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-        (((diagOmegaGL ^ k)⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) *
-          ((diagOmegaGL⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) := by
-      rw [pow_succ', mul_inv_rev, Units.val_mul]
-    simp only [h, hz', coe_conjSL3, hd, hd', Matrix.mul_assoc]
-
-theorem map_levi34Diag_map_isogenyStd :
-    (((twistedE6Datum 2 1).levi levi34).map isogenyStd).map levi34Diag.toMonoidHom =
-      ((twistedE6Datum 2 1).levi levi34).map isogenyStd := by
-  apply le_antisymm
-  · rintro _ ⟨_, ⟨x, hx, rfl⟩, rfl⟩
-    obtain ⟨y, hy⟩ : ∃ y : (twistedE6Datum 2 1).levi levi34,
-        levi34Equiv y = conjSL3 diagOmegaGL (levi34Equiv ⟨x, hx⟩) :=
-      ⟨levi34Equiv.symm _, MulEquiv.apply_symm_apply _ _⟩
-    exact ⟨y, y.2, (levi34Diag_isogenyStd (x := ⟨x, hx⟩) (y := y)
-      (congrArg (fun A : Matrix.SpecialLinearGroup (Fin 3) K =>
-        (A : Matrix (Fin 3) (Fin 3) K)) hy)).symm⟩
-  · rintro _ ⟨y, hy, rfl⟩
-    obtain ⟨x, hx⟩ : ∃ x : (twistedE6Datum 2 1).levi levi34,
-        levi34Equiv x = conjSL3 diagOmegaGL⁻¹ (levi34Equiv ⟨y, hy⟩) :=
-      ⟨levi34Equiv.symm _, MulEquiv.apply_symm_apply _ _⟩
-    refine ⟨isogenyStd x, ⟨x, x.2, rfl⟩, levi34Diag_isogenyStd (x := x) (y := ⟨y, hy⟩) ?_⟩
-    rw [hx, coe_conjSL3, inv_inv]
-    simp only [Matrix.mul_assoc, Units.mul_inv, Matrix.mul_one, Units.mul_inv_cancel_left]
-
-theorem compatDiag_levi34_outer :
-    ∃ (u : (a : Fin TwistTag.E6.foldedTag.rank) → (orbitField TwistTag.E6 K barHom a)ˣ)
-      (e : (twistedE6Datum 2 1).levi levi34 ≃* Matrix.SpecialLinearGroup (Fin 3) K)
-      (d : GL (Fin 3) K), (d : Matrix (Fin 3) (Fin 3) K).det ≠ 1 ∧
-      ∀ x y : (twistedE6Datum 2 1).levi levi34,
-        (e y : Matrix (Fin 3) (Fin 3) K) = (d : Matrix (Fin 3) (Fin 3) K) * e x *
-            ((d⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) →
-          compatDiagAutHom TwistTag.E6 K barHom u (isogenyStd x) = isogenyStd y :=
-  ⟨levi34Unit, levi34Equiv, diagOmegaGL, det_diagOmegaGL_ne_one,
-    fun _ _ h => levi34Diag_isogenyStd h⟩
 
 end CFSG.EvenSmallLie.TwoE6

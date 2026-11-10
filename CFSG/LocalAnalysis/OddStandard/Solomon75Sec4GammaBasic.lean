@@ -97,63 +97,9 @@ theorem gamma_map_subtype_le {L : Subgroup K} {Q : Subgroup ↥L} {S : Subgroup 
 
 end Basic
 
-theorem conj_smul_subgroup_eq_map {K : Type*} [Group K] (g : K) (H : Subgroup K) :
-    (MulAut.conj g) • H = H.map (MulAut.conj g).toMonoidHom := by
-  ext x
-  rw [Subgroup.mem_pointwise_smul_iff_inv_smul_mem, Subgroup.mem_map_equiv]
-  simp [MulAut.smul_def, mul_assoc]
 
 section Frattini
 
-variable {X : Type*} [Group X]
-
-@[expose] def normalizerConjEquiv (A : Subgroup X) (g : X) (hg : g ∈ normalizer (A : Set X)) :
-    ↥A ≃* ↥A where
-  toFun a := ⟨g * a * g⁻¹, (mem_normalizer_iff.1 hg a).1 a.2⟩
-  invFun a := ⟨g⁻¹ * a * g, (mem_normalizer_iff.1 hg (g⁻¹ * a * g)).2 (by
-    have : g * (g⁻¹ * (a : X) * g) * g⁻¹ = a := by group
-    rw [this]
-    exact a.2)⟩
-  left_inv a := Subtype.ext (by simp [mul_assoc])
-  right_inv a := Subtype.ext (by simp [mul_assoc])
-  map_mul' a b := Subtype.ext (by simp [mul_assoc])
-
-theorem normalizerConjEquiv_apply (A : Subgroup X) (g : X) (hg : g ∈ normalizer (A : Set X))
-    (a : ↥A) : ((normalizerConjEquiv A g hg a : ↥A) : X) = g * a * g⁻¹ := by
-  simp [normalizerConjEquiv]
-
-theorem gamma_frattini (A : Subgroup X) [Finite A] (S : Sylow 2 ↥A) :
-    ∀ g ∈ normalizer (A : Set X), ∃ a ∈ A, ∃ b ∈ normalizer
-      (((properTwoGenCoreGamma (S : Subgroup ↥A) 2).map A.subtype : Subgroup X) : Set X),
-      g = a * b := by
-  intro g hg
-  set σ := normalizerConjEquiv A g hg with hσ
-  obtain ⟨k, hk⟩ := MulAction.exists_smul_eq ↥A
-    (Sylow.mapSurjective (show Function.Surjective σ.toMonoidHom from σ.surjective) S) S
-  set τ : ↥A ≃* ↥A := σ.trans (MulAut.conj k) with hτ
-  have h1 : ((S : Subgroup ↥A).map σ.toMonoidHom).map (MulAut.conj k).toMonoidHom =
-      (S : Subgroup ↥A) := by
-    have := congrArg (fun P : Sylow 2 ↥A => (P : Subgroup ↥A)) hk
-    simp only [Sylow.coe_subgroup_smul, Sylow.coe_mapSurjective] at this
-    rwa [conj_smul_subgroup_eq_map] at this
-  have hSτ : (S : Subgroup ↥A).map τ.toMonoidHom = (S : Subgroup ↥A) := by
-    calc (S : Subgroup ↥A).map τ.toMonoidHom
-        = ((S : Subgroup ↥A).map σ.toMonoidHom).map (MulAut.conj k).toMonoidHom := by
-          rw [Subgroup.map_map]; rfl
-      _ = S := h1
-  have hΓτ : (properTwoGenCoreGamma (S : Subgroup ↥A) 2).map τ.toMonoidHom =
-      properTwoGenCoreGamma (S : Subgroup ↥A) 2 := by
-    rw [← gamma_map_equiv, hSτ]
-  refine ⟨(k : X)⁻¹, (k⁻¹).2, (k : X) * g, ?_, ?_⟩
-  · rw [Subgroup.mem_normalizer_iff_map_conj_eq]
-    have hcomp : (MulAut.conj ((k : X) * g)).toMonoidHom.comp A.subtype =
-        A.subtype.comp τ.toMonoidHom := by
-      ext a
-      simp [hτ, hσ, normalizerConjEquiv_apply, mul_assoc]
-    rw [Subgroup.map_map]
-    show Subgroup.map ((MulAut.conj ((k : X) * g)).toMonoidHom.comp A.subtype) _ = _
-    rw [hcomp, ← Subgroup.map_map, hΓτ]
-  · group
 
 end Frattini
 

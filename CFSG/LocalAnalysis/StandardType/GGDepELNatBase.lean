@@ -87,37 +87,6 @@ theorem ggDepELSolH_complete (tgt : ℕ → ℕ) (v : GGDepAE 3 6)
     rwa [Nat.mod_mod] at h'
   rw [if_pos htest]
 
-theorem ggDepELSolH_sound {tgt : ℕ → ℕ} {l : List ℕ} (hl : l ∈ ggDepELSolH tgt) :
-    l.length = 6 ∧ ∀ c : Fin 6, GGDepED4In c →
-      ggDepAdot (ggDepELα c) (ggDepELToZ l) = ((tgt c.val : ℕ) : ZMod 3) := by
-  unfold ggDepELSolH at hl
-  dsimp only at hl
-  simp only [List.mem_filterMap, List.mem_range] at hl
-  obtain ⟨k, hk, hfk⟩ := hl
-  have htest : ggDepELNJ.all (fun c =>
-      ggDepANDot 3 (ggDepELNA c) (ggTWNDecode 3 6 k) == tgt c % 3) = true := by
-    by_contra h
-    rw [if_neg h] at hfk
-    exact absurd hfk (by simp)
-  rw [if_pos htest] at hfk
-  simp only [Option.some.injEq] at hfk
-  rw [← hfk]
-  refine ⟨ggTWNDecode_length 3 6 k, ?_⟩
-  intro c hIn
-  have hmem : c.val ∈ ggDepELNJ := by
-    have h0 : c.val ≠ 0 := fun h => hIn.1 (Fin.ext h)
-    have h5 : c.val ≠ 5 := fun h => hIn.2 (Fin.ext h)
-    simp only [ggDepELNJ, List.mem_cons, List.mem_singleton, List.mem_nil_iff, or_false]
-    omega
-  have hcond := List.all_eq_true.mp htest c.val hmem
-  have hmod := beq_iff_eq.mp hcond
-  have hz : ((ggDepANDot 3 (ggDepELNA c.val) (ggTWNDecode 3 6 k) : ℕ) : ZMod 3)
-      = ((tgt c.val : ℕ) : ZMod 3) := by
-    rw [hmod, ZMod.natCast_mod]
-  have hcast := ggDepELDot_cast (a := ggDepELNA c.val) (b := ggTWNDecode 3 6 k)
-    (ggDepELNA_length c.isLt) (ggTWNDecode_length 3 6 k)
-  rw [hcast, ggDepELNA_toZ c] at hz
-  exact hz
 
 theorem ggDepELSolA_complete (tgt : ℕ → ℕ) (v : GGDepAE 3 6)
     (hv : ∀ c : Fin 6, GGDepED4In c →
@@ -149,37 +118,6 @@ theorem ggDepELSolA_complete (tgt : ℕ → ℕ) (v : GGDepAE 3 6)
     rwa [Nat.mod_mod] at h'
   rw [if_pos htest]
 
-theorem ggDepELSolA_sound {tgt : ℕ → ℕ} {l : List ℕ} (hl : l ∈ ggDepELSolA tgt) :
-    l.length = 6 ∧ ∀ c : Fin 6, GGDepED4In c →
-      ggDepAdot (ggDepELToZ l) (ggDepELh c) = ((tgt c.val : ℕ) : ZMod 3) := by
-  unfold ggDepELSolA at hl
-  dsimp only at hl
-  simp only [List.mem_filterMap, List.mem_range] at hl
-  obtain ⟨k, hk, hfk⟩ := hl
-  have htest : ggDepELNJ.all (fun c =>
-      ggDepANDot 3 (ggTWNDecode 3 6 k) (ggDepELNH c) == tgt c % 3) = true := by
-    by_contra h
-    rw [if_neg h] at hfk
-    exact absurd hfk (by simp)
-  rw [if_pos htest] at hfk
-  simp only [Option.some.injEq] at hfk
-  rw [← hfk]
-  refine ⟨ggTWNDecode_length 3 6 k, ?_⟩
-  intro c hIn
-  have hmem : c.val ∈ ggDepELNJ := by
-    have h0 : c.val ≠ 0 := fun h => hIn.1 (Fin.ext h)
-    have h5 : c.val ≠ 5 := fun h => hIn.2 (Fin.ext h)
-    simp only [ggDepELNJ, List.mem_cons, List.mem_singleton, List.mem_nil_iff, or_false]
-    omega
-  have hcond := List.all_eq_true.mp htest c.val hmem
-  have hmod := beq_iff_eq.mp hcond
-  have hz : ((ggDepANDot 3 (ggTWNDecode 3 6 k) (ggDepELNH c.val) : ℕ) : ZMod 3)
-      = ((tgt c.val : ℕ) : ZMod 3) := by
-    rw [hmod, ZMod.natCast_mod]
-  have hcast := ggDepELDot_cast (a := ggTWNDecode 3 6 k) (b := ggDepELNH c.val)
-    (ggTWNDecode_length 3 6 k) (ggDepELNH_length c.isLt)
-  rw [hcast, ggDepELNH_toZ c] at hz
-  exact hz
 
 end CFSG.StandardType
 

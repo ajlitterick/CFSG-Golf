@@ -22,10 +22,6 @@ open scoped MatrixGroups
     IsPGroup 2 (R ⧸ classicalInvolutionOddCore R) →
     ∃ (z : G) (J : Subgroup G), IsClassicalMember3 J z
 
-theorem tightHasMember3Large_of_tightLift3 (h : TightLift3) : TightHasMember3Large := by
-  intro G _ _ _ hnab hlarge R S hS t ht hto hRC hRn h2
-  obtain ⟨J, -, hJ⟩ := h G hnab hlarge R S hS t ht hto hRC hRn h2
-  exact ⟨t, J, hJ⟩
 
 theorem normalOddByQuaternionLarge_of_tightHasMember3Large (h : CIT3Inductive)
     (h0 : ModelClauseZero) (hM : M11Facts) (hlift : TightHasMember3Large) :

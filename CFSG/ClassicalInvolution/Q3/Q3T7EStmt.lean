@@ -74,42 +74,6 @@ theorem thmEWithSylow3_of_minCexFalse (h : MinCexFalse3) : ThmEWithSylow3 := by
   intro G _ _ Ω K S R W H hst hH
   exact key (Nat.card G + 1) G (Nat.lt_succ_self _) Ω K S R W H hst hH
 
-@[expose] def E18_6_3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex3 Ω K S R W H →
-      classicalInvolutionOddCore G = ⊥ ∧
-        ∃ F : Subgroup G, F.Normal ∧ IsSimpleGroup ↥F ∧ (∃ x ∈ F, ∃ y ∈ F, x * y ≠ y * x) ∧
-          Subgroup.centralizer (F : Set G) = ⊥
-
-@[expose] def E18_8z_3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex3 Ω K S R W H →
-      ∀ z : G, IsUniqueInvolution K z → FixesUniqueCoset z H
-
-@[expose] def E18_9_3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex3 Ω K S R W H →
-      ∀ z : G, IsUniqueInvolution K z → ∀ h : G, h⁻¹ * z * h ∈ (S : Subgroup G) →
-        h⁻¹ * z * h ≠ z → z * (h⁻¹ * z * h) = (h⁻¹ * z * h) * z →
-          FixesUniqueCoset (z * (h⁻¹ * z * h)) H
-
-@[expose] def E18_end3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex3 Ω K S R W H →
-      (∃ F : Subgroup G, F.Normal ∧ IsSimpleGroup ↥F ∧ (∃ x ∈ F, ∃ y ∈ F, x * y ≠ y * x) ∧
-        Subgroup.centralizer (F : Set G) = ⊥) →
-      ∀ z : G, IsUniqueInvolution K z → FixesUniqueCoset z H →
-        (∀ h : G, h⁻¹ * z * h ∈ (S : Subgroup G) → h⁻¹ * z * h ≠ z →
-          z * (h⁻¹ * z * h) = (h⁻¹ * z * h) * z → FixesUniqueCoset (z * (h⁻¹ * z * h)) H) →
-        False
-
-theorem minCexFalse3_of_steps (h6 : E18_6_3) (h8 : E18_8z_3) (h9 : E18_9_3) (hend : E18_end3) :
-    MinCexFalse3 := by
-  intro G _ _ Ω K S R W H c
-  obtain ⟨K', ⟨-, z, hz1, -⟩, -⟩ := c.stand.twin
-  obtain ⟨-, hF⟩ := h6 G Ω K S R W H c
-  have hzc : FixesUniqueCoset z H := h8 G Ω K S R W H c z hz1
-  exact hend G Ω K S R W H c hF z hz1 hzc fun h h1 h2 h3 => h9 G Ω K S R W H c z hz1 h h1 h2 h3
 
 end Stmt
 

@@ -58,10 +58,6 @@ theorem layerEmbed_comm_longBlock (hij : i ≠ j) {k : Fin n} (hki : k ≠ i) (h
     exact suppGroup_mono hsub hb
   exact (commute_suppGroup_compl ha' hb').eq
 
-theorem map_shortBlock_range_layerEmbed (hij : i ≠ j) :
-    (shortBlock F (zero_ne_one : (0 : Fin 2) ≠ 1)).range.map (layerEmbed F hij) =
-      (shortBlock F hij).range := by
-  rw [← MonoidHom.range_comp, layerEmbed, spEmbed_comp_shortBlock hij]
 
 end Layers
 
@@ -86,31 +82,6 @@ section Std
   comm₁₂ := layerEmbed_comm_longBlock (show (1 : Fin 3) ≠ 2 by decide) (k := 0) (by decide)
     (by decide)
 
-theorem stdFrame_shortNodes (Ω : Set (Subgroup (StatedSp 3 (GaloisField 3 1))))
-    (hΩ : (longBlock (GaloisField 3 1) 3 2).range ∈ Ω) :
-    (shortBlock (GaloisField 3 1) (show (0 : Fin 3) ≠ 1 by decide)).range ∈
-        shortNodes (stdFrame Ω hΩ).Θ₀₁ ∧
-      (shortBlock (GaloisField 3 1) (show (1 : Fin 3) ≠ 2 by decide)).range ∈
-        shortNodes (stdFrame Ω hΩ).Θ₁₂ :=
-  ⟨⟨_, shortBlock_range_mem_adaptedShort, (map_shortBlock_range_layerEmbed _).symm⟩,
-   ⟨_, shortBlock_range_mem_adaptedShort, (map_shortBlock_range_layerEmbed _).symm⟩⟩
-
-theorem stdFrame_a2 (Ω : Set (Subgroup (StatedSp 3 (GaloisField 3 1))))
-    (hΩ : (longBlock (GaloisField 3 1) 3 2).range ∈ Ω) :
-    ∃ T₀ ∈ shortNodes (stdFrame Ω hΩ).Θ₀₁, ∃ T₁ ∈ shortNodes (stdFrame Ω hΩ).Θ₁₂,
-      ∃ W, WeakCT.LinearBlockStandardPair (GaloisField 3 1) W T₀ T₁ :=
-  ⟨_, (stdFrame_shortNodes Ω hΩ).1, _, (stdFrame_shortNodes Ω hΩ).2, _,
-    linearBlockStandardPair_shortBlock (show (0 : Fin 3) ≠ 1 by decide)
-      (show (1 : Fin 3) ≠ 2 by decide) (show (0 : Fin 3) ≠ 2 by decide)⟩
-
-theorem stdFrame_chain (Ω : Set (Subgroup (StatedSp 3 (GaloisField 3 1))))
-    (hΩ : (longBlock (GaloisField 3 1) 3 2).range ∈ Ω) :
-    ∃ U : Fin 3 → Subgroup (StatedSp 3 (GaloisField 3 1)), U 2 ∈ Ω ∧
-      (∀ a ∈ U 0, ∀ b ∈ U 2, a * b = b * a) ∧
-      (∃ W, WeakCT.LinearBlockStandardPair (GaloisField 3 1) W (U 0) (U 1)) ∧
-      (∃ W, SymplecticBlockStandardPair (GaloisField 3 1) W (U 2) (U 1)) := by
-  obtain ⟨T₀, h₀, T₁, h₁, hA⟩ := stdFrame_a2 Ω hΩ
-  exact chain_of_frame (stdFrame Ω hΩ) h₀ h₁ hA
 
 end Std
 

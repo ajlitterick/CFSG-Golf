@@ -26,11 +26,6 @@ open scoped Pointwise
 
 universe u v
 
-/-- Huppert I.2.12(c), Dedekind's identity in the form used in I.18.2. -/
-public theorem huppert_I_2_12_c_dedekind_identity
-    {G : Type*} [Group G] (A B C : Subgroup G) (hAC : A ≤ C) :
-    (A : Set G) * (B ⊓ C : Subgroup G) = (A : Set G) * (B : Set G) ∩ C := by
-  exact Subgroup.mul_inf_assoc A B C hAC
 
 /-- Huppert I.7.5, conjugacy of Sylow subgroups. -/
 public theorem huppert_I_7_5_sylow_subgroups_conjugate
@@ -44,17 +39,6 @@ public theorem huppert_I_7_5_sylow_subgroups_conjugate
     _ = MulAut.conj g • (P : Subgroup G) := Sylow.coe_subgroup_smul
     _ = (P : Subgroup G).map (MulAut.conj g).toMonoidHom := rfl
 
-/-- Huppert I.17.5, the abelian-normal-subgroup case of complement conjugacy. -/
-public theorem huppert_I_17_5_abelian_normal_complements_conjugate
-    {G : Type u} [Group G] [Finite G]
-    (N H K : Subgroup G) [N.Normal] [IsMulCommutative N]
-    (hcoprime : Nat.Coprime (Nat.card N) (Nat.card (G ⧸ N)))
-    (hH : N.IsComplement' H) (hK : N.IsComplement' K) :
-    ∃ n : N, K = H.map (MulAut.conj (n : G)).toMonoidHom := by
-  apply Subgroup.exists_conj_eq_of_isComplement' (H := N) (K₁ := H) (K₂ := K)
-  · simpa [Subgroup.index_eq_card] using hcoprime
-  · exact hH
-  · exact hK
 
 /-- The solvable-normal-subgroup branch of Huppert I.18.2. -/
 public theorem huppert_I_18_2_a_complements_conjugate_of_solvable_normal

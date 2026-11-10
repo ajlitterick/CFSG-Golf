@@ -72,27 +72,6 @@ theorem solvable_of_isZ4Cubed {V : Type} [Group V] (h : IsZ4Cubed V) : Group.IsS
   refine Group.isSolvable_of_comm fun a b => e.injective ?_
   rw [map_mul, map_mul, mul_comm]
 
-theorem solvable_of_isZ4StarExtra2 {V : Type} [Group V] [Finite V] (h : IsZ4StarExtra2 V) :
-    Group.IsSolvable V := by
-  obtain ⟨Z, E, -, hZc, hE, hZX, hZE, -⟩ := h
-  have hZn : Z.Normal := Subgroup.normal_of_le_center hZX
-  have hZs : Group.IsSolvable ↥Z :=
-    Group.isSolvable_of_comm fun a b => Subtype.ext (by
-      have := Subgroup.mem_center_iff.mp (hZX b.2) (a : V)
-      exact this)
-  have hEs : Group.IsSolvable ↥E := solvable_of_isExtraspecial2 hE
-  let f : ↥E →* V ⧸ Z := (QuotientGroup.mk' Z).comp E.subtype
-  have hf : Function.Surjective f := by
-    intro y
-    obtain ⟨v, rfl⟩ := QuotientGroup.mk'_surjective Z y
-    have hv : v ∈ Z ⊔ E := by rw [hZE]; trivial
-    obtain ⟨a, ha, b, hb, hab⟩ := Subgroup.mem_sup_of_normal_left.mp hv
-    refine ⟨⟨b, hb⟩, ?_⟩
-    show QuotientGroup.mk' Z b = QuotientGroup.mk' Z v
-    have ha1 : QuotientGroup.mk' Z a = 1 := (QuotientGroup.eq_one_iff a).mpr ha
-    rw [← hab, map_mul, ha1, one_mul]
-  have : Group.IsSolvable (V ⧸ Z) := Group.isSolvable_of_surjective hf
-  exact Group.isSolvable_of_subgroup_quotient Z
 
 theorem solvable_pCore_two (X : Type) [Group X] [Finite X] :
     Group.IsSolvable ↥(CFSG.pCore 2 X) := by
@@ -145,11 +124,5 @@ theorem excl_ext {X : Type} [Group X] [Finite X] {PV PY : ∀ (V : Type) [Group 
   obtain ⟨hs, hna, hn⟩ := hPY _ hpy
   exact excl_simple (hPV _ hpv) hs hna hn hA
 
-theorem excl_ext_hat {X : Type} [Group X] [Finite X] {PV : ∀ (V : Type) [Group V], Prop}
-    (hPV : ∀ (V : Type) [Group V] [Finite V], PV V → Group.IsSolvable V) {S : Type} [Group S]
-    (hS : Finite S → Nat.card S ≠ 60) (h : IsExt X PV (fun Y _ => IsHat Y S))
-    (hA : IsAlt 5 (X ⧸ CFSG.solvableRadical X)) : False := by
-  obtain ⟨V, hVn, hpv, hpy⟩ := h
-  exact excl_hat (hPV _ hpv) hpy hS hA
 
 end CFSG.Quasithin.A314

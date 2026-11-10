@@ -34,10 +34,6 @@ theorem zjAct_ker (Y : Subgroup H) [Y.Normal] : (zjAct Y).ker = centralizer (Y :
     rw [← hy]
     group
 
-theorem card_range_mul_card_E (Y : Subgroup H) [Y.Normal] :
-    Nat.card (zjAct Y).range * Nat.card (centralizer (Y : Set H)) = Nat.card H := by
-  rw [← zjAct_ker Y, mul_comm]
-  exact Subgroup.card_ker_mul_card_range _
 
 variable {Q Y V V' B : Subgroup H} {ρ t τ l y z v₁ v₂ : H}
 
@@ -46,18 +42,6 @@ namespace ZJData
 variable (h : ZJData Q Y V V' B ρ t τ l y z v₁ v₂) [Y.Normal]
 include h
 
-theorem eight_dvd_card_range : 8 ∣ Nat.card (zjAct Y).range := by
-  have hcard := card_range_mul_card_E (H := H) Y
-  rw [h.card_E] at hcard
-  have hcard' : Nat.card (zjAct Y).range * 2 ^ 7 = Nat.card H := by
-    simpa using hcard
-  have hdiv : 2 ^ 10 ∣ Nat.card (zjAct Y).range * 2 ^ 7 := by
-    simpa only [← hcard'] using h.two_pow_ten
-  have h2 : (2:ℕ) ^ 3 * 2 ^ 7 ∣ Nat.card (zjAct Y).range * 2 ^ 7 := by
-    simpa [show (2:ℕ) ^ 3 * 2 ^ 7 = 2 ^ 10 by norm_num] using hdiv
-  have h3 : (2:ℕ) ^ 3 ∣ Nat.card (zjAct Y).range :=
-    Nat.dvd_of_mul_dvd_mul_right (by norm_num) h2
-  simpa using h3
 
 theorem range_cent_two_group (W : Subgroup (MulAut ↥Y)) (hWS : W ≤ (zjAct Y).range)
     (hWc : W ≤ centralizer ({zjAct Y ρ} : Set (MulAut ↥Y))) (hW : IsPGroup 2 W) :

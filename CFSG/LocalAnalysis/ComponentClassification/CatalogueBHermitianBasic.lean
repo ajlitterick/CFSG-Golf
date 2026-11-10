@@ -62,10 +62,6 @@ theorem exists_unit_vector [Finite K] [Nontrivial V] (hsym : h.IsSymm)
   obtain ⟨c, hc⟩ := exists_smul_unit h hsym hsigma hne hx
   exact ⟨c • x, hc⟩
 
-theorem unit_vector_ne_zero {e : V} (he : h e e = 1) : e ≠ 0 := by
-  intro he0
-  have hz : h e e = 0 := by simp only [he0, map_zero]
-  exact zero_ne_one (hz.symm.trans he)
 
 @[expose] def orthogonalProjection (e : V) : V →ₗ[K] V :=
   LinearMap.id - (h e).smulRight e

@@ -333,8 +333,6 @@ theorem g0_conj_z : g0J * zJ * g0J⁻¹ = zJ ^ 2 :=
   eq_of_rep (rep_conj rep_g0 (okA_spec elts_spec.2.2.2.1).1 rep_z)
     (by rw [sq]; exact rep_mul rep_z rep_z) elts_spec.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem permOfArr_g0 : permOfArr 315 g0Arr = g0J.1 :=
-  (rep_of_validA (okA_spec elts_spec.2.2.2.1).1).unique rep_g0
 
 theorem normalizer_Z : normalizer ((zpowers zJ : Subgroup GJ) : Set GJ) = subOf gensNZArr :=
   normalizer_zpowers_eq z_cube zJ_ne_one centralizer_z gensCz_spec rep_g0
@@ -846,14 +844,6 @@ theorem image_actsBy {F : Array (Array ℕ)} {m k : ℕ} (hm : F.size = m) (h : 
   exact mapsInto_spec ht (S := F[(i : ℕ)]!) (T := F[(listFun m (Fin.pos i) l i : ℕ)]!)
     (by rw [e]; exact hi)
 
-theorem gensCz_size : gensCzArr.size = 2 := rfl
-
-theorem gensNZ_size : gensNZArr.size = 3 := rfl
-
-theorem gCz_mem (k : ℕ) (hk : k < gensCzArr.size) :
-    gElt gensCzArr gensCz_spec k hk ∈ centralizer ({zJ} : Set GJ) := by
-  rw [centralizer_z]
-  exact gElt_mem _ _ k hk
 
 theorem act6_gen (k : ℕ) (hk : k < gensCzArr.size)
     (hm : gElt gensCzArr gensCz_spec k hk ∈ centralizer ({zJ} : Set GJ)) :
@@ -970,10 +960,6 @@ theorem card_ker_act10 : Nat.card act10.ker = 3 := by
   rw [ker_act10, Nat.card_congr (subgroupOfEquivOfLe (zpowers_le.mpr z_mem_NZ)).toEquiv,
     card_zpowers_z]
 
-theorem gNZ_mem (k : ℕ) (hk : k < gensNZArr.size) :
-    gElt gensNZArr gensNZ_spec k hk ∈ normalizer ((zpowers zJ : Subgroup GJ) : Set GJ) := by
-  rw [normalizer_Z]
-  exact gElt_mem _ _ k hk
 
 theorem act10_gen (k : ℕ) (hk : k < gensNZArr.size)
     (hm : gElt gensNZArr gensNZ_spec k hk ∈ normalizer ((zpowers zJ : Subgroup GJ) : Set GJ)) :

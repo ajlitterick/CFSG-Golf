@@ -45,11 +45,6 @@ theorem psiO_mkO (F : Type) [Field F] (s : Matrix.SpecialLinearGroup (Fin 3) F) 
     psiO F (mkO F s) = proj 3 F s :=
   psiPSL_mk F s
 
-theorem mkO_surjective (F : Type) [Field F] :
-    Function.Surjective (mkO F) := fun x => by
-  obtain ⟨s, hs⟩ := proj_surjective 3 F (psiO F x)
-  refine ⟨s, (psiO F).injective ?_⟩
-  rw [psiO_mkO, hs]
 
 theorem congr_psiO_of_entrywise {F : Type} [Field F] {σ : F ≃+* F}
     {φ : MulAut (CFSG.Open.StatedProj (CFSG.Open.StatedSL 3 F))} (h : IsEntrywiseAutPSL σ φ) :

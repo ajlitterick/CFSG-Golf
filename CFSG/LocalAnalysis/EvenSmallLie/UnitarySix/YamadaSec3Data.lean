@@ -263,17 +263,6 @@ end ChainData
 @[expose] def lvK2A2 : Array Level := chK2A2.levels
 @[expose] def lvSJ : Array Level := chSJ.levels
 
-@[expose] def eS : ArrCert := enumBfs 693 chS.O chS.base 40000
-
-@[expose] def eT1 : ArrCert := enumBfs 693 chT1.O chT1.base 100
-
-@[expose] def eT2 : ArrCert := enumBfs 693 chT2.O chT2.base 100
-
-@[expose] def eA1 : ArrCert := enumBfs 693 chA1.O chA1.base 1000
-
-@[expose] def eA2 : ArrCert := enumBfs 693 chA2.O chA2.base 1000
-
-@[expose] def eK1 : ArrCert := enumBfs 693 chK1.O chK1.base 30000
 
 @[expose] def validCheck : Bool :=
   validA 693 au₁ && validA 693 au₂ && validA 693 aw₀ && validA 693 aj₀ && validA 693 aab &&
@@ -296,35 +285,5 @@ end ChainData
   chS.O.all (fun s => s[0]! == 0) && allLt 693 (fun p => p == 0 || chS.O.any fun s => s[p]! != p) &&
     chK1A1.O.all (fun s => s[0]! == 0)
 
-@[expose] def sIntCheck : Bool :=
-  allLt eS.pts.size fun i =>
-    (siftA 693 lvS chS.B 0 (conjA 693 au₂ eS.pts[i]!) == siftA 693 lvT2 chT2.B 0 eS.pts[i]!) &&
-    (siftA 693 lvS chS.B 0 (conjA 693 au₁ eS.pts[i]!) == siftA 693 lvT1 chT1.B 0 eS.pts[i]!) &&
-    (eqA 693 eS.pts[i]! (idA 693) || !(siftA 693 lvS chS.B 0 (conjA 693 aw₀ eS.pts[i]!)))
-
-@[expose] def t2IntCheck : Bool :=
-  allLt eT2.pts.size fun i =>
-    (siftA 693 lvT2 chT2.B 0 (conjA 693 aab eT2.pts[i]!) == siftA 693 lvX1 chX1.B 0 eT2.pts[i]!) &&
-    (siftA 693 lvT2 chT2.B 0 (conjA 693 aba eT2.pts[i]!) == siftA 693 lvX2 chX2.B 0 eT2.pts[i]!) &&
-    (eqA 693 eT2.pts[i]! (idA 693) || !(siftA 693 lvT2 chT2.B 0 (conjA 693 aaba eT2.pts[i]!)))
-
-@[expose] def t1IntCheck : Bool :=
-  allLt eT1.pts.size fun i =>
-    siftA 693 lvT1 chT1.B 0 (conjA 693 abcb eT1.pts[i]!) == siftA 693 lvX3 chX3.B 0 eT1.pts[i]!
-
-@[expose] def ka1Check : Bool :=
-  allLt eA1.pts.size fun i =>
-    eqA 693 eA1.pts[i]! (idA 693) || (!(siftA 693 lvK1 chK1.B 0 eA1.pts[i]!) &&
-      !(siftA 693 lvK1A1 chK1A1.B 0 (conjA 693 au₁ eA1.pts[i]!)))
-
-@[expose] def ka2Check : Bool :=
-  allLt eA2.pts.size fun i =>
-    eqA 693 eA2.pts[i]! (idA 693) || (!(siftA 693 lvK2 chK2.B 0 eA2.pts[i]!) &&
-      !(siftA 693 lvK2A2 chK2A2.B 0 (conjA 693 au₂ eA2.pts[i]!)))
-
-@[expose] def normCheck : Bool :=
-  allLt eK1.pts.size fun i =>
-    !(chS.O.all fun s => siftA 693 lvS chS.B 0 (conjA 693 eK1.pts[i]! s)) ||
-      siftA 693 lvSJ chSJ.B 0 eK1.pts[i]!
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaSec3

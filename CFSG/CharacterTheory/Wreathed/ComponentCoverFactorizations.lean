@@ -54,27 +54,6 @@ theorem normalizer_lt_top_of_odd [IsSimpleGroup G] (h2 : 2 ∣ Nat.card G) (W : 
 
 variable [Finite G] [IsSimpleGroup G]
 
-theorem smaller_recognition_factors_full_sylow_component_covering_subgroups
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hlocal : StatedClassicalModel (centralizerSimpleLayer n hn S e) .PSL 2 p f)
-    (hrec : SmallerWreathedRecognition G)
-    (K : Subgroup G) (hproper : K < ⊤) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤
-      ComponentCoveringLocal.originalImage n S e K)
-    (hO : CFSG.oddCore K ≠ ⊥) :
-    (K : Set G) = ((CFSG.oddCore K).map K.subtype : Set G) *
-        (K ⊓ involutionCentralizer n S e : Set G) ∧
-      (CFSG.oddCore K).map K.subtype ⊓ involutionCentralizer n S e =
-        (centralizerOddCore n S e).map (involutionCentralizer n S e).subtype ⊓ K := by
-  obtain ⟨-, halt⟩ := full_sylow_component_cover_original_field_alternatives
-    hnonab n hn S e hfour p f hp hpodd hf hlocal hrec K hSK hproper hcover
-  rcases halt with hfactor | htype
-  · exact ⟨hfactor.factorization, hfactor.core_intersection⟩
-  · exact False.elim (hO (original_component_core_forces_trivial_odd_core
-      hnonab n hn S e hfour p f hp hpodd hf hq hlocal K hSK htype.2))
 
 theorem smaller_recognition_factors_every_involution_containing_component_covering_subgroup
     (hnonab : ∃ a b : G, a * b ≠ b * a)

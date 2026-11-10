@@ -18,9 +18,6 @@ omit [Finite F] in
   ((linearCentralizerHom φ).comp (diagHom : Fˣ × Fˣ →* GL (Fin 2) F)).codRestrict _
     fun x => (mem_centralizer_fourV φ).mpr (isTorus_diag φ x.1 x.2)
 
-omit [Finite F] in
-theorem coe_torusFourHom (x : Fˣ × Fˣ) :
-    (torusFourHom φ x : G) = linearCentralizerHom φ (diagGL x.1 x.2) := rfl
 
 omit [Finite F] in
 include hZ hZodd h2 in

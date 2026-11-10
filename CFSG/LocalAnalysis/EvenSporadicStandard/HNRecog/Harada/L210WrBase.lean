@@ -22,7 +22,6 @@ private theorem coord_cases (q : Multiplicative (ZMod 2)) :
   · right
     rw [← ofAdd_toAdd q, h]
 
-private theorem sigmaC2_mul_self : sigmaC2 * sigmaC2 = (1 : Multiplicative (ZMod 2)) := by decide
 
 private def iota1 : alternatingGroup (Fin 5) →* A5WrTwo where
   toFun x := A5WrTwo.baseEmb (x, 1)

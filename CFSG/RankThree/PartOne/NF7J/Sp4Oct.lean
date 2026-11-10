@@ -158,9 +158,6 @@ theorem mem_octSub_iff {i : Fin 8} {g : ↥(spRev K)} : g ∈ octSub K i ↔ ∃
 
 theorem octEl_mem (i : Fin 8) (s : K) : octEl i s ∈ octSub K i := mem_octSub_iff.2 ⟨s, rfl⟩
 
-theorem octSub_sq {i : Fin 8} {g : ↥(spRev K)} (hg : g ∈ octSub K i) : g * g = 1 := by
-  obtain ⟨s, rfl⟩ := mem_octSub_iff.1 hg
-  exact octEl_sq i s
 
 theorem octSub_card (i : Fin 8) : Nat.card (octSub K i) = Nat.card K := by
   have hb : Function.Bijective (fun s : K => (⟨octEl i s, octEl_mem i s⟩ : octSub K i)) :=
@@ -187,12 +184,6 @@ theorem octEl_comm {i j : Fin 8} (h : ¬ OctNC i j) (s t : K) :
   apply Units.ext
   exact octMat_comm h s t
 
-theorem octSub_comm {i j : Fin 8} (h : ¬ OctNC i j) :
-    ∀ x ∈ octSub K i, ∀ y ∈ octSub K j, x * y = y * x := by
-  intro x hx y hy
-  obtain ⟨s, rfl⟩ := mem_octSub_iff.1 hx
-  obtain ⟨t, rfl⟩ := mem_octSub_iff.1 hy
-  exact octEl_comm h s t
 
 theorem octSub_ncomm {i j : Fin 8} (h : OctNC i j) :
     ∃ x ∈ octSub K i, ∃ y ∈ octSub K j, x * y ≠ y * x := by
@@ -449,13 +440,6 @@ theorem spDiag_mem_normalizer_octSub (i : Fin 8) (a b : Kˣ) :
 theorem coe_wEl (i : Fin 2) :
     (((wEl i : ↥(spRev K)) : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) = (Pm i).map (f2 K) := rfl
 
-theorem wEl_sq (i : Fin 2) : (wEl i : ↥(spRev K)) * wEl i = 1 := by
-  apply Subtype.ext
-  apply Units.ext
-  have h := congrArg (fun M : Matrix (Fin 4) (Fin 4) (ZMod 2) => M.map (f2 K)) (Pm_sq i)
-  simpa [coe_wEl, Matrix.map_mul] using h
-
-theorem wEl_inv (i : Fin 2) : (wEl i : ↥(spRev K))⁻¹ = wEl i := inv_eq_of_mul_eq_one_right (wEl_sq i)
 
 theorem wEl_mul_octEl (i : Fin 2) (j : Fin 8) (s : K) :
     wEl i * octEl j s = octEl (wperm i j) s * wEl i := by

@@ -324,20 +324,6 @@ theorem restrict_t111_t210 :
 
 end Target
 
-theorem hasStrothType_t210_or_t211_of_data_t111 {t : ℕ}
-    (D : StrothTypeData B (StrothTypeIndex.t111 t)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    HasStrothType C (StrothTypeIndex.t210 (t + 2) (by omega)) ∨
-      HasStrothType C (StrothTypeIndex.t211 (t + 2) (by omega)) := by
-  have hm : 2 ≤ t + 2 := by omega
-  obtain ⟨cV, cW, cU, cR⟩ := restrict_t111_t210 t hm
-  rcases hasStrothType_or_of_index_four_of_data D hBC hC hrel hL hH hcS (hk_t111 t)
-      (rhoPar_t111 (hk_t111 t)) (rho_gens_t111 t).2.1 (t111_fixed_rho_t t) (fix4_t111 t)
-      (StrothTypeIndex.t210 (t + 2) hm) rfl rfl rfl (StrothTypeIndex.t211 (t + 2) hm).action
-      (profile4_t210 t hm) (twist4_t210 t hm) cV cW cU cR with h1 | ⟨E, φ, h2⟩
-  · exact Or.inl h1
-  · exact Or.inr (hasStrothType_of_basisChange D hL (StrothTypeIndex.t211 (t + 2) hm) E φ h2)
 
 theorem hasStrothTypeOver_t210_or_t211_of_data_t111 {t : ℕ}
     (D : StrothTypeData B (StrothTypeIndex.t111 t)) (hBC : B ≤ C)

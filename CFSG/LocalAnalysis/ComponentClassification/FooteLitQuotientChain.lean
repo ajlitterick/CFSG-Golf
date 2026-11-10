@@ -139,31 +139,6 @@ theorem isTwoComponentAt_map {x : G} {K : Subgroup G} (hK : IsTwoComponentAt x K
       hKC hpc
     rwa [map_centralizer_mk hx] at h
 
-theorem exists_isTwoComponentAt_lift {x : G} (hx : orderOf x = 2)
-    {Kq : Subgroup (G ⧸ pPrimeCore 2 G)} (hK : IsTwoComponentAt (π x) Kq) :
-    ∃ K : Subgroup G, IsTwoComponentAt x K ∧ K.map π = Kq := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨-, hKC, hpc⟩ := hK
-  set C := centralizer ({x} : Set G) with hC
-  have hCmap := map_centralizer_mk hx
-  obtain ⟨hbij, -, -⟩ := CatalogueBPrimeJoin.prime_complement_quotient_p_component_bijection
-    (MonoidHom.subgroupMap π C) (MonoidHom.subgroupMap_surjective π C)
-    (GSThmB.OddQuot.not_two_dvd_card_ker_subgroupMap π
-      (GSThmB.OddQuot.not_two_dvd_card_ker (H := G)) C)
-  have hKC' : Kq ≤ C.map π := hCmap ▸ hKC
-  have hpc' : IsPComponent 2 (Kq.subgroupOf (C.map π)) := by rw [hCmap]; exact hpc
-  obtain ⟨K', hK', hK'map⟩ := hbij.surjOn hpc'
-  have hK'map' : K'.map (MonoidHom.subgroupMap π C) = Kq.subgroupOf (C.map π) := hK'map
-  refine ⟨K'.map C.subtype, ⟨hx, map_subtype_le _, ?_⟩, ?_⟩
-  · have h1 : (K'.map C.subtype).subgroupOf C = K' :=
-      comap_map_eq_self_of_injective C.subtype_injective K'
-    rw [show centralizer ({x} : Set G) = C from rfl, h1]
-    exact hK'
-  · have h1 : (K'.map (MonoidHom.subgroupMap π C)).map (C.map π).subtype = Kq := by
-      rw [hK'map']
-      exact map_subgroupOf_eq_of_le hKC'
-    rw [← h1, Subgroup.map_map, Subgroup.map_map]
-    rfl
 
 theorem eq_of_isTwoComponentAt_of_map_eq {x : G} {K M : Subgroup G} (hK : IsTwoComponentAt x K)
     (hM : IsTwoComponentAt x M) (h : K.map π = M.map π) : K = M :=

@@ -135,11 +135,6 @@ theorem conj_mem_centerTorsion {p : ℕ} {Q : Subgroup G} {g : G} (hg : g ∈ no
   · rw [conj_pow, hzp]
     simp
 
-theorem mem_normalizer_centerTorsion {p : ℕ} {Q : Subgroup G} {g : G}
-    (hg : g ∈ normalizer (Q : Set G)) :
-    g ∈ normalizer ((centerTorsion p Q : Subgroup G) : Set G) :=
-  mem_normalizer_of_conj_mem (fun _ hz => conj_mem_centerTorsion hg hz)
-    (fun _ hz => by simpa using conj_mem_centerTorsion (inv_mem hg) hz)
 
 end Tools
 

@@ -113,37 +113,6 @@ theorem evenRank_attained_prime_dvd (G : Type u) [Group G] [Finite G]
   have hzero := pRank_eq_zero_of_not_dvd prime hprime hnotdvd subgroup
   omega
 
-theorem rank_three_prime_cases (G : Type u) [Group G] [Finite G]
-    (hrank : evenRank G = 3) :
-    (∃ (prime : ℕ) (subgroup : Subgroup G), prime.Prime ∧ 3 < prime ∧
-      IsTwoLocal subgroup ∧ pRank prime subgroup = 3) ∨
-    ((∀ (prime : ℕ) (subgroup : Subgroup G), prime.Prime → 3 < prime →
-      IsTwoLocal subgroup → pRank prime subgroup < 3) ∧
-      ∃ subgroup : Subgroup G, IsTwoLocal subgroup ∧ pRank 3 subgroup = 3) := by
-  classical
-  by_cases hlarge : ∃ (prime : ℕ) (subgroup : Subgroup G), prime.Prime ∧ 3 < prime ∧
-      IsTwoLocal subgroup ∧ pRank prime subgroup = 3
-  · exact Or.inl hlarge
-  · right
-    constructor
-    · intro prime subgroup hprime hlargeprime hlocal
-      have hodd : prime ≠ 2 := by omega
-      have hbound := pRank_le_evenRank prime hprime hodd subgroup hlocal
-      rw [hrank] at hbound
-      have hne : pRank prime subgroup ≠ 3 := by
-        intro heq
-        exact hlarge ⟨prime, subgroup, hprime, hlargeprime, hlocal, heq⟩
-      omega
-    · have hpositive : 0 < evenRank G := by omega
-      obtain ⟨prime, subgroup, hprime, hodd, hlocal, heq⟩ :=
-        evenRank_attained G hpositive
-      have hnotlarge : ¬3 < prime := by
-        intro hlargeprime
-        exact hlarge ⟨prime, subgroup, hprime, hlargeprime, hlocal, heq.trans hrank⟩
-      have htwo := hprime.two_le
-      have heqprime : prime = 3 := by omega
-      subst prime
-      exact ⟨subgroup, hlocal, heq.trans hrank⟩
 
 theorem not_isPGroup_of_nonabelian_simple (G : Type u) [Group G] [Finite G]
     [IsSimpleGroup G] (hnonab : ∃ first second : G, first * second ≠ second * first)
@@ -167,26 +136,5 @@ theorem twoLocal_ne_top {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]
     exact not_isPGroup_of_nonabelian_simple G hnonab 2 Nat.prime_two
       (hpgroup.of_equiv Subgroup.topEquiv)
 
-theorem twoLocal_ne_bot {G : Type u} [Group G]
-    (subgroup : Subgroup G) (hlocal : IsTwoLocal subgroup) : subgroup ≠ ⊥ := by
-  obtain ⟨twosubgroup, hnontrivial, _, heq⟩ := hlocal
-  intro hbot
-  apply hnontrivial
-  apply le_antisymm _ bot_le
-  have hle : twosubgroup ≤ Subgroup.normalizer (twosubgroup : Set G) :=
-    Subgroup.le_normalizer
-  simpa only [← heq, hbot] using hle
-
-theorem rank_three_has_proper_local (G : Type u) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ first second : G, first * second ≠ second * first)
-    (hrank : evenRank G = 3) :
-    ∃ (prime : ℕ) (subgroup : Subgroup G), prime.Prime ∧ prime ≠ 2 ∧
-      prime ∣ Nat.card G ∧ IsTwoLocal subgroup ∧ subgroup ≠ ⊤ ∧
-      pRank prime subgroup = 3 := by
-  have hpositive : 0 < evenRank G := by omega
-  obtain ⟨prime, subgroup, hprime, hodd, hdiv, hlocal, heq⟩ :=
-    evenRank_attained_prime_dvd G hpositive
-  exact ⟨prime, subgroup, hprime, hodd, hdiv, hlocal,
-    twoLocal_ne_top hnonab subgroup hlocal, heq.trans hrank⟩
 
 end CFSG.RankThreeEvenClassification.Helpers

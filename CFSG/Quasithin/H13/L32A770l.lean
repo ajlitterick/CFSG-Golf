@@ -13,50 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G}
 
-theorem exists_normal_of_edgeBound (hedge : GoldschmidtEdgeBoundSubgroups.{0})
-    {A B C : Subgroup G} (hC : A ⊓ B = C) (hA : C.relIndex A = 3) (hB : C.relIndex B = 3)
-    (hcard : 2 ^ 7 < Nat.card ↥C) :
-    ∃ N : Subgroup G, N ≠ ⊥ ∧ N ≤ C ∧ A ⊔ B ≤ Subgroup.normalizer (N : Set G) := by
-  set I := A ⊔ B with hI
-  have hAI : A ≤ I := le_sup_left
-  have hBI : B ≤ I := le_sup_right
-  have hCI : C ≤ I := hC ▸ inf_le_left.trans hAI
-  have hinf : A.subgroupOf I ⊓ B.subgroupOf I = C.subgroupOf I := by
-    ext x
-    simp only [Subgroup.mem_inf, Subgroup.mem_subgroupOf, ← hC]
-  by_contra hno
-  push Not at hno
-  have hle := hedge ↥I (A.subgroupOf I) (B.subgroupOf I)
-    (by rw [← Subgroup.subgroupOf_sup hAI hBI, Subgroup.subgroupOf_self])
-    (by rw [hinf, Subgroup.relIndex_subgroupOf hAI]; exact hA)
-    (by rw [hinf, Subgroup.relIndex_subgroupOf hBI]; exact hB) ?_
-  · rw [hinf, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hCI).toEquiv] at hle
-    omega
-  · intro N hN hNle
-    by_contra hN1
-    refine hno (N.map I.subtype) ?_ ?_ ?_
-    · intro hb
-      apply hN1
-      rw [eq_bot_iff]
-      intro x hx
-      have : (x : G) ∈ N.map I.subtype := ⟨x, hx, rfl⟩
-      rw [hb, Subgroup.mem_bot] at this
-      exact Subtype.ext this
-    · rintro _ ⟨x, hx, rfl⟩
-      have := hNle hx
-      rw [hinf, Subgroup.mem_subgroupOf] at this
-      exact this
-    · intro i hi
-      rw [Subgroup.mem_normalizer_iff]
-      intro y
-      constructor
-      · rintro ⟨n, hn, rfl⟩
-        exact ⟨⟨i, hi⟩ * n * ⟨i, hi⟩⁻¹, hN.conj_mem n hn _, rfl⟩
-      · rintro ⟨n, hn, hny⟩
-        refine ⟨⟨i, hi⟩⁻¹ * n * (⟨i, hi⟩⁻¹)⁻¹, hN.conj_mem n hn _, ?_⟩
-        simp only [Subgroup.subtype_apply, Subgroup.coe_mul, Subgroup.coe_inv, inv_inv]
-        rw [show (n : G) = i * y * i⁻¹ from hny]
-        group
 
 omit [Finite G] in
 theorem eq_one_or_eq_of_card_two {A : Subgroup G} (hA : Nat.card A = 2) {a : G} (ha : a ∈ A)

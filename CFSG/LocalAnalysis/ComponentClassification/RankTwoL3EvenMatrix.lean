@@ -122,11 +122,6 @@ theorem unipU_zero_zero_eq_levi13 (c : F) : unipU F 0 0 c = levi13 F (uSL c) := 
   rw [coe_unipU, coe_levi13]
   fin_cases i <;> fin_cases j <;> simp [uSL]
 
-theorem torusSL_mul_levi13 (l : Fˣ) (B : SL2 F) :
-    torusSL l * levi13 F B = levi13 F B * torusSL l := by
-  refine Matrix.SpecialLinearGroup.ext _ _ fun i j => ?_
-  rw [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_mul, coe_torusSL, coe_levi13]
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_three, mul_comm]
 
 variable (F) in
 @[expose] def x0 : projectiveSL 3 F :=
@@ -179,9 +174,6 @@ theorem projTorus_mul_comm_of_mem_projCenterW (l : Fˣ) {z : projectiveSL 3 F}
   obtain ⟨c, rfl⟩ := mem_projCenterW.1 hz
   rw [← mul_inv_eq_iff_eq_mul, projTorus_conj, mul_zero, mul_zero]
 
-theorem projTorus_mul_projLevi (l : Fˣ) (B : SL2 F) :
-    projTorus F l * projLevi F B = projLevi F B * projTorus F l := by
-  rw [projTorus, projLevi_apply, ← map_mul, ← map_mul, torusSL_mul_levi13]
 
 theorem commutatorElement_projTorus_not_mem {l : Fˣ} (hl : (l : F) ^ 3 ≠ 1) :
     ⁅projTorus F l, proj 3 F (unipU F 1 0 0)⁆ ∉ projCenterW F := by
@@ -508,9 +500,6 @@ theorem mem_range_levi13_of_mid {M : SpecialLinearGroup (Fin 3) F} (hM : M ∈ b
   rw [coe_levi13, ← hN]
   fin_cases i <;> fin_cases j <;> simp [B, h01, h10, h12, h21, h11]
 
-theorem range_levi13_le_blockDiag : (levi13 F).range ≤ blockDiag F := by
-  rintro _ ⟨B, rfl⟩
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> simp [coe_levi13]
 
 theorem commutator_blockDiag_le : ⁅blockDiag F, blockDiag F⁆ ≤ (levi13 F).range := by
   rw [Subgroup.commutator_le]

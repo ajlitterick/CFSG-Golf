@@ -428,18 +428,6 @@ theorem orderOf_U : orderOf GL2ThreeStructure.U = 3 :=
 theorem neg_one_mem_center : (-1 : G23) ∈ Subgroup.center G23 :=
   Subgroup.mem_center_iff.mpr fun g => GL2OddKernel.neg_one_mul_comm g
 
-theorem classOf_eq_five_iff (h : G23) : classOf h = 5 ↔ orderOf h = 2 ∧ h ≠ -1 := by
-  constructor
-  · intro hh
-    have hconj : IsConj FourPointMatrices.C h :=
-      (isConj_iff_classOf _ _).mpr (by rw [hh]; exact classOf_reference 5)
-    obtain ⟨c, rfl⟩ := isConj_iff.mp hconj
-    refine ⟨by rw [← MulAut.conj_apply, MulEquiv.orderOf_eq, orderOf_C], fun hneg => ?_⟩
-    have := congrArg classOf hneg
-    rw [hh, classOf_neg_one] at this
-    exact absurd this (by decide)
-  · rintro ⟨h2, hne⟩
-    exact classOf_of_orderOf_two h2 hne
 
 section CentralizerInvolutions
 

@@ -129,11 +129,6 @@ namespace ReducedNongeneration
 
 variable {p : ℕ} {X : Type*} [Group X] [Finite X] {R : Sylow p X} {X₀ : Subgroup X}
 
-theorem eq_bot_of_centralizes_components (h : ReducedNongeneration p X R X₀)
-    {Y : Subgroup X} (hYp : p.Coprime (Nat.card Y))
-    (hRY : (R : Subgroup X) ≤ Subgroup.normalizer (Y : Set X))
-    (hY : ∀ K : Subgroup X, IsComponentOf K ⊤ → ⁅Y, K⁆ = ⊥) : Y = ⊥ :=
-  eq_bot_of_centralizes_components_of_core_eq_bot h.prime h.core_eq_bot R hYp hRY hY
 
 theorem primeComplementCore_eq_bot (h : ReducedNongeneration p X R X₀)
     (hcore : ∀ L : Subgroup X, IsComponentOf L ⊤ → ¬ L ≤ X₀ →

@@ -92,22 +92,6 @@ open Finset
     2 ^ 46 * 3 ^ 20 * 5 ^ 9 * 7 ^ 6 * 11 ^ 2 * 13 ^ 3 * 17 * 19 * 23 * 29 * 31 * 41 * 47 *
       59 * 71 }
 
-@[expose] def cfsgOrders : Set ℕ :=
-  {m | m.Prime} ∪
-  {m | ∃ n : ℕ, 5 ≤ n ∧ m = Nat.factorial n / 2} ∪
-  {m | ∃ n q : ℕ, 1 ≤ n ∧ IsPrimePow q ∧ m = orderA n q} ∪
-  {m | ∃ n q : ℕ, 2 ≤ n ∧ IsPrimePow q ∧ m = orderTwistedA n q} ∪
-  {m | ∃ n q : ℕ, 2 ≤ n ∧ IsPrimePow q ∧ m = orderBC n q} ∪
-  {m | ∃ n q : ℕ, 4 ≤ n ∧ IsPrimePow q ∧ m = orderD n q} ∪
-  {m | ∃ n q : ℕ, 4 ≤ n ∧ IsPrimePow q ∧ m = orderTwistedD n q} ∪
-  {m | ∃ q : ℕ, IsPrimePow q ∧
-    (m = orderE6 q ∨ m = orderTwistedE6 q ∨ m = orderE7 q ∨ m = orderE8 q ∨
-      m = orderF4 q ∨ m = orderG2 q ∨ m = orderTrialityD4 q)} ∪
-  {m | ∃ k : ℕ, 1 ≤ k ∧
-    (m = orderSuzuki (2 ^ (2 * k + 1)) ∨ m = orderTwistedF4 (2 ^ (2 * k + 1)))} ∪
-  {m | ∃ k : ℕ, 1 ≤ k ∧ m = orderRee (3 ^ (2 * k + 1))} ∪
-  {orderTits} ∪
-  (sporadicOrders : Set ℕ)
 
 @[expose] def IsKProperByOrder (G : Type*) [Group G] : Prop :=
   ∀ (K L : Subgroup G), K ≠ ⊤ → L ≤ K → ∀ [(L.subgroupOf K).Normal],

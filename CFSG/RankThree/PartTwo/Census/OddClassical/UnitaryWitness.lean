@@ -69,26 +69,5 @@ theorem excluded433_twistedA_odd_of_four_le (r : ℕ) (q : TauCeti.PrimePower)
     (by norm_num) (by omega)
   nlinarith
 
-theorem excluded433_twistedA_three_odd (q : TauCeti.PrimePower)
-    (hv : (TauCeti.LieTypeIndex.twistedA 3 q).Valid) (hq : q.p ≠ 2) (hf : 2 ≤ q.exponent) :
-    Excluded433 (.lie ⟨.twistedA 3 q, hv⟩) := by
-  intro G _ _ hG e
-  have hc : TauCeti.ValidLieTypeIndex.characteristic ⟨.twistedA 3 q, hv⟩ = q.p :=
-    TauCeti.LieTypeIndex.characteristic_twistedA 3 q
-  have he : TauCeti.ValidLieTypeIndex.fieldExponent ⟨.twistedA 3 q, hv⟩ = q.exponent :=
-    TauCeti.LieTypeIndex.fieldExponent_twistedA 3 q
-  have h := unitaryFieldData_galoisField
-    (TauCeti.ValidLieTypeIndex.characteristic ⟨.twistedA 3 q, hv⟩) _
-    (TauCeti.ValidLieTypeIndex.fieldExponent_pos ⟨.twistedA 3 q, hv⟩)
-  refine hG.false_of_four_le_localRank
-    (p := TauCeti.ValidLieTypeIndex.characteristic ⟨.twistedA 3 q, hv⟩)
-    ((e.trans (CFSG.QuasithinUnique.SQTK.typeTwistedAGroupEquivStatedProj 3 q hv)).trans
-      (unitaryPSUEquiv h (n := 3 + 1) (by omega)).symm) Fact.out (by rw [hc]; exact hq) ?_
-  have : 2 * TauCeti.ValidLieTypeIndex.fieldExponent ⟨.twistedA 3 q, hv⟩ ≤
-      localRank (TauCeti.ValidLieTypeIndex.characteristic ⟨.twistedA 3 q, hv⟩)
-        (unitaryPSU h (3 + 1)) :=
-    le_localRank_unitaryPSU_four h (by rw [hc]; exact hq)
-  have hf' : 2 ≤ TauCeti.ValidLieTypeIndex.fieldExponent ⟨.twistedA 3 q, hv⟩ := he ▸ hf
-  omega
 
 end CFSG.RankThree.PartTwo.Census

@@ -37,21 +37,6 @@ variable {G : Type} [Group G]
       IsSpecialPow 2 4 3 ↥(pCoreOf 2 L1) ∧ IsL2Quot 4 (oTwoQuot ↥L2) ∧
       Nat.card (pCoreOf 2 L2) = 2 ^ 16)
 
-@[expose] def F112ListBLegacyBare (L1 L2 S : Subgroup G) : Prop :=
-  let α := RankTwoAmalgam.ofSubgroups (L1 ⊔ bigB L1 L2 S) (L2 ⊔ bigB L1 L2 S)
-  (IsAmalgamOfGroup α (IsLieOverTwo .trialityD4 0 1) ∧
-      IsL2Quot 3 (oTwoQuot ↥L1) ∧ IsSpecialPow 2 2 4 ↥(pCoreOf 2 L1) ∧
-      IsL2Quot 1 (oTwoQuot ↥L2) ∧ Nat.card (pCoreOf 2 L2) = 2 ^ 11) ∨
-  ((IsAmalgamOfGroup α (IsLieOverTwo .PSU 4 1) ∨ IsU4ExtTwo 1 α) ∧
-      IsL2Quot 1 (oTwoQuot ↥L1) ∧ IsSpecialPow 2 2 2 ↥(pCoreOf 2 L1) ∧
-      IsBlock2 L2 L2 ∧ IsL2Quot 2 (oTwoQuot ↥L2) ∧ IsOmega4MinusType L2 1 ∧
-      IsAltType L2 5) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* quasithinJ2)) ∧
-      IsL2Quot 2 (oTwoQuot ↥L1) ∧ IsQ8D8 ↥(pCoreOf 2 L1) ∧
-      IsL2Quot 1 (oTwoQuot ↥L2) ∧ Nat.card (pCoreOf 2 L2) = 2 ^ 6) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* MulAut quasithinJ2)) ∧
-      Nonempty (oTwoQuot ↥(L1 ⊔ S) ≃* Equiv.Perm (Fin 5)) ∧ IsQ8D8 ↥(pCoreOf 2 L1) ∧
-      Nonempty (oTwoQuot ↥L2 ≃* Equiv.Perm (Fin 3)) ∧ Nat.card (pCoreOf 2 L2) = 2 ^ 6)
 
 @[expose] def F112ListA (L1 L2 S : Subgroup G) : Prop :=
   let P1 := L1 ⊔ bigB L1 L2 S

@@ -46,8 +46,6 @@ theorem permRep_blockVec (g : Equiv.Perm (Fin 22)) (B : Finset (Fin 24)) :
     (g : CFSG.Blueprint.NativeSporadic.M22) : Ppair :=
   ⟨psiM g, P0_le_Ppair (range_psiM ▸ ⟨g, rfl⟩)⟩
 
-theorem pPerm_psiP
-    (g : CFSG.Blueprint.NativeSporadic.M22) : pPerm (psiP g) = psiHom g := rfl
 
 theorem map_mem_ℬ₀
     (g : CFSG.Blueprint.NativeSporadic.M22) {B : Finset (Fin 24)}
@@ -428,22 +426,5 @@ theorem hammingNorm_vecOf (m : ℕ) : hammingNorm (vecOf m) = popc 22 m := by
   rw [pos_coordAt]
   exact (Finset.mem_filter.1 ht).2
 
-theorem hammingNorm_v₀ : hammingNorm v₀ = 7 := by
-  rw [v₀_eq, hammingNorm_vecOf]
-  decide +kernel
-
-theorem MOG_derived_hexad_code_unique_invariant_extension :
-    (∀ g : CFSG.Blueprint.NativeSporadic.M22, ∀ i, rho₀ g (e i) = e (psiX g i)) ∧
-    (∀ g : CFSG.Blueprint.NativeSporadic.M22, E₀ ≤ E₀.comap (rho₀ g)) ∧
-    Module.finrank (ZMod 2) E₀ = 11 ∧
-    rhoE.invariants = Submodule.span (ZMod 2) {E₀.mkQ v₀} ∧ E₀.mkQ v₀ ≠ 0 ∧
-    (∀ g : CFSG.Blueprint.NativeSporadic.M22, K₀ ≤ K₀.comap (rho₀ g)) ∧ E₀ ≤ K₀ ∧
-    Module.finrank (ZMod 2) K₀ = 12 ∧
-    (∀ U : Submodule (ZMod 2) V₀, E₀ ≤ U → Module.finrank (ZMod 2) U = 12 →
-      (∀ g : CFSG.Blueprint.NativeSporadic.M22, U ≤ U.comap (rho₀ g)) → U = K₀) ∧
-    Module.finrank (ZMod 2) W₀ = 10 ∧ hammingNorm v₀ = 7 ∧ Odd (hammingNorm v₀) :=
-  ⟨fun g i => permRep_e _ i, E₀_invariant, finrank_E₀, invariants_rhoE, mkQ_v₀_ne_zero,
-    K₀_invariant, E₀_le_K₀, finrank_K₀, fun _ hEU h12 hinv => eq_K₀ hEU h12 hinv, finrank_W₀,
-    hammingNorm_v₀, by rw [hammingNorm_v₀]; decide⟩
 
 end CFSG.Monster.B.Fischer

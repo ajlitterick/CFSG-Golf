@@ -260,36 +260,6 @@ theorem GGTorusTorWit.mem_cor_of_conj_mem {p m N : ℕ} {L' : Type} [Group L'] [
   rw [← hb']
   exact Subgroup.mul_mem _ ht (htor _ (hoddZ _ hz hodd) hzm)
 
-theorem GGTorusTorWit.coroot_mem_conj {p m N : ℕ} {L' : Type} [Group L'] [Finite L']
-    {A : Subgroup (MulAut L')} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hpm : p ∣ m)
-    (w : GGTorusTorWit m N L' A) (hw : w.Holds C M) (hSC : GGTorusSelfCent p A)
-    (k : Fin N) : MulAut.conj (w.cor k (ggZetaP p m)) ∈ A := by
-  obtain ⟨-, hAT, -, -, -, -, hfix, -⟩ := hw
-  exact hSC _ (fun a ha => hfix a (hAT ha) k _)
-    (by rw [← map_pow, ggZetaP_pow_self hpm, map_one])
-
-theorem GGTorusTorWit.coroot_mem {p m N : ℕ} {L' : Type} [Group L'] [Finite L']
-    {A : Subgroup (MulAut L')} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hp : p.Prime) (hm : Odd m) (hpm : p ∣ m)
-    (w : GGTorusTorWit m N L' A) (hw : w.Holds C M) (hSC : GGTorusSelfCent p A)
-    (hA : IsElemAbelian p A) (k : Fin N) :
-    MulAut.conj (w.cor k (ggZetaP p m)) ∈ A ∧
-      ∀ a : ↥A, ((ggConjAut A (w.hn k) a : ↥A) : MulAut L') * (a : MulAut L')⁻¹ ∈
-        Subgroup.zpowers (MulAut.conj (w.cor k (ggZetaP p m))) := by
-  refine ⟨w.coroot_mem_conj hpm hw hSC k, fun a => ?_⟩
-  obtain ⟨hTc, hAT, hcorT, hαmul, -, -, -, -, hWaut, -⟩ := hw
-  rw [ggConjAut_apply, hWaut k a (hAT a.2)]
-  have hc : (a : MulAut L') * (MulAut.conj (w.cor k (w.α k a)))⁻¹ =
-      (MulAut.conj (w.cor k (w.α k a)))⁻¹ * a :=
-    hTc _ (hAT a.2) _ (w.T.inv_mem (hcorT k _))
-  rw [hc, mul_inv_cancel_right]
-  refine Subgroup.inv_mem _ ?_
-  obtain ⟨j, hj⟩ := ggZetaP_exists_pow hp hm.pos.ne' hpm (w.α k a)
-    (by rw [← ggTor_alpha_pow _ _ (hαmul k) _ (hAT a.2), hA.2 _ a.2,
-      ggTor_alpha_one _ _ (hαmul k)])
-  rw [hj, map_pow, map_pow]
-  exact Subgroup.pow_mem _ (Subgroup.mem_zpowers _) _
 
 theorem GGTorusTorWit.pairing {p m N : ℕ} {L' : Type} [Group L'] [Finite L']
     {A : Subgroup (MulAut L')} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
@@ -374,70 +344,6 @@ theorem GGTorusTorWit.coroot_indep_of_center {p m N : ℕ} {L' : Type} [Group L'
   rw [hf, map_pow, hE, one_pow] at hf₀
   rw [← hf₀, orderOf_one] at hxo
   exact hp.one_lt.ne hxo
-
-theorem GGTorusTorWit.eq_span {p m N : ℕ} {L' : Type} [Group L'] [Finite L']
-    {A : Subgroup (MulAut L')} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hp : p.Prime) (hp2 : p ≠ 2) (hm : Odd m) (hpm : p ∣ m)
-    (w : GGTorusTorWit m N L' A) (hw : w.Holds C M)
-    (hC1 : ∀ c d : Fin N → ZMod p, (∀ j, ∑ k, (C j k : ZMod p) * c k = 0) →
-      (∀ j, ∑ k, (C j k : ZMod p) * d k = 0) → c ≠ 0 → ∃ l : ZMod p, d = l • c)
-    (Bt : Subgroup L') (hBt : IsElemAbelian p Bt) (hBtA : ∀ b ∈ Bt, MulAut.conj b ∈ A)
-    (hS : ∀ g : L', g ^ p = 1 → (∀ b ∈ Bt, Commute g b) → g ∈ Bt)
-    (x : L') (hxZ : x ∈ Subgroup.center L') (hxo : orderOf x = p)
-    (hxs : x ∈ Subgroup.closure (Set.range fun k => w.cor k (ggZetaP p m)))
-    (hZ : Bt ⊓ Subgroup.center L' ≤ Subgroup.zpowers x)
-    (hr : Nat.card (Bt.map (MulAut.conj : L' →* MulAut L')) ≤ p ^ (N - 1)) :
-    Bt = Subgroup.closure (Set.range fun k => w.cor k (ggZetaP p m)) := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hcomm := hw.2.2.2.2.2.1
-  set S := Subgroup.closure (Set.range fun k => w.cor k (ggZetaP p m)) with hSdef
-  have hN : N ≠ 0 := by
-    rintro rfl
-    have hS0 : S = ⊥ := by rw [hSdef, Set.range_eq_empty, Subgroup.closure_empty]
-    rw [hS0, Subgroup.mem_bot] at hxs
-    rw [hxs, orderOf_one] at hxo
-    exact hp.one_lt.ne hxo
-  have hSle : S ≤ Bt := by
-    rw [hSdef, Subgroup.closure_le]
-    rintro _ ⟨k, rfl⟩
-    refine hS _ (by rw [← map_pow, ggZetaP_pow_self hpm, map_one]) fun b hb => ?_
-    exact ggTor_iSup_comm w.cor hcomm _
-      (Subgroup.mem_iSup_of_mem k (MonoidHom.mem_range.mpr ⟨_, rfl⟩)) _
-      (w.mem_cor_of_conj_mem hp hp2 hm hpm hw b (hBt.2 b hb) (hBtA b hb))
-  have hinj : Function.Injective (ggTorE hpm w.cor hcomm) := by
-    refine (injective_iff_map_eq_one _).mpr fun f hf => ?_
-    have h0 := w.coroot_indep_of_center hp hm hpm hw hC1 x hxZ hxo hxs
-      (fun k => Multiplicative.toAdd (f k)) (by rw [ggTorE_apply] at hf; exact hf)
-    funext k
-    exact toAdd_eq_zero.mp (congrFun h0 k)
-  have hrangeS : (ggTorE hpm w.cor hcomm).range = S :=
-    le_antisymm (by rintro _ ⟨f, rfl⟩; exact ggTorE_mem_closure hpm w.cor hcomm f)
-      (ggTor_closure_le_range hpm w.cor hcomm)
-  have hcardS : Nat.card S = p ^ N := by
-    rw [← hrangeS, ← Nat.card_congr (MonoidHom.ofInjective hinj).toEquiv, Nat.card_fun,
-      Nat.card_congr Multiplicative.toAdd, Nat.card_zmod, Nat.card_fin]
-  have hcardB : Nat.card Bt ≤ p ^ N := by
-    let φ : ↥Bt →* MulAut L' := (MulAut.conj : L' →* MulAut L').comp Bt.subtype
-    have hrange : φ.range = Bt.map MulAut.conj := by
-      rw [MonoidHom.range_comp, Subgroup.range_subtype]
-    have hker : Nat.card φ.ker ≤ p := by
-      have h1 : φ.ker.map Bt.subtype ≤ Subgroup.zpowers x := by
-        rintro _ ⟨b, hb, rfl⟩
-        refine hZ ⟨b.2, (Subgroup.mem_center_iff.mpr fun g => ?_ : (b : L') ∈ Subgroup.center L')⟩
-        have h2 := congrArg (fun ψ : MulAut L' => ψ g) (MonoidHom.mem_ker.mp hb)
-        simp only [φ, MonoidHom.comp_apply, MulAut.conj_apply, MulAut.one_apply,
-          Subgroup.coe_subtype] at h2
-        calc g * (b : L') = ((b : L') * g * (b : L')⁻¹) * b := by rw [h2]
-          _ = b * g := by group
-      have h3 := Subgroup.card_le_of_le h1
-      rw [Subgroup.card_map_of_injective Bt.subtype_injective, Nat.card_zpowers, hxo] at h3
-      exact h3
-    have h2 := Subgroup.card_mul_index φ.ker
-    rw [Subgroup.index_ker, hrange] at h2
-    calc Nat.card Bt = Nat.card φ.ker * Nat.card (Bt.map MulAut.conj) := h2.symm
-      _ ≤ p * p ^ (N - 1) := Nat.mul_le_mul hker hr
-      _ = p ^ N := by rw [← pow_succ', Nat.sub_add_cancel (Nat.pos_of_ne_zero hN)]
-  exact (Subgroup.eq_of_le_of_card_ge hSle (by rw [hcardS]; exact hcardB)).symm
 
 
 theorem GGTorusTorWit.weylOfType {m N : ℕ} {L' : Type} [Group L'] [Finite L']

@@ -191,35 +191,6 @@ end Members
 
 section Local
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] [IsSimpleGroup G]
-  {K T : Subgroup G} {z : G}
-
-omit [Finite G] in
-theorem exists_lieSystemData_u (S : RouteDSetup p f K z) (hnab : ∃ x y : G, x * y ≠ y * x)
-    (e : TwinElt K T z) (hu1 : e.u ≠ 1) :
-    Nonempty (LieSystemData p f (locQuot (conjClass K) e.u) (locFamily (conjClass K) e.u)) :=
-  NonClassical.exists_lieSystemData S.ih (singleton_not_subset_center hnab hu1)
-
-omit [IsSimpleGroup G] in
-theorem twin_indistinguishable (S : RouteDSetup p f K z) (hcen : Subgroup.center G = ⊥)
-    {J J' : Subgroup G} (hJ : J ∈ conjClass K) (hJ' : J' ∈ conjClass K) {w : G}
-    (hw : IsClassicalMember p f J w) (hw' : IsClassicalMember p f J' w) :
-    ∀ N ∈ conjClass K, ((N = J ∨ Commutes N J) ↔ (N = J' ∨ Commutes N J')) := by
-  have key : ∀ {A : Subgroup G}, A ∈ conjClass K → IsClassicalMember p f A w →
-      ∀ N ∈ conjClass K, ((N = A ∨ Commutes N A) ↔ N ≤ Subgroup.centralizer ({w} : Set G)) := by
-    intro A hA hwA N hN
-    constructor
-    · rintro (rfl | h)
-      · exact le_centralizer_of_isClassicalMember hwA
-      · intro x hx
-        rw [Subgroup.mem_centralizer_singleton_iff]
-        exact h x hx w hwA.mem
-    · intro hle
-      rcases S.cp_at_member hcen hA hwA (L := N) ⟨hN, hle⟩ with h | h
-      · exact Or.inr h.symm
-      · exact Or.inl h
-  intro N hN
-  rw [key hJ hw N hN, key hJ' hw' N hN]
 
 end Local
 

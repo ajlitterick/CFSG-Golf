@@ -30,10 +30,6 @@ variable (r qA) in
     rw [← LinearEquiv.mul_apply, inv_mul_cancel, LinearEquiv.coe_one, id_eq] at h
     exact h.symm
 
-theorem mem_fixElementary {k : ℕ} {g : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] _} :
-    g ∈ fixElementary r qA k ↔ g ∈ orthElementaryGroup (quadTail r qA) ∧
-      ∀ i : Fin r, i.val < k → g (hypVec K A (.inl i)) = hypVec K A (.inl i) :=
-  Iff.rfl
 
 theorem polar_hypVec_inl_left (i : Fin r) (v : (Fin r ⊕ Fin r → K) × A) :
     polar (quadTail r qA) (hypVec K A (.inl i)) v = v.1 (.inr i) := by

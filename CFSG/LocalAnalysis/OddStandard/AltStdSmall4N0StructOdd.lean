@@ -72,12 +72,6 @@ theorem B0_sq {x : G} (hx : x ∈ B0 θ hn z) : x * x = 1 := by
       eps_comm_z hn c, show z * (z * eps θ hn i) * eps θ hn i = (z * z) * (eps θ hn i *
         eps θ hn i) by group, c.ot.cyc.mul_self, eps_mul_self, one_mul]
 
-theorem B0_isPGroup : IsPGroup 2 (B0 θ hn z) := by
-  intro x
-  refine ⟨1, Subtype.ext ?_⟩
-  simp only [pow_one, SubmonoidClass.coe_pow, OneMemClass.coe_one]
-  rw [sq]
-  exact B0_sq hn c x.2
 
 theorem B0_le_C0 : B0 θ hn z ≤ C0 θ hn z := by
   intro x hx
@@ -94,7 +88,6 @@ theorem C0_le_D0 : C0 θ hn z ≤ D0 θ hn z := by
   rw [mem_centralizer_E_iff]
   exact ((mem_C0_iff hn c x).1 hx).1
 
-theorem B0_le_N0 : B0 θ hn z ≤ N0 θ hn z := le_normalizer
 
 theorem B0_le_D0 : B0 θ hn z ≤ D0 θ hn z := (B0_le_C0 hn c).trans (C0_le_D0 hn c)
 

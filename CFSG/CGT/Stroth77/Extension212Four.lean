@@ -453,29 +453,6 @@ theorem restrict_t120_t220 (hs : 1 ≤ s) (hm : 3 ≤ s + 2) :
 
 end Target
 
-theorem hasStrothType_t220_or_t221_of_data_aux {s : ℕ} {hm : 3 ≤ s + 2}
-    (D : StrothTypeData B (StrothTypeIndex.t120 (s + 2) hm)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    HasStrothType C (StrothTypeIndex.t220 s (by omega)) ∨
-      HasStrothType C (StrothTypeIndex.t221 s (by omega)) := by
-  have hs : 1 ≤ s := by omega
-  obtain ⟨cV, cW, cU, cR⟩ := restrict_t120_t220 s hs hm
-  rcases hasStrothType_or_of_index_four_of_data D hBC hC hrel hL hH hcS (k_pos_t120 hm)
-      (rhoPar_t120 hm) (rhoA_t120 hm) (fix_t120 hm) (fix4_t120 hm) (StrothTypeIndex.t220 s hs)
-      rfl rfl rfl (StrothTypeIndex.t221 s hs).action (profile4_t220 s hs) (twist4_t220 s hs)
-      cV cW cU cR with h1 | ⟨E, φ, h2⟩
-  · exact Or.inl h1
-  · exact Or.inr (hasStrothType_of_basisChange D hL (StrothTypeIndex.t221 s hs) E φ h2)
-
-theorem hasStrothType_t220_or_t221_of_data {m : ℕ} {hm : 3 ≤ m}
-    (D : StrothTypeData B (StrothTypeIndex.t120 m hm)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    HasStrothType C (StrothTypeIndex.t220 (m - 2) (by omega)) ∨
-      HasStrothType C (StrothTypeIndex.t221 (m - 2) (by omega)) := by
-  obtain ⟨s, rfl⟩ : ∃ s, m = s + 2 := ⟨m - 2, by omega⟩
-  exact hasStrothType_t220_or_t221_of_data_aux D hBC hC hrel hL hH hcS
 
 theorem hasStrothTypeOver_t220_or_t221_of_data_aux {s : ℕ} {hm : 3 ≤ s + 2}
     (D : StrothTypeData B (StrothTypeIndex.t120 (s + 2) hm)) (hBC : B ≤ C)

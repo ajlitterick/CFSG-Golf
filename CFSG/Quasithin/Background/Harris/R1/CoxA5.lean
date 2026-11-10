@@ -332,7 +332,6 @@ theorem table_complete : ∀ w ∈ covNf, ∀ g : Bool, ∃ t ∈ covTable, t.1 
 
 theorem nil_mem_covNf : ([] : List Bool) ∈ covNf := by decide
 
-theorem covNf_length : covNf.length = 60 := by decide
 
 theorem closure_words (ha : a * a = 1) (hb : b * b * b = 1) (hab : (a * b) ^ 5 = 1) :
     ∀ x ∈ Subgroup.closure ({a, b} : Set H), ∃ w ∈ covNf, eval a b w = x := by

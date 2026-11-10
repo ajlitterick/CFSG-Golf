@@ -19,15 +19,6 @@ variable {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {Bs Y : Subgro
   (Φ : OrthFrameCore p Bs Y)
 
 
-theorem qtwoOrthStd_autCongr_eq_linConj {K : Type} [Field K] {V V' : Type}
-    [AddCommGroup V] [Module K V] [AddCommGroup V'] [Module K V'] (e : V ≃ₗ[K] V') :
-    LinearEquiv.autCongr e = CFSG.RankThree.PartOne.linConj e := by
-  apply MulEquiv.ext
-  intro g
-  apply LinearEquiv.ext
-  intro v
-  rw [LinearEquiv.autCongr_apply_apply, CFSG.RankThree.PartOne.linConj_apply]
-
 theorem qtwoOrthStd_map_centralizer {A B : Type*} [Group A] [Group B] (e : A ≃* B)
     (T : Subgroup A) :
     (Subgroup.centralizer (T : Set A)).map e.toMonoidHom =
@@ -56,11 +47,6 @@ theorem qtwoOrthStd_mem_reflFixedCoord_iff {p r : ℕ} {i j : Fin r}
   rw [reflFixedCoord, MonoidHom.mem_ker, MonoidHom.div_apply, Pi.evalMonoidHom_apply,
     Pi.evalMonoidHom_apply, div_eq_one]
 
-theorem qtwoOrthStd_mem_reflFixedCoordPos_iff {p r : ℕ} {i j : Fin r}
-    (f : Fin r → Multiplicative (ZMod p)) :
-    f ∈ reflFixedCoordPos p r i j ↔ f i * f j = 1 := by
-  rw [reflFixedCoordPos, MonoidHom.mem_ker, MonoidHom.mul_apply, Pi.evalMonoidHom_apply,
-    Pi.evalMonoidHom_apply]
 
 theorem qtwoOrthStd_eqLocus_permAut_swap {p r : ℕ} {i j : Fin r} (hij : i < j) :
     MonoidHom.eqLocus (SpCoord.permAut (Equiv.swap i j)).toMonoidHom (MonoidHom.id _) =

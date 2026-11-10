@@ -174,7 +174,6 @@ theorem piecesOK_mem : ∀ {L : List (Nat × Nat)}, piecesOK L = true → ∀ q 
       · exact absurd e (Nat.pos_iff_ne_zero.1 (Nat.div_pos hl (Nat.two_pow_pos _)))
     · exact piecesOK_mem h2 q hq
 
-theorem piecesOK_neg : piecesOK [(256, 1)] = false := by decide +kernel
 
 theorem dropP_eq : ∀ (L : List (Nat × Nat)) (k : Nat), dropP L k = L.drop k
   | [], k => by cases k <;> rfl

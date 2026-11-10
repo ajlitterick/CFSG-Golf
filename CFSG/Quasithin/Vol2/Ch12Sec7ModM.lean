@@ -97,17 +97,6 @@ theorem wA_facts : wA.Valid ∧ inGm wA = true ∧ presv p1c wA.toB6 = true ∧
 theorem wB_facts : wB.Valid ∧ inGm wB = true ∧ presv l2c wB.toB6 = true ∧
     presv p1c wB.toB6 = false := by decide
 
-theorem s0m_presv : ∀ s ∈ s0m, s.Valid ∧ presv p1c s.toB6 = true ∧ presv l2c s.toB6 = true := by
-  decide
-
-theorem dreps_inGm : ∀ r ∈ dreps, r.Valid ∧ inGm r = true := by decide
-
-theorem presv_comp {l : List ℕ} {B D : B6} (hB : presv l B = true) (hD : presv l D = true) :
-    presv l (B.comp D) = true := by
-  rw [presv_iff] at hB hD ⊢
-  intro c hc
-  rw [B6.app_comp]
-  exact hB _ (hD c hc)
 
 section Setting
 

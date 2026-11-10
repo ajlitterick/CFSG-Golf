@@ -46,46 +46,6 @@ theorem catalog_of_isLThreeTwoOrASix (h : IsLThreeTwoOrASix G) : Blueprint.Catal
   · exact catalog_of_mulEquiv_psl_three_zmod_two e
   · exact catalog_of_mulEquiv_alternating_six e
 
-theorem catalog_of_mulEquiv_quasithinJ2 (e : G ≃* quasithinJ2) : Blueprint.Catalog G :=
-  Or.inr (Or.inr (Or.inr (Or.inr ⟨.J2, ⟨e.trans CFSG.Quasithin.quasithinJ2MulEquivNative⟩⟩)))
-
-theorem catalog_of_mulEquiv_quasithinJ3
-    (e : G ≃* quasithinJ3) : Blueprint.Catalog G :=
-  Or.inr (Or.inr (Or.inr (Or.inr ⟨.J3, ⟨e.trans CFSG.Quasithin.quasithinJ3MulEquivNative⟩⟩)))
-
-theorem catalog_of_mulEquiv_quasithinM12 (e : G ≃* quasithinM12) : Blueprint.Catalog G :=
-  Or.inr (Or.inr (Or.inr (Or.inr
-    ⟨.M12, ⟨e.trans (MulEquiv.subgroupCongr CFSG.Quasithin.quasithinM12_eq_native)⟩⟩)))
-
-theorem lieModel_psu_three_three_of_mulEquiv (e : G ≃* PSU3 3 1) :
-    Blueprint.LieModel G .PSU 3 3 1 := by
-  obtain ⟨e'⟩ := CFSG.Timmesfeld.Final.nonempty_statedProj_statedSU_equiv_PSU3
-  exact Or.inl ⟨by decide, ⟨Nat.prime_three, le_rfl, le_rfl, by decide⟩, GaloisField 3 (2 * 1),
-    inferInstance, inferInstance,
-    by rw [GaloisField.card 3 (2 * 1) (by norm_num)]; norm_num, ⟨e.trans e'.symm⟩⟩
-
-theorem catalog_of_mulEquiv_psu3_three_one (e : G ≃* PSU3 3 1) : Blueprint.Catalog G :=
-  Blueprint.lieModel_catalog G .PSU 3 3 1 (lieModel_psu_three_three_of_mulEquiv e)
-
-theorem catalog_of_sixModels
-    (hD4 : Blueprint.Catalog quasithinTrialityD4Two)
-    (hTits : Blueprint.Catalog quasithinTits) (h : CFSG.Quasithin.SixModels G) :
-    Blueprint.Catalog G := by
-  rcases h with h | h | h | h | h | h <;> obtain ⟨e⟩ := h
-  · exact catalog_of_mulEquiv_quasithinJ2 e
-  · exact catalog_of_mulEquiv_quasithinJ3 e
-  · exact CFSG.SectionRank.catalog_of_mulEquiv e hD4
-  · exact CFSG.SectionRank.catalog_of_mulEquiv e hTits
-  · exact catalog_of_mulEquiv_psu3_three_one e
-  · exact catalog_of_mulEquiv_quasithinM12 e
-
-theorem catalog_of_theoremE_alternatives
-    (hD4 : Blueprint.Catalog quasithinTrialityD4Two)
-    (hTits : Blueprint.Catalog quasithinTits)
-    (h : CFSG.Quasithin.SixModels G ∨ IsLThreeTwoOrASix G) : Blueprint.Catalog G := by
-  rcases h with h | h
-  · exact catalog_of_sixModels hD4 hTits h
-  · exact catalog_of_isLThreeTwoOrASix h
 
 @[expose] def G2TwoDerivedUnitaryTransport : Prop :=
   ∀ (k : Type) [Field k] [Finite k], Nat.card k = 2 →

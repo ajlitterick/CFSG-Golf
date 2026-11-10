@@ -25,9 +25,6 @@ open CFSG.LieType.Chevalley.C2E6Std.MatrixModel.Native
 @[expose] def bform (ps : List (Nat × Nat)) (u w : Vec) : Bool × Bool :=
   ps.foldl (bformStep u w) (false, false)
 
-@[expose] def brTriples (codes : Nat) : List (Nat × Nat × Nat) :=
-  (List.range 78).flatMap fun a => (List.range 78).filterMap fun b =>
-    if maskOf (code codes a b) == 0 then none else some (a, b, maskOf (code codes a b))
 
 @[inline, expose] def bracketStep (u w : Vec) (acc : Vec) (t : Nat × Nat × Nat) : Vec :=
   let p := f4mul (u.1.testBit t.1) (u.2.testBit t.1) (w.1.testBit t.2.1) (w.2.testBit t.2.1)
@@ -36,8 +33,6 @@ open CFSG.LieType.Chevalley.C2E6Std.MatrixModel.Native
 @[expose] def bracket (ts : List (Nat × Nat × Nat)) (u w : Vec) : Vec :=
   ts.foldl (bracketStep u w) (0, 0)
 
-@[expose] def brOut (codes : Nat) : Array (List (Nat × Nat)) :=
-  Array.ofFn (n := 78) fun k => pairsWhere fun a b => (maskOf (code codes a b)).testBit k
 
 @[expose] def bracketNZ (BO : Array (List (Nat × Nat))) (u w : Vec) : Bool :=
   (List.range 78).any fun k =>
@@ -47,9 +42,6 @@ open CFSG.LieType.Chevalley.C2E6Std.MatrixModel.Native
 @[expose] def matCanonB (P : Mat) : Bool :=
   (List.range 78).all fun l => isCanon (P.getD l (0, 0))
 
-@[expose] def matCanonAB (codes bits : Nat) (fwd : List (List Nat)) (iA iB : Nat) : Bool :=
-  let AB := genAB codes bits fwd iA iB
-  matCanonB AB.1 && matCanonB AB.2
 
 @[expose] def tblEntry (P : Mat) (c m : Nat) : Vec :=
   (List.range 8).foldl (fun acc j =>
@@ -70,9 +62,6 @@ open CFSG.LieType.Chevalley.C2E6Std.MatrixModel.Native
   let B := selT T u.2
   (A.1 ^^^ B.2, A.2 ^^^ B.1 ^^^ B.2)
 
-@[expose] def formMat (bits : Nat) : Mat :=
-  Array.ofFn (n := 78) fun b =>
-    ((List.range 78).foldl (fun m a => if fbit bits a b then m ||| (1 <<< a) else m) 0, 0)
 
 @[expose] def par8 (m : Nat) : Bool :=
   let a := m ^^^ (m >>> 4)

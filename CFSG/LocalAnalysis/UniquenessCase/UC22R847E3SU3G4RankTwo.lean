@@ -590,21 +590,6 @@ theorem R847E3.exists_split_nine_of_isSU3_of_center_eq_bot
     rw [Subgroup.map_sup, sup_comm]
 
 
-theorem R847E3.two_le_pRank_normalizer_of_isSU3_of_center_eq_bot
-    (hgr : GriessAllModelsStatement) (hT : uc22pwTorusSU3)
-    {M Y : Subgroup G} (hY : Y ∈ calC M) (hYN : M ≤ normalizer (Y : Set G))
-    (hOp : F10.OpRes 3 M = M) (hM3 : 3 ≤ CFSG.Open.pRank 3 M)
-    {n : ℕ} (hYn : IsSU3 (Bar2 Y) n) (hn : 2 < n) (h9 : 9 ∣ 2 ^ n + 1)
-    (hZ : center (Bar2 Y) = ⊥) {X : Subgroup G} (hXY : X ≤ Y)
-    {q : ℕ} (hq : q.Prime) (hq5 : 5 ≤ q) (hqn : q ∣ 2 ^ n - 1)
-    (hXq : Nat.card X = q) :
-    2 ≤ CFSG.Open.pRank 3 (normalizer (X : Set G) ⊓ M) := by
-  obtain ⟨E, A, B, hEM, hEC, hEa, hEc, -⟩ :=
-    R847E3.exists_split_nine_of_isSU3_of_center_eq_bot hgr hT hY hYN hOp hM3 hYn hn h9 hZ
-      hXY hq hq5 hqn hXq
-  exact CFSG.SectionRank.le_pRank Nat.prime_three.one_lt
-    (le_inf (hEC.trans (centralizer_le_normalizer _)) hEM) hEa (by simpa using hEc)
-
 theorem R847E3.not_ree_alternative_of_two_element
     (k : Sec7Core4 G) (hp3 : k.p = 3) {X : Subgroup G} {q : ℕ}
     (hq : q.Prime) (hq3 : q ≠ 3) (hXc : Nat.card X = q)
@@ -1537,9 +1522,6 @@ variable {G : Type} [Group G] [Finite G]
       Nat.card X = q → CFSG.Open.pRank 3 (normalizer (X : Set G) ⊓ D.M) ≤ 1 →
         center (Bar2 Y) ≠ ⊥ → normalizer (X : Set G) ≤ D.M
 
-theorem r847E3SU3G4RankTwo_of_res {D : Data G} (h : R847E3SU3G4Res D) :
-    R847E3SU3G4RankTwo D := fun hsig Y hY hYN n hYn hn X hXY q hq hq2 hqn hXq _ _ =>
-  h hsig Y hY hYN n hYn hn X hXY q hq hq2 hqn hXq
 
 theorem r847E3SU3G4Res_dataOfSetup_of_rankTwo (hG3 : Gls3StronglyThreeEmbeddedPlus)
     (hRee : CFSG.AGLEmbedding.KFactReeInvolution) (hK3 : StronglyEmbeddedThree)

@@ -88,8 +88,6 @@ theorem map_Mr :
   (Mr.equivMapOfInjective (Kstab v0).subtype Subtype.val_injective).trans
     (MulEquiv.subgroupCongr map_Mr)
 
-@[expose] def MrEquiv :
-    SDD foctHyp ≃* Mr := (monoSubEquiv foctHyp).trans mrEquivMono.symm
 
 theorem natCard_Mr :
     Nat.card Mr = 2 ^ 10 * Nat.card Foct := by

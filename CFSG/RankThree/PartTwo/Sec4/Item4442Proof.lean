@@ -632,19 +632,5 @@ theorem rank3II_4_44_2_of
     (h434 : Item4_34Sec) : Item4_44_2 :=
   rank3II_4_44_2_of_inputs h45 h434 KFacts.l34CenterThreePrimeTwo
 
-theorem rank3II_4_53_of_core
-    (h434 : Item4_34Sec)
-    (h45 : Item4_5) (h452 : Item4_52) : Item4_53 :=
-  rank3II_4_53_of h434 h45 h452 KFacts.l34CenterThreePrimeTwo
-
-theorem rank3II_4_44_1_of_core
-    (h434 : Item4_34Sec)
-    (h447 : Item4_47) (h45 : Item4_5) (h44 : Item4_4) (hres : Item4_52Residual) : Item4_44_1 :=
-  rank3II_4_44_1_of_inputs h434 h447 h45 h44 hres KFacts.l34CenterThreePrimeTwo
-
-theorem rank3II_4_44_1_of_item4_5
-    (h434 : Item4_34Sec)
-    (h45 : Item4_5) (h44 : Item4_4) (hres : Item4_52Residual) : Item4_44_1 :=
-  rank3II_4_44_1_of_core h434 (rank3II_4_47_of h45) h45 h44 hres
 
 end CFSG.RankThree.PartTwo.Sec4

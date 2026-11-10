@@ -54,10 +54,6 @@ theorem glMap_mem_SUid (hτ : ∀ x, τ (σF x) = σK (τ x)) {B : GL (Fin n) F}
   right_inv B := Subtype.ext ((glMap τ).apply_symm_apply (B : GL (Fin n) K))
   map_mul' B C := Subtype.ext (map_mul (glMap τ) (B : GL (Fin n) F) (C : GL (Fin n) F))
 
-theorem coe_suidEquiv (hτ : ∀ x, τ (σF x) = σK (τ x))
-    (hτ' : ∀ y, τ.symm (σK y) = σF (τ.symm y)) (B : SUid σF n) :
-    ((suidEquiv τ hτ hτ' B : SUid σK n) : GL (Fin n) K) = glMap τ B :=
-  rfl
 
 end Transport
 
@@ -447,16 +443,6 @@ end Input
 
 section Families
 
-theorem ggInnerDiagMpInputOn_unitary_holds : GGInnerDiagMpInputOn GGMpUnitaryLabel :=
-  ggInnerDiagMpInputOn_unitary ggInnerDiagStdUnitary_holds
-
-theorem ggInnerDiagMpInputOn_rest_of_stdExc (hE6 : GGInnerDiagStdE6)
-    (h2E6 : GGInnerDiagStdTwE6) : GGInnerDiagMpInputOn fun lab => ¬ GGInnerDiagInnLabel lab :=
-  ggInnerDiagMpInputOn_rest_of_std ggInnerDiagStdUnitary_holds hE6 h2E6
-
-theorem ggInnerDiagMpInput_of_stdExc (hE6 : GGInnerDiagStdE6) (h2E6 : GGInnerDiagStdTwE6) :
-    GGInnerDiagMpInput :=
-  ggInnerDiagMpInput_of_std ggInnerDiagStdUnitary_holds hE6 h2E6
 
 end Families
 

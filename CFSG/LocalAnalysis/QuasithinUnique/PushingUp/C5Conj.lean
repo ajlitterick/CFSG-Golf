@@ -59,8 +59,6 @@ theorem conjSubgroup_pCoreOf (p : ℕ) (A : Subgroup G) (g : G) :
     conjSubgroup (pCoreOf p A) g = pCoreOf p (conjSubgroup A g) :=
   (CFSG.QuasithinUnique.pCoreOf_map_equiv p (MulAut.conj g⁻¹) A).symm
 
-theorem conjSubgroup_top_inv_mem (A : Subgroup G) {g : G} (hg : g ∈ normalizer (A : Set G)) :
-    g⁻¹ ∈ normalizer (A : Set G) := inv_mem hg
 
 theorem conjSubgroup_conjSubgroup_inv (A : Subgroup G) (g : G) :
     conjSubgroup (conjSubgroup A g) g⁻¹ = A := by

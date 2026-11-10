@@ -38,6 +38,5 @@ theorem ThLocalIn2.inf_centralizer_Aa_eq (W : ThLocalIn L S A B z) (W2 : ThLocal
   · intro x hx
     exact mem_centralizer_iff.2 fun y hy => (W2.Aa_comm x hx y hy).symm
 
-variable [Finite G]
 
 end CFSG.EvenSporadicStandard.ThStd

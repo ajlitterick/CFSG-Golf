@@ -154,9 +154,5 @@ theorem A2sub_ne_bot [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (Mul
     rw [hc a ha x hx, mul_assoc, mul_inv_cancel, mul_one]
     exact hx
 
-theorem inf_centSub_commV_ne_bot [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X A : Subgroup (MulAut V)}
-    (hA : IsFFStarOffender X A) : A ⊓ centSub (commV A) ≠ ⊥ := by
-  rw [← A2sub_eq_inf_centSub hA.2.2.1.1]
-  exact A2sub_ne_bot hV hA
 
 end CFSG.Quasithin.B15P4

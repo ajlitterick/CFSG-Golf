@@ -75,9 +75,6 @@ theorem dvd_of_period {f : ℕ → ℕ} {i ℓ m : ℕ} (hℓ : 0 < ℓ) (h1 : f
 @[expose] def permFun (W : Equiv.Perm (Fin n)) (p : ℕ) : ℕ :=
   if h : p < n then (W ⟨p, h⟩ : ℕ) else p
 
-theorem permFun_lt (W : Equiv.Perm (Fin n)) {p : ℕ} (hp : p < n) : permFun W p < n := by
-  rw [permFun, dite_eq_left hp]
-  exact (W ⟨p, hp⟩).2
 
 theorem iterate_permFun (W : Equiv.Perm (Fin n)) {i : ℕ} (hi : i < n) :
     ∀ k : ℕ, (permFun W)^[k] i = ((W ^ k) ⟨i, hi⟩ : ℕ) := by

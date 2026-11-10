@@ -30,9 +30,6 @@ theorem scalarExtensionEquiv_symm_smul (a : K) (x : fixedSubspace sigma T hsemi)
   apply (scalarExtensionEquiv sigma hsigma hne h2 T hT hsemi).injective
   rw [LinearEquiv.apply_symm_apply, scalarExtensionEquiv_tmul]
 
-theorem scalarExtensionEquiv_symm_fixed (x : fixedSubspace sigma T hsemi) :
-    (scalarExtensionEquiv sigma hsigma hne h2 T hT hsemi).symm (x : V) = 1 ⊗ₜ x := by
-  simpa only [one_smul] using scalarExtensionEquiv_symm_smul sigma hsigma hne h2 T hT hsemi 1 x
 
 @[expose] def extendFixedEquiv
     (f : (fixedSubspace sigma T hsemi) ≃ₗ[fixedSubfield K sigma] (fixedSubspace sigma T hsemi)) :

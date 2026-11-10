@@ -85,10 +85,6 @@ private theorem bar_one : bar U (1 : Y) = 1 := by
   rw [bar_of_mem (one_mem _)]
   exact QuotientGroup.mk_one _
 
-private theorem bar_inv {x : Y} (hx : x ∈ normalizer (U : Set Y)) :
-    bar U x⁻¹ = (bar U x)⁻¹ := by
-  rw [bar_of_mem (inv_mem hx), bar_of_mem hx]
-  exact QuotientGroup.mk_inv _ (⟨x, hx⟩ : normalizer (U : Set Y))
 
 private theorem bar_pow {x : Y} (hx : x ∈ normalizer (U : Set Y)) (k : ℕ) :
     bar U (x ^ k) = bar U x ^ k := by

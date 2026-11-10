@@ -80,19 +80,6 @@ theorem natCast_pred_pow_three_ne_one (hp2 : p ≠ 2) : ((p - 1 : ℕ) : ZMod p)
   rw [natCast_pred_eq_neg_one, show (-1 : ZMod p) ^ 3 = -1 by ring]
   exact neg_one_ne_one_zmod hp2
 
-theorem det_one_pred_ne_zero (hp2 : p ≠ 2) :
-    (((1 : ℕ) : ZMod p) * ((p - 1 : ℕ) : ZMod p) - 1) *
-        (((1 : ℕ) : ZMod p) * ((p - 1 : ℕ) : ZMod p) - 1) -
-      ((1 : ℕ) : ZMod p) ^ 2 * ((0 : ℕ) : ZMod p) * ((0 : ℕ) : ZMod p) ≠ 0 := by
-  rw [natCast_pred_eq_neg_one]
-  have h4 : (((1 : ℕ) : ZMod p) * (-1) - 1) * (((1 : ℕ) : ZMod p) * (-1) - 1) -
-      ((1 : ℕ) : ZMod p) ^ 2 * ((0 : ℕ) : ZMod p) * ((0 : ℕ) : ZMod p) =
-        ((2 ^ 2 : ℕ) : ZMod p) := by
-    push_cast; ring
-  rw [h4]
-  intro h
-  rw [ZMod.natCast_eq_zero_iff] at h
-  exact hp2 ((Nat.prime_dvd_prime_iff_eq hp.out Nat.prime_two).1 (hp.out.dvd_of_dvd_pow h))
 
 theorem pow_pred_eq_inv {G : Type*} [Group G] {x : G} (hx : x ^ p = 1) : x ^ (p - 1) = x⁻¹ :=
   eq_inv_of_mul_eq_one_left (by rw [← pow_succ, Nat.sub_add_cancel hp.out.one_le, hx])

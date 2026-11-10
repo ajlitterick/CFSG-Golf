@@ -53,13 +53,6 @@ theorem polarBilin_twoΩCls (x : L2) :
   rw [bL_phi0, pair_zero_right, add_zero]
   rfl
 
-theorem twoΩCls_mem_U1 : twoΩCls ∈ U1 := by
-  rw [U1, Submodule.mem_inf]
-  refine ⟨?_, ?_⟩
-  · rw [Submodule.mem_comap, codeCoord_twoΩCls]
-    exact ΩC_mem_ΩLine
-  · change pair Spin.ΩC (cocodeCoord twoΩCls) = 0
-    rw [cocodeCoord_twoΩCls, map_zero]
 
 theorem eq_zero_or_eq_twoΩCls_of_mem_U1 {x : L2} (hx : x ∈ U1)
     (h : cocodeCoord x = 0) : x = 0 ∨ x = twoΩCls := by
@@ -110,10 +103,6 @@ private theorem cocodeCoord_lamVec (v : Fin 24 → ZMod 2) :
     cocodeCoord (lamVec v) = Submodule.Quotient.mk v := by
   rw [← lamCocode_mk v, cocodeCoord_lamCocode]
 
-private theorem pair_omega_mul (a c : C) :
-    pair Spin.ΩC (Submodule.Quotient.mk ((a : Fin 24 → ZMod 2) * (c : Fin 24 → ZMod 2))) = 0 := by
-  rw [Griess.pair_ΩC_mk, sum_eq_hammingNorm]
-  exact (ZMod.natCast_eq_zero_iff _ _).2 (two_dvd_hammingNorm_mul a.2 c.2)
 
 private theorem modTwoEnd_gO_decomp (a : C) (x : L2) :
     modTwoEnd (gO a) x =
@@ -161,11 +150,6 @@ theorem cocodeCoord_gO (a : C) (x : L2) :
         Submodule.Quotient.mk ((a : Fin 24 → ZMod 2) * (codeCoord x : Fin 24 → ZMod 2)) +
         parity x • thetaD a := by rw [hself]; abel
 
-theorem parity_gO (a : C) (x : L2) : parity (modTwoEnd (gO a) x) = parity x := by
-  change pair Spin.ΩC (cocodeCoord (modTwoEnd (gO a) x)) = pair Spin.ΩC (cocodeCoord x)
-  rw [cocodeCoord_gO a x]
-  simp only [map_add, map_smul, pair_omega_mul a (codeCoord x), pair_ΩC_thetaD, smul_zero,
-    add_zero]
 
 theorem modTwoEnd_gO_of_mem_U1 (a : C) {x : L2} (hx : x ∈ U1) :
     modTwoEnd (gO a) x = x + pair a (cocodeCoord x) • twoΩCls := by
@@ -192,16 +176,6 @@ theorem modTwoEnd_gO_of_mem_U1 (a : C) {x : L2} (hx : x ∈ U1) :
     simp only [zero_smul, zero_mul, add_zero]
     abel_nf
 
-theorem modTwoEnd_gO_mem_U1 (a : C) {x : L2} (hx : x ∈ U1) :
-    modTwoEnd (gO a) x ∈ U1 := by
-  rw [U1, Submodule.mem_inf] at hx ⊢
-  refine ⟨?_, ?_⟩
-  · rw [Submodule.mem_comap]
-    obtain ⟨s, hs⟩ := codeCoord_gO a x
-    rw [hs, hx.2, zero_smul, add_zero]
-    exact ΩLine.add_mem hx.1 (ΩLine.smul_mem s ΩC_mem_ΩLine)
-  · rw [LinearMap.mem_ker, parity_gO]
-    exact hx.2
 
 theorem codeCoord_PO (p : AutPerm) (x : L2) :
     codeCoord (modTwoEnd (PO p) x) = permC p (codeCoord x) := by

@@ -130,9 +130,5 @@ theorem babyTableIV_of
     (hT3 : BabyTableIII) : BabyTableIV :=
   babyTableIV_of_ne_rep_three (natCard_centralizer_rep_three_ne_of_babyTableIII hT3)
 
-theorem babyTableIV_of_rep_three
-    (h3 : Nat.card ↥(Subgroup.centralizer ({babyRep 3} : Set NativeSporadic.B)) = babyCentOrder 2) :
-    BabyTableIV :=
-  babyTableIV_of_ne_rep_three (by rw [h3]; decide)
 
 end CFSG.Monster.Existence

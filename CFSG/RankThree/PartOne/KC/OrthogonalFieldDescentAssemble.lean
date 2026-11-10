@@ -83,29 +83,6 @@ namespace HypSplit
     funext j
     exact Fintype.linearIndependent_iff.mp tb.linearIndependent _ hγ j
 
-@[expose] noncomputable def ofIsometry {W' : Type} [AddCommGroup W'] [Module F W']
-    {Q : QuadraticForm F W} {Q' : QuadraticForm F W'} {m δ : ℕ} (e : Q.IsometryEquiv Q')
-    (H : HypSplit Q m δ) :
-    HypSplit Q' m δ where
-  b := H.b.map e.toLinearEquiv
-  eval x y z := by
-    have hv : ∑ i, x i • (H.b.map e.toLinearEquiv) (.inl i) +
-        ∑ i, y i • (H.b.map e.toLinearEquiv) (.inr (.inl i)) +
-        ∑ j, z j • (H.b.map e.toLinearEquiv) (.inr (.inr j)) =
-        e (∑ i, x i • H.b (.inl i) + ∑ i, y i • H.b (.inr (.inl i)) +
-          ∑ j, z j • H.b (.inr (.inr j))) := by
-      simp [Basis.map_apply, map_add, map_sum, map_smul]
-    have ht : ∑ j, z j • (H.b.map e.toLinearEquiv) (.inr (.inr j)) =
-        e (∑ j, z j • H.b (.inr (.inr j))) := by
-      simp [Basis.map_apply, map_sum, map_smul]
-    rw [hv, ht, e.map_app, e.map_app]
-    exact H.eval x y z
-  aniso z hz := by
-    have ht : ∑ j, z j • (H.b.map e.toLinearEquiv) (.inr (.inr j)) =
-        e (∑ j, z j • H.b (.inr (.inr j))) := by
-      simp [Basis.map_apply, map_sum, map_smul]
-    rw [ht, e.map_app] at hz
-    exact H.aniso z hz
 
 end HypSplit
 

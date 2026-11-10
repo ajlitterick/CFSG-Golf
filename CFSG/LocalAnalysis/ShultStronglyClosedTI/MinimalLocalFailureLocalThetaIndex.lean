@@ -131,13 +131,5 @@ theorem prime_part_of_two_power_index {p : ℕ} (hp : p.Prime) (hpodd : Odd p)
   rw [← U.card_mul_index, primePart_mul p _ _ Nat.card_pos.ne' hindexne]
   simp only [primePart, Nat.factorization_eq_zero_of_not_dvd hnot, pow_zero, mul_one]
 
-theorem supplied_sylow_of_two_power_index {p : ℕ} (hp : p.Prime) (hpodd : Odd p)
-    (U : Subgroup G) (hindex : ∃ n : ℕ, U.index = 2 ^ n) (Q : Sylow p U) :
-    ∃ S : Sylow p G, (S : Subgroup G) = (Q : Subgroup U).map U.subtype := by
-  let : Fact p.Prime := ⟨hp⟩
-  have hcard : Nat.card ((Q : Subgroup U).map U.subtype) =
-      primePart p (Nat.card G) := by
-    rw [sylow_map_card_eq_primePart, prime_part_of_two_power_index hp hpodd U hindex]
-  exact ⟨Sylow.ofCard ((Q : Subgroup U).map U.subtype) hcard, rfl⟩
 
 end CFSG.ShultStronglyClosedTI.LocalTheta

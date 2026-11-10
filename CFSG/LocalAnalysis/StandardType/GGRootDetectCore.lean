@@ -203,9 +203,6 @@ theorem ringEquiv_eq_one_of_mul_conj {E M M' : Matrix ι ι K} (hE : E ≠ 0) (h
   · exact (sub_eq_zero.mp h4).symm
   · exact absurd h4 hEM
 
-theorem mul_self_eq_one_of_charTwo [CharP K 2] {M : Type*} [Monoid M] {x : K → M}
-    (hadd : ∀ s t, x (s + t) = x s * x t) (h0 : x 0 = 1) (t : K) : x t * x t = 1 := by
-  rw [← hadd, CharTwo.add_self_eq_zero, h0]
 
 end Field
 

@@ -167,12 +167,6 @@ theorem c25_16invEven_typed (h11 : C25_11 p f) (hN9 : p ^ f = 9 → NStar p f) :
     Even f → T7U.C25_16inv p f :=
   c25_16invEven_of_nstar h11 (nstar_of_nine h11 hN9)
 
-theorem c25_16invEven_typed_of_diag25 (h11 : C25_11 p f) (hD9 : p ^ f = 9 → DIAG25 p f) :
-    Even f → T7U.C25_16inv p f := by
-  intro hf
-  by_cases h9 : p ^ f = 9
-  · exact c25_16invEven_of_diag25 h11 (fun _ => C25G.g1Omega6_proved) (fun _ => hD9 h9) hf
-  · exact c25_16invEven_of_nstar h11 (nstar_of_ne_nine h11 h9) hf
 
 end Main
 

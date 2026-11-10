@@ -42,12 +42,6 @@ theorem rankOne_twistedE6_three :
     (slOrbitHom_upper_mem θ hθ _ rfl) (slOrbitHom_lower_mem θ hθ _ rfl)
     (slOrbitHom_param_upper θ hθ _ rfl) (slOrbitHom_param_lower θ hθ _ rfl)
 
-include hθ in
-theorem iSup_rankOne_twistedE6 :
-    ⨆ i : Fin (twistedDatum k θ).rank,
-      CFSG.LieType.CurtisTits.rankOne (twistedDatum k θ).rootGroup i = ⊤ :=
-  iSup_rankOne_eq_top_of_ct (D := twistedDatum k θ)
-    (twistedDatum_isCTGroupDatum θ hθ (iSup_twistedDatum_rootGroup θ hθ)) rfl
 
 include hθ in
 theorem commute_rankOne_twistedE6_zero_two :
@@ -106,33 +100,6 @@ theorem linearBlockStandardPair_twistedE6_long :
   exact linearBlockStandardPair_of_levi emb hinj (by rw [rankOne_twistedE6_zero, h0])
     (by rw [rankOne_twistedE6_one, h1])
 
-include hθ in
-theorem linearBlockStandardPair_twistedE6_short :
-    ∃ W, LinearBlockStandardPair k W
-      (CFSG.LieType.CurtisTits.rankOne (twistedDatum k θ).rootGroup (nf 2))
-      (CFSG.LieType.CurtisTits.rankOne (twistedDatum k θ).rootGroup (nf 3)) := by
-  obtain ⟨emb, hinj, h0, h1⟩ := exists_levi23 θ hθ
-  exact linearBlockStandardPair_of_levi emb hinj (by rw [rankOne_twistedE6_two θ hθ, h0])
-    (by rw [rankOne_twistedE6_three θ hθ, h1])
-
-theorem unitaryB2BlockStandardPair_twistedE6 :
-    ∃ W, UnitaryB2BlockStandardPair θ hθ W
-      (CFSG.LieType.CurtisTits.rankOne (twistedDatum k θ).rootGroup (nf 1))
-      (CFSG.LieType.CurtisTits.rankOne (twistedDatum k θ).rootGroup (nf 2)) := by
-  obtain ⟨emb, hinj, h0, h1⟩ := exists_levi12 θ hθ
-  refine ⟨emb.range, emb, rfl, ?_, ?_, ?_, ?_, ?_⟩
-  · rw [(MonoidHom.ker_eq_bot_iff _).mpr hinj]
-    exact bot_le
-  · change Function.Injective (emb.comp (ulb θ hθ))
-    rw [h0]
-    exact rFixed_injective θ _ _
-  · change Function.Injective (emb.comp (usb θ hθ))
-    rw [h1]
-    exact slOrbitHom_injective θ hθ _
-  · change (ulb θ hθ).range.map emb = _
-    rw [← MonoidHom.range_comp, h0, rankOne_twistedE6_one]
-  · change (usb θ hθ).range.map emb = _
-    rw [← MonoidHom.range_comp, h1, rankOne_twistedE6_two θ hθ]
 
 end Pairs
 

@@ -47,39 +47,6 @@ theorem card_centralizer_involution {τ : Perm α} (hτ : τ * τ = 1) (hτ1 : �
   congr 3
   omega
 
-theorem card_fix_inter_modEq {g h : Perm α} (hgh : g * h = h * g) {p n : ℕ} [Fact p.Prime]
-    (hh : h ^ p ^ n = 1) :
-    (g.supportᶜ ∩ h.supportᶜ).card ≡ (g.supportᶜ).card [MOD p] := by
-  have hF : ∀ x, h x ∈ g.supportᶜ ↔ x ∈ g.supportᶜ := by
-    intro x
-    simp only [Finset.mem_compl, Perm.mem_support, not_not]
-    constructor
-    · intro hx
-      apply h.injective
-      rw [← Perm.mul_apply, ← hgh, Perm.mul_apply, hx]
-    · intro hx
-      rw [← Perm.mul_apply, hgh, Perm.mul_apply, hx]
-  have hh' : (h.subtypePerm hF) ^ p ^ n = 1 := by
-    rw [Perm.subtypePerm_pow]
-    ext x
-    simp [hh]
-  have key := Perm.card_compl_support_modEq hh'
-  rw [Fintype.card_coe] at key
-  have hcard : ((h.subtypePerm hF).supportᶜ).card = (g.supportᶜ ∩ h.supportᶜ).card := by
-    rw [← Finset.card_map (Function.Embedding.subtype _)]
-    congr 1
-    ext x
-    simp only [Finset.mem_map, Finset.mem_compl, Perm.mem_support, not_not,
-      Function.Embedding.coe_subtype, Finset.mem_inter, Perm.subtypePerm_apply, Subtype.ext_iff]
-    constructor
-    · rintro ⟨y, hy, rfl⟩
-      have hy2 := y.2
-      simp only [Finset.mem_compl, Perm.mem_support, not_not] at hy2
-      exact ⟨hy2, hy⟩
-    · rintro ⟨hx, hxh⟩
-      exact ⟨⟨x, by simpa using hx⟩, hxh, rfl⟩
-  rw [← hcard]
-  exact key
 
 @[expose] def restrHom (L : Subgroup (Perm α)) (S : Finset α)
     (hS : ∀ l ∈ L, ∀ x, l x ∈ S ↔ x ∈ S) : L →* Perm {x // x ∈ S} where

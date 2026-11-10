@@ -15,9 +15,5 @@ open CFSG.CosetTable
 @[expose] def collRelsA8 (k : Fin 7) : List A8Word :=
   relsN0A8.map liftW5 ++ thetaRelsA8 ++ [collRelA8 k]
 
-@[expose] def subWA8 : List A8Word := (subsetOf 6 (List.range 5)).map fun x => [(x, true)]
-
-@[expose] def collapseCheckA8 (k : Fin 7) : Bool :=
-  checkHLT (presParams (collRelsA8 k) subWA8) 400 1
 
 end CFSG.CGT.A8S

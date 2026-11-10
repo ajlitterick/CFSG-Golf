@@ -58,11 +58,6 @@ open scoped commutatorElement Pointwise
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def Eleven11SmallBlock (M V Q : Subgroup G) : Prop :=
-  ∀ U L X : Subgroup G, ∀ hd : Eleven11Data M V Q U L X,
-    Nat.card (autI hd.setting.isElemAbelian M) = 21 →
-    Nat.card (autI hd.setting.isElemAbelian X) = 3 → Nat.card V = 8 →
-    blockU L = oTwoIn L ∧ blockZ L = ⊥
 
 @[expose] def Eleven11NoExotic (M V Q : Subgroup G) : Prop :=
   ∀ U L X : Subgroup G, ∀ hd : Eleven11Data M V Q U L X,

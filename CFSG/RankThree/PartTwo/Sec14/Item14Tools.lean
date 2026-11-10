@@ -94,13 +94,6 @@ theorem oPrimeResidualOf_eq_of_le {p : ℕ} {N K : Subgroup G} (hNK : N ≤ K)
   ext x
   exact ⟨fun ⟨hx, k, hk⟩ => ⟨hNK hx, k, hk⟩, fun ⟨hx, k, hk⟩ => ⟨h x hx k hk, k, hk⟩⟩
 
-theorem inSubgroup_oResidual_eq_of_le {p : ℕ} {N K : Subgroup G} (hNK : N ≤ K)
-    (h : ∀ x ∈ K, Nat.Coprime (orderOf x) p → x ∈ N) :
-    inSubgroup (oResidual p) N = inSubgroup (oResidual p) K := by
-  rw [inSubgroup_oResidual_eq_closure, inSubgroup_oResidual_eq_closure]
-  congr 1
-  ext x
-  exact ⟨fun ⟨hx, hc⟩ => ⟨hNK hx, hc⟩, fun ⟨hx, hc⟩ => ⟨h x hx hc, hc⟩⟩
 
 theorem oPrimeResidualOf_le_self (p : ℕ) (K : Subgroup G) : oPrimeResidualOf p K ≤ K :=
   Subgroup.map_subtype_le _

@@ -283,31 +283,6 @@ theorem mk_flatten_replicate {α : Type*} (u : List (α × Bool)) :
   | succ k ih =>
     rw [List.replicate_succ, List.flatten_cons, ← FreeGroup.mul_mk, ih, pow_succ']
 
-theorem card_le_of_check_cyclic {m : ℕ} (ws : List (List (Fin m × Bool))) (u : List (Fin m × Bool))
-    {k : ℕ} (hk0 : 0 < k) (hk : (List.replicate k u).flatten ∈ ws) {cap n : ℕ}
-    (h : check (presParams ws [u]) cap n = true) :
-    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n * k := by
-  set rels := {r : FreeGroup (Fin m) | r ∈ ws.map FreeGroup.mk}
-  set g : PG m ws := PresentedGroup.mk rels (FreeGroup.mk u)
-  obtain ⟨hfi, hidx⟩ := index_le_presented ws [u] (Subgroup.zpowers g)
-    (by intro w hw; simp at hw; subst hw; exact Subgroup.mem_zpowers g) h
-  have hg : g ^ k = 1 := by
-    rw [show g ^ k = PresentedGroup.mk rels (FreeGroup.mk u ^ k) from (map_pow _ _ _).symm,
-      ← mk_flatten_replicate]
-    exact PresentedGroup.one_of_mem (List.mem_map_of_mem hk)
-  have hord : orderOf g ∣ k := orderOf_dvd_of_pow_eq_one hg
-  have hpos : 0 < orderOf g := Nat.pos_of_dvd_of_pos hord hk0
-  have hfinz : Finite (Subgroup.zpowers g) :=
-    Nat.finite_of_card_ne_zero (by rw [Nat.card_zpowers]; omega)
-  have hcard : Nat.card (Subgroup.zpowers g) ≤ k := by
-    rw [Nat.card_zpowers]; exact Nat.le_of_dvd hk0 hord
-  have hG : Finite (PG m ws) := by
-    have : Finite (PG m ws ⧸ Subgroup.zpowers g) := Subgroup.finite_quotient_of_finiteIndex
-    exact Finite.of_subgroup_quotient (Subgroup.zpowers g)
-  refine ⟨hG, ?_⟩
-  rw [← (Subgroup.zpowers g).index_mul_card]
-  exact Nat.mul_le_mul hidx hcard
-
 
 @[expose] def subsetOf (m : ℕ) (S : List ℕ) : List (Fin m) :=
   (List.finRange m).filter fun i => S.contains i.val

@@ -34,29 +34,6 @@ theorem isElemAbelian_closure_pair {G : Type} [Group G] {u v : G} (hu : u * u = 
       first | rfl | assumption | exact (by assumption : _ = _).symm
   exact Balance.Theorem5.isElemAbelian_closure_of_commuting_involutions h2 hc
 
-theorem exists_fourGroup_of_two_le_twoRank {M : Type} [Group M] [Finite M]
-    (h : 2 ≤ CFSG.Assembly.twoRank M) :
-    ∃ E : Subgroup M, IsElemAbelian 2 E ∧ Nat.card E = 4 := by
-  classical
-  have hbdd : BddAbove
-      {k | ∃ E : Subgroup M, E ≤ ⊤ ∧ CFSG.Assembly.IsElemAbelian 2 E ∧ Nat.card E = 2 ^ k} :=
-    ⟨Nat.card M, fun k ⟨E, _, _, hk⟩ => (Nat.lt_two_pow_self).le.trans
-      (hk ▸ Subgroup.card_le_card_group E)⟩
-  have hne : Set.Nonempty
-      {k | ∃ E : Subgroup M, E ≤ ⊤ ∧ CFSG.Assembly.IsElemAbelian 2 E ∧ Nat.card E = 2 ^ k} :=
-    ⟨0, ⊥, le_top, ⟨⟨⟨fun x y => Subsingleton.elim _ _⟩⟩, fun x hx => by
-      rw [Subgroup.mem_bot.mp hx, one_pow]⟩, by simp⟩
-  obtain ⟨E, -, hE, hcard⟩ := Nat.sSup_mem hne hbdd
-  have hr : 2 ≤ CFSG.Assembly.twoRank M := h
-  have hdvd : 2 ^ 2 ∣ Nat.card E := by
-    rw [hcard]
-    exact pow_dvd_pow 2 hr
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨V, hV⟩ := Sylow.exists_subgroup_card_pow_prime (G := ↥E) 2 hdvd
-  refine ⟨V.map E.subtype, ?_, ?_⟩
-  · exact isElemAbelian_mono (E := E) hE (Subgroup.map_subtype_le V)
-  · rw [Subgroup.card_map_of_injective (Subgroup.subtype_injective E), hV]
-    norm_num
 
 end ElemAbelian
 
@@ -83,20 +60,6 @@ theorem exists_conj_of_mk_eq {u v : G} (hu : u ∈ X) (hv : v ∈ X) (hu2 : u * 
     simp [hvi]
   exact exists_conj_of_mul_mem hu2 hv2 (odd_card_oddCoreIn X) hmem
 
-omit [Finite G] in
-theorem mk_eq_of_mul_mem {u v : G} (hu : u ∈ X) (hv : v ∈ X) (hu2 : u * u = 1)
-    (h : u * v ∈ oddCoreIn X) :
-    QuotientGroup.mk' (classicalInvolutionOddCore ↥X) ⟨u, hu⟩ =
-      QuotientGroup.mk' (classicalInvolutionOddCore ↥X) ⟨v, hv⟩ := by
-  obtain ⟨w, hw, hwe⟩ := h
-  rw [QuotientGroup.mk'_apply, QuotientGroup.mk'_apply, QuotientGroup.eq]
-  have hui : u⁻¹ = u := inv_eq_of_mul_eq_one_right hu2
-  have hw' : (⟨u, hu⟩ : ↥X)⁻¹ * ⟨v, hv⟩ = w := by
-    apply Subtype.ext
-    simp only [Subgroup.coe_mul, Subgroup.coe_inv, hui]
-    exact hwe.symm
-  rw [hw']
-  exact hw
 
 end ModOdd
 
@@ -116,42 +79,11 @@ theorem bd_pair_of_forall_fourGroup {Y : Type} [Group Y] [Finite Y] {z : Y} (hz1
   · exact Or.inr (Or.inl h)
   · exact Or.inr (Or.inr h)
 
-theorem exists_conj_of_mk_eq_group {Y : Type} [Group Y] [Finite Y] {u v : Y} (hu2 : u * u = 1)
-    (hv2 : v * v = 1)
-    (h : QuotientGroup.mk' (classicalInvolutionOddCore Y) u =
-      QuotientGroup.mk' (classicalInvolutionOddCore Y) v) :
-    ∃ o ∈ classicalInvolutionOddCore Y, v = o * u * o⁻¹ := by
-  have h1 : v⁻¹ * u ∈ classicalInvolutionOddCore Y := QuotientGroup.eq.mp h.symm
-  have hvi : v⁻¹ = v := inv_eq_of_mul_eq_one_right hv2
-  rw [hvi] at h1
-  exact exists_conj_of_mul_mem hu2 hv2 (CFSG.ComponentClassification.OddCore.odd_card Y) h1
 
 end PairForm
 
 section Centerless
 
-theorem false_of_central_component {M X : Type} [Group M] [Group X] [Finite M] (ψ : M →* X)
-    (hker : ψ.ker ≤ Subgroup.center M) (hcen : Subgroup.center M = ⊥)
-    (hsimple : IsSimpleGroup M) (hnab : ∃ a b : M, a * b ≠ b * a)
-    (heven : Even (Nat.card M)) {z : X} (hz1 : z ≠ 1) (hzc : ∀ x : X, x * z = z * x)
-    (hF : ∀ F : Subgroup X, IsElemAbelian 2 F → Nat.card F = 4 → z ∈ F) : False := by
-  have hinj : Function.Injective ψ := by
-    rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-    exact hcen ▸ hker
-  obtain ⟨E, hE, hEcard⟩ := exists_fourGroup_of_two_le_twoRank
-    (CFSG.Walter.two_le_twoRank M hnab heven)
-  have hFcard : Nat.card (E.map ψ) = 4 := by
-    rw [Subgroup.card_map_of_injective hinj, hEcard]
-  obtain ⟨e, he, hez⟩ := hF (E.map ψ) (isElemAbelian_map ψ hE) hFcard
-  have hec : e ∈ Subgroup.center M := by
-    rw [Subgroup.mem_center_iff]
-    intro m
-    apply hinj
-    rw [map_mul, map_mul, hez]
-    exact hzc (ψ m)
-  rw [hcen, Subgroup.mem_bot] at hec
-  rw [hec, map_one] at hez
-  exact hz1 hez.symm
 
 theorem isSimpleGroup_of_center_eq_bot {M : Type} [Group M] (hq : CFSG.Open.IsQuasisimple M)
     (hcen : Subgroup.center M = ⊥) : IsSimpleGroup M := by

@@ -53,11 +53,6 @@ theorem linear_socle_inner_false (ha : orderOf a = 2)
     (even_linear_involution_centralizers_component_free he (by omega) hK t ht) _
     ((isComponentOf_iff_isComponent_subgroupOf hL₁.1).mp hL₁)
 
-theorem card_psu_three_two {K : Type} [Field K] (hK : Nat.card K = (2 ^ 1) ^ 2) :
-    Nat.card (StatedProj (StatedSU 3 (2 ^ 1) K)) = 72 := by
-  rw [Timmesfeld.ClassicalOrders.card_statedProj_statedSU Nat.prime_two (by norm_num) hK
-    (by norm_num)]
-  decide
 
 theorem linear_socle_graph_field_false (ha : orderOf a = 2)
     (hLCW : CFSG.Assembly.IsComponentOf L (W ⊓ centralizer {a})) (hn : 3 ≤ n) (he : 1 ≤ e)

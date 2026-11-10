@@ -82,29 +82,6 @@ theorem mem_planeTypeAut {g : Equiv.Perm (PlaneFlag k)} :
       ((g x).line = (g y).line ↔ x.line = y.line) :=
   Iff.rfl
 
-theorem mem_planeTypeAut_iff_adj {g : Equiv.Perm (PlaneFlag k)} :
-    g ∈ planeTypeAut k ↔ ∀ x y,
-      (g x ≠ g y ∧ (g x).pt = (g y).pt ↔ x ≠ y ∧ x.pt = y.pt) ∧
-      (g x ≠ g y ∧ (g x).line = (g y).line ↔ x ≠ y ∧ x.line = y.line) := by
-  have hne : ∀ x y, g x ≠ g y ↔ x ≠ y := fun x y => g.injective.ne_iff
-  constructor
-  · intro hg x y
-    rw [hne]
-    exact ⟨and_congr_right fun _ => (hg x y).1, and_congr_right fun _ => (hg x y).2⟩
-  · intro h x y
-    refine ⟨⟨fun hxy => ?_, fun hxy => ?_⟩, ⟨fun hxy => ?_, fun hxy => ?_⟩⟩
-    · by_cases e : x = y
-      · rw [e]
-      · exact ((h x y).1.mp ⟨(hne x y).mpr e, hxy⟩).2
-    · by_cases e : x = y
-      · rw [e]
-      · exact ((h x y).1.mpr ⟨e, hxy⟩).2
-    · by_cases e : x = y
-      · rw [e]
-      · exact ((h x y).2.mp ⟨(hne x y).mpr e, hxy⟩).2
-    · by_cases e : x = y
-      · rw [e]
-      · exact ((h x y).2.mpr ⟨e, hxy⟩).2
 
 namespace PlaneFlag
 
@@ -155,16 +132,6 @@ theorem finrank_kerLine {α β γ : k} (h : α ≠ 0 ∨ β ≠ 0 ∨ γ ≠ 0) 
   unfold kerLine
   omega
 
-theorem kerLine_smul {α β γ c : k} (hc : c ≠ 0) :
-    kerLine (c * α) (c * β) (c * γ) = kerLine α β γ := by
-  ext v
-  simp only [mem_kerLine]
-  constructor
-  · intro h
-    have : c * (α * v 0 + β * v 1 + γ * v 2) = 0 := by rw [← h]; ring
-    exact (mul_eq_zero.mp this).resolve_left hc
-  · intro h
-    linear_combination c * h
 
 theorem vec_ne_zero_of_two {x y z : k} (h : z ≠ 0) : (![x, y, z] : Fin 3 → k) ≠ 0 := by
   intro h'
@@ -178,9 +145,6 @@ theorem vec_ne_zero_of_zero {x y z : k} (h : x ≠ 0) : (![x, y, z] : Fin 3 → 
   intro h'
   exact h (by simpa using congrFun h' 0)
 
-theorem eta_vec {R : Type*} (v : Fin 3 → R) : v = ![v 0, v 1, v 2] := by
-  ext i
-  fin_cases i <;> rfl
 
 theorem span_eq_span_of_eq_smul {v w : Fin 3 → k} {c : k} (hc : c ≠ 0) (h : w = c • v) :
     k ∙ w = k ∙ v := by
@@ -280,37 +244,6 @@ theorem exists_two_pts (hL : finrank k L = 2) :
     (span_singleton_le_iff_mem u L).mpr hu, (span_singleton_le_iff_mem w L).mpr hw⟩
   exact hwu (h ▸ mem_span_singleton_self w)
 
-theorem exists_eq_kerLine (hL : finrank k L = 2) :
-    ∃ α β γ : k, (α ≠ 0 ∨ β ≠ 0 ∨ γ ≠ 0) ∧ L = kerLine α β γ := by
-  have hlt : L < ⊤ := by
-    refine lt_top_iff_ne_top.mpr fun h => ?_
-    rw [h, finrank_top, Module.finrank_fin_fun] at hL
-    exact absurd hL (by norm_num)
-  obtain ⟨f, hf0, hLf⟩ := Submodule.exists_le_ker_of_lt_top L hlt
-  have hfv : ∀ v : Fin 3 → k, f v = f (Pi.single 0 1) * v 0 + f (Pi.single 1 1) * v 1 +
-      f (Pi.single 2 1) * v 2 := by
-    intro v
-    have hv : v = v 0 • Pi.single 0 1 + v 1 • Pi.single 1 1 + v 2 • Pi.single 2 1 := by
-      ext i
-      fin_cases i <;> simp
-    conv_lhs => rw [hv]
-    simp only [map_add, map_smul, smul_eq_mul]
-    ring
-  have hker : LinearMap.ker f = kerLine (f (Pi.single 0 1)) (f (Pi.single 1 1))
-      (f (Pi.single 2 1)) := by
-    ext v
-    rw [LinearMap.mem_ker, mem_kerLine, hfv]
-  have hcoef : f (Pi.single 0 1) ≠ 0 ∨ f (Pi.single 1 1) ≠ 0 ∨ f (Pi.single 2 1) ≠ 0 := by
-    by_contra hcon
-    simp only [ne_eq, not_or, not_not] at hcon
-    apply hf0
-    refine LinearMap.ext fun v => ?_
-    rw [hfv, hcon.1, hcon.2.1, hcon.2.2]
-    simp
-  refine ⟨_, _, _, hcoef, ?_⟩
-  rw [← hker]
-  refine Submodule.eq_of_le_of_finrank_eq hLf ?_
-  rw [hL, hker, finrank_kerLine hcoef]
 
 theorem exists_flag_pt (hP : finrank k P = 1) : ∃ x : PlaneFlag k, x.pt = P := by
   obtain ⟨v, hv0, rfl⟩ := exists_eq_span hP
@@ -366,17 +299,6 @@ theorem span_vec_pair_eq_kerLine_100 {x y : Fin 3 → k} (hx : x = ![0, 1, 0])
     ext i
     fin_cases i <;> simp_all
 
-theorem span_vec_pair_eq_kerLine_010 {x y : Fin 3 → k} (hx : x = ![1, 0, 0])
-    (hy : y = ![0, 0, 1]) : span k {x, y} = kerLine 0 1 0 := by
-  ext v
-  rw [mem_span_pair, mem_kerLine, hx, hy]
-  constructor
-  · rintro ⟨a, b, rfl⟩
-    simp
-  · intro h
-    refine ⟨v 0, v 2, ?_⟩
-    ext i
-    fin_cases i <;> simp_all
 
 theorem span_e01 : span k {(Pi.single 0 1 : Fin 3 → k), Pi.single 1 1} = kerLine 0 0 1 :=
   span_vec_pair_eq_kerLine_001 single_zero single_one
@@ -384,8 +306,6 @@ theorem span_e01 : span k {(Pi.single 0 1 : Fin 3 → k), Pi.single 1 1} = kerLi
 theorem span_e12 : span k {(Pi.single 1 1 : Fin 3 → k), Pi.single 2 1} = kerLine 1 0 0 :=
   span_vec_pair_eq_kerLine_100 single_one single_two
 
-theorem span_e02 : span k {(Pi.single 0 1 : Fin 3 → k), Pi.single 2 1} = kerLine 0 1 0 :=
-  span_vec_pair_eq_kerLine_010 single_zero single_two
 
 variable (k) in
 @[expose] def c : PlaneFlag k where
@@ -411,12 +331,6 @@ theorem d_pt : (d k).pt = k ∙ ![0, 0, 1] := by rw [← single_two]; rfl
 
 theorem d_line : (d k).line = kerLine 1 0 0 := span_e12
 
-theorem isOpposite_c_d : (c k).IsOpposite (d k) := by
-  refine ⟨?_, ?_⟩
-  · rw [c_pt, d_line, span_le_kerLine]
-    simp
-  · rw [d_pt, c_line, span_le_kerLine]
-    simp
 
 instance : Nonempty (PlaneFlag k) := ⟨c k⟩
 
@@ -488,12 +402,6 @@ theorem ptMap_inj (hg : g ∈ planeTypeAut k) (hP : finrank k P = 1) (hQ : finra
   rw [ptMap_pt hg, ptMap_pt hg]
   exact (hg x y).1
 
-theorem lnMap_inj (hg : g ∈ planeTypeAut k) (hL : finrank k L = 2) (hM : finrank k M = 2) :
-    lnMap g L = lnMap g M ↔ L = M := by
-  obtain ⟨x, rfl⟩ := exists_flag_line hL
-  obtain ⟨y, rfl⟩ := exists_flag_line hM
-  rw [lnMap_line hg, lnMap_line hg]
-  exact (hg x y).2
 
 theorem ptMap_le_lnMap_iff (hg : g ∈ planeTypeAut k) (hP : finrank k P = 1)
     (hL : finrank k L = 2) : ptMap g P ≤ lnMap g L ↔ P ≤ L := by
@@ -545,12 +453,6 @@ theorem eq_of_ptMap_eq {g h : Equiv.Perm (PlaneFlag k)} (hg : g ∈ planeTypeAut
     · rw [hgh Q hQ]
       exact (ptMap_le_lnMap_iff hh hQ x.finrank_line).mpr hQL
 
-theorem isOpposite_apply_iff (hg : g ∈ planeTypeAut k) (x y : PlaneFlag k) :
-    (g x).IsOpposite (g y) ↔ x.IsOpposite y := by
-  unfold PlaneFlag.IsOpposite
-  rw [← ptMap_pt hg, ← lnMap_line hg, ← ptMap_pt hg, ← lnMap_line hg,
-    ptMap_le_lnMap_iff hg x.finrank_pt y.finrank_line,
-    ptMap_le_lnMap_iff hg y.finrank_pt x.finrank_line]
 
 end ProjPlane
 

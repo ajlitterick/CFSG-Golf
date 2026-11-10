@@ -109,27 +109,11 @@ noncomputable def LieSystemDataU.toGeneric {n : ℕ} (h3 : p ^ f ≠ 3)
       obtain ⟨R', hR', hRR⟩ := exists_map_castHom (σ i).eq (D.hom i) hR
       exact ⟨R', hR', hRR ▸ hΦ⟩ }
 
-theorem lieSystemU_iff_lieSystem (h3 : p ^ f ≠ 3) :
-    LieSystemU p f X Φ ↔ LieSystem p f X Φ := by
-  refine ⟨fun ⟨ι, hι, ⟨D⟩⟩ => ?_, lieSystemU_of_lieSystem h3⟩
-  have := hι
-  exact ⟨((D.reindex (Finite.equivFin ι).symm).toGeneric h3)⟩
 
 end Generic
 
 section Conclusion
 
-variable {p f : ℕ} [Fact p.Prime] {Y : Type} [Group Y] {Λ : Set (Subgroup Y)}
-
-theorem lieSystemModU_iff_lieSystemU :
-    LieSystemModU (.sl2 p f) Λ ↔
-      LieSystemU p f (Y ⧸ classicalInvolutionOddCore Y) (oddQuotientFamily Λ) := by
-  by_cases h3 : p ^ f = 3
-  · obtain ⟨rfl, rfl⟩ := eq_three_one_of_pow_eq_three Fact.out h3
-    rw [lieSystemModU_sl2_of_eq_three h3]
-    exact lieSystemU_three_iff.symm
-  · rw [lieSystemModU_sl2_of_ne_three h3]
-    exact (lieSystemU_iff_lieSystem h3).symm
 
 end Conclusion
 

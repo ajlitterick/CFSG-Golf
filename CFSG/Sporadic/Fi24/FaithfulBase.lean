@@ -77,10 +77,5 @@ theorem chainBase_lt : ∀ h < 6, chainBase[h]! < nPts := by decide
 
 theorem chainBase_size : chainBase.size = 6 := rfl
 
-theorem baseForms_get {h : ℕ} (hh : h < 6) :
-    (baseForms orb)[h]! = (form chainBase[h]!).rows := by
-  unfold baseForms
-  rw [getElem!_pos _ h (by simp [chainBase_size, hh]), Array.getElem_map,
-    getElem!_pos chainBase h (by rw [chainBase_size]; exact hh)]
 
 end CFSG.Sporadic.Fi24

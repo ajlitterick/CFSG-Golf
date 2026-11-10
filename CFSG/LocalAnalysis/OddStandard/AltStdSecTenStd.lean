@@ -344,7 +344,6 @@ theorem exists_stdHyp_of_hsOutcome (h : Setting G L n) {x : G}
   let eC : NativeSporadic.HS ≃* Carrier .HS := MulEquiv.refl _
   exact ⟨K, hK, ⟨(e.trans φ).trans eC⟩⟩
 
-variable {Q : Subgroup G} {z u : G}
 
 end Std
 

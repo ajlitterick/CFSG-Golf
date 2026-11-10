@@ -20,19 +20,6 @@ noncomputable def coreQuotEquivOfSurjective (f : A →* B) (hf : Function.Surjec
     ((OddKernel.coreQuotientEquiv f hf hodd).trans
       (QuotientGroup.quotientMulEquivOfEq (CatalogueBAlternating.primeCore_two_eq_oddCore B)).symm)
 
-theorem coreQuotEquivOfSurjective_mk (f : A →* B) (hf : Function.Surjective f)
-    (hodd : Odd (Nat.card f.ker)) (a : A) :
-    coreQuotEquivOfSurjective f hf hodd (QuotientGroup.mk' (pPrimeCore 2 A) a) =
-      QuotientGroup.mk' (pPrimeCore 2 B) (f a) := by
-  unfold coreQuotEquivOfSurjective
-  rw [MulEquiv.trans_apply, MulEquiv.trans_apply]
-  change (QuotientGroup.quotientMulEquivOfEq
-      (CatalogueBAlternating.primeCore_two_eq_oddCore B)).symm
-    (OddKernel.coreQuotientEquiv f hf hodd
-      (QuotientGroup.mk' (CFSG.Open.componentClassificationOddCore A) a)) =
-    QuotientGroup.mk' (pPrimeCore 2 B) (f a)
-  rw [OddKernel.coreQuotientEquiv_mk]
-  rfl
 
 omit [Finite A] in
 noncomputable def coreQuotEquivSelf (h : pPrimeCore 2 A = ⊥) : A ⧸ pPrimeCore 2 A ≃* A :=

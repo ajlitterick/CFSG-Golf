@@ -37,11 +37,6 @@ def certArr (k : Nat) : Array Nat := hexTable 4 22880 (22880 * k) certChainText
 
 @[expose] def certStabIdx : List Nat := [2, 3, 4, 5, 6, 7, 8, 9]
 
-@[expose] def certStabOrbitSizes : List Nat := [1, 8505, 13608, 280, 486]
-
-def certStabOrbit (t : Nat) : List Nat :=
-  (hexTable 4 (certStabOrbitSizes.getD t 0) (certStabOrbitSizes.take t).sum
-    certStabOrbitsText).toList
 
 def smallArr (k : Nat) : Array Nat := hexTable 3 1782 (1782 * k) smallChainText
 

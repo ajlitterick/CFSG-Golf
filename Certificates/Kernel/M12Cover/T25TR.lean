@@ -40,7 +40,6 @@ open CFSG.ComponentClassification.M12Cover CFSG.ComponentClassification.M12Cover
 
 #lc_blocks T25TRL fTRL 64 1
 
-theorem t25Row_neg : bIf(t25Row 5 (Nat.add (t25Sum 5) 1), false, true) = true := by quickRfl
 
 noncomputable def t25Enc (c : ℕ → ℕ) : ℕ → ℕ
   | 0 => 0

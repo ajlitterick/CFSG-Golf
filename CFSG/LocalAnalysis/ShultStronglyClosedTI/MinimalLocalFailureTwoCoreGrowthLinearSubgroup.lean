@@ -122,39 +122,5 @@ theorem psl2_even_no_split_primes_dihedral
   intro S
   exact (Nat.card_congr (Sylow.equiv S R).toEquiv).trans hRcard
 
-theorem linear_even_subgroup_without_split_primes_dihedral
-    (K : Type) [Field K] [Finite K]
-    (hKeven : Even (Nat.card K)) (hKge : 4 ≤ Nat.card K)
-    (A : Subgroup (CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K)))
-    (hAeven : Even (Nat.card A))
-    (hcop : Nat.Coprime (Nat.card A) (Nat.card K - 1))
-    (hAnot : ¬ ∃ n : ℕ, Nat.card A = 2 ^ n) :
-    (∃ m : ℕ, Odd m ∧ 3 ≤ m ∧ m ∣ Nat.card K + 1 ∧
-      Nonempty (A ≃* DihedralGroup m) ∧
-      ∃ phi : Multiplicative (ZMod 2) →* MulAut (Multiplicative (ZMod m)),
-        Nonempty (A ≃* Multiplicative (ZMod m) ⋊[phi] Multiplicative (ZMod 2)) ∧
-        ∀ t : Multiplicative (ZMod 2), t ≠ 1 →
-          ∀ x : Multiplicative (ZMod m), phi t x = x⁻¹) ∧
-      ∀ R : Sylow 2 A, Nat.card R = 2 := by
-  let e := CFSG.ShultStronglyClosedTI.glaSLQuotientEquivPSL (ι := Fin 2) (K := K)
-  let B := A.map e.toMonoidHom
-  let c : A ≃* B := A.equivMapOfInjective e.toMonoidHom e.injective
-  have hAB : Nat.card A = Nat.card B := Nat.card_congr c.toEquiv
-  have hBeven : Even (Nat.card B) := hAB ▸ hAeven
-  have hBcop : Nat.Coprime (Nat.card B) (Nat.card K - 1) := hAB ▸ hcop
-  have hBnot : ¬ ∃ n : ℕ, Nat.card B = 2 ^ n := by
-    intro h
-    exact hAnot (hAB.symm ▸ h)
-  obtain ⟨⟨m, hmOdd, hmge, hmplus, hBdih, phi, hBsemi, hinvert⟩, hBsylow⟩ :=
-    psl2_even_no_split_primes_dihedral hKeven hKge B hBeven hBcop hBnot
-  refine ⟨⟨m, hmOdd, hmge, hmplus, ⟨c.trans hBdih.some⟩, phi,
-    ⟨c.trans hBsemi.some⟩, hinvert⟩, ?_⟩
-  intro R
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let S : Sylow 2 B := R.mapSurjective (f := c.toMonoidHom) c.surjective
-  have hRS : Nat.card S = Nat.card R := by
-    change Nat.card ((R : Subgroup A).map c.toMonoidHom) = Nat.card R
-    exact Subgroup.card_map_of_injective c.injective
-  exact hRS.symm.trans (hBsylow S)
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowth

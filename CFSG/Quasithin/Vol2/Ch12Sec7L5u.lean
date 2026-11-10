@@ -64,8 +64,6 @@ variable {G : Type} [Group G] {V : Subgroup G} [IsMulCommutative ↥V]
 @[expose] noncomputable def linOf (a : MulAut ↥V) : Additive ↥V →ₗ[ZMod 2] Additive ↥V :=
   (MulEquiv.toAdditive a).toAddMonoidHom.toZModLinearMap 2
 
-theorem linOf_apply (a : MulAut ↥V) (v : Additive ↥V) :
-    linOf a v = Additive.ofMul (a (Additive.toMul v)) := rfl
 
 @[expose] noncomputable def linHom : MulAut ↥V →* (Additive ↥V →ₗ[ZMod 2] Additive ↥V) where
   toFun := linOf

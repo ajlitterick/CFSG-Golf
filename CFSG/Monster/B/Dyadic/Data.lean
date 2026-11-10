@@ -24,40 +24,6 @@ variable {V : Type*} [AddCommGroup V] [Module ℚ V]
 
 theorem Bmat_apply (i j : Fin 4371) : Bmat i j = Bz i j := rfl
 
-theorem beq_one_testBit (a k : ℕ) : ((a >>> k) % 2 == 1) = a.testBit k := by
-  rw [Nat.testBit, Nat.one_and_eq_mod_two]
-  rcases Nat.mod_two_eq_zero_or_one (a >>> k) with h | h <;> simp [h]
-
-theorem rowBit_bytesOfNat (x : ℕ) {j : ℕ} (hj : j < 4416) :
-    rowBit (bytesOfNat x) j = x.testBit j := by
-  unfold rowBit bytesOfNat
-  rw [getBytes_ofFn _ (by omega)]
-  simp only
-  rw [UInt8.toNat_ofNat', beq_one_testBit, Nat.testBit_mod_two_pow, Nat.testBit_shiftRight,
-    Nat.div_add_mod j 8]
-  simp [Nat.mod_lt j (by norm_num : 8 > 0)]
-
-theorem rowBit_qRowBytes (fr y : ByteArray) {t : ℕ} (ht : t < 4370) :
-    rowBit (qRowBytes fr y) t =
-      (rowBit y (srcIdx t) ^^ (rowBit y removedCoord && rowBit fr (srcIdx t))) := by
-  unfold qRowBytes
-  rw [rowBit_packed _ t (by omega)]
-  simp only
-  rw [Nat.div_add_mod t 8]
-  simp [ht]
-
-theorem srcIdx_eq (j : Fin 4370) : srcIdx j = (pIdx.succAbove j : ℕ) := by
-  unfold srcIdx removedCoord
-  by_cases h : (j : ℕ) < 1197
-  · rw [ite_eq_left h, Fin.succAbove_of_castSucc_lt _ _ (by rw [Fin.lt_def]; exact h)]
-    rfl
-  · rw [ite_eq_right h, Fin.succAbove_of_le_castSucc _ _ (by rw [Fin.le_def]; simp [pIdx]; omega)]
-    rfl
-
-theorem xor_ite_zmod2 (a b c : Bool) :
-    (if (a ^^ (b && c)) = true then (1 : ZMod 2) else 0) =
-      (if a then 1 else 0) + (if b then 1 else 0) * (if c then 1 else 0) := by
-  cases a <;> cases b <;> cases c <;> decide
 
 theorem Pmap_apply (y : Fin 4371 → ZMod 2) (j : Fin 4370) :
     Pmap y j = y (pIdx.succAbove j) + y pIdx * fvec (pIdx.succAbove j) := rfl
@@ -74,19 +40,6 @@ theorem fvec_p : fvec pIdx = 1 := by
   unfold fvec
   exact ite_eq_left fixed_facts.1
 
-theorem fvec_of_lt {i : Fin 4371} (hi : (i : ℕ) < 1197) :
-    fvec i = 0 := by
-  unfold fvec
-  have h := fixed_facts.2 i hi
-  rw [Bool.not_eq_true'] at h
-  rw [h]
-  rfl
-
-theorem fvec_ne_zero : fvec ≠ 0 := by
-  intro h
-  have := congrFun h pIdx
-  rw [fvec_p] at this
-  exact one_ne_zero this
 
 theorem Pmap_eq_zero_iff (y : Fin 4371 → ZMod 2) :
     Pmap y = 0 ↔ y = 0 ∨ y = fvec := by

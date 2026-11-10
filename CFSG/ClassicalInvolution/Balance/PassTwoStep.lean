@@ -16,31 +16,6 @@ section Components
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem omegaFreeAt_or_rankOneAt_or_isOddLieComponent (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω) {a : G}
-    (ha : ¬ ({a} : Set G) ⊆ Subgroup.center G) {L : Subgroup (OddQuot a)}
-    (hL : CFSG.IsComponent L) :
-    OmegaFreeAt Ω a L ∨ RankOneAt Ω a L ∨ IsOddLieComponent L := by
-  obtain ⟨D⟩ := lieDecomposition_memberImages hp2 h0 hA1 hΩ hIH ha
-  have := memberJoin_normal (a := a) hΩ.conjInvariant
-  have hL' : IsComponentOf L ⊤ := (CFSG.isComponent_iff_open L).mp hL
-  rcases D.eq_or_commutes_of_isComponentOf hL' with ⟨i, rfl⟩ | hcomm
-  · rcases D.rankOne_or_lie i with ⟨⟨_, ⟨K, hK, rfl⟩, hKQ⟩, hmin⟩ | hlie
-    · right
-      left
-      refine ⟨⟨K, hK.1, hK.2, hKQ⟩, fun K' hK'Ω hK'C => ?_⟩
-      obtain ⟨j, hj⟩ := D.exists_le (modOdd a K') ⟨K', ⟨hK'Ω, hK'C⟩, rfl⟩
-      by_cases hji : j = i
-      · subst hji
-        exact Or.inl (hmin _ ⟨K', ⟨hK'Ω, hK'C⟩, rfl⟩ hj)
-      · exact Or.inr fun x hx y hy => D.commute j i hji x (hj hx) y hy
-    · exact Or.inr (Or.inr hlie)
-  · left
-    intro K hKΩ hKC x hx y hy
-    have hxY : x ∈ memberJoin Ω a :=
-      le_iSup₂ (f := fun (K : Subgroup G) (_ : K ∈ centMembers Ω a) => modOdd a K) K
-        ⟨hKΩ, hKC⟩ hx
-    exact (hcomm y hy x hxY).symm
 
 end Components
 

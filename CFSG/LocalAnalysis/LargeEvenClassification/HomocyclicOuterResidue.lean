@@ -39,11 +39,6 @@ theorem homocyclic_residue_involution_centralizer_card :
         Fintype.card {x : RankTwoBinaryResidue 1 // j.val * x = x * j.val ∧ x * x = x} = 2 := by
   decide
 
-private theorem binaryHomocyclicSubmodule_card_bound
-    (V : Submodule (ZMod 2) (RankTwoBinaryResidue 1)) {bound : ℕ}
-    (hcard : Nat.card V ≤ 2 ^ bound) : Module.finrank (ZMod 2) V ≤ bound := by
-  rw [← FiniteField.pow_finrank_eq_natCard 2 V] at hcard
-  exact (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mp hcard
 
 theorem homocyclic_residue_outer_saving (j : (RankTwoBinaryResidue 1)ˣ)
     (hj : j ≠ 1) (hsquare : j ^ 2 = 1)

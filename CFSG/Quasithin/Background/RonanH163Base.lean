@@ -13,9 +13,6 @@ open CFSG.Open CFSG.Quasithin CFSG.Monster.Code CFSG.Quasithin.RonanH143 CFSG.Qu
 
 noncomputable abbrev R : ↥mog22plus →* MulAut W10 := rhoC10 mog22plus le_rfl
 
-theorem R_toW (σ : ↥mog22plus) {a : Array ℕ} (ha : HasArr (σ : P24) a) (m : ℕ) :
-    R σ (toW 10 m) = toW 10 (actC10 a m) :=
-  rhoC10_toW mog22plus le_rfl σ ha m
 
 @[expose] def nq2Tab : List (Array ℕ) :=
   [#[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -51,46 +48,8 @@ theorem R_toW (σ : ↥mog22plus) {a : Array ℕ} (ha : HasArr (σ : P24) a) (m 
     #[1, 0, 5, 4, 3, 2, 7, 6, 14, 15, 10, 11, 12, 13, 8, 9, 22, 23, 18, 19, 20, 21, 16, 17],
     #[1, 0, 5, 4, 3, 2, 7, 6, 15, 14, 11, 10, 13, 12, 9, 8, 23, 22, 19, 18, 21, 20, 17, 16]]
 
-@[expose] def g2Arr : Array ℕ :=
-  #[0, 1, 3, 4, 5, 2, 7, 6, 15, 9, 16, 22, 17, 23, 14, 8, 12, 10, 19, 21, 18, 20, 13, 11]
 
 @[expose] def nq2Arr (u : ℕ) : Array ℕ := nq2Tab.getD u #[]
 
-theorem hasArr_nq2 (u : Fin 32) : HasArr (nq2Perm u) (nq2Arr u) := by
-  have h : ∀ (u : Fin 32) (i : Fin 24), ((nq2Perm u i : Fin 24) : ℕ) = (nq2Arr u)[(i : ℕ)]! := by
-    decide +kernel
-  exact fun i => h u i
-
-theorem hasArr_g2 : HasArr g2Perm g2Arr := by
-  have h : ∀ i : Fin 24, ((g2Perm i : Fin 24) : ℕ) = g2Arr[(i : ℕ)]! := by decide +kernel
-  exact h
-
-@[expose] def nq2Elt (u : Fin 32) : ↥mog22plus :=
-  ⟨nq2Perm u, (NQ2_le_MY_Q ⟨u, rfl⟩).1⟩
-
-@[expose] def g1Elt : ↥mog22plus := ⟨g1Perm, g1Perm_mem_mog22plus⟩
-
-@[expose] def g2Elt : ↥mog22plus := ⟨g2Perm, g2Perm_mem_mog22plus⟩
-
-theorem R_nq2 (u : Fin 32) (m : ℕ) : R (nq2Elt u) (toW 10 m) = toW 10 (actC10 (nq2Arr u) m) :=
-  R_toW _ (hasArr_nq2 u) m
-
-theorem R_g1 (m : ℕ) : R g1Elt (toW 10 m) = toW 10 (actC10 g1Arr m) :=
-  R_toW _ hasArr_g1Perm m
-
-theorem R_g2 (m : ℕ) : R g2Elt (toW 10 m) = toW 10 (actC10 g2Arr m) :=
-  R_toW _ hasArr_g2 m
-
-@[expose] def b4 : List ℕ := [266, 88, 6, 1]
-
-@[expose] def b8 : List ℕ := [512, 32, 16, 10] ++ b4
-
-@[expose] def b9 : List ℕ := 2 :: b8
-
-@[expose] def U4 : Subgroup W10 := maskSub 10 b4
-
-@[expose] def U8 : Subgroup W10 := maskSub 10 b8
-
-@[expose] def U9 : Subgroup W10 := maskSub 10 b9
 
 end CFSG.Quasithin.RonanH163

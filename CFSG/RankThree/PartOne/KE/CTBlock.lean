@@ -109,9 +109,6 @@ variable {τ : Tag} {L : Type} [Field L]
   one_mem' := fun u _ => CTTorus.rootChar_one u
   inv_mem' {a} ha := fun u hu => by rw [rootChar_inv_apply, ha u hu, inv_one]
 
-theorem mem_charTrivialOn {T : Set (Fin τ.rank → ℤ)} {a : Fin τ.rank → Lˣ} :
-    a ∈ charTrivialOn (L := L) T ↔ ∀ u ∈ T, rootChar a u = 1 :=
-  Iff.rfl
 
 @[expose] def fixedBlockTuples (M : Matrix (Fin τ.rank) (Fin τ.rank) ℤ) (Fr : L →+* L)
     (T : Set (Fin τ.rank → ℤ)) : Subgroup (Fin τ.rank → Lˣ) :=

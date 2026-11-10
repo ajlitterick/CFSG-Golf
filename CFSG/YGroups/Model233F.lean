@@ -19,10 +19,6 @@ public section
 namespace CFSG.YGroups
 
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates.Native
-open CFSG.Certificates.CosetEnumeration (evalWord)
 
-theorem ker_rho233F_le_ctil :
-    rho233F.ker ≤ Ctil :=
-  ker_rho233F_le_ctil_of_index index_ctil
 
 end CFSG.YGroups

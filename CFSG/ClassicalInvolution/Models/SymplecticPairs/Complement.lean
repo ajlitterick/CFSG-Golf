@@ -63,12 +63,5 @@ theorem IsLongRootSp2.nonempty_mulEquiv_complGroup (h2 : (2 : K) ≠ 0) (h : IsL
   exact ⟨e.trans ((Subgroup.equivMapOfInjective _ (MulAut.conj g).toMonoidHom
     (MulAut.conj g).injective).trans (MulEquiv.subgroupCongr (complGroup_conj _ g).symm))⟩
 
-theorem IsLongRootSp2.nonempty_mulEquiv_centralizer_prod (h2 : (2 : K) ≠ 0)
-    (h : IsLongRootSp2 L i) :
-    Nonempty (Subgroup.centralizer ({i} : Set (StatedSp (m + 1) K)) ≃*
-      (SL(2, K) × StatedSp m K)) := by
-  obtain ⟨e₁⟩ := h.nonempty_mulEquiv_centralizer h2
-  obtain ⟨e₂⟩ := h.nonempty_mulEquiv_complGroup h2
-  exact ⟨e₁.symm.trans (MulEquiv.prodCongr (MulEquiv.refl _) e₂.symm)⟩
 
 end CFSG.ClassicalInvolution.Models.SymplecticPairs

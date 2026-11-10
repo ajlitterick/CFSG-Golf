@@ -119,40 +119,6 @@ theorem ggSixRootFusionWitnessOn_PSpNonsplit_of_plane
 
 open WitSp WitClSp CFSG.ClassicalInvolution.Models.SymplecticPairs
   CFSG.SeitzReduction.SymplecticPilot in
-theorem ggSpPlaneWitnessInputOn_split : GGSpPlaneWitnessInputOn fun _ f p => p ∣ 2 ^ f - 1 := by
-  intro G _ _ p B Bs x L D J n f ψ hpq hctx s1
-  obtain ⟨A₀, φ₀, hφ₀a, hφinj, hφrange, hframe₀, hn4, h4, hpF, hp, hBs, ζu, hζu1, hζup⟩ :=
-    exists_spSplit_frame hctx s1 hpq
-  have hT : ∀ i : Fin n, longBlock (GaloisField 2 f) n i (mkSL _ (det_diag_units ζu)) =
-      diagSp (GaloisField 2 f) n (Pi.mulSingle i ζu) := fun i => by
-    rw [← rootTorusHom_eq_longBlock, rootTorusHom_apply]
-  refine ⟨by omega, A₀, mkSL _ (det_diag_units ζu), fun i => ?_, fun i j hij => ?_⟩
-  · obtain ⟨k₀, hk₀⟩ := SLRep.exists_ne_fin (by omega : 2 ≤ n) i
-    obtain ⟨heB, he1, L₂, hL₂, hcard⟩ := witness_of_diag h4 hp hpF hBs hφinj hφrange hframe₀
-      (s := Pi.mulSingle i ζu) (mulSingle_pow_eq_one hζup i) (j₁ := i) (j₂ := i)
-      (by rw [Pi.mulSingle_eq_same]; exact hζu1)
-      (fun k hk _ => by rw [Pi.mulSingle_eq_of_ne hk]) (k₀ := k₀) hk₀ hk₀
-    rw [hT, ← hφ₀a]
-    exact ⟨heB, he1, L₂, hL₂, Or.inl hcard⟩
-  · obtain ⟨k₀, hk₀⟩ : ∃ k₀ : Fin n, k₀ ∉ ({i, j} : Finset (Fin n)) := by
-      by_contra hall
-      simp only [not_exists, not_not] at hall
-      have h := Finset.card_le_card (fun k _ => hall k : (Finset.univ : Finset (Fin n)) ⊆ _)
-      rw [Finset.card_univ, Fintype.card_fin] at h
-      have h2 := Finset.card_le_two (a := i) (b := j)
-      omega
-    have hk₀1 : k₀ ≠ i := fun h => hk₀ (by simp [h])
-    have hk₀2 : k₀ ≠ j := fun h => hk₀ (by simp [h])
-    obtain ⟨heB, he1, L₂, hL₂, hcard⟩ := witness_of_diag h4 hp hpF hBs hφinj hφrange hframe₀
-      (s := Pi.mulSingle i ζu * Pi.mulSingle j ζu)
-      (fun k => by rw [Pi.mul_apply, mul_pow, mulSingle_pow_eq_one hζup i k,
-        mulSingle_pow_eq_one hζup j k, one_mul]) (j₁ := i) (j₂ := j)
-      (by rw [Pi.mul_apply, Pi.mulSingle_eq_same, Pi.mulSingle_eq_of_ne hij, mul_one]
-          exact hζu1)
-      (fun k hk₁ hk₂ => by rw [Pi.mul_apply, Pi.mulSingle_eq_of_ne hk₁,
-        Pi.mulSingle_eq_of_ne hk₂, mul_one]) (k₀ := k₀) hk₀1 hk₀2
-    rw [hT, hT, ← map_mul, ← hφ₀a]
-    exact ⟨heB, he1, L₂, hL₂, Or.inl hcard⟩
 
 end Inputs
 

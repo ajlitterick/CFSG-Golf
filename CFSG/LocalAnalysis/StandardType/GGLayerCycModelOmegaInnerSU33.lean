@@ -158,10 +158,6 @@ theorem ggSU33ThreeCentInput_holds : GGSU33ThreeCentInput := by
 section Wiring
 
 
-theorem ggLayerDerivedFixSolvableInput_of_tits (hT : GGTitsThreeCentInput) :
-    GGLayerDerivedFixSolvableInput :=
-  ggLayerDerivedFixSolvableInput_of ggSU33ThreeCentInput_holds hT
-
 theorem ggLayerCenterCyclicInput_of_tits_exc
     (hT : GGTitsThreeCentInput) (hexc : GGLayerCenterCyclicExcInput) :
     GGLayerCenterCyclicInput :=

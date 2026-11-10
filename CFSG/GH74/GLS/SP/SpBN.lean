@@ -49,14 +49,6 @@ theorem spWeylEquiv_spNRep (i : Fin 2) :
   weylEquiv_n (D := rootDatum 2 F) (n := weylRep 2 F) (H := torus 2 F) (isCTGroupDatum 2 F)
     (steinbergExtras 2 F) (_hN := spCartan_normal F) i
 
-theorem spConjBy_rootGroup {m : spN F} {i : Fin 2}
-    (h : (m : WeylGroup (spB F) (spN F)) = ((spNRep F i : spN F) : WeylGroup (spB F) (spN F)))
-    {γ : Fin 2 → ℤ} (hγ : γ ∈ (rootDatum 2 F).roots) :
-    conjBy (m : StatedSp 2 F) ((rootDatum 2 F).rootGroup γ) =
-      (rootDatum 2 F).rootGroup (weylAction (isFiniteType_cartanC 2)
-        ((coxeterMatrix (isFiniteType_cartanC 2)).toCoxeterSystem.simple i) γ) :=
-  conjBy_rootGroup_of_mk_eq (D := rootDatum 2 F) (n := weylRep 2 F) (H := torus 2 F)
-    (isCTGroupDatum 2 F) (steinbergExtras 2 F) (_hN := spCartan_normal F) h hγ
 
 theorem spNRep_ne : ((spNRep F 0 : spN F) : WeylGroup (spB F) (spN F)) ≠
     ((spNRep F 1 : spN F) : WeylGroup (spB F) (spN F)) := by

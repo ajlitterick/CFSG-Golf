@@ -35,9 +35,6 @@ theorem torusMap_commute (a a' : Fin r → Kˣ) (c c' : Fˣ) :
   rw [← torusHom_apply (a, c), ← torusHom_apply (a', c')]
   exact (Commute.all _ _).map _
 
-variable [CharP K 2] {E : Type*} [Group E] (π : E →* G0 T r)
-
-variable [Finite K] [Finite E] {T π}
 
 end Lifts
 

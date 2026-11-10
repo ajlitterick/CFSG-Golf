@@ -207,9 +207,6 @@ theorem shift_mulSingle (j : Fin 3) (a : Multiplicative (ZMod 3)) :
   funext k
   fin_cases j <;> fin_cases k <;> simp [shift]
 
-theorem shift_iterate_three (f : Fin 3 → Multiplicative (ZMod 3)) : shift^[3] f = f := by
-  funext k
-  fin_cases k <;> rfl
 
 theorem const_eq_pow (a : Multiplicative (ZMod 3)) :
     (fun _ : Fin 3 => a) =

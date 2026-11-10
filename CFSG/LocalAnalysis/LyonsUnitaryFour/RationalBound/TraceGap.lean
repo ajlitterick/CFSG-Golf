@@ -372,19 +372,5 @@ theorem trace_gap_exists_of_ne_one {p : ℕ} (hp : p.Prime) {a : ℕ} {f : Modul
       simp
     exact_mod_cast hcast ▸ hkq
 
-theorem matrix_trace_gap_of_pow_prime_pow_eq_one {n p : ℕ} (hp : p.Prime) {a : ℕ}
-    {A : Matrix (Fin n) (Fin n) ℂ} (hA : A ^ (p ^ a) = 1) {t : ℚ} (ht : A.trace = t) :
-    (∃ z : ℤ, (z : ℚ) = t) ∧ (∃ k : ℕ, (n : ℚ) - t = p * k) ∧
-      -((n : ℚ) / (p - 1)) ≤ t ∧ t ≤ n ∧ (A ≠ 1 → t < n) := by
-  have hf : (Matrix.toLin' A) ^ (p ^ a) = 1 := by
-    rw [← Matrix.toLin'_pow, hA, Matrix.toLin'_one]; rfl
-  have htr : LinearMap.trace ℂ (Fin n → ℂ) (Matrix.toLin' A) = t := by
-    rw [LinearMap.trace_eq_matrix_trace ℂ (Pi.basisFun ℂ (Fin n)), LinearMap.toMatrix_eq_toMatrix',
-      LinearMap.toMatrix'_toLin', ht]
-  have h := trace_gap_of_pow_prime_pow_eq_one hp hf htr
-  rw [Module.finrank_fin_fun] at h
-  refine ⟨h.1, h.2.1, h.2.2.1, h.2.2.2.1, fun hA1 => h.2.2.2.2 fun h1 => hA1 ?_⟩
-  have : Matrix.toLin' A = Matrix.toLin' 1 := by rw [h1, Matrix.toLin'_one]; rfl
-  exact Matrix.toLin'.injective this
 
 end CFSG.LyonsUnitaryFour

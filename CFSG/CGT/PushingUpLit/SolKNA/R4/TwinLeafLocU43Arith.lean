@@ -103,7 +103,6 @@ theorem bar9_one : bar9 1 = 1 := by decide
   map_mul' := bar9_mul
   map_add' := bar9_add
 
-theorem barRE_apply (x : F9) : barRE x = bar9 x := rfl
 
 theorem map_mul_bar9 {m : Type} [Fintype m] (A B : Matrix m m F9) :
     (A * B).map bar9 = A.map bar9 * B.map bar9 :=
@@ -211,8 +210,6 @@ theorem idMat_lt {k : ℕ} (hk : k < 16) : idMat[k]! < 9 := by
   have : ∀ k : Fin 16, idMat[(k : ℕ)]! < 9 := by decide
   exact this ⟨k, hk⟩
 
-theorem size_conjT (z : Array ℕ) : (conjT z).size = 17 := by
-  simp [conjT]
 
 theorem conjT_getElem (z : Array ℕ) {k : ℕ} (hk : k < 16) :
     (conjT z)[k]! = barC z[4 * (k % 4) + k / 4]! := by
@@ -412,9 +409,6 @@ theorem normalize_eq_mulRaw {z : Array ℕ} (hz : ∀ k < 16, z[k]! < 9) (hz2 : 
     normalize z = mulRaw (scal (mC (firstNZ z))) z :=
   smulCode_eq_mulRaw (mC_lt _) hz hz2
 
-theorem normalize_lt {z : Array ℕ} {k : ℕ} (hk : k < 16) : (normalize z)[k]! < 9 := by
-  rw [normalize_getElem hk]
-  exact mulC_lt _ _
 
 theorem find?_congr' {α : Type} (p q : α → Bool) :
     ∀ l : List α, (∀ a ∈ l, p a = q a) → l.find? p = l.find? q

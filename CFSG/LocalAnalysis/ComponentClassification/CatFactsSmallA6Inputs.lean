@@ -49,6 +49,5 @@ end A6
 
 open A6
 
-variable {J₀ : Type} [Group J₀]
 
 end CFSG.ComponentClassification.CatFactsSmall

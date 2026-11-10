@@ -67,9 +67,6 @@ variable {V : Subgroup H} [V.Normal]
     V.subgroupOf H₀ →* Multiplicative (Fin 2 → k) :=
   φ.comp (Subgroup.subgroupOfEquivOfLe hVH).toMonoidHom
 
-omit [V.Normal] in
-theorem restrictPsi_apply (φ : V →* Multiplicative (Fin 2 → k)) (H₀ : Subgroup H) (hVH : V ≤ H₀)
-    (x : V.subgroupOf H₀) : restrictPsi φ H₀ hVH x = φ ⟨((x : H₀) : H), x.2⟩ := rfl
 
 end Restrict
 

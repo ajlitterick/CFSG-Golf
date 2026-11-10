@@ -70,10 +70,6 @@ theorem conjugation_centralizer_singleton_eq {group : Type*} [Group group]
   ((MulAut.conj conjugator).subgroupMap (Subgroup.centralizer ({element} : Set group))).trans
     (MulEquiv.subgroupCongr (conjugation_centralizer_singleton_eq element conjugator))
 
-theorem centralizerConjugationEquiv_apply {group : Type*} [Group group]
-    (element conjugator : group) (member : Subgroup.centralizer ({element} : Set group)) :
-    (centralizerConjugationEquiv element conjugator member).val =
-      conjugator * member.val * conjugator⁻¹ := rfl
 
 set_option backward.isDefEq.respectTransparency false in
 theorem classDefectAt_conjugation {group : Type*} [Group group] [Finite group]
@@ -137,26 +133,6 @@ theorem p_group_sylow_in_normalizer_is_sylow {group : Type*} [Group group] [Fini
     exact hlocal
   · exact hcontains
 
-theorem subgroupIsSylow_of_normalizer_control {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact prime.Prime] (primary intermediate : Subgroup group)
-    (hprimary : IsPGroup prime primary) (hcontains : primary ≤ intermediate)
-    (hsylow : subgroupIsSylow prime (primary.subgroupOf intermediate))
-    (hnormalizer : Subgroup.normalizer (primary : Set group) ≤ intermediate) :
-    subgroupIsSylow prime primary := by
-  obtain ⟨localSylow, hlocalSylow⟩ := hsylow
-  apply p_group_sylow_in_normalizer_is_sylow prime primary hprimary
-  intro larger hlarger hcontainsPrimary hnormalizes
-  have hcontainsLarger : larger ≤ intermediate := hnormalizes.trans hnormalizer
-  have hlocalContains : (localSylow : Subgroup intermediate) ≤ larger.subgroupOf intermediate := by
-    rw [hlocalSylow]
-    exact Subgroup.comap_mono hcontainsPrimary
-  have hequal := localSylow.is_maximal' hlarger.comap_subtype hlocalContains
-  rw [hlocalSylow] at hequal
-  have himage := congrArg (Subgroup.map intermediate.subtype) hequal
-  change (larger.subgroupOf intermediate).map intermediate.subtype =
-    (primary.subgroupOf intermediate).map intermediate.subtype at himage
-  rwa [Subgroup.map_subgroupOf_eq_of_le hcontainsLarger,
-    Subgroup.map_subgroupOf_eq_of_le hcontains] at himage
 
 theorem classDefectAt_subgroup {group : Type*} [Group group] [Finite group]
     (prime : ℕ) [Fact prime.Prime] (intermediate primary : Subgroup group)

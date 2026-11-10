@@ -38,14 +38,6 @@ theorem torusElement_conj_xPar (l : Fin τ.rank) (t : Kˣ) {β : Fin τ.rank →
       xPar F β (((t ^ (∑ j, τ.cartan l j * β j) : Kˣ) : K) * c) := by
   rw [xPar_of_isRoot hβ, F.torusElement_mul_eltElement_mul_inv, ← xPar_of_isRoot hβ]
 
-theorem torusElement_neg_one_mem_center_of_map (l : Fin τ.rank) (φ : SL(2, K) →* adjointGroup τ K)
-    (hup : ∀ c, φ (sl2Upper c) = xPar F (Pi.single l 1) c)
-    (hlow : ∀ c, φ (sl2Lower c) = xPar F (-Pi.single l 1) c)
-    (h : φ (wS (1 : Kˣ) * wS (1 : Kˣ)) ∈ Subgroup.center (adjointGroup τ K)) :
-    torusElement τ K l (-1) ∈ Subgroup.center (adjointGroup τ K) := by
-  have h' := inv_mem h
-  rw [map_wS_sq_eq_inv_torusElement l φ hup hlow, inv_inv] at h'
-  exact h'
 
 end Adjoint
 

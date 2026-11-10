@@ -36,10 +36,6 @@ theorem stronglyOrthB_spec
     obtain ⟨-, -, -, -, hρ, -⟩ := exceptional_Lang_root_rank_one_data τ K β
     exact hρ _
 
-theorem q8Root_coe
-    (τ : Tag) {K : Type} [Field K] {a b : K} (h : a ^ 2 + b ^ 2 = -1)
-    (β : Fin τ.rank → ℤ) (g : QuaternionGroup 2) :
-    ((q8Root τ h β g : adjointGroup τ K) : ModGL τ K) = rootSL2 τ K β (quatHom h g) := rfl
 
 theorem q8Root_injective
     (τ : Tag) {K : Type} [Field K] {a b : K} (h : a ^ 2 + b ^ 2 = -1)

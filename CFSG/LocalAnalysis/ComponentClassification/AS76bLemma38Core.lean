@@ -189,19 +189,6 @@ theorem lemma38_of_noConj_of_le (h4 : Asc75Theorem4) (h32 : Lemma32) (h34 : Asc0
     calc conj (R ⊓ conj L c) c⁻¹ ≤ conj (conj L c) c⁻¹ := map_mono inf_le_right
       _ = L := by rw [conj_conj, inv_mul_cancel, conj_one]
 
-theorem lemma38_of_noConj (h4 : Asc75Theorem4) (h32 : Lemma32) (h34 : Asc08Lemma34)
-    {A W R T : Subgroup G} (hA : Hyp31 A) (hR : IsSylowOf 2 R (centralizer (A : Set G)))
-    (hWA : W ≤ A) (hL : CFSG.Open.IsQuasisimple ↥(layerCentralizer A W))
-    (hRL : IsSylowOf 2 R (centralizer (W : Set G) ⊓
-      centralizer (layerCentralizer A W : Set G) ⊓ normalizer (R : Set G)))
-    (hTRL : T ≤ R ⊔ layerCentralizer A W) (hTL : T ⊓ layerCentralizer A W = ⊥)
-    (hTR : Nat.card T = Nat.card R)
-    (hRT : ¬ centralizer (W : Set G) ⊓ centralizer (T : Set G) ≤ normalizer (R : Set G))
-    (hconj : ∀ U : Subgroup G, U ≤ R → U ≠ ⊥ → ∀ g : G, ¬ conj U g ≤ layerCentralizer A W) :
-    standardComponentIsStandard ((layerCentralizer A W).subgroupOf (centralizer (W : Set G))) ∧
-      ¬ ((layerCentralizer A W).subgroupOf (centralizer (W : Set G))).Normal :=
-  lemma38_of_noConj_of_le h4 h32 h34 hA hR hWA hL (layerCentralizer_le A W)
-    (normalizer_inf_le_normalizer_layerCentralizer A W) hRL hTRL hTL hTR hRT hconj
 
 end Lemma38
 

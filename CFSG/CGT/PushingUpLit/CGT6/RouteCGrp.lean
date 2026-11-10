@@ -76,15 +76,6 @@ private theorem vec_add_self' (v : Fin n → ZMod 2) : v + v = 0 := by
   revert a
   decide
 
-private theorem vec_eq_of_add_eq_zero' {u v : Fin n → ZMod 2} (h : u + v = 0) : u = v := by
-  funext i
-  have := congrFun h i
-  simp only [Pi.add_apply, Pi.zero_apply] at this
-  revert this
-  generalize u i = a
-  generalize v i = b
-  revert a b
-  decide
 
 private theorem vec_add_cancel (x y z : Fin n → ZMod 2) : x + z = (x + y) + (y + z) := by
   funext i

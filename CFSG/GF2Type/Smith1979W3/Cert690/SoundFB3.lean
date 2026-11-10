@@ -76,9 +76,6 @@ theorem vPlusVecs_lt : ∀ n ∈ vPlusVecs, n < 64 := by decide +kernel
 
 theorem vStarVecs_lt : ∀ n ∈ vStarVecs, n < 64 := by decide +kernel
 
-theorem vPlusVecs_nodup : vPlusVecs.Nodup := by decide +kernel
-
-theorem vStarVecs_nodup : vStarVecs.Nodup := by decide +kernel
 
 theorem VPlus_singular {D : PGLData} (h : pglF5Of D = true) {v : V₀} (hv : v ∈ VPlus) :
     qModel false v = 0 := by

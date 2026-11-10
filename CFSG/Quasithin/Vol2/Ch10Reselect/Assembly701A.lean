@@ -25,38 +25,10 @@ theorem Hyp7_0_2.toA {G : Type} [Group G] [Finite G] {T L I : Subgroup G}
   ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), Hyp7_0_2A G T L I →
     ∀ _ : IsMulCommutative ↥(fsuV T I), ∀ n : ℕ, ¬ Row711OmegaPlus T L I n
 
-@[expose] def Stmt8_3_1A : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), Hyp7_0_2A G T L I → Hyp7_3_1 T L I →
-    ∀ _ : IsMulCommutative ↥(fsuV T I), ¬ Row711L3Wreath T L I
 
 theorem stmt9_omegaPlus_of_A (h : Stmt9_omegaPlusA) : Stmt9_omegaPlus :=
   fun G _ _ T L I hyp hc n => h G T L I hyp.toA hc n
 
-theorem stmt8_3_1_of_A (h : Stmt8_3_1A) : Stmt8_3_1 :=
-  fun G _ _ T L I hyp h731 hc => h G T L I hyp.toA h731 hc
-
-theorem stmt7_0_1A_of (h701 : Stmt7_0_1) (h326 : Stmt3_2_6LtA) (h9 : Stmt9_omegaPlusA)
-    (h831 : Stmt8_3_1A) : Stmt7_0_1A := by
-  intro G _ _ T L I hfsu
-  obtain ⟨hc, hab, hn, hcases⟩ := h701 G T L I hfsu
-  refine ⟨hc, hab, hn, ?_⟩
-  by_contra hcon
-  simp only [not_or] at hcon
-  obtain ⟨h1, h2, h3, h4⟩ := hcon
-  rcases hcases with h | h | h | ⟨hlt, hsh, hC⟩
-  · exact h1 h
-  · exact h2 h
-  · exact h3 h
-  · have hyp : Hyp7_0_2A G T L I :=
-      { fsu := hfsu
-        notFF := fun _ => h1
-        notThree := fun h => h4 ⟨h.1, hsh, h.2⟩
-        notOrth := fun _ => h3 }
-    rcases h326 G T L I hfsu hlt with ⟨_, _, _, hrow⟩ | hCA
-    · rcases hrow with ⟨n, hn⟩ | hw
-      · exact h9 G T L I hyp hc n hn
-      · exact h831 G T L I hyp (fun _ n hn => h9 G T L I hyp hc n hn) hc hw
-    · exact h4 ⟨hlt, hsh, hCA⟩
 
 theorem false_of_lieModel_psl_three_two_psl_two {X : Type} [Group X] {n : ℕ}
     (h3 : LieModel X .PSL 3 2 1) (h2 : LieModel X .PSL 2 2 n) : False :=

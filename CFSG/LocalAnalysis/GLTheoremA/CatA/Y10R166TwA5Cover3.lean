@@ -29,9 +29,6 @@ private theorem coverLin_sub (v w : Fin 4 → ZMod 3) : coverLin (v - w) = cover
   funext i
   fin_cases i <;> simp only [coverLin, Pi.sub_apply] <;> abel
 
-private theorem coverLin_zero : coverLin (0 : Fin 4 → ZMod 3) = 0 := by
-  funext i
-  fin_cases i <;> simp [coverLin] <;> exact neg_zero
 
 private theorem coverLin_sum (v : Fin 4 → ZMod 3) : ∑ i, coverLin v i = 0 := by
   simp only [Fin.sum_univ_six, coverLin]

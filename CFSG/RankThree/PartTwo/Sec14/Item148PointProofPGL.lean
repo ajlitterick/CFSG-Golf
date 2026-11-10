@@ -278,19 +278,6 @@ theorem step148PGLImg_of (hSp : Step148PGLSplit) (hCe : Step148PGLCent) : Step14
     · exact Or.inr h7
   · exact Or.inr h7
 
-theorem step148PGLSplit_of_step148PGLImg (h : Step148PGLImg) : Step148PGLSplit := by
-  intro G _ _ A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA
-  rcases h G A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA with
-    hXJ | h7
-  · exact Or.inl (hXJ.le.trans le_sup_left)
-  · exact Or.inr h7
-
-theorem step148PGLCent_of_step148PGLImg (h : Step148PGLImg) : Step148PGLCent := by
-  intro G _ _ A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA
-  rcases h G A c L hS Y hY hs ih hYB B Q e K Le hP hkt he J hJ hKJ hAJ halt hpgl heΩ hLeA with
-    hXJ | h7
-  · exact Or.inl (inf_le_left.trans hXJ.le)
-  · exact Or.inr h7
 
 end Steps
 

@@ -61,13 +61,6 @@ theorem torus_le_panelStab (hm : 3 ≤ m) (hS : IsStdDFamily E hm S) (i : Fin (m
     Submodule K (Fin n ⊕ Fin n → K) :=
   Submodule.span K (stdE (K := K) (n := n) '' I ∪ stdF (K := K) (n := n) '' J)
 
-omit [Finite K] [CharP K 2] in
-theorem coordSpan_mono {n : ℕ} {I I' J J' : Set (Fin n)} (hI : I ⊆ I') (hJ : J ⊆ J') :
-    coordSpan (K := K) n I J ≤ coordSpan (K := K) n I' J' := by
-  refine Submodule.span_mono ?_
-  rintro v (hv | hv)
-  · exact Or.inl (Set.image_mono hI hv)
-  · exact Or.inr (Set.image_mono hJ hv)
 
 theorem stdDChamber_elt_last_eq_coordSpan :
     (stdDChamber (unitaryInvolution K 2 f) (m + 1)).elt (Fin.last m) =

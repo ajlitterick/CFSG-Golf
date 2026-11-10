@@ -30,8 +30,6 @@ variable {K : Type} [Field K]
     conv_lhs => rw [← hψ t ht]
     exact ψ.symm_apply_apply t
 
-theorem mem_fixingAut {k : Subfield K} {ψ : K ≃+* K} : ψ ∈ fixingAut k ↔ ∀ t ∈ k, ψ t = t :=
-  Iff.rfl
 
 theorem card_descentField {ℓ f p : ℕ} (hℓ : ℓ.Prime) (hf : 1 ≤ f) (hK : Nat.card K = ℓ ^ f)
     {σ : K ≃+* K} (hσ : orderOf σ = p) :

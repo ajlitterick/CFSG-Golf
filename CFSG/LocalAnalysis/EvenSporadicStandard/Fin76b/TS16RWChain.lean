@@ -26,7 +26,6 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
 
 @[expose] noncomputable def Pg : Subgroup (Equiv.Perm (Fin 128)) := QPg.originalSubgroup
 
-theorem baseArr_eq : (baseList.map Fin.val).toArray = baseArr := by decide
 
 theorem chain_check :
     rawChainOK 128 (sgsArr.extract 0 36) sgsArr baseArr wordsArr 4 = true := by

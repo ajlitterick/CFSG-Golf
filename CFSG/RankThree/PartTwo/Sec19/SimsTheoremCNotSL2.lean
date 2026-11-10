@@ -33,6 +33,5 @@ theorem exists_orderOf_eq_four_alternatingGroup {n : ℕ} (hn : 6 ≤ n) :
   refine ⟨⟨_, hmem⟩, ?_⟩
   rw [Subgroup.orderOf_mk, orderOf_injective f hf, Subgroup.orderOf_coe, orderOf_sigma6]
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec19.SimsTheoremC

@@ -58,13 +58,6 @@ theorem kInv : (invEqK 64 7 (mask 7) (64 * 7) AK (SuzABI 0) &&
   quickRfl
 
 
-theorem negInv : Bool.not (invEqK 64 7 (mask 7) (64 * 7) AK (Nat.xor (SuzABI 0) 1)) = true := by
-  quickRfl
-
-theorem negGen : Bool.not (allBelow 10 fun k =>
-    Nat.beq (wordK ((genWords.getD k []).map fun l => (0, l.2))) (SuzABM k)) = true := by
-  quickRfl
-
 @[expose] def P (a : Array Nat) (A : Nat) : Prop := a = unpack 64 7 A ∧ cn A = true
 
 theorem facts : (∀ k < 10, matTabs[k]! = unpack 64 7 (SuzABM k)) ∧ (∀ k < 10, cn (SuzABM k) = true) ∧

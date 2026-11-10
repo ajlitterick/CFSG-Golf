@@ -28,34 +28,6 @@ theorem exists_mem_normalizer_mk_eq_of_mem_normalizer (hp : p.Prime) (O : Subgro
     exact hn
   rw [map_mul, hn1, one_mul]
 
-theorem exists_normalizer_lift_with_pow_eq_one (hp : p.Prime) (O : Subgroup Y) [O.Normal]
-    (hO : p.Coprime (Nat.card O)) {S : Subgroup Y} (hS : IsPGroup p S) {x : Y ⧸ O}
-    (hx : x ∈ Subgroup.normalizer
-      ((S.map (QuotientGroup.mk' O) : Subgroup (Y ⧸ O)) : Set (Y ⧸ O)))
-    (m : ℕ) (hxm : x ^ m = 1) :
-    ∃ g : Subgroup.normalizer (S : Set Y),
-      QuotientGroup.mk' O (g : Y) = x ∧ (S.normalizerMonoidHom g) ^ m = 1 := by
-  obtain ⟨g0, hg0, hg0x⟩ :=
-    exists_mem_normalizer_mk_eq_of_mem_normalizer hp O hO hS hx
-  let g : Subgroup.normalizer (S : Set Y) := ⟨g0, hg0⟩
-  have hgpow :
-      QuotientGroup.mk' O ((g ^ m : Subgroup.normalizer (S : Set Y)) : Y) = 1 := by
-    rw [Subgroup.coe_pow, map_pow,
-      show QuotientGroup.mk' O (g : Y) = x from by simpa [g] using hg0x, hxm]
-  have hact : S.normalizerMonoidHom (g ^ m) = 1 := by
-    apply MulEquiv.ext
-    intro s
-    apply Subtype.ext
-    change (((S.normalizerMonoidHom (g ^ m)) s : S) : Y) = (s : Y)
-    exact eq_of_mk_eq_of_isPGroup hp O hO hS
-      ((S.normalizerMonoidHom (g ^ m)) s).2 s.2 (by
-        rw [Subgroup.normalizerMonoidHom_apply_apply_coe,
-          map_mul, map_mul, map_inv, hgpow]
-        simp)
-  refine ⟨g, ?_, ?_⟩
-  · simpa [g] using hg0x
-  · rw [← map_pow]
-    exact hact
 
 theorem exists_mem_normalizer_mk_eq_commute (hp : p.Prime) (O : Subgroup Y) [O.Normal]
     (hO : p.Coprime (Nat.card O)) {S : Subgroup Y} (hS : IsPGroup p S) {x : Y ⧸ O}

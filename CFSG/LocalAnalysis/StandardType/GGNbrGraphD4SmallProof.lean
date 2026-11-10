@@ -35,13 +35,6 @@ open CFSG.Assembly
             ∀ (b : G) (hb : b ∈ Bs), ∃ u ∈ I, ∃ f ∈ Subgroup.closure F,
               ggLAut K θ ⟨b, hN hb⟩ = u * f
 
-@[expose] def GGNbrD4BstarRankOddInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig 3 B Bs x L D J → LargeEvenTwoLocalRank 3 G ≤ 5 →
-      ∀ (y : G) (K : Subgroup G), GGNbr 3 B x D J y K → Bs ≤ Subgroup.normalizer (K : Set G) →
-        LargeEvenMarking ↥K (fun lab _ _ _ _ _ => lab.tag = .D ∧ lab.rank = 4 ∧ Odd lab.n ∧
-          (LargeEvenTwoLocalRank 3 G = 5 → 3 ∣ lab.n)) →
-          27 * Nat.card ↥(Bs ⊓ K ⊓ Subgroup.centralizer (K : Set G)) ≤ Nat.card ↥(Bs ⊓ K)
 
 @[expose] def GGD4TwoLocalThree : LargeEvenRawCont :=
   fun R _ _ _ => ∃ E W : Subgroup R, IsElemAbelian 3 E ∧ Nat.card E = 27 ∧ IsPGroup 2 W ∧
@@ -277,44 +270,8 @@ theorem ggNbrGraphD4Input_of_cent (hKG : GGD4FieldFixLocalOddInput)
     (hTL : GGD4TwoLocalThreeOddInput) (hR : GGNbrGraphD4OddCentInput) : GGNbrGraphD4Input :=
   ggNbrGraphD4Input_of_small (ggNbrGraphD4SmallInput_of_cent hKG hTL hR)
 
-theorem ggNbrGraphD4Input_of_odd (hKG : GGD4FieldFixLocalOddInput)
-    (hR : GGNbrGraphD4OddInput) : GGNbrGraphD4Input :=
-  ggNbrGraphD4Input_of_small (ggNbrGraphD4SmallInput_of_odd hKG hR)
 
 end Certs
 
-theorem ggNbrGraphD4OddInput_of_small (h : GGNbrGraphD4SmallInput) : GGNbrGraphD4OddInput := by
-  intro G _ _ B Bs x L D J hC hm y K hK hN P hP
-  refine largeEvenMarking_mono ?_ (h G B Bs x L D J hC hm y K hK hN P hP)
-  rintro lab R _ I F θ ⟨hθ, hQ⟩
-  exact ⟨hθ, fun h1 h2 _ h5 _ => hQ h1 h2 h5⟩
-
-theorem ggNbrGraphD4OddCentInput_of_odd (h : GGNbrGraphD4OddInput) :
-    GGNbrGraphD4OddCentInput :=
-  fun G _ _ B Bs x L D J hC hm y K hK hN _ => h G B Bs x L D J hC hm y K hK hN
-
-theorem ggNbrGraphD4OddInput_of_bstarRank (hR : GGNbrD4BstarRankOddInput) :
-    GGNbrGraphD4OddInput := by
-  intro G _ _ B Bs x L D J hC hm y K hK hN P hP
-  obtain ⟨hperf, lab, hlab, hraw⟩ := hP
-  by_cases hD : lab.tag = .D ∧ lab.rank = 4 ∧ Odd lab.n ∧
-      (LargeEvenTwoLocalRank 3 G = 5 → 3 ∣ lab.n)
-  · have hmark : LargeEvenMarking ↥K fun lab' _ _ _ _ _ => lab'.tag = .D ∧ lab'.rank = 4 ∧
-        Odd lab'.n ∧ (LargeEvenTwoLocalRank 3 G = 5 → 3 ∣ lab'.n) :=
-      ⟨hperf, lab, hlab, largeEvenRawDatum_mono
-        (fun R _ I F ⟨hs, hna, θ, _⟩ => ⟨hs, hna, θ, hD⟩) hraw⟩
-    have h27 := hR G B Bs x L D J hC hm y K hK hN hmark
-    have hraw' := largeEvenLabelAll_d4TrialityCentBound hD.1 hD.2.1 _ hraw
-    refine ⟨hperf, lab, hlab, largeEvenRawDatum_mono ?_ hraw'⟩
-    rintro R _ I F ⟨⟨hs, hna, θ, hθ⟩, hKG⟩
-    exact ⟨hs, hna, θ, hθ, fun _ _ _ _ _ b hb =>
-      exists_inner_mul_field_of_bstarRank hC.2.1.2.1 hN h27 hKG θ hb⟩
-  · refine ⟨hperf, lab, hlab, largeEvenRawDatum_mono ?_ hraw⟩
-    rintro R _ I F ⟨hs, hna, θ, hθ⟩
-    exact ⟨hs, hna, θ, hθ, fun h1 h2 h3 h5 _ => absurd ⟨h1, h2, h3, h5⟩ hD⟩
-
-theorem ggNbrGraphD4OddInput_of_bstarRank' (hR : GGNbrD4BstarRankInput) :
-    GGNbrGraphD4OddInput :=
-  ggNbrGraphD4OddInput_of_small (ggNbrGraphD4SmallInput_of_bstarRank hR)
 
 end CFSG.StandardType

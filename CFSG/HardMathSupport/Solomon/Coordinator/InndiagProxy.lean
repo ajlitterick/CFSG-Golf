@@ -23,9 +23,6 @@ theorem innerAut_le_innAutDerived (Y : Type*) [Group Y] : innerAut Y ≤ innAutD
 @[expose] noncomputable def innAutDerivedVocab : InndiagVocab where
   innDiag Y _ := innAutDerived Y
 
-theorem innAutDerivedVocab_innDiag (Y : Type) [Group Y] :
-    innAutDerivedVocab.innDiag Y = innAutDerived Y :=
-  rfl
 
 theorem mem_innAutDerivedVocab_of_commutator {Y : Type} [Group Y] {α : MulAut Y}
     (h : α ∈ commutator (MulAut Y)) : α ∈ innAutDerivedVocab.innDiag Y :=
@@ -73,57 +70,14 @@ theorem comap_stdPinnedPSU3_inndiag_eq {p f : ℕ} {F : Type} [Field F] (hF : Un
     ((stdPinnedPSU3 hF).comap e).inndiag = innAutDerived Y :=
   (goodPinned_psu hF hq).comap_inndiag_eq e
 
-theorem comap_inndiag_ne_innAutDerived_of_mem_commutator {P : PinnedAut M} (e : Y ≃* M)
-    {τ : MulAut M} (hτ : τ ∈ commutator (MulAut M)) (hout : τ ∉ P.inndiag) :
-    (P.comap e).inndiag ≠ innAutDerived Y := fun h =>
-  hout (((comap_inndiag_eq_innAutDerived_iff P e).1 h).symm ▸ commutator_le_innAutDerived M hτ)
-
-theorem comap_inndiag_ne_innAutDerived_of_not_mem {P : PinnedAut M} (e : Y ≃* M)
-    {τ : MulAut M} (hτ : τ ∈ P.inndiag) (hout : τ ∉ innAutDerived M) :
-    (P.comap e).inndiag ≠ innAutDerived Y := fun h =>
-  hout (((comap_inndiag_eq_innAutDerived_iff P e).1 h) ▸ hτ)
 
 end Marked
 
-theorem not_vocab_eq_of_comap_inndiag_ne (V : InndiagVocab) {Y : Type} [Group Y]
-    {M₁ M₂ : Type*} [Group M₁] [Group M₂] (P₁ : PinnedAut M₁) (P₂ : PinnedAut M₂)
-    (e₁ : Y ≃* M₁) (e₂ : Y ≃* M₂) (hne : (P₁.comap e₁).inndiag ≠ (P₂.comap e₂).inndiag) :
-    ¬ (V.innDiag Y = (P₁.comap e₁).inndiag ∧ V.innDiag Y = (P₂.comap e₂).inndiag) :=
-  fun h => hne (h.1.symm.trans h.2)
 
 section Vocab
 
 variable {V W : InndiagVocab}
 
-theorem indInn_mono (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y) {G : Type}
-    [Group G] [Finite G] {K : Subgroup G} {g : G} (h : IndInn V K g) : IndInn W K g :=
-  let ⟨hg, hmem⟩ := h
-  ⟨hg, hVW _ hmem⟩
-
-theorem input9_2_3_mono (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y)
-    (h : Input9_2_3 V) : Input9_2_3 W :=
-  fun G _ _ I hI hK x hx hx3 hnot =>
-    h G I hI hK x hx hx3 fun hV => hnot (indInn_mono hVW hV)
-
-theorem inputL3fld_mono (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y)
-    (h : InputL3fld V) : InputL3fld W :=
-  fun G _ _ K g r hq hr hg hg3 hnot =>
-    h G K g r hq hr hg hg3 fun hV => hnot (indInn_mono hVW hV)
-
-theorem inputL2exp_mono (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y)
-    (h : InputL2exp V) : InputL2exp W :=
-  fun G _ _ K g h' s r0 hq hs hg hh hg3 hh3 hgh hnot =>
-    h G K g h' s r0 hq hs hg hh hg3 hh3 hgh fun hV => hnot (indInn_mono hVW hV)
-
-theorem input14_31_4_anti (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y)
-    (h : Input14_31_4 W) : Input14_31_4 V :=
-  fun G _ _ I B hI hK hB hrk hE hc A x hAB hx hA hT J hJ q hq h3 h8 hA' =>
-    h G I B hI hK hB hrk hE hc A x hAB hx hA hT J hJ q hq h3 h8 fun a ha =>
-      indInn_mono hVW (hA' a ha)
-
-theorem inputL3inn_anti (hVW : ∀ (Y : Type) [Group Y], V.innDiag Y ≤ W.innDiag Y)
-    (h : InputL3inn W) : InputL3inn V :=
-  fun G _ _ K g r hq hr hg3 hV hT => h G K g r hq hr hg3 (indInn_mono hVW hV) hT
 
 @[expose] def Input14_31_4Residual (V W : InndiagVocab) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (I B : Subgroup G), CFSG.Open.IsQuasisimple (barOf 3 I) →

@@ -249,79 +249,12 @@ theorem modelHom_x [Finite G] (hn : 2 ≤ n) :
   rw [← hW.modelHom_a_inv (by omega), ← map_pow, ← half_eq (by omega), inv_pow, ← Original.x,
     hxinv]
 
-theorem modelHom_r [Finite G] (hn : 1 ≤ n) :
-    wreathModelHom S (hW.equiv hn) (Original.r (2 ^ n)) = S₁ * S₂⁻¹ := by
-  rw [Original.r, map_mul, map_inv, hW.modelHom_s hn, hW.modelHom_t hn]
-
-theorem modelHom_root [Finite G] (hn : 1 ≤ n) :
-    wreathModelHom S (hW.equiv hn) (Original.s (2 ^ n) * Original.z (2 ^ n)) = S₁ * T := by
-  rw [map_mul, hW.modelHom_s hn, hW.modelHom_z hn]
-
-theorem modelHom_swap_x2 [Finite G] (hn : 1 ≤ n) :
-    wreathModelHom S (hW.equiv hn) (Original.z (2 ^ n) * Original.x2 (2 ^ n)) =
-      T * S₁ ^ 2 ^ (n - 1) := by
-  rw [map_mul, hW.modelHom_z hn, hW.modelHom_x2 hn]
-
-theorem modelHom_element [Finite G] (hn : 1 ≤ n) (a b : ZMod (2 ^ n)) (e : ZMod 2) :
-    wreathModelHom S (hW.equiv hn) (element _ a b e) = S₁ ^ a.val * S₂ ^ b.val * T ^ e.val := by
-  rw [hW.modelHom_eq hn]
-  exact presentationHom_element _ _ _ _ _ a b e
 
 theorem modelBase_eq [Finite G] (hn : 1 ≤ n) :
     modelBase S (hW.equiv hn) = Subgroup.closure {S₁, S₂} := by
   rw [modelBase, ← Original.U_eq, Original.U, MonoidHom.map_closure, Set.image_pair,
     hW.modelHom_s hn, hW.modelHom_t hn]
 
-theorem modelCenter_eq [Finite G] (hn : 1 ≤ n) :
-    modelCenter S (hW.equiv hn) = Subgroup.zpowers (S₁⁻¹ * S₂⁻¹) := by
-  rw [modelCenter, Original.Z, MonoidHom.map_zpowers, ← Subgroup.zpowers_inv, ← map_inv,
-    hW.modelHom_a_inv hn]
-
-theorem center_eq_modelCenter [Finite G] (hn : 2 ≤ n) :
-    (Subgroup.center (S : Subgroup G)).map (S : Subgroup G).subtype =
-      modelCenter S (hW.equiv (by omega)) := by
-  have hstr := wreath_center_involution_and_quaternion_coordinates n hn
-  rw [← Subgroup.map_center_eq (hW.equiv (by omega)).symm, Subgroup.map_map, hstr.center]
-  rfl
-
-theorem modelY_eq [Finite G] (hn : 2 ≤ n) :
-    modelY S (hW.equiv (by omega)) =
-      Subgroup.closure {S₁ * S₂⁻¹, T * S₁ ^ 2 ^ (n - 1)} := by
-  have hm : 0 < 2 ^ n := pow_pos (by decide) n
-  have hY : Original.Y (2 ^ n) =
-      Subgroup.closure {Original.r (2 ^ n), Original.z (2 ^ n) * Original.x2 (2 ^ n)} := by
-    have hzx2 : Original.z (2 ^ n) * Original.x2 (2 ^ n) =
-        Original.r (2 ^ n) ^ (2 ^ n / 2) * Original.d (2 ^ n) := by
-      rw [Original.d, Original.x2, Original.z, Original.s, Original.r_eq, element_base_pow,
-        element_base_pow, element_base_mul, element_swap_mul, element_base_mul]
-      simp only [nsmul_eq_mul, mul_one, mul_zero, mul_neg, add_zero, zero_add, element_eq_iff,
-        and_true]
-      have hhalf : ((2 ^ n / 2 : ℕ) : ZMod (2 ^ n)) + ((2 ^ n / 2 : ℕ) : ZMod (2 ^ n)) = 0 := by
-        rw [← Nat.cast_add, ← two_mul, Nat.mul_div_cancel' (dvd_pow_self 2 (by omega)),
-          ZMod.natCast_self]
-      exact ⟨by linear_combination -hhalf, by linear_combination hhalf⟩
-    apply le_antisymm
-    · rw [Original.Y, Subgroup.closure_le]
-      rintro g (rfl | rfl)
-      · exact Subgroup.subset_closure (by simp)
-      · have hd : Original.d (2 ^ n) =
-            (Original.r (2 ^ n) ^ (2 ^ n / 2))⁻¹ *
-              (Original.z (2 ^ n) * Original.x2 (2 ^ n)) := by
-          rw [hzx2]
-          group
-        rw [SetLike.mem_coe, hd]
-        exact Subgroup.mul_mem _
-          (Subgroup.inv_mem _ (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _))
-          (Subgroup.subset_closure (by simp))
-    · rw [Subgroup.closure_le]
-      rintro g (rfl | rfl)
-      · exact Subgroup.subset_closure (by simp)
-      · rw [SetLike.mem_coe, hzx2]
-        exact Subgroup.mul_mem _
-          (Subgroup.pow_mem _ (Subgroup.subset_closure (by simp)) _)
-          (Subgroup.subset_closure (by simp))
-  rw [modelY, hY, MonoidHom.map_closure, Set.image_pair, hW.modelHom_r (by omega),
-    hW.modelHom_swap_x2 (by omega)]
 
 end WreathGenerators
 

@@ -2006,14 +2006,10 @@ def dist2Derivs : List Dist2Deriv :=
       | .B => some (parseWord s.old ++ derivInv (parseWord s.new))
       | _ => none).eraseDups
 
-@[expose] def dist2Evidence : Bool := dist2EEvs.all eCheck && trCheck dist2TrEv
-
-@[expose] def dist2BCheck : Bool := dist2BWords.all bWordCheck
 
 @[expose] def dist2Replays : Bool :=
   (dist2Derivs.map fun d => parseWord d.start) == dist2Relators &&
     dist2Derivs.all (dist2DerivOK dist2BWords)
 
-@[expose] def dist2Check : Bool := dist2Evidence && dist2BCheck && dist2Replays
 
 end CFSG.Sporadic.Recognition.LyonsSims.LyFinal

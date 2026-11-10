@@ -22,14 +22,9 @@ variable {C : Type*} (δ : C → C → W)
   | _, [] => True
   | x, p :: γ => δ x p.2 = cs.simple p.1 ∧ IsStrictGallery p.2 γ
 
-@[expose] def IsReducedGallery (x : C) (γ : List (ι × C)) : Prop :=
-  IsStrictGallery cs δ x γ ∧ cs.IsReduced (galleryType γ)
 
 abbrev panel (i : ι) (x : C) : Set C := residue cs δ {i} x
 
-@[expose] def IsThick : Prop := ∀ (i : ι) (x : C), 3 ≤ (panel cs δ i x).encard
-
-@[expose] def coxeterDistance (u v : W) : W := u⁻¹ * v
 
 @[expose] def IsApartmentMap (a : W → C) : Prop := ∀ u v, δ (a u) (a v) = u⁻¹ * v
 
@@ -179,8 +174,6 @@ theorem symm_of_eq_simple {x y : C} {i : ι} (h : δ x y = cs.simple i) : δ y x
   rw [h, cs.simple_mul_simple_self, hδ.eq_one_iff] at hxz
   rwa [← hxz] at hyz
 
-theorem eq_simple_comm {x y : C} {i : ι} : δ x y = cs.simple i ↔ δ y x = cs.simple i :=
-  ⟨hδ.symm_of_eq_simple, hδ.symm_of_eq_simple⟩
 
 theorem ne_of_eq_simple {x y : C} {i : ι} (h : δ x y = cs.simple i) : x ≠ y := by
   rintro rfl
@@ -290,18 +283,5 @@ theorem mem_parabolic_of_mem_residue (hδ : IsWeylDistanceBuilding cs δ) {J : S
   obtain ⟨γ, hγ, hJ, rfl⟩ := mem_residue_iff.mp hz'
   exact hγ.mem_parabolic hδ hJ
 
-variable (cs) in
-theorem isWeylDistanceBuilding_coxeter : IsWeylDistanceBuilding cs (coxeterDistance (W := W)) where
-  nonempty := ⟨1⟩
-  eq_one_iff u v := by simp [coxeterDistance, inv_mul_eq_one]
-  mul_simple u v z i h := by
-    have hz : z = v * cs.simple i := by
-      simp only [coxeterDistance] at h
-      rw [← h, mul_inv_cancel_left]
-    subst hz
-    exact ⟨Or.inr (by simp [coxeterDistance, mul_assoc]), fun _ => by
-      simp [coxeterDistance, mul_assoc]⟩
-  exists_simple u v i := ⟨v * cs.simple i, by simp [coxeterDistance], by
-    simp [coxeterDistance, mul_assoc]⟩
 
 end CFSG.Monster.B.Geometry

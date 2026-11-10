@@ -56,56 +56,11 @@ theorem xStarCoord_interp (d : Native.DVec) :
 
 @[expose] def babyXExp : Fin 10 → ℕ := ![0, 0, 2, 0, 4, 5, 4, 7, 7, 6]
 
-@[expose] noncomputable def babyTrValue (j : Fin 10) : ℚ := (babyTrNum j : ℚ) / 4 ^ babyTrExp j
-
-@[expose] noncomputable def babyXValue (j : Fin 10) : ℚ := (babyXNum j : ℚ) / 2 ^ babyXExp j
-
-theorem babyValues_ne : ∀ i j : Fin 10, i ≠ j →
-    babyTrNum i * 4 ^ babyTrExp j ≠ babyTrNum j * 4 ^ babyTrExp i ∨
-      babyXNum i * 2 ^ babyXExp j ≠ babyXNum j * 2 ^ babyXExp i := by
-  decide
-
-theorem babyValues_injective :
-    Function.Injective fun j : Fin 10 => (babyXValue j, babyTrValue j) := by
-  intro i j h
-  by_contra hij
-  have hx : babyXValue i = babyXValue j := congrArg Prod.fst h
-  have ht : babyTrValue i = babyTrValue j := congrArg Prod.snd h
-  rcases babyValues_ne i j hij with h1 | h1
-  · apply h1
-    have h2 : ((babyTrNum i : ℚ)) * 4 ^ babyTrExp j = (babyTrNum j : ℚ) * 4 ^ babyTrExp i := by
-      unfold babyTrValue at ht
-      rwa [div_eq_div_iff (by positivity) (by positivity)] at ht
-    exact_mod_cast h2
-  · apply h1
-    have h2 : ((babyXNum i : ℚ)) * 2 ^ babyXExp j = (babyXNum j : ℚ) * 2 ^ babyXExp i := by
-      unfold babyXValue at hx
-      rwa [div_eq_div_iff (by positivity) (by positivity)] at hx
-    exact_mod_cast h2
 
 @[expose] def invOK : Bool := vtabOK &&
   (List.finRange 10).all fun j =>
     HS.trA2N vtab[(j : ℕ)]! * 4 ^ babyTrExp j == (babyTrNum j : ℤ) * 4 ^ vtab[(j : ℕ)]!.e &&
       vtab[(j : ℕ)]!.D.getD 300 0 * 2 ^ babyXExp j == (babyXNum j : ℤ) * 2 ^ vtab[(j : ℕ)]!.e
 
-theorem invOK_sound (h : invOK = true) (j : Fin 10) :
-    trA2 (vv j) = babyTrValue j ∧ xStarCoord (vv j) = babyXValue j := by
-  unfold invOK at h
-  rw [Bool.and_eq_true] at h
-  obtain ⟨h1, h2⟩ := h
-  have h3 := List.all_eq_true.1 h2 j (List.mem_finRange j)
-  rw [Bool.and_eq_true, beq_iff_eq, beq_iff_eq] at h3
-  rw [← vtab_spec h1 j.2]
-  refine ⟨?_, ?_⟩
-  · rw [HS.trA2_interp, babyTrValue]
-    have h4 : ((HS.trA2N vtab[(j : ℕ)]! : ℤ) : ℚ) * 4 ^ babyTrExp j =
-        (babyTrNum j : ℚ) * 4 ^ vtab[(j : ℕ)]!.e := by exact_mod_cast h3.1
-    rw [div_eq_div_iff (by positivity) (by positivity)]
-    exact h4
-  · rw [xStarCoord_interp, babyXValue]
-    have h4 : ((vtab[(j : ℕ)]!.D.getD 300 0 : ℤ) : ℚ) * 2 ^ babyXExp j =
-        (babyXNum j : ℚ) * 2 ^ vtab[(j : ℕ)]!.e := by exact_mod_cast h3.2
-    rw [div_eq_div_iff (by positivity) (by positivity)]
-    exact h4
 
 end CFSG.Monster.AxisCount.Baby

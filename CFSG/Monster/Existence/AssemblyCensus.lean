@@ -38,18 +38,5 @@ theorem monster_existence_clauses_one_two_of_count
   monster_existence_clauses_one_two_of_inputs Census.generated_group_two_involution_classes
     (hEb_FE cosetTwoBCensus) hH hcount AxisCount.Baby.natCard_Cbar hStroth
 
-theorem monsterExistenceStatement_MGriess_of_count
-    (hH : ∀ g ∈ Gmat, g * tStar = tStar * g → g ∈ Cgen)
-    (hcount : Nat.card Gmat = 97239461142009186000 * Nat.card Cgen)
-    (hStroth : ∀ d₀ : Blueprint.NativeSporadic.B, orderOf d₀ = 2 →
-      Matrix.rank (d₀.val.val - 1) = 1860 →
-      ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (d : G), orderOf d = 2 →
-        Nonempty (Subgroup.centralizer ({d} : Set G) ≃*
-          Subgroup.centralizer ({d₀} : Set Blueprint.NativeSporadic.B)) →
-        Nonempty (G ≃* Blueprint.NativeSporadic.B))
-    (hgraph : IsTwoAGraphData tGriess xGriess) :
-    MonsterExistenceStatement MGriess :=
-  monsterExistenceStatement_MGriess_of_census Census.generated_group_two_involution_classes
-    cosetTwoBCensus hH hcount hStroth hgraph
 
 end CFSG.Monster.Existence

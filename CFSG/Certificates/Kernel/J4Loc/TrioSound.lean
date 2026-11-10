@@ -290,17 +290,6 @@ theorem octF_step (h : OctAll LR TK TR N I0) {i : ℕ} (hi : i < N) {l : ℕ} (h
     ∃ j < N, (octF TK i).image (actK (rowL LR l)) = octF TK j :=
   ⟨_, ((octOK_spec (h i hi)).2.2.2.1 l hl).1, ((octOK_spec (h i hi)).2.2.2.1 l hl).2⟩
 
-theorem wordF_octF (h : OctAll LR TK TR N I0) : ∀ (w : List ℕ), (∀ l ∈ w, l < 6) →
-    ∀ i < N, ∃ j < N, wordF LR w (octF TK i) = octF TK j := by
-  intro w
-  induction w with
-  | nil => intro _ i hi; exact ⟨i, hi, rfl⟩
-  | cons l w ih =>
-    intro hw i hi
-    obtain ⟨j, hj, he⟩ := octF_step h hi (hw l List.mem_cons_self)
-    change ∃ k < N, wordF LR w ((octF TK i).image (actK (rowL LR l))) = octF TK k
-    rw [he]
-    exact ih (fun a ha => hw a (List.mem_cons_of_mem _ ha)) j hj
 
 theorem octF_word (h : OctAll LR TK TR N I0) {i : ℕ} (hi : i < N) :
     ∃ w : List ℕ, (∀ l ∈ w, l < 6) ∧ octF TK i = wordF LR w (octF TK I0) := by

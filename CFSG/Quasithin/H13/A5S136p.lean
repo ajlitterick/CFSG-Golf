@@ -17,41 +17,6 @@ open CFSG.Blueprint CFSG.LieType.BorelTits
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem star_pCoreOf_mulEquiv {H K : Subgroup G} (hKc : K ∈ cComp H) :
-    Nonempty (↥(E2.star (pCoreOf 2 H) H K) ≃* (↥K ⧸ CFSG.pCore 2 ↥K)) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hKH : K ≤ H := le_of_mem_cComp hKc
-  set N := (kerIn (pCoreOf 2 H) H).subgroupOf H with hN
-  let φ : ↥K →* E2.StarQuot (pCoreOf 2 H) H := (QuotientGroup.mk' N).comp (Subgroup.inclusion hKH)
-  have hrange : φ.range = E2.star (pCoreOf 2 H) H K := by
-    unfold E2.star
-    rw [MonoidHom.range_comp, Subgroup.inclusion_range]
-  have hker : φ.ker = CFSG.pCore 2 ↥K := by
-    apply le_antisymm
-    ·
-      have hkp : IsPGroup 2 φ.ker := by
-        intro x
-        have hx : (x : ↥K) ∈ φ.ker := x.2
-        rw [MonoidHom.mem_ker, MonoidHom.comp_apply, QuotientGroup.mk'_apply,
-          QuotientGroup.eq_one_iff, hN, Subgroup.mem_subgroupOf] at hx
-        have hxO : ((x : ↥K) : G) ∈ pCoreOf 2 H := by simpa using hx 1 H.one_mem
-        obtain ⟨k, hk⟩ := pCoreOf_isPGroup 2 H ⟨_, hxO⟩
-        refine ⟨k, Subtype.ext (Subtype.ext ?_)⟩
-        simpa using congrArg Subtype.val hk
-      exact le_sSup ⟨inferInstance, hkp⟩
-    ·
-      intro x hx
-      have hxG : (x : G) ∈ pCoreOf 2 K := by
-        exact ⟨x, hx, rfl⟩
-      have hxH : (x : G) ∈ pCoreOf 2 H :=
-        A4.pCoreOf_le_of_subnormal 2 (subnormal_of_mem_cComp hKc) hxG
-      rw [MonoidHom.mem_ker, MonoidHom.comp_apply, QuotientGroup.mk'_apply,
-        QuotientGroup.eq_one_iff, hN, Subgroup.mem_subgroupOf]
-      intro b hb
-      exact (Subgroup.mem_normalizer_iff.mp (le_normalizer_pCoreOf 2 H hb) _).mp hxH
-  have hnorm : (CFSG.pCore 2 ↥K).Normal := CFSG.pCore_normal
-  exact ⟨((QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    ((QuotientGroup.quotientKerEquivRange φ).trans (MulEquiv.subgroupCongr hrange))).symm⟩
 
 omit [Finite G] in
 theorem isPSL_of_mulEquiv {X Y : Type} [Group X] [Group Y] {n p e : ℕ} (φ : X ≃* Y)

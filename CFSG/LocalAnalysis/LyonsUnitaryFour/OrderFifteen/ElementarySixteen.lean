@@ -236,36 +236,6 @@ theorem eq_one_of_pow_conj_eq
               rw [this]
           _ = x := by group
 
-theorem isConj_iff_exists_pow_conj (S : Sylow 2 H)
-    (hcomm : ∀ x ∈ (S : Subgroup H), ∀ y ∈ (S : Subgroup H), x * y = y * x)
-    (hidx : ((Subgroup.centralizer ((S : Subgroup H) : Set H)).subgroupOf
-      (Subgroup.normalizer ((S : Subgroup H) : Set H))).index = 5)
-    {n : H} (hnN : n ∈ Subgroup.normalizer ((S : Subgroup H) : Set H))
-    (hnC : n ∉ Subgroup.centralizer ((S : Subgroup H) : Set H))
-    {x y : H} (hx : x ∈ (S : Subgroup H)) (hy : y ∈ (S : Subgroup H)) :
-    IsConj x y ↔ ∃ k < 5, n ^ k * x * (n ^ k)⁻¹ = y := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  constructor
-  · intro h
-    obtain ⟨c, hc⟩ := isConj_iff.mp h
-    have : IsMulCommutative (S : Subgroup H) :=
-      ⟨⟨fun a b => Subtype.ext (hcomm a a.2 b b.2)⟩⟩
-    have hy' : c⁻¹⁻¹ * x * c⁻¹ ∈ (S : Subgroup H) := by rw [inv_inv, hc]; exact hy
-    obtain ⟨m, hm, hmeq⟩ := Sylow.conj_eq_normalizer_conj_of_mem S x c⁻¹ hx hy'
-    obtain ⟨k, hk, hkc⟩ := exists_pow_inv_mul_mem_centralizer hidx hnN hnC
-      ((Subgroup.normalizer ((S : Subgroup H) : Set H)).inv_mem hm)
-    refine ⟨k, hk, ?_⟩
-    have hcx := (Subgroup.mem_centralizer_iff.mp hkc) x hx
-    rw [← hc]
-    calc n ^ k * x * (n ^ k)⁻¹
-        = n ^ k * ((n ^ k)⁻¹ * m⁻¹ * x * ((n ^ k)⁻¹ * m⁻¹)⁻¹) * (n ^ k)⁻¹ := by
-          rw [← hcx]
-          group
-      _ = m⁻¹ * x * m := by group
-      _ = c⁻¹⁻¹ * x * c⁻¹ := hmeq.symm
-      _ = c * x * c⁻¹ := by rw [inv_inv]
-  · rintro ⟨k, -, hk⟩
-    exact isConj_iff.mpr ⟨n ^ k, hk⟩
 
 end Generator
 

@@ -71,10 +71,6 @@ theorem localRing_sub (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) {left right : 
     left - right ∈ BlocksLocalRing m := by
   simpa only [sub_eq_add_neg] using localRing_add m hm hleft (localRing_neg m hright)
 
-theorem localMaxIdeal_subset (m : Ideal BlocksAlgInt) :
-    BlocksLocalMaxIdeal m ⊆ BlocksLocalRing m := by
-  rintro value ⟨numerator, denominator, _, hdenominator, hvalue⟩
-  exact ⟨numerator, denominator, hdenominator, hvalue⟩
 
 theorem localMaxIdeal_of_mem (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
     {value : BlocksAlgInt} (hvalue : value ∈ m) :

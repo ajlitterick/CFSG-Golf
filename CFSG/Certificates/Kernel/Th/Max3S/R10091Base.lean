@@ -12,12 +12,9 @@ public import CFSG.Sporadic.Th.Max3.QuotientInputsBase
 namespace CFSG.KC.Th.Max3S
 
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 CFSG.KC.Th.Spec
-open CFSG.ComponentClassification.PresentationLocal (CarmichaelIndex)
-open CFSG.Sporadic.Th.Max3.AltQuot (carmCubeIdx carmPairIdx)
 
 section Proofs
 
-variable {D : CFSG.KC.Th.Gen.Max3Data} {A B : Array V4}
 
 end Proofs
 

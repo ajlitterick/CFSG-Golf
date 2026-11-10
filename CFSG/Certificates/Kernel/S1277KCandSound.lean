@@ -217,7 +217,6 @@ section Census
 
 variable {G0 : List B6} {nb AP CP IP idb : ℕ}
 
-theorem mf_len (hF : ModFacts G0 nb AP CP IP idb) : G0.length = nb := hF.length
 
 theorem getD_comp (hF : ModFacts G0 nb AP CP IP idb) {i j : ℕ} (hi : i < nb) (hj : j < nb) :
     G0.getD (rd6 CP (i * nb + j)) B6.id = (G0.getD i B6.id).comp (G0.getD j B6.id) := by

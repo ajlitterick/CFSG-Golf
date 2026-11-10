@@ -177,9 +177,6 @@ variable (K) in
     rw [Subgroup.coe_mul, Units.val_mul, coe_pairRootElt, coe_pairRootElt, coe_pairRootElt,
       toAdd_mul, pairRootMat_mul hab])
 
-theorem pairRootHom_apply {a b : Fin r ⊕ Fin r} (hab : a ≠ b) (t : K) :
-    pairRootHom K hab (Multiplicative.ofAdd t) = pairRootElt hab t :=
-  rfl
 
 theorem pairRootMat_apply_self {a b : Fin r ⊕ Fin r} (hab : a ≠ b) (t : K) :
     pairRootMat K a b t a b = t := by
@@ -274,9 +271,6 @@ theorem rootVec_partner (a b : Fin r ⊕ Fin r) : rootVec b.swap a.swap = rootVe
 theorem neg_rootVec (a b : Fin r ⊕ Fin r) : -rootVec a b = rootVec b a := by
   rw [rootVec, rootVec, neg_sub]
 
-theorem lineVal_add (e e' : Fin r → ℤ) (x : Fin r ⊕ Fin r) :
-    lineVal (e + e') x = lineVal e x + lineVal e' x := by
-  rcases x with x | x <;> simp [lineVal, add_comm]
 
 theorem lineVal_sub (e e' : Fin r → ℤ) (x : Fin r ⊕ Fin r) :
     lineVal (e - e') x = lineVal e x - lineVal e' x := by

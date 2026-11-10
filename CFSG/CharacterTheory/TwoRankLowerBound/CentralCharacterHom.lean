@@ -135,12 +135,5 @@ theorem centralCharacterResidueHom_scalar {G : Type*} [Group G] [Fintype G]
     (localCentralCharacterHom basis ideal label _) = _
   rw [localCentralCharacterHom_scalar]
 
-theorem centralCharacterResidueHom_surjective {G : Type*} [Group G] [Fintype G]
-    (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal] (label : basis.index) :
-    Function.Surjective (centralCharacterResidueHom basis ideal label) := by
-  intro residue
-  obtain ⟨scalar, rfl⟩ := localizedComplexIntegerResidue_surjective ideal residue
-  exact ⟨centralCoefficientScalarHom _ scalar, centralCharacterResidueHom_scalar basis ideal label scalar⟩
 
 end CFSG.TwoRankLowerBound.Helpers

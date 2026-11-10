@@ -81,9 +81,6 @@ theorem wLong_mem_subfieldSp (F₀ : Subfield k) : (wLong : antiSp k) ∈ subfie
     rw [glMat_wLong]
     exact minorJ_apply_mem F₀ i j
 
-theorem card_subfieldSp [Finite k] [CharP k 2] (F₀ : Subfield k) {q : ℕ} (hq : Nat.card F₀ = q) :
-    Nat.card (subfieldSp F₀) = q ^ 4 * ((q ^ 2 - 1) * (q ^ 4 - 1)) := by
-  rw [← Nat.card_congr (subfieldSpEquiv F₀).toEquiv, card_antiSp hq]
 
 section CharTwo
 

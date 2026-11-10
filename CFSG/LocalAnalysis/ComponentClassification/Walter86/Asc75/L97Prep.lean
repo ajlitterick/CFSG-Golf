@@ -88,6 +88,5 @@ theorem glaubermanAt_holds (X : Type) [Group X] [Finite X] : GlaubermanAt X := b
   have : Nontrivial K := (Subgroup.nontrivial_iff_ne_bot K).mpr hne
   exact Group.IsPerfect.not_isSolvable _ hsolv
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.ComponentClassification.Walter86.Asc75

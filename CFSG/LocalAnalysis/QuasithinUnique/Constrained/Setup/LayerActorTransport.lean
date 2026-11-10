@@ -23,8 +23,6 @@ theorem mem_map_equiv_iff (ψ : G ≃* G') {x : G} {X : Subgroup G} :
 @[expose] def mapEquiv (ψ : G ≃* G') (H : Subgroup G) : ↥H ≃* ↥(H.map ψ.toMonoidHom) :=
   ψ.subgroupMap H
 
-theorem mapEquiv_coe (ψ : G ≃* G') (H : Subgroup G) (x : ↥H) :
-    ((mapEquiv ψ H x : ↥(H.map ψ.toMonoidHom)) : G') = ψ (x : G) := rfl
 
 theorem subtype_comp_mapEquiv (ψ : G ≃* G') (H : Subgroup G) :
     (H.map ψ.toMonoidHom).subtype.comp (mapEquiv ψ H).toMonoidHom =

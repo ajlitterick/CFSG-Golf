@@ -49,9 +49,6 @@ theorem completeCharacterIndex_bijective {G : Type u} [Group G] [Fintype G]
     obtain ⟨label, hlabel, _⟩ := complete_character_basis_contains_irreducible basis data hirreducible
     exact ⟨label, Subtype.ext (hlabel.trans hdata)⟩
 
-@[expose] def completeCharacterEquiv {G : Type u} [Group G] [Fintype G]
-    (basis : FiniteIrreducibleCharacterBasis G) : basis.index ≃ IrreducibleComplexCharacter G :=
-  Equiv.ofBijective (completeCharacterIndex basis) (completeCharacterIndex_bijective basis)
 
 instance irreducibleComplexCharacter_finite {G : Type u} [Group G] [Finite G] :
     Finite (IrreducibleComplexCharacter G) := by
@@ -251,27 +248,5 @@ theorem central_involution_conjugate_product_weighted_character_sum
     complete_involution_column_sum basis element hesquare]
   ring
 
-theorem irreducible_central_involution_conjugate_product_weighted_sum
-    {G : Type u} [Group G] [Finite G]
-    (involution element : G) (hcentral : involution ∈ Subgroup.center G)
-    (hinvolution : orderOf involution = 2) (helement : orderOf element = 2)
-    (hconjugate : IsConj (involution * element) element) (scalar : ℂ) :
-    (∀ character : IrreducibleComplexCharacter G,
-      character.val involution / character.val 1 = 1 ∨
-        character.val involution / character.val 1 = -1) ∧
-    (∑ character : IrreducibleComplexCharacter G,
-      (character.val involution / character.val 1) *
-        (character.val involution + scalar * character.val element) ^ 2) =
-      scalar ^ 2 * (Nat.card (Subgroup.centralizer {element}) : ℂ) := by
-  let : Fintype G := Fintype.ofFinite G
-  obtain ⟨basis⟩ := finiteIrreducibleCharacterBasis_exists (G := G)
-  obtain ⟨hsigns, hsum⟩ := central_involution_conjugate_product_weighted_character_sum basis
-    involution element hcentral hinvolution helement hconjugate scalar
-  constructor
-  · intro character
-    obtain ⟨label, rfl⟩ := (completeCharacterIndex_bijective basis).surjective character
-    exact hsigns label
-  · rw [← Equiv.sum_comp (completeCharacterEquiv basis)]
-    exact hsum
 
 end CFSG.Wreathed

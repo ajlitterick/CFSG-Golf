@@ -279,14 +279,6 @@ theorem nfixK_eq (x : Nat) :
   · exact (beq_eq_false_iff_ne.2 (Nat.ne_of_beq_eq_false h)).symm
   · exact (beq_iff_eq.2 (Nat.eq_of_beq_eq_true h)).symm
 
-theorem o3Cat_le (n w e x : Nat) : o3Cat n w e x ≤ 4 := by
-  unfold o3Cat
-  cases o3Pt n w e x
-  · exact Nat.zero_le _
-  · dsimp only
-    rw [strictN_eq]
-    generalize nfixK n w x = f
-    cases Nat.beq f 0 <;> cases Nat.beq f 6 <;> cases Nat.beq f 12 <;> decide
 
 theorem o3Cat_spec (n w e x : Nat) :
     (o3Cat n w e x = 0 ↔ o3Pt n w e x = false) ∧

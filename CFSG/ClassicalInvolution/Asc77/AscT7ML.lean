@@ -43,13 +43,6 @@ theorem coe_slConj_dGL (j : Fin 4) (g : SL(4, F)) :
 theorem sgn_mul_self (j i : Fin 4) : (sgn j i : F) * sgn j i = 1 := by
   by_cases h : i = j <;> simp [sgn, h]
 
-theorem sgn_eq_one_iff {j i : Fin 4} (h2 : (2 : F) ≠ 0) : (sgn j i : F) = 1 ↔ i ≠ j := by
-  by_cases h : i = j
-  · simp only [sgn, h, ite_true, ne_eq, not_true_eq_false, iff_false]
-    intro h1
-    apply h2
-    linear_combination -h1
-  · simp [sgn, h]
 
 @[expose] def Jc (j : Fin 4) : Finset (Fin 4) := Finset.univ.erase j
 

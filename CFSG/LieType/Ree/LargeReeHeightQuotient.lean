@@ -129,11 +129,6 @@ theorem heightQuot_sq_eq_one
     congr 1
     exact Subtype.ext (pinnedX_add F4.tag K α _ _)
 
-theorem rootElt_apply
-    {h : ℤ} {α : Fin F4.tag.rank → ℤ} (hα : α ∈ heightSet h) (c : K) :
-    rootElt hα (Multiplicative.ofAdd c) =
-      QuotientGroup.mk ⟨pinnedX F4.tag K α c, pinnedX_mem_heightSeries hα c⟩ :=
-  rfl
 
 theorem heightQuot_induction
     {h : ℤ} {P : HeightQuot K h → Prop}

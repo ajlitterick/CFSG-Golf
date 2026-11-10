@@ -77,13 +77,6 @@ theorem pgl_pComponent_classification (K : Type*) [Field K] [Finite K]
   rw [hrange]
   exact pglPSLRange_quasisimple K hcard
 
-theorem pgl_three_no_pComponent (K : Type*) [Field K] [Finite K]
-    (hcard : Nat.card K = 3) (p : ℕ) [Fact p.Prime] (L : Subgroup (PGL2 K)) :
-    ¬ CFSG.IsPComponent p L := by
-  intro hL
-  have hodd : Odd (Nat.card K) := hcard ▸ (by decide : Odd 3)
-  have hbound := (pgl_pComponent_classification K hodd p L hL).1
-  omega
 
 theorem coordinateD_perfect_subnormal_classification (K : Type*) [Field K] [Finite K]
     (hodd : Odd (Nat.card K)) (L : Subgroup (coordinateD K))
@@ -130,12 +123,5 @@ theorem coordinateD_pComponent_classification (K : Type*) [Field K] [Finite K]
   let : Nontrivial L := CatalogueBAlternating.pComponent_nontrivial hL
   exact coordinateD_perfect_subnormal_classification K hodd L hL.choose_spec.2.1
 
-theorem coordinateD_three_no_pComponent (K : Type*) [Field K] [Finite K]
-    (hcard : Nat.card K = 3) (p : ℕ) [Fact p.Prime]
-    (L : Subgroup (coordinateD K)) : ¬ CFSG.IsPComponent p L := by
-  intro hL
-  have hodd : Odd (Nat.card K) := hcard ▸ (by decide : Odd 3)
-  have hbound := (coordinateD_pComponent_classification K hodd p L hL).1
-  omega
 
 end CFSG.ComponentClassification.CatalogueBLinearTwo

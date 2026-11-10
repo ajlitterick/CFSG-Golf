@@ -43,10 +43,6 @@ theorem pbT_of_lt {x n : ℕ} (hx : x < 2 ^ n) : ∀ m, n ≤ m → pbT x m = pb
         Nat.testBit_lt_two_pow (lt_of_lt_of_le hx (Nat.pow_le_pow_right Nat.two_pos (by omega))),
         Bool.xor_false]
 
-theorem testBit_pf (y s i : ℕ) : (pf y s).testBit i = (y.testBit i ^^ y.testBit (s + i)) := by
-  simp only [pf]
-  change (y ^^^ y >>> s).testBit i = _
-  rw [Nat.testBit_xor, Nat.testBit_shiftRight]
 
 theorem pbT_add (x a : ℕ) : ∀ b, pbT x (a + b) = (pbT x a ^^ pbT (x >>> a) b)
   | 0 => by simp [pbT]

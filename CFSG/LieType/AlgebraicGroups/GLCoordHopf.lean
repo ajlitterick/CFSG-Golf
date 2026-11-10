@@ -154,8 +154,6 @@ theorem glAntipode_lTensor :
 instance : HopfAlgebra k (GLCoord k ι) :=
   HopfAlgebra.ofAlgHom (glAntipode k ι) (glAntipode_rTensor k ι) (glAntipode_lTensor k ι)
 
-theorem GLCoord.antipodeAlgHom_eq : HopfAlgebra.antipodeAlgHom k (GLCoord k ι) = glAntipode k ι :=
-  AlgHom.ext fun _ => rfl
 
 @[simp] theorem antipode_glEntry (i j : ι) :
     HopfAlgebra.antipode k (glEntry k ι i j) = glDetInv k ι * (glEntryMatrix k ι).adjugate i j :=

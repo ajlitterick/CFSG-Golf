@@ -147,16 +147,6 @@ private theorem ggOmW3_card_fixedField {K : Type} [Field K] [Finite K] (σ : K �
     Nat.card K = Nat.card ↥(fixedField K σ) ^ 2 :=
   card_eq_fixedField_card_sq K σ (ggOmW3_orderOf_sigma σ hσ hσ2)
 
-private def ggOmW3_fixedSubgroup {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
-    (σ : K ≃+* K) : Subgroup (GL ι K) where
-  carrier := {X | X.map σ.toRingHom = X}
-  one_mem' := map_one _
-  mul_mem' {a b} ha hb := by
-    change (a * b).map σ.toRingHom = a * b
-    rw [map_mul, ha, hb]
-  inv_mem' {a} ha := by
-    change (a⁻¹).map σ.toRingHom = a⁻¹
-    rw [map_inv, ha]
 
 private noncomputable def ggOmW3_descendMatrix {ι K : Type}
     [Field K] (σ : K ≃+* K) (M : Matrix ι ι K) (hM : ∀ i j, σ (M i j) = M i j) :

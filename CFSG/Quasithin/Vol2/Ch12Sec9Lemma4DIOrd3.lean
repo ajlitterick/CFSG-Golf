@@ -31,14 +31,6 @@ theorem omegaE_cube (x : Fin 2 → ZMod 2) : omegaE (omegaE (omegaE x)) = x := b
   revert a b
   decide
 
-theorem omegaE_ne_one : omegaE ≠ LinearEquiv.refl (ZMod 2) (Fin 2 → ZMod 2) := by
-  intro h
-  have h1 := LinearEquiv.congr_fun h ![1, 0]
-  rw [omegaE_apply] at h1
-  have h2 : (![(![1, 0] : Fin 2 → ZMod 2) 1, (![1, 0] : Fin 2 → ZMod 2) 0 +
-      (![1, 0] : Fin 2 → ZMod 2) 1] : Fin 2 → ZMod 2) = ![1, 0] := h1
-  have h3 := congrFun h2 0
-  simp at h3
 
 theorem exists_order_three_fix {M : Type} [AddCommGroup M] [Module (ZMod 2) M]
     [Module.Finite (ZMod 2) M] (hM : Module.finrank (ZMod 2) M = 4)

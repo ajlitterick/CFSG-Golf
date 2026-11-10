@@ -14,10 +14,6 @@ open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.
 
 @[expose] def capK : Nat := 50000
 
-@[expose] def lbOK (n cap m : Nat) (gs : List Table) : Bool :=
-  let A := gs.toArray
-  let E := mulClosureH n A cap
-  mulTreeOK n A E.1 E.2.1 E.2.2 && hkeysDistinct n E.1.toList && E.1.size == m
 
 @[expose] def abArr : Array (Array Nat) := #[natArr Ta, natArr Tb]
 

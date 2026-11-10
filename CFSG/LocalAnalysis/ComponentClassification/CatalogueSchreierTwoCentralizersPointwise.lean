@@ -48,10 +48,6 @@ theorem pointwise_preserves_secondCentralizer (M : Subgroup G) (t : G) (ht : t �
     pointwiseKernel M →* MulAut (secondCentralizer t) :=
   (restrict (secondCentralizer t)).comp (pointwiseCentralizerStabilizer M t ht)
 
-theorem pointwiseCentralizerRestriction_apply (M : Subgroup G) (t : G) (ht : t ∈ M)
-    (automorphism : pointwiseKernel M) (member : secondCentralizer t) :
-    (pointwiseCentralizerRestriction M t ht automorphism member).val =
-      ((automorphism : stabilizer M) : MulAut G) member := rfl
 
 theorem pointwiseCentralizerRestriction_injective (M : Subgroup G) (t : G) (ht : t ∈ M)
     (hgenerate : M ⊔ secondCentralizer t = ⊤) :

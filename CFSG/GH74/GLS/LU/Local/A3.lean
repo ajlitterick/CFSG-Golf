@@ -66,20 +66,6 @@ theorem isCentralInvolutionIn_cj {G : Type} [Group G] {X : Subgroup G} {z : G}
     ∀ c ∈ Cz z, ∃ a ∈ A0 z, ∃ k ∈ K₁ ⊔ K₂, ∃ s ∈ (S : Subgroup G),
       ∃ y ∈ Fstar (S : Subgroup G) K₁ K₂ u, c = a * k * s * y
 
-@[expose] def LUA3Lin : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → ∀ p f : ℕ, p.Prime → p ≠ 2 → 5 ≤ p ^ f →
-    p ^ f ≠ 5 → ∀ (z : G) (S : Sylow 2 G) (K₁ K₂ : Subgroup G) (t u : G),
-      A3Hyp G p f z S K₁ K₂ t u → LUEps G (p ^ f) 1 z K₁ u → A3CoreLin G p f z K₁ K₂ u
-
-@[expose] def LUA3Uni : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → ∀ p f : ℕ, p.Prime → p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (z : G) (S : Sylow 2 G) (K₁ K₂ : Subgroup G) (t u : G),
-      A3Hyp G p f z S K₁ K₂ t u → LUEps G (p ^ f) (-1) z K₁ u → A3CoreUni G p f z K₁ K₂ u
-
-@[expose] def LUA3Five : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → ∀ p f : ℕ, p.Prime → p ≠ 2 → 5 ≤ p ^ f →
-    p ^ f = 5 → ∀ (z : G) (S : Sylow 2 G) (K₁ K₂ : Subgroup G) (t u : G),
-      A3Hyp G p f z S K₁ K₂ t u → LUEps G (p ^ f) 1 z K₁ u → A3CoreLin G p f z K₁ K₂ u
 
 theorem a3_sl2 {G : Type} [Group G] {q : ℕ} {z : G} {K₁ K₂ : Subgroup G} (hc : LUComps G q z K₁ K₂)
     (K : Type) [Field K] [Finite K] (hK : Nat.card K = q) {h : G} {L : Subgroup G}
@@ -120,43 +106,5 @@ theorem a3_common {G : Type} [Group G] [Finite G] {q : ℕ} {z : G} {S : Sylow 2
     · calc z * (u * z) = (z * u) * z := by group
         _ = (u * z) * z := by rw [hzu]
 
-theorem luA3Leaf_of_cores (hLin : LUA3Lin) (hUni : LUA3Uni) (hFive : LUA3Five) : LUA3Leaf := by
-  intro G _ _ hG p f hp hp2 hq z S K₁ K₂ t u hc hs h6A h61 hgen
-  have hH : A3Hyp G p f z S K₁ K₂ t u := ⟨hc, hs, h6A, h61, hgen⟩
-  constructor
-  · intro he
-    have hcore : A3CoreLin G p f z K₁ K₂ u := by
-      by_cases h5 : p ^ f = 5
-      · exact hFive G hG p f hp hp2 hq h5 z S K₁ K₂ t u hH he
-      · exact hLin G hG p f hp hp2 hq h5 z S K₁ K₂ t u hH he
-    obtain ⟨K, hK, hKf, u', h, L, hKc, hu', hh, hLc, hα, hβ⟩ := hcore
-    obtain ⟨hz1, hz2, hu'L, hzu, hcomm⟩ := a3_common hc hs hu' hh hLc
-    have hN : IsLinearA3Neighborhood K z u' ![K₁, L, K₂] :=
-      ⟨a3_sl2 hc K hKc hLc, hz1, hz2, hu'L, hzu, hcomm, hc.comm, hα, hβ⟩
-    have := he.A0_cyc
-    obtain ⟨T, hT, hTp, hTc⟩ := exists_T_of_nbhd_lin hp hp2 (by omega) hKc hc hs hN
-    refine ⟨K, hK, hKf, u', ![K₁, L, K₂], h, hKc, hu', rfl, rfl, hh, hLc, hN, T, ?_, hTp, hTc⟩
-    rw [iSup_vec_three]; exact hT
-  · intro he
-    have hcore := hUni G hG p f hp hp2 hq z S K₁ K₂ t u hH he
-    obtain ⟨K, hK, hKf, hKp, F, hF, hFf, u', h, L, hKc, hFc, hu', hh, hLc, hα, hβ⟩ := hcore
-    obtain ⟨hz1, hz2, hu'L, hzu, hcomm⟩ := a3_common hc hs hu' hh hLc
-    have hN : IsUnitaryA3Neighborhood (p ^ f) K F z u' ![K₁, L, K₂] :=
-      ⟨a3_sl2 hc F hFc hLc, hz1, hz2, hu'L, hzu, hcomm, hc.comm, hα, hβ⟩
-    have := he.A0_cyc
-    have : Fact p.Prime := ⟨hp⟩
-    obtain ⟨T, hT, hTp, hTc⟩ := exists_T_of_nbhd_uni hp2 hq hKc hFc hc hs hN
-    refine ⟨K, hK, hKf, hKp, F, hF, hFf, u', ![K₁, L, K₂], h, hKc, hFc, hu', rfl, rfl, hh, hLc, hN, T, ?_,
-      hTp, hTc⟩
-    rw [iSup_vec_three]; exact hT
-
-theorem luLocalLeaf_of_cores
-    (hLin : LUA3Lin) (hUni : LUA3Uni) (hFive : LUA3Five) : LULocalLeaf :=
-  luLocalLeaf_of_A3 (luA3Leaf_of_cores hLin hUni hFive)
-
-theorem luNeighborhood_of_cores
-    (hM : LUModelLeaf) (hLin : LUA3Lin) (hUni : LUA3Uni)
-    (hFive : LUA3Five) (h6A : LUMax6A) : LUNeighborhood :=
-  luNeighborhood_of_A3 hM (luA3Leaf_of_cores hLin hUni hFive) h6A
 
 end CFSG.GH74.GLS.LU.Local

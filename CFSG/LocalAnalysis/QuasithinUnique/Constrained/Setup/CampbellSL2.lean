@@ -49,16 +49,6 @@ theorem mem_span_e0_iff (v : Fin 2 → k) :
     ext i
     fin_cases i <;> simp [h]
 
-theorem mem_span_e1_iff (v : Fin 2 → k) :
-    v ∈ (pt1 : ℙ k (Fin 2 → k)).submodule ↔ v 0 = 0 := by
-  rw [pt1, Projectivization.submodule_mk, Submodule.mem_span_singleton]
-  constructor
-  · rintro ⟨c, rfl⟩
-    simp
-  · intro h
-    refine ⟨v 1, ?_⟩
-    ext i
-    fin_cases i <;> simp [h]
 
 theorem smul_unipotent_vec (t : k) (v : Fin 2 → k) :
     (unipotent t : SpecialLinearGroup (Fin 2) k) • v = ![v 0 + t * v 1, v 1] := by

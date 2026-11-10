@@ -10,21 +10,11 @@ universe u v
 
 variable {E : Type u} {F : Type v} [Group E] [Group F]
 
-theorem kernel_isMulCommutative (eta : E →* F)
-    (hcentral : eta.ker ≤ Subgroup.center E) : IsMulCommutative eta.ker := by
-  apply isMulCommutative_iff.mpr
-  intro a b
-  apply Subtype.ext
-  exact (Subgroup.mem_center_iff.mp (hcentral a.property) (b : E)).symm
 
 theorem kernel_square_bijective (eta : E →* F) (hodd : Odd (Nat.card eta.ker)) :
     Function.Bijective (fun a : eta.ker => a ^ 2) := by
   exact hodd.coprime_two_right.pow_left_bijective
 
-theorem kernel_unique_square_root (eta : E →* F) (hodd : Odd (Nat.card eta.ker))
-    (c : eta.ker) : ∃! a : eta.ker, a ^ 2 = c := by
-  obtain ⟨a, ha⟩ := (kernel_square_bijective eta hodd).surjective c
-  exact ⟨a, ha, fun b hb => (kernel_square_bijective eta hodd).injective (hb.trans ha.symm)⟩
 
 theorem kernel_square_one (eta : E →* F) (hodd : Odd (Nat.card eta.ker))
     {a : E} (ha : a ∈ eta.ker) (hsq : a ^ 2 = 1) : a = 1 := by
@@ -87,12 +77,5 @@ theorem involution_lifts_injective (eta : E →* F)
   have hcone : c = 1 := kernel_square_one eta hodd hc hcsq
   simpa [hcone] using hprod
 
-theorem unique_involution_lift (eta : E →* F) (hsurj : Function.Surjective eta)
-    (hcentral : eta.ker ≤ Subgroup.center E) (hodd : Odd (Nat.card eta.ker))
-    {y : F} (hy : orderOf y = 2) : ∃! x : E, orderOf x = 2 ∧ eta x = y := by
-  obtain ⟨x, hx⟩ := exists_involution_lift eta hsurj hcentral hodd hy
-  refine ⟨x, hx, ?_⟩
-  intro w hw
-  exact involution_lifts_injective eta hcentral hodd hw.1 hx.1 (hw.2.trans hx.2.symm)
 
 end CFSG.ShultStronglyClosedTI.CyclicPair.OddQuotient

@@ -19,29 +19,18 @@ theorem co2Q_chainArrays :
     ChainArrays co2Q co2OrigArrs co2StrongArrs co2BaseArr co2WordArrs :=
   co2Q_records.2.2
 
-theorem co2Qc_chainArrays :
-    ChainArrays co2Qc co2cOrigArrs co2cStrongArrs co2cBaseArr co2cWordArrs :=
-  co2Qc_records.2.2
 
 theorem co2Q_valid :
     ValidSchreier co2Q ∧ ∀ i : Fin co2Q.baseCount,
     co2Q.orbitSize i = ((rawLevels 2300 co2StrongArrs co2BaseArr)[(i : ℕ)]!).pts.size :=
   validSchreier_of_chainOK co2Q_chainArrays (by norm_num) co2Chain_check.1
 
-theorem co2Qc_valid :
-    ValidSchreier co2Qc ∧ ∀ i : Fin co2Qc.baseCount,
-    co2Qc.orbitSize i = ((rawLevels 2300 co2cStrongArrs co2cBaseArr)[(i : ℕ)]!).pts.size :=
-  validSchreier_of_chainOK co2Qc_chainArrays (by norm_num) co2cChain_check.1
 
 theorem co2Q_baseCount : co2Q.baseCount = 6 := by
   change co2BaseArr.size = 6
   rw [co2BaseArr_eq]
   rfl
 
-theorem co2Qc_baseCount : co2Qc.baseCount = 6 := by
-  change co2cBaseArr.size = 6
-  rw [co2cBaseArr_eq]
-  rfl
 
 theorem orbitSizes_of_check {Q : RawSchreierDatum 2300} {S : Array (Array ℕ)} {base : Array ℕ}
     (hb : Q.baseCount = base.size)
@@ -69,10 +58,6 @@ theorem co2Q_orbitSize
   rw [getElem!_pos _ (i : ℕ) (by simp)]
   simp
 
-theorem co2Qc_orbitSizes :
-    (List.finRange co2Qc.baseCount).map co2Qc.orbitSize = [2300, 1408, 567, 192, 30, 4] := by
-  rw [orbitSizes_of_check (Q := co2Qc) (S := co2cStrongArrs) (base := co2cBaseArr) rfl
-    co2Qc_valid.2, co2cChain_check.2]
 
 theorem rawOfArrays_base_toList {n : ℕ} {O S : Array (Array ℕ)} {base : Array ℕ}
     {W : Array (List ℤ)} {hn : 1 ≤ n} {hle : O.size ≤ S.size}
@@ -91,10 +76,6 @@ theorem co2Q_base :
   have h : co2Q.base.toList.map Fin.val = co2BaseArr.toList := rawOfArrays_base_toList
   rw [h, co2BaseArr_eq]
 
-theorem co2Qc_base :
-    co2Qc.base.toList.map Fin.val = [0, 1, 3, 2, 5, 4] := by
-  have h : co2Qc.base.toList.map Fin.val = co2cBaseArr.toList := rawOfArrays_base_toList
-  rw [h, co2cBaseArr_eq]
 
 theorem card_co2P :
     Nat.card co2P = 42305421312000 := by
@@ -103,12 +84,6 @@ theorem card_co2P :
     co2Chain_check.2]
   rfl
 
-theorem card_co2Pc :
-    Nat.card co2Pc = 42305421312000 := by
-  rw [← co2Qc_originalSubgroup,
-    card_originalSubgroup_of_chainOK co2Qc_chainArrays (by norm_num) co2cChain_check.1,
-    co2cChain_check.2]
-  rfl
 
 theorem co2P_orbit_zero :
     MulAction.orbit co2P (0 : Fin 2300) = Set.univ := by
@@ -172,23 +147,6 @@ theorem co2cGen_one :
   exact eq_of_eqA (rep_co2cGen (by norm_num))
     (rep_compA hwi (rep_compA (rep_co2Gen (by norm_num)) rep_co2W)) co2Conj_check.2.2.1
 
-theorem co2W_mem : co2W ∈ co2P := by
-  rw [co2W_eq]
-  have h0 : co2Gen 0 ∈ co2P := Subgroup.subset_closure (Set.mem_insert _ _)
-  have h1 : co2Gen 1 ∈ co2P := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
-  exact mul_mem (mul_mem (mul_mem (mul_mem (mul_mem (inv_mem h0) h1) h1) h0) h1) (inv_mem h0)
-
-theorem co2Pc_le : co2Pc ≤ co2P := by
-  rw [co2Pc, Subgroup.closure_le]
-  have h1 : co2Gen 1 ∈ co2P := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
-  rintro _ (rfl | rfl)
-  · rw [co2cGen_zero]
-    exact Subgroup.subset_closure (Set.mem_insert _ _)
-  · rw [co2cGen_one]
-    exact mul_mem (mul_mem (inv_mem co2W_mem) h1) co2W_mem
-
-theorem co2Pc_eq : co2Pc = co2P :=
-  Subgroup.eq_of_le_of_card_ge co2Pc_le (by rw [card_co2P, card_co2Pc])
 
 theorem orderOf_of_rep {p : ℕ} [hp : Fact p.Prime] {t : Array ℕ} {g : Equiv.Perm (Fin 2300)}
     (ht : Rep 2300 t g) (h1 : eqA 2300 (powArr 2300 t p) (idA 2300) = true)
@@ -201,14 +159,6 @@ instance fact_prime_five : Fact (Nat.Prime 5) := ⟨by norm_num⟩
 
 instance fact_prime_twentythree : Fact (Nat.Prime 23) := ⟨by norm_num⟩
 
-theorem orderOf_co2cGen_zero :
-    orderOf (co2cGen 0) = 2 :=
-  orderOf_of_rep (rep_co2cGen (by norm_num)) co2Conj_check.2.2.2.1 co2Conj_check.2.2.2.2.1
-
-theorem orderOf_co2cGen_one :
-    orderOf (co2cGen 1) = 5 :=
-  orderOf_of_rep (rep_co2cGen (by norm_num)) co2Conj_check.2.2.2.2.2.1
-    co2Conj_check.2.2.2.2.2.2.1
 
 theorem orderOf_co2cGen_mul :
     orderOf (co2cGen 0 * co2cGen 1) = 23 :=
@@ -219,27 +169,5 @@ theorem natCard_Co2 :
     Nat.card Blueprint.NativeSporadic.Co2 = 42305421312000 := by
   rw [Nat.card_congr co2PermEquiv.toEquiv, card_co2P]
 
-theorem fam_co2_order_coprime_generators :
-    ValidSchreier co2Q ∧ ValidSchreier co2Qc ∧
-    co2Q.base.toList.map Fin.val = [0, 1, 2, 3, 5, 4] ∧
-    co2Qc.base.toList.map Fin.val = [0, 1, 3, 2, 5, 4] ∧
-    (List.finRange co2Q.baseCount).map co2Q.orbitSize = [2300, 1408, 567, 192, 30, 4] ∧
-    (List.finRange co2Qc.baseCount).map co2Qc.orbitSize = [2300, 1408, 567, 192, 30, 4] ∧
-    co2cGen 0 = co2Gen 0 ∧ co2cGen 1 = co2W⁻¹ * co2Gen 1 * co2W ∧ co2Pc = co2P ∧
-    Nat.card co2P = 42305421312000 ∧ MulAction.IsPretransitive co2P (Fin 2300) ∧
-    Nat.card (MulAction.stabilizer co2P (0 : Fin 2300)) = 18393661440 ∧
-    orderOf (co2cGen 0) = 2 ∧ orderOf (co2cGen 1) = 5 ∧ orderOf (co2cGen 0 * co2cGen 1) = 23 ∧
-    Nat.gcd (orderOf (co2cGen 0)) (orderOf (co2cGen 1)) = 1 ∧
-    Nat.gcd (orderOf (co2cGen 0 * co2cGen 1))
-      (Nat.card (MulAction.stabilizer co2P (0 : Fin 2300))) = 1 ∧
-    Nat.card Blueprint.NativeSporadic.Co2 = 42305421312000 := by
-  refine ⟨co2Q_valid.1, co2Qc_valid.1, co2Q_base, co2Qc_base, co2Q_orbitSizes, co2Qc_orbitSizes,
-    co2cGen_zero, co2cGen_one, co2Pc_eq, card_co2P, co2P_transitive, card_co2P_stabilizer,
-    orderOf_co2cGen_zero, orderOf_co2cGen_one, orderOf_co2cGen_mul, ?_, ?_, ?_⟩
-  · rw [orderOf_co2cGen_zero, orderOf_co2cGen_one]
-    norm_num
-  · rw [orderOf_co2cGen_mul, card_co2P_stabilizer]
-    norm_num
-  · exact natCard_Co2
 
 end CFSG.Sporadic.Co2Cert

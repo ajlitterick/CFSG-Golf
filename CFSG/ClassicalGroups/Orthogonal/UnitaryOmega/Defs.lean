@@ -138,12 +138,6 @@ theorem castLin_id (h : k ≤ m) :
     · rw [castLin_snd_of_not_lt (h := h) (g := LinearMap.id) (v := v) hj]
       rfl
 
-theorem castRestr_refl (v : (F × F) × (Fin m → K)) :
-    castRestr (le_refl m) v = v := by
-  refine Prod.ext (Prod.ext rfl rfl) (funext fun i => ?_)
-  change v.2 (Fin.castLE (le_refl m) i) = v.2 i
-  rw [Fin.castLE_rfl]
-  rfl
 
 theorem castRestr_surjective (h : k ≤ m) :
     Function.Surjective (castRestr (F := F) (K := K) h) := by
@@ -163,15 +157,6 @@ theorem castRestr_castRestr {l : ℕ} (h₁ : k ≤ l) (h₂ : l ≤ m)
   change v.2 (Fin.castLE h₂ (Fin.castLE h₁ i)) = v.2 (Fin.castLE (h₁.trans h₂) i)
   exact congrArg v.2 (Fin.ext rfl)
 
-theorem castLin_refl (g : ((F × F) × (Fin m → K)) →ₗ[F]
-    ((F × F) × (Fin m → K))) :
-    castLin (le_refl m) g = g := by
-  apply LinearMap.ext
-  intro v
-  refine Prod.ext (Prod.ext ?_ ?_) (funext fun j => ?_)
-  · rw [castLin_fst, castRestr_refl]
-  · rw [castLin_fst, castRestr_refl]
-  · rw [castLin_snd_of_lt (h := le_refl m) (g := g) (v := v) j.2, castRestr_refl]
 
 theorem castLin_castLin {l : ℕ} (h₁ : k ≤ l) (h₂ : l ≤ m)
     (g : ((F × F) × (Fin k → K)) →ₗ[F] ((F × F) × (Fin k → K))) :
@@ -342,18 +327,6 @@ theorem normOmegaCast_injective (h : k ≤ m) : Function.Injective (normOmegaCas
   rw [castRestr_castLin, castRestr_castLin, hw] at h
   exact h
 
-theorem normOmegaCast_refl (m : ℕ) :
-    normOmegaCast E (le_refl m) = MonoidHom.id (normOmega E m) := by
-  apply MonoidHom.ext
-  intro a
-  apply Subtype.ext
-  apply LinearEquiv.ext
-  intro v
-  change (castEquiv (le_refl m) (a : ((F × F) × (Fin m → K)) ≃ₗ[F]
-    ((F × F) × (Fin m → K)))) v =
-      (a : ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))) v
-  rw [castEquiv_apply, castLin_refl]
-  rfl
 
 theorem normOmegaCast_comp {l : ℕ} (h₁ : k ≤ l) (h₂ : l ≤ m) :
     (normOmegaCast E h₂).comp (normOmegaCast E h₁) = normOmegaCast E (h₁.trans h₂) := by

@@ -28,7 +28,6 @@ open CertificateChecks.KernelG24.Tri27206
 
 @[expose] noncomputable def mulG (x y : Nat) : Nat := pcomp 1365 11 (mask 11) x y
 
-@[expose] noncomputable def commG (x y : Nat) : Bool := Nat.beq (mulG x y) (mulG y x)
 
 @[expose] noncomputable def rG (k : Nat) : Nat := [LC.S 0, LC.S 1, TG.F 2].getD k (nat_lit 0)
 
@@ -67,10 +66,6 @@ open CertificateChecks.KernelG24.Tri27206
   !(commPt y (TG.F 0) && commPt y (TG.F 1) && invPt y) ||
     Nat.beq y (pidn 1365 11) || Nat.beq y (TG.F 2)
 
-@[expose] def bumpHead (R : List (Nat × Nat × Nat × Nat)) : List (Nat × Nat × Nat × Nat) :=
-  match R with
-  | [] => []
-  | r :: t => (r.1 + 1, r.2) :: t
 
 end CertificateChecks.KernelG24Th
 

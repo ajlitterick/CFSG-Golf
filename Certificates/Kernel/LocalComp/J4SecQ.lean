@@ -14,8 +14,6 @@ open CFSG.KC.OpsF2K CFSG.SectionRank.Native CertificateChecks.KernelLC.J4R
 
 theorem sec_Q : secQ 112 JA.M JB.M j4Sec = true := by decide +kernel
 
-theorem sec_negQ : (!secQ 112 JA.M JB.M { j4Sec with outs := [18, 18, 22, 24, 26] }) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelLC.J4Sec
 

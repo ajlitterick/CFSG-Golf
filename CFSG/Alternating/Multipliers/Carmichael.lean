@@ -130,8 +130,5 @@ theorem isPresentation_carmichael (m : ℕ) :
 @[expose] def carmichaelRel01 (m : ℕ) : List (Fin (m + 2) × Bool) :=
   [(0, true), (1, true), (0, true), (1, true)]
 
-theorem carmichaelRel01_mem (m : ℕ) : carmichaelRel01 m ∈ carmichaelWords (m + 2) := by
-  refine List.mem_append_right _ (List.mem_flatMap.mpr ⟨0, List.mem_finRange 0, ?_⟩)
-  exact List.mem_map_of_mem (List.mem_filter.mpr ⟨List.mem_finRange 1, by simp⟩)
 
 end CFSG.Alternating.Multipliers

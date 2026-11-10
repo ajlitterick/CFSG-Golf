@@ -46,7 +46,6 @@ theorem br_ok : Form.brPk.map (pairsOf 6084) = (List.range 78).map brPairs := by
 
 @[expose] noncomputable def ptN (U : List ℕ) (i a : ℕ) : K := ofBits (cb U i (2 * a)) (cb U i (2 * a + 1))
 
-theorem ptK_apply (U : List ℕ) (i : ℕ) (a : Fin 78) : ptK U i a = ptN U i a := rfl
 
 theorem f4acc_ofBits (U V : List ℕ) (i : ℕ) : ∀ (ps : List (ℕ × ℕ)) (s : Bool × Bool),
     ofBits (f4acc s U V i ps).1 (f4acc s U V i ps).2 =

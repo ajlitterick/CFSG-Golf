@@ -29,7 +29,6 @@ theorem pgRefl_so {k : ℕ} (hk : k < 4) : IsSO5 (pgRefl k) := by
   have := pg_sr_so (k : ZMod 4)
   rwa [ZMod.val_natCast_of_lt hk] at this
 
-def pgReflElt {k : ℕ} (hk : k < 4) : PGSp45 := mkPG (pgRefl k) (pgRefl_so hk)
 
 theorem chi_tau1 (hst : PGStage1) (hchi : PGChi) :
     chiPG (mkPG pgTau1 pgTau1_so) = 1 := by
@@ -57,10 +56,6 @@ theorem chi_refl_2 (hco : PGCore) (hchi : PGChi) :
   rw [chiPG_mkPG hchi _ _ (hco.refl2 2 (by simp)), hchi.fix2]
   exact Even.neg_one_pow ⟨150, by norm_num⟩
 
-theorem chi_refl_3 (hco : PGCore) (hchi : PGChi) :
-    chiPG (mkPG (pgRefl 3) (pgRefl_so (by norm_num))) = -1 := by
-  rw [chiPG_mkPG hchi _ _ (hco.refl2 3 (by simp)), hchi.fix3]
-  exact Odd.neg_one_pow ⟨149, by norm_num⟩
 
 theorem chi_R (hco : PGCore) (hchi : PGChi) : chiPG (mkPG pgR0 pgR0_so) = -1 := by
   have h1 : mkPG (pgRefl 1) (pgRefl_so (by norm_num)) = mkPG pgSf0 pgSf0_so * mkPG pgR0 pgR0_so :=
@@ -83,9 +78,6 @@ theorem mm_one : mm φ (1 : X) = 1 := by simp [mm]
 
 theorem mm_inj {x y : X} (h : mm φ x = mm φ y) : x = y := φ.injective (pg_ext h)
 
-theorem mm_so (x : X) : IsSO5 (mm φ x) := (φ x).2
-
-theorem mm_pow (x : X) (n : ℕ) : mm φ (x ^ n) = mm φ x ^ n := by simp [mm]
 
 def eltOf (A : SoMat5) (hA : IsSO5 A) : X := φ.symm (mkPG A hA)
 

@@ -41,11 +41,6 @@ theorem simple_generalizedFitting_centralizer_eq_bot {G : Type*} [Group G] [Fini
     Subgroup.centralizer (GeneralizedFitting.subgroup G : Set G) = ⊥ :=
   simple_self_centralizing_centralizer_eq_bot _ hnonab (GeneralizedFitting.centralizer_le G)
 
-theorem simple_generalizedFitting_center_eq_bot {G : Type*} [Group G] [Finite G]
-    [IsSimpleGroup (GeneralizedFitting.subgroup G)]
-    (hnonab : ∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a) :
-    Subgroup.center G = ⊥ :=
-  simple_self_centralizing_center_eq_bot _ hnonab (GeneralizedFitting.centralizer_le G)
 
 theorem quotient_solvable_of_index_le_two {G : Type*} [Group G] [Finite G]
     (N : Subgroup G) [N.Normal] (hindex : N.index ≤ 2) : Group.IsSolvable (G ⧸ N) := by

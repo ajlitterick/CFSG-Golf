@@ -491,7 +491,6 @@ end Conf
 
 end NonAb
 
-variable (S)
 
 end Setting4
 

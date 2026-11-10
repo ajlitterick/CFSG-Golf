@@ -201,8 +201,6 @@ theorem letGP_eq_pos (idn : ℕ) (G GI : List ℕ) (j : ℕ) (k : ℕ → ℕ �
 theorem letGP_eq_neg (idn : ℕ) (G GI : List ℕ) (j : ℕ) (k : ℕ → ℕ → Bool) :
     letGP idn G GI (Int.negSucc j) k = k (getTc idn GI j) (getTc idn G j) := rfl
 
-theorem letGP_eq_zero (idn : ℕ) (G GI : List ℕ) (k : ℕ → ℕ → Bool) :
-    letGP idn G GI 0 k = k idn idn := rfl
 
 include hid hl hz in
 theorem letGP_sound (z : ℤ) (k : ℕ → ℕ → Bool) (h : letGP idn G GI z k = true) :
@@ -309,8 +307,6 @@ theorem letRP_eq_pos (idn : ℕ) (r1 r2 : List ℕ) (len j : ℕ) (k : ℕ → �
 theorem letRP_eq_neg (idn : ℕ) (r1 r2 : List ℕ) (len j : ℕ) (k : ℕ → ℕ → Bool) :
     letRP idn r1 r2 len (Int.negSucc j) k = k (regTc idn r2 len j) (regTc idn r1 len j) := rfl
 
-theorem letRP_eq_zero (idn : ℕ) (r1 r2 : List ℕ) (len : ℕ) (k : ℕ → ℕ → Bool) :
-    letRP idn r1 r2 len 0 k = k idn idn := rfl
 
 theorem letRP_sound {regs : List PArr} {Ps : List (ℕ × ℕ)} (hR : RelP n w regs Ps) {idn : ℕ}
     (hid : RS n w idn 1) (z : ℤ) (k : ℕ → ℕ → Bool)
@@ -328,8 +324,6 @@ theorem letRP_sound {regs : List PArr} {Ps : List (ℕ × ℕ)} (hR : RelP n w r
     rw [pLetter_neg]
     exact (relP_getD hR hid j).inv
 
-theorem runP_nil (n w idn : ℕ) (k : List ℕ → List ℕ → ℕ → Bool) (r1 r2 : List ℕ) (len : ℕ) :
-    runP n w idn [] k r1 r2 len = k r1 r2 len := rfl
 
 theorem runP_cons (n w idn : ℕ) (pq : ℤ × ℤ) (prog : List (ℤ × ℤ))
     (k : List ℕ → List ℕ → ℕ → Bool) (r1 r2 : List ℕ) (len : ℕ) :
@@ -368,9 +362,6 @@ theorem conjOneP_cons (n w g gi : ℕ) (t : ℕ) (T : List ℕ) (ti : ℕ) (TI :
         strictB (pcomp n w (mask w) g (pcomp n w (mask w) ti gi)) fun CI =>
           conjOneP n w g gi T TI k (C :: r1) (CI :: r2) (len + 1) := rfl
 
-theorem conjOneP_nil (n w g gi : ℕ) (k : List ℕ → List ℕ → ℕ → Bool) (r1 r2 : List ℕ)
-    (len : ℕ) :
-    conjOneP n w g gi [] [] k r1 r2 len = k r1 r2 len := rfl
 
 theorem conjOneP_sound (hn : n < 2 ^ 32) (hnw : n ≤ 2 ^ w) {gp : PArr} {g gi : ℕ}
     (hg : PrP n w gp g gi) (k : List ℕ → List ℕ → ℕ → Bool) :
@@ -399,9 +390,6 @@ theorem conjOneP_sound (hn : n < 2 ^ 32) (hnw : n ≤ 2 ^ w) {gp : PArr} {g gi :
       refine ⟨Ps', ?_, h2⟩
       simpa [List.append_assoc] using h1
 
-theorem conjsP_nil (n w idn : ℕ) (G GI TS TIS : List ℕ) (k : List ℕ → List ℕ → ℕ → Bool)
-    (r1 r2 : List ℕ) (len : ℕ) :
-    conjsP n w idn G GI TS TIS [] k r1 r2 len = k r1 r2 len := rfl
 
 theorem conjsP_cons (n w idn : ℕ) (G GI TS TIS : List ℕ) (wd : List ℤ) (ws : List (List ℤ))
     (k : List ℕ → List ℕ → ℕ → Bool) (r1 r2 : List ℕ) (len : ℕ) :

@@ -33,9 +33,6 @@ theorem graphFixedRootTorus_comm (σ : K →+* K) {x y : ModGL TwistTag.D4.tag K
   one_mem' := ⟨one_mem _, one_pow _⟩
   inv_mem' := fun {x} hx => ⟨inv_mem hx.1, by rw [inv_pow, hx.2, inv_one]⟩
 
-theorem mem_d4Torsion_iff (σ : K →+* K) (p : ℕ) {x : ModGL TwistTag.D4.tag K} :
-    x ∈ d4Torsion σ p ↔ x ∈ graphFixedRootTorus TwistTag.D4 K σ ∧ x ^ p = 1 :=
-  Iff.rfl
 
 end Torsion
 

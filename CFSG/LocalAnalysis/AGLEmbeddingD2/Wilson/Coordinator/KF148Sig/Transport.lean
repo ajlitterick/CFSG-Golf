@@ -65,10 +65,5 @@ theorem SigHyp.map {E K : Subgroup X} (h : SigHyp E K) (φ : X ≃* Y) :
     rw [← pPrimeCoreOf_map_mulEquiv, Subgroup.map_inf_eq _ _ _ φ.injective,
       map_centralizer_singleton]
 
-theorem inspectSig148_of_mulEquiv {X Y : Type} [Group X] [Group Y] (φ : X ≃* Y)
-    {P : Subgroup Y → Prop} (h : InspectSig148 Y P) :
-    InspectSig148 X (fun K => P (K.map φ.toMonoidHom)) := by
-  rw [inspectSig148_iff] at h ⊢
-  exact fun E K hEK => h _ _ (hEK.map φ)
 
 end CFSG.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig

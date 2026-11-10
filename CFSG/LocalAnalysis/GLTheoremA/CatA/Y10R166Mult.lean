@@ -930,18 +930,6 @@ theorem linearSevenTwo_mult {J : Type} [Group J] [Finite J]
     exact h'
   exact ⟨⟨hZ, hTM⟩, hodd, hm2, linearSevenTwo_dvd h⟩
 
-theorem mul_dvd_card_centerQuot_of_two_primes {J : Type} [Group J] [Finite J] {n p q : ℕ}
-    (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) (hp2 : p ≠ 2) (hq2 : q ≠ 2)
-    (hpd : p ∣ 2 ^ (2 * n) - 1) (hqd : q ∣ 2 ^ (2 * n) - 1)
-    (h : ∀ r : ℕ, r.Prime → r ≠ 2 → r ∣ 2 ^ (2 * n) - 1 →
-      r ∣ Nat.card (J ⧸ Subgroup.center J)) :
-    p * q ∣ Nat.card (J ⧸ Subgroup.center J) := by
-  have hcop : Nat.Coprime p q := by
-    refine (hp.coprime_iff_not_dvd).2 ?_
-    intro hd
-    exact hpq ((Nat.prime_dvd_prime_iff_eq hp hq).1 hd)
-  exact hcop.mul_dvd_of_dvd_of_dvd (h p hp hp2 hpd) (h q hq hq2 hqd)
-
 
 theorem linearDThree_mult {J : Type} [Group J] [Finite J] {n : ℕ} (hn : 2 ≤ n)
     (h : HasLabel J (· = ⟨.D, 3, n⟩)) (hGA : CFSG.Open.GriessAllModelsStatement) :
@@ -1014,23 +1002,5 @@ theorem linearDThree_mult {J : Type} [Group J] [Finite J] {n : ℕ} (hn : 2 ≤ 
       (Finset.dvd_prod_of_mem (fun j => ((2 ^ n) ^ j - 1)) hmem)) _
   exact ⟨hsix, hodd, hm2, hdvd⟩
 
-
-theorem mul_dvd_card_centerQuot_of_dvd_pow_add_one_sub_one {J : Type} [Group J] [Finite J]
-    {n p q : ℕ} (hp : p.Prime) (hq : q.Prime) (hpq : p ≠ q) (hp2 : p ≠ 2) (hq2 : q ≠ 2)
-    (hpd : p ∣ 2 ^ n + 1) (hqd : q ∣ 2 ^ n - 1)
-    (h : ∀ r : ℕ, r.Prime → r ≠ 2 → r ∣ 2 ^ (2 * n) - 1 →
-      r ∣ Nat.card (J ⧸ Subgroup.center J)) :
-    p * q ∣ Nat.card (J ⧸ Subgroup.center J) := by
-  have hfac : 2 ^ (2 * n) - 1 = (2 ^ n + 1) * (2 ^ n - 1) := by
-    rw [show 2 ^ (2 * n) = (2 ^ n) ^ 2 by
-      rw [pow_two, ← pow_add]
-      congr 1
-      ring]
-    simpa using Nat.sq_sub_sq (2 ^ n) 1
-  refine mul_dvd_card_centerQuot_of_two_primes hp hq hpq hp2 hq2 ?_ ?_ h
-  · rw [hfac]
-    exact dvd_mul_of_dvd_left hpd _
-  · rw [hfac]
-    exact dvd_mul_of_dvd_right hqd _
 
 end CFSG.LocalAnalysis.GLTheoremA.Y10F

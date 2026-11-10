@@ -110,9 +110,5 @@ theorem locD_eq_centralizer :
   rw [inf_comm, ← h]
   exact (inf_eq_left.2 locD_le_P).symm
 
-theorem AT_Co2_full_involution_centralizers :
-    locC = co2P ⊓ Subgroup.centralizer {locZ} ∧ locD = co2P ⊓ Subgroup.centralizer {locT} ∧
-    (locC.subgroupOf co2P).index = 56925 ∧ (locD.subgroupOf co2P).index = 1024650 :=
-  ⟨locC_eq_centralizer, locD_eq_centralizer, locC_index, locD_index⟩
 
 end CFSG.Sporadic.Co2Schreier

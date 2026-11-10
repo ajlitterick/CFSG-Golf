@@ -638,17 +638,9 @@ theorem spThreeLinearOddStandardInput_of_clauses
     SpThreeLinearOddStandardInput :=
   spThreeLinearOddStandardInput_of_orth hcat hdet spThreeLinearOddOrthInput_holds
 
-theorem spThreeKindCoverInput_linearOdd_of_catSL3
-    (hcat : LinearPilot.SLmCatalogueClausesAt 3) (hdet : LinearPilot.SLmEvenTypeDetAt 3) :
-    SpThreeKindCoverInput .linearOdd :=
-  spThreeKindCoverInput_linearOdd_of_orth hcat hdet spThreeLinearOddOrthInput_holds
 
 section TypeDet
 
-
-theorem spThreeKindCoverInput_linearOdd_of_catalogue
-    (hcat : LinearPilot.SLmCatalogueClausesAt 3) : SpThreeKindCoverInput .linearOdd :=
-  spThreeKindCoverInput_linearOdd_of_catSL3 hcat (LinearPilot.slmEvenTypeDetAt le_rfl)
 
 end TypeDet
 

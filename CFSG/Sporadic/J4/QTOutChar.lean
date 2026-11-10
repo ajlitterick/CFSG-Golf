@@ -203,12 +203,6 @@ theorem Zc4_sub_Eg (hM : MatFacts) (hF : J4Facts) : Zc 4 ⊆ Eg uJ 11 := by
   obtain ⟨c, hc, rfl⟩ := hx
   exact eta_mem_Eg 11 le_rfl c
 
-theorem Eg_le_Csub (hM : MatFacts) (hF : J4Facts) : Eg uJ 11 ≤ Csub := by
-  intro x hx
-  refine Subgroup.mem_inf.2 ⟨Eg_le_P0 hx, ?_⟩
-  rw [Subgroup.mem_centralizer_iff]
-  intro z hz
-  exact Eg_comm (elem_uJ hM) (Zc4_sub_Eg hM hF hz) hx
 
 theorem fixesZ4_of_comm (hM : MatFacts) (hF : J4Facts) {x : J} {t : List ℕ} (hxt : Acts x t)
     (hx : x ∈ Subgroup.centralizer (Zc 4)) : fixesZ4 t = true := by

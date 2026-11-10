@@ -108,7 +108,6 @@ theorem eq_bot_of_isPGroup_two_of_hess {X : Type} [Group X] [Finite X] {E : Subg
   exact Proof1413Res3.eq_bot_of_isPGroup_two_of_le (hV2.to_le inf_le_left) inf_le_right
     (hodd _ hbE hb1')
 
-variable {G : Type} [Group G]
 
 end Proof1413Res6
 

@@ -115,14 +115,6 @@ theorem componentAction_injective [Finite G] [IsSimpleGroup G]
     apply hnopath
     exact SimpleGraph.ConnectedComponent.exact (hfixed.symm.trans hmove)
 
-theorem componentAction_faithful [Finite G] [IsSimpleGroup G]
-    (hdisc : ¬ (disconnectedInvolutionCommutingGraph G).Preconnected) :
-    FaithfulSMul G (InvolutionComponent G) := by
-  constructor
-  intro g h heq
-  apply componentAction_injective hdisc
-  apply Equiv.ext
-  exact heq
 
 theorem component_degree_odd [Finite G]
     (hdisc : ¬ (disconnectedInvolutionCommutingGraph G).Preconnected) :

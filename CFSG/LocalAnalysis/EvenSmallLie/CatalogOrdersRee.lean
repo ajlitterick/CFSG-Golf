@@ -139,9 +139,5 @@ theorem twenty_five_dvd_card_of_reeTitsModel_Tits
     (h : CFSG.Blueprint.ReeTitsModel T .Tits p f) : 25 ∣ Nat.card T :=
   dvd_card_of_reeTitsModel_Tits h (by decide) (by norm_num)
 
-theorem twenty_five_dvd_card_of_reeTitsModel_twistedF4
-    {T : Type} [Group T] {p f : ℕ}
-    (h : CFSG.Blueprint.ReeTitsModel T .twistedF4 p f) : 25 ∣ Nat.card T :=
-  dvd_card_of_reeTitsModel_twistedF4 h (by decide) (by norm_num)
 
 end CFSG.EvenSmallLie.CatalogOrders

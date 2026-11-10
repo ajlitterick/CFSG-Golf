@@ -27,9 +27,6 @@ variable {r : ℕ} (A : Matrix (Fin r) (Fin r) ℤ) (K : Type) [Field K]
 
 variable {A K H}
 
-theorem GGDiagRealizedInput.diagCyclic (h : GGDiagRealizedInput A K H) :
-    GGDiagCyclicInput A K H :=
-  fun _ a' _ ha' hn => absurd (h a' ha') hn
 
 theorem ggOutdiagCyclic_of_diagCyclicInput (h : GGDiagCyclicInput A K H) :
     GGOutdiagCyclic (LargeEvenCenterQuot H) (LargeEvenChevIDImage A K H) :=
@@ -175,11 +172,6 @@ theorem ggLNoncyclicInput_of_twisted
     GGDiagCyclicInput (LargeEvenCartanE 6) K
       (LargeEvenTwistedH (LargeEvenCartanE 6) K LargeEvenRhoE6 n)
 
-@[expose] def GGTwistedD4DiagInput : Prop :=
-  ∀ n : ℕ, 1 ≤ n → ∀ (K : Type) [Field K] [Finite K], Nat.card K = (2 ^ n) ^ 3 →
-    IsSimpleGroup (LargeEvenCenterQuot (LargeEvenTwistedH LargeEvenCartanD4 K LargeEvenRhoD4 n)) →
-    GGDiagRealizedInput LargeEvenCartanD4 K
-      (LargeEvenTwistedH LargeEvenCartanD4 K LargeEvenRhoD4 n)
 
 @[expose] def GGTwistedF4DiagInput : Prop :=
   ∀ a : ℕ, 1 ≤ a → ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ (2 * a + 1) →
@@ -197,56 +189,6 @@ theorem largeEvenLabelAll_outdiag_twE6 (hE6 : GGTwistedE6DiagInput) {lab : Large
   exact recipeTwisted_and (P := LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I)
     (fun K _ _ hK hs _ => ggOutdiagCyclic_of_diagCyclicInput (hE6 n hn K hK hs)) hQ
 
-theorem largeEvenLabelAll_outdiag_triD4_of_diag (hD4 : GGTwistedD4DiagInput)
-    {lab : LargeEvenLabel} (hlab : LargeEvenInLambda2 lab) (ht : lab.tag = .triD4) :
-    LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I) := by
-  obtain ⟨t, l, n⟩ := lab
-  obtain ⟨hn, -⟩ := hlab
-  dsimp only at ht
-  subst ht
-  intro Q hQ
-  exact recipeTwisted_and (P := LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I)
-    (fun K _ _ hK hs _ => ggOutdiagCyclic_of_diagCyclicInput (hD4 n hn K hK hs).diagCyclic) hQ
-
-theorem largeEvenLabelAll_outdiag_twF4 (hF4 : GGTwistedF4DiagInput) {lab : LargeEvenLabel}
-    (hlab : LargeEvenInLambda2 lab) (ht : lab.tag = .twF4) :
-    LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I) := by
-  obtain ⟨t, l, n⟩ := lab
-  obtain ⟨-, hl⟩ := hlab
-  dsimp only at ht
-  subst ht
-  obtain ⟨-, -, h3⟩ := hl
-  intro Q hQ
-  exact recipeTwF4_and (P := LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I)
-    (fun K _ _ hK hs _ =>
-      ggOutdiagCyclic_of_diagCyclicInput (hF4 _ (by omega) K hK hs).diagCyclic) hQ
-
-theorem largeEvenLabelAll_outdiag_twisted (hE6 : GGTwistedE6DiagInput)
-    (hD4 : GGTwistedD4DiagInput) (hF4 : GGTwistedF4DiagInput) {lab : LargeEvenLabel}
-    (hlab : LargeEvenInLambda2 lab) (ht : GGOutdiagTwistedLabel lab) :
-    LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I) := by
-  rcases ht with ht | ht | ht
-  · exact largeEvenLabelAll_outdiag_twE6 hE6 hlab ht
-  · exact largeEvenLabelAll_outdiag_triD4_of_diag hD4 hlab ht
-  · exact largeEvenLabelAll_outdiag_twF4 hF4 hlab ht
-
-theorem ggLNoncyclicInput_of_twistedDiag (hE6 : GGTwistedE6DiagInput)
-    (hD4 : GGTwistedD4DiagInput) (hF4 : GGTwistedF4DiagInput) : GGLNoncyclicInput :=
-  ggLNoncyclicInput_of_twisted fun _ hlab ht =>
-    largeEvenLabelAll_outdiag_twisted hE6 hD4 hF4 hlab ht
-
-theorem ggTableBInputs_of_twisted
-    (h₀ : ∀ lab, LargeEvenInLambda2 lab → GGOutdiagTwistedLabel lab →
-      LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I))
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab → LargeEvenLabelAll lab fun R _ I _ =>
-        ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I) :
-    GGLNoncyclicInput ∧ GGBstarInput ∧ GGStdSubPreInput := by
-  have ha₀ := ggLNoncyclicInput_of_twisted h₀
-  refine ⟨ha₀, ggBstarInput_of_labels ha₀ fun p lab hp hlab hs => ?_,
-    ggStdSubPreInput_of_labels fun p lab hp hlab hs => ?_⟩
-  · exact (h p lab hp hlab hs).mono fun _ _ _ _ ⟨r, h1, h2, _⟩ => ⟨r, h1, h2⟩
-  · exact (h p lab hp hlab hs).mono fun _ _ _ _ ⟨r, h1, _, h3⟩ => ⟨r, h1, h3⟩
 
 end Labels
 

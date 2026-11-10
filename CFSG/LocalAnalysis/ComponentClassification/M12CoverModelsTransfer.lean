@@ -97,11 +97,6 @@ theorem transfer₂_add_coboundary_mu (s t : S) :
 @[expose] noncomputable def coef (i : Fin 1485) (h : S) : ZMod 2 :=
   ((A i)⁻¹ * tau0 ⟨0, pS i h⟩ * A (iS i h)).fst
 
-theorem A_conj (i : Fin 1485) (h : S) :
-    (A i)⁻¹ * tau0 ⟨0, pS i h⟩ * A (iS i h) = ⟨coef i h, pS (σI i) (βS h)⟩ := by
-  refine CocycleExtension.ext rfl ?_
-  simp only [A, CocycleExtension.mul_snd, CocycleExtension.inv_snd, tau0_apply]
-  exact quotient_eq i h
 
 @[expose] noncomputable def Λ (h : S) : ZMod 2 := ∑ i : Fin 1485, coef i h
 

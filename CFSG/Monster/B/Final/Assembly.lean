@@ -219,27 +219,6 @@ theorem conj_pow_mat {C M : MatB} (h1 : C⁻¹ * C = 1) :
           simp only [Matrix.mul_assoc]
       _ = C * (M ^ n * M) * C⁻¹ := by rw [h1, Matrix.mul_one]; simp only [Matrix.mul_assoc]
 
-theorem betaRow_op_list_prod (β : Cbar →* GL (Fin 4370) (ZMod 2)) (l : List Cbar) :
-    ((betaRow β (op l.prod) : MatBˣ) : MatB) =
-      (l.reverse.map fun y => ((betaRow β (op y) : MatBˣ) : MatB)).prod := by
-  induction l with
-  | nil => simp
-  | cons y l ih =>
-    rw [List.prod_cons, op_mul, map_mul, Units.val_mul, ih, List.reverse_cons, List.map_append,
-      List.prod_append, List.map_singleton, List.prod_singleton]
-
-theorem rowProdM_eq_prod (β : Cbar →* GL (Fin 4370) (ZMod 2)) (Qf : ℕ → MatB) (e : Fin 22 → Cbar)
-    (he : ∀ k : Fin 22, ((betaRow β (op (e k)) : MatBˣ) : MatB) = Em Qf k) (r : ℕ)
-    (c : Fin 22 → ZMod 2) (hc : ∀ j : Fin 22, c j = if r.testBit j then 1 else 0) :
-    rowProdM Qf r = ((((List.finRange 22).map fun j => e j ^ (c j).val).reverse).map
-      fun y => ((betaRow β (op y) : MatBˣ) : MatB)).prod := by
-  rw [rowProdM, ← List.map_coe_finRange_eq_range, ← List.map_reverse, List.map_map,
-    ← List.map_reverse, List.map_map]
-  refine congrArg List.prod (List.map_congr_left fun j _ => ?_)
-  simp only [Function.comp_apply, op_pow, map_pow, Units.val_pow_eq_pow_val, he, hc]
-  by_cases ht : r.testBit j
-  · rw [ite_eq_left ht, ite_eq_left ht]; exact (pow_one _).symm
-  · rw [ite_eq_right ht, ite_eq_right ht]; exact (pow_zero _).symm
 
 theorem wordIn_kernelWord {G : Type*} [Group G] (a b : G) :
     wordIn a b kernelWord = (a * b⁻¹ * b⁻¹ * a * a * b⁻¹) ^ 14 := by
@@ -489,12 +468,6 @@ theorem etaS_cB_inv :
     (etaS g ι cB)⁻¹ = etaS g ι cB := by
   rw [← map_inv (etaS g ι) cB, cB_inv]
 
-theorem op_kernelWord_eta :
-    op (wordIn (etaS g ι cB).unop⁻¹ (etaS g ι dB).unop⁻¹ kernelWord) =
-      (etaS g ι dB * etaS g ι cB * etaS g ι cB * etaS g ι dB * etaS g ι dB * etaS g ι cB) ^ 14 := by
-  rw [wordIn_kernelWord, op_pow]
-  refine congrArg (· ^ 14) ?_
-  simp only [op_mul, op_inv, op_unop, inv_inv, etaS_cB_inv g ι, mul_assoc]
 
 include hg hg0 hgJ hιβ in
 theorem betaRow_kernelWord :

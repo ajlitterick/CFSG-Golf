@@ -146,13 +146,6 @@ theorem ggSixSeventeenWitnessDvdOn_POmegaMinus_of_small (hsmall : GGSixSeventeen
   GGSixSeventeenOmSmallInput ∧ GGSixSeventeenE8SevenInput ∧
     GGSixSeventeenRootWitnessInputFor GGExceptionalTag
 
-theorem ggSixSeventeenWitnessRest11_of_rest10 (h : GGSixSeventeenWitnessRest10) :
-    GGSixSeventeenWitnessRest11 := by
-  obtain ⟨hPl, hMi, hE8, hex⟩ := h
-  refine ⟨fun G _ _ p B Bs x L D J t n f ψ hP => ?_, hE8, hex⟩
-  rcases hP.1 with rfl | rfl
-  · exact hPl G p B Bs x L D J _ n f ψ rfl
-  · exact hMi G p B Bs x L D J _ n f ψ rfl
 
 theorem ggSixSeventeenWitnessRest10_of_rest11 (h : GGSixSeventeenWitnessRest11) :
     GGSixSeventeenWitnessRest10 :=

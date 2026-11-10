@@ -74,6 +74,5 @@ theorem nearOnlyFalse12_of_nearCount (hc : NearCount12) : NearOnlyFalse12 := by
   rw [← map_mul, ← map_mul]
   exact congrArg (embL e) (Subtype.ext (hy₀c l' hl'R))
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {n : ℕ} {Q : Subgroup G} {z : G}
 
 end CFSG.OddStandard.AltStdSec

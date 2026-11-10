@@ -128,18 +128,5 @@ theorem solvablePrimeComplementCore_characteristic (G : Type u) [Group G] [Finit
   intro equivalence
   exact solvablePrimeComplementCore_map_equiv prime hprime equivalence
 
-theorem solvablePrimeComplementCore_eq_bot_of_simple (G : Type u) [Group G] [Finite G]
-    [IsSimpleGroup G] (hnonab : ∃ first second : G, first * second ≠ second * first)
-    (prime : ℕ) (hprime : prime.Prime) : solvablePrimeComplementCore G prime = ⊥ := by
-  obtain ⟨hnormal, hsolvable, _⟩ := solvablePrimeComplementCore_properties G prime hprime
-  rcases hnormal.eq_bot_or_eq_top with hbot | htop
-  · exact hbot
-  · have : Group.IsSolvable (solvablePrimeComplementCore G prime) := hsolvable
-    have hgroupSolvable : Group.IsSolvable G := by
-      have : Group.IsSolvable (⊤ : Subgroup G) := htop ▸ hsolvable
-      exact Group.isSolvable_of_surjective (f := (Subgroup.topEquiv (G := G)).toMonoidHom)
-        (Subgroup.topEquiv (G := G)).surjective
-    obtain ⟨first, second, hne⟩ := hnonab
-    exact False.elim (hne (IsSimpleGroup.comm_iff_isSolvable.mpr hgroupSolvable first second))
 
 end CFSG.RankThreeEvenClassification.Helpers

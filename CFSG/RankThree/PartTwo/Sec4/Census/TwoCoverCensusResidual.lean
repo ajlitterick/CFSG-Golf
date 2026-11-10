@@ -510,18 +510,6 @@ theorem twoCoverCensus_of_residual (h42 : Item4_2) (hGA : GriessMultipliersAllMo
       exact (hr3 f (by omega)).elim
 
 
-theorem quasisimpleCensus_of_residual (h41 : Item4_1) (hGA : GriessMultipliersAllModels)
-    (hres : SporadicTwoCoverResidual) : QuasisimpleCensus :=
-  quasisimpleCensus_of h41 (twoCoverCensus_of_residual rank3II_4_2 hGA
-    griessMultipliersCentralCovers hres
-    (TwoCoverRanks.of_open (TwoCoverRanksOpen.of_open' (TwoCoverRanksOpen'.of_open''
-      twoCoverRanksOpen''))))
-
-
-theorem rank3II_4_4_of_residual (h41 : Item4_1) (hGA : GriessMultipliersAllModels)
-    (hres : SporadicTwoCoverResidual) (hL34 : FourL34NotSLFourOdd) : Item4_4 :=
-  rank3II_4_4_of_census (quasisimpleCensus_of_residual h41 hGA hres) hL34
-
 end Census
 
 end CFSG.RankThree.PartTwo.Sec4.Census

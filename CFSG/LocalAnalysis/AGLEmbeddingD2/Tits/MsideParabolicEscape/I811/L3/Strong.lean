@@ -48,6 +48,5 @@ theorem transitive_cases (hroot : ∀ x : F, x ^ 2 + x + 1 ≠ 0)
 
 end Cases
 
-variable {F : Type} [Field F] [Finite F]
 
 end CFSG.AGLEmbeddingD2.Tits.MsideParabolicEscape.I811.L3

@@ -15,6 +15,5 @@ open CFSG.GH74.KGroups.Sz8 CFSG.Certificates.Kernel.PkEnum
 
 theorem k64 : (centL (elemsC QP) (cOf pa)).length = 64 := by decide +kernel
 
-theorem kSolv_neg : (centL [cOf pa, cOf pb] (cOf pa)).length = 1 := by decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5128

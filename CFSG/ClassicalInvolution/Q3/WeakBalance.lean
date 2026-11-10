@@ -124,17 +124,6 @@ theorem commutator_mem_involutionOddCore_of_localOddCentralizer3 (hΩ : ConjInva
   have h3 : ⁅r, g⁆ ∈ oddCoreIn Y := hO b hb a haY ha2 (hRY ⟨hcommR, hcommY⟩)
   exact oddCoreIn_centralizingLayer_le hΩ b h3
 
-theorem weakBalanced_of_localOddCentralizer3 (hΩ : ConjInvariant Ω) (hO : LocalOddCentralizer3 Ω)
-    {A : Subgroup G} (hA : IsElemAbelian 2 A)
-    (hAY : ∀ b ∈ A, b ≠ 1 → A ≤ centralizingLayer Ω {b})
-    (hnc : ∀ b ∈ A, b ≠ 1 → b ∉ Subgroup.center G) : WeakBalanced A := by
-  intro a ha ha1 b hb hb1
-  rw [Subgroup.commutator_le]
-  intro r hr g hg
-  refine commutator_mem_involutionOddCore_of_localOddCentralizer3 hΩ hO (hnc b hb hb1)
-    (hAY b hb hb1 ha) (orderOf_eq_prime (hA.2 a ha) ha1) hr ⟨hAY b hb hb1 hg, ?_⟩
-  exact Subgroup.mem_centralizer_singleton_iff.mpr
-    (congrArg Subtype.val (hA.1.is_comm.comm (⟨g, hg⟩ : A) ⟨a, ha⟩))
 
 end WeakBalance
 

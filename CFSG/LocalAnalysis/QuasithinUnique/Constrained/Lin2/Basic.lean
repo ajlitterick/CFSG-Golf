@@ -17,7 +17,6 @@ variable {G : Type*} [Group G]
 
 theorem conjR_def (X : Subgroup G) (g : G) : conjR X g = X.map (MulAut.conj g⁻¹).toMonoidHom := rfl
 
-theorem conjR_eq_conjSubgroup (X : Subgroup G) (g : G) : conjR X g = conjSubgroup X g := rfl
 
 theorem mem_conjR {X : Subgroup G} {g y : G} : y ∈ conjR X g ↔ g * y * g⁻¹ ∈ X :=
   mem_conjSubgroup_iff
@@ -117,12 +116,6 @@ theorem conjR_inv_conjR (X : Subgroup G) (g : G) : conjR (conjR X g⁻¹) g = X 
 theorem conjR_mul (X : Subgroup G) (g h : G) : conjR X (g * h) = conjR (conjR X g) h :=
   (conjR_conjR X g h).symm
 
-theorem card_conjR_eq_iff {X Y : Subgroup G} {g : G} (h : X ≤ Y) :
-    conjR X g ≤ conjR Y g := conjR_mono h g
-
-theorem le_normalizer_iff_conjR {X Y : Subgroup G} :
-    X ≤ Subgroup.normalizer (Y : Set G) ↔ ∀ x ∈ X, conjR Y x = Y :=
-  forall_congr' fun _ => forall_congr' fun _ => conjR_eq_self_iff.symm
 
 end Conj
 

@@ -149,17 +149,5 @@ theorem elementary_projective_action [FiniteDimensional K V] (hQ : Q.polarBilin.
 @[expose] noncomputable def projectiveStabilizer (L : Points Q) : Subgroup (ProjectiveGroup Q) :=
   MulAction.stabilizer (ProjectiveGroup Q) L
 
-@[expose] noncomputable def stabilizerFamily : Set (Subgroup (ProjectiveGroup Q)) :=
-  Set.range (projectiveStabilizer Q)
-
-theorem projectiveStabilizer_comap (L : Points Q) :
-    (projectiveStabilizer Q L).comap (QuotientGroup.mk' (scalarKernel Q)) =
-      elementaryStabilizer Q L := rfl
-
-theorem projectiveStabilizer_map (L : Points Q) :
-    (elementaryStabilizer Q L).map (QuotientGroup.mk' (scalarKernel Q)) =
-      projectiveStabilizer Q L := by
-  rw [← projectiveStabilizer_comap]
-  exact Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective _) _
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointAction

@@ -45,15 +45,6 @@ public theorem inf_normal_in_right
       hWprop.normal_in_M w d hw.1 (hDle hd)
   · exact D.mul_mem (D.mul_mem hd hw.2) (D.inv_mem hd)
 
-/-- Minimality eliminates any smaller normal supplement of the same `D`. -/
-public theorem eq_of_normalSupplement_le
-    {X : Type u} [Group X]
-    {M D W Q : Subgroup X}
-    (hW : IsMinimalNormalSupplement M D W)
-    (hQ : IsNormalSupplement M D Q)
-    (hQW : Q ≤ W) :
-    Q = W :=
-  hW.eq_of_le hQ hQW
 
 /-- A minimal normal supplement disjoint from `D` is already a normal
 complement inside `M`. -/
@@ -315,16 +306,6 @@ public theorem minimalNormalSupplement_inf_right_card_odd
   apply Odd.of_dvd_nat (hM.inf_rightConjugate_card_odd htM)
   exact Subgroup.card_dvd_of_le inf_le_right
 
-/-- The Odd Order Theorem gives the solvability assertion following source
-`(9B)`. -/
-public theorem minimalNormalSupplement_inf_right_solvable
-    {X : Type u} [Group X] [Finite X]
-    {M W : Subgroup X} {t : X}
-    (hM : IsStronglyEmbedded M) (htM : t ∉ M) :
-    IsSolvable
-      (W ⊓ (M ⊓ rightConjugate M t) : Subgroup X) := by
-  exact odd_order_theorem _
-    (hM.minimalNormalSupplement_inf_right_card_odd htM)
 
 end IsStronglyEmbedded
 

@@ -204,11 +204,6 @@ theorem singerUG_one_ne_zero {p : ℕ} [NeZero p] (hp : 1 < p) : (1 : Fin p) ≠
 theorem singerUG_ne_of_val_ne {p : ℕ} {x y : Fin p} (hxy : (x : ℕ) ≠ (y : ℕ)) : x ≠ y :=
   fun e => hxy (by rw [e])
 
-theorem singerUG_beta_zero_ne (h : UnitaryFieldData ℓ f K) {p : ℕ} [NeZero p] (hodd : Odd p)
-    (hp3 : 3 ≤ p) {c ε : K} (hc : c ≠ 0) (hE : h.bar ε ^ p + c ≠ 0)
-    (hone : 1 - h.bar ε * ε ≠ 0) : thmU_cayleyMat h p c ε 0 0 ≠ 0 := by
-  rw [singerUG_beta_zero h hodd hp3 hc hE]
-  exact div_ne_zero (mul_ne_zero hc hone) hE
 
 theorem singerUG_beta_natCast_ne (h : UnitaryFieldData ℓ f K) {p : ℕ} [NeZero p] (hodd : Odd p)
     (hp3 : 3 ≤ p) {c ε : K} (hc : c ≠ 0) (hE : h.bar ε ^ p + c ≠ 0) (hd : h.bar ε ≠ 0)

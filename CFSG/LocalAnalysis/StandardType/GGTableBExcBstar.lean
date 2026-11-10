@@ -45,17 +45,6 @@ theorem ggBstarBound_of_input [Finite K] [CharP K 2] (hτ : τ = .E7 ∨ τ = .E
   have := (Nat.pow_le_pow_iff_right hp.one_lt).mp h4
   omega
 
-theorem ggBstarBound_E8_of_eleven_le [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) {p : ℕ} (hp : p.Prime) (hp11 : 11 ≤ p) (hpq : p ∣ Nat.card K - 1)
-    (I : Set (MulAut (RecipeGroup .E8 K))) : GGBstarBound p 8 (RecipeGroup .E8 K) I :=
-  ggBstarBound_of_input (Or.inr rfl) hf hK hp hpq
-    (ggExcToralRankInput_E8_of_eleven_le hp hp11 hpq) I
-
-theorem ggBstarBound_E7_of_eleven_le [Finite K] [CharP K 2] {f : ℕ} (hf : 1 ≤ f)
-    (hK : Nat.card K = 2 ^ f) {p : ℕ} (hp : p.Prime) (hp11 : 11 ≤ p) (hpq : p ∣ Nat.card K - 1)
-    (I : Set (MulAut (RecipeGroup .E7 K))) : GGBstarBound p 7 (RecipeGroup .E7 K) I :=
-  ggBstarBound_of_input (Or.inl rfl) hf hK hp hpq
-    (ggExcToralRankInput_E7_of_eleven_le hp hp11 hpq) I
 
 end TableBExc
 

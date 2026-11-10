@@ -56,35 +56,6 @@ private theorem twA5_zeta_ne_inv_sq {ζu : Fˣ} (hζo : orderOf ζu = q) (hq3 : 
   rw [hζo] at hdvd
   exact hq3 hdvd
 
-private theorem centralizer_twA5E2 (hζ : h.norm (ζu : F) = 1) (hζo : orderOf ζu = q)
-    (hq3 : ¬ q ∣ 3) :
-    Subgroup.centralizer
-        ({unitaryProj h 6 (twA5TorusHom h hζ (twA5EParam (twA5E2Param (ζu := ζu))))} :
-          Set (unitaryPSU h 6)) =
-      (unitaryBlockDiag h ({0, 1, 2, 3} : Finset (Fin 6))).map (unitaryProj h 6) :=
-  centralizer_unitaryProj_diagSU_eq_unitaryBlockDiag h
-    (I := ({0, 1, 2, 3} : Finset (Fin 6))) (by decide)
-    (twA5_zeta_ne_inv_sq (q := q) hζo hq3)
-    (fun i => congrFun (twA5Vec_twA5EParam_e2 (ζu := ζu)) i)
-    (twA5Vec_norm h fun i => norm_eq_one_of_mem_zpowers h hζ
-      (twA5EParam (twA5E2Param (ζu := ζu)) i).2)
-    (twA5Vec_prod h fun i => norm_eq_one_of_mem_zpowers h hζ
-      (twA5EParam (twA5E2Param (ζu := ζu)) i).2)
-
-private theorem centralizer_twA5E3 (hζ : h.norm (ζu : F) = 1) (hζo : orderOf ζu = q)
-    (hq3 : ¬ q ∣ 3) :
-    Subgroup.centralizer
-        ({unitaryProj h 6 (twA5TorusHom h hζ (twA5EParam (twA5E3Param (ζu := ζu))))} :
-          Set (unitaryPSU h 6)) =
-      (unitaryBlockDiag h ({0, 1, 4, 5} : Finset (Fin 6))).map (unitaryProj h 6) :=
-  centralizer_unitaryProj_diagSU_eq_unitaryBlockDiag h
-    (I := ({0, 1, 4, 5} : Finset (Fin 6))) (by decide)
-    (twA5_zeta_ne_inv_sq (q := q) hζo hq3)
-    (fun i => congrFun (twA5Vec_twA5EParam_e3 (ζu := ζu)) i)
-    (twA5Vec_norm h fun i => norm_eq_one_of_mem_zpowers h hζ
-      (twA5EParam (twA5E3Param (ζu := ζu)) i).2)
-    (twA5Vec_prod h fun i => norm_eq_one_of_mem_zpowers h hζ
-      (twA5EParam (twA5E3Param (ζu := ζu)) i).2)
 
 theorem diagSU_commute_unitaryBlock_of_eq_on {I : Finset (Fin 6)} {d : Fin 6 → F}
     (hd : ∀ i, h.norm (d i) = 1) (hdet : ∏ i, d i = 1) (hc : ∀ i ∈ I, d i = d 0)

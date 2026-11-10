@@ -35,16 +35,9 @@ theorem ggTableBNbrInnerInputOn_round6_of_round9
             · exact Or.inl (Or.inr h4)
             · exact Or.inr ⟨h6, h1, h2, h3, h4⟩
 
-theorem ggTableBNbrInnerInput_of_round9
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound9Label) : GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_round6 (ggTableBNbrInnerInputOn_round6_of_round9 h)
 
 end Round9
 
-theorem ggTableBNbrInnerInputOn_round9_of_round6
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound6Label) :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerRound9Label :=
-  h.mono fun _ _ h9 => h9.1
 
 end CFSG.StandardType
 

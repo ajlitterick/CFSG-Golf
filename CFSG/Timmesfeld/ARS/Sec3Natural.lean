@@ -377,26 +377,6 @@ theorem exists_isNaturalModule {K : Type*} [Field K] [Finite K] [CharP K 2]
     rw [card_sup_commutator hR hiso hAC hBC, hcardS, hcardK])
   rw [hrange, hSeq]
 
-theorem sup_commutator_inf_eq_bot : (C ⊔ ⁅B, C⁆) ⊓ (A ⊔ B) = ⊥ := by
-  obtain ⟨n, -, -, φ, hφA, -⟩ := hAB.exists_mulEquiv_SL2' hR hA
-  obtain ⟨w, hw, hw1⟩ := hR.exists_ne_one hAC.1.1
-  obtain ⟨θ, hθ, hrange, -⟩ :=
-    exists_isNaturalModule hR hiso hA hB hAB hAC hBC φ hφA hw hw1
-  have hN := commuting_sup_commutator hR hAC hBC
-  refine (Subgroup.eq_bot_iff_forall _).2 fun x hx => ?_
-  have h1 : (⟨x, hx.2⟩ : ↥(A ⊔ B)) = 1 := hθ.eq_one_of_forall_commute fun v => by
-    have hv : θ v ∈ C ⊔ ⁅B, C⁆ := by
-      rw [← SetLike.mem_coe, ← hrange]
-      exact ⟨v, rfl⟩
-    exact hN x hx.1 _ hv
-  exact congrArg Subtype.val h1
-
-theorem sup_commutator_sup_eq : (C ⊔ ⁅B, C⁆) ⊔ (A ⊔ B) = A ⊔ B ⊔ C := by
-  apply le_antisymm
-  · rw [sup_commutator_eq_iSup hR hiso hA hB hAB hAC hBC]
-    exact sup_le (iSup₂_le fun x hx => conjSub_le le_sup_right (le_sup_left (a := A ⊔ B) hx))
-      le_sup_left
-  · exact sup_le le_sup_right (le_sup_left.trans le_sup_left)
 
 theorem setOf_mem_le_sup_eq :
     {D | D ∈ R ∧ D ≤ A ⊔ C} = insert C (Set.range fun n : ↥(C ⊔ ⁅B, C⁆) => conjSub A n) := by
@@ -496,28 +476,5 @@ end Sec3
 
 open Sec3
 
-theorem natural_module [Finite G] (hR : IsRootClass R) (hiso : NoIsolated R)
-    {A B C : Subgroup G} (hA : A ∈ R) (hB : B ∈ R) (hAB : Opposite A B)
-    (hAC : C ∈ lambdaSet R A) (hBC : C ∈ psiSet R B) :
-    ⁅B, C⁆ ∈ R ∧ C ⊔ ⁅B, C⁆ = (⨆ x ∈ A ⊔ B, conjSub C x) ∧
-      Commuting (C ⊔ ⁅B, C⁆) (C ⊔ ⁅B, C⁆) ∧ Nat.card ↥(C ⊔ ⁅B, C⁆) = Nat.card A ^ 2 ∧
-      (∀ x ∈ A ⊔ B, conjSub (C ⊔ ⁅B, C⁆) x = C ⊔ ⁅B, C⁆) ∧
-      (C ⊔ ⁅B, C⁆) ⊓ (A ⊔ B) = ⊥ ∧ (C ⊔ ⁅B, C⁆) ⊔ (A ⊔ B) = A ⊔ B ⊔ C ∧
-      (∀ n ∈ C ⊔ ⁅B, C⁆, (∀ a ∈ A, Commute a n) → n ∈ C) ∧
-      (∀ {K : Type*} [Field K] [Finite K] [CharP K 2]
-        (φ : ↥(A ⊔ B) ≃* Matrix.SpecialLinearGroup (Fin 2) K),
-        (A.subgroupOf (A ⊔ B)).map φ.toMonoidHom = upperUnipotent K → ∀ w ∈ C, w ≠ 1 →
-        ∃ θ : (Fin 2 → K) → G, IsNaturalModule φ θ ∧
-          Set.range θ = ((C ⊔ ⁅B, C⁆ : Subgroup G) : Set G) ∧ θ ![1, 0] = w) ∧
-      {D | D ∈ R ∧ D ≤ A ⊔ C} = insert C (Set.range fun n : ↥(C ⊔ ⁅B, C⁆) => conjSub A n) :=
-  ⟨hBC.2.1, sup_commutator_eq_iSup hR hiso hA hB hAB hAC hBC,
-    commuting_sup_commutator hR hAC hBC,
-    by rw [card_sup_commutator hR hiso hAC hBC, hR.card_eq hAC.1.1 hA],
-    fun _ hx => conjSub_sup_commutator_eq hR hiso hA hB hAB hAC hBC hx,
-    sup_commutator_inf_eq_bot hR hiso hA hB hAB hAC hBC,
-    sup_commutator_sup_eq hR hiso hA hB hAB hAC hBC,
-    fun _ hn hnA => mem_of_forall_commute_of_mem_sup hR hiso hA hB hAB hAC hBC hn hnA,
-    fun φ hφ _ hw hw1 => exists_isNaturalModule hR hiso hA hB hAB hAC hBC φ hφ hw hw1,
-    setOf_mem_le_sup_eq hR hiso hA hB hAB hAC hBC⟩
 
 end CFSG.Timmesfeld.ARS

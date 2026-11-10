@@ -543,11 +543,6 @@ theorem mem_centralizer_iff_forall_comm (h2 : (2 : K) ≠ 0) {hn : 2 ≤ n} (hn3
   · intro h
     exact Subgroup.mem_centralizer_iff.mpr fun x hx => h x hx i₂ h₂.mem
 
-theorem forall_comm_of_mem_centralizer (h2 : (2 : K) ≠ 0) {hn : 2 ≤ n} (hn3 : 3 ≤ n)
-    {L₁ L₂ : Subgroup SL(n, K)} {i₁ i₂ : SL(n, K)} (h₁ : IsLongRootSL2 hn L₁ i₁)
-    (h₂ : IsLongRootSL2 hn L₂ i₂) (hc : Commute i₁ i₂) (hne : i₁ ≠ i₂)
-    (hmem : i₂ ∈ Subgroup.centralizer (L₁ : Set SL(n, K))) : ∀ x ∈ L₁, ∀ y ∈ L₂, x * y = y * x :=
-  (mem_centralizer_iff_forall_comm h2 hn3 h₁ h₂ hc hne).mp hmem
 
 theorem linearBlockStandardPair_of_not_mem_centralizer (h2 : (2 : K) ≠ 0) {hn : 2 ≤ n}
     (hn3 : 3 ≤ n) {L₁ L₂ : Subgroup SL(n, K)} {i₁ i₂ : SL(n, K)} (h₁ : IsLongRootSL2 hn L₁ i₁)

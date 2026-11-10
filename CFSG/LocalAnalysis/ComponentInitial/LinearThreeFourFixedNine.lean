@@ -306,57 +306,6 @@ theorem jM_mul_jM : (jM : Matrix (Fin 3) (Fin 3) k) * jM = 1 := by
 
 variable {ω : k}
 
-theorem det_bM (hk : Nat.card k = 4) (hω0 : ω ≠ 0) (hω1 : ω ≠ 1) : (bM ω).det = 1 := by
-  have := LinearFieldFour.charP_two_of_card_eq_four hk
-  have h := LinearFieldFour.omega_mul_omega hk hω0 hω1
-  have h2 : (2 : k) = 0 := CharTwo.two_eq_zero
-  simp [bM, det_fin_three]
-  linear_combination (-1 : k) * h - h2
-
-theorem bM_mul_map_transpose (hσ : ∀ a, σ a = a ^ 2) (hk : Nat.card k = 4) (hω0 : ω ≠ 0)
-    (hω1 : ω ≠ 1) : bM ω * ((bM ω)ᵀ).map σ = jM := by
-  have := LinearFieldFour.charP_two_of_card_eq_four hk
-  have h := LinearFieldFour.omega_mul_omega hk hω0 hω1
-  have h2 : (2 : k) = 0 := CharTwo.two_eq_zero
-  have h4 := LinearFieldFour.pow_four_eq_self hk ω
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [bM, jM, Matrix.mul_apply, Fin.sum_univ_three, hσ]
-  · linear_combination h2
-  · linear_combination h + h4 + ω * h2
-  · linear_combination h + ω * h2
-  · linear_combination ((ω + 1) * (ω ^ 3 + 2)) * h + (ω * (ω ^ 3 + 2) + 1) * h2
-
-theorem conjAut_mul_beta_mul_inv (H : GL (Fin 3) k) :
-    conjAut 3 k H * (fieldAut 3 k σ * dualAut 3 k) * (conjAut 3 k H)⁻¹ =
-      conjAut 3 k (H * GeneralLinearGroup.map (σ : k →+* k)
-        (GeneralLinearGroup.inverseTranspose H⁻¹)) * (fieldAut 3 k σ * dualAut 3 k) := by
-  rw [← map_inv, mul_assoc, mul_assoc, dualAut_mul_conjAut, ← mul_assoc (fieldAut 3 k σ),
-    fieldAut_mul_conjAut, map_mul]
-  simp only [mul_assoc]
-
-theorem gamma_eq (hσ : ∀ a, σ a = a ^ 2) (hk : Nat.card k = 4) (hω0 : ω ≠ 0) (hω1 : ω ≠ 1)
-    (B : Matrix.SpecialLinearGroup (Fin 3) k) (hB : (B : Matrix (Fin 3) (Fin 3) k) = bM ω) :
-    conjAut 3 k jGL * (fieldAut 3 k σ * dualAut 3 k) =
-      conjAut 3 k (Matrix.SpecialLinearGroup.toGL B) * (fieldAut 3 k σ * dualAut 3 k) *
-        (conjAut 3 k (Matrix.SpecialLinearGroup.toGL B))⁻¹ := by
-  rw [conjAut_mul_beta_mul_inv]
-  congr 2
-  apply Units.ext
-  rw [Units.val_mul]
-  change jM = _
-  rw [show ((GeneralLinearGroup.map (σ : k →+* k) (GeneralLinearGroup.inverseTranspose
-    (Matrix.SpecialLinearGroup.toGL B)⁻¹) : GL (Fin 3) k) : Matrix (Fin 3) (Fin 3) k) =
-      ((B : Matrix (Fin 3) (Fin 3) k)ᵀ).map σ by
-    change ((GeneralLinearGroup.inverseTranspose (Matrix.SpecialLinearGroup.toGL B)⁻¹ :
-      GL (Fin 3) k) : Matrix (Fin 3) (Fin 3) k).map σ = _
-    rw [GeneralLinearGroup.coe_inverseTranspose, inv_inv]
-    rfl, Matrix.SpecialLinearGroup.coe_GL_coe_matrix, hB, bM_mul_map_transpose hσ hk hω0 hω1]
-
-theorem gamma_sq (hσ : ∀ a, σ a = a ^ 2) (hk : Nat.card k = 4) (hω0 : ω ≠ 0) (hω1 : ω ≠ 1)
-    (B : Matrix.SpecialLinearGroup (Fin 3) k) (hB : (B : Matrix (Fin 3) (Fin 3) k) = bM ω) :
-    (conjAut 3 k jGL * (fieldAut 3 k σ * dualAut 3 k)) ^ 2 = 1 := by
-  rw [gamma_eq hσ hk hω0 hω1 B hB, conj_pow, pow_two, beta_mul_beta hσ hk, mul_one,
-    mul_inv_cancel]
 
 theorem proj_conj (B g : Matrix.SpecialLinearGroup (Fin 3) k) :
     proj 3 k (MulAut.conj B g) =
@@ -368,54 +317,10 @@ theorem proj_conj (B g : Matrix.SpecialLinearGroup (Fin 3) k) :
     Matrix.SpecialLinearGroup.coe_GL_coe_matrix, Matrix.SpecialLinearGroup.coe_mul,
     Matrix.SpecialLinearGroup.coe_mul]
 
-theorem map_conj_map_proj (B : Matrix.SpecialLinearGroup (Fin 3) k) :
-    ((qSub (k := k)).map (MulAut.conj B).toMonoidHom).map (proj 3 k) =
-      ((qSub (k := k)).map (proj 3 k)).map
-        (conjAut 3 k (Matrix.SpecialLinearGroup.toGL B)).toMonoidHom := by
-  rw [Subgroup.map_map, Subgroup.map_map]
-  congr 1
-  exact MonoidHom.ext fun g => proj_conj B g
 
 end LinearThreeFourFixedNine
 
 open LinearFlag LinearThreeFourFixedNine
 
-theorem linear_three_four_graph_field_fixed_nine {k : Type*} [Field k] (hk : Nat.card k = 4)
-    {ω : k} (hω0 : ω ≠ 0) (hω1 : ω ≠ 1) {σ : k ≃+* k} (hσ : ∀ a, σ a = a ^ 2) :
-    ∃ B : Matrix.SpecialLinearGroup (Fin 3) k, (B : Matrix (Fin 3) (Fin 3) k) = bM ω ∧
-      conjAut 3 k jGL * (fieldAut 3 k σ * dualAut 3 k) =
-        conjAut 3 k (Matrix.SpecialLinearGroup.toGL B) * (fieldAut 3 k σ * dualAut 3 k) *
-          (conjAut 3 k (Matrix.SpecialLinearGroup.toGL B))⁻¹ ∧
-      (conjAut 3 k jGL * (fieldAut 3 k σ * dualAut 3 k)) ^ 2 = 1 ∧
-      Nat.card (qSub (k := k)) = 27 ∧
-      CFSG.IsElementaryAbelian 3 ((qSub (k := k)).map (proj 3 k)) ∧
-      Nat.card ((qSub (k := k)).map (proj 3 k)) = 9 ∧
-      (∀ x ∈ (qSub (k := k)).map (proj 3 k), (fieldAut 3 k σ * dualAut 3 k) x = x) ∧
-      CFSG.IsElementaryAbelian 3
-        (((qSub (k := k)).map (MulAut.conj B).toMonoidHom).map (proj 3 k)) ∧
-      Nat.card (((qSub (k := k)).map (MulAut.conj B).toMonoidHom).map (proj 3 k)) = 9 ∧
-      ∀ x ∈ ((qSub (k := k)).map (MulAut.conj B).toMonoidHom).map (proj 3 k),
-        (conjAut 3 k jGL * (fieldAut 3 k σ * dualAut 3 k)) x = x := by
-  set B : Matrix.SpecialLinearGroup (Fin 3) k := ⟨bM ω, det_bM hk hω0 hω1⟩ with hBdef
-  have hB : (B : Matrix (Fin 3) (Fin 3) k) = bM ω := rfl
-  have hγ := gamma_eq hσ hk hω0 hω1 B hB
-  have hcard := card_map_proj_qSub hk
-  have hcardB :
-      Nat.card (((qSub (k := k)).map (MulAut.conj B).toMonoidHom).map (proj 3 k)) = 9 := by
-    rw [map_conj_map_proj, Subgroup.card_map_of_injective (MulEquiv.injective _), hcard]
-  refine ⟨B, hB, hγ, gamma_sq hσ hk hω0 hω1 B hB, card_qSub hk,
-    isElementaryAbelian_three_of_card hcard fun x hx => pow_three_of_mem_map_proj hk hx, hcard,
-    fun x hx => beta_fixed hσ hk hx,
-    isElementaryAbelian_three_of_card hcardB fun x hx => ?_, hcardB, fun x hx => ?_⟩
-  · rw [map_conj_map_proj] at hx
-    obtain ⟨y, hy, rfl⟩ := hx
-    rw [← map_pow, pow_three_of_mem_map_proj hk hy, map_one]
-  · rw [map_conj_map_proj] at hx
-    obtain ⟨y, hy, rfl⟩ := hx
-    rw [hγ]
-    have hβ := beta_fixed hσ hk hy
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.mul_apply, MulAut.inv_apply,
-      MulEquiv.symm_apply_apply] at hβ ⊢
-    rw [hβ]
 
 end CFSG.LocalAnalysis.ComponentInitial

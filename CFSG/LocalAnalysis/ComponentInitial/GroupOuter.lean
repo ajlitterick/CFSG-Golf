@@ -31,69 +31,6 @@ theorem exists_conj_eq_of_outerOfCenterQuotient_eq_one [Group.IsPerfect L] {a : 
   obtain ⟨x, rfl⟩ := QuotientGroup.mk'_surjective (center L) q
   exact ⟨x, centerQuotientHom_injective L ((centerQuotient_conj x).trans hq)⟩
 
-theorem outerOfCenterQuotient_injective [Finite L] [Group.IsPerfect L]
-    {A : Subgroup (MulAut L)} (hA : IsPGroup 2 A)
-    (hfix : ∀ a ∈ A, orderOf a = 2 → ∃ R : Sylow 2 (fixedSubgroup a),
-      (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ center L) :
-    Function.Injective ((outerOfCenterQuotient L).comp A.subtype) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rw [injective_iff_map_eq_one]
-  intro b hb
-  by_contra hb1
-  obtain ⟨k, hk⟩ := hA b
-  obtain ⟨j, -, hbj⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp (orderOf_dvd_of_pow_eq_one hk)
-  have hj0 : j ≠ 0 := by
-    rintro rfl
-    exact hb1 (orderOf_eq_one_iff.mp (by rw [hbj, pow_zero]))
-  set c := b ^ 2 ^ (j - 1) with hc
-  have hc2 : orderOf (c : MulAut L) = 2 := by
-    rw [orderOf_coe, hc, orderOf_pow_of_dvd (pow_ne_zero _ two_ne_zero)
-      (by rw [hbj]; exact Nat.pow_dvd_pow 2 (Nat.sub_le j 1)), hbj,
-      Nat.pow_div (Nat.sub_le j 1) two_pos, show j - (j - 1) = 1 by omega, pow_one]
-  have hcker : outerOfCenterQuotient L c = 1 := by
-    change ((outerOfCenterQuotient L).comp A.subtype) c = 1
-    rw [hc, map_pow, hb, one_pow]
-  obtain ⟨x, hx⟩ := exists_conj_eq_of_outerOfCenterQuotient_eq_one hcker
-  obtain ⟨m, hm, n, hn⟩ := exists_odd_pow_orderOf_eq_two_pow x
-  have hconj : MulAut.conj (x ^ m) = (c : MulAut L) := by
-    obtain ⟨t, rfl⟩ := hm
-    rw [map_pow, hx, pow_succ, pow_mul, ← hc2, pow_orderOf_eq_one, one_pow, one_mul]
-  have hfixed : x ^ m ∈ fixedSubgroup (c : MulAut L) := by
-    change (c : MulAut L) (x ^ m) = x ^ m
-    rw [← hconj, MulAut.conj_apply, mul_inv_cancel_right]
-  obtain ⟨R, hR⟩ := hfix c c.2 hc2
-  have hcentral : x ^ m ∈ center L := by
-    by_contra hnot
-    exact not_sylow_map_le_of_mem le_rfl hfixed ⟨n, hn⟩ hnot R hR
-  have hone : (c : MulAut L) = 1 := by
-    rw [← hconj]
-    ext y
-    rw [MulAut.conj_apply, MulAut.one_apply, ← mem_center_iff.mp hcentral y,
-      mul_inv_cancel_right]
-  rw [hone, orderOf_one] at hc2
-  exact absurd hc2 (by norm_num)
-
-theorem exists_elementaryAbelian_outer_centerQuotient [Finite L] [Group.IsPerfect L]
-    {A : Subgroup (MulAut L)} [IsElementaryAbelian 2 A] {d : ℕ} (hd : Nat.card A = 2 ^ d)
-    (hfix : ∀ a ∈ A, orderOf a = 2 → ∃ R : Sylow 2 (fixedSubgroup a),
-      (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ center L) :
-    ∃ E : Subgroup (Outer (L ⧸ center L)), IsElementaryAbelian 2 E ∧ Nat.card E = 2 ^ d := by
-  have hinj := outerOfCenterQuotient_injective (IsElementaryAbelian.isPGroup 2 A) hfix
-  let e := MonoidHom.ofInjective hinj
-  refine ⟨((outerOfCenterQuotient L).comp A.subtype).range, ?_, ?_⟩
-  · exact isElementaryAbelian_of_injective (f := e.symm.toMonoidHom) e.symm.injective
-  · rw [← hd]
-    exact (Nat.card_congr e.toEquiv).symm
-
-theorem central_fixed_sylow_two_automorphisms_inject_into_outer_quotient [Finite L]
-    [Group.IsPerfect L] {A : Subgroup (MulAut L)} (hA : IsPGroup 2 A)
-    (hfix : ∀ a ∈ A, orderOf a = 2 → ∃ R : Sylow 2 (fixedSubgroup a),
-      (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ center L) :
-    Function.Injective ((outerOfCenterQuotient L).comp A.subtype) ∧
-      ∀ d : ℕ, IsElementaryAbelian 2 A → Nat.card A = 2 ^ d →
-        ∃ E : Subgroup (Outer (L ⧸ center L)), IsElementaryAbelian 2 E ∧ Nat.card E = 2 ^ d :=
-  ⟨outerOfCenterQuotient_injective hA hfix, fun _ _ hd =>
-    exists_elementaryAbelian_outer_centerQuotient hd hfix⟩
 
 end CenterQuotient
 

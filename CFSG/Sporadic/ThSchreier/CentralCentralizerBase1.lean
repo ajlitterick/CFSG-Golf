@@ -104,8 +104,6 @@ theorem centralizer_a_inf_conj :
 
 section Facts
 
-variable {c : ℕ} (hC : CertFacts c) (hS : ThScanFacts)
-include hC hS
 
 end Facts
 

@@ -10,11 +10,6 @@ namespace CFSG.StandardType.FrameRoute
 
 open CFSG.Open CFSG.Assembly
 
-@[expose] def GGFrameBstarCardInput {ι : Type} (M : CoxeterMatrix ι) (n : ℕ) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSecFiveRestHyp 3 B Bs x L D J → GGSecFiveWeylCase 3 B Bs x D J →
-    GGSecFiveWeylAt 3 B Bs x L D J M → GGInnerDiagOnLabel GGLabQTwo 3 Bs L →
-      Nat.card Bs = 3 ^ n
 
 @[expose] def GGFrameA4Input {ι : Type} (M : CoxeterMatrix ι) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),

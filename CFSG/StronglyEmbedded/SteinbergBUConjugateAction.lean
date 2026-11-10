@@ -37,6 +37,5 @@ theorem conjugate_eq_self_iff {K : Subgroup G} {g : G} :
     rw [mem_conjugate_iff]
     exact (hg h).symm
 
-variable [Finite G]
 
 end CFSG.StronglyEmbedded.SteinbergBU

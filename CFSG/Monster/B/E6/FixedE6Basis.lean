@@ -101,8 +101,6 @@ theorem isFirst_iff_not_isFirst
 
 theorem two_eq_zero_K : (2 : K) = 0 := CharTwo.two_eq_zero
 
-theorem omega_add_omega_sq : ω + ω ^ 2 = 1 := by
-  linear_combination C2E6Overlap.omega_sq_add_omega_add_one - two_eq_zero_K
 
 theorem omega_cube : ω ^ 3 = 1 := by
   linear_combination (ω - 1) * C2E6Overlap.omega_sq_add_omega_add_one

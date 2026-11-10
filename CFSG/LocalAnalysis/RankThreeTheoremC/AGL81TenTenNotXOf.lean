@@ -89,12 +89,6 @@ end TenTenNotX
 
 variable (G : Type) [Group G] [Finite G]
 
-@[expose] def AGL81TenTenNormICfg : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    AGL81CfgData p P M H Q K → ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L →
-    ¬ (L.subgroupOf M).Normal → ∀ I₀ ∈ cZero (H ⊓ L),
-      normalizer (CFSG.ComponentClassification.AS76b.oUpperTwo I₀ : Set G) ≤ M
 
 @[expose] def AGL81TenFiveXCfg : Prop :=
   Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)

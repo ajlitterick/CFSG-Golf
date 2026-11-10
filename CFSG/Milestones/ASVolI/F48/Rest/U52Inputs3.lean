@@ -63,34 +63,5 @@ set_option compiler.extract_closed false
     #[43, 70, 91, 135, 139], #[43, 72, 87, 126, 152], #[43, 77, 82, 130, 148], #[44, 57, 100, 117, 159], #[44, 59, 97, 115, 162], #[44, 64, 95, 132, 144], #[44, 68, 92, 135, 140], #[44, 73, 85, 127, 152],
     #[44, 75, 83, 130, 149]]
 
-@[expose] def burnsideF48t_u52Pt (_ : Unit := ()) : Array (Array ℕ) :=
-  let b := burnsideF48t_u52PtStr.toUTF8
-  (Array.range 165).map fun k => (Array.range 5).map fun j => b[5 * k + j]!.toNat - 48
-
-@[expose] def burnsideF48t_u52Scale (l : ℕ) (v : Array ℕ) : Array ℕ :=
-  Array.ofFn (n := 5) fun i => burnsideF48t_gf4Mul l v[i.val]!
-
-@[expose] def burnsideF48t_u52PtLnCheck (P LP G U : Array (Array ℕ)) : Bool :=
-  let PS := P.map fun p => [burnsideF48t_u52Scale 1 p, burnsideF48t_u52Scale 2 p,
-    burnsideF48t_u52Scale 3 p]
-  P.size == 165 && LP.size == 297 && G.size == 6 &&
-    (P.all fun p => p.size == 5 && p.all fun x => decide (x < 4)) &&
-    (allBelowN 165 fun i => allBelowN 165 fun j => i == j || !(PS[j]!.contains P[i]!)) &&
-    (LP.all fun L => L.size == 5 && (L.all fun p => decide (p < 165)) &&
-      allBelowN 5 fun a => allBelowN 5 fun b => a == b || L[a]! != L[b]!) &&
-    (allBelowN 297 fun l => allBelowN 297 fun l' => l == l' ||
-      LP[l]!.any fun p => !LP[l']!.contains p) &&
-    (allBelowN 6 fun k => allBelowN 165 fun i =>
-      decide ((G[k]!)[i]! < 165) &&
-      PS[(G[k]!)[i]!]!.contains (burnsideF48t_u52TV U[k]! P[i]!)) &&
-    (allBelowN 6 fun k => allBelowN 297 fun l =>
-      let t := (G[k]!)[165 + l]!
-      decide (165 ≤ t) && decide (t < 462) &&
-      (LP[l]!.all fun p => LP[t - 165]!.contains (G[k]!)[p]!) &&
-      (LP[t - 165]!.all fun q => LP[l]!.any fun p => (G[k]!)[p]! == q))
-
-@[expose] def burnsideF48t_u52PtLnOK (_ : Unit := ()) : Bool :=
-  burnsideF48t_u52PtLnCheck (burnsideF48t_u52Pt ()) burnsideF48t_u52LnPts (burnsideF48t_u52Gens ())
-    burnsideF48t_u52U
 
 end CFSG.ASVolI

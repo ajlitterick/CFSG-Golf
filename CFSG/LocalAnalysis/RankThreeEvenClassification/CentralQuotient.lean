@@ -64,28 +64,6 @@ theorem centralizer_le_comap_centralizer_map {G : Type u} {H : Type v}
   simpa only [map_mul] using
     congrArg homomorphism (Subgroup.mem_centralizer_iff.mp helement preimage hpreimage)
 
-theorem kernel_le_comap_centralizer_map {G : Type u} {H : Type v}
-    [Group G] [Group H] (homomorphism : G →* H) (subgroup : Subgroup G) :
-    homomorphism.ker ≤
-      (Subgroup.centralizer (subgroup.map homomorphism : Set H)).comap homomorphism := by
-  intro element helement
-  apply Subgroup.mem_centralizer_iff.mpr
-  intro actor _
-  rw [MonoidHom.mem_ker.mp helement, mul_one, one_mul]
-
-theorem normalizes_comap_centralizer_map {G : Type u} {H : Type v}
-    [Group G] [Group H] (homomorphism : G →* H) (subgroup : Subgroup G) :
-    subgroup ≤ Subgroup.normalizer
-      (((Subgroup.centralizer (subgroup.map homomorphism : Set H)).comap homomorphism) : Set G) := by
-  apply Subgroup.le_normalizer_iff_commutator_le_right.mpr
-  apply Subgroup.commutator_le.mpr
-  intro actor hactor element helement
-  apply kernel_le_comap_centralizer_map homomorphism subgroup
-  apply MonoidHom.mem_ker.mpr
-  rw [map_commutatorElement]
-  apply commutatorElement_eq_one_iff_mul_comm.mpr
-  exact Subgroup.mem_centralizer_iff.mp helement (homomorphism actor)
-    (Subgroup.mem_map_of_mem homomorphism hactor)
 
 theorem centralizer_normal_in_comap_centralizer_map {G : Type u} {H : Type v}
     [Group G] [Group H] (homomorphism : G →* H)
@@ -199,30 +177,6 @@ theorem prime_complement_disjoint_pSubgroup {G : Type u} [Group G] [Finite G]
   rw [hcard]
   exact hprime.coprime_pow_of_not_dvd hcomplement
 
-theorem subgroupMap_injective_of_prime_complement_pKernel
-    {G : Type u} {H : Type v} [Group G] [Group H] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (homomorphism : G →* H)
-    (hkernel : IsPGroup prime homomorphism.ker) (subgroup : Subgroup G)
-    (hcomplement : ¬prime ∣ Nat.card subgroup) :
-    Function.Injective (homomorphism.subgroupMap subgroup) := by
-  have hdisjoint := prime_complement_disjoint_pSubgroup prime hprime subgroup
-    homomorphism.ker hcomplement hkernel
-  apply (MonoidHom.ker_eq_bot_iff _).mp
-  apply bot_unique
-  intro element helement
-  apply Subgroup.mem_bot.mpr
-  apply Subtype.ext
-  apply Subgroup.disjoint_def.mp hdisjoint element.property
-  exact congrArg Subtype.val (MonoidHom.mem_ker.mp helement)
-
-theorem thetaCoreOf_centralizer_subgroupMap_bijective_of_central_pKernel
-    {G : Type u} {H : Type v} [Group G] [Group H] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (homomorphism : G →* H)
-    (hkernel : IsPGroup prime homomorphism.ker) (subgroup : Subgroup G) :
-    Function.Bijective
-      (homomorphism.subgroupMap (thetaCoreOf prime (Subgroup.centralizer (subgroup : Set G)))) := by
-  exact ⟨subgroupMap_injective_of_prime_complement_pKernel prime hprime homomorphism hkernel _
-    (thetaCoreOf_prime_complement prime hprime _), homomorphism.subgroupMap_surjective _⟩
 
 theorem solvablePrimeComplementCore_comap_eq_of_central_kernel
     {G : Type u} {H : Type v} [Group G] [Group H] [Finite G] [Finite H]

@@ -89,50 +89,6 @@ theorem permSL_mem_blockSpecialLinear_of_fixes_compl
 
 namespace TypeANbrDvd
 
-theorem ggAutomizer_blockSpecialLinear_eq
-    {d p : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2]
-    (hp : p.Prime) (hp2 : p ≠ 2) (hpK : p ∣ Nat.card K - 1)
-    {L' : Type} [Group L'] [Finite L']
-    {φ' : SpecialLinearGroup (Fin d) K →* L'} (hφs : Function.Surjective φ')
-    (hker : ∀ g, φ' g = 1 → g ∈ CFSG.LocalAnalysis.ComponentInitial.LinearFlag.scalars d K)
-    {A : Subgroup (MulAut L')} (hA : IsElemAbelian p A) (hsc : GGTorusSelfCent p A)
-    (hdiag : ∀ a ∈ A, ∃ t : Fin d → K, ActsDiag φ' a t)
-    (hN : ∀ σ, NbrInnerWeylA.permConj φ' σ ∈
-      Subgroup.normalizer (A : Set (MulAut L'))) (S : Finset (Fin d)) :
-    ggAutomizer (((blockSpecialLinear S).map φ').map (MulAut.conj : L' →* MulAut L')) A =
-      (fixingSubgroup (Equiv.Perm (Fin d)) ((S : Set (Fin d))ᶜ)).map (permAut φ' A hN) := by
-  classical
-  apply le_antisymm
-  · intro a ha
-    obtain ⟨g, hg, hgN, hga⟩ := mem_ggAutomizer_iff.mp ha
-    obtain ⟨l, hl, rfl⟩ := Subgroup.mem_map.mp hg
-    obtain ⟨s, hs, rfl⟩ := Subgroup.mem_map.mp hl
-    obtain ⟨σ, hcoord, -, hσ⟩ :=
-      exists_perm_of_conj_mem_normalizer_with_coordinates hp hp2 hpK hφs hker hA hsc hdiag hgN
-    have hσfix : ∀ i ∉ S, σ i = i :=
-      perm_fixes_compl_of_block_intertwines
-        (fun i hi => (mem_blockSpecialLinear.mp hs) i i (Or.inl hi) |>.trans
-          (Matrix.one_apply_eq i)) hcoord
-    refine Subgroup.mem_map.mpr ⟨σ, (mem_fixingSubgroup_iff (Equiv.Perm (Fin d))).mpr (fun i hi => hσfix i hi), ?_⟩
-    apply MulEquiv.ext
-    intro b
-    apply Subtype.ext
-    rw [permAut_apply, ggConjAut_apply, hga b]
-    exact (hσ b b.2).symm
-  · intro a ha
-    obtain ⟨σ, hσ, rfl⟩ := Subgroup.mem_map.mp ha
-    have hσfix : ∀ i ∉ S, σ i = i := (mem_fixingSubgroup_iff (Equiv.Perm (Fin d))).mp hσ
-    have hinv : ∀ i ∉ S, σ⁻¹ i = i := by
-      intro i hi
-      have h := congrArg (σ⁻¹ : Equiv.Perm (Fin d)) (hσfix i hi)
-      simpa only [Equiv.Perm.coe_inv, Equiv.symm_apply_apply] using h.symm
-    have hperm : TypeA.permSL (K := K) σ⁻¹ ∈ blockSpecialLinear S :=
-      permSL_mem_blockSpecialLinear_of_fixes_compl hinv
-    refine mem_ggAutomizer_iff.mpr ⟨NbrInnerWeylA.permConj φ' σ, ?_, hN σ, ?_⟩
-    · exact Subgroup.mem_map.mpr ⟨φ' (TypeA.permSL σ⁻¹),
-        Subgroup.mem_map.mpr ⟨TypeA.permSL σ⁻¹, hperm, rfl⟩, rfl⟩
-    · intro b
-      rw [permAut_apply, ggConjAut_apply]
 
 theorem ggAutomizer_blockSpecialLinear_ambient_eq
     {d p : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2]

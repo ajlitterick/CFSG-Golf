@@ -105,11 +105,6 @@ theorem mul_self_of_mem_gen_rootClosure (hR : IsRootClass R) (hA : A ∈ R) {x :
     _ = y * (y * z) * z := by rw [(hc z hz y hy).eq]
     _ = 1 := by rw [← mul_assoc, hyy, one_mul, hzz]
 
-theorem gen_rootClosure_le_stabSet (hR : IsRootClass R) (hA : A ∈ R) :
-    gen (rootClosure R A) ≤ stabSet (rootClosure R A) := by
-  refine gen_le fun _ hB t ht => ?_
-  rw [mem_stabSet, ← rootClosure_conjSub hR, conjSub_of_forall_commute fun a ha =>
-    (commuting_of_mem_rootClosure hB ⟨hA, hR.commuting_self hA⟩ t ht a ha)]
 
 end Block
 
@@ -271,10 +266,6 @@ theorem mem_rootClosure_of_omegaSet_eq {A D : Subgroup G} (hA : A ∈ R) (hD : D
   · exact ⟨hC.1, commuting_of_omegaSet_eq hR hiso hA hD hC.1 hΩ.symm hC.2⟩
   · exact ⟨hC.1, commuting_of_omegaSet_eq hR hiso hD hA hC.1 hΩ hC.2⟩
 
-theorem rootClosure_eq_setOf_omegaSet_eq {A : Subgroup G} (hA : A ∈ R) :
-    rootClosure R A = {D | D ∈ R ∧ omegaSet R D = omegaSet R A} :=
-  Set.ext fun _ => ⟨fun hD => ⟨hD.1, omegaSet_eq_of_mem_rootClosure hR hiso hA hD⟩,
-    fun ⟨hD, hΩ⟩ => mem_rootClosure_of_omegaSet_eq hR hiso hA hD hΩ⟩
 
 end OmegaSet
 

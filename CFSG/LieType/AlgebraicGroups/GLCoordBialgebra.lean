@@ -128,11 +128,6 @@ instance : Bialgebra k (GLPoly k ι) :=
   Bialgebra.ofAlgHom (glComul k ι) (glCounit k ι) (glComul_coassoc k ι) (glCounit_rTensor k ι)
     (glCounit_lTensor k ι)
 
-theorem GLPoly.comulAlgHom_eq : Bialgebra.comulAlgHom k (GLPoly k ι) = glComul k ι :=
-  AlgHom.ext fun _ => rfl
-
-theorem GLPoly.counitAlgHom_eq : Bialgebra.counitAlgHom k (GLPoly k ι) = glCounit k ι :=
-  AlgHom.ext fun _ => rfl
 
 theorem glComul_glDet : glComul k ι (glDet k ι) = glDet k ι ⊗ₜ glDet k ι := by
   have h : (Matrix.of fun i j => glComul k ι (glX k ι i j)) =

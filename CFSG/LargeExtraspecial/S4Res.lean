@@ -101,38 +101,5 @@ theorem range_resL (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O} (ht : t ∈ S.Lba
   · rintro ⟨x, hx, hex⟩
     exact ⟨⟨x, hx⟩, LinearEquiv.ext fun v => Subtype.ext (hex v).symm⟩
 
-@[expose] noncomputable def RtoRbar {t : S.O} (ht : t ∈ S.Lbar g) : R S g t →* Rbar S g t :=
-  (S.ρ.comp (Subgroup.inclusion (R_le_M (S := S) (g := g) (t := t)))).codRestrict (Rbar S g t)
-    (fun x => by
-      obtain ⟨hxM, hx⟩ := (mem_R_iff ht).mp x.2
-      exact hx)
-
-theorem ker_resV_comp (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O} (ht : t ∈ S.Lbar g) :
-    ((resV haQ t).comp (RtoRbar ht)).ker = (N S g t).subgroupOf (R S g t) := by
-  ext x
-  rw [MonoidHom.mem_ker, mem_subgroupOf, MonoidHom.comp_apply, resV_eq_one_iff, mem_N_iff ht]
-  exact ⟨fun h => ⟨R_le_M x.2, h⟩, fun ⟨_, h⟩ => h⟩
-
-theorem normal_N_subgroupOf (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O} (ht : t ∈ S.Lbar g) :
-    ((N S g t).subgroupOf (R S g t)).Normal := by
-  rw [← ker_resV_comp haQ ht]
-  exact MonoidHom.normal_ker _
-
-theorem range_resV_comp (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O} (ht : t ∈ S.Lbar g) :
-    ((resV haQ t).comp (RtoRbar ht)).range = RmodN S g t := by
-  rw [← range_resV haQ t]
-  refine le_antisymm ?_ ?_
-  · rintro _ ⟨x, rfl⟩
-    exact ⟨_, rfl⟩
-  rintro _ ⟨⟨x, hx⟩, rfl⟩
-  obtain ⟨⟨k, hk⟩, rfl⟩ := MonoidHom.mem_range.mp (Rbar_le_Mbar hx)
-  exact ⟨⟨k, (mem_R_iff ht).mpr ⟨hk, hx⟩⟩, rfl⟩
-
-@[expose] noncomputable def quotientEquivRmodN (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O}
-    (ht : t ∈ S.Lbar g) [((N S g t).subgroupOf (R S g t)).Normal] :
-    (R S g t) ⧸ (N S g t).subgroupOf (R S g t) ≃* RmodN S g t :=
-  (QuotientGroup.quotientMulEquivOfEq (ker_resV_comp haQ ht).symm).trans
-    ((QuotientGroup.quotientKerEquivRange _).trans
-      (MulEquiv.subgroupCongr (range_resV_comp haQ ht)))
 
 end CFSG.LargeExtraspecial.S4

@@ -102,30 +102,6 @@ public section
 
 namespace CFSG.StandardType
 
-theorem ggF4N2_exists_orderFive_conj_of_central_cube
-    {X : Type} [Group X] (α : MulAut X) (hα : α ^ 5 = 1) (hαne : α ≠ 1)
-    (k : X) (hk : MulAut.conj k = α)
-    (hZ : ∀ z ∈ Subgroup.center X, z ^ 3 = 1) :
-    ∃ a : X, orderOf a = 5 ∧ MulAut.conj a = α := by
-  have hk5 : MulAut.conj (k ^ 5) = 1 := by rw [map_pow, hk, hα]
-  have hk5Z : k ^ 5 ∈ Subgroup.center X := by
-    rw [Subgroup.mem_center_iff]
-    intro t
-    have ht : k ^ 5 * t * (k ^ 5)⁻¹ = t := congrArg (fun β : MulAut X => β t) hk5
-    exact ((mul_inv_eq_iff_eq_mul).mp ht).symm
-  have hk15 : k ^ 15 = 1 := by
-    simpa only [← pow_mul] using hZ (k ^ 5) hk5Z
-  have hpow : (k ^ 6) ^ 5 = 1 := by
-    calc (k ^ 6) ^ 5 = (k ^ 15) ^ 2 := by simp only [← pow_mul]
-      _ = 1 := by rw [hk15, one_pow]
-  have hconj : MulAut.conj (k ^ 6) = α := by
-    rw [map_pow, hk, show (6 : ℕ) = 5 + 1 by rfl, pow_add, hα, one_mul, pow_one]
-  have hne : k ^ 6 ≠ 1 := by
-    intro h
-    rw [h, map_one] at hconj
-    exact hαne hconj.symm
-  exact ⟨k ^ 6, orderOf_eq_prime hpow hne, hconj⟩
-
 
 open CFSG.Open CFSG.Assembly CFSG.ComponentClassification.Foote47L216
 
@@ -133,26 +109,6 @@ local notation "PSL216" => Matrix.ProjectiveSpecialLinearGroup (Fin 2) (GaloisFi
 
 noncomputable section
 
-theorem ggJ_isComponentOf_centralizerD_of_restHyp
-    {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {Rd Ra : Prop} (hR : GGSecFiveRestGen p B Bs x L D J Rd Ra) :
-    CFSG.Assembly.IsComponentOf J (Subgroup.centralizer (D : Set G)) := by
-  have hI : GGThmIHyp p B x L := hR.1.1
-  have hDJ : LargeEvenStdSub p B x L D J := hR.1.2.2
-  have hS : LargeEvenSStar p B x L := hI.2.2.2.2.2.2.1
-  have hp : p.Prime := hI.2.2.2.2.2.1.1
-  obtain ⟨d, hd, hdx⟩ := exists_mem_not_mem_zpowers hp hDJ.1.2.2.1
-    (hS.1.1.2 x hS.2.1) hS.2.2.1
-  have hD : D = Subgroup.closure {x, d} := eq_closure_pair_of_mem hI hDJ hd hdx
-  have hcent : Subgroup.centralizer (D : Set G) =
-      Subgroup.centralizer ({d} : Set G) ⊓ Subgroup.centralizer ({x} : Set G) := by
-    rw [hD, Subgroup.centralizer_closure]
-    ext g
-    simp only [Subgroup.mem_centralizer_iff, Subgroup.mem_inf, Set.mem_insert_iff,
-      Set.mem_singleton_iff, forall_eq_or_imp, forall_eq]
-    tauto
-  rw [hcent]
-  exact isComponentOf_inf_centralizer_of_stdSub hS hDJ.1 hD
 
 theorem ggF4N2J_Bs_le_normalizer
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -250,64 +206,6 @@ section NativePSLTwoNeighbor
 
 open CFSG.ComponentClassification.OuterAutomorphisms CFSG.Quasithin.SBc16
 
-theorem ggPComponentRootKernelInA_eq_center_of_quasisimple
-    {G : Type} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) {A : Subgroup G}
-    (hA : CFSG.Assembly.IsQuasisimple A) (hpA : p ∣ Nat.card A) :
-    ggPComponentRootKernelInA p A = Subgroup.center A := by
-  have : Fact p.Prime := ⟨hp⟩
-  have : Group.IsPerfect A := ⟨hA.1⟩
-  have hAQ : CFSG.Open.IsQuasisimple A :=
-    (CFSG.ComponentClassification.AssemblyBPredicates.isQuasisimple_iff_open A).mp hA
-  have hcore : CFSG.pPrimeCore p A ≤ Subgroup.center A :=
-    CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.Bal209TwoInAux.pPrimeCore_le_center_of_quasisimple
-      hAQ hp hpA
-  rw [ggPComponentRootKernelInA,
-    CFSG.Quasithin.SteinbergBT.center_quotient_eq_map_center _ hcore,
-    Subgroup.comap_map_eq, QuotientGroup.ker_mk']
-  exact sup_eq_left.mpr hcore
-
-theorem nonempty_equiv_SL2_of_ggNbr_rootQuotient
-    {G : Type} [Group G] [Finite G] {B : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hI : GGThmIHyp 5 B x L)
-    (hDJ : CFSG.Assembly.LargeEvenStdSub 5 B x L D J) {d : G} {Y : Subgroup G}
-    (hNY : GGNbr 5 B x D J d Y)
-    (e : ggPComponentRootQuotient 5 Y ≃* CFSG.GorensteinWalter.PSL2 (GaloisField 2 4)) :
-    Nonempty (Y ≃* L216) := by
-  obtain ⟨hYc, hBY⟩ := isComponentOf_of_isNeighborOf
-    hI.2.2.2.2.2.2.2 (isNeighborOf_of_ggNbr hDJ hNY)
-  have hS : CFSG.Assembly.LargeEvenSStar 5 B x L := hI.2.2.2.2.2.2.1
-  have h5Y : 5 ∣ Nat.card Y := prime_dvd_card_of_not_commutator_le
-    Nat.prime_five (hBY hS.2.1) hNY.2.2.2
-  have hker := ggPComponentRootKernelInA_eq_center_of_quasisimple Nat.prime_five hYc.2.2 h5Y
-  have : Group.IsPerfect Y := ⟨hYc.2.2.1⟩
-  let eZ : (Y ⧸ Subgroup.center Y) ≃* L216 :=
-    (QuotientGroup.quotientMulEquivOfEq hker.symm).trans (e.trans equivPSL2.symm)
-  let f : Y →* L216 := eZ.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center Y))
-  have hf : Function.Surjective f := eZ.surjective.comp (QuotientGroup.mk'_surjective _)
-  have hcen : f.ker ≤ Subgroup.center Y := by
-    intro a ha
-    have ha' : eZ (QuotientGroup.mk' (Subgroup.center Y) a) = eZ 1 := by
-      exact (MonoidHom.mem_ker.mp ha).trans (map_one eZ).symm
-    exact (QuotientGroup.eq_one_iff a).mp (eZ.injective ha')
-  have hfker : f.ker = ⊥ :=
-    CFSG.LocalAnalysis.EvenBN.Common.ker_eq_bot_of_perfect_central_sl2
-      (by rw [card_galoisField16];norm_num) (by rw [card_galoisField16];norm_num) hf hcen
-  exact ⟨MulEquiv.ofBijective f ⟨(MonoidHom.ker_eq_bot_iff f).mp hfker, hf⟩⟩
-
-theorem le_of_ggNbr_of_equiv_SL_two_sixteen
-    {G : Type} [Group G] [Finite G] {B : Subgroup G} {x : G} {L D J : Subgroup G}
-    (hI : GGThmIHyp 5 B x L)
-    (hDJ : CFSG.Assembly.LargeEvenStdSub 5 B x L D J) {d : G} {Y : Subgroup G}
-    (hNY : GGNbr 5 B x D J d Y) (e : Y ≃* L216) : J ≤ Y := by
-  have hZ : Subgroup.center Y = ⊥ := by
-    rw [← Subgroup.map_center_eq e.symm, center_L216, Subgroup.map_bot]
-  have hZp : ¬ 5 ∣ Nat.card (Subgroup.center Y) := by
-    rw [hZ, Subgroup.card_bot];norm_num
-  have : Group.IsSolvable (Outer L216) := by
-    change Group.IsSolvable (MulAut L216 ⧸ innerL216)
-    infer_instance
-  exact le_of_ggNbr_of_prime_not_dvd_center_of_outer_solvable hI hDJ hNY hZp
-    (solvable_of_equiv e.symm)
 
 end NativePSLTwoNeighbor
 
@@ -559,35 +457,6 @@ theorem ggF4N2_card_outer_centerQuotient_dvd_twelve
   rw [Nat.card_congr (CFSG.ComponentClassification.OuterAutomorphisms.equivalence e).toEquiv]
   exact hPSLbound
 
-theorem ggF4N2_card_outer_dvd_twelve
-    {G : Type} [Group G] {K : Subgroup G}
-    (hK : GGCentralImage .PSL 6 2 K) :
-    Nat.card (Outer ↥K) ∣ 12 := by
-  classical
-  let F := GaloisField 2 2
-  have hSq : CFSG.IsQuasisimple (Matrix.SpecialLinearGroup (Fin 6) F) :=
-    CFSG.LieType.Universal.SpecialLinear.isQuasisimple (m := 5) (F := F) (by norm_num)
-  letI : Group.IsPerfect (ggU .PSL 6 2).K := hSq.1
-  have hK' := hK
-  obtain ⟨ψ, _hadm, _hker, hrange⟩ := hK
-  have hperfK : Group.IsPerfect ↥K := by
-    have h := Group.IsPerfect.range ψ
-    rwa [hrange] at h
-  letI : Group.IsPerfect ↥K := hperfK
-  have hcardKQ := ggF4N2_card_outer_centerQuotient_dvd_twelve hK'
-  have hcardRange : Nat.card (Outer ↥K) =
-      Nat.card ↥(outerCenterQuotientHom ↥K).range :=
-    Nat.card_congr (MonoidHom.ofInjective (outerCenterQuotientHom_injective ↥K)).toEquiv
-  rw [hcardRange]
-  exact (Subgroup.card_subgroup_dvd_card _).trans hcardKQ
-
-theorem ggF4N2_not_five_dvd_card_outer
-    {G : Type} [Group G] {K : Subgroup G}
-    (hK : GGCentralImage .PSL 6 2 K) :
-    ¬ 5 ∣ Nat.card (Outer ↥K) := by
-  intro h5
-  have h12 : 5 ∣ 12 := h5.trans (ggF4N2_card_outer_dvd_twelve hK)
-  norm_num at h12
 
 theorem ggF4N2_outer_eq_one_of_pow_five
     {G : Type} [Group G] {K : Subgroup G}
@@ -683,15 +552,6 @@ theorem ggF4N2_central_cube
     rw [hcard] at h
     exact congrArg Subtype.val h
   rw [← map_pow, hs3, map_one]
-
-theorem ggF4N2_exists_orderFive_conj
-    {G : Type} [Group G] {K : Subgroup G}
-    (hK : GGCentralImage .PSL 6 2 K) (α : MulAut K)
-    (hα : α ^ 5 = 1) (hαne : α ≠ 1) :
-    ∃ a : K, orderOf a = 5 ∧ MulAut.conj a = α := by
-  obtain ⟨k, hk⟩ := ggF4N2_exists_conj_eq_of_pow_five hK α hα
-  exact ggF4N2_exists_orderFive_conj_of_central_cube α hα hαne k hk.symm
-    (fun z hz => ggF4N2_central_cube hK hz)
 
 
 theorem five_not_dvd_card_center_of_centralImage_PSL_six_two
@@ -911,102 +771,6 @@ theorem ggF4N2_x_data
     norm_num at hcardle
   exact ⟨hxBs, hxnot, hyord, hDclosure, hDcard, hDe⟩
 
-theorem ggF4N2_action_x_orderFive
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K)
-    (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hBsN : Bs ≤ Subgroup.normalizer (K : Set G))
-    (hxBs : x ∈ Bs) :
-    let action : Bs →* MulAut K :=
-      K.normalizerMonoidHom.comp (Subgroup.inclusion hBsN)
-    orderOf (action ⟨x, hxBs⟩) = 5 ∧ action ⟨x, hxBs⟩ ≠ 1 := by
-  let action : Bs →* MulAut K :=
-    K.normalizerMonoidHom.comp (Subgroup.inclusion hBsN)
-  obtain ⟨-, hxnot, -, -, -, -⟩ := ggF4N2_x_data hR hNbr
-  obtain ⟨-, -, hpow, hnontriv⟩ := ggF4N2_Bs_action_data hR hNbr hL hBsN
-  have hxpow : action ⟨x, hxBs⟩ ^ 5 = 1 := hpow ⟨x, hxBs⟩
-  have hxne : action ⟨x, hxBs⟩ ≠ 1 := hnontriv ⟨x, hxBs⟩ hxnot
-  exact ⟨orderOf_eq_prime hxpow hxne, hxne⟩
-
-theorem ggF4N2_exists_orderFive_conj_of_original_x
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K)
-    (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hK : GGCentralImage .PSL 6 2 K) :
-    ∃ a : K, orderOf a = 5 ∧
-      (∀ k : K, x * (k : G) * x⁻¹ = ((a * k * a⁻¹ : K) : G)) ∧
-      K ⊓ Subgroup.centralizer ({x} : Set G) =
-        (Subgroup.centralizer ({a} : Set K)).map K.subtype := by
-  obtain ⟨hxBs, hxnot, -, -, -, -⟩ := ggF4N2_x_data hR hNbr
-  have hBsN : Bs ≤ Subgroup.normalizer (K : Set G) := ggF4N2_Bs_le_normalizer_K hR hNbr hL
-  let action : Bs →* MulAut K :=
-    K.normalizerMonoidHom.comp (Subgroup.inclusion hBsN)
-  obtain ⟨-, -, hpow, hnontriv⟩ := ggF4N2_Bs_action_data hR hNbr hL hBsN
-  have hxpow : action ⟨x, hxBs⟩ ^ 5 = 1 := hpow ⟨x, hxBs⟩
-  have hxne : action ⟨x, hxBs⟩ ≠ 1 := hnontriv ⟨x, hxBs⟩ hxnot
-  obtain ⟨a, haord, haconj⟩ :=
-    ggF4N2_exists_orderFive_conj hK (action ⟨x, hxBs⟩) hxpow hxne
-  have hact : action = CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.actK hBsN := rfl
-  have hxact : ∀ k : K,
-      ((action ⟨x, hxBs⟩ k : K) : G) = x * (k : G) * x⁻¹ := by
-    intro k
-    rw [hact]
-    exact CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.coe_actK hBsN ⟨x, hxBs⟩ k
-  have hpoint : ∀ k : K,
-      x * (k : G) * x⁻¹ = ((a * k * a⁻¹ : K) : G) := by
-    intro k
-    have hk := congrArg (fun f : MulAut K => f k) haconj
-    calc x * (k : G) * x⁻¹ = ((action ⟨x, hxBs⟩ k : K) : G) := (hxact k).symm
-      _ = (((MulAut.conj a) k : K) : G) := by rw [hk]
-      _ = ((a * k * a⁻¹ : K) : G) := by rfl
-  have hcent : K ⊓ Subgroup.centralizer ({x} : Set G) =
-      (Subgroup.centralizer ({a} : Set K)).map K.subtype := by
-    ext k
-    constructor
-    · intro hk
-      have hkK : k ∈ K := hk.1
-      have hkx : k * x = x * k := by
-        exact Subgroup.mem_centralizer_singleton_iff.mp hk.2
-      refine Subgroup.mem_map.mpr ⟨⟨k, hkK⟩, ?_, rfl⟩
-      have hfixx : x * k * x⁻¹ = k := by
-        rw [← hkx]
-        group
-      have hfixa_amb : ((a * (⟨k, hkK⟩ : K) * a⁻¹ : K) : G) = k := by
-        have hkconj := congrArg (fun f : MulAut K => f ⟨k, hkK⟩) haconj
-        have h := congrArg (fun z : K => (z : G)) hkconj
-        rw [hxact ⟨k, hkK⟩, hfixx] at h
-        simpa [MulAut.conj_apply] using h
-      have hfixa : a * (⟨k, hkK⟩ : K) * a⁻¹ = ⟨k, hkK⟩ := Subtype.ext hfixa_amb
-      have hcommA : (⟨k, hkK⟩ : K) * a = a * ⟨k, hkK⟩ :=
-        (mul_inv_eq_iff_eq_mul.mp hfixa).symm
-      simpa [Subgroup.mem_centralizer_singleton_iff] using hcommA
-    · intro hk
-      obtain ⟨kK, hkKa, hkval⟩ := Subgroup.mem_map.mp hk
-      subst hkval
-      refine ⟨kK.2, ?_⟩
-      have hcommA : kK * a = a * kK :=
-        Subgroup.mem_centralizer_singleton_iff.mp hkKa
-      have hfixa : a * kK * a⁻¹ = kK := by
-        rw [← hcommA]
-        group
-      have hfixx_amb : x * (kK : G) * x⁻¹ = (kK : G) := by
-        have hkconj := congrArg (fun f : MulAut K => f kK) haconj
-        have h := congrArg (fun z : K => (z : G)) hkconj
-        rw [hxact kK] at h
-        have hfixa' : ((MulAut.conj a) kK : K) = kK := by
-          rw [MulAut.conj_apply]
-          exact hfixa
-        rw [hfixa'] at h
-        simpa [eq_comm] using h
-      have hcommX : kK * x = x * kK := by
-        have := (mul_inv_eq_iff_eq_mul.mp hfixx_amb).symm
-        exact this
-      simpa [Subgroup.mem_centralizer_singleton_iff] using hcommX
-  exact ⟨a, haord, hpoint, hcent⟩
 
 theorem ggF4N2_exists_universal_action_lift
     {G : Type} [Group G] [Finite G]
@@ -1149,90 +913,6 @@ theorem ggF4N2_exists_universal_action_lift
     hcardRho.trans (hcardRhoK.trans hActionRange)
   exact ⟨ψK, hψSurj, hψKer, rho, hConj, hPoint, hPowRho, hRhoAction, hcardRange⟩
 
-theorem ggF4N2K_plane_basis
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K)
-    (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hK : GGCentralImage .PSL 6 2 K) :
-    ∃ a : K, orderOf a = 5 ∧ (a : G) ∈ D ∧
-      D = Subgroup.zpowers y ⊔ Subgroup.zpowers (a : G) ∧
-      (∀ k : K, x * (k : G) * x⁻¹ = ((a * k * a⁻¹ : K) : G)) := by
-  obtain ⟨hxBs, hxNot, hyOrder, hDclosure, _, _⟩ := ggF4N2_x_data hR hNbr
-  have hcfg := hR.1
-  have hpre := hcfg.2.2.1
-  have hBsElem : IsElemAbelian 5 Bs := hcfg.2.1.2.1
-  let hBsN := ggF4N2_Bs_le_normalizer_K hR hNbr hL
-  let action : Bs →* MulAut K := K.normalizerMonoidHom.comp (Subgroup.inclusion hBsN)
-  obtain ⟨_, _, hActionPow, hActionNe⟩ := ggF4N2_Bs_action_data hR hNbr hL hBsN
-  obtain ⟨rho, hConj, hPow, hKer⟩ := ggF4N2_exists_coherent_internal_lift hK hBsElem action
-  let xB : Bs := ⟨x, hxBs⟩
-  let a : K := rho xB
-  have hane : a ≠ 1 := by
-    intro ha
-    have h := hConj xB
-    change MulAut.conj a = action xB at h
-    rw [ha, map_one] at h
-    exact hActionNe xB hxNot h.symm
-  have ha5 : a ^ 5 = 1 := hPow xB
-  have haOrder : orderOf a = 5 := orderOf_eq_prime ha5 hane
-  have hpoint : ∀ k : K, x * (k : G) * x⁻¹ = ((a * k * a⁻¹ : K) : G) := by
-    intro k
-    have h := congrArg (fun f : MulAut K => ((f k : K) : G)) (hConj xB)
-    simpa [a, action, xB, CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.actK,
-      CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.coe_actK,
-      MulAut.conj_apply] using h.symm
-  have haCBs : (a : G) ∈ Subgroup.centralizer (Bs : Set G) := by
-    rw [Subgroup.mem_centralizer_iff]
-    intro b hb
-    let bB : Bs := ⟨b, hb⟩
-    have hcommB : bB * xB = xB * bB := Subtype.ext (hBsElem.comm hb hxBs)
-    have hcomm : rho bB * a = a * rho bB := by
-      change rho bB * rho xB = rho xB * rho bB
-      rw [← map_mul, ← map_mul, hcommB]
-    have hfix : action bB a = a := by
-      rw [← hConj bB, MulAut.conj_apply, hcomm]
-      group
-    have hfixG : b * (a : G) * b⁻¹ = (a : G) := by
-      have h := congrArg Subtype.val hfix
-      simpa [action, bB, CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.actK,
-        CFSG.HardMathSupport.Solomon.Coordinator.ChevQ.coe_actK] using h
-    exact (mul_inv_eq_iff_eq_mul.mp hfixG)
-  have haBs : (a : G) ∈ Bs := hcfg.2.1.2.2.2 a haCBs (congrArg Subtype.val ha5)
-  have hJx := (ggF4N2J_isComponentOf_K_inf_centralizer_x hR hNbr hL hK).1
-  have haCJ : (a : G) ∈ Subgroup.centralizer (J : Set G) := by
-    rw [Subgroup.mem_centralizer_iff]
-    intro j hj
-    have hxj := Subgroup.mem_centralizer_singleton_iff.mp (hJx hj).2
-    have hfixX : x * j * x⁻¹ = j := by rw [← hxj]; group
-    have hfixA := (hpoint ⟨j, (hJx hj).1⟩).symm.trans hfixX
-    exact (mul_inv_eq_iff_eq_mul.mp hfixA).symm
-  have haD : (a : G) ∈ D := by
-    rw [hpre.2.2.2.2.2.2, ggF4N2_B_eq_Bs hR hL]
-    exact ⟨haBs, haCJ⟩
-  have hYC : Subgroup.zpowers y ≤ Subgroup.centralizer (K : Set G) := by
-    rw [← inf_centralizer_eq_zpowers_of_sHat hNbr.1]
-    exact inf_le_right
-  have haNot : (a : G) ∉ Subgroup.zpowers y := by
-    intro haY
-    have haZ : a ∈ Subgroup.center K := by
-      rw [Subgroup.mem_center_iff]
-      intro k
-      exact Subtype.ext (Subgroup.mem_centralizer_iff.mp (hYC haY) k k.2)
-    have hAone : MulAut.conj a = 1 := by
-      apply DFunLike.ext
-      intro k
-      change a * k * a⁻¹ = k
-      rw [← Subgroup.mem_center_iff.mp haZ k]
-      group
-    exact hActionNe xB hxNot ((hConj xB).symm.trans hAone)
-  have hyD : y ∈ D := by
-    rw [hDclosure]
-    exact Subgroup.subset_closure (by simp)
-  have hD := eq_sup_zpowers_of_card Nat.prime_five hpre.2.1 hpre.2.2.1 hyD
-    hNbr.1.2.2.1 haD haNot
-  exact ⟨a, haOrder, haD, hD, hpoint⟩
 theorem ggF4N2_residual_actor_mem_parameter_line
     {G : Type} [Group G] [Finite G] {K : Subgroup G} {c y : G}
     (hc : c ∈ Subgroup.centralizer (K : Set G))
@@ -1578,7 +1258,6 @@ theorem ggF4N2_exists_actual_lift_sylow
     hRange, Q, rfl⟩
 
 
-
 end
 
 end CFSG.StandardType
@@ -1785,9 +1464,6 @@ theorem coordinateTorus_card : Nat.card coordinateTorus = 5 ^ 3 := by
     _ = 5 * (5 * 5) := by rw [coordT01_card, coordT23_45_card]
     _ = 5 ^ 3 := by norm_num
 
-theorem coordinateTorus_card_125 : Nat.card coordinateTorus = 125 := by
-  rw [coordinateTorus_card]
-  norm_num
 
 theorem coordinateTorus_isPGroup : IsPGroup 5 coordinateTorus :=
   CFSG.Open.IsElemAbelian.isPGroup coordinateTorus_isElemAbelian
@@ -2132,7 +1808,6 @@ private lemma trace_fromBlocks_one {l r : Type*} [Fintype l] [Fintype r] [Decida
   simp [Matrix.fromBlocks, Fintype.sum_sum_type]
 
 
-
 open CFSG.RankThree.PartTwo.KFacts
 
 private lemma trace_sl2_inv (B : SL2F4) :
@@ -2323,61 +1998,6 @@ private lemma trace_fieldFreeBeta_eq (A : GL6F4) {ε : ℕ} (hε : ε ≤ 1)
             Matrix (Fin 6) (Fin 6) F4)) := trace_slConjugation6 A _
       _ = Matrix.trace ((a : SL6F4) : Matrix (Fin 6) (Fin 6) F4) := hgraph
 
-theorem k_fieldfree_power_eq_one_or_four
-    {a : SL6F4} (haT : a ∈ coordT45) (ha5 : orderOf a = 5)
-    (A : GL6F4) {ε m : ℕ} (hε : ε ≤ 1) (hm1 : 1 ≤ m) (hm5 : m < 5)
-    (hβ : fieldFreeBeta A ε a = a ^ m) : m = 1 ∨ m = 4 := by
-  obtain ⟨B, hB5, htracePow, hgraph⟩ := exists_sl2_block_model haT ha5
-  let c : F4 := Matrix.trace ((B : SL2F4) : Matrix (Fin 2) (Fin 2) F4)
-  have hc_not : c ≠ 0 ∧ c ≠ 1 := by
-    constructor
-    · intro hc0
-      have h6 : ((B : SL2F4) : Matrix (Fin 2) (Fin 2) F4) ^ 6 = 1 :=
-        mat2_pow_six_eq_one_of_trace (by simpa using B.2) (Or.inl hc0)
-      have h6SL : B ^ 6 = 1 := Subtype.ext (by simpa using h6)
-      have hdvd : orderOf B ∣ 6 := orderOf_dvd_iff_pow_eq_one.mpr h6SL
-      rw [hB5] at hdvd
-      norm_num at hdvd
-    · intro hc1
-      have h6 : ((B : SL2F4) : Matrix (Fin 2) (Fin 2) F4) ^ 6 = 1 :=
-        mat2_pow_six_eq_one_of_trace (by simpa using B.2) (Or.inr hc1)
-      have h6SL : B ^ 6 = 1 := Subtype.ext (by simpa using h6)
-      have hdvd : orderOf B ∣ 6 := orderOf_dvd_iff_pow_eq_one.mpr h6SL
-      rw [hB5] at hdvd
-      norm_num at hdvd
-  have hc2 : c ^ 2 ≠ c := by
-    intro hc
-    have hzero : c * (c - 1) = 0 := by
-      calc
-        c * (c - 1) = c * c - c * 1 := by rw [mul_sub]
-        _ = c ^ 2 - c := by rw [mul_one, pow_two]
-        _ = 0 := by rw [hc, sub_self]
-    rcases mul_eq_zero.mp hzero with h0 | h1
-    · exact hc_not.1 h0
-    · exact hc_not.2 (sub_eq_zero.mp h1)
-  have htraceβ := trace_fieldFreeBeta_eq A hε (by simpa using hgraph 1)
-  have htrace_m : Matrix.trace (((a ^ m : SL6F4) : Matrix (Fin 6) (Fin 6) F4)) =
-      Matrix.trace ((a : SL6F4) : Matrix (Fin 6) (Fin 6) F4) := by
-    rw [← hβ]
-    exact htraceβ
-  have htrace_a : Matrix.trace ((a : SL6F4) : Matrix (Fin 6) (Fin 6) F4) =
-      Matrix.trace ((B : SL2F4) : Matrix (Fin 2) (Fin 2) F4) := by
-    simpa using htracePow 1
-  interval_cases m
-  · exact Or.inl rfl
-  · exfalso
-    have h := htrace_m
-    rw [htracePow 2, htrace_a] at h
-    have h' : c ^ 2 = c := by
-      simpa [c, trace_sl2_sq B] using h
-    exact hc2 h'
-  · exfalso
-    have h := htrace_m
-    rw [htracePow 3, htrace_a] at h
-    have h' : c ^ 2 = c := by
-      simpa [c, trace_sl2_cube B hB5] using h
-    exact hc2 h'
-  · exact Or.inr rfl
 
 theorem k_fieldfree_central_image_power_eq_one_or_four
     {Q : Type*} [Group Q] (ψ : SL6F4 →* Q)
@@ -2786,29 +2406,6 @@ theorem original_torus_join_of_actual_lift
   rw [hmap]
   exact hsplit
 
-theorem exists_original_inverter_of_literal_J
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K)
-    (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hK : GGCentralImage .PSL 6 2 K)
-    (ψ : SL6F4 →* K) (rho : Bs →* SL6F4)
-    (hRange : (K.subtype.comp (ψ.comp rho)).range = Bs ⊓ K)
-    (hTor : rho.range = coordinateTorus)
-    (hJ : J = (blockFour (K := F4)).range.map (K.subtype.comp ψ)) :
-    ∃ t : G, t ∈ K ∧ t ∈ Subgroup.normalizer (Bs : Set G) ∧
-      t ∈ Subgroup.centralizer (J : Set G) ∧
-      (MulAut.conj t) y = y ∧
-      (∀ a ∈ coordT45, (MulAut.conj t) ((ψ a : K) : G) = ((ψ a : K) : G)⁻¹) ∧
-      (∀ a ∈ coordT01 ⊔ coordT23,
-        (MulAut.conj t) ((ψ a : K) : G) = ((ψ a : K) : G)) := by
-  have hE := original_torus_join_of_actual_lift hR hNbr hL hK ψ rho hRange hTor
-  have hyC : Subgroup.zpowers y ≤ Subgroup.centralizer (K : Set G) := by
-    rw [← inf_centralizer_eq_zpowers_of_sHat hNbr.1]
-    exact inf_le_right
-  exact exists_inverter_through_actual_block_chart ψ hE hJ (hyC (Subgroup.mem_zpowers y))
 
 end
 end CFSG.StandardType.N2KCoordinate
@@ -2891,14 +2488,6 @@ open CFSG.SeitzReduction.E6Pilot
 open CFSG.SeitzReduction.LinearPilot
 open Matrix
 
-theorem conj_fix_of_zpowers_eq {G : Type} [Group G] {t y u : G}
-    (h : (MulAut.conj t) y = y) (hline : Subgroup.zpowers y = Subgroup.zpowers u) :
-    (MulAut.conj t) u = u := by
-  have hu : u ∈ Subgroup.zpowers y := by
-    rw [hline]
-    exact Subgroup.mem_zpowers u
-  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hu
-  rw [map_zpow, h]
 
 theorem exists_inverter_with_nontrivial_involutive_D_action
     {G : Type} [Group G] {K E J D : Subgroup G} {y : G}
@@ -3033,26 +2622,6 @@ theorem exists_inverter_with_nontrivial_involutive_D_action
   refine ⟨t, htK, htE, htJ, hDnorm, hty, hfixE, ?_⟩
   exact ⟨f (coordBlock45 coordA2), haD, ha_order, ha_inv, ha_ne⟩
 
-theorem exists_inverter_with_nontrivial_involutive_D_action_fixing_u
-    {G : Type} [Group G] {K E J D : Subgroup G} {y u : G}
-    (psi : SL6F4 →* K)
-    (hker : psi.ker ≤ Subgroup.center SL6F4)
-    (hE : E = Subgroup.zpowers y ⊔ coordinateTorus.map (K.subtype.comp psi))
-    (hJ : J = (blockFour (K := F4)).range.map (K.subtype.comp psi))
-    (hy : y ∈ Subgroup.centralizer (K : Set G))
-    (hD : D = E ⊓ Subgroup.centralizer (J : Set G))
-    (hline : Subgroup.zpowers y = Subgroup.zpowers u) :
-    ∃ t : G, t ∈ K ∧ t ∈ Subgroup.normalizer (E : Set G) ∧
-      t ∈ Subgroup.centralizer (J : Set G) ∧
-      t ∈ Subgroup.normalizer (D : Set G) ∧
-      (MulAut.conj t) y = y ∧
-      (∀ z ∈ E, (MulAut.conj t) ((MulAut.conj t) z) = z) ∧
-      (∃ a : G, a ∈ D ∧ orderOf a = 5 ∧
-        (MulAut.conj t) a = a⁻¹ ∧ (MulAut.conj t) a ≠ a) ∧
-      (MulAut.conj t) u = u := by
-  obtain ⟨t, htK, htE, htJ, htD, hty, hfixE, ha⟩ :=
-    exists_inverter_with_nontrivial_involutive_D_action psi hker hE hJ hy hD
-  exact ⟨t, htK, htE, htJ, htD, hty, hfixE, ha, conj_fix_of_zpowers_eq hty hline⟩
 
 end CFSG.StandardType.N2KCoordinate
 
@@ -3082,9 +2651,6 @@ noncomputable abbrev blockM : Subgroup (Matrix.SpecialLinearGroup (Fin 6) F4) :=
 noncomputable abbrev blockM' : Subgroup (Matrix.SpecialLinearGroup (Fin 6) F4) :=
   blockSpecialLinear (K := F4) letterJ
 
-theorem coordT45_le_blockM' : N2KCoordinate.coordT45 ≤ blockM' := by
-  change N2KCoordinate.coordT45 ≤ blockSpecialLinear (K := F4) letterJ
-  exact N2KCoordinate.coordT45_le_block.trans (blockSpecialLinear_mono (by decide))
 
 open CFSG.SeitzReduction.E6Pilot in
 theorem blockM_le_blockFour_range :
@@ -3115,40 +2681,12 @@ theorem blockM_le_blockFour_range :
   simpa [ha, hb] using (blockFour_transvection (K := F4) hab c)
 
 
-
 private theorem letterI_card : letterI.card = 3 := by decide
 
 private theorem letterJ_card : letterJ.card = 3 := by decide
 
 private theorem letterJ_eq_compl : letterJ = letterIᶜ := by decide
 
-theorem blockM'_mulEquiv_SL3 :
-    Nonempty (blockM' ≃* Matrix.SpecialLinearGroup (Fin 3) F4) := by
-  classical
-  let eJ : letterJ ≃ Fin 3 := Finset.equivFinOfCardEq letterJ_card
-  exact ⟨(blockSpecialLinearMulEquivSL F4 letterJ).trans
-    (reindexSpecialLinear eJ)⟩
-
-theorem blockM'_center_card : Nat.card (Subgroup.center blockM') = 3 := by
-  classical
-  have hcard := CFSG.HardMathSupport.Foote.Proving.natCard_center_SL3_field F4
-  have hF : Fintype.card F4 = 4 := by
-    change Fintype.card (GaloisField 2 2) = 4
-    simpa using (GaloisField.card 2 2 (by norm_num))
-  rw [hF] at hcard
-  norm_num at hcard
-  let eJ : letterJ ≃ Fin 3 := Finset.equivFinOfCardEq letterJ_card
-  let e : blockM' ≃* Matrix.SpecialLinearGroup (Fin 3) F4 :=
-    (blockSpecialLinearMulEquivSL F4 letterJ).trans (reindexSpecialLinear eJ)
-  have hmap : (Subgroup.center blockM').map e.toMonoidHom =
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4) :=
-    Subgroup.map_center_eq e
-  calc
-    Nat.card ↥(Subgroup.center blockM') =
-        Nat.card ↥((Subgroup.center blockM').map e.toMonoidHom) :=
-      (Subgroup.card_map_of_injective e.injective).symm
-    _ = Nat.card ↥(Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4)) := by rw [hmap]
-    _ = 3 := by simpa [Nat.card_eq_fintype_card] using hcard
 
 private theorem commutator_blockM'_self : ⁅blockM', blockM'⁆ = blockM' := by
   simpa [blockM', letterJ] using
@@ -3586,70 +3124,6 @@ theorem mem_map_blockM'_of_mem_centralizer_map_blockM {Q : Type*} [Group Q]
   refine ⟨(w ^ 3) ^ 2, blockM'.pow_mem (pow_three_mem_blockM'_of_mem_centralizer hw) 2, ?_⟩
   rw [map_pow, map_pow, ← pow_mul, show 3 * 2 = 5 + 1 from rfl, pow_succ, hu5, one_mul]
 
-theorem psi_injective_on_blockM' {Q : Type*} [Group Q]
-    (ψ : Matrix.SpecialLinearGroup (Fin 6) F4 →* Q)
-    (hker : ψ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4)) :
-    Function.Injective (ψ.comp blockM'.subtype) := by
-  classical
-  rw [injective_iff_map_eq_one]
-  intro x hx
-  have hxker : (x : Matrix.SpecialLinearGroup (Fin 6) F4) ∈ ψ.ker :=
-    MonoidHom.mem_ker.mpr hx
-  have hxcenter : (x : Matrix.SpecialLinearGroup (Fin 6) F4) ∈
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4) := hker hxker
-  have hcenter_bot : blockM' ⊓
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4) = ⊥ :=
-    inf_center_eq_bot_of_le_blockSpecialLinear (I := letterJ) (j := (0 : Fin 6))
-      (by decide) (le_refl blockM')
-  have hxinf : (x : Matrix.SpecialLinearGroup (Fin 6) F4) ∈ blockM' ⊓
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4) := ⟨x.2, hxcenter⟩
-  rw [hcenter_bot] at hxinf
-  simpa using hxinf
-
-theorem blockM'_map_mulEquiv_SL3 {Q : Type*} [Group Q]
-    (ψ : Matrix.SpecialLinearGroup (Fin 6) F4 →* Q)
-    (hker : ψ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4)) :
-    Nonempty (blockM'.map ψ ≃* Matrix.SpecialLinearGroup (Fin 3) F4) := by
-  classical
-  let φ : blockM' →* Q := ψ.comp blockM'.subtype
-  have hφ : Function.Injective φ := psi_injective_on_blockM' ψ hker
-  let e : blockM' ≃* φ.range := MonoidHom.ofInjective hφ
-  have hrange : φ.range = blockM'.map ψ := by
-    ext q
-    constructor
-    · rintro ⟨x, hx⟩
-      exact ⟨x, x.2, hx⟩
-    · rintro ⟨x, hx, rfl⟩
-      exact ⟨⟨x, hx⟩, rfl⟩
-  let e2 : blockM'.map ψ ≃* blockM' := (e.trans (MulEquiv.subgroupCongr hrange)).symm
-  exact ⟨e2.trans (Classical.choice blockM'_mulEquiv_SL3)⟩
-
-theorem blockM'_map_center_card {Q : Type*} [Group Q]
-    (ψ : Matrix.SpecialLinearGroup (Fin 6) F4 →* Q)
-    (hker : ψ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin 6) F4)) :
-    Nat.card (Subgroup.center (blockM'.map ψ)) = 3 := by
-  classical
-  obtain ⟨e⟩ := blockM'_map_mulEquiv_SL3 ψ hker
-  have hcard : Nat.card (Subgroup.center (blockM'.map ψ)) =
-      Nat.card (Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4)) := by
-    calc
-      Nat.card (Subgroup.center (blockM'.map ψ)) =
-          Nat.card ↥((Subgroup.center (blockM'.map ψ)).map e.toMonoidHom) :=
-        (Subgroup.card_map_of_injective e.injective).symm
-      _ = Nat.card (Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4)) := by
-        have hmap : Subgroup.map e.toMonoidHom (Subgroup.center (blockM'.map ψ)) =
-            Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4) :=
-          Subgroup.map_center_eq e
-        rw [hmap]
-  have hF : Fintype.card F4 = 4 := by
-    change Fintype.card (GaloisField 2 2) = 4
-    simpa using (GaloisField.card 2 2 (by norm_num))
-  have hSL3 : Nat.card (Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) F4)) = 3 := by
-    have h := CFSG.HardMathSupport.Foote.Proving.natCard_center_SL3_field F4
-    rw [hF] at h
-    norm_num at h
-    simpa [Nat.card_eq_fintype_card] using h
-  rw [hcard, hSL3]
 
 end
 
@@ -3663,137 +3137,6 @@ open CFSG.LieType.Chevalley CFSG.HardMathSupport.Solomon.Coordinator
 
 noncomputable section
 
-public theorem ggF4N2J_not_statedSp_three_of_card_four
-    {F K : Type} [Field F] [Finite F] [Field K] [Finite K]
-    (hF : Nat.card F = 4) {f : ℕ} (hK : Nat.card K = 2 ^ f) :
-    ¬ Nonempty (Matrix.SpecialLinearGroup (Fin 4) F ≃* CFSG.Open.StatedSp 3 K) := by
-  rintro ⟨e⟩
-  have hSL : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hc : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) =
-      Nat.card (CFSG.Open.StatedSp 3 K) := Nat.card_congr e.toEquiv
-  have htwo := congrArg (fun n : ℕ => n.factorization 2) hc
-  rw [hSL, CFSG.SeitzReduction.SymplecticPilot.factorization_two_card_statedSp hK 3] at htwo
-  have h12 : (987033600 : ℕ).factorization 2 = 12 := by decide +kernel
-  rw [h12] at htwo
-  omega
-
-
-public theorem ggF4N2J_not_statedSp_two_of_card_four
-    {F K : Type} [Field F] [Finite F] [Field K] [Finite K]
-    (hF : Nat.card F = 4) {f : ℕ} (hK : Nat.card K = 2 ^ f) :
-    ¬ Nonempty (Matrix.SpecialLinearGroup (Fin 4) F ≃* CFSG.Open.StatedSp 2 K) := by
-  rintro ⟨e⟩
-  have hSL : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hc : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) =
-      Nat.card (CFSG.Open.StatedSp 2 K) := Nat.card_congr e.toEquiv
-  have htwo := congrArg (fun n : ℕ => n.factorization 2) hc
-  rw [hSL, CFSG.SeitzReduction.SymplecticPilot.factorization_two_card_statedSp hK 2] at htwo
-  have h12 : (987033600 : ℕ).factorization 2 = 12 := by decide +kernel
-  rw [h12] at htwo
-  have hf : f = 3 := by norm_num at htwo; omega
-  subst f
-  rw [hSL, CFSG.LocalAnalysis.ComponentInitial.SymplecticFlag.card_statedSp, hK] at hc
-  rw [show Finset.Icc (1 : ℕ) 2 = {1, 2} from by decide +kernel] at hc
-  norm_num at hc
-
-
-
-public theorem ggF4N2J_not_specialLinear_three_of_card_four
-    {F K : Type} [Field F] [Finite F] [Field K] [Finite K]
-    (hF : Nat.card F = 4) {f : ℕ} (hK : Nat.card K = 2 ^ f) :
-    ¬ Nonempty (Matrix.SpecialLinearGroup (Fin 4) F ≃* Matrix.SpecialLinearGroup (Fin 3) K) := by
-  rintro ⟨e⟩
-  have hf : 1 ≤ f := by
-    have hcard : 2 ≤ Nat.card K := Nat.succ_le_of_lt (Finite.one_lt_card (α := K))
-    by_contra! h
-    have hf0 : f = 0 := by omega
-    rw [hf0] at hK
-    norm_num at hK
-    omega
-  have hSL : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hc : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) =
-      Nat.card (Matrix.SpecialLinearGroup (Fin 3) K) := Nat.card_congr e.toEquiv
-  have htwo := congrArg (fun n : ℕ => n.factorization 2) hc
-  rw [hSL, CFSG.Quasithin.H13.Sec526.factorization_two_card_SL3 hf hK] at htwo
-  have h12 : (987033600 : ℕ).factorization 2 = 12 := by decide +kernel
-  rw [h12] at htwo
-  have hf4 : f = 4 := by omega
-  subst f
-  have : Fintype K := Fintype.ofFinite K
-  have hq : Fintype.card K = 16 := by rw [← Nat.card_eq_fintype_card, hK]; norm_num
-  rw [hSL, Matrix.card_SL_field, hq, Fin.prod_univ_three] at hc
-  norm_num at hc
-
-
-
-
-public theorem ggF4N2J_not_specialLinear_two_of_card_four
-    {F K : Type} [Field F] [Finite F] [Field K] [Finite K]
-    (hF : Nat.card F = 4) {f : ℕ} (hK : Nat.card K = 2 ^ f) :
-    ¬ Nonempty (Matrix.SpecialLinearGroup (Fin 4) F ≃* Matrix.SpecialLinearGroup (Fin 2) K) := by
-  rintro ⟨e⟩
-  have hf : 1 ≤ f := by
-    have hcard : 2 ≤ Nat.card K := Nat.succ_le_of_lt (Finite.one_lt_card (α := K))
-    by_contra! h
-    have hf0 : f = 0 := by omega
-    rw [hf0] at hK
-    norm_num at hK
-    omega
-  have hSL : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hc : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) =
-      Nat.card (Matrix.SpecialLinearGroup (Fin 2) K) := Nat.card_congr e.toEquiv
-  have htwo := congrArg (fun n : ℕ => n.factorization 2) hc
-  rw [hSL, CFSG.HardMathSupport.Dickson.Sec6.factorization_two_card_sl2 hK hf] at htwo
-  have h12 : (987033600 : ℕ).factorization 2 = 12 := by decide +kernel
-  rw [h12] at htwo
-  have hf12 : f = 12 := by omega
-  subst f
-  rw [hSL, CFSG.GorensteinWalter.sl2_card_formula K, hK] at hc
-  norm_num at hc
-
-
-
-public theorem ggF4N2J_not_statedSU_three_of_card_four
-    {F K : Type} [Field F] [Finite F] [Field K] [Finite K]
-    (hF : Nat.card F = 4) {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = (2 ^ f) ^ 2) :
-    ¬ Nonempty (Matrix.SpecialLinearGroup (Fin 4) F ≃* CFSG.Open.StatedSU 3 (2 ^ f) K) := by
-  rintro ⟨e⟩
-  have hSL : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hc : Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) =
-      Nat.card (CFSG.Open.StatedSU 3 (2 ^ f) K) := Nat.card_congr e.toEquiv
-  have htwo := congrArg (fun n : ℕ => n.factorization 2) hc
-  rw [hSL] at htwo
-  have h12 : (987033600 : ℕ).factorization 2 = 12 := by decide +kernel
-  rw [h12] at htwo
-  have hpow := CFSG.Quasithin.H.SU3.card_statedSU_two hf hK
-  rw [← htwo, ← pow_mul] at hpow
-  have hexp : 12 = f * 3 := (Nat.pow_right_injective (by decide : 2 ≤ 2)) hpow
-  have hf4 : f = 4 := by omega
-  subst f
-  have h : CFSG.LocalAnalysis.ComponentInitial.UnitaryFieldData 2 4 K :=
-    ⟨Nat.prime_two, by decide, by rw [hK]; norm_num⟩
-  obtain ⟨R, hR⟩ := CFSG.ClassicalGroups.UnitaryFlag.exists_isHypTransport (r := 1) (ε := 1) h
-  have hfull := (CFSG.ClassicalGroups.UnitaryFlag.card_hypSU h (r := 1) (ε := 1) (by norm_num)).1
-  have hsuc : Nat.card (CFSG.ClassicalGroups.UnitaryFlag.hypSU h 1 1) =
-      Nat.card (CFSG.Open.StatedSU 3 (2 ^ 4) K) :=
-    Nat.card_congr (CFSG.ClassicalGroups.UnitaryFlag.hypTransport h hR).toEquiv
-  rw [hsuc, ← hc, hSL] at hfull
-  norm_num at hfull
-  rw [show Finset.Icc (2 : ℕ) 3 = {2, 3} from by decide +kernel] at hfull
-  norm_num at hfull
-
-
-
 
 section NativeEighteenRootExclusion
 open CFSG.Assembly CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
@@ -3803,250 +3146,7 @@ open CFSG.Assembly CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
   CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley
 
 
-public theorem ggF4N2J_not_SL4_of_native_component_ncard_eighteen
-    {K Ω U F : Type} [Field K] [Finite K] [CharP K 2]
-    [Field Ω] [IsAlgClosed Ω] [CharP Ω 2]
-    [Algebra K Ω] [Algebra (ZMod 2) Ω] [Algebra.IsAlgebraic (ZMod 2) Ω]
-    [Group U] [Field F] [Finite F]
-    (η : U →* ModGL .F4 Ω) (hη : Function.Injective η) (Q : Subgroup U)
-    (D : LangDatum .F4 Ω) (f : ℕ) (hf : 1 ≤ f) (hq : D.q = 2 ^ f)
-    (hK : Nat.card K = 2 ^ f)
-    (ρ : Equiv.Perm (Fin Tag.F4.rank → ℤ)) (hρ : FrobRootMap D ρ)
-    (a : Fin Tag.F4.rank → Ωˣ) (ha5 : ∀ j, a j ^ 5 = 1) (ha1 : a ≠ 1)
-    (haT : rootDiagUnit .F4 a ∈ D.torus)
-    (i : KernelComponent (rootCharHom a))
-    (h18 : (componentRoots (rootCharHom a) i).ncard = 18)
-    (hQ : IsComponentOf (Q.map η)
-      (D.Γ ⊓ Subgroup.centralizer ({rootDiagUnit .F4 a} : Set (ModGL .F4 Ω))))
-    (hle : Q.map η ≤ rootSpan .F4 Ω (componentRoots (rootCharHom a) i))
-    (hF : Nat.card F = 4) :
-    ¬ Nonempty (Q ≃* Matrix.SpecialLinearGroup (Fin 4) F) := by
-  rintro ⟨eQ⟩
-  obtain ⟨h3, hshape⟩ :=
-    FiveToralKernel.compRank_eq_three_and_shape_of_ncard_eighteen a ha5 ha1 i h18
-  have hstable := OddKernelActual.f4_cyclic_componentRoots_image_eq_of_coord
-    D ρ hρ a haT (by decide : Odd 5) ha5 i
-  have hker : ∀ γ ∈ kernelRoots (rootCharHom a),
-      ρ γ ∈ kernelRoots (rootCharHom a) := by
-    intro γ hγ
-    refine ⟨(hρ.isRoot_iff γ).2 hγ.1, ?_⟩
-    change rootChar a (ρ γ) = 1
-    rw [hρ.rootChar_eq a haT γ hγ.1]
-    have hγchar : rootChar a γ = 1 := hγ.2
-    rw [hγchar, one_pow]
-  have hHC : rootSpan .F4 Ω (componentRoots (rootCharHom a) i) ≤
-      Subgroup.centralizer ({rootDiagUnit .F4 a} : Set (ModGL .F4 Ω)) :=
-    rootSpan_le_centralizer a (by rintro γ ⟨hγ, _⟩; exact hγ)
-  obtain ⟨σ, z, v, Φ, lam, _hσ, _hz, _hn, _hstep, hlam, hrange, _hcomp, _hformula⟩ :=
-    exists_sp6_source_of_rankThree η hη Q (rootCharHom a) D f hf hq hK ρ hρ i
-      hker hstable h3 h18 hshape _ hHC hQ hle
-  let eSpQ := (MonoidHom.ofInjective hlam).trans (MulEquiv.subgroupCongr hrange)
-  exact CFSG.StandardType.ggF4N2J_not_statedSp_three_of_card_four hF hK
-    ⟨eQ.symm.trans eSpQ.symm⟩
-
-public theorem ggF4N2J_SL4_native_position
-    {K F : Type} [Field K] [Finite K] [CharP K 2] [Field F] [Finite F]
-    {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (u : adjointGroup .F4 K) (hu5 : u ^ 5 = 1) (hu : u ≠ 1)
-    (Q : Subgroup (adjointGroup .F4 K))
-    (hQ : IsComponentOf Q (Subgroup.centralizer ({u} : Set (adjointGroup .F4 K))))
-    (hF : Nat.card F = 4) (eQ : Q ≃* Matrix.SpecialLinearGroup (Fin 4) F) :
-    ∃ D : LangDatum .F4 (AlgebraicClosure K),
-      D.Φ = Units.map (entrywiseHom (iterateFrobenius (AlgebraicClosure K) 2 f)) ∧
-      D.q = 2 ^ f ∧
-      ∃ η : adjointGroup .F4 K →* ModGL .F4 (AlgebraicClosure K),
-        (∀ v, η v = D.g0⁻¹ *
-          ((jF4 (K := K) (L := AlgebraicClosure K) v : adjointGroup .F4 (AlgebraicClosure K)) :
-            ModGL .F4 (AlgebraicClosure K)) * D.g0) ∧
-        Function.Injective η ∧ η.range = D.model ∧
-        ∃ a : Fin Tag.F4.rank → (AlgebraicClosure K)ˣ,
-          η u = rootDiagUnit .F4 a ∧ (∀ j, a j ^ 5 = 1) ∧ a ≠ 1 ∧
-          rootDiagUnit .F4 a ∈ D.torus ∧
-          ∃ w : WeylGroup .F4,
-            D.n = canonicalRep (coxeterSystem .F4) (AlgebraicClosure K) w ∧
-            FrobRootMap D (MulAction.toPerm w) ∧
-            ∃ i : KernelComponent (rootCharHom a),
-              IsComponentOf (Q.map η)
-                (D.Γ ⊓ Subgroup.centralizer ({rootDiagUnit .F4 a} : Set (ModGL .F4 (AlgebraicClosure K)))) ∧
-              Q.map η ≤ rootSpan .F4 (AlgebraicClosure K) (componentRoots (rootCharHom a) i) ∧
-              (componentRoots (rootCharHom a) i).ncard ≤ 8 ∧
-              compRank (componentRoots (rootCharHom a) i) ≤ 2 ∧
-              (fun γ => (MulAction.toPerm w) γ) '' componentRoots (rootCharHom a) i =
-                componentRoots (rootCharHom a) i := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let Ω := AlgebraicClosure K
-  let : Algebra (ZMod 2) Ω := ZMod.algebra Ω 2
-  let : Algebra.IsAlgebraic (ZMod 2) Ω :=
-    isAlgebraic_zmod_algebraicClosure_of_finite K 2
-  obtain ⟨D, hΦ, hq, hT⟩ := CFSG.StandardType.f4_langDatum_through
-    hf hK (by norm_num : Nat.Prime 5) (by norm_num) u hu5
-  let Fr : Ω →+* Ω := iterateFrobenius Ω 2 f
-  have hFr : ∀ c, Fr c = c ^ Nat.card K := by
-    intro c
-    rw [show Fr c = c ^ (2 ^ f) from iterateFrobenius_def _ _ _, hK]
-  have hFrsurj : Function.Surjective Fr := (bijective_iterateFrobenius Ω 2 f).surjective
-  have hT' : ((jF4 (K := K) (L := Ω) u : adjointGroup .F4 Ω) : ModGL .F4 Ω) ∈
-      D.torus.map (MulAut.conj D.g0).toMonoidHom := by
-    rw [jF4_apply, ← CFSG.StandardType.f4_baseChangeGL_eq_bcGL]
-    exact hT
-  obtain ⟨η, hηval, hη, hηrange, a, hua, ha5, ha1, haT, w, hw, hρ, i, hQi, hle⟩ :=
-    component_le_rationalRootSpan_of_frobenius Fr hFr hFrsurj D hΦ (hq.trans hK.symm)
-      (by norm_num : Nat.Prime 5) (by norm_num) u hu5 hu Q hQ hT'
-  have hstable := OddKernelActual.f4_cyclic_componentRoots_image_eq_of_coord
-    D (MulAction.toPerm w) hρ a haT (by decide : Odd 5) ha5 i
-  have hrat := OddKernelActual.f4_cyclic_rationalRoots_eq_of_coord
-    D (MulAction.toPerm w) hρ a haT (by decide : Odd 5) ha5 i
-  rw [hrat] at hle
-  have h8 : (componentRoots (rootCharHom a) i).ncard ≤ 8 := by
-    rcases FiveToralKernel.component_ncard_dichotomy a ha5 ha1 i with h8 | ⟨_, h18⟩
-    · exact h8
-    · exact False.elim (CFSG.StandardType.ggF4N2J_not_SL4_of_native_component_ncard_eighteen
-        η hη Q D f hf hq hK (MulAction.toPerm w) hρ a ha5 ha1 haT i h18 hQi hle hF ⟨eQ⟩)
-  have h2 := FiveToralKernel.compRank_le_two_of_ncard_le_eight a ha5 ha1 i h8
-  exact ⟨D, hΦ, hq, η, hηval, hη, hηrange, a, hua, ha5, ha1, haT, w, hw, hρ, i, hQi, hle, h8, h2, hstable⟩
-
 end NativeEighteenRootExclusion
-
-theorem false_of_F4_fieldFixedComponent
-    {K : Type} [Field K] [Finite K] [CharP K 2]
-    (sigma : K ≃+* K)
-    {J : Subgroup (ModGL Tag.F4 K)}
-    (hJcomp : CFSG.Assembly.IsComponentOf J (f4FixedImageGroup sigma))
-    {F : Type} [Field F] [Finite F]
-    (hF : Nat.card F = 4)
-    (eJ : ↥J ≃* Matrix.SpecialLinearGroup (Fin 4) F) :
-    False := by
-  classical
-  let K0 : Subfield K := fixSubfield sigma
-  let X : Subgroup (ModGL Tag.F4 K) := f4FixedImageGroup sigma
-  let H0 : Subgroup (ModGL Tag.F4 ↥K0) := adjointGroup Tag.F4 K0
-  have : Finite ↥K0 := inferInstance
-  have : CharP ↥K0 2 := Subfield.charP K0 2
-  let : Fintype ↥K0 := Fintype.ofFinite ↥K0
-  have hJcompX : CFSG.Assembly.IsComponentOf J X := hJcomp
-  have hXquasi : CFSG.IsQuasisimple ↥X := by
-    simpa [X] using f4FixedImageGroup_quasisimple (K := K) sigma
-  have hXassembly : CFSG.Assembly.IsQuasisimple ↥X :=
-    (CFSG.ComponentClassification.AssemblyBPredicates.isQuasisimple_iff_native ↥X).2 hXquasi
-  have hJX : J = X :=
-    CFSG.StandardType.GGHalf.eq_of_isComponentOf_isQuasisimple hXassembly hJcompX
-  obtain ⟨e, _he, hK0card_fintype⟩ := FiniteField.card ↥K0 2
-  have hK0card : Nat.card ↥K0 = 2 ^ (e : ℕ) := by
-    simpa [Nat.card_eq_fintype_card] using hK0card_fintype
-  have hcardX : Nat.card ↥X = Nat.card ↥H0 := by
-    simpa [X, H0] using
-      Nat.card_congr (f4FixedImageEquiv (K := K) sigma).toEquiv
-  have hF4card : Nat.card ↥H0 =
-      Nat.card ↥(torusGroup Tag.F4 ↥K0) * Nat.card ↥K0 ^ 24 *
-        ∑ᶠ w : WeylGroup Tag.F4,
-          Nat.card ↥K0 ^ (coxeterSystem Tag.F4).length w := by
-    simpa [H0, CFSG.Timmesfeld.ExceptionalOrders.ncard_posRoots_F4] using
-      CFSG.StandardType.F4ExplicitPos.FiniteCounts.f4_card_adjointGroup (K := ↥K0)
-  have hK0pow : 2 ^ 24 ∣ Nat.card ↥K0 ^ 24 := by
-    rw [hK0card]
-    have h24 : 24 ≤ (e : ℕ) * 24 := by
-      have := e.pos
-      nlinarith
-    simpa [← pow_mul] using Nat.pow_dvd_pow (2 : ℕ) h24
-  have hdivH0 : 2 ^ 24 ∣ Nat.card ↥H0 := by
-    rw [hF4card]
-    exact dvd_mul_of_dvd_left (dvd_mul_of_dvd_right hK0pow _) _
-  have hdivX : 2 ^ 24 ∣ Nat.card ↥X := by
-    rw [hcardX]
-    exact hdivH0
-  have hdivJ : 2 ^ 24 ∣ Nat.card ↥J := by
-    rw [hJX]
-    exact hdivX
-  have hSL4order : Nat.card
-      (Matrix.SpecialLinearGroup (Fin 4) F) = 987033600 := by
-    rw [CFSG.LocalAnalysis.ComponentInitial.OrthogonalTwoPart.card_SL_four, hF]
-    norm_num
-  have hcardJSL : Nat.card ↥J =
-      Nat.card (Matrix.SpecialLinearGroup (Fin 4) F) :=
-    Nat.card_congr eJ.toEquiv
-  have hnotJ : ¬ 2 ^ 24 ∣ Nat.card ↥J := by
-    rw [hcardJSL, hSL4order]
-    norm_num
-  exact hnotJ hdivJ
-
-theorem false_of_F4_centralCover
-    {Y : Type} [Group Y] [Finite Y]
-    {K : Type} [Field K] [Finite K] [CharP K 2]
-    (sigma : K ≃+* K) (alpha : MulAut Y)
-    (psi : Y →* ModGL Tag.F4 K)
-    (hpsi_range : psi.range = adjointGroup Tag.F4 K)
-    (hpsi_ker : psi.ker ≤ Subgroup.center Y)
-    (hintertwine : ∀ y, psi (alpha y) =
-      Units.map (entrywiseHom sigma.toRingHom) (psi y))
-    {J : Subgroup Y}
-    (hJcomp : CFSG.Assembly.IsComponentOf J
-      (alpha.toMonoidHom.eqLocus (MonoidHom.id Y)))
-    {F : Type} [Field F] [Finite F] [CharP F 2]
-    (hF : Nat.card F = 4)
-    (eJ : ↥J ≃* Matrix.SpecialLinearGroup (Fin 4) F) :
-    False := by
-  classical
-  let X : Subgroup (ModGL Tag.F4 K) := f4FixedImageGroup sigma
-  have hfixedImage :
-      (alpha.toMonoidHom.eqLocus (MonoidHom.id Y)).map psi = X := by
-    simpa [X] using
-      fixedImage_map_eq sigma alpha psi hpsi_range hpsi_ker hintertwine
-  have hJcenter : Subgroup.center ↥J = ⊥ := by
-    have hmap := Subgroup.map_center_eq eJ
-    have hSL : Subgroup.center
-        (Matrix.SpecialLinearGroup (Fin 4) F) = ⊥ :=
-      CFSG.ClassicalInvolution.ModelFacts.L6C.center_eq_bot_char2
-    rw [hSL] at hmap
-    exact (Subgroup.map_eq_bot_iff_of_injective
-      (H := Subgroup.center ↥J) (f := eJ.toMonoidHom) eJ.injective).mp hmap
-  have hJ_inter_center : J ⊓ Subgroup.center Y = ⊥ := by
-    rw [eq_bot_iff]
-    intro x hx
-    have hxcenterJ : (⟨x, hx.1⟩ : ↥J) ∈ Subgroup.center ↥J := by
-      rw [Subgroup.mem_center_iff]
-      intro y
-      exact Subtype.ext (Subgroup.mem_center_iff.1 hx.2 (y : Y))
-    rw [hJcenter, Subgroup.mem_bot] at hxcenterJ
-    exact Subtype.ext_iff.mp hxcenterJ
-  have hInj : Function.Injective (fun j : ↥J => psi (j : Y)) := by
-    intro a b hab
-    change psi (a : Y) = psi (b : Y) at hab
-    have hmem : (a : Y)⁻¹ * (b : Y) ∈ J ⊓ psi.ker := by
-      refine ⟨J.mul_mem (J.inv_mem a.2) b.2, ?_⟩
-      show psi ((a : Y)⁻¹ * (b : Y)) = 1
-      rw [map_mul, map_inv, hab, inv_mul_cancel]
-    have hbot : (a : Y)⁻¹ * (b : Y) = 1 := by
-      have hcenter : (a : Y)⁻¹ * (b : Y) ∈ Subgroup.center Y :=
-        hpsi_ker hmem.2
-      have hmemBot : (a : Y)⁻¹ * (b : Y) ∈ (⊥ : Subgroup Y) := by
-        rw [← hJ_inter_center]
-        exact ⟨hmem.1, hcenter⟩
-      simpa using hmemBot
-    exact Subtype.ext (inv_mul_eq_one.mp hbot)
-  let J' : Subgroup (ModGL Tag.F4 K) := J.map psi
-  have hJ'leX : J' ≤ X := by
-    intro x hx
-    obtain ⟨j, hj, rfl⟩ := hx
-    rw [← hfixedImage]
-    exact ⟨j, hJcomp.1 hj, rfl⟩
-  have hsubInj : Function.Injective (psi.subgroupMap J) := by
-    intro a b hab
-    exact hInj (congrArg Subtype.val hab)
-  let eMapJ : ↥J ≃* ↥J' :=
-    MulEquiv.ofBijective (psi.subgroupMap J)
-      ⟨hsubInj, psi.subgroupMap_surjective J⟩
-  have hJ'quasi : CFSG.Assembly.IsQuasisimple ↥J' :=
-    (CFSG.Assembly.IsQuasisimple.congr eMapJ).mp hJcomp.2.2
-  have hJ'comp : CFSG.Assembly.IsComponentOf J' X := by
-    refine ⟨hJ'leX, ?_, hJ'quasi⟩
-    rw [← hfixedImage]
-    exact CFSG.Assembly.IsSubnormal.map psi hJcomp.2.1
-  let eJ' : ↥J' ≃* Matrix.SpecialLinearGroup (Fin 4) F :=
-    eMapJ.symm.trans eJ
-  exact false_of_F4_fieldFixedComponent
-    (K := K) (sigma := sigma) (J := J')
-    (by simpa [X] using hJ'comp) hF eJ'
 
 
 end

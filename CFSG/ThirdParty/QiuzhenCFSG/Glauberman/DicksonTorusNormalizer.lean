@@ -298,30 +298,6 @@ private theorem equiv_torus_reflection_data
     Subgroup.map_sup, MonoidHom.map_zpowers] at hmap
   exact hmap
 
-private theorem conjugate_torus_reflection_data
-    {G : Type u} [Group G] [Finite G]
-    (T0 : Subgroup G) (w0 : G)
-    (hcyclic0 : IsCyclic T0)
-    (hw0_normalizer : w0 ∈ Subgroup.normalizer (T0 : Set G))
-    (hw0_not_mem : w0 ∉ T0) (hw0_sq : w0 * w0 = 1)
-    (hw0_inv : ∀ t : G, t ∈ T0 → w0 * t * w0⁻¹ = t⁻¹)
-    (hcard0 : Nat.card (T0 ⊔ Subgroup.zpowers w0 : Subgroup G) =
-      2 * Nat.card T0)
-    (hnormalizer0 : ∀ R : Subgroup G, R ≤ T0 → R ≠ ⊥ →
-      Subgroup.normalizer (R : Set G) = T0 ⊔ Subgroup.zpowers w0)
-    (g : G) :
-    let T := T0.map (MulAut.conj g).toMonoidHom
-    let w := MulAut.conj g w0
-    IsCyclic T ∧
-      w ∈ Subgroup.normalizer (T : Set G) ∧
-      w ∉ T ∧
-      w * w = 1 ∧
-      (∀ t : G, t ∈ T → w * t * w⁻¹ = t⁻¹) ∧
-      Nat.card (T ⊔ Subgroup.zpowers w : Subgroup G) = 2 * Nat.card T ∧
-      ∀ R : Subgroup G, R ≤ T → R ≠ ⊥ →
-        Subgroup.normalizer (R : Set G) = T ⊔ Subgroup.zpowers w := by
-  exact equiv_torus_reflection_data T0 w0 hcyclic0 hw0_normalizer hw0_not_mem
-    hw0_sq hw0_inv hcard0 hnormalizer0 (MulAut.conj g)
 
 public theorem relIndex_le_two_of_inter_eq
     {G : Type u} [Group G] [Finite G]

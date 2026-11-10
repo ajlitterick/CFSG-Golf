@@ -289,55 +289,5 @@ theorem foote_lemma_4_3_i (hLB : FooteLBalanceInput) {A E V : Subgroup G}
   exact ⟨odd_card_iSup_oddCoreIn hEc hexp h8 hV hVE hbal hL₀E hWE hWL₀ hL₀gen K hK₀ hKsup hKres
     hKO, hXO, hMsup⟩
 
-theorem foote_lemma_4_3_i_of_mem_footeFamilyOf (hLB : FooteLBalanceInput)
-    (hGA : TBLit.GriessMultipliersAllModels) (hGC : TBLit.GriessMultipliersCentralCovers)
-    (hSA : SolAltLit.SchurAlternatingMultiplierInput) {L : Subgroup G}
-    (hLfam : FooteFamilyType L)
-    (huniq : ∀ (a : G) (K M : Subgroup G), IsTwoComponentAt a K → IsTwoComponentAt a M →
-      K ∈ footeFamilyOf L → M ∈ footeFamilyOf L → K = M)
-    (hrank2 : ∀ B ∈ footeFamilyOf L, CFSG.pRank 2 ↥B = 2)
-    {z : G} {A : Subgroup G} (hAmax : FootePointedMaximal z A) (hAF : A ∈ footeFamilyOf L)
-    {E V : Subgroup G} (hEc : IsMulCommutative E) (hexp : ∀ e ∈ E, e ^ 2 = 1)
-    (h8 : Nat.card E = 8) (hEA : E ≤ coreActionKernel A) (hV : IsKleinFour V)
-    (hVA : V ≤ A ⊓ centralizer (E : Set G))
-    (h41 : ∀ a ∈ E, a ≠ 1 → ⁅oddCoreOfCentralizer a, V⁆ ⊓ centralizer (V : Set G) ≤
-      oddCoreIn (centralizer (V : Set G))) :
-    ∃ K : G → Subgroup G, (∀ e ∈ E, e ≠ 1 → IsTwoComponentAt e (K e) ∧ K e ∈ footeFamilyOf L) ∧
-      Odd (Nat.card ↥(⨆ e ∈ E, ⨆ (_ : e ≠ 1), oddCoreIn (K e))) ∧
-      (⨆ e ∈ E, ⨆ (_ : e ≠ 1), oddCoreIn (K e)) ≤ oddCoreIn (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) ∧
-      (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) ≤
-        oddResidualIn (A ⊓ centralizer (E : Set G)) ⊔ oddCoreIn (⨆ e ∈ E, ⨆ (_ : e ≠ 1), K e) := by
-  classical
-  have hex : ∀ e : G, ∃ B : Subgroup G, e ∈ E → e ≠ 1 → IsTwoComponentAt e B ∧
-      B ∈ footeFamilyOf L ∧ oddResidualIn (A ⊓ centralizer ({e} : Set G)) ≤ B := by
-    intro e
-    by_cases he : e ∈ E ∧ e ≠ 1
-    · have hord : orderOf e = 2 := orderOf_eq_prime (hexp e he.1) he.2
-      obtain ⟨B, hB, -, hBF, hBA⟩ :=
-        exists_mem_footeFamilyOf_of_mem_coreActionKernel hLB huniq hAmax hAF hord (hEA he.1)
-      exact ⟨B, fun _ _ => ⟨hB, hBF, hBA⟩⟩
-    · exact ⟨⊥, fun h1 h2 => absurd ⟨h1, h2⟩ he⟩
-  choose K hK using hex
-  have hquot : ∀ B ∈ footeFamilyOf L, (∃ b : G, IsTwoComponentAt b B) →
-      Nonempty (B ⧸ pPrimeCore 2 B ≃* L ⧸ Open.fusionZStar L) := by
-    intro B hBF hB
-    obtain ⟨-, ⟨eBL⟩⟩ := id hBF
-    obtain ⟨e₁⟩ := nonempty_quotient_equiv_fusionZStar hGA hGC hSA hB
-      (footeFamilyType_of_equiv eBL hLfam) (by rw [hrank2 B hBF])
-    exact ⟨e₁.trans eBL⟩
-  obtain ⟨eA⟩ := hquot A hAF ⟨z, hAmax.1⟩
-  have hsimp : IsSimpleGroup (A ⧸ pPrimeCore 2 A) := by
-    obtain ⟨hz, hAz, hApc⟩ := hAmax.1
-    obtain ⟨hs, -⟩ := zStarQuotient_simple hApc
-    obtain ⟨e₂⟩ := nonempty_quotient_fusionZStar_equiv
-      (subgroupOfEquivOfLe hAz : ↥(A.subgroupOf (centralizer ({z} : Set G))) ≃* ↥A)
-    obtain ⟨-, ⟨eAL⟩⟩ := id hAF
-    exact (e₂.trans (eAL.trans eA.symm)).symm.isSimpleGroup
-  refine ⟨K, fun e he he1 => ⟨(hK e he he1).1, (hK e he he1).2.1⟩, ?_⟩
-  exact foote_lemma_4_3_i hLB hEc hexp h8 hEA hV hVA h41 K (fun e he he1 => (hK e he he1).1)
-    (fun e he he1 => (hK e he he1).2.2)
-    (fun e he he1 => by
-      obtain ⟨eK⟩ := hquot (K e) (hK e he he1).2.1 ⟨e, (hK e he he1).1⟩
-      exact Nat.card_congr (eK.trans eA.symm).toEquiv)
 
 end CFSG.ComponentClassification.FooteLit

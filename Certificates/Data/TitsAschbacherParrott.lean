@@ -57,7 +57,6 @@ open CFSG.Sporadic.Schreier.Tits CFSG.Monster.B.Co2.Native CFSG.Quasithin
    (3, 2, [5, 6, 7, 8, 9, 10, 12]),
    (3, 1, [4, 5, 7, 8, 9, 10, 11, 12])]
 
-@[expose] def parrottPairs : List (ℕ × ℕ) := parrottComm.map fun r => (r.1, r.2.1)
 
 @[expose] def listed (i j : ℕ) : Bool := parrottComm.any fun r => r.1 == i && r.2.1 == j
 

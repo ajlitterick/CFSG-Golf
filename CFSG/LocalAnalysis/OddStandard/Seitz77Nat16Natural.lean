@@ -51,9 +51,6 @@ theorem linRep_injective (ρ : SL(2, F) →* GL (Fin 8) (ZMod 2)) (hρ : Functio
     show e (r g (r g' (e.symm n))) = e (r g (e.symm (e (r g' (e.symm n)))))
     rw [e.symm_apply_apply]
 
-theorem conjEnd_apply {G : Type*} [Monoid G] {M N : Type*} [AddCommGroup M] [AddCommGroup N]
-    (e : M ≃+ N) (r : G →* AddMonoid.End M) (g : G) (n : N) :
-    conjEnd e r g n = e (r g (e.symm n)) := rfl
 
 @[expose] noncomputable def addRep (ρ : SL(2, F) →* GL (Fin 8) (ZMod 2)) :
     SL(2, F) →* AddMonoid.End (Fin 8 → ZMod 2) where
@@ -64,9 +61,6 @@ theorem conjEnd_apply {G : Type*} [Monoid G] {M N : Type*} [AddCommGroup M] [Add
   map_mul' g g' := AddMonoidHom.ext fun v => by
     simp only [map_mul]
     rfl
-
-theorem addRep_apply (ρ : SL(2, F) →* GL (Fin 8) (ZMod 2)) (g : SL(2, F)) (v : Fin 8 → ZMod 2) :
-    addRep ρ g v = (ρ g : Matrix (Fin 8) (Fin 8) (ZMod 2)) *ᵥ v := linRep_apply ρ g v
 
 
 theorem tE_pow_eq_one_iff (a : F) (ha : a ≠ 0) (n : ℕ) : tE a ha ^ n = 1 ↔ a ^ n = 1 := by

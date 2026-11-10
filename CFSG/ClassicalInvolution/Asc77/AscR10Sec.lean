@@ -41,39 +41,5 @@ theorem exists_g2_component (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hIH : CITBelowU 
   · exact quotViol_false_of_trialityD4 hp2 hq hΦ D hD hR hS hQ
   · exact hQ.false_of_classical hp2 hq hΦ D hi hD hR hS
 
-theorem false_of_violation_and_swap (hp2 : p ≠ 2) (hp3 : p ≠ 3) (hq : 5 ≤ p ^ f)
-    (hIH : CITBelowU p f n) (hlt : Nat.card Y < n) {Λ : Set (Subgroup Y)}
-    (hΛ : HypOmegaMod p f Λ) {K J : Subgroup Y} {zK zJ : Y} (hK : K ∈ Λ)
-    (hv : AViol Λ K J zK zJ) {s : Y} (hsz : s * zK = zK * s) (hne : conjSub s K ≠ K) :
-    False := by
-  obtain ⟨D, i, R, hG2, hR, hKR⟩ := exists_g2_component hp2 hq hIH hlt hΛ hK hv
-  have hΦ : HypOmegaMod p f (oddQuotientFamily Λ) :=
-    oddQuotHyp p f hp2 hq Y Λ hΛ (classicalInvolutionOddCore Y)
-      (CFSG.ComponentClassification.OddCore.odd_card Y)
-  have hi : D.tag i = .G2 ∨ D.tag i = .trialityD4 := Or.inl hG2
-  have hKs : conjSub s K ∈ Λ := hΛ.conjInvariant s K hK
-  have hzK := hv.hzK
-  have hzs : IsUniqueInvolution (conjSub s K) zK := by
-    have := hzK.conj s
-    have e : s * zK * s⁻¹ = zK := by rw [hsz]; group
-    rwa [e] at this
-  have hzbar : IsUniqueInvolution (K.map (oddQuot Y)) (oddQuot Y zK) :=
-    isUniqueInvolution_map_mk_of_odd (odd_natCard_oddCore_inf K) hzK
-  have hzbar' : IsUniqueInvolution ((conjSub s K).map (oddQuot Y)) (oddQuot Y zK) :=
-    isUniqueInvolution_map_mk_of_odd (odd_natCard_oddCore_inf _) hzs
-  have hKmem : K.map (oddQuot Y) ∈ compMembers D i := ⟨R, hR, hKR⟩
-  have hKsmem : (conjSub s K).map (oddQuot Y) ∈ compMembers D i :=
-    twin_mem_compMembers hp2 D hi hKmem
-      ⟨mem_oddQuotientFamily hKs, oddQuot Y zK, hzbar, hzbar'⟩
-  obtain ⟨R₂, -, hKR₂⟩ := hKsmem
-  have hs : conjSub (oddQuot Y s) (R.map (D.hom i)) = R₂.map (D.hom i) := by
-    rw [← hKR, ← hKR₂]
-    exact (AscQuot.map_conjSub (oddQuot Y) s K).symm
-  have hc₁ : IsUniqueInvolution (R.map (D.hom i)) (oddQuot Y zK) := hKR ▸ hzbar
-  have hc₂ : IsUniqueInvolution (R₂.map (D.hom i)) (oddQuot Y zK) := hKR₂ ▸ hzbar'
-  have hRR : R₂ = R := false_of_twin_swap hp2 hp3 hΦ D hG2 hR hc₁ hc₂ hs
-  have himg : (conjSub s K).map (oddQuot Y) = K.map (oddQuot Y) := by
-    rw [hKR, hKR₂, hRR]
-  exact hne (eq_of_map_eq_of_twin hΛ hKs hK hzs hzK himg)
 
 end CFSG.ClassicalInvolution.Asc77.R10

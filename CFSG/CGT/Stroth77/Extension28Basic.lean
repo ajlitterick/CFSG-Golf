@@ -215,13 +215,6 @@ theorem false_of_index_two_t310_of_data {S : Type*} [Group S] [Finite S] {B C S'
   rw [hd]
   exact B.mul_mem hwB σ.2
 
-theorem false_of_index_two_t310 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
-    {m : ℕ} {hm : 2 ≤ m} (hB : HasStrothType B (StrothTypeIndex.t310 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_t310_of_data hB.data hBC hC hrel hL hH hcS
 
 section IndexFour
 
@@ -409,16 +402,6 @@ theorem not_isCyclic_quotient_t310_of_data {m : ℕ} {hm : 2 ≤ m}
     exact hq2 hq2eq
   exact hwinv_notB (hH (winv : S) (hcS winv.2) hwinvS2 (hC winv.2))
 
-theorem not_isCyclic_quotient_t310 {m : ℕ} {hm : 2 ≤ m}
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t310 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    ¬ IsCyclic (C ⧸ B.subgroupOf C) :=
-  not_isCyclic_quotient_t310_of_data hB.data hBC hC hrel hL hH hcS
-
 
 theorem isMulCommutative_of_relIndex_four_t310_of_data {m : ℕ} {hm : 2 ≤ m}
     [hN : (B.subgroupOf C).Normal] (D : StrothTypeData B (StrothTypeIndex.t310 m hm))
@@ -430,14 +413,6 @@ theorem isMulCommutative_of_relIndex_four_t310_of_data {m : ℕ} {hm : 2 ≤ m}
   isMulCommutative_of_relIndex_four_Idx4 D hBC hC hrel hL hncyc
     fun _ hρ ht => t310_fixed_rho_t_of_mem D hρ ht
 
-theorem isMulCommutative_of_relIndex_four_t310 {m : ℕ} {hm : 2 ≤ m}
-    [hN : (B.subgroupOf C).Normal] (hB : HasStrothType B (StrothTypeIndex.t310 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) :
-    IsMulCommutative C :=
-  isMulCommutative_of_relIndex_four_t310_of_data hB.data hBC hC hrel hL hncyc
 
 end IndexFour
 

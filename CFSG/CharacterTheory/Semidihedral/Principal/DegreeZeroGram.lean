@@ -661,55 +661,5 @@ theorem degree_zero_difference_star_coordinates
     · rw [hνrest i hi, hνzero]
       exact hformν' ⟨i, hi⟩ x hx
 
-theorem blocksVChar_degree_zero_difference_star
-    {X I : Type} [Group X] [Fintype X] [Fintype I] [DecidableEq I] (zero : I)
-    (hI : 3 ≤ Fintype.card I) {f : I → X → ℂ} (hf : ∀ i, f i ∈ BlocksVChar X)
-    (hzero : f zero = 0) (hdegree : ∀ i, f i 1 = 0)
-    (hgram : ∀ i k, i ≠ zero → k ≠ zero →
-      BlocksInnerProduct (f i) (f k) = 1 + if i = k then 1 else 0) :
-    ∃ (ε : ℤ) (ν : I → BlocksIrr X), (ε = 1 ∨ ε = -1) ∧ Function.Injective ν ∧
-      (∀ i k, (ν i : X → ℂ) 1 = (ν k : X → ℂ) 1) ∧
-      ∀ i, f i = (ε : ℂ) • ((ν i : X → ℂ) - (ν zero : X → ℂ)) := by
-  obtain ⟨other, hother⟩ : ∃ i : I, i ≠ zero := by
-    by_contra hall
-    push Not at hall
-    have hle : Fintype.card I ≤ 1 :=
-      Fintype.card_le_one_iff.mpr fun a b => (hall a).trans (hall b).symm
-    omega
-  have : Nonempty {i : I // i ≠ zero} := ⟨⟨other, hother⟩⟩
-  obtain ⟨common, χ, ε, hχinj, hχne, hε, hχdeg, hrepr⟩ :=
-    blocksVChar_norm_two_gram_common_sign (fun i : {i : I // i ≠ zero} => f i)
-      (fun i => hf i) (fun i => hdegree i) (fun i k => by
-        have h := hgram i k i.property k.property
-        by_cases hik : i = k
-        · subst hik
-          simpa using h
-        · have hik' : (i : I) ≠ k := fun h => hik (Subtype.ext h)
-          simpa [hik, hik'] using h)
-  let ν : I → BlocksIrr X := fun i => if h : i = zero then common else χ ⟨i, h⟩
-  have hνzero : ν zero = common := dite_eq_left rfl
-  have hνrest : ∀ i (h : i ≠ zero), ν i = χ ⟨i, h⟩ := fun i h => dite_eq_right h
-  have hνdeg : ∀ i, (ν i : X → ℂ) 1 = (common : X → ℂ) 1 := by
-    intro i
-    by_cases hi : i = zero
-    · rw [hi, hνzero]
-    · rw [hνrest i hi]
-      exact hχdeg _
-  refine ⟨ε, ν, hε, ?_, fun i k => by rw [hνdeg i, hνdeg k], fun i => ?_⟩
-  · intro i k hik
-    by_cases hi : i = zero
-    · by_cases hk : k = zero
-      · exact hi.trans hk.symm
-      · rw [hi, hνzero, hνrest k hk] at hik
-        exact (hχne _ hik.symm).elim
-    · by_cases hk : k = zero
-      · rw [hk, hνzero, hνrest i hi] at hik
-        exact (hχne _ hik).elim
-      · rw [hνrest i hi, hνrest k hk] at hik
-        exact congrArg Subtype.val (hχinj hik)
-  · by_cases hi : i = zero
-    · rw [hi, hzero, sub_self, smul_zero]
-    · rw [hνrest i hi, hνzero]
-      exact hrepr ⟨i, hi⟩
 
 end CFSG.Semidihedral.Principal

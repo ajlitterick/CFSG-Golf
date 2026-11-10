@@ -58,14 +58,5 @@ theorem odd_local_inversion_subgroup_eq_commutator
   have hKN : K.subgroupOf J = N := SetLike.coe_injective (hset.trans hNset.symm)
   exact ⟨hcomm, hKN.symm ▸ hNnormal⟩
 
-theorem odd_local_cyclic_inversion_subgroup_eq_commutator
-    (hodd : Odd (Nat.card I)) (b : A) (hb : b * b = 1)
-    (J : Subgroup I) [CFSG.IsInvariant A I J]
-    (K : Subgroup I) (hcyclic : IsCyclic K)
-    (hK : ∀ x : I, x ∈ K ↔ x ∈ J ∧ b • x = x⁻¹) :
-    K = actorCommutatorSubgroup b J ∧ (K.subgroupOf J).Normal ∧
-      IsCyclic (actorCommutatorSubgroup b J) := by
-  obtain ⟨heq, hnormal⟩ := odd_local_inversion_subgroup_eq_commutator hodd b hb J K hK
-  exact ⟨heq, hnormal, heq ▸ hcyclic⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

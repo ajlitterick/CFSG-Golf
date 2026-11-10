@@ -109,39 +109,6 @@ theorem tau_zero : F.tau 0 = 1 :=
 theorem tau_inv (B : Matrix (Fin r) (Fin r) K) : (F.tau B)⁻¹ = F.tau (-B) :=
   (eq_inv_of_mul_eq_one_left (by rw [tau_mul, neg_add_cancel, tau_zero])).symm
 
-theorem tau_isometry {B : Matrix (Fin r) (Fin r) K} (hB : ∀ z, (B *ᵥ z) ⬝ᵥ z = 0)
-    (v : Fin r ⊕ M → K) :
-    F.Q ((F.tau B : Matrix (Fin r ⊕ M) (Fin r ⊕ M) K) *ᵥ v) = F.Q v := by
-  simp only [Q, coe_tau, fromBlocks_mulVec, one_mulVec, Matrix.zero_mulVec, zero_add,
-    Sum.elim_comp_inl, Sum.elim_comp_inr]
-  rw [← mulVec_mulVec, add_dotProduct, hB, add_zero]
-
-theorem tau_mulVec_inl (B : Matrix (Fin r) (Fin r) K) (x : Fin r → K) :
-    (F.tau B : Matrix (Fin r ⊕ M) (Fin r ⊕ M) K) *ᵥ Sum.elim x 0 = Sum.elim x 0 := by
-  simp [coe_tau, fromBlocks_mulVec]
-
-theorem rho_tau_conj (A : GL (Fin r) K) (B : Matrix (Fin r) (Fin r) K) :
-    F.rho A * F.tau B * (F.rho A)⁻¹ =
-      F.tau ((A : Matrix (Fin r) (Fin r) K) * B * (A : Matrix (Fin r) (Fin r) K)ᵀ) := by
-  have h1 : (A : Matrix (Fin r) (Fin r) K) * ((A⁻¹ : GL (Fin r) K) : Matrix (Fin r) (Fin r) K) =
-      1 := by
-    rw [← Units.val_mul, mul_inv_cancel, Units.val_one]
-  have h2 : (F.σ A : Matrix M M K) * (F.σ A⁻¹ : Matrix M M K) = 1 := by
-    rw [← Units.val_mul, ← map_mul, mul_inv_cancel, map_one, Units.val_one]
-  have h3 : F.P * (F.σ A⁻¹ : Matrix M M K) = (A : Matrix (Fin r) (Fin r) K)ᵀ * F.P := by
-    rw [F.P_mul_σ, coe_invTranspose, inv_inv]
-  rw [← map_inv]
-  apply Units.ext
-  rw [Units.val_mul, Units.val_mul, coe_rho, coe_rho, coe_tau, coe_tau, fromBlocks_multiply,
-    fromBlocks_multiply]
-  simp only [Matrix.mul_one, Matrix.mul_zero, Matrix.zero_mul, add_zero, zero_add, h1, h2]
-  rw [Matrix.mul_assoc, Matrix.mul_assoc, h3, ← Matrix.mul_assoc, ← Matrix.mul_assoc,
-    Matrix.mul_assoc (A : Matrix (Fin r) (Fin r) K) B]
-
-theorem commutator_rho_tau (A : GL (Fin r) K) (B : Matrix (Fin r) (Fin r) K) :
-    ⁅F.rho A, F.tau B⁆ =
-      F.tau ((A : Matrix (Fin r) (Fin r) K) * B * (A : Matrix (Fin r) (Fin r) K)ᵀ - B) := by
-  rw [commutatorElement_def, F.rho_tau_conj, F.tau_inv, F.tau_mul, sub_eq_add_neg]
 
 theorem tau_injective : Function.Injective F.tau := fun B C h => by
   have h' := congrArg (fun g : GL (Fin r ⊕ M) K => (g : Matrix (Fin r ⊕ M) (Fin r ⊕ M) K)) h

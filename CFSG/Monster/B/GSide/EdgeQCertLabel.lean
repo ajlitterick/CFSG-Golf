@@ -147,10 +147,6 @@ theorem exists_label_of_psiW_mem_OmegaW
       _ = (y : Dfull)⁻¹ * ((f : Dfull) * y) := by rw [hc]
       _ = ((j : Dfull) * y)⁻¹ * cQ * ((j : Dfull) * y) := by rw [hf']; group
 
-theorem isLabel_iff_psiW_mem_OmegaW
-    (t : Ehat) :
-    (∃ s : Shat, (t : Dfull) = (s : Dfull)⁻¹ * cQ * s) ↔ psiW t ∈ Unitary.OmegaW :=
-  ⟨fun ⟨_, hs⟩ => psiW_mem_OmegaW_of_label hs, exists_label_of_psiW_mem_OmegaW⟩
 
 theorem exists_clabelS_iff
     (s : Shat) :

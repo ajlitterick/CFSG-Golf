@@ -37,9 +37,6 @@ namespace CFSG.KC.SporCov
     Bool :=
   chW L a && chW L ai && chW L b && chW L bi && E (a ++ ai) [] && E (b ++ bi) []
 
-@[expose] noncomputable def repOK (E : List Nat → List Nat → Bool) (L : Nat → Bool) (p : Nat)
-    (T : List (List Nat)) (i : Nat) (r : List Nat) : Bool :=
-  chW L (nthW T i) && chW L r && E (nthW T i) r && E (repW (nthW T i) p) []
 
 @[expose] noncomputable def link (E : List Nat → List Nat → Bool) (x z h c ci : List Nat) : Bool :=
   E (h ++ x) (z ++ h) && cm E x z && cm E z (c ++ x ++ ci)

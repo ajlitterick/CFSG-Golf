@@ -58,16 +58,9 @@ theorem ggSixLSixElevenKGInput_of_round5 (h : GGSixLSixElevenKGRound5) :
 
 end Exc
 
-@[expose] def GGKGroupFusionRound5 : Prop :=
-  GGAltNotMarkedInput ∧ GGLieParabolicCharInput ∧ GGLieOuterFieldAutInput ∧
-    GGSeitzExcInputs ∧ GGKGroupFusionAt GGKFSporadic
 
 section KFusion
 
-open CFSG.LocalAnalysis.ComponentInitial CFSG.AGLEmbeddingD2 in
-theorem ggKGroupFusionLayerInput_of_round5 (hSch : SchreierFor InCatalog)
-    (hS : KFactSeitzRankTwo) (h : GGKGroupFusionRound5) : GGKGroupFusionLayerInput :=
-  ggKGroupFusionLayerInput_of_seitzExcInputs hSch hS h.1 h.2.1 h.2.2.1 h.2.2.2.1 h.2.2.2.2
 
 end KFusion
 
@@ -129,12 +122,6 @@ end Raw
 section IOne
 
 
-theorem ggStdSubIOneProperInput_of_round5 (ha₀ : GGLNoncyclicInput)
-    (hR : GGStdSubIOneProperInputOn fun p lab => ¬ GGIOneUnitaryLabel p lab) :
-    GGStdSubIOneProperInput :=
-  ggStdSubIOneProperInput_of_cover ((ggStdSubIOneProperInputOn_unitary_holds ha₀).or hR)
-    fun p lab _ _ => em (GGIOneUnitaryLabel p lab)
-
 end IOne
 
 section StepTwo
@@ -152,13 +139,6 @@ end StepTwo
 
 section PDiv
 
-@[expose] def GGLayerPDivRound5 : Prop :=
-  GGLayerPDivTag .POmegaPlus ∧ GGLayerPDivTag .POmegaMinus ∧ GGLayerPDivTag .F4 ∧
-    GGLayerPDivTag .E6 ∧ GGLayerPDivTag .E7 ∧ GGLayerPDivTag .E8 ∧ GGLayerPDivTag .twistedE6
-
-theorem ggLayerPDivInput_of_round5 (h : GGLayerPDivRound5) : GGLayerPDivInput :=
-  ggLayerPDivInput_of_remaining_seven h.1 h.2.1 h.2.2.1 h.2.2.2.1 h.2.2.2.2.1 h.2.2.2.2.2.1
-    h.2.2.2.2.2.2
 
 end PDiv
 
@@ -166,9 +146,5 @@ theorem ggTypeACompatFarExGenInput_iff_cfg :
     GGTypeACompatFarExGenInput ↔ GGTypeACompatFarExCfgInput :=
   Iff.rfl
 
-theorem ggTypeACompatFarExGenInput_of_diag (hD : GGTypeACompatDiagInput)
-    (hF : GGTypeABstarFarInput) (hO : GGBstarCentralizerOddInput) :
-    GGTypeACompatFarExGenInput :=
-  ggTypeACompatFarExGenInput_iff_cfg.mpr (ggTypeACompatFarExCfgInput_of_diag hD hF hO)
 
 end CFSG.StandardType

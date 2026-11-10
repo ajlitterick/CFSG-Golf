@@ -173,25 +173,6 @@ theorem exists_pA_of_mem_normalizer (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ 
   · rw [hm]; exact hj
   · rw [hm]; exact hk
 
-theorem normalizer_A3_eq_mul (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃) :
-    ∀ n ∈ normalizer (A3 (x₁ : G) (x₂ : G) (x₃ : G) : Set G),
-      ∃ h ∈ normalizer (A3 (x₁ : G) (x₂ : G) (x₃ : G) : Set G) ⊓ centralizer ({t} : Set G),
-        ∃ q ∈ Q3 (x₁ : G) (x₂ : G) (x₃ : G), n = h * q := by
-  intro n hn
-  obtain ⟨m, hm1, hm2, hm3⟩ := D.exists_pA_of_mem_normalizer S hn
-  obtain ⟨w, hwN, hw1, hw2, hw3⟩ := D.exists_lift_pA S m
-  have key : ∀ a b : G, n * a * n⁻¹ = b → (w : G) * a * (w : G)⁻¹ = b →
-      a * ((w : G)⁻¹ * n) = ((w : G)⁻¹ * n) * a := by
-    intro a b h1 h2
-    have h3 : (w : G)⁻¹ * n * a * ((w : G)⁻¹ * n)⁻¹ = a := by
-      calc (w : G)⁻¹ * n * a * ((w : G)⁻¹ * n)⁻¹ = (w : G)⁻¹ * (n * a * n⁻¹) * (w : G) := by
-            group
-        _ = (w : G)⁻¹ * ((w : G) * a * (w : G)⁻¹) * (w : G) := by rw [h1, h2]
-        _ = a := by group
-    exact (mul_inv_eq_iff_eq_mul.1 h3).symm
-  refine ⟨(w : G), ⟨hwN, w.2⟩, (w : G)⁻¹ * n, ?_, by group⟩
-  rw [mem_Q3]
-  exact ⟨key _ _ hm1 hw1, key _ _ hm2 hw2, key _ _ hm3 hw3⟩
 
 theorem card_normalizer_A3 (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃) :
     Nat.card ↥(normalizer (A3 (x₁ : G) (x₂ : G) (x₃ : G) : Set G)) =

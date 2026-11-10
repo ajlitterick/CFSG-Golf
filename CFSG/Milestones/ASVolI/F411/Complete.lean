@@ -13,9 +13,6 @@ open scoped commutatorElement
 
 section Generic
 
-theorem burnsideF411_autCentSylow_of_inner {X : Type} [Group X] (p : ℕ)
-    (h : ∀ α : MulAut X, ∃ g : X, α = MulAut.conj g) : burnsideF411_AutCentSylow X p :=
-  fun α _ _ => h α
 
 theorem burnsideF411_commutator_eq_top_of_simple {S : Type} [Group S] [IsSimpleGroup S]
     (hS : Subgroup.center S = ⊥) : ⁅(⊤ : Subgroup S), (⊤ : Subgroup S)⁆ = (⊤ : Subgroup S) := by
@@ -121,9 +118,6 @@ theorem burnsideF411_g2Two_inner (hK : Nat.card K = 2) (α : MulAut (G2Native.Fu
     (burnsideF4h_g2_incl_injective hK) (burnsideF4h_g2_incl_index hK)
     (burnsideF45_g2_center_small hK) (burnsideF45_g2_conj_bijective hK) α
 
-theorem burnsideF411_autCentSylow_g2Two (hK : Nat.card K = 2) (p : ℕ) :
-    burnsideF411_AutCentSylow (G2Native.FullModel K) p :=
-  burnsideF411_autCentSylow_of_inner p (burnsideF411_g2Two_inner hK)
 
 end G2Two
 
@@ -131,36 +125,6 @@ section TwoF4Two
 
 open CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.Sporadic.Schreier.Tits
 
-
-variable {K : Type} [Field K] [Finite K]
-
-theorem burnsideF411_twoF4Two_inner [CharP K 2] (hK : Nat.card K = 2)
-    (α : MulAut (↥(reeGroup K 0) ⧸ Subgroup.center ↥(reeGroup K 0))) :
-    ∃ g : ↥(reeGroup K 0) ⧸ Subgroup.center ↥(reeGroup K 0), α = MulAut.conj g := by
-  haveI : CharP K CFSG.LieType.Ree.ReeTag.F4.prime := inferInstanceAs (CharP K 2)
-  have hscope : Nat.card K = 2 ^ (2 * 0 + 1) := by rw [hK]; norm_num
-  obtain ⟨-, -, -, ι, hιinj, hιidx, -⟩ := burnsideF4h_titsParentAssembly K hscope
-  have hZfull : Subgroup.center (↥(reeGroup K 0) ⧸ Subgroup.center ↥(reeGroup K 0)) = ⊥ :=
-    burnsideF45_center_quotient_eq_bot (burnsideF4h_ree_center_trivial hscope)
-  obtain ⟨Φ, -⟩ := burnsideF4h_tits_gammaEquiv hK
-  obtain ⟨Θ, -⟩ := burnsideF4h_tits_commutator_equiv (reeGroup K 0) Φ
-  have hZ : Subgroup.center ↥⁅reeGroup K 0, reeGroup K 0⁆ = ⊥ :=
-    burnsideF4h_tits_center_eq_bot_of_equiv Θ burnsideF4h_tits_center_titsD
-  have hZsmall : Subgroup.center (DerivedCentralQuotient (reeGroup K 0)) = ⊥ :=
-    burnsideF45_center_quotient_eq_bot hZ
-  obtain ⟨eC, -⟩ := burnsideF4h_tits_exists_derivedEquiv (reeGroup K 0) _ rfl hZ
-  haveI : IsSimpleGroup ↥titsD := titsD_simple
-  haveI : IsSimpleGroup (DerivedCentralQuotient (reeGroup K 0)) := (eC.trans Θ).isSimpleGroup
-  have hinj := burnsideF45_conjOn_injective ι hιinj hιidx hZsmall hZfull
-  have hbij := hinj.bijective_of_nat_card_le (by
-    rw [burnsideF45_card_of_index_two ι hιinj hιidx,
-      Nat.card_congr (MulAut.congr (eC.trans Θ)).toEquiv, Nat.card_congr (eC.trans Θ).toEquiv]
-    exact card_mulAut_titsD_le titsOuter_card_le_two)
-  exact burnsideF411_inner_of_conjOn_bijective ι hιinj hιidx hZsmall hbij α
-
-theorem burnsideF411_autCentSylow_twoF4Two [CharP K 2] (hK : Nat.card K = 2) (p : ℕ) :
-    burnsideF411_AutCentSylow (↥(reeGroup K 0) ⧸ Subgroup.center ↥(reeGroup K 0)) p :=
-  burnsideF411_autCentSylow_of_inner p (burnsideF411_twoF4Two_inner hK)
 
 end TwoF4Two
 

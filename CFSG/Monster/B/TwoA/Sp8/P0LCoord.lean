@@ -71,29 +71,6 @@ private theorem tVec_one : tVec (1 : Dfull) = 0 := by
 
 private def tOf (v : Fin 9 → ZMod 2) : Dfull := tEquiv (Multiplicative.ofAdd v)
 
-private theorem tOf_mem_T9 (v : Fin 9 → ZMod 2) : tOf v ∈ T9 := (tEquiv _).2
-
-private theorem tOf_zero : tOf 0 = (1 : Dfull) := by
-  unfold tOf
-  rw [ofAdd_zero, map_one, Subgroup.coe_one]
-
-private theorem tOf_add (v w : Fin 9 → ZMod 2) : tOf (v + w) = tOf v * tOf w := by
-  unfold tOf
-  rw [ofAdd_add, map_mul, Subgroup.coe_mul]
-
-private theorem tOf_comm (v w : Fin 9 → ZMod 2) : tOf v * tOf w = tOf w * tOf v :=
-  T9_mul_comm (tOf_mem_T9 v) (tOf_mem_T9 w)
-
-private theorem tVec_tOf (v : Fin 9 → ZMod 2) : tVec (tOf v) = v := by
-  unfold tVec
-  rw [dif_pos (tOf_mem_T9 v)]
-  have h : (⟨tOf v, tOf_mem_T9 v⟩ : T9) = tEquiv (Multiplicative.ofAdd v) := rfl
-  rw [h, MulEquiv.symm_apply_apply, toAdd_ofAdd]
-
-private theorem tOf_injective : Function.Injective tOf := by
-  intro v w h
-  have hv := congrArg tVec h
-  rwa [tVec_tOf, tVec_tOf] at hv
 
 private theorem tOf_eq_tD (τ : ℕ) : tOf (bvec 9 τ) = tD τ := by
   unfold tOf
@@ -115,27 +92,6 @@ private theorem tVec_list_prod {l : List Dfull} (hl : ∀ x ∈ l, x ∈ T9) :
       (list_prod_mem fun x hx => hl x (List.mem_cons_of_mem _ hx)),
       ih fun x hx => hl x (List.mem_cons_of_mem _ hx)]
 
-private theorem lD_eq_prod_range (n : ℕ) (hn : n ≤ 16) {σ : ℕ} (hσ : σ < 2 ^ n) :
-    lD σ = ((List.range n).map fun j => if σ.testBit j then lD (2 ^ j) else 1).prod := by
-  rw [lD_eq_prod]
-  have hrange : List.range 16 = List.range n ++ List.range' n (16 - n) := by
-    rw [List.range_eq_range' (n := 16), List.range_eq_range' (n := n)]
-    have h := List.range'_append (s := 0) (m := n) (n := 16 - n) (step := 1)
-    simpa [show n + (16 - n) = 16 by omega] using h.symm
-  rw [hrange, List.map_append, List.prod_append]
-  have htail : ((List.range' n (16 - n)).map
-      (fun j => if σ.testBit j then lD (2 ^ j) else 1)).prod = 1 := by
-    refine List.prod_eq_one fun x hx => ?_
-    obtain ⟨j, hj, rfl⟩ := List.mem_map.1 hx
-    rw [if_neg]
-    intro hbit
-    have hnle : n ≤ j := by
-      have := List.mem_range'.1 hj
-      omega
-    have hlt : σ < 2 ^ j := lt_of_lt_of_le hσ (Nat.pow_le_pow_right (by norm_num) hnle)
-    rw [Nat.testBit_eq_false_of_lt hlt] at hbit
-    exact Bool.false_ne_true hbit
-  rw [htail, mul_one]
 
 private theorem exists_bvec (n : ℕ) (v : Fin n → ZMod 2) :
     ∃ a < 2 ^ n, bvec n a = v := by
@@ -842,8 +798,6 @@ private theorem list_sum_range_eq_finset_sum {M : Type*} [AddCommMonoid M] (f : 
 private def lDlist (σ : ℕ) : List Dfull :=
   (List.range 16).map fun j => if σ.testBit j then lD (2 ^ j) else 1
 
-private theorem lDlist_prod (σ : ℕ) : (lDlist σ).prod = lD σ :=
-  (lD_eq_prod σ).symm
 
 private theorem lDlist_mem (σ : ℕ) : ∀ x ∈ lDlist σ, x ∈ Lgrp := by
   intro x hx

@@ -132,21 +132,6 @@ theorem pCoreOf_ne_bot_of_mem_oTwoComponentsIn (hchar : CFSG.Assembly.IsCharTwoT
   apply hab
   rw [Subsingleton.elim x y]
 
-theorem pCoreOf_le_of_mem_oTwoComponentsIn {X K H₁ : Subgroup G} (hK : K ∈ oTwoComponentsIn X)
-    (hKH : K ≤ H₁) (hH₁X : H₁ ≤ X) : CFSG.Open.pCoreOf 2 K ≤ CFSG.Open.pCoreOf 2 H₁ := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨K', ⟨-, hsn, -⟩, rfl⟩ := hK
-  set H' : Subgroup X := H₁.subgroupOf X with hH'
-  have hK'H' : K' ≤ H' := fun x hx =>
-    Subgroup.mem_subgroupOf.mpr (hKH (Subgroup.mem_map_of_mem X.subtype hx))
-  have hW : (K'.subgroupOf H').IsSubnormal := hsn.subgroupOf
-  have h1 := pCoreOf_le_pCore_of_isSubnormal 2 hW
-  have h2 := Subgroup.map_mono (f := H'.subtype) h1
-  rw [← CFSG.Open.pCoreOf, ← pCoreOf_map H'.subtype H'.subtype_injective,
-    Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr hK'H'] at h2
-  have h3 := Subgroup.map_mono (f := X.subtype) h2
-  rwa [← pCoreOf_map X.subtype X.subtype_injective, ← pCoreOf_map X.subtype X.subtype_injective,
-    hH', Subgroup.map_subgroupOf_eq_of_le hH₁X] at h3
 
 omit [Finite G] in
 theorem le_of_isSylowOf_of_normal {R Y X S : Subgroup G} (hR : IsPGroup 2 R) (hRY : R ≤ Y)

@@ -47,25 +47,5 @@ theorem linear_rank_one_Sylow_layer_kernel_of_mulEquiv {G : Type*} [Group G] {K 
   rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul,
     show x * y = y * x from Subtype.ext (hcomm _ x.2 _ y.2)]
 
-theorem linear_rank_one_Sylow_layer_kernel {K : Type u} [Field K] [Finite K] (f : ℕ)
-    (hf : 2 ≤ f) (hcard : Nat.card K = 2 ^ f) (Q : Sylow 2 (PSL2MatrixGroup K))
-    (V : Subgroup (PSL2MatrixGroup K))
-    (hV : V = (CFSG.omega₁ (G := (Q : Subgroup (PSL2MatrixGroup K))) (p := 2)).map
-      (Q : Subgroup (PSL2MatrixGroup K)).subtype)
-    (γ : MulAut (PSL2MatrixGroup K))
-    (hγQ : (Q : Subgroup (PSL2MatrixGroup K)).map γ.toMonoidHom = Q)
-    (hγV : ∀ v ∈ V, γ v = v) (hγQV : ∀ x ∈ (Q : Subgroup (PSL2MatrixGroup K)), x⁻¹ * γ x ∈ V) :
-    ∃ b ∈ (Q : Subgroup (PSL2MatrixGroup K)), γ = MulAut.conj b :=
-  linear_rank_one_Sylow_layer_kernel_of_mulEquiv hf hcard (MulEquiv.refl _) Q V hV γ hγQ hγV
-    hγQV
-
-theorem linear_rank_one_Sylow_layer_kernel_of_mulEquiv_psl2Binary {G : Type*} [Group G]
-    {f : ℕ} (hf : 2 ≤ f) (e : G ≃* PSL2BinaryMatrixGroup f) (Q : Sylow 2 G) (V : Subgroup G)
-    (hV : V = (CFSG.omega₁ (G := (Q : Subgroup G)) (p := 2)).map (Q : Subgroup G).subtype)
-    (γ : MulAut G) (hγQ : (Q : Subgroup G).map γ.toMonoidHom = Q)
-    (hγV : ∀ v ∈ V, γ v = v) (hγQV : ∀ x ∈ (Q : Subgroup G), x⁻¹ * γ x ∈ V) :
-    ∃ b ∈ (Q : Subgroup G), γ = MulAut.conj b :=
-  linear_rank_one_Sylow_layer_kernel_of_mulEquiv hf (GaloisField.card 2 f (by omega)) e Q V hV
-    γ hγQ hγV hγQV
 
 end CFSG.ProperTwoGeneratedCore.RootCenter

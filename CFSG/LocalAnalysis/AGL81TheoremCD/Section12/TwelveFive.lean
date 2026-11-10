@@ -31,10 +31,6 @@ variable {G : Type} [Group G] [Finite G]
         (∃ n : ℕ, Odd n ∧ IsL3TwoPow n (↥L₂ ⧸ pCore 2 ↥L₂)) ∧
         (∃ n : ℕ, Odd n ∧ IsL3TwoPow n (↥L₃ ⧸ pCore 2 ↥L₃))
 
-omit [Finite G] in
-theorem TwelveFive.part_one {M H : Subgroup G} {d : ℕ} (h : TwelveFive M H d) :
-    jSub M H = oPPrimeHull d M :=
-  h.1
 
 theorem oPPrimeHull_le_jSub_of_sylow {M H : Subgroup G} {d : ℕ}
     (hSylow : ∀ D : Subgroup G, IsSylowOf d D M → D ≤ jSub M H) :

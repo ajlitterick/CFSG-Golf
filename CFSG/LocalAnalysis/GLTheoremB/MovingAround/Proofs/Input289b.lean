@@ -431,10 +431,6 @@ theorem charP_two (hF : Nat.card F = 64) : CharP F 2 :=
   finite_field_prime_power_characteristic (p := 2) (k := 6) Nat.prime_two (by norm_num)
     (by rw [hF]; norm_num)
 
-theorem exists_sigma (hF : Nat.card F = 64) : ∃ σ : F ≃+* F, ∀ x, σ x = x ^ 8 := by
-  obtain ⟨φ, hφ, -⟩ := finite_field_automorphism_fixed_field_cardinality (p := 2) (n := 6)
-    Nat.prime_two (by norm_num) (by rw [hF]; norm_num)
-  exact ⟨φ ^ 3, fun x => by rw [pow_apply_of_frobenius hφ]; norm_num⟩
 
 theorem exists_cube_root (hF : Nat.card F = 64) : ∃ ω : F, ω ^ 2 + ω + 1 = 0 := by
   have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩

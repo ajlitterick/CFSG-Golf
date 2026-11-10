@@ -88,25 +88,6 @@ theorem memberFreeSocleOuter3_of_parts (hbal : SolvableL2PrimeBalance)
     MemberFreeSocleOuter3 :=
   memberFreeSocleOuter3_of_residualC hbal (residualCNormal_of_parts hlarge hsmall) hframe
 
-theorem residualCNormal_of_normalOdd (hN : NormalOddByQuaternion) (hodd : OddLieTightMember) :
-    ResidualCNormal := by
-  intro Y _ _ _ z L T hS hfree hC Q hQ
-  obtain ⟨hsimp, hnab, R, S, t, hD⟩ := typeCNormalDatum_proved Y z L T hS hC Q hQ
-  have : T.Normal := hS.normal
-  obtain ⟨-, h3⟩ := odd_index_of_memberIndex_eq_three hS.sup hC
-  obtain ⟨hFs, hFnab⟩ := genFittingFStar_simple ↥T hnab
-  rcases hN ↥T hFnab R S hD.quat t hD.mem hD.order hD.cent hD.normal hD.twoGroup trivial with
-    h | h | h
-  · obtain ⟨z', J, hJ⟩ := hodd ↥T hFnab h R S hD.quat t hD.mem hD.order hD.cent hD.normal
-      hD.twoGroup
-    exact hfree z' J hJ
-  · exact false_of_sporadic_of_three_dvd_index T hnab hsimp hS.cent h3 (Or.inl h)
-  · exact false_of_sporadic_of_three_dvd_index T hnab hsimp hS.cent h3 (Or.inr h)
-
-theorem memberFreeSocleOuter3_of_normalOdd (hbal : SolvableL2PrimeBalance)
-    (hN : NormalOddByQuaternion) (hodd : OddLieTightMember) (hframe : ResidualCFrame) :
-    MemberFreeSocleOuter3 :=
-  memberFreeSocleOuter3_of_residualC hbal (residualCNormal_of_normalOdd hN hodd) hframe
 
 end Base
 

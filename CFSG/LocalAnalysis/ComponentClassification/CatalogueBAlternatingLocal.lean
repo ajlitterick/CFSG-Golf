@@ -103,13 +103,5 @@ theorem symmetric_normalizer_pComponent {Ω : Type*} [Fintype Ω] [DecidableEq �
   exact Components.quasisimple_of_equiv (MulEquiv.subgroupCongr hJ)
     (alternating_quasisimple hdegree)
 
-theorem symmetric_normalizer_badSubgroup_eq_bot {Ω : Type*} [Fintype Ω] [DecidableEq Ω]
-    (P : Subgroup (Equiv.Perm Ω)) (hP : IsPGroup 2 P) :
-    TwoComponents.badSubgroup (Subgroup.normalizer (P : Set (Equiv.Perm Ω))) = ⊥ := by
-  apply le_bot_iff.mp
-  apply sSup_le
-  intro L hL
-  exact (hL.2 (quasisimple_iff_native.mp
-    (symmetric_normalizer_pComponent 2 P hP L ((pComponent_two_iff L).mpr hL.1)).2.2)).elim
 
 end CFSG.ComponentClassification.CatalogueBAlternating

@@ -231,10 +231,6 @@ set_option compiler.extract_closed false
     (List.range 6).all fun i => (List.range 6).all fun j =>
       betaVal zetaPre[i]! zetaVecs[j]! == jPat i j
 
-@[expose] def zetaCoord (v : Nat) : Nat := ((List.range 64).find? fun c => zetaComb c == v).getD 64
-
-@[expose] def coordCols (M : Array Nat) : List Nat :=
-  (List.range 6).map fun j => zetaCoord (colAct M zetaVecs[j]!)
 
 @[expose] def colsA (_ : Unit := ()) : List Nat := [20, 62, 17, 26, 4, 8]
 

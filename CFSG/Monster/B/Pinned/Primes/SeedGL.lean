@@ -53,13 +53,6 @@ theorem bGL_bA₂ : bGL bA₂ = glA₂ := by
   apply Units.ext
   rw [coe_bGL, bMat_bA₂, Matrix.GeneralLinearGroup.val_mkOfDetNeZero]
 
-theorem bSeedGL_bA₁ :
-    (bSeedGL bA₁ : GL (Fin 4370) (ZMod 2)) = glA₁ := by
-  rw [bSeedGL_eq, bGL_bA₁]
-
-theorem bSeedGL_bA₂ :
-    (bSeedGL bA₂ : GL (Fin 4370) (ZMod 2)) = glA₂ := by
-  rw [bSeedGL_eq, bGL_bA₂]
 
 theorem bSeedGL_runG (prog : List Primes.Native.Ins) (k : ℕ) :
     (bSeedGL (runG prog bA₁ bA₂ k) : GL (Fin 4370) (ZMod 2)) = runG prog glA₁ glA₂ k := by

@@ -37,21 +37,6 @@ namespace CFSG.Sporadic.ThSchreier
 
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 Pointwise
 
-private theorem native_star_inUA : inUA starKey.u = true ∧ inUA starKey.v = true :=
-  Certificates.certificate2320
-
-theorem planeStar_subset_planeUA : planeStar ⊆ (planeUA : Set RowV) := by
-  rw [planeStar_eq_rowPlane, rowPlane_subset_planeUA_iff]
-  exact native_star_inUA
-
-theorem involT_smul_planeWSet : involT • planeWSet = planeWSet := by
-  have h := a_smul_plane_of_subset planeStar_subset_planeUA
-  rw [planeStar] at h
-  rw [involT, mul_smul, mul_smul, h, inv_smul_smul]
-
-theorem involT_mem_H {c : ℕ} (hC : CertFacts c) : involT ∈ localH := by
-  rw [localH_eq, ← stabilizer_planeWSet hC]
-  exact involT_smul_planeWSet
 
 theorem isRows_conjRowsH (l : ℕ) {E : Array V4} {g : J} (hE : IsRows E g) :
     IsRows (conjRowsH l E) (labGenH l * g * (labGenH l)⁻¹) := by

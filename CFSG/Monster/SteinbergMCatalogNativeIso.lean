@@ -35,16 +35,5 @@ theorem catalog_fM_comp_mulEquiv_bijective
       ((fM.comp CFSG.Sporadic.Bridge.Y443.commutatorMulEquiv.toMonoidHom).comp θ.toMonoidHom) :=
   isFM_comp_mulEquiv_bijective fM_isFM (θ.trans CFSG.Sporadic.Bridge.Y443.commutatorMulEquiv)
 
-theorem simple_catalog_M_native_isomorphism :
-    (∀ f : MonsterY443Derived →* Gmat, IsFM f →
-      ∀ (F : Type*) [Group F] [Finite F] [IsSimpleGroup F], (∃ a b : F, a * b ≠ b * a) →
-        ∀ θ : F ≃* MonsterY443Derived, Function.Bijective (f.comp θ.toMonoidHom)) ∧
-    ∀ (F : Type*) [Group F] [Finite F] [IsSimpleGroup F], (∃ a b : F, a * b ≠ b * a) →
-      ∀ θ : F ≃* CFSG.Blueprint.NativeSporadic.M,
-        Function.Bijective
-          ((fM.comp CFSG.Sporadic.Bridge.Y443.commutatorMulEquiv.toMonoidHom).comp
-            θ.toMonoidHom) :=
-  ⟨fun _ hf _ _ _ _ _ θ => isFM_comp_mulEquiv_bijective hf θ,
-    fun _ _ _ _ _ θ => catalog_fM_comp_mulEquiv_bijective θ⟩
 
 end CFSG.ComponentClassification.BMCase

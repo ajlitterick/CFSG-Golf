@@ -18,8 +18,5 @@ open CFSG Subgroup CFSG.ComponentClassification.FooteLit
       ⁅oddCoreIn (centralizer ({e} : Set G)), V⁆ = ⊥ ∧
         oddCoreIn (centralizer ({e} : Set G)) ⊓ oddCoreIn (centralizer (V : Set G)) = ⊥
 
-theorem lemma315bInput_of_thm13 (h : SolomonThm13Input) : Lemma315bInputFor (fun G _ _ => Thm13Below G) :=
-  
-  fun _ _ _ _ _ hN => (not_isSolomonChoice_of_thm13 h hN).elim
 
 end CFSG.ComponentClassification.Sol76

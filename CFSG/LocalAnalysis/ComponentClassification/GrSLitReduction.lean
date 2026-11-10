@@ -11,56 +11,9 @@ namespace CFSG.ComponentClassification.GrSLit
 open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
   CFSG.ComponentClassification.UnbalancedCorr CFSG.ComponentClassification.GSLit
 
-theorem eq_of_commute_of_isCyclic_sylow {H : Type*} [Group H] [Finite H]
-    (hcyc : ∀ P : Sylow 2 H, IsCyclic (P : Subgroup H)) {s t : H} (hs : orderOf s = 2)
-    (ht : orderOf t = 2) (hst : s * t = t * s) : s = t := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨P, hP⟩ := (GSLit.isPGroup_two_sup_zpowers hs ht hst).exists_le_sylow
-  have hsP : s ∈ (P : Subgroup H) := hP (mem_sup_right (mem_zpowers s))
-  have htP : t ∈ (P : Subgroup H) := hP (mem_sup_left (mem_zpowers t))
-  have := hcyc P
-  have hs' : orderOf (⟨s, hsP⟩ : (P : Subgroup H)) = 2 := by rw [Subgroup.orderOf_mk]; exact hs
-  have ht' : orderOf (⟨t, htP⟩ : (P : Subgroup H)) = 2 := by rw [Subgroup.orderOf_mk]; exact ht
-  have hcard : Nat.card (zpowers (⟨s, hsP⟩ : (P : Subgroup H))) =
-      Nat.card (zpowers (⟨t, htP⟩ : (P : Subgroup H))) := by
-    rw [Nat.card_zpowers, Nat.card_zpowers, hs', ht']
-  have heq := IsCyclic.subgroup_eq_iff_card_eq.mpr hcard
-  have htmem : (⟨t, htP⟩ : (P : Subgroup H)) ∈ zpowers (⟨s, hsP⟩ : (P : Subgroup H)) :=
-    heq ▸ mem_zpowers _
-  rcases UnbalancedGS.DihedralPair.mem_zpowers_eq_one_or_eq hs' htmem with h1 | h1
-  · rw [h1, orderOf_one] at ht'
-    exact absurd ht' (by norm_num)
-  · exact (congrArg Subtype.val h1).symm
 
 variable {G : Type*} [Group G] [Finite G]
 
-theorem reach_eq_of_isCyclic_kernel {L : Subgroup G}
-    (hcyc : ∀ P : Sylow 2 ↥(coreActionKernel L), IsCyclic (P : Subgroup ↥(coreActionKernel L)))
-    {M : Subgroup G} (hM : GSReach L M) : M = L := by
-  obtain ⟨-, hR⟩ := hM
-  induction hR with
-  | refl => rfl
-  | @tail M N _ hst ih =>
-    obtain ⟨s, t, hC⟩ := hst
-    rw [ih] at hC
-    have hsK : s ∈ coreActionKernel L :=
-      GSLit.mem_coreActionKernel_of_le_centralizer hC.2.2.2.1
-    have htK : t ∈ coreActionKernel L := ⟨hC.2.2.2.2.2.2.2.1, hC.2.2.2.2.2.2.2.2.1⟩
-    have hst : (⟨s, hsK⟩ : coreActionKernel L) = ⟨t, htK⟩ :=
-      eq_of_commute_of_isCyclic_sylow hcyc (by rw [Subgroup.orderOf_mk]; exact hC.1)
-        (by rw [Subgroup.orderOf_mk]; exact hC.2.1) (Subtype.ext hC.2.2.1)
-    have hst' : s = t := congrArg Subtype.val hst
-    subst hst'
-    exact GSLit.GSCorr.eq_of_eq_involution hC
-
-theorem gsMaximalComponent_of_isCyclic_kernel {b : G} {L : Subgroup G} (hb : orderOf b = 2)
-    (hLb : L ≤ centralizer ({b} : Set G))
-    (hL : IsPComponent 2 (L.subgroupOf (centralizer ({b} : Set G))))
-    (hcyc : ∀ P : Sylow 2 ↥(coreActionKernel L), IsCyclic (P : Subgroup ↥(coreActionKernel L))) :
-    GSMaximalComponent L := by
-  refine ⟨⟨b, hb, hLb, hL⟩, fun M hM => ?_⟩
-  obtain rfl := reach_eq_of_isCyclic_kernel hcyc hM
-  exact ⟨MulEquiv.refl _⟩
 
 theorem two_le_pRank_of_small_type {X : Type} [Group X] [Finite X] {x : X} {L : Subgroup X}
     (hLx : L ≤ centralizer ({x} : Set X))
@@ -82,49 +35,6 @@ theorem two_le_pRank_of_small_type {X : Type} [Group X] [Finite X] {x : X} {L : 
       (Or.inl ⟨p, f, hp, hp.odd_of_ne_two hp2, hf, SectionRank.statedClassicalModel_of_mulEquiv e
         (GSLit.statedClassicalModel_of_lieModel_psl_two hmodel)⟩)
 
-theorem false_of_gsMaximalComponent_small (hH : HarrisInput) (hF : FooteInput)
-    (hHSF : HarrisSolomonFritzInput) (hCI : ClassicalInvolutionInput)
-    {X : Type} [Group X] [Finite X] [IsSimpleGroup X] (hnonab : ∃ a b : X, a * b ≠ b * a)
-    (hK : Assembly.KProper Blueprint.Catalog X)
-    (hz : ∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥)
-    (hU : ¬ OutcomeLocal.UOutcome X) {x : X} {L : Subgroup X} (hx : orderOf x = 2)
-    (hLx : L ≤ centralizer ({x} : Set X))
-    (hLc : IsPComponent 2 (L.subgroupOf (centralizer ({x} : Set X))))
-    (hL : GSMaximalComponent L)
-    (htype : Nonempty (L ⧸ pPrimeCore 2 L ≃* alternatingGroup (Fin 7)) ∨
-      ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ 5 ≤ p ^ f ∧
-        Blueprint.LieModel (L ⧸ pPrimeCore 2 L) .PSL 2 p f) : False := by
-  rcases hF X hnonab hK x hx L hLx hLc hL htype with
-    hlie | hrank | ⟨⟨e9⟩, -⟩ | ⟨⟨e10⟩, -⟩ | ⟨⟨e11⟩, -⟩ | ⟨⟨eJ⟩, -⟩
-  · exact hU (GSLit.uOutcome_of_oddLieType hlie)
-  · obtain ⟨P⟩ : Nonempty (Sylow 2 ↥(coreActionKernel L)) := inferInstance
-    rcases GSLit.sylow_cyclic_or_quaternion_of_pRank_eq_one hrank P with hcyc | ⟨r, hr, ⟨eP⟩⟩
-    · have hall : ∀ Q : Sylow 2 ↥(coreActionKernel L),
-          IsCyclic (Q : Subgroup ↥(coreActionKernel L)) :=
-        fun Q => (MulEquiv.isCyclic (Sylow.equiv P Q)).mp hcyc
-      rcases htype with ⟨⟨e7⟩⟩ | hpsl
-      · have : IsSimpleGroup (alternatingGroup (Fin 7)) :=
-          alternatingGroup.isSimpleGroup (by norm_num : 5 ≤ Nat.card (Fin 7))
-        have hs : IsSimpleGroup (L ⧸ pPrimeCore 2 L) := e7.isSimpleGroup
-        obtain ⟨S⟩ : Nonempty (Sylow 2 (L ⧸ pPrimeCore 2 L)) := inferInstance
-        have hS8 : Nat.card (S : Subgroup (L ⧸ pPrimeCore 2 L)) = 8 :=
-          GSLit.card_sylow_two_of_card_eq_2520
-            (by rw [Nat.card_congr e7.toEquiv, GSLit.card_alternating_seven]) S
-        rcases hHSF X hnonab x hx L hLx hLc hs (GSLit.pRank_two_of_mulEquiv_alternating_seven e7)
-            ⟨S, hS8⟩ hall with hlie | ⟨⟨e6⟩, -⟩
-        · exact hU (GSLit.uOutcome_of_oddLieType hlie)
-        · have h67 := Nat.card_congr (e6.symm.trans e7).toEquiv
-          rw [nat_card_alternatingGroup, nat_card_alternatingGroup] at h67
-          norm_num [Nat.factorial] at h67
-      · exact hH X hnonab hK hz hU ⟨x, L, hx, hLx, hLc, hL, hpsl, hall⟩
-    · exact GSLit.false_of_quaternion_kernel hCI hnonab hz hU hx hLx hLc
-        (two_le_pRank_of_small_type hLx hLc htype) hrank P hr eP
-  · have h9 := GSLit.mod_four_eq_three_of_mulEquiv_alternating hnonab (by norm_num) e9 hz
-    norm_num at h9
-  · have h10 := GSLit.mod_four_eq_three_of_mulEquiv_alternating hnonab (by norm_num) e10 hz
-    norm_num at h10
-  · exact hU (GSLit.uOutcome_of_mulEquiv_alternating_eleven e11)
-  · exact GSLit.false_of_mulEquiv_j2 eJ hz
 
 theorem isSimpleGroup_of_lieModel_psl_two {X : Type} [Group X] {p f : ℕ}
     (hL : Blueprint.LieModel X .PSL 2 p f) : IsSimpleGroup X :=
@@ -196,46 +106,5 @@ theorem false_of_psl34_of_psl_two {J : Type} [Group J] [Finite J] {p f : ℕ}
     norm_num at hle
     omega
 
-theorem exists_maximal_he_or_l34 (hTB : ThompsonBurgoyneInput)
-    (hSA : SolAltLit.SolomonAlternatingOddInput)
-    (hGF : GloballyFirstRankTwoInput) (hB : TheoremBBoundedInput) (hH : HarrisInput)
-    (hF : FooteInput) (hHSF : HarrisSolomonFritzInput) (hCI : ClassicalInvolutionInput)
-    (X : Type) [Group X] [Finite X] [IsSimpleGroup X] (hnonab : ∃ a b : X, a * b ≠ b * a)
-    (hK : Assembly.KProper Blueprint.Catalog X)
-    (hz : ∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥)
-    (hU : ¬ OutcomeLocal.UOutcome X)
-    (htriple : ∃ (a b : X) (J : Subgroup X), GSUnbalancingTriple a b J) :
-    ∃ (a x : X) (J : Subgroup X), GSMaximalUnbalancingTriple a x J ∧
-      (∀ (c v : X) (K : Subgroup X), GSUnbalancingTriple c v K →
-        (pPrimeCore 2 K).index ≤ (pPrimeCore 2 J).index) ∧
-      (Nonempty (J ⧸ pPrimeCore 2 J ≃* Blueprint.NativeSporadic.He) ∨
-        (Blueprint.LieModel (J ⧸ Open.fusionZStar J) .PSL 3 2 2 ∧ GSMaximalComponent J)) := by
-  obtain ⟨a, x, J, hJ, hbound⟩ :=
-    GSLit.exists_maximal_unbalancing_triple_bounded hTB hSA hGF hnonab hK hz hU htriple
-  refine ⟨a, x, J, hJ, hbound, ?_⟩
-  have ha : orderOf a = 2 := hJ.1.1
-  have hJa : J ≤ centralizer ({a} : Set X) := hJ.1.2.2.2.1
-  have hJc : IsPComponent 2 (J.subgroupOf (centralizer ({a} : Set X))) := hJ.1.2.2.2.2.1
-  rcases hTB X hnonab hK hz hU a x J hJ.1 with ⟨n, hodd, hn, he⟩ | hsmall | hbig
-  · exact absurd ⟨a, J, n, ha, hodd, hn, hJa, hJc, he⟩ (hSA X hnonab hK hz hU)
-  · exfalso
-    rcases hB X hnonab hK hz hU a x J hJ hbound (hsmall.imp id Or.inl) with
-      ⟨-, b, L, ρ, e, hb, hLb, hL, hρ, hρ2, he, hLie, hbK, hP⟩ | ⟨hiso, hcentral⟩
-    · refine (hH X hnonab hK hz hU) ⟨b, L, hb, hLb, hL,
-        GSLit.gsMaximalComponent_of_cyclic_kernel hb hLb hL hP,
-        ⟨ρ, 2 * e, hρ, hρ2, by omega, ?_, hLie⟩, GSLit.isCyclic_sylow_of_eq_zpowers hbK hP⟩
-      have h3 : 3 ≤ ρ := by have := hρ.two_le; omega
-      calc 5 ≤ 3 ^ 2 := by norm_num
-        _ ≤ ρ ^ 2 := Nat.pow_le_pow_left h3 2
-        _ ≤ ρ ^ (2 * e) := Nat.pow_le_pow_right hρ.pos (by omega)
-    · exact false_of_gsMaximalComponent_small hH hF hHSF hCI hnonab hK hz hU ha hJa hJc
-        (GSLit.gsMaximalComponent_of_B2 ha hJa hJc hiso hcentral) hsmall
-  · rcases hbig with hHe | h34
-    · exact Or.inl hHe
-    · refine Or.inr ⟨h34, ?_⟩
-      rcases hB X hnonab hK hz hU a x J hJ hbound (Or.inr (Or.inr h34)) with
-        ⟨⟨p, f, -, hp2, -, hpsl⟩, -⟩ | ⟨hiso, hcentral⟩
-      · exact (false_of_psl34_of_psl_two h34 hp2 hpsl).elim
-      · exact GSLit.gsMaximalComponent_of_B2 ha hJa hJc hiso hcentral
 
 end CFSG.ComponentClassification.GrSLit

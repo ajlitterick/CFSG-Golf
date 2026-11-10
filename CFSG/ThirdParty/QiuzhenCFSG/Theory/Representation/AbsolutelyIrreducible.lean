@@ -82,8 +82,6 @@ public theorem IsAbsolutelyIrreducible.isAbsolutelyIrreducible_iff_extendScalars
     rw [← extendScalars_surj_iff (F := F) (F' := (AlgebraicClosure F))] at this
     exact this
 
-variable {ρ} {σ}
-
 
 end AbsolutelyIrreducibleRep
 

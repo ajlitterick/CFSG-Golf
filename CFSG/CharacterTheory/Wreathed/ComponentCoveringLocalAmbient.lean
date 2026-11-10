@@ -16,13 +16,6 @@ universe u
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem ambientInternalIntersectionEquiv_coe {X : Type u} [Group X]
-    (K N : Subgroup X) (b : ↥(K ⊓ N)) :
-    (ambientInternalIntersectionEquiv K N b).val.val = b.val := rfl
-
-theorem ambientInternalIntersectionEquiv_symm_coe {X : Type u} [Group X]
-    (K N : Subgroup X) (b : K.subgroupOf N) :
-    ((ambientInternalIntersectionEquiv K N).symm b).val = b.val.val := rfl
 
 variable {G : Type} [Group G] [Finite G]
 

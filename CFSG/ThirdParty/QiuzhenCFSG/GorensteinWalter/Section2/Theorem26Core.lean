@@ -1887,14 +1887,6 @@ private lemma S_inter_centralizer_U_le_twoCoreOf_of_Hhat_eq_H
 
 /-! ## Branch 1: `O₂(Ĥ) ≠ 1` -/
 
-/-- First-alternative subcase, `U = O(Ĥ)`, after `Ĥ = H`.  Since `U` is
-defined to be `O(H)`, this is definitional. -/
-private theorem theorem_2_6_branch_one_U {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (hHhat : c.Hhat = c.H) :
-    c.U = oddCoreOf c.Hhat := by
-  rw [hHhat]
-  rfl
 
 /-- First-alternative subcase, `C_S(U) = O₂(Ĥ)`, factored away from the
 group-specific route.
@@ -3022,43 +3014,6 @@ public theorem Theorem26ComponentBranchData.pgl2_component_kernel_eq_center
     (quasisimple_component_kernel_eq_center_and_quotient_psl2
       Ei hEiQ hEisn O hOsolv K hK L hLnormal hLindex e)
 
-/-- A Sylow `2`-subgroup of `PGL₂(K)` together with its derived subgroup
-generates the whole group when `|K| > 3`. -/
-theorem pgl2_sylow_sup_commutator_eq_top
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K))
-    (hcard : 3 < Nat.card K)
-    (P : Sylow 2 (PGL2 K)) :
-    commutator (PGL2 K) ⊔ (P : Subgroup (PGL2 K)) = ⊤ := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let : Finite (PGL2 K) :=
-    Finite.of_surjective Matrix.ProjGenLinGroup.mk
-      Matrix.ProjGenLinGroup.mk_surjective
-  let J : Subgroup (PGL2 K) := commutator (PGL2 K)
-  have hJindex : J.index = 2 := by
-    dsimp [J]
-    rw [pgl2_commutator_eq_psl2_range_of_card_gt_three K hK hcard]
-    exact pgl2_psl2Range_index_eq_two K hK
-  have hPnot : ¬ (P : Subgroup (PGL2 K)) ≤ J := by
-    intro hPJ
-    have hrel := Subgroup.relIndex_mul_index hPJ
-    rw [hJindex] at hrel
-    apply P.not_dvd_index
-    refine ⟨(P : Subgroup (PGL2 K)).relIndex J, ?_⟩
-    omega
-  let T : Subgroup (PGL2 K) := J ⊔ (P : Subgroup (PGL2 K))
-  have hJT : J ≤ T := le_sup_left
-  have hrel := Subgroup.relIndex_mul_index hJT
-  rw [hJindex] at hrel
-  have hprod : J.relIndex T * T.index = 2 := hrel
-  have hrel_ne_one : J.relIndex T ≠ 1 := by
-    intro hrel1
-    have hTJ : T ≤ J := Subgroup.relIndex_eq_one.mp hrel1
-    exact hPnot (le_sup_right.trans hTJ)
-  have hTindex : T.index = 1 := by
-    by_contra hTne
-    exact (Nat.not_prime_of_mul_eq hprod hrel_ne_one hTne) Nat.prime_two
-  exact Subgroup.index_eq_one.mp hTindex
 
 /-- A Sylow `2`-subgroup lies in every normal odd-index subgroup. -/
 public theorem sylow_le_of_normal_odd_index_local
@@ -3090,110 +3045,6 @@ public theorem sylow_le_of_normal_odd_index_local
       exact False.elim
         (hquot_odd.not_two_dvd_nat (htwo_dvd_map.trans hcard_dvd))
 
-/-- In an odd-kernel quotient, the fixed Sylow image and a component image
-identified with `PGL₂(K)'` generate the full normal odd-index linear subgroup.
--/
-theorem sylow_sup_component_image_eq_pgl2_linear_subgroup
-    {H : Type u} [Group H] [Finite H]
-    (O : Subgroup H) [O.Normal]
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K))
-    (L : Subgroup (H ⧸ O)) (hLnormal : L.Normal)
-    (hLindex : Odd L.index) (e : L ≃* PGL2 K)
-    (P : Sylow 2 H)
-    (Ebar : Subgroup (H ⧸ O)) (hEbarL : Ebar ≤ L)
-    (hcard : 3 < Nat.card K)
-    (hJeq : (Ebar.subgroupOf L).map e.toMonoidHom =
-      commutator (PGL2 K)) :
-    let Pq : Sylow 2 (H ⧸ O) :=
-      P.mapSurjective (QuotientGroup.mk'_surjective O)
-    (Pq : Subgroup (H ⧸ O)) ⊔ Ebar = L := by
-  dsimp
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let Pq : Sylow 2 (H ⧸ O) :=
-    P.mapSurjective (QuotientGroup.mk'_surjective O)
-  have hPqL : (Pq : Subgroup (H ⧸ O)) ≤ L :=
-    sylow_le_of_normal_odd_index_local L hLnormal hLindex Pq
-  let PL : Sylow 2 L := Pq.subtype hPqL
-  let Pmodel : Sylow 2 (PGL2 K) :=
-    PL.mapSurjective (f := e.toMonoidHom) e.surjective
-  have hmodel : commutator (PGL2 K) ⊔
-      (Pmodel : Subgroup (PGL2 K)) = ⊤ :=
-    pgl2_sylow_sup_commutator_eq_top K hK hcard Pmodel
-  let EL : Subgroup L := Ebar.subgroupOf L
-  let SL : Subgroup L := EL ⊔ (PL : Subgroup L)
-  have hmapSL : SL.map e.toMonoidHom = ⊤ := by
-    calc
-      SL.map e.toMonoidHom =
-          EL.map e.toMonoidHom ⊔
-            (PL : Subgroup L).map e.toMonoidHom := by
-        exact Subgroup.map_sup EL (PL : Subgroup L) e.toMonoidHom
-      _ = commutator (PGL2 K) ⊔
-          (Pmodel : Subgroup (PGL2 K)) := by
-        rw [hJeq]
-        change commutator (PGL2 K) ⊔
-            (PL : Subgroup L).map e.toMonoidHom =
-          commutator (PGL2 K) ⊔ (PL : Subgroup L).map e.toMonoidHom
-        rfl
-      _ = ⊤ := hmodel
-  have hSLtop : SL = ⊤ := by
-    apply le_antisymm le_top
-    intro x _hx
-    have hex : e x ∈ SL.map e.toMonoidHom := by
-      rw [hmapSL]
-      trivial
-    rcases Subgroup.mem_map.mp hex with ⟨y, hy, hey⟩
-    have hyx : y = x := e.injective hey
-    simpa [hyx] using hy
-  calc
-    (Pq : Subgroup (H ⧸ O)) ⊔ Ebar = SL.map L.subtype := by
-      dsimp [SL, EL, PL]
-      rw [Subgroup.map_sup]
-      rw [Subgroup.map_subgroupOf_eq_of_le hEbarL]
-      rw [Subgroup.map_subgroupOf_eq_of_le hPqL]
-      exact sup_comm (Pq : Subgroup (H ⧸ O)) Ebar
-    _ = L := by
-      rw [hSLtop]
-      simpa only [← MonoidHom.range_eq_map] using L.range_subtype
-
-/-- Specialized quotient-level form of the source step
-`S E / Z(E) ≃ PGL₂(q)` for the selected component. -/
-theorem Theorem26ComponentBranchData.pgl2_sylow_sup_component_image_eq_linear_subgroup
-    {G : Type u} [Group G] [Finite G]
-    {c : CentralizerSetup G}
-    (d : Theorem26ComponentBranchData c)
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K))
-    (L : Subgroup (c.Hhat ⧸ pPrimeCore 2 c.Hhat))
-    (hLnormal : L.Normal) (hLindex : Odd L.index)
-    (e : L ≃* PGL2 K) :
-    let O : Subgroup c.Hhat := pPrimeCore 2 c.Hhat
-    let q : c.Hhat →* c.Hhat ⧸ O := QuotientGroup.mk' O
-    let P : Sylow 2 c.Hhat :=
-      c.S.subtype ((S_le_H c).trans c.H_le_Hhat)
-    let Pq : Sylow 2 (c.Hhat ⧸ O) :=
-      P.mapSurjective (QuotientGroup.mk'_surjective O)
-    let Ei : Subgroup c.Hhat := d.E.subgroupOf c.Hhat
-    let Ebar : Subgroup (c.Hhat ⧸ O) := Ei.map q
-    (Pq : Subgroup (c.Hhat ⧸ O)) ⊔ Ebar = L := by
-  dsimp
-  let O : Subgroup c.Hhat := pPrimeCore 2 c.Hhat
-  let q : c.Hhat →* c.Hhat ⧸ O := QuotientGroup.mk' O
-  have hSle : (c.S : Subgroup G) ≤ c.Hhat :=
-    (S_le_H c).trans c.H_le_Hhat
-  let P : Sylow 2 c.Hhat := c.S.subtype hSle
-  let Pq : Sylow 2 (c.Hhat ⧸ O) :=
-    P.mapSurjective (QuotientGroup.mk'_surjective O)
-  let Ei : Subgroup c.Hhat := d.E.subgroupOf c.Hhat
-  let Ebar : Subgroup (c.Hhat ⧸ O) := Ei.map q
-  obtain ⟨hcard, _hEbarne, _hEbarperf, _hEbarsn, hEbarL, hJeq⟩ :=
-    d.pgl2_component_image_eq_commutator K hK L hLnormal hLindex e
-  let : O.Normal := by
-    dsimp [O]
-    infer_instance
-  simpa [O, q, P, Pq, Ei, Ebar] using
-    (sylow_sup_component_image_eq_pgl2_linear_subgroup
-      O K hK L hLnormal hLindex e P Ebar hEbarL hcard hJeq)
 
 /-- Transport the distinguished involution through the odd-core quotient,
 the normal linear subgroup, and its `PGL₂` model.  In the resulting fixed

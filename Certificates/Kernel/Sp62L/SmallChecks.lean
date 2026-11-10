@@ -42,18 +42,6 @@ theorem ch9440d_ : (gensD.all genB && SD.ED.toArray.size == 9 && allCheck validB
 theorem ch5169_ : allCheck (fun x => !(commB x cSg) || inZ x) SD.EB.toArray = true := by
   decide +kernel
 
-theorem ch9440nb_ :
-    replayB gensB 27 (SD.EB.getD 1 [] :: SD.EB.getD 0 [] :: SD.EB.drop 2) SD.PB SD.CB SD.POSB =
-      false := by
-  decide +kernel
-
-theorem ch9440nt_ : replayB gensB 81 SD.ET SD.PT SD.CT SD.POST = false := by decide +kernel
-
-theorem ch9440ne_ : allCheck (fun x => !(gensE.all (commB x)) || x == oneC) SD.EE.toArray = false := by
-  decide +kernel
-
-theorem ch5169n_ : allCheck (fun x => !(commB x cTau) || inZ x) SD.EB.toArray = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSp62L
 

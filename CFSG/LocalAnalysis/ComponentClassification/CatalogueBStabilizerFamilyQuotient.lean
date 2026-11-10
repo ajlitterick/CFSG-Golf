@@ -32,13 +32,6 @@ instance familyInnerNormal (rho : G →* Equiv.Perm X) : (familyInner rho).Norma
 instance normalizerImageNormal (rho : G →* Equiv.Perm X) : (normalizerImage rho).Normal :=
   Subgroup.normal_in_normalizer
 
-theorem familyInner_map_subtype (rho : G →* Equiv.Perm X) :
-    (familyInner rho).map (familyAut rho).subtype = (MulAut.conj : G →* MulAut G).range :=
-  Subgroup.map_subgroupOf_eq_of_le (inner_le_familyAut rho)
-
-theorem normalizerImage_map_subtype (rho : G →* Equiv.Perm X) :
-    (normalizerImage rho).map (imageNormalizer rho).subtype = rho.range :=
-  Subgroup.map_subgroupOf_eq_of_le (range_le_imageNormalizer rho)
 
 theorem normalizerEquiv_conj (rho : G →* Equiv.Perm X)
     (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho)) (g : G) :
@@ -74,12 +67,5 @@ abbrev normalizerOuter (rho : G →* Equiv.Perm X) :=
   QuotientGroup.congr (familyInner rho) (normalizerImage rho)
     (normalizerEquiv rho hrho hs) (normalizerEquiv_inner_image rho hrho hs)
 
-theorem quotientEquiv_mk (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (alpha : familyAut rho) :
-    quotientEquiv rho hrho hs ((QuotientGroup.mk' (familyInner rho)) alpha) =
-      (QuotientGroup.mk' (normalizerImage rho)) (normalizerEquiv rho hrho hs alpha) :=
-  QuotientGroup.congr_mk' (familyInner rho) (normalizerImage rho)
-    (normalizerEquiv rho hrho hs) (normalizerEquiv_inner_image rho hrho hs) alpha
 
 end CFSG.ComponentClassification.CatalogueBStabilizerFamily

@@ -119,22 +119,6 @@ theorem seven_fixed_of_full_a7_quotient {m : ℕ} {π : Perm (Fin m)}
       omega
   exact ⟨hEq, h7, hO⟩
 
-theorem odd_degree_ge_nine_of_full_a7_quotient {m : ℕ} {π : Perm (Fin m)}
-    (hππ : π * π = 1) (hπne : π ≠ 1) {J : Subgroup (Perm (Fin m))}
-    (hJ : IsTwoComponentIn J (centralizer {π} ⊓ alternatingGroup (Fin m)))
-    (e : (↥J ⧸ pPrimeCore 2 ↥J) ≃* alternatingGroup (Fin 7)) :
-    Odd m ∧ 9 ≤ m := by
-  have h7 := (seven_fixed_of_full_a7_quotient hππ hJ e).2.1
-  obtain ⟨k, hk⟩ := two_dvd_card_support (by rw [pow_two]; exact hππ)
-  have hsum := Finset.card_add_card_compl π.support
-  rw [Fintype.card_fin] at hsum
-  have hkpos : 0 < k := by
-    by_contra hn
-    have hempty : π.support = ∅ := Finset.card_eq_zero.mp (by omega)
-    exact hπne (support_eq_empty_iff.mp hempty)
-  constructor
-  · exact ⟨k + 3, by omega⟩
-  · omega
 
 namespace Config
 

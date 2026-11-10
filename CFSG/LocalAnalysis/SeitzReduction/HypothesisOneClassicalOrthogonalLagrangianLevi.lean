@@ -47,8 +47,6 @@ theorem polar_N_N (x y : V) : polar Q (N x) (N y) = 0 := by
 theorem polar_N_of_ker {k : V} (hk : N k = 0) (x : V) : polar Q (N x) k = 0 := by
   rw [hL.polar_left, hk, polar_zero_right]
 
-theorem polar_of_ker_N {k : V} (hk : N k = 0) (x : V) : polar Q k (N x) = 0 := by
-  rw [polar_comm, hL.polar_N_of_ker hk]
 
 theorem polar_of_ker_of_ker {k k' : V} (hk : N k = 0) (hk' : N k' = 0) : polar Q k k' = 0 := by
   obtain ⟨y, rfl⟩ := hL.ker_le k hk
@@ -82,9 +80,6 @@ theorem leviEichler_apply_N [CharP K 2] {u : V} (hu : Q (N u) = 0) (x : V) :
     map_smul,
     hL.sq u, smul_zero, sub_zero, hL.polar_left]
 
-theorem leviEichler_ker [CharP K 2] {u : V} (hu : Q (N u) = 0) {x : V} (hx : N x = 0) :
-    N (leviEichler Q N u x) = 0 := by
-  rw [hL.leviEichler_apply_of_ker hu hx, map_add, map_smul, hx, hL.sq, smul_zero, add_zero]
 
 section Pair
 

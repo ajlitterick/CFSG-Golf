@@ -30,13 +30,10 @@ open CFSG.Open CFSG.Assembly.LowTwoRank
 @[expose] def OutSolvable (X : Type) [Group X] : Prop :=
   ∃ n : ℕ, derivedSeries (MulAut X) n ≤ (MulAut.conj : X →* MulAut X).range
 
-@[expose] def SchreierFact : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], CFSG.IsQuasisimple X → CFSG.SectionRank.IsKGroupCat X → OutSolvable X
 
 structure A38Facts : Prop where
   a134 : A134Fact
   mult2 : Mult2Fact
 
-abbrev A39Facts : Prop := SchreierFact
 
 end CFSG.Quasithin

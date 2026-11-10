@@ -110,10 +110,6 @@ theorem diagRealizedOn_isRoot_D4 {n : ℕ} (hn : 1 ≤ n) {K : Type} [Field K] [
   exact ⟨_, rootDiagUnit_mem_graphFixedRootGroup_D4 (K := K) (ringChar.eq K 2) σ
     (ringEquiv_cube_apply_eq hK hσ) hconj, (TableB.TwE6.markDiag_isRoot a).symm⟩
 
-theorem ggTwistedD4DiagInput_holds : GGTwistedD4DiagInput := by
-  intro n hn K _ _ hK _
-  exact ggDiagRealizedInput_of_diagRealizedOn
-    ((diagRealizedOn_isRoot_D4 hn hK).of_eq (largeEvenIsRoot_eq_isRoot TwistTag.D4.tag).symm)
 
 theorem chevIDImage_subset_inn_triD4 {n : ℕ} (hn : 1 ≤ n) (K : Type) [Field K] [Finite K]
     (hK : Nat.card K = (2 ^ n) ^ 3) :

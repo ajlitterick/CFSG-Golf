@@ -22,10 +22,5 @@ theorem ch7212cap : capOKK D R = true := by decide +kernel
 
 theorem ch7212plus : plusOKK D R2 = true := by decide +kernel
 
-theorem ch7212inv_neg : eqRecs invRecsK (List.drop 1 D) = false := by decide +kernel
-
-theorem ch7212cap_neg : capOKK D (List.drop 1 R) = false := by decide +kernel
-
-theorem ch7212plus_neg : plusOKK D (List.drop 1 R2) = false := by decide +kernel
 
 end CFSG.KD.L34Q

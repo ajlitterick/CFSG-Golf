@@ -16,37 +16,6 @@ namespace CFSG.EvenSmallLie.CatalogOrders
 
 open CFSG.YGroups CFSG.Certificates.CosetEnumeration
 
-theorem rels_y110_y210 : ∀ w ∈ yRels 1 1 0, w.map (shiftAt 1) ∈ yRels 2 1 0 := by decide
-
-theorem y210 :
-    Finite (YGroup 2 1 0) ∧ Nat.card (YGroup 2 1 0) ≤ 120 :=
-  Certificates.certificate3174.1
-
-theorem rels_y210_y220 : ∀ w ∈ yRels 2 1 0, w.map (shiftAt 3) ∈ yRels 2 2 0 := by decide
-
-theorem y220 :
-    Finite (YGroup 2 2 0) ∧ Nat.card (YGroup 2 2 0) ≤ 720 :=
-  Certificates.certificate3174.2.1
-
-theorem rels_y220_y320 : ∀ w ∈ yRels 2 2 0, w.map (shiftAt 2) ∈ yRels 3 2 0 := by decide
-
-theorem y320 :
-    Finite (YGroup 3 2 0) ∧ Nat.card (YGroup 3 2 0) ≤ 5040 :=
-  Certificates.certificate3174.2.2.1
-
-theorem rels_y320_y330 : ∀ w ∈ yRels 3 2 0, w.map (shiftAt 5) ∈ yRels 3 3 0 := by decide
-
-theorem y330 :
-    Finite (YGroup 3 3 0) ∧ Nat.card (YGroup 3 3 0) ≤ 40320 :=
-  Certificates.certificate3174.2.2.2.1
-
-theorem rels_y330_y430 : ∀ w ∈ yRels 3 3 0, w.map (shiftAt 3) ∈ yRels 4 3 0 := by decide
-
-theorem y430 :
-    Finite (YGroup 4 3 0) ∧ Nat.card (YGroup 4 3 0) ≤ 362880 :=
-  Certificates.certificate3174.2.2.2.2.1
-
-theorem rels_y430_y440 : ∀ w ∈ yRels 4 3 0, w.map (shiftAt 7) ∈ yRels 4 4 0 := by decide
 
 theorem y440 :
     Finite (YGroup 4 4 0) ∧ Nat.card (YGroup 4 4 0) ≤ 3628800 :=

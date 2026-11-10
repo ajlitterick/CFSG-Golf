@@ -122,58 +122,6 @@ structure OrbitData where
   par : Array (Nat × Nat)
   tab : Array (Array Nat)
 
-@[expose] def bfsStep (d : OrbitData) (seen : Std.HashMap Nat Nat) (qi : Nat) :
-    OrbitData × Std.HashMap Nat Nat :=
-  match d with
-  | ⟨elts, par, tab⟩ =>
-    let M := elts.getD qi []
-    let r := (List.range 8).foldl
-      (fun (acc : Array ICode × Array (Nat × Nat) × Std.HashMap Nat Nat × Array Nat) j =>
-        match acc with
-        | (elts, par, seen, row) =>
-          let N := conjI j M
-          let k := keyI N
-          match seen.get? k with
-          | some m => (elts, par, seen, row.push m)
-          | none =>
-            let sz := elts.size
-            (elts.push N, par.push (qi, j), seen.insert k sz, row.push sz))
-      (elts, par, seen, #[])
-    match r with
-    | (elts, par, seen, row) => (⟨elts, par, tab.push row⟩, seen)
-
-@[expose] def bfsLoop : Nat → Nat → OrbitData → Std.HashMap Nat Nat → OrbitData
-  | 0, _, d, _ => d
-  | fuel + 1, qi, d, seen =>
-    if qi < d.elts.size then
-      let r := bfsStep d seen qi
-      bfsLoop fuel (qi + 1) r.1 r.2
-    else d
-
-@[expose] def bfs (start : ICode) : OrbitData :=
-  bfsLoop 200000 0 ⟨#[start], #[(0, 0)], #[]⟩ ((∅ : Std.HashMap Nat Nat).insert (keyI start) 0)
-
-@[expose] def checkPar (d : OrbitData) (k : Nat) : Bool :=
-  k == 0 || match d.par[k]? with
-    | some (p, j) => p < k && j < 8 && d.elts[k]? == (d.elts[p]?).map (conjI j)
-    | none => false
-
-@[expose] def checkTab (d : OrbitData) (k : Nat) : Bool :=
-  match d.tab[k]? with
-  | some row => (List.range 8).all fun j => match row[j]? with
-      | some m => d.elts[m]? == (d.elts[k]?).map (conjI j)
-      | none => false
-  | none => false
-
-@[expose] def strictSorted : List Nat → Bool
-  | a :: b :: l => a < b && strictSorted (b :: l)
-  | _ => true
-
-@[expose] def checkOrbit (start : ICode) (d : OrbitData) : Bool :=
-  d.elts[0]? == some start &&
-  (List.range d.elts.size).all (checkPar d) &&
-  (List.range d.elts.size).all (checkTab d) &&
-  strictSorted ((d.elts.toList.map keyI).mergeSort)
 
 @[expose] def pairT (_ : Unit := ()) : Array (Array Int) :=
   roots.map fun v => Array.ofFn fun i : Fin 8 => pair i v
@@ -226,28 +174,5 @@ structure OrbitData where
   6, 7, 3, 2, 1, 3, 4, 5, 6, 0, 2, 3, 4, 5, 1, 3, 4, 2, 3, 0, 2, 1, 3, 4, 5, 6, 7, 6, 5, 4, 2,
   3, 0, 2, 1, 3, 4, 5, 6, 4, 5, 1, 3, 4, 2, 3, 0, 2, 1, 3, 4, 5, 2, 3, 0, 2, 1, 3, 4, 1]
 
-@[noinline, expose] def orbitOK (start : ICode) (n : Nat) : Bool :=
-  let d := bfs start
-  checkOrbit start d && d.elts.size == n
-
-@[noinline, expose] def inOrbit (start c : ICode) : Bool := (bfs start).elts.contains c
-
-@[expose] def classOK (i : Nat) : Bool :=
-  orbitOK (frameCode (frameData.getD i [])) (classSizes.getD i 0)
-
-@[expose] def zOK (i : Nat) : Bool :=
-  inOrbit (frameCode (frameData.getD (zClass.getD i 0) [])) (negI (frameCode (frameData.getD i [])))
-
-@[expose] def simpleOK (j : Nat) : Bool := inOrbit (frameCode (frameData.getD 0 [])) (wordCode [j])
-
-@[expose] def yOK (_ : Unit) : Bool := orbitOK (wordCode y0Word) 15120
-
-@[noinline, expose] def enumCount (sgn : Int) (k : Nat) : Nat := (enum sgn k).length
-
-@[expose] def enumOK (_ : Unit) : Bool := enumCount 1 8 == 199952 && enumCount (-1) 8 == 15120
-
-@[expose] def allOK (_ : Unit) : Bool :=
-  (List.range 9).all classOK && (List.range 8).all zOK && (List.range 8).all simpleOK && yOK () &&
-    enumOK ()
 
 end CFSG.LieType.Chevalley.WE8.Native

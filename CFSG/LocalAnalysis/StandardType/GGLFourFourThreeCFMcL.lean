@@ -30,45 +30,6 @@ theorem ggNbrLangInput_of_axis (h : GGNbrLangAxisInput) : GGNbrLangInput := by
   obtain ⟨B₀, hB₀, hcard, hb₀', -, hk⟩ := hQ hgr b₀ hb₀ hb₀I
   exact ⟨B₀, hB₀, hcard, hb₀', hk⟩
 
-@[expose] def GGNbrLangTorusAxisInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K →
-      ∀ hN : Bs ≤ Subgroup.normalizer (K : Set G),
-        GGMarkingAll (K := ↥K) fun _ _ _ I F θ =>
-          (∀ (b : G) (hb : b ∈ Bs), ∃ u ∈ I, ∃ f ∈ Subgroup.closure F,
-            ggLAut K θ ⟨b, hN hb⟩ = u * f) →
-          ∀ (b₀ : G) (hb₀ : b₀ ∈ Bs), ggLAut K θ ⟨b₀, hN hb₀⟩ ∉ I →
-            ∃ B₀ : Subgroup G, B₀ ≤ Bs ∧ Nat.card B₀ * p = Nat.card Bs ∧ b₀ ∉ B₀ ∧
-              (∀ (b : G) (hb : b ∈ Bs), ggLAut K θ ⟨b, hN hb⟩ ∈ I → b ∈ B₀) ∧
-              ∃ T : Subgroup G, T ≤ Subgroup.centralizer (B₀ : Set G) ∧
-                (∀ a ∈ T, ∀ c ∈ T, a * c = c * a) ∧
-                b₀ ∈ Subgroup.normalizer (T : Set G) ∧
-                (∀ t ∈ T, b₀ * t * b₀⁻¹ = t → ∃ s ∈ T,
-                  t = ((List.range p).map fun i => b₀ ^ i * s * (b₀ ^ i)⁻¹).prod) ∧
-                ∃ e ∈ B₀ ⊓ T, e ≠ 1
-
-theorem ggNbrLangTorusInput_of_axis (h : GGNbrLangTorusAxisInput) : GGNbrLangTorusInput := by
-  intro G _ _ p B Bs x L D J hcfg y K hnbr hN P hP
-  refine largeEvenMarking_mono ?_ (h G p B Bs x L D J hcfg y K hnbr hN P hP)
-  rintro lab R _ I F θ ⟨hPθ, hQ⟩
-  refine ⟨hPθ, fun hgr b₀ hb₀ hb₀I => ?_⟩
-  obtain ⟨B₀, hB₀, hcard, hb₀', -, hT⟩ := hQ hgr b₀ hb₀ hb₀I
-  exact ⟨B₀, hB₀, hcard, hb₀', hT⟩
-
-theorem ggNbrLangAxisInput_of_torus (h : GGNbrLangTorusAxisInput) : GGNbrLangAxisInput := by
-  intro G _ _ p B Bs x L D J hcfg y K hK hN P hP
-  refine largeEvenMarking_mono ?_ (h G p B Bs x L D J hcfg y K hK hN P hP)
-  rintro lab R _ I F θ ⟨hPθ, hQ⟩
-  refine ⟨hPθ, fun hall b₀ hb₀ hb₀I => ?_⟩
-  obtain ⟨B₀, hB₀, hcard, hb₀', hax, T, hTC, hTab, hb₀T, hnorm, e, ⟨heB₀, heT⟩, he1⟩ :=
-    hQ hall b₀ hb₀ hb₀I
-  have hBs : IsElemAbelian p Bs := hcfg.2.1.2.1
-  have hbp : b₀ ^ p = 1 := hBs.2 b₀ hb₀
-  have heb : b₀ * e * b₀⁻¹ = e := by
-    rw [TableB.IsElemAbelian.comm hBs hb₀ (hB₀ heB₀), mul_inv_cancel_right]
-  have hep : e ^ p = 1 := hBs.2 e (hB₀ heB₀)
-  obtain ⟨k, hkT, hk⟩ := NbrLang.exists_conj_eq_mul_of_norm hTab hb₀T hbp hnorm heT heb hep
-  exact ⟨B₀, hB₀, hcard, hb₀', hax, k, hTC hkT, e, heB₀, he1, hk⟩
 
 namespace GGL44CF
 

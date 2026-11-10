@@ -249,10 +249,6 @@ theorem isElemAbelian_sup_zpowers {p : ℕ} {B : Subgroup G} {z : G} (hB : IsEle
     have h3 : a⁻¹ * (a * z * a⁻¹ * z⁻¹)⁻¹ * a⁻¹⁻¹ = a⁻¹ * z * a⁻¹⁻¹ * z⁻¹ := by group
     rwa [h3] at h1
 
-theorem mem_cosetStab {p : ℕ} {L : Subgroup G} {z g : G} :
-    g ∈ cosetStab p L z ↔
-      g ∈ Subgroup.normalizer (L : Set G) ∧ g * z * g⁻¹ * z⁻¹ ∈ GLAPPrimeCoreOf p L :=
-  Iff.rfl
 
 theorem mem_normalizer_sup {A C : Subgroup G} {g : G}
     (hA : g ∈ Subgroup.normalizer (A : Set G)) (hC : g ∈ Subgroup.normalizer (C : Set G)) :

@@ -28,10 +28,5 @@ theorem ZDSetup.theorem1 (hB : BenderFacts) (S : ZDSetup X Z M) :
     fun H hH hne hHM => h44 H hH hHM hne⟩, ⟨z, hz, S.eq_conjClass hz⟩,
     fun z hz => S.isCentralInvolution hz⟩
 
-theorem ZDSetup.theorem1_of_cover
-    (hCover : BenderCoverRigid) (S : ZDSetup X Z M) :
-    IsSimpleGroup X ∧ IsStronglyZEmbedded Z M ∧ (∃ z ∈ Z, Z = {y : X | IsConj z y}) ∧
-      ∀ z ∈ Z, IsCentralInvolution z :=
-  S.theorem1 ⟨hCover, benderOuterInvolution⟩
 
 end CFSG.GH74.Uniqueness

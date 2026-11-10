@@ -83,10 +83,6 @@ theorem isPerfect_barOf {p : ℕ} {X L : Subgroup G} (hL : GLAPComponent p X L) 
       (MulEquiv.subgroupCongr (barTheta_range p hL.1 hL.2.1))
   exact Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective
 
-theorem gLAPPrimeCore_barOf (p : ℕ) (hp : p.Prime) (L : Subgroup G) :
-    GLAPPrimeCore p (barOf p L) = ⊥ := by
-  have := Fact.mk hp
-  exact CFSG.pPrimeCore_quotient_pPrimeCore_eq_bot p
 
 theorem odd_card_center_barOf {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (L : Subgroup G) :
     Odd (Nat.card (Subgroup.center (barOf p L))) := by

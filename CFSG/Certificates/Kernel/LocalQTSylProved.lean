@@ -28,7 +28,6 @@ theorem cH_mul (hn : n ≤ 32) (x y : H) : P.mul n (cH H x) (cH H y) = cH H (x *
 
 theorem cH_one : P.one n = cH H 1 := P.code_one
 
-theorem cH_inv (hn : n ≤ 32) (x : H) : P.inv n (cH H x) = cH H x⁻¹ := P.code_inv hn _
 
 theorem cH_pow (hn : n ≤ 32) (x : H) (k : ℕ) : P.pow n (cH H x) k = cH H (x ^ k) :=
   P.code_pow hn _ k
@@ -180,26 +179,6 @@ theorem syl_sound' (hA : codeP (gA : Perm (Fin n)) = cA) (hB : codeP (gB : Perm 
   rw [CFSG.KC.LQT.S.memL_iff, cH_mul hn, mem_map_cH hn] at this
   exact this
 
-theorem sylG_sound' (hA : codeP (gA : Perm (Fin n)) = cA) (hB : codeP (gB : Perm (Fin n)) = cB)
-    (rgw rwords : List (List ℤ)) (a : ℕ)
-    (h : sylGK n a (rlK n cA cB rgw rwords) (List.map (evalZK n [cA, cB]) rgw) = true) :
-    (sylowList H gA gB rgw rwords).length = 2 ^ a ∧ (sylowList H gA gB rgw rwords).Nodup ∧
-      (1 : H) ∈ sylowList H gA gB rgw rwords ∧
-      (∀ x ∈ sylowList H gA gB rgw rwords, ∀ g ∈ sylowGens H gA gB rgw,
-        x * g ∈ sylowList H gA gB rgw rwords) ∧
-      (∀ x ∈ sylowList H gA gB rgw rwords, x ^ (2 ^ a) = 1) := by
-  unfold sylGK at h
-  rw [P.andB_iff] at h
-  have hn : n ≤ 32 := sylBase_le h.1
-  rw [rlK_eq gA gB hn hA hB, gens_eq gA gB hn hA hB] at h
-  obtain ⟨hb, hc⟩ := h
-  obtain ⟨h1, h2, h3, h4⟩ := sylBase_sound hn _ a hb
-  refine ⟨h1, h2, h3, ?_, h4⟩
-  intro x hx g hg
-  have := (P.allL_iff _ _).1 hc (cH H x) (List.mem_map_of_mem hx)
-  have := (P.allL_iff _ _).1 this (cH H g) (List.mem_map_of_mem hg)
-  rw [CFSG.KC.LQT.S.memL_iff, cH_mul hn, mem_map_cH hn] at this
-  exact this
 
 theorem invK_eq (hn : n ≤ 32) (Rl : List H) :
     invK n (Rl.map (cH H)) = (invG Rl).map (cH H) := by
@@ -265,7 +244,6 @@ private noncomputable def ddGo (Ls : List (List ℕ)) : List (List ℕ) → List
   List.rec (motive := fun _ => List (List ℕ) → List (List ℕ)) (fun acc => acc)
     (fun L _ ih acc => ih (ddStep L acc)) Ls
 
-private theorem ddGo_nil (acc : List (List ℕ)) : ddGo [] acc = acc := rfl
 
 private theorem ddGo_cons (L : List ℕ) (Ls acc : List (List ℕ)) :
     ddGo (L :: Ls) acc = ddGo Ls (ddStep L acc) := rfl
@@ -314,8 +292,6 @@ private theorem ddGo_mem (x : List ℕ) :
 private noncomputable def lvl (n : ℕ) (I : List ℕ) (j : ℕ) : List (List ℕ) :=
   Nat.rec (motive := fun _ => List (List ℕ)) [[P.one n]] (fun _ ih => extK n I ih) j
 
-private theorem lvl_succ (n : ℕ) (I : List ℕ) (j : ℕ) : lvl n I (j + 1) = extK n I (lvl n I j) :=
-  rfl
 
 private theorem lvl_zero (n : ℕ) (I : List ℕ) : lvl n I 0 = [[P.one n]] := rfl
 
@@ -348,14 +324,6 @@ section Subprods
 
 variable {S : Type*} [Group S]
 
-private theorem mem_subprods_of_mem {l : List S} {y : S} (hy : y ∈ l) : y ∈ subprods l := by
-  induction l with
-  | nil => simp at hy
-  | cons z l ih =>
-    simp only [subprods, List.mem_append, List.mem_map]
-    rcases List.mem_cons.1 hy with rfl | hy
-    · exact Or.inr ⟨1, one_mem_subprods l, mul_one _⟩
-    · exact Or.inl (ih hy)
 
 private theorem commute_subprods {x : S} {l : List S} (h : ∀ y ∈ l, x * y = y * x) :
     ∀ s ∈ subprods l, x * s = s * x := by

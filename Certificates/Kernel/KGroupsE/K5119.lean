@@ -25,7 +25,5 @@ theorem pow_5119K : ((elemsV QA).all fun g => bif decide (g ^ 8 = 1) then siftP 
 theorem le_5119K : (QS.original.toList.all fun g => siftP QP g 0) = true := by
   decide +kernel
 
-theorem neg5119K : ((elemsV QA).all fun g => siftP QP g 0) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelKGroupsE

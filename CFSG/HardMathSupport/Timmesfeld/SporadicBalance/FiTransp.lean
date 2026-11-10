@@ -23,26 +23,6 @@ theorem orderOf_mul_eq_three_of_cube {d e : G} (hd : d * d = 1)
   have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
   exact orderOf_eq_prime h3 h1
 
-theorem cube_eq_one_of_orderOf {d e : G} (hd : d * d = 1) (he : e * e = 1)
-    (h : orderOf (d * e) ∈ ({1, 2, 3} : Set ℕ)) (hne : d * e ≠ e * d) :
-    d * e * (d * e) * (d * e) = 1 := by
-  have hdi : d⁻¹ = d := inv_eq_of_mul_eq_one_right hd
-  have hei : e⁻¹ = e := inv_eq_of_mul_eq_one_right he
-  rcases h with h | h | h
-  · exfalso
-    apply hne
-    have h1 : d * e = 1 := orderOf_eq_one_iff.1 h
-    have : e = d⁻¹ := eq_inv_of_mul_eq_one_right h1
-    rw [this, hdi]
-  · exfalso
-    apply hne
-    have h2 : (d * e) ^ 2 = 1 := h ▸ pow_orderOf_eq_one (d * e)
-    have h3 : (d * e) * (d * e) = 1 := by rw [← sq]; exact h2
-    have h4 : d * e = (d * e)⁻¹ := eq_inv_of_mul_eq_one_left h3
-    rw [h4, mul_inv_rev, hdi, hei]
-  · have h3 : (d * e) ^ 3 = 1 := h ▸ pow_orderOf_eq_one (d * e)
-    rw [pow_succ, pow_succ, pow_one] at h3
-    exact h3
 
 theorem commute_of_separated {E : Set G} (hE2 : ∀ e ∈ E, e * e = 1)
     (hE3 : ∀ e ∈ E, ∀ f ∈ E, e * f ≠ f * e → e * f * (e * f) * (e * f) = 1)

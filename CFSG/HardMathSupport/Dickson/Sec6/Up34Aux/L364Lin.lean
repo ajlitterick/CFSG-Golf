@@ -57,17 +57,6 @@ namespace CFSG.HardMathSupport.Dickson.Sec6.Up34Lin
 
 open Polynomial
 
-theorem perfect_hom_trivial {G A : Type*} [Group G] [CommGroup A] {D : Subgroup G}
-    (hD : ⁅D, D⁆ = D) (f : G →* A) : ∀ d ∈ D, f d = 1 := by
-  intro d hd
-  have h : ⁅D, D⁆ ≤ f.ker := by
-    rw [Subgroup.commutator_le]
-    intro a _ b _
-    rw [MonoidHom.mem_ker, map_commutatorElement]
-    simp [commutatorElement_def, mul_comm]
-  rw [hD] at h
-  exact h hd
-
 
 section Decomp
 

@@ -191,23 +191,6 @@ theorem aschCore_le_iff (threshold prime : ℕ) (sylowGroup target : Subgroup G)
     rintro normalizerGroup ⟨generator, hinclusion, hrank, hproductRank, rfl⟩
     exact hnormalizers generator hinclusion hrank hproductRank
 
-theorem aschCore_antitone_threshold (prime : ℕ) (sylowGroup : Subgroup G)
-    {lower upper : ℕ} (hthreshold : lower ≤ upper) :
-    rankThreeAschCore upper prime sylowGroup ≤ rankThreeAschCore lower prime sylowGroup := by
-  apply (aschCore_le_iff upper prime sylowGroup _).mpr
-  intro generator hinclusion hrank hproductRank
-  exact aschCore_normalizer_le lower prime sylowGroup generator hinclusion
-    (hthreshold.trans hrank) hproductRank
-
-theorem aschCore_mono_group (prime : ℕ) (hprime : 1 < prime) (threshold : ℕ)
-    {smaller larger : Subgroup G} (hinclusion : smaller ≤ larger) :
-    rankThreeAschCore threshold prime smaller ≤ rankThreeAschCore threshold prime larger := by
-  apply (aschCore_le_iff threshold prime smaller _).mpr
-  intro generator hgenerator hrank hproductRank
-  apply aschCore_normalizer_le threshold prime larger generator (hgenerator.trans hinclusion) hrank
-  apply hproductRank.trans
-  apply pRank_mono prime hprime
-  exact sup_le_sup le_rfl (inf_le_inf hinclusion le_rfl)
 
 theorem gamma_normalizer_le (threshold prime : ℕ) (sylowGroup generator : Subgroup G)
     (hinclusion : generator ≤ sylowGroup) (hrank : threshold ≤ pRank prime generator) :
@@ -232,13 +215,6 @@ theorem aschCore_le_gamma (threshold prime : ℕ) (sylowGroup : Subgroup G) :
   intro generator hinclusion hrank _
   exact gamma_normalizer_le threshold prime sylowGroup generator hinclusion hrank
 
-theorem gamma_three_le_aschCore_two (prime : ℕ) (hprime : 1 < prime)
-    (sylowGroup : Subgroup G) :
-    rankThreeGamma 3 prime sylowGroup ≤ rankThreeAschCore 2 prime sylowGroup := by
-  apply (gamma_le_iff 3 prime sylowGroup _).mpr
-  intro generator hinclusion hrank
-  apply aschCore_normalizer_le 2 prime sylowGroup generator hinclusion (by omega)
-  exact hrank.trans (pRank_mono prime hprime le_sup_left)
 
 theorem sylowGroup_le_aschCore (threshold prime : ℕ) (sylowGroup : Subgroup G)
     (hthreshold : threshold ≤ pRank prime sylowGroup) (hrank : 3 ≤ pRank prime sylowGroup) :
@@ -251,12 +227,6 @@ theorem sylowGroup_le_aschCore (threshold prime : ℕ) (sylowGroup : Subgroup G)
   rw [hproduct]
   exact hrank
 
-theorem coreLocal_antitone_threshold {lower upper : ℕ} (hthreshold : lower ≤ upper)
-    (hlocal : rankThreeAschCoreLocal G lower) : rankThreeAschCoreLocal G upper := by
-  intro prime hselected sylowGroup
-  obtain ⟨localGroup, htwoLocal, hcore⟩ := hlocal prime hselected sylowGroup
-  exact ⟨localGroup, htwoLocal,
-    (aschCore_antitone_threshold prime (sylowGroup : Subgroup G) hthreshold).trans hcore⟩
 
 omit [Finite G] in
 theorem elementary_isPGroup (prime : ℕ) (elementary : Subgroup G)
@@ -307,38 +277,6 @@ theorem twoLocal_ne_top [IsSimpleGroup G]
       (Subgroup.topEquiv (G := G)).symm.injective
     exact not_isPGroup_of_simple_nonabelian hnonabelian 2 Nat.prime_two hwholeGroup
 
-theorem selected_coreLocal_has_maximal_overgroup (hrank : evenRank G = 3)
-    (hcoreLocal : rankThreeAschCoreLocal G 2) (prime : ℕ)
-    (hselected : prime ∈ rankThreeSigmaA G) :
-    ∃ (sylowGroup : Sylow prime G) (maximalLocal : Subgroup G),
-      3 ≤ pRank prime (sylowGroup : Subgroup G) ∧
-      rankThreeIsMaxTwoLocal maximalLocal ∧
-      rankThreeAschCore 2 prime (sylowGroup : Subgroup G) ≤ maximalLocal ∧
-      Subgroup.normalizer (sylowGroup : Set G) ≤ maximalLocal ∧
-      (sylowGroup : Subgroup G) ≤ maximalLocal ∧ pRank prime maximalLocal = 3 := by
-  have hprime := sigmaA_prime prime hselected
-  have hodd := sigmaA_odd prime hselected
-  obtain ⟨sylowGroup, hsylowRank⟩ := exists_sylow_rank_at_least_three prime hprime
-    (sigmaA_global_rank_at_least_three hrank prime hselected)
-  obtain ⟨localGroup, hlocal, hcore⟩ := hcoreLocal prime hselected sylowGroup
-  obtain ⟨maximalLocal, hmaximal, hovergroup⟩ := twoLocal_le_maxTwoLocal localGroup hlocal
-  have hcoreMaximal := hcore.trans hovergroup
-  have hsylowCore := sylowGroup_le_aschCore 2 prime (sylowGroup : Subgroup G) (by omega) hsylowRank
-  have hsylowMaximal := hsylowCore.trans hcoreMaximal
-  have hnormalizerMaximal : Subgroup.normalizer (sylowGroup : Set G) ≤ maximalLocal := by
-    apply (aschCore_normalizer_le 2 prime (sylowGroup : Subgroup G)
-      (sylowGroup : Subgroup G) le_rfl (by omega) ?_).trans hcoreMaximal
-    have hproduct : (sylowGroup : Subgroup G) ⊔
-        ((sylowGroup : Subgroup G) ⊓
-          Subgroup.centralizer ((sylowGroup : Subgroup G) : Set G)) = sylowGroup :=
-      sup_eq_left.mpr inf_le_left
-    rw [hproduct]
-    exact hsylowRank
-  refine ⟨sylowGroup, maximalLocal, hsylowRank, hmaximal, hcoreMaximal,
-    hnormalizerMaximal, hsylowMaximal, ?_⟩
-  have hlower := pRank_mono prime hprime.one_lt hsylowMaximal
-  have hupper := local_pRank_le_evenRank prime hprime hodd maximalLocal hmaximal.1
-  omega
 
 omit [Finite G] in
 theorem elementary_transport {otherGroup : Type*} [Group otherGroup] (prime : ℕ)

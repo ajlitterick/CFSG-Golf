@@ -41,11 +41,6 @@ theorem frobT_one (θ : k →+* k) : frobT θ (1 : Module.End k (Fin d →₀ k)
   rw [frobT, toMat_one, Matrix.transpose_one, Matrix.map_one _ (map_zero θ) (map_one θ),
     ← toMat_one, ofMat_toMat]
 
-theorem frobT_add (θ : k →+* k) (A B : Module.End k (Fin d →₀ k)) :
-    frobT θ (A + B) = frobT θ A + frobT θ B := by
-  have h : toMat (A + B) = toMat A + toMat B := map_add _ A B
-  rw [frobT, h, Matrix.transpose_add, Matrix.map_add _ (map_add θ), ofMat, map_add]
-  rfl
 
 theorem frobT_smul (θ : k →+* k) (c : k) (A : Module.End k (Fin d →₀ k)) :
     frobT θ (c • A) = θ c • frobT θ A := by

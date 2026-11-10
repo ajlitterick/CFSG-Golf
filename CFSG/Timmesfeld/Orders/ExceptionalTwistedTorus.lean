@@ -207,16 +207,6 @@ theorem canonicalRep_orbitReflection_sq_mem_compatTorus (a : Fin t.foldedTag.ran
     refine congrArg List.prod (List.map_congr_left fun i _ => ?_)
     exact coe_torusCoordHom_mulSingle i (-1)
 
-theorem canonicalRep_orbitReflection_inv_conj_mem_compatTorus (a : Fin t.foldedTag.rank)
-    {h : ModGL t.tag K} (hh : h ∈ compatTorus σ) :
-    (canonicalRep (coxeterSystem t.tag) K (t.orbitReflection a))⁻¹ * h *
-      canonicalRep (coxeterSystem t.tag) K (t.orbitReflection a) ∈ compatTorus σ := by
-  set n := canonicalRep (coxeterSystem t.tag) K (t.orbitReflection a)
-  have hn2 := canonicalRep_orbitReflection_sq_mem_compatTorus σ a
-  have e : n⁻¹ * h * n = (n * n)⁻¹ * (n * h * n⁻¹) * (n * n) := by group
-  rw [e]
-  exact mul_mem (mul_mem (inv_mem hn2) (canonicalRep_orbitReflection_conj_mem_compatTorus σ a hh))
-    hn2
 
 theorem compatTorus_le_graphFixedRootGroup : compatTorus σ ≤ graphFixedRootGroup t K σ :=
   (compatTorus_le_graphFixedRootTorus σ).trans (graphFixedRootTorus_le t K σ)

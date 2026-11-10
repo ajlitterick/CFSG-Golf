@@ -37,33 +37,6 @@ theorem exists_ggTypeASplitNbr {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Su
 
 end Config
 
-@[expose] def GGTypeAEndBlockLInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeASplitNbr p B Bs x L D J n f y K →
-    ∀ φ₁ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ₁.range = L →
-      φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) →
-      ∃ l ∈ L, (φ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range.map
-        (MulAut.conj l).toMonoidHom = J
-
-@[expose] def GGTypeAEndBlockKInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeASplitNbr p B Bs x L D J n f y K →
-    ∃ φ₂ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ₂.range = K ∧
-      φ₂.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) ∧
-      (φ₂.comp (slUpperBlockHom n (GaloisField 2 f))).range = J
-
-@[expose] def GGTypeAFarCommuteInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (n f : ℕ) (y : G) (K : Subgroup G), GGTypeASplitNbr p B Bs x L D J n f y K →
-    ∀ φ₁ φ₂ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G, φ₁.range = L →
-      φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) →
-      φ₂.range = K →
-      φ₂.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) →
-      (φ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range = J →
-      φ₁.comp (slLowerBlockHom n (GaloisField 2 f)) =
-        φ₂.comp (slUpperBlockHom n (GaloisField 2 f)) →
-      ∀ i j : Fin n, i.val = 0 → j.val + 1 = n →
-        Commute (φ₂ (weylRep n (GaloisField 2 f) j)) (φ₁ (weylRep n (GaloisField 2 f) i))
 
 @[expose] def GGTypeAJoinInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -164,53 +137,5 @@ theorem exists_slCompat_lift [Finite F] (hn : 3 ≤ n)
 
 end Lifts
 
-theorem ggTypeAEndNodeInput_of_inputs (hA : GGTypeAEndBlockLInput) (hB : GGTypeAEndBlockKInput)
-    (hC : GGTypeAFarCommuteInput) (hD : GGTypeAJoinInput) : GGTypeAEndNodeInput := by
-  intro G _ _ p B Bs x L D J n f hcfg hOp hInn hNoTr hsplit φ₁ hφL hker
-  obtain ⟨y, K, hN⟩ := exists_ggTypeASplitNbr hcfg hOp hInn hNoTr hsplit
-  obtain ⟨-, -, -, -, hmod, -, hn, -, -, hnbr, -⟩ := id hN
-  have hf : 1 ≤ f := hmod.1.2.1
-  have h2 : (2 : GaloisField 2 f) = 0 :=
-    two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf
-  obtain ⟨l, hlL, hJl⟩ := hA G p B Bs x L D J n f y K hN φ₁ hφL hker
-  set ψ₁ := (MulAut.conj l).toMonoidHom.comp φ₁ with hψ₁
-  have hψL : ψ₁.range = L := range_mulAutConj_comp hlL hφL
-  have hψker : ψ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)) := by
-    rw [hψ₁, ker_mulAutConj_comp]
-    exact hker
-  have hψJ : (ψ₁.comp (slLowerBlockHom n (GaloisField 2 f))).range = J := by
-    rw [hψ₁, MonoidHom.comp_assoc, MonoidHom.range_comp, hJl]
-  obtain ⟨φ₂₀, hφ₂K, hker₂, hJ₂⟩ := hB G p B Bs x L D J n f y K hN
-  obtain ⟨φ₂, hφ₂K', hker₂', hcomp⟩ := exists_slCompat_lift hn hψker hker₂ (hψJ.trans hJ₂.symm)
-  rw [hφ₂K] at hφ₂K'
-  have hfar := hC G p B Bs x L D J n f y K hN ψ₁ φ₂ hψL hψker hφ₂K' hker₂' hψJ hcomp
-    ⟨0, by omega⟩ ⟨n - 1, by omega⟩ rfl (by simp only; omega)
-  have hT := ggTypeAEndNode_of_compat h2 hn hcomp hfar
-  have hKle := slCompat_range_le h2 (by omega) hcomp
-  rw [hψL, hφ₂K'] at hKle
-  set T' := φ₂ (weylRep n (GaloisField 2 f) ⟨n - 1, by omega⟩) with hT'
-  have hT'K : T' ∈ K := by
-    rw [← hφ₂K']
-    exact ⟨_, rfl⟩
-  refine ⟨l⁻¹ * T' * l, ?_, GGTypeAEndNode.of_conj hT, ?_⟩
-  · have hlG := le_ggG0_left p B x L D J hlL
-    exact (ggG0 p B x L D J).mul_mem ((ggG0 p B x L D J).mul_mem
-      ((ggG0 p B x L D J).inv_mem hlG) (le_ggG0_of_ggNbr (L := L) hnbr hT'K)) hlG
-  · intro y' K' hK'
-    refine (hD G p B Bs x L D J n f y K hN y' K' hK').trans
-      (sup_le le_sup_left (hKle.trans (sup_le le_sup_left ?_)))
-    intro z hz
-    obtain ⟨g, hg, rfl⟩ := Subgroup.mem_map.mp hz
-    have e : (MulAut.conj T').toMonoidHom g =
-        l * ((l⁻¹ * T' * l) * (l⁻¹ * g * l) * (l⁻¹ * T' * l)⁻¹) * l⁻¹ := by
-      simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-      group
-    rw [e]
-    have hm : (l⁻¹ * T' * l) * (l⁻¹ * g * l) * (l⁻¹ * T' * l)⁻¹ ∈
-        L.map (MulAut.conj (l⁻¹ * T' * l)).toMonoidHom :=
-      Subgroup.mem_map.mpr ⟨l⁻¹ * g * l, L.mul_mem (L.mul_mem (L.inv_mem hlL) hg) hlL,
-        by simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]⟩
-    exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mem_sup_left hlL)
-      (Subgroup.mem_sup_right hm)) (Subgroup.mem_sup_left (L.inv_mem hlL))
 
 end CFSG.StandardType

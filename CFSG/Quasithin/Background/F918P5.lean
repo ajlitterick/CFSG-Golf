@@ -109,19 +109,6 @@ theorem quotCenter_mulEquiv_of_two_surj {Y₂ : Type} [Group Y₂] (f₁ : X →
 
 end CentralCover
 
-theorem mulEquiv_range_of_simple {S Y : Type} [Group S] [Group Y] [IsSimpleGroup S] (f : S →* Y)
-    (hne : f.range ≠ ⊥) : Nonempty (S ≃* f.range) := by
-  have hker : f.ker = ⊥ := by
-    rcases (inferInstance : f.ker.Normal).eq_bot_or_eq_top with h | h
-    · exact h
-    · exfalso
-      apply hne
-      rw [eq_bot_iff]
-      rintro _ ⟨x, rfl⟩
-      have : x ∈ f.ker := by rw [h]; exact Subgroup.mem_top x
-      rw [Subgroup.mem_bot]
-      exact this
-  exact ⟨MonoidHom.ofInjective ((MonoidHom.ker_eq_bot_iff f).mp hker)⟩
 
 theorem fourList_congr {X Y : Type} [Group X] [Group Y] (e : X ≃* Y) (h : FourList X) :
     FourList Y := by
@@ -516,12 +503,6 @@ theorem five_prelim
     (subM V₁ (conjClosure I H) I)
     (actH h.H_le_normalizer_V₁ (le_normalizer_conjClosure I H) ⟨t, h.T_le_H ht⟩)
 
-@[expose] noncomputable def F918FiveTop (h : HypF918 T V L V₁ Vp H K) {I : Subgroup G}
-    (hIU : I ≤ conjClosure Vp H) {t : G} (ht : t ∈ T) : Prop :=
-  haveI := factElem h hIU
-  ModFiveTop (autIH V₁ I H H) (autIH V₁ I H (conjClosure K T)) (autIH V₁ I H T) (autIH V₁ I H K)
-    (subM V₁ (conjClosure I H) I)
-    (actH h.H_le_normalizer_V₁ (le_normalizer_conjClosure I H) ⟨t, h.T_le_H ht⟩)
 
 theorem F918_5
     (h : HypF918 T V L V₁ Vp H K) (hH : SQTKGroup ↥H) (hK : conjClosure K T ≠ K)
@@ -555,67 +536,6 @@ theorem F918_5
     · exact le_conjClosure K T
   exact ⟨hshape (key t₀ ht₀ ht₀K).fiveShape, key⟩
 
-theorem F918_5_inv
-    (h : HypF918 T V L V₁ Vp H K) (hH : SQTKGroup ↥H) (hK : conjClosure K T ≠ K)
-    (hV₁I : V₁ ≤ I) (hIU : I ≤ conjClosure Vp H) (hirr : IsIrrPlusTildeT h hIU)
-    (hinv : ∀ x ∈ H, x ∈ Subgroup.normalizer (K : Set G) → x ∈ Subgroup.normalizer (I : Set G))
-    (hD36 : D36) (hD37 : D37) (hI5 : Insp5a) (hA37 : A37ForSQTK) (hA38 : A38ForSQTK) :
-    FiveShape ↥(autIH V₁ Vp H K) ∧
-      ∀ t (ht : t ∈ T), t ∉ Subgroup.normalizer (K : Set G) → F918FiveTop h hIU ht := by
-  have hF := factElem h hIU
-  have hirr' : subM V₁ (conjClosure I H) I ∈ IrrPlusOn (autIH V₁ I H (conjClosure K T))
-      (orbSup (autIH V₁ I H T) (subM V₁ (conjClosure I H) I)) (autIH V₁ I H T) := hirr
-  have hD := d31_of_hyp h hH hIU hV₁I hirr'
-  have hnt := hnt_of_irrSec h hIU hirr'.1.2.2.2.1
-  have hKI := K₀_le_normalizer_of_isInv h hIU hV₁I hirr'.1.2.1
-  obtain ⟨B, hA⟩ := qOff_of_hyp h hIU hV₁I hKI hnt
-  obtain ⟨hL38, hshape, hdata⟩ := five_prelim h hH hK hIU hnt hA37 hA38
-  have key : ∀ t (ht : t ∈ T), t ∉ Subgroup.normalizer (K : Set G) → F918FiveTop h hIU ht := by
-    intro t ht htK
-    obtain ⟨ht'T, ht'L, hMp, hcoset⟩ := hdata t ht htK
-    have htH : t ∈ H := h.T_le_H ht
-    set φ := actH h.H_le_normalizer_V₁ (le_normalizer_conjClosure I H) with hφ
-    have hVT : orbSup (autIH V₁ I H T) (subM V₁ (conjClosure I H) I) = ⊤ := by
-      rw [eq_top_iff, ← iSup_actH_subM_eq_top h.H_le_normalizer_V₁
-        (h.conjClosure_le_normalizer_V₁ hIU) (le_normalizer_conjClosure I H) hV₁I]
-      refine iSup₂_le fun m hm => ?_
-      obtain ⟨x, -, rfl⟩ := hm
-      have hxH : (x : G) ∈ H := x.2
-      have hstab : ∀ y : ↥H, (y : G) ∈ Subgroup.normalizer (K : Set G) →
-          φ y ∈ stabSub (subM V₁ (conjClosure I H) I) := fun y hy =>
-        (actH_mem_stabSub_subM_iff h.H_le_normalizer_V₁ (h.conjClosure_le_normalizer_V₁ hIU)
-          (le_normalizer_conjClosure I H) hV₁I (le_conjClosure I H) y).mpr (hinv _ y.2 hy)
-      rcases hcoset x hxH with hx | hx
-      · rintro _ ⟨v, hv, rfl⟩
-        exact le_orbSup _ _ (((hstab x hx) v).mpr hv)
-      · set y : ↥H := ⟨t⁻¹ * x, H.mul_mem (H.inv_mem htH) hxH⟩ with hy
-        have hxy : x = ⟨t, htH⟩ * y := by
-          apply Subtype.ext
-          simp [hy]
-        rintro _ ⟨v, hv, rfl⟩
-        have hyv : φ y v ∈ subM V₁ (conjClosure I H) I := ((hstab y hx) v).mpr hv
-        have hmem := map_le_orbSup (V := subM V₁ (conjClosure I H) I) ht'T ⟨φ y v, hyv, rfl⟩
-        have hxv : (φ x).toMonoidHom v = (φ ⟨t, htH⟩).toMonoidHom ((φ y) v) := by
-          show (φ x) v = (φ ⟨t, htH⟩) ((φ y) v)
-          rw [hxy, map_mul]
-          rfl
-        have hfin : (φ x).toMonoidHom v ∈ orbSup (autIH V₁ I H T) (subM V₁ (conjClosure I H) I) := by
-          rw [hxv]
-          exact hmem
-        exact hfin
-    show ModFiveTop (autIH V₁ I H H) (autIH V₁ I H (conjClosure K T)) (autIH V₁ I H T)
-      (autIH V₁ I H K) (subM V₁ (conjClosure I H) I)
-      (actH h.H_le_normalizer_V₁ (le_normalizer_conjClosure I H) ⟨t, h.T_le_H ht⟩)
-    exact mod5_of_top hD36 hD37 hI5 hD hirr' ht'T ht'L hMp hL38 hA hVT
-  obtain ⟨t₀, ht₀, ht₀K⟩ : ∃ t ∈ T, t ∉ Subgroup.normalizer (K : Set G) := by
-    by_contra hcon
-    push Not at hcon
-    apply hK
-    apply le_antisymm
-    · refine conjClosure_le fun t ht z hz => ?_
-      exact (Subgroup.mem_normalizer_iff.mp (hcon t ht) z).mp hz
-    · exact le_conjClosure K T
-  exact ⟨hshape (key t₀ ht₀ ht₀K).toModFive.fiveShape, key⟩
 
 end Five
 

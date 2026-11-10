@@ -35,11 +35,6 @@ theorem dvd_56_of_dvd_14 {V : Type*} [Group V] [Finite V] (hV : Nat.card V = 8)
   rw [← hY, htop, Subgroup.card_top]
   exact card_GL32_gh
 
-theorem eq_top_of_dvd_14 {V : Type*} [Group V] [Finite V] (hV : Nat.card V = 8)
-    (hcomm : ∀ a b : V, a * b = b * a) (hsq : ∀ v : V, v * v = 1)
-    (X : Subgroup (MulAut V)) (h : 14 ∣ Nat.card X) : X = ⊤ :=
-  Subgroup.eq_top_of_card_eq X
-    ((dvd_56_of_dvd_14 hV hcomm hsq X h).trans (card_mulAut_eq_168 hV hcomm hsq).symm)
 
 theorem exists_GL32_of_dvd_14_index {G : Type*} [Group G] [Finite G] {V : Subgroup G}
     (hV : CFSG.Open.IsElemAbelian 2 V) (h8 : Nat.card V = 8)

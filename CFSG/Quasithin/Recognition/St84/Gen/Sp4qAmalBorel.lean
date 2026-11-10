@@ -243,42 +243,6 @@ theorem map_A2B_of_map_A1B (σ : MulAut ↥(B0 F)) (h : (A1B F).map σ.toMonoidH
       exact Subgroup.map_subtype_le_map_subtype.mp h'
     exact Subgroup.eq_of_le_of_card_ge hle2 (by rw [card_A2B_eq, hcardA2])
 
-theorem map_A1B_of_map_A2B (σ : MulAut ↥(B0 F)) (h : (A2B F).map σ.toMonoidHom = A2B F) :
-    (A1B F).map σ.toMonoidHom = A1B F := by
-  classical
-  have hT : (T0B F).map σ.toMonoidHom = T0B F := map_T0B_eq σ
-  have hcardA1 : Nat.card ((A1B F).map σ.toMonoidHom) = Nat.card F ^ 3 := by
-    rw [Subgroup.card_map_of_injective σ.injective, card_A1B_eq]
-  let E : Subgroup (antiSp F) := ((A1B F).map σ.toMonoidHom).map (B0 F).subtype
-  have hEU : E ≤ antiUnipotent F := by
-    rintro y ⟨b, hb, rfl⟩
-    have hbT : b ∈ T0B F := by
-      rw [← hT]
-      exact Subgroup.map_mono A1B_le_T0B hb
-    exact hbT
-  have hE2 : ∀ y ∈ E, y * y = 1 := by
-    rintro y ⟨b, hb, rfl⟩
-    obtain ⟨a, ha, rfl⟩ := hb
-    have ha2 : a * a = 1 := by
-      apply Subtype.ext
-      simpa using mul_self_of_mem_radA1 (K := F) ha
-    have h' : σ a * σ a = 1 := by simpa using congrArg σ ha2
-    simpa using congrArg (fun z : ↥(B0 F) => (z : antiSp F)) h'
-  rcases elementary_le_radA1_or_radA2 hEU hE2 with hE1 | hE2'
-  · have hle1 : (A1B F).map σ.toMonoidHom ≤ A1B F := by
-      have h' : E ≤ (A1B F).map (B0 F).subtype := by
-        rwa [Subgroup.map_subgroupOf_eq_of_le (A1_le_B0 (F := F))]
-      exact Subgroup.map_subtype_le_map_subtype.mp h'
-    exact Subgroup.eq_of_le_of_card_ge hle1 (by rw [card_A1B_eq, hcardA1])
-  · have hle2 : (A1B F).map σ.toMonoidHom ≤ A2B F := by
-      have h' : E ≤ (A2B F).map (B0 F).subtype := by
-        rwa [Subgroup.map_subgroupOf_eq_of_le (A2_le_B0 (F := F))]
-      exact Subgroup.map_subtype_le_map_subtype.mp h'
-    have heq2 : (A1B F).map σ.toMonoidHom = A2B F :=
-      Subgroup.eq_of_le_of_card_ge hle2 (by rw [card_A2B_eq, hcardA1])
-    have hmap : (A1B F).map σ.toMonoidHom = (A2B F).map σ.toMonoidHom := by
-      rw [heq2, h]
-    exact absurd (Subgroup.map_injective σ.injective hmap) A1B_ne_A2B
 
 private theorem exists_lambda_of_four (hF : 4 ≤ Nat.card F) :
     ∃ lam : F, lam ≠ 0 ∧ lam + 1 ≠ 0 := by
@@ -449,25 +413,6 @@ theorem B0_monoidHom_ext {M : Type*} [Group M] (hF : 4 ≤ Nat.card F) {φ ψ : 
   exact h b (by
     simpa [XaB, XbB, HB, Subgroup.mem_subgroupOf, or_assoc] using hb)
 
-theorem conj_frobAut_pow_uElt_a (s t : Fˣ) (k : ℕ) (a : F) :
-    (MulAut.conj (dSp s t) * frobAut F ^ k) (uElt a 0 0 0) =
-      uElt ((s : F) * ((t⁻¹ : Fˣ) : F) * a ^ 2 ^ k) 0 0 0 := by
-  rw [MulAut.mul_apply, frobAut_pow_uElt, MulAut.conj_apply, dSp_conj_uElt]
-  simp
-
-theorem conj_frobAut_pow_uElt_d (s t : Fˣ) (k : ℕ) (d : F) :
-    (MulAut.conj (dSp s t) * frobAut F ^ k) (uElt 0 0 0 d) =
-      uElt 0 0 0 ((t : F) ^ 2 * d ^ 2 ^ k) := by
-  rw [MulAut.mul_apply, frobAut_pow_uElt, MulAut.conj_apply, dSp_conj_uElt]
-  simp
-
-theorem conj_frobAut_pow_dSp (s t : Fˣ) (k : ℕ) (s' t' : Fˣ) :
-    (MulAut.conj (dSp s t) * frobAut F ^ k) (dSp s' t') = dSp (s' ^ 2 ^ k) (t' ^ 2 ^ k) := by
-  rw [MulAut.mul_apply, frobAut_pow_dSp, MulAut.conj_apply]
-  have hcomm := dTor_comm (dSp_mem_dTor (F := F) s t)
-    (dSp_mem_dTor (F := F) (s' ^ 2 ^ k) (t' ^ 2 ^ k))
-  rw [hcomm]
-  group
 
 private theorem iff_of_map_eq {G : Type*} [Group G] (τ : MulAut G) {S : Subgroup G}
     (hS : S.map τ.toMonoidHom = S) (b : G) : b ∈ S ↔ τ b ∈ S := by
@@ -558,8 +503,5 @@ theorem pCoreOf_normalizer_radA1 {n : ℕ} (hn : 2 ≤ n) (hF : Nat.card F = 2 ^
     pCoreOf 2 (Subgroup.normalizer (radA1 F : Set (antiSp F))) = radA1 F :=
   (CFSG.Quasithin.H13.F431.SpModel.borel_antiSp (F := F) hn hF).core₁
 
-theorem pCoreOf_normalizer_radA2 {n : ℕ} (hn : 2 ≤ n) (hF : Nat.card F = 2 ^ n) :
-    pCoreOf 2 (Subgroup.normalizer (radA2 F : Set (antiSp F))) = radA2 F :=
-  (CFSG.Quasithin.H13.F431.SpModel.borel_antiSp (F := F) hn hF).core₂
 
 end CFSG.Quasithin.F112R.St84

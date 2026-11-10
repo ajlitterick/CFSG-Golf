@@ -93,13 +93,5 @@ theorem wreathHom_ext {M : Type*} [Monoid M] (m : ℕ) {f g : Wreath m →* M}
   · exact ha ▸ hs
   · exact Set.mem_singleton_iff.mp ha ▸ hz
 
-theorem wreathHom_ext_iff {M : Type*} [Monoid M] (m : ℕ) (f g : Wreath m →* M) :
-    f = g ↔ f (element m 1 0 0) = g (element m 1 0 0) ∧
-      f (element m 0 0 1) = g (element m 0 0 1) := by
-  constructor
-  · rintro rfl
-    exact ⟨rfl, rfl⟩
-  · rintro ⟨hs, hz⟩
-    exact wreathHom_ext m hs hz
 
 end CFSG.Wreathed

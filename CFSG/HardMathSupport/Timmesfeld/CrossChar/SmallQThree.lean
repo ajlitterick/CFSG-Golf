@@ -21,25 +21,6 @@ section Two
 
 variable {τ : Tag} {K : Type} [Field K] [Finite K]
 
-omit [Finite K] in
-theorem not_hasSplitToralPlane_of_card_two (hK : Nat.card K = 2) {p : ℕ} (hp : p.Prime)
-    (D : Subgroup (MulAut (adjointGroup τ K))) : ¬ HasSplitToralPlane p D := by
-  rintro ⟨E, -, -, hEc, ψ, hψ⟩
-  have hunits : ∀ u : Kˣ, u = 1 := by
-    have h1 : Nat.card Kˣ = 1 := by rw [Nat.card_units, hK]
-    intro u
-    exact (Nat.card_eq_one_iff_unique.1 h1).1.elim u 1
-  have htriv : ∀ y ∈ E, y = 1 := by
-    intro y hy
-    obtain ⟨a, ha⟩ := hψ ⟨y, hy, rfl⟩
-    have ha1 : a = 1 := funext fun i => hunits (a i)
-    have hy1 : (MulAut.conj ψ).toMonoidHom y = 1 := by
-      rw [← ha, ha1, map_one]
-    exact (MulAut.conj ψ).injective (hy1.trans (map_one _).symm)
-  have hbot : E = ⊥ := (Subgroup.eq_bot_iff_forall E).2 htriv
-  rw [hbot, Subgroup.card_bot] at hEc
-  have := hp.two_le
-  nlinarith
 
 end Two
 

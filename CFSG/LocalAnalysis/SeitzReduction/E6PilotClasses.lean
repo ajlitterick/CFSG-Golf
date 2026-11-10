@@ -177,11 +177,6 @@ theorem coe_e6Rep_one :
       pinnedX .E6 K (Pi.single (0 : Fin 6) 1) 1 * pinnedX .E6 K (Pi.single (3 : Fin 6) 1) 1 := by
   simp [e6Rep, e6RepFrame]
 
-theorem coe_e6Rep_two :
-    (e6Rep K 2 : ModGL .E6 K) =
-      pinnedX .E6 K (Pi.single (0 : Fin 6) 1) 1 * pinnedX .E6 K (Pi.single (3 : Fin 6) 1) 1 *
-        pinnedX .E6 K (Pi.single (5 : Fin 6) 1) 1 := by
-  simp [e6Rep, e6RepFrame, mul_assoc]
 
 theorem coe_e6RepConj (κ : Fin 3) :
     (e6RepConj K κ : ModGL .E6 K) = canonicalRep (coxeterSystem .E6) K (e6RepWeyl κ) :=
@@ -209,17 +204,6 @@ theorem coe_e6Rep_mem_rootSpan {S : Set (Fin Tag.E6.rank → ℤ)} {κ : Fin 3}
     obtain ⟨σ, hσ, rfl⟩ := List.mem_map.1 hx
     exact pinnedX_mem_rootSpan (hS σ hσ) 1
 
-theorem coe_e6Rep_mem_rootSpan_perp (κ : Fin 3) :
-    (e6Rep K κ : ModGL .E6 K) ∈
-      rootSpan .E6 K {γ | IsRoot .E6 γ ∧ γ (highNode .E6) = 0} :=
-  coe_e6Rep_mem_rootSpan fun β hβ =>
-    ⟨(e6RepFrame_perp κ β hβ).1, (e6RepFrame_perp κ β hβ).2.1⟩
-
-theorem coe_e6Rep_mem_rootSpan_iform (κ : Fin 3) :
-    (e6Rep K κ : ModGL .E6 K) ∈
-      rootSpan .E6 K {γ | IsRoot .E6 γ ∧ iform γ (highRoot .E6) = 0} :=
-  coe_e6Rep_mem_rootSpan fun β hβ =>
-    ⟨(e6RepFrame_perp κ β hβ).1, (e6RepFrame_perp κ β hβ).2.2⟩
 
 end Reps
 
@@ -254,13 +238,6 @@ theorem coe_e6RepConj_mem_normalizer_torusGroup (κ : Fin 3) :
       Subgroup.normalizer (torusGroup .E6 K : Set (ModGL .E6 K)) :=
   (canonical_weyl_root_transport .E6 K).2.2 _
 
-theorem exists_conj_e6ASRep_eq_e6Rep [CharP K 2] (κ : Fin 3) :
-    ∃ c : adjointGroup .E6 K, c * e6ASRep K κ * c⁻¹ = e6Rep K κ :=
-  ⟨e6RepConj K κ, e6RepConj_mul_e6ASRep_mul_inv κ⟩
-
-theorem frameProdConj_e6ASFrame_e6RepFrame [CharP K 2] (κ : Fin 3) :
-    FrameProdConj .E6 K (e6ASFrame κ) (e6RepFrame κ) :=
-  ⟨e6RepConj K κ, (e6RepConj K κ).2, congrArg Subtype.val (e6RepConj_mul_e6ASRep_mul_inv κ)⟩
 
 end Conj
 
@@ -283,12 +260,6 @@ theorem exists_conj_eq_e6Rep [Finite K] [CharP K 2] {y : adjointGroup .E6 K}
   rw [h, orderOf_one] at hy
   exact absurd hy (by decide)
 
-theorem exists_conj_eq_symm_e6Rep [Finite K] [CharP K 2] {L : Type*} [Group L]
-    (e : L ≃* adjointGroup .E6 K) {y : L} (hy : orderOf y = 2) :
-    ∃ (κ : Fin 3) (l : L), l * y * l⁻¹ = e.symm (e6Rep K κ) := by
-  obtain ⟨κ, c, hc⟩ := exists_conj_eq_e6Rep (K := K) (y := e y) (by rw [MulEquiv.orderOf_eq, hy])
-  refine ⟨κ, e.symm c, ?_⟩
-  rw [← hc, map_mul, map_mul, map_inv, MulEquiv.symm_apply_apply]
 
 end ClassList
 

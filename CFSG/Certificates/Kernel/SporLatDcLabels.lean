@@ -14,14 +14,6 @@ variable {Γ : Type} [Group Γ] [Finite Γ] {n : ℕ} [MulAction Γ (Fin n)]
 
 variable (P : DcSoundCtx Γ n)
 
-private theorem labF_eq_lab_of {x : List ℕ} (hx : ∀ p ∈ x, p < n) {w : List ℕ}
-    (hw : ∀ l ∈ w, l < 2 + P.C.ns) :
-    labF (wordF P.C.L w) x = lab n ptLab x (evalElt P.els w) := by
-  have h1 : lab n ptLab x (evalElt P.els w) =
-      sortN (x.map fun p => act n (evalElt P.els w) p) := ptAct_tab _ _
-  rw [labF, h1, sortN_eq]
-  congr 1
-  exact List.map_congr_left fun p hp => (P.act_wordF_eq hw (hx p hp)).symm
 
 theorem wordF_append (w₁ w₂ : List ℕ) (p : ℕ) :
     wordF P.C.L (w₁ ++ w₂) p = wordF P.C.L w₁ (wordF P.C.L w₂ p) := by
@@ -146,17 +138,6 @@ theorem Sx_lt {x : List ℕ} (hx : ∀ p ∈ x, p < n) {M : List ℕ} (hM : M �
   obtain ⟨s, -, rfl⟩ := hM
   exact lab_lt hx s
 
-private theorem Sx_valid {x : List ℕ} (hx : ∀ p ∈ x, p < n) {M : List ℕ} (hM : M ∈ P.Sx x) :
-    PtValid n M := by
-  rw [mem_Sx] at hM
-  obtain ⟨s, -, rfl⟩ := hM
-  exact lab_valid hx s
-
-private theorem Sx_nodup {x : List ℕ} (hx : ∀ p ∈ x, p < n) (hnd : x.Nodup) {M : List ℕ}
-    (hM : M ∈ P.Sx x) : M.Nodup := by
-  rw [mem_Sx] at hM
-  obtain ⟨s, -, rfl⟩ := hM
-  exact lab_nodup hx hnd s
 
 theorem card_Sx_inter {x : List ℕ} (hx : ∀ p ∈ x, p < n) (hnd : x.Nodup) {j : ℕ}
     {M : List ℕ} (hM : M ∈ P.Sx x) : (M.toFinset ∩ P.Oj j).card = cntO P.D x j := by

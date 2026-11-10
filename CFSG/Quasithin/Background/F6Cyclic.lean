@@ -13,8 +13,6 @@ namespace F6
 
 variable {D : Type*} [Group D] [Finite D] {G₁ G₂ : Subgroup D}
 
-theorem openPCore_eq_pCore (p : ℕ) [Fact p.Prime] : Open.pCore p D = CFSG.pCore p D :=
-  (CFSG.pCore_eq_open D p).symm
 
 omit [Finite D] in
 theorem perm_three_inv : ∀ σ τ : Equiv.Perm (Fin 3), (σ ^ 2 = 1 ∧ σ ≠ 1 ∧ τ ^ 3 = 1) →
@@ -179,50 +177,6 @@ theorem generalizedFitting_eq_twoResidual (h : IsGoldschmidtTriple G₁ G₂)
   rw [CFSG.generalizedFitting, hlayer, CFSG.Fitting_eq_pcore D 3 hO, ← hLK]
   exact sup_eq_right.mpr hP
 
-@[expose] def ComponentConjugatesBound : Prop :=
-  ∀ (D : Type) [Group D] [Finite D],
-    (∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
-      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X)) →
-    ∀ K : Subgroup D, CFSG.IsComponent K → (Subgroup.normalizer (K : Set D)).index ≤ 2
-
-@[expose] def F617NonquasisimpleCase : Prop :=
-  ∀ (D : Type) [Group D] [Finite D] (G₁ G₂ : Subgroup D), IsGoldschmidtTriple G₁ G₂ →
-    (∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
-      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X)) →
-    IsCyclic ↥(Open.pCore 3 D) → ∀ K : Subgroup D, CFSG.IsComponent K → K.Normal →
-    twoResidual G₁ ≤ K → ¬ twoResidual G₂ ≤ K → K ⊔ G₂ = ⊤ → IsF618CaseThree G₁ G₂
-
-@[expose] def F618QuasisimpleCase : Prop :=
-  ∀ (D : Type) [Group D] [Finite D] (G₁ G₂ : Subgroup D), IsGoldschmidtTriple G₁ G₂ →
-    (∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
-      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X)) →
-    CFSG.generalizedFitting D = twoResidual (⊤ : Subgroup D) →
-    CFSG.IsQuasisimple ↥(twoResidual (⊤ : Subgroup D)) → F618Conclusion G₁ G₂
-
-theorem theoremF618Cyclic_of (hB : ComponentConjugatesBound) (hNQ : F617NonquasisimpleCase)
-    (hQS : F618QuasisimpleCase) : TheoremF618Cyclic := by
-  intro D _ _ G₁ G₂ h hX hcyc
-  obtain ⟨X, _, _, hsq, hK, ⟨e⟩⟩ := hX
-  have hX' : ∃ (X : Type) (_ : Group X) (_ : Finite X), SQTKTauCeti.StronglyQuasithin X ∧
-      CFSG.SectionRank.IsKGroupCat X ∧ Nonempty (D ≃* X ⧸ CFSG.pPrimeCore 3 X) :=
-    ⟨X, inferInstance, inferInstance, hsq, hK, ⟨e⟩⟩
-  obtain ⟨hO, -⟩ := pPrimeCore_eq_bot_and_pRank_le (hsq 3 Nat.prime_three (by norm_num)) e
-  obtain ⟨K, hKc⟩ := exists_isComponent_of_isCyclic h hO hcyc
-  obtain ⟨hKn, hcases, -⟩ := f6_10 h hKc (hB D hX' K hKc)
-  rcases hcases with ⟨h₁, hsup⟩ | ⟨h₂, hsup⟩
-  · by_cases h₂ : twoResidual G₂ ≤ K
-    · exact hQS D G₁ G₂ h hX' (generalizedFitting_eq_twoResidual h hO hKc h₁ h₂)
-        (twoResidual_eq_of_le h hKc h₁ h₂ ▸ hKc.1)
-    · exact Or.inl (Or.inr (Or.inr (Or.inl (hNQ D G₁ G₂ h hX' hcyc K hKc hKn h₁ h₂ hsup))))
-  · by_cases h₁ : twoResidual G₁ ≤ K
-    · exact hQS D G₁ G₂ h hX' (generalizedFitting_eq_twoResidual h hO hKc h₁ h₂)
-        (twoResidual_eq_of_le h hKc h₁ h₂ ▸ hKc.1)
-    · exact Or.inr (Or.inr (Or.inr (Or.inl
-        (hNQ D G₂ G₁ h.symm hX' hcyc K hKc hKn h₂ h₁ hsup))))
-
-theorem theoremF618_of (hB : ComponentConjugatesBound) (hNQ : F617NonquasisimpleCase)
-    (hQS : F618QuasisimpleCase) : TheoremF618 :=
-  theoremF618_of_cyclic (theoremF618Cyclic_of hB hNQ hQS)
 
 end F6
 

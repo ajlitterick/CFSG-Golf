@@ -112,8 +112,6 @@ theorem pieceCore_def (I : Finset (Fin n)) :
     pieceCore e I = centralizerPerfectCore (modelToG e (blockTorus (K := K) I)) :=
   rfl
 
-theorem pieceCore_mono {I I' : Finset (Fin n)} (h : I ⊆ I') : pieceCore e I ≤ pieceCore e I' :=
-  centralizerPerfectCore_anti (modelToG_mono e (blockTorus_anti h))
 
 theorem modelToG_le_pieceCore {I : Finset (Fin n)} {A : Subgroup (LinearFlag.projectiveSL n K)}
     (hA : A ≤ centralizer (blockTorus (K := K) I : Set (LinearFlag.projectiveSL n K)))
@@ -133,39 +131,16 @@ theorem modelToG_blockSL_le_pieceCore_of_two_le [Finite K] {I : Finset (Fin n)}
   · exact commutator_blockSL_eq_of_three_le h
   · exact commutator_blockSL_eq_of_card_two h.symm hK
 
-theorem modelToG_blockSL_le_pieceCore_of_three_le {I : Finset (Fin n)} (hI : 3 ≤ I.card) :
-    modelToG e (blockSL (K := K) I) ≤ pieceCore e I :=
-  modelToG_blockSL_le_pieceCore e I (commutator_blockSL_eq_of_three_le hI)
 
 theorem le_normalizer_pieceCore {t : G} (ht : t ∈ centralizer (L : Set G)) (I : Finset (Fin n)) :
     t ∈ normalizer (pieceCore e I : Set G) :=
   normalizer_le_normalizer_centralizerPerfectCore _
     (mem_normalizer_modelToG_of_mem_centralizer e ht _)
 
-theorem normalizer_modelToG_le_normalizer_pieceCore (I : Finset (Fin n)) :
-    normalizer (modelToG e (blockTorus (K := K) I) : Set G) ≤ normalizer (pieceCore e I : Set G) :=
-  normalizer_le_normalizer_centralizerPerfectCore _
-
-theorem symm_mem_normalizer_pieceCore {I : Finset (Fin n)} {x : LinearFlag.projectiveSL n K}
-    (hx : x ∈ normalizer (blockTorus (K := K) I : Set (LinearFlag.projectiveSL n K))) :
-    ((e.symm x : L) : G) ∈ normalizer (pieceCore e I : Set G) :=
-  normalizer_modelToG_le_normalizer_pieceCore e I (symm_mem_normalizer_modelToG e hx)
 
 @[expose] noncomputable def neighbourCore (N : Neighbour n) : Subgroup G :=
   centralizerPerfectCore (modelToG e (N.torus K))
 
-theorem neighbourCore_root {a b : Fin n} (hab : a ≠ b) :
-    neighbourCore e (.root a b hab) =
-      centralizerPerfectCore (modelToG e (rootTorus (K := K) hab)) :=
-  rfl
-
-theorem neighbourCore_levi (a : Fin n) :
-    neighbourCore e (.levi a) = centralizerPerfectCore (modelToG e (levTorus (K := K) a)) :=
-  rfl
-
-theorem neighbourCore_levi_eq_pieceCore (a : Fin n) :
-    neighbourCore e (.levi a) = pieceCore e ({a}ᶜ : Finset (Fin n)) := by
-  rw [neighbourCore_levi, pieceCore_def, blockTorus_compl_singleton]
 
 theorem modelToG_torus_le_blockTorus (N : Neighbour n) {I : Finset (Fin n)} (hI : I ⊆ N.index) :
     modelToG e (N.torus K) ≤ modelToG e (blockTorus (K := K) I) :=
@@ -214,26 +189,12 @@ theorem pieceCore_eq_perfectCore_inf {X : Subgroup G} {I : Finset (Fin n)}
       centralizer (modelToG e (blockTorus (K := K) I) : Set G)) :=
   F4Pilot.centralizerPerfectCore_eq_of_le hX
 
-theorem perfectCore_neighbour_inf_eq {X X' : Subgroup G} {I : Finset (Fin n)}
-    (hX : X ≤ modelToG e (blockTorus (K := K) I))
-    (hX' : X' ≤ modelToG e (blockTorus (K := K) I)) :
-    perfectCore (centralizerPerfectCore X ⊓
-        centralizer (modelToG e (blockTorus (K := K) I) : Set G)) =
-      perfectCore (centralizerPerfectCore X' ⊓
-        centralizer (modelToG e (blockTorus (K := K) I) : Set G)) :=
-  F4Pilot.perfectCore_neighbour_eq_of_le_of_le hX hX'
 
 theorem pieceCore_eq (N : Neighbour n) {I : Finset (Fin n)} (hI : I ⊆ N.index) :
     pieceCore e I =
       perfectCore (neighbourCore e N ⊓ centralizer (modelToG e (blockTorus (K := K) I) : Set G)) :=
   pieceCore_eq_perfectCore_inf e (modelToG_torus_le_blockTorus e N hI)
 
-theorem perfectCore_neighbourCore_inf_eq {N N' : Neighbour n} {I : Finset (Fin n)}
-    (hI : I ⊆ N.index) (hI' : I ⊆ N'.index) :
-    perfectCore (neighbourCore e N ⊓ centralizer (modelToG e (blockTorus (K := K) I) : Set G)) =
-      perfectCore (neighbourCore e N' ⊓
-        centralizer (modelToG e (blockTorus (K := K) I) : Set G)) := by
-  rw [← pieceCore_eq e N hI, ← pieceCore_eq e N' hI']
 
 theorem pieceCore_eq_map_conj {I J : Finset (Fin n)} {x : LinearFlag.projectiveSL n K}
     (hx : (blockTorus (K := K) I).map (MulAut.conj x).toMonoidHom = blockTorus J) :
@@ -258,12 +219,6 @@ theorem exists_pieceCore_map_conj (ρ : Equiv.Perm (Fin n)) :
     fun N => neighbourCore_eq_map_conj e (hxN N)⟩
   rw [← (hxI I).2, modelToG_map_conj]
 
-theorem exists_conjugate_pieceCore (ρ : Equiv.Perm (Fin n)) :
-    ∃ w ∈ L, ∀ I : Finset (Fin n),
-      conjugate (pieceCore e I) w = pieceCore e (I.map ρ.toEmbedding) := by
-  obtain ⟨w, hw, h, -⟩ := exists_pieceCore_map_conj e ρ
-  refine ⟨w⁻¹, L.inv_mem hw, fun I => ?_⟩
-  rw [conjugate, inv_inv, (h I).1]
 
 end Finite
 

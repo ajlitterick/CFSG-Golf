@@ -65,7 +65,5 @@ theorem frameBruhatData_z : FrameBruhatData oddDerivE7ZFrame e7BruhatLowZ e7Bruh
   obtain ⟨h1, h2, h3, h4, h5, h6, h7⟩ := e7BruhatZ_check
   exact FrameBruhatData.of_check h1 h2 h3 h4 h5 h6 h7 e7BruhatZ_roots
 
-variable
-  {K : Type} [Field K]
 
 end CFSG.ComponentClassification.RankTwoExceptional.E7Sec8

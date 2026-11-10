@@ -540,28 +540,5 @@ public theorem secondCase_linearEquation11_product_family_conjugate_card
     simpa [Nat.card_prod] using Nat.card_le_card_of_injective fm hfinj
   simpa [hLines, hB, Nat.mul_assoc] using hcard
 
-/-- The convenience form with the exact torus-orbit count
-`q · k'` (e.g. from `secondCase_linearEquation11_orbit_card_of_component`):
-then `P ⊔ E` contains at least `(p₁ - 1) · q · k'` conjugates of `P`. -/
-public theorem secondCase_linearEquation11_product_family_conjugate_card_of_tori
-    {G : Type u} [Group G] [Finite G]
-    {P P0 E : Subgroup G} {p p1 q k' : ℕ} [Fact p.Prime]
-    (hPcard : Nat.card P = p) (hP0card : Nat.card P0 = p)
-    (hP0interP : P ⊓ P0 = ⊥)
-    (hP0leE : P0 ≤ E) (hPinterE : P ⊓ E = ⊥)
-    (hEcentP : E ≤ Subgroup.centralizer (P : Set G))
-    (hP0comm : ∀ h : P, ∀ k : P0, (h : G) * (k : G) = (k : G) * (h : G))
-    (hLines : Nat.card (secondCase_linesIn G P P0) = p1 - 1)
-    (hTori : Nat.card (secondCase_toriOf G P0 E) = q * k') :
-    (p1 - 1) * q * k' ≤ Nat.card (secondCase_familyIn G P E) := by
-  classical
-  have : Finite (secondCase_toriOf G P0 E) := by
-    dsimp [secondCase_toriOf]
-    infer_instance
-  exact secondCase_linearEquation11_product_family_conjugate_card
-    (G := G) (P := P) (P0 := P0) (E := E) (p := p) (p1 := p1) (q := q) (k' := k')
-    hPcard hP0card hP0interP hP0leE hPinterE hEcentP hP0comm hLines
-    (B := secondCase_toriOf G P0 E) (fun R => R)
-    (by intro a b h; exact h) hTori
 
 end CFSG.GorensteinWalter

@@ -19,10 +19,6 @@ open CFSG CFSG.Assembly
 @[expose] def GGTableBNbrInnerRound12Label (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   GGTableBNbrInnerRound11NsLabel p lab ∧ ¬ GGNbrNsVacLabel p lab
 
-theorem ggTableBNbrInnerInputOn_round12_of_round11Ns
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound11NsLabel) :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerRound12Label :=
-  h.mono fun _ _ h12 => h12.1
 
 section Round12
 
@@ -46,10 +42,6 @@ end Round12
 
 section Chain
 
-theorem ggTableBNbrInnerInput_of_round12
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound12Label) : GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_round11
-    (ggTableBNbrInnerInputOn_round11_of_round11Ns (ggTableBNbrInnerInputOn_round11Ns_of_round12 h))
 
 end Chain
 

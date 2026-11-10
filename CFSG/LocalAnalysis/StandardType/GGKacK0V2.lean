@@ -156,34 +156,6 @@ theorem ggK0MainBS_of_B_exc (h : GGK0MainB GGKacGeneric GGKacValid) :
   rw [hq] at hqs
   exact absurd hqs (by decide)
 
-theorem ggKacValid_qs_false {lab : LargeEvenLabel} {p : ℕ} (hn : 1 ≤ lab.n) (hp : p.Prime)
-    (hd : p ∣ 2 ^ lab.n - 1 ∨ p ∣ 2 ^ lab.n + 1) {D : GGKacDatum} (hD : GGKacValid lab p D)
-    {o : GGKacOrbit} (ho : o ∈ D.orbits) (hqs : o.qs = false) :
-    o.lab = ⟨.A, 1, 1⟩ ∨ o.lab = ⟨.twA, 2, 1⟩ := by
-  obtain ⟨T, tw, -, hT⟩ := hD
-  by_cases hn2 : 2 ≤ lab.n
-  · have hq := ggKacTable_qs_of_two_le T tw p hn2 D hT o ho
-    rw [hq] at hqs
-    exact absurd hqs (by decide)
-  · have h1 : lab.n = 1 := by omega
-    rw [h1] at hd hT
-    norm_num at hd
-    have hp3 : p = 3 := by
-      rcases hd with h1 | h3
-      · exact absurd h1 hp.one_lt.ne'
-      · exact (Nat.prime_dvd_prime_iff_eq hp Nat.prime_three).mp h3
-    subst hp3
-    have key : ∀ (T : GGKacType) (tw : Bool), ∀ D ∈ ggKacTable T tw 3 1, ∀ o ∈ D.orbits,
-        o.qs = false → (o.lab.tag = .A ∧ o.lab.rank = 1 ∧ o.lab.n = 1) ∨
-          (o.lab.tag = .twA ∧ o.lab.rank = 2 ∧ o.lab.n = 1) := by
-      intro T tw
-      cases T <;> cases tw <;> decide +kernel
-    have hk := key T tw D hT o ho hqs
-    rcases o with ⟨⟨t, r, n⟩, q⟩
-    simp only at hk ⊢
-    rcases hk with ⟨ht, hr, hn⟩ | ⟨ht, hr, hn⟩
-    · left; subst ht hr hn; rfl
-    · right; subst ht hr hn; rfl
 
 end CFSG.StandardType
 

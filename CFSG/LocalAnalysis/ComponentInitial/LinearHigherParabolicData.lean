@@ -33,9 +33,6 @@ theorem mem_sylowNormalizers {B₀ : Subgroup G} :
     B₀ ∈ sylowNormalizers G p ↔ ∃ T : Sylow p G, normalizer ((T : Subgroup G) : Set G) = B₀ :=
   Iff.rfl
 
-theorem mem_maximalParabolics {M : Subgroup G} :
-    M ∈ maximalParabolics G p ↔ IsCoatom M ∧ ∃ B₀ ∈ sylowNormalizers G p, B₀ ≤ M :=
-  Iff.rfl
 
 theorem mem_extremalParabolics {M : Subgroup G} :
     M ∈ extremalParabolics G p ↔

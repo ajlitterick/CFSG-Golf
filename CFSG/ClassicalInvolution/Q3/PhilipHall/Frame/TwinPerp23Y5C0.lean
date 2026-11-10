@@ -23,11 +23,6 @@ section Y5C0
 
 variable {n : ℕ}
 
-@[expose] def P23Y5SecMuE4 (n : ℕ) : Prop :=
-  CIT3Below n → TL4.TightBelowRPlus 3 n →
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y) (K' Wg : Subgroup Y)
-    (u e g : Y), P23Cfg n Y R S t K' Wg u e g → ¬ SecNoExit R u →
-      ∀ V ∈ WSet (TwinDisc.secFam (Om R) u), MuIsoE4 (TwinDisc.secFam (Om R) u) V
 
 @[expose] def P23Y5SecMuE4Ex (n : ℕ) : Prop :=
   CIT3Below n → TL4.TightBelowRPlus 3 n →

@@ -135,16 +135,6 @@ namespace CFSG.KM24
         (stepS ok L G (fld r (nat_lit 2)) (fld r (nat_lit 18)))
         (Nat.beq (Nat.land r (nat_lit 3)) (nat_lit 0))) LG) s
 
-@[expose] noncomputable def replay (B m : Nat) (s : Bool × (List Nat × Nat)) : Bool × (List Nat × Nat) :=
-  Nat.rec (motive := fun _ => Bool × (List Nat × Nat)) s
-    (fun k acc => step (Nat.land (Nat.shiftRight B (Nat.mul (nat_lit 72) k))
-      (nat_lit 4722366482869645213695)) acc) m
-
-@[expose] noncomputable def chkReplay (Bk m : Nat) (A B : List Nat) (GA GB : Nat) : Bool :=
-  mAnd (Nat.blt Bk (Nat.shiftLeft (nat_lit 1) (Nat.mul (nat_lit 72) m)))
-    (Prod.rec (motive := fun _ => Bool) (fun ok LG =>
-      Prod.rec (motive := fun _ => Bool) (fun L G => mAnd ok (mAnd (eqRL L B) (Nat.beq G GB))) LG)
-      (replay Bk m (Prod.mk true (Prod.mk A GA))))
 
 @[expose] noncomputable def t8 (T idx : Nat) : Nat :=
   Nat.land (Nat.shiftRight T (Nat.mul (nat_lit 8) idx)) (nat_lit 255)
@@ -249,22 +239,6 @@ namespace CFSG.KM24
       (Nat.beq v (Nat.rec (motive := fun _ => Nat) (nat_lit 0)
         (fun j acc => Nat.lor acc (Nat.shiftLeft (lt (pw (getR L i)) j) (Nat.mul (nat_lit 8) j))) m)))
 
-@[expose] noncomputable def invEnt (k2 out c : Nat) : Nat :=
-  Bool.rec (motive := fun _ => Nat)
-    (Bool.rec (motive := fun _ => Nat) out (nat_lit 255) (Nat.beq c (nat_lit 255)))
-    (Nat.xor c (nat_lit 1)) (Nat.blt c k2)
-
-@[expose] noncomputable def invCanon (k2 out w : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) (nat_lit 0)
-    (fun c acc => Nat.lor acc (Nat.shiftLeft (invEnt k2 out c) (Nat.mul w c))) (nat_lit 256)
-
-@[expose] noncomputable def chkInvCanon (INV INV8 k2 : Nat) : Bool :=
-  mAnd (Nat.beq INV (invCanon k2 (nat_lit 65535) (nat_lit 16)))
-    (Nat.beq INV8 (invCanon k2 (nat_lit 254) (nat_lit 8)))
-
-@[expose] noncomputable def chkInvTab (INV k2 : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun c acc => mAnd acc (Nat.beq (lt INV c) (Nat.xor c (nat_lit 1)))) k2
 
 end CFSG.KM24
 

@@ -43,7 +43,6 @@ open CFSG.KC.Th CFSG.KC.Loop
   (andB (Nat.beq up upper) (andB (Nat.beq dg (rep (nat_lit 1) (nat_lit 257) (nat_lit 248)))
     (Nat.beq ONE dg))))))))))))
 
-@[expose] noncomputable def byteAt (x i : Nat) : Nat := Nat.land (Nat.shiftRight x (Nat.mul (nat_lit 8) i)) (nat_lit 255)
 
 @[expose] noncomputable def ws (b : Nat) : Bool :=
   orB (Nat.beq b (nat_lit 32)) (orB (Nat.beq b (nat_lit 9)) (orB (Nat.beq b (nat_lit 10))
@@ -53,31 +52,6 @@ open CFSG.KC.Th CFSG.KC.Loop
   Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.land (Nat.sub b (nat_lit 48)) (nat_lit 1))
     (andB (Nat.ble (nat_lit 48) b) (Nat.ble b (nat_lit 57)))
 
-@[expose] noncomputable def entBit (M k : Nat) : Nat :=
-  Nat.land (Nat.shiftRight M (Nat.add (Nat.mul (nat_lit 256) (Nat.div k (nat_lit 248))) (Nat.mod k (nat_lit 248)))) (nat_lit 1)
-
-@[expose] noncomputable def decodeRun (F : Nat → Nat) (lb M : Nat) (Cs : List Nat) : Nat → Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun S => S)
-    (fun leaf _ ih S => strictN (Nat.rec (motive := fun _ => Nat → Nat) (fun S => S)
-        (fun q ih2 S => (fun b => strictN
-            (Bool.rec (motive := fun _ => Nat) (nat_lit 0)
-              ((fun k st => Bool.rec (motive := fun _ => Nat)
-                  (Bool.rec (motive := fun _ => Nat) S (Nat.add S (nat_lit 1)) (Nat.beq b (nat_lit 10)))
-                  (Bool.rec (motive := fun _ => Nat)
-                    (Bool.rec (motive := fun _ => Nat) (Nat.add S (nat_lit 2))
-                      (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.add S (nat_lit 2))
-                        (Nat.beq (ent2 b) (entBit M k)))
-                      (Nat.blt k (nat_lit 61504)))
-                    S (ws b))
-                  (Nat.beq st (nat_lit 1)))
-                (Nat.shiftRight (Nat.sub S (nat_lit 1)) (nat_lit 1)) (Nat.land (Nat.sub S (nat_lit 1)) (nat_lit 1)))
-              (Nat.blt (nat_lit 0) S))
-            ih2) (byteAt (F leaf) (Nat.sub (Nat.sub lb (nat_lit 1)) q)))
-        lb S) ih) Cs
-
-@[expose] noncomputable def seedDone (c rm M S : Nat) : Bool :=
-  andB (Nat.beq (Nat.land M (Nat.mul rm c)) M)
-    (andB (Nat.ble (nat_lit 123010) S) (Nat.beq (Nat.land S (nat_lit 1)) (nat_lit 0)))
 
 @[expose] noncomputable def powB (c rm ONE M e nb : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) ONE
@@ -241,74 +215,6 @@ open CFSG.KC.Th CFSG.KC.Loop
       (Bool.rec (motive := fun _ => Nat) (Bool.rec (motive := fun _ => Nat) B Bi (Nat.beq x (nat_lit 1))) A (Nat.beq x (nat_lit 0))) acc)
     (bitsN w (Nat.mul (nat_lit 2) i) (nat_lit 2))) n
 
-@[expose] noncomputable def runPlanes (rm A Bi B root Cb : Nat) (Cs : List Nat) : Nat → Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun S => S)
-    (fun C _ ih S => strictN (Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ S => S)
-        (fun _ ih2 J S => (fun k n => strictN
-            (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.succ S)
-              (andB (Nat.blt (nat_lit 0) S)
-                (Nat.beq (Nat.lor (rowB rm Cb (Nat.mul (nat_lit 2) k)) (Nat.shiftLeft (rowB rm Cb (Nat.succ (Nat.mul (nat_lit 2) k))) (nat_lit 256)))
-                  (planeOf rm A Bi B root (bitsN J (nat_lit 4) (Nat.mul (nat_lit 2) n)) n))))
-            (ih2 (Nat.shiftRight J (Nat.add (nat_lit 4) (Nat.mul (nat_lit 2) n)))))
-          (Nat.sub S (nat_lit 1)) (bitsN J (nat_lit 0) (nat_lit 4)))
-        (Nat.land C (nat_lit 255)) (Nat.shiftRight C (nat_lit 8)) S) ih) Cs
-
-@[expose] noncomputable def runBfs (rm G : Nat) (Cs : List Nat) : Nat → Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun S => S)
-    (fun C _ ih S => strictN (Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ S => S)
-        (fun _ ih2 J S => (fun i j sn => strictN
-            (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.add S (Nat.shiftLeft (nat_lit 2) j))
-              (andB (Nat.blt (nat_lit 0) S) (andB (marked sn i) (andB (notB (marked sn j)) (chkEdge rm G i j)))))
-            (ih2 (Nat.shiftRight J (nat_lit 14))))
-          (bitsN J (nat_lit 0) (nat_lit 7)) (bitsN J (nat_lit 7) (nat_lit 7)) (Nat.shiftRight S (nat_lit 1)))
-        (Nat.land C (nat_lit 255)) (Nat.shiftRight C (nat_lit 8)) S) ih) Cs
-
-@[expose] noncomputable def forcedV (g a : Nat) : Nat :=
-  Bool.rec (motive := fun _ => Nat) (nat_lit 0)
-    (Nat.add (Nat.add (Nat.add (Nat.mul (nat_lit 6) (forced g a (nat_lit 6))) (Nat.mul (nat_lit 7) (forced g a (nat_lit 7))))
-        (Nat.add (Nat.mul (nat_lit 9) (forced g a (nat_lit 9))) (Nat.mul (nat_lit 11) (forced g a (nat_lit 11)))))
-      (Nat.add (Nat.mul (nat_lit 13) (forced g a (nat_lit 13))) (Nat.mul (nat_lit 14) (forced g a (nat_lit 14)))))
-    (Nat.beq (nForced g a) (nat_lit 1))
-
-@[expose] noncomputable def propVertex (rm G i S : Nat) : Nat :=
-  (fun asg sn => Bool.rec (motive := fun _ => Nat) (Nat.lor S (Nat.shiftLeft (nat_lit 2) (nat_lit 620)))
-    ((fun r0 r1 ai => Nat.rec (motive := fun _ => Nat) S (fun j T =>
-        Bool.rec (motive := fun _ => Nat)
-          ((fun g => Bool.rec (motive := fun _ => Nat) T
-              ((fun v => Bool.rec (motive := fun _ => Nat) (Nat.lor T (Nat.shiftLeft (nat_lit 2) (nat_lit 620)))
-                  (Bool.rec (motive := fun _ => Nat)
-                    (Nat.lor (Nat.lor T (Nat.shiftLeft v (Nat.mul (nat_lit 4) j))) (Nat.shiftLeft (nat_lit 1) (Nat.add (nat_lit 496) j)))
-                    (Bool.rec (motive := fun _ => Nat) (Nat.lor T (Nat.shiftLeft (nat_lit 1) (nat_lit 620))) T
-                      (Nat.beq (bitsN T (Nat.mul (nat_lit 4) j) (nat_lit 4)) v))
-                    (marked (bitsN T (nat_lit 496) (nat_lit 124)) j))
-                  (Nat.blt (nat_lit 0) v))
-                (forcedV g ai))
-              (Nat.beq (det2 g) (nat_lit 1)))
-            (blk r0 r1 j))
-          T
-          (orB (Nat.beq j i) (Nat.blt (nat_lit 0) (Nat.shiftRight T (nat_lit 620)))))
-        (nat_lit 124))
-      (rowB rm G (Nat.mul (nat_lit 2) i)) (rowB rm G (Nat.succ (Nat.mul (nat_lit 2) i))) (bitsN asg (Nat.mul (nat_lit 4) i) (nat_lit 4)))
-    (marked sn i))
-  (bitsN S (nat_lit 0) (nat_lit 496)) (bitsN S (nat_lit 496) (nat_lit 124))
-
-@[expose] noncomputable def propRun (rm G a0 Q : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat → Nat → Nat) (fun _ S => S)
-    (fun _ ih J S => strictN (Bool.rec (motive := fun _ => Nat) S (propVertex rm G (bitsN J (nat_lit 0) (nat_lit 7)) S)
-        (Nat.beq (Nat.shiftRight S (nat_lit 620)) (nat_lit 0)))
-      (ih (Nat.shiftRight J (nat_lit 7))))
-    (Nat.land Q (nat_lit 255)) (Nat.shiftRight Q (nat_lit 8))
-    (Nat.lor a0 (Nat.shiftLeft (nat_lit 1) (nat_lit 496)))
-
-@[expose] noncomputable def propConflict (rm G a0 Q : Nat) : Bool :=
-  Nat.beq (Nat.shiftRight (propRun rm G a0 Q) (nat_lit 620)) (nat_lit 1)
-
-@[expose] noncomputable def propConstant (rm G a0 Q : Nat) : Bool :=
-  (fun S => andB (Nat.beq (Nat.shiftRight S (nat_lit 620)) (nat_lit 0))
-    (andB (Nat.beq (bitsN S (nat_lit 496) (nat_lit 124)) (Nat.sub (Nat.shiftLeft (nat_lit 1) (nat_lit 124)) (nat_lit 1)))
-      (andB (Nat.beq (bitsN S (nat_lit 0) (nat_lit 496)) (Nat.mul a0 (Nat.div (Nat.sub (Nat.shiftLeft (nat_lit 1) (nat_lit 496)) (nat_lit 1)) (nat_lit 15))))
-        (allPreserved rm G a0 (nat_lit 124)))))
-  (propRun rm G a0 Q)
 
 end CFSG.KC.Th.BigS
 

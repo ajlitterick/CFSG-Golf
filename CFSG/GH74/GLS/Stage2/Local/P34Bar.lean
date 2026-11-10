@@ -132,10 +132,6 @@ theorem exists_mem_core_conj {z u : ↥H} (hz : orderOf z = 2) (hu : orderOf u =
     _ = p⁻¹ * (z * p) := by rw [hzp']
     _ = p⁻¹ * z * p := by group
 
-omit [Finite G] in
-theorem mk_isConj_of_isConj {t z : ↥H} (h : IsConj t z) : IsConj (mkH H t) (mkH H z) := by
-  obtain ⟨c, hc⟩ := isConj_iff.1 h
-  exact isConj_iff.2 ⟨mkH H c, by rw [← map_inv, ← map_mul, ← map_mul, hc]⟩
 
 theorem isConj_of_mk_isConj {t z : ↥H} (ht : orderOf t = 2) (hz : orderOf z = 2)
     (h : IsConj (mkH H t) (mkH H z)) : IsConj t z := by
@@ -197,8 +193,6 @@ variable (H : Subgroup G) {z : G} (hCH : Cen z ≤ H)
 
 @[expose] def cenMk : ↥(Cen z) →* HBar H := (mkH H).comp (Subgroup.inclusion hCH)
 
-omit [Finite G] in
-theorem cenMk_apply (c : ↥(Cen z)) : cenMk H hCH c = mkH H ⟨(c : G), hCH c.2⟩ := rfl
 
 omit [Finite G] in
 theorem range_cenMk : (cenMk H hCH).range = barIn H (Cen z) := by
@@ -266,7 +260,6 @@ theorem odd_orderOf_of_cenToBar_eq_one (y : ↥(barIn H (Cen z))) (hy : cenToBar
   exact Odd.of_dvd_nat hodd hdvd
 
 end Hom
-
 
 
 section Syl

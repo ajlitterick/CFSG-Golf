@@ -119,9 +119,5 @@ theorem homotopicT_of_walkSteps {u v : V} {p q : G.Walk u v} {ss : List (WStep V
     obtain ⟨q', h₁, h₂⟩ := h
     exact (homotopicT_of_walkStep T h₁).trans (ih h₂)
 
-theorem homotopicT_nil_of_walkSteps {u : V} {p q : G.Walk u u} {ss : List (WStep V)}
-    (h : walkSteps T p ss = some q) (hq : q.length = 0) : HomotopicT T p .nil := by
-  have e : q = .nil := Walk.eq_nil_iff_nil.2 (Walk.length_eq_zero_iff.1 hq)
-  exact e ▸ homotopicT_of_walkSteps T h
 
 end CFSG.Monster.B.GSide

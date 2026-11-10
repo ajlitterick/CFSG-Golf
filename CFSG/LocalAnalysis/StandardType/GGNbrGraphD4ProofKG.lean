@@ -9,9 +9,6 @@ namespace CFSG.StandardType
 
 open CFSG.Assembly
 
-@[expose] def GGD4TrialityCentBound {R : Type} [Group R] (I F : Set (MulAut R)) : Prop :=
-  ∀ φ : MulAut R, φ ^ 3 = 1 → (¬ ∃ u ∈ I, ∃ f ∈ Subgroup.closure F, φ = u * f) →
-    ∀ E : Subgroup R, IsElemAbelian 3 E → (∀ e ∈ E, φ e = e) → Nat.card E ≤ 9
 
 namespace NbrGraphD4
 
@@ -99,21 +96,8 @@ theorem card_le_of_congr {R Γ : Type} [Group R] [Group Γ] (Θ : R ≃* Γ) {φ
   have h := hΓ _ hE' hfix'
   rwa [Subgroup.card_map_of_injective Θ.injective] at h
 
-theorem ggD4TrialityCentBound_omegaPlus :
-    GGD4TrialityCentBound (LargeEvenInnSet (LargeEvenProj (LargeEvenOmega (LargeEvenQPlus K 4))))
-      (LargeEvenMatFieldImage (LargeEvenProjMk (LargeEvenOmega (LargeEvenQPlus K 4)))) := by
-  intro φ hφ3 hnot E hE hfix
-  refine card_le_of_congr (RecipeFieldOmega.plusEquiv (K := K) one_le_four)
-    (fun E' hE' hfix' => card_le_nine_of_not_mem ?_ ?_ hE' hfix') hE hfix
-  · rw [← map_pow, hφ3, map_one]
-  · exact fun h => hnot (exists_inner_mul_field_of_mem h)
 
 end NbrGraphD4
 
-theorem largeEvenLabelAll_d4TrialityCentBound {lab : LargeEvenLabel} (ht : lab.tag = .D)
-    (h4 : lab.rank = 4) : LargeEvenLabelAll lab fun _ _ I F => GGD4TrialityCentBound I F := by
-  refine largeEvenLabelAll_omegaPlus ht (by omega) fun K _ _ _ _ => ?_
-  rw [h4]
-  exact NbrGraphD4.ggD4TrialityCentBound_omegaPlus
 
 end CFSG.StandardType

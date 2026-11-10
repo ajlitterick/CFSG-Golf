@@ -92,7 +92,6 @@ theorem tact_list_prod (hE : ChevalleyExtras D F x C O) (L : List (Fin D.rank)) 
 end Tact
 
 
-
 section Form
 
 variable {r : ℕ} {A : Matrix (Fin r) (Fin r) ℤ} (hA : TauCeti.IsFiniteType A)
@@ -137,9 +136,6 @@ variable {K : Type*} [Group K] {D : UniversalRootDatum K} {F : Type} [Field F]
     (w₀ : (coxeterMatrix D.isFiniteType).Group) (i₀ : Fin D.rank) (s : Fˣ) : K :=
   nrep hS.ct w₀ * torusGen x i₀ s * (nrep hS.ct w₀)⁻¹
 
-theorem thetaTorus_mem (hS : TorusSetup D x n H) (w₀ : (coxeterMatrix D.isFiniteType).Group)
-    (i₀ : Fin D.rank) (s : Fˣ) : thetaTorus hS w₀ i₀ s ∈ ⨆ i, H i :=
-  conj_mem_iSup_of_mem_weylN hS.ct (nrep_mem_weylN hS.ct w₀) (hS.torusGen_mem i₀ s)
 
 theorem thetaTorus_mem_rankOne (hS : TorusSetup D x n H)
     (w₀ : (coxeterMatrix D.isFiniteType).Group) (i₀ : Fin D.rank) (s : Fˣ)

@@ -60,11 +60,6 @@ abbrev fixedGroup (K : Type u) [Field K] (a : Equiv.Perm (Omega K)) :=
     simp only [map_mul, MulAut.conj_apply] at hc
     convert hc using 1 <;> group
 
-theorem normalizerFixedEquiv_coe {G : Type*} [Group G]
-    (N : Subgroup G) (h : G) (hnormal : h ∈ Subgroup.normalizer (N : Set G))
-    (a : G) (x : (Subgroup.centralizer ({a} : Set G)).subgroupOf N) :
-    ((normalizerFixedEquiv N h hnormal a x).val : G) = h * (x.val : G) * h⁻¹ :=
-  Subgroup.normalizerMonoidHom_apply_apply_coe _ _ _
 
 @[expose] def subfieldFixedEquiv (K : Type u) [Field K] [Finite K]
     (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2) :
@@ -74,12 +69,6 @@ theorem normalizerFixedEquiv_coe {G : Type*} [Group G]
     (intersectionEquivRestriction (coordinateG K)
       (Subgroup.centralizer {fieldExtension K sigma}))
 
-theorem subfieldFixedEquiv_coe (K : Type u) [Field K] [Finite K]
-    (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2)
-    (g : coordinateD (CatalogueBLinearTwoFixed.fixedField K sigma)) :
-    ((subfieldFixedEquiv K hodd sigma hsigma g).val : Equiv.Perm (Omega K)) =
-      (CatalogueBLinearTwoFixed.subfieldCoordinateMap K
-        (CatalogueBLinearTwoFixed.fixedField K sigma) g : Equiv.Perm (Omega K)) := rfl
 
 theorem coordinateD_three_solvable (K : Type u) [Field K] [Finite K]
     (hcard : Nat.card K = 3) : Group.IsSolvable (coordinateD K) := by

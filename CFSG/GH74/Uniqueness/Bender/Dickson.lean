@@ -532,18 +532,6 @@ theorem BenderType.lemma_3_7
     exact ⟨m, k, by omega, hk2, by rw [hk], ⟨φ⟩⟩
   · exact Or.inr (Or.inl (h.linear_subgroup_type_B J (Or.inr (Or.inr h1))))
 
-theorem BenderType.lemma_3_7_solvable
-    [Finite K] {n : ℕ} (h : BenderType K n 1 1)
-    (J : Subgroup K) [Group.IsSolvable J] :
-    (∃ Q : Sylow 2 K, J ≤ borel (Q : Subgroup K)) ∨
-      (∃ N : Subgroup K, IsTorusNormalizer n N ∧ J ≤ N) := by
-  rcases h.linear_subgroup_cases J with h1 | h1 | h1 | ⟨-, h1⟩ | ⟨m, hm, hmn, ⟨φ⟩⟩ | h1
-  · exact Or.inl (exists_le_borel_of_isPGroup h1)
-  · exact Or.inr (h.linear_subgroup_type_B J (Or.inl h1))
-  · exact Or.inr (h.linear_subgroup_type_B J (Or.inr (Or.inl h1)))
-  · exact Or.inl h1
-  · exact absurd ‹Group.IsSolvable J› (BenderType.not_solvable_of_psl2 hm φ)
-  · exact Or.inr (h.linear_subgroup_type_B J (Or.inr (Or.inr h1)))
 
 theorem BenderType.lemma_3_7_odd
     [Finite K] {n : ℕ} (h : BenderType K n 1 1)

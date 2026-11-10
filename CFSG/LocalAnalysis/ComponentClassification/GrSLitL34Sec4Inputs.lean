@@ -51,8 +51,6 @@ open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
   ∀ (K : Type) [Group K] [Finite K], IsL34Type K → ∀ (T : Sylow 2 K) (X : Subgroup K),
     normalizer ((T : Subgroup K) : Set K) ≤ X → 9 ∣ Nat.card X → X = ⊤
 
-@[expose] def solomonLStarOf {G : Type*} [Group G] (N : Subgroup G) : Subgroup G :=
-  sSup {K | GH74.GLS.IsPCompIn 2 N K ∧ FooteLit.IsSolomonMaximal K}
 
 @[expose] def SolomonFixedLayerStep : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G],

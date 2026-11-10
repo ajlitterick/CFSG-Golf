@@ -88,14 +88,6 @@ theorem hypB_of_isSectionOf {H : Type*} [Group H] [Finite H] (hC : HypC H) {Q : 
   exact HypB.congr h e
 
 
-theorem HypC.of_isSectionOf {H K : Type*} [Group H] [Finite H] [Group K] (hC : HypC H)
-    (hK : IsSectionOf K H) : HypC K := by
-  intro K' L' hL' _ hs hnc
-  have hsec : IsSectionOf (K' ⧸ L'.subgroupOf K') K :=
-    (IsSectionOf.of_surjective (QuotientGroup.mk' (L'.subgroupOf K'))
-      (QuotientGroup.mk'_surjective _)).trans (IsSectionOf.of_subgroup K')
-  exact hypB_of_isSectionOf hC (hsec.trans hK) hs hnc
-
 theorem conj_injective_of_isSimpleGroup {J : Type*} [Group J] [IsSimpleGroup J]
     (hnc : ∃ a b : J, a * b ≠ b * a) : Function.Injective (MulAut.conj : J →* MulAut J) := by
   rw [← MonoidHom.ker_eq_bot_iff]

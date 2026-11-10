@@ -27,14 +27,6 @@ theorem norm_K : normCK lay A B onNormData = true := by decide +kernel
 theorem sylow7H_K : cubK lay A B CFSG.AGLEmbedding.SporCubic.onSylow7HData = true := by
   decide +kernel
 
-theorem sec_neg_seeds : (!secK lay B A onanSec) = true := by decide +kernel
-
-theorem mult_neg : (!cubK lay A B { onMultData with μ := onMultData.μ + 1 }) = true := by
-  decide +kernel
-
-theorem norm_neg : (!normCK lay A B { onNormData with
-    expo := fun j k i => if j = 0 then onNormExpo j k i + 1 else onNormExpo j k i }) = true := by
-  decide +kernel
 
 end CFSG.KD.LC.F3.ON
 

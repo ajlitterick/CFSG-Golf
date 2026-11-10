@@ -154,124 +154,6 @@ theorem omegaMinusLevi_eq :
       ↥(elementaryGroup (quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω))) :=
   (MulEquiv.subgroupCongr (omegaMinusLevi_eq hσσ hω)).trans (d4FixedEquiv hσσ hω)
 
-theorem d4Iota_d4FixedEquiv_apply
-    (g : ↥(d4Levi K ⊓ d4Gamma (σ : K →+* K)))
-    (v : Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) :
-    d4Iota σ ω ((d4FixedEquiv hσσ hω g : _ ≃ₗ[descentField σ] _) v) =
-      d4Psi K ⟨g.1, g.2.1⟩ (d4Iota σ ω v) := by
-  change d4Iota σ ω
-      ((d4DescentEquiv hσσ hω (d4FixedPsi hσσ g) : _ ≃ₗ[descentField σ] _) v) =
-    d4Psi K ⟨g.1, g.2.1⟩ (d4Iota σ ω v)
-  rw [d4Iota_d4DescentEquiv, coe_d4FixedPsi]
-
-theorem d4Iota_omegaMinusLeviEquiv_apply
-    (g : ↥(omegaMinusLevi (σ : K →+* K)))
-    (v : Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) :
-    d4Iota σ ω ((omegaMinusLeviEquiv hσσ hω g : _ ≃ₗ[descentField σ] _) v) =
-      d4Psi K
-        ⟨(MulEquiv.subgroupCongr (G := ModGL Tag.E6 K) (omegaMinusLevi_eq hσσ hω) g).1,
-          (MulEquiv.subgroupCongr (G := ModGL Tag.E6 K) (omegaMinusLevi_eq hσσ hω) g).2.1⟩
-        (d4Iota σ ω v) :=
-  d4Iota_d4FixedEquiv_apply hσσ hω
-    (MulEquiv.subgroupCongr (G := ModGL Tag.E6 K) (omegaMinusLevi_eq hσσ hω) g) v
-
-theorem exists_omegaMinusLevi_conj_rootD_product
-    (T : ↥(elementaryGroup (quadMinus 4 (descentField σ)
-      (d4MinusB hσσ ω) (d4MinusC hσσ ω)))) :
-    ∃ g : ↥(omegaMinusLevi (σ : K →+* K)),
-      ∀ v : Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ,
-        MulAut.conj (G := ModGL Tag.E6 K) g.1 (d4RootWord (d4Iota σ ω v)) =
-          d4RootWord (d4Iota σ ω ((T :
-            (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) ≃ₗ[descentField σ] _) v)) := by
-  let g : ↥(omegaMinusLevi (σ : K →+* K)) := (omegaMinusLeviEquiv hσσ hω).symm T
-  let g0 : ↥(d4Levi K ⊓ d4Gamma (σ : K →+* K)) :=
-    MulEquiv.subgroupCongr (G := ModGL Tag.E6 K) (omegaMinusLevi_eq hσσ hω) g
-  refine ⟨g, fun v => ?_⟩
-  have hT : omegaMinusLeviEquiv hσσ hω g = T := MulEquiv.apply_symm_apply _ _
-  have hIota := d4Iota_omegaMinusLeviEquiv_apply hσσ hω g v
-  rw [hT] at hIota
-  have hgen := d4Psi_conj_rootD_product (F := K) ⟨g0.1, g0.2.1⟩
-    (d4Iota σ ω v)
-  rw [← hIota] at hgen
-  change (g0 : ModGL Tag.E6 K) * d4RootWord (d4Iota σ ω v) *
-      (g0 : ModGL Tag.E6 K)⁻¹ =
-    d4RootWord (d4Iota σ ω ((T :
-      (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) ≃ₗ[descentField σ] _) v))
-  exact hgen
-
-theorem exists_omegaMinusLevi_conj_rootD_span_pair
-    (h2k : Nat.card (descentField σ) = 2)
-    {r v r2 w : Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ}
-    (hr : quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω) r = 1)
-    (hv : quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω) v = 1)
-    (hr2 : quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω) r2 = 1)
-    (hw : quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω) w = 1)
-    (hrv : QuadraticMap.polar
-      (quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω)) r v = 1)
-    (hr2w : QuadraticMap.polar
-      (quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω)) r2 w = 1) :
-    ∃ g : ↥(omegaMinusLevi (σ : K →+* K)),
-      MulAut.conj (G := ModGL Tag.E6 K) g.1 (d4RootWord (d4Iota σ ω r)) =
-        d4RootWord (d4Iota σ ω r2) ∧
-      Set.image (MulAut.conj (G := ModGL Tag.E6 K) g.1)
-        ((fun x => d4RootWord (d4Iota σ ω x)) ''
-          (Submodule.span (descentField σ) {r, v} : Set _)) =
-      (fun x => d4RootWord (d4Iota σ ω x)) ''
-        (Submodule.span (descentField σ) {r2, w} : Set _) := by
-  let Q : QuadraticForm (descentField σ)
-      (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) :=
-    quadMinus 4 (descentField σ) (d4MinusB hσσ ω) (d4MinusC hσσ ω)
-  have hQ : (QuadraticMap.polarBilin Q).Nondegenerate :=
-    (regular_quadMinus (n := 4) (K := descentField σ)
-      (b := d4MinusB hσσ ω) (c := d4MinusC hσσ ω)
-      (by norm_num) (d4Minus_irr hσσ hω)).1
-  let P : HypPair Q := minusPair (n := 4) (K := descentField σ)
-    (b := d4MinusB hσσ ω) (c := d4MinusC hσσ ω) (0 : Fin (4 - 1))
-  let P' : HypPair Q := minusPair (n := 4) (K := descentField σ)
-    (b := d4MinusB hσσ ω) (c := d4MinusC hσσ ω) (1 : Fin (4 - 1))
-  have hP : P.Orth P' := by
-    simpa [P, P'] using
-      (minusPair_orth (K := descentField σ) (n := 4)
-        (b := d4MinusB hσσ ω) (c := d4MinusC hσσ ω)
-        (i := (0 : Fin (4 - 1))) (j := (1 : Fin (4 - 1))) (by decide))
-  have hrQ : Q r = 1 := by simpa [Q] using hr
-  have hvQ : Q v = 1 := by simpa [Q] using hv
-  have hr2Q : Q r2 = 1 := by simpa [Q] using hr2
-  have hwQ : Q w = 1 := by simpa [Q] using hw
-  have hrvQ : QuadraticMap.polar Q r v = 1 := by simpa [Q] using hrv
-  have hr2wQ : QuadraticMap.polar Q r2 w = 1 := by simpa [Q] using hr2w
-  obtain ⟨T, hTmem, hTr, hTspan⟩ :=
-    exists_mem_elementaryGroup_apply_span_pair (Q := Q) h2k hQ
-      (P := P) (P' := P') hP hrQ hvQ hr2Q hwQ hrvQ hr2wQ
-  let Tsub : ↥(elementaryGroup Q) := ⟨T, hTmem⟩
-  obtain ⟨g, hg⟩ := exists_omegaMinusLevi_conj_rootD_product hσσ hω Tsub
-  refine ⟨g, ?_, ?_⟩
-  · simpa [Tsub, hTr] using hg r
-  · let f : (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) → ModGL Tag.E6 K :=
-      fun x => d4RootWord (d4Iota σ ω x)
-    let c := MulAut.conj (G := ModGL Tag.E6 K) g.1
-    let S : Set (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) :=
-      (Submodule.span (descentField σ) {r, v} : Set _)
-    let S' : Set (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) :=
-      (Submodule.span (descentField σ) {r2, w} : Set _)
-    have hTS : (T : (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) →ₗ[descentField σ]
-        (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ)) '' S = S' := by
-      dsimp [S, S']
-      exact congrArg (fun L : Submodule (descentField σ)
-        (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) =>
-          (L : Set (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ))) hTspan
-    change c '' (f '' S) = f '' S'
-    calc
-      c '' (f '' S) = (fun x => c (f x)) '' S := by rw [Set.image_image]
-      _ = (fun x => f ((T : (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) →ₗ[descentField σ]
-            (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ)) x)) '' S := by
-        apply Set.image_congr
-        intro x _
-        simpa [c, f, Tsub] using hg x
-      _ = f '' ((T : (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ) →ₗ[descentField σ]
-            (Fin (4 - 1) ⊕ Fin (4 - 1) ⊕ Fin 2 → descentField σ)) '' S) := by
-        rw [← Set.image_image]
-      _ = f '' S' := by rw [hTS]
 
 end Fixed
 
@@ -310,21 +192,6 @@ theorem isSimpleGroup_omegaMinusLevi {f : ℕ} (hf : 1 ≤ f) {K : Type} [Field 
   exact ((omegaMinusLeviEquiv hσσ hω').trans
     (elementaryMinusStatedEquiv _ _ _ (d4Minus_irr hσσ hω'))).isSimpleGroup
 
-theorem lieModel_d4Levi_of_card {f' : ℕ} (hf' : 1 ≤ f') {K : Type} [Field K]
-    (hK' : Nat.card K = 2 ^ f') : LieModel (d4Levi K) .POmegaPlus 4 2 f' := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK']; positivity)
-  have : CharP K 2 :=
-    CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf' hK'
-  exact lieModel_d4Levi hf' hK'
-
-theorem lieModel_d4Levi_inf_adjointGroup {f' : ℕ} (hf' : 1 ≤ f') {K : Type} [Field K]
-    (hK' : Nat.card K = 2 ^ f') :
-    LieModel ↥(subsystemGroup TwistTag.E6.tag K setD ⊓ adjointGroup TwistTag.E6.tag K)
-      .POmegaPlus 4 2 f' := by
-  have h : subsystemGroup TwistTag.E6.tag K setD ⊓ adjointGroup TwistTag.E6.tag K = d4Levi K :=
-    inf_of_le_left d4Levi_le_adjointGroup
-  rw [h]
-  exact lieModel_d4Levi_of_card hf' hK'
 
 theorem omegaMinusLevi_eq_of_card {f : ℕ} (hf : 1 ≤ f) {K : Type} [Field K]
     (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
@@ -336,23 +203,6 @@ theorem omegaMinusLevi_eq_of_card {f : ℕ} (hf : 1 ≤ f) {K : Type} [Field K]
   obtain ⟨ω, hω⟩ := exists_apply_ne hf hK hσ
   exact omegaMinusLevi_eq hσσ (ω := ω) hω
 
-theorem xUnit_mem_omegaMinusLevi {K : Type} [Field K] {σ : K →+* K} {k : Fin 4}
-    (hk : k = 0 ∨ k = 1) {c : K} (hc : σ c = c) :
-    xUnit TwistTag.E6.tag K (jD k) c ∈ omegaMinusLevi σ := by
-  have hρ : TwistTag.E6.perm (jD k) = jD k := by
-    rw [perm_jD]
-    rcases hk with rfl | rfl <;> rfl
-  exact ⟨xUnit_mem_d4Levi k c, graphFixedPosUnipotent_le_graphFixedRootGroup _ _ _
-    (xUnit_mem_graphFixedPosUnipotent hρ hc)⟩
-
-theorem yUnit_mem_omegaMinusLevi {K : Type} [Field K] {σ : K →+* K} {k : Fin 4}
-    (hk : k = 0 ∨ k = 1) {c : K} (hc : σ c = c) :
-    yUnit TwistTag.E6.tag K (jD k) c ∈ omegaMinusLevi σ := by
-  have hρ : TwistTag.E6.perm (jD k) = jD k := by
-    rw [perm_jD]
-    rcases hk with rfl | rfl <;> rfl
-  exact ⟨yUnit_mem_d4Levi k c, graphFixedNegUnipotent_le_graphFixedRootGroup _ _ _
-    (yUnit_mem_graphFixedNegUnipotent hρ hc)⟩
 
 end LieModel
 

@@ -39,23 +39,6 @@ private lemma g4bConj_conj {C : Type*} [Group C] (κ : MulAut C) (g : C) :
   change κ⁻¹ (g * κ x * g⁻¹) = κ⁻¹ g * x * (κ⁻¹ g)⁻¹
   rw [map_mul, map_mul, map_inv, MulAut.inv_apply_self]
 
-private lemma g4bConj_mul_conj {C : Type*} [Group C] (f : MulAut C) (c : C) :
-    f * MulAut.conj c * f⁻¹ = MulAut.conj (f c) := by
-  ext y
-  change f (c * f⁻¹ y * c⁻¹) = f c * y * (f c)⁻¹
-  rw [map_mul, map_mul, map_inv, MulAut.apply_inv_self]
-
-private lemma g4bConj_range_normal {C : Type*} [Group C] :
-    (MulAut.conj : C →* MulAut C).range.Normal := by
-  rw [Subgroup.normal_iff_map_conj_eq]
-  intro f
-  apply le_antisymm
-  · rintro _ ⟨x, ⟨c, rfl⟩, rfl⟩
-    exact ⟨f c, (g4bConj_mul_conj f c).symm⟩
-  · rintro _ ⟨c, rfl⟩
-    refine ⟨MulAut.conj (f.symm c), ⟨f.symm c, rfl⟩, ?_⟩
-    show f * MulAut.conj (f.symm c) * f⁻¹ = MulAut.conj c
-    rw [g4bConj_mul_conj, MulEquiv.apply_symm_apply]
 
 theorem ggFixGp_conj_innDiagU_twE6
     {n f : ℕ} (hf : 1 ≤ f)

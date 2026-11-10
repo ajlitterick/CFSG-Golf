@@ -135,13 +135,6 @@ theorem ETCtx.toralNormal_E7 (c : ETCtx p f .E7 0 Ω K z) {t : G} (htz : t * z *
     (modelUniv .POmegaPlus m p f Fact.out).D.rootGroup γ =
       ((plusDatum m (GaloisField p f) hm3).rootGroup (γ ∘ e.symm)).map ι.toMonoidHom
 
-theorem exists_isoCompatP {m : ℕ} (hm3 : 3 ≤ m) :
-    ∃ (e : Fin (modelUniv .POmegaPlus m p f Fact.out).D.rank ≃ Fin m)
-      (ι : spinGroup (quadPlus m (GaloisField p f)) ≃*
-        (modelUniv .POmegaPlus m p f Fact.out).K), IsoCompatP hm3 e ι := by
-  unfold IsoCompatP
-  rw [modelUniv_POmegaPlus_eq (p := p) (f := f) hm3]
-  exact ⟨Equiv.refl _, MulEquiv.refl _, fun γ => ⟨Iff.rfl, (Subgroup.map_id _).symm⟩⟩
 
 @[expose] def TorusFixedP {m : ℕ} (hm3 : 3 ≤ m) (c : ETCtx p f .POmegaPlus m Ω K z)
     (a₀ : Fin (modelUniv .POmegaPlus m p f Fact.out).D.rank) {t : G}

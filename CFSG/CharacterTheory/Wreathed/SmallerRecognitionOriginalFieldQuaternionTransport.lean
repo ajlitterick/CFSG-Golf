@@ -113,20 +113,6 @@ theorem original_conjugation_quotient_centrality_iff
   · intro hxcenter
     exact Subgroup.mem_map.mpr ⟨_, hxcenter, rfl⟩
 
-theorem actualConjugationOddCoreQuotientEquiv_symm_mk
-    (K : Subgroup G) (g : G) (k : K.map (MulAut.conj g).toMonoidHom) :
-    (actualConjugationOddCoreQuotientEquiv K g).symm
-      (QuotientGroup.mk' (CFSG.oddCore (K.map (MulAut.conj g).toMonoidHom)) k) =
-      QuotientGroup.mk' (CFSG.oddCore K)
-        ((K.equivMapOfInjective (MulAut.conj g).toMonoidHom (MulAut.conj g).injective).symm k) := by
-  let E := K.equivMapOfInjective (MulAut.conj g).toMonoidHom (MulAut.conj g).injective
-  let D := actualConjugationOddCoreQuotientEquiv K g
-  have h := actualConjugationOddCoreQuotientEquiv_mk K g (E.symm k)
-  change D (QuotientGroup.mk' (CFSG.oddCore K) (E.symm k)) =
-    QuotientGroup.mk' (CFSG.oddCore (K.map (MulAut.conj g).toMonoidHom)) (E (E.symm k)) at h
-  rw [E.apply_symm_apply] at h
-  have hback := congrArg D.symm h
-  simpa only [MulEquiv.symm_apply_apply] using hback.symm
 
 theorem original_conjugation_ambient_factorization_iff
     {G : Type} [Group G] (K : Subgroup G) (x g : G)

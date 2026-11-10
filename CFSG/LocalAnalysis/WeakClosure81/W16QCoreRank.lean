@@ -19,18 +19,6 @@ namespace KTCfg16
 
 variable {U V₀ V I K T Q : Subgroup G}
 
-private lemma w16q_mem_sup_of_comm {A B : Subgroup G}
-    (hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a) {x : G} (hx : x ∈ A ⊔ B) :
-    ∃ a ∈ A, ∃ b ∈ B, a * b = x := by
-  have hA : A ≤ Subgroup.centralizer (B : Set G) :=
-    fun a ha => Subgroup.mem_centralizer_iff.mpr fun b hb => (hc a ha b hb).symm
-  have hN : A ≤ Subgroup.normalizer (B : Set G) :=
-    le_trans hA (Subgroup.centralizer_le_normalizer (B : Set G))
-  have hcoe := Subgroup.coe_mul_of_left_le_normalizer_right A B hN
-  have hx' : x ∈ (A : Set G) * (B : Set G) := by
-    rw [← hcoe]
-    exact hx
-  exact Set.mem_mul.mp hx'
 
 private lemma w16q_commutator_mem_centralizer (h : KTCfg16 U V₀ V I K T Q) {x y : G}
     (hx : x ∈ Q) (hy : y ∈ Q) :

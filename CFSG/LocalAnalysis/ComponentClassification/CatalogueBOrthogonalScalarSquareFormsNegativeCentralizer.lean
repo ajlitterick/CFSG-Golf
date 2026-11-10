@@ -61,32 +61,6 @@ variable (Q : QuadraticForm K V) (T : Module.End K V) (d : K) (hd : d ≠ 0)
     (scalarBasis_one T d hns hsquare) gK.val gK.property).mp
   exact g.property
 
-theorem negativeCentralizerToUnitary_apply (g : orthogonalOperatorCentralizer Q T) (x : V) :
-    (negativeCentralizerToUnitary Q T d hd hns hsquare hadj h2 g).val x = g.val.val x := rfl
-
-theorem negativeCentralizerToUnitary_symm_apply (g : orthogonalOperatorCentralizer Q T)
-    (x : V) :
-    (negativeCentralizerToUnitary Q T d hd hns hsquare hadj h2 g).val.symm x =
-      g.val.val.symm x := rfl
-
-theorem negativeUnitaryToCentralizer_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : CatalogueBUnitaryIsometry.isometryGroup
-      (actualNegativeHermitian Q.polarBilin T d hd hns hsquare hadj)) (x : V),
-      (negativeUnitaryToCentralizer Q T d hd hns hsquare hadj h2 g).val.val x = g.val x := by
-  intros
-  rfl
-
-theorem negativeUnitaryToCentralizer_symm_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : CatalogueBUnitaryIsometry.isometryGroup
-      (actualNegativeHermitian Q.polarBilin T d hd hns hsquare hadj)) (x : V),
-      (negativeUnitaryToCentralizer Q T d hd hns hsquare hadj h2 g).val.val.symm x =
-        g.val.symm x := by
-  intros
-  rfl
 
 theorem negativeUnitaryToCentralizer_upgrade (g : orthogonalOperatorCentralizer Q T) :
     negativeUnitaryToCentralizer Q T d hd hns hsquare hadj h2
@@ -123,18 +97,6 @@ theorem negativeCentralizerToUnitary_restriction :
     right_inv := negativeCentralizerToUnitary_restriction Q T d hd hns hsquare hadj h2
     map_mul' := (negativeCentralizerToUnitary Q T d hd hns hsquare hadj h2).map_mul }
 
-theorem actualNegativeCentralizerEquiv_apply (g : orthogonalOperatorCentralizer Q T) (x : V) :
-    (actualNegativeCentralizerEquiv Q T d hd hns hsquare hadj h2 g).val x = g.val.val x := rfl
-
-theorem actualNegativeCentralizerEquiv_symm_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : CatalogueBUnitaryIsometry.isometryGroup
-      (actualNegativeHermitian Q.polarBilin T d hd hns hsquare hadj)) (x : V),
-      ((actualNegativeCentralizerEquiv Q T d hd hns hsquare hadj h2).symm g).val.val x =
-        g.val x := by
-  intros
-  rfl
 
 end Negative
 

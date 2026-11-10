@@ -386,17 +386,6 @@ theorem exists_fourCoord_eq
   obtain ⟨c, d, rfl⟩ := exists_stdFour_eq hK hy
   exact ⟨c, d, rfl⟩
 
-theorem fourCoord_mem_block
-    (hK : Nat.card K = 2 ^ (2 * 1 + 1)) (f : Fin 4) (c d : K) :
-    fourCoord f c d ∈ largeReeBlockGroup K 1 (fourSet f) := by
-  rw [fourSet, largeReeBlockGroup_eq_map K 1 (fixedRelElt_mem _)]
-  exact ⟨stdFour c d, stdFour_mem hK c d, rfl⟩
-
-theorem twoCoord_mem_block
-    (hK : Nat.card K = 2 ^ (2 * 1 + 1)) (t : Fin 4) (s : K) :
-    twoCoord t s ∈ largeReeBlockGroup K 1 (twoSet t) := by
-  rw [twoSet, largeReeBlockGroup_eq_map K 1 (fixedRelElt_mem _)]
-  exact ⟨stdTwo s, stdTwo_mem hK s, rfl⟩
 
 theorem torusPair_conj_twoCoord
     (hK : Nat.card K = 2 ^ (2 * 1 + 1)) (u : Kˣ × Kˣ) (t : Fin 4)

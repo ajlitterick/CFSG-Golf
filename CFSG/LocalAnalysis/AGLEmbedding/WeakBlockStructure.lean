@@ -200,20 +200,6 @@ theorem TwoLocalPhaseThree.not_isSylowTwoOf_inf (h : TwoLocalPhaseThree M H)
   hD2 M L h.maxTwoLocal_M hL.le hL.subnormal
     (h85 G M (pCoreOf 2 H) L hK h.asc81bHyp hL.toIsTwoPrimeComponent hsyl)
 
-theorem TwoLocalPhaseThree.not_isSylowTwoOf_M (h : TwoLocalPhaseThree M H) (hK : Open.IsKGroup ↥M)
-    (hCGT : AschbacherLocalCGTBlock) (hD2 : NoXBlockFor G) : ¬ IsSylowTwoOf (pCoreOf 2 H) M := by
-  intro hsyl
-  have hne : cgsIn M (pCoreOf 2 H) ≠ M := by
-    rw [h.cgsIn_eq, inf_comm]
-    exact h.inf_lt_right.ne
-  obtain ⟨Y, hYM, hYs, hYX, -⟩ := hCGT G M (pCoreOf 2 H) hK h.charTwo_M hsyl hne
-  exact hD2 M Y h.maxTwoLocal_M hYM hYs hYX
-
-theorem TwoLocalPhaseThree.le_twoCore_of_le_twoPrimeComponent (h : TwoLocalPhaseThree M H)
-    (hL : IsTwoPrimeComponent M L) {U : Subgroup G} (hUL : U ≤ L) (hU : IsPGroup 2 U)
-    (hN : M ⊓ Subgroup.normalizer (pCoreOf 2 H : Set G) ⊓ Subgroup.normalizer (L : Set G) ≤
-      Subgroup.normalizer (U : Set G)) : U ≤ pCoreOf 2 H :=
-  h.asc81bHyp.le_of_le_twoPrimeComponent hL hUL hU hN
 
 theorem TwoLocalPhaseThree.twoCore_eq_pCoreOf_normalizer_sup (h : TwoLocalPhaseThree M H)
     (hL : IsTwoPrimeComponent M L) (hSL : pCoreOf 2 H ≤ Subgroup.normalizer (L : Set G)) :
@@ -279,36 +265,6 @@ theorem TwoLocalPhaseThree.nineThree_not_one (h : TwoLocalPhaseThree M H)
     h.not_isSylowTwoOf_inf hK h85 hD2 hL (isSylowTwoOf_inf_of_barM hL.le
       (h.twoCore_M_le h.twoCore_inf) (pCoreOf_isPGroup 2 H) hsyl)⟩
 
-theorem TwoLocalPhaseThree.hasIrreducibleCommutatorQuotient (h : TwoLocalPhaseThree M H)
-    (hK : Open.IsKGroup ↥M) (h86 : Asc81bEightSix) (hL : IsWeakSBlock M (pCoreOf 2 H) L)
-    (htype : IsShort2 L ∨ NineThreeThree M (pCoreOf 2 H) L ∨ NineThreeSix M (pCoreOf 2 H) L ∨
-      NineThreeSeven M (pCoreOf 2 H) L)
-    (hnc : ¬ L ≤ Subgroup.centralizer (blockV (pCoreOf 2 H) L : Set G)) :
-    HasIrreducibleCommutatorQuotient L (blockV (pCoreOf 2 H) L) := by
-  rcases htype with hs | h3 | h6 | h7
-  · obtain ⟨hSL, -⟩ := h.weakSBlock_asc81bHyp hK h86 hL
-    have hTS := (h.blockV_facts hK h86 hL).2.1
-    set S := pCoreOf 2 H
-    have hVT : blockV S L ≤ pCoreOf 2 (L ⊔ S) := QuasithinUnique.Setup.omegaOneCenterOf_le _
-    have hLV : L ≤ Subgroup.normalizer (blockV S L : Set G) :=
-      le_sup_left.trans (le_normalizer_of_characteristic_pCoreOf
-        (QuasithinUnique.Setup.omegaOneCenterOf_le _)
-        (QuasithinUnique.Setup.characteristic_omegaOneCenterOf _))
-    have hVL : ⁅blockV S L, L⁆ ≤ L := by
-      rw [Subgroup.commutator_le]
-      intro v hv l hl
-      rw [commutatorElement_def]
-      exact L.mul_mem ((Subgroup.mem_normalizer_iff.mp (hSL (hTS (hVT hv))) l).mp hl)
-        (L.inv_mem hl)
-    refine IsShort2.hasIrreducibleCommutatorQuotient hs hLV (normal_pGroup_le_pCoreOf 2 _ L hVL
-      ((Subgroup.normal_subgroupOf_iff_le_normalizer hVL).mpr
-        (le_normalizer_commutator_of_le_normalizer hLV))
-      ((pCoreOf_isPGroup 2 (L ⊔ S)).to_le ((commutator_le_left_of_le_normalizer hLV).trans hVT)))
-      (isElemAbelian_omegaOneCenterOf _).1 hnc
-  · exact h3.2.2.1
-  · exact h6.1
-  · exact h7.1
-
 
 theorem D1PhaseThree.oddCore_le_centralizer (h : D1PhaseThree p P M H R)
     (h84 : Asc81bEightFour) (hD2 : D1NoXBlock) :
@@ -321,15 +277,6 @@ theorem D1PhaseThree.not_isSylowTwoOf_inf (h : D1PhaseThree p P M H R) (h85 : As
     ¬ IsSylowTwoOf (pCoreOf 2 H ⊓ L) L :=
   h.toTwoLocalPhaseThree.not_isSylowTwoOf_inf h.isKGroup.1 h85 (hD2 G h.glob) hL
 
-theorem D1PhaseThree.not_isSylowTwoOf_M (h : D1PhaseThree p P M H R)
-    (hCGT : AschbacherLocalCGTBlock) (hD2 : D1NoXBlock) : ¬ IsSylowTwoOf (pCoreOf 2 H) M :=
-  h.toTwoLocalPhaseThree.not_isSylowTwoOf_M h.isKGroup.1 hCGT (hD2 G h.glob)
-
-theorem D1PhaseThree.le_twoCore_of_le_twoPrimeComponent (h : D1PhaseThree p P M H R)
-    (hL : IsTwoPrimeComponent M L) {U : Subgroup G} (hUL : U ≤ L) (hU : IsPGroup 2 U)
-    (hN : M ⊓ Subgroup.normalizer (pCoreOf 2 H : Set G) ⊓ Subgroup.normalizer (L : Set G) ≤
-      Subgroup.normalizer (U : Set G)) : U ≤ pCoreOf 2 H :=
-  h.toTwoLocalPhaseThree.le_twoCore_of_le_twoPrimeComponent hL hUL hU hN
 
 theorem D1PhaseThree.twoCore_eq_pCoreOf_normalizer_sup (h : D1PhaseThree p P M H R)
     (hL : IsTwoPrimeComponent M L) (hSL : pCoreOf 2 H ≤ Subgroup.normalizer (L : Set G)) :
@@ -365,13 +312,6 @@ theorem D1PhaseThree.nineThree_not_one (h : D1PhaseThree p P M H R) (h85 : Asc81
       ¬ IsSylowTwoOf (barM M (pCoreOf 2 H ⊓ L)) (barM M L)) :=
   h.toTwoLocalPhaseThree.nineThree_not_one h.isKGroup.1 h85 (hD2 G h.glob) hL
 
-theorem D1PhaseThree.hasIrreducibleCommutatorQuotient (h : D1PhaseThree p P M H R)
-    (h86 : Asc81bEightSix) (hL : IsWeakSBlock M (pCoreOf 2 H) L)
-    (htype : IsShort2 L ∨ NineThreeThree M (pCoreOf 2 H) L ∨ NineThreeSix M (pCoreOf 2 H) L ∨
-      NineThreeSeven M (pCoreOf 2 H) L)
-    (hnc : ¬ L ≤ Subgroup.centralizer (blockV (pCoreOf 2 H) L : Set G)) :
-    HasIrreducibleCommutatorQuotient L (blockV (pCoreOf 2 H) L) :=
-  h.toTwoLocalPhaseThree.hasIrreducibleCommutatorQuotient h.isKGroup.1 h86 hL htype hnc
 
 end PhaseThree
 

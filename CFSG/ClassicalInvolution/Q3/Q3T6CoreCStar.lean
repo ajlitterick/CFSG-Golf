@@ -96,19 +96,5 @@ theorem isClassicalMember3_centralizer_of_cStar {z x : G} (hK : Q3.IsClassicalMe
   isClassicalMember3_inf_centralizer_of_cStar hK hx2 (Subgroup.zpowers_le.mpr hxK)
     (by rw [Subgroup.zpowers_eq_closure, Subgroup.centralizer_closure]) hzx
 
-theorem isClassicalMemberU_inf_centralizer_of_cStar {z : G}
-    (hK : IsClassicalMemberU (.sl2 3 1) K z) {B : Subgroup G} (hB2 : IsPGroup 2 B)
-    (hBK : B ≤ centralizerModOdd ⊤ K) {C : Subgroup G} (hC : C = Subgroup.centralizer (B : Set G))
-    (hzC : z ∈ C) : IsClassicalMemberU (.sl2 3 1) ((K ⊓ C).subgroupOf C) (⟨z, hzC⟩ : C) :=
-  isClassicalMember3_iff_U.mp
-    (isClassicalMember3_inf_centralizer_of_cStar (isClassicalMember3_iff_U.mpr hK) hB2 hBK hC hzC)
-
-theorem surjective_inf_centralizer_proj
-    (e : K ⧸ classicalInvolutionOddCore K ≃* SL(2, ZMod 3)) {B : Subgroup G}
-    (hB2 : IsPGroup 2 B) (hBK : B ≤ centralizerModOdd ⊤ K) :
-    Function.Surjective (e.toMonoidHom.comp
-      ((QuotientGroup.mk' (classicalInvolutionOddCore ↥K)).comp
-        (Subgroup.inclusion (inf_le_left : K ⊓ Subgroup.centralizer (B : Set G) ≤ K)))) :=
-  e.surjective.comp (S19B.surjective_mk_inf_centralizer hB2 hBK)
 
 end CFSG.ClassicalInvolution.Q3.Q3T6

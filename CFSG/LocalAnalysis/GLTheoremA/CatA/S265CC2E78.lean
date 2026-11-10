@@ -301,9 +301,6 @@ theorem qSFamCTE6C2_holds : CFSG.LocalAnalysis.GLTheoremA.S265C.C1.QSFamCTE6C2 :
   intro Ω _ _ S B T x D K h hK hS _
   exact (false_of_qsnl_te6_e78 h hK hS).elim
 
-theorem qSFamCTE6_holds : CFSG.LocalAnalysis.GLTheoremA.S265C.QSFamCTE6 := by
-  intro Ω _ _ S B T x D K h hK hS
-  exact (false_of_qsnl_te6_e78 h hK hS).elim
 
 end Final
 

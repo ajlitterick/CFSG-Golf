@@ -253,60 +253,6 @@ theorem card_eq_two_mul_card_inf [Finite G] {P Q B : Subgroup G} (hBP : B ≤ P)
   rw [hrelQ, inf_comm] at h2
   exact h2.symm
 
-theorem card_mul_self_eq_of_isWreathed [Finite G] {P Q : Subgroup G} {z : G}
-    (hP : IsWreathed P) (hQP : Q ≤ P) (hQ : IsPGroup 2 Q) (hz : IsUniqueInvolution Q z)
-    (hnc : ∃ x ∈ Q, ∃ y ∈ Q, x * y ≠ y * x) (hN : P ≤ Subgroup.normalizer (Q : Set G))
-    (hcyc : ∃ g ∈ P, ∀ x ∈ P, ∃ k : ℤ, (g ^ k)⁻¹ * x ∈ Q) :
-    Nat.card Q * Nat.card Q = 2 * Nat.card P := by
-  obtain ⟨B, D, b, n, hBP, -, -, -, hn4, hBc, hBn, hPn, hpow, -, -, -, -, -⟩ :=
-    exists_wreathBase hP
-  have hn0 : 0 < n := by omega
-  have hle := card_inf_le_of_pow hn0 hQ hz hBc hpow
-  have hQB := card_eq_two_mul_card_inf hBP (by rw [hPn, hBn]) hBc hQP hnc
-  have : (Q.subgroupOf P).Normal := (Subgroup.normal_subgroupOf_iff_le_normalizer hQP).mpr hN
-  obtain ⟨g, hgP, hg⟩ := hcyc
-  have hcycM : IsCyclic (↥P ⧸ Q.subgroupOf P) := by
-    refine ⟨⟨QuotientGroup.mk ⟨g, hgP⟩, fun y => ?_⟩⟩
-    induction y using QuotientGroup.induction_on with
-    | H x =>
-      obtain ⟨k, hk⟩ := hg x x.2
-      refine ⟨k, ?_⟩
-      show (QuotientGroup.mk (⟨g, hgP⟩ : ↥P) : ↥P ⧸ Q.subgroupOf P) ^ k = QuotientGroup.mk x
-      rw [← QuotientGroup.mk_zpow, QuotientGroup.eq, Subgroup.mem_subgroupOf]
-      simpa using hk
-  let ψ : ↥B →* ↥P ⧸ Q.subgroupOf P :=
-    (QuotientGroup.mk' (Q.subgroupOf P)).comp (Subgroup.inclusion hBP)
-  have hker := Subgroup.card_ker_mul_card_range ψ
-  have hrange : Nat.card ψ.range ≤ n := by
-    have hexp : Monoid.exponent ψ.range ∣ n := by
-      refine Monoid.exponent_dvd_of_forall_pow_eq_one fun y => ?_
-      obtain ⟨y, x, rfl⟩ := y
-      apply Subtype.ext
-      simp only [SubmonoidClass.coe_pow, OneMemClass.coe_one]
-      rw [← map_pow]
-      have : x ^ n = 1 := Subtype.ext (by simp [hpow x x.2])
-      rw [this, map_one]
-    rw [← IsCyclic.exponent_eq_card]
-    exact Nat.le_of_dvd hn0 hexp
-  have hkerle : Nat.card ψ.ker ≤ Nat.card ↥(Q ⊓ B) := by
-    let ι : ψ.ker → ↥(Q ⊓ B) := fun x => ⟨((x : ↥B) : G), by
-      have hx : ψ x = 1 := x.2
-      have h1 : (Subgroup.inclusion hBP (x : ↥B) : ↥P) ∈ Q.subgroupOf P :=
-        (QuotientGroup.eq_one_iff _).mp hx
-      exact ⟨Subgroup.mem_subgroupOf.mp h1, (x : ↥B).2⟩⟩
-    refine Nat.card_le_card_of_injective ι fun x y hxy => ?_
-    have h := congrArg Subtype.val hxy
-    exact Subtype.ext (Subtype.ext h)
-  rw [hBn] at hker
-  have hge : n ≤ Nat.card ↥(Q ⊓ B) := by
-    by_contra h
-    push Not at h
-    have h1 : Nat.card ψ.ker * Nat.card ψ.range < n * n :=
-      lt_of_le_of_lt (Nat.mul_le_mul hkerle hrange) (Nat.mul_lt_mul_of_pos_right h hn0)
-    omega
-  have heq : Nat.card ↥(Q ⊓ B) = n := le_antisymm hle hge
-  rw [hQB, heq, hPn]
-  ring
 
 theorem not_forall_inner_of_isWreathed [Finite G] {P Q : Subgroup G} {z : G}
     (hP : IsWreathed P) (hQP : Q ≤ P) (hQ : IsPGroup 2 Q) (hz : IsUniqueInvolution Q z)

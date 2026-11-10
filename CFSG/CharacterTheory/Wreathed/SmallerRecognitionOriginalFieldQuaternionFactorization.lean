@@ -250,20 +250,4 @@ theorem proper_quaternion_wreath_overgroup_Sylow_forces_centralizer_factorizatio
   rw [← mul_inv_rev, ← hg, inv_inv]
 
 
-theorem proper_quaternion_wreath_overgroup_Sylow_odd_core_product
-    {K : Type} [Group K] [Finite K]
-    (n : ℕ) (hn : 2 ≤ n) (P : Sylow 2 K)
-    (i : P →* Wreath (2 ^ n)) (hi : Function.Injective i)
-    (hY : Original.Y (2 ^ n) ≤ i.range) (hproper : i.range < ⊤)
-    (x : P) (hx : i x = Original.x (2 ^ n)) :
-    (oddCore K : Set K) * (Subgroup.centralizer ({(x : K)} : Set K) : Set K) = Set.univ ∧
-      (QuotientGroup.mk (x : K) : K ⧸ oddCore K) ∈ Subgroup.center (K ⧸ oddCore K) := by
-  obtain ⟨_, hfac, hquot⟩ :=
-    proper_quaternion_wreath_overgroup_Sylow_forces_centralizer_factorization
-      n hn P i hi hY hproper x hx
-  refine ⟨Set.eq_univ_iff_forall.mpr ?_, hquot⟩
-  intro g
-  obtain ⟨k, hk, c, hc, hg⟩ := hfac g
-  exact Set.mem_mul.mpr ⟨k, hk, c, hc, hg.symm⟩
-
 end CFSG.Wreathed.SmallerRecognitionOriginalField

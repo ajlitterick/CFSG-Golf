@@ -24,52 +24,6 @@ variable {G : Type} [Group G]
         IsNaturalSection (conjClosure L M) V (V ⊓ Subgroup.centralizer (conjClosure L M : Set G))
           (CFSG.pCore 2 ↥(conjClosure L M)) (StatedSL 2 F)))
 
-theorem isNaturalSection_inf_centerOf_of_bot {A V K : Subgroup G} {N : Subgroup ↥A}
-    {F : Type} [Field F] (h : IsNaturalSection A V ⊥ N (StatedSL 2 F)) (hAK : A ≤ K) :
-    IsNaturalSection A V (V ⊓ centerOf K) N (StatedSL 2 F) := by
-  suffices hZ : V ⊓ centerOf K = ⊥ by rw [hZ]; exact h
-  obtain ⟨-, α, hαs, -, β, -, hβk, hβ⟩ := h
-  refine eq_bot_iff.mpr fun v hv => ?_
-  obtain ⟨hvV, hvK⟩ := Subgroup.mem_inf.mp hv
-  have hvc : v ∈ Subgroup.centralizer (K : Set G) := (Subgroup.mem_inf.mp hvK).2
-  have hfix : ∀ g : StatedSL 2 F, ((g : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F).mulVec
-      (Multiplicative.toAdd (β ⟨v, hvV⟩)) = Multiplicative.toAdd (β ⟨v, hvV⟩) := by
-    intro g
-    obtain ⟨a, rfl⟩ := hαs g
-    have hc : v = a * v * a⁻¹ := by
-      have h1 := Subgroup.mem_centralizer_iff.mp hvc a (hAK a.2)
-      rw [h1, Subgroup.coe_inv, mul_inv_cancel_right]
-    exact (hβ a ⟨v, hvV⟩ ⟨v, hvV⟩ hc).symm
-  set w := Multiplicative.toAdd (β ⟨v, hvV⟩) with hw
-  let u : StatedSL 2 F :=
-    ⟨⟨!![1, 1; 0, 1], !![1, -1; 0, 1], by
-        ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two], by
-        ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]⟩,
-      Subgroup.subset_closure (by simp [Matrix.det_fin_two_of])⟩
-  let ut : StatedSL 2 F :=
-    ⟨⟨!![1, 0; 1, 1], !![1, 0; -1, 1], by
-        ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two], by
-        ext i j; fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two]⟩,
-      Subgroup.subset_closure (by simp [Matrix.det_fin_two_of])⟩
-  have h1 : w 1 = 0 := by
-    have := congrFun (hfix u) 0
-    simp [u, Matrix.mulVec, dotProduct, Fin.sum_univ_two] at this
-    exact this
-  have h0 : w 0 = 0 := by
-    have := congrFun (hfix ut) 1
-    simp [ut, Matrix.mulVec, dotProduct, Fin.sum_univ_two] at this
-    exact this
-  have hw0 : w = 0 := by
-    funext i
-    fin_cases i
-    · exact h0
-    · exact h1
-  have hmem : (⟨v, hvV⟩ : ↥V) ∈ β.ker := by
-    rw [MonoidHom.mem_ker]
-    have : Multiplicative.toAdd (β ⟨v, hvV⟩) = 0 := hw0
-    exact this
-  rw [hβk] at hmem
-  exact Subgroup.mem_subgroupOf.mp hmem
 
 @[expose] def C31Case2 (_H _R M L V K : Subgroup G) : Prop :=
   ∃ n : ℕ, (n = 4 ∨ n = 5) ∧ IsPSL n 2 1 ↥K ∧ IsParabolic2 K (M ⊓ K) ∧

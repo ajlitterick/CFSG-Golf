@@ -189,57 +189,5 @@ theorem reducedNongeneration_centralizer_of_not_le (hp : p.Prime) (hp2 : p ≠ 2
 
 end Centralizer
 
-theorem D1Extremal.exists_reducedNongeneration_of_hasPrimeConstraint {G : Type} [Group G]
-    [Finite G] {p : ℕ} {P : Sylow p G} {M : Subgroup G} (hloc : D1Local p P M)
-    {H R : Subgroup G} (h : D1Extremal p P M H R) (hcon : HasPrimeConstraint (G := H) p) :
-    ∃ z : G, z ∈ R ∧ orderOf z = p ∧ z ∈ Subgroup.centralizer (P : Set G) ∧
-      (∀ y ∈ Subgroup.centralizer (P : Set G), y ∈ (P : Subgroup G) → orderOf y = p →
-        y ∈ Subgroup.zpowers z) ∧
-      ¬ Subgroup.centralizer ({z} : Set G) ≤ M ∧
-      GLBPrimeCore p (Subgroup.centralizer ({z} : Set G)) ≤ M ∧
-      Odd (Nat.card (GLBPrimeCore p (Subgroup.centralizer ({z} : Set G)))) ∧
-      ∃ Pbar : Sylow p (Subgroup.centralizer ({z} : Set G) ⧸
-          primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p),
-        (Pbar : Subgroup _) = ((P : Subgroup G).subgroupOf
-          (Subgroup.centralizer ({z} : Set G))).map (QuotientGroup.mk' (primeComplementCore p)) ∧
-        ReducedNongeneration p (Subgroup.centralizer ({z} : Set G) ⧸
-            primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p) Pbar
-          (((Subgroup.centralizer ({z} : Set G) ⊓ M).subgroupOf
-            (Subgroup.centralizer ({z} : Set G))).map
-              (QuotientGroup.mk' (primeComplementCore p))) ∧
-        (∀ zC : Subgroup.centralizer ({z} : Set G), (zC : G) = z →
-          QuotientGroup.mk' (primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p) zC ∈
-            Subgroup.center (Subgroup.centralizer ({z} : Set G) ⧸
-              primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p) ∧
-          orderOf (QuotientGroup.mk'
-            (primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p) zC) = p) ∧
-        ∃ K : Subgroup (Subgroup.centralizer ({z} : Set G) ⧸
-            primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p),
-          IsComponentOf K ⊤ ∧ K.Normal ∧ ∀ L, IsComponentOf L ⊤ → L = K := by
-  have hp := h.prime
-  obtain ⟨z, hzR, hzp, hzc, huniq, hCM, hcoreM, hodd, hlayer⟩ :=
-    h.exists_central_of_hasPrimeConstraint hloc hcon
-  obtain ⟨Pbar, hPbar, hred, hzbar⟩ := reducedNongeneration_centralizer_of_not_le hp h.ne_two P
-    h.sylow_le h.weakCore_le
-    (h.three_le_pRank.trans (PreuniquenessRankFour.Helpers.pRank_mono p hp h.le_P))
-    hzc hzp hCM hcoreM
-  obtain ⟨hzZ, hzbarp⟩ := hzbar ⟨z, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ rfl
-  obtain ⟨K, hK⟩ := exists_isComponentOf_of_layer_ne_bot hlayer
-  exact ⟨z, hzR, hzp, hzc, huniq, hCM, hcoreM, hodd, Pbar, hPbar, hred, hzbar, K, hK,
-    hred.normal_of_isComponentOf_of_center hzZ hzbarp hK,
-    fun L hL => hred.eq_of_isComponentOf_of_center hzZ hzbarp hL hK⟩
-
-theorem D1Extremal.exists_unique_component_of_hasPrimeConstraint {G : Type} [Group G] [Finite G]
-    {p : ℕ} {P : Sylow p G} {M : Subgroup G} (hloc : D1Local p P M)
-    {H R : Subgroup G} (h : D1Extremal p P M H R) (hcon : HasPrimeConstraint (G := H) p) :
-    ∃ z : G, z ∈ R ∧ orderOf z = p ∧ z ∈ Subgroup.centralizer (P : Set G) ∧
-      ¬ Subgroup.centralizer ({z} : Set G) ≤ M ∧
-      ∃ K : Subgroup (Subgroup.centralizer ({z} : Set G) ⧸
-          primeComplementCore (G := Subgroup.centralizer ({z} : Set G)) p),
-        IsComponentOf K ⊤ ∧ K.Normal ∧
-        ∀ L, IsComponentOf L ⊤ → L = K := by
-  obtain ⟨z, hzR, hzp, hzc, -, hCM, -, -, -, -, -, -, hK⟩ :=
-    h.exists_reducedNongeneration_of_hasPrimeConstraint hloc hcon
-  exact ⟨z, hzR, hzp, hzc, hCM, hK⟩
 
 end CFSG.AGLEmbedding

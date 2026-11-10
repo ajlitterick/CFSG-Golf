@@ -87,30 +87,6 @@ theorem le_P (hR : ReducedAction G S P V) : V ≤ P :=
 theorem sylow_le (hR : ReducedAction G S P V) : S ≤ P :=
   hR.obstruction.sylow.1
 
-theorem toActor_of_offender [Finite G] {A : Subgroup G} (hR : ReducedAction G S P V)
-    (hA : IsReducedOffender S V A) (hsqt : CFSG.IsStronglyQuasithin (autOn P V)) :
-    @FFActor V (commGroupOfElemAbelian hR.isElemAbelian) inferInstance (autOn P V) (autOn S V)
-      (autOn (uniqueMaxOver S P) V) (autOn A V) := by
-  have hV := hR.isElemAbelian
-  have hAP : A ≤ P := hA.1.1.trans hR.sylow_le
-  have hAn : A ≤ Subgroup.normalizer (V : Set G) := hAP.trans hR.le_normalizer
-  have hAe := isElemAbelian2_autOn hV hA.1.2.1 hAn
-  let _ : CommGroup V := commGroupOfElemAbelian hV
-  refine ⟨fun v => ?_, fun N hNH hNn hN2 => ?_, hR.image_sylow, hR.image_not_normal, hR.image_max,
-    hsqt, autOn_le_autOn V hAP, autOn_ne_bot_of_not_le_centralizer hAn hA.2.1, hAe.1, hAe.2, ?_⟩
-  · exact Subtype.ext (by simpa [sq] using hV.2 v v.2)
-  · exact le_bot_iff.mp (hR.image_pCore ▸
-      CFSG.RankThreeCoreUniqueness.Helpers.normal_pGroup_le_pCoreOf 2 N _ hNH hNn hN2)
-  · rw [card_autOn_eq_relIndex hAn, card_fixV_autOn_eq hV hAn]
-    exact hA.2.2.2
-
-theorem toActor [Finite G] (hR : ReducedAction G S P V)
-    (hsqt : CFSG.IsStronglyQuasithin (autOn P V)) :
-    ∃ A : Subgroup G, IsReducedOffender S V A ∧
-      @FFActor V (commGroupOfElemAbelian hR.isElemAbelian) inferInstance (autOn P V) (autOn S V)
-        (autOn (uniqueMaxOver S P) V) (autOn A V) := by
-  obtain ⟨A, hA⟩ := hR.offender
-  exact ⟨A, hA, hR.toActor_of_offender hA hsqt⟩
 
 end ReducedAction
 

@@ -70,45 +70,5 @@ theorem local_involution_hull_two_rank_of_commuting_class
   rw [heqG]
   exact H.mul_mem (point_centralizer_le h hcG) (hRH hxG)
 
-theorem local_class_four_group_hull_central_sylow_and_rank
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (Y : Subgroup G) (hzY : z ∈ Y) (hescapeY : ¬ Y ≤ H)
-    (A : Subgroup G) (hAY : A ≤ Y) (hA : IsElemAbelian 2 A)
-    (hAcard : Nat.card A = 4) (hzA : z ∈ A)
-    (hclass : ∀ a ∈ A, a ≠ 1 → a ∈ involutionPointClass z) :
-    ∃ (T : Sylow 2 Y) (hzT : (⟨z, hzY⟩ : Y) ∈ (T : Subgroup Y)),
-      (⟨(⟨z, hzY⟩ : Y), hzT⟩ : (T : Subgroup Y)) ∈
-        Subgroup.center (T : Subgroup Y) ∧
-      2 ≤ twoRank (involutionPointHull (⟨z, hzY⟩ : Y)) := by
-  obtain ⟨_, hcentralSylow⟩ := involution_point_subgroup_inheritance h Y hzY hescapeY
-  obtain ⟨T, hzT, hzcenterT⟩ := hcentralSylow ⟨S, hzS, hzcenter⟩
-  have hnotle : ¬ A ≤ Subgroup.zpowers z := by
-    intro hle
-    have hbound := Subgroup.card_le_of_le hle
-    rw [hAcard, Nat.card_zpowers, h.distinguished_order] at hbound
-    omega
-  obtain ⟨w, hwA, hwZ⟩ := IsConcreteLE.not_le_iff_exists.mp hnotle
-  have hwone : w ≠ 1 := fun heq => hwZ (heq ▸ (Subgroup.zpowers z).one_mem)
-  have hwz : w ≠ z := fun heq => hwZ (heq ▸ Subgroup.mem_zpowers z)
-  have hcommute : Commute z w := by
-    exact (congrArg Subtype.val
-      (@mul_comm' A _ hA.1 (⟨z, hzA⟩ : A) (⟨w, hwA⟩ : A)))
-  exact ⟨T, hzT, hzcenterT, local_involution_hull_two_rank_of_commuting_class
-    h Y hzY hescapeY (hAY hwA) (hclass w hwA hwone) hcommute hwz⟩
-
-theorem involution_point_class_four_group_hull_rank
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (Y : Subgroup G) (hzY : z ∈ Y) (hescapeY : ¬ Y ≤ H)
-    (A : Subgroup G) (hAY : A ≤ Y) (hA : IsElemAbelian 2 A)
-    (hAcard : Nat.card A = 4) (hzA : z ∈ A)
-    (hclass : ∀ a ∈ A, a ≠ 1 → a ∈ involutionPointClass z) :
-    2 ≤ twoRank (involutionPointHull (⟨z, hzY⟩ : Y)) := by
-  obtain ⟨T, hzT, _, hrank⟩ := local_class_four_group_hull_central_sylow_and_rank
-    h S hzS hzcenter Y hzY hescapeY A hAY hA hAcard hzA hclass
-  exact hrank
 
 end CFSG.ProperTwoGeneratedCore

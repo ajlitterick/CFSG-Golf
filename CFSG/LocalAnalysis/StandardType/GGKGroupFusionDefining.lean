@@ -43,30 +43,5 @@ theorem GGControlsStrongFusion.exists_sylow_normalizer_le {W : Type} [Group W] [
     rwa [inv_inv] at h'
   exact h.mem_of_conj_mem heE he1' (hSH hconj)
 
-@[expose] def GGKGroupFusionDefiningInnerInput : Prop :=
-  ∀ (W : Type) [Group W] [Finite W] (p : ℕ) (H E : Subgroup W) (d : TauCeti.ValidLieTypeIndex),
-    p = d.1.characteristic → GGHypThreeSixteen p H E →
-      LargeEvenLayer (⊤ : Subgroup (GGHypQuot H)) ≠ ⊥ → ¬ CFSG.generalizedFitting W ≤ H →
-        Nonempty (↥(CFSG.generalizedFitting W) ≃* (TauCeti.CFSGIndex.lie d).Group) →
-          E ⊓ CFSG.generalizedFitting W ≠ ⊥ →
-            ∀ S : Subgroup W, S ≤ CFSG.generalizedFitting W → IsPGroup p S →
-              ¬ p ∣ S.relIndex (CFSG.generalizedFitting W) → S ≤ H →
-                Subgroup.normalizer (S : Set W) ≤ H → GGFusionException p H E
-
-@[expose] def GGKGroupFusionDefiningOuterInput : Prop :=
-  ∀ (W : Type) [Group W] [Finite W] (p : ℕ) (H E : Subgroup W) (d : TauCeti.ValidLieTypeIndex),
-    p = d.1.characteristic → GGHypThreeSixteen p H E →
-      LargeEvenLayer (⊤ : Subgroup (GGHypQuot H)) ≠ ⊥ → ¬ CFSG.generalizedFitting W ≤ H →
-        Nonempty (↥(CFSG.generalizedFitting W) ≃* (TauCeti.CFSGIndex.lie d).Group) →
-          E ⊓ CFSG.generalizedFitting W = ⊥ → GGFusionException p H E
-
-theorem ggKGroupFusionAt_lieDefining_of (h₁ : GGKGroupFusionDefiningInnerInput)
-    (h₂ : GGKGroupFusionDefiningOuterInput) : GGKGroupFusionAt GGKFLieDefining := by
-  rintro W _ _ p H E i ⟨d, rfl, hpd⟩ hyp hL hKH he
-  by_cases hEK : E ⊓ CFSG.generalizedFitting W = ⊥
-  · exact h₂ W p H E d hpd hyp hL hKH he hEK
-  · obtain ⟨S, hSK, hSp, hSidx, -, hSH, hNH⟩ :=
-      hyp.1.2.2.2.2.exists_sylow_normalizer_le hyp.1.1 hyp.1.2.2.1 hEK
-    exact h₁ W p H E d hpd hyp hL hKH he hEK S hSK hSp hSidx hSH hNH
 
 end CFSG.StandardType

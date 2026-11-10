@@ -27,8 +27,6 @@ theorem o_lt : ∀ c ∈ o1 ++ o2, c < 2 ^ 11 ∧ c ≠ 0 :=
 theorem o_cover : ∀ c < 2 ^ 11, c ≠ 0 → c ∈ o1 ∨ c ∈ o2 :=
   Certificates.certificate4018.2.2.2.2.1
 
-theorem o_disj : ∀ c ∈ o1, c ∉ o2 :=
-  Certificates.certificate4018.2.2.2.2.2.1
 
 theorem o_roots : 1 ∈ o1 ∧ 3 ∈ o2 :=
   Certificates.certificate4018.2.2.2.2.2.2.1
@@ -40,8 +38,6 @@ theorem o_closed :
 theorem tp_period : ∀ c < 2 ^ 11, actT (tp 23) c = c :=
   Certificates.certificate4018.2.2.2.2.2.2.2.2.1
 
-theorem tp_ok : ∀ n < 23, lenOK (tp n) = true :=
-  Certificates.certificate4018.2.2.2.2.2.2.2.2.2.1
 
 theorem kcomb_kinv :
     ∀ c < 2 ^ 11, kcomb (kinv.getD c 0) = c ∧ kinv.getD c 0 < 2 ^ 11 :=

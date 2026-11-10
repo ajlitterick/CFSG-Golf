@@ -81,10 +81,6 @@ theorem witOK_facts
   rw [map_mul, map_mul, map_mul, hg', hs, hgi, ht, rowsMatrix_mulRows, rowsMatrix_mulRows,
     rowsMatrix_mulRows]
 
-theorem ncard_orbit_code {c n : ℕ} (h : orbitCheck c n [] = true) :
-    (Set.range fun g : NativeSporadic.Co1 => co1Act g (toVecD 24 c)).ncard = n := by
-  rw [range_co1Act]
-  exact ncard_orbit_of_check h
 
 theorem family_bound_set {v : Vec24} {s : NativeSporadic.Co1}
     (hsv : co1Act s v = v) {n : ℕ} {f : ℕ → NativeSporadic.Co1}
@@ -95,37 +91,6 @@ theorem family_bound_set {v : Vec24} {s : NativeSporadic.Co1}
       Nat.card NativeSporadic.Co1 * F :=
   card_centralizer_bound hN hsv f hfinj hf hF
 
-theorem family_bound
-    {G Gi : Array (Array ℕ)} {c : ℕ} (hc : c < 2 ^ 24)
-    (kk : ℕ → NativeSporadic.Co1) (hk : ∀ l < G.size, matHom (kk l) = rowsMatrix 24 G[l]!)
-    (hki : ∀ l < G.size, mulRows 24 G[l]! Gi[l]! = idRows 24)
-    (hfix : ∀ l < G.size, isFixedN (transposeRows 24 G[l]!) c = true)
-    {s : NativeSporadic.Co1} {S : Array ℕ} (hs : matHom s = rowsMatrix 24 S)
-    (hsfix : isFixedN (transposeRows 24 S) c = true) {n : ℕ} (hn : conjCheck G Gi S n = true)
-    {N F : ℕ} (hN : (Set.range fun g : NativeSporadic.Co1 => co1Act g (toVecD 24 c)).ncard = N)
-    (hF : {w ∈ Set.range (fun g : NativeSporadic.Co1 => co1Act g (toVecD 24 c)) |
-      co1Act s w = w}.ncard ≤ F) :
-    Nat.card (Subgroup.centralizer ({s} : Set NativeSporadic.Co1)) * n * N ≤
-      Nat.card NativeSporadic.Co1 * F := by
-  simp only [conjCheck, Bool.and_eq_true, decide_eq_true_eq] at hn
-  obtain ⟨hct, hle⟩ := hn
-  obtain ⟨f, hf1, hf2⟩ := ctOK_sound hct kk hk hki s hs
-  have hgen : ∀ l < G.size, co1Act (kk l) (toVecD 24 c) = toVecD 24 c := by
-    intro l hl
-    rw [co1Act_eq_mulVec, hk l hl]
-    exact (isFixedN_iff G[l]! hc).1 (hfix l hl)
-  have hcl : Subgroup.closure (kk '' {l | l < G.size}) ≤ stabOf (toVecD 24 c) := by
-    rw [Subgroup.closure_le]
-    rintro _ ⟨l, hl, rfl⟩
-    exact hgen l hl
-  have hsv : co1Act s (toVecD 24 c) = toVecD 24 c := by
-    rw [co1Act_eq_mulVec, hs]
-    exact (isFixedN_iff S hc).1 hsfix
-  refine card_centralizer_bound hN hsv f
-    (fun i hi j hj e => hf2 i (lt_of_lt_of_le hi hle) j (lt_of_lt_of_le hj hle) e)
-    (fun i hi => ?_) hF
-  obtain ⟨⟨x, hx, hfx⟩, -⟩ := hf1 i (lt_of_lt_of_le hi hle)
-  exact ⟨x, hcl hx, hfx⟩
 
 @[expose] def RepFacts (sA sB sC : NativeSporadic.Co1) : Prop :=
   orderOf sA = 2 ∧ orderOf sB = 2 ∧ orderOf sC = 2 ∧

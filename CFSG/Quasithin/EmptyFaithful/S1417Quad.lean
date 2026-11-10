@@ -21,7 +21,6 @@ theorem qK_polar_add₁ : ∀ a b c : F2sq,
 theorem qK_polar_add₂ : ∀ a b c : F2sq,
     quadPolar qK a (b * c) = quadPolar qK a b + quadPolar qK a c := by decide
 
-theorem qK_nondeg : ∀ a : F2sq, (∀ b : F2sq, quadPolar qK a b = 0) → a = 1 := by decide
 
 theorem quadPolar_qF (x y : F2sq × F2sq) :
     quadPolar qF x y = quadPolar qK x.1 y.1 + quadPolar qK x.2 y.2 := by

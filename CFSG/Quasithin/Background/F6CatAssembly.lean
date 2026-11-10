@@ -386,18 +386,6 @@ theorem isF618CaseOrientedCat_of_oriented (h : IsGoldschmidtTriple G₁ G₂)
 
 end Cases
 
-theorem f618QuasisimpleCaseCat_of (I : F618QSInputs) : F618QuasisimpleCaseCat := by
-  intro D _ _ G₁ G₂ h hX hF hL
-  have hS := f618RecogSetting_of I.theoremC hX hF hL
-  obtain ⟨X, _, _, -, ⟨e⟩⟩ := hX
-  have hA : IsGoldschmidtAmalgam G₁ G₂ := ⟨h, (remark_f6_15 e).2⟩
-  rcases I.goldschmidt D G₁ G₂ hA with ho | ho
-  · exact Or.inl (isF618CaseOrientedCat_of_oriented I h hS ho)
-  · exact Or.inr (isF618CaseOrientedCat_of_oriented I h.symm hS ho)
-
-theorem theoremF618Cat_of (hNQ : F617NonquasisimpleCaseCat) (I : F618QSInputs) :
-    TheoremF618Cat :=
-  theoremF618Cat_of_cases hNQ (f618QuasisimpleCaseCat_of I)
 
 end F6
 

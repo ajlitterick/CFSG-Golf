@@ -66,18 +66,5 @@ theorem stronglyEmbedded_sylow_inheritance (subgroup : Subgroup G)
   rw [← hmap, Subgroup.map_comap_eq, Subgroup.subtype_range,
     inf_eq_left.mpr hambient_le]
 
-theorem stronglyEmbedded_index_odd (subgroup : Subgroup G)
-    (hstrong : IsStronglyEmbedded subgroup) : Odd subgroup.index := by
-  classical
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let sylow : Sylow 2 subgroup := Classical.choice inferInstance
-  obtain ⟨ambient, hmap⟩ := stronglyEmbedded_sylow_inheritance subgroup hstrong sylow
-  have hle : (ambient : Subgroup G) ≤ subgroup := by
-    rw [← hmap]
-    exact Subgroup.map_subtype_le _
-  apply Nat.not_even_iff_odd.mp
-  intro heven
-  exact ambient.not_dvd_index
-    ((even_iff_two_dvd.mp heven).trans (Subgroup.index_dvd_of_le hle))
 
 end CFSG.DisconnectedInvolutionGraph.Helpers

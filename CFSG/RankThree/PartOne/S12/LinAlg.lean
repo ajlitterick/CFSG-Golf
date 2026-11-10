@@ -184,8 +184,6 @@ theorem mem_bsub (B : Subgroup G) (v : Fin n → ZMod p) :
 @[expose] def bsubEquiv : {B : Subgroup G // B ≤ E} ≃o Submodule (ZMod p) (Fin n → ZMod p) :=
   (Subgroup.MapSubtype.orderIso E).symm.trans (subSpaceEquiv f)
 
-theorem bsubEquiv_apply (B : {B : Subgroup G // B ≤ E}) : bsubEquiv f B = bsub f B.1 :=
-  rfl
 
 theorem bsub_le_bsub_iff {B B' : Subgroup G} (hB : B ≤ E) (hB' : B' ≤ E) :
     bsub f B ≤ bsub f B' ↔ B ≤ B' :=
@@ -291,9 +289,6 @@ theorem coordSub_apply (φ : MulAut E) (v : Fin n → ZMod p) :
     coordSub f φ v = coordLin f φ v - v :=
   rfl
 
-theorem coordSub_eq (φ : MulAut E) :
-    coordSub f φ = (coordLin f φ : (Fin n → ZMod p) →ₗ[ZMod p] (Fin n → ZMod p)) - 1 :=
-  rfl
 
 theorem apply_coordSub (φ : MulAut E) (v : Fin n → ZMod p) :
     f (Multiplicative.ofAdd (coordSub f φ v)) = φ (f (Multiplicative.ofAdd v)) *
@@ -342,9 +337,6 @@ theorem natCard_autMoved (φ : MulAut E) :
     Nat.card (autMoved E φ) = p ^ Module.finrank (ZMod p) (LinearMap.range (coordSub f φ)) := by
   rw [natCard_eq_pow_finrank_subSpace f, subSpace_autMoved f]
 
-theorem natCard_autFixed (φ : MulAut E) :
-    Nat.card (autFixed E φ) = p ^ Module.finrank (ZMod p) (LinearMap.ker (coordSub f φ)) := by
-  rw [natCard_eq_pow_finrank_subSpace f, subSpace_autFixed f]
 
 theorem bsub_autMovedInG (φ : MulAut E) :
     bsub f (autMovedInG E φ) = LinearMap.range (coordSub f φ) := by
@@ -352,11 +344,6 @@ theorem bsub_autMovedInG (φ : MulAut E) :
     E.subtype_injective]
   exact subSpace_autMoved f φ
 
-theorem bsub_autFixedInG (φ : MulAut E) :
-    bsub f (autFixedInG E φ) = LinearMap.ker (coordSub f φ) := by
-  rw [bsub, autFixedInG, Subgroup.subgroupOf, Subgroup.comap_map_eq_self_of_injective
-    E.subtype_injective]
-  exact subSpace_autFixed f φ
 
 theorem finrank_range_add_finrank_ker (φ : MulAut E) :
     Module.finrank (ZMod p) (LinearMap.range (coordSub f φ)) +
@@ -370,11 +357,6 @@ theorem natCard_eq_pow_of_coords : Nat.card E = p ^ n := by
   change Nat.card (Fin n → ZMod p) = p ^ n
   rw [Nat.card_fun, Nat.card_zmod, Nat.card_fin]
 
-include f in
-theorem natCard_autMoved_mul_natCard_autFixed (φ : MulAut E) :
-    Nat.card (autMoved E φ) * Nat.card (autFixed E φ) = Nat.card E := by
-  rw [natCard_autMoved f, natCard_autFixed f, ← pow_add, finrank_range_add_finrank_ker f,
-    natCard_eq_pow_of_coords f]
 
 theorem autMoved_le_autFixed_iff (φ : MulAut E) :
     autMoved E φ ≤ autFixed E φ ↔ coordSub f φ ∘ₗ coordSub f φ = 0 := by
@@ -436,8 +418,6 @@ variable {E : Subgroup G} (f : Multiplicative (Fin n → ZMod p) ≃* E)
 @[expose] noncomputable def coordGL : MulAut E →* GL (Fin n) (ZMod p) :=
   (toGL (p := p) (n := n)).toMonoidHom.comp (coordHom f)
 
-theorem coordGL_apply (σ : MulAut E) : coordGL f σ = toGL (coordHom f σ) :=
-  rfl
 
 theorem coordGL_mulVec (σ : MulAut E) (v : Fin n → ZMod p) :
     (coordGL f σ : Matrix (Fin n) (Fin n) (ZMod p)) *ᵥ v =
@@ -450,13 +430,6 @@ theorem coordGL_injective : Function.Injective (coordGL f) :=
 @[expose] noncomputable def torusWeylGL : Subgroup (GL (Fin n) (ZMod p)) :=
   (torusWeyl E).map (coordGL f)
 
-theorem mem_torusWeylGL_iff (g : GL (Fin n) (ZMod p)) :
-    g ∈ torusWeylGL f ↔ ∃ φ ∈ torusWeyl E, coordGL f φ = g :=
-  Subgroup.mem_map
-
-theorem coordGL_mem_torusWeylGL_iff (φ : MulAut E) :
-    coordGL f φ ∈ torusWeylGL f ↔ φ ∈ torusWeyl E :=
-  Subgroup.mem_map_iff_mem (coordGL_injective f)
 
 @[expose] noncomputable def wActionGL : Subgroup.normalizer (E : Set G) →* GL (Fin n) (ZMod p) :=
   (coordGL f).comp E.normalizerMonoidHom
@@ -490,14 +463,6 @@ theorem isAutReflection_iff_matrix (φ : MulAut E) :
     orderOf_injective (coordHom f) (coordHom_injective f) φ,
     orderOf_injective (coordGL f) (coordGL_injective f) φ]
 
-theorem isAutTransvection_iff_matrix (φ : MulAut E) :
-    IsAutTransvection p E φ ↔ coordGL f φ ≠ 1 ∧
-      ((coordGL f φ : Matrix (Fin n) (Fin n) (ZMod p)) - 1).rank = 1 ∧
-      ((coordGL f φ : Matrix (Fin n) (Fin n) (ZMod p)) - 1) *
-        ((coordGL f φ : Matrix (Fin n) (Fin n) (ZMod p)) - 1) = 0 := by
-  rw [isAutTransvection_iff f, rank_coordGL_sub_one f, coordGL_sub_one_mul_self_eq_zero_iff f,
-    ← map_one (coordGL f), (coordGL_injective f).ne_iff, ← map_one (coordHom f),
-    (coordHom_injective f).ne_iff]
 
 theorem isAutTransvection_iff_matrix_of_rank (φ : MulAut E) :
     IsAutTransvection p E φ ↔
@@ -566,22 +531,6 @@ theorem pCore_eq_bot_iff_of_mulEquiv {H K : Type*} [Group H] [Group K] (p : ℕ)
   rw [← CFSG.pCore_map_iso p e]
   exact (Subgroup.map_eq_bot_iff_of_injective _ e.injective).symm
 
-theorem torusWeylHasPCore_iff :
-    torusWeylHasPCore p E ↔ CFSG.pCore p ↥(torusWeylGL f) ≠ ⊥ :=
-  not_congr (pCore_eq_bot_iff_of_mulEquiv p (torusWeylEquiv f))
-
-theorem torusHasTransvection_iff :
-    torusHasTransvection p E ↔ ∃ g ∈ torusWeylGL f, g ≠ 1 ∧
-      ((g : Matrix (Fin n) (Fin n) (ZMod p)) - 1).rank = 1 ∧
-      ((g : Matrix (Fin n) (Fin n) (ZMod p)) - 1) * ((g : Matrix (Fin n) (Fin n) (ZMod p)) - 1) =
-        0 := by
-  constructor
-  · rintro ⟨φ, hφ, ht⟩
-    exact ⟨coordGL f φ, (coordGL_mem_torusWeylGL_iff f φ).mpr hφ,
-      (isAutTransvection_iff_matrix f φ).mp ht⟩
-  · rintro ⟨g, hg, h⟩
-    obtain ⟨φ, hφ, rfl⟩ := (mem_torusWeylGL_iff f g).mp hg
-    exact ⟨φ, hφ, (isAutTransvection_iff_matrix f φ).mpr h⟩
 
 end Transport
 

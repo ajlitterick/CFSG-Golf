@@ -311,15 +311,6 @@ theorem typeC3GenLocal_of_at (h : TypeC3GenAt) : TypeC3GenLocal := by
     rw [axisOf_rotate hd, hfr] at this
     exact this
 
-theorem typeC3ClassicalBalance_of_kg1 (hKG1 : LieLocallyTwoBalanced3)
-    (hM11 : M11LocallyTwoBalanced) : TypeC3ClassicalBalance := by
-  intro G _ _ _ hnab K z hz hBelow h3 h4 hΔ hB hA2 K₁ K₂ z₁ z₂ he a _ ha1
-  have hΩ : InClass3 (conjClass3 K) := inClass3_conjugates hz
-  have hIH : LocalLieSystems3 (conjClass3 K) := localLieSystems3_of_cit3Below hΩ hBelow
-  have hnc : a ∉ Subgroup.center G := fun hbc =>
-    not_subset_center_of_ne_one hnab ha1 (Set.singleton_subset_iff.mpr hbc)
-  exact componentBalanceAt_of_localLieSystems3 CFSG.ClassicalInvolution.ModelFacts.modelClauseZero
-    m11Facts hKG1 hM11 hΩ hIH (fun h => hnc (h rfl))
 
 theorem typeC3Alpha_of_inputs (hBal : TypeC3ClassicalBalance) (hTri : TypeC3Triangle)
     (hS : TypeC3SDatum) (hGen : TypeC3Gen) : TypeC3Alpha := by
@@ -341,9 +332,6 @@ theorem typeC3Alpha_of_inputs (hBal : TypeC3ClassicalBalance) (hTri : TypeC3Tria
   have hA : EdgeAxis3 z₁ z₂ (axisOf z₁ z₂ t₁ t₂ t₃) := ⟨pair_le_axis z₁ z₂ t₁ t₂ t₃, hbal, hgen⟩
   exact hA.alphaCore_eq_bot hnab (hA.pair_mem he)
 
-theorem typeC3Alpha_of_kg1_inputs (hKG1 : LieLocallyTwoBalanced3) (hM11 : M11LocallyTwoBalanced)
-    (hTri : TypeC3Triangle) (hS : TypeC3SDatum) (hGen : TypeC3Gen) : TypeC3Alpha :=
-  typeC3Alpha_of_inputs (typeC3ClassicalBalance_of_kg1 hKG1 hM11) hTri hS hGen
 
 structure TypeC3Inputs : Prop where
   classicalBalance : TypeC3ClassicalBalance
@@ -357,17 +345,5 @@ theorem TypeC3Inputs.alpha (h : TypeC3Inputs) : TypeC3Alpha :=
     (typeC3SDatum_of_datumL (typeC3SDatumL_of_s h.sDatum))
     (typeC3Gen_of_local (typeC3GenLocal_of_at h.gen))
 
-theorem TypeC3Inputs.smallTypeC3 (h : TypeC3Inputs) : SmallTypeC3I :=
-  smallTypeC3_of_alpha_rec h.alpha h.recognition
-
-theorem TypeC3Inputs.of_finest (hKG1 : LieLocallyTwoBalanced3) (hM11 : M11LocallyTwoBalanced)
-    (hProd : TypeC3Prod) (hS : TypeC3SDatumS) (hGen : TypeC3GenAt) (hRec : TypeC3Rec) :
-    TypeC3Inputs :=
-  ⟨typeC3ClassicalBalance_of_kg1 hKG1 hM11, hProd, hS, hGen, hRec⟩
-
-theorem smallTypeC3_of_finest (hKG1 : LieLocallyTwoBalanced3) (hM11 : M11LocallyTwoBalanced)
-    (hProd : TypeC3Prod) (hS : TypeC3SDatumS) (hGen : TypeC3GenAt) (hRec : TypeC3Rec) :
-    SmallTypeC3I :=
-  (TypeC3Inputs.of_finest hKG1 hM11 hProd hS hGen hRec).smallTypeC3
 
 end CFSG.ClassicalInvolution.Q3.Q3C

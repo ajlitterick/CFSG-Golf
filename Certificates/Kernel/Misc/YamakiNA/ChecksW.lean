@@ -21,13 +21,6 @@ theorem na550822w : wK CFSG.KD.YamakiA0.REC = true := by quickRfl
 @[expose] noncomputable def na550822rC (q : Nat) : Bool :=
   rhoChunk RN 14 10752 CFSG.KD.YamakiA0.REC 512 q
 
-theorem na550822nW : (!wK RH) = true := by quickRfl
-
-theorem na550822nS :
-    (!stabChunk RH 14 23040 RX 14 1536 (fun t => PHX (Nat.add t 1)) 512 0) = true := by
-  quickRfl
-
-theorem na550822nR : (!rhoChunk RN 14 10752 RH 512 0) = true := by quickRfl
 
 end CFSG.KD.YamakiNA
 

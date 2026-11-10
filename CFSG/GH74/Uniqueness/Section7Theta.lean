@@ -12,9 +12,6 @@ variable {X : Type} [Group X] [Finite X]
 
 namespace Section7Theta
 
-omit [Finite X] in
-theorem oPrimePrime_eq_corollary64Theta (p : ℕ) (D : Subgroup X) :
-    oPrimePrime p D = CFSG.BenderSuzuki.corollary64Theta p D := rfl
 
 omit [Finite X] in
 theorem oPrimePrime_le_pPrimeCoreIn (p : ℕ) (D : Subgroup X) : oPrimePrime p D ≤ pPrimeCoreIn D :=

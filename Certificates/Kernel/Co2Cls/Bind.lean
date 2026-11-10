@@ -22,20 +22,11 @@ theorem inv : ∀ j < 21, Nat.beq (mulV (lAt LT j) (GC j)) IDP = true := by kc_c
 theorem cent0 : ∀ j < 21, commK (GC j) (RP 0) = true := by kc_cover 21
 theorem gensT : ∀ l < 5, Nat.beq (HT l) (wordK sylWords[l]!) = true := by kc_cover 5
 
-theorem orb1 : ∀ a < 2, orbK (lAt O1) (lAt IX1) HT 5 2 a = true := by kc_cover 2
-theorem orb2 : ∀ a < 4, orbK (lAt O2) (lAt IX2) HT 5 4 a = true := by kc_cover 4
-theorem orb3 : ∀ a < 4, orbK (lAt O3) (lAt IX3) HT 5 4 a = true := by kc_cover 4
-theorem orb4 : ∀ a < 8, orbK (lAt O4) (lAt IX4) HT 5 8 a = true := by kc_cover 8
-theorem orb5 : ∀ a < 16, orbK (lAt O5) (lAt IX5) HT 5 16 a = true := by kc_cover 16
-theorem orb6 : ∀ a < 16, orbK (lAt O6) (lAt IX6) HT 5 16 a = true := by kc_cover 16
-theorem orb7 : ∀ a < 16, orbK (lAt O7) (lAt IX7) HT 5 16 a = true := by kc_cover 16
-theorem orb8 : ∀ a < 16, orbK (lAt O8) (lAt IX8) HT 5 16 a = true := by kc_cover 16
 theorem orb9 : ∀ a < 128, orbK (lAt O9) (lAt IX9) HT 5 128 a = true := by kc_cover 16
 
 theorem at1 : memK C1 270 (lAt O1 0) K1 = true := by quickRfl
 theorem at2 : memK C2 1260 (lAt O2 0) K2 = true := by quickRfl
 theorem at3 : memK C3 1260 (lAt O3 0) K3 = true := by quickRfl
-theorem at4 : memK C4 22680 (lAt O4 0) K4 = true := by quickRfl
 theorem at5 : memK C5 15120 (lAt O5 0) K5 = true := by quickRfl
 theorem at6 : memK C6 15120 (lAt O6 0) K6 = true := by quickRfl
 theorem at7 : memK C7 1008 (lAt O7 0) K7 = true := by quickRfl

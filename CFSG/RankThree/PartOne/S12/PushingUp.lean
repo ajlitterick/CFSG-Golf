@@ -94,28 +94,6 @@ structure InClassG (S : Type) [Group S] (H : Type) [Group H] [Finite H] (ι : S 
 @[expose] def omegaOneCenterIn {G : Type} [Group G] (T : Subgroup G) : Subgroup G :=
   omegaOne 2 ((Subgroup.center T).map T.subtype)
 
-@[expose] def PushingUpWhenever {G : Type} [Group G] (S T₁ T₂ : Subgroup G) : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (ι : ↥S →* H), InClassG ↥S H ι →
-    ¬ InClassX ↥(oResidualTwo H) →
-      ((T₁.subgroupOf S).map ι).Normal ∨ (T₂.subgroupOf S).map ι ≤ Subgroup.center H
-
-@[expose] def PushingUpTheoremThreeAsPrinted : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], CFSG.Assembly.IsCharTwoType G → ∀ T : Sylow 2 G,
-    ∀ T₁ T₂ : Subgroup G, T₁ ≤ pushingUpS (T : Subgroup G) →
-      (T₁.subgroupOf (pushingUpS (T : Subgroup G))).Characteristic →
-      T₂ ≤ omegaOneCenterIn (T : Subgroup G) →
-      PushingUpWhenever (pushingUpS (T : Subgroup G)) T₁ T₂ →
-      Subgroup.centralizer (T₂ : Set G) ⊔ Subgroup.normalizer (T₁ : Set G) ≠ ⊤ →
-      (pCore 2 G ≠ ⊥ → ∃ (n : ℕ) (L : Fin n → Subgroup G), (∀ i, IsBlockInX (L i)) ∧
-        Subgroup.centralizer (T₂ : Set G) ⊔ Subgroup.normalizer (T₁ : Set G) ⊔ ⨆ i, L i = ⊤) ∧
-      (IsSimpleGroup G →
-        (∃ n : ℕ, 1 ≤ n ∧ (Nonempty (G ≃* projSL 2 (GaloisField 2 n)) ∨
-          Nonempty (G ≃* projSU 3 2 n) ∨ Nonempty (G ≃* projSL 3 (GaloisField 2 n)) ∨
-          Nonempty (G ≃* projSp 2 (GaloisField 2 n)))) ∨
-        (∃ (m : ℕ) (hm : (TauCeti.LieTypeIndex.suzuki m).Valid),
-          Nonempty (G ≃* (TauCeti.CFSGIndex.lie ⟨.suzuki m, hm⟩).Group)) ∨
-        ∀ P : Subgroup G, IsPGroup 2 P →
-          ∃ s : Finset G, s.card ≤ 4 ∧ Subgroup.closure (s : Set G) = P)
 
 @[expose] def KFCGTList : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], CFSG.Assembly.IsCharTwoType G →

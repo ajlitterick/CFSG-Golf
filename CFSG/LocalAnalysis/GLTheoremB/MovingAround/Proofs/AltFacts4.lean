@@ -110,9 +110,6 @@ theorem eq_one_of_comm (hp : p.Prime) {a u : Wr D p} (ha : a.right ≠ 1) (hu : 
     exact ⟨f⁻¹, F.inv_mem hf, by simp [hfr],
       by rw [left_inv_of_right hr, left_inv_of_right hfr, hk]⟩
 
-theorem mem_projProd {F : Subgroup (Wr D p)} {w : Wr D p} :
-    w ∈ projProd F ↔ w.right = 1 ∧ ∀ k, ∃ f ∈ F, f.right = 1 ∧ w.left k = f.left k :=
-  Iff.rfl
 
 theorem projProd_isElemAbelian {F : Subgroup (Wr D p)} (hF : IsElemAbelian p F) :
     IsElemAbelian p (projProd F) := by
@@ -1230,14 +1227,6 @@ theorem input1210b_wreathRk_holds :
   ·
     rw [card_liftSub hΘ hHr, card_projProd hpp ha'1 hF'b hF'a, hF'c, ← pow_mul]
 
-theorem input1210b_wreath_holds : Lemma1210.Input1210b_wreath := by
-  intro G _ _ m p B M E A N D h K hK htype hdata
-  obtain ⟨F, a, H, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, -, -⟩ :=
-    input1210b_wreathRk_holds G h hK htype hdata
-  exact ⟨F, a, H, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩
-
-theorem lemma1210_b_holds : Lemma1210_bStatement :=
-  lemma1210_b_of_inputs input1210b_wreath_holds
 
 end Main
 

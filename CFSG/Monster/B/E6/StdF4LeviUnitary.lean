@@ -127,16 +127,6 @@ theorem finrank_range_sub_one_eq_rep
     rfl
   rw [← h1, Subgroup.coe_mul, Subgroup.coe_mul, Subgroup.coe_inv, finrank_range_conj_sub_one]
 
-theorem finrank_range_sub_one_of_invRank_one
-    {l : stdLevi firstJ} {A : SU frobeniusF4 6}
-    (hA : A ^ 2 = 1) (hA1 : A ≠ 1) (hl : leviPSU l = (A : ProjSU)) (hk : invRank A = 1) :
-    finrank K (LinearMap.range
-      (((l : ModGL Tag.E6 K) : Module.End K (RootModule Tag.E6 K)) - 1)) = 22 := by
-  rw [finrank_range_sub_one_eq_rep hA hA1 hl, hk]
-  change finrank K (LinearMap.range (((leviOf rep₁ : stdLevi firstJ) : ModGL Tag.E6 K) - 1 :
-    Module.End K (RootModule Tag.E6 K))) = 22
-  rw [coe_leviOf_rep₁, coe_xUnit]
-  exact finrank_range_xOp_three
 
 theorem finrank_range_sub_one_of_invRank_two
     {l : stdLevi firstJ} {A : SU frobeniusF4 6}
@@ -174,9 +164,6 @@ theorem betaGL_mem_stdLevi
   right_inv l := Subtype.ext (betaGL_betaGL l)
   map_mul' l l' := Subtype.ext (map_mul betaGL (l : ModGL Tag.E6 K) l')
 
-theorem coe_betaLevi
-    (l : stdLevi firstJ) :
-    ((betaLevi l : stdLevi firstJ) : ModGL Tag.E6 K) = betaGL l := rfl
 
 theorem su6Equiv_barSU (h : SU6) : su6Equiv (barSU h) = UnitarySix.betaSU (su6Equiv h) := by
   refine SU_ext ?_

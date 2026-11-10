@@ -47,19 +47,6 @@ theorem sig_not_three_dvd {G : Type*} [Group G] [Finite G] {X : Subgroup G} (hX 
   have := Nat.Prime.dvd_of_dvd_pow Nat.prime_three h
   omega
 
-theorem sig_length_le_card {H : Subgroup G12} {L : List (List ℕ)} (hL : L.Nodup)
-    (hmem : ∀ t ∈ L, ∃ g ∈ H, tbl g.1 = t) : L.length ≤ Nat.card H := by
-  classical
-  choose f hfH hft using hmem
-  let e : {t // t ∈ L} → H := fun t => ⟨f t.1 t.2, hfH t.1 t.2⟩
-  have hinj : Function.Injective e := by
-    intro s t hst
-    have h := congrArg (fun g : H => tbl g.1.1) hst
-    change tbl (f s.1 s.2).1 = tbl (f t.1 t.2).1 at h
-    rw [hft, hft] at h
-    exact Subtype.ext h
-  rw [← card_mem_list L hL]
-  exact Nat.card_le_card_of_injective e hinj
 
 theorem sig_tbl_mem_of_card {H : Subgroup G12} {L : List (List ℕ)} (hL : L.Nodup)
     (hmem : ∀ t ∈ L, ∃ g ∈ H, tbl g.1 = t) (hcard : Nat.card H ≤ L.length) :

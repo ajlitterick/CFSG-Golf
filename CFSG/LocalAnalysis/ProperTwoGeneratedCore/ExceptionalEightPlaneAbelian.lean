@@ -99,8 +99,6 @@ theorem planeD_comm {x y : Y} (hx : x ∈ planeD B c₁ c₂) (hy : y ∈ planeD
   · rw [← mul_assoc, ← mul_assoc, ← hx₁, mul_assoc c₁, ← hx₂, mul_assoc, mul_assoc, hxb]
     group
 
-theorem isMulCommutative_planeD : IsMulCommutative (planeD B c₁ c₂) :=
-  ⟨⟨fun a b => Subtype.ext (h.planeD_comm hl a.2 b.2)⟩⟩
 
 theorem exists_planeD_of_tau {b : Y} (hb : b ∈ B) :
     ∃ d ∈ planeD B c₁ c₂, planeTau u₀ d = b := by
@@ -240,41 +238,6 @@ theorem conj_mem_planeD [Finite Y] {n d : Y} (hn : n ∈ Subgroup.normalizer (B 
   rw [← hA]
   exact ⟨d, hd, rfl⟩
 
-omit [U.Normal] [IsElementaryAbelian 2 U] h hl in
-theorem planeD_le_normalizer : planeD B c₁ c₂ ≤ Subgroup.normalizer (B : Set Y) :=
-  (planeD_le_centralizer B c₁ c₂).trans centralizer_le_normalizer
-
-theorem normal_planeD_subgroupOf_normalizer [Finite Y] :
-    ((planeD B c₁ c₂).subgroupOf (Subgroup.normalizer (B : Set Y))).Normal := by
-  refine ⟨fun d hd n => ?_⟩
-  rw [Subgroup.mem_subgroupOf] at hd ⊢
-  exact h.conj_mem_planeD hl n.2 hd
-
-theorem characteristic_planeD [Finite Y] :
-    ((planeD B c₁ c₂).subgroupOf (Subgroup.centralizer (B : Set Y))).Characteristic := by
-  set C := Subgroup.centralizer (B : Set Y) with hC
-  set D' := (planeD B c₁ c₂).subgroupOf C with hD'
-  rw [Subgroup.characteristic_iff_map_eq]
-  intro φ
-  let A : Subgroup Y := (D'.map φ.toMonoidHom).map C.subtype
-  have hAC : A ≤ C := Subgroup.map_subtype_le _
-  have hAab : IsMulCommutative A := by
-    refine ⟨⟨fun a b => Subtype.ext ?_⟩⟩
-    obtain ⟨x, ⟨x', hx', hxx⟩, hxa⟩ := a.2
-    obtain ⟨y, ⟨y', hy', hyy⟩, hyb⟩ := b.2
-    simp only [Subgroup.coe_mul]
-    rw [← hxa, ← hyb, ← hxx, ← hyy, ← map_mul, ← map_mul, ← map_mul, ← map_mul]
-    congr 2
-    exact Subtype.ext (h.planeD_comm hl hx' hy')
-  have hA16 : Nat.card A = 16 := by
-    rw [Subgroup.card_map_of_injective C.subtype_injective,
-      Subgroup.card_map_of_injective φ.injective,
-      Nat.card_congr (Subgroup.subgroupOfEquivOfLe (planeD_le_centralizer B c₁ c₂)).toEquiv,
-      h.card_planeD hl]
-  have hA := h.eq_planeD_of_abelian hl hAC hAab hA16
-  calc D'.map φ.toMonoidHom = ((D'.map φ.toMonoidHom).map C.subtype).comap C.subtype :=
-        (Subgroup.comap_map_eq_self_of_injective C.subtype_injective _).symm
-    _ = D' := by rw [show (D'.map φ.toMonoidHom).map C.subtype = planeD B c₁ c₂ from hA]; rfl
 
 end PlaneHyp
 

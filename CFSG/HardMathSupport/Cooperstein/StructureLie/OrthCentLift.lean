@@ -107,14 +107,5 @@ theorem peel_shape [CharP F 2] (hd : ∀ p ∈ P, bar p ∉ P) (hS : Shape G P) 
       · rw [if_neg i1, if_neg i2]
         ring
 
-@[expose] def pSet (Aset : Set (Fin n)) (σ : Fin n → Bool) : Set (Fin n ⊕ Fin n) :=
-  {p | ∃ a ∈ Aset, p = kap a (σ a)}
-
-theorem pSet_disj (Aset : Set (Fin n)) (σ : Fin n → Bool) :
-    ∀ p ∈ pSet Aset σ, bar p ∉ pSet Aset σ := by
-  rintro p ⟨a, ha, rfl⟩ ⟨b, hb, h⟩
-  rw [bar_kap] at h
-  obtain ⟨rfl, h2⟩ := kap_inj h
-  cases e : σ a <;> simp_all
 
 end CFSG.HardMathSupport.Cooperstein.StructureLie

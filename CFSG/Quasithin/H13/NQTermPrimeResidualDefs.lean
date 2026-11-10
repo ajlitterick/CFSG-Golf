@@ -33,15 +33,5 @@ structure QTTMaxNQPrime [Finite G] (T L M D : Subgroup G) (p : ℕ) (X : Subgrou
   core_ne_bot : CFSG.pCore p (↥D ⧸ CFSG.pCore 2 ↥D) ≠ ⊥
   eq_residual : X = nqPrimeResidualX D p
 
-structure QTMaxNQPrime [Finite G] (T L M D : Subgroup G) (p : ℕ) (X : Subgroup G) : Prop where
-  qtnq : QTNQ T L M
-  maximal_local : quasithinIsMaximalLocal T D
-  faithful_local : quasithinIsFaithfulLocal T D
-  original_K_le : nqOriginalK T L ≤ D
-  not_quasisimple : ¬ CFSG.IsQuasisimple (↥D ⧸ CFSG.pCore 2 ↥D)
-  prime : p.Prime
-  five_le : 5 ≤ p
-  core_ne_bot : CFSG.pCore p (↥D ⧸ CFSG.pCore 2 ↥D) ≠ ⊥
-  eq_residual : X = nqPrimeResidualX D p
 
 end CFSG.Quasithin.H13

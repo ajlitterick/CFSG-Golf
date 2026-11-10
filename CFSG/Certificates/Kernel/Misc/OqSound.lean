@@ -251,23 +251,6 @@ theorem conjsK_sound {KR : List ℕ} {D : List (ℕ × List ℕ × ℕ)} (h : co
     · exact h.1
     · exact ih h.2 x hx
 
-theorem certsK_sound {u : ℕ} {KR : List ℕ} {CD : List (List (List ℕ) × ℕ × ℕ)}
-    (h : certsK u KR CD = true) :
-    ∀ P ∈ KR, validK u P = true ∧ ∃ ws v w, certK u P ws v w = true := by
-  induction KR generalizing CD with
-  | nil => simp
-  | cons P t ih =>
-    cases CD with
-    | nil =>
-      change false = true at h
-      exact absurd h (by decide)
-    | cons c s =>
-      change andB (andB (validK u P) (certK u P c.1 c.2.1 c.2.2)) (certsK u t s) = true at h
-      rw [andB_iff, andB_iff] at h
-      intro x hx
-      rcases List.mem_cons.1 hx with rfl | hx
-      · exact ⟨h.1.1, c.1, c.2.1, c.2.2, h.1.2⟩
-      · exact ih h.2 x hx
 
 end CFSG.KC.Misc.Oq
 

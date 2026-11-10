@@ -74,7 +74,6 @@ theorem centralizer_VZ_le (_h : Hyp153 G T Mc M) :
     Subgroup.centralizer (VZ T M : Set G) ≤ Subgroup.centralizer (quasithinOmegaOneCenter T : Set G) :=
   Subgroup.centralizer_le (le_conjClosure _ _)
 
-theorem lemma_15_3_2_one (h : Hyp153 G T Mc M) : IsOFourPlusAction M (VZ T M) := h.ofour
 
 theorem lemma_15_3_2_two (h : Hyp153 G T Mc M) :
     quasithinOmegaOneCenter T = VZ T M ⊓ Subgroup.centralizer (T : Set G) ∧
@@ -252,35 +251,6 @@ theorem lemma_15_3_2_six (h11 : StageLemma14111) (h : Hyp153 G T Mc M) :
   · have := hH'.isUniqueMaxOver S hSM
     rwa [hS] at this
 
-theorem T_le_normalizer_C₂ (_h : Hyp153 G T Mc M) {C₂ : Subgroup G} (hC : Lemma14111Concl T Mc C₂) :
-    T ≤ Subgroup.normalizer (C₂ : Set G) := by
-  have h1 : T ≤ Subgroup.normalizer (baum T : Set G) :=
-    Subgroup.le_normalizer.trans (normalizer_le_normalizer_baum T)
-  exact h1.trans (normalizer_le_normalizer_of_characteristic_subgroupOf hC.2.1 hC.2.2.1)
-
-theorem lemma_15_3_3_one (h : Hyp153 G T Mc M) {C₂ : Subgroup G} (hC : Lemma14111Concl T Mc C₂) :
-    IsUniqueM (M ⊓ Subgroup.normalizer (C₂ : Set G)) M := by
-  have hfac : ∀ m ∈ M, ∃ c ∈ M ⊓ Subgroup.centralizer (VZ T M : Set G),
-      ∃ n ∈ M ⊓ Subgroup.normalizer (C₂ : Set G), m = c * n := by
-    rcases hC.2.2.2 M h.inM with hfac | ⟨heq, -⟩
-    · exact hfac
-    · exact absurd heq h.ne_mc
-  have hTX : T ≤ M ⊓ Subgroup.normalizer (C₂ : Set G) := le_inf h.T_le (h.T_le_normalizer_C₂ hC)
-  refine isUniqueM_of_isOrdMaximalIn h.mf.1 ⟨hTX, h.pCoreOf_ne_bot_of_le hTX inf_le_left⟩
-    inf_le_left fun m hm => ?_
-  obtain ⟨c, hc, n, hn, rfl⟩ := hfac m hm
-  refine ⟨n, hn, n⁻¹ * c * n, ⟨?_, ?_⟩, by group⟩
-  · exact M.mul_mem (M.mul_mem (M.inv_mem hn.1) hc.1) hn.1
-  · have hnV : n ∈ Subgroup.normalizer (VZ T M : Set G) := h.le_normalizer hn.1
-    have hcen : c ∈ Subgroup.centralizer (VZ T M : Set G) := hc.2
-    show n⁻¹ * c * n ∈ Subgroup.centralizer (VZ T M : Set G)
-    rw [Subgroup.mem_centralizer_iff] at hcen ⊢
-    intro v hv
-    have hv' : n * v * n⁻¹ ∈ VZ T M := (Subgroup.mem_normalizer_iff.mp hnV v).mp hv
-    have h1 := hcen _ hv'
-    calc v * (n⁻¹ * c * n) = n⁻¹ * ((n * v * n⁻¹) * c) * n := by group
-      _ = n⁻¹ * (c * (n * v * n⁻¹)) * n := by rw [h1]
-      _ = n⁻¹ * c * n * v := by group
 
 theorem lemma_15_3_3_two (_h : Hyp153 G T Mc M) {C₂ : Subgroup G} (hC : Lemma14111Concl T Mc C₂)
     (hN : Subgroup.normalizer (C₂ : Set G) ≤ M) {S : Subgroup G} (hBS : baum T ≤ S) (hST : S ≤ T) :

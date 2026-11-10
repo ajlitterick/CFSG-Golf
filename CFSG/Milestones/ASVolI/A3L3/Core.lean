@@ -1127,19 +1127,6 @@ theorem comm_zh_of_comm {g : ↥M.Γ} (hg : M.c g * M.z = M.z * M.c g) :
   rw [← M.zh_val]
   exact M.commute_of_trace hg M.trace_zh_ne
 
-theorem K_le_Mz : M.K ≤ M.Mz := by
-  rintro _ ⟨k, hk, rfl⟩
-  refine ⟨⟨k, rfl⟩, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-  have h0 : (k : GL (Fin 3) F) * M.zh = M.zh * k := by
-    rw [M.zh_val]
-    exact M.K₀_comm hk
-  have h1 : k * M.zh = M.zh * k := Subtype.ext h0
-  rw [z, ← map_mul, ← map_mul, h1]
-
-theorem S_le_Mz : M.S ≤ M.Mz := by
-  rintro _ ⟨s, hs, rfl⟩
-  refine ⟨⟨s, rfl⟩, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-  rw [z, ← map_mul, ← map_mul, M.S₀_comm s hs]
 
 theorem exists_lift_Mz {m : X} (hm : m ∈ M.Mz) :
     ∃ g : ↥M.Γ, M.c g = m ∧ (g : GL (Fin 3) F) * negDiag3 F = negDiag3 F * g := by
@@ -1147,28 +1134,6 @@ theorem exists_lift_Mz {m : X} (hm : m ∈ M.Mz) :
   refine ⟨g, rfl, M.comm_zh_of_comm ?_⟩
   exact Subgroup.mem_centralizer_singleton_iff.mp hz
 
-theorem Mz_le_normalizer : M.Mz ≤ Subgroup.normalizer (M.K : Set X) := by
-  have key : ∀ m ∈ M.Mz, ∀ k ∈ M.K, m * k * m⁻¹ ∈ M.K := by
-    intro m hm k hk
-    obtain ⟨g, rfl, hgz⟩ := M.exists_lift_Mz hm
-    obtain ⟨k₀, hk₀, rfl⟩ := hk
-    refine ⟨g * k₀ * g⁻¹, ?_, by rw [map_mul, map_mul, map_inv]⟩
-    have hkz := M.K₀_comm hk₀
-    refine M.mem_K₀_of ?_ ?_ ?_
-    · simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      exact Commute.mul_left (Commute.mul_left hgz hkz) (Commute.inv_left hgz)
-    · simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      rw [burnsideA315y_conj_22' M.two_ne hgz hkz]
-      exact hk₀.2.2.2.2.2
-    · rw [M.det_conj]; exact hk₀.1
-  intro m hm
-  rw [Subgroup.mem_normalizer_iff]
-  intro k
-  constructor
-  · exact key m hm k
-  · intro h
-    have := key m⁻¹ (M.Mz.inv_mem hm) _ h
-    simpa [mul_assoc] using this
 
 theorem D₀_form {d : ↥M.Γ} (hd : d ∈ M.D₀) :
     ((d : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 0 1 = 0 ∧
@@ -1388,37 +1353,6 @@ theorem split [Finite F]
     rw [hk, mul_assoc, ← M.D₀_comm hδD hg₁z]
     group
 
-theorem steps [Finite F] [Finite X] (hsteps : burnsideA315y_StepsStatement) {p : ℕ}
-    [Fact p.Prime] (hp2 : p ≠ 2) (hK : Nonempty (↥M.K ≃* Matrix.SpecialLinearGroup (Fin 2) (ZMod p)))
-    (hΓscal : ∀ g : ↥M.Γ, (g : GL (Fin 3) F) * negDiag3 F = negDiag3 F * g → ∀ μ : Fˣ,
-      (μ : F) = ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2 →
-        Matrix.GeneralLinearGroup.scalar (Fin 3) μ ∈ M.Γ)
-    (hΓdiag : ∀ g : ↥M.Γ, (g : GL (Fin 3) F) * negDiag3 F = negDiag3 F * g →
-      ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) 2 2 = 1 → ∀ (n : ℕ) (s : Fˣ),
-        (s : F) = (ulBlock ((g : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F)).det ^ n →
-          burnsideA315y_dgl s ∈ M.Γ)
-    {B : Subgroup X} (hBc : B ≤ M.c.range) (hBz : ∀ b ∈ B, b * M.z = M.z * b)
-    (hab : IsMulCommutative ↥B) (hodd : Odd (Nat.card ↥B))
-    (hperm : (B : Set X) * (M.S : Set X) = (M.S : Set X) * (B : Set X))
-    (hSK : Nat.card ↥(M.S ⊓ M.K) = 2 ^ (Nat.card ↥M.K).factorization 2)
-    (hScard : Nat.card ↥M.S = 2 ^ (Nat.card (CFSG.GorensteinWalter.PGL2 (ZMod p))).factorization 2 *
-      Nat.card ↥(M.S ⊓ Subgroup.centralizer (M.K : Set X))) :
-    B = (B ⊓ M.K) ⊔ (B ⊓ Subgroup.centralizer (M.K : Set X)) ∧ IsCyclic ↥(B ⊓ M.K) ∧
-    (((∃ ε : ℤ, (ε = 1 ∨ ε = -1) ∧ Int.ModEq 4 ε (p : ℤ) ∧
-          ((Nat.card ↥(B ⊓ M.K) : ℕ) : ℤ) ∣ (p : ℤ) - ε) ∧
-        ∃ t ∈ M.S ⊓ M.K, ∀ x ∈ B ⊓ M.K, t * x * t⁻¹ = x⁻¹) ∨
-     ((p % 8 = 3 ∨ p % 8 = 5) ∧ Nat.card ↥(B ⊓ M.K) = 3 ∧
-        ∃ t ∈ M.S ⊓ Subgroup.normalizer (B : Set X), ∀ x ∈ B ⊓ M.K, t * x * t⁻¹ = x⁻¹)) := by
-  have hBM : B ≤ M.Mz := fun b hb =>
-    ⟨hBc hb, Subgroup.mem_centralizer_singleton_iff.mpr (hBz b hb)⟩
-  refine hsteps X p hp2 M.K M.Mz B M.S hK M.K_le_Mz M.Mz_le_normalizer M.central hBM hab hodd
-    ?_ M.S_le_Mz (M.S₀_two.map M.c) hperm hSK hScard
-  intro b hb
-  have hob : Odd (orderOf b) := by
-    have h1 : orderOf (⟨b, hb⟩ : ↥B) ∣ Nat.card ↥B := orderOf_dvd_natCard _
-    rw [Subgroup.orderOf_mk] at h1
-    exact Odd.of_dvd_nat hodd h1
-  exact M.split hΓscal hΓdiag (hBM hb) hob
 
 end burnsideA315y_Model
 

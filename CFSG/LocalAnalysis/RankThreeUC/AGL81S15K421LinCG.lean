@@ -35,9 +35,6 @@ theorem glc_two : glc 2 0 = 1 ∧ glc 2 1 = 1 ∧ glc 2 2 = 6 ∧ glc 2 3 = 168 
   unfold glc
   decide +kernel
 
-theorem glc_four : glc 4 1 = 3 ∧ glc 4 2 = 180 ∧ glc 4 3 = 181440 := by
-  unfold glc
-  decide +kernel
 
 variable {X : Type} [Fintype X] [DecidableEq X] {ι β : Type} [Fintype ι] [DecidableEq ι]
   [Fintype β] [DecidableEq β]

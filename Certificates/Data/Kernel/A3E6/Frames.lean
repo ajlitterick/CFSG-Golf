@@ -49,10 +49,6 @@ namespace Certificates.A3E6K
   List.rec (motive := fun _ => Nat → List (List Nat)) (fun _ => [])
     (fun x _ ih i => Nat.rec (motive := fun _ => List (List Nat)) x (fun j _ => ih j) i) l i
 
-@[expose] noncomputable def nthF (l : List (List (List (List Nat)))) (i : Nat) :
-    List (List (List Nat)) :=
-  List.rec (motive := fun _ => Nat → List (List (List Nat))) (fun _ => [])
-    (fun x _ ih i => Nat.rec (motive := fun _ => List (List (List Nat))) x (fun j _ => ih j) i) l i
 
 @[expose] noncomputable def cd (c j : Nat) : Nat :=
   Nat.land (Nat.shiftRight c (Nat.mul (nat_lit 4) j)) (nat_lit 15)

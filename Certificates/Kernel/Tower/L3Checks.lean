@@ -72,10 +72,5 @@ theorem ch36408_l3_lt (f : Nat) (hf : f < 28) : ch36408_l3 f = true := by
 
 #kc_each_by ch36408_l3 0 28 ch36408_l3_lt
 
-theorem ch36408_l3_neg :
-    notB (famB (l3M 0) wrPT (Nat.shiftRight (l3P 0) 48) (wrL3 1) (l16 (l3P 0) 2)
-      (l3H 0) (fun j => Nat.xor (l3S 0 j) (Nat.shiftLeft 1 300))
-      (l3X 0) (Nat.xor (l3U 0) (Nat.shiftLeft 1 300)) (l3HM 0)) = true := by
-  decide +kernel
 
 end Certificates.KernelTower

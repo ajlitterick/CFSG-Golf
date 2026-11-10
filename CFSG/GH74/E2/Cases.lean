@@ -70,11 +70,6 @@ theorem exists_rank_three_of_evenRank {G : Type*} [Group G] [Finite G]
         _ = a⁻¹ * r := by group
     · rw [inv_pow, ha2, inv_one]
 
-theorem mem_centerOmega1 {G : Type*} [Group G] {R : Subgroup G} {z : G} :
-    z ∈ centerOmega1 R ↔ z ∈ R ∧ (∀ r ∈ R, r * z = z * r) ∧ z ^ 2 = 1 := Iff.rfl
-
-theorem centerOmega1_le {G : Type*} [Group G] (R : Subgroup G) : centerOmega1 R ≤ R :=
-  fun _ hz => hz.1
 
 theorem centerOmega1_elemAb {G : Type*} [Group G] (R : Subgroup G) : ElemAb 2 (centerOmega1 R) :=
   ⟨fun _ ha _ hb => (ha.2.1 _ hb.1).symm, fun _ ha => ha.2.2⟩

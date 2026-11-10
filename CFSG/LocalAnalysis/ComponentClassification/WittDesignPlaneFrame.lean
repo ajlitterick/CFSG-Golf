@@ -83,10 +83,6 @@ theorem eq_of_mem_vpts {i j : Fin 5} {q : P} (hi : q ∈ vpts h p₀ i) (hj : q 
     (Ne.symm (ne_p₀_of_mem_vpts h p₀ hi)) (p₀_mem_vline h p₀ i) (mem_vline_of_mem_vpts h p₀ hi)
     (p₀_mem_vline h p₀ j) (mem_vline_of_mem_vpts h p₀ hj))
 
-theorem exists_mem_vpts {q : P} (hq : q ≠ p₀) : ∃ j, q ∈ vpts h p₀ j := by
-  obtain ⟨L, ⟨hL, hp, hqL⟩, -⟩ := h.existsUnique_line (Ne.symm hq)
-  obtain ⟨j, rfl⟩ := exists_vline_eq h p₀ hL hp
-  exact ⟨j, Finset.mem_erase.2 ⟨hq, hqL⟩⟩
 
 theorem p₀_not_mem_lineThrough {i k : Fin 5} (hik : i ≠ k) {q q' : P} (hq : q ∈ vpts h p₀ i)
     (hq' : q' ∈ vpts h p₀ k) : p₀ ∉ lineThrough 𝓛 q q' := by
@@ -239,7 +235,6 @@ theorem mu_injective (j : Fin 5) : Function.Injective (mu h p₀ j) := by
     refine ⟨fun x x' e => mu_injective h p₀ j (congrArg Subtype.val e), ?_⟩
     rw [Fintype.card_fin, Fintype.card_coe, card_vpts])
 
-theorem muEquiv_apply (j : Fin 5) (x : Fin 4) : (muEquiv h p₀ j x : P) = mu h p₀ j x := rfl
 
 theorem mu_muEquiv_symm (j : Fin 5) (q : vpts h p₀ j) : mu h p₀ j ((muEquiv h p₀ j).symm q) = q :=
   congrArg Subtype.val ((muEquiv h p₀ j).apply_symm_apply q)

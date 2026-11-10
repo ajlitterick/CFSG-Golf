@@ -171,26 +171,5 @@ theorem closure_Eam_eq
     rw [Shat_eq_sup]
     exact sup_le hJ hN
 
-theorem short_F4_coset_step_and_generation :
-    (∃ a ∈ Ehat, a ∉ Nc 0) ∧
-    ∀ a ∈ Ehat, a ∉ Nc 0 →
-      a⁻¹ * cQ * a = cQ * xhat ∧ a * a ∈ Subgroup.zpowers xhat ∧
-      Subgroup.zpowers xhat ≤ Pc 0 ∧
-      (Pc 0).map (MulAut.conj a⁻¹).toMonoidHom = Pc 0 ∧
-      Eam ⊓ Eam.map (MulAut.conj a⁻¹).toMonoidHom = Pc 0 ∧
-      a ∈ Xgrp ∧ a ∉ Pc 3 ∧
-      Subgroup.closure (insert a (Pc 3 : Set Dfull)) = Xgrp ∧
-      Subgroup.closure (insert a (Eam : Set Dfull)) = Shat ∧
-      (∀ a' ∈ Ehat, a' ∉ Nc 0 →
-        DoubleCoset.doubleCoset a' (Eam : Set Dfull) Eam =
-          DoubleCoset.doubleCoset a Eam Eam) ∧
-      (DoubleCoset.doubleCoset a (Eam : Set Dfull) Eam)⁻¹ = DoubleCoset.doubleCoset a Eam Eam := by
-  have h0 : Nc 0 = N1 := Nc_zero
-  rw [h0]
-  refine ⟨exists_mem_Ehat_not_mem_N1, fun a ha hn => ⟨conj_cQ_of_not_mem ha hn,
-    mul_self_mem_zpowers_xhat ha, zpowers_xhat_le_P1, map_conj_P1 ha hn, Eam_inf_conj ha hn,
-    Ehat_le_Xgrp ha, Ehat_not_mem_P4 ha hn,
-    closure_P4_eq (Ehat_le_Xgrp ha) (Ehat_not_mem_P4 ha hn), closure_Eam_eq ha hn,
-    fun a' ha' hn' => doubleCoset_eq ha hn ha' hn', doubleCoset_inv ha⟩⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

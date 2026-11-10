@@ -13,42 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G] {F : Type} [Field F]
 
-theorem mem_centralizer_of_trivOn {U X : Subgroup G}
-    (hUab : ∀ u ∈ U, ∀ u' ∈ U, u * u' = u' * u) {y z : G}
-    (hyN : y ∈ Subgroup.normalizer (X : Set G)) (hzN : z ∈ Subgroup.normalizer (X : Set G))
-    (hy : ∀ x ∈ X, x⁻¹ * (y * x * y⁻¹) ∈ U) (hz : ∀ x ∈ X, x⁻¹ * (z * x * z⁻¹) ∈ U)
-    (hyU : ∀ u ∈ U, y * u = u * y) (hzU : ∀ u ∈ U, z * u = u * z) :
-    y * z * y⁻¹ * z⁻¹ ∈ Subgroup.centralizer (X : Set G) := by
-  have hcomm : ∀ x ∈ X, (y * z) * x * (y * z)⁻¹ = (z * y) * x * (z * y)⁻¹ := by
-    intro x hx
-    obtain ⟨e₁, he₁, h₁⟩ : ∃ e ∈ U, y * x * y⁻¹ = x * e := ⟨_, hy x hx, by group⟩
-    obtain ⟨e₂, he₂, h₂⟩ : ∃ e ∈ U, z * x * z⁻¹ = x * e := ⟨_, hz x hx, by group⟩
-    have hye : y * e₂ * y⁻¹ = e₂ := by rw [hyU e₂ he₂]; group
-    have hze : z * e₁ * z⁻¹ = e₁ := by rw [hzU e₁ he₁]; group
-    calc (y * z) * x * (y * z)⁻¹ = y * (z * x * z⁻¹) * y⁻¹ := by group
-      _ = y * (x * e₂) * y⁻¹ := by rw [h₂]
-      _ = (y * x * y⁻¹) * (y * e₂ * y⁻¹) := by group
-      _ = x * e₁ * e₂ := by rw [h₁, hye]
-      _ = x * e₂ * e₁ := by rw [mul_assoc, hUab e₁ he₁ e₂ he₂, ← mul_assoc]
-      _ = (z * x * z⁻¹) * (z * e₁ * z⁻¹) := by rw [h₂, hze]
-      _ = z * (x * e₁) * z⁻¹ := by group
-      _ = z * (y * x * y⁻¹) * z⁻¹ := by rw [h₁]
-      _ = (z * y) * x * (z * y)⁻¹ := by group
-  refine Subgroup.mem_centralizer_iff.mpr fun x hx => ?_
-  have hx' : (z * y)⁻¹ * x * (z * y) ∈ X := by
-    have := (Subgroup.mem_normalizer_iff.mp
-      ((Subgroup.normalizer (X : Set G)).inv_mem
-        ((Subgroup.normalizer (X : Set G)).mul_mem hzN hyN)) x).mp hx
-    simpa using this
-  have h1 := hcomm _ hx'
-  have h2 : (y * z * y⁻¹ * z⁻¹) * x * (y * z * y⁻¹ * z⁻¹)⁻¹ = x := by
-    have e : (y * z * y⁻¹ * z⁻¹) * x * (y * z * y⁻¹ * z⁻¹)⁻¹ =
-        y * z * ((z * y)⁻¹ * x * (z * y)) * (y * z)⁻¹ := by group
-    rw [e, h1]
-    group
-  calc x * (y * z * y⁻¹ * z⁻¹) =
-        ((y * z * y⁻¹ * z⁻¹) * x * (y * z * y⁻¹ * z⁻¹)⁻¹) * (y * z * y⁻¹ * z⁻¹) := by rw [h2]
-    _ = (y * z * y⁻¹ * z⁻¹) * x := by group
 
 theorem le_normalizer_of_conj_mem {X K : Subgroup G} (h : ∀ g ∈ K, ∀ x ∈ X, g * x * g⁻¹ ∈ X) :
     K ≤ Subgroup.normalizer (X : Set G) := by
@@ -71,11 +35,6 @@ abbrev W : Subgroup G := C.Wμ (e₀ F)
 
 abbrev V : Subgroup G := pCoreOf 2 G₀ ⊓ Subgroup.centralizer (C.W : Set G)
 
-theorem centerOf_le_centralizer : centerOf (c134Q G₀ L) ≤
-    Subgroup.centralizer (c134Q G₀ L : Set G) := fun _ hu => hu.2
-
-theorem mul_comm_U' {u v : G} (hu : u ∈ centerOf (c134Q G₀ L))
-    (hv : v ∈ centerOf (c134Q G₀ L)) : u * v = v * u := mul_comm_U hu hv
 
 theorem le_normalizer_W : L ≤ Subgroup.normalizer (C.W : Set G) := by
   refine le_normalizer_of_conj_mem fun a ha x hx => ?_
@@ -104,11 +63,6 @@ theorem pCoreOf_le_normalizer_W [Finite G] : pCoreOf 2 G₀ ≤ Subgroup.normali
 
 theorem e_one : C.e 1 = 0 := (C.ker 1).mpr (centerOf (c134Q G₀ L)).one_mem
 
-theorem e_cnj_Q (c q : ↥(c134Q G₀ L)) {hc : (c : G) ∈ Subgroup.normalizer (c134Q G₀ L : Set G)} :
-    C.e (cnj hc q) = C.e q := by
-  have e : cnj hc q = c * q * c⁻¹ := Subtype.ext (by simp [coe_cnj])
-  rw [e, C.mul, C.mul, C.e_inv]
-  abel
 
 @[expose] def triv₁ : Subgroup G where
   carrier := {x | ∃ hx : x ∈ Subgroup.normalizer (c134Q G₀ L : Set G),
@@ -357,35 +311,6 @@ theorem lam_spec [Finite G] {t : G} (ht : t ∈ pCoreOf 2 G₀) (q : ↥(c134Q G
       C.e (cnj (H.pCoreOf_le_normalizer_Q ht) q) 1 = C.e q 1 :=
   Classical.choose_spec (C.conjT t ht) q
 
-theorem exists_e1_ne_zero : ∃ q : ↥(c134Q G₀ L), C.e q 1 = Pi.single 0 1 := by
-  obtain ⟨q, hq⟩ := C.surj (fun i => if i = 0 then 0 else Pi.single 0 1)
-  exact ⟨q, by rw [hq]; simp⟩
-
-theorem lam_mul [Finite G] {t t' : G} (ht : t ∈ pCoreOf 2 G₀) (ht' : t' ∈ pCoreOf 2 G₀) :
-    C.lam ((pCoreOf 2 G₀).mul_mem ht ht') = C.lam ht + C.lam ht' := by
-  obtain ⟨q, hq⟩ := C.exists_e1_ne_zero
-  have h1 := (C.lam_spec ((pCoreOf 2 G₀).mul_mem ht ht') q).1
-  rw [cnj_mul_left (H.pCoreOf_le_normalizer_Q ht) (H.pCoreOf_le_normalizer_Q ht')] at h1
-  rw [(C.lam_spec ht _).1, (C.lam_spec ht' q).1, (C.lam_spec ht' q).2, hq] at h1
-  have h2 := congrFun h1 0
-  simp only [Pi.add_apply, Pi.smul_apply, Pi.single_eq_same, smul_eq_mul, mul_one] at h2
-  linear_combination -h2
-
-theorem lam_congr [Finite G] {t t' : G} (ht : t ∈ pCoreOf 2 G₀) (ht' : t' ∈ pCoreOf 2 G₀)
-    (h : t = t') : C.lam ht = C.lam ht' := by
-  subst h
-  rfl
-
-theorem lam_one [Finite G] : C.lam (pCoreOf 2 G₀).one_mem = 0 := by
-  have h := C.lam_mul (pCoreOf 2 G₀).one_mem (pCoreOf 2 G₀).one_mem
-  rw [C.lam_congr _ (pCoreOf 2 G₀).one_mem (mul_one 1)] at h
-  linear_combination -h
-
-theorem lam_inv [Finite G] {t : G} (ht : t ∈ pCoreOf 2 G₀) :
-    C.lam ((pCoreOf 2 G₀).inv_mem ht) = -C.lam ht := by
-  have h := C.lam_mul ht ((pCoreOf 2 G₀).inv_mem ht)
-  rw [C.lam_congr _ (pCoreOf 2 G₀).one_mem (mul_inv_cancel t), C.lam_one] at h
-  linear_combination -h
 
 theorem mem_Q_of_lam [Finite G] [CharP F 2] {t : G} (ht : t ∈ pCoreOf 2 G₀)
     (h : C.lam ht = 0) : t ∈ c134Q G₀ L := by

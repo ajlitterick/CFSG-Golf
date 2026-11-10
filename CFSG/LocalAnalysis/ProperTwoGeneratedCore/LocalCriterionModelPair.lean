@@ -25,38 +25,6 @@ universe u v
     IsCyclic T0 ∧ Nat.card T0 = q - 1 ∧
     ∀ x ∈ T0, rightConjugateElem x w = x⁻¹
 
-theorem linear_native_model_pair_full (f : ℕ) (hf : 2 ≤ f) :
-    let K := BinaryGaloisField f
-    let Omega := ℙ K (Fin 2 → K)
-    let G := PSL2BinaryMatrixGroup f
-    let H := ProjGenLinGroup (Fin 2) K
-    ∃ (e : G ≃* H) (rhoH : H →* Equiv.Perm Omega) (rho : G →* Equiv.Perm Omega)
-        (b : Omega) (B : Subgroup G),
-      rho = rhoH.comp e.toMonoidHom ∧
-      (∀ (g : G) (z : Omega) (A : GL (Fin 2) K),
-        ProjGenLinGroup.mk A = e g →
-          rho g z = (GeneralLinearGroup.toLin A).toLinearEquiv • z) ∧
-      FullModelPointPair rho b B (2 ^ f) :=
-  psl2_model_action_point_and_pair f hf
-
-theorem suzuki_native_model_pair_full (m : ℕ) (hm : 1 ≤ m) :
-    let K := BinaryGaloisField (2 * m + 1)
-    let pi : K ≃+* K := iterateFrobeniusEquiv K 2 (m + 1)
-    let pinf : ℙ K (Fin 4 → K) := Projectivization.mk K ![1, 0, 0, 0] (by simp)
-    let p : K → K → ℙ K (Fin 4 → K) := fun x y =>
-      Projectivization.mk K ![x * y + pi x * x ^ 2 + pi y, y, x, 1] (by simp)
-    let O : Set (ℙ K (Fin 4 → K)) := {pinf} ∪ Set.range fun z : K × K => p z.1 z.2
-    let Omega := {z : ℙ K (Fin 4 → K) // z ∈ O}
-    let G := Sz m
-    let H := SuzukiMatrixGroup m
-    ∃ (rhoH : H →* Equiv.Perm Omega) (rho : G →* Equiv.Perm Omega)
-        (b : Omega) (B : Subgroup G),
-      rho = rhoH.comp (suzukiCoverNativeEquiv m).toMonoidHom ∧
-      (∀ (g : G) (z : Omega), ((rho g z : Omega) : ℙ K (Fin 4 → K)) =
-        (GeneralLinearGroup.toLin (g : GL (Fin 4) K)).toLinearEquiv •
-          (z : ℙ K (Fin 4 → K))) ∧
-      FullModelPointPair rho b B (2 ^ (2 * m + 1)) :=
-  sz_model_action_point_and_pair m hm
 
 theorem linear_field_model_pair_full
     {K : Type} [Field K] [Finite K] (f : ℕ) (hf : 2 ≤ f) (hcard : Nat.card K = 2 ^ f) :

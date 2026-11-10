@@ -170,16 +170,6 @@ theorem ker_eq_bot_of_card_center_four {T P : Type} [Group T] [Group P] [Finite 
   rw [← h1] at h2
   omega
 
-@[expose] def L34Source (S : Type) [Group S] (P : Subgroup S) : Prop :=
-  Blueprint.LieModel S .PSL 3 2 4 ∨
-    (Nonempty (S ≃* Blueprint.NativeSporadic.Suz) ∧ Nat.card (center ↥P) = 1) ∨
-    (Nonempty (S ≃* Blueprint.NativeSporadic.ON) ∧ Nat.card (center ↥P) = 4) ∨
-    Nonempty (S ≃* Blueprint.NativeSporadic.He)
-
-@[expose] def L34ProperFixedRows : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ x y : S, x * y ≠ y * x) →
-    Blueprint.Catalog S → ∀ (σ : MulAut S) (P : Subgroup S), CatLeaf.ProperFixedComponent σ P →
-      IsL34Type (P ⧸ Open.fusionZStar P) → L34Source S P
 
 @[expose] def L34CentreRow (S : Type) [Group S] (P : Subgroup S) : Prop :=
   CentreTwoPartLe S 1 ∨ (Nat.card (center ↥P) = 1 ∧ CentreTwoPartLe S 2) ∨

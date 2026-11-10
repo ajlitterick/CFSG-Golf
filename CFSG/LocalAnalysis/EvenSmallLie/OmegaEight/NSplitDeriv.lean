@@ -278,63 +278,6 @@ theorem exists_splitting (π : N →* G₀) (hπ : Function.Surjective π) (ι :
       MonoidHom.id_apply])
   exact DFunLike.congr_fun h g
 
-theorem deriv_ext {A : Type*} [AddCommGroup A] (ρ : G₀ →* AddMonoid.End A) (d d' : G₀ → A)
-    (hd : ∀ g h, d (g * h) = d g + ρ g (d h)) (hd' : ∀ g h, d' (g * h) = d' g + ρ g (d' h))
-    {S : Set G₀} (hS : Subgroup.closure S = ⊤) (h : ∀ g ∈ S, d g = d' g) (g : G₀) :
-    d g = d' g := by
-  have h1 : ∀ f : G₀ → A, (∀ g h, f (g * h) = f g + ρ g (f h)) → f 1 = 0 := fun f hf => by
-    have := hf 1 1
-    rw [mul_one, map_one] at this
-    exact (left_eq_add.1 this)
-  have hinv : ∀ f : G₀ → A, (∀ g h, f (g * h) = f g + ρ g (f h)) →
-      ∀ g, f g⁻¹ = -ρ g⁻¹ (f g) := fun f hf g => by
-    have := hf g⁻¹ g
-    rw [inv_mul_cancel, h1 f hf] at this
-    exact eq_neg_of_add_eq_zero_left this.symm
-  let H : Subgroup G₀ :=
-    { carrier := {g | d g = d' g}
-      one_mem' := by simp only [Set.mem_ofPred_eq, h1 d hd, h1 d' hd']
-      mul_mem' := fun {a b} ha hb => by
-        simp only [Set.mem_ofPred_eq] at *
-        rw [hd, hd', ha, hb]
-      inv_mem' := fun {a} ha => by
-        simp only [Set.mem_ofPred_eq] at *
-        rw [hinv d hd, hinv d' hd', ha] }
-  have hle : Subgroup.closure S ≤ H := (Subgroup.closure_le H).2 h
-  rw [hS] at hle
-  exact hle (Subgroup.mem_top g)
-
-theorem splitting_conj (π : N →* G₀) (ι : E → N) (hι : ∀ x y, ι (x + y) = ι x * ι y)
-    (hιinj : Function.Injective ι) (hker : ∀ n, π n = 1 → ∃ x, ι x = n)
-    (ρ : G₀ →* AddMonoid.End E) (hconj : ∀ n x, n * ι x * n⁻¹ = ι (ρ (π n) x)) {k : ℕ}
-    (s : Fin k → G₀) (hs : Subgroup.closure (Set.range s) = ⊤) (rels : List (List (Fin k)))
-    (hrel : ∀ w ∈ rels, wordProd s w = 1)
-    (hcob : ∀ e : Fin k → E, (∀ w ∈ rels, foxSum (fun i => ρ (s i)) e w = 0) →
-      ∃ x : E, ∀ i, e i = ρ (s i) x - x)
-    (σ σ' : G₀ →* N) (hσ : ∀ g, π (σ g) = g) (hσ' : ∀ g, π (σ' g) = g) :
-    ∃ y : E, ∀ g, σ' g = ι y * σ g * (ι y)⁻¹ := by
-  have hd : ∀ g, ∃ x, ι x = σ' g * (σ g)⁻¹ := fun g => hker _ (by
-    rw [map_mul, map_inv, hσ, hσ', mul_inv_cancel])
-  choose d hd using hd
-  have hι0 := ι_zero_of_add hι
-  have hder : ∀ g h, d (g * h) = d g + ρ g (d h) := by
-    intro g h
-    apply hιinj
-    rw [hι, hd, hd, ← hσ g, ← hconj, hσ g, hd, map_mul, map_mul]
-    group
-  have hd1 : d 1 = 0 := hιinj (by rw [hd, map_one, map_one, inv_one, mul_one, hι0])
-  obtain ⟨x, hx⟩ := hcob (d ∘ s) (fun w hw => by
-    rw [← deriv_wordProd (fun g => ρ g) d hder hd1 s _ (fun i => rfl) w, hrel w hw, hd1])
-  have hext := deriv_ext ρ d (fun g => ρ g x - x) hder (fun g h => by
-      simp only [map_mul, endMul_apply, map_sub]; abel) hs (by rintro _ ⟨i, rfl⟩; exact hx i)
-  refine ⟨-x, fun g => ?_⟩
-  have h1 : σ' g = ι (d g) * σ g := by rw [hd]; group
-  have h2 : σ g * ι x * (σ g)⁻¹ = ι (ρ g x) := by rw [hconj, hσ]
-  rw [h1, hext g, sub_eq_neg_add, hι, ← h2]
-  have h3 : (ι (-x))⁻¹ = ι x := by
-    rw [inv_eq_iff_mul_eq_one, ← hι, neg_add_cancel, hι0]
-  rw [h3]
-  group
 
 end Split
 

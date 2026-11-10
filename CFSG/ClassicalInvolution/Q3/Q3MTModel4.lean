@@ -135,25 +135,6 @@ theorem false_of_linear_star3 {X : Type} [Group X] {F : Type} [Field F] [Finite 
   rw [hord] at h3
   norm_num at h3
 
-theorem star_trichotomy3 (M : Ih8Model 3 1 Ω t k e) (hΩ : HypOmegaModU (.sl2 3 1) Ω)
-    (hG2 : t ≠ .G2) (hD4 : t ≠ .trialityD4) (hdich : T3CII.StdDich3 t k)
-    {R S : Subgroup (modelUniv t k 3 e Fact.out).K} (hR : R ∈ M.cls) (hS : S ∈ M.cls)
-    (hJ : S.map M.ψ ∈ omegaStarNbr Ω (R.map M.ψ)) :
-    Commutes R S ∨ ∃ W, Phan.UnitaryBlockStandardPair (GaloisField 3 2) 3 1 W R S := by
-  have he := ih8Model_exp_eq_one M hD4
-  subst he
-  obtain ⟨eR, eS, s, hsS, hsN, hord, hzcomm⟩ := star_data3 M hΩ hG2 hD4 hR hS hJ
-  have hFcard : Nat.card (GaloisField 3 1) = 3 := by
-    rw [GaloisField.card 3 1 (by norm_num)]; norm_num
-  have hodd : Odd (Nat.card (GaloisField 3 1)) := by rw [hFcard]; decide
-  have hRl := ModelFacts.fundamentalSubgroups_subset_longest hG2 hD4 _ (M.cls_sub hR)
-  have hSl := ModelFacts.fundamentalSubgroups_subset_longest hG2 hD4 _ (M.cls_sub hS)
-  rcases hdich R hRl S hSl (sl2Inv eR) (sl2Inv eS) (sl2Inv_mem eR) (sl2Inv_mem eS)
-    (orderOf_sl2Inv hodd eR) (orderOf_sl2Inv hodd eS) hzcomm.symm with h | h | ⟨W, hW⟩ | ⟨W, hW⟩
-  · exact absurd (by rw [h]) hJ.2.1
-  · exact Or.inl h
-  · exact (false_of_linear_star3 hFcard hW hsS hsN hord).elim
-  · exact Or.inr ⟨W, hW⟩
 
 end Star
 

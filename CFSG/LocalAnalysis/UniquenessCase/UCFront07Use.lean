@@ -21,28 +21,10 @@ variable {G : Type} [Group G] [Finite G]
       ∀ E : Subgroup G, E ≤ D.M → IsElemAbelian r E → Nat.card E = r ^ 2 →
         2 < CFSG.Open.pRank p (D.M ⊓ normalizer (E : Set G)) → rankThreeGamma 1 r E ≤ D.M
 
-theorem R77E2_of_R77 (D : Data G) (h : R77 D) : R77E2 D := by
-  intro _ p hp hp2 hsp r hr hr2 hrσ E hEM hEel hEcard h2
-  have hab : ⁅E, E⁆ = ⊥ := Subgroup.commutator_self_eq_bot_iff.2 hEel.1
-  refine h p (D.sig_prime p hp).1 hp2 hsp r hr hr2 hrσ E hEM
-    (CFSG.RankThreeEvenClassification.Helpers.isElemAbelian_isPGroup r E hEel) (fun hcyc => ?_)
-    hEel.2 (by rw [hab, Subgroup.commutator_bot_left]) h2 (Or.inr (Or.inl ?_))
-  · haveI := hcyc
-    obtain ⟨g, hg⟩ := IsCyclic.exists_generator (α := E)
-    have hle : Nat.card E ≤ r := by
-      rw [← orderOf_eq_card_of_forall_mem_zpowers hg]
-      refine Nat.le_of_dvd hr.pos (orderOf_dvd_of_pow_eq_one ?_)
-      exact Subtype.ext (by simpa using hEel.2 g g.2)
-    rw [hEcard] at hle
-    nlinarith [hr.two_le]
-  · exact CFSG.RankThreeEvenClassification.Helpers.pRank_eq_exponent_of_elementary r hr E hEel 2
-      hEcard
 
 @[expose] def R77Use (D : Data G) : Prop :=
   R77E2 D ∧ R77E4 D
 
-theorem R77Use_of_R77 (D : Data G) (h : R77 D) : R77Use D :=
-  ⟨R77E2_of_R77 D h, R77E4_of_R77 D h⟩
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22.F07
 

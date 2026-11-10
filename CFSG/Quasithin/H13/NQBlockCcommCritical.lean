@@ -439,21 +439,5 @@ theorem all_prime_critical_actions_core
     exact commutator_eq_bot_of_conjNormal_eq_one hract
   exact ⟨hQr, D ⟨r, hrA⟩, hDc ⟨r, hrA⟩, hDdata ⟨r, hrA⟩, hKFall ⟨r, hrA⟩⟩
 
-theorem all_prime_critical_actions {G : Type*} [Group G] [Finite G]
-    (hSQT : CFSG.IsStronglyQuasithin G) (hO2 : CFSG.pCore 2 G = ⊥) {L : Subgroup G}
-    (hL : CFSG.IsCComponent L) (hq : ¬ CFSG.IsQuasisimple L) :
-    ⁅CFSG.fittingSubgroup L, (⊤ : Subgroup L)⁆ = CFSG.fittingSubgroup L ∧
-      ∀ r ∈ (Nat.card (CFSG.fittingSubgroup L)).primeFactors,
-        ⁅CFSG.pCore r L, (⊤ : Subgroup L)⁆ = CFSG.pCore r L ∧
-        ∃ (D : Subgroup (CFSG.pCore r L)) (_ : D.Characteristic),
-          IsCriticalData r (CFSG.pCore r L) D ∧
-          (criticalAction D).ker = CFSG.fittingSubgroup L := by
-  obtain ⟨hFstar, -, -, hodd, hcomm, -, -, hcores⟩ := odd_Fitting_cores hSQT hO2 hL hq
-  have hLperf : Group.IsPerfect L := Subgroup.isPerfect_iff.mpr hL.2.1
-  have hCF : centralizer (CFSG.fittingSubgroup L : Set L) ≤ CFSG.fittingSubgroup L := by
-    have h1 := CFSG.centralizer_generalizedFitting_le L
-    rwa [hFstar] at h1
-  exact all_prime_critical_actions_core (isCComponent_top_of_isCComponent hL) hCF hodd hcomm
-    fun r hr => ⟨(hcores r hr).1, (hcores r hr).2.2.2⟩
 
 end CFSG.Quasithin.H13.NQBlock

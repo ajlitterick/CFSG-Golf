@@ -110,6 +110,5 @@ variable (G : Type) [Group G] [Finite G]
   (((M.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) 3))).map
     (MulAut.conjNormal (H := K))).subgroupOf (MulAut.conjNormal (H := K)).range
 
-variable {G}
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

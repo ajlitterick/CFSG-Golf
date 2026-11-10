@@ -188,10 +188,5 @@ theorem localizedComplexInteger_integer_unit_iff
   rw [localizedComplexIntegerResidue_isUnit_iff, localizedComplexIntegerResidue_integer,
     ne_eq, CharP.intCast_eq_zero_iff (ComplexAlgebraicIntegers ⧸ ideal) prime]
 
-theorem localizedComplexIntegerResidue_kernel_maximal
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal] :
-    (RingHom.ker (localizedComplexIntegerResidue ideal)).IsMaximal := by
-  let : Field (ComplexAlgebraicIntegers ⧸ ideal) := Ideal.Quotient.field ideal
-  exact RingHom.ker_isMaximal_of_surjective _ (localizedComplexIntegerResidue_surjective ideal)
 
 end CFSG.TwoRankLowerBound.Helpers

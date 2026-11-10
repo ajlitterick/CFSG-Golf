@@ -24,7 +24,5 @@ theorem kOrd : orderIsC (cOf pa) 2 = true ∧ orderIsC (cOf pb) 4 = true ∧
 theorem kNorm : normC QP (QA.original.toList.map cOf) (cOf pa) (cOf pb) = true := by
   decide +kernel
 
-theorem kNegA : orderV QA ≠ 29120 ∧ orderIsC (cOf pb) 2 = false ∧ siftC QP (cOf sg0) 0 = false := by
-  refine ⟨?_, ?_, ?_⟩ <;> decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5128

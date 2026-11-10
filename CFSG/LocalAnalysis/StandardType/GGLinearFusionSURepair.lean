@@ -66,15 +66,10 @@ theorem ggUnitaryBstarFrameInput_holds : GGUnitaryBstarFrameInput := by
   obtain ⟨P, hP, hB⟩ := ggSUBstarFrameInput_holds G p B Bs x L D J (m + 1) f ψ hctx s1 hp
   exact ⟨P, hP, fun b hb => UFusion.mem_uFrameTorus_of_frameDiagU _ hP (hB b hb)⟩
 
-theorem ggStepTwoUnitaryFusionEqInput_holds : GGStepTwoUnitaryFusionEqInput :=
-  ggStepTwoUnitaryFusionEqInput_of_bstarFrame ggUnitaryBstarFrameInput_holds
 
 theorem ggStepTwoLinearFusionEqInput_holds : GGStepTwoLinearFusionEqInput :=
   ggStepTwoLinearFusionEqInput_of_bstarFrame ggUnitaryBstarFrameInput_holds
 
-theorem ggStepTwoUnitaryFusionLargeInput_of_centralizer (hI1 : GGUnitaryBstarCentralizerInput) :
-    GGStepTwoUnitaryFusionLargeInput :=
-  ggStepTwoUnitaryFusionLargeInput_of_bstarFrame ggUnitaryBstarFrameInput_holds hI1
 
 end Inputs
 

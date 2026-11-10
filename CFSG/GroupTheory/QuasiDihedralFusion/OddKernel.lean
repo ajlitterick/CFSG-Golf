@@ -169,20 +169,6 @@ theorem hasDihedralSylowTwo_iff_of_oddKernel (hφ : Function.Surjective φ)
     exact ⟨m, hm, ⟨((equivMapOfIsPGroup φ hker S S.isPGroup').trans
       (MulEquiv.subgroupCongr hS)).symm.trans e⟩⟩
 
-theorem hasGeneralizedQuaternionSylow_iff_of_oddKernel (hφ : Function.Surjective φ)
-    (hker : Odd (Nat.card φ.ker)) :
-    HasGeneralizedQuaternionSylow B ↔ HasGeneralizedQuaternionSylow A := by
-  have : Finite B := Finite.of_surjective φ hφ
-  constructor
-  · intro hB S
-    obtain ⟨k, hk, ⟨e⟩⟩ := hB (S.mapSurjective hφ)
-    obtain ⟨e'⟩ := nonempty_sylow_equiv_map φ hφ hker S
-    exact ⟨k, hk, ⟨e'.trans e⟩⟩
-  · intro hA S'
-    obtain ⟨S, hS⟩ := exists_sylow_map_eq φ hφ S'
-    obtain ⟨k, hk, ⟨e⟩⟩ := hA S
-    exact ⟨k, hk, ⟨((equivMapOfIsPGroup φ hker S S.isPGroup').trans
-      (MulEquiv.subgroupCongr hS)).symm.trans e⟩⟩
 
 theorem abelianSylow_iff_of_oddKernel (hφ : Function.Surjective φ)
     (hker : Odd (Nat.card φ.ker)) :

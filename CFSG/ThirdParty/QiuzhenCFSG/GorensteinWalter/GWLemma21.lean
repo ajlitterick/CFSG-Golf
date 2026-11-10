@@ -170,20 +170,6 @@ public theorem exists_normal_index_two_of_grun_relIndex_eq_two
   obtain ⟨N, hN, hindex⟩ := exists_normal_subgroup_index_eq_grun_relIndex S
   exact ⟨N, hN, hindex.trans hrel⟩
 
-/-- Relative index two for the Grün subgroup rules out a normal subgroup of
-index four. -/
-public theorem no_normal_index_four_of_grun_relIndex_eq_two
-    {G : Type u} [Group G] [Finite G]
-    (S : Sylow 2 G)
-    (hrel :
-      (huppertIV34GrunKernelSubgroup (Q := G) (S : Subgroup G)).relIndex
-        (S : Subgroup G) = 2) :
-    ¬ ∃ N : Subgroup G, N.Normal ∧ N.index = 4 := by
-  rintro ⟨N, hN, hindex⟩
-  have hdvd := normal_index_four_dvd_sylow_inf_commutator_relIndex
-    S N hN hindex
-  rw [huppert_IV_3_4_first_grun (Q := G) (q := 2) S, hrel] at hdvd
-  norm_num at hdvd
 
 /-- Relative index four for the Grün subgroup produces a normal subgroup of
 index four. -/

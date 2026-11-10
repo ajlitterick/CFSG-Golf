@@ -692,10 +692,6 @@ theorem addBlock_disjoint {i j : Fin k} (hij : i ≠ j) :
   · left
     rfl
 
-theorem addBlock_sign [NeZero p] (hp2 : p ≠ 2) (i : Fin k) :
-    sign (addBlock (p := p) (r := r) i 1) = 1 := by
-  rw [(addBlock_isPCycle i).1.sign, (addBlock_isPCycle i).2, (hp.out.odd_of_ne_two hp2).neg_one_pow]
-  simp
 
 theorem mulBlock_isCycle [NeZero p] (i : Fin k) (a : ZMod p) (ha : a ≠ 0) (ha1 : a ≠ 1)
     (hgen : ∀ t : ZMod p, t ≠ 0 → ∃ m : ℕ, a ^ m = t) :

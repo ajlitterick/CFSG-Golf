@@ -144,15 +144,6 @@ public theorem pointStabilizerCore_le_stabilizer
     simpa [pointStabilizerCore] using hg
   exact hg_all omega
 
-/-- In particular, the pointwise kernel lies in the intersection of any two
-point stabilizers. -/
-public theorem pointStabilizerCore_le_inf_stabilizers
-    {G : Type u} {Omega : Type v} [Group G] [MulAction G Omega]
-    (omega₁ omega₂ : Omega) :
-    pointStabilizerCore G Omega ≤
-      MulAction.stabilizer G omega₁ ⊓ MulAction.stabilizer G omega₂ :=
-  le_inf (pointStabilizerCore_le_stabilizer omega₁)
-    (pointStabilizerCore_le_stabilizer omega₂)
 
 /-- The permutation representation induced on the quotient by the pointwise
 kernel. -/

@@ -13,14 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type*} [Group G]
 
-theorem fittingSubgroup_eq_closure (G : Type*) [Group G] :
-    CFSG.fittingSubgroup G = closure (⋃ N ∈ {N : Subgroup G | N.Normal ∧ Group.IsNilpotent N},
-      (N : Set G)) := by
-  refine le_antisymm (sSup_le fun N hN => ?_) ((closure_le _).2 ?_)
-  · exact fun x hx => subset_closure (Set.mem_biUnion hN hx)
-  · intro x hx
-    obtain ⟨N, hN, hxN⟩ := Set.mem_iUnion₂.1 hx
-    exact (le_sSup hN : N ≤ CFSG.fittingSubgroup G) hxN
 
 theorem map_center_layer_le_fittingSubgroup :
     (center (CFSG.layer G)).map (CFSG.layer G).subtype ≤ CFSG.fittingSubgroup G := by

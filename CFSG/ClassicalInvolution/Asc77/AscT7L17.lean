@@ -92,18 +92,6 @@ theorem centralizer_le_of_mul_central {x z : G} (hz : z ∈ Subgroup.center G) :
     _ = x * (z * w) := by rw [hzw]
     _ = (x * z) * w := by group
 
-theorem centralizer_mul_central_le {x z : G} (hz : z ∈ Subgroup.center G) :
-    Subgroup.centralizer ({x * z} : Set G) ≤ Subgroup.centralizer ({x} : Set G) := by
-  intro w hw
-  rw [Subgroup.mem_centralizer_singleton_iff] at hw ⊢
-  have hzw := Subgroup.mem_center_iff.mp hz w
-  have h1 : (w * x) * z = (x * w) * z := by
-    calc (w * x) * z = w * (x * z) := by group
-      _ = (x * z) * w := hw
-      _ = x * (z * w) := by group
-      _ = x * (w * z) := by rw [← hzw]
-      _ = (x * w) * z := by group
-  exact mul_right_cancel h1
 
 end T7L
 

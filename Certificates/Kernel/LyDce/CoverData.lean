@@ -22,10 +22,6 @@ open CFSG.KC CFSG.KC.LyDce CertificateChecks.KernelLyB
 
 @[expose] noncomputable def fix0 : Bool := fixOK NS (maskOf o0) (sG.getD 0 [])
 
-@[expose] noncomputable def walkWith (es : List (Nat × Nat × Nat)) : Bool :=
-  walkFrom (NS 0) (NS 1) pk kp tc td (maskOf o0) es
-
-@[expose] noncomputable def walkAt (i : Nat) : Bool := walkWith (dfs.getD i [])
 
 @[expose] noncomputable def covAll : Bool :=
   andB (andB (covOK dfs) (incOK kp)) (andB (tabOK tc td ta tb te) (Nat.blt root nL))

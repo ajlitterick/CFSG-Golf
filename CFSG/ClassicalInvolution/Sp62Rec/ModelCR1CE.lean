@@ -202,12 +202,6 @@ theorem V0_mul_self : ∀ v ∈ V0, v * v = 1 := by
   rw [code_mul, ← hie, code_one]
   exact v0Check_spec.2.1 i hi
 
-theorem V0_comm {v w : StatedSp 3 (ZMod 2)} (hv : v ∈ V0) (hw : w ∈ V0) : v * w = w * v := by
-  have h1 := V0_mul_self _ (V0.mul_mem hv hw)
-  have h2 : v⁻¹ = v := inv_eq_of_mul_eq_one_right (V0_mul_self v hv)
-  have h3 : w⁻¹ = w := inv_eq_of_mul_eq_one_right (V0_mul_self w hw)
-  calc v * w = (v * w)⁻¹ := (inv_eq_of_mul_eq_one_right h1).symm
-    _ = w * v := by rw [mul_inv_rev, h2, h3]
 
 theorem conj_mem_V0 {i : Fin 12} (hi : i.val ∈ idxHhat) {v : StatedSp 3 (ZMod 2)} (hv : v ∈ V0) :
     yamakiSp i * v * (yamakiSp i)⁻¹ ∈ V0 := by
@@ -475,37 +469,6 @@ theorem nonempty_quotient_V0 : Nonempty (↥E0 ⧸ V0.subgroupOf E0 ≃* alterna
   exact ⟨(QuotientGroup.quotientMulEquivOfEq hker.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective ψ hψ)⟩
 
-theorem pCore_E0 : CFSG.pCore 2 ↥E0 = V0.subgroupOf E0 := by
-  obtain ⟨ψ, hψ, hker⟩ := exists_a6Hom_surjective
-  unfold CFSG.pCore
-  apply le_antisymm
-  · apply sSup_le
-    rintro K ⟨hKn, hKp⟩
-    haveI : IsSimpleGroup (alternatingGroup (Fin 6)) :=
-      alternatingGroup.isSimpleGroup (by rw [Nat.card_fin]; norm_num)
-    haveI : (K.map ψ).Normal := hKn.map ψ hψ
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal (K.map ψ) with h | h
-    · rw [← hker]
-      intro k hk
-      rw [MonoidHom.mem_ker]
-      have : ψ k ∈ K.map ψ := Subgroup.mem_map_of_mem ψ hk
-      rwa [h, Subgroup.mem_bot] at this
-    · exfalso
-      have hp : IsPGroup 2 ↥(K.map ψ) := hKp.map ψ
-      rw [h] at hp
-      obtain ⟨n, hn⟩ := IsPGroup.iff_card.mp hp
-      rw [Subgroup.card_top, nat_card_alternatingGroup, Nat.card_fin,
-        show (6 : ℕ).factorial / 2 = 360 by decide] at hn
-      have hn9 : n < 9 := by
-        by_contra h9
-        push Not at h9
-        have := Nat.pow_le_pow_right (show 0 < 2 by norm_num) h9
-        omega
-      interval_cases n <;> omega
-  · apply le_sSup
-    refine ⟨inferInstance, IsPGroup.of_card (n := 5) ?_⟩
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe V0_le_E0).toEquiv, card_V0]
-    norm_num
 
 end A6
 

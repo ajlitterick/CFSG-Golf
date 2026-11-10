@@ -768,27 +768,5 @@ public theorem proposition102_exponent_R_sylow_V_of_hall_D
     exact IsPGroup.toSylow_coe hRVp hRidx]
   exact (Subgroup.map_subgroupOf_eq_of_le hRV).symm
 
-public theorem proposition102_exponent_formula
-    {X : Type u} [Group X] [Finite X]
-    {M W D E : Subgroup X} {t : X}
-    (d : Lemma101Conclusion M W D E (peterfalviV D t) t)
-    (h : Proposition102PartAConclusion M W D E (peterfalviV D t) t d)
-    (ht : IsInvolution t)
-    (hDodd : Odd (Nat.card D))
-    (hED : E ≤ D)
-    (htnormD : t ∈ Subgroup.normalizer (D : Set X))
-    (htnormE : t ∈ Subgroup.normalizer (E : Set X))
-    (hHVne : (derivedSubgroup E).map E.subtype ⊓ peterfalviV D t ≠ ⊥)
-    (hVC : peterfalviV D t ⊓
-      Subgroup.centralizer (peterfalviKSet D t) = ⊥) :
-    ∃ r : ℕ, ∃ a : ℕ,
-      r.Prime ∧ r ≠ d.choice.p ∧ 1 ≤ a ∧
-      Nat.card {x : X // x ∈ peterfalviKSet D t} =
-        r ^ a * (2 ^ d.choice.p - 1) ∧
-      r ∣ (2 ^ d.choice.p - 1) := by
-  obtain ⟨e⟩ := proposition102_exponent_data d h ht hDodd hED htnormD
-    htnormE hHVne hVC
-  exact ⟨e.r, e.a, e.r_prime, e.r_ne_p, e.a_pos,
-    e.kset_card_eq, e.r_dvd_mersenne⟩
 
 end CFSG.BenderSuzuki

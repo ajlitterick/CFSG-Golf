@@ -140,10 +140,6 @@ theorem nth_map_ge {α β : Type} (f : α → β) (d : β) (l : List α) {i : �
     nth d (l.map f) i = d := by
   rw [nth_eq, List.getD_eq_default _ _ (by simpa using hi)]
 
-theorem nth_mem_of_lt {α : Type} (d : α) {l : List α} {i : ℕ} (hi : i < l.length) :
-    nth d l i ∈ l := by
-  rw [nth_eq, List.getD_eq_getElem _ _ hi]
-  exact List.getElem_mem _
 
 end Words
 

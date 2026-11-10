@@ -107,57 +107,5 @@ theorem exists_normal_index_two_of_unique_of_relIndex_eq_two {M Y : Subgroup G} 
   rw [mem_subgroupOf] at h2
   simpa [mul_assoc] using h2
 
-theorem exists_normal_index_two_of_unique_of_isConj_pow {M : Subgroup G} {t : G}
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) (χ : M →* Multiplicative (ZMod 2)) {x : G}
-    (hxM : x ∈ M) (hχx : χ ⟨x, hxM⟩ ≠ 1) {a : ℕ} (hxo : orderOf x = 2 ^ a)
-    (hmin : ∀ y (hy : y ∈ M), IsPGroup 2 (zpowers y) → χ ⟨y, hy⟩ ≠ 1 → orderOf x ≤ orderOf y)
-    {n : ℕ} (hpow : IsConj t (x ^ n)) :
-    ∃ N : Subgroup G, N.Normal ∧ N.index = 2 := by
-  set Y := χ.ker.map M.subtype with hYdef
-  have hYM : Y ≤ M := map_subtype_le _
-  have hmemY : ∀ y (hy : y ∈ M), y ∈ Y ↔ χ ⟨y, hy⟩ = 1 := by
-    intro y hy
-    rw [hYdef, ← MonoidHom.mem_ker]
-    constructor
-    · rintro ⟨z, hz, rfl⟩
-      exact hz
-    · intro h
-      exact ⟨⟨y, hy⟩, h, rfl⟩
-  have hY : Y.relIndex M = 2 := by
-    rw [relIndex_eq_two_iff_exists_notMem_and]
-    refine ⟨x, hxM, fun h => hχx ((hmemY x hxM).1 h), fun b hb => ?_⟩
-    rw [hmemY b hb, hmemY (b * x) (M.mul_mem hb hxM)]
-    have hmul : χ ⟨b * x, M.mul_mem hb hxM⟩ = χ ⟨b, hb⟩ * χ ⟨x, hxM⟩ := by
-      rw [← map_mul]
-      rfl
-    rw [hmul]
-    revert hχx
-    generalize χ ⟨x, hxM⟩ = u
-    generalize χ ⟨b, hb⟩ = v
-    revert u v
-    decide
-  exact exists_normal_index_two_of_unique_of_relIndex_eq_two hYM hY huniq hxM
-    (fun h => hχx ((hmemY x hxM).1 h)) hxo
-    (fun y hy hyY hy2 => hmin y hy hy2 (fun h => hyY ((hmemY y hy).2 h))) hpow
-
-theorem exists_normal_index_two_of_unique {M : Subgroup G} {t x : G}
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) (χ : M →* Multiplicative (ZMod 2))
-    (hxM : x ∈ M) (hχx : χ ⟨x, hxM⟩ ≠ 1) {a : ℕ} (hxo : orderOf x = 2 ^ a)
-    (hmin : ∀ y (hy : y ∈ M), IsPGroup 2 (zpowers y) → χ ⟨y, hy⟩ ≠ 1 → 2 ^ a ≤ orderOf y)
-    (hpow : ∃ k ∈ M, k⁻¹ * x ^ (2 ^ (a - 1)) * k = t) :
-    ∃ N : Subgroup G, N.Normal ∧ N.index = 2 := by
-  obtain ⟨k, -, hk⟩ := hpow
-  refine exists_normal_index_two_of_unique_of_isConj_pow huniq χ hxM hχx hxo
-    (fun y hy hy2 hχy => hxo ▸ hmin y hy hy2 hχy) (n := 2 ^ (a - 1)) (isConj_iff.2 ⟨k, ?_⟩)
-  rw [← hk]
-  group
-
-theorem false_of_simple_of_unique [IsSimpleGroup G] (hG : 2 < Nat.card G) {M : Subgroup G} {t : G}
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ M → g ∈ M) (χ : M →* Multiplicative (ZMod 2)) {x : G}
-    (hxM : x ∈ M) (hχx : χ ⟨x, hxM⟩ ≠ 1) {a : ℕ} (hxo : orderOf x = 2 ^ a)
-    (hmin : ∀ y (hy : y ∈ M), IsPGroup 2 (zpowers y) → χ ⟨y, hy⟩ ≠ 1 → orderOf x ≤ orderOf y)
-    {n : ℕ} (hpow : IsConj t (x ^ n)) : False :=
-  CFSG.SeitzReduction.not_exists_normal_index_two_of_simple hG
-    (exists_normal_index_two_of_unique_of_isConj_pow huniq χ hxM hχx hxo hmin hpow)
 
 end CFSG.SeitzReduction.F4Pilot

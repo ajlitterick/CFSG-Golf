@@ -261,13 +261,5 @@ theorem foote_theorem_3_3_of_local
   rw [le_bot_iff.mp (hKle.trans hle)]
   exact Subgroup.bot_subgroupOf _
 
-theorem foote_theorem_3_3 (hSol : SolomonThm13Input) (hM3 : FooteSolomonFamilyInput)
-    (hβ : ∀ B : Subgroup G, (∃ b : G, IsTwoComponentAt b B) → FooteFamilyType B →
-      Nat.card (center (B ⧸ pPrimeCore 2 B)) ≤ 2)
-    {t : G} {L : Subgroup G} (hmin : FooteMinimal G) (hce : FooteCounterexample G t L)
-    [IsSimpleGroup G] (hrank2 : ∀ A ∈ footeFamilyOf L, CFSG.pRank 2 ↥A = 2) {a : G}
-    {K M : Subgroup G} (hK : IsTwoComponentAt a K) (hM : IsTwoComponentAt a M)
-    (hKF : K ∈ footeFamilyOf L) (hMF : M ∈ footeFamilyOf L) : K = M :=
-  foote_theorem_3_3_of_local (hSol G) hM3 hβ hmin hce hrank2 hK hM hKF hMF
 
 end CFSG.ComponentClassification.FooteLit

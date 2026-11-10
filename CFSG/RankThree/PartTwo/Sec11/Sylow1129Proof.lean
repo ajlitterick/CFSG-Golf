@@ -18,7 +18,5 @@ open CFSG.ABGLocalTools (IsSylowOf)
       Subgroup.closure ({r, s} : Set G) = Subgroup.closure {a, s} ∧ orderOf x = 9 ∧
       ⁅sec11P R g, sec11P R g⁆ = Subgroup.closure {e, d})
 
-variable {G : Type} [Group G] [Finite G] {A : Subgroup G} {c : G} {L : Subgroup G} {a : G}
-  {R Y : Subgroup G} {d x s r g e : G} {Y' : Subgroup G}
 
 end CFSG.RankThree.PartTwo.Sec11

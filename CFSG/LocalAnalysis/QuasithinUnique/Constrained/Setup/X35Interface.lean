@@ -20,9 +20,6 @@ structure ActorBase (V : Type) [CommGroup V] [Finite V] (H T M E : Subgroup (Mul
   offender : E ≤ H ∧ E ≠ ⊥ ∧ (∀ a ∈ E, ∀ b ∈ E, a * b = b * a) ∧ (∀ a ∈ E, a ^ 2 = 1) ∧
     Nat.card V ≤ Nat.card E * Nat.card (fixV E)
 
-theorem ActorBase.of_ffActor {V : Type} [CommGroup V] [Finite V] {H T M E : Subgroup (MulAut V)}
-    (h : FFActor V H T M E) : ActorBase V H T M E :=
-  ⟨h.elementary, h.o2_trivial, h.sylow, h.not_normal, h.max, h.offender⟩
 
 @[expose] def ActorComponentTransfer : Prop :=
   ∀ (V : Type) [CommGroup V] [Finite V] (H T M E : Subgroup (MulAut V)),

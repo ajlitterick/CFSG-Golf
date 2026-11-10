@@ -37,13 +37,5 @@ theorem B2_17_aut [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {ι : Type*} [Fintype �
   have h4 := rk_add_rkIdx (fixV I)
   omega
 
-theorem B2_17 [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {G : Type*} [Group G] (ρ : G →* MulAut V)
-    {ι : Type*} [Fintype ι] (X : ι → Subgroup G) {L : Subgroup G} (hL : L ≤ ⨆ i, X i)
-    (h : ∑ i, rkIdx (fixV ((X i).map ρ)) ≤ rkIdx (fixV (L.map ρ))) :
-    fixV (L.map ρ) = fixV ((⨆ i, X i).map ρ) ∧
-      rkIdx (fixV (L.map ρ)) = ∑ i, rkIdx (fixV ((X i).map ρ)) := by
-  have hmap : (⨆ i, X i).map ρ = ⨆ i, (X i).map ρ := Subgroup.map_iSup _ _
-  rw [hmap]
-  exact B2_17_aut hV (fun i => (X i).map ρ) (hmap ▸ Subgroup.map_mono hL) h
 
 end CFSG.Quasithin

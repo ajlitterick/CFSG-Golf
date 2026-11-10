@@ -48,8 +48,6 @@ variable (β η) in
 @[expose] def pullbackFst : pullback β η →* K :=
   (MonoidHom.fst K P).comp (pullback β η).subtype
 
-theorem pullbackFst_apply (y : pullback β η) : pullbackFst β η y = (y : K × P).1 :=
-  rfl
 
 theorem pullbackFst_surjective (hη : Function.Surjective η) :
     Function.Surjective (pullbackFst β η) := by

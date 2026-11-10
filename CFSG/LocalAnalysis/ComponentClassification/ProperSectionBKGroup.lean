@@ -208,21 +208,5 @@ theorem kProper_section_B_conclusion_of_inputs (hS : SchreierFor Blueprint.Catal
   have : Finite Y := Finite.of_equiv (H ⧸ N) f.toEquiv
   exact ⟨hYK, kGroupBConclusion_of_inputs hS hU hheld hYK⟩
 
-theorem kGroup_B_inclusion_and_kProper_proper_section_availability_of_inputs
-    (hS : SchreierFor Blueprint.Catalog) (hU : CatalogueU.CatalogAlmostSimpleUnbalancedOutcome)
-    (hheld : KProperRelativeB.HeldInput) :
-    (∀ (Y : Type) [Group Y] [Finite Y], SectionRank.IsKGroupCat Y → KGroupBConclusion Y) ∧
-    (∀ (G : Type) [Group G] [Finite G], CFSG.Assembly.KProper Blueprint.Catalog G →
-      ∀ H : Subgroup G, H ≠ ⊤ → ∀ (N : Subgroup H) [N.Normal] (Y : Type) [Group Y],
-        (H ⧸ N ≃* Y) → SectionRank.IsKGroupCat Y ∧ KGroupBConclusion Y) ∧
-    ∀ (G : Type) [Group G] [Finite G], CFSG.Assembly.KProper Blueprint.Catalog G →
-      ∀ B : Subgroup G, B ≠ ⊥ → IsPGroup 2 B → normalizer (B : Set G) ≠ ⊤ →
-      ∀ H : Subgroup G, H ≤ normalizer (B : Set G) → ∀ (N : Subgroup H) [N.Normal]
-        (Y : Type) [Group Y], (H ⧸ N ≃* Y) → KGroupBConclusion Y :=
-  ⟨fun _ _ _ hY => kGroupBConclusion_of_inputs hS hU hheld hY,
-    fun _ _ _ hK _ hH N _ _ _ f => kProper_section_B_conclusion_of_inputs hS hU hheld hK hH N f,
-    fun _ _ _ hK _ _ _ hBG _ hHB N _ _ _ f =>
-      (kProper_section_B_conclusion_of_inputs hS hU hheld hK
-        (fun h => hBG (top_unique (h ▸ hHB))) N f).2⟩
 
 end CFSG.ComponentClassification.ProperSectionB

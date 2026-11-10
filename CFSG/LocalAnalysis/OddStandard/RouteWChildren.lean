@@ -46,17 +46,5 @@ theorem odd_standard_of_childrenW (h1 : ChildLargeAltW) (h2 : ChildSmallAltOdd)
     tauto
   · exact .inr (.inl (h6 G L hS hhe))
 
-theorem odd_standard_order_of_childrenW
-    (h1 : ChildLargeAltW) (h2 : ChildSmallAltOdd)
-    (h3 : ChildSmallAltEven) (h4 : ChildOddLie) (h5 : ChildL34W) (h6 : ChildHeW)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper Blueprint.Catalog G)
-    (L : Subgroup G) (hL : standardComponentIsStandard L)
-    (htype : Recognition.Exact.OddStandardType (L ⧸ center L)) :
-    (∃ n : ℕ, 9 ≤ n ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∨
-      (∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Nat.card G ∈ lieOrdersChar p) ∨
-      Nat.card G ∈ standardComponentOddSporadicOrders :=
-  orderForm_of_oddOutcome (odd_standard_of_childrenW h1 h2 h3 h4 h5 h6 G hnonab hK L hL htype)
 
 end CFSG.OddStandard

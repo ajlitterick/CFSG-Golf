@@ -122,7 +122,6 @@ theorem wv_surj (w : W₀) : ∃ u < 1024, wv u = w := by
 @[expose] noncomputable def wEquiv :
     Fin 1024 ≃ W₀ := Equiv.ofBijective _ wv_bijective
 
-theorem wEquiv_apply (u : Fin 1024) : wEquiv u = wv u := rfl
 
 theorem matW_check : ∀ g < 2, ∀ u < 1024,
     red 12 pivK rowK (xorSel (spreadW u).testBit (fun t => 2 ^ genAB' g t) 22 ^^^

@@ -215,11 +215,6 @@ theorem mem_L_of_coprime
   rw [he', mul_one]
   exact hl
 
-theorem decomp_seven
-    {y : G} (hy : y ∈ Subgroup.normalizer (s.fr.E : Set G))
-    (hy7 : y ^ 7 = 1) : ∃ l ∈ s.L s.fr.E, ∃ e ∈ s.fr.E, l * e = y ∧ l * e = e * l ∧ l ^ 7 = 1 := by
-  obtain ⟨l, hl, e, he, rfl, hle⟩ := decomp hy
-  exact ⟨l, hl, e, he, rfl, hle, (σ.pow_eq_one_of_decomp hl he hle hy7).1⟩
 
 theorem q_eq : s.q = 3 ^ 7 := by rw [Hyp.q, σ.p3, σ.f7]
 

@@ -78,7 +78,6 @@ theorem sq_mul_F4 : ∀ a b : F4, (a * b) ^ 2 = a ^ 2 * b ^ 2 := by decide
 
 theorem eq_of_sq_eq_sq_F4 : ∀ a b : F4, a ^ 2 = b ^ 2 → a = b := by decide
 
-theorem coe_frobeniusF4 : ⇑frobeniusF4 = fun x : F4 => x ^ 2 := funext frobeniusF4_apply
 
 @[expose] noncomputable def frobSL :
     Matrix.SpecialLinearGroup (Fin 3) F4 →* Matrix.SpecialLinearGroup (Fin 3) F4 :=
@@ -164,7 +163,6 @@ abbrev SigmaL3 : Type := PSL(3, F4) ⋊[frobHom] Multiplicative (ZMod 2)
     change (c * v i) ^ 2 = frobeniusF4 c * v i ^ 2
     rw [frobeniusF4_apply, sq_mul_F4]
 
-theorem frobLin_apply (v : Fin 3 → F4) (i : Fin 3) : frobLin v i = v i ^ 2 := rfl
 
 theorem frobLin_injective : Function.Injective frobLin := fun _ _ h =>
   funext fun i => eq_of_sq_eq_sq_F4 _ _ (congrFun h i)
@@ -355,8 +353,5 @@ theorem nativeGen_right_inv : ∀ k x, nativeGenFn k (nativeGenInvFn k x) = x :=
 
 @[expose] def genFrob : Fin 6 → ZMod 2 := ![0, 0, 0, 0, 0, 1]
 
-@[expose] noncomputable def nativeLines : Finset (Finset (Fin 24)) :=
-  (CFSG.Monster.Code.octads.filter fun d => ({0, 1, 2} : Finset (Fin 24)) ⊆ d).image
-    fun d => d \ {0, 1, 2}
 
 end CFSG.Monster.B.Classical.ThreePlane

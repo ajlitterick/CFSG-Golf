@@ -36,8 +36,6 @@ variable {K : Type u} [Field K]
     change ((ε.val : K) * (δ.val : K)) • X = (ε.val : K) • ((δ.val : K) • X)
     exact mul_smul _ _ _
 
-theorem selfAdjointScalarAction_val (ε : rootsOfUnity 2 K) (X : selfAdjointSubmodule K) :
-    ((selfAdjointScalarAction ε).val X).val = (ε.val : K) • X.val := rfl
 
 @[expose] def selfAdjointNegSign (K : Type u) [Field K] : rootsOfUnity 2 K :=
   ⟨(-1 : Kˣ), by simp [mem_rootsOfUnity, pow_two]⟩
@@ -73,13 +71,6 @@ theorem selfAdjointScalarAction_commute (h2 : (2 : K) ≠ 0)
     rw [map_mul, map_mul]
     exact ((selfAdjointScalarAction_commute h2 x.2 y.1).mul_mul_mul_comm _ _).symm
 
-theorem selfAdjointFullAction_val (h2 : (2 : K) ≠ 0)
-    (x : symplecticSimilitudes K × rootsOfUnity 2 K) (X : selfAdjointSubmodule K) :
-    ((selfAdjointFullAction h2 x).val X).val =
-      (x.2.val : K) • (x.1.val.val * X.val * x.1.val⁻¹.val) := by
-  change (selfAdjointConjugation x.1 ((x.2.val : K) • X)).val = _
-  rw [map_smul]
-  rfl
 
 theorem selfAdjoint_reflection_mem_fullAction (h2 : (2 : K) ≠ 0)
     (X : selfAdjointSubmodule K) [Invertible (selfAdjointForm K X)] :

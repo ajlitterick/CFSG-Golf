@@ -63,10 +63,6 @@ public def ZJ (S : Subgroup G) : Subgroup G :=
 public def conjSubset (g : G) (W : Set G) : Set G :=
   {x : G | ∃ w : G, w ∈ W ∧ x = g⁻¹ * w * g}
 
-/-- Membership in `conjSubset g W`. -/
-public theorem mem_conjSubset {g : G} {W : Set G} {x : G} :
-    x ∈ conjSubset g W ↔ ∃ w : G, w ∈ W ∧ x = g⁻¹ * w * g := by
-  rfl
 
 /-- A finite group `H` is *involved* in `G` if `H` is isomorphic to a subquotient of `G`
 ([6], §2, p. 1103: "We say that a finite group `G₀` is *involved* in `G` if `G₀` is

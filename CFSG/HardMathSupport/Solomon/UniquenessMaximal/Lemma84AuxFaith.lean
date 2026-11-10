@@ -27,8 +27,6 @@ variable (ρ : Γ →* MulAut Y) {K₀ : Subgroup (Qt Y)}
 theorem self_mem_orbitSet : K₀ ∈ orbitSet ρ K₀ :=
   ⟨1, by ext x; simp⟩
 
-theorem mem_orbitSet_iff {K : Subgroup (Qt Y)} :
-    K ∈ orbitSet ρ K₀ ↔ ∃ γ : Γ, K₀.map (qAct ρ γ).toMonoidHom = K := Iff.rfl
 
 theorem map_mem_orbitSet {K : Subgroup (Qt Y)} (hK : K ∈ orbitSet ρ K₀) (δ : Γ) :
     K.map (qAct ρ δ).toMonoidHom ∈ orbitSet ρ K₀ := by

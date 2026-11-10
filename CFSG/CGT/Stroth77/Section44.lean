@@ -545,42 +545,5 @@ theorem StrothFrame.IsD.stroth_4_4 {F : StrothFrame G} {D : Subgroup G} {m : ℕ
       rw [hS', hset, Subgroup.closure_union, ← Subgroup.zpowers_eq_closure, ← h.uv_eq, ← h.t_eq,
         ← h.u_eq, sup_assoc]
 
-theorem StrothFrame.IsD.hasPSL6Sylow_of_stroth_4_4 {F : StrothFrame G} {D : Subgroup G} {m : ℕ}
-    {dD : StrothWeakTypeData D (.t201 m)} (h : F.IsD D dD)
-    (hSR : (F.S : Subgroup G) = (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-      Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) ⊔
-        Subgroup.closure {dD.uv, dD.t, dD.u})
-    (h34b : (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-        Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D ∨
-      ∃ e ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G),
-        (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-          Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D ⊔ Subgroup.zpowers e ∧
-        e⁻¹ * dD.uv * e = dD.cab ^ 2 * dD.uv ∧ e⁻¹ * dD.t * e = (dD.a : G)⁻¹ ^ 2 * dD.t ∧
-        e⁻¹ * dD.u * e = dD.u ∧
-        ((e⁻¹ * (dD.c : G) * e = dD.c ∧
-            e⁻¹ * (dD.a : G) * e = dD.a * (dD.a : G) ^ 2 ^ (m + 1) ∧
-            e⁻¹ * (dD.b : G) * e = dD.b * (dD.b : G) ^ 2 ^ (m + 1) ∧ e * e = (dD.c : G)⁻¹) ∨
-          (e⁻¹ * (dD.c : G) * e = (dD.c : G)⁻¹ ∧ e⁻¹ * (dD.a : G) * e = (dD.a : G)⁻¹ ∧
-            e⁻¹ * (dD.b : G) * e = (dD.b : G)⁻¹ ∧ e * e = 1) ∨
-          (e⁻¹ * (dD.c : G) * e = (dD.c : G)⁻¹ ∧
-            e⁻¹ * (dD.a : G) * e = (dD.a : G)⁻¹ * (dD.a : G) ^ 2 ^ (m + 1) ∧
-            e⁻¹ * (dD.b : G) * e = (dD.b : G)⁻¹ * (dD.b : G) ^ 2 ^ (m + 1) ∧ e * e = 1)))
-    (hA : (F.S : Subgroup G) = D ⊔ Subgroup.closure {dD.uv, dD.t, dD.u} → False)
-    (hii : ∀ e, e ∈ Subgroup.normalizer (D : Set G) →
-      (F.S : Subgroup G) = D ⊔ Subgroup.closure {dD.uv, dD.t, dD.u} ⊔ Subgroup.zpowers e →
-      e⁻¹ * dD.uv * e = dD.cab ^ 2 * dD.uv → e⁻¹ * dD.t * e = (dD.a : G)⁻¹ ^ 2 * dD.t →
-      e⁻¹ * dD.u * e = dD.u → e⁻¹ * (dD.c : G) * e = dD.c →
-      e⁻¹ * (dD.a : G) * e = dD.a * (dD.a : G) ^ 2 ^ (m + 1) →
-      e⁻¹ * (dD.b : G) * e = dD.b * (dD.b : G) ^ 2 ^ (m + 1) → e * e = (dD.c : G)⁻¹ → False)
-    (hiii : ∀ e, e ∈ Subgroup.normalizer (D : Set G) →
-      (F.S : Subgroup G) = D ⊔ Subgroup.closure {dD.uv, dD.t, dD.u} ⊔ Subgroup.zpowers e →
-      e⁻¹ * dD.uv * e = dD.cab ^ 2 * dD.uv → e⁻¹ * dD.t * e = (dD.a : G)⁻¹ ^ 2 * dD.t →
-      e⁻¹ * dD.u * e = dD.u → e⁻¹ * (dD.c : G) * e = (dD.c : G)⁻¹ →
-      e⁻¹ * (dD.a : G) * e = (dD.a : G)⁻¹ → e⁻¹ * (dD.b : G) * e = (dD.b : G)⁻¹ →
-      e * e = 1 → False) :
-    HasPSL6Sylow G := by
-  obtain ⟨e, -, hS, hc, ha, hb, he, huv, ht, hu⟩ := h.stroth_4_4 hSR h34b hA hii hiii
-  exact h.hasPSL6Sylow_of_stroth44 hc ha hb he huv ht hu hS
 
 end CFSG.CGT.Stroth77

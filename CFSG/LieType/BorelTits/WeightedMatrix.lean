@@ -212,9 +212,6 @@ variable (b wt) in
     rw [inv_eq_pow_card_sub_one]
     exact pow_mem_gradedKernelSet ρ hx _
 
-theorem mem_gradedKernel [Finite G] {v : E} {x : G} :
-    x ∈ gradedKernel b wt ρ v ↔ ∃ c : ℝ, 0 < c ∧ Raises b wt v c (ρ x - 1) :=
-  Iff.rfl
 
 theorem gradedKernel_le_triangular [Finite G] (v : E) :
     gradedKernel b wt ρ v ≤ triangular b wt ρ v := by
@@ -237,14 +234,6 @@ theorem conj_mem_gradedKernel [Finite G] {v : E} {y x : G} (hy : y ∈ triangula
     (show Raises b wt v 0 (ρ y⁻¹) from hyi)
   simpa using this
 
-theorem triangular_le_normalizer_gradedKernel [Finite G] (v : E) :
-    triangular b wt ρ v ≤ Subgroup.normalizer (gradedKernel b wt ρ v : Set G) := by
-  intro y hy
-  rw [Subgroup.mem_normalizer_iff]
-  intro x
-  refine ⟨fun hx => conj_mem_gradedKernel ρ hy hx, fun hx => ?_⟩
-  have := conj_mem_gradedKernel ρ (inv_mem hy) hx
-  simpa [mul_assoc] using this
 
 theorem isPGroup_gradedKernel [Finite G] [Finite ι] (p : ℕ) [Fact p.Prime] [CharP K p]
     (hρ : Function.Injective ρ) (v : E) : IsPGroup p (gradedKernel b wt ρ v) := by
@@ -290,11 +279,6 @@ theorem isPGroup_gradedKernel [Finite G] [Finite ι] (p : ℕ) [Fact p.Prime] [C
   rw [hT, sub_add_cancel] at key
   rw [Subgroup.coe_pow, Subgroup.coe_one, map_pow, map_one, key, ← hT, hTp, one_pow, zero_add]
 
-theorem gradedKernel_le_pCoreOf [Finite G] [Finite ι] (p : ℕ) [Fact p.Prime] [CharP K p]
-    (hρ : Function.Injective ρ) (v : E) :
-    gradedKernel b wt ρ v ≤ pCoreOf p (triangular b wt ρ v) :=
-  le_pCoreOf_of_le_normalizer p (gradedKernel_le_triangular ρ v)
-    (triangular_le_normalizer_gradedKernel ρ v) (isPGroup_gradedKernel ρ p hρ v)
 
 variable (b wt) in
 structure WeightedBruhat (act : W →* (E ≃ₗᵢ[ℝ] E)) (n : W → G) (B U : Subgroup G) (D : Set E)

@@ -21,11 +21,6 @@ noncomputable section
 
 export CFSG.Open.StatedAPI (statedScalars_eq_center)
 
-theorem statedScalars_subgroupOf_eq_ker {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type}
-    [Field K] (H : Subgroup (GL ι K)) :
-    (CFSG.Assembly.LowTwoRank.StatedScalars ι K).subgroupOf H =
-      (ProjGenLinGroup.mk.comp H.subtype).ker :=
-  (CFSG.Open.StatedAPI.ker_mk_comp_subtype H).symm
 
 def statedProjEquivMap {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type} [Field K]
     (H : Subgroup (GL ι K)) :

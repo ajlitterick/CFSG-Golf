@@ -92,9 +92,6 @@ theorem isRoot_root (N : E6Neighbour) : IsRoot .E6 N.root := by
   cases N
   exacts [isRoot_highRoot _, isRoot_single _ _, isRoot_single _ _]
 
-theorem root_mem_coverRoots (N : E6Neighbour) : N.root ∈ EPilot.coverRoots .E6 := by
-  cases N <;> decide +kernel
-
 
 @[expose] noncomputable def levi (K : Type) [Field K] (N : E6Neighbour) :
     Subgroup (adjointGroup .E6 K) :=
@@ -168,27 +165,6 @@ theorem subset_nodes_amalgamPlacement {J : Finset (Fin (Tag.rank .E6))} (hJ : J.
   · rw [amalgamPlacement_of_one_not_mem h1]
     exact fun j hj => mem_nodes_high_of_ne fun h => h1 (h ▸ hj)
 
-theorem amalgamRoots_subset_orthRoots_placement {J : Finset (Fin (Tag.rank .E6))}
-    (hJ : J.card ≤ 2) : amalgamRoots J ⊆ orthRoots (amalgamPlacement J).root :=
-  amalgamRoots_subset_orthRoots_iff_subset_nodes.2 (subset_nodes_amalgamPlacement hJ)
-
-theorem amalgamRoots_subset_high_or_six_iff {J : Finset (Fin (Tag.rank .E6))} (hJ : J.card ≤ 2) :
-    amalgamRoots J ⊆ orthRoots high.root ∨ amalgamRoots J ⊆ orthRoots six.root ↔
-      J ≠ {1, 4} ∧ J ≠ {1, 5} := by
-  rw [amalgamRoots_subset_orthRoots_iff_subset_nodes,
-    amalgamRoots_subset_orthRoots_iff_subset_nodes]
-  constructor
-  · rintro (h | h) <;> refine ⟨?_, ?_⟩ <;> rintro rfl <;> revert h <;> decide
-  · rintro ⟨h14, h15⟩
-    by_cases h1 : (1 : Fin (Tag.rank .E6)) ∈ J
-    · right
-      refine fun j hj => mem_nodes_six_of_ne ?_ ?_
-      · rintro rfl
-        exact h14 (eq_pair_of_card_le_two hJ (by decide) h1 hj)
-      · rintro rfl
-        exact h15 (eq_pair_of_card_le_two hJ (by decide) h1 hj)
-    · left
-      exact fun j hj => mem_nodes_high_of_ne fun h => h1 (h ▸ hj)
 
 section Placement
 
@@ -255,33 +231,11 @@ theorem levi_le_neighbourLevi {J : Finset (Fin (Tag.rank .E6))} {N : E6Neighbour
     (h : J ⊆ N.nodes) : CFSG.LieType.CurtisTits.levi (adjDatumE6 K).rootGroup J ≤ N.levi K :=
   levi_le_orthRoots fun j hj => (N.iform_root_single_eq_zero_iff j).2 (h hj)
 
-theorem levi_le_a5Levi {J : Finset (Fin (Tag.rank .E6))} (h : (1 : Fin (Tag.rank .E6)) ∉ J) :
-    CFSG.LieType.CurtisTits.levi (adjDatumE6 K).rootGroup J ≤ a5Levi K := by
-  rw [← levi_high]
-  exact levi_le_neighbourLevi fun j hj => mem_nodes_high_of_ne fun h' => h (h' ▸ hj)
 
 theorem leviAmalgam_le_placementLevi (J : {J : Finset (Fin (adjDatumE6 K).rank) // J.card ≤ 2}) :
     (adjDatumE6 K).leviAmalgam J ≤ (amalgamPlacement J.1).levi K :=
   levi_le_neighbourLevi (subset_nodes_amalgamPlacement J.2)
 
-theorem leviAmalgam_le_a5Levi_or_six_or_three
-    (J : {J : Finset (Fin (adjDatumE6 K).rank) // J.card ≤ 2}) :
-    ((1 : Fin (Tag.rank .E6)) ∉ J.1 → (adjDatumE6 K).leviAmalgam J ≤ a5Levi K) ∧
-    ((4 : Fin (Tag.rank .E6)) ∉ J.1 → (5 : Fin (Tag.rank .E6)) ∉ J.1 →
-      (adjDatumE6 K).leviAmalgam J ≤ six.levi K) ∧
-    (J.1 ⊆ three.nodes → (adjDatumE6 K).leviAmalgam J ≤ three.levi K) ∧
-    ((adjDatumE6 K).leviAmalgam J ≤ a5Levi K ∨ (adjDatumE6 K).leviAmalgam J ≤ six.levi K ∨
-      (adjDatumE6 K).leviAmalgam J ≤ three.levi K) := by
-  refine ⟨levi_le_a5Levi, fun h4 h5 => levi_le_neighbourLevi fun j hj =>
-    mem_nodes_six_of_ne (fun h => h4 (h ▸ hj)) fun h => h5 (h ▸ hj),
-    fun h => levi_le_neighbourLevi h, ?_⟩
-  have h := leviAmalgam_le_placementLevi J
-  unfold amalgamPlacement at h
-  split_ifs at h with h1 h45
-  · exact Or.inr (Or.inr h)
-  · exact Or.inr (Or.inl h)
-  · rw [levi_high] at h
-    exact Or.inl h
 
 end Placement
 

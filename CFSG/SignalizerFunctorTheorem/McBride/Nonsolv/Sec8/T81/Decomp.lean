@@ -111,33 +111,6 @@ theorem isDirectProduct_mFam
   rw [h.lemma_6_4] at hxZ
   exact hxZ
 
-theorem inf_mL_eq
-    (h : Counterexample p A θ) (hA : TypeA p A θ) (hr : InPiTheta A θ r)
-    (hS : IsSr p A θ r S) {B : Subgroup G} (hB : B ∈ signalizerFunctorEk p 2 A) {L : Subgroup G}
-    (hL : L ∈ lcal (thetaOf θ B)) : thetaOf θ B ⊓ mL θ (zOf S) B L = L := by
-  have hΩ := h.isRegFam_plane_of_typeA hA hB
-  have hdp := isDirectProduct_mFam h hA hr hS hB
-  refine le_antisymm ?_ (le_inf (lcal_le hL) (le_mL θ _ B L))
-  intro x hx
-  obtain ⟨hxH, hxM⟩ := Subgroup.mem_inf.mp hx
-  have hpair := hΩ.isDirectProduct.isDirectPair hL
-  obtain ⟨l, hl, u, hu, rfl⟩ := (mem_sup_iff_of_commute hpair.commute).mp (hpair.sup_eq ▸ hxH)
-  have hmL : mL θ (zOf S) B L ∈ mFam θ (zOf S) B := ⟨L, hL, rfl⟩
-  have hu1 : u ∈ sSup (mFam θ (zOf S) B \ {mL θ (zOf S) B L}) := by
-    have : sSup (lcal (thetaOf θ B) \ {L}) ≤
-        sSup (mFam θ (zOf S) B \ {mL θ (zOf S) B L}) := by
-      refine sSup_le fun K hK => ?_
-      refine le_trans (le_mL θ (zOf S) B K) (le_sSup ⟨⟨K, hK.1, rfl⟩, fun hmem => ?_⟩)
-      exact mL_ne_of_ne h hA hB hK.1 hL (fun hKL => hK.2 (Set.mem_singleton_iff.mpr hKL))
-        (Set.mem_singleton_iff.mp hmem)
-    exact this hu
-  have hu2 : u ∈ mL θ (zOf S) B L := by
-    have : u = l⁻¹ * (l * u) := by group
-    rw [this]
-    exact mul_mem (inv_mem (le_mL θ _ B L hl)) hxM
-  have hu3 : u = 1 := (Subgroup.disjoint_def.mp (hdp.indep hmL)) hu2 hu1
-  rw [hu3, mul_one]
-  exact hl
 
 theorem normalizes_zOf (hS : IsSr p A θ r S) : A ≤ Subgroup.normalizer (zOf S : Set G) :=
   fun _ ha => mem_normalizer_zOf (Counterexample.normalizes_of_isSr hS ha)

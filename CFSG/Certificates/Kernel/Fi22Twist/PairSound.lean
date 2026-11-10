@@ -197,10 +197,6 @@ theorem img (P : PairTab ψ e T K M X V) {x : ℕ} (hx : x < 729) :
     ∀ l < 6, qpE (X x) (2 + l) = pt ψ (e x) (bp l) := fun l hl => by
   rw [(xc_spec (P.xc x hx)).1 l hl, ap_eq (P.key x hx) (bp_lt6 l hl)]
 
-theorem img_lt (P : PairTab ψ e T K M X V) {x : ℕ} (hx : x < 729) :
-    ∀ l < 6, qpE (X x) (2 + l) < 3510 := fun l hl => by
-  rw [P.img hx l hl]
-  exact pt_lt ψ _ (bp_lt6 l hl)
 
 theorem e_mem (P : PairTab ψ e T K M X V) {i : ℕ} (hi : i < 729) : e i ∈ T :=
   (P.mem _).2 ⟨i, hi, rfl⟩

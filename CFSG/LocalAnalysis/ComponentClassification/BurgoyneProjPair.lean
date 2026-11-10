@@ -114,13 +114,6 @@ theorem pairSupp_mul {J : Finset ι} {M N : Matrix ι ι K} (hM : PairSupp J M)
     (hN : PairSupp J N) : PairSupp J (M * N) :=
   ⟨by rw [← Matrix.mul_assoc, hM.1, hN.1], by rw [Matrix.mul_assoc, hN.2, hM.2]⟩
 
-theorem pairSupp_of_mul_eq_one {J : Finset ι} {M Mi : Matrix ι ι K} (hM : PairSupp J M)
-    (h1 : M * Mi = 1) (h2 : Mi * M = 1) : PairSupp J Mi := by
-  refine ⟨?_, ?_⟩
-  · calc offInd K J * Mi = (offInd K J * M) * Mi := by rw [hM.1]
-      _ = offInd K J := by rw [Matrix.mul_assoc, h1, Matrix.mul_one]
-  · calc Mi * offInd K J = Mi * (M * offInd K J) := by rw [hM.2]
-      _ = offInd K J := by rw [← Matrix.mul_assoc, h2, Matrix.one_mul]
 
 theorem blockDiag_mul {J : Finset ι} {M N : Matrix ι ι K} (hM : BlockDiag J M)
     (hN : BlockDiag J N) : BlockDiag J (M * N) := by
@@ -230,27 +223,6 @@ theorem pairBlock_mul (hab : a ≠ b) {M N : Matrix ι ι K} (hM : BlockDiag {a,
   rw [pairBlock, pairBlock, pairBlock, Matrix.mul_fin_two, hsum a a ha, hsum a b ha, hsum b a hb,
     hsum b b hb]
 
-theorem pairMat_mulVec_apply (hab : a ≠ b) (X : Matrix (Fin 2) (Fin 2) K) (u : ι → K) (x : ι) :
-    (pairMat a b X *ᵥ u) x =
-      if x = a then X 0 0 * u a + X 0 1 * u b
-      else if x = b then X 1 0 * u a + X 1 1 * u b else u x := by
-  rw [mulVec, dotProduct]
-  by_cases hxa : x = a
-  · subst hxa
-    simp only [↓reduceIte]
-    rw [Finset.sum_eq_add x b hab (fun c _ hc => by simp [pairMat, hc.1, hc.2])
-      (by simp) (by simp)]
-    simp [pairMat, Ne.symm hab]
-  · by_cases hxb : x = b
-    · subst hxb
-      simp only [hxa, ↓reduceIte]
-      rw [Finset.sum_eq_add a x hab
-        (fun c _ hc => by simp [pairMat, hxa, hc.1, hc.2]) (by simp) (by simp)]
-      simp [pairMat, hxa]
-    · simp only [hxa, hxb, ↓reduceIte]
-      rw [Finset.sum_eq_single x (fun c _ hc => by
-        simp [pairMat, hxa, hxb, Ne.symm hc]) (by simp)]
-      simp [pairMat, hxa, hxb]
 
 theorem pairBlock_scalar_of_commute (hab : a ≠ b) {D : Matrix ι ι K} (hD : BlockDiag {a, b} D)
     (h1 : D * pairMat a b !![1, 1; 0, 1] = pairMat a b !![1, 1; 0, 1] * D)

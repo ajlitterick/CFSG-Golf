@@ -13,15 +13,6 @@ open scoped commutatorElement
 
 universe u v
 
-theorem full_odd_four_group_two_centralizer_commutator_generation
-    {A : Type u} [Group A] [Finite A] [IsElementaryAbelian 2 A]
-    {I : Type v} [Group I] [Finite I] [MulDistribMulAction A I]
-    (hcard : Nat.card A = 4) (a b : A)
-    (ha : a ≠ 1) (hb : b ≠ 1) (hab : a ≠ b) (hodd : Odd (Nat.card I)) :
-    actorCommutatorSubgroup b (⊤ : Subgroup I) =
-      actorCommutatorSubgroup b (actorFixedSubgroup (I := I) a) ⊔
-        actorCommutatorSubgroup b (actorFixedSubgroup (I := I) (a * b)) :=
-  odd_elementary_four_group_two_centralizer_commutator_generation hcard a b ha hb hab hodd
 
 variable {G : Type u} [Group G]
 
@@ -101,26 +92,5 @@ theorem odd_four_group_commutator_centralized (J : Subgroup G) [Finite J]
     involution_commutator_eq_bot_of_centralized _ t ht hcut, sup_bot_eq]
   exact commutator_zpowers_le_centralizer _ u t inf_le_right hcomm
 
-theorem odd_four_group_reversed_commutator_centralized (J : Subgroup G) [Finite J]
-    (u t : G) (hu : orderOf u = 2) (ht : orderOf t = 2)
-    (hut : u ≠ t) (hcomm : Commute u t)
-    (huN : u ∈ Subgroup.normalizer (J : Set G))
-    (htN : t ∈ Subgroup.normalizer (J : Set G)) (hodd : Odd (Nat.card J))
-    (hcut : J ⊓ Subgroup.centralizer {u * t} ≤ Subgroup.centralizer {t}) :
-    ⁅Subgroup.zpowers t, J⁆ ≤ Subgroup.centralizer {u} := by
-  rw [Subgroup.commutator_comm]
-  exact odd_four_group_commutator_centralized J u t hu ht hut hcomm huN htN hodd hcut
-
-theorem odd_four_group_mem_commutator_centralizer (J : Subgroup G) [Finite J]
-    (u t : G) (hu : orderOf u = 2) (ht : orderOf t = 2)
-    (hut : u ≠ t) (hcomm : Commute u t)
-    (huN : u ∈ Subgroup.normalizer (J : Set G))
-    (htN : t ∈ Subgroup.normalizer (J : Set G)) (hodd : Odd (Nat.card J))
-    (hcut : J ⊓ Subgroup.centralizer {u * t} ≤ Subgroup.centralizer {t}) :
-    u ∈ Subgroup.centralizer ((⁅Subgroup.zpowers t, J⁆ : Subgroup G) : Set G) := by
-  have h := odd_four_group_reversed_commutator_centralized
-    J u t hu ht hut hcomm huN htN hodd hcut
-  exact Subgroup.mem_centralizer_iff.mpr fun x hx =>
-    Subgroup.mem_centralizer_singleton_iff.mp (h hx)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionFourGroupCommutator

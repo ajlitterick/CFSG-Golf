@@ -387,10 +387,6 @@ private lemma l05nDB_foldlV_length (p N : ℕ) (gs : List GGDepANPair) (l : List
       simp [l05nDB_stepV, List.length_append]
       omega
 
-private lemma l05nDB_OV_length (p N : ℕ) (gs : List GGDepANPair) (ot : List (ℕ × ℕ)) :
-    (l05nDB_OV p N gs ot).length = ot.length + 1 := by
-  rw [l05nDB_OV, l05nDB_foldlV_length]
-  simp [Nat.add_comm]
 
 private lemma l05nDB_foldlW_mem (p N : ℕ) (gs : List GGDepANPair) (l : List (ℕ × ℕ))
     (acc : List (Module.End (ZMod p) (GGDepAE p N)))

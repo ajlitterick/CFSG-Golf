@@ -90,56 +90,5 @@ theorem odd_card_pointwiseFixingAut_Q11 :
     ⟨qx, qx_mem⟩ ⟨qy, qy_mem⟩ ⟨qz, qz_mem⟩ closure_Q11_gens qz_eq_commutator
     (Module.finrank_fin_fun (ZMod 2)) finrank_ker_rowLin_qz
 
-theorem card_pointwiseFixingAut_congr {G H : Type*} [Group G] [Group H] (ψ : G ≃* H)
-    (Q : Subgroup G) :
-    Nat.card (pointwiseFixingAut Q) = Nat.card (pointwiseFixingAut (Q.map ψ.toMonoidHom)) := by
-  have hmap : (pointwiseFixingAut Q).map (MulAut.congr ψ).toMonoidHom =
-      pointwiseFixingAut (Q.map ψ.toMonoidHom) := by
-    ext β
-    constructor
-    · rintro ⟨α, hα, rfl⟩
-      rw [SetLike.mem_coe, mem_pointwiseFixingAut] at hα
-      rw [mem_pointwiseFixingAut]
-      rintro _ ⟨q, hq, rfl⟩
-      simp only [MulEquiv.coe_toMonoidHom, MulAut.congr_apply, MulEquiv.trans_apply,
-        MulEquiv.symm_apply_apply]
-      rw [hα q hq]
-    · intro hβ
-      refine ⟨(MulAut.congr ψ).symm β, ?_, by rw [MulEquiv.coe_toMonoidHom,
-        MulEquiv.apply_symm_apply]⟩
-      rw [SetLike.mem_coe, mem_pointwiseFixingAut]
-      intro q hq
-      have h := (mem_pointwiseFixingAut.1 hβ) (ψ q) ⟨q, hq, rfl⟩
-      have e1 : (MulAut.congr ψ).symm β q = ψ.symm (β (ψ q)) := rfl
-      rw [e1, h, MulEquiv.symm_apply_apply]
-  rw [← hmap, Subgroup.card_map_of_injective (MulAut.congr ψ).injective]
-
-theorem odd_card_pointwiseFixingAut_of_sylow {G H : Type*} [Group G] [Group H] [Finite H]
-    {p : ℕ} [Fact p.Prime] (e : G ≃* H) (P₀ : Sylow p H)
-    (h₀ : Odd (Nat.card (pointwiseFixingAut (P₀ : Subgroup H)))) (Q : Sylow p G) :
-    Odd (Nat.card (pointwiseFixingAut (Q : Subgroup G))) := by
-  have hGH : Nat.card G = Nat.card H := Nat.card_congr e.toEquiv
-  have : Finite G := Finite.of_equiv _ e.symm.toEquiv
-  have hcard : Nat.card ((Q : Subgroup G).map e.toMonoidHom) =
-      p ^ (Nat.card H).factorization p := by
-    rw [Subgroup.card_map_of_injective e.injective, Sylow.card_eq_multiplicity, hGH]
-  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq H P₀ (Sylow.ofCard _ hcard)
-  have hQg : (Q : Subgroup G).map e.toMonoidHom =
-      (P₀ : Subgroup H).map (MulAut.conj g).toMonoidHom := by
-    have h1 := congrArg (fun P : Sylow p H => (P : Subgroup H)) hg
-    simp only [Sylow.coe_ofCard] at h1
-    rw [← h1, Sylow.coe_subgroup_smul]
-    rfl
-  rw [card_pointwiseFixingAut_congr e, hQg, ← card_pointwiseFixingAut_congr (MulAut.conj g)]
-  exact h₀
-
-theorem R3E_J4_Sylow_eleven_full_automorphism_centralizer_odd
-    {T : Type*} [Group T]
-    (hT : Nonempty (T ≃* NativeSporadic.J4)) (Q : Sylow 11 T) :
-    Odd (Nat.card (pointwiseFixingAut (Q : Subgroup T))) := by
-  have : Fact (Nat.Prime 11) := ⟨by norm_num⟩
-  obtain ⟨e⟩ := hT
-  exact @odd_card_pointwiseFixingAut_of_sylow T J _ (Subgroup.toGroup J) _ 11 _
-    (e.trans (seedEquiv j4Facts.mat)) Q11Sylow odd_card_pointwiseFixingAut_Q11 Q
 
 end CFSG.Sporadic.J4Schreier

@@ -64,14 +64,6 @@ theorem caseTwo_not_forall_commute :
     (caseTwo_lever_mem_centralizer hzc) h
   exact hc.lever_ne (hc.caseTwo_eq_of_mem_twoCore hzO hc.lever_order)
 
-theorem caseTwo_layer_ne_bot : CFSG.layer X ≠ ⊥ := by
-  intro hbot
-  refine hc.caseTwo_not_forall_commute fun J hJ => ?_
-  have hJle : J ≤ CFSG.layer X := le_sSup hJ
-  rw [hbot] at hJle
-  have : Nontrivial J := CFSG.ComponentClassification.Quasisimple.nontrivial
-    ((CFSG.isComponent_iff_open J).mp hJ).2.2
-  exact absurd (le_bot_iff.mp hJle) (J.nontrivial_iff_ne_bot.mp this)
 
 theorem caseTwo_commute_component_of_pRank_le_one {P : Sylow 2 X} {y : X} (hy : orderOf y = 2)
     (hyc : y ∈ Subgroup.centralizer ((P : Subgroup X) : Set X)) {J : Subgroup X}
@@ -96,10 +88,6 @@ theorem caseTwo_exists_two_le_pRank (hcase : ∀ J : Subgroup X, CFSG.IsComponen
   push Not at h
   exact hc.caseTwo_false_of_forall_pRank_le_one fun J hJ => ⟨hcase J hJ, by have := h J hJ; omega⟩
 
-theorem caseTwo_mem_of_normal (hcase : ∀ J : Subgroup X, CFSG.IsComponent J → u ∈ J)
-    {L : Subgroup X} [L.Normal] (hne : L ≠ ⊥) : u ∈ L :=
-  mem_of_normal_of_forall_component_mem hc.oddCore_eq_bot hc.center hc.order hc.caseTwo_mem_pCore
-    hc.caseTwo_pCore_pRank hcase hne
 
 end CoreConfig
 

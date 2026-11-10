@@ -31,9 +31,6 @@ structure D1SocleConfig (T : Type) [Group T] (p : ℕ) [Fact p.Prime] (P : Sylow
     (U.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) =
       (R.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) ⊓ K
 
-theorem D1L2Config.toSocleConfig {p n : ℕ} [Fact p.Prime] {P : Sylow p G} {M H R X : Subgroup G}
-    (h : D1L2Config p n P M H R X) : D1SocleConfig (PSL2GF p n) p P M H R X :=
-  ⟨h.ext, h.glob, h.le_R, h.socle⟩
 
 end Socle
 

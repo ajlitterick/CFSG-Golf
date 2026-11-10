@@ -51,7 +51,6 @@ theorem eq_of_pow_add_two_mul_pow {x y z : ℕ} (h : 3 ^ x + 2 * 3 ^ y = 3 ^ z) 
     omega
 
 
-
 def wt (a : ℕ) : ℕ → ℤ
   | 0 => 3 ^ a
   | 1 => 1 - 3 ^ a
@@ -356,9 +355,6 @@ theorem mem_U_iff {x : ModGL G2.tag K} :
   · rintro ⟨t, b, c, rfl⟩
     exact smallReeCoord_mem_reeFixedPosUnipotent hK t b c
 
-theorem mem_series_three {x : ModGL G2.tag K} :
-    x ∈ series a K 3 ↔ ∃ t b c : K, x = uM a K t b c :=
-  mem_U_iff hK
 
 theorem uM_mem_U (t b c : K) : uM a K t b c ∈ G2.reeFixedPosUnipotent K a :=
   (mem_U_iff hK).2 ⟨t, b, c, rfl⟩

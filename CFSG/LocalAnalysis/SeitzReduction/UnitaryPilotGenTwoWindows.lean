@@ -132,13 +132,6 @@ theorem iSup_blockSU_Icc_eq_top (hn : 4 ≤ n) :
   rw [Subgroup.map_top_of_surjective _ (unitaryProj_surjective h n), Subgroup.map_iSup] at h1
   exact h1
 
-theorem eq_of_eqOn_blockSU_Icc {M : Type*} [Monoid M] (hn : 4 ≤ n)
-    {φ₁ φ₂ : unitaryPSU h n →* M}
-    (hφ : ∀ i : Fin (n - 3), ∀ x ∈ blockSU h (window4 i), φ₁ x = φ₂ x) : φ₁ = φ₂ := by
-  have hle : (⨆ i : Fin (n - 3), blockSU h (window4 i)) ≤ φ₁.eqLocus φ₂ :=
-    iSup_le fun i x hx => hφ i x hx
-  rw [iSup_blockSU_Icc_eq_top h hn] at hle
-  exact MonoidHom.ext fun x => hle (mem_top x)
 
 end Adjacent
 

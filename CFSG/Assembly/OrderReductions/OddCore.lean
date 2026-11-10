@@ -140,15 +140,6 @@ theorem oddCore_quotient_eq_bot (group : Type*) [Group group] [Finite group] :
     QuotientGroup.map_mk'_self] at image_le
   exact le_antisymm image_le bot_le
 
-theorem oddCore_eq_normalCore_of_four_involutions {group : Type*}
-    [Group group] [Finite group] (subgroup : Subgroup group)
-    (strong : CFSG.OrderReductions.InvolutionGraph.StronglyEmbedded subgroup)
-    (first second : CFSG.OrderReductions.InvolutionGraph.Involution group) (distinct : first ≠ second)
-    (commutes : Commute first.val second.val) : oddCore group = subgroup.normalCore := by
-  apply le_antisymm
-  · exact CFSG.OrderReductions.RankTwoContainment.odd_normal_le_normalCore_of_four_involutions
-      subgroup strong (oddCore group) (oddCore_odd group) first second distinct commutes
-  · exact normal_le_oddCore subgroup.normalCore (CFSG.OrderReductions.StrongEmbedding.normalCore_odd subgroup strong)
 
 theorem characteristic_subgroup_map_normal {group : Type*} [Group group]
     (normal : Subgroup group) [normal.Normal]
@@ -178,31 +169,5 @@ theorem normal_subgroup_oddCore_map_le {group : Type*} [Group group] [Finite gro
   rw [Subgroup.card_map_of_injective Subtype.val_injective]
   exact oddCore_odd normal
 
-theorem normal_subgroup_oddCore_eq_bot {group : Type*} [Group group] [Finite group]
-    (core_bot : oddCore group = ⊥) (normal : Subgroup group) [normal.Normal] :
-    oddCore normal = ⊥ := by
-  have image_le := normal_subgroup_oddCore_map_le normal
-  rw [core_bot] at image_le
-  apply Subgroup.map_injective (f := normal.subtype) Subtype.val_injective
-  exact (le_antisymm image_le bot_le).trans (Subgroup.map_bot _).symm
-
-theorem oddCore_preimage_eq_of_odd_kernel {source target : Type*}
-    [Group source] [Finite source] [Group target] [Finite target]
-    (homomorphism : source →* target) (surjective : Function.Surjective homomorphism)
-    (odd_kernel : Odd (Nat.card homomorphism.ker)) :
-    (oddCore target).comap homomorphism = oddCore source := by
-  apply le_antisymm
-  · have : ((oddCore target).comap homomorphism).Normal :=
-      (inferInstance : (oddCore target).Normal).comap homomorphism
-    exact normal_le_oddCore _ (odd_preimage homomorphism surjective odd_kernel _ (oddCore_odd target))
-  · exact Subgroup.map_le_iff_le_comap.mp (map_oddCore_le_of_surjective homomorphism surjective)
-
-theorem oddCore_image_eq_of_odd_kernel {source target : Type*}
-    [Group source] [Finite source] [Group target] [Finite target]
-    (homomorphism : source →* target) (surjective : Function.Surjective homomorphism)
-    (odd_kernel : Odd (Nat.card homomorphism.ker)) :
-    (oddCore source).map homomorphism = oddCore target := by
-  rw [← oddCore_preimage_eq_of_odd_kernel homomorphism surjective odd_kernel,
-    Subgroup.map_comap_eq_self_of_surjective surjective]
 
 end CFSG.OrderReductions.OddCore

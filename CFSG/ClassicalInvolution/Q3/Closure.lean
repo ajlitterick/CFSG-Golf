@@ -112,58 +112,6 @@ section Family
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-structure MemberFamily3 (Ω : Set (Subgroup G)) (A : Subgroup G) (𝒦 : Set (Subgroup G)) :
-    Prop where
-  elem : IsElemAbelian 2 A
-  card : Nat.card A = 8
-  subset : 𝒦 ⊆ Ω
-  nonempty : 𝒦.Nonempty
-  involution : ∀ K ∈ 𝒦, ∃ z ∈ A, IsClassicalMember3 K z ∧ K ≤ Subgroup.centralizer (A : Set G)
-  generate : A = Subgroup.closure {z | ∃ K ∈ 𝒦, IsClassicalMember3 K z}
-
-theorem generation_of_memberFamily3 {A : Subgroup G} {𝒦 : Set (Subgroup G)} (hΩ : InClass3 Ω)
-    (hM : MemberFamily3 Ω A 𝒦) (hconn : OmegaConnected Ω)
-    (hgenModO : ∀ a ∈ A, IsFrameInvolution3 𝒦 a → CentralizerGenerationModOTwo Ω A a)
-    (hlink : ∀ a ∈ A, IsFrameInvolution3 𝒦 a → InvolutionLink3 Ω A 𝒦 a) :
-    (⨆ F ∈ signalizerFunctorEk 2 2 A, Subgroup.centralizer (F : Set G)) = ⊤ :=
-  rankTwoSpan_eq_top3 hΩ
-    { elem := hM.elem
-      card := hM.card.ge
-      subset := hM.subset
-      nonempty := hM.nonempty
-      involution := fun K hK => by
-        obtain ⟨z, hzA, hz, -⟩ := hM.involution K hK
-        exact ⟨z, hzA, hz⟩
-      generation := hgenModO
-      link := hlink } hconn
-
-theorem generation_of_exactTriple3 (hΩ : InClass3 Ω) {K₁ K₂ K₃ : Subgroup G} {z₁ z₂ z₃ : G}
-    (T : ExactTriple K₁ K₂ K₃ z₁ z₂ z₃) (hind : z₁ * z₂ ≠ z₃) (hΩ₁ : K₁ ∈ Ω) (hΩ₂ : K₂ ∈ Ω)
-    (hΩ₃ : K₃ ∈ Ω) (hz₁ : IsClassicalMember3 K₁ z₁) (hz₂ : IsClassicalMember3 K₂ z₂)
-    (hz₃ : IsClassicalMember3 K₃ z₃) (hconn : OmegaConnected Ω)
-    (hgenModO : ∀ a ∈ T.group, IsFrameInvolution3 ({K₁, K₂, K₃} : Set (Subgroup G)) a →
-      CentralizerGenerationModOTwo Ω T.group a)
-    (hlink : ∀ a ∈ T.group, IsFrameInvolution3 ({K₁, K₂, K₃} : Set (Subgroup G)) a →
-      InvolutionLink3 Ω T.group ({K₁, K₂, K₃} : Set (Subgroup G)) a) :
-    (⨆ F ∈ signalizerFunctorEk 2 2 T.group, Subgroup.centralizer (F : Set G)) = ⊤ := by
-  have hz₁A : z₁ ∈ T.group := Subgroup.subset_closure (by simp)
-  have hz₂A : z₂ ∈ T.group := Subgroup.subset_closure (by simp)
-  have hz₃A : z₃ ∈ T.group := Subgroup.subset_closure (by simp)
-  exact rankTwoSpan_eq_top3 hΩ
-    { elem := T.isElemAbelian
-      card := (T.card_eq_eight hind).ge
-      subset := by
-        intro K hK
-        simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hK
-        rcases hK with rfl | rfl | rfl <;> assumption
-      nonempty := ⟨K₁, by simp⟩
-      involution := by
-        intro K hK
-        simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hK
-        rcases hK with rfl | rfl | rfl
-        exacts [⟨z₁, hz₁A, hz₁⟩, ⟨z₂, hz₂A, hz₂⟩, ⟨z₃, hz₃A, hz₃⟩]
-      generation := hgenModO
-      link := hlink } hconn
 
 end Family
 
@@ -224,42 +172,6 @@ theorem exists_conj_modOddIn_of_fund3 {a : G} {ι : Type}
     ∃ K ∈ S, K ≤ Subgroup.centralizer ({a} : Set G) ∧
       modOddIn (centralizingLayer Ω {a}) K ≤ (D.hom i).range
 
-theorem involutionLink_of_lieCovers3 (hL : LocalHypotheses3 Ω A) {a : G} (haA : a ∈ A)
-    (ha1 : a ≠ 1) (hS : S ⊆ Ω) (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember3 K z)
-    (hcov : LieCovers3 Ω S a) : InvolutionLink3 Ω A S a := by
-  intro M hMmem z hz
-  have hΩ := hL.inClass.conjInvariant
-  obtain ⟨ι, -, ⟨D⟩⟩ := hL.lie {a} (fun h => hL.noncentral a haA ha1 (h rfl))
-  set Y := centralizingLayer Ω {a} with hY
-  have hMfam : modOddIn Y M ∈ localFamily Ω a :=
-    ⟨M.subgroupOf Y, ⟨M, hMmem, le_centralizingLayer hMmem, rfl⟩, rfl⟩
-  obtain ⟨i, R, hR, hMR⟩ := D.fundamental _ hMfam
-  obtain ⟨K', hK'S, hK'a, hK'i⟩ := hcov ι D i
-  have hK'mem : K' ∈ centralizingMembers Ω {a} := ⟨hS hK'S, hK'a⟩
-  have hK'fam : modOddIn Y K' ∈ localFamily Ω a :=
-    ⟨K'.subgroupOf Y, ⟨K', hK'mem, le_centralizingLayer hK'mem, rfl⟩, rfl⟩
-  obtain ⟨j, R', hR', hK'R'⟩ := D.fundamental _ hK'fam
-  have hij : j = i := by
-    by_contra hne
-    refine not_le_center_of_mem3 hL.inClass hK'mem ?_
-    have h1 : modOddIn Y K' ≤ (D.hom j).range := hK'R' ▸ Subgroup.map_le_range _ _
-    exact (le_inf hK'i h1).trans (range_inf_range_le_center3 D (Ne.symm hne))
-  subst hij
-  obtain ⟨g, hg⟩ := hL.single a haA ha1 ι D j R hR R' hR'
-  obtain ⟨w, hwY, hmod⟩ := exists_conj_modOddIn_of_fund3 D hMR hK'R' g hg
-  obtain ⟨z', hz'A, hK'z'⟩ := hinv K' hK'S
-  have hK'' : IsClassicalMember3 (conjSub w M) (w * z * w⁻¹) := hz.conj w
-  have hwC : w ∈ Subgroup.centralizer ({a} : Set G) := centralizingLayer_le_centralizer Ω {a} hwY
-  have hK''Y : conjSub w M ≤ centralizingLayer Ω {a} :=
-    le_centralizingLayer (conjSub_mem_centralizingMembers hΩ hwC hMmem)
-  have hU := mul_mem_oddCoreIn_of_modOddIn_eq3 hK'z' hK'' (le_centralizingLayer hK'mem)
-    hK''Y hmod
-  obtain ⟨o, ho, hoz⟩ := exists_conj_of_mul_mem hK''.isCentralInvolution.sq
-    hK'z'.isCentralInvolution.sq (odd_card_oddCoreIn _) hU
-  have hoY : o ∈ centralizingLayer Ω {a} := oddCoreIn_le _ ho
-  refine ⟨K', hK'S, z', hz'A, hK'z', w⁻¹ * o⁻¹, mul_mem (inv_mem hwY) (inv_mem hoY), ?_⟩
-  rw [hoz]
-  group
 
 end Link
 

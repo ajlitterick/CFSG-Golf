@@ -137,22 +137,6 @@ theorem ggControlsStrongFusion_zpowers_of_alt {G₀ M : Subgroup G} (hle : G₀ 
   · exact mem_of_commute_of_controlsStrongFusion hC hy1 hys hfus
   · exact absurd (exists_injective_ggCentOTwoPrime hN hodd hC g) hα
 
-theorem ggControlsStrongFusion_zpowers_iff_forall_conj {G₀ M : Subgroup G} (hle : G₀ ≤ M)
-    (hN : (G₀.subgroupOf M).Normal) (hodd : Odd (G₀.relIndex M)) {r : G} (hrG₀ : r ∈ G₀)
-    (hr : orderOf r = 2) (hC : Subgroup.centralizer {r} ≤ M) :
-    GGControlsStrongFusion M (Subgroup.zpowers r) ↔
-      ∀ g : G, g⁻¹ * r * g ∈ G₀ → ∃ m ∈ M, g⁻¹ * r * g = m⁻¹ * r * m := by
-  have hprime : (orderOf r).Prime := hr ▸ Nat.prime_two
-  constructor
-  · intro h g hg
-    exact ⟨g, (ggControlsStrongFusion_zpowers_iff hprime).mp h |>.2 g (hle hg), rfl⟩
-  · intro h
-    refine (ggControlsStrongFusion_zpowers_iff hprime).mpr ⟨hle hrG₀, fun g hg => ?_⟩
-    have hsq : (g⁻¹ * r * g) ^ 2 = 1 := by
-      rw [← (orderOf_inv_mul_mul r g).trans hr]
-      exact pow_orderOf_eq_one _
-    obtain ⟨m, hm, heq⟩ := h g (mem_of_sq_eq_one_of_odd_relIndex hN hodd hg hsq)
-    exact mem_of_conj_eq_conj hC hm heq
 
 end Abstract
 
@@ -184,27 +168,6 @@ theorem ggSixStepThreeDInput_of_caseInput (h : GGSixRootFusionCaseInput) :
     Subgroup.normal_in_normalizer hodd (hch.mem_ggG0 hctx) hch.2.2.2.2.1 hC
     (h G p B Bs x L D J t n f ψ hctx s1 s2 E r hch hC hodd)
 
-@[expose] def GGSixRootClassInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      GGSixStepTwo p B Bs x L D J → ∀ (E : Subgroup G) (r : G),
-      GGStepThreeChoice p Bs (ggM p B x L D J) (ggU t n f).D t ψ E r →
-        Subgroup.centralizer {r} ≤ ggM p B x L D J →
-        Odd ((ggG0 p B x L D J).relIndex (ggM p B x L D J)) →
-          ∀ g : G, g⁻¹ * r * g ∈ ggG0 p B x L D J →
-            ∃ m ∈ ggM p B x L D J, g⁻¹ * r * g = m⁻¹ * r * m
-
-theorem ggSixStepThreeDInput_iff_classInput : GGSixStepThreeDInput ↔ GGSixRootClassInput := by
-  constructor
-  · intro h G _ _ p B Bs x L D J t n f ψ hctx s1 s2 E r hch hC hodd
-    exact (ggControlsStrongFusion_zpowers_iff_forall_conj Subgroup.le_normalizer
-      Subgroup.normal_in_normalizer hodd (hch.mem_ggG0 hctx) hch.2.2.2.2.1 hC).mp
-      (h G p B Bs x L D J t n f ψ hctx s1 s2 E r hch hC hodd)
-  · intro h G _ _ p B Bs x L D J t n f ψ hctx s1 s2 E r hch hC hodd
-    exact (ggControlsStrongFusion_zpowers_iff_forall_conj Subgroup.le_normalizer
-      Subgroup.normal_in_normalizer hodd (hch.mem_ggG0 hctx) hch.2.2.2.2.1 hC).mpr
-      (h G p B Bs x L D J t n f ψ hctx s1 s2 E r hch hC hodd)
 
 end Inputs
 

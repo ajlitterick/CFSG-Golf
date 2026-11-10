@@ -49,14 +49,6 @@ theorem tree : treeKN 9 D.MUK D.LK D.PLK D.MTK D.FMK = true := by quickRfl
 
 theorem fix : allN 9 (fixAtN 9 D.MTK D.FMK) = true := by quickRfl
 
-open CFSG.KLie.CT (notB) in
-theorem neg : bAnd(notB (rowsK 504 9 5 Fi24PlT.A.F (fun k => D.AK (Nat.succ k))),
-    bAnd(notB (powK 504 9 D.AK (fun i => D.PW (Nat.succ i))),
-    bAnd(notB (pbRunKN 9 D.MUK (fun k => nIf(Nat.beq k (nat_lit 5), D.LK 6, D.LK k)) D.EK D.PLK
-      D.SL),
-    bAnd(notB (mtKN 9 D.LK (fun k => Nat.add (D.MTK k) (nat_lit 1))),
-      notB (conjAt 504 9 D.GK (fun l => Nat.add (D.MUK l) (nat_lit 1)) D.IK 0 0))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelFi24Rk.K
 

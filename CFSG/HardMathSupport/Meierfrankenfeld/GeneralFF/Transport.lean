@@ -90,8 +90,6 @@ theorem imgBin_mono {B B' : Subgroup G} (h : B ≤ B') :
     imgBin ρ H U hU B ≤ imgBin ρ H U hU B' :=
   Subgroup.map_mono fun _ hx => h hx
 
-theorem imgBin_bot : imgBin ρ H U hU ⊥ = ⊥ := by
-  simp [imgBin]
 
 theorem mem_fixV_imgBin {B : Subgroup G} (hB : B ≤ H) {v : Multiplicative ↥U} :
     v ∈ CFSG.Quasithin.fixV (imgBin ρ H U hU B) ↔
@@ -214,9 +212,6 @@ theorem subgroupOf_commutator {K B : Subgroup G} (hK : K ≤ H) (hB : B ≤ H) :
   rw [Subgroup.map_commutator, Subgroup.subgroupOf_map_subtype, Subgroup.subgroupOf_map_subtype,
     Subgroup.subgroupOf_map_subtype, inf_eq_left.2 hK, inf_eq_left.2 hB, inf_eq_left.2 hKB]
 
-theorem imgBin_commutator {K B : Subgroup G} (hK : K ≤ H) (hB : B ≤ H) :
-    ⁅imgBin ρ H U hU K, imgBin ρ H U hU B⁆ = imgBin ρ H U hU ⁅K, B⁆ := by
-  rw [imgBin, imgBin, imgBin, ← Subgroup.map_commutator, subgroupOf_commutator hK hB]
 
 theorem imgBin_normal {K : Subgroup G}
     (hK : ∀ h ∈ H, ∀ k ∈ K, h * k * h⁻¹ ∈ K) :

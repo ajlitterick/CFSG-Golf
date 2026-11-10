@@ -96,8 +96,5 @@ theorem finrank_NQ_eq_of_card {t : S.O} [NQHyp S g t] (ht1 : t ≠ 1) (htt : t *
       congr 1
       exact Subtype.ext (by simp [coe_cConj, mul_assoc]))
 
-theorem cEquiv_mk {t : S.O} [NQHyp S g t] {z : S.O} (hz : z ∈ Ct S t) (n : Nbar S g t) :
-    cEquiv hz (nqMk n) = nqMk (cConj hz n) :=
-  rfl
 
 end CFSG.LargeExtraspecial.S14

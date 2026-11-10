@@ -358,21 +358,6 @@ theorem pow_eq_one_of_trivial {g : LGL p V} {W : Submodule (ZMod p) V}
   rw [key p v]
   simp
 
-omit [Finite V] in
-theorem eq_bot_of_trivial {Q : Subgroup (LGL p V)} (hQ : Nat.Coprime p (Nat.card Q))
-    {W : Submodule (ZMod p) V} (h1 : ∀ g ∈ Q, ∀ w ∈ W, g w = w)
-    (h2 : ∀ g ∈ Q, ∀ v : V, g v - v ∈ W) : Q = ⊥ := by
-  rw [eq_bot_iff]
-  intro g hg
-  rw [Subgroup.mem_bot]
-  have h := pow_eq_one_of_trivial (h1 g hg) (h2 g hg)
-  have h3 : orderOf g ∣ p := orderOf_dvd_of_pow_eq_one h
-  have h4 : orderOf (⟨g, hg⟩ : Q) ∣ Nat.card Q := orderOf_dvd_natCard _
-  have h5 : orderOf (⟨g, hg⟩ : Q) = orderOf g := Subgroup.orderOf_mk g hg
-  rw [h5] at h4
-  have h6 : orderOf g ∣ Nat.gcd p (Nat.card Q) := Nat.dvd_gcd h3 h4
-  rw [Nat.Coprime.gcd_eq_one hQ] at h6
-  exact orderOf_eq_one_iff.mp (Nat.dvd_one.mp h6)
 
 theorem commSub_le_fixSub_of_card {A : Subgroup (LGL p V)} (hA : IsPGroup p A)
     (hc : Nat.card (commSub A) = p) : commSub A ≤ fixSub A := by

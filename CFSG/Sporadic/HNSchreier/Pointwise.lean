@@ -321,8 +321,4 @@ theorem eq_one_of_fix_HJ
   exact this
 
 
-theorem ctuc_hn_alternating_stabilizer_pointwise_automorphism_centralizer_trivial :
-    ∀ α : MulAut JH, (∀ h ∈ HJ, α h = h) → α = 1 :=
-  eq_one_of_fix_HJ
-
 end CFSG.Sporadic.HNSchreier

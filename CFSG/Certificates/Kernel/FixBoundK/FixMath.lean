@@ -246,9 +246,6 @@ theorem famB0 {K : Nat} {F bs : Nat → Nat} (hF0 : F 0 = 0)
     rw [Bool.true_and, hbit 0 (Nat.two_pow_pos K) k, hF0, bvec_zero, mul_zero]
     exact ⟨hk, C.zero_mem⟩
 
-theorem actS_famF (B : List Nat) (K : Nat) :
-    ∀ j z, j < 2 ^ K → z < 2 ^ K → actS B (j ^^^ z) = actS B j ^^^ actS B z :=
-  fun j z _ _ => actS_xor B j z
 
 theorem actS_zero (B : List Nat) : actS B 0 = 0 := by
   rw [actS_eq, actM_zero]

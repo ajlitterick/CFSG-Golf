@@ -92,33 +92,5 @@ theorem pCoreOf_two_sxGen :
     exact hq1
   exact Subgroup.mem_subgroupOf.mp hmem
 
-theorem isO23_sxGen :
-    IsO23 sxGen sxN := by
-  refine ⟨sxN_le_sxGen, sxN_conj_mem, pCoreOf_two_sxGen_le_sxN, ?_, ?_⟩
-  · intro n hn
-    exact ⟨1, by rw [pow_one, pCoreOf_two_sxGen]; exact sxN_pow_three_mem n hn⟩
-  · intro N' hN'le hconj hpCore h3pow
-    have hN''norm : (N'.subgroupOf sxGen).Normal :=
-      (Subgroup.normal_subgroupOf_iff hN'le).2 (fun h k hh hk => hconj k hk h hh)
-    have hmapnorm : ((N'.subgroupOf sxGen).map sxAct).Normal :=
-      hN''norm.map sxAct sxAct_surjective
-    have hbot : (N'.subgroupOf sxGen).map sxAct = ⊥ := by
-      haveI := hmapnorm
-      apply S6_normal_three_group
-      intro z hz
-      rw [Subgroup.mem_map] at hz
-      obtain ⟨n, hn, rfl⟩ := hz
-      have hnN' : (n : S24) ∈ N' := Subgroup.mem_subgroupOf.mp hn
-      obtain ⟨k, hk⟩ := h3pow (n : S24) hnN'
-      refine ⟨k, ?_⟩
-      rw [← map_pow]
-      apply sxAct_of_mem_sxKS
-      have hkS : (n : S24) ^ (3 ^ k) ∈ sxKS := by
-        rw [pCoreOf_two_sxGen] at hk
-        exact hk
-      simpa using hkS
-    have hle : N'.subgroupOf sxGen ≤ sxAct.ker := (Subgroup.map_eq_bot_iff _).mp hbot
-    rw [sxN, ← Subgroup.map_subgroupOf_eq_of_le hN'le]
-    exact Subgroup.map_mono hle
 
 end CFSG.ASVolI.H16

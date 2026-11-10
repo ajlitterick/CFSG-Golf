@@ -33,10 +33,6 @@ theorem conj_inv_mem_of_mem_normalizer {A : Subgroup G} {z : G}
       _ = ((a : G)⁻¹ * (z⁻¹ * a * z)) * (b : G)⁻¹ * (z⁻¹ * b * z) := by rw [hc]
       _ = ((a : G)⁻¹ * (z⁻¹ * a * z)) * ((b : G)⁻¹ * (z⁻¹ * b * z)) := by group
 
-theorem ggCommHom_apply (A : Subgroup G) [IsMulCommutative A] (z : G)
-    (hz : z ∈ Subgroup.normalizer (A : Set G)) (a : A) :
-    ((ggCommHom A z hz a : A) : G) = (a : G)⁻¹ * (z⁻¹ * a * z) :=
-  rfl
 
 theorem ker_ggCommHom (A : Subgroup G) [IsMulCommutative A] (z : G)
     (hz : z ∈ Subgroup.normalizer (A : Set G)) :

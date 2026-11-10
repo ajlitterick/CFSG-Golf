@@ -57,11 +57,6 @@ open CFSG.CosetTable CFSG.ClassicalInvolution.Q3.Q3Z
   [(87, 1), (65, 1)]
   ]
 
-@[expose] def td4CollapseCheck : Bool :=
-  (List.finRange 24).all fun k =>
-    gluingComplete k || subsetCheck (td4aWords k) (td4CollSet k) 400000 1
-
-@[expose] def TD4CollapseCheck : Prop := td4CollapseCheck = true
 
 theorem td4CollCommOK :
     ∀ k : Fin 24, gluingComplete k = true ∨ commOK (td4aWords k) (td4CollSet k) = true := by
@@ -70,11 +65,5 @@ theorem td4CollCommOK :
 theorem td4CollLatticeOK : ∀ k : Fin 24, latticeOK td4CollCoef (td4aWords k) = true := by
   decide +kernel
 
-theorem td4Collapse_of_check (h : TD4CollapseCheck) : TD4Collapse := by
-  intro k hk G _ g hg i
-  have hall := List.all_eq_true.mp h k (List.mem_finRange k)
-  rw [hk, Bool.false_or] at hall
-  have hcomm := (td4CollCommOK k).resolve_left (by simp [hk])
-  exact eq_one_of_fastCheck hall hcomm (td4CollLatticeOK k) g hg i
 
 end CFSG.ClassicalInvolution.Q3.Q3TW

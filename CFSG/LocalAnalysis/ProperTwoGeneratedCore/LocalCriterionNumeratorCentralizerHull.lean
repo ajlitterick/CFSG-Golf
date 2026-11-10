@@ -55,26 +55,5 @@ theorem original_centralizer_hull_normal_rank_and_embedding
   exact ⟨original_involution_centralizer_proper h u hu, hnormal, hrank,
     h.local_datum.local_embedding u hu huz hescape⟩
 
-theorem original_centralizer_rank_two_full_recognition
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hsmallerR1 : ∀ (F : Type u) [Group F] [Finite F], Nat.card F < Nat.card G →
-      2 ≤ twoRank F → (∃ A : Subgroup F, fusionStronglyEmbedded A) → R1Full F)
-    (u : G) (hu : orderOf u = 2) (huz : Commute u z)
-    (hescape : ¬ Subgroup.centralizer ({u} : Set G) ≤ H)
-    (hrank : 2 ≤ twoRank (localInvolutionPointHull z u)) :
-    R1Full (localInvolutionPointHull z u) ∧
-      fusionIsBenderGroup (localInvolutionPointHull z u ⧸
-        CFSG.oddCore (localInvolutionPointHull z u)) ∧
-      ExplicitRankOneModel (localInvolutionPointHull z u ⧸
-        CFSG.oddCore (localInvolutionPointHull z u)) := by
-  let Y := Subgroup.centralizer ({u} : Set G)
-  have hzY : z ∈ Y := Subgroup.mem_centralizer_singleton_iff.mpr huz.symm
-  have hL := original_centralizer_properHull_eq h.local_datum u hu huz hescape
-  have hrankL : 2 ≤ twoRank (properHull Y z) := hL.symm ▸ hrank
-  obtain ⟨hR1, _hwitness, hmodel, hexplicit⟩ :=
-    properHull_rank_two_full_recognition h hsmallerR1
-      (original_involution_centralizer_proper h u hu) hzY hescape hrankL
-  rw [hL] at hR1 hmodel hexplicit
-  exact ⟨hR1, hmodel, hexplicit⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

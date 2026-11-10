@@ -155,17 +155,6 @@ theorem rho_eq_one_iff (z : equalDeterminants K) :
   · rintro ⟨c, rfl⟩
     exact rho_scalarPair c
 
-theorem rho_kernel : (rho (K := K)).ker =
-    { carrier := {z | ∃ c : Kˣ, z = scalarPair c}
-      one_mem' := ⟨1, by apply Subtype.ext; exact (Prod.ext (map_one _) (map_one _)).symm⟩
-      mul_mem' := by
-        rintro _ _ ⟨c, rfl⟩ ⟨d, rfl⟩
-        exact ⟨c * d, Subtype.ext (by simp [scalarPair])⟩
-      inv_mem' := by
-        rintro _ ⟨c, rfl⟩
-        exact ⟨c⁻¹, Subtype.ext (by simp [scalarPair])⟩ } := by
-  ext z
-  exact rho_eq_one_iff z
 
 theorem specialRho_eq_one_iff
     (z : Matrix.SpecialLinearGroup (Fin 2) K × Matrix.SpecialLinearGroup (Fin 2) K) :

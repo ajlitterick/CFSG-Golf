@@ -21,11 +21,6 @@ variable {K : Type} [Field K]
 theorem orbitCertRoot_G2_seven : orbitCertRoot .G2 7 = ![1, 0] :=
   List.ofFn_injective (by decide +kernel)
 
-theorem orbitCertRoot_G2_ten : orbitCertRoot .G2 10 = ![1, 3] :=
-  List.ofFn_injective (by decide +kernel)
-
-theorem orbitCertRoot_G2_eleven : orbitCertRoot .G2 11 = ![2, 3] :=
-  List.ofFn_injective (by decide +kernel)
 
 open MvPolynomial in
 theorem g2_pinnedX_commutator_long (s t : K) :

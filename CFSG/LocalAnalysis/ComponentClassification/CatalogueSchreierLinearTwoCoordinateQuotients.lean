@@ -134,9 +134,6 @@ theorem coordinateEG_secondDerived_eq_bot (K : Type u) [Field K] [Finite K] :
     (semilinearQuotientEquivCoordinateEG K).surjective
     (semilinearQuotient_secondDerived_eq_bot K)
 
-theorem coordinateEG_solvable (K : Type u) [Field K] [Finite K] :
-    Group.IsSolvable (CoordinateQuotientEG K) :=
-  ⟨⟨2, coordinateEG_secondDerived_eq_bot K⟩⟩
 
 end
 

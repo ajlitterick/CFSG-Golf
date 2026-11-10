@@ -171,24 +171,6 @@ theorem DSData.exists_not_mem_four (h : DSData R) {E : Subgroup P} (hE : IsFour 
   have := hE.card
   omega
 
-theorem DSData.mem_of_commutes_four (h : DSData R) {E : Subgroup P} (hE : IsFour E) {c : P}
-    (hc : ∀ e ∈ E, c * e = e * c) : c ∈ E := by
-  obtain ⟨g, hgE, hgR⟩ := h.exists_not_mem_four hE
-  have hle : E ≤ Subgroup.centralizer ({g} : Set P) := fun e he => by
-    rw [Subgroup.mem_centralizer_iff]
-    intro g' hg'
-    rw [Set.mem_singleton_iff] at hg'
-    rw [hg']
-    exact hE.comm g hgE e he
-  have hcard := h.card_centralizer_le hgR
-  have heq : E = Subgroup.centralizer ({g} : Set P) :=
-    Subgroup.eq_of_le_of_card_ge hle (by rw [hE.card]; exact hcard)
-  rw [heq]
-  rw [Subgroup.mem_centralizer_iff]
-  intro g' hg'
-  rw [Set.mem_singleton_iff] at hg'
-  rw [hg']
-  exact (hc g hgE).symm
 
 theorem DSData.z_mem_four (h : DSData R) {E : Subgroup P} (hE : IsFour E) : h.z ∈ E := by
   have h1 := card_le_mul_inf_of_index_two h.index_two E

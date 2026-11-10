@@ -398,9 +398,6 @@ theorem center_eq_map_center {σ : G →* M} (hσs : Function.Surjective σ)
     obtain ⟨g, rfl⟩ := hσs m
     rw [← map_mul, ← map_mul, Subgroup.mem_center_iff.1 hz g]
 
-theorem pow_mem_center_of_lift {σ : G →* M} (hker : σ.ker ≤ Subgroup.center G) {xh : G}
-    {m : ℕ} (hxm : σ xh ^ m = 1) : xh ^ m ∈ Subgroup.center G :=
-  hker (by rw [MonoidHom.mem_ker, map_pow, hxm])
 
 theorem exists_lift_pow_eq_one_cover [Finite G] {σ : G →* M} (hker : σ.ker ≤ Subgroup.center G)
     {p : ℕ} (hp : p.Prime) (hpk : ¬ p ∣ Nat.card σ.ker) {x : M} (hx : x ^ p = 1)

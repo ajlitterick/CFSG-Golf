@@ -169,12 +169,6 @@ end T8T
 
 section Main
 
-variable (p f : ℕ) [Fact p.Prime]
-
-
-theorem c27_Oab_of_alphaConst' (hD4 : Ih8D4Star p f) (h2 : C27_2 p f) (h4a : C27_4a p f)
-    (hA : T8T.C27_AlphaConst p f) : C27_Oab p f :=
-  c27_Oab_of_alphaConst p f hD4 h2 h4a hA (T8T.hyp51Tri_proved p f)
 
 end Main
 

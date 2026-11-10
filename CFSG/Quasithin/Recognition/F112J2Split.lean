@@ -24,25 +24,6 @@ structure R1SettingLegacyBare {G : Type} [Group G] [Finite G] (K1 L2 S Zs : Subg
   V_le : conjClosure Zs L2 ≤ pCoreOf 2 (K1 ⊔ S)
   V_card : Nat.card ↥(conjClosure Zs L2) = 4
 
-structure R1Setting {G : Type} [Group G] [Finite G] (K1 L2 S Zs : Subgroup G) : Prop where
-  hyp : Hyp111 K1 L2 S
-  qt : IsQuasithinSub (K1 ⊔ L2 ⊔ S)
-  hnorm : (S.subgroupOf (S ⊔ borelOf L2 S)).Normal
-  cComp_mem : K1 ∈ cComp (K1 ⊔ S)
-  s3 : Nonempty (OTwoQuot L2 ≃* Equiv.Perm (Fin 3))
-  solv : Group.IsSolvable ↥(L2 ⊔ S)
-  card_Z : Nat.card Zs = 2
-  Z_le : Zs ≤ pCoreOf 2 (L2 ⊔ bigB K1 L2 S)
-  Z_cent : Zs ≤ Subgroup.centralizer (pCoreOf 2 (L2 ⊔ bigB K1 L2 S) : Set G)
-  Z_not_norm : ¬ L2 ≤ Subgroup.normalizer (Zs : Set G)
-  Z_cent_S : Zs ≤ Subgroup.centralizer (S : Set G)
-  K1_cent_Z : K1 ≤ Subgroup.centralizer (Zs : Set G)
-  V_le : conjClosure Zs L2 ≤ pCoreOf 2 (K1 ⊔ S)
-  V_card : Nat.card ↥(conjClosure Zs L2) = 4
-
-@[expose] def F112R1aStatement : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (K1 L2 S Zs : Subgroup G), R1Setting K1 L2 S Zs →
-    IsL2Quot 2 (OTwoQuot K1) → Survivor10Vertex K1 L2 S ∨ Survivor11Vertex K1 L2 S
 
 @[expose] def F112R1cStatementLegacyBare : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K1 L2 S Zs : Subgroup G), R1SettingLegacyBare K1 L2 S Zs →

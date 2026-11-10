@@ -22,23 +22,6 @@ namespace CFSG.BenderSuzuki
 
 universe u
 
-/-- A centralizer-free normal complement forces the complement's kernel to
-have trivial centralizer on the operator subgroup. -/
-public theorem proposition102_centralizer_bot_of_normal_complement
-    {X : Type*} [Group X]
-    {D N C H P : Subgroup X}
-    (hHleN : H ≤ N)
-    (hCentNP : subgroupCentralizerIn N P = C)
-    (hcompD : IsNormalComplementIn D C (H ⊔ P)) :
-    subgroupCentralizerIn H P = ⊥ := by
-  rw [Subgroup.eq_bot_iff_forall]
-  intro x hx
-  have hxC : x ∈ C := by
-    have hxNP : x ∈ subgroupCentralizerIn N P := ⟨hHleN hx.1, hx.2⟩
-    rw [hCentNP] at hxNP
-    exact hxNP
-  exact Subgroup.disjoint_def.mp hcompD.disjoint_D
-    (Subgroup.mem_sup_left hx.1) hxC
 
 /-- A prime-order subgroup acting fixed-point-freely by conjugation on a
 subgroup forces that subgroup to be nilpotent. -/

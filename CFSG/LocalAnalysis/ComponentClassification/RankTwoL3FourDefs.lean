@@ -19,10 +19,6 @@ open CFSG.ComponentClassification.RankTwoStandard
     (Nonempty (center A ≃* Multiplicative (ZMod 2) × Multiplicative (ZMod 2)) ∧
       IsSporadic (rankTwoX A) .He)
 
-@[expose] def L34OddCoreFree : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), RankTwoHypNF G A →
-    Assembly.LowTwoRank.StatedClassicalModel (rankTwoQuot A) .PSL 3 2 2 →
-    standardComponentOddCore G = ⊥ → OddCoreFreeConclusion A
 
 @[expose] def L34General : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), RankTwoHypNF G A →

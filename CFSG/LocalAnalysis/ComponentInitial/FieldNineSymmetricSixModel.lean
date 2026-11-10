@@ -73,12 +73,6 @@ theorem inversionModel_apply (x : Option (ZMod 3 × ZMod 3)) :
 
 @[expose] def frobeniusLabel : Perm (Fin 10) := labelEquiv.permCongr frobeniusModel
 
-theorem generators_apply :
-    ⇑(translationLabel (1, 0)) = ![1, 2, 0, 4, 5, 3, 7, 8, 6, 9] ∧
-      ⇑(translationLabel (0, 1)) = ![3, 4, 5, 6, 7, 8, 0, 1, 2, 9] ∧
-      ⇑inversionLabel = ![9, 2, 1, 3, 7, 8, 6, 4, 5, 0] ∧
-      ⇑frobeniusLabel = ![0, 1, 2, 6, 7, 8, 3, 4, 5, 9] := by
-  decide
 
 @[expose] def involutionValues : Fin 15 → Fin 10 → Fin 10 :=
   ![![0, 1, 2, 6, 7, 8, 3, 4, 5, 9], ![0, 1, 9, 7, 6, 5, 4, 3, 8, 2],
@@ -99,15 +93,6 @@ theorem involutionValues_involutive : ∀ j x, involutionValues j (involutionVal
 @[expose] def generator : Fin 4 → Perm (Fin 10) :=
   ![translationLabel (1, 0), translationLabel (0, 1), inversionLabel, frobeniusLabel]
 
-@[expose] def conjugationRow : Fin 4 → Fin 15 → Fin 15 :=
-  ![![0, 14, 7, 10, 13, 1, 2, 6, 8, 3, 9, 11, 4, 12, 5],
-    ![11, 12, 2, 14, 3, 13, 6, 7, 0, 1, 5, 8, 9, 10, 4],
-    ![0, 6, 2, 11, 8, 7, 1, 5, 4, 10, 9, 3, 13, 12, 14],
-    ![0, 1, 2, 4, 3, 5, 6, 7, 11, 12, 13, 8, 9, 10, 14]]
-
-theorem generator_conj_involution :
-    ∀ k j, generator k * involution j * (generator k)⁻¹ = involution (conjugationRow k j) := by
-  decide
 
 @[expose] def fixedSet : Fin 15 → Finset (Fin 10) :=
   ![{0, 1, 2, 9}, {0, 1, 5, 8}, {0, 3, 6, 9}, {0, 3, 7, 8}, {0, 4, 5, 6}, {0, 2, 4, 7},
@@ -120,10 +105,6 @@ theorem generator_conj_involution :
 
 @[expose] def block (i : Fin 6) : Finset (Finset (Fin 10)) := (blockIndex i).image fixedSet
 
-theorem fixedSet_eq_filter : ∀ j, fixedSet j = Finset.univ.filter fun x => involution j x = x := by
-  decide
-
-theorem fixedSet_injective : Function.Injective fixedSet := by decide
 
 theorem block_injective : Function.Injective block := by decide
 

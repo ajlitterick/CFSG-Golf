@@ -83,8 +83,6 @@ open CFSG.KC.YModel
 @[expose] noncomputable def hAfterWord (J : Nat) : Nat :=
   Nat.shiftRight J (Nat.add (nat_lit 16) (Nat.mul (nat_lit 4) (Nat.land J (nat_lit 65535))))
 
-@[expose] noncomputable def upd (F : Nat → Nat) (k v : Nat) (r : Nat) : Nat :=
-  Bool.rec (motive := fun _ => Nat) (F r) v (Nat.beq r k)
 
 @[expose] noncomputable def cat4 (a b c d : Nat) : Nat := wCat a (wCat b (wCat c d))
 

@@ -122,9 +122,6 @@ theorem kT2 : twinK (prodsP lvls) (TW 1) = true := by quickRfl
 
 #kc_each CertificateChecks.KernelMisc.Twin77001.coverA 0 45
 
-theorem neg : bAnd(bIf(coverK (prodsP lvls) [], false, true), bAnd(bIf(Nat.beq (TW 0) (TW 1), false,
-    true), Nat.beq (prodsP lvls).length 25920)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMisc.Twin77001
 

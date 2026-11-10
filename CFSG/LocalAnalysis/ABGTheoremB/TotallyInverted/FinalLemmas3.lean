@@ -111,13 +111,6 @@ theorem omnibusAt_V (Δ : Data σ r) (homni : Omnibus Δ)
     (hV : V ∈ maximals (signalizersPerm (Kp σ r) σ.T σ.C r)) : OmnibusAt Δ (Kp σ r) V :=
   homni (Kp σ r) C_le_Kp V hV
 
-theorem isSylowOf_V_inf_C (Δ : Data σ r) (homni : Omnibus Δ)
-    (hV : V ∈ maximals (signalizersPerm (Kp σ r) σ.T σ.C r)) :
-    IsSylowOf r (V ⊓ σ.C) σ.C := by
-  have : Fact r.Prime := ⟨Δ.prime⟩
-  obtain ⟨R₀, hR₀, hR₀V⟩ := (omnibusAt_V Δ homni hV).part_ii_a
-  rw [hR₀.eq_of_le (le_inf hR₀V hR₀.le) inf_le_right ((isPGroup_V hV).to_le inf_le_left)]
-  exact hR₀
 
 theorem isSylowOf_V_inf_oddCore (Δ : Data σ r) (homni : Omnibus Δ)
     (hV : V ∈ maximals (signalizersPerm (Kp σ r) σ.T σ.C r)) :
@@ -142,26 +135,6 @@ theorem V_inf_N_inf_oddCore_le (Δ : Data σ r)
   le_Ps_of_le_ON Δ (fun _ hg => oddCore_Kp_inf_N_le_ON ⟨hg.2, hg.1.2⟩)
     ((isPGroup_V hV).to_le (inf_le_left.trans inf_le_left))
 
-theorem comp_zero_eq_R (hσ : σ.IsValid) (Δ : Data σ r) (homni : Omnibus Δ)
-    (hV : V ∈ maximals (signalizersPerm (Kp σ r) σ.T σ.C r)) (hRV : R Δ 0 ≤ V) :
-    comp σ V 0 = (R Δ 0 : Set G) := by
-  obtain ⟨W, hW, hCW, -⟩ := (omnibusAt_V Δ homni hV).part_i_b 0
-  have hWmem : W ∈ signalizers σ.N σ.C r := by
-    refine ⟨fun u hu => ?_, (isPGroup_V hV).to_le (fun u hu => ?_), hCW, ?_⟩
-    · rw [← SetLike.mem_coe, hW] at hu
-      exact (Subgroup.mem_centralizer_singleton_iff.mpr hu.2.1.symm)
-    · rw [← SetLike.mem_coe, hW] at hu
-      exact hu.1
-    · rw [eq_bot_iff]
-      intro u hu
-      have hu1 : u ∈ comp σ V 0 := by rw [← hW]; exact hu.1
-      exact eq_one_of_conj_eq_inv_of_commute
-        (odd_orderOf_of_mem (odd_card_V Δ hV) hu1.1) hu1.2.2
-        (Subgroup.mem_centralizer_iff.mp hu.2 _ (xs_mem_T 1))
-  have hRW : R Δ 0 ≤ W := fun u hu => by
-    rw [← SetLike.mem_coe, hW]
-    exact R_subset_comp Δ hσ hRV hu
-  rw [← hW, (R_mem_maximals Δ 0).2 W hWmem hRW]
 
 theorem comp_one_subset_oddCore (hσ : σ.IsValid) (hF : σ.ChapterIIFacts) (Δ : Data σ r)
     (hV : V ∈ maximals (signalizersPerm (Kp σ r) σ.T σ.C r)) :

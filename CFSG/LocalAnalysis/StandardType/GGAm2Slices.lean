@@ -129,19 +129,6 @@ theorem ggAm2ClGen_holds :
       ggTwoLocalRank_twD6_two_three hperf (by simpa [hlabtwD6] using hXlab)
     omega
 
-private theorem am2b_iso_n_eq_one {l labJ : LargeEvenLabel}
-    (h : GGLabelIso l labJ) (htag : labJ.tag = .A) (hn : labJ.n = 1)
-    (hr : labJ.rank ≠ 1) : l.n = 1 := by
-  unfold GGLabelIso at h
-  rcases h with h | h | h | h | h | h | h | h
-  · rw [h, hn]
-  · rw [h.2.2.2, hn]
-  · exact (congrArg LargeEvenLabel.n h.2).symm.trans hn
-  · exact absurd (htag.symm.trans (congrArg LargeEvenLabel.tag h.2)) (by dsimp; decide)
-  · exact absurd (htag.symm.trans (congrArg LargeEvenLabel.tag h.2)) (by dsimp; decide)
-  · exact absurd (htag.symm.trans (congrArg LargeEvenLabel.tag h.2)) (by dsimp; decide)
-  · exact absurd (congrArg LargeEvenLabel.rank h.2) hr
-  · exact absurd (htag.symm.trans (congrArg LargeEvenLabel.tag h.1)) (by dsimp; decide)
 
 theorem ggAm2ExcBig_holds
     (hTCJ : GGTCJKnown) : GGAm2ExcBig := by

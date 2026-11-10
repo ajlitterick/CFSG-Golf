@@ -248,30 +248,6 @@ theorem lemmaV22_of_familyL (hσ : σ.IsValid) (h32 : σ.LemmaIV32)
   refine ⟨Rs, hRs, hc61 r hr hdiv hexc H hH Rs hRs (by rw [hinf]; exact hDR₀) ?_⟩
   exact le_normalizer_pPrimeCoreIn_sup_thompsonCenter hr2 hcon.2 hst hRs
 
-theorem II61Q_familyL (hσ : σ.IsValid) (hII : σ.ChapterIIFacts)
-    (h_II61Q : σ.IsValid → σ.ChapterIIFacts → ∀ H : Subgroup G, σ.D ≤ H →
-      (∃ S₁ : Sylow 2 G, (S₁ : Subgroup G) ≤ H) → HasQCharPower H σ.q → ∀ r : ℕ, r.Prime →
-        r ≠ 2 → r ≠ σ.p → CFSG.pCore r H ≠ ⊥ → CFSG.pPrimeCore r H ≤ CFSG.solvableRadical H →
-          IsPStable r H) :
-    ∀ r : ℕ, r.Prime → r ∣ Nat.card σ.ON → r ≠ σ.p → ∀ H ∈ σ.familyL r,
-      CFSG.pPrimeCore r H ≤ CFSG.solvableRadical H → IsPStable r H := by
-  intro r hr hdiv hrp H hH hO
-  have : Fact r.Prime := ⟨hr⟩
-  obtain ⟨hQ, -, -, ⟨S₁, hS₁⟩, -, -⟩ := σ.familyL_properties hσ hII hr hdiv hH
-  exact h_II61Q hσ hII H hH.2.2.1 ⟨S₁, hS₁.trans inf_le_left⟩ hQ r hr
-    (σ.prime_ne_two_of_dvd_ON hr hdiv) hrp hH.1.pCore_ne_bot hO
-
-theorem lemmaV22 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (h32 : σ.LemmaIV32)
-    (h61 : σ.PropIV61) (hc61 : σ.CorIV61)
-    (h_II61Q : σ.IsValid → σ.ChapterIIFacts → ∀ H : Subgroup G, σ.D ≤ H →
-      (∃ S₁ : Sylow 2 G, (S₁ : Subgroup G) ≤ H) → HasQCharPower H σ.q → ∀ r : ℕ, r.Prime →
-        r ≠ 2 → r ≠ σ.p → CFSG.pCore r H ≠ ⊥ → CFSG.pPrimeCore r H ≤ CFSG.solvableRadical H →
-          IsPStable r H)
-    {r : ℕ} (hr : r.Prime) (hdiv : r ∣ Nat.card σ.ON)
-    (hexc : σ.Exceptional r) (hrp : r ≠ σ.p) :
-    ∃ P : Sylow r G, Subgroup.normalizer (CFSG.thompsonCenter (P : Subgroup G) : Set G) ∈
-      σ.familyL r :=
-  σ.lemmaV22_of_familyL hσ h32 h61 hc61 (σ.II61Q_familyL hσ hII h_II61Q) hr hdiv hexc hrp
 
 theorem propV21_of_familyL (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (h32 : σ.LemmaIV32)
     (h61 : σ.PropIV61) (hc61 : σ.CorIV61) (h71 : σ.PropIV71) (h81 : σ.LemmaIV81)
@@ -308,20 +284,6 @@ theorem propV21_of_familyL (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (h32 : �
     exact IsDGroup.of_mulEquiv (Subgroup.equivMapOfInjective _ _ hinj) hD
   exact (hII.fusion_disjoint _).2.2.2.1 hQ hD₂
 
-theorem propV21 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (h32 : σ.LemmaIV32)
-    (h61 : σ.PropIV61) (hc61 : σ.CorIV61) (h71 : σ.PropIV71) (h81 : σ.LemmaIV81)
-    (h83 : σ.LemmaIV83) (hc81 : σ.CorIV81) (h91 : σ.PropIV91)
-    (h_II61D : σ.IsValid → σ.ChapterIIFacts → ∀ H : Subgroup G, σ.D ≤ H →
-      IsDGroupWrt (σ.T.subgroupOf H) → ∀ r : ℕ, r.Prime → r ≠ 2 → CFSG.pCore r H ≠ ⊥ →
-        CFSG.pPrimeCore r H ≤ CFSG.oddCore H → IsPStable r H)
-    (h_II61Q : σ.IsValid → σ.ChapterIIFacts → ∀ H : Subgroup G, σ.D ≤ H →
-      (∃ S₁ : Sylow 2 G, (S₁ : Subgroup G) ≤ H) → HasQCharPower H σ.q → ∀ r : ℕ, r.Prime →
-        r ≠ 2 → r ≠ σ.p → CFSG.pCore r H ≠ ⊥ → CFSG.pPrimeCore r H ≤ CFSG.solvableRadical H →
-          IsPStable r H)
-    (h_II4C : σ.C ≤ oddCoreIn σ.C ⊔ σ.D) {r : ℕ} (hr : σ.HypIV7 r) :
-    r = σ.p :=
-  σ.propV21_of_familyL hσ hII h32 h61 hc61 h71 h81 h83 hc81 h91 h_II61D
-    (σ.II61Q_familyL hσ hII h_II61Q) h_II4C hr
 
 end Setting
 

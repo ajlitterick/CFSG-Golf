@@ -46,8 +46,6 @@ theorem TypeOneRes.toTypeOne {Y : Type} [Group Y] (h : TypeOneRes Y) : TypeOne Y
     CFSG.generalizedFitting G ⊔ T = ⊤ →
       TypeOneRes (ASInputs.FStar G) → E1.nParam (⊤ : Subgroup G) ≤ 1
 
-theorem e114OneRes_of_e114One (h : E114One) : E114OneRes :=
-  fun G _ _ T hSQ hFs hT hFT hty => h G T hSQ hFs hT hFT hty.toTypeOne
 
 theorem nParam_sup_le_one_of_res (h114 : E114OneRes) {X : Type} [Group X] [Finite X]
     [IsSimpleGroup X] (hnab : ∃ a b : X, a * b ≠ b * a) (hSQ : SQTKGroup X)
@@ -71,57 +69,6 @@ theorem nParam_sup_le_one_of_res (h114 : E114OneRes) {X : Type} [Group X] [Finit
   rw [E1.nParam_subgroupOf]
   exact key
 
-theorem e22NParamW_of_res (h111 : E111ForQn (fun X _ => TypeOne X) 1) (h114 : E114OneRes) :
-    E2.E22NParamW := by
-  intro Γ _ _ H T M K hmin hSQ hns hKc hHK hq hcases hSQs
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Finite (E2.StarQuot M H) := E2P.finite_starQuot M H
-  have hTH : T ≤ H := hmin.isSylow.1
-  have hT2 : IsPGroup 2 T := hmin.isSylow.2.1
-  have hKH : K ≤ H := le_of_mem_cComp hKc
-  have hJs : Group.IsSolvable ↥(kerIn M H) := isSolvable_kerIn_of_e22CasesNoN hcases
-  have hO2T : oTwoUpper H ⊔ T = H := C1Pack12.oTwoUpper_sup_eq_of_sylow hmin.isSylow
-  have hge1 := E22A.one_le_nParam hmin
-  set Ks := E2.star M H K with hKs
-  set π := QuotientGroup.mk' ((kerIn M H).subgroupOf H) with hπ
-  have hKp : Group.IsPerfect ↥K := A36A.isPerfect_of_mem_cComp hKc
-  have hnab : IsSimpleGroup ↥Ks → ∃ a b : ↥Ks, a * b ≠ b * a := fun hsimp => by
-    have : Nontrivial ↥Ks := hsimp.toNontrivial
-    exact nonabelian_of_perfect_surjective
-      ((π.subgroupMap (K.subgroupOf H)).comp (Subgroup.subgroupOfEquivOfLe hKH).symm.toMonoidHom)
-      ((π.subgroupMap_surjective _).comp (Subgroup.subgroupOfEquivOfLe hKH).symm.surjective)
-  have hSQK : SQTKGroup ↥Ks := sqtkGroup_subgroup hSQs Ks
-  have hOne : TypeOneRes ↥Ks → E1.nParam H = 1 := by
-    intro hty
-    refine le_antisymm ?_ hge1
-    have h := nParam_le_of_star (Q := fun X _ => TypeOne X) typeOne_isoInv h111
-      hTH hT2 hKc hHK hJs hty.toTypeOne.isSimpleGroup hty.toTypeOne
-      (fun X _ _ _ hnabX ⟨e⟩ B hB hBI => by
-        have hSQX : SQTKGroup X := sqtkGroup_of_mulEquiv e hSQK
-        simpa using nParam_sup_le_one_of_res h114 hnabX hSQX (TypeOneRes.of_mulEquiv e hty) hB
-          hBI)
-      hTH
-    rw [sup_comm, hO2T] at h
-    simpa using h
-  dsimp only [E2.E22NParamWCases]
-  refine ⟨fun _ _ p hp hp8 hK _ _ => hOne ?_, fun hTK _ =>
-    ⟨fun n hn1 hty _ _ hn => ?_, fun p e hp hp3 he hpe8 hK _ _ => hOne ?_,
-      fun p hp hp2 hK _ => hOne ?_⟩⟩
-  ·
-    have h1 := hp.two_le
-    exact Or.inr (Or.inr (Or.inl ⟨p, 1, hp, by omega, Or.inl rfl, by simpa using hp8, hK⟩))
-  ·
-    subst hn
-    refine (hOne ?_).le
-    rcases hty with h | h
-    · exact Or.inl h
-    · exact Or.inr (Or.inl (by simpa [IsSp4Prime] using h))
-  ·
-    exact Or.inr (Or.inr (Or.inl ⟨p, e, hp, hp3, he, hpe8, hK⟩))
-  ·
-    rcases hK with ⟨h4, hK⟩ | ⟨h4, hK, -⟩
-    · exact Or.inr (Or.inr (Or.inr ⟨false, p, hp, hp2, by simp, fun _ => h4, hK⟩))
-    · exact Or.inr (Or.inr (Or.inr ⟨true, p, hp, hp2, fun _ => h4, by simp, hK⟩))
 
 @[expose] def TypeOneResNoA6 (Y : Type) [Group Y] : Prop :=
   IsPSL 3 2 1 Y ∨
@@ -144,8 +91,5 @@ theorem e114OneRes_of_noA6 (h : E114OneResNoA6) : E114OneRes := by
   · exact h G T hSQ hFs hT hFT (Or.inr (Or.inl h2))
   · exact h G T hSQ hFs hT hFT (Or.inr (Or.inr h3))
 
-theorem e22NParamW_of_resNoA6
-    (h111 : E111ForQn (fun X _ => TypeOne X) 1) (h114 : E114OneResNoA6) : E2.E22NParamW :=
-  e22NParamW_of_res h111 (e114OneRes_of_noA6 h114)
 
 end CFSG.Quasithin.E2.E22N

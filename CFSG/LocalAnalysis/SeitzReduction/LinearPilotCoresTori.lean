@@ -150,36 +150,6 @@ theorem levTorus_le_blockTorus {a : Fin n} {I : Finset (Fin n)} (ha : a ∉ I) :
   intro i hi
   simpa using fun h : i = a => ha (h ▸ hi)
 
-theorem eq_levTorusParam_of_mem {a : Fin n} {c : Fin n → Kˣ}
-    (hc : c ∈ blockTorusParam ({a}ᶜ : Finset (Fin n))) {μ : Kˣ} (hμ : ∀ i, i ≠ a → c i = μ) :
-    c = levTorusParam a μ := by
-  funext i
-  by_cases hi : i = a
-  · subst hi
-    simp only [levTorusParam, ite_true]
-    have hprod := hc.1
-    rw [← Finset.mul_prod_erase Finset.univ _ (Finset.mem_univ i),
-      Finset.prod_congr rfl fun j hj => hμ j (Finset.ne_of_mem_erase hj), Finset.prod_const,
-      Finset.card_erase_of_mem (Finset.mem_univ i), Finset.card_univ, Fintype.card_fin] at hprod
-    rw [inv_pow, eq_inv_iff_mul_eq_one, hprod]
-  · simp only [levTorusParam, hi, ite_false]
-    exact hμ i hi
-
-theorem blockTorus_compl_singleton (a : Fin n) :
-    blockTorus (K := K) ({a}ᶜ : Finset (Fin n)) = levTorus a := by
-  refine le_antisymm ?_ (levTorus_le_blockTorus (by simp))
-  intro x hx
-  obtain ⟨c, hc, rfl⟩ := mem_blockTorus.1 hx
-  obtain ⟨μ, hμ⟩ : ∃ μ : Kˣ, ∀ i, i ≠ a → c.1 i = μ := by
-    by_cases h : ∃ b : Fin n, b ≠ a
-    · obtain ⟨b, hb⟩ := h
-      exact ⟨c.1 b, fun i hi => hc.2 i (by simpa using hi) b (by simpa using hb)⟩
-    · push Not at h
-      exact ⟨1, fun i hi => absurd (h i) hi⟩
-  refine ⟨μ, ?_⟩
-  rw [MonoidHom.comp_apply, levTorusHom_eq_torusDiagSL]
-  congr 2
-  exact Subtype.ext (eq_levTorusParam_of_mem hc hμ).symm
 
 end Levi
 
@@ -225,10 +195,6 @@ theorem rootTorusParam_mem_blockTorusParam {a b : Fin n} (hab : a ≠ b) {I : Fi
     simp only [rootTorusParam]
     split_ifs <;> simp [mul_comm])
 
-theorem coe_rootTorusHom {a b : Fin n} (hab : a ≠ b) (κ : Kˣ) :
-    ((rootTorusHom (K := K) hab κ : blockTorusParam (K := K) (∅ : Finset (Fin n))) :
-      Fin n → Kˣ) = rootTorusParam a b κ :=
-  rfl
 
 theorem coe_torusDiagSL_rootTorusHom {a b : Fin n} (hab : a ≠ b) (κ : Kˣ) :
     ((torusDiagSL (rootTorusHom (K := K) hab κ) : SpecialLinearGroup (Fin n) K) :
@@ -239,9 +205,6 @@ theorem coe_torusDiagSL_rootTorusHom {a b : Fin n} (hab : a ≠ b) (κ : Kˣ) :
     Subgroup (LinearFlag.projectiveSL n K) :=
   ((LinearFlag.proj n K).comp (torusDiagSL.comp (rootTorusHom hab))).range
 
-theorem mem_rootTorus {a b : Fin n} (hab : a ≠ b) {x : LinearFlag.projectiveSL n K} :
-    x ∈ rootTorus hab ↔ ∃ κ : Kˣ, LinearFlag.proj n K (torusDiagSL (rootTorusHom hab κ)) = x :=
-  Iff.rfl
 
 theorem proj_torusDiagSL_rootTorusHom_mem {a b : Fin n} (hab : a ≠ b) (κ : Kˣ) :
     LinearFlag.proj n K (torusDiagSL (rootTorusHom hab κ)) ∈ rootTorus hab :=
@@ -266,11 +229,6 @@ theorem rootTorus_le_blockTorus {a b : Fin n} (hab : a ≠ b) {I : Finset (Fin n
   rintro _ ⟨κ, rfl⟩
   exact proj_torusDiagSL_mem_blockTorus (rootTorusParam_mem_blockTorusParam hab ha hb κ)
 
-theorem blockSL_compl_le_centralizer_rootTorus {a b : Fin n} (hab : a ≠ b) :
-    blockSL (K := K) ({a, b}ᶜ : Finset (Fin n)) ≤
-      centralizer (rootTorus (K := K) hab : Set (LinearFlag.projectiveSL n K)) :=
-  (blockSL_le_centralizer_blockTorus _).trans
-    (centralizer_le (rootTorus_le_blockTorus hab (by simp) (by simp)))
 
 end Root
 
@@ -289,11 +247,6 @@ variable (K) in
   | root a b _ => {a, b}ᶜ
   | levi a => {a}ᶜ
 
-theorem torus_root {a b : Fin n} (hab : a ≠ b) : (root a b hab).torus K = rootTorus hab :=
-  rfl
-
-theorem torus_levi (a : Fin n) : (levi a).torus K = levTorus a :=
-  rfl
 
 theorem index_root {a b : Fin n} (hab : a ≠ b) : (root a b hab).index = {a, b}ᶜ :=
   rfl
@@ -321,42 +274,11 @@ theorem blockSL_index_le_centralizer_torus (N : Neighbour n) :
   (blockSL_le_centralizer_blockTorus N.index).trans
     (centralizer_le (N.torus_le_blockTorus subset_rfl))
 
-theorem torus_levi_eq_blockTorus (a : Fin n) :
-    (levi a).torus K = blockTorus (levi a).index :=
-  (blockTorus_compl_singleton a).symm
 
 end Neighbour
 
 section Separation
 
-theorem exists_mem_blockTorusParam_ne {I : Finset (Fin n)} (hI : 2 ≤ Iᶜ.card) {κ : Kˣ}
-    (hκ1 : κ ≠ 1) (hκ2 : κ * κ ≠ 1) {i j : Fin n} (hij : i ≠ j) (hIJ : i ∉ I ∨ j ∉ I) :
-    ∃ c ∈ blockTorusParam (K := K) I, c i ≠ c j := by
-  have hκinv : κ ≠ κ⁻¹ := fun h => hκ2 (by rw [← mul_inv_cancel κ]; exact congrArg (κ * ·) h)
-  have hother : ∀ a : Fin n, ∃ a' : Fin n, a' ∉ I ∧ a' ≠ a := by
-    intro a
-    by_contra hcon
-    simp only [not_exists, not_and, not_not] at hcon
-    have hsub : Iᶜ ⊆ {a} := fun x hx => Finset.mem_singleton.mpr (hcon x (Finset.mem_compl.mp hx))
-    have := Finset.card_le_card hsub
-    rw [Finset.card_singleton] at this
-    omega
-  by_cases hi : i ∈ I
-  · have hj : j ∉ I := hIJ.resolve_left (not_not.mpr hi)
-    obtain ⟨j', hj', hjj'⟩ := hother j
-    refine ⟨rootTorusParam j j' κ, rootTorusParam_mem_blockTorusParam hjj'.symm hj hj' κ, ?_⟩
-    have hij' : i ≠ j' := fun h => hj' (h ▸ hi)
-    rw [rootTorusParam_apply_of_ne hij hij', rootTorusParam_apply_left]
-    exact fun h => hκ1 h.symm
-  · by_cases hj : j ∈ I
-    · obtain ⟨i', hi', hii'⟩ := hother i
-      refine ⟨rootTorusParam i i' κ, rootTorusParam_mem_blockTorusParam hii'.symm hi hi' κ, ?_⟩
-      have hji' : j ≠ i' := fun h => hi' (h ▸ hj)
-      rw [rootTorusParam_apply_left, rootTorusParam_apply_of_ne (Ne.symm hij) hji']
-      exact hκ1
-    · refine ⟨rootTorusParam i j κ, rootTorusParam_mem_blockTorusParam hij hi hj κ, ?_⟩
-      rw [rootTorusParam_apply_left, rootTorusParam_apply_right hij]
-      exact hκinv
 
 theorem exists_mem_blockTorusParam_ne_of_notMem {I N : Finset (Fin n)} (hIN : I ⊆ N) {k : Fin n}
     (hk : k ∉ N) {κ : Kˣ} (hκ : κ ≠ 1) {i j : Fin n} (hi : i ∈ N) (hj : j ∈ N) (hij : i ≠ j)

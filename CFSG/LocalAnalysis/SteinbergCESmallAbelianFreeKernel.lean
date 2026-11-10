@@ -32,8 +32,6 @@ theorem card_dvd_card_of_free {H X : Type*} [Group H] [Finite H] [MulAction H X]
   · intro h
     exact absurd (Finset.mem_univ 1) h
 
-variable (p : ℕ) [Fact p.Prime] (H A : Type*) [Group H] [CommGroup A] [IsElementaryAbelian p A]
-  [MulDistribMulAction H A]
 
 end FreeKernel
 

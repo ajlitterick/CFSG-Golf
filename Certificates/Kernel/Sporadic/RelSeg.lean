@@ -43,15 +43,6 @@ theorem sel_all {α : Type} {lo hi : Nat} : ∀ (i : Nat) (l : List α), lo ≤ 
     rw [List.length_cons] at h2
     rw [sel, ite_eq_left (by omega), sel_all (i + 1) l (by omega) (by omega)]
 
-theorem sel_mem {α : Type} {lo hi : Nat} : ∀ {i : Nat} {l : List α} {x : α}, x ∈ sel lo hi i l → x ∈ l
-  | _, [], _, h => by simp [sel] at h
-  | i, y :: l, x, h => by
-    rw [sel] at h
-    split at h
-    · rcases List.mem_cons.1 h with rfl | h
-      · exact List.mem_cons_self
-      · exact List.mem_cons_of_mem _ (sel_mem h)
-    · exact List.mem_cons_of_mem _ (sel_mem h)
 
 theorem segProd_sel {R : Type} [Monoid R] {RB : Nat → Nat} {mul : Nat → Nat → Nat}
     {ONE Lg lo hi : Nat} {P : Nat → Prop} {M : Nat → R}
@@ -198,10 +189,6 @@ theorem rel_of_segP {T L H CM RM ONE LV HV r : Nat}
   rw [hONE, one_mul, sel_all 0 _ (Nat.le_refl 0) (by rw [lenL_eq']; omega)] at e
   exact e.symm
 
-theorem relOK_of_range {mul : Nat → Nat → Nat} {ONE lo n : Nat}
-    (h : relsRangeOK RB mul rels Lg ONE lo n = true) :
-    ∀ k < n, relOK RB mul rels Lg ONE (lo + k) = true :=
-  rec_and' (f := fun k => relOK RB mul rels Lg ONE (Nat.add lo k)) n h
 
 theorem rels_of_segP {T L H CM RM ONE LV HV : Nat}
     (hc : constsOK p w S d T L H CM RM ONE LV HV = true)

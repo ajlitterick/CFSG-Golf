@@ -69,15 +69,5 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
     (GGResXDatum p Bs L → GGResRowAt ggRowTwoNode p J L → GGResTwoNodeSideDatum p Bs L J) ∧
       (GGResXDatum p Bs K → GGResRowAt ggRowTwoNode p J K → GGResTwoNodeSideDatum p Bs K J)
 
-theorem ggResTwoNodeDatum_mono {G : Type} [Group G] {p : ℕ} [Fact p.Prime] {Bs L J K : Subgroup G}
-    {sel sel' : Prop → Prop → Prop}
-    {typ typ' : ∀ {Λ Λ' : Type}, CoxeterMatrix Λ → CoxeterMatrix Λ' → Prop}
-    (hD : GGResTwoNodeDatum p Bs L J K sel typ) (hsel : ∀ l a : Prop, sel l a → sel' l a)
-    (htyp : ∀ {Λ Λ' : Type} (M : CoxeterMatrix Λ) (M' : CoxeterMatrix Λ'), typ M M' → typ' M M') :
-    GGResTwoNodeDatum p Bs L J K sel' typ' := by
-  obtain ⟨Λ, i1, i2, b₁, b₂, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α, hb, hc1, hc2, h1,
-    h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15, h16⟩ := hD
-  exact ⟨Λ, i1, i2, b₁, b₂, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α, hb, hc1, hc2, h1,
-    h2, h3, h4, htyp _ _ h5, h6, h7, h8, h9, hsel _ _ h10, h11, h12, h13, h14, h15, h16⟩
 
 end CFSG.StandardType

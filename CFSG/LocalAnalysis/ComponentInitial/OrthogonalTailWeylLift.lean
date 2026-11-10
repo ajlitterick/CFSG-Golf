@@ -344,12 +344,6 @@ theorem exists_blockHom_eq (n : tailTorusWeyl r qA a₀) :
   obtain ⟨p, hp⟩ := tailTorusWeyl_le_tailMono hani ha₀ n.2
   exact ⟨p, hp, by rw [coe_tailTorusWeylNu]; exact tailNu_eq hp⟩
 
-theorem apply_tail_tailTorusWeyl (n : tailTorusWeyl r qA a₀) (a : A) :
-    ∃ b : A, (n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))
-      ((0 : Fin r ⊕ Fin r → K), a) = (0, b) := by
-  obtain ⟨p, hp, -⟩ := exists_blockHom_eq hani ha₀ n
-  refine ⟨(p.2 : A ≃ₗ[K] A) a, ?_⟩
-  rw [← hp, blockHom_apply, map_zero]
 
 theorem apply_hypVec_tailTorusWeylNu (n : tailTorusWeyl r qA a₀) (c : Fin r ⊕ Fin r) :
     ∃ (μ : Kˣ) (c' : Fin r ⊕ Fin r),
@@ -556,14 +550,6 @@ theorem blockHom_smul_tailFlag_eq_iff (p : monoAut r K × TauCeti.QuadraticMap.o
   rw [h1, h2, tailFlag_eq_map]
   exact (Submodule.map_injective_of_injective LinearMap.inl_injective).eq_iff
 
-theorem mem_flagCoords {k : ℕ} {c : Fin r ⊕ Fin r} :
-    c ∈ (Sum.inl '' {j : Fin r | (j : ℕ) < k} : Set (Fin r ⊕ Fin r)) ↔
-      ∃ j : Fin r, (j : ℕ) < k ∧ c = Sum.inl j := by
-  constructor
-  · rintro ⟨j, hj, rfl⟩
-    exact ⟨j, hj, rfl⟩
-  · rintro ⟨j, hj, rfl⟩
-    exact ⟨j, hj, rfl⟩
 
 variable (hani : qA.Anisotropic) {a₀ : A} (ha₀ : a₀ ≠ 0)
 include hani ha₀
@@ -627,34 +613,5 @@ theorem tailWeylElt_smul_tailFlag (i j : Fin r) :
 
 end Flags
 
-
-theorem orthogonal_geometry_tail_Weyl_lifts {K : Type*} [Field K] {A : Type*} [AddCommGroup A]
-    [Module K A] {r : ℕ} {qA : QuadraticForm K A} (hani : qA.Anisotropic) {a₀ : A}
-    (ha₀ : a₀ ≠ 0) :
-    (∀ n : tailTorusWeyl r qA a₀,
-      (∀ a : A, ∃ b : A, (n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))
-        ((0 : Fin r ⊕ Fin r → K), a) = (0, b)) ∧
-      ∀ c : Fin r ⊕ Fin r, ∃ (μ : Kˣ) (c' : Fin r ⊕ Fin r),
-        (n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A)) (hypVec K A c) =
-          (μ : K) • hypVec K A c' ∧
-        coordWt c' = ((tailTorusWeylNu r qA hani ha₀ n : weylGroupB r) :
-          (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) (coordWt c)) ∧
-    Function.Surjective (tailTorusWeylNu r qA hani ha₀) ∧
-    (tailTorusWeylNu r qA hani ha₀).ker = (tailTorus r qA).subgroupOf (tailTorusWeyl r qA a₀) ∧
-    (∀ i, tailTorusWeylNu r qA hani ha₀
-        ⟨tailWeylElt r qA a₀ i, tailWeylElt_mem_tailTorusWeyl a₀ i⟩ =
-      ⟨simpleReflB r i, simpleReflB_mem i⟩) ∧
-    (∀ (n : tailTorusWeyl r qA a₀) (α : Fin r → ℤ), α ∈ rootsB r →
-      (tailRootGroup r qA α).map (MulAut.conj
-          (n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))).toMonoidHom =
-        tailRootGroup r qA (((tailTorusWeylNu r qA hani ha₀ n : weylGroupB r) :
-          (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) α)) ∧
-    (∀ i, tailWeylElt r qA a₀ i ^ 2 ∈ tailTorus r qA) ∧
-    ∀ i j : Fin r,
-      (tailWeylElt r qA a₀ j • tailFlag K A r (i + 1) = tailFlag K A r (i + 1) ↔ j ≠ i) :=
-  ⟨fun n => ⟨apply_tail_tailTorusWeyl hani ha₀ n, apply_hypVec_tailTorusWeylNu hani ha₀ n⟩,
-    tailTorusWeylNu_surjective hani ha₀, tailTorusWeylNu_ker hani ha₀,
-    tailTorusWeylNu_tailWeylElt hani ha₀, fun n _ hα => map_conj_tailRootGroup hani ha₀ n hα,
-    tailWeylElt_sq_mem_tailTorus hani ha₀, tailWeylElt_smul_tailFlag hani ha₀⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

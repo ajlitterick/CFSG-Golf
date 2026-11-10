@@ -49,9 +49,6 @@ abbrev tC (L T : Subgroup G) : Subgroup G := T ⊓ Subgroup.centralizer (L : Set
   Subgroup.closure {Equiv.swap 0 1, Equiv.swap 0 1 * Equiv.swap 1 2,
     Equiv.swap 0 3 * Equiv.swap 1 4 * Equiv.swap 2 5}
 
-@[expose] def IsDoubleCoverS5NotGL25 (X : Type) [Group X] : Prop :=
-  Nat.card (Subgroup.center X) = 2 ∧ Nonempty (X ⧸ Subgroup.center X ≃* Equiv.Perm (Fin 5)) ∧
-    ¬ ∃ f : X →* Matrix.GeneralLinearGroup (Fin 2) (ZMod 5), Function.Injective f
 
 @[expose] noncomputable def preCenterAut (T V : Subgroup G) : Subgroup G :=
   T ⊓ (((Subgroup.center ↥(autOn T V)).map (autOn T V).subtype).comap

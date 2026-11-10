@@ -77,30 +77,6 @@ theorem mixed_section_data (h : T7F2.Hyp25T p f Ω K K' W S R R' z t u₁ u₂ t
 section Typed
 
 
-theorem mixed_sectionLieType (h : T7F2.Hyp25T p f Ω K K' W S R R' z t u₁ u₂ t') (h9 : p ^ f ≠ 9)
-    {a : G} (haS : a ∈ (S : Subgroup G)) (ha2 : a * a = 1) (hF : IsFAut R' a)
-    (hnoswap : ¬ ∃ c : G, c * a = a * c ∧ c * z = z * c ∧ conjSub c K' = K) :
-    ∃ e₀ : ℕ, f = 2 * e₀ ∧ 5 ≤ p ^ e₀ ∧
-      ∃ hzA : z ∈ Subgroup.centralizer ({a} : Set G),
-        IsClassicalMember p e₀ (perfectCoreIn K' a) ⟨z, hzA⟩ ∧
-        (SectionLieType p e₀ (conjFamily (perfectCoreIn K' a))
-            (omegaGen (conjFamily (perfectCoreIn K' a))) .PSL 2 ∨
-          SectionLieType p e₀ (conjFamily (perfectCoreIn K' a))
-            (omegaGen (conjFamily (perfectCoreIn K' a))) .PSL 3 ∨
-          SectionLieType p e₀ (conjFamily (perfectCoreIn K' a))
-            (omegaGen (conjFamily (perfectCoreIn K' a))) .PSU 3 ∨
-          SectionLieType p e₀ (conjFamily (perfectCoreIn K' a))
-            (omegaGen (conjFamily (perfectCoreIn K' a))) .G2 0 ∨
-          SectionLieType p e₀ (conjFamily (perfectCoreIn K' a))
-            (omegaGen (conjFamily (perfectCoreIn K' a))) .trialityD4 0) := by
-  obtain ⟨e₀, hfe, h5, hzA, hmem, hlt, hIH⟩ := mixed_section_data h h9 haS ha2 hF
-  have d' := twinCtx'_of_hyp25 h
-  have hDE : Disconnected.DEdgeless (conjFamily (perfectCoreIn K' a)) :=
-    (fs_dEdgeless_iff d' h5 hzA hmem).mpr hnoswap
-  have hΩ₀ := fs_hypOmegaMod_conjFamily h.hΩ h.hK' h.hz' hzA hmem
-  exact ⟨e₀, hfe, h5, hzA, hmem, sectionThm6_five h.hp h5 (ih8SmallEdge p) hIH hlt hΩ₀
-    ⟨_, ⟨1, conjSub_one _⟩⟩ hDE⟩
-
 end Typed
 
 theorem eq_conj_z_of_commute_order_four (h : T7F2.Hyp25T p f Ω K K' W S R R' z t u₁ u₂ t')

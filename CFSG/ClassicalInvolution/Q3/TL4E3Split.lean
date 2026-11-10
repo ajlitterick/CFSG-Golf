@@ -59,27 +59,6 @@ theorem tightE3LeafR'_of_parts {r n : ℕ} (hZ2 : TightE3Z2R r n) (hS3 : TightE3
         Q3T6.Mu.muIsoS3_of_shape hP hW hedge ⟨K, hK, hne⟩
   · exact hE4 Y R S t hL hcn hsp hα J hJ u hu htu ht Sb hex hedge
 
-theorem tightE3LeafR''_of_parts {r n : ℕ} (hZ2 : TightE3Z2R r n) (hS3 : TightE3S3R r n) :
-    TightE3LeafR'' r n := by
-  classical
-  intro Y _ _ R S t hL hcn hsp hα J hJ u hu htu ht Sb hex
-  by_cases hedge : TightEdgeless (secR R u)
-  · left
-    obtain ⟨Sq, hdq⟩ := E3.exists_secDatum hL.datum hJ.1.2 hu htu ht
-    have hP := hdq.partIHypG
-    by_cases hsh : ∀ K ∈ CoreAssembly.conjClass (tightCore (secR R u)),
-        omegaStarNbr (CoreAssembly.conjClass (tightCore (secR R u))) K = ∅
-    · exact hZ2 Y R S t hL hcn hsp hα J hJ u hu htu ht Sb hex hedge fun W hW =>
-        Q3T6.Mu.muIsoZ2_of_shape hP hW ⟨_, CoreAssembly.mem_conjClass_self _⟩ hsh
-    · push Not at hsh
-      obtain ⟨K, hK, hne⟩ := hsh
-      exact hS3 Y R S t hL hcn hsp hα J hJ u hu htu ht Sb hex hedge fun W hW =>
-        Q3T6.Mu.muIsoS3_of_shape hP hW hedge ⟨K, hK, hne⟩
-  · rcases hex with h | ⟨h, -⟩ | ⟨h, -⟩ | h
-    · exact Or.inl h
-    · exact absurd h hedge
-    · exact absurd h hedge
-    · exact Or.inr h
 
 end Cit3
 

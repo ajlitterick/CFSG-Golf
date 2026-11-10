@@ -107,64 +107,6 @@ theorem omega4_of_memberU (hc : t.Cert) (h₀ : IsClassicalMemberU t K₀ z₀)
   · rw [padicValNat.eq_zero_of_not_dvd h2]
     exact ⟨Nat.zero_le _, fun h => absurd h (by norm_num)⟩
 
-theorem normalizer_of_twinsU (hc : t.Cert) (h₀ : IsClassicalMemberU t K₀ z₀)
-    (hint : IsIntrinsicU t K₀ z₀) {K J : Subgroup G} (hK : K ∈ conjClass K₀)
-    (hJ : J ∈ conjClass K₀) {z : G} (hKz : IsUniqueInvolution K z)
-    (hJz : IsUniqueInvolution J z) : J ≤ Subgroup.normalizer (K : Set G) := by
-  obtain ⟨a, rfl⟩ := single_class K₀ K hK
-  obtain ⟨b, rfl⟩ := single_class K₀ J hJ
-  have hKa := h₀.conj a
-  have hJb := h₀.conj b
-  have hUa := hKa.isUniqueInvolution hc
-  have hUb := hJb.isUniqueInvolution hc
-  by_cases hne : conjSub a K₀ = conjSub b K₀
-  · rw [← hne]
-    exact Subgroup.le_normalizer
-  · have hz : a * z₀ * a⁻¹ = b * z₀ * b⁻¹ := (hUa.eq hKz).trans (hUb.eq hJz).symm
-    have hJb' : IsClassicalMemberU t (conjSub b K₀) (a * z₀ * a⁻¹) := by
-      rw [hz]
-      exact hJb
-    have hiJ : IsIntrinsicU t (conjSub b K₀) (a * z₀ * a⁻¹) := by
-      rw [hz]
-      exact hint.conj b
-    exact (twins_of_memberU hKa hJb' (hint.conj a) hiJ hne).1
-
-theorem eq_of_mem_of_memU (hc : t.Cert) (h₀ : IsClassicalMemberU t K₀ z₀)
-    (hint : IsIntrinsicU t K₀ z₀) {K J : Subgroup G} (hK : K ∈ conjClass K₀)
-    (hJ : J ∈ conjClass K₀) {k : G} (hkK : k ∈ K) (hkJ : k ∈ J)
-    (hk2 : IsPGroup 2 (Subgroup.zpowers k)) (hk4 : 4 ≤ orderOf k) : K = J := by
-  by_contra hne
-  have h1 := (omega4_of_memberU hc h₀ hint hK hJ hne).1
-  obtain ⟨n, hn⟩ := hk2.exists_card_eq
-  rw [Nat.card_zpowers] at hn
-  have hn2 : 2 ≤ n := by
-    by_contra hlt
-    have : 2 ^ n ≤ 2 ^ 1 := Nat.pow_le_pow_right (by norm_num) (by omega)
-    omega
-  have hdvd : 4 ∣ Nat.card ↥(K ⊓ J) := by
-    have h4 : 4 ∣ orderOf k := by
-      rw [hn]
-      exact (pow_dvd_pow 2 hn2 : 2 ^ 2 ∣ 2 ^ n)
-    exact h4.trans (Subgroup.orderOf_dvd_natCard _ (Subgroup.mem_inf.mpr ⟨hkK, hkJ⟩))
-  have hpos : Nat.card ↥(K ⊓ J) ≠ 0 := Nat.card_pos.ne'
-  have := (padicValNat_dvd_iff_le (p := 2) (n := 2) hpos).mp (by simpa using hdvd)
-  omega
-
-theorem centralizer_le_normalizer_of_memU (hc : t.Cert) (h₀ : IsClassicalMemberU t K₀ z₀)
-    (hint : IsIntrinsicU t K₀ z₀) {K : Subgroup G} (hK : K ∈ conjClass K₀) {k : G}
-    (hkK : k ∈ K) (hk2 : IsPGroup 2 (Subgroup.zpowers k)) (hk4 : 4 ≤ orderOf k) :
-    Subgroup.centralizer ({k} : Set G) ≤ Subgroup.normalizer (K : Set G) := by
-  intro c hc'
-  rw [Subgroup.mem_centralizer_singleton_iff] at hc'
-  apply AscHypOmega.mem_normalizer_of_conjSub_eq
-  have hcK : conjSub c K ∈ conjClass K₀ := by
-    obtain ⟨a, rfl⟩ := single_class K₀ K hK
-    exact ⟨c * a, conjSub_mul c a K₀⟩
-  have hkc : k ∈ conjSub c K := by
-    have := conj_mem_conjSub (n := c) hkK
-    have hck : c * k * c⁻¹ = k := by rw [mul_inv_eq_iff_eq_mul]; exact hc'
-    rwa [hck] at this
-  exact (eq_of_mem_of_memU hc h₀ hint hK hcK hkK hkc hk2 hk4).symm
 
 theorem omega5_of_omega5AtU (hc : t.Cert) (h₀ : IsClassicalMemberU t K₀ z₀)
     (h5 : Omega5At (conjClass K₀) K₀ z₀) :

@@ -271,61 +271,10 @@ abbrev miyamotoN2G : Subgroup G := miyamotoPull h L η (miyamotoN2 h)
 @[expose] def miyamotoM0 : Subgroup G :=
   CFSG.ABGTheoremB.pCoreIn 2 (normalizer (CFSG.centerIn Q : Set G))
 
-@[expose] def miyamotoE : Subgroup G :=
-  let X := miyamotoM0 Q ⊓ centralizer (miyamotoI2r1G h L η : Set G) ⊔ miyamotoIG h L η
-  ⁅X, X⁆
 
 @[expose] def miyamotoD1 : Subgroup G :=
   CFSG.ABGTheoremB.pCoreIn 2 (normalizer (miyamotoB1 h L η t : Set G))
 
-@[expose] def miyamotoF1 : Subgroup G :=
-  let X := miyamotoD1 h L η t ⊔ miyamotoI1G h L η
-  ⁅X, X⁆
-
-@[expose] def miyamotoQ1 : Subgroup G := miyamotoF1 h L η t ⊔ Q
-
-@[expose] def miyamotoS1 : Subgroup G :=
-  CFSG.ABGTheoremB.pCoreIn 2 (normalizer (miyamotoQ1 h L η t Q : Set G))
-
-@[expose] def miyamotoR : Subgroup G :=
-  let X := miyamotoS1 h L η t Q ⊔ miyamotoIG h L η
-  ⁅X, X⁆
-
-@[expose] def miyamotoY2 : Subgroup G := miyamotoE h L η Q ⊔ miyamotoA2G h L η
-
-@[expose] def miyamotoY3 : Subgroup G := miyamotoE h L η Q ⊔ miyamotoB2 h L η t
-
-@[expose] def miyamotoD2 : Subgroup G where
-  carrier := {s | s ∈ miyamotoS1 h L η t Q ⊓ normalizer (miyamotoE h L η Q : Set G) ⊓
-    normalizer (miyamotoY2 h L η Q : Set G) ⊓ normalizer (miyamotoY3 h L η t Q : Set G) ∧
-    ∀ y ∈ miyamotoY2 h L η Q, y⁻¹ * (s⁻¹ * y * s) ∈ miyamotoE h L η Q}
-  mul_mem' := by
-    rintro s s' ⟨hs, hsy⟩ ⟨hs', hsy'⟩
-    refine ⟨mul_mem hs hs', fun y hy => ?_⟩
-    have hE : s'⁻¹ ∈ normalizer (miyamotoE h L η Q : Set G) :=
-      inv_mem (mem_inf.mp (mem_inf.mp (mem_inf.mp hs').1).1).2
-    have h1 := (mem_normalizer_iff.mp hE _).mp (hsy y hy)
-    have h2 := mul_mem (hsy' y hy) h1
-    rw [inv_inv] at h2
-    have e : y⁻¹ * ((s * s')⁻¹ * y * (s * s')) =
-        y⁻¹ * (s'⁻¹ * y * s') * (s'⁻¹ * (y⁻¹ * (s⁻¹ * y * s)) * s') := by group
-    rw [e]
-    exact h2
-  one_mem' := ⟨one_mem _, fun y _ => by
-    rw [inv_one, one_mul, mul_one, inv_mul_cancel]
-    exact one_mem _⟩
-  inv_mem' := by
-    rintro s ⟨hs, hsy⟩
-    refine ⟨inv_mem hs, fun y hy => ?_⟩
-    have hY : s ∈ normalizer (miyamotoY2 h L η Q : Set G) := (mem_inf.mp (mem_inf.mp hs).1).2
-    have hy' : s * y * s⁻¹ ∈ miyamotoY2 h L η Q := (mem_normalizer_iff.mp hY y).mp hy
-    have h1 := inv_mem (hsy _ hy')
-    have e : y⁻¹ * (s⁻¹⁻¹ * y * s⁻¹) = ((s * y * s⁻¹)⁻¹ * (s⁻¹ * (s * y * s⁻¹) * s))⁻¹ := by
-      group
-    rw [e]
-    exact h1
-
-@[expose] def miyamotoF2 : Subgroup G := miyamotoD2 h L η t Q ⊓ miyamotoR h L η t Q
 
 @[expose] def MiyamotoSetup : Prop :=
   2 ≤ f ∧ CFSG.Assembly.ComponentType.IsStandardSubgroup L ∧ ¬L.Normal ∧
@@ -343,55 +292,8 @@ abbrev miyamotoN2G : Subgroup G := miyamotoPull h L η (miyamotoN2 h)
       (S : Subgroup (centralizer ({t} : Set G))) = T.subgroupOf (centralizer ({t} : Set G))) ∧
     Q ≤ T
 
-@[expose] def MiyamotoTupleOne {H : Type*} [Group H] (A : Subgroup H) (tH : H)
-    (U V D : Subgroup H) (n : ℕ) : Prop :=
-  n = 2 * f ∧
-    ∃ e : H ≃* (normalizer (miyamotoF1 h L η t : Set G) ⊓
-        centralizer (miyamotoI1G h L η : Set G) : Subgroup G),
-      (A.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoN1G h L η ∧
-      ((e tH : _) : G) = t ∧
-      (U.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoN1G h L η ⊓ miyamotoPG h L η ∧
-      (V.map e.toMonoidHom).map (Subgroup.subtype _) =
-        miyamotoR h L η t Q ⊓ centralizer (miyamotoI1G h L η : Set G) ∧
-      (D.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoIG h L η ⊓ miyamotoN1G h L η
-
-@[expose] def MiyamotoTupleTwo {H : Type*} [Group H] (A : Subgroup H) (tH : H)
-    (U V D : Subgroup H) (n : ℕ) : Prop :=
-  n = f ∧
-    ∃ e : H ≃* (normalizer (miyamotoF2 h L η t Q : Set G) ⊓
-        centralizer (miyamotoI2G h L η : Set G) : Subgroup G),
-      (A.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoN2G h L η ∧
-      ((e tH : _) : G) = t ∧
-      (U.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoN2G h L η ⊓ miyamotoPG h L η ∧
-      (V.map e.toMonoidHom).map (Subgroup.subtype _) =
-        miyamotoR h L η t Q ⊓ centralizer (miyamotoI2G h L η : Set G) ∧
-      (D.map e.toMonoidHom).map (Subgroup.subtype _) = miyamotoIG h L η ⊓ miyamotoN2G h L η
-
-@[expose] def MiyamotoTupleThree {H : Type*} [Group H] (A : Subgroup H) (tH : H)
-    (U V D : Subgroup H) (n : ℕ) : Prop :=
-  n = 2 * f ∧
-    let N := normalizer (miyamotoF1 h L η t : Set G)
-    let π := QuotientGroup.mk' ((miyamotoF1 h L η t).subgroupOf N)
-    miyamotoN1G h L η ≤ N ∧ miyamotoN1G h L η ⊓ miyamotoPG h L η ≤ N ∧
-      miyamotoR h L η t Q ⊓ centralizer (miyamotoI1G h L η : Set G) ≤ N ∧
-      miyamotoIG h L η ⊓ miyamotoN1G h L η ≤ N ∧
-      ∃ (ht : t ∈ N) (e : H ≃* N ⧸ (miyamotoF1 h L η t).subgroupOf N),
-        A.map e.toMonoidHom = ((miyamotoN1G h L η).subgroupOf N).map π ∧
-        e tH = π ⟨t, ht⟩ ∧
-        U.map e.toMonoidHom = ((miyamotoN1G h L η ⊓ miyamotoPG h L η).subgroupOf N).map π ∧
-        V.map e.toMonoidHom = ((miyamotoR h L η t Q ⊓
-          centralizer (miyamotoI1G h L η : Set G)).subgroupOf N).map π ∧
-        D.map e.toMonoidHom = ((miyamotoIG h L η ⊓ miyamotoN1G h L η).subgroupOf N).map π
 
 end Ambient
 
-@[expose] def MiyamotoPrimaryLinearApplication {H : Type*} [Group H] (A : Subgroup H) (tH : H)
-    (U V D : Subgroup H) (n : ℕ) : Prop :=
-  GMSLinearLocalApplication A tH U V D n ∧
-    ∃ (G : Type) (_ : Group G) (_ : Finite G) (f : ℕ) (K : Type) (_ : Field K)
-      (h : UnitaryFieldData 2 f K) (L : Subgroup G) (η : L ≃* gramSU h (miyamotoJ4 K)) (t : G)
-      (Q T : Subgroup G), MiyamotoSetup h L η t Q T ∧
-        (MiyamotoTupleOne h L η t Q A tH U V D n ∨ MiyamotoTupleTwo h L η t Q A tH U V D n ∨
-          MiyamotoTupleThree h L η t Q A tH U V D n)
 
 end CFSG.LocalAnalysis

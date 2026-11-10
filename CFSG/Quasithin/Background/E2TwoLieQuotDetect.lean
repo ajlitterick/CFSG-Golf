@@ -189,41 +189,6 @@ theorem not_isE22SmallType_star_of_lie {H T M K : Subgroup G}
     isE22LieType_star_of_lie hTH hT hK hHK hlie (isSimpleGroup_of_isE22SmallType h)
   exact not_isE22SmallType_of_isE22LieType hk hX h
 
-theorem exists_borel_of_e22CasesC_of_lie {H T X K : Subgroup G}
-    (hTH : T ≤ H) (hT : IsPGroup 2 T) (hK : K ∈ cComp H) (hHK : H = K ⊔ T)
-    (hlie : ∃ K' ∈ cComp H, HasE22LieQuot K') (hcases : E22CasesC H T X K) :
-    ∃ n : ℕ, 2 ≤ n ∧ (IsBenderOf n ↥(star X H K) ∨ IsPSL 3 2 n ↥(star X H K) ∨
-        IsPSp4 2 n ↥(star X H K)) ∧
-      IsBorelIn (star X H K) (star X H (X ⊓ K)) ∧ E1.nParam H ≤ n := by
-  have hsmall := not_isE22SmallType_star_of_lie (M := X) hTH hT hK hHK hlie
-  dsimp only [E22CasesC] at hcases
-  rcases hcases with ⟨-, -, -, -, -, h1⟩ | ⟨-, -, h2⟩
-  · rcases h1 with ⟨n, hn, htype, hBor, hnH⟩ | ⟨p, hp, hp8, hKs, -, -, -⟩
-    · exact ⟨n, hn, Or.inl ⟨hn, htype.elim Or.inl fun h => Or.inr (Or.inl h)⟩, hBor, hnH⟩
-    · exact absurd (Or.inl ⟨p, hp, hp8, hKs⟩) hsmall
-  · rcases h2 with ⟨n, hBen, hBor, hnH, -⟩ | ⟨n, hn1, htype, -, hBor, hnH, -⟩ |
-        ⟨p, e, hp, hp3, he, hpe, hKs, -, -, -⟩ | ⟨p, hp, hp2, hKs, -, -⟩
-    · exact ⟨n, hBen.1, Or.inl hBen, hBor, hnH⟩
-    · have hn2 : 2 ≤ n := by
-        by_contra hlt
-        have h1 : n = 1 := by omega
-        subst h1
-        rcases htype with h | h
-        · exact hsmall (Or.inr (Or.inr (Or.inr (Or.inl h))))
-        · exact hsmall (Or.inr (Or.inr (Or.inr (Or.inr h))))
-      refine ⟨n, hn2, ?_, hBor, hnH⟩
-      rcases htype with h | h
-      · exact Or.inr (Or.inl h)
-      · right; right
-        rw [IsSp4Prime] at h
-        split_ifs at h with h1
-        · omega
-        · exact h
-    · exact absurd (Or.inr (Or.inl ⟨p, e, hp, hp3, he, hpe, hKs⟩)) hsmall
-    · exfalso
-      rcases hKs with ⟨-, hU⟩ | ⟨-, hL, -⟩
-      · exact hsmall (Or.inr (Or.inr (Or.inl ⟨p, hp, hp2, Or.inl hU⟩)))
-      · exact hsmall (Or.inr (Or.inr (Or.inl ⟨p, hp, hp2, Or.inr hL⟩)))
 
 theorem exists_hasE22LieQuot_of_one_lt_nParam (hE22 : E22StatementC) {H T M : Subgroup G}
     (hmp : MinParabolic H T M) (hsq : SQTKGroup ↥H) (hn : 1 < E1.nParam H) :

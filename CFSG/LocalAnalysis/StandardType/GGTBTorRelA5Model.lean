@@ -45,10 +45,6 @@ theorem embPow_injective {ζ : μ} (hζ : IsPrimitiveRoot ζ p) :
   simp only [embPow_apply] at h1
   exact toAdd.injective (ZMod.val_injective p (hζ.pow_inj (ZMod.val_lt _) (ZMod.val_lt _) h1))
 
-theorem embPow_pow (ζ : μ) (hζ : ζ ^ p = 1) (f : Fin 3 → Multiplicative (ZMod p)) :
-    embPow ζ hζ f ^ p = 1 := by
-  funext i
-  rw [Pi.pow_apply, embPow_apply, ← pow_mul, mul_comm, pow_mul, hζ, one_pow, Pi.one_apply]
 
 theorem embPow_spReflAut (ζ : μ) (hζ : ζ ^ p = 1) (k : Fin 3)
     (f : Fin 3 → Multiplicative (ZMod p)) :

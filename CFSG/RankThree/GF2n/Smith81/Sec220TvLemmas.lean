@@ -43,50 +43,6 @@ open scoped Pointwise
 
 variable {G : Type} [Group G]
 
-theorem eq_one_of_odd_mem_isPGroup_two {Q : Subgroup G} (hQ : IsPGroup 2 Q) {g : G} (hg : g ∈ Q)
-    (ho : Odd (orderOf g)) : g = 1 := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨k, hk⟩ := (IsPGroup.iff_orderOf.mp hQ) ⟨g, hg⟩
-  rw [Subgroup.orderOf_mk] at hk
-  have hk0 : k = 0 := by
-    rcases Nat.eq_zero_or_pos k with h | h
-    · exact h
-    · exfalso
-      have : Even (orderOf g) := by
-        rw [hk]
-        exact (Nat.even_pow.mpr ⟨even_two, h.ne'⟩)
-      exact (Nat.not_even_iff_odd.mpr ho) this
-  rw [hk0, pow_zero] at hk
-  exact orderOf_eq_one_iff.mp hk
-
-theorem not_mem_of_inv_odd_normalizer {Q : Subgroup G} (hQ : IsPGroup 2 Q) {v e : G}
-    (hvN : v ∈ Subgroup.normalizer (Q : Set G)) (hv : Odd (orderOf v)) (hv1 : orderOf v ≠ 1)
-    (he : e * e = 1) (hinv : e * v * e = v⁻¹) : e ∉ Q := by
-  intro heQ
-  have hvQ : ∀ q : G, q ∈ Q → v * q * v⁻¹ ∈ Q := fun q hq =>
-    (Subgroup.mem_normalizer_iff.mp hvN q).mp hq
-  have hw : v⁻¹ * v⁻¹ ∈ Q := by
-    have e1 : v⁻¹ * v⁻¹ = e * (v * e * v⁻¹) := by
-      have : e * v * e = v⁻¹ := hinv
-      calc v⁻¹ * v⁻¹ = (e * v * e) * v⁻¹ := by rw [hinv]
-        _ = e * (v * e * v⁻¹) := by group
-    rw [e1]
-    exact Q.mul_mem heQ (hvQ e heQ)
-  have hodd : Odd (orderOf (v⁻¹ * v⁻¹)) := by
-    have hd : orderOf (v⁻¹ * v⁻¹) ∣ orderOf v⁻¹ := by
-      rw [← pow_two]
-      exact orderOf_pow_dvd 2
-    rw [orderOf_inv] at hd
-    exact Odd.of_dvd_nat hv hd
-  have h1 : v⁻¹ * v⁻¹ = 1 := eq_one_of_odd_mem_isPGroup_two hQ hw hodd
-  have hv2 : v ^ 2 = 1 := by
-    have : (v⁻¹) ^ 2 = 1 := by rw [pow_two]; exact h1
-    rwa [inv_pow, inv_eq_one] at this
-  have hdvd : orderOf v ∣ 2 := orderOf_dvd_of_pow_eq_one hv2
-  rcases (Nat.dvd_prime Nat.prime_two).mp hdvd with h | h
-  · exact hv1 h
-  · rw [h] at hv
-    exact absurd hv (by decide)
 
 end CosetLift
 

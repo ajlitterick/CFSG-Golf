@@ -40,11 +40,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM
     (fun p _ ih qs => List.rec (motive := fun _ => Bool) true
       (fun q qs' _ => CFSG.KC.Ord.andB (commK c (mmulK (mmulK p c) q)) (ih qs')) qs) ps qs
 
-@[expose] noncomputable def sRange (K zS wS ps qs : List Nat) (lo cnt : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun d acc => CFSG.KC.Ord.andB (letB (xsel K (Nat.add lo d)) fun c =>
-      CFSG.KC.Ord.orB (CFSG.KC.Ord.notB (Nat.beq (rankK c) (nat_lit 5)))
-        (CFSG.KC.Ord.orB (CFSG.KC.Ord.notB (conjCommK c ps qs)) (CFSG.KC.Ord.orB (memK c zS) (memK c wS)))) acc) cnt
 
 @[expose] noncomputable def tauOK (a0 a1 wS a1S : List Nat) (τ : Nat) : Bool :=
   CFSG.KC.Ord.andB (allK (commK τ) a0) (CFSG.KC.Ord.andB (CFSG.KC.Ord.notB (memK τ wS))

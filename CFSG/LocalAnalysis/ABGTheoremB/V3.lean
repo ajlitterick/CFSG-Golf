@@ -928,15 +928,6 @@ theorem lemmaV31 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (hJL : J ≤ σ.L�
   · exact (odd_card_oddCoreIn σ.C).of_dvd_nat
       (Subgroup.card_dvd_of_le (hJ.le_oddCoreIn_C_of_mem hW))
 
-theorem lemmaV32 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (hJL : J ≤ σ.L₀)
-    (hpJ : pCoreIn σ.p σ.N ≤ J) (hL₀ : σ.L₀ = J ⊔ σ.ON) (hJO : J ⊓ σ.ON = pCoreIn σ.p σ.N)
-    (hJn : σ.N ≤ Subgroup.normalizer (J : Set G)) (hJc : ⁅J, σ.ON⁆ ≤ pCoreIn σ.p σ.N)
-    (hψ : ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = σ.q ∧
-      ∃ ψ : J →* Matrix.SpecialLinearGroup (Fin 2) F, Function.Surjective ψ ∧
-        ψ.ker = (pCoreIn σ.p σ.N).subgroupOf J)
-    {W W₁ : Subgroup G} (hW : W ∈ σ.familyW J) (hW₁ : W₁ ∈ σ.familyW J) {P : Subgroup G}
-    (hP : IsSylowOf σ.p P σ.C) (hPD : σ.D ≤ Subgroup.normalizer (P : Set G)) : W₁ ≤ W ⊔ P :=
-  (V3Hyp.mk hσ hII hJL hpJ hL₀ hJO hJn hJc hψ).le_sup_of_mem hW hW₁ hP hPD
 
 theorem lemmaV33 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (hJL : J ≤ σ.L₀)
     (hpJ : pCoreIn σ.p σ.N ≤ J) (hL₀ : σ.L₀ = J ⊔ σ.ON) (hJO : J ⊓ σ.ON = pCoreIn σ.p σ.N)

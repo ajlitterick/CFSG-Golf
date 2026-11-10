@@ -66,14 +66,6 @@ theorem card_quaternionAtQuarter (l : ℕ) (hl : 0 < l) :
     ((quaternionQuotientEquivCyclic (2 * l)).trans
       ((ZMod.ringEquivCongr (twice_half_quarter l)).toAddEquiv.toMultiplicative))
 
-theorem card_quaternionAtQuarter_quotient (l : ℕ) :
-    Nat.card (Wreath (4 * l) ⧸ quaternionAtQuarterSubgroup l) = 4 * l := by
-  rw [Nat.card_congr (quaternionAtQuarterQuotientEquiv l).toEquiv,
-    Nat.card_congr Multiplicative.toAdd, Nat.card_zmod]
-
-theorem quaternionAtQuarter_quotient_isCyclic (l : ℕ) :
-    IsCyclic (Wreath (4 * l) ⧸ quaternionAtQuarterSubgroup l) :=
-  (quaternionAtQuarterQuotientEquiv l).isCyclic.mpr inferInstance
 
 theorem normalClosure_d_atQuarter (l : ℕ) :
     Subgroup.normalClosure {element (4 * l) (2 * l : ℕ) 0 1} =

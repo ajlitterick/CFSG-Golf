@@ -36,8 +36,6 @@ theorem symplectic_matrix_iff_native (A : GL (Fin 4) K) :
   right_inv A := Subtype.ext rfl
   map_mul' A B := Subtype.ext rfl
 
-theorem symplecticKernelEquivFin_val (A : (symplecticMultiplier (K := K)).ker) :
-    (symplecticKernelEquivFin A).val = A.val.val := rfl
 
 @[expose] def symplecticKernelEquiv :
     (symplecticMultiplier (K := K)).ker ≃* TauCeti.GLSymplectic (Fin 2) K :=

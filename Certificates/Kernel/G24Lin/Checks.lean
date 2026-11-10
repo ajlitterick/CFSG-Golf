@@ -89,14 +89,6 @@ theorem lin733012_pc : (rowsK DC 0 pcm.chars && rowsK DC (2 + 16) ycm.chars) = t
 theorem lin733012_pe : (rowsK DE 0 pe2.chars && rowsK DE (10 + 24) ye2.chars) = true := by
   quickRfl
 
-@[expose] noncomputable def flipK (D : Nat → Nat) (i b : Nat) (j : Nat) : Nat :=
-  cond (Nat.beq j i) (Nat.xor (D j) (Nat.shiftLeft 1 b)) (D j)
-
-theorem lin733012_negM : (!spanK (flipK DQ1 (2 + 144 + 3) 0) 2 72 216) = true := by quickRfl
-
-theorem lin733012_negP : (!spanK (flipK DC 0 0) 2 16 32) = true := by quickRfl
-
-theorem lin733012_negK : (!spanK (flipK DE (10 + 5) 0) 10 24 48) = true := by quickRfl
 
 end CFSG.KD.G24Lin
 

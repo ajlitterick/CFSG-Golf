@@ -36,8 +36,6 @@ def stabQE (Q E : Subgroup Y) [Q.Normal] [E.Normal] : Subgroup Y where
     convert h using 1
     group
 
-theorem mem_stabQE {Q E : Subgroup Y} [Q.Normal] [E.Normal] {x : Y} :
-    x ∈ stabQE Q E ↔ ∀ q ∈ Q, x * q * x⁻¹ * q⁻¹ ∈ E := Iff.rfl
 
 instance stabQE_normal (Q E : Subgroup Y) [Q.Normal] [E.Normal] : (stabQE Q E).Normal where
   conj_mem x hx y q hq := by

@@ -210,15 +210,6 @@ theorem hClose_one_of_purity_emb
       ¬ NormalizesRNative .E6 K E₀ →
       ∃ g : adjointGroup .E6 K, ∀ x ∈ E₀, g * x * g⁻¹ ∈ (embE6F4 K).range
 
-@[expose] def TwistedFrameTwo : Prop :=
-  ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = 2 →
-    ∀ E₃ : Subgroup (adjointGroup .F4 K), (∀ x ∈ E₃, x ^ 3 = 1) → Nat.card E₃ = 3 ^ 2 →
-      ¬ NormalizesRNative .F4 K E₃ →
-      ∃ e ∈ E₃, e ≠ 1 ∧ ∃ X : Subgroup (adjointGroup .E6 K),
-        X ≤ Subgroup.centralizer ({embE6F4 K e} : Set (adjointGroup .E6 K)) ∧
-        (∀ H : Subgroup (adjointGroup .E6 K), X ≤ H →
-          ¬ H ≤ Subgroup.normalizer (X : Set (adjointGroup .E6 K)) → H = ⊤) ∧
-        ¬ (fixE6 K ≤ Subgroup.normalizer (X : Set (adjointGroup .E6 K)))
 
 theorem closure_of_frame {K : Type} [Field K] (R : Subgroup (adjointGroup .E6 K))
     (t : adjointGroup .E6 K) (X : Subgroup (adjointGroup .E6 K))
@@ -236,26 +227,11 @@ theorem closure_of_frame {K : Type} [Field K] (R : Subgroup (adjointGroup .E6 K)
     intro r hr
     exact hle (Subgroup.subset_closure (Or.inl hr))
 
-theorem hClose_two_of_frame (hF : TwistedFrameTwo) :
-    ∀ (K : Type) [Field K] [Finite K], Nat.card K % 3 = 2 →
-      ∀ E₃ : Subgroup (adjointGroup .F4 K), (∀ x ∈ E₃, x ^ 3 = 1) → Nat.card E₃ = 3 ^ 2 →
-        ¬ NormalizesRNative .F4 K E₃ →
-        ∃ e ∈ E₃, e ≠ 1 ∧ Subgroup.closure ((embE6F4 K).range ∪
-          (Subgroup.centralizer ({embE6F4 K e} : Set (adjointGroup .E6 K)) :
-            Set (adjointGroup .E6 K))) = ⊤ := by
-  intro K _ _ hK E₃ hexp hcard hnF
-  obtain ⟨e, he, he1, X, hX, hclose, hnorm⟩ := hF K hK E₃ hexp hcard hnF
-  refine ⟨e, he, he1, ?_⟩
-  rw [range_embE6F4]
-  exact closure_of_frame (fixE6 K) (embE6F4 K e) X hX hclose hnorm
 
 theorem e6HighInF4_one (hConj : ConjOne) (hNR : LangPlaneKillsRoot Tag.F4) (hPure : F4PureSplit) :
     E6HighInF4 1 :=
   e6HighInF4_of_closing_emb hConj (hClose_one_of_purity_emb (hReg_of_NR hNR) hPure)
 
-theorem e6HighInF4_two (hF : TwistedFrameTwo) : E6HighInF4 2 :=
-  e6HighInF4_of_closing_emb (fun K _ _ hK E₀ hexp _ _ => conj_into_fixE6_two K hK hexp)
-    (hClose_two_of_frame hF)
 
 end CFSG.LieType.SeitzGeneration.ExcHighThree
 

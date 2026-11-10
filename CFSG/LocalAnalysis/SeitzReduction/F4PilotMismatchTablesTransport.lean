@@ -124,79 +124,11 @@ theorem perfectCore_prod (H : Subgroup M₁) (K : Subgroup M₂) :
   ext x
   simp only [perfectCore, derivedSeriesOf_prod, mem_iInf, mem_prod, forall_and]
 
-@[expose] def diagPairSubgroup {M : Type*} [Group M] (S : Subgroup M) : Subgroup (M × M) :=
-  S.map ((MonoidHom.id M).prod (MonoidHom.id M))
-
-theorem mem_diagPairSubgroup {M : Type*} [Group M] {S : Subgroup M} {x : M × M} :
-    x ∈ diagPairSubgroup S ↔ x.1 ∈ S ∧ x.2 = x.1 := by
-  constructor
-  · rintro ⟨s, hs, rfl⟩
-    exact ⟨hs, rfl⟩
-  · rintro ⟨hs, h⟩
-    exact ⟨x.1, hs, Prod.ext rfl h.symm⟩
-
-theorem centralizer_diagPairSubgroup {M : Type*} [Group M] (S : Subgroup M) :
-    centralizer ((diagPairSubgroup S : Subgroup (M × M)) : Set (M × M)) =
-      (centralizer (S : Set M)).prod (centralizer (S : Set M)) := by
-  ext x
-  simp only [mem_prod, mem_centralizer_iff, SetLike.mem_coe, mem_diagPairSubgroup]
-  constructor
-  · intro h
-    refine ⟨fun s hs => ?_, fun s hs => ?_⟩
-    · exact congrArg Prod.fst (h (s, s) ⟨hs, rfl⟩)
-    · exact congrArg Prod.snd (h (s, s) ⟨hs, rfl⟩)
-  · rintro ⟨h₁, h₂⟩ y ⟨hy, hy2⟩
-    have hy' : y = (y.1, y.1) := Prod.ext rfl hy2
-    rw [hy']
-    exact Prod.ext (h₁ y.1 hy) (h₂ y.1 hy)
-
-theorem card_perfectCore_centralizer_diagPairSubgroup {M : Type*} [Group M] (S : Subgroup M) :
-    Nat.card (perfectCore (centralizer ((diagPairSubgroup S : Subgroup (M × M)) : Set (M × M)))) =
-      Nat.card (perfectCore (centralizer (S : Set M))) ^ 2 := by
-  rw [centralizer_diagPairSubgroup, perfectCore_prod,
-    Nat.card_congr (Subgroup.prodEquiv _ _).toEquiv, Nat.card_prod, sq]
-
-theorem pieceCards_diagPairSubgroup {M : Type*} [Group M] (S₁₂ S₁ S₂ : Subgroup M) :
-    pieceCards ⊤ (diagPairSubgroup S₁₂) (diagPairSubgroup S₁) (diagPairSubgroup S₂) =
-      ((pieceCards ⊤ S₁₂ S₁ S₂).1 ^ 2, (pieceCards ⊤ S₁₂ S₁ S₂).2.1 ^ 2,
-        (pieceCards ⊤ S₁₂ S₁ S₂).2.2 ^ 2) := by
-  simp only [pieceCards_top, card_perfectCore_centralizer_diagPairSubgroup]
 
 end Prod
 
 section Exclusion
 
-variable {G : Type*} [Group G]
-
-theorem mem_consistentKindPairs_of_pieceCards {q : ℕ} (hq : 2 ≤ q) {κX κY : Sp6Kind}
-    {EX EY T₁₂ T₁ T₂ : Subgroup G}
-    (h₁₂ : perfectCore (EX ⊓ centralizer (T₁₂ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₁₂ : Set G)))
-    (h₁ : perfectCore (EX ⊓ centralizer (T₁ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₁ : Set G)))
-    (h₂ : perfectCore (EX ⊓ centralizer (T₂ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₂ : Set G)))
-    (hX : pieceCards EX T₁₂ T₁ T₂ = pieceOrders κX q)
-    (hY : pieceCards EY T₁₂ T₂ T₁ = pieceOrders κY q) :
-    (κX, κY) ∈ consistentKindPairs := by
-  refine mem_consistentKindPairs_of_pieceOrders hq hX ?_
-  rw [← hY]
-  simp only [pieceCards, swapPieces, h₁₂, h₁, h₂]
-
-theorem kinds_ne_linear7_unitary7_of_pieceCards {q : ℕ} (hq : 2 ≤ q) {κX κY : Sp6Kind}
-    {EX EY T₁₂ T₁ T₂ : Subgroup G}
-    (h₁₂ : perfectCore (EX ⊓ centralizer (T₁₂ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₁₂ : Set G)))
-    (h₁ : perfectCore (EX ⊓ centralizer (T₁ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₁ : Set G)))
-    (h₂ : perfectCore (EX ⊓ centralizer (T₂ : Set G)) =
-      perfectCore (EY ⊓ centralizer (T₂ : Set G)))
-    (hX : pieceCards EX T₁₂ T₁ T₂ = pieceOrders κX q)
-    (hY : pieceCards EY T₁₂ T₂ T₁ = pieceOrders κY q) :
-    κX ≠ .linear7 ∧ κX ≠ .unitary7 ∧ κY ≠ .linear7 ∧ κY ≠ .unitary7 := by
-  have h := mem_consistentKindPairs_of_pieceCards hq h₁₂ h₁ h₂ hX hY
-  revert h
-  cases κX <;> cases κY <;> simp [consistentKindPairs]
 
 end Exclusion
 

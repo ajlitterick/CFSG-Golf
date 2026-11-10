@@ -328,47 +328,6 @@ theorem ggCross_eq_zero_of_noTransvection (hp2 : p ≠ 2) (hNT : GGNoTransvectio
     rw [map_pow, map_mul, hLφ, hLψ, reflection_mul_reflection_sq_apply_of_eq_zero hfx hgy hfy,
       LinearMap.smul_apply, smul_eq_mul]
 
-theorem ggReflection_fixes_imp_of_noTransvection [Finite G] (hp2 : p ≠ 2)
-    (hBs : IsElemAbelian p Bs) (hNT : GGNoTransvection p Bs) {φ ψ : MulAut ↥Bs}
-    (hφ : φ ∈ ggInduced ⊤ Bs) (hψ : ψ ∈ ggInduced ⊤ Bs) (hφr : GGIsReflection p φ)
-    (hψr : GGIsReflection p ψ) (h : ∀ b : ↥Bs, ψ b = b⁻¹ → φ b = b) :
-    ∀ b : ↥Bs, φ b = b⁻¹ → ψ b = b := by
-  obtain ⟨W, _, _, ⟨ι⟩⟩ := exists_ggLinData (p := p) hBs
-  have : Finite W := Finite.of_equiv _ (Additive.ofMul.trans ι.toEquiv)
-  have h2 := zmod_two_ne_zero hp2
-  obtain ⟨x, f, hfx, hφx⟩ := exists_of_ggIsReflection ι hφr
-  obtain ⟨y, g, hgy, hψy⟩ := exists_of_ggIsReflection ι hψr
-  obtain ⟨hx0, hf0⟩ := ne_zero_of_apply_eq_two hp2 hfx
-  obtain ⟨hy0, -⟩ := ne_zero_of_apply_eq_two hp2 hgy
-  have hfy : f y = 0 := by
-    set b : ↥Bs := Additive.toMul (ι.symm y) with hbdef
-    have hb : ι (Additive.ofMul b) = y := by rw [hbdef, ofMul_toMul, AddEquiv.apply_symm_apply]
-    have hψb : ψ b = b⁻¹ := by
-      rw [ggLin_inv_iff (p := p) ι, hb, hψy, hgy, two_smul]
-      abel
-    have hφb := (ggLin_fix_iff (p := p) ι φ b).mp (h b hψb)
-    rw [hb, hφx, sub_eq_self, smul_eq_zero] at hφb
-    exact hφb.resolve_right hx0
-  have hgx : g x = 0 := ggCross_eq_zero_of_noTransvection hp2 hNT ι hφ hψ hfx hgy
-    (ggLin_eq_reflection ι hfx hφx) (ggLin_eq_reflection ι hgy hψy) hfy
-  intro b hb
-  rw [ggLin_inv_iff (p := p) ι, hφx] at hb
-  rw [ggLin_fix_iff (p := p) ι, hψy]
-  set v := ι (Additive.ofMul b)
-  have h2v : (2 : ZMod p) • v - f v • x = 0 := by
-    rw [two_smul, ← sub_eq_zero.mpr hb]
-    abel
-  have hgv := congrArg g h2v
-  rw [map_sub, map_smul, map_smul, hgx, smul_zero, sub_zero, map_zero, smul_eq_mul] at hgv
-  rw [(mul_eq_zero.mp hgv).resolve_left h2, zero_smul, sub_zero]
-
-theorem ggReflection_fixes_iff_of_noTransvection [Finite G] (hp2 : p ≠ 2)
-    (hBs : IsElemAbelian p Bs) (hNT : GGNoTransvection p Bs) {φ ψ : MulAut ↥Bs}
-    (hφ : φ ∈ ggInduced ⊤ Bs) (hψ : ψ ∈ ggInduced ⊤ Bs) (hφr : GGIsReflection p φ)
-    (hψr : GGIsReflection p ψ) :
-    (∀ b : ↥Bs, ψ b = b⁻¹ → φ b = b) ↔ (∀ b : ↥Bs, φ b = b⁻¹ → ψ b = b) :=
-  ⟨ggReflection_fixes_imp_of_noTransvection hp2 hBs hNT hφ hψ hφr hψr,
-    ggReflection_fixes_imp_of_noTransvection hp2 hBs hNT hψ hφ hψr hφr⟩
 
 end GG
 

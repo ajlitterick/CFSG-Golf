@@ -377,30 +377,6 @@ end G8
 
 section Finite
 
-variable [Finite G]
-
-theorem g8_2 {X P A : Subgroup G} (h : G81 X P A) {B : Subgroup G} (hBA : B ≤ A)
-    (hfaith : B ⊓ Subgroup.centralizer (X : Set G) = ⊥) :
-    ∃ D : Subgroup G, IsSubgroupComplementIn A B D ∧
-      B ⊓ Subgroup.centralizer ((X ⊓ Subgroup.centralizer (D : Set G) : Subgroup G) : Set G) =
-        ⊥ ∧
-      D = A ⊓ Subgroup.centralizer ((X ⊓ Subgroup.centralizer (D : Set G) : Subgroup G) :
-        Set G) := by
-  have : Group.IsNilpotent X := h.nilpotent
-  have hXs : Group.IsSolvable X := inferInstance
-  have hAn : A ≤ Subgroup.normalizer (X : Set G) := h.le_pGroup.trans h.le_normalizer
-  obtain ⟨n, hn⟩ := ((isPGroup_of_isElemAbelian h.elemAbelian).to_le hBA).exists_card_eq
-  exact G8.g8_2_aux hXs h.odd n A B h.elemAbelian hAn hBA hn hfaith
-
-theorem g8_5 {X P A : Subgroup G} (h : G81 X P A) {B Y : Subgroup G} (hBA : B ≤ A)
-    (hYX : Y ≤ X) (hYA : A ≤ Subgroup.normalizer (Y : Set G))
-    (hBY : B ≤ Subgroup.centralizer (Y : Set G))
-    (hfaith : B ⊓ Subgroup.centralizer (X : Set G) = ⊥) :
-    ∃ D : Subgroup G, IsSubgroupComplementIn A B D ∧
-      B ⊓ Subgroup.centralizer ((X ⊓ Subgroup.centralizer ((D ⊔ Y : Subgroup G) : Set G) :
-        Subgroup G) : Set G) = ⊥ :=
-  G8.g8_5_aux h.nilpotent h.odd h.elemAbelian (h.le_pGroup.trans h.le_normalizer) hBA hYX hYA
-    hBY hfaith
 
 end Finite
 

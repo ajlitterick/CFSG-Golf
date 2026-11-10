@@ -75,45 +75,5 @@ theorem locC_perfect_and_inner :
     qcChi.toMonoidHom qcChi.injective isSimpleGroup_quotCQ not_isMulCommutative_quotCQ
     quotCQ_inner qmod_irr (fun φ _ hφ => qmod_cent φ hφ)
 
-theorem commForm_qc_isAlt :
-    (commForm commutator_qc_le qcChi.toMonoidHom).IsAlt := by
-  intro v
-  obtain ⟨x, rfl⟩ := exists_ofMul_of v
-  rw [commForm_apply]
-  have h : commRight commutator_qc_le x x = 1 := Subtype.ext (commutatorElement_self x)
-  rw [h, map_one, toAdd_one]
-
-theorem commForm_qc_nondegenerate :
-    (commForm commutator_qc_le qcChi.toMonoidHom).Nondegenerate :=
-  commForm_nondegenerate commutator_qc_le commutator_qc.ge qcChi.injective
-
-theorem CTUC_Co2_extraspecial_core_module_rigidity :
-    CFSG.IsExtraspecialPGroup 2 (locQ.subgroupOf locC) ∧
-    Nat.card (locQ.subgroupOf locC) = 2 ^ 9 ∧
-    Subgroup.center (locQ.subgroupOf locC) = Subgroup.zpowers zQc ∧
-    commutator (locQ.subgroupOf locC) = Subgroup.zpowers zQc ∧
-    Module.finrank (ZMod 2) QV = 8 ∧
-    (commForm commutator_qc_le qcChi.toMonoidHom).IsAlt ∧
-    (commForm commutator_qc_le qcChi.toMonoidHom).Nondegenerate ∧
-    (∀ X : Module.End (ZMod 2) QV,
-      (∀ c : locC, X * conjEnd (Q := locQ.subgroupOf locC) c =
-        conjEnd (Q := locQ.subgroupOf locC) c * X) ↔ X = 0 ∨ X = 1) ∧
-    Submodule.span (ZMod 2) {w : QV | ∃ (c : locC) (v : QV),
-      w = conjEnd (Q := locQ.subgroupOf locC) c v - v} = ⊤ ∧
-    commutator locC = ⊤ := by
-  refine ⟨qc_extraspecial, card_qc, center_qc, commutator_qc.trans center_qc, finrank_QV,
-    commForm_qc_isAlt, commForm_qc_nondegenerate, fun X => ⟨fun h => ?_, ?_⟩,
-    qmod_commutator_span, locC_perfect_and_inner.1.commutator_eq_top⟩
-  · exact qmod_commutant X (h (cGen 0)) (h (cGen 1))
-  · rintro (rfl | rfl) c
-    · rw [zero_mul, mul_zero]
-    · rw [one_mul, mul_one]
-
-theorem CTUC_Co2_first_centralizer_automorphisms_inner :
-    (∀ α : MulAut locC, ∃ g : locC, α = MulAut.conj g) ∧
-    (MulAut.conj : locC →* MulAut locC).range = ⊤ := by
-  refine ⟨locC_perfect_and_inner.2, eq_top_iff.2 fun α _ => ?_⟩
-  obtain ⟨g, hg⟩ := locC_perfect_and_inner.2 α
-  exact ⟨g, hg.symm⟩
 
 end CFSG.Sporadic.Co2Schreier

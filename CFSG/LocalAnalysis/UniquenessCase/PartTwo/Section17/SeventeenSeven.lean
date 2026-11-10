@@ -236,13 +236,6 @@ theorem pRank_three_eq_one_of_thin_of_dvd {L : Subgroup G} (hthin : F08.Thin8 L)
     · rw [Nat.card_zpowers, hxG, pow_one]
   omega
 
-theorem not_isL2Over17_five_of_isL2Over17 {X : Type} [Group X] [Finite X] {r : ℕ}
-    (hr : IsL2Over17 X r) (h5 : 5 < r) : ¬ IsL2Over17 X 5 := by
-  rintro ⟨q, g, hq, hq2, hq5, hg, hm5⟩
-  obtain ⟨p, f, hp, hp2, hp5, hf, hmr⟩ := hr
-  have h := CFSG.GH74.GLS.EvenSelP.pow_eq_of_lieModel hp hp2 hq hq2 hmr hm5
-  have hr5 : r = 5 := by rw [hp5, h, ← hq5]
-  omega
 
 theorem oddLieType_of_isL2Over17 {X : Type} [Group X] {r : ℕ} (h : IsL2Over17 X r) :
     OddLieType X := by

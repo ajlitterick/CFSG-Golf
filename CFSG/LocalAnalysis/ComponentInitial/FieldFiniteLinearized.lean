@@ -39,10 +39,6 @@ variable (K) in
     (x y : K) : addMonoidHom₂LinearEquiv K p b x y = b x y :=
   rfl
 
-theorem addMonoidHom₂LinearEquiv_symm_apply (p : ℕ) [Algebra (ZMod p) K]
-    (b : K →ₗ[ZMod p] K →ₗ[ZMod p] K) (x y : K) :
-    (addMonoidHom₂LinearEquiv K p).symm b x y = b x y :=
-  rfl
 
 variable {p : ℕ} [Fact p.Prime] [CharP K p]
 
@@ -182,26 +178,5 @@ theorem finite_field_linearized_map_bases {K : Type*} [Field K] {p n : ℕ} (hp 
     funext i j
     exact sub_eq_zero.mp (congrFun (congrFun this i) j)
 
-theorem finite_field_linearized_linearMap_bases {K : Type*} [Field K] {p n : ℕ}
-    [Algebra (ZMod p) K] (hp : p.Prime) (hn : 1 ≤ n) (hK : Nat.card K = p ^ n) :
-    (∀ g : K →ₗ[ZMod p] K, ∃! a : Fin n → K, ∀ x, g x = ∑ i, a i * x ^ p ^ (i : ℕ)) ∧
-    (∀ b : K →ₗ[ZMod p] K →ₗ[ZMod p] K, ∃! a : Fin n → Fin n → K,
-      ∀ x y, b x y = ∑ i, ∑ j, a i j * (x ^ p ^ (i : ℕ) * y ^ p ^ (j : ℕ))) ∧
-    (∃ B : Module.Basis (Fin n) K (K →ₗ[ZMod p] K), ∀ i x, B i x = x ^ p ^ (i : ℕ)) ∧
-    (∃ B : Module.Basis (Fin n × Fin n) K (K →ₗ[ZMod p] K →ₗ[ZMod p] K),
-      ∀ i j x y, B (i, j) x y = x ^ p ^ (i : ℕ) * y ^ p ^ (j : ℕ)) ∧
-    Module.finrank K (K →ₗ[ZMod p] K) = n ∧
-    Module.finrank K (K →ₗ[ZMod p] K →ₗ[ZMod p] K) = n ^ 2 := by
-  obtain ⟨h1, h2, ⟨B₁, hB₁⟩, ⟨B₂, hB₂⟩, hd₁, hd₂⟩ := finite_field_linearized_map_bases hp hn hK
-  refine ⟨fun g => h1 g.toAddMonoidHom, fun b => ?_, ⟨B₁.map (addMonoidHomLinearEquiv K p), ?_⟩,
-    ⟨B₂.map (addMonoidHom₂LinearEquiv K p), ?_⟩, ?_, ?_⟩
-  · simpa only [addMonoidHom₂LinearEquiv_symm_apply] using
-      h2 ((addMonoidHom₂LinearEquiv K p).symm b)
-  · intro i x
-    simp [hB₁]
-  · intro i j x y
-    simp [hB₂]
-  · rw [← (addMonoidHomLinearEquiv K p).finrank_eq, hd₁]
-  · rw [← (addMonoidHom₂LinearEquiv K p).finrank_eq, hd₂]
 
 end CFSG.LocalAnalysis.ComponentInitial

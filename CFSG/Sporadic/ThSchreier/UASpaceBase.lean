@@ -22,7 +22,6 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 Pointwise
 
 theorem zmod2_sub_eq_add (x y : ZMod 2) : x - y = x + y := by revert x y; decide
 
-theorem zmod2_neg_eq (x : ZMod 2) : -x = x := by revert x; decide
 
 @[expose] def matD120 : Matrix (Fin 248) (Fin 248) (ZMod 2) :=
   Matrix.diagonal fun i => if i.val < 120 then 1 else 0
@@ -57,7 +56,6 @@ theorem vecMul_matD120_apply (w : Fin 248 → ZMod 2) (k : Fin 248) :
   rw [matD120, Matrix.vecMul_diagonal]
   split_ifs <;> simp
 
-@[expose] def rowEquiv : RowV ≃ₗ[ZMod 2] (Fin 248 → ZMod 2) := LinearEquiv.refl (ZMod 2) _
 
 @[expose] def inUAT (T : Array V4) (w : V4) : Bool :=
   let s := frApply T w

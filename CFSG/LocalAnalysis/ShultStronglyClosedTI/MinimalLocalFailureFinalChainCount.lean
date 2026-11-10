@@ -34,41 +34,6 @@ theorem card_point_sup_pair (d : FinalHyps H z beta t) :
   obtain ⟨-, -, -, -, -, -, -, -, -, hQB, -⟩ := d.core_data
   exact card_eq_mul_of_semidirect rfl hQB (normal_subgroupOf_of_le (sup_le hQH hBH) hQn)
 
-theorem card_conjugacyWithin_J
-    (d : FinalHyps H z beta t) {j : G}
-    (hj : j ∈ Subgroup.centralizer (minimalLocalFailureProperPairHull H z beta t : Set G))
-    (hj1 : j ≠ 1) :
-    Nat.card (conjugacyWithin H j) = Nat.card (minimalLocalFailurePairActionPointHull H z) ^ 2 *
-      Nat.card (conjugacyWithin (pairPointStabilizer H beta) j) := by
-  obtain ⟨hQH, hQn, -, hQ4, -, hBH, -⟩ := d.point_data
-  obtain ⟨-, -, -, -, -, -, -, -, -, hQB, -⟩ := d.core_data
-  obtain ⟨hjB, -, -⟩ := d.localHull_J hj hj1
-  have h1 := card_conjugacyWithin_mul (H := H) (hBH hjB)
-  have h2 := card_conjugacyWithin_mul (H := pairPointStabilizer H beta) hjB
-  have hPC := d.point_centralizer_J hj hj1
-  have h3 : Nat.card (H ⊓ Subgroup.centralizer ({j} : Set G) : Subgroup G) =
-      Nat.card (minimalLocalFailurePairActionPointHull H z) *
-        Nat.card (pairPointStabilizer H beta ⊓ Subgroup.centralizer ({j} : Set G) :
-          Subgroup G) := by
-    refine card_eq_mul_of_semidirect hPC ?_ ?_
-    · exact le_bot_iff.mp (hQB ▸ inf_le_inf_left _ inf_le_left)
-    · exact normal_subgroupOf_of_le inf_le_left hQn
-  have h4 := d.card_point
-  have hc : 0 < Nat.card (pairPointStabilizer H beta ⊓ Subgroup.centralizer ({j} : Set G) :
-      Subgroup G) := Nat.card_pos
-  rw [h3] at h1
-  generalize Nat.card (minimalLocalFailurePairActionPointHull H z) = q at *
-  generalize Nat.card (pairPointStabilizer H beta ⊓ Subgroup.centralizer ({j} : Set G) :
-    Subgroup G) = c at *
-  generalize Nat.card (conjugacyWithin H j) = a at *
-  generalize Nat.card (conjugacyWithin (pairPointStabilizer H beta) j) = b at *
-  generalize Nat.card (pairPointStabilizer H beta) = nB at *
-  generalize Nat.card H = nH at *
-  subst h4 h2
-  have hq : 0 < q := by omega
-  apply Nat.eq_of_mul_eq_mul_right (Nat.mul_pos hq hc)
-  rw [h1]
-  ring
 
 theorem card_involutions_outside
     (d : FinalHyps H z beta t) {U : Subgroup G} (hUH : U ≤ H)
@@ -253,28 +218,5 @@ theorem card_involutions
 
 end FinalHyps
 
-theorem involution_count_of_conclusions
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hcomm : ProperStrongEmbeddingCommutingImages G)
-    (hsmallerR1 : ∀ (F : Type) [Group F] [Finite F], Nat.card F < Nat.card G →
-      2 ≤ twoRank F → (∃ A : Subgroup F, fusionStronglyEmbedded A) → R1Full F)
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta)
-    (hproper : minimalLocalFailureProperPairHull H z beta t < ⊤)
-    (hker : LinearChain.LinearPointKernelConclusion H z beta t)
-    (hexcl : ∀ u ∈ pairPointStabilizer H beta, orderOf u = 2 →
-      UnitaryFixedModelExcludedConclusion H z u)
-    (hroot : RootCentralizerTwoCoreConclusion H z beta t)
-    (hinv : RootCentralizerInvolutionsConclusion H z beta t) :
-    InvolutionCountConclusion H z beta t := by
-  have d : FinalHyps H z beta t :=
-    ⟨h, hcomm, hsmallerR1, hbeta, ht, hproper, hker, hexcl, hroot, hinv⟩
-  obtain ⟨-, hM, -, -, hMB, -, hQJ, hJQ, -⟩ := d.core_data
-  obtain ⟨-, hEA, hJne, -⟩ := d.J_data
-  exact ⟨hM, hJne, hEA, hMB, hQJ, hJQ, fun j hj hj1 => d.two_core_centralizer_J hj hj1,
-    fun x hx hx1 => d.two_core_centralizer_X hx hx1,
-    fun j hj hj1 k hk _ => d.conjugacyWithin_J_iff hj hj1 hk,
-    fun j hj hj1 => d.card_conjugacyWithin_J hj hj1,
-    fun U hUH hUn hQU hUM => d.card_involutions hUH hUn hQU hUM⟩
 
 end CFSG.ShultStronglyClosedTI.FinalChain

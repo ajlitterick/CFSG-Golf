@@ -40,8 +40,6 @@ theorem permVec_permVec_inv (σ : Equiv.Perm (Fin 8)) (v : FrameVec) :
     permVec σ (permVec σ⁻¹ v) = v := by
   rw [← permVec_mul, mul_inv_cancel, permVec_one]
 
-theorem permVec_injective (σ : Equiv.Perm (Fin 8)) : Function.Injective (permVec σ) :=
-  fun v w h => by rw [← permVec_inv_permVec σ v, h, permVec_inv_permVec]
 
 theorem permVec_frameZ (σ : Equiv.Perm (Fin 8)) : permVec σ frameZ = frameZ := rfl
 

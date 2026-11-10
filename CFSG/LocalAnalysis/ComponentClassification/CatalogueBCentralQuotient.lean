@@ -147,26 +147,6 @@ theorem pComponent_bijOn {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite Y]
     exact ⟨derivedPreimage f M, pComponent_derivedPreimage p f hsurjective hcentral M hM,
       pComponent_right_inverse p f hsurjective M hM⟩
 
-@[expose] def pComponentEquiv {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite Y]
-    (p : ℕ) [Fact p.Prime] (f : X →* Y) (hsurjective : Function.Surjective f)
-    (hcentral : f.ker ≤ Subgroup.center X) :
-    {L : Subgroup X // CFSG.IsPComponent p L} ≃ {M : Subgroup Y // CFSG.IsPComponent p M} where
-  toFun L := ⟨L.val.map f, pComponent_map p f hsurjective hcentral L.val L.property⟩
-  invFun M := ⟨derivedPreimage f M.val,
-    pComponent_derivedPreimage p f hsurjective hcentral M.val M.property⟩
-  left_inv L := Subtype.ext (pComponent_left_inverse p f hcentral L.val L.property)
-  right_inv M := Subtype.ext (pComponent_right_inverse p f hsurjective M.val M.property)
-
-theorem pComponentEquiv_apply {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite Y]
-    (p : ℕ) [Fact p.Prime] (f : X →* Y) (hsurjective : Function.Surjective f)
-    (hcentral : f.ker ≤ Subgroup.center X) (L : {L : Subgroup X // CFSG.IsPComponent p L}) :
-    (pComponentEquiv p f hsurjective hcentral L).val = L.val.map f := rfl
-
-theorem pComponentEquiv_symm_apply {X Y : Type*} [Group X] [Finite X] [Group Y] [Finite Y]
-    (p : ℕ) [Fact p.Prime] (f : X →* Y) (hsurjective : Function.Surjective f)
-    (hcentral : f.ker ≤ Subgroup.center X) (M : {M : Subgroup Y // CFSG.IsPComponent p M}) :
-    ((pComponentEquiv p f hsurjective hcentral).symm M).val =
-      (commutator (M.val.comap f)).map (M.val.comap f).subtype := rfl
 
 theorem central_quotient_p_component_bijection {X Y : Type*} [Group X] [Finite X]
     [Group Y] [Finite Y] (p : ℕ) (hp : p.Prime) (f : X →* Y)

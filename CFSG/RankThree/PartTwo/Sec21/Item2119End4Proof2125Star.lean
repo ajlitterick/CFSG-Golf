@@ -20,11 +20,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
     Gen2125 G A E U c L d U₀ a X e Y →
       ∃ U₁ ∈ fourGroups E, ∃ Y' : Subgroup G, (e, Y') ∈ lThreeStarPairs A E U₁
 
-@[expose] def Item2125V : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G) (d : G)
-    (U₀ : Subgroup G) (a : G) (X : Subgroup G) (e : G) (Y : Subgroup G),
-    Gen2125 G A E U c L d U₀ a X e Y →
-      ∃ U₁ ∈ fourGroupsMinus E, e ∈ Subgroup.centralizer (U₁ : Set G) ∧ sixTwelveV E U₁ e ≠ ⊥
 
 namespace Item2119End4Proof
 
@@ -315,25 +310,6 @@ theorem exists_generic_onPlane_star
     (fun _ he' hecd' head' heac' => exists_generic_offPlane_star h211 h2115 h2116 h218 h2118 h45
       h48 h66 hStar hE h23 h24 he' hecd' head' heac') he hecd head heac
 
-theorem item2125Star_of_v (h45 : Sec4.Item4_5) (h49 : Sec4.Item4_9) (hV : Item2125V) :
-    Item2125Star := by
-  intro G _ _ A E U c L d U₀ a X e Y hgen
-  obtain ⟨U₁, hU₁, heU₁, hV1⟩ := hV G A E U c L d U₀ a X e Y hgen
-  have hpair := hgen.cfg.cfg.pair
-  have hAe : IsElemAbelian 3 A := hpair.mem_S.1.1
-  have he := hgen.mem_e
-  have hed : e ∉ Subgroup.zpowers d := fun h => hgen.not_mem_cd (Subgroup.mem_sup_right h)
-  have he1 : e ≠ 1 := fun h => hed (h ▸ Subgroup.one_mem _)
-  have hEA : E ≤ A := hpair.mem_E.2
-  have h27 : Nat.card A = 27 := by rw [hgen.cfg.cfg.card]; norm_num
-  have hEeq : E = A := Subgroup.eq_of_le_of_card_ge hEA (by rw [h27, hpair.mem_E.1.2.1])
-  have heE : e ∈ E := hEeq ▸ he
-  obtain ⟨L', hL', hUL', hLU', -, hLV'⟩ := Sec6.exists_pair_of_mem_fourGroupsMinus
-    hpair.standing h45 h49 hpair.mem_S hpair.mem_E hU₁ inf_le_left inf_le_right heE heU₁ he1 hV1
-  have hA : ∀ L'' ∈ thetaComponentsAt 3 e, A ≤ Subgroup.normalizer (L'' : Set G) :=
-    Sec6.le_normalizer_of_mem_thetaComponentsAt h45 hpair.standing.toTheoremFourHyp hAe he he1
-  exact ⟨U₁, hU₁.1, L', mem_lThreeStarPairs_of_six_twelve hEA hA ⟨heE, heU₁⟩ he1 hL' hUL' hLU'
-    hLV'⟩
 
 end Item2119End4Proof
 

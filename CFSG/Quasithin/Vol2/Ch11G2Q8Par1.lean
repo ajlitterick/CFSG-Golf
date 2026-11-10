@@ -159,10 +159,6 @@ theorem commutator_stabQ_one_le : ⁅stabQ (stdF F 1), stabQ (stdF F 1)⁆ ≤ s
   convert one_smul F (eu 0 (1 : F)) using 2
   field_simp
 
-theorem y2_mul (s t : F) : g2Y ![0, 0, s] * g2Y ![0, 0, t] = g2Y ![0, 0, s + t] := by
-  have e : ∀ c : F, (![0, 0, c] : Fin 3 → F) = c • ![0, 0, 1] := fun c => by
-    funext i; fin_cases i <;> simp
-  rw [e s, e t, e (s + t), g2Y_smul_mul]
 
 theorem g2Y_inv (b : Fin 3 → F) : (g2Y b)⁻¹ = g2Y b :=
   inv_eq_of_mul_eq_one_right (g2Y_mul_self b)

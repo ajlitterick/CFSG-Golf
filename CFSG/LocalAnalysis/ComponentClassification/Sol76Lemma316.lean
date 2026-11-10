@@ -395,9 +395,5 @@ theorem lemma316InputFor_of_inputs (h32 : Lemma32InputFor 𝒜) (h315a : Lemma31
     rw [← solomonKStarOf_eq_sSup] at h1
     exact (le_normalizer_solomonKStarOf C).trans h1
 
-theorem lemma316Input_of_inputs (h32 : Lemma32Input) (h315a : Lemma315aInput)
-    (h315c : Lemma315cInput) (hbal : Lemma316BalancedInput) (hprod : Lemma316ProductInput) :
-    Lemma316Input :=
-  lemma316InputFor_of_inputs h32 h315a h315c hbal hprod
 
 end CFSG.ComponentClassification.Sol76

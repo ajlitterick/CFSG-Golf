@@ -70,30 +70,5 @@ theorem lemma116 (hev : CFSG.Assembly.Quasithin.quasithinEvenCharacteristic G)
       z_central := Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr hST) hzc
       z_sq := hz2 }
 
-theorem actual_normalizer_intersection_and_component_action
-    (hev : CFSG.Assembly.Quasithin.quasithinEvenCharacteristic G) {B S T M : Subgroup G} {z : G}
-    (hB : IsPGroup 2 B) (hB1 : B ≠ ⊥) (hS : IsSylowTwoOf S (Subgroup.normalizer (B : Set G)))
-    (hT : IsSylowTwoOf T ⊤) (hST : S ≤ T) (hzT : z ∈ T)
-    (hzc : z ∈ Subgroup.centralizer (T : Set G)) (hz1 : z ≠ 1) (hz2 : z ^ 2 = 1)
-    (hM : CFSG.Assembly.Quasithin.quasithinIsMaxTwoLocal M)
-    (hCM : Subgroup.centralizer ({z} : Set G) ≤ M) :
-    B ≤ S ∧ CharTwo (Subgroup.normalizer (B : Set G) ⊓ M) ∧ z ∈ S ∧
-      z ∈ Subgroup.centralizer (S : Set G) ∧
-      oddCoreIn (Subgroup.normalizer (B : Set G)) ⊓ (Subgroup.normalizer (B : Set G) ⊓ M) = ⊥ ∧
-      (∀ x ∈ oddCoreIn (Subgroup.normalizer (B : Set G)),
-        ∀ y ∈ oddCoreIn (Subgroup.normalizer (B : Set G)), x * y = y * x) ∧
-      (∀ y ∈ oddCoreIn (Subgroup.normalizer (B : Set G)), z⁻¹ * y * z = y⁻¹) ∧
-      ∀ L : Subgroup G, IsComponentIn L (Subgroup.normalizer (B : Set G)) →
-        z ∈ Subgroup.normalizer (L : Set G) ∧ ¬ L ≤ M ∧ ⁅L, Subgroup.zpowers z⁆ = L ∧
-          CharTwo (L ⊓ Subgroup.centralizer ({z} : Set G)) := by
-  have h := lemma116 hev hB hB1
-    (sup_le Subgroup.le_normalizer (Subgroup.centralizer_le_normalizer _))
-    le_rfl hS hT hST hzT hzc hz1 hz2 hM hCM
-  obtain ⟨hYA, -, hinv, hab⟩ := h.oddCoreIn_properties
-  exact ⟨le_pCoreOf_of_le_normalizer Subgroup.le_normalizer le_rfl hB |>.trans
-      (EscapingLocal.pCoreOf_le_of_isSylowTwoOf hS), h.charTwo_inf, h.z_mem, h.z_central, hYA,
-    hab, hinv, fun L hL =>
-      let hc := h.component_action hL
-      ⟨hc.1, hc.2.2.1, hc.2.1, hc.2.2.2⟩⟩
 
 end CFSG.QuasithinUnique

@@ -2344,9 +2344,6 @@ open CFSG.Certificates
 @[expose] def ruCase1Base : List (Fin 4060) :=
   [0, 1, 2975, 2775, 1612]
 
-@[expose] def ruCase1Chain : RawSchreierDatum 4060 :=
-  RawSchreierDatum.ofArrays 4060 (by decide) ruCase1Arrs 2 (by simp [ruCase1Arrs])
-    ruCase1Base (by decide) ruCase1Words
 
 @[expose] def ruCase1Rels : List (ℕ × ℕ × ℕ) :=
     [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),

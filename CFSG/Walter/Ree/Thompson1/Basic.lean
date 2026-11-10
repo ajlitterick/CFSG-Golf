@@ -82,16 +82,11 @@ theorem conj_zc {P : Subgroup N} {z x : N} (hz : z ∈ zc P) (hx : x ∈ P) : z�
 theorem tc_zc_left {P : Subgroup N} {z x : N} (hz : z ∈ zc P) (hx : x ∈ P) : tc z x = 1 :=
   tc_eq_one_iff.2 (zc_comm hz hx)
 
-theorem tc_zc_right {P : Subgroup N} {z x : N} (hz : z ∈ zc P) (hx : x ∈ P) : tc x z = 1 :=
-  tc_eq_one_iff.2 (zc_comm hz hx).symm
 
 theorem tc_mul_zc_left {P : Subgroup N} {y z x : N} (hy : y ∈ P) (hz : z ∈ zc P) (hx : x ∈ P) :
     tc (y * z) x = tc y x := by
   rw [tc_mul_left, tc_zc_left hz hx, mul_one, conj_zc hz (tc_mem hy hx)]
 
-theorem tc_mul_zc_right {P : Subgroup N} {y z x : N} (hy : y ∈ P) (hz : z ∈ zc P) (hx : x ∈ P) :
-    tc y (x * z) = tc y x := by
-  rw [tc_mul_right, tc_zc_right hz hy, one_mul, conj_zc hz (tc_mem hy hx)]
 
 theorem tc_mul_left' (x x' y : N) : tc (x * x') y = tc x y * tc (tc x y) x' * tc x' y := by
   rw [tc_mul_left, conj_eq_mul_tc]

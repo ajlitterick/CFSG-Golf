@@ -84,7 +84,6 @@ theorem catW_nil : catW [] = [] := rfl
 
 theorem catW_cons (w : List ℕ) (R : List (List ℕ)) : catW (w :: R) = w ++ catW R := rfl
 
-theorem repW_zero (w : List ℕ) : repW w 0 = [] := rfl
 
 theorem repW_succ (w : List ℕ) (p : ℕ) : repW w (p + 1) = w ++ repW w p := rfl
 

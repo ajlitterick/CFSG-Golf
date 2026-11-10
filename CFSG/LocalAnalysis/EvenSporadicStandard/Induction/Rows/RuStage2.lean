@@ -94,14 +94,6 @@ theorem ruStage2_of_configs
   obtain ⟨dd⟩ := threeLocalData_of_partThree center_M10_eq_bot hRF h3 h5L d
   exact closing_abstract_cert hGH1 hOut (hKG d.r hr1) dd
 
-@[expose] def RuNoOther : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (N L K : Subgroup H) (t u : H), FStarSimple N →
-    N.index ≤ 2 → CFSG.Assembly.KProper CFSG.Blueprint.Catalog H → OddCover .Ru L →
-    RuPair H L K u → SolStd L → (∃ P : Sylow 2 (centralizer (L : Set H)), IsCyclic ↥P) →
-    (∀ P : Sylow 2 (centralizer (L : Set H)), Nat.card P = 2) → t ∈ centralizer (L : Set H) →
-    orderOf t = 2 → BTheoremAt u → ∀ M : Subgroup H, IsCompIn M (centralizer ({u} : Set H)) →
-      K ≤ M ⊔ CFSG.conjugate M t → M ≠ K → (∃ s' ∈ [TauCeti.SporadicName.Ru], OddCover s' M) →
-      (∀ P : Sylow 2 (centralizer (M : Set H)), Nat.card P = 2) → False
 
 @[expose] def RuNoOtherAt (H : Type) [Group H] [Finite H] : Prop :=
   ∀ (N L K : Subgroup H) (t u : H), FStarSimple N →

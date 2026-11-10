@@ -47,26 +47,6 @@ theorem i112_conj_eq_or_commute [Finite X] (hL : IsComponentOf L ⊤) {M N : Sub
   CFSG.Quasithin.F918V5G.isComponentOf_eq_or_commute (i116pI_isComponentOf_conj hL hM)
     (i116pI_isComponentOf_conj hL hN)
 
-theorem i112_normalizer_inf_gLBConj (hB : IsElemAbelian p B) {g : X} (hg : g ∈ B) :
-    Subgroup.normalizer (GLBConj g L : Set X) ⊓ B = Subgroup.normalizer (L : Set X) ⊓ B := by
-  ext b
-  rw [Subgroup.mem_inf, Subgroup.mem_inf, normalizer_gLBConj, mem_gLBConj]
-  refine and_congr_left fun hb => ?_
-  have : g * b * g⁻¹ = b := by
-    rw [i116pI_comm hB hg hb]; group
-  rw [this]
-
-theorem i112_normalizer_inf_of_mem (hB : IsElemAbelian p B) {M : Subgroup X}
-    (hM : M ∈ i112Orbit B L) :
-    Subgroup.normalizer (M : Set X) ⊓ B = Subgroup.normalizer (L : Set X) ⊓ B := by
-  obtain ⟨g, hg, rfl⟩ := mem_i112Orbit.1 hM
-  exact i112_normalizer_inf_gLBConj hB hg
-
-theorem i112_le_normalizer_iff (hB : IsElemAbelian p B) {M : Subgroup X}
-    (hM : M ∈ i112Orbit B L) :
-    B ≤ Subgroup.normalizer (M : Set X) ↔ B ≤ Subgroup.normalizer (L : Set X) := by
-  have h := i112_normalizer_inf_of_mem hB hM
-  rw [← inf_eq_right, ← inf_eq_right, h]
 
 variable [Finite X]
 
@@ -122,9 +102,6 @@ theorem i112_J_eq_iSup : i112J B L = ⨆ M : ↥(i112Orbit B L), (M : Subgroup X
   le_antisymm (i112_J_le fun M hM => le_iSup (fun M : ↥(i112Orbit B L) => (M : Subgroup X)) ⟨M, hM⟩)
     (iSup_le fun M => i112_orbit_le_J M.2)
 
-theorem i112_J_eq_iSup₂ : i112J B L = ⨆ M ∈ i112Orbit B L, M :=
-  le_antisymm (i112_J_le fun M hM => le_iSup₂_of_le M hM le_rfl)
-    (iSup₂_le fun _ hM => i112_orbit_le_J hM)
 
 theorem i112_gLBConj_J_le {g : X} (hg : g ∈ B) : GLBConj g (i112J B L) ≤ i112J B L := by
   unfold i112J GLBConj
@@ -153,19 +130,6 @@ theorem i112_isComponentOf_of_mem {M : Subgroup X} (hL : IsComponentOf L ⊤)
     (hM : M ∈ i112Orbit B L) : IsComponentOf M ⊤ :=
   i116pI_isComponentOf_conj hL (i112_conj_iff.2 (mem_i112Orbit.1 hM))
 
-theorem i112_isSubnormal_J (hL : IsComponentOf L ⊤) : IsSubnormal (i112J B L) ⊤ := by
-  rw [i112_J_eq_iSup₂]
-  exact isSubnormal_iSup_components _ fun M hM => i112_isComponentOf_of_mem hL hM
-
-omit [Finite X] in
-theorem i112_isQuasisimple_of_mem {M : Subgroup X} (hL : IsComponentOf L ⊤)
-    (hM : M ∈ i112Orbit B L) : CFSG.Open.IsQuasisimple ↥M :=
-  (i112_isComponentOf_of_mem hL hM).2.2
-
-omit [Finite X] in
-theorem i112_equiv_of_mem {M : Subgroup X} (hM : M ∈ i112Orbit B L) : Nonempty (↥L ≃* ↥M) := by
-  obtain ⟨g, -, rfl⟩ := mem_i112Orbit.1 hM
-  exact ⟨conjEquiv g L⟩
 
 theorem i112_isPGroup_inf_centralizer (hp : p.Prime) (hO : GLAPPrimeCore p X = ⊥)
     {N : Subgroup X} (hN : IsSubnormal N ⊤) :
@@ -209,10 +173,6 @@ theorem i112_isPGroup_center_orbit (hp : p.Prime) (hO : GLAPPrimeCore p X = ⊥)
     IsPGroup p ↥(M ⊓ Subgroup.centralizer (M : Set X)) :=
   i112_isPGroup_inf_centralizer hp hO (i112_isComponentOf_of_mem hL hM).2.1
 
-theorem i112_isPGroup_center_J (hp : p.Prime) (hO : GLAPPrimeCore p X = ⊥)
-    (hL : IsComponentOf L ⊤) :
-    IsPGroup p ↥(i112J B L ⊓ Subgroup.centralizer (i112J B L : Set X)) :=
-  i112_isPGroup_inf_centralizer hp hO (i112_isSubnormal_J hL)
 
 @[expose] def i112Fam (B L : Subgroup X) : ↥(i112Orbit B L) → Subgroup X := fun M => M
 
@@ -230,11 +190,6 @@ theorem i112_iSup_fam : ⨆ i, i112Fam B L i = i112J B L :=
 
 instance : Finite ↥(i112Orbit B L) := (i112_finite_orbit (B := B) (L := L)).to_subtype
 
-theorem i112_card_fam (hp : p.Prime) (hB : IsElemAbelian p B)
-    (hnL : ¬ B ≤ Subgroup.normalizer (L : Set X)) :
-    ∃ r : ℕ, 1 ≤ r ∧ Nat.card ↥(i112Orbit B L) = p ^ r := by
-  obtain ⟨r, hr, h⟩ := i112_relIndex_eq_pow hp hB hnL
-  exact ⟨r, hr, by rw [i112_natCard_orbit, h]⟩
 
 end Sub
 

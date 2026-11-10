@@ -60,9 +60,6 @@ theorem ggQ2gw_root_eq (C : Fin n → Fin n → ZMod 3) (h : Fin n → U)
     (h2 : ∀ j, α j (h j) = 2) (l : List (Fin n)) : U ≃ₗ[ZMod 3] U :=
   (l.map fun j => Module.reflection (h2 j)).prod
 
-private lemma ggQ2gwElt_nil {h : Fin n → U} {α : Fin n → Dual (ZMod 3) U}
-    {h2 : ∀ j, α j (h j) = 2} : ggQ2gwElt h α h2 ([] : List (Fin n)) = 1 := by
-  simp [ggQ2gwElt]
 
 private lemma ggQ2gwElt_append {h : Fin n → U} {α : Fin n → Dual (ZMod 3) U}
     {h2 : ∀ j, α j (h j) = 2} (l₁ l₂ : List (Fin n)) :

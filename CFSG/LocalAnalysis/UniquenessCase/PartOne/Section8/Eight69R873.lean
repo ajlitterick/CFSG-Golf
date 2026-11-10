@@ -1719,56 +1719,6 @@ private theorem r873shp_calC_L {G : Type} [Group G] [Finite G] {M L : Subgroup G
   have hSL : S i ≤ L := by rw [hjoin]; exact le_iSup S i
   exact ⟨CFSG.Quasithin.A3.subnormal_of_le_of_le (hS i).1 hSL hLM, (hS i).2.1, (hS i).2.2⟩
 
-private theorem r873shp_calC_L_eq_range {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
-    {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)
-    (hLset : (L : Set G) = (List.ofFn fun i => (S i : Set G)).prod) (hLM : L ≤ M) :
-    ∀ C ∈ UC22.calC L, ∃ i, C = S i := by
-  intro C hC
-  by_contra hcon
-  push Not at hcon
-  have hCbar : CFSG.IsComponent (UC22.barImage L C) := UC22.uc22p22l_barImage_isComponent hC
-  have hSbar : ∀ i, CFSG.IsComponent (UC22.barImage L (S i)) :=
-    fun i => UC22.uc22p22l_barImage_isComponent (r873shp_calC_L hS hLset hLM i)
-  have hne : ∀ i, UC22.barImage L C ≠ UC22.barImage L (S i) := by
-    intro i h
-    exact hcon i (UC22.uc22p22u_calC_ext hC (r873shp_calC_L hS hLset hLM i) h)
-  have hcomm : ∀ i, UC22.barImage L C ≤
-      Subgroup.centralizer (UC22.barImage L (S i) : Set (Bar2 L)) := by
-    intro i
-    rcases CFSG.LocalCores.distinct_components_commute hCbar (hSbar i) with h | h
-    · exact absurd h (hne i)
-    · exact Subgroup.commutator_eq_bot_iff_le_centralizer.mp h
-  have hle := CFSG.subgroup_le_centralizer_iSup_of_le_centralizer
-    (fun i => UC22.barImage L (S i)) hcomm
-  rw [r873shp_barImage_top hS hLset] at hle
-  rw [Subgroup.coe_top] at hle
-  have hle_self : UC22.barImage L C ≤ Subgroup.centralizer (UC22.barImage L C : Set (Bar2 L)) :=
-    hle.trans (Subgroup.centralizer_le (Set.subset_univ _))
-  have hbot_comm : ⁅UC22.barImage L C, UC22.barImage L C⁆ = ⊥ :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mpr hle_self
-  have hne_bot : UC22.barImage L C ≠ ⊥ :=
-    CFSG.Quasithin.ne_bot_of_mem_cComp
-      (CFSG.Quasithin.mem_cComp_top_of_isComponent hCbar)
-  exact hne_bot (((Subgroup.isPerfect_iff).mp hCbar.1.1).symm.trans hbot_comm)
-
-private theorem r873shp_conj_mem_range {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
-    {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)
-    (hLset : (L : Set G) = (List.ofFn fun i => (S i : Set G)).prod) (hLM : L ≤ M)
-    (hML : M ≤ Subgroup.normalizer (L : Set G)) {m : G} (hm : m ∈ M) (i : Fin k) :
-    ∃ j, uniqueFourConj m (S i) = S j := by
-  have hSLi : S i ≤ L := by
-    rw [r873shp_join hS hLset]; exact le_iSup S i
-  have hconj : uniqueFourConj m (S i) ∈ UC22.calC M :=
-    UC22.uc22p22u_calC_conj (Subgroup.le_normalizer) (hS i) hm
-  have hminv : m⁻¹ ∈ Subgroup.normalizer (L : Set G) :=
-    (Subgroup.normalizer (L : Set G)).inv_mem (hML hm)
-  have hLmap : L.map (MulAut.conj m⁻¹).toMonoidHom = L :=
-    (Subgroup.mem_normalizer_iff_map_conj_eq).mp hminv
-  have hle : uniqueFourConj m (S i) ≤ L := by
-    rw [uniqueFourConj, ← hLmap]
-    exact Subgroup.map_mono hSLi
-  exact r873shp_calC_L_eq_range hS hLset hLM _
-    ⟨CFSG.Quasithin.A3.subnormal_of_le_of_le hconj.1 hle hLM, hconj.2.1, hconj.2.2⟩
 
 private theorem r873shp_inf_centralizer_eq_center_map {X : Type} [Group X] (H : Subgroup X) :
     H ⊓ Subgroup.centralizer (H : Set X) = (Subgroup.center ↥H).map H.subtype := by
@@ -1904,20 +1854,6 @@ private theorem r873shp_card_filter_of_sum {ι : Type} (t : Finset ι) (f : ι �
   · rw [if_pos h]; omega
   · rw [if_neg h]; omega
 
-private theorem r873shp_card_filter_eq_one {ι : Type} (t : Finset ι) (f : ι → ℕ)
-    (hf : ∀ A ∈ t, f A ≤ 1) (h1 : ∑ A ∈ t, f A = 1) :
-    (t.filter fun A => 1 ≤ f A).card = 1 := by
-  have hb : (∑ A ∈ t, if 1 ≤ f A then 1 else 0) =
-      (t.filter fun A => 1 ≤ f A).card := by
-    simp
-  rw [← hb]
-  trans ∑ A ∈ t, f A
-  · refine Finset.sum_congr rfl fun A hA => ?_
-    have := hf A hA
-    by_cases h : 1 ≤ f A
-    · rw [if_pos h]; omega
-    · rw [if_neg h]; omega
-  · exact h1
 
 theorem r873shp_pRank_sum {G : Type} [Group G] [Finite G] {M L : Subgroup G} {k : ℕ}
     {S : Fin k → Subgroup G} (hS : ∀ i, S i ∈ UC22.calC M)

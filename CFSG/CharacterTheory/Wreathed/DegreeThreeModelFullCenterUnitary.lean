@@ -34,21 +34,6 @@ variable (h : V →ₛₗ[sigma.toRingHom] V →ₗ[E] E)
     (unitaryPlaneMatrixEquiv (h.domRestrict₁₂
       (minusSpace z.val.val.toLinearMap) (minusSpace z.val.val.toLinearMap)) B).symm.toMonoidHom
 
-theorem unitaryMatrixTargetHom_coe (h2 : (2 : E) ≠ 0) (hsym : h.IsSymm)
-    (hnd : h.Nondegenerate) (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1)
-    (hdim : Module.finrank E V = 3) (D : Subgroup (specialIsometry h)) [D.Normal]
-    (z : specialIsometry h) (hz : orderOf z = 2) (t : specialIsometry h ⧸ D)
-    (hzt : QuotientGroup.mk' D z = t)
-    (B : (Fin 2 → E) ≃ₗ[E] minusSpace z.val.val.toLinearMap)
-    (a : (unitaryPlaneMatrixHom (h.domRestrict₁₂
-      (minusSpace z.val.val.toLinearMap) (minusSpace z.val.val.toLinearMap)) B).range) :
-    (unitaryMatrixTargetHom h h2 hsym hnd hsigma hne hdim D z hz t hzt B a :
-      specialIsometry h ⧸ D) = QuotientGroup.mk' D
-        (unitaryCentralizerBlock h h2 hsym hnd hsigma hne hdim z hz
-          ((unitaryPlaneMatrixEquiv (h.domRestrict₁₂
-            (minusSpace z.val.val.toLinearMap)
-            (minusSpace z.val.val.toLinearMap)) B).symm a)).val :=
-  unitaryTargetQuotientCentralizer_coe h h2 hsym hnd hsigma hne hdim D z hz t hzt _
 
 theorem unitaryMatrixTargetHom_surjective (h2 : (2 : E) ≠ 0) (hsym : h.IsSymm)
     (hnd : h.Nondegenerate) (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1)

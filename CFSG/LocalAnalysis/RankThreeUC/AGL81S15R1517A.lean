@@ -70,17 +70,6 @@ theorem isLinTwo_of_equiv {m : ℕ} {S S' : Type} [Group S] [Group S'] (e : S �
   obtain ⟨Q, hQ2, hQc, d, hd, ⟨f⟩⟩ := h
   exact ⟨Q, hQ2, hQc, d, hd, ⟨e.symm.trans f⟩⟩
 
-theorem isClassicalTwoOrG2_of_bad {p : ℕ} {S : Type} [Group S] (h : Bad1517 p S)
-    (hZ : Subgroup.center S = ⊥) : IsClassicalTwoOrG2 (S ⧸ Subgroup.center S) := by
-  obtain ⟨d, hd, ⟨e⟩⟩ := bad1517_iff.1 h
-  refine Or.inl ⟨d, ?_, ⟨(QuotientGroup.quotientMulEquivOfEq hZ).trans
-    (QuotientGroup.quotientBot.trans e)⟩⟩
-  rcases bad1517_iff_aux_cases hd with ⟨Q, hd', hQ, -⟩ | ⟨Q, hd', hQ, -⟩ | ⟨Q, hd', hQc, -⟩ |
-    ⟨Q, hd', hQc, -⟩
-  · rw [hd']; exact hQ
-  · rw [hd']; exact hQ
-  · rw [hd']; exact (KOutLin_aux_card_two hQc).1
-  · rw [hd']; exact (KOutLin_aux_card_two hQc).1
 
 end BadIndex
 

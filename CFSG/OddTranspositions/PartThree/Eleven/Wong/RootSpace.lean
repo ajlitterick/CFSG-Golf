@@ -119,12 +119,6 @@ private theorem u_mem_normalizer_R : D.u ∈ normalizer (D.R : Set G) := by
       exact h
   rw [h1, h2, sup_comm]
 
-private theorem closure_t_u_le_normalizer_R :
-    closure {D.t, D.u} ≤ normalizer (D.R : Set G) := by
-  refine (Subgroup.closure_le _).mpr ?_
-  rintro g (rfl | rfl)
-  · exact Subgroup.centralizer_le_normalizer _ (t_mem_centralizer_R D)
-  · exact u_mem_normalizer_R D
 
 private theorem card_R_eq [Finite G] : Nat.card D.R = 25 :=
   (diagonal_unipotent_local_data D).2.2.2.2.1

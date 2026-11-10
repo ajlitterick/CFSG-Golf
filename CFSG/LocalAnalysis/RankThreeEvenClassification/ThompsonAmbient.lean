@@ -14,15 +14,6 @@ universe u
     Subgroup G :=
   CFSG.ambientOrderZJ subgroup
 
-theorem thompsonOrderCenter_commutative (G : Type u) [Group G] :
-    IsMulCommutative (thompsonOrderCenter G) := by
-  rw [thompsonOrderCenter_eq_orderZJ]
-  infer_instance
-
-theorem thompsonOrderCenter_normal (G : Type u) [Group G] [Finite G] :
-    (thompsonOrderCenter G).Normal := by
-  rw [thompsonOrderCenter_eq_orderZJ]
-  infer_instance
 
 theorem thompsonCenterOf_le {G : Type u} [Group G] (subgroup : Subgroup G) :
     thompsonCenterOf subgroup ≤ subgroup := Subgroup.map_subtype_le _

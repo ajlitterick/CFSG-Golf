@@ -105,42 +105,6 @@ theorem disjoint_reeFixedBorel_reeFixedBruhatCell
   rw [← reeFixedBruhatCell_one]
   exact disjoint_reeFixedBruhatCell (fixedOrbitElement_ne_one j).symm
 
-theorem not_normal_reeFixedBorel_subgroupOf
-    (j : Fin t.fixedOrbitCount) :
-    ¬((t.reeFixedBorel K a).subgroupOf
-      (t.reeGamma K a ⊓ parabolicSubgroup t.tag K (t.fixedOrbitSet j))).Normal := by
-  intro hN
-  obtain ⟨u, hu, hu1⟩ := exists_ne_one_mem_reeFixedOrbitUnipotent (K := K) (a := a) j
-  have huB : u ∈ t.reeFixedBorel K a :=
-    reeFixedPosUnipotent_le_reeFixedBorel (reeFixedOrbitUnipotent_le_reeFixedPosUnipotent j hu)
-  have hc : canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j) * u *
-      (canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j))⁻¹ ∈ t.reeFixedBorel K a :=
-    Subgroup.mem_subgroupOf.1 (hN.conj_mem
-      ⟨u, reeFixedBorel_le_reeGamma_inf_parabolicSubgroup j huB⟩
-      (Subgroup.mem_subgroupOf.2 huB) ⟨_, canonicalRep_fixedOrbitElement_mem_reeGamma_inf j⟩)
-  have hU := canonicalRep_conj_mem_reeFixedNegUnipotent (fixedOrbitElement_mem j)
-    (fun _ hα => height_fixedOrbitElement_smul_neg hα) hu
-  have h₁ : canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j) * u *
-      (canonicalRep (coxeterSystem t.tag) K (t.fixedOrbitElement j))⁻¹ ∈
-        t.reeFixedBorel K a ⊓ t.reeFixedNegUnipotent K a := Subgroup.mem_inf.2 ⟨hc, hU⟩
-  rw [reeFixedBorel_inf_reeFixedNegUnipotent, Subgroup.mem_bot, mul_inv_eq_one,
-    mul_eq_left] at h₁
-  exact hu1 h₁
-
-theorem ree_fixed_two_cell_parabolics
-    (t : ReeTag) (a : ℕ) (K : Type) [Field K] [Finite K]
-    [CharP K t.prime] (j : Fin t.fixedOrbitCount) :
-    ((t.reeGamma K a ⊓ parabolicSubgroup t.tag K (t.fixedOrbitSet j) :
-        Subgroup (ModGL t.tag K)) : Set (ModGL t.tag K)) =
-      (t.reeFixedBorel K a : Set (ModGL t.tag K)) ∪
-        t.reeFixedBruhatCell K a (t.fixedOrbitElement j) ∧
-    Disjoint (t.reeFixedBorel K a : Set (ModGL t.tag K))
-      (t.reeFixedBruhatCell K a (t.fixedOrbitElement j)) ∧
-    t.reeFixedBorel K a ≤ t.reeGamma K a ⊓ parabolicSubgroup t.tag K (t.fixedOrbitSet j) ∧
-    ¬((t.reeFixedBorel K a).subgroupOf
-      (t.reeGamma K a ⊓ parabolicSubgroup t.tag K (t.fixedOrbitSet j))).Normal :=
-  ⟨coe_reeGamma_inf_parabolicSubgroup j, disjoint_reeFixedBorel_reeFixedBruhatCell j,
-    reeFixedBorel_le_reeGamma_inf_parabolicSubgroup j, not_normal_reeFixedBorel_subgroupOf j⟩
 
 end ReeTag
 

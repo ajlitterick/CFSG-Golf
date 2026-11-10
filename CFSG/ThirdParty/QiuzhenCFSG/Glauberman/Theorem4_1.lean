@@ -259,17 +259,6 @@ public theorem commChain_antitone
   | @step j hij ih =>
       exact (commChain_descends B A hB_norm j).trans ih
 
-/-- The chain terms lie in `B ⊔ A`. -/
-public theorem commChain_le_sup
-    (B A : Subgroup G) :
-    ∀ n, commChain B A n ≤ B ⊔ A
-  | 0 => le_sup_left
-  | n + 1 =>
-      calc
-        commChain B A (n + 1) = ⁅commChain B A n, A⁆ := by
-          rw [commChain_succ]
-        _ ≤ commChain B A n ⊔ A := Subgroup.commutator_le_sup _ _
-        _ ≤ B ⊔ A := sup_le (commChain_le_sup B A n) le_sup_right
 
 /-- The lower central series of `S = B ⊔ A` (as subgroups of `G`). -/
 public def lcs (S : Subgroup G) : ℕ → Subgroup G :=
@@ -359,70 +348,6 @@ convention-independent; the element-level identities (a)–(c) are re-derived he
 Mathlib's right convention (with `(a)` and `(b)` being exactly the paper's words under
 the correspondence `[x,y] ↦ ⁅x⁻¹,y⁻¹⁆`). -/
 
-/-- Lemma 4.1(a): `[x,y] = [y,x]⁻¹`, i.e. `⁅x,y⁆ = ⁅y,x⁆⁻¹`. -/
-public lemma lemma4_1a (x y : G) : ⁅x, y⁆ = ⁅y, x⁆⁻¹ := by
-  simp [commutatorElement_inv]
-
-/-- Lemma 4.1(b): the P. Hall identity, in the paper's form
-`[x,y⁻¹,z]^y · [y,z⁻¹,x]^z · [z,x⁻¹,y]^x = 1` with the substitution `y = b⁻¹`,
-`z = [x,c]` used in the proof of Theorem 4.1 (paper L849–L852).  Re-derived in the right
-convention: term 1 is `b·⁅⁅b⁻¹,x⁻¹⁆,[x,c]⁻¹⁆·b⁻¹`, term 2 is
-`[x,c]⁻¹·⁅⁅b,[x,c]⁆⁻¹,x⁻¹⁆·[x,c]`, term 3 is `x⁻¹·⁅⁅x,[x,c]⁻¹⁆,b⁆·x`, where
-`[x,c] = ⁅x⁻¹,c⁻¹⁆`. -/
-public lemma lemma4_1b (x b c : G) :
-    b * ⁅⁅b⁻¹, x⁻¹⁆, ⁅x⁻¹, c⁻¹⁆⁻¹⁆ * b⁻¹ *
-      ((⁅x⁻¹, c⁻¹⁆)⁻¹ * ⁅⁅b, ⁅x⁻¹, c⁻¹⁆⁆⁻¹, x⁻¹⁆ * ⁅x⁻¹, c⁻¹⁆) *
-      (x⁻¹ * ⁅⁅x, ⁅x⁻¹, c⁻¹⁆⁻¹⁆, b⁆ * x) = 1 := by
-  simp [commutatorElement_def, mul_assoc]
-
-/-- Lemma 4.1(c): if `[H,H] ⊆ Z(H)` then `[x,yz] = [x,y][x,z]` and `[yz,x] = [y,x][z,x]`.
-The paper takes `H = ⟨x,y,z⟩`; the statement below is the general form with `x,y,z ∈ H`. -/
-public lemma lemma4_1c {H : Subgroup G} (x y z : G) (hx : x ∈ H) (hy : y ∈ H) (hz : z ∈ H)
-    (hH : ⁅H, H⁆ ≤ centerIn H) :
-    ⁅x, y * z⁆ = ⁅x, y⁆ * ⁅x, z⁆ ∧ ⁅y * z, x⁆ = ⁅y, x⁆ * ⁅z, x⁆ := by
-  have hxz_cent : ⁅x, z⁆ ∈ Subgroup.centralizer (H : Set G) := by
-    have hmem : ⁅x, z⁆ ∈ ⁅H, H⁆ := Subgroup.commutator_mem_commutator hx hz
-    exact (inf_le_right : centerIn H ≤ Subgroup.centralizer (H : Set G)) (hH hmem)
-  have hyx_cent : ⁅y, x⁆ ∈ Subgroup.centralizer (H : Set G) := by
-    have hmem : ⁅y, x⁆ ∈ ⁅H, H⁆ := Subgroup.commutator_mem_commutator hy hx
-    exact (inf_le_right : centerIn H ≤ Subgroup.centralizer (H : Set G)) (hH hmem)
-  have hzx_cent : ⁅z, x⁆ ∈ Subgroup.centralizer (H : Set G) := by
-    have hmem : ⁅z, x⁆ ∈ ⁅H, H⁆ := Subgroup.commutator_mem_commutator hz hx
-    exact (inf_le_right : centerIn H ≤ Subgroup.centralizer (H : Set G)) (hH hmem)
-  have hcomm_yz : y * ⁅x, z⁆ * y⁻¹ = ⁅x, z⁆ := by
-    have hz_y : y * ⁅x, z⁆ = ⁅x, z⁆ * y := (Subgroup.mem_centralizer_iff.mp hxz_cent) y hy
-    calc
-      y * ⁅x, z⁆ * y⁻¹ = (⁅x, z⁆ * y) * y⁻¹ := by rw [hz_y]
-      _ = ⁅x, z⁆ := by simp [mul_assoc]
-  have hcomm_yzx : y * ⁅z, x⁆ * y⁻¹ = ⁅z, x⁆ := by
-    have hz_y : y * ⁅z, x⁆ = ⁅z, x⁆ * y := (Subgroup.mem_centralizer_iff.mp hzx_cent) y hy
-    calc
-      y * ⁅z, x⁆ * y⁻¹ = (⁅z, x⁆ * y) * y⁻¹ := by rw [hz_y]
-      _ = ⁅z, x⁆ := by simp [mul_assoc]
-  have hzx_comm_yx : ⁅z, x⁆ * ⁅y, x⁆ = ⁅y, x⁆ * ⁅z, x⁆ := by
-    -- both lie in the centre of H, hence commute
-    have h1 : ⁅z, x⁆ ∈ centerIn H := by
-      exact (hH (Subgroup.commutator_mem_commutator hz hx))
-    have h2 : ⁅y, x⁆ ∈ centerIn H := by
-      exact (hH (Subgroup.commutator_mem_commutator hy hx))
-    -- centre of H is Abelian: both elements centralise H, so each commutes with the other
-    have hyxS : ⁅y, x⁆ ∈ H := (inf_le_left : centerIn H ≤ H) h2
-    have hyxC : ⁅y, x⁆ ∈ Subgroup.centralizer (H : Set G) :=
-      (inf_le_right : centerIn H ≤ Subgroup.centralizer (H : Set G)) h2
-    have hzxS : ⁅z, x⁆ ∈ H := (inf_le_left : centerIn H ≤ H) h1
-    exact (Subgroup.mem_centralizer_iff.mp hyxC) ⁅z, x⁆ hzxS
-  constructor
-  · rw [commutatorElement_mul_right_eq_mul_conj]
-    calc
-      ⁅x, y⁆ * y * ⁅x, z⁆ * y⁻¹ = ⁅x, y⁆ * (y * ⁅x, z⁆ * y⁻¹) := by simp [mul_assoc]
-      _ = ⁅x, y⁆ * ⁅x, z⁆ := by rw [hcomm_yz]
-  · rw [commutatorElement_mul_left_eq_conj_mul]
-    rw [hcomm_yzx]
-    rw [hzx_comm_yx]
-
-/-- Lemma 4.1(d): `[X,Y] = [Y,X]` for subgroups. -/
-public lemma lemma4_1d (X Y : Subgroup G) : ⁅X, Y⁆ = ⁅Y, X⁆ :=
-  Subgroup.commutator_comm X Y
 
 /-- Lemma 4.1(e): the Three Subgroups Lemma: `[X,Y,Z] = [Y,Z,X] = 1` implies
 `[Z,X,Y] = 1`. -/
@@ -435,40 +360,6 @@ public lemma lemma4_1e (X Y Z : Subgroup G)
 
 /-! ## Element-level helpers for the Case-2 computation (paper L849–L899) -/
 
-/-- `[u⁻¹,x] = [u,x]⁻¹` when `[u,x]` is central in `S`. -/
-public lemma commutatorElement_inv_left_of_central {S : Subgroup G} (u x : G)
-    (hu : u ∈ S) (_hx : x ∈ S) (h : ⁅u, x⁆ ∈ centerIn S) :
-    ⁅u⁻¹, x⁆ = ⁅u, x⁆⁻¹ := by
-  calc
-    ⁅u⁻¹, x⁆ = u⁻¹ * ⁅x, u⁆ * u := by rw [commutatorElement_inv_left]
-    _ = ⁅x, u⁆ := by
-      have hz : ⁅x, u⁆ ∈ centerIn S := by
-        simpa [commutatorElement_inv] using (centerIn S).inv_mem h
-      have hzC : ⁅x, u⁆ ∈ Subgroup.centralizer (S : Set G) :=
-        (inf_le_right : centerIn S ≤ Subgroup.centralizer (S : Set G)) hz
-      have hcomm : ⁅x, u⁆ * u = u * ⁅x, u⁆ :=
-        ((Subgroup.mem_centralizer_iff.mp hzC) u hu).symm
-      calc
-        u⁻¹ * ⁅x, u⁆ * u = u⁻¹ * (⁅x, u⁆ * u) := by simp [mul_assoc]
-        _ = u⁻¹ * (u * ⁅x, u⁆) := by rw [hcomm]
-        _ = ⁅x, u⁆ := by simp
-    _ = ⁅u, x⁆⁻¹ := by rw [commutatorElement_inv]
-
-/-- `[u,x⁻¹] = [u⁻¹,x⁻¹]⁻¹` when `[u,x]` is central in `S` (the form used at (4.9)). -/
-public lemma commutatorElement_inv_right_of_central {S : Subgroup G} (u x : G)
-    (hu : u ∈ S) (hx : x ∈ S) (h : ⁅u, x⁆ ∈ centerIn S) :
-    ⁅u, x⁻¹⁆ = ⁅u⁻¹, x⁻¹⁆⁻¹ := by
-  calc
-    ⁅u, x⁻¹⁆ = x⁻¹ * ⁅x, u⁆ * x := by rw [commutatorElement_inv_right]
-    _ = x⁻¹ * ⁅u⁻¹, x⁆ * x := by
-      have h' : ⁅x, u⁆ = ⁅u⁻¹, x⁆ := by
-        calc
-          ⁅x, u⁆ = ⁅u, x⁆⁻¹ := by rw [commutatorElement_inv]
-          _ = ⁅u⁻¹, x⁆ := (commutatorElement_inv_left_of_central (S := S) u x hu hx h).symm
-      rw [h']
-    _ = ⁅x⁻¹, u⁻¹⁆ := by
-      conv_rhs => rw [commutatorElement_inv_left]
-    _ = ⁅u⁻¹, x⁻¹⁆⁻¹ := by rw [commutatorElement_inv]
 
 /-- `[u·v,w] = [u,w]` when `v` is central in `S` (used to drop the `B'`-remainder
 inside a commutator). -/
@@ -486,29 +377,6 @@ public lemma commutatorElement_mul_left_of_central {S : Subgroup G} (u v w : G)
   rw [hconj]
   simp
 
-/-- Lemma 3.2(b) of the paper, in the right convention: for `A` Abelian with
-`[x,A]` Abelian (here the generators `⁅x⁻¹,a⁻¹⁆` commute pairwise), one has
-`[x,a,b] = [x,b,a]`, i.e. `⁅⁅a⁻¹,x⁻¹⁆,b⁻¹⁆ = ⁅⁅b⁻¹,x⁻¹⁆,a⁻¹⁆`. -/
-public lemma lemma3_2b_right (x a b : G) (hab : Commute a b)
-    (hx : Commute ⁅x⁻¹, a⁻¹⁆ ⁅x⁻¹, b⁻¹⁆) :
-    ⁅⁅a⁻¹, x⁻¹⁆, b⁻¹⁆ = ⁅⁅b⁻¹, x⁻¹⁆, a⁻¹⁆ := by
-  have h1 : ⁅⁅a⁻¹, x⁻¹⁆, b⁻¹⁆ = ⁅a⁻¹, x⁻¹⁆ * ⁅b⁻¹, x⁻¹⁆ * ⁅x⁻¹, b⁻¹ * a⁻¹⁆ := by
-    simp [commutatorElement_def, mul_assoc]
-  have h2 : ⁅⁅b⁻¹, x⁻¹⁆, a⁻¹⁆ = ⁅b⁻¹, x⁻¹⁆ * ⁅a⁻¹, x⁻¹⁆ * ⁅x⁻¹, a⁻¹ * b⁻¹⁆ := by
-    simp [commutatorElement_def, mul_assoc]
-  have hba : b⁻¹ * a⁻¹ = a⁻¹ * b⁻¹ := by
-    simpa [mul_assoc] using congrArg (fun t : G => t⁻¹) hab
-  rw [h1, h2, hba]
-  have hx' : Commute ⁅a⁻¹, x⁻¹⁆ ⁅b⁻¹, x⁻¹⁆ := by
-    have h1' : ⁅a⁻¹, x⁻¹⁆ = ⁅x⁻¹, a⁻¹⁆⁻¹ := by simp [commutatorElement_inv]
-    have h2' : ⁅b⁻¹, x⁻¹⁆ = ⁅x⁻¹, b⁻¹⁆⁻¹ := by simp [commutatorElement_inv]
-    change ⁅a⁻¹, x⁻¹⁆ * ⁅b⁻¹, x⁻¹⁆ = ⁅b⁻¹, x⁻¹⁆ * ⁅a⁻¹, x⁻¹⁆
-    rw [h1', h2']
-    calc
-      ⁅x⁻¹, a⁻¹⁆⁻¹ * ⁅x⁻¹, b⁻¹⁆⁻¹ = (⁅x⁻¹, b⁻¹⁆ * ⁅x⁻¹, a⁻¹⁆)⁻¹ := by rw [mul_inv_rev]
-      _ = (⁅x⁻¹, a⁻¹⁆ * ⁅x⁻¹, b⁻¹⁆)⁻¹ := by rw [hx]
-      _ = ⁅x⁻¹, b⁻¹⁆⁻¹ * ⁅x⁻¹, a⁻¹⁆⁻¹ := by rw [mul_inv_rev]
-  rw [hx'.eq]
 
 /-- From the Hall-Witt identity plus `A₁ = ⁅⁅b⁻¹,x⁻¹⁆,w⁻¹⁆` central in `S` and
 `A₃ = ⁅⁅x,w⁻¹⁆,b⁆ = 1`, one gets `A₂ = ⁅⁅b,w⁆⁻¹,x⁻¹⁆ = A₁⁻¹` (paper (4.9), L852–L861). -/
@@ -770,86 +638,6 @@ public lemma commSub_le_commutator (x : G) (B A : Subgroup G) (hxB : x ∈ B) :
     rcases hg with ⟨a, ha, rfl⟩
     exact Subgroup.commutator_mem_commutator hxB ha)
 
-/-- Conjugation invariance of `commChain B A j ⊔ ⁅B,B⁆` under elements of `A ∪ B`,
-given `[B,B] ⊆ Z(S₀)`, `A ≤ N(B)`, and `A` normalises each chain term. -/
-public lemma conj_inv_chainB' {S₀ A B : Subgroup G} (j : ℕ)
-    (hB'Z : ⁅B, B⁆ ≤ centerIn S₀) (_hB_norm : A ≤ Subgroup.normalizer (B : Set G))
-    (hA_chain : ∀ j, ⁅A, commChain B A j⁆ ≤ commChain B A j)
-    (hchain_le_B : ∀ j, commChain B A j ≤ B)
-    (hA_le_S0 : A ≤ S₀) (hB_le_S0 : B ≤ S₀)
-    {t : G} (ht : t ∈ (A : Set G) ∪ (B : Set G)) :
-    ∀ w ∈ commChain B A j ⊔ ⁅B, B⁆, t * w * t⁻¹ ∈ commChain B A j ⊔ ⁅B, B⁆ := by
-  rcases ht with htA | htB
-  · -- t ∈ A
-    have hcentral : ∀ β ∈ ⁅B, B⁆, β * t = t * β := by
-      intro β hβ
-      have hβC : β ∈ Subgroup.centralizer (S₀ : Set G) :=
-        (inf_le_right : centerIn S₀ ≤ Subgroup.centralizer (S₀ : Set G)) (hB'Z hβ)
-      exact ((Subgroup.mem_centralizer_iff.mp hβC) t (hA_le_S0 htA)).symm
-    have hmemA : ∀ w ∈ commChain B A j, t * w * t⁻¹ ∈ commChain B A j := by
-      intro w hw
-      have h : ⁅t, w⁆ ∈ commChain B A j := hA_chain j (Subgroup.commutator_mem_commutator htA hw)
-      have heq : t * w * t⁻¹ = ⁅t, w⁆ * w := by simp [commutatorElement_def, mul_assoc]
-      rw [heq]
-      exact (commChain B A j).mul_mem h hw
-    intro w hw
-    have hw' : w ∈ Subgroup.closure (((commChain B A j : Set G) ∪ ((⁅B, B⁆ : Subgroup G) : Set G))) := by
-      simpa [Subgroup.sup_eq_closure] using hw
-    refine Subgroup.closure_induction (k := (commChain B A j : Set G) ∪ ((⁅B, B⁆ : Subgroup G) : Set G))
-      (p := fun z _hz => t * z * t⁻¹ ∈ commChain B A j ⊔ ⁅B, B⁆) ?_ ?_ ?_ ?_ hw'
-    · intro z hz
-      rcases hz with hzCh | hzB'
-      · exact Subgroup.mem_sup_left (hmemA z hzCh)
-      · have heq : t * z * t⁻¹ = z := by
-          calc
-            t * z * t⁻¹ = (z * t) * t⁻¹ := by rw [hcentral z hzB']
-            _ = z := by simp [mul_assoc]
-        rw [heq]
-        exact Subgroup.mem_sup_right hzB'
-    · simp
-    · intro a b _ha _hb ha hb
-      have heq : t * (a * b) * t⁻¹ = (t * a * t⁻¹) * (t * b * t⁻¹) := by simp [mul_assoc]
-      rw [heq]
-      exact (commChain B A j ⊔ ⁅B, B⁆).mul_mem ha hb
-    · intro a _ha ha
-      have heq : t * a⁻¹ * t⁻¹ = (t * a * t⁻¹)⁻¹ := by simp [mul_assoc]
-      rw [heq]
-      exact (commChain B A j ⊔ ⁅B, B⁆).inv_mem ha
-  · -- t ∈ B
-    have hcentral : ∀ β ∈ ⁅B, B⁆, β * t = t * β := by
-      intro β hβ
-      have hβC : β ∈ Subgroup.centralizer (S₀ : Set G) :=
-        (inf_le_right : centerIn S₀ ≤ Subgroup.centralizer (S₀ : Set G)) (hB'Z hβ)
-      exact ((Subgroup.mem_centralizer_iff.mp hβC) t (hB_le_S0 htB)).symm
-    have hmemB : ∀ w ∈ commChain B A j, t * w * t⁻¹ ∈ commChain B A j ⊔ ⁅B, B⁆ := by
-      intro w hw
-      have h : ⁅t, w⁆ ∈ ⁅B, B⁆ := Subgroup.commutator_mem_commutator htB (hchain_le_B j hw)
-      have heq : t * w * t⁻¹ = ⁅t, w⁆ * w := by simp [commutatorElement_def, mul_assoc]
-      rw [heq]
-      exact (commChain B A j ⊔ ⁅B, B⁆).mul_mem (Subgroup.mem_sup_right h) (Subgroup.mem_sup_left hw)
-    intro w hw
-    have hw' : w ∈ Subgroup.closure (((commChain B A j : Set G) ∪ ((⁅B, B⁆ : Subgroup G) : Set G))) := by
-      simpa [Subgroup.sup_eq_closure] using hw
-    refine Subgroup.closure_induction (k := (commChain B A j : Set G) ∪ ((⁅B, B⁆ : Subgroup G) : Set G))
-      (p := fun z _hz => t * z * t⁻¹ ∈ commChain B A j ⊔ ⁅B, B⁆) ?_ ?_ ?_ ?_ hw'
-    · intro z hz
-      rcases hz with hzCh | hzB'
-      · exact hmemB z hzCh
-      · have heq : t * z * t⁻¹ = z := by
-          calc
-            t * z * t⁻¹ = (z * t) * t⁻¹ := by rw [hcentral z hzB']
-            _ = z := by simp [mul_assoc]
-        rw [heq]
-        exact Subgroup.mem_sup_right hzB'
-    · simp
-    · intro a b _ha _hb ha hb
-      have heq : t * (a * b) * t⁻¹ = (t * a * t⁻¹) * (t * b * t⁻¹) := by simp [mul_assoc]
-      rw [heq]
-      exact (commChain B A j ⊔ ⁅B, B⁆).mul_mem ha hb
-    · intro a _ha ha
-      have heq : t * a⁻¹ * t⁻¹ = (t * a * t⁻¹)⁻¹ := by simp [mul_assoc]
-      rw [heq]
-      exact (commChain B A j ⊔ ⁅B, B⁆).inv_mem ha
 
 /-! ## Theorem 4.1 (paper L781–L917) and Corollary 4.1 (L919–L925)
 

@@ -114,22 +114,6 @@ public theorem hypothesisA_of_normal_complement
       A2 := hfaithful
       A3 := hrank }
 
-/-- The supplied complement is nilpotent by the checked Peterfalvi Section 1
-theorem once the full Suzuki hypotheses have been assembled. -/
-public theorem normal_complement_nilpotent
-    {X : Type u} [Group X] [Finite X] {M Q : Subgroup X} {t : X}
-    (hM : IsStronglyEmbedded M)
-    (h2trans :
-      MulAction.IsMultiplyPretransitive X (conjugateCosetSpace M) 2)
-    (hfaithful : FaithfulSMul X (conjugateCosetSpace M))
-    (hrank : TwoRankAtLeastTwo X)
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (hQ : IsNormalComplementIn M (M ⊓ rightConjugate M t) Q) :
-    Group.IsNilpotent Q := by
-  exact PFchapter1section2.proposition_1_b_of_hA
-    M (M ⊓ rightConjugate M t) Q t
-    (hM.hypothesisA_of_normal_complement
-      h2trans hfaithful hrank ht htM hQ)
 
 end IsStronglyEmbedded
 end CFSG.BenderSuzuki

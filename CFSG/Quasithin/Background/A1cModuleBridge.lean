@@ -25,8 +25,6 @@ variable {A Q}
 theorem actEnd_mem_opRing (a : A) : actEnd A Q a ∈ opRing A Q :=
   Subring.subset_closure ⟨a, rfl⟩
 
-theorem opRing_smul_def (r : ↥(opRing A Q)) (p : Additive Q) :
-    r • p = (r : AddMonoid.End (Additive Q)) p := rfl
 
 @[expose] def opStab (L : Subgroup Q) : Subring (AddMonoid.End (Additive Q)) where
   carrier := {f | ∀ p : Additive Q, Additive.toMul p ∈ L → Additive.toMul (f p) ∈ L}

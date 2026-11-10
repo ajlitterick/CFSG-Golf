@@ -96,10 +96,6 @@ theorem perm_four_aut_inner (α : Perm (Fin 4) →* Perm (Fin 4)) (hα : Functio
   rw [Equiv.Perm.mclosure_swap_castSucc_succ 3] at hgen
   exact hgen (Submonoid.mem_top σ)
 
-theorem perm_five_conj_two : ∀ a b c d : Fin 5, a ≠ b → c ≠ d →
-    (swap a b * swap c d) ^ 3 = 1 → swap a b * swap c d ≠ 1 →
-      ∃ π : Perm (Fin 5), π * swap 0 1 * π⁻¹ = swap a b ∧ π * swap 1 2 * π⁻¹ = swap c d :=
-  Certificates.certificate4951.2.1
 
 theorem perm_five_conj_three : ∀ a b c d e f : Fin 5,
     (a ≠ b ∧ c ≠ d ∧ e ≠ f ∧ (swap a b * swap c d) ^ 3 = 1 ∧ swap a b * swap c d ≠ 1 ∧

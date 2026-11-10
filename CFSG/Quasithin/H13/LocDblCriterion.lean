@@ -118,15 +118,6 @@ theorem normalizer_le_of_no_conj_double {T K B : Subgroup X} (hK : IsSimpleGroup
   have hRY₁ : R ≤ Y₁ := le_sup_right
   exact map_conj_eq_iff.mp (hno Y₁ hRY₁ hY₁K hY₁ne u hBY₁ hCY₁)
 
-theorem simple_Sylow_overgroup_Ccomponent_uniqueness_normalizer {p : ℕ} [Fact p.Prime]
-    (T : Sylow p X) {K : Subgroup X} (hK : IsSimpleGroup ↥K) (_hKn : ∃ a b : ↥K, a * b ≠ b * a)
-    (_hKsub : K.IsSubnormal)
-    (huniq : ∀ Y : Subgroup X, (T : Subgroup X) ⊓ K ≤ Y → Y < K → (cComp Y).Subsingleton)
-    {B : Subgroup X} (hBK : B ≤ K) (hB : B ∈ cComp (B ⊔ (T : Subgroup X))) :
-    (T : Subgroup X) ⊓ Subgroup.normalizer (K : Set X) ≤
-      (T : Subgroup X) ⊓ Subgroup.normalizer (B : Set X) := fun _ hu =>
-  ⟨hu.1, normalizer_le_of_no_conj_double hK hBK hB
-    (fun Y hRY hYK hYne _ hB hBg => huniq Y hRY (lt_of_le_of_ne hYK hYne) hBg hB) hu⟩
 
 theorem finite_sq_primes {n : ℕ} (hn : n ≠ 0) : {r : ℕ | r.Prime ∧ r ^ 2 ∣ n}.Finite := by
   refine (Set.finite_Iic n).subset fun r hr => ?_
@@ -146,74 +137,6 @@ theorem three_le_card_primeFactors_radQuot {Y B : Subgroup X} (hB : B ∈ cComp 
     (CFSG.LocalAnalysis.ComponentInitial.isSolvable_of_card_primeFactors_le_two
       (G := ↥B ⧸ CFSG.solvableRadical ↥B) (by omega))
 
-theorem double_Ccomponent_three_squared_prime_divisors {H K B : Subgroup X} (hB : B ∈ cComp H)
-    (hBK : B ≤ K) :
-    (∀ s ∈ H ⊓ Subgroup.normalizer (K : Set X), CFSG.conjugate B s ≠ B →
-      3 ≤ {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card K}.ncard) ∧
-    ({r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card K}.ncard ≤ 2 →
-      H ⊓ Subgroup.normalizer (K : Set X) ≤ H ⊓ Subgroup.normalizer (B : Set X)) := by
-  have key : ∀ s ∈ H ⊓ Subgroup.normalizer (K : Set X), CFSG.conjugate B s ≠ B →
-      3 ≤ {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card K}.ncard := by
-    intro s hs hne
-    have hdvd := (Ccomponent_full_radical_product_divisor hB hBK).1 s hs hne
-    have hsq : Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) ^ 2 ∣ Nat.card K :=
-      (pow_two (Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)) ▸
-        mul_dvd_mul_right (card_radQuot_dvd B) _).trans hdvd
-    have h3 := three_le_card_primeFactors_radQuot hB
-    have hsub : ((Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors : Set ℕ) ⊆
-        {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card K} := by
-      intro r hr
-      rw [Finset.mem_coe, Nat.mem_primeFactors] at hr
-      exact ⟨hr.1, (pow_dvd_pow_of_dvd hr.2.1 2).trans hsq⟩
-    calc 3 ≤ (Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors.card := h3
-      _ = ((Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors : Set ℕ).ncard :=
-          (Set.ncard_coe_finset _).symm
-      _ ≤ _ := Set.ncard_le_ncard hsub (finite_sq_primes Nat.card_pos.ne')
-  refine ⟨key, fun h2 s hs => ⟨hs.1, ?_⟩⟩
-  by_contra hsB
-  have hne : CFSG.conjugate B s ≠ B := by
-    intro h
-    apply hsB
-    have : s⁻¹ ∈ Subgroup.normalizer (B : Set X) := map_conj_eq_iff.mp h
-    simpa using Subgroup.inv_mem _ this
-  have := key s hs hne
-  omega
-
-theorem three_le_sq_primes_of_conj {Y B : Subgroup X} (hB : B ∈ cComp Y) {g : X}
-    (hBg : B.map (MulAut.conj g).toMonoidHom ∈ cComp Y)
-    (hne : B.map (MulAut.conj g).toMonoidHom ≠ B) :
-    3 ≤ {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card Y}.ncard := by
-  set C : Subgroup X := B.map (MulAut.conj g).toMonoidHom with hC
-  let e : ↥B ≃* ↥C := B.equivMapOfInjective _ (MulAut.conj g).injective
-  have hdvd := card_dvd_of_mem_cComp hB hBg (Ne.symm hne)
-    (sup_le (le_of_mem_cComp hB) (le_of_mem_cComp hBg))
-  rw [← card_radQuot_congr e] at hdvd
-  have hsq : Nat.card (↥B ⧸ CFSG.solvableRadical ↥B) ^ 2 ∣ Nat.card Y :=
-    (pow_two (Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)) ▸
-      mul_dvd_mul_right (card_radQuot_dvd B) _).trans hdvd
-  have h3 := three_le_card_primeFactors_radQuot hB
-  have hsub : ((Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors : Set ℕ) ⊆
-      {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card Y} := by
-    intro r hr
-    rw [Finset.mem_coe, Nat.mem_primeFactors] at hr
-    exact ⟨hr.1, (pow_dvd_pow_of_dvd hr.2.1 2).trans hsq⟩
-  calc 3 ≤ (Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors.card := h3
-    _ = ((Nat.card (↥B ⧸ CFSG.solvableRadical ↥B)).primeFactors : Set ℕ).ncard :=
-        (Set.ncard_coe_finset _).symm
-    _ ≤ _ := Set.ncard_le_ncard hsub (finite_sq_primes Nat.card_pos.ne')
-
-theorem simple_Sylow_overgroup_square_prime_normalizer {p : ℕ} [Fact p.Prime] (T : Sylow p X)
-    {K : Subgroup X} (hK : IsSimpleGroup ↥K) (_hKsub : K.IsSubnormal)
-    (hsq : ∀ Y : Subgroup X, (T : Subgroup X) ⊓ K ≤ Y → Y < K →
-      {r : ℕ | r.Prime ∧ r ^ 2 ∣ Nat.card Y}.ncard ≤ 2)
-    {B : Subgroup X} (hBK : B ≤ K) (hB : B ∈ cComp (B ⊔ (T : Subgroup X))) :
-    (T : Subgroup X) ⊓ Subgroup.normalizer (K : Set X) ≤
-      (T : Subgroup X) ⊓ Subgroup.normalizer (B : Set X) := fun u hu =>
-  ⟨hu.1, normalizer_le_of_no_conj_double hK hBK hB (fun Y hRY hYK hYne g hBY hBg => by
-    by_contra hne
-    have h3 := three_le_sq_primes_of_conj hBY hBg hne
-    have h2 := hsq Y hRY (lt_of_le_of_ne hYK hYne)
-    omega) hu⟩
 
 @[expose] def NoIsoDouble {A : Type*} [Group A] (Y : Subgroup A) : Prop :=
   ∀ U ∈ cComp Y, ∀ V ∈ cComp Y, Nonempty (↥U ≃* ↥V) → U = V

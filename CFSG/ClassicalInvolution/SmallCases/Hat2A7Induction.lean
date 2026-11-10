@@ -279,10 +279,6 @@ theorem false_of_inductive2A7 (h : CITInductive2A7) {F : Type} [Group F] [Finite
   obtain ⟨i, -⟩ := hmem
   exact false_of_a7System_of_simple hXnab D i
 
-theorem cit2A7_of_inductive (h : CITInductive2A7) : CIT2A7 := by
-  intro F _ _ _ hnab z hz K hzK hK _ _ hw
-  obtain ⟨L, hL⟩ := exists_isClassical2A7_of_witness hz hzK hK hw.2
-  exact (false_of_inductive2A7 h hnab hL).elim
 
 end Sanity
 
@@ -535,9 +531,5 @@ theorem coreStep2A7_of_inputs (GS : GoldschmidtStronglyClosedExponent) (TW : Twi
 
 @[expose] def StepReduction2A7 : Prop := CoreStep2A7 → ∀ n, CITStep2A7 n
 
-theorem cit2A7_of_milestone (h : GoldschmidtMilestone) (TW : TwinExclusion)
-    (LOC : LocalOddCentralStep2A7) (red : StepReduction2A7) : CIT2A7 :=
-  cit2A7_of_inductive (citInductive2A7_of_step
-    (red (coreStep2A7_of_inputs (goldschmidtStronglyClosedExponent_of_milestone h) TW LOC)))
 
 end CFSG.ClassicalInvolution.Hat2A7

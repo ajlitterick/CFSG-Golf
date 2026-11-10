@@ -141,11 +141,6 @@ theorem ggAutStructureAt_PSU : GGAutStructureAt .PSU := by
   · intro ψ G₀ hadm
     exact absurd hadm.2.1 hf
 
-theorem ggAutStructureRest_of_PSU (hSp : GGAutStructureAt .PSp)
-    (hP : GGAutStructureAt .POmegaPlus) (hM : GGAutStructureAt .POmegaMinus)
-    (hF4 : GGAutStructureAt .F4) (hE6 : GGAutStructureAt .E6) (hE7 : GGAutStructureAt .E7)
-    (hE8 : GGAutStructureAt .E8) (h2E6 : GGAutStructureAt .twistedE6) : GGAutStructureRest :=
-  ⟨ggAutStructureAt_PSU, hSp, hP, hM, hF4, hE6, hE7, hE8, h2E6⟩
 
 end Family
 

@@ -16,8 +16,5 @@ open CFSG.Open hiding StatedSL StatedSp StatedSU StatedOmega StatedQuadMinus Sta
     (IsSL3U M T L ∧ ¬ IsSL3Full M T L) ∨ (IsSp4U M T L ∧ ¬ IsSp4Full M T L) →
     ∃ T' : Subgroup G, T' ≤ T ∧ T' ≠ T ∧ PUHyp (L ⊔ T') T' L
 
-variable {G : Type} [Group G]
-
-variable [Finite G] {M T L : Subgroup G}
 
 end CFSG.Quasithin.MS93.S34R

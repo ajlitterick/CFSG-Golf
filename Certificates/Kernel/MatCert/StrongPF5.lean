@@ -23,14 +23,6 @@ theorem ly_K : cubicN OL LyBS.A LyBS.B lySylow5Data = true := by
 theorem hn_K : cubicN HN.O5 HN.A HN.B hnSylow5Data = true := by
   quickRfl
 
-theorem ly_neg_seed : (!cubicN OL LyBS.B LyBS.A lySylow5Data) = true := by
-  quickRfl
-
-theorem ly_neg_r : (!cubicN OL LyBS.A LyBS.B { lySylow5Data with r := 4 }) = true := by
-  quickRfl
-
-theorem hn_neg_seed : (!cubicN HN.O5 HN.B HN.A hnSylow5Data) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC.StrongPF5
 

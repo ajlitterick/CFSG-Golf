@@ -82,9 +82,6 @@ theorem e18_7 (h : E187Hyps p f) (h4 : E187E4C p f) : E18_7 p f := by
   obtain ⟨z, hz, hzW, hzH⟩ := c.exists_z
   exact c.part1 h h4 hz hzW (c.part2 h h4 hz hzH) ha2 ha1 haH hgt
 
-variable (p f) in
-theorem e18_8z (h : E187Hyps p f) (h4 : E187E4C p f) : E18_8z p f :=
-  e18_8z_of_e18_7 p f (e18_7 p f h h4)
 
 end Main
 

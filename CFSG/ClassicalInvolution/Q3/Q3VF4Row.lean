@@ -94,21 +94,6 @@ theorem weakCT3_f4_subgroup_of_frame {G : Type} [Group G] (U : Fin 4 → Subgrou
     rw [← Subgroup.map_map (f := Ψ') (g := (⨆ j, U j).subtype), hblk k,
       Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr (le_iSup U k)]
 
-theorem weakCT3_f4 (hC6 : V6Collapse) (hC3 : B3Collapse) {X : Type} [Group X]
-    (U : Fin 4 → Subgroup X) (hgen : ⨆ k, U k = ⊤)
-    (hcomm : ∀ i j : Fin 4, i.val + 1 < j.val → ∀ a ∈ U i, ∀ b ∈ U j, a * b = b * a)
-    (hpair : ∀ i j : Fin 4, i.val + 1 = j.val → i.val ≠ 1 →
-      ∃ W, LinearBlockStandardPair (GaloisField 3 1) W (U i) (U j))
-    (hsp : ∃ W, SymplecticBlockStandardPair (GaloisField 3 1) W (U 1) (U 2)) :
-    ∃ Ψ : (adjointGroup .F4 (GaloisField 3 1)) →* X, Function.Surjective Ψ ∧
-      Ψ.ker ≤ Subgroup.center _ ∧ IsQuasisimple X ∧
-      Subgroup.center X = (Subgroup.center (adjointGroup .F4 (GaloisField 3 1))).map Ψ ∧
-      LieModel (X ⧸ Subgroup.center X) .F4 0 3 1 ∧
-      ∀ k, (CurtisTits.rankOne (Steinberg.Adjoint.f4Datum (GaloisField 3 1)).rootGroup k).map Ψ =
-        U k := by
-  obtain ⟨fr⟩ := exists_f4Frame3 U hcomm hC6 hC3 (hpair 0 1 (by decide) (by decide))
-    (hpair 2 3 (by decide) (by decide)) hsp
-  exact weakCT3_f4_of_frame U hgen hcomm fr
 
 theorem weakCT3_f4_subgroup (hC6 : V6Collapse) (hC3 : B3Collapse) {G : Type} [Group G]
     (U : Fin 4 → Subgroup G)
@@ -125,28 +110,6 @@ theorem weakCT3_f4_subgroup (hC6 : V6Collapse) (hC3 : B3Collapse) {G : Type} [Gr
     (hpair 2 3 (by decide) (by decide)) hsp
   exact weakCT3_f4_subgroup_of_frame U hcomm fr
 
-@[expose] def WeakCT3F4Hyp : Prop :=
-  ∀ {X : Type} [Group X] (U : Fin 4 → Subgroup X),
-    (∀ i j : Fin 4, i.val + 1 < j.val → ∀ a ∈ U i, ∀ b ∈ U j, a * b = b * a) →
-    (∀ i j : Fin 4, i.val + 1 = j.val → i.val ≠ 1 →
-      ∃ W, LinearBlockStandardPair (GaloisField 3 1) W (U i) (U j)) →
-    (∃ W, SymplecticBlockStandardPair (GaloisField 3 1) W (U 1) (U 2)) →
-    ∃ Ψ : (adjointGroup .F4 (GaloisField 3 1)) →* X, Ψ.ker ≤ Subgroup.center _ ∧
-      Ψ.range = ⨆ k, U k ∧ IsQuasisimple ↥(⨆ k, U k) ∧
-      LieModel (↥(⨆ k, U k) ⧸ Subgroup.center ↥(⨆ k, U k)) .F4 0 3 1 ∧
-      ∀ k, (CurtisTits.rankOne (Steinberg.Adjoint.f4Datum (GaloisField 3 1)).rootGroup k).map Ψ =
-        U k
-
-theorem weakCT3F4Hyp_of_collapse (hC6 : V6Collapse) (hC3 : B3Collapse) : WeakCT3F4Hyp := by
-  intro X _ U hcomm hpair hsp
-  exact weakCT3_f4_subgroup hC6 hC3 U hcomm hpair hsp
-
-theorem weakCT3F4Hyp_of_check (h6 : V6CollapseCheckFast) (h3 : B3CollapseCheck) : WeakCT3F4Hyp :=
-  weakCT3F4Hyp_of_collapse (v6Collapse_of_checkFast h6) (b3Collapse_of_check h3)
-
-theorem weakCT3F4Hyp_proved :
-    WeakCT3F4Hyp :=
-  weakCT3F4Hyp_of_collapse v6Collapse_proved b3Collapse_proved
 
 end Recognition
 

@@ -129,21 +129,6 @@ theorem fixedSubgroup_a5LeviTwist (hf : 1 ≤ f) (hK : Nat.card K = (2 ^ f) ^ 2)
   rw [a5LeviTwist, fixedSubgroup_levelTwist, h2, ← h1]
   rfl
 
-theorem perfectCore_fixedSubgroup_a5LeviTwist (hf : 1 ≤ f) {k : Type} [Field k] [Algebra k K]
-    (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}
-    (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    perfectCore (fixedSubgroup (a5LeviTwist (apply_apply_eq hK hσ))) =
-      (su6Levi σ).subgroupOf (subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA) := by
-  have := finite_of_card hK
-  have : Finite (ModGL TwistTag.E6.tag K) := finite_modGL
-  rw [fixedSubgroup_a5LeviTwist hf hK hσ]
-  have hP := isPerfect_su6Levi hf hk hK hσ
-  refine CFSG.Quasithin.perfectCore_eq_self_of_perfect ?_
-  have e := subgroupOfEquivOfLe (su6Levi_le_subsystemGroup σ)
-  have : Group.IsPerfect ((su6Levi σ).subgroupOf
-      (subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA)) :=
-    Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective
-  exact Subgroup.isPerfect_iff.1 this
 
 theorem fixedSubgroup_d4LeviTwist (hf : 1 ≤ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}
     (hσ : ∀ c, σ c = c ^ 2 ^ f) :

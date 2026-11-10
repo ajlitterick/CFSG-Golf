@@ -69,29 +69,6 @@ theorem semilinConj_mem_orthDerived {g : V ≃ₗ[K] V} (hg : g ∈ orthDerived 
 
 end Conj
 
-theorem semilinConj_prodCongr
-    {K : Type*} [Field K] {V E : Type*}
-    [AddCommGroup V] [Module K V] [AddCommGroup E] [Module K E]
-    (F : V ≃+ V) (C : E ≃+ E) (σ : K ≃+* K)
-    (hF : ∀ (c : K) (v : V), F (c • v) = σ c • F v)
-    (hC : ∀ (c : K) (w : E), C (c • w) = σ c • C w)
-    (g : V ≃ₗ[K] V) (h : E ≃ₗ[K] E) :
-    semilinConj (F.prodCongr C) σ
-      (fun c z => Prod.ext (by exact hF c z.1) (by exact hC c z.2))
-      (g.prodCongr h) =
-    (semilinConj F σ hF g).prodCongr (semilinConj C σ hC h) := by
-  apply LinearEquiv.ext
-  rintro ⟨v, w⟩
-  have hFapp : ∀ (a : V) (b : E), (F.prodCongr C) (a, b) = (F a, C b) :=
-    fun a b => rfl
-  have hsymm : (F.prodCongr C).symm (v, w) = (F.symm v, C.symm w) := rfl
-  rw [semilinConj_apply]
-  change (F.prodCongr C) ((g.prodCongr h) ((F.prodCongr C).symm (v, w))) =
-    ((semilinConj F σ hF g).prodCongr (semilinConj C σ hC h)) (v, w)
-  rw [hsymm,
-    show (g.prodCongr h) (F.symm v, C.symm w) =
-      (g (F.symm v), h (C.symm w)) from rfl,
-    hFapp, LinearEquiv.prodCongr_apply, semilinConj_apply, semilinConj_apply]
 
 section Commute
 

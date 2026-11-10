@@ -103,33 +103,5 @@ theorem D1CentralizerInput.exists_reduced_centralizer_data {G : Type} [Group G] 
     rw [← map_pow]
     exact (congrArg _ (Subtype.ext (hEexp c hc))).trans (map_one _)
 
-theorem false_of_centralizerInput (hβ : KFactBeta) (hα : KFactAlpha) {G : Type} [Group G]
-    [Finite G] (hs : IsSimpleGroup G) (hnab : ∃ a b : G, a * b ≠ b * a) (hK : IsKProper G)
-    {p : ℕ} [Fact p.Prime] {P : Sylow p G} {M : Subgroup G} {z : G}
-    (h : D1CentralizerInput p P M z) : False := by
-  obtain ⟨X, _, _, Rbar, X₀, zbar, hred, hR4, hX, hz, hzp, hzR, ⟨K, hK, hKn⟩,
-    ⟨v, hvR, hvp, hv⟩, E, L, hER, hEcard, hEexp, hEZ, e, hSL⟩ :=
-    h.exists_reduced_centralizer_data hs hnab hK
-  by_cases hzK : zbar ∈ K
-  · obtain ⟨hC, hout, he⟩ := hred.outTwo_of_mem hR4 hX hz hzp hK hKn hzK hα
-    exact false_of_outTwo hred.prime hred.ne_two Rbar hR4 (mem_sylow_of_mem_center hz hzp Rbar)
-      hzK hzp hzR hC hout hvR hvp hv he
-  · obtain ⟨hZK, hcyc, hfacts⟩ := hred.rankOneLieAutFacts_of_not_mem hR4 hX hz hzp hK hKn hzK hβ
-    exact false_of_rankOneLieAutFacts hred.ne_two hZK hfacts hEcard hEexp
-      (inf_centralizer_eq_center_map_of_isCyclic hER hEexp hEZ hz hzp hcyc) e hSL
-
-theorem D1Extremal.centralizerInput_of_hasPrimeConstraint {G : Type} [Group G] [Finite G]
-    {p : ℕ} [Fact p.Prime] {P : Sylow p G} {M : Subgroup G} (hloc : D1Local p P M)
-    {H R : Subgroup G} (h : D1Extremal p P M H R) (hcon : HasPrimeConstraint (G := H) p) :
-    ∃ z : G, D1CentralizerInput p P M z := by
-  obtain ⟨z, -, hzp, hzc, huniq, hCM, hcoreM, -, -,
-    ⟨D, hDR, hD, hDcard, hzD, -, hDrank⟩, E, hER, hEcard, hEexp, hEZ, e, hSL⟩ :=
-    h.exists_sl_two_of_hasPrimeConstraint hloc hcon
-  exact ⟨z, h.ne_two, h.sylow_le, h.weakCore_le,
-    betaFour_all_sylows_rank_ge_four hloc.beta P, hzp, hzc, huniq, hCM, hcoreM,
-    ⟨D, hDR.trans h.le_P, hD, hDcard, hzD, hDrank⟩,
-    ⟨E, hER.trans h.le_P, hEcard, hEexp, hEZ, e,
-      hSL.trans (Subgroup.map_mono fun x hx =>
-        Subgroup.mem_subgroupOf.mpr (Subgroup.mem_subgroupOf.mp hx).2)⟩⟩
 
 end CFSG.AGLEmbedding

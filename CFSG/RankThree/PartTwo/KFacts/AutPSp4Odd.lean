@@ -86,16 +86,6 @@ section Induced
 
 variable {G : Type*} [Group G] [Finite G] (L : Subgroup G)
 
-theorem inducesKindPSp_two_iff (hodd : ringChar K ≠ 2)
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* StatedProj (StatedSp 2 K)) (x : G) (k : AutKind) :
-    InducesKindPSp 2 K L x k ↔ InducesKind L (stdPinnedPSp 2 K) e x k :=
-  inducesKindPSp_iff_of_stable L (stdPinnedPSp_two_stable hodd) e x k
-
-theorem inducesKindPSp_two_unique (hodd : ringChar K ≠ 2) {x : G} {k₁ k₂ : AutKind}
-    (h₁ : InducesKindPSp 2 K L x k₁) (h₂ : InducesKindPSp 2 K L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L (stdPinnedPSp_separated (by norm_num)) h₁
-    ((inducesKindPSp_two_iff L hodd e x k₂).mp h₂)
 
 theorem inducesKindPSp_two_diagonal_or_field (hodd : ringChar K ≠ 2) {x : G} (hx3 : x ^ 3 = 1)
     (hout : InducesOuterTheta x L)

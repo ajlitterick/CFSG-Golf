@@ -47,20 +47,5 @@ open CFSG.Quasithin
 
 @[expose] def commutes (x y : Array GF8) : Bool := mulArr x y == mulArr y x
 
-@[expose] def rankCheck (Xs : List (Array GF8)) : Bool :=
-  let Om := Xs.filter cube1
-  Om.all fun x =>
-    let cx := Om.filter (commutes x)
-    let sx := [oneArr, x, mulArr x x]
-    x == oneArr || cx.all fun y =>
-      sx.contains y ||
-        let sy := [oneArr, y, mulArr y y]
-        let P := sx.flatMap fun u => sy.map fun v => mulArr u v
-        (cx.filter (commutes y)).all fun z => P.contains z
-
-@[expose] def d4SylowCheck : Bool :=
-  let Xs := sylowElems
-  Xs.length == 81 && decide Xs.Nodup &&
-    Xs.all (fun x => Xs.contains (mulArr x genA) && Xs.contains (mulArr x genB)) && rankCheck Xs
 
 end CFSG.AGLEmbedding.D4Two

@@ -137,13 +137,6 @@ theorem card_pairs_congr (q : fixD → fixD → Prop) (q' : chainD.originalSubgr
   Nat.card_congr (Equiv.subtypeEquiv (fixDEquiv.toEquiv.prodCongr fixDEquiv.toEquiv)
     fun p => h p.1 p.2)
 
-theorem card_pairs_fixD : Nat.card {p : fixD × fixD //
-    orderOf p.1 = 2 ∧ orderOf p.2 = 3 ∧ orderOf (p.1 * p.2) = 7} = 336 := by
-  rw [← card_pairs_QD]
-  refine card_pairs_congr (fun a b => orderOf a = 2 ∧ orderOf b = 3 ∧ orderOf (a * b) = 7)
-    (fun a b => orderOf a = 2 ∧ orderOf b = 3 ∧ orderOf (a * b) = 7) fun a b => ?_
-  rw [← MulEquiv.orderOf_eq fixDEquiv a, ← MulEquiv.orderOf_eq fixDEquiv b,
-    ← MulEquiv.orderOf_eq fixDEquiv (a * b), map_mul]
 
 theorem card_pairs_fixD' : Nat.card {p : fixD × fixD // orderOf p.1 = 2 ∧ orderOf p.2 = 3 ∧
     orderOf (p.1 * p.2) = 7 ∧ orderOf (p.1 * p.2 * p.1⁻¹ * p.2⁻¹) = 4} = 336 := by
@@ -217,10 +210,6 @@ theorem exists_sylow_fixD : ∃ (W : Sylow 2 fixD) (r s : fixD),
   exact ⟨hp.toSylow (by rw [hidx]; norm_num), r, s, hp.toSylow_coe _, rfl, rfl,
     by rw [← hcard]; rfl⟩
 
-theorem card_involutions_fixD : Nat.card {d : fixD // orderOf d = 2} = 21 := by
-  rw [← card_involutions_QD]
-  exact Nat.card_congr (Equiv.subtypeEquiv fixDEquiv.toEquiv fun d => by
-    rw [MulEquiv.toEquiv_eq_coe, MulEquiv.coe_toEquiv, MulEquiv.orderOf_eq])
 
 theorem fixCount_of_mem_fixD {d : P} (hd : d ∈ fixD) (h2 : orderOf d = 2) :
     Models.fixCount (d : Equiv.Perm (Fin 315)) = 11 :=
@@ -238,33 +227,5 @@ namespace CFSG.ComponentClassification.J2Cover
 
 open Subgroup CFSG.Sporadic.Schreier CFSG.ComponentClassification.OuterAutomorphisms External
 
-theorem ctss_j2_exact_outer_fixed_factor_and_global_lift_displacement :
-    (∀ q : P, (betaAut q : Equiv.Perm (Fin 315)) = Models.bOut * q * Models.bOut⁻¹) ∧
-    fixC.map P.subtype = centralizerIn P Models.bOut ∧ Nat.card fixC = 336 ∧
-    ⁅fixD, fixD⁆ = fixD ∧ Nat.card fixD = 168 ∧ centralizer (fixD : Set P) ⊓ fixC = ⊥ ∧
-    fixD = closure {elemX, elemY} ∧ orderOf elemX = 2 ∧ orderOf elemY = 3 ∧
-    orderOf (elemX * elemY) = 7 ∧
-    Nat.card {p : fixD × fixD // orderOf p.1 = 2 ∧ orderOf p.2 = 3 ∧ orderOf (p.1 * p.2) = 7} =
-      336 ∧
-    center fixD = ⊥ ∧ Nat.card (Outer fixD) ∣ 2 ∧
-    (∃ (W : Sylow 2 fixD) (r s : fixD), (W : Subgroup fixD) = closure {r, s} ∧
-      (r : P) = elemR ∧ (s : P) = elemS ∧ Nat.card W = 8) ∧
-    orderOf elemR = 4 ∧ orderOf elemS = 2 ∧ elemS * elemR * elemS⁻¹ = elemR⁻¹ ∧
-    Nat.card {d : fixD // orderOf d = 2} = 21 ∧
-    (∀ d ∈ fixD, orderOf d = 2 → Models.fixCount (d : Equiv.Perm (Fin 315)) = 11) ∧
-    elemC ∈ fixC ∧ elemC ∉ fixD ∧ orderOf elemC = 2 ∧
-    Models.fixCount (elemC : Equiv.Perm (Fin 315)) = 15 ∧
-    (fusionModel : Equiv.Perm (Fin 315)) = elemC ∧ Models.bigLam fusionModel = 1 := by
-  refine ⟨betaAut_apply, map_fixSub_conjOn P betaAut Models.bOut betaAut_apply, card_fixC,
-    fixD_perfect, card_fixD, centralizer_fixD_inf, fixD_eq_closure, ?_, ?_, ?_, card_pairs_fixD,
-    center_fixD, card_outer_fixD, exists_sylow_fixD, orderOf_elemR, orderOf_elemS,
-    elemS_conj_elemR, card_involutions_fixD, fun d hd h2 => fixCount_of_mem_fixD hd h2,
-    elemC_mem, elemC_not_mem, orderOf_elemC, fixCount_elemC, rfl, bigLam_fusion⟩
-  · rw [← Subgroup.orderOf_coe]
-    exact orderOf_permX
-  · rw [← Subgroup.orderOf_coe]
-    exact orderOf_permY
-  · rw [← Subgroup.orderOf_coe]
-    exact orderOf_permX_mul_permY.1
 
 end CFSG.ComponentClassification.J2Cover

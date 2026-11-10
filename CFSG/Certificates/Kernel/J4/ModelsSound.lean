@@ -363,11 +363,6 @@ theorem ktilde_bound {k : KD} (hR : kRange k = true) (hC : kChains k = true)
   rw [(kChains_parts hC).2.2]
   exact Nat.mul_le_mul_left _ hNc
 
-theorem card_nhat {k : KD} (hS : kSetup k = true) (hC : kChains k = true)
-    (hN : ∀ (H : Type) [Group H] (a b : H), relN k.RT a b →
-      Finite (Subgroup.closure ({a, b} : Set H)) ∧ Nat.card (Subgroup.closure ({a, b} : Set H)) ≤ k.BN) :
-    Nat.card (Nhat k.LET) = k.BN :=
-  le_antisymm (hN _ _ _ (model_relN hS)).2 (bn_le_card_nhat hS hC)
 
 theorem card_khat {k : KD} (hS : kSetup k = true) (hR : kRange k = true) (hC : kChains k = true)
     (hL : ∀ i < 11, wN (KShape.wrec k.WREC i) < 1000)

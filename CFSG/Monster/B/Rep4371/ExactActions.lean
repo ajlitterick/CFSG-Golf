@@ -24,8 +24,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice C
 theorem coe_Rbasis
     (t : Fin 4371) : (Rbasis t : SpaceB) = Rraw t := coe_RbasisOf _ t
 
-theorem finrank_Vst :
-    Module.finrank ℚ Vst = 4371 := finrank_V4_rStar octDataOK_true
 
 theorem row_lt_of_shape {row : Array (ℕ × ℤ)} (h : Native.packetRowShapeOK row = true) :
     ∀ e ∈ row.toList, e.1 < 4371 := by
@@ -127,8 +125,6 @@ theorem packetGen_Rraw
     rw [htau, tauB_Rraw octDataOK_true octSignOK_true ht, ← packetRows_tau ht, rowVec,
       rowSum_packet hk ht]
 
-theorem packetN_apply (k : Fin 48) (t u : Fin 4371) : packetN k t u = packetQ k t u := by
-  rw [packetN, Matrix.of_apply]
 
 theorem chi_packetElt_apply
     (k : Fin 48) (t : Fin 4371) :
@@ -139,154 +135,5 @@ theorem chi_packetElt_apply
   refine Finset.sum_congr rfl fun u _ => ?_
   rw [Submodule.coe_smul, coe_Rbasis]
 
-theorem toMatrix_chi_packetElt
-    (k : Fin 48) :
-    LinearMap.toMatrix Rbasis Rbasis (chi (packetElt k) : Vst →ₗ[ℚ] Vst) = (packetN k)ᵀ := by
-  apply toMatrix_eq_transpose
-  intro t
-  rw [chi_packetElt_apply]
-  simp only [packetN_apply]
-
-theorem bform_Rraw_GR
-    (t u : Fin 4371) : bform (Rraw t) (Rraw u) = GR t u := by
-  rw [bform_Rraw octDataOK_true t.2 u.2, GR, diagonal_apply]
-  by_cases h : t = u
-  · subst h
-    rw [ite_eq_left rfl, ite_eq_left rfl, gR]
-  · rw [ite_eq_right (fun h' => h (Fin.ext h')), ite_eq_right h]
-
-theorem bform_packetGen (k : Fin 48) (v w : SpaceB) :
-    bform ((packetGen k : SpaceB ≃ₗ[ℚ] SpaceB) v) ((packetGen k : SpaceB ≃ₗ[ℚ] SpaceB) w) =
-      bform v w :=
-  (mem_AutO.1 (Gmat_le_AutO (Cgen_le_Gmat (packetGen k).2))).2 v w
-
-theorem packetN_mul_GR
-    (k : Fin 48) : packetN k * GR * (packetN k)ᵀ = GR :=
-  mul_gram_transpose (fun t => Rraw t) GR bform_Rraw_GR
-    (packetGen k : SpaceB ≃ₗ[ℚ] SpaceB).toLinearMap (bform_packetGen k) (packetN k)
-    fun t => by
-      rw [LinearEquiv.coe_coe, packetGen_Rraw]
-      simp only [packetN_apply]
-
-theorem det_GR_ne_zero : GR.det ≠ 0 := by
-  rw [GR, det_diagonal, Finset.prod_ne_zero_iff]
-  intro t _
-  split_ifs <;> norm_num
-
-theorem det_packetN_sq
-    (k : Fin 48) : (packetN k).det ^ 2 = 1 := by
-  have h := congrArg Matrix.det (packetN_mul_GR k)
-  rw [det_mul, det_mul, det_transpose] at h
-  have h' : ((packetN k).det ^ 2 - 1) * GR.det = 0 := by linear_combination h
-  rcases mul_eq_zero.1 h' with h0 | h0
-  · linear_combination h0
-  · exact absurd h0 det_GR_ne_zero
-
-theorem isUnit_packetN
-    (k : Fin 48) : IsUnit (packetN k) := by
-  rw [isUnit_iff_isUnit_det, isUnit_iff_ne_zero]
-  intro h
-  have := det_packetN_sq k
-  rw [h] at this
-  norm_num at this
-
-theorem rawModel_X_shape {k : ℕ} (h1 : 23 ≤ k) (h2 : k ≤ 2322) :
-    ∃ a d a' d', Model.rawModel k = [((1, a, d), 64), ((1, a', d'), -64)] := by
-  unfold Model.rawModel
-  rw [ite_eq_right (by omega), ite_eq_right (by omega)]
-  by_cases h3 : k ≤ 66
-  · rw [ite_eq_left h3]
-    split_ifs
-    · exact ⟨_, _, _, _, rfl⟩
-    · exact ⟨_, _, _, _, rfl⟩
-  · rw [ite_eq_right h3]
-    by_cases h4 : k ≤ 1090
-    · rw [ite_eq_left h4]
-      exact ⟨_, _, _, _, rfl⟩
-    · rw [ite_eq_right h4, ite_eq_left h2]
-      exact ⟨_, _, _, _, rfl⟩
-
-theorem labels_aux (L : Array ((ℕ × ℕ × ℕ) × (ℕ × ℕ × ℕ)))
-    (h : ((List.range 2300).all fun t =>
-      match Model.rawModel (23 + t) with
-      | [(κ, _), (κ', _)] =>
-        κ.1 == 1 && κ'.1 == 1 && L[t]! == ((0, κ.2.1, κ.2.2), (0, κ'.2.1, κ'.2.2))
-      | _ => false) = true) {t : ℕ} (ht : t < 2300) :
-    ∃ a d a' d', L[t]! = ((0, a, d), (0, a', d')) ∧
-      Rraw (23 + t) = inX (Xlift (pauliQ (false, a, d)) - Xlift (pauliQ (false, a', d'))) := by
-  have h' := List.all_eq_true.1 h t (List.mem_range.2 ht)
-  obtain ⟨a, d, a', d', hm⟩ := rawModel_X_shape (k := 23 + t) (by omega) (by omega)
-  rw [hm] at h'
-  simp only [beq_iff_eq, Bool.and_eq_true] at h'
-  refine ⟨a, d, a', d', h'.2, ?_⟩
-  rw [CFSG.Monster.B.Rep4371.Rraw_eq_interp, hm, CFSG.Monster.B.Rep4371.interp_pair,
-    CFSG.Monster.B.Rep4371.keyVec_one, CFSG.Monster.B.Rep4371.keyVec_one]
-  exact (Griess.inX_sub _ _).symm
-
-theorem packetLabels_eq {t : ℕ} (ht : t < 2300) :
-    ∃ a d a' d', Native.packetLabels[t]! = ((0, a, d), (0, a', d')) ∧
-      Rraw (23 + t) = inX (Xlift (pauliQ (false, a, d)) - Xlift (pauliQ (false, a', d'))) := by
-  have h := labelsCheck_model
-  rw [CFSG.Monster.B.Rep4371.Native.labelsCheck, native_rawModel] at h
-  exact labels_aux _ h ht
-
-theorem spin_aux (S : Array ℕ)
-    (h : ((List.range 2048).all fun t =>
-      S[t]! == (if 1024 ≤ t then 2048 else 0) + Model.oddCodes[t % 1024]! / 2) = true)
-    {t : ℕ} (ht : t < 2048) :
-    S[t]! = (if 1024 ≤ t then 2048 else 0) + Model.oddCodes[t % 1024]! / 2 ∧
-      Rraw (2323 + t) = inW (tensor (E (if 1024 ≤ t then 1 else 0)
-        (π₀ (toC Model.oddCodes[t % 1024]!))) wvec) := by
-  have h' := List.all_eq_true.1 h t (List.mem_range.2 ht)
-  refine ⟨beq_iff_eq.1 h', ?_⟩
-  rw [Rraw_spin_eq (by omega), show (2323 + t - 2323) % 1024 = t % 1024 by omega]
-  by_cases h3 : 1024 ≤ t
-  · rw [ite_eq_left (by omega : 3347 ≤ 2323 + t), ite_eq_left h3]
-    rfl
-  · rw [ite_eq_right (by omega : ¬ 3347 ≤ 2323 + t), ite_eq_right h3]
-    rfl
-
-theorem packetSpinIndices_eq {t : ℕ} (ht : t < 2048) :
-    Native.packetSpinIndices[t]! = (if 1024 ≤ t then 2048 else 0) + Model.oddCodes[t % 1024]! / 2 ∧
-      Rraw (2323 + t) = inW (tensor (E (if 1024 ≤ t then 1 else 0)
-        (π₀ (toC Model.oddCodes[t % 1024]!))) wvec) := by
-  have h := spinIndexCheck_model
-  rw [CFSG.Monster.B.Rep4371.Native.spinIndexCheck, native_oddCodes] at h
-  exact spin_aux _ h ht
-
-theorem piVis_hElt (i : Fin 24) :
-    piVis ⟨hElt i, hElt_mem_Gvis i⟩ = MulOpposite.op (Co2.alpha i) := by
-  rw [show (⟨hElt i, hElt_mem_Gvis i⟩ : Gvis) = ⟨thetaEquiv (hPair i), thetaEquiv_mem_Gvis _⟩ from
-    rfl, piVis_thetaEquiv, mk_hPair_snd]
-
-theorem rational_4371_packet_exact_actions :
-    (∀ i : Fin 23, qElt i * Short.rStar = Short.rStar * qElt i) ∧
-    (∀ i : Fin 24, hElt i ∈ Jstar) ∧
-    (∀ i : Fin 24, piVis ⟨hElt i, hElt_mem_Gvis i⟩ = MulOpposite.op (Co2.alpha i)) ∧
-    (∀ t : Fin 4371, (Rbasis t : SpaceB) = Rraw t) ∧
-    (∀ (i : Fin 23) (t : Fin 4371),
-      rhoEquiv (qElt i) (Rraw t) = ∑ u, packetQ ⟨i, by omega⟩ t u • Rraw u) ∧
-    (∀ (i : Fin 24) (t : Fin 4371),
-      hElt i (Rraw t) = ∑ u, packetQ ⟨23 + i, by omega⟩ t u • Rraw u) ∧
-    (∀ t : Fin 4371, tauB (Rraw t) = ∑ u, packetQ 47 t u • Rraw u) ∧
-    (∀ k : Fin 48,
-      LinearMap.toMatrix Rbasis Rbasis (chi (packetElt k) : Vst →ₗ[ℚ] Vst) = (packetN k)ᵀ) ∧
-    (∀ k : Fin 48, packetN k * GR * (packetN k)ᵀ = GR) ∧
-    (∀ t < 2300, ∃ a d a' d', Native.packetLabels[t]! = ((0, a, d), (0, a', d')) ∧
-      Rraw (23 + t) = inX (Xlift (pauliQ (false, a, d)) - Xlift (pauliQ (false, a', d')))) ∧
-    (∀ t < 2048,
-      Native.packetSpinIndices[t]! = (if 1024 ≤ t then 2048 else 0) + Model.oddCodes[t % 1024]! / 2 ∧
-      Rraw (2323 + t) = inW (tensor (E (if 1024 ≤ t then 1 else 0)
-        (π₀ (toC Model.oddCodes[t % 1024]!))) wvec)) ∧
-    (∀ k : Fin 48, IsUnit (packetN k)) := by
-  refine ⟨qElt_mul_rStar, hElt_mem_Jstar, piVis_hElt, coe_Rbasis, fun i t => ?_, fun i t => ?_,
-    fun t => ?_, toMatrix_chi_packetElt, packetN_mul_GR, fun t ht => packetLabels_eq ht,
-    fun t ht => packetSpinIndices_eq ht, isUnit_packetN⟩
-  · rw [← coe_packetGen_of_lt (k := ⟨i, by omega⟩) i.2]
-    exact packetGen_Rraw _ t
-  · rw [← coe_packetGen_h i]
-    exact packetGen_Rraw _ t
-  · rw [← coe_packetGen_tau]
-    exact packetGen_Rraw _ t
 
 end CFSG.Monster.B

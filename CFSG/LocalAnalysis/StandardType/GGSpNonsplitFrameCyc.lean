@@ -41,8 +41,6 @@ theorem coe_lAct_mk (z : Module.End K V) (P : K[X]) (w : LinearMap.ker (aeval z 
   (LinearMap.ker (aeval z g)).subtype ∘ₗ
     (LinearMap.applyₗ (⟨v, hv⟩ : LinearMap.ker (aeval z g))) ∘ₗ (lAct z g).toLinearMap
 
-theorem cycMap_apply (z : Module.End K V) (v : V) (hv : aeval z g v = 0) (μ : AdjoinRoot g) :
-    cycMap z v hv μ = ((lAct z g μ ⟨v, hv⟩ : LinearMap.ker (aeval z g)) : V) := rfl
 
 theorem cycMap_mk (z : Module.End K V) (v : V) (hv : aeval z g v = 0) (P : K[X]) :
     cycMap z v hv (AdjoinRoot.mk g P) = aeval z P v :=

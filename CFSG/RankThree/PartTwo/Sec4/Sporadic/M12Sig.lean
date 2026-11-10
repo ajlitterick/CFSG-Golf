@@ -16,29 +16,6 @@ open CFSG CFSG.GH74.M12.Hyp CFSG.RankThree.PartTwo.Toolkit.M12 CFSG.RankThree.Pa
   CFSG.RankThree.Asc83Table
 open scoped commutatorElement
 
-theorem of_or_not {a b : Bool} (h : (!a || b) = true) (ha : a = true) : b = true := by
-  revert h ha; cases a <;> cases b <;> decide
-
-theorem isInvT_eq_true {u : G12} (h2 : u ^ 2 = 1) (h1 : u ≠ 1) : isInvT (tbl u.1) = true := by
-  rw [isInvT, Bool.and_eq_true, beq_iff_eq, bne_iff_ne, ← tblG_mul, ← sq, h2]
-  exact ⟨tblG_one, fun h => h1 (eq_iff_tbl.mpr (h.trans tblG_one.symm))⟩
-
-theorem tbl_pow_two_pow (g : G12) (n : ℕ) : tbl (g ^ 2 ^ n).1 = tsqIter n (tbl g.1) := by
-  induction n generalizing g with
-  | zero => rw [pow_zero, pow_one]; rfl
-  | succ n ih => rw [pow_succ', pow_mul, ih, tsqIter, tsq, ← tblG_mul, sq]
-
-theorem isTwo_eq_true {g : G12} (h : g ^ 2 ^ 7 = 1) : isTwo (tbl g.1) = true := by
-  rw [isTwo, ← tbl_pow_two_pow, h, tblG_one]
-  exact beq_self_eq_true _
-
-theorem commT_eq_true {g h : G12} (hc : Commute g h) : commT (tbl g.1) (tbl h.1) = true := by
-  rw [commT, ← tblG_mul, ← tblG_mul, hc.eq]
-  exact beq_self_eq_true _
-
-theorem commute_of_commT {g h : G12} (hc : commT (tbl g.1) (tbl h.1) = true) : Commute h g := by
-  rw [commT, beq_iff_eq, ← tblG_mul, ← tblG_mul] at hc
-  exact eq_iff_tbl.mpr hc
 
 theorem exists_mem_of_mem_nf2T (B : E9Basis G12) {uT vT s : List ℕ} (hu : tbl B.a.1 = uT)
     (hv : tbl B.b.1 = vT) (hs : s ∈ nf2T uT vT) : ∃ e ∈ B.sub, tbl e.1 = s := by
@@ -47,101 +24,10 @@ theorem exists_mem_of_mem_nf2T (B : E9Basis G12) {uT vT s : List ℕ} (hu : tbl 
     (B.sub.pow_mem (subset_closure (by simp)) _), ?_⟩
   rw [tblG_mul, tblG_pow, tblG_pow, hu, hv]
 
-theorem exists_mem_E {s : List ℕ} (hs : s ∈ Toolkit.M12.ET) : ∃ e ∈ basisE.sub, tbl e.1 = s :=
-  exists_mem_of_mem_nf2T basisE tbl_z tbl_x hs
-
-theorem exists_mem_F {s : List ℕ} (hs : s ∈ Toolkit.M12.FT) : ∃ e ∈ basisF.sub, tbl e.1 = s :=
-  exists_mem_of_mem_nf2T basisF tbl_z tbl_y hs
 
 theorem exists_mem_A {s : List ℕ} (hs : s ∈ AT) : ∃ e ∈ basisA.sub, tbl e.1 = s :=
   exists_mem_of_mem_nf2T basisA tbl_z tbl_a hs
 
-theorem commConjAll_eq_true {S : List (List ℕ)} {B : Subgroup G12}
-    (hS : ∀ s ∈ S, ∃ e ∈ B, tbl e.1 = s) {u : G12}
-    (hu : ∀ e ∈ B, Commute (e * u * e⁻¹) u) : commConjAll S (tbl u.1) = true := by
-  rw [commConjAll, List.all_eq_true]
-  intro s hs
-  obtain ⟨e, he, rfl⟩ := hS s hs
-  rw [← tblG_conj]
-  exact commT_eq_true (hu e he)
-
-theorem twoConjAll_eq_true {S : List (List ℕ)} {B Y : Subgroup G12}
-    (hS : ∀ s ∈ S, ∃ e ∈ B, tbl e.1 = s) (hY : ∀ y ∈ Y, y ^ 2 ^ 7 = 1)
-    (hB : B ≤ normalizer (Y : Set G12)) {y : G12} (hy : y ∈ Y) :
-    twoConjAll S (tbl y.1) = true := by
-  rw [twoConjAll, List.all_eq_true]
-  intro s hs
-  obtain ⟨e, he, rfl⟩ := hS s hs
-  rw [← tblG_conj, ← tblG_mul]
-  exact isTwo_eq_true (hY _ (Y.mul_mem hy ((mem_normalizer_iff.mp (hB he) y).mp hy)))
-
-theorem pow_two_pow_seven_eq_one {G : Type*} [Group G] [Finite G] (h : ¬ 2 ^ 8 ∣ Nat.card G)
-    {Y : Subgroup G} (hY : IsPGroup 2 Y) {y : G} (hy : y ∈ Y) : y ^ 2 ^ 7 = 1 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨n, hn⟩ := hY.exists_card_eq
-  have hdvd : 2 ^ n ∣ Nat.card G := hn ▸ Subgroup.card_subgroup_dvd_card Y
-  have hn7 : n ≤ 7 := by
-    by_contra hc
-    exact h ((pow_dvd_pow 2 (by omega)).trans hdvd)
-  have : (⟨y, hy⟩ : Y) ^ 2 ^ 7 = 1 := by
-    rw [← orderOf_dvd_iff_pow_eq_one]
-    exact (_root_.orderOf_dvd_natCard _).trans (hn ▸ pow_dvd_pow 2 hn7)
-  simpa using congrArg Subtype.val this
-
-theorem not_dvd_card_G12 : ¬ 2 ^ 8 ∣ Nat.card G12 := by
-  rw [CFSG.Sporadic.Mathieu.card_M12]; decide
-
-theorem not_dvd_card_mulAut : ¬ 2 ^ 8 ∣ Nat.card (MulAut G12) := by
-  rw [card_mulAut]; decide
-
-theorem exists_central_involution {G : Type*} [Group G] [Finite G] {B X : Subgroup G}
-    (hX : IsPGroup 2 X) (hne : X ≠ ⊥) (hB : B ≤ normalizer (X : Set G)) :
-    ∃ u ∈ X, u ^ 2 = 1 ∧ u ≠ 1 ∧ ∀ e ∈ B, e * u * e⁻¹ ∈ X ∧
-      ∀ y ∈ X, Commute (e * u * e⁻¹) y := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Nontrivial X := (nontrivial_iff_ne_bot X).mpr hne
-  have hZ : Nontrivial (center X) := hX.center_nontrivial
-  obtain ⟨m, hm⟩ := (hX.to_subgroup (center X)).exists_card_eq
-  have hm0 : m ≠ 0 := by
-    rintro rfl
-    have := Finite.one_lt_card_iff_nontrivial.mpr hZ
-    rw [hm, pow_zero] at this
-    exact lt_irrefl 1 this
-  obtain ⟨c, hc⟩ := exists_prime_orderOf_dvd_card' (G := center X) 2
-    (by rw [hm]; exact dvd_pow_self 2 hm0)
-  have hcen : ∀ y ∈ X, Commute (((c : X) : G)) y := by
-    intro y hy
-    have := congrArg Subtype.val (mem_center_iff.mp c.2 ⟨y, hy⟩)
-    exact this.symm
-  refine ⟨((c : X) : G), (c : X).2, ?_, ?_, fun e he => ⟨?_, ?_⟩⟩
-  · have h2 := pow_orderOf_eq_one c
-    rw [hc] at h2
-    simpa using congrArg (fun w : center X => ((w : X) : G)) h2
-  · intro h1
-    have : c = 1 := Subtype.ext (Subtype.ext h1)
-    rw [this, orderOf_one] at hc
-    exact absurd hc (by norm_num)
-  · exact (mem_normalizer_iff.mp (hB he) _).mp (c : X).2
-  · intro y hy
-    have hy' : e⁻¹ * y * e ∈ X := by
-      have := (mem_normalizer_iff.mp (hB (inv_mem he)) y).mp hy
-      simpa using this
-    have h := (hcen _ hy').eq
-    show e * ((c : X) : G) * e⁻¹ * y = y * (e * ((c : X) : G) * e⁻¹)
-    calc e * ((c : X) : G) * e⁻¹ * y = e * (((c : X) : G) * (e⁻¹ * y * e)) * e⁻¹ := by group
-      _ = e * ((e⁻¹ * y * e) * ((c : X) : G)) * e⁻¹ := by rw [h]
-      _ = y * (e * ((c : X) : G) * e⁻¹) := by group
-
-theorem eq_bot_of_mem_invariant {B : Subgroup G12} {S : List (List ℕ)}
-    (hS : ∀ s ∈ S, ∃ e ∈ B, tbl e.1 = s)
-    (hno : ∀ u : G12, isInvT (tbl u.1) = true → commConjAll S (tbl u.1) = false)
-    {X : Subgroup G12} (hX : X ∈ invariantPiSubgroups ⊤ B (piOf 2)) : X = ⊥ := by
-  rw [mem_invariantPiSubgroups_piOf_iff Nat.prime_two] at hX
-  by_contra hne
-  obtain ⟨u, hu, h2, h1, hconj⟩ := exists_central_involution hX.2.1 hne hX.2.2
-  have hc := commConjAll_eq_true hS fun e he => (hconj e he).2 u hu
-  rw [hno u (isInvT_eq_true h2 h1)] at hc
-  exact Bool.noConfusion hc
 
 theorem invariant_E : invariantPiSubgroups ⊤ basisE.sub (piOf 2) = {⊥} :=
   sig_invariant_E
@@ -376,12 +262,6 @@ theorem pCore_centralizer
   rw [hn]
   exact pow_le_pow_right₀ (by norm_num) hn2
 
-theorem exists_mem_VT_of_UT {t : List ℕ} (ht : t ∈ UT) : ∃ i : Fin 3, t ∈ VT i := by
-  simp only [UT, List.mem_append] at ht
-  rcases ht with (h | h) | h
-  · exact ⟨0, h⟩
-  · exact ⟨1, h⟩
-  · exact ⟨2, h⟩
 
 theorem le_V_of_mem_invariant {Y : Subgroup G12}
     (hY : Y ∈ invariantPiSubgroups ⊤ basisA.sub (piOf 2)) (hne : Y ≠ ⊥) :
@@ -389,88 +269,9 @@ theorem le_V_of_mem_invariant {Y : Subgroup G12}
   obtain ⟨i, hi, h⟩ := sig_le_V hY hne
   exact ⟨⟨i, hi⟩, fun y hy => mem_V.mpr (h y hy)⟩
 
-theorem beta_beta (g : G12) : beta (beta g) = g := by
-  have := congrArg (fun α : MulAut G12 => α g) beta_mul_self
-  simpa using this
-
-theorem tbl_m12bp : tbl CFSG.Sporadic.Schreier.m12bp = tBp :=
-  Certificates.certificate5950
 
 @[expose] def wL (l : Int) : G12 := ⟨letterP l, letterP_mem l⟩
 
-theorem tbl_beta_wL
-    (l : Int) : tbl (beta (wL l)).1 = letterTb l := by
-  have ha : (⟨CFSG.Sporadic.Mathieu.m12gA, CFSG.Sporadic.Mathieu.m12a.2⟩ : G12) =
-      CFSG.Sporadic.Mathieu.m12a := rfl
-  have hb : (⟨CFSG.Sporadic.Mathieu.m12gB, CFSG.Sporadic.Mathieu.m12b.2⟩ : G12) =
-      CFSG.Sporadic.Mathieu.m12b := rfl
-  unfold wL letterTb
-  by_cases h1 : l = 1
-  · subst h1
-    have : (⟨letterP 1, letterP_mem 1⟩ : G12) = CFSG.Sporadic.Mathieu.m12a := by
-      apply Subtype.ext; simp [letterP]
-    rw [this, beta_m12a, ite_eq_left rfl]
-    exact tbl_m12gA
-  · by_cases h2 : l = -1
-    · subst h2
-      have : (⟨letterP (-1), letterP_mem (-1)⟩ : G12) = CFSG.Sporadic.Mathieu.m12a⁻¹ := by
-        apply Subtype.ext; simp [letterP]
-      rw [this, map_inv, beta_m12a, ite_eq_right (by decide), ite_eq_left rfl, tblG_inv]
-      exact congrArg tinv tbl_m12gA
-    · by_cases h3 : l = 2
-      · subst h3
-        have : (⟨letterP 2, letterP_mem 2⟩ : G12) = CFSG.Sporadic.Mathieu.m12b := by
-          apply Subtype.ext; simp [letterP]
-        rw [this, beta_m12b, ite_eq_right (by decide), ite_eq_right (by decide), ite_eq_left rfl]
-        exact tbl_m12bp
-      · have : (⟨letterP l, letterP_mem l⟩ : G12) = CFSG.Sporadic.Mathieu.m12b⁻¹ := by
-          apply Subtype.ext; simp [letterP, h1, h2, h3]
-        rw [this, map_inv, tblG_inv, beta_m12b, ite_eq_right h1, ite_eq_right h2,
-          ite_eq_right h3, tbl_m12bp]
-
-theorem wE_nil : wE [] = 1 := rfl
-
-theorem wE_cons (l : Int) (w : List Int) : wE (l :: w) = wL l * wE w := rfl
-
-theorem tbl_beta_wE
-    (w : List Int) : tbl (beta (wE w)).1 = wordTb w := by
-  induction w with
-  | nil => rw [wE_nil, map_one, tblG_one]; rfl
-  | cons l w ih => rw [wE_cons, map_mul, tblG_mul, ih, tbl_beta_wL]; rfl
-
-theorem elt_eq (k : Idx) : elt k = wE (wrd 0 k.1) * (wE (wrd 1 k.2.1) * (wE (wrd 2 k.2.2.1) *
-    (wE (wrd 3 k.2.2.2.1) * wE (wrd 4 k.2.2.2.2)))) := rfl
-
-theorem tbl_beta_elt
-    (k : Idx) : tbl (beta (elt k)).1 = prodTb k := by
-  rw [elt_eq]
-  simp only [map_mul, tblG_mul, tbl_beta_wE]
-  rfl
-
-theorem conj_mul_beta_sq (g : G12) :
-    (MulAut.conj g * beta) ^ 2 = MulAut.conj (g * beta g) := by
-  refine MulEquiv.ext fun h => ?_
-  simp only [sq, MulAut.mul_apply, MulAut.conj_apply, map_mul, map_inv, beta_beta]
-
-theorem conj_mul_beta_conj (g f : G12) :
-    MulAut.conj g * beta * (MulAut.conj f * (MulAut.conj g * beta) * (MulAut.conj f)⁻¹) =
-      MulAut.conj (g * beta f * beta g * f⁻¹) := by
-  refine MulEquiv.ext fun h => ?_
-  simp only [MulAut.mul_apply, MulAut.conj_apply, MulAut.conj_inv_apply, map_mul, map_inv,
-    beta_beta]
-
-theorem tbl_beta_x :
-    tbl (beta x).1 = xbT := tbl_beta_wE wX
-
-theorem tbl_beta_y :
-    tbl (beta y).1 = ybT := tbl_beta_wE wY
-
-theorem tbl_beta_f
-    (i j : ℕ) :
-    tbl (beta (⁅x, y⁆ ^ i * (x * y) ^ j)).1 = tmul (tpow zbT i) (tpow abT j) := by
-  rw [map_mul, map_pow, map_pow, map_commutatorElement, map_mul, tblG_mul, tblG_pow, tblG_pow,
-    tblG_comm, tblG_mul, tbl_beta_x, tbl_beta_y]
-  rfl
 
 theorem tbl_f (i j : ℕ) : tbl (⁅x, y⁆ ^ i * (x * y) ^ j).1 = tmul (tpow zT i) (tpow aT j) := by
   rw [tblG_mul, tblG_pow, tblG_pow, tbl_z, tbl_a]
@@ -478,11 +279,6 @@ theorem tbl_f (i j : ℕ) : tbl (⁅x, y⁆ ^ i * (x * y) ^ j).1 = tmul (tpow zT
 theorem f_mem_A (i j : ℕ) : ⁅x, y⁆ ^ i * (x * y) ^ j ∈ basisA.sub :=
   basisA.sub.mul_mem (basisA.sub.pow_mem z_mem_A _) (basisA.sub.pow_mem a_mem_A _)
 
-theorem mem_fPairs {p : List ℕ × List ℕ} (hp : p ∈ fPairs) :
-    ∃ i j : ℕ, p = (tmul (tpow zT i) (tpow aT j), tmul (tpow zbT i) (tpow abT j)) := by
-  simp only [fPairs, List.mem_flatMap, List.mem_map, List.mem_range] at hp
-  obtain ⟨i, -, j, -, rfl⟩ := hp
-  exact ⟨i, j, rfl⟩
 
 theorem le_inner_of_mem_invariant
     {X : Subgroup (MulAut G12)}

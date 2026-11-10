@@ -18,11 +18,6 @@ variable {G : Type u} [Group G]
 @[expose] def cosetFixedSet (H : Subgroup G) (u : G) : Set (pointRightCosetSpace H) :=
   {omega | pointRightCosetMul H omega u = omega}
 
-theorem cosetFixedSet_eq_zpowers_fixedSet (H : Subgroup G) (u : G) :
-    cosetFixedSet H u = pointFixedSet H (Subgroup.zpowers u) := by
-  ext omega
-  rw [mem_pointFixedSet_iff, Subgroup.zpowers_le]
-  exact (mem_point_right_stabilizer_iff H omega u).symm
 
 theorem point_centralizer_preserves_cosetFixedSet (H : Subgroup G) (u a : G)
     (ha : a ∈ Subgroup.centralizer ({u} : Set G))

@@ -32,6 +32,5 @@ theorem altSix_sFour_odd {A : Type} [Group A] [Finite A] {Y P : Subgroup A} (hPY
     rw [eq_top_iff.mpr htop, index_top]
     decide
 
-variable (G : Type) [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.TenThreeThree

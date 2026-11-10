@@ -512,11 +512,6 @@ theorem invX_mul_self : invX F * invX F = 1 := by
   rw [invX]
   simpa [uElt_zero_eq_one] using h
 
-omit [Fintype F] in
-theorem invY_mul_self : invY F * invY F = 1 := by
-  have h := uElt_mul_self (K := F) 0 1 0 0
-  rw [invY]
-  simpa [uElt_zero_eq_one] using h
 
 omit [Fintype F] in
 theorem invX_ne_one : invX F ≠ 1 := by
@@ -525,12 +520,6 @@ theorem invX_ne_one : invX F ≠ 1 := by
   have := (uElt_inj h1).2.2.1
   exact one_ne_zero this
 
-omit [Fintype F] in
-theorem invY_ne_one : invY F ≠ 1 := by
-  intro h
-  have h1 : uElt (0 : F) 1 0 0 = uElt 0 0 0 0 := by rw [uElt_zero_eq_one]; exact h
-  have := (uElt_inj h1).2.1
-  exact one_ne_zero this
 
 omit [Fintype F] in
 theorem minorMap_uMat_x : minorMap (uMat (0 : F) 0 1 0) = uMat 0 1 0 0 := by
@@ -587,19 +576,6 @@ theorem natRepS_invX_sub_one (i : ℕ) :
     fin_cases a <;> fin_cases b <;>
       simp [invY, glMat_uElt, uMat, mE0213, Matrix.sub_apply, Matrix.map_apply]
 
-omit [CharP k 2] in
-theorem natRepS_invY_sub_one (i : ℕ) :
-    natRepS k i (invY F) - 1 = if i % 2 = 0 then mE0213 k else mE03 k := by
-  rw [natRepS_apply, (minorAut_pow_inv i).2]
-  by_cases h : i % 2 = 0
-  · simp only [h, ite_true]
-    ext a b
-    fin_cases a <;> fin_cases b <;>
-      simp [invY, glMat_uElt, uMat, mE0213, Matrix.sub_apply, Matrix.map_apply]
-  · simp only [h, ite_false]
-    ext a b
-    fin_cases a <;> fin_cases b <;>
-      simp [invX, glMat_uElt, uMat, mE03, Matrix.sub_apply, Matrix.map_apply]
 
 omit [CharP k 2] in
 theorem rank_natRepS_invX (i : ℕ) :
@@ -609,13 +585,6 @@ theorem rank_natRepS_invX (i : ℕ) :
   · exact rank_mE03 k
   · exact rank_mE0213 k
 
-omit [CharP k 2] in
-theorem rank_natRepS_invY (i : ℕ) :
-    (natRepS k i (invY F) - 1).rank = if i % 2 = 0 then 2 else 1 := by
-  rw [natRepS_invY_sub_one]
-  split_ifs
-  · exact rank_mE0213 k
-  · exact rank_mE03 k
 
 theorem rank_tensorRepS_invX (A : Finset ℕ) :
     (tensorRepS k A (invX F) - 1).rank =
@@ -633,45 +602,6 @@ theorem rank_tensorRepS_invX (A : Finset ℕ) :
   rw [h2] at h1
   split_ifs at h1 ⊢ <;> omega
 
-theorem rank_tensorRepS_invY (A : Finset ℕ) :
-    (tensorRepS k A (invY F) - 1).rank =
-      if ∀ i ∈ A, i % 2 = 1 then (4 ^ A.card - 2 ^ A.card) / 2 else 4 ^ A.card / 2 := by
-  have h1 := rank_tensorRepS_sub_one k A (invY_mul_self (F := F))
-  have h2 : ∏ i : A, (4 - 2 * (natRepS k (i : ℕ) (invY F) - 1).rank) =
-      if ∀ i ∈ A, i % 2 = 1 then 2 ^ A.card else 0 := by
-    have e : ∀ i : A, 4 - 2 * (natRepS k (i : ℕ) (invY F) - 1).rank =
-        if (i : ℕ) % 2 = 1 then 2 else 0 := fun i => by
-      rw [rank_natRepS_invY]
-      by_cases h : (i : ℕ) % 2 = 0
-      · simp [h]
-      · have h' : (i : ℕ) % 2 = 1 := by omega
-        simp [h']
-    simp_rw [e]
-    rw [Finset.prod_ite_zero]
-    simp
-  rw [h2] at h1
-  split_ifs at h1 ⊢ <;> omega
-
-theorem fundamental_tensor_involution_ranks (A : Finset ℕ) :
-    (invX F * invX F = 1 ∧ invY F * invY F = 1 ∧ minorHom F (invX F) = invY F ∧
-      minorHom F (invY F) = invX F) ∧
-    (tensorRepS k A (invX F) - 1).rank =
-      (if ∀ i ∈ A, i % 2 = 0 then (4 ^ A.card - 2 ^ A.card) / 2 else 4 ^ A.card / 2) ∧
-    (tensorRepS k A (invY F) - 1).rank =
-      (if ∀ i ∈ A, i % 2 = 1 then (4 ^ A.card - 2 ^ A.card) / 2 else 4 ^ A.card / 2) ∧
-    (∀ z : antiSp F, z * z = 1 → (tensorRepS k A z - 1).rank =
-      (4 ^ A.card - ∏ i : A, (4 - 2 * (natRepS k (i : ℕ) z - 1).rank)) / 2) ∧
-    (∀ z : antiSp F, z * z = 1 → z ≠ 1 →
-      (4 ^ A.card - 2 ^ A.card) / 2 ≤ (tensorRepS k A z - 1).rank) ∧
-    (∀ z : antiSp F, z * z = 1 → ∀ i ∈ A, (natRepS k i z - 1).rank = 2 →
-      (tensorRepS k A z - 1).rank = 4 ^ A.card / 2) :=
-  ⟨⟨invX_mul_self, invY_mul_self, minorHom_invX, minorHom_invY⟩, rank_tensorRepS_invX k A,
-    rank_tensorRepS_invY k A,
-    fun z hz => by
-      have := rank_tensorRepS_sub_one k A hz
-      omega,
-    fun z hz hz1 => rank_tensorRepS_sub_one_ge k A hz hz1,
-    fun z hz i hi h2 => rank_tensorRepS_sub_one_of_rank_two k A hz hi h2⟩
 
 end Specific
 

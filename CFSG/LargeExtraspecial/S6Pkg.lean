@@ -245,14 +245,6 @@ theorem apply_sub_mem_Vt_a
     (conj_ne_z' S h.2 H.conj_ne) (cl_mem_Vt (mem_Lbar_of_pair H ht hh))
     (sup_eq_Wt H C ht ht1 hVQ hh hb hP) (hP) hk hw
 
-theorem apply_sub_mem_Vt_b
-    (hP : S.clSub (S.QG ⊓ S.Qa g) ⊓ S.clSub (S.QG ⊓ S.Qa ((h : G) * g)) ≤ Vt S g t) {k : S.O}
-    (hk : k ∈ S.Lbar ((h : G) * g) ⊓ Nbar S g t) {w : S.Qt} (hw : w ∈ Wt S g t) :
-    (k : S.Qt ≃ₗ[ZMod 2] S.Qt) w - w ∈ Vt S g t :=
-  apply_sub_mem_Vt_of_decomp (C.mul h) (conj_mem_QG' S h.2 H.conj_mem)
-    (cl_mem_Vt (mem_Lbar_of_pair H ht hh)) H.conj_mem H.conj_ne (cl_a_mem_Vt ht)
-    (by rw [sup_comm]; exact sup_eq_Wt H C ht ht1 hVQ hh hb hP)
-    (by rw [inf_comm]; exact hP) hk hw
 
 theorem sup_Vt_inf_sup_Vt
     (hP : S.clSub (S.QG ⊓ S.Qa g) ⊓ S.clSub (S.QG ⊓ S.Qa ((h : G) * g)) ≤ Vt S g t) :

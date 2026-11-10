@@ -12,10 +12,6 @@ namespace C56
 
 variable {G : Type} [Group G] [Finite G] {T M H S L : Subgroup G}
 
-theorem baumann_cs (hcs : ConstrainedSetting G T M H S L) (hj : conjJoin S L = L)
-    (hL : (∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) :
-    baum S ≤ normalizer (L : Set G) ∧ IsSylowTwoOf (baum S) (L ⊔ baum S) :=
-  baumann_single hcs.minParabolic hcs.block hL hcs.thompson (H_eq hcs hj) (S_le_normalizer hj)
 
 theorem baumann_A3_cs (hcs : ConstrainedSetting G T M H S L) (h3 : IsAltType L 3) :
     blockU L ≤ baum S ∧ baum S ≤ normalizer (L : Set G) ∧

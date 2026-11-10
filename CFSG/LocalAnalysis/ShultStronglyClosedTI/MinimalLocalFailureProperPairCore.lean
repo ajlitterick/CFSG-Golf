@@ -21,25 +21,6 @@ variable {G : Type u} [Group G]
   (oddCore (minimalLocalFailureProperPairHull H z beta t)).map
     (minimalLocalFailureProperPairHull H z beta t).subtype
 
-theorem minimalLocalFailureProperPairOddCore_subgroupOf (H : Subgroup G) (z : G)
-    (beta : rightCosetSpace H) (t : G) :
-    (minimalLocalFailureProperPairOddCore H z beta t).subgroupOf
-      (minimalLocalFailureProperPairHull H z beta t) =
-      oddCore (minimalLocalFailureProperPairHull H z beta t) := by
-  exact Subgroup.comap_map_eq_self_of_injective
-    (minimalLocalFailureProperPairHull H z beta t).subtype_injective _
-
-theorem minimalLocalFailureProperPairOddCore_normal_in_hull (H : Subgroup G) (z : G)
-    (beta : rightCosetSpace H) (t : G) :
-    ((minimalLocalFailureProperPairOddCore H z beta t).subgroupOf
-      (minimalLocalFailureProperPairHull H z beta t)).Normal := by
-  rw [minimalLocalFailureProperPairOddCore_subgroupOf]
-  infer_instance
-
-theorem minimalLocalFailureProperPairOddCore_le_hull (H : Subgroup G) (z : G)
-    (beta : rightCosetSpace H) (t : G) :
-    minimalLocalFailureProperPairOddCore H z beta t ≤
-      minimalLocalFailureProperPairHull H z beta t := Subgroup.map_subtype_le _
 
 theorem minimalLocalFailureProperPairOddCore_odd [Finite G] (H : Subgroup G) (z : G)
     (beta : rightCosetSpace H) (t : G) :

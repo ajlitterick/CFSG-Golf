@@ -262,20 +262,6 @@ theorem hdRo7CLCoordAux_torus_data_of_innerDiag
     TableBSymp.sp_I_subset_inn,
     hBs3⟩
 
-theorem hdRo7CLCoordAux_ker_gamma_eq (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (y : G) (K : Subgroup G) (hH : GGResHyp p B Bs x L D J y K)
-    {hBsN : Bs ≤ Subgroup.normalizer (L : Set G)} :
-    (ggGamma L hBsN).ker = (Subgroup.zpowers x).subgroupOf Bs := by
-  ext b
-  rw [MonoidHom.mem_ker, ggGamma_eq_one_iff, Subgroup.mem_subgroupOf]
-  constructor
-  · intro hbC
-    have hb : (b : G) ∈ Bs ⊓ Subgroup.centralizer (L : Set G) := ⟨b.2, hbC⟩
-    rwa [hdRo7CLCoordAux_bstar_centralizer_eq hH] at hb
-  · intro hbx
-    have hb : (b : G) ∈ Bs ⊓ Subgroup.centralizer (L : Set G) := by
-      rwa [hdRo7CLCoordAux_bstar_centralizer_eq hH]
-    exact hb.2
 
 open CFSG.StandardType CFSG.Open CFSG.Assembly
 
@@ -325,79 +311,6 @@ theorem hdRo7CLCoordAux_center_L_eq_bot_of_innerDiag
 
 open CFSG.StandardType CFSG.Open CFSG.Assembly SpCoord
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem hdRo7CLCoordAux_signedModelSC_data_of_outdiagPrime
-    (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G) (y : G) (K : Subgroup G)
-    (hH : GGResHyp p B Bs x L D J y K) (hp3 : p = 3)
-    (R : Type) [Group R] (I : Set (MulAut R)) (θ : ↥L ⧸ Subgroup.center ↥L ≃* R)
-    (hBsN : Bs ≤ Subgroup.normalizer (L : Set G))
-    (hTSC : GGTorusSignedEltSC p R) (hCP : GGCenterPrime p R)
-    (hcenter : Subgroup.center R = ⊥) (hI : GGOutdiagPrime p R I)
-    (hperf : commutator ↥L = ⊤)
-    (hBs3 : ∀ b ∈ Bs, ∃ φ ∈ I,
-      LargeEvenInduces θ (fun l l' : ↥L => (l' : G) = b⁻¹ * (l : G) * b) φ) :
-    ∃ (k : ℕ) (Θ : (Fin k → Multiplicative (ZMod p)) ≃* ↥(ggGamma L hBsN).range),
-      3 ≤ k ∧
-      (∀ n : ↥L, MulAut.conj n ∈ Subgroup.normalizer ((ggGamma L hBsN).range : Set (MulAut ↥L)) →
-        GGTorusWeylElt p (ggGamma L hBsN).range n) ∧
-      (∀ i : Fin k, ∃ (n : ↥L)
-        (hn : MulAut.conj n ∈ Subgroup.normalizer ((ggGamma L hBsN).range : Set (MulAut ↥L))),
-        ggConjAut (ggGamma L hBsN).range hn = MulAut.congr Θ (sgnAut i)) ∧
-      (∀ σ : Equiv.Perm (Fin k), ∃ (n : ↥L)
-        (hn : MulAut.conj n ∈ Subgroup.normalizer ((ggGamma L hBsN).range : Set (MulAut ↥L))),
-        ggConjAut (ggGamma L hBsN).range hn = MulAut.congr Θ (permAut σ)) ∧
-      ∀ (n : ↥L)
-        (hn : MulAut.conj n ∈ Subgroup.normalizer ((ggGamma L hBsN).range : Set (MulAut ↥L))),
-        IsSignedPerm ⇑((MulAut.congr Θ).symm (ggConjAut (ggGamma L hBsN).range hn)) := by
-  classical
-  have hp : Nat.Prime p := hH.1.tableB_facts.1
-  have hp2 : p ≠ 2 := by omega
-  haveI : Fact p.Prime := ⟨hp⟩
-  set A : Subgroup (MulAut ↥L) := (ggGamma L hBsN).range with hAdef
-  have hAab : IsElemAbelian p A := by
-    refine isElemAbelian_range (fun a b => ?_) (fun a => ?_) (ggGamma L hBsN)
-    · exact Subtype.ext (TableB.IsElemAbelian.comm hH.1.tableB_facts.2.1 a.2 b.2)
-    · exact Subtype.ext (hH.1.tableB_facts.2.1.2 a a.2)
-  have hAI : ∀ a ∈ A, ∃ φ ∈ I, ∀ l : ↥L, φ (ggQuotHom θ l) = ggQuotHom θ (a l) := by
-    rintro _ ⟨b, rfl⟩
-    obtain ⟨φ, hφ, hφind⟩ := hBs3 (b⁻¹) (Bs.inv_mem b.2)
-    refine ⟨φ, hφ, fun l => ?_⟩
-    have hcoe : (((ggGamma L hBsN b) l : ↥L) : G) = (b : G) * (l : G) * (b : G)⁻¹ :=
-      ggGamma_coe L hBsN b l
-    exact hφind l ((ggGamma L hBsN b) l) (by simpa using hcoe)
-  have hker : (ggGamma L hBsN).ker = (Subgroup.zpowers x).subgroupOf Bs :=
-    hdRo7CLCoordAux_ker_gamma_eq p B Bs x L D J y K hH
-  have hcardker : Nat.card ↥((Subgroup.zpowers x).subgroupOf Bs) = p := by
-    have hxBs : x ∈ Bs := hH.1.tableB_facts.2.2.1
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe (Subgroup.zpowers_le.mpr hxBs)).toEquiv,
-      Nat.card_zpowers]
-    exact orderOf_eq_prime (hdRo7CLCoordAux_x_pow_eq_one hH) (hdRo7CLCoordAux_x_ne_one hH)
-  have hcardA : Nat.card A * p = Nat.card ↥Bs := by
-    have h1 := TableB.card_range_mul_card_ker (ggGamma L hBsN)
-    rw [hker, hcardker] at h1
-    simpa only [hAdef] using h1
-  have h3 : p ^ 3 ≤ Nat.card A := by
-    have h4 : p ^ 4 ≤ Nat.card ↥Bs := hdRo7CLCoordAux_card_bstar_ge hH
-    have hle : p ^ 3 * p ≤ Nat.card A * p := by
-      calc p ^ 3 * p = p ^ 4 := by ring
-        _ ≤ Nat.card ↥Bs := h4
-        _ = Nat.card A * p := hcardA.symm
-    exact Nat.le_of_mul_le_mul_right hle hp.pos
-  have hsc : GGTorusSelfCent p A :=
-    ggTorusSelfCent_ggGamma hBsN hH.1.2.1.2.2.2
-  have hψ : Function.Surjective (ggQuotHom θ) := ggQuotHom_surjective θ
-  have hker' : (ggQuotHom θ).ker ≤ Subgroup.center ↥L := by
-    rw [ker_ggQuotHom]
-  have hAI' : ∀ a ∈ A, ∃ φ ∈ {φ ∈ I | φ ^ p = 1},
-      ∀ l : ↥L, φ (ggQuotHom θ l) = ggQuotHom θ (a l) := by
-    intro a ha
-    obtain ⟨φ, hφI, hφ⟩ := hAI a ha
-    exact ⟨φ, ⟨hφI, ggTw_pow_eq_one_of_lift hψ hφ (hAab.2 a ha)⟩, hφ⟩
-  obtain ⟨k, Θ, hk, hW, hS, hP, hN⟩ :=
-    exists_signedModelSC (I := {φ ∈ I | φ ^ p = 1}) hp hp2
-      (fun φ hφ => hI φ hφ.1 hφ.2) hcenter hCP hTSC hψ hker' hperf hAab hAI' h3 hsc
-  exact ⟨k, Θ, hk, hW, hS, hP, hN⟩
 
 end CFSG.StandardType.HdRo7C
 

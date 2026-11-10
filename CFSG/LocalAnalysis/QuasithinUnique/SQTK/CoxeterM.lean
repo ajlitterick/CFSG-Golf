@@ -32,14 +32,5 @@ theorem exists_isElemAbelian_three_of_mulEquiv_M {G : Type*} [Group G]
   rw [Monster.coxeterMatrix_apply, Monster.edges_def]
   rfl
 
-theorem exists_isElemAbelian_three_pow_four_of_mulEquiv_M {G : Type*} [Group G]
-    (e : G ≃* TauCeti.SporadicName.M.Group) (hG : ∃ g h : G, g * h ≠ h * g) :
-    ∃ E : Subgroup G, IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 4 :=
-  exists_isElemAbelian_three_of_mulEquiv_M e hG le_rfl
-
-theorem tcExcludedSporadic_M : TCExcludedSporadic .M := by
-  intro G _ _ _ hG ⟨e⟩
-  obtain ⟨E, hE, hcard⟩ := exists_isElemAbelian_three_of_mulEquiv_M e hG (r := 3) (by norm_num)
-  exact ⟨3, Nat.prime_three, by norm_num, E, hE, hcard⟩
 
 end CFSG.QuasithinUnique.SQTK

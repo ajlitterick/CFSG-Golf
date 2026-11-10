@@ -80,11 +80,6 @@ theorem le_ker_of_mul_self {M : Type*} [Group M] (φ : G →* M) (hM : ∀ m : M
   rintro _ ⟨y, -, rfl⟩
   rw [SetLike.mem_coe, MonoidHom.mem_ker, map_mul, hM]
 
-theorem le_of_index_eq_two {A H : Subgroup G} (hH : H.index = 2)
-    (hA : A ≤ closure {x | ∃ y ∈ A, y * y = x}) : A ≤ H := by
-  refine hA.trans ((closure_le _).mpr ?_)
-  rintro _ ⟨y, -, rfl⟩
-  exact mul_self_mem_of_index_two hH y
 
 end Squares
 

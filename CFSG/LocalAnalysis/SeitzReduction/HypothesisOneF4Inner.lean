@@ -472,13 +472,6 @@ theorem innerCentralizerCriterion_F4_longRoot {f : ℕ} (hf : 2 ≤ f) [Finite K
   · exact Subtype.ext (rootDiagUnit_commute_pinnedX_one
       (f4_isRoot_pos ⟨by norm_num, by norm_num⟩).1 h47)
 
-theorem innerCentralizerCriterion_F4_shortRoot {f : ℕ} (hf : 2 ≤ f) [Finite K] [CharP K 2]
-    (hK : Nat.card K = 2 ^ f) :
-    InnerCentralizerCriterion
-      (⟨f4x K 44 1, pinnedX_mem_adjointGroup _ _⟩ : adjointGroup .F4 K) := by
-  have : CharP K ReeTag.F4.prime := ‹CharP K 2›
-  have h := (innerCentralizerCriterion_F4_longRoot hf hK).map (f4Phi (K := K))
-  rwa [(f4Phi_f4x_47_44 (K := K)).1] at h
 
 theorem innerCentralizerCriterion_F4_longShortRoot {f : ℕ} (hf : 2 ≤ f) [Finite K] [CharP K 2]
     (hK : Nat.card K = 2 ^ f) :
@@ -500,17 +493,5 @@ theorem innerCentralizerCriterion_F4_longShortRoot {f : ℕ} (hf : 2 ≤ f) [Fin
       rootDiagUnit_commute_pinnedX_one (f4_isRoot_pos ⟨by norm_num, by norm_num⟩).1 h44,
       mul_assoc]
 
-theorem innerInvolutionInput_F4_of_classes {f : ℕ} (hf : 2 ≤ f) [Finite K] [CharP K 2]
-    (hK : Nat.card K = 2 ^ f) {v : adjointGroup .F4 K} (hv : InnerCentralizerCriterion v)
-    (hrep : ∀ x : adjointGroup .F4 K, orderOf (MulAut.conj x) = 2 →
-      ∃ ψ : MulAut (adjointGroup .F4 K), ∃ s ∈ ({⟨f4x K 47 1, pinnedX_mem_adjointGroup _ _⟩,
-        ⟨f4x K 47 1 * f4x K 44 1, mul_mem (pinnedX_mem_adjointGroup _ _)
-          (pinnedX_mem_adjointGroup _ _)⟩, v} : Set (adjointGroup .F4 K)), ψ s = x) :
-    InnerInvolutionInput (adjointGroup .F4 K) := by
-  refine innerInvolutionInput_of_representatives (fun s hs => ?_) hrep
-  rcases hs with rfl | rfl | rfl
-  · exact innerCentralizerCriterion_F4_longRoot hf hK
-  · exact innerCentralizerCriterion_F4_longShortRoot hf hK
-  · exact hv
 
 end CFSG.SeitzReduction

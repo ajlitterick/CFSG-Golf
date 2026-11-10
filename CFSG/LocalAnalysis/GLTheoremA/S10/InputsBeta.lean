@@ -31,30 +31,6 @@ namespace S10
 
 end S10
 
-@[expose] def I158Hyp {G : Type} [Group G] [Finite G] (p : ℕ) (X K B : Subgroup G) (x₁ x₂ : G)
-    (L₁ L₂ : Subgroup G) : Prop :=
-  CFSG.Open.IsKGroup ↥X ∧ GLAPComponent p X K ∧ IsElemAbelian p B ∧ B ≤ X ∧
-    p ^ GLATwoLocalRank p ↥X ≤ Nat.card B ∧ x₁ ∈ B ∧ x₂ ∈ B ∧ x₁ ≠ 1 ∧ x₂ ≠ 1 ∧
-    GLAPComponent p (K ⊓ Subgroup.centralizer ({x₁} : Set G)) L₁ ∧ IsChevSimple 2 (PSimple p L₁) ∧
-    GLAPComponent p (K ⊓ Subgroup.centralizer ({x₂} : Set G)) L₂ ∧ IsChevSimple 2 (PSimple p L₂) ∧
-    NonInnDiag p x₁ L₂ ∧ NonInnDiag p x₂ L₁
-
-structure I158At (G : Type) [Group G] [Finite G] : Prop where
-  inn : ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (X K B : Subgroup G) (x₁ x₂ : G) (L₁ L₂ : Subgroup G),
-    I158Hyp p X K B x₁ x₂ L₁ L₂ →
-    InnDiagOn p (Subgroup.zpowers x₁) K ∧ InnDiagOn p (Subgroup.zpowers x₂) K
-  main : ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (X K B : Subgroup G) (x₁ x₂ : G) (L₁ L₂ : Subgroup G),
-    I158Hyp p X K B x₁ x₂ L₁ L₂ → GLAPLayer p (L₁ ⊓ Subgroup.centralizer ({x₂} : Set G)) ≠ ⊥ →
-    p = 3 ∧ ∃ n : ℕ, Odd n ∧ 1 < n ∧
-      ((catalogIs (PSimple 3 K) (S10.isU6n n) ∧ catalogIs (PSimple 3 L₁) (S10.isL2n (3 * n)) ∧
-          (∃ M : Subgroup G, GLAPComponent 3 (L₁ ⊓ Subgroup.centralizer ({x₂} : Set G)) M ∧
-            catalogIs (PSimple 3 M) (S10.isL2n n)) ∧
-          Nat.card B = 3 ^ 3 * Nat.card ↥(B ⊓ centModSubgroup 3 K)) ∨
-        (catalogIs (PSimple 3 K) (S10.isTE6n n) ∧ catalogIs (PSimple 3 L₁) (S10.isU3n (3 * n)) ∧
-          (∃ M : Subgroup G, GLAPComponent 3 (L₁ ⊓ Subgroup.centralizer ({x₂} : Set G)) M ∧
-            catalogIs (PSimple 3 M) (S10.isU3n n)) ∧
-          Nat.card B = 3 ^ 4 * Nat.card ↥(B ⊓ centModSubgroup 3 K))) ∧
-      ∀ T : Subgroup G, T ≤ X → IsPGroup 2 T → B ≤ Subgroup.normalizer (T : Set G) → (⁅T, B⁆ : Subgroup G) = ⊥
 
 @[expose] def Su32InterAt (G : Type) [Group G] [Finite G] : Prop :=
   ∀ (X X' L J : Subgroup G) (b d y : G), GLAPComponent 3 X L → GLAPComponent 3 X' J →

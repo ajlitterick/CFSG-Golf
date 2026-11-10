@@ -120,51 +120,6 @@ theorem noDataBootD_of_noDataP1D (hexotic : ExoticLeviBlock p f) (h : NoDataP1D 
   have hP1 := h G hnab hp2 hq K z hz hBelow h3 h4 hD hB
   exact ⟨exactMembers_of_localOddCentral hexotic hnab hp2 hq hz hBelow hD hP1, hP1⟩
 
-theorem noDataP1D_of_noDataBootD (h : NoDataBootD p f) : NoDataP1D p f :=
-  fun G _ _ _ hnab hp2 hq K z hz hBelow h3 h4 hD hB =>
-    (h G hnab hp2 hq K z hz hBelow h3 h4 hD hB).2
-
-omit [Finite G] [IsSimpleGroup G] in
-@[expose] def BootNoTripleP1D (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    p ≠ 2 → 5 ≤ p ^ f → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
-      CITBelowU p f (Nat.card G) → DConnected (𝒞 K) → BootData p f (𝒞 K) →
-      ¬ IndepTriple p f (𝒞 K) → LocalOddCentral (𝒞 K) {z}
-
-theorem bootNoTripleD_of_bootNoTripleP1D (hexotic : ExoticLeviBlock p f)
-    (h : BootNoTripleP1D p f) : BootNoTripleD p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hD hdata hT
-  have hP1 := h G hnab hp2 hq K z hz hBelow hD hdata hT
-  exact ⟨exactMembers_of_localOddCentral hexotic hnab hp2 hq hz hBelow hD hP1, hP1⟩
-
-omit [Finite G] [IsSimpleGroup G] in
-@[expose] def ConnectedP1D (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    p ≠ 2 → 5 ≤ p ^ f → CITBelowU p f (Nat.card G) → ∀ (K : Subgroup G) (z : G),
-      IsClassicalMember p f K z → 3 ≤ CFSG.Open.twoRank G → ¬ TwoSubgroupsFourGenerated G →
-      DConnected (𝒞 K) → LocalOddCentral (𝒞 K) {z}
-
-theorem exactP1D_of_connectedP1D (hexotic : ExoticLeviBlock p f) (h : ConnectedP1D p f) :
-    ExactP1D p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hD
-  have hP1 := h G hnab hp2 hq hBelow K z hz h3 h4 hD
-  exact ⟨exactMembers_of_localOddCentral hexotic hnab hp2 hq hz hBelow hD hP1, hP1⟩
-
-theorem dBridge_of_connectedP1D (h : ConnectedP1D p f) : DBridge p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hD
-  exact (deltaConnected_iff K).mpr
-    (routeD_deltaConnected_of_dConnected_of_p1 hnab hp2 hq hz hBelow hD
-      (h G hnab hp2 hq hBelow K z hz h3 h4 hD))
-
-theorem connectedP1D_of_cases (hmodel : LayerGenerationHybrid p)
-    (hMFC : ModelFacts.CommutingFundamentalFactsFive p) (hexotic : ExoticLeviBlock p f)
-    (hBN : BootNoTripleP1D p f) (hN : NoDataP1D p f) : ConnectedP1D p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz h3 h4 hD
-  by_cases hT : IndepTriple p f (𝒞 K)
-  · exact (bootTripleD hmodel hMFC hexotic G hnab hp2 hq K z hz hBelow hD hT).2
-  · by_cases hdata : BootData p f (𝒞 K)
-    · exact hBN G hnab hp2 hq K z hz hBelow hD hdata hT
-    · exact hN G hnab hp2 hq K z hz hBelow h3 h4 hD hdata
 
 end Statements
 

@@ -246,9 +246,6 @@ theorem hom_surjective_of_simple [IsSimpleGroup G] (hconj : ConjInvariant Ω)
 @[expose] def cls (i : Fin D.card) : Set (Subgroup (D.model i).K) :=
   {R | R ∈ fundamentalSubgroups (D.tag i) (D.model i).D ∧ R.map (D.hom i) ∈ Ω}
 
-theorem cls_subset (i : Fin D.card) {R : Subgroup (D.model i).K} (hR : R ∈ D.cls i) :
-    R ∈ fundamentalSubgroups (D.tag i) (D.model i).D :=
-  hR.1
 
 theorem mem_iff_exists_cls (hcard : D.card = 1) (i : Fin D.card) {L : Subgroup G} :
     L ∈ Ω ↔ ∃ R ∈ D.cls i, L = R.map (D.hom i) := by
@@ -274,18 +271,6 @@ theorem cls_conj (hconj : ConjInvariant Ω) (i : Fin D.card) {R : Subgroup (D.mo
   rw [show Subgroup.map (D.hom i) (conjSub k R) = conjSub (D.hom i k) (R.map (D.hom i)) from this]
   exact hconj _ _ hR.2
 
-theorem cls_single (i : Fin D.card) (hsurj : Function.Surjective (D.hom i))
-    (htrans : ∀ K ∈ Ω, ∀ J ∈ Ω, ∃ g : G, conjSub g K = J)
-    (hperf : ∀ R ∈ D.cls i, R ≤ ⁅R, R⁆) (hconj : ConjInvariant Ω)
-    {R S : Subgroup (D.model i).K} (hR : R ∈ D.cls i) (hS : S ∈ D.cls i) :
-    ∃ k : (D.model i).K, S = conjSub k R := by
-  obtain ⟨g, hg⟩ := htrans _ hR.2 _ hS.2
-  obtain ⟨k, rfl⟩ := hsurj g
-  refine ⟨k, (ih8_eq_of_map_eq (D.hom i) (D.ker_le_center i) (hperf _ (D.cls_conj hconj i hR k))
-    (hperf S hS) ?_).symm⟩
-  have := map_conj_eq_conjSub_map (D.hom i) k R
-  rw [show Subgroup.map (D.hom i) (conjSub k R) = conjSub (D.hom i k) (R.map (D.hom i)) from this]
-  exact hg
 
 end OmegaLie
 

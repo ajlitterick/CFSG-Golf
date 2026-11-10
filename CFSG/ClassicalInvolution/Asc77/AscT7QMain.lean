@@ -53,9 +53,6 @@ theorem c25_20_ex_of_11_16 (h11 : C25_11 p f) (h16 : C25_16 p f) : C25_20_ex p f
   exfalso
   exact hyp.std.1.cex (Or.inr (twoSubgroupsFourGenerated_of_index_four hyp h11 h16 h4))
 
-theorem c25_21_of_11_16 (h11 : C25_11 p f) (h16 : C25_16 p f) : C25_21 p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp h4
-  exact Or.inr (twoSubgroupsFourGenerated_of_index_four hyp h11 h16 h4)
 
 end T7Q
 

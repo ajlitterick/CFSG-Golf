@@ -185,7 +185,6 @@ variable (F) in
 @[expose] def toMod : Yg F →* ModGL .G2 F :=
   (adjointGroup .G2 F).subtype.comp (Subgroup.centralizer ({z₀ F} : Set (G2g F))).subtype
 
-theorem toMod_apply (y : Yg F) : toMod F y = ((y : G2g F) : ModGL .G2 F) := rfl
 
 theorem toMod_injective : Function.Injective (toMod F) :=
   fun _ _ h => Subtype.ext (Subtype.ext h)

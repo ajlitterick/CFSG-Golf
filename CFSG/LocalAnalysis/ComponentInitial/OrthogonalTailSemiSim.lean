@@ -70,8 +70,6 @@ theorem SemiSim.polar_e_eq_zero_iff (x y : V₁) :
 theorem SemiSim.symm_e : T.symm.e = T.e.symm :=
   rfl
 
-theorem SemiSim.symm_σ : T.symm.σ = T.σ.symm :=
-  rfl
 
 @[expose] def SemiSim.trans (S : SemiSim Q₂ Q₃) : SemiSim Q₁ Q₃ where
   e := T.e.trans S.e
@@ -84,8 +82,6 @@ theorem SemiSim.symm_σ : T.symm.σ = T.σ.symm :=
     simp only [Equiv.trans_apply, S.map_quad', T.map_quad', map_mul, RingEquiv.trans_apply]
     ring
 
-theorem SemiSim.trans_e (S : SemiSim Q₂ Q₃) (v : V₁) : (T.trans S).e v = S.e (T.e v) :=
-  rfl
 
 theorem SemiSim.trans_σ (S : SemiSim Q₂ Q₃) : (T.trans S).σ = T.σ.trans S.σ :=
   rfl
@@ -105,13 +101,6 @@ end Basic
   map_smul' c x := T.map_smul c x
   map_quad' := hT
 
-theorem SemiSim.ofLinear_e (T : V₁ ≃ₗ[K] V₂) {μ : K} (hμ : μ ≠ 0)
-    (hT : ∀ v, Q₂ (T v) = μ * Q₁ v) (v : V₁) : (SemiSim.ofLinear T hμ hT).e v = T v :=
-  rfl
-
-theorem SemiSim.ofLinear_σ (T : V₁ ≃ₗ[K] V₂) {μ : K} (hμ : μ ≠ 0)
-    (hT : ∀ v, Q₂ (T v) = μ * Q₁ v) : (SemiSim.ofLinear T hμ hT).σ = RingEquiv.refl K :=
-  rfl
 
 section MapSub
 
@@ -156,10 +145,6 @@ theorem SemiSim.mapSub_symm_mapSub (W : Submodule K V₂) : T.mapSub (T.symm.map
   change T.e (T.e.symm y) ∈ W ↔ y ∈ W
   rw [Equiv.apply_symm_apply]
 
-theorem SemiSim.mapSub_le_iff {W W' : Submodule K V₁} : T.mapSub W ≤ T.mapSub W' ↔ W ≤ W' := by
-  refine ⟨fun h => ?_, T.mapSub_mono⟩
-  rw [← T.symm_mapSub_mapSub W, ← T.symm_mapSub_mapSub W']
-  exact T.symm.mapSub_mono h
 
 theorem SemiSim.mapSub_span_singleton (v : V₁) : T.mapSub (K ∙ v) = K ∙ T.e v := by
   ext y
@@ -177,12 +162,6 @@ theorem SemiSim.totSing_mapSub {W : Submodule K V₁} (hW : ∀ x ∈ W, Q₁ x 
   intro y hy
   rw [← Equiv.apply_symm_apply T.e y, T.map_quad', hW (T.e.symm y) hy, map_zero, mul_zero]
 
-theorem SemiSim.ofLinear_mapSub (T : V₁ ≃ₗ[K] V₂) {μ : K} (hμ : μ ≠ 0)
-    (hT : ∀ v, Q₂ (T v) = μ * Q₁ v) (W : Submodule K V₁) :
-    (SemiSim.ofLinear T hμ hT).mapSub W = W.map (T : V₁ →ₗ[K] V₂) := by
-  ext y
-  rw [Submodule.mem_map_equiv]
-  rfl
 
 end MapSub
 
@@ -205,13 +184,6 @@ theorem SemiSim.restrict_e (U₁ : Submodule K V₁) (U₂ : Submodule K V₂)
     ((S.restrict U₁ U₂ hU).e x : V₂) = S.e (x : V₁) :=
   rfl
 
-theorem SemiSim.restrict_σ (U₁ : Submodule K V₁) (U₂ : Submodule K V₂)
-    (hU : S.mapSub U₁ = U₂) : (S.restrict U₁ U₂ hU).σ = S.σ :=
-  rfl
-
-theorem SemiSim.restrict_μ (U₁ : Submodule K V₁) (U₂ : Submodule K V₂)
-    (hU : S.mapSub U₁ = U₂) : (S.restrict U₁ U₂ hU).μ = S.μ :=
-  rfl
 
 end Restrict
 
@@ -235,28 +207,6 @@ variable {E₁ E₂ : Type*} [AddCommGroup E₁] [Module K E₁] [AddCommGroup E
     change Q₂ (S.e x.1) + R₂ (T.e x.2) = S.μ * S.σ (Q₁ x.1 + R₁ x.2)
     rw [S.map_quad', T.map_quad', hμ, hσ, map_add, mul_add]
 
-theorem SemiSim.prod_e (S : SemiSim Q₁ Q₂) (T : SemiSim R₁ R₂)
-    (hσ : T.σ = S.σ) (hμ : T.μ = S.μ) (x : V₁ × E₁) :
-    (S.prod T hσ hμ).e x = (S.e x.1, T.e x.2) :=
-  rfl
-
-theorem SemiSim.prod_σ (S : SemiSim Q₁ Q₂) (T : SemiSim R₁ R₂)
-    (hσ : T.σ = S.σ) (hμ : T.μ = S.μ) : (S.prod T hσ hμ).σ = S.σ :=
-  rfl
-
-theorem SemiSim.prod_μ (S : SemiSim Q₁ Q₂) (T : SemiSim R₁ R₂)
-    (hσ : T.σ = S.σ) (hμ : T.μ = S.μ) : (S.prod T hσ hμ).μ = S.μ :=
-  rfl
-
-theorem SemiSim.mapSub_prod (S : SemiSim Q₁ Q₂) (T : SemiSim R₁ R₂)
-    (hσ : T.σ = S.σ) (hμ : T.μ = S.μ)
-    (P : Submodule K V₁) (W : Submodule K E₁) :
-    (S.prod T hσ hμ).mapSub (P.prod W) = (S.mapSub P).prod (T.mapSub W) := by
-  ext y
-  rw [SemiSim.mem_mapSub, Submodule.mem_prod, Submodule.mem_prod]
-  change (S.e.symm y.1 ∈ P ∧ T.e.symm y.2 ∈ W) ↔
-    (S.e.symm y.1 ∈ P ∧ T.e.symm y.2 ∈ W)
-  rfl
 
 end Prod
 
@@ -330,9 +280,6 @@ theorem SemiSim.finrank_mapSub_point (L : Points Q₁) : finrank K (T.mapSub L.v
 theorem SemiSim.coe_pointEquiv (L : Points Q₁) : (T.pointEquiv L).val = T.mapSub L.val :=
   rfl
 
-theorem SemiSim.coe_pointEquiv_symm (L : Points Q₂) :
-    (T.pointEquiv.symm L).val = T.symm.mapSub L.val :=
-  rfl
 
 theorem SemiSim.pointEquiv_pointMk (x : V₁) (hx : x ≠ 0) (hQx : Q₁ x = 0) :
     (T.pointEquiv (pointMk x hx hQx)).val = K ∙ T.e x := by
@@ -346,17 +293,6 @@ theorem SemiSim.polarOrtho_pointEquiv (L M : Points Q₁) :
     polarOrtho_span_singleton_iff_polar, polarOrtho_span_singleton_iff_polar,
     T.polar_e_eq_zero_iff]
 
-theorem SemiSim.image_ptsIn_pointEquiv (W : Submodule K V₁) :
-    T.pointEquiv '' ptsIn Q₁ W = ptsIn Q₂ (T.mapSub W) := by
-  ext L
-  constructor
-  · rintro ⟨M, hM, rfl⟩
-    exact T.mapSub_mono hM
-  · intro hL
-    refine ⟨T.pointEquiv.symm L, ?_, Equiv.apply_symm_apply _ _⟩
-    change T.symm.mapSub L.val ≤ W
-    rw [← T.symm_mapSub_mapSub W]
-    exact T.symm.mapSub_mono hL
 
 theorem SemiSim.image_ptsIn_pointEquiv_symm (W : Submodule K V₂) :
     T.pointEquiv.symm '' ptsIn Q₂ W = ptsIn Q₁ (T.symm.mapSub W) := by

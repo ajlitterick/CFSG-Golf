@@ -309,8 +309,6 @@ theorem ggSixLinearRankOn_PSL : GGSixLinearRankOn .PSL := by
   exact LinModel.card_bstar_eq_of_sl hS.prime hp5 hnp hadm.2.1 hpf hker hS.2.2.1
     hS.bstar_le hS.elem hS.2.2.2.1.2.2 hS.omega hS.unique hyM hyo hy
 
-theorem ggSixLinearRankInput_of_psu (hU : GGSixLinearRankOn .PSU) : GGSixLinearRankInput :=
-  ggSixLinearRankInput_of_tags ggSixLinearRankOn_PSL hU
 
 end Inputs
 

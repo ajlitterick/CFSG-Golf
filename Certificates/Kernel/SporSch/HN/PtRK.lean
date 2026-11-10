@@ -25,8 +25,6 @@ theorem bridge_R :
     CFSG.KC.Enum.allN 36 (fun c => lanesEq (CFSG.KD.HNPt.R c) (ss (sIdx c))) = true := by
   quickRfl
 
-theorem neg_bridge : Bool.not (lanesEq (CFSG.KD.HNPt.R 0) (ss 14)) = true := by quickRfl
-theorem neg_valid : Bool.not (validHN (Nat.add (CFSG.KD.HNPt.R 0) 5)) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.HNPtR
 

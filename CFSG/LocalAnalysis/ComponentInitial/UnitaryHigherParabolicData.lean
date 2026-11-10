@@ -47,10 +47,6 @@ theorem mem_flagStabilizer {I : Set ℕ} {g : hypSU h r ε} :
     g ∈ flagStabilizer h r ε I ↔ ∀ i ∈ I, g • hypFlag h r ε i = hypFlag h r ε i := by
   simp only [flagStabilizer, Subgroup.mem_iInf, MulAction.mem_stabilizer_iff]
 
-theorem mem_maxParabolics {M : Subgroup (hypPSU h r ε)} :
-    M ∈ maxParabolics h r ε ↔
-      M ∈ maximalParabolics h r ε ∧ ∀ M' ∈ maximalParabolics h r ε, M'.index ≤ M.index :=
-  Iff.rfl
 
 theorem intrinsicParabolics_of_eq_four (hn : 2 * r + ε = 4) :
     intrinsicParabolics h r ε = maxParabolics h r ε := by
@@ -78,21 +74,5 @@ theorem comap_projIsoStabilizer (W : Submodule K (HypIndex r ε → K)) :
 theorem flagStabilizer_empty : flagStabilizer h r ε ∅ = ⊤ :=
   eq_top_iff.mpr fun _ _ => mem_flagStabilizer.mpr fun _ hi => absurd hi (Set.notMem_empty _)
 
-theorem unitary_parabolic_data :
-    (∀ W : Submodule K (HypIndex r ε → K), hypScalars h r ε ≤ isoStabilizer h r ε W) ∧
-    (∀ I : Set ℕ, hypScalars h r ε ≤ flagStabilizer h r ε I) ∧
-    (∀ W : Submodule K (HypIndex r ε → K),
-      (projIsoStabilizer h r ε W).comap (hypProj h r ε) = isoStabilizer h r ε W) ∧
-    (∀ I : Set ℕ, ((flagStabilizer h r ε I).map (hypProj h r ε)).comap (hypProj h r ε) =
-      flagStabilizer h r ε I) ∧
-    flagStabilizer h r ε ∅ = ⊤ ∧
-    (2 * r + ε = 4 → intrinsicParabolics h r ε = maxParabolics h r ε) ∧
-    (2 * r + ε ≠ 4 → intrinsicParabolics h r ε = minParabolics h r ε) := by
-  refine ⟨hypScalars_le_isoStabilizer, hypScalars_le_flagStabilizer, comap_projIsoStabilizer,
-    fun I => ?_, flagStabilizer_empty, intrinsicParabolics_of_eq_four,
-    intrinsicParabolics_of_ne_four⟩
-  rw [Subgroup.comap_map_eq_self]
-  rw [ker_hypProj]
-  exact hypScalars_le_flagStabilizer I
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

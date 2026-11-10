@@ -12,18 +12,6 @@ open TwoRankLowerBound.Helpers
 
 universe u
 
-theorem complex_representation_invariant_complement {G : Type*} [Group G] [Finite G]
-    {V : Type*} [AddCommGroup V] [Module ℂ V] (ρ : Representation ℂ G V) (W : Submodule ℂ V)
-    (hW : ∀ (g : G), ∀ v ∈ W, ρ g v ∈ W) :
-    ∃ W' : Submodule ℂ V, IsCompl W W' ∧ ∀ (g : G), ∀ v ∈ W', ρ g v ∈ W' := by
-  have : NeZero (Nat.card G : ℂ) := ⟨Nat.cast_ne_zero.mpr Nat.card_pos.ne'⟩
-  let Wr : Subrepresentation ρ := ⟨W, fun g v hv => hW g v hv⟩
-  obtain ⟨Wc, hWc⟩ := ComplementedLattice.exists_isCompl Wr
-  refine ⟨Wc.toSubmodule, ⟨?_, ?_⟩, fun g v hv => Wc.apply_mem_toSubmodule g hv⟩
-  · rw [disjoint_iff]
-    exact congrArg Subrepresentation.toSubmodule hWc.inf_eq_bot
-  · rw [codisjoint_iff]
-    exact congrArg Subrepresentation.toSubmodule hWc.sup_eq_top
 
 theorem natural_expansion_eq_blocksCharacterExpansion {G : Type} [Group G]
     (m : BlocksIrr G →₀ ℕ) :

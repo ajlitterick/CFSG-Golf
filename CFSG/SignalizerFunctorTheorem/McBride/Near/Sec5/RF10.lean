@@ -100,34 +100,6 @@ theorem kOf_apply_inf_centralizer_le
     exact hθ.isFunctor.inf_centralizer_eq_thetaOf ha ha1 (Subgroup.zpowers_le.mpr hb)
   rwa [heq] at h
 
-theorem kOf_apply_inf_centralizer_le_thetaOf
-    (hθ : NearFunctor p A θ) {B : Subgroup G}
-    (hB : B ∈ signalizerFunctorEk p 2 A) {a : G} (haB : a ∈ B) (ha1 : a ≠ 1) :
-    kOf (θ a) ⊓ Subgroup.centralizer (B : Set G) ≤ kOf (thetaOf θ B) := by
-  have ha : a ∈ A := hB.1 haB
-  have hza := zpowers_mem_signalizerFunctorEk_one hθ.prime hθ.elemAbelian ha ha1
-  have hnle : ¬ B ≤ Subgroup.zpowers a := fun hle => by
-    have h1 := Subgroup.card_le_of_le hle
-    rw [hB.2, hza.2] at h1
-    have : p ^ 1 < p ^ 2 := Nat.pow_lt_pow_right hθ.prime.one_lt (by norm_num)
-    omega
-  obtain ⟨b, hbB, hbna⟩ := IsConcreteLE.not_le_iff_exists.mp hnle
-  have hb1 : b ≠ 1 := fun h1 => hbna (h1 ▸ one_mem _)
-  have hzb := zpowers_mem_signalizerFunctorEk_one hθ.prime hθ.elemAbelian (hB.1 hbB) hb1
-  have hdisj : Subgroup.zpowers a ⊓ Subgroup.zpowers b = ⊥ :=
-    CFSG.SignalizerFunctorTheorem.inf_eq_bot_of_not_le hθ.prime (by rw [hzb.2, pow_one])
-      (fun hle => hbna (hle (Subgroup.mem_zpowers b)))
-  have hsup : Subgroup.zpowers a ⊔ Subgroup.zpowers b ∈ signalizerFunctorEk p 2 A := by
-    simpa using CFSG.SignalizerFunctorTheorem.sup_mem_Ek_succ hθ.elemAbelian hza hzb hdisj
-  have hBeq : Subgroup.zpowers a ⊔ Subgroup.zpowers b = B :=
-    Subgroup.eq_of_le_of_card_ge (sup_le (Subgroup.zpowers_le.mpr haB)
-      (Subgroup.zpowers_le.mpr hbB)) (by rw [hB.2, hsup.2])
-  calc kOf (θ a) ⊓ Subgroup.centralizer (B : Set G)
-      ≤ kOf (θ a) ⊓ Subgroup.centralizer {b} :=
-        inf_le_inf_left _ (Subgroup.centralizer_le (Set.singleton_subset_iff.mpr hbB))
-    _ ≤ kOf (thetaOf θ (Subgroup.zpowers a ⊔ Subgroup.zpowers b)) :=
-        kOf_apply_inf_centralizer_le hθ ha ha1 (hB.1 hbB) hb1
-    _ = kOf (thetaOf θ B) := by rw [hBeq]
 
 end Functor
 

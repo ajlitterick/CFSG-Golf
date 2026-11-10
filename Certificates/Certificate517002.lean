@@ -14,7 +14,6 @@ namespace CertificateChecks.C517002
 
 theorem he : Function.Injective (evHom 28) := ev_injective
 
-theorem evHom_ev (c : CV 28) : evHom 28 c = ev c := rfl
 
 theorem cOf_eq (σ : Equiv.Perm (Fin 28)) : σ = evHom 28 (cOf σ) := eq_ev_cOf σ
 

@@ -161,11 +161,6 @@ public theorem sq_bijective_of_coprime_two
     Function.Bijective (fun x : G => x ^ 2) := by
   simpa [Nat.Coprime, pow_two] using (hcop.symm.pow_left_bijective (G := G) (n := 2))
 
-/-- The square root in a finite `2'`-group is unique. -/
-public theorem sq_eq_sq_of_coprime_two
-    {G : Type u} [Group G] [Finite G] (hcop : Nat.Coprime 2 (Nat.card G))
-    {a b : G} (h : a ^ 2 = b ^ 2) : a = b :=
-  (sq_bijective_of_coprime_two (G := G) hcop).1 h
 
 /-- In a `2'`-group, an element of order dividing two is trivial. -/
 public theorem eq_one_of_sq_eq_one_of_coprime_two
@@ -453,96 +448,6 @@ public theorem fact_1_5_ii_decomposition
   refine ⟨c, hcC, (i : G), ?_⟩
   exact ⟨hiI, by simp [c]⟩
 
-/-- Fact 1.5(ii): `|I_X(s)| = |X : C_X(s)|`. -/
-public theorem fact_1_5_ii_card
-    {G : Type u} [Group G] [Finite G] {X : Subgroup G} {s : G}
-    (hs : IsInvolution s) (hcop : Nat.Coprime 2 (Nat.card (↥X)))
-    (hsX : ∀ x : G, x ∈ X → s * x * s⁻¹ ∈ X) :
-    Nat.card {i : G // i ∈ invertedElements X s} =
-      ((centralizerIn X s).subgroupOf X).index := by
-  classical
-  let C : Subgroup G := centralizerIn X s
-  let I : Set G := invertedElements X s
-  have hdecomp := fact_1_5_ii_decomposition (G := G) hs hcop hsX
-  -- uniqueness of the decomposition: if `c * i = c' * i'`, conjugating by `s`
-  -- gives `c * i⁻¹ = c' * i'⁻¹`, hence `i² = i'²`, so `i = i'` and `c = c'`.
-  have huniq : ∀ {c c' : G} {i i' : G}, c ∈ C → c' ∈ C → i ∈ I → i' ∈ I →
-      c * i = c' * i' → c = c' ∧ i = i' := by
-    intro c c' i i' hc hc' hi hi' h
-    have hc_fix : s * c * s⁻¹ = c := ((mem_centralizerIn_iff X s c).1 hc).2
-    have hc'_fix : s * c' * s⁻¹ = c' := ((mem_centralizerIn_iff X s c').1 hc').2
-    have h1 : c * i⁻¹ = c' * i'⁻¹ := by
-      calc
-        c * i⁻¹ = (s * c * s⁻¹) * i⁻¹ := by rw [hc_fix]
-        _ = (s * c * s⁻¹) * (s * i * s⁻¹) := by rw [hi.2]
-        _ = s * (c * i) * s⁻¹ := by group
-        _ = s * (c' * i') * s⁻¹ := by rw [h]
-        _ = (s * c' * s⁻¹) * (s * i' * s⁻¹) := by group
-        _ = c' * i'⁻¹ := by rw [hc'_fix, hi'.2]
-    have hsq : (i : G) ^ 2 = (i' : G) ^ 2 := by
-      calc
-        (i : G) ^ 2 = (i : G) * (i : G) := by rw [pow_two]
-        _ = (c * i⁻¹)⁻¹ * (c * i) := by group
-        _ = (c' * i'⁻¹)⁻¹ * (c' * i') := by rw [h1, h]
-        _ = (i' : G) * (i' : G) := by group
-        _ = (i' : G) ^ 2 := by rw [pow_two]
-    have hi_eq : i = i' := by
-      have hsqX : (⟨i, hi.1⟩ : ↥X) ^ 2 = (⟨i', hi'.1⟩ : ↥X) ^ 2 := by
-        apply Subtype.ext
-        simpa using hsq
-      exact congrArg Subtype.val (sq_eq_sq_of_coprime_two (G := ↥X) hcop hsqX)
-    have hc_eq : c = c' := by
-      calc
-        c = (c * i) * i⁻¹ := by group
-        _ = (c' * i') * i⁻¹ := by rw [h]
-        _ = c' := by rw [hi_eq]; group
-    exact ⟨hc_eq, hi_eq⟩
-  -- the bijection `C × I ≃ X`
-  let f : (↥C × {i : G // i ∈ I}) → ↥X := fun p =>
-    ⟨(p.1 : G) * (p.2 : G), X.mul_mem p.1.2.1 (p.2.2.1)⟩
-  have hf_inj : Function.Injective f := by
-    intro p q hpq
-    have h := congrArg (fun z : ↥X => (z : G)) hpq
-    rcases huniq p.1.2 q.1.2 p.2.2 q.2.2 h with ⟨h1, h2⟩
-    apply Prod.ext
-    · apply Subtype.ext
-      exact h1
-    · apply Subtype.ext
-      exact h2
-  have hf_surj : Function.Surjective f := by
-    intro x
-    rcases hdecomp x x.2 with ⟨c, hcC, i, hiI, hxi⟩
-    refine ⟨⟨⟨c, hcC⟩, ⟨i, hiI⟩⟩, ?_⟩
-    apply Subtype.ext
-    exact hxi.symm
-  have hcard : Nat.card (↥X) = Nat.card C * Nat.card {i : G // i ∈ I} := by
-    have he : (↥C × {i : G // i ∈ I}) ≃ ↥X := Equiv.ofBijective f (⟨hf_inj, hf_surj⟩)
-    calc
-      Nat.card (↥X) = Nat.card (↥C × {i : G // i ∈ I}) := (Nat.card_congr he).symm
-      _ = Nat.card C * Nat.card {i : G // i ∈ I} := by simp [Nat.card_prod]
-  -- the index of `C` in `X`
-  have hmap : (C.subgroupOf X).map X.subtype = C := by
-    apply le_antisymm
-    · intro y hy
-      rcases (Subgroup.mem_map.mp hy) with ⟨x, hx, rfl⟩
-      exact hx
-    · intro c hcC
-      exact Subgroup.mem_map.mpr ⟨⟨c, hcC.1⟩, by
-        simpa [Subgroup.mem_subgroupOf] using (show (⟨c, hcC.1⟩ : ↥X) ∈ C.subgroupOf X from hcC)⟩
-  have hcardC : Nat.card ↥(C.subgroupOf X) = Nat.card C := by
-    calc
-      Nat.card ↥(C.subgroupOf X) = Nat.card ↥((C.subgroupOf X).map X.subtype) := by
-        simpa [hmap] using (Subgroup.card_subtype X (C.subgroupOf X)).symm
-      _ = Nat.card C := by rw [hmap]
-  have hindex : Nat.card (↥X) = Nat.card C * (C.subgroupOf X).index := by
-    calc
-      Nat.card (↥X) = Nat.card ↥(C.subgroupOf X) * (C.subgroupOf X).index := by
-        simp
-      _ = Nat.card C * (C.subgroupOf X).index := by rw [hcardC]
-  have hCpos : 0 < Nat.card C := Nat.card_pos
-  have : Nat.card C * Nat.card {i : G // i ∈ I} = Nat.card C * (C.subgroupOf X).index := by
-    rw [← hcard, hindex]
-  exact Nat.mul_left_cancel hCpos this
 
 /-- Fact 1.5(iii): if `I_X(s)` is a subgroup, then it is an abelian normal
 subgroup of `X`, hence lies in `F(X)`. -/

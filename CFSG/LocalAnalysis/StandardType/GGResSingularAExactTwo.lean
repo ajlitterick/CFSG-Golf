@@ -93,198 +93,9 @@ open CFSG.ClassicalGroups.UnitaryFlag
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem bstar_eq_of_singular_A_marking_data
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L : Subgroup G}
-    (hT : GGThmIHyp p B x L) (hBs : GGBstar p B Bs)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    (hL : commutator ↥L = ⊤)
-    {lab : LargeEvenLabel}
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ))
-    (hdata : LargeEvenLabelAll lab fun R _ I _ =>
-      (∃ r, GGTorusLift p r R ∧ GGInnerDiagBound p r R I) ∧
-      ∃ r, GGTorusLift p r R ∧ GGINormAbove p r R I) :
-    B = Bs := by
-  obtain ⟨-, lab', hΛ', hraw⟩ := hM
-  have hraw0 := (largeEvenRawDatum_legacy lab' _).mpr hraw
-  obtain ⟨R0, instR0, I0, F0, hQ0⟩ := CFSG.StandardType.largeEvenRawDatum_exists hraw0
-  obtain ⟨-, hEq0, -⟩ := hQ0.2.2
-  rw [hEq0] at hraw
-  have hraw' := (largeEvenRawDatum_legacy lab _).mpr hraw
-  obtain ⟨R, instR, I, F, hQ⟩ := largeEvenRawDatum_exists (hdata _ hraw')
-  obtain ⟨θ, -, hBN, h3⟩ := hQ.1.2.2
-  obtain ⟨r₁, hlift₁, hbound⟩ := hQ.2.1
-  obtain ⟨r₂, hlift₂, hnorm⟩ := hQ.2.2
-  exact bstar_eq_of_bound_norm hT hBs hnc hL θ hBN h3 hlift₁ hbound hlift₂ hnorm
-
-theorem bstar_eq_of_typeA_singular_split
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L : Subgroup G}
-    (hT : GGThmIHyp p B x L) (hBs : GGBstar p B Bs)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    (hL : commutator ↥L = ⊤)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1) (hpn' : ¬ p ∣ lab.n)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)) :
-    B = Bs :=
-  bstar_eq_of_singular_A_marking_data hT hBs hnc hL hM
-    (largeEvenLabelAll_bstarEqNorm_typeACoprime hT.2.2.2.2.2.1.1 hΛ
-      ⟨hA, hpn, hpd, hpn'⟩)
-
-theorem Bs_inf_centralizer_eq_D_of_typeA_singular_split
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1) (hpn' : ¬ p ∣ lab.n)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) = D := by
-  have hB : B = Bs :=
-    bstar_eq_of_typeA_singular_split hH.1.1 hH.1.2.1 hnc (GGConfig.data_L hH.1).2.2.2 hΛ hA hpn
-      hpd hpn' hM
-  rw [← hB, ← hH.1.2.2.1.2.2.2.2.2.2]
-
-theorem ggResExact2_cartan_singular_of_typeA_singular_split
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1) (hpn' : ¬ p ∣ lab.n)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ))
-    {R : Type} [Group R] {I : Set (MulAut R)}
-    (θ : ↥J ⧸ Subgroup.center ↥J ≃* R)
-    (hBs3 : ∀ b ∈ Bs, ∃ φ ∈ I,
-      LargeEvenInduces θ (fun j j' => (j' : G) = b⁻¹ * j * b) φ)
-    {r m N : ℕ} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hLift : GGTorusLift p r R)
-    (hTorW : GGTorusTorW p r m N C M R I)
-    (hnb : ∀ k : Fin N, ∃ j : Fin N, C j k = -1)
-    (hr3 : 3 ≤ r)
-    (hD : GGResLeviDatumCard 2 p Bs L J K ggSelAny ggTypAny) :
-    ∃ (Λ : Type) (_ : Fintype Λ) (_ : DecidableEq Λ)
-      (ML : CoxeterMatrix Λ) (CL : Matrix Λ Λ ℤ)
-      (V : Type) (_ : AddCommGroup V) (_ : Module (ZMod p) V)
-      (ι : Additive ↥Bs ≃+ V) (φL : Λ → MulAut ↥Bs) (hL : Λ → V)
-      (αL : Λ → Module.Dual (ZMod p) V),
-      GGIsWeylMatrix ML ∧ GGIntCartan ML CL ∧
-      (∀ i w, ggLin (p := p) ι (φL i) w = w - αL i w • hL i) ∧
-      (∀ i, GGIsReflection p (φL i)) ∧
-      (∀ i j, αL i (hL j) = (CL i j : ZMod p)) ∧
-      (∃ fL : ML.Group ≃* ↥(ggAutomizer L Bs),
-        ∀ i, (fL (ML.simple i) : MulAut ↥Bs) = φL i) ∧
-      ggAutomizer L Bs = Subgroup.closure (Set.range φL) ∧
-      ((∃ (n : ℕ) (e : Fin n ≃ Λ), 1 ≤ n ∧ p ∣ n + 1 ∧
-        ∀ i j, CL (e i) (e j) = CartanMatrix.A n i j) ∨
-      (p = 3 ∧ ∃ e : Fin 6 ≃ Λ, ∀ i j, CL (e i) (e j) = CartanMatrix.E 6 i j)) :=
-  ggResExact2_cartan_singular_of_datum hH
-    (Bs_inf_centralizer_eq_D_of_typeA_singular_split hH hnc hΛ hA hpn hpd hpn' hM)
-    θ hBs3 hLift hTorW hnb hr3 hD
 
 section AllField
 
-
-theorem largeEvenLabelAll_singular_A_allField {p : ℕ} (hp : p.Prime) {lab : LargeEvenLabel}
-    (hΛ : LargeEvenInLambda2 lab) (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1) :
-    LargeEvenLabelAll lab fun R _ I _ =>
-      (∃ r, GGTorusLift p r R ∧ GGInnerDiagBound p r R I) ∧
-      ∃ r, GGTorusLift p r R ∧ GGINormAbove p r R I := by
-  by_cases hpn' : p ∣ lab.n
-  · have hf : GGIOneMoreFieldLabel p lab := Or.inl ⟨hA, hpn, hpd, hpn'⟩
-    exact largeEvenLabelAll_and (ggIOneMoreFieldCorFourTwoInput_holds p lab hp hΛ hf)
-      (IOneMore.largeEvenLabelAll_normAbove_field hp hΛ hf)
-  · exact largeEvenLabelAll_bstarEqNorm_typeACoprime hp hΛ ⟨hA, hpn, hpd, hpn'⟩
-
-theorem bstar_eq_of_typeA_singular_split_allField
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L : Subgroup G}
-    (hT : GGThmIHyp p B x L) (hBs : GGBstar p B Bs)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    (hL : commutator ↥L = ⊤)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)) :
-    B = Bs :=
-  bstar_eq_of_singular_A_marking_data hT hBs hnc hL hM
-    (largeEvenLabelAll_singular_A_allField hT.2.2.2.2.2.1.1 hΛ hA hpn hpd)
-
-theorem Bs_inf_centralizer_eq_D_of_typeA_singular_split_allField
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) = D := by
-  have hB : B = Bs :=
-    bstar_eq_of_typeA_singular_split_allField hH.1.1 hH.1.2.1 hnc
-      (GGConfig.data_L hH.1).2.2.2 hΛ hA hpn hpd hM
-  rw [← hB, ← hH.1.2.2.1.2.2.2.2.2.2]
-
-theorem ggResExact2_cartan_singular_of_typeA_singular_split_allField
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1)
-    (hpd : p ∣ lab.rank + 1)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ))
-    {R : Type} [Group R] {I : Set (MulAut R)}
-    (θ : ↥J ⧸ Subgroup.center ↥J ≃* R)
-    (hBs3 : ∀ b ∈ Bs, ∃ φ ∈ I,
-      LargeEvenInduces θ (fun j j' => (j' : G) = b⁻¹ * j * b) φ)
-    {r m N : ℕ} {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hLift : GGTorusLift p r R)
-    (hTorW : GGTorusTorW p r m N C M R I)
-    (hnb : ∀ k : Fin N, ∃ j : Fin N, C j k = -1)
-    (hr3 : 3 ≤ r)
-    (hD : GGResLeviDatumCard 2 p Bs L J K ggSelAny ggTypAny) :
-    ∃ (Λ : Type) (_ : Fintype Λ) (_ : DecidableEq Λ)
-      (ML : CoxeterMatrix Λ) (CL : Matrix Λ Λ ℤ)
-      (V : Type) (_ : AddCommGroup V) (_ : Module (ZMod p) V)
-      (ι : Additive ↥Bs ≃+ V) (φL : Λ → MulAut ↥Bs) (hL : Λ → V)
-      (αL : Λ → Module.Dual (ZMod p) V),
-      GGIsWeylMatrix ML ∧ GGIntCartan ML CL ∧
-      (∀ i w, ggLin (p := p) ι (φL i) w = w - αL i w • hL i) ∧
-      (∀ i, GGIsReflection p (φL i)) ∧
-      (∀ i j, αL i (hL j) = (CL i j : ZMod p)) ∧
-      (∃ fL : ML.Group ≃* ↥(ggAutomizer L Bs),
-        ∀ i, (fL (ML.simple i) : MulAut ↥Bs) = φL i) ∧
-      ggAutomizer L Bs = Subgroup.closure (Set.range φL) ∧
-      ((∃ (n : ℕ) (e : Fin n ≃ Λ), 1 ≤ n ∧ p ∣ n + 1 ∧
-        ∀ i j, CL (e i) (e j) = CartanMatrix.A n i j) ∨
-      (p = 3 ∧ ∃ e : Fin 6 ≃ Λ, ∀ i j, CL (e i) (e j) = CartanMatrix.E 6 i j)) :=
-  ggResExact2_cartan_singular_of_datum hH
-    (Bs_inf_centralizer_eq_D_of_typeA_singular_split_allField hH hnc hΛ hA hpn hpd hM)
-    θ hBs3 hLift hTorW hnb hr3 hD
-
-theorem Bs_inf_centralizer_eq_D_of_typeA_singular_split_original
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {lab : LargeEvenLabel} (hΛ : LargeEvenInLambda2 lab)
-    (hA : lab.tag = .A) (hpn : p ∣ 2 ^ lab.n - 1) (hpd : p ∣ lab.rank + 1)
-    (hM : LargeEvenMarking ↥L (fun lab' _R _ I _ θ => lab' = lab ∧
-      B ≤ Subgroup.normalizer (L : Set G) ∧
-      ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) = D :=
-  Bs_inf_centralizer_eq_D_of_typeA_singular_split_allField hH
-    (ggLNoncyclicInput_holds G p B x L hH.1.1) hΛ hA hpn hpd hM
 
 end AllField
 
@@ -1112,7 +923,6 @@ theorem ggResExact2_rowTwoNode_of_twA_singular_K_large_allFields
     simp [this]
 
 
-
 private theorem not_twA_singular_K_rank_three
     {p : ℕ} [Fact p.Prime]
     {B Bs L D J K : Subgroup G} {x y : G}
@@ -1554,55 +1364,6 @@ theorem ggResHigherFieldRootTwo_of_diagonal_cover
     GGResHigherFieldRootTwo p B Bs J :=
   exists_isPGroup_two_normalized_of_diagonal_cover hd hBJ χ hχker hdiag
 
-theorem GGResHyp.rootTwo_of_large_linear_L_marking
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .A ∧ p ∣ 2 ^ lab.n - 1) p Bs L) :
-    GGResHigherFieldRootTwo p B Bs J := by
-  classical
-  obtain ⟨hperf, labL, hlabL, hraw⟩ := hM
-  obtain ⟨R, _, I, F₀, _, _, θ, hS, -⟩ := largeEvenRawDatum_exists hraw
-  obtain ⟨htagL, hpq⟩ := hS
-  obtain ⟨tagL, rankL, f⟩ := labL
-  simp only at htagL
-  cases htagL
-  change LargeEvenInLambda2 (⟨.A, rankL, f⟩ : LargeEvenLabel) at hlabL
-  change p ∣ 2 ^ f - 1 at hpq
-  have hExact : GGInnerDiagOnLabel
-      (fun _ lab => lab = (⟨.A, rankL, f⟩ : LargeEvenLabel)) p Bs L :=
-    ⟨hperf, ⟨.A, rankL, f⟩, hlabL, Legacy.largeEvenRawDatum_mono (lab := ⟨.A, rankL, f⟩)
-      (fun _ _ _ _ ⟨hs, hna, θ', _, hP⟩ => ⟨hs, hna, θ', rfl, hP⟩) hraw⟩
-  obtain ⟨F, hField, hFinite, hChar, hN, φ, S, hF, hφs, hker, hdiag, hS2, hJ⟩ :=
-    exists_block_of_large_linear_L_of_marking hH hpq hExact
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  letI : CharP F 2 := hChar
-  have hB : B ≤ Bs := hH.1.2.1.1
-  have hBJ : B ≤ Subgroup.normalizer (J : Set G) :=
-    hB.trans (GGResHyp.Bs_le_normalizer_J hH)
-  let e : S ≃ Fin S.card := S.equivFin
-  let χ : SpecialLinearGroup (Fin S.card) F →* J :=
-    TypeANbrDvd.blockSLCover (F := F) S L φ hJ e
-  have hχker : ∀ g, χ g = 1 → g ∈ scalars S.card F :=
-    TypeANbrDvd.blockSLCover_ker_scalar (F := F) S L φ hJ hker e
-  have hdiagχ : ∀ b : B, ∃ t : Fin S.card → F,
-      TypeANbrDvd.ActsDiag χ (ggGamma J hBJ b) t := by
-    intro b
-    obtain ⟨t, ht⟩ := hdiag (ggGamma L hN ⟨b, hB b.2⟩) ⟨⟨b, hB b.2⟩, rfl⟩
-    exact ⟨fun k => t (e.symm k),
-      TypeANbrDvd.blockSLCover_actsDiag (F := F) (S := S) (P := L) (φ := φ)
-        hJ hN hBJ hB e ht⟩
-  exact ggResHigherFieldRootTwo_of_diagonal_cover hS2 hBJ χ hχker hdiagχ
-
-theorem GGResHyp.rootTwo_of_large_linear_L
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .A ∧ p ∣ 2 ^ lab.n - 1) p Bs L) :
-    GGResHigherFieldRootTwo p B Bs J :=
-  hH.rootTwo_of_large_linear_L_marking hM
 
 theorem GGResHyp.false_of_large_linear_L_nonsingular_datum
     {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -1715,27 +1476,6 @@ theorem GGResHyp.p_dvd_rank_add_one_of_large_linear_exact2
       (fun i => φd (Sum.inl i)) (fun i => hd (Sum.inl i)) (fun i => αd (Sum.inl i))
       (fun i w => hlin (Sum.inl i) w) hpair hclosL hSdel hclosJ hdet
 
-theorem GGResHyp.false_of_large_linear_exact2_rank_three
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .A ∧ p ∣ 2 ^ lab.n - 1) p Bs L)
-    {rankL f : ℕ} (hpq : p ∣ 2 ^ f - 1)
-    (hLab : GGHasLabel (⟨.A, rankL, f⟩ : LargeEvenLabel)
-      (↥L ⧸ Subgroup.center ↥L))
-    (hΛL : LargeEvenInLambda2 (⟨.A, rankL, f⟩ : LargeEvenLabel))
-    (hrank3 : rankL = 3)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) : False := by
-  have h3 : 3 ≤ rankL := by omega
-  have hpd : p ∣ rankL + 1 :=
-    GGResHyp.p_dvd_rank_add_one_of_large_linear_exact2 hH hRig hM hpq hLab hΛL h3 hD
-  rw [hrank3] at hpd
-  have hp4 : p ∣ 2 ^ 2 := by simpa using hpd
-  have hp2' : p = 2 :=
-    (Nat.prime_dvd_prime_iff_eq (Fact.out : p.Prime) Nat.prime_two).mp
-      ((Fact.out : p.Prime).dvd_of_dvd_pow hp4)
-  exact hH.1.1.2.2.2.2.2.1.2.1 hp2'
 
 theorem GGResHyp.rowTwoNode_of_large_linear_exact2
     {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -1790,22 +1530,6 @@ theorem GGResHyp.iOne_of_unitary_higherField_cover
   have hle := hH.centralizer_J_le_D_of_unitary hM hdiag hn hd hpq hlt
   exact hne (le_antisymm hle hH.D_le_inf_centralizer)
 
-theorem GGResHyp.iOne_of_large_unitary_L_nonsingular_higherField
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    {r f : ℕ} (hr : 4 ≤ r) (hf : 2 ≤ f)
-    (hpq : p ∣ 2 ^ f + 1) (hpd : ¬ p ∣ r + 1)
-    (hLab : GGHasLabel ⟨.twA, r, f⟩ (L ⧸ Subgroup.center L))
-    (hΛ : LargeEvenInLambda2 ⟨.twA, r, f⟩) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) = D := by
-  obtain ⟨F, hField, hFinite, hChar, hN, φ, hF, hM, hdiag⟩ :=
-    exists_diagonal_cover_of_large_unitary_L_coprime hRig hH hr
-      (Or.inr (by omega : f ≠ 1)) hpq hpd hLab hΛ
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  letI : CharP F 2 := hChar
-  exact hH.iOne_of_unitary_higherField_cover hM hdiag hf (by omega) hpq
 
 theorem GGResHyp.false_of_twA_nonsingular_exact2_L
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
@@ -1898,31 +1622,6 @@ theorem GGResHyp.false_of_twA_nonsingular_exact2_L
   have hpp := (Fact.out : p.Prime).one_lt
   have hlt : p ^ 2 < p ^ 3 := Nat.pow_lt_pow_right hpp (by norm_num)
   omega
-
-theorem GGResHyp.false_of_twA_nonsingular_exact2
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∧ 2 ≤ lab.n ∧ p ∣ 2 ^ lab.n + 1 ∧
-        ¬ p ∣ lab.rank + 1 ∧ 4 ≤ lab.rank) p Bs L)
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) : False := by
-  classical
-  obtain ⟨labL, hlabL, hhasL, R, instR, I, F₀, θ, hP⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  obtain ⟨hS, -⟩ := hP
-  obtain ⟨htagL, hfn, hpq, hpd, hr4⟩ := hS
-  obtain ⟨tagL, rankL, f⟩ := labL
-  simp only at htagL
-  cases htagL
-  change LargeEvenInLambda2 (⟨.twA, rankL, f⟩ : LargeEvenLabel) at hlabL
-  change GGHasLabel (⟨.twA, rankL, f⟩ : LargeEvenLabel)
-    (↥L ⧸ Subgroup.center ↥L) at hhasL
-  change 2 ≤ f at hfn
-  change p ∣ 2 ^ f + 1 at hpq
-  change ¬ p ∣ rankL + 1 at hpd
-  change 4 ≤ rankL at hr4
-  exact GGResHyp.false_of_twA_nonsingular_exact2_L hH hRig hr4 hfn hpq hpd hhasL hlabL hD
 
 
 end UnitaryHigherField
@@ -2087,7 +1786,6 @@ theorem ggResExact2_rowTwoNode_of_A_singular_K_large_singular_allFields
     exact hpd
   · have : S.card - 1 + 2 = rankK := by omega
     simp [this]
-
 
 
 theorem GGResHyp.fix_mem_centralizer_J_of_typeA_marking_K_exact2
@@ -2437,41 +2135,6 @@ theorem GGResHyp.rowTwoNode_of_large_linear_K_exact2
       hhasK hlabK (by omega : r = 3) hD).elim
 
 
-theorem GGResHyp.exact2_K_weylRank
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    {rankL c : ℕ}
-    (hD : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (h3K : ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny)
-    (hWL : GGWeylTypeData rankL (Nat.card ↥(ggAutomizer L Bs)) c)
-    (hr : 3 ≤ rankL) :
-    ∃ (nK j : ℕ), (j = 1 ∨ j = 2) ∧ nK = rankL - 2 + j ∧
-      GGWeylTypeData nK (Nat.card ↥(ggAutomizer K Bs))
-        (Nat.card ↥(Subgroup.center ↥(ggAutomizer K Bs))) ∧
-      GGWeylTypeData (rankL - 2) (Nat.card ↥(ggAutomizer J Bs))
-        (Nat.card ↥(Subgroup.center ↥(ggAutomizer J Bs))) := by
-  classical
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hexp : ∀ b ∈ Bs, b ^ p = 1 := hH.1.2.1.2.1.2
-  have hJne : ggAutomizer J Bs ≠ ⊥ :=
-    (CFSG.StandardType.HdRo7SU.su_exact2_survivor_dvd_and_ne hD ⟨c, hWL⟩ (by omega : 2 < rankL)
-      hH.Bs_le_normalizer_J hp2 hexp).2
-  obtain ⟨rJ, hrJ, hsurvJ⟩ :=
-    ggResLeviDatumCard_rank_eq_of_weylTypeData hD hJne hWL
-  have hrJ' : rJ = rankL - 2 := by omega
-  have hsurvJ' : GGWeylTypeData (rankL - 2) (Nat.card ↥(ggAutomizer J Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer J Bs))) := by
-    simpa [hrJ'] using hsurvJ
-  rcases ggResLeviDatumExact2_reverse_card_one_two_of_not_exact3 hD h3K with hrev | hrev
-  · obtain ⟨rK, hfullK, hsurvK⟩ := ggResLeviDatumCard_weylTypeData hrev hJne
-    have hrK : rK = rJ := ggWeylTypeData_rank_eq hsurvK hsurvJ
-    refine ⟨rK + 1, 1, Or.inl rfl, by omega, hfullK, hsurvJ'⟩
-  · obtain ⟨rK, hfullK, hsurvK⟩ := ggResLeviDatumCard_weylTypeData hrev hJne
-    have hrK : rK = rJ := ggWeylTypeData_rank_eq hsurvK hsurvJ
-    refine ⟨rK + 2, 2, Or.inr rfl, by omega, hfullK, hsurvJ'⟩
-
-
 end SplitLinearOriginalK
 
 
@@ -2621,7 +2284,6 @@ theorem GGResHyp.false_of_twA_four_qTwo_exact2_L
   exact Group.IsPerfect.not_isSolvable ↥J hsolJ
 
 end SmallUnitaryOriginalL
-
 
 
 open CFSG.ClassicalGroups.UnitaryFlag CFSG.LocalAnalysis.ComponentInitial
@@ -3006,120 +2668,6 @@ theorem GGResHyp.not_exactTwo_left_of_esu_allFields_not_rows
     exact hH.false_of_uFour_exact2_L hM3 hD
 
 
-
-theorem GGResHyp.nonsingular_exactTwo_twA_K_counts
-    {G : Type} [Group G] [Finite G]
-    {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K) (hRig : GGLabelRigidInput)
-    (hLB : GGLBalanceInput)
-    {rankK f : ℕ} (hr : 4 ≤ rankK) (hf : 2 ≤ f)
-    (hpq : p ∣ 2 ^ f + 1) (hpd : ¬ p ∣ rankK + 1)
-    (hLabK : GGHasLabel (⟨.twA, rankK, f⟩ : LargeEvenLabel)
-      (↥K ⧸ Subgroup.center ↥K))
-    (hΛK : LargeEvenInLambda2 (⟨.twA, rankK, f⟩ : LargeEvenLabel))
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny) :
-    Nat.card ↥Bs = p ^ (rankK + 1) ∧
-      Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) = p ^ 3 ∧ B < Bs := by
-  classical
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hBs : IsElemAbelian p Bs := hH.1.2.1.2.1
-  have hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs :=
-    hH.1.2.1.2.2.2
-  have hnb : GGNbr p B x D J y K := hH.2.2.2.2.1
-  obtain ⟨F, hField, hFinite, hChar, hN, φ, hF, hM, hdiag⟩ :=
-    exists_diagonal_cover_of_large_unitary_side_coprime hRig hH
-      (Or.inr ⟨y, hnb⟩) hr (Or.inr (by omega : f ≠ 1)) hpq hpd hLabK hΛK
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  letI : CharP F 2 := hChar
-  have hf1 : 1 ≤ f := by omega
-  obtain ⟨Vw, hVwadd, hVwmod, ιw, ρw, φw, hw, αw, hNP, hρ, hφeq, hlinw, hreflw,
-    hpairw, ⟨eK, heK⟩, hclos⟩ :=
-    exists_weyl_datum_of_diagonal_unitary_cover hF hf1 hp2 hpq
-      (by omega : 3 ≤ rankK) hBs hSC hN hM hdiag
-  have hWLK : GGWeylTypeData rankK (Nat.card ↥(ggAutomizer K Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer K Bs))) := by
-    have h0 : GGWeylTypeData rankK (Nat.card (CoxeterMatrix.A rankK).Group)
-        (Nat.card ↥(Subgroup.center (CoxeterMatrix.A rankK).Group)) := by
-      simpa using (ggWeylTypeData_of_isWeylMatrix (ggHLT_weyl_A (n := rankK) (by omega)))
-    have hc := Nat.card_congr eK.toEquiv
-    have hz := Nat.card_congr (Subgroup.centerCongr eK).toEquiv
-    simpa [hc, hz] using h0
-  have hcardWK : Nat.card ↥(ggAutomizer K Bs) = (rankK + 1).factorial := by
-    rw [← Nat.card_congr eK.toEquiv]
-    exact l05nK3a_card_coxeterA rankK
-  obtain ⟨hpJ, -⟩ :=
-    CFSG.StandardType.HdRo7SU.su_exact2_survivor_dvd_and_ne hD ⟨_, hWLK⟩
-      (by omega : 2 < rankK) hH.Bs_le_normalizer_J hp2
-      (fun b hb => hBs.2 b hb)
-  have hJK : J ≤ K := le_of_ggNbr hLB hH.1.1 hH.1.2.2 hpJ hnb
-  have hxBs : x ∈ Bs := hH.1.tableB_facts.2.2.1
-  obtain ⟨-, hcompFix⟩ :=
-    isComponentOf_comap_ggFix_ggGamma_x_of_dvd hLB hH.1 hpJ hnb hN hxBs
-  obtain ⟨m, hm, ψ, hψ, hδ⟩ :=
-    exists_unitaryModel_of_component_gamma hN hH.Bs_le_normalizer_J hJK hM hdiag
-      ⟨x, hxBs⟩ hcompFix
-  have hfixJfwd : ∀ b : ↥Bs,
-      (∀ a ∈ ggAutomizer J Bs, a b = b) →
-        (b : G) ∈ Subgroup.centralizer (J : Set G) := by
-    intro b hb
-    exact ggUnitaryModel_fix_mem_centralizer hH.Bs_le_normalizer_J hBs hSC hψ
-      (hH.unitaryModel_J_degree_ge_three hm hψ hδ) hδ b hb
-  have hfixJ : ∀ b : ↥Bs,
-      (∀ a ∈ ggAutomizer J Bs, a b = b) ↔
-        (b : G) ∈ Subgroup.centralizer (J : Set G) := by
-    intro b
-    constructor
-    · exact hfixJfwd b
-    · intro hb
-      apply ggAutomizer_apply_eq_of_le_centralizer (H := J) (x := b)
-      intro j hj
-      rw [Subgroup.mem_centralizer_singleton_iff]
-      exact (Subgroup.mem_centralizer_iff.mp hb) j hj
-  rcases hD with ⟨Λ, hΛF, hΛD, Sdel, Λa, hΛaF, hΛaD, ML, CL, MK, CK, Vd, hVd, hVdM,
-    ιd, φd, hd, αd, hSdel, hΛa1, hΛa3, hML, hCL, hMK, hCK, htyp, hlind, hreflD, hpairD,
-    hpairK, hsel, ⟨fL, hfL⟩, ⟨fK, hfK⟩, hclosL, hclosK, hconn, hclosJ⟩
-  letI : Fintype Λ := hΛF
-  letI : DecidableEq Λ := hΛD
-  letI : AddCommGroup Vd := hVd
-  letI : Module (ZMod p) Vd := hVdM
-  letI : Finite Vd := Finite.of_equiv (Additive ↥Bs) ιd.toEquiv
-  have hWML : GGWeylTypeData (Fintype.card Λ) (Nat.card ↥(ggAutomizer K Bs))
-      (Nat.card ↥(Subgroup.center ↥(ggAutomizer K Bs))) := by
-    have h0 := ggWeylTypeData_of_isWeylMatrix hML
-    have hAutEq := Nat.card_congr fL.toEquiv
-    have hCenEq := Nat.card_congr (Subgroup.centerCongr fL).toEquiv
-    simpa [hAutEq, hCenEq] using h0
-  have hcardΛ : Fintype.card Λ = rankK := ggWeylTypeData_rank_eq hWML hWLK
-  have hdet : (CL.det : ZMod p) ≠ 0 := by
-    intro hdet0
-    rcases ggRC_singular_typeA_or_E6 (Fact.out : p.Prime) hp2 hML hCL hdet0 with
-      ⟨hA, hpdvd⟩ | ⟨hp3, hE6⟩
-    · exact hpd (by simpa [hcardΛ] using hpdvd)
-    · obtain ⟨e, hMe⟩ := hE6
-      have hcard6 : Fintype.card Λ = 6 := by
-        simpa using Fintype.card_congr e.symm
-      have hrank6 : rankK = 6 := by omega
-      have hMLcard : Nat.card (ML.Group) = 51840 := by
-        rw [hMe, card_coxeterGroup_reindex, card_coxeterE6_group]
-      have hAutcard : Nat.card ↥(ggAutomizer K Bs) = 51840 := by
-        rw [← Nat.card_congr fL.toEquiv]
-        exact hMLcard
-      rw [hrank6] at hcardWK
-      rw [hcardWK] at hAutcard
-      norm_num at hAutcard
-  have hres := ggResExact2_nonI1_K_base_of_det hH ιd hCL
-    (fun i => φd (Sum.inl i)) (fun i => hd (Sum.inl i)) (fun i => αd (Sum.inl i))
-    (fun i w => hlind (Sum.inl i) w) hpairD hclosL hSdel hclosJ hfixJ hdet
-  have hlt : p ^ 2 < Nat.card ↥(Bs ⊓ Subgroup.centralizer (J : Set G)) := by
-    rw [hres.2.2.1]
-    exact Nat.pow_lt_pow_right (Fact.out : p.Prime).one_lt (by norm_num)
-  have hcardBs : Nat.card ↥Bs = p ^ (rankK + 1) := by
-    rw [card_eq_of_ggLin ιd, ← FiniteField.pow_finrank_eq_natCard p Vd, hres.1, hcardΛ]
-  exact ⟨hcardBs, hres.2.2.1, hH.1.B_lt_Bs_of_centralizer_J_card hlt⟩
-
-
 theorem GGResHyp.false_of_twA_three_qGeFour_exact2_K
     (hRig : GGLabelRigidInput) {p : ℕ} [Fact p.Prime]
     {G : Type} [Group G] [Finite G]
@@ -3271,246 +2819,6 @@ theorem GGResHyp.false_of_twD_three_qGeFour_exact2_K
   exact hH.false_of_twA_three_qGeFour_exact2_K hRig hLB hf2 hpq hLabA hDK
 
 open LineU TableBUE
-
-private theorem pi_surjective_of_det_ne_zero_K
-    {p : ℕ} [Fact p.Prime] {Λ : Type} [Fintype Λ] [DecidableEq Λ]
-    {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    (h : Λ → V) (α : Λ → Module.Dual (ZMod p) V)
-    (hdet : (Matrix.of fun i j => α i (h j)).det ≠ 0) :
-    Function.Surjective (LinearMap.pi α) := by
-  classical
-  let M : Matrix Λ Λ (ZMod p) := Matrix.of fun i j => α i (h j)
-  have hM : IsUnit M.det := isUnit_iff_ne_zero.mpr (by simpa [M] using hdet)
-  intro g
-  let c : Λ → ZMod p := M⁻¹.mulVec g
-  refine ⟨∑ j, c j • h j, ?_⟩
-  funext i
-  have hc : M.mulVec c = g := by
-    dsimp only [c]
-    rw [Matrix.mulVec_mulVec, Matrix.mul_nonsing_inv M hM, Matrix.one_mulVec]
-  have hi := congrFun hc i
-  calc
-    (LinearMap.pi α) (∑ j, c j • h j) i = ∑ j, c j * α i (h j) := by
-      simp [LinearMap.pi_apply, map_sum, smul_eq_mul, mul_comm]
-    _ = ∑ j, M i j * c j := by
-      refine Finset.sum_congr rfl fun j _ => ?_
-      simp [M, mul_comm]
-    _ = g i := by simpa [Matrix.mulVec, dotProduct, M] using hi
-
-theorem GGResHyp.centralizer_K_eq_zpowers_of_nonsingular_twA
-    (hRig : GGLabelRigidInput) {p : ℕ} [Fact p.Prime]
-    {G : Type} [Group G] [Finite G]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hLB : GGLBalanceInput)
-    {rankK f : ℕ} (hr : 4 ≤ rankK) (hf : 2 ≤ f)
-    (hpq : p ∣ 2 ^ f + 1) (hpd : ¬ p ∣ rankK + 1)
-    (hLabK : GGHasLabel (⟨.twA, rankK, f⟩ : LargeEvenLabel)
-      (↥K ⧸ Subgroup.center ↥K))
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny) :
-    Bs ⊓ Subgroup.centralizer (K : Set G) = Subgroup.zpowers y := by
-  classical
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hBs : IsElemAbelian p Bs := hH.1.2.1.2.1
-  have hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs :=
-    hH.1.2.1.2.2.2
-  have hnb : GGNbr p B x D J y K := hH.2.2.2.2.1
-  have hΛK : LargeEvenInLambda2 (⟨.twA, rankK, f⟩ : LargeEvenLabel) := by
-    unfold LargeEvenInLambda2
-    simp
-    omega
-  obtain ⟨F, hField, hFinite, hChar, hN, ψ, hF, hM, hdiag⟩ :=
-    exists_diagonal_cover_of_large_unitary_side_coprime hRig hH
-      (Or.inr ⟨y, hnb⟩) hr (Or.inr (by omega : f ≠ 1)) hpq hpd hLabK hΛK
-  letI : Field F := hField
-  letI : Finite F := hFinite
-  letI : CharP F 2 := hChar
-  have hf1 : 1 ≤ f := by omega
-  obtain ⟨V, hVadd, hVmod, ι, ρ, φ, h, α, hNP, hρ, hφeq, hlin, hrefl,
-    hpair, ⟨eK, heK⟩, hgenK⟩ :=
-    exists_weyl_datum_of_diagonal_unitary_cover hF hf1 hp2 hpq
-      (by omega : 3 ≤ rankK) hBs hSC hN hM hdiag
-  letI : AddCommGroup V := hVadd
-  letI : Module (ZMod p) V := hVmod
-  letI : Finite V := Finite.of_equiv (Additive ↥Bs) ι.toEquiv
-  have hpairA : (Matrix.of fun i j : Fin rankK => α i (h j)) =
-      Matrix.of fun i j : Fin rankK => ((CartanMatrix.A rankK) i j : ZMod p) := by
-    ext i j
-    exact hpair i j
-  have hdetA : (Matrix.of fun i j : Fin rankK =>
-      ((CartanMatrix.A rankK) i j : ZMod p)).det ≠ 0 := by
-    have hmat : (Matrix.of fun i j : Fin rankK =>
-        ((CartanMatrix.A rankK) i j : ZMod p)) =
-        (CartanMatrix.A rankK).map (Int.castRingHom (ZMod p)) := by
-      ext i j
-      rfl
-    rw [hmat]
-    change ((CartanMatrix.A rankK).map (fun x : ℤ => (x : ZMod p))).det ≠ 0
-    rw [← Int.cast_det, CartanMatrix.A_det]
-    intro h0
-    have hdvd : (p : ℤ) ∣ ((rankK + 1 : ℕ) : ℤ) := by
-      exact (ZMod.intCast_zmod_eq_zero_iff_dvd _ p).mp h0
-    exact hpd (Int.natCast_dvd_natCast.mp hdvd)
-  have hdet : (Matrix.of fun i j : Fin rankK => α i (h j)).det ≠ 0 := by
-    rw [hpairA]
-    exact hdetA
-  have hsurj : Function.Surjective (LinearMap.pi α) :=
-    pi_surjective_of_det_ne_zero_K h α hdet
-  have hdiagA : ∀ i : Fin rankK, α i (h i) = 2 := by
-    intro i
-    rw [hpair i i]
-    simp [CartanMatrix.A]
-  let φ' : {i : Fin rankK // i ∉ (∅ : Finset (Fin rankK))} → MulAut ↥Bs :=
-    fun i => φ i.1
-  let h' : {i : Fin rankK // i ∉ (∅ : Finset (Fin rankK))} → V :=
-    fun i => h i.1
-  let α' : {i : Fin rankK // i ∉ (∅ : Finset (Fin rankK))} → Module.Dual (ZMod p) V :=
-    fun i => α i.1
-  have hgen' : ggAutomizer K Bs = Subgroup.closure (Set.range φ') := by
-    rw [hgenK]
-    congr 1
-    ext ψ
-    constructor
-    · rintro ⟨i, rfl⟩
-      exact ⟨⟨i, by simp⟩, rfl⟩
-    · rintro ⟨i, rfl⟩
-      exact ⟨i.1, rfl⟩
-  have hker' : (LinearMap.pi α').ker =
-      ggFixedSubmodule (p := p) ι (ggAutomizer K Bs) :=
-    ggFixedSubmodule_pi_ker (p := p) (Λ := Fin rankK) (S := ∅) (E := ↥Bs) (V := V)
-      ι φ' h' α' (fun i w => hlin i.1 w) (fun i => hdiagA i.1) hp2
-      (ggAutomizer K Bs) hgen'
-  have hker_eq : (LinearMap.pi α).ker =
-      ggFixedSubmodule (p := p) ι (ggAutomizer K Bs) := by
-    rw [← hker']
-    ext v
-    constructor
-    · intro hv
-      rw [LinearMap.mem_ker] at hv ⊢
-      funext i
-      have := congrFun hv ⟨i, by simp⟩
-      simpa using this
-    · intro hv
-      rw [LinearMap.mem_ker] at hv ⊢
-      funext i
-      have := congrFun hv ⟨i, by simp⟩
-      simpa using this
-  obtain ⟨hcardBs, -, -⟩ :=
-    hH.nonsingular_exactTwo_twA_K_counts hRig hLB hr hf hpq hpd hLabK hΛK hD
-  have hdimV : Module.finrank (ZMod p) V = rankK + 1 := by
-    have hcardV : Nat.card V = p ^ (rankK + 1) := by
-      calc Nat.card V = Nat.card (Additive ↥Bs) := (Nat.card_congr ι.toEquiv).symm
-        _ = Nat.card ↥Bs := (Nat.card_congr Additive.ofMul).symm
-        _ = p ^ (rankK + 1) := hcardBs
-    have hpow := FiniteField.pow_finrank_eq_natCard p V
-    rw [hcardV] at hpow
-    exact Nat.pow_right_injective (Fact.out : p.Prime).two_le hpow
-  have hrange_top : LinearMap.range (LinearMap.pi α) = ⊤ :=
-    LinearMap.range_eq_top.mpr hsurj
-  have hrange_dim : Module.finrank (ZMod p) (LinearMap.range (LinearMap.pi α)) = rankK := by
-    rw [hrange_top, finrank_top]
-    simp
-  have hrn := LinearMap.finrank_range_add_finrank_ker (LinearMap.pi α)
-  have hker_dim : Module.finrank (ZMod p) (LinearMap.pi α).ker = 1 := by
-    omega
-  have hfix_dim : Module.finrank (ZMod p)
-      (ggFixedSubmodule (p := p) ι (ggAutomizer K Bs)) = 1 := by
-    rw [← hker_eq]
-    exact hker_dim
-  have hSHat : LargeEvenSHat p B y K := hnb.1
-  have hyB : y ∈ B := hSHat.2.1
-  have hyBs : y ∈ Bs := hH.1.2.1.1 hyB
-  have hy1 : y ≠ 1 := hSHat.2.2.1
-  have hKy : K ≤ Subgroup.centralizer ({y} : Set G) := hSHat.2.2.2.1
-  let yy : ↥Bs := ⟨y, hyBs⟩
-  let vy : V := ι (Additive.ofMul yy)
-  have hvy_ne : vy ≠ 0 := by
-    intro h0
-    have h1 : Additive.ofMul yy = 0 := ι.injective (by simpa [vy] using h0)
-    have h2 : yy = 1 := by simpa using congrArg Additive.toMul h1
-    exact hy1 (by simpa [yy] using congrArg Subtype.val h2)
-  have hyfix : ∀ ψ ∈ ggAutomizer K Bs, ψ yy = yy :=
-    ggResI_automizer_fix hyBs hKy
-  have hvy_mem : vy ∈ ggFixedSubmodule (p := p) ι (ggAutomizer K Bs) := by
-    rw [mem_ggFixedSubmodule_iff]
-    intro ψ hψ
-    exact (ggLin_fix_iff (p := p) ι ψ yy).mp (hyfix ψ hψ)
-  have hfix_span : ggFixedSubmodule (p := p) ι (ggAutomizer K Bs) =
-      Submodule.span (ZMod p) ({vy} : Set V) :=
-    eq_span_singleton_of_mem_of_finrank_eq_one hfix_dim hvy_mem hvy_ne
-  refine le_antisymm ?_ ?_
-  · intro b hb
-    have hbBs : b ∈ Bs := hb.1
-    have hbK : (b : G) ∈ Subgroup.centralizer (K : Set G) := hb.2
-    let bb : ↥Bs := ⟨b, hbBs⟩
-    let vb : V := ι (Additive.ofMul bb)
-    have hvb_mem : vb ∈ ggFixedSubmodule (p := p) ι (ggAutomizer K Bs) := by
-      rw [mem_ggFixedSubmodule_iff]
-      intro ψ hψ
-      have hfixψ : ψ bb = bb := by
-        obtain ⟨g, hgK, hgN, hψg⟩ := mem_ggAutomizer_iff.mp hψ
-        apply Subtype.ext
-        rw [hψg bb]
-        change g * b * g⁻¹ = b
-        have hcomm : g * b = b * g :=
-          (Subgroup.mem_centralizer_iff.mp hbK) g hgK
-        rw [hcomm, mul_assoc, mul_inv_cancel, mul_one]
-      exact (ggLin_fix_iff (p := p) ι ψ bb).mp hfixψ
-    have hspan : vb ∈ Submodule.span (ZMod p) ({vy} : Set V) := by
-      rw [← hfix_span]
-      exact hvb_mem
-    obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hspan
-    have hcV : ι (Additive.ofMul bb) = c • ι (Additive.ofMul yy) := by
-      simpa [vb, vy] using hc.symm
-    have hsmul : c • ι (Additive.ofMul yy) =
-        ι (c.val • Additive.ofMul yy) := by
-      calc
-        c • ι (Additive.ofMul yy) =
-            ((c.val : ℕ) : ZMod p) • ι (Additive.ofMul yy) := by
-          rw [ZMod.natCast_zmod_val]
-        _ = c.val • ι (Additive.ofMul yy) :=
-          Nat.cast_smul_eq_nsmul (R := ZMod p) (M := V) c.val _
-        _ = ι (c.val • Additive.ofMul yy) :=
-          (map_nsmul ι c.val (Additive.ofMul yy)).symm
-    have hpowV : ι (Additive.ofMul bb) = ι (Additive.ofMul (yy ^ c.val)) := by
-      rw [hcV, hsmul, ← ofMul_pow c.val yy]
-    have hpow : bb = yy ^ c.val :=
-      Additive.ofMul.injective (ι.injective hpowV)
-    have hb_eq : b = y ^ c.val := by
-      simpa [bb, yy] using congrArg Subtype.val hpow
-    exact Subgroup.mem_zpowers_iff.mpr
-      ⟨(c.val : ℤ), by rw [zpow_natCast]; exact hb_eq.symm⟩
-  · have hyC : y ∈ Subgroup.centralizer (K : Set G) := by
-      rw [Subgroup.mem_centralizer_iff]
-      intro g hg
-      exact ((Subgroup.mem_centralizer_iff.mp (hKy hg)) y (Set.mem_singleton y)).symm
-    intro b hb
-    exact Subgroup.zpowers_le.mpr (by
-      rw [Subgroup.mem_inf]
-      exact ⟨hyBs, hyC⟩) hb
-
-theorem GGResHyp.sstar_K_of_nonsingular_twA
-    (hRig : GGLabelRigidInput) {p : ℕ} [Fact p.Prime]
-    {G : Type} [Group G] [Finite G]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hLB : GGLBalanceInput)
-    {rankK f : ℕ} (hr : 4 ≤ rankK) (hf : 2 ≤ f)
-    (hpq : p ∣ 2 ^ f + 1) (hpd : ¬ p ∣ rankK + 1)
-    (hLabK : GGHasLabel (⟨.twA, rankK, f⟩ : LargeEvenLabel)
-      (↥K ⧸ Subgroup.center ↥K))
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny) :
-    LargeEvenSStar p B y K := by
-  have hSHat : LargeEvenSHat p B y K := hH.2.2.2.2.1.1
-  have hyB : y ∈ B := hSHat.2.1
-  have hyBs : y ∈ Bs := hH.1.2.1.1 hyB
-  have hEq := hH.centralizer_K_eq_zpowers_of_nonsingular_twA
-    hRig hLB hr hf hpq hpd hLabK hD
-  refine sstar_K_of_centralizer_axis hH hyBs ?_
-  intro e he
-  rw [← hEq]
-  exact he
 
 
 section ActualKQTwoThree
@@ -4023,31 +3331,6 @@ theorem GGResHyp.false_of_twA_three_qMinus_K
   obtain ⟨hS, E, hEsub, hEab, hEcard⟩ := hP
   exact not_le.mpr (hP' E hEsub hEab) hEcard
 
-theorem GGResHyp.qMinus_twA_residual_five
-
-
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput) (hiso : GGRawInndiagIsoInput)
-    (hp : p.Prime) (hp2 : p ≠ 2)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∧ p ∣ 2 ^ lab.n - 1 ∧ 3 ≤ lab.rank) p Bs K) :
-    ∃ labM : LargeEvenLabel, LargeEvenInLambda2 labM ∧
-      GGHasLabel labM (↥K ⧸ Subgroup.center ↥K) ∧ labM.tag = .twA ∧
-      p ∣ 2 ^ labM.n - 1 ∧ labM.rank = 5 := by
-  obtain ⟨lab, hlab, hhas, hmark, htag, hpq, hr, hcases⟩ :=
-    GGResHyp.qMinus_twA_label_cases hH hRig hiso hM
-  rcases hcases with h3 | h5
-  · exfalso
-    have hM3 : GGInnerDiagOnLabel
-        (fun _ lab' => lab'.tag = .twA ∧ lab'.rank = 3 ∧ p ∣ 2 ^ lab'.n - 1) p Bs K := by
-      refine largeEvenMarking_mono ?_ hmark
-      intro lab' R inst I F θ hP'
-      obtain ⟨rfl, hN, hI⟩ := hP'
-      exact ⟨⟨by simpa using htag, h3, hpq⟩, hN, hI⟩
-    exact GGResHyp.false_of_twA_three_qMinus_K hH hp hp2 hM3
-  · exact ⟨lab, hlab, hhas, htag, hpq, h5⟩
 theorem GGResHyp.false_of_twD3_qMinus_K
 
 
@@ -4091,7 +3374,6 @@ theorem GGResHyp.false_of_twD3_qMinus_K
     obtain ⟨rfl, hN', hI'⟩ := hP'
     exact ⟨⟨rfl, rfl, hpq⟩, hN', hI'⟩
   exact GGResHyp.false_of_twA_three_qMinus_K hH hp hp2 hMA
-
 
 
 theorem GGResHyp.false_of_twA_five_qMinus_K_of_card
@@ -4253,8 +3535,6 @@ theorem ggLabelIso_n_eq_of_twA_left {lab lab' : LargeEvenLabel}
 theorem GGResHyp.halfSplit_twA_label_dvd_sq
 
 
-
-
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     {B Bs L D J K : Subgroup G} {x y : G}
     (hH : GGResHyp p B Bs x L D J y K)
@@ -4294,7 +3574,6 @@ theorem GGResHyp.halfSplit_twA_label_dvd_sq
 theorem GGResHyp.false_of_twA_qMinus_K
 
 
-
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
     {B Bs L D J K : Subgroup G} {x y : G}
     (hTBF : GGTBFixInput) (hH : GGResHyp p B Bs x L D J y K)
@@ -4325,8 +3604,6 @@ theorem GGResHyp.false_of_twA_qMinus_K
       hD hno2L hno3L
 
 theorem GGResHyp.false_of_unitary_K_exact2_ordinary
-
-
 
 
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
@@ -4387,59 +3664,6 @@ theorem GGResHyp.false_of_unitary_K_exact2_ordinary
     · exact GGResHyp.false_of_twD3_qMinus_K hH hRig Fact.out
         hH.1.1.2.2.2.2.2.1.2.1 hminusD
 
-theorem GGResHyp.exact2_L_of_nonsingular_K
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hK : GGInnerDiagOnLabel
-      (fun p lab => GGTBTorCov p lab ∧ ¬ ggSingularBaseLabel p lab) p Bs K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny) :
-    GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny := by
-  rcases ggResExact2_K_reverse_or_singular hTBF hH hD with hL | hSing
-  · rcases hL with hL2 | hL3
-    · exact hL2
-    · exact (hno3L hL3).elim
-  · exact (hH.false_of_singular_card_nonsingular_K hT hLift hK
-      (GGResLeviDatumCard.singular_card hSing)).elim
-
-theorem GGResHyp.false_of_nonsingular_K_only_exact2
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hK : GGInnerDiagOnLabel
-      (fun p lab => GGTBTorCov p lab ∧ ¬ ggSingularBaseLabel p lab) p Bs K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny) : False :=
-  hno2L (hH.exact2_L_of_nonsingular_K hTBF hT hLift hK hD hno3L)
-
-theorem GGResHyp.singular_label_of_K_only_exact2_cov
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hK : GGInnerDiagOnLabel GGTBTorCov p Bs K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny) :
-    GGInnerDiagOnLabel
-      (fun p lab => GGTBTorCov p lab ∧ ggSingularBaseLabel p lab) p Bs K := by
-  classical
-  have hCases : GGInnerDiagOnLabel
-      (fun p lab => (GGTBTorCov p lab ∧ ggSingularBaseLabel p lab) ∨
-        (GGTBTorCov p lab ∧ ¬ ggSingularBaseLabel p lab)) p Bs K := by
-    refine largeEvenMarking_mono ?_ hK
-    intro lab R instR I F θ hP
-    by_cases hs : ggSingularBaseLabel p lab
-    · exact ⟨Or.inl ⟨hP.1, hs⟩, hP.2⟩
-    · exact ⟨Or.inr ⟨hP.1, hs⟩, hP.2⟩
-  rcases GGInnerDiagOnLabel.elim_or hCases with hSing | hNonsing
-  · exact hSing
-  · exact (hH.false_of_nonsingular_K_only_exact2
-      hTBF hT hLift hNonsing hD hno2L hno3L).elim
 
 theorem GGResHyp.false_of_twA_K_only_exact2
 
@@ -4525,76 +3749,6 @@ theorem GGResHyp.false_of_twA_K_only_exact2
         exact ⟨Or.inl ⟨htagM, hr3, Or.inl hplus⟩, hN', hI'⟩
       exact GGResHyp.false_of_unitary_K_exact2_ordinary
         hTBF hH hRig hiso hLB hMleaf hD hno2L hno3L hnoRow
-
-theorem GGResHyp.false_of_twD3_K_only_exact2
-
-
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput) (hiso : GGRawInndiagIsoInput)
-    (hLB : GGLBalanceInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twD ∧ lab.rank = 3) p Bs K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny)
-    (hnoRow : ¬ GGResRowAt ggRowTwoNode p J K) :
-    False := by
-  classical
-  have hnb : GGNbr p B x D J y K := hH.2.2.2.2.1
-  have hInnK : GGInnerDiagOn Bs K := hH.2.2.1.2 y K hnb
-  obtain ⟨labK, hlabK, hhasK, R, instR, I, F₀, θ, hP⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  obtain ⟨hS, -⟩ := hP
-  obtain ⟨htagK, hr3⟩ := hS
-  obtain ⟨tagK, rankK, f⟩ := labK
-  simp only at htagK
-  cases htagK
-  change rankK = 3 at hr3
-  subst rankK
-  change LargeEvenInLambda2 (⟨.twD, 3, f⟩ : LargeEvenLabel) at hlabK
-  change GGHasLabel (⟨.twD, 3, f⟩ : LargeEvenLabel)
-    (↥K ⧸ Subgroup.center ↥K) at hhasK
-  have hLabA : GGHasLabel (⟨.twA, 3, f⟩ : LargeEvenLabel)
-      (↥K ⧸ Subgroup.center ↥K) := by
-    unfold GGHasLabel at hhasK ⊢
-    exact largeEvenRawDatum_of_ggLabelIso
-      (CFSG.StandardType.Q1DSmall.labelIso_twD3_twA3 f) hhasK
-  have hlabA : LargeEvenInLambda2 (⟨.twA, 3, f⟩ : LargeEvenLabel) := by
-    refine ⟨hlabK.1, ?_⟩
-    norm_num
-  have hMA : GGInnerDiagOnLabel (fun _ lab => lab.tag = .twA) p Bs K := by
-    have hRelA := ggInnerDiagOn_relabel hRig hInnK hlabA hLabA
-    refine largeEvenMarking_mono ?_ hRelA
-    intro lab' R' instR' I' F' θ' hP'
-    obtain ⟨rfl, hN', hI'⟩ := hP'
-    exact ⟨rfl, hN', hI'⟩
-  exact GGResHyp.false_of_twA_K_only_exact2 hTBF hH hRig hiso hLB hMA hD hno2L hno3L hnoRow
-
-theorem GGResHyp.false_of_unitary_K_only_exact2
-
-
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput) (hiso : GGRawInndiagIsoInput)
-    (hLB : GGLBalanceInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∨ (lab.tag = .twD ∧ lab.rank = 3)) p Bs K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny)
-    (hnoRow : ¬ GGResRowAt ggRowTwoNode p J K) :
-    False := by
-  rcases GGInnerDiagOnLabel.elim_or
-    (p := p) (Bs := Bs) (L := K)
-    (S := fun _ lab => lab.tag = .twA)
-    (T := fun _ lab => lab.tag = .twD ∧ lab.rank = 3) hM with hA | hD3
-  · exact GGResHyp.false_of_twA_K_only_exact2 hTBF hH hRig hiso hLB hA hD hno2L hno3L hnoRow
-  · exact GGResHyp.false_of_twD3_K_only_exact2 hTBF hH hRig hiso hLB hD3 hD hno2L hno3L hnoRow
-
-
 
 
 theorem GGResHyp.singular_fields_of_K_only_exact2_cov
@@ -4737,33 +3891,6 @@ theorem GGResHyp.K_only_exact2_actual_classification
 section KOnlyToralTwE6L
 
 
-theorem GGResHyp.false_of_twE6_L_K_only_exact2_of_torCov
-    {G : Type} [Group G] [Finite G] {B Bs L D J K : Subgroup G} {x y : G}
-    [Fact (Nat.Prime 3)]
-    (hTBF : GGTBFixInput) (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hRig : GGLabelRigidInput) (hiso : GGRawInndiagIsoInput) (hLB : GGLBalanceInput)
-    (hB36 : GGNbrTablePNbrInputOnL GGRegimeB36L)
-    (hMarkL : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twE6 ∧ 3 ∣ 2 ^ lab.n + 1) 3 Bs L)
-    (hMarkK : GGInnerDiagOnLabel GGTBTorCov 3 Bs K)
-    (hD : GGResLeviDatumExact2 3 Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypAny)
-    (hnoRowK : ¬ GGResRowAt ggRowTwoNode 3 J K)
-    (hnoRowL : ¬ GGResRowAt ggRowTwoNode 3 J L) : False := by
-  have hMark : GGInnerDiagOnLabel
-      (fun _ lab => GGE6DepLabel lab ∧ lab.tag = .twE6 ∧ 3 ∣ 2 ^ lab.n + 1) 3 Bs L :=
-    GGInnerDiagOnLabel.mono_label (fun lab h => ⟨Or.inr h, h⟩) hMarkL
-  obtain ⟨-, hE6⟩ := hH.e6_K_only_exact2_of_torCov
-    hTBF hT hLift hRig hiso hLB hMarkK hD hno2L hno3L hnoRowK
-  have hno : ¬ (GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypAny) :=
-    fun h => h.elim hno2L hno3L
-  have hcard := hH.card_Bs_six_of_K_only_E6 hTBF hE6 hno
-  exact hH.false_of_twE6_K_E6_exact2_card_six hB36 hMark hE6 hnoRowL hcard
-
-
 end KOnlyToralTwE6L
 
 theorem GGResHyp.K_only_exact2_actual_classification_three
@@ -4814,225 +3941,8 @@ section UnitFiveOriginalCardinality
 open CFSG.ClassicalGroups.UnitaryFlag CFSG.LocalAnalysis.ComponentInitial CFSG.LieType.CentralExt
 open scoped Matrix
 
-private theorem unitFive_eq_of_labelIso {lab labH : LargeEvenLabel}
-    (hiso : GGLabelIso lab labH) (htag : labH.tag = .twA) (hrank : labH.rank = 5) :
-    lab = labH := by
-  simp only [GGLabelIso] at hiso
-  rcases hiso with heq | hbc | h | h | h | h | h | h
-  · exact heq
-  · rcases hbc.2.1 with hb | hc
-    · rw [htag] at hb; exact nomatch hb
-    · rw [htag] at hc; exact nomatch hc
-  · rw [h.2] at htag; exact nomatch htag
-  · rw [h.2] at htag; exact nomatch htag
-  · rw [h.2] at hrank; exact nomatch hrank
-  · rw [h.2] at htag; exact nomatch htag
-  · rw [h.2] at htag; exact nomatch htag
-  · rw [h.1] at htag; exact nomatch htag
-
-theorem GGResHyp.card_Bs_le_four_of_unitFive_L_qMinus
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∧ lab.rank = 5 ∧ p ∣ 2 ^ lab.n - 1) p Bs L) :
-    Nat.card Bs ≤ p ^ 4 := by
-  classical
-  obtain ⟨labM, hlabM, hhasM, Rm, instRm, Im, Fm, θm, hPm⟩ :=
-    largeEvenMarking_exists_hasLabel hM
-  obtain ⟨⟨htagM, hrankM, hpqM⟩, hNmL, hImL⟩ := hPm
-  obtain ⟨hperfL, labL, hlabL, hrawL⟩ := hH.2.2.1.1
-  have hhasL : GGHasLabel labL (↥L ⧸ Subgroup.center ↥L) := by
-    unfold GGHasLabel
-    refine largeEvenRawDatum_mono ?_ hrawL
-    rintro R instR I F ⟨-, -, θ, -⟩
-    exact ⟨θ⟩
-  have hIso : GGLabelIso labL labM := hRig labL labM _ hlabL hlabM hhasL hhasM
-  have hEq : labL = labM := unitFive_eq_of_labelIso hIso htagM hrankM
-  have hlabM5 : labM = ⟨.twA, 5, labM.n⟩ := by
-    rcases labM with ⟨tag, rank, n⟩
-    simp only at htagM hrankM
-    subst tag
-    subst rank
-    rfl
-  rw [hEq, hlabM5] at hrawL
-  dsimp only [LargeEvenRawDatum] at hrawL
-  obtain ⟨Kf, fieldK, finiteK, hK, hQ⟩ := hrawL
-  letI : Field Kf := fieldK
-  letI : Finite Kf := finiteK
-  obtain ⟨hsimple, hna, θ, hBN, hInd⟩ := hQ
-  let R := LargeEvenProj (LargeEvenSUGroup (Fin 6) Kf (2 ^ labM.n))
-  let A : Subgroup (MulAut R) := (ggBeta L θ hBN).range
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-  have hn : 1 ≤ labM.n := hlabM.1
-  have hpq' : ¬ p ∣ 2 ^ labM.n + 1 :=
-    not_dvd_two_pow_add_one_of_dvd_sub_one hp hp2 hpqM
-  obtain ⟨hp3, hBsEA, hxBs, hLx, -⟩ := hH.1.tableB_facts
-  have hS : LargeEvenSStar p B x L := hH.1.1.2.2.2.2.2.2.1
-  have hx1 : x ≠ 1 := hS.2.2.1
-  have hcyc : ∀ S : Subgroup G, S ≤ Subgroup.centralizer (L : Set G) →
-      IsPGroup p S → IsCyclic S := hS.2.2.2.2
-  have hAea : IsElemAbelian p A := by
-    dsimp [A]
-    exact isElemAbelian_range_ggBeta θ hBsEA hBN
-  have hOut : GGOutdiagPrime p R
-      (LargeEvenMatConjImage (LargeEvenProjMk (LargeEvenSUGroup (Fin 6) Kf (2 ^ labM.n)))
-        (LargeEvenGUSet (Fin 6) Kf (2 ^ labM.n))) :=
-    NbrInnerMore.ggOutdiagPrime_unitary_of_not_dvd hK hn (by omega : 3 ≤ 6)
-      (by simp) hp hpq'
-  have hA_le_range : A ≤ (MulAut.conj : R →* MulAut R).range := by
-    rintro a ⟨b, rfl⟩
-    refine hOut (ggBeta L θ hBN b) (ggBeta_mem L θ hBN hInd b) ?_
-    have hbp : b ^ p = 1 := Subtype.ext (by simpa using hBsEA.2 b b.2)
-    rw [← map_pow, hbp, map_one]
-  let E : Subgroup R := A.comap (MulAut.conj : R →* MulAut R)
-  have hZ : Subgroup.center R = ⊥ :=
-    TableBUE.center_proj_eq_bot hK (by omega : 3 ≤ 6) (by simp)
-  have hcinj : Function.Injective (MulAut.conj : R →* MulAut R) :=
-    mulAut_conj_injective hZ
-  have hEimage : E.map (MulAut.conj : R →* MulAut R) = A :=
-    Subgroup.map_comap_eq_self hA_le_range
-  have hEcard : Nat.card E = Nat.card A := by
-    rw [← hEimage, Subgroup.card_map_of_injective hcinj]
-  have hEea : IsElemAbelian p E := hAea.comap hcinj
-  let SU := LargeEvenSUGroup (Fin 6) Kf (2 ^ labM.n)
-  let π : SU →* R := LargeEvenProjMk SU
-  have hπ : Function.Surjective π := QuotientGroup.mk'_surjective _
-  have hcen : π.ker ≤ Subgroup.center SU := TableBUE.ker_projMk_le_center
-  have hkereq : π.ker = (LargeEvenScalars (Fin 6) Kf).subgroupOf SU :=
-    QuotientGroup.ker_mk' _
-  have hcardker : Nat.card π.ker =
-      Nat.card ((CFSG.Open.StatedScalars (Fin 6) Kf).subgroupOf
-        (CFSG.Open.StatedSU 6 (2 ^ labM.n) Kf)) := by
-    rw [hkereq]
-    rfl
-  have hdvdker : Nat.card π.ker ∣ 2 ^ labM.n + 1 := by
-    rw [hcardker]
-    exact card_scalars_statedSU_dvd hK (by omega)
-  have hC : ¬ p ∣ Nat.card π.ker := fun hdiv => hpq' (Nat.dvd_trans hdiv hdvdker)
-  have hEpg : IsPGroup p E := hEea.isPGroup
-  let ESU : Subgroup SU := liftSubgroup p π E
-  let hEquiv : ESU ≃* E := liftSubgroupEquiv (p := p) hπ hcen hC hEpg
-  have hmapESU : ESU.map π = E := map_liftSubgroup hπ hcen hEpg
-  have hESUcard : Nat.card ESU = Nat.card E := Nat.card_congr hEquiv.toEquiv
-  have hESUea : IsElemAbelian p ESU := by
-    haveI hcommE : IsMulCommutative E := hEea.1
-    haveI hcommESU : IsMulCommutative ESU := IsMulCommutative.of_comm (fun u v => by
-      apply hEquiv.injective
-      rw [map_mul, map_mul]
-      exact mul_comm' (hEquiv u) (hEquiv v))
-    refine ⟨inferInstance, ?_⟩
-    intro z hz
-    have hzpow : (⟨z, hz⟩ : ESU) ^ p = 1 := by
-      apply hEquiv.injective
-      rw [map_pow, map_one]
-      apply Subtype.ext
-      simpa using hEea.2 (hEquiv ⟨z, hz⟩) (hEquiv ⟨z, hz⟩).2
-    exact congrArg Subtype.val hzpow
-  let hU : UnitaryFieldData 2 labM.n Kf := TableBU.unitaryFieldData_of_card hK hn
-  have hK2 : Nat.card Kf = 2 ^ (2 * labM.n) := by
-    rw [hK, ← pow_mul, Nat.mul_comm]
-  haveI : CharP Kf 2 := CFSG.StandardType.charP_two_of_card hK2
-  obtain ⟨Rmat, hR⟩ := exists_isHypTransport (p := 2) (f := labM.n) (r := 3) (ε := 0) hU
-  let eSU : hypSU hU 3 0 ≃* SU := by
-    rw [show SU = unitarySU 2 labM.n Kf 6 from rfl]
-    exact hypTransport (p := 2) (f := labM.n) (r := 3) (ε := 0) hU hR
-  let Ehyp : Subgroup (hypSU hU 3 0) := ESU.map eSU.symm.toMonoidHom
-  have hEhyp_ea : IsElemAbelian p Ehyp := hESUea.map eSU.symm.toMonoidHom
-  have hEhyp_card : Nat.card Ehyp = Nat.card ESU := by
-    dsimp [Ehyp]
-    rw [Subgroup.card_map_of_injective eSU.symm.injective]
-  have hEhyp_le : Nat.card Ehyp ≤ p ^ 3 :=
-    card_le_pow_hypSU hU hp hp2 hpqM Ehyp hEhyp_ea
-  have hE_le : Nat.card E ≤ p ^ 3 := by
-    rw [← hESUcard, ← hEhyp_card]
-    exact hEhyp_le
-  have hA_le : Nat.card A ≤ p ^ 3 := by
-    rw [← hEcard]
-    exact hE_le
-  have hperf : commutator L = ⊤ := hperfL
-  have hcardBeta : Nat.card A * p = Nat.card Bs := by
-    dsimp [A]
-    exact card_range_ggBeta_mul_of (p := p) hp hBsEA hxBs hx1 hLx hcyc hperf θ hBN
-  calc Nat.card Bs = Nat.card A * p := hcardBeta.symm
-    _ ≤ p ^ 3 * p := Nat.mul_le_mul_right p hA_le
-    _ = p ^ 4 := by ring
-
-theorem GGResHyp.false_of_unitFive_L_K_only_E6
-    {G : Type} [Group G] [Finite G]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hTBF : GGTBFixInput)
-    (hD : GGResLeviDatumExact2 3 Bs K J L ggSelAny ggTypLE6)
-    (hno2L : ¬ GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypAny)
-    (hRig : GGLabelRigidInput)
-    (hM : GGInnerDiagOnLabel
-      (fun _ lab => lab.tag = .twA ∧ lab.rank = 5 ∧ 3 ∣ 2 ^ lab.n - 1) 3 Bs L) :
-    False := by
-  classical
-  letI : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  have hbound := hH.card_Bs_le_four_of_unitFive_L_qMinus hRig hM
-  have hsix : Nat.card Bs = 3 ^ 6 :=
-    hH.card_Bs_six_of_K_only_E6 hTBF hD (fun h => h.elim hno2L hno3L)
-  rw [hsix] at hbound
-  norm_num at hbound
 
 end UnitFiveOriginalCardinality
-
-theorem GGResHyp.K_only_exact2_actual_classification_three_typed
-
-
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs L D J K : Subgroup G} {x y : G}
-    (hTBF : GGTBFixInput) (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny)
-    (hno2L : ¬ GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (hno3L : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny)
-    (hnoRow : ¬ GGResRowAt ggRowTwoNode p J K)
-    (hRig : GGLabelRigidInput) (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
-    (hTCJ : GGTCJKnown) (hI3 : GGNbrSubcomponentInput) (hLB : GGLBalanceInput) :
-
-    p = 3 ∧ (
-    ((GGInnerDiagOnLabel (fun p lab => lab.tag = .E6 ∧ p = 3 ∧ p ∣ 2 ^ lab.n - 1) p Bs K ∧
-      GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypLE6 ∧
-      Nat.card Bs = 3 ^ 6) ∨
-    (GGInnerDiagOnLabel
-      (fun p lab => GGTBWeylRowResRest2 p lab ∧
-        ((lab.tag = .A ∧ 6 ≤ lab.rank ∧ lab.n = 1 ∧ p = 3) ∨ GGF4ThreeLabel p lab ∨
-          GGNbrNonSplitE6TwoLabel p lab ∨
-          (lab.tag = .twE6 ∧ p = 3 ∧ 3 ∣ 2 ^ lab.n - 1) ∨ GGTwE6BadLabel p lab)) p Bs K ∧
-      (GGResLeviDatumExact2 p Bs K J L ggSelAny (ggTypLADvd p) ∨
-        (GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypLE6 ∧
-          Nat.card Bs = 3 ^ 6))))) := by
-  classical
-  obtain ⟨hp3, hcase⟩ :=
-    hH.K_only_exact2_actual_classification_three hTBF hT hLift hD hno2L hno3L
-      hnoRow hRig hraw hiso hTCJ hI3 hLB
-  subst hp3
-  refine ⟨rfl, ?_⟩
-  have hno : ¬ (GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypAny) := by
-    rintro (h2 | h3)
-    · exact hno2L h2
-    · exact hno3L h3
-  rcases hcase with hE6 | hres
-  · have hcard := GGResHyp.card_Bs_six_of_K_only_E6 hH hTBF hE6.2 hno
-    exact Or.inl ⟨hE6.1, hE6.2, hcard⟩
-  · refine Or.inr ⟨hres, ?_⟩
-    have hrev := ggResExact2_K_reverse_or_singular hTBF hH hD
-    rcases hrev with hrev | htyped
-    · rcases hrev with h2 | h3
-      · exact (hno2L h2).elim
-      · exact (hno3L h3).elim
-    · rcases htyped with hA | ⟨-, hE6⟩
-      · exact Or.inl hA
-      · have hcard := GGResHyp.card_Bs_six_of_K_only_E6 hH hTBF hE6 hno
-        exact Or.inr ⟨hE6, hcard⟩
-
 
 
 section OriginalLE6Marking
@@ -5368,12 +4278,10 @@ theorem GGResHyp.e6_marking_of_original_L_E6_datum
 end OriginalLE6Marking
 
 
-
 section IndependentLE6Join
 
 open CFSG.Assembly Module
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
-
 
 
 theorem GGResHyp.e6_exactTwo_independent_L_card_seven_join

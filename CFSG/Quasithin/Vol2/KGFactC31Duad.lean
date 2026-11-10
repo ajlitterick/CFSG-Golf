@@ -44,7 +44,6 @@ theorem toF4_surjective : Function.Surjective toF4 := by
   revert y
   decide
 
-theorem toF4_bijective : Function.Bijective toF4 := ⟨toF4_injective, toF4_surjective⟩
 
 @[expose] def toF4Hom : (Fin 4 → ZMod 2) →+ (Fin 2 → F4) where
   toFun := toF4
@@ -205,10 +204,6 @@ theorem toF4_conj (g : ↥(f4Stab hv)) (c : Fin 4 → ZMod 2) :
   ((f4Rep hv).comp (Subgroup.inclusion hX)).codRestrict _ fun x =>
     Subgroup.subset_closure (hdet x)
 
-theorem f4Hom_coe {X : Subgroup Γ} (hX : X ≤ f4Stab hv)
-    (hdet : ∀ x : ↥X, (f4Mat (eMat hv ⟨x, (hX x.2).1⟩)).det = 1) (x : ↥X) :
-    (((f4Hom hv hX hdet x : ↥(StatedSL 2 F4)) : GL (Fin 2) F4) : Matrix (Fin 2) (Fin 2) F4) =
-      f4Mat (eMat hv ⟨x, (hX x.2).1⟩) := rfl
 
 end CFSG.Quasithin.KGC31.Duad
 

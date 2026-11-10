@@ -838,57 +838,5 @@ theorem Setup.commutes_conjugatesIn (hs : Setup K H Q S) (hΦ : frattini Q ≠ �
   intro R₁ h₁ R₂ h₂ h12
   exact hΓc R₁ (hm6 R₁ h₁) R₂ (hm6 R₂ h₂) h12
 
-theorem tightly_embedded_conjugates_commute {K H : Subgroup G} (htight : TightlyEmbedded K)
-    (Q : Sylow 2 ↥(H ⊓ K)) (hQ : (Q : Subgroup ↥(H ⊓ K)) ≠ ⊥) {S : Subgroup G} (hSH : S ≤ H)
-    (hS2 : IsPGroup 2 S) (hQS : sylowImage _ Q ≤ S) (hΦ : frattini (sylowImage _ Q) ≠ ⊥)
-    {h k : G} (hh : h ∈ H) (hk : k ∈ H) (hhS : rightConjugate (sylowImage _ Q) h ≤ S)
-    (hkS : rightConjugate (sylowImage _ Q) k ≤ S)
-    (hne : rightConjugate (sylowImage _ Q) h ≠ rightConjugate (sylowImage _ Q) k) :
-    Commutes (rightConjugate (sylowImage _ Q) h) (rightConjugate (sylowImage _ Q) k) ∧
-      rightConjugate (sylowImage _ Q) h ⊓ rightConjugate (sylowImage _ Q) k = ⊥ ∧
-      ∃ e : (rightConjugate (sylowImage _ Q) h) × (rightConjugate (sylowImage _ Q) k) ≃*
-          ↥(rightConjugate (sylowImage _ Q) h ⊔ rightConjugate (sylowImage _ Q) k),
-        ∀ p, (e p : G) = (p.1 : G) * p.2 := by
-  set Q' := sylowImage _ Q with hQ'
-  have hs : Setup K H Q' S :=
-    { tight := htight
-      le_inf := sylowImage_le _ Q
-      sylow := by
-        intro R hR hR2 hQR
-        have hR' : IsPGroup 2 (R.subgroupOf (H ⊓ K)) :=
-          hR2.comap_of_injective _ Subtype.val_injective
-        have hle : (Q : Subgroup ↥(H ⊓ K)) ≤ R.subgroupOf (H ⊓ K) := by
-          intro q hq
-          exact hQR ⟨q, hq, rfl⟩
-        have heq := Q.is_maximal' hR' hle
-        rw [hQ', sylowImage, ← heq, Subgroup.subgroupOf_map_subtype, inf_of_le_left hR]
-      pGroup := sylowImage_isPGroup _ Q
-      ne_bot := (sylowImage_eq_bot_iff _ Q).not.mpr hQ
-      S_le := hSH
-      S_pGroup := hS2
-      le_S := hQS }
-  have hcomm := hs.commutes_conjugatesIn hΦ _ ⟨h, hh, rfl, hhS⟩ _ ⟨k, hk, rfl, hkS⟩ hne
-  have hinf := hs.inf_eq_bot_of_mem ⟨h, hh, rfl, hhS⟩ ⟨k, hk, rfl, hkS⟩ hne
-  refine ⟨hcomm, hinf, ?_⟩
-  set A := rightConjugate Q' h
-  set B := rightConjugate Q' k
-  let f : A × B →* G := MonoidHom.noncommCoprod A.subtype B.subtype
-    (fun a b => hcomm a a.2 b b.2)
-  have hrange : f.range = A ⊔ B := by
-    simpa only [Subgroup.subtype_range] using
-      MonoidHom.noncommCoprod_range A.subtype B.subtype (fun a b => hcomm a a.2 b b.2)
-  have hinj : Function.Injective f := by
-    rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-    rintro ⟨a, b⟩ hab
-    rw [MonoidHom.mem_ker] at hab
-    have hab' : (a : G) * b = 1 := hab
-    have ha : (a : G) = (b : G)⁻¹ := eq_inv_of_mul_eq_one_left hab'
-    have hmem : (a : G) ∈ A ⊓ B := ⟨a.2, ha ▸ B.inv_mem b.2⟩
-    rw [hinf, mem_bot] at hmem
-    have hb : (b : G) = 1 := by rw [hmem, one_mul] at hab'; exact hab'
-    rw [mem_bot, Prod.mk_eq_one]
-    exact ⟨Subtype.ext hmem, Subtype.ext hb⟩
-  refine ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange), fun p => ?_⟩
-  rfl
 
 end CFSG.ComponentClassification.LiteratureLocal.TightCommuting

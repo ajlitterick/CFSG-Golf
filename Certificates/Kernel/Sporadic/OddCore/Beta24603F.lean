@@ -39,10 +39,6 @@ theorem strictN_eq' (y : Nat) (k : Nat → Nat) : strictN y k = k y := by
 theorem pows (P : Nat) : Pows 6156 13 P (ppw 6156 13 P) :=
   ⟨rfl, fun e => strictN_eq' (ppw 6156 13 P e) (fun q => pcomp 6156 13 (mask 13) P q)⟩
 
-theorem not_of_bIf {b : Bool} (h : bIf(b, false, true) = true) : b = false := by
-  cases b
-  · rfl
-  · exact absurd h (by decide)
 
 theorem divParts3 : CFSG.Sporadic.Schreier.Native.divParts 3 = [1] := by decide
 

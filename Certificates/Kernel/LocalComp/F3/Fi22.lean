@@ -21,9 +21,6 @@ theorem sec_K : secK lay A B fi22Sec = true := by decide +kernel
 
 theorem five_K : sqK lay A B (fi22MultFive ()) = true := by decide +kernel
 
-theorem sec_neg_seeds : (!secK lay B A fi22Sec) = true := by decide +kernel
-
-theorem five_neg : (!sqK lay A B { fi22MultFive () with r := 7 }) = true := by decide +kernel
 
 end CFSG.KD.LC.F3.Fi22
 

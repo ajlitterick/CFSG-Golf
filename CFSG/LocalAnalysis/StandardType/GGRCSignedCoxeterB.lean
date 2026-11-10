@@ -115,27 +115,12 @@ private lemma l05nK42b_permHom_apply
 
 private noncomputable def l05nK42b_last (n : ℕ) (hn : 2 ≤ n) : Fin n := ⟨n - 1, by omega⟩
 
-private lemma l05nK42b_not_lt_last (n : ℕ) (hn : 2 ≤ n) (i : Fin n)
-    (h : ¬ i.val + 1 < n) : i = l05nK42b_last n hn := by
-  apply Fin.ext
-  simp only [l05nK42b_last, Fin.val_mk]
-  omega
 
 private noncomputable def l05nK42b_g
     {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
     {n : ℕ} (b : Module.Basis (Fin n) (ZMod p) V) (i : Fin n) : V ≃ₗ[ZMod p] V :=
   if h : i.val + 1 < n then l05nK42b_Tp b i ⟨i.val + 1, h⟩ else l05nK42b_S b i
 
-private lemma l05nK42b_g_apply
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (b : Module.Basis (Fin n) (ZMod p) V) (i k : Fin n) :
-    l05nK42b_g b i (b k) =
-      (if h : i.val + 1 < n then b (Equiv.swap i ⟨i.val + 1, h⟩ k)
-        else (if k = i then -1 else 1 : ZMod p) • b k) := by
-  rw [l05nK42b_g]
-  by_cases h : i.val + 1 < n
-  · rw [dif_pos h, dif_pos h, l05nK42b_Tp_apply]
-  · rw [dif_neg h, dif_neg h, l05nK42b_S_apply]
 
 private lemma l05nK42b_g_mul_self
     {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]

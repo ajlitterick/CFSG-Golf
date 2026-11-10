@@ -43,6 +43,5 @@ theorem stmtEnd134_of (hC137 : U3.C137StatementFiveZ)
   · exact D.false_nat h331 h1222 h1332 hM hZV1 hL1Z hL1 hZW hcZ hK6 h6 hWK hCMT huniq
   · exact D.false_core h331 h1222 h1332 hM hZV1 hL1Z hL1 hZW hcZ hK6 hW5 hc2 hc hCMT huniq
 
-variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G}
 
 end CFSG.Quasithin.H13.NQS134

@@ -265,21 +265,5 @@ abbrev Swaps := List (Fin 9 × Fin 9)
 
 @[expose] def commutes (p q : Tab) : Bool := comp 9 p q == comp 9 q p
 
-@[expose] def entryOK (e : Swaps × List Swaps) : Bool :=
-  let u := tabOf (permOf u₀)
-  let v := tabOf (permOf e.1)
-  let uv := comp 9 u v
-  let gs : Array Tab := (e.2.map fun l => tabOf (permOf l)).toArray
-  gs.all (fun g => commutes g u || commutes g v || commutes g uv) &&
-    (let E := enumBFS 9 gs 181440
-     enumOK 9 gs E && E.tabs.size == 181440)
-
-@[expose] def sixGenCheck : Bool :=
-  let u := tabOf (permOf u₀)
-  let cg : Array Tab := (centGens.map fun l => tabOf (permOf l)).toArray
-  let EC := enumBFS 9 cg 288
-  let vs := entries.map fun e => tabOf (permOf e.1)
-  entries.all entryOK && cg.all (fun g => commutes g u) && enumOK 9 cg EC &&
-    EC.tabs.size == 288 && EC.tabs.all (fun w => !(comp 9 w w == idTab 9) || vs.contains w)
 
 end CFSG.ComponentClassification.SolMax.SixGen

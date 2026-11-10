@@ -84,21 +84,6 @@ theorem multiplier_mul (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 
       g.val.right (h.val.right (Q v))
   exact (mul_assoc _ _ _).symm
 
-theorem multiplier_inv (Q : QuadraticForm K (Fin d → K)) (hQ : ∃ v, Q v ≠ 0)
-    (g : similarityPairs Q) :
-    multiplier Q g⁻¹ = Units.map g.val.right.symm.toMonoidHom (multiplier Q g)⁻¹ := by
-  apply multiplier_unique Q hQ g⁻¹.val _ _ (multiplier_spec Q g⁻¹)
-  intro v
-  change Q (coordinateSemilinearMap g.val⁻¹ v) =
-    g.val.right.symm ((↑(multiplier Q g)⁻¹ : K)) * g.val.right.symm (Q v)
-  apply g.val.right.injective
-  apply mul_left_cancel₀ (Units.ne_zero (multiplier Q g))
-  rw [← multiplier_spec, coordinateSemilinearMap_inv, AddEquiv.apply_symm_apply]
-  change Q v = (multiplier Q g : K) *
-    g.val.right (g.val.right.symm ((↑(multiplier Q g)⁻¹ : K)) *
-      g.val.right.symm (Q v))
-  rw [map_mul, g.val.right.apply_symm_apply, g.val.right.apply_symm_apply]
-  simp
 
 @[expose] def fieldProjection (Q : QuadraticForm K (Fin d → K)) :
     similarityPairs Q →* (K ≃+* K) :=

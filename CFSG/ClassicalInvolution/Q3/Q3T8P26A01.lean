@@ -32,9 +32,7 @@ section Std
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
-theorem stdRepK_K (hs : Std8 Ω K J S R T W z t) : (stdRepK hs).K = K := rfl
 
-theorem stdRepJ_K (hs : Std8 Ω K J S R T W z t) : (stdRepJ hs).K = J := rfl
 end Std
 end T8
 end Asc77
@@ -186,10 +184,6 @@ theorem not_dbarConnected_of_ne (hs : Std8 Ω K J S R T W z t)
     (hne : dComp Ω K ≠ dstarComp Ω K) : ¬ DbarConnected Ω W :=
   Q3CL.Wyl.not_dbarConnected_of_ne hs.toStd8Core hne
 
-theorem ncard_cent_eq_four (hs : Std8 Ω K J S R T W z t) (hμ : MuIsoWylD4 Ω W)
-    (hnc : ¬ DbarConnected Ω W) (ρ : Rep Ω W) :
-    (Star3T.cent (muDelta Ω W) (muTabElt ρ)).ncard = 4 :=
-  Q3CL.Wyl.ncard_cent_eq_four hs.toStd8Core hμ hnc ρ
 
 theorem exists_frame (hs : Std8 Ω K J S R T W z t) (hμ : MuIsoWylD4 Ω W)
     (hnc : ¬ DbarConnected Ω W) :
@@ -215,25 +209,6 @@ open CFSG.ClassicalInvolution.Asc77.T8YY
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
-theorem exists_frame_closed (hs : Std8 Ω K J S R T W z t) (hμ : MuIsoWylD4 Ω W)
-    (hnc : ¬ DbarConnected Ω W) :
-    ∃ ρ : Fin 4 → Rep Ω W, (ρ 0).K = K ∧ (ρ 1).K = J ∧ (∀ i j, i ≠ j → (ρ i).K ≠ (ρ j).K) ∧
-      (∀ i j, i ≠ j → (ρ j).K ∈ omegaNbr Ω (ρ i).K) ∧
-      ∀ (σ : Rep Ω W) (i : Fin 4), (σ.K = (ρ i).K ∨ σ.K ∈ omegaNbr Ω (ρ i).K) →
-        ∃ j, σ.K = (ρ j).K :=
-  Q3CL.Wyl.exists_frame_closed hs.toStd8Core hμ hnc
-
-theorem mem_W_of_uniqueInvolution (c : Q3CL.Thompson.Ctx Ω W) (σ : Rep Ω W) {v : G}
-    (hv : IsUniqueInvolution σ.K v) : v ∈ W :=
-  Q3CL.Wyl.mem_W_of_uniqueInvolution c σ hv
-
-theorem rep_comm_frame_prod (c : Q3CL.Thompson.Ctx Ω W) (ρ : Fin 4 → Rep Ω W)
-    (hadj : ∀ i j, i ≠ j → (ρ j).K ∈ omegaNbr Ω (ρ i).K)
-    (hclos : ∀ (σ : Rep Ω W) (i : Fin 4), (σ.K = (ρ i).K ∨ σ.K ∈ omegaNbr Ω (ρ i).K) →
-      ∃ j, σ.K = (ρ j).K)
-    {zz : Fin 4 → G} (hz : ∀ i, IsUniqueInvolution (ρ i).K (zz i)) (σ : Rep Ω W)
-    (i j : Fin 4) : σ.r * (zz i * zz j) = (zz i * zz j) * σ.r :=
-  Q3CL.Wyl.rep_comm_frame_prod c ρ hadj hclos hz σ i j
 
 theorem commute_frame_prod_of_mem_DSet (c : Q3CL.Thompson.Ctx Ω W) (ρ : Fin 4 → Rep Ω W)
     (hadj : ∀ i j, i ≠ j → (ρ j).K ∈ omegaNbr Ω (ρ i).K)

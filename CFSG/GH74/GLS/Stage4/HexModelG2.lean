@@ -52,25 +52,5 @@ theorem g2ModelSystem_U
     (g2ModelSystem F hF).U = (posUnipotent (g2Shape (g2Roots F))).map (hexProj ↥(adjointGroup .G2 F)) :=
   rfl
 
-theorem card_g2Roots
-    {γ : Fin 2 → ℤ} (hγ : IsRoot .G2 γ) : Nat.card (g2Roots F γ) = Nat.card F := by
-  symm
-  refine Nat.card_congr (Equiv.ofBijective (fun c : F => (⟨xPar (rootOperatorFamily .G2) γ c,
-    xPar_mem hγ c⟩ : g2Roots F γ)) ⟨fun c d h => xPar_injective hγ (congrArg Subtype.val h), ?_⟩)
-  rintro ⟨g, hg⟩
-  obtain ⟨c, rfl⟩ := (mem_rootGroup_iff hγ g).1 hg
-  exact ⟨c, rfl⟩
-
-theorem card_g2ModelSystem_root
-    (hF : 3 ≤ Nat.card F) {i : ℤ} (h1 : 1 ≤ i) (h6 : i ≤ 6) :
-    Nat.card ((g2ModelSystem F hF).root i) = Nat.card F := by
-  rw [g2ModelSystem_root]
-  rw [card_hexQuotGroup (g2Data F) h1 h6]
-  exact card_g2Roots (isRoot_hexPos (by omega) (by omega))
-
-theorem g2Model_rootOrders
-    (hF : 3 ≤ Nat.card F) :
-    RootOrdersG2 (g2ModelSystem F hF).root (Nat.card F) :=
-  fun _ h1 h6 => card_g2ModelSystem_root hF h1 h6
 
 end CFSG.GH74.GLS.Stage4.Hex

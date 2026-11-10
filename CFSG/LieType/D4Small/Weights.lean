@@ -277,23 +277,6 @@ theorem sum_wtProj (x : X) :
   · intro h
     exact absurd (Finset.mem_univ (1 : Fin 4 → Kˣ)) h
 
-theorem sum_wtProj_eq_one : (∑ a : Fin 4 → ZMod (Nat.card Kˣ), wtProj D ρ a) = 1 := by
-  ext x
-  simpa using sum_wtProj D ρ x
-
-theorem wtProj_comm_h (a : Fin 4 → ZMod (Nat.card Kˣ)) (t : Fin 4 → Kˣ) :
-    ρ (D.h t) ∘ₗ wtProj D ρ a = wtProj D ρ a ∘ₗ ρ (D.h t) := by
-  ext x
-  simp only [LinearMap.comp_apply, wtProj_apply, map_sum, map_smul]
-  refine Finset.sum_congr rfl fun u _ => ?_
-  congr 1
-  rw [← Module.End.mul_apply, ← Module.End.mul_apply]
-  rw [show ρ (D.h t) * ρ (D.h u) = ρ (D.h u) * ρ (D.h t) from by
-    calc ρ (D.h t) * ρ (D.h u) = ρ (D.h t * D.h u) := (map_mul ρ _ _).symm
-      _ = ρ (D.h (t * u)) := congrArg (fun z => ρ z) (map_mul D.h t u).symm
-      _ = ρ (D.h (u * t)) := by rw [mul_comm t u]
-      _ = ρ (D.h u * D.h t) := congrArg (fun z => ρ z) (map_mul D.h u t)
-      _ = ρ (D.h u) * ρ (D.h t) := map_mul ρ _ _]
 
 theorem iSup_wtSpace : ⨆ a, wtSpace D ρ a = ⊤ := by
   refine le_antisymm le_top ?_
@@ -810,11 +793,6 @@ theorem rootOp_zero (α : Fin 4 → ℤ) (hα : IsD4Root α) : rootOp D ρ α 0 
   · intro h
     exact absurd (Finset.mem_univ (0 : K)) h
 
-theorem rootOp_of_lt (α : Fin 4 → ℤ) {k : ℕ} (hk : Nat.card Kˣ < k) :
-    rootOp D ρ α k = 0 := by
-  ext x
-  rw [rootOp_apply]
-  simp only [rootCoeff_of_lt hk, zero_smul, Finset.sum_const_zero, LinearMap.zero_apply]
 
 theorem rootCoeff_inv_mul (k : ℕ) {lam : K} (hlam : lam ≠ 0) (d : K) :
     rootCoeff k (lam⁻¹ * d) = lam ^ k * rootCoeff k d := by

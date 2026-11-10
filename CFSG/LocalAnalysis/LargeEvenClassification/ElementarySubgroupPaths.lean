@@ -58,24 +58,5 @@ theorem elementary_equal_rank_subgroup_path {D : Type u} [CommGroup D] [Finite D
             Fin.cons_zero, Fin.cons_one, hfirst] using hstep
         · simpa only [extended, ← Fin.succ_castSucc, Fin.cons_succ] using hsteps j
 
-theorem elementary_equal_rank_subgroup_path_of_elementary
-    {D : Type u} [Group D] [Finite D] {p k d : ℕ} (hprime : p.Prime)
-    (hD : IsElemAbelian p (⊤ : Subgroup D)) (hk : 1 ≤ k)
-    (X Y : Subgroup D) (hXcard : Nat.card X = p ^ k)
-    (hYcard : Nat.card Y = p ^ k) (hJcard : Nat.card (X ⊓ Y : Subgroup D) = p ^ d) :
-    ∃ n : ℕ, n ≤ k - d ∧ ∃ path : Fin (n + 1) → Subgroup D,
-      path 0 = X ∧ path (Fin.last n) = Y ∧
-      (∀ i, Nat.card (path i) = p ^ k) ∧
-      ∀ i : Fin n, Nat.card (path i.castSucc ⊓ path i.succ : Subgroup D) =
-        p ^ (k - 1) := by
-  have hcommutative : IsMulCommutative D := by
-    apply IsMulCommutative.of_comm
-    intro x y
-    exact congrArg Subtype.val (@mul_comm' (⊤ : Subgroup D) _ hD.1 ⟨x, by trivial⟩
-      ⟨y, by trivial⟩)
-  let : CommGroup D := { (inferInstance : Group D) with
-    mul_comm := @mul_comm' D _ hcommutative }
-  exact elementary_equal_rank_subgroup_path hprime (fun x => hD.2 x (by trivial))
-    hk X Y hXcard hYcard hJcard
 
 end CFSG.LargeEvenClassification.Helpers

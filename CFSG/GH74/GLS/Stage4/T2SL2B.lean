@@ -80,11 +80,6 @@ theorem slConj_diag_lSub (a b : Fˣ) : ∀ x ∈ lSub F, slConj (diagGL a b) x �
   rw [t2B_mem_lSub, t2B_slConj_diag]
   simp [h00, h11, h01]
 
-theorem sl2W_mul_slConj_diag (a b : Fˣ) :
-    sl2W F * slConj (diagGL a b) (sl2W F)⁻¹ ∈ tSub F := by
-  rw [t2B_mem_tSub]
-  simp [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_inv, t2B_slConj_diag,
-    Matrix.adjugate_fin_two]
 
 theorem slConj_dNeg_uSub : ∀ x ∈ uSub F, slConj (dNeg F) x = x⁻¹ := by
   intro x hx

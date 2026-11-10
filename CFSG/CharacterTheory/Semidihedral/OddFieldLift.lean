@@ -80,9 +80,6 @@ open scoped Pointwise
     rintro x ⟨hx, hxd⟩
     exact ⟨B.inv_mem hx, by rw [inv_pow, hxd, inv_one]⟩
 
-theorem mem_oddRoots {H : Type u} [Group H] (B : Subgroup H) (d : ℕ)
-    (hB : IsMulCommutative B) (x : H) :
-    x ∈ oddRoots B d hB ↔ x ∈ B ∧ x ^ d = 1 := Iff.rfl
 
 @[expose] def preimageProjection {H : Type u} {Q : Type v} [Group H] [Group Q]
     (pi : H →* Q) (A : Subgroup Q) : A.comap pi →* A where
@@ -346,18 +343,12 @@ abbrev M {H : Type v} [Group H] (F : Type u) [Field F] [Finite F]
 abbrev B {H : Type v} [Group H] (F : Type u) [Field F] [Finite F]
     (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A) := (gammaField F A).comap pi
 
-abbrev SpecialPreimage {H : Type v} [Group H] (F : Type u) [Field F] [Finite F]
-    (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A) :=
-  ((SpecialGamma F A).subgroupOf (Gamma F A)).comap pi
 
 @[expose] def coordinateProjection {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
     (pi : H →* Gamma F A) : H →* Equiv.Perm (Omega F) :=
   (coordinateE F).subtype.comp ((Gamma F A).subtype.comp pi)
 
-theorem pi_z {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (z : H) (hker : pi.ker = Subgroup.zpowers z) : pi z = 1 :=
-  MonoidHom.mem_ker.mp (hker.symm ▸ Subgroup.mem_zpowers z)
 
 theorem kernel_central {H : Type u} {Q : Type v} [Group H] [Group Q]
     (pi : H →* Q) (z : H) (hzc : z ∈ Subgroup.center H)
@@ -526,9 +517,6 @@ theorem hom_eq_of_projective_eq {F : Type u} [Field F]
       Matrix.SpecialLinearGroup (Fin 2) F :=
   Matrix.SpecialLinearGroup.map (FixedPoints.subfield A F).subtype
 
-theorem fixedSL2Inclusion_entry (F : Type u) [Field F] (A : Subgroup (F ≃+* F))
-    (X : Matrix.SpecialLinearGroup (Fin 2) (FixedPoints.subfield A F)) (i j : Fin 2) :
-    fixedSL2Inclusion F A X i j = (X i j : F) := rfl
 
 theorem fixedSL2Inclusion_injective (F : Type u) [Field F] (A : Subgroup (F ≃+* F)) :
     Function.Injective (fixedSL2Inclusion F A) := by
@@ -624,20 +612,6 @@ theorem eSigma_action {H : Type v} [Group H]
   exact compatible_conjugation_entrywise F p hpodd _ eta (coordinateProjection F A pi) heta
     _ sigma (eSigma_projective F A pi hpi z hz hzc hker hd sigma) x
 
-theorem E_action {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] {p f : ℕ}
-    (hp : p.Prime) (hpodd : Odd p) (hcard : Nat.card F = p ^ f)
-    (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A)
-    (z : H) (hzc : z ∈ Subgroup.center H) (hker : pi.ker = Subgroup.zpowers z)
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x)
-    (e : E F A pi z hzc hker) (sigma : A)
-    (he : coordinateProjection F A pi e = fieldExtension F sigma) (x : Lambda F A pi) :
-    eta (conjugateIn (Lambda F A pi) e x) =
-      Matrix.SpecialLinearGroup.map sigma.val.toRingHom (eta x) := by
-  let : CharP F p := CFSG.Semidihedral.FixedFieldData.characteristic_of_prime_power_card F hp hcard
-  exact compatible_conjugation_entrywise F p hpodd _ eta (coordinateProjection F A pi) heta
-    e sigma he x
 
 theorem B_isComplement {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
@@ -685,53 +659,6 @@ theorem BDirectEquiv_coe {H : Type v} [Group H]
     (x : Subgroup.zpowers z × E F A pi z hzc hker) :
     (BDirectEquiv F A pi hpi z hz hzc hker hd x : H) = (x.1 : H) * x.2 := rfl
 
-theorem SpecialPreimage_factorization {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A))
-    (x : SpecialPreimage F A pi) :
-    ∃ l : Lambda F A pi, ∃ e : E F A pi z hzc hker, (x : H) = l * e := by
-  have hx : ((pi (x : H) : Gamma F A) : coordinateE F) ∈ SpecialGamma F A := x.property
-  obtain ⟨l, hl, a, ha, hla⟩ := Subgroup.mem_sup_of_normal_left.mp hx
-  let aG : gammaField F A := ⟨⟨a, (show liftedField F A ≤ Gamma F A from le_sup_right) ha⟩, ha⟩
-  let e := (piOnE F A pi hpi z hz hzc hker hd).symm aG
-  have he : pi e = aG := (piOnE_coe F A pi hpi z hz hzc hker hd e).symm.trans
-    (congrArg Subtype.val ((piOnE F A pi hpi z hz hzc hker hd).apply_symm_apply aG))
-  have he' : ((pi e : Gamma F A) : coordinateE F) = a := congrArg Subtype.val he
-  have hm : (x : H) * (e : H)⁻¹ ∈ Lambda F A pi := by
-    change ((pi ((x : H) * (e : H)⁻¹) : Gamma F A) : coordinateE F) ∈ specialLayer F
-    rw [map_mul, map_inv, Subgroup.coe_mul, Subgroup.coe_inv, he', ← hla]
-    rw [mul_assoc, mul_inv_cancel, mul_one]
-    exact hl
-  exact ⟨⟨(x : H) * (e : H)⁻¹, hm⟩, e, by simp only [mul_assoc, inv_mul_cancel, mul_one]⟩
-
-theorem SpecialPreimage_isComplement {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A)) :
-    ((Lambda F A pi).subgroupOf (SpecialPreimage F A pi)).IsComplement'
-      ((E F A pi z hzc hker).subgroupOf (SpecialPreimage F A pi)) := by
-  apply factorization_isComplement (SpecialPreimage F A pi) (Lambda F A pi) (E F A pi z hzc hker)
-  · intro x hx
-    exact (show specialLayer F ≤ SpecialGamma F A from le_sup_left) hx
-  · intro e he
-    exact (show liftedField F A ≤ SpecialGamma F A from le_sup_right) he.1
-  · exact (H_isComplement F A pi hpi z hz hzc hker hd).disjoint.mono_left
-      (fun _ h => Subgroup.subgroupOf_mono (coordinateE F) (coordinateG_le_D F) h)
-  · exact SpecialPreimage_factorization F A pi hpi z hz hzc hker hd
-
-@[expose] def SpecialPreimageSemidirectEquiv {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A)) :
-    (Lambda F A pi).subgroupOf (SpecialPreimage F A pi) ⋊[
-      internalAction ((Lambda F A pi).subgroupOf (SpecialPreimage F A pi))
-        ((E F A pi z hzc hker).subgroupOf (SpecialPreimage F A pi))]
-      (E F A pi z hzc hker).subgroupOf (SpecialPreimage F A pi) ≃* SpecialPreimage F A pi :=
-  internalSemidirectEquiv _ _ (SpecialPreimage_isComplement F A pi hpi z hz hzc hker hd)
 
 abbrev LambdaCentralizer {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
@@ -808,55 +735,6 @@ theorem eta_centralizer_image {H : Type v} [Group H]
     ((subgroupEquivOfEq (eta_centralizer_image F hp hpodd hcard A pi hpi z hz hzc hker hd eta heta)).trans
       (fixedSL2EquivRange F A).symm)
 
-theorem fixedCentralizerEquiv_inclusion {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] {p f : ℕ}
-    (hp : p.Prime) (hpodd : Odd p) (hcard : Nat.card F = p ^ f)
-    (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A))
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x)
-    (x : LambdaCentralizer F A pi z hzc hker) :
-    fixedSL2Inclusion F A
-      (fixedCentralizerEquiv F hp hpodd hcard A pi hpi z hz hzc hker hd eta heta x) = eta x := by
-  have h := (fixedSL2EquivRange F A).apply_symm_apply
-    ((subgroupEquivOfEq (eta_centralizer_image F hp hpodd hcard A pi hpi z hz hzc hker hd eta heta))
-      (eta.subgroupMap (LambdaCentralizer F A pi z hzc hker) x))
-  exact congrArg Subtype.val h
-
-
-theorem Lambda_le_M {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) : Lambda F A pi ≤ M F A pi :=
-  fun _ h => Subgroup.subgroupOf_mono (coordinateE F) (coordinateG_le_D F) h
-
-theorem Lambda_le_SpecialPreimage {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) : Lambda F A pi ≤ SpecialPreimage F A pi :=
-  fun _ h => (show specialLayer F ≤ SpecialGamma F A from le_sup_left) h
-
-theorem E_le_SpecialPreimage {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (z : H) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) :
-    E F A pi z hzc hker ≤ SpecialPreimage F A pi :=
-  fun _ h => (show liftedField F A ≤ SpecialGamma F A from le_sup_right) h.1
-
-theorem SpecialPreimage_eq_sup {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A)) :
-    SpecialPreimage F A pi = Lambda F A pi ⊔ E F A pi z hzc hker := by
-  apply le_antisymm
-  · intro x hx
-    obtain ⟨l, e, h⟩ := SpecialPreimage_factorization F A pi hpi z hz hzc hker hd ⟨x, hx⟩
-    change x = (l : H) * e at h
-    rw [h]
-    exact (Lambda F A pi ⊔ E F A pi z hzc hker).mul_mem
-      ((show Lambda F A pi ≤ Lambda F A pi ⊔ E F A pi z hzc hker from le_sup_left) l.property)
-      ((show E F A pi z hzc hker ≤ Lambda F A pi ⊔ E F A pi z hzc hker from le_sup_right) e.property)
-  · exact sup_le (Lambda_le_SpecialPreimage F A pi) (E_le_SpecialPreimage F A pi z hzc hker)
 
 theorem HSemidirectEquiv_apply {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
@@ -866,227 +744,6 @@ theorem HSemidirectEquiv_apply {H : Type v} [Group H]
     (x : M F A pi ⋊[internalAction (M F A pi) (E F A pi z hzc hker)] E F A pi z hzc hker) :
     HSemidirectEquiv F A pi hpi z hz hzc hker hd x = (x.left : H) * x.right :=
   internalSemidirectEquiv_apply _ _ (H_isComplement F A pi hpi z hz hzc hker hd) x
-
-@[expose] def specialSemidirectEquiv {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A)) :
-    Lambda F A pi ⋊[internalAction (Lambda F A pi) (E F A pi z hzc hker)]
-      E F A pi z hzc hker ≃* SpecialPreimage F A pi := by
-  let f : Lambda F A pi ⋊[internalAction (Lambda F A pi) (E F A pi z hzc hker)]
-      E F A pi z hzc hker →* H :=
-    SemidirectProduct.lift (Lambda F A pi).subtype (E F A pi z hzc hker).subtype
-      (by intro e; apply MonoidHom.ext; intro x; exact internalAction_coe _ _ e x)
-  let g := f.codRestrict (SpecialPreimage F A pi) (by
-    intro x
-    exact (SpecialPreimage F A pi).mul_mem
-      (Lambda_le_SpecialPreimage F A pi x.left.property)
-      (E_le_SpecialPreimage F A pi z hzc hker x.right.property))
-  apply MulEquiv.ofBijective g
-  constructor
-  · intro x y hxy
-    have hdis : Disjoint (Lambda F A pi) (E F A pi z hzc hker) :=
-      (H_isComplement F A pi hpi z hz hzc hker hd).disjoint.mono_left (Lambda_le_M F A pi)
-    have hpairs := Subgroup.mul_injective_of_disjoint hdis
-      (a₁ := (x.left, x.right)) (a₂ := (y.left, y.right))
-      (show (x.left : H) * x.right = (y.left : H) * y.right from congrArg Subtype.val hxy)
-    exact SemidirectProduct.ext (congrArg Prod.fst hpairs) (congrArg Prod.snd hpairs)
-  · intro x
-    obtain ⟨l, e, hx⟩ := SpecialPreimage_factorization F A pi hpi z hz hzc hker hd x
-    exact ⟨⟨l, e⟩, Subtype.ext hx.symm⟩
-
-theorem specialSemidirectEquiv_coe {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A))
-    (x : Lambda F A pi ⋊[internalAction (Lambda F A pi) (E F A pi z hzc hker)] E F A pi z hzc hker) :
-    (specialSemidirectEquiv F A pi hpi z hz hzc hker hd x : H) = (x.left : H) * x.right := rfl
-
-@[expose] def zInLambda {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (z : H) (hker : pi.ker = Subgroup.zpowers z) : Lambda F A pi :=
-  ⟨z, by change pi z ∈ gammaSpecial F A; rw [pi_z pi z hker]; exact Subgroup.one_mem _⟩
-
-theorem zInLambda_coe {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (z : H) (hker : pi.ker = Subgroup.zpowers z) :
-    (zInLambda F A pi z hker : H) = z := rfl
-
-theorem eSigma_unique {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A))
-    (sigma : A) (e : E F A pi z hzc hker)
-    (he : coordinateProjection F A pi e = fieldExtension F sigma) :
-    e = eSigma F A pi hpi z hz hzc hker hd sigma := by
-  apply (piOnE F A pi hpi z hz hzc hker hd).injective
-  apply Subtype.ext
-  apply Subtype.ext
-  apply Subtype.ext
-  exact he.trans (eSigma_projective F A pi hpi z hz hzc hker hd sigma).symm
-
-theorem mem_LambdaCentralizer_iff_entries {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] {p f : ℕ}
-    (hp : p.Prime) (hpodd : Odd p) (hcard : Nat.card F = p ^ f)
-    (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A))
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x)
-    (x : Lambda F A pi) :
-    x ∈ LambdaCentralizer F A pi z hzc hker ↔ ∀ i j, eta x i j ∈ FixedPoints.subfield A F :=
-  (mem_LambdaCentralizer_iff F hp hpodd hcard A pi hpi z hz hzc hker hd eta heta x).trans
-    (entries_mem_fixed_iff F A (eta x)).symm
-
-
-theorem eSigma_pi {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hd : Odd (Nat.card A)) (sigma : A) :
-    pi (eSigma F A pi hpi z hz hzc hker hd sigma) =
-      ((gammaFieldEquiv F A).symm sigma : Gamma F A) :=
-  congrArg Subtype.val ((piOnE F A pi hpi z hz hzc hker hd).apply_symm_apply
-    ((gammaFieldEquiv F A).symm sigma))
-
-theorem E_action_of_pi {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] {p f : ℕ}
-    (hp : p.Prime) (hpodd : Odd p) (hcard : Nat.card F = p ^ f)
-    (A : Subgroup (F ≃+* F)) (pi : H →* Gamma F A)
-    (z : H) (hzc : z ∈ Subgroup.center H) (hker : pi.ker = Subgroup.zpowers z)
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x)
-    (e : E F A pi z hzc hker) (sigma : A)
-    (he : pi e = ((gammaFieldEquiv F A).symm sigma : Gamma F A)) (x : Lambda F A pi) :
-    eta (conjugateIn (Lambda F A pi) e x) =
-      Matrix.SpecialLinearGroup.map sigma.val.toRingHom (eta x) := by
-  apply E_action F hp hpodd hcard A pi z hzc hker eta heta e sigma
-  change (((pi e : Gamma F A) : coordinateE F) : Equiv.Perm (Omega F)) = _
-  rw [he, gammaFieldEquiv_symm_coe]
-
-structure ExactLiftConclusions {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z) (hdA : Odd (Nat.card A))
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F) (d : ℕ) : Prop where
-  gamma_internal : (gammaLinear F A).IsComplement' (gammaField F A)
-  gamma_semidirect : ∃ eps : gammaLinear F A ⋊[internalAction (gammaLinear F A) (gammaField F A)]
-    gammaField F A ≃* Gamma F A, ∀ x, eps x = (x.left : Gamma F A) * x.right
-  roots : ∀ b : H, b ∈ E F A pi z hzc hker ↔ b ∈ B F A pi ∧ b ^ d = 1
-  card : Nat.card (E F A pi z hzc hker) = d
-  unique : ∀ U : Subgroup (B F A pi), Nat.card U = d →
-    U = (E F A pi z hzc hker).subgroupOf (B F A pi)
-  pi_restriction : ∃ eps : E F A pi z hzc hker ≃* gammaField F A,
-    ∀ e : E F A pi z hzc hker, (eps e : Gamma F A) = pi e
-  B_internal : ((Subgroup.zpowers z).subgroupOf (B F A pi)).IsComplement'
-    ((E F A pi z hzc hker).subgroupOf (B F A pi))
-  kernel_central : (Subgroup.zpowers z).subgroupOf (B F A pi) ≤ Subgroup.center (B F A pi)
-  B_direct : ∃ eps : Subgroup.zpowers z × E F A pi z hzc hker ≃* B F A pi,
-    ∀ x, (eps x : H) = (x.1 : H) * x.2
-  M_normal : (M F A pi).Normal
-  Lambda_normal : (Lambda F A pi).Normal
-  H_internal : (M F A pi).IsComplement' (E F A pi z hzc hker)
-  H_semidirect : ∃ eps : M F A pi ⋊[internalAction (M F A pi) (E F A pi z hzc hker)]
-    E F A pi z hzc hker ≃* H, ∀ x, eps x = (x.left : H) * x.right
-  special_eq : SpecialPreimage F A pi = Lambda F A pi ⊔ E F A pi z hzc hker
-  special_internal : ((Lambda F A pi).subgroupOf (SpecialPreimage F A pi)).IsComplement'
-    ((E F A pi z hzc hker).subgroupOf (SpecialPreimage F A pi))
-  special_semidirect : ∃ eps : Lambda F A pi ⋊[internalAction (Lambda F A pi) (E F A pi z hzc hker)]
-    E F A pi z hzc hker ≃* SpecialPreimage F A pi, ∀ x, (eps x : H) = (x.left : H) * x.right
-  sigma_lift : ∀ sigma : A, pi (eSigma F A pi hpi z hz hzc hker hdA sigma) =
-    ((gammaFieldEquiv F A).symm sigma : Gamma F A)
-  sigma_unique : ∀ sigma : A, ∀ e : E F A pi z hzc hker,
-    pi e = ((gammaFieldEquiv F A).symm sigma : Gamma F A) →
-      e = eSigma F A pi hpi z hz hzc hker hdA sigma
-  sigma_action : ∀ sigma : A, ∀ x : Lambda F A pi,
-    eta (conjugateIn (Lambda F A pi) (eSigma F A pi hpi z hz hzc hker hdA sigma) x) =
-      Matrix.SpecialLinearGroup.map sigma.val.toRingHom (eta x)
-  action : ∀ e : E F A pi z hzc hker, ∀ sigma : A,
-    pi e = ((gammaFieldEquiv F A).symm sigma : Gamma F A) → ∀ x : Lambda F A pi,
-      eta (conjugateIn (Lambda F A pi) e x) = Matrix.SpecialLinearGroup.map sigma.val.toRingHom (eta x)
-  action_entries : ∀ e : E F A pi z hzc hker, ∀ sigma : A,
-    pi e = ((gammaFieldEquiv F A).symm sigma : Gamma F A) → ∀ x : Lambda F A pi, ∀ i j : Fin 2,
-      eta (conjugateIn (Lambda F A pi) e x) i j = sigma.val (eta x i j)
-  centralizer_entries : ∀ x : Lambda F A pi,
-    x ∈ LambdaCentralizer F A pi z hzc hker ↔ ∀ i j, eta x i j ∈ FixedPoints.subfield A F
-  centralizer_image : (LambdaCentralizer F A pi z hzc hker).map eta.toMonoidHom = fixedEntrySL2 F A
-  fixed_equiv : ∃ eps : LambdaCentralizer F A pi z hzc hker ≃*
-    Matrix.SpecialLinearGroup (Fin 2) (FixedPoints.subfield A F),
-    ∀ x, fixedSL2Inclusion F A (eps x) = eta x
-
-theorem central_double_cover_lifts_odd_field_action_exactly {H : Type v} [Group H] [Finite H]
-    (F : Type u) [Field F] [Finite F] {p f d : ℕ}
-    (hp : p.Prime) (hpodd : Odd p) (_hf : 1 ≤ f) (hcard : Nat.card F = p ^ f)
-    (A : Subgroup (F ≃+* F)) (hAd : Nat.card A = d) (hd : Odd d)
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z)
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (_hetaz : eta (zInLambda F A pi z hker) = (-1 : Matrix.SpecialLinearGroup (Fin 2) F))
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x) :
-    ExactLiftConclusions F A pi hpi z hz hzc hker (hAd.symm ▸ hd) eta d := by
-  let hdA : Odd (Nat.card A) := hAd.symm ▸ hd
-  refine
-    { gamma_internal := gamma_isComplement F A
-      gamma_semidirect := ⟨gammaSemidirectEquiv F A,
-        internalSemidirectEquiv_apply _ _ (gamma_isComplement F A)⟩
-      roots := ?_
-      card := (E_card F A pi hpi z hz hzc hker hdA).trans hAd
-      unique := ?_
-      pi_restriction := ⟨piOnE F A pi hpi z hz hzc hker hdA,
-        piOnE_coe F A pi hpi z hz hzc hker hdA⟩
-      B_internal := B_isComplement F A pi hpi z hz hzc hker hdA
-      kernel_central := kernel_central_in_B F A pi z hzc
-      B_direct := ⟨BDirectEquiv F A pi hpi z hz hzc hker hdA,
-        BDirectEquiv_coe F A pi hpi z hz hzc hker hdA⟩
-      M_normal := inferInstance
-      Lambda_normal := inferInstance
-      H_internal := H_isComplement F A pi hpi z hz hzc hker hdA
-      H_semidirect := ⟨HSemidirectEquiv F A pi hpi z hz hzc hker hdA,
-        HSemidirectEquiv_apply F A pi hpi z hz hzc hker hdA⟩
-      special_eq := SpecialPreimage_eq_sup F A pi hpi z hz hzc hker hdA
-      special_internal := SpecialPreimage_isComplement F A pi hpi z hz hzc hker hdA
-      special_semidirect := ⟨specialSemidirectEquiv F A pi hpi z hz hzc hker hdA,
-        specialSemidirectEquiv_coe F A pi hpi z hz hzc hker hdA⟩
-      sigma_lift := eSigma_pi F A pi hpi z hz hzc hker hdA
-      sigma_unique := ?_
-      sigma_action := eSigma_action F hp hpodd hcard A pi hpi z hz hzc hker hdA eta heta
-      action := E_action_of_pi F hp hpodd hcard A pi z hzc hker eta heta
-      action_entries := ?_
-      centralizer_entries := mem_LambdaCentralizer_iff_entries F hp hpodd hcard A pi hpi z hz hzc hker hdA eta heta
-      centralizer_image := eta_centralizer_image F hp hpodd hcard A pi hpi z hz hzc hker hdA eta heta
-      fixed_equiv := ⟨fixedCentralizerEquiv F hp hpodd hcard A pi hpi z hz hzc hker hdA eta heta,
-        fixedCentralizerEquiv_inclusion F hp hpodd hcard A pi hpi z hz hzc hker hdA eta heta⟩ }
-  · intro b
-    rw [← hAd]
-    exact mem_E F A pi z hzc hker b
-  · intro U hU
-    exact E_unique F A pi hpi z hz hzc hker hdA U (hU.trans hAd.symm)
-  · intro sigma e he
-    apply eSigma_unique F A pi hpi z hz hzc hker hdA sigma e
-    change (((pi e : Gamma F A) : coordinateE F) : Equiv.Perm (Omega F)) = _
-    rw [he, gammaFieldEquiv_symm_coe]
-  · intro e sigma he x i j
-    exact congrArg (fun X : Matrix.SpecialLinearGroup (Fin 2) F => X i j)
-      (E_action_of_pi F hp hpodd hcard A pi z hzc hker eta heta e sigma he x)
-
-theorem central_double_cover_lifts_odd_field_action_exactly_int {H : Type v} [Group H] [Finite H]
-    (F : Type u) [Field F] [Finite F] {p d : ℕ} {f : ℤ}
-    (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hcard : Nat.card F = p ^ f.toNat)
-    (A : Subgroup (F ≃+* F)) (hAd : Nat.card A = d) (hd : Odd d)
-    (pi : H →* Gamma F A) (hpi : Function.Surjective pi)
-    (z : H) (hz : orderOf z = 2) (hzc : z ∈ Subgroup.center H)
-    (hker : pi.ker = Subgroup.zpowers z)
-    (eta : Lambda F A pi ≃* Matrix.SpecialLinearGroup (Fin 2) F)
-    (hetaz : eta (zInLambda F A pi z hker) = (-1 : Matrix.SpecialLinearGroup (Fin 2) F))
-    (heta : ∀ x : Lambda F A pi, slCoordinateAction F (eta x) = coordinateProjection F A pi x) :
-    ExactLiftConclusions F A pi hpi z hz hzc hker (hAd.symm ▸ hd) eta d :=
-  central_double_cover_lifts_odd_field_action_exactly F hp hpodd (by omega) hcard A hAd hd
-    pi hpi z hz hzc hker eta hetaz heta
 
 
 end

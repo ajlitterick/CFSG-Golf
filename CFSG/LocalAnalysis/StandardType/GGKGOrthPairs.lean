@@ -308,12 +308,6 @@ private theorem kGL_isRoot_gamma0 : IsRoot Tag.E6 kGLE6Gamma0 := by
   rw [← mem_rootFinset]
   decide +kernel
 
-theorem stdPair_isRoot_orth :
-    IsRoot Tag.E6 (highRoot Tag.E6) ∧ IsRoot Tag.E6 (Pi.single 5 1 : Fin Tag.E6.rank → ℤ) ∧
-      iform (highRoot Tag.E6) (Pi.single 5 1 : Fin Tag.E6.rank → ℤ) = 0 := by
-  refine ⟨isRoot_highRoot Tag.E6, IsRoot.basis 5, ?_⟩
-  rw [EPilot.iform_highRoot (Or.inl rfl)]
-  decide
 
 theorem exists_weyl_smul_orthPair {α β : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α)
     (hβ : IsRoot Tag.E6 β) (hαβ : iform α β = 0) :

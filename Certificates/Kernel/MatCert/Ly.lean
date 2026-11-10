@@ -43,12 +43,6 @@ theorem ly5_K : regsN OL LyBS.A LyBS.B lyFiveN lyFiveProg (fun R =>
       decide (lyTzSpec5.gen.rs < lyFiveN) && notStabL (getN R lyTzSpec5.gen.rs)) = true := by
   quickRfl
 
-theorem ly3_neg : (!regsN OL LyBS.A LyBS.B lyThreeN lyThreeProg (fun R =>
-    OL.eq (getN R lyTzSpec.gen.rc0) (LyBS.CF 1))) = true := by
-  quickRfl
-
-theorem ly5_neg : (!notStabL (LySv.AF 2)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

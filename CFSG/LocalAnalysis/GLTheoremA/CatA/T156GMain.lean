@@ -57,11 +57,6 @@ theorem indAut_pow_eq_one {p : ℕ} {L : Subgroup G} {g : G} (hg : g ∈ Subgrou
     Subtype.ext (by simp [inv_pow, hgp])
   rw [h1, map_one]
 
-theorem indAut_one {p : ℕ} {L : Subgroup G} : indAut p L 1 (Subgroup.one_mem _) = 1 := by
-  unfold indAut
-  have h1 : (⟨(1 : G)⁻¹, Subgroup.inv_mem _ (Subgroup.one_mem _)⟩ :
-      ↥(Subgroup.normalizer (L : Set G))) = 1 := Subtype.ext (by simp)
-  rw [h1, map_one]
 
 theorem indAut_congr {p : ℕ} {L : Subgroup G} {g g' : G} (h : g = g')
     (hg : g ∈ Subgroup.normalizer (L : Set G)) (hg' : g' ∈ Subgroup.normalizer (L : Set G)) :
@@ -97,8 +92,6 @@ variable {R : Type} [Group R] (x : MulAut R)
     ext g
     rfl
 
-theorem resHom_apply (φ : ↥(Subgroup.centralizer ({x} : Set (MulAut R)))) (g : ↥(ggFixDer x)) :
-    ((resHom x φ g : ↥(ggFixDer x)) : R) = (φ : MulAut R) g := rfl
 
 end Restriction
 

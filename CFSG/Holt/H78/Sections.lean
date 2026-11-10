@@ -199,7 +199,6 @@ theorem isStarGroup_of_jHull_le (hG : IsStarGroup G Ω) {K : Subgroup G} (hK : j
 theorem isStarGroup_jHull (hG : IsStarGroup G Ω) : IsStarGroup ↥(jHull G Ω) Ω :=
   isStarGroup_of_jHull_le hG le_rfl
 
-variable [Finite G]
 
 end Hull
 

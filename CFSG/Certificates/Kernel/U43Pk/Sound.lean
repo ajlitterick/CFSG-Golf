@@ -196,9 +196,6 @@ theorem dg_matK {G Y : ℕ} (hG : Dig G) (hY : Dig Y) {k : ℕ} (hk : k < 16) :
   change entK G Y (k / 4) (k % 4) = _
   exact entK_eq hG hY (by omega) (by omega)
 
-theorem matK_dig {G Y : ℕ} (hG : Dig G) (hY : Dig Y) : Dig (matK G Y) := fun k hk => by
-  rw [dg_matK hG hY hk]
-  exact addC_lt _ _
 
 theorem matK_lt (G Y : ℕ) : matK G Y < 16 ^ 16 := packK_lt fun k => entK_lt _ _ _ _
 

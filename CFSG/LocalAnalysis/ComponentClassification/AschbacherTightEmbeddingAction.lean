@@ -106,46 +106,5 @@ theorem complement_normalizer_alternative {G : Type*} [Group G] [Finite G]
     (complement_centralizers_le_normalizer P Q T S htight hodd hnormalizes hTP hTS hS htwoS)
       actor hactor houtside hproduct)
 
-theorem complement_normal_of_small_index {G : Type*} [Group G] [Finite G]
-    (P Q T X : Subgroup G) (htight : TightlyEmbedded P)
-    (hodd : Odd (Nat.card ↥(P ⊓ Q)))
-    (hnormalizes : T ≤ Subgroup.normalizer (Q : Set G)) (hTP : T ≤ P)
-    (hTX : T ≤ X) (hX : X ≤ Q ⊔ T) (htwoX : IsPGroup 2 X)
-    (hindex : (T.subgroupOf X).index ≤ Nat.card T) :
-    X ≤ Subgroup.normalizer (T : Set G) := by
-  rcases complement_normalizer_alternative P Q T X htight hodd hnormalizes hTP hTX hX htwoX
-    with hnormal | ⟨homomorphism, hinjective⟩
-  · exact hnormal
-  have hcardT : Nat.card T ≤ Nat.card ↥(relativeNormalizer T X ⊓ Q) := by
-    have hcenter := Nat.card_le_card_of_injective homomorphism hinjective
-    exact hcenter.trans (Subgroup.card_le_card_group _)
-  have hdisjoint : Disjoint T Q := by
-    apply disjoint_iff.mpr
-    exact two_subgroup_of_odd_eq_bot (T ⊓ Q) (P ⊓ Q)
-      ((htwoX.to_le hTX).to_le inf_le_left) hodd
-      (le_inf (inf_le_left.trans hTP) inf_le_right)
-  have hnormalizerCard := relativeNormalizer_card Q T X hnormalizes hdisjoint hTX hX
-  have hXCard : Nat.card X = Nat.card T * (T.subgroupOf X).index := by
-    have h := (T.subgroupOf X).card_mul_index
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hTX).toEquiv] at h
-    exact h.symm
-  have hcardLe : Nat.card X ≤ Nat.card (relativeNormalizer T X) := by
-    rw [hXCard, hnormalizerCard]
-    exact Nat.mul_le_mul_left _ (hindex.trans hcardT)
-  have hnormalizerEq : relativeNormalizer T X = X :=
-    Subgroup.eq_of_le_of_card_ge inf_le_right hcardLe
-  intro x hx
-  have hmem : x ∈ relativeNormalizer T X := by rw [hnormalizerEq]; exact hx
-  exact hmem.1
-
-theorem complement_small_index_literal_normal {G : Type*} [Group G] [Finite G]
-    (P Q T X : Subgroup G) (htight : TightlyEmbedded P)
-    (hodd : Odd (Nat.card ↥(P ⊓ Q)))
-    (hnormalizes : T ≤ Subgroup.normalizer (Q : Set G)) (hTP : T ≤ P)
-    (hTX : T ≤ X) (hX : X ≤ Q ⊔ T) (htwoX : IsPGroup 2 X)
-    (hindex : (T.subgroupOf X).index ≤ Nat.card T) :
-    (T.subgroupOf X).Normal :=
-  Subgroup.normal_subgroupOf_of_le_normalizer
-    (complement_normal_of_small_index P Q T X htight hodd hnormalizes hTP hTX hX htwoX hindex)
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

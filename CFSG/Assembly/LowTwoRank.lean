@@ -32,9 +32,6 @@ theorem inCatalog_of_classicalModel (G : Type) [Group G] (t : StatedLieTag) (n p
     (h : StatedClassicalModel G t n p f) : InCatalog G :=
   CFSG.ClassicalModels.inCatalog_of_statedClassicalModel G t n p f h
 
-theorem _root_.CFSG.Milestones.fam_classical_model_membership_catalog (G : Type) [Group G]
-    (t : StatedLieTag) (n p f : ℕ) (h : StatedClassicalModel G t n p f) : InCatalog G :=
-  inCatalog_of_classicalModel G t n p f h
 
 theorem inCatalog_of_mulEquiv_m11 (G : Type) [Group G] (h : Nonempty (G ≃* StatedM11)) :
     InCatalog G := by

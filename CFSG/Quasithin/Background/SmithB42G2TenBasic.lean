@@ -58,13 +58,6 @@ theorem secL_map : (secL (ZMod 2)).map (castF F) = secL F := by
   ext q p
   rw [Matrix.map_apply, secL_apply, secL_apply, castF_ite]
 
-theorem formQ_map : (formQ (ZMod 2)).map (castF F) = formQ F := by
-  ext i j
-  rw [Matrix.map_apply, formQ_apply, formQ_apply, castF_ite]
-
-theorem gramL_map : (gramL (ZMod 2)).map (castF F) = gramL F := by
-  ext p p'
-  simp only [Matrix.map_apply, gramL, Matrix.of_apply, castF_ite]
 
 theorem ι3f_map (w : Ix3 × LIdx → ZMod 2) (x : Ix3 × (Ix3 × Ix3)) :
     ι3f (fun c => castF F (w c)) x = castF F (ι3f w x) := by
@@ -255,13 +248,6 @@ theorem gram_mul_gramInv (h2 : (gramSt (ZMod 2)).det ≠ 0) (l : G2L) :
   · exact gramL_mul_self
   · exact Matrix.mul_nonsing_inv _ (isUnit_det_gramSt h2)
 
-theorem gramInv_mul_gram (h2 : (gramSt (ZMod 2)).det ≠ 0) (l : G2L) :
-    l.gramInv * l.gram = (1 : Matrix l.idx l.idx F) := by
-  cases l
-  · exact Matrix.one_mul _
-  · exact formQ_mul_self
-  · exact gramL_mul_self
-  · exact Matrix.nonsing_inv_mul _ (isUnit_det_gramSt h2)
 
 end G2L
 

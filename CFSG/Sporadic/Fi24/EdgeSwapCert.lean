@@ -17,8 +17,6 @@ open CFSG.Blueprint.Fischer CFSG.Fischer Native CFSG.Sporadic.Th.Native CFSG.Per
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-theorem smul_a_eq_iff (k : Fin 306936) : a • k = k ↔ ap orb.alpha k.val = k.val := by
-  rw [rep_alpha k.val k.isLt, Th.idx_of_lt a k.isLt, Fin.ext_iff]
 
 theorem card_fixed_a : Nat.card {k : Fin 306936 // subLab k = 2 ∧ a • k = k} = 360 := by
   classical

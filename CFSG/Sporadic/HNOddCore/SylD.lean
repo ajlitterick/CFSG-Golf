@@ -68,9 +68,6 @@ theorem sub_mul_sq {G : Type*} [Group G] {H : Subgroup G} {a b : H} (h : Commute
     (hb : b ^ 2 = 1) : (a * b) ^ 2 = a ^ 2 := by
   rw [h.mul_pow, hb, mul_one]
 
-theorem sub_mul_eq_left {G : Type*} [Group G] {H : Subgroup G} {a b : H} (h : a * b = a) :
-    b = 1 :=
-  mul_eq_left.1 h
 
 theorem sub_eq_of_inv_mul {G : Type*} [Group G] {H : Subgroup G} {a b : H} (h : a⁻¹ * b = 1) :
     b = a :=
@@ -80,8 +77,6 @@ theorem sub_eq_mul_of_inv_mul {G : Type*} [Group G] {H : Subgroup G} {a b c : H}
     (h : a⁻¹ * b = c) : b = a * c :=
   inv_mul_eq_iff_eq_mul.1 h
 
-theorem sub_of_one_mul {G : Type*} [Group G] {H : Subgroup G} {a : H} (h : 1 * a = 1) : a = 1 := by
-  rwa [one_mul] at h
 
 theorem sub_orderOf_four {G : Type*} [Group G] {H : Subgroup G} {y t : H} (h2 : y ^ 2 = t)
     (ht : t ^ 2 = 1) (ht1 : t ≠ 1) : orderOf y = 4 := by
@@ -305,61 +300,6 @@ theorem witElt_fix
     rw [liftC_smul]
     exact he
 
-theorem witElt_mem
-    (w : ℕ) : witElt w ∈ Pc := by
-  unfold witElt
-  split_ifs
-  · exact Pc.mul_mem (liftC_mem _) t4C_mem_Pc
-  · exact liftC_mem _
-
-theorem wit_rep
-    {w : ℕ} (hw : w < 39) : ∃ c < 29, pReps[c]! = InvData.witRep[w]! := by
-  have h := (wit_parts.2.2.2.2.2.2.1 w hw).1
-  rw [Array.contains_iff_mem, Array.mem_iff_getElem] at h
-  obtain ⟨c, hc, hce⟩ := h
-  refine ⟨c, by rw [← wit_parts.1]; exact hc, ?_⟩
-  rw [getElem!_pos _ c hc, hce]
-
-theorem rho4_witElt
-    (w : ℕ) : rho4 (witElt w) = rho4 (liftC InvData.witRep[w]!) := by
-  unfold witElt
-  split_ifs
-  · rw [map_mul, MonoidHom.mem_ker.1 t4C_mem_ker, mul_one]
-  · rfl
-
-theorem witElt_sq
-    {w : ℕ} (hw : w < 39) : witElt w ^ 2 = 1 := by
-  obtain ⟨c, hc, hce⟩ := wit_rep hw
-  have h := rep_sq hc (by rw [hce]; exact (wit_parts.2.2.2.2.2.2.1 w hw).2.1)
-  rw [hce] at h
-  unfold witElt
-  split_ifs
-  · rw [mul_t4C_sq, h]
-  · exact h
-
-theorem ePerm_zero :
-    ePerm 0 = 1 := by rw [ePerm_eq (by norm_num), liftC_zero, map_one]
-
-theorem witElt_ne_one
-    {w : ℕ} (hw : w < 39) : witElt w ≠ 1 := by
-  obtain ⟨c, hc, hce⟩ := wit_rep hw
-  obtain ⟨-, -, hk, h00⟩ := wit_parts.2.2.2.2.2.2.1 w hw
-  intro h1
-  have hρ := congrArg rho4 h1
-  rw [rho4_witElt, map_one, ← ePerm_eq (hce ▸ rep_lt hc), ← ePerm_zero] at hρ
-  have hr0 := ePerm_injective (hce ▸ rep_lt hc) (by norm_num) hρ
-  unfold witElt at h1
-  rw [hr0, liftC_zero] at h1
-  split_ifs at h1 with h
-  · exact t4C_ne_one (sub_of_one_mul h1)
-  · exact h00 ⟨hr0, by omega⟩
-
-theorem witElt_rho
-    {w : ℕ} (hw : w < 39) : ∃ c : Fin 29, rho4 (witElt w) = repPerm c := by
-  obtain ⟨c, hc, hce⟩ := wit_rep hw
-  refine ⟨⟨c, hc⟩, ?_⟩
-  rw [rho4_witElt, ← hce, ← ePerm_eq (rep_lt hc)]
-  rfl
 
 theorem lift_witness
     {c : ℕ} (hc : c < 29) {u : C4} (hu : rho4 u = repPerm c) (hu2 : u ^ 2 = 1)
@@ -381,44 +321,6 @@ theorem lift_witness
       unfold witElt
       rw [ite_eq_left hk, hr]
 
-theorem witElt_injective
-    {w w' : ℕ} (hw : w < 39) (hw' : w' < 39) (h : witElt w = witElt w') :
-    w = w' := by
-  obtain ⟨c, hc, hce⟩ := wit_rep hw
-  obtain ⟨c', hc', hce'⟩ := wit_rep hw'
-  have hρ := congrArg rho4 h
-  rw [rho4_witElt, rho4_witElt, ← ePerm_eq (hce ▸ rep_lt hc),
-    ← ePerm_eq (hce' ▸ rep_lt hc')] at hρ
-  have hr := ePerm_injective (hce ▸ rep_lt hc) (hce' ▸ rep_lt hc') hρ
-  refine wit_parts.2.2.2.2.2.2.2 w hw w' hw' hr ?_
-  have hk := (wit_parts.2.2.2.2.2.2.1 w hw).2.2.1
-  have hk' := (wit_parts.2.2.2.2.2.2.1 w' hw').2.2.1
-  unfold witElt at h
-  rw [hr] at h
-  split_ifs at h with h1 h2 h2
-  · rw [h1, h2]
-  · exact absurd (sub_mul_eq_left h) t4C_ne_one
-  · exact absurd (sub_mul_eq_left h.symm) t4C_ne_one
-  · omega
-
-abbrev InvLift :
-    Type := {u : C4 // u ∈ Pc ∧ u ^ 2 = 1 ∧ u ≠ 1 ∧ ∃ c : Fin 29, rho4 u = repPerm c}
-
-@[expose] def witLift
-    (w : Fin 39) : InvLift :=
-  ⟨witElt w, witElt_mem w, witElt_sq w.2, witElt_ne_one w.2, witElt_rho w.2⟩
-
-theorem witLift_bijective :
-    Function.Bijective witLift := by
-  refine ⟨fun w w' h => Fin.ext (witElt_injective w.2 w'.2 (congrArg Subtype.val h)), ?_⟩
-  rintro ⟨u, -, hu2, hu1, c, hc⟩
-  obtain ⟨w, hw, rfl⟩ := lift_witness c.2 hc hu2 hu1
-  exact ⟨⟨w, hw⟩, rfl⟩
-
-theorem card_invLift :
-    Nat.card InvLift = 39 := by
-  rw [← Nat.card_eq_of_bijective witLift witLift_bijective, Nat.card_eq_fintype_card,
-    Fintype.card_fin]
 
 theorem exists_witness
     {y : C4} (hy : y ∈ Pc) (hy2 : y ^ 2 = 1) (hy1 : y ≠ 1) :

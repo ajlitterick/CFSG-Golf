@@ -110,7 +110,6 @@ theorem w0_mul_self : w0 * w0 = 1 := by decide +kernel
 
 theorem w0_ne_one : w0 ≠ 1 := by decide +kernel
 
-theorem exists_w0_prod : ∃ k ∈ kList, ∃ k' ∈ kStarList, k * k' = w0 := by decide +kernel
 
 theorem embed_w0_vec_eq_one_iff {n : ℕ} (ι : Fin 4 ↪ Fin n) (x : Fin n) :
     (embed ι w0).vec x = 1 ↔ x = ι 0 ∨ x = ι 1 := by
@@ -159,21 +158,6 @@ theorem embed_w0_mul_self {n : ℕ} (ι : Fin 4 ↪ Fin n) : embed ι w0 * embed
 theorem embed_w0_ne_one {n : ℕ} (ι : Fin 4 ↪ Fin n) : embed ι w0 ≠ 1 := by
   intro h
   exact w0_ne_one (embed_injective ι (by rw [h, map_one]))
-
-theorem exists_vecA_prod (α : Finset (Fin 5)) (h : α.card = 4) {b b' : Bool} (hb : b ≠ b') :
-    ∃ x ∈ memBar α h b, ∃ y ∈ memBar α h b', x * y = mkQ 5 (embed (emb α h) w0) := by
-  obtain ⟨k, hk, k', hk', hkk⟩ := exists_w0_prod
-  have hK : embed (emb α h) k ∈ memAt α h true := ⟨k, hk, rfl⟩
-  have hK' : embed (emb α h) k' ∈ memAt α h false := ⟨k', hk', rfl⟩
-  have hprod : embed (emb α h) k * embed (emb α h) k' = embed (emb α h) w0 := by
-    rw [← map_mul, hkk]
-  have hcomm : embed (emb α h) k' * embed (emb α h) k = embed (emb α h) w0 := by
-    rw [← map_mul, ← comm_kQ_kQStar k hk k' hk', hkk]
-  cases b <;> cases b' <;> simp at hb
-  · exact ⟨mkQ 5 (embed (emb α h) k'), ⟨_, hK', rfl⟩, mkQ 5 (embed (emb α h) k), ⟨_, hK, rfl⟩,
-      by rw [← map_mul, hcomm]⟩
-  · exact ⟨mkQ 5 (embed (emb α h) k), ⟨_, hK, rfl⟩, mkQ 5 (embed (emb α h) k'), ⟨_, hK', rfl⟩,
-      by rw [← map_mul, hprod]⟩
 
 
 end CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThmE.Ae5Model

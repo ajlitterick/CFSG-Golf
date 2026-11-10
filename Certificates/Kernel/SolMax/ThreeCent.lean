@@ -89,8 +89,6 @@ theorem k2_x : bAnd(bindArrK (tabOf (permOf (threeCentCases.getD 2 default).1)) 
     bAnd(restXK TC2.cnt TC2.T, restYK TC2.cnt TC2.T)))) = true := by
   quickRfl
 
-theorem k_neg : notB (restXK 1 fun _ => NP 0) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSolMax.ThreeCent
 

@@ -38,11 +38,5 @@ theorem ordinary_at_involution {G : Type*} [Group G] [Finite G]
       involution hinvolution component
       ((isTwoPComponent_iff_twoComponent component).mp hcomponent))
 
-theorem hasInvolutionComponent_of_componentType {G : Type*} [Group G] [Finite G]
-    (hlocalB : Assembly.ComponentType.LocalBProperty G)
-    (hcomponentType : Assembly.IsComponentType G) : Open.HasInvolutionComponent G :=
-  LocalB.hasInvolutionComponent_of_componentType
-    ((localBProperty_iff_native G).mp hlocalB)
-    ((isComponentType_iff_open G).mp hcomponentType)
 
 end CFSG.ComponentClassification.AssemblyBLocalB

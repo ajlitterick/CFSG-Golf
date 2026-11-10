@@ -27,17 +27,6 @@ private lemma zstqb_reflect_self {Q : QuadraticForm (ZMod p) U} {a : U} (ha : Q 
     mul_div_cancel_right₀ (2 : ZMod p) ha]
   module
 
-private lemma zstqb_reflect_mul_apply {Q : QuadraticForm (ZMod p) U} {a b x : U}
-    (ha : Q a ≠ 0) (hb : Q b ≠ 0) (hab : QuadraticMap.polar Q a b = 0) :
-    (CFSG.ClassicalGroups.Orthogonal.reflect Q a *
-      CFSG.ClassicalGroups.Orthogonal.reflect Q b) x =
-      x - (QuadraticMap.polar Q a x / Q a) • a -
-        (QuadraticMap.polar Q b x / Q b) • b := by
-  rw [LinearEquiv.mul_apply, CFSG.ClassicalGroups.Orthogonal.reflect_apply hb,
-    CFSG.ClassicalGroups.Orthogonal.reflect_apply ha,
-    QuadraticMap.polar_sub_right, CFSG.ClassicalGroups.Orthogonal.polar_smul_right_eq,
-    hab, mul_zero, sub_zero]
-  abel
 
 private lemma zstqb_isSquare_mul_of_not_isSquare {a b : ZMod p} (ha : a ≠ 0) (hb : b ≠ 0)
     (hsa : ¬ IsSquare a) (hsb : ¬ IsSquare b) : IsSquare (a * b) := by

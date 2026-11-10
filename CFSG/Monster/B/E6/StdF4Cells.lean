@@ -64,7 +64,6 @@ abbrev PK :
 
 theorem firstJ_eq_J : firstJ = E6Folded.J := rfl
 
-theorem fourthJ_eq_K : FourthResidue.fourthJ = E6Folded.K := rfl
 
 @[expose] def wOf
     (g : stdGroup) : NW := stdDistance c₀ (g : stdChamber)
@@ -117,11 +116,6 @@ theorem residue_mk_eq_iff
 theorem wOf_one :
     wOf 1 = 1 := (hδ.eq_one_iff _ _).2 rfl
 
-theorem wOf_inv
-    (g : stdGroup) : wOf g⁻¹ = (wOf g)⁻¹ := by
-  have h := stdDistance_mk_mk g 1
-  rw [mul_one] at h
-  rw [← h, wOf, ← dist_inv hδ]
 
 theorem wOf_stdRep
     (w : NW) : wOf (stdRep w) = w := by

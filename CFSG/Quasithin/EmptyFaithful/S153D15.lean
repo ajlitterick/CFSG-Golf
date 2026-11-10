@@ -155,28 +155,6 @@ theorem lemma_15_3_15_two (hin : Input15315Two) (h37 : A37ForSQTK) (h38 : A38For
   obtain ⟨L, hLc, hLn, hL3, hLq, hLq2⟩ := hin G T Mc M V₁ V₂ Yp I t c hF
   exact ⟨L, hLc, hLn, hL3, comm_eq_of_quasisimple h37 h38 c hF hLc hLn hLq, hLq, hLq2⟩
 
-theorem lemma_15_3_15_three (hin : Input15315Two) (c : Ctx15313 T Mc M V₁ V₂ Yp I t)
-    (hF : Facts15311 T M V₁ Yp I)
-    (hFall : ∀ H : Subgroup G, IsHPlus Yp (Sgp153 T V₁) M H → Facts15311 T M V₁ Yp H)
-    {X : Subgroup G} (hXI : X ≤ I) (hXs : Group.IsSolvable ↥X)
-    (hXn : Yp ⊔ Sgp153 T V₁ ≤ Subgroup.normalizer (X : Set G)) : X ≤ M ⊓ I := by
-  by_contra hXM
-  set H : Subgroup G := X ⊔ (Yp ⊔ Sgp153 T V₁) with hH
-  have hHI : H ≤ I := sup_le hXI c.inH.1.1
-  have hYSH : Yp ⊔ Sgp153 T V₁ ≤ H := le_sup_right
-  have hHM : ¬ H ≤ M := fun hm => hXM (le_inf (le_sup_left.trans hm) hXI)
-  have hctx : Ctx15313 T Mc M V₁ V₂ Yp H t := ctx_of_le c hF hHI hYSH hHM
-  have hFH : Facts15311 T M V₁ Yp H := hFall H hctx.inH
-  obtain ⟨L, hLc, -, -, hLq, -⟩ := hin G T Mc M V₁ V₂ Yp H t hctx hFH
-  have hHs : Group.IsSolvable ↥H :=
-    F1.isSolvable_sup_of_le_normalizer hXs (isSolvable_Yp_sup c.hyp c.inH hF) hXn
-  have hLH : L ≤ H := (le_of_mem_cComp hLc).trans (thompsonJ_le_self H)
-  have hHU : H ≤ Subgroup.normalizer (UI153 T H : Set G) := le_normalizer_conjClosure _ H
-  have hAs : Group.IsSolvable ↥(autOn H (UI153 T H)) := isSolvable_autOn hHU hHs
-  have hAL : Group.IsSolvable ↥(autOn L (UI153 T H)) :=
-    Group.isSolvable_of_isSolvable_injective
-      (Subgroup.inclusion_injective (autOn_le_autOn (UI153 T H) hLH))
-  exact not_isSolvable_of_isQuasisimple hLq hAL
 
 end S153D
 

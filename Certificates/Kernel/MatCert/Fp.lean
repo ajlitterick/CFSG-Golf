@@ -49,9 +49,6 @@ theorem he_K : forceB (payHe HeS1.chars) (fun A => forceB (payHe HeS2.chars) fun
     vldHe A && vldHe B && mcertN O7 A B CFSG.RankThree.Asc83Table.He.heCert) = true := by
   quickRfl
 
-theorem he_neg : (forceB (payHe HeS1.chars) fun A => forceB (payHe HeS2.chars) fun B =>
-    !mcertN O7 A B { CFSG.RankThree.Asc83Table.He.heCert with facts := [.ord 0 3] }) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

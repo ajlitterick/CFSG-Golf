@@ -112,47 +112,6 @@ theorem cuspBase_ncard {p : ℕ} (hpodd : Odd p) [CharP F p] (hb : ¬ IsSquare b
   rw [cuspBase_eq basis hpodd hb y hy h2 hψ]
   exact cuspidalCharacter_ncard hpodd hb y hy h2 hψ
 
-theorem cuspBase_x {p : ℕ} (hpodd : Odd p) [CharP F p] (hb : ¬ IsSquare b)
-    {θ : CentralExtension F b m hm heven → ℂ} (hθ : θ ∈ cuspBase) :
-    θ (cyclicGenerator F b m hm heven ^ m) = (Nat.card F : ℂ) - 1 ∨
-      θ (cyclicGenerator F b m hm heven ^ m) = -((Nat.card F : ℂ) - 1) := by
-  obtain ⟨E, _, _, basis, y, hy⟩ := exists_cuspidal_data (F := F) hb
-  obtain ⟨ψ, hψ⟩ := exists_addChar_ne_one (F := F)
-  have h2 := two_ne_zero_of_not_isSquare hb
-  rw [cuspBase_eq basis hpodd hb y hy h2 hψ] at hθ
-  obtain ⟨lam, -, rfl⟩ := hθ
-  beta_reduce
-  rw [cuspidalCharacter_x hb ψ lam]
-  have key : ∀ t : nonsplitTorus F b m hm heven E basis,
-      (t : CentralExtension F b m hm heven) ^ 2 = 1 → ((lam t : ℂˣ) : ℂ) ^ 2 = 1 := by
-    intro t ht
-    have ht' : t ^ 2 = 1 := Subtype.ext (by rw [SubmonoidClass.coe_pow]; exact ht)
-    rw [← Units.val_pow_eq_pow_val, ← map_pow, ht', map_one, Units.val_one]
-  have hx2 : (cyclicGenerator F b m hm heven ^ m) ^ 2 = 1 := by
-    rw [sq]
-    exact cyclicGenerator_pow_m_mul_self
-  have hsq := key ⟨cyclicGenerator F b m hm heven ^ m,
-    zpowers_le_nonsplitTorus hb cyclicGenerator_pow_m_mem_zpowers⟩ hx2
-  rcases sq_eq_one_iff.mp hsq with h | h
-  · left
-    rw [h, mul_one]
-  · right
-    rw [h]
-    ring
-
-theorem exists_cuspBase_x_neg {p : ℕ} (hpodd : Odd p) [CharP F p] (hb : ¬ IsSquare b) :
-    ∃ θ ∈ cuspBase (F := F) (b := b) (hm := hm) (heven := heven),
-      θ (cyclicGenerator F b m hm heven ^ m) = -((Nat.card F : ℂ) - 1) := by
-  obtain ⟨E, _, _, basis, y, hy⟩ := exists_cuspidal_data (F := F) hb
-  obtain ⟨ψ, hψ⟩ := exists_addChar_ne_one (F := F)
-  have h2 := two_ne_zero_of_not_isSquare hb
-  obtain ⟨lam, hlam, hx⟩ := exists_nonfixed_x_eq_neg_one (hm := hm) (heven := heven)
-    (basis := basis) hb y hy h2
-  refine ⟨cuspidalCharacter hb ψ lam, ?_, ?_⟩
-  · rw [cuspBase_eq basis hpodd hb y hy h2 hψ]
-    exact ⟨lam, hlam, rfl⟩
-  · rw [cuspidalCharacter_x hb ψ lam, hx]
-    ring
 
 variable {Sigma : Subgroup (F ≃+* F)} (hSigma : ∀ σ ∈ Sigma, σ (b : F) = b)
 
@@ -207,65 +166,6 @@ section Choices
 variable {F : Type} [Field F] [Fintype F] {b : Fˣ} {m : ℕ} {hm : 0 < m} {heven : Even m}
   {Sigma : Subgroup (F ≃+* F)} (hSigma : ∀ σ ∈ Sigma, σ (b : F) = b)
 
-omit [Fintype F] in
-theorem exists_twist_reps {Pf : Set (CentralExtension F b m hm heven → ℂ)}
-    (hstable : ∀ θ ∈ Pf, ∀ σ : Sigma, fieldTwist hSigma σ θ ∈ Pf) :
-    ∃ R ⊆ Pf, ∀ θ ∈ Pf, ∃! θ', θ' ∈ R ∧ ∃ σ : Sigma, θ = fieldTwist hSigma σ θ' := by
-  let s : Setoid (CentralExtension F b m hm heven → ℂ) :=
-    { r := fun θ θ' => ∃ σ : Sigma, θ' = fieldTwist hSigma σ θ
-      iseqv := ⟨fun θ => ⟨1, (fieldTwist_one hSigma θ).symm⟩,
-        fun {θ θ'} ⟨σ, h⟩ => ⟨σ⁻¹, by rw [h, ← fieldTwist_mul, inv_mul_cancel, fieldTwist_one]⟩,
-        fun {θ θ' θ''} ⟨σ, h⟩ ⟨τ, h'⟩ => ⟨τ * σ, by rw [h', h, fieldTwist_mul]⟩⟩ }
-  have hout : ∀ θ, ∃ σ : Sigma, θ = fieldTwist hSigma σ (Quotient.mk s θ).out :=
-    fun θ => Quotient.mk_out (s := s) θ
-  refine ⟨(fun θ => (Quotient.mk s θ).out) '' Pf, ?_, fun θ hθ => ?_⟩
-  · rintro _ ⟨θ, hθ, rfl⟩
-    obtain ⟨σ, hσ⟩ := hout θ
-    have h1 : (Quotient.mk s θ).out = fieldTwist hSigma σ⁻¹ θ := by
-      rw [hσ, ← fieldTwist_mul, inv_mul_cancel, fieldTwist_one, ← hσ]
-    show (Quotient.mk s θ).out ∈ Pf
-    rw [h1]
-    exact hstable θ hθ σ⁻¹
-  · refine ⟨(Quotient.mk s θ).out, ⟨⟨θ, hθ, rfl⟩, hout θ⟩, ?_⟩
-    rintro _ ⟨⟨θ₂, -, rfl⟩, τ, hτ⟩
-    have hq : Quotient.mk s θ₂ = Quotient.mk s θ := by
-      apply Quotient.sound
-      obtain ⟨σ, hσ⟩ := hout θ₂
-      exact ⟨τ * σ⁻¹, by rw [hτ, fieldTwist_mul, hσ, ← fieldTwist_mul hSigma σ⁻¹,
-        inv_mul_cancel, fieldTwist_one, ← hσ]⟩
-    show (Quotient.mk s θ₂).out = _
-    rw [hq]
-
-theorem principalFamilyH_eq_of_reps (hb : ¬ IsSquare b) (hd : Odd (Nat.card Sigma))
-    (Rp : Set (PrincipalSeriesParameter F b m)) (hRp1 : ∀ P ∈ Rp, P.1.1 ≠ 1)
-    (hRp : ∀ P : PrincipalSeriesParameter F b m, P.1.1 ≠ 1 → ∃ P' ∈ Rp, ∃ σ : Sigma,
-      P = fieldParameter hSigma σ P' ∨
-        P = fieldParameter hSigma σ (weylParameter F b m heven P')) :
-    {χ | ∃ P ∈ Rp, ∃ ρ : parameterStabilizer hSigma P →* ℂˣ,
-      χ = principalInduced (hm := hm) (heven := heven) hSigma P ρ} = principalFamilyH hSigma := by
-  ext χ
-  constructor
-  · rintro ⟨P, hP, ρ, rfl⟩
-    exact ⟨P, ρ, hRp1 P hP, rfl⟩
-  · rintro ⟨P, ρ, hP, rfl⟩
-    obtain ⟨P', hP', σ, hσ⟩ := hRp P hP
-    have hP'1 := hRp1 P' hP'
-    rcases hσ with rfl | rfl
-    · have hstab : parameterStabilizer hSigma P' =
-          parameterStabilizer hSigma (fieldParameter hSigma σ P') :=
-        (parameterStabilizer_fieldParameter hSigma σ P').symm
-      refine ⟨P', hP', ρ.comp (MulEquiv.subgroupCongr hstab).toMonoidHom, ?_⟩
-      refine (principalInduced_eq_iff hSigma hb hd hP hP'1 ρ _).mpr
-        ⟨⟨σ⁻¹, Or.inl ?_⟩, fun τ h₁ h₂ => rfl⟩
-      rw [← fieldParameter_mul, inv_mul_cancel, fieldParameter_one]
-    · have hstab : parameterStabilizer hSigma P' = parameterStabilizer hSigma
-          (fieldParameter hSigma σ (weylParameter F b m heven P')) := by
-        rw [parameterStabilizer_fieldParameter, parameterStabilizer_weylParameter]
-      refine ⟨P', hP', ρ.comp (MulEquiv.subgroupCongr hstab).toMonoidHom, ?_⟩
-      refine (principalInduced_eq_iff hSigma hb hd hP hP'1 ρ _).mpr
-        ⟨⟨σ⁻¹, Or.inr ?_⟩, fun τ h₁ h₂ => rfl⟩
-      rw [← fieldParameter_weylParameter, ← fieldParameter_mul, inv_mul_cancel,
-        fieldParameter_one, weylParameter_involutive]
 
 end Choices
 
@@ -421,60 +321,6 @@ theorem semilinear_complete_family {p : ℕ} (hpodd : Odd p) [CharP F p] (hb : �
     push_cast
     ring
 
-theorem semilinear_common_kernel {p : ℕ} (hpodd : Odd p) [CharP F p] (hb : ¬ IsSquare b) :
-    {h : SemilinearExtension F b m hm heven Sigma hSigma |
-      (∀ r s, (CentralSL2Abelianization.linearCharacter F b m hm heven Sigma hSigma σ₀ hgen ζm ζd
-          hζm hζd r s h : ℂ) *
-          (fixedPointCount (SemilinearExtension F b m hm heven Sigma hSigma) (Omega F) h - 1) =
-        (CentralSL2Abelianization.linearCharacter F b m hm heven Sigma hSigma σ₀ hgen ζm ζd hζm
-          hζd r s 1 : ℂ) *
-          (fixedPointCount (SemilinearExtension F b m hm heven Sigma hSigma) (Omega F) 1 - 1)) ∧
-      ∀ ξ ∈ aboveFamily hSigma cuspBase, ξ h = ξ 1} = {1} := by
-  have h2 := two_ne_zero_of_not_isSquare hb
-  have hker : {h : SemilinearExtension F b m hm heven Sigma hSigma |
-      ∀ r s, (CentralSL2Abelianization.linearCharacter F b m hm heven Sigma hSigma σ₀ hgen ζm ζd
-          hζm hζd r s h : ℂ) *
-          (fixedPointCount (SemilinearExtension F b m hm heven Sigma hSigma) (Omega F) h - 1) =
-        (CentralSL2Abelianization.linearCharacter F b m hm heven Sigma hSigma σ₀ hgen ζm ζd hζm
-          hζd r s 1 : ℂ) *
-          (fixedPointCount (SemilinearExtension F b m hm heven Sigma hSigma) (Omega F) 1 - 1)} =
-      (Subgroup.zpowers (SemidirectProduct.inl (cyclicGenerator F b m hm heven ^ m) :
-        SemilinearExtension F b m hm heven Sigma hSigma) : Set _) :=
-    augmentation_common_kernel F b m hm heven Sigma hSigma h2 hb σ₀ hgen ζm ζd hζm hζd
-  have hq3 := three_le_card (F := F) hb
-  ext h
-  simp only [Set.mem_ofPred_eq, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨hΞ, hcusp⟩
-    have hmem : h ∈ (Subgroup.zpowers (SemidirectProduct.inl (cyclicGenerator F b m hm heven ^ m) :
-        SemilinearExtension F b m hm heven Sigma hSigma) : Set _) := by
-      rw [← hker]
-      exact hΞ
-    rcases (mem_zpowers_of_orderOf_two (orderOf_inl_cyclicGenerator_pow_m F b m hm heven Sigma
-      hSigma h2) h).mp hmem with rfl | rfl
-    · rfl
-    · exfalso
-      obtain ⟨θ, hθ, hθx⟩ := exists_cuspBase_x_neg (hm := hm) (heven := heven) hpodd hb
-      obtain ⟨χ, hχ, hres⟩ := exists_inertia_extension (hm := hm) (heven := heven) hSigma hθ.1
-      obtain ⟨hdeg, -, hiff, -, -⟩ := twist_clifford hSigma hθ.1 hχ hres
-      have hmemξ : twistInduced hSigma θ χ 1 ∈ aboveFamily hSigma cuspBase :=
-        ⟨(hdeg 1).1, θ, hθ, (hiff _ (hdeg 1).1).mpr ⟨1, rfl⟩⟩
-      have hv := hcusp _ hmemξ
-      rw [twistInduced_x hSigma hθ.1 hχ hres, (hdeg 1).2, hθx, hθ.2] at hv
-      have hidx : ((twistStabilizer hSigma θ).index : ℂ) ≠ 0 :=
-        Nat.cast_ne_zero.mpr Subgroup.index_ne_zero_of_finite
-      have hq1 : (Nat.card F : ℂ) - 1 ≠ 0 := by
-        intro h0
-        have h' : ((Nat.card F : ℕ) : ℂ) = ((1 : ℕ) : ℂ) := by
-          rw [Nat.cast_one]
-          linear_combination h0
-        have := Nat.cast_injective h'
-        omega
-      have h0 : (2 : ℂ) * (((twistStabilizer hSigma θ).index : ℂ) * ((Nat.card F : ℂ) - 1)) =
-          0 := by linear_combination -hv
-      exact mul_ne_zero two_ne_zero (mul_ne_zero hidx hq1) h0
-  · rintro rfl
-    exact ⟨fun r s => rfl, fun ξ _ => rfl⟩
 
 end Complete
 

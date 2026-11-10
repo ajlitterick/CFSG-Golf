@@ -141,9 +141,6 @@ theorem semilinearQuotient_secondDerived_eq_bot
   exact (Subgroup.commutator_mono (quotient_commutator_le_diagonal K)
     (quotient_commutator_le_diagonal K)).trans (diagonal_commutator_eq_bot K).le
 
-theorem semilinearQuotient_solvable (K : Type u) [Field K] [Finite K] :
-    Group.IsSolvable (SemilinearQuotient K) :=
-  ⟨⟨2, semilinearQuotient_secondDerived_eq_bot K⟩⟩
 
 theorem secondDerived_eq_bot_of_surjective
     {G : Type u} {H : Type v} [Group G] [Group H]

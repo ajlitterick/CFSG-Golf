@@ -435,25 +435,5 @@ theorem twisted_E6_all_characteristic_common_full_field_parameters
       orbitField TwistTag.E6 K σ.toRingHom ⟨0, by decide⟩ => (e ⟨c, hmem0 c⟩ : K)) (hu _).2
     exact h
 
-theorem twisted_E6_odd_common_full_field_parameters
-    {p f : ℕ} (hp : p.Prime) (_hp2 : p ≠ 2)
-    (hf : 1 ≤ f) (K : Type) [Field K] [Finite K] (hK : Nat.card K = (p ^ f) ^ 2) (σ : K ≃+* K)
-    (hσ : ∀ c, σ c = c ^ (p ^ f)) :
-    orbitField TwistTag.E6 K σ.toRingHom ⟨0, by decide⟩ = ⊤ ∧
-    orbitField TwistTag.E6 K σ.toRingHom ⟨1, by decide⟩ = ⊤ ∧
-    (∀ c, c ∈ orbitField TwistTag.E6 K σ.toRingHom ⟨2, by decide⟩ ↔ σ c = c) ∧
-    (∀ c, c ∈ orbitField TwistTag.E6 K σ.toRingHom ⟨3, by decide⟩ ↔ σ c = c) ∧
-    ∀ β ∈ graphFixedUnipotentStabilizer TwistTag.E6 K σ.toRingHom,
-      β ∈ graphFixedPairAut TwistTag.E6 K σ.toRingHom ∧
-      ∃! P : (K ≃+* K) × ((a : Fin TwistTag.E6.foldedTag.rank) →
-          (orbitField TwistTag.E6 K σ.toRingHom a)ˣ), ∀ a,
-        (∀ c, β (fixedOrbitX TwistTag.E6 K σ.toRingHom a c) = fixedOrbitX TwistTag.E6 K
-          σ.toRingHom a (P.2 a * orbitFieldRestrict TwistTag.E6 σ P.1 a c)) ∧
-        (∀ c, β (fixedOrbitY TwistTag.E6 K σ.toRingHom a c) = fixedOrbitY TwistTag.E6 K
-          σ.toRingHom a (((P.2 a)⁻¹ : (orbitField TwistTag.E6 K σ.toRingHom a)ˣ) *
-            orbitFieldRestrict TwistTag.E6 σ P.1 a c)) ∧
-        ∀ u, β (fixedOrbitH TwistTag.E6 K σ.toRingHom a u) = fixedOrbitH TwistTag.E6 K
-          σ.toRingHom a (Units.map (orbitFieldRestrict TwistTag.E6 σ P.1 a).toMonoidHom u) :=
-  twisted_E6_all_characteristic_common_full_field_parameters hp hf K hK σ hσ
 
 end CFSG.LieType.Chevalley

@@ -94,20 +94,12 @@ noncomputable instance localResidueField_algebra (m : Ideal BlocksAlgInt) (hm : 
   unfold localResidueField
   infer_instance
 
-theorem localResidue_algebraMap (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) :
-    algebraMap (localCoefficientSubring m hm) (localResidueField m hm) = localResidue m hm := rfl
 
 theorem localResidue_eq_zero_iff (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
     (value : localCoefficientSubring m hm) :
     localResidue m hm value = 0 ↔ (value : ℂ) ∈ BlocksLocalMaxIdeal m :=
   Ideal.Quotient.eq_zero_iff_mem
 
-theorem localResidue_eq_iff (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
-    (left right : localCoefficientSubring m hm) :
-    localResidue m hm left = localResidue m hm right ↔
-      (left : ℂ) - right ∈ BlocksLocalMaxIdeal m := by
-  rw [← sub_eq_zero, ← map_sub, localResidue_eq_zero_iff]
-  rfl
 
 theorem localResidueField_charP (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
     (prime : ℕ) (hprime : prime.Prime) (hprimeMem : (prime : BlocksAlgInt) ∈ m) :

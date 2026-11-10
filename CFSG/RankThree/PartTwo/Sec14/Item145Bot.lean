@@ -158,15 +158,6 @@ theorem exists_isHyperplane_lB_eq_bot (h134 : Item134) (h135 : Item135) (h48 : S
   intro B B' hB hB' heq
   exact IsLBConfig.eq_of_zpowers_eq h415 hA (hcfgB B hB) (hcfgB B' hB') hB hB' heq
 
-theorem rank3II_14_5_of (h134 : Item134) (h135 : Item135) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15)
-    (hJ2c : Subgroup.center CFSG.Blueprint.NativeSporadic.J2 = ⊥) {A L : Subgroup G} {c : G}
-    (h : Sec14Std G A c L) {Y : Subgroup G} (hY : A ≤ Subgroup.normalizer (Y : Set G)) :
-    delta A (lB A) Y =
-        deltaZero A (lB A) Y ⊔ (pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G)) ⊓ Y) ∧
-      deltaZero A (lB A) Y = ⁅delta A (lB A) Y, A⁆ ∧
-      delta A (lB A) Y ≤ Subgroup.normalizer (deltaZero A (lB A) Y : Set G) :=
-  rank3II_14_5_lB h.isE27 (exists_isHyperplane_lB_eq_bot h134 h135 h48 h415 hJ2c h) hY
 
 theorem rank3II_15_1_of (h134 : Item134) (h135 : Item135) (h48 : Sec4.Item4_8)
     (h415 : Sec4.Item4_15)
@@ -175,12 +166,5 @@ theorem rank3II_15_1_of (h134 : Item134) (h135 : Item135) (h48 : Sec4.Item4_8)
     Y = deltaZero A (lB A) Y :=
   rank3II_15_1_lB h.isE27 (exists_isHyperplane_lB_eq_bot h134 h135 h48 h415 hJ2c h) hY
 
-theorem rank3II_14_9_lB_of (h134 : Item134) (h135 : Item135) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15)
-    (hJ2c : Subgroup.center CFSG.Blueprint.NativeSporadic.J2 = ⊥) {A L : Subgroup G} {c : G}
-    (h : Sec14Std G A c L) (h147 : Item147 A (lB A)) (h148 : Item148Normal A (lB A)) :
-    Item149 A (lB A) :=
-  rank3II_14_9_of h.isE27 (isNaturalFamily_lB A)
-    (exists_isHyperplane_lB_eq_bot h134 h135 h48 h415 hJ2c h) h147 h148
 
 end CFSG.RankThree.PartTwo.Sec14

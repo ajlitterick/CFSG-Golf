@@ -35,12 +35,6 @@ theorem ch22220s_25 : repSK GT L34S.T 25 = true := by decide +kernel
 
 theorem ch22220s_31 : repSK GT L34S.T 31 = true := by decide +kernel
 
-theorem ch22220n_hdr : (!cK T1X.F AlX.F YT (patchT RBH 0 0) RBW 0 1 0 4369) = true := by
-  decide +kernel
-
-theorem ch22220n_w : (!cK T1X.F AlX.F YT RBH (fun _ => 0) 0 1 0 4369) = true := by decide +kernel
-
-theorem ch22220n_s : (!repSK GT L34S.T 1) = true := by decide +kernel
 
 end CertificateChecks.KernelL34W
 

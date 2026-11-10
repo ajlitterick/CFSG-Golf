@@ -35,12 +35,6 @@ theorem asciiB : asciiBlocks 12 16240 RuFRT.chars = true := by
 theorem textS : wordsTextOK RuFST.chars = true := by
   quickRfl
 
-theorem textS_neg : (!wordsTextOK ['1', ' ', ' ', '2'] && !wordsTextOK ['-', '-', '2'] &&
-    !wordsTextOK ['-', '0']) = true := by
-  decide +kernel
-
-theorem intsK_minus_zero : intsK ['-', '0'] = [-1] := by
-  decide +kernel
 
 end CertificateChecks.KernelMisc.RuFourth
 

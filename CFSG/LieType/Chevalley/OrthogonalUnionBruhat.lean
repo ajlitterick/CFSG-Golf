@@ -376,10 +376,6 @@ theorem lift_mem_unionMonomial
     n β ∈ unionMonomial K χ J n :=
   Subgroup.subset_closure (Or.inr ⟨β, hβ, rfl⟩)
 
-theorem mem_unionLifts
-    {w : WeylGroup τ} {g : ModGL τ K} :
-    g ∈ unionLifts K χ J n w ↔ g ∈ unionMonomial K χ J n ∧ MapsRootLines g w :=
-  Iff.rfl
 
 theorem mul_mem_unionLifts
     {w w' : WeylGroup τ} {g g' : ModGL τ K}
@@ -421,22 +417,6 @@ theorem unionMonomial_le_monomialSubgroup :
       rintro _ ⟨β, hβ, rfl⟩
       exact (hn β hβ).2.1))
 
-theorem exists_mapsRootLines_of_mem_unionMonomial
-    {g : ModGL τ K}
-    (hg : g ∈ unionMonomial K χ J n) : ∃ w ∈ unionWeylGroup χ J, MapsRootLines g w := by
-  induction hg using Subgroup.closure_induction with
-  | mem x hx =>
-    rcases hx with hx | ⟨β, hβ, rfl⟩
-    · exact ⟨1, one_mem _, mapsRootLines_of_mem_torusGroup (unionTorus_le_torusGroup hx)⟩
-    · exact ⟨_, rootReflection_mem_unionWeylGroup hβ, (hn β hβ).2.2⟩
-  | one => exact ⟨1, one_mem _, mapsRootLines_one⟩
-  | mul x y _ _ hx hy =>
-    obtain ⟨w, hw, h⟩ := hx
-    obtain ⟨w', hw', h'⟩ := hy
-    exact ⟨w * w', mul_mem hw hw', h.mul h'⟩
-  | inv x _ hx =>
-    obtain ⟨w, hw, h⟩ := hx
-    exact ⟨w⁻¹, inv_mem hw, h.inv⟩
 
 theorem exists_mem_unionLifts
     {w : WeylGroup τ} (hw : w ∈ unionWeylGroup χ J) :
@@ -488,15 +468,6 @@ theorem lift_mul_self_mem_unionTorus
   exact mem_unionTorus_of_mapsRootLines_one hn
     (mul_mem (lift_mem_unionMonomial hβ) (lift_mem_unionMonomial hβ)) h2
 
-omit hn in
-theorem list_prod_mul_mem_unionLifts
-    {l : List (Fin τ.rank → ℤ)}
-    (hl : ∀ β ∈ l, β ∈ unionSimpleRoots χ J) {t : ModGL τ K} (ht : t ∈ unionTorus K χ J)
-    {w : WeylGroup τ} (h : MapsRootLines ((l.map n).prod * t) w) :
-    (l.map n).prod * t ∈ unionLifts K χ J n w := by
-  refine ⟨mul_mem (Subgroup.list_prod_mem _ fun x hx => ?_) (unionTorus_le_unionMonomial ht), h⟩
-  obtain ⟨β, hβ, rfl⟩ := List.mem_map.1 hx
-  exact lift_mem_unionMonomial (hl β hβ)
 
 end Groups
 
@@ -640,10 +611,6 @@ theorem mem_unionCell
   · rintro ⟨b, hb, g, hg, b', hb', rfl⟩
     exact ⟨_, ⟨b, hb, g, hg, rfl⟩, b', hb', rfl⟩
 
-theorem mem_unionCell_of_mem_unionLifts
-    {w : WeylGroup τ} {g : ModGL τ K}
-    (hg : g ∈ unionLifts K χ J n w) : g ∈ unionCell K χ J n w :=
-  mem_unionCell.2 ⟨1, one_mem _, g, hg, 1, one_mem _, by group⟩
 
 theorem borel_mul_mem_unionCell
     {w : WeylGroup τ} {b x : ModGL τ K}
@@ -763,10 +730,6 @@ theorem unionRootSpan_le_of
   rw [e']
   exact mul_mem (mul_mem (hN hgN) hb) (inv_mem (hN hgN))
 
-theorem unionRootSpan_eq_sup :
-    unionRootSpan K χ J = unionBorel K χ J ⊔ unionMonomial K χ J n :=
-  le_antisymm (unionRootSpan_le_of hn le_sup_left le_sup_right)
-    (sup_le unionBorel_le_unionRootSpan (unionMonomial_le_unionRootSpan hn))
 
 theorem coe_unionRootSpan_eq_iUnion :
     (unionRootSpan K χ J : Set (ModGL τ K)) =

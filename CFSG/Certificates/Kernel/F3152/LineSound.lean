@@ -161,12 +161,6 @@ theorem plOf_pair (x : Nat) {i j : Nat} (hij : i ≤ j) (hj : j < 77) :
     rw [e] at hx
     exact hx.symm
 
-theorem plOf_high (x : Nat) {k : Nat} (hk : 3003 ≤ k) : (plOf x).testBit k = false := by
-  rw [Bool.eq_false_iff, ne_eq, plOf_testBit]
-  rintro ⟨i, hi, _, h2, _⟩
-  have := offK_mono (i := i + 1) (j := 77) (by omega) (le_refl _)
-  rw [offK_77] at this
-  omega
 
 theorem plOf_disj {x y : Nat} (h : ∀ q, (x.testBit q && y.testBit q) = false) (k : Nat) :
     ((plOf x).testBit k && (plOf y).testBit k) = false := by

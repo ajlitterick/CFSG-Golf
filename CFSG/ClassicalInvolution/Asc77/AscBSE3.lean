@@ -42,25 +42,5 @@ theorem false_of_g2_of_aEmpty {C : XCtx p f (𝒞 K) z}
     (N i₀) (N i₁) m h0tq h1tq h0cl h1cl h01 (himg₀ ▸ Subgroup.map_le_range _ _)
     (himg₁ ▸ Subgroup.map_le_range _ _)
 
-theorem bootNoG2Twin_of_three (h : BootNoG2TwinThree p f) : BootNoG2Twin p f := by
-  intro G _ _ _ K z hS D i hG2 hcard
-  by_cases h3 : D.card = 3
-  · exact h G K z hS D i hG2 h3
-  · have hno := noFuzzyFrame hS
-    let C := NDB.Cover.toXCtx hS.nonabelian hS.odd hS.five hS.member hS.below D
-    have hcard' : 3 < C.D.card := by
-      show 3 < D.card
-      omega
-    exact false_of_g2_of_card (C := C) hno (b := i) (hG2 : C.D.tag i = .G2) hcard'
-
-theorem bootNoG2TwinThree_of_aEmpty (hA : AEmptyG2Twin p f) : BootNoG2TwinThree p f := by
-  intro G _ _ _ K z hS D i hG2 hcard
-  have hno := noFuzzyFrame hS
-  let C := NDB.Cover.toXCtx hS.nonabelian hS.odd hS.five hS.member hS.below D
-  have hcard' : 3 ≤ C.D.card := by
-    show 3 ≤ D.card
-    omega
-  exact false_of_g2_of_aEmpty (C := C) hno (b := i) (hG2 : C.D.tag i = .G2) hcard'
-    (hA G K z hS D i hG2 hcard)
 
 end CFSG.ClassicalInvolution.Asc77.BSC.BSE

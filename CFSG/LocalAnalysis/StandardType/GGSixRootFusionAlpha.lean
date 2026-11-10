@@ -47,27 +47,5 @@ theorem not_exists_injective_of_ordProj_two_lt {H K : Type*} [Group H] [Group K]
       _ ≤ a * ordProj[2] (Nat.card (K ⧸ Q)) := Nat.mul_le_mul h2 h3
   exact (not_le.mpr hlt) hle
 
-theorem ggRootFusionAlt_of_ordProj_two_lt {G : Type*} [Group G] [Finite G] {G₀ M : Subgroup G}
-    {r s : G} (Q : Subgroup ↥(ggCentOTwoPrime G₀ r)) [Q.Normal] (hQ : IsPGroup 2 Q) {a : ℕ}
-    (hab : ∀ A : Subgroup ↥(ggCentOTwoPrime G₀ r), A ≤ Q →
-      (∀ x ∈ A, ∀ y ∈ A, x * y = y * x) → Nat.card A ≤ a)
-    (hH : ∀ N : Subgroup ↥(ggCentOTwoPrime G₀ s), N.Normal → IsPGroup 2 N →
-      ∀ x ∈ N, ∀ y ∈ N, x * y = y * x)
-    (hlt : a * ordProj[2] (Nat.card (↥(ggCentOTwoPrime G₀ r) ⧸ Q)) <
-      ordProj[2] (Nat.card ↥(ggCentOTwoPrime G₀ s))) :
-    GGRootFusionAlt G₀ M r s :=
-  Or.inr (Or.inr (not_exists_injective_of_ordProj_two_lt Q hQ hab hH hlt))
-
-theorem ggRootFusionWitnessAlt_of_ordProj_two_lt {G : Type} [Group G] [Finite G] {p : ℕ}
-    {Bs D E G₀ M : Subgroup G} {t : StatedLieTag} {f : ℕ} {r s : G}
-    (Q : Subgroup ↥(ggCentOTwoPrime G₀ r)) [Q.Normal] (hQ : IsPGroup 2 Q) {a : ℕ}
-    (hab : ∀ A : Subgroup ↥(ggCentOTwoPrime G₀ r), A ≤ Q →
-      (∀ x ∈ A, ∀ y ∈ A, x * y = y * x) → Nat.card A ≤ a)
-    (hH : ∀ N : Subgroup ↥(ggCentOTwoPrime G₀ s), N.Normal → IsPGroup 2 N →
-      ∀ x ∈ N, ∀ y ∈ N, x * y = y * x)
-    (hlt : a * ordProj[2] (Nat.card (↥(ggCentOTwoPrime G₀ r) ⧸ Q)) <
-      ordProj[2] (Nat.card ↥(ggCentOTwoPrime G₀ s))) :
-    GGRootFusionWitnessAlt p Bs D E G₀ M t f r s :=
-  Or.inr (Or.inr (not_exists_injective_of_ordProj_two_lt Q hQ hab hH hlt))
 
 end CFSG.StandardType

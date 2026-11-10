@@ -164,9 +164,6 @@ variable {F : Type} [Field F]
         simp only [Matrix.mul_assoc], h2, Matrix.mul_one]
     simp only [Matrix.mul_assoc]
 
-theorem matConjAut_coe (h h' : Matrix (Fin 2) (Fin 2) F) (h1 : h * h' = 1) (h2 : h' * h = 1)
-    (x : SL(2, F)) :
-    ((matConjAut h h' h1 h2 x : SL(2, F)) : Matrix (Fin 2) (Fin 2) F) = h * x * h' := rfl
 
 theorem matConjAut_symm_coe (h h' : Matrix (Fin 2) (Fin 2) F) (h1 : h * h' = 1)
     (h2 : h' * h = 1) (x : SL(2, F)) :

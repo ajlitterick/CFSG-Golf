@@ -64,7 +64,6 @@ theorem comm_g {i j : Nat} (hi : i < 4) (hj : j < 4) :
     compA_unpack c1 c2, compA_unpack (canonK_pcomp c1 c2) c1i,
     compA_unpack (canonK_pcomp (canonK_pcomp c1 c2) c1i) c2i]
 
-theorem k_split {k : Nat} : Nat.div k 4 = k / 4 ∧ Nat.mod k 4 = k % 4 := ⟨rfl, rfl⟩
 
 theorem conj_sift {i j : Nat} (hi : i < 5) (hj : j < 4) : ruSift 1920 (ruField1920 4) ruRBase
     (compA 1920 (compA 1920 (ruSF j) (ruRF i)) (invCand 1920 (ruSF j))) = true := by

@@ -122,15 +122,6 @@ theorem one_le_of_natCard_eq_two_pow (hK : Nat.card K = 2 ^ f) : 1 ≤ f := by
   · simp at h
   · exact hf
 
-theorem nonempty_ringEquiv_galoisField (hK : Nat.card K = 2 ^ f) :
-    Nonempty (K ≃+* GaloisField 2 f) := by
-  have := finite_of_natCard_eq_two_pow hK
-  have hf := one_le_of_natCard_eq_two_pow hK
-  let := Fintype.ofFinite K
-  let := Fintype.ofFinite (GaloisField 2 f)
-  exact ⟨FiniteField.ringEquivOfCardEq (by
-    rw [← Nat.card_eq_fintype_card, ← Nat.card_eq_fintype_card, hK,
-      GaloisField.card 2 f (by omega)])⟩
 
 theorem sp6_field_condition [Finite K] :
     (Infinite K ∨ 4 ≤ Nat.card K) ∨ (Nat.card K = 3 ∧ 2 ≤ 3) ∨ (Nat.card K = 2 ∧ 3 ≤ 3) := by
@@ -149,20 +140,6 @@ theorem mem_c3LeviRoots {γ : Fin (Tag.rank .F4) → ℤ} :
     γ ∈ c3LeviRoots ↔ IsRoot .F4 γ ∧ γ ⟨0, by decide⟩ = 0 :=
   Iff.rfl
 
-theorem iform_highestRoot_F4 (γ : Fin (Tag.rank .F4) → ℤ) :
-    Adjoint.iform γ (![2, 3, 4, 2] : Fin 4 → ℤ) = 2 * γ ⟨0, by decide⟩ := by
-  have h : ∀ i : Fin (Tag.rank .F4),
-      ∑ j, Tag.F4.symmetrizedCartan i j * (![2, 3, 4, 2] : Fin 4 → ℤ) j =
-        if i = ⟨0, by decide⟩ then 2 else 0 := by
-    decide +kernel
-  simp only [Adjoint.iform, mul_assoc, ← Finset.mul_sum, h, mul_ite, mul_zero]
-  rw [Finset.sum_ite_eq']
-  simp [mul_comm]
-
-theorem mem_c3LeviRoots_iff_iform {γ : Fin (Tag.rank .F4) → ℤ} :
-    γ ∈ c3LeviRoots ↔ IsRoot .F4 γ ∧ Adjoint.iform γ (![2, 3, 4, 2] : Fin 4 → ℤ) = 0 := by
-  rw [mem_c3LeviRoots, iform_highestRoot_F4]
-  exact and_congr_right fun _ => by omega
 
 section Roots
 
@@ -352,12 +329,6 @@ section Main
 
 variable {K : Type} [Field K] {f : ℕ}
 
-theorem C3Levi_mulEquiv (hK : Nat.card K = 2 ^ f) :
-    Nonempty (↥(C3Levi K) ≃* (lieUniversal .PSp 3 2 f Nat.prime_two).K) := by
-  have := finite_of_natCard_eq_two_pow hK
-  have := charP_two_of_natCard_eq_two_pow hK
-  obtain ⟨e⟩ := nonempty_ringEquiv_galoisField hK
-  exact ⟨c3LeviEquivOfRingEquiv K e⟩
 
 theorem lieModel_C3Levi (hK : Nat.card K = 2 ^ f) :
     CFSG.Blueprint.LieModel (C3Levi K) .PSp 3 2 f := by

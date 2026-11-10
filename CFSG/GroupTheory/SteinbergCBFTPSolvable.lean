@@ -90,19 +90,6 @@ theorem commutator_le_of_le_normalizer {V A : Subgroup Y} (h : A ≤ normalizer 
   have := (mem_normalizer_iff.1 (h ha) v⁻¹).1 (inv_mem hv)
   simpa [commutatorElement_def, mul_assoc] using mul_mem hv this
 
-theorem eq_bot_of_commutator_eq [Finite Y] {V A : Subgroup Y} (hV : IsPGroup p V)
-    (hA : IsPGroup p A) (hAV : A ≤ normalizer (V : Set Y)) (h : ⁅V, A⁆ = V) : V = ⊥ := by
-  have hT : IsPGroup p ↥(V ⊔ A) := hV.to_sup_of_normal_left' hA hAV
-  obtain ⟨n, hn⟩ := (isNilpotent_iff_lowerCentralSeries (V ⊔ A)).1 hT.isNilpotent
-  have hle : ∀ k, V ≤ (V ⊔ A).lowerCentralSeries k := by
-    intro k
-    induction k with
-    | zero => exact le_sup_left
-    | succ k ih =>
-      rw [Subgroup.lowerCentralSeries_succ]
-      calc V = ⁅V, A⁆ := h.symm
-        _ ≤ ⁅(V ⊔ A).lowerCentralSeries k, V ⊔ A⁆ := commutator_mono ih le_sup_right
-  exact le_bot_iff.1 (hn ▸ hle n)
 
 theorem le_normalizer_inf_of_le {H₁ H₂ K : Subgroup Y}
     (h₁ : K ≤ normalizer (H₁ : Set Y)) (h₂ : K ≤ normalizer (H₂ : Set Y)) :

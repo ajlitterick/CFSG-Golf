@@ -110,18 +110,6 @@ theorem not_centralizes_of_mem_conj (hC : Counterexample G D r Abar) {i : Fin r}
   have heq : g⁻¹ * (g * t * g⁻¹) * g = t := by group
   rwa [heq]
 
-theorem not_centralizes_conj (hC : Counterexample G D r Abar) {i : Fin r} (k : Fin r)
-    {g : G} (hg : g ∉ Subgroup.normalizer (D : Set G)) {t : G}
-    (ht2 : ∃ k : ℕ, t ^ (2 ^ k) = 1) (ht1 : t ≠ 1)
-    (htA : t ∈ aschbacherThm5Preimage D (Abar i)) :
-    ¬ aschbacherThm5Centralizes (aschbacherThm5Core D) (aschbacherThm5Preimage D (Abar k))
-      (g * t * g⁻¹) := by
-  intro hcent
-  obtain ⟨i', hi'⟩ := exists_other hC i
-  apply hg
-  have hmem := mem_normalizer_of_fusion hC i' k (t := t) (g := g⁻¹) ht2 ht1
-    (cross_factor_centralizes D Abar hC.hyp.hcomm i' i hi' _ htA) (by rwa [inv_inv])
-  simpa using (Subgroup.normalizer (D : Set G)).inv_mem hmem
 
 theorem commute_of_normalizers (hC : Counterexample G D r Abar) {a : Fin r} {g : G}
     (hg : g ∉ Subgroup.normalizer (D : Set G)) {T W P : Subgroup G}

@@ -10,13 +10,6 @@ namespace CFSG.LocalAnalysis.GLTheoremB
 
 open CFSG.Open
 
-@[expose] def Lemma911Type : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m p : ℕ), GLStanding G m p →
-    ∀ B M : Subgroup G, IsBOneMax p B → IsPreUniquenessTwoLocal p B M → p = 3 →
-      ∀ b ∈ B, b ≠ 1 → ∀ J : Subgroup G,
-        IsTwoPrimeComp (alphaOf p M ⊓ Subgroup.centralizer ({b} : Set G)) J →
-          (Nonempty ((↥J ⧸ CFSG.pCore 2 ↥J) ≃* ↥(alternatingGroup (Fin 7))) ∨
-            IsHatSeven (↥J ⧸ CFSG.pCore 2 ↥J))
 
 section Tools
 

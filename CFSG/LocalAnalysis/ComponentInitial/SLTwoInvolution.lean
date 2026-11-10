@@ -180,13 +180,6 @@ theorem sl2_odd_field_involution_structure [Finite k] (hk : ringChar k ≠ 2) :
     fun u v => f.symm.injective (by rw [map_mul, map_mul, mul_comm'])
   exact hxy (congrArg Subtype.val (hcomm ⟨x, hHQ hxH⟩ ⟨y, hHQ hyH⟩))
 
-theorem sl2_zmod_three_involution_structure :
-    (∀ A : Matrix.SpecialLinearGroup (Fin 2) (ZMod 3), orderOf A = 2 ↔ A = -1) ∧
-      (∃ H : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)),
-        Nonempty (QuaternionGroup 2 ≃* H)) ∧
-      ∀ P : Sylow 2 (Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)),
-        ¬ IsMulCommutative (P : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod 3))) :=
-  sl2_odd_field_involution_structure (by rw [ZMod.ringChar_zmod_n]; decide)
 
 end SLTwo
 

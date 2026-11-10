@@ -17,21 +17,12 @@ namespace GenLocU4QSu4
 
 variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p]
 
-omit [Finite K] [Fact p.Prime] [CharP K p] in
-theorem raw_of_sigma (σ : K ≃+* K) (hfun : (fun x : K => x ^ (p ^ f)) = σ) {M : Matrix (Fin 4) (Fin 4) K}
-    (h : (M.map σ)ᵀ * M = 1) : (M.map (· ^ (p ^ f)))ᵀ * M = 1 := by
-  rw [hfun]; exact h
 
 @[expose] noncomputable def su4Mk (M : Matrix (Fin 4) (Fin 4) K) (hdet : M.det = 1)
     (hB : (M.map (· ^ (p ^ f)))ᵀ * M = 1) : Su K p f 4 :=
   ⟨GeneralLinearGroup.mkOfDetNeZero M (by rw [hdet]; exact one_ne_zero),
     (mem_SUid (σ := unitaryInvolution K p f)).2 ⟨hdet, by rw [GenLocU4Aux.conjTr_unitaryInvolution]; exact hB⟩⟩
 
-theorem su4Mk_smul (M : Matrix (Fin 4) (Fin 4) K) (hdet : M.det = 1) (hB : (M.map (· ^ (p ^ f)))ᵀ * M = 1)
-    (v : Fin 4 → K) : (su4Mk (p := p) (f := f) M hdet hB : Su K p f 4) • v = M *ᵥ v := rfl
-
-theorem coe_su4Mk (M : Matrix (Fin 4) (Fin 4) K) (hdet : M.det = 1) (hB : (M.map (· ^ (p ^ f)))ᵀ * M = 1) :
-    (((su4Mk (p := p) (f := f) M hdet hB : Su K p f 4) : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) = M := rfl
 
 theorem blockEmb2_zero_eq_tv (hinv : ∀ x : K, unitaryInvolution K p f (unitaryInvolution K p f x) = x)
     (g : Su K p f 2) (a : Fin 2 → K) (c : K) (hc : c + unitaryInvolution K p f c = 0)

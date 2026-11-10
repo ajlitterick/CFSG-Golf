@@ -14,12 +14,6 @@ open CFSG.Open
     (∃ a b : ↥X, a * b ≠ b * a) ∧ Subgroup.centralizer (X : Set G) = ⊥ ∧
     IsSylowIn 2 T ⊤ ∧ X ⊔ T = ⊤
 
-@[expose] def E111CoreMulti : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (n : ℕ) (X T : Subgroup G), 1 ≤ n →
-    ASInputs.E111Hyp G n →
-    (∀ (G' : Type) [Group G'] [Finite G'], Nat.card G' < Nat.card G → ASInputs.E111Hyp G' n →
-      E1.InE n (⊤ : Subgroup G')) →
-    E111Reduced G X T → ¬ IsSimpleGroup ↥X → E1.InEFor n ⊤ T
 
 theorem inEFor_of_reduced_simple {G : Type} [Group G] [Finite G] {n : ℕ} (hn : 1 ≤ n)
     {X T : Subgroup G} (hR : E111Reduced G X T) (hXs : IsSimpleGroup ↥X)

@@ -114,10 +114,6 @@ theorem tailOmegaEquiv_flagStabilizer (F : Fin r → Submodule K (ι → K)) :
       (orthElementaryGroup (quadTail r qA) ⧸ elemScalars (quadTail r qA)) :=
   QuotientGroup.congr _ _ (tailOmegaEquiv ψ hQ hE) (tailOmegaEquiv_scalars ψ hQ hE)
 
-theorem tailProjEquiv_mk (g : StatedOmega Q0) :
-    tailProjEquiv ψ hQ hE (QuotientGroup.mk' _ g) =
-      QuotientGroup.mk' (elemScalars (quadTail r qA)) (tailOmegaEquiv ψ hQ hE g) :=
-  rfl
 
 theorem map_mk_tailProjEquiv (H : Subgroup (StatedOmega Q0)) :
     (H.map (QuotientGroup.mk' ((StatedScalars ι K).subgroupOf (StatedOmega Q0)))).map

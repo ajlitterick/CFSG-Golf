@@ -104,7 +104,6 @@ theorem Φ2_conj (g y : L) : W.Φ2 (g⁻¹ * y * g) = W.Φ2 y := by
 theorem Φ3_conj (g y : L) : W.Φ3 (g⁻¹ * y * g) = W.Φ3 y := by
   simp only [Φ3, Pi.smul_apply, Pi.add_apply, conj_eq W.θ3_mem, conj_eq W.θ4_mem]
 
-theorem J'_mul_one : W.J' = W.J' * ((1 : W.So) : L) := by simp
 
 theorem θ4_even {y : L} (hy : Even (orderOf y)) : W.θ4 y = e := by
   obtain ⟨g, ρ, hρ, h⟩ := W.even_conj y hy

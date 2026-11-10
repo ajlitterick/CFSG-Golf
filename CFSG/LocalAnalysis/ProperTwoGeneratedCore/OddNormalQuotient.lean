@@ -38,26 +38,6 @@ theorem odd_normal_le_full_core
   exact inf_le_right.trans ((Subgroup.centralizer_le_normalizer (V : Set G)).trans
     ((gamma_le_iff _ _ 2).mp le_rfl V (hV.1.trans hES) hVrank))
 
-omit [Finite G] in
-theorem quotient_normalizer_preimage_eq
-    (R U : Subgroup G) [R.Normal] :
-    (Subgroup.normalizer (U.map (QuotientGroup.mk' R) : Set (G ⧸ R))).comap
-      (QuotientGroup.mk' R) = Subgroup.normalizer ((U ⊔ R : Subgroup G) : Set G) := by
-  rw [Subgroup.comap_normalizer_eq_of_le_range (by
-    rw [MonoidHom.range_eq_top.mpr (QuotientGroup.mk'_surjective R)]
-    exact le_top), Subgroup.comap_map_eq, QuotientGroup.ker_mk']
-
-theorem odd_normal_normalizer_sup_eq
-    (R U : Subgroup G) [R.Normal] (hRodd : Odd (Nat.card R))
-    (hU : IsPGroup 2 U) :
-    Subgroup.normalizer ((U ⊔ R : Subgroup G) : Set G) =
-      Subgroup.normalizer (U : Set G) ⊔ R := by
-  have heq := congrArg (Subgroup.comap (QuotientGroup.mk' R))
-    (coprime_quotient_normalizer_image 2 Nat.prime_two R U
-      (Nat.coprime_two_left.mpr hRodd) hU)
-  rw [quotient_normalizer_preimage_eq, Subgroup.comap_map_eq,
-    QuotientGroup.ker_mk'] at heq
-  exact heq.symm
 
 theorem sylow_subgroup_rank_eq_odd_quotient
     (S : Sylow 2 G) (R : Subgroup G) [R.Normal] (hRodd : Odd (Nat.card R))
@@ -130,20 +110,5 @@ theorem full_core_eq_top_iff_odd_normal_quotient
       sup_eq_left.mpr (odd_normal_le_full_core S hrank R hRodd)] at hcomap
     exact hcomap
 
-theorem odd_normal_full_core_quotient
-    (S : Sylow 2 G) (hrank : 3 ≤ twoRank G)
-    (R : Subgroup G) [R.Normal] (hRodd : Odd (Nat.card R)) :
-    letI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    let Sbar := S.mapSurjective (QuotientGroup.mk'_surjective R)
-    let K := properTwoGenCoreGamma (S : Subgroup G) 2
-    let Kbar := properTwoGenCoreGamma (Sbar : Subgroup (G ⧸ R)) 2
-    R ≤ K ∧ K.map (QuotientGroup.mk' R) = Kbar ∧ (K = ⊤ ↔ Kbar = ⊤) := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hSr : 3 ≤ pRank 2 (S : Subgroup G) := by rwa [sylow_two_rank_eq]
-  dsimp only
-  rw [Sylow.coe_mapSurjective]
-  exact ⟨odd_normal_le_full_core S hSr R hRodd,
-    gamma_image_odd_normal_quotient S R hRodd 2,
-    full_core_eq_top_iff_odd_normal_quotient S hSr R hRodd⟩
 
 end CFSG.ProperTwoGeneratedCore

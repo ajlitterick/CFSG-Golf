@@ -173,23 +173,6 @@ theorem exists_sc_map_mod_twoKernel (hπ : Function.Surjective π) (hc : π.ker 
   apply ker_isogenyStd_le_center
   rw [MonoidHom.mem_ker, ← hcomp, MonoidHom.mem_ker.mp hu, map_one]
 
-theorem centralTwoQuotientMap_ker_cube_eq_one (hπ : Function.Surjective π)
-    (hc : π.ker ≤ center E) {z : E ⧸ centralTwoKernel hc}
-    (hz : z ∈ (centralTwoQuotientMap hc).ker) : z ^ 3 = 1 := by
-  obtain ⟨x, rfl⟩ := QuotientGroup.mk'_surjective (centralTwoKernel hc) z
-  have hx : x ∈ π.ker := hz
-  have hx6 := (pow_six_and_card_le hπ hc).1 x hx
-  rw [← map_pow]
-  apply (QuotientGroup.eq_one_iff _).mpr
-  refine ⟨π.ker.pow_mem hx 3, ?_⟩
-  simpa only [← pow_mul, show 3 * 2 = 6 from rfl] using hx6
-
-theorem centralTwoQuotientMap_ker_isPGroup_three (hπ : Function.Surjective π)
-    (hc : π.ker ≤ center E) : IsPGroup 3 (centralTwoQuotientMap hc).ker := by
-  intro z
-  refine ⟨1, ?_⟩
-  apply Subtype.ext
-  simpa using centralTwoQuotientMap_ker_cube_eq_one hπ hc z.property
 
 omit [Finite E] [Group.IsPerfect E]
   in

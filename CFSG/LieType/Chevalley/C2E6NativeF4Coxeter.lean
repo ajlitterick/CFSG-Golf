@@ -110,8 +110,6 @@ theorem coe_nativeSimple_eq_nativeRefl
 @[expose] def nativeIdx : Fin 4 ≃ Fin TwistTag.E6.foldedTag.rank :=
   finCongr rfl
 
-theorem val_nativeIdx (i : Fin 4) : (nativeIdx i : ℕ) = i :=
-  rfl
 
 theorem rev_foldedIndex (i : Fin 4) : Fin.rev (foldedIndex i) = nativeIdx i := by
   fin_cases i <;> rfl
@@ -170,13 +168,6 @@ theorem nativeCoxeterSystem_length
   rw [← length_nativeWeylEquiv, nativeWeylEquiv_apply,
     length_map_of_simple _ _ foldedRev Fin.revPerm foldedRev_simple, orbitLength_eq]
 
-theorem orderOf_nativeRefl_mul
-    (i j : Fin 4) :
-    orderOf (nativeRefl i * nativeRefl j) = CoxeterMatrix.F₄ i j := by
-  have h := nativeCoxeterSystem.orderOf_simple_mul_simple i j
-  rw [nativeCoxeterSystem_simple, nativeCoxeterSystem_simple, ← Subgroup.orderOf_coe,
-    Subgroup.coe_mul, coe_nativeSimple_eq_nativeRefl, coe_nativeSimple_eq_nativeRefl] at h
-  exact h
 
 theorem card_relWeylTwist_E6 :
     Nat.card (relWeylTwist TwistTag.E6) = 1152 :=

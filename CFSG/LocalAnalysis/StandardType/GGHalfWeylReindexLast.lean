@@ -110,21 +110,6 @@ private theorem piEven_sigma_succ (m : ℕ) :
       (⟨m + 1, by omega⟩ : Fin (m + 1 + 1 + 1)) := by
   rw [Equiv.Perm.mul_apply, Equiv.swap_apply_right, Equiv.swap_apply_left]
 
-private theorem piEven_sigma_a (m : ℕ) :
-    (Equiv.swap (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1))
-          (⟨m + 1, by omega⟩ : Fin (m + 1 + 1 + 1)) *
-        Equiv.swap (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1))
-          (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)))
-        (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-      (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) := by
-  rw [Equiv.Perm.mul_apply, Equiv.swap_apply_left,
-    show (Equiv.swap (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1))
-        (⟨m + 1, by omega⟩ : Fin (m + 1 + 1 + 1)))
-        (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-      (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) from
-      Equiv.swap_apply_of_ne_of_ne
-        (fin_ne_of_val_ne (by simp only [Fin.val_mk]; omega))
-        (fin_ne_of_val_ne (by simp only [Fin.val_mk]; omega))]
 
 private theorem piEven_sigma_fixed (m : ℕ) (x : Fin (m + 1 + 1 + 1))
     (hxa : x ≠ (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1)))
@@ -174,29 +159,6 @@ private theorem piEven_apply_b (m : ℕ) (hm : m % 2 = 0) (P : Fin (m + 1 + 1))
           (fin_ne_of_val_ne (by simp only [Fin.val_castSucc, Fin.val_succ]; omega))]
   rw [piEven, Equiv.Perm.mul_apply, hsig, htau]
 
-private theorem piEven_apply_a (m : ℕ) (hm : m % 2 = 0) (P : Fin (m + 1 + 1))
-    (hP : P.val % 2 = 0) :
-    piEven m P (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-      (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) := by
-  have hsig := piEven_sigma_a m
-  have htau : (Equiv.swap (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1)) P.castSucc *
-        Equiv.swap (⟨m + 1, by omega⟩ : Fin (m + 1 + 1 + 1)) P.succ)
-        (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-      (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) := by
-    rw [Equiv.Perm.mul_apply,
-      show (Equiv.swap (⟨m + 1, by omega⟩ : Fin (m + 1 + 1 + 1)) P.succ)
-          (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-        (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) from
-        Equiv.swap_apply_of_ne_of_ne
-          (fin_ne_of_val_ne (by simp only [Fin.val_mk]; omega))
-          (fin_ne_of_val_ne (by simp only [Fin.val_succ, Fin.val_mk]; omega)),
-      show (Equiv.swap (⟨m, by omega⟩ : Fin (m + 1 + 1 + 1)) P.castSucc)
-          (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) =
-        (⟨m + 2, by omega⟩ : Fin (m + 1 + 1 + 1)) from
-        Equiv.swap_apply_of_ne_of_ne
-          (fin_ne_of_val_ne (by simp only [Fin.val_mk]; omega))
-          (fin_ne_of_val_ne (by simp only [Fin.val_castSucc, Fin.val_mk]; omega))]
-  rw [piEven, Equiv.Perm.mul_apply, hsig, htau]
 
 private theorem piEven_apply_Pcast (m : ℕ) (hm : m % 2 = 0) (P : Fin (m + 1 + 1))
     (hP : P.val % 2 = 0)

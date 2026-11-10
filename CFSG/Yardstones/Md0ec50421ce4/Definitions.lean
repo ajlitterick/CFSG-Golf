@@ -161,9 +161,6 @@ abbrev PSimple (p : ℕ) (L : Subgroup G) : Type := PQuot p L ⧸ Subgroup.cente
   ∃ π : Q →* i.Group, Function.Surjective π ∧
     π.ker ≤ Subgroup.center Q ∧ IsPGroup p π.ker
 
-@[expose] def CentralCoverQuotient (U Q : Type) [Group U] [Group Q] : Prop :=
-  Finite U ∧ IsQuasisimple U ∧
-    ∃ π : U →* Q, Function.Surjective π ∧ π.ker ≤ Subgroup.center U
 
 @[expose] def SimpleCoverList (Q : Type) [Group Q]
     (P : TauCeti.CFSGIndex → Prop) : Prop :=
@@ -234,9 +231,6 @@ abbrev PSimple (p : ℕ) (L : Subgroup G) : Type := PQuot p L ⧸ Subgroup.cente
     (SimpleCoverList Q (k3 p) ∨ K3LinearCover p Q ∨
       HatCoverList Q (k3HatIndex p))
 
-@[expose] def K4Cover (p : ℕ) (Q : Type) [Group Q] : Prop :=
-  Finite Q ∧ IsQuasisimple Q ∧ IsKGroup Q ∧
-    ¬ K1Cover p Q ∧ ¬ K2Cover p Q ∧ ¬ K3Cover p Q
 
 open Classical in
 @[expose] def fullCoverLevel (p : ℕ) (Q : Type) [Group Q] : ℕ :=
@@ -281,17 +275,6 @@ open Classical in
 @[expose] def IsSC (p : ℕ) (B : Subgroup G) : Prop :=
   IsElemAbelian p B ∧ IsSCContainment p B
 
-theorem isSC_iff_containment {p : ℕ} {B : Subgroup G} (hB : IsElemAbelian p B) :
-    IsSC p B ↔ IsSCContainment p B :=
-  ⟨And.right, fun h => ⟨hB, h⟩⟩
-
-theorem isSC_iff_containment_of_isBmax [Finite G] {p : ℕ} {B : Subgroup G}
-    (hB : GLAIsBmax p B) : IsSC p B ↔ IsSCContainment p B :=
-  isSC_iff_containment hB.1
-
-theorem not_isSC_iff_not_containment_of_isBmax [Finite G] {p : ℕ} {B : Subgroup G}
-    (hB : GLAIsBmax p B) : (¬ IsSC p B) ↔ ¬ IsSCContainment p B :=
-  not_congr (isSC_iff_containment_of_isBmax hB)
 
 @[expose] def IsGB [Finite G] (p : ℕ) (B L : Subgroup G) : Prop :=
   ∃ E : Subgroup G, E ≤ B ∧ IsElemAbelian p E ∧ Nat.card E = p ^ 3 ∧
@@ -493,28 +476,6 @@ theorem not_isSC_iff_not_containment_of_isBmax [Finite G] {p : ℕ} {B : Subgrou
             Odd (Nat.card
               (⁅K, GLAPPrimeCoreOf p (Subgroup.centralizer ({d} : Set G))⁆ : Subgroup G))
 
-@[expose] def YS10Source16 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m : ℕ), ThmACtx G m → StageFacts G m →
-    (∀ q ∈ Mu G m, ∃ (B : Subgroup G) (x : G) (L : Subgroup G),
-      IsSStarMax q B x L ∧ InnerDiagMarking B L) →
-    Stage11 G m ∧ ∃ p ∈ Mu G m, ∃ (B : Subgroup G) (x : G) (L : Subgroup G),
-      IsSStarMax p B x L ∧ SplitInnerDiagMarking16 p B L
-
-@[expose] def YS11Source16 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m : ℕ), ThmACtx G m → StageFacts G m → Stage11 G m →
-    ∀ p ∈ Mu G m, ∀ (B : Subgroup G) (x : G) (L : Subgroup G), IsSStarMax p B x L →
-      SplitInnerDiagMarking16 p B L →
-      (∀ (y : G) (J : Subgroup G), GLAIsNeighborOf p B x L y J →
-        B ≤ Subgroup.normalizer (J : Set G) ∧
-          GLAMarking J (fun lab _ _ I F θ =>
-            GLAHalfSplit16 p lab (Subgroup.center J = ⊥) ∨
-              GLAPrimeField p lab I F (GLAInduces θ fun j j' => (j' : G) = x⁻¹ * j * x))) ∧
-      ∀ D K : Subgroup G, GLAStdSub p B x L D K →
-        (∃ (y : G) (J : Subgroup G), GLASHat p B y J ∧ GLANeighbor p x y J D K) ∧
-          ∀ d ∈ D, d ≠ 1 →
-            Odd (Nat.card
-              (⁅closureIn K (GLAPLayer p (Subgroup.centralizer ({d} : Set G))),
-                GLAPPrimeCoreOf p (Subgroup.centralizer ({d} : Set G))⁆ : Subgroup G))
 
 end
 

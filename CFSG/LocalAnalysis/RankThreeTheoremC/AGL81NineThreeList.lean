@@ -43,10 +43,5 @@ variable {G : Type} [Group G] [Finite G] {p : ℕ}
 @[expose] def NineThreeListAt (p : ℕ) (M N : Subgroup G) : Prop :=
   d1KBar p M N ≠ ⊥ → NineThreeListGroup p (d1KBar p M N)
 
-@[expose] def Hyp917OneAt (p : ℕ) (M H N : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)) : Prop :=
-  ∃ W : Subgroup G, ∃ _ : W ≤ H ⊓ N,
-    (W.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) = K ∧
-    (W.subgroupOf N).map (QuotientGroup.mk' (primeComplementCore (G := N) p)) ≤ d1KBar p M N
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111

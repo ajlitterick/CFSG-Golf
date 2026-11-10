@@ -49,7 +49,6 @@ theorem mcl275R_chain_check :
           CFSG.Sporadic.SmallOddCore.mclOuterTbl)) = true :=
   Certificates.certificate8129.2.2.1
 
-@[expose] def hs100PairHas (x i : ℕ) : Bool := hs100Kappa1[x]! == i || hs100Kappa2[x]! == i
 
 theorem hs100_kappa_check :
     allLt 3850 (fun x => decide (hs100Kappa1[x]! < hs100Kappa2[x]!) &&

@@ -142,6 +142,5 @@ theorem eq_bot_of_stronglyClosed_of_abelian [Finite G] [IsSimpleGroup G]
   · exact hsmall 3 21945 le_rfl ⟨10972, by norm_num⟩
       (by rw [← CFSG.ClassicalInvolution.Hat2A7.card_goldschmidtJ1_eq, Nat.card_congr e.toEquiv])
 
-variable {p f : ℕ} [Fact p.Prime]
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight

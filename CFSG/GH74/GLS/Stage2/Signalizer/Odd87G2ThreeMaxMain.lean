@@ -42,12 +42,6 @@ theorem twPt_smul_val (ρ : G →* Matrix.GeneralLinearGroup (Fin 14) (ZMod 3)) 
 
 end Action
 
-theorem size_idArr : idArr.size = 196 := size_ofFn' _
-
-theorem lt_idArr {p : ℕ} (hp : p < 196) : idArr[p]! < 3 := by
-  unfold idArr
-  rw [ofFn_get _ hp]
-  split_ifs <;> norm_num
 
 theorem wordArr_nil : wordArr [] = idArr := by
   simp only [wordArr, List.foldr_nil]
@@ -56,81 +50,11 @@ theorem wordArr_cons (k : ℕ) (w : List ℕ) :
     wordArr (k :: w) = mmul (genArr k) (wordArr w) := by
   simp only [wordArr, List.foldr_cons]
 
-theorem wordArr_valid (w : List ℕ) :
-    (wordArr w).size = 196 ∧ ∀ p < 196, (wordArr w)[p]! < 3 := by
-  induction w with
-  | nil =>
-    rw [wordArr_nil]
-    exact ⟨size_idArr, fun p hp => lt_idArr hp⟩
-  | cons k w ih =>
-    rw [wordArr_cons]
-    exact ⟨size_mmul _ _, fun p hp => lt_mmul _ _ hp⟩
-
-theorem rowsArr_get {k : ℕ} (hk : k < 8) : rowsArr[k]! = rowsOf (genArr k) := by
-  unfold rowsArr
-  rw [getElem!_pos _ k (by simpa using hk)]
-  simp
-
-theorem colsInvArr_get (σ : List ℕ) {k : ℕ} (hk : k < 8) :
-    (colsInvArr σ)[k]! = colsOf (genArr (invK σ[k]!)) := by
-  unfold colsInvArr
-  rw [getElem!_pos _ k (by simpa using hk)]
-  simp
 
 theorem invK_lt {k : ℕ} (hk : k < 8) : invK k < 8 := by
   unfold invK
   split_ifs <;> omega
 
-theorem primCheck_coatom {G : Type} [Group G]
-    (ρ : G →* Matrix.GeneralLinearGroup (Fin 14) (ZMod 3)) (ψ : G →* G) (gens : ℕ → G)
-    (hgen : Subgroup.closure (gens '' {k | k < 8}) = ⊤)
-    (hρ : ∀ k < 8, ((ρ (gens k) : Matrix.GeneralLinearGroup (Fin 14) (ZMod 3)) : Mat3) =
-      M (genArr k))
-    (hinv : ∀ k < 8, gens (invK k) = (gens k)⁻¹)
-    (inp : Input) (hψ : ∀ k < 8, ψ (gens k) = gens inp.sigma[k]!)
-    (hcheck : primCheck inp = true) :
-    IsCoatom (MulAction.stabilizer G (⟨M (wordArr inp.base)⟩ : TwPt ρ ψ)) := by
-  have hpc := hcheck
-  unfold primCheck at hpc
-  simp only [Bool.and_eq_true] at hpc
-  obtain ⟨⟨⟨⟨⟨⟨hσ, -⟩, -⟩, hnt⟩, -⟩, -⟩, -⟩ := hpc
-  simp only [okSigma, Bool.and_eq_true, beq_iff_eq, List.all_eq_true, decide_eq_true_eq] at hσ
-  have hσk : ∀ k < 8, inp.sigma[k]! < 8 := by
-    intro k hk
-    apply hσ.2
-    rw [getElem!_pos inp.sigma k (by omega)]
-    exact List.getElem_mem _
-  have hsmul : ∀ k < 8, ∀ P : Array ℕ,
-      gens k • (⟨M P⟩ : TwPt ρ ψ) =
-        ⟨M (conjSparse rowsArr[k]! (colsInvArr inp.sigma)[k]! P)⟩ := by
-    intro k hk P
-    apply TwPt.ext
-    rw [twPt_smul_val, rowsArr_get hk, colsInvArr_get _ hk, M_conjSparse, hρ k hk, hψ k hk,
-      ← map_inv, ← hinv _ (hσk k hk), hρ _ (invK_lt (hσk k hk))]
-  have hroot : (⟨M (decode (encode (wordArr inp.base)))⟩ : TwPt ρ ψ) = ⟨M (wordArr inp.base)⟩ := by
-    rw [decode_encode _ (wordArr_valid _).1 (wordArr_valid _).2]
-  have hact : ∀ k < 8, ∀ a, (⟨M (decode (actOf (colsInvArr inp.sigma) k a))⟩ : TwPt ρ ψ) =
-      gens k • (⟨M (decode a)⟩ : TwPt ρ ψ) := by
-    intro k hk a
-    rw [hsmul k hk]
-    unfold actOf
-    rw [decode_encode _ (size_conjSparse _ _ _) (fun p hp => lt_conjSparse _ _ _ hp)]
-  have hnt' : ∃ g : G, g • (⟨M (wordArr inp.base)⟩ : TwPt ρ ψ) ≠ ⟨M (wordArr inp.base)⟩ := by
-    simp only [okNontriv, List.any_eq_true, List.mem_range, bne_iff_ne, ne_eq] at hnt
-    obtain ⟨k, hk, hne⟩ := hnt
-    refine ⟨gens k, fun h => hne ?_⟩
-    rw [hsmul k hk] at h
-    exact M_inj _ _ (size_conjSparse _ _ _) (wordArr_valid _).1
-      (fun p hp => lt_conjSparse _ _ _ hp) (wordArr_valid _).2 (congrArg TwPt.val h)
-  exact coatom_of_checks inp (⟨M (wordArr inp.base)⟩ : TwPt ρ ψ) gens hgen
-    (fun n => (⟨M (decode n)⟩ : TwPt ρ ψ)) hroot hact hnt' hcheck
-
-theorem primCheck_invol {inp : Input} (h : primCheck inp = true) :
-    mmul (wordArr inp.base) (wordArr inp.base) = idArr := by
-  unfold primCheck at h
-  simp only [Bool.and_eq_true] at h
-  obtain ⟨⟨⟨⟨⟨⟨-, hinv⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := h
-  simpa [okInvol] using hinv
 
 section Stabilizers
 

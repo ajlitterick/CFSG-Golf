@@ -109,19 +109,6 @@ theorem ne_one_of_orderOf_eq_two {a : G} (ha : orderOf a = 2) : a ≠ 1 := by
   rw [orderOf_one] at ha
   norm_num at ha
 
-omit [Finite G] in
-theorem lemma33CentralInputFor_of_lemma33InputFor (h33 : Lemma33InputFor 𝒜) :
-    Lemma33CentralInputFor 𝒜 := by
-  intro G _ _ hG N hN K hK a haN ha haK
-  have hka : ∀ k ∈ K, a * k = k * a := fun k hk =>
-    (mem_centralizer_singleton_iff.mp (haK hk)).symm
-  have h3 := h33 G hG N hN K hK a haN ha fun k hk => by
-    have h1 : a⁻¹ * k⁻¹ * a * k = 1 := by
-      rw [show a⁻¹ * k⁻¹ * a * k = a⁻¹ * k⁻¹ * (a * k) by group, hka k hk]
-      group
-    rw [h1]
-    exact one_mem _
-  rwa [inf_eq_left.mpr haK, twoLayerIn_eq_self_of_isTwoComponentIn hK.1] at h3
 
 theorem twoLayerIn_centralizer_le_normalizer (h33 : Lemma33CentralInputFor 𝒜)
     (h32 : Lemma32InputFor 𝒜)

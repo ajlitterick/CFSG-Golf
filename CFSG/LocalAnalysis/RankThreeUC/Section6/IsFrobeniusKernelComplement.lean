@@ -15,10 +15,6 @@ open CFSG.Open
 
 open scoped MatrixGroups
 
-variable {G : Type} [Group G] [Finite G]
-
-def IsIrreducibleUnder (L V : Subgroup G) : Prop :=
-  V ≠ ⊥ ∧ ∀ W : Subgroup G, W ≤ V → L ≤ Subgroup.normalizer (W : Set G) → W = ⊥ ∨ W = V
 
 end Section6
 

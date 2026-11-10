@@ -83,13 +83,6 @@ theorem mem_hatSub {Sq : Subgroup (↥I ⧸ aschbacherSolvableCore p ↥I)} {y :
 theorem hatSub_le {Sq : Subgroup (↥I ⧸ aschbacherSolvableCore p ↥I)} : hatSub p I Sq ≤ I :=
   fun _ hy => (mem_hatSub.1 hy).1
 
-theorem theta_le_hatSub {Sq : Subgroup (↥I ⧸ aschbacherSolvableCore p ↥I)} :
-    inSubgroup (aschbacherSolvableCore p) I ≤ hatSub p I Sq := by
-  intro y hy
-  obtain ⟨hyI, -⟩ := (mem_theta_iff p I).1 hy
-  refine mem_hatSub.2 ⟨hyI, ?_⟩
-  rw [(thetaMk_eq_one_iff p I hyI).2 hy]
-  exact Sq.one_mem
 
 theorem mem_normalizer_hatSub {Sq : Subgroup (↥I ⧸ aschbacherSolvableCore p ↥I)} {g : G}
     (hg : g ∈ Subgroup.normalizer (I : Set G))

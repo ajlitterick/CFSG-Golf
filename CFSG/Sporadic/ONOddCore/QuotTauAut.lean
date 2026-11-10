@@ -156,10 +156,6 @@ theorem qGens_map
   simp only [qGens, List.map_cons, List.map_nil]
   rw [quotHom_gen hk (by norm_num), quotHom_gen hk (by norm_num)]
 
-theorem quotHom_eq_quotFun
-    {k : ℕ} (hk : k < 12) (x : qGroup) :
-    quotHom k x = quotFun (recK k) x := by
-  rw [quotFun, ← qGens_map k hk, substFun_eq_of_hom qGens qGroup_closure_top]
 
 theorem onX_le_qGroup :
     onX ≤ qGroup := qGroup_eq_RM ▸ onX_le_RM

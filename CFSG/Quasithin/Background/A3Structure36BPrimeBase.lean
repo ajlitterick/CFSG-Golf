@@ -30,6 +30,5 @@ structure PrimeData (X : Type) [Group X] (q : ℕ) where
 
 attribute [instance] PrimeData.normal_K
 
-variable {X : Type} [Group X]
 
 end CFSG.Quasithin.A36B

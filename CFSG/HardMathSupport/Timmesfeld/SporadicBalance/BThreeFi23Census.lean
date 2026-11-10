@@ -37,21 +37,6 @@ theorem applyW_spec : ∀ w : List ℕ, (∀ l ∈ w, l < letters.size) → ∀ 
     rw [ih, List.map_cons, List.prod_cons, idx_mul]
     exact rep_pairG_all l hl _ (idx_lt _ hp)
 
-theorem applyInvW_spec : ∀ w : List ℕ, (∀ l ∈ w, l < letters.size) → ∀ p < 31671,
-    applyInvW letters w p = idx 31671 ((w.map (pairG gs)).prod)⁻¹ p
-  | [], _, p, _ => by
-    rw [List.map_nil, List.prod_nil, inv_one, idx_one]
-    rfl
-  | l :: w, hw, p, hp => by
-    have hl := hw l List.mem_cons_self
-    have hil : invL l < letters.size := invL_lt (by rw [letters_size]; omega) hl
-    have h1 : ap letters[invL l]! p = idx 31671 (pairG gs l)⁻¹ p := by
-      rw [← pairG_invL]
-      exact rep_pairG_all _ hil p hp
-    have hp' : ap letters[invL l]! p < 31671 := by rw [h1]; exact idx_lt _ hp
-    have ih := applyInvW_spec w (fun z hz => hw z (List.mem_cons_of_mem _ hz)) _ hp'
-    change applyInvW letters w (ap letters[invL l]! p) = _
-    rw [ih, h1, ← idx_mul, List.map_cons, List.prod_cons, mul_inv_rev]
 
 end Words
 
@@ -125,15 +110,6 @@ end Census
 
 section Transposition
 
-
-theorem rep_genTables_neg_two' : Rep 31671 (genTables orb (-2)) b⁻¹ := by
-  have h := rep_gen (-2)
-  have e : genG (-2) = b⁻¹ := by
-    unfold genG
-    simp only [show (-2 : ℤ) ≠ 1 by decide, show (-2 : ℤ) ≠ -1 by decide,
-      show (-2 : ℤ) ≠ 2 by decide, ite_false]
-  rw [e] at h
-  exact h
 
 theorem t2_isConj_d : IsConj d (Fi23.img 2) :=
   Certificates.certificate13652.2.2

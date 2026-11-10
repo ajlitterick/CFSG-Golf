@@ -589,23 +589,6 @@ theorem IsLine.eq_of_mem_of_mem {L L' : Set Ω} (hL : IsLine G L) (hL' : IsLine 
   (hL.subset_of_mem_of_mem hL'.jClosed hx hx' hy hy' hxy).antisymm
     (hL'.subset_of_mem_of_mem hL.jClosed hx' hx hy' hy hxy)
 
-theorem IsLine.exists_mem_stabilizer_smul_eq {L : Set Ω} (hL : IsLine G L) {y z : Ω}
-    (hy : y ∈ L) (hz : z ∈ L) : ∃ g ∈ stabilizer G L, g • y = z := by
-  rcases eq_or_ne y z with rfl | hyz
-  · exact ⟨1, Subgroup.one_mem _, one_smul G y⟩
-  obtain ⟨x, hx, hx'⟩ := exists_mem_notMem_of_card_lt_ncard (L := L) {y, z}
-    ((Finset.card_le_two).trans_lt (by have := hL.seven_le; omega))
-  simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hx'
-  obtain ⟨t, ht, hty⟩ := hL.exists_smul_eq x hx y hy z hz (Ne.symm hx'.1) (Ne.symm hx'.2) hyz
-  exact ⟨t, hL.jClosed x hx t ht, hty⟩
-
-theorem IsLine.exists_mem_stabilizer_smul_eq_smul {L : Set Ω} (hL : IsLine G L) {α : Ω}
-    (hα : α ∈ L) {g : G} (hg : α ∈ g • L) : ∃ h ∈ stabilizer G α, h • L = g • L := by
-  have hg' : g⁻¹ • α ∈ L := Set.mem_smul_set_iff_inv_smul_mem.mp hg
-  obtain ⟨k, hk, hkα⟩ := hL.exists_mem_stabilizer_smul_eq hα hg'
-  refine ⟨g * k, ?_, ?_⟩
-  · rw [mem_stabilizer_iff, mul_smul, hkα, smul_inv_smul]
-  · rw [mul_smul, mem_stabilizer_iff.mp hk]
 
 theorem IsLine.exists_mem_longInvAt {L : Set Ω} (hL : IsLine G L) {x : Ω} (hx : x ∈ L) :
     ∃ t ∈ longInvAt G Ω x, t ∈ stabilizer G L := by
@@ -614,23 +597,6 @@ theorem IsLine.exists_mem_longInvAt {L : Set Ω} (hL : IsLine G L) {x : Ω} (hx 
   obtain ⟨t, ht, -⟩ := hL.exists_smul_eq x hx a ha b hb hax hbx hab
   exact ⟨t, ht, hL.jClosed x hx t ht⟩
 
-theorem IsLine.eq_univ_of_forall_smul_eq [IsPreprimitive G Ω] {L : Set Ω} (hL : IsLine G L)
-    {α : Ω} (hα : α ∈ L) (h : ∀ g ∈ stabilizer G α, g • L = L) : L = Set.univ := by
-  obtain ⟨x, hx, -, -, -, -, -, -, hxα, -, -, -, -, -, -, -, -, -⟩ :=
-    exists_four_of_seven_le hL.seven_le α
-  have : Nontrivial Ω := ⟨⟨x, α, hxα⟩⟩
-  obtain ⟨t, ht, htL⟩ := hL.exists_mem_longInvAt hx
-  have hle : stabilizer G α ≤ stabilizer G L := fun g hg => h g hg
-  have hlt : stabilizer G α < stabilizer G L := by
-    refine lt_of_le_of_ne hle fun heq => hxα ?_
-    have htα : t • α = α := mem_stabilizer_iff.mp (heq ▸ htL : t ∈ stabilizer G α)
-    exact (ht.1.2.unique ht.2 htα)
-  have htop := (IsPreprimitive.isCoatom_stabilizer_of_isPreprimitive G α).2 _ hlt
-  refine Set.eq_univ_of_forall fun ω => ?_
-  obtain ⟨g, rfl⟩ := MulAction.exists_smul_eq G α ω
-  have hg : g ∈ stabilizer G L := htop ▸ Subgroup.mem_top g
-  rw [← mem_stabilizer_iff.mp hg]
-  exact Set.smul_mem_smul_set hα
 
 end Geometry
 
@@ -649,8 +615,6 @@ variable (G) in
 
 variable {Λ : Set Ω}
 
-theorem mem_linesThrough {x : Ω} {L : Set Ω} :
-    L ∈ linesThrough G Λ x ↔ (∃ g : G, g • Λ = L) ∧ x ∈ L := Iff.rfl
 
 theorem smul_mem_linesThrough {x : Ω} {L : Set Ω} (hL : L ∈ linesThrough G Λ x) (g : G) :
     g • L ∈ linesThrough G Λ (g • x) := by

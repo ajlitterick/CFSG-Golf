@@ -262,10 +262,6 @@ theorem centralizer_J_inf_centralizer_S_inf_C (hS : TwoCoreSetup L K n t) (k : A
     · exact fun _ hy => mem_centralizer_iff.mpr fun _ hx =>
         (hS.zpowers_comm hy (pull_le φ _ hx)).symm
 
-omit [CharP K 2] [Finite K] in
-theorem J_inf_zpowers (hS : TwoCoreSetup L K n t) (k : Axis) : 𝐉[k] ⊓ zpowers t = ⊥ := by
-  rw [inf_comm]
-  exact hS.zpowers_inf (pull_le φ _)
 
 omit [CharP K 2] [Finite K] in
 theorem conj_mem_S (hS : TwoCoreSetup L K n t) (k : Axis) {g : G}

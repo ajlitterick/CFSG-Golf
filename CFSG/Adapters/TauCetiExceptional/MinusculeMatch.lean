@@ -67,10 +67,6 @@ theorem diagUnit_mul
   rw [Units.val_mul, Module.End.mul_apply, diagUnit_single, diagUnit_single, map_smul,
     diagUnit_single, smul_smul, Pi.mul_apply, Units.val_mul, mul_comm]
 
-theorem coe_diagUnit_eq_diagOp
-    {k : Type*} [Field k] {d : ℕ} (f : Fin d → kˣ) :
-    (diagUnit f : Module.End k (Fin d →₀ k)) = diagOp fun a => ((f a : kˣ) : k) :=
-  ext_single fun a => by rw [diagUnit_single, diagOp_single]
 
 end Units
 
@@ -151,17 +147,6 @@ theorem toMat_apply (g : (Module.End A (Fin d →₀ A))ˣ) (r s : Fin n) :
     Module.Basis.repr_reindex_apply, Finsupp.coe_basisSingleOne, Finsupp.basisSingleOne_repr,
     LinearEquiv.refl_apply, Equiv.symm_symm]
 
-theorem coe_toMat_diagUnit
-    (f : Fin d → Aˣ) :
-    ((toMat lab A (diagUnit f) : Matrix.GeneralLinearGroup (Fin n) A) :
-        Matrix (Fin n) (Fin n) A) = Matrix.diagonal fun a => ((f (lab a) : Aˣ) : A) := by
-  ext r s
-  rw [toMat_apply, diagUnit_single, Matrix.diagonal_apply, Finsupp.smul_apply, smul_eq_mul,
-    Finsupp.single_apply]
-  by_cases h : s = r
-  · subst h
-    simp
-  · simp [Ne.symm h, lab.injective.ne h]
 
 theorem toMat_mem_of_simple
     {τ : Tag} {D : MinData τ} (hV : D.Valid) (lab : Fin n ≃ Fin D.d)
@@ -275,28 +260,6 @@ theorem toMat_rootUnit_neg_single
       1 + c • (W.loweringMatrix i).map (Int.cast : ℤ → A) :=
   M.toMat_one_add_smul A (coe_rootUnit hV A _ c) (M.loweringMatrix_apply hV A i)
 
-theorem torusCharacter_wt_lab [Fintype B] (s : B → Aˣ) (a : Fin n) :
-    TauCeti.torusCharacter (s ∘ M.node.symm) (D.wt (M.lab a)) =
-      TauCeti.torusCharacter s (W.weight a) := by
-  rw [TauCeti.torusCharacter_def, TauCeti.torusCharacter_def,
-    ← M.node.prod_comp (fun j => (s ∘ M.node.symm) j ^ D.wt (M.lab a) j)]
-  simp only [Function.comp_apply, Equiv.symm_apply_apply, M.wt_lab]
-
-theorem coe_toMat_diagUnit_torusCharacter
-    [Fintype B] (s : B → Aˣ) :
-    ((toMat M.lab A (diagUnit fun a => TauCeti.torusCharacter (s ∘ M.node.symm) (D.wt a)) :
-        Matrix.GeneralLinearGroup (Fin n) A) : Matrix (Fin n) (Fin n) A) =
-      Matrix.diagonal fun a => ((TauCeti.torusCharacter s (W.weight a) : Aˣ) : A) := by
-  rw [coe_toMat_diagUnit]
-  simp only [M.torusCharacter_wt_lab]
-
-theorem coe_toMat_torusElt
-    [Fintype B] (k : Type*) [Field k] (s : B → kˣ) :
-    ((toMat M.lab k (torusElt hV k (s ∘ M.node.symm) : hV.minGroup k) :
-        Matrix.GeneralLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k) =
-      Matrix.diagonal fun a => ((TauCeti.torusCharacter s (W.weight a) : kˣ) : k) := by
-  rw [coe_torusElt]
-  exact M.coe_toMat_diagUnit_torusCharacter k s
 
 end WeightMatch
 

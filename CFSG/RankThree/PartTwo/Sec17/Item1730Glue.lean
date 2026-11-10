@@ -27,17 +27,6 @@ theorem ks17HJConjugacy_of_items
   ks17HJConjugacy_of h131 Sec13.sporadicModels131 Sec13.slTwoCenter h134 h48 h415
     CFSG.Sporadic.J2.isSimpleGroup_J2 KFacts.KS14.ks17J2NotList KFacts.ks17J2AutThree
 
-theorem step1730Chosen_of_items
-    (h131 : Item131) (h134 : Item134) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15) : Step1730Chosen :=
-  step1730Chosen_of h131 Sec13.sporadicModels131 Sec13.slTwoCenter h134 h48 h415
-    CFSG.Sporadic.J2.isSimpleGroup_J2 KFacts.KS14.ks17J2NotList
-
-theorem rank3II_17_30_of_items
-    (h1728 : Item1728)
-    (h131 : Item131) (h134 : Item134) (h48 : Sec4.Item4_8) (h415 : Sec4.Item4_15) : Item1730 :=
-  rank3II_17_30_of_item1728 h1728 h131 Sec13.sporadicModels131 Sec13.slTwoCenter h134 h48 h415
-    CFSG.Sporadic.J2.isSimpleGroup_J2 KFacts.KS14.ks17J2NotList KFacts.ks17J2AutThree
 
 end Sec17
 

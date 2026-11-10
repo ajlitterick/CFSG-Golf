@@ -39,10 +39,6 @@ private theorem genericOrders_pomegaPlus_four_two (f : ℕ) (hf : 2 ≤ f) :
     exact ⟨even_two, by omega⟩
   simp [CFSG.Blueprint.Multiplier.genericOrders, heven]
 
-private theorem exceptionalOrders_pomegaPlus_four_two (f : ℕ) (hf : 2 ≤ f) :
-    CFSG.Blueprint.Multiplier.exceptionalOrders .POmegaPlus 4 2 f = (1, 1) := by
-  unfold CFSG.Blueprint.Multiplier.exceptionalOrders
-  split <;> simp_all
 
 private theorem genericOrders_pomegaPlus_four_one :
     CFSG.Blueprint.Multiplier.genericOrders .POmegaPlus 4 2 1 = (1, 1) := by

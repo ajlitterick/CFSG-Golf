@@ -302,8 +302,6 @@ theorem naRel : NaRel xU hU := by
       (mul1 FiveN.wf_n2 wf_f85 (by bm_strips4 CFSG.KC.BM.FiveN.cm2 69))
       (mul1 FiveN.wf_e2 FiveN.wf_n2 (by bm_strips4 CFSG.KC.BM.FiveN.dm2 69))
 
-theorem fact13625 : Fact13625 xU hU :=
-  fact13625_of fiveRel naRel CertificateChecks.KernelBM.PcFive.phiOK_true
 
 end CertificateChecks.KernelBM.FiveA
 

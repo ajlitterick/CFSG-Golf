@@ -14,22 +14,6 @@ theorem f4FrameCandidates_orthogonal : ∀ L ∈ f4FrameCandidates,
       (L.map (orbitCertRoot .F4)).Pairwise fun σ σ' => iform σ σ' = 0 := by
   decide +kernel
 
-theorem f4FrameCandidates_comm_nil : ∀ L ∈ f4FrameCandidates, ∀ p ∈ L, ∀ q ∈ L, p ≠ q →
-    f4CollComm p q = [] := by
-  decide +kernel
-
-theorem f4CollComm_nil_of_iform_check : f4PosPairs.all (fun e =>
-    !(iform (orbitCertRoot .F4 e.1) (orbitCertRoot .F4 e.2) == 0) ||
-      (f4CollComm e.1 e.2).isEmpty) = true := by
-  decide +kernel
-
-theorem f4CollComm_eq_nil_of_iform_eq_zero {p q : ℕ} (hp : 24 ≤ p ∧ p ≤ 47)
-    (hq : 24 ≤ q ∧ q ≤ 47) (hpq : p ≠ q)
-    (h : iform (orbitCertRoot .F4 p) (orbitCertRoot .F4 q) = 0) : f4CollComm p q = [] := by
-  have h' := List.all_eq_true.1 f4CollComm_nil_of_iform_check (p, q)
-    (mem_f4PosPairs.2 ⟨hp.1, hp.2, hq.1, hq.2, hpq⟩)
-  simpa [h] using h'
-
 
 variable {K : Type} [Field K] [CharP K 2]
 
@@ -46,27 +30,6 @@ theorem commute_f4x_of_f4CollComm_eq_nil {p q : ℕ} (hp : 24 ≤ p ∧ p ≤ 47
     rw [h0, List.map_nil, List.prod_nil] at hc
     exact commutatorElement_eq_one_iff_commute.1 hc
 
-theorem commute_f4x_of_iform_eq_zero {p q : ℕ} (hp : 24 ≤ p ∧ p ≤ 47) (hq : 24 ≤ q ∧ q ≤ 47)
-    (h : iform (orbitCertRoot .F4 p) (orbitCertRoot .F4 q) = 0) (s t : K) :
-    Commute (f4x K p s) (f4x K q t) :=
-  commute_f4x_of_f4CollComm_eq_nil hp hq (fun hpq => f4CollComm_eq_nil_of_iform_eq_zero hp hq hpq h)
-    s t
-
-theorem commute_f4x_of_mem_f4FrameCandidates {L : List ℕ} (hL : L ∈ f4FrameCandidates) {p q : ℕ}
-    (hp : p ∈ L) (hq : q ∈ L) (s t : K) : Commute (f4x K p s) (f4x K q t) := by
-  have hpos := (f4FrameCandidates_orthogonal L hL).1
-  exact commute_f4x_of_f4CollComm_eq_nil ⟨(hpos p hp).1, by have := (hpos p hp).2; omega⟩
-    ⟨(hpos q hq).1, by have := (hpos q hq).2; omega⟩
-    (f4FrameCandidates_comm_nil L hL p hp q hq) s t
-
-theorem prod_f4x_eq_of_perm_f4FrameCandidates {L L' : List ℕ} (hL : L ∈ f4FrameCandidates)
-    (hL' : L'.Perm L) (e : (Fin Tag.F4.rank → ℤ) → K) :
-    (L'.map fun p => f4x K p (e (orbitCertRoot .F4 p))).prod =
-      (L.map fun p => f4x K p (e (orbitCertRoot .F4 p))).prod := by
-  refine (hL'.map _).prod_eq' (List.pairwise_of_forall_mem_list fun a ha b hb => ?_)
-  obtain ⟨p, hp, rfl⟩ := List.mem_map.1 ha
-  obtain ⟨q, hq, rfl⟩ := List.mem_map.1 hb
-  exact commute_f4x_of_mem_f4FrameCandidates hL (hL'.subset hp) (hL'.subset hq) _ _
 
 variable [Finite K]
 
@@ -126,17 +89,5 @@ theorem exists_mulAut_of_mem_f4FrameCandidates_of_ne_zero {L : List ℕ}
   · exact ⟨_, Set.mem_insert_of_mem _ (Set.mem_insert _ _), key _ h⟩
   · exact ⟨_, Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ rfl), key _ h⟩
 
-theorem exists_conj_of_perm_f4FrameCandidates_of_ne_zero {L L' : List ℕ}
-    (hL : L ∈ f4FrameCandidates) (hL' : L'.Perm L) (e : (Fin Tag.F4.rank → ℤ) → K)
-    (he : ∀ p ∈ L', e (orbitCertRoot .F4 p) ≠ 0) :
-    ∃ g ∈ adjointGroup .F4 K,
-      g * (L'.map fun p => f4x K p (e (orbitCertRoot .F4 p))).prod * g⁻¹ = f4x K 47 1 ∨
-      g * (L'.map fun p => f4x K p (e (orbitCertRoot .F4 p))).prod * g⁻¹ =
-        f4x K 47 1 * f4x K 44 1 ∨
-      g * (L'.map fun p => f4x K p (e (orbitCertRoot .F4 p))).prod * g⁻¹ =
-        f4x K 41 1 * f4x K 45 1 := by
-  rw [prod_f4x_eq_of_perm_f4FrameCandidates hL hL' e]
-  exact exists_conj_of_mem_f4FrameCandidates_of_ne_zero hL e fun p hp =>
-    he p (hL'.symm.subset hp)
 
 end CFSG.SeitzReduction

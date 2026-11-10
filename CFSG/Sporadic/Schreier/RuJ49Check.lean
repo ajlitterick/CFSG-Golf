@@ -20,8 +20,6 @@ set_option compiler.extract_closed false
 
 @[expose] def tabs (_ : Unit := ()) : Array (Array ℕ) := ((wordList ()).map ruSeedWordA).toArray
 
-@[expose] def tabOf (T : Array (Array ℕ)) (k : ℕ) : Array ℕ :=
-  if k < T.size then T[k]! else idA 4060
 
 inductive Ex where
   | el (k : ℕ)
@@ -29,11 +27,6 @@ inductive Ex where
   | mul (a b : Ex)
   | pow (a : Ex) (n : ℕ)
 
-@[expose] def Ex.evalA (T : Array (Array ℕ)) : Ex → Array ℕ
-  | .el k => tabOf T k
-  | .one => idA 4060
-  | .mul a b => compA 4060 (a.evalA T) (b.evalA T)
-  | .pow a n => powA 4060 (a.evalA T) n
 
 inductive At where
   | eq (a b : Ex)
@@ -41,11 +34,6 @@ inductive At where
   | eqAny (a : Ex) (cs : List Ex)
   | imp (h c : At)
 
-@[expose] def At.checkA (T : Array (Array ℕ)) : At → Bool
-  | .eq a b => eqA 4060 (a.evalA T) (b.evalA T)
-  | .ne a b => !eqA 4060 (a.evalA T) (b.evalA T)
-  | .eqAny a cs => cs.any fun c => eqA 4060 (a.evalA T) (c.evalA T)
-  | .imp h c => !h.checkA T || c.checkA T
 
 @[expose] def X (k : ℕ) : Ex := .el k
 
@@ -124,8 +112,5 @@ inductive At where
   atomsBasic ++ atomsX () ++ atomsDist () ++ atomsI0 ++ atomsI () ++ atomsIdist () ++ atomsRS0 ++
     (List.range 12).flatMap atomsRSk
 
-@[expose] def check (_ : Unit := ()) : Bool :=
-  let T := tabs ()
-  (wordList ()).length == 19 && (wordList ()).all (lettersOK 2) && (atoms ()).all (·.checkA T)
 
 end CFSG.Sporadic.RuSchreier.J49

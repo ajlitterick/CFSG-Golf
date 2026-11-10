@@ -32,9 +32,6 @@ theorem mulVecLin_bijective (A : GL (Fin n) K) :
     Submodule K (Fin n → K) ≃o Submodule K (Fin n → K) :=
   Submodule.orderIsoMapComapOfBijective _ (mulVecLin_bijective A)
 
-theorem glOrderIso_apply (A : GL (Fin n) K) (W : Submodule K (Fin n → K)) :
-    glOrderIso A W = W.map (mulVecLin (A : Matrix (Fin n) (Fin n) K)) :=
-  rfl
 
 theorem map_mulVecLin_inv_map (A : GL (Fin n) K) (W : Submodule K (Fin n → K)) :
     (W.map (mulVecLin (A : Matrix (Fin n) (Fin n) K))).map

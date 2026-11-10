@@ -126,7 +126,6 @@ end B6
   let cl := closureM gens
   gmList.all fun g => cl.contains g
 
-@[expose] def ct3 : List Mc := [⟨1, 12, 39⟩, ⟨1, 63, 32⟩]
 
 end CFSG.Quasithin.H13.S127.Mod
 

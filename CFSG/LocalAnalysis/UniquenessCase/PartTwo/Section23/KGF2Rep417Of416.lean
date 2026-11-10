@@ -53,6 +53,5 @@ theorem k_GF2Rep417_of_w4Lem4_16
   rw [Subgroup.commutator_comm, Subgroup.commutator_eq_bot_iff_le_centralizer] at hcomm
   exact hcomm
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22

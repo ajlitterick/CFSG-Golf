@@ -515,9 +515,6 @@ section Model
 open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem
   CFSG.Assembly.LowTwoRank
 
-theorem ggStepTwoCoordModelOn_PSp_of_contrary (hcontr : GGSpCoordContraryInput)
-    (hns : GGSpCoordModelNonsplitInput) : GGStepTwoCoordModelOn .PSp :=
-  ggStepTwoCoordModelOn_PSp_of_inputs ggSpCoordCompInput_holds hcontr hns
 
 end Model
 

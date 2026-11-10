@@ -28,26 +28,6 @@ theorem sum_family_le {ι : Type} [Fintype ι] (η : ι → G → ℂ) (hinj : F
   · intro χ _ _
     exact hf χ
 
-theorem sum_two_families_le {ι : Type} [Fintype ι] (η η' : ι → G → ℂ)
-    (hinj : Function.Injective η) (hinj' : Function.Injective η')
-    (hdisj : ∀ i k, η i ≠ η' k) (hmem : ∀ i, η i ∈ BlocksIrr G)
-    (hmem' : ∀ i, η' i ∈ BlocksIrr G) (f : (G → ℂ) → ℤ) (hf : ∀ χ, 0 ≤ f χ) :
-    ∑ i, f (η i) + ∑ i, f (η' i) ≤ ∑ χ ∈ (irreducibles_finite G).toFinset, f χ := by
-  rw [← Finset.sum_image (fun i _ j _ h => hinj h), ← Finset.sum_image (fun i _ j _ h => hinj' h),
-    ← Finset.sum_union]
-  · apply Finset.sum_le_sum_of_subset_of_nonneg
-    · intro χ hχ
-      rcases Finset.mem_union.mp hχ with h | h <;> obtain ⟨i, -, rfl⟩ := Finset.mem_image.mp h <;>
-        rw [Set.Finite.mem_toFinset]
-      · exact hmem i
-      · exact hmem' i
-    · intro χ _ _
-      exact hf χ
-  · rw [Finset.disjoint_left]
-    intro χ h1 h2
-    obtain ⟨i, -, rfl⟩ := Finset.mem_image.mp h1
-    obtain ⟨k, -, hk⟩ := Finset.mem_image.mp h2
-    exact hdisj i k hk.symm
 
 theorem eq_zero_of_mul_sq_le {n c a : ℤ} (h : n * (a * a) ≤ c) (hc : c < n) (hn : 0 < n) :
     a = 0 := by

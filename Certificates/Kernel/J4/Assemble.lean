@@ -40,23 +40,6 @@ theorem mtOk : Nat.beq (runT md kd
     (List.append (List.append (List.append MT0 MT1) (List.append MT2 MT3)) (List.append (List.append MT4 MT5) (List.append MT6 (List.append MT7 MT8))))
     (nat_lit 0)) (nat_lit 89) = true := mtAll
 
-theorem fl1Ok : Nat.beq (runF kd (nat_lit 1)
-    (List.append (List.append FL1_0 (List.append FL1_1 FL1_2)) (List.append (List.append FL1_3 FL1_4) (List.append FL1_5 FL1_6))) (nat_lit 0)) (fullOf kd) = true := fl1All
-
-theorem fl2Ok : Nat.beq (runF kd (Nat.succ (nat_lit 1))
-    (List.append (List.append FL2_0 (List.append FL2_1 FL2_2)) (List.append (List.append FL2_3 FL2_4) (List.append FL2_5 FL2_6))) (nat_lit 0)) (fullOf kd) = true := fl2All
-
-theorem fl3Ok : Nat.beq (runF kd (Nat.succ (Nat.succ (nat_lit 1)))
-    (List.append (List.append FL3_0 (List.append FL3_1 FL3_2)) (List.append (List.append FL3_3 FL3_4) (List.append FL3_5 FL3_6))) (nat_lit 0)) (fullOf kd) = true := fl3All
-
-theorem fl4Ok : Nat.beq (runF kd (Nat.succ (Nat.succ (Nat.succ (nat_lit 1))))
-    (List.append (List.append FL4_0 (List.append FL4_1 FL4_2)) (List.append (List.append FL4_3 FL4_4) (List.append FL4_5 FL4_6))) (nat_lit 0)) (fullOf kd) = true := fl4All
-
-theorem fl5Ok : Nat.beq (runF kd (Nat.succ (Nat.succ (Nat.succ (Nat.succ (nat_lit 1)))))
-    (List.append (List.append FL5_0 (List.append FL5_1 FL5_2)) (List.append (List.append FL5_3 FL5_4) (List.append FL5_5 FL5_6))) (nat_lit 0)) (fullOf kd) = true := fl5All
-
-theorem fl6Ok : Nat.beq (runF kd (Nat.succ (Nat.succ (Nat.succ (Nat.succ (Nat.succ (nat_lit 1))))))
-    (List.append (List.append FL6_0 (List.append FL6_1 FL6_2)) (List.append (List.append FL6_3 FL6_4) (List.append FL6_5 FL6_6))) (nat_lit 0)) (fullOf kd) = true := fl6All
 
 theorem forests : forAll kd
     [(List.append (List.append FL1_0 (List.append FL1_1 FL1_2)) (List.append (List.append FL1_3 FL1_4) (List.append FL1_5 FL1_6))), (List.append (List.append FL2_0 (List.append FL2_1 FL2_2)) (List.append (List.append FL2_3 FL2_4) (List.append FL2_5 FL2_6))), (List.append (List.append FL3_0 (List.append FL3_1 FL3_2)) (List.append (List.append FL3_3 FL3_4) (List.append FL3_5 FL3_6))), (List.append (List.append FL4_0 (List.append FL4_1 FL4_2)) (List.append (List.append FL4_3 FL4_4) (List.append FL4_5 FL4_6))), (List.append (List.append FL5_0 (List.append FL5_1 FL5_2)) (List.append (List.append FL5_3 FL5_4) (List.append FL5_5 FL5_6))), (List.append (List.append FL6_0 (List.append FL6_1 FL6_2)) (List.append (List.append FL6_3 FL6_4) (List.append FL6_5 FL6_6)))]

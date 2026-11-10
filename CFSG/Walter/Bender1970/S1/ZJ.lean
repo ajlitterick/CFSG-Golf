@@ -46,12 +46,5 @@ theorem bender1970_1_2_ZJ_characteristic
   exact TheoremA.theoremA hp2 P
     ((pStable_iso (QuotientGroup.quotientBot.trans Subgroup.topEquiv)).mp hstab) hC
 
-theorem bender1970_1_2_ZJ_normal
-    {G : Type*} [Group G] [Finite G]
-    (hG : HasAbelianSylowTwo G) {p : ℕ} [Fact p.Prime] (P : Sylow p G)
-    (hC : Subgroup.centralizer (pCore p G : Set G) ≤ pCore p G) :
-    (Glauberman.ZJ (P : Subgroup G)).Normal :=
-  have := bender1970_1_2_ZJ_characteristic hG P hC
-  inferInstance
 
 end CFSG.Walter

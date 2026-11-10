@@ -320,11 +320,6 @@ private theorem a11chi_neg (χ : ZMod 7 → A11Fˣ)
     χ (-c) = (χ c)⁻¹ := by
   rw [eq_inv_iff_mul_eq_one, ← hχadd, _root_.neg_add_cancel, hχ0]
 
-private theorem a11ggDiagConj_const_mul (t : A11Fˣ) (h : Fin 4 → A11Fˣ) :
-    ggDiagConj ((fun _ : Fin 4 => t) * h) = ggDiagConj h := by
-  apply MonoidHom.ext
-  intro s
-  rw [← ggDiagConj_ggDiagConj, ggDiagConj_eq_self_of_const (fun _ _ => rfl)]
 
 private theorem a11chi_surjective (g : A11Fˣ)
     (hg : ∀ x : A11Fˣ, x ∈ Subgroup.zpowers g) : Function.Surjective (a11chi g hg) := by

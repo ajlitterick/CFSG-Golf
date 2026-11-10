@@ -93,11 +93,5 @@ theorem no_even_unitary_three_component (hSec : ActorComponentSection)
   have := hN f hf W helem hnt ρ.range A₀ hq0.1 hirr hmodel0 hA0 hAe hAn
   omega
 
-theorem no_even_unitary_three_component_of_ffActor (hSec : ActorComponentSection)
-    (hN : EvenUnitaryThreeNoOffender) {V : Type} [CommGroup V] [Finite V]
-    {H T M E : Subgroup (MulAut V)} (hA : FFActor V H T M E) (hns : ¬ Group.IsSolvable H)
-    {L : Subgroup (MulAut V)} (hL : IsComponentIn L H) (f : ℕ) :
-    ¬ CFSG.Assembly.LowTwoRank.StatedClassicalModel (L ⧸ Subgroup.center L) .PSU 3 2 f :=
-  no_even_unitary_three_component hSec hN (ActorBase.of_ffActor hA) hns hL f
 
 end CFSG.QuasithinUnique.Setup.X5

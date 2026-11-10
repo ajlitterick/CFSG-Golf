@@ -71,15 +71,6 @@ theorem hexQuotRGD2_gen :
     RankTwoSystem (K ⧸ Subgroup.center K) 6 :=
   (hexQuotPre hd).toSystemOfSimple
 
-theorem hexQuotSystem_root
-    [IsSimpleGroup (K ⧸ Subgroup.center K)] (i : ℤ) :
-    (hexQuotSystem hd).root i = (hexGroup X i).map (hexProj K) :=
-  rfl
-
-theorem hexQuotSystem_U
-    [IsSimpleGroup (K ⧸ Subgroup.center K)] :
-    (hexQuotSystem hd).U = (posUnipotent (g2Shape X)).map (hexProj K) :=
-  rfl
 
 omit hd
 

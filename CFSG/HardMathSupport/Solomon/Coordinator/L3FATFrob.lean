@@ -22,15 +22,6 @@ variable {π : Bool} {p f : ℕ} {K : Type} [Field K]
   map_one' := MulEquiv.ext fun _ => Subtype.ext (frobGL_one_apply _)
   map_mul' σ τ := MulEquiv.ext fun _ => Subtype.ext (frobGL_mul_apply σ τ _)
 
-theorem frobHom_apply (hK : PiField π p f K) (σ : K ≃+* K) : frobHom hK σ = frobSL hK σ := rfl
-
-theorem frobSL_pow (hK : PiField π p f K) (σ : K ≃+* K) (j : ℕ) :
-    frobSL hK (σ ^ j) = frobSL hK σ ^ j := by
-  rw [← frobHom_apply, map_pow, frobHom_apply]
-
-theorem frobSL_mul (hK : PiField π p f K) (σ τ : K ≃+* K) :
-    frobSL hK (σ * τ) = frobSL hK σ * frobSL hK τ := by
-  rw [← frobHom_apply, map_mul, frobHom_apply, frobHom_apply]
 
 theorem frobSL_descend_eq_one {hK : PiField π p f K} (hq2 : π = false → 2 < p ^ f)
     {σ : K ≃+* K} (h : centerDescend ↥(slPi π 3 (p ^ f) K) (frobSL hK σ) = 1) : σ = 1 := by

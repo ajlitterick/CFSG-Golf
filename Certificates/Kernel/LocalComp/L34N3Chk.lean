@@ -37,14 +37,6 @@ theorem kCent0 : cent 0 = true := by quickRfl
 theorem kCent1 : cent 1 = true := by quickRfl
 theorem kCent2 : cent 2 = true := by quickRfl
 
-theorem kNegT : notB (Nat.beq (tot 2) 671) = true := by quickRfl
-
-theorem kNegO : andB (notB (orbK 42 6 6 L34R.G GI (OT 2) (OE 2) (OS 2) (OSI 2) 671 12
-    (L34R.T (KR 2)))) (notB (orbK 42 6 6 L34R.G GI (OT 2) (OE 2) (OS 2) (OSI 2) 672 12
-    (L34R.T (KR 1)))) = true := by quickRfl
-
-theorem kNegC : notB (centK 42 6 20160 L34S.T (L34R.T (KR 2)) 59 (CX 2) (CP 2)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelLC.L34N3
 

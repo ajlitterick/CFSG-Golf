@@ -214,9 +214,6 @@ open CFSG.Open
       ∀ p : ℕ, p.Prime → p ≠ 2 → p = d.1.characteristic → ¬ IsRankOneLieIndex d.1 →
         ∀ T : Sylow p K, GLBCore p 3 (T : Subgroup K) = ⊤
 
-theorem charPGen3At_mono {Fam Fam' : TauCeti.ValidLieTypeIndex → Prop}
-    (h : CharPGen3At Fam) (hle : ∀ d, Fam' d → Fam d) : CharPGen3At Fam' :=
-  fun K _ _ hs hn d hd => h K hs hn d (hle d hd)
 
 theorem charPGen3At_or {F₁ F₂ : TauCeti.ValidLieTypeIndex → Prop}
     (h₁ : CharPGen3At F₁) (h₂ : CharPGen3At F₂) : CharPGen3At fun d => F₁ d ∨ F₂ d :=

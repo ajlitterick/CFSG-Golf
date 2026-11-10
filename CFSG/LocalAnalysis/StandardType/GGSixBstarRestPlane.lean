@@ -293,13 +293,6 @@ theorem ggRootPlaneInputOn_notPSLSplit_of_frame_rest (hF : GGSLNonsplitFrameInpu
   ggRootPlaneInputOn_notPSLSplit_of_remaining (ggRootPlaneInputOn_PSLNonsplit_of_frame hF) hPSU
     hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
 
-theorem ggRootPlaneInput_of_frame_rest (hF : GGSLNonsplitFrameInput)
-    (hPSU : GGRootPlaneAt .PSU) (hPSp : GGRootPlaneAt .PSp) (hPlus : GGRootPlaneAt .POmegaPlus)
-    (hMinus : GGRootPlaneAt .POmegaMinus) (hF4 : GGRootPlaneAt .F4) (hE6 : GGRootPlaneAt .E6)
-    (hE7 : GGRootPlaneAt .E7) (hE8 : GGRootPlaneAt .E8) (hTwE6 : GGRootPlaneAt .twistedE6) :
-    GGRootPlaneInput :=
-  ggRootPlaneInput_of_notPSLSplit
-    (ggRootPlaneInputOn_notPSLSplit_of_frame_rest hF hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6)
 
 end Inputs
 

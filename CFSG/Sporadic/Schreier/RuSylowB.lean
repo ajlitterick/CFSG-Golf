@@ -55,8 +55,6 @@ theorem mem_ruSGenSet {x : ruS} (hx : x ∈ ruSGenSet) : ∃ j < 4, x = ruSGenS 
   obtain ⟨j, hj, he⟩ := mem_ruSGens_iff.1 hx
   exact ⟨j, hj, Subtype.ext he.symm⟩
 
-theorem ruSGenS_mem (j : ℕ) (hj : j < 4) : ruSGenS j ∈ ruSGenSet :=
-  mem_ruSGens_iff.2 ⟨j, hj, rfl⟩
 
 abbrev RuQ :
     Type := ruS ⧸ ruRS

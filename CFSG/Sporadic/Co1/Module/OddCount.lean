@@ -140,11 +140,6 @@ theorem ConjPair.smul_fst (g : G) (x : ConjPair G) : (g • x).fst = g * x.fst *
 
 theorem ConjPair.smul_snd (g : G) (x : ConjPair G) : (g • x).snd = g * x.snd * g⁻¹ := rfl
 
-omit [Group G] in
-theorem ConjSet.injective_val : Function.Injective (ConjSet.val : ConjSet G → G) := by
-  rintro ⟨a⟩ ⟨b⟩ h
-  cases h
-  rfl
 
 omit [Group G] in
 theorem ConjPair.injective_mk :

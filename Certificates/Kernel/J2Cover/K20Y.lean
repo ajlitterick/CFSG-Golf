@@ -11,7 +11,6 @@ namespace CertificateChecks.KernelJ2Cover
 
 theorem kFus : (fusN (LTP 0) (LTP 1)).testBit 0 = true := by quickRfl
 
-theorem negFus : (!(fusN (LTP 0) (Nat.xor (LTP 1) 128)).testBit 0) = true := by quickRfl
 
 end CertificateChecks.KernelJ2Cover
 

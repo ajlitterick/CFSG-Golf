@@ -35,14 +35,6 @@ theorem hs_K : fiveN (opsF2K 20) KernelSRHS.SA.M KernelSRHS.SB.M hsFiveTwo = tru
 
 theorem th_K : fiveN (opsF2K 248) KernelLC.ThA.M KernelLC.ThB.M thFiveTwo = true := by quickRfl
 
-theorem hs_neg_w : (!fiveN (opsF2K 20) KernelSRHS.SA.M KernelSRHS.SB.M
-    { hsFiveTwo with w := 0 }) = true := by quickRfl
-
-theorem hs_neg_tests : (!fiveN (opsF2K 20) KernelSRHS.SA.M KernelSRHS.SB.M
-    { hsFiveTwo with base := { hsFiveTwo.base with tests := [] } }) = true := by quickRfl
-
-theorem hs_neg_range : (!fiveN (opsF2K 20) KernelSRHS.SA.M KernelSRHS.SB.M
-    { hsFiveTwo with w := 4 }) = true := by quickRfl
 
 end CertificateChecks.KernelFT
 

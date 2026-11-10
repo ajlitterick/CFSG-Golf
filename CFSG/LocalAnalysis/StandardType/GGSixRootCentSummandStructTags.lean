@@ -80,34 +80,6 @@ theorem ggRootCentLayerTag_of_placeholder (t : StatedLieTag)
 theorem ggRootCentLayerTag_POmegaOdd : GGRootCentLayerTag .POmegaOdd :=
   fun _ _ _ _ _ _ _ _ _ hadm => absurd rfl hadm.2.2.2
 
-theorem ggRootCentSummandStructInput_of_layerTags (hPSL : GGRootCentDerivedTag .PSL)
-    (hPSU : GGRootCentDerivedTag .PSU) (hPSp : GGRootCentLayerTag .PSp)
-    (hPlus : GGRootCentLayerTag .POmegaPlus) (hMinus : GGRootCentLayerTag .POmegaMinus)
-    (hF4 : GGRootCentDerivedTag .F4) (hE6 : GGRootCentDerivedTag .E6)
-    (hE7 : GGRootCentDerivedTag .E7) (hE8 : GGRootCentDerivedTag .E8)
-    (hTwE6 : GGRootCentDerivedTag .twistedE6) : GGRootCentSummandStructInput := by
-  refine ggRootCentSummandStructInput_of_tags fun t => ggRootCentSummandStructTag_of_layerTag ?_
-  cases t with
-  | PSL => exact ggRootCentLayerTag_of_derivedTag hPSL
-  | PSU => exact ggRootCentLayerTag_of_derivedTag hPSU
-  | PSp => exact hPSp
-  | POmegaOdd => exact ggRootCentLayerTag_POmegaOdd
-  | POmegaPlus => exact hPlus
-  | POmegaMinus => exact hMinus
-  | F4 => exact ggRootCentLayerTag_of_derivedTag hF4
-  | E6 => exact ggRootCentLayerTag_of_derivedTag hE6
-  | E7 => exact ggRootCentLayerTag_of_derivedTag hE7
-  | E8 => exact ggRootCentLayerTag_of_derivedTag hE8
-  | twistedE6 => exact ggRootCentLayerTag_of_derivedTag hTwE6
-  | G2 => exact ggRootCentLayerTag_of_placeholder _ (Or.inl rfl)
-  | trialityD4 => exact ggRootCentLayerTag_of_placeholder _ (Or.inr (Or.inl rfl))
-  | twistedB2 => exact ggRootCentLayerTag_of_placeholder _ (Or.inr (Or.inr (Or.inl rfl)))
-  | twistedG2 =>
-    exact ggRootCentLayerTag_of_placeholder _ (Or.inr (Or.inr (Or.inr (Or.inl rfl))))
-  | twistedF4 =>
-    exact ggRootCentLayerTag_of_placeholder _ (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl rfl)))))
-  | Tits =>
-    exact ggRootCentLayerTag_of_placeholder _ (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr rfl)))))
 
 end Tags
 

@@ -34,7 +34,6 @@ variable {G : Type*} [Group G]
       _ = l⁻¹ * (l * (a⁻¹ * y * a) * l⁻¹) * l := by group
       _ = l⁻¹ * y * l⁻¹⁻¹ := by rw [← h, inv_inv]
 
-theorem actLike_le (A L : Subgroup G) : actLike A L ≤ A := fun _ h => h.1
 
 theorem le_centralizer_of_isQuasisimple {A L : Subgroup G} [Finite L]
     (hAq : CFSG.IsQuasisimple A)

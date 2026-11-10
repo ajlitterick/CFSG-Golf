@@ -8,10 +8,6 @@ namespace CFSG.ClassicalInvolution.Q3.PhilipHall.Frame.TwinThinPf10
 
 open CFSG.ClassicalInvolution.Q3.AE CFSG.ClassicalInvolution.Q3.AE.Wr
 
-@[expose] def nyList : List (Wr 4) :=
-  kList.flatMap fun k₁ => kStarList.flatMap fun k₂ => [k₁ * k₂, k₁ * k₂ * yQ, k₁ * k₂ * yQ * yQ]
-
-theorem loc_conj_y : ∀ b : Wr 4, b * yQ * b⁻¹ ∈ nyList := by decide +kernel
 
 theorem loc_cent : ∀ b : Wr 4, (∀ k ∈ kList, b * k * b⁻¹ = k) →
     (∀ k ∈ kStarList, b * k * b⁻¹ = k) → b = 1 ∨ b = zQ := by decide +kernel

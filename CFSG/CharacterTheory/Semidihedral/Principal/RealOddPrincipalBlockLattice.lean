@@ -153,10 +153,6 @@ instance intermediateField_numberField : NumberField E := ⟨⟩
   map_zero' := rfl
   map_add' _ _ := rfl
 
-omit [FiniteDimensional ℚ E] in
-theorem ringOfIntegersToAlgebraicIntegers_coe (x : 𝓞 E) :
-    ((ringOfIntegersToAlgebraicIntegers E x : ComplexAlgebraicIntegers) : ℂ) = ((x : E) : ℂ) :=
-  rfl
 
 omit [FiniteDimensional ℚ E] in
 theorem exists_ringOfIntegers_of_mem (a : ComplexAlgebraicIntegers) (ha : (a : ℂ) ∈ E) :

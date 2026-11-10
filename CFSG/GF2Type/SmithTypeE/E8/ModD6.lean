@@ -69,8 +69,6 @@ theorem e8mConfA_iff {A : Array (Fin (Tag.rank .E7) → ℤ)} (hA : ∀ k < 126,
 theorem tabCheck_holds : e8mTabOK () = true :=
   Certificates.certificate38840.1
 
-theorem raCheck_holds : e8mRACheck () = true :=
-  Certificates.certificate38840.2.1
 
 theorem abelCheck_holds : e8mAbelCheck () = true :=
   Certificates.certificate38840.2.2
@@ -152,35 +150,5 @@ theorem e8m_abelian27 (S : Finset (Fin (Tag.rank .E7) → ℤ))
   rw [← hkα]
   exact hTrue.2 (le_antisymm hTrue.1 (hc ▸ hST)) k hkT
 
-theorem e8m_RA_facts :
-    ∀ a < 126, e8mRoot a ⟨6, by decide⟩ = 1 → 0 < height (e8mRoot a) ∧
-      ∀ b < 126, e8mRoot b ⟨6, by decide⟩ = 1 → e8mConfA (e8mRootArr ()) a b = false := by
-  have h := raCheck_holds
-  unfold e8mRACheck at h
-  simp only [Bool.and_eq_true, List.all_eq_true, List.mem_filter, List.mem_range, and_imp,
-    Bool.not_eq_true', beq_iff_eq] at h
-  obtain ⟨⟨-, hpos⟩, hconf⟩ := h
-  intro a ha ha7
-  refine ⟨?_, fun b hb hb7 => ?_⟩
-  · simpa [e8mIsPos] using hpos a ha (by simpa [e8mIsRA] using ha7)
-  · exact hconf a ha (by simpa [e8mIsRA] using ha7) b hb (by simpa [e8mIsRA] using hb7)
-
-theorem e8m_RA_pos {α : Fin (Tag.rank .E7) → ℤ}
-    (hα : IsRoot .E7 α) (hα7 : α ⟨6, by decide⟩ = 1) : 0 < height α := by
-  obtain ⟨a, ha, rfl⟩ := exists_e8mRoot_eq hα
-  exact (e8m_RA_facts a ha hα7).1
-
-theorem e8m_RA_abelian {α β : Fin (Tag.rank .E7) → ℤ}
-    (hα : IsRoot .E7 α) (hα7 : α ⟨6, by decide⟩ = 1) (hβ : IsRoot .E7 β)
-    (hβ7 : β ⟨6, by decide⟩ = 1) : ¬ IsRoot .E7 (α + β) := by
-  obtain ⟨hA, -⟩ := tab_facts
-  obtain ⟨a, ha, rfl⟩ := exists_e8mRoot_eq hα
-  obtain ⟨b, hb, rfl⟩ := exists_e8mRoot_eq hβ
-  intro hroot
-  obtain ⟨m, hm, hmab⟩ := exists_e8mRoot_eq hroot
-  have hc := (e8m_RA_facts a ha hα7).2 b hb hβ7
-  have : e8mConfA (e8mRootArr ()) a b = true := (e8mConfA_iff hA ha hb).mpr ⟨m, hm, hmab⟩
-  rw [hc] at this
-  exact absurd this (by decide)
 
 end CFSG.GF2Type.SmithTypeE.E8

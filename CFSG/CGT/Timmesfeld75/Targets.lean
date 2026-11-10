@@ -27,9 +27,5 @@ open scoped MatrixGroups Matrix
         (∃ n : ℕ, Odd n ∧ 3 ≤ n ∧ Nonempty (↥(T ⊔ conjSubgroup g T) ⧸
             (cfgM T (conjSubgroup g T)).subgroupOf (T ⊔ conjSubgroup g T) ≃* DihedralGroup n))
 
-@[expose] def IsTransvectionGF2 {m : ℕ} (t : SL(m, ZMod 2)) : Prop :=
-  ∃ v φ : Fin m → ZMod 2, v ≠ 0 ∧ φ ≠ 0 ∧ dotProduct φ v = 0 ∧
-    ∀ x : Fin m → ZMod 2,
-      (t : Matrix (Fin m) (Fin m) (ZMod 2)).mulVec x = x + dotProduct φ x • v
 
 end CFSG.CGT.Timmesfeld75

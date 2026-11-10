@@ -63,10 +63,6 @@ theorem exists_conjMoHom_eq (h : FinalHyp M V R₀ Mo D K u n) {g : ↥M} (hg : 
 @[expose] def autK (h : FinalHyp M V R₀ Mo D K u n) : Subgroup (MulAut ↥Mo) :=
   (K.subgroupOf M).map h.conjMoHom
 
-omit [Finite X] in
-theorem mem_autK (h : FinalHyp M V R₀ Mo D K u n) {φ : MulAut ↥Mo} :
-    φ ∈ h.autK ↔ ∃ k : ↥M, (k : X) ∈ K ∧ h.conjMoHom k = φ :=
-  Iff.rfl
 
 omit [Finite X] in
 theorem K_le_M (h : FinalHyp M V R₀ Mo D K u n) : K ≤ M := h.K_le.trans h.D_le

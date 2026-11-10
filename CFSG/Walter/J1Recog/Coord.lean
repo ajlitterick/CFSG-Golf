@@ -61,9 +61,6 @@ theorem ee_mod {t y : G} (hy : y ^ 7 = 1) (i : ℕ) : ee t y (i % 7) = ee t y i 
   conv_rhs => rw [← Nat.mod_add_div i 7]
   simp only [ee, pow_add, pow_mul, hy, one_pow, mul_one]
 
-theorem ee_mul_self {t y : G} (ht : t * t = 1) (i : ℕ) : ee t y i * ee t y i = 1 := by
-  calc ee t y i * ee t y i = (y ^ i)⁻¹ * (t * t) * y ^ i := by simp only [ee]; group
-    _ = 1 := by rw [ht, mul_one, inv_mul_cancel]
 
 theorem ee_inv_eq (t y : G) (hy : y ^ 7 = 1) (i : ℕ) (hi : i ≤ 7) :
     y ^ i * t * (y ^ i)⁻¹ = ee t y (7 - i) := by

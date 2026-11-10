@@ -29,28 +29,6 @@ open CFSG.Open CFSG.Sporadic.Th CFSG.Blueprint CFSG.Sporadic.Th.Native CFSG.Sect
 section Census
 
 
-theorem prog3_lt' : prog3.all (Op.lt n3) = true := by decide
-
-theorem rowsMatrix_regs3' :
-    (regs3 ()).size = n3 ∧ ∀ r < n3, rowsMatrix (regs3 ())[r]! = matJ (slpJ a b prog3 r) :=
-  rowsMatrix_slpRows rowsMatrix_seedA rowsMatrix_seedB prog3_lt'
-
-theorem progU_lt : TabThNative.progU.all (Op.lt TabThNative.nU) = true := by decide
-
-theorem rowsMatrix_regsU :
-    (TabThNative.regsU ()).size = TabThNative.nU ∧ ∀ r < TabThNative.nU,
-      rowsMatrix (TabThNative.regsU ())[r]! = matJ (slpJ a b TabThNative.progU r) :=
-  rowsMatrix_slpRows rowsMatrix_seedA rowsMatrix_seedB progU_lt
-
-theorem ord_of_ordOK' {X : Array V4} {g : ↥J} (hX : rowsMatrix X = matJ g) {p : ℕ}
-    [Fact p.Prime] (h : ordOK X p = true) : orderOf g = p := by
-  unfold ordOK at h
-  simp only [Bool.and_eq_true] at h
-  have hid : rowsMatrix idRows = matJ (1 : ↥J) := by rw [rowsMatrix_idRows, matJ_one]
-  refine orderOf_eq_prime (eq_of_rowsMatrix_eq (g := g ^ p) (h := 1) ?_ hid h.1)
-    (ne_of_rowsDiffer hX hid h.2)
-  rw [rowsMatrix_powRowsN, hX, matJ_pow]
-
 theorem th_orderOf :
     orderOf thS = 3 ∧ orderOf thZ = 3 ∧ orderOf thU = 3 :=
   ⟨Certificates.certificate17305.1, Certificates.certificate17305.2.1,

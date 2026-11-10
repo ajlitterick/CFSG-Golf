@@ -60,7 +60,6 @@ theorem bi_mono {n w nb l X : Nat} {b : Nat → Fin n} {γ : Equiv.Perm (Fin n)}
     (h : BI n w nb l X b γ) : BI n w nb (l + 1) X b γ :=
   fun t ht1 ht2 => h t (by omega) ht2
 
-theorem beq_zero_true : Nat.beq 0 (nat_lit 0) = true := rfl
 
 section Walks
 

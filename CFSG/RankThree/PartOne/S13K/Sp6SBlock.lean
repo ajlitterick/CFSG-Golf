@@ -102,15 +102,6 @@ theorem liftZero_mem_M10 {h : Qext K ≃ₗ[K] Qext K} (hh : h ∈ Sp1 K) : lift
 
 theorem ρS_apply (h : ↥(Sp1 K)) : (ρS h : ↥(M10 K)).1 = liftZero h.1 := rfl
 
-theorem ρS_injective : Function.Injective (ρS : ↥(Sp1 K) →* ↥(M10 K)) := by
-  intro h h' hh
-  have h1 : liftZero h.1 = liftZero h'.1 := by
-    have := congrArg (fun g : ↥(M10 K) => g.1) hh
-    simpa [ρS_apply] using this
-  apply Subtype.ext
-  refine LinearEquiv.ext fun a => ?_
-  have := congrArg (fun g : AutV K => g (sg 0 a) 0) h1
-  simpa [liftZero_apply] using this
 
 theorem ρS_mem_sBlk (h : ↥(Sp1 K)) : ρS h ∈ sBlk K := by
   intro a

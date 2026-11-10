@@ -93,9 +93,6 @@ theorem kFactLemma213RedC_four_of_rank4 (hI : GL83I294TwoFour)
     obtain ⟨w, hw, C₀, hmove⟩ := hD
     exact Or.inl (R.caseB_central (R.outer_solvable hS hcat) hemb hw hmove)
 
-theorem kFactLemma213RedC_four (hI : GL83I294Two)
-    (hS : CFSG.AGLEmbedding.KFactCatalogSchreier) : KFactLemma213RedC 4 :=
-  kFactLemma213RedC_four_of_rank4 (GL83I294TwoFour.of_two hI) hS
 
 @[expose] def KFactLemma213GeC (n : ℕ) : Prop :=
   ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (H : Type) [Group H] [Finite H],

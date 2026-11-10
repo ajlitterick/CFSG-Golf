@@ -230,30 +230,5 @@ theorem omq_omMinus_exists_toral {n : ℕ} (hn : 4 ≤ n) {K : Type} [Field K] [
   rw [e, one_mul] at h
   exact h
 
-theorem omq_omMinus_mem_H_of_toral {n : ℕ} (hn : 4 ≤ n) {K : Type} [Field K] [Finite K]
-    [CharP K 2] {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {g : spinGroup (quadMinus n K b c)} {t : Fin (n - 1) → Kˣ} {z : ShortField b c}
-    (hg : OmqMinusToral n g t z) : g ∈ (SmallO8mCurtis.curtisDatum n hn hirr).H := by
-  obtain ⟨g₀, hg₀H, hg₀⟩ := omq_omMinus_exists_toral hn hirr t hg.2.2.1
-  suffices e : g = g₀ by rw [e]; exact hg₀H
-  have hfaith : Function.Injective (spinAction (quadMinus n K b c)) := by
-    apply (MonoidHom.ker_eq_bot_iff _).mp
-    rw [← ker_spinMatrix, ker_spinMatrix_quadMinus_eq_bot hirr CharTwo.two_eq_zero]
-  apply hfaith
-  apply LinearEquiv.toLinearMap_injective
-  refine LinearMap.pi_ext fun x a => ?_
-  rw [show (Pi.single x a : Vm n K) = a • Pi.single x 1 by
-    funext y
-    by_cases h : y = x <;> simp [h]]
-  simp only [LinearEquiv.coe_coe, map_smul]
-  congr 1
-  rcases x with i | i | s
-  · exact (hg.1 i).trans (hg₀.1 i).symm
-  · exact (hg.2.1 i).trans (hg₀.2.1 i).symm
-  · have hs : (Pi.single (.inr (.inr s)) 1 : Vm n K) = planeVec n (Pi.single s 1) := by
-      funext x
-      rcases x with k | k | s' <;> simp [planeVec, Pi.single_apply]
-    obtain ⟨u, hu⟩ := exists_fieldCoord_eq (b := b) (c := c) (Pi.single s (1 : K))
-    rw [hs, ← hu, hg.2.2.2 u, hg₀.2.2.2 u]
 
 end CFSG.LocalAnalysis.WeakClosure81

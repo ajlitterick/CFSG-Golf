@@ -29,18 +29,6 @@ theorem exists_fibre_gallery {e e' : G ⧸ torusSub S} (h : ptMap S e = ptMap S 
     ∃ τ, IsJGallery (phanSystem S) {1, 2} e τ ∧ galleryEnd e τ = e' :=
   mem_residue_iff_exists_isJGallery.1 ((ptMap_eq_iff e e').1 h)
 
-theorem phanSystem_connected (h0 : PtStep0 S) (hc : (ptGraph S).Connected) :
-    (phanSystem S).Connected := by
-  intro x y
-  obtain ⟨w⟩ := hc.preconnected (ptMap S x) (ptMap S y)
-  obtain ⟨γ, hγ⟩ := (phanFib S h0).exists_lift (D := fun _ => True)
-    (fun {e x'} _ _ _ hΓ => by
-      obtain ⟨ρ, g, h1, h2, h3⟩ := phanFib_lift hΓ
-      exact ⟨ρ, g, h1, h2, h3, trivial⟩) w (fun _ _ => trivial) x trivial rfl
-  have hend : ptMap S (galleryEnd x γ) = ptMap S y := hγ.end_eq trivial
-  obtain ⟨τ, hτ, hτe⟩ := exists_fibre_gallery hend
-  refine ⟨γ ++ τ, hγ.isJGallery.1.append hτ.1, ?_⟩
-  rw [galleryEnd_append, hτe]
 
 variable (S) in
 @[expose] def Null2 (h0 : PtStep0 S) {x : G ⧸ parab S {1, 2}} (w : (ptGraph S).Walk x x) :
@@ -81,9 +69,6 @@ structure PhanB3PointGeometry : Prop where
   quad : QuadNull (ptGraph S)
   pent : PentNull (ptGraph S)
 
-theorem PhanB3PointGeometry.connected_phanSystem (H : PhanB3PointGeometry S) :
-    (phanSystem S).Connected :=
-  phanSystem_connected H.step0 H.connected
 
 theorem PhanB3PointGeometry.simplyTwoConnected_phanSystem (H : PhanB3PointGeometry S) :
     (phanSystem S).SimplyTwoConnected := by

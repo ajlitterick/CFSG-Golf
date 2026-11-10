@@ -254,29 +254,6 @@ theorem jFormO_rootVec_left' {γ δ : Fin (Tag.rank .G2) → ℤ} (h : δ = -γ)
   subst h
   exact jFormO_rootVec_left γ x
 
-theorem jFormO_hVec_left (i : Fin (Tag.rank .G2)) (x : RootModule .G2 K) :
-    jFormO K (hVec .G2 K i) x =
-      (cartO i e0 : K) * x (Sum.inl e0) + (cartO i e1 : K) * x (Sum.inl e1) := by
-  induction x using Finsupp.induction_linear with
-  | zero => simp
-  | add x y hx hy => rw [map_add, hx, hy, Finsupp.add_apply, Finsupp.add_apply]; ring
-  | single b r =>
-    rw [← Finsupp.smul_single_one b r, map_smul]
-    simp only [Finsupp.smul_apply, smul_eq_mul]
-    have : hVec .G2 K i = Finsupp.single (Sum.inl i : Label .G2) 1 := rfl
-    rw [this, jFormO_single]
-    rcases b with j' | δ
-    · have hj'' : j' = e0 ∨ j' = e1 := by
-        fin_cases j'
-        · exact .inl rfl
-        · exact .inr rfl
-      have hne : e0 ≠ e1 := by decide
-      rcases hj'' with rfl | rfl
-      · simp [jLabO, hne]
-        ring
-      · simp [jLabO, hne.symm]
-        ring
-    · simp [jLabO]
 
 end Extraction
 

@@ -16,9 +16,6 @@ universe u
     fixedPSL n K sigma →* fixedPGL (Fin n) K sigma :=
   (fixedT n K sigma).subtype.comp (fixedPSLEquivT n K sigma).toMonoidHom
 
-theorem fixedPSLToFixedPGL_val (n : ℕ) (K : Type u) [Field K] (sigma : K ≃+* K)
-    (x : fixedPSL n K sigma) :
-    (fixedPSLToFixedPGL n K sigma x).val = ProjectiveSpecialLinearGroup.toPGL x.val := rfl
 
 theorem fixedPSLToFixedPGL_injective (n : ℕ) (K : Type u) [Field K] (sigma : K ≃+* K) :
     Function.Injective (fixedPSLToFixedPGL n K sigma) :=
@@ -57,17 +54,6 @@ theorem pComponent_fixedComponentSubfieldImage
       ((subfieldPGLEquivFixed (Fin n) K sigma).symm.subgroupMap
         (L.map (fixedPSLToFixedPGL n K sigma)))
 
-theorem fixedComponentEquivSubfieldImage_toPGL
-    (n : ℕ) [NeZero n] (K : Type u) [Field K] (sigma : K ≃+* K)
-    (L : Subgroup (fixedPSL n K sigma)) (x : L) :
-    subfieldPGLMap (Fin n) K (fixedField K sigma)
-      (fixedComponentEquivSubfieldImage n K sigma L x).val =
-        ProjectiveSpecialLinearGroup.toPGL x.val.val := by
-  let e := subfieldPGLEquivFixed (Fin n) K sigma
-  change subfieldPGLMap (Fin n) K (fixedField K sigma)
-    (e.symm (fixedPSLToFixedPGL n K sigma x.val)) = _
-  rw [← subfieldPGLEquivFixed_val]
-  exact congrArg Subtype.val (e.apply_symm_apply (fixedPSLToFixedPGL n K sigma x.val))
 
 theorem field_fixed_pComponent_quasisimple
     (n : ℕ) [NeZero n] (K : Type u) [Field K] [Finite K] (hn : 1 ≤ n)
@@ -91,20 +77,6 @@ theorem field_fixed_pComponent_quasisimple
       (fixedComponentSubfieldImage n K sigma L)
       (pComponent_fixedComponentSubfieldImage n K sigma p L hL))
 
-theorem fieldFixedPComponentEquivPSL_toPGL
-    (n : ℕ) [NeZero n] (K : Type u) [Field K] [Finite K] (hn : 1 ≤ n)
-    (sigma : K ≃+* K) (p : ℕ) [Fact p.Prime]
-    (L : Subgroup (fixedPSL n K sigma)) (hL : CFSG.IsPComponent p L) (x : L) :
-    subfieldPGLMap (Fin n) K (fixedField K sigma)
-      (ProjectiveSpecialLinearGroup.toPGL (fieldFixedPComponentEquivPSL n K hn sigma p L hL x)) =
-        ProjectiveSpecialLinearGroup.toPGL x.val.val := by
-  change subfieldPGLMap (Fin n) K (fixedField K sigma)
-    (ProjectiveSpecialLinearGroup.toPGL (projectivePComponentEquivPSL n (fixedField K sigma) hn p
-      (fixedComponentSubfieldImage n K sigma L)
-      (pComponent_fixedComponentSubfieldImage n K sigma p L hL)
-      (fixedComponentEquivSubfieldImage n K sigma L x))) = _
-  rw [projectivePComponentEquivPSL_toPGL]
-  exact fixedComponentEquivSubfieldImage_toPGL n K sigma L x
 
 theorem field_fixed_small_no_pComponent (K : Type u) [Field K] [Finite K]
     (sigma : K ≃+* K)

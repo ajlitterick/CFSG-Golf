@@ -358,32 +358,6 @@ universe u v w
 
 namespace CFSG.Open
 
-theorem _root_.CFSG.Milestones.ct_odd_standard_recognition_frontier
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
-    (L : Subgroup G) (hL : standardComponentIsStandard L)
-    (htype : Blueprint.Recognition.Exact.OddStandardType (L ⧸ Subgroup.center L)) :
-    (∃ n : ℕ, 9 ≤ n ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∨
-      (∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ Nat.card G ∈ lieOrdersChar p) ∨
-      Nat.card G ∈ standardComponentOddSporadicOrders :=
-  CFSG.Yardstones.M0362f3a873a3.frontier_of_yardstones
-    CFSG.Yardstones.M0362f3a873a3.altStdBalancedOrder2InnerSmall_holds
-    CFSG.Yardstones.M0362f3a873a3.shapeTwoSmallNine_holds
-    CFSG.Yardstones.M0362f3a873a3.shapeTwoTenNoSwapPartnerNoCentral_holds
-    CFSG.Yardstones.M0362f3a873a3.shapeTwoTenSwapPartnerStdHS_holds
-    CFSG.Yardstones.M0362f3a873a3.hsSection5_holds
-    CFSG.Yardstones.M0362f3a873a3.haradaHNRecognition_holds
-    CFSG.Yardstones.M0362f3a873a3.gh312Fixed_holds
-    CFSG.Yardstones.M0362f3a873a3.harris82Theorem1SimpleKProperOdd_holds
-    CFSG.Yardstones.M0362f3a873a3.smallF3StandardOddLie_holds
-    CFSG.Yardstones.M0362f3a873a3.oddLieThm187bResidualL2Ree_holds
-    CFSG.Yardstones.M0362f3a873a3.oddLieThm187bResidualHigherRank_holds
-    CFSG.Yardstones.M0362f3a873a3.heldKSwapped_holds
-    @CFSG.Milestones.cl_lit_classical_involution_theorem_models
-    @CFSG.Milestones.cl_lit_gh74_sectional_two_rank_four_models
-    @CFSG.Milestones.ctu_kproper_simple_unbalanced_recognition
-    G hnonab hK L hL htype
 
 end CFSG.Open
 

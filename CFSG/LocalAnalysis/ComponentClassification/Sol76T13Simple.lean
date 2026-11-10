@@ -16,9 +16,6 @@ open CFSG Subgroup CFSG.ComponentClassification.FooteLit CFSG.ComponentClassific
   ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup G → (∃ a b : G, a * b ≠ b * a) →
     Assembly.KProper Blueprint.Catalog G → ∀ N : Subgroup G, ¬ IsKBalanced N
 
-theorem not_isSolomonChoice_of_simple (h : SolomonThm13Simple) {G : Type} [Group G] [Finite G]
-    (hG : SimpleAmbient G) {N : Subgroup G} (hN : IsSolomonChoice N) : False :=
-  h G hG.1 hG.2.1 hG.2.2 N hN.1
 
 theorem not_le_solomonKStarOf_top_of_simple {G : Type} [Group G] [Finite G]
     (hG : SimpleAmbient G) {N : Subgroup G} (hN : IsKBalanced N) :
@@ -36,8 +33,6 @@ theorem not_le_solomonKStarOf_top_of_simple {G : Type} [Group G] [Finite G]
   rw [hb, orderOf_one] at hb2
   norm_num at hb2
 
-theorem solomonThm13Simple_of_thm13 (h : SolomonThm13Input) : SolomonThm13Simple :=
-  fun G _ _ hs hna hK N hN => not_le_solomonKStarOf_top_of_simple ⟨hs, hna, hK⟩ hN (h G N hN)
 
 theorem solomonThm13Simple_of_noChoice
     (h : ∀ (G : Type) [Group G] [Finite G], SimpleAmbient G → ∀ N : Subgroup G,

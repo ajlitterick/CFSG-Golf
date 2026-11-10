@@ -381,68 +381,6 @@ theorem neighbour_standard_minusPairTorus_of_seitzSetting (hset : SeitzSetting G
   exact neighbour_standard_minusPairTorus hset.standardSetting.standard htC ht
     (inf_centralizer_eq_zpowers_minus hset (by omega) hKc hirr e htC ht) hq hn hirr k e hX htX hDe
 
-theorem exists_neighbour_standard_plus_of_seitzSetting (hset : SeitzSetting G L) {n f : ℕ}
-    {K : Type} [Field K] (hKc : Nat.card K = 2 ^ f) (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) :
-    ∃ X D : Subgroup G, X ≤ L ∧ IsCyclic X ∧ Nat.card X = Nat.card K - 1 ∧ Odd (Nat.card X) ∧
-      D = inSubgroup layer (L ⊓ centralizer (X : Set G)) ∧
-      D ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ∧ CFSG.IsQuasisimple D ∧
-      center D = ⊥ ∧ CFSG.Blueprint.LieModel D .POmegaPlus (n - 1) 2 f ∧
-      Group.IsSolvable (Outer D) ∧
-      ∃ htX : t ∈ centralizer (X : Set G),
-        CFSG.Open.IsComponentOf
-            ((D.subgroupOf (centralizer (X : Set G))).map
-              (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-            (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-              Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-          (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-            IsPGroup 2 U →
-            U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-                (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-              Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-            Nat.card U ≤ 2) ∧
-          standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  have := LinearPilot.finite_of_card_eq_two_pow hKc
-  have := LinearPilot.charP_two_of_card_eq_two_pow hKc
-  set k : Fin n := ⟨0, by omega⟩
-  obtain ⟨hXL, htX, hcyc, hcard, hodd, hD, hDC, hDq, hZ, hLie, hOut⟩ :=
-    neighbour_data_pairTorus hKc hq hn k e htC rfl rfl
-  exact ⟨_, _, hXL, hcyc, hcard, hodd, hD, hDC, hDq, hZ, hLie, hOut, htX,
-    neighbour_standard_pairTorus_of_seitzSetting hset hKc hq hn k e htC ht rfl htX rfl⟩
-
-theorem exists_neighbour_standard_minus_of_seitzSetting (hset : SeitzSetting G L) {n f : ℕ}
-    {K : Type} [Field K] (hKc : Nat.card K = 2 ^ f) (hq : 4 ≤ Nat.card K) (hn : 5 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) :
-    ∃ X D : Subgroup G, X ≤ L ∧ IsCyclic X ∧ Nat.card X = Nat.card K - 1 ∧ Odd (Nat.card X) ∧
-      D = inSubgroup layer (L ⊓ centralizer (X : Set G)) ∧
-      D ≤ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ∧ CFSG.IsQuasisimple D ∧
-      center D = ⊥ ∧ CFSG.Blueprint.LieModel D .POmegaMinus (n - 1) 2 f ∧
-      Group.IsSolvable (Outer D) ∧
-      ∃ htX : t ∈ centralizer (X : Set G),
-        CFSG.Open.IsComponentOf
-            ((D.subgroupOf (centralizer (X : Set G))).map
-              (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-            (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-              Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-          (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-            IsPGroup 2 U →
-            U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-                (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-              Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-            Nat.card U ≤ 2) ∧
-          standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  have := LinearPilot.finite_of_card_eq_two_pow hKc
-  have := LinearPilot.charP_two_of_card_eq_two_pow hKc
-  set k : Fin (n - 1) := ⟨0, by omega⟩
-  obtain ⟨hXL, htX, hcyc, hcard, hodd, hD, hDC, hDq, hZ, hLie, hOut⟩ :=
-    neighbour_data_minusPairTorus hKc hq hn hirr k e htC rfl rfl
-  exact ⟨_, _, hXL, hcyc, hcard, hodd, hD, hDC, hDq, hZ, hLie, hOut, htX,
-    neighbour_standard_minusPairTorus_of_seitzSetting hset hKc hq hn hirr k e htC ht rfl htX rfl⟩
 
 end Setting
 

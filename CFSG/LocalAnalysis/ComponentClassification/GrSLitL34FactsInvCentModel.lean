@@ -111,6 +111,5 @@ theorem IsQSetting.comm_i8
 
 end Witness
 
-variable {G : Type} [Group G]
 
 end CFSG.ComponentClassification.GrSLit.L34Facts

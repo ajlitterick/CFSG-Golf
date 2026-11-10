@@ -737,22 +737,6 @@ theorem hasStrothTypeOver_t101_of_generator_images201
     conj_eq_of_generator_images (hL D.ρ_mem_L) E.e
       (Type101.action m).φρ hxd hxa hxb (hρ 0) (hρ 1) (hρ 2)⟩, rfl, rfl, rfl, rfl⟩
 
-theorem hasStrothType_t101_of_generator_images201
-    (hBC : B ≤ C) (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) {d : S} (hdC : d ∈ C) (hdB : d ∉ B)
-    (hd2 : d * d = (D.c : S))
-    (E : CubicBasisEquiv201 D hBC d hdC (Type101.k m))
-    (huv : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.uv_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type101.action m).φuv (gen (Type101.k m) j))
-    (ht : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.t_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type101.action m).φt (gen (Type101.k m) j))
-    (hu : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.u_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type101.action m).φu (gen (Type101.k m) j))
-    (hρ : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.ρ_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type101.action m).φρ (gen (Type101.k m) j)) :
-    HasStrothType C (StrothTypeIndex.t101 m) :=
-  (hasStrothTypeOver_t101_of_generator_images201 D hBC hrel hL hdC hdB hd2 E huv ht hu hρ)
-    |>.hasStrothType
 
 theorem hasStrothTypeOver_t111_of_generator_images201
     (hBC : B ≤ C) (_hrel : Nat.card C = 2 * Nat.card B)
@@ -786,22 +770,6 @@ theorem hasStrothTypeOver_t111_of_generator_images201
     conj_eq_of_generator_images (hL D.ρ_mem_L) E.e
       (Type111.action (m - 1)).φρ hxd hxa hxb (hρ 0) (hρ 1) (hρ 2)⟩, rfl, rfl, rfl, rfl⟩
 
-theorem hasStrothType_t111_of_generator_images201
-    (hBC : B ≤ C) (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) {d : S} (hdC : d ∈ C) (hdB : d ∉ B)
-    (hd2 : d * d = (D.c : S))
-    (E : CubicBasisEquiv201 D hBC d hdC (Type111.k (m - 1)))
-    (huv : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.uv_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type111.action (m - 1)).φuv (gen (Type111.k (m - 1)) j))
-    (ht : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.t_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type111.action (m - 1)).φt (gen (Type111.k (m - 1)) j))
-    (hu : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.u_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type111.action (m - 1)).φu (gen (Type111.k (m - 1)) j))
-    (hρ : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.ρ_mem_L) (basisElems201 D hBC hdC j))) =
-      (Type111.action (m - 1)).φρ (gen (Type111.k (m - 1)) j)) :
-    HasStrothType C (StrothTypeIndex.t111 (m - 1)) :=
-  (hasStrothTypeOver_t111_of_generator_images201 D hBC hrel hL hdC hdB hd2 E huv ht hu hρ)
-    |>.hasStrothType
 
 end Assembly
 
@@ -1195,17 +1163,6 @@ theorem hasStrothTypeOver_t101_or_t111_of_noInvolutionsCentralizing
           simpa only [Torus.c, Torus.a, Torus.b, zero_smul, add_zero, zero_add] using Type111.rho_b (m - 1)]
         module
 
-theorem hasStrothType_t101_or_t111_of_noInvolutionsCentralizing
-    [Finite S] {B C S' : Subgroup S} {m : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t201 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') (hne : C ≠ B) :
-    HasStrothType C (StrothTypeIndex.t101 m) ∨
-    HasStrothType C (StrothTypeIndex.t111 (m - 1)) :=
-  (hasStrothTypeOver_t101_or_t111_of_noInvolutionsCentralizing hB.data hBC hC hrel hL hH hcS hne)
-    |>.imp (·.hasStrothType) (·.hasStrothType)
 
 end Final
 

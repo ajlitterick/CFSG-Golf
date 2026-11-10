@@ -55,7 +55,5 @@ theorem NarrowScope.map_congr {K L : Type*} [Group K] [Group L] (e : K ≃* L) {
   SeitzPlanes fun d p E =>
     ¬ InnerPlane d p E ∧ NarrowScope p E ∧ IsClassicalIndex d.1 ∧ ¬ (p = 3 ∧ IsDFourIndex d.1)
 
-theorem SeitzOuterLowClassical.narrow (h : SeitzOuterLowClassical) : SeitzOuterLowNarrow :=
-  SeitzPlanes.mono (fun _ _ _ hE => ⟨hE.1, hE.2.1.1, hE.2.2⟩) h
 
 end CFSG.LieType.SeitzGeneration

@@ -108,9 +108,6 @@ theorem rootGroup_eq_range_spEltHom {γ : Fin n → ℤ} {a b : Fin n ⊕ Fin n}
   · rintro ⟨c, rfl⟩
     exact ⟨Multiplicative.toAdd c, rfl⟩
 
-theorem spElt_mem_rootGroup {γ : Fin n → ℤ} {a b : Fin n ⊕ Fin n} (hab : b ≠ Sum.swap a)
-    (hγ : toStd n γ = rt a b) (c : K) : spElt a b c ∈ (rootDatum n K).rootGroup γ :=
-  elt_mem_rootGroup ((stdVec_rtIdx hab).trans hγ.symm) c
 
 theorem x_eq_spElt {γ : Fin n → ℤ} {a b : Fin n ⊕ Fin n} (hab : b ≠ Sum.swap a)
     (hγ : toStd n γ = rt a b) (c : K) : Sp.x n K γ c = spElt a b c :=
@@ -121,10 +118,6 @@ theorem toStd_single_last (hn : 1 ≤ n) :
       rt (Sum.inl ⟨n - 1, by omega⟩) (Sum.inl ⟨n - 1, by omega⟩) := by
   rw [toStd_single_of_not_lt' (by simp only; omega), rt_inl_inl]
 
-theorem rootGroup_single_last (hn : 1 ≤ n) :
-    (rootDatum n K).rootGroup (Pi.single (⟨n - 1, by omega⟩ : Fin n) 1) =
-      (spEltHom (Sum.inl ⟨n - 1, by omega⟩) (Sum.inl ⟨n - 1, by omega⟩)).range :=
-  rootGroup_eq_range_spEltHom (swap_ne_self _).symm (toStd_single_last hn)
 
 theorem hom_ext_spElt {H : Type*} [Group H]
     {Ψ Ψ' : StatedSp n K →* H}
@@ -151,7 +144,6 @@ open Classical in
 @[expose] noncomputable def xEps (e : Fin n → ℤ) (c : K) : StatedSp n K :=
   if h : ∃ r : RootSubgroupIndex n, stdVec r = e then elt h.choose c else 1
 
-theorem x_eq_xEps (γ : Fin n → ℤ) (c : K) : Sp.x n K γ c = xEps (toStd n γ) c := rfl
 
 theorem xEps_stdVec (r : RootSubgroupIndex n) (c : K) : xEps (stdVec r) c = elt r c := by
   have h : ∃ r' : RootSubgroupIndex n, stdVec r' = stdVec r := ⟨r, rfl⟩
@@ -416,9 +408,6 @@ theorem toHom_spElt {a b : Fin n ⊕ Fin n} (hab : b ≠ Sum.swap a) (c : K) :
   obtain ⟨γ, hγ, hγe⟩ := exists_root_eq_rt hab
   rw [← x_eq_spElt hab hγe, R.toHom_x hn hγ, hγe, R.toEps_rt hab]
 
-theorem toHom_x_eq {γ : Fin n → ℤ} {a b : Fin n ⊕ Fin n} (hab : b ≠ Sum.swap a)
-    (hγ : toStd n γ = rt a b) (c : K) : R.toHom hn (Sp.x n K γ c) = R.ξ a b c := by
-  rw [x_eq_spElt hab hγ, R.toHom_spElt hn hab]
 
 theorem map_rootGroup {γ : Fin n → ℤ} {a b : Fin n ⊕ Fin n} (hab : b ≠ Sum.swap a)
     (hγ : toStd n γ = rt a b) :

@@ -198,10 +198,6 @@ theorem Datum.le_of_img_le (hD : Datum p N f L Bs Z) {J J' : Subgroup G} (hJ : J
   rw [hcomm]
   exact J.mul_mem (J.mul_mem (J.mul_mem hu hv) (J.inv_mem hu)) (J.inv_mem hv)
 
-theorem Datum.eq_of_img_eq (hD : Datum p N f L Bs Z) {J J' : Subgroup G} (hJ : J ≤ L)
-    (hJ' : J' ≤ L) [Group.IsPerfect ↥J] [Group.IsPerfect ↥J'] (h : img N f J = img N f J') :
-    J = J' :=
-  le_antisymm (hD.le_of_img_le hJ' hJ h.le) (hD.le_of_img_le hJ hJ' h.ge)
 
 theorem Datum.conj_mem_of_img (hD : Datum p N f L Bs Z) {J : Subgroup G} (hJ : J ≤ L)
     [Group.IsPerfect ↥J] (n : ↥N) (hnL : ∀ l ∈ L, (n : G) * l * (n : G)⁻¹ ∈ L)
@@ -223,23 +219,6 @@ theorem Datum.conj_mem_of_img (hD : Datum p N f L Bs Z) {J : Subgroup G} (hJ : J
   intro j hj
   exact hle ⟨j, hj, rfl⟩
 
-theorem Datum.commute_of_img (hD : Datum p N f L Bs Z) {J : Subgroup G} (hJ : J ≤ L)
-    [Group.IsPerfect ↥J] (hJZ : ∀ j ∈ J, j ∈ Z → j = 1) (n : ↥N)
-    (hnL : ∀ l ∈ L, (n : G) * l * (n : G)⁻¹ ∈ L)
-    (hn : ∀ q ∈ img N f J, f n * q = q * f n) : ∀ j ∈ J, (n : G) * j = j * (n : G) := by
-  have hnorm := hD.conj_mem_of_img hJ n hnL fun q hq => by
-    rw [hn q hq, mul_inv_cancel_right]
-    exact hq
-  intro j hj
-  have hjN : j ∈ N := hD.LN (hJ hj)
-  have hmem : (n : G) * j * (n : G)⁻¹ * j⁻¹ ∈ J := J.mul_mem (hnorm j hj) (J.inv_mem hj)
-  have hker : n * ⟨j, hjN⟩ * n⁻¹ * ⟨j, hjN⟩⁻¹ ∈ f.ker := by
-    rw [MonoidHom.mem_ker, map_mul, map_mul, map_mul, map_inv, map_inv,
-      hn _ (mem_img.2 ⟨⟨j, hjN⟩, hj, rfl⟩), mul_inv_cancel_right, mul_inv_cancel]
-  have hZ : (n : G) * j * (n : G)⁻¹ * j⁻¹ ∈ Z := by simpa using (hD.mem_ker_iff _).1 hker
-  have h1 := hJZ _ hmem hZ
-  calc (n : G) * j = (n : G) * j * (n : G)⁻¹ * j⁻¹ * (j * (n : G)) := by group
-    _ = j * (n : G) := by rw [h1, one_mul]
 
 end CFSG.StandardType.NsQuot
 

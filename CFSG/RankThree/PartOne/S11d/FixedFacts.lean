@@ -86,9 +86,6 @@ omit [Finite T] [Finite C] in
   (Subgroup.equivMapOfInjective (fixSub α) φ.toMonoidHom φ.injective).trans
     (MulEquiv.subgroupCongr (fixSub_congr φ α).symm)
 
-omit [Finite T] [Finite C] in
-theorem coe_fixIso (φ : T ≃* C) (α : MulAut T) (y : ↥(fixSub α)) :
-    ((fixIso φ α y : ↥(fixSub (MulAut.congr φ α))) : C) = φ (y : T) := rfl
 
 omit [Finite T] [Finite C] in
 theorem nonLocalized_of_map_eq {φ : T ≃* C} {W : Subgroup T} {N : Subgroup C}

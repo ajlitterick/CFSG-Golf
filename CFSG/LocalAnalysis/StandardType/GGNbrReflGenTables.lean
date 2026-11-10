@@ -105,19 +105,6 @@ theorem ggNbrReflGen_of_tableB (hTB : GGNbrTableBWeylInput) (hRig : GGLabelRigid
   ggNbrReflGen_of_halfSplit hTB hRig h.1 h.2.2.2.1 hK (h.2.2.1.2 y K hK) hsp
     (hZ G p B Bs x L D J h y K hK)
 
-theorem existsUnique_overGamma_of_tableB (hTB : GGNbrTableBWeylInput) (hRig : GGLabelRigidInput)
-    (hZ : GGNbrBstarCenterInput)
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    (h : GGSecFiveRestHyp p B Bs x L D J) {y : G} {K : Subgroup G} (hK : GGNbr p B x D J y K)
-    (hsp : LargeEvenMarking ↥K fun lab _ _ _ _ _ => GGNbrSplitLabel p lab)
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G)) :
-    ∀ a ∈ ggAutomizer (MulAut.conj : ↥K →* MulAut ↥K).range (ggGamma K hN).range,
-      ∃! c : MulAut ↥Bs, c ∈ ggAutomizer K Bs ∧ GGOverGamma hN c a := by
-  have hInnK : GGInnerDiagOn Bs K := h.2.2.1.2 y K hK
-  obtain ⟨R, _, θ, I, r, hBsI, hlift, hT⟩ :=
-    exists_weylDatum_of_halfSplit hTB hRig h.1 hInnK hsp hN
-  exact existsUnique_overGamma_of_ggTorusReflGenW h.1 h.2.2.2.1 hK hInnK.1 θ hN hBsI hlift hT
-    (hZ G p B Bs x L D J h y K hK)
 
 end CFSG.StandardType
 

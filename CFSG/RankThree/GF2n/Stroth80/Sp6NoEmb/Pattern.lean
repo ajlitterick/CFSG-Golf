@@ -22,11 +22,6 @@ theorem mem_labels {J : Fin 3 → Finset ℕ} : J ∈ labels n ↔ IsLabel n J :
   simp only [labels, Fintype.mem_piFinset, Finset.mem_powerset, Finset.subset_iff,
     Finset.mem_range, IsLabel]
 
-@[expose] def slLabels (n : ℕ) : Finset (Finset ℕ) :=
-  (Finset.range n).powerset
-
-theorem mem_slLabels {J : Finset ℕ} : J ∈ slLabels n ↔ ∀ i ∈ J, i < n := by
-  simp only [slLabels, Finset.mem_powerset, Finset.subset_iff, Finset.mem_range]
 
 variable {V W : Type} [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
 

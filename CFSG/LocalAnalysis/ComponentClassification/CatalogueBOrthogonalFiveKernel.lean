@@ -146,33 +146,6 @@ theorem selfAdjointOrthogonalAction_symplectic_kernel (h2 : (2 : K) ≠ 0)
       TauCeti.QuadraticMap.orthogonalGroup (selfAdjointForm K) :=
   (selfAdjointOrthogonalAction h2).comp (symplecticMultiplier (K := K)).ker.subtype
 
-theorem selfAdjointSymplecticAction_kernel_sign (h2 : (2 : K) ≠ 0)
-    (A : (symplecticMultiplier (K := K)).ker) :
-    selfAdjointSymplecticAction h2 A = 1 ↔
-      A.val.val.val = (1 : Matrix (Fin 4) (Fin 4) K) ∨
-        A.val.val.val = -(1 : Matrix (Fin 4) (Fin 4) K) := by
-  constructor
-  · intro hA
-    obtain ⟨c, hc, hscalar⟩ := (selfAdjointOrthogonalAction_symplectic_kernel h2 A).mp hA
-    have hs : c = 1 ∨ c = -1 :=
-      Units.eq_or_eq_neg_of_sq_eq_sq c 1 (by simpa using hc)
-    rcases hs with rfl | rfl
-    · exact Or.inl (by rw [hscalar, map_one]; rfl)
-    · apply Or.inr
-      rw [hscalar, GeneralLinearGroup.coe_scalar, Matrix.scalar_apply,
-        ← Matrix.smul_one_eq_diagonal]
-      exact neg_one_smul K _
-  · intro hA
-    apply (selfAdjointOrthogonalAction_symplectic_kernel h2 A).mpr
-    rcases hA with hA | hA
-    · refine ⟨1, by simp, ?_⟩
-      apply Units.ext
-      simpa using hA
-    · refine ⟨-1, by simp [pow_two], ?_⟩
-      apply Units.ext
-      rw [GeneralLinearGroup.coe_scalar, Matrix.scalar_apply,
-        ← Matrix.smul_one_eq_diagonal]
-      exact hA.trans (neg_one_smul K _).symm
 
 theorem selfAdjointSymplecticAction_kernel_le_center (h2 : (2 : K) ≠ 0) :
     (selfAdjointSymplecticAction h2).ker ≤

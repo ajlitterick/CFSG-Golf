@@ -19,13 +19,6 @@ theorem eq_top_of_forall_mem (hK : IsDirectProduct S K) {P : Subgroup ↥K}
   obtain ⟨m', hm', hmm'⟩ := hle m.2
   rwa [← Subtype.ext hmm']
 
-theorem hom_mem_of_forall_mem (hK : IsDirectProduct S K) {N : Type*} [Group N] (f : ↥K →* N)
-    (P : Subgroup N)
-    (h : ∀ J (hJ : J ∈ S), ∀ (x : G) (hx : x ∈ J), f ⟨x, hK.le hJ hx⟩ ∈ P) (m : K) :
-    f m ∈ P := by
-  have htop := eq_top_of_forall_mem hK (P := P.comap f) h
-  have hm : m ∈ P.comap f := htop ▸ Subgroup.mem_top m
-  exact hm
 
 theorem hom_ext_of_forall_mem (hK : IsDirectProduct S K) {N : Type*} [Group N] (f g : ↥K →* N)
     (h : ∀ J (hJ : J ∈ S), ∀ (x : G) (hx : x ∈ J),

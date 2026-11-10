@@ -130,12 +130,6 @@ theorem exists_conj_of_sylow_ne {P Q : Sylow 2 SL(2, F)} (hPQ : P ≠ Q) :
   rw [ha, hb]
   exact fun h => hPQ (Sylow.ext h)
 
-theorem exists_mul_orderOf_three_of_ne {P Q : Sylow 2 SL(2, F)} (hPQ : P ≠ Q) :
-    ∃ a ∈ (P : Subgroup SL(2, F)), a ≠ 1 ∧
-      ∃ b ∈ (Q : Subgroup SL(2, F)), b ≠ 1 ∧ orderOf (a * b) = 3 := by
-  obtain ⟨x, y, hx, hy, hne⟩ := exists_conj_of_sylow_ne hPQ
-  rw [← hx, ← hy]
-  exact exists_mul_orderOf_three_of_conj_ne hne
 
 theorem sup_sylow_eq_top {P Q : Sylow 2 SL(2, F)} (hPQ : P ≠ Q) :
     (P : Subgroup SL(2, F)) ⊔ (Q : Subgroup SL(2, F)) = ⊤ := by
@@ -187,40 +181,9 @@ theorem center_sl2_eq_bot : Subgroup.center SL(2, F) = ⊥ := by
 @[expose] noncomputable def pslMulEquivSL : PSL(2, F) ≃* SL(2, F) :=
   (QuotientGroup.quotientMulEquivOfEq center_sl2_eq_bot).trans QuotientGroup.quotientBot
 
-theorem isConj_of_orderOf_eq_two_psl [Finite F] {x y : PSL(2, F)} (hx : orderOf x = 2)
-    (hy : orderOf y = 2) : IsConj x y := by
-  have key : ∀ z : PSL(2, F), orderOf z = 2 →
-      pslMulEquivSL z * pslMulEquivSL z = 1 ∧ pslMulEquivSL z ≠ 1 := by
-    intro z hz
-    refine ⟨?_, ?_⟩
-    · have h := pow_orderOf_eq_one z
-      rw [hz] at h
-      rw [← map_mul, ← pow_two, h, map_one]
-    · intro h
-      rw [map_eq_one_iff _ pslMulEquivSL.injective] at h
-      rw [h, orderOf_one] at hz
-      omega
-  obtain ⟨hx2, hx1⟩ := key x hx
-  obtain ⟨hy2, hy1⟩ := key y hy
-  have hc := isConj_of_mul_self_eq_one hx2 hx1 hy2 hy1
-  have := MonoidHom.map_isConj (pslMulEquivSL (F := F)).symm.toMonoidHom hc
-  simpa using this
 
 end PSL
 
-theorem isConj_of_orderOf_eq_two_psl_galoisField (f : ℕ) {x y : PSL(2, GaloisField 2 f)}
-    (hx : orderOf x = 2) (hy : orderOf y = 2) : IsConj x y :=
-  isConj_of_orderOf_eq_two_psl hx hy
-
-theorem involutionClass_of_psl2 {K : Type} [Group K]
-    (h : ∃ f : ℕ, 2 ≤ f ∧ Nonempty (K ≃* PSL(2, GaloisField 2 f))) {x y : K}
-    (hx : orderOf x = 2) (hy : orderOf y = 2) : IsConj x y := by
-  obtain ⟨f, -, ⟨e⟩⟩ := h
-  have hc := isConj_of_orderOf_eq_two_psl_galoisField f (x := e x) (y := e y)
-    ((orderOf_injective e.toMonoidHom e.injective x).trans hx)
-    ((orderOf_injective e.toMonoidHom e.injective y).trans hy)
-  have := MonoidHom.map_isConj e.symm.toMonoidHom hc
-  simpa using this
 
 section Dihedral
 

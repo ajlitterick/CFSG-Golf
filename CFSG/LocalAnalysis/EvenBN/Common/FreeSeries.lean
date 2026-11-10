@@ -140,23 +140,5 @@ theorem involution_coset_conj_of_card_sq {G : Type*} [Group G] [Finite G] {W : S
   rw [hVr] at hconj
   exact hconj w hw (by rw [← pow_two, ← hx, pow_orderOf_eq_one])
 
-theorem elementary_series_involution_coset_conjugacy_of_card_sq {G : Type*} [Group G] [Finite G]
-    {W : Subgroup G} (hW : IsPGroup 2 W) {a : G} (ha : orderOf a = 2)
-    (haW : a ∈ normalizer (W : Set G)) (haW' : a ∉ W) {r : ℕ} (hr : 1 ≤ r)
-    (V : Fin (r + 1) → Subgroup G) (hV0 : V 0 = ⊥) (hVr : V (Fin.last r) = W)
-    (hVle : ∀ i : Fin r, V i.castSucc ≤ V i.succ) (hVW : ∀ i, ((V i).subgroupOf W).Normal)
-    (haV : ∀ i, a ∈ normalizer (V i : Set G))
-    [∀ i : Fin r, ((V i.castSucc).subgroupOf (V i.succ)).Normal]
-    [∀ i : Fin r, IsElementaryAbelian 2 (V i.succ ⧸ (V i.castSucc).subgroupOf (V i.succ))]
-    (hcard : ∀ i : Fin r,
-      Nat.card (V i.succ ⊓ centralizer {a} : Subgroup G) ^ 2 = Nat.card (V i.succ)) :
-    {x | (∃ w ∈ W, x = a * w) ∧ orderOf x = 2} = {x | ∃ w ∈ W, x = w⁻¹ * a * w} ∧
-      Nat.card (W ⊓ centralizer {a} : Subgroup G) =
-        ∏ i : Fin r, Nat.card {x | sectionRightConj (haV i.succ) (haV i.castSucc) x = x} ∧
-      Nat.card (W ⊓ centralizer {a} : Subgroup G) ^ 2 = Nat.card W ∧
-      Nat.card {x | (∃ w ∈ W, x = a * w) ∧ orderOf x = 2} =
-        Nat.card (W ⊓ centralizer {a} : Subgroup G) :=
-  elementary_series_involution_coset_conjugacy hW ha haW haW' hr V hV0 hVr hVle hVW haV
-    (section_fixed_eq_range_of_card_sq ha V hV0 hVle haV hcard).1
 
 end CFSG.LocalAnalysis.EvenBN.Common

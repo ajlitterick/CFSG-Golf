@@ -165,16 +165,6 @@ theorem LayerGenerationLie.of_pair (hp2 : p ≠ 2) (h0 : ModelClauseZero)
     exact Group.IsPerfect.not_isMulCommutative ↥L
       ⟨⟨fun x y => Subtype.ext (hcommL' x x.2 y y.2)⟩⟩
 
-theorem componentLayersAt_of_pair_of_noF3 [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h0 : ModelClauseZero) (hΩ : InClass p f Ω)
-    (hIH : LocalLieSystems p f Ω) (hT : IndepTripleOn p f Ω A) (hmodel : LayerGenerationPair)
-    (hF3 : ∀ a ∈ A, a ≠ 1 → NoComponentOverF3 p f Ω a) :
-    ∀ a ∈ A, a ≠ 1 → ComponentLayersAt Ω A a := fun a ha ha1 =>
-  componentLayersAt_of_layerGenerationOn (P := fun L => IsOddLieComponentBig L)
-    (fun _ hL => omegaFreeAt_or_rankOneAt_or_isOddLieComponentBig hp2 h0 fundamentalWholeA1 hq hΩ
-      hIH (not_subset_center_of_ne_one hnab ha1) (hF3 a ha ha1) hL)
-    (LayerGenerationLie.of_pair hp2 h0 fundamentalWholeA1 hq hΩ hIH hmodel hT ha
-      (not_subset_center_of_ne_one hnab ha1) (hF3 a ha ha1)).toBig
 
 end Layers
 
@@ -225,91 +215,11 @@ theorem generation_of_pair (hmodel : LayerGenerationPair) (hp2 : p ≠ 2) (hΩ :
     hc₁ hc₂ hc₁₂ hc₂₁ hFbJ hFb4 (modOdd_sq_eq_one hA2 hF'A) hFbN hfaith hf₁ hf₂ hf₁1 hf₂1 hf₁₂
     hact₁ hact₂
 
-theorem centralizerGenerationModOTwo_of_pair_of_noF3 (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (h0 : ModelClauseZero) (hA1 : FundamentalWholeA1) (hΩ : InClass p f Ω)
-    (hIH : LocalLieSystems p f Ω) (hmodel : LayerGenerationPair)
-    (hM : MemberFamily p f Ω A 𝒦) (hT : IndepTripleOn p f Ω A) (ha : a ∈ A)
-    (hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G) (hF3 : NoComponentOverF3 p f Ω a) :
-    CentralizerGenerationModOTwo Ω A a := by
-  classical
-  have ha1 : a ≠ 1 := fun h => hnc (by simp [h])
-  have hcen : ∀ {K : Subgroup G}, K ≤ Subgroup.centralizer (A : Set G) →
-      K ≤ Subgroup.centralizer ({a} : Set G) := fun hK =>
-    hK.trans (Subgroup.centralizer_le (Set.singleton_subset_iff.mpr ha))
-  have hAY : A ≤ centLayer Ω a := by
-    rw [hM.generate, Subgroup.closure_le]
-    rintro z ⟨K, hK, hz⟩
-    obtain ⟨-, -, -, hKA⟩ := hM.involution K hK
-    exact le_centLayer ⟨hM.subset hK, hcen hKA⟩ hz.mem
-  obtain ⟨Dsys⟩ := hIH {a} hnc
-  obtain ⟨D, hcompD, hbigD⟩ := lieDecomposition_localSystem_comp hp2 h0 hA1 hq hΩ Dsys
-  have hD := hbigD (hF3 Dsys)
-  refine centralizerGenerationModOTwo_of_components hΩ.conjInvariant hM.elem hM.card ha ha1 hAY D
-    fun i F' hF' hfaith => ?_
-  rcases hD i with ⟨⟨_, ⟨K, hK, rfl⟩, hKQ⟩, hmin⟩ | _
-  · exfalso
-    have hr1 : RankOneAt Ω a (D.Q i) := by
-      refine ⟨⟨K, hK.1, hK.2, hKQ⟩, fun K' hK'Ω hK'C => ?_⟩
-      obtain ⟨j, hj⟩ := D.exists_le (modOdd a K') ⟨K', ⟨hK'Ω, hK'C⟩, rfl⟩
-      by_cases hji : j = i
-      · subst hji
-        exact Or.inl (hmin _ ⟨K', ⟨hK'Ω, hK'C⟩, rfl⟩ hj)
-      · exact Or.inr fun x hx y hy => D.commute j i hji x (hj hx) y hy
-    have hF'A : F' ≤ A := hF'.1
-    have hA2 : ∀ x ∈ A, x * x = 1 := fun x hx => by
-      rw [← pow_two]
-      exact hM.elem.2 x hx
-    have hAC : A ≤ Subgroup.centralizer ({a} : Set G) := fun e he =>
-      Subgroup.mem_centralizer_singleton_iff.mpr
-        (congrArg Subtype.val (hM.elem.1.is_comm.comm (⟨e, he⟩ : A) ⟨a, ha⟩))
-    have hcard : 1 < Nat.card (modOdd a F') := by
-      rw [card_modOdd_of_exponent_two (hF'A.trans hAC) fun x hx => hA2 x (hF'A hx), hF'.2]
-      norm_num
-    have : Nontrivial (modOdd a F') := Finite.one_lt_card_iff_nontrivial.mp hcard
-    obtain ⟨x, hx1⟩ := exists_ne (1 : modOdd a F')
-    obtain ⟨k, hk, hkx⟩ := mem_modOdd_iff.mp x.2
-    refine hfaith x x.2 (fun h => hx1 (Subtype.ext h)) fun y hy => ?_
-    rw [← hkx]
-    exact oddQuotMk_centralizes_of_memberFamily hM ha (Or.inr hr1) (hF'A hk) _ y hy
-  · obtain ⟨j, hj⟩ := hcompD i
-    have h5 : 5 ≤ p ^ Dsys.exp j :=
-      five_le_pow_of_ne_three Fact.out hp2 hq ((Dsys.exp_eq j).imp id And.right) (hF3 Dsys j)
-    exact generation_of_pair hmodel hp2 hΩ hT ha ha1 hAY Dsys j h5 D i hj.symm hF' hfaith
 
 end Generation
 
 section BootTriple
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem bootTriple_of_pair_final' (hmodel : LayerGenerationPair)
-    (hcover : p ≠ 2 → 5 ≤ p ^ f → FrameCoverage p f) (hexotic : ExoticLeviBlock p f)
-    (hF3 : FrameNoF3 p f) : CoreAssembly.BootTriple p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
-  have hf : 0 < f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  obtain ⟨A, hT, hM⟩ := exists_indepTripleOn hp2 hf hind
-  have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
-  have hIH := localLieSystems_of_citBelowU hΩ hBelow
-  have hF3' : ∀ a ∈ A, a ≠ 1 → NoComponentOverF3 p f (CoreAssembly.conjClass K) a :=
-    fun a ha ha1 => by
-      by_cases h27 : p ^ f = 27
-      · exact hF3 h27 G hnab K z hz hBelow hconn A hM a ha ha1
-      · exact NoComponentOverF3.of_ne_27 a hq h27
-  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_frameFamily_of_layers_exotic' hnab hp2
-    hq hΩ (CoreAssembly.exists_single_class K) hIH (omegaConnected_of_deltaConnected hconn) hM
-    (twoClassInvolutionsConj p) (hcover hp2 hq G hnab K z hz hBelow hconn A hM)
-    (componentLayersAt_of_pair_of_noF3 hnab hp2 hq ModelFacts.modelClauseZero hΩ hIH hT hmodel
-      hF3')
-    (fun a ha hfa => by
-      obtain ⟨K', -, hK'⟩ := hfa
-      exact centralizerGenerationModOTwo_of_pair_of_noF3 hp2 hq
-        ModelFacts.modelClauseZero fundamentalWholeA1 hΩ hIH hmodel hM hT ha
-        (not_subset_center_of_ne_one hnab hK'.ne_one) (hF3' a ha hK'.ne_one))
-    hexotic
-  exact ⟨hex, hP1 K (CoreAssembly.mem_conjClass_self K) z hz⟩
 
 end BootTriple
 

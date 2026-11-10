@@ -14,6 +14,5 @@ open CFSG.Assembly.LowTwoRank
 
 local notation "𝒞" => Generic.CoreAssembly.conjClass
 
-variable {p f : ℕ} [Fact p.Prime]
 
 end CFSG.ClassicalInvolution.NDB

@@ -448,37 +448,11 @@ theorem nineX_pt_mem : ∀ p ∈ nineEll.carrier, ninePt nineXPos p ∈ nineEll.
 theorem nineY_pt_mem : ∀ p ∈ nineEll.carrier, ninePt nineYPos p ∈ nineEll.carrier := by
   decide +kernel
 
-theorem nineX_pt_val (p : Fin 63) :
-    ninePt nineXPos p =
-      ((nineXPos.map fun i => [sixPi 0, sixPi 1].getD i 1).prod) p :=
-  (ninePt_eq (w := nineXPos) nineXPos_lt p).symm
-
-theorem nineY_pt_val (p : Fin 63) :
-    ninePt nineYPos p =
-      ((nineYPos.map fun i => [sixPi 0, sixPi 1].getD i 1).prod) p :=
-  (ninePt_eq (w := nineYPos) nineYPos_lt p).symm
-
 
 theorem nineLettersOK_append {j : ℕ} {a b : List ℤ} (ha : lettersOK j a = true)
     (hb : lettersOK j b = true) : lettersOK j (a ++ b) = true := by
   simp only [lettersOK, List.all_append, Bool.and_eq_true] at ha hb ⊢
   exact ⟨ha, hb⟩
-
-theorem nineLettersOK_signed {w : List ℕ} (hw : ∀ i ∈ w, i < 2) :
-    lettersOK 2 (nineSigned w) = true := by
-  induction w with
-  | nil => rfl
-  | cons i w ih =>
-    have hi := hw i List.mem_cons_self
-    have hw' : ∀ j ∈ w, j < 2 := fun j hj => hw j (List.mem_cons_of_mem _ hj)
-    have htail := ih hw'
-    simp only [nineSigned, lettersOK, List.all_cons, Bool.and_eq_true]
-    refine ⟨?_, htail⟩
-    simp only [bne_iff_ne, ne_eq, decide_eq_true_eq]
-    refine ⟨?_, ?_⟩
-    · omega
-    · rw [Int.natAbs_natCast]
-      omega
 
 
 @[expose] def nineXSig : List ℤ := nineSigned nineXPos

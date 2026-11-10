@@ -105,16 +105,6 @@ theorem OnlyT3.sub_quot {V : Type} [AddCommGroup V] [Module k V] [Module.Finite 
     rw [repMultiplicity_sub_quot ρ W σ]
     omega
 
-omit [CharP F 2] [Fintype F] in
-theorem OnlyT3.of_sub_quot {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]
-    {ρ : Representation k SL(3, F) V} (W : Subrepresentation ρ)
-    (h1 : OnlyT3 (F := F) k f W.toRepresentation) (h2 : OnlyT3 (F := F) k f W.quotient) :
-    OnlyT3 (F := F) k f ρ := by
-  intro E _ _ _ σ hσ hpos
-  rw [repMultiplicity_sub_quot ρ W σ] at hpos
-  by_cases ha : 0 < repMultiplicity W.toRepresentation σ
-  · exact h1 _ σ hσ ha
-  · exact h2 _ σ hσ (by omega)
 
 omit [CharP F 2] [Fintype F] in
 theorem OnlyT3.of_flag {V : Type} [AddCommGroup V] [Module k V] [Module.Finite k V]
@@ -274,10 +264,6 @@ variable {G : Type} [Group G] {k : Type} [Field k]
     Representation.Equiv (Representation.tprod ρ (matRep (1 : G →* Matrix (Fin 1) (Fin 1) k))) ρ :=
   (eqL ρ unitEquiv).trans (Representation.TensorProduct.rid k ρ)
 
-@[expose] noncomputable def unitLid {V : Type} [AddCommGroup V] [Module k V]
-    (ρ : Representation k G V) :
-    Representation.Equiv (Representation.tprod (matRep (1 : G →* Matrix (Fin 1) (Fin 1) k)) ρ) ρ :=
-  (eqR unitEquiv ρ).trans (Representation.TensorProduct.lid k ρ)
 
 end Unit
 
@@ -477,7 +463,6 @@ theorem caseQ (δ : Bool)
   exact OnlyT3.congr e.symm hQ
 
 end Cases
-
 
 
 section Induction

@@ -231,19 +231,6 @@ theorem hull_of_contained (hV : ∀ β : (S : Subgroup G) ≃* (S : Subgroup G),
       rw [← hbot]; exact (Vmod_le_Ecore.trans h.Ecore_le_Fcore).trans hFle
     exact h.Vmod_ne_bot (le_bot_iff.mp hV0)
 
-theorem outside_core_translate_and_characteristic_hull :
-    (∀ α : (S : Subgroup G) ≃* (S : Subgroup G),
-      ¬ aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G →
-        aimg (S : Subgroup G) α (Vmod G) ⊓ CFSG.pCore 2 G = aimg (S : Subgroup G) α (Zfix S) ∧
-          (S : Subgroup G) = CFSG.pCore 2 G ⊔ aimg (S : Subgroup G) α (Vmod G)) ∧
-    ((∀ β : (S : Subgroup G) ≃* (S : Subgroup G),
-        aimg (S : Subgroup G) β (Vmod G) ≤ CFSG.pCore 2 G) →
-      (∀ β : (S : Subgroup G) ≃* (S : Subgroup G),
-        aimg (S : Subgroup G) β (Fcore G) ≤ CFSG.pCore 2 G) ∧
-      CFSG.Open.IsElemAbelian 2 (Cstar S) ∧ Cstar S ≤ CFSG.pCore 2 G ∧
-      (∀ γ : (S : Subgroup G) ≃* (S : Subgroup G), aimg (S : Subgroup G) γ (Cstar S) = Cstar S) ∧
-      Cstar S ≠ ⊥) :=
-  ⟨fun α hα => h.outside_translate α hα, fun hV => h.hull_of_contained hV⟩
 
 end IsSeed
 

@@ -156,21 +156,5 @@ theorem classes_of_classOKGen {n : ℕ} {A : Set (Equiv.Perm (Fin n))} {T gens g
     rw [hrep_lab _ hsize]
     simp only [labG, hpos1, hlab0]
 
-theorem isSimpleGroup_of_classOKGen {n : ℕ} {A : Set (Equiv.Perm (Fin n))} {T gens ginv : Array Tab}
-    {C : ClassData} {sizes : Array ℕ}
-    (hA : ∀ a ∈ A, ∃ j < gens.size, TabRep gens[j]! a)
-    (hH : Enumerates (Subgroup.closure A) T.toList)
-    (h : classOKGen n T gens ginv C sizes = true) (hT : 1 < T.size)
-    (hsums : ∀ l₀ : Fin sizes.size, l₀.val = 0 → ∀ U : Finset (Fin sizes.size), l₀ ∈ U →
-      (∑ l ∈ U, sizes[l.val]!) ∣ T.size → U = {l₀} ∨ U = Finset.univ) :
-    IsSimpleGroup ↥(Subgroup.closure A) := by
-  obtain ⟨e, he, l₀, hl₀0, hl₀⟩ := classes_of_classOKGen hA hH h
-  have hcard := hH.card
-  refine isSimpleGroup_of_classes e (fun l => sizes[l.val]!) he l₀ hl₀ ?_ ?_
-  · rw [hcard, Array.length_toList]; exact hT
-  · intro U hU hdvd
-    refine hsums l₀ hl₀0 U hU ?_
-    rw [hcard, Array.length_toList] at hdvd
-    exact hdvd
 
 end CFSG.QuasithinUnique.Id2519.HSAut

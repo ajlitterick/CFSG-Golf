@@ -34,8 +34,6 @@ theorem escapingMk_central_facts {w : Subgroup.centralizer ({u} : Set G)} (hw : 
   exact not_isConj_of_centralizer_le hset (hset.sylow_le hz.1) hz.2.1 hzC (hset.sylow_le huS)
     hesc (hzu ▸ IsConj.refl z)
 
-variable (hsyl : ∀ P : Subgroup G, P ≤ Subgroup.centralizer ({u} : Set G) → IsPGroup 2 P →
-  Nat.card P ≤ Nat.card ((S : Subgroup G) ⊓ Subgroup.centralizer ({u} : Set G) : Subgroup G))
 include hsyl
 
 end CaseTwo

@@ -31,9 +31,6 @@ open scoped Classical in
 @[expose] def weakClosure (A T : Subgroup G) : Subgroup G :=
   ⨆ (g : G) (_ : conjR A g ≤ T), conjR A g
 
-@[expose] def IsSpecialTwoGroup (P : Subgroup G) : Prop :=
-  IsPGroup 2 P ∧ ⁅P, P⁆ = centerOf P ∧ ⁅P, P⁆ ≠ ⊥ ∧ IsElemAbelian 2 (centerOf P) ∧
-    ∀ x ∈ P, x ^ 2 ∈ ⁅P, P⁆
 
 @[expose] def lin2Delta (R Z : Subgroup G) (x : G) : Set G :=
   {u | u ∈ centerOf R ∧ u ∉ Z ∧ u ∉ conjR Z x}

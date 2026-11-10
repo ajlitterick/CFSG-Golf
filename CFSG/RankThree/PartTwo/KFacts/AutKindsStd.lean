@@ -57,18 +57,5 @@ theorem InducesStdKind.mem_normalizer (h : InducesStdKind L x k) :
   | triality f hf K hK σ hσ h => exact h.choose_spec.choose
   | largeRee a ha K hK h => exact h.choose_spec.choose
 
-theorem inducesKindPSL_inner_iff {n : ℕ} {K : Type} [Field K]
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* projectiveSL n K) :
-    InducesKindPSL n K L x .inner ↔
-      x ∈ Subgroup.normalizer (L : Set G) ∧ ¬ InducesOuterTheta x L :=
-  ⟨fun ⟨e', h⟩ => (inducesKind_inner_iff L _ e' x).mp h,
-    fun h => ⟨e, (inducesKind_inner_iff L _ e x).mpr h⟩⟩
-
-theorem inducesKindPSU3_inner_iff {p f : ℕ} {K : Type} [Field K] {hK : UnitaryFieldData p f K}
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* unitaryPSU hK 3) :
-    InducesKindPSU3 hK L x .inner ↔
-      x ∈ Subgroup.normalizer (L : Set G) ∧ ¬ InducesOuterTheta x L :=
-  ⟨fun ⟨e', h⟩ => (inducesKind_inner_iff L _ e' x).mp h,
-    fun h => ⟨e, (inducesKind_inner_iff L _ e x).mpr h⟩⟩
 
 end CFSG.RankThree.PartTwo.KFacts

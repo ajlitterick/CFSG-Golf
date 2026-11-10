@@ -298,14 +298,6 @@ theorem theta_fieldLift (K : Type u) [Field K] [Finite K]
     theta K hK (fieldLift K sigma) = (1, sigma) := by
   simp [theta, fieldLift, semilinearTheta]
 
-theorem theta_linear_matrix (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K))
-    (a : Matrix.GeneralLinearGroup (Fin 2) K) :
-    theta K hK (linearInclusion K
-      (pglEquivCoordinateD K (Matrix.ProjGenLinGroup.mk a))) =
-        (squareClassMap K a.det, 1) := by
-  rw [linearInclusion_pgl]
-  simp [theta, semilinearTheta, pglDet_mk]
 
 @[expose] def determinantClass (K : Type u) [Field K] [Finite K] :
     coordinateD K →* SquareClass K :=
@@ -340,13 +332,6 @@ theorem theta_presentation (K : Type u) [Field K] [Finite K]
   rw [hh, map_mul, theta_linear, theta_fieldLift, determinantClass_matrix K d a ha]
   simp
 
-theorem determinant_presentation_independent (K : Type u) [Field K] [Finite K]
-    (a b : Matrix.GeneralLinearGroup (Fin 2) K)
-    (h : coordinatePGLAction K (Matrix.ProjGenLinGroup.mk a) =
-      coordinatePGLAction K (Matrix.ProjGenLinGroup.mk b)) :
-    squareClassMap K a.det = squareClassMap K b.det := by
-  have hh := coordinatePGLAction_injective K h
-  exact (pglDet_mk K a).symm.trans ((congrArg (pglDet K) hh).trans (pglDet_mk K b))
 
 theorem theta_linear_image (K : Type u) [Field K] [Finite K]
     (hK : IsOddPrimePower (Nat.card K)) :
@@ -370,19 +355,6 @@ theorem theta_linear_image (K : Type u) [Field K] [Finite K]
       · simpa [determinantClass] using hg
       · exact hs'.symm
 
-theorem theta_field_image (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) :
-    (fieldLift K).range.map (theta K hK) =
-      (⊥ : Subgroup (SquareClass K)).prod (⊤ : Subgroup (K ≃+* K)) := by
-  ext qs
-  constructor
-  · rintro ⟨_, ⟨sigma, rfl⟩, rfl⟩
-    rw [theta_fieldLift]
-    exact ⟨(⊥ : Subgroup (SquareClass K)).one_mem, trivial⟩
-  · rintro ⟨hq, _⟩
-    have hq' : qs.1 = 1 := hq
-    exact ⟨fieldLift K qs.2, ⟨qs.2, rfl⟩,
-      (theta_fieldLift K hK qs.2).trans (Prod.ext hq'.symm rfl)⟩
 
 @[expose] def outerQuotientEquiv (K : Type u) [Field K] [Finite K]
     (hK : IsOddPrimePower (Nat.card K)) :
@@ -390,19 +362,6 @@ theorem theta_field_image (K : Type u) [Field K] [Finite K]
   QuotientGroup.liftEquiv ((coordinateG K).subgroupOf (coordinateE K))
     (theta_surjective K hK) (theta_ker K hK).symm
 
-theorem outerQuotientEquiv_mk (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (e : coordinateE K) :
-    outerQuotientEquiv K hK (QuotientGroup.mk e) = theta K hK e :=
-  QuotientGroup.liftEquiv_mk _ _ _ e
-
-@[expose] def fieldQuotientEquiv (K : Type u) [Field K] [Finite K] :
-    CoordinateQuotientED K ≃* (K ≃+* K) :=
-  QuotientGroup.liftEquiv ((coordinateD K).subgroupOf (coordinateE K))
-    (fieldProjection_surjective K) (fieldProjection_ker K).symm
-
-theorem fieldQuotientEquiv_mk (K : Type u) [Field K] [Finite K] (e : coordinateE K) :
-    fieldQuotientEquiv K (QuotientGroup.mk e) = fieldProjection K e :=
-  QuotientGroup.liftEquiv_mk _ _ _ e
 
 theorem odd_field_projective_semilinear_exact_outer_quotient
     (K : Type u) [Field K] [Finite K] {p f : ℕ}

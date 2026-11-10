@@ -26,9 +26,6 @@ open scoped commutatorElement Pointwise
     (h : Sec14Std G A c L),
     Item142 A (lB A) c L h.toSec13Data.isElemAbelian.1 h.toSec13Data.mem_A
 
-@[expose] noncomputable def Item143NAllS14 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec14Std G A c L → Item143N A (lB A)
 
 @[expose] def Step148PointOmega : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
@@ -247,12 +244,6 @@ theorem exists_isPoint148_of (h422 : Sec4.Item4_22) (h45 : Sec4.Item4_5) (h142 :
       exact (Subgroup.commutator_mono (hQΔ.trans h1.le) le_rfl).trans hcomm
     · exact hHJ hbΩ h2
 
-
-theorem step148Point_of (h422 : Sec4.Item4_22) (h45 : Sec4.Item4_5) (h142 : Item142AllS14)
-    (h143 : Item143NAllS14) (hΩ : Step148PointOmega) (hHJ : Step148PointHJ) : Step148Point := by
-  intro G _ _ A c L h Y hY hs hYB B hB Q hQ hQY b hb hb1 hQb
-  exact exists_isPoint148_of h422 h45 h142 hΩ h (h143 G A c L h) hY hs hYB hB hQ hQY hb hb1 hQb
-    fun hbΩ h2 => hHJ G A c L h Y hY hs hYB B hB Q hQ hQY b hb hb1 hbΩ hQb h2
 
 theorem exists_isPoint148_of_not_allPointsHJ (h134 : Item134) (h48 : Sec4.Item4_8)
     (h415 : Sec4.Item4_15) (h422 : Sec4.Item4_22) (h45 : Sec4.Item4_5) (h142 : Item142AllS14)

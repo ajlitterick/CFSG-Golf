@@ -11,7 +11,6 @@ namespace CFSG.Wreathed.ReducedInvolution
 open Matrix CFSG.Wreathed.CyclicCentralSL2Extension CFSG.Wreathed.CentralSL2
 open CFSG.Wreathed.CentralSL2Abelianization CFSG.ComponentClassification.CatalogueSchreierLinearTwo
 
-theorem weyl_eq_J₀ (F : Type) [Field F] : weyl F = OddFieldTorus.J₀ F := rfl
 
 section Centralizer
 

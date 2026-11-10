@@ -35,9 +35,6 @@ def commutatorInto (V ℓ : Subgroup G) : Subgroup G where
       (ℓ.inv_mem (hy.2.2 v hv))).symm, mul_inv_cancel_right]
     exact ℓ.inv_mem (hy.2.2 v hv)
 
-theorem mem_commutatorInto {V ℓ : Subgroup G} {y : G} :
-    y ∈ commutatorInto V ℓ ↔ y ∈ Subgroup.centralizer (ℓ : Set G) ∧
-      y ∈ Subgroup.normalizer (V : Set G) ∧ ∀ v ∈ V, ⁅v, y⁆ ∈ ℓ := Iff.rfl
 
 theorem mem_of_commute_of_mem_sup [Finite G] (hR : IsRootClass R) (hiso : NoIsolated R)
     {A P B : Subgroup G} (hP : P ∈ R) (hB : B ∈ R) (hAP : Commuting A P) (hAB : Commuting A B)

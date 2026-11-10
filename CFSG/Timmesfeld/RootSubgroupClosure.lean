@@ -72,8 +72,5 @@ theorem rootGroup_inf_eq_bot_of_rootClosure (hD : IsRootInvolutionSet D) (hc : R
   · exact h
   exact absurd ((rootSet_eq_of_mem hgd).symm.trans (rootSet_eq_of_mem hge)) hne
 
-theorem Hyp.exists_rootSubgroup (h : Hyp G D) (hc : RootClosure D) {d : G} (hd : d ∈ D) :
-    ∃ A : Subgroup G, (A : Set G) = insert 1 (rootSet D d) ∧ ∀ a ∈ A, a * a = 1 :=
-  exists_rootSubgroup_of_closed h.root (hc d hd)
 
 end CFSG.Timmesfeld

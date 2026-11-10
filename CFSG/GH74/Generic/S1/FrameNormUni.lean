@@ -39,7 +39,6 @@ theorem frameBar_ne_one : frameBar h ≠ 1 := by
   have := congrArg (fun e : F ≃+* F => e c) h1
   exact this
 
-theorem conjTr_eq (A : Matrix (Fin 4) (Fin 4) F) : conjTr (frameBar h) A = (A.map h.bar)ᵀ := rfl
 
 theorem conjTr_conjTr (A : Matrix (Fin 4) (Fin 4) F) :
     conjTr (frameBar h) (conjTr (frameBar h) A) = A := by
@@ -131,10 +130,6 @@ theorem trace_conjTr (A : Matrix (Fin 4) (Fin 4) F) :
     Matrix.trace (conjTr (frameBar h) A) = h.bar (Matrix.trace A) := by
   simp [Matrix.trace, conjTr, frameBar_apply, map_sum]
 
-theorem conjTr_smul (c : F) (A : Matrix (Fin 4) (Fin 4) F) :
-    conjTr (frameBar h) (c • A) = h.bar c • conjTr (frameBar h) A := by
-  ext i j
-  simp [conjTr, frameBar_apply]
 
 @[expose] def torusVec (i j : Fin 4) (lam : F) : Fin 4 → F :=
   fun a => if a = i then lam else if a = j then lam⁻¹ else 1

@@ -174,11 +174,6 @@ noncomputable abbrev fixedSpaceQuotientRepresentation (ρ : Representation ℂ G
     Representation ℂ (K ⧸ O) (Representation.invariants ((ρ.comp K.subtype).comp O.subtype)) :=
   Representation.quotientToInvariants (ρ.comp K.subtype) O
 
-theorem fixedSpaceQuotientRepresentation_apply (ρ : Representation ℂ G V) (K : Subgroup G)
-    (O : Subgroup K) [O.Normal] (g : K)
-    (v : Representation.invariants ((ρ.comp K.subtype).comp O.subtype)) :
-    (fixedSpaceQuotientRepresentation ρ K O (g : K ⧸ O) v : V) = ρ g v :=
-  rfl
 
 theorem subgroupAverage_mem_invariants {L : Type*} [Group L] (σ : Representation ℂ L V)
     (H : Subgroup L) [Fintype H] (v : V) :

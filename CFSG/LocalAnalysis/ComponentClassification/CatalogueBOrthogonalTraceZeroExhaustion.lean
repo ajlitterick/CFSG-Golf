@@ -36,8 +36,6 @@ variable {K : Type u} [Field K]
     change ((ε.val : K) * (δ.val : K)) • X = (ε.val : K) • ((δ.val : K) • X)
     exact mul_smul _ _ _
 
-theorem traceZeroScalarAction_val (ε : rootsOfUnity 2 K) (X : traceZeroSubmodule K) :
-    ((traceZeroScalarAction ε).val X).val = (ε.val : K) • X.val := rfl
 
 @[expose] def traceZeroNegSign (K : Type u) [Field K] : rootsOfUnity 2 K :=
   ⟨(-1 : Kˣ), by simp [mem_rootsOfUnity, pow_two]⟩

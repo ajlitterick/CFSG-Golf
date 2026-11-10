@@ -62,72 +62,12 @@ section Sylow
 
 variable {Ω : Type*} {G : Subgroup (Equiv.Perm Ω)} {p : ℕ}
 
-theorem mulAut_smul_smul_sylow (α : MulAut G) (g : G) (P : Sylow p G) :
-    α • (g • P) = (α g) • (α • P) := by
-  refine Sylow.ext (Subgroup.ext fun x => ?_)
-  rw [Sylow.pointwise_smul_def, Sylow.coe_subgroup_smul, Sylow.coe_subgroup_smul,
-    Sylow.pointwise_smul_def, Subgroup.mem_smul_pointwise_iff_exists,
-    Subgroup.mem_smul_pointwise_iff_exists]
-  constructor
-  · rintro ⟨y, hy, rfl⟩
-    obtain ⟨w, hw, rfl⟩ := (Subgroup.mem_smul_pointwise_iff_exists _ _ _).1 hy
-    refine ⟨α w, (Subgroup.mem_smul_pointwise_iff_exists _ _ _).2 ⟨w, hw, rfl⟩, ?_⟩
-    simp only [MulAut.smul_def, MulAut.conj_apply, map_mul, map_inv]
-  · rintro ⟨y, hy, rfl⟩
-    obtain ⟨w, hw, rfl⟩ := (Subgroup.mem_smul_pointwise_iff_exists _ _ _).1 hy
-    refine ⟨g * w * g⁻¹, (Subgroup.mem_smul_pointwise_iff_exists _ _ _).2 ⟨w, hw, rfl⟩, ?_⟩
-    simp only [MulAut.smul_def, MulAut.conj_apply, map_mul, map_inv]
 
 variable (β : Ω ≃ Sylow p G)
 
-@[expose] def sylowRealization (α : MulAut G) : Equiv.Perm Ω :=
-  (β.trans (MulAction.toPerm α)).trans β.symm
-
-theorem apply_sylowRealization (α : MulAut G) (ω : Ω) :
-    β (sylowRealization β α ω) = α • β ω := by
-  simp [sylowRealization]
 
 variable {β}
 
-theorem sylowRealization_mul_mul_inv
-    (hβ : ∀ (g : G) (ω : Ω), β ((g : Equiv.Perm Ω) ω) = g • β ω) (α : MulAut G) (g : G) :
-    sylowRealization β α * (g : Equiv.Perm Ω) * (sylowRealization β α)⁻¹ =
-      ((α g : G) : Equiv.Perm Ω) := by
-  refine Equiv.ext fun ω => ?_
-  rw [Equiv.Perm.mul_apply, Equiv.Perm.mul_apply]
-  set y := (sylowRealization β α)⁻¹ ω with hy
-  have hπy : sylowRealization β α y = ω := by
-    rw [hy, Equiv.Perm.inv_def, Equiv.apply_symm_apply]
-  apply β.injective
-  rw [hβ (α g) ω, apply_sylowRealization, hβ g y, mulAut_smul_smul_sylow,
-    ← apply_sylowRealization, hπy]
-
-theorem sylowRealization_mem_normalizer
-    (hβ : ∀ (g : G) (ω : Ω), β ((g : Equiv.Perm Ω) ω) = g • β ω) (α : MulAut G) :
-    sylowRealization β α ∈ Subgroup.normalizer (G : Set (Equiv.Perm Ω)) := by
-  refine Subgroup.mem_normalizer_iff.2 fun h => ⟨fun hh => ?_, fun hh => ?_⟩
-  · have := sylowRealization_mul_mul_inv hβ α ⟨h, hh⟩
-    change sylowRealization β α * ((⟨h, hh⟩ : G) : Equiv.Perm Ω) *
-      (sylowRealization β α)⁻¹ ∈ G
-    rw [this]
-    exact (α ⟨h, hh⟩).2
-  · set k : G := ⟨_, hh⟩
-    have h1 := sylowRealization_mul_mul_inv hβ α (α⁻¹ k)
-    rw [show α (α⁻¹ k) = k from α.apply_symm_apply k] at h1
-    have h2 : h = ((α⁻¹ k : G) : Equiv.Perm Ω) :=
-      mul_left_cancel (mul_right_cancel (h1.trans rfl).symm)
-    rw [h2]
-    exact (α⁻¹ k).2
-
-theorem sylow_action_automorphism_realization [Finite G] [Fact p.Prime] (β : Ω ≃ Sylow p G)
-    (hβ : ∀ (g : G) (ω : Ω), β ((g : Equiv.Perm Ω) ω) = g • β ω) :
-    (∀ (α : MulAut G) (g : G), sylowRealization β α * (g : Equiv.Perm Ω) *
-        (sylowRealization β α)⁻¹ = ((α g : G) : Equiv.Perm Ω)) ∧
-      (∀ α : MulAut G, sylowRealization β α ∈ Subgroup.normalizer (G : Set (Equiv.Perm Ω))) ∧
-      ∀ α : MulAut G, ∃ n ∈ Subgroup.normalizer (G : Set (Equiv.Perm Ω)),
-        ∀ g : G, n * (g : Equiv.Perm Ω) * n⁻¹ = ((α g : G) : Equiv.Perm Ω) :=
-  ⟨sylowRealization_mul_mul_inv hβ, sylowRealization_mem_normalizer hβ,
-    fun α => ⟨_, sylowRealization_mem_normalizer hβ α, sylowRealization_mul_mul_inv hβ α⟩⟩
 
 end Sylow
 

@@ -25,8 +25,6 @@ theorem Em_def (M : Subgroup G) : Em M = (layer ↥M).map M.subtype := rfl
 
 theorem Op_def (p : ℕ) (M : Subgroup G) : Op p M = (pCore p ↥M).map M.subtype := rfl
 
-theorem card_Fm (M : Subgroup G) : Nat.card ↥(Fm M) = Nat.card ↥(fittingSubgroup ↥M) :=
-  Subgroup.card_map_of_injective M.subtype_injective
 
 theorem card_Fs (M : Subgroup G) : Nat.card ↥(Fs M) = Nat.card ↥(generalizedFitting ↥M) :=
   Subgroup.card_map_of_injective M.subtype_injective

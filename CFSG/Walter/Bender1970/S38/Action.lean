@@ -266,7 +266,6 @@ end Finite
     ext v
     simp [MulAut.mul_apply]
 
-theorem restrictQ_apply (x : X) (v : Q) : ((hD.restrictQ x v : Q) : A) = ρ x v := rfl
 
 theorem exists_eq_on_Q [Finite A] {F : Subgroup Y} (hFX : F ≤ X) (hRF : R ≤ F)
     (hF : Group.IsNilpotent F) {x : Y} (hx : x ∈ F) : ∃ r ∈ R, ∀ v ∈ Q, ρ x v = ρ r v := by

@@ -185,12 +185,5 @@ theorem Ctx4443.not_three_dvd_card_zpowers
     (Nat.prime_three.dvd_of_dvd_pow h3)
   omega
 
-theorem rank3II_4_47_3_of
-    (h45 : Item4_5) :
-    ∀ (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (s : G), Ctx4443 G A M H s →
-      ∀ L ∈ thetaComponents 3 G, ¬ L ≤ M → s ∈ Subgroup.normalizer (L : Set G) := by
-  intro G _ _ A M H s h L hL hLM
-  exact mem_normalizer_of_mem_centralizer h45 h.ctx444 h.concl4442.2.1
-    (Ctx4443.not_three_dvd_card_zpowers h) hL hLM
 
 end CFSG.RankThree.PartTwo.Sec4.Item4443SL

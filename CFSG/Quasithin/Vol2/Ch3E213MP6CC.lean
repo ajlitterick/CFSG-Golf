@@ -36,8 +36,6 @@ theorem natAct_zs (b : k) (v : Fin 4 → k) :
   ext i
   fin_cases i <;> simp [natAct, glMat_uElt, uMat, Matrix.mulVec, dotProduct, Fin.sum_univ_four]
 
-theorem natAct_zl_three (a : k) (v : Fin 4 → k) : natAct (uElt 0 0 a 0) v 3 = v 3 := by
-  simp [natAct_zl]
 
 theorem natAct_zs_three (b : k) (v : Fin 4 → k) : natAct (uElt 0 b 0 0) v 3 = v 3 := by
   simp [natAct_zs]

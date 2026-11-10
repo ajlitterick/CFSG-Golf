@@ -77,22 +77,9 @@ theorem span_bVec : Submodule.span (ZMod 2) (Set.range bVec) = Zsp := by
     rintro _ ⟨t, rfl⟩
     exact zVec_mem_span t
 
-theorem linearIndependent_bVec : LinearIndependent (ZMod 2) bVec := by
-  rw [linearIndependent_iff_card_eq_finrank_span, Set.finrank, span_bVec, finrank_Zsp,
-    Fintype.card_fin]
 
 @[expose] def psiGen : Fin 8 → Wv v0 := ![0, bVec 0, bVec 1, bVec 2, bVec 3, bVec 4, bVec 5, 0]
 
-theorem psiGen_mem (k : Fin 8) : psiGen k ∈ Zsp := by
-  fin_cases k
-  · exact Zsp.zero_mem
-  · exact bVec_mem 0
-  · exact bVec_mem 1
-  · exact bVec_mem 2
-  · exact bVec_mem 3
-  · exact bVec_mem 4
-  · exact bVec_mem 5
-  · exact Zsp.zero_mem
 
 theorem decW_two_pow (t : Fin 22) : decW (2 ^ (t : ℕ)) = qbW t := by
   rw [decW, Finset.sum_eq_single t]

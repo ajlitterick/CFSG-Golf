@@ -305,10 +305,6 @@ theorem restrictedTheta_ker (K : Type u) [Field K] [Finite K]
   QuotientGroup.liftEquiv ((specialLayer K).subgroupOf Gamma)
     ((theta K hK).subgroupMap_surjective Gamma) (restrictedTheta_ker K hK Gamma).symm
 
-theorem gammaQuotientEquivOuter_mk (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (Gamma : Subgroup (coordinateE K)) (e : Gamma) :
-    gammaQuotientEquivOuter K hK Gamma (QuotientGroup.mk e) = restrictedTheta K hK Gamma e :=
-  QuotientGroup.liftEquiv_mk _ _ _ e
 
 @[expose] def subgroupEquivOfEq {H : Type u} [Group H] {N L : Subgroup H} (h : N = L) :
     N ≃* L where
@@ -531,12 +527,6 @@ theorem ambientImage_linearLayer (K : Type u) [Field K] :
     ambientImage K (linearLayer K) = coordinateD K :=
   Subgroup.map_subgroupOf_eq_of_le (coordinateD_le_E K)
 
-theorem ambient_index_eq (K : Type u) [Field K]
-    (Gamma : Subgroup (coordinateE K)) :
-    (coordinateG K).relIndex (ambientImage K Gamma) = (specialLayer K).relIndex Gamma := by
-  rw [← ambientImage_specialLayer]
-  exact Subgroup.relIndex_map_map_of_injective (specialLayer K) Gamma
-    (coordinateE K).subtype_injective
 
 theorem gamma_special_eq_sup (K : Type u) [Field K] [Finite K]
     (hK : IsOddPrimePower (Nat.card K)) (Gamma : Subgroup (coordinateE K))
@@ -772,23 +762,6 @@ theorem dihedral_projective_semilinear_overgroups_have_odd_field_part
     gamma_index_even_iff_linearExtension K hK Gamma hG hfield,
     gamma_index_odd_iff_specialExtension K hK Gamma hG hfield⟩
 
-theorem dihedral_projective_semilinear_overgroups_have_odd_field_part_int
-    (K : Type u) [Field K] [Finite K] {p f : ℕ}
-    (hp : p.Prime) (hodd : Odd p) (hf : 1 ≤ f) (hcard : Nat.card K = p ^ f)
-    (Gamma : Subgroup (coordinateE K)) (hG : specialLayer K ≤ Gamma)
-    (S : Sylow 2 Gamma) {k : ℤ} (hk : 2 ≤ k)
-    (e : S ≃* DihedralGroup (2 ^ (k - 1).toNat)) :
-    (∃! A : Subgroup (K ≃+* K), Odd (Nat.card A) ∧ Nat.card A ∣ f ∧
-      (SpecialExtension K Gamma A ∨ LinearExtension K Gamma A)) ∧
-    Odd (Nat.card (fieldImage K Gamma)) ∧ Nat.card (fieldImage K Gamma) ∣ f ∧
-    (SpecialExtension K Gamma (fieldImage K Gamma) ∨ LinearExtension K Gamma (fieldImage K Gamma)) ∧
-    (Even ((specialLayer K).relIndex Gamma) ↔ LinearExtension K Gamma (fieldImage K Gamma)) ∧
-    (Odd ((specialLayer K).relIndex Gamma) ↔ SpecialExtension K Gamma (fieldImage K Gamma)) := by
-  have hk' : 2 ≤ k.toNat := by omega
-  have he : (k - 1).toNat = k.toNat - 1 := Int.toNat_sub' k 1
-  rw [he] at e
-  exact dihedral_projective_semilinear_overgroups_have_odd_field_part
-    K hp hodd hf hcard Gamma hG S hk' e
 
 end
 

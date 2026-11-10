@@ -115,12 +115,6 @@ theorem exists_perfect_le_centralizer_of_isLongRoot (hQ : (polarBilin Q).Nondege
       _ = c * (rootPairElt hQ h₁₂ h₁₃ h₂₃ * y) * c⁻¹ := by rw [h]
       _ = c * rootPairElt hQ h₁₂ h₁₃ h₂₃ * c⁻¹ * (c * y * c⁻¹) := by group
 
-theorem mem_perfectCore_centralizer_of_isLongRoot (hQ : (polarBilin Q).Nondegenerate)
-    {P₁ P₂ P₃ : HypPair Q} (h₁₂ : P₁.Orth P₂) (h₁₃ : P₁.Orth P₃) (h₂₃ : P₂.Orth P₃)
-    (hq : 4 ≤ Nat.card K) {z : matrixProjectiveDerived Q} (hz : IsLongRoot Q z) :
-    z ∈ perfectCore (centralizer {z}) := by
-  obtain ⟨H, hH, hzH, hHC⟩ := exists_perfect_le_centralizer_of_isLongRoot hQ h₁₂ h₁₃ h₂₃ hq hz
-  exact le_perfectCore_of_perfect hHC hH hzH
 
 end Conj
 

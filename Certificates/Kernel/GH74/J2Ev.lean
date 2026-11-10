@@ -21,7 +21,6 @@ open CFSG.Sporadic.SmallOddCore
 
 meta def idM : Array Nat := idTab 315
 meta def invM (a : Array Nat) : Array Nat := CFSG.Monster.B.Co2.Native.invCand 315 a
-meta def cM (k : Nat) : Array Nat := natArr (j2CentTbl k)
 
 meta def kbM : Array (Array Nat) := #[natArr j2KbA, natArr j2KbB]
 meta def cbM : Array (Array Nat) := (j2Row2B.centGens.map natArr).toArray

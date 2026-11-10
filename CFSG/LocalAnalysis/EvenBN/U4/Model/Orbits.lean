@@ -326,20 +326,6 @@ theorem miyamoto_orbit_z1_I1N1 :
   · rintro _ ⟨n, hn, rfl⟩
     exact ⟨n, mem_sup_right hn, rfl⟩
 
-theorem miyamoto_orbit_z2_N1 :
-    {y | ∃ n ∈ miyamotoN1 h, n⁻¹ * LocalAnalysis.miyamotoZ2 K * n = y} =
-      {x | x ∈ miyamotoA1 h ∧ miyamotoQA1 h x = 1} := by
-  rw [miyamotoZ2_eq h]
-  have hz : miyamotoXGL h 0 0 1 0 ∈ miyamotoA1 h :=
-    (miyamotoXGL_mem_A1 h).2 ⟨rfl, map_zero _, map_zero _⟩
-  ext y
-  constructor
-  · rintro ⟨n, hn, rfl⟩
-    refine ⟨conj_mem_A1_of_mem_N1 h hn hz, ?_⟩
-    rw [miyamotoQA1_conj_N1 h hn hz, miyamotoQA1_miyamotoXGL]
-    simp
-  · rintro ⟨hy, hQ⟩
-    exact exists_N1_conj_scalar h hy (map_one _) one_ne_zero (by rw [hQ, one_pow])
 
 theorem miyamoto_orbit_z2_I1N1 :
     {y | ∃ g ∈ miyamotoI1 h ⊔ miyamotoN1 h, g⁻¹ * LocalAnalysis.miyamotoZ2 K * g = y} =

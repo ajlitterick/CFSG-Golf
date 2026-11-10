@@ -46,15 +46,5 @@ open CFSG.Sporadic.He.Native
   Array.ofFn (n := 111) fun i => Array.ofFn (n := 111) fun j =>
     ((if i.val = j.val then 1 else 0) + 4 * (v[i.val]! * w[j.val]!)) % 5
 
-@[expose] def faithChecks (qkeys : Array ByteArray) (F Y Cinv : Array (Array Nat))
-    (v w par op : Array Nat) (ab : Nat × Nat) (mu : Nat) : Bool :=
-  let Z := faithZ qkeys F
-  let N := faithN Z ab mu
-  qkeys.size == 16 && ab.1 < 16 && ab.2 < 16 && v.size == 111 && w.size == 111 &&
-    par.size == 110 && op.size == 110 &&
-    (List.range 110).all (fun t => par[t]! < t + 1 && op[t]! < 16) &&
-    mulVec 5 111 N v == Array.replicate 111 0 &&
-    mulM 5 111 Y N == faithP v w &&
-    mulM 5 111 (colsMat 111 (cyclicVecs Z v par op)) Cinv == idM 111
 
 end CFSG.Sporadic.Ly.Native

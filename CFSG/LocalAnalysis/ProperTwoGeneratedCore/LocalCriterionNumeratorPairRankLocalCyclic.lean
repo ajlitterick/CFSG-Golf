@@ -53,39 +53,5 @@ theorem original_local_cyclic_commutator_and_normality
     rw [← heq]
     exact ⟨hset, isCyclic_of_subsingleton, Subgroup.card_bot.trans hdelta.symm, hnormal⟩
 
-theorem original_local_commutator_isCyclic
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hcomm : ProperStrongEmbeddingCommutingImages G)
-    (hsmallerR1 : ∀ (F : Type u) [Group F] [Finite F], Nat.card F < Nat.card G →
-      2 ≤ twoRank F → (∃ A : Subgroup F, fusionStronglyEmbedded A) → R1Full F)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (beta : rightCosetSpace H) (hbeta : beta ≠ rightCosetMk H 1)
-    (t : G) (ht : t ∈ rightPairFlipFiber H z beta)
-    (w : G) (hw : orderOf w = 2) (hwz : Commute w z) (hwt : Commute w t) :
-    IsCyclic (rightInvolutionCommutatorSubgroup t
-      (pairOddCore H beta ⊓ Subgroup.centralizer ({w} : Set G))) :=
-  (original_local_cyclic_commutator_and_normality
-    h hcomm hsmallerR1 S hzS hzcenter beta hbeta t ht w hw hwz hwt).2.1
-
-theorem original_local_commutator_eq_bot_of_fixed_root_card_eq_one
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    (hcomm : ProperStrongEmbeddingCommutingImages G)
-    (hsmallerR1 : ∀ (F : Type u) [Group F] [Finite F], Nat.card F < Nat.card G →
-      2 ≤ twoRank F → (∃ A : Subgroup F, fusionStronglyEmbedded A) → R1Full F)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (beta : rightCosetSpace H) (hbeta : beta ≠ rightCosetMk H 1)
-    (t : G) (ht : t ∈ rightPairFlipFiber H z beta)
-    (w : G) (hw : orderOf w = 2) (hwz : Commute w z) (hwt : Commute w t)
-    (hdelta : Nat.card ↥(conjugacyWithin H z ∩
-      (Subgroup.centralizer ({w} : Set G) : Set G)) = 1) :
-    rightInvolutionCommutatorSubgroup t
-      (pairOddCore H beta ⊓ Subgroup.centralizer ({w} : Set G)) = ⊥ := by
-  have hcard := (original_local_cyclic_commutator_and_normality
-    h hcomm hsmallerR1 S hzS hzcenter beta hbeta t ht w hw hwz hwt).2.2.1
-  exact (rightInvolutionCommutatorSubgroup t
-    (pairOddCore H beta ⊓ Subgroup.centralizer ({w} : Set G))).eq_bot_of_card_eq
-      (hcard.trans hdelta)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

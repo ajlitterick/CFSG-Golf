@@ -106,21 +106,6 @@ theorem actSK : ∀ l < 4, ∀ x < 20520, actN (σK l) x = KLr l x := by
   · rw [σK3]
     exact actKi1 x hx
 
-theorem actSKi : ∀ l < 4, ∀ x < 20520, actN (σK l)⁻¹ x = KLr (Nat.xor l 1) x := by
-  intro l hl x hx
-  interval_cases l
-  · have e : Nat.xor 0 1 = 1 := rfl
-    rw [σK0, e]
-    exact actKi0 x hx
-  · have e : Nat.xor 1 1 = 0 := rfl
-    rw [σK1, e, inv_inv]
-    exact actK0 x hx
-  · have e : Nat.xor 2 1 = 3 := rfl
-    rw [σK2, e]
-    exact actKi1 x hx
-  · have e : Nat.xor 3 1 = 2 := rfl
-    rw [σK3, e, inv_inv]
-    exact actK1 x hx
 
 theorem κK (h : Nat) (hh : h < 2) : κ h ∈ J3Groups.K := Subgroup.subset_closure ⟨h, hh, rfl⟩
 

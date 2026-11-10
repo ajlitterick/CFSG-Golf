@@ -68,13 +68,6 @@ theorem idBelow_list_prod {ι : Type*} {h : ℤ} (hh : 0 < h) (L : List ι)
     · simp only [List.map_cons, List.prod_cons, List.sum_cons]
       rw [mul_apply_of_idBelow lev hh hx ih1 hab hlev, ih2 a b hab hlev]
 
-omit [Fintype σ] in
-theorem eq_one_of_idBelow_of_idBelow_neg {M : Matrix σ σ R} (h₁ : IdBelow lev 1 M)
-    (h₂ : IdBelow (fun a => -lev a) 1 M) : M = 1 := by
-  ext a b
-  rcases le_or_gt (lev a - lev b) 0 with h | h
-  · exact h₁ a b (by omega)
-  · exact h₂ a b (by show -lev a - -lev b < 1; omega)
 
 omit [Fintype σ] in
 theorem eq_one_of_idBelow_one_of_idBelow_neg_one {M : Matrix σ σ R}

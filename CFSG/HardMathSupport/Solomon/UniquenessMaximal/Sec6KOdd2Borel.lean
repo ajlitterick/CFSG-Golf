@@ -45,8 +45,6 @@ theorem IsUT.det_eq {M : Matrix (Fin 3) (Fin 3) L} (h : IsUT M) :
     rw [Matrix.GeneralLinearGroup.coe_inv]
     exact IsUT.inv h
 
-theorem mem_borel {g : Matrix.GeneralLinearGroup (Fin 3) L} :
-    g ∈ borel L ↔ IsUT (g : Matrix (Fin 3) (Fin 3) L) := Iff.rfl
 
 theorem diag_ne_zero {g : Matrix.GeneralLinearGroup (Fin 3) L} (h : g ∈ borel L) :
     (g : Matrix (Fin 3) (Fin 3) L) 0 0 ≠ 0 ∧ (g : Matrix (Fin 3) (Fin 3) L) 1 1 ≠ 0 ∧

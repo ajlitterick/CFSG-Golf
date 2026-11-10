@@ -86,38 +86,6 @@ theorem anyLt_true {n : ℕ} {p : ℕ → Bool} (h : CFSG.Sporadic.Schreier.Co3.
   obtain ⟨⟨i, hi⟩, -, h⟩ := h
   exact ⟨i, hi, h⟩
 
-theorem card_le_length_of_rep {X : Subgroup (Equiv.Perm (Fin n))} {ls : List (Array ℕ)}
-    (h : ∀ c ∈ X, ∃ e ∈ ls, Rep n e c) : Nat.card X ≤ ls.length := by
-  have h' : ∀ c : X, ∃ i : Fin ls.length, Rep n ls[i] c := by
-    intro c
-    obtain ⟨e, he, hre⟩ := h c c.2
-    obtain ⟨i, hi, rfl⟩ := List.mem_iff_getElem.1 he
-    exact ⟨⟨i, hi⟩, hre⟩
-  choose f hf using h'
-  have hinj : Function.Injective f := by
-    intro a b hab
-    have h1 := hf a
-    rw [hab] at h1
-    exact Subtype.ext (h1.unique (hf b))
-  calc Nat.card X ≤ Nat.card (Fin ls.length) := Nat.card_le_card_of_injective f hinj
-    _ = ls.length := Nat.card_fin _
-
-@[expose] def dsearch (n : ℕ) (L : Array Level) (base : Array ℕ)
-    (rels : Array (Option (ℕ × Array ℕ))) (pred : Array ℕ → Bool) :
-    ℕ → ℕ → Array ℕ → Array ℕ → List (Array ℕ)
-  | 0, _, acc, _ => if pred acc then [acc] else []
-  | fuel + 1, i, acc, accI =>
-    match rels.getD i none with
-    | some (j, y) =>
-      if (L[i]!).pos[accI[y[acc[base[j]!]!]!]!]! < (L[i]!).pts.size then
-        dsearch n L base rels pred fuel (i + 1)
-          (compA n acc (L[i]!).tr[(L[i]!).pos[accI[y[acc[base[j]!]!]!]!]!]!)
-          (compA n (L[i]!).trInv[(L[i]!).pos[accI[y[acc[base[j]!]!]!]!]!]! accI)
-      else []
-    | none =>
-      (List.range (L[i]!).pts.size).flatMap fun k =>
-        dsearch n L base rels pred fuel (i + 1) (compA n acc (L[i]!).tr[k]!)
-          (compA n (L[i]!).trInv[k]! accI)
 
 variable {Q : RawSchreierDatum n} {O S : Array (Array ℕ)} {base : Array ℕ}
   {W : Array (List ℤ)} {chunks : ℕ}
@@ -151,82 +119,6 @@ theorem levT_pos_inv_mul_mem {i : ℕ} (hi : i < Q.baseCount) {h : Equiv.Perm (F
   rw [← htb]
   simp
 
-theorem dsearch_spec {rels : Array (Option (ℕ × Array ℕ))} {pred : Array ℕ → Bool}
-    {c : Equiv.Perm (Fin n)}
-    (hrel : ∀ l (hl : l < Q.baseCount) j y, rels.getD l none = some (j, y) →
-      ∃ hj : j < l, ∃ Y : Equiv.Perm (Fin n), Rep n y Y ∧
-        c (Q.base.get ⟨l, hl⟩) = Y (c (Q.base.get ⟨j, by omega⟩)))
-    (hpred : ∀ a, Rep n a c → pred a = true) :
-    ∀ fuel i, i + fuel = Q.baseCount → ∀ (acc accI : Array ℕ) (A : Equiv.Perm (Fin n)),
-      Rep n acc A → Rep n accI A⁻¹ → A⁻¹ * c ∈ Q.levelSubgroup i →
-      ∃ e ∈ dsearch n (rawLevels n S base) base rels pred fuel i acc accI, Rep n e c := by
-  have hbase : ∀ m (hm : m < Q.baseCount), ((Q.base.get ⟨m, hm⟩ : Fin n) : ℕ) = base[m]! :=
-    fun m hm => hA.base_val ⟨m, hm⟩
-  intro fuel
-  induction fuel with
-  | zero =>
-    intro i hi acc accI A hacc _ hh
-    rw [Nat.add_zero] at hi
-    subst hi
-    rw [Q.levelSubgroup_terminal_eq_bot hQ, Subgroup.mem_bot, inv_mul_eq_one] at hh
-    subst hh
-    have hp := hpred acc hacc
-    refine ⟨acc, ?_, hacc⟩
-    simp [dsearch, hp]
-  | succ fuel ih =>
-    intro i hi acc accI A hacc haccI hh
-    have hib : i < Q.baseCount := by omega
-    set h := A⁻¹ * c with hhdef
-    obtain ⟨hk, hk'⟩ := levT_pos_inv_mul_mem hA hF hQ hib hh
-    set k := (lev n S base i).pos[((h (Q.base.get ⟨i, hib⟩) : Fin n) : ℕ)]! with hkdef
-    have hrepT : Rep n ((rawLevels n S base)[i]!).tr[k]! (levT n S base i k) :=
-      hA.rep_levT hF hib hk
-    have hrepTI : Rep n ((rawLevels n S base)[i]!).trInv[k]! (levT n S base i k)⁻¹ :=
-      hA.rep_levTInv hF hib hk
-    have hacc' : Rep n (compA n acc ((rawLevels n S base)[i]!).tr[k]!) (A * levT n S base i k) :=
-      rep_compA hacc hrepT
-    have haccI' : Rep n (compA n ((rawLevels n S base)[i]!).trInv[k]! accI)
-        (A * levT n S base i k)⁻¹ := by
-      rw [mul_inv_rev]
-      exact rep_compA hrepTI haccI
-    have hh' : (A * levT n S base i k)⁻¹ * c ∈ Q.levelSubgroup (i + 1) := by
-      rw [mul_inv_rev, mul_assoc]
-      exact hk'
-    obtain ⟨e, he, hre⟩ := ih (i + 1) (by omega) _ _ _ hacc' haccI' hh'
-    refine ⟨e, ?_, hre⟩
-    cases hr : rels.getD i none with
-    | none =>
-      simp only [dsearch, hr, List.mem_flatMap, List.mem_range]
-      exact ⟨k, hk, he⟩
-    | some jy =>
-      obtain ⟨j, y⟩ := jy
-      obtain ⟨hj, Y, hY, hcY⟩ := hrel i hib j y hr
-      have hfixj : h (Q.base.get ⟨j, by omega⟩) = Q.base.get ⟨j, by omega⟩ :=
-        Q.levelSubgroup_fixes_base_index i h hh ⟨j, by omega⟩ hj
-      have hcj : c (Q.base.get ⟨j, by omega⟩) = A (Q.base.get ⟨j, by omega⟩) := by
-        have : c = A * h := by rw [hhdef]; group
-        rw [this, Equiv.Perm.mul_apply, hfixj]
-      have hq : accI[y[acc[base[j]!]!]!]! = ((h (Q.base.get ⟨i, hib⟩) : Fin n) : ℕ) := by
-        rw [← hbase j (by omega), hacc, ← hcj, hY, ← hcY, haccI, hhdef, Equiv.Perm.mul_apply]
-      have hpos : ((rawLevels n S base)[i]!).pos[accI[y[acc[base[j]!]!]!]!]! = k := by
-        rw [hq]
-        rfl
-      simp only [dsearch, hr]
-      rw [hpos, ite_eq_left (by exact hk)]
-      exact he
-
-theorem exists_mem_dsearch {rels : Array (Option (ℕ × Array ℕ))} {pred : Array ℕ → Bool}
-    {c : Equiv.Perm (Fin n)} (hc : c ∈ Q.originalSubgroup)
-    (hrel : ∀ l (hl : l < Q.baseCount) j y, rels.getD l none = some (j, y) →
-      ∃ hj : j < l, ∃ Y : Equiv.Perm (Fin n), Rep n y Y ∧
-        c (Q.base.get ⟨l, hl⟩) = Y (c (Q.base.get ⟨j, by omega⟩)))
-    (hpred : ∀ a, Rep n a c → pred a = true) :
-    ∃ e ∈ dsearch n (rawLevels n S base) base rels pred base.size 0 (idA n) (idA n), Rep n e c := by
-  rw [hA.base_size]
-  refine dsearch_spec hA hF hQ hrel hpred Q.baseCount 0 (by omega) (idA n) (idA n) 1 rep_idA
-    (by rw [inv_one]; exact rep_idA) ?_
-  rw [inv_one, one_mul, Q.levelSubgroup_zero_eq_original hQ]
-  exact hc
 
 end Facts
 

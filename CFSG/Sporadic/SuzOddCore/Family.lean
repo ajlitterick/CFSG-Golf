@@ -281,17 +281,6 @@ theorem suzB0_ne_one : suzB0 ≠ 1 := by
   rw [h, Equiv.Perm.one_apply] at h0
   exact family_check.2.2.2.2.2.2.2.1 h0
 
-theorem suzP_closure : Subgroup.closure ({suzA0P, suzA1P} : Set suzP) = ⊤ := by
-  rw [eq_top_iff]
-  rintro ⟨g, hg⟩ -
-  induction hg using Subgroup.closure_induction with
-  | mem g hg =>
-    rcases hg with rfl | rfl
-    · exact Subgroup.subset_closure (Set.mem_insert _ _)
-    · exact Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_singleton _))
-  | one => exact Subgroup.one_mem _
-  | mul g h hg hh ihg ihh => exact Subgroup.mul_mem _ ihg ihh
-  | inv g hg ih => exact Subgroup.inv_mem _ ih
 
 theorem suzM_closure : Subgroup.closure ({suzB0M, suzB1M} : Set suzM) = ⊤ := by
   rw [eq_top_iff]
@@ -327,33 +316,6 @@ theorem suzTheta0_injective :
     suzP ≃* suzM :=
   MulEquiv.ofBijective suzTheta0 ⟨suzTheta0_injective, suzTheta0_surjective⟩
 
-theorem suzTheta_a0 :
-    suzTheta suzA0P = suzB0M := suzTheta0_a0
-
-theorem suzTheta_a1 :
-    suzTheta suzA1P = suzB1M := suzTheta0_a1
-
-theorem suzP_hom_ext {G : Type*} [Group G] {f g : suzP →* G} (h0 : f suzA0P = g suzA0P)
-    (h1 : f suzA1P = g suzA1P) (x : suzP) : f x = g x := by
-  have hx : x ∈ Subgroup.closure ({suzA0P, suzA1P} : Set suzP) := by
-    rw [suzP_closure]; exact Subgroup.mem_top x
-  induction hx using Subgroup.closure_induction with
-  | mem y hy =>
-    rcases hy with rfl | rfl
-    · exact h0
-    · exact h1
-  | one => rw [map_one, map_one]
-  | mul y z _ _ hy hz => rw [map_mul, map_mul, hy, hz]
-  | inv y _ hy => rw [map_inv, map_inv, hy]
-
-theorem suzTheta_unique
-    (e : suzP ≃* suzM) (h0 : e suzA0P = suzB0M) (h1 : e suzA1P = suzB1M) :
-    e = suzTheta := by
-  apply MulEquiv.ext
-  intro x
-  exact suzP_hom_ext (f := e.toMonoidHom) (g := suzTheta.toMonoidHom)
-    (by rw [MulEquiv.coe_toMonoidHom, MulEquiv.coe_toMonoidHom, h0, suzTheta_a0])
-    (by rw [MulEquiv.coe_toMonoidHom, MulEquiv.coe_toMonoidHom, h1, suzTheta_a1]) x
 
 theorem suzM_isSimpleGroup :
     IsSimpleGroup suzM :=

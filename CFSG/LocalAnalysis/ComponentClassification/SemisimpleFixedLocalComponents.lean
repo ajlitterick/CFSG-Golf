@@ -103,33 +103,6 @@ theorem lies_in_invariant_factor {G : Type*} [Group G] [Finite G]
     exact inf_le_left
   exact hmap.trans horbitContained
 
-theorem simple_of_normalClosure_eq_top {G : Type*} [Group G] [Finite G]
-    {Index : Type*} [Fintype Index]
-    (factors : Index → Subgroup G) (hnormal : ∀ index, (factors index).Normal)
-    (hcenter : ∀ index, Subgroup.center (factors index) = ⊥)
-    (hsimple : ∀ index, IsSimpleGroup (factors index))
-    (hperfect : ∀ index, Group.IsPerfect (factors index))
-    (hcommutes : Pairwise (fun first second => ⁅factors first, factors second⁆ = ⊥))
-    (hcover : (⨆ index, factors index) = ⊤)
-    (permutation : Index → Index) (hpermutation : Function.Involutive permutation)
-    (automorphism : MulAut G) (hinvolutive : Function.Involutive automorphism)
-    (himages : ∀ index, (factors index).map automorphism.toMonoidHom = factors (permutation index))
-    (localComponent : Subgroup (FixedCommutingProduct.fixedSubgroup automorphism))
-    (hlocal : TwoComponents.IsTwoComponent localComponent)
-    (hnotQuasisimple : ¬ IsQuasisimple localComponent)
-    (hclosure : Subgroup.normalClosure
-      (localComponent.map (FixedCommutingProduct.fixedSubgroup automorphism).subtype : Set G) = ⊤) :
-    IsSimpleGroup G := by
-  obtain ⟨index, _, hcontained⟩ := lies_in_invariant_factor factors hnormal hcenter hsimple hperfect
-    hcommutes hcover permutation hpermutation automorphism hinvolutive himages
-      localComponent hlocal hnotQuasisimple
-  let : (factors index).Normal := hnormal index
-  let : IsSimpleGroup (factors index) := hsimple index
-  have htop : factors index = ⊤ := by
-    apply top_unique
-    rw [← hclosure]
-    exact Subgroup.normalClosure_le_normal hcontained
-  exact ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv).symm.isSimpleGroup
 
 theorem normalClosure_simple_extension {G : Type*} [Group G] [Finite G]
     (normalSubgroup : Subgroup G) [normalSubgroup.Normal] (element : G)

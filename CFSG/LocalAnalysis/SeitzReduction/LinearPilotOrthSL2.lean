@@ -56,8 +56,6 @@ theorem upperUnit_inv (c : R) : (upperUnit c)⁻¹ = upperUnit (-c) :=
 theorem upperUnit_mul_comm (c d : R) : upperUnit c * upperUnit d = upperUnit d * upperUnit c := by
   rw [← upperUnit_add, ← upperUnit_add, add_comm]
 
-theorem lowerUnit_add (c d : R) : lowerUnit (c + d) = lowerUnit c * lowerUnit d :=
-  SpecialLinearGroup.transvection_add _ c d
 
 variable {S : Type*} [Field S]
 
@@ -158,40 +156,6 @@ theorem exists_eq_add_mul_of_notMem_range [Finite K] [Finite F]
   obtain ⟨⟨k, l⟩, hkl⟩ := hbij.2 x
   exact ⟨k, l, hkl.symm⟩
 
-theorem exists_trace_one [Finite K] [Finite F] [CharP F 2] (σ : F →+* F)
-    (hσι : ∀ k, σ (ι k) = ι k) (hfix : ∀ x, σ x = x → x ∈ ι.range)
-    (hFK : Nat.card F = Nat.card K ^ 2) : ∃ ω : F, σ ω = ω + 1 := by
-  obtain ⟨x, hx⟩ : ∃ x : F, x ∉ ι.range := by
-    by_contra h
-    push Not at h
-    have hle := Nat.card_le_card_of_surjective ι h
-    have hK : 1 < Nat.card K := Finite.one_lt_card
-    rw [hFK] at hle
-    nlinarith
-  obtain ⟨k, l, hkl⟩ := exists_eq_add_mul_of_notMem_range ι hFK hx (x * x)
-  have h2F : (2 : F) = 0 := CharTwo.two_eq_zero
-  have hσx : σ x * σ x = ι k + ι l * σ x := by
-    have := congrArg σ hkl
-    rwa [map_mul, map_add, map_mul, hσι, hσι] at this
-  have hne : x + σ x ≠ 0 := by
-    intro h
-    apply hx (hfix x _)
-    linear_combination h - x * h2F
-  have key : (x + σ x) * (x + σ x) = ι l * (x + σ x) := by
-    linear_combination hkl + hσx + (x * σ x + ι k) * h2F
-  have hsum : x + σ x = ι l := mul_right_cancel₀ hne key
-  have hl0 : ι l ≠ 0 := hsum ▸ hne
-  refine ⟨x * (ι l)⁻¹, ?_⟩
-  rw [map_mul, map_inv₀, hσι]
-  have hσx' : σ x = ι l + x := by linear_combination hsum - x * h2F
-  rw [hσx']
-  field_simp
-  ring
-
-theorem exists_trace_one_of_fixed [Finite K] [Finite F] [CharP F 2] (σ : F ≃+* F)
-    (hσ : ∀ x : F, σ x = x ↔ x ∈ ι.range) (hFK : Nat.card F = Nat.card K ^ 2) :
-    ∃ ω : F, σ ω = ω + 1 :=
-  exists_trace_one ι σ.toRingHom (fun k => (hσ (ι k)).2 ⟨k, rfl⟩) (fun x hx => (hσ x).1 hx) hFK
 
 theorem notMem_range_of_trace_one {σ : F →+* F} (hσι : ∀ k, σ (ι k) = ι k) {ω : F}
     (hω : σ ω = ω + 1) : ω ∉ ι.range := by
@@ -211,9 +175,6 @@ variable {K F : Type*} [Field K] [Field F] (ι : K →+* F)
 @[expose] def twistedSubfield (ω : F) : Subgroup SL(2, F) :=
   (subfieldSL ι).map (MulAut.conj (upperUnit ω)).toMonoidHom
 
-theorem mem_subfieldSL {g : SL(2, F)} :
-    g ∈ subfieldSL ι ↔ ∃ s : SL(2, K), SpecialLinearGroup.map ι s = g :=
-  Iff.rfl
 
 theorem mem_twistedSubfield {ω : F} {g : SL(2, F)} :
     g ∈ twistedSubfield ι ω ↔
@@ -232,12 +193,6 @@ theorem specialLinearGroup_map_injective :
   simp only [SpecialLinearGroup.map_apply_coe, RingHom.mapMatrix_apply, Matrix.map_apply] at this
   exact ι.injective this
 
-theorem nonempty_mulEquiv_subfieldSL : Nonempty (SL(2, K) ≃* subfieldSL ι) :=
-  ⟨MonoidHom.ofInjective (specialLinearGroup_map_injective ι)⟩
-
-theorem nonempty_mulEquiv_twistedSubfield (ω : F) : Nonempty (SL(2, K) ≃* twistedSubfield ι ω) :=
-  ⟨(MonoidHom.ofInjective (specialLinearGroup_map_injective ι)).trans
-    ((subfieldSL ι).equivMapOfInjective _ (MulEquiv.injective _))⟩
 
 theorem upperUnit_mem_subfieldSL (k : K) : upperUnit (ι k) ∈ subfieldSL ι :=
   ⟨upperUnit k, map_upperUnit ι k⟩
@@ -281,18 +236,6 @@ theorem twistedSubfield_fixed [CharP F 2] (σ : F →+* F) (hσι : ∀ k, σ (�
 theorem upperUnit_one_inv [CharP F 2] : (upperUnit (1 : F))⁻¹ = upperUnit 1 := by
   rw [upperUnit_inv, CharTwo.neg_eq]
 
-theorem conj_upperUnit_one_map_eq [CharP F 2] (σ : F →+* F) (hσι : ∀ k, σ (ι k) = ι k)
-    {ω : F} (hω : σ ω = ω + 1) {g : SL(2, F)} (hg : g ∈ twistedSubfield ι ω) :
-    MulAut.conj (upperUnit 1) (SpecialLinearGroup.map σ g) = g := by
-  rw [MulAut.conj_apply, upperUnit_one_inv]
-  exact twistedSubfield_fixed ι σ hσι hω hg
-
-theorem upperUnit_mem_twistedSubfield (ω : F) (k : K) : upperUnit (ι k) ∈ twistedSubfield ι ω :=
-  (mem_twistedSubfield ι).2
-    ⟨upperUnit k, by rw [map_upperUnit, upperUnit_mul_comm, mul_inv_cancel_right]⟩
-
-theorem upperUnit_one_mem_twistedSubfield (ω : F) : upperUnit 1 ∈ twistedSubfield ι ω := by
-  simpa using upperUnit_mem_twistedSubfield ι ω 1
 
 end Twisted
 
@@ -505,113 +448,6 @@ theorem pairEmbed_upperUnit {R : Type*} [Field R] {a b : Fin n} (hab : a ≠ b) 
     pairEmbed hab (upperUnit c) = SpecialLinearGroup.transvection hab c :=
   pairEmbed_transvection_zero_one hab c
 
-variable {K F : Type*} [Field K] [Field F] (ι : K →+* F)
-
-theorem map_blockSpecialLinear_pair_eq {a b : Fin n} (hab : a ≠ b) :
-    (blockSpecialLinear (K := K) ({a, b} : Finset (Fin n))).map (SpecialLinearGroup.map ι) =
-      (subfieldSL ι).map (pairEmbed hab) := by
-  rw [← range_pairEmbed hab, subfieldSL, MonoidHom.range_eq_map, MonoidHom.range_eq_map,
-    Subgroup.map_map, Subgroup.map_map]
-  congr 1
-  exact MonoidHom.ext fun A => map_pairEmbed ι hab A
-
-@[expose] def blockTwistedSubfield {a b : Fin n} (hab : a ≠ b) (ω : F) :
-    Subgroup (SpecialLinearGroup (Fin n) F) :=
-  (twistedSubfield ι ω).map (pairEmbed hab)
-
-theorem blockTwistedSubfield_eq {a b : Fin n} (hab : a ≠ b) (ω : F) :
-    blockTwistedSubfield ι hab ω =
-      ((blockSpecialLinear (K := K) ({a, b} : Finset (Fin n))).map
-        (SpecialLinearGroup.map ι)).map
-        (MulAut.conj (SpecialLinearGroup.transvection hab ω)).toMonoidHom := by
-  rw [map_blockSpecialLinear_pair_eq ι hab, blockTwistedSubfield, twistedSubfield,
-    Subgroup.map_map, Subgroup.map_map]
-  congr 1
-  refine MonoidHom.ext fun A => ?_
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply, map_mul, map_inv,
-    pairEmbed_upperUnit]
-
-theorem nonempty_mulEquiv_blockTwistedSubfield {a b : Fin n} (hab : a ≠ b) (ω : F) :
-    Nonempty (SL(2, K) ≃* blockTwistedSubfield ι hab ω) := by
-  obtain ⟨e⟩ := nonempty_mulEquiv_twistedSubfield ι ω
-  exact ⟨e.trans ((twistedSubfield ι ω).equivMapOfInjective _ (pairEmbed_injective hab))⟩
-
-theorem transvection_one_mem_blockTwistedSubfield {a b : Fin n} (hab : a ≠ b) (ω : F) :
-    SpecialLinearGroup.transvection hab (1 : F) ∈ blockTwistedSubfield ι hab ω :=
-  ⟨upperUnit 1, upperUnit_one_mem_twistedSubfield ι ω, pairEmbed_upperUnit hab 1⟩
-
-theorem blockTwistedSubfield_fixed [CharP F 2] (σ : F →+* F) (hσι : ∀ k, σ (ι k) = ι k)
-    {ω : F} (hω : σ ω = ω + 1) {a b : Fin n} (hab : a ≠ b) {g : SpecialLinearGroup (Fin n) F}
-    (hg : g ∈ blockTwistedSubfield ι hab ω) :
-    SpecialLinearGroup.transvection hab 1 * SpecialLinearGroup.map σ g *
-      SpecialLinearGroup.transvection hab 1 = g := by
-  obtain ⟨g₀, hg₀, rfl⟩ := hg
-  rw [map_pairEmbed, ← pairEmbed_upperUnit hab, ← map_mul, ← map_mul,
-    twistedSubfield_fixed ι σ hσι hω hg₀]
-
-theorem map_blockSpecialLinear_sup_blockTwistedSubfield [Finite K] [Finite F] [CharP K 2]
-    (hq : 4 ≤ Nat.card K) (hFK : Nat.card F = Nat.card K ^ 2) {ω : F} (hω : ω ∉ ι.range)
-    {a b : Fin n} (hab : a ≠ b) :
-    (blockSpecialLinear (K := K) ({a, b} : Finset (Fin n))).map (SpecialLinearGroup.map ι) ⊔
-        blockTwistedSubfield ι hab ω = blockSpecialLinear (K := F) ({a, b} : Finset (Fin n)) := by
-  rw [map_blockSpecialLinear_pair_eq ι hab, blockTwistedSubfield, ← Subgroup.map_sup,
-    sup_twistedSubfield_eq_top ι hq hFK hω, ← MonoidHom.range_eq_map, range_pairEmbed]
-
-variable {K : Type*} [Field K]
-
-@[expose] def pairEmbedProd {a b : Fin n} (hab : a ≠ b) :
-    SL(2, K) × SL(2, K) →* SpecialLinearGroup (Fin n) K × SpecialLinearGroup (Fin n) K :=
-  (pairEmbed hab).prodMap (pairEmbed hab)
-
-theorem pairEmbedProd_upperUnit_pair {a b : Fin n} (hab : a ≠ b) :
-    pairEmbedProd hab ((upperUnit 1, upperUnit 1) : SL(2, K) × SL(2, K)) =
-      (SpecialLinearGroup.transvection hab 1, SpecialLinearGroup.transvection hab 1) := by
-  change (pairEmbed hab (upperUnit 1), pairEmbed hab (upperUnit 1)) = _
-  rw [pairEmbed_upperUnit]
-
-theorem map_diag_sup_twistedDiag_eq_prod [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K)
-    {a b : Fin n} (hab : a ≠ b) :
-    (diagSL2 K).map (pairEmbedProd hab) ⊔ (twistedDiagSL2 K).map (pairEmbedProd hab) =
-      (blockSpecialLinear (K := K) ({a, b} : Finset (Fin n))).prod
-        (blockSpecialLinear (K := K) ({a, b} : Finset (Fin n))) := by
-  rw [← Subgroup.map_sup, diag_sup_twistedDiag_eq_top hq, ← MonoidHom.range_eq_map,
-    pairEmbedProd, MonoidHom.range_prodMap, range_pairEmbed]
-
-theorem mem_map_diagSL2_pairEmbedProd {a b : Fin n} (hab : a ≠ b)
-    {p : SpecialLinearGroup (Fin n) K × SpecialLinearGroup (Fin n) K} :
-    p ∈ (diagSL2 K).map (pairEmbedProd hab) ↔
-      p.1 ∈ blockSpecialLinear ({a, b} : Finset (Fin n)) ∧ p.1 = p.2 := by
-  constructor
-  · rintro ⟨q, hq, rfl⟩
-    replace hq := mem_diagSL2.1 hq
-    refine ⟨?_, ?_⟩
-    · rw [← range_pairEmbed hab]
-      exact ⟨q.1, rfl⟩
-    · change pairEmbed hab q.1 = pairEmbed hab q.2
-      rw [hq]
-  · rintro ⟨h1, h2⟩
-    rw [← range_pairEmbed hab] at h1
-    obtain ⟨A, hA⟩ := h1
-    refine ⟨(A, A), pair_mem_diagSL2 A, Prod.ext hA ?_⟩
-    rw [← h2]
-    exact hA
-
-theorem twistedDiag_pairEmbedProd_fixed [CharP K 2] {a b : Fin n} (hab : a ≠ b)
-    {p : SpecialLinearGroup (Fin n) K × SpecialLinearGroup (Fin n) K}
-    (hp : p ∈ (twistedDiagSL2 K).map (pairEmbedProd hab)) :
-    ((SpecialLinearGroup.transvection hab 1, SpecialLinearGroup.transvection hab 1) * p *
-      (SpecialLinearGroup.transvection hab 1, SpecialLinearGroup.transvection hab 1)⁻¹).swap =
-      p := by
-  obtain ⟨q, hq, rfl⟩ := hp
-  have hswap : ∀ x : SL(2, K) × SL(2, K),
-      pairEmbedProd hab x.swap = (pairEmbedProd hab x).swap := fun _ => rfl
-  rw [← pairEmbedProd_upperUnit_pair hab, ← map_mul, ← map_inv, ← map_mul, ← hswap,
-    twistedDiagSL2_fixed hq]
-
-theorem transvection_pair_mem_map_twistedDiagSL2 {a b : Fin n} (hab : a ≠ b) :
-    (SpecialLinearGroup.transvection hab (1 : K), SpecialLinearGroup.transvection hab (1 : K)) ∈
-      (twistedDiagSL2 K).map (pairEmbedProd hab) :=
-  ⟨_, upperUnit_one_pair_mem_twistedDiagSL2, pairEmbedProd_upperUnit_pair hab⟩
 
 end Block
 

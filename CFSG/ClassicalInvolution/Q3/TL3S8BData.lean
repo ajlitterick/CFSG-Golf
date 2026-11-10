@@ -147,8 +147,6 @@ theorem isSylow2In_inf : IsSylow2In ((S : Subgroup G) ⊓ K) K :=
 theorem inf_mem_rSet : (S : Subgroup G) ⊓ K ∈ RSet (CoreAssembly.conjClass K) :=
   mem_RSet_of_isSylow2In (CoreAssembly.mem_conjClass_self K) hd.isSylow2In_inf
 
-theorem le_sec19X_inf : (S : Subgroup G) ⊓ K ≤ sec19X K z :=
-  tight_le_sec19X_of_mem (Or.inr hd.inf_mem_rSet) (inf_le_left.trans hd.hSz)
 
 theorem mem_S : z ∈ (S : Subgroup G) := by
   have hzK := hd.tight.isUniqueInvolution
@@ -167,20 +165,6 @@ theorem mem_S : z ∈ (S : Subgroup G) := by
 
 theorem mem_inf : z ∈ (S : Subgroup G) ⊓ K := ⟨hd.mem_S, hd.tight.isUniqueInvolution.mem⟩
 
-theorem mem_sec19X : z ∈ sec19X K z := hd.le_sec19X_inf hd.mem_inf
-
-theorem mem_sec19Y : z ∈ sec19Y K z := by
-  have hzK := hd.tight.isUniqueInvolution
-  have hzN : z ∈ Subgroup.normalizer (K : Set G) := Subgroup.le_normalizer hzK.mem
-  refine ⟨hd.mem_sec19X, hzN, mem_normalizer_oddCoreOf_of_mem_normalizer hzN, fun l hl => ?_⟩
-  have hc : z * l = l * z :=
-    (Subgroup.mem_centralizer_singleton_iff.mp (hd.tight.le_centralizer hl)).symm
-  rw [commutatorElement_def, hc, mul_inv_cancel_right, mul_inv_cancel]
-  exact (oddCoreOf K).one_mem
-
-theorem le_normalizer_sec19X :
-    (S : Subgroup G) ≤ Subgroup.normalizer ((sec19X K z : Subgroup G) : Set G) :=
-  hd.hSz.trans (Hall196.centralizer_le_normalizer_sec19X K z)
 
 end TightSylowData
 
@@ -206,8 +190,6 @@ theorem not_mem_centralizer_inf :
   rw [Subgroup.mem_centralizer_singleton_iff]
   exact Subgroup.mem_centralizer_iff.mp hC r hr
 
-theorem le_sec19X_V : V ≤ sec19X K z :=
-  tight_le_sec19X_of_mem (Or.inl hd.memV) (hd.leW.trans (hd.hWS.trans hd.hSz))
 
 theorem isCyclic_V : IsCyclic ↥V := by
   obtain ⟨R, -, -, hcyc, -⟩ := hd.memV

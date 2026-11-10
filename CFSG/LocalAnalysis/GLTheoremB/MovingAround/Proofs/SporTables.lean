@@ -175,9 +175,6 @@ theorem centTypes_of_centShapeMulti {p : ℕ} (hp : p.Prime) {Good Rk : ∀ (T :
   · exact (CFSG.HardMathSupport.Dickson.I271.no_glaPComponent_of_pConstrainedShape hp hc hI).elim
   · exact (hgood I hI).1
 
-theorem typeInv_goodSpor (p : ℕ) (names : List TauCeti.SporadicName) :
-    TypeInv (CFSG.HardMathSupport.Dickson.I271.GoodSpor p names) :=
-  fun _ _ _ _ e h => CFSG.HardMathSupport.Dickson.I271.GoodSpor.of_equiv e h
 
 theorem typeInv_catalogIs (P : TauCeti.CFSGIndex → Prop) : TypeInv fun T _ => catalogIs T P := by
   rintro T T' _ _ e ⟨i, hi, ⟨f⟩⟩
@@ -616,14 +613,6 @@ set_option linter.unusedSectionVars false
 section S_sporTypes_M_five
 
 
-theorem sporTypes_M_five
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)) :
-    SporTypes 5 (fun T _ => Nat.card T = 273030912000000) .M :=
-  (sporTypes_of_census Nat.prime_five hBr
-    (CFSG.HardMathSupport.Dickson.BMRows.census_M_five_of_noComp hB)).mono
-    fun _ _ h => card_of_catalogIs_sporadic hOrd h
-
 end S_sporTypes_M_five
 
 section S_sporTypes_M_five_of_kGroup
@@ -642,13 +631,6 @@ end S_sporTypes_M_five_of_kGroup
 section S_sporNoAltDown_M_five_of
 
 
-theorem sporNoAltDown_M_five_of
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M))
-    (m : ℕ) (hm : 2 ≤ m) : SporNoAltDown 5 m .M :=
-  sporNoAltDown_of_card (R := fun N => N = 273030912000000) hm (sporTypes_M_five hBr hOrd hB)
-    (factorial_half_ne_of_lt (k := 17) (by decide) (by decide) m)
-
 end S_sporNoAltDown_M_five_of
 
 section S_sporNoAltDown_M_five_of_kGroup
@@ -665,21 +647,6 @@ end S_sporNoAltDown_M_five_of_kGroup
 section S_sporNoOmegaDown_M_five_of
 
 
-theorem sporNoOmegaDown_M_five_of
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)) :
-    Inputs1419b.SporNoOmegaDown 5 false 2 .M :=
-  sporNoOmegaDown_of_card (R := fun N => N = 273030912000000) (le_refl 2) (sporTypes_M_five hBr hOrd hB)
-    (by decide +kernel)
-
-
-theorem sporNoOmegaDown_M_five_ten_of
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)) :
-    Inputs1419b.SporNoOmegaDown 5 true 4 .M :=
-  sporNoOmegaDown_of_card (R := fun N => N = 273030912000000) (by norm_num) (sporTypes_M_five hBr hOrd hB)
-    (by decide +kernel)
-
 end S_sporNoOmegaDown_M_five_of
 
 end MFive
@@ -690,13 +657,6 @@ set_option linter.unusedSectionVars false
 
 section S_sporTypes_M_three
 
-
-theorem sporTypes_M_three (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp) :
-    SporTypes 3 (fun T _ => Nat.card T = 1255205709190661721292800 ∨ Nat.card T = 90745943887872000) .M :=
-  (sporTypes_of_census Nat.prime_three hBr
-    (CFSG.HardMathSupport.Dickson.BMRows.census_M_three_of_noComp hB)).mono
-    fun _ _ h => card_of_catalogIs_sporadic_or hOrd h
 
 end S_sporTypes_M_three
 
@@ -725,11 +685,6 @@ end S_factorial_half_ne_fi24_th
 section S_sporNoAltDown_M_three_of
 
 
-theorem sporNoAltDown_M_three_of (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp) (m : ℕ) (hm : 2 ≤ m) : SporNoAltDown 3 m .M :=
-  sporNoAltDown_of_card (R := fun N => N = 1255205709190661721292800 ∨ N = 90745943887872000) hm
-    (sporTypes_M_three hBr hOrd hB) (factorial_half_ne_fi24_th m)
-
 end S_sporNoAltDown_M_three_of
 
 section S_sporNoAltDown_M_three_of_kGroup
@@ -751,13 +706,6 @@ set_option linter.unusedSectionVars false
 section S_sporTypes_B_three
 
 
-theorem sporTypes_B_three (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB3 : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp) :
-    SporTypes 3 (fun T _ => Nat.card T = 64561751654400) .B :=
-  (sporTypes_of_census Nat.prime_three hBr
-    (CFSG.HardMathSupport.Dickson.BMRows.census_B_three_of_noComp hB3)).mono
-    fun _ _ h => card_of_catalogIs_sporadic hOrd h
-
 end S_sporTypes_B_three
 
 section S_sporTypes_B_three_of_kGroup
@@ -775,11 +723,6 @@ end S_sporTypes_B_three_of_kGroup
 
 section S_sporNoAltDown_B_three_of
 
-
-theorem sporNoAltDown_B_three_of (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB3 : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp) (m : ℕ) (hm : 2 ≤ m) : SporNoAltDown 3 m .B :=
-  sporNoAltDown_of_card (R := fun N => N = 64561751654400) hm (sporTypes_B_three hBr hOrd hB3)
-    (factorial_half_ne_of_lt (k := 16) (by decide) (by decide) m)
 
 end S_sporNoAltDown_B_three_of
 
@@ -966,10 +909,6 @@ section Residuals
     ({CFSG.AGLEmbedding.Norton.MON5_7.gw CFSG.AGLEmbedding.Norton.Gen11.gen11W0} :
       Set CFSG.Monster.Generated.Gmat))
 
-@[expose] def MFiveBNoComp : Prop :=
-  ∀ J : Subgroup CFSG.Monster.Generated.Gmat,
-    ¬ GLAPComponent 5 (Subgroup.centralizer
-      ({CFSG.HardMathSupport.Dickson.I271.xFiveB} : Set CFSG.Monster.Generated.Gmat)) J
 
 @[expose] def Fi24FiveA9 : Prop :=
   ∀ x : CFSG.Blueprint.NativeSporadic.Carrier .Fi24Prime, orderOf x = 5 →
@@ -1061,31 +1000,6 @@ open CFSG.Monster.Existence (MGriess)
 section S_centFiveBNoComp_M_of_xFiveB
 
 
-theorem centFiveBNoComp_M_of_xFiveB (h5B : MFiveBNoComp) :
-    CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M) := by
-  obtain ⟨e₀⟩ := CFSG.Blueprint.NativeSporadic.MonsterModel.iso_griess_y443Derived
-  let e : MGriess ≃* CFSG.Blueprint.NativeSporadic.Carrier .M := e₀
-  have φ := CFSG.YGroups.Y443.griessEquivGmat CFSG.YGroups.Y443.Gmat_eq_AutO_of_stroth
-  haveI : Finite MGriess :=
-    (CFSG.HardMathSupport.Timmesfeld.SporadicBalance.twoA_data_of_existence
-      CFSG.Milestones.cl_lit_monster_existence_griess_conway).1
-  haveI : Finite (CFSG.Blueprint.NativeSporadic.Carrier .M) := Finite.of_equiv MGriess e.toEquiv
-  haveI : Finite Gmat := CFSG.Monster.Generated.finite_Gmat
-  have hG : CentFiveBNoComp Gmat := by
-    intro x hx hinv J hJ
-    obtain ⟨j, hj, hxj⟩ := MonsterFiveB.m5bClass_of_certs x hx hinv
-    obtain ⟨c, hc⟩ := isConj_iff.1 hxj
-    have h1 := glaPComponent_map_equiv Nat.prime_five (MulAut.conj c) hJ
-    rw [map_centralizer_singleton (MulAut.conj c) x] at h1
-    have h4 : (MulAut.conj c) x = xFiveB ^ j := by simpa [MulAut.conj_apply] using hc
-    rw [h4] at h1
-    obtain ⟨P, -, hord, -⟩ := sylowData_xFiveB
-    have hx5 : xFiveB ^ 5 = 1 := by rw [← hord]; exact pow_orderOf_eq_one _
-    rw [CFSG.HardMathSupport.Timmesfeld.SporadicBalance.centralizer_pow_eq_of_coprime Nat.prime_five hx5 hj]
-      at h1
-    exact h5B _ h1
-  exact CentFiveBNoComp.of_equiv e.symm (CentFiveBNoComp.of_equiv φ hG)
-
 end S_centFiveBNoComp_M_of_xFiveB
 
 end MFiveB
@@ -1096,13 +1010,6 @@ set_option linter.unusedSectionVars false
 
 section S_sporTypes_B_five_of_noComp
 
-
-theorem sporTypes_B_five_of_noComp
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp) :
-    SporTypes 5 (fun T _ => Nat.card T = 44352000) .B :=
-  (sporTypes_of_census Nat.prime_five hBr (CFSG.HardMathSupport.Dickson.BMRows.census_B_five_of_noComp hB)).mono
-    fun _ _ h => card_of_catalogIs_sporadic hOrd h
 
 end S_sporTypes_B_five_of_noComp
 
@@ -1121,13 +1028,6 @@ end S_sporTypes_B_five_of_kGroup
 
 section S_sporNoOmegaDown_B_five_of
 
-
-theorem sporNoOmegaDown_B_five_of
-    (hBr : SporadicBridges) (hOrd : SporadicOrdersTable)
-    (hB : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp) :
-    Inputs1419b.SporNoOmegaDown 5 false 2 .B :=
-  sporNoOmegaDown_of_card (R := fun N => N = 44352000) (le_refl 2) (sporTypes_B_five_of_noComp hBr hOrd hB)
-    (by decide +kernel)
 
 end S_sporNoOmegaDown_B_five_of
 
@@ -1154,16 +1054,6 @@ end Fi24Five
 structure OpenAtRest2 : Prop where
   m_11 : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .M).Group → MElevenNoSeven
 
-structure Open1314Rest : Prop where
-  fi24_5 : Fi24FiveA9
-  m_5 : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)
-  m_11 : MElevenNoSeven
-
-structure SporOmegaRest : Prop where
-  fi24_5 : Fi24FiveA9
-  b_5 : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp
-  m_5 : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)
-  m_11 : MElevenNoSeven
 
 section Assembly
 
@@ -1216,52 +1106,10 @@ end S_openAtRest_of_rest2
 section S_open1314_of_rest
 
 
-theorem open1314_of_rest
-    (h : Open1314Rest) : Inputs1415b.Open1314 where
-  fi22_5 := sporNoAltDown_Fi22_five_seven
-  fi24_5 := sporNoAltDown_Fi24_five_seven CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds
-    CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group h.fi24_5
-  b_5 := sporNoAltDown_B_five CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds 7 le_rfl
-  m_5 := sporNoAltDown_M_five_of CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds h.m_5 7 (by norm_num)
-  m_11 := sporNoAltDown_M_eleven_of h.m_11 13 (by norm_num)
-
 end S_open1314_of_rest
 
 section S_sporOmegaTableOpen_of_rest
 
-
-theorem sporOmegaTableOpen_of_rest
-    (h : SporOmegaRest) : Inputs1419b.SporOmegaTableOpen := by
-  have hb := CFSG.HardMathSupport.Solomon.Coordinator.lieOrderBridge_holds
-  have hOrd := CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds
-  have hOut := CFSG.HardMathSupport.Timmesfeld.Proving.sporadicOuterLeTwo_holds
-  have hBr := CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-  intro name ε n p hmem
-  simp only [Inputs1419b.sporOmegaCasesOpen, List.mem_cons, List.not_mem_nil, or_false,
-    Prod.mk.injEq] at hmem
-  rcases hmem with ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ |
-    ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ |
-    ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ |
-    ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ | ⟨rfl, rfl, rfl, rfl⟩ |
-    ⟨rfl, rfl, rfl, rfl⟩
-  · exact sporNoOmegaDown_HN_five hb hOrd hOut hBr
-  · exact sporNoOmegaDown_Ly_five hb hOrd hOut hBr
-  · exact sporNoOmegaDown_Th_five hb hOrd hOut hBr
-  · exact sporNoOmegaDown_Fi23_five hBr
-  · exact sporNoOmegaDown_Co1_five hb hOrd hOut hBr
-  · exact sporNoOmegaDown_Fi24_five hOrd hBr h.fi24_5
-  · exact sporNoOmegaDown_B_five_of hBr hOrd h.b_5
-  · exact sporNoOmegaDown_M_five_of hBr hOrd h.m_5
-  · exact sporNoOmegaDown_Th_seven hBr
-  · exact sporNoOmegaDown_Co1_seven hBr
-  · exact sporNoOmegaDown_Fi24_seven hOrd hBr
-  · exact sporNoOmegaDown_B_seven
-  · exact sporNoOmegaDown_M_seven hBr hOrd
-  · exact sporNoOmegaDown_B_five_ten hBr hOrd
-  · exact sporNoOmegaDown_M_five_ten_of hBr hOrd h.m_5
-  · exact sporNoOmegaDown_M_eleven_of h.m_11
 
 end S_sporOmegaTableOpen_of_rest
 

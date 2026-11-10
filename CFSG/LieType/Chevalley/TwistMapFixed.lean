@@ -43,13 +43,5 @@ theorem twistedFixedGroup_subgroupOf :
   ((Subgroup.equivMapOfInjective _ (adjointGroup t.tag K).subtype Subtype.val_injective).trans
     (MulEquiv.subgroupCongr (twistedFixedGroup_eq_map t K σ).symm)).symm
 
-theorem coe_twistedFixedGroupEquiv (g : twistedFixedGroup t K σ) :
-    ((twistedFixedGroupEquiv t K σ g : adjointGroup t.tag K) : ModGL t.tag K) = g := by
-  obtain ⟨g, hg⟩ := g
-  obtain ⟨x, hx, rfl⟩ := (mem_twistedFixedGroup_iff t K σ).1 hg
-  have h : twistedFixedGroupEquiv t K σ ⟨x, hg⟩ = ⟨x, hx⟩ := by
-    rw [twistedFixedGroupEquiv, MulEquiv.symm_apply_eq]
-    rfl
-  rw [h]
 
 end CFSG.LieType.Chevalley

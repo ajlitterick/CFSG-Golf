@@ -202,7 +202,5 @@ theorem theoremB_of_theoremOne_theoremTwo (h1 : TheoremOne) (h2 : TheoremTwo)
     exact Or.inl (glaWeakCoreLocal_of_theta hm (fun R hR hR2 => hNP p hp.1 hp.2.1 G R hR hR2) hB
       hBcard hBM hM.1 hθ)
 
-theorem theoremB_holds (h1 : TheoremOne) (h2 : TheoremTwo) (hNP : NormalPlaneLemma) : TheoremB :=
-  theoremB_of_theoremOne_theoremTwo h1 h2 hNP
 
 end CFSG.LocalAnalysis.GLTheoremB

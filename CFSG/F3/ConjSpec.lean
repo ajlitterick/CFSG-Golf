@@ -93,9 +93,6 @@ theorem canonM_idM (d : ℕ) : canonM d (idM d) = true := by
   rw [Nat.shiftRight_eq_div_pow, Nat.one_shiftLeft]
   exact Nat.div_eq_of_lt (Nat.pow_lt_pow_right (by norm_num) hi')
 
-theorem conjM_size {d : ℕ} {g gi X : Array V} (hg : g.size = d) : (conjM d g gi X).size = d := by
-  unfold conjM Native.mul
-  rw [Array.size_map, Array.size_map, hg]
 
 theorem RowsWF.conjM {d : ℕ} {g gi X : Array V} (hg : RowsWF g) (hgi : RowsWF gi) (hX : RowsWF X) :
     RowsWF (conjM d g gi X) :=

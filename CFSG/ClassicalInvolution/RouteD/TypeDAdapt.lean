@@ -86,56 +86,5 @@ theorem exists_nodes_plus' {m : ℕ} (hm : 4 ≤ m) (c : TCtx p f .POmegaPlus m 
 
 end TCtx
 
-theorem PartnerPatternD.of_toral {G : Type} [Group G] [Finite G] {m : ℕ} (hm : 4 ≤ m)
-    {Ω : Set (Subgroup G)} {z : G} {K β : Subgroup G} (c : TCtx p f .POmegaPlus m Ω K z) {t : G}
-    (ht : t * z * t⁻¹ = z)
-    (e : Fin (modelUniv .POmegaPlus m p f Fact.out).D.rank ≃ Fin m)
-    {j : Fin (modelUniv .POmegaPlus m p f Fact.out).D.rank → Subgroup G}
-    (hj : ∀ a, j a ∈ centralizingMembers Ω {z}) (hjK : ∀ a, Commutes K (j a))
-    (hjimg : ∀ a, locImg Ω z (j a) =
-      (rankOne (modelUniv .POmegaPlus m p f Fact.out).D.rootGroup a).map c.d.ψ)
-    (hjc : ∀ a b, a ≠ b → ¬ edgeD m (e a) (e b) → ¬ edgeD m (e b) (e a) → Commutes (j a) (j b))
-    (hjp : ∀ a b, edgeD m (e a) (e b) → ∃ W : Subgroup G,
-      LinearBlockStandardPair (GaloisField p f) W (j a) (j b))
-    (v : Fin (modelUniv .POmegaPlus m p f Fact.out).D.rank → ZMod 2)
-    (hT : ∀ γ ∈ (modelUniv .POmegaPlus m p f Fact.out).D.roots,
-      (∀ x ∈ ((modelUniv .POmegaPlus m p f Fact.out).D.rootGroup γ ⊔
-          (modelUniv .POmegaPlus m p f Fact.out).D.rootGroup (-γ)).map c.d.ψ,
-        Gaps.locAut c.hΩ.conjInvariant ht x = x) ↔ charOf v γ = 0)
-    (hE : CharReach (modelUniv .POmegaPlus m p f Fact.out).D.cartan v
-      (Pi.single (e.symm ⟨0, by omega⟩) 1))
-    (hS : ∀ y ∈ locLayer Ω z,
-      (∀ b, (∀ x ∈ locImg Ω z (conjSub y (j b)), Gaps.locAut c.hΩ.conjInvariant ht x = x) ↔
-        b ≠ e.symm ⟨0, by omega⟩) →
-      ∃ W : Subgroup G, LinearBlockStandardPair (GaloisField p f) W β
-        (conjSub y (j (e.symm ⟨0, by omega⟩)))) :
-    PartnerPatternD p f m Ω K β t := by
-  have hf1 : 1 ≤ f := Nat.one_le_iff_ne_zero.mpr c.hf
-  have hadm : StatedLieAdmissible .POmegaPlus m p f := ⟨Fact.out, hf1, by show 4 ≤ m; omega⟩
-  obtain ⟨n, H, hct, -⟩ := ModelFacts.hasBruhatDatum .POmegaPlus m p f Fact.out trivial hadm
-  obtain ⟨y, hy, hfix⟩ := c.exists_adapted_y_of_reach hct ht v hT hE hjimg
-  have hfix' : ∀ b, (∀ x ∈ locImg Ω z (conjSub y (j b)),
-      Gaps.locAut c.hΩ.conjInvariant ht x = x) ↔ b ≠ e.symm ⟨0, by omega⟩ := fun b => by
-    rw [hfix b, Pi.single_apply]
-    by_cases h : b = e.symm ⟨0, by omega⟩
-    · simp [h]
-    · simp [h]
-  refine PartnerPatternD.of_locAut c (j := fun a : Fin m => j (e.symm a)) (fun a => hj _)
-    (fun a => hjK _) ?_ ?_ hy ht ?_ ?_
-  · intro a b hab h1 h2
-    exact hjc _ _ (fun hh => hab (e.symm.injective hh)) (by simpa using h1) (by simpa using h2)
-  · intro a b h
-    exact hjp _ _ (by simpa using h)
-  · intro a ha x hx
-    refine (hfix' (e.symm a)).mpr (fun h => ?_) x hx
-    have := e.symm.injective h
-    have := congrArg Fin.val this
-    simp only at this
-    omega
-  · intro a ha
-    have h0 : e.symm a = e.symm ⟨0, by omega⟩ := congrArg e.symm (Fin.ext ha)
-    show ∃ W : Subgroup G, LinearBlockStandardPair (GaloisField p f) W β (conjSub y (j (e.symm a)))
-    rw [h0]
-    exact hS y hy hfix'
 
 end CFSG.ClassicalInvolution.RouteD

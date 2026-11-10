@@ -403,43 +403,6 @@ theorem GGConfig.bCoordSparse_and_J_label_of_twD_four_one
     unfold GGSecFiveBCoordBJSparseLabel at hP
     rcases hP with h | h | h | h | h <;> simp_all
 
-theorem GGConfig.bCoordSparse_and_J_label_of_D_five_one
-    (hRig : GGLabelRigidInput)
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G}
-    (hcfg : GGConfig 3 B Bs x L D J) (hB : B = Bs)
-    (eta : ↥Bs ≃* (Fin 5 → Multiplicative (ZMod 3))) (i0 : Fin 5)
-    (hLB : (ggAutomizer L Bs).map (MulAut.congr eta).toMonoidHom = bCoordinateBlock 5 3 i0)
-    (hL : GGInnerDiagOnLabel (fun _ lab => lab = ⟨.D, 5, 1⟩) 3 Bs L)
-    (hZ : Subgroup.center L = ⊥) :
-    GGSecFiveBCoordSparse eta i0 D ∧
-      LargeEvenMarking J (fun lab _ _ _ _ _ => lab = ⟨.twD, 4, 1⟩) := by
-  classical
-  have huniv : ∀ lab' : LargeEvenLabel, GGLabelIso lab' ⟨.D, 5, 1⟩ →
-      lab' = ⟨.D, 5, 1⟩ := by
-    intro lab' hiso
-    rcases hiso with h | h | h | h | h | h | h | h
-    · exact h
-    all_goals simp [LargeEvenLabel.mk.injEq] at h
-  have hlab : GGSecFiveBCoordBLabel 5 3 (⟨.D, 5, 1⟩ : LargeEvenLabel) := by
-    refine Or.inr (Or.inr (Or.inl ⟨rfl, rfl, by norm_num, rfl, rfl⟩))
-  rcases bCoordCommonJCore_dense_or_sparse hRig hcfg hB eta i0 hLB (by norm_num)
-      hlab hL huniv with ⟨hDense, hJDense⟩ | ⟨hSparse, hJSparse⟩
-  · exfalso
-    obtain ⟨labJD, hlamJD, hhasJD, RJD, _, IJD, FJD, θJD, hPDense⟩ :=
-      largeEvenMarking_exists_hasLabel hJDense
-    unfold GGSecFiveBCoordBJDenseLabelCore at hPDense
-    rcases hPDense with hDenseLabel | hSpecial
-    · unfold GGSecFiveBCoordBJDenseLabel at hDenseLabel
-      rcases hDenseLabel with ⟨htag, _, _⟩ | ⟨_, _, _, hne⟩ | ⟨htag, _⟩
-      · simp at htag
-      · exact hne ⟨rfl, rfl⟩
-      · simp at htag
-    · exact hSpecial.2.2.2.2 hZ
-  · refine ⟨hSparse, largeEvenMarking_mono ?_ hJSparse⟩
-    intro labJ R _ I F θ hP
-    unfold GGSecFiveBCoordBJSparseLabel at hP
-    rcases hP with h | h | h | h | h <;> simp_all
 
 end CFSG.StandardType
 

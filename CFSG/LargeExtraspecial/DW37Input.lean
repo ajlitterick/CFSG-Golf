@@ -83,9 +83,6 @@ theorem center_specialLinearGroup_zmod_two_eq_bot (N : ℕ) :
   (QuotientGroup.quotientBot (G := SL(N, ZMod 2))).symm.trans
     (QuotientGroup.quotientMulEquivOfEq (center_specialLinearGroup_zmod_two_eq_bot N).symm)
 
-theorem slEquivPSL_apply (N : ℕ) (A : SL(N, ZMod 2)) :
-    slEquivPSL N A = (A : PSL(N, ZMod 2)) :=
-  rfl
 
 theorem nonempty_mulEquiv_psl {G : Type*} [Group G] {N : ℕ}
     (h : Nonempty (G ≃* SL(N, ZMod 2))) :

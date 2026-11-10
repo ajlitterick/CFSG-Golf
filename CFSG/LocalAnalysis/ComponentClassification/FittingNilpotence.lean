@@ -71,19 +71,6 @@ theorem subgroupOf_nilpotent {G : Type*} [Group G] (nilpotentSubgroup candidate 
   exact (Group.isNilpotent_congr
     (localSubgroup.equivMapOfInjective candidate.subtype candidate.subtype_injective)).mpr inferInstance
 
-theorem normal_intersection {G : Type*} [Group G] [Finite G]
-    (normalSubgroup : Subgroup G) [normalSubgroup.Normal] :
-    (Fitting.subgroup normalSubgroup).map normalSubgroup.subtype =
-      Fitting.subgroup G ⊓ normalSubgroup := by
-  apply le_antisymm
-  · exact le_inf (PrimeCore.fitting_normal_monotone normalSubgroup) (Subgroup.map_subtype_le _)
-  · let fitting := Fitting.subgroup G
-    let : fitting.Normal := Fitting.normal G
-    let : Group.IsNilpotent fitting := nilpotent G
-    let : Group.IsNilpotent (fitting.subgroupOf normalSubgroup) := subgroupOf_nilpotent _ _
-    have hle := Subgroup.map_mono (f := normalSubgroup.subtype)
-      (Fitting.maximal (fitting.subgroupOf normalSubgroup))
-    rwa [Subgroup.subgroupOf_map_subtype] at hle
 
 theorem map_le_of_equiv {G H : Type*} [Group G] [Group H] (equivalence : G ≃* H) :
     (Fitting.subgroup G).map equivalence.toMonoidHom ≤ Fitting.subgroup H := by

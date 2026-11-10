@@ -80,18 +80,6 @@ theorem smat_eq_spm (p : AutPerm) : smat p = spm ℚ (sPerm p) (sSign p) := by
     rfl
   · rw [ite_eq_right hj, ite_eq_right hj, mul_zero]
 
-theorem π₀_permC_inv_π₀_permC (p : AutPerm) (c : C₀) :
-    π₀ (permC p⁻¹ (π₀ (permC p c) : C)) = c := by
-  rw [coe_π₀, map_add, map_smul, ← permC_symm_apply, LinearEquiv.symm_apply_apply,
-    permC_ΩC, map_add, map_smul, π₀_coe, π₀_ΩC, smul_zero, add_zero]
-
-theorem sPerm_bijective (p : AutPerm) : Function.Bijective (sPerm p) := by
-  refine Finite.injective_iff_bijective.1 fun i j h => ?_
-  have h1 := congrArg Prod.fst h
-  have h2 := congrArg (fun x : SpinIdx => π₀ (permC p⁻¹ (x.2 : C))) h
-  simp only [sPerm, add_left_inj] at h1
-  simp only [sPerm, π₀_permC_inv_π₀_permC] at h2
-  exact Prod.ext h1 h2
 
 theorem Dmat_mul_smat (p : AutPerm) (δ : Cocode) :
     Dmat δ * smat p = smat p * Dmat (permD p δ) := by

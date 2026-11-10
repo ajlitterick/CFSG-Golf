@@ -133,13 +133,6 @@ theorem deltaCore_eq_bot_of_rankThreeBalance (h : RankThreeBalance A)
   rw [hconst F hF, hαbot] at this
   exact le_bot_iff.mp this
 
-theorem centralizedDelta_of_rankThreeBalance (h : RankThreeBalance A)
-    (hO : componentClassificationOddCore G = ⊥)
-    (hgen : (⨆ F ∈ signalizerFunctorEk 2 2 A, Subgroup.centralizer (F : Set G)) = ⊤) :
-    ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F ≤ Subgroup.centralizer (A : Set G) := by
-  intro F hF
-  rw [deltaCore_eq_bot_of_rankThreeBalance h hO hgen F hF]
-  exact bot_le
 
 end Constancy
 

@@ -83,21 +83,10 @@ theorem pair_cases {y₀ y₁ y₂ y₃ : ℤ} (h01 : y₀ + y₁ = 0) (h23 : y�
   obtain ⟨b2l, b2u⟩ := b2
   interval_cases y₀ <;> interval_cases y₂ <;> omega
 
-theorem le_mul_self_int (a : ℤ) : a ≤ a * a := by
-  rcases le_or_gt a 0 with h | h
-  · nlinarith
-  · nlinarith
-
-theorem mul_le_mul_self_of_abs_le_one {a b : ℤ} (hb : -1 ≤ b ∧ b ≤ 1) : a * b ≤ a * a := by
-  rcases le_or_gt a 0 with h | h
-  · nlinarith
-  · nlinarith [le_mul_self_int a]
 
 theorem sign_mul_self {x : ℤ} (hx : x = 1 ∨ x = -1) : x * x = 1 := by
   rcases hx with rfl | rfl <;> norm_num
 
-theorem sign_bounds {x : ℤ} (hx : x = 1 ∨ x = -1) : -1 ≤ x ∧ x ≤ 1 := by
-  rcases hx with rfl | rfl <;> norm_num
 
 @[expose] def caseZ0 : Fin 3 → ℤ := ![1, 1, 0]
 
@@ -112,10 +101,6 @@ theorem case_prod (a b : Fin 3) :
       caseW a * caseW b = if a = b then caseNorm a else 4 := by
   fin_cases a <;> fin_cases b <;> decide
 
-theorem case_norm (a : Fin 3) :
-    caseZ0 a * caseZ0 a + caseZ0 a * caseZ0 a + caseZ2 a * caseZ2 a + caseZ2 a * caseZ2 a +
-      caseW a * caseW a = caseNorm a := by
-  simpa using case_prod a a
 
 theorem core_cases' {z₀ z₁ z₂ z₃ w κ R N M : ℤ} (hM : 2 ≤ M) (hN : N ≤ 7) (hR : 0 ≤ R)
     (hX : z₀ + z₁ + z₂ + z₃ + 2 * κ = 0) (hY : z₀ + z₁ - z₂ - z₃ = 0)

@@ -158,35 +158,5 @@ theorem exists_footeStep (hLB : FooteLBalanceInput) {a b : G} {L : Subgroup G}
   have hstep : FooteStep L B := ⟨a, b, ⟨ha, hLa, hLpc⟩, ⟨hb, hBCb, hBpc⟩, hab, hne, hbL, hclLb⟩
   exact ⟨B, ⟨hb, hBCb, hBpc⟩, hstep, hTB, hclLb, hcase⟩
 
-theorem footeStep_cases_of_maximal (hLB : FooteLBalanceInput) {a b : G} {L : Subgroup G}
-    (hL : IsTwoComponentAt a L) (hmax : FooteMaximal L) (hb : orderOf b = 2) (hab : a * b = b * a)
-    (hne : a ≠ b) (hbL : b ∈ coreActionKernel L) :
-    ∃ B : Subgroup G, IsTwoComponentAt b B ∧ FooteStep L B ∧
-      Nonempty (L ⧸ Open.fusionZStar L ≃* B ⧸ Open.fusionZStar B) ∧
-      conjClosure (footeFixed L b) (twoLayerOf b) = B ⊔ conjugate B a ∧
-      ((conjugate B a = B ∧ footeFixed L b = B) ∨
-        (conjugate B a ≠ B ∧ UnbalancedGS.gsFixedLayer L b =
-          twoLayerIn ((B ⊔ conjugate B a) ⊓ centralizer ({a} : Set G)))) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨B, hBb, hstep, hTB, hcl, hcase⟩ := exists_footeStep hLB hL hb hab hne hbL
-  obtain ⟨eLB⟩ := hmax.2 B (Relation.ReflTransGen.single hstep)
-  refine ⟨B, hBb, hstep, ⟨eLB⟩, hcl, ?_⟩
-  obtain ⟨-, hLa, hLpc⟩ := hL
-  have hLq := isQuasisimple_quotient_of_isPComponent hLa hLpc
-  have hTL : UnbalancedGS.gsFixedLayer L b ≤ L :=
-    (UnbalancedGS.gsFixedLayer_le_inf L b).trans inf_le_left
-  rcases hcase with ⟨hBa, hBres, -⟩ | ⟨-, -, hiso⟩ | ⟨hBa, hT, -⟩
-  · left
-    refine ⟨hBa, le_antisymm ?_ ?_⟩
-    · have h1 := (le_conjClosure (footeFixed L b) (twoLayerOf b)).trans hcl.le
-      rwa [hBa, sup_idem] at h1
-    · rw [hBres, footeFixed_eq_oddResidualIn]
-      exact oddResidualIn_mono (sup_le_sup_right (UnbalancedGS.gsFixedLayer_le_inf L b) _)
-  · exfalso
-    obtain ⟨-, eT, -⟩ := restriction_quotient_mulEquiv hTL
-      (gsFixedLayer_sup_map_pPrimeCore hb hLq hbL.1 hbL.2)
-    obtain ⟨eZ⟩ := nonempty_fusionZStar_equiv_of_quotient_equiv eT
-    exact hiso.false (eZ.trans eLB)
-  · exact Or.inr ⟨hBa, hT⟩
 
 end CFSG.ComponentClassification.FooteLit

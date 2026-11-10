@@ -86,9 +86,6 @@ theorem mat_torZ_apply (c : Fin 3 ⊕ Fin 3) :
   · simp [tv]
   · simp [tv, _root_.zpow_neg]
 
-theorem mat_torZ_ne {a b : Fin 3 ⊕ Fin 3} (hab : a ≠ b) : mat 3 K (torZ ζ u) a b = 0 := by
-  unfold torZ
-  rw [mat_equiv_diagonal, Matrix.diagonal_apply_ne _ hab]
 
 theorem torZ_mem (hζ : ζ ^ p = 1) : torZ ζ u ∈ spTorus p 3 K := by
   refine ⟨fun i => ((ζ ^ u i : Kˣ) : K), fun i => ?_, ?_⟩
@@ -325,13 +322,6 @@ theorem zpow_eq_zpow_iff_of_small {ζ : K} (hζ : IsPrimitiveRoot ζ p) (hp : p 
 
 variable [CharP K 2]
 
-theorem abs_tv_sub_lt (hp5 : 5 ≤ p) {u v : Fin 3 → ℤ} (hu : ∀ a, |tv u a| ≤ 2) (hv : ∀ a, |tv v a| ≤ 2)
-    (a b : Fin 3 ⊕ Fin 3) : |tv u a - tv v b| < p := by
-  have h1 := hu a
-  have h2 := hv b
-  rw [abs_le] at h1 h2
-  rw [abs_lt]
-  constructor <;> omega
 
 variable (K) in
 theorem isSimpleGroup_Sl (h4 : 4 ≤ Nat.card K) : IsSimpleGroup ↥(Sl K) := by

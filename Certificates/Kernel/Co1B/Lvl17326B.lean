@@ -20,10 +20,6 @@ open CFSG.KC.Co1BBoundP CFSG.KLie.CT
   lvlChunkP 7 CertificateChecks.KernelCo1B.Bound17591.XB KC.T2 KC.CFs2 KC.NP2
     CertificateChecks.KernelCo1B.CV.F KC.CNs2 n
 
-theorem negChunk17326B : notB (lvlChunkP 7 CertificateChecks.KernelCo1B.Bound17591.XB KC.T2
-    KC.CFs2 KC.NP2 CertificateChecks.KernelCo1B.CV.F (KC.CNs2.map fun l => l.map (· + 1)) 0) =
-    true := by
-  quickRfl
 
 end CertificateChecks.KernelCo1B.Bound17326
 

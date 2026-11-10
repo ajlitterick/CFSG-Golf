@@ -228,34 +228,6 @@ theorem baseLayer_le_semilinearInertia (S : Subgroup Sigma) :
   rw [mem_semilinearInertia_iff, (mem_baseLayer_iff h).mp hh]
   exact S.one_mem
 
-@[expose] noncomputable def inertiaQuotientEquiv (S : Subgroup Sigma) :
-    (semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma) S ⧸
-      (baseLayer F b m hm heven Sigma hSigma).subgroupOf (semilinearInertia S)) ≃* S := by
-  refine QuotientGroup.quotientMulEquivOfEq (M := (baseLayer F b m hm heven Sigma
-    hSigma).subgroupOf (semilinearInertia S)) ?_ |>.trans
-    (QuotientGroup.quotientKerEquivOfSurjective
-      ((SemidirectProduct.rightHom.comp (semilinearInertia S).subtype).codRestrict
-        S fun x => x.2) ?_)
-  · ext x
-    rw [Subgroup.mem_subgroupOf, mem_baseLayer_iff, MonoidHom.mem_ker]
-    constructor
-    · intro hx
-      apply Subtype.ext
-      exact hx
-    · intro hx
-      exact congrArg Subtype.val hx
-  · intro σ
-    refine ⟨⟨SemidirectProduct.inr (σ : Sigma), ?_⟩, ?_⟩
-    · rw [mem_semilinearInertia_iff, SemidirectProduct.right_inr]
-      exact σ.2
-    · rfl
-
-theorem inertiaQuotientEquiv_mk (S : Subgroup Sigma)
-    (x : semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma) S) :
-    (inertiaQuotientEquiv S (x : semilinearInertia (hm := hm) (heven := heven)
-      (hSigma := hSigma) S ⧸ (baseLayer F b m hm heven Sigma hSigma).subgroupOf
-        (semilinearInertia S)) : Sigma) =
-        (x : SemilinearExtension F b m hm heven Sigma hSigma).right := rfl
 
 end Quotient
 

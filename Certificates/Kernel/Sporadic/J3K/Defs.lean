@@ -13,14 +13,6 @@ namespace CertificateChecks.KernelSpor.J3K
 open CFSG.KC.Enum CFSG.KS CFSG.KS.PEnum CFSG.KS.TBfs CFSG.KS.PC CFSG.KS.Row CFSG.KS.J3S
 open CFSG.Sporadic.J3.Native CFSG.Sporadic.Th.Native
 
-@[expose] def decodeLT (cs : List Char) : List Nat :=
-  let body := (cs.dropWhile (· != '\n')).drop 1
-  (body.filter fun c => !wsChar c).map fun c =>
-    if '0' ≤ c && c ≤ '9' then c.toNat - '0'.toNat else 0
-
-@[expose] def rowsOfPayloadL (d : Nat) (cs : List Char) : Array Nat :=
-  let e := (decodeLT cs).toArray
-  Array.ofFn (n := d) fun i => ofBits d fun j => (e[i.val * d + j]?.getD 0) % 2 == 1
 
 @[expose] noncomputable def CAJ : Array Nat := CAL.toArray
 @[expose] noncomputable def CBJ : Array Nat := CBL.toArray

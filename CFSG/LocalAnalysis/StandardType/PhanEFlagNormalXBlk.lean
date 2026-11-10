@@ -45,10 +45,6 @@ private theorem q2cFNX_o0_i0 (w : Fin (blockSize [0, 2, 4] 0) → K) :
   show blkOut 4 [0, 2, 4] 0 (blkIn 4 [0, 2, 4] 0 w) = w
   exact blkOut_blkIn isCut_22 (b := 0) (by decide) w
 
-private theorem q2cFNX_o1_i1 (w : Fin (blockSize [0, 2, 4] 0) → K) :
-    q2cFNX_o1 (q2cFNX_i1 w) = w :=
-  blkOut_blkIn isCut_22 (b := 1) (by decide)
-    (w : Fin (blockSize [0, 2, 4] 1) → K)
 
 private theorem q2cFNX_map_o0_i0 (U : Submodule K (Fin (blockSize [0, 2, 4] 0) → K)) :
     (U.map q2cFNX_i0).map q2cFNX_o0 = U := by
@@ -66,18 +62,6 @@ private theorem q2cFNX_map_o1_i1 (U : Submodule K (Fin (blockSize [0, 2, 4] 0) �
   map_blkOut_sup_map_blkIn isCut_22 (b := 1) (by decide)
     (U : Submodule K (Fin (blockSize [0, 2, 4] 1) → K))
 
-private theorem q2cFNX_map_sup_i0 {g : GL (Fin 4) K} (hg : StabV 4 [0, 2, 4] g)
-    (U : Submodule K (Fin (blockSize [0, 2, 4] 0) → K)) :
-    (Vsub 4 0 ⊔ U.map q2cFNX_i0).map (glLin g).toLinearMap =
-      Vsub 4 0 ⊔ (U.map (q2cFNX_m0 g)).map q2cFNX_i0 :=
-  map_sup_map_blkIn isCut_22 (b := 0) (by decide) hg U
-
-private theorem q2cFNX_map_sup_i1 {g : GL (Fin 4) K} (hg : StabV 4 [0, 2, 4] g)
-    (U : Submodule K (Fin (blockSize [0, 2, 4] 0) → K)) :
-    (Vsub 4 2 ⊔ U.map q2cFNX_i1).map (glLin g).toLinearMap =
-      Vsub 4 2 ⊔ (U.map (q2cFNX_m1 g)).map q2cFNX_i1 :=
-  map_sup_map_blkIn isCut_22 (b := 1) (by decide) hg
-    (U : Submodule K (Fin (blockSize [0, 2, 4] 1) → K))
 
 private theorem q2cFNX_glLin_inv {n : ℕ} (g : GL (Fin n) K) :
     glLin g⁻¹ = (glLin g).symm := by

@@ -27,7 +27,6 @@ open Equiv Perm Subgroup CFSG CFSG.ABGLocalTools CFSG.GH74.GLS CFSG.GH74.GLS.Two
     (∀ s ∈ S.subgroupOf M, (∀ t ∈ S.subgroupOf M, s * t = t * s) → s * s = 1 → s ≠ 1 →
       s = ⟨v, hvM⟩)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.GLS.Th2.AltCv
 

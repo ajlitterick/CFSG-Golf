@@ -26,18 +26,6 @@ variable {F : Type} [Field F]
 @[expose] def Yr (m : F) : Matrix (Fin 4) (Fin 4) F :=
   !![0, 0, m, 0; 0, 0, 0, -m; 1, 0, 0, 0; 0, -1, 0, 0]
 
-theorem Xr_mul_Xr (c : F) : Xr c * Xr c = c • (1 : Matrix (Fin 4) (Fin 4) F) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Xr, Matrix.mul_apply, Fin.sum_univ_four]
-
-theorem Yr_mul_Yr (m : F) : Yr m * Yr m = m • (1 : Matrix (Fin 4) (Fin 4) F) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Yr, Matrix.mul_apply, Fin.sum_univ_four]
-
-theorem Xr_mul_Yr (c m : F) : Xr c * Yr m = -(Yr m * Xr c) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [Xr, Yr, Matrix.mul_apply, Fin.sum_univ_four]
-  all_goals ring
 
 @[expose] def a1 (s : F) : Matrix.SpecialLinearGroup (Fin 4) F := tv 0 2 (by decide) s * tv 1 3 (by decide) s
 

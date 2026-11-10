@@ -72,13 +72,6 @@ theorem Sec3.odd_orderOf_mul (hS : Sec3 T T₁) {x y : G} (hx : x ∈ T ⊔ T₁
   · rw [hS.normIn_conj_eq hy hx hxy.symm]
     exact fun h => hbM (hS.cfg.conjSubgroup_normIn_le_cfgM hy h)
 
-theorem Sec3.odd_orderOf_mul_of_not_common_two_group (hS : Sec3 T T₁) {a b : G}
-    (ha : a ∈ T ⊔ T₁) (haa : a * a = 1) (hb : b ∈ T ⊔ T₁) (hbb : b * b = 1)
-    (hno : ¬ ∃ S : Subgroup G, S ≤ T ⊔ T₁ ∧ IsPGroup 2 S ∧ a ∈ S ∧ b ∈ S) :
-    Odd (orderOf (a * b)) := by
-  obtain ⟨x, hx, y, hy, hxy, hax, haM, hby, hbM⟩ :=
-    hS.exists_conj_pair_of_not_common_two_group ha haa hb hbb hno
-  exact hS.odd_orderOf_mul hx hy hxy hax haM hby hbM
 
 end Odd
 

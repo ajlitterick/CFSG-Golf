@@ -60,13 +60,5 @@ theorem coreProduct_characteristic_of_quotient_center {group : Type*} [Group gro
   rw [coreProduct_eq_preimage_quotient_center prime sylow]
   exact Subgroup.Characteristic.comap_quotient_mk characteristic
 
-theorem coreProduct_characteristic_of_nilpotent {group : Type*} [Group group] [Finite group]
-    [Group.IsNilpotent group] (prime : ℕ) [Fact (Nat.Prime prime)] (sylow : Sylow prime group) :
-    (coreProduct prime sylow).Characteristic := by
-  have : (sylow : Subgroup group).Normal :=
-    Sylow.normal_of_normalizerCondition Group.normalizerCondition_of_isNilpotent sylow
-  have : (sylow : Subgroup group).Characteristic := sylow.characteristic_of_normal inferInstance
-  unfold coreProduct
-  infer_instance
 
 end CFSG.OrderReductions.ThompsonQuotient

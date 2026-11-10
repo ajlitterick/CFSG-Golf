@@ -94,10 +94,6 @@ theorem g2YGroup_inf_g2YGroup
     · exact h (mul_right_cancel₀ hx0 hE)
     · exact h (mul_right_cancel₀ hx0 hF)
 
-theorem mem_g2YGroup_of
-    {x y z : K} (hx : x ≠ 0) :
-    g2N 0 0 0 x y z ∈ g2YGroup K (y / x) (z / x) :=
-  ⟨x, g2N_eq_g2N rfl rfl rfl rfl (div_mul_cancel₀ y hx).symm (div_mul_cancel₀ z hx).symm⟩
 
 theorem exists_mul_of_mem_g2ShortRadical
     (α γ : K) {g : ModGL .G2 K}

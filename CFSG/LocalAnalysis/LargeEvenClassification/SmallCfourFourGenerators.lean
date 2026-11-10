@@ -143,18 +143,5 @@ theorem small_cfour_four_generators {S : Type*} [Group S] [Finite S]
   exact smallCfour_normalized_four_generators hpgroup A hcommutative hselfCentralizing
     hnoEight normalized hnormalized U
 
-theorem small_cfour_ambient_four_generators {S : Type*} [Group S] [Finite S]
-    (hpgroup : IsPGroup 2 S) (A : Subgroup S) [A.Normal]
-    (hcommutative : IsMulCommutative A)
-    (hselfCentralizing : Subgroup.centralizer (A : Set S) = A)
-    (hnoEight : ∀ E : Subgroup S, E.Normal → CFSG.Open.IsElemAbelian 2 E → Nat.card E ≠ 8)
-    (coordinates : Additive A ≃+ (ZMod 4 × ZMod 4)) (U : Subgroup S) :
-    ∃ X : Finset S, X.card ≤ 4 ∧ Subgroup.closure (X : Set S) = U := by
-  classical
-  obtain ⟨generators, hgenerates, hcard⟩ := small_cfour_four_generators hpgroup A
-    hcommutative hselfCentralizing hnoEight coordinates U
-  refine ⟨generators.image U.subtype, Finset.card_image_le.trans hcard, ?_⟩
-  rw [Finset.coe_image, ← MonoidHom.map_closure, hgenerates, Subgroup.map_top]
-  exact U.range_subtype
 
 end CFSG.LargeEvenClassification.Helpers

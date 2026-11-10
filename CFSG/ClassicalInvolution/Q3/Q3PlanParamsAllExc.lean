@@ -18,9 +18,5 @@ theorem classicalMemberParameters3_of_exc (h : ClassicalMemberParameters3At .E7 
     ClassicalMemberParameters3 :=
   classicalMemberParameters3_of_rest (classicalMemberParametersRest3_of_exc h)
 
-theorem smallUpgrade3_of_exc (hfund : ClassicalIsFundamental3)
-    (h : ClassicalMemberParameters3At .E7 ∧ ClassicalMemberParameters3At .twistedE6 ∧
-        ClassicalMemberParameters3At .trialityD4) : SmallUpgrade3 :=
-  smallUpgrade3_of_rest hfund (classicalMemberParametersRest3_of_exc h)
 
 end CFSG.ClassicalInvolution.Q3

@@ -75,19 +75,5 @@ theorem blocksIrr_degree_one_mul {K : Type*} [Group K] {θ : K → ℂ} (hθ : �
   map_one' := h1
   map_mul' := blocksIrr_degree_one_mul hθ h1
 
-theorem degreeOneHom_apply {K : Type*} [Group K] {θ : K → ℂ} (hθ : θ ∈ BlocksIrr K)
-    (h1 : θ 1 = 1) (g : K) : degreeOneHom hθ h1 g = θ g := rfl
-
-theorem blocksIrr_degree_one_commutator {K : Type*} [Group K] {θ : K → ℂ}
-    (hθ : θ ∈ BlocksIrr K) (h1 : θ 1 = 1) {g : K} (hg : g ∈ commutator K) : θ g = 1 := by
-  let χ := degreeOneHom hθ h1
-  have hunit : ∀ x, χ x * χ x⁻¹ = 1 := fun x => by rw [← map_mul, mul_inv_cancel, map_one]
-  have hle : commutator K ≤ χ.ker := by
-    rw [commutator_def, Subgroup.commutator_le]
-    intro x _ y _
-    rw [MonoidHom.mem_ker, commutatorElement_def, map_mul, map_mul, map_mul]
-    calc χ x * χ y * χ x⁻¹ * χ y⁻¹ = (χ x * χ x⁻¹) * (χ y * χ y⁻¹) := by ring
-      _ = 1 := by rw [hunit, hunit, one_mul]
-  exact hle hg
 
 end CFSG.Wreathed.CentralSL2

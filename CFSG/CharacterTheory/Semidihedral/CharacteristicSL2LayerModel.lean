@@ -123,58 +123,6 @@ theorem projective_layer_characteristic_SL2
     F, hfield, hfinite, hcard, rho, eta, hrho, hmap, ?_, hprojective, hcardL, htwoL, hpowL⟩
   exact hetaz.trans (ProjectiveSL2Cover.minusIdentity_eq_neg_one F)
 
-theorem projective_layer_characteristic_SL2_int
-    {H : Type u} [Group H] [Finite H]
-    {Γ : Type} [Group Γ] [Finite Γ]
-    [IsSimpleGroup (CFSG.generalizedFitting Γ)]
-    (z : H) (hz : orderOf z = 2) (hc : z ∈ Subgroup.center H)
-    (pi : H →* Γ) (hpi : Function.Surjective pi)
-    (hker : pi.ker = Subgroup.zpowers z)
-    (k : ℤ) (hk : 2 ≤ k)
-    (S : Sylow 2 Γ) (eS : S ≃* DihedralGroup (2 ^ (k - 1).toNat))
-    (hnonab : ∃ a b : CFSG.generalizedFitting Γ, a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting Γ : Set Γ) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting Γ), ¬ IsCyclic U)
-    (J : Subgroup Γ) (hJindex : J.index = 2)
-    (hLJ : CFSG.generalizedFitting Γ ≤ J)
-    (hunique : ∀ x : J.comap pi, orderOf x = 2 → (x : H) = z)
-    {p f : ℕ} (hparameters : p.Prime ∧ p ≠ 2 ∧ 1 ≤ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (CFSG.generalizedFitting Γ) .PSL 2 p f) :
-    3 ≤ k ∧
-      ((CFSG.generalizedFitting Γ).comap pi).Characteristic ∧
-      Subgroup.center H = Subgroup.zpowers z ∧
-      Subgroup.centralizer ((CFSG.generalizedFitting Γ).comap pi : Set H) =
-        Subgroup.zpowers z ∧
-      Odd (((CFSG.generalizedFitting Γ).comap pi).relIndex (J.comap pi)) ∧
-      ((CFSG.generalizedFitting Γ).comap pi).index.factorization 2 = 1 ∧
-      2 ^ ((CFSG.generalizedFitting Γ).comap pi).index.factorization 2 = 2 ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        ∃ (rho : Γ →* coordinateE F)
-          (eta : (CFSG.generalizedFitting Γ).comap pi ≃*
-            Matrix.SpecialLinearGroup (Fin 2) F),
-          Function.Injective rho ∧
-          (CFSG.generalizedFitting Γ).map rho =
-            (coordinateG F).subgroupOf (coordinateE F) ∧
-          eta ⟨z, QuaternionDoubleCoverUniqueness.central_involution_mem_preimage
-            z pi hker (CFSG.generalizedFitting Γ)⟩ = -1 ∧
-          (∀ x : (CFSG.generalizedFitting Γ).comap pi,
-            (rho (pi x)).val =
-              coordinatePSLAction F (ProjectiveSL2Cover.nativeQuotient F (eta x))) ∧
-          Nat.card ((CFSG.generalizedFitting Γ).comap pi) =
-            Nat.card F * (Nat.card F ^ 2 - 1) ∧
-          ((Nat.card F ^ 2 - 1).factorization 2 : ℤ) = k ∧
-          2 ^ (Nat.card F ^ 2 - 1).factorization 2 = 2 ^ k.toNat := by
-  have hexp : (k - 1).toNat = k.toNat - 1 := by omega
-  obtain ⟨hk3, hchar, hcenter, hcent, hoddindex, hindex, hindexpow,
-      F, hfield, hfinite, hcard, rho, eta, hrho, hmap, hetaz,
-      hprojective, hcardL, htwoL, hpowL⟩ :=
-    projective_layer_characteristic_SL2 z hz hc pi hpi hker k.toNat (by omega)
-      S (by rw [← hexp]; exact eS) hnonab hcentral hnc J hJindex hLJ
-      hunique hparameters hmodel
-  refine ⟨by omega, hchar, hcenter, hcent, hoddindex, hindex, hindexpow,
-    F, hfield, hfinite, hcard, rho, eta, hrho, hmap, hetaz, hprojective, hcardL, ?_, hpowL⟩
-  rw [htwoL, Int.toNat_of_nonneg (by omega)]
 
 end
 

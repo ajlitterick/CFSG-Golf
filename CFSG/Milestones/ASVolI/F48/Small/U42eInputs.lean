@@ -293,30 +293,6 @@ open CFSG.CosetTable CFSG.Quasithin
     bqbAbabab qbabAbafq qbabAbAqf qbAbabaqf qbAbabAfq aababAbabf aababAbafq aababAqbAf \
     aaqbAbabAf abaqfbAbab abAbabAbqf abAbabAbfq abAbabAqbf abAbabAqfb abAbabAfqb abAbAbabqb \
     abAbAqfbab aqbabAbafq aqbAbabaqf"
-@[expose] def burnsideF48s_u42eC0S : List String :=
-  ["", "AA", "aa"]
-@[expose] def burnsideF48s_u42eN0S : List String :=
-  ["", "a", "A", "f", "aa", "af", "AA", "Af", "aaa", "aaf", "AAf", "aaaf", "babAbab", "bAbabAb",
-    "ababAbab", "abAbabAb", "AbAbabAb", "babAbabf", "bAbabAbf", "aababAbab", "ababAbabf",
-    "abAbabAbf", "AbAbabAbf", "aababAbabf"]
-@[expose] def burnsideF48s_u42eKSs : List (List String) :=
-  [["", "AA", "aa", "aababAbab", "babAbab", "bAbabAb"],
-    ["", "AA", "aa", "aaa", "a", "A"],
-    ["", "AA", "aa", "abAbabAb", "AbAbabAb", "ababAbab"],
-    ["", "AA", "aa", "aababAbabf", "bAbabAbf", "babAbabf"],
-    ["", "AA", "aa", "f", "aaf", "AAf"],
-    ["", "AA", "aa", "abAbabAbf", "ababAbabf", "AbAbabAbf"],
-    ["", "AA", "aa", "aaaf", "Af", "af"]]
-@[expose] def burnsideF48s_u42eTSs : List (List String) :=
-  [[],
-    [],
-    [],
-    ["", "a", "A", "f", "aa", "af", "AA", "Af", "aaa", "aaf", "AAf", "aaaf", "babAbab",
-      "bAbabAb", "ababAbab", "abAbabAb", "AbAbabAb", "babAbabf", "bAbabAbf", "aababAbab",
-      "ababAbabf", "abAbabAbf", "AbAbabAbf", "aababAbabf"],
-    [],
-    [],
-    []]
 @[expose] def burnsideF48s_u42eUSs : List (List String) :=
   [[],
     [],
@@ -370,43 +346,10 @@ open CFSG.CosetTable CFSG.Quasithin
     [],
     [],
     []]
-@[expose] def burnsideF48s_u42eLS : List (List ℕ) :=
-  [[0, 2, 1, 14, 12, 13, 11, 9, 10, 8, 6, 7, 5, 3, 4, 15, 24, 18, 21, 22, 16, 19, 23, 17, 20, 35,
-      40, 43, 37, 41, 44, 38, 39, 42, 36, 25, 26, 29, 32, 27, 30, 33, 28, 31, 34],
-    [0, 42, 38, 18, 32, 13, 22, 28, 10, 17, 8, 33, 19, 5, 31, 16, 15, 9, 3, 12, 24, 29, 6, 27, 20,
-      34, 30, 23, 7, 21, 26, 14, 4, 11, 25, 35, 36, 41, 2, 43, 40, 37, 1, 39, 44],
-    [0, 1, 2, 10, 11, 9, 13, 14, 12, 5, 3, 4, 8, 6, 7, 35, 40, 41, 39, 43, 44, 42, 37, 38, 36, 25,
-      26, 27, 28, 29, 30, 31, 32, 33, 34, 15, 24, 22, 23, 18, 16, 17, 21, 19, 20],
-    [15, 25, 35, 3, 5, 4, 9, 11, 10, 6, 8, 7, 12, 14, 13, 0, 16, 26, 36, 44, 24, 34, 30, 40, 20,
-      1, 17, 27, 37, 42, 22, 32, 31, 41, 21, 2, 18, 28, 38, 43, 23, 33, 29, 39, 19],
-    [0, 1, 2, 6, 8, 7, 3, 5, 4, 12, 14, 13, 9, 11, 10, 15, 16, 22, 19, 18, 24, 21, 17, 23, 20, 35,
-      36, 42, 39, 38, 44, 41, 37, 43, 40, 25, 26, 32, 29, 28, 34, 31, 27, 33, 30]]
-@[expose] def burnsideF48s_u42eLSi : List (List ℕ) :=
-  [[0, 2, 1, 13, 14, 12, 10, 11, 9, 7, 8, 6, 4, 5, 3, 15, 20, 23, 17, 21, 24, 18, 19, 22, 16, 35,
-      36, 39, 42, 37, 40, 43, 38, 41, 44, 25, 34, 28, 31, 32, 26, 29, 33, 27, 30],
-    [0, 42, 38, 18, 32, 13, 22, 28, 10, 17, 8, 33, 19, 5, 31, 16, 15, 9, 3, 12, 24, 29, 6, 27, 20,
-      34, 30, 23, 7, 21, 26, 14, 4, 11, 25, 35, 36, 41, 2, 43, 40, 37, 1, 39, 44],
-    [0, 1, 2, 10, 11, 9, 13, 14, 12, 5, 3, 4, 8, 6, 7, 35, 40, 41, 39, 43, 44, 42, 37, 38, 36, 25,
-      26, 27, 28, 29, 30, 31, 32, 33, 34, 15, 24, 22, 23, 18, 16, 17, 21, 19, 20],
-    [15, 25, 35, 3, 5, 4, 9, 11, 10, 6, 8, 7, 12, 14, 13, 0, 16, 26, 36, 44, 24, 34, 30, 40, 20,
-      1, 17, 27, 37, 42, 22, 32, 31, 41, 21, 2, 18, 28, 38, 43, 23, 33, 29, 39, 19],
-    [0, 1, 2, 6, 8, 7, 3, 5, 4, 12, 14, 13, 9, 11, 10, 15, 16, 22, 19, 18, 24, 21, 17, 23, 20, 35,
-      36, 42, 39, 38, 44, 41, 37, 43, 40, 25, 26, 32, 29, 28, 34, 31, 27, 33, 30]]
 @[expose] def burnsideF48s_u42eR1 : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords burnsideF48s_u42eR1S
 
 @[expose] def burnsideF48s_u42eR2 : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords burnsideF48s_u42eR2S
 
-@[expose] def burnsideF48s_u42eP1W : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords (burnsideF48s_u42eP1Str.splitOn " ")
-
-@[expose] def burnsideF48s_u42eP2W : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords (burnsideF48s_u42eP2Str.splitOn " ")
-
-@[expose] def burnsideF48s_u42eC0W : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords burnsideF48s_u42eC0S
-
-@[expose] def burnsideF48s_u42eN0W : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords burnsideF48s_u42eN0S
-
-@[expose] def burnsideF48s_u42eKW (j : ℕ) : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords (burnsideF48s_u42eKSs.getD j [])
-
-@[expose] def burnsideF48s_u42eTW (j : ℕ) : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords (burnsideF48s_u42eTSs.getD j [])
 
 @[expose] def burnsideF48s_u42eU (j : ℕ) : List (List (Fin 5 × Bool)) := burnsideF48s_u42eWords (burnsideF48s_u42eUSs.getD j [])
 
@@ -421,68 +364,5 @@ abbrev burnsideF48s_u42eWs (k : ℕ) : List (List (Fin 5 × Bool)) :=
 abbrev burnsideF48s_u42eWsB (k : ℕ) : List (List (Fin (subsetOf 5 [0, 1, 2, 4]).length × Bool)) :=
   restrictWords (subsetOf 5 [0, 1, 2, 4]) (burnsideF48s_u42eWs k)
 
-abbrev burnsideF48s_u42eEvL (w : List (Fin 5 × Bool)) : List ℕ :=
-  burnsideF48s_eEvL 45 burnsideF48s_u42eLS burnsideF48s_u42eLSi w
-
-@[expose] def burnsideF48s_u42eCheckGens (_ : Unit := ()) : Bool :=
-  decide (burnsideF48s_u42eLS = burnsideF48s_u42eXY.map CFSG.Quasithin.H13.F431.U42Aut.evalAL) &&
-    decide (burnsideF48s_u42eLSi = burnsideF48s_u42eXY.map fun w =>
-      CFSG.Quasithin.H13.F431.U42Aut.evalAL (CFSG.Quasithin.H13.F431.U42Aut.invAL w))
-
-@[expose] def burnsideF48s_u42eCheckRels (_ : Unit := ()) : Bool :=
-  ((burnsideF48s_u42eR1 ++ burnsideF48s_u42eR2).all fun w =>
-    decide (burnsideF48s_u42eEvL w = List.range 45)) &&
-  ([0, 5, 8, 11, 17, 22, 27, 67, 73, 77, 83].all fun k => decide (burnsideF48s_u42eEvL
-    (burnsideF48s_eCandRel 4 ((burnsideF48s_u42eU 3).getD k []) ((burnsideF48s_u42eV 3).getD k [])
-      ((burnsideF48s_u42eW 3).getD k [])) = List.range 45)) &&
-  !decide (burnsideF48s_u42eEvL (burnsideF48s_u42eWord "aa") = List.range 45) &&
-  decide (burnsideF48s_u42eEvL (burnsideF48s_u42eWord "apapap") = U42F431.xL) &&
-  decide (burnsideF48s_u42eEvL (burnsideF48s_u42eWord "bqpaqp") = U42F431.yL) &&
-  decide (burnsideF48s_u42eEvL (burnsideF48s_u42eWord "bpbpfb") = CFSG.Quasithin.H13.F431.U42Aut.f45L) &&
-  (List.range 7).all fun j => decide (((burnsideF48s_u42eKW j).map burnsideF48s_u42eEvL).Nodup)
-
-@[expose] def burnsideF48s_u42eCheckLetters (_ : Unit := ()) : Bool :=
-  ((burnsideF48s_u42eP1W ++ burnsideF48s_u42eR1).all fun w => w.all fun l => decide (l.1 ≠ 3)) &&
-  ((burnsideF48s_u42eP2W ++ burnsideF48s_u42eR2).all fun w => w.all fun l => decide (l.1 ≠ 2)) &&
-  ((burnsideF48s_u42eC0W ++ burnsideF48s_u42eN0W).all fun w => w.all fun l => decide (l.1 ≠ 2 ∧ l.1 ≠ 3)) &&
-  (List.range 7).all fun j =>
-    ((burnsideF48s_u42eU j).all fun w => w.all fun l => decide (l.1 ≠ 3)) &&
-    ((burnsideF48s_u42eV j).all fun w => w.all fun l => decide (l.1 ≠ 2)) &&
-    ((burnsideF48s_u42eKW j ++ burnsideF48s_u42eTW j ++ burnsideF48s_u42eW j).all fun w => w.all fun l => decide (l.1 ≠ 2 ∧ l.1 ≠ 3))
-
-@[expose] def burnsideF48s_u42eCheckClosed (_ : Unit := ()) : Bool :=
-  let P1L := burnsideF48s_u42eP1W.map burnsideF48s_u42eEvL
-  let P2L := burnsideF48s_u42eP2W.map burnsideF48s_u42eEvL
-  let C0L := burnsideF48s_u42eC0W.map burnsideF48s_u42eEvL
-  decide (burnsideF48s_u42eP1W.length = 1152) && decide (burnsideF48s_u42eP2W.length = 1920) &&
-  decide (burnsideF48s_u42eP1W.getD 0 [(0, true)] = []) &&
-  decide (burnsideF48s_u42eP2W.getD 0 [(0, true)] = []) &&
-  decide (burnsideF48s_u42eC0W = [[], burnsideF48s_u42eWord "AA", burnsideF48s_u42eWord "aa"]) &&
-  decide ((burnsideF48s_u42eU 3).length = 98) &&
-  burnsideF48s_eClosed P1L burnsideF48s_u42eLS [0, 1, 2, 4] &&
-  burnsideF48s_eClosed P2L burnsideF48s_u42eLS [0, 1, 3, 4] &&
-  (List.range 7).all fun j =>
-    let KL := (burnsideF48s_u42eKW j).map burnsideF48s_u42eEvL
-    decide ((burnsideF48s_u42eKW j).getD 0 [(0, true)] = []) && decide (0 < (burnsideF48s_u42eKW j).length) &&
-    (C0L.all fun c => KL.contains c) && burnsideF48s_eClosedW KL KL &&
-    decide ((burnsideF48s_u42eU j).length ≤ (burnsideF48s_u42eV j).length) && decide ((burnsideF48s_u42eU j).length ≤ (burnsideF48s_u42eW j).length)
-
-@[expose] def burnsideF48s_u42eCheckCand (_ : Unit := ()) : Bool :=
-  let P1L := burnsideF48s_u42eP1W.map burnsideF48s_u42eEvL
-  let P2L := burnsideF48s_u42eP2W.map burnsideF48s_u42eEvL
-  (List.range 7).all fun j =>
-    burnsideF48s_eCandOK P1L P2L ((burnsideF48s_u42eKW j).map burnsideF48s_u42eEvL) ((burnsideF48s_u42eTW j).map burnsideF48s_u42eEvL)
-      ((burnsideF48s_u42eU j).map burnsideF48s_u42eEvL) ((burnsideF48s_u42eV j).map burnsideF48s_u42eEvL) ((burnsideF48s_u42eW j).map burnsideF48s_u42eEvL)
-
-@[expose] def burnsideF48s_u42eCheckClass (_ : Unit := ()) : Bool :=
-  let P1L := burnsideF48s_u42eP1W.map burnsideF48s_u42eEvL
-  let P2L := burnsideF48s_u42eP2W.map burnsideF48s_u42eEvL
-  let C0L := burnsideF48s_u42eC0W.map burnsideF48s_u42eEvL
-  let N0L := burnsideF48s_u42eN0W.map burnsideF48s_u42eEvL
-  (N0L.all fun n => P1L.contains n && P2L.contains n && burnsideF48s_eNorm C0L n) &&
-  P1L.all fun s => !burnsideF48s_eNorm C0L s || C0L.contains s || !C0L.contains (compL s s) ||
-    !P2L.contains s ||
-    N0L.any fun n => (List.range 7).any fun j =>
-      ((burnsideF48s_u42eKW j).map burnsideF48s_u42eEvL).any fun k => compL n s == compL k n
 
 end CFSG.ASVolI

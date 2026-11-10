@@ -454,22 +454,5 @@ theorem integral_gram_three_common_rows {α ι : Type*} [DecidableEq α] [Fintyp
   · intro j j'
     rw [hkd j, hkd j']
 
-theorem integral_gram_three_common_rows_fintype {α ι : Type*} [Fintype α] [DecidableEq α]
-    [Fintype ι] [DecidableEq ι] (o : α) (hr : 5 ≤ Fintype.card ι)
-    (b : ι → α → ℤ) (hbo : ∀ j, b j o = -1)
-    (hgram : ∀ j k, ∑ i, b j i * b k i = 3 + if j = k then 1 else 0)
-    (d : α → ℝ) (hd : ∀ i, 0 < d i) (hann : ∀ j, ∑ i, (b j i : ℝ) * d i = 0) :
-    ∃ (i₁ i₂ : α) (k : ι → α) (δ₁ δ₂ ε : ℤ),
-      (δ₁ = 1 ∨ δ₁ = -1) ∧ (δ₂ = 1 ∨ δ₂ = -1) ∧ (ε = 1 ∨ ε = -1) ∧
-      i₁ ≠ o ∧ i₂ ≠ o ∧ i₁ ≠ i₂ ∧ Function.Injective k ∧
-      (∀ j, k j ≠ o ∧ k j ≠ i₁ ∧ k j ≠ i₂) ∧
-      (∀ j i, b j i = -(if i = o then 1 else 0) + δ₁ * (if i = i₁ then 1 else 0) +
-          δ₂ * (if i = i₂ then 1 else 0) + ε * (if i = k j then 1 else 0)) ∧
-      (∀ j j', d (k j) = d (k j')) := by
-  obtain ⟨i₁, i₂, k, δ₁, δ₂, ε, -, -, -, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩ :=
-    integral_gram_three_common_rows Finset.univ o (Finset.mem_univ o) hr b hbo hgram d
-      (fun i _ => hd i) hann
-  exact ⟨i₁, i₂, k, δ₁, δ₂, ε, h1, h2, h3, h4, h5, h6, h7, h8,
-    fun j i => h9 j i (Finset.mem_univ i), h10⟩
 
 end CFSG.RankTwoShapes

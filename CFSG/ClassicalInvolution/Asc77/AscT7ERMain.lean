@@ -13,21 +13,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 
 variable (p f : ℕ) [Fact p.Prime]
 
-theorem c25_1_proved : C25_1 p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp g hg x hx hx4
-  have hs : Hyp23Setting p f Ω K K' z := hyp.std.setting
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  have hK : K ∈ Ω := hs.stand.mem
-  have hJ : conjSub g⁻¹ K ∈ Ω := hΩ.conjInvariant g⁻¹ K hK
-  have hJz : IsUniqueInvolution (conjSub g⁻¹ K) (g⁻¹ * z * g⁻¹⁻¹) := hs.hz.conj g⁻¹
-  have hne : g⁻¹ * z * g⁻¹⁻¹ ≠ z := by
-    intro h
-    apply hyp.ht.2.1
-    rw [← hg]
-    calc g * z * g⁻¹ = g * (g⁻¹ * z * g⁻¹⁻¹) * g⁻¹ := by rw [h]
-      _ = z := by group
-  exact fun h => T7ER.not_commute_of_orderOf_four hs hyp.hW hyp.hE4 hJ
-    (T7ER.not_mem_twinSet_of_ne hs.hz hJz hne) hx hx4 h.symm
 
 theorem c25_2_t_proved : C25_2_t p f := by
   intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp

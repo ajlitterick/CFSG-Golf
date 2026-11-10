@@ -142,30 +142,6 @@ public theorem normalPSL2ToPGammaL2_range_contains_psl
   rw [mulAut_congr_conj]
   simp [n]
 
-/-- For the transported conjugation embedding, dihedral Sylow structure
-leaves exactly two possibilities: the field image is odd, or the
-projective-linear kernel is the canonical PSL₂ layer. -/
-public theorem normalPSL2Extension_fieldProjection_odd_or_linearKernel_eq_psl
-    {R : Type u} [Group R] [Finite R]
-    (hSylow : HasDihedralSylowTwo R)
-    (N : Subgroup R) [N.Normal]
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (hcard : 3 < Nat.card K)
-    (e : N ≃* PSL2 K)
-    (hC : Subgroup.centralizer (N : Set R) = ⊥)
-    (hsurj : Function.Surjective (pGammaL2ToMulAutPSL2 K hK hcard)) :
-    Odd (Nat.card
-      (pGammaL2FieldProjection K
-        (normalPSL2ToPGammaL2 N K hK hcard e hsurj).range).range) ∨
-      pGammaL2LinearKernel K
-          (normalPSL2ToPGammaL2 N K hK hcard e hsurj).range =
-        (pGammaL2PSLRange K).subgroupOf
-          (normalPSL2ToPGammaL2 N K hK hcard e hsurj).range := by
-  exact pGammaL2_embedding_field_projection_odd_or_linearKernel_eq_psl
-    K hK hcard hSylow
-    (normalPSL2ToPGammaL2 N K hK hcard e hsurj)
-    (normalPSL2ToPGammaL2_injective N K hK hcard e hC hsurj)
-    (normalPSL2ToPGammaL2_range_contains_psl N K hK hcard e hsurj)
 
 /-- The normal-extension endpoint after supplying semilinear surjectivity and
 oddness of the transported field-automorphism image. -/

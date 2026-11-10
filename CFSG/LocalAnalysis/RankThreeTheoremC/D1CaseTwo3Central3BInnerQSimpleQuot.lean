@@ -38,7 +38,6 @@ theorem false_of_isPSolvable_of_surjective {X S : Type} [Group X] [Finite X] [Gr
   · rw [hidx] at h
     exact (Nat.Prime.coprime_iff_not_dvd hp).mp h hpS
 
-variable {G : Type} [Group G] [Finite G] {p : ℕ}
 
 end InnerQ.SimpleQuot
 

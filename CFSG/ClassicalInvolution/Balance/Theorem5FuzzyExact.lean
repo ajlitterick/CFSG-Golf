@@ -55,35 +55,6 @@ theorem localOddCentral_of_indepTriple_of_balancedFamily [IsSimpleGroup G]
   exact localOddCentral_of_indepTriple_pair hnab hp2 hq hΩ hIH hex hlay hK hcomm hAdef hel hcard
     hF₀ (hα A hA F₀ hF₀) hij hx hx1
 
-theorem localOddCentral_mul_of_indepTriple_of_balancedFamily [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hIH : LocalLieSystems p f Ω) (hex : ExactMembers Ω)
-    (hlay : ∀ A' : Subgroup G, IndepTripleOn p f Ω A' → ∀ a ∈ A', a ≠ 1 →
-      ComponentLayersAt Ω A' a)
-    {𝒯 : Set (Subgroup G)} (hbal : ∀ A ∈ 𝒯, RankThreeBalance A)
-    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
-    (hcon : ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯, Relation.ReflTransGen (ShareFourIn 𝒯) A A')
-    {K : Fin 3 → Subgroup G} {z : Fin 3 → G}
-    (hK : ∀ i, K i ∈ Ω ∧ IsClassicalMember p f (K i) (z i))
-    (hcomm : ∀ i j, i ≠ j → ∀ x ∈ K i, ∀ y ∈ K j, x * y = y * x) {A : Subgroup G}
-    (hAdef : A = Subgroup.closure (Set.range z)) (hel : IsElemAbelian 2 A)
-    (hcard : Nat.card A = 8) (hA : A ∈ 𝒯) {i j : Fin 3} (hij : i ≠ j) :
-    LocalOddCentral Ω {z i * z j} := by
-  have hsq : ∀ m, z m * z m = 1 := fun m => (hK m).2.isCentralInvolution.sq
-  have hzA : ∀ m, z m ∈ A := fun m => hAdef ▸ Subgroup.subset_closure ⟨m, rfl⟩
-  have hAc : ∀ m n, z m * z n = z n * z m := fun m n =>
-    congrArg Subtype.val (hel.1.is_comm.comm (⟨_, hzA m⟩ : A) ⟨_, hzA n⟩)
-  have hne : z i ≠ z j := ne_of_card_closure_eq_eight hsq hAc (hAdef ▸ hcard) hij
-  have h1 : z i * z j ≠ 1 := by
-    intro h
-    apply hne
-    calc z i = z i * (z j * z j) := by rw [hsq j, mul_one]
-      _ = (z i * z j) * z j := by rw [mul_assoc]
-      _ = z j := by rw [h, one_mul]
-  exact localOddCentral_of_indepTriple_of_balancedFamily hnab hp2 hq hΩ hIH hex hlay hbal hinv hcon
-    hK hcomm hAdef hel hcard hA hij
-    (Subgroup.mul_mem _ (Subgroup.subset_closure (by simp)) (Subgroup.subset_closure (by simp))) h1
-
 
 section Exact
 

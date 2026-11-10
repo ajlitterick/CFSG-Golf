@@ -381,7 +381,6 @@ def tcFindCover (E : TcEnv) (targets : List (Array ℤ)) (basis : List (Array �
          tcClassesOK E.G phi cls &&
            cls.all fun C => tcCaseOK E OT alc true μ C (tcCoroots E C))
 
-@[expose] def splitOK (τ : Tag) (p : ℕ) : Bool := tcSplitCore τ p []
 
 @[expose] def tcT0Functional (_ : Unit := ()) : Array ℤ := #[1, 0, 2, 0, 1, 2]
 
@@ -398,51 +397,9 @@ def tcFindCover (E : TcEnv) (targets : List (Array ℤ)) (basis : List (Array �
 
 @[expose] def tcGammaArr : Array ℕ := #[5, 1, 4, 3, 2, 0]
 
-@[expose] def tcPermA (n : ℕ) (g : Array ℕ) (a : Array ℤ) : Array ℤ :=
-  Array.ofFn (n := n) fun j => tcEnt a (g.getD j.val 0)
-
-@[expose] def tcAddA (n : ℕ) (a b : Array ℤ) : Array ℤ :=
-  Array.ofFn (n := n) fun j => tcEnt a j + tcEnt b j
-
-@[expose] def tcGammaIdx (_ : Unit := ()) : Array ℕ :=
-  let R := tcRoots Tag.E6 ()
-  R.map fun a => (R.findIdx? (· == tcPermA 6 tcGammaArr a)).getD 0
-
-@[expose] def tcTwistL (_ : Unit := ()) : List (Array ℤ) :=
-  [#[-1, 0, 0, 0, 0, 1], #[0, 0, -1, 0, 1, 0]]
 
 @[expose] def tcTwistGens (_ : Unit := ()) : Array (List ℕ) := #[[1], [3], [2, 4], [0, 5]]
 
-@[expose] def tcGammaOK (E : TcEnv) (gI : Array ℕ) : Bool :=
-  (List.range E.R.size).all fun i =>
-    E.R.getD (gI.getD i 0) #[] == tcPermA E.n tcGammaArr (E.R.getD i #[]) &&
-      (let x := tcAddA E.n (E.Cor.getD i #[]) (E.Cor.getD (gI.getD i 0) #[])
-       tcPermA E.n tcGammaArr x == x)
-
-@[expose] def tcTwistCore (p : ℕ) : Bool :=
-  let E := tcEnv Tag.E6 p (tcTwistL ()) (tcTwistGens ())
-  let gI := tcGammaIdx ()
-  let OT : Thunk (Option TcOrb) := Thunk.mk fun _ => tcOrbVerified E
-  tcLOK E && tcGammaOK E gI &&
-    (List.range (p ^ Tag.E6.rank)).all fun m =>
-      let b := tcDec p Tag.E6.rank m
-      tcIsZero p Tag.E6.rank b || !tcInV E b ||
-        (let phi := (List.range E.R.size).filter fun r =>
-            tcDot E.n (E.R.getD r #[]) b % (p : ℤ) == 0
-         let cls := tcClasses E.G phi
-         tcClassesOK E.G phi cls &&
-           cls.all fun C1 =>
-             match cls.find? (·.contains (gI.getD (C1.headD 0) 0)) with
-             | none => false
-             | some C2 =>
-               C1.all (fun x => C2.contains (gI.getD x 0)) &&
-                 tcCaseOK E OT [] false b (C1 ++ C2)
-                   (C1.map fun i =>
-                     (tcAddA E.n (E.Cor.getD i #[]) (E.Cor.getD (gI.getD i 0) #[])).map
-                       (· % (p : ℤ))))
-
-@[expose] def twistOK (p : ℕ) : Bool := tcTwistCore p
 
 end CFSG.StandardType.StepTwoToralCert
-
 

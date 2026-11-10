@@ -37,9 +37,6 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Blueprint
 
 section Consequences
 
-variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
-
-include e
 
 end Consequences
 end CFSG.GH74.KGroups.A5

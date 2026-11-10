@@ -159,16 +159,6 @@ theorem exists_permMat_SU4 (σ : Equiv.Perm (Fin 4)) (hσ : Equiv.Perm.sign σ =
     rw [hmap, hT, hP'P]⟩
   exact ⟨g, hmem, rfl⟩
 
-theorem neg_mem_SU4 (hp2 : p ≠ 2) : emb4G (TauCeti.diagGL ![-1, -1, 1]) ∈ SU4 p := by
-  refine emb4G_mem_SU4 (unitary_diagGL_FU _ fun i => ?_)
-  have hodd : Odd p := (Fact.out : p.Prime).odd_of_ne_two hp2
-  have hm : ((-1 : (FU p)ˣ)) ^ (p ^ 1) * (-1) = 1 := by
-    rw [pow_one, hodd.neg_one_pow]
-    simp
-  fin_cases i
-  · exact hm
-  · exact hm
-  · simp
 
 theorem card_SU4_int :
     (Nat.card (SU4 p) : ℤ) = (p : ℤ) ^ 6 * (((p : ℤ) ^ 2 - 1) * (((p : ℤ) ^ 3 + 1) *
@@ -233,11 +223,6 @@ theorem e27Move_projSU4 (hp : p % 3 = 2) :
   exact e27Move_of_torus4 hζ (torus_mem_SU4 hpm)
     (emb4G_mem_SU4 unitary_permGL3_FU) exists_permMat_SU4 hcard hk
 
-theorem two_ne_zero_FU (hp2 : p ≠ 2) : (2 : FU p) ≠ 0 := by
-  intro h
-  have h' : ((2 : ℕ) : FU p) = 0 := by exact_mod_cast h
-  rw [CharP.cast_eq_zero_iff (FU p) p] at h'
-  exact hp2 ((Nat.prime_dvd_prime_iff_eq (Fact.out : p.Prime) Nat.prime_two).mp h')
 
 theorem exists_omega_FU (hp : p % 3 = 2) : ∃ ω : (FU p)ˣ, orderOf ω = 3 := by
   refine exists_orderOf_eq_of_dvd ?_
@@ -257,14 +242,6 @@ theorem exists_e27_projSU4 (hp : p % 3 = 2) :
   exact ⟨E.map (projEquivSU4 p).symm.toMonoidHom, isElemAbelian_map _ hE.1, by
     rw [Subgroup.card_map_of_injective (projEquivSU4 p).symm.injective, hE.2]⟩
 
-theorem invE9_projSU4 (hp : p % 3 = 2) (hp2 : p ≠ 2) :
-    InvE9 (CFSG.Assembly.RankThreeEven.projSU 4 p 1) := by
-  obtain ⟨a, m, -, hpm⟩ := exists_three_pow_succ (n := p + 1) (by omega) (by omega)
-  obtain ⟨ω, hω⟩ := exists_omega_FU hp
-  have hω3 : ω ^ 3 = 1 := by rw [← hω]; exact pow_orderOf_eq_one ω
-  exact InvE9.of_mulEquiv (projEquivSU4 p) (invE9_projImage hω3
-    (CFSG.Open.StatedAPI.statedSU_le_statedSL 4 (p ^ 1) (FU p)) hω
-    (τ4_mem_of (torus_mem_SU4 hpm) hω3) (neg_mem_SU4 hp2) (two_ne_zero_FU hp2))
 
 theorem noThreeCover_projSU4
     (hp : 3 < p) :
@@ -409,18 +386,6 @@ theorem exists_e27_projSL4 (hp : p % 3 = 1) :
   exact ⟨E.map (projEquivSL4 p).symm.toMonoidHom, isElemAbelian_map _ hE.1, by
     rw [Subgroup.card_map_of_injective (projEquivSL4 p).symm.injective, hE.2]⟩
 
-theorem two_ne_zero_FL (hp2 : p ≠ 2) : (2 : FL p) ≠ 0 := by
-  intro h
-  have h' : ((2 : ℕ) : FL p) = 0 := by exact_mod_cast h
-  rw [CharP.cast_eq_zero_iff (FL p) p] at h'
-  exact hp2 ((Nat.prime_dvd_prime_iff_eq (Fact.out : p.Prime) Nat.prime_two).mp h')
-
-theorem invE9_projSL4 (hp : p % 3 = 1) :
-    InvE9 (CFSG.Assembly.RankThreeEven.projSL 4 (FL p)) := by
-  obtain ⟨ω, hω⟩ := exists_omega_FL hp
-  have hω3 : ω ^ 3 = 1 := by rw [← hω]; exact pow_orderOf_eq_one ω
-  exact InvE9.of_mulEquiv (projEquivSL4 p) (invE9_projImage hω3 (le_refl (SL4 p)) hω
-    (fun v => emb4G_mem_SL4 _) (emb4G_mem_SL4 _) (two_ne_zero_FL (by omega)))
 
 theorem not_three_dvd_card_outer_projSL4p :
     ¬ 3 ∣ Nat.card (CFSG.ComponentClassification.OuterAutomorphisms.Outer

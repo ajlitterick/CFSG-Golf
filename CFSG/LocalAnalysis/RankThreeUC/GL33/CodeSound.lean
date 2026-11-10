@@ -76,10 +76,6 @@ theorem toM_oneC : toM oneC = 1 := by
   simp only [toM, Matrix.one_apply, ent_oneC _ x.2 _ y.2, Fin.val_inj]
   split_ifs <;> simp
 
-theorem toM_powC (a e : ℕ) : toM (powC a e) = toM a ^ e := by
-  induction e with
-  | zero => simp [powC, toM_oneC]
-  | succ e ih => rw [powC, toM_mulC, ih, pow_succ]
 
 private theorem dig_lt (c k : ℕ) : dig c k < 3 := Nat.mod_lt _ (by norm_num)
 
@@ -109,9 +105,6 @@ theorem encode_lt (A : Matrix (Fin 3) (Fin 3) (ZMod 3)) : encode A < 3 ^ 9 := by
   unfold encode
   exact lt_of_lt_of_eq (horner_lt _) (by simp)
 
-theorem toV_encV (w : Fin 3 → ZMod 3) : toV (encV w) = w := by
-  funext x
-  fin_cases x <;> simp [toV, encV, dig_horner]
 
 theorem encV_lt (w : Fin 3 → ZMod 3) : encV w < 27 := by
   unfold encV
@@ -155,13 +148,6 @@ theorem eq_of_toV_eq {u v : ℕ} (hu : u < 27) (hv : v < 27) (h : toV u = toV v)
   simp only [toV] at this
   exact (natCast_inj3 (dig_lt _ _) (dig_lt _ _)).1 this
 
-theorem vecC_lt (c v : ℕ) : vecC c v < 27 := by
-  unfold vecC
-  exact lt_of_lt_of_eq (horner_lt _) (by simp)
-
-theorem covC_lt (f c : ℕ) : covC f c < 27 := by
-  unfold covC
-  exact lt_of_lt_of_eq (horner_lt _) (by simp)
 
 theorem mulC_lt (a b : ℕ) : mulC a b < 3 ^ 9 := by
   unfold mulC

@@ -28,7 +28,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.Parity Matrix
 
 variable {g : SpaceB ≃ₗ[ℚ] SpaceB}
 
-theorem mem_fixL {v : SpaceB} : v ∈ fixL g ↔ v ∈ L5 ∧ g v - v ∈ M5 := Iff.rfl
 
 theorem smul_mem_fixL {r : ℚ} (hr : r ∈ R5) {v : SpaceB} (hv : v ∈ fixL g) : r • v ∈ fixL g :=
   ⟨smul_mem_L5 hr hv.1, by
@@ -556,16 +555,5 @@ theorem eq_one_of_cong5_three_vectors {a₀ : symMat} {β : SpaceX} {N₀ : Spac
     (Submonoid.isOfFinOrder_coe.2 (isOfFinOrder_of_finite (⟨g, hg⟩ : Generated.Gmat))) hgL
     ha hb hw
 
-theorem mod_five_three_vector_separation {a₀ : symMat} {β : SpaceX} {N₀ : SpaceW} {K : ℕ}
-    (hsep : ∀ c d : ShortIdx, (∀ k ∈ Finset.Icc 1 K,
-      qf c ((a₀ : Matrix (Fin 24) (Fin 24) ℚ) ^ k) -
-        qf d ((a₀ : Matrix (Fin 24) (Fin 24) ℚ) ^ k) ∈ D5) → c = d)
-    (hβ : ∀ c, β c ∉ D5) (hN₀ : ∃ j i, N₀ j i ∉ D5)
-    {a b w : SpaceB} (ha : a = inA a₀) (hb : b = ∑ c, β c • basisB (Sum.inr (Sum.inl c)))
-    (hw : w = inW N₀) (hg : g ∈ Generated.Gmat) (hgL : ∀ v, Int5 v → Int5 (g v))
-    (hga : Cong5 (g a) a) (hgb : Cong5 (g b) b) (hgw : Cong5 (g w) w) : g = 1 := by
-  rw [sum_smul_basisB_eq_inX] at hb
-  subst ha hb hw
-  exact eq_one_of_cong5_three_vectors hsep hβ hN₀ hg hgL hga hgb hgw
 
 end CFSG.Monster.Griess.ModFive

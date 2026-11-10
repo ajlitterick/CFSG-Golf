@@ -17,9 +17,6 @@ variable {G : Type} [Group G] [Finite G]
   ((Subgroup.centralizer (barX 3 N K : Set (↥N ⧸ GLAPPrimeCore 3 ↥N))).comap
     (QuotientGroup.mk' (GLAPPrimeCore 3 ↥N))).map N.subtype
 
-omit [Finite G] in
-theorem preCentralizer_le (N K : Subgroup G) : preCentralizer N K ≤ N :=
-  Subgroup.map_subtype_le _
 
 omit [Finite G] in
 theorem glaPPrimeCoreOf_le_preCentralizer (N K : Subgroup G) :

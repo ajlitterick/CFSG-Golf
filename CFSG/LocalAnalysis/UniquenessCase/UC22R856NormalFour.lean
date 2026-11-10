@@ -306,7 +306,6 @@ end NineTypes
 section CharThree
 
 
-
 theorem false_of_exceptional_char_three
     {G : Type} [Group G] [Finite G] {L : Subgroup G}
     (h3 : CFSG.Open.pRank 3 L = 2) {f : ℕ}
@@ -448,53 +447,6 @@ end ActualG2
 end SmallG2
 
 section TripleCovers
-
-
-theorem false_of_normal_triple_cover_of_rank_le_two
-    {G : Type} [Group G] [Finite G]
-    (hS : Standing4 G) (hU : uniqueFourUnique G) (S : Setup4 G)
-    {L Q P X : Subgroup G}
-    (hX : ChoiceX (UC6.dataOfSetup4 hS hU S) L Q P X)
-    (hML : S.M ≤ normalizer (L : Set G)) (hcover : List857Clause2 (Bar2 L))
-    (hM3 : CFSG.Open.pRank 3 S.M ≤ 2) : False := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hc := hX.cex
-  have hQext := isExtraspecialExpP_of_isSylowOf_bar hc.sylowQ
-    (fun Qb => threeCoverSylowExtraspecial_holds _ hcover Qb)
-  have hQL : Q ≤ L := hc.sylowQ.le
-  have hPNL : P ≤ normalizer (L : Set G) := hc.sylowP.le.trans hML
-  have hQeq : Q = P ⊓ L :=
-    (hc.sylowQ.eq_of_le (le_inf hc.le hQL) inf_le_right
-      (hc.sylowP.isPGroup.to_le inf_le_left)).symm
-  have hQn : (Q.subgroupOf P).Normal :=
-    normal_subgroupOf_of_isSylowOf_of_le_normalizer hc.sylowQ hc.le hc.sylowP.isPGroup hPNL
-  have hPQ : P ≤ Q ⊔ centralizerBar P L :=
-    le_sup_centralizerBar_of_inner hc.le hQL hQeq hQn hc.sylowQ hc.sylowP.isPGroup
-      hPNL le_rfl (inner_action_of_not_three_dvd_outer
-        (not_three_dvd_card_outer_of_cover hcover) hc.sylowP.isPGroup hPNL)
-  have hcomm : ∀ q ∈ Q, ∀ c ∈ centralizerBar P L, q * c = c * q :=
-    fun q hq c hcc => commute_of_mem_centralizerBar Nat.prime_three (by norm_num)
-      hc.sylowP.isPGroup hQL hc.le hq hcc
-  have hQexp : ∀ q ∈ Q, q ^ 3 = 1 := by
-    intro q hq
-    have hexp := Monoid.pow_exponent_eq_one (⟨q, hq⟩ : Q)
-    rw [hQext.2.1] at hexp
-    exact congrArg Subtype.val hexp
-  obtain ⟨E, hEQ, hEel, hEcard⟩ := CFSG.Quasithin.A1c.exists_isElemAbelian_card_sq
-    (p := 3) (by norm_num) hc.sylowQ.isPGroup hc.not_isCyclic_sylowQ
-  have hXQ : X ≤ Q := by
-    intro x hx
-    have hxp : x ^ 3 = 1 := by
-      have hx3 := pow_card_eq_one' (G := X) (x := ⟨x, hx⟩)
-      rw [hX.card] at hx3
-      exact congrArg Subtype.val hx3
-    exact uc22s213_mem_of_pow_three_eq_one hM3 (hQL.trans hc.mem.1.le)
-      ((centralizerBar_le P L).trans hc.sylowP.le)
-      ((centralizerBar_le P L).trans
-        ((Subgroup.normal_subgroupOf_iff_le_normalizer hc.le).mp hQn))
-      hcomm hQexp hEQ hEel hEcard (hPQ (hX.le hx)) hxp
-  exact hX.not_le_sylowQ hXQ
 
 
 theorem false_of_normal_triple_cover_dataOfSetup4
@@ -1806,7 +1758,6 @@ theorem exists_generator_of_commutator_not_le
   exact (CFSG.mem_openPCoreOf_iff (((normalizerMonoidHom L) ⟨x,hxN⟩ l) * l⁻¹)).mpr hmem
 
 
-
 theorem outer_or_exists_inner_of_cube
     {Y : Type*} [Group Y] (hZ : center Y = ⊥) (α : MulAut Y)
     (hα3 : α ^ 3 = 1) (hα1 : α ≠ 1) :
@@ -1827,8 +1778,6 @@ theorem outer_or_exists_inner_of_cube
     have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
     exact Or.inr ⟨a,orderOf_eq_prime ha3 ha1,ha.symm⟩
   · exact Or.inl hi
-
-
 
 
 theorem exists_noncentral_order_three_of_card_twenty_seven
@@ -1892,7 +1841,6 @@ theorem exists_twenty_seven_noncentral_order_three_of_three_part
     obtain ⟨b,hb,heq⟩ := h
     have hba : b = a := Subtype.ext heq
     exact haz (hba ▸ hb)
-
 
 
 theorem order_twenty_seven_witness_map
@@ -2076,7 +2024,6 @@ theorem false_of_inner_bar_order_twenty_seven_dataOfSetup4
 end ActualInner
 
 
-
 section FullActual
 
 
@@ -2125,207 +2072,11 @@ end NormalTwistedF4
 open CFSG.Open Subgroup
 open CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8
 
-theorem mem_center_of_ok69_of_rank_le_two
-    {Y : Type} [Group Y] [Finite Y] {R : Subgroup Y} (hR : IsPGroup 3 R)
-    (hRank : CFSG.Open.pRank 3 R ≤ 2) {a : Y} (ha : a ∈ R) (ha3 : a ^ 3 = 1)
-    (hok : Ok69 a)
-    (hFix : ∀ A : Subgroup Y, IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj a b ∈ A) → ∀ b ∈ A, MulAut.conj a b = b) :
-    a ∈ (center R).map R.subtype := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  let ar : R := ⟨a, ha⟩
-  have har3 : ar ^ 3 = 1 := Subtype.ext ha3
-  let X : Subgroup R := zpowers ar
-  have hcent : ∀ A : Subgroup R, A ≤ (⊤ : Subgroup R) → IsMulCommutative A →
-      X ≤ normalizer (A : Set R) → X ≤ centralizer (A : Set R) := by
-    intro A _ hAb hXA
-    let B : Subgroup Y := A.map R.subtype
-    have hB3 : IsPGroup 3 B := (hR.to_subgroup A).map _
-    have hBc : IsMulCommutative B := by
-      refine ⟨⟨fun u v => ?_⟩⟩
-      apply Subtype.ext
-      obtain ⟨u0, hu0, hu⟩ := u.2
-      obtain ⟨v0, hv0, hv⟩ := v.2
-      change (u : Y) * v = (v : Y) * u
-      rw [← hu, ← hv]
-      exact congrArg (fun t : R => (t : Y))
-        (congrArg Subtype.val (hAb.is_comm.comm ⟨u0, hu0⟩ ⟨v0, hv0⟩))
-    have hAN : a ∈ normalizer (B : Set Y) := by
-      exact Subgroup.le_normalizer_map R.subtype
-        (mem_map.mpr ⟨ar, hXA (mem_zpowers ar), rfl⟩)
-    have hBinv : ∀ b ∈ B, MulAut.conj a b ∈ B := by
-      intro b hb
-      exact ((mem_normalizer_iff.mp hAN) b).1 hb
-    have hfixA : ar ∈ centralizer (A : Set R) := by
-      rw [mem_centralizer_iff]
-      intro b hb
-      apply Subtype.ext
-      have h := hFix B hB3 hBc hBinv (b : Y) (mem_map.mpr ⟨b, hb, rfl⟩)
-      rw [MulAut.conj_apply] at h
-      exact (mul_inv_eq_iff_eq_mul.mp h).symm
-    exact zpowers_le.mpr hfixA
-  have hpush : X ≤ Subgroup.upperCentralSeries R 2 → X ≤ center R := by
-    intro h2
-    have har2 : a ∈ secondCenterSubgroup R :=
-      mem_map.mpr ⟨ar, h2 (mem_zpowers ar), rfl⟩
-    have hsup : R ⊔ zpowers a = R := sup_eq_left.mpr (zpowers_le.mpr ha)
-    have hh := (hok R hR (le_normalizer ha)).2
-    rw [hsup] at hh
-    obtain ⟨z, hz, heq⟩ := hh har2
-    have heq' : z = ar := Subtype.ext heq
-    exact zpowers_le.mpr (heq' ▸ hz)
-  have hXcenter : X ≤ center R :=
-    le_center_of_inner_of_rank_le_two (Q := ⊤) (X := X) (C := ⊥) hR
-      (by rwa [← CFSG.SectionRank.pRank_eq_pRank_top_subgroup]) (by simp)
-      (fun x hx =>
-        orderOf_dvd_iff_pow_eq_one.mp ((orderOf_dvd_of_mem_zpowers
-          (show x ∈ zpowers ar from hx)).trans (orderOf_dvd_of_pow_eq_one har3)))
-      (fun q _ c hc => by
-        have hc1 : c = 1 := mem_bot.mp hc
-        simp [hc1])
-      (fun c hc d hd => by simp_all)
-      (by simp) (by simp) hcent hpush
-  exact mem_map.mpr ⟨ar, hXcenter (mem_zpowers ar), rfl⟩
-
-theorem fixes_abelian_conj_mulEquiv
-    {Y Z : Type} [Group Y] [Group Z] (e : Y ≃* Z) {a : Y}
-    (hFix : ∀ A : Subgroup Y, IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj a b ∈ A) → ∀ b ∈ A, MulAut.conj a b = b) :
-    ∀ A : Subgroup Z, IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj (e a) b ∈ A) → ∀ b ∈ A, MulAut.conj (e a) b = b := by
-  intro A hA hAc hInv
-  let B : Subgroup Y := A.comap e.toMonoidHom
-  have hB : IsPGroup 3 B := hA.comap_of_injective e.toMonoidHom e.injective
-  have hBc : IsMulCommutative B := by
-    refine ⟨⟨fun u v => ?_⟩⟩
-    apply Subtype.ext
-    apply e.injective
-    exact (map_mul e _ _).trans ((congrArg Subtype.val
-      (hAc.is_comm.comm ⟨e u, u.2⟩ ⟨e v, v.2⟩)).trans (map_mul e _ _).symm)
-  have hBinv : ∀ b ∈ B, MulAut.conj a b ∈ B := by
-    intro b hb
-    show e (MulAut.conj a b) ∈ A
-    simpa only [MulAut.conj_apply, map_mul, map_inv] using hInv (e b) hb
-  intro z hz
-  have hzB : e.symm z ∈ B := by change e (e.symm z) ∈ A; simpa using hz
-  have hh := congrArg e (hFix B hB hBc hBinv (e.symm z) hzB)
-  simpa only [MulAut.conj_apply, map_mul, map_inv, MulEquiv.apply_symm_apply] using hh
-
-theorem weaklyClosed_of_ok69_of_rank_two_cyclic_center
-    {Y : Type} [Group Y] [Finite Y]
-    (hRank : CFSG.Open.pRank 3 (⊤ : Subgroup Y) ≤ 2)
-    (hCyc : ∀ R : Sylow 3 Y, IsCyclic (center (R : Subgroup Y)))
-    {a : Y} (ha3 : a ^ 3 = 1) (ha1 : a ≠ 1) (hok : Ok69 a)
-    (hFix : ∀ A : Subgroup Y, IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj a b ∈ A) → ∀ b ∈ A, MulAut.conj a b = b) :
-    CFSG.RankThree.PartTwo.Sec4.RonanK432.WeaklyClosed (zpowers a) := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  intro g hnorm
-  let c : Y := g * a * g⁻¹
-  have hc3 : c ^ 3 = 1 := by
-    dsimp [c]
-    rw [← MulAut.conj_apply g a, ← map_pow, ha3, map_one]
-  have hc1 : c ≠ 1 := by
-    intro h
-    apply ha1
-    apply (MulAut.conj g).injective
-    change g * a * g⁻¹ = g * 1 * g⁻¹
-    simpa only [mul_one, mul_inv_cancel] using h
-  have hcN : c ∈ normalizer (zpowers a : Set Y) :=
-    hnorm (mem_map.mpr ⟨a, mem_zpowers a, rfl⟩)
-  have hA3 : IsPGroup 3 (zpowers a) := by
-    exact IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, orderOf_eq_prime ha3 ha1, pow_one])
-  have hC3 : IsPGroup 3 (zpowers c) :=
-    IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, orderOf_eq_prime hc3 hc1, pow_one])
-  let R0 : Subgroup Y := zpowers a ⊔ zpowers c
-  have hR0 : IsPGroup 3 R0 :=
-    hA3.to_sup_of_normal_left' hC3 (zpowers_le.mpr hcN)
-  obtain ⟨R, hR0R⟩ := hR0.exists_le_sylow
-  have haR : a ∈ (R : Subgroup Y) := hR0R (mem_sup_left (mem_zpowers a))
-  have hcR : c ∈ (R : Subgroup Y) := hR0R (mem_sup_right (mem_zpowers c))
-  have hRrank : CFSG.Open.pRank 3 (R : Subgroup Y) ≤ 2 :=
-    (CFSG.SectionRank.pRank_mono Nat.prime_three.one_lt le_top).trans hRank
-  have haz := mem_center_of_ok69_of_rank_le_two R.isPGroup' hRrank haR ha3 hok hFix
-  have hcz := mem_center_of_ok69_of_rank_le_two R.isPGroup' hRrank hcR hc3
-    (ok69_conj g hok) (fixes_abelian_conj_mulEquiv (MulAut.conj g) hFix)
-  let Z : Subgroup Y := (center (R : Subgroup Y)).map (R : Subgroup Y).subtype
-  have : IsCyclic (center (R : Subgroup Y)) := hCyc R
-  let ψ : center (R : Subgroup Y) →* Z :=
-    ((R : Subgroup Y).subtype.comp (center (R : Subgroup Y)).subtype).codRestrict Z
-      (fun z => mem_map.mpr ⟨z,z.2,rfl⟩)
-  have hψ : Function.Surjective ψ := by
-    intro z
-    obtain ⟨r,hr,heq⟩ := z.2
-    exact ⟨⟨r,hr⟩,Subtype.ext heq⟩
-  have : IsCyclic Z := isCyclic_of_surjective ψ hψ
-  let az : Z := ⟨a, haz⟩
-  let cz : Z := ⟨c, hcz⟩
-  have horder : orderOf az = orderOf cz := by
-    rw [orderOf_mk, orderOf_mk, orderOf_eq_prime ha3 ha1, orderOf_eq_prime hc3 hc1]
-  have hzpow : zpowers az = zpowers cz := IsCyclic.subgroup_eq_iff_card_eq.mpr
-    (by rw [Nat.card_zpowers, Nat.card_zpowers, horder])
-  have hca : c ∈ zpowers a := by
-    have h := (congrArg (fun H : Subgroup Z => H.map Z.subtype) hzpow).ge
-      (mem_map.mpr ⟨cz,mem_zpowers cz,rfl⟩)
-    simpa only [MonoidHom.map_zpowers, Subgroup.subtype_apply, az, cz] using h
-  have hpows : zpowers c = zpowers a := Subgroup.eq_of_le_of_card_ge
-    (zpowers_le.mpr hca)
-    (by rw [Nat.card_zpowers, Nat.card_zpowers, orderOf_eq_prime ha3 ha1,
-      orderOf_eq_prime hc3 hc1])
-  rw [MonoidHom.map_zpowers]
-  change zpowers c = zpowers a
-  exact hpows
-
 
 section TrialityTwoCenter
 
 open CFSG.Quasithin CFSG.AGLEmbedding.D4Two Subgroup
 
-theorem d4_two_center_cyclic : IsCyclic (center sylowGroup) := by
-  classical
-  let candidates := (sylowElems.filter fun x => commutes x genA && commutes x genB).toFinset
-  have inject : ∀ z : center sylowGroup, ∃ x : candidates,
-      ((z.1.1 : GL (Fin 8) GF8) : Matrix (Fin 8) (Fin 8) GF8) = toMat x := by
-    intro z
-    obtain ⟨x,hx,hzx⟩ := exists_sylowElems_eq z.1.1 z.1.2
-    have ha : wordGL wordA ∈ sylowGroup := subset_closure (by simp)
-    have hb : wordGL wordB ∈ sylowGroup := subset_closure (by simp)
-    have hca := congrArg (fun g : sylowGroup => (g : GL (Fin 8) GF8))
-      (mem_center_iff.mp z.2 ⟨wordGL wordA,ha⟩)
-    have hcb := congrArg (fun g : sylowGroup => (g : GL (Fin 8) GF8))
-      (mem_center_iff.mp z.2 ⟨wordGL wordB,hb⟩)
-    have hxa := commutes_of z.1.1 (wordGL wordA) hzx coe_wordGL_A hca.symm
-    have hxb := commutes_of z.1.1 (wordGL wordB) hzx coe_wordGL_B hcb.symm
-    exact ⟨⟨x,by simp only [candidates, List.mem_toFinset, List.mem_filter,
-      Bool.and_eq_true]; exact ⟨hx,hxa,hxb⟩⟩,hzx⟩
-  let f : center sylowGroup → candidates := fun z => Classical.choose (inject z)
-  have hf : Function.Injective f := by
-    intro z w h
-    apply Subtype.ext
-    apply Subtype.ext
-    apply Units.ext
-    exact (Classical.choose_spec (inject z)).trans
-      ((congrArg toMat (congrArg Subtype.val h)).trans (Classical.choose_spec (inject w)).symm)
-  have hle : Nat.card (center sylowGroup) ≤ 3 := by
-    calc
-      Nat.card (center sylowGroup) ≤ Nat.card candidates := Nat.card_le_card_of_injective f hf
-      _ ≤ 3 := by
-        rw [Nat.subtype_card candidates (fun _ => Iff.rfl)]
-        have hle : candidates.card ≤
-            (sylowElems.filter fun x => commutes x genA && commutes x genB).length :=
-          List.toFinset_card_le _
-        exact hle.trans_eq d4_two_center_candidates_length
-  have hdiv : Nat.card (center sylowGroup) ∣ 81 :=
-    (center sylowGroup).card_subgroup_dvd_card.trans (by rw [Certificates.certificate9415.1])
-  have hcard : Nat.card (center sylowGroup) = 1 ∨ Nat.card (center sylowGroup) = 3 := by
-    have hpos : 0 < Nat.card (center sylowGroup) := Nat.card_pos
-    interval_cases h : Nat.card (center sylowGroup) <;> omega
-  rcases hcard with hcard | hcard
-  · have : Subsingleton (center sylowGroup) := (Nat.card_eq_one_iff_unique.mp hcard).1
-    exact isCyclic_of_subsingleton
-  · exact isCyclic_of_prime_card hcard
 
 end TrialityTwoCenter
 
@@ -2334,24 +2085,6 @@ section TrialityTwoSylow
 
 open CFSG.Quasithin CFSG.AGLEmbedding.D4Two Subgroup
 
-theorem cyclic_sylow_center_trialityGroup8
-    (hcard : Nat.card trialityGroup8 = 211341312) :
-    ∀ R : Sylow 3 trialityGroup8, IsCyclic (center (R : Subgroup trialityGroup8)) := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  let P : Subgroup trialityGroup8 := sylowGroup.subgroupOf trialityGroup8
-  have hP : Nat.card P = 81 := by
-    rw [Nat.card_congr (subgroupOfEquivOfLe sylowGroup_le).toEquiv]
-    exact Certificates.certificate9415.1
-  let Ps : Sylow 3 trialityGroup8 := Sylow.ofCard P (by rw [hP,hcard]; decide +kernel)
-  have hcycP : IsCyclic (center P) := by
-    have : IsCyclic (center sylowGroup) := d4_two_center_cyclic
-    exact (MulEquiv.isCyclic (centerCongr (subgroupOfEquivOfLe sylowGroup_le))).2 this
-  intro R
-  have : IsCyclic (center (Ps : Subgroup trialityGroup8)) := by
-    have heq : (Ps : Subgroup trialityGroup8) = P := Sylow.coe_ofCard P _
-    exact (MulEquiv.isCyclic (centerCongr (MulEquiv.subgroupCongr heq))).2 hcycP
-  exact (MulEquiv.isCyclic (centerCongr (Sylow.equiv R Ps))).2 this
 
 end TrialityTwoSylow
 
@@ -2362,61 +2095,6 @@ open CFSG.RankThree.PartTwo.Sec21.Item219LieProof
 
 section
 
-theorem cyclic_sylow_center_triality_four
-    {K : Type} [Field K] [Finite K] (σ : K ≃+* K) (hK : Nat.card K = 4 ^ 3)
-    (hσ : ∀ c, σ c = c ^ 4) :
-    ∀ R : Sylow 3 (graphFixedRootGroup TwistTag.D4 K σ.toRingHom),
-      IsCyclic (center (R : Subgroup (graphFixedRootGroup TwistTag.D4 K σ.toRingHom))) := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hK' : Nat.card K = (2 ^ 2) ^ 3 := by norm_num; exact hK
-  have hσ' : ∀ c, σ c = c ^ (2 ^ 2) := by norm_num; exact hσ
-  have hσ3 : σ ^ 3 = 1 := by
-    refine RingEquiv.ext fun c => ?_
-    have h := ringEquiv_cube_apply_eq hK' hσ' c
-    simpa [pow_succ] using h
-  obtain ⟨ω,hω⟩ : ∃ ω : Kˣ, orderOf ω = 3 := by
-    exact exists_prime_orderOf_dvd_card' 3 (by rw [Nat.card_units, hK]; norm_num)
-  have hω3 : ω ^ 3 = 1 := by rw [← hω]; exact pow_orderOf_eq_one ω
-  have hσω : σ (ω : K) = ω := by
-    rw [hσ]
-    have hω3' : (ω : K) ^ 3 = 1 := congrArg Units.val hω3
-    rw [show (4 : ℕ) = 3 + 1 by rfl, pow_succ, hω3', one_mul]
-  let ζ : (trialityFixedField K σ.toRingHom)ˣ :=
-    Units.mk0 ⟨(ω : K), (mem_trialityFixedField).2 hσω⟩
-      (fun h => ω.ne_zero (congrArg Subtype.val h))
-  have hζω : trialityFixedUnit K σ ζ = ω := Units.ext rfl
-  obtain ⟨P,hPcard,hPcen⟩ := exists_sylow_center (n := 2) (by norm_num)
-    (by decide) hK' hσ' (by rw [hζω]; exact hω)
-  have hcenter : IsCyclic (center P) := by
-    let w : graphFixedRootGroup TwistTag.D4 K σ.toRingHom :=
-      ⟨trialityOuterTorus K σ ω, by
-        rw [← trialityTorusHom_one_right]
-        exact graphFixedRootTorus_le _ _ _ (trialityTorusHom_mem hσ3 _ )⟩
-    let h : center P →* graphFixedRootGroup TwistTag.D4 K σ.toRingHom :=
-      P.subtype.comp (center P).subtype
-    let f : center P →* Subgroup.zpowers w := h.codRestrict (zpowers w) (fun z => by
-      obtain ⟨j,hj⟩ := hPcen z.1.1 z.1.2
-        (fun p hp => congrArg Subtype.val (mem_center_iff.mp z.2 ⟨p,hp⟩))
-      refine mem_zpowers_iff.mpr ⟨(j : ℤ), ?_⟩
-      apply Subtype.ext
-      rw [Subgroup.coe_zpow, zpow_natCast]
-      change (trialityOuterTorus K σ ω) ^ j = (z.1.1 : ModGL TwistTag.D4.tag K)
-      simpa only [hζω] using hj.symm)
-    have hf : Function.Injective f := by
-      intro x y hxy
-      have hh : h x = h y := congrArg (fun z : zpowers w => (z : graphFixedRootGroup TwistTag.D4 K σ.toRingHom)) hxy
-      change (x.1.1 : graphFixedRootGroup TwistTag.D4 K σ.toRingHom) = y.1.1 at hh
-      exact Subtype.ext (Subtype.ext hh)
-    exact isCyclic_of_injective f hf
-  let Ps : Sylow 3 (graphFixedRootGroup TwistTag.D4 K σ.toRingHom) := Sylow.ofCard P hPcard
-  intro R
-  have e := Subgroup.centerCongr (Sylow.equiv R Ps)
-  have : IsCyclic (center (Ps : Subgroup (graphFixedRootGroup TwistTag.D4 K σ.toRingHom))) := by
-    have heq : (Ps : Subgroup (graphFixedRootGroup TwistTag.D4 K σ.toRingHom)) = P :=
-      Sylow.coe_ofCard P hPcard
-    exact (MulEquiv.isCyclic (Subgroup.centerCongr (MulEquiv.subgroupCongr heq))).2 hcenter
-  exact (MulEquiv.isCyclic e).2 this
 end
 
 
@@ -2427,105 +2105,10 @@ open CFSG.RankThree.PartTwo.Sec4.RonanK432
 section SmallTrialityCyclic
 
 
-theorem cyclic_sylow_center_triality_small
-    {Y : Type} [Group Y] [Finite Y] {f : ℕ} (hf : f = 1 ∨ f = 2)
-    (hY : CFSG.Blueprint.LieModel Y .trialityD4 0 2 f) :
-    ∀ R : Sylow 3 Y, IsCyclic (center (R : Subgroup Y)) := by
-  rcases hf with rfl | rfl
-  · obtain ⟨e⟩ := CFSG.LargeExtraspecial.S63.nonempty_equiv_trialityGroup8 Y hY
-    have hcard : Nat.card Y = 211341312 := by
-      rw [CFSG.Timmesfeld.card_chevalleyExceptionalModel_two
-        (hY.chevalleyExceptionalModel (by decide))]
-      norm_num [CFSG.Open.ordTrialityD4]
-    have hcard8 : Nat.card CFSG.Quasithin.trialityGroup8 = 211341312 :=
-      (Nat.card_congr e.toEquiv).symm.trans hcard
-    intro R
-    let Re : Sylow 3 CFSG.Quasithin.trialityGroup8 := Sylow.mapSurjective (f := e.toMonoidHom) e.surjective R
-    have eh : (R : Subgroup Y) ≃* (Re : Subgroup CFSG.Quasithin.trialityGroup8) := by
-      have heq : (Re : Subgroup _) = (R : Subgroup Y).map e.toMonoidHom :=
-        Sylow.coe_mapSurjective (f := e.toMonoidHom) e.surjective R
-      exact (MulEquiv.subgroupMap e (R : Subgroup Y)).trans (MulEquiv.subgroupCongr heq.symm)
-    have hRe := cyclic_sylow_center_trialityGroup8 hcard8 Re
-    exact (MulEquiv.isCyclic (Subgroup.centerCongr eh)).2 hRe
-  · obtain ⟨K,_,_,_,σ,hK,hσ,-,-,-,⟨e⟩⟩ :=
-      CFSG.RankThree.PartTwo.Sec4.Res417Seven.exists_graphFixedRootGroup_of_trialityD4
-        (hY.chevalleyExceptionalModel (by decide))
-    have hK' : Nat.card K = 4 ^ 3 := by norm_num at hK ⊢; exact hK
-    have hσ' : ∀ c, σ c = c ^ 4 := by norm_num at hσ ⊢; exact hσ
-    intro R
-    let Re : Sylow 3 (graphFixedRootGroup TwistTag.D4 K σ.toRingHom) :=
-      Sylow.mapSurjective (f := e.toMonoidHom) e.surjective R
-    have eh : (R : Subgroup Y) ≃* (Re : Subgroup (graphFixedRootGroup TwistTag.D4 K σ.toRingHom)) := by
-      have heq : (Re : Subgroup _) = (R : Subgroup Y).map e.toMonoidHom :=
-        Sylow.coe_mapSurjective (f := e.toMonoidHom) e.surjective R
-      exact (MulEquiv.subgroupMap e (R : Subgroup Y)).trans (MulEquiv.subgroupCongr heq.symm)
-    exact (MulEquiv.isCyclic (Subgroup.centerCongr eh)).2
-      (cyclic_sylow_center_triality_four σ hK' hσ' Re)
-
-
 end SmallTrialityCyclic
 
 
 section SmallTrialityNoWeak
-
-theorem not_weaklyClosed_triality_small
-    {Y : Type} [Group Y] [Finite Y] {f : ℕ} (hf : f = 1 ∨ f = 2)
-    (hY : CFSG.Blueprint.LieModel Y .trialityD4 0 2 f) {a : Y} (ha : orderOf a = 3) :
-    ¬ WeaklyClosed (zpowers a) := by
-  rcases hf with rfl | rfl
-  · obtain ⟨e⟩ := CFSG.LargeExtraspecial.S63.nonempty_equiv_trialityGroup8 Y hY
-    have hcard : Nat.card Y = 211341312 := by
-      rw [CFSG.Timmesfeld.card_chevalleyExceptionalModel_two
-        (hY.chevalleyExceptionalModel (by decide))]
-      norm_num [CFSG.Open.ordTrialityD4]
-    have hcard8 : Nat.card CFSG.Quasithin.trialityGroup8 = 211341312 :=
-      (Nat.card_congr e.toEquiv).symm.trans hcard
-    obtain ⟨ψ⟩ := CFSG.HardMathSupport.Dickson.Bal207.Fam3D42.nonempty_mulEquiv_d4P e hcard8
-    let z := ψ a
-    have hz1 : z ≠ 1 := by
-      intro h
-      have := ψ.injective (h.trans (map_one ψ).symm)
-      subst a
-      norm_num at ha
-    have hz3 : z ^ 3 = 1 := by
-      rw [← map_pow, ← ha]
-      simpa only [map_one] using congrArg ψ (pow_orderOf_eq_one a)
-    have := CFSG.RankThree.PartTwo.Sec4.Item434D42.card_d4P
-    have : Finite CFSG.RankThree.PartTwo.Sec4.Item434D42.d4P :=
-      Nat.finite_of_card_ne_zero (by rw [CFSG.RankThree.PartTwo.Sec4.Item434D42.card_d4P]; norm_num)
-    obtain ⟨P,hPG,hPcard,hP⟩ := Certificates.certificate428004.apply
-      CFSG.RankThree.PartTwo.Sec4.Item434D42.d4P CFSG.RankThree.PartTwo.Sec4.Item434D42.d4P
-      d4WitData_gens_mem d4WitData_gens_mem
-    have hAll := wit3_all_of_sylow_sub CFSG.RankThree.PartTwo.Sec4.Item434D42.d4P
-      CFSG.RankThree.PartTwo.Sec4.Item434D42.d4P P (le_refl _)
-      (fun g hg y hy => mul_mem (mul_mem hg hy) (inv_mem hg)) hPG 4
-      (hPcard.trans d4WitData_pOrd)
-      (by rw [CFSG.RankThree.PartTwo.Sec4.Item434D42.card_d4P]; decide) hP
-    have hw := wit3_top_of_subgroupOf (le_refl _) z.2
-      (hAll z z.2 (fun h => hz1 (Subtype.ext h)) (congrArg Subtype.val hz3))
-    obtain ⟨g, -, hcomm, hnot⟩ := hw
-    intro hweak
-    have hwZ := weaklyClosed_map_mulEquiv ψ hweak
-    rw [MonoidHom.map_zpowers] at hwZ
-    exact not_weaklyClosed_of_commute_conj hcomm hnot hwZ
-  · obtain ⟨K,_,_,_,σ,hK,hσ,-,hf,-,⟨e⟩⟩ :=
-      CFSG.RankThree.PartTwo.Sec4.Res417Seven.exists_graphFixedRootGroup_of_trialityD4
-        (hY.chevalleyExceptionalModel (by decide))
-    have P : CFSG.RankThree.PartTwo.Sec19.D4Par 2 K σ := ⟨hf,hK,hσ⟩
-    have hao : orderOf (e a) = 3 := (MulEquiv.orderOf_eq e a).trans ha
-    have hae3 : (e a) ^ 3 = 1 := hao ▸ pow_orderOf_eq_one (e a)
-    have hae1 : e a ≠ 1 := by intro h; rw [h,orderOf_one] at hao; omega
-    intro hweak
-    have hw := weaklyClosed_map_mulEquiv e hweak
-    rw [MonoidHom.map_zpowers] at hw
-    rcases CFSG.RankThree.PartTwo.Sec19.three_conj_dichotomy σ 2 P.one_le P.card P.frob
-        hae3 hae1 with hX | ⟨g,hg⟩
-    · exact not_weaklyClosed_of_classX_of_plane P hX (exists_two_commuting_classX P (by norm_num)) hw
-    · have hcard : Nat.card (CFSG.RankThree.PartTwo.Sec19.C0 σ) = CFSG.Open.ordTrialityD4 (2 ^ 2) :=
-        (Nat.card_congr e.toEquiv).symm.trans
-          (CFSG.Timmesfeld.card_chevalleyExceptionalModel_two
-            (hY.chevalleyExceptionalModel (by decide)))
-      exact not_weaklyClosed_of_conj_mem_Bsub P (by norm_num) hcard hae3 hae1 hg hw
 
 
 end SmallTrialityNoWeak
@@ -2533,19 +2116,6 @@ end SmallTrialityNoWeak
 
 section SmallTrialityInner
 
-
-theorem false_of_triality_inner_small
-    {Y : Type} [Group Y] [Finite Y] {f : ℕ} (hf : f = 1 ∨ f = 2)
-    (hY : CFSG.Blueprint.LieModel Y .trialityD4 0 2 f)
-    (hRank : CFSG.Open.pRank 3 (⊤ : Subgroup Y) ≤ 2)
-    {a : Y} (ha : orderOf a = 3) (hok : PartOne.Section8.Ok69 a)
-    (hFix : ∀ A : Subgroup Y, IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj a b ∈ A) → ∀ b ∈ A, MulAut.conj a b = b) : False := by
-  have ha3 : a ^ 3 = 1 := ha ▸ pow_orderOf_eq_one a
-  have ha1 : a ≠ 1 := by intro h; rw [h,orderOf_one] at ha; omega
-  exact not_weaklyClosed_triality_small hf hY ha
-    (weaklyClosed_of_ok69_of_rank_two_cyclic_center hRank
-      (cyclic_sylow_center_triality_small hf hY) ha3 ha1 hok hFix)
 
 end SmallTrialityInner
 
@@ -2556,38 +2126,6 @@ open CFSG.Yardstones.Mf4cdcdf2e013 (Standing4 Setup4 PartIAt)
 open CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8
 open CFSG.LocalAnalysis.UniquenessCase.UC22
 
-
-
-theorem false_of_normal_trialityD4_inner_small_dataOfSetup4
-    {G : Type} [Group G] [Finite G]
-    (hS : Standing4 G) (hU : uniqueFourUnique G) (S : Setup4 G)
-    (hMS : S.InMSigma) (hPart : PartIAt S.M) {L Q P X : Subgroup G}
-    (hX : ChoiceX (UC6.dataOfSetup4 hS hU S) L Q P X)
-    (hML : S.M ≤ normalizer (L : Set G)) {f : ℕ} (hf : f = 1 ∨ f = 2)
-    (hmodel : CFSG.Blueprint.LieModel (Bar2 L) .trialityD4 0 2 f)
-    (hNontrivial : ¬ ⁅L, X⁆ ≤ pCoreOf 2 L)
-    (hInner : ∀ x ∈ X, ∃ l ∈ L, ∀ y ∈ L,
-      (x * y * x⁻¹) * (l * y * l⁻¹)⁻¹ ∈ pCoreOf 2 L) : False := by
-  obtain ⟨x,hx,hgen,hx3,hx1,hAut3,hAut1⟩ :=
-    exists_generator_of_commutator_not_le hX.le (hX.cex.sylowP.le.trans hML) hX.card hNontrivial
-  have hcent : center (Bar2 L) = ⊥ := by
-    have : IsSimpleGroup (Bar2 L) := CFSG.Timmesfeld.isSimpleGroup_of_lieModel hmodel
-    exact @P22w.center_eq_bot_of_isSimpleGroup (Bar2 L) _ inferInstance hX.cex.mem.2.2
-  have hAutInner : barConjAut (L := L) x ∈
-      CFSG.ComponentClassification.OuterAutomorphisms.inner (Bar2 L) :=
-    (barConjAut_mem_inner_iff x (hX.cex.sylowP.le.trans hML (hX.le hx))).mpr (hInner x hx)
-  obtain ⟨a,ha,haa⟩ := (outer_or_exists_inner_of_cube hcent _ hAut3 hAut1).resolve_left
-    (not_not.mpr hAutInner)
-  have hok := ok69_of_bar_inner_dataOfSetup4 hS hU S hMS hPart hX hML hcent hx hx1 haa
-  have hFix : ∀ A : Subgroup (Bar2 L), IsPGroup 3 A → IsMulCommutative A →
-      (∀ b ∈ A, MulAut.conj a b ∈ A) → ∀ b ∈ A, MulAut.conj a b = b := by
-    intro A hA3 hAc hInv
-    have hInv' : ∀ b ∈ A, barConjAut (L := L) x b ∈ A := by rw [haa]; exact hInv
-    have hh := fixes_abelian_bar_dataOfSetup4 hS hU S hMS hPart hX hML hx hgen hA3 hAc hInv'
-    rw [haa] at hh
-    exact hh
-  exact false_of_triality_inner_small hf hmodel
-    (by rw [pRank_bar2_eq_of_odd Nat.prime_three (by norm_num),hX.cex.rank]) ha hok hFix
 
 end SmallInnerActual
 

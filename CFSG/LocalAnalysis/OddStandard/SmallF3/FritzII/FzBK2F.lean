@@ -37,8 +37,6 @@ private theorem iterA_one (f : Array ℕ) (x : ℕ) : iterA f 1 x = f[x]! := rfl
 
 private theorem iterA_two (f : Array ℕ) (x : ℕ) : iterA f 2 x = f[f[x]!]! := rfl
 
-private theorem iterA_three (f : Array ℕ) (x : ℕ) :
-    iterA f 3 x = f[f[f[x]!]!]! := rfl
 
 private theorem iterA_four (f : Array ℕ) (x : ℕ) :
     iterA f 4 x = f[f[f[f[x]!]!]!]! := rfl

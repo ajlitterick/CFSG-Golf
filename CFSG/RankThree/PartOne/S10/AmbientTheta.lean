@@ -75,11 +75,6 @@ abbrev conjActionOn {K A : Subgroup G} (hAK : A ≤ normalizer (K : Set G)) :
     MulDistribMulAction A K :=
   MulDistribMulAction.compHom K (Subgroup.inclusion hAK)
 
-theorem coe_smul_conjActionOn {K A : Subgroup G} (hAK : A ≤ normalizer (K : Set G)) (a : A)
-    (k : K) :
-    letI := conjActionOn hAK
-    (((a • k : K)) : G) = (a : G) * k * (a : G)⁻¹ :=
-  rfl
 
 theorem le_normalizer_theta_of_le_normalizer [Finite G] {p : ℕ} (hp : p.Prime) {A L : Subgroup G}
     (hAL : A ≤ normalizer (L : Set G)) :

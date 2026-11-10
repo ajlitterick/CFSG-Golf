@@ -97,9 +97,6 @@ theorem coe_plusSwapMatrix (hn : 0 < n) :
 theorem plusSwapMatrix_inv (hn : 0 < n) : (plusSwapMatrix n K hn)⁻¹ = plusSwapMatrix n K hn :=
   Units.ext rfl
 
-theorem plusSwapMatrix_mul_self (hn : 0 < n) :
-    plusSwapMatrix n K hn * plusSwapMatrix n K hn = 1 :=
-  Units.ext (plusSwapMatrix n K hn).val_inv
 
 theorem toLinEquiv_plusSwapMatrix (hn : 0 < n) :
     toLinEquiv (Fin n ⊕ Fin n) K (plusSwapMatrix n K hn) = swapPair K ⟨n - 1, by omega⟩ := by
@@ -140,10 +137,6 @@ theorem plusSwapMatrix_conj_scalar (hn : 0 < n) {A : GL (Fin n ⊕ Fin n) K}
     exact hA
   rw [Subgroup.mem_center_iff.mp hc (plusSwapMatrix n K hn), mul_inv_cancel_right]
 
-theorem statedScalars_map_conj_plusSwapMatrix (hn : 0 < n) :
-    (StatedScalars (Fin n ⊕ Fin n) K).map (MulAut.conj (plusSwapMatrix n K hn)).toMonoidHom =
-      StatedScalars (Fin n ⊕ Fin n) K :=
-  Subgroup.Normal.map_conj_eq _ _
 
 @[expose] def plusSwapDerived (hn : 0 < n) : MulAut (StatedOmega (StatedQuadPlus n K)) :=
   ((MulAut.conj (plusSwapMatrix n K hn)).subgroupMap (StatedOmega (StatedQuadPlus n K))).trans

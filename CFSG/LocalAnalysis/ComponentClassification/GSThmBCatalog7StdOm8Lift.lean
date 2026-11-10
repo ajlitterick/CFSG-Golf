@@ -82,11 +82,6 @@ theorem mem_centralizer_iff_fixed (g : G) :
     rw [map_mul]
     rfl
 
-theorem centEquiv_val (x : G.subgroupOf (centralizer ({t} : Set H))) :
-    (centEquiv G Q Θ t A μ hsim hconj x).val = Θ ⟨x.val.val, x.property⟩ := rfl
-
-theorem centEquiv_symm_val (y : fixedSubgroup (projectiveConjugation Q A μ hsim)) :
-    ((centEquiv G Q Θ t A μ hsim hconj).symm y).val.val = (Θ.symm y.val : H) := rfl
 
 @[expose] def projChain : (orthogonalDerived Q).subgroupOf
     (fixedSubgroup (similarityConjugation Q A μ hsim)) →*
@@ -112,10 +107,6 @@ theorem outerH_injective : Function.Injective (outerH G Q Θ t A μ hsim hconj) 
     (fixedSubgroup (similarityConjugation Q A μ hsim)) →* H :=
   (outerH G Q Θ t A μ hsim hconj).comp (projChain Q A μ hsim)
 
-theorem toH_apply (x : (orthogonalDerived Q).subgroupOf
-    (fixedSubgroup (similarityConjugation Q A μ hsim))) :
-    toH G Q Θ t A μ hsim hconj x = (Θ.symm (QuotientGroup.mk'
-      ((scalarSigns Q).subgroupOf (orthogonalDerived Q)) ⟨x.val.val, x.property⟩) : H) := rfl
 
 theorem toH_mem_G (x : (orthogonalDerived Q).subgroupOf
     (fixedSubgroup (similarityConjugation Q A μ hsim))) :

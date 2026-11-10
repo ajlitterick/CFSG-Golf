@@ -53,14 +53,6 @@ theorem quasisimple_quotient {G : Type*} [Group G] [Finite G] {component : Subgr
     (TwoComponents.quasisimple_quotient
       ((isTwoPComponent_iff_twoComponent component).mp hcomponent))
 
-theorem isTwoPComponent_iff_residual_quasisimple {G : Type*} [Group G] [Finite G]
-    (component : Subgroup G) :
-    Assembly.ComponentType.IsTwoPComponent component ↔
-      Assembly.IsSubnormal component ⊤ ∧ TwoResidual.subgroup component = ⊤ ∧
-        Assembly.IsQuasisimple (component ⧸ Assembly.oddCore component) := by
-  rw [isTwoPComponent_iff_twoComponent, TwoComponentConvention.twoComponent_iff]
-  rw [isSubnormal_iff_open, isQuasisimple_iff_open]
-  rfl
 
 theorem ordinary_of_corefree {G : Type*} [Group G] [Finite G]
     (hcorefree : Assembly.oddCore G = ⊥) {component : Subgroup G}

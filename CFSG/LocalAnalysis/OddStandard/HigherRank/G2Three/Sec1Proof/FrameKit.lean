@@ -25,8 +25,5 @@ variable {Γ : Type} [Group Γ] {D : TabData} {elt : ℕ → Γ}
 
 @[expose] def ml (D : TabData) (l : List ℕ) : ℕ := l.foldl D.mul 0
 
-variable {fr : SFrame Γ} {I : FIdx}
-
-variable {gr : Frame Γ}
 
 end CFSG.OddStandard.HigherRank.G2Three.Sec1Proof.Tab

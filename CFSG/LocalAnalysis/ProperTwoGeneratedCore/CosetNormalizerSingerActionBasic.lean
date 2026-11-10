@@ -303,10 +303,6 @@ theorem IsSingerAction.conclusion {A : Subgroup G} {f : ℕ} (hf : f ≠ 0)
     rw [← h]
     group
 
-theorem mem_rootScalarSubgroup {F : Type*} [Field F] {ι : Multiplicative F →* G} {g : G} :
-    g ∈ rootScalarSubgroup ι ↔ ∃ c : Fˣ, ∀ b : F,
-      g * ι (Multiplicative.ofAdd b) * g⁻¹ = ι (Multiplicative.ofAdd (c * b)) :=
-  Iff.rfl
 
 theorem rootScalarSubgroup_le_normalizer {F : Type*} [Field F] (ι : Multiplicative F →* G) :
     rootScalarSubgroup ι ≤ Subgroup.normalizer (ι.range : Set G) := by

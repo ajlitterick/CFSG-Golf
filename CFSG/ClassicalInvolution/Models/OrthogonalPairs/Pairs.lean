@@ -153,11 +153,6 @@ theorem jointEigenspace_false_true (h2 : (2 : K) ≠ 0) :
   rw [jointEigenspace, signOf_false, signOf_true, eigenspace_neg_one_La_neg_one h2,
     eigenspace_one_La_neg_one h2]
 
-theorem jointEigenspace_true_false (h2 : (2 : K) ≠ 0) :
-    jointEigenspace ((F₁.La (-1) : V ≃ₗ[K] V) : Module.End K V)
-      ((F₂.La (-1) : V ≃ₗ[K] V) : Module.End K V) (true, false) = F₁.perp ⊓ F₂.span := by
-  rw [jointEigenspace, signOf_false, signOf_true, eigenspace_neg_one_La_neg_one h2,
-    eigenspace_one_La_neg_one h2]
 
 variable {F₁ F₂}
 

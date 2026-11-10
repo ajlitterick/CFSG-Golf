@@ -25,22 +25,14 @@ def IsRootTypeIn (p : ℕ) (H A : Subgroup G) : Prop :=
 
 def IsRootType (p : ℕ) (A : Subgroup G) : Prop := IsRootTypeIn p ⊤ A
 
-def naturalGraph (D : Set G) : SimpleGraph D :=
-  SimpleGraph.fromRel fun e d => e.1 * d.1 = d.1 * e.1 ∧ e.1 * d.1 ≠ 1
 
 def zStar (G : Type) [Group G] : Subgroup G :=
   (Subgroup.center (G ⧸ oddCore G)).comap (QuotientGroup.mk' (oddCore G))
 
-def zLowerStar (G : Type) [Group G] : Subgroup G :=
-  haveI : (CFSG.pCore 2 G).Normal := CFSG.pCore_normal
-  (Subgroup.center (G ⧸ CFSG.pCore 2 G)).comap (QuotientGroup.mk' (CFSG.pCore 2 G))
 
 def weakClosure (A C : Subgroup G) : Subgroup G :=
   Subgroup.closure {x | ∃ g : G, conjSubgroup g A ≤ C ∧ x ∈ conjSubgroup g A}
 
-structure Setting (A : Subgroup G) : Prop where
-  elemAbelian : IsElemAbelian 2 A
-  ti : IsTI A
 
 structure ElementaryAbelianTIRootCentralizerHypothesis (A : Subgroup G) : Prop where
   elemAbelian : IsElemAbelian 2 A
@@ -57,16 +49,9 @@ structure ElementaryAbelianTIWeakClosureHypothesis (A : Subgroup G) : Prop where
   sylow : ∃ S : Subgroup G, IsPGroup 2 S ∧ (∀ T : Subgroup G, IsPGroup 2 T → S ≤ T → T = S) ∧
     S ≤ normalizer (A : Set G)
 
-def RootTypeOrKnownNormalClosure (KnownType : Subgroup G → Prop) (A : Subgroup G) : Prop :=
-  IsRootType 2 A ∨
-    ((∀ g : G, conjSubgroup g A ≤ centralizer (A : Set G) → conjSubgroup g A = A) ∧
-      KnownType (normalClosure (A : Set G)))
 
 namespace Section3
 
-structure Base (A : Subgroup G) : Prop where
-  hyp : ElementaryAbelianTIRootCentralizerHypothesis A
-  generated : normalClosure (A : Set G) = ⊤
 
 def IsChoice (A Abar : Subgroup G) : Prop :=
   (∃ g : G, Abar = conjSubgroup g A) ∧
@@ -116,10 +101,6 @@ namespace Section4
 def D (A Abar : Subgroup G) (s : G) : Set G :=
   {t | ∃ y ∈ Section3.Y A Abar s, ∃ a ∈ A, a ∉ Section3.A0 A Abar ∧ t = y * a * y⁻¹}
 
-structure Context (A Abar S₀ B : Subgroup G) (s : G) : Prop where
-  hNotation : Section3.Notation A Abar S₀ B
-  sChoice : Section3.IsSChoice A Abar S₀ B s
-  q_eq : Section3.q A Abar = 2
 
 end Section4
 
@@ -128,9 +109,6 @@ namespace Section5
 def H (A Abar : Subgroup G) : Subgroup G :=
   weakClosure (Section3.A0 A Abar) (normalizer (A : Set G))
 
-structure Context (A Abar S₀ B : Subgroup G) (s : G) : Prop where
-  section4 : Section4.Context A Abar S₀ B s
-  not_le_center : ¬ Section3.A0 A Abar ≤ (Subgroup.center (H A Abar)).map (H A Abar).subtype
 
 end Section5
 

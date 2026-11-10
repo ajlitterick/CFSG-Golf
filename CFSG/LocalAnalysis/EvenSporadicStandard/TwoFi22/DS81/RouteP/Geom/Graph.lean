@@ -86,10 +86,6 @@ theorem Δ_plane_clique {p q : Ω} (hp : p ∈ plane) (hq : q ∈ plane) (hpq : 
   obtain ⟨g, -, h0, h1⟩ := Zq_twoTransitive x0_mem_plane x1_mem_plane hp hq x0_ne_x1 hpq
   exact Δ_adj_iff.2 ⟨g, h0, h1⟩
 
-theorem Δ_plane_isClique : Δ.IsClique (plane : Set Ω) := fun _ hp _ hq hpq =>
-  Δ_plane_clique hp hq hpq
-
-theorem Δ_plane_isNClique : Δ.IsNClique 24 plane := ⟨Δ_plane_isClique, card_plane⟩
 
 theorem Δ_smul_plane_isClique (g : Q3) : Δ.IsClique ((g • plane : Finset Ω) : Set Ω) := by
   intro p hp q hq hpq

@@ -52,7 +52,6 @@ private theorem ddMat_mul_uMat (x y : kˣ) (a b c d : k) :
 @[expose] noncomputable def dd (x y : kˣ) : antiSp k :=
   ⟨⟨ddMat x y, ddMat x⁻¹ y⁻¹, ddMat_mul_inv x y, ddMat_inv_mul x y⟩, ddMat_mem x y⟩
 
-theorem glMat_dd (x y : kˣ) : glMat ((dd x y : antiSp k) : GL (Fin 4) k) = ddMat x y := rfl
 
 theorem dd_conj_uElt (x y : kˣ) (a b c d : k) :
     dd x y * uElt a b c d * (dd x y)⁻¹ =

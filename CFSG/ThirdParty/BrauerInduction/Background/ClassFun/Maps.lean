@@ -139,13 +139,6 @@ lemma postcomp_id (f : ClassFun k G) :
   ext g
   rfl
 
-lemma postcomp_comp
-    {m : Type*}
-    (f : ClassFun k G) (F : k → l) (Q : l → m) :
-    (f.postcomp F).postcomp Q =
-      f.postcomp (Q ∘ F) := by
-  ext g
-  rfl
 
 /--
 Postcomposition with a linear map, as a linear map between spaces of class
@@ -209,13 +202,6 @@ lemma res_smul
     res K (a • f) = a • res K f :=
   comp_smul a f K.subtype
 
-/-- Restriction to a subgroup, as a linear map. -/
-@[expose] def resLinearMap
-    {R : Type*}
-    [Semiring R] [AddCommMonoid k] [Module R k]
-    (K : Subgroup G) :
-    ClassFun k G →ₗ[R] ClassFun k K :=
-  compLinearMap K.subtype
 
 end Restriction
 

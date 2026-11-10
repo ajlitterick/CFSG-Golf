@@ -13,18 +13,12 @@ open CFSG CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec4 TauCeti
 open CFSG.Assembly.RankThreeEven (projSL projSU projSp projOmegaPlus projOmegaMinus f4TwoIndex
   localRank)
 
-@[expose] def CoverSLThree : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], IsQuasisimple X → IsPGroup 3 (Subgroup.center X) →
-    Subgroup.center X ≠ ⊥ → ∀ (p e : ℕ) [Fact p.Prime], 1 ≤ e →
-      IsoLThreePi (X ⧸ Subgroup.center X) p e → IsSLThreeEpsAt X (p ^ e)
 
 @[expose] def CoverSLThree46 : Prop :=
   ∀ (X : Type) [Group X] [Finite X], IsQuasisimple X → IsPGroup 3 (Subgroup.center X) →
     Subgroup.center X ≠ ⊥ → ∀ (p e : ℕ) [Fact p.Prime], 1 ≤ e → (p = 2 ∨ e ≤ 2) →
       IsoLThreePi (X ⧸ Subgroup.center X) p e → IsSLThreeEpsAt X (p ^ e)
 
-theorem CoverSLThree.toCoverSLThree46 (h : CoverSLThree) : CoverSLThree46 :=
-  fun X _ _ hq hZ3 hZ p e _ he _ hpi => h X hq hZ3 hZ p e he hpi
 
 @[expose] def CoverCenterThree : Prop :=
   ∀ (X : Type) [Group X] [Finite X], IsQuasisimple X → IsPGroup 3 (Subgroup.center X) →

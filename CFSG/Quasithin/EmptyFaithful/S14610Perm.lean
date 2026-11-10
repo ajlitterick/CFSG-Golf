@@ -69,34 +69,5 @@ theorem Setting146.odd_mem_i1_of_tI_eq_tZero (S : Setting146 G T M) {H : Subgrou
   have hz : x ∈ Subgroup.zpowers (x ^ 2) := A4.mem_zpowers_pow_of_coprime hcop
   exact hxn (Subgroup.zpowers_le.mpr (by rw [sq]; exact hx2) hz)
 
-theorem Setting146.facts14610_perm (i16 : Input14610PermFixed) (i17 : Input14610PermTu)
-    {H : Subgroup G} {u : G} {I I₂ K : Subgroup G} (c : Facts14610 T M H u I I₂)
-    (hsyl : IsSylowTwoOf (T ⊓ I) I) (hcases : T ⊓ I = tU T u ∨ T ⊓ I = tZero T u)
-    (hLT : yOfL22 T M ⊔ T = i1Of1469 T M I ⊔ pCoreOf 2 (yOfL22 T M ⊔ T))
-    (hK : Concl14610List T M I I₂ K)
-    (hperm : (IsAlt 6 (OTwoQuot K) ∧ Nat.card (wOf1469 K) = 2 ^ 5) ∨
-      (IsAlt 7 (OTwoQuot K) ∧ Nat.card (wOf1469 K) = 2 ^ 6)) :
-    Nat.card (conjClosure (VZ T M) I₂) = 2 ^ 3 := by
-  by_contra hne
-  rcases hcases with hTu | hT0
-  · exact i17 G T M H u I I₂ K c hK hperm hTu hne
-  · have S : Setting146 G T M := c.setting
-    have hres : oTwoUpper (yOfL22 T M) = yOfL22 T M := S.hyp1281.residual
-    have hLI1 : yOfL22 T M ≤ i1Of1469 T M I := by
-      calc yOfL22 T M = oTwoUpper (yOfL22 T M) := hres.symm
-        _ ≤ i1Of1469 T M I := (Subgroup.closure_le _).mpr fun x hx =>
-          S.odd_mem_i1_of_tI_eq_tZero c.hu hT0 hLT (Subgroup.mem_sup_left hx.1) hx.2
-    have hlI : lI T M I = yOfL22 T M := by
-      have hLI : yOfL22 T M ≤ I := hLI1.trans (i1Of1469_le T M I)
-      unfold lI
-      rw [inf_eq_left.mpr hLI]
-      exact hres
-    have hW := i16 G T M H u I I₂ K c hK hperm
-    rw [hlI] at hW
-    apply hW
-    have hWT : wOf1469 K ≤ T := wOf1469_le_T hK.le hK.normal hsyl
-    refine eq_bot_iff.mpr fun x hx => ?_
-    rw [← S.hyp.inf_centralizer_yOfL22_eq_bot S.facts]
-    exact ⟨hWT hx.1, hx.2⟩
 
 end CFSG.Quasithin

@@ -72,7 +72,6 @@ theorem twinYLinkedSU4_of_mod_one (hmod : (p ^ f) % 4 = 1) : TWS.TwinYLinkedSU4 
   exact linked_of_model hnab S hrow hshape hT clsT e hMF hP1 D hcard1 i hDi hnc hmodel hK₂ hK₂K
     hK₂T hw
 
-variable {p f}
 
 end Linked
 

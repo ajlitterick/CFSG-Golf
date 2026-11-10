@@ -136,27 +136,6 @@ theorem fix_of_perfect [Finite S] (hZ : center S = ⊥) (hRodd : Odd (Nat.card R
   have h1 : r k * k⁻¹ = 1 := congrArg Subtype.val hmem
   rwa [mul_inv_eq_one] at h1
 
-include hRi hRconj hKT hKN in
-theorem fix_of_two_pow [Finite S] (hZ : center S = ⊥) (hRodd : Odd (Nat.card R))
-    {r : MulAut S} (hr : r ∈ R) {k : S} (hk : k ∈ K) {a : ℕ} (hka : k ^ (2 ^ a) = 1) :
-    r k = k := by
-  have hpow : ∀ m : ℕ, r (k ^ m) * (k ^ m)⁻¹ = (r k * k⁻¹) ^ m := by
-    intro m
-    induction m with
-    | zero => simp
-    | succ m ih =>
-      rw [pow_succ, map_mul_mul_inv hRi hRconj hKT hKN hr (pow_mem hk m) hk, ih, pow_succ]
-  have hn := mul_inv_mem_innerPart hRi hRconj hr (hKT hk)
-  have h1 : (r k * k⁻¹) ^ (2 ^ a) = 1 := by rw [← hpow, hka, map_one, inv_one, mul_one]
-  have h2 : (r k * k⁻¹) ^ Nat.card (innerPart i R) = 1 := by
-    have := pow_card_eq_one' (G := innerPart i R) (x := ⟨_, hn⟩)
-    exact congrArg Subtype.val this
-  have hcop : Nat.Coprime (Nat.card (innerPart i R)) (2 ^ a) :=
-    Nat.Coprime.pow_right a (Nat.coprime_two_right.mpr (odd_card_innerPart hZ hRodd))
-  have h3 : orderOf (r k * k⁻¹) = 1 := Nat.eq_one_of_dvd_coprimes hcop
-    (orderOf_dvd_of_pow_eq_one h2) (orderOf_dvd_of_pow_eq_one h1)
-  rw [orderOf_eq_one_iff, mul_inv_eq_one] at h3
-  exact h3
 
 omit hKT hKN in
 include hRi hRconj in
@@ -187,39 +166,5 @@ theorem fix_of_isComponentOf [Finite S] (hZ : center S = ⊥) (hRodd : Odd (Nat.
     exact h1
   exact fix_of_perfect hRi hRconj hK.1 hKN' hZ hRodd hK.2.2.2.1 hr hk
 
-omit hKT hKN in
-include hRi hRconj in
-theorem fix_of_normal_two [Finite S] (hZ : center S = ⊥) (hRodd : Odd (Nat.card R))
-    {r : MulAut S} (hr : r ∈ R) {Q : Subgroup S} (hQT : Q ≤ oddFixed i)
-    (hQn : ∀ t ∈ oddFixed i, ∀ q ∈ Q, t * q * t⁻¹ ∈ Q) (hQ2 : IsPGroup 2 Q) {q : S}
-    (hq : q ∈ Q) : r q = q := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hQN : ∀ a ∈ Q, ∀ n ∈ innerPart i R, a * n = n * a := by
-    intro a ha n hn
-    have hnT : n ∈ oddFixed i := (mem_inf.mp hn).1
-    have h1 : n * a * n⁻¹ * a⁻¹ ∈ Q := mul_mem (hQn n hnT a ha) (inv_mem ha)
-    have h2 : n * a * n⁻¹ * a⁻¹ ∈ innerPart i R := by
-      have := conj_mem_innerPart hRconj (hQT ha) (inv_mem hn)
-      rw [show n * a * n⁻¹ * a⁻¹ = n * (a * n⁻¹ * a⁻¹) by group]
-      exact mul_mem hn this
-    obtain ⟨m, hm⟩ := hQ2 ⟨_, h1⟩
-    have h3 : (n * a * n⁻¹ * a⁻¹) ^ (2 ^ m) = 1 := by
-      have := congrArg Subtype.val hm
-      simpa using this
-    have h4 : (n * a * n⁻¹ * a⁻¹) ^ Nat.card (innerPart i R) = 1 := by
-      have := pow_card_eq_one' (G := innerPart i R) (x := ⟨_, h2⟩)
-      exact congrArg Subtype.val this
-    have hcop : Nat.Coprime (Nat.card (innerPart i R)) (2 ^ m) :=
-      Nat.Coprime.pow_right m (Nat.coprime_two_right.mpr (odd_card_innerPart hZ hRodd))
-    have h5 : orderOf (n * a * n⁻¹ * a⁻¹) = 1 := Nat.eq_one_of_dvd_coprimes hcop
-      (orderOf_dvd_of_pow_eq_one h4) (orderOf_dvd_of_pow_eq_one h3)
-    rw [orderOf_eq_one_iff] at h5
-    calc a * n = (n * a * n⁻¹ * a⁻¹)⁻¹ * n * a := by group
-      _ = n * a := by rw [h5, inv_one, one_mul]
-  obtain ⟨m, hm⟩ := hQ2 ⟨q, hq⟩
-  have hqm : q ^ (2 ^ m) = 1 := by
-    have := congrArg Subtype.val hm
-    simpa using this
-  exact fix_of_two_pow hRi hRconj hQT hQN hZ hRodd hr hq hqm
 
 end CFSG.ComponentClassification.Foote5.OddLieCore

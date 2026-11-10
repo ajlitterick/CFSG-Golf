@@ -66,12 +66,6 @@ theorem eq_of_code_eq (h : EnumCert gens E) {g g' : V₀ ≃ₗ[ZMod 2] V₀}
     (hc : h.code g = h.code g') : g = g' := by
   rw [← h.elem_code hg, ← h.elem_code hg', hc]
 
-theorem code_inj (h : EnumCert gens E) {g g' : V₀ ≃ₗ[ZMod 2] V₀}
-    (hg : g ∈ codeSubgroup gens) (hg' : g' ∈ codeSubgroup gens) :
-    h.code g = h.code g' ↔ g = g' := by
-  constructor
-  · exact h.eq_of_code_eq hg hg'
-  · rintro rfl; rfl
 
 theorem code_mul (h : EnumCert gens E) {g g' : V₀ ≃ₗ[ZMod 2] V₀}
     (hg : g ∈ codeSubgroup gens) (hg' : g' ∈ codeSubgroup gens) :
@@ -84,12 +78,6 @@ theorem code_one (h : EnumCert gens E) : h.code 1 = Code.one := by
   apply Code.HasCode.code_eq (h.hasCode_code (Subgroup.one_mem _)) Code.hasCode_one
     (h.lt _ (h.code_mem (Subgroup.one_mem _))) Code.one_lt
 
-theorem mul_mem_elems (h : EnumCert gens E) {a b : ℕ} (ha : a ∈ E) (hb : b ∈ E) :
-    Code.mul a b ∈ E := by
-  have hmem : h.elem a * h.elem b ∈ codeSubgroup gens :=
-    Subgroup.mul_mem (H := codeSubgroup gens) (h.elem_mem ha) (h.elem_mem hb)
-  have hcode := h.code_mem hmem
-  rwa [h.code_mul (h.elem_mem ha) (h.elem_mem hb), h.code_elem ha, h.code_elem hb] at hcode
 
 theorem code_mul_comm_one {a b : ℕ} (h : Code.mul a b = Code.one) :
     Code.mul b a = Code.one := by
@@ -98,26 +86,11 @@ theorem code_mul_comm_one {a b : ℕ} (h : Code.mul a b = Code.one) :
   apply mul_eq_one_comm.mp
   rw [← Code.mat_mul, h, Code.mat_one]
 
-theorem code_inv_of_mul_eq_one (h : EnumCert gens E) {g : V₀ ≃ₗ[ZMod 2] V₀}
-    (hg : g ∈ codeSubgroup gens) {d : ℕ} (hd : d ∈ E) (hmul : Code.mul (h.code g) d = Code.one) :
-    h.code g⁻¹ = d := by
-  obtain ⟨H, hHcode⟩ := exists_equiv_of_mul_eq_one (code_mul_comm_one hmul)
-  have hGH : g * H = 1 := by
-    apply Code.HasCode.eq_of_equiv ((h.hasCode_code hg).mul hHcode)
-      (by rw [hmul]; exact Code.hasCode_one)
-  have hHeq : H = g⁻¹ := eq_inv_of_mul_eq_one_right hGH
-  have hHd : H = h.elem d := Code.HasCode.eq_of_equiv hHcode (h.hasCode_elem hd)
-  rw [← hHeq, hHd, h.code_elem hd]
 
 theorem code_one_mul_of_lt {b : ℕ} (hb : b < 2 ^ 36) : Code.mul Code.one b = b := by
   apply Code.eq_of_mat_eq (Code.mul_lt _ _) hb
   rw [Code.mat_mul, Code.mat_one, one_mul]
 
-theorem gens_mem_elems (h : EnumCert gens E) (hlt : ∀ g ∈ gens, g < 2 ^ 36) :
-    ∀ g ∈ gens, g ∈ E := by
-  intro g hg
-  have h1 : Code.mul Code.one g ∈ E := h.closed Code.one h.one_mem g hg
-  rwa [code_one_mul_of_lt (hlt g hg)] at h1
 
 noncomputable def subtypeEquivFilter (h : EnumCert gens E) (P : ℕ → Bool) :
     {g : codeSubgroup gens // P (h.code g) = true} ≃ {c // c ∈ E.filter P} where

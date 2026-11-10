@@ -602,14 +602,5 @@ theorem two_le_pRank_centralizer_of_pComponent_le_six (hKSML3 : KSML3) {T : Subg
   exact two_le_pRank_centralizer_final hZ ℓ.2 (by rw [Subgroup.orderOf_coe]; exact hℓ) hQ3
     (hQ.le.trans hI) hy7 hyC hyQ
 
-theorem two_le_pRank_centralizer_of_pComponent (hKSML3 : KSML3) {T : Subgroup X}
-    (hX : GNSetting X T) {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hLs : IsComponentOf Ls ⊤)
-    (hL : LiftOf T L Ls) (h3 : IsLThreeOfExp 1 ↥Ls) (h7 : CFSG.Open.pRank 7 (⊤ : Subgroup X) ≤ 3)
-    (hrank : 1 < CFSG.Open.pRank 7 (cMBar L)) {I Q : Subgroup X} (hI : I ≤ cMHat L)
-    (hIc : CFSG.IsPComponent 7 (I.subgroupOf (cMHat L))) (hI1 : CFSG.Open.pRank 7 I = 1)
-    (hQ : CFSG.ABGLocalTools.IsSylowOf 3 Q I) (hQ2 : CFSG.Open.pRank 3 Q ≤ 2) :
-    2 ≤ CFSG.Open.pRank 7 (Subgroup.centralizer (Q : Set X)) :=
-  two_le_pRank_centralizer_of_pComponent_le_six hKSML3 hX hLs hL h3 (h7.trans (by norm_num))
-    hrank hI hIc hI1 hQ hQ2
 
 end CFSG.LocalAnalysis.RankThreeUC.S15

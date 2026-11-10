@@ -143,9 +143,6 @@ theorem pow_mem_of_mk {y : ↥(A ⊔ Ab)} {k : ℕ} (hk : (πm y) ^ k = 1) : ((y
   rw [← map_pow, mk_eq_one_iff] at hk
   simpa using hk
 
-variable (P : QuotPair ((A.subgroupOf (A ⊔ Ab)).map (QuotientGroup.mk' (M.subgroupOf (A ⊔ Ab))))
-  ((Ab.subgroupOf (A ⊔ Ab)).map (QuotientGroup.mk' (M.subgroupOf (A ⊔ Ab)))))
-include P
 
 end Quot
 

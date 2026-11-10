@@ -59,6 +59,5 @@ theorem allRootsF_eq {B : ℕ} {I base : List ℕ} (h : ∀ v ∈ base, v < 4096
   refine congrArg (I.all ·) (funext fun r => ?_)
   rw [rootCheckF, rootCheck, filterFix_eq h, nodeF_eq B 8 _ _ _ (lt_of_mem_filter h)]
 
-theorem lt_of_mem_range {v : ℕ} (hv : v ∈ List.range 4096) : v < 4096 := List.mem_range.1 hv
 
 end CFSG.EvenSmallLie.OmegaEight.N3Split

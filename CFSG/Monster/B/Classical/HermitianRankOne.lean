@@ -33,7 +33,6 @@ theorem R_mk (v : Fin 3 → F4) (hv : v ≠ 0) :
 
 @[expose] def ωsq : F4 := ⟨3⟩
 
-theorem ωsq_eq : ωsq = F4.ω ^ 2 := by decide
 
 @[expose] def RTbl : Fin 21 → Matrix (Fin 3) (Fin 3) F4 :=
   ![!![0, 0, 0; 0, 0, 0; 0, 0, 1],

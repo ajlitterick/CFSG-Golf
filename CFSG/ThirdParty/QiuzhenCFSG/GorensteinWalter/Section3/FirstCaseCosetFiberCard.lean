@@ -23,13 +23,6 @@ namespace CFSG.GorensteinWalter
 
 universe u
 
-private theorem cosetInvolution_base_eq_mem
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (x : G) :
-    cosetInvolution_proj c.Hhat x = cosetInvolution_base c.Hhat ↔ x ∈ c.Hhat := by
-  unfold cosetInvolution_proj cosetInvolution_base
-  rw [QuotientGroup.eq]
-  simp
 
 /-- The source coset count equals the cardinality of the generic coset fibre. -/
 public theorem firstCase_coset_fiber_card_eq

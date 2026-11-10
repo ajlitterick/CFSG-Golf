@@ -109,9 +109,6 @@ theorem root_eq_sub_iff (γ β α : Fin t.numRoots) :
     refine ⟨fun a b h => D.coord_injective (congrArg Subtype.val h), ?_⟩
     rw [Fintype.card_fin, card_isRoot, D.card])
 
-theorem rootEquiv_apply
-    (j : Fin t.numRoots) : D.rootEquiv j = ⟨D.coord j, D.isRoot j⟩ :=
-  rfl
 
 theorem exists_coord_eq
     {v : Fin τ.rank → ℤ} (hv : IsRoot τ v) : ∃ j, D.coord j = v := by

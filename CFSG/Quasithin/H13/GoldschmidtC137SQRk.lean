@@ -57,12 +57,6 @@ theorem rankLeTwo_of_card_168_or_360 {Y : Type} [Group Y] [Finite Y]
   rankLeTwo_of_three (by tauto) fun _ hE =>
     card_le_of_cube_free Nat.prime_three (by rcases hm with h | h <;> rw [h] <;> norm_num) hE
 
-theorem rankLeTwo_of_mulEquiv {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y')
-    (h : RankLeTwo Y') : RankLeTwo Y := by
-  intro p hp hp2 E hE
-  have hE' : IsElemAbelian p (E.map e.toMonoidHom) := isElemAbelian_map hE e.toMonoidHom
-  have := h p hp hp2 _ hE'
-  rwa [Subgroup.card_map_of_injective e.injective] at this
 
 theorem rankLeTwo_of_hom {X L : Type} [Group X] [Finite X] [Group L] (j : L →* X)
     (hj : Function.Injective j) [j.range.Normal] (hq : IsPGroup 2 (X ⧸ j.range))

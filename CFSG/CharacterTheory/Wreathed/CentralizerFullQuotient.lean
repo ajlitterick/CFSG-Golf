@@ -45,9 +45,6 @@ theorem hom_to_two_group_eq_one_of_surjective {E : Type u} [Group E]
   obtain ⟨y, rfl⟩ := hf x
   exact congrArg (fun h : E →* P => h y) hcomp
 
-theorem quotient_image_comap {E : Type u} [Group E] (A T : Subgroup E) [A.Normal] :
-    (T.map (QuotientGroup.mk' A)).comap (QuotientGroup.mk' A) = T ⊔ A := by
-  rw [Subgroup.comap_map_eq, QuotientGroup.ker_mk']
 
 theorem quotient_image_sup {E : Type u} [Group E] (A T : Subgroup E) [A.Normal] :
     (A ⊔ T).map (QuotientGroup.mk' A) = T.map (QuotientGroup.mk' A) := by
@@ -76,19 +73,6 @@ theorem quotient_image_index {E : Type u} [Group E] (A T : Subgroup E) [A.Normal
   exact QuotientGroup.liftEquiv (A.subgroupOf T)
     ((QuotientGroup.mk' A).subgroupMap_surjective T) hk.symm
 
-theorem quotient_image_equiv_mk {E : Type u} [Group E]
-    (A T : Subgroup E) [A.Normal] (t : T) :
-    quotient_image_equiv A T ((QuotientGroup.mk' (A.subgroupOf T)) t) =
-      (QuotientGroup.mk' A).subgroupMap T t := rfl
-
-theorem central_subgroup_restrict_le_center {E : Type u} [Group E]
-    (A T : Subgroup E) (hA : A ≤ Subgroup.center E) :
-    A.subgroupOf T ≤ Subgroup.center T := by
-  intro t ht
-  rw [Subgroup.mem_center_iff]
-  intro z
-  apply Subtype.ext
-  exact Subgroup.mem_center_iff.mp (hA ht) z.val
 
 variable {G : Type u} [Group G]
 
@@ -169,14 +153,6 @@ theorem centralizerDihedralImageMap_surjective [Finite G]
     Function.Surjective (centralizerDihedralImageMap n hn S e) :=
   (centralizerFullQuotientMap n hn S e).subgroupMap_surjective _
 
-theorem centralizerResidualImage_hom_to_two_group_eq_one [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {P : Type v} [Group P] [Finite P] (hP : IsPGroup 2 P)
-    (f : centralizerResidualImage n hn S e →* P) : f = 1 :=
-  hom_to_two_group_eq_one_of_surjective (centralizerResidualMap n hn S e)
-    (centralizerResidualMap_surjective n hn S e)
-    (centralizerTransferKernel_no_index_two hnonab n hn S e) hP f
 
 theorem centralizerDihedralImage_hom_to_two_group_eq_one [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -222,25 +198,6 @@ theorem centralizerDihedralImage_index [Finite G] [IsSimpleGroup G]
   rw [quotient_image_index]
   exact centralizerFullCenterImage_sup_residualImage_index hnonab n hn S e
 
-theorem centralizerDihedralImage_oddCore_eq_bot [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    CFSG.oddCore (centralizerDihedralImage n hn S e) = ⊥ := by
-  let A := centralizerFullCenterImage n hn S e
-  let T := centralizerResidualImage n hn S e
-  have hc : A.subgroupOf T ≤ Subgroup.center T :=
-    central_subgroup_restrict_le_center A T
-      (centralizerFullCenterImage_le_center_and_factorization n hn S e).1
-  have ht : IsPGroup 2 (A.subgroupOf T) :=
-    (centralizerFullCenterImage_isTwoGroup n hn S e).comap_subtype
-  have hcore : CFSG.oddCore (T ⧸ A.subgroupOf T) = ⊥ :=
-    oddCore_quotient_eq_bot_of_central_two (A.subgroupOf T) hc ht
-      (centralizerResidualImage_oddCore_eq_bot n hn S e)
-  have h := CFSG.ComponentClassification.OddCore.equiv_invariant (quotient_image_equiv A T)
-  change (CFSG.oddCore (T ⧸ A.subgroupOf T)).map
-    (quotient_image_equiv A T).toMonoidHom =
-      CFSG.oddCore (centralizerDihedralImage n hn S e) at h
-  rw [hcore, Subgroup.map_bot] at h
-  exact h.symm
 
 @[expose] def centralizerFullQuotientSylow [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -249,13 +206,6 @@ theorem centralizerDihedralImage_oddCore_eq_bot [Finite G]
   exact (centralizerOddCoreSylow n hn S e).mapSurjective
     (centralizerFullQuotientMap_surjective n hn S e)
 
-theorem centralizerFullQuotientSylow_image [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centralizerFullQuotientSylow n hn S e : Subgroup (centralizerFullQuotient n hn S e)) =
-      (centralizerOddCoreSylow n hn S e : Subgroup (centralizerOddCoreQuotient n S e)).map
-        (centralizerFullQuotientMap n hn S e) := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rw [centralizerFullQuotientSylow, Sylow.coe_mapSurjective]
 
 @[expose] def centralizerFullQuotientSylowEquiv [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -271,11 +221,6 @@ theorem centralizerFullQuotientSylow_image [Finite G]
   exact (quotient_image_equiv A (P : Subgroup (centralizerOddCoreQuotient n S e))).symm.trans
     ((QuotientGroup.quotientMulEquivOfEq hA).trans (modelSylowDihedralEquiv n hn P f))
 
-theorem centralizerFullQuotientSylow_card [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (centralizerFullQuotientSylow n hn S e) = 2 * 2 ^ n := by
-  rw [Nat.card_congr (centralizerFullQuotientSylowEquiv n hn S e).toEquiv,
-    DihedralGroup.nat_card]
 
 theorem modelCenter_subgroupOf_modelY_eq
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -337,82 +282,5 @@ theorem centralizerDihedralSylow_image [Finite G] [IsSimpleGroup G]
   exact E.trans ((quotient_image_equiv A Q).symm.trans
     ((QuotientGroup.quotientMulEquivOfEq hA).trans (modelYDihedralEquiv n hn P f)))
 
-theorem centralizerDihedralSylow_card [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (centralizerDihedralSylow hnonab n hn S e) = 2 ^ n := by
-  rw [Nat.card_congr (centralizerDihedralSylowEquiv hnonab n hn S e).toEquiv,
-    DihedralGroup.nat_card]
-  exact wreath_modulus_twice_half n (by omega)
-
-theorem centralizerDihedralSylow_isKleinFour [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ 2)) :
-    IsKleinFour (centralizerDihedralSylow hnonab 2 (by decide) S e) := by
-  refine ⟨centralizerDihedralSylow_card hnonab 2 (by decide) S e, ?_⟩
-  rw [Monoid.exponent_eq_of_mulEquiv (centralizerDihedralSylowEquiv hnonab 2 (by decide) S e)]
-  exact DihedralGroup.exponent (n := 2) |>.trans (by decide)
-
-structure WreathedCentralizerFullQuotientData [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Prop where
-  full_center : WreathedCentralizerFullCenterData n hn S e
-  quaternion_residual : WreathedCentralizerQuaternionResidualData n hn S e
-  kernel_odd_core : WreathedCentralizerKernelOddCoreData n hn S e
-  center_residual_intersection :
-    centralizerFullCenterImage n hn S e ⊓ centralizerResidualImage n hn S e =
-      Subgroup.zpowers (centralizerOddCoreMap n S e (centralInvolution n S e))
-  center_residual_product_index :
-    (centralizerFullCenterImage n hn S e ⊔ centralizerResidualImage n hn S e).index = 2
-  quotient_residual_normal : (centralizerDihedralImage n hn S e).Normal
-  quotient_residual_index : (centralizerDihedralImage n hn S e).index = 2
-  quotient_corefree : CFSG.oddCore (centralizerFullQuotient n hn S e) = ⊥
-  quotient_residual_corefree : CFSG.oddCore (centralizerDihedralImage n hn S e) = ⊥
-  kernel_two_group_homs : ∀ {P : Type v} [Group P] [Finite P], IsPGroup 2 P →
-    ∀ f : centralizerTransferKernel n hn S e →* P, f = 1
-  residual_two_group_homs : ∀ {P : Type v} [Group P] [Finite P], IsPGroup 2 P →
-    ∀ f : centralizerResidualImage n hn S e →* P, f = 1
-  quotient_residual_two_group_homs : ∀ {P : Type v} [Group P] [Finite P], IsPGroup 2 P →
-    ∀ f : centralizerDihedralImage n hn S e →* P, f = 1
-  quotient_dihedral_sylow : ∃ P : Sylow 2 (centralizerFullQuotient n hn S e),
-    (P : Subgroup (centralizerFullQuotient n hn S e)) =
-      (centralizerOddCoreSylow n hn S e : Subgroup (centralizerOddCoreQuotient n S e)).map
-        (centralizerFullQuotientMap n hn S e) ∧
-    Nonempty (P ≃* DihedralGroup (2 ^ n)) ∧ Nat.card P = 2 * 2 ^ n
-  residual_dihedral_sylow : ∃ P : Sylow 2 (centralizerDihedralImage n hn S e),
-    (P : Subgroup (centralizerDihedralImage n hn S e)).map
-      (centralizerDihedralImage n hn S e).subtype =
-        ((centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e)).map
-          (centralizerFullQuotientMap n hn S e) ∧
-    Nonempty (P ≃* DihedralGroup (2 ^ n / 2)) ∧ Nat.card P = 2 ^ n ∧
-      (n = 2 → IsKleinFour P)
-
-theorem wreathed_centralizer_full_center_dihedral_quotient [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    WreathedCentralizerFullQuotientData.{u, v} n hn S e := by
-  refine ⟨wreathed_centralizer_full_center_odd_core n hn S e,
-    wreathed_involution_centralizer_quaternion_two_residual hnonab n hn S e,
-    wreathed_centralizer_kernel_odd_core_data hnonab n hn S e,
-    centralizerFullCenterImage_inf_residualImage hnonab n hn S e,
-    centralizerFullCenterImage_sup_residualImage_index hnonab n hn S e,
-    inferInstance, centralizerDihedralImage_index hnonab n hn S e,
-    centralizerFullQuotient_oddCore_eq_bot n hn S e,
-    centralizerDihedralImage_oddCore_eq_bot n hn S e,
-    ?_, ?_, ?_, ?_, ?_⟩
-  · intro P _ _ hP f
-    exact centralizerTransferKernel_hom_to_two_group_eq_one hnonab n hn S e hP f
-  · intro P _ _ hP f
-    exact centralizerResidualImage_hom_to_two_group_eq_one hnonab n hn S e hP f
-  · intro P _ _ hP f
-    exact centralizerDihedralImage_hom_to_two_group_eq_one hnonab n hn S e hP f
-  · exact ⟨centralizerFullQuotientSylow n hn S e, centralizerFullQuotientSylow_image n hn S e,
-      ⟨centralizerFullQuotientSylowEquiv n hn S e⟩, centralizerFullQuotientSylow_card n hn S e⟩
-  · refine ⟨centralizerDihedralSylow hnonab n hn S e,
-      centralizerDihedralSylow_image hnonab n hn S e,
-      ⟨centralizerDihedralSylowEquiv hnonab n hn S e⟩,
-      centralizerDihedralSylow_card hnonab n hn S e, ?_⟩
-    intro hn2
-    subst n
-    exact centralizerDihedralSylow_isKleinFour hnonab S e
 
 end CFSG.Wreathed

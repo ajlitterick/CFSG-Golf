@@ -280,21 +280,6 @@ theorem pairWeyl_mul_cr : pairWeyl b i k * cr b i = -an b k * pairWeyl b i k := 
     _ = (1 + E) * (cr b i - an b k) * (1 - F) * (1 + E) := by rw [s2]; noncomm_ring
     _ = -an b k * ((1 + E) * (1 - F) * (1 + E)) := by rw [s3]; noncomm_ring
 
-theorem signWeyl_mul_an : signWeyl b i k * an b i = -cr b i * signWeyl b i k := by
-  calc signWeyl b i k * an b i = chainWeyl b i k * (pairWeyl b i k * an b i) := by
-        rw [signWeyl, mul_assoc]
-    _ = -(chainWeyl b i k * cr b k) * pairWeyl b i k := by
-        rw [pairWeyl_mul_an hik]; noncomm_ring
-    _ = -cr b i * signWeyl b i k := by
-        rw [chainWeyl_mul_cr hik, signWeyl]; noncomm_ring
-
-theorem signWeyl_mul_cr : signWeyl b i k * cr b i = -an b i * signWeyl b i k := by
-  calc signWeyl b i k * cr b i = chainWeyl b i k * (pairWeyl b i k * cr b i) := by
-        rw [signWeyl, mul_assoc]
-    _ = -(chainWeyl b i k * an b k) * pairWeyl b i k := by
-        rw [pairWeyl_mul_cr hik]; noncomm_ring
-    _ = -an b i * signWeyl b i k := by
-        rw [chainWeyl_mul_an hik, signWeyl]; noncomm_ring
 
 omit hik in
 theorem commute_weyls {g : CliffordAlgebra Q} (h1 : g * cr b i = -(cr b i * g))

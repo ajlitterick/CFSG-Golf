@@ -39,32 +39,6 @@ theorem coreProduct_nontrivial {group : Type*} [Group group] [Finite group] [Non
     rw [core_bot] at top_le
     exact bot_ne_top (le_bot_iff.mp top_le).symm
 
-theorem coreProduct_map_le {source target : Type*} [Group source] [Finite source]
-    [Group target] [Finite target] (prime : ℕ) [Fact (Nat.Prime prime)]
-    (equivalence : source ≃* target) (sylow : Sylow prime source) :
-    (coreProduct prime sylow).map equivalence.toMonoidHom ≤
-      coreProduct prime (Sylow.mapSurjective (f := equivalence.toMonoidHom) equivalence.surjective sylow) := by
-  have surjective : Function.Surjective equivalence.toMonoidHom := equivalence.surjective
-  let image := Sylow.mapSurjective surjective sylow
-  have image_eq : (image : Subgroup target) = (sylow : Subgroup source).map equivalence.toMonoidHom :=
-    Sylow.coe_mapSurjective surjective sylow
-  let internal : (sylow : Subgroup source) ≃* (image : Subgroup target) :=
-    (equivalence.subgroupMap (sylow : Subgroup source)).trans (MulEquiv.subgroupCongr image_eq.symm)
-  have intertwines : (image : Subgroup target).subtype.comp internal.toMonoidHom =
-      equivalence.toMonoidHom.comp (sylow : Subgroup source).subtype := by
-    ext element
-    rfl
-  have center_eq := congrArg (fun candidate : Subgroup (image : Subgroup target) =>
-    candidate.map (image : Subgroup target).subtype) (thompsonCenter_map_eq internal)
-  rw [Subgroup.map_map, intertwines, ← Subgroup.map_map] at center_eq
-  unfold coreProduct
-  rw [Subgroup.map_sup, map_core_eq_of_equiv prime equivalence, center_eq]
-
-theorem coreProduct_characteristic_of_abelian {group : Type*} [Group group] [Finite group]
-    [Group.IsSolvable group] (prime : ℕ) [Fact (Nat.Prime prime)]
-    (sylow : Sylow prime group) [IsMulCommutative (sylow : Subgroup group)] :
-    (coreProduct prime sylow).Characteristic :=
-  CFSG.OrderReductions.AbelianSylowCore.core_sup_thompsonCenter_characteristic_of_abelian prime sylow
 
 theorem coreProduct_map_eq {source target : Type*} [Group source] [Finite source]
     [Group target] [Finite target] (prime : ℕ) [Fact (Nat.Prime prime)]

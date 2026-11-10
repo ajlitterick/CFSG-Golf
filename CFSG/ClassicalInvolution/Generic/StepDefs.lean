@@ -15,15 +15,6 @@ variable (p f : ℕ) [Fact p.Prime]
     (∃ a b : G, a * b ≠ b * a) → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
     CITBelowU p f (Nat.card G) → LieSystem p f G (Set.range fun g : G => conjSub g K)
 
-@[expose] def CoreStepModel : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f → ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G],
-    (∃ a b : G, a * b ≠ b * a) → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
-    CITBelowU p f (Nat.card G) →
-    ∃ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n e : ℕ) (hp : p.Prime)
-      (ψ : (modelUniv t n p e hp).K →* G),
-      Function.Surjective ψ ∧ ψ.ker ≤ Subgroup.center _ ∧ IsFundTag t ∧
-        CFSG.Assembly.LowTwoRank.StatedLieAdmissible t n p e ∧
-        (e = f ∨ (t = .trialityD4 ∧ 3 * e = f))
 
 @[expose] def ClassicalIsFundamental : Prop :=
   p ≠ 2 → 5 ≤ p ^ f →

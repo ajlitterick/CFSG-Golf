@@ -169,10 +169,6 @@ end Preimage
 
 section Model
 
-theorem isZ3L34OrHeisSL34_prod :
-    IsZ3L34OrHeisSL34
-      (Multiplicative (ZMod 3) × CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) :=
-  Or.inl ⟨MulEquiv.refl _⟩
 
 @[expose] noncomputable def scalarDiag (k : Type*) [Field k] :
     scalars 3 k →* ↥(qSub (k := k)) ×
@@ -215,95 +211,6 @@ abbrev HeisSL (k : Type*) [Field k] : Type _ :=
     ↥(qSub (k := k)) →* HeisSL k :=
   (QuotientGroup.mk' (heisDiag k)).comp (MonoidHom.inl _ _)
 
-@[expose] noncomputable def heisV (k : Type*) [Field k] :
-    Matrix.SpecialLinearGroup (Fin 3) k →* HeisSL k :=
-  (QuotientGroup.mk' (heisDiag k)).comp (MonoidHom.inr _ _)
-
-theorem heisU_injective : Function.Injective (heisU k) := by
-  rw [injective_iff_map_eq_one]
-  intro q hq
-  have hmem : ((q, 1) : ↥(qSub (k := k)) ×
-      Matrix.SpecialLinearGroup (Fin 3) k) ∈ heisDiag k :=
-    (QuotientGroup.eq_one_iff _).mp hq
-  obtain ⟨z, hz⟩ := hmem
-  have h2 := congrArg Prod.snd hz
-  have h1 := congrArg Prod.fst hz
-  simp only [scalarDiag, MonoidHom.coe_mk, OneHom.coe_mk, inv_eq_one] at h1 h2
-  rw [← h1]
-  exact Subtype.ext h2
-
-theorem heisV_injective : Function.Injective (heisV k) := by
-  rw [injective_iff_map_eq_one]
-  intro s hs
-  have hmem : ((1, s) : ↥(qSub (k := k)) ×
-      Matrix.SpecialLinearGroup (Fin 3) k) ∈ heisDiag k :=
-    (QuotientGroup.eq_one_iff _).mp hs
-  obtain ⟨z, hz⟩ := hmem
-  have h1 := congrArg (fun p => ((p.1 : Matrix.SpecialLinearGroup (Fin 3) k))) hz
-  have h2 := congrArg Prod.snd hz
-  simp only [scalarDiag, MonoidHom.coe_mk, OneHom.coe_mk] at h1 h2
-  rw [← h2, h1]
-  simp
-
-theorem heisU_mul_heisV (q : ↥(qSub (k := k)))
-    (s : Matrix.SpecialLinearGroup (Fin 3) k) : heisU k q * heisV k s = heisV k s * heisU k q := by
-  simp only [heisU, heisV, MonoidHom.coe_comp, Function.comp_apply, ← map_mul]
-  congr 1
-  ext <;> simp
-
-theorem heisU_scalar {z : Matrix.SpecialLinearGroup (Fin 3) k} (hz : z ∈ scalars 3 k) :
-    heisU k ⟨z, scalars_le_qSub hz⟩ = heisV k z := by
-  simp only [heisU, heisV, MonoidHom.coe_comp, Function.comp_apply, QuotientGroup.mk'_apply]
-  rw [QuotientGroup.eq]
-  refine ⟨⟨z, hz⟩⁻¹, Prod.ext (Subtype.ext ?_) ?_⟩ <;> simp [scalarDiag]
-
-theorem range_heisU_inf_range_heisV :
-    (heisU k).range ⊓ (heisV k).range =
-      ((scalars 3 k).subgroupOf (qSub (k := k))).map
-        (heisU k) := by
-  apply le_antisymm
-  · rintro x ⟨⟨q, rfl⟩, ⟨s, hs⟩⟩
-    have h : heisU k q * (heisV k s)⁻¹ = 1 := by rw [hs, mul_inv_cancel]
-    simp only [heisU, heisV, MonoidHom.coe_comp, Function.comp_apply, ← map_inv,
-      ← map_mul] at h
-    obtain ⟨z, hz⟩ := (QuotientGroup.eq_one_iff _).mp h
-    have h1 := congrArg Prod.fst hz
-    simp only [scalarDiag, MonoidHom.coe_mk, OneHom.coe_mk, Prod.fst_mul, MonoidHom.inl_apply,
-      MonoidHom.inr_apply, mul_one] at h1
-    refine ⟨q, ?_, rfl⟩
-    rw [SetLike.mem_coe, Subgroup.mem_subgroupOf, ← h1]
-    exact z.2
-  · rintro _ ⟨q, hq, rfl⟩
-    refine ⟨⟨q, rfl⟩, ⟨q, ?_⟩⟩
-    exact (heisU_scalar (k := k) hq).symm
-
-theorem card_range_heisU_inf_range_heisV (hk : Nat.card k = 4) :
-    Nat.card ((heisU k).range ⊓ (heisV k).range : Subgroup (HeisSL k)) = 3 := by
-  rw [range_heisU_inf_range_heisV, Subgroup.card_map_of_injective heisU_injective,
-    Nat.card_congr (Subgroup.subgroupOfEquivOfLe scalars_le_qSub).toEquiv, card_scalars hk]
-
-theorem range_heisU_sup_range_heisV : (heisU k).range ⊔ (heisV k).range = ⊤ := by
-  rw [eq_top_iff]
-  intro x _
-  obtain ⟨⟨q, s⟩, rfl⟩ := QuotientGroup.mk_surjective x
-  have : (QuotientGroup.mk (q, s) : HeisSL k) = heisU k q * heisV k s := by
-    simp only [heisU, heisV, MonoidHom.coe_comp, Function.comp_apply, ← map_mul]
-    congr 1
-    ext <;> simp
-  rw [this]
-  exact mul_mem (Subgroup.mem_sup_left ⟨q, rfl⟩) (Subgroup.mem_sup_right ⟨s, rfl⟩)
-
-theorem isHeisSLThreeFour_heisSL : IsHeisSLThreeFour (HeisSL (GaloisField 2 2)) := by
-  have hk := card_galoisField_two_two
-  refine ⟨(heisU _).range, (heisV _).range, range_heisU_sup_range_heisV, ?_, ?_, ?_,
-    card_range_heisU_inf_range_heisV hk⟩
-  · rintro _ ⟨q, rfl⟩ _ ⟨s, rfl⟩
-    exact heisU_mul_heisV q s
-  · exact isHeisThree_of_mulEquiv hk (MonoidHom.ofInjective heisU_injective).symm
-  · exact ⟨(MonoidHom.ofInjective heisV_injective).symm⟩
-
-theorem isZ3L34OrHeisSL34_heisSL : IsZ3L34OrHeisSL34 (HeisSL (GaloisField 2 2)) :=
-  Or.inr isHeisSLThreeFour_heisSL
 
 end Model
 

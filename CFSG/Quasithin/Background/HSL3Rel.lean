@@ -22,8 +22,6 @@ variable {K : Type} [Field K]
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem pairHom₂_apply (p : MulAut (StdMod (Fin 3) K) × MulAut (StdMod (Fin 3) K)) :
-    pairHom₂ K p = pairAut p.1 p.2 := rfl
 
 theorem pairAut_injective {a b c d : MulAut (StdMod (Fin 3) K)}
     (h : pairAut a b = pairAut c d) : a = c ∧ b = d := by

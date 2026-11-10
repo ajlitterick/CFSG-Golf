@@ -10,7 +10,6 @@ open CFSG.Quasithin CFSG.Quasithin.F6
 
 namespace Tab
 
-theorem zc_chk : ∀ j < 64, mulT 26 j = mulT j 26 := by decide +kernel
 
 theorem zz_chk : mulT 26 26 = 0 := by decide +kernel
 

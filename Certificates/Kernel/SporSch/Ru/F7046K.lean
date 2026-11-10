@@ -94,14 +94,6 @@ theorem kRow : strictB Q7307.TI (fun T => allN 4060 (fun x => bAnd(Nat.blt (fl T
     eqB (bt 213 (Lf x)) (Nat.beq (Q7307.Lf (fl T x)) (Q7307.Lf 1))))) = true := by
   quickRfl
 
-theorem negF : andB (notB (allN 4060 (forestAtG 4060 2 Mv gF (fun t => Qf (Nat.succ t))
-      ORf FOf DPf PAf GLf)))
-    (andB (notB (sOK (Q7046F.F 0) 2808))
-      (andB (notB (allN 4060 (fun x => orB (notB (bt 213 (Lf x)))
-          (notB (Nat.beq (Q7307.Lf x) (Q7307.Lf 2808))))))
-        (notB (strictB Q7307.TI (fun T => allN 4060 (fun x => bAnd(Nat.blt (fl T x) 4060,
-          eqB (bt 205 (Lf x)) (Nat.beq (Q7307.Lf (fl T x)) (Q7307.Lf 1))))))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.F7046
 

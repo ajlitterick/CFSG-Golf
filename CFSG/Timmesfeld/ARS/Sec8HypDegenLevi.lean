@@ -286,11 +286,6 @@ theorem eq_of_commuting_iff_of_mem_leviSet' (h : Hyp G R) {A A₀ E E' : Subgrou
     exact hn)
   exact hEF.not_commuting (h.root.ne_bot E hE.1.1) ((hEE' F hFΛ).2 hFE'.symm)
 
-theorem forall_eq_of_commuting_iff (h : Hyp G R) {A A₀ : Subgroup G} (hA : A ∈ R)
-    (hAne : sigmaSet R A ≠ lambdaSet R A) (hA₀ : A₀ ∈ omegaSet R A) :
-    ∀ E ∈ leviSet R A A₀, ∀ E' ∈ leviSet R A A₀,
-      (∀ X ∈ leviSet R A A₀, Commuting E X ↔ Commuting E' X) → E = E' :=
-  fun _ hE _ hE' => eq_of_commuting_iff_of_mem_leviSet' h hA hAne hA₀ hE hE'
 
 end Levi
 

@@ -105,10 +105,6 @@ variable {K : Type*} {V : Type*} [Field K] [AddCommGroup V] [Module K V] {x : V 
       rw [h2, h3]
       exact congrArg (fun T : Module.End K (primaryComponent x.toLinearMap a) => T v) h1
 
-theorem toEndE_apply (a : K[X])
-    (f : primaryComponent x.toLinearMap a →ₗ[K] primaryComponent x.toLinearMap a)
-    (hf : Commute f (primaryRestrict x.toLinearMap a)) (v : primaryComponent x.toLinearMap a) :
-    toEndE a f hf v = f v := rfl
 
 @[expose] noncomputable def toBlockGL (a : K[X])
     (f : primaryComponent x.toLinearMap a ≃ₗ[K] primaryComponent x.toLinearMap a)
@@ -124,13 +120,6 @@ theorem toEndE_apply (a : K[X])
   val_inv := LinearMap.ext fun v => f.apply_symm_apply v
   inv_val := LinearMap.ext fun v => f.symm_apply_apply v
 
-theorem coe_toBlockGL (a : K[X])
-    (f : primaryComponent x.toLinearMap a ≃ₗ[K] primaryComponent x.toLinearMap a)
-    (hf : ∀ v : primaryComponent x.toLinearMap a,
-      f (primaryRestrict x.toLinearMap a v) = primaryRestrict x.toLinearMap a (f v))
-    (v : primaryComponent x.toLinearMap a) :
-    (((toBlockGL a f hf : BlockGL x a) : Module.End (AdjoinRoot a)
-      (primaryComponent x.toLinearMap a)) v) = f v := rfl
 
 end ToBlockGL
 

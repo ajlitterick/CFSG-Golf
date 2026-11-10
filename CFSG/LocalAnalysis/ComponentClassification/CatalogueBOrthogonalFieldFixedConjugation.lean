@@ -103,13 +103,6 @@ theorem semilinearConjugation_apply (Q : QuadraticForm K V)
     (semilinearConjugation Q sigma tau0 mu hsemi hsim g).val x =
       tau0 (g.val (tau0.symm x)) := rfl
 
-theorem semilinearConjugation_symm_apply (Q : QuadraticForm K V)
-    (sigma : K ≃+* K) (tau0 : V ≃+ V) (mu : Kˣ)
-    (hsemi : ∀ a x, tau0 (a • x) = sigma a • tau0 x)
-    (hsim : ∀ x, Q (tau0 x) = (mu : K) * sigma (Q x))
-    (g : TauCeti.QuadraticMap.orthogonalGroup Q) (x : V) :
-    ((semilinearConjugation Q sigma tau0 mu hsemi hsim).symm g).val x =
-      tau0.symm (g.val (tau0 x)) := rfl
 
 theorem fixed_semilinearConjugation_eq (Q : QuadraticForm K V)
     (sigma : K ≃+* K) (tau0 : V ≃+ V) (mu : Kˣ)

@@ -137,9 +137,6 @@ def cenQuot (L M : Subgroup G) (hMN : M ≤ Subgroup.normalizer (L : Set G)) : S
     rw [e]
     exact conj_mem_blockZ (hMN (M.inv_mem hxM)) ((blockZ L).inv_mem (hx v hv))
 
-omit [Finite G] in
-theorem mem_cenQuot {hMN : M ≤ Subgroup.normalizer (L : Set G)} {x : G} :
-    x ∈ cenQuot L M hMN ↔ x ∈ M ∧ ∀ v ∈ blockU L, ⁅x, v⁆ ∈ blockZ L := Iff.rfl
 
 theorem exists_pow_mem_centralizer (h : NatBlock L n)
     (hMN : M ≤ Subgroup.normalizer (L : Set G)) {x : G} (hx : x ∈ cenQuot L M hMN) :
@@ -154,28 +151,6 @@ theorem exists_pow_mem_centralizer (h : NatBlock L n)
   rw [commutatorElement_eq_one_iff_mul_comm] at h1
   exact h1.symm
 
-omit [Finite G] in
-theorem conj_mem_cenQuot {hMN : M ≤ Subgroup.normalizer (L : Set G)} {m y : G} (hm : m ∈ M)
-    (hy : y ∈ cenQuot L M hMN) : m * y * m⁻¹ ∈ cenQuot L M hMN := by
-  refine ⟨M.mul_mem (M.mul_mem hm hy.1) (M.inv_mem hm), fun v hv => ?_⟩
-  have hv' : m⁻¹ * v * m ∈ blockU L := by
-    have := conj_mem_blockU (hMN (M.inv_mem hm)) hv
-    simpa using this
-  have e : ⁅m * y * m⁻¹, v⁆ = m * ⁅y, m⁻¹ * v * m⁆ * m⁻¹ := by
-    simp only [commutatorElement_def]
-    group
-  rw [e]
-  exact conj_mem_blockZ (hMN hm) (hy.2 _ hv')
-
-omit [Finite G] in
-theorem le_normalizer_cenQuot (hMN : M ≤ Subgroup.normalizer (L : Set G)) :
-    M ≤ Subgroup.normalizer (cenQuot L M hMN : Set G) := by
-  intro m hm
-  rw [Subgroup.mem_normalizer_iff]
-  intro y
-  refine ⟨fun hy => conj_mem_cenQuot hm hy, fun hy => ?_⟩
-  have := conj_mem_cenQuot (M.inv_mem hm) hy
-  simpa [mul_assoc] using this
 
 theorem centralizes_of_pow (h : NatBlock L n) {x : G} (hxN : x ∈ Subgroup.normalizer (L : Set G))
     (hA : ∀ l ∈ L, ⁅x, l⁆ ∈ oTwoIn L) {k : ℕ}
@@ -250,11 +225,6 @@ theorem le_centralizer_of_two_quot (h : NatBlock L n) (hLM : L ≤ M)
     rw [← this, mul_inv_cancel_right]
   exact h.centralizes_of_pow hxN hA hk'
 
-theorem centralizer_of_mem_cenQuot (h : NatBlock L n) (hLM : L ≤ M)
-    (hMN : M ≤ Subgroup.normalizer (L : Set G)) {x : G} (hx : x ∈ cenQuot L M hMN) :
-    x ∈ Subgroup.centralizer (blockU L : Set G) :=
-  h.le_centralizer_of_two_quot hLM hMN (X := cenQuot L M hMN) (fun _ hy => hy.1)
-    (le_normalizer_cenQuot hMN) (fun _ hy => h.exists_pow_mem_centralizer hMN hy) hx
 
 omit [Finite G] in
 theorem mem_cenQuot_of_centralizes (hMN : M ≤ Subgroup.normalizer (L : Set G)) {x : G}

@@ -21,12 +21,6 @@ theorem adj_mk_right (X : FFPt M) {p : Vec K} (hp : IsFF M p) :
   rw [hcp]
   simpa using (col_smul M (c := 1) (d := c) one_ne_zero hc (x := X.1.rep) (y := p))
 
-omit [Finite K] in
-theorem col_mk_right {p v : Vec K} (hv : IsFF M v) :
-    Col M p (FFPt.mk M hv).1.rep ↔ Col M p v := by
-  obtain ⟨c, hc, hcp⟩ := FFPt.mk_rep M hv
-  rw [hcp]
-  simpa using (col_smul M (c := 1) (d := c) one_ne_zero hc (x := p) (y := v))
 
 omit [Finite K] in
 theorem qn_of_apex_vec {A B C D : FFPt M} {p : Vec K} (hp : IsFF M p)
@@ -47,32 +41,6 @@ theorem bbQuad_of_apex (hq : 11 ≤ M.q) : BBQuad M := by
   obtain ⟨p, hp, h1, h2, h3, h4⟩ := apex_BB hq A.2 B.2 C.2 D.2 hab hbc hcd hda hac hbd
   exact (qn_of_apex_vec hp h1 h2 h3 h4) hab hbc hcd hda
 
-@[expose] def HardWay (M : Model K) : Prop :=
-  ∀ a b c d : Vec K, IsFF M a → IsFF M b → IsFF M c → IsFF M d →
-    Col M a b → Col M b c → Col M c d → Col M d a → bf M a c ≠ 0 → bf M b d ≠ 0 →
-    (∃ p : Vec K, IsFF M p ∧ Col M p a ∧ Col M p b ∧ Col M p c ∧ Col M p d) ∨
-      ∃ d' : Vec K, IsFF M d' ∧ Col M d' a ∧ Col M d' c ∧ Col M d' d ∧ bf M b d' ≠ 0 ∧
-        ∃ p : Vec K, IsFF M p ∧ Col M p a ∧ Col M p b ∧ Col M p c ∧ Col M p d'
-
-theorem hardWay_of_apex (hq : 11 ≤ M.q) : HardWay M :=
-  fun _ _ _ _ ha hb hc hd hab hbc hcd hda hac hbd =>
-    Or.inl (apex_BB hq ha hb hc hd hab hbc hcd hda hac hbd)
-
-omit [Finite K] in
-theorem bbQuad_of_hardWay (h : HardWay M) : BBQuad M := by
-  intro A B C D hac hbd hab hbc hcd hda
-  rcases h A.1.rep B.1.rep C.1.rep D.1.rep A.2 B.2 C.2 D.2 hab hbc hcd hda hac hbd with
-    ⟨p, hp, h1, h2, h3, h4⟩ | ⟨d', hd', h1, h2, h3, _, p, hp, g1, g2, g3, g4⟩
-  · exact (qn_of_apex_vec hp h1 h2 h3 h4) hab hbc hcd hda
-  · have hAD' : (ffGraph M).Adj A (FFPt.mk M hd') := by
-      rw [adj_mk_right]; exact h1.symm M
-    have hCD' : (ffGraph M).Adj C (FFPt.mk M hd') := by
-      rw [adj_mk_right]; exact h2.symm M
-    have hDD' : (ffGraph M).Adj D (FFPt.mk M hd') := by
-      rw [adj_mk_right]; exact h3.symm M
-    have hq' : QN (ffGraph M) A B C (FFPt.mk M hd') :=
-      qn_of_apex_vec hp g1 g2 g3 ((col_mk_right hd').2 g4)
-    exact QN.move_fourth hAD' hCD' hDD' hq' hab hbc hcd hda
 
 theorem qn_DD (hq : 7 ≤ M.q) {A B C D : FFPt M} (hab : (ffGraph M).Adj A B)
     (hbc : (ffGraph M).Adj B C) (hda : (ffGraph M).Adj D A)
@@ -138,14 +106,5 @@ theorem quadNull_of_model {K : Type} [Field K] [Finite K] (M : Model K) (hq : 11
     QuadNullStd M :=
   quadNull_of_BB M (by omega) (bbQuad_of_apex hq)
 
-theorem quadNull_of_hardWay {K : Type} [Field K] [Finite K] (M : Model K) (hq : 7 ≤ M.q)
-    (h : HardWay M) : QuadNullStd M :=
-  quadNull_of_BB M hq (bbQuad_of_hardWay h)
-
-theorem quadNull_of_model_mod4 {K : Type} [Field K] [Finite K] (M : Model K) (hq : 7 ≤ M.q)
-    (h4 : M.q % 4 = 3) (h7 : M.q = 7 → HardWay M) : QuadNullStd M := by
-  by_cases h : M.q = 7
-  · exact quadNull_of_hardWay M hq (h7 h)
-  · exact quadNull_of_model M (by omega)
 
 end CFSG.ClassicalInvolution.PhanB3.S.Std.Q

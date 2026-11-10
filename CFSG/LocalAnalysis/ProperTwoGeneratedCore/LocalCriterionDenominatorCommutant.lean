@@ -77,16 +77,5 @@ theorem rationalCommutant_isField [Finite K] [FiniteDimensional K V] [Nontrivial
   let : IsDomain (rationalCommutant T) := NoZeroDivisors.to_isDomain _
   exact Finite.isDomain_to_isField _
 
-theorem rationalCommutant_finrank_le [FiniteDimensional K V]
-    (T : Module.End K V)
-    (hirr : ∀ U : Submodule K V, (∀ v ∈ U, T v ∈ U) → U = ⊥ ∨ U = ⊤)
-    (v : V) (hv : v ≠ 0) :
-    Module.finrank K (rationalCommutant T) ≤ Module.finrank K V := by
-  let ev : rationalCommutant T →ₗ[K] V :=
-    { toFun S := (S : Module.End K V) v
-      map_add' S R := rfl
-      map_smul' a S := rfl }
-  exact LinearMap.finrank_le_finrank_of_injective (f := ev)
-    (rationalCommutant_evaluation_injective T hirr v hv : Function.Injective ev)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionDenominator

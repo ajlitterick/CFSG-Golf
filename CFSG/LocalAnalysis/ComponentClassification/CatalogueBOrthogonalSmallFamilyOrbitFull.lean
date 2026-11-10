@@ -34,10 +34,6 @@ theorem familyOuterHom_surjective_of_card_one (H : Subgroup G)
   MulEquiv.ofBijective (familyOuterHom H)
     ⟨familyOuterHom_injective H, familyOuterHom_surjective_of_card_one H hO⟩
 
-theorem singletonFamilyOuterEquiv_mk (H : Subgroup G)
-    (hO : Nat.card (FamilyOrbit H) = 1) (alpha : familyStabilizer H) :
-    singletonFamilyOuterEquiv H hO ((QuotientGroup.mk' (familyInner H)) alpha) =
-      (QuotientGroup.mk' (OuterAutomorphisms.inner G)) alpha.val := rfl
 
 theorem orthogonal_geometry_small_family_orbit_solvability [Finite G]
     (H : Subgroup G) (d : Nat) (hA : derivedSeries (FamilyOuter H) d = ⊥)

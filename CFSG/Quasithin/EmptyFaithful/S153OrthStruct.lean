@@ -82,12 +82,9 @@ private def sndAut : MulAut F2sq →* MulAut (F2sq × F2sq) where
   map_one' := MulEquiv.ext fun _ => rfl
   map_mul' _ _ := MulEquiv.ext fun _ => rfl
 
-private theorem fstAut_apply (a : MulAut F2sq) (x y : F2sq) : fstAut a (x, y) = (a x, y) := rfl
-private theorem sndAut_apply (a : MulAut F2sq) (x y : F2sq) : sndAut a (x, y) = (x, a y) := rfl
 
 private def swapAut : MulAut (F2sq × F2sq) := MulEquiv.prodComm
 
-private theorem swapAut_apply (x y : F2sq) : swapAut (x, y) = (y, x) := rfl
 
 variable {W : Type*} [CommGroup W] {U₁ U₂ : Subgroup W}
   (hinf : U₁ ⊓ U₂ = ⊥) (hsup : U₁ ⊔ U₂ = ⊤) (φ₁ : ↥U₁ ≃* F2sq) (φ₂ : ↥U₂ ≃* F2sq)

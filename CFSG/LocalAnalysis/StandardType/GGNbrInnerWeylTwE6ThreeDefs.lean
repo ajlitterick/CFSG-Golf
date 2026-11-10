@@ -49,9 +49,6 @@ theorem ggNbrInnerWeylOn_residualOpen_of_split
           (MulAut.conj n * a₀ * (MulAut.conj n)⁻¹ ∉ Subgroup.zpowers a₀ ∨
             (n * (a₀ n)⁻¹ ∈ Subgroup.center L' ∧ n * (a₀ n)⁻¹ ≠ 1))
 
-@[expose] def GGNbrKGTwE6ThreeAddInn : Prop :=
-  ∀ (K : Type) [Field K] [Finite K] (n : ℕ), 1 ≤ n → Nat.card K = (2 ^ n) ^ 2 →
-    3 ∣ 2 ^ n + 1 → GGTorusNoLineComp 3 4 (TwE6Delta.RecipeR K n) (Set.range MulAut.conj)
 
 @[expose] def GGNbrKGTwE6ThreeAddFive : Prop :=
   ∀ (K : Type) [Field K] [Finite K] (n : ℕ), 1 ≤ n → Nat.card K = (2 ^ n) ^ 2 →

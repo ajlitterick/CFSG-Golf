@@ -29,6 +29,5 @@ theorem IsA2Class.exists_conj {f : LinearMap.BilinForm (ZMod 2) V}
   obtain ⟨g', hg', rfl⟩ := (hD d').mp hd'
   exact ⟨g' * g⁻¹, X.mul_mem hg' (X.inv_mem hg), by group⟩
 
-variable [FiniteDimensional (ZMod 2) V] {f : LinearMap.BilinForm (ZMod 2) V}
 
 end CFSG.LargeExtraspecial.DW

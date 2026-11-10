@@ -25,8 +25,6 @@ local notation "Dt" => CFSG.Sporadic.HN.Native.hnData
 private theorem andB_true {a b : Bool} (h : andB a b = true) : a = true ∧ b = true := by
   cases a <;> cases b <;> simp_all [andB]
 
-private theorem bAnd_true {a b : Bool} (h : bAnd(a, b) = true) : a = true ∧ b = true := by
-  cases a <;> cases b <;> simp_all
 
 theorem rootsOK_spec {RB : Nat → Nat} {vld : Nat → Bool} {lo : Nat} :
     ∀ hi, rootsOK RB vld lo hi = true → ∀ i, lo ≤ i → i < hi → vld (RB i) = true
@@ -134,9 +132,6 @@ theorem act_W {j : Nat} (hj : j < 15) {G : Nat} (hc : Canon 5 133 13 G)
   · exact key 2 133 le_rfl h2 (k.val - 266) (by omega) (by omega)
   · exact key 3 63 (by norm_num) h3 (k.val - 399) (by omega) (by omega)
 
-theorem pi_val {PI : Nat → Nat} {k : Fin 462} (h : PI k.val < 462) :
-    (⟨PI k.val % 462, Nat.mod_lt _ (by norm_num)⟩ : Fin 462) = ⟨PI k.val, h⟩ :=
-  Fin.ext (Nat.mod_eq_of_lt h)
 
 theorem x2_W (k : Fin 462) : wG 2 • hnW k = hnW (pi2 k) := by
   obtain ⟨hp, -, hv⟩ := act_W (j := 2) (by norm_num) cGX2.1 cGX2.2 w_GX2_0 w_GX2_1 w_GX2_2 w_GX2_3

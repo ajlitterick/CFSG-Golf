@@ -31,16 +31,6 @@ theorem mem_lambdaSet_conjSub_iff (hR : IsRootClass R) {X Y : Subgroup G} (g : G
     have := conjSub_mem_lambdaSet hR hY g
     rwa [ExclNS.conjSub_inv_conjSub] at this
 
-theorem special_conjSub_iff (hR : IsRootClass R) {X Y : Subgroup G} (g : G) :
-    Special R Y (conjSub X g) ↔ Special R (conjSub Y g⁻¹) X := by
-  constructor
-  · intro hY
-    have := Sec3.special_conjSub hR hY g⁻¹
-    rwa [conjSub_conjSub_inv] at this
-  · intro hY
-    have := Sec3.special_conjSub hR hY g
-    rwa [ExclNS.conjSub_inv_conjSub] at this
-
 
 theorem actsAs_inv {K : Type*} [Group K] {D : UniversalRootDatum K} {x : K}
     {w : (coxeterMatrix D.isFiniteType).Group} (hx : ActsAs D x w) : ActsAs D x⁻¹ w⁻¹ := by

@@ -177,46 +177,6 @@ public theorem firstCase_edgeStarClass_transitive
     _ = commutingGraphDartStarClass c E := by rw [hg]
     _ = T := hE
 
-public theorem firstCase_edgeStarClass_faithful
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (hfirst : FirstCase c)
-    (d : FirstCaseCountData c) :
-    FaithfulSMul G (CommutingGraphEdgeStarClass c) := by
-  classical
-  let := Fintype.ofFinite (CommutingGraphEdgeStarClass c)
-  rw [faithfulSMul_iff]
-  intro g hg
-  let φ : G →* Equiv.Perm (CommutingGraphEdgeStarClass c) :=
-    MulAction.toPermHom G (CommutingGraphEdgeStarClass c)
-  have hsimple : IsSimpleGroup G := minimalCounterexample_isSimple hmin
-  have hker : φ.ker = ⊥ ∨ φ.ker = ⊤ :=
-    @IsSimpleGroup.eq_bot_or_eq_top_of_normal _ _ hsimple φ.ker inferInstance
-  have hker_bot : φ.ker = ⊥ := by
-    rcases hker with hbot | htop
-    · exact hbot
-    · exfalso
-      have hcardF : Fintype.card (CommutingGraphEdgeStarClass c) = 7 := by
-        rw [← Nat.card_eq_fintype_card]
-        exact firstCase_edgeStarClass_card_seven hmin c hfirst d
-      obtain ⟨S, T, hST⟩ := Fintype.exists_pair_of_one_lt_card (α :=
-        CommutingGraphEdgeStarClass c) (by omega)
-      obtain ⟨k, hk⟩ := firstCase_edgeStarClass_transitive hmin c hfirst d S T
-      have hkker : k ∈ φ.ker := by rw [htop]; simp
-      have hkphi : φ k = 1 := MonoidHom.mem_ker.mp hkker
-      have hkfix : k • S = S := by
-        change (φ k) S = S
-        rw [hkphi]
-        rfl
-      exact hST (hkfix.symm.trans hk)
-  have hgker : g ∈ φ.ker := by
-    apply MonoidHom.mem_ker.mpr
-    apply Equiv.ext
-    intro S
-    change g • S = S
-    exact hg S
-  rw [hker_bot] at hgker
-  simpa using hgker
 
 public theorem firstCase_exists_indexSeven_subgroup_oddGraph
     {G : Type u} [Group G] [Finite G]

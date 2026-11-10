@@ -568,9 +568,6 @@ theorem NN_one_mem (C' : Subgroup (s.Xq (S i₀))) : (1 : ↥(s.NQ (S i₀))) �
 @[expose] def X0 (U : Subgroup s.Q) (C' : Subgroup (s.Xq (S i₀))) : Subgroup ↥(s.NQ (S i₀)) :=
   Subgroup.closure (s.gen i₀ U C')
 
-theorem gen_subset_X0 {U : Subgroup s.Q} {C' : Subgroup (s.Xq (S i₀))} :
-    s.gen i₀ U C' ⊆ (s.X0 i₀ U C' : Set ↥(s.NQ (S i₀))) :=
-  Subgroup.subset_closure
 
 theorem le_X0_of_le {U : Subgroup s.Q} {C' : Subgroup (s.Xq (S i₀))} :
     U.subgroupOf (s.NQ (S i₀)) ≤ s.X0 i₀ U C' := by

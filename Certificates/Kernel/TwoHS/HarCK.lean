@@ -58,9 +58,6 @@ theorem harC_base : bAnd(allN 3 (fun j => bAnd(Nat.beq (TE.GI j) (UL (Nat.succ j
     true := by
   quickRfl
 
-@[expose] noncomputable def peE (k : Nat) : Bool :=
-  penumSlK 11200 14 (mask 14) (11200 * 14) true TE.G TE.GI 3 TE.cnt TE.T TE.PL TE.POS TE.SRT TE.SRI
-    (Nat.mul 32 k) 32
 
 @[expose] noncomputable def hsE (k : Nat) : Bool :=
   slK TE.cnt (hsortPtK 11200 14 (mask 14) TE.cnt TE.T TE.HS TE.HSI) (Nat.mul 64 k) 64

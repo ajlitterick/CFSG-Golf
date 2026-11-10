@@ -45,13 +45,6 @@ theorem dist_adj {a b : V} (hab : G.Adj a b) (x : V) :
   rw [Nat.even_iff, Nat.even_iff] at hpar
   omega
 
-theorem exists_unique_path_of_dist_lt {u v : V} (hd : G.dist u v < n) :
-    ∃ l : List V, IsGLSPath G l ∧ l.head? = some u ∧ l.getLast? = some v ∧ l.length ≤ n ∧
-      ∀ l' : List V, IsGLSPath G l' → l'.head? = some u → l'.getLast? = some v →
-        l'.length ≤ n → l' = l := by
-  obtain ⟨l, hl, hlh, hll, hlen⟩ := exists_isGLSPath_of_reachable (h.reach_dist u v).1
-  exact ⟨l, hl, hlh, hll, by omega, fun l' hl' hh' hl'' hlen' => h.unique hl' hl hh' hlh hl'' hll
-    hlen' (by omega)⟩
 
 theorem dist_succ_of_adj {v v' v₁ : V} (hd : G.dist v v' = n) (hadj : G.Adj v v₁) :
     G.dist v₁ v' + 1 = n := by
@@ -304,22 +297,6 @@ theorem exists_far (Z : Finset V) (hZ : Z.Nonempty)
   simp at hl
   exact hne12 hl
 
-theorem exists_far_cycle {a : V} (p : G.Walk a a) (hp : p.IsCycle) (v : V) :
-    ∃ u ∈ p.support, G.dist v u = n := by
-  classical
-  have hmem : ∀ z ∈ p.support, ∃ y₁ ∈ p.support, ∃ y₂ ∈ p.support, y₁ ≠ y₂ ∧ G.Adj z y₁ ∧ G.Adj z y₂ := by
-    intro z hz
-    obtain ⟨x, y, hxy, hset⟩ := Set.ncard_eq_two.1 (hp.ncard_neighborSet_toSubgraph_eq_two hz)
-    have hx : x ∈ p.toSubgraph.neighborSet z := by rw [hset]; simp
-    have hy : y ∈ p.toSubgraph.neighborSet z := by rw [hset]; simp
-    have hx' : p.toSubgraph.Adj z x := hx
-    have hy' : p.toSubgraph.Adj z y := hy
-    exact ⟨x, (SimpleGraph.Walk.mem_verts_toSubgraph p).1 hx'.snd_mem, y,
-      (SimpleGraph.Walk.mem_verts_toSubgraph p).1 hy'.snd_mem, hxy, p.toSubgraph.adj_sub hx',
-      p.toSubgraph.adj_sub hy'⟩
-  obtain ⟨z, hz, hd⟩ := h.exists_far p.support.toFinset ⟨a, by simp⟩
-    (by intro z hz; simpa using hmem z (by simpa using hz)) v
-  exact ⟨z, by simpa using hz, hd⟩
 
 theorem transport {g : Equiv.Perm V} (hg : ∀ v w, G.Adj (g v) (g w) ↔ G.Adj v w) {u u' : V}
     (hd : G.dist u u' = n) (hu : g u = u) (hu' : g u' = u') :

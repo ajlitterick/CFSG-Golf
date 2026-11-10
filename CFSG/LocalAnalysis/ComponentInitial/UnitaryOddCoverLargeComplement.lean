@@ -85,10 +85,6 @@ theorem commutatorElement_inv_mem {y : G} (hy : y ∈ M) : ⁅g₀, y⁻¹⁆⁻
     rw [e]
     exact mul_mem (inv_mem hz) (commutatorElement_inv_mem hg₀ hMV hVM hy)
 
-theorem mem_radLift {hMV : ∀ y ∈ M, ∀ y' ∈ M, ⁅y, y'⁆ ∈ V}
-    {hVM : ∀ v ∈ V, ∀ y ∈ M, v * y = y * v} {z : G} :
-    z ∈ radLift g₀ M V hg₀ hMV hVM ↔ ∃ y ∈ M, ⁅g₀, y⁆⁻¹ * z ∈ V :=
-  Iff.rfl
 
 end Group
 

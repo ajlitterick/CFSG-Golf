@@ -72,30 +72,9 @@ theorem pow_three_eq_one (a : LinearMap.GeneralLinearGroup (ZMod 2) (Additive Vi
       rw [ha1, one_pow]
     · exact orderOf_dvd_iff_pow_eq_one.1 hord
 
-theorem isPGroup_three_of_pow {G : Type*} [Group G] (hsub : ∀ g : G, g ^ 3 = 1) :
-    IsPGroup 3 G :=
-  fun g => ⟨1, by rw [Nat.pow_one]; exact hsub g⟩
-
-theorem eq_bot_of_pow_three {G : Type*} [Group G] (hsub : ∀ g : G, g ^ 3 = 1) {p : ℕ}
-    (hp : p.Prime) (hp5 : 5 ≤ p) (P : Subgroup G) (hP : IsPGroup p P) : P = ⊥ := by
-  refine (Subgroup.eq_bot_iff_forall _).2 fun x hx => ?_
-  obtain ⟨k, hk⟩ := hP ⟨x, hx⟩
-  have hk' : x ^ p ^ k = 1 := by
-    have := congrArg Subtype.val hk
-    rwa [Subgroup.coe_pow, Subgroup.coe_one] at this
-  have hcop : Nat.Coprime (p ^ k) 3 :=
-    Nat.Coprime.pow_left k ((Nat.coprime_primes hp Nat.prime_three).2 (by omega))
-  exact orderOf_eq_one_iff.1 (Nat.eq_one_of_dvd_coprimes hcop (orderOf_dvd_of_pow_eq_one hk')
-    (orderOf_dvd_of_pow_eq_one (hsub x)))
 
 theorem pow_three_of_mem (g : linCentralizer) : g ^ 3 = 1 :=
   Subtype.ext (by rw [Subgroup.coe_pow, Subgroup.coe_one]; exact pow_three_eq_one g g.2)
 
-theorem native_Co1_twenty_four_linear_centralizer_three_group :
-    (∀ a ∈ linCentralizer, a ^ 3 = 1) ∧ Finite linCentralizer ∧ IsPGroup 3 linCentralizer ∧
-      ∀ p : ℕ, p.Prime → 5 ≤ p → ∀ P : Subgroup linCentralizer, IsPGroup p P → P = ⊥ := by
-  have := finite_gl
-  exact ⟨pow_three_eq_one, inferInstance, isPGroup_three_of_pow pow_three_of_mem,
-    fun p hp hp5 P hP => eq_bot_of_pow_three pow_three_of_mem hp hp5 P hP⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.NativeCo1Centralizer

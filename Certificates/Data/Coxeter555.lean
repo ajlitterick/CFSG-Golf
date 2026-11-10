@@ -18,6 +18,5 @@ open CFSG.CosetTable
     (List.replicate 5 [(0, true), (2, true)]).flatten,
     (List.replicate 5 [(0, true), (1, true), (2, true)]).flatten]
 
-@[expose] def coxeter555Check : Bool := check (presParams rels555 [axWord]) 2000 132
 
 end CFSG.EvenSporadicStandard.HNRecog.Coxeter555

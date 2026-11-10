@@ -605,7 +605,6 @@ theorem planeNoInnerPart_of_planeT :
     exact localRankAut_of_localRank he hp hnZ (hAN x.2) hxp hxsup hcC hc1 hcp hxc
 
 
-
 theorem planeNoInnerPartTag_of_T (t : StatedLieTag) (h : Sec66T_K2 t) :
     ∀ (H : Type) [Group H] [Finite H] (p : ℕ) (J A : Subgroup H) (c : H), p.Prime → 5 ≤ p →
       CFSG.Assembly.RankThreeEven.localRank p H ≤ 3 → CFSG.IsQuasisimple ↥J →
@@ -625,10 +624,5 @@ theorem evenOuterPlaneNoInnerPartTag_of_T (t : StatedLieTag) (h : Sec66T_K2 t) :
     ((CFSG.RankThree.OddKernel.localRank_le_evenRank hp (by omega)).trans he) hq hmodel hnZ hAN hAe
     hAcard hcA hc1 hcC hCA
 
-theorem sec6Six_of_T (hS : SchreierFor InCatalog) (h1 : ∀ t, Sec66T_K1 t)
-    (h2 : ∀ t, Sec66T_K2 t) : Sec6SixFieldAutomorphismPlane :=
-  sec6Six_of_inputs hS
-    (evenOuterElementIsFieldAut_of_tags fun t => evenOuterElementIsFieldAutTag_of_T t (h1 t))
-    (evenOuterPlaneNoInnerPart_of_tags fun t => evenOuterPlaneNoInnerPartTag_of_T t (h2 t))
 
 end CFSG.RankThree.PartOne.Sec66T

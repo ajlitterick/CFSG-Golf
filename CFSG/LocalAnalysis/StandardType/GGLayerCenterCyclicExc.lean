@@ -77,17 +77,6 @@ theorem ggLayerCenterCyclicInput_of_excRest
     (h : GGLayerCenterCyclicExcRest) : GGLayerCenterCyclicInput :=
   ggLayerCenterCyclicInput_of_exc (ggLayerCenterCyclicExcInput_of_rest h)
 
-theorem ggLayerCenterCyclicExcSixRestInput_of_input (h : GGLayerCenterCyclicExcInput) :
-    GGLayerCenterCyclicExcSixRestInput := by
-  intro p lab hp hp2 hlab hs hsix
-  have ht : lab.tag = .E6 ∨ lab.tag = .twE6 := hsix.imp (fun h => h.1) id
-  refine h p lab hp hp2 hlab hs ⟨fun hcl => ?_, fun hder => ?_⟩
-  · obtain ⟨t, l, n⟩ := lab
-    rcases ht with h6 | h6 <;> (dsimp only at h6; subst h6) <;>
-      rcases hcl with h | h | h | h | h | h <;> cases h
-  · obtain ⟨t, l, n⟩ := lab
-    rcases ht with h6 | h6 <;> (dsimp only at h6; subst h6) <;>
-      rcases hder with h | h | h <;> cases h
 
 end Reduction
 

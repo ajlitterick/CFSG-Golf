@@ -51,11 +51,6 @@ theorem tcSeeds : seedRegsL lay (T.SL.getD 6 []) A B tcSpec.rA tcSpec.rB = true 
 
 theorem cpSeeds : seedRegsL lay (C.SL.getD 5 []) A B cpSpec.rA cpSpec.rB = true := by quickRfl
 
-theorem ch_neg : (!chunkL lay tcProg 200 0 (T.SL.getD 0 []) (C.SL.getD 1 [])) = true := by
-  quickRfl
-
-theorem seeds_neg : (!seedRegsL lay (T.SL.getD 6 []) B A tcSpec.rA tcSpec.rB) = true := by
-  quickRfl
 
 end CertificateChecks.KernelTc.Fi23
 

@@ -233,8 +233,6 @@ theorem comp_subset (U : Subgroup G) (i : Fin 3) : comp σ U i ⊆ U := fun _ hu
 theorem comp_mono {U V : Subgroup G} (h : U ≤ V) (i : Fin 3) : comp σ U i ⊆ comp σ V i :=
   fun _ hu => ⟨h hu.1, hu.2⟩
 
-theorem one_mem_comp (U : Subgroup G) (i : Fin 3) : (1 : G) ∈ comp σ U i :=
-  ⟨U.one_mem, by group, by group⟩
 
 theorem mem_comp_inf {U V : Subgroup G} {i : Fin 3} {u : G} :
     u ∈ comp σ (U ⊓ V) i ↔ u ∈ comp σ U i ∧ u ∈ V :=
@@ -260,7 +258,6 @@ theorem x₂_mul_x₂ (hσ : σ.IsValid) : σ.x₂ * σ.x₂ = 1 := by
 
 theorem x_inv (hσ : σ.IsValid) : σ.x⁻¹ = σ.x := inv_eq_of_mul_eq_one_right (x_mul_x hσ)
 
-theorem x₂_inv (hσ : σ.IsValid) : σ.x₂⁻¹ = σ.x₂ := inv_eq_of_mul_eq_one_right (x₂_mul_x₂ hσ)
 
 theorem xs_ne_one (hσ : σ.IsValid) (i : Fin 3) : σ.xs i ≠ 1 := by
   match i with
@@ -329,8 +326,6 @@ theorem xs_mul_xs (hσ : σ.IsValid) (i : Fin 3) : σ.xs i * σ.xs i = 1 := by
     change σ.x * σ.x₂ * (σ.x * σ.x₂) = 1
     rw [mul_assoc, ← mul_assoc σ.x₂, ← hσ.commute, mul_assoc, h2, mul_one, h1]
 
-theorem xs_inv (hσ : σ.IsValid) (i : Fin 3) : (σ.xs i)⁻¹ = σ.xs i :=
-  inv_eq_of_mul_eq_one_right (xs_mul_xs hσ i)
 
 theorem xs_comm (hσ : σ.IsValid) (i j : Fin 3) : σ.xs i * σ.xs j = σ.xs j * σ.xs i := by
   have hT := (isKleinFour_T hσ)

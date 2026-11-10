@@ -72,23 +72,6 @@ theorem no_regular_double_transitive {group : Type*} [Group group] [Finite group
     sylow.isPGroup'.map _, pair_sylow_fixed_pair_of_no_regular prime even_point_rule no_regular
       first second distinct sylow⟩
 
-theorem no_regular_exists_fixed_pair {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (even_point_rule : EvenPointRule (group := group) prime)
-    (no_regular : NoRegularPair (group := group) prime)
-    (degree : 3 ≤ Nat.card (Component group)) :
-    ∃ subgroup : Subgroup group, IsPGroup prime subgroup ∧
-      Nat.card (MulAction.fixedPoints subgroup (Component group)) = 2 := by
-  classical
-  have degree_large : 2 < (Set.univ : Set (Component group)).ncard := by
-    rw [Set.ncard_univ]
-    omega
-  obtain ⟨first, _, second, _, _, _, distinct, _, _⟩ :=
-    (Set.two_lt_ncard (Set.toFinite _)).mp degree_large
-  obtain ⟨sylow⟩ := Sylow.nonempty (p := prime) (G := pairSubgroup first second)
-  refine ⟨(sylow : Subgroup (pairSubgroup first second)).map (pairSubgroup first second).subtype,
-    sylow.isPGroup'.map _, ?_⟩
-  rw [pair_sylow_fixed_pair_of_no_regular prime even_point_rule no_regular first second distinct sylow,
-    Nat.card_coe_set_eq, Set.ncard_pair distinct]
 
 @[expose] def sylowFixedPointsEquiv {group points : Type*} [Group group] [MulAction group points]
     (prime : ℕ) (sylow : Sylow prime group) (element : group) :
@@ -178,16 +161,5 @@ theorem no_regular_of_fixed_pair {group : Type*} [Group group] [Finite group]
   rw [ambient_card] at large
   omega
 
-theorem no_regular_iff_fixed_pair {group : Type*} [Group group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (prime_odd : Odd prime)
-    (even_point_rule : EvenPointRule (group := group) prime)
-    (degree : 3 ≤ Nat.card (Component group)) :
-    NoRegularPair (group := group) prime ↔
-      ∃ subgroup : Subgroup group, IsPGroup prime subgroup ∧
-        Nat.card (MulAction.fixedPoints subgroup (Component group)) = 2 := by
-  constructor
-  · exact fun no_regular => no_regular_exists_fixed_pair prime even_point_rule no_regular degree
-  · rintro ⟨subgroup, prime_group, fixed_two⟩
-    exact no_regular_of_fixed_pair prime prime_odd even_point_rule subgroup prime_group fixed_two
 
 end CFSG.OrderReductions.EmptyRegularity

@@ -34,38 +34,6 @@ theorem centralizer_subgroupOf_eq_sup {A Y D C : Subgroup M} (hAC : A ≤ C) (hY
     centralizer (A.subgroupOf C : Set C) = Y.subgroupOf C ⊔ D.subgroupOf C := by
   rw [centralizer_subgroupOf hAC, ← inf_subgroupOf_right, h, subgroupOf_sup hYC hDC]
 
-theorem centralizer_map_conj_inf {C A : Subgroup M} {n : M} (hn : n ∈ C) :
-    centralizer ((A.map (MulAut.conj n).toMonoidHom : Subgroup M) : Set M) ⊓ C =
-      (centralizer (A : Set M) ⊓ C).map (MulAut.conj n).toMonoidHom := by
-  ext x
-  constructor
-  · intro hxx
-    obtain ⟨hx, hxC⟩ := mem_inf.1 hxx
-    refine ⟨n⁻¹ * x * n, mem_inf.2 ⟨mem_centralizer_iff.2 fun a ha => ?_,
-      mul_mem (mul_mem (inv_mem hn) hxC) hn⟩, ?_⟩
-    · have h1 := mem_centralizer_iff.1 hx (n * a * n⁻¹) ⟨a, ha, rfl⟩
-      calc a * (n⁻¹ * x * n) = n⁻¹ * (n * a * n⁻¹ * x) * n := by group
-        _ = n⁻¹ * (x * (n * a * n⁻¹)) * n := by rw [h1]
-        _ = n⁻¹ * x * n * a := by group
-    · change n * (n⁻¹ * x * n) * n⁻¹ = x
-      group
-  · rintro ⟨y, hyy, rfl⟩
-    obtain ⟨hy, hyC⟩ := mem_inf.1 hyy
-    refine mem_inf.2 ⟨mem_centralizer_iff.2 ?_, ?_⟩
-    · rintro _ ⟨a, ha, rfl⟩
-      change n * a * n⁻¹ * (n * y * n⁻¹) = n * y * n⁻¹ * (n * a * n⁻¹)
-      have h1 := mem_centralizer_iff.1 hy a ha
-      calc n * a * n⁻¹ * (n * y * n⁻¹) = n * (a * y) * n⁻¹ := by group
-        _ = n * (y * a) * n⁻¹ := by rw [h1]
-        _ = n * y * n⁻¹ * (n * a * n⁻¹) := by group
-    · change n * y * n⁻¹ ∈ C
-      exact mul_mem (mul_mem hn hyC) (inv_mem hn)
-
-theorem map_conj_le {A C : Subgroup M} (hAC : A ≤ C) {n : M} (hn : n ∈ C) :
-    A.map (MulAut.conj n).toMonoidHom ≤ C := by
-  rintro _ ⟨a, ha, rfl⟩
-  change n * a * n⁻¹ ∈ C
-  exact mul_mem (mul_mem hn (hAC ha)) (inv_mem hn)
 
 theorem map_conj_le_centralizer_map_conj {Y D : Subgroup M} (h : Y ≤ centralizer (D : Set M))
     (n : M) : Y.map (MulAut.conj n).toMonoidHom ≤
@@ -81,37 +49,6 @@ theorem isQuasisimple_subgroupOf {D C : Subgroup M} (hDC : D ≤ C) [IsSimpleGro
   exact CFSG.LocalCores.isQuasisimple_of_mulEquiv (subgroupOfEquivOfLe hDC).symm
     (CFSG.LocalCores.isQuasisimple_of_isSimpleGroup hnc).1
 
-theorem mul_mul_inv_mul_inv_mem_of_mem_sup {Y D : Subgroup M}
-    (hYD : Y ≤ centralizer (D : Set M)) (hYc : Y ≤ centralizer (Y : Set M)) {g h : M}
-    (hg : g ∈ Y ⊔ D) (hh : h ∈ Y ⊔ D) : g * h * g⁻¹ * h⁻¹ ∈ D := by
-  have hYN : Y ≤ normalizer (D : Set M) := hYD.trans (Subgroup.centralizer_le_normalizer _)
-  have hg' : g ∈ ((Y ⊔ D : Subgroup M) : Set M) := hg
-  have hh' : h ∈ ((Y ⊔ D : Subgroup M) : Set M) := hh
-  rw [coe_mul_of_left_le_normalizer_right _ _ hYN] at hg' hh'
-  obtain ⟨y₁, hy₁, d₁, hd₁, rfl⟩ := Set.mem_mul.1 hg'
-  obtain ⟨y₂, hy₂, d₂, hd₂, rfl⟩ := Set.mem_mul.1 hh'
-  have hc : ∀ {y d : M}, y ∈ Y → d ∈ D → y * d = d * y := fun hy hd =>
-    (mem_centralizer_iff.1 (hYD hy) _ hd).symm
-  have e1 : y₁ * d₁ * (y₂ * d₂) = y₁ * y₂ * (d₁ * d₂) :=
-    calc y₁ * d₁ * (y₂ * d₂) = y₁ * (d₁ * y₂) * d₂ := by group
-      _ = y₁ * (y₂ * d₁) * d₂ := by rw [← hc hy₂ hd₁]
-      _ = y₁ * y₂ * (d₁ * d₂) := by group
-  have e2 : y₂ * d₂ * (y₁ * d₁) = y₁ * y₂ * (d₂ * d₁) :=
-    calc y₂ * d₂ * (y₁ * d₁) = y₂ * (d₂ * y₁) * d₁ := by group
-      _ = y₂ * (y₁ * d₂) * d₁ := by rw [← hc hy₁ hd₂]
-      _ = y₂ * y₁ * (d₂ * d₁) := by group
-      _ = y₁ * y₂ * (d₂ * d₁) := by rw [mem_centralizer_iff.1 (hYc hy₁) y₂ hy₂]
-  have hu : d₁ * d₂ * (d₂ * d₁)⁻¹ ∈ D :=
-    mul_mem (mul_mem hd₁ hd₂) (inv_mem (mul_mem hd₂ hd₁))
-  have hw : y₁ * y₂ ∈ Y := mul_mem hy₁ hy₂
-  have key : y₁ * d₁ * (y₂ * d₂) * (y₁ * d₁)⁻¹ * (y₂ * d₂)⁻¹ = d₁ * d₂ * (d₂ * d₁)⁻¹ :=
-    calc y₁ * d₁ * (y₂ * d₂) * (y₁ * d₁)⁻¹ * (y₂ * d₂)⁻¹
-        = (y₁ * d₁ * (y₂ * d₂)) * (y₂ * d₂ * (y₁ * d₁))⁻¹ := by group
-      _ = (y₁ * y₂) * (d₁ * d₂ * (d₂ * d₁)⁻¹) * (y₁ * y₂)⁻¹ := by rw [e1, e2]; group
-      _ = (d₁ * d₂ * (d₂ * d₁)⁻¹) * (y₁ * y₂) * (y₁ * y₂)⁻¹ := by rw [hc hw hu]
-      _ = d₁ * d₂ * (d₂ * d₁)⁻¹ := by group
-  rw [key]
-  exact hu
 
 end General
 

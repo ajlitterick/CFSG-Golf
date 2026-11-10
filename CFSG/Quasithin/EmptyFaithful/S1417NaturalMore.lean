@@ -15,10 +15,6 @@ theorem SL2_center : ∀ s : SL2, (∀ t : SL2, s * t = t * s) → s = 1 := by d
 theorem SL2_cent_three : ∀ l x : SL2, x ^ 3 = 1 → x ≠ 1 → l * x = x * l →
     l = 1 ∨ l = x ∨ l = x⁻¹ := by decide
 
-theorem SL2_normalizes_three : ∀ l x : SL2, x ^ 3 = 1 → x ≠ 1 →
-    l * x * l⁻¹ = x ∨ l * x * l⁻¹ = x⁻¹ := by decide
-
-theorem SL2_inv_ne : ∀ x : SL2, x ^ 3 = 1 → x ≠ 1 → x⁻¹ ≠ x := by decide
 
 def vecOf : Fin 3 → (Fin 2 → ZMod 2) := ![![1, 0], ![0, 1], ![1, 1]]
 

@@ -23,12 +23,5 @@ open Certificates.FusD2Perm (powT wordT)
 @[expose] def wordOKOne (V : VData) (i : Nat) (w : List Int) : Bool :=
   w.all fun l => allowedOne V i (l.natAbs - 1)
 
-@[expose] def expOK (V : VData) : Bool :=
-  (eEnum V.base).tabs.all fun t => powT V.base.n t V.base.p == idTab V.base.n
-
-@[expose] def checkVOne (V : VData) : Bool :=
-  checkV V && expOK V &&
-    allBelow V.ys.length fun i =>
-      wordOKOne V i (V.wAs.getD i []) && wordOKOne V i (V.wBs.getD i [])
 
 end Certificates.CoreD2Perm

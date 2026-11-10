@@ -195,12 +195,6 @@ theorem pCore_eq (hU : IsSylowTwoOf D.U ⊤) (i : Bool) :
     pCoreOf 2 (P D i) = D.UwPlusSub (D.lift (gen D.w₁ D.w₂ i)) :=
   le_antisymm (Q_le_Uplus D hU i) (Uplus_le_Q D hU i)
 
-theorem pCore_eq_inf_comap (hU : IsSylowTwoOf D.U ⊤) (i : Bool) :
-    pCoreOf 2 (P D i) = D.U ⊓ D.U.comap (MulAut.conj (mi D i)).toMonoidHom := by
-  rw [pCore_eq D hU i]
-  ext x
-  simp [mi, MulAut.conj_apply]
-  rfl
 
 theorem Q_eq_Uplus (hU : IsSylowTwoOf D.U ⊤) (i : Bool) : Q D i = Uplus D i :=
   pCore_eq D hU i
@@ -320,10 +314,6 @@ theorem normalizer_Q (hU : IsSylowTwoOf D.U ⊤) (i : Bool) :
   rw [Q_eq_Uplus D hU i]
   exact normalizer_Uplus D i
 
-theorem pCoreOf_normalizer_Q (hU : IsSylowTwoOf D.U ⊤) (i : Bool) :
-    pCoreOf 2 (Subgroup.normalizer (Q D i : Set X)) = Q D i := by
-  rw [normalizer_Q D hU i]
-  rfl
 
 theorem Q_ne_bot (hU : IsSylowTwoOf D.U ⊤) (i : Bool) : Q D i ≠ ⊥ := by
   rw [Q_eq_Uplus D hU i]

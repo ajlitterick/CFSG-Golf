@@ -93,13 +93,5 @@ theorem uc22p2121b_pRank_le_one_add_sum {D : Data G} {Ch : Choice2011 G} (h61 : 
     (fun C hC => uc22p2121b_normal_of_hyp2120 hH ((hs C).1 hC)) fun C hC => (hs C).2 hC
   omega
 
-theorem uc22p2121b_three_le_sum_setup4 (hS : Standing4 G) (hU : uniqueFourUnique G) (S : Setup4 G)
-    {Ch : Choice2011 G} (c : Ctx21 (UC6.dataOfSetup4 hS hU S) Ch) (hH : Hyp2120 (UC6.dataOfSetup4 hS hU S) c)
-    {p : ℕ} (hp : p ∈ (UC6.dataOfSetup4 hS hU S).sig)
-    (s : Finset (Subgroup (Bar2 (UC6.dataOfSetup4 hS hU S).M))) (hs : ∀ C, C ∈ s ↔ CFSG.IsComponent C) :
-    3 ≤ ∑ C ∈ s, CFSG.Open.pRank p (Subgroup.normalizerMonoidHom C).range := by
-  have h4 : 4 ≤ CFSG.Open.pRank p (UC6.dataOfSetup4 hS hU S).M := UC6.four_le_pRank_of_sigma hp
-  have h := uc22p2121b_pRank_le_one_add_sum (UC6.r6_1_dataOfSetup4 hS hU S) c hH hp s hs
-  omega
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22

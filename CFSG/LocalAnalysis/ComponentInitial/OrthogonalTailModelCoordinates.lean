@@ -74,11 +74,6 @@ variable {r : ℕ} {κ : Type*} {q : QuadraticForm K (κ → K)}
     rw [hQ, quadTail_apply, quadPlus_apply]
     rfl
 
-theorem tailModelIsometry_apply
-    (hQ : ∀ v, Q v = ∑ i, v (.inl i) * v (.inr (.inl i)) + q (fun j => v (.inr (.inr j))))
-    (v : (Fin r ⊕ Fin r → K) × (κ → K)) :
-    tailModelIsometry hQ v = tailModelEquiv r K κ v :=
-  rfl
 
 end Isometry
 

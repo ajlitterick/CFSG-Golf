@@ -63,27 +63,6 @@ theorem point_subgroup_eq_centralizer_mul_pair_stabilizer [Finite G]
     obtain ⟨c, hc, b, hb, rfl⟩ := Set.mem_mul.mp ha
     exact H.mul_mem (point_centralizer_le h hc) (pairPointStabilizer_le_point H beta hb)
 
-theorem point_subgroup_eq_pair_stabilizer_mul_centralizer [Finite G]
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta) :
-    (H : Set G) = (pairPointStabilizer H beta : Set G) *
-      (Subgroup.centralizer ({z} : Set G) : Set G) := by
-  have hfactor := point_subgroup_eq_centralizer_mul_pair_stabilizer h S hzS hzcenter hbeta ht
-  ext a
-  constructor
-  · intro ha
-    have hainv : a⁻¹ ∈ (H : Set G) := H.inv_mem ha
-    rw [hfactor] at hainv
-    obtain ⟨c, hc, b, hb, hcb⟩ := Set.mem_mul.mp hainv
-    refine Set.mem_mul.mpr ⟨b⁻¹, (pairPointStabilizer H beta).inv_mem hb,
-      c⁻¹, (Subgroup.centralizer ({z} : Set G)).inv_mem hc, ?_⟩
-    simpa only [mul_inv_rev, inv_inv] using congrArg Inv.inv hcb
-  · intro ha
-    obtain ⟨b, hb, c, hc, rfl⟩ := Set.mem_mul.mp ha
-    exact H.mul_mem (pairPointStabilizer_le_point H beta hb) (point_centralizer_le h hc)
 
 theorem point_class_eq_pair_stabilizer_class [Finite G]
     {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)

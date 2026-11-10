@@ -59,11 +59,6 @@ open CFSG.CosetTable
   [[14, 6, 2, 8, 13], [16, 6, 17, 12, 14], [9, 3, 0], [16, 14, 16, 0, 0], [12, 17, 6, 11, 6],
    [12, 16, 2, 18, 17, 13]]
 
-@[expose] def czM1ChainWords : List (List Int) :=
-  [[3, -2, 5, 3, 3, 4, -4, -2, 4, 4, -5, 6, -3],
-   [-7, -2, -1, -5, -7, 3, 1, 6, 4, 4, 5, 4, -5, 3, 6, 4, -1]]
-
-@[expose] def czM1ChainBase : List ℕ := [0, 1, 2]
 
 @[expose] def czRels : List (List (Fin 10 × Bool)) := (czP12Codes ++ czHCodes).map (wordOfCodes 10)
 

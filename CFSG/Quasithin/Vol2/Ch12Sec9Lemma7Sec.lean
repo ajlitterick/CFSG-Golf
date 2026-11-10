@@ -41,9 +41,6 @@ theorem tElt_mul (hU : U ≤ Subgroup.normalizer (Z : Set G)) {u u' : G} (hu : u
     (hu' : u' ∈ U) : tElt hU u hu * tElt hU u' hu' = tElt hU (u * u') (U.mul_mem hu hu') :=
   Subtype.ext (map_mul (secMk (Subgroup.normalizer (Z : Set G)) Z) ⟨u, hU hu⟩ ⟨u', hU hu'⟩).symm
 
-theorem tElt_inv (hU : U ≤ Subgroup.normalizer (Z : Set G)) {u : G} (hu : u ∈ U) :
-    (tElt hU u hu)⁻¹ = tElt hU u⁻¹ (U.inv_mem hu) :=
-  Subtype.ext (map_inv (secMk (Subgroup.normalizer (Z : Set G)) Z) ⟨u, hU hu⟩).symm
 
 theorem tElt_eq_one_iff (hU : U ≤ Subgroup.normalizer (Z : Set G)) {u : G} (hu : u ∈ U) :
     tElt hU u hu = 1 ↔ u ∈ Z := by

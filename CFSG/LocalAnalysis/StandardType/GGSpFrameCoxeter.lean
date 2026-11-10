@@ -9,10 +9,6 @@ namespace CFSG.StandardType.SpFrame
 open CFSG.StandardType CFSG.LieType.Universal CFSG.LieType.RootSystem CoxeterSystem
   CFSG.LieType.Universal.Symplectic
 
-theorem simple_mul_self_C (r : ℕ) (i : Fin r) :
-    (coxeterMatrix (isFiniteType_cartanC r)).toCoxeterSystem.simple i *
-      (coxeterMatrix (isFiniteType_cartanC r)).toCoxeterSystem.simple i = 1 :=
-  (coxeterMatrix (isFiniteType_cartanC r)).toCoxeterSystem.simple_mul_simple_self i
 
 section UniqueAux
 

@@ -29,6 +29,5 @@ theorem nonempty_mulEquiv_of_isCaseTwoGroup {p : ℕ} {A B : Type} [Group A] [Gr
   subst hij
   exact ⟨e.trans e'.symm⟩
 
-variable {G : Type} [Group G] [Finite G] {p : ℕ} {M H : Subgroup G}
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.Hyp111

@@ -13,16 +13,6 @@ namespace G11
 
 variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
 
-theorem restrictEquiv_mul {I : Submodule (ZMod 2) V} {a b : GLV V} (ha : conjSub a I = I)
-    (hb : conjSub b I = I) (hab : conjSub (a * b) I = I) :
-    restrictEquiv (a * b) I hab = restrictEquiv a I ha * restrictEquiv b I hb := by
-  ext i
-  rfl
-
-theorem restrictEquiv_inv {I : Submodule (ZMod 2) V} {a : GLV V} (ha : conjSub a I = I)
-    (hai : conjSub a⁻¹ I = I) : restrictEquiv a⁻¹ I hai = (restrictEquiv a I ha)⁻¹ := by
-  ext i
-  rfl
 
 theorem invariant_stabilizerOf (X : Subgroup (GLV V)) (I : Submodule (ZMod 2) V) :
     Invariant (stabilizerOf X I) I := fun k hk u hu => by

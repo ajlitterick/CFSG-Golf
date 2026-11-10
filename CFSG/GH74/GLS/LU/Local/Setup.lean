@@ -100,28 +100,5 @@ theorem setup_of_model [Finite G] [Finite Gs] {q : ℕ} {ε : ℤ} (I : CompatIs
 
 end FromModel
 
-theorem luSetupLeaf_of_model
-    (hM : LUModelLeaf) : LUSetupLeaf := by
-  intro G _ _ hG Gs _ hcompat p f hp hp2 hq
-  obtain ⟨-, S, z, S', z', hz, hz', ⟨ψ, hψS, hψfus⟩, -, hAcyc⟩ := hcompat
-  let I : CompatIso G z S z' S' := ⟨ψ, hψS, hψfus⟩
-  constructor
-  · rintro ⟨h8, hL⟩
-    have : Finite Gs := (CFSG.LieType.Catalog.lieModel_finite_simple Gs _ 4 p f hL).1
-    obtain ⟨E₁, E₂, t', u', d⟩ := (hM Gs p f hp hp2 hq S' z' hz').1 ⟨h8, hL⟩
-    obtain ⟨K₁, K₂, t, u, hc, hs, he⟩ :=
-      setup_of_model I hz hz' (hAcyc ⟨p, f, hp, hp2, Or.inl hL⟩) d
-    exact ⟨z, S, K₁, K₂, t, u, hc, hs, he⟩
-  · rintro ⟨h8, hU⟩
-    have : Finite Gs := (CFSG.LieType.Catalog.lieModel_finite_simple Gs _ 4 p f hU).1
-    obtain ⟨E₁, E₂, t', u', d⟩ := (hM Gs p f hp hp2 hq S' z' hz').2 ⟨h8, hU⟩
-    obtain ⟨K₁, K₂, t, u, hc, hs, he⟩ :=
-      setup_of_model I hz hz' (hAcyc ⟨p, f, hp, hp2, Or.inr hU⟩) d
-    exact ⟨z, S, K₁, K₂, t, u, hc, hs, he⟩
-
-theorem luNeighborhood_of_model
-    (hM : LUModelLeaf) (hT1 : LULocalLeaf) (h6A : LUMax6A) :
-    LUNeighborhood :=
-  luNeighborhood_of_6A (luSetupLeaf_of_model hM) hT1 h6A
 
 end CFSG.GH74.GLS.LU.Local

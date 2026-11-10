@@ -16,14 +16,6 @@ theorem betaGL_betaGL (g : ModGL Tag.E6 K) : betaGL (betaGL g) = g := by
   refine Units.ext ?_
   rw [betaGL_apply, betaGL_apply, entrywise_entrywise, barHom_comp_barHom, entrywise_id]
 
-theorem betaGL_injective :
-    Function.Injective (betaGL : ModGL Tag.E6 K →* ModGL Tag.E6 K) :=
-  Function.LeftInverse.injective betaGL_betaGL
-
-theorem map_betaGL_eq_of_forall {H : Subgroup (ModGL Tag.E6 K)}
-    (h : ∀ x ∈ H, betaGL x ∈ H) : H.map betaGL = H :=
-  le_antisymm (Subgroup.map_le_iff_le_comap.mpr fun x hx => h x hx)
-    fun x hx => ⟨betaGL x, h x hx, betaGL_betaGL x⟩
 
 theorem betaGL_xUnit
     (i : Fin Tag.E6.rank) (c : K) :
@@ -224,39 +216,5 @@ theorem betaGL_mem_nativeParabolic
       exact Subgroup.subset_closure (Or.inr ⟨i, hi, rfl⟩)
   exact this hg
 
-theorem map_betaGL_stdFixedGroup :
-    stdFixedGroup.map betaGL = stdFixedGroup :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdFixedGroup
-
-theorem map_betaGL_stdBorel :
-    stdBorel.map betaGL = stdBorel :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdBorel
-
-theorem map_betaGL_stdTorus :
-    stdTorus.map betaGL = stdTorus :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdTorus
-
-theorem map_betaGL_nativeParabolic
-    (J : Set (Fin 4)) :
-    (nativeParabolic J).map betaGL = nativeParabolic J :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_nativeParabolic
-
-theorem map_betaGL_stdRadical
-    (J : Set (Fin 4)) : (stdRadical J).map betaGL = stdRadical J :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdRadical
-
-theorem map_betaGL_stdLevi
-    (J : Set (Fin 4)) : (stdLevi J).map betaGL = stdLevi J :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdLevi
-
-theorem map_betaGL_stdLeviUnipotent
-    (J : Set (Fin 4)) :
-    (stdLeviUnipotent J).map betaGL = stdLeviUnipotent J :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdLeviUnipotent
-
-theorem map_betaGL_stdLeviBorel
-    (J : Set (Fin 4)) :
-    (stdLeviBorel J).map betaGL = stdLeviBorel J :=
-  map_betaGL_eq_of_forall fun _ => betaGL_mem_stdLeviBorel
 
 end CFSG.LieType.Chevalley.C2E6Std

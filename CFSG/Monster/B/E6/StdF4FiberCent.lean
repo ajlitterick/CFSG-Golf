@@ -148,10 +148,6 @@ theorem apply_mem_of_betaGL_mem
       exact inv_mem hγ
     exact apply_mem_of_betaGL_mem hH γ.right⁻¹ h1
 
-theorem mem_betaStar
-    {H : Subgroup (ModGL Tag.E6 K)} {hH : ∀ g ∈ H, betaGL g ∈ H} {γ : GStar} :
-    γ ∈ betaStar H hH ↔ (γ.left : ModGL Tag.E6 K) ∈ H :=
-  Iff.rfl
 
 theorem card_betaStar
     {H : Subgroup (ModGL Tag.E6 K)} (hH : ∀ g ∈ H, betaGL g ∈ H)

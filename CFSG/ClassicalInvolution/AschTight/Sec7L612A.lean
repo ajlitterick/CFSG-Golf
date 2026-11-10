@@ -45,9 +45,6 @@ theorem le_etaGenIn {S : Subgroup G} {γ : Set (Subgroup G)} (hγ : γ ∈ etaGI
   le_iSup₂_of_le (f := fun U (_ : U ∈ {U : Subgroup G | ∃ γ ∈ etaGIn Ω S, U ∈ γ}) => U) U
     ⟨γ, hγ, hU⟩ le_rfl
 
-theorem iSup_le_etaGenIn {S : Subgroup G} {γ : Set (Subgroup G)} (hγ : γ ∈ etaGIn Ω S) :
-    (⨆ U ∈ γ, U) ≤ etaGenIn Ω S :=
-  iSup₂_le fun _ hU => le_etaGenIn hγ hU
 
 theorem etaGenIn_le (S : Subgroup G) : etaGenIn Ω S ≤ S :=
   iSup₂_le fun _ ⟨_, hγ, hU⟩ => hγ.2 _ hU

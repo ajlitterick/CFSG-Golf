@@ -95,12 +95,5 @@ theorem inverted_card_eq_fixed_index {group : Type*} [Group group] [Finite group
   rw [← identity_stabilizer_eq_fixedSubgroup automorphism involutive,
     MulAction.index_stabilizer, MulAction.orbit_eq_univ, Set.ncard_univ]
 
-theorem inverted_card_mul_fixed_card {group : Type*} [Group group] [Finite group]
-    (automorphism : MulAut group) (involutive : Function.Involutive automorphism)
-    (odd_order : Odd (Nat.card group)) :
-    Nat.card (InvertedElements automorphism) * Nat.card (fixedSubgroup automorphism) =
-      Nat.card group := by
-  rw [inverted_card_eq_fixed_index automorphism involutive odd_order, mul_comm]
-  exact (fixedSubgroup automorphism).card_mul_index
 
 end CFSG.OrderReductions.OddInversion

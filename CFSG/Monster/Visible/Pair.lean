@@ -139,8 +139,6 @@ end IsCompatible
   mul_mem' := fun hp hq => ⟨hp.1.mul hq.1, IsCompatible.mul hp.1 hp.2 hq.2⟩
   inv_mem' := fun hp => ⟨hp.1.inv, hp.2.inv⟩
 
-theorem mem_Pvis {p : GL SpinIdx ℚ × latticeO} :
-    p ∈ Pvis ↔ IsDyadicSpinNormalizer p.1 ∧ IsCompatible p.1 p.2 := Iff.rfl
 
 theorem isDyadicSpinNormalizer (p : Pvis) : IsDyadicSpinNormalizer p.1.1 := p.2.1
 
@@ -417,50 +415,5 @@ theorem thetaHom_apply (p : Pvis) : thetaHom p = MulOpposite.op (thetaEquiv p) :
 theorem mem_Gvis {f : SpaceB ≃ₗ[ℚ] SpaceB} : f ∈ Gvis ↔ ∃ p : Pvis, thetaEquiv p = f :=
   Iff.rfl
 
-theorem Gvis_eq_unop_range : Gvis = thetaHom.range.unop := by
-  ext f
-  rw [mem_Gvis, Subgroup.mem_unop, MonoidHom.mem_range]
-  simp only [thetaHom_apply, MulOpposite.op_inj]
-
-theorem compatible_spin_lattice_pair_data :
-    (∀ p : GL SpinIdx ℚ × latticeO, p ∈ Pvis ↔
-      ((p.1 : Matrix SpinIdx SpinIdx ℚ) ∈ orthogonalGroup SpinIdx ℚ ∧
-        (∀ i j, (p.1 : Matrix SpinIdx SpinIdx ℚ) i j ∈ dyadic) ∧
-        (fun r => p.1⁻¹ * r * p.1) '' (Q : Set (GL SpinIdx ℚ)) = Q) ∧
-      ∀ r r' : Q, (r' : GL SpinIdx ℚ) = p.1⁻¹ * r * p.1 →
-        Multiplicative.toAdd (phi (QuotientGroup.mk r')) =
-          modTwoEnd p.2 (Multiplicative.toAdd (phi (QuotientGroup.mk r)))) ∧
-    (∀ g : GL (Fin 24) ℚ, g ∈ latticeO ↔
-      (g : Matrix (Fin 24) (Fin 24) ℚ) ∈ orthogonalGroup (Fin 24) ℚ ∧
-        (fun x => x ᵥ* (g : Matrix (Fin 24) (Fin 24) ℚ)) '' latticeQ = latticeQ) ∧
-    (∀ p q : Pvis, ((p * q : Pvis) : GL SpinIdx ℚ × latticeO) = (p.1.1 * q.1.1, p.1.2 * q.1.2)) ∧
-    (∀ (p : Pvis) (A : symMat), theta p (A, 0, 0) = (thetaA (mat p.1.2) A, 0, 0) ∧
-      (thetaA (mat p.1.2) A : Matrix (Fin 24) (Fin 24) ℚ) =
-        (mat p.1.2)ᵀ * (A : Matrix (Fin 24) (Fin 24) ℚ) * mat p.1.2) ∧
-    (∀ (p : Pvis) (r r' : Q), (r' : GL SpinIdx ℚ) = p.1.1⁻¹ * r * p.1.1 →
-      theta p (0, Xlift r, 0) = (0, Xlift r', 0)) ∧
-    (∀ (p : Pvis) (c : ShortIdx),
-      theta p (0, Pi.single c 1, 0) = (0, Xlift (conjQ p (rep c.1)), 0)) ∧
-    (∀ (p : Pvis) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ), theta p (0, 0, tensor q v) =
-      (0, 0, tensor (q ᵥ* (p.1.1 : Matrix SpinIdx SpinIdx ℚ)) (v ᵥ* mat p.1.2))) ∧
-    (∀ (p : Pvis) (N : SpaceW),
-      theta p (0, 0, N) = (0, 0, (p.1.1 : Matrix SpinIdx SpinIdx ℚ)ᵀ * N * mat p.1.2)) ∧
-    (∀ (p q : Pvis) (x : SpaceB), theta (p * q) x = theta q (theta p x)) ∧
-    (∀ x : SpaceB, theta 1 x = x) ∧
-    (∀ (p : Pvis) (x : SpaceB), thetaEquiv p x = theta p x ∧ (thetaEquiv p).symm x = theta p⁻¹ x) ∧
-    (∀ p : Pvis, thetaHom p = MulOpposite.op (thetaEquiv p)) ∧
-    (∀ f : SpaceB ≃ₗ[ℚ] SpaceB, f ∈ Gvis ↔ ∃ p : Pvis, thetaEquiv p = f) ∧
-    Gvis = thetaHom.range.unop :=
-  ⟨fun _ => Iff.rfl, fun _ => Iff.rfl, fun _ _ => rfl,
-    fun p A => ⟨theta_symMat p A, coe_thetaA _ A⟩,
-    fun p r r' h => (theta_Xlift p r).trans
-      (congrArg (fun x => ((0 : symMat), Xlift x, (0 : SpaceW)))
-        (Subtype.ext (h.trans (coe_conjQ p r).symm)).symm),
-    fun p c => by rw [theta_apply, map_zero, map_zero, thetaX_single],
-    theta_tensor,
-    fun p N => by rw [theta_apply, map_zero, map_zero, thetaW_apply],
-    theta_mul_apply, theta_one_apply,
-    fun p x => ⟨thetaEquiv_apply p x, thetaEquiv_symm_apply p x⟩, thetaHom_apply,
-    fun _ => mem_Gvis, Gvis_eq_unop_range⟩
 
 end CFSG.Monster.Visible

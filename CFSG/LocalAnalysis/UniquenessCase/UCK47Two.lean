@@ -12,12 +12,6 @@ namespace CFSG.LocalAnalysis.UniquenessCase.UCK
 open CFSG.RankThree.FFModules (fixSub mem_fixSub)
 open Subgroup
 
-private theorem fixSub_eq_invariants {G V : Type*} [Group G] [AddCommGroup V] [Module (ZMod 2) V]
-    (ρ : Representation (ZMod 2) G V) (A : Subgroup G) :
-    fixSub ρ A = Representation.invariants (ρ.comp A.subtype) := by
-  ext v
-  rw [mem_fixSub, Representation.mem_invariants]
-  exact ⟨fun h a => h a.1 a.2, fun h a ha => h ⟨a, ha⟩⟩
 
 private theorem inf_centralizer_eq_bot_of_commutator_eq_top
     {G : Type*} [Group G] [Finite G] {Q D : Subgroup G}

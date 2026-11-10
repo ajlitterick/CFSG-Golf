@@ -70,8 +70,6 @@ attribute [local instance] quotF2Module
     rw [hα] at h1
     exact h1
 
-@[expose] def innOf (K : Subgroup P) : Subgroup (MulAut P) :=
-  K.map MulAut.conj
 
 theorem mem_autStab_iff {K : Subgroup P} {β : MulAut P} :
     β ∈ autStab K ↔ K.map β.toMonoidHom = K :=
@@ -174,9 +172,6 @@ theorem zlog_eq_zero_iff {x : P} (hx : x = 1 ∨ x = z) : zlog z x = 0 ↔ x = 1
   · simp [H.zlog_one]
   · rw [zlog_self]; simp [H.z_ne_one]
 
-theorem pv_spec (r k : P) : r⁻¹ * k⁻¹ * r * k = z ^ (pv z r k).val := by
-  rw [pv]
-  exact H.eq_zpow_zlog (H.inv_comm_eq r k ▸ H.comm_pair r k)
 
 theorem pv_eq_zlog (r k : P) : pv z r k = zlog z ⁅r, k⁆ := by
   rw [pv, H.inv_comm_eq]
@@ -327,10 +322,6 @@ theorem card_vsp (H : PtwHyp P w z K) : Nat.card (Vsp K z) = 2 ^ w := by
   rw [H.card_K, zIn_card H, pow_succ] at h
   exact (Nat.eq_of_mul_eq_mul_right (by norm_num) h).symm
 
-theorem finrank_vsp [Finite P] (H : PtwHyp P w z K) : finrank (ZMod 2) (Vsp K z) = w := by
-  have h := FiniteField.pow_finrank_eq_natCard 2 (Vsp K z)
-  rw [card_vsp H] at h
-  exact Nat.pow_right_injective (le_refl 2) h
 
 theorem card_dual_vsp [Finite P] (H : PtwHyp P w z K) :
     Nat.card (Dual (ZMod 2) (Vsp K z)) = 2 ^ w := by
@@ -388,20 +379,6 @@ theorem frHom_ker [Finite P] (H : PtwHyp P w z K) : (frHom H).ker = K := by
     exact Nat.eq_of_mul_eq_mul_right (by positivity) hcard
   exact (Subgroup.eq_of_le_of_card_ge hle (by rw [hker, H.card_K])).symm
 
-theorem exists_eq_fr_apply [Finite P] (H : PtwHyp P w z K) (l : P →* Multiplicative (ZMod 2))
-    (hl : K ≤ l.ker) : ∃ v : Vsp K z, ∀ r, Multiplicative.toAdd (l r) = fr H r v := by
-  set e := QuotientGroup.liftEquiv (frHom H).ker (frHom_surjective H) rfl with he
-  set μ₀ : P ⧸ (frHom H).ker →* Multiplicative (ZMod 2) :=
-    QuotientGroup.lift (frHom H).ker l (by rw [frHom_ker H]; exact hl) with hμ₀
-  set μ : Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] ZMod 2 :=
-    (AddMonoidHom.toMultiplicative.symm (μ₀.comp e.symm.toMonoidHom)).toZModLinearMap 2 with hμ
-  refine ⟨(evalEquiv (ZMod 2) (Vsp K z)).symm μ, fun r => ?_⟩
-  rw [apply_evalEquiv_symm_apply]
-  have h1 : e.symm (frHom H r) = (r : P ⧸ (frHom H).ker) := by
-    rw [MulEquiv.symm_apply_eq, he, QuotientGroup.liftEquiv_coe]
-  change Multiplicative.toAdd (l r) =
-    Multiplicative.toAdd (μ₀ (e.symm (Multiplicative.ofAdd (fr H r))))
-  rw [← frHom_apply, h1, hμ₀, QuotientGroup.lift_mk]
 
 end Perfect
 
@@ -581,103 +558,6 @@ theorem disp_mul [Finite P] (H : PtwHyp P w z K) (α γ : autFixing K) (r : P) :
     congr 2
     exact Subtype.ext (disp_mul H α γ r)
 
-theorem tHom_apply [Finite P] (H : PtwHyp P w z K) (α : autFixing K) :
-    ((Multiplicative.toAdd (tHom H α) : altHom (ZMod 2) (Vsp K z)) :
-      Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z) = tLin H α :=
-  rfl
-
-theorem innOf_le_autFixing : innOf K ≤ autFixing K := by
-  rintro _ ⟨k, hk, rfl⟩ k' hk'
-  rw [MulAut.conj_apply]
-  have := congrArg Subtype.val (K_comm ⟨k, hk⟩ ⟨k', hk'⟩)
-  change k * k' = k' * k at this
-  rw [this, mul_inv_cancel_right]
-
-theorem tHom_ker [Finite P] (H : PtwHyp P w z K) :
-    (tHom H).ker = (innOf K).subgroupOf (autFixing K) := by
-  ext α
-  rw [MonoidHom.mem_ker, Subgroup.mem_subgroupOf]
-  constructor
-  · intro hα
-    have h0 : tLin H α = 0 := by
-      have := congrArg (fun x => ((Multiplicative.toAdd x : altHom (ZMod 2) (Vsp K z)) :
-        Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z)) hα
-      exact this
-    have hzr : ∀ r, (α : MulAut P) r * r⁻¹ ∈ zpowers z := by
-      intro r
-      have := LinearMap.congr_fun h0 (fr H r)
-      rw [tLin_fr, LinearMap.zero_apply, vsp_mk_eq_zero_iff] at this
-      exact this
-    let l : P →* Multiplicative (ZMod 2) :=
-      { toFun := fun r => Multiplicative.ofAdd (zlog z ((α : MulAut P) r * r⁻¹))
-        map_one' := by
-          rw [map_one, inv_one, mul_one, H.zlog_one]
-          rfl
-        map_mul' := fun r s => by
-          rw [← ofAdd_add, ← H.zlog_mul (H.pair_of_mem (hzr r)) (H.pair_of_mem (hzr s))]
-          congr 2
-          have hc := mem_center_iff.mp (H.center_eq ▸ hzr s : (α : MulAut P) s * s⁻¹ ∈ center P)
-          calc (α : MulAut P) (r * s) * (r * s)⁻¹
-              = (α : MulAut P) r * ((α : MulAut P) s * s⁻¹) * r⁻¹ := by rw [map_mul]; group
-            _ = (α : MulAut P) r * (r⁻¹ * ((α : MulAut P) s * s⁻¹)) := by
-                rw [mul_assoc, hc r⁻¹]
-            _ = (α : MulAut P) r * r⁻¹ * ((α : MulAut P) s * s⁻¹) := by group }
-    have hl : K ≤ l.ker := by
-      intro k hk
-      rw [MonoidHom.mem_ker]
-      change Multiplicative.ofAdd (zlog z ((α : MulAut P) k * k⁻¹)) = 1
-      rw [α.2 k hk, mul_inv_cancel, H.zlog_one]
-      rfl
-    obtain ⟨v, hv⟩ := exists_eq_fr_apply H l hl
-    obtain ⟨k₀, hk₀⟩ := QuotientGroup.mk_surjective (Additive.toMul v)
-    have hv' : v = Additive.ofMul (QuotientGroup.mk k₀) := by rw [hk₀]; rfl
-    refine ⟨(k₀ : P)⁻¹, inv_mem k₀.2, ?_⟩
-    ext r
-    have h1 := hv r
-    rw [hv', fr_apply] at h1
-    change zlog z ((α : MulAut P) r * r⁻¹) = pv z r k₀ at h1
-    rw [H.pv_eq_zlog] at h1
-    have h2 : (α : MulAut P) r * r⁻¹ = ⁅r, (k₀ : P)⁆ := by
-      rcases H.pair_of_mem (hzr r) with h3 | h3 <;> rcases H.comm_pair r k₀ with h4 | h4
-      · rw [h3, h4]
-      · rw [h3, h4, H.zlog_one, PtwHyp.zlog_self] at h1; exact absurd h1 (by decide)
-      · rw [h3, h4, H.zlog_one, PtwHyp.zlog_self] at h1; exact absurd h1 (by decide)
-      · rw [h3, h4]
-    have h3 : (α : MulAut P) r = ⁅r, (k₀ : P)⁆ * r := by rw [← h2, inv_mul_cancel_right]
-    change MulAut.conj (k₀ : P)⁻¹ r = (α : MulAut P) r
-    rw [MulAut.conj_apply, h3, inv_inv]
-    have h5 : ⁅(k₀ : P)⁻¹, r⁆ = ⁅r, (k₀ : P)⁆ := by
-      rw [H.comm_inv_left, ← commutatorElement_inv]
-      rcases H.comm_pair r (k₀ : P) with h6 | h6
-      · rw [h6, inv_one]
-      · rw [h6]; exact (inv_eq_of_mul_eq_one_left H.z_mul_z)
-    rw [← h5, commutatorElement_def, inv_inv]
-    group
-  · rintro ⟨k, hk, hα⟩
-    change Multiplicative.ofAdd _ = Multiplicative.ofAdd 0
-    congr 1
-    apply Subtype.ext
-    refine ext_dual H fun r => ?_
-    rw [tLin_fr, ZeroMemClass.coe_zero, LinearMap.zero_apply, vsp_mk_eq_zero_iff]
-    change (α : MulAut P) r * r⁻¹ ∈ zpowers z
-    have hαk : (α : MulAut P) = MulAut.conj k := hα.symm
-    rw [hαk, MulAut.conj_apply, ← H.commutator_eq]
-    have : k * r * k⁻¹ * r⁻¹ = ⁅k, r⁆ := (commutatorElement_def k r).symm
-    rw [this]
-    exact commutator_mem_commutator (mem_top k) (mem_top r)
-
-theorem exists_quot_injective [Finite P] (H : PtwHyp P w z K) :
-    ∃ _ : ((innOf K).subgroupOf (autFixing K)).Normal,
-      ∃ φ : autFixing K ⧸ (innOf K).subgroupOf (autFixing K) →*
-        Multiplicative (altHom (ZMod 2) (Vsp K z)),
-        Function.Injective φ ∧ ∀ α, φ (QuotientGroup.mk α) = tHom H α := by
-  have hN : ((innOf K).subgroupOf (autFixing K)).Normal := by
-    rw [← tHom_ker H]
-    infer_instance
-  refine ⟨hN, QuotientGroup.lift _ (tHom H) (tHom_ker H).symm.le, ?_,
-    fun _ => rfl⟩
-  rw [← MonoidHom.ker_eq_bot_iff, QuotientGroup.ker_lift, tHom_ker H,
-    QuotientGroup.map_mk'_self]
 
 end THom
 
@@ -714,40 +594,6 @@ theorem hInd_mk (H : PtwHyp P w z K) {β : MulAut P} (hβ : β ∈ autStab K) (k
       Additive.ofMul (QuotientGroup.mk ⟨β k, apply_mem_of_mem_autStab hβ k.2⟩) :=
   rfl
 
-omit [CFSG.IsElementaryAbelian 2 K] in
-theorem conj_mem_autFixing {β : MulAut P} (hβ : β ∈ autStab K) {α : MulAut P}
-    (hα : α ∈ autFixing K) : β * α * β⁻¹ ∈ autFixing K := by
-  intro k hk
-  have hk' : β⁻¹ k ∈ K := apply_mem_of_mem_autStab (inv_mem hβ) hk
-  rw [MulAut.mul_apply, MulAut.mul_apply, hα _ hk', MulAut.apply_inv_self]
-
-theorem dualMap_hInd_fr (H : PtwHyp P w z K) {β : MulAut P} (hβ : β ∈ autStab K) (r : P) :
-    (hInd H hβ).dualMap (fr H r) = fr H (β⁻¹ r) := by
-  refine LinearMap.ext fun v => ?_
-  induction v using vsp_induction with
-  | h k =>
-    rw [LinearMap.dualMap_apply, hInd_mk, fr_apply, fr_apply]
-    have := pv_aut H β⁻¹ r (β k)
-    rw [MulAut.inv_apply_self] at this
-    exact this.symm
-
-theorem tLin_conj [Finite P] (H : PtwHyp P w z K) {β : MulAut P} (hβ : β ∈ autStab K)
-    (α : autFixing K) :
-    tLin H ⟨β * α * β⁻¹, conj_mem_autFixing hβ α.2⟩ =
-      hInd H hβ ∘ₗ tLin H α ∘ₗ (hInd H hβ).dualMap := by
-  refine ext_dual H fun r => ?_
-  rw [LinearMap.comp_apply, LinearMap.comp_apply, dualMap_hInd_fr, tLin_fr, tLin_fr, hInd_mk]
-  congr 2
-  apply Subtype.ext
-  change (β * α * β⁻¹) r * r⁻¹ = β ((α : MulAut P) (β⁻¹ r) * (β⁻¹ r)⁻¹)
-  rw [map_mul, map_inv, MulAut.apply_inv_self, MulAut.mul_apply, MulAut.mul_apply]
-
-theorem hInd_comp_mem_altHom (H : PtwHyp P w z K) {β : MulAut P} (hβ : β ∈ autStab K)
-    {T : Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z} (hT : T ∈ altHom (ZMod 2) (Vsp K z)) :
-    hInd H hβ ∘ₗ T ∘ₗ (hInd H hβ).dualMap ∈ altHom (ZMod 2) (Vsp K z) := by
-  intro f
-  rw [LinearMap.comp_apply, LinearMap.comp_apply, ← LinearMap.dualMap_apply]
-  exact hT _
 
 end Equivariance
 
@@ -771,71 +617,8 @@ variable {w : ℕ} {z : P} {K : Subgroup P} [CFSG.IsElementaryAbelian 2 K]
         congr 2
         exact Subtype.ext (MulAut.inv_apply_self P β k))
 
-theorem hEquiv_toLinearMap (H : PtwHyp P w z K) {β : MulAut P} (hβ : β ∈ autStab K) :
-    (hEquiv H hβ).toLinearMap = hInd H hβ :=
-  rfl
 
 end HEquiv
 
-
-theorem class_two_maximal_elementary_pointwise_automorphism_module [Finite P] {w : ℕ}
-    (_hw : 1 ≤ w) (hP : Nat.card P = 2 ^ (1 + 2 * w)) {z : P} (hZ : center P = zpowers z)
-    (hP' : commutator P = zpowers z) (hz : orderOf z = 2) (K : Subgroup P)
-    [CFSG.IsElementaryAbelian 2 K] (hK : Nat.card K = 2 ^ (w + 1)) (hzK : z ∈ K) :
-    Nat.card (Vsp K z) = 2 ^ w ∧ finrank (ZMod 2) (Vsp K z) = w ∧
-    K.Normal ∧ K.index = 2 ^ w ∧ (∀ r s : P, r ^ 2 ∈ K ∧ ⁅r, s⁆ ∈ K) ∧
-    ∃ f : P → Dual (ZMod 2) (Vsp K z),
-      (∀ (r : P) (k : K), r⁻¹ * (k : P)⁻¹ * r * k =
-        z ^ (f r (Additive.ofMul (QuotientGroup.mk k))).val) ∧
-      (∀ r s, f (r * s) = f r + f s) ∧ (∀ r, f r = 0 ↔ r ∈ K) ∧ Function.Surjective f ∧
-      (∀ v, (∀ r, f r v = 0) → v = 0) ∧
-      (∀ l : P →* Multiplicative (ZMod 2), K ≤ l.ker →
-        ∃ v, ∀ r, Multiplicative.toAdd (l r) = f r v) ∧
-      finrank (ZMod 2) (altHom (ZMod 2) (Vsp K z)) = w * (w - 1) / 2 ∧
-      ∃ T : autFixing K →* Multiplicative (altHom (ZMod 2) (Vsp K z)),
-        (∀ (α : autFixing K) (r : P), ∃ k : K, (k : P) = (α : MulAut P) r * r⁻¹ ∧
-          ((Multiplicative.toAdd (T α) : altHom (ZMod 2) (Vsp K z)) :
-            Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z) (f r) =
-              Additive.ofMul (QuotientGroup.mk k)) ∧
-        innOf K ≤ autFixing K ∧ T.ker = (innOf K).subgroupOf (autFixing K) ∧
-        (∃ _ : ((innOf K).subgroupOf (autFixing K)).Normal,
-          ∃ φ : autFixing K ⧸ (innOf K).subgroupOf (autFixing K) →*
-            Multiplicative (altHom (ZMod 2) (Vsp K z)),
-            Function.Injective φ ∧ ∀ α, φ (QuotientGroup.mk α) = T α) ∧
-        ∀ β ∈ autStab K, ∃ h : Vsp K z ≃ₗ[ZMod 2] Vsp K z,
-          (∀ k : K, ∃ k' : K, (k' : P) = β k ∧
-            h (Additive.ofMul (QuotientGroup.mk k)) = Additive.ofMul (QuotientGroup.mk k')) ∧
-          (∀ U ∈ altHom (ZMod 2) (Vsp K z),
-            h.toLinearMap ∘ₗ U ∘ₗ h.toLinearMap.dualMap ∈ altHom (ZMod 2) (Vsp K z)) ∧
-          ∀ α γ : autFixing K, (γ : MulAut P) = β * α * β⁻¹ →
-            ((Multiplicative.toAdd (T γ) : altHom (ZMod 2) (Vsp K z)) :
-              Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z) =
-              h.toLinearMap ∘ₗ ((Multiplicative.toAdd (T α) : altHom (ZMod 2) (Vsp K z)) :
-                Dual (ZMod 2) (Vsp K z) →ₗ[ZMod 2] Vsp K z) ∘ₗ h.toLinearMap.dualMap := by
-  have H : PtwHyp P w z K := ⟨hP, hZ, hP', hz, hK, hzK⟩
-  have hzpK : zpowers z ≤ K := by rw [zpowers_le]; exact hzK
-  have hcomm : ∀ r s : P, ⁅r, s⁆ ∈ K := fun r s =>
-    hzpK (hP' ▸ commutator_mem_commutator (mem_top r) (mem_top s))
-  have hnormal : K.Normal := ⟨fun k hk g => by
-    have : g * k * g⁻¹ = ⁅g, k⁆ * k := by rw [commutatorElement_def]; group
-    rw [this]
-    exact mul_mem (hcomm g k) hk⟩
-  have hindex : K.index = 2 ^ w := by
-    have h := K.card_mul_index
-    rw [hK, hP] at h
-    have : 2 ^ (1 + 2 * w) = 2 ^ (w + 1) * 2 ^ w := by rw [← pow_add]; congr 1; ring
-    rw [this] at h
-    exact Nat.eq_of_mul_eq_mul_left (by positivity) h
-  refine ⟨card_vsp H, finrank_vsp H, hnormal, hindex, fun r s => ⟨hzpK (H.sq_mem r), hcomm r s⟩,
-    fr H, fun r k => H.pv_spec r k, fr_mul H, fun r => ?_, fr_surjective H, eq_zero_of_fr H,
-    exists_eq_fr_apply H, ?_, tHom H, fun α r => ⟨⟨_, disp_mem H α.2 r⟩, rfl, tLin_fr H α r⟩,
-    innOf_le_autFixing, tHom_ker H, ?_, fun β hβ => ?_⟩
-  · rw [← mem_frHom_ker, frHom_ker H]
-  · rw [finrank_altHom, finrank_vsp H]
-  · exact exists_quot_injective H
-  · refine ⟨hEquiv H hβ, fun k => ⟨⟨β k, apply_mem_of_mem_autStab hβ k.2⟩, rfl, hInd_mk H hβ k⟩,
-      fun U hU => hInd_comp_mem_altHom H hβ hU, fun α γ hγ => ?_⟩
-    have hγ' : γ = ⟨β * α * β⁻¹, conj_mem_autFixing hβ α.2⟩ := Subtype.ext hγ
-    rw [hγ', hEquiv_toLinearMap, tHom_apply, tHom_apply, tLin_conj]
 
 end CFSG.LocalAnalysis.GorensteinLyons

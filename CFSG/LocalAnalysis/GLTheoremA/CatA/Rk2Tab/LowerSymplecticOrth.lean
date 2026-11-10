@@ -476,15 +476,6 @@ theorem rk2_low_d_ge {K : Type} [Group K] [Finite K] {lab : GLALabel}
     lab.rank ≤ evenRank K :=
   rk2_low_d_ge_aux hK htag hℓ hn
 
-theorem rk2_low_bcd_ge {K : Type} [Group K] [Finite K] {lab : GLALabel}
-    (hK : Rk2IsLabel K lab) (htag : lab.tag = .B ∨ lab.tag = .C ∨ lab.tag = .D)
-    (hn : 2 ≤ lab.n) (hD : lab.tag = .D → 4 ≤ lab.rank) :
-    lab.rank ≤ evenRank K := by
-  rcases htag with hB | hC | hD'
-  · exact rk2_low_bc_ge hK (Or.inl hB) hn
-  · exact rk2_low_bc_ge hK (Or.inr hC) hn
-  · exact rk2_low_d_ge hK hD' (hD hD') hn
-
 
 private theorem le_evenRank_statedSp_q2_of_markedModel {K F : Type} [Group K] [Finite K]
     [Field F] [Finite F] [CharP F 2] {ℓ : ℕ} (hℓ : 2 ≤ ℓ)

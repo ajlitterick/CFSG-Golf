@@ -79,26 +79,6 @@ structure Sec8Std (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : 
       IsoGTwoEven (L ⧸ aschbacherSolvableCore 3 L) (3 * n) →
     IsoGTwoEven (barCentralizer (Subgroup.zpowers a) L) n
 
-@[expose] def Item84 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a d : G) (n : ℕ),
-    Sec8Std G A c L a d n → ∀ (f : G) (Lf : Subgroup G), PairRel A c L f Lf →
-      (f, Lf) ∈ pairOmega A ∧
-        (∀ e ∈ Subgroup.closure {c, f}, e ∉ Subgroup.zpowers f → IsGammaIndex A Lf e n) ∧
-        (KFacts.InducesStdKind Lf a .field ∨ KFacts.InducesStdKind Lf a .graphField) ∧
-        PairRel A f Lf c L
-
-@[expose] def Item85 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a d : G) (n : ℕ),
-    Sec8Std G A c L a d n →
-      ∀ S ∈ invariantPiSubgroups L (Subgroup.closure {c, a, d}) (piOf 2), S ≠ ⊥ →
-        ∀ d' ∈ gammaSet A L, d' ∈ Subgroup.closure {c, a, d} →
-          (∃ b ∈ Subgroup.closure {c, d'}, b ≠ 1 ∧
-            ⁅inSubgroup (CFSG.pCore 2) (Subgroup.centralizer (S : Set G)) ⊓
-              Subgroup.centralizer {b}, Subgroup.zpowers c⁆ ≠ ⊥) ∧
-          ∀ b ∈ Subgroup.closure {c, d'}, b ≠ 1 →
-            ⁅inSubgroup (CFSG.pCore 2) (Subgroup.centralizer (S : Set G)) ⊓
-              Subgroup.centralizer {b}, Subgroup.zpowers c⁆ ≠ ⊥ →
-            ∃! X : Subgroup G, PairRel A c L b X
 
 @[expose] def IsUnitaryTwo (X : Type) [Group X] (m : ℕ) : Prop :=
   Nonempty (X ≃* projSU 3 2 m) ∨ IsoSUThree X (2 ^ m)
@@ -106,21 +86,6 @@ structure Sec8Std (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : 
 @[expose] def IsList86 (X : Type) [Group X] (n : ℕ) : Prop :=
   IsoTrialityD4 X n ∨ IsoGTwoEven X (3 * n) ∨ Nonempty (X ≃* projSp 2 (GaloisField 2 (3 * n)))
 
-@[expose] def Item86 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a d : G) (n : ℕ),
-    Sec8Std G A c L a d n → IsUnitaryTwo (L ⧸ aschbacherSolvableCore 3 L) (3 * n) →
-      ∀ d' ∈ gammaSet A L,
-        (∃ b ∈ Subgroup.closure {c, d'}, b ∉ Subgroup.zpowers c ∧ ∃ X : Subgroup G,
-          PairRel A c L b X ∧ IsList86 (X ⧸ aschbacherSolvableCore 3 X) n) ∧
-        ∀ b ∈ Subgroup.closure {c, d'}, b ∉ Subgroup.zpowers c → ∀ X : Subgroup G,
-          PairRel A c L b X → IsList86 (X ⧸ aschbacherSolvableCore 3 X) n →
-            IsoGTwoEven (barCentralizer (Subgroup.zpowers a) X) n ∨
-            (IsoTrialityD4 (X ⧸ aschbacherSolvableCore 3 X) n ∧
-              IsoPGUThree (barCentralizer (Subgroup.zpowers a) X) (2 ^ n) ∧
-              ∃ ε : ℤ, (ε = 1 ∨ ε = -1) ∧
-                IsoGTwoEven (barCentralizer (Subgroup.zpowers (a * c ^ ε)) X) n) ∨
-            (Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSp 2 (GaloisField 2 (3 * n))) ∧
-              Nonempty (barCentralizer (Subgroup.zpowers a) X ≃* projSp 2 (GaloisField 2 n)))
 
 @[expose] def Sec8PairGTwo [Finite G] (L : Subgroup G) (a : G) (n : ℕ) : Prop :=
   IsoTrialityD4 (L ⧸ aschbacherSolvableCore 3 L) n ∨
@@ -140,10 +105,6 @@ structure Sec8Pair (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L :
   gTwo : Sec8PairGTwo L a n
   gTwoPartner : ∀ m : ℕ, Sec8PairGTwo X a m
 
-@[expose] def Choice86 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a d : G) (n : ℕ),
-    Sec8Std G A c L a d n → ∃ (c' : G) (L' : Subgroup G) (b : G) (X : Subgroup G),
-      ((c' = c ∧ L' = L) ∨ PairRel A c L c' L') ∧ Sec8Pair G A c' L' a b X n
 
 @[expose] noncomputable def sec8I [Finite G] (L : Subgroup G) (a : G) : Subgroup G :=
   open scoped _root_.Classical in
@@ -193,19 +154,5 @@ structure Sec8Pair (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L :
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a b : G)
     (X : Subgroup G) (n : ℕ), ¬ Sec8Pair G A c L a b X n
 
-theorem item812_of
-    (h83 : Item83) (h83a : Item83After)
-    (h86 : Choice86) (hnever : Sec8Never) : Item812 := by
-  intro G _ _ A c L a h
-  obtain ⟨E, hE, hEA⟩ := h.mem_partTwoF.2.2
-  have hle : 27 ≤ Nat.card A := hE.2.1 ▸ Subgroup.card_le_of_le hEA
-  rcases hle.lt_or_eq with hbig | h27
-  · exfalso
-    obtain ⟨A₀, d, n, hd⟩ := h83 G A c L a h hbig
-    obtain ⟨-, -, a', -, h81', hd', hg2⟩ := h83a G A c L a h hbig A₀ d n hd
-    obtain ⟨c', L', b, X, -, hpair⟩ :=
-      h86 G A₀ c L a' d n { h81' with data83 := hd', gTwo := hg2 }
-    exact hnever G A₀ c' L' a' b X n hpair
-  · exact h27.symm
 
 end CFSG.RankThree.PartTwo.Sec8

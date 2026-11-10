@@ -56,13 +56,6 @@ theorem two_le_rk_of_free (hV : ∀ v : V, v ^ 2 = 1) {W : Subgroup V} {x : MulA
   have : 2 ^ rk W ≤ 2 ^ 1 := Nat.pow_le_pow_right (by norm_num) (by omega)
   omega
 
-theorem even_rk_of_free (hV : ∀ v : V, v ^ 2 = 1) {Y : Subgroup (MulAut V)}
-    (hY : Nat.card Y = 3) {F : Subgroup V} (hF : ∀ g ∈ Y, ∀ f ∈ F, g f ∈ F)
-    (hfix : F ⊓ fixV Y = ⊥) : Even (rk F) := by
-  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  have h := prime_dvd_card_sub_one hY hF hfix
-  rw [card_eq_two_pow hV F] at h
-  exact even_of_three_dvd_two_pow_sub_one h
 
 omit [Finite V] in
 theorem mem_stabSub_of_zpowers {g : MulAut V} {W : Subgroup V}

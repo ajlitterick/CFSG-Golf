@@ -22,10 +22,6 @@ theorem lemma_4_4_5_core (h : Hyp4_4_1Core G T M L B Tp) :
     (hBX.trans (normalizer_le_normalizer_pCoreOf 2 _)) h.commutator_le
     (conjClosure_perfect h.maximal.1.2.1.2.1)
 
-theorem lemma_4_4_5 (h : Hyp4_4_1Two G T M L B Tp) :
-    conjClosure L T = perfectCore (conjClosure L T ⊓ Subgroup.centralizer (B : Set G)) ⊔
-      pCoreOf 2 (conjClosure L T) :=
-  lemma_4_4_5_core h.toHyp4_4_1Core
 
 theorem lemma_4_4_5_orbit (h : Hyp4_4_1TwoOrbit G T M L B Tp) :
     conjClosure L T = perfectCore (conjClosure L T ⊓ Subgroup.centralizer (B : Set G)) ⊔

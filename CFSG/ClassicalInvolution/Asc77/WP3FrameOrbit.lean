@@ -65,13 +65,5 @@ theorem ChainFrameData.hyp51_of_vertices (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ 
 
 end Data
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem chainFrameHyp51_of_vertices (hz : ChainFrameHyp51z (p := p) (f := f))
-    (ht : ChainFrameHyp51t (p := p) (f := f)) (hzt : ChainFrameHyp51zt (p := p) (f := f)) :
-    ChainFrameHyp51 (p := p) (f := f) := by
-  intro G _ _ _ Ω K J K' z t z' hs
-  exact hs.frame.hyp51_of_vertices hs.odd hs.five hs.hyp hs.symm (hz G Ω K J K' z t z' hs)
-    (ht G Ω K J K' z t z' hs) (hzt G Ω K J K' z t z' hs)
 
 end CFSG.ClassicalInvolution.Asc77

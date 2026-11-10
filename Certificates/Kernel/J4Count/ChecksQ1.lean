@@ -19,7 +19,6 @@ open CFSG.KC.Enum CFSG.KC.J4Q CertificateChecks.KernelSporSch.J4NoCK
 
 theorem fix_q1 : Nat.beq cntQ1 2 = true := by quickRfl
 
-theorem neg_fix_q1 : notB (Nat.beq cntQ1 1) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Count
 

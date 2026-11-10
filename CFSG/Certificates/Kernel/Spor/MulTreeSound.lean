@@ -96,14 +96,6 @@ theorem mulTree_eq {n gs sz : Nat} {gens : Array (Array Nat)} {par lab : Array N
   rw [mulTree, hsz, Nat.add_sub_cancel]
   exact key s (by omega)
 
-theorem itn_rep {n : Nat} {t : Array Nat} {G : Equiv.Perm (Fin n)} (ht : Rep n t G) {g : Nat → Nat}
-    (hg : ∀ z < n, g z = t[z]!) : ∀ k, ∀ z (hz : z < n), itn g k z = ((G ^ k) ⟨z, hz⟩ : Nat)
-  | 0, z, hz => by rw [pow_zero]; rfl
-  | k + 1, z, hz => by
-    have ih := itn_rep ht hg k z hz
-    change g (itn g k z) = _
-    rw [pow_succ', Equiv.Perm.mul_apply, hg _ (by rw [ih]; exact Fin.isLt _), ih]
-    exact ht _
 
 end CFSG.KS.MulTree
 

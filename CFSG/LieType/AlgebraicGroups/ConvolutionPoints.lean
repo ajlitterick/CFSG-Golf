@@ -23,25 +23,12 @@ theorem tauCetiGroup_eq :
     (TauCeti.AlgHom.instGroup : Group (WithConv (A →ₐ[R] C))) = AlgHom.convGroup :=
   Group.ext rfl
 
-theorem tauCetiCommGroup_eq [IsCocomm R A] :
-    (TauCeti.AlgHom.instCommGroup : CommGroup (WithConv (A →ₐ[R] C))) =
-      AlgHom.instCommGroupWithConvOfIsCocomm :=
-  CommGroup.ext rfl
 
 open scoped CFSG.ConvolutionPoints in
 theorem tauCeti_inv_eq (f : WithConv (A →ₐ[R] C)) :
     (letI := (TauCeti.AlgHom.instInv : Inv (WithConv (A →ₐ[R] C))); f⁻¹) = f⁻¹ :=
   congrArg (fun G : Group (WithConv (A →ₐ[R] C)) => G.inv f) tauCetiGroup_eq
 
-open scoped CFSG.ConvolutionPoints in
-theorem tauCeti_div_eq (f g : WithConv (A →ₐ[R] C)) :
-    (letI := (TauCeti.AlgHom.instGroup : Group (WithConv (A →ₐ[R] C))); f / g) = f / g :=
-  congrArg (fun G : Group (WithConv (A →ₐ[R] C)) => G.div f g) tauCetiGroup_eq
-
-open scoped CFSG.ConvolutionPoints in
-theorem tauCeti_zpow_eq (f : WithConv (A →ₐ[R] C)) (n : ℤ) :
-    (letI := (TauCeti.AlgHom.instGroup : Group (WithConv (A →ₐ[R] C))); f ^ n) = f ^ n :=
-  congrArg (fun G : Group (WithConv (A →ₐ[R] C)) => G.zpow n f) tauCetiGroup_eq
 
 theorem toConv_comp_antipodeAlgHom {F : Type*} [CommSemiring F] [Algebra R F] (φ : A →ₐ[R] F) :
     toConv (φ.comp (HopfAlgebra.antipodeAlgHom R A)) = (toConv φ)⁻¹ :=
@@ -83,11 +70,4 @@ open scoped CFSG.ConvolutionPoints in
 theorem mem_ofTauCeti_symm {S : Subgroup (WithConv (A →ₐ[R] C))} {f : WithConv (A →ₐ[R] C)} :
     f ∈ ofTauCeti.symm S ↔ f ∈ S :=
   Iff.rfl
-
-open scoped CFSG.ConvolutionPoints in
-def subgroupMulEquiv (S : @Subgroup (WithConv (A →ₐ[R] C)) TauCeti.AlgHom.instGroup) :
-    S ≃* ofTauCeti S where
-  toFun x := ⟨x, x.2⟩
-  invFun x := ⟨x, x.2⟩
-  map_mul' _ _ := rfl
 

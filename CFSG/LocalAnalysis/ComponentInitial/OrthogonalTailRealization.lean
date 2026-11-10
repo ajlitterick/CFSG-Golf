@@ -116,66 +116,8 @@ theorem exists_semiSim_of_polarOrtho [FiniteDimensional K A] (hr : 3 ≤ r)
 
 section Coord
 
-variable {m : ℕ}
-
-@[expose] def tailSCoord (σ : K ≃+* K) (v : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    (Fin r ⊕ Fin r → K) × (Fin m → K) :=
-  (fun x => σ (v.1 x), fun j => σ (v.2 j))
-
-theorem tailSCoord_symm_tailSCoord (σ : K ≃+* K) (v : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    tailSCoord σ.symm (tailSCoord σ v) = v := by
-  simp [tailSCoord]
-
-theorem tailSCoord_tailSCoord_symm (σ : K ≃+* K) (v : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    tailSCoord σ (tailSCoord σ.symm v) = v := by
-  simp [tailSCoord]
-
-theorem tailSCoord_add (σ : K ≃+* K) (v w : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    tailSCoord σ (v + w) = tailSCoord σ v + tailSCoord σ w :=
-  Prod.ext (funext fun x => by simp [tailSCoord]) (funext fun j => by simp [tailSCoord])
-
-theorem tailSCoord_smul (σ : K ≃+* K) (c : K) (v : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    tailSCoord σ (c • v) = σ c • tailSCoord σ v :=
-  Prod.ext (funext fun x => by simp [tailSCoord]) (funext fun j => by simp [tailSCoord])
-
-@[expose] noncomputable def SemiSim.linearPart
-    {Q : QuadraticForm K ((Fin r ⊕ Fin r → K) × (Fin m → K))} (T : SemiSim Q Q) :
-    ((Fin r ⊕ Fin r → K) × (Fin m → K)) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × (Fin m → K)) where
-  toFun v := T.e (tailSCoord T.σ.symm v)
-  invFun w := tailSCoord T.σ (T.e.symm w)
-  map_add' v w := by rw [tailSCoord_add, T.map_add']
-  map_smul' c v := by
-    rw [tailSCoord_smul, T.map_smul', RingEquiv.apply_symm_apply, RingHom.id_apply]
-  left_inv v := by
-    simp only [Equiv.symm_apply_apply, tailSCoord_tailSCoord_symm]
-  right_inv w := by
-    simp only [tailSCoord_symm_tailSCoord, Equiv.apply_symm_apply]
-
-theorem SemiSim.linearPart_tailSCoord {Q : QuadraticForm K ((Fin r ⊕ Fin r → K) × (Fin m → K))}
-    (T : SemiSim Q Q) (v : (Fin r ⊕ Fin r → K) × (Fin m → K)) :
-    T.linearPart (tailSCoord T.σ v) = T.e v := by
-  change T.e (tailSCoord T.σ.symm (tailSCoord T.σ v)) = T.e v
-  rw [tailSCoord_symm_tailSCoord]
 
 end Coord
 
-theorem orthogonal_geometry_tail_polar_realization {K : Type*} [Field K] {r m : ℕ} (hr : 3 ≤ r)
-    {qA : QuadraticForm K (Fin m → K)} (hani : qA.Anisotropic)
-    (hreg : (polarBilin qA).Nondegenerate)
-    (φ : Points (quadTail r qA) ≃ Points (quadTail r qA))
-    (hφ : ∀ L M : Points (quadTail r qA),
-      PolarOrtho (quadTail r qA) L.val M.val ↔ PolarOrtho (quadTail r qA) (φ L).val (φ M).val) :
-    ∃ (A₀ : ((Fin r ⊕ Fin r → K) × (Fin m → K)) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × (Fin m → K)))
-      (σ : K ≃+* K) (μ : K), μ ≠ 0 ∧
-      (∀ v, quadTail r qA (A₀ (tailSCoord σ v)) = μ * σ (quadTail r qA v)) ∧
-      ∀ L : Points (quadTail r qA), ((φ L).val : Set ((Fin r ⊕ Fin r → K) × (Fin m → K))) =
-        (fun v => A₀ (tailSCoord σ v)) '' (L.val : Set ((Fin r ⊕ Fin r → K) × (Fin m → K))) := by
-  obtain ⟨T, hT⟩ := exists_semiSim_of_polarOrtho hr hani hreg φ hφ
-  refine ⟨T.linearPart, T.σ, T.μ, T.μ_ne_zero, fun v => ?_, fun L => ?_⟩
-  · rw [T.linearPart_tailSCoord, T.map_quad']
-  · rw [hT L, T.coe_mapSub]
-    congr 1
-    funext v
-    exact (T.linearPart_tailSCoord v).symm
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

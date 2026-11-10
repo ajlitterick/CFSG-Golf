@@ -13,7 +13,6 @@ open scoped IsMulCommutative
 
 @[expose] def IsSemi (B : B6) : Prop := ∀ v < 64, B.app (wV v) = wV (wV (B.app v))
 
-theorem wV_ne_wV_wV : ∀ x < 64, x ≠ 0 → wV x ≠ wV (wV x) := by decide
 
 theorem sV_one : ∀ x < 64, sV 1 x = x := by decide
 
@@ -23,10 +22,6 @@ theorem sV_three : ∀ x < 64, sV 3 x = x ^^^ wV x := by decide
 
 theorem wV_wV_eq : ∀ x < 64, wV (wV x) = x ^^^ wV x := by decide
 
-theorem not_lin_and_semi {B : B6} (hv : B.Valid) (h1 : B.app 1 ≠ 0) (hl : IsLin B)
-    (hs : IsSemi B) : False := by
-  have := (hl 1 (by norm_num)).symm.trans (hs 1 (by norm_num))
-  exact wV_ne_wV_wV _ (B6.app_lt hv 1) h1 this
 
 theorem app_sV_scal {B : B6} (hv : B.Valid) (hB : IsLin B ∨ IsSemi B) {c : ℕ} (hc : c < 4)
     (hc0 : c ≠ 0) {v : ℕ} (hvl : v < 64) :
@@ -53,10 +48,6 @@ theorem pn_app_pn {B : B6} (hv : B.Valid) (hB : IsLin B ∨ IsSemi B) {v : ℕ} 
   obtain ⟨c', hc', hc'0, he'⟩ := app_sV_scal hv hB hc hc0 hvl
   rw [he, he', pn_sV _ (B6.app_lt hv v) _ hc' hc'0]
 
-theorem isLin_comp {B D : B6} (hB : IsLin B) (hD : IsLin D) (hDv : D.Valid) :
-    IsLin (B.comp D) := by
-  intro v hv
-  rw [B6.app_comp, B6.app_comp, hD v hv, hB _ (B6.app_lt hDv v)]
 
 theorem isLin_comp_semi {B D : B6} (hB : IsSemi B) (hD : IsSemi D) (hDv : D.Valid)
     (hBv : B.Valid) : IsLin (B.comp D) := by
@@ -65,16 +56,6 @@ theorem isLin_comp_semi {B D : B6} (hB : IsSemi B) (hD : IsSemi D) (hDv : D.Vali
   rw [B6.app_comp, B6.app_comp, hD v hv, hB _ (wV_lt _ hx), hB _ hx,
     wV_cube _ (B6.app_lt hBv _)]
 
-theorem isSemi_comp_lin {B D : B6} (hB : IsSemi B) (hD : IsLin D) (hDv : D.Valid) :
-    IsSemi (B.comp D) := by
-  intro v hv
-  rw [B6.app_comp, B6.app_comp, hD v hv, hB _ (B6.app_lt hDv v)]
-
-theorem isSemi_comp {B D : B6} (hB : IsLin B) (hD : IsSemi D) (hDv : D.Valid) :
-    IsSemi (B.comp D) := by
-  intro v hv
-  have hx := B6.app_lt hDv v
-  rw [B6.app_comp, B6.app_comp, hD v hv, hB _ (wV_lt _ hx), hB _ hx]
 
 theorem sign_eq_one_of_odd {α : Type} [Fintype α] [DecidableEq α] {σ : Equiv.Perm α}
     (h : Odd (orderOf σ)) : Equiv.Perm.sign σ = 1 := by

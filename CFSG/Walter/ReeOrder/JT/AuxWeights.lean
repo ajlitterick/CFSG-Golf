@@ -204,23 +204,6 @@ theorem map_conj_sq_or_cube (ρ : Representation K Γ V) (N : Subgroup Γ)
     rw [← map_pow] at h
     simpa [g'] using map_conj_eq_of_weightPerm_eq_one ρ N hN hNchar (g' ^ 3) h
 
-theorem map_conj_eq_of_coprime_six (ρ : Representation K Γ V) (N : Subgroup Γ)
-    (hN : ∀ a ∈ N, ∀ b ∈ N, ρ a * ρ b = ρ b * ρ a) (hNchar : ((Nat.card N : ℕ) : K) ≠ 0)
-    (hV : finrank K V ≤ 3) {g : Γ} (hg : g ∈ Subgroup.normalizer (N : Set Γ))
-    (hcop : Nat.Coprime (orderOf g) 6) :
-    ∀ n ∈ N, ρ (g * n * g⁻¹) = ρ n := by
-  obtain ⟨hfin, hcard⟩ := finite_weights_and_card_le ρ N hN hNchar
-  set g' : Subgroup.normalizer (N : Set Γ) := ⟨g, hg⟩
-  have h1 : orderOf (weightPerm ρ N g') ∣ orderOf g := by
-    have := orderOf_map_dvd (weightPerm ρ N) g'
-    rwa [Subgroup.orderOf_mk] at this
-  have h2 : orderOf (weightPerm ρ N g') ∣ 6 := by
-    rcases perm_sq_or_cube (hcard.trans hV) (weightPerm ρ N g') with h | h
-    · exact (orderOf_dvd_of_pow_eq_one h).trans (by norm_num)
-    · exact (orderOf_dvd_of_pow_eq_one h).trans (by norm_num)
-  have h3 : orderOf (weightPerm ρ N g') = 1 :=
-    Nat.Coprime.eq_one_of_dvd (hcop.coprime_dvd_left h1) h2
-  simpa [g'] using map_conj_eq_of_weightPerm_eq_one ρ N hN hNchar g' (orderOf_eq_one_iff.mp h3)
 
 theorem map_conj_eq_of_isPGroup (ρ : Representation K Γ V) (N : Subgroup Γ)
     (hN : ∀ a ∈ N, ∀ b ∈ N, ρ a * ρ b = ρ b * ρ a) (hNchar : ((Nat.card N : ℕ) : K) ≠ 0)

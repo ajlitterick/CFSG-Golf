@@ -16,7 +16,6 @@ open CFSG.Monster.B.Co2 (v0 wAct_mul wAct_one wAct_inv_apply wAct_apply_inv)
 
 theorem jhatS_mul (k k' : Jhat) : jhatS (k * k') = jhatS k * jhatS k' := rfl
 
-theorem jhatS_one : jhatS 1 = 1 := rfl
 
 theorem cvOf_jhatS_one :
     cvOf (jhatS 1) = cv0 := rfl
@@ -58,7 +57,6 @@ theorem coe_piPt_one :
 
 @[expose] def p1J {p : Dfull} (hp : p ∈ P1) : Jhat := ⟨p, P1_le_Jhat hp⟩
 
-theorem jhatS_p1J {p : Shat} (hp : (p : Dfull) ∈ P1) : jhatS (p1J hp) = p := rfl
 
 theorem jhatToKv0_mem_Usig
     {p : Jhat} (hp : (p : Dfull) ∈ P1) : jhatToKv0 p ∈ Unitary.Usig := by

@@ -87,44 +87,5 @@ theorem su_odd_central_large_prime_extension_splitting_two {p : ℕ} (hp : p.Pri
 
 end Split
 
-theorem nonempty_hypSU_mulEquiv_SU {f : ℕ} {K : Type} [Field K] (h : UnitaryFieldData 2 f K)
-    [Finite K] [Fact (Nat.Prime 2)] [CharP K 2] (r : ℕ) :
-    Nonempty (hypSU h r 1 ≃* SU (unitaryInvolution K 2 f) (2 * r + 1)) := by
-  have hF := card_eq_sq_of_unitaryFieldData h
-  obtain ⟨R0, hR0⟩ := exists_isHypTransport h (r := r) (ε := 1)
-  obtain ⟨P, hP⟩ := exists_wittMatrix hF (2 * r + 1)
-  exact ⟨((hypTransport h hR0).trans
-    (MulEquiv.subgroupCongr (SUid_eq_statedSU hF (2 * r + 1)).symm)).trans (conjEquiv P hP).symm⟩
-
-theorem odd_dimensional_even_unitary_central_large_prime_extension_splitting {f : ℕ} {K : Type}
-    [Field K] (h : UnitaryFieldData 2 f K) {r : ℕ} (hr : 2 ≤ r) {E : Type*} [Group E] [Finite E]
-    (π : E →* hypSU h r 1) (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E)
-    {p : ℕ} (hp : p.Prime) (hp3 : 3 < p) (hpk : IsPGroup p π.ker) :
-    ∃ s : hypSU h r 1 →* E, (∀ x, π (s x) = x) ∧
-      (∀ t : hypSU h r 1 →* E, (∀ x, π (t x) = x) → t = s) ∧
-      ∃ e : π.ker × s.range ≃* E, ∀ a, e a = (a.1 : E) * a.2 := by
-  have := h.finite
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have := h.charP
-  obtain ⟨Φ⟩ := nonempty_hypSU_mulEquiv_SU h r
-  have hker : (Φ.toMonoidHom.comp π).ker = π.ker := by
-    ext x
-    rw [MonoidHom.mem_ker, MonoidHom.mem_ker, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-      map_eq_one_iff _ Φ.injective]
-  have ho : ¬Even (2 * r + 1) := fun he => by
-    obtain ⟨m, hm⟩ := he
-    omega
-  obtain ⟨s, hs, huniq, -⟩ := su_odd_central_large_prime_extension_splitting_two h hp hp3
-    (n := 2 * r + 1) (by omega) ho (π := Φ.toMonoidHom.comp π) (Φ.surjective.comp hπ)
-    (hker ▸ hcen) (hker ▸ hpk)
-  have hs' : ∀ x, π (s.comp Φ.toMonoidHom x) = x := fun x => Φ.injective (hs (Φ x))
-  refine exists_section_mulEquiv_of_existsUnique hcen ⟨s.comp Φ.toMonoidHom, hs',
-    fun t ht => ?_⟩
-  have h1 := huniq (t.comp Φ.symm.toMonoidHom) (fun x => by
-    change Φ (π (t (Φ.symm x))) = x
-    rw [ht, MulEquiv.apply_symm_apply])
-  ext x
-  have := DFunLike.congr_fun h1 (Φ x)
-  simpa using this
 
 end CFSG.RankThree.CentralLiftU

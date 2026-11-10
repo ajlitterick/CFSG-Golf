@@ -47,39 +47,5 @@ theorem five_not_dvd_card_centralizer {Y : Type} [Group Y] [Finite Y]
   rw [hV1] at hc
   simp at hc
 
-theorem noNonHBlockAt_of_fpfV_card {Y : Type} [Group Y] [Finite Y] (hY : ¬ 5 ^ 2 ∣ Nat.card Y)
-    (Hy : Subgroup Y) {V : Subgroup Y} (h : FpfV V)
-    (hlt : Nat.card (Subgroup.normalizer (V : Set Y)) <
-      60 * Nat.card (Subgroup.centralizer (V : Set Y))) : NoNonHBlockAt Hy V := by
-  refine noNonHBlockAt_of_index Hy (five_not_dvd_card_centralizer hY h) ?_
-  intro hd
-  have hCN : Subgroup.centralizer (V : Set Y) ≤ Subgroup.normalizer (V : Set Y) :=
-    centralizer_le_normalizer_set V
-  have hmul : Nat.card (Subgroup.centralizer (V : Set Y)) *
-      (Subgroup.centralizer (V : Set Y)).relIndex (Subgroup.normalizer (V : Set Y)) =
-      Nat.card (Subgroup.normalizer (V : Set Y)) := by
-    have h1 := Subgroup.card_mul_index
-      ((Subgroup.centralizer (V : Set Y)).subgroupOf (Subgroup.normalizer (V : Set Y)))
-    have h2 : Nat.card ((Subgroup.centralizer (V : Set Y)).subgroupOf
-        (Subgroup.normalizer (V : Set Y))) = Nat.card (Subgroup.centralizer (V : Set Y)) :=
-      Nat.card_congr (Subgroup.subgroupOfEquivOfLe hCN).toEquiv
-    rw [h2] at h1
-    exact h1
-  have hpos : 0 < (Subgroup.centralizer (V : Set Y)).relIndex
-      (Subgroup.normalizer (V : Set Y)) := by
-    refine Nat.pos_of_ne_zero fun h0 => ?_
-    rw [h0, mul_zero] at hmul
-    exact (Nat.card_pos (α := ↥(Subgroup.normalizer (V : Set Y)))).ne' hmul.symm
-  have h60 : 60 ≤ (Subgroup.centralizer (V : Set Y)).relIndex
-      (Subgroup.normalizer (V : Set Y)) := Nat.le_of_dvd hpos hd
-  have : 60 * Nat.card (Subgroup.centralizer (V : Set Y)) ≤
-      Nat.card (Subgroup.normalizer (V : Set Y)) := by
-    calc 60 * Nat.card (Subgroup.centralizer (V : Set Y))
-        = Nat.card (Subgroup.centralizer (V : Set Y)) * 60 := mul_comm _ _
-      _ ≤ Nat.card (Subgroup.centralizer (V : Set Y)) *
-          (Subgroup.centralizer (V : Set Y)).relIndex (Subgroup.normalizer (V : Set Y)) :=
-        Nat.mul_le_mul_left _ h60
-      _ = Nat.card (Subgroup.normalizer (V : Set Y)) := hmul
-  omega
 
 end CFSG.QuasithinUnique.A5

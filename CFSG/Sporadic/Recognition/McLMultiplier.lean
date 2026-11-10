@@ -72,13 +72,6 @@ theorem card_griessHopfMultiplier_McL (hP : IsPresentation mclGen (wordSet mclRe
   rw [h1]
   exact card_griessHopfMultiplier_J hP hwg hcard h3
 
-theorem isCyclic_griessHopfMultiplier_McL (hP : IsPresentation mclGen (wordSet mclRels))
-    (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
-    (hcard : Finite MclCover ∧ Nat.card MclCover ≤ 2694384000)
-    (h3 : 3 ∣ orderOf (PresentedGroup.mk _ (FreeGroup.mk mclR0) : MclCover)) :
-    IsCyclic (griessHopfMultiplier CFSG.Blueprint.NativeSporadic.McL) := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  exact isCyclic_of_prime_card (card_griessHopfMultiplier_McL hP hwg hcard h3)
 
 theorem card_ker_dvd_three (hP : IsPresentation mclGen (wordSet mclRels))
     (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
@@ -106,16 +99,6 @@ theorem card_ker_dvd_three (hP : IsPresentation mclGen (wordSet mclRels))
   rw [h3', ← hmap] at hdvd
   exact hdvd
 
-theorem exists_triple_cover (hP : IsPresentation mclGen (wordSet mclRels))
-    (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
-    (hcard : Finite MclCover ∧ Nat.card MclCover ≤ 2694384000)
-    (h3 : 3 ∣ orderOf (PresentedGroup.mk _ (FreeGroup.mk mclR0) : MclCover)) :
-    ∃ (L : Type) (_ : Group L) (_ : Finite L) (_ : Group.IsPerfect L) (q : L →* J),
-      Function.Surjective q ∧ q.ker ≤ center L ∧ Nat.card q.ker = 3 := by
-  refine ⟨MclCover, inferInstance, hcard.1, presentedCover_isPerfect mclCommW_mem_commutator,
-    coverMap hP hwg, coverMap_surjective hP hwg, coverMap_ker_le_center hP hwg, ?_⟩
-  rw [← Nat.card_congr (griessHopfMultiplierEquivKer hP mclCommW_mem_commutator hwg).toEquiv]
-  exact card_griessHopfMultiplier_J hP hwg hcard h3
 
 theorem exists_mulEquiv_of_triple_cover (hP : IsPresentation mclGen (wordSet mclRels))
     (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
@@ -131,22 +114,6 @@ theorem exists_mulEquiv_of_triple_cover (hP : IsPresentation mclGen (wordSet mcl
     (hcardL ▸ hle)
   exact ⟨MulEquiv.ofBijective φ hφ, hcomp⟩
 
-theorem exists_mulEquiv_of_triple_covers (hP : IsPresentation mclGen (wordSet mclRels))
-    (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
-    (hcard : Finite MclCover ∧ Nat.card MclCover ≤ 2694384000) {L₁ L₂ : Type} [Group L₁]
-    [Group L₂] [Finite L₁] [Finite L₂] [Group.IsPerfect L₁] [Group.IsPerfect L₂] (q₁ : L₁ →* J)
-    (q₂ : L₂ →* J) (hq₁ : Function.Surjective q₁) (hq₂ : Function.Surjective q₂)
-    (hker₁ : q₁.ker ≤ center L₁) (hker₂ : q₂.ker ≤ center L₂) (hcard₁ : Nat.card q₁.ker = 3)
-    (hcard₂ : Nat.card q₂.ker = 3) :
-    ∃ ψ : L₁ ≃* L₂, q₂.comp ψ.toMonoidHom = q₁ := by
-  obtain ⟨φ₁, h₁'⟩ := exists_mulEquiv_of_triple_cover hP hwg hcard q₁ hq₁ hker₁ hcard₁
-  obtain ⟨φ₂, h₂'⟩ := exists_mulEquiv_of_triple_cover hP hwg hcard q₂ hq₂ hker₂ hcard₂
-  refine ⟨φ₁.symm.trans φ₂, MonoidHom.ext fun x => ?_⟩
-  have e1 := congrArg (fun f : MclCover →* J => f (φ₁.symm x)) h₁'
-  have e2 := congrArg (fun f : MclCover →* J => f (φ₁.symm x)) h₂'
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulEquiv.apply_symm_apply] at e1 e2
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulEquiv.trans_apply]
-  rw [e2, ← e1]
 
 end Multiplier
 
@@ -196,21 +163,6 @@ theorem card_center_dvd_three (hP : IsPresentation mclGen (wordSet mclRels))
   have hdvd := card_ker_dvd_three hP hwg hcard h3 q hq (le_of_eq hk)
   rwa [hk] at hdvd
 
-theorem nonempty_mulEquiv_of_center_card_three (hP : IsPresentation mclGen (wordSet mclRels))
-    (hwg : ∀ i, FreeGroup.lift mclGen (mclCommW i) = mclGen i)
-    (hcard : Finite MclCover ∧ Nat.card MclCover ≤ 2694384000) {C₁ C₂ : Type} [Group C₁]
-    [Group C₂] [Finite C₁] [Finite C₂] [Group.IsPerfect C₁] [Group.IsPerfect C₂]
-    (e₁ : C₁ ⧸ Subgroup.center C₁ ≃* CFSG.Blueprint.NativeSporadic.McL)
-    (e₂ : C₂ ⧸ Subgroup.center C₂ ≃* CFSG.Blueprint.NativeSporadic.McL)
-    (hc₁ : Nat.card (Subgroup.center C₁) = 3) (hc₂ : Nat.card (Subgroup.center C₂) = 3) :
-    Nonempty (C₁ ≃* C₂) := by
-  obtain ⟨q₁, hq₁, hk₁⟩ := exists_hom_center_McL e₁
-  obtain ⟨q₂, hq₂, hk₂⟩ := exists_hom_center_McL e₂
-  have hn₁ : Nat.card q₁.ker = 3 := by rw [hk₁]; exact hc₁
-  have hn₂ : Nat.card q₂.ker = 3 := by rw [hk₂]; exact hc₂
-  obtain ⟨ψ, -⟩ := exists_mulEquiv_of_triple_covers hP hwg hcard q₁ q₂ hq₁ hq₂
-    (le_of_eq hk₁) (le_of_eq hk₂) hn₁ hn₂
-  exact ⟨ψ⟩
 
 end Multiplier
 

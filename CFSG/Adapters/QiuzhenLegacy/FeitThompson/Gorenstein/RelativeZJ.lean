@@ -16,28 +16,10 @@ section
 variable {G : Type*} [Group G]
 
 
-private theorem rzj_thompsonSubgroup_top_map_subtype (P : Subgroup G) :
-    (thompsonSubgroup (G := P) (⊤ : Subgroup P)).map P.subtype = thompsonSubgroup (G := G) P :=
-  CFSG.thompsonSubgroup_top_map_subtype P
-
-private theorem rzj_centerIn_top_map_subtype (P : Subgroup G) (H : Subgroup P) :
-    (centerIn (G := P) H).map P.subtype = centerIn (G := G) (H.map P.subtype) :=
-  CFSG.centerIn_top_map_subtype P H
-
 private theorem rzj_thompsonCenter_top_map_subtype (P : Subgroup G) :
     (thompsonCenter (G := P) (⊤ : Subgroup P)).map P.subtype = thompsonCenter (G := G) P :=
   CFSG.thompsonCenter_top_map_subtype P
 
-private theorem rzj_centerIn_map_mulEquiv {H : Type*} [Group H] [Finite H] (e : G ≃* H)
-    (J : Subgroup G) :
-    (centerIn (G := G) J).map e.toMonoidHom = centerIn (G := H) (J.map e.toMonoidHom) :=
-  CFSG.centerIn_map_mulEquiv e J
-
-private theorem rzj_thompsonSubgroup_top_map_mulEquiv {H : Type*} [Group H] [Finite H]
-    (e : G ≃* H) :
-    (thompsonSubgroup (G := G) (⊤ : Subgroup G)).map e.toMonoidHom =
-      thompsonSubgroup (G := H) (⊤ : Subgroup H) :=
-  CFSG.thompsonSubgroup_top_map_mulEquiv e
 
 private theorem rzj_thompsonCenter_top_map_mulEquiv {H : Type*} [Group H] [Finite H] (e : G ≃* H) :
     (thompsonCenter (G := G) (⊤ : Subgroup G)).map e.toMonoidHom =

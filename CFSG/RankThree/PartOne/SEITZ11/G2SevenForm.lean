@@ -21,7 +21,6 @@ namespace CFSG.RankThree.PartOne.SEITZ11.G2Seven
 @[expose] def gram (R : Type*) [CommRing R] : Matrix (Fin 7) (Fin 7) R :=
   gramZ.map (Int.castRingHom R)
 
-@[expose] def formVal {R : Type*} [CommRing R] (v : Fin 7 → R) : R := v ⬝ᵥ (gram R).mulVec v
 
 theorem int_form_ident : ∀ g : Fin 12,
     (opMat ℤ g.val).transpose * gramZ + gramZ * opMat ℤ g.val = 0 ∧

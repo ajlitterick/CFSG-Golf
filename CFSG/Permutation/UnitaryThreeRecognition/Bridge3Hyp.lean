@@ -69,11 +69,6 @@ theorem hmap3_torus (k : Kˣ) {c : Coord J} (hc : c ≠ 1) :
   rw [tPerm_sigma3, torusPerm_tOf]
   rfl
 
-theorem sMapCoord_eq (u : Q) (hu : (u : G) ≠ 1) (y : Q) (hy : (y : G) = sLeft Q a b s u) :
-    S.sMapCoord φ (φ u) = φ y := by
-  rw [S.sMapCoord_apply φ u hu]
-  congr 1
-  exact Subtype.ext hy.symm
 
 theorem sMapCoord_moufang3 {z w : Coord J} (hz : z ≠ 1) (hw : w ≠ 1)
     (hzw : z * S.sMapCoord φ w ≠ 1) (hzw' : (S.sMapCoord φ z⁻¹)⁻¹ * w ≠ 1) :

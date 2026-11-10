@@ -22,12 +22,6 @@ theorem fix_R0_iff : ∀ A : Matrix (Fin 3) (Fin 3) (ZMod 2), A.trace = 0 →
 theorem card_row0 : Fintype.card {A : Matrix (Fin 3) (Fin 3) (ZMod 2) // IsRow0 A} = 4 := by
   decide +kernel
 
-theorem row0_trace : ∀ A : Matrix (Fin 3) (Fin 3) (ZMod 2), IsRow0 A → A.trace = 0 := by
-  decide +kernel
-
-theorem row0_conj_inter : ∀ g : SL(3, ZMod 2), g ∉ Stab0 →
-    ∀ A : Matrix (Fin 3) (Fin 3) (ZMod 2), IsRow0 A → IsRow0 (stAct g⁻¹ A) → A = 0 := by
-  decide +kernel
 
 theorem exists_functional_basis : ∀ a : Fin 3 → ZMod 2, a ≠ 0 →
     ∃ h : SL(3, ZMod 2), ∀ y : Fin 3 → ZMod 2, a ⬝ᵥ natAct3 h y = y 2 := by

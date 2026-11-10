@@ -146,12 +146,6 @@ theorem conjSubgroup_inf_of_mem_normalizer {G : Type*} [Group G] {I : Subgroup G
     CFSG.Quasithin.conjSubgroup (V ⊓ I) a = CFSG.Quasithin.conjSubgroup V a ⊓ I := by
   rw [conjSubgroup_inf_eq, CFSG.Quasithin.conjSubgroup_eq_iff_mem_normalizer.mpr ha]
 
-theorem mem_normalizer_sup {G : Type*} [Group G] {A B : Subgroup G} {a : G}
-    (hA : a ∈ Subgroup.normalizer (A : Set G)) (hB : a ∈ Subgroup.normalizer (B : Set G)) :
-    a ∈ Subgroup.normalizer ((A ⊔ B : Subgroup G) : Set G) := by
-  rw [← CFSG.Quasithin.conjSubgroup_eq_iff_mem_normalizer] at hA hB ⊢
-  unfold CFSG.Quasithin.conjSubgroup at hA hB ⊢
-  rw [Subgroup.map_sup, hA, hB]
 
 variable {G : Type} [Group G] [Finite G] {V H E : Subgroup G}
 

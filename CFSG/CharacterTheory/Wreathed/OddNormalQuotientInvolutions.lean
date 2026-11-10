@@ -154,14 +154,6 @@ theorem involutionClasses_bijOn (R : Subgroup N) [R.Normal] (hR : Odd (Nat.card 
     change ConjClasses.mk (QuotientGroup.mk' R t) = ConjClasses.mk v
     rw [himage]
 
-@[expose] def involutionClassEquiv (R : Subgroup N) [R.Normal] (hR : Odd (Nat.card R)) :
-    involutionClasses N ≃ involutionClasses (N ⧸ R) :=
-  (involutionClasses_bijOn R hR).equiv (ConjClasses.map (QuotientGroup.mk' R))
-
-theorem involutionClassEquiv_coe (R : Subgroup N) [R.Normal] (hR : Odd (Nat.card R))
-    (c : involutionClasses N) :
-    (involutionClassEquiv R hR c : ConjClasses (N ⧸ R)) =
-      ConjClasses.map (QuotientGroup.mk' R) c := rfl
 
 @[expose] def onCentralizer (R : Subgroup N) [R.Normal] (t : N) :
     Subgroup.centralizer {t} →* N ⧸ R :=
@@ -221,9 +213,6 @@ theorem centralizer_map (R : Subgroup N) [R.Normal] (hR : Odd (Nat.card R))
     Subgroup.mem_centralizer_singleton_iff.mpr
       (congrArg (QuotientGroup.mk' R) (Subgroup.mem_centralizer_singleton_iff.mp x.property)))
 
-theorem centralizerQuotient_coe (R : Subgroup N) [R.Normal] (t : N)
-    (x : Subgroup.centralizer {t}) :
-    (centralizerQuotient R t x : N ⧸ R) = QuotientGroup.mk' R (x : N) := rfl
 
 theorem centralizerQuotient_surjective (R : Subgroup N) [R.Normal] (hR : Odd (Nat.card R))
     (t : N) (ht : orderOf t = 2) : Function.Surjective (centralizerQuotient R t) := by

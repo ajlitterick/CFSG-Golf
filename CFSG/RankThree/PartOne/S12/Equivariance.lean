@@ -72,9 +72,6 @@ theorem map_inSubgroup_of_equivariant {G' : Type} [Group G']
   right_inv y := Subtype.ext (e.apply_symm_apply _)
   map_mul' x y := Subtype.ext (map_mul e _ _)
 
-omit [Finite G] in
-theorem coe_centralizerEquiv {G' : Type} [Group G'] (e : G ≃* G') (a : G)
-    (y : Subgroup.centralizer ({a} : Set G)) : ((centralizerEquiv e a y : _) : G') = e y := rfl
 
 theorem map_mem_thetaComponentsAt {G' : Type} [Group G'] {p : ℕ} (hp : p.Prime) (e : G ≃* G')
     (a : G) {Y : Subgroup G} (hY : Y ∈ thetaComponentsAt p a) :
@@ -305,12 +302,6 @@ theorem conjBy_mem_sectionTenZero {p : ℕ} (hp : p.Prime) (w : G) {B X : Subgro
   unfold conjBy
   rw [← Subgroup.map_commutator, ← hSB]
 
-theorem conjBy_mem_thetaCompE_iff {p : ℕ} (hp : p.Prime) {E : Subgroup G} {w : G}
-    (hw : w ∈ Subgroup.normalizer (E : Set G)) {X : Subgroup G} :
-    conjBy w X ∈ thetaCompE p E ↔ X ∈ thetaCompE p E := by
-  refine ⟨fun h => ?_, conjBy_mem_thetaCompE hp hw⟩
-  have := conjBy_mem_thetaCompE hp ((Subgroup.normalizer (E : Set G)).inv_mem hw) h
-  rwa [Equivariance.conjBy_inv_conjBy] at this
 
 theorem conjBy_mem_thetaCompStarE {p : ℕ} (hp : p.Prime) {E : Subgroup G} {w : G}
     (hw : w ∈ Subgroup.normalizer (E : Set G)) {X : Subgroup G}

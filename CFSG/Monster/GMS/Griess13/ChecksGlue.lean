@@ -47,7 +47,6 @@ theorem g_conj_x
     simp only [gCheck, Bool.and_eq_true] at this
     exact forall_fin_of_all this.2 k)
 
-private theorem Tmat_eq (i : Fin 8) : Tmat i = decode 2 24 1 (tmatPay i.val) := rfl
 
 private theorem rowsMatrix_trows (i : Fin 8) : rowsMatrix 24 (trows i.val) = Tmat i :=
   rowsMatrix_rowsOfPayload 24 (tmatPay i.val)
@@ -97,14 +96,6 @@ theorem Tmat_free (i j : Fin 8) :
   rw [h]
   by_cases hij : i = j <;> simp [hij]
 
-private theorem oneCheck_true : oneCheck = true :=
-  Certificates.certificate10033.2.2.2.1
-
-theorem Tmat_seven : Tmat 7 = 1 := by
-  have h := eqRows_iff.1 oneCheck_true
-  rw [rowsMatrix_idRows] at h
-  rw [← rowsMatrix_trows]
-  exact h
 
 private theorem commuteCheck_true :
     commuteCheck = true :=
@@ -117,16 +108,6 @@ theorem Tmat_commute
   rw [rowsMatrix_mulRows, rowsMatrix_mulRows, rowsMatrix_trows, (is_prX k).1] at h
   exact h
 
-theorem Tmat_independent
-    (c : Fin 8 → ZMod 2) (hc : ∑ i, c i • Tmat i = 0) : c = 0 := by
-  funext j
-  have h := congrArg (fun Q => entryOf Q (freePos.getD j.val 0)) hc
-  simp only [entryOf_sum, entryOf_smul, Tmat_free] at h
-  have h0 : entryOf (0 : Matrix (Fin 24) (Fin 24) (ZMod 2)) (freePos.getD j.val 0) = 0 := by
-    unfold entryOf
-    split_ifs <;> rfl
-  rw [h0] at h
-  simpa [Finset.sum_ite_eq] using h
 
 private def lin (b : ℕ) (Q : Matrix (Fin 24) (Fin 24) (ZMod 2)) : ZMod 2 :=
   ∑ pq : Fin 24 × Fin 24, if b.testBit (24 * pq.1.val + pq.2.val) then Q pq.1 pq.2 else 0

@@ -525,15 +525,6 @@ theorem caseI (hF : J4Facts) {k : ℕ} (hk : k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4
   have hvTV : f ⟨v, hv⟩ ∈ TV := (hTV _).2 ⟨v, hv, hf ⟨v, hv⟩⟩
   exact ⟨f ⟨v, hv⟩, hf ⟨v, hv⟩, hc3 _ (hTVG _ hvTV)⟩
 
-theorem hpart_inner (hF : J4Facts) {k : ℕ} (hk : k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4)
-    {V : Subgroup J} {d : J} (hc : HCfg V (fiveElt ^ k) d) : HConcl V (fiveElt ^ k) d := by
-  have hM := hF.mat
-  have hdich := eq_bot_or_eq_of_fpf (fiveElt ^ k) hc.hx5 V (V ⊓ Eg uJ 11) hc.hVcard inf_le_left
-    (fun w hw => ⟨hc.hVx w hw.1, Hj_normalizes_Eg hM _ hc.hx w hw.2⟩)
-    (fun w hw h => hc.hfpf w hw.1 h)
-  rcases hdich with hbot | hall
-  · exact caseI hF hk hc hbot
-  · exact caseII hF hk hc (inf_eq_left.1 hall)
 
 theorem HCfg.conj {V : Subgroup J} {x d : J} (hc : HCfg V x d) {h : J} (hh : h ∈ Hj) :
     HCfg (conjSub h⁻¹ V) (h⁻¹ * x * h) (h⁻¹ * d * h) := by
@@ -634,35 +625,5 @@ theorem HConcl.of_conj {V : Subgroup J} {x d h : J} (hh : h ∈ Hj) (hM : MatFac
       _ = h * (y * (h⁻¹ * v * h)) * h⁻¹ := by rw [this]
       _ = (h * y * h⁻¹) * v := by group
 
-theorem hpart_core (hF : J4Facts) {V : Subgroup J} {x d : J} (hc : HCfg V x d) : HConcl V x d := by
-  have hM := hF.mat
-  have hfact : Fact (Nat.Prime 5) := ⟨by norm_num⟩
-  obtain ⟨h, k, hk⟩ := exists_conj_pow_of_card (G := ↥Hj) (p := 5)
-    (card_Hj_factorization_five hF) (x := ⟨fiveElt, fiveElt_mem_Hj⟩) (y := ⟨x, hc.hx⟩)
-    (by rw [Subgroup.orderOf_mk]; exact orderOf_fiveElt hM)
-    (by rw [Subgroup.orderOf_mk]; exact hc.hx5)
-  have hk' : x = (h : J) * fiveElt ^ k * (h : J)⁻¹ := by
-    have := congrArg Subtype.val hk
-    simpa using this
-  have hk5 : fiveElt ^ k = fiveElt ^ (k % 5) := by
-    conv_lhs => rw [← Nat.div_add_mod k 5, pow_add, pow_mul, fiveElt_pow hM, one_pow, one_mul]
-  have hkne : k % 5 ≠ 0 := by
-    intro h0
-    rw [h0, pow_zero] at hk5
-    have hx1 : x = 1 := by
-      rw [hk', hk5]
-      group
-    have := hc.hx5
-    rw [hx1, orderOf_one] at this
-    omega
-  have hkr : k % 5 = 1 ∨ k % 5 = 2 ∨ k % 5 = 3 ∨ k % 5 = 4 := by omega
-  have hcj := hc.conj h.2
-  have e : (h : J)⁻¹ * x * (h : J) = fiveElt ^ (k % 5) := by
-    rw [hk', ← hk5]
-    group
-  rw [e] at hcj
-  have h2 := hpart_inner hF hkr hcj
-  rw [← e] at h2
-  exact HConcl.of_conj h.2 hM h2
 
 end CFSG.Sporadic.J4.QT2

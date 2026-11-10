@@ -75,19 +75,5 @@ theorem exists_index_of_chevalleyExceptional (hB : ChevalleyBridges) {X : Type} 
       (fun x => by rw [hq]; exact hσ x)
     exact ⟨⟨_, hv⟩, ⟨rfl, rfl⟩, ⟨e.trans b⟩⟩
 
-theorem componentType_oddLieType_of_chevalleyExceptional (hB : ChevalleyBridges) (G : Type)
-    [Group G] (t : StatedLieTag) (p f : ℕ) (hp : p.Prime) (hp2 : p ≠ 2)
-    (_hadm : StatedLieAdmissible t 0 p f) (ht : t ∈ chevalleyExceptionalTags)
-    (h : ChevalleyExceptionalModel G t p f) : CFSG.Assembly.ComponentType.OddLieType G := by
-  obtain ⟨d, hd, he⟩ := exists_index_of_chevalleyExceptional hB hp hp2 ht h
-  refine .inr ⟨d, ?_, ?_, he⟩ <;> obtain ⟨⟨_ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ | _ |
-    _ | _ | _ | _ | _, _⟩⟩ := d <;> cases t <;>
-    simp_all [CFSG.Models.NamesTag, CFSG.Assembly.ComponentType.IsExceptionalIndex]
-
-theorem models_oddLieType_of_chevalleyExceptional (hB : ChevalleyBridges) {X : Type} [Group X]
-    {t : StatedLieTag} {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (ht : t ∈ chevalleyExceptionalTags) (h : ChevalleyExceptionalModel X t p f) :
-    CFSG.Models.OddLieType X :=
-  ⟨t, 0, p, f, hp2, h.1, Or.inr ⟨rfl, exists_index_of_chevalleyExceptional hB hp hp2 ht h⟩⟩
 
 end CFSG.TauCetiBridge

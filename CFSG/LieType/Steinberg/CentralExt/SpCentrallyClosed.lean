@@ -55,11 +55,6 @@ theorem exists_isRootLift_of_pairing {γ : Fin n → ℤ} (hγ : γ ∈ roots (i
     TorusLift.map_canonLift hπ (x_add hγ) (tor_conj_x hγ t) ha,
     fun t' e he s => TorusLift.conj_canonLift hcen hπ (tor_mul_comm t t') (tor_conj_x hγ t') he s⟩
 
-include hcen hπ in
-theorem exists_isRootLift [Finite F] (hF4 : Nat.card F ≠ 4) (hF9 : Nat.card F ≠ 9)
-    {γ : Fin n → ℤ} (hγ : γ ∈ roots (isFiniteType_cartanC n) ∅) {t : Fin n → Fˣ}
-    (ht : chi (toStd n γ) t ≠ 1) : ∃ Y : F → E, IsRootLift π γ Y :=
-  exists_isRootLift_of_pairing hcen hπ hγ (commPairing_eq_zero hcen hπ hF4 hF9 hγ) ht
 
 theorem notMem_roots_of_three_le {v : Fin n → ℤ} {i : Fin n} (h : 3 ≤ |toStd n v i|) :
     v ∉ roots (isFiniteType_cartanC n) ∅ := fun hv => by

@@ -196,24 +196,6 @@ theorem kappa_sq_eq_one_of_commute_odd [Finite K] [CharP K 2] (hQ : Q.polarBilin
       coordinateSemilinearMap_one]
   rw [pow_two, ← map_mul, show S * S = 1 from Subtype.ext hS2, map_one]
 
-theorem involutionCriterion_kappa_of_image_eq_top [Finite K] [CharP K 2]
-    (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q)
-    (htop : matrixProjectiveImage Q = ⊤)
-    (s : matrixIsometries Q) (hs2 : (s : GL (Fin d) K) * s = 1)
-    (hb : ∃ h ∈ movedSpace (s : GL (Fin d) K), Q h ≠ 0)
-    (hW₀ : ∃ w ∈ movedSpace (s : GL (Fin d) K), w ≠ 0 ∧ Q w = 0)
-    (hLW : ∃ x ∈ fixedSpace (s : GL (Fin d) K), ∃ u ∈ fixedSpace (s : GL (Fin d) K),
-      polar Q x u = 1)
-    (hroute : (∃ w₁ ∈ movedSpace (s : GL (Fin d) K), ∃ w₂ ∈ movedSpace (s : GL (Fin d) K),
-        Q w₁ = 0 ∧ Q w₂ = 0 ∧ LinearIndependent K ![w₁, w₂]) ∨
-      Module.finrank K (movedSpace (s : GL (Fin d) K)) + 3 ≤
-        Module.finrank K (fixedSpace (s : GL (Fin d) K))) :
-    InvolutionCriterion (kappaIso Q s) := fun β hβx hβc =>
-  kappa_sq_eq_one_of_commute_odd hQ hT hE s hs2 hb hW₀ hLW hroute (htop ▸ Subgroup.mem_top β) hβx
-    hβc
 
 theorem kappa_sq_eq_one_of_commute_odd_of_finrank [Finite K] [CharP K 2]
     (hQ : Q.polarBilin.Nondegenerate)
@@ -233,52 +215,6 @@ theorem kappa_sq_eq_one_of_commute_odd_of_finrank [Finite K] [CharP K 2]
     (mem_fixedSpace (s : GL (Fin d) K)) hb hW2 hWL (by rw [Module.finrank_fin_fun]; exact hd)
   exact kappa_sq_eq_one_of_commute_odd hQ hT hE s hs2 hb hW₀ hLW hroute hβ hβx hβc
 
-theorem involutionCriterion_kappa_of_finrank [Finite K] [CharP K 2]
-    (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (hE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ =
-      elementaryGroup Q) (htop : matrixProjectiveImage Q = ⊤) (hd : 7 ≤ d)
-    (s : matrixIsometries Q) (hs2 : (s : GL (Fin d) K) * s = 1)
-    (hb : ∃ h ∈ movedSpace (s : GL (Fin d) K), Q h ≠ 0)
-    (hW2 : 2 ≤ Module.finrank K (movedSpace (s : GL (Fin d) K)))
-    (hWL : movedSpace (s : GL (Fin d) K) ≠ fixedSpace (s : GL (Fin d) K)) :
-    InvolutionCriterion (kappaIso Q s) := fun β hβx hβc =>
-  kappa_sq_eq_one_of_commute_odd_of_finrank hQ hT hE hd s hs2 hb hW2 hWL
-    (htop ▸ Subgroup.mem_top β) hβx hβc
-
-open CFSG.ComponentClassification.CatalogueBOrthogonalPointData (coordinateQuadPlus
-  coordinateQuadMinus regular_coordinateQuadPlus regular_coordinateQuadMinus
-  commutator_coordinateQuadPlus commutator_coordinateQuadMinus)
-
-theorem kappa_sq_eq_one_coordinatePlus [Finite K] [CharP K 2] {n : ℕ} (hn : 4 ≤ n)
-    (s : matrixIsometries (coordinateQuadPlus n K)) (hs2 : (s : GL (Fin (2 * n)) K) * s = 1)
-    (hb : ∃ h ∈ movedSpace (s : GL (Fin (2 * n)) K), coordinateQuadPlus n K h ≠ 0)
-    (hW2 : 2 ≤ Module.finrank K (movedSpace (s : GL (Fin (2 * n)) K)))
-    (hWL : movedSpace (s : GL (Fin (2 * n)) K) ≠ fixedSpace (s : GL (Fin (2 * n)) K))
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))}
-    (hβ : β ∈ matrixProjectiveImage (coordinateQuadPlus n K))
-    (hβx : β * kappaIso _ s = kappaIso _ s * β)
-    (hβc : ∀ c, kappaIso _ s c = c → Odd (orderOf c) → β c = c) :
-    β ^ 2 = 1 :=
-  kappa_sq_eq_one_of_commute_odd_of_finrank (regular_coordinateQuadPlus n K (by omega)).1
-    (regular_coordinateQuadPlus n K (by omega)).2 (commutator_coordinateQuadPlus n K (by omega))
-    (by omega) s hs2 hb hW2 hWL hβ hβx hβc
-
-theorem kappa_sq_eq_one_coordinateMinus [Finite K] [CharP K 2] {n : ℕ} (hn : 4 ≤ n)
-    (hn1 : 1 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (s : matrixIsometries (coordinateQuadMinus n K hn1 b c))
-    (hs2 : (s : GL (Fin (2 * n)) K) * s = 1)
-    (hb : ∃ h ∈ movedSpace (s : GL (Fin (2 * n)) K), coordinateQuadMinus n K hn1 b c h ≠ 0)
-    (hW2 : 2 ≤ Module.finrank K (movedSpace (s : GL (Fin (2 * n)) K)))
-    (hWL : movedSpace (s : GL (Fin (2 * n)) K) ≠ fixedSpace (s : GL (Fin (2 * n)) K))
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadMinus n K hn1 b c))}
-    (hβ : β ∈ matrixProjectiveImage (coordinateQuadMinus n K hn1 b c))
-    (hβx : β * kappaIso _ s = kappaIso _ s * β)
-    (hβc : ∀ c, kappaIso _ s c = c → Odd (orderOf c) → β c = c) :
-    β ^ 2 = 1 :=
-  kappa_sq_eq_one_of_commute_odd_of_finrank (regular_coordinateQuadMinus n K b c hn hirr).1
-    (regular_coordinateQuadMinus n K b c hn hirr).2 (commutator_coordinateQuadMinus n K b c hn hirr)
-    (by omega) s hs2 hb hW2 hWL hβ hβx hβc
 
 end OrthogonalShearC
 

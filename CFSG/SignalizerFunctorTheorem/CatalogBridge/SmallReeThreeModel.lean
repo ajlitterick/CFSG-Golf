@@ -50,8 +50,6 @@ theorem srT_sq : srT ^ 2 = 1 := by
 theorem srTi_zero : srTi 0 = srT := by
   simp [srTi]
 
-theorem srTi_seven : srTi 7 = srT := by
-  simp [srTi, srG_pow_seven]
 
 theorem srTi_succ (i : ℕ) : srG * srTi i * srG⁻¹ = srTi (i + 1) := by
   simp only [srTi, pow_succ', mul_inv_rev, mul_assoc]

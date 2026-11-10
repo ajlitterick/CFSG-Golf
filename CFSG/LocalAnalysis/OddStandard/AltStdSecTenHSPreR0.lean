@@ -84,14 +84,6 @@ open CFSG.ComponentClassification.PSL3Four CFSG.PSL3Four CFSG.PSL3Four.Native
 open CFSG.Sporadic.SmallOddCore.Native CFSG.Sporadic.Schreier
 open Subgroup
 
-theorem hsT2_mem_ord :
-    hsT2 ∈ hsP ∧ orderOf hsT2 = 2 := by
-  obtain ⟨-, -, -, hrows, -⟩ := hs_involution_centralizers
-  obtain ⟨-, h2, hout, -⟩ := hrows _ (List.mem_cons_of_mem _ List.mem_cons_self)
-  dsimp only at h2 hout
-  refine ⟨?_, h2⟩
-  by_contra h
-  exact Bool.false_ne_true (hout.2 h)
 
 end CFSG.Sporadic.SmallOddCore
 

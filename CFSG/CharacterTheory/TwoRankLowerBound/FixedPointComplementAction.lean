@@ -28,27 +28,6 @@ instance fixedPointComplementMulAction {group points : Type*} [Group group] [Mul
   one_smul := by intro point; apply Subtype.ext; exact one_smul group point.val
   mul_smul := by intros; apply Subtype.ext; exact mul_smul _ _ _
 
-theorem fixedPointComplement_smul_val {group points : Type*} [Group group] [MulAction group points]
-    (element : group) (point : ((MulAction.fixedPoints group points)ᶜ : Set points)) :
-    (element • point).val = element • point.val := rfl
-
-theorem fixedPointComplement_generator_fixedpointFree {points : Type*} [Fintype points]
-    (permutation : Equiv.Perm points) :
-    letI : MulAction (Subgroup.zpowers permutation) points :=
-      MulAction.compHom points (Subgroup.zpowers permutation).subtype
-    ∀ point : ((MulAction.fixedPoints (Subgroup.zpowers permutation) points)ᶜ : Set points),
-      (⟨permutation, Subgroup.mem_zpowers permutation⟩ : Subgroup.zpowers permutation) • point ≠ point := by
-  let : MulAction (Subgroup.zpowers permutation) points :=
-    MulAction.compHom points (Subgroup.zpowers permutation).subtype
-  intro point hequal
-  apply point.property
-  rw [MulAction.mem_fixedPoints]
-  intro element
-  obtain ⟨exponent, hexponent⟩ := Subgroup.mem_zpowers_iff.mp element.property
-  have hfixed : permutation point.val = point.val := congrArg Subtype.val hequal
-  change element.val point.val = point.val
-  rw [← hexponent]
-  exact Function.IsFixedPt.perm_zpow hfixed exponent
 
 theorem permutationSubsetCoordinates_fixed_translation {ring group points : Type*}
     [CommRing ring] [Group group] [MulAction group points] [Fintype points]

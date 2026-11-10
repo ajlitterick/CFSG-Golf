@@ -97,30 +97,5 @@ theorem isIrreducible_rep20 :
     rep20.IsIrreducible :=
   CFSG.Theory.Representation.irreducible_of_jacobson_density_surjective rep20 adjoin_rep20
 
-theorem adjoin_extendScalars
-    (F' : Type) [Field F']
-    [Algebra (ZMod 2) F'] :
-    Algebra.adjoin F' (Set.range (CFSG.Theory.Representation.extendScalars F' rep20)) = ⊤ :=
-  (CFSG.Theory.Representation.extendScalars_surj_iff F' rep20).1 adjoin_rep20
-
-theorem isAbsolutelyIrreducible_rep20
-    :
-    CFSG.Theory.Representation.IsAbsolutelyIrreducible rep20 :=
-  isAbsolutelyIrreducible_of_adjoin rep20 adjoin_rep20
-
-theorem native_unitary_twenty_full_matrix_algebra :
-    sigmaW ∈ sigmaPerp ∧ Module.finrank (ZMod 2) W20 = 20 ∧
-    (∀ t : Fin 20, ∃ h : decW u20Basis[(t : ℕ)]! ∈ sigmaPerp,
-      b20 t = Submodule.Quotient.mk ⟨_, h⟩) ∧
-    (∀ k : Fin 17, w20End (genU k) = endOf b20 u20Gens[(k : ℕ)]!) ∧
-    (∀ j : Fin 400, w20End (wordU u20Words[(j : ℕ)]!) = endOf b20 u20RecRows[(j : ℕ)]!) ∧
-    Algebra.adjoin (ZMod 2) (Set.range w20End) = ⊤ ∧
-    Algebra.adjoin (ZMod 2) (Set.range rep20) = ⊤ ∧
-    (∀ (F' : Type) [Field F'] [Algebra (ZMod 2) F'],
-      Algebra.adjoin F' (Set.range (CFSG.Theory.Representation.extendScalars F' rep20)) = ⊤) ∧
-    rep20.IsIrreducible ∧ CFSG.Theory.Representation.IsAbsolutelyIrreducible rep20 :=
-  ⟨sigmaW_mem_sigmaPerp, finrank_W20, b20_eq_mk, w20End_genU, w20End_record, adjoin_w20End,
-    adjoin_rep20, fun F' _ _ => adjoin_extendScalars F', isIrreducible_rep20,
-    isAbsolutelyIrreducible_rep20⟩
 
 end CFSG.Monster.B.TwoA.Unitary

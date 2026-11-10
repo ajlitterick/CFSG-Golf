@@ -8,17 +8,6 @@ namespace CFSG.CGT.Stroth77
 
 variable {G : Type} [Group G] [Finite G] {X : StrothAmbient G}
 
-@[expose]
-def zmodRed (n : ℕ) : ZMod (2 ^ n) →+ ZMod (2 ^ (n - 1)) where
-  toFun a := ZMod.cast a
-  map_zero' := ZMod.cast_zero
-  map_add' a b := ZMod.cast_add (pow_dvd_pow 2 (Nat.sub_le n 1)) a b
-
-@[expose]
-def torusRed (k : Fin 3 → ℕ) (hk : ∀ i, 1 ≤ k i) : Torus k →+ Torus (fun i => k i - 1) where
-  toFun v i := zmodRed (k i) (v i)
-  map_zero' := by funext i; simp
-  map_add' a b := by funext i; simp
 
 @[expose]
 def twoTorsion (k : Fin 3 → ℕ) : AddSubgroup (Torus k) where
@@ -41,13 +30,6 @@ namespace StrothDatum
 
 variable (Z : StrothDatum X)
 
-theorem one_le_tau_k (hk : ∀ i, 2 ≤ Z.τ.k i) : ∀ i, 1 ≤ Z.τ.k i :=
-  fun i => le_trans (by norm_num) (hk i)
-
-@[expose]
-def quotOmegaOneHom (hk : ∀ i, 2 ≤ Z.τ.k i) :
-    Additive Z.D →+ Torus (fun i => Z.τ.k i - 1) :=
-  (torusRed Z.τ.k (Z.one_le_tau_k hk)).comp Z.dataD.e
 
 end StrothDatum
 

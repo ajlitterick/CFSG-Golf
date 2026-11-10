@@ -61,38 +61,6 @@ public theorem proposition102_peterfalviV_index_eq_kset_card
         Nat.card (peterfalviKSet D t) := by
       simpa [peterfalviV, peterfalviKSet] using hcard
 
-/-- If a prime divides the relative index of `V` in `D`, a local Sylow
-subgroup of `D` at that prime cannot be contained in `V`. -/
-public theorem proposition102_no_sylow_le_of_prime_index
-    {X : Type u} [Group X] [Finite X]
-    {D V R : Subgroup X} {q : ℕ}
-    (hq : q.Prime)
-    (hRsyl : theorem4bIsSylowSubgroupOf q R D)
-    (hRV : R ≤ V)
-    (hqidx : q ∣ (V.subgroupOf D).index) :
-    False := by
-  classical
-  letI : Fact q.Prime := ⟨hq⟩
-  rcases hRsyl with ⟨S, hS⟩
-  have hRD : R ≤ D := by
-    rw [hS]
-    exact Subgroup.map_subtype_le (S : Subgroup D)
-  let RD : Subgroup D := R.subgroupOf D
-  have hRDmap : RD.map D.subtype = R := by
-    rw [Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr hRD]
-  have hRDS : RD = (S : Subgroup D) := by
-    apply Subgroup.map_injective D.subtype_injective
-    rw [hRDmap, hS]
-  have hRVd : RD ≤ V.subgroupOf D := by
-    intro x hx
-    change (x : X) ∈ V
-    exact hRV hx
-  have hindexdvd : (V.subgroupOf D).index ∣ RD.index :=
-    Subgroup.index_dvd_of_le hRVd
-  have hqRDnot : ¬ q ∣ RD.index := by
-    rw [hRDS]
-    exact S.not_dvd_index
-  exact hqRDnot (hqidx.trans hindexdvd)
 
 /-- A prime dividing the Peterfalvi anti-fixed set occurs in an ambient Sylow
 subgroup of `X` contained in the two-point stabilizer `D`. -/

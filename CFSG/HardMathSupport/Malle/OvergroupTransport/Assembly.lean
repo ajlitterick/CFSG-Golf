@@ -9,10 +9,6 @@ namespace CFSG.HardMathSupport.Malle.OvergroupTransport
 
 open CFSG.AGLEmbedding CFSG.Open
 
-@[expose] def ReeF4SocleNormalizerMaximal : Prop :=
-  ∀ (K : Type) [Group K] [Finite K] (d : TauCeti.ValidLieTypeIndex),
-    IsReeFFourFiveIndex d → Nonempty (K ≃* CatGroup d) →
-    ∀ P : Sylow 5 K, NormalizerMaximal (P : Subgroup K)
 
 @[expose] def ReeF4SocleAutOrder : Prop :=
   ∀ (K : Type) [Group K] [Finite K] (d : TauCeti.ValidLieTypeIndex),

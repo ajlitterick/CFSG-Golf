@@ -15,12 +15,6 @@ namespace Counterexample
 
 variable {p : ℕ} {G : Type u} [Group G] [Finite G] {A : Subgroup G} {θ : G → Subgroup G}
 
-theorem lemma67a
-    (h : Counterexample p A θ) {B : Subgroup G} (hB : B ∈ rSet p A θ) :
-    cenIn (thetaOf θ B) (dOne p A θ) =
-        CFSG.fittingSubgroupOf (ssol p A θ ⊓ kOf (thetaOf θ B)) ∧
-      IsMulCommutative (CFSG.fittingSubgroupOf (ssol p A θ ⊓ kOf (thetaOf θ B))) :=
-  ⟨Sec6S31.cenIn_dOne_eq h hB, (Sec6S31.fitting_eq_cenIn_kOf h hB).2⟩
 
 theorem lemma67b
     (h : Counterexample p A θ) {B : Subgroup G} (hB : B ∈ rSet p A θ) :

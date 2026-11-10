@@ -181,20 +181,6 @@ theorem comp_commute {i j : Fin D.card} (h : i ≠ j) : Commutes (D.comp i) (D.c
 
 theorem iSup_comp : ⨆ i, D.comp i = ⊤ := D.generate
 
-theorem comp_inf_le_center {i j : Fin D.card} (h : i ≠ j) :
-    D.comp i ⊓ D.comp j ≤ Subgroup.center X := by
-  rintro x ⟨hxi, hxj⟩
-  have key : ∀ k, D.comp k ≤ Subgroup.centralizer ({x} : Set X) := by
-    intro k y hy
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    by_cases hki : k = i
-    · subst hki
-      exact D.comp_commute h y hy x hxj
-    · exact D.comp_commute hki y hy x hxi
-  rw [Subgroup.mem_center_iff]
-  intro g
-  have hg : g ∈ (⨆ k, D.comp k : Subgroup X) := by rw [D.iSup_comp]; trivial
-  exact Subgroup.mem_centralizer_singleton_iff.mp ((iSup_le key) hg)
 
 theorem comp_normal (i : Fin D.card) : (D.comp i).Normal := by
   have key : ∀ g ∈ (⨆ k, D.comp k : Subgroup X), ∀ n ∈ D.comp i, g * n * g⁻¹ ∈ D.comp i := by

@@ -262,10 +262,6 @@ theorem actB_eq {T M : ℕ → ℕ} {ng : ℕ} (h : tabOK T M ng = true) {k : �
   change fget (T (3 * k + 2)) (v >>> 16) 22 = actK (M k) ((v >>> 16) <<< 16) at e2
   rw [e0, e1, e2, ← actK_xor, ← actK_xor, ← split_bytes]
 
-theorem xor_one_of_ne {a : ℕ} (ha : a ≤ 1) (h : a ≠ 1) : a ^^^ 1 = 1 := by
-  rcases Nat.le_one_iff_eq_zero_or_eq_one.1 ha with rfl | rfl
-  · rfl
-  · exact absurd rfl h
 
 theorem card_singular {U s z : ℕ} (hs : s < 2 ^ 22) (hz : z < 2 ^ 22) (hq : qK U s = 0)
     (hb : bK U s z = 1) :

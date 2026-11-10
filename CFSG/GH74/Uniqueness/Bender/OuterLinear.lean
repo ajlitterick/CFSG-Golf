@@ -212,42 +212,6 @@ end Main
 
 section Final
 
-theorem BenderType.outer_involution_of_fixed_noncommuting
-    {K : Type*} [Group K] [Finite K]
-    {n i e : ℕ} (h : BenderType K n i e) (α : MulAut K)
-    (hfix : ∃ y₁ y₂ : K, y₁ * y₁ = 1 ∧ y₂ * y₂ = 1 ∧ α y₁ = y₁ ∧ α y₂ = y₂ ∧
-      y₁ * y₂ ≠ y₂ * y₁) :
-    (∃ y : K, y ≠ 1 ∧ y * y = 1 ∧ α y = y) ∧
-      ∀ S : Sylow 2 K, ∃ x : K, α x = x ∧ x ∉ normalizer ((S : Subgroup K) : Set K) := by
-  obtain ⟨y₁, y₂, h₁, h₂, hf₁, hf₂, hne⟩ := hfix
-  have hy₁ : y₁ ≠ 1 := by
-    rintro rfl
-    exact hne (by simp)
-  have hy₂ : y₂ ≠ 1 := by
-    rintro rfl
-    exact hne (by simp)
-  refine ⟨⟨y₁, hy₁, h₁, hf₁⟩, fun S => ?_⟩
-  by_contra hcon
-  push Not at hcon
-  obtain ⟨t, hc⟩ := h.exists_benderCore S
-  have hord : ∀ {y : K}, y * y = 1 → y ≠ 1 → orderOf y = 2 := fun {y} hy hy1 => by
-    apply orderOf_eq_prime _ hy1
-    rw [sq]
-    exact hy
-  have hz₁ : y₁ ∈ rootCenter (S : Subgroup K) :=
-    (hc.involution_iff.mp ⟨hcon y₁ hf₁, hord h₁ hy₁⟩).1
-  have hz₂ : y₂ ∈ rootCenter (S : Subgroup K) :=
-    (hc.involution_iff.mp ⟨hcon y₂ hf₂, hord h₂ hy₂⟩).1
-  exact hne ((mem_rootCenter_iff.mp hz₁).2 y₂ (rootCenter_le _ hz₂)).symm
-
-theorem BenderType.outer_involution_linear
-    {K : Type*} [Group K] [Finite K] {n : ℕ}
-    (h : BenderType K n 1 1) (α : MulAut K) (hα : α * α = 1)
-    (hout : ¬ ∃ g : K, ∀ x : K, α x = g * x * g⁻¹) :
-    (∃ y : K, y ≠ 1 ∧ y * y = 1 ∧ α y = y) ∧
-      ∀ S : Sylow 2 K, ∃ x : K, α x = x ∧ x ∉ normalizer ((S : Subgroup K) : Set K) :=
-  h.outer_involution_of_fixed_noncommuting α
-    (h.exists_fixed_noncommuting_involutions_linear α hα hout)
 
 end Final
 

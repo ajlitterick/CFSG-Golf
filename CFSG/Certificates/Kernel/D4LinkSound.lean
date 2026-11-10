@@ -520,10 +520,6 @@ theorem leadF_congr {f g : ℕ → ℕ} (h : ∀ j < 8, f j = g j) : leadF f = l
   unfold leadF
   simp only [h']
 
-theorem nzF_congr {f g : ℕ → ℕ} (h : ∀ j < 8, f j = g j) : nzF f = nzF g := by
-  have h' : ∀ i : Fin 8, f i.val = g i.val := fun i => h i.val i.isLt
-  unfold nzF
-  simp only [h']
 
 theorem strictN_app' (y : ℕ) (k : ℕ → ℕ) : strictN y k = k y := by cases y <;> rfl
 

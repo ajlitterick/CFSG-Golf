@@ -40,10 +40,6 @@ theorem cj_cj_inv (g : LGL p V) (A : Subgroup (LGL p V)) : cj g (cj g⁻¹ A) = 
   rw [← cj_mul]
   simp [cj_one]
 
-theorem cj_le_cj_iff (g : LGL p V) {A B : Subgroup (LGL p V)} : cj g A ≤ cj g B ↔ A ≤ B := by
-  refine ⟨fun h => ?_, cj_mono g⟩
-  have := cj_mono g⁻¹ h
-  rwa [cj_inv_cj, cj_inv_cj] at this
 
 theorem QOne.cj {A : Subgroup (LGL p V)} (hA : QOne A) (g : LGL p V) : QOne (cj g A) := by
   intro B hB

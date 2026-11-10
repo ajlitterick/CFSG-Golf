@@ -320,11 +320,5 @@ theorem exists_eltH
     (by rw [card_edgeGroup_classA.1, Nat.card_fin])).2 x
   exact ⟨j, j.2, hj⟩
 
-theorem exists_hList
-    (x : edgeGroup) :
-    ∃ j < 4608, Rep 276 hList[j]!
-    (perm x) := by
-  obtain ⟨j, hj, rfl⟩ := exists_eltH x
-  exact ⟨j, hj, rep_eltH hj⟩
 
 end CFSG.EvenSmallLie.SympSix.Co3Ident

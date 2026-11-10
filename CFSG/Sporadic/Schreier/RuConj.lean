@@ -16,9 +16,6 @@ variable {G : Type*} [Group G]
 theorem self_mem_conjSet (H : Subgroup G) (x : G) : x ∈ conjSet H x :=
   ⟨1, H.one_mem, by group⟩
 
-theorem conjSet_mono {H K : Subgroup G} (h : H ≤ K) (x : G) : conjSet H x ⊆ conjSet K x := by
-  rintro t ⟨g, hg, rfl⟩
-  exact ⟨g, h hg, rfl⟩
 
 theorem conj_mem_conjSet {H : Subgroup G} {x t g : G} (ht : t ∈ conjSet H x) (hg : g ∈ H) :
     g * t * g⁻¹ ∈ conjSet H x := by

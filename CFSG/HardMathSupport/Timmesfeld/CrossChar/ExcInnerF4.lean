@@ -152,16 +152,6 @@ end Residual
 section Families
 
 
-theorem crossCharInnerAt_F4_dvd_sub_one :
-    CrossCharInnerAt .F4 fun idx p => ∃ q : TauCeti.PrimePower, idx.1 = .F4 q ∧ 5 ≤ p ∧
-      p ∣ q.card - 1 := by
-  rintro ⟨d, hv⟩ hk p hp hp2 hc ⟨q, hd, hp5, hpq⟩
-  change d = _ at hd
-  subst hd
-  obtain ⟨K, _, _, hK, -, ⟨e⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.f4 q hv
-  rw [← hK] at hpq
-  exact (isInnerLocallyBalanced_adjointF4_of_dvd_sub_one K hp hp5 hpq).of_mulEquiv e
-
 theorem crossCharInnerAt_F4_ge_three_of_residual (h : F4InnerResidual) :
     CrossCharInnerAt .F4 fun idx p => ∃ q : TauCeti.PrimePower, idx.1 = .F4 q ∧
       3 ≤ degCount Tag.F4 (orderOf ((q.card : ℕ) : ZMod p)) := by
@@ -189,24 +179,6 @@ theorem crossCharInnerAt_F4_ge_three_of_residual (h : F4InnerResidual) :
     · exact isInnerLocallyBalanced_adjointF4_of_dvd_sub_one K hp h5 h1 D hD hcard hDin H hH hDH
   · exact h K p hp hp2 hpK D hD hcard hDin (Or.inl h1) H hH hDH
 
-theorem crossCharInnerAt_F4_ge_three_of_split
-    (h : CrossCharInnerAt .F4 fun idx p => ∃ q : TauCeti.PrimePower, idx.1 = .F4 q ∧
-      (p = 3 ∨ p ∣ q.card + 1)) :
-    CrossCharInnerAt .F4 fun idx p => ∃ q : TauCeti.PrimePower, idx.1 = .F4 q ∧
-      3 ≤ degCount Tag.F4 (orderOf ((q.card : ℕ) : ZMod p)) := by
-  rintro idx hk p hp hp2 hc ⟨q, hd, hcnt⟩
-  have hpq : p ≠ q.p := fun h => hc (by rw [hd]; simp [h])
-  rcases dvd_sub_one_or_dvd_add_one_of_degCount_F4 hp (not_dvd_card_of_ne hp hpq) hcnt with
-    h1 | h1
-  · rcases eq_three_or_five_le hp hp2 with rfl | h5
-    · exact h idx hk 3 hp hp2 hc ⟨q, hd, Or.inl rfl⟩
-    · exact crossCharInnerAt_F4_dvd_sub_one idx hk p hp hp2 hc ⟨q, hd, h5, h1⟩
-  · exact h idx hk p hp hp2 hc ⟨q, hd, Or.inr h1⟩
-
-theorem crossCharFamAt_F4_ge_three_of_residual (h : F4InnerResidual) :
-    CrossCharFamAt .F4 fun idx p => ∃ q : TauCeti.PrimePower, idx.1 = .F4 q ∧
-      3 ≤ degCount Tag.F4 (orderOf ((q.card : ℕ) : ZMod p)) :=
-  crossCharFamAt_F4_ge_three_of_inner (crossCharInnerAt_F4_ge_three_of_residual h)
 
 end Families
 

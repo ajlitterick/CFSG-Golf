@@ -172,81 +172,11 @@ end RankTwoAmalgam
 
 namespace GraphCovering
 
-variable {Vh : Type*} {V : Type*} {V₂ : Type*} {Γh : SimpleGraph Vh} {Γ : SimpleGraph V}
-  {Γ₂ : SimpleGraph V₂} {θ : Vh → V} {θ₂ : Vh → V₂} (hθ : GraphCovering Γh Γ θ)
-  (hθ₂ : GraphCovering Γh Γ₂ θ₂)
-
-theorem psi_length (uh : Vh) (p : PathSet Γ (θ uh)) : (psi hθ hθ₂ uh p).1 = p.1 := by
-  obtain ⟨ph, rfl⟩ := (hθ.pathSetEquiv uh).surjective p
-  have e : psi hθ hθ₂ uh (hθ.pathSetEquiv uh ph) = hθ₂.pathSetEquiv uh ph := by simp [psi]
-  rw [e]
-  rfl
-
-theorem psi_noBack_iff (uh : Vh) (p : PathSet Γ (θ uh)) :
-    (psi hθ hθ₂ uh p).NoBack ↔ p.NoBack := by
-  obtain ⟨ph, rfl⟩ := (hθ.pathSetEquiv uh).surjective p
-  have e : psi hθ hθ₂ uh (hθ.pathSetEquiv uh ph) = hθ₂.pathSetEquiv uh ph := by simp [psi]
-  rw [e]
-  show (hθ₂.pathMap ph.2.1).NoBack ↔ (hθ.pathMap ph.2.1).NoBack
-  rw [hθ₂.noBack_pathMap_iff, hθ.noBack_pathMap_iff]
 
 end GraphCovering
 
 namespace RankTwoAmalgam.Completion
 
-variable {α : RankTwoAmalgam.{u}} {Y : Type w} [Group Y] {Yb : Type w'} [Group Yb]
-
-theorem lemma_F46_3_x (ι : α.Completion Yb) (c : α.Completion Y) (hι : ι.IsFaithful)
-    (hc : c.IsFaithful) :
-    ∃ q : PermQuasiEquiv (stv ι ι.xv) (PathSet ι.graph ι.xv) (stv c c.xv) (PathSet c.graph c.xv),
-      (∀ (a : α.G1) (g : stv ι ι.xv) (g' : stv c c.xv), (g : ι.G0) = f1 (c := ι) a →
-        (g' : c.G0) = f1 (c := c) a → q.grp g = g') ∧
-      (∀ p, (q.set p).1 = p.1) ∧ (∀ p, (q.set p).NoBack ↔ p.NoBack) := by
-  have key : ∀ (u : ι.Γ) (u' : c.Γ), ι.Θ hι xhat = u → c.Θ hc xhat = u' →
-      ∃ q : PermQuasiEquiv (stv ι u) (PathSet ι.graph u) (stv c u') (PathSet c.graph u'),
-        (∀ (a : α.G1) (g : stv ι u) (g' : stv c u'), (g : ι.G0) = f1 (c := ι) a →
-          (g' : c.G0) = f1 (c := c) a → q.grp g = g') ∧
-        (∀ p, (q.set p).1 = p.1) ∧ (∀ p, (q.set p).NoBack ↔ p.NoBack) := by
-    rintro u u' rfl rfl
-    refine ⟨lemma_F34_1 ι c hι hc xhat, ?_, ?_, ?_⟩
-    · intro a g g' hg hg'
-      have h1 : (((g : ι.G0)) : Yb) = ι.φ1 a := by rw [hg]; rfl
-      have h2 := stabComp_x ι c hι hc a g h1
-      apply Subtype.ext
-      apply Subtype.ext
-      rw [hg']
-      exact h2
-    · intro p
-      exact GraphCovering.psi_length (ι.graphCovering hι) (c.graphCovering hc) xhat p
-    · intro p
-      exact GraphCovering.psi_noBack_iff (ι.graphCovering hι) (c.graphCovering hc) xhat p
-  exact key ι.xv c.xv (Θ_xhat ι hι) (Θ_xhat c hc)
-
-theorem lemma_F46_3_l (ι : α.Completion Yb) (c : α.Completion Y) (hι : ι.IsFaithful)
-    (hc : c.IsFaithful) :
-    ∃ q : PermQuasiEquiv (stv ι ι.lv) (PathSet ι.graph ι.lv) (stv c c.lv) (PathSet c.graph c.lv),
-      (∀ (a : α.G2) (g : stv ι ι.lv) (g' : stv c c.lv), (g : ι.G0) = f2 (c := ι) a →
-        (g' : c.G0) = f2 (c := c) a → q.grp g = g') ∧
-      (∀ p, (q.set p).1 = p.1) ∧ (∀ p, (q.set p).NoBack ↔ p.NoBack) := by
-  have key : ∀ (u : ι.Γ) (u' : c.Γ), ι.Θ hι lhat = u → c.Θ hc lhat = u' →
-      ∃ q : PermQuasiEquiv (stv ι u) (PathSet ι.graph u) (stv c u') (PathSet c.graph u'),
-        (∀ (a : α.G2) (g : stv ι u) (g' : stv c u'), (g : ι.G0) = f2 (c := ι) a →
-          (g' : c.G0) = f2 (c := c) a → q.grp g = g') ∧
-        (∀ p, (q.set p).1 = p.1) ∧ (∀ p, (q.set p).NoBack ↔ p.NoBack) := by
-    rintro u u' rfl rfl
-    refine ⟨lemma_F34_1 ι c hι hc lhat, ?_, ?_, ?_⟩
-    · intro a g g' hg hg'
-      have h1 : (((g : ι.G0)) : Yb) = ι.φ2 a := by rw [hg]; rfl
-      have h2 := stabComp_l ι c hι hc a g h1
-      apply Subtype.ext
-      apply Subtype.ext
-      rw [hg']
-      exact h2
-    · intro p
-      exact GraphCovering.psi_length (ι.graphCovering hι) (c.graphCovering hc) lhat p
-    · intro p
-      exact GraphCovering.psi_noBack_iff (ι.graphCovering hι) (c.graphCovering hc) lhat p
-  exact key ι.lv c.lv (Θ_lhat ι hι) (Θ_lhat c hc)
 
 end Completion
 

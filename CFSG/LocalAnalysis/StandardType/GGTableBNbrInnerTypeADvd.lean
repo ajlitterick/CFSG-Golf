@@ -193,9 +193,6 @@ theorem ggTorusNbrSCr_PSL {d p : ℕ} {K : Type} [Field K] [Finite K] [CharP K 2
 theorem ggTypeADvdNbrSCrInput_holds : GGTypeADvdNbrSCrInput :=
   fun _ _ _ _ _ _ hd hp hpK _ => ggTorusNbrSCr_PSL hp hpK hd
 
-theorem ggTableBNbrInnerInputOn_typeADvd_holds :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerTypeADvdLabel :=
-  ggTableBNbrInnerInputOn_typeADvd ggTypeADvdNbrSCrInput_holds
 
 @[expose] def GGTableBNbrInnerRound11Label (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   GGTableBNbrInnerRound10Label p lab ∧ ¬ GGTableBNbrInnerTypeADvdLabel p lab
@@ -205,10 +202,6 @@ theorem ggTableBNbrInnerInputOn_round10_of_round11
     GGTableBNbrInnerInputOn GGTableBNbrInnerRound10Label :=
   ggTableBNbrInnerInputOn_round10_of_typeADvd ggTypeADvdNbrSCrInput_holds h
 
-theorem ggTableBNbrInnerInputOn_round11_of_round10
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound10Label) :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerRound11Label :=
-  h.mono fun _ _ h11 => h11.1
 
 section Round11
 
@@ -218,9 +211,6 @@ theorem ggTableBNbrInnerInputOn_round6_of_round11
     GGTableBNbrInnerInputOn GGTableBNbrInnerRound6Label :=
   ggTableBNbrInnerInputOn_round6_of_round10 (ggTableBNbrInnerInputOn_round10_of_round11 h)
 
-theorem ggTableBNbrInnerInput_of_round11
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound11Label) : GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_round10 (ggTableBNbrInnerInputOn_round10_of_round11 h)
 
 end Round11
 

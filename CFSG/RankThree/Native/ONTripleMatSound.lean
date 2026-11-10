@@ -272,12 +272,8 @@ theorem progM_idx : ∀ t < 192, opIdxLt (8 + t) (progM.getD t (.pow 0 0)) = tru
 
 @[expose, irreducible] noncomputable def regM : Array Mat45ˣ := runG gMArr progM
 
-@[expose, irreducible] noncomputable def regMat (r : ℕ) : Mat45 := decC 45 (nthN regC r)
 @[expose, irreducible] noncomputable def regIMat (r : ℕ) : Mat45 := decC 45 (nthN regIC r)
 
-theorem rM_eq (r : ℕ) : rM r = enc (regMat r) := by
-  unfold rM regMat
-  exact widen_eq _
 theorem rIM_eq (r : ℕ) : rIM r = enc (regIMat r) := by
   unfold rIM regIMat
   exact widen_eq _
@@ -589,8 +585,6 @@ theorem vRegI_lt : ∀ j < 2, ∀ m < 3, ∀ i < 3, vRegI j m i < 200 := by deci
 
 theorem vRegI_mem : ∀ j < 2, ∀ m < 3, ∀ i < 3, vRegI j m i ∈ vRegs j m := by decide +kernel
 
-theorem vRegs_len : ∀ j < 2, ∀ m < 3, ∀ x ∈ vRegs j m, ∃ i < 3, x = vRegI j m i := by
-  decide +kernel
 
 theorem yRegM_eq {j : ℕ} (hj : j < 2) : yRegM j = if j = 0 then rX.getD 1 0 else rX12 := by
   interval_cases j <;> decide +kernel

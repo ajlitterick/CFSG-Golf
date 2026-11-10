@@ -30,41 +30,6 @@ theorem oddSchurTrivial_of_oddCentralSplit {S : Type} [Group S] (h : OddCentralS
   have := hP
   exact F4Pilot.injective_of_section_of_perfect η hcen σ hσ
 
-theorem oddCentralSplit_of_oddSchurTrivial {S : Type} [Group S] [Group.IsPerfect S]
-    (h : OddSchurTrivial S) : OddCentralSplit S := by
-  intro E _ _ π hπ hcen hodd
-  have : Finite S := Finite.of_surjective π hπ
-  set P := CFSG.Quasithin.perfectCore (⊤ : Subgroup E) with hPdef
-  have hPp : Group.IsPerfect P :=
-    Subgroup.isPerfect_iff.2 (CFSG.Quasithin.perfectCore_perfect _)
-  set η : P →* S := π.comp P.subtype with hηdef
-  have hmap : P.map π = ⊤ := by
-    rw [hPdef, CFSG.Quasithin.map_perfectCore, Subgroup.map_top_of_surjective π hπ]
-    exact CFSG.Quasithin.perfectCore_eq_self_of_perfect (by
-      rw [← commutator_def]
-      exact Group.IsPerfect.commutator_eq_top)
-  have hη : Function.Surjective η := fun g => by
-    have hg : g ∈ P.map π := hmap ▸ Subgroup.mem_top g
-    obtain ⟨x, hx, rfl⟩ := hg
-    exact ⟨⟨x, hx⟩, rfl⟩
-  have hker : η.ker ≤ center P := fun x hx => by
-    have hx' : (x : E) ∈ π.ker := MonoidHom.mem_ker.2 (MonoidHom.mem_ker.1 hx)
-    exact Subgroup.mem_center_iff.2 fun y => Subtype.ext (Subgroup.mem_center_iff.1 (hcen hx') y)
-  let ι : η.ker →* π.ker :=
-    { toFun := fun x => ⟨((x : P) : E), MonoidHom.mem_ker.2 (MonoidHom.mem_ker.1 x.2)⟩
-      map_one' := rfl
-      map_mul' := fun _ _ => rfl }
-  have hι : Function.Injective ι := fun x y hxy => by
-    have h := congrArg (fun z : π.ker => (z : E)) hxy
-    exact Subtype.ext (Subtype.ext h)
-  have hodd' : Odd (Nat.card η.ker) := hodd.of_dvd_nat (Subgroup.card_dvd_of_injective ι hι)
-  have hinj : Function.Injective η := h P hPp η hη hker hodd'
-  let e : P ≃* S := MulEquiv.ofBijective η ⟨hinj, hη⟩
-  exact ⟨P.subtype.comp e.symm.toMonoidHom, fun g => e.apply_symm_apply g⟩
-
-theorem oddCentralSplit_iff_oddSchurTrivial {S : Type} [Group S] [Group.IsPerfect S] :
-    OddCentralSplit S ↔ OddSchurTrivial S :=
-  ⟨oddSchurTrivial_of_oddCentralSplit, oddCentralSplit_of_oddSchurTrivial⟩
 
 section Pullback
 
@@ -138,85 +103,6 @@ end Pullback
 
 section Quotient
 
-variable {S : Type} [Group S] [Finite S]
-
-theorem oddSchurTrivial_quotient_of_isPGroup (hS : OddCentralSplit S) {N : Subgroup S} [N.Normal]
-    (h2 : IsPGroup 2 N) : OddSchurTrivial (S ⧸ N) := by
-  intro P _ _ hP η hη hcen hodd
-  have := hP
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨α, -, -, hker⟩ := exists_surjective_of_oddCentralSplit hS
-    (QuotientGroup.mk'_surjective N) hη hcen hodd
-  rw [QuotientGroup.ker_mk'] at hker
-  have h2' : IsPGroup 2 η.ker := by
-    rw [hker]
-    exact h2.map α
-  have hcard : Nat.card η.ker = 1 := by
-    rcases h2'.card_eq_or_dvd with h | h
-    · exact h
-    · exact absurd (even_iff_two_dvd.2 h) (Nat.not_even_iff_odd.2 hodd)
-  rw [← MonoidHom.ker_eq_bot_iff]
-  exact Subgroup.eq_bot_of_card_eq _ hcard
-
-theorem not_oddSchurTrivial_quotient_of_not_isPGroup [Group.IsPerfect S] {N : Subgroup S}
-    [N.Normal] (hN : N ≤ center S) (h2 : ¬ IsPGroup 2 N) : ¬ OddSchurTrivial (S ⧸ N) := by
-  intro h
-  obtain ⟨p, hp, hpN, hp2⟩ : ∃ p, p.Prime ∧ p ∣ Nat.card N ∧ p ≠ 2 := by
-    by_contra hcon
-    push Not at hcon
-    apply h2
-    have hpos : Nat.card N ≠ 0 := Nat.card_pos.ne'
-    exact IsPGroup.of_card (Nat.eq_prime_pow_of_unique_prime_dvd hpos fun hd hdN => hcon _ hd hdN)
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨x, hx⟩ := exists_prime_orderOf_dvd_card' p hpN
-  set T := copPart p N hN with hTdef
-  have hTN : T ≤ N := fun _ h => h.1
-  have hTker : T ≤ (QuotientGroup.mk' N).ker := by
-    rw [QuotientGroup.ker_mk']
-    exact hTN
-  set η : S ⧸ T →* S ⧸ N := QuotientGroup.lift T (QuotientGroup.mk' N) hTker with hηdef
-  have hηmk : ∀ s : S, η (s : S ⧸ T) = (s : S ⧸ N) := fun s => rfl
-  have hη : Function.Surjective η := fun y => by
-    obtain ⟨s, rfl⟩ := QuotientGroup.mk_surjective y
-    exact ⟨(s : S ⧸ T), rfl⟩
-  have hmemN : ∀ s : S, (s : S ⧸ T) ∈ η.ker → s ∈ N := fun s hs => by
-    rw [MonoidHom.mem_ker, hηmk, QuotientGroup.eq_one_iff] at hs
-    exact hs
-  have hP : Group.IsPerfect (S ⧸ T) :=
-    Group.IsPerfect.ofSurjective (QuotientGroup.mk'_surjective T)
-  have hcen : η.ker ≤ center (S ⧸ T) := fun y hy => by
-    obtain ⟨s, rfl⟩ := QuotientGroup.mk_surjective y
-    exact Subgroup.map_center_le_center (QuotientGroup.mk'_surjective T)
-      ⟨s, hN (hmemN s hy), rfl⟩
-  have hpgrp : IsPGroup p η.ker := by
-    rintro ⟨y, hy⟩
-    obtain ⟨s, rfl⟩ := QuotientGroup.mk_surjective y
-    obtain ⟨a, ha⟩ := exists_pow_prime_pow_mem_copPart (p := p) hN (hmemN s hy)
-    refine ⟨a, Subtype.ext ?_⟩
-    rw [Subgroup.coe_pow, Subgroup.coe_one, ← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
-    exact ha
-  have hodd : Odd (Nat.card η.ker) := by
-    obtain ⟨k, hk⟩ := IsPGroup.iff_card.1 hpgrp
-    rw [hk]
-    exact (hp.odd_of_ne_two hp2).pow
-  have hinj := h (S ⧸ T) hP η hη hcen hodd
-  have hx1 : η ((x : S) : S ⧸ T) = η 1 := by
-    rw [hηmk, map_one, QuotientGroup.eq_one_iff]
-    exact x.2
-  have hxT : (x : S) ∈ T := (QuotientGroup.eq_one_iff _).1 (hinj hx1)
-  have hcop := (mem_copPart.1 hxT).2
-  rw [Subgroup.orderOf_coe, hx] at hcop
-  exact hp.one_lt.ne' ((Nat.coprime_self p).1 hcop)
-
-theorem oddSchurTrivial_quotient_iff [Group.IsPerfect S] (hS : OddCentralSplit S)
-    {N : Subgroup S} [N.Normal] (hN : N ≤ center S) :
-    OddSchurTrivial (S ⧸ N) ↔ IsPGroup 2 N :=
-  ⟨fun h => by_contra fun h2 => not_oddSchurTrivial_quotient_of_not_isPGroup hN h2 h,
-    oddSchurTrivial_quotient_of_isPGroup hS⟩
-
-theorem oddSchurTrivial_quotient_center_iff [Group.IsPerfect S] (hS : OddCentralSplit S) :
-    OddSchurTrivial (S ⧸ center S) ↔ IsPGroup 2 (center S) :=
-  oddSchurTrivial_quotient_iff hS le_rfl
 
 end Quotient
 

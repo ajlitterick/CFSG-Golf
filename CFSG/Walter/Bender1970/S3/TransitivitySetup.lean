@@ -117,7 +117,6 @@ theorem W_le_H : S.W ≤ S.H := S.W_le_F.trans (generalizedFittingSubgroupOf_isN
 
 theorem W_le_centralizer_V : S.W ≤ Subgroup.centralizer (S.V : Set G) := inf_le_right
 
-theorem W_le_centralizer_t : S.W ≤ Subgroup.centralizer ({S.t} : Set G) := S.W_le_F.trans S.htF
 
 theorem t_mem_W : S.t ∈ S.W := by
   refine ⟨S.t_mem_F, ?_⟩

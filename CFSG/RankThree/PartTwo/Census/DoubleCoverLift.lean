@@ -545,66 +545,6 @@ theorem card_comap_of_surjective [Finite J] (hφ : Function.Surjective φ) (E : 
     ring
   exact Nat.eq_of_mul_eq_mul_right hpos h4
 
-theorem isElementaryAbelian_comap [Finite J] (hφ : Function.Surjective φ)
-    (hker : φ.ker ≤ Subgroup.center J) (hK2 : Nat.card φ.ker = 2) {E : Subgroup X}
-    (hE : CFSG.IsElementaryAbelian 2 E) (hE8 : Nat.card E = 8) {n : X}
-    (hn : n ∈ Subgroup.normalizer (E : Set X)) (hn7 : n ^ 7 = 1)
-    (hfix : ∀ x ∈ E, n * x * n⁻¹ = x → x = 1) :
-    CFSG.IsElementaryAbelian 2 (E.comap φ) ∧ Nat.card (E.comap φ) = 16 := by
-  have hE2 : ∀ x ∈ E, x ^ 2 = 1 := fun x hx => elemPow_eq_one_of_isElementaryAbelian x hx
-  have hnE : ∀ x ∈ E, n * x * n⁻¹ ∈ E := fun x hx => (Subgroup.mem_normalizer_iff.mp hn x).mp hx
-  obtain ⟨a₁, a₂, a₃, m, hd, hdesc⟩ := exists_e8Datum_of_normalizer hE2 hE8 hnE hn7 hfix
-  obtain ⟨b₁, b₂, b₃, hb₁, hb₂, hb₃, s₁, s₂, s₃, c₁₂, c₁₃, c₂₃⟩ := hd.exists_lift hφ hker
-  have hk2 : ∀ κ ∈ φ.ker, κ ^ 2 = 1 := fun κ hκ => by
-    have := pow_card_eq_one' (G := φ.ker) (x := ⟨κ, hκ⟩)
-    rw [hK2] at this
-    exact congrArg Subtype.val this
-  have hform : ∀ y ∈ E.comap φ, ∃ i j k : ℕ, ∃ κ ∈ φ.ker, y = b₁ ^ i * b₂ ^ j * b₃ ^ k * κ := by
-    intro y hy
-    obtain ⟨i, j, k, e⟩ := hdesc (φ y) hy
-    refine ⟨i, j, k, (b₁ ^ (i : ℕ) * b₂ ^ (j : ℕ) * b₃ ^ (k : ℕ))⁻¹ * y, ?_, by group⟩
-    rw [MonoidHom.mem_ker, map_mul, map_inv, map_mul, map_mul, map_pow, map_pow, map_pow, hb₁,
-      hb₂, hb₃, ← e, inv_mul_cancel]
-  have hpow : ∀ i j k : ℕ, (b₁ ^ i * b₂ ^ j * b₃ ^ k) ^ 2 = 1 := fun i j k => by
-    rw [((c₁₃.pow_pow i k).mul_left (c₂₃.pow_pow j k)).mul_pow, (c₁₂.pow_pow i j).mul_pow,
-      ← pow_mul, ← pow_mul, ← pow_mul, mul_comm i, mul_comm j, mul_comm k, pow_mul, pow_mul,
-      pow_mul, s₁, s₂, s₃, one_pow, one_pow, one_pow, one_mul, one_mul]
-  have hcomm : ∀ i j k i' j' k' : ℕ,
-      Commute (b₁ ^ i * b₂ ^ j * b₃ ^ k) (b₁ ^ i' * b₂ ^ j' * b₃ ^ k') := by
-    intro i j k i' j' k'
-    have h1 : ∀ i' j' k', Commute (b₁ ^ i) (b₁ ^ i' * b₂ ^ j' * b₃ ^ k') := fun i' j' k' =>
-      (((Commute.refl b₁).pow_pow i i').mul_right (c₁₂.pow_pow i j')).mul_right
-        (c₁₃.pow_pow i k')
-    have h2 : ∀ i' j' k', Commute (b₂ ^ j) (b₁ ^ i' * b₂ ^ j' * b₃ ^ k') := fun i' j' k' =>
-      ((c₁₂.symm.pow_pow j i').mul_right ((Commute.refl b₂).pow_pow j j')).mul_right
-        (c₂₃.pow_pow j k')
-    have h3 : ∀ i' j' k', Commute (b₃ ^ k) (b₁ ^ i' * b₂ ^ j' * b₃ ^ k') := fun i' j' k' =>
-      ((c₁₃.symm.pow_pow k i').mul_right (c₂₃.symm.pow_pow k j')).mul_right
-        ((Commute.refl b₃).pow_pow k k')
-    exact ((h1 i' j' k').mul_left (h2 i' j' k')).mul_left (h3 i' j' k')
-  have hcen : ∀ {κ : J} (y : J), κ ∈ φ.ker → Commute y κ := fun y hκ =>
-    Subgroup.mem_center_iff.mp (hker hκ) y
-  refine ⟨{ toIsMulCommutative := ⟨⟨fun y y' => Subtype.ext ?_⟩⟩
-            exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun y =>
-              Subtype.ext ?_ }, ?_⟩
-  · obtain ⟨i, j, k, κ, hκ, hy⟩ := hform y y.2
-    obtain ⟨i', j', k', κ', hκ', hy'⟩ := hform y' y'.2
-    change (y : J) * y' = y' * y
-    rw [hy, hy']
-    exact (((hcomm i j k i' j' k').mul_right (hcen _ hκ')).mul_left
-      ((hcen _ hκ).symm.mul_right (hcen κ' hκ).symm)).eq
-  · obtain ⟨i, j, k, κ, hκ, hy⟩ := hform y y.2
-    change (y : J) ^ 2 = 1
-    rw [hy, (hcen _ hκ).mul_pow, hpow, hk2 κ hκ, one_mul]
-  · rw [card_comap_of_surjective hφ, hE8, hK2]
-
-theorem four_le_pRank_of_normalizer [Finite J] (hφ : Function.Surjective φ)
-    (hker : φ.ker ≤ Subgroup.center J) (hK2 : Nat.card φ.ker = 2) {E : Subgroup X}
-    (hE : CFSG.IsElementaryAbelian 2 E) (hE8 : Nat.card E = 8) {n : X}
-    (hn : n ∈ Subgroup.normalizer (E : Set X)) (hn7 : n ^ 7 = 1)
-    (hfix : ∀ x ∈ E, n * x * n⁻¹ = x → x = 1) : 4 ≤ CFSG.pRank 2 J := by
-  obtain ⟨hA, hcard⟩ := isElementaryAbelian_comap hφ hker hK2 hE hE8 hn hn7 hfix
-  exact le_pRank_two_of_card _ hA (by rw [hcard]; norm_num)
 
 end Subgroup
 

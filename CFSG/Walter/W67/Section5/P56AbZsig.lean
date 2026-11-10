@@ -235,9 +235,5 @@ theorem exists_orderOf_three_eq {n : ℕ} (hn : 3 ≤ n) (hodd : Odd n) :
   norm_num at hlow
   omega
 
-theorem exists_primitive_prime_dvd_three_pow_sub_one {n : ℕ} (hn : 3 ≤ n) (hodd : Odd n) :
-    ∃ v : ℕ, v.Prime ∧ v ∣ 3 ^ n - 1 ∧ ∀ k : ℕ, 0 < k → k < n → ¬ v ∣ 3 ^ k - 1 := by
-  obtain ⟨v, hv, hord⟩ := exists_orderOf_three_eq hn hodd
-  exact ⟨v, hv, primitive_of_orderOf hord⟩
 
 end CFSG.Walter.W67.P56Ab

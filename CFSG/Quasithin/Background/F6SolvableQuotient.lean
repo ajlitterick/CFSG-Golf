@@ -363,16 +363,6 @@ theorem prime_eq_two_or_three_of_pRank_le_two (h : IsGoldschmidtTriple G₁ G₂
   · exact prime_eq_two_or_three_of_pow_mem_centralizer h hsolv hk0 hk hkc hL hq hqd
   · exact prime_eq_two_or_three_of_pow_mem_centralizer h.symm hsolv hk0 hk hkc hL hq hqd
 
-theorem prime_eq_two_or_three_of_sqtk (h : IsGoldschmidtTriple G₁ G₂)
-    (hsolv : Group.IsSolvable D)
-    (hD : ∃ (Ĝ : Type) (_ : Group Ĝ) (_ : Finite Ĝ) (φ : Ĝ →* D), Function.Surjective φ ∧
-      SQTKTauCeti.StronglyQuasithin Ĝ ∧ CFSG.SectionRank.IsKGroupCat Ĝ)
-    (hL : twoResidual G₁ ≤ Subgroup.centralizer (opResidual 3 (genFittingFitting D) : Set D) ∨
-      twoResidual G₂ ≤ Subgroup.centralizer (opResidual 3 (genFittingFitting D) : Set D))
-    {q : ℕ} (hq : q.Prime) (hqd : q ∣ Nat.card D) : q = 2 ∨ q = 3 := by
-  obtain ⟨Ĝ, _, _, φ, hφ, hSQT, -⟩ := hD
-  exact prime_eq_two_or_three_of_pRank_le_two h hsolv φ hφ
-    (hSQT 3 Nat.prime_three (by norm_num)) hL hq hqd
 
 end F6
 

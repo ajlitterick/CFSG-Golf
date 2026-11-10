@@ -14,52 +14,11 @@ open CFSG.Sp43.Native Subgroup
 def memSearch (i : ℕ) : Array ℕ × Array ℕ × Array ℕ × Array ℕ :=
   bfs #[memGens[i]!.1, memGens[i]!.2] 2000
 
-private theorem check_split (h : sp43Check () = true) :
-    groupOK (spArr ()) (etree (spArr ()) #[memGens[5]!.1, memGens[5]!.2]) = true ∧
-      membersOK (threeArr (spArr ())) ((Array.range 5).map memSearch) = true := by
-  unfold sp43Check checkE at h
-  exact Bool.and_eq_true _ _ |>.mp h
-
-private theorem groupOK_parts {E : Array ℕ} {tr : Array ℕ × Array ℕ × Array ℕ}
-    (h : groupOK E tr = true) :
-    E.size = 51840 ∧ incOK E = true ∧ codesOK E = true ∧
-      treeOK E #[memGens[5]!.1, memGens[5]!.2] tr.1 tr.2.1 tr.2.2 = true ∧ gOK E = true := by
-  unfold groupOK at h
-  simp only [Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩ := h
-  exact ⟨h1, h2, h3, h4, h5⟩
-
-theorem card_G_of_check (h : sp43Check () = true) : Nat.card G = 51840 := by
-  obtain ⟨h1, h2, -⟩ := groupOK_parts (check_split h).1
-  exact card_G h1 h2
 
 theorem symp_of_memS {c : ℕ} (h : memS (spArr ()) c = true) : Symp c := by
   obtain ⟨i, hi, rfl⟩ := memS_spec h
   exact symp_spArr hi
 
-private theorem memSearch_get {i : ℕ} (hi : i < 5) : ((Array.range 5).map memSearch)[i]! =
-    memSearch i := by
-  rw [getElem!_pos _ i (by simpa using hi)]
-  simp
-
-private theorem membersOK_parts {T : Array ℕ}
-    (h : membersOK T ((Array.range 5).map memSearch) = true) :
-    (∀ i < 5, memberOK T (((Array.range 5).map memSearch).map (·.1)) i (memSearch i) = true) ∧
-      h3OK (memSearch 3).1 = true ∧ h4OK (memSearch 4).1 = true := by
-  unfold membersOK at h
-  simp only [Bool.and_eq_true, List.all_eq_true, List.mem_range] at h
-  obtain ⟨⟨⟨-, hall⟩, h3⟩, h4⟩ := h
-  refine ⟨fun i hi => ?_, ?_, ?_⟩
-  · have := hall i hi
-    rwa [memSearch_get hi] at this
-  · have e : (((Array.range 5).map memSearch).map (·.1))[3]! = (memSearch 3).1 := by
-      rw [getElem!_pos _ 3 (by simp)]
-      simp
-    rwa [e] at h3
-  · have e : (((Array.range 5).map memSearch).map (·.1))[4]! = (memSearch 4).1 := by
-      rw [getElem!_pos _ 4 (by simp)]
-      simp
-    rwa [e] at h4
 
 private theorem memberOK_parts {T : Array ℕ} {Ls : Array (Array ℕ)} {i : ℕ}
     {r : Array ℕ × Array ℕ × Array ℕ × Array ℕ} (h : memberOK T Ls i r = true) :
@@ -86,11 +45,6 @@ structure Facts : Prop where
   h3 : h3OK (memSearch 3).1 = true
   h4 : h4OK (memSearch 4).1 = true
 
-theorem facts_of_check (h : sp43Check () = true) : Facts := by
-  obtain ⟨hg, hm⟩ := check_split h
-  obtain ⟨h1, h2, h3, h4, h5⟩ := groupOK_parts hg
-  obtain ⟨hm1, hm2, hm3⟩ := membersOK_parts hm
-  exact ⟨card_G h1 h2, h3, h4, h5, hm1, hm2, hm3⟩
 
 private theorem codesOK_parts (h : codesOK (spArr ()) = true) :
     memGens.all (fun g => memS (spArr ()) g.1 && memS (spArr ()) g.2) = true ∧
@@ -175,9 +129,6 @@ theorem ofCode_inv_of_mulF {a b : ℕ} (ha : Symp a) (hb : Symp b) (h : mulF a b
   have : ofCode a * ofCode b = 1 := by rw [← ofCode_mulF ha hb, h, ofCode_oneC]
   exact eq_inv_of_mul_eq_one_right this
 
-theorem symp_conjC {n ni k : ℕ} (hn : Symp n) (hni : Symp ni) (hk : Symp k) :
-    Symp (conjC n ni k) :=
-  symp_mulF (symp_mulF hn hk) hni
 
 theorem ofCode_conjC {n ni k : ℕ} (hn : Symp n) (hni : Symp ni) (hk : Symp k)
     (h : mulF n ni = oneC) : ofCode (conjC n ni k) = ofCode n * ofCode k * (ofCode n)⁻¹ := by

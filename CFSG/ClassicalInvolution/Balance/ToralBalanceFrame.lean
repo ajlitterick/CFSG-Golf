@@ -11,14 +11,6 @@ open CFSG.Open CFSG.ComponentClassification CFSG.ClassicalInvolution.Generic
 
 section Members
 
-theorem IsInvolutionMember.of_isUniqueInvolution {G : Type*} [Group G] {K : Subgroup G} {z : G}
-    (hz : IsUniqueInvolution K z) (hperf : commutator K = ⊤)
-    (hq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K))
-    (hsub : IsSubnormal K (Subgroup.centralizer ({z} : Set G))) : IsInvolutionMember K :=
-  ⟨hperf, hq, z, hz.mem, hz.sq, fun k hk => by
-    have h := hz.conj_eq (conjSub_eq_self_of_mem hk)
-    calc z * k = (k * z * k⁻¹) * k := by rw [h]
-      _ = k * z := by group, hsub⟩
 
 variable {G : Type} [Group G] [Finite G]
 
@@ -201,52 +193,6 @@ variable (Ω E) in
         (∀ f ∈ modOdd a F₀, f ≠ 1 → ¬ ∀ x ∈ L, f * x = x * f) →
           OddCentralizerFree (modOdd a F₀) L
 
-theorem twoBalancedWrt_of_frame_of_layers (Fr : ToralFrame F Ω E S)
-    (hsym : PairingSymmetric E S) (hconn : PairingConnected E S)
-    (hloc : ∀ a ∈ E, a ≠ 1 → ComponentLayersAt Ω E a) : TwoBalancedWrt E := by
-  have hcomm := frame_isMulCommutative Fr
-  refine twoBalancedWrt_of_quotient_deltaCore_eq_bot hcomm ?_
-  intro a ha ha1 F₀ hF₀
-  obtain ⟨hF₀E, hF₀card⟩ := hF₀
-  have h4 : Nat.card F₀ = 4 := by rw [hF₀card]; norm_num
-  have hFC : F₀ ≤ Subgroup.centralizer ({a} : Set G) := by
-    intro f hf
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (frame_comm Fr ha (hF₀E hf)).symm
-  have hF2 : ∀ f ∈ F₀, f * f = 1 := fun f hf => Fr.elem f (hF₀E hf)
-  have hF2bar : ∀ f ∈ modOdd a F₀, f * f = 1 := by
-    rintro _ ⟨x, hx, rfl⟩
-    have hx' : (x : G) ∈ F₀ := hx
-    rw [← map_mul]
-    have : x * x = 1 := Subtype.ext (hF2 _ hx')
-    rw [this, map_one]
-  show deltaCore (modOdd a F₀) = ⊥
-  refine deltaCore_eq_bot_of_oddCentralizerFree (pPrimeCore_oddQuot_eq_bot a)
-    (by rw [card_modOdd_of_exponent_two hFC hF2, h4]) hF2bar ?_
-  intro L hL hFn hfaith
-  rcases hloc a ha ha1 L hL with h | h | hfree
-  · obtain ⟨f, hf, hf1, hfc⟩ :=
-      exists_mem_ne_one_centralizes_of_omegaFree_or_rankOne Fr hsym hconn ha hF₀E h4 (Or.inl h)
-    exact absurd hfc (hfaith f hf hf1)
-  · obtain ⟨f, hf, hf1, hfc⟩ :=
-      exists_mem_ne_one_centralizes_of_omegaFree_or_rankOne Fr hsym hconn ha hF₀E h4 (Or.inr h)
-    exact absurd hfc (hfaith f hf hf1)
-  · exact hfree F₀ hF₀E h4 hFn hfaith
-
-theorem twoBalancedWrt_of_frame_of_a2Dichotomy_of_layers (Fr : ToralFrame F Ω E S)
-    (hA2 : A2Dichotomy E S) (hfib : FibreLE2 S) (hnc : NonCommConnected S)
-    (hloc : ∀ a ∈ E, a ≠ 1 → ComponentLayersAt Ω E a) : TwoBalancedWrt E :=
-  twoBalancedWrt_of_frame_of_layers Fr (pairingSymmetric_of_a2Dichotomy Fr hA2)
-    (pairingConnected_of_nonCommConnected Fr hA2 hfib hnc) hloc
-
-theorem deltaCore_eq_bot_of_frame_of_layers (Fr : ToralFrame F Ω E S) (hsym : PairingSymmetric E S)
-    (hconn : PairingConnected E S) (h16 : 16 ≤ Nat.card E)
-    (hloc : ∀ a ∈ E, a ≠ 1 → ComponentLayersAt Ω E a)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated E) :
-    ∀ F₀ ∈ signalizerFunctorEk 2 2 E, deltaCore F₀ = ⊥ :=
-  deltaCore_eq_bot_of_fusionGenerated
-    ⟨frame_isMulCommutative Fr, fun x hx => by rw [pow_two]; exact Fr.elem x hx⟩ h16
-    (twoBalancedWrt_of_frame_of_layers Fr hsym hconn hloc) hO hGen
 
 end Frame
 

@@ -103,22 +103,6 @@ theorem matrixProjectiveConjugationHom_eq_one_iff (hnd : Q.polarBilin.Nondegener
     rw [ha]
     exact (one_mul _).symm
 
-theorem matrixProjectiveConjugationHom_not_mem_range_isometry
-    (hnd : Q.polarBilin.Nondegenerate)
-    (hS3 : ∃ S : Submodule K (Fin d → K), Module.finrank K S = 3 ∧ ∀ v ∈ S, Q v = 0)
-    (hAP : CFSG.ComponentClassification.CatalogueBOrthogonalPointAction.ActionProperties Q
-      (projectivePointAction Q)) {g : similarityPairs Q} (hg : g.val.right ≠ 1) :
-    matrixProjectiveConjugationHom Q g ∉ (isometryConjugationHom Q).range := by
-  rintro ⟨A, hA⟩
-  have h1 : matrixProjectiveConjugationHom Q (g * (matrixIsometryInclusion Q A)⁻¹) = 1 := by
-    rw [map_mul, map_inv]
-    change matrixProjectiveConjugationHom Q g * (isometryConjugationHom Q A)⁻¹ = 1
-    rw [hA, mul_inv_cancel]
-  have h2 := ((matrixProjectiveConjugationHom_eq_one_iff Q hnd hS3 hAP _).1 h1).1
-  apply hg
-  simpa only [Subgroup.coe_mul, Subgroup.coe_inv, SemidirectProduct.mul_right,
-    SemidirectProduct.inv_right, matrixIsometryInclusion_val, SemidirectProduct.right_inl,
-    inv_one, mul_one] using h2
 
 theorem orthogonalGates_of [Finite K] {ℓ f : ℕ} (hℓ : ℓ.Prime) (hf : 1 ≤ f)
     (hK : Nat.card K = ℓ ^ f) (hQ : Q ≠ 0) (hnd : Q.polarBilin.Nondegenerate)

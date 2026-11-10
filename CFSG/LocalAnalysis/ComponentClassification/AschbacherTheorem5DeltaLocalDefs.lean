@@ -24,13 +24,6 @@ variable {G : Type} [Group G]
     (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D)) (i : Fin r) : Subgroup G :=
   aschbacherThm5Preimage D (Abar i) ⊓ SectionSix.centralizing D (Abar i)
 
-theorem mem_fourGroupsInto_iff (H K U : Subgroup G) :
-    U ∈ fourGroupsInto H K ↔ U ≤ H ∧ IsElemAbelian 2 U ∧ Nat.card U = 4 ∧
-      ∀ u ∈ U, u ≠ 1 → Subgroup.centralizer ({u} : Set G) ≤ K := Iff.rfl
-
-theorem mem_deltaConjugates_iff (H K : Subgroup G) :
-    K ∈ deltaConjugates H ↔
-      ∃ g : G, K = rightConjugate H g ∧ K ≠ H ∧ (fourGroupsInto H K).Nonempty := Iff.rfl
 
 theorem deltaConjugates_eq_empty_iff (H : Subgroup G) :
     deltaConjugates H = ∅ ↔ ∀ g : G, rightConjugate H g ≠ H → ∀ U : Subgroup G, U ≤ H →

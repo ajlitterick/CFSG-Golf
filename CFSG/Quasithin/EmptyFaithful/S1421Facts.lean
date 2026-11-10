@@ -30,21 +30,5 @@ end Hyp1421
 theorem facts1422Input_of_stages (h11 : StageLemma14111) (h113 : StageLemma14113) :
     Facts1422Input := fun _ _ _ _ _ h => h.facts1422 h11 h113
 
-theorem stageTheorem1427_of_stages_legacyBare (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hE22 : E22Input) (h311 : Theorem311) (h13 : Lemma14213) (hf : Hyp111fInput)
-    (h15 : Lemma14215) (hF112 : F112LegacyPrintedError) (hRO : RankOneListedFacts.{0})
-    (htail : Lemma14216TailLegacyBare) (h17 : Lemma14217J2LegacyBare) (h18 : Lemma14218D4LegacyBare) (hI47 : I47Statement)
-    (hF431 : F431D4) (hD4 : TrialityD4Bridge) : StageTheorem1427 :=
-  stageTheorem1427_of_inputs_legacyBare (facts1422Input_of_stages h11 h113) hE22 h311 h13 hf h15 hF112 hRO
-    htail h17 h18 hI47 hF431 hD4
-
-
-theorem stageTheorem1427_of_stages (h11 : StageLemma14111) (h113 : StageLemma14113)
-    (hE22 : E22Input) (h311 : Theorem311) (h13 : Lemma14213) (hf : Hyp111fInput)
-    (h15 : Lemma14215) (hF112 : F112Statement) (hRO : RankOneListedFacts.{0})
-    (htail : Lemma14216Tail) (h17 : Lemma14217J2) (h18 : Lemma14218D4) (hI47 : I47Statement)
-    (hF431 : F431D4) (hD4 : TrialityD4Bridge) : StageTheorem1427 :=
-  stageTheorem1427_of_inputs (facts1422Input_of_stages h11 h113) hE22 h311 h13 hf h15 hF112 hRO
-    htail h17 h18 hI47 hF431 hD4
 
 end CFSG.Quasithin

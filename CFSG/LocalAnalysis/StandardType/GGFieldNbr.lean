@@ -114,9 +114,6 @@ theorem mem_zpowers_of_mem_closure_pair {p : ℕ} (hp : p.Prime) {x y c : G} {C 
 
 end Core
 
-@[expose] def GGStdSubBstarCentralizerInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D
 
 @[expose] def GGStdSubBstarMeetInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -199,11 +196,6 @@ theorem ggFieldNbrCanonical_of_inner {p : ℕ} {B Bs : Subgroup G} {x : G} {L D 
     exact hbC (hCKJ (Subgroup.zpowers_le.mpr hyK hb))
   exact normalizer_inf_le_of_inf_centralizer_le hKc hF1 hbB₁ (hJK hbJ) hbd
 
-theorem ggFieldNbrCanonicalInput_of_inputs (h1 : GGStdSubBstarCentralizerInput)
-    (h2 : GGStdSubBstarMeetInput) (h3 : GGNbrSubcomponentInput) (h4 : GGFieldNbrInnerInput) :
-    GGFieldNbrCanonicalInput := fun G _ _ p B Bs x L D J hcfg =>
-  ggFieldNbrCanonical_of_inner hcfg (h1 G p B Bs x L D J hcfg) (h2 G p B Bs x L D J hcfg)
-    (h3 G p B x L D J hcfg.1 hcfg.2.2) (h4 G p B Bs x L D J hcfg)
 
 theorem card_le_mul_card_inf {p : ℕ} {H B S : Subgroup G} (hHS : H ≤ S) (hBS : B ≤ S)
     (hS : Nat.card S ≤ p * Nat.card B) : Nat.card H ≤ p * Nat.card (B ⊓ H : Subgroup G) := by
@@ -287,15 +279,6 @@ end Reduction
       Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D ∧
         ∃ b ∈ Bs ⊓ J, b ∉ Subgroup.centralizer (J : Set G)
 
-theorem ggFieldNbrCanonicalInput_of_small (h3 : GGNbrSubcomponentInput)
-    (h4 : GGFieldNbrInnerInput) (hs : GGStdSubSmallInput) : GGFieldNbrCanonicalInput :=
-  fun G _ _ p B Bs x L D J hcfg =>
-    ggFieldNbrCanonical_of_small hcfg (h3 G p B x L D J hcfg.1 hcfg.2.2)
-      (h4 G p B Bs x L D J hcfg) (hs G p B Bs x L D J hcfg)
-
-theorem ggStdSubSmallInput_of_inputs (h1 : GGStdSubBstarCentralizerInput)
-    (h2 : GGStdSubBstarMeetInput) : GGStdSubSmallInput :=
-  fun G _ _ p B Bs x L D J hcfg _ => ⟨h1 G p B Bs x L D J hcfg, h2 G p B Bs x L D J hcfg⟩
 
 section Split
 

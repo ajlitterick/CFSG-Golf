@@ -131,7 +131,6 @@ theorem xp_ne_one {p : ℕ} (hp : p < 12) {c : K} (hc : c ≠ 0) : xp p c ≠ 1 
   hc (xPar_injective (F := rootOperatorFamily .G2) (K := K) (isRoot_rt hp)
     (h.trans (xp_zero p).symm))
 
-theorem rt_inj_check : ∀ p < 12, ∀ q < 12, rt p = rt q → p = q := by decide +kernel
 
 theorem simple_inversion_check : ∀ k < 12, 0 < ht (rt k) →
     ht (reflect .G2 e1 (rt k)) < 0 → k = 1 := by decide +kernel

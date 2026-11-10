@@ -67,19 +67,6 @@ theorem witness_top_of_checkW (hps : ∀ p ∈ ps, p < n)
     · exact absurd h (by decide)
     · exact Or.inr (Or.inr ⟨hw.1, (uWitness_map_iff _ H.subtype_injective _ _).mp hw.2⟩)
 
-theorem yCensus17U_top_of_checkW (hps : ∀ p ∈ ps, p < n)
-    (hmem : ∀ a, validA n a = true → inX a = true → permOfArr n a ∈ H)
-    (hc : censusOKW n ps inX M24.allA true false allowU sGens roots nodes cS wcs = true)
-    (hgen : (allLt sGens.size fun j => inX sGens[j]!) = true)
-    (hsize : cS.pts.size = 2 ^ k)
-    (hcard : Nat.card H = 2 ^ k * m) (hm : Odd m) :
-    YCensus17U (⊤ : Subgroup ↥H) (fun _ => False) := by
-  obtain ⟨S, hS, hw⟩ := witness_top_of_checkW hps hmem hc hgen hsize hcard hm
-  refine yCensus17U_of_le_sylow inferInstance hS (fun _ _ h => h) fun E hES hE hE4 _ => ?_
-  rcases hw E hES hE hE4 with h | h | ⟨-, h⟩
-  · exact Or.inl h
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr h)
 
 theorem yCensus17_top_of_checkW (hps : ∀ p ∈ ps, p < n)
     (hmem : ∀ a, validA n a = true → inX a = true → permOfArr n a ∈ H)

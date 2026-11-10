@@ -536,51 +536,13 @@ end RankOne
 
 section FramePSL
 
-theorem coe_mul_self_eq_one {k : Type} [Field k] {n : ℕ} {x : SL(n, k)} (h : x * x = 1) :
-    (x : Matrix (Fin n) (Fin n) k) * x = 1 := by
-  have := congrArg (fun z : SL(n, k) => (z : Matrix (Fin n) (Fin n) k)) h
-  simpa only [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_one] using this
 
 theorem conj_eq_of_mem_center {K : Type} [Group K] {x : K} (hx : x ∈ Subgroup.center K) (y : K) :
     x * y * x⁻¹ = y := by
   rw [(Subgroup.mem_center_iff.mp hx y).symm, mul_inv_cancel_right]
 
-open CFSG.ClassicalInvolution.ModelFacts (mul_self_eq_one_of_mem_center_longRootSet)
 open CFSG.ClassicalInvolution.Generic CFSG.Assembly.LowTwoRank
 
-theorem strongLocalTwoBalanceFrameAt_PSL : StrongLocalTwoBalanceFrameAt .PSL := by
-  intro n p e hp _ hfund hadm hp2 h5 X _ _ ψ hker hnorm 𝓜 h𝓜 hcomm F hcard hF2 hfaith hact
-  have : Fact p.Prime := ⟨hp⟩
-  have hn : 2 ≤ n := hadm.2.2.1
-  obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 := ⟨n - 1, by omega⟩
-  have hsq : ∀ R ∈ fundamentalSubgroups .PSL
-      (modelUniv .PSL (m + 1) p e hp).D, ∀ r ∈ R, (∀ s ∈ R, r * s = s * r) → r * r = 1 :=
-    fun R hR r hr hrc => mul_self_eq_one_of_mem_center_longRootSet
-      (CFSG.ClassicalInvolution.RouteD.fundamentalSubgroups_psl_subset hn hR) hr hrc
-  obtain ⟨P, hP, hP2, hlift⟩ := exists_involutory_lifts_of_frameGroup .PSL (m + 1) p e hp hfund
-    hadm hp2 h5 ψ hker 𝓜 h𝓜 hcomm hsq hact
-  by_cases h3 : 3 ≤ m + 1
-  · refine strongConclusion_gf_split h3 hp2 h5 ψ hker hnorm hcard hF2 P hP fun f hf => ?_
-    obtain ⟨x, hxP, hxa⟩ := hlift f hf
-    refine ⟨x, hxP, hxa, 1, one_ne_zero, ?_⟩
-    rw [one_pow, one_smul]
-    exact coe_mul_self_eq_one (hP2 x hxP)
-  · exfalso
-    obtain rfl : m = 1 := by omega
-    obtain ⟨f, hfF, hf1⟩ : ∃ f ∈ F, f ≠ 1 :=
-      CFSG.ClassicalInvolution.Balance.exists_ne_one_of_card_eq_two_pow (n := 2) (by norm_num)
-        (by rw [hcard]; norm_num)
-    obtain ⟨x, hxP, hxa⟩ := hlift f hfF
-    have hcen : x ∈ Subgroup.center (modelUniv .PSL (1 + 1) p e hp).K :=
-      sl2_involution_central (CFSG.ClassicalInvolution.ModelFacts.two_ne_zero_galoisField e hp2)
-        (hP2 x hxP)
-    refine hfaith f hfF hf1 ?_
-    rintro _ ⟨y, rfl⟩
-    have h1 : f * ψ y * f⁻¹ = ψ y := by
-      rw [hxa y]
-      congr 1
-      exact conj_eq_of_mem_center hcen y
-    exact mul_inv_eq_iff_eq_mul.mp h1
 
 end FramePSL
 

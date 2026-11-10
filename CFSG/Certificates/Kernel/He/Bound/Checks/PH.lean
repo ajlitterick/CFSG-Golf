@@ -18,9 +18,6 @@ theorem sH2 : CFSG.KC.LceS.aliveOK LVs (nat_lit 139) (nat_lit 567815) nLive = tr
 
 theorem sH3 : Nat.beq nC (nat_lit 567815) = true := by quickRfl
 
-theorem sH4 : CFSG.KC.HeB.litOK litRT CFSG.KC.HeB.rel (nat_lit 7) = true := by quickRfl
-
-theorem sH5 : CFSG.KC.HeB.litOK litST CFSG.KC.HeB.sub (nat_lit 2) = true := by quickRfl
 
 end CFSG.KD.HeBP
 

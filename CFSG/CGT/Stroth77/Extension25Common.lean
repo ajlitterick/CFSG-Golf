@@ -265,17 +265,6 @@ theorem exists_cocycle_index_two_of_data_Idx4 (D : StrothTypeData B τ) (hk : �
     rw [D.ec_mul, D.ec_mul, htc, huvc] at h4
     exact h4
 
-theorem exists_cocycle_index_two_Idx4 (hB : HasStrothType B τ) (hk : ∀ i, 1 ≤ τ.k i)
-    {A : (Fin 3 → ZMod 2) → Fin 3 → ZMod 2}
-    (hρpar : ∀ y, parityTorus τ.k hk (τ.action.φρ y) = A (parityTorus τ.k hk y))
-    (hAfix : ∀ v, v ≠ 0 → A v = v → v = Pi.single 0 1)
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B) (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    ∃ zuv zt : Torus τ.k, 2 • zuv = τ.action.φuv Torus.c - Torus.c ∧
-      2 • zt = τ.action.φt Torus.c - Torus.c ∧ zuv + τ.action.φuv zuv = 0 ∧
-      zt + τ.action.φt zuv = zuv + τ.action.φuv zt :=
-  exists_cocycle_index_two_of_data_Idx4 hB.data hk hρpar hAfix hBC hC hrel hL hH hcS
 
 theorem exists_cocycle_involution_index_two_of_data_Idx4 (D : StrothTypeData B τ)
     (hk : ∀ i, 1 ≤ τ.k i) {A : (Fin 3 → ZMod 2) → Fin 3 → ZMod 2}
@@ -328,19 +317,6 @@ theorem exists_cocycle_involution_index_two_of_data_Idx4 (D : StrothTypeData B �
     rw [D.ec_mul, D.ec_one, hφ] at h5
     exact h5
 
-theorem exists_cocycle_involution_index_two_Idx4 (hB : HasStrothType B τ)
-    (hk : ∀ i, 1 ≤ τ.k i) {A : (Fin 3 → ZMod 2) → Fin 3 → ZMod 2}
-    (hρpar : ∀ y, parityTorus τ.k hk (τ.action.φρ y) = A (parityTorus τ.k hk y))
-    (hAfix : ∀ v, v ≠ 0 → A v = v → v = Pi.single 0 1)
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B) (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    {g : S} (hgC : g ∈ Subgroup.normalizer C) (hgB : g ∈ Subgroup.normalizer B)
-    (hg2 : g * g = 1) {φ : Torus τ.k →+ Torus τ.k}
-    (hφ : ∀ x : B, hB.data.ec (conjBy hgB x) = φ (hB.data.ec x)) :
-    ∃ z : Torus τ.k, 2 • z = φ Torus.c - Torus.c ∧ z + φ z = 0 :=
-  exists_cocycle_involution_index_two_of_data_Idx4 hB.data hk hρpar hAfix hBC hC hrel hL hH hcS
-    hgC hgB hg2 hφ
 
 section IndexFour
 
@@ -521,16 +497,6 @@ theorem exists_sq_eq_a_of_data_Idx4 (D : StrothTypeData B τ) (hk : ∀ i, 1 ≤
   obtain ⟨e, -, he⟩ := exists_sq_eq_of_sqParityIdx4 D hk hsq hBC hcomm hya
   exact ⟨e, he⟩
 
-theorem exists_sq_eq_a_Idx4 (hB : HasStrothType B τ) (hk : ∀ i, 1 ≤ τ.k i)
-    (hρpar : ∀ y, parityTorus τ.k hk (τ.action.φρ y) = rhoBar300 (parityTorus τ.k hk y))
-    (hfix : ∀ y : B, conjBy hB.data.ρ_mem y = y → conjBy hB.data.t_mem y = y → y = 1)
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) :
-    ∃ e : C, e * e = ⟨hB.data.a, hBC hB.data.a.2⟩ :=
-  exists_sq_eq_a_of_data_Idx4 hB.data hk hρpar hfix hBC hC hrel hL hH hcS hncyc
 
 theorem exists_cocycle_index_four_of_data_Idx4 (D : StrothTypeData B τ) (hk : ∀ i, 1 ≤ τ.k i)
     (hρpar : ∀ y, parityTorus τ.k hk (τ.action.φρ y) = rhoBar300 (parityTorus τ.k hk y))
@@ -612,17 +578,6 @@ theorem exists_cocycle_index_four_of_data_Idx4 (D : StrothTypeData B τ) (hk : �
     rw [D.ec_mul, D.ec_one, huvc] at h5
     exact h5
 
-theorem exists_cocycle_index_four_Idx4 (hB : HasStrothType B τ) (hk : ∀ i, 1 ≤ τ.k i)
-    (hρpar : ∀ y, parityTorus τ.k hk (τ.action.φρ y) = rhoBar300 (parityTorus τ.k hk y))
-    (hfix : ∀ y : B, conjBy hB.data.ρ_mem y = y → conjBy hB.data.t_mem y = y → y = 1)
-    (huva : parityTorus τ.k hk (τ.action.φuv Torus.a) = Pi.single 1 1)
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) :
-    ∃ z : Torus τ.k, 2 • z = τ.action.φuv Torus.a - Torus.a ∧ z + τ.action.φuv z = 0 :=
-  exists_cocycle_index_four_of_data_Idx4 hB.data hk hρpar hfix huva hBC hC hrel hL hH hcS hncyc
 
 end IndexFour
 

@@ -16,14 +16,6 @@ section Defs
 
 variable {G : Type} [Group G]
 
-@[expose] def IsIrrSection (X J C : Subgroup G) : Prop :=
-  C < J ∧ X ≤ Subgroup.normalizer (J : Set G) ∧ X ≤ Subgroup.normalizer (C : Set G) ∧
-    ∀ W : Subgroup G, C ≤ W → W ≤ J → X ≤ Subgroup.normalizer (W : Set G) → W = C ∨ W = J
-
-@[expose] def IsSemisimpleSection (X U C : Subgroup G) : Prop :=
-  ∀ W : Subgroup G, C ≤ W → W ≤ U → X ≤ Subgroup.normalizer (W : Set G) →
-    ∃ W' : Subgroup G, C ≤ W' ∧ W' ≤ U ∧ X ≤ Subgroup.normalizer (W' : Set G) ∧
-      W ⊓ W' = C ∧ W ⊔ W' = U
 
 @[expose] def IsNotation4211 (T M L I : Subgroup G) : Prop :=
   I ≤ M ∧ (L : Set G) ⊆ (I : Set G) * (pCoreOf 2 (L ⊔ T) : Set G) ∧
@@ -35,25 +27,6 @@ variable {G : Type} [Group G]
 
 abbrev v4213 (T L : Subgroup G) : Subgroup G := ⁅reducedAggregate (L ⊔ T), L⁆
 
-@[expose] def Cases4_2_13 (T M L I : Subgroup G) : Prop :=
-  (∃ (n : ℕ) (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = 2 ^ n ∧
-      Nonempty (↥L ⧸ CFSG.pCore 2 ↥L ≃* Matrix.SpecialLinearGroup (Fin 2) F)) ∨
-    (∃ d : ℕ, (d = 3 ∨ d = 4) ∧
-      Nonempty (↥L ⧸ CFSG.pCore 2 ↥L ≃* Matrix.SpecialLinearGroup (Fin d) (ZMod 2)) ∧
-      ∃ _ : IsMulCommutative ↥(v4213 T L),
-        (∃ k : ℕ, 0 < k ∧ DirectSumOfCopies (V := ↥(v4213 T L)) (autOn L (v4213 T L)) ⊤
-            ((Subgroup.centralizer (L : Set G)).subgroupOf (v4213 T L))
-            (FFModel.nat (StatedSL d (ZMod 2))) k) ∨
-          (d = 4 ∧ SLExteriorTwo (V := ↥(v4213 T L)) (autOn L (v4213 T L)) ⊤
-            ((Subgroup.centralizer (L : Set G)).subgroupOf (v4213 T L)) 4)) ∨
-    (IsAltBlockType (oTwoUpper (I ⊓ L)) 6 ∨ IsExcA7Block (oTwoUpper (I ⊓ L))) ∨
-    (IsHatA6Block (oTwoUpper (I ⊓ L)) ∧
-      ∀ z ∈ v4213 T L ⊓ Subgroup.centralizer (T : Set G), z ≠ 1 →
-        ¬ v4213 T L ≤ pCoreOf 2 (Subgroup.centralizer ({z} : Set G))) ∨
-    (IsG2Block (oTwoUpper (I ⊓ L)) ∧
-      (Nat.card (v4213 T L) = 2 ^ 6 →
-        ∃ V₃ : Subgroup G, V₃ ≤ v4213 T L ∧ Nat.card V₃ = 2 ^ 3 ∧
-          T ⊓ I ≤ Subgroup.normalizer (V₃ : Set G) ∧ ¬ Subgroup.centralizer (V₃ : Set G) ≤ M))
 
 end Defs
 

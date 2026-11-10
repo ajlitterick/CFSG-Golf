@@ -26,8 +26,5 @@ theorem wordLin_gxXWord : wordLin gxXWord = xmat := by
 
 theorem fiMkW_gxXWord : fiMkW gxXWord = xGriess := Subtype.ext wordLin_gxXWord
 
-@[expose, noinline] def gxTwoBCheck : Bool :=
-  (gxXWord ++ gxCW9 ++ (gxCW9 ++ gxProdWord (gxXList 9))).all Native.Gen.validB &&
-    checkP4 (HS.pw gxXWord ++ HS.pw gxCW9) (HS.pw gxCW9 ++ gxProdP (gxXList 9))
 
 end CFSG.Monster.Existence

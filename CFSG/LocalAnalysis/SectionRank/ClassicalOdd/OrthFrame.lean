@@ -71,8 +71,6 @@ theorem β_corr (x : K × K × K × K) (v : ι → K) :
   simp only [corr, map_add, map_smul, β_single_X, D.β_w, smul_eq_mul]
   ring
 
-theorem L_Y (x : K × K × K × K) (v : ι → K) (j : Fin 3) : D.L x v (D.Y j) = v (D.Y j) := by
-  rw [L_apply, Pi.add_apply, corr_Y, add_zero]
 
 theorem β_L (x : K × K × K × K) (v : ι → K) :
     D.β (D.L x v) = D.β v + 2 * (x.1 * v (D.Y 0)) := by

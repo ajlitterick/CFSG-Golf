@@ -61,22 +61,6 @@ theorem dim_le_two_mul : Module.finrank (ZMod 2) V ≤ 2 * (Nat.log 2 (X₀.relI
     Module.finrank_pos_iff_exists_ne_zero.2 ⟨v₁, h.point⟩
   omega
 
-theorem log_relIndex_le_pRank : Nat.log 2 (X₀.relIndex X) ≤ CFSG.Open.pRank 2 Γ := by
-  obtain ⟨k, hk⟩ := h.exists_card_X
-  have hdvd : X₀.relIndex X ∣ 2 ^ k := by
-    rw [← hk]
-    exact Subgroup.relIndex_dvd_card X₀ X
-  obtain ⟨j, hj, hjeq⟩ := (Nat.dvd_prime_pow Nat.prime_two).1 hdvd
-  rw [hjeq, Nat.log_pow Nat.one_lt_two]
-  have hkle : k ≤ CFSG.Open.pRank 2 Γ := by
-    refine le_csSup ?_ ⟨X, h.X_le, h.X_isElemAbelian, hk⟩
-    refine ⟨Nat.card (V ≃ₗ[ZMod 2] V), ?_⟩
-    rintro m ⟨E, -, -, hE⟩
-    have : 2 ^ m ≤ Nat.card (V ≃ₗ[ZMod 2] V) := by
-      rw [← hE]
-      exact Nat.card_le_card_of_injective (fun e : E => (e : V ≃ₗ[ZMod 2] V)) Subtype.val_injective
-    exact (Nat.lt_pow_self Nat.one_lt_two).le.trans this
-  exact hj.trans hkle
 
 omit [Finite V] h in
 theorem stabilizer_eq_subgroupOf :

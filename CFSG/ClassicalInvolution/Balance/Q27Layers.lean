@@ -181,12 +181,6 @@ theorem triangleLayers_of_hybrid_free (hmodel : LayerGenerationHybrid p) :
     (localLieSystems_of_citBelowU hΩ hBelow) (Theorem5.memberFamily_of_indepTripleOn hp2 hf hA) hA
     hmodel
 
-theorem bootTriple_of_hybrid_noF3 (hmodel : LayerGenerationHybrid p)
-    (htri : Theorem5.ConnectedTrianglesExist p f)
-    (hcov9 : p ^ f = 9 → Theorem5.ConnectedFramesExist p f) (hexotic : ExoticLeviBlock p f) :
-    CoreAssembly.BootTriple p f :=
-  Theorem5.bootTriple_of_triangleLayers_noCover (triangleLayers_of_hybrid_free hmodel) htri hcov9
-    hexotic
 
 end Triangle
 

@@ -242,18 +242,6 @@ theorem unitaryBlockStandardPair_subgroupOf {X : Type} [Group X] {W U V : Subgro
     · exact Or.inl ⟨hmap _ _ h1, hmap _ _ h2⟩
     · exact Or.inr ⟨hmap _ _ h1, hmap _ _ h2⟩
 
-omit [Algebra K K'] in
-theorem lemma_6_10_unitary_subgroupOf (hK : Nat.card K = p ^ f)
-    (hK' : Nat.card K' = (p ^ f) ^ 2) (hodd : Odd (Nat.card K))
-    (h₁ : IsFundamental Q L₁ i₁) (h₂ : IsFundamental Q L₂ i₂) (hc : i₁ * i₂ = i₂ * i₁)
-    (hN : i₂ ∈ Subgroup.normalizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hC : i₂ ∉ Subgroup.centralizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hs : ¬ HasSingularVector Q (negSpace i₁ ⊓ negSpace i₂)) :
-    UnitaryBlockStandardPair K' p f ((L₁ ⊔ L₂).subgroupOf (elementaryGroup Q))
-      (L₁.subgroupOf (elementaryGroup Q)) (L₂.subgroupOf (elementaryGroup Q)) :=
-  unitaryBlockStandardPair_subgroupOf (elementaryGroup Q)
-    (sup_le h₁.le_elementaryGroup h₂.le_elementaryGroup)
-    (lemma_6_10_unitary hK hK' hodd h₁ h₂ hc hN hC hs)
 
 end Main
 

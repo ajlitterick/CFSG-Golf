@@ -315,9 +315,6 @@ theorem finrank_toddKernel : finrank (ZMod 2) toddKernel = 12 := by
     exact this
   rw [toddKernel, finrank_span_eq_card hli, Fintype.card_fin]
 
-theorem card_toddKernel : Nat.card toddKernel = 2 ^ 12 := by
-  have hp : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rw [← FiniteField.pow_finrank_eq_natCard 2, finrank_toddKernel]
 
 theorem mem_toddKernel_iff {v : W22} :
     v ∈ toddKernel ↔ v = ∑ l : Fin 12, v (toddPivot l) • toddBasis l := by
@@ -840,27 +837,6 @@ theorem card_toddModule : Nat.card toddModule = 2 ^ 10 := by
   have hp : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   rw [← FiniteField.pow_finrank_eq_natCard 2, finrank_toddModule]
 
-theorem toddPoint_injective : Function.Injective toddPoint := by
-  intro i j h
-  by_contra hij
-  rw [toddPoint, toddPoint, Submodule.Quotient.eq] at h
-  have hne : basisW i - basisW j ≠ 0 := by
-    intro h0
-    have := congrFun h0 i
-    change basisW i i - basisW j i = 0 at this
-    rw [basisW_apply, basisW_apply, ite_eq_left rfl, ite_eq_right hij] at this
-    exact absurd this (by decide)
-  have h6 := six_le_card_supp h hne
-  have h2 : (supp (basisW i - basisW j)).card ≤ ({i, j} : Finset (Fin 22)).card :=
-    card_supp_le fun m hm => by
-      change basisW i m - basisW j m ≠ 0 at hm
-      simp only [basisW_apply] at hm
-      simp only [Finset.mem_insert, Finset.mem_singleton]
-      by_contra hn
-      push Not at hn
-      simp [hn.1, hn.2] at hm
-  have := Finset.card_le_two (a := i) (b := j)
-  omega
 
 theorem permW_basisW (g : Equiv.Perm (Fin 22)) (i : Fin 22) :
     permW g (basisW i) = basisW (g i) := by

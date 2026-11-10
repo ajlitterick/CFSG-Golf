@@ -18,9 +18,6 @@ variable {n : ℕ}
     Submodule ℤ (Fin n → ℤ) :=
   Submodule.span ℤ (Set.range fun j : ℕ => (w ^ j) *ᵥ x)
 
-theorem orbitMat_col (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) (m : ℕ) (j : Fin m) :
-    (orbitMat w x m).col j = (w ^ (j : ℕ)) *ᵥ x :=
-  rfl
 
 theorem orbitMat_pow_mulVec (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) (m j : ℕ) :
     orbitMat w ((w ^ j) *ᵥ x) m = w ^ j * orbitMat w x m := by
@@ -34,14 +31,6 @@ theorem det_orbitMat_pow_mulVec (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → 
     (orbitMat w ((w ^ j) *ᵥ x) n).det = w.det ^ j * (orbitMat w x n).det := by
   rw [orbitMat_pow_mulVec, Matrix.det_mul, Matrix.det_pow]
 
-theorem orbitMat_neg (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) (m : ℕ) :
-    orbitMat w (-x) m = -orbitMat w x m := by
-  ext i k
-  simp [orbitMat, Matrix.mulVec_neg]
-
-theorem det_orbitMat_neg (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) :
-    (orbitMat w (-x) n).det = (-1) ^ n * (orbitMat w x n).det := by
-  rw [orbitMat_neg, Matrix.det_neg, Fintype.card_fin]
 
 theorem pow_mulVec_mem_orbitLattice (w : Matrix (Fin n) (Fin n) ℤ) (x : Fin n → ℤ) (j : ℕ) :
     (w ^ j) *ᵥ x ∈ orbitLattice w x :=

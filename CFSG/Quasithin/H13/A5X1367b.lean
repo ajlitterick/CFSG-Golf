@@ -317,9 +317,6 @@ theorem c01_ker_comm_c234 : ∀ c ∈ [c234, c234⁻¹], ∀ x : W5, c01 x = 1 �
     ∃ y : W5, c01 y = 1 ∧ (x = pact c y * y⁻¹ ∨ x = E12 * (pact c y * y⁻¹)) := by
   decide +kernel
 
-theorem comm_c234_mem : ∀ c ∈ [c234, c234⁻¹], ∀ y : W5, c01 y = 1 →
-    pact c y * y⁻¹ ∈ [1, E23, E24, E34] := by
-  decide +kernel
 
 theorem comm_c234_surj : ∀ c ∈ [c234, c234⁻¹], ∀ x ∈ [1, E23, E24, E34],
     ∃ y : W5, c01 y = 1 ∧ pact c y * y⁻¹ = x := by
@@ -329,23 +326,5 @@ theorem E23_facts : (1 : W5) ≠ E23 ∧ (1 : W5) ≠ E24 ∧ (1 : W5) ≠ E34 �
     E24 ≠ E34 := by
   decide +kernel
 
-theorem stab_E12_cases : ∀ σ : Equiv.Perm (Fin 5), σ.sign = 1 → pact σ E12 = E12 →
-    σ = 1 ∨ σ = c234 ∨ σ = c234⁻¹ ∨ σ ^ 2 = 1 := by
-  decide +kernel
-
-theorem odd_mem_c234 {σ : Equiv.Perm (Fin 5)} (hs : σ.sign = 1) (hE : pact σ E12 = E12)
-    {m : ℕ} (hm : Odd m) (hσm : σ ^ m = 1) : σ = 1 ∨ σ = c234 ∨ σ = c234⁻¹ := by
-  rcases stab_E12_cases σ hs hE with h | h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr h)
-  · left
-    obtain ⟨j, rfl⟩ := hm
-    rw [pow_succ, pow_mul, h, one_pow, one_mul] at hσm
-    exact hσm
-
-theorem conj_c234_of_D : ∀ σ : Equiv.Perm (Fin 5), InD σ → pact σ E12 = E12 →
-    σ⁻¹ * c234 * σ = c234 ∨ σ⁻¹ * c234 * σ = c234⁻¹ := by
-  decide +kernel
 
 end CFSG.Quasithin.H13.A5

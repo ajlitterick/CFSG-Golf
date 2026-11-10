@@ -64,26 +64,6 @@ theorem isPiGroup_of_alt_pumpup {K : Type} [Group K] [Finite K] (hq : CFSG.Open.
   have hnk : n = (n - 2) / 3 * 3 + 2 := by omega
   exact ⟨hq, hcore, Or.inl ⟨(n - 2) / 3, ⟨f.trans (Equiv.altCongrHom (finCongr hnk))⟩⟩⟩
 
-@[expose] def Input25_6A5NonAlt : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], CFSG.LocalAnalysis.GLTheoremA.IsKHat K →
-    GLAPPrimeCore 3 K = ⊥ → ¬ IsPiGroup 3 K → (¬ ∃ n : ℕ, IsAltType n (K ⧸ Subgroup.center K)) →
-    ∀ x : MulAut K, orderOf x = 3 → ∀ L : Subgroup K, GLAPComponent 3 (Prop1310a5.fixedSub x) L →
-      IsAltType 5 (barOf 3 L) → ∀ y ∈ L, orderOf y = 3 →
-      ∃ S : MulAut K → Set (Subgroup K),
-        (∀ a ∈ Prop1310a5b.Agrp x y, a ≠ 1 → ∀ J ∈ S a, GLAPComponent 3 (Prop1310a5.fixedSub a) J) ∧
-        (∀ Y : Subgroup K, CFSG.Open.IsSubnormal Y (Prop1310a5b.Kstar (Prop1310a5b.Agrp x y) S) → L ≤ Y →
-          ¬ IsAltType 5 (barOf 3 Y)) ∧
-        (∀ a ∈ Prop1310a5b.Agrp x y, a ≠ 1 → ∀ J ∈ S a, Prop1310a5b.IsAltOrChev (barOf 3 J) ∧
-          ∀ (H : Type) [Group H] [Finite H], CFSG.LocalAnalysis.GLTheoremA.IsKHat H →
-            GLAPPrimeCore 3 H = ⊥ → Prop1310a5b.IsPumpupOrSelf (barOf 3 J) H → Prop1310a5b.Good2319 H) ∧
-        L ≤ ⨆ (J : Subgroup K) (_ : J ∈ S x), J
-
-theorem input25_6A5_of_nonAlt (hres : Input25_6A5NonAlt) : Prop1310a5b.Input25_6A5 := by
-  intro K _ _ hKhat hcore hnotPi x hx L hL hL5 y hyL hy
-  by_cases hAlt : ∃ n : ℕ, IsAltType n (K ⧸ Subgroup.center K)
-  · obtain ⟨n, ⟨f⟩⟩ := hAlt
-    exact absurd (isPiGroup_of_alt_pumpup hKhat.1 hcore f hx hL hL5) hnotPi
-  · exact hres K hKhat hcore hnotPi hAlt x hx L hL hL5 y hyL hy
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.InputsSeitz2
 

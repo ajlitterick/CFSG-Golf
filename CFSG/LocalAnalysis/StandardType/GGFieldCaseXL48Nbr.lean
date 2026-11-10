@@ -9,12 +9,6 @@ namespace CFSG.StandardType
 
 open CFSG CFSG.Assembly
 
-@[expose] def GGNbrXNotNormalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K →
-      Bs ≤ Subgroup.normalizer (K : Set G) →
-      ∃ k ∈ K, k ∈ Subgroup.normalizer (Bs : Set G) ∧
-        k ∉ Subgroup.normalizer (Subgroup.zpowers x : Set G)
 
 @[expose] def GGNbrLangInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -65,13 +59,6 @@ theorem normalizer_and_not_normalizer_of_lang {p : ℕ} (hp : p.Prime) {Bs B₀ 
 
 end Proofs
 
-theorem ggXNotNormalInput_of_nbr (hnorm : GGBstarNbrNormalInput) (h : GGNbrXNotNormalInput) :
-    GGXNotNormalInput := by
-  intro G _ _ p B Bs x L D J hcfg hle
-  obtain ⟨y, K, hK⟩ := exists_ggNbr hcfg.1.2.2.2.2.2.2.2 hcfg.2.2
-  obtain ⟨k, -, hkN, hkx⟩ :=
-    h G p B Bs x L D J hcfg y K hK (hnorm G p B Bs x L D J hcfg y K hK)
-  exact hkx (hle hkN)
 
 theorem ggNbrXNotNormal_of_lang (hgraph : GGNbrGraphInput) (hlang : GGNbrLangInput)
     (hinner : GGNbrInnerXNotNormalInput) {G : Type} [Group G] [Finite G] {p : ℕ}

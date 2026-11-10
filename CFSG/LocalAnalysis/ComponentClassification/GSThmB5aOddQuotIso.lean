@@ -243,9 +243,6 @@ local notation "π" => QuotientGroup.mk' (pPrimeCore 2 H)
   ((π).comp (normalizer (B : Set H)).subtype).codRestrict _ fun w =>
     le_normalizer_map π (mem_map_of_mem π w.2)
 
-omit [Finite H] in
-theorem normalizerMap_coe (B : Subgroup H) (w : ↥(normalizer (B : Set H))) :
-    (normalizerMap B w : H ⧸ pPrimeCore 2 H) = π w := rfl
 
 theorem normalizerMap_surjective {B : Subgroup H} (hB : IsPGroup 2 B) :
     Function.Surjective (normalizerMap B) := by

@@ -32,26 +32,5 @@ theorem kBar_model_of_U2 [Finite G] (hG : C3Hyp G) (h102 : B_ivk_10_2) (hL34 : B
   · exact Or.inr h
   · exact absurd ⟨h34, hab, hcard⟩ (hL34 G hG.gen4 x K hu2.1.1.1 hu2.1.1.2)
 
-theorem thm1_P31a_of (h102 : B_ivk_10_2) (hL34 : B_gen4_noL34_elem) (hS34 : P34.S_prop34)
-    (hP : B_thm1_P31s) : Thm1P31a := by
-  intro G _ _ hG hNo x y K hu2
-  have hshape := kBar_model_of_U2 hG h102 hL34 hu2
-  obtain ⟨hnormal, hunique, hQ, hT⟩ := hP G hG hNo x y K hu2 hshape
-  refine ⟨?_, hnormal, fun T hT' => ⟨(hT T hT').2.1, (hT T hT').2.2⟩⟩
-  intro hcen
-  obtain ⟨T, hTsetup⟩ := exists_setup1D x K
-  obtain ⟨⟨f, hfmem, hfind⟩, -, -⟩ := hT T hTsetup
-  have hfT : f ∈ T := hfmem.1
-  have hf2 : orderOf f = 2 := hfmem.2.1
-  have hxc : f ∈ centralizer ({x} : Set G) := hTsetup.sylowT.le hfT
-  have hyp : P34.Prop34Hyp G x K :=
-    { simple := hG.kproper.1
-      nonab := hG.kproper.2.1
-      central := hcen
-      comp := hu2.1.1.2
-      unique := hunique
-      shape := hshape
-      sylowQ := hQ }
-  exact hS34 G x K hyp f hxc hf2 hfind
 
 end CFSG.GH74.GLS.C3.Layer1.Thm1

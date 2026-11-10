@@ -24,8 +24,5 @@ variable {G : Type} [Group G] [Finite G]
     Open.pRank 3 (H ⊓ M) = 3 →
     ∀ K : Subgroup (H ⧸ primeComplementCore (G := H) 3), IsComponentOf K ⊤ → ¬ IsLinThreeFour K
 
-variable {P : Sylow 3 G} {M H R : Subgroup G}
-  {Rbar : Sylow 3 (H ⧸ primeComplementCore (G := H) 3)}
-  {K : Subgroup (H ⧸ primeComplementCore (G := H) 3)}
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

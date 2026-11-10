@@ -221,22 +221,6 @@ theorem exists_conj_eq_mul_twoSided_of_commutator_eq_top_of_autU2 (hperf : commu
     (two_dvd_index_of_commutator_eq_top_of_mul_mem hperf ht
       (not_mem_of_not_forall_commute_sylow hLt hnot) hLt hCN hA habel)
 
-theorem exists_conj_eq_mul_of_commutator_eq_top_of_autU2 (hperf : commutator G = ⊤)
-    {L : Subgroup G} {t : G} (ht : orderOf t = 2) (hLt : L ≤ centralizer ({t} : Set G))
-    (hCN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (hnot : ∀ (U : Sylow 2 L) (g : G), g⁻¹ * t * g ∈ L →
-      ¬ ∀ u ∈ (U : Subgroup L), (u : G) * (g⁻¹ * t * g) = (g⁻¹ * t * g) * u)
-    (hAutU2 : ∀ (U : Sylow 2 L) (β : MulAut L), β ^ 2 = 1 →
-      (∀ u ∈ (U : Subgroup L), β u = u) → β ∈ (MulAut.conj : L →* MulAut L).range)
-    (habel : ∀ S : Sylow 2 G, (S : Subgroup G) ≤ centralizer ({t} : Set G) →
-      ∀ y ∈ (S : Subgroup G), ∀ z ∈ (S : Subgroup G), y * z * y⁻¹ * z⁻¹ ∈ L) :
-    ∃ g : G, ∃ z ∈ L, g⁻¹ * t * g = t * z ∧ z ≠ 1 ∧
-      ∃ U : Sylow 2 L, ∀ u ∈ (U : Subgroup L), (u : G) * z = z * u := by
-  obtain ⟨x, z, hz, hxz, hz1, hU, -, -⟩ :=
-    exists_conj_eq_mul_twoSided_of_commutator_eq_top_of_autU2 hperf ht hLt hCN hKt hnot hAutU2
-      habel
-  exact ⟨x, z, hz.1, hxz, hz1, hU⟩
 
 theorem exists_normal_index_two_of_rigid_sylow {t : G} (ht : orderOf t = 2) (S : Sylow 2 G)
     (hSt : (S : Subgroup G) ≤ centralizer ({t} : Set G))

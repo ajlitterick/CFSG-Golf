@@ -236,8 +236,6 @@ theorem transpose_inv' (A : Matrix.SpecialLinearGroup ι K) : (A⁻¹).transpose
   right_inv g := by simp only [transpose_inv', inv_inv, transpose_transpose']
   map_mul' g h := by simp only [_root_.mul_inv_rev, transpose_mul']
 
-theorem tInv_symm : (tInv : Matrix.SpecialLinearGroup ι K ≃* Matrix.SpecialLinearGroup ι K).symm = tInv :=
-  rfl
 
 @[expose] noncomputable def stdUop (ℓ : ι → ℕ) : Subgroup (Matrix.SpecialLinearGroup ι K) :=
   (stdU ℓ).map (tInv : Matrix.SpecialLinearGroup ι K ≃* Matrix.SpecialLinearGroup ι K).toMonoidHom
@@ -273,9 +271,6 @@ theorem stdUop_le_stdU [Finite K] {ℓ ℓ' : ι → ℕ} (h : ∀ c a, ℓ' a <
     stdUop (K := K) ℓ' ≤ stdU ℓ := fun _ hg =>
   mem_stdU_iff.mpr fun c a hca => mem_stdUop_iff.mp hg c a fun h' => hca (h c a h')
 
-theorem radicalTwo_stdUop {ℓ : ι → ℕ} (h : GGRadicalTwo ⊤ (stdU (K := K) ℓ)) :
-    GGRadicalTwo ⊤ (stdUop (K := K) ℓ) :=
-  radicalTwo_map_mulEquiv tInv h
 
 end Groups
 

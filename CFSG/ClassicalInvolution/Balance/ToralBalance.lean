@@ -118,33 +118,6 @@ theorem deltaCore_eq_bot_of_faithful_centralized (hO : CFSG.pPrimeCore 2 X = ⊥
     exact (key d hd x hx).symm
   exact eq_bot_of_centralizes_pCore_of_centralizes_components hO hDodd hQ hL
 
-theorem deltaCore_eq_bot_of_le_centralizerLayers (hO : CFSG.pPrimeCore 2 X = ⊥) {F : Subgroup X}
-    (hF4 : Nat.card F = 4) (hF2 : ∀ f ∈ F, f * f = 1)
-    (hgen : ∀ L : Subgroup X, IsComponent L → F ≤ Subgroup.normalizer (L : Set X) →
-      (∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ L, f * x = x * f) →
-      L ≤ ⨆ f ∈ F, ⨆ (_ : f ≠ 1), centralizerLayer f) :
-    deltaCore F = ⊥ :=
-  deltaCore_eq_bot_of_faithful_centralized hO hF4 hF2 fun L hL hFn hfaith _ hd _ x hx =>
-    (Subgroup.mem_centralizer_iff.mp (deltaCore_le_centralizer_iSup_centralizerLayer F hd) x
-      (hgen L hL hFn hfaith hx)).symm
-
-theorem deltaCore_eq_bot_of_normal_generated {N F : Subgroup X} [N.Normal]
-    (hN : Subgroup.centralizer (N : Set X) = ⊥)
-    (hgen : N ≤ ⨆ f ∈ F, ⨆ (_ : f ≠ 1),
-      (Layer.subgroup ↥(N ⊓ Subgroup.centralizer ({f} : Set X))).map
-        (N ⊓ Subgroup.centralizer ({f} : Set X)).subtype) :
-    deltaCore F = ⊥ := by
-  refine le_bot_iff.mp ?_
-  rw [← hN]
-  refine (deltaCore_le_centralizer_iSup_centralizerLayer F).trans (Subgroup.centralizer_le ?_)
-  refine hgen.trans (iSup₂_le fun f hf => iSup_le fun hf1 => ?_)
-  refine le_iSup₂_of_le f hf (le_iSup_of_le hf1 ?_)
-  have hWC : N ⊓ Subgroup.centralizer ({f} : Set X) ≤ Subgroup.centralizer ({f} : Set X) :=
-    inf_le_right
-  refine layer_map_le_of_isSubnormal hWC ?_
-  refine isSubnormal_of_normal_subgroupOf hWC ?_
-  rw [Subgroup.inf_subgroupOf_right]
-  exact Subgroup.normal_subgroupOf
 
 end Layers
 
@@ -320,23 +293,6 @@ theorem deltaCore_eq_bot_of_oddCentralizerFree {Y : Type*} [Group Y] [Finite Y]
   exact (Subgroup.mem_centralizer_iff.mp (deltaCore_le_centralizer_iSup_centralizerLayer F hd) y
     (Subgroup.mem_inf.mp hy).2).symm
 
-theorem deltaCore_eq_bot_of_generated_by_members (hLB : L2PrimeBalance) {Y : Type} [Group Y]
-    [Finite Y] (hO : CFSG.pPrimeCore 2 Y = ⊥) {F : Subgroup Y} (hF4 : Nat.card F = 4)
-    (hF2 : ∀ f ∈ F, f * f = 1)
-    (hmem : ∀ L : Subgroup Y, IsComponent L → F ≤ Subgroup.normalizer (L : Set Y) →
-      (∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ L, f * x = x * f) →
-      ∃ 𝒦 : Set (Subgroup Y), L ≤ ⨆ K ∈ 𝒦, K ∧ ∀ K ∈ 𝒦, K ≤ L ∧
-        (∃ f ∈ F, f ≠ 1 ∧ K ≤ Subgroup.centralizer ({f} : Set Y)) ∧ IsInvolutionMember K)
-    (hB : ∀ L : Subgroup Y, IsComponent L → F ≤ Subgroup.normalizer (L : Set Y) →
-      (∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ L, f * x = x * f) → ∀ f ∈ F, f ≠ 1 →
-      ∀ M : Subgroup ↥(L ⊓ Subgroup.centralizer ({f} : Set Y)),
-        TwoComponents.IsTwoComponent M → CFSG.Open.IsQuasisimple M) :
-    deltaCore F = ⊥ := by
-  refine deltaCore_eq_bot_of_oddCentralizerFree hO hF4 hF2 fun L hL hFn hfaith => ?_
-  obtain ⟨𝒦, hle, hK⟩ := hmem L hL hFn hfaith
-  exact OddCentralizerFree.of_members hLB hL (hB L hL hFn hfaith)
-    (OddCentralizerFreeMembers.of_le_iSup hle fun K hK' =>
-      ⟨(hK K hK').1, (hK K hK').2.2, (hK K hK').2.1⟩)
 
 end Members
 

@@ -21,8 +21,6 @@ variable (K : Type*) [Field K]
 
 variable {K}
 
-theorem mem_flagSub {N n : ℕ} {v : Fin N → K} :
-    v ∈ flagSub K N n ↔ ∀ k : Fin N, n ≤ k.val → v k = 0 := Iff.rfl
 
 theorem flagSub_zero (N : ℕ) : flagSub K N 0 = ⊥ := by
   rw [eq_bot_iff]

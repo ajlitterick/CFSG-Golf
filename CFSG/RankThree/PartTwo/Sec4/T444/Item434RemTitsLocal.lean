@@ -13,18 +13,6 @@ namespace CFSG.RankThree.PartTwo.Sec4.Item434RemTits
 open CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
   CFSG.Sporadic.Schreier.Tits
 
-theorem card_fix_of_rep {n : ℕ} {a : Array ℕ} {g : Equiv.Perm (Fin n)} (h : Rep n a g) :
-    Fintype.card {x : Fin n // g x = x} = fixCount n a := by
-  have hl : fixCount n a = (List.finRange n).countP fun x => decide (g x = x) := by
-    rw [fixCount, ← List.map_coe_finRange_eq_range, List.countP_map]
-    congr 1
-    funext x
-    rw [Bool.eq_iff_iff]
-    simp [h x, Fin.ext_iff]
-  rw [hl, Fintype.card_subtype, List.countP_eq_length_filter,
-    ← List.toFinset_card_of_nodup ((List.nodup_finRange n).filter _), List.toFinset_filter,
-    List.toFinset_finRange]
-  simp
 
 section Syl
 
@@ -206,9 +194,6 @@ theorem mul_ne_mul_of_orderOf
   rw [hy', orderOf_conj, hy] at hdvd
   rcases hr with rfl | rfl <;> norm_num at hdvd
 
-theorem bOne_rep :
-    Rep 1755 bOneArr bOne :=
-  rep_wordArr_titsT (by decide +kernel)
 
 theorem bOne_mem_titsD : bOne ∈ titsD :=
   wordIn_titsT_mem_titsD _

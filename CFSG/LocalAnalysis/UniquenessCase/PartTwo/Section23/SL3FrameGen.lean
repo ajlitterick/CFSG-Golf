@@ -108,15 +108,6 @@ theorem SL3Facts.frame_E_le_K {D : Data G} {Ch : Choice2011 G} {c : Ctx2311 D Ch
   Subgroup.map_mono (f := (MulAut.conj (x i : G)⁻¹).toMonoidHom)
     (Ctx2311.E_le_K c F.h1930 F.h4 F.h12 F.hN8)
 
-theorem SL3Facts.frame_E_le_pCoreOf_K {D : Data G} {Ch : Choice2011 G} {c : Ctx2311 D Ch}
-    (F : c.SL3Facts) (x : Fin 3 → ↥c.L) (i : Fin 3) :
-    frameE x i ≤ CFSG.Open.pCoreOf 2 (conjSubgroup c.K (x i : G)) := by
-  have hpc : CFSG.Open.pCoreOf 2 (conjSubgroup c.K (x i : G)) =
-      conjSubgroup (CFSG.Open.pCoreOf 2 c.K) (x i : G) := by
-    rw [conjSubgroup, conjSubgroup, CFSG.LieType.BorelTits.pCoreOf_map_mulEquiv]
-  rw [hpc]
-  exact Subgroup.map_mono (f := (MulAut.conj (x i : G)⁻¹).toMonoidHom)
-    (le_pCoreOf_parts c F.h1930 F.h4 F.h12 F.hN8 F.hker).1
 
 theorem SL3Facts.frame_pCoreOf_trivial {D : Data G} {Ch : Choice2011 G} {c : Ctx2311 D Ch}
     (F : c.SL3Facts) (x : Fin 3 → ↥c.L) (i : Fin 3) :

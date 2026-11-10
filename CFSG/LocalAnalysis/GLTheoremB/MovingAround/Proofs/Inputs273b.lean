@@ -96,8 +96,5 @@ theorem input27_3Core_of_residuals
     (hQ : Inputs273.Input27_3ChevQ) : Inputs27.Input27_3Core :=
   Inputs273.input27_3Core_of_cases (input27_3Alt_of_two hAlt) input27_3ChevP_holds (input27_3Spor_of_cube hCube) hQ
 
-@[expose] def Input27_34Rest : Prop :=
-  Inputs273.Input27_3AltRegularTwo ∧ Inputs273.SporOneBalanceCube ∧ Inputs273.Input27_4SporDown ∧
-    Inputs273.Input27_3ChevQ ∧ Inputs273.Input27_4ChevQ
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Inputs273b

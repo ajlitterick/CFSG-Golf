@@ -123,7 +123,6 @@ theorem nodeRels_lt : ∀ w ∈ nodeRels, ∀ c ∈ w, c < 9 := by decide +kerne
 
 theorem bword_lt : ∀ c ∈ fi22BWord, c < 9 := by decide +kernel
 
-theorem nodeRels_len : nodeRels.length = 47 := by decide +kernel
 
 theorem yRels_len : (CFSG.YGroups.yRels 3 3 2).length = 46 := by decide +kernel
 

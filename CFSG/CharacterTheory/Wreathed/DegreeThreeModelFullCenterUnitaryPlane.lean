@@ -41,10 +41,6 @@ variable {sigma : E ≃+* E} (h : V →ₛₗ[sigma.toRingHom] V →ₗ[E] E)
     isometryGroup h →* GeneralLinearGroup (Fin 2) E :=
   (planeCoordinates B).toMonoidHom.comp (isometryGroup h).subtype
 
-theorem unitaryPlaneMatrixHom_val (B : (Fin 2 → E) ≃ₗ[E] V) (g : isometryGroup h) :
-    (unitaryPlaneMatrixHom h B g).val =
-      LinearMap.toMatrix' ((B.trans g.val).trans B.symm).toLinearMap :=
-  planeCoordinates_val B g.val
 
 theorem unitaryPlaneMatrixHom_injective (B : (Fin 2 → E) ≃ₗ[E] V) :
     Function.Injective (unitaryPlaneMatrixHom h B) :=
@@ -54,9 +50,6 @@ theorem unitaryPlaneMatrixHom_injective (B : (Fin 2 → E) ≃ₗ[E] V) :
     isometryGroup h ≃* (unitaryPlaneMatrixHom h B).range :=
   MonoidHom.ofInjective (unitaryPlaneMatrixHom_injective h B)
 
-theorem unitaryPlaneMatrixEquiv_coe (B : (Fin 2 → E) ≃ₗ[E] V) (g : isometryGroup h) :
-    (unitaryPlaneMatrixEquiv h B g : GeneralLinearGroup (Fin 2) E) =
-      unitaryPlaneMatrixHom h B g := rfl
 
 theorem unitaryPlaneMatrixHom_scalar (B : (Fin 2 → E) ≃ₗ[E] V)
     (c : normOneUnits (sigma := sigma)) :
@@ -68,11 +61,6 @@ theorem unitaryPlaneMatrixHom_scalar (B : (Fin 2 → E) ≃ₗ[E] V)
     normOneUnits (sigma := sigma) →* (unitaryPlaneMatrixHom h B).range :=
   (unitaryPlaneMatrixEquiv h B).toMonoidHom.comp (scalarIsometry h)
 
-theorem unitaryMatrixScalarHom_coe (B : (Fin 2 → E) ≃ₗ[E] V)
-    (c : normOneUnits (sigma := sigma)) :
-    (unitaryMatrixScalarHom h B c : GeneralLinearGroup (Fin 2) E) =
-      GeneralLinearGroup.scalar (Fin 2) c.val :=
-  unitaryPlaneMatrixHom_scalar h B c
 
 theorem unitaryPlaneMatrixEquiv_symm_scalar (B : (Fin 2 → E) ≃ₗ[E] V)
     (c : normOneUnits (sigma := sigma)) :

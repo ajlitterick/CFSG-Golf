@@ -44,12 +44,6 @@ theorem eq_sl2Lift_large (hk : ringChar k ≠ 2) (hπ : IsLargeCentralExt π)
     (hβ : π.comp β = α) : β = sl2Lift π α :=
   (existsUnique_lift_large hk hπ α).unique hβ (comp_sl2Lift_large hk hπ α)
 
-theorem sl2Lift_injective_large (hk : ringChar k ≠ 2) (hπ : IsLargeCentralExt π)
-    {α : SpecialLinearGroup (Fin 2) k →* G} (hα : Function.Injective α) :
-    Function.Injective (sl2Lift π α) := by
-  intro g g' h
-  apply hα
-  rw [← map_sl2Lift_large hk hπ α, ← map_sl2Lift_large hk hπ α, h]
 
 theorem conj_sl2Lift_large (hk : ringChar k ≠ 2) (hπ : IsLargeCentralExt π)
     (α : SpecialLinearGroup (Fin 2) k →* G) (e : E) :

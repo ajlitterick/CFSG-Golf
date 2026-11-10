@@ -113,9 +113,6 @@ theorem La₁_inr (horth : ∀ X Y, polar Q (F₁.incl X) (F₃.incl Y) = 0) (A 
     F₁.La A (bV F₁ F₃ a b (Sum.inr j)) = bV F₁ F₃ a b (Sum.inr j) :=
   Frame.La_apply_of_coords_eq_zero _ _ (coords₁_incl₃ horth _)
 
-theorem La₃_inr (A : SL(2, F)) (j : Fin 4) :
-    F₃.La A (bV F₁ F₃ a b (Sum.inr j)) = F₃.incl ((A : Matrix (Fin 2) (Fin 2) F) * mVec a b j) :=
-  Frame.La_apply_incl _ _ _
 
 theorem La₃_inl (horth : ∀ X Y, polar Q (F₁.incl X) (F₃.incl Y) = 0) (A : SL(2, F)) (j : Fin 4) :
     F₃.La A (bV F₁ F₃ a b (Sum.inl j)) = bV F₁ F₃ a b (Sum.inl j) :=
@@ -204,10 +201,6 @@ theorem swapRefl_mem (h2 : (2 : F) ≠ 0) (he : Q e = 1) (hf : Q f = 1) (hef : p
   let _ := swapInv h2 he hf hef
   exact TauCeti.QuadraticMap.reflection_mem_orthogonalGroup Q (e - f)
 
-theorem swapRefl_mul_self (h2 : (2 : F) ≠ 0) (he : Q e = 1) (hf : Q f = 1)
-    (hef : polar Q e f = 0) : swapRefl h2 he hf hef * swapRefl h2 he hf hef = 1 := by
-  let _ := swapInv h2 he hf hef
-  exact TauCeti.QuadraticMap.reflection_mul_self Q (e - f)
 
 theorem swapRefl_left (h2 : (2 : F) ≠ 0) (he : Q e = 1) (hf : Q f = 1) (hef : polar Q e f = 0) :
     swapRefl h2 he hf hef e = f := by

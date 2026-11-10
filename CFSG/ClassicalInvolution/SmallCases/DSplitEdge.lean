@@ -27,10 +27,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G]
     rw [← Subgroup.comap_map_eq_self_of_injective P.subtype_injective Q, this]
     rfl
 
-omit [Finite G] in
-theorem coe_sylowOf2In {V P : Subgroup G} (h : IsSylow2In V P) :
-    (sylowOf2In h : Subgroup ↥P) = V.subgroupOf P :=
-  rfl
 
 theorem commutator_mem_oddCoreIn_of_centralizes_sylow (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
     {N : Subgroup G} {z : G} (hN : IsClassicalMember p f N z) {R : Subgroup G}

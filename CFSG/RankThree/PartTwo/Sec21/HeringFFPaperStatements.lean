@@ -57,45 +57,5 @@ theorem FFNotWeaklyClosed.notStronglyClosed [Finite G] {b : G} (h : FFNotWeaklyC
 
 end Hypotheses
 
-@[expose] def FF79TheoremB : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    IsCharTwoType G →
-    ∀ b : G, orderOf b = 3 → ∀ J : Subgroup G,
-      FFStandardJ b J →
-      StatedClassicalModel (J ⧸ Subgroup.center J) .PSL 5 2 1 →
-      FFCentCyclicSylow J →
-      FFNotStronglyClosed b →
-      localRank 3 G = CFSG.Open.pRank 3 (Subgroup.centralizer ({b} : Set G)) →
-        StatedClassicalModel G .PSL 7 2 1
-
-@[expose] def FF81TheoremA : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    IsCharTwoType G →
-    ∀ b : G, orderOf b = 3 → ∀ L : Subgroup G,
-      L ≤ Subgroup.centralizer ({b} : Set G) →
-      Subgroup.centralizer ({b} : Set G) ≤ Subgroup.normalizer (L : Set G) →
-      CFSG.IsQuasisimple L →
-      FFCentCyclicSylow L →
-      localRank 3 G = localRank 3 ↥(Subgroup.centralizer ({b} : Set G)) →
-      FFNotWeaklyClosed b →
-      FFHypA5 b →
-      StatedClassicalModel L .PSp 3 2 1 →
-        StatedClassicalModel G .PSp 4 2 1 ∨ ChevalleyExceptionalModel G .F4 2 1
-
-@[expose] def FF84TheoremA : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    IsCharTwoType G →
-    ∀ b : G, orderOf b = 3 → ∀ L : Subgroup G,
-      L ≤ Subgroup.centralizer ({b} : Set G) →
-      Subgroup.centralizer ({b} : Set G) ≤ Subgroup.normalizer (L : Set G) →
-      CFSG.IsQuasisimple L →
-      StatedClassicalModel (L ⧸ Subgroup.center L) .PSL 4 2 1 →
-      FFCentCyclicSylow L →
-      FFNotStronglyClosed b →
-      localRank 3 G = localRank 3 ↥(Subgroup.centralizer ({b} : Set G)) →
-      (∀ p : ℕ, p.Prime → 3 < p → localRank p G ≤ 2) →
-      FFSylowCommutatorOdd b → FFSylowHyperplaneOdd b →
-      KProper InCatalog G →
-        StatedClassicalModel G .PSL 6 2 1 ∨ StatedClassicalModel G .POmegaMinus 4 2 1
 
 end CFSG.RankThree.PartTwo.Sec21

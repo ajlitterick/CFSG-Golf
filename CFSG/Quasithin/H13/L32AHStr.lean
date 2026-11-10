@@ -11,9 +11,6 @@ open CFSG.Open CFSG.Blueprint CFSG.QuasithinUnique CFSG.LieType.BorelTits
 
 namespace L32A
 
-theorem perm5_sign_of_pow15 : ∀ x : Equiv.Perm (Fin 5), x ^ 15 = 1 →
-    Equiv.Perm.sign x = 1 := by
-  decide +kernel
 
 theorem perm5_card_pow15 :
     (Finset.univ.filter fun x : Equiv.Perm (Fin 5) => x ^ 15 = 1).card = 45 := by
@@ -325,18 +322,6 @@ theorem relIndex_kz_sup (h : Hyp147 G T L V) (h63 : Thm14_7_63) :
     Fintype.card_fin]
   rfl
 
-theorem lemma14_7_66 (S : Setting147 G T L V (hz T V))
-    (hF : HypF98 T V L (fsuV1 T V) V (hz T V)) (h63 : Thm14_7_63) (h1222 : Stmt12_2_2)
-    (h1332 : Stmt13_3_2) (h1334 : A6.Stmt13_3_4) (h13314 : A6.Stmt13_3_14)
-    {γ γ' : F8.Geom T L (hz T V)} {g h : ↥((L ⊔ T) ⊔ hz T V)}
-    (N : Not1471 T L V (hz T V) γ γ' g h) :
-    conjSub (h : G) (F8.Uγ V (hz T V) (g : G)) ≤ pCoreOf 2 (L ⊔ T) ⊔ pCoreOf 2 (hz T V) ∧
-      pCoreOf 2 (L ⊔ T) ⊔ pCoreOf 2 (hz T V) ≤ kz T V ⊔ pCoreOf 2 (hz T V) ∧
-      (pCoreOf 2 (hz T V)).relIndex (pCoreOf 2 (L ⊔ T) ⊔ pCoreOf 2 (hz T V)) = 4 ∧
-      (pCoreOf 2 (hz T V)).relIndex (kz T V ⊔ pCoreOf 2 (hz T V)) = 60 := by
-  rw [lemma14_7_4_four S hF h1222 h1332 h1334 h13314]
-  obtain ⟨h1, h2⟩ := R1_le_kz_sup S hF h63 h1222 h1332 h1334
-  exact ⟨N.uα_le hF, h1, h2, relIndex_kz_sup S.hyp h63⟩
 
 end L32A
 

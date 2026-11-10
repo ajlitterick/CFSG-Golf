@@ -90,18 +90,12 @@ end Core49
 @[expose] noncomputable def thetaCore (A T : Subgroup X) : Subgroup X :=
   (CFSG.oddCore (gammaJoin A T)).map (gammaJoin A T).subtype
 
-omit [Finite X] in
-theorem gammaJoin_le (A T : Subgroup X) : gammaJoin A T ≤ A :=
-  iSup_le fun _ => iSup_le fun _ => iSup_le fun _ => inf_le_left
 
 omit [Finite X] in
 theorem le_gammaJoin {A T : Subgroup X} {t : X} (ht : t ∈ T) (ht1 : t ≠ 1) :
     A ⊓ Subgroup.centralizer {t} ≤ gammaJoin A T :=
   le_iSup_of_le t (le_iSup_of_le ht (le_iSup_of_le ht1 le_rfl))
 
-omit [Finite X] in
-theorem thetaCore_le (A T : Subgroup X) : thetaCore A T ≤ gammaJoin A T :=
-  Subgroup.map_subtype_le _
 
 theorem odd_card_thetaCore (A T : Subgroup X) : Odd (Nat.card (thetaCore A T)) := by
   rw [thetaCore, Subgroup.card_map_of_injective (gammaJoin A T).subtype_injective]

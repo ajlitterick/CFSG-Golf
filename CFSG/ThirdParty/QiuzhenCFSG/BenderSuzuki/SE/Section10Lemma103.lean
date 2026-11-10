@@ -537,30 +537,6 @@ private theorem lemma103_three_le_omega
   rw [d83.centralizer_eq] at hpV
   exact hpV
 
-/-- The canonical faithful quotient action inherits double transitivity from
-the normalizer action. -/
-private theorem lemma103_quotient_action_twoPretransitive
-    {X : Type u} [Group X] [Finite X]
-    {M W : Subgroup X} {t : X}
-    (d : Lemma101Conclusion M W
-      (M ⊓ rightConjugate M t)
-      (W ⊓ (M ⊓ rightConjugate M t))
-      (peterfalviV (M ⊓ rightConjugate M t) t) t)
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (htwo : MulAction.IsMultiplyPretransitive X
-      (conjugateCosetSpace M) 2) :
-    letI : MulAction (lemma103NBar M d.choice.P)
-        (lemma103OmegaP M d.choice.P) :=
-      lemma103QuotientAction M d.choice.P
-    MulAction.IsMultiplyPretransitive
-      (lemma103NBar M d.choice.P) (lemma103OmegaP M d.choice.P) 2 := by
-  letI : MulAction (lemma103NStar d.choice.P)
-      (lemma103OmegaP M d.choice.P) :=
-    lemma103NormalizerAction M d.choice.P
-  have htwoN := d.normalizer_action_twoPretransitive ht htM htwo
-  simpa [lemma103NBar, lemma103NZeroStar, lemma103QuotientAction,
-    pointStabilizerCoreQuotientAction] using
-      pointStabilizerCoreQuotientAction_twoPretransitive htwoN
 
 /-- An involution remains nontrivial after quotienting by a normal subgroup
 of odd order. -/

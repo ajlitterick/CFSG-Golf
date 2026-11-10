@@ -44,9 +44,6 @@ theorem ne_bot_of_mem (hF : TIFamily S Δ) {R : Subgroup G} (hR : R ∈ Δ) : R 
   rw [mem_bot]
   exact Subtype.ext this
 
-theorem inf_eq_bot_of_mem (hF : TIFamily S Δ) {R₁ R₂ : Subgroup G} (h₁ : R₁ ∈ Δ)
-    (h₂ : R₂ ∈ Δ) (hne : R₁ ≠ R₂) : R₁ ⊓ R₂ = ⊥ :=
-  hF.inf_eq_bot R₁ h₁ R₂ h₂ hne
 
 theorem mem_normalizer_of_mem (hF : TIFamily S Δ) {R : Subgroup G} (hR : R ∈ Δ)
     {X : Subgroup G} (hXR : X ≤ R) (hX : X ≠ ⊥) {s : G} (hsS : s ∈ S)

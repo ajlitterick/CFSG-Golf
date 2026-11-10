@@ -80,8 +80,5 @@ theorem FooteMaximal.of_reach {L M : Subgroup G} (hL : FooteMaximal L) (h : Foot
     (reach := FooteReach) (zstar := fun H => Open.fusionZStar H) hL
     (fun _ _ _ => FooteReach.trans) h (h.target hL.1)
 
-theorem FooteMaximal.equiv_of_reach {L M : Subgroup G} (hL : FooteMaximal L)
-    (h : FooteReach L M) : Nonempty (L ⧸ Open.fusionZStar L ≃* M ⧸ Open.fusionZStar M) :=
-  hL.2 M h
 
 end CFSG.ComponentClassification.FooteLit

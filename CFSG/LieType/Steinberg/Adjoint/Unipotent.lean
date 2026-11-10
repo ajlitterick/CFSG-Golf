@@ -106,9 +106,6 @@ theorem elt_sub_one_raises (α : Root τ) (hα : 0 ≤ φ α.1) (c : R) :
   have : (1 : ℤ) ≤ k := by exact_mod_cast (Finset.mem_Ico.1 hk).1
   nlinarith
 
-theorem elt_neg_sub_one_raises (α : Root τ) (hα : 0 ≤ φ α.1) (c : R) :
-    Raises φ (φ α.1) (F.elt R α (-c) - 1) :=
-  elt_sub_one_raises F α hα (-c)
 
 theorem D_apply_eq_zero_of_shift (α : Root τ) {k : ℕ} (hk : k ≠ 1) {a b : Label τ}
     (hab : labelWt τ a = labelWt τ b + α.1) : F.D R α k (Finsupp.single b 1) a = 0 := by

@@ -71,6 +71,5 @@ theorem pRank_fusionZStar_congr {X Y : Type*} [Group X] [Group Y] [Finite X] [Fi
   exact le_antisymm (pRank_two_le_of_injective f.toMonoidHom f.injective)
     (pRank_two_le_of_injective f.symm.toMonoidHom f.symm.injective)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.ComponentClassification.GrSLit.L34Sec5S

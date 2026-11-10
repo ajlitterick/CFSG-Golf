@@ -30,7 +30,6 @@ open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Blueprint
 
 section Tables
 
-variable {K : Type} [Group K]
 
 end Tables
 

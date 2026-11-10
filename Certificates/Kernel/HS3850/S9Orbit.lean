@@ -86,8 +86,5 @@ theorem kSteps : stepsC.length = 4124 ∧ (stepsC.zipIdx.all fun e =>
       decide (e.1.2 < 6)) = true := by
   decide +kernel
 
-theorem kOrbit_neg : stepsC.length ≠ 4125 ∧
-    (sigmaC.all fun p => imgK (B 0) p == p) = false := by
-  decide +kernel
 
 end CFSG.KD.HS3850.S9

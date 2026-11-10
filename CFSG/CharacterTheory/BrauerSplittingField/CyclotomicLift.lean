@@ -85,33 +85,6 @@ theorem map_inducedLinearCharacterValue
   · exact map_descendLinearChar phi H psi _
   · exact map_zero phi
 
-private theorem baseChange_character_eq_of_inducedLinearCharacter
-    (phi : KG →+* ℂ) (H : Subgroup G) (psi : H →* ℂˣ)
-    (VK : FDRep KG G) (VC : FDRep ℂ G)
-    (hK : ∀ g, VK.character g =
-      inducedLinearCharacterValue H (descendLinearChar phi H psi) g)
-    (hC : ∀ g, VC.character g = inducedLinearCharacterValue H psi g) :
-    letI : Algebra KG ℂ := phi.toAlgebra
-    (FDRep.baseChange (A := ℂ) VK).character = VC.character := by
-  let : Algebra KG ℂ := phi.toAlgebra
-  funext g
-  rw [FDRep.baseChange_character, hK, hC]
-  exact map_inducedLinearCharacterValue phi H psi g
-
-theorem baseChange_indLin_character
-    (phi : KG →+* ℂ) (H : Subgroup G) (psi : H →* ℂˣ) :
-    letI : Algebra KG ℂ := phi.toAlgebra
-    (FDRep.baseChange (A := ℂ)
-      (FDRep.indLin H (descendLinearChar phi H psi))).character =
-        (FDRep.indLin H psi).character := by
-  let : Algebra KG ℂ := phi.toAlgebra
-  apply baseChange_character_eq_of_inducedLinearCharacter phi H psi
-  · intro g
-    simpa only [inducedLinearCharacterValue] using
-      FDRep.indLin_character H (descendLinearChar phi H psi) g
-  · intro g
-    simpa only [inducedLinearCharacterValue] using
-      FDRep.indLin_character H psi g
 
 end
 

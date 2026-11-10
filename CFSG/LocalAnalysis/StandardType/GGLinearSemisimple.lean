@@ -342,17 +342,6 @@ theorem exists_eq_ggFrameBlock_of_isComponentOf [Finite G] [Finite F] [CharP F 2
     hL
   exact ⟨eigClass d i, hi, fun k j hj l hl => eq_of_mem_eigClass hj hl k⟩
 
-theorem isComponentOf_iff_exists_eq_ggFrameBlock [Finite G] [Finite F] [CharP F 2]
-    (hker : ψ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin (m + 1)) F))
-    (P : GL (Fin (m + 1)) F) {d : ι → Fin (m + 1) → Fˣ} {b : ι → G}
-    (hb : ∀ k, (b k, LinFusion.ggFrameDiag P (d k)) ∈ LinFusion.ggInducedPairs ψ)
-    {L₁ : Subgroup G} :
-    CFSG.Assembly.IsComponentOf L₁ (ψ.range ⊓ Subgroup.centralizer (Set.range b)) ↔
-      ∃ i, 2 ≤ (eigClass d i).card ∧ ((eigClass d i).card ≠ 2 ∨ Nat.card F ≠ 2) ∧
-        L₁ = LinFusion.ggFrameBlock F ψ P (eigClass d i) := by
-  rw [← range_comp_conjSL ψ P⁻¹]
-  exact isComponentOf_iff_exists_eq_map_blockSpecialLinear
-    (LinFusion.ker_comp_conjSL_le_center hker P⁻¹) (fun k => mem_ggInducedPairs_comp_conjSL (hb k))
 
 theorem exists_eq_ggFrameBlock_of_le_ggFrameTorus [Finite G] [Finite F] [CharP F 2]
     (hker : ψ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin (m + 1)) F))
@@ -385,13 +374,6 @@ theorem ggLinearSemisimpleComponentInput_holds : GGLinearSemisimpleComponentInpu
 
 section Inputs
 
-theorem ggStepTwoLinearFusionInput_of_frameInput (hL : GGLinearFrameInput)
-    (hU : GGStepTwoUnitaryFusionInput) : GGStepTwoLinearFusionInput :=
-  ggStepTwoLinearFusionInput_of_frame ggLinearSemisimpleComponentInput_holds hL hU
-
-theorem ggStepTwoLinearFusionInput_of_frameEqInput (hL : GGLinearFrameEqInput)
-    (hU : GGStepTwoUnitaryFusionInput) : GGStepTwoLinearFusionInput :=
-  ggStepTwoLinearFusionInput_of_frameEq ggLinearSemisimpleComponentInput_holds hL hU
 
 end Inputs
 

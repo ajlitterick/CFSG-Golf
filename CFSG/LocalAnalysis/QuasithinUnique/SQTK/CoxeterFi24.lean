@@ -31,15 +31,5 @@ theorem exists_isElemAbelian_three_of_mulEquiv_Fi24Prime {G : Type*} [Group G]
   rw [fi24AutomorphismCoxeterMatrix_apply, fi24AutomorphismEdges_def]
   rfl
 
-theorem exists_isElemAbelian_three_pow_four_of_mulEquiv_Fi24Prime {G : Type*} [Group G]
-    (e : G ≃* TauCeti.SporadicName.Fi24Prime.Group) (hG : ∃ g h : G, g * h ≠ h * g) :
-    ∃ E : Subgroup G, IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 4 :=
-  exists_isElemAbelian_three_of_mulEquiv_Fi24Prime e hG le_rfl
-
-theorem tcExcludedSporadic_Fi24Prime : TCExcludedSporadic .Fi24Prime := by
-  intro G _ _ _ hG ⟨e⟩
-  obtain ⟨E, hE, hcard⟩ :=
-    exists_isElemAbelian_three_of_mulEquiv_Fi24Prime e hG (r := 3) (by norm_num)
-  exact ⟨3, Nat.prime_three, by norm_num, E, hE, hcard⟩
 
 end CFSG.QuasithinUnique.SQTK

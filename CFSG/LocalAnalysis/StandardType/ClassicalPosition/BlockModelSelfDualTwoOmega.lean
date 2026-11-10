@@ -886,51 +886,6 @@ private lemma bmst_map_map_spinAction (f : ℕ) {N : Type} [Fintype N] [Decidabl
     exact Spin.toLinEquiv_spinMatrix Q y
   rw [Subgroup.map_map, Subgroup.map_map, MonoidHom.comp_assoc, hcomp]
 
-@[expose]
-def BMSTPSpModel
-    (f : ℕ) {N : Type} [Fintype N] [DecidableEq N]
-    (G : Matrix N N (GaloisField 2 f)) (H : Subgroup (GL N (GaloisField 2 f))) : Prop :=
-  ∀ (S : Set (GL (N) (GaloisField 2 f)))
-    (hSU : ∀ s ∈ S, s ∈ H)
-    (hS : ∀ s ∈ S, ∀ s' ∈ S, Commute s s') (hodd : ∀ s ∈ S, Odd (orderOf s))
-    {e : Matrix (N) (N) (GaloisField 2 f)}
-    (he : IsPrimIdemIn (Algebra.adjoin (GaloisField 2 f) (Units.val '' S)) e)
-    (hadj : formAdj (RingHom.id (GaloisField 2 f))
-      G e =
-      e)
-    (hdeg₁ : 2 ≤ blockDegree (Algebra.adjoin (GaloisField 2 f) (Units.val '' S)) e)
-    (hdeg₂ : blockDegree (Algebra.adjoin (GaloisField 2 f) (Units.val '' S)) e < 4)
-    {J' : Subgroup ↥(H)}
-    (hJe : IsComponentOf J'
-      ⁅glBlockCentralizer (H.subtype) S (e),
-      glBlockCentralizer (H.subtype) S (e)⁆),
-    ∃ (t' : StatedLieTag) (m g' : ℕ)
-      (ι : (ggU t' m g').K →* ↥(H))
-      (β₀ : Fin (ggU t' m g').D.rank → ℤ), GGPosTag t' ∧ 1 ≤ g' ∧ GGLongRoot (ggU t' m g').D β₀ ∧
-      (∀ y, ι y ∈ Subgroup.center ↥(H) → y ∈ Subgroup.center
-        (ggU t' m g').K) ∧ ι.range = J' ∧
-      ∃ a₁ a₂ b₁ b₂ : (N) → (GaloisField 2 f),
-        a₁ ⬝ᵥ Matrix.mulVec
-          G
-          b₁ = 1 ∧ a₂ ⬝ᵥ Matrix.mulVec
-          G
-          b₂ = 1 ∧
-        (a₁ ⬝ᵥ Matrix.mulVec
-          G
-          a₂ = 0 ∧ b₁ ⬝ᵥ Matrix.mulVec
-          G
-          b₂ = 0 ∧
-          a₁ ⬝ᵥ Matrix.mulVec
-            G b₂ = 0 ∧ a₂ ⬝ᵥ Matrix.mulVec
-            G b₁ = 0) ∧
-        (((ggU t' m g').D.rootGroup β₀).map ι).map
-        (H.subtype) = altSiegelGroup
-        G a₁
-        a₂ ∧
-        (((ggU t' m g').D.rootGroup (-β₀)).map ι).map
-        (H.subtype) = altSiegelGroup
-        G b₁
-        b₂
 
 @[expose]
 def BMSTPSpModelExplicit

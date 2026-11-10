@@ -709,48 +709,6 @@ structure Prep123 (G : Type) [Group G] [Finite G] (m p : ℕ) (B M E A : Subgrou
   hA0norm : E ⊓ A ≤ Subgroup.normalizer (K : Set G)
   hA0faith : ∀ x ∈ E ⊓ A, x ∈ centBar p ⊤ K → x = 1
 
-theorem prep123 (h111 : Prop111Statement) (h122 : Lemma122_i_iiStatement)
-    (h115 : Prop115Statement) (hI191 : Lemma136c.Input19_1_O2) (hI22 : Input22_3_2)
-    (hDiag : InputDiagBalance) (h : Cex121 G m p B M E A a) :
-    ∃ (K D : Subgroup G) (r : ℕ), Prep123 G m p B M E A a K D r := by
-  obtain ⟨K, D, r, P⟩ := prep123a h111 h122 hI191 h
-  have hp : p.Prime := h.standing.prime
-  have hSec : Sec11 G m p B M E A := h.toSec11
-  have ha : a ∈ A := h.ha.1
-  have ha1 : a ≠ 1 := h.ha.2
-  have hnotD : ¬ ∃ A1 : Subgroup G, inD p M A1 ∧ a ∈ A1 := lemma122_ii_of_cex h
-  have hbal1 : ¬ IsCompLocallyOTwoBalanced p 1 (E ⊓ A) K :=
-    not_isCompLocallyOTwoBalanced_one hp P.hr P.hDA P.hbal
-  have hno := no_bad' hp hSec ha ha1 P.hK P.hKM hnotD hbal1 h111 hI22 hDiag h115
-  have hACg : E ⊓ A ≤ Cg a := inter_le_cg h
-  have hgood : ∀ x (hxA : x ∈ E ⊓ A), x ≠ 1 →
-      x ∈ Subgroup.normalizer (K : Set G) ∧
-        ¬ (∀ q ∈ barX p (Cg a) K, QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) ⟨x, hACg hxA⟩ * q =
-          q * QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) ⟨x, hACg hxA⟩) := by
-    intro x hxA hx1
-    have h2 : ¬ (x ∉ Subgroup.normalizer (K : Set G) ∨
-        ∀ q ∈ barX p (Cg a) K, QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) ⟨x, hACg hxA⟩ * q =
-          q * QuotientGroup.mk' (GLAPPrimeCore p ↥(Cg a)) ⟨x, hACg hxA⟩) :=
-      fun hc => hno ⟨⟨x, hACg hxA⟩, hxA, hx1, hc⟩
-    refine ⟨?_, fun hall => h2 (Or.inr hall)⟩
-    by_contra hN
-    exact h2 (Or.inl hN)
-  have hA0N : E ⊓ A ≤ Subgroup.normalizer (K : Set G) := by
-    intro x hx
-    by_cases hx1 : x = 1
-    · rw [hx1]
-      exact Subgroup.one_mem _
-    · exact (hgood x hx hx1).1
-  refine ⟨K, D, r, ⟨P, hA0N, ?_⟩⟩
-  intro x hx hc
-  by_contra hx1
-  obtain ⟨γ, hγ, hγx⟩ := Subgroup.mem_map.1 (Subgroup.mem_inf.1 hc).1
-  have hbar : barAut p K ⟨x, hA0N hx⟩ = 1 := by
-    have hxγ : (⟨x, hA0N hx⟩ : ↥(Subgroup.normalizer (K : Set G))) = γ := Subtype.ext hγx.symm
-    rw [hxγ]
-    exact MonoidHom.mem_ker.1 hγ
-  obtain ⟨_, hnc⟩ := hgood x hx hx1
-  exact hnc (l119_centralizes_of_barAut hp P.hK (hACg hx) (hA0N hx) hbar)
 
 theorem cov1 {p : ℕ} (hp : p.Prime) {m : ℕ} {B M E A : Subgroup G} {a : G} {K : Subgroup G}
     (h112 : Prop112Statement) (hSec : Sec11 G m p B M E A) (ha : a ∈ A) (ha1 : a ≠ 1)

@@ -87,8 +87,6 @@ theorem notMem_span_e₀_of_mem_E' {k : E} (hk : k ∈ F.E') (hk0 : k ≠ 0) :
     rw [h, F.π₀_e₀] at h'
     exact one_ne_zero h'
 
-theorem E'_le_ker_ψ : F.E' ≤ LinearMap.ker F.ψ :=
-  inf_le_left
 
 theorem finrank_E' [FiniteDimensional (ZMod 2) E] :
     finrank (ZMod 2) E ≤ finrank (ZMod 2) F.E' + 2 :=
@@ -97,8 +95,6 @@ theorem finrank_E' [FiniteDimensional (ZMod 2) E] :
 @[expose] def projE' : E →ₗ[ZMod 2] F.E' :=
   LinearMap.codRestrict F.E' F.proj F.proj_mem
 
-theorem coe_projE' (w : E) : (F.projE' w : E) = F.proj w :=
-  rfl
 
 theorem map_eq_of_mul_self {σ : E ≃ₗ[ZMod 2] E} (hσ : σ * σ = 1) {S : Submodule (ZMod 2) E}
     (h : ∀ w ∈ S, σ w ∈ S) : S.map (σ : E →ₗ[ZMod 2] E) = S := by
@@ -127,9 +123,6 @@ theorem map_eq_of_mul_self {σ : E ≃ₗ[ZMod 2] E} (hσ : σ * σ = 1) {S : Su
     rw [← h3]
     exact ⟨w, hw, rfl⟩
 
-theorem mem_levi {σ : E ≃ₗ[ZMod 2] E} :
-    σ ∈ F.levi ↔ σ F.e₀ = F.e₀ ∧ σ F.u = F.u ∧ F.E'.map (σ : E →ₗ[ZMod 2] E) = F.E' :=
-  Iff.rfl
 
 theorem levi_apply_mem {σ : E ≃ₗ[ZMod 2] E} (hσ : σ ∈ F.levi) {w : E} (hw : w ∈ F.E') :
     σ w ∈ F.E' := by
@@ -145,9 +138,6 @@ theorem levi_comp_ψ {σ : E ≃ₗ[ZMod 2] E} (hσ : σ ∈ F.levi) (w : E) : F
   rw [F.levi_apply σ hσ, map_add, map_add, map_smul, map_smul, F.ψ_e₀, F.ψ_u,
     (F.levi_apply_mem hσ (F.proj_mem w)).1, smul_zero, zero_add, add_zero, smul_eq_mul, mul_one]
 
-theorem levi_comp_π₀ {σ : E ≃ₗ[ZMod 2] E} (hσ : σ ∈ F.levi) (w : E) : F.π₀ (σ w) = F.π₀ w := by
-  rw [F.levi_apply σ hσ, map_add, map_add, map_smul, map_smul, F.π₀_e₀, F.π₀_u,
-    (F.levi_apply_mem hσ (F.proj_mem w)).2, smul_eq_mul, mul_one, smul_zero, add_zero, add_zero]
 
 theorem proj_levi_apply {σ : E ≃ₗ[ZMod 2] E} (hσ : σ ∈ F.levi) (w : E) :
     F.proj (σ w) = σ (F.proj w) := by

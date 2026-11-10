@@ -107,9 +107,6 @@ theorem sylowImage_card {G : Type*} [Group G] (M : Subgroup G) (T : Sylow 2 M) :
     Nat.card (sylowImage M T) = Nat.card (T : Subgroup M) :=
   Subgroup.card_map_of_injective M.subtype_injective
 
-theorem sylowImage_eq_bot_iff {G : Type*} [Group G] (M : Subgroup G) (T : Sylow 2 M) :
-    sylowImage M T = ⊥ ↔ (T : Subgroup M) = ⊥ :=
-  Subgroup.map_eq_bot_iff_of_injective _ M.subtype_injective
 
 theorem overlap_sylow_le_normalizer {G : Type*} [Group G]
     (Q : Subgroup G) (g : G)
@@ -131,23 +128,5 @@ theorem overlap_sylow_inf_eq_bot {G : Type*} [Group G] [Finite G]
   two_subgroup_inf_conjugate_eq_bot Q _ htight (sylowImage_isPGroup _ T) g hg
     (overlap_sylow_le_conjugate Q g T)
 
-theorem overlap_product_le_normalizer {G : Type*} [Group G]
-    (Q : Subgroup G) (g : G)
-    (T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G))) :
-    Q ⊔ sylowImage _ T ≤ Subgroup.normalizer (Q : Set G) :=
-  sup_le Subgroup.le_normalizer (overlap_sylow_le_normalizer Q g T)
-
-theorem normal_in_overlap_product {G : Type*} [Group G]
-    (Q : Subgroup G) (g : G)
-    (T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G))) :
-    (Q.subgroupOf (Q ⊔ sylowImage _ T)).Normal :=
-  Subgroup.normal_subgroupOf_of_le_normalizer (overlap_product_le_normalizer Q g T)
-
-theorem overlap_product_coordinates {G : Type*} [Group G]
-    (Q : Subgroup G) (g : G)
-    (T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)))
-    (x : G) (hx : x ∈ Q ⊔ sylowImage _ T) :
-    ∃ q ∈ Q, ∃ t ∈ sylowImage _ T, q * t = x :=
-  NormalizedProduct.coordinates Q _ (overlap_sylow_le_normalizer Q g T) x hx
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

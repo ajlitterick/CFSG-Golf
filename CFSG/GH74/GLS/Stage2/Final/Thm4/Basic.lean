@@ -119,7 +119,6 @@ theorem Em_eq (M : Subgroup G) : Em M = (layer ↥M).map M.subtype := rfl
 
 theorem Op_eq (p : ℕ) (M : Subgroup G) : Op p M = (pCore p ↥M).map M.subtype := rfl
 
-theorem Fm_eq (M : Subgroup G) : Fm M = (fittingSubgroup ↥M).map M.subtype := rfl
 
 end Eqs
 

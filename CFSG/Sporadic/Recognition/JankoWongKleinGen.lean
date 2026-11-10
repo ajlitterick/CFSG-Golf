@@ -97,33 +97,6 @@ open KleinOrder
 
 variable {C : Type*} [Group C] [Finite C]
 
-open scoped IsMulCommutative in
-theorem sup_centralizers_eq_of_klein_comm_of_odd {A : Subgroup C} (hodd : Odd (Nat.card A))
-    (hcomm : ∀ x ∈ A, ∀ y ∈ A, x * y = y * x) {u₁ u₂ : C} (hu₁ : u₁ ^ 2 = 1) (hu₂ : u₂ ^ 2 = 1)
-    (hc : u₁ * u₂ = u₂ * u₁) (h₁ : ∀ y ∈ A, u₁ * y * u₁⁻¹ ∈ A)
-    (h₂ : ∀ y ∈ A, u₂ * y * u₂⁻¹ ∈ A) :
-    A = (A ⊓ Subgroup.centralizer ({u₁} : Set C)) ⊔ (A ⊓ Subgroup.centralizer ({u₂} : Set C)) ⊔
-      (A ⊓ Subgroup.centralizer ({u₁ * u₂} : Set C)) := by
-  have h₃ := conj_mul_mem h₁ h₂
-  have : IsMulCommutative ↥A := ⟨⟨fun a b => Subtype.ext (hcomm a a.2 b b.2)⟩⟩
-  have key := sup_fixedSub_eq_top_of_commGroup (B := ↥A) hodd (σ₁ := conjEnd A u₁ h₁)
-    (σ₂ := conjEnd A u₂ h₂) (σ₃ := conjEnd A (u₁ * u₂) h₃) (conjEnd_involutive hu₁ h₁)
-    (conjEnd_involutive hu₂ h₂) (conjEnd_comm hc h₁ h₂) (conjEnd_mul h₁ h₂ h₃)
-  have := congrArg (Subgroup.map A.subtype) key
-  rw [Subgroup.map_sup, Subgroup.map_sup, map_subtype_fixedSub_conjEnd,
-    map_subtype_fixedSub_conjEnd, map_subtype_fixedSub_conjEnd, Subgroup.map_top,
-    Subgroup.range_subtype] at this
-  exact this.symm
-
-theorem sup_centralizers_eq_of_klein_comm {A : Subgroup C} (hA : IsPGroup 3 A)
-    (hcomm : ∀ x ∈ A, ∀ y ∈ A, x * y = y * x) {u₁ u₂ : C} (hu₁ : u₁ ^ 2 = 1) (hu₂ : u₂ ^ 2 = 1)
-    (hc : u₁ * u₂ = u₂ * u₁) (h₁ : ∀ y ∈ A, u₁ * y * u₁⁻¹ ∈ A)
-    (h₂ : ∀ y ∈ A, u₂ * y * u₂⁻¹ ∈ A) :
-    A = (A ⊓ Subgroup.centralizer ({u₁} : Set C)) ⊔ (A ⊓ Subgroup.centralizer ({u₂} : Set C)) ⊔
-      (A ⊓ Subgroup.centralizer ({u₁ * u₂} : Set C)) :=
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  sup_centralizers_eq_of_klein_comm_of_odd (odd_card_of_isPGroup (by norm_num) hA) hcomm hu₁ hu₂
-    hc h₁ h₂
 
 open scoped IsMulCommutative in
 theorem pow_eq_one_of_klein_comm_of_odd {A : Subgroup C} (hodd : Odd (Nat.card A))

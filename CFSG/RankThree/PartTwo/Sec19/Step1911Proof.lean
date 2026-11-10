@@ -419,50 +419,5 @@ theorem not_isSmall194_of_trialityD4
 
 end Step1911Proof
 
-open Step1911Proof in
-theorem step1911_of
-    (h194 : Item194Used) :
-    Step1911 := by
-  intro G _ _ A c L E M hctx K hK hLK hK8 d hdD hdc H hH hHM hKJ
-  have hE := hctx.isE27
-  have hdE : d ∈ E := (Subgroup.mem_inf.mp hdD).1
-  have hEC : E ≤ Subgroup.centralizer ({d} : Set G) := fun x hx =>
-    Subgroup.mem_centralizer_singleton_iff.mpr
-      (congrArg Subtype.val (hE.1.1.is_comm.comm ⟨x, hx⟩ ⟨d, hdE⟩))
-  have hEH : E ≤ H := fun x hx => hH.2 (hEC hx)
-  obtain ⟨-, hJ⟩ := h194 G hctx.toSec19Std E M H hE hctx.mem_scriptM
-    (mem_scriptM_iff.mpr ⟨hH.1, fun x hx => hEH hx⟩) hHM
-  obtain ⟨hlist, hpar⟩ := hJ K hKJ
-  refine ⟨?_, ?_⟩
-  · rcases hK8 with h | ⟨⟨p, f, hD4⟩, -⟩
-    · exact h
-    · exact (not_isList194_of_trialityD4 hlist hD4).elim
-  · rcases hpar with ⟨-, h⟩ | ⟨-, hext⟩
-    · exact h
-    · exact (false_of_isExtOf hE hctx.inf_noncyclic hLK hEH hext).elim
-
-open Step1911Proof in
-theorem step1911_of_wide
-    (h194 : Item194UsedWide) :
-    Step1911 := by
-  intro G _ _ A c L E M hctx K hK hLK hK8 d hdD hdc H hH hHM hKJ
-  have hE := hctx.isE27
-  have hdE : d ∈ E := (Subgroup.mem_inf.mp hdD).1
-  have hEC : E ≤ Subgroup.centralizer ({d} : Set G) := fun x hx =>
-    Subgroup.mem_centralizer_singleton_iff.mpr
-      (congrArg Subtype.val (hE.1.1.is_comm.comm ⟨x, hx⟩ ⟨d, hdE⟩))
-  have hEH : E ≤ H := fun x hx => hH.2 (hEC hx)
-  obtain ⟨-, hJ⟩ := h194 G hctx.toSec19Std E M H hE hctx.mem_scriptM
-    (mem_scriptM_iff.mpr ⟨hH.1, fun x hx => hEH hx⟩) hHM
-  obtain ⟨hlist, hpar⟩ := hJ K hKJ
-  refine ⟨?_, ?_⟩
-  · rcases hK8 with h | ⟨⟨p, f, hD4⟩, -⟩
-    · exact h
-    · rcases hlist with hlist | hsmall
-      · exact (not_isList194_of_trialityD4 hlist hD4).elim
-      · exact (not_isSmall194_of_trialityD4 hsmall hD4).elim
-  · rcases hpar with ⟨-, h⟩ | ⟨-, hext⟩
-    · exact h
-    · exact (false_of_isExtOf hE hctx.inf_noncyclic hLK hEH hext).elim
 
 end CFSG.RankThree.PartTwo.Sec19

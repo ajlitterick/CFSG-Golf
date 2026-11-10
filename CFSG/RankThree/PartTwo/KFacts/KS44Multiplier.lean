@@ -57,28 +57,6 @@ theorem lieModel_of_mulEquiv_projSL {S : Type} [Group S]
   rw [L34.card_galoisField_two_two]
   norm_num
 
-theorem card_multiplier_psl_three_four :
-    Nat.card (Blueprint.Multiplier.generic .PSL 3 2 2 ×
-      Blueprint.Multiplier.exceptional .PSL 3 2 2) = 48 := by
-  have hgen : Blueprint.Multiplier.genericOrders .PSL 3 2 2 = (3, 1) := by
-    change (Nat.gcd 3 (2 ^ 2 - 1), 1) = (3, 1)
-    norm_num
-  have hexc : Blueprint.Multiplier.exceptionalOrders .PSL 3 2 2 = (4, 4) := rfl
-  unfold Blueprint.Multiplier.generic Blueprint.Multiplier.exceptional
-  rw [hgen, hexc]
-  simp only [Nat.card_prod, Nat.card_congr (Multiplicative.toAdd : _ ≃ _), Nat.card_zmod]
-
-theorem l34CenterThreePrimeTwo_of_griess
-    (hGA : CFSG.ComponentClassification.TBLit.GriessMultipliersAllModels) :
-    L34CenterThreePrimeTwo := by
-  intro X _ _ hX hψ Z hZ h3
-  obtain ⟨ψ⟩ := hψ
-  obtain ⟨-, ⟨e⟩⟩ := hGA _ .PSL 3 2 2 (lieModel_of_mulEquiv_projSL ψ)
-  have h48 : Nat.card (Subgroup.center X) ∣ 48 := by
-    have h := card_center_dvd_card_hopfMultiplier hX
-    rwa [← Nat.card_congr (hopfMultiplierEquivGriess _).toEquiv, Nat.card_congr e.toEquiv,
-      card_multiplier_psl_three_four] at h
-  exact isPGroup_two_of_le_center h48 hZ h3
 
 end KS44
 

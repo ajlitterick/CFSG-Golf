@@ -156,31 +156,6 @@ theorem twKill_detect {S : Set (Fin τ.rank → ℤ)} (hS : ∀ β ∈ S, IsRoot
   have := congrFun hde (Fin.castAdd l j)
   simpa only [Fin.append_left] using this
 
-theorem twKill_detect₃ {S : Set (Fin τ.rank → ℤ)} (hS : ∀ β ∈ S, IsRoot τ β ∧ 0 < height β)
-    (hSc : ∀ β ∈ S, ∀ γ ∈ S, ∀ a b : ℕ, 1 ≤ a → 1 ≤ b → IsRoot τ (a • β + b • γ) →
-      a • β + b • γ ∈ S)
-    {β₁ β₂ β₃ : Fin τ.rank → ℤ} (h₁ : IsRoot τ β₁ ∧ 0 < height β₁)
-    (h₂ : IsRoot τ β₂ ∧ 0 < height β₂) (h₃ : IsRoot τ β₃ ∧ 0 < height β₃)
-    (h12 : β₁ ≠ β₂) (h13 : β₁ ≠ β₃) (h23 : β₂ ≠ β₃) (hS₁ : β₁ ∉ S) (hS₂ : β₂ ∉ S)
-    (hS₃ : β₃ ∉ S) {e₁ e₂ e₃ : K}
-    (h : pinnedX τ K β₁ e₁ * pinnedX τ K β₂ e₂ * pinnedX τ K β₃ e₃ ∈ rootSpan τ K S) :
-    e₁ = 0 ∧ e₂ = 0 ∧ e₃ = 0 := by
-  have hinj : Function.Injective ![β₁, β₂, β₃] := by
-    intro a b hab
-    fin_cases a <;> fin_cases b
-    all_goals first
-      | rfl
-      | exact absurd hab h12 | exact absurd hab h13 | exact absurd hab h23
-      | exact absurd hab.symm h12 | exact absurd hab.symm h13 | exact absurd hab.symm h23
-  have hp : (List.ofFn fun j => pinnedX τ K (![β₁, β₂, β₃] j) (![e₁, e₂, e₃] j)).prod =
-      pinnedX τ K β₁ e₁ * pinnedX τ K β₂ e₂ * pinnedX τ K β₃ e₃ := by
-    rw [List.ofFn_succ, List.ofFn_succ, List.ofFn_succ, List.ofFn_zero, List.prod_cons,
-      List.prod_cons, List.prod_cons, List.prod_nil, mul_one, ← mul_assoc]
-    rfl
-  have he := twKill_detect hS hSc ![β₁, β₂, β₃] hinj
-    (fun j => by fin_cases j <;> assumption) (fun j => by fin_cases j <;> assumption)
-    (hp ▸ h)
-  exact ⟨congrFun he 0, congrFun he 1, congrFun he 2⟩
 
 theorem twKill_detect₄ {S : Set (Fin τ.rank → ℤ)} (hS : ∀ β ∈ S, IsRoot τ β ∧ 0 < height β)
     (hSc : ∀ β ∈ S, ∀ γ ∈ S, ∀ a b : ℕ, 1 ≤ a → 1 ≤ b → IsRoot τ (a • β + b • γ) →
@@ -220,15 +195,6 @@ end Detect
 section Twist
 
 variable {K : Type} [Field K]
-theorem twKill_mem_graphFixedRootGroup
-    {σ : K →+* K} {S : Set (Fin TwistTag.E6.tag.rank → ℤ)}
-    (hS : ∀ β ∈ S, IsRoot TwistTag.E6.tag β ∧ 0 < height β) {g : ModGL TwistTag.E6.tag K}
-    (hg : g ∈ rootSpan TwistTag.E6.tag K S) (hF : twistHom TwistTag.E6 K σ g = g) :
-    g ∈ graphFixedRootGroup TwistTag.E6 K σ :=
-  graphFixedPosUnipotent_le_graphFixedRootGroup _ _ _
-    (Subgroup.mem_inf.2 ⟨rootSpan_le_posUnipotent hS hg, Subgroup.mem_inf.2
-      ⟨(iSup₂_le fun α _ => rootSubgroup_le_adjointGroup α :
-        rootSpan TwistTag.E6.tag K S ≤ adjointGroup TwistTag.E6.tag K) hg, hF⟩⟩)
 
 
 theorem twKill_F_pinnedX [CharP K 2] (σ : K →+* K) {β : Fin TwistTag.E6.tag.rank → ℤ}

@@ -32,21 +32,6 @@ theorem projectiveAction_ker_scalar (f : (projectiveAction (K := K) (V := V)).ke
   · simpa [LinearIndependent.pair_iff' hv, Projectivization.mk_eq_mk_iff'] using!
       hf (Projectivization.mk K v hv)
 
-theorem projectiveAction_mem_ker_iff (f : V ≃ₗ[K] V) :
-    f ∈ (projectiveAction (K := K) (V := V)).ker ↔
-      ∃ a : K, (f : V →ₗ[K] V) = a • 1 := by
-  constructor
-  · exact fun hf => projectiveAction_ker_scalar ⟨f, hf⟩
-  · rintro ⟨a, ha⟩
-    apply Equiv.ext
-    intro D
-    induction D using Projectivization.ind with
-    | h v hv =>
-      change f • Projectivization.mk K v hv = Projectivization.mk K v hv
-      rw [Projectivization.smul_mk, Projectivization.mk_eq_mk_iff']
-      exact ⟨a, by
-        have h := congrArg (fun l : V →ₗ[K] V => l v) ha
-        simpa using h.symm⟩
 
 theorem projectiveAction_ker_isMulCommutative :
     IsMulCommutative (projectiveAction (K := K) (V := V)).ker := by

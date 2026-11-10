@@ -20,16 +20,6 @@ open CFSG.KC.YModel CFSG.KC.MonsterConv.Perm
 #kc_benes CFSG.KD.YMY432 N 0 10 15 fun _ c => colPlanes (signExt 31671 (CFSG.KD.YM432P.F c)) 32 31673 15 0
 #kc_select CFSG.KD.YMY432 Nf N 10
 
-@[expose] noncomputable def T0_0 : Nat := N0
-@[expose] noncomputable def T0_1 : Nat := N1
-@[expose] noncomputable def T0_2 : Nat := N2
-@[expose] noncomputable def T0_3 : Nat := N3
-@[expose] noncomputable def T0_4 : Nat := N4
-@[expose] noncomputable def T0_5 : Nat := N5
-@[expose] noncomputable def T0_6 : Nat := N6
-@[expose] noncomputable def T0_7 : Nat := N7
-@[expose] noncomputable def T0_8 : Nat := N8
-@[expose] noncomputable def T0_9 : Nat := N9
 @[expose] noncomputable def WP0 (i : Nat) : Nat := CFSG.KD.YM432C.F (i + 1)
 @[expose] noncomputable def WL0 (i : Nat) : Nat := lget CFSG.KD.YM432C.El (i + 1)
 #kc_benes CFSG.KD.YMY432 T0_ 10 16 15 fun T j =>

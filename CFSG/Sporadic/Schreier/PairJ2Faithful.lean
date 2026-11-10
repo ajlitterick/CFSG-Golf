@@ -58,19 +58,6 @@ theorem j2Vectors_wfV {i : ℕ} (hi : i < 315) : wfV 5 14 j2Vectors[i]! = true :
 theorem j2Vectors_length {i : ℕ} (hi : i < 315) : j2Vectors[i]!.length = 14 :=
   (wfV_iff.1 (j2Vectors_wfV hi)).1
 
-theorem j2Vec_ne_zero {i : ℕ} (hi : i < 315) : j2Vec i ≠ 0 := by
-  have h := j2FaithfulOK_parts.1 i hi
-  obtain ⟨x, hx, hx0⟩ := List.any_eq_true.1 h
-  obtain ⟨k, hk, rfl⟩ := List.getElem_of_mem hx
-  have hk14 : k < 14 := by rw [← j2Vectors_length hi]; exact hk
-  intro h0
-  have h1 := congrFun h0 ⟨k, hk14⟩
-  have hlt := (wfV_iff.1 (j2Vectors_wfV hi)).2 _ (List.getElem_mem hk)
-  simp only [j2Vec, toV, Pi.zero_apply] at h1
-  rw [List.getD_eq_getElem _ _ hk] at h1
-  have h2 := congrArg ZMod.val h1
-  rw [ZMod.val_natCast, Nat.mod_eq_of_lt hlt, ZMod.val_zero] at h2
-  simp [h2] at hx0
 
 theorem j2Vec_inj {i j : ℕ} (hi : i < 315) (hj : j < 315) (h : j2Vec i = j2Vec j) : i = j := by
   have he := toV_inj (j2Vectors_wfV hi) (j2Vectors_wfV hj) h
@@ -147,15 +134,6 @@ theorem j2C_col (k : Fin 14) : (fun i => j2C i k) = j2Vec (j2BasisIdx.getD k 0) 
     List.getD_eq_getElem _ _ (by simp [j2BasisIdx])]
   rfl
 
-@[expose] def j2Basis : Module.Basis (Fin 14) (ZMod 5) (Fin 14 → ZMod 5) :=
-  (Pi.basisFun (ZMod 5) (Fin 14)).map
-    (j2C.toLinearEquiv' (invertibleOfLeftInverse _ _ j2C_left_inv))
-
-theorem j2Basis_apply (k : Fin 14) : j2Basis k = j2Vec (j2BasisIdx.getD k 0) := by
-  rw [j2Basis, Module.Basis.map_apply, Pi.basisFun_apply, ← j2C_col]
-  show Matrix.toLin' j2C (Pi.single k 1) = _
-  rw [Matrix.toLin'_apply, mulVec_single_one]
-  rfl
 
 @[expose] def j2Fam (i : Fin 315) : Fin 14 → ZMod 5 := j2Vec i
 
@@ -235,9 +213,6 @@ theorem j2J_eq :
   (Blueprint.NativeSporadic.matrixSeedEquiv 5 14 (by norm_num) j2A1 j2A2 det_j2A1
     det_j2A2).trans (MulEquiv.subgroupCongr j2J_eq)
 
-theorem j2MatEquiv_val (u : Blueprint.NativeSporadic.J2) :
-    J2.mat (j2MatEquiv u) = u.val.val :=
-  rfl
 
 theorem closure_j2GenPerms : Subgroup.closure (Set.range j2GenPerms) = j2P := by
   rw [range_j2GenPerms, j2P]
@@ -250,22 +225,11 @@ theorem j2PermEquiv_apply (u : Blueprint.NativeSporadic.J2) :
       familyPerm j2Fam_injective j2_smul_mem (j2MatEquiv u) :=
   rfl
 
-theorem j2Vec_permEquiv (u : Blueprint.NativeSporadic.J2) (i : Fin 315) :
-    j2Vec ((j2PermEquiv u : Equiv.Perm (Fin 315)) i) = u.val.val *ᵥ j2Vec i := by
-  rw [j2PermEquiv_apply]
-  have := familyPerm_apply j2Fam_injective j2_smul_mem (j2MatEquiv u) i
-  rw [J2.smul_def, j2MatEquiv_val] at this
-  exact this
 
 @[expose] def j2SeedA : Blueprint.NativeSporadic.J2 := j2MatEquiv.symm J2.a
 
 @[expose] def j2SeedB : Blueprint.NativeSporadic.J2 := j2MatEquiv.symm J2.b
 
-theorem j2SeedA_val : j2SeedA.val.val = j2A1 := by
-  rw [← j2MatEquiv_val, j2SeedA, MulEquiv.apply_symm_apply, mat_j2a]
-
-theorem j2SeedB_val : j2SeedB.val.val = j2A2 := by
-  rw [← j2MatEquiv_val, j2SeedB, MulEquiv.apply_symm_apply, mat_j2b]
 
 theorem j2PermEquiv_seedA : (j2PermEquiv j2SeedA : Equiv.Perm (Fin 315)) = j2Gen 0 := by
   rw [j2PermEquiv_apply, j2SeedA, MulEquiv.apply_symm_apply]
@@ -275,20 +239,5 @@ theorem j2PermEquiv_seedB : (j2PermEquiv j2SeedB : Equiv.Perm (Fin 315)) = j2Gen
   rw [j2PermEquiv_apply, j2SeedB, MulEquiv.apply_symm_apply]
   exact familyPerm_gen j2Fam_injective j2_smul_mem j2SeedsJ_smul 1
 
-theorem FAM_J2_faithful_permutation_action :
-    (∀ i < 315, j2Vec i ≠ 0) ∧
-    (∀ i < 315, ∀ j < 315, j2Vec i = j2Vec j → i = j) ∧
-    (∃ b : Module.Basis (Fin 14) (ZMod 5) (Fin 14 → ZMod 5),
-      ∀ k : Fin 14, b k = j2Vec (j2BasisIdx.getD k 0)) ∧
-    (∀ i : Fin 315, j2A1 *ᵥ j2Vec i = j2Vec (j2Gen 0 i)) ∧
-    (∀ i : Fin 315, j2A2 *ᵥ j2Vec i = j2Vec (j2Gen 1 i)) ∧
-    (∀ (u : Blueprint.NativeSporadic.J2) (i : Fin 315),
-      j2Vec ((j2PermEquiv u : Equiv.Perm (Fin 315)) i) = u.val.val *ᵥ j2Vec i) ∧
-    j2SeedA.val.val = j2A1 ∧ j2SeedB.val.val = j2A2 ∧
-    (j2PermEquiv j2SeedA : Equiv.Perm (Fin 315)) = j2Gen 0 ∧
-    (j2PermEquiv j2SeedB : Equiv.Perm (Fin 315)) = j2Gen 1 :=
-  ⟨fun _ hi => j2Vec_ne_zero hi, fun _ hi _ hj h => j2Vec_inj hi hj h,
-    ⟨j2Basis, j2Basis_apply⟩, fun i => (j2_seed_mulVec i).1, fun i => (j2_seed_mulVec i).2,
-    j2Vec_permEquiv, j2SeedA_val, j2SeedB_val, j2PermEquiv_seedA, j2PermEquiv_seedB⟩
 
 end CFSG.Sporadic.Schreier

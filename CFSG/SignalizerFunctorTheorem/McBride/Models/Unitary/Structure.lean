@@ -167,20 +167,4 @@ theorem fixedNormalizer_eq_of_heisenbergInput (hp : p.Prime)
   exact hF.normalizer_eq inp
 
 
-theorem isCoatom_fixedNormalizer_of_heisenbergInput
-    (hp : p.Prime)
-    (hcop : Nat.Coprime p (Nat.card (PSU3 2 p)))
-    (hnear : signalizerNearPSolvable p (PSU3 2 p)) (inp : HeisenbergInput p)
-    (f : MulAut (PSU3 2 p)) (hf : orderOf f = p) : IsCoatom (fixedNormalizer f) := by
-  have hF := frame_of_heisenbergInput hp hcop hnear inp f hf
-  have hMtop : fixedNormalizer f ≠ ⊤ := by
-    intro htop
-    have hnorm : (fixedFitting f).Normal := Subgroup.normalizer_eq_top_iff.mp htop
-    rcases hF.simple.eq_bot_or_eq_top_of_normal (fixedFitting f) with h1 | h1
-    · exact hF.C0_ne_bot h1
-    · exact hF.C0_ne (le_antisymm (fixedFitting_le f) (h1 ▸ le_top))
-  refine ⟨hMtop, fun b hb => ?_⟩
-  by_contra hbtop
-  exact not_le_of_gt hb (hF.overgroup b ((fixed_le_fixedNormalizer f).trans hb.le) hbtop)
-
 end CFSG.SignalizerFunctorTheorem.McBride.UnitaryFrame

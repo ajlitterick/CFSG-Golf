@@ -40,9 +40,5 @@ theorem ggEndNodeAdm_of_ggEndNode {p r : ℕ} {R : Type} [Group R] {I : Set (Mul
       ∃ A' : Subgroup (MulAut L'), A < A' ∧ A' ≤ Ah ∧
         ∃ U : Subgroup L', U ≠ ⊥ ∧ IsPGroup 2 U ∧ ∀ a ∈ A', ∀ u ∈ U, a u ∈ U
 
-@[expose] def GGInnLocalInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B : Subgroup G) (x : G) (L : Subgroup G),
-    GGThmIHyp p B x L → ∃ U : Subgroup G, U ≤ L ∧ U ≠ ⊥ ∧ IsPGroup 2 U ∧
-      B ≤ Subgroup.normalizer (U : Set G)
 
 end CFSG.StandardType

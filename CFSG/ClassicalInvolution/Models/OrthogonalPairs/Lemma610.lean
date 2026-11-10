@@ -229,34 +229,6 @@ theorem exists_ne_of_not_mem_centralizer {F : Frame Q} {g : V ≃ₗ[K] V}
   by_contra hne
   exact hcon ⟨A, fun h => hne h.symm⟩
 
-theorem lemma_6_10_third (hodd : Odd (Nat.card K)) (h₁ : IsFundamental Q L₁ i₁)
-    (h₂ : IsFundamental Q L₂ i₂) (hc : i₁ * i₂ = i₂ * i₁)
-    (hN : i₂ ∈ Subgroup.normalizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hC : i₂ ∉ Subgroup.centralizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hs : HasSingularVector Q (negSpace i₁ ⊓ negSpace i₂)) :
-    ∃ L₃ : Subgroup (V ≃ₗ[K] V), IsFundamental Q L₃ (i₁ * i₂) ∧ L₃ ≤ L₁ ⊔ L₂ := by
-  have h2 := IsFundamental.two_ne_zero_of_odd hodd
-  have h₁' := h₁
-  have h₂' := h₂
-  obtain ⟨F₁, rfl, rfl⟩ := h₁
-  obtain ⟨F₂, rfl, rfl⟩ := h₂
-  have hdim := Frame.finrank_inf_span_eq_two h2 hc.symm (conjSubgroup_eq_of_mem_normalizer hN)
-    (exists_ne_of_not_mem_centralizer hC)
-  rw [negSpace_La_neg_one h2, negSpace_La_neg_one h2] at hs
-  obtain ⟨T, hT₁, hT₂⟩ := Frame.exists_triple h2 hc.symm hdim hs
-  obtain ⟨T', e1, e2⟩ := T.exists_triple_theta
-    (Frame.La_range_eq_or_eq_swap h2 (Frame.La_neg_one_eq_of_span_eq hT₁.symm))
-    (Frame.La_range_eq_or_eq_swap h2 (Frame.La_neg_one_eq_of_span_eq hT₂.symm))
-  rw [T'.map_B12] at e1
-  rw [T'.map_B23] at e2
-  have hi₁ : F₁.La (-1) = T'.frame01.swap.La (-1) :=
-    IsFundamental.involution_unique hodd h₁' (e1 ▸ IsFundamental.of_frame T'.frame01.swap)
-  have hi₂ : F₂.La (-1) = T'.frame12.swap.La (-1) :=
-    IsFundamental.involution_unique hodd h₂' (e2 ▸ IsFundamental.of_frame T'.frame12.swap)
-  refine ⟨T'.frame02.swap.La.range, ⟨T'.frame02.swap, rfl, ?_⟩, ?_⟩
-  · rw [hi₁, hi₂, T'.La_neg_one_mul_eq]
-  · rw [← e1, ← e2, ← T'.range_theta]
-    exact T'.La_range_le_range_theta
 
 omit [FiniteDimensional K V] in
 theorem mem_normalizer_iff_even (hodd : Odd (Nat.card K)) (h₁ : IsFundamental Q L₁ i₁)
@@ -395,39 +367,6 @@ theorem linearBlockStandardPair_subgroupOf {X : Type} [Group X] {W U V : Subgrou
     · exact Or.inl ⟨hmap _ _ h1, hmap _ _ h2⟩
     · exact Or.inr ⟨hmap _ _ h1, hmap _ _ h2⟩
 
-theorem lemma_6_10_subgroupOf (hodd : Odd (Nat.card K)) (h₁ : IsFundamental Q L₁ i₁)
-    (h₂ : IsFundamental Q L₂ i₂) (hc : i₁ * i₂ = i₂ * i₁)
-    (hN : i₂ ∈ Subgroup.normalizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hC : i₂ ∉ Subgroup.centralizer (L₁ : Set (V ≃ₗ[K] V)))
-    (hs : HasSingularVector Q (negSpace i₁ ⊓ negSpace i₂)) :
-    LinearBlockStandardPair K ((L₁ ⊔ L₂).subgroupOf (elementaryGroup Q))
-      (L₁.subgroupOf (elementaryGroup Q)) (L₂.subgroupOf (elementaryGroup Q)) :=
-  linearBlockStandardPair_subgroupOf (elementaryGroup Q)
-    (sup_le h₁.le_elementaryGroup h₂.le_elementaryGroup)
-    ((lemma_6_10 hodd h₁ h₂ hc hN hC).2 hs)
-
-omit [Finite K] [FiniteDimensional K V] in
-theorem PairDecomposition.not_hasSingularVector {i₁ i₂ : V ≃ₗ[K] V}
-    (hP : PairDecomposition Q i₁ i₂) (hs : ¬ HasSingularVector Q (negSpace i₁ ⊓ negSpace i₂)) :
-    ¬ HasSingularVector Q (negSpace i₁ ⊓ posSpace i₂) ∧
-      ¬ HasSingularVector Q (posSpace i₁ ⊓ negSpace i₂) :=
-  ⟨fun h => hs (hP.type₁₂.mp h), fun h => hs (hP.type₂₃.mpr h)⟩
-
-omit [FiniteDimensional K V] in
-theorem sup_fixes_posSpace {i₁ i₂ : V ≃ₗ[K] V} (hodd : Odd (Nat.card K))
-    (h₁ : IsFundamental Q L₁ i₁) (h₂ : IsFundamental Q L₂ i₂) {g : V ≃ₗ[K] V}
-    (hg : g ∈ L₁ ⊔ L₂) {x : V} (hx : x ∈ posSpace i₁ ⊓ posSpace i₂) : g x = x := by
-  have h2 := IsFundamental.two_ne_zero_of_odd hodd
-  obtain ⟨F₁, rfl, rfl⟩ := h₁
-  obtain ⟨F₂, rfl, rfl⟩ := h₂
-  rw [posSpace_La_neg_one h2, posSpace_La_neg_one h2] at hx
-  have hfix : ∀ F : Frame Q, x ∈ F.perp → F.La.range ≤ MulAction.stabilizer (V ≃ₗ[K] V) x := by
-    intro F hF
-    rintro _ ⟨A, rfl⟩
-    rw [MulAction.mem_stabilizer_iff]
-    exact F.La_apply_of_coords_eq_zero A ((Frame.mem_perp_iff F).mp hF)
-  have := sup_le (hfix F₁ hx.1) (hfix F₂ hx.2) hg
-  rwa [MulAction.mem_stabilizer_iff] at this
 
 omit [Finite K] [FiniteDimensional K V] in
 theorem negSpace_neg_mul (i : V ≃ₗ[K] V) : negSpace (LinearEquiv.neg K * i) = posSpace i := by
@@ -435,55 +374,6 @@ theorem negSpace_neg_mul (i : V ≃ₗ[K] V) : negSpace (LinearEquiv.neg K * i) 
   simp only [negSpace, posSpace, Module.End.mem_eigenspace_iff, neg_smul, one_smul]
   exact neg_inj
 
-omit [FiniteDimensional K V] in
-theorem ncard_isFundamental_le_two (hodd : Odd (Nat.card K)) (j : V ≃ₗ[K] V) :
-    {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' j}.ncard ≤ 2 := by
-  by_cases h : ∃ L, IsFundamental Q L j
-  · obtain ⟨L, hL⟩ := h
-    exact (IsFundamental.ncard_eq_two hodd hL).le
-  · have : {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' j} = ∅ := by
-      ext L'
-      simp only [Set.mem_ofPred_eq, Set.mem_empty_iff_false, iff_false]
-      exact fun h' => h ⟨L', h'⟩
-    rw [this]
-    simp
-
-omit [FiniteDimensional K V] in
-theorem ncard_isFundamental_pm_le_four (hodd : Odd (Nat.card K)) (i : V ≃ₗ[K] V) :
-    {L' : Subgroup (V ≃ₗ[K] V) |
-      IsFundamental Q L' i ∨ IsFundamental Q L' (LinearEquiv.neg K * i)}.ncard ≤ 4 := by
-  have h := Set.ncard_union_le {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' i}
-    {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' (LinearEquiv.neg K * i)}
-  have h1 := ncard_isFundamental_le_two (Q := Q) hodd i
-  have h2 := ncard_isFundamental_le_two (Q := Q) hodd (LinearEquiv.neg K * i)
-  have e : {L' : Subgroup (V ≃ₗ[K] V) |
-      IsFundamental Q L' i ∨ IsFundamental Q L' (LinearEquiv.neg K * i)} =
-      {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' i} ∪
-        {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' (LinearEquiv.neg K * i)} := rfl
-  rw [e]
-  omega
-
-theorem ncard_isFundamental_pm_eq_two (hodd : Odd (Nat.card K)) {L : Subgroup (V ≃ₗ[K] V)}
-    {i : V ≃ₗ[K] V} (h : IsFundamental Q L i) (hdim : Module.finrank K V ≠ 8) :
-    {L' : Subgroup (V ≃ₗ[K] V) |
-      IsFundamental Q L' i ∨ IsFundamental Q L' (LinearEquiv.neg K * i)}.ncard = 2 := by
-  have h2 := IsFundamental.two_ne_zero_of_odd hodd
-  have hno : ∀ L', ¬ IsFundamental Q L' (LinearEquiv.neg K * i) := by
-    rintro L' ⟨F', -, hF'⟩
-    obtain ⟨F, rfl, rfl⟩ := h
-    have h1 : F.perp = F'.span := by
-      rw [← posSpace_La_neg_one h2, ← negSpace_neg_mul, hF', negSpace_La_neg_one h2]
-    have h3 := Submodule.finrank_add_eq_of_isCompl (Frame.isCompl_span_perp F)
-    rw [h1, Frame.finrank_span, Frame.finrank_span] at h3
-    exact hdim (by omega)
-  have e : {L' : Subgroup (V ≃ₗ[K] V) |
-      IsFundamental Q L' i ∨ IsFundamental Q L' (LinearEquiv.neg K * i)} =
-      {L' : Subgroup (V ≃ₗ[K] V) | IsFundamental Q L' i} := by
-    ext L'
-    simp only [Set.mem_ofPred_eq]
-    exact ⟨fun h' => h'.resolve_right (hno L'), Or.inl⟩
-  rw [e]
-  exact IsFundamental.ncard_eq_two hodd h
 
 end Lemma610
 

@@ -16,8 +16,6 @@ variable {F : Type} [Field F]
 @[expose] def q8q8Diag (ρ : Q8 →* GL (Fin 2) F) : Q8 × Q8 →* GL (Fin 4) F :=
   (diagGLHom F).comp (ρ.prodMap ρ)
 
-theorem q8q8Diag_apply (ρ : Q8 →* GL (Fin 2) F) (g h : Q8) :
-    q8q8Diag ρ (g, h) = diagGL (ρ g) (ρ h) := rfl
 
 theorem q8q8Diag_mem (M : ModelData F) {ρ : Q8 →* GL (Fin 2) F} (hρ : ∀ g, ρ g ∈ M.H2)
     (x : Q8 × Q8) : q8q8Diag ρ x ∈ M.K4 := by

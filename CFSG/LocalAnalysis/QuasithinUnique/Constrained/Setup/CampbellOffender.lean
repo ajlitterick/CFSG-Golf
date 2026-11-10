@@ -57,7 +57,6 @@ theorem affPerm_inj {b b' : k} {σ σ' : k ≃+* k} (h : affPerm b σ = affPerm 
   have := congrFun (congrArg (fun e : Equiv.Perm (Fin 2 → k) => e (Pi.single 1 1)) h) 0
   simpa [affPerm_apply] using this
 
-theorem affPerm_one_eq (b : k) : affPerm b 1 = slPerm k (unipotent b) := rfl
 
 theorem exists_affPerm_of_fix {a : Equiv.Perm (Fin 2 → k)} (ha : a ∈ Gamma k)
     (h : a (Pi.single 0 1) = Pi.single 0 1) : ∃ (b : k) (σ : k ≃+* k), a = affPerm b σ := by

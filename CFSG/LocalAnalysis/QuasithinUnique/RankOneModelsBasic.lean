@@ -72,9 +72,6 @@ variable {G : Type*} [Group G] {F : Type*} [Field F]
           rw [h]
       _ = φ (Multiplicative.ofAdd (((c⁻¹ : Fˣ) : F) * x)) := by group
 
-theorem mem_scalarActing_iff (φ : Multiplicative F →* G) (n : G) :
-    n ∈ scalarActing φ ↔ ∃ c : Fˣ, ∀ x : F,
-      n * φ (Multiplicative.ofAdd x) * n⁻¹ = φ (Multiplicative.ofAdd ((c : F) * x)) := Iff.rfl
 
 theorem scalarActing_le_normalizer (φ : Multiplicative F →* G) :
     scalarActing φ ≤ normalizer (φ.range : Set G) := by
@@ -358,40 +355,6 @@ theorem normalizer_le_stabilizer_of_semiregular {Ω : Type*} [MulAction G Ω] (�
   rw [mul_smul, mul_smul, inv_smul_eq_iff] at hfix
   exact hv1 (Subtype.ext (hsemi (g • α) v (hVP v.2) hω hfix))
 
-theorem stabilizer_le_normalizer_of_characteristic {Ω : Type*} [MulAction G Ω] (α : Ω)
-    {P V : Subgroup G} (hVP : V ≤ P) (hPα : P ≤ MulAction.stabilizer G α)
-    (hPn : (P.subgroupOf (MulAction.stabilizer G α)).Normal)
-    [hVc : (V.subgroupOf P).Characteristic] :
-    MulAction.stabilizer G α ≤ normalizer (V : Set G) := by
-  intro g hg
-  have hconj : ∀ s ∈ MulAction.stabilizer G α, ∀ x ∈ P, s * x * s⁻¹ ∈ P :=
-    fun s hs x hx => (Subgroup.normal_subgroupOf_iff hPα).1 hPn x s hx hs
-  have key : ∀ s ∈ MulAction.stabilizer G α, ∀ v ∈ V, s * v * s⁻¹ ∈ V := by
-    intro s hs v hv
-    let e : P ≃* P :=
-      { toFun := fun x => ⟨s * x * s⁻¹, hconj s hs x x.2⟩
-        invFun := fun x => ⟨s⁻¹ * x * s⁻¹⁻¹, hconj s⁻¹ (inv_mem hs) x x.2⟩
-        left_inv := fun x => Subtype.ext (by simp [mul_assoc])
-        right_inv := fun x => Subtype.ext (by simp [mul_assoc])
-        map_mul' := fun x y => Subtype.ext (by simp [mul_assoc]) }
-    have h := (Subgroup.Characteristic.fixed hVc e).ge
-      (Subgroup.mem_subgroupOf.2 hv : (⟨v, hVP hv⟩ : P) ∈ V.subgroupOf P)
-    exact Subgroup.mem_subgroupOf.1 h
-  refine Subgroup.mem_normalizer_iff.2 fun h => ⟨fun hh => key g hg h hh, fun hh => ?_⟩
-  have := key g⁻¹ (inv_mem hg) _ hh
-  simpa [mul_assoc] using this
-
-theorem normalizer_eq_stabilizer_of_regular_root {Ω : Type*} [MulAction G Ω] (α : Ω)
-    {P V : Subgroup G} (hVP : V ≤ P) (hPα : P ≤ MulAction.stabilizer G α)
-    (hPn : (P.subgroupOf (MulAction.stabilizer G α)).Normal)
-    (hreg : ∀ x y : Ω, x ≠ α → y ≠ α → ∃! u : P, (u : G) • x = y)
-    [(V.subgroupOf P).Characteristic] (hV : V ≠ ⊥) :
-    normalizer (V : Set G) = MulAction.stabilizer G α := by
-  refine le_antisymm (normalizer_le_stabilizer_of_semiregular α hVP hPα ?_ hV)
-    (stabilizer_le_normalizer_of_characteristic α hVP hPα hPn)
-  intro ω u hu hω hfix
-  have h1 := (hreg ω ω hω hω).unique (y₁ := ⟨u, hu⟩) (y₂ := 1) hfix (one_smul _ _)
-  exact congrArg Subtype.val h1
 
 theorem hasFieldScalarStructure_of_regular_root {Ω : Type*} [MulAction G Ω] (α : Ω)
     (P T : Subgroup G) (F : Type) [Field F] [Finite F] [CharP F 2] (φ : Multiplicative F →* G)

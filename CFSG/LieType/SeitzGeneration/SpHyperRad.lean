@@ -17,8 +17,6 @@ variable {r : ℕ} {K : Type} [Field K]
   zero_mem' := fun w _ => map_zero _
   smul_mem' := fun c v hv w hw => by rw [map_smul, hv w hw, smul_zero]
 
-theorem mem_spPerp {W : Submodule K (Fin r ⊕ Fin r → K)} {v : Fin r ⊕ Fin r → K} :
-    v ∈ spPerp W ↔ ∀ w ∈ W, spForm r K w v = 0 := Iff.rfl
 
 theorem spForm_eq_zero_comm {a b : Fin r ⊕ Fin r → K} (h : spForm r K a b = 0) :
     spForm r K b a = 0 := by
@@ -97,9 +95,6 @@ variable {W : Submodule K (Fin r ⊕ Fin r → K)}
       rw [spEnd_spEnd_inv] at this
       simpa using this
 
-theorem mem_spRad {hW : ∀ x ∈ W, ∀ y ∈ W, spForm r K x y = 0} {g : StatedSp r K} :
-    g ∈ spRad W hW ↔ (∀ x, spEnd g x - x ∈ spPerp W) ∧ (∀ x ∈ spPerp W, spEnd g x - x ∈ W) ∧
-      ∀ x ∈ W, spEnd g x = x := Iff.rfl
 
 theorem spRad_conj_mem {hW : ∀ x ∈ W, ∀ y ∈ W, spForm r K x y = 0} {e g : StatedSp r K}
     (he : ∀ w ∈ W, spEnd e w ∈ W) (he' : ∀ w ∈ W, spEnd e⁻¹ w ∈ W) (hg : g ∈ spRad W hW) :

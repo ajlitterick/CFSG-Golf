@@ -62,10 +62,6 @@ theorem oblk_map_fun (g : K → K) (hg : g 0 = 0) (Y : Matrix ι₂ ι₂ K)
   simp only [oblk, coe_reindexAlgEquiv, reindex_apply, ← submatrix_map, fromBlocks_map,
     Matrix.map_zero _ hg]
 
-theorem transpose_oblk (Y : Matrix ι₂ ι₂ K) (X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) :
-    (oblk oe Y X)ᵀ = oblk oe Yᵀ Xᵀ := by
-  rw [oblk, oblk, coe_reindexAlgEquiv, transpose_reindex, fromBlocks_transpose, transpose_zero]
-  rfl
 
 theorem oblk_mulVec_inl (Y : Matrix ι₂ ι₂ K) (X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)
     (v : ι → K) (a : ι₂) :

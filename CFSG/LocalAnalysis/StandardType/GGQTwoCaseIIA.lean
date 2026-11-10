@@ -43,10 +43,6 @@ private lemma ggQ2xCA_ggBCRefl_apply {m : ℕ} (c : GGBCV m) (hc : c ⬝ᵥ c �
     ggBCRefl c hc v = v + ((c ⬝ᵥ c) * (c ⬝ᵥ v)) • c := by
   rw [ggQ2x_ggBCRefl_apply, mul_comm (c ⬝ᵥ v) (c ⬝ᵥ c)]
 
-private lemma ggQ2xCA_ggBCRefl_proof_irrel {m : ℕ} (c : GGBCV m)
-    (h1 h2 : c ⬝ᵥ c ≠ 0) : ggBCRefl c h1 = ggBCRefl c h2 := by
-  unfold ggBCRefl
-  congr 1
 
 private lemma ggQ2xCA_iso_scalar : ∀ r d p q : ZMod 3, d * d = 1 →
     r + d * p * q + d * q * (p + d * p * d) = r := by decide
@@ -87,19 +83,6 @@ private lemma ggQ2xCA_refl_mem_H {m : ℕ} (c : GGBCV m) (hc : c ⬝ᵥ c ≠ 0)
   simp only [Pi.add_apply, Pi.smul_apply, smul_eq_mul]
   rw [Finset.sum_add_distrib, hv, zero_add, ← Finset.mul_sum, hcH, mul_zero]
 
-private lemma ggQ2xCA_refl_map_H {m : ℕ} (c : GGBCV m) (hc : c ⬝ᵥ c ≠ 0)
-    (hcH : c ∈ ggQ2_AH_H m) :
-    (ggQ2_AH_H m).map (ggBCRefl c hc : GGBCV m →ₗ[ZMod 3] GGBCV m) = ggQ2_AH_H m := by
-  refine le_antisymm ?_ ?_
-  · rw [Submodule.map_le_iff_le_comap]
-    exact fun v hv => ggQ2xCA_refl_mem_H c hc hcH v hv
-  · intro v hv
-    refine ⟨ggBCRefl c hc v, ggQ2xCA_refl_mem_H c hc hcH v hv, ?_⟩
-    have hs : (ggBCRefl c hc).symm = ggBCRefl c hc := by
-      change (Module.reflection _).symm = Module.reflection _
-      exact Module.reflection_symm _
-    have h1 := LinearEquiv.symm_apply_apply (ggBCRefl c hc) v
-    rwa [hs] at h1
 
 private noncomputable def ggQ2xCA_reflFun {m : ℕ} (c : ↥(ggQ2_AH_H m))
     (hc : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0) : Module.Dual (ZMod 3) ↥(ggQ2_AH_H m) :=
@@ -131,23 +114,12 @@ private lemma ggQ2xCA_Rs_symm {m : ℕ} (c : ↥(ggQ2_AH_H m))
   rw [ggQ2xCA_Rs]
   exact Module.reflection_symm _
 
-private lemma ggQ2xCA_Rs_proof_irrel {m : ℕ} (c : ↥(ggQ2_AH_H m))
-    (h1 h2 : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0) :
-    ggQ2xCA_Rs c h1 = ggQ2xCA_Rs c h2 := by
-  unfold ggQ2xCA_Rs
-  congr 1
 
 private lemma ggQ2xCA_Rs_isReflLin {m : ℕ} (c : ↥(ggQ2_AH_H m))
     (hc : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0) : IsReflLin (ggQ2xCA_Rs c hc) :=
   ⟨c, (2 / ((c : GGBCV m) ⬝ᵥ (c : GGBCV m))) • ggQ2xCA_dotBilin m c, by
     rw [LinearMap.smul_apply, ggQ2xCA_dotBilin_apply, smul_eq_mul]; field_simp, rfl⟩
 
-private lemma ggQ2xCA_Rs_isometry {m : ℕ} (c : ↥(ggQ2_AH_H m))
-    (hc : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0) (u v : ↥(ggQ2_AH_H m)) :
-    ggQ2xCA_dotBilin m (ggQ2xCA_Rs c hc u) (ggQ2xCA_Rs c hc v) =
-      ggQ2xCA_dotBilin m u v := by
-  rw [ggQ2xCA_dotBilin_apply, ggQ2xCA_dotBilin_apply, ggQ2xCA_Rs_coe, ggQ2xCA_Rs_coe]
-  exact ggQ2xCA_refl_isometry (c : GGBCV m) hc u v
 
 private lemma ggQ2xCA_Rs_conj {m : ℕ} (c d : ↥(ggQ2_AH_H m))
     (hc : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0)
@@ -171,19 +143,6 @@ private lemma ggQ2xCA_Rs_conj {m : ℕ} (c d : ↥(ggQ2_AH_H m))
   simp only [LinearEquiv.mul_apply, ggQ2xCA_Rs_coe]
   exact congrArg (fun e : GGBCV m ≃ₗ[ZMod 3] GGBCV m => e (v : GGBCV m)) hconj
 
-private lemma ggQ2xCA_Rs_self {m : ℕ} (c : ↥(ggQ2_AH_H m))
-    (hc : (c : GGBCV m) ⬝ᵥ (c : GGBCV m) ≠ 0) :
-    ggQ2xCA_Rs c hc c = -c := by
-  apply Subtype.ext
-  rw [ggQ2xCA_Rs_coe]
-  change ggBCRefl (c : GGBCV m) hc (c : GGBCV m) = -(c : GGBCV m)
-  rw [ggQ2xCA_ggBCRefl_apply]
-  have h1 : ((c : GGBCV m) ⬝ᵥ (c : GGBCV m)) * ((c : GGBCV m) ⬝ᵥ (c : GGBCV m)) = 1 :=
-    (by decide : ∀ z : ZMod 3, z ≠ 0 → z * z = 1) _ hc
-  rw [h1, one_smul]
-  funext j
-  simp only [Pi.add_apply, Pi.neg_apply]
-  exact (by decide : ∀ x : ZMod 3, x + x = -x) ((c : GGBCV m) j)
 
 private lemma ggQ2xCA_ggBCRefl_smul {m : ℕ} (a : ZMod 3) (ha : a ≠ 0) (c : GGBCV m)
     (hc : c ⬝ᵥ c ≠ 0) (hac : (a • c) ⬝ᵥ (a • c) ≠ 0) :
@@ -398,8 +357,6 @@ private lemma ggQ2xCA_aroots_classify {m : ℕ} {v : GGBCV m} (hv : v ∈ ggARoo
         Pi.single_eq_of_ne (M := fun _ => ZMod 3) hkj]
       simp [hk0]
 
-private lemma ggQ2xCA_eq_one_or_neg_one (a : ZMod 3) (ha : a ≠ 0) : a = 1 ∨ a = -1 :=
-  (by decide : ∀ a : ZMod 3, a ≠ 0 → a = 1 ∨ a = -1) a ha
 
 private lemma ggQ2xCA_aroots_norm_ne {m : ℕ} {z : GGBCV m} (hz : z ∈ ggARoots m) :
     z ⬝ᵥ z ≠ 0 := by

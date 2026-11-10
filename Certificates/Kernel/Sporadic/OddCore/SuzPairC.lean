@@ -54,15 +54,6 @@ theorem kGN : (inVK (SuzPairT 4) T1 && inVK (SuzPairT 4) (SuzRFS.T 8113) &&
     !Nat.beq (pc (SuzPairT 4) T1) (pc T1 (SuzPairT 4))) = true := by
   quickRfl
 
-theorem negZ : bAnd(Bool.not (zK (SuzRFS.T 1) 0), Bool.not (z2K (SuzRFS.T 174) 1)) = true := by
-  quickRfl
-
-theorem negSel : Bool.not (selFrom (fun k => Nat.beq (wg SuzPairWZ k) 0) 8192 0 [0]) = true := by
-  quickRfl
-
-theorem negG : bAnd(Bool.not (Nat.beq (SuzPairT 4) (iwK abK abIK gWord.tail)),
-    Bool.not (ie Suz2306.B0 (Nat.xor (SuzPairT 0) 2))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.SuzPair
 

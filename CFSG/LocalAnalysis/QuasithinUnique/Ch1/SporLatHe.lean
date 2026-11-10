@@ -87,7 +87,6 @@ variable
 
 theorem he_D_Om : heCtx.D.Om = heLatK.Om := rfl
 
-theorem he_D_mt : heCtx.D.mt = heLatK.mt := rfl
 
 theorem he_D_mw : heCtx.D.mw = heLatK.mw := rfl
 

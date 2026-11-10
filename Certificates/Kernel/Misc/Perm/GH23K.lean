@@ -61,10 +61,6 @@ theorem gens_ok : ∀ m < 41, (members.getD m ⟨[], .top⟩).gens = (List.range
 
 theorem q2_gens_ok : (List.range (NG 41)).map (gM 41) = q2gens := by decide +kernel
 
-theorem sizes : (List.range 42).map NN = [5, 7, 10, 15, 20, 20, 20, 21, 30, 56, 56, 60, 60, 60, 60,
-    60, 120, 120, 120, 120, 120, 120, 168, 168, 168, 168, 168, 180, 360, 360, 360, 360, 720, 720,
-    720, 1344, 1344, 2520, 2520, 2520, 20160, 168] := by
-  decide +kernel
 
 end CertificateChecks.KernelMisc.GH23
 

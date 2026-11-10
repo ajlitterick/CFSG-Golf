@@ -264,17 +264,6 @@ theorem conj_not_mem {t g : G} (hg : g ∈ Subgroup.centralizer ({z} : Set G)) (
   have := L.conj_mem' (inv_mem hg) h
   simpa [mul_assoc] using this
 
-theorem leechCosetData
-    [Finite G] (hI : Co1InvolutionFacts) : LeechCosetData z := by
-  intro t ht h2 hQ hcard g hg hmem
-  have hx : g * t * g⁻¹ ∈ Subgroup.centralizer ({z} : Set G) :=
-    mul_mem (mul_mem hg ht) (inv_mem hg)
-  have hx2 : orderOf (g * t * g⁻¹) = 2 := orderOf_conj_eq_two g h2
-  have hxcard := (card_inf_centralizer_conj hg t).trans hcard
-  obtain ⟨-, hft, -⟩ := L.central_lift_facts hI ht h2 hQ hcard
-  obtain ⟨-, hfx, -⟩ := L.central_lift_facts hI hx hx2 (L.conj_not_mem hg hQ) hxcard
-  exact L.exists_conj_of_inv_mem ht hx (mul_self_eq_one_of_orderOf_eq_two h2)
-    (mul_self_eq_one_of_orderOf_eq_two hx2) hmem hft hfx
 
 theorem leechInvolutionData
     [Finite G] (hI : Co1InvolutionFacts) : LeechInvolutionData z := by

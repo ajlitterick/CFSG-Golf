@@ -43,8 +43,6 @@ theorem pRank_two_le_one {P : Type*} [Group P] [Finite P] (z : P)
   have : 2 ^ 2 ≤ 2 ^ r := Nat.pow_le_pow_right (by norm_num) (by omega)
   omega
 
-variable [Finite F] (h2 : (2 : F) ≠ 0) (hD : finrank F D = 2)
-  {J : Subgroup (LinearMap.GeneralLinearGroup F D)}
 
 end PlaneActors
 

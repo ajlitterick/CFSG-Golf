@@ -13,8 +13,6 @@ theorem genFittingSimpleStatement : GenFittingSimpleStatement :=
 
 theorem sylowKernelStatement : SylowKernelStatement := fun _ _ _ h => h.sylow_kernel
 
-theorem prodConjStatement : ∀ (H : Type) [Group H] [Finite H] (h : Hyp59 H), ⁅h.B, conjugate h.B h.x⁆ = ⊥ :=
-  fun _ _ _ h => h.prod_conj.2.2.1
 
 theorem embedsTQuotStatement : EmbedsTQuotStatement := fun _ _ _ h => h.embeds_T_quot
 

@@ -32,18 +32,6 @@ namespace Y343
 
 @[expose] noncomputable def F (i j k : ℕ) : Y343 := (A * B i * C i * D i * B j * C j * B k) ^ 9
 
-theorem yEdges_343 : yEdges 3 4 3 =
-    [(0, armStart 1), (0, armStart 2), (0, armStart 3),
-      (armStart 1, armStart 1 + 1), (armStart 1 + 1, armStart 1 + 2),
-      (armStart 2, armStart 2 + 1), (armStart 2 + 1, armStart 2 + 2),
-      (armStart 2 + 2, armStart 2 + 3),
-      (armStart 3, armStart 3 + 1), (armStart 3 + 1, armStart 3 + 2)] := by
-  decide
-
-theorem spiderWord_343 : spiderWord 3 4 =
-    [0, armStart 1, armStart 1 + 1, 0, armStart 2, armStart 2 + 1, 0, armStart 3,
-      armStart 3 + 1] := by
-  decide
 
 theorem spider : (T 1 * T 2 * T 3) ^ 10 = 1 := by
   have h := evalWord_yGen_of_mem (p := 3) (q := 4) (r := 3)
@@ -72,9 +60,6 @@ theorem yRels_343_eq :
     yRels 3 4 3 = ((yRels 4 4 3).filter (fun w => decide (4 ∉ w))).map (List.map delE1) := by
   decide +kernel
 
-theorem Q343Extra_letters :
-    Q343Extra = evalWord (yGen 3 4 3) ([0, 9, 10, 11, 1, 2, 5].map delE1) ^ 9 :=
-  Q343Extra_eq_evalWord
 
 namespace Q343
 
@@ -89,12 +74,9 @@ namespace Q343
 
 @[expose] noncomputable def vD (i : ℕ) : Q343 := π (Y343.D i)
 
-@[expose] noncomputable def vE₂ : Q343 := π Y343.E₂
 
 theorem π_surjective : Function.Surjective π := QuotientGroup.mk'_surjective _
 
-theorem π_Q343Extra : π Q343Extra = 1 :=
-  (QuotientGroup.eq_one_iff _).2 (Subgroup.subset_normalClosure rfl)
 
 theorem ker_π : π.ker = Subgroup.normalClosure {Q343Extra} := QuotientGroup.ker_mk' _
 
@@ -115,20 +97,9 @@ theorem lift_π {G : Type*} [Group G] (img : ℕ → G) (h : ∀ w ∈ yRels 3 4
 
 end Q343
 
-@[expose] def Q343ExtraWord : List ℕ := (List.replicate 9 [0, 8, 9, 10, 1, 2, 4]).flatten
-
-theorem Q343Extra_eq_evalWord_extraWord : Q343Extra = evalWord (yGen 3 4 3) Q343ExtraWord := by
-  rw [Q343Extra_eq_evalWord, Q343ExtraWord, Y443.evalWord_replicate_flatten]
-
-abbrev Q343Presented : Type :=
-  PresentedGroup (yRelSet 3 4 3 ∪ {wordFG (ngen 3 4 3) Q343ExtraWord})
 
 namespace Q343Presented
 
-theorem lift_eq_comp_mk {α : Type*} {rels : Set (FreeGroup α)} {G : Type*} [Group G]
-    (φ : PresentedGroup rels →* G) :
-    FreeGroup.lift (fun c => φ (PresentedGroup.of c)) = φ.comp (PresentedGroup.mk rels) :=
-  FreeGroup.ext_hom _ _ fun c => by simp [PresentedGroup.of]
 
 theorem lift_of_eq_mk {rels : Set (FreeGroup (Fin (ngen 3 4 3)))}
     (r : FreeGroup (Fin (ngen 3 4 3))) :
@@ -137,49 +108,8 @@ theorem lift_of_eq_mk {rels : Set (FreeGroup (Fin (ngen 3 4 3)))}
     FreeGroup.ext_hom _ _ fun i => by rw [FreeGroup.lift_apply_of]; rfl
   rw [this]
 
-theorem mk_extraWord :
-    (PresentedGroup.mk (yRelSet 3 4 3) (wordFG (ngen 3 4 3) Q343ExtraWord) : Y343) =
-      Q343Extra := by
-  rw [Q343Extra_eq_evalWord_extraWord, evalWord_yGen]
-
-noncomputable def toQ343 : Q343Presented →* Q343 :=
-  PresentedGroup.toGroup (f := fun c => Q343.π (PresentedGroup.of c)) (by
-    rw [lift_eq_comp_mk (Q343.π : Y343 →* Q343)]
-    rintro r (hr | hr)
-    · rw [MonoidHom.comp_apply, PresentedGroup.one_of_mem hr, map_one]
-    · rw [Set.mem_singleton_iff.1 hr, MonoidHom.comp_apply, mk_extraWord, Q343.π_Q343Extra])
-
-noncomputable def ofY343 : Y343 →* Q343Presented :=
-  PresentedGroup.toGroup (f := PresentedGroup.of) (by
-    intro r hr
-    rw [lift_of_eq_mk]
-    exact PresentedGroup.one_of_mem (Or.inl hr))
-
-theorem ofY343_mk (x : FreeGroup (Fin (ngen 3 4 3))) :
-    ofY343 (PresentedGroup.mk (yRelSet 3 4 3) x) =
-      PresentedGroup.mk (yRelSet 3 4 3 ∪ {wordFG (ngen 3 4 3) Q343ExtraWord}) x :=
-  (show FreeGroup.lift PresentedGroup.of x = _ from rfl).trans (lift_of_eq_mk x)
-
-theorem ofY343_extra : ofY343 Q343Extra = 1 := by
-  rw [← mk_extraWord, ofY343_mk]
-  exact PresentedGroup.one_of_mem (Or.inr rfl)
-
-noncomputable def ofQ343 : Q343 →* Q343Presented :=
-  QuotientGroup.lift _ ofY343 (by
-    refine Subgroup.normalClosure_le_normal ?_
-    rintro _ rfl
-    exact ofY343_extra)
 
 end Q343Presented
 
-noncomputable def Q343EquivPresented : Q343 ≃* Q343Presented :=
-  MonoidHom.toMulEquiv Q343Presented.ofQ343 Q343Presented.toQ343
-    (by
-      refine QuotientGroup.monoidHom_ext _ ?_
-      refine PresentedGroup.ext fun c => ?_
-      simp [Q343Presented.ofQ343, Q343Presented.ofY343, Q343Presented.toQ343, Q343.π])
-    (by
-      refine PresentedGroup.ext fun c => ?_
-      simp [Q343Presented.ofQ343, Q343Presented.ofY343, Q343Presented.toQ343, Q343.π])
 
 end CFSG.YGroups

@@ -22,30 +22,6 @@ open McLProof
 
 variable {n : ℕ}
 
-theorem lbOK_spec (hn : n < 2 ^ 32) {cap m : ℕ} {gs : List Table}
-    (hg : ∀ g ∈ gs, permOK n g = true) (h : lbOK n cap m gs = true) :
-    m ≤ Nat.card (genOf n gs) := by
-  simp only [lbOK, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨htree, hdist⟩, hsize⟩ := h
-  set E := (mulClosureH n gs.toArray cap).1
-  have hGg : ∀ l < gs.toArray.size,
-      Rep n gs.toArray[l]! (tp n gs.toArray[l]!) ∧ tp n gs.toArray[l]! ∈ genOf n gs := by
-    intro l hl
-    have hmem : gs.toArray[l]! ∈ gs := by simpa using getElem!_mem_array hl
-    exact ⟨rep_tp (hg _ hmem), tp_mem_genOf hmem⟩
-  have hspec := mulTreeOK_spec hn (genOf n gs) hGg htree
-  have hrep : ∀ k < E.size, Rep n E[k]! (tablePerm n E[k]!) := by
-    intro k hk
-    obtain ⟨c, -, hc⟩ := hspec k hk
-    rw [tablePerm_eq hc]
-    exact hc
-  have hnodup := nodup_of_hkeysDistinct (forall₂_tablePerm hrep) hdist
-  have := length_le_card_of_nodup hnodup (K := genOf n gs) fun x hx => by
-    obtain ⟨k, hk, rfl⟩ := mem_map_tablePerm hrep hx
-    obtain ⟨c, hc, hcrep⟩ := hspec k hk
-    rw [tablePerm_eq hcrep]
-    exact hc
-  rwa [List.length_map, Array.length_toList, hsize] at this
 
 theorem hn : (275 : ℕ) < 2 ^ 32 := by norm_num
 
@@ -76,9 +52,6 @@ theorem pb_mem : pb ∈ P := tp_mem_genOf (by simp [abT])
 
 theorem orderOf_pa : orderOf pa = 2 := orderOf_eq_two_of_involOK hn rep_pa tables_check.2.2.1
 
-theorem pa_mul_self : pa * pa = 1 := by
-  rw [← sq, ← orderOf_pa]
-  exact pow_orderOf_eq_one pa
 
 theorem pa_ne_one : pa ≠ 1 := by
   intro h
@@ -211,10 +184,6 @@ theorem hKg : ∀ l < kgens.toArray.size,
 theorem repTbl_perm : ∀ T ∈ repTbls, permOK 275 T = true := fun T hT =>
   List.all_eq_true.1 words_check.2.2.2.2.2.1 T hT
 
-theorem repTbl_mem_K : ∀ T ∈ repTbls, tp 275 T ∈ K := by
-  intro T hT
-  obtain ⟨p, hp, rfl⟩ := List.mem_map.1 hT
-  exact wordTbl_mem kgens_perm (kRange (words_check.2.2.2.1 p hp).1) (repTbl_perm _ hT)
 
 theorem cover :
     ∀ x ∈ K, x = 1 ∨ x = pa ∨ ∃ r ∈ repTbls.map (tp 275), ∃ c ∈ K, x = c * r * c⁻¹ :=

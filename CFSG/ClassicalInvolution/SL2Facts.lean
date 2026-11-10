@@ -328,12 +328,5 @@ theorem conj (h : IsClassicalSL2 F J d) (g : G) :
 
 end IsClassicalSL2
 
-theorem IsTightPair.ne_of_orderOf_eq_two {G : Type*} [Group G] {J K : Subgroup G} {d e : G}
-    (h : IsTightPair J K) (hd : d ∈ J) (he : e ∈ K) (hord : orderOf d = 2) : d ≠ e := by
-  rintro rfl
-  have hdvd : 2 ∣ Nat.card (J ⊓ K : Subgroup G) := by
-    have := Subgroup.orderOf_dvd_natCard (J ⊓ K) (x := d) ⟨hd, he⟩
-    rwa [hord] at this
-  exact (Nat.not_even_iff_odd.mpr h) (even_iff_two_dvd.mpr hdvd)
 
 end CFSG.ClassicalInvolution

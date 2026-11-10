@@ -290,9 +290,6 @@ theorem bfE_self (g : Fin 6 → ZMod 2) (u : Fin 4 → ZMod 2) : bfE g u u = 0 :
   linear_combination (g 0 * u 0 * u 1 + g 1 * u 0 * u 2 + g 2 * u 0 * u 3 + g 3 * u 1 * u 2 +
     g 4 * u 1 * u 3 + g 5 * u 2 * u 3) * h2
 
-theorem bfE_symm (g : Fin 6 → ZMod 2) (u w : Fin 4 → ZMod 2) : bfE g w u = bfE g u w := by
-  simp only [bfE]
-  ring
 
 theorem bfE_applyE (g : Fin 6 → ZMod 2) (D : Fin 4 → Fin 4 → ZMod 2)
     (h01 : bfE g (D 0) (D 1) = g 0) (h02 : bfE g (D 0) (D 2) = g 1)

@@ -80,27 +80,6 @@ theorem fi22_card_inf_centralizer
     rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq, hu', Subgroup.orderOf_mk]
     exact hu2)
 
-theorem fi22_twoAdic_lt
-    {G : Type} [Group G] [Finite G] {L K : Subgroup G} {u : G} (hL : IsSporadic L .Fi22)
-    (hu : u ∈ L) (hu2 : orderOf u = 2) (hK : K ≤ L ⊓ centralizer ({u} : Set G))
-    (hKcard : 18393661440 ≤ Nat.card K) :
-    twoAdic (L ⊓ centralizer ({u} : Set G)) < twoAdic L := by
-  have hle := Subgroup.card_le_of_le hK
-  have hc : Nat.card ↥(L ⊓ centralizer ({u} : Set G)) = 18393661440 := by
-    rcases fi22_card_inf_centralizer hL hu hu2 with h | h | h <;> omega
-  have hLcard : Nat.card ↥L = Nat.card ↥fi22P := by
-    obtain ⟨e⟩ := hL
-    exact Nat.card_congr (e.trans fi22PermEquiv).toEquiv
-  have h16 : 2 ^ (Nat.card ↥(L ⊓ centralizer ({u} : Set G))).factorization 2 = 2 ^ 16 := by
-    rw [hc]
-    exact two_pow_factorization_eq (b := 280665) (by norm_num) (by decide)
-  have h17 : 2 ^ (Nat.card ↥L).factorization 2 = 2 ^ 17 := by
-    rw [hLcard, card_fi22P]
-    exact two_pow_factorization_eq (b := 492567075) (by norm_num) (by decide)
-  have h16' := Nat.pow_right_injective (le_refl 2) h16
-  have h17' := Nat.pow_right_injective (le_refl 2) h17
-  unfold twoAdic
-  omega
 
 theorem fi22_autCenterCond2_of_isSporadic
     {Y : Type} [Group Y] (h : IsSporadic Y .Fi22) : AutCenterCond2 Y := by
@@ -112,15 +91,5 @@ theorem fi22_outTwo_of_isSporadic
   obtain ⟨e⟩ := h
   exact OutTwo.of_mulEquiv (e.trans fi22PermEquiv).symm fi22_outTwo_native
 
-theorem fi22_not_standard_of_sol78ChainK
-    (hchain : Sol78ChainK .Fi22 18393661440)
-    (G : Type) [Group G] [Finite G] (L : Subgroup G) (hStd : StdHyp G L) :
-    ¬ IsSporadic L .Fi22 :=
-  row_not_standard_of_K .Fi22 18393661440 hchain
-    (fun _ _ h => hypothesisOne_of_isSporadic h)
-    (fun _ _ h => foursGroupCondition_of_isSporadic h)
-    (fun _ _ h => fi22_autCenterCond2_of_isSporadic h)
-    (fun _ _ h => fi22_outTwo_of_isSporadic h)
-    (fun _ _ _ _ _ _ hL hu hu2 hK hk => fi22_twoAdic_lt hL hu hu2 hK hk) G L hStd
 
 end CFSG.EvenSporadicStandard.Solomon78

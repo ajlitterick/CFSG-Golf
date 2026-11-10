@@ -15,11 +15,6 @@ variable {H : Type} [Group H] [Finite H] {N : Subgroup H} {A Up : List TauCeti.S
 @[expose] def Fi23Excl (s' : TauCeti.SporadicName) : Prop :=
   ∀ (X : Type) [Group X], IsSporadic X .Fi23 → ¬ IsSporadic (X ⧸ center X) s'
 
-@[expose] def EvenCoverOut (Up : List TauCeti.SporadicName) (s' : TauCeti.SporadicName) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (N' : Subgroup Y), FStarSimple N' → N'.index ≤ 2 →
-    CFSG.Assembly.KProper CFSG.Blueprint.Catalog Y → ∀ L' : Subgroup Y, SolStd L' →
-      CFSG.IsQuasisimple ↥L' → IsSporadic (↥L' ⧸ center ↥L') s' →
-        ¬ Odd (Nat.card ↥(center ↥L')) → ∃ s'' ∈ Up, IsSporadic ↥N' s''
 
 @[expose] def NoUp (Up : List TauCeti.SporadicName) (H : Type) [Group H] : Prop :=
   ∀ Q : Subgroup H, InL Q → ∀ s'' ∈ Up, ¬ IsSporadic (↥Q ⧸ center ↥Q) s''

@@ -12,22 +12,6 @@ open scoped commutatorElement
 
 variable {Γ : Type} [Group Γ] {D : TabData} {elt : ℕ → Γ}
 
-private theorem has_setIfInBounds {D : TabData} (acc : BSet) (hacc : acc.size = D.n) {k i : ℕ}
-    (hk : k < D.n) (hi : i < D.n) :
-    BSet.has (acc.set! k true) i = true ↔ acc.has i = true ∨ k = i := by
-  have hilt : i < acc.size := by omega
-  rw [BSet.has, Array.set!_eq_setIfInBounds, Array.getD_eq_getD_getElem?]
-  by_cases hki : k = i
-  · subst hki
-    rw [Array.getElem?_setIfInBounds_self_of_lt hilt]
-    simp [BSet.has, Array.getD_eq_getD_getElem?]
-  · rw [Array.getElem?_setIfInBounds_ne hki]
-    rw [BSet.has, Array.getD_eq_getD_getElem?]
-    constructor
-    · intro h; exact Or.inl h
-    · rintro (h | h)
-      · exact h
-      · exact absurd h hki
 
 theorem mem_zSeries_succ (k : ℕ) (V : Subgroup Γ) (x : Γ) :
     x ∈ zSeries (k + 1) V ↔ x ∈ V ∧ ∀ y ∈ V, ⁅x, y⁆ ∈ zSeries k V := by

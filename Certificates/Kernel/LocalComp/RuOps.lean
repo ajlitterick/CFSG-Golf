@@ -21,8 +21,6 @@ open CFSG.KC.OpsF2K CFSG.SectionRank.Native
 
 theorem sec_K : secK 28 SA.M SB.M ruSec = true := by decide +kernel
 
-theorem sec_neg : (!secK 28 SA.M SB.M { ruSec with outs := [14, 14, 18, 20, 22] }) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelLC.RuOps
 

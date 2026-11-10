@@ -18,11 +18,6 @@ open CFSG.ComponentClassification.CatLeaf (GLS3OddLieAutComponentsInput)
 @[expose] def Sp2mNotOddLieInput (m : ℕ) : Prop :=
   ∀ (X : Type) [Group X] (f : ℕ), LieModel X .PSp m 2 f → ¬ OddLieType X
 
-theorem sp2mNotOddLieInput_three_iff : Sp2mNotOddLieInput 3 ↔ F4Pilot.Sp6NotOddLieInput :=
-  Iff.rfl
-
-theorem catSp6OddLie_iff : CatSp2mOddLie 3 ↔ F4Pilot.CatSp6OddLie :=
-  Iff.rfl
 
 theorem catSp2mOddLie_of_inputs (hGLS : GLS3OddLieAutComponentsInput) {m : ℕ}
     (hX : Sp2mNotOddLieInput m) : CatSp2mOddLie m := by

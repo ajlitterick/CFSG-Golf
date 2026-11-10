@@ -99,11 +99,6 @@ theorem betaFun_mul (hidx : (commutator A).index = 2) {w : A} (hw : w ∈ Subgro
   right_inv x := by rw [betaFun_betaFun hwA, hw2, betaFun_one]
   map_mul' := betaFun_mul hidx hw hw2
 
-theorem betaEquiv_apply
-    (hidx : (commutator A).index = 2) {w : A} (hw : w ∈ Subgroup.center A)
-    (hwA : w ∈ commutator A) (hw2 : w * w = 1) (x : A) :
-    betaEquiv hidx hw hwA hw2 x = betaFun w x :=
-  rfl
 
 theorem betaFun_map {B : Type*} [Group B] (f : A →* B) {p : A} {c : B} (hfp : f p = c)
     (hmem : ∀ a, f a ∈ commutator B ↔ a ∈ commutator A) (a : A) :
@@ -202,8 +197,6 @@ theorem cEdgeFixToH_injective :
 theorem cEdgeFixToH_lamV0 :
     cEdgeFixToH lamV0 = cV0 := rfl
 
-theorem cEdgeFixToH_lamW0 :
-    cEdgeFixToH lamW0 = lamW0H := rfl
 
 theorem index_commutator_H :
     (commutator (vStab cv0)).index = 2 :=
@@ -225,11 +218,6 @@ theorem cV0_mem_commutator_H :
     vStab cv0 ≃* vStab cv0 :=
   betaEquiv index_commutator_H cV0_mem_center_vStab cV0_mem_commutator_H.1 cV0_mul_self
 
-theorem betaH_apply
-    (h : vStab cv0) : betaH h = betaFun cV0 h := rfl
-
-theorem betaH_symm_apply
-    (h : vStab cv0) : betaH.symm h = betaFun cV0 h := rfl
 
 theorem betaH_cV0 :
     betaH cV0 = cV0 := betaFun_of_mem cV0_mem_commutator_H.1

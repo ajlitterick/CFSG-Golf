@@ -102,8 +102,5 @@ theorem mem_commW_That_iff (w : orth.W) :
   subst hdec
   exact mem_commW_double h w
 
-omit hz h hdec
-
-omit hD
 
 end CFSG.Quasithin.F53.Stellmacher.S35.F2b

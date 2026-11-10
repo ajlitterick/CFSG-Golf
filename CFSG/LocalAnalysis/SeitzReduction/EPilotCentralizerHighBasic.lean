@@ -64,14 +64,6 @@ theorem mem_parabolicWeylGroup_perpNodes (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .
     exact smul_apply_highNode_of_smul_highRoot hτ hw v
   exact h
 
-theorem smul_highRoot_of_mem_parabolicWeylGroup_perpNodes (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    {w : WeylGroup τ} (hw : w ∈ parabolicWeylGroup τ (perpNodes τ)) :
-    w • highRoot τ = highRoot τ := by
-  have hfix : ∀ v : Fin τ.rank → ℤ, (w • v) (highNode τ) = v (highNode τ) := fun v =>
-    (parabolic_Weyl_coordinate_stabilizer τ (perpNodes τ)).1.subset hw v (highNode τ)
-      (by simp [perpNodes])
-  refine F4Pilot.smul_eq_self_of_iform_smul_single fun j => ?_
-  rw [iform_highRoot hτ, iform_highRoot hτ, hfix]
 
 end Roots
 

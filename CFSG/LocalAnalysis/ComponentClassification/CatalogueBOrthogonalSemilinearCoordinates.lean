@@ -58,8 +58,6 @@ theorem coordinateSemilinearGroup_mul_matrix (g h : coordinateSemilinearGroup d 
 theorem coordinateSemilinearGroup_mul_field (g h : coordinateSemilinearGroup d K) :
     (g * h).right = g.right * h.right := rfl
 
-theorem coordinateSemilinearGroup_inv_matrix (g : coordinateSemilinearGroup d K) :
-    g⁻¹.left = glFieldAut (Fin d) K g.right⁻¹ g.left⁻¹ := rfl
 
 theorem coordinateSemilinearGroup_inv_field (g : coordinateSemilinearGroup d K) :
     g⁻¹.right = g.right⁻¹ := rfl

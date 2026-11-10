@@ -60,9 +60,6 @@ theorem asc76Theorem4_of_forall_not_minCounter
     T ≤ normalizer (R : Set G) → 1 < Open.pRank 2 K → 1 < Open.pRank 2 J →
     IsSylowOf 2 T J → ⁅T, oUpperTwoPrime K⁆ ≤ oddCoreIn K ∨ IsElemAbelian 2 T
 
-theorem lemma22Four_of (h : Asc76Lemma22) : Lemma22Four := by
-  intro G _ _ K J T R hK hJ hKJ hfac hT hT1 hR hTR hmK hmJ
-  exact (h G K J T R hK hJ hKJ hfac hT hT1 hR hTR hmK hmJ).2.2.2.1
 
 variable {G : Type} [Group G] [Finite G]
 

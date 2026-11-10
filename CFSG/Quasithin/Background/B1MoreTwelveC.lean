@@ -68,14 +68,6 @@ theorem not_oddCoreOfSub_le_biSup (hb : IsTransvectionBlocks J 𝓗) {G : Subgro
   rw [le_bot_iff.1 hbot, Subgroup.card_bot] at this
   omega
 
-theorem oddCoreOfSub_injOn (hb : IsTransvectionBlocks J 𝓗) {G G' : Subgroup (MulAut W)}
-    (hG : G ∈ 𝓗) (hG' : G' ∈ 𝓗) (h : oddCoreOfSub G = oddCoreOfSub G') : G = G' := by
-  by_contra hne
-  apply hb.not_oddCoreOfSub_le_biSup hG
-  rw [h]
-  refine (oddCoreOfSub_le G').trans ?_
-  exact le_iSup₂_of_le (f := fun (H' : Subgroup (MulAut W)) (_ : H' ∈ 𝓗) =>
-    ⨆ (_ : H' ≠ G), H') G' hG' (le_iSup (fun _ : G' ≠ G => G') (Ne.symm hne))
 
 theorem exists_eq_of_oddCoreOfSub_le_iSup (hb : IsTransvectionBlocks J 𝓗)
     {G : Subgroup (MulAut W)} (hG : G ∈ 𝓗) {ι : Type*} (Gi : ι → Subgroup (MulAut W))

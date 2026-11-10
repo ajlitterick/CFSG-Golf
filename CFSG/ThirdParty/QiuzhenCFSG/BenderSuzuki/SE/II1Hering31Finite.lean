@@ -101,7 +101,6 @@ private instance : IsDomain HeringF8 :=
 private instance : Field HeringF8 :=
   Fintype.fieldOfDomain HeringF8
 
-example : Fintype.card HeringF8 = 8 := by decide
 
 private instance : CharP HeringF8 2 :=
   charP_of_card_eq_prime_pow
@@ -446,9 +445,6 @@ private def heringF8PairAddRaw
     (a b : HeringF8 × HeringF8) : HeringF8 × HeringF8 :=
   (heringF8AddRaw a.1 b.1, heringF8AddRaw a.2 b.2)
 
-private theorem heringF8Pair_add_eq_raw
-    (a b : HeringF8 × HeringF8) :
-    a + b = heringF8PairAddRaw a b := rfl
 
 private theorem heringF8PairAddRaw_eq_add
     (a b : HeringF8 × HeringF8) :
@@ -457,8 +453,6 @@ private theorem heringF8PairAddRaw_eq_add
 private def heringF8TransvectionRaw (a : HeringF8) : HeringF8 :=
   ⟨a.c2, a.c1, a.c0⟩
 
-private theorem heringF8Transvection_eq_raw (a : HeringF8) :
-    heringF8Transvection a = heringF8TransvectionRaw a := rfl
 
 private theorem heringF8TransvectionRaw_eq (a : HeringF8) :
     heringF8TransvectionRaw a = heringF8Transvection a := rfl

@@ -54,32 +54,6 @@ variable {V : Type*} [DecidableEq V]
 @[expose] def orbitList (f g : V → V) (v : V) (n : ℕ) : List V :=
   (List.range n).foldl (orbitStep f g) [v]
 
-omit [DecidableEq V] in
-theorem length_ite_append_le (p : Prop) [Decidable p] (L : List V) (x : V) :
-    (if p then L else L ++ [x]).length ≤ L.length + 1 := by
-  split <;> simp
-
-theorem orbitStep_length_le (f g : V → V) (L : List V) (q : ℕ) :
-    (orbitStep f g L q).length ≤ L.length + 2 := by
-  unfold orbitStep
-  split
-  · rename_i h
-    dsimp only
-    have h1 := length_ite_append_le (f L[q] ∈ L) L (f L[q])
-    have h2 := length_ite_append_le (g L[q] ∈ (if f L[q] ∈ L then L else L ++ [f L[q]]))
-      (if f L[q] ∈ L then L else L ++ [f L[q]]) (g L[q])
-    omega
-  · omega
-
-theorem orbitList_length_le (f g : V → V) (v : V) (n : ℕ) :
-    (orbitList f g v n).length ≤ 2 * n + 1 := by
-  unfold orbitList
-  induction n with
-  | zero => simp
-  | succ n ih =>
-    rw [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil]
-    have := orbitStep_length_le f g ((List.range n).foldl (orbitStep f g) [v]) n
-    omega
 
 @[expose] def ordStepN (α β : ℕ → ℕ) (st : Bool × ℕ) (i : ℕ) : Bool × ℕ :=
   let m₁ := max st.2 (α i + 1)

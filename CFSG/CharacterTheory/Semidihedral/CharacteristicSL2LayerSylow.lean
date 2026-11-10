@@ -68,12 +68,6 @@ theorem sylow_quaternion_of_unique_involution [Finite H] [Finite G]
     exact False.elim (hnc (S.mapSurjective hpi) himage)
   · exact hquat
 
-theorem subgroup_unique_involution (T : Subgroup H)
-    (z : H) (hz : z ∈ T) (hunique : ∀ x : H, orderOf x = 2 → x = z) :
-    ∀ x : T, orderOf x = 2 → x = (⟨z, hz⟩ : T) := by
-  intro x hx
-  apply Subtype.ext
-  exact hunique x ((Subgroup.orderOf_coe x).trans hx)
 
 theorem preimageProjection_kernel_zpowers (z : H) (pi : H →* G)
     (hker : pi.ker = Subgroup.zpowers z) (L : Subgroup G) :

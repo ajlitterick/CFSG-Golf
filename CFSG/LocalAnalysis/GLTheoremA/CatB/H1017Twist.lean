@@ -14,8 +14,6 @@ variable {K : Type} [Group K]
 @[expose] def PElemsClosed (p : ℕ) (H : Subgroup K) : Prop :=
   ∀ a ∈ H, ∀ b ∈ H, (∃ m, a ^ p ^ m = 1) → (∃ m, b ^ p ^ m = 1) → ∃ m, (a * b) ^ p ^ m = 1
 
-theorem pElemsClosed_mono {p : ℕ} {H H' : Subgroup K} (hle : H' ≤ H) (h : PElemsClosed p H) :
-    PElemsClosed p H' := fun a ha b hb => h a (hle ha) b (hle hb)
 
 theorem pElemsClosed_conj {p : ℕ} {H : Subgroup K} (g : K) (h : PElemsClosed p H) :
     PElemsClosed p (H.map (MulAut.conj g).toMonoidHom) := by
@@ -299,109 +297,6 @@ section Gen
 
 variable {G : Type} [Group G]
 
-theorem exists_gen_pair [Finite G] {D : Subgroup G} (hD : IsElemAbelian 3 D)
-    (hc : Nat.card D = 9) : ∃ x ∈ D, ∃ y ∈ D, x ≠ 1 ∧ y ∉ Subgroup.zpowers x ∧
-      D = Subgroup.closure {x, y} := by
-  classical
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hne : D ≠ ⊥ := by
-    intro h
-    rw [h, Subgroup.card_bot] at hc
-    omega
-  obtain ⟨⟨x, hxD⟩, hx1⟩ := (Subgroup.ne_bot_iff_exists_ne_one).1 hne
-  have hx1' : x ≠ 1 := fun h => hx1 (Subtype.ext h)
-  have hx3 : x ^ 3 = 1 := hD.2 x hxD
-  have hox : orderOf x = 3 := orderOf_eq_prime hx3 hx1'
-  have hzc : Nat.card (Subgroup.zpowers x) = 3 := by rw [Nat.card_zpowers, hox]
-  have hzD : Subgroup.zpowers x ≤ D := (Subgroup.zpowers_le).2 hxD
-  have hlt : Subgroup.zpowers x ≠ D := by
-    intro h
-    rw [h, hc] at hzc
-    omega
-  obtain ⟨y, hyD, hyz⟩ : ∃ y ∈ D, y ∉ Subgroup.zpowers x := by
-    by_contra hall
-    push Not at hall
-    exact hlt (le_antisymm hzD hall)
-  refine ⟨x, hxD, y, hyD, hx1', hyz, ?_⟩
-  have hcl : Subgroup.closure {x, y} ≤ D := by
-    rw [Subgroup.closure_le]
-    intro z hz
-    rcases hz with rfl | hz
-    · exact hxD
-    · rw [Set.mem_singleton_iff] at hz
-      rw [hz]
-      exact hyD
-  have hzc' : Subgroup.zpowers x ≤ Subgroup.closure {x, y} :=
-    (Subgroup.zpowers_le).2 (Subgroup.subset_closure (Set.mem_insert _ _))
-  have hdvd : Nat.card (Subgroup.closure ({x, y} : Set G)) ∣ 9 := hc ▸ Subgroup.card_dvd_of_le hcl
-  have h3 : 3 ∣ Nat.card (Subgroup.closure ({x, y} : Set G)) := hzc ▸ Subgroup.card_dvd_of_le hzc'
-  have hne3 : Nat.card (Subgroup.closure ({x, y} : Set G)) ≠ 3 := by
-    intro h3'
-    have := Subgroup.eq_of_le_of_card_ge hzc' (by rw [h3', hzc])
-    exact hyz (this ▸ Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_singleton _)))
-  have h9 : Nat.card (Subgroup.closure ({x, y} : Set G)) = 9 := by
-    have hpos := Nat.card_pos (α := Subgroup.closure ({x, y} : Set G))
-    have : Nat.card (Subgroup.closure ({x, y} : Set G)) ∈ Nat.divisors 9 :=
-      Nat.mem_divisors.2 ⟨hdvd, by norm_num⟩
-    have hd9 : Nat.divisors 9 = {1, 3, 9} := by decide
-    rw [hd9] at this
-    simp only [Finset.mem_insert, Finset.mem_singleton] at this
-    omega
-  exact (Subgroup.eq_of_le_of_card_ge hcl (by rw [h9, hc])).symm
-
-theorem exists_gen_triple [Finite G] {D : Subgroup G} (hD : IsElemAbelian 3 D)
-    (hc : Nat.card D = 27) : ∃ x ∈ D, ∃ y ∈ D, ∃ z ∈ D, x ≠ 1 ∧ y ∉ Subgroup.zpowers x ∧
-      z ∉ Subgroup.closure ({x, y} : Set G) ∧ D = Subgroup.closure {x, y, z} := by
-  classical
-  obtain ⟨H, hH, -, hHD⟩ := Sylow.exists_subgroup_card_pow_prime_le_le Nat.prime_three (n := 2)
-    (H := ⊥) (L := D) (by rw [Subgroup.card_bot]; exact one_dvd _) (by rw [hc]; norm_num) bot_le
-  obtain ⟨x, hxH, y, hyH, hx1, hyz, hHeq⟩ :=
-    exists_gen_pair (CFSG.Open.IsElemAbelian.mono hD hHD) (by rw [hH]; norm_num)
-  have hHne : H ≠ D := by
-    intro h
-    rw [h, hc] at hH
-    norm_num at hH
-  obtain ⟨z, hzD, hzH⟩ : ∃ z ∈ D, z ∉ H := by
-    by_contra hall
-    push Not at hall
-    exact hHne (le_antisymm hHD hall)
-  refine ⟨x, hHD hxH, y, hHD hyH, z, hzD, hx1, hyz, hHeq ▸ hzH, ?_⟩
-  have hCD : Subgroup.closure ({x, y, z} : Set G) ≤ D := by
-    rw [Subgroup.closure_le]
-    intro w hw
-    rcases hw with rfl | rfl | hw
-    · exact hHD hxH
-    · exact hHD hyH
-    · rw [Set.mem_singleton_iff] at hw
-      rw [hw]
-      exact hzD
-  have hHC : H ≤ Subgroup.closure ({x, y, z} : Set G) := by
-    rw [hHeq, Subgroup.closure_le]
-    intro w hw
-    rcases hw with rfl | hw
-    · exact Subgroup.subset_closure (Set.mem_insert _ _)
-    · rw [Set.mem_singleton_iff] at hw
-      rw [hw]
-      exact Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_insert _ _))
-  have hzC : z ∈ Subgroup.closure ({x, y, z} : Set G) :=
-    Subgroup.subset_closure (Set.mem_insert_of_mem _ (Set.mem_insert_of_mem _ (Set.mem_singleton _)))
-  have hdvd : Nat.card (Subgroup.closure ({x, y, z} : Set G)) ∣ 27 :=
-    hc ▸ Subgroup.card_dvd_of_le hCD
-  have h9 : 9 ∣ Nat.card (Subgroup.closure ({x, y, z} : Set G)) := by
-    have := Subgroup.card_dvd_of_le hHC
-    rwa [hH] at this
-  have hne9 : Nat.card (Subgroup.closure ({x, y, z} : Set G)) ≠ 9 := by
-    intro h
-    have := Subgroup.eq_of_le_of_card_ge hHC (by rw [h, hH]; norm_num)
-    exact hzH (this ▸ hzC)
-  have h27 : Nat.card (Subgroup.closure ({x, y, z} : Set G)) = 27 := by
-    have : Nat.card (Subgroup.closure ({x, y, z} : Set G)) ∈ Nat.divisors 27 :=
-      Nat.mem_divisors.2 ⟨hdvd, by norm_num⟩
-    have hd27 : Nat.divisors 27 = {1, 3, 9, 27} := by decide
-    rw [hd27] at this
-    simp only [Finset.mem_insert, Finset.mem_singleton] at this
-    omega
-  exact (Subgroup.eq_of_le_of_card_ge hCD (by rw [h27, hc])).symm
 
 theorem exists_conj_into_of_card [Finite G] {p : ℕ} [Fact p.Prime] {H Q D : Subgroup G}
     (hQH : Q ≤ H) (hQ : Nat.card Q = p ^ (Nat.card H).factorization p) (hDH : D ≤ H)

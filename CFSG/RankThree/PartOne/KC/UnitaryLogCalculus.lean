@@ -69,17 +69,6 @@ theorem unitaryAdjoint_pow (M : Matrix (Fin n) (Fin n) K) (k : ℕ) :
   | zero => rw [pow_zero, pow_zero, unitaryAdjoint_one]
   | succ k ih => rw [pow_succ, unitaryAdjoint_mul, ih, pow_succ']
 
-theorem unitaryAdjoint_sum {ι : Type*} (s : Finset ι) (F : ι → Matrix (Fin n) (Fin n) K) :
-    unitaryAdjoint h C (∑ i ∈ s, F i) = ∑ i ∈ s, unitaryAdjoint h C (F i) := by
-  classical
-  induction s using Finset.induction_on with
-  | empty =>
-    simp only [Finset.sum_empty]
-    unfold unitaryAdjoint
-    rw [Matrix.map_zero _ (map_zero h.bar), Matrix.transpose_zero, Matrix.mul_zero,
-      Matrix.zero_mul]
-  | insert a s ha ih => rw [Finset.sum_insert ha, Finset.sum_insert ha, unitaryAdjoint_add, ih]
-
 
 include h in
 theorem hK_of_le (hnp : n ≤ p) : ∀ m : ℕ, 0 < m → m < n → (m : K) ≠ 0 := by

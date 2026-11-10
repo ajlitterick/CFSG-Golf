@@ -35,10 +35,6 @@ theorem isPGroup_iSup_of_pairwise_commute {p : ℕ} [Fact p.Prime] {ι : Type*} 
   have hall := key Finset.univ
   rwa [show (⨆ i ∈ (Finset.univ : Finset ι), A i : Subgroup G) = ⨆ i, A i by simp] at hall
 
-theorem le_of_isPGroup_of_normalizer_le {S X : Subgroup G}
-    (hS : S = pCoreOf 2 (Subgroup.normalizer (S : Set G))) (hX : IsPGroup 2 X)
-    (hN : Subgroup.normalizer (S : Set G) ≤ Subgroup.normalizer (X : Set G)) : X ≤ S :=
-  le_of_two_radical le_top (by rwa [top_inf_eq]) le_top hX (by rwa [top_inf_eq])
 
 omit [Finite G] in
 theorem map_conj_mul_eq (H : Subgroup G) (a b : G) :
@@ -72,66 +68,6 @@ theorem map_conj_eq_of_map_conj_eq {K L U : Subgroup G}
       (hNU ⟨K.mul_mem (K.inv_mem hk) hk', Subgroup.mem_normalizer_iff_map_conj_eq.mpr hL'⟩)
   rw [← mul_inv_cancel_left k k', map_conj_mul_eq U k, hU]
 
-theorem le_of_mem_family {S : Subgroup G}
-    (hS : S = pCoreOf 2 (Subgroup.normalizer (S : Set G))) {Δ : Set (Subgroup G)}
-    (hΔ : ∀ k ∈ Subgroup.normalizer (S : Set G), ∀ X ∈ Δ, X.map (MulAut.conj k).toMonoidHom ∈ Δ)
-    (hcomm : ∀ X ∈ Δ, ∀ Y ∈ Δ, X ≠ Y → ⁅X, Y⁆ = ⊥) {L U : Subgroup G} (hL : L ∈ Δ)
-    (hUL : U ≤ L) (hU : IsPGroup 2 U)
-    (hNU : Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (L : Set G) ≤
-      Subgroup.normalizer (U : Set G)) : U ≤ S := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let K := Subgroup.normalizer (S : Set G)
-  let C : Set (Subgroup G) := {V | ∃ k ∈ K, V = U.map (MulAut.conj k).toMonoidHom}
-  have hCp : IsPGroup 2 (sSup C : Subgroup G) := by
-    rw [sSup_eq_iSup']
-    refine isPGroup_iSup_of_pairwise_commute _ ?_ ?_
-    · rintro ⟨V, k, hk, rfl⟩
-      exact hU.map _
-    · rintro ⟨V, k, hk, rfl⟩ ⟨V', k', hk', rfl⟩ hne
-      have hLne : L.map (MulAut.conj k).toMonoidHom ≠ L.map (MulAut.conj k').toMonoidHom :=
-        fun h => hne (Subtype.ext (map_conj_eq_of_map_conj_eq hNU hk hk' h))
-      exact le_bot_iff.mp ((Subgroup.commutator_mono (Subgroup.map_mono hUL)
-        (Subgroup.map_mono hUL)).trans (hcomm _ (hΔ k hk L hL) _ (hΔ k' hk' L hL) hLne).le)
-  have hCN : K ≤ Subgroup.normalizer ((sSup C : Subgroup G) : Set G) := by
-    refine le_normalizer_of_forall_map_conj_le fun g hg => ?_
-    refine Subgroup.map_le_iff_le_comap.mpr (sSup_le ?_)
-    rintro _ ⟨k, hk, rfl⟩
-    refine Subgroup.map_le_iff_le_comap.mp (le_sSup ⟨g * k, K.mul_mem hg hk, ?_⟩)
-    rw [map_conj_mul_eq]
-  have hUC : U ≤ (sSup C : Subgroup G) := le_sSup ⟨1, K.one_mem, by ext x; simp⟩
-  exact hUC.trans (le_of_isPGroup_of_normalizer_le hS hCp hCN)
-
-theorem inf_eq_pCoreOf_of_mem_family {S : Subgroup G}
-    (hS : S = pCoreOf 2 (Subgroup.normalizer (S : Set G))) {Δ : Set (Subgroup G)}
-    (hΔ : ∀ k ∈ Subgroup.normalizer (S : Set G), ∀ X ∈ Δ, X.map (MulAut.conj k).toMonoidHom ∈ Δ)
-    (hcomm : ∀ X ∈ Δ, ∀ Y ∈ Δ, X ≠ Y → ⁅X, Y⁆ = ⊥) {L : Subgroup G} (hL : L ∈ Δ) :
-    S ⊓ L = pCoreOf 2 (Subgroup.normalizer (S : Set G) ⊓ L) ∧
-      S ⊓ L = pCoreOf 2 (L ⊓ Subgroup.normalizer ((S ⊓ L : Subgroup G) : Set G)) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let K := Subgroup.normalizer (S : Set G)
-  have hS2 : IsPGroup 2 (S ⊓ L : Subgroup G) :=
-    (hS ▸ pCoreOf_isPGroup 2 K : IsPGroup 2 S).to_le inf_le_left
-  have hNSL : K ⊓ Subgroup.normalizer (L : Set G) ≤
-      Subgroup.normalizer ((S ⊓ L : Subgroup G) : Set G) :=
-    Subgroup.inf_normalizer_le_normalizer_inf
-  constructor
-  · refine le_antisymm ?_ (le_inf ?_ ((pCoreOf_le 2 _).trans inf_le_right))
-    · refine normal_pGroup_le_pCoreOf 2 _ _ (inf_le_inf_right L Subgroup.le_normalizer) ?_ hS2
-      exact (Subgroup.normal_subgroupOf_iff_le_normalizer
-        (inf_le_inf_right L Subgroup.le_normalizer)).mpr fun g hg =>
-          hNSL ⟨hg.1, Subgroup.le_normalizer hg.2⟩
-    · refine le_of_mem_family hS hΔ hcomm hL ((pCoreOf_le 2 _).trans inf_le_right)
-        (pCoreOf_isPGroup 2 _) (le_trans ?_ (normalizer_localGroup_le_normalizer_pCoreOf 2 _))
-      exact fun g hg => Subgroup.inf_normalizer_le_normalizer_inf
-        ⟨Subgroup.le_normalizer hg.1, hg.2⟩
-  · refine le_antisymm ?_ (le_inf ?_ ((pCoreOf_le 2 _).trans inf_le_left))
-    · refine normal_pGroup_le_pCoreOf 2 _ _ (le_inf inf_le_right Subgroup.le_normalizer) ?_ hS2
-      exact (Subgroup.normal_subgroupOf_iff_le_normalizer
-        (le_inf inf_le_right Subgroup.le_normalizer)).mpr inf_le_right
-    · refine le_of_mem_family hS hΔ hcomm hL ((pCoreOf_le 2 _).trans inf_le_left)
-        (pCoreOf_isPGroup 2 _) (le_trans ?_ (normalizer_localGroup_le_normalizer_pCoreOf 2 _))
-      exact fun g hg => Subgroup.inf_normalizer_le_normalizer_inf
-        ⟨hg.2, Subgroup.le_normalizer (hNSL hg)⟩
 
 theorem le_commutator_sup_inf_centralizer_of_coprime {R A : Subgroup G}
     (hAR : A ≤ Subgroup.normalizer (R : Set G)) (hcop : Nat.Coprime (Nat.card A) (Nat.card R))

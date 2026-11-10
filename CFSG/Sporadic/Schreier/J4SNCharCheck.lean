@@ -17,8 +17,6 @@ theorem uClasses_check : uClasses.length = 25 ∧ uWitness.length = 25 ∧
     ∀ e < 1024, e ≠ 0 → quadSelf e = true → ∃ c < 25, e ∈ (uClasses[c]!).map Prod.fst :=
   Certificates.certificate2174.1
 
-theorem genInv_size : ∀ i < 4, ∀ j < 11, (genInvColumns[i]!)[j]! < 2048 :=
-  Certificates.certificate2174.2.1
 
 theorem uSpecial_check : fixCount elementColumns[118]! = 128 ∧
     fixCount elementColumns[448]! = 128 ∧ fixCount elementColumns[502]! = 128 ∧

@@ -274,26 +274,6 @@ theorem section_fiber_projection_zero_of_not_mem (basis : FiniteIrreducibleChara
   intro heq
   exact hχ (mem_coefficientBlock_of_residue_eq basis ideal (hθ.symm.trans heq))
 
-theorem section_projection_zero_of_not_fiber (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] (t : G) (ht : orderOf t = 2)
-    (hgroup : IsPGroup 2 (Subgroup.zpowers t))
-    (localBasis :
-      FiniteIrreducibleCharacterBasis (Subgroup.centralizer (Subgroup.zpowers t : Set G)))
-    (label χ : basis.index)
-    (hχ : χ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) label)
-    (θ : localBasis.index)
-    (hθ : brauerNormalizerCharacterResidueHom ideal 2 (Subgroup.zpowers t) hgroup
-      (Subgroup.centralizer (Subgroup.zpowers t : Set G)) le_rfl
-      (Subgroup.centralizer_le_normalizer _) localBasis θ ≠
-        centralCharacterResidueHom basis ideal label)
-    (x : Subgroup.centralizer (Subgroup.zpowers t : Set G)) (hx : x ∈ involutionLocalSection t) :
-    characterSubsetProjection localBasis
-      (coefficientBlock localBasis (localizedComplexIntegerRing ideal) θ)
-      (fun h => (basis.representation χ).character h) x = 0 := by
-  obtain ⟨y, rfl, hy⟩ := hx
-  exact (brauer_second_main_theorem basis ideal 2 t 1 (by rw [ht, pow_one]) hgroup localBasis
-    label χ hχ y (Nat.coprime_two_left.mpr hy)).1 θ hθ
 
 theorem fiber_projection_inv_zero (basis : FiniteIrreducibleCharacterBasis G)
     (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]

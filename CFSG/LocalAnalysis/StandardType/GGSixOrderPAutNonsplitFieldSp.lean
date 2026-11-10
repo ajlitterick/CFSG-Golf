@@ -387,8 +387,6 @@ theorem ggOrdPFieldConjPSpNonsplit_holds : GGOrdPFieldConjPSpNonsplit := by
   have hyp : y ^ p = 1 := hyo ▸ pow_orderOf_eq_one y
   exact OrdPFieldNsSp.exists_conj_mem_centralizer hS hyM hyp hyI
 
-theorem ggOrdPFieldConjAt_PSp : GGOrdPFieldConjAt .PSp :=
-  ggOrdPFieldConjAt_PSp_of_nonsplit ggOrdPFieldConjPSpNonsplit_holds
 
 end Family
 

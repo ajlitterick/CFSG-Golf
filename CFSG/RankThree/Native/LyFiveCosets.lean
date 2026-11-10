@@ -261,9 +261,6 @@ theorem rhoMat_one : h.rhoMat 1 = 1 := by
 theorem rho_val (g : closure ({a, b} : Set G)) : (h.rho g : Matrix (Fin 4) (Fin 4) (ZMod 5)) =
     h.rhoMat g := rfl
 
-theorem coord_conj_rho (g : closure ({a, b} : Set G)) (q : fiveQ x v) :
-    h.q.coord (h.conjQ g q) = (h.rho g : Matrix (Fin 4) (Fin 4) (ZMod 5)) *ᵥ h.q.coord q :=
-  h.coord_conjQ g q
 
 theorem rhoMat_a : h.rhoMat ⟨a, a_mem⟩ = Ab := by
   ext j i
@@ -728,17 +725,6 @@ theorem conj_scalar {g : closure ({a, b} : Set G)} {r : ZMod 5}
     smul_eq_mul]
   ring
 
-theorem cert_comm_mem_of_scalar (hc : CosetCert x v a b Ab Bb n par gen t tb next qc)
-    {g : closure ({a, b} : Set G)} {r : ZMod 5}
-    (hg : h.rhoMat g = r • (1 : Matrix (Fin 4) (Fin 4) (ZMod 5))) (k : closure ({a, b} : Set G)) :
-    k⁻¹ * g⁻¹ * k * g ∈ (fiveQ x v).subgroupOf (closure ({a, b} : Set G)) := by
-  rw [← h.cert_rho_ker hc, MonoidHom.mem_ker]
-  have hcomm : h.rho g * h.rho k = h.rho k * h.rho g := by
-    apply Units.ext
-    rw [Units.val_mul, Units.val_mul, rho_val, rho_val, hg, Matrix.smul_mul, Matrix.mul_smul,
-      Matrix.one_mul, Matrix.mul_one]
-  rw [map_mul, map_mul, map_mul, map_inv, map_inv, mul_assoc, mul_assoc, ← hcomm,
-    inv_mul_cancel_left, inv_mul_cancel]
 
 end FiveMRel
 

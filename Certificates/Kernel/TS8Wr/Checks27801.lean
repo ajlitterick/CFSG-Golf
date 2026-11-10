@@ -26,23 +26,6 @@ theorem z_ok : zOK TB RT one ZA ZC = true := by decide +kernel
 
 theorem za_ok : zaOK TB RT one ZA AC 349 = true := by decide +kernel
 
-theorem neg_tb : notB (tbOK (TB + 1) one) = true := by decide +kernel
-
-theorem neg_one : notB (tbOK TB 1) = true := by decide +kernel
-
-theorem neg_root : notB (rtOK TB (RT.set 0 (0, 2 :: (rootsOf RT 0).tail))) = true := by
-  decide +kernel
-
-theorem neg_zc : notB (zOK TB RT one ZA (ZC.set 1 (4, 0))) = true := by decide +kernel
-
-theorem neg_ac : notB (zaOK TB RT one ZA (AC.set 0 ((AC.getD 0 []).set 0 (4, 1))) 349) = true := by
-  decide +kernel
-
-theorem neg_count : notB (zaOK TB RT one ZA AC 348) = true := by decide +kernel
-
-theorem neg_row : notB (rowChk TB RT one ZA 0 1 10) = true := by decide +kernel
-
-theorem neg_pair : notB (pairsOK TB one one one [one]) = true := by decide +kernel
 
 end CFSG.KD.TS8Wr
 

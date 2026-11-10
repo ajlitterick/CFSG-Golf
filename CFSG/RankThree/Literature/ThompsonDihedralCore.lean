@@ -162,15 +162,6 @@ theorem card_prime_of_forall {B : Subgroup G} [Finite B] (hB : B ≠ ⊥)
     rw [← h0, hcard]
     exact hq
 
-theorem eq_bot_or_eq_of_card_prime {B : Subgroup G} (hB : (Nat.card B).Prime) {H : Subgroup G}
-    (hHB : H ≤ B) : H = ⊥ ∨ H = B := by
-  have : Fact (Nat.card B).Prime := ⟨hB⟩
-  rcases Subgroup.eq_bot_or_eq_top_of_prime_card (H.subgroupOf B) with h | h
-  · left
-    rwa [subgroupOf_eq_bot, disjoint_iff, inf_eq_left.mpr hHB] at h
-  · right
-    rw [subgroupOf_eq_top] at h
-    exact le_antisymm hHB h
 
 theorem mem_centralizer_of_le {H : Subgroup G} {s : G} (h : H ≤ centralizer ({s} : Set G)) :
     s ∈ centralizer (H : Set G) := by

@@ -77,49 +77,5 @@ theorem noG2_E6' : NoG2 .E6 := fun _ => Or.inl (by simp [Tag.symmetrizer])
 
 theorem noG2_E7' : NoG2 .E7 := fun _ => Or.inl (by simp [Tag.symmetrizer])
 
-variable {K : Type} [Field K]
-
-theorem centralizer_le_normalizer_F4
-    (hK : ringChar K ≠ 2) {z : adjointGroup .F4 K}
-    (hz : z ∈ rankOneGroup (adjDatum (rootOperatorFamily .F4) K) (Pi.single (idx0 .F4) 1))
-    (h2 : orderOf z = 2) :
-    Subgroup.centralizer ({z} : Set (adjointGroup .F4 K)) ≤
-      Subgroup.normalizer
-        ((rankOneGroup (adjDatum (rootOperatorFamily .F4) K) (Pi.single (idx0 .F4) 1) :
-          Subgroup (adjointGroup .F4 K)) : Set (adjointGroup .F4 K)) :=
-  centralizer_le_normalizer_rankOneGroup noG2_F4 hK symmetrizer_le_F4 isolatedCheck_F4 hz h2
-
-theorem centralizer_le_normalizer_E6
-    (hK : ringChar K ≠ 2) {z : adjointGroup .E6 K}
-    (hz : z ∈ rankOneGroup (adjDatum (rootOperatorFamily .E6) K) (Pi.single (idx0 .E6) 1))
-    (h2 : orderOf z = 2) :
-    Subgroup.centralizer ({z} : Set (adjointGroup .E6 K)) ≤
-      Subgroup.normalizer
-        ((rankOneGroup (adjDatum (rootOperatorFamily .E6) K) (Pi.single (idx0 .E6) 1) :
-          Subgroup (adjointGroup .E6 K)) : Set (adjointGroup .E6 K)) :=
-  centralizer_le_normalizer_rankOneGroup noG2_E6' hK (symmetrizer_le_one .E6 rfl _)
-    isolatedCheck_E6 hz h2
-
-theorem centralizer_le_normalizer_E7
-    (hK : ringChar K ≠ 2) {z : adjointGroup .E7 K}
-    (hz : z ∈ rankOneGroup (adjDatum (rootOperatorFamily .E7) K) (Pi.single (idx0 .E7) 1))
-    (h2 : orderOf z = 2) :
-    Subgroup.centralizer ({z} : Set (adjointGroup .E7 K)) ≤
-      Subgroup.normalizer
-        ((rankOneGroup (adjDatum (rootOperatorFamily .E7) K) (Pi.single (idx0 .E7) 1) :
-          Subgroup (adjointGroup .E7 K)) : Set (adjointGroup .E7 K)) :=
-  centralizer_le_normalizer_rankOneGroup noG2_E7' hK (symmetrizer_le_one .E7 rfl _)
-    isolatedCheck_E7 hz h2
-
-theorem centralizer_le_normalizer_E8
-    (hK : ringChar K ≠ 2) {z : adjointGroup .E8 K}
-    (hz : z ∈ rankOneGroup (adjDatum (rootOperatorFamily .E8) K) (Pi.single (idx0 .E8) 1))
-    (h2 : orderOf z = 2) :
-    Subgroup.centralizer ({z} : Set (adjointGroup .E8 K)) ≤
-      Subgroup.normalizer
-        ((rankOneGroup (adjDatum (rootOperatorFamily .E8) K) (Pi.single (idx0 .E8) 1) :
-          Subgroup (adjointGroup .E8 K)) : Set (adjointGroup .E8 K)) :=
-  centralizer_le_normalizer_rankOneGroup noG2_E8 hK (symmetrizer_le_one .E8 rfl _)
-    isolatedCheck_E8 hz h2
 
 end CFSG.LieType.HighestRoot

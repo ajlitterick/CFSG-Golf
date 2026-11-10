@@ -103,11 +103,6 @@ variable (F) in
   mul_mem' := fun ha hb e he => by rw [map_mul, ha e he, hb e he]
   inv_mem' := fun ha e he => by rw [map_inv, ha e he]
 
-omit [Group G] in
-theorem mem_diagCent {S : Set G} {δ : G → Fin (m + 1) → Fˣ}
-    {z : Matrix.SpecialLinearGroup (Fin (m + 1)) F} :
-    z ∈ diagCent F S δ ↔ ∀ e ∈ S, InnerDiagA.conjSL (InnerDiagA.diagGL (δ e)) z = z :=
-  Iff.rfl
 
 omit [Group G] in
 theorem eq_of_mem_diagCent {S : Set G} {δ : G → Fin (m + 1) → Fˣ}

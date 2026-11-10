@@ -77,42 +77,5 @@ theorem exists_eq_conj_F4 (hZ : Subgroup.center X = ⊥)
   exact exists_eq_conj_of_mulEquiv e
     (fun β _ => mem_inner_adjoint_F4 _ natCard_galoisField_three β) α hodd
 
-@[expose] def SteinbergOddAut3Cl : Prop :=
-  ∀ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n : ℕ), Generic.IsFundTag t →
-    t ≠ .E6 → t ≠ .E7 → t ≠ .E8 → t ≠ .F4 →
-    CFSG.Assembly.LowTwoRank.StatedLieAdmissible t n 3 1 →
-      ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsQuasisimple X → Subgroup.center X = ⊥ →
-        ∀ f : (Generic.modelUniv t n 3 1 Nat.prime_three).K →* X, Function.Surjective f →
-          f.ker ≤ Subgroup.center (Generic.modelUniv t n 3 1 Nat.prime_three).K →
-            ∀ α : MulAut X, Odd (orderOf α) →
-              (∃ g : X, α = MulAut.conj g) ∨ (t = .POmegaPlus ∧ n = 4) ∨ t = .trialityD4
-
-theorem steinbergOddAut3_of_cl (h : SteinbergOddAut3Cl) : SteinbergOddAut3 := by
-  intro t n ht hadm X _ _ hX hZ f hf hker α hodd
-  by_cases h6 : t = .E6
-  · subst h6
-    have hn : n = 0 := hadm.2.2
-    subst hn
-    exact Or.inl (exists_eq_conj_E6 hZ f hf hker α hodd)
-  by_cases h7 : t = .E7
-  · subst h7
-    have hn : n = 0 := hadm.2.2
-    subst hn
-    exact Or.inl (exists_eq_conj_E7 hZ f hf hker α hodd)
-  by_cases h8 : t = .E8
-  · subst h8
-    have hn : n = 0 := hadm.2.2
-    subst hn
-    exact Or.inl (exists_eq_conj_E8 hZ f hf hker α hodd)
-  by_cases h4 : t = .F4
-  · subst h4
-    have hn : n = 0 := hadm.2.2
-    subst hn
-    exact Or.inl (exists_eq_conj_F4 hZ f hf hker α hodd)
-  exact h t n ht h6 h7 h8 h4 hadm X hX hZ f hf hker α hodd
-
-theorem modelOddAutRigid_of_cl (hSt : SteinbergOddAut3Cl) (hD4 : D4OddAutInner3)
-    (h3D4 : TrialityD4OddAutInner3) : ModelOddAutRigid :=
-  modelOddAutRigid_of (steinbergOddAut3_of_cl hSt) hD4 h3D4
 
 end CFSG.ClassicalInvolution.Q3.Q3T

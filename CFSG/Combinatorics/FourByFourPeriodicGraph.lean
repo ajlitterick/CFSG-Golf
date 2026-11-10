@@ -80,8 +80,6 @@ theorem adj_iff_exists_colourAdj {p q : Vertex} : P4.Adj p q ↔ ∃ i, colourAd
 @[expose] def nbr (p : Vertex) (i : Fin 3) : Vertex :=
   if p.2 = 0 then (p.1 + s i, 1) else (p.1 - s i, 0)
 
-theorem s_injective : Function.Injective s := by
-  decide
 
 theorem colourAdj_iff_eq_nbr : ∀ (i : Fin 3) (p q : Vertex), colourAdj i p q ↔ q = nbr p i := by
   decide
@@ -89,9 +87,6 @@ theorem colourAdj_iff_eq_nbr : ∀ (i : Fin 3) (p q : Vertex), colourAdj i p q �
 theorem adj_iff {p q : Vertex} : P4.Adj p q ↔ ∃ i, q = nbr p i :=
   exists_congr fun i => colourAdj_iff_eq_nbr i p q
 
-theorem colourAdj_unique : ∀ (i j : Fin 3) (p q : Vertex), colourAdj i p q → colourAdj j p q →
-    i = j := by
-  decide
 
 theorem nbr_nbr : ∀ (p : Vertex) (i : Fin 3), nbr (nbr p i) i = p := by
   decide

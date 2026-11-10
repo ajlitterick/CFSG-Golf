@@ -39,21 +39,10 @@ theorem submodule_isometry_inverse (e : Q.IsometryEquiv R) (L : Submodule K V) :
   left_inv L := Subtype.ext (submodule_isometry_inverse e L.val)
   right_inv L := Subtype.ext (submodule_isometry_inverse e.symm L.val)
 
-theorem pointIsometryEquiv_submodule (e : Q.IsometryEquiv R) (L : Points Q) :
-    (pointIsometryEquiv e L).val = L.val.map e.toLinearMap := rfl
 
 theorem pointIsometryEquiv_symm_submodule (e : Q.IsometryEquiv R) (L : Points R) :
     ((pointIsometryEquiv e).symm L).val = L.val.map e.symm.toLinearMap := rfl
 
-theorem mem_pointIsometryEquiv (e : Q.IsometryEquiv R) (L : Points Q) (y : W) :
-    y ∈ (pointIsometryEquiv e L).val ↔ e.symm y ∈ L.val := by
-  change y ∈ L.val.map e.toLinearMap ↔ _
-  exact Submodule.mem_map_equiv L.val (e := e.toLinearEquiv) (x := y)
-
-theorem mem_pointIsometryEquiv_symm (e : Q.IsometryEquiv R) (L : Points R) (x : V) :
-    x ∈ ((pointIsometryEquiv e).symm L).val ↔ e x ∈ L.val := by
-  change x ∈ L.val.map e.symm.toLinearMap ↔ _
-  exact Submodule.mem_map_equiv L.val (e := e.symm.toLinearEquiv) (x := x)
 
 theorem pointPerp_isometry_iff (e : Q.IsometryEquiv R) (L M : Points Q) :
     PointPerp (pointIsometryEquiv e L) (pointIsometryEquiv e M) ↔ PointPerp L M := by
@@ -72,31 +61,5 @@ theorem pointPerp_isometry_symm_iff (e : Q.IsometryEquiv R) (L M : Points R) :
       PointPerp L M :=
   pointPerp_isometry_iff e.symm L M
 
-theorem elementary_point_isometry (e : Q.IsometryEquiv R)
-    (g : elementaryGroup Q) (L : Points Q) :
-    pointIsometryEquiv e (g • L) = elementaryIsometryEquiv e g • pointIsometryEquiv e L := by
-  apply Subtype.ext
-  rw [pointIsometryEquiv_submodule, elementary_smul_submodule,
-    elementary_smul_submodule, pointIsometryEquiv_submodule]
-  ext y
-  constructor
-  · rintro ⟨z, ⟨x, hx, rfl⟩, rfl⟩
-    refine ⟨e x, ⟨x, hx, rfl⟩, ?_⟩
-    change (elementaryIsometryEquiv e g).val (e x) = e (g.val x)
-    rw [elementaryIsometryEquiv_apply, e.symm_apply_apply]
-  · rintro ⟨z, ⟨x, hx, rfl⟩, rfl⟩
-    refine ⟨g.val x, ⟨x, hx, rfl⟩, ?_⟩
-    change e (g.val x) = (elementaryIsometryEquiv e g).val (e x)
-    rw [elementaryIsometryEquiv_apply, e.symm_apply_apply]
-
-theorem elementaryPointAction_isometry (e : Q.IsometryEquiv R) (g : elementaryGroup Q) :
-    (pointIsometryEquiv e).permCongr (elementaryPointAction Q g) =
-      elementaryPointAction R (elementaryIsometryEquiv e g) := by
-  apply Equiv.ext
-  intro L
-  rw [Equiv.permCongr_apply]
-  change pointIsometryEquiv e (g • (pointIsometryEquiv e).symm L) =
-    elementaryIsometryEquiv e g • L
-  rw [elementary_point_isometry, Equiv.apply_symm_apply]
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointIsometry

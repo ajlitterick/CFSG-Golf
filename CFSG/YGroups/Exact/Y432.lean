@@ -29,10 +29,6 @@ theorem y432_check : y432Arrays.size = 10 ∧
 @[expose] noncomputable def y432Gen (c : ℕ) : Equiv.Perm (Fin 31673) :=
   arrGen 31673 y432Arrays c
 
-theorem rep_y432Gen {c : ℕ} (hc : c < 10) :
-    Rep 31673 y432Arrays[c]! (y432Gen c) := by
-  have h := rep_letterOf y432_check.2.1 c
-  rwa [ModelNative.letterOf, ite_eq_left (by have := y432_check.1; omega)] at h
 
 theorem y432_relators : ∀ w ∈ yRels 4 3 2, evalWord y432Gen w = 1 :=
   evalWord_arrGen_eq_one y432_check.2.1 y432_check.2.2.1
@@ -41,14 +37,6 @@ noncomputable def y432Model :
     YGroup 4 3 2 →* Equiv.Perm (Fin 31673) :=
   yModelHom y432Gen y432_relators
 
-theorem y432Model_yGen {c : ℕ} (hc : c < 10) :
-    y432Model (yGen 4 3 2 c) = y432Gen c :=
-  yModelHom_yGen hc
-
-theorem y432Model_rep {c : ℕ} (hc : c < 10) :
-    Rep 31673 y432Arrays[c]! (y432Model (yGen 4 3 2 c)) := by
-  rw [y432Model_yGen hc]
-  exact rep_y432Gen hc
 
 private theorem y432_model_spec :
     Function.Injective y432Model ∧ Nat.card (YGroup 4 3 2) = 8178940946586009600 :=

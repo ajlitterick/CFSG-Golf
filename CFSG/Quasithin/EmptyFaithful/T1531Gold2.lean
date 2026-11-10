@@ -41,10 +41,5 @@ structure Res15366B {G : Type} [Group G] (T Mc M V₁ V₂ E : Subgroup G) : Pro
       Res15350 T M → LineData153 T M V₁ V₂ E → Res15366B T Mc M V₁ V₂ E →
         Res15367 T Mc M V₁ V₂ E
 
-@[expose] def Stage15368B : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t s : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-      Res15350 T M → LineData153 T M V₁ V₂ E → Res15366B T Mc M V₁ V₂ E →
-        Res15367 T Mc M V₁ V₂ E → GoldLine153 T V₁ E s → Res15368 T Mc M E s
 
 end CFSG.Quasithin

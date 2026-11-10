@@ -77,15 +77,6 @@ open CFSG.EvenSmallLie.OmegaEight (pushWords wordsOf)
     (List.range 12).all (fun i => !(CFSG.RankThree.PartTwo.Toolkit.M12.zT.getD i 0 == i) ||
       !(CFSG.RankThree.PartTwo.Toolkit.M12.yT.getD i 0 == i))
 
-@[expose] def centIdx (t : List ℕ) : List CFSG.RankThree.PartTwo.Toolkit.M12.Idx :=
-  CFSG.RankThree.PartTwo.Toolkit.M12.allIdx.filter fun k =>
-    tmul (CFSG.RankThree.PartTwo.Toolkit.M12.prodT k) t ==
-      tmul t (CFSG.RankThree.PartTwo.Toolkit.M12.prodT k)
-
-@[expose] def m12CentCheck : Bool :=
-  (CFSG.RankThree.PartTwo.Toolkit.M12.ET ++ CFSG.RankThree.PartTwo.Toolkit.M12.FT).all fun t =>
-    t == tid || ((centIdx t).length == 54 &&
-      decide ((centIdx t).map CFSG.RankThree.PartTwo.Toolkit.M12.prodT).Nodup)
 
 @[expose] def m22GenA : Array ℕ :=
   #[12, 7, 15, 11, 4, 21, 16, 1, 9, 8, 13, 3, 0, 10, 14, 2, 6, 17, 18, 19, 20, 5]

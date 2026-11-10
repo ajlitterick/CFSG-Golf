@@ -14,14 +14,6 @@ open Matrix CFSG.LieType.BorelTits CFSG.LieType.Universal.Unitary GGOppRad
 
 variable {F : Type} [Field F] [Finite F] [CharP F 2] {f : ℕ}
 
-omit [CharP F 2] in
-theorem exists_lt_of_suU_ne_bot {σ : F ≃+* F} {n : ℕ} {ℓ : Fin n → ℕ} (h : suU σ ℓ ≠ ⊥) :
-    ∃ c a, ℓ c < ℓ a := by
-  by_contra hno
-  refine h ((Subgroup.eq_bot_iff_forall _).mpr fun g hg => Subtype.ext (Units.ext ?_))
-  ext c a
-  rw [Subgroup.coe_one, Units.val_one]
-  exact mem_suU_iff.mp hg c a fun hca => hno ⟨c, a, hca⟩
 
 theorem exists_SU_eichler' (hF : Nat.card F = (2 ^ f) ^ 2) {n : ℕ} {x y : Fin n → F}
     (hx : (suForm (unitaryInvolution F 2 f) (unitaryInvolution_involutive hF) n).β x x = 0)

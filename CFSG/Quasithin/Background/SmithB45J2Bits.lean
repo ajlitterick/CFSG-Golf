@@ -37,9 +37,6 @@ namespace BV
 
 @[expose] def nz (a : BV) (q : ℕ) : Bool := a.re.testBit q || a.im.testBit q
 
-theorem get_zero (i : ℕ) : zero.get i = 0 := by
-  simp only [get, zero, Nat.zero_testBit]
-  rfl
 
 theorem get_add (a b : BV) (i : ℕ) : (a.add b).get i = a.get i + b.get i := by
   simp only [get, add, Nat.testBit_xor]
@@ -59,7 +56,6 @@ theorem get_frob (a : BV) (i : ℕ) : a.frob.get i = FieldFour.frob (a.get i) :=
   simp only [get, frob, Nat.testBit_xor]
   rfl
 
-theorem toVec_zero : zero.toVec = 0 := funext fun i => get_zero i
 
 theorem toVec_add (a b : BV) : (a.add b).toVec = a.toVec + b.toVec :=
   funext fun i => get_add a b i
@@ -67,8 +63,6 @@ theorem toVec_add (a b : BV) : (a.add b).toVec = a.toVec + b.toVec :=
 theorem toVec_smul (c : FieldFour) (a : BV) : (a.smul c).toVec = c • a.toVec :=
   funext fun i => get_smul c a i
 
-theorem toVec_frob (a : BV) : a.frob.toVec = fun i => FieldFour.frob (a.toVec i) :=
-  funext fun i => get_frob a i
 
 theorem testBit_mod (x i : ℕ) : (x % 64).testBit i = (decide (i < 6) && x.testBit i) := by
   rw [show (64 : ℕ) = 2 ^ 6 by norm_num, Nat.testBit_mod_two_pow]

@@ -151,13 +151,6 @@ theorem gamma_three_eq_top : CFSG.Semidihedral.OddFieldLift.Gamma (ZMod 3) ⊥ =
       rw [gamma_three_eq_top]
       exact Subgroup.mem_top _
 
-theorem fourPointPhi_coe (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (alpha : centralizerFullQuotient n hn S e ≃* Perm (Fin 4)) (β : Fin 4 ≃ Omega (ZMod 3))
-    (h : centralizerOddCoreQuotient n S e) :
-    (((fourPointPhi n hn S e alpha β h : CFSG.Semidihedral.OddFieldLift.Gamma (ZMod 3) ⊥) :
-      coordinateE (ZMod 3)) : Perm (Omega (ZMod 3))) =
-      FourPointResidual.coordinateAction n hn S e alpha β (centralizerFullQuotientMap n hn S e h) :=
-  rfl
 
 theorem fourPointPhi_surjective (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
     (alpha : centralizerFullQuotient n hn S e ≃* Perm (Fin 4)) (β : Fin 4 ≃ Omega (ZMod 3)) :

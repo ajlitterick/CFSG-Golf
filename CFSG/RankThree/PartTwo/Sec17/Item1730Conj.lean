@@ -419,11 +419,5 @@ theorem ks17HJConjugacy_of (h131 : Item131) (hspor : SporadicModels131) (hSLC : 
   rw [hgB]
   rfl
 
-theorem rank3II_17_30_of_item1728 (h1728 : Item1728) (h131 : Item131)
-    (hspor : SporadicModels131) (hSLC : SLTwoCenter) (h134 : Item134) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15) (hJs : IsSimpleGroup CFSG.Blueprint.NativeSporadic.J2)
-    (hJ2 : KFacts.KS17J2NotList) (hJout : KFacts.KS17J2AutThree) : Item1730 :=
-  rank3II_17_30_of_inputs h1728 h131 hspor hSLC h134 h48 h415 hJs hJ2
-    (ks17HJConjugacy_of h131 hspor hSLC h134 h48 h415 hJs hJ2 hJout)
 
 end CFSG.RankThree.PartTwo.Sec17

@@ -247,22 +247,6 @@ theorem isGB_of_isGStar {p : ℕ} {B L : Subgroup G} (h : IsGStar p B L)
   refine ⟨E, hEB, hE, hc, hEB.trans hBL, ?_⟩
   rwa [closureIn_eq_self hBL] at hne
 
-theorem catalogIs_k3_of_kLevel_eq_three {p : ℕ} {S : Type} [Group S] (h : kLevel p S = 3) :
-    catalogIs S (k3 p) := by
-  classical
-  unfold kLevel at h
-  by_cases h1 : IsChevSimple p S
-  · rw [if_pos h1] at h
-    omega
-  · rw [if_neg h1] at h
-    by_cases h2 : catalogIs S (k2 p)
-    · rw [if_pos h2] at h
-      omega
-    · rw [if_neg h2] at h
-      by_cases h3 : catalogIs S (k3 p)
-      · exact h3
-      · rw [if_neg h3] at h
-        omega
 
 private def basic_sylowOf {p : ℕ} {H R : Subgroup G} (hR : IsPGroup p R) (hRH : R ≤ H)
     (hmax : ∀ Y : Subgroup G, Y ≤ H → IsPGroup p Y → R ≤ Y → Y = R) : Sylow p ↥H where
@@ -1156,22 +1140,6 @@ theorem S9.k3Cover_of_fullCoverLevel_eq_three {p : ℕ} {Q : Type} [Group Q]
     · rw [if_neg h2] at h
       by_cases h3 : K3Cover p Q
       · exact h3
-      · rw [if_neg h3] at h
-        omega
-
-theorem S9.k1_or_k2_of_fullCoverLevel_le_two {p : ℕ} {Q : Type} [Group Q]
-    (h : fullCoverLevel p Q ≤ 2) : K1Cover p Q ∨ K2Cover p Q := by
-  classical
-  unfold fullCoverLevel at h
-  by_cases h1 : K1Cover p Q
-  · exact Or.inl h1
-  · rw [if_neg h1] at h
-    by_cases h2 : K2Cover p Q
-    · exact Or.inr h2
-    · rw [if_neg h2] at h
-      by_cases h3 : K3Cover p Q
-      · rw [if_pos h3] at h
-        omega
       · rw [if_neg h3] at h
         omega
 

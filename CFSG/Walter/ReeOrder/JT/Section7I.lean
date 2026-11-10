@@ -113,27 +113,6 @@ theorem exists_conj_mem_of_commute
   simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
   group
 
-theorem not_three_dvd_card_centralizer_of_commute
-    (c : TorusConf h) {r : ℕ} [hr : Fact r.Prime]
-    (hrq : r ∣ (h.q - 1) / 2) {x u : G} (hx : orderOf x = r) (hu : orderOf u = 2)
-    (hxu : x * u = u * x) : ¬ 3 ∣ Nat.card (Subgroup.centralizer ({x} : Set G)) := by
-  obtain ⟨g, hg⟩ := h.exists_conj_mem_of_commute hp3 c.torus.le c.torus.cyclic c.card_C hrq hx hu
-    hxu
-  have hr7 := h.seven_le_of_pi hp3 hrq
-  have hg1 : g * x * g⁻¹ ≠ 1 := by
-    intro h0
-    have : x = 1 := by
-      have := congrArg (fun y => g⁻¹ * y * g) h0
-      simpa [mul_assoc] using this
-    rw [this, orderOf_one] at hx
-    omega
-  have h74 := h.lemma_7_4 hp3 c.torus.le c.torus.cyclic c.card_C hg hg1
-  have hcard : Nat.card (Subgroup.centralizer ({g * x * g⁻¹} : Set G)) =
-      Nat.card (Subgroup.centralizer ({x} : Set G)) := by
-    have := centralizer_singleton_map (MulAut.conj g) x
-    rw [MulAut.conj_apply] at this
-    rw [← this, Subgroup.card_map_of_injective (MulAut.conj g).injective]
-  rwa [hcard] at h74
 
 end JTHyp
 

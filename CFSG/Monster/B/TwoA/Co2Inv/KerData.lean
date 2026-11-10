@@ -11,9 +11,6 @@ namespace CFSG.Monster.B.TwoA.Co2Inv
 open CFSG.Monster CFSG.Monster.Code CFSG.Monster.B.Co2 CFSG.Monster.VisCert
   CFSG.Monster.B.TwoA.Census
 
-theorem affineFns_spec :
-    ∀ e < 2, ∀ l < 16, affineFns[affIdx e l]! = #[e, l] :=
-  Certificates.certificate16000.1
 
 theorem translationLabels_spec : ∀ j < 16,
     translationLabels[j]! < 16 ∧ transArr translationLabels[j]! = octPerms[j]! :=
@@ -29,16 +26,11 @@ theorem octPerms_size : octPerms.size = 16 :=
 theorem affMask_zero : affMask 0 0 = 0 :=
   Certificates.certificate16000.2.2.2.1
 
-theorem affMask_one_zero : affMask 1 0 = 16776960 :=
-  Certificates.certificate16000.2.2.2.2.1
 
 theorem affMask_J :
     ∀ e < 2, ∀ l < 16, ∀ x < 8, (affMask e l).testBit x = false :=
   Certificates.certificate16000.2.2.2.2.2.1
 
-theorem affMask_affine : ∀ e < 2, ∀ l < 16, ∀ x < 24, 8 ≤ x →
-    (affMask e l).testBit x = decide ((e + popc 4 (l &&& affineLabel[x]!)) % 2 = 1) :=
-  Certificates.certificate16000.2.2.2.2.2.2.1
 
 theorem affMask_xor : ∀ e < 2, ∀ l < 16, ∀ e' < 2, ∀ l' < 16,
     affMask e l ^^^ affMask e' l' = affMask (e ^^^ e') (l ^^^ l') :=
@@ -75,9 +67,6 @@ theorem octPerms_perm :
 theorem transArr_fixJ : ∀ t < 16, ∀ x < 8, (transArr t)[x]! = x :=
   Certificates.certificate16000.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem transArr_translate : ∀ t < 16, ∀ x < 24, 8 ≤ x →
-    8 ≤ (transArr t)[x]! ∧ affineLabel[(transArr t)[x]!]! = affineLabel[x]! ^^^ t :=
-  Certificates.certificate16000.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem transArr_mul : ∀ t < 16, ∀ t' < 16,
     amul (transArr t') (transArr t) = transArr (t ^^^ t') :=

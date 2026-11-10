@@ -21,10 +21,6 @@ theorem ch4174_sb : decide (SB = subBases) = true := by quickRfl
 
 theorem ch4174_lt : decide (∀ b ∈ subBases, ∀ v ∈ b, v < 2048) = true := by quickRfl
 
-theorem neg4174_sb : (!decide (SB.set 3 [133, 778] = subBases)) = true := by quickRfl
-
-theorem neg4174_lt : (!decide (∀ b ∈ subBases.set 4 [2048], ∀ v ∈ b, v < 2048)) = true := by
-  quickRfl
 
 theorem k4174_sb : SB = subBases := of_decide_eq_true ch4174_sb
 

@@ -112,10 +112,6 @@ theorem frF_eq (gens : List ℕ) (f : List ℕ × ℕ → ℕ → List ℕ × �
         (fun _ _ _ => Prod.rec (motive := fun _ => List ℕ) (fun f s => ih f (f ++ all) s)
           (frF gens frontier ([], seen))) frontier) fuel
 
-theorem closAuxF_zero (gens f a : List ℕ) (s : ℕ) : closAuxF gens 0 f a s = a := rfl
-
-theorem closAuxF_nil (gens : List ℕ) (n : ℕ) (a : List ℕ) (s : ℕ) :
-    closAuxF gens (n + 1) [] a s = a := rfl
 
 theorem closAuxF_succ_cons (gens : List ℕ) (n x : ℕ) (xs a : List ℕ) (s : ℕ) :
     closAuxF gens (n + 1) (x :: xs) a s =

@@ -398,16 +398,5 @@ theorem small_standard_source_even_higher_linear_parameters_stated {X : Type} [G
       exact (projectiveSL_three_four_not_equiv hK₃4 hK2).false
         ((statedProjEquivProjectiveSL 3 K₃).symm.trans (χ.symm.trans e'))
 
-theorem small_standard_source_even_higher_linear_parameters {X : Type} [Group X] {n g : ℕ}
-    (hn : 3 ≤ n) (hX : Assembly.ComponentType.ClassicalModel X .PSL n 2 g) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 → Assembly.ComponentType.ClassicalModel X .PSL 2 p f →
-      n = 3 ∧ g = 1 ∧ p = 7 ∧ f = 1) ∧
-      IsEmpty (X ≃* alternatingGroup (Fin 7)) ∧
-      (Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 → n = 3 ∧ g = 2) := by
-  obtain ⟨h1, h2, h3⟩ := small_standard_source_even_higher_linear_parameters_stated hn
-    (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL n 2 g hX)
-  exact ⟨fun p f _ hp2 hY => h1 p f hp2
-      (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 p f hY), h2,
-    fun hZ => h3 (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 3 2 2 hZ)⟩
 
 end CFSG.ComponentClassification.SymmetricLocal

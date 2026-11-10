@@ -86,10 +86,6 @@ theorem GGControlsStrongFusion.inf_in {H E N : Subgroup G} (h : GGControlsStrong
   rw [eq_bot_iff] at hbot ⊢
   exact le_trans (inf_le_inf_left _ inf_le_left) hbot
 
-theorem GGControlsStrongFusion.mono_stepTwo {H E R : Subgroup G} (h : GGControlsStrongFusion H E)
-    (hRE : R ≤ E) : GGControlsStrongFusion H R :=
-  ggControlsStrongFusion_iff.mpr ⟨hRE.trans h.1, fun _ hr hr1 _ hg =>
-    h.mem_of_conj_mem (hRE hr) hr1 hg⟩
 
 theorem GGControlsStrongFusion.of_map_conj_le {H E R : Subgroup G}
     (h : GGControlsStrongFusion H E) {n : G} (hn : n ∈ H)

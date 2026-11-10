@@ -91,32 +91,5 @@ theorem internal_hull_normalClosure_top (Q : Subgroup G)
   rw [localPointHullClass_eq_conjugatesOf]
   exact internal_hull_class_generates Q hodd hnormal z hzQ hz
 
-theorem group_eq_centralizer_mul_point_hull (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (hnormal : ¬ Q.Normal)
-    (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2) :
-    (Set.univ : Set G) = (Subgroup.centralizer ({z} : Set G) : Set G) *
-      (involutionPointHull z : Set G) := by
-  let L := involutionPointHull z
-  let zL : L := ⟨z, localPointHull_distinguished_mem z⟩
-  ext g
-  constructor
-  · intro _
-    have hconj : g⁻¹ * z * g ∈ involutionPointClass z := ⟨g, rfl⟩
-    rw [pointClass_eq_internal_hull_class Q hodd hnormal z hzQ hz] at hconj
-    obtain ⟨t, ht, htG⟩ := hconj
-    obtain ⟨l, hl⟩ := isConj_iff.mp ht
-    have hflip : (l : G) * z * (l : G)⁻¹ = g⁻¹ * z * g := by
-      exact (congrArg L.subtype hl).trans htG
-    have hc : g * (l : G) ∈ Subgroup.centralizer ({z} : Set G) := by
-      apply (NormalGraph.conj_eq_iff_centralizer _ _).mp
-      change (g * (l : G)) * z * (g * (l : G))⁻¹ = z
-      calc
-        _ = g * ((l : G) * z * (l : G)⁻¹) * g⁻¹ := by group
-        _ = g * (g⁻¹ * z * g) * g⁻¹ := by rw [hflip]
-        _ = z := by group
-    exact Set.mem_mul.mpr ⟨g * (l : G), hc, (l : G)⁻¹, L.inv_mem l.property,
-      mul_inv_cancel_right g (l : G)⟩
-  · intro _
-    trivial
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

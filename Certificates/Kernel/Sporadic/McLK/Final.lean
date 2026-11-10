@@ -76,7 +76,6 @@ theorem invB : invOK 275 OJ.beta (invT 275 OJ.beta) = true ∧
   invT_get (f := r32 BE) (by norm_num) fun x hx =>
     ⟨be_get hx, (inv_facts hx).2.2.1, (inv_facts hx).2.2.2.1⟩
 
-theorem size_OJ : OJ.pts.size = 275 := by simp [v3Rec]
 
 theorem GJ_eq (z : Int) (x : Nat) : GJ z x =
     if z = 1 ∨ z = -1 then r32 AL x else if z = 2 then r32 BE x else r32 BI x := by

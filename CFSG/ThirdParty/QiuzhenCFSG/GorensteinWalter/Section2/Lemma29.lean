@@ -480,15 +480,6 @@ private lemma componentLayer_top_map_eq_componentLayerOf_local
             exact hy),
         rfl⟩
 
-private lemma componentLayerOf_top_eq_bot_of_componentLayerOf_bot
-    {G : Type u} [Group G] [Finite G] (N : Subgroup G)
-    (hE : componentLayerOf N = ⊥) :
-    componentLayerOf (⊤ : Subgroup (↥N)) = ⊥ := by
-  have hmap : (componentLayerOf (⊤ : Subgroup (↥N))).map N.subtype = componentLayerOf N :=
-    componentLayer_top_map_eq_componentLayerOf_local N
-  apply (Subgroup.map_eq_bot_iff_of_injective (componentLayerOf (⊤ : Subgroup (↥N)))
-    (f := N.subtype) N.subtype_injective).1
-  rw [hmap, hE]
 
 private lemma componentLayerOf_ne_bot_iff {G : Type u} [Group G]
     (N : Subgroup G) :
@@ -694,12 +685,6 @@ private lemma fittingSubgroupOf_le_oddCore_of_twoCore_bot
   have hmap := Subgroup.map_mono (f := N.subtype) hle'
   simpa [fittingSubgroupOf, oddCoreOf] using hmap
 
-private lemma mem_fittingSubgroup_of_mem_fittingSubgroupOf
-    {G : Type u} [Group G] [Finite G] (N : Subgroup G) {x : ↥N}
-    (hx : (x : G) ∈ fittingSubgroupOf N) : x ∈ fittingSubgroup N := by
-  rcases (Subgroup.mem_map).mp hx with ⟨y, hyF, hyx⟩
-  have hyx' : y = x := N.subtype_injective hyx
-  simpa [hyx'] using hyF
 
 private lemma map_fittingSubgroup_le_of_surjective_local
     {G H : Type u} [Group G] [Group H] [Finite G] [Finite H]
@@ -785,7 +770,6 @@ private lemma centralizer_intersection_fstar_le_fstar_local
   have hbY : b ∈ Y := hYcent hbC
   rw [← hmap]
   exact Subgroup.mem_map.mpr ⟨b, hbY, rfl⟩
-
 
 
 /-- **Eliminating bridge** (D-group structure, re-pinned 2026-08-16 around
@@ -1231,104 +1215,6 @@ private theorem lemma_2_9_centralizes_oddCore_inf_fitting_of_mem_twoCore
 
 /-! ## Klein-four fixed-point choice (aligned with `Lemma27Infra`) -/
 
-/-- The aligned "choose `s`" fact: if `V` is a Klein-four subgroup of `N`
-acting faithfully on the nontrivial odd core `A = O₂'(N)`, then some
-nonidentity `s ∈ V` has nontrivial fixed subgroup in `A`.  This is
-`GorensteinWalter.exists_ne_one_fixedPoints_of_kleinFour_action`
-instantiated with the conjugation action of `V` on `oddCoreOf N`.  It is an
-auxiliary fixed-point theorem; the final proof instead uses the stronger
-faithful-pair constructor below, which allows the fixed involution to vary
-before conjugating it into the distinguished setup. -/
-public theorem lemma_2_9_kleinFour_fixedPoints
-    {G : Type u} [Group G] [Finite G]
-    {V N : Subgroup G}
-    (hV : IsKleinFour V) (hVN : V ≤ N)
-    (hAne : oddCoreOf N ≠ ⊥)
-    (hfaith : oddCoreOf N ⊓ Subgroup.centralizer (V : Set G) = ⊥) :
-    ∃ s : G, s ∈ V ∧ s ≠ 1 ∧
-      oddCoreOf N ⊓ Subgroup.centralizer ({s} : Set G) ≠ ⊥ := by
-  let A : Subgroup G := oddCoreOf N
-  have hVA : V ≤ Subgroup.normalizer (A : Set G) := by
-    intro v hv
-    rw [Subgroup.mem_normalizer_iff]
-    intro a
-    constructor
-    · intro ha
-      rcases (Subgroup.mem_map).1 ha with ⟨p, hp, rfl⟩
-      have hvN : v ∈ N := hVN hv
-      have hconj : (⟨v, hvN⟩ : ↥N) * p * (⟨v, hvN⟩ : ↥N)⁻¹ ∈ pPrimeCore 2 N :=
-        (pPrimeCore_normal (p := 2) (G := N)).conj_mem p hp (⟨v, hvN⟩ : ↥N)
-      exact Subgroup.mem_map.mpr
-        ⟨(⟨v, hvN⟩ : ↥N) * p * (⟨v, hvN⟩ : ↥N)⁻¹, hconj, by simp⟩
-    · intro ha
-      rcases (Subgroup.mem_map).1 ha with ⟨p, hp, hpeq⟩
-      have hvN : v ∈ N := hVN hv
-      have hconj : (⟨v, hvN⟩ : ↥N)⁻¹ * p * (⟨v, hvN⟩ : ↥N) ∈ pPrimeCore 2 N := by
-        simpa using
-          ((pPrimeCore_normal (p := 2) (G := N)).conj_mem p hp (⟨v, hvN⟩ : ↥N)⁻¹)
-      have hmem : v⁻¹ * (p : G) * v ∈ A :=
-        Subgroup.mem_map.mpr
-          ⟨(⟨v, hvN⟩ : ↥N)⁻¹ * p * (⟨v, hvN⟩ : ↥N), hconj, by simp⟩
-      have heq : a = v⁻¹ * (p : G) * v := by
-        calc
-          a = v⁻¹ * (v * a * v⁻¹) * v := by group
-          _ = v⁻¹ * (p : G) * v := by rw [← hpeq]; rfl
-      exact heq ▸ hmem
-  have hAodd : Nat.Coprime 2 (Nat.card (↥A)) := by
-    dsimp [A, oddCoreOf]
-    rw [Subgroup.card_map_of_injective N.subtype_injective]
-    exact pPrimeCore_coprime_card (p := 2) (G := N)
-  simpa [A] using (exists_ne_one_fixedPoints_of_kleinFour_action
-    (G := G) (V := V) (A := A) hV hVA hAodd hAne hfaith)
-
-/-- The local "choose `s`" transfer: if `V` acts fixed-point-freely on the
-odd group `A` (`C_A(V) = ⊥`) and `t ∈ V` has `C_A(t) ≠ ⊥`, then some other
-nonidentity involution `s ∈ V` does **not** centralize `C_A(t)`, so
-`[s, C_A(t)] ≠ ⊥`.  This is the kernel of the paper's two-involution step
-(Fact 1.1(iii) + Fact 1.1(i)); it is the precise way
-`exists_ne_one_fixedPoints_of_kleinFour_action` is upgraded from
-`C_A(s) ≠ ⊥` to the commutator witness. -/
-private lemma lemma_2_9_exists_s_commutator_ne_bot
-    {G : Type u} [Group G] [Finite G]
-    {V A : Subgroup G}
-    (hfix : A ⊓ Subgroup.centralizer (V : Set G) = ⊥)
-    {t : G}
-    (hCt : A ⊓ Subgroup.centralizer ({t} : Set G) ≠ ⊥) :
-    ∃ s : G, s ∈ V ∧ s ≠ 1 ∧ s ≠ t ∧
-      ¬ (A ⊓ Subgroup.centralizer ({t} : Set G) ≤
-        Subgroup.centralizer ({s} : Set G)) := by
-  classical
-  let C : Subgroup G := A ⊓ Subgroup.centralizer ({t} : Set G)
-  by_contra hnone
-  push_neg at hnone
-  have hAll : ∀ v : G, v ∈ V → v ≠ 1 → v ≠ t →
-      C ≤ Subgroup.centralizer ({v} : Set G) := by
-    intro v hv hv1 hvt
-    exact hnone v hv hv1 hvt
-  have hCfix : C ≤ Subgroup.centralizer (V : Set G) := by
-    intro c hc v hv
-    by_cases hv1 : v = 1
-    · subst v
-      simp
-    · by_cases hvt : v = t
-      · subst v
-        have hcC : c ∈ C := hc
-        have hcomm : t * c = c * t :=
-          (Subgroup.mem_centralizer_iff.mp hcC.2 t (by simp))
-        exact hcomm
-      · exact (Subgroup.mem_centralizer_iff.mp
-          (hAll v hv hv1 hvt hc) v (by simp))
-  have hCinf : C ≤ A ⊓ Subgroup.centralizer (V : Set G) :=
-    le_inf (by intro c hc; exact hc.1) hCfix
-  have hCbot : C = ⊥ := by
-    apply le_bot_iff.mp
-    intro c hc
-    have hcb : c ∈ A ⊓ Subgroup.centralizer (V : Set G) := hCinf hc
-    have hbot : c ∈ (⊥ : Subgroup G) := by
-      rw [hfix] at hcb
-      exact hcb
-    exact hbot
-  exact hCt (by simpa [C] using hCbot)
 
 /-- Bender 1.1(i), ambient subgroup form: if `P` normalizes `K`, `P` is
 coprime to `K`, and `K` is solvable, then the second commutator subgroup
@@ -1411,18 +1297,6 @@ private lemma commutator_centralizes_of_centralizing
     simpa [Subgroup.commutator_comm] using hXT
   exact (Subgroup.commutator_eq_bot_iff_le_centralizer).mp hTX
 
-/-- The centralizer of a single element is contained in the centralizer of
-the cyclic subgroup it generates. -/
-private lemma centralizer_singleton_le_centralizer_zpowers
-    {G : Type u} [Group G] (t : G) :
-    Subgroup.centralizer ({t} : Set G) ≤
-      Subgroup.centralizer ((Subgroup.zpowers t : Subgroup G) : Set G) := by
-  intro x hx y hy
-  rcases Subgroup.mem_zpowers_iff.mp hy with ⟨n, rfl⟩
-  have htx : t * x = x * t :=
-    (Subgroup.mem_centralizer_iff.mp hx t (by simp))
-  have hxt : Commute x t := htx.symm
-  exact (hxt.zpow_right n).symm
 
 /-- In a Klein four subgroup, any two elements commute, hence their cyclic
 subgroups centralize each other. -/
@@ -1496,36 +1370,6 @@ private lemma centralizerIn_normalizer_of_mem_kleinFour
   have hCPC : ⁅C, P⁆ ≤ C := le_inf hCPA hCPT
   exact (Subgroup.le_normalizer_iff_commutator_le_left (H := P) (K := C)).mpr hCPC
 
-/-- `V ≤ N` implies `V` normalizes `O₂'(N)` (the odd core is normal in
-`N`, and normality is transported to the ambient subgroup). -/
-private lemma subgroup_le_normalizer_oddCoreOf_of_le
-    {G : Type u} [Group G] {N V : Subgroup G} (hVN : V ≤ N) :
-    V ≤ Subgroup.normalizer (oddCoreOf N : Set G) := by
-  intro v hv
-  rw [Subgroup.mem_normalizer_iff]
-  intro a
-  constructor
-  · intro ha
-    rcases (Subgroup.mem_map).1 ha with ⟨p, hp, rfl⟩
-    have hvN : v ∈ N := hVN hv
-    have hconj : (⟨v, hvN⟩ : ↥N) * p * (⟨v, hvN⟩ : ↥N)⁻¹ ∈ pPrimeCore 2 N :=
-      (pPrimeCore_normal (p := 2) (G := N)).conj_mem p hp (⟨v, hvN⟩ : ↥N)
-    exact Subgroup.mem_map.mpr
-      ⟨(⟨v, hvN⟩ : ↥N) * p * (⟨v, hvN⟩ : ↥N)⁻¹, hconj, by simp⟩
-  · intro ha
-    rcases (Subgroup.mem_map).1 ha with ⟨p, hp, hpeq⟩
-    have hvN : v ∈ N := hVN hv
-    have hconj : (⟨v, hvN⟩ : ↥N)⁻¹ * p * (⟨v, hvN⟩ : ↥N) ∈ pPrimeCore 2 N := by
-      simpa using
-        ((pPrimeCore_normal (p := 2) (G := N)).conj_mem p hp (⟨v, hvN⟩ : ↥N)⁻¹)
-    have hmem : v⁻¹ * (p : G) * v ∈ oddCoreOf N :=
-      Subgroup.mem_map.mpr
-        ⟨(⟨v, hvN⟩ : ↥N)⁻¹ * p * (⟨v, hvN⟩ : ↥N), hconj, by simp⟩
-    have heq : a = v⁻¹ * (p : G) * v := by
-      calc
-        a = v⁻¹ * (v * a * v⁻¹) * v := by group
-        _ = v⁻¹ * (p : G) * v := by rw [← hpeq]; rfl
-    exact heq ▸ hmem
 
 /-- A faithful Klein-four action on an odd group supplies the pair actually
 needed by the paper: for every fixed nonidentity `s ∈ V`, some other

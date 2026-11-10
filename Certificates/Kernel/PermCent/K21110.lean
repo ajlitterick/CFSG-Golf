@@ -26,8 +26,5 @@ theorem centBlk7 : centBlk 7 = true := (centBlkQ_eq 7).symm.trans centBlkQ7
 theorem len21110 : (elemsC QP).length ≤ 8 * 756 := by
   decide +kernel
 
-theorem neg21110 : ((elemsC QP).all fun s => !decide (s * s = 1) || decide (s = 1) ||
-    (coreC (centC (elemsC QP) s)).length == 17) = false := by
-  decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.U33T

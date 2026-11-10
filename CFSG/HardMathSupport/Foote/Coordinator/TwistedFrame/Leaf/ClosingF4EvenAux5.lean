@@ -27,7 +27,6 @@ theorem negT_eq : -highRoot Tag.F4 = negT := by decide
 
 theorem x1110n_root : x1110n ∈ rootFinset Tag.F4 := by decide +kernel
 theorem z0122_root : z0122 ∈ rootFinset Tag.F4 := by decide +kernel
-theorem w1221n_root : w1221n ∈ rootFinset Tag.F4 := by decide +kernel
 theorem v0100n_root : v0100n ∈ rootFinset Tag.F4 := by decide +kernel
 theorem pB23_root' : pB23 ∈ rootFinset Tag.F4 := by decide +kernel
 theorem rB23_root' : rB23 ∈ rootFinset Tag.F4 := rB23_root

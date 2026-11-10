@@ -714,44 +714,5 @@ theorem card_tailUnipotent [Finite K] :
 
 end Levi
 
-theorem orthogonal_geometry_tail_upper_unipotent_matrices {K : Type*} [Field K] {A : Type*}
-    [AddCommGroup A] [Module K A] [FiniteDimensional K A] {r : ℕ} {qA : QuadraticForm K A}
-    (hani : qA.Anisotropic) :
-    (∀ g : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A),
-      (g ∈ TauCeti.QuadraticMap.orthogonalGroup (quadTail r qA) ∧ ∀ i, 1 ≤ i → i ≤ r →
-          (tailFlag K A r i).map (g : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] _) = tailFlag K A r i) ↔
-        ∃ (D : GL (Fin r) K) (h : A ≃ₗ[K] A) (L : Fin r → A) (C : Matrix (Fin r) (Fin r) K),
-          (D : Matrix (Fin r) (Fin r) K).IsUpperTriangular ∧
-          h ∈ TauCeti.QuadraticMap.orthogonalGroup qA ∧ Cᵀ = -C ∧ (∀ i, C i i = 0) ∧
-          g = dMap D h * uMap qA L C) ∧
-    (∀ (D D' : GL (Fin r) K) (h h' : A ≃ₗ[K] A) (L L' : Fin r → A)
-        (C C' : Matrix (Fin r) (Fin r) K), dMap D h * uMap qA L C = dMap D' h' * uMap qA L' C' →
-      D = D' ∧ h = h' ∧ L = L' ∧ C = C') ∧
-    (∀ g : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A),
-      g ∈ tailUnipotent r qA ↔
-        ∃ (D : GL (Fin r) K) (L : Fin r → A) (C : Matrix (Fin r) (Fin r) K),
-          (D : Matrix (Fin r) (Fin r) K).IsUpperTriangular ∧
-          (∀ i, (D : Matrix (Fin r) (Fin r) K) i i = 1) ∧ Cᵀ = -C ∧ (∀ i, C i i = 0) ∧
-          g = dMap D 1 * uMap qA L C) ∧
-    tailUnipotent r qA ≤ tailBorel r qA ∧
-    ((tailUnipotent r qA).subgroupOf (tailBorel r qA)).Normal ∧
-    ((tailBorel r qA : Set (((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))) =
-        (tailTorus r qA : Set _) * (tailUnipotent r qA : Set _) ∧
-      (tailBorel r qA : Set (((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))) =
-        (tailUnipotent r qA : Set _) * (tailTorus r qA : Set _)) ∧
-    tailTorus r qA ⊓ tailUnipotent r qA = ⊥ ∧
-    (haveI := tailUnipotent_normal hani (r := r) (qA := qA);
-      Nonempty (tailBorel r qA ⧸ (tailUnipotent r qA).subgroupOf (tailBorel r qA) ≃*
-        tailTorus r qA)) ∧
-    (Finite K →
-      Nat.card (tailUnipotent r qA) = Nat.card K ^ (r * (r - 1) + r * Module.finrank K A)) := by
-  refine ⟨fun g => ?_, fun D D' h h' L L' C C' heq => dMap_uMap_injective heq,
-    fun g => mem_tailUnipotent_iff hani, tailUnipotent_le_tailBorel hani,
-    tailUnipotent_normal hani, tailBorel_eq_mul hani, tailTorus_inf_tailUnipotent hani,
-    nonempty_quotient_mulEquiv_tailTorus hani, fun _ => card_tailUnipotent hani⟩
-  rw [← mem_tailFlagStab]
-  refine ⟨fun hg => exists_dMap_uMap_eq hani hg, ?_⟩
-  rintro ⟨D, h, L, C, hD, hh, hC, hd, rfl⟩
-  exact dMap_mul_uMap_mem_tailFlagStab hD hh L hC hd
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

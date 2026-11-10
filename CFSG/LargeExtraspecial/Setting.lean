@@ -69,19 +69,6 @@ theorem zQ_mem_center : S.zQ ∈ center S.Q :=
 
 theorem zQ_ne_one : S.zQ ≠ 1 := fun h => S.z_ne_one (congrArg (fun x : S.Q => ((x : S.M) : G)) h)
 
-theorem centralizer_eq_center :
-    Subgroup.centralizer (S.Q : Set S.M) = (center S.Q).map S.Q.subtype := by
-  refine le_antisymm ?_ ?_
-  · intro x hx
-    have hxQ : x ∈ S.Q := S.centralizer_le hx
-    have hxq : S.Q.subtype ⟨x, hxQ⟩ ∈ (center S.Q).map S.Q.subtype :=
-      Subgroup.mem_map_of_mem S.Q.subtype (mem_center_iff.mpr fun y =>
-        Subtype.ext (Subgroup.mem_centralizer_iff.mp hx y y.2))
-    simpa using hxq
-  · intro x hx
-    obtain ⟨q, hq, rfl⟩ := Subgroup.mem_map.mp hx
-    exact Subgroup.mem_centralizer_iff.mpr fun y hy =>
-      congrArg (fun z : S.Q => (z : S.M)) (mem_center_iff.mp hq ⟨y, hy⟩)
 
 theorem mem_center_Q_iff {x : S.Q} : x ∈ center S.Q ↔ x = 1 ∨ x = S.zQ := by
   constructor
@@ -128,9 +115,6 @@ theorem q_toQt_eq_zero_iff (x : S.Q) : S.q (S.toQt x) = 0 ↔ x ^ 2 = 1 := by
   · exact ⟨fun _ => h, fun _ => rfl⟩
   · exact ⟨fun h' => absurd h' (by decide), fun h' => absurd h' h⟩
 
-theorem q_toQt_eq_one_iff (x : S.Q) : S.q (S.toQt x) = 1 ↔ x ^ 2 ≠ 1 := by
-  rw [ne_eq, ← S.q_toQt_eq_zero_iff]
-  rcases zmod2_cases (S.q (S.toQt x)) with h | h <;> rw [h] <;> decide
 
 theorem polar_q_toQt_eq_zero_iff (x y : S.Q) :
     polar S.q (S.toQt x) (S.toQt y) = 0 ↔ x * y = y * x :=
@@ -187,51 +171,6 @@ def conjHom : S.M →* MulAut S.Q := by
   letI := S.normal
   exact MulAut.conjNormal
 
-theorem conjHom_ker : S.conjHom.ker = (center S.Q).map S.Q.subtype := by
-  rw [← S.centralizer_eq_center]
-  ext x
-  rw [MonoidHom.mem_ker, Subgroup.mem_centralizer_iff]
-  constructor
-  · intro hx y hy
-    have h := congrArg (fun f : MulAut S.Q => (f ⟨y, hy⟩ : S.M)) hx
-    simp only [MulAut.conjNormal_apply, MulAut.one_apply, Subgroup.coe_mk] at h
-    exact (mul_inv_eq_iff_eq_mul.mp h).symm
-  · intro hx
-    refine MulEquiv.ext fun y => ?_
-    refine Subtype.ext ?_
-    have hy : (y : S.M) * x = x * (y : S.M) := hx (y : S.M) y.2
-    show x * (y : S.M) * x⁻¹ = (y : S.M)
-    rw [← hy]
-    group
-
-theorem card_conjHom_range :
-    Nat.card S.conjHom.range * Nat.card (center S.Q) = Nat.card S.M := by
-  have hker2 : Nat.card S.conjHom.ker = Nat.card (center S.Q) := by
-    rw [S.conjHom_ker, Subgroup.card_map_of_injective S.Q.subtype_injective]
-  have h1 : Nat.card S.conjHom.range = Nat.card (S.M ⧸ S.conjHom.ker) :=
-    (Nat.card_congr (QuotientGroup.quotientKerEquivRange S.conjHom).toEquiv).symm
-  rw [h1, ← hker2]
-  exact (Subgroup.card_eq_card_quotient_mul_card_subgroup S.conjHom.ker).symm
-
-theorem card_conjHom_range_dvd : Nat.card S.conjHom.range ∣ Nat.card (MulAut S.Q) :=
-  Subgroup.card_subgroup_dvd_card S.conjHom.range
-
-
-theorem card_range_eq_half : Nat.card S.conjHom.range * 2 = Nat.card S.M := by
-  have h := S.card_conjHom_range
-  rwa [S.card_center_Q] at h
-
-
-theorem dvd_card_mulAut_of_dvd_card_M (h : 45 ∣ Nat.card S.M) :
-    45 ∣ Nat.card (MulAut S.Q) := by
-  have h2 : 45 ∣ Nat.card S.conjHom.range := by
-    have hcop : Nat.Coprime 45 2 := by norm_num
-    have hmul : 45 ∣ 2 * Nat.card S.conjHom.range := by
-      have h' := h
-      rw [← S.card_range_eq_half] at h'
-      simpa [Nat.mul_comm] using h'
-    exact hcop.dvd_of_dvd_mul_left hmul
-  exact h2.trans S.card_conjHom_range_dvd
 
 end Setting
 

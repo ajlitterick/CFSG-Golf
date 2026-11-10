@@ -229,8 +229,6 @@ variable {H : Type u} [Group H] {W J : Subgroup H} [W.Normal]
   (MonoidHom.noncommCoprod W.subtype J.subtype fun w j => hcomm w w.2 j j.2).codRestrict _
     fun x => Subgroup.mul_mem_sup x.1.2 x.2.2
 
-omit [W.Normal] in
-theorem supHom_apply (x : W × J) : (supHom hcomm x : H) = x.1 * x.2 := rfl
 
 include hWJ in
 theorem supHom_bijective : Function.Bijective (supHom hcomm) := by

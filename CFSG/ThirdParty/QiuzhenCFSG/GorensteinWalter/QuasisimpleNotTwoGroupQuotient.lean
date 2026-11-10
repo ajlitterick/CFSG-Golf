@@ -121,28 +121,5 @@ public theorem pPrimeCore_le_center_of_isQuasisimple
       rwa [hOcard] at hOodd
     exact hoddQ.not_two_dvd_nat (quasisimple_even_card hQ)
 
-public theorem oddPSubgroup_le_center_of_le_pPrimeCore_of_isQuasisimple
-    {Q : Type u} [Group Q] [Finite Q]
-    (hQ : IsQuasisimple Q) (P : Subgroup Q)
-    (hPleCore : P ≤ pPrimeCore 2 Q) :
-    P ≤ Subgroup.center Q :=
-  hPleCore.trans (pPrimeCore_le_center_of_isQuasisimple hQ)
-
-public theorem no_inverted_oddP_of_le_pPrimeCore_of_isQuasisimple
-    {Q : Type u} [Group Q] [Finite Q]
-    (hQ : IsQuasisimple Q) (X : Subgroup Q)
-    (hXleCore : X ≤ pPrimeCore 2 Q)
-    {p : ℕ} [Fact p.Prime] (hpodd : Odd p) (hXp : IsPGroup p X)
-    (hXne : X ≠ ⊥) {t : Q} (ht : IsInvolution t)
-    (hXinv : BenderGlauberman.IsInvertedBy t X) :
-    False := by
-  have hXcenter : X ≤ Subgroup.center Q :=
-    oddPSubgroup_le_center_of_le_pPrimeCore_of_isQuasisimple hQ X hXleCore
-  have hXcent : X ≤ Subgroup.centralizer ({t} : Set Q) := by
-    intro x hx
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have hxcent := hXcenter hx
-    exact (Subgroup.mem_center_iff.mp hxcent t).symm
-  exact no_nontrivial_oddP_inverted_centralized t X hXinv hXcent hXp hpodd hXne
 
 end CFSG.GorensteinWalter

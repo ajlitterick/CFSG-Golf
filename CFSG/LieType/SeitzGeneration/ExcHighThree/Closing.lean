@@ -43,20 +43,6 @@ theorem planeCl_eq_top_of_generated {E N : Subgroup G}
   rw [eq_top_iff, ← hgen, Subgroup.closure_le]
   exact Set.union_subset (fun g hg => hNM hg) (fun g hg => hC hg)
 
-theorem closure_union_centralizer_eq_top_of_maximal {N : Subgroup G}
-    (hmax : ∀ H : Subgroup G, N ≤ H → H = N ∨ H = ⊤) {e : G}
-    (hout : ¬ Subgroup.centralizer ({e} : Set G) ≤ N) :
-    Subgroup.closure ((N : Set G) ∪ (Subgroup.centralizer ({e} : Set G) : Set G)) = ⊤ := by
-  set M := Subgroup.closure ((N : Set G) ∪ (Subgroup.centralizer ({e} : Set G) : Set G)) with hM
-  have hNM : N ≤ M := fun g hg => Subgroup.subset_closure (Or.inl hg)
-  rcases hmax M hNM with h | h
-  · exfalso
-    apply hout
-    intro k hk
-    have : k ∈ M := Subgroup.subset_closure (Or.inr hk)
-    rw [h] at this
-    exact this
-  · exact h
 
 theorem mem_normalizer_map_conj_iff (X : Subgroup G) (g g' : G) :
     g' ∈ Subgroup.normalizer ((X.map (MulAut.conj g).toMonoidHom : Subgroup G) : Set G) ↔

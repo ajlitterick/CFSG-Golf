@@ -83,18 +83,6 @@ theorem exists_sylow_map_eq_of_factorization_eq {G : Type*} [Group G] [Finite G]
   exact ⟨Sylow.ofCard _ hcard, by
     rw [Sylow.coe_ofCard, subgroupOf_map_subtype, inf_of_le_left hle']⟩
 
-theorem factorization_eq_of_sylow_map_eq {G : Type*} [Group G] [Finite G] {p : ℕ}
-    [Fact p.Prime] {K₁ K₂ : Subgroup G} (hle : K₁ ≤ K₂) (P : Sylow p K₁) (S : Sylow p K₂)
-    (hPS : (S : Subgroup K₂).map K₂.subtype = (P : Subgroup K₁).map K₁.subtype) :
-    (Nat.card K₁).factorization p = (Nat.card K₂).factorization p := by
-  have hp : p.Prime := Fact.out
-  have hcard : Nat.card S = Nat.card P := by
-    rw [← card_map_of_injective K₂.subtype_injective, hPS,
-      card_map_of_injective K₁.subtype_injective]
-  refine le_antisymm ((Nat.factorization_le_iff_dvd Nat.card_pos.ne' Nat.card_pos.ne').2
-    (card_dvd_of_le hle) p) ?_
-  rw [← hp.pow_dvd_iff_le_factorization Nat.card_pos.ne', ← S.card_eq_multiplicity, hcard]
-  exact card_subgroup_dvd_card _
 
 theorem exists_sylow_of_fixed_pair {G Ω : Type*} [Group G] [Finite G]
     (act : Ω → G → Ω) (act_one : ∀ ω, act ω 1 = ω)

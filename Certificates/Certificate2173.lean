@@ -28,11 +28,5 @@ namespace Certificates
 
 open CertificateChecks
 
-open CFSG CFSG.Sporadic CFSG.Sporadic.J4Schreier CFSG.Sporadic.J4 CFSG.Sporadic.J4.Native in
-open CFSG.LocalAnalysis.ComponentInitial MulAction in
-theorem certificate2173 : ∀ c ∈ ({2, 5, 6} : Finset (Fin 7)), ∀ T : Finset (Fin 7),
-    (c ∈ T → (∑ i ∈ T, subSizesF i) ∣ 501397585920 → T = {c}) ∧
-      ((∑ i ∈ T, subSizesF i) = subSizesF c → T = {c}) := by
-  exact CertificateChecks.Batch2173.classes_check_0
 
 end Certificates

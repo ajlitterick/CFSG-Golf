@@ -37,7 +37,6 @@ variable {G : Type*} [Group G]
     ∀ t ∈ T ⊓ K, t ^ 2 ∈ Subgroup.centralizer (K : Set G) →
       ∃ a ∈ A, ∀ x ∈ K, a⁻¹ * x * a = t⁻¹ * x * t
 
-theorem oddCoreOf_eq_fusionOddCoreOf (H : Subgroup G) : oddCoreOf H = fusionOddCoreOf H := rfl
 
 end Subgroups
 
@@ -92,8 +91,6 @@ theorem coreStatement_of_step
     fusionStronglyClosed (A : Set Y) (S : Subgroup Y) → Subgroup.normalClosure (A : Set Y) = ⊤ →
     Conclusion Y S A
 
-theorem topStatement_iff :
-    TopStatement ↔ ∀ (Y : Type) [Group Y] [Finite Y], TopFor Y := Iff.rfl
 
 @[expose] def GoldFor (X : Type) [Group X] [Finite X] : Prop :=
   ∀ (S : Sylow 2 X) (A : Subgroup X), A ≤ S → IsMulCommutative A →

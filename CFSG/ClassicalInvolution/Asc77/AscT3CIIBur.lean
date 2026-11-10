@@ -81,56 +81,6 @@ theorem le_oddCoreOf_sup_zpowers {E : Subgroup G} {z : G} (hzE : z ∈ E) (hz2 :
   rw [he']
   exact Subgroup.mul_mem_sup (hK₀le hhK₀) hpz
 
-@[expose] def OutComm (K : Subgroup G) : Prop :=
-  ∀ x ∈ Subgroup.normalizer (K : Set G), ∀ y ∈ Subgroup.normalizer (K : Set G),
-    ∃ k ∈ K, ∀ g ∈ K, ⁅x, y⁆ * g * ⁅x, y⁆⁻¹ = k * g * k⁻¹
-
-omit [Finite G] in
-theorem commutator_decomp {K K' : Subgroup G} (hcomm : ∀ k ∈ K, ∀ k' ∈ K', k * k' = k' * k)
-    (hK : OutComm K) (hK' : OutComm K') {x y : G}
-    (hxK : x ∈ Subgroup.normalizer (K : Set G)) (hxK' : x ∈ Subgroup.normalizer (K' : Set G))
-    (hyK : y ∈ Subgroup.normalizer (K : Set G)) (hyK' : y ∈ Subgroup.normalizer (K' : Set G)) :
-    ∃ k ∈ K, ∃ k' ∈ K', ∀ m ∈ K ⊔ K',
-      ((k * k')⁻¹ * ⁅x, y⁆) * m = m * ((k * k')⁻¹ * ⁅x, y⁆) := by
-  obtain ⟨k, hk, hkg⟩ := hK x hxK y hyK
-  obtain ⟨k', hk', hk'g⟩ := hK' x hxK' y hyK'
-  refine ⟨k, hk, k', hk', ?_⟩
-  generalize ⁅x, y⁆ = w at hkg hk'g ⊢
-  have hA : ∀ g ∈ K, k'⁻¹ * g * k' = g := fun g hg => by
-    have := hcomm g hg k' hk'
-    calc k'⁻¹ * g * k' = k'⁻¹ * (g * k') := by group
-      _ = k'⁻¹ * (k' * g) := by rw [this]
-      _ = g := by group
-  have hB : ∀ g ∈ K', k⁻¹ * g * k = g := fun g hg => by
-    have := hcomm k hk g hg
-    calc k⁻¹ * g * k = k⁻¹ * (g * k) := by group
-      _ = k⁻¹ * (k * g) := by rw [← this]
-      _ = g := by group
-  have hKc : K ≤ Subgroup.centralizer ({(k * k')⁻¹ * w} : Set G) := by
-    intro g hg
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have h : (k * k')⁻¹ * w * g * ((k * k')⁻¹ * w)⁻¹ = g := by
-      calc (k * k')⁻¹ * w * g * ((k * k')⁻¹ * w)⁻¹
-          = (k * k')⁻¹ * (w * g * w⁻¹) * (k * k') := by group
-        _ = (k * k')⁻¹ * (k * g * k⁻¹) * (k * k') := by rw [hkg g hg]
-        _ = k'⁻¹ * (k⁻¹ * (k * g * k⁻¹) * k) * k' := by group
-        _ = k'⁻¹ * g * k' := by group
-        _ = g := hA g hg
-    exact (mul_inv_eq_iff_eq_mul.mp h).symm
-  have hK'c : K' ≤ Subgroup.centralizer ({(k * k')⁻¹ * w} : Set G) := by
-    intro g hg
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have h : (k * k')⁻¹ * w * g * ((k * k')⁻¹ * w)⁻¹ = g := by
-      calc (k * k')⁻¹ * w * g * ((k * k')⁻¹ * w)⁻¹
-          = (k * k')⁻¹ * (w * g * w⁻¹) * (k * k') := by group
-        _ = (k * k')⁻¹ * (k' * g * k'⁻¹) * (k * k') := by rw [hk'g g hg]
-        _ = k'⁻¹ * (k⁻¹ * (k' * g * k'⁻¹) * k) * k' := by group
-        _ = k'⁻¹ * (k' * g * k'⁻¹) * k' := by
-            rw [hB (k' * g * k'⁻¹) (K'.mul_mem (K'.mul_mem hk' hg) (K'.inv_mem hk'))]
-        _ = g := by group
-    exact (mul_inv_eq_iff_eq_mul.mp h).symm
-  intro m hm
-  exact (Subgroup.mem_centralizer_singleton_iff.mp (sup_le hKc hK'c hm)).symm
 
 end Bur
 

@@ -15,10 +15,6 @@ open scoped commutatorElement
 
 variable {W : Type} [CommGroup W]
 
-private theorem s16h_nontrivial_of_isQuasisimple {X : Type} [Group X]
-    (h : CFSG.Open.IsQuasisimple X) : Nontrivial X := by
-  haveI : Nontrivial (X ⧸ Subgroup.center X) := h.2.toNontrivial
-  exact (QuotientGroup.mk'_surjective (Subgroup.center X)).nontrivial
 
 private theorem s16h_isSolvable_of_mulEquiv {G H : Type} [Group G] [Group H] (e : G ≃* H)
     [Group.IsSolvable H] : Group.IsSolvable G :=

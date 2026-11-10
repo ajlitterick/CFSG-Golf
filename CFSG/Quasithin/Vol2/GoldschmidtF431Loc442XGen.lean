@@ -30,6 +30,5 @@ structure Loc442DatumX (M1 M2 T : Subgroup Mb) (z t : Mb) (Vb : Subgroup Mb) (q 
       ∃ b' ∈ T, Relation.ReflTransGen (PairLink T M1 M2) (a, b) (z, b') ∧
         ∀ h ∈ M1, h * t * h⁻¹ ≠ b'
 
-variable {M1 M2 T : Subgroup Mb} {z t q : Mb} {Vb : Subgroup Mb}
 
 end CFSG.Quasithin

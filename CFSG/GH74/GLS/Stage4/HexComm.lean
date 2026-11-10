@@ -197,11 +197,6 @@ theorem mem_sufList_iff {k : ℤ} (hk : 0 ≤ k) {γ : Fin 2 → ℤ} :
     simp only [sufPred, decide_eq_true_eq, List.mem_map, mem_intList_iff]
     exact ⟨c, ⟨h1, h2⟩, rfl⟩
 
-theorem hexPos_notMem_sufList {k : ℤ} (hk1 : 1 ≤ k) (hk6 : k ≤ 6) : hexPos k ∉ sufList k := by
-  intro h
-  obtain ⟨c, h1, h2, e⟩ := (mem_sufList_iff (by omega)).1 h
-  have := hexPos_inj (by omega) (by omega) (by omega) h2 e
-  omega
 
 variable {K : Type*} [Group K] {X : (Fin 2 → ℤ) → Subgroup K} {n : Fin 2 → K}
   {H : Fin 2 → Subgroup K}

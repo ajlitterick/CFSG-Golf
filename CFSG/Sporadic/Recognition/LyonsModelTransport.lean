@@ -11,7 +11,6 @@ open Subgroup
 
 variable {G : Type*} [Group G]
 
-abbrev inNormX {X₁ : G} (X₂ : G) (h : X₂ ∈ NormX X₁) : ↥(NormX X₁) := ⟨X₂, h⟩
 
 theorem subgroupOf_zpowers_of_mem {B : Subgroup G} {g : G} (hg : g ∈ B) :
     (zpowers g).subgroupOf B = zpowers (⟨g, hg⟩ : B) := by

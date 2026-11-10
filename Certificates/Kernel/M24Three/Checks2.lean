@@ -69,12 +69,6 @@ theorem ch12613_lv : bAnd(allN 24 (lv0K 0 0), bAnd(allN 24 (lv1K 1 3 0), bAnd(al
 
 theorem ch12613_syl : allN S.cnt sylK = true := by quickRfl
 
-@[expose] noncomputable def witK (r h o : Nat) : Bool :=
-  strictB (pc (EL r) (pc (EL h) (pc (EL r) (EI h)))) fun z => ordIs 24 (pg 5 (mask 5) z) o
-
-theorem ch12613_wit : bAnd(witK 12 15 3, bAnd(witK 13 16 3, bAnd(witK 14 17 15,
-    bAnd(witK 18 21 3, bAnd(witK 19 22 3, witK 20 23 3))))) = true := by
-  quickRfl
 
 end CFSG.KD.M24Three
 

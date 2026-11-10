@@ -15,9 +15,6 @@ open CFSG.Open CFSG.PreuniquenessRankFour.Helpers
     (∀ k l : K, MulAut.conj k ∈ E → MulAut.conj l ∈ E → k * l = l * k) →
     Subgroup.closure {k : K | ∃ e ∈ E, e ≠ 1 ∧ e k * k⁻¹ ∈ Subgroup.center K} = ⊤
 
-theorem kGenTwoModAb_of_kGenTwoMod {p : ℕ} {K : Type} [Group K] (h : KGenTwoMod p K) :
-    KGenTwoModAb p K :=
-  fun E hE hEcard _ => h E hE hEcard
 
 namespace ReducedNongeneration
 

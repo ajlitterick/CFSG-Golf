@@ -176,12 +176,5 @@ theorem eq_Gmat_of_Cgen_le
   · rw [Set.mem_singleton_iff.1 hf]
     exact hC tauB_mem_Cgen
 
-theorem eq_Gmat_of_Cgen_le'
-    {K' : Subgroup (SpaceB ≃ₗ[ℚ] SpaceB)} (hK : K' ≤ Gmat) (hC : Cgen ≤ K')
-    (hmax : ∀ X : Subgroup OLq, Kstab (classOf (vMinus 0 1)) ≤ X →
-      X = Kstab (classOf (vMinus 0 1)) ∨ X = ⊤)
-    {g : SpaceB ≃ₗ[ℚ] SpaceB} (hgK : g ∈ K') (hgx : g * xmat = xmat * g)
-    (hg1 : g * tStar * g⁻¹ ≠ tStar) (hg2 : g * tStar * g⁻¹ ≠ tStar * xmat) : K' = Gmat :=
-  eq_Gmat_of_Cgen_le hK hC hmax hgK hgx hg1 fun h => hg2 (h.trans xmat_mul_tStar)
 
 end CFSG.YGroups.Y443

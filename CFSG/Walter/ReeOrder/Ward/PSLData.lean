@@ -117,18 +117,6 @@ theorem not_p_dvd_O : ¬ D.p ∣ Nat.card D.O := by
   have := D.p_prime.two_le
   omega
 
-theorem not_p_dvd_E : ¬ D.p ∣ Nat.card D.E := by
-  intro h
-  obtain ⟨a, ha⟩ := h
-  obtain ⟨b, hb⟩ := D.p_dvd
-  have ha' : (Nat.card D.E : ℤ) = D.p * a := by exact_mod_cast ha
-  have hb' : (q : ℤ) = D.p * b := by exact_mod_cast hb
-  have h1 := D.E_card
-  have hpe : (D.p : ℤ) ∣ e := ⟨b - 2 * a, by linear_combination h1 - 2 * ha' + hb'⟩
-  have hp1 : (D.p : ℤ) = 1 :=
-    Int.eq_one_of_dvd_one (by positivity) (hpe.trans ⟨e, D.e_sq.symm⟩)
-  have := D.p_prime.two_le
-  omega
 
 theorem coprime_O_E : (Nat.card D.O).Coprime (Nat.card D.E) := by
   have h1 := D.O_card
@@ -192,10 +180,6 @@ theorem orderOf_conj {x y : L} (h : IsConj y x) : orderOf y = orderOf x := by
   obtain ⟨c, hc⟩ := isConj_iff.mp h
   rw [← hc, ← MulAut.conj_apply, MulEquiv.orderOf_eq]
 
-omit [Fintype L] in
-theorem ne_one_of_conj {x y : L} (h : IsConj y x) (hx : x ≠ 1) : y ≠ 1 := by
-  rintro rfl
-  exact hx (isConj_one_right.mp h)
 
 theorem E_comm {x y : L} (hx : x ∈ D.E) (hy : y ∈ D.E) : x * y = y * x := by
   have := D.E_cyclic

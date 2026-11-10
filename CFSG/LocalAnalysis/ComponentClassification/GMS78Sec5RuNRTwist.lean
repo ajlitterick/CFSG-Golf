@@ -65,10 +65,6 @@ theorem fin256_xor_zero (a : Fin 256) : a ^^^ 0 = a := by
   rw [fin256_val_xor]
   exact Nat.xor_zero _
 
-theorem fin256_zero_xor (a : Fin 256) : 0 ^^^ a = a := by
-  apply Fin.ext
-  rw [fin256_val_xor]
-  exact Nat.zero_xor _
 
 theorem mul_A1 (x : RuR) (a : Fin 8) : x * ⟨0, a⟩ = ⟨x.m, x.t ^^^ a⟩ := by
   rw [RuR.mul_def]
@@ -116,15 +112,6 @@ theorem fin8_xor_xor_self (a b : Fin 8) : a ^^^ b ^^^ b = a := by
 theorem cAut_apply (lam : ℕ → Fin 8) (x : RuR) :
     cAut lam x = ⟨x.m, x.t ^^^ linExt lam x.m.val⟩ := rfl
 
-theorem cAut_mul_self (lam : ℕ → Fin 8) : cAut lam * cAut lam = 1 :=
-  MulEquiv.ext fun _ => RuR.ext rfl (fin8_xor_xor_self _ _)
-
-theorem cAut_m (lam : ℕ → Fin 8) (x : RuR) : (cAut lam x).m = x.m := rfl
-
-theorem cAut_A1 (lam : ℕ → Fin 8) (t : Fin 8) : cAut lam ⟨0, t⟩ = ⟨0, t⟩ := by
-  refine RuR.ext rfl ?_
-  change t ^^^ xs8 (nCo 0) lam = t
-  rw [nCo_zero, xs8_zero, fin8_xor_zero]
 
 @[expose] def shearX (F : Fin 256 → X8) (x : RuR) : RuR := shear (fun n => (F n).v) x
 
@@ -547,17 +534,6 @@ theorem mul_mul_inv_apply (hm : ∀ k : nK, ∀ x, (ψ k x).m = ((k : MulAut RuR
   rw [MulAut.mul_apply, MulAut.mul_apply, ← hw, psi_applyX hm hA k', psi_applyX hm hA k,
     apply_shearX, h3, h2, shearX_shearX, shearX_shearX, add_assoc]
 
-theorem twistX_mul (hmul : ∀ k k' : nK, ψ (k * k') = ψ k * ψ k')
-    (hm : ∀ k : nK, ∀ x, (ψ k x).m = ((k : MulAut RuR) x).m)
-    (hA : ∀ k : nK, ∀ t, ψ k ⟨0, t⟩ = (k : MulAut RuR) ⟨0, t⟩) (k k' : nK) :
-    twistX ψ (k * k') = twistX ψ k + actX k (twistX ψ k') := by
-  have h : twistX ψ (k * k') + actX k (twistX ψ k') + twistX ψ k = 0 := shearX_ext fun x => by
-    rw [← mul_mul_inv_apply hm hA k k' x, hmul, mul_inv_cancel, MulAut.one_apply, shearX_zero]
-  calc twistX ψ (k * k') = twistX ψ (k * k') + (actX k (twistX ψ k') + twistX ψ k) +
-        (actX k (twistX ψ k') + twistX ψ k) := by rw [add_assoc, fadd_self, add_zero]
-    _ = twistX ψ k + actX k (twistX ψ k') := by
-      rw [← add_assoc (twistX ψ (k * k')) (actX k (twistX ψ k')) (twistX ψ k), h, zero_add,
-        add_comm]
 
 theorem twistX_eq_zero {p : nK} (hp : ψ p = p) : twistX ψ p = 0 := by
   funext n
@@ -605,28 +581,6 @@ theorem transfer_mem [Fintype (nK ⧸ nD)] (I : AddSubgroup (Fin 256 → X8))
   rw [e]
   exact AddSubgroup.sum_mem I fun q _ => add_mem (hT q) (hU q)
 
-theorem twist_eq_zero
-    (hD : ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) → ψ k = k)
-    {p : nK} (hp : p ∈ nD) (n : Fin 256) : twist ψ p n = 0 := by
-  obtain ⟨j, hj⟩ := hp
-  have h : twAut ψ p = 1 := by rw [twAut, hD p j hj, mul_inv_cancel]
-  rw [twist, shearOf, h, MulAut.one_apply]
-
-theorem twist_eq_coboundary [Fintype (nK ⧸ nD)] (hmul : ∀ k k' : nK, ψ (k * k') = ψ k * ψ k')
-    (hm : ∀ k : nK, ∀ x, (ψ k x).m = ((k : MulAut RuR) x).m)
-    (hA : ∀ k : nK, ∀ t, ψ k ⟨0, t⟩ = (k : MulAut RuR) ⟨0, t⟩)
-    (hD : ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) → ψ k = k)
-    (g : nK) : twistX ψ g = transferΛ ψ + actX g (transferΛ ψ) := by
-  have h := transfer_mem ⊥ (fun k k' => by
-      rw [twistX_mul hmul hm hA, AddSubgroup.mem_bot,
-        show twistX ψ k + actX k (twistX ψ k') + twistX ψ k + actX k (twistX ψ k') =
-          twistX ψ k + twistX ψ k + (actX k (twistX ψ k') + actX k (twistX ψ k')) by abel,
-        fadd_self, fadd_self, add_zero])
-    (fun p hp => funext fun n => X8.ext (twist_eq_zero hD hp n)) g
-  rw [AddSubgroup.mem_bot] at h
-  calc twistX ψ g = twistX ψ g + (transferΛ ψ + actX g (transferΛ ψ)) +
-        (transferΛ ψ + actX g (transferΛ ψ)) := by rw [add_assoc, fadd_self, add_zero]
-    _ = transferΛ ψ + actX g (transferΛ ψ) := by rw [← add_assoc (twistX ψ g), h, zero_add]
 
 theorem transferΛ_xor [Fintype (nK ⧸ nD)]
     (hm : ∀ k : nK, ∀ x, (ψ k x).m = ((k : MulAut RuR) x).m)
@@ -658,18 +612,6 @@ theorem exists_lam_of_add (Λ : Fin 256 → X8) (hadd : ∀ n n', Λ (n ^^^ n') 
       simp only [lam, hj, ↓reduceDIte]
   exact ⟨lam, fun y => RuR.ext rfl (by rw [cAut_apply, hlin y.m.val y.m.isLt]; rfl)⟩
 
-theorem exists_cAut_conj (ψ : nK →* MulAut RuR)
-    (hm : ∀ k : nK, ∀ x, (ψ k x).m = ((k : MulAut RuR) x).m)
-    (hA : ∀ k : nK, ∀ t, ψ k ⟨0, t⟩ = (k : MulAut RuR) ⟨0, t⟩)
-    (hD : ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) → ψ k = k) :
-    ∃ lam : ℕ → Fin 8, ∀ k : nK, ψ k = cAut lam * (k : MulAut RuR) * cAut lam := by
-  classical
-  have : Finite nK := Nat.finite_of_card_ne_zero (by rw [card_nK]; norm_num)
-  have : Fintype (nK ⧸ nD) := Fintype.ofFinite _
-  obtain ⟨lam, hcA⟩ := exists_lam_of_add (transferΛ ψ) (transferΛ_xor hm hA)
-  refine ⟨lam, fun g => MulEquiv.ext fun x => ?_⟩
-  rw [MulAut.mul_apply, MulAut.mul_apply, hcA x, apply_shearX, hcA, shearX_shearX,
-    psi_applyX hm hA g x, twist_eq_coboundary (map_mul ψ) hm hA hD g, add_comm]
 
 theorem exists_lift (M : Subgroup (MulAut RuR))
     (hD : ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) →
@@ -749,20 +691,6 @@ theorem exists_cAut_conj_mem (M : Subgroup (MulAut RuR))
         Λ + actX k Λ + (innerS ι + actX k (innerS ι)) by abel, h1, fadd_self]
     rw [hconj, h2, shearX_zero]
 
-theorem exists_conj_mem (M : Subgroup (MulAut RuR))
-    (hInn : ∀ y : RuR, MulAut.conj y ∈ M)
-    (hD : ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) →
-      (k : MulAut RuR) ∈ M)
-    (hall : ∀ r ∈ glList, ∃ f ∈ M, (∀ x, (f x).m = (nAut r x).m) ∧
-      ∀ t, f ⟨0, t⟩ = ⟨0, linApply r t⟩)
-    (hker : ∀ f ∈ M, (∀ x, (f x).m = x.m) → (∀ t, f ⟨0, t⟩ = ⟨0, t⟩) →
-      ∃ y, f = MulAut.conj y) :
-    ∃ c : MulAut RuR, c * c = 1 ∧ (∀ x, (c x).m = x.m) ∧ (∀ t, c ⟨0, t⟩ = ⟨0, t⟩) ∧
-      (∀ k : nK, c * (k : MulAut RuR) * c ∈ M) ∧
-      ∀ k : nK, ∀ j : Fin 8, (∀ x, (k : MulAut RuR) x = nAut (dCode j) x) →
-        c * (k : MulAut RuR) * c = k := by
-  obtain ⟨lam, h1, h2⟩ := exists_cAut_conj_mem M hInn hD hall hker
-  exact ⟨cAut lam, cAut_mul_self lam, cAut_m lam, cAut_A1 lam, h1, h2⟩
 
 end Cert
 

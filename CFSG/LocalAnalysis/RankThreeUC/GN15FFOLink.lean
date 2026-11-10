@@ -13,14 +13,6 @@ open scoped commutatorElement
 
 namespace FFO
 
-@[expose] def LinkPSL : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), CFSG.Open.IsComponentOf L ⊤ →
-    ∀ a y : G, a ∈ Subgroup.normalizer (L : Set G) → y ∈ Subgroup.normalizer (L : Set G) →
-      a * y * a⁻¹ = y⁻¹ → ∀ r e : ℕ, r.Prime → r ≠ 2 → orderOf y = r ^ e →
-      y ^ r ∈ L ⊔ Subgroup.centralizer (L : Set G) → y ∉ L ⊔ Subgroup.centralizer (L : Set G) →
-      FamPSL (↥L ⧸ Subgroup.center ↥L) r → r ∣ Nat.card (Subgroup.center ↥L) →
-      ∃ z ∈ L, z ≠ 1 ∧ orderOf z = r ∧ (∀ l ∈ L, l * z = z * l) ∧ a * z * a⁻¹ = z⁻¹ ∧
-        Subgroup.normalizer (L : Set G) ≤ Subgroup.normalizer (Subgroup.zpowers z : Set G)
 
 @[expose] def LinkPSU : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), CFSG.Open.IsComponentOf L ⊤ →

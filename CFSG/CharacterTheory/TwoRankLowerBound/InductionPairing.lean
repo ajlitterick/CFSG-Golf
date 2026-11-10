@@ -112,29 +112,6 @@ theorem inducedFunction_eq_on_trivial_intersection_support {G : Type*}
       ← Nat.card_eq_fintype_card] using hconditional
   rw [hsum, ← mul_assoc, inv_mul_cancel₀ (Nat.cast_ne_zero.mpr Nat.card_pos.ne'), one_mul]
 
-theorem characterPairing_inducedFunction_norm_of_trivial_intersection {G : Type*}
-    [Group G] [Fintype G] (subgroup : Subgroup G) (support : Set G)
-    (function : subgroup → ℂ)
-    (hinvariant : ∀ element conjugator : subgroup,
-      function (conjugator * element * conjugator⁻¹) = function element)
-    (hsupport : ∀ element : subgroup, (element : G) ∉ support → function element = 0)
-    (hinversion : ∀ element ∈ support, element⁻¹ ∈ support)
-    (hintersection : ∀ element ∈ support, ∀ conjugator : G, conjugator ∉ subgroup →
-      conjugator⁻¹ * element * conjugator ∉ support) :
-    characterPairing (inducedFunction subgroup function) (inducedFunction subgroup function) =
-      characterPairing function function := by
-  rw [characterPairing_inducedFunction_left subgroup function _
-    (inducedFunction_conjugate subgroup function)]
-  unfold characterPairing
-  congr 1
-  apply Finset.sum_congr rfl
-  intro element _
-  change function element * inducedFunction subgroup function (element⁻¹ : subgroup) =
-    function element * function element⁻¹
-  by_cases hmember : (element : G) ∈ support
-  · rw [inducedFunction_eq_on_trivial_intersection_support subgroup support function
-      hinvariant hsupport hintersection element⁻¹ (hinversion element hmember)]
-  · rw [hsupport element hmember, zero_mul, zero_mul]
 
 theorem characterPairing_inducedFunction_principal {G : Type*} [Group G] [Fintype G]
     (subgroup : Subgroup G) (function : subgroup → ℂ) :
@@ -154,39 +131,5 @@ theorem inducedFunction_eq_zero_of_support_avoids_conjugates {G : Type*}
   · exact hsupport ⟨_, hmember⟩ (havoid conjugator)
   · rfl
 
-theorem rank_one_root_local_virtual_character_contradicts_simple {G : Type*}
-    [Group G] [Fintype G] [IsSimpleGroup G]
-    (hrank : CFSG.Open.twoRank G ≤ 1)
-    (involution : G) (horder : orderOf involution = 2)
-    (subgroup : Subgroup G) (support : Set G) (function : subgroup → ℂ)
-    (hvirtual : function ∈ virtualCharacters subgroup)
-    (hinvariant : ∀ element conjugator : subgroup,
-      function (conjugator * element * conjugator⁻¹) = function element)
-    (hsupport : ∀ element : subgroup, (element : G) ∉ support → function element = 0)
-    (hinversion : ∀ element ∈ support, element⁻¹ ∈ support)
-    (hintersection : ∀ element ∈ support, ∀ conjugator : G, conjugator ∉ subgroup →
-      conjugator⁻¹ * element * conjugator ∉ support)
-    (hroots : support ⊆ cyclicRootSet involution)
-    (hprincipal : characterPairing function 1 = 1)
-    (hnorm : characterPairing function function = 3)
-    (hinvolution : ∀ conjugator : G, conjugator⁻¹ * involution * conjugator ∉ support) :
-    False := by
-  apply virtual_character_norm_three_involution_product_contradicts_simple involution horder
-    (inducedFunction subgroup function) (inducedFunction_mem_virtualCharacters subgroup hvirtual)
-  · rw [characterPairing_inducedFunction_principal]
-    exact hprincipal
-  · rw [characterPairing_inducedFunction_norm_of_trivial_intersection subgroup support function
-      hinvariant hsupport hinversion hintersection]
-    exact hnorm
-  · apply inducedFunction_eq_zero_of_support_avoids_conjugates subgroup support function hsupport
-    intro conjugator
-    simp only [mul_one, inv_mul_cancel]
-    exact fun hmember => one_not_mem_cyclicRootSet involution
-      (orderOf_eq_prime_iff.mp horder).2 (hroots hmember)
-  · exact inducedFunction_eq_zero_of_support_avoids_conjugates subgroup support function hsupport
-      involution hinvolution
-  · exact induced_involution_root_supported_function_vanishes involution horder
-      (centralizer_unique_involution_of_twoRank_le_one hrank involution horder) subgroup function
-      (fun element hnot => hsupport element (fun hmember => hnot (hroots hmember)))
 
 end CFSG.TwoRankLowerBound.Helpers

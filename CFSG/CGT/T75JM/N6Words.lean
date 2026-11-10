@@ -56,8 +56,6 @@ theorem evalG_append (g h : H) (w w' : List ℕ) :
   | nil => simp [evalG]
   | cons l w ih => simp [evalG, ih, mul_assoc]
 
-theorem evalG_singleton (g h : H) (l : ℕ) : evalG g h [l] = if l = 0 then g else h := by
-  simp [evalG]
 
 theorem evalG_flatten_replicate (g h : H) (u : List ℕ) (n : ℕ) :
     evalG g h (List.replicate n u).flatten = (evalG g h u) ^ n := by

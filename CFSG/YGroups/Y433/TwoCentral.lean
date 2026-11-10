@@ -169,9 +169,6 @@ theorem F433_213_not_mem_commutator : F433 2 1 3 ∉ commutator U433 := by
   rw [U433.commutator_eq_ker_sgn, MonoidHom.mem_ker, U433.sgn_F433] at h
   exact absurd h (by decide)
 
-theorem zpowers_F433_213_le_center :
-    Subgroup.zpowers (F433 2 1 3) ≤ Subgroup.center U433 :=
-  Subgroup.zpowers_le.2 F433_213_mem_center
 
 theorem disjoint_commutator_zpowers_F433_213 :
     Disjoint (commutator U433) (Subgroup.zpowers (F433 2 1 3)) := by
@@ -199,52 +196,6 @@ theorem commutator_sup_zpowers_F433_213 :
     rw [h2]
     exact Subgroup.mul_mem_sup huF (Subgroup.mem_zpowers _)
 
-theorem commute_commutator_zpowers
-    (m : commutator U433)
-    (n : Subgroup.zpowers (F433 2 1 3)) :
-    Commute ((commutator U433).subtype m) ((Subgroup.zpowers (F433 2 1 3)).subtype n) :=
-  Subgroup.mem_center_iff.1 (zpowers_F433_213_le_center n.2) m
-
-@[expose] noncomputable def derivedProdHom :
-    (commutator U433) × (Subgroup.zpowers (F433 2 1 3)) →* U433 :=
-  MonoidHom.noncommCoprod (commutator U433).subtype (Subgroup.zpowers (F433 2 1 3)).subtype
-    commute_commutator_zpowers
-
-theorem derivedProdHom_apply
-    (a : commutator U433) (z : Subgroup.zpowers (F433 2 1 3)) :
-    derivedProdHom (a, z) = (a : U433) * (z : U433) :=
-  MonoidHom.noncommCoprod_apply _ _ _ _
-
-theorem derivedProdHom_injective :
-    Function.Injective derivedProdHom := by
-  rw [injective_iff_map_eq_one]
-  rintro ⟨a, z⟩ h
-  rw [derivedProdHom_apply] at h
-  have haz : (a : U433) = (z : U433)⁻¹ := eq_inv_of_mul_eq_one_left h
-  have h1 : (a : U433) ∈ Subgroup.zpowers (F433 2 1 3) := by
-    rw [haz]
-    exact inv_mem z.2
-  have ha : (a : U433) = 1 :=
-    Subgroup.disjoint_def.1 disjoint_commutator_zpowers_F433_213 a.2 h1
-  have hz : (z : U433) = 1 := by
-    rw [ha, one_mul] at h
-    exact h
-  exact Prod.ext (Subtype.ext ha) (Subtype.ext hz)
-
-theorem derivedProdHom_surjective :
-    Function.Surjective derivedProdHom := fun u => by
-  obtain ⟨y, hy, z, hz, rfl⟩ := Subgroup.mem_sup_of_normal_left.1
-    (commutator_sup_zpowers_F433_213 ▸ Subgroup.mem_top u)
-  exact ⟨(⟨y, hy⟩, ⟨z, hz⟩), derivedProdHom_apply _ _⟩
-
-@[expose] noncomputable def derivedProdEquiv :
-    (commutator U433) × (Subgroup.zpowers (F433 2 1 3)) ≃* U433 :=
-  MulEquiv.ofBijective derivedProdHom ⟨derivedProdHom_injective, derivedProdHom_surjective⟩
-
-theorem derivedProdEquiv_apply
-    (a : commutator U433) (z : Subgroup.zpowers (F433 2 1 3)) :
-    derivedProdEquiv (a, z) = (a : U433) * (z : U433) :=
-  derivedProdHom_apply a z
 
 theorem ker_π_eq_zpowers :
     R433.π.ker = Subgroup.zpowers (F433 2 1 3) := by
@@ -281,8 +232,6 @@ theorem derivedHom_surjective :
     commutator U433 ≃* R433 :=
   MulEquiv.ofBijective derivedHom ⟨derivedHom_injective, derivedHom_surjective⟩
 
-theorem derivedEquiv_apply
-    (a : commutator U433) : derivedEquiv a = π (a : U433) := rfl
 
 theorem map_commutator_π :
     (commutator U433).map π = ⊤ := by
@@ -314,9 +263,6 @@ theorem c312_mul_self :
 theorem c312_pow_two :
     c312 ^ 2 = 1 := by rw [pow_two, c312_mul_self]
 
-theorem c312_ne_one_iff :
-    c312 ≠ 1 ↔ F433 3 1 2 ∉ Subgroup.zpowers (F433 2 1 3) := by
-  rw [Ne, c312, ← MonoidHom.mem_ker, ker_π_eq_zpowers]
 
 end R433
 
@@ -366,10 +312,6 @@ theorem ker_toB433 :
   rw [toB433, QuotientGroup.ker_map, Subgroup.comap_id]
   exact map_normalClosure_pair
 
-theorem toB433_exact :
-    Subgroup.zpowers c312 ≤ Subgroup.center R433 ∧ Function.Surjective toB433 ∧
-      toB433.ker = Subgroup.zpowers c312 :=
-  ⟨Subgroup.zpowers_le.2 c312_mem_center, toB433_surjective, ker_toB433⟩
 
 end R433
 
@@ -413,9 +355,6 @@ theorem finite_iff :
     rw [card_eq_mul]
     exact (Nat.mul_pos card_zpowers_c312_pos hB).ne')
 
-theorem card_eq_two_mul
-    (hc : c312 ≠ 1) : Nat.card R433 = 2 * Nat.card B433 := by
-  rw [card_eq_mul, card_zpowers_c312_eq_two hc]
 
 end R433
 
@@ -428,15 +367,6 @@ theorem Q343_bound_of_B433_le
   rw [Nat.card_congr Q343EquivR433.toEquiv, R433.card_eq_mul]
   exact Nat.mul_le_mul R433.card_zpowers_c312_le hle
 
-theorem B433_bound_of_Q343_le
-    {M : ℕ} (hc : R433.c312 ≠ 1)
-    (h : Finite Q343 ∧ Nat.card Q343 ≤ 2 * M) : Finite B433 ∧ Nat.card B433 ≤ M := by
-  obtain ⟨hfin, hle⟩ := h
-  have hRfin : Finite R433 := Finite.of_equiv _ Q343EquivR433.toEquiv
-  refine ⟨R433.finite_iff.1 hRfin, ?_⟩
-  have h1 := R433.card_eq_two_mul hc
-  have h2 : Nat.card R433 = Nat.card Q343 := (Nat.card_congr Q343EquivR433.toEquiv).symm
-  omega
 
 theorem Q343_bound_of_B433
     (h : Finite B433 ∧ Nat.card B433 ≤ Q343N / 2) :
@@ -444,20 +374,6 @@ theorem Q343_bound_of_B433
   have := Q343_bound_of_B433_le h
   rwa [Nat.mul_div_cancel' Q343N_even] at this
 
-theorem B433_bound_of_Q343
-    (hc : R433.c312 ≠ 1) (h : Finite Q343 ∧ Nat.card Q343 ≤ Q343N) :
-    Finite B433 ∧ Nat.card B433 ≤ Q343N / 2 := by
-  refine B433_bound_of_Q343_le hc ?_
-  rwa [Nat.mul_div_cancel' Q343N_even]
-
-theorem Q343_bound_iff_B433
-    (hc : R433.c312 ≠ 1) :
-    (Finite Q343 ∧ Nat.card Q343 ≤ Q343N) ↔ (Finite B433 ∧ Nat.card B433 ≤ Q343N / 2) :=
-  ⟨B433_bound_of_Q343 hc, Q343_bound_of_B433⟩
-
-theorem Q343_card_eq_two_mul_B433
-    (hc : R433.c312 ≠ 1) : Nat.card Q343 = 2 * Nat.card B433 :=
-  (Nat.card_congr Q343EquivR433.toEquiv).trans (R433.card_eq_two_mul hc)
 
 namespace R433
 
@@ -500,16 +416,5 @@ theorem card_pair :
   congr 1
   exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe zpowers_F433_213_le_pair).toEquiv
 
-theorem card_pair_eq_four
-    (hc : R433.c312 ≠ 1) :
-    Nat.card (Subgroup.closure ({F433 2 1 3, F433 3 1 2} : Set U433)) = 4 := by
-  rw [card_pair, Nat.card_zpowers, orderOf_F433_213, R433.card_zpowers_c312_eq_two hc]
-
-theorem card_pair_eq_four_iff :
-    Nat.card (Subgroup.closure ({F433 2 1 3, F433 3 1 2} : Set U433)) = 4 ↔ R433.c312 ≠ 1 := by
-  refine ⟨fun h hc1 => ?_, card_pair_eq_four⟩
-  rw [card_pair, Nat.card_zpowers, orderOf_F433_213, hc1, Subgroup.zpowers_one_eq_bot,
-    Subgroup.card_bot] at h
-  omega
 
 end CFSG.YGroups

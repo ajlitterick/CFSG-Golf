@@ -104,11 +104,6 @@ theorem quotient_pCore (h : IsGoldschmidtTriple G₁ G₂) :
       _ ≤ (pCore 2 D).map φ := Subgroup.map_mono hle
       _ = ⊥ := QuotientGroup.map_mk'_self _
 
-theorem card_inf_map_le_of_goldschmidtEdgeBound (hb : GoldschmidtEdgeBoundSubgroups.{u})
-    {D : Type u} [Group D] [Finite D] {G₁ G₂ : Subgroup D} (h : IsGoldschmidtTriple G₁ G₂) :
-    Nat.card ↥((G₁ ⊓ G₂).map (QuotientGroup.mk' (pCore 2 D))) ≤ 2 ^ 7 := by
-  have := card_inf_le_of_goldschmidtEdgeBound hb h.quotient_pCore
-  rwa [← h.map_inf_of_pCore_le] at this
 
 end IsGoldschmidtTriple
 

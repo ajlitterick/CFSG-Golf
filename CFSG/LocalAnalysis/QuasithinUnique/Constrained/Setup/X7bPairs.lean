@@ -305,11 +305,6 @@ theorem rk_witZ : rk0 (witZ F) = 2 ∧ rk1 (witZ F) = 2 := by
   rw [rk1, minorHom_witZ]
   exact rank_witZ_sub_one
 
-omit [Fintype F] in
-theorem witZ_mul_self : witZ F * witZ F = 1 := by
-  have h := uElt_mul_self (K := F) 0 1 1 0
-  rw [witZ]
-  simpa [uElt_zero_eq_one] using h
 
 theorem elementary_le_conj_antiUnipotent (E : Subgroup (antiSp F)) (hE : ∀ x ∈ E, x * x = 1) :
     ∃ g : antiSp F, ∀ x ∈ E, g⁻¹ * x * g ∈ antiUnipotent F := by

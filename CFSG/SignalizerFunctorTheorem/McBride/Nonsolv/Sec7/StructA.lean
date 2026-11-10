@@ -100,50 +100,6 @@ theorem isRegFam_plane_of_typeA
   have h1 := h.isRegFam_lcal hB.1 (h.ne_bot_of_mem_E2 hB) (kOf_plane_of_typeA h hA hB)
   rwa [bN_plane_of_typeA h hA hB] at h1
 
-theorem card_lcal_plane_of_typeA
-    (h : Counterexample p A θ) (hA : TypeA p A θ) {B : Subgroup G}
-    (hB : B ∈ signalizerFunctorEk p 2 A) : Nat.card (lcal (thetaOf θ B)) = p := by
-  have h1 := (isRegFam_plane_of_typeA h hA hB).card_mul_card
-  rw [hB.2, h.card] at h1
-  exact Nat.eq_of_mul_eq_mul_right (pow_pos h.prime.pos 2) (h1.trans (by ring))
-
-theorem nonempty_mulEquiv_plane_of_typeA
-    (h : Counterexample p A θ) (hA : TypeA p A θ)
-    {B : Subgroup G} (hB : B ∈ signalizerFunctorEk p 2 A) {L : Subgroup G}
-    (hL : L ∈ lcal (thetaOf θ B)) : Nonempty (↥L ≃* ↥(thetaOf θ A)) :=
-  h.nonempty_mulEquiv_of_isRegFam hB.1 (h.ne_bot_of_mem_E2 hB) (isRegFam_plane_of_typeA h hA hB)
-    hL (h.le_centralizer_of_mem_lcal hB.1 hL)
-
-theorem ind_eq_lcal_plane_of_typeA
-    (h : Counterexample p A θ) (hA : TypeA p A θ) {B : Subgroup G}
-    (hB : B ∈ signalizerFunctorEk p 2 A) : Ind (thetaOf θ B) = lcal (thetaOf θ B) := by
-  have hΩ := isRegFam_plane_of_typeA h hA hB
-  exact IsDirectProduct.ind_eq hΩ.isDirectProduct (h.sol_thetaOf hB.1 (h.ne_bot_of_mem_E2 hB))
-    hΩ.ne_bot fun L hL => card_lcal_eq_one_of_isFStarSimple (isFStarSimple_of_mem_lcal hL)
-
-theorem lcal_plane_eq_smear_of_typeA
-    (h : Counterexample p A θ) (hA : TypeA p A θ) {a b : G}
-    (ha : a ∈ A) (hb : b ∈ A) (ha1 : a ≠ 1) (hab : b ∉ Subgroup.zpowers a) :
-    lcal (thetaOf θ (Subgroup.zpowers a ⊔ Subgroup.zpowers b)) =
-      {Y | ∃ L ∈ lcal (thetaOf θ (Subgroup.zpowers a)), Y = smear L (Subgroup.zpowers b)} := by
-  have hb1 : b ≠ 1 := fun h1 => hab (h1 ▸ one_mem _)
-  have hFa := h.zpowers_mem_E1 ha ha1
-  have hFb := h.zpowers_mem_E1 hb hb1
-  have hne : Subgroup.zpowers a ≠ Subgroup.zpowers b := fun heq =>
-    hab (heq ▸ Subgroup.mem_zpowers b)
-  have hP := h.sup_mem_E2_of_ne hFa hFb hne
-  have hFN : Subgroup.zpowers b ⊓ Subgroup.zpowers a = ⊥ := by
-    rw [inf_comm]
-    exact h.inf_eq_bot_of_ne_E1 hFa hFb hne
-  have hΩ := isRegFam_line_of_typeA h hA hFa
-  have hsm := hΩ.smear_family h.elemAbelian.1 hFb.1 hFN
-  rw [h.thetaOf_line_inf_centralizer hFa hFb.1] at hsm
-  rw [← ind_eq_lcal_plane_of_typeA h hA hP]
-  refine IsDirectProduct.ind_eq hsm.isDirectProduct
-    (h.sol_thetaOf hP.1 (h.ne_bot_of_mem_E2 hP)) hsm.ne_bot ?_
-  rintro _ ⟨L, hL, rfl⟩
-  obtain ⟨e⟩ := hΩ.nonempty_mulEquiv_smear hFb.1 hFN hL
-  exact card_lcal_eq_one_of_mulEquiv e (isFStarSimple_of_mem_lcal hL)
 
 end Counterexample
 

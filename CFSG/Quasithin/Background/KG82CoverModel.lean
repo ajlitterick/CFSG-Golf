@@ -92,9 +92,6 @@ theorem wordPerm_prodW_mem (ws : List (List ℕ)) {is : List ℕ} (his : ∀ i �
     rw [List.getD_eq_getElem _ _ (his i List.mem_cons_self)]
     exact List.getElem_mem _
 
-theorem wordPerm_mem_closure {ws : List (List ℕ)} {w : List ℕ} (hw : w ∈ ws) :
-    wordPerm w ∈ Subgroup.closure (wordSet ws) :=
-  Subgroup.subset_closure ⟨w, hw, rfl⟩
 
 @[expose] def LRep (l : List ℕ) (g : Equiv.Perm (Fin 42)) : Prop :=
   l.length = 42 ∧ ∀ i : Fin 42, l.getD i 0 = (g i : ℕ)
@@ -404,7 +401,6 @@ theorem exists_of_cover {H : Subgroup (Equiv.Perm (Fin 42))} {r : Fin 42}
   · obtain ⟨h, hh, hhe⟩ := hl e he
     exact ⟨h, hh, Fin.ext (hhe.trans hey)⟩
 
-theorem smul_eq_apply (x : ↥S) (i : Fin 42) : x • i = (x : Equiv.Perm (Fin 42)) i := rfl
 
 theorem mem_stabilizer_iff' {x : ↥S} {i : Fin 42} :
     x ∈ stabilizer ↥S i ↔ (x : Equiv.Perm (Fin 42)) i = i := Iff.rfl

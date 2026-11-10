@@ -81,12 +81,7 @@ theorem card_Tc : Nat.card Tc = 32 := by
 @[expose] def tP : Tc := ⟨2, 0, 0⟩
 @[expose] def tT0 : Tc := ⟨0, 1, 1⟩
 
-theorem tA_pow_four : tA ^ 4 = 1 := by decide +kernel
-theorem tB_pow_four : tB ^ 4 = 1 := by decide +kernel
-theorem tS_sq : tS ^ 2 = 1 := by decide +kernel
-theorem tA_mul_tB : tA * tB = tB * tA := by decide +kernel
 theorem tS_tA_tS : tS * tA * tS = tB := by decide +kernel
-theorem tS_tB_tS : tS * tB * tS = tA := by decide +kernel
 theorem tA_ne_tB : tA ≠ tB := by decide +kernel
 theorem tP_ne_tS : tP ≠ tS := by decide +kernel
 theorem tC_eq : tC = tA * tB := by decide +kernel
@@ -116,9 +111,6 @@ theorem base_or : ∀ w : Tc, w ∈ baseSub ∨ w * tS⁻¹ ∈ baseSub := by
   have h : ∀ w : Tc, w.e = 0 ∨ (w * tS⁻¹).e = 0 := by decide +kernel
   exact h
 
-theorem base_normal : ∀ g w : Tc, w ∈ baseSub → g * w * g⁻¹ ∈ baseSub := by
-  have h : ∀ g w : Tc, w.e = 0 → (g * w * g⁻¹).e = 0 := by decide +kernel
-  exact h
 
 def m2Sub : Subgroup Tc where
   carrier := {w | (w.i.val + w.j.val) % 2 = 0}
@@ -144,14 +136,10 @@ theorem m2_normal : ∀ g w : Tc, w ∈ m2Sub → g * w * g⁻¹ ∈ m2Sub := by
 theorem tC_mem : tC ∈ m2Sub := by decide +kernel
 theorem tP_mem : tP ∈ m2Sub := by decide +kernel
 theorem tS_mem : tS ∈ m2Sub := by decide +kernel
-theorem tT0_not_mem : tT0 ∉ m2Sub := by decide +kernel
 
 theorem m2_center : ∀ w : Tc, w ∈ m2Sub → (∀ v : Tc, v ∈ m2Sub → w * v = v * w) →
     ∃ k : Fin 4, w = tC ^ k.val := by decide +kernel
 
-theorem order_eight_of_not : ∀ w : Tc, w ∉ baseSub → w ∉ m2Sub → w ^ 4 ≠ 1 := by decide +kernel
-
-theorem m2_pow_four : ∀ w : Tc, w ∈ m2Sub → w ^ 4 = 1 := by decide +kernel
 
 theorem m2_squares : ∀ w : Tc, w ∈ m2Sub →
     ∃ x₁ x₂ : Tc, w = x₁ ^ 2 * x₂ ^ 2 ∨ w = x₁ ^ 2 * x₂ ^ 2 * tS := by decide +kernel
@@ -274,9 +262,6 @@ theorem classify_B_aux : ∀ u₁ u₂ u₃ : Tc, u₁ ∈ m2Sub → u₂ ∈ m2
     Rels (u₁, u₂, u₃) → (u₁, u₂, u₃) ≠ (tC, tP, tS) → Cube (u₁, u₂, u₃) →
     ∃ t : Tc, ConjTrip t (u₁, u₂, u₃) = alpha0 := by decide +kernel
 
-theorem alpha0_rels : Rels alpha0 := by decide +kernel
-
-theorem alpha0_cube : Cube alpha0 := by decide +kernel
 
 theorem alpha0_inverted : ∀ w : Tc, w ∈ m2Sub →
     Fu alpha0 (tT0 * Fu alpha0 (tT0⁻¹ * w * tT0) * tT0⁻¹) = w := by decide +kernel
@@ -291,7 +276,6 @@ theorem tC_pow_four : tC ^ 4 = 1 := by decide +kernel
 
 theorem Fu_alpha0_mem : ∀ w : Tc, w ∈ m2Sub → Fu alpha0 w ∈ m2Sub := by decide +kernel
 
-theorem alpha0_fix : Fu alpha0 tC = tC := by decide +kernel
 
 structure HomOn (f : Tc → Tc) : Prop where
   one : f 1 = 1
@@ -415,7 +399,6 @@ theorem tc_closure : Subgroup.closure ({tA, tB, tS} : Set Tc) = ⊤ := by
 
 theorem sigma_mul : ∀ x y : Tc, sigma (x * y) = sigma x * sigma y := by decide +kernel
 
-theorem sigma_sigma : ∀ w : Tc, sigma (sigma w) = w := by decide +kernel
 
 theorem sigma_m2 : ∀ w : Tc, w ∈ m2Sub → sigma w ∈ m2Sub := by decide +kernel
 

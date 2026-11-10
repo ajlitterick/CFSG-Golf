@@ -29,37 +29,6 @@ theorem one_le_pRank_three_of_dvd {K : Type*} [Group K] [Finite K] {T : Subgroup
   exact CFSG.SectionRank.le_pRank Nat.prime_three.one_lt (Subgroup.zpowers_le.2 x.2) hel
     (by rw [Nat.card_zpowers, hxo, pow_one])
 
-theorem barM_inf_centralizer_eq_bot_of_alt {M L : Subgroup G} {N : ℕ} (hN : 5 ≤ N)
-    (e : ↥(barM M L) ≃* alternatingGroup (Fin N)) :
-    barM M L ⊓ Subgroup.centralizer (barM M L : Set (↥M ⧸ CFSG.pCore 2 ↥M)) = ⊥ := by
-  have : Nontrivial (Fin N) := Fin.nontrivial_iff_two_le.mpr (by omega)
-  have hperf : Group.IsPerfect (alternatingGroup (Fin N)) :=
-    ⟨commutator_alternatingGroup_eq_top (by simpa using hN)⟩
-  have hsimple : IsSimpleGroup (alternatingGroup (Fin N)) :=
-    alternatingGroup.isSimpleGroup (by simpa using hN)
-  have hnt : Nontrivial (alternatingGroup (Fin N)) := hsimple.toNontrivial
-  rw [eq_bot_iff]
-  intro z hz
-  rw [Subgroup.mem_bot]
-  have hzc : (⟨z, hz.1⟩ : ↥(barM M L)) ∈ Subgroup.center ↥(barM M L) := by
-    rw [Subgroup.mem_center_iff]
-    intro g
-    exact Subtype.ext ((Subgroup.mem_centralizer_iff.mp hz.2) (g : _) g.2)
-  have hz1 : e ⟨z, hz.1⟩ ∈ Subgroup.center (alternatingGroup (Fin N)) := by
-    rw [Subgroup.mem_center_iff] at hzc ⊢
-    intro g
-    have := hzc (e.symm g)
-    simpa using congrArg e this
-  have hcen : Subgroup.center (alternatingGroup (Fin N)) = ⊥ := by
-    rcases (Subgroup.center (alternatingGroup (Fin N))).normal_of_characteristic.eq_bot_or_eq_top
-      with h | h
-    · exact h
-    · exfalso
-      have hc : IsMulCommutative (alternatingGroup (Fin N)) := Subgroup.center_eq_top_iff.mp h
-      exact Group.IsPerfect.not_isMulCommutative (G := alternatingGroup (Fin N)) hc
-  rw [hcen, Subgroup.mem_bot] at hz1
-  have : (⟨z, hz.1⟩ : ↥(barM M L)) = 1 := e.injective (by rw [hz1, map_one])
-  exact congrArg Subtype.val this
 
 section Cover
 
@@ -134,25 +103,6 @@ theorem pRank_le_pRank_inf_centralizer_add_of_cover {X : Type*} [Group X] [Finit
 
 end Cover
 
-omit [Finite G] in
-theorem pRank_barM_le_of_alt [Finite G] {M L : Subgroup G} {N : ℕ}
-    (e : ↥(barM M L) ≃* alternatingGroup (Fin N)) : Open.pRank 3 (barM M L) ≤ N / 3 := by
-  rw [CFSG.SectionRank.pRank_eq_pRank_top_subgroup (barM M L),
-    CFSG.SectionRank.pRank_top_eq_of_mulEquiv Nat.prime_three.one_lt e]
-  exact pRank_three_alternating_le
-
-theorem rank_clause_nineThreeFive {M S L : Subgroup G} (hL : IsWeakSBlock M S L)
-    (h5 : NineThreeFive M L) (hVL : ∀ v ∈ blockV S L, ∀ l ∈ L, v * l * v⁻¹ ∈ L) {y : G}
-    (hy : y ∈ blockV S L) :
-    Open.pRank 3 L ≤ Open.pRank 3 (L ⊓ Subgroup.centralizer ({y} : Set G) : Subgroup G) + 1 := by
-  have h3 := three_dvd_card_inf_centralizer_of_nineThreeFive hL.le hL.perfect h5 hVL hy
-  have h1 := one_le_pRank_three_of_dvd (T := (L ⊓ Subgroup.centralizer ({y} : Set G) : Subgroup G))
-    h3
-  obtain ⟨-, ⟨e⟩, -⟩ := h5
-  have hr : Open.pRank 3 L = Open.pRank 3 (barM M L) :=
-    (pRank_barM_eq Nat.prime_three (by norm_num) M L hL.le).symm
-  have hle := pRank_barM_le_of_alt e
-  omega
 
 theorem eClause_nineThreeFour {M S L : Subgroup G} (h4 : NineThreeFour M S L)
     (E : Subgroup (↥M ⧸ CFSG.pCore 2 ↥M))
@@ -183,14 +133,6 @@ theorem eClause_nineThreeFour {M S L : Subgroup G} (h4 : NineThreeFour M S L)
       ∃ y ∈ barM M (Subgroup.normalizer (S : Set G) ⊓ L), y ^ 3 = 1 ∧
         y ∉ Subgroup.centralizer (barM M L : Set (↥M ⧸ CFSG.pCore 2 ↥M))))
 
-theorem blockRankClauses_nineThreeFive {M S L : Subgroup G} (hL : IsWeakSBlock M S L)
-    (h5 : NineThreeFive M L) (hVL : ∀ v ∈ blockV S L, ∀ l ∈ L, v * l * v⁻¹ ∈ L)
-    (hV : ∀ y ∈ Quasithin.omegaOneCenterOf S, y ∈ blockV S L) : BlockRankClauses M S L := by
-  refine ⟨clauseO_nineThreeFive h5, Or.inl ⟨?_, fun y hy _ => rank_clause_nineThreeFive hL h5 hVL
-    (hV y hy)⟩⟩
-  obtain ⟨-, ⟨e⟩, -⟩ := h5
-  rw [barM_inf_centralizer_eq_bot_of_alt (by norm_num) e, Subgroup.card_bot]
-  norm_num
 
 theorem exists_order_three_noncentral_of_cover {M S L : Subgroup G} (hLM : L ≤ M)
     (h3L : BlockHasThree M S L)

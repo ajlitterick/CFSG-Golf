@@ -80,55 +80,6 @@ theorem le_normalizer_oddCoreImg' [Finite G] (C : Subgroup G) :
   have := conj_mem_oddCoreImg (Subgroup.le_normalizer (C.inv_mem hg)) ho
   simpa [mul_assoc] using this
 
-theorem oddCore_le_ker_act : oddCore (Subgroup.centralizer ({t} : Set G)) ≤ d.act.ker := by
-  intro y hy
-  rw [MonoidHom.mem_ker]
-  refine (d.act_eq_one_iff y.2).mpr ?_
-  intro r hr
-  have hyC : (y : G) ∈ oddCoreImg (Subgroup.centralizer ({t} : Set G)) :=
-    (mem_oddCore_iff_coe_mem_oddCoreImg _ y).mp hy
-  have hrC : r ∈ Subgroup.centralizer ({t} : Set G) := d.cent hr
-  have h1 : ⁅(y : G), r⁆ ∈ R := by
-    have : (y : G) * r * (y : G)⁻¹ ∈ R := d.conj_mem y.2 hr
-    rw [commutatorElement_def]
-    exact R.mul_mem this (R.inv_mem hr)
-  have h2 : ⁅(y : G), r⁆ ∈ oddCoreImg (Subgroup.centralizer ({t} : Set G)) := by
-    have h3 : r * (y : G)⁻¹ * r⁻¹ ∈ oddCoreImg (Subgroup.centralizer ({t} : Set G)) :=
-      conj_mem_oddCoreImg (Subgroup.le_normalizer hrC) ((oddCoreImg _).inv_mem hyC)
-    have h4 := (oddCoreImg (Subgroup.centralizer ({t} : Set G))).mul_mem hyC h3
-    have h5 : ⁅(y : G), r⁆ = (y : G) * (r * (y : G)⁻¹ * r⁻¹) := by
-      rw [commutatorElement_def]; group
-    rw [h5]
-    exact h4
-  have hTR : oddCoreImg (Subgroup.centralizer ({t} : Set G)) ⊓ R ≤ R := inf_le_right
-  have hnorm : ((oddCoreImg (Subgroup.centralizer ({t} : Set G)) ⊓ R).subgroupOf R).Normal := by
-    refine (Subgroup.normal_subgroupOf_iff_le_normalizer hTR).mpr fun g hg => ?_
-    rw [Subgroup.mem_normalizer_iff]
-    intro h
-    have hgC : g ∈ Subgroup.normalizer
-        (oddCoreImg (Subgroup.centralizer ({t} : Set G)) : Set G) :=
-      le_normalizer_oddCoreImg' _ (d.cent hg)
-    have hA := Subgroup.mem_normalizer_iff.mp hgC h
-    have hB := Subgroup.mem_normalizer_iff.mp (Subgroup.le_normalizer hg) h
-    exact ⟨fun hh => ⟨hA.mp hh.1, hB.mp hh.2⟩, fun hh => ⟨hA.mpr hh.1, hB.mpr hh.2⟩⟩
-  have hodd : Odd (Nat.card
-      ((oddCoreImg (Subgroup.centralizer ({t} : Set G)) ⊓ R).subgroupOf R)) := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hTR).toEquiv]
-    exact (odd_natCard_oddCoreImg _).of_dvd_nat (Subgroup.card_dvd_of_le inf_le_left)
-  have hle : (oddCoreImg (Subgroup.centralizer ({t} : Set G)) ⊓ R).subgroupOf R ≤ oddCore ↥R :=
-    le_sSup ⟨hnorm, hodd⟩
-  have hmem : (⟨⁅(y : G), r⁆, h1⟩ : R) ∈
-      (oddCoreImg (Subgroup.centralizer ({t} : Set G)) ⊓ R).subgroupOf R := ⟨h2, h1⟩
-  exact (mem_oddCore_iff_coe_mem_oddCoreImg R _).mp (hle hmem)
-
-theorem map_oddKer_eq :
-    d.oddKer.map d.act.ker.subtype = oddCore (Subgroup.centralizer ({t} : Set G)) := by
-  ext y
-  constructor
-  · rintro ⟨z, hz, rfl⟩
-    exact hz
-  · intro hy
-    exact ⟨⟨y, d.oddCore_le_ker_act hy⟩, hy, rfl⟩
 
 omit [Finite G] in
 theorem t_mem_centralizer : t ∈ Subgroup.centralizer ({t} : Set G) :=

@@ -120,38 +120,5 @@ open CFSG.KGroups.Sp6 CFSG.Quasithin.G2U
 @[expose] def chkDCWords (_ : Unit := ()) : Bool :=
   dcPairs.all fun p => evalWordC (gensN ++ [p.1]) p.2 == cGD
 
-@[expose] def planeKey (a b : ℕ) : ℕ :=
-  let w := a ^^^ b
-  (min a (min b w)) * 64 + (max a (max b w))
-
-@[expose] def decKey (c : List ℕ) : ℕ :=
-  let p := planeKey (c.getD 0 0) (c.getD 3 0)
-  let q := planeKey (c.getD 1 0) (c.getD 4 0)
-  let r := planeKey (c.getD 2 0) (c.getD 5 0)
-  let lo := min p (min q r)
-  let hi := max p (max q r)
-  lo + 4096 * (p + q + r - lo - hi) + 4096 * 4096 * hi
-
-@[expose] def dcTable (tabN : Array (List ℕ)) : Std.HashMap ℕ (List ℕ × List ℕ × List ℕ) :=
-  dcReps.foldl (fun m r =>
-    let rinv := invC r
-    tabN.foldl (fun m n => m.insert (decKey (mulC n r)) (r, rinv, invC n)) m) {}
-
-@[expose] def chkDC (_ : Unit := ()) : Bool :=
-  let tabN := tabOf gensN 1296
-  let hsN : Std.HashSet (List ℕ) := Std.HashSet.ofList tabN.toList
-  let tbl := dcTable tabN
-  dcReps.all genB &&
-  (spCount 64 fun c =>
-    match tbl.get? (decKey c) with
-    | some (r, rinv, m) => !(dcReps.contains r && validB rinv && mulC r rinv == oneC &&
-        hsN.contains m && hsN.contains (mulC rinv (mulC m c)))
-    | none => true) == 0
-
-@[expose] def czCheck (tabW : Array (List ℕ)) : Bool :=
-  let hsW : Std.HashSet (List ℕ) := Std.HashSet.ofList tabW.toList
-  (spCount 64 fun c => commB c cZ && !hsW.contains c) == 0
-
-@[expose] def chkCz (_ : Unit := ()) : Bool := czCheck (tabOf gensWD 51840)
 
 end CFSG.AGLEmbedding.KFactProofs.Sp62Local

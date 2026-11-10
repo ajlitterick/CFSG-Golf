@@ -16,19 +16,6 @@ open CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley (rootDiagUnit rootCh
 
 variable {K : Type} [Field K]
 
-theorem f4_even_of_iform_eq_four {γ : Fin Tag.F4.rank → ℤ}
-    (hγ : IsRoot .F4 γ) (h4 : iform γ γ = 4) :
-    Even (γ ⟨2, by decide⟩) ∧ Even (γ ⟨3, by decide⟩) := by
-  obtain ⟨k, rfl⟩ := isRoot_f4_iff.1 hγ
-  clear hγ
-  revert h4
-  revert k
-  decide +kernel
-
-theorem f4_even_coords_smul
-    (w : WeylGroup .F4) {γ : Fin Tag.F4.rank → ℤ} (hγ : IsRoot .F4 γ) (h4 : iform γ γ = 4) :
-    Even ((w • γ) ⟨2, by decide⟩) ∧ Even ((w • γ) ⟨3, by decide⟩) :=
-  f4_even_of_iform_eq_four (IsRoot.smul hγ w) (by rw [iform_smul, h4])
 
 theorem exists_conj_f4x_central_of_mem_borel [CharP K 2] {k : ℕ} (hk : k = 44 ∨ k = 47)
     {b : ModGL .F4 K} (hb : b ∈ borelGroup .F4 K) (c : K) :

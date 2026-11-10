@@ -22,13 +22,5 @@ attribute [-instance] instCommGroupOfIsSimpleGroupOfIsNilpotent
 
 namespace CFSG.Sporadic.Co1Schreier
 
-open CFSG.Sporadic.SmallF2 (toVecD rowsMatrix)
-open CFSG.Monster.B.Co2 (permOfArr Rep rep_permOfArr)
-open CFSG.Sporadic.Co2Cert (isPermList isPermList_spec rep_of_isPermList co2Q co2P
-  co2Q_originalSubgroup)
-
-@[expose] noncomputable def certVec (i : ℕ) : Vec24 := toVecD 24 (co1Rec.vectors.getD i 0)
-
-@[expose] noncomputable def certX : Set Vec24 := {v | ∃ i < 98280, certVec i = v}
 
 end CFSG.Sporadic.Co1Schreier

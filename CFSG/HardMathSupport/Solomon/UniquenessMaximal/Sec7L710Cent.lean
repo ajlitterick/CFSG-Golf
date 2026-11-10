@@ -31,8 +31,6 @@ theorem pOf_le_eOf (B T I : Subgroup G) : pOf B T I ≤ eOf B T I := le_sup_righ
 omit [Finite G] in
 theorem sOf_le_pOf (B T I : Subgroup G) : sOf B T I ≤ pOf B T I := inf_le_right
 
-omit [Finite G] in
-theorem sOf_le_tOf (B T I : Subgroup G) : sOf B T I ≤ T := inf_le_left
 
 omit [Finite G] in
 theorem eOf_le_yOf (B T I : Subgroup G) : eOf B T I ≤ yOf B T I :=

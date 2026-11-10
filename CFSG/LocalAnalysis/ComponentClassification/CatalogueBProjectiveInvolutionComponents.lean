@@ -24,13 +24,5 @@ theorem projective_involution_centralizer_pComponent_quasisimple
   · exact nonsquare_projectiveCentralizer_pComponent_quasisimple
       n hn A lambda hsq hsquare p hp L hL
 
-theorem projective_linear_involution_centralizer_p_components
-    (n : ℕ) (hn : 2 ≤ n) (K : Type*) [Field K] [Finite K]
-    (htwo : (2 : K) ≠ 0) (a : Matrix.ProjGenLinGroup (Fin n) K)
-    (hne : a ≠ 1) (hinvolution : a ^ 2 = 1) :
-    ∀ (p : ℕ), p.Prime → ∀ L : Subgroup (Subgroup.centralizer {a}),
-      CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  obtain ⟨A, rfl⟩ := Matrix.ProjGenLinGroup.mk_surjective a
-  exact projective_involution_centralizer_pComponent_quasisimple n hn A htwo hne hinvolution
 
 end CFSG.ComponentClassification.CatalogueBProjectiveInvolution

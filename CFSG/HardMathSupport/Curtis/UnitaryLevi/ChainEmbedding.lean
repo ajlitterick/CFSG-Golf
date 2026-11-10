@@ -322,22 +322,6 @@ theorem chainHom_injective [CharP K 2] (h : ChainStabData B s W U) (hs : 1 ≤ s
 end ChainStabData
 
 
-theorem exists_injective_hom_chain [CharP K 2] {B : V →ₛₗ[σ] V →ₗ[K] K} {s : ℕ}
-    {W : ℕ → Submodule K V} (hW0 : W 0 = ⊥) (hs : 1 ≤ s)
-    (hlt : ∀ j, 1 ≤ j → j ≤ s → W (j - 1) < W j)
-    {U : Subgroup (LinearMap.GeneralLinearGroup K V)} (h : ChainStabData B s W U) :
-    ∃ θ : U →* (Fin s → Kˣ) × LinearMap.GeneralLinearGroup K (perpQuot B (W s)),
-      Function.Injective θ ∧
-      (∀ (u : U) (i : Fin s), ∀ v ∈ W (i.1 + 1),
-        ((u : LinearMap.GeneralLinearGroup K V) : Module.End K V) v -
-          (((θ u).1 i : Kˣ) : K) • v ∈ W i.1) ∧
-      (∀ (u : U) (x y : (W s).orthogonalBilin B),
-        (y : V) = ((u : LinearMap.GeneralLinearGroup K V) : Module.End K V) x →
-        ((θ u).2 : Module.End K (perpQuot B (W s))) (Submodule.Quotient.mk x) =
-          Submodule.Quotient.mk y) :=
-  ⟨h.chainHom hW0 hlt hs, h.chainHom_injective hW0 hlt hs, h.chainHom_fst_spec hW0 hlt hs,
-    h.chainHom_snd_spec hW0 hlt hs⟩
-
 theorem card_generalLinearGroup_eq (hK : Nat.card K = 4) {N : Type*} [AddCommGroup N] [Module K N]
     [Module.Finite K N] {m : ℕ} (hN : finrank K N = m) :
     Nat.card (LinearMap.GeneralLinearGroup K N) = ∏ i : Fin m, (4 ^ m - 4 ^ i.1) := by
@@ -439,10 +423,6 @@ theorem mul_comm_of_finrank_le [CharP K 2] [FiniteDimensional K V] (h : ChainSta
   refine Prod.ext (mul_comm _ _) ?_
   exact congrArg Subtype.val (hH ⟨_, ⟨u, rfl⟩⟩ ⟨_, ⟨u', rfl⟩⟩)
 
-theorem isMulCommutative_of_finrank_le [CharP K 2] [FiniteDimensional K V]
-    (h : ChainStabData B s W U) (hK : Nat.card K = 4)
-    (hm : finrank K (perpQuot B (W s)) ≤ 2) : IsMulCommutative U :=
-  ⟨⟨h.mul_comm_of_finrank_le hW0 hlt hs hK hm⟩⟩
 
 theorem card_dvd_of_finrank [CharP K 2] [FiniteDimensional K V] (h : ChainStabData B s W U)
     (hK : Nat.card K = 4) {m : ℕ} (hN : finrank K (perpQuot B (W s)) = m) (hm : m ≤ 2) :

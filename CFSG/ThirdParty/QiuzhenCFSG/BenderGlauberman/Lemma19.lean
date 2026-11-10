@@ -97,10 +97,6 @@ public def FixedIrr (S : Type u) (U : Type u) [Group S] [Group U]
     [MulDistribMulAction S U] (α : IrrBG19 U) : Prop :=
   ∀ s : S, (fun u : U => α.1 (s • u)) = α.1
 
-/-- The `s`-conjugate of a class function of `U` under the action. -/
-public def actionConj (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] (s : S) (φ : ClassFunction U) : ClassFunction U :=
-  fun u => φ (s • u)
 
 section ProductCharacters
 
@@ -268,113 +264,6 @@ public theorem fintype_card_irr_eq_conjClassesBG19 (G : Type u) [Group G] [Finty
       Fintype.card_congr (Equiv.ofBijective f hbij).symm
     _ = Nat.card (ConjClasses G) := hcard
 
-/-- In a commutative finite group, the number of conjugacy classes is the group
-order. -/
-public theorem nat_card_conjClasses_eq_card_of_isMulCommutativeBG19 (G : Type u) [Group G]
-    [IsMulCommutative G] [Fintype G] :
-    Nat.card (ConjClasses G) = Nat.card G := by
-  classical
-  let : Finite G := Finite.of_fintype G
-  have h := card_comm_eq_card_conjClasses_mul_card G
-  have hcomm : Nat.card {p : G × G // Commute p.1 p.2} = Nat.card G * Nat.card G := by
-    let e : G × G ≃ {p : G × G // Commute p.1 p.2} := Equiv.ofBijective
-      (fun p : G × G => ⟨p, (isMulCommutative_iff.mp (inferInstance : IsMulCommutative G)) p.1 p.2⟩)
-      (by
-        constructor
-        · intro p q hEq
-          exact Prod.ext (congrArg (fun x : {p : G × G // Commute p.1 p.2} => x.1.1) hEq)
-            (congrArg (fun x : {p : G × G // Commute p.1 p.2} => x.1.2) hEq)
-        · intro q
-          exact ⟨(q.1.1, q.1.2), rfl⟩)
-    exact (Nat.card_congr e).symm.trans (Nat.card_prod G G)
-  have h' : Nat.card (ConjClasses G) * Nat.card G = Nat.card G * Nat.card G := by
-    rw [← h, hcomm]
-  exact Nat.eq_of_mul_eq_mul_left (Nat.card_pos (α := G)) (by simpa [mul_comm] using h')
-
-/-- For a finite cyclic group, the number of irreducible characters is the group
-order. -/
-public theorem fintype_card_irr_eq_card_of_isCyclicBG19 (G : Type u) [Group G] [IsCyclic G] [Fintype G] :
-    Fintype.card (IrrBG19 G) = Nat.card G := by
-  let : Finite G := Finite.of_fintype G
-  let : CommGroup G := IsCyclic.commGroup
-  rw [fintype_card_irr_eq_conjClassesBG19 G, nat_card_conjClasses_eq_card_of_isMulCommutativeBG19 G]
-
-/-- The irreducible character associated to a homomorphism into `ℂˣ`. -/
-public def linearCharIrrBG19 {G : Type u} [Group G] [Fintype G] (φ : G →* ℂˣ) : IrrBG19 G :=
-  ⟨fun x => ((φ x : ℂˣ) : ℂ), (isLinearCharacter_of_hom φ).1⟩
-
-/-- Distinct homomorphisms give distinct irreducible characters. -/
-public theorem linearCharIrr_injectiveBG19 {G : Type u} [Group G] [Fintype G] :
-    Function.Injective (linearCharIrrBG19 (G := G)) := by
-  intro φ ψ hEq
-  apply MonoidHom.ext
-  intro x
-  apply Units.ext
-  exact congrFun (congrArg Subtype.val hEq) x
-
-/-- For a finite cyclic group, every irreducible character is linear (i.e. comes
-from a homomorphism). -/
-public theorem isLinearCharacter_of_isIrreducible_of_isCyclicBG19 {G : Type u} [Group G]
-    [IsCyclic G] [Fintype G] {χ : ClassFunction G} (hχ : IsIrreducibleCharacter χ) :
-    IsLinearCharacter χ := by
-  classical
-  let : Finite G := Finite.of_fintype G
-  let : CommGroup G := IsCyclic.commGroup
-  have hcard : Fintype.card (IrrBG19 G) = Fintype.card (G →* ℂˣ) := by
-    exact (fintype_card_irr_eq_card_of_isCyclicBG19 G).trans
-      (CommGroup.card_monoidHom_of_hasEnoughRootsOfUnity G ℂ).symm |>.trans
-        (by rw [Nat.card_eq_fintype_card])
-  have hsurj : Function.Surjective (linearCharIrrBG19 (G := G)) :=
-    ((Fintype.bijective_iff_injective_and_card (linearCharIrrBG19 (G := G))).2
-      ⟨linearCharIrr_injectiveBG19 (G := G), hcard.symm⟩).2
-  let ν : IrrBG19 G := ⟨χ, hχ⟩
-  rcases hsurj ν with ⟨φ, hφ⟩
-  have hχeq : χ = fun x => ((φ x : ℂˣ) : ℂ) := by
-    exact (congrArg Subtype.val hφ).symm
-  rw [hχeq]
-  exact isLinearCharacter_of_hom φ
-
-/-- Every nonzero character contains an irreducible constituent. -/
-public theorem exists_irr_constituent_of_characterBG19 {G : Type u} [Group G] [Fintype G]
-    {ψ : ClassFunction G} (hψ : IsCharacter ψ) (hne : ψ ≠ 0) :
-    ∃ χ : ClassFunction G, IsIrreducibleCharacter χ ∧ scalarProduct G χ ψ ≠ 0 := by
-  classical
-  have hgen : IsGeneralizedCharacter ψ := ⟨ψ, 0, hψ, isCharacter_zero, by
-    ext x
-    simp⟩
-  rcases char_decomp_generalized hgen with ⟨ι, hι, χs, ms, hirr, hdist, hψsum⟩
-  let : Fintype ι := hι
-  have hsome : ∃ i, ms i ≠ 0 := by
-    by_contra hnone
-    have hall : ∀ i, ms i = 0 := by
-      intro i
-      by_contra h
-      exact hnone ⟨i, h⟩
-    apply hne
-    rw [hψsum]
-    funext x
-    simp [hall]
-  rcases hsome with ⟨i₀, hms⟩
-  refine ⟨χs i₀, hirr i₀, ?_⟩
-  have hsp : scalarProduct G (χs i₀) ψ = (ms i₀ : ℂ) := by
-    rw [hψsum]
-    rw [scalarProduct_decomp_left (χ := χs i₀) (χs := χs) (ms := ms)
-      (hχ := hirr i₀) (hχs := hirr)]
-    calc
-      (∑ i, (ms i : ℂ) * (if χs i = χs i₀ then 1 else 0))
-          = (ms i₀ : ℂ) * (if χs i₀ = χs i₀ then 1 else 0) :=
-              Finset.sum_eq_single (s := Finset.univ)
-                (f := fun i : ι => (ms i : ℂ) * (if χs i = χs i₀ then 1 else 0)) i₀
-                (by
-                  intro j hj hji
-                  have hne' : χs j ≠ χs i₀ := hdist j i₀ hji
-                  simp [hne'])
-                (by
-                  intro hnot
-                  exact (hnot (Finset.mem_univ i₀)).elim)
-      _ = (ms i₀ : ℂ) := by simp
-  rw [hsp]
-  exact_mod_cast hms
 
 omit [Fintype G] [Fintype H] in
 private theorem isConj_prod_iff (x y : G × H) :
@@ -459,17 +348,6 @@ public theorem prodIrr_surjectiveBG19 : Function.Surjective (prodIrrBG19 (G := G
   ((Fintype.bijective_iff_injective_and_card (prodIrrBG19 (G := G) (H := H))).2
     ⟨prodIrr_injectiveBG19 (G := G) (H := H), prodIrr_cardBG19 (G := G) (H := H)⟩).2
 
-/-- Every irreducible character of a direct product is a product of irreducible
-characters of the factors. -/
-public theorem irreducibleCharacter_eq_prodCharBG19 (φ : ClassFunction (G × H))
-    (hφ : IsIrreducibleCharacter φ) :
-    ∃ χ : IrrBG19 G, ∃ ψ : IrrBG19 H, prodCharBG19 χ.1 ψ.1 = φ := by
-  let ν : IrrBG19 (G × H) := ⟨φ, hφ⟩
-  rcases prodIrr_surjectiveBG19 (G := G) (H := H) ν with ⟨p, hp⟩
-  let χ : IrrBG19 G := p.1
-  let ψ : IrrBG19 H := p.2
-  exact ⟨χ, ψ, by
-    exact congrArg Subtype.val hp⟩
 
 end ProductCharacters
 
@@ -534,74 +412,6 @@ public theorem irr_degree_odd {U : Type u} [Group U] [Fintype U]
   change (n : ℂ) = φ 1
   rw [hφeq, Representation.char_one, Module.finrank_pi, Fintype.card_fin]
 
-/-- Restriction of a class function on `U` to a subgroup `B`. -/
-public def restrictChar {U : Type u} [Group U] (B : Subgroup U)
-    (α : ClassFunction U) : ClassFunction (↥B) := fun b => α b
-
-/-- Every irreducible character of a `2'`-group restricts to `B` with some
-irreducible constituent of odd multiplicity. -/
-public theorem exists_odd_multiplicity_restrict {U : Type u} [Group U] [Fintype U]
-    (B : Subgroup U) (hU2' : Nat.Coprime 2 (Nat.card U)) (α : IrrBG19 U) :
-    ∃ β : IrrBG19 (↥B), ∃ m : ℕ, Odd m ∧
-      (m : ℂ) = scalarProduct (↥B) (restrictChar B α.1) β.1 := by
-  classical
-  let φ : ClassFunction (↥B) := restrictChar B α.1
-  have hφchar : IsCharacter φ :=
-    isCharacter_restrict B (isCharacter_of_isIrreducibleCharacter α.2)
-  have hφgen : IsGeneralizedCharacter φ :=
-    ⟨φ, 0, hφchar, isCharacter_zero, by ext x; simp⟩
-  have hB2' : Nat.Coprime 2 (Nat.card (↥B)) := by
-    exact Nat.Coprime.coprime_dvd_right (B.card_subgroup_dvd_card) hU2'
-  have hcoeff (ν : IrrBG19 (↥B)) : ∃ m : ℕ,
-      (m : ℂ) = scalarProduct (↥B) φ ν.1 :=
-    by
-      rcases scalarProduct_irr_char_nat (χ := ν.1) (ψ := φ) ν.2 hφchar with ⟨r, hr⟩
-      refine ⟨r, ?_⟩
-      calc
-        (r : ℂ) = scalarProduct (↥B) ν.1 φ := hr
-        _ = star (scalarProduct (↥B) ν.1 φ) := by
-              rw [hr.symm]
-              simp
-        _ = scalarProduct (↥B) φ ν.1 := scalarProduct_conj ν.1 φ
-  let m : IrrBG19 (↥B) → ℕ := fun ν => Classical.choose (hcoeff ν)
-  have hm (ν : IrrBG19 (↥B)) : (m ν : ℂ) = scalarProduct (↥B) φ ν.1 :=
-    Classical.choose_spec (hcoeff ν)
-  have hdeg (ν : IrrBG19 (↥B)) : ∃ d : ℕ, Odd d ∧ (d : ℂ) = ν.1 1 :=
-    irr_degree_odd hB2' ν
-  let d : IrrBG19 (↥B) → ℕ := fun ν => Classical.choose (hdeg ν)
-  have hd (ν : IrrBG19 (↥B)) : Odd (d ν) ∧ (d ν : ℂ) = ν.1 1 :=
-    Classical.choose_spec (hdeg ν)
-  rcases irr_degree_odd hU2' α with ⟨a, haOdd, ha⟩
-  have hsum1 : φ 1 = ∑ ν : IrrBG19 (↥B), (m ν : ℂ) * (d ν : ℂ) := by
-    have h := classFunction_eq_sum_irr_coeffs (G := ↥B) hφgen (1 : ↥B)
-    rw [h]
-    refine Finset.sum_congr rfl ?_
-    intro ν hν
-    rw [hm ν, (hd ν).2]
-  have hsum1' : (a : ℂ) = ∑ ν : IrrBG19 (↥B), (m ν : ℂ) * (d ν : ℂ) := by
-    calc
-      (a : ℂ) = α.1 1 := ha
-      _ = φ 1 := rfl
-      _ = ∑ ν : IrrBG19 (↥B), (m ν : ℂ) * (d ν : ℂ) := hsum1
-  by_contra hnone
-  push_neg at hnone
-  have hEvenProd : ∀ ν : IrrBG19 (↥B), Even (m ν * d ν) := by
-    intro ν
-    have hEvenM : Even (m ν) := by
-      by_contra hOdd
-      exact (hnone ν (m ν) (Nat.not_even_iff_odd.mp hOdd)) (hm ν)
-    exact Even.mul_right hEvenM (d ν)
-  have hEvenSum : Even (∑ ν : IrrBG19 (↥B), m ν * d ν) := by
-    exact Finset.even_sum (fun ν : IrrBG19 (↥B) => m ν * d ν) (by intro ν hν; exact hEvenProd ν)
-  have hsumNat : (∑ ν : IrrBG19 (↥B), (m ν : ℂ) * (d ν : ℂ)) =
-      ((∑ ν : IrrBG19 (↥B), m ν * d ν : ℕ) : ℂ) := by
-    norm_num
-  have hNatEq : a = ∑ ν : IrrBG19 (↥B), m ν * d ν := by
-    exact_mod_cast (hsum1'.trans hsumNat)
-  have hEvenA : Even a := by
-    rw [hNatEq]
-    exact hEvenSum
-  exact (Nat.not_even_iff_odd.mpr haOdd) hEvenA
 
 end Parity
 
@@ -976,27 +786,6 @@ public theorem actionIrr_fixed_of_forall_commute {S U : Type u} [Group S] [Group
   rw [h1]
   exact congrFun (hα h) (s • u)
 
-/-- The fixed subgroup of a single automorphism. -/
-public def autFixedBy {U : Type u} [Group U] (σ : MulAut U) : Subgroup U where
-  carrier := {u : U | σ u = u}
-  one_mem' := by simp
-  mul_mem' := by
-    intro u v hu hv
-    change σ (u * v) = u * v
-    rw [map_mul σ u v, hu, hv]
-  inv_mem' := by
-    intro u hu
-    change σ u⁻¹ = u⁻¹
-    rw [map_inv σ u, hu]
-
-/-- Membership in the fixed subgroup of an automorphism. -/
-public theorem mem_autFixedBy_iff {U : Type u} [Group U] (σ : MulAut U) (u : U) :
-    u ∈ autFixedBy σ ↔ σ u = u := by
-  rfl
-
-/-- An irreducible character fixed by an automorphism. -/
-public def FixedIrrAut {U : Type u} [Group U] (σ : MulAut U) (α : IrrBG19 U) : Prop :=
-  (fun u : U => α.1 (σ u)) = α.1
 
 end CongruenceIntegers
 
@@ -1077,18 +866,6 @@ public theorem h0Hom_apply (S : Type u) (U : Type u) [Group S] [Group U]
   simp only [MonoidHom.comp_apply]
   simp [SemidirectProduct.lift, SemidirectProduct.mulEquivProd]
 
-/-- The embedding `h0Hom` is injective. -/
-public theorem h0Hom_injective (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] : Function.Injective (h0Hom S U) := by
-  intro p q hEq
-  apply Prod.ext
-  · apply Subtype.ext
-    have hL := congrArg (fun x : SemiProduct S U => x.left) hEq
-    rw [h0Hom_apply, h0Hom_apply] at hL
-    exact hL
-  · have hR := congrArg (fun x : SemiProduct S U => x.right) hEq
-    rw [h0Hom_apply, h0Hom_apply] at hR
-    exact hR
 
 /-- The isomorphism `H0 ≃ B × S` induced by `h0Hom`. -/
 public noncomputable def H0equiv (S : Type u) (U : Type u) [Group S] [Group U]
@@ -1123,108 +900,6 @@ public noncomputable def H0equiv (S : Type u) (U : Type u) [Group S] [Group U]
         (x : SemiProduct S U).right * (y : SemiProduct S U).right
       rw [SemidirectProduct.mul_right]
 
-/-- The subgroup `B × {1}` of `B × S`; the image of `Bimg` under `H0equiv`. -/
-public abbrev Bprod (B S : Type u) [Group B] [Group S] : Subgroup (B × S) :=
-  (⊤ : Subgroup B).prod ⊥
-
-/-- `B × {1}` is normal in `B × S`. -/
-public theorem Bprod_normal (B S : Type u) [Group B] [Group S] :
-    (Bprod B S).Normal := by
-  constructor
-  · intro n hn g
-    have hn2 : n.2 = 1 := by
-      simpa [Bprod] using (Subgroup.mem_prod.mp hn).2
-    apply Subgroup.mem_prod.mpr
-    constructor
-    · trivial
-    · change (g * n * g⁻¹).2 = 1
-      change g.2 * n.2 * g.2⁻¹ = 1
-      rw [hn2, mul_one, mul_inv_cancel]
-
-/-- `Bimg ≤ H0sub`: the fixed subgroup of `U` lies inside `S × B`. -/
-public theorem Bimg_le_H0 (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] : Bimg S U ≤ H0sub S U := by
-  intro g hg
-  rcases hg with ⟨b, hb⟩
-  rw [mem_H0sub_iff]
-  rw [← hb]
-  exact b.2
-
-/-- Membership in `Bimg` inside `H0sub`, transported to `B × S`. -/
-public theorem mem_H0equiv_Bimg_iff (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] (y : fixedSubgroup S U × S) :
-    y ∈ Subgroup.map (H0equiv S U) ((Bimg S U).subgroupOf (H0sub S U)) ↔
-      y ∈ Bprod (fixedSubgroup S U) S := by
-  classical
-  let e : H0sub S U ≃* fixedSubgroup S U × S := H0equiv S U
-  constructor
-  · intro hy
-    rcases (Subgroup.mem_map.mp hy) with ⟨x, hx, rfl⟩
-    have hxmem : (x : SemiProduct S U) ∈ Bimg S U := by
-      simpa [Bimg] using (Subgroup.mem_subgroupOf.mp hx)
-    rcases hxmem with ⟨b, hb⟩
-    have hxval : (x : SemiProduct S U) = SemidirectProduct.inl (b : U) := hb.symm
-    have hval : (h0Hom S U (e x) : SemiProduct S U) = (x : SemiProduct S U) := by
-      change ((e.symm (e x) : H0sub S U) : SemiProduct S U) = (x : SemiProduct S U)
-      rw [e.symm_apply_apply]
-    have hx0 : h0Hom S U (e x) = SemidirectProduct.inl (b : U) := by
-      rw [hval]
-      exact hxval
-    have hy2 : (e x).2 = 1 := by
-      have hR := congrArg (fun z : SemiProduct S U => z.right) hx0
-      rw [h0Hom_apply] at hR
-      simpa using hR
-    exact Subgroup.mem_prod.mpr ⟨trivial, by simpa using hy2⟩
-  · intro hy
-    refine ⟨(e.symm y), ?_, by simp [e]⟩
-    have hy2 : y.2 = 1 := by
-      have hy' : (y.1, y.2) ∈ Bprod (fixedSubgroup S U) S := hy
-      simpa [Bprod] using (Subgroup.mem_prod.mp hy').2
-    have hval : ((e.symm y : SemiProduct S U)) =
-        SemidirectProduct.inl (y.1 : U) := by
-      change h0Hom S U y =
-        SemidirectProduct.inl (y.1 : U)
-      rw [h0Hom_apply]
-      apply SemidirectProduct.ext
-      · rfl
-      · simpa using hy2
-    exact Subgroup.mem_subgroupOf.mpr (by
-      rw [hval]
-      exact ⟨y.1, rfl⟩)
-
-/-- The image of `Bimg` under `H0equiv` is exactly `B × {1}`. -/
-public theorem H0equiv_map_Bimg (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] :
-    Subgroup.map (H0equiv S U) ((Bimg S U).subgroupOf (H0sub S U)) =
-      Bprod (fixedSubgroup S U) S := by
-  apply Subgroup.ext
-  intro y
-  exact mem_H0equiv_Bimg_iff S U y
-
-/-- `Bimg` is normal in `H0 = S × B`. -/
-public theorem Bimg_subgroupOf_normal (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] :
-    ((Bimg S U).subgroupOf (H0sub S U)).Normal := by
-  let K : Subgroup (H0sub S U) := (Bimg S U).subgroupOf (H0sub S U)
-  have hMapNormal :
-      (Subgroup.map (H0equiv S U : H0sub S U →* fixedSubgroup S U × S) K).Normal := by
-    rw [H0equiv_map_Bimg]
-    exact Bprod_normal (fixedSubgroup S U) S
-  exact hMapNormal.of_map_injective (H0equiv S U).injective
-
-/-- In the order-two case, `B` has index `2` in `H0 = S × B`. -/
-public theorem Bimg_subgroupOf_index (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] (hS2 : Nat.card S = 2) :
-    ((Bimg S U).subgroupOf (H0sub S U)).index = 2 := by
-  have hmap := H0equiv_map_Bimg S U
-  let K : Subgroup (H0sub S U) := (Bimg S U).subgroupOf (H0sub S U)
-  calc
-    K.index = (Subgroup.map (↑(H0equiv S U)) K).index := by
-          rw [← Subgroup.index_map_equiv K (H0equiv S U)]
-    _ = (Bprod (fixedSubgroup S U) S).index := by rw [hmap]
-    _ = (⊥ : Subgroup S).index := by simp [Bprod, Subgroup.index_prod]
-    _ = Nat.card S := by simp
-    _ = 2 := hS2
 
 /-- A group of order two is commutative. -/
 public theorem comm_of_card_two {S : Type u} [Group S] (hS2 : Nat.card S = 2) :
@@ -1242,38 +917,6 @@ public theorem comm_of_card_two {S : Type u} [Group S] (hS2 : Nat.card S = 2) :
     · have hbs : b = s := hs.2 b hb1
       rw [has, hbs]
 
-/-- Commutators of `H0 = S × B` lie in `B` when `S` has order two. -/
-public theorem Bimg_subgroupOf_comm (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] (hS2 : Nat.card S = 2) :
-    ∀ x y : H0sub S U,
-      (x * y) / (y * x) ∈ (Bimg S U).subgroupOf (H0sub S U) := by
-  have hScomm : ∀ a b : S, a * b = b * a := comm_of_card_two hS2
-  intro x y
-  let e : H0sub S U ≃* fixedSubgroup S U × S := H0equiv S U
-  have hprod : (e x * e y) /
-      (H0equiv S U y * H0equiv S U x) ∈ Bprod (fixedSubgroup S U) S := by
-    apply Subgroup.mem_prod.mpr
-    constructor
-    · trivial
-    · change ((H0equiv S U x * H0equiv S U y) /
-        (H0equiv S U y * H0equiv S U x)).2 = 1
-      simp [div_eq_mul_inv, mul_inv_rev]
-      rw [hScomm ((H0equiv S U x).2) ((H0equiv S U y).2)]
-      group
-  have hzMap : e ((x * y) / (y * x)) ∈
-      Subgroup.map (↑e) ((Bimg S U).subgroupOf (H0sub S U)) := by
-    have hEq : e ((x * y) / (y * x)) = (e x * e y) / (e y * e x) := by
-      simp [map_mul]
-    have hprod' : e ((x * y) / (y * x)) ∈ Bprod (fixedSubgroup S U) S := by
-      simpa [hEq] using hprod
-    exact (mem_H0equiv_Bimg_iff S U (e ((x * y) / (y * x)))).2 hprod'
-  rcases (Subgroup.mem_map.mp hzMap) with ⟨k, hk, hkEq⟩
-  have hk_symm : k = e.symm (e ((x * y) / (y * x))) := by
-    apply e.injective
-    rw [e.apply_symm_apply]
-    simpa using hkEq
-  rw [hk_symm] at hk
-  simpa [e.symm_apply_apply] using hk
 
 /-- `T = H0 \ Bimg`: the elements of `H0` with nontrivial `S`-component. -/
 public def Tset (S : Type u) (U : Type u) [Group S] [Group U]
@@ -1393,27 +1036,6 @@ public theorem USub_index (hS2 : Nat.card S = 2) : (USub S U).index = 2 := by
         exact hmain)
     _ = 2 := hS2
 
-omit [Fintype S] [Fintype U] in
-/-- `Bimg ≤ USub`: the fixed subgroup of `U` lies in `U`. -/
-public theorem Bimg_le_USub : Bimg S U ≤ USub S U := by
-  intro x hx
-  rw [mem_USub_iff]
-  exact ((mem_Bimg_iff S U x).1 hx).1
-
-omit [Fintype S] [Fintype U] in
-/-- `USub ∩ H0sub = Bimg`. -/
-public theorem USub_inf_H0sub_eq_Bimg : (USub S U ⊓ H0sub S U) = Bimg S U := by
-  apply Subgroup.ext
-  intro x
-  constructor
-  · intro hx
-    exact (mem_Bimg_iff S U x).2
-      ⟨(mem_USub_iff x).1 (Subgroup.mem_inf.mp hx).1,
-        (mem_H0sub_iff S U x).1 (Subgroup.mem_inf.mp hx).2⟩
-  · intro hx
-    exact Subgroup.mem_inf.mpr
-      ⟨(mem_USub_iff x).2 ((mem_Bimg_iff S U x).1 hx).1,
-        (mem_H0sub_iff S U x).2 ((mem_Bimg_iff S U x).1 hx).2⟩
 
 /-- The non-identity element of a group of order two. -/
 public noncomputable def s2 (hS2 : Nat.card S = 2) : S :=
@@ -1442,43 +1064,11 @@ public theorem s2_sq (hS2 : Nat.card S = 2) : (s2 hS2) ^ 2 = 1 :=
 public noncomputable def tElm (hS2 : Nat.card S = 2) : SemiProduct S U :=
   SemidirectProduct.inr (s2 hS2)
 
-omit [Fintype S] [Fintype U] in
-/-- `tElm` is not in `USub`. -/
-public theorem tElm_not_mem_USub (hS2 : Nat.card S = 2) : tElm hS2 ∉ USub S U := by
-  rw [mem_USub_iff]
-  simp [tElm, s2_ne_one hS2]
-
-omit [Fintype S] [Fintype U] in
-/-- `tElm` lies in `H0sub`. -/
-public theorem tElm_mem_H0sub (hS2 : Nat.card S = 2) : tElm hS2 ∈ H0sub S U := by
-  rw [mem_H0sub_iff]
-  simp [tElm]
 
 /-- `tElm` lies in `Tset`. -/
 public theorem tElm_mem_Tset (hS2 : Nat.card S = 2) : tElm hS2 ∈ Tset S U := by
   exact (mem_Tset_iff S U (tElm hS2)).2 ⟨by simp [tElm], by simp [tElm, s2_ne_one hS2]⟩
 
-/-- Elements of `Tset` have even order. -/
-public theorem Tset_even_order (hS2 : Nat.card S = 2) {x : SemiProduct S U}
-    (hx : x ∈ Tset S U) : 2 ∣ orderOf x := by
-  have hxr : x.right ≠ 1 := ((mem_Tset_iff S U x).1 hx).2
-  have hxr2 : x.right = s2 hS2 := (s_eq_one_or_s2 hS2 x.right).resolve_left hxr
-  have hproj : (SemidirectProduct.rightHom x) = s2 hS2 := by
-    change x.right = s2 hS2
-    exact hxr2
-  have hpow : (SemidirectProduct.rightHom x) ^ (orderOf x) = 1 := by
-    rw [← SemidirectProduct.rightHom.map_pow, pow_orderOf_eq_one, map_one]
-  have hdvd : orderOf (SemidirectProduct.rightHom x) ∣ orderOf x :=
-    orderOf_dvd_of_pow_eq_one hpow
-  have hord2 : orderOf (s2 hS2) = 2 := by
-    have hd : orderOf (s2 hS2) ∣ 2 :=
-      orderOf_dvd_of_pow_eq_one (by simp [s2_sq hS2])
-    have hne : orderOf (s2 hS2) ≠ 1 := by
-      intro h
-      exact s2_ne_one hS2 (orderOf_eq_one_iff.mp h)
-    exact ((Nat.dvd_prime Nat.prime_two).mp hd).resolve_left hne
-  rw [hproj, hord2] at hdvd
-  exact hdvd
 
 /-- Elements of `USub` have odd order. -/
 public theorem USub_odd_order (hU2' : Nat.Coprime 2 (Nat.card U)) {x : SemiProduct S U}
@@ -1518,10 +1108,6 @@ public theorem USub_odd_order (hU2' : Nat.Coprime 2 (Nat.card U)) {x : SemiProdu
     norm_num at h2g
   · exact h1
 
-/-- Elements of `Bimg` have odd order. -/
-public theorem Bimg_odd_order (hU2' : Nat.Coprime 2 (Nat.card U)) {x : SemiProduct S U}
-    (hx : x ∈ Bimg S U) : Odd (orderOf x) :=
-  USub_odd_order (U := U) (S := S) hU2' (Bimg_le_USub (S := S) (U := U) hx)
 
 /-- A triple product of `S`-fixed elements is `S`-fixed. -/
 public theorem fixedSubgroup_mul_mul (S : Type u) (U : Type u) [Group S] [Group U]
@@ -1541,10 +1127,6 @@ public theorem orderOf_conj_eq {G : Type u} [Group G] (g x : G) :
   simpa [MulAut.conj_apply] using
     (orderOf_injective (MulAut.conj g).toMonoidHom (MulAut.conj g).toEquiv.injective x)
 
-/-- The set `C(u) = u·B·(s2•u)⁻¹` of first components of conjugates of `T`. -/
-public def twistedConjSet (S : Type u) (U : Type u) [Group S] [Group U]
-    [MulDistribMulAction S U] (hS2 : Nat.card S = 2) (u : U) : Set U :=
-  {c : U | ∃ b : ↥(fixedSubgroup S U), c = u * (b : U) * ((s2 hS2) • u)⁻¹}
 
 omit [Fintype S] [Fintype U] in
 /-- Conjugating an element of `T` by `g`: the `S`-component stays `s2` and the
@@ -1892,7 +1474,6 @@ public noncomputable instance instFintypeSemiProduct : Fintype (SemiProduct S U)
     have : Finite (SemiProduct S U) := inferInstance
     exact Fintype.ofFinite (SemiProduct S U)
 
-example : Fintype (SemiProduct S U) := inferInstance
 
 /-- The constant-one class function is the trivial irreducible character. -/
 public theorem isIrreducibleCharacter_one (G : Type u) [Group G] [Fintype G] :
@@ -1950,12 +1531,6 @@ omit [Fintype S] in
 public theorem sigChar_apply_s2 (hS2 : Nat.card S = 2) : sigChar hS2 (s2 hS2) = -1 := by
   simp [sigChar, sigHom, s2_ne_one hS2]
 
-/-- `sigChar` is not the trivial character. -/
-public theorem sigChar_ne_one (hS2 : Nat.card S = 2) : sigChar hS2 ≠ (1 : ClassFunction S) := by
-  intro h
-  have hz := congrFun h (s2 hS2)
-  rw [sigChar_apply_s2 hS2, Pi.one_apply] at hz
-  norm_num at hz
 
 /-- The nontrivial irreducible character of a group of order two. -/
 public noncomputable def sigIrr (hS2 : Nat.card S = 2) : IrrBG19 S :=
@@ -2098,12 +1673,6 @@ public theorem tB_apply (hS2 : Nat.card S = 2) (b : ↥(fixedSubgroup S U)) :
   change (h0Hom S U (b, s2 hS2) : SemiProduct S U) = ⟨(b : U), s2 hS2⟩
   rw [h0Hom_apply]
 
-omit [Fintype S] [Fintype U] in
-/-- `tB b` lies in `Tset`. -/
-public theorem tB_mem_Tset (hS2 : Nat.card S = 2) (b : ↥(fixedSubgroup S U)) :
-    (tB hS2 b : SemiProduct S U) ∈ Tset S U := by
-  rw [mem_Tset_iff, tB_apply]
-  exact ⟨b.2, s2_ne_one hS2⟩
 
 /-- The difference `ν_β - ν'_β` where `ν'_β` is twisted by the nontrivial
 character of `S`. -/
@@ -2128,16 +1697,6 @@ public theorem delta_supportedOn_Tset (hS2 : Nat.card S = 2)
   rw [hxr]
   simp [sigChar_apply_one]
 
-/-- The value of `delta β` at `tB b` is `2 β b`. -/
-public theorem delta_apply_Tset (hS2 : Nat.card S = 2)
-    (β : IrrBG19 (↥(fixedSubgroup S U))) (b : ↥(fixedSubgroup S U)) :
-    delta S U hS2 β.1 (tB hS2 b) = 2 * β.1 b := by
-  unfold delta
-  change h0Char S U (1 : ClassFunction S) β.1 (tB hS2 b) -
-      h0Char S U (sigChar hS2) β.1 (tB hS2 b) = 2 * β.1 b
-  simp [h0Char_apply, tB_apply]
-  rw [sigChar_apply_s2]
-  ring
 
 /-- `delta β` is a class function. -/
 public theorem h0Char_isClassFunction (S : Type u) (U : Type u) [Group S] [Group U]
@@ -2179,14 +1738,6 @@ public theorem delta_isClassFunction (hS2 : Nat.card S = 2)
     h0Char S U (1 : ClassFunction S) β x - h0Char S U (sigChar hS2) β x
   rw [h1, h2]
 
-/-- `delta β` is a generalized character. -/
-public theorem delta_isGeneralizedCharacter (hS2 : Nat.card S = 2)
-    (β : IrrBG19 (↥(fixedSubgroup S U))) :
-    IsGeneralizedCharacter (delta S U hS2 β.1) := by
-  refine ⟨h0Char S U (oneIrr S).1 β.1, h0Char S U (sigIrr hS2).1 β.1, ?_, ?_, ?_⟩
-  · exact isCharacter_of_isIrreducibleCharacter (h0Char_isIrreducible S U (oneIrr S) β)
-  · exact isCharacter_of_isIrreducibleCharacter (h0Char_isIrreducible S U (sigIrr hS2) β)
-  · simp [delta]
 
 /-- The induced `delta β` on the whole semidirect product. -/
 public def deltaStar (S : Type u) (U : Type u) [Group S] [Group U]
@@ -2201,87 +1752,6 @@ public theorem scalarProduct_sub_left {G : Type u} [Group G] [Fintype G]
   rw [sub_eq_add_neg, scalarProduct_add_left, scalarProduct_neg_left]
   ring
 
-public theorem induced_Tset_eq_self (hS2 : Nat.card S = 2)
-    (hU2' : Nat.Coprime 2 (Nat.card U)) {δ : ClassFunction (↥(H0sub S U))}
-    (hδ : IsClassFunction δ)
-    (hδT : supportedOn δ {x : ↥(H0sub S U) | (x : SemiProduct S U) ∈ Tset S U})
-    {g : SemiProduct S U} (hg : g ∈ Tset S U) :
-    inducedClassFunction (H0sub S U) δ g =
-      δ ⟨g, (mem_H0sub_iff S U g).2 ((mem_Tset_iff S U g).1 hg).1⟩ := by
-  classical
-  let hgH : g ∈ H0sub S U := (mem_H0sub_iff S U g).2 ((mem_Tset_iff S U g).1 hg).1
-  unfold inducedClassFunction
-  have hsum : (∑ x : SemiProduct S U, inducedSummand δ g x) =
-      (Nat.card (↥(H0sub S U)) : ℂ) * δ ⟨g, hgH⟩ := by
-    calc
-      (∑ x : SemiProduct S U, inducedSummand δ g x)
-          = ∑ x : SemiProduct S U, (if (x : SemiProduct S U) ∈ H0sub S U
-              then δ ⟨g, hgH⟩ else 0) := by
-              refine Finset.sum_congr rfl ?_
-              intro x hx
-              by_cases hxH : x ∈ H0sub S U
-              · have hmem : x⁻¹ * g * x ∈ H0sub S U := by
-                  exact (H0sub S U).mul_mem ((H0sub S U).mul_mem
-                    ((H0sub S U).inv_mem hxH) hgH) hxH
-                have hsummand : inducedSummand δ g x = δ ⟨g, hgH⟩ := by
-                  unfold inducedSummand
-                  rw [dif_pos hmem]
-                  have hc := hδ ⟨g, hgH⟩ ⟨x⁻¹, (H0sub S U).inv_mem hxH⟩
-                  have harg : (⟨x⁻¹, (H0sub S U).inv_mem hxH⟩ * ⟨g, hgH⟩ *
-                      ⟨x⁻¹, (H0sub S U).inv_mem hxH⟩⁻¹ : ↥(H0sub S U)) =
-                      ⟨x⁻¹ * g * x, hmem⟩ := by
-                    apply Subtype.ext
-                    simp
-                  rw [← harg]
-                  exact hc
-                simp [hxH]
-                exact hsummand
-              · -- x ∉ H0: both sides vanish (TI-set argument)
-                have hz : inducedSummand δ g x = 0 :=
-                  inducedSummand_zero_of_not_normalizer (Tset_TI hS2 hU2')
-                    (Tset_normalizer hS2 hU2') δ hδT hg hxH
-                simp [hxH, hz]
-      _ = (Nat.card (↥(H0sub S U)) : ℂ) * δ ⟨g, hgH⟩ := by
-              -- factor the constant out and count the elements of H0
-              have hfactor : (∑ x : SemiProduct S U,
-                  (if x ∈ H0sub S U then δ ⟨g, hgH⟩ else 0)) =
-                  (∑ x : SemiProduct S U,
-                    (if x ∈ H0sub S U then (1 : ℂ) else 0)) * δ ⟨g, hgH⟩ := by
-                rw [Finset.sum_mul]
-                refine Finset.sum_congr rfl ?_
-                intro x hx
-                by_cases hxH : x ∈ H0sub S U <;> simp [hxH]
-              rw [hfactor, Finset.sum_boole]
-              -- the number of elements of H0 equals Nat.card ↥H0
-              have hcard : Nat.card (↥(H0sub S U)) =
-                  (Finset.univ.filter (fun x : SemiProduct S U => x ∈ H0sub S U)).card := by
-                rw [Nat.card_eq_fintype_card]
-                rw [← Finset.card_univ]
-                -- the filter over univ is in bijection with the subtype
-                refine Finset.card_bij (s := Finset.univ)
-                  (t := Finset.univ.filter (fun x : SemiProduct S U => x ∈ H0sub S U))
-                  (fun x : ↥(H0sub S U) => fun _ => (x : SemiProduct S U)) ?_ ?_ ?_
-                · intro x hx
-                  exact Finset.mem_filter.mpr ⟨Finset.mem_univ (x : SemiProduct S U), x.2⟩
-                · intro a ha b hb hEq
-                  apply Subtype.ext
-                  exact hEq
-                · intro x hx
-                  rw [Finset.mem_filter] at hx
-                  refine ⟨⟨x, hx.2⟩, ?_, ?_⟩
-                  · simp
-                  · rfl
-              rw [hcard]
-  calc
-    (Nat.card (↥(H0sub S U)) : ℂ)⁻¹ *
-        (∑ x : SemiProduct S U, inducedSummand δ g x)
-        = (Nat.card (↥(H0sub S U)) : ℂ)⁻¹ *
-            ((Nat.card (↥(H0sub S U)) : ℂ) * δ ⟨g, hgH⟩) := by
-            rw [hsum]
-    _ = δ ⟨g, hgH⟩ := by
-            have hne : (Nat.card (↥(H0sub S U)) : ℂ) ≠ 0 := by
-              exact_mod_cast (Nat.card_pos (α := ↥(H0sub S U))).ne'
-            field_simp [hne]
 
 /-- The scalar product on `H0` is the double sum over `H0` itself. -/
 public theorem scalarProduct_doubleSum_self {G : Type u} [Group G] [Fintype G]
@@ -2504,15 +1974,6 @@ public theorem isCharacter_induced (H : Subgroup G) {φ : ClassFunction (↥H)}
     _ = (standardizeRepresentation σ).character g :=
           (standardizeRepresentation_character σ g).symm
 
-/-- The class-function induction of a generalized character is a generalized
-character. -/
-public theorem isGeneralizedCharacter_induced (H : Subgroup G) {φ : ClassFunction (↥H)}
-    (hφ : IsGeneralizedCharacter φ) : IsGeneralizedCharacter (inducedClassFunction H φ) := by
-  rcases hφ with ⟨χ, ψ, hχ, hψ, hφeq⟩
-  refine ⟨inducedClassFunction H χ, inducedClassFunction H ψ,
-    isCharacter_induced H hχ, isCharacter_induced H hψ, ?_⟩
-  rw [hφeq]
-  exact inducedClassFunction_sub H χ ψ
 
 /-- The scalar product is invariant under a group isomorphism (pulling back). -/
 public theorem scalarProduct_equiv_invariance {H : Type u} [Group H] [Fintype H]
@@ -2554,14 +2015,6 @@ public theorem inl_conj_inl (v u : U) :
       (SemidirectProduct.inl (v⁻¹ * u * v) : SemiProduct S U) := by
   apply SemidirectProduct.ext <;> simp
 
-omit [Fintype S] [Fintype U] in
-/-- Conjugation of `inl w` by `inr s` in the semidirect product. -/
-public theorem inr_smul_inl (s : S) (w : U) :
-    (SemidirectProduct.inr s : SemiProduct S U) *
-        (SemidirectProduct.inl w : SemiProduct S U) *
-        (SemidirectProduct.inr s : SemiProduct S U)⁻¹ =
-      (SemidirectProduct.inl (s • w) : SemiProduct S U) := by
-  apply SemidirectProduct.ext <;> simp [MulDistribMulAction.toMulAut_apply]
 
 /-- The class function on `G = U ⋊ S` induced from `α ∈ IrrBG19(U)`. -/
 public noncomputable def alphaInduced (α : IrrBG19 U) : ClassFunction (SemiProduct S U) :=
@@ -3150,13 +2603,6 @@ public theorem alphaPair₂_eq_mul_lambda (hS2 : Nat.card S = 2) (α : IrrBG19 U
     exact hspLam hz
   exact hχ₂'.symm
 
-/-- The two constituents sum to zero outside `USub`. -/
-public theorem alphaPair_sum_zero_of_right_ne_one (hS2 : Nat.card S = 2) (α : IrrBG19 U)
-    (hα : FixedIrr S U α) (g : SemiProduct S U) (hg : g.right ≠ 1) :
-    (alphaPair hS2 α hα).1 g + (alphaPair hS2 α hα).2 g = 0 := by
-  rw [alphaPair₂_eq_mul_lambda hS2 α hα]
-  have hLam : lambdaChar hS2 g = -1 := lambdaChar_apply_right_ne_one hS2 g hg
-  simp [Pi.mul_apply, hLam]
 
 /-- The difference of the two constituents of `α^G`. -/
 public noncomputable def alphaDelta (hS2 : Nat.card S = 2) (α : IrrBG19 U) (hα : FixedIrr S U α) :
@@ -3197,43 +2643,6 @@ public theorem alphaDelta_norm (hS2 : Nat.card S = 2) (α : IrrBG19 U) (hα : Fi
             scalarProduct_irr_ite hχ₁ hχ₂, scalarProduct_irr_ite hχ₂ hχ₂, hne, hne.symm]
           norm_num
 
-/-- `alphaDelta` vanishes on the `U`-part. -/
-public theorem alphaDelta_apply_right_one (hS2 : Nat.card S = 2) (α : IrrBG19 U)
-    (hα : FixedIrr S U α) (g : SemiProduct S U) (hg : g.right = 1) :
-    alphaDelta hS2 α hα g = 0 := by
-  have hEq₁ : (alphaPair hS2 α hα).1 g = α.1 g.left := by
-    have hres : (alphaPair hS2 α hα).1 (SemidirectProduct.inl g.left) = α.1 g.left :=
-      alphaInduced_restrict_constituent hS2 α hα (alphaPair_irr₁ hS2 α hα)
-        (by
-          rw [alphaPair_sum hS2 α hα]
-          rw [scalarProduct_add_right]
-          simp [scalarProduct_irr_ite (alphaPair_irr₁ hS2 α hα) (alphaPair_irr₁ hS2 α hα),
-            scalarProduct_irr_ite (alphaPair_irr₁ hS2 α hα) (alphaPair_irr₂ hS2 α hα),
-            alphaPair_distinct hS2 α hα]
-          ) g.left
-    have hgEq : g = SemidirectProduct.inl g.left := by
-      apply SemidirectProduct.ext <;> simp [hg]
-    rw [hgEq]
-    exact hres
-  have hEq₂ : (alphaPair hS2 α hα).2 g = α.1 g.left := by
-    have hres : (alphaPair hS2 α hα).2 (SemidirectProduct.inl g.left) = α.1 g.left :=
-      alphaInduced_restrict_constituent hS2 α hα (alphaPair_irr₂ hS2 α hα)
-        (by
-          rw [alphaPair_sum hS2 α hα]
-          rw [scalarProduct_add_right]
-          simp [scalarProduct_irr_ite (alphaPair_irr₂ hS2 α hα) (alphaPair_irr₁ hS2 α hα), scalarProduct_irr_ite (alphaPair_irr₂ hS2 α hα) (alphaPair_irr₂ hS2 α hα), (alphaPair_distinct hS2 α hα).symm]
-          ) g.left
-    have hgEq : g = SemidirectProduct.inl g.left := by
-      apply SemidirectProduct.ext <;> simp [hg]
-    rw [hgEq]
-    exact hres
-  simp [alphaDelta, hEq₁, hEq₂]
-
-/-- `alphaDelta` vanishes on all of `USub`. -/
-public theorem alphaDelta_apply_mem_USub (hS2 : Nat.card S = 2) (α : IrrBG19 U)
-    (hα : FixedIrr S U α) (g : SemiProduct S U) (hg : g ∈ USub S U) :
-    alphaDelta hS2 α hα g = 0 :=
-  alphaDelta_apply_right_one hS2 α hα g ((mem_USub_iff g).1 hg)
 
 end OrderTwoConstituents
 
@@ -3276,29 +2685,6 @@ public theorem sum_irrS_eq_two (hS2 : Nat.card S = 2) (f : IrrBG19 S → ℂ) :
   rw [huniv]
   simp [Finset.sum_insert, Finset.sum_singleton, oneIrr_ne_sigIrr hS2]
 
-/-- The scalar product of a Fourier sum with a basis character is the
-corresponding coefficient. -/
-public theorem scalarProduct_fourier {B : Type u} [Group B] [Fintype B]
-    (c : IrrBG19 B → ℂ) (γ₀ : IrrBG19 B) :
-    scalarProduct B (fun b : B => ∑ γ : IrrBG19 B, c γ * γ.1 b) γ₀.1 = c γ₀ := by
-  classical
-  have hfun : (fun b : B => ∑ γ : IrrBG19 B, c γ * γ.1 b) =
-      ∑ γ : IrrBG19 B, (c γ • γ.1) := by
-    funext b
-    rw [Finset.sum_apply]
-    rfl
-  rw [hfun]
-  rw [scalarProduct_sum_left]
-  simp_rw [scalarProduct_smul_left]
-  rw [Finset.sum_eq_single γ₀]
-  · simp [scalarProduct_irr_ite γ₀.2 γ₀.2]
-  · intro γ hγ hne
-    by_cases hEq : γ.1 = γ₀.1
-    · exfalso
-      exact hne (Subtype.ext hEq)
-    · simp [scalarProduct_irr_ite γ.2 γ₀.2, hEq]
-  · intro h
-    exact (h (Finset.mem_univ γ₀)).elim
 
 /-- The element `(b, 1)` of `H0 = S × B`. -/
 public noncomputable def inlB (S : Type u) (U : Type u) [Group S] [Group U]
@@ -4593,18 +3979,6 @@ section FixedConjClassBridge
 variable {S U : Type u} [Group S] [Group U] [Fintype S] [Fintype U]
 variable [MulDistribMulAction S U]
 
-/-- The automorphism of `U` induced by the non-trivial element in the
-order-two case. -/
-public def orderTwoAut (hS2 : Nat.card S = 2) : U ≃* U :=
-  MulDistribMulAction.toMulEquiv (M := U) (G := S) (s2 hS2)
-
-/-- The order-two automorphism is an involution. -/
-public theorem orderTwoAut_sq (hS2 : Nat.card S = 2) :
-    (orderTwoAut (S := S) (U := U) hS2).toEquiv ^ 2 = 1 := by
-  ext u
-  change (s2 hS2) • ((s2 hS2) • u) = u
-  rw [← mul_smul]
-  simpa [pow_two] using congrArg (fun s : S => s • u) (s2_sq hS2)
 
 omit [Fintype S] in
 /-- In a group of order two, the non-trivial element is its own inverse. -/
@@ -5154,29 +4528,6 @@ public theorem orderTwoIrrEquiv_congr (hS2 : Nat.card S = 2)
     CongruentModTwo (α.1 b) ((orderTwoIrrEquiv hS2 hU2' ⟨α, hα⟩).1 b) := by
   simpa [orderTwoIrrEquiv] using orderTwoCorr_congr hS2 hU2' α hα b
 
-/-- The fixed subgroup of a subgroup action is the same subgroup as
-`FixedPoints.subgroup`. -/
-public noncomputable def fixedSubgroupEquivFixedPoints (H : Subgroup S) :
-    fixedSubgroup (↥H) U ≃* FixedPoints.subgroup H U where
-  toFun u := ⟨u.1, by
-    rw [FixedPoints.mem_subgroup]
-    intro h
-    change h • u.1 = u.1
-    simpa using u.2 h⟩
-  invFun u := ⟨u.1, by
-    rw [mem_fixedSubgroup_iff (↥H) U u.1]
-    intro h
-    change h • u.1 = u.1
-    simpa using (FixedPoints.mem_subgroup H U u.1).1 u.2 h⟩
-  left_inv u := by
-    apply Subtype.ext
-    rfl
-  right_inv u := by
-    apply Subtype.ext
-    rfl
-  map_mul' u v := by
-    apply Subtype.ext
-    rfl
 
 /-- The quotient group acts on the fixed-point subgroup of `H`. -/
 public noncomputable def quotientSmulFixedSubgroup (H : Subgroup S) [H.Normal]

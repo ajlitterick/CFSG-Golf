@@ -115,9 +115,6 @@ theorem sign_pair {i j k l : Fin 6} (hij : i ≠ j) (hkl : k ≠ l) :
   rw [Equiv.Perm.sign_mul, Equiv.Perm.sign_swap hij, Equiv.Perm.sign_swap hkl]
   rfl
 
-theorem a1_mem_alt : a1 ∈ alternatingGroup (Fin 6) := by
-  rw [Equiv.Perm.mem_alternatingGroup, a1_eq]
-  exact sign_pair (by decide) (by decide)
 
 theorem b1_mem_alt : b1 ∈ alternatingGroup (Fin 6) := by
   rw [Equiv.Perm.mem_alternatingGroup, b1_eq]
@@ -318,7 +315,6 @@ theorem sylowS6_le_p1 : sylowS6 ≤ p1 := by
 
 theorem c45_mem_r1 : c45 ∈ r1 := Subgroup.subset_closure (by simp [gensR1])
 
-theorem a1_mem_r1 : a1 ∈ r1 := Subgroup.subset_closure (by simp [gensR1])
 
 theorem comm_not_mem_r1 : (t1 * s1)⁻¹ * (s1 * t1) ∉ r1 := by
   rw [mem_r1_iff]

@@ -53,27 +53,6 @@ theorem E22StatementC.toNoN (h : E22StatementC) : E22StatementNoN :=
 theorem E22StatementC.toNParam (h : E22StatementC) : E22NParamC :=
   h.2
 
-theorem e22CasesNoN_of_e22Cases {H T M K : Subgroup Γ} (h : E22Cases H T M K) :
-    E22CasesNoN H T M K := by
-  dsimp only [E22Cases] at h
-  dsimp only [E22CasesNoN]
-  rcases h with ⟨hJ, t, ht, hne, hM, h1⟩ | ⟨hTK, hJ, h2⟩
-  · refine Or.inl ⟨hJ, t, ht, hne, hM, ?_⟩
-    rcases h1 with ⟨n, hn, hty, hB, -⟩ | ⟨p, hp, hp8, hK, hMK, haut, -⟩
-    · exact Or.inl ⟨n, hn, hty, hB⟩
-    · exact Or.inr ⟨p, hp, hp8, hK, hMK, haut⟩
-  · refine Or.inr ⟨hTK, hJ, ?_⟩
-    rcases h2 with ⟨n, hBen, hB, -⟩ | ⟨n, hn, hty, hD, hB, -⟩ |
-        ⟨p, e, hp, hp3, he, hpe, hK, hMK, haut, -⟩ | ⟨p, hp, hp2, hK, hMK, -⟩
-    · exact Or.inl ⟨n, hBen, hB⟩
-    · exact Or.inr (Or.inl ⟨n, hn, hty, hD, hB⟩)
-    · exact Or.inr (Or.inr (Or.inl ⟨p, e, hp, hp3, he, hpe, hK, hMK, haut⟩))
-    · exact Or.inr (Or.inr (Or.inr ⟨p, hp, hp2, hK, hMK⟩))
-
-theorem e22StatementNoN_of_e22Statement (h : E22Statement) : E22StatementNoN := by
-  intro Γ _ _ H T M hmin hSQ hns
-  obtain ⟨⟨K, hKc, hHK, hq, hc⟩, hSQs⟩ := h Γ H T M hmin hSQ hns
-  exact ⟨⟨K, hKc, hHK, hq, e22CasesNoN_of_e22Cases hc⟩, hSQs⟩
 
 end E2
 

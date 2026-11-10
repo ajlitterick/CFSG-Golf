@@ -56,27 +56,6 @@ variable {G : Type} [Group G]
 @[expose] def cosetConjugates (H Q : Subgroup G) (u : G) : Set (Set G) :=
   {D | ∃ h ∈ H, D = conjSet (involutionCoset Q u) h}
 
-@[expose] def InvolutionCountConclusion (H : Subgroup G) (z : G) (beta : rightCosetSpace H)
-    (t : G) : Prop :=
-  let B := pairPointStabilizer H beta
-  let X := rightInvolutionCommutatorSubgroup t (pairOddCore H beta)
-  let K := minimalLocalFailureProperPairHull H z beta t
-  let Q := minimalLocalFailurePairActionPointHull H z
-  let q := Nat.card Q
-  let M := TwoCoreGrowth.pointTwoCoreImage H
-  let J := Subgroup.centralizer (K : Set G)
-  M = H ⊓ Subgroup.centralizer (Q : Set G) ∧
-    J ≠ ⊥ ∧ IsElemAbelian 2 J ∧ M ⊓ B = J ∧
-    Q ⊓ J = ⊥ ∧ J ≤ Subgroup.centralizer (Q : Set G) ∧
-    (∀ j ∈ J, j ≠ 1 → M ⊓ Subgroup.centralizer ({j} : Set G) = Q ⊔ J) ∧
-    (∀ x ∈ X, x ≠ 1 → M ⊓ Subgroup.centralizer ({x} : Set G) = J) ∧
-    (∀ j ∈ J, j ≠ 1 → ∀ k ∈ J, k ≠ 1 →
-      (k ∈ conjugacyWithin H j ↔ k ∈ conjugacyWithin B j)) ∧
-    (∀ j ∈ J, j ≠ 1 →
-      Nat.card (conjugacyWithin H j) = q ^ 2 * Nat.card (conjugacyWithin B j)) ∧
-    ∀ U : Subgroup G, U ≤ H → (U.subgroupOf H).Normal → Q ≤ U → U ≤ M →
-      Nat.card {u : U // orderOf u = 2} = q - 1 + q ^ 2 * (Nat.card (U ⊓ J : Subgroup G) - 1) ∧
-      (U ⊓ J = ⊥ → {u : G | u ∈ U ∧ orderOf u = 2} = (Q : Set G) \ {1})
 
 @[expose] def CentralSectionConclusion (H : Subgroup G) (z : G) (beta : rightCosetSpace H)
     (t : G) : Prop :=

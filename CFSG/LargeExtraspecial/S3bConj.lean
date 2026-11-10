@@ -278,10 +278,6 @@ theorem hasTypeAInL_of_mul {g h : G} (hh : h ∈ S.M) (h1 : S.HasTypeAInL (h * g
     have := S.conj_mem_QG hh hmem
     simpa [mul_assoc] using this
 
-theorem hasTypeAInL_mul {g h : G} (hh : h ∈ S.M) (h1 : S.HasTypeAInL g) :
-    S.HasTypeAInL (h * g) := by
-  refine S.hasTypeAInL_of_mul (S.M.inv_mem hh) ?_
-  rwa [inv_mul_cancel_left]
 
 @[expose] def IsReducible : Prop :=
   ∃ W : Submodule (ZMod 2) S.Qt, W ≠ ⊥ ∧ W ≠ ⊤ ∧

@@ -43,8 +43,5 @@ theorem muTableBelow_of_sect {n : ℕ} (h : MuTableSectBelow p f n) : MuTableBel
 theorem ih8MuTable_of_sect (h : Ih8MuTableSect p f) : Ih8MuTable p f :=
   fun n hn => muTableBelow_of_sect (h n hn)
 
-theorem ih8Rest_of_sect (h5 : Ih8Thm5 p f) (hMu : Ih8MuTableSect p f) (h3 : Ih8Thm3 p f)
-    (hG : Ih8G2D4 p f) : IH8Rest p f :=
-  ih8Rest_of h5 (ih8MuTable_of_sect hMu) h3 hG
 
 end CFSG.ClassicalInvolution.Asc77

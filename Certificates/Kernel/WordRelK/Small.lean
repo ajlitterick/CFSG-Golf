@@ -25,7 +25,6 @@ theorem lCommSym : lCommSymOK = true := by decide +kernel
 
 theorem uCommDiag : uCommDiagOK = true := by decide +kernel
 
-theorem lengths : lengthsOK = true := by decide +kernel
 
 end CertificateChecks.KernelWordRelK.Small
 

@@ -360,9 +360,6 @@ end Bundle
 
 section BundleInput
 
-theorem ggLayerCenterCyclicExcInput_of_modelRestTwo (hlay : GGLayerTagsPilotRestSix)
-    (h : GGLayerCenterCyclicModelRestTwo) : GGLayerCenterCyclicExcInput :=
-  ggLayerCenterCyclicExcInput_of_modelRest hlay (ggLayerCenterCyclicModelRest_of_restTwo h)
 
 end BundleInput
 

@@ -81,41 +81,5 @@ theorem even_linear_existsUnique_lift
   exact congrArg (fun f : SpecialLinearGroup (Fin n) K →* pullback π α =>
     ((f g : pullback π α) : SpecialLinearGroup (Fin n) K × E).2) h1
 
-theorem even_linear_homomorphism_lifting
-    {K : Type} [Field K] [Finite K] [CharP K 2] {n : ℕ}
-    (hn : 2 ≤ n) {E G : Type*} [Group E] [Group G] [Finite E] {π : E →* G}
-    (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center E)
-    (hodd : Odd (Nat.card π.ker)) (α : SpecialLinearGroup (Fin n) K →* G) :
-    (∃! α' : SpecialLinearGroup (Fin n) K →* E, π.comp α' = α) ∧
-      ∀ α' : SpecialLinearGroup (Fin n) K →* E, π.comp α' = α → Function.Injective α →
-        Function.Injective α' := by
-  refine ⟨even_linear_existsUnique_lift hn hπ hcen hodd α, fun α' h hinj => ?_⟩
-  rw [← h, MonoidHom.coe_comp] at hinj
-  exact hinj.of_comp
-
-theorem even_linear_lift_commute
-    {K₁ K₂ : Type} [Field K₁] [Finite K₁] [CharP K₁ 2] [Field K₂]
-    [Finite K₂] [CharP K₂ 2] {n₁ n₂ : ℕ} (_hn₁ : 2 ≤ n₁) (hn₂ : 2 ≤ n₂) {E G : Type*} [Group E]
-    [Group G] [Finite E] {π : E →* G} (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (hodd : Odd (Nat.card π.ker))
-    {α₁ : SpecialLinearGroup (Fin n₁) K₁ →* G} {α₂ : SpecialLinearGroup (Fin n₂) K₂ →* G}
-    (hcomm : ∀ a b, Commute (α₁ a) (α₂ b)) {α₁' : SpecialLinearGroup (Fin n₁) K₁ →* E}
-    {α₂' : SpecialLinearGroup (Fin n₂) K₂ →* E} (h₁ : π.comp α₁' = α₁) (h₂ : π.comp α₂' = α₂) :
-    ∀ a b, Commute (α₁' a) (α₂' b) := by
-  intro a b
-  set e := α₁' a with he
-  have hconj : π.comp ((MulAut.conj e).toMonoidHom.comp α₂') = α₂ := by
-    ext g
-    have h1 : π e = α₁ a := by rw [he, ← h₁, MonoidHom.comp_apply]
-    have h2 : π (α₂' g) = α₂ g := by rw [← h₂, MonoidHom.comp_apply]
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply, map_mul,
-      map_inv, h1, h2]
-    rw [(hcomm a g).eq, mul_inv_cancel_right]
-  obtain ⟨_, _, huniq⟩ := even_linear_existsUnique_lift hn₂ hπ hcen hodd α₂
-  have h3 := (huniq _ hconj).trans (huniq _ h₂).symm
-  have h4 := congrArg (· b) h3
-  simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply] at h4
-  calc e * α₂' b = e * α₂' b * e⁻¹ * e := by group
-    _ = α₂' b * e := by rw [h4]
 
 end CFSG.SectionRank.EvenCover

@@ -26,15 +26,5 @@ open Subgroup CFSG.Open CFSG.LocalAnalysis.RankThreeTheoremC
       (∀ T : Subgroup X, p.Coprime (Nat.card T) → D ≤ normalizer (T : Set X) → T = ⊥) ∨
         LinesTransitive D
 
-@[expose] def GL83I203Sigma : Prop :=
-  ∀ (p : ℕ), p.Prime → 5 ≤ p → ∀ (S : Type) [Group S] [Finite S] [IsSimpleGroup S],
-    (∃ a b : S, a * b ≠ b * a) → IsCatalogGroup S → p ∣ Nat.card S → InvolvedInSymm p S →
-    ∀ x : S, orderOf x = p → ∀ A : Subgroup (MulAut S), p.Coprime (Nat.card A) →
-      MulAut.conj x ∈ normalizer (A : Set (MulAut S)) → A = ⊥
-
-@[expose] def SigmaCentralizerPGroup : Prop :=
-  ∀ (p : ℕ), p.Prime → 5 ≤ p → ∀ (S : Type) [Group S] [Finite S] [IsSimpleGroup S],
-    (∃ a b : S, a * b ≠ b * a) → IsCatalogGroup S → p ∣ Nat.card S → InvolvedInSymm p S →
-    ∀ x : S, orderOf x = p → ∀ φ : MulAut S, p.Coprime (orderOf φ) → φ x = x → φ = 1
 
 end CFSG.LocalAnalysis.RankFourTheoremC

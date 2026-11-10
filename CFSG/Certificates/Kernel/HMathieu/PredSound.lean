@@ -20,11 +20,6 @@ theorem quadBasisOK_map (n : Nat) {act : P → Nat → Nat} {act' : Q → Nat �
   refine all_congr_mem fun s hs => all_congr_mem fun t ht => ?_
   rw [h s hs, h t ht]
 
-theorem noQuadRank3_map (n : Nat) {act : P → Nat → Nat} {act' : Q → Nat → Nat} (g : P → Q)
-    {l : List P} (h : ∀ x ∈ l, act x = act' (g x)) :
-    noQuadRank3 n act l = noQuadRank3 n act' (l.map g) := by
-  unfold noQuadRank3
-  rw [quadBasisOK_map n g h, List.length_map]
 
 theorem fixMasks_map (n : Nat) {act : P → Nat → Nat} {act' : Q → Nat → Nat} (g : P → Q)
     {l : List P} (h : ∀ x ∈ l, act x = act' (g x)) :

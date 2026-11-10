@@ -419,17 +419,11 @@ theorem ggUnitarySemisimpleComponentInput_holds : GGUnitarySemisimpleComponentIn
 
 section Inputs
 
-theorem ggStepTwoUnitaryFusionEqInput_of_bstarFrame (hT : GGUnitaryBstarFrameInput) :
-    GGStepTwoUnitaryFusionEqInput :=
-  ggStepTwoUnitaryFusionEqInput_of_frame hT ggUnitarySemisimpleComponentInput_holds
 
 theorem ggStepTwoLinearFusionEqInput_of_bstarFrame (hT : GGUnitaryBstarFrameInput) :
     GGStepTwoLinearFusionEqInput :=
   ggStepTwoLinearFusionEqInput_of_frame hT ggUnitarySemisimpleComponentInput_holds
 
-theorem ggStepTwoUnitaryFusionLargeInput_of_bstarFrame (hT : GGUnitaryBstarFrameInput)
-    (hI1 : GGUnitaryBstarCentralizerInput) : GGStepTwoUnitaryFusionLargeInput :=
-  ggStepTwoUnitaryFusionLargeInput_of_frame hT ggUnitarySemisimpleComponentInput_holds hI1
 
 end Inputs
 

@@ -443,18 +443,6 @@ theorem rootOp_two_mul_one (hK : Nat.card K = 4)
   rw [show (2 + 1 : ℕ) = 3 by norm_num, rootOp_three_eq_zero hK hCw hC hα] at h
   exact h
 
-theorem rootOp_one_mul_one (hK : Nat.card K = 4) {α : Fin 4 → ℤ} (hα : IsD4Root α) :
-    rootOp D ρ α 1 * rootOp D ρ α 1 = 0 := by
-  have hN := card_units_eq_three (K := K) hK
-  have hcoef : (((1 + 1).choose 1 : ℕ) : K) = 0 := by
-    norm_num
-    exact CharTwo.two_eq_zero
-  rw [rootOp_mul D ρ α hα 1 1, if_pos (by omega), hcoef, zero_smul]
-
-theorem rootOp_two_mul_two (hK : Nat.card K = 4) {α : Fin 4 → ℤ} (hα : IsD4Root α) :
-    rootOp D ρ α 2 * rootOp D ρ α 2 = 0 := by
-  have hN := card_units_eq_three (K := K) hK
-  rw [rootOp_mul D ρ α hα 2 2, if_neg (by omega), zero_smul]
 
 theorem rho_x_eq_of_card_eq_four (hK : Nat.card K = 4)
     (hCw : ∀ a, a ∈ C ↔ D.wtSpace ρ a ≠ ⊥)

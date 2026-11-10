@@ -180,10 +180,6 @@ theorem pairedSympTwoEquiv_doubleNaturalSL2 (g : SpecialLinearGroup (Fin 2) k)
   map_one' := LinearMap.ext fun p => by simp
   map_mul' M N := LinearMap.ext fun p => by simp [mulVec_mulVec]
 
-theorem pairedSympTwoConj_apply (M : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) k)
-    (p : (Fin 2 → k) × (Fin 2 → k)) :
-    pairedSympTwoConj M p = pairedSympTwoEquiv.symm (M *ᵥ pairedSympTwoEquiv p) :=
-  rfl
 
 @[expose] def pairedSympTwoGL :
     GL (Fin 2 ⊕ Fin 2) k →* LinearMap.GeneralLinearGroup k ((Fin 2 → k) × (Fin 2 → k)) :=

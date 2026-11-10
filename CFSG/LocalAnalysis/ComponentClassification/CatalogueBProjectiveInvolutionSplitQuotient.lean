@@ -13,16 +13,6 @@ variable {K ι : Type*} [Field K] [Fintype ι] [DecidableEq ι]
   (Matrix.GeneralLinearGroup.scalar (Fin r)).prod
     (Matrix.GeneralLinearGroup.scalar (Fin s))
 
-theorem splitDiagonalScalars_apply (r s : ℕ) (c : Kˣ) :
-    splitDiagonalScalars r s c =
-      (Matrix.GeneralLinearGroup.scalar (Fin r) c,
-        Matrix.GeneralLinearGroup.scalar (Fin s) c) := rfl
-
-theorem mem_splitDiagonalScalars_range (r s : ℕ)
-    (B : Matrix.GeneralLinearGroup (Fin r) K × Matrix.GeneralLinearGroup (Fin s) K) :
-    B ∈ (splitDiagonalScalars r s).range ↔
-      ∃ c : Kˣ, (Matrix.GeneralLinearGroup.scalar (Fin r) c,
-        Matrix.GeneralLinearGroup.scalar (Fin s) c) = B := Iff.rfl
 
 theorem splitDiagonalScalars_range_le_center (r s : ℕ) :
     (splitDiagonalScalars (K := K) r s).range ≤

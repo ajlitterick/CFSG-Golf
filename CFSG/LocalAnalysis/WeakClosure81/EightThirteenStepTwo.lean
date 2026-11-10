@@ -34,14 +34,6 @@ theorem isElemAbelian_eGrp_of_isCalH {V H T : Subgroup G} (hH : IsCalH V H)
     exact (Subgroup.mem_normalizer_iff.mp (hHnorm hh) c).1 (hC hc)
   exact CFSG.Open.IsElemAbelian.mono (B2F.isElemAbelian_omegaOneCenterOf (pCoreOf 2 H)) hEO
 
-private theorem not_isCyclic_of_isElemAbelian_of_two_lt_card {A : Subgroup G}
-    (hA : IsElemAbelian 2 A) (hcard : 2 < Nat.card A) : ¬ IsCyclic A := by
-  intro hcyc
-  obtain ⟨g, hg⟩ := hcyc.exists_generator
-  have hg2 : g ^ 2 = 1 := Subtype.ext (by simpa using hA.2 g g.2)
-  have hord : orderOf g = Nat.card A := orderOf_eq_card_of_forall_mem_zpowers hg
-  have hle : orderOf g ≤ 2 := Nat.le_of_dvd (by norm_num) (orderOf_dvd_of_pow_eq_one hg2)
-  omega
 
 end CFSG.LocalAnalysis.WeakClosure81
 

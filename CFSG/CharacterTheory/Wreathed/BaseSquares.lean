@@ -70,17 +70,9 @@ theorem base_frattini_eq_squares (n : ℕ) :
     induction q using QuotientGroup.induction_on with
     | H x => rfl
 
-theorem squareAutAction_mk (A : Type u) [Group A] (a : MulAut A) (x : A) :
-    squareAutAction A a ((QuotientGroup.mk' (squareSubgroup A)) x) =
-      (QuotientGroup.mk' (squareSubgroup A)) (a x) := rfl
 
 variable {G : Type u} [Group G]
 
-theorem modelBase_frattini_eq_squares (n : ℕ) (S : Sylow 2 G)
-    (e : S ≃* Wreath (2 ^ n)) :
-    frattini (modelBase S e) = squareSubgroup (modelBase S e) := by
-  rw [← frattini_map_mulEquiv (modelBaseEquiv S e), base_frattini_eq_squares,
-    squareSubgroup_map_mulEquiv]
 
 @[expose] def modelBaseFrattiniSquareQuotientEquiv (n : ℕ) (S : Sylow 2 G)
     (e : S ≃* Wreath (2 ^ n)) :
@@ -176,43 +168,5 @@ theorem modelBaseSquareAction_ker [Finite G] (n : ℕ) (hn : 1 ≤ n)
       (baseSubgroup (2 ^ n)) (modelBaseAction S e g) = 1
     rw [show modelBaseAction S e g = 1 from hg, map_one]
 
-@[expose] def modelBaseNormalizerSquareQuotientEquiv [Finite G]
-    (n : ℕ) (hn : 1 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G)) ≃*
-          (modelBaseSquareAction n S e).range :=
-  (QuotientGroup.quotientMulEquivOfEq
-    (modelBaseSquareAction_ker n hn S e).symm).trans
-      (QuotientGroup.quotientKerEquivRange (modelBaseSquareAction n S e))
-
-@[expose] def modelBaseNormalizerSquareQuotientAction [Finite G]
-    (n : ℕ) (hn : 1 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Subgroup.normalizer (modelBase S e : Set G) ⧸
-      (Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G)) →*
-          MulAut (modelBase S e ⧸ squareSubgroup (modelBase S e)) :=
-  (modelBaseSquareAction n S e).range.subtype.comp
-    (modelBaseNormalizerSquareQuotientEquiv n hn S e).toMonoidHom
-
-theorem modelBaseNormalizerSquareQuotientAction_injective [Finite G]
-    (n : ℕ) (hn : 1 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Function.Injective (modelBaseNormalizerSquareQuotientAction n hn S e) :=
-  (modelBaseSquareAction n S e).range.subtype_injective.comp
-    (modelBaseNormalizerSquareQuotientEquiv n hn S e).injective
-
-theorem modelBaseNormalizerSquareQuotientAction_mk [Finite G]
-    (n : ℕ) (hn : 1 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (g : Subgroup.normalizer (modelBase S e : Set G)) :
-    modelBaseNormalizerSquareQuotientAction n hn S e
-      ((QuotientGroup.mk' ((Subgroup.centralizer (modelBase S e : Set G)).subgroupOf
-        (Subgroup.normalizer (modelBase S e : Set G)))) g) =
-          modelBaseSquareAction n S e g := rfl
-
-theorem modelBase_square_quotient_card (n : ℕ) (hn : 1 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Nat.card (modelBase S e ⧸ squareSubgroup (modelBase S e)) = 4 := by
-  rw [← Nat.card_congr (modelBaseFrattiniSquareQuotientEquiv n S e).toEquiv]
-  exact base_frattini_quotient_card n hn
 
 end CFSG.Wreathed

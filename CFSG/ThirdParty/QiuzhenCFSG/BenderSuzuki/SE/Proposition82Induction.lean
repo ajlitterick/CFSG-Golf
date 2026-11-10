@@ -47,13 +47,6 @@ public theorem proposition82_fixedPoints_card_le_of_le
     exact congrArg (fun z : theorem4bFixedPoints M A => (z : conjugateCosetSpace M)) hxy
   exact Nat.card_le_card_of_injective f hf
 
-/-- The selected base coset is fixed by every subgroup of `M`. -/
-public theorem proposition82_base_fixed_of_le
-    {X : Type u} [Group X] [Finite X] {M A : Subgroup X}
-    (hAM : A ≤ M) :
-    (QuotientGroup.mk 1 : conjugateCosetSpace M) ∈
-      fixedPointsOfSubgroup X (conjugateCosetSpace M) A :=
-  theorem4b_baseCoset_mem_fixedPoints hAM
 
 /-- A subgroup of a two-point stabilizer has odd order. -/
 public theorem proposition82_odd_card_of_le_twoPointStabilizer
@@ -604,20 +597,5 @@ public theorem IsStronglyEmbedded.proposition82aAtBase_of_theorem4b
   intro Y hYM hfixed
   exact hP (Nat.card Y) Y rfl hYM hfixed
 
-/-- Source-endpoint wrapper for the Proposition 8.2(a) induction. -/
-public theorem IsStronglyEmbedded.proposition82aAtBase_of_source_endpoints
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hXsimple : IsSimpleGroup X)
-    (hrank : TwoRankAtLeastTwo (involutionCore M))
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (N : Subgroup H), IsStronglyEmbedded N →
-        TheoremSEConclusion N) :
-    Proposition82aAtBase M := by
-  let hT2 : Theorem4bProposition63Theorem2 M (involutionsSet X) :=
-    hM.theorem4bProposition63Theorem2
-  let h4b : Theorem4bAtBase M :=
-    hM.theorem4bAtBase_of_section7 hXsimple hrank hT2 hinduction
-  exact hM.proposition82aAtBase_of_theorem4b
-    hXsimple h4b hT2 hinduction
 
 end CFSG.BenderSuzuki

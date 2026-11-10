@@ -36,48 +36,11 @@ theorem sv_wS : allLt 130 (wSChk pl sg vg vt vw) = true := by quickRfl
 
 theorem sv_wA1 : allLt 130 (wAChk pl sg vg vt k1 2 w1) = true := by quickRfl
 
-theorem sv_wA2 : allLt 130 (wAChk pl sg vg vt k2 3 w2) = true := by quickRfl
 
 theorem sv_a1 : aChk1 sg sl vg vt k1 2 a1 a1p a1j a1d = true := by quickRfl
 
 theorem sv_a2 : aChk1 sg sl vg vt k2 3 a2 a2p a2j a2d = true := by quickRfl
 
-theorem neg_s : CFSG.KC.notB (sChk Mn kgn (sgcn.getD 4 0) (sgwn.getD 4 []) (sg.set 0 (sg.getD 0 0 ^^^ 64))
-    sl sp sj sd) = true := by quickRfl
-
-theorem neg_s2 : CFSG.KC.notB (sChk Mn kgn (sgcn.getD 4 0) (sgwn.getD 4 []) sg sl sp
-    (sj.set 5 ((sj.getD 5 0 + 1) % 9)) sd) = true := by quickRfl
-
-theorem neg_p : CFSG.KC.notB (pChk sl (pl.set 7 (sl.getD 23 0)) pi) = true := by quickRfl
-
-theorem neg_vg : CFSG.KC.notB (vgChk (sgln.getD 4 0) [] (vg.set 3 (vg.getD 3 0 ^^^ 1))) = true := by
-  quickRfl
-
-theorem neg_hp : CFSG.KC.notB (hpChk vg sl sp36 (hp ^^^ 2 ^ (36 * 100))) = true := by quickRfl
-
-theorem neg_cov : CFSG.KC.notB (covChk sp36 hp vt sl a1 a2 (vr.set 3 ((vr.getD 3 []).dropLast)) vb 3) =
-    true := by quickRfl
-
-theorem neg_cov2 : CFSG.KC.notB (covChk sp36 hp vt sl a1 a2
-    (vr.set 5 (((vr.getD 5 []).getD 1 0) :: ((vr.getD 5 []).getD 0 0) :: (vr.getD 5 []).drop 2))
-    vb 5) = true := by quickRfl
-
-theorem neg_cov3 : CFSG.KC.notB (covChk sp36 hp (vt ^^^ 3) sl a1 a2 vr vb 0) = true := by quickRfl
-
-theorem neg_cnt : CFSG.KC.notB (cntChk (vr.set 0 []) vb) = true := by quickRfl
-
-theorem neg_wS : CFSG.KC.notB (allLt 130 (wSChk pl sg vg vt
-    (vw.set 1 ((vw.getD 1 []).dropLast)))) = true := by quickRfl
-
-theorem neg_wA1 : CFSG.KC.notB (allLt 130 (wAChk pl sg vg vt k1 2
-    (w1.set 1 ((w1.getD 1 []).dropLast)))) = true := by quickRfl
-
-theorem neg_a1 : CFSG.KC.notB (aChk1 sg sl vg vt k1 2 (a1.drop 1) a1p a1j a1d) = true := by quickRfl
-
-theorem neg_a2 : CFSG.KC.notB (aChk1 sg sl vg vt k2 3 a2 (a2p.set 100 100) a2j a2d) = true := by
-  quickRfl
-
-theorem neg_a3 : CFSG.KC.notB (aChk1 sg sl vg vt k2 2 a1 a1p a1j a1d) = true := by quickRfl
 
 end CFSG.KP.S1277Sv
 

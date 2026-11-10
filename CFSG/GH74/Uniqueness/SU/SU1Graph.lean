@@ -173,22 +173,6 @@ theorem ig10_20_ii (hp : p.Prime) {P U : Subgroup G} (hP : IsPGroup p P) (hU : I
   rw [hcent]
   exact ig10_20_i hp (hhalf x hxU hx1)
 
-theorem ig10_21_i (hp : p.Prime) {P : Subgroup G} (hrk : Open.pRank p P ≤ 2) :
-    ∀ A B : Ep2Vertex p P, ¬ (Ep2Graph p P).Adj A B := by
-  rintro A B ⟨hne, hcomm⟩
-  have hne' : A.1 ≠ B.1 := fun h => hne (Subtype.ext h)
-  obtain ⟨hel, h3⟩ := sup_isElemAbelian_card hp A.2.2.1 A.2.2.2 B.2.2.1 B.2.2.2 hne' hcomm
-  obtain ⟨k, hk⟩ := IsElemAbelian.exists_card hp hel
-  have hk3 : 3 ≤ k := (Nat.pow_le_pow_iff_right hp.one_lt).mp (hk ▸ h3)
-  have := le_pRank hp.one_lt (sup_le A.2.1 B.2.1) hel hk
-  omega
-
-theorem ig10_21_i_reachable (hp : p.Prime) {P : Subgroup G} (hrk : Open.pRank p P ≤ 2)
-    {A B : Ep2Vertex p P} (h : (Ep2Graph p P).Reachable A B) : A = B := by
-  obtain ⟨w⟩ := h
-  cases w with
-  | nil => rfl
-  | cons hadj _ => exact absurd hadj (ig10_21_i hp hrk _ _)
 
 omit [Finite G] in
 theorem reachable_of_commute {P : Subgroup G} {A B : Ep2Vertex p P}
@@ -197,13 +181,6 @@ theorem reachable_of_commute {P : Subgroup G} {A B : Ep2Vertex p P}
   · rw [hAB]
   · exact SimpleGraph.Adj.reachable ⟨hAB, h⟩
 
-omit [Finite G] in
-theorem eq_of_reachable_of_isIsolated {P : Subgroup G} {A B : Ep2Vertex p P}
-    (hA : IsIsolated p A) (h : (Ep2Graph p P).Reachable A B) : A = B := by
-  obtain ⟨w⟩ := h
-  cases w with
-  | nil => rfl
-  | cons hadj _ => exact absurd hadj (hA _)
 
 theorem not_isIsolated_of_isNormalEp2 (hp : p.Prime) {P U : Subgroup G} (hP : IsPGroup p P)
     (hrk : 3 ≤ Open.pRank p P) (hU : IsNormalEp2 p P U) (A : Ep2Vertex p P) (hAU : A.1 = U) :
@@ -267,18 +244,6 @@ theorem ig10_21_ii (hp : p.Prime) {P : Subgroup G} (hP : IsPGroup p P) (hrk : 3 
     exact hA (isIsolated_of_not_reachable hp hP hU Uv rfl A hcon)
   exact ⟨⟨Uv, hnot⟩, fun A B hA hB => (hreach A hA).symm.trans (hreach B hB)⟩
 
-theorem ig10_21_ii_component (hp : p.Prime) {P : Subgroup G} (hP : IsPGroup p P)
-    (hrk : 3 ≤ Open.pRank p P) (hU : ∃ U, IsNormalEp2 p P U) :
-    ∃ C : (Ep2Graph p P).ConnectedComponent, (∃ A, (Ep2Graph p P).connectedComponentMk A = C) ∧
-      ∀ A : Ep2Vertex p P, (Ep2Graph p P).connectedComponentMk A = C ↔ ¬ IsIsolated p A := by
-  obtain ⟨⟨A0, hA0⟩, hall⟩ := ig10_21_ii hp hP hrk hU
-  refine ⟨(Ep2Graph p P).connectedComponentMk A0, ⟨A0, rfl⟩, fun A => ?_⟩
-  constructor
-  · intro h hiso
-    have hr : (Ep2Graph p P).Reachable A A0 := SimpleGraph.ConnectedComponent.exact h
-    exact hA0 (eq_of_reachable_of_isIsolated hiso hr ▸ hiso)
-  · intro hA
-    exact SimpleGraph.ConnectedComponent.sound (hall A A0 hA hA0)
 
 end Finite
 

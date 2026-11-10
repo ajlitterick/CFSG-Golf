@@ -21,20 +21,5 @@ structure quasithinQTH13Cat (G : Type) [Group G] [Finite G] (T L : Subgroup G) :
     ∀ K : Subgroup G, quasithinIsFaithfulLocal T K →
       quasithinO2QuotientIso K (alternatingGroup (Fin 5))
 
-@[expose] def QTH13MilestoneCat : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L : Subgroup G),
-    quasithinQTH13Cat G T L → quasithinIsMaximalLocal T L →
-      Nonempty (G ≃* Matrix.symplecticGroup (Fin 3) (ZMod 2)) ∨
-      Nonempty (G ≃* quasithinPSU 4 3 1) ∨
-      Nonempty (G ≃* quasithinPSU 4 2 1) ∨
-      Nonempty (G ≃* PSL(4, ZMod 3)) ∨
-      Nonempty (G ≃* quasithinG2 (ZMod 3)) ∨
-      Nonempty (G ≃* quasithinHS) ∨
-      Nonempty (G ≃* quasithinRu)
-
-theorem quasithinQTH13Cat.qtkeCore {G : Type} [Group G] [Finite G] {T L : Subgroup G}
-    (h : quasithinQTH13Cat G T L) : QuasithinUnique.QTKECore G :=
-  have := h.simple
-  QuasithinUnique.qtkeCore_of_cat h.nonabelian h.qtke
 
 end CFSG.Quasithin

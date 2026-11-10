@@ -19,12 +19,6 @@ theorem mem_assoc_iff {X : Subgroup G} : X ∈ assoc p A θ ↔
       (∀ a ∈ A, a ≠ 1 → X ⊓ Subgroup.centralizer {a} ≤ θ a) ∧ NearASolvable p A X :=
   Iff.rfl
 
-theorem mem_mhat_iff {X : Subgroup G} : X ∈ mhat p A θ ↔
-    X ∈ assoc p A θ ∧ dsub A θ ≤ Subgroup.normalizer (X : Set G) :=
-  Iff.rfl
-
-theorem mem_mtil_iff {X : Subgroup G} : X ∈ mtil p A θ ↔ X ∈ assoc p A θ ∧ dsub A θ ≤ X :=
-  Iff.rfl
 
 theorem admits_dsub_of_le {X : Subgroup G} (h : dsub A θ ≤ X) : Admits (dsub A θ) X :=
   fun d hd => Subgroup.mem_normalizer_iff.mpr fun x =>
@@ -36,11 +30,6 @@ theorem admits_dsub_of_le {X : Subgroup G} (h : dsub A θ ≤ X) : Admits (dsub 
 theorem mtil_subset_mhat : mtil p A θ ⊆ mhat p A θ :=
   fun _ hX => ⟨hX.1, admits_dsub_of_le hX.2⟩
 
-theorem mhat_subset_assoc : mhat p A θ ⊆ assoc p A θ :=
-  fun _ hX => hX.1
-
-theorem mtil_subset_assoc : mtil p A θ ⊆ assoc p A θ :=
-  fun _ hX => hX.1
 
 theorem dsub_le_apply {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) : dsub A θ ≤ θ a :=
   thetaOf_le_apply ha ha1

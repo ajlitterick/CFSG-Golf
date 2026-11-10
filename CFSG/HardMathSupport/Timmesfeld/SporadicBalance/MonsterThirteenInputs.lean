@@ -90,32 +90,5 @@ open CFSG.Monster CFSG.Monster.AxisCount CFSG.AGLEmbedding.Norton.MON5_7
 
 @[expose] def bpW13 : List Native.Gen := genD13W0 ++ powL 5 genD13W2 ++ powL 10 genD13W1
 
-@[expose] def thirteenBPairs : List (List Native.Gen × List Native.Gen) :=
-  [(genD13W1 ++ vW13, vW13 ++ genD13W1),
-    (powL 7 genD13W0 ++ vW13 ++ powL 6 genD13W0 ++ vW13, genD13W0),
-    (powL 7 genD13W2 ++ vW13 ++ powL 6 genD13W2 ++ vW13, powL 4 genD13W1 ++ genD13W2),
-    (tW13 ++ tW13, []),
-    (tW13 ++ vW13, vW13 ++ tW13),
-    (genD13W1 ++ tW13 ++ genD13W1 ++ tW13, []),
-    (tW13 ++ bW13, bW13 ++ tW13),
-    (vtW13 ++ bpW13, bpW13 ++ vtW13),
-    (powL 4 wvW13, []),
-    (wvW13 ++ vW13, vW13 ++ wvW13),
-    (wvW13 ++ genD13W1, genD13W1 ++ wvW13),
-    (powL 4 wtW13, []),
-    (wtW13 ++ tW13, tW13 ++ wtW13),
-    (wtW13 ++ bW13, bW13 ++ wtW13),
-    (genD13W1 ++ wtW13, wtW13 ++ powL 8 genD13W1),
-    (powL 4 wvtW13, []),
-    (wvtW13 ++ vtW13, vtW13 ++ wvtW13),
-    (wvtW13 ++ bpW13, bpW13 ++ wvtW13),
-    (genD13W1 ++ wvtW13, wvtW13 ++ powL 8 genD13W1),
-    (tW13 ++ htW13, htW13 ++ vW13),
-    (vtW13 ++ hvtW13, hvtW13 ++ vW13)]
-
-@[expose] def thirteenBDataCheck (_ : Unit := ()) : Bool :=
-  agreeAll thirteenBPairs && movesSome tW13 && movesSome vtW13 && movesSome bW13 &&
-    movesSome bpW13 && movesSome (wvW13 ++ wvW13) && movesSome (wtW13 ++ wtW13) &&
-    movesSome (wvtW13 ++ wvtW13)
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteen

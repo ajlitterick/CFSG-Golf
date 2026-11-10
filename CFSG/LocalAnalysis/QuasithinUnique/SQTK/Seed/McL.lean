@@ -26,11 +26,5 @@ theorem nonempty_mulEquiv_carrier_McL
     CFSG.Sporadic.McL.closure_ab
   exact ⟨e.trans CFSG.Sporadic.McL.mclEquivJ.symm⟩
 
-theorem tcExcludedSporadic_McL :
-    TCExcludedSporadic .McL :=
-  tcExcludedSporadic_of_equiv .McL (T := Blueprint.NativeSporadic.Carrier .McL)
-    (fun _ => nonempty_mulEquiv_carrier_McL) (by
-      obtain ⟨E, hE, hc⟩ := CFSG.SectionRank.McL_elementary_three_rank_four
-      exact ⟨E, hE, 4, by norm_num, hc⟩)
 
 end CFSG.QuasithinUnique.SQTK

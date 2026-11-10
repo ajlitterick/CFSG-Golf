@@ -247,40 +247,4 @@ theorem tailFlag_mem_singularFlags :
 end Invariant
 
 
-theorem orthogonal_geometry_tail_unipotent_invariant_singular_subspaces {K : Type*} [Field K]
-    {A : Type*} [AddCommGroup A] [Module K A] [FiniteDimensional K A] {r : ℕ} (hr : 1 ≤ r)
-    {qA : QuadraticForm K A} (hani : qA.Anisotropic) (hreg : (polarBilin qA).Nondegenerate)
-    (hA : ∃ a : A, a ≠ 0) :
-    {v : (Fin r ⊕ Fin r → K) × A | ∀ u ∈ tailUnipotent r qA, u v = v} =
-        ((K ∙ hypVec K A (.inl ⟨0, hr⟩) : Submodule K _) : Set ((Fin r ⊕ Fin r → K) × A)) ∧
-    (∀ W : Submodule K ((Fin r ⊕ Fin r → K) × A), W ≠ ⊥ → (∀ w ∈ W, quadTail r qA w = 0) →
-      (∀ u ∈ tailUnipotent r qA,
-        W.map (u : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] ((Fin r ⊕ Fin r → K) × A)) ≤ W) →
-      ∃ k, 1 ≤ k ∧ k ≤ r ∧ W = tailFlag K A r k) ∧
-    (∀ k, 1 ≤ k → k ≤ r → tailFlag K A r k ≠ ⊥ ∧
-      (∀ w ∈ tailFlag K A r k, quadTail r qA w = 0) ∧
-      ∀ u ∈ tailUnipotent r qA,
-        (tailFlag K A r k).map (u : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] ((Fin r ⊕ Fin r → K) × A)) =
-          tailFlag K A r k) ∧
-    (fun i : Fin r => tailFlag K A r (i + 1)) ∈ singularFlags (quadTail r qA) r ∧
-    ∀ W ∈ singularFlags (quadTail r qA) r,
-      (∀ i, ∀ u ∈ tailUnipotent r qA,
-        (W i).map (u : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] ((Fin r ⊕ Fin r → K) × A)) = W i) ↔
-      ∀ i, W i = tailFlag K A r (i + 1) := by
-  refine ⟨fixed_tailUnipotent_eq hr hreg hA, fun W hW0 hWs hWinv =>
-    eq_tailFlag_of_invariant hani hA hW0 hWs hWinv, fun k hk hkr => ⟨fun h => ?_,
-      fun _ hx => quadTail_eq_zero_of_mem_tailFlag hx,
-      fun u hu => map_tailFlag_of_mem_tailUnipotent hani hkr hu⟩, tailFlag_mem_singularFlags,
-    fun W hW => ⟨fun hinv i => ?_, fun heq i u hu => ?_⟩⟩
-  · have := finrank_tailFlag (K := K) (A := A) hkr
-    rw [h, finrank_bot] at this
-    omega
-  · have hd := hW.1 i
-    obtain ⟨k, -, hkr, hk⟩ := eq_tailFlag_of_invariant hani hA
-      (fun h => by rw [h, finrank_bot] at hd; omega) (hW.2.2 i) fun u hu => (hinv i u hu).le
-    rw [hk, finrank_tailFlag hkr] at hd
-    rw [hk, hd]
-  · rw [heq i]
-    exact map_tailFlag_of_mem_tailUnipotent hani (by omega) hu
-
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

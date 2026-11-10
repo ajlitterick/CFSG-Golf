@@ -331,39 +331,5 @@ theorem exists_statedSp_map_eq {W W' : Submodule K (Fin r ⊕ Fin r → K)}
 
 end Standard
 
-theorem symplectic_higher_isotropic_flag_extension :
-    (∀ {K V : Type*} [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V] {r : ℕ}
-      (B : BilinForm K V), B.IsAlt → B.Nondegenerate → finrank K V = 2 * r →
-      ∀ (k : ℕ) (W : ℕ → Submodule K V), 1 ≤ k → k ≤ r → (∀ i ≤ k, finrank K (W i) = i) →
-        (∀ i < k, W i < W (i + 1)) → (∀ i ≤ k, IsTotallyIsotropic B (W i)) →
-        ∃ b : Basis (Fin r ⊕ Fin r) K V, IsSymplecticBasis B b ∧
-          ∀ i, 1 ≤ i → i ≤ k → W i = span K (b '' (Sum.inl '' {j : Fin r | (j : ℕ) < i}))) ∧
-    (∀ {K V : Type*} [Field K] [AddCommGroup V] [Module K V] [FiniteDimensional K V] {r : ℕ}
-      (B : BilinForm K V), B.IsAlt → B.Nondegenerate → finrank K V = 2 * r →
-      ∀ W : Submodule K V, IsTotallyIsotropic B W → finrank K W ≤ r ∧
-        ∃ F : ℕ → Submodule K V, IsCompleteIsotropicFlag B r F ∧ F (finrank K W) = W) ∧
-    (∀ {K : Type} [Field K] {r : ℕ} (F F' : ℕ → Submodule K (Fin r ⊕ Fin r → K)),
-      IsCompleteIsotropicFlag (pairedSympForm K r) r F →
-      IsCompleteIsotropicFlag (pairedSympForm K r) r F' →
-      ∃ g : StatedSp r K, ∀ i, 1 ≤ i → i ≤ r →
-        (F i).map (mulVecLin ((g : GL (Fin r ⊕ Fin r) K) :
-          Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K)) = F' i) ∧
-    (∀ {K : Type} [Field K] {r : ℕ} (W W' : Submodule K (Fin r ⊕ Fin r → K)),
-      IsTotallyIsotropic (pairedSympForm K r) W →
-      IsTotallyIsotropic (pairedSympForm K r) W' → finrank K W = finrank K W' →
-      ∃ g : StatedSp r K, W.map (mulVecLin ((g : GL (Fin r ⊕ Fin r) K) :
-        Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K)) = W') := by
-  refine ⟨fun B hB hnd hV k W _ hk hdim hmono hiso => ?_, fun B hB hnd hV W hW => ?_,
-    fun F F' hF hF' => exists_statedSp_map_flag hF hF',
-    fun W W' hW hW' hd => exists_statedSp_map_eq hW hW' hd⟩
-  · obtain ⟨b, hb, hbW⟩ := exists_symplecticBasis_of_flag hB hnd hV hk W hdim
-      (fun i hi => (hmono i hi).le) (hiso k le_rfl)
-    exact ⟨b, hb, fun i _ hi => hbW i hi⟩
-  · refine ⟨finrank_le_of_isTotallyIsotropic hB hnd hV hW, ?_⟩
-    obtain ⟨b, hb, hbW⟩ := exists_completeIsotropicFlag hB hnd hV hW
-    refine ⟨fun i => span _ (b '' (Sum.inl '' {j : Fin _ | (j : ℕ) < i})),
-      ⟨fun i hi => finrank_span_inl_image b hi, fun i _ => span_mono (Set.image_mono
-        (Set.image_mono fun j (hj : (j : ℕ) < i) => Nat.lt_succ_of_lt hj)),
-        fun i _ => hb.isTotallyIsotropic _⟩, hbW.symm⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.SymplecticFlag

@@ -69,8 +69,6 @@ theorem conjSub_ne_of_ne {K L : Subgroup G} {w : G} (hw : w ∈ K) (hKL : K ≠ 
 theorem Commutes.symm {K L : Subgroup G} (h : Commutes K L) : Commutes L K :=
   fun x hx y hy => (h y hy x hx).symm
 
-theorem commutes_comm {K L : Subgroup G} : Commutes K L ↔ Commutes L K :=
-  ⟨Commutes.symm, Commutes.symm⟩
 
 theorem Commutes.conjSub {K L : Subgroup G} (h : Commutes K L) (n : G) :
     Commutes (conjSub n K) (conjSub n L) := by
@@ -302,18 +300,6 @@ theorem conjSub_eq (hK : InSigma F E K) {e : G} (he : e ∈ E) : conjSub e K = K
 
 variable [Finite F]
 
-theorem natCard_normPart (hK : InSigma F E K) (hodd : Odd (Nat.card F))
-    (h5 : 5 ≤ Nat.card F) : Nat.card (normPart K E) = 2 * Nat.card (centPart K E) := by
-  obtain ⟨φ, rfl, hD⟩ := hK
-  rw [centPart_range, normPart_range, Subgroup.card_map_of_injective hD.inj,
-    Subgroup.card_map_of_injective hD.inj]
-  exact hD.natCard_normSub hodd h5
-
-theorem relIndex_centPart_normPart (hK : InSigma F E K) (hodd : Odd (Nat.card F))
-    (h5 : 5 ≤ Nat.card F) : (centPart K E).relIndex (normPart K E) = 2 := by
-  obtain ⟨φ, rfl, hD⟩ := hK
-  rw [centPart_range, normPart_range, Subgroup.relIndex_map_map_of_injective _ _ hD.inj]
-  exact hD.relIndex_centSub_normSub hodd h5
 
 theorem exists_mem_normPart_not_mem_centPart (hK : InSigma F E K) (hodd : Odd (Nat.card F))
     (h5 : 5 ≤ Nat.card F) : ∃ w ∈ normPart K E, w ∉ centPart K E := by
@@ -334,14 +320,6 @@ theorem sq_eq_of_mem (hK : InSigma F E K) (hodd : Odd (Nat.card F)) {z : G}
   rw [← map_mul, hD.sq_eq_neg_one_of_mem hodd hs hs']
   exact hz.eq (hD.isUniqueInvolution hodd) |>.symm
 
-theorem conj_inv_of_mem (hK : InSigma F E K) (hodd : Odd (Nat.card F)) {w c : G}
-    (hw : w ∈ normPart K E) (hw' : w ∉ centPart K E) (hc : c ∈ centPart K E) :
-    w * c * w⁻¹ = c⁻¹ := by
-  obtain ⟨φ, rfl, hD⟩ := hK
-  obtain ⟨s, rfl, hs, hs'⟩ := DiagData.exists_preimage hw hw'
-  rw [centPart_range] at hc
-  obtain ⟨k, hk, rfl⟩ := hc
-  rw [← map_inv, ← map_mul, ← map_inv, ← map_mul, hD.mul_inv_mul_inv hodd hs hs' hk]
 
 theorem inv_mul_mem_centPart (hK : InSigma F E K) (hodd : Odd (Nat.card F)) {w w' : G}
     (hw : w ∈ normPart K E) (hw1 : w ∉ centPart K E) (hw' : w' ∈ normPart K E)
@@ -479,10 +457,6 @@ theorem mem_of_isUniqueInvolution (Fr : ToralFrame F Ω E S) {K : Subgroup G} (h
   have := Fr.finite
   exact (Fr.inSigma hK).unique_involution_mem Fr.odd hz
 
-theorem z_mem_axisSub_of_commutes (Fr : ToralFrame F Ω E S) {K L : Subgroup G} (hK : K ∈ S)
-    (hc : Commutes K L) {z : G} (hz : IsUniqueInvolution K z) : z ∈ axisSub E L :=
-  mem_axisSub_iff.mpr ⟨Fr.mem_of_isUniqueInvolution hK hz,
-    fun k hk => (hc z hz.mem k hk).symm⟩
 
 theorem exists_ne (Fr : ToralFrame F Ω E S) : ∃ K ∈ S, ∃ L ∈ S, K ≠ L := by
   by_contra hne

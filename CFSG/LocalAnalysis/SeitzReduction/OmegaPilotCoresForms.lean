@@ -57,9 +57,6 @@ variable (K : Type) [Field K] {n : ℕ}
     Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K)) :=
   frameTorusOf (coordinateQuadPlus n K) (plusFrameLeft n) (plusFrameRight n) P
 
-@[expose] noncomputable def plusPlaneTorus (I : Finset (Fin n)) :
-    Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K)) :=
-  plusFrameTorus K (planeTorusParam K I)
 
 @[expose] noncomputable def plusLevelTorus (J : Finset (Fin n)) :
     Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K)) :=
@@ -84,9 +81,6 @@ variable (hn : 1 ≤ n) (b c : K)
     Subgroup (matrixProjectiveDerived (coordinateQuadMinus n K hn b c)) :=
   minusFrameTorus hn b c (levelParam J)
 
-@[expose] noncomputable def minusAnisoPlaneTorus [CharP K 2] (I : Finset (Fin (n - 1))) :
-    Subgroup (matrixProjectiveDerived (coordinateQuadMinus n K hn b c)) :=
-  minusPlaneTorus hn b c I ⊔ anisoTorus hn b c
 
 variable {hn b c}
 
@@ -111,8 +105,6 @@ section PlusCores
 variable {G : Type*} [Group G] {L : Subgroup G} {K : Type} [Field K] {n : ℕ}
   (e : L ≃* matrixProjectiveDerived (coordinateQuadPlus n K))
 
-@[expose] noncomputable def plusPieceCore (I : Finset (Fin n)) : Subgroup G :=
-  centralizerPerfectCore (modelToG e (plusPlaneTorus K I))
 
 @[expose] noncomputable def plusLevelCore (J : Finset (Fin n)) : Subgroup G :=
   centralizerPerfectCore (modelToG e (plusLevelTorus K J))

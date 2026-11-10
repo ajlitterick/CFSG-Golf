@@ -62,50 +62,6 @@ end Orbit
 
 section Centralizer
 
-variable {Y : Type} [Group Y] [Finite Y] {L T : Subgroup Y} {z : Y}
-
-omit [Finite Y] in
-theorem exists_mul_of_mem_centralizer (hz : IsClassicalMember3 L z) (hTL : T ⊔ L = ⊤) {c : Y}
-    (hc : c ∈ Subgroup.centralizer ({z} : Set Y)) :
-    ∃ e ∈ layerOrbit L T ⊓ Subgroup.centralizer ({z} : Set Y), ∃ l ∈ L, c = e * l := by
-  have : (layerOrbit L T).Normal := layerOrbit_normal hTL
-  have hEL : layerOrbit L T ⊔ L = ⊤ :=
-    top_le_iff.mp (hTL ▸ sup_le_sup_right le_layerOrbit L)
-  have hc' : c ∈ layerOrbit L T ⊔ L := hEL ▸ Subgroup.mem_top c
-  obtain ⟨e, he, l, hl, rfl⟩ := Subgroup.mem_sup_of_normal_left.mp hc'
-  refine ⟨e, ⟨he, ?_⟩, l, hl, rfl⟩
-  have hlC : l ∈ Subgroup.centralizer ({z} : Set Y) := isSubnormal_le hz.subnormal hl
-  have : e = (e * l) * l⁻¹ := by group
-  rw [this]
-  exact Subgroup.mul_mem _ hc (Subgroup.inv_mem _ hlC)
-
-theorem tight_commutator (hz : IsClassicalMember3 L z) (hTL : T ⊔ L = ⊤)
-    (P : Sylow 3 ↥(Subgroup.centralizer ({z} : Set Y)))
-    {σ ω : ↥(Subgroup.centralizer ({z} : Set Y))} (hσP : σ ∈ (P : Subgroup _))
-    (hσL : (σ : Y) ∈ L) (hω : (ω : Y) ∈ layerOrbit L T) :
-    ∃ l : ↥(Subgroup.centralizer ({z} : Set Y)), (l : Y) ∈ L ∧ (l : Y) ∈ layerOrbit L T ∧
-      ∃ π : ↥(Subgroup.centralizer ({z} : Set Y)), π ∈ (P : Subgroup _) ∧
-        (π : Y) ∈ layerOrbit L T ∧ σ⁻¹ * ω⁻¹ * σ * ω = l * (ω⁻¹ * π * ω) := by
-  have : (layerOrbit L T).Normal := layerOrbit_normal hTL
-  have : ((layerOrbit L T).subgroupOf (Subgroup.centralizer ({z} : Set Y))).Normal :=
-    Subgroup.normal_subgroupOf
-  have hL' : (L.subgroupOf (Subgroup.centralizer ({z} : Set Y))).IsSubnormal :=
-    M.isSubnormal_subgroupOf_top' hz.subnormal
-  have hWL : (layerOrbit L T).subgroupOf (Subgroup.centralizer ({z} : Set Y)) ⊔
-      L.subgroupOf (Subgroup.centralizer ({z} : Set Y)) = ⊤ := by
-    rw [eq_top_iff]
-    intro c _
-    obtain ⟨e, he, l, hl, hcel⟩ := exists_mul_of_mem_centralizer hz hTL c.2
-    have hlC : l ∈ Subgroup.centralizer ({z} : Set Y) := isSubnormal_le hz.subnormal hl
-    have : c = (⟨e, he.2⟩ : ↥(Subgroup.centralizer ({z} : Set Y))) *
-        (⟨l, hlC⟩ : ↥(Subgroup.centralizer ({z} : Set Y))) := Subtype.ext hcel
-    rw [this]
-    exact Subgroup.mul_mem_sup (Subgroup.mem_subgroupOf.mpr he.1)
-      (Subgroup.mem_subgroupOf.mpr hl)
-  obtain ⟨l, hl, π, hπ, h⟩ := exists_commutator_eq hL' hWL P hσP
-    (Subgroup.mem_subgroupOf.mpr hσL) (Subgroup.mem_subgroupOf.mpr hω)
-  exact ⟨l, Subgroup.mem_subgroupOf.mp hl.1, Subgroup.mem_subgroupOf.mp hl.2, π, hπ.1,
-    Subgroup.mem_subgroupOf.mp hπ.2, h⟩
 
 end Centralizer
 

@@ -24,10 +24,6 @@ open CFSG.QuasithinUnique.Id2519.MathNoLayer
 
 @[expose] def heDpPerm (k : ℕ) : Equiv.Perm (Fin 105) := permOrId 105 (heDpGens.getD k #[])
 
-@[expose] def heDpTabs : Array Table := ((heDpGens.map (permOrId 105)).map toTable).toArray
-
-@[expose] def heDpTabsInv : Array Table :=
-  ((heDpGens.map (permOrId 105)).map fun g => toTable g⁻¹).toArray
 
 @[expose] def heToTabs (l : List (List Nat)) : List Table :=
   l.map fun r => (r.map UInt32.ofNat).toArray

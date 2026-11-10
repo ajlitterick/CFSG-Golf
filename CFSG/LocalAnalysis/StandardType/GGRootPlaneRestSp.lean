@@ -486,9 +486,6 @@ theorem ggRootPlaneInputOn_PSpNonsplit_of_frame_comp (hF : GGSpNonsplitFrameInpu
     (hC : GGSpNonsplitCompInput) : GGRootPlaneInputOn GGPSpNonsplit :=
   ggRootPlaneInputOn_PSpNonsplit_of_frame hF (ggSpNonsplitPlaneInput_of_comp hC)
 
-theorem ggRootPlaneAt_PSp_of_frame_plane (hF : GGSpNonsplitFrameInput)
-    (hM : GGSpNonsplitPlaneInput) : GGRootPlaneAt .PSp :=
-  ggRootPlaneAt_PSp_of_nonsplit (ggRootPlaneInputOn_PSpNonsplit_of_frame hF hM)
 
 end Inputs
 

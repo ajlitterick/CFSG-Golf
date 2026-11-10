@@ -50,14 +50,6 @@ model cases can be discharged independently. -/
 
 /-! ## Small generic helpers -/
 
-/-- The elements of `F` that normalize `X` lie in `F(U) ∩ N_G(X)`. -/
-public theorem normalizerInF_le_fu_inter_normalizer
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (F X : Subgroup G)
-    (hFleFU : F ≤ c.FU) :
-    normalizerInF F X ≤ c.FU ⊓ Subgroup.normalizer (X : Set G) := by
-  intro f hf
-  exact ⟨hFleFU hf.1, hf.2⟩
 
 /-- An element of `F` has odd order: `F ≤ F(U) ⊆ U = O₂'(H)`. -/
 public theorem orderOf_mem_normalizerInF_odd
@@ -271,97 +263,5 @@ public theorem card_central_quotient_le_card_image_of_central_kernel
 
 /-! ## The Fact 1.10(ii) Fitting package -/
 
-/-- A normal nilpotent subgroup of odd order (ambient formulation): it lies
-in the Fitting subgroup of the ambient group, and in the odd core of that
-Fitting subgroup. -/
-public theorem normal_nilpotent_odd_le_fitting_oddCore_ambient
-    {G : Type u} [Group G] [Finite G]
-    (A P : Subgroup G)
-    (hPleA : P ≤ A)
-    (hPconj : ∀ a ∈ A, ∀ p ∈ P, a * p * a⁻¹ ∈ P)
-    (hPnilp : Group.IsNilpotent P)
-    (hPodd : Odd (Nat.card P)) :
-    P ≤ fittingSubgroupOf A ∧ P ≤ oddCoreOf (fittingSubgroupOf A) := by
-  classical
-  let P0 : Subgroup A := P.subgroupOf A
-  have hP0normal : P0.Normal := by
-    refine ⟨?_⟩
-    intro n hn g
-    apply Subgroup.mem_subgroupOf.mpr
-    exact hPconj (g : G) g.2 (n : G) (Subgroup.mem_subgroupOf.mp hn)
-  have hP0nilp : Group.IsNilpotent P0 := by
-    let : Group.IsNilpotent P := hPnilp
-    exact Group.nilpotent_of_mulEquiv (G := P) (G' := P0)
-      (Subgroup.subgroupOfEquivOfLe hPleA).symm
-  have hP0leF : P0 ≤ fittingSubgroup A := le_sSup ⟨hP0normal, hP0nilp⟩
-  have hPleF : P ≤ fittingSubgroupOf A := by
-    intro p hp
-    change p ∈ Subgroup.map A.subtype (fittingSubgroup A)
-    rw [Subgroup.mem_map]
-    refine ⟨⟨p, hPleA hp⟩, hP0leF (Subgroup.mem_subgroupOf.mpr hp), rfl⟩
-  have hFleA : fittingSubgroupOf A ≤ A := Subgroup.map_subtype_le (fittingSubgroup A)
-  have hPoddCop : Nat.Coprime 2 (Nat.card P) := Nat.coprime_two_left.mpr hPodd
-  have hPleOC : P ≤ oddCoreOf (fittingSubgroupOf A) := by
-    intro p hp
-    change p ∈ Subgroup.map (fittingSubgroupOf A).subtype
-      (pPrimeCore 2 (fittingSubgroupOf A))
-    rw [Subgroup.mem_map]
-    refine ⟨⟨p, hPleF hp⟩, ?_, rfl⟩
-    have hP0''le : P.subgroupOf (fittingSubgroupOf A) ≤
-        pPrimeCore 2 (fittingSubgroupOf A) := by
-      apply le_sSup
-      refine ⟨?_, ?_⟩
-      · refine ⟨?_⟩
-        intro n hn g
-        apply Subgroup.mem_subgroupOf.mpr
-        exact hPconj (g : G) (hFleA g.2) (n : G) (Subgroup.mem_subgroupOf.mp hn)
-      · rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hPleF).toEquiv]
-        exact hPoddCop
-    exact hP0''le (Subgroup.mem_subgroupOf.mpr hp)
-  exact ⟨hPleF, hPleOC⟩
-
-/-- The Fact 1.10(ii) input package for the normalizer `N = N_G(X)` of the
-second case: with `C = C_N(t) = N ∩ C_G(t)` and `P = F(U) ∩ N`, the
-subgroup `P` is normal in `C`, of odd order, nilpotent, contained in
-`F(C)`, and contained in `O₂'(F(C))`.  Hence, by Fact 1.10(ii), the
-elements of `P` induce inner automorphisms on `E(N)` (formalized as the
-hypothesis `secondCase_psl2_normalizer_innerAction`). -/
-public theorem secondCase_psl2_normalizer_fitting_package
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (X : Subgroup G) :
-    let P : Subgroup G := c.FU ⊓ Subgroup.normalizer (X : Set G)
-    let C : Subgroup G := Subgroup.normalizer (X : Set G) ⊓ c.H
-    P ≤ C ∧ IsNormalIn P C ∧ Odd (Nat.card P) ∧ Group.IsNilpotent P ∧
-      P ≤ fittingSubgroupOf C ∧ P ≤ oddCoreOf (fittingSubgroupOf C) := by
-  classical
-  let P : Subgroup G := c.FU ⊓ Subgroup.normalizer (X : Set G)
-  let C : Subgroup G := Subgroup.normalizer (X : Set G) ⊓ c.H
-  have hUleH : c.U ≤ c.H := Subgroup.map_subtype_le (pPrimeCore 2 c.H)
-  have hFUleU : c.FU ≤ c.U := Subgroup.map_subtype_le (fittingSubgroup c.U)
-  have hFUleH : c.FU ≤ c.H := hFUleU.trans hUleH
-  have hPleC : P ≤ C := by
-    intro p hp
-    exact ⟨hp.2, hFUleH hp.1⟩
-  have hPconj : ∀ a ∈ C, ∀ p ∈ P, a * p * a⁻¹ ∈ P := by
-    intro a ha p hp
-    exact ⟨(centralizerSetup_FU_isNormalIn_H c).2 a ha.2 p hp.1,
-      (Subgroup.normalizer (X : Set G)).mul_mem
-        ((Subgroup.normalizer (X : Set G)).mul_mem ha.1 hp.2)
-        ((Subgroup.normalizer (X : Set G)).inv_mem ha.1)⟩
-  have hPodd : Odd (Nat.card P) := by
-    have hPleU : P ≤ c.U := by
-      intro p hp
-      exact hFUleU hp.1
-    have hUodd : Odd (Nat.card c.U) := by
-      change Odd (Nat.card (oddCoreOf c.H))
-      exact odd_card_oddCoreOf c.H
-    exact Odd.of_dvd_nat hUodd (Subgroup.card_dvd_of_le hPleU)
-  have hPnilp : Group.IsNilpotent P := by
-    let : Group.IsNilpotent c.FU := fittingSubgroupOf_isNilpotent c.U
-    have hP0 : Group.IsNilpotent (P.subgroupOf c.FU) := by infer_instance
-    exact Group.nilpotent_of_mulEquiv (G := P.subgroupOf c.FU) (G' := P)
-      (Subgroup.subgroupOfEquivOfLe (show P ≤ c.FU from inf_le_left))
-  have hPkg := normal_nilpotent_odd_le_fitting_oddCore_ambient C P hPleC hPconj hPnilp hPodd
-  exact ⟨hPleC, ⟨⟨hPleC, hPconj⟩, ⟨hPodd, ⟨hPnilp, hPkg⟩⟩⟩⟩
 
 end CFSG.GorensteinWalter

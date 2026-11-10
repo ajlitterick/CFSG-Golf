@@ -105,8 +105,6 @@ theorem isCompleteIn_signalizers_pullFunctor_iff {H : Type*} [Group H] (ι : H �
     · have hXm := (mem_signalizers_pullFunctor_iff ι hι hPP').mp hX
       exact Subgroup.map_le_iff_le_comap.mp (hmax _ hXm (Subgroup.map_le_range ι X))
 
-theorem pullFunctor_subtype_apply {K : Subgroup G} (a : K) :
-    pullFunctor K.subtype θ a = (θ a).subgroupOf K := rfl
 
 @[expose] def imageFunctor {H : Type*} [Group H] (f : G →* H) (A : Subgroup G)
     (θ : G → Subgroup G) : H → Subgroup H :=

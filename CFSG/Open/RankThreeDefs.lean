@@ -84,39 +84,5 @@ open Classical in
       (p = 3 ∧ rankThreeClauseC M P)) ∧
     ∀ H : Subgroup G, IsTwoLocal H → 2 ≤ pRank p (H ⊓ M) → H ≤ M
 
-noncomputable abbrev rankThreeProjImage {ι : Type*} [Fintype ι] [DecidableEq ι] {K : Type*}
-    [Field K] (H : Subgroup (GL ι K)) : Subgroup (ProjGenLinGroup ι K) :=
-  PGLModel.projImage H
-
-noncomputable abbrev rankThreePSL (n : ℕ) (K : Type*) [Field K] :
-    Subgroup (ProjGenLinGroup (Fin n) K) :=
-  PGLModel.projSL n K
-
-noncomputable abbrev rankThreePSU (n p f : ℕ) [Fact p.Prime] :
-    Subgroup (ProjGenLinGroup (Fin n) (GaloisField p (2 * f))) :=
-  PGLModel.projSU n p f
-
-abbrev rankThreeSympForm (n : ℕ) (K : Type*) [Field K] :
-    Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K :=
-  PGLModel.sympForm n K
-
-noncomputable abbrev rankThreePSp (n : ℕ) (K : Type*) [Field K] :
-    Subgroup (ProjGenLinGroup (Fin n ⊕ Fin n) K) :=
-  PGLModel.projSp n K
-
-abbrev rankThreeMinusQuadForm (m : ℕ) {K : Type*} [Field K] (b c : K)
-    (v : Fin m ⊕ Fin m ⊕ Fin 2 → K) : K :=
-  PGLModel.minusQuadForm m b c v
-
-noncomputable abbrev rankThreeOrthogonalMinus (m : ℕ) (K : Type*) [Field K] (b c : K) :
-    Subgroup (GL (Fin m ⊕ Fin m ⊕ Fin 2) K) :=
-  PGLModel.orthogonalMinus m K b c
-
-noncomputable abbrev rankThreePOmegaMinus (m : ℕ) (K : Type*) [Field K] (b c : K) :
-    Subgroup (ProjGenLinGroup (Fin m ⊕ Fin m ⊕ Fin 2) K) :=
-  PGLModel.projOmegaMinus m K b c
-
-abbrev rankThreeIModel (G : Type*) [Group G] : Prop :=
-  PGLModel.IModel G
 
 end CFSG.Open

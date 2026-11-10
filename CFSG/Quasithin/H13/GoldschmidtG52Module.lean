@@ -27,7 +27,6 @@ theorem Mrep_two_apply (g : Perm (Fin 6)) (x : Fin 4 → ZMod 2) :
 @[expose] noncomputable def St : Representation (ZMod 2) (Perm (Fin 6)) (Fin 16 → ZMod 2) :=
   Mrep 3
 
-theorem St_apply (g : Perm (Fin 6)) (x : Fin 16 → ZMod 2) : St g x = kronHom g *ᵥ x := rfl
 
 theorem exists_pullback {W V : Type*} [AddCommMonoid W] [Module (ZMod 2) W] [AddCommMonoid V]
     [Module (ZMod 2) V] {ρ : Representation (ZMod 2) (Perm (Fin 6)) W}

@@ -146,14 +146,6 @@ theorem twistedE6LangTorusPlaneBalance_two_five_of_components (hsub : LangSubnor
     Nat.prime_five (by norm_num) (fun q _ (hq : 5 ∣ q + 1) =>
       ⟨by omega, Or.inl le_rfl, hq, by omega, by omega⟩) hsub hin hsu htw hex
 
-theorem crossCharInnerAt_twistedE6_five_of_components (hsub : LangSubnormal)
-    (hin : LangComponentsQuasisimple .inner) (hsu : LangComponentsQuasisimple .suN)
-    (htw : LangComponentsQuasisimple .twoD) (hex : LangComponentsQuasisimple .exc)
-    (h1 : TwistedE6LangTorusPlaneBalance twE6PhiOneWeyl 5 fun q => 5 ∣ q - 1) :
-    CrossCharInnerAt .twistedE6 fun idx p =>
-      (∃ q : TauCeti.PrimePower, idx.1 = .twistedE6 q ∧ 5 ∣ q.card ^ 2 - 1) ∧ p = 5 :=
-  crossCharInnerAt_twistedE6_five_of_lang
-    (twistedE6LangTorusPlaneBalance_two_five_of_components hsub hin hsu htw hex) h1
 
 end TwistedE6
 

@@ -106,36 +106,6 @@ end A1c
 
 section A131
 
-variable {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-
-theorem isCyclic_pCore_inf_centralizer_of_quotient (hp2 : p ≠ 2)
-    (hG : pRank p (⊤ : Subgroup G) ≤ 2) (H : Subgroup G) [H.Normal]
-    (hF : Subgroup.centralizer (pCore p (G ⧸ H) : Set (G ⧸ H)) ≤ pCore p (G ⧸ H))
-    {T : Subgroup (G ⧸ H)} (hT : IsPGroup 2 T) (hT1 : T ≠ ⊥) :
-    IsCyclic ↥(pCore p (G ⧸ H) ⊓ Subgroup.centralizer (T : Set (G ⧸ H))) :=
-  (A1c.A131Concl_of_surjective hp2 hF _ G (QuotientGroup.mk' H)
-    (QuotientGroup.mk'_surjective H) rfl hG).1 T hT hT1
-
-theorem pRank_two_le_of_quotient (hp2 : p ≠ 2) (hG : pRank p (⊤ : Subgroup G) ≤ 2)
-    (H : Subgroup G) [H.Normal]
-    (hF : Subgroup.centralizer (pCore p (G ⧸ H) : Set (G ⧸ H)) ≤ pCore p (G ⧸ H)) :
-    pRank 2 (⊤ : Subgroup (G ⧸ H)) ≤ 2 :=
-  (A1c.A131Concl_of_surjective hp2 hF _ G (QuotientGroup.mk' H)
-    (QuotientGroup.mk'_surjective H) rfl hG).2.1
-
-theorem not_isIrreducibleOn_pCore_of_quotient (hp2 : p ≠ 2) (hG : pRank p (⊤ : Subgroup G) ≤ 2)
-    (H : Subgroup G) [H.Normal]
-    (hF : Subgroup.centralizer (pCore p (G ⧸ H) : Set (G ⧸ H)) ≤ pCore p (G ⧸ H))
-    (hel : IsElemAbelian p (pCore p (G ⧸ H))) (hcard : Nat.card (pCore p (G ⧸ H)) = p ^ 3)
-    (h2 : 1 < pRank 2 (⊤ : Subgroup (G ⧸ H))) :
-    ¬ IsIrreducibleOn (pCore p (G ⧸ H)) := by
-  obtain ⟨W, hW1, hWn, hW2, hW3⟩ :=
-    (A1c.A131Concl_of_surjective hp2 hF _ G (QuotientGroup.mk' H)
-      (QuotientGroup.mk'_surjective H) rfl hG).2.2 hel hcard h2
-  rintro ⟨-, hirr⟩
-  rcases hirr W hW1 hWn with h | h
-  · exact hW2 h
-  · exact hW3 h
 
 end A131
 

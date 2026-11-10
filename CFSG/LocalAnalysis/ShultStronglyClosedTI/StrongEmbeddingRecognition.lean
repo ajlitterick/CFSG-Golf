@@ -68,13 +68,5 @@ theorem rank_two_strongEmbedding_r1Full (hrank : TwoRankAtLeastTwo G)
   exact ⟨⟨N, inferInstance, hstrict, hNodd, hNmodel⟩,
     rank_two_strongEmbedding_conjugate hrank⟩
 
-theorem rank_two_strongEmbedding_explicit_r1Full
-    (hrank : TwoRankAtLeastTwo G)
-    (H : Subgroup G) (hH : fusionStronglyEmbedded H) :
-    (∃ (N : Subgroup G) (_ : N.Normal), oddCore G < N ∧ Odd N.index ∧
-      ExplicitRankOneModel (N ⧸ (oddCore G).subgroupOf N)) ∧
-      ∀ H₁ H₂ : Subgroup G, fusionStronglyEmbedded H₁ → fusionStronglyEmbedded H₂ →
-        ∃ g : G, H₁.map (MulAut.conj g⁻¹).toMonoidHom = H₂ :=
-  r1Full_iff_explicit.mp (rank_two_strongEmbedding_r1Full hrank H hH)
 
 end CFSG.ShultStronglyClosedTI

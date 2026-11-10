@@ -16,15 +16,6 @@ section Edge
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G]
 
-theorem mem_trivialOnQuot_canonMember_of_commutes {M N : Subgroup G} {a u : G}
-    (hM : IsClassicalMember p f M a) (hN : IsClassicalMember p f N u)
-    (hMN : ∀ m ∈ M, ∀ n ∈ N, m * n = n * m) :
-    u ∈ trivialOnQuot (canonMember M a) ∧ a ∈ trivialOnQuot (canonMember N u) := by
-  have cM := isCentralInvolution_of_isClassicalMember hM
-  have cN := isCentralInvolution_of_isClassicalMember hN
-  have hau : a * u = u * a := hMN a cM.mem u cN.mem
-  exact ⟨mem_trivialOnQuot_canonMember_of_centralizes hM fun m hm => (hMN m hm u cN.mem).symm,
-    mem_trivialOnQuot_canonMember_of_centralizes hN fun n hn => hMN a cM.mem n hn⟩
 
 end Edge
 
@@ -86,33 +77,6 @@ theorem canonical_twins_eq_or_nadj {J J' : Subgroup G} {z : G} (hq : 5 ≤ p ^ f
     rw [h, Subgroup.mem_bot, commutatorElement_eq_one_iff_mul_comm] at h1
     exact h1
 
-theorem canonical_twins_eq_or_tq {J J' : Subgroup G} {z : G} (hq : 5 ≤ p ^ f)
-    (hJ : IsClassicalMember p f J z) (hJ' : IsClassicalMember p f J' z) (hc : IsCanonical J z)
-    (hc' : IsCanonical J' z) :
-    J = J' ∨ (J' ≤ trivialOnQuot J ∧ J ≤ trivialOnQuot J') := by
-  have hJC : J ≤ Subgroup.centralizer ({z} : Set G) := isSubnormal_le hJ.subnormal
-  have hJ'C : J' ≤ Subgroup.centralizer ({z} : Set G) := isSubnormal_le hJ'.subnormal
-  rcases canonical_twins_eq_or_nadj hq hJ hJ' hc hc' with h | h
-  · exact Or.inl h
-  · refine Or.inr ⟨fun s hs => ?_, fun s hs => ?_⟩
-    · refine mem_trivialOnQuot_of_centralizes_modOdd hJ hc (hJ'C hs) ?_
-      rintro _ ⟨x, hx, rfl⟩
-      refine (mk_comm_eq_iff (Y := Subgroup.centralizer ({z} : Set G)) (hJ'C hs) x.2).mpr ?_
-      have h1 : ⁅(x : G), s⁆ ∈ oddCoreIn (Subgroup.centralizer ({z} : Set G)) := by
-        rw [← involutionOddCore_eq_oddCoreIn]
-        exact h x hx s hs
-      have e : s * (x : G) * s⁻¹ * (x : G)⁻¹ = ⁅(x : G), s⁆⁻¹ := by
-        simp only [commutatorElement_def]
-        group
-      rw [e]
-      exact (oddCoreIn _).inv_mem h1
-    · refine mem_trivialOnQuot_of_centralizes_modOdd hJ' hc' (hJC hs) ?_
-      rintro _ ⟨y, hy, rfl⟩
-      refine (mk_comm_eq_iff (Y := Subgroup.centralizer ({z} : Set G)) (hJC hs) y.2).mpr ?_
-      have h1 : ⁅s, (y : G)⁆ ∈ oddCoreIn (Subgroup.centralizer ({z} : Set G)) := by
-        rw [← involutionOddCore_eq_oddCoreIn]
-        exact h s hs y hy
-      exact h1
 
 end Twins
 

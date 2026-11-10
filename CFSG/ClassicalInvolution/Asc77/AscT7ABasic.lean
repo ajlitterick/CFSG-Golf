@@ -68,7 +68,6 @@ theorem isUniqueInvolution_of_mem_twinSet (hz : IsUniqueInvolution K z) (hL : L 
   obtain ⟨-, z', hzK, hzL⟩ := hL
   rwa [hz.eq hzK]
 
-theorem mem_of_mem_twinSet (hL : L ∈ twinSet Ω K) : L ∈ Ω := hL.1
 
 theorem twinSet_eq_of_mem_twinSet (hz : IsUniqueInvolution K z) (hL : L ∈ twinSet Ω K) :
     twinSet Ω L = twinSet Ω K := by

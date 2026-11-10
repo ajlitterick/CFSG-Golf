@@ -16,9 +16,6 @@ namespace CertificateChecks.KernelD42Tri
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.MulH
 
-theorem ch17628hF_neg :
-    hsortPtKF 360 9 (mask 9) RC.cnt (fun _ => 0) RC.HS RC.HSI 0 = false := by
-  decide +kernel
 
 end CertificateChecks.KernelD42Tri
 

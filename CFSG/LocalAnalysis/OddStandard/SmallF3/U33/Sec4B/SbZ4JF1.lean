@@ -18,9 +18,5 @@ theorem L_not_M : L ∉ Mlist := by decide +kernel
 
 theorem TL_not_M : mmul T L ∉ Mlist := by decide +kernel
 
-theorem TL_distinct : one ≠ T ∧ one ≠ L ∧ one ≠ mmul T L ∧ T ≠ L ∧ T ≠ mmul T L ∧
-    L ≠ mmul T L := by decide +kernel
-
-theorem T_L_comm : mmul T L = mmul L T := by decide +kernel
 
 end CFSG.OddStandard.SmallF3.HarrisU33.S4B.ZJFin

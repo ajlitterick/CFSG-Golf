@@ -37,12 +37,6 @@ theorem e4H_injective (S : LyStd ρ x₁ x₂ x₃) : Function.Injective (e4H x�
   apply e4p_injective
   rw [← rho_e4H S, ← rho_e4H S, h]
 
-omit [Group G] in
-theorem e4p_axis (i j : Fin 4) (h : i.val / 2 = j.val / 2) :
-    e4p j = e4p i ∨ e4p j = (e4p i)⁻¹ := by
-  revert h
-  revert i j
-  decide
 
 namespace LyData
 
@@ -257,39 +251,6 @@ theorem card_normalizer_EE' (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃) :
     Nat.card ↥(normalizer (EE (x₁ : G) (x₂ : G) : Set G)) = 699840 := by
   rw [D.card_normalizer_EE S, D.card_QE S]
 
-theorem normalizer_EE_eq_mul (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃) {R : Subgroup G}
-    (hR : ThreeCoreE (x₁ : G) (x₂ : G) R) :
-    ∀ n ∈ normalizer (EE (x₁ : G) (x₂ : G) : Set G), ∃ r ∈ R,
-      ∃ h ∈ normalizer (EE (x₁ : G) (x₂ : G) : Set G) ⊓ centralizer ({t} : Set G), n = r * h := by
-  intro n hn
-  obtain ⟨m, hm1, hm2⟩ := D.exists_pE_of_mem_normalizer S hn
-  obtain ⟨w, hwN, hw1, hw2⟩ := D.exists_lift_pE_normalizer S m
-  have hq : (w : G)⁻¹ * n ∈ QE (x₁ : G) (x₂ : G) := by
-    rw [mem_QE]
-    constructor
-    · have h1 : (w : G)⁻¹ * n * (x₁ : G) * ((w : G)⁻¹ * n)⁻¹ = (x₁ : G) := by
-        calc (w : G)⁻¹ * n * (x₁ : G) * ((w : G)⁻¹ * n)⁻¹
-            = (w : G)⁻¹ * (n * (x₁ : G) * n⁻¹) * (w : G) := by group
-          _ = (w : G)⁻¹ * ((w : G) * (x₁ : G) * (w : G)⁻¹) * (w : G) := by rw [hm1, hw1]
-          _ = (x₁ : G) := by group
-      exact (mul_inv_eq_iff_eq_mul.1 h1).symm
-    · have h1 : (w : G)⁻¹ * n * (x₂ : G) * ((w : G)⁻¹ * n)⁻¹ = (x₂ : G) := by
-        calc (w : G)⁻¹ * n * (x₂ : G) * ((w : G)⁻¹ * n)⁻¹
-            = (w : G)⁻¹ * (n * (x₂ : G) * n⁻¹) * (w : G) := by group
-          _ = (w : G)⁻¹ * ((w : G) * (x₂ : G) * (w : G)⁻¹) * (w : G) := by rw [hm2, hw2]
-          _ = (x₂ : G) := by group
-      exact (mul_inv_eq_iff_eq_mul.1 h1).symm
-  obtain ⟨r, hr, s, hs, hrs⟩ := D.QE_eq_mul_SL5 S hR _ hq
-  have hsQ := D.SL5_le_QE S hs
-  have hsH : s ∈ centralizer ({t} : Set G) := by
-    obtain ⟨a, -, rfl⟩ := hs
-    exact a.2
-  refine ⟨(w : G) * r * (w : G)⁻¹, normal_threeCoreE_normalizer hR _ hwN _ hr, (w : G) * s, ?_, ?_⟩
-  · exact ⟨Subgroup.mul_mem _ hwN (QE_le_normalizer_EE _ _ hsQ),
-      Subgroup.mul_mem _ w.2 hsH⟩
-  · calc n = (w : G) * ((w : G)⁻¹ * n) := by group
-      _ = (w : G) * (r * s) := by rw [hrs]
-      _ = (w : G) * r * (w : G)⁻¹ * ((w : G) * s) := by group
 
 end LyData
 

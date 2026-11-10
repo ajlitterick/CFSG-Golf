@@ -32,10 +32,6 @@ theorem SmallNormalFree.of_fourClassesLarge {C : Type*} [Group C] [Finite C]
     (hO : CFSG.Assembly.oddCore C = ⊥) (hF : FourClassesLarge C) : SmallNormalFree C :=
   .of_noNormalFour hO hF.noNormalFour
 
-theorem SmallNormalFree.of_no_orderOf_four {C : Type*} [Group C] [Finite C]
-    (hO : CFSG.Assembly.oddCore C = ⊥) (h4 : ∀ x : C, x ^ 4 = 1 → x ^ 2 = 1) :
-    SmallNormalFree C :=
-  .of_fourClassesLarge hO fun x hx hx2 => absurd (h4 x hx) hx2
 
 theorem SmallNormalFree.of_mulEquiv {C C' : Type*} [Group C] [Group C'] (e : C ≃* C')
     (h : SmallNormalFree C) : SmallNormalFree C' := by

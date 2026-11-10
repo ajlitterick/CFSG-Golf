@@ -44,9 +44,5 @@ theorem rLayer_eq_exactLayer (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMo
   rw [rLayer_eq_sectionHull hp hq hΩ hc2,
     sectionHull_zpowers hΩ (isPGroup_zpowers_of_sq_eq_one hc2)]
 
-theorem mem_rLayer_iff_mem_sectionHull (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (hc2 : c * c = 1) {x : G} :
-    x ∈ rLayer Ω c ↔ x ∈ sectionHull Ω (Subgroup.zpowers c) := by
-  rw [rLayer_eq_sectionHull hp hq hΩ hc2]
 
 end CFSG.ClassicalInvolution.Asc77

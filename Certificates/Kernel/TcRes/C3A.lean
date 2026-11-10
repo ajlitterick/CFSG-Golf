@@ -18,7 +18,6 @@ theorem cols : C3.cols = true := by quickRfl
 
 theorem bx : C3.bx = true := by quickRfl
 
-theorem sig : C3.sig = true := by quickRfl
 
 theorem cls : C3.cls = true := by quickRfl
 

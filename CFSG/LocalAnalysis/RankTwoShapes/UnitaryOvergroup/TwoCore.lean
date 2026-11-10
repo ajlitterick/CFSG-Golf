@@ -125,15 +125,6 @@ theorem unitaryFourConjAction_apply (h : H) (w : unitaryFourW K hK) :
     unitaryFourConjAction e h w = e (MulAut.conjNormal h (e.symm w)) := by
   rw [← unitaryFourConjAction_apply_apply, MulEquiv.apply_symm_apply]
 
-theorem fst_unitaryFourConjAction_of_mem {q : H} (hq : q ∈ Q) (w : unitaryFourW K hK) :
-    fst (unitaryFourConjAction e q w) = fst w := by
-  have := charP_two_of_natCard_eq_sixteen hK
-  have h : MulAut.conjNormal q (e.symm w) = ⟨q, hq⟩ * e.symm w * (⟨q, hq⟩ : Q)⁻¹ :=
-    Subtype.ext (by simp [MulAut.conjNormal_apply])
-  rw [unitaryFourConjAction_apply, h, map_mul, map_mul, map_inv, MulEquiv.apply_symm_apply,
-    fst_mul, fst_mul, fst_inv]
-  ring_nf
-  rw [CharTwo.two_eq_zero, mul_zero, zero_add]
 
 theorem mem_of_fst_unitaryFourConjAction_eq (hQ : CFSG.pCore 2 H = Q)
     (hCQ : Subgroup.centralizer (Q : Set H) ≤ Q) {x : H}
@@ -548,43 +539,6 @@ theorem exists_elementaryEight_le_of_unitaryFour_twoCore (Q : Subgroup H)
     rw [← map_pow, hsq x hx, map_one]
   · rw [Subgroup.card_map_of_injective (MulAut.conj g).injective, hcard]
 
-theorem unitaryFour_twoCore_threeIndex_overgroup_rank (Q : Subgroup H)
-    (hQ : Q = CFSG.pCore 2 H) (hCQ : Subgroup.centralizer (Q : Set H) ≤ Q)
-    (hU : ∃ (T : Type) (_ : Group T) (U : Sylow 2 T),
-      CFSG.Assembly.LowTwoRank.StatedClassicalModel T .PSU 3 2 2 ∧
-        Nonempty (Q ≃* (U : Subgroup T)))
-    (h3 : 3 ∣ Q.index) (P : Sylow 2 H) (hQP : Q < P) :
-    3 ≤ CFSG.pRank 2 (P : Subgroup H) := by
-  obtain ⟨T, _, U, hT, ⟨eQU⟩⟩ := hU
-  have hK : Nat.card (GaloisField 2 4) = 16 := by
-    rw [GaloisField.card 2 4 (by norm_num)]
-    norm_num
-  obtain ⟨eUW⟩ := nonempty_sylow_equiv_unitaryFourW hT U (GaloisField 2 4) hK
-  obtain ⟨E, hEP, hcomm, hsq, hcard⟩ :=
-    exists_elementaryEight_le_of_unitaryFour_twoCore Q hQ.symm hCQ (eQU.trans eUW) h3 P hQP
-  let A : Subgroup (P : Subgroup H) := E.subgroupOf P
-  have hA : IsElementaryAbelian 2 A := {
-    toIsMulCommutative := {
-      is_comm := {
-        comm := fun a b => Subtype.ext (Subtype.ext (hcomm _ a.2 _ b.2))
-      }
-    }
-    exponent_dvd_p := by
-      rw [Monoid.exponent_dvd_iff_forall_pow_eq_one]
-      intro a
-      exact Subtype.ext (Subtype.ext (hsq _ a.2))
-  }
-  have hAcard : Nat.card A = 2 ^ 3 := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hEP).toEquiv, hcard]
-    norm_num
-  have hbdd : BddAbove {r : ℕ | ∃ B : Subgroup (P : Subgroup H),
-      IsElementaryAbelian 2 B ∧ Nat.card B = 2 ^ r} := by
-    refine ⟨Nat.card (P : Subgroup H), ?_⟩
-    rintro r ⟨B, -, hB⟩
-    calc r ≤ 2 ^ r := Nat.lt_two_pow_self.le
-      _ = Nat.card B := hB.symm
-      _ ≤ Nat.card (P : Subgroup H) := Nat.card_le_card_of_injective _ Subtype.val_injective
-  exact le_csSup hbdd ⟨A, hA, hAcard⟩
 
 end Core
 

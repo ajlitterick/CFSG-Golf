@@ -28,11 +28,6 @@ theorem sH3 : Nat.beq nC (nat_lit 1357) = true := by
 
 #kc_each_unfold CFSG.KD.HSKX2.sH4r 0 60 eval CFSG.KD.HSKX2.relMap
 
-theorem sH5s0 : Nat.beq (litST (nat_lit 0)) (nat_lit 4) = true := by
-  quickRfl
-
-theorem sH5s1 : Nat.beq (litST (nat_lit 1)) (nat_lit 8196) = true := by
-  quickRfl
 
 end CFSG.KD.HSKX2
 

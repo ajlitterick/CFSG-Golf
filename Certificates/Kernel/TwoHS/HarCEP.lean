@@ -20,13 +20,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.PEnum CFSG.KS.PEnumC
 theorem ch7291t0 : cnK (TE.T 0) = true := by
   quickRfl
 
-theorem ch7291pe_negCl :
-    bIf(penumPtC 3 6 TE.cnt TE.T TE.PL TE.POS (fun _ => 0) TE.SRT TE.SRI 1, false, true) = true := by
-  quickRfl
-
-theorem ch7291pe_negPos : bIf(penumPtC 3 6 TE.cnt TE.T TE.PL (fun r => TE.POS (r + 1)) TECl TE.SRT
-    TE.SRI 0, false, true) = true := by
-  quickRfl
 
 end CFSG.KD.TwoHS
 

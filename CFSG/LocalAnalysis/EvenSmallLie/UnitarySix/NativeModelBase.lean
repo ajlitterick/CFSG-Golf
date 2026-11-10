@@ -55,17 +55,6 @@ theorem mem_normalizer_of_conj_gens {H : Subgroup (Equiv.Perm (Fin 693))}
   rw [← hyx]
   exact y.2
 
-theorem card_eq_countP_allTables (Q : RawSchreierDatum 693) (hQ : ValidSchreier Q)
-    (f : Table → Bool) (P : Equiv.Perm (Fin 693) → Prop) [DecidablePred P]
-    (hfP : ∀ T g, Rep 693 T g → (f T = true ↔ P g)) :
-    Nat.card {x : Q.originalSubgroup // P x} = (allTables Q).countP f := by
-  have hmem : ∀ g, g ∈ (enumeration Q).reverse ↔ g ∈ Q.originalSubgroup := fun g => by
-    rw [List.mem_reverse]
-    exact mem_enumeration_iff Q hQ g
-  rw [card_subtype_eq_countP Q.originalSubgroup (enumeration Q).reverse
-    (List.nodup_reverse.2 (enumeration_nodup Q hQ)) hmem P]
-  exact (countP_eq_of_forall₂ (forall₂_allTables hn693 Q) fun T g hT _ => by
-    rw [hfP T g hT, decide_eq_true_iff]).symm
 
 theorem rep_arrOf (g : Equiv.Perm (Fin 693)) : CFSG.Monster.B.Co2.Rep 693 (arrOf g) g :=
   fun x => CFSG.Monster.B.Co2.getElem!_ofFn_nat _ x.2

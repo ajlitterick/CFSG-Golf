@@ -46,12 +46,6 @@ theorem rankTwoHypNF_rightConjugate (hH : RankTwoHypNF G A) (x : G) :
     rw [← AschbacherTheorem3.rightConjugate_centralizer]
     exact AschbacherTheorem3.rightConjugate_le_rightConjugate hUK x
 
-theorem rankTwoHyp_rightConjugate (hH : RankTwoHyp G A) (x : G) :
-    RankTwoHyp G (rightConjugate A x) where
-  kProper := hH.kProper
-  standard := (rankTwoHypNF_rightConjugate hH.toNF x).standard
-  not_normal := (rankTwoHypNF_rightConjugate hH.toNF x).not_normal
-  rank := (rankTwoHypNF_rightConjugate hH.toNF x).rank
 
 omit [Finite G] in
 theorem hypII_rightConjugate (h : AS76b.HypII ↥A) (x : G) :

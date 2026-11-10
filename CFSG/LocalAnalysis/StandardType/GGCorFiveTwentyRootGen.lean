@@ -190,10 +190,5 @@ theorem ggCorFiveTwentyQFourWeylInput_of_rootGen (hH : GGHypG0Input) (hL : GGRoo
     normalizer_le_normalizer_ggG0 hHyp.1.1.2.2.2.2.2.1.1 (hH G p B Bs x L D J hHyp hq hN hW)
       (hL G p B Bs x L D J hHyp hq hN hW) (hK G p B Bs x L D J hHyp hq hN hW)
 
-theorem ggCorFiveTwentyInput_of_rootGen (hR : GGCorFiveTwentyResidualInput)
-    (hN : GGCorFiveTwentyQFourNonWeylInput) (hH : GGHypG0Input) (hL : GGRootGenLInput)
-    (hK : GGRootGenNbrInput) : GGCorFiveTwentyInput :=
-  ggCorFiveTwentyInput_of_split hR
-    (ggCorFiveTwentyQFourInput_of_weyl hN (ggCorFiveTwentyQFourWeylInput_of_rootGen hH hL hK))
 
 end CFSG.StandardType

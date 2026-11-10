@@ -374,62 +374,6 @@ theorem exists_map_rootSU2_of_mulAut_blockSU {I : Finset (Fin n)} (hI3 : 3 ≤ I
     simp [MulAut.conj_apply, map_mul, map_inv]
   rw [e1, e2, ← Subgroup.map_map, ← Subgroup.map_map, hB]
 
-theorem exists_map_unitaryBlock_pair_eq_conj_of_mulEquiv {m m' : ℕ} (hmm' : m = m')
-    (hm : 3 ≤ m) (hmq : ¬(m = 3 ∧ 2 ^ f = 2)) (α : unitarySU 2 f K m ≃* unitarySU 2 f K m')
-    {r s : Fin m} (hrs : r ≠ s) :
-    ∃ B : unitarySU 2 f K m',
-      (unitaryBlock h ({r, s} : Finset (Fin m))).map α.toMonoidHom =
-        (unitaryBlock h ({Fin.cast hmm' r, Fin.cast hmm' s} : Finset (Fin m'))).map
-          (MulAut.conj B).toMonoidHom := by
-  subst hmm'
-  obtain ⟨k, -, hk⟩ := Finset.exists_mem_notMem_of_card_lt_card
-    (s := ({r, s} : Finset (Fin m))) (t := Finset.univ)
-    (by rw [Finset.card_univ, Fintype.card_fin, Finset.card_pair hrs]; omega)
-  simp only [Fin.cast_eq_self]
-  exact exists_map_unitaryBlock_eq_conj_of_mulAut h hm hmq α hk
-
-theorem exists_map_rootSU2_of_mulEquiv_blockSU_of_three_le {I I' : Finset (Fin n)}
-    (hI3 : 3 ≤ I.card) (hIq : ¬(I.card = 3 ∧ 2 ^ f = 2)) (hIn : I.card < n)
-    (hII' : I.card = I'.card) (ψ : blockSU h I ≃* blockSU h I') {a b : Fin n} (ha : a ∈ I)
-    (hb : b ∈ I) (hab : a ≠ b) :
-    ∃ c ∈ I', ∃ d ∈ I', c ≠ d ∧ ∃ g ∈ blockSU h I',
-      ((rootSU2 h a b).subgroupOf (blockSU h I)).map ψ.toMonoidHom =
-        ((rootSU2 h c d).map (MulAut.conj g).toMonoidHom).subgroupOf (blockSU h I') := by
-  have hI'n : I'.card < n := hII' ▸ hIn
-  set α : unitarySU 2 f K I.card ≃* unitarySU 2 f K I'.card :=
-    (blockSUEquiv h hIn).trans (ψ.trans (blockSUEquiv h hI'n).symm) with hαdef
-  set r : Fin I.card := I.equivFin ⟨a, ha⟩ with hr
-  set s : Fin I.card := I.equivFin ⟨b, hb⟩ with hs
-  have hrs : r ≠ s := fun e => hab (congrArg Subtype.val (I.equivFin.injective e))
-  obtain ⟨B, hB⟩ := exists_map_unitaryBlock_pair_eq_conj_of_mulEquiv h hII' hI3 hIq α hrs
-  have hcd : (I'.equivFin.symm (Fin.cast hII' r) : Fin n) ≠ I'.equivFin.symm (Fin.cast hII' s) :=
-    fun e => hrs (Fin.cast_injective hII' (I'.equivFin.symm.injective (Subtype.ext e)))
-  refine ⟨_, (I'.equivFin.symm (Fin.cast hII' r)).2, _, (I'.equivFin.symm (Fin.cast hII' s)).2,
-    hcd, (blockSUEquiv h hI'n B : unitaryPSU h n), (blockSUEquiv h hI'n B).2, ?_⟩
-  have hJ : (rootSU2 h a b).subgroupOf (blockSU h I) =
-      (unitaryBlock h ({r, s} : Finset (Fin I.card))).map (blockSUEquiv h hIn).toMonoidHom := by
-    rw [map_blockSUEquiv_pair h hIn r s, hr, hs, Equiv.symm_apply_apply,
-      Equiv.symm_apply_apply]
-  have e1 : ψ.toMonoidHom.comp (blockSUEquiv h hIn).toMonoidHom =
-      (blockSUEquiv h hI'n).toMonoidHom.comp α.toMonoidHom := by
-    ext X
-    simp [hαdef]
-  have e2 : (blockSUEquiv h hI'n).toMonoidHom.comp (MulAut.conj B).toMonoidHom =
-      (MulAut.conj (blockSUEquiv h hI'n B)).toMonoidHom.comp
-        (blockSUEquiv h hI'n).toMonoidHom := by
-    ext X
-    simp [MulAut.conj_apply, map_mul, map_inv]
-  rw [← map_conj_subgroupOf, ← map_blockSUEquiv_pair h hI'n, hJ, Subgroup.map_map, e1,
-    ← Subgroup.map_map, hB, Subgroup.map_map, e2, ← Subgroup.map_map]
-
-theorem exists_map_rootSU2_of_mulEquiv_blockSU {I I' : Finset (Fin n)} (hI : 4 ≤ I.card)
-    (hIn : I.card < n) (hII' : I.card = I'.card) (ψ : blockSU h I ≃* blockSU h I') {a b : Fin n}
-    (ha : a ∈ I) (hb : b ∈ I) (hab : a ≠ b) :
-    ∃ c ∈ I', ∃ d ∈ I', c ≠ d ∧ ∃ g ∈ blockSU h I',
-      ((rootSU2 h a b).subgroupOf (blockSU h I)).map ψ.toMonoidHom =
-        ((rootSU2 h c d).map (MulAut.conj g).toMonoidHom).subgroupOf (blockSU h I') :=
-  exists_map_rootSU2_of_mulEquiv_blockSU_of_three_le h (by omega)
-    (fun h3 => by have := h3.1; omega) hIn hII' ψ ha hb hab
 
 end Coordinates
 

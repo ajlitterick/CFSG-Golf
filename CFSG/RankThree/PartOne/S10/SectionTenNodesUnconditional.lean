@@ -14,10 +14,6 @@ public section
 
 namespace CFSG.RankThree.PartOne
 
-theorem nonquasisimple_moving_theta_component_minimal_odd_core_action :
-    NonquasisimpleMovingThetaComponentMinimalOddCoreAction :=
-  nonquasisimple_moving_theta_component_minimal_odd_core_action_of
-    selected_prime_elements_normalize_theta_components
 
 theorem nonquasisimple_moving_theta_component_prime_cut :
     NonquasisimpleMovingThetaComponentPrimeCut :=
@@ -45,9 +41,5 @@ theorem section_ten_five_critical_action_and_central_involution :
   section_ten_five_critical_action_and_central_involution_of
     nonquasisimple_moving_theta_component_scalar_kernel_hyperplane
 
-theorem section_ten_five_actor_moved_theta_component_existence :
-    SectionTenFiveActorMovedThetaComponentExistence :=
-  section_ten_five_actor_moved_theta_component_existence_of
-    section_ten_five_normal_p_core_two_group_witness_frontier
 
 end CFSG.RankThree.PartOne

@@ -22,11 +22,9 @@ namespace CFSG.AGLEmbeddingD2.McLaughlin.TightPairAndPureRank
 
 open CFSG.Quasithin.G11
 
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
 
 section E11Part
 
-variable {A B : Subgroup (GLV V)} {J : Submodule (ZMod 2) V}
 
 open CFSG.Quasithin.G11.E11
 open scoped CFSG.Quasithin.G11.E11

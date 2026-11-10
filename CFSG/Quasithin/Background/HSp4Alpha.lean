@@ -862,20 +862,6 @@ theorem not_isFOneModule {n : ℕ} (hn : 1 ≤ n) (hK : Nat.card K = 2 ^ n)
   have := rk_add_two_le_rkIdx_fixV hn hK (hAX.trans hXN) hAel hA1
   omega
 
-theorem alphaH_eq_one {n : ℕ} (hn : 1 ≤ n) (hK : Nat.card K = 2 ^ n)
-    {X : Subgroup (MulAut (PairMod (Fin 2 ⊕ Fin 2) K))} (hXN : X ≤ pairNormSp K) :
-    alphaH X = 1 :=
-  alphaH_eq_one_of_not_isFOneModule (not_isFOneModule hn hK hXN)
-
-theorem not_isFFModule {n : ℕ} (hn : 1 ≤ n) (hK : Nat.card K = 2 ^ n)
-    {X : Subgroup (MulAut (PairMod (Fin 2 ⊕ Fin 2) K))} (hXN : X ≤ pairNormSp K) :
-    ¬ IsFFModule X := by
-  have hV : Nat.card (PairMod (Fin 2 ⊕ Fin 2) K) = 2 ^ (8 * n) := by
-    rw [Nat.card_prod, card_stdMod, hK, Fintype.card_sum, Fintype.card_fin, ← pow_mul,
-      ← pow_add]
-    congr 1
-    ring
-  exact not_isFFModule_of_not_isFOneModule (IsPGroup.of_card hV) (not_isFOneModule hn hK hXN)
 
 end Sp4
 

@@ -373,20 +373,6 @@ theorem rzj_normalizer_le_normalizer_thompsonCenter (S : Subgroup G) :
     have hz' := hconj_mem g⁻¹ hginv (g * z * g⁻¹) hz
     simpa [mul_assoc] using hz'
 
-omit [Finite G] in
-theorem rzj_thompsonAbelianSubgroups_subset_of_contains_mem
-    {P R : Subgroup G} (hR_le_P : R ≤ P) {A : Subgroup G}
-    (hA : A ∈ thompsonAbelianSubgroups (G := G) P) (hA_le_R : A ≤ R) :
-    ∀ {B : Subgroup G},
-      B ∈ thompsonAbelianSubgroups (G := G) R →
-        B ∈ thompsonAbelianSubgroups (G := G) P := by
-  intro B hB
-  refine ⟨hB.1.trans hR_le_P, hB.2.1, ?_⟩
-  intro C hC hCcomm
-  have hBmax := hB.2.2 A hA_le_R hA.2.1
-  have hAmax := hA.2.2 C hC hCcomm
-  exact hAmax.trans hBmax
-
 
 omit [Finite G] in
 theorem rzj_thompsonCenter_le_of_mem_thompsonAbelianSubgroups

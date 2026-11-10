@@ -181,13 +181,6 @@ section CaseTwo
 variable (hsq : ∀ d ∈ planeD B c₁ c₂, d * d = planeTau u₀ d)
 include hsq
 
-theorem mul_self_eq_one_iff_of_sq {d : Y} (hd : d ∈ planeD B c₁ c₂) : d * d = 1 ↔ d ∈ B := by
-  rw [hsq d hd]
-  constructor
-  · intro h1
-    exact h.mem_B_of_mem_planeD hl hd h1
-  · intro hdB
-    exact h.planeTau_of_mem_U (h.le hdB)
 
 omit hl in
 theorem u₀_inverts {d : Y} (hd : d ∈ planeD B c₁ c₂) : u₀ * d * u₀⁻¹ = d⁻¹ := by
@@ -202,12 +195,6 @@ theorem u₀_inverts {d : Y} (hd : d ∈ planeD B c₁ c₂) : u₀ * d * u₀�
   calc u₀ * d * u₀⁻¹ = (u₀ * d⁻¹ * u₀⁻¹)⁻¹ := by group
     _ = d⁻¹ := by rw [h1]
 
-omit [U.Normal] hl hsq in
-theorem orderOf_u₀ : orderOf u₀ = 2 := by
-  have _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  refine orderOf_eq_prime ?_ ?_
-  · rw [pow_two]; exact mul_self_eq_one_of_mem h.u₀_mem
-  · intro h1; exact h.u₀_not_mem (h1 ▸ B.one_mem)
 
 omit hsq in
 theorem u₀_not_mem_planeD : u₀ ∉ planeD B c₁ c₂ := by
@@ -216,30 +203,6 @@ theorem u₀_not_mem_planeD : u₀ ∉ planeD B c₁ c₂ := by
   rw [← h.planeD_inf_U hl]
   exact ⟨hu, h.u₀_mem⟩
 
-omit hsq in
-theorem planeD_sup_zpowers : planeD B c₁ c₂ ⊔ Subgroup.zpowers u₀ =
-    Subgroup.centralizer (B : Set Y) := by
-  apply le_antisymm
-  · refine sup_le (planeD_le_centralizer B c₁ c₂) ?_
-    rw [Subgroup.zpowers_le]
-    exact h.U_le_centralizer h.u₀_mem
-  · rw [← h.planeD_sup_U hl]
-    refine sup_le le_sup_left ?_
-    intro x hx
-    rcases h.mem_U_cases hx with hxB | hxB
-    · exact Subgroup.mem_sup_left (h.B_le_planeD hl hxB)
-    · have hx' : x = u₀ * (u₀ * x) := by
-        rw [← mul_assoc, mul_self_eq_one_of_mem h.u₀_mem, one_mul]
-      rw [hx', mul_comm_of_mem h.u₀_mem (h.le hxB)]
-      exact Subgroup.mul_mem_sup (h.B_le_planeD hl hxB) (Subgroup.mem_zpowers u₀)
-
-omit hsq in
-theorem planeD_inf_zpowers : planeD B c₁ c₂ ⊓ Subgroup.zpowers u₀ = ⊥ := by
-  rw [eq_bot_iff]
-  rintro x ⟨hxD, hxZ⟩
-  rcases mem_zpowers_of_orderOf_eq_two h.orderOf_u₀ hxZ with rfl | rfl
-  · exact Subgroup.one_mem _
-  · exact absurd hxD (h.u₀_not_mem_planeD hl)
 
 omit hsq in
 theorem eq_mul_u₀_of_not_mem {x : Y} (hxC : x ∈ Subgroup.centralizer (B : Set Y))
@@ -340,79 +303,6 @@ theorem pow_four_eq_one_of_mem {d : Y} (hd : d ∈ planeD B c₁ c₂) : d ^ 4 =
   calc d ^ 4 = d * d * (d * d) := by rw [pow_succ, pow_succ, pow_succ, pow_one, mul_assoc]
     _ = 1 := by rw [hsq d hd]; exact mul_self_eq_one_of_mem (h.le hτB)
 
-theorem nonempty_planeD_mulEquiv [Finite Y] :
-    Nonempty (planeD B c₁ c₂ ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 4)) := by
-  have hc₁D := c₁_mem_planeD hl
-  have hc₂D := c₂_mem_planeD hl
-  have h₁ := h.pow_four_eq_one_of_mem hsq hc₁D
-  have h₂ := h.pow_four_eq_one_of_mem hsq hc₂D
-  have hcomm : ∀ m n : ℕ, c₂ ^ m * c₁ ^ n = c₁ ^ n * c₂ ^ m := fun m n =>
-    ((Commute.pow_pow (show Commute c₂ c₁ from hl.comm.symm)) m n)
-  have hmem : ∀ p : Multiplicative (ZMod 4) × Multiplicative (ZMod 4),
-      c₁ ^ p.1.toAdd.val * c₂ ^ p.2.toAdd.val ∈ planeD B c₁ c₂ := fun p =>
-    Subgroup.mul_mem _ (Subgroup.pow_mem _ hc₁D _) (Subgroup.pow_mem _ hc₂D _)
-  let f : Multiplicative (ZMod 4) × Multiplicative (ZMod 4) →* planeD B c₁ c₂ :=
-    { toFun := fun p => ⟨c₁ ^ p.1.toAdd.val * c₂ ^ p.2.toAdd.val, hmem p⟩
-      map_one' := by
-        apply Subtype.ext
-        simp
-      map_mul' := by
-        intro p q
-        apply Subtype.ext
-        simp only [Prod.fst_mul, Prod.snd_mul, toAdd_mul, Subgroup.coe_mul]
-        rw [ZMod.val_add, ZMod.val_add, ← pow_eq_pow_mod _ h₁, ← pow_eq_pow_mod _ h₂, pow_add,
-          pow_add]
-        rw [show c₁ ^ (p.1.toAdd).val * c₁ ^ (q.1.toAdd).val *
-            (c₂ ^ (p.2.toAdd).val * c₂ ^ (q.2.toAdd).val) =
-            c₁ ^ (p.1.toAdd).val * (c₁ ^ (q.1.toAdd).val * c₂ ^ (p.2.toAdd).val) *
-              c₂ ^ (q.2.toAdd).val by group, ← hcomm]
-        group }
-  have hf : ∀ p, ((f p : planeD B c₁ c₂) : Y) = c₁ ^ p.1.toAdd.val * c₂ ^ p.2.toAdd.val :=
-    fun p => rfl
-  have hv1 : (1 : ZMod 4).val = 1 := rfl
-  have hc₁r : (⟨c₁, hc₁D⟩ : planeD B c₁ c₂) ∈ f.range :=
-    ⟨(Multiplicative.ofAdd 1, 1), Subtype.ext (by rw [hf]; simp [hv1])⟩
-  have hc₂r : (⟨c₂, hc₂D⟩ : planeD B c₁ c₂) ∈ f.range :=
-    ⟨(1, Multiplicative.ofAdd 1), Subtype.ext (by rw [hf]; simp [hv1])⟩
-  have hBr : ∀ b ∈ B, ∀ hb' : b ∈ planeD B c₁ c₂, (⟨b, hb'⟩ : planeD B c₁ c₂) ∈ f.range := by
-    intro b hb hb'
-    have hsq₁ : c₁ * c₁ = b₁ := (hsq c₁ hc₁D).trans hl.tau₁
-    have hsq₂ : c₂ * c₂ = b₂ := (hsq c₂ hc₂D).trans hl.tau₂
-    rcases h.mem_B_cases hb with hbb | hbb | hbb | hbb
-    · have : (⟨b, hb'⟩ : planeD B c₁ c₂) = 1 := Subtype.ext hbb
-      rw [this]; exact Subgroup.one_mem _
-    · have : (⟨b, hb'⟩ : planeD B c₁ c₂) = ⟨c₁, hc₁D⟩ * ⟨c₁, hc₁D⟩ :=
-        Subtype.ext (hbb.trans hsq₁.symm)
-      rw [this]; exact Subgroup.mul_mem _ hc₁r hc₁r
-    · have : (⟨b, hb'⟩ : planeD B c₁ c₂) = ⟨c₂, hc₂D⟩ * ⟨c₂, hc₂D⟩ :=
-        Subtype.ext (hbb.trans hsq₂.symm)
-      rw [this]; exact Subgroup.mul_mem _ hc₂r hc₂r
-    · have : (⟨b, hb'⟩ : planeD B c₁ c₂) =
-          ⟨c₁, hc₁D⟩ * ⟨c₁, hc₁D⟩ * (⟨c₂, hc₂D⟩ * ⟨c₂, hc₂D⟩) :=
-        Subtype.ext (show b = c₁ * c₁ * (c₂ * c₂) by rw [hbb, hsq₁, hsq₂])
-      rw [this]
-      exact Subgroup.mul_mem _ (Subgroup.mul_mem _ hc₁r hc₁r) (Subgroup.mul_mem _ hc₂r hc₂r)
-  have hsurj : Function.Surjective f := by
-    rw [← MonoidHom.range_eq_top, eq_top_iff]
-    rintro ⟨d, hd⟩ -
-    obtain ⟨b, hb, hdd⟩ := h.planeD_decomp hl hd
-    have hbD := h.B_le_planeD hl hb
-    have hbr := hBr b hb hbD
-    rcases hdd with hdd | hdd | hdd | hdd
-    · have : (⟨d, hd⟩ : planeD B c₁ c₂) = ⟨b, hbD⟩ := Subtype.ext hdd
-      rw [this]; exact hbr
-    · have : (⟨d, hd⟩ : planeD B c₁ c₂) = ⟨c₁, hc₁D⟩ * ⟨b, hbD⟩ := Subtype.ext hdd
-      rw [this]; exact Subgroup.mul_mem _ hc₁r hbr
-    · have : (⟨d, hd⟩ : planeD B c₁ c₂) = ⟨c₂, hc₂D⟩ * ⟨b, hbD⟩ := Subtype.ext hdd
-      rw [this]; exact Subgroup.mul_mem _ hc₂r hbr
-    · have : (⟨d, hd⟩ : planeD B c₁ c₂) = ⟨c₁, hc₁D⟩ * ⟨c₂, hc₂D⟩ * ⟨b, hbD⟩ :=
-        Subtype.ext hdd
-      rw [this]; exact Subgroup.mul_mem _ (Subgroup.mul_mem _ hc₁r hc₂r) hbr
-  have hbij : Function.Bijective f := by
-    refine (Nat.bijective_iff_surjective_and_card f).mpr ⟨hsurj, ?_⟩
-    rw [h.card_planeD hl, Nat.card_prod, Nat.card_eq_fintype_card]
-    rfl
-  exact ⟨(MulEquiv.ofBijective f hbij).symm⟩
 
 end CaseTwo
 

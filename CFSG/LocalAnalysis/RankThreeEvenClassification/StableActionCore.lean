@@ -41,13 +41,6 @@ theorem actionPrimeCore_eq_primeCore_of_kernel {actor : Type u} {acted : Type v}
     have hmappedPGroup := (pCore_isPGroup actor prime).map (QuotientGroup.mk' action.ker)
     exact Subgroup.map_le_iff_le_comap.mp (le_pCore_of_normal prime _ hmappedNormal hmappedPGroup)
 
-theorem primeCore_le_actionPrimeCore {actor : Type u} {acted : Type v}
-    [Group actor] [Group acted] (prime : ℕ) (action : actor →* MulAut acted) :
-    pCore prime actor ≤ actionPrimeCore prime action := by
-  have hmappedNormal : ((pCore prime actor).map (QuotientGroup.mk' action.ker)).Normal :=
-    (pCore_normal actor prime).map (QuotientGroup.mk' action.ker) (QuotientGroup.mk'_surjective action.ker)
-  exact Subgroup.map_le_iff_le_comap.mp (le_pCore_of_normal prime _ hmappedNormal
-    ((pCore_isPGroup actor prime).map (QuotientGroup.mk' action.ker)))
 
 theorem conjugation_kernel_eq_centralizer {G : Type u} [Group G]
     (normal : Subgroup G) [normal.Normal] :
@@ -83,10 +76,5 @@ theorem conjugation_actionPrimeCore_eq_primeCore {G : Type u} [Group G]
   rw [conjugation_kernel_eq_centralizer]
   exact (pCore_isPGroup G prime).to_le hcharacteristic
 
-theorem PrimeStableAction.inverse_quadratic {actor : Type u} {acted : Type v}
-    [Group actor] [Group acted] (prime : ℕ) (action : actor →* MulAut acted)
-    (hstable : PrimeStableAction prime action) (member : actor)
-    (hquadratic : QuadraticAutomorphism (action member⁻¹)) : member ∈ actionPrimeCore prime action := by
-  simpa only [inv_inv] using (actionPrimeCore prime action).inv_mem (hstable member⁻¹ hquadratic)
 
 end CFSG.RankThreeEvenClassification.Helpers

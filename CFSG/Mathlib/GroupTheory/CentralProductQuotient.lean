@@ -45,20 +45,5 @@ theorem exists_centerQuotient_equiv_of_central_product
   simp only [e, MulEquiv.trans_apply, QuotientGroup.quotientMulEquivOfEq_mk]
   rfl
 
-theorem equivariant_of_central_product
-    {H G P : Type*} [Group H] [Group G] [Group P] (ι : H →* G)
-    (hdec : ∀ g : G, ∃ z ∈ center G, ∃ h : H, g = z * ι h)
-    (π : G →* P) (hker : center G ≤ π.ker) (α : MulAut G) (β : MulAut P)
-    (hact : ∀ h : H, π (α (ι h)) = β (π (ι h))) (g : G) :
-    π (α g) = β (π g) := by
-  obtain ⟨z, hz, h, rfl⟩ := hdec g
-  have hzα : α z ∈ center G := by
-    rw [mem_center_iff]
-    intro y
-    have hc := congrArg α (mem_center_iff.mp hz (α.symm y))
-    simpa only [map_mul, MulEquiv.apply_symm_apply] using hc
-  have hπz : π z = 1 := hker hz
-  have hπαz : π (α z) = 1 := hker hzα
-  simp only [map_mul, hπz, hπαz, one_mul, hact]
 
 end CFSG.GroupTheory

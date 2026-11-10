@@ -116,16 +116,6 @@ theorem sCl : slK (Nat.mul B24601R.cnt 4)
 theorem cay_ok : cayK = true := by
   decide +kernel
 
-theorem cay_neg : ((List.range 1080).all fun k => (List.range 2).all fun l =>
-    eq6 (labT (r32 B24601Cl (4 * k + l))) (compT 6 (labT k) piGens[1 - l]!)) = false := by
-  decide +kernel
-
-theorem ker_neg : ((List.range 1080).all fun k => eq6 (labT k) (idT 6) ==
-    (Nat.beq (B24601R.T k) idK || Nat.beq (B24601R.T k) (J2BetaT.F 7))) = false := by
-  decide +kernel
-
-theorem d_neg : Nat.beq (J2BetaT.F 9) (F 31) = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.B24601
 

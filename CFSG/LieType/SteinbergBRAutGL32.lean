@@ -84,10 +84,6 @@ theorem wGL_rel : wGL * sGL * tau wGL⁻¹ = tau sGL⁻¹ := by
 
 theorem wGL_sq : wGL * wGL = 1 := Units.ext (by decide)
 
-theorem wGL_ne_one : wGL ≠ 1 := fun h => by
-  have := congrArg (fun g : GL32 => (g : Matrix (Fin 3) (Fin 3) (ZMod 2))) h
-  revert this
-  decide
 
 theorem aGL_sq : aGL * aGL = 1 := Units.ext (by decide)
 

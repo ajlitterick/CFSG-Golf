@@ -57,7 +57,6 @@ theorem barF_ne_zero : ∀ a : F9, a ≠ 0 → barF a ≠ 0 := by decide
   map_mul' := barF_mul
   map_add' := barF_add
 
-theorem barEquiv_apply (a : F9) : barEquiv a = barF a := rfl
 
 @[expose] def barV (v : V) : V := fun i => barF (v i)
 

@@ -68,12 +68,6 @@ private theorem eq_one_of_diagHom_single {n : ℕ} {g : (Fin n → K) ≃ₗ[F] 
   simp only [Pi.smul_apply, Pi.single_eq_same, smul_eq_mul, mul_one] at hcc
   exact Subtype.ext (Units.ext hcc)
 
-private theorem diagHom_single_apply {n : ℕ} {g : (Fin n → K) ≃ₗ[F] (Fin n → K)}
-    {t : Fin n → normOne (unitaryInvolution K 2 f)}
-    (h : g = diagHom F (unitaryInvolution K 2 f) n t) (c : Fin n) :
-    g (Pi.single c (1 : K)) =
-      (((t c : normOne (unitaryInvolution K 2 f)) : Kˣ) : K) • Pi.single c (1 : K) := by
-  rw [h, diagHom_single]
 
 theorem stdTau_self_inv (m : ℕ) : (stdTau (K := K) (f := f) E m)⁻¹ = stdTau E m :=
   inv_eq_of_mul_eq_one_right (tauAt_mul_self E (Fin.last m))
@@ -764,7 +758,6 @@ private theorem pair_chain_fork_inf_torus_le (m : ℕ) (hm : 3 ≤ m)
   rw [stdFamilyV_ι_castSucc] at hmem1
   rw [stdFamilyV_ι_last] at hmem2
   exact Subgroup.mul_mem_sup hmem1 hmem2
-
 
 
 private theorem pair_fork_fork_inf_torus_le (m : ℕ) (hm : 3 ≤ m)

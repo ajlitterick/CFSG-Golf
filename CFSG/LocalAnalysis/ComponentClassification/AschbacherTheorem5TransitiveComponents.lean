@@ -20,8 +20,6 @@ theorem bar_D_normal (D : Subgroup G) : (bar D D).Normal := by
     (Subgroup.normal_subgroupOf_iff_le_normalizer Subgroup.le_normalizer).mpr le_rfl
   exact h.map _ (toBar_surjective D)
 
-theorem bar_le_bar_D_of_le {Y : Subgroup G} (hY : Y ≤ D) : bar D Y ≤ bar D D :=
-  bar_mono D hY
 
 theorem bar_D_le_normalizer {Y : Subgroup G} (hY : Y ≤ D)
     (hDY : D ≤ Subgroup.normalizer (Y : Set G)) :

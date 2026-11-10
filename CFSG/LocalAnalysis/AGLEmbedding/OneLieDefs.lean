@@ -34,11 +34,6 @@ theorem D1OneLieData.glob {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
     CFSG.AGLEmbeddingD2.AGLGlobal G :=
   hd.cfg.glob.toAGLGlobal
 
-theorem D1OneLieData.toD1ComponentConfig {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
-    {Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p)}
-    {K : Subgroup (H ⧸ primeComplementCore (G := H) p)} (hd : D1OneLieData p P M H R Rbar K)
-    (h4 : 4 ≤ evenRank G) : D1ComponentConfig p P M H R Rbar :=
-  hd.cfg.toD1ComponentConfig h4
 
 theorem D1ComponentConfigU.map_d1LiftX_eq_inf {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
     {Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p)}
@@ -56,10 +51,6 @@ theorem D1ComponentConfigU.map_d1LiftX_eq_inf {p : ℕ} {P : Sylow p G} {M H R :
 @[expose] def D1CaseOneLieBig : Prop :=
   ∀ (G : Type) [Group G] [Finite G], 4 ≤ evenRank G → D1CaseOneLieBigAt G
 
-@[expose] def D1OneLieClass (p : ℕ) (P : Sylow p G) (M R X H : Subgroup G) : Prop :=
-  ∃ (Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p))
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    D1OneLieData p P M H R Rbar K ∧ d1LiftX p H R K = X
 
 @[expose] def d1MapPCore (p : ℕ) (M H : Subgroup G) :
     Subgroup (H ⧸ primeComplementCore (G := H) p) :=

@@ -1053,6 +1053,5 @@ end LinearUnitaryThree
 open scoped MatrixGroups
 open Matrix CFSG.LocalAnalysis.ComponentInitial LinearUnitaryThree LinearFlag
   CFSG.ClassicalGroups.UnitaryFlag CFSG.RankThree.PartTwo.KFacts
-open CFSG.ComponentClassification.FixedCommutingProduct (fixedSubgroup)
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

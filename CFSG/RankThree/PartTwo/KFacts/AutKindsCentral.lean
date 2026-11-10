@@ -143,19 +143,6 @@ open CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInitial.Lin
 
 variable {n : ℕ} {K : Type*} [Field K] [Finite K]
 
-theorem inducesKindSL_inner_iff (hn : 3 ≤ n)
-    (e : L ⧸ aschbacherSolvableCore 3 L ≃* Matrix.SpecialLinearGroup (Fin n) K) (x : G) :
-    InducesKindSL n K L x .inner ↔
-      x ∈ Subgroup.normalizer (L : Set G) ∧ ¬ InducesOuterTheta x L := by
-  rw [inducesKindSL_iff L hn e x .inner]
-  constructor
-  · rintro ⟨hx, hin⟩
-    exact ⟨hx, fun hout => (not_isInnerAut_inducedAutHom_iff L e hx).mpr hout
-      ((isInnerAut_descendAut_iff hn).mp hin)⟩
-  · rintro ⟨hx, hout⟩
-    refine ⟨hx, (isInnerAut_descendAut_iff hn).mpr ?_⟩
-    by_contra hin
-    exact hout ((not_isInnerAut_inducedAutHom_iff L e hx).mp hin)
 
 theorem inducesKindSL_diagonal_or_field (hn : 3 ≤ n) {x : G} (hx3 : x ^ 3 = 1)
     (hout : InducesOuterTheta x L)

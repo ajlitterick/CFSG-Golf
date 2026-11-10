@@ -22,16 +22,6 @@ section Model
 variable {K V : Type} [Field K] [Finite K] [AddCommGroup V] [Module K V] [FiniteDimensional K V]
   {Q : QuadraticForm K V}
 
-theorem commutes_mk_of_orth {a b c d : HypPair Q} (hab : a.Orth b) (hcd : c.Orth d)
-    (hac : a.Orth c) (had : a.Orth d) (hbc : b.Orth c) (hbd : b.Orth d) :
-    Commutes (mkFrame a b hab).La.range (mkFrame c d hcd).La.range := by
-  refine commutes_of_span_orth _ _ ?_
-  rw [frame_span_eq, frame_span_eq]
-  simp only [mkFrame]
-  exact polar_eq_zero_of_sup (fun x hx y hy => polar_hypPlane_of_orth hac x hx y hy)
-    (fun x hx y hy => polar_hypPlane_of_orth had x hx y hy)
-    (fun x hx y hy => polar_hypPlane_of_orth hbc x hx y hy)
-    (fun x hx y hy => polar_hypPlane_of_orth hbd x hx y hy)
 
 theorem exists_leaf_pair_three (hodd : Odd (Nat.card K)) (hQ : (polarBilin Q).Nondegenerate)
     (hdim : 9 ≤ Module.finrank K V) {L : ℕ → Subgroup (V ≃ₗ[K] V)} {i : ℕ → V ≃ₗ[K] V}

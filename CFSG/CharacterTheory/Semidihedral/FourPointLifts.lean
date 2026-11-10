@@ -23,9 +23,6 @@ open Equiv
     simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx ⊢
     rcases hx with rfl | rfl | rfl | rfl <;> decide
 
-theorem fourKlein_carrier :
-    (fourKlein : Set (Perm (Fin 4))) =
-      {1, swap 0 1 * swap 2 3, swap 0 2 * swap 1 3, swap 0 3 * swap 1 2} := rfl
 
 theorem mem_fourKlein (g : Perm (Fin 4)) :
     g ∈ fourKlein ↔ g = 1 ∨ g = swap 0 1 * swap 2 3 ∨

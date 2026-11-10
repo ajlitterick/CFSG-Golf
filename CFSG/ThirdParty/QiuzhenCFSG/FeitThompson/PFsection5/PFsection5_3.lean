@@ -165,45 +165,6 @@ irreducible `φ ∈ S`, `R(φ)` is orthogonal to the full `ω^σ` family.
               theorem_5_3_b_extra_statement S R
                 (Finset.univ.image fun p : I × J => σ (ω p.1 p.2))
 
-/--
-Peterfalvi `(5.3)(b)`: assume Hypothesis `(4.6)`, `(5.2)(a)`, and
-`S ⊆ {Ind_K^L θ | θ ∈ Irr(K), H` is not contained in `Ker θ}`. Then
-Hypothesis `(5.2)` holds for the restriction of the Dade isometry `τ` from
-Hypothesis `(4.6)`. Moreover, for `φ ∈ S ∩ Irr(L)`, `R(φ)` is orthogonal to
-the `ω^σ` family.
--/
-@[expose] public def theorem_5_3_b_statement
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    (K W1 W2 W H : Subgroup L)
-    (A : Set L)
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    (i0 : I) (j0 : J)
-    (ω : I → J → Section1.ClassFunction W)
-    (σL : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction L)
-    (σ : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction G)
-    (piChar : I → J → Section1.ClassFunction L)
-    (xChar : J → Section1.ClassFunction K)
-    (deltaSign : J → ℂ)
-    (τ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G)
-    (H_A H_A0 : G → Subgroup G)
-    (S : Finset (Section1.ClassFunction L)) : Prop :=
-  Section4Scratch.hypothesis_4_6_full_statement
-      L K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ H_A H_A0 →
-    S.Nonempty →
-      hypothesis_5_2_a_statement S →
-        inducedFromNonkernelFamily_statement K H S →
-          ∃ R : S → Finset (Section1.ClassFunction G),
-            hypothesis_5_2_setup_statement S ∧
-              hypothesis_5_2_a_statement S ∧
-              hypothesis_5_2_b_statement S τ ∧
-              hypothesis_5_2_c_statement S ∧
-              hypothesis_5_2_d_statement S τ R ∧
-              hypothesis_5_2_e_statement S R ∧
-              theorem_5_3_b_extra_statement S R
-                (Finset.univ.image fun p : I × J => σ (ω p.1 p.2))
-
 
 private structure PairDecompositionData
     {G : Type u} [Group G] [Finite G]
@@ -4291,117 +4252,6 @@ private theorem induced_family_hypothesis_5_2_b_primeDade_pf53
     exact ⟨hτvirt χ hχvirt hχsupp,
       hτpunct χ (Section1.isVirtualCharacter_isClassFunction hχvirt) hχsupp⟩
 
-public theorem theorem_5_3_b_core_context_of_full_pf53
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    {K W1 W2 W H : Subgroup L}
-    {A : Set L}
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    {i0 : I} {j0 : J}
-    {ω : I → J → Section1.ClassFunction W}
-    {σL : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction L}
-    {σ : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction G}
-    {piChar : I → J → Section1.ClassFunction L}
-    {xChar : J → Section1.ClassFunction K}
-    {deltaSign : J → ℂ}
-    {τ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G}
-    {H_A H_A0 : G → Subgroup G}
-    (hfull : Section4Scratch.hypothesis_4_6_full_statement
-      L K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ H_A H_A0) :
-    theorem_5_3_b_core_context_statement
-      K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ := by
-  classical
-  rcases hfull with
-    ⟨h46, _hW2K, _h31img, hσiso, hσvirt, _hσclass, _hσone, _h22A, _h22A0,
-      _hDadeA0, hω, h43b, h43c, h43d, h45a, h45b, hτcyclic, hτA0,
-      hτisoA0, hτpunctA0, hτvirtA0, _hAmbientPF39⟩
-  have h47 : Section4Scratch.theorem_4_7_statement K H A :=
-    Section4Scratch.theorem_4_7 K W1 W2 W H A h46
-  have h48 :
-      Section4Scratch.theorem_4_8_statement W2 W A j0 ω σ piChar deltaSign τ :=
-    Section4Scratch.theorem_4_8 K W1 W2 W H A i0 j0
-      ω σL σ piChar xChar deltaSign τ h46 h45a hω h43b h43c h43d
-      hτcyclic hτA0 h47
-  have hτisoPrime :
-      Section4Scratch.tau_isometry_on_primeDadeA0_statement
-        W1 W2 W A τ := by
-    intro α β hαClass hβClass hαSupp hβSupp
-    exact hτisoA0 α β hαClass hβClass
-      (supportedOn_mono_pf53
-        (Section4Scratch.primeDadeA0Set_subset_a0Set W1 W2 W A) hαSupp)
-      (supportedOn_mono_pf53
-        (Section4Scratch.primeDadeA0Set_subset_a0Set W1 W2 W A) hβSupp)
-  have hτpunctPrime :
-      Section4Scratch.tau_maps_primeDadeA0_to_punctured_statement
-        W1 W2 W A τ := by
-    intro α _hαClass hαSupp
-    exact hτpunctA0 α
-      (supportedOn_mono_pf53
-        (Section4Scratch.primeDadeA0Set_subset_a0Set W1 W2 W A) hαSupp)
-  have hτvirtPrime :
-      Section4Scratch.tau_maps_primeDadeA0_to_virtual_statement
-        W1 W2 W A τ := by
-    intro α hαVirt hαSupp
-    exact hτvirtA0 α hαVirt
-      (supportedOn_mono_pf53
-        (Section4Scratch.primeDadeA0Set_subset_a0Set W1 W2 W A) hαSupp)
-  have hσiso_all :
-      ∀ α β : Section1.ClassFunction W,
-        Section1.scalarProduct G (σ α) (σ β) =
-          Section1.scalarProduct W α β := by
-    have h31 : Section3.hypothesis_3_1_statement W1 W2 W :=
-      hypothesis_3_1_of_hypothesis_4_6_pf53 h46
-    letI : IsCyclic W := h31.2.2.2.1
-    letI : CommGroup W := IsCyclic.commGroup
-    intro α β
-    exact hσiso α β (isClassFunction_of_commGroup_pf53 α)
-      (isClassFunction_of_commGroup_pf53 β)
-  let chi : I → J → Section1.ClassFunction G := fun i j => σ (ω i j)
-  have hChiOrth : Section3.IsOrthonormalDoubleFamily chi := by
-    intro p q
-    dsimp [chi]
-    calc
-      Section1.scalarProduct G (σ (ω p.1 p.2)) (σ (ω q.1 q.2)) =
-          Section1.scalarProduct W (ω p.1 p.2) (ω q.1 q.2) :=
-            hσiso (ω p.1 p.2) (ω q.1 q.2)
-              (hω.is_class p.1 p.2) (hω.is_class q.1 q.2)
-      _ = if p = q then 1 else 0 := hω.orthonormal p q
-  have hChiSigned : ∀ i j, Section3.IsSignedIrreducibleCharacter (chi i j) := by
-    intro i j
-    have hvirtW : Theory.Character.IsVirtualCharacter (ω i j) :=
-      Section3.isVirtualCharacter_of_irreducibleCharacterOnGroup (hω.irreducible i j)
-    have hvirtG : Theory.Character.IsVirtualCharacter (σ (ω i j)) :=
-      hσvirt (ω i j) hvirtW
-    have hself :
-        Section1.scalarProduct G (σ (ω i j)) (σ (ω i j)) = 1 := by
-      calc
-        Section1.scalarProduct G (σ (ω i j)) (σ (ω i j)) =
-            Section1.scalarProduct W (ω i j) (ω i j) :=
-              hσiso (ω i j) (ω i j) (hω.is_class i j) (hω.is_class i j)
-        _ = 1 := by simpa using hω.orthonormal (i, j) (i, j)
-    exact signed_irreducible_of_virtual_norm_one_pf53 hvirtG hself
-  have hChiSigma : ∀ i j, σ (ω i j) = chi i j := by
-    intro i j
-    rfl
-  refine
-    ⟨h46, hτcyclic, h48, hτisoPrime, hτpunctPrime, hτvirtPrime, ?_,
-      hω, chi, hChiOrth, hChiSigned, hChiSigma,
-      h43b, h43c, h43d, h45a, h45b, h47, h48, ?_, ?_, ?_⟩
-  · intro S hInd
-    exact induced_family_hypothesis_5_2_b_primeDade_pf53
-      h46 h47 hτisoPrime hτpunctPrime hτvirtPrime hInd
-  · intro k hk0
-    exact Section4Scratch.theorem_4_9_a K W1 W2 W H A i0 j0 k
-      ω σL piChar xChar deltaSign h46 h45a hω h43b h43c h47
-  · intro k hk0
-    exact Section4Scratch.theorem_4_9_b K W1 W2 W A i0 j0 k
-      ω σL σ piChar xChar deltaSign τ hσiso_all h45a hω h43b
-      (Section4Scratch.theorem_4_9_a K W1 W2 W H A i0 j0 k
-        ω σL piChar xChar deltaSign h46 h45a hω h43b h43c h47)
-      h48
-  · exact Section4Scratch.theorem_4_10 W1 W2 i0 j0
-      ω σL σ piChar deltaSign τ hω h43b hτcyclic
 
 public theorem theorem_5_3_b_core_context_of_supported_pf53
     {G : Type u} [Group G] [Finite G]
@@ -4809,32 +4659,5 @@ public theorem theorem_5_3_b_core
       h46 hτisoA0 hτpunctA0 h47 hω h43b h45a h45b h410
       h52a h52b hChiOrth hChiSigned hChiSigma hInd φ hφirr
 
-public theorem theorem_5_3_b
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    (K W1 W2 W H : Subgroup L)
-    (A : Set L)
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    (i0 : I) (j0 : J)
-    (ω : I → J → Section1.ClassFunction W)
-    (σL : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction L)
-    (σ : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction G)
-    (piChar : I → J → Section1.ClassFunction L)
-    (xChar : J → Section1.ClassFunction K)
-    (deltaSign : J → ℂ)
-    (τ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G)
-    (H_A H_A0 : G → Subgroup G)
-    (S : Finset (Section1.ClassFunction L)) :
-    theorem_5_3_b_statement
-      L K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ H_A H_A0 S := by
-  classical
-  intro h46 hSne h52a hInd
-  exact theorem_5_3_b_core
-    (K := K) (W1 := W1) (W2 := W2) (W := W) (H := H) (A := A)
-    (i0 := i0) (j0 := j0) (ω := ω) (σL := σL) (σ := σ)
-    (piChar := piChar) (xChar := xChar) (deltaSign := deltaSign)
-    (τ := τ) (S := S)
-    (theorem_5_3_b_core_context_of_full_pf53 L h46) hSne h52a hInd
 
 end CFSG.Section5

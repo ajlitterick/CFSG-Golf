@@ -33,28 +33,5 @@ theorem IsTwoCentralG2Type.g2 {G : Type} [Group G] [Finite G] {Gs : Type} [Group
   (∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card ↥(root i) = if i % 2 = 1 then q ^ 3 else q) ∨
     (∀ i : ℤ, 1 ≤ i → i ≤ 6 → Nat.card ↥(root i) = if i % 2 = 1 then q else q ^ 3)
 
-@[expose] def Ch6LocalRGD2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
-    ∀ (Gs : Type) [Group Gs], IsTwoCentralG2TypeG2 G Gs →
-      ∃ (H : Subgroup G) (r₁ r₂ : G) (U : Subgroup G) (root : ℤ → Subgroup G)
-        (R : RGD2 6 H r₁ r₂ U root), (H ⊔ U) ⊔ R.N = ⊤ ∧ ∃ q : ℕ, Odd q ∧
-          ((5 ≤ q ∧ RootOrdersG2 root q) ∨ (3 ≤ q ∧ RootOrdersD4 root q))
-
-@[expose] def Ch6LocalBN : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
-    ∀ (Gs : Type) [Group Gs], IsTwoCentralG2TypeG2 G Gs →
-      ∃ (D : RankTwoSystem G 6) (q : ℕ), Odd q ∧
-        ((5 ≤ q ∧ RootOrdersG2 D.root q) ∨ (3 ≤ q ∧ RootOrdersD4 D.root q))
-
-@[expose] def HexClassG2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (D : RankTwoSystem G 6) (q : ℕ),
-    3 ≤ q → RootOrdersG2 D.root q → ∃ p f : ℕ, p.Prime ∧ 1 ≤ f ∧ p ^ f = q ∧ LieModel G .G2 0 p f
-
-@[expose] def HexClassD4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (D : RankTwoSystem G 6) (q : ℕ),
-    2 ≤ q → RootOrdersD4 D.root q →
-      ∃ p f : ℕ, p.Prime ∧ 1 ≤ f ∧ p ^ f = q ∧ LieModel G .trialityD4 0 p f
-
-@[expose] def HexagonClassification : Prop := HexClassG2 ∧ HexClassD4
 
 end CFSG.GH74.GLS.Stage4

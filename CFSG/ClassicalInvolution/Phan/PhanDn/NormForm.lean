@@ -50,9 +50,6 @@ variable {σ : K ≃+* K}
 @[expose] noncomputable def normQuad (E : QuadExt F K σ) : QuadraticForm F K :=
   normForm (normTailData E)
 
-theorem normQuad_apply (E : QuadExt F K σ) (x : K) :
-    normQuad E x = retr F K (x * σ x) := by
-  rw [normQuad, normForm_apply, normTailData_bar]
 
 theorem algebraMap_normQuad (E : QuadExt F K σ) (x : K) :
     algebraMap F K (normQuad E x) = x * σ x := by
@@ -286,48 +283,6 @@ theorem tauAt_eq_reflect [CharP K 2] (E : QuadExt F K σ) {n : ℕ} (k : Fin n) 
       CharTwo.sub_eq_add, ← add_assoc, CharTwo.add_self_eq_zero, zero_add]
   · rw [if_neg h, Pi.sub_apply, smul_single_apply, if_neg h, sub_zero]
 
-theorem dicksonInvariant_tauAt_eq_one [CharP K 2] (E : QuadExt F K σ) {n : ℕ} (k : Fin n)
-    {X₀ : Submodule F (Fin n → K)}
-    (hX₀ : (CFSG.RankThree.OrthogonalInvolutions.toQuadForm (Qn E n)
-      (Qn_polarBilin_nondegenerate E n)).IsLagrangian X₀) :
-    CFSG.LieType.BorelTits.dicksonInvariant X₀
-      (tauAt E k : Module.End F (Fin n → K)) = 1 := by
-  let Φ := CFSG.RankThree.OrthogonalInvolutions.toQuadForm (Qn E n)
-    (Qn_polarBilin_nondegenerate E n)
-  have hg : ∀ v, Φ.Q ((tauAt E k : Module.End F (Fin n → K)) v) = Φ.Q v := by
-    intro v
-    rw [CFSG.RankThree.OrthogonalInvolutions.toQuadForm_Q]
-    exact TauCeti.QuadraticMap.map_app_of_mem_orthogonalGroup
-      (tauAt_mem_orthogonalGroup E k) v
-  have hQa : Φ.Q (Pi.single k 1) ≠ 0 := by
-    rw [CFSG.RankThree.OrthogonalInvolutions.toQuadForm_Q, Qn_single_one E]
-    exact one_ne_zero
-  exact letI : FiniteDimensional F K :=
-      FiniteDimensional.of_finrank_pos (by rw [E.finrank_eq]; norm_num)
-    (by
-      refine CFSG.LieType.BorelTits.QuadForm.dicksonInvariant_eq_one_of_reflection
-        (Φ := Φ) hX₀ hg (Z := ⊥) (a := Pi.single k 1)
-        (CFSG.LieType.BorelTits.QuadForm.isTotallySingular_bot (Φ := Φ)) ?_ hQa ?_
-      · rw [CFSG.LieType.BorelTits.ReflForm.perp_bot]
-        exact Submodule.mem_top
-      · intro v _
-        rw [Submodule.mem_bot]
-        have hv : Qn E n (Pi.single k 1) ≠ 0 := by
-          rw [Qn_single_one E]
-          exact one_ne_zero
-        have hrefl : (tauAt E k : Module.End F (Fin n → K)) v =
-            v - ((polar (Qn E n) v (Pi.single k 1) / Qn E n (Pi.single k 1)) •
-              (Pi.single k 1 : Fin n → K)) := by
-          rw [tauAt_eq_reflect E]
-          rw [QuadraticMap.polar_comm]
-          exact CFSG.ClassicalGroups.Orthogonal.reflect_apply hv v
-        rw [CFSG.RankThree.OrthogonalInvolutions.toQuadForm_polar_β
-            (Q := Qn E n) (hQ := Qn_polarBilin_nondegenerate E n),
-          CFSG.RankThree.OrthogonalInvolutions.toQuadForm_Q
-            (Q := Qn E n) (hQ := Qn_polarBilin_nondegenerate E n),
-          hrefl]
-        simp only [Qn_single_one E, div_one]
-        exact sub_self _)
 
 theorem suEndN_apply_tauAt_comm (E : QuadExt F K σ) {n : ℕ}
     (g : SUid σ n) (k : Fin n)

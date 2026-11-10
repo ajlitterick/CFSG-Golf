@@ -83,36 +83,6 @@ theorem noncentralSylow_triple_odd_core_central_quotient
   exact ⟨hVnormal, noncentralSylow_central_mod_of_le (J.subgroupOf K) (V.subgroupOf K)
     (Subgroup.subgroupOf_mono K hJV) _ hcentral⟩
 
-theorem noncentralSylow_triple_factorization
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (beta : rightCosetSpace H) (hbeta : beta ≠ rightCosetMk H 1) :
-    let E := triplePointStabilizer H z beta
-    let V := (CFSG.oddCore E).map E.subtype
-    ∀ e ∈ E, ∃ c ∈ E ⊓ Subgroup.centralizer ({z} : Set G), ∃ v ∈ V, c * v = e := by
-  let E := triplePointStabilizer H z beta
-  let K := E ⊔ Subgroup.zpowers z
-  let V := (CFSG.oddCore E).map E.subtype
-  let zK : K := ⟨z, Subgroup.mem_sup_right (Subgroup.mem_zpowers z)⟩
-  have hVE : V ≤ E := Subgroup.map_subtype_le _
-  have hodd : Odd (Nat.card (V.subgroupOf K)) := by
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe (hVE.trans le_sup_left)).toEquiv,
-      Subgroup.card_subtype]
-    exact CFSG.ComponentClassification.OddCore.odd_card E
-  obtain ⟨hVnormal, hcentral⟩ :=
-    noncentralSylow_triple_odd_core_central_quotient h S hzS hzcenter beta hbeta
-  let := hVnormal
-  change ∀ e ∈ E, ∃ c ∈ E ⊓ Subgroup.centralizer ({z} : Set G), ∃ v ∈ V, c * v = e
-  intro e he
-  obtain ⟨c, hc, v, hv, hprod⟩ := odd_central_quotient_subgroup_factorization
-    (V.subgroupOf K) (E.subgroupOf K) zK
-    ((Subgroup.orderOf_coe zK).symm.trans h.distinguished_order) hodd
-    (Subgroup.subgroupOf_mono K hVE) hcentral
-    (⟨e, (le_sup_left : E ≤ K) he⟩ : K) he
-  refine ⟨(c : G), ⟨hc.1, Subgroup.mem_centralizer_singleton_iff.mpr
-    (congrArg Subtype.val (Subgroup.mem_centralizer_singleton_iff.mp hc.2))⟩,
-    (v : G), hv, congrArg Subtype.val hprod⟩
 
 theorem noncentralSylow_triple_centralizer_index
     {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)

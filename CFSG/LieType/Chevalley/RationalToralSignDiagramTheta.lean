@@ -75,8 +75,6 @@ theorem thetaMap_rootReflection_smul
   rw [rootReflection_smul hx, rootReflection_smul (isRoot_thetaMap hA hx), thetaMap_sub,
     thetaMap_zsmul, corootPair, corootPair, iform_thetaMap hB, iform_thetaMap hB]
 
-theorem self_mem_iterOrbit {α : Type*} (f : α → α) (a : α) : a ∈ iterOrbit f a :=
-  ⟨0, rfl⟩
 
 theorem apply_mem_iterOrbit {α : Type*} {f : α → α} {a x : α} (hx : x ∈ iterOrbit f a) :
     f x ∈ iterOrbit f a := by

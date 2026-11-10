@@ -626,8 +626,6 @@ theorem img_map_conj (h k : PSL(2, GaloisField s.p s.f))
   · rintro ⟨z, hz, rfl⟩
     exact ⟨k * z * k⁻¹, ⟨z, hz, rfl⟩, by simp [mul_assoc]⟩
 
-theorem img_unipOpp (g : PSL(2, GaloisField s.p s.f)) :
-    img s g (unipOpp _) = img s (g * weyl _) (unip _) := img_map_conj g _ _
 
 theorem img_torus_weyl (g : PSL(2, GaloisField s.p s.f)) :
     img s (g * weyl _) (torus _) = img s g (torus _) := by

@@ -47,23 +47,5 @@ theorem class_two_odd_pgroup_cubic_differences_commute
   exact commutatorElement_eq_one_iff_commute.mp (odd_pgroup_square_eq_one prime prime_prime odd_prime
     pgroup _ square)
 
-theorem class_two_odd_pgroup_cubic_difference_closure_abelian
-    (prime : ℕ) (prime_prime : prime.Prime) (odd_prime : prime ≠ 2)
-    (pgroup : IsPGroup prime GroupType)
-    (central : ∀ first second : GroupType, ⁅first, second⁆ ∈ Subgroup.center GroupType)
-    (ActorType : Type actorUniverse) [Group ActorType] [IsMulCommutative ActorType]
-    [MulDistribMulAction ActorType GroupType]
-    (fixed_commutators : ∀ actorElement : ActorType, ∀ first second : GroupType,
-      actorElement • ⁅first, second⁆ = ⁅first, second⁆)
-    (element : GroupType)
-    (cubic : ∀ first second third : ActorType,
-      third • ((element⁻¹ * (first • element))⁻¹ * (second • (element⁻¹ * (first • element)))) =
-        (element⁻¹ * (first • element))⁻¹ * (second • (element⁻¹ * (first • element)))) :
-    IsMulCommutative (Subgroup.closure (Set.range (fun actorElement : ActorType =>
-      element⁻¹ * (actorElement • element)))) := by
-  apply CFSG.subgroup_isMulCommutative_closure
-  rintro _ ⟨firstActor, rfl⟩ _ ⟨secondActor, rfl⟩
-  exact (class_two_odd_pgroup_cubic_differences_commute prime prime_prime odd_prime pgroup central ActorType
-    fixed_commutators element cubic firstActor secondActor).eq
 
 end CFSG.SignalizerFunctor.Helpers

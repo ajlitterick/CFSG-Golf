@@ -583,30 +583,6 @@ theorem binaryPolar_commutator_complement (hr : 3 ≤ r) {C T : Subgroup M} (hCT
       exact Subgroup.commutator_mono le_top le_top
     exact h ⟨x, hx, rfl⟩
 
-open CFSG.Assembly in
-theorem binary_polar_radical_commutator_complement (hr : 3 ≤ r) [Finite M] {C T : Subgroup M}
-    (hCT : C ≤ T) (hTZ : T ≤ Subgroup.center M)
-    (π : M →* Multiplicative ((Fin r → ZMod 2) × (Fin r → ZMod 2))) (hπ : Function.Surjective π)
-    (hπT : π.ker = T) (τ : T →* Multiplicative (binaryAltMatrices r))
-    (_hτ : Function.Surjective τ) (hτC : τ.ker = C.subgroupOf T)
-    (act : GL (Fin r) (ZMod 2) →* MulAut M) (_hactT : ∀ g, ∀ t ∈ T, act g t ∈ T)
-    (hactC : ∀ g, ∀ c ∈ C, act g c = c)
-    (hπact : ∀ g m, π (act g m) = Multiplicative.ofAdd
-      ((g : Matrix (Fin r) (Fin r) (ZMod 2)) *ᵥ (π m).toAdd.1,
-        (g : Matrix (Fin r) (Fin r) (ZMod 2)) *ᵥ (π m).toAdd.2))
-    (_hτact : ∀ (g : GL (Fin r) (ZMod 2)) (t : T) (ht : act g t ∈ T),
-      ((τ ⟨act g t, ht⟩).toAdd : Matrix (Fin r) (Fin r) (ZMod 2)) =
-        (g : Matrix (Fin r) (Fin r) (ZMod 2)) * ((τ t).toAdd : Matrix (Fin r) (Fin r) (ZMod 2)) *
-          (g : Matrix (Fin r) (Fin r) (ZMod 2))ᵀ)
-    (hτcomm : ∀ (m n : M) (h : m⁻¹ * n⁻¹ * m * n ∈ T),
-      ((τ ⟨m⁻¹ * n⁻¹ * m * n, h⟩).toAdd : Matrix (Fin r) (Fin r) (ZMod 2)) =
-        vecMulVec (π m).toAdd.1 (π n).toAdd.2 + vecMulVec (π n).toAdd.2 (π m).toAdd.1 +
-          vecMulVec (π m).toAdd.2 (π n).toAdd.1 + vecMulVec (π n).toAdd.1 (π m).toAdd.2) :
-    IsElemAbelian 2 (commutator M) ∧
-      (∃ h : commutator M ≤ T, Function.Bijective (τ.comp (Subgroup.inclusion h))) ∧
-      C ⊓ commutator M = ⊥ ∧ C ⊔ commutator M = T ∧
-      ∀ g, ∀ x ∈ commutator M, act g x ∈ commutator M :=
-  binaryPolar_commutator_complement hr hCT hTZ π hπ hπT τ hτC act hactC hπact hτcomm
 
 end Complement
 

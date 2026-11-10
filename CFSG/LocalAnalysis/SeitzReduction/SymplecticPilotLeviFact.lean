@@ -238,41 +238,6 @@ theorem perfectCore_spBlock_inf_centralizer_eq [Finite F] {N I : Finset (Fin n)}
     _ ≤ ⁅P, P⁆ := commutator_mono (perfectCore_le P) (perfectCore_le P)
     _ ≤ spBlock F I := hPC
 
-theorem perfectCore_fixAll_conjDiagSp [Finite F] {N I : Finset (Fin n)} (hIN : I ⊆ N)
-    {ι' : Type*} (s : ι' → (Fin n → Fˣ))
-    (hconst : ∀ j, ∀ a ∈ planeCoords I, ∀ b ∈ planeCoords I,
-      diagSpEntry (s j) a = diagSpEntry (s j) b)
-    (hsep : ∀ a ∈ planeCoords N, ∀ b ∈ planeCoords N, a ≠ b →
-      (a ∉ planeCoords I ∨ b ∉ planeCoords I) → ∃ j, diagSpEntry (s j) a ≠ diagSpEntry (s j) b)
-    (hperf : ⁅spBlock F I, spBlock F I⁆ = spBlock F I) :
-    perfectCore (fixAll fun j => conjDiagSp N (s j)) =
-      (spBlock F I).subgroupOf (spBlock F N) := by
-  have hmap : (fixAll fun j => conjDiagSp N (s j)).map (spBlock F N).subtype =
-      spBlock F N ⊓ centralizer (diagSp F n '' Set.range s) := by
-    ext x
-    simp only [mem_map, mem_inf, coe_subtype, mem_centralizer_iff, Set.mem_image, Set.mem_range,
-      forall_exists_index, and_imp, forall_apply_eq_imp_iff]
-    constructor
-    · rintro ⟨y, hy, rfl⟩
-      refine ⟨y.2, fun j => ?_⟩
-      have h := congrArg Subtype.val (mem_fixAll.1 hy j)
-      rw [coe_conjDiagSp_apply] at h
-      calc diagSp F n (s j) * (y : StatedSp n F) =
-            diagSp F n (s j) * (y : StatedSp n F) * (diagSp F n (s j))⁻¹ * diagSp F n (s j) := by
-              group
-        _ = (y : StatedSp n F) * diagSp F n (s j) := by rw [h]
-    · rintro ⟨hxN, hx⟩
-      refine ⟨⟨x, hxN⟩, mem_fixAll.2 fun j => Subtype.ext ?_, rfl⟩
-      rw [coe_conjDiagSp_apply]
-      change diagSp F n (s j) * x * (diagSp F n (s j))⁻¹ = x
-      rw [hx j, mul_inv_cancel_right]
-  apply Subgroup.map_injective (spBlock F N).subtype_injective
-  rw [CFSG.Quasithin.map_perfectCore, hmap, subgroupOf_map_subtype,
-    inf_of_le_left (spBlock_mono hIN)]
-  refine perfectCore_spBlock_inf_centralizer_eq hIN _
-    (by rintro _ ⟨j, rfl⟩; exact hconst j) (fun a ha b hb hab hI => ?_) hperf
-  obtain ⟨j, hj⟩ := hsep a ha b hb hab hI
-  exact ⟨s j, ⟨j, rfl⟩, hj⟩
 
 end LeviFact
 
@@ -324,23 +289,6 @@ theorem perfectCore_spBlock_inf_centralizer_planeTorus [Finite F] (ι : K →+* 
     rw [diagSpEntry_liftParam, diagSpEntry_liftParam]
     exact fun h => hne (ι.injective h)
 
-theorem perfectCore_spBlock_inf_centralizer_planeTorusSp [Finite F] (hF : 4 ≤ Nat.card F)
-    {N I : Finset (Fin n)} (hIN : I ⊆ N) :
-    perfectCore (spBlock F N ⊓ centralizer (planeTorusSp F I : Set (StatedSp n F))) =
-      spBlock F I := by
-  obtain ⟨κ, hκ⟩ := exists_units_mul_self_ne_one_of_four_le hF
-  have h := perfectCore_spBlock_inf_centralizer_planeTorus (RingHom.id F) hκ hIN
-    (commutator_spBlock_eq hF I)
-  have hset : (diagSp F n '' (liftParam (RingHom.id F) ''
-      (planeTorusParam F I : Set (Fin n → Fˣ)))) = (planeTorusSp F I : Set (StatedSp n F)) := by
-    ext x
-    constructor
-    · rintro ⟨_, ⟨t, ht, rfl⟩, rfl⟩
-      exact ⟨t, ht, rfl⟩
-    · rintro ⟨t, ht, rfl⟩
-      exact ⟨t, ⟨t, ht, rfl⟩, rfl⟩
-  rw [hset] at h
-  exact h
 
 end Lift
 

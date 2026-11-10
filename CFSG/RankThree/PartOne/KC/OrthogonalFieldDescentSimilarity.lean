@@ -15,8 +15,6 @@ variable {G G' : Type} [Group G] [Group G']
     (hH : H.map φ.toMonoidHom = H') : H ≃* H' :=
   (φ.subgroupMap H).trans (MulEquiv.subgroupCongr hH)
 
-theorem subgroupEquivOfMap_val (φ : G ≃* G') {H : Subgroup G} {H' : Subgroup G'}
-    (hH : H.map φ.toMonoidHom = H') (y : H) : (subgroupEquivOfMap φ hH y : G') = φ y := rfl
 
 theorem map_subgroupOf_equiv (φ : G ≃* G') {H Z : Subgroup G} {H' Z' : Subgroup G'}
     (hH : H.map φ.toMonoidHom = H') (hZ : Z.map φ.toMonoidHom = Z') :

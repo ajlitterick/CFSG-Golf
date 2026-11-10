@@ -144,47 +144,6 @@ theorem almostSimplePlaneOdd_five_Suz : AlmostSimplePlaneOdd 5 (Carrier .Suz) :=
   rw [hbot, Subgroup.card_bot]
   omega
 
-theorem card_core_centralizer_le_of_model {M : Type*} [Group M] [Finite M] {P R : Subgroup M}
-    (h : AutModel P R) (hidx : Nat.card R ≤ 2 * Nat.card P) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    {k : ℕ} (hline : ∀ B : Subgroup M, P ≤ B → B ≤ R → ∀ y ∈ P, orderOf y = p →
-      Nat.card (inSubgroup (aschbacherSolvableCore p) (B ⊓ centralizer ({y} : Set M))) ≤ k)
-    {X : Type*} [Group X] [Finite X] (S : Subgroup X) [S.Normal] (θ : S ≃* P)
-    (hC : centralizer (S : Set X) = ⊥) (x : X) (hx : orderOf x = p) :
-    Nat.card (inSubgroup (aschbacherSolvableCore p) (centralizer ({x} : Set X))) ≤ k := by
-  obtain ⟨hyP, B, hPB, hBR, hcard⟩ := card_core_centralizer_eq_of_model h hidx hp hp2 S θ hC x hx
-  have hord : orderOf (h.embed S θ x) = p := by
-    rw [orderOf_injective _ (h.embed_injective S θ hC), hx]
-  rw [hcard]
-  exact hline B hPB hBR _ hyP hord
-
-theorem R3E_Suz_almost_simple_five_plane_local_core_product_trivial {H : Type} [Group H]
-    [Finite H] (K : Subgroup H) [K.Normal] (hK : Nonempty (K ≃* Carrier .Suz))
-    (hC : centralizer (K : Set H) = ⊥) :
-    (∀ x : H, orderOf x = 5 →
-      Nat.card (inSubgroup (aschbacherSolvableCore 5) (centralizer ({x} : Set H))) ≤ 2) ∧
-    ∀ E : Subgroup H, IsElementaryAbelian 5 E → Nat.card E = 5 ^ 2 → ∀ t ∈ E, t ≠ 1 →
-      ⁅inSubgroup (aschbacherSolvableCore 5) (centralizer ({t} : Set H)), E⁆ = ⊥ ∧
-        thetaT 5 E = ⊥ ∧
-        ((⁅inSubgroup (aschbacherSolvableCore 5) (centralizer ({t} : Set H)), E⁆ : Subgroup H) :
-          Set H) * (thetaT 5 E : Set H) = 1 := by
-  obtain ⟨e⟩ := hK
-  obtain ⟨hQM, hQcard, hQsyl, hlines, hx0Q, hx01⟩ := suz_Q_facts
-  have hbound := fun (B : Subgroup (Equiv.Perm (Fin 1782))) (hPB : suzM ≤ B) (hBR : B ≤ suzT) =>
-    core_card_le_of_lines Nat.prime_five hQsyl hlines
-      (fun i B' hPB' hBR' => suz_core_card_le_all i B' hPB' hBR') B hPB hBR
-  refine ⟨fun x hx => card_core_centralizer_le_of_model suz_autModel suz_card_le Nat.prime_five
-    (by norm_num) hbound K (e.trans suzEquivM) hC x hx, fun E hE hEcard t htE ht1 => ?_⟩
-  have hbot := localCoreProduct_eq_bot_of_model_good_bound (P := suzM) (R := suzT)
-    (Q := suzFiveQ) suz_autModel suz_card_le Nat.prime_five (by norm_num) hQsyl hQM hQcard
-    hx0Q hx01 (fun B hPB hBR => suz_core_bot_good 0 (Or.inl rfl) B hPB hBR) hbound
-    K (e.trans suzEquivM) hC hE hEcard htE ht1
-  rw [localCoreProduct] at hbot
-  have h1 := eq_bot_iff.2 (le_sup_left.trans hbot.le)
-  have h2 := eq_bot_iff.2 (le_sup_right.trans hbot.le)
-  refine ⟨h1, h2, ?_⟩
-  rw [h1, h2]
-  simp
-  exact Set.singleton_one
 
 theorem sporadicPlaneOdd_Suz : SporadicPlaneOdd (Carrier .Suz) := by
   refine sporadicPlaneOdd_of_almostSimple {5} (fun q hq _ => ?_) ?_

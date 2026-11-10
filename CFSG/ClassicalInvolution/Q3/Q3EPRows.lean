@@ -16,9 +16,6 @@ open scoped MatrixGroups commutatorElement
 
 set_option linter.unusedSectionVars false
 
-@[expose] def E7LayerGeom3 : Prop :=
-  LayerGeom (fundamentalSubgroups .POmegaPlus (modelUniv .POmegaPlus 6 3 1 Nat.prime_three).D)
-    (GaloisField 3 1)
 
 @[expose] def E7PartnerToral3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →

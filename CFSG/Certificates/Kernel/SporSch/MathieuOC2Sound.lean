@@ -42,25 +42,6 @@ theorem chainK_cosetCount2 (hn : 1 ≤ n) (hbs : bv.toList.Nodup)
     (cosetOrderTables (certificate hn gens words bv hbs) g₀ e).length = (CS.map List.sum).sum :=
   chainK_cosetCount2' hQ hn hbs hg₀ he hk hc
 
-theorem chainK_repsTotal2 (hn : 1 ≤ n) (hbs : bv.toList.Nodup)
-    (hQ : ChainK n w gens words bv PS PSI LR TR TRI kS BP NS CH)
-    {gA gB : Equiv.Perm (Fin n)} {tA tB : List Nat}
-    (hA : tA = imageList gA) (hB : tB = imageList gB) (hk : 2 ≤ k)
-    {mx my cap : Nat} {CL : List ClassDatum} {reps : List (Equiv.Perm (Fin n))}
-    {ws : List (List Nat × Nat)} (hcls : allC (clsOneR n w tA tB mx cap) CL = true)
-    (hR : reps.length = CL.length ∧ ∀ j < CL.length,
-      imageList (reps.getD j 1) = (unpack n w (CL.getD j (0, 0, 0, [], [], [], [])).2.2.1).toList)
-    (_hmx : 0 < mx) (hmy : 0 < my) {CW : List (List (List Nat))}
-    (hCW : CW.length = CL.length ∧ ∀ j < CL.length, Counts2 LR (CW.getD j [])
-      (cntWord2K n w (mask w) (n * w) (pidn n w) LR TR k mx my ws
-        (CL.getD j (0, 0, 0, [], [], [], [])).2.2.1))
-    (hne : allC (fun d => Nat.blt 0 (CFSG.KS.Mathieu.lenN d.2.2.2.2.2.2)) CL = true) :
-    repsTotal n (pairTables gA gB) (pairTables gA⁻¹ gB⁻¹) (reps.map toTable)
-        (orderTables (certificate hn gens words bv hbs) my) cap (wordsTest n mx my ws) =
-      ((List.range CL.length).map fun j =>
-        (CL.getD j (0, 0, 0, [], [], [], [])).2.2.2.2.2.2.length *
-          ((CW.getD j []).map List.sum).sum).sum :=
-  chainK_repsTotal2' hn hbs hQ hA hB hk hcls hR hmy hCW hne
 
 theorem mulK_rep {g h : Equiv.Perm (Fin n)} {G H : Nat} (hsz : szOK n w = true)
     (hg : imageList g = (unpack n w G).toList) (hh : imageList h = (unpack n w H).toList) :

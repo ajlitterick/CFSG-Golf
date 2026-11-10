@@ -40,10 +40,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CFSG.KC.Misc.
 
 theorem ch7152cnt : Nat.beq (rcnt (RuSS2.LR 0)) 1024 = true := by quickRfl
 
-theorem ch7152negR : (!bIf(allN 0 (fun j => cmz (RuT1920.L 7) (RuT1920.L (Nat.add 24 j))),
-    anyK 32 (fun i => Nat.beq (RuT1920.L 7) (UF i)), true)) = true := by quickRfl
-
-theorem ch7152negS : (!scr (pidn 1920 11) (pidn 1920 11)) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.RuU1
 

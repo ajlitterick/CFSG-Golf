@@ -145,13 +145,6 @@ theorem nonempty_cayleyGroup_mulEquiv_adjointQuotient {K : Type} [Field K] [Fini
   exact ⟨((QuotientGroup.quotientMulEquivOfEq hker.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective ψ hsurj)).symm⟩
 
-theorem exists_adjointQuotient_mulEquiv_cayleyGroup {K : Type} [Field K] [Finite K] [CharP K 2]
-    {f : ℕ} (hK : Nat.card K = 2 ^ f) (hf : 2 ≤ f) :
-    ∃ e : AdjointQuotient .G2 K ≃* ↥(cayleyGroup K), ∀ γ, IsRoot .G2 γ → ∀ c,
-      e (QuotientGroup.mk (xPar (rootOperatorFamily .G2) γ c)) = zPsi γ c := by
-  obtain ⟨ψ, hψ, hsurj, hker⟩ := exists_adjointGroup_hom_cayleyGroup hK hf
-  exact ⟨(QuotientGroup.quotientMulEquivOfEq hker.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective ψ hsurj), fun γ hγ c => hψ γ hγ c⟩
 
 theorem nonempty_quasithinG2_mulEquiv_adjointQuotient {K : Type} [Field K] [Finite K]
     [CharP K 2] {f : ℕ} (hK : Nat.card K = 2 ^ f) (hf : 2 ≤ f) :

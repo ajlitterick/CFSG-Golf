@@ -13,20 +13,6 @@ universe u v w
 
 namespace CFSG.Open
 
-open CFSG.Open in
-theorem _root_.CFSG.Milestones.cl_lit_stroth_leon_sims_baby_monster_recognition :
-    ∃ (B : Type) (_ : Group B) (_ : Finite B), IsSimpleGroup B ∧
-      Nat.card B = sporadicOrderBabyMonster ∧
-      ∃ d₀ : B, orderOf d₀ = 2 ∧
-        Nat.card (Subgroup.centralizer ({d₀} : Set B)) = 4 * sporadicOrderTwistedE6Two ∧
-        ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup G →
-          ∀ d : G, orderOf d = 2 →
-            Nonempty (Subgroup.centralizer ({d} : Set G) ≃*
-              Subgroup.centralizer ({d₀} : Set B)) →
-            Nonempty (G ≃* B) :=
-  CFSG.Monster.B.GSide.recognition_exists_of_models
-    (CFSG.Monster.B.GSide.recognition_models_of_gold
-      CFSG.Milestones.cl_lit_goldschmidt_strongly_closed_abelian)
 
 end CFSG.Open
 

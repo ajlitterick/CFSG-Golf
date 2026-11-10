@@ -104,9 +104,6 @@ theorem unitaryPrimaryBlock_holds : UnitaryPrimaryBlockContract := by
   exact ⟨a, hac, htop, hmult, Hrec.selfDual a hself,
     fun b => Subtype.ext ((honly b b.2).trans hac.symm)⟩
 
-variable {K E V : Type} [Field K] [Field E] [Algebra K E]
-  [Fintype K] [Fintype E] [FiniteDimensional K E]
-  {f : ℕ} (hKdata : UnitaryFieldData 2 f K) (hEdata : UnitaryFieldData 2 (3 * f) E)
 
 end
 

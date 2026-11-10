@@ -113,6 +113,5 @@ theorem mul_inv_mem_of_card_eq_two_mul [Finite G] {U W : Subgroup G} (hUW : U �
     rw [e, hc, inv_mul_cancel_right]
     exact inv_mem (hfU x hx)
 
-variable {P U V : Subgroup G} {hV : ∀ a ∈ V, ∀ b ∈ V, a * b = b * a} {hUV : U ≤ V}
 
 end CFSG.LocalAnalysis.EvenBN.Tits

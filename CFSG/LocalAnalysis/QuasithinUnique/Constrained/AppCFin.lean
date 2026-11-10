@@ -86,12 +86,6 @@ theorem classify_P (P : Subgroup (Perm (Fin 5))) (hP : P ≤ Dstd) (hsq : ∀ a 
     intro g
     rw [hab g, h]
 
-theorem swap_sq01 : swap (0 : Fin 5) 1 * swap 0 1 = 1 := by decide +kernel
-
-theorem swap_sq23 : swap (2 : Fin 5) 3 * swap 2 3 = 1 := by decide +kernel
-
-theorem swap_comm_01_23 : swap (0 : Fin 5) 1 * swap 2 3 = swap 2 3 * swap 0 1 := by
-  decide +kernel
 
 theorem t1_mem_Eset : swap (0 : Fin 5) 1 ∈ Eset := by decide +kernel
 

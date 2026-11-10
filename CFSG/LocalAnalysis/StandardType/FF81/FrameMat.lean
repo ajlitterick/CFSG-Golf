@@ -86,19 +86,6 @@ private abbrev MatD (n : ℕ) := Matrix (Fin (n-1)) (Fin (n-1)) (ZMod 2)
 private def splitEquiv (n : ℕ) [NeZero n] : Fin 2 ⊕ Fin (n - 1) ≃ Fin (n + 1) :=
   finSumFinEquiv.trans (finCongr (by have := NeZero.pos n; omega : 2 + (n - 1) = n + 1))
 
-private lemma splitEquiv_ne_inl_inr (n : ℕ) [NeZero n] (i : Fin 2) (j : Fin (n-1)) :
-    splitEquiv n (Sum.inl i) ≠ splitEquiv n (Sum.inr j) := by
-  intro h
-  have h' := congrArg Fin.val h
-  change i.val = 2 + j.val at h'
-  omega
-
-private lemma splitEquiv_ne_inr_inl (n : ℕ) [NeZero n] (i : Fin (n-1)) (j : Fin 2) :
-    splitEquiv n (Sum.inr i) ≠ splitEquiv n (Sum.inl j) := by
-  intro h
-  have h' := congrArg Fin.val h
-  change 2 + i.val = j.val at h'
-  omega
 
 private lemma submatrix_blockMat_zero (n : ℕ) [NeZero n] (A : MatA) :
     (blockMat (n+1) 0 A).submatrix (splitEquiv n) (splitEquiv n) =

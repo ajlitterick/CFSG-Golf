@@ -23,13 +23,6 @@ open CFSG CFSG.Assembly TableB NbrInnerRest
           (∀ φ ∈ Y, ∃ k : ℕ, ∀ a ∈ A, φ ^ p ^ k * a = a * φ ^ p ^ k) →
           ∀ φ ∈ Y, ∀ a ∈ A, φ * a = a * φ
 
-theorem ggTorusNbrSCr_of_ggTorusNbr {p r : ℕ} {R : Type} [Group R] {I : Set (MulAut R)}
-    (h : GGTorusNbr p r R I) : GGTorusNbrSCr p r R I :=
-  fun L' _ _ ψ hψ hker hperf A hA hAI hr h3 _ => h L' ψ hψ hker hperf A hA hAI hr h3
-
-theorem ggTorusNbrSCr_of_ggTorusNbrSC {p r : ℕ} {R : Type} [Group R] {I : Set (MulAut R)}
-    (h : GGTorusNbrSC p R I) : GGTorusNbrSCr p r R I :=
-  fun L' _ _ ψ hψ hker hperf A hA hAI _ h3 hsc => h L' ψ hψ hker hperf A hA hAI h3 hsc
 
 theorem ggTorusNbrSCr_of_mulEquiv {p r : ℕ} {R R' : Type} [Group R] [Group R'] (e : R ≃* R')
     {I : Set (MulAut R)} {I' : Set (MulAut R')} (hI : ∀ φ ∈ I, MulAut.congr e φ ∈ I')
@@ -153,11 +146,6 @@ theorem ggTableBNbrInnerInputOn_round10_of_typeADvd (hA : GGTypeADvdNbrSCrInput)
     · exact Or.inl hd
     · exact Or.inr ⟨h10, hd⟩
 
-theorem ggTableBNbrInnerInput_of_typeADvd (hA : GGTypeADvdNbrSCrInput)
-    (h : GGTableBNbrInnerInputOn fun p lab =>
-      GGTableBNbrInnerRound10Label p lab ∧ ¬ GGTableBNbrInnerTypeADvdLabel p lab) :
-    GGTableBNbrInnerInput :=
-  ggTableBNbrInnerInput_of_round10 (ggTableBNbrInnerInputOn_round10_of_typeADvd hA h)
 
 end Drop
 

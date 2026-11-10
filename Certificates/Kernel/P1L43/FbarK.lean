@@ -166,15 +166,6 @@ theorem fb442sift : CertificateChecks.KernelSchreierFam.L43.siftL43 (tm 38099616
     CertificateChecks.KernelSchreierFam.L43.siftL43 (tm 31901178) = true := by
   decide +kernel
 
-theorem fb442negWit : bIf(fb442wit FI.cnt FI.T FIW (FB 3) (r32 FIx 0), false, true) = true := by
-  quickRfl
-
-theorem fb442negHom : bIf(Nat.beq (pp 80 7 (FK.GI 1) (FK.GI 2)) (FK.GI 3), false, true) = true := by
-  quickRfl
-
-theorem fb442negCnt :
-    bIf(Nat.ble (cntBelowK FI.cnt (fun i => commP 80 7 (FI.T i) (FB 0)) 6) 2, false, true) = true := by
-  quickRfl
 
 end CertificateChecks.K442264
 

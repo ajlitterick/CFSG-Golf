@@ -21,24 +21,9 @@ variable {H : Type} [Group H] [Finite H] (h : Hyp52 H)
       Blueprint.LieModel (h.J ⧸ pPrimeCore 2 h.J) .PSL 2 p (2 * f) ∧
       conjugate h.K h.a = h.K ∧ Blueprint.LieModel (h.K ⧸ pPrimeCore 2 h.K) .PSp 2 p f
 
-@[expose] def Sec8CaseZ : Prop :=
-  (Nonempty (h.J ⧸ pPrimeCore 2 h.J ≃* alternatingGroup (Fin 6)) ∧
-      conjugate h.K h.a = h.K ∧
-      Nonempty (h.K ⧸ Open.fusionZStar h.K ≃* alternatingGroup (Fin 8))) ∨
-    ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-      Blueprint.LieModel (h.J ⧸ pPrimeCore 2 h.J) .PSL 2 p (2 * f) ∧
-      conjugate h.K h.a = h.K ∧ Blueprint.LieModel (h.K ⧸ Open.fusionZStar h.K) .PSp 2 p f
 
 end Hyp52
 
-@[expose] def Lemma81Statement : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (h : Hyp59 H), h.Sec8CaseZ → 8 ≤ Nat.card h.P →
-    Nonempty (generalizedFitting H ≃* alternatingGroup (Fin 10)) ∨
-      ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-        (Blueprint.LieModel (h.J ⧸ pPrimeCore 2 h.J) .PSL 2 p (2 * f) ∨
-          (p = 3 ∧ f = 1 ∧ Nonempty (h.J ⧸ pPrimeCore 2 h.J ≃* alternatingGroup (Fin 6)))) ∧
-        (Blueprint.LieModel (generalizedFitting H) .PSL 4 p f ∨
-          Blueprint.LieModel (generalizedFitting H) .PSU 4 p f)
 
 @[expose] def Sec8Setting (X : Type) [Group X] [Finite X] (h : Hyp52 X) : Prop :=
   IsSimpleGroup X ∧ (∃ u v : X, u * v ≠ v * u) ∧ Assembly.KProper Blueprint.Catalog X ∧

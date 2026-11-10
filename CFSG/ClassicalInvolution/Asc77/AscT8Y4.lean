@@ -284,12 +284,6 @@ end T8
 
 variable (p f : ℕ) [Fact p.Prime]
 
-@[expose] def C27_7ab : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → ¬ MuIsoE4 Ω W →
-        (∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x) →
-          alphaOf (Subgroup.closure ({t, z} : Set G)) = ⊥
 
 @[expose] def C27_Ysmall : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
@@ -303,41 +297,6 @@ variable (p f : ℕ) [Fact p.Prime]
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
     (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
       ¬ DConnected Ω → ¬ MuIsoE4 Ω W → rLayer Ω (z * t) ≤ sigmaNorm Ω K
-
-@[expose] def C27_YE4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → MuIsoE4 Ω W → rLayer Ω (z * t) ≤ sigmaNorm Ω K
-
-variable {p f}
-
-theorem c27_YnE4_of_core (hD4 : Ih8D4Star p f) (h2 : C27_2 p f) (h7 : C27_7ab p f)
-    (hY : C27_Ysmall p f) : C27_YnE4 p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc hE4
-  have hp : p ≠ 2 := hs.stand.odd
-  have hq : 5 ≤ p ^ f := hs.stand.five
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  have hnt : ∀ M ∈ Ω, ∀ M' ∈ twinSet Ω M, M' = M := fun M hM =>
-    T8.noTwins_of_mem hΩ.conjInvariant hs.stand.trans hs.noTwins hM
-  have hx : z * t * (z * t) = 1 := T8.mul_self_zt hp hΩ hs.hz hs.hJ hs.ht
-  have hKx : T8.XMem Ω (z * t) K := T8.xMem_zt hs
-  have hcomp := h2 G Ω K J S R T W z t hs hdisc
-  have hlayer : T8.layerJoin Ω (z * t) ≤ sigmaNorm Ω K := by
-    by_cases hab : ∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x
-    · exact T8.layerJoin_le_sigmaNorm_of_lift hp hq hΩ hx hKx hcomp
-        (T8.oddCoreOf_layerJoin_le_of_alpha hs (h7 G Ω K J S R T W z t hs hdisc hE4 hab))
-        (T8.dstarConnected_layerFamQ_of_abelian hD4 hs hE4 hab)
-    · by_cases hconn : T3.DStarConnected (T8.layerFamQ Ω (z * t))
-      · exact T8.layerJoin_le_sigmaNorm_of_lift hp hq hΩ hx hKx hcomp
-          (T8.oddCoreOf_layerJoin_le_of_nonabelian hs hcomp hab) hconn
-      · exact hY G Ω K J S R T W z t hs hdisc hE4 hab hconn
-  exact (T8.rLayer_le_layerJoin hp hq hΩ hnt hx).trans hlayer
-
-theorem c27_Y_of_split (hE : C27_YE4 p f) (hn : C27_YnE4 p f) : C27_Y p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc
-  by_cases hE4 : MuIsoE4 Ω W
-  · exact hE G Ω K J S R T W z t hs hdisc hE4
-  · exact hn G Ω K J S R T W z t hs hdisc hE4
 
 
 end CFSG.ClassicalInvolution.Asc77

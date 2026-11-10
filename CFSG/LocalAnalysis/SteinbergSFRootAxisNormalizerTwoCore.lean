@@ -257,11 +257,6 @@ theorem ι_zero (h : AffHyp ι t N) : ι 0 = 1 := by
   calc ι 0 = ι 0 * ι 0 * (ι 0)⁻¹ := by rw [mul_inv_cancel_right]
     _ = 1 := by rw [← h0, mul_inv_cancel]
 
-theorem ι_comm (h : AffHyp ι t N) (x y : K) : ι x * ι y = ι y * ι x := by
-  rw [← h.add, ← h.add, add_comm]
-
-theorem ι_mul_self [CharP K 2] (h : AffHyp ι t N) (x : K) : ι x * ι x = 1 := by
-  rw [← h.add, CharTwo.add_self_eq_zero, h.ι_zero]
 
 theorem mem_range (h : AffHyp ι t N) {g : G} (hg : g ∈ N) (x : K) :
     ∃ y, ι y = t * (g * (t * ι x) * g⁻¹) := by

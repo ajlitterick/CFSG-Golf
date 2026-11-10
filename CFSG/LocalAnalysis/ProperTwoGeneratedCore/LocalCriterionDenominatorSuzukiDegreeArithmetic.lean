@@ -53,17 +53,6 @@ theorem suzuki_derangement_family_card_ge_five (hm : 0 < m)
     exact suzuki_degree_not_three_dvd m (h ▸ suzuki_derangement_family_card_dvd m hm A)
   omega
 
-theorem suzuki_derangement_family_normalizer_index_pos
-    (A : suzukiDerangementCentralizers m) :
-    0 < A.val.relIndex (Subgroup.normalizer (A.val : Set SzG)) := by
-  apply Nat.pos_of_ne_zero
-  intro hzero
-  have hindex := Subgroup.relIndex_mul_index
-    (H := A.val) (K := Subgroup.normalizer (A.val : Set SzG)) Subgroup.le_normalizer
-  have hcard := Subgroup.card_mul_index A.val
-  rw [hzero, zero_mul] at hindex
-  rw [← hindex, mul_zero] at hcard
-  exact (Nat.card_pos (α := SzG)).ne' hcard.symm
 
 theorem suzuki_derangement_family_normalizer_ambient_index_pos
     (A : suzukiDerangementCentralizers m) :

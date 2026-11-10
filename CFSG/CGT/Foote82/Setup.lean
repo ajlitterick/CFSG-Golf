@@ -40,12 +40,6 @@ structure Setup6Irr (G S L : Subgroup (GLV V)) : Prop extends Setup6 G S L where
     ∀ (e : ↥E) (v : V) (x : evenWeight N), ψ v = (x : altHeart N) →
       ψ ((e : GLV V) v) = (evenWeightPerm (φ e : Equiv.Perm (Fin N)) x : altHeart N)
 
-@[expose] def IsOmegaPlusFor (E : Subgroup (GLV V)) (m : ℕ) : Prop :=
-  ∃ (φ : ↥E ≃* ↥(omegaPlusTwo m)) (ψ : V ≃ₗ[ZMod 2] (Fin m ⊕ Fin m → ZMod 2)),
-    ∀ (e : ↥E) (v : V),
-      ψ ((e : GLV V) v) =
-        ((φ e : GL (Fin m ⊕ Fin m) (ZMod 2)) : Matrix (Fin m ⊕ Fin m) (Fin m ⊕ Fin m) (ZMod 2))
-          *ᵥ ψ v
 
 @[expose] def IsOmegaMinusFor (E : Subgroup (GLV V)) (m : ℕ) : Prop :=
   ∃ (φ : ↥E ≃* ↥(omegaMinusTwo m)) (ψ : V ≃ₗ[ZMod 2] (Fin m ⊕ Fin m ⊕ Fin 2 → ZMod 2)),

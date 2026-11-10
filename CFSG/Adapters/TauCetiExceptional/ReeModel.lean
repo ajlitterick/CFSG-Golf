@@ -21,11 +21,6 @@ variable (K L : Type) [Field K] [Field L] [Algebra K L]
 
 variable {K L}
 
-theorem coe_incl
-    (g : adjointGroup .G2 K) :
-    ((incl K L g : adjointGroup .G2 L) : ModGL .G2 L) =
-      baseChangeGL (algebraMap K L) (g : ModGL .G2 K) :=
-  rfl
 
 theorem incl_injective
     : Function.Injective (incl K L) := fun _ _ e =>

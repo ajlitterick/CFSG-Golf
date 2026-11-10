@@ -24,12 +24,6 @@ private lemma ggK1Lift_commutatorElement_mul_center_right {G : Type*} [Group G] 
   rw [commutatorElement_mul_right_eq_mul_conj, han]
   group
 
-private theorem ggK1Lift_e_mem_comap {L' R : Type*} [Group L'] [Group R] (ψ : L' →* R)
-    (e : MulAut L') (φ : MulAut R) (hφ : ∀ l : L', φ (ψ l) = ψ (e l)) {K : Subgroup R}
-    (hKle : K ≤ ggFixSub φ) {x : L'} (hx : x ∈ K.comap ψ) : e x ∈ K.comap ψ := by
-  rw [Subgroup.mem_comap] at hx ⊢
-  rw [← hφ x, mem_ggFixSub.1 (hKle hx)]
-  exact hx
 
 private def ggK1Lift_z {L' R : Type*} [Group L'] [Group R] (ψ : L' →* R) (e : MulAut L')
     (φ : MulAut R) (hφ : ∀ l : L', φ (ψ l) = ψ (e l)) {K : Subgroup R}

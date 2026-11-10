@@ -18,8 +18,6 @@ variable {sigma : E ≃+* E} (h : V →ₛₗ[sigma.toRingHom] V →ₗ[E] E)
   map_one' := by ext v; simp [LinearEquiv.smulOfUnit]
   map_mul' a b := by ext v; simp [LinearEquiv.smulOfUnit, mul_smul]
 
-theorem scalarAction_apply (a : Eˣ) (v : V) :
-    scalarAction a v = (a : E) • v := rfl
 
 @[expose] def normOneUnits : Subgroup Eˣ where
   carrier := {a | sigma (a : E) * (a : E) = 1}
@@ -253,32 +251,6 @@ theorem unitaryField_two_ne_zero (p f : ℕ) (hpodd : Odd p)
     (hE : Nat.card E = (p ^ f) ^ 2) : (2 : E) ≠ 0 :=
   OddLinearThreeCentralizerCore.two_ne_zero E (by rw [hE]; exact hpodd.pow.pow)
 
-theorem original_involution_geometry (p f : ℕ) [Fact p.Prime] (hpodd : Odd p)
-    (hE : Nat.card E = (p ^ f) ^ 2)
-    (h : V →ₛₗ[(CatalogueBUnitaryTwo.unitaryFieldConjugation p f hE).toRingHom] V →ₗ[E] E)
-    (hsym : h.IsSymm) (hnd : h.Nondegenerate) (hdim : Module.finrank E V = 3)
-    (D : Subgroup (specialIsometry h)) (hD : D ≤ scalarCenter h hdim) :
-    letI : D.Normal := scalar_subgroup_normal h hdim D hD
-    ∀ (t : specialIsometry h ⧸ D), orderOf t = 2 →
-      ∃! z : specialIsometry h,
-        orderOf z = 2 ∧ QuotientGroup.mk' D z = t ∧
-          Module.finrank E (OddLinearThreeCentralizerCore.minusSpace z.val.val.toLinearMap) = 2 ∧
-          Module.finrank E (OddLinearThreeCentralizerCore.plusSpace z.val.val.toLinearMap) = 1 ∧
-          (h.domRestrict₁₂
-            (OddLinearThreeCentralizerCore.minusSpace z.val.val.toLinearMap)
-            (OddLinearThreeCentralizerCore.minusSpace z.val.val.toLinearMap)).Nondegenerate ∧
-          (h.domRestrict₁₂
-            (OddLinearThreeCentralizerCore.plusSpace z.val.val.toLinearMap)
-            (OddLinearThreeCentralizerCore.plusSpace z.val.val.toLinearMap)).Nondegenerate ∧
-          (∀ x ∈ OddLinearThreeCentralizerCore.minusSpace z.val.val.toLinearMap,
-            ∀ y ∈ OddLinearThreeCentralizerCore.plusSpace z.val.val.toLinearMap, h x y = 0) := by
-  let : D.Normal := scalar_subgroup_normal h hdim D hD
-  intro t ht
-  obtain ⟨z, hz, huniq⟩ := unique_involution_lift h hdim D hD t ht
-  have h2 := unitaryField_two_ne_zero p f hpodd hE
-  obtain ⟨hm, hp⟩ := involution_finrank h h2 hdim z hz.1
-  obtain ⟨hP, hQ, ho⟩ := involution_restrictions h h2 hsym hnd z hz.1
-  exact ⟨z, ⟨hz.1, hz.2, hm, hp, hP, hQ, ho⟩, fun w hw => huniq w ⟨hw.1, hw.2.1⟩⟩
 end OriginalFieldGeometry
 
 section UnitaryCentralizer
@@ -336,14 +308,6 @@ theorem unitary_block_isometry (hsym : h.IsSymm) (hsigma : sigma ^ 2 = 1)
   rw [ha, CatalogueBHermitian.smul_left, map_smul, smul_eq_mul,
     ← mul_assoc, hdinv, one_mul]
 
-@[expose] def specialAction : specialIsometry h →* _root_.SpecialLinearGroup E V where
-  toFun g := ⟨g.val.val, g.property⟩
-  map_one' := rfl
-  map_mul' _ _ := rfl
-
-omit [Finite E] [FiniteDimensional E V] in
-theorem specialAction_apply (g : specialIsometry h) (v : V) :
-    specialAction h g v = g.val.val v := rfl
 
 omit [Finite E] [FiniteDimensional E V] in
 theorem unitary_centralizer_commutes (z : specialIsometry h)
@@ -871,60 +835,6 @@ theorem unitaryQuotientKernel_le_scalars (h2 : (2 : E) ≠ 0) (hsym : h.IsSymm)
     h2 hsym hnd hsigma hne hD hz).mp ha
   exact ⟨c.val, rfl⟩
 
-theorem unitaryQuotientCentralizer_core_structure (p f : ℕ) [Fact p.Prime]
-    (hpodd : Odd p) (hE : Nat.card E = (p ^ f) ^ 2)
-    (h : V →ₛₗ[(CatalogueBUnitaryTwo.unitaryFieldConjugation p f hE).toRingHom] V →ₗ[E] E)
-    (hsym : h.IsSymm) (hnd : h.Nondegenerate) (hdim : Module.finrank E V = 3)
-    (D : Subgroup (specialIsometry h)) [D.Normal] (hD : D ≤ scalarCenter h hdim)
-    (z : specialIsometry h) (hz : orderOf z = 2) :
-    let h2 := unitaryField_two_ne_zero p f hpodd hE
-    let hsigma := (CatalogueBUnitaryTwo.unitaryFieldConjugation_data p f hE).1
-    let hne := (CatalogueBUnitaryTwo.unitaryFieldConjugation_data p f hE).2.1
-    let P := minusSpace z.val.val.toLinearMap
-    let phi := unitaryQuotientCentralizer h h2 hsym hnd hsigma hne hdim D z hz
-    let A := normOneUnits (sigma := CatalogueBUnitaryTwo.unitaryFieldConjugation p f hE)
-    CFSG.oddCore (Subgroup.centralizer
-      ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D))) =
-        ((CyclicOddScalarQuotient.oddElements A).map
-          (scalarIsometry (h.domRestrict₁₂ P P))).map phi ∧
-      CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D))) ≤
-          Subgroup.center (Subgroup.centralizer
-            ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D))) ∧
-      IsCyclic (CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D)))) ∧
-      Nat.card (CFSG.oddCore (Subgroup.centralizer
-        ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D)))) =
-          ordCompl[2] (p ^ f + 1) / Nat.card D := by
-  let h2 := unitaryField_two_ne_zero p f hpodd hE
-  let hsigma := (CatalogueBUnitaryTwo.unitaryFieldConjugation_data p f hE).1
-  let hne := (CatalogueBUnitaryTwo.unitaryFieldConjugation_data p f hE).2.1
-  let P := minusSpace z.val.val.toLinearMap
-  let hP := h.domRestrict₁₂ P P
-  let phi := unitaryQuotientCentralizer h h2 hsym hnd hsigma hne hdim D z hz
-  have hPdim : Module.finrank E P = 2 := (involution_finrank h h2 hdim z hz).1
-  have hPnd : hP.Nondegenerate := (involution_restrictions h h2 hsym hnd z hz).1
-  let : Nontrivial P := Module.nontrivial_of_finrank_pos (R := E) (by rw [hPdim]; decide)
-  let : Finite (isometryGroup h) := isometryGroup_finite h
-  let : Finite (isometryGroup hP) := isometryGroup_finite hP
-  have hkerodd : Odd (Nat.card phi.ker) := by
-    rw [unitaryQuotientCentralizer_ker_card h h2 hsym hnd hsigma hne hdim D hD z hz]
-    exact scalar_kernel_odd h hdim D hD
-  have hc := CyclicOddScalarQuotient.quotient_oddCore_structure
-    (scalarIsometry hP) (scalarIsometry_injective hP) (scalarIsometry_range_le_center hP)
-    phi (unitaryQuotientCentralizer_surjective h h2 hsym hnd hsigma hne hdim D hD z hz)
-    hkerodd (unitaryQuotientKernel_le_scalars h h2 hsym hnd hsigma hne hdim D hD z hz)
-    (unitaryPlane_normal_odd_scalar p f hpodd hE hP (hsym.domRestrict P) hPnd hPdim)
-  refine ⟨hc.1, hc.2.1, hc.2.2.1, ?_⟩
-  calc
-    Nat.card (CFSG.oddCore (Subgroup.centralizer
-      ({QuotientGroup.mk' D z} : Set (specialIsometry h ⧸ D)))) =
-        ordCompl[2] (Nat.card (normOneUnits
-          (sigma := CatalogueBUnitaryTwo.unitaryFieldConjugation p f hE))) /
-            Nat.card phi.ker := hc.2.2.2
-    _ = ordCompl[2] (p ^ f + 1) / Nat.card D := by
-      rw [normOneUnits_card p f hE,
-        unitaryQuotientCentralizer_ker_card h h2 hsym hnd hsigma hne hdim D hD z hz]
 end ExactCore
 
 

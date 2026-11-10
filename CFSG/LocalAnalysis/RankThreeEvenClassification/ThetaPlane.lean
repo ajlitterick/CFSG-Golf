@@ -87,43 +87,6 @@ theorem normalizes_iSup {G : Type u} [Group G] {index : Sort*}
     rw [map_mul]
     exact (⨆ member, family member).mul_mem hfirst hsecond
 
-theorem thetaPlaneIntersection_normalized {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (plane : Subgroup G) (hcomm : IsMulCommutative plane) :
-    plane ≤ Subgroup.normalizer (thetaPlaneIntersection prime plane : Set G) := by
-  apply normalizes_iInf
-  intro element
-  apply normalizes_iInf
-  intro hmem
-  apply normalizes_iInf
-  intro _
-  exact commutative_plane_normalizes_element_theta prime hprime plane hcomm element hmem
-
-theorem thetaPlaneCommutators_normalized {G : Type u} [Group G]
-    (prime : ℕ) (plane : Subgroup G) :
-    plane ≤ Subgroup.normalizer (thetaPlaneCommutators prime plane : Set G) := by
-  apply normalizes_iSup
-  intro element
-  apply normalizes_iSup
-  intro _
-  apply normalizes_iSup
-  intro _
-  exact Subgroup.normalizer_commutator_ge_right _ plane
-
-theorem thetaPlaneAlpha_normalized {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (plane : Subgroup G) (hcomm : IsMulCommutative plane) :
-    plane ≤ Subgroup.normalizer (thetaPlaneAlpha prime plane : Set G) := by
-  apply Subgroup.le_normalizer_iff.mpr
-  intro conjugator hconjugator element helement
-  have hfirst := thetaPlaneCommutators_normalized prime plane hconjugator
-  have hsecond := thetaPlaneIntersection_normalized prime hprime plane hcomm hconjugator
-  have hfirstMap := Subgroup.mem_normalizer_iff_map_conj_eq.mp hfirst
-  have hsecondMap := Subgroup.mem_normalizer_iff_map_conj_eq.mp hsecond
-  have hfixed : (thetaPlaneAlpha prime plane).map (MulAut.conj conjugator).toMonoidHom =
-      thetaPlaneAlpha prime plane := by
-    rw [thetaPlaneAlpha, Subgroup.map_sup, MulEquiv.toMonoidHom_eq_coe, hfirstMap, hsecondMap]
-  have hmem := Subgroup.mem_map_of_mem (MulAut.conj conjugator).toMonoidHom helement
-  rw [hfixed] at hmem
-  exact hmem
 
 theorem thetaPlaneIntersection_le {G : Type u} [Group G] (prime : ℕ) (plane : Subgroup G)
     (element : G) (hmem : element ∈ plane) (hne : element ≠ 1) :

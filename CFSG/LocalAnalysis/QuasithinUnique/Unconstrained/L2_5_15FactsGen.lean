@@ -230,61 +230,6 @@ theorem aut_le_eight {X : Type} [Group X] [Finite X] {u : X} {Tl : List X}
   rw [hn]
   omega
 
-theorem exists_conj_of_card {X : Type} [Group X] [Finite X] {u₀ : X} {N : ℕ}
-    (hcent : Nat.card (Subgroup.centralizer ({u₀} : Set X)) * N = Nat.card X)
-    (hN : Nat.card {x : X // x ≠ 1 ∧ x ^ 2 = 1} ≤ N)
-    (hu₀1 : u₀ ≠ 1) (hu₀2 : u₀ ^ 2 = 1) :
-    ∀ u : X, u ≠ 1 → u ^ 2 = 1 → ∃ g : X, g * u₀ * g⁻¹ = u := by
-  classical
-  set C := Subgroup.centralizer ({u₀} : Set X) with hC
-  let S := {x : X // x ≠ 1 ∧ x ^ 2 = 1}
-  have hmem : ∀ g : X, g * u₀ * g⁻¹ ≠ 1 ∧ (g * u₀ * g⁻¹) ^ 2 = 1 := by
-    intro g
-    refine ⟨?_, ?_⟩
-    · intro h
-      apply hu₀1
-      calc u₀ = g⁻¹ * (g * u₀ * g⁻¹) * g := by group
-        _ = g⁻¹ * 1 * g := by rw [h]
-        _ = 1 := by group
-    · have : (MulAut.conj g) (u₀ ^ 2) = 1 := by rw [hu₀2, map_one]
-      rw [map_pow] at this
-      simpa [MulAut.conj_apply] using this
-  have hwd : ∀ g h : X, (g⁻¹ * h ∈ C) → g * u₀ * g⁻¹ = h * u₀ * h⁻¹ := by
-    intro g h hgh
-    have hc : g⁻¹ * h * u₀ = u₀ * (g⁻¹ * h) := Subgroup.mem_centralizer_singleton_iff.mp hgh
-    calc g * u₀ * g⁻¹ = g * (u₀ * (g⁻¹ * h)) * (g⁻¹ * h)⁻¹ * g⁻¹ := by group
-      _ = g * ((g⁻¹ * h) * u₀) * (g⁻¹ * h)⁻¹ * g⁻¹ := by rw [← hc]
-      _ = h * u₀ * h⁻¹ := by group
-  let f : X ⧸ C → S := Quotient.lift (fun g => (⟨g * u₀ * g⁻¹, hmem g⟩ : S)) (by
-    intro g h hgh
-    apply Subtype.ext
-    exact hwd g h (QuotientGroup.leftRel_apply.mp hgh))
-  have hf : Function.Injective f := by
-    intro x y hxy
-    induction x using Quotient.inductionOn with
-    | _ g =>
-    induction y using Quotient.inductionOn with
-    | _ h =>
-    have h1 : g * u₀ * g⁻¹ = h * u₀ * h⁻¹ := congrArg Subtype.val hxy
-    apply Quotient.sound
-    apply QuotientGroup.leftRel_apply.mpr
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc g⁻¹ * h * u₀ = g⁻¹ * (h * u₀ * h⁻¹) * h := by group
-      _ = g⁻¹ * (g * u₀ * g⁻¹) * h := by rw [h1]
-      _ = u₀ * (g⁻¹ * h) := by group
-  have hidx : Nat.card (X ⧸ C) = N := by
-    have h1 : C.index * Nat.card C = Nat.card X := Subgroup.index_mul_card C
-    have hpos : 0 < Nat.card C := Nat.card_pos
-    rw [← Subgroup.index_eq_card]
-    have : C.index * Nat.card C = N * Nat.card C := by rw [h1, ← hcent, mul_comm]
-    exact Nat.eq_of_mul_eq_mul_right hpos this
-  have hbij : Function.Bijective f :=
-    hf.bijective_of_nat_card_le (by rw [hidx]; exact hN)
-  intro u hu1 hu2
-  obtain ⟨q, hq⟩ := hbij.2 ⟨u, hu1, hu2⟩
-  induction q using Quotient.inductionOn with
-  | _ g =>
-  exact ⟨g, congrArg Subtype.val hq⟩
 
 theorem k33InvFacts_top_of_data {X : Type} [Group X] [Finite X] (u₀ : X)
     (hconj : ∀ u : X, u ≠ 1 → u ^ 2 = 1 → ∃ g : X, g * u₀ * g⁻¹ = u)

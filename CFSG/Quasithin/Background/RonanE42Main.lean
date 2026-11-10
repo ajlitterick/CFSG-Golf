@@ -81,26 +81,5 @@ theorem e4_2_of_good (G : Type) [Group G] [Finite G] (V : Type) [CommGroup V] [F
   e4_2_of_goodW G V ρ hρ hO2 T L Δ hT hLF hLq hΔ hΔT
     (fun H hH Y hYH hYn hYT _ => hgood H hH Y hYH hYn hYT) hfix
 
-set_option linter.unusedVariables false in
-theorem e4_2_of_split (G : Type) [Group G] [Finite G] (V : Type) [CommGroup V] [Finite V]
-    (hV : ∀ v : V, v ^ 2 = 1) (ρ : G →* MulAut V) (hρ : Function.Injective ρ)
-    (hO2 : pCoreOf 2 (⊤ : Subgroup G) = ⊥) (T L : Subgroup G) (Δ : Set (Subgroup G))
-    (hT : IsSylowIn 2 T ⊤) (hLF : L = CFSG.generalizedFitting G) (hLq : CFSG.IsQuasisimple ↥L)
-    (hLT : L ⊔ T = ⊤) (hΔ : (⨆ H ∈ Δ, H) = ⊤)
-    (hΔT : ∀ H ∈ Δ, T ≤ H ∧ (CFSG.IsQuasisimple ↥(fStarMod H) ∨
-      ∃ p : ℕ, p.Prime ∧ Nat.card ↥(fStarMod H) = p))
-    (hSpl : ∀ H ∈ Δ, CFSG.IsQuasisimple ↥(fStarMod H) →
-      H ≤ Subgroup.normalizer ((fStarPre H ⊔ T : Subgroup G) : Set G))
-    (hfix : ∃ v ∈ fixV (T.map ρ), ∃ l ∈ L, ρ l v ≠ v) :
-    aParam ρ.range ≤ ∑ᶠ (H : Subgroup G) (_ : H ∈ Δ),
-      CFSG.Open.pRank 2 (⊤ : Subgroup (↥H ⧸ CFSG.pCore 2 ↥H)) := by
-  refine e4_2_of_good G V ρ hρ hO2 T L Δ hT hLF hLq hΔ (fun H hH => (hΔT H hH).1)
-    (fun H hH Y hYH hYn hYT => ?_) hfix
-  obtain ⟨hTH, hF⟩ := hΔT H hH
-  have hspl : H ≤ Subgroup.normalizer ((fStarPre H ⊔ T : Subgroup G) : Set G) := by
-    rcases hF with hq | hp
-    · exact hSpl H hH hq
-    · exact spl_of_prime hTH hp
-  exact good_of_split hT hTH hF hspl hYH hYn hYT
 
 end CFSG.Quasithin.RonanE42

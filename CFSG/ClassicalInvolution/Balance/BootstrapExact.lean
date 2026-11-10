@@ -63,22 +63,5 @@ theorem exactMembers_of_deltaCore_eq_bot [IsSimpleGroup G] (hnab : ∃ a b : G, 
       (hKF.trans (Subgroup.centralizer_le (Set.singleton_subset_iff.mpr hf₀))) (hzF f₀ hf₀) M hM
   exact exactMembers_of_isQuasisimple hp2 hf h9 hΩ hsingle hKΩ hq'
 
-theorem exactMembers_of_centralizer_generated [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h9 : p ^ f ≠ 9)
-    (h0 : ModelClauseZero) (hA1 : FundamentalWholeA1) (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hIH : LocalLieSystems p f Ω)
-    {A : Subgroup G} (hA : IsElemAbelian 2 A) (h4 : 4 ≤ Nat.card A) {K : Subgroup G} {z : G}
-    (hKΩ : K ∈ Ω) (hz : IsClassicalMember p f K z) (hKA : K ≤ Subgroup.centralizer (A : Set G))
-    (hS : CentralizedDelta A) (h2 : TwoBalancedWrt A)
-    (hgen : (⨆ F ∈ signalizerFunctorEk 2 2 A, Subgroup.centralizer (F : Set G)) = ⊤) :
-    ExactMembers Ω := by
-  obtain ⟨F, hF⟩ := CFSG.SignalizerFunctor.Helpers.signalizerFunctorEk_nonempty 2 2 Nat.prime_two A
-    hA (by simpa using h4)
-  obtain ⟨f₀, hf₀, hf₀1⟩ := exists_ne_one_of_card_eq_two_pow (by norm_num) hF.2
-  have hΔ := deltaCore_eq_bot_of_four_centralizer_generated
-    (componentClassificationOddCore_eq_bot_of_simple hnab) ⟨f₀, hF.1 hf₀, hf₀1⟩ hS h2 hgen F hF
-  exact exactMembers_of_deltaCore_eq_bot hnab hp2 hq h9 h0 hA1 hΩ hsingle hIH hKΩ hz
-    (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le 2 hA hF.1)
-    (hKA.trans (Subgroup.centralizer_le hF.1)) hΔ
 
 end CFSG.ClassicalInvolution.Balance.Bootstrap

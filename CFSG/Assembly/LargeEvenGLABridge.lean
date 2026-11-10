@@ -80,61 +80,6 @@ theorem largeEvenIsNeighborOf_iff_glaIsNeighborOf [Finite G] (p : ℕ) (B : Subg
 
 end Local
 
-def lieTagEquiv : LargeEvenLieTag ≃ CFSG.Open.GLALieTag :=
-  Equiv.refl _
-
-def labelEquiv : LargeEvenLabel ≃ CFSG.Open.GLALabel :=
-  Equiv.refl _
-
-theorem largeEvenInLambda2_iff (lab : LargeEvenLabel) :
-    LargeEvenInLambda2 lab ↔ CFSG.Open.GLAInLambda2 (labelEquiv lab) :=
-  Iff.rfl
-
-theorem largeEvenSplit_iff (p : ℕ) (lab : LargeEvenLabel) :
-    LargeEvenSplit p lab ↔ CFSG.Open.GLASplit p (labelEquiv lab) :=
-  Iff.rfl
-
-theorem largeEvenHalfSplit_iff (p : ℕ) (lab : LargeEvenLabel) (centerTrivial : Prop) :
-    LargeEvenHalfSplit p lab centerTrivial ↔
-      CFSG.Open.GLAHalfSplit p (labelEquiv lab) centerTrivial :=
-  Iff.rfl
-
-theorem largeEvenPrimeField_iff (p : ℕ) (lab : LargeEvenLabel) {R : Type} [Group R]
-    (I F : Set (MulAut R)) (isα : MulAut R → Prop) :
-    LargeEvenPrimeField p lab I F isα ↔ CFSG.Open.GLAPrimeField p (labelEquiv lab) I F isα :=
-  Iff.rfl
-
-theorem largeEvenIsRoot_eq_glaIsRoot {r : ℕ} (A : Matrix (Fin r) (Fin r) ℤ) :
-    LargeEvenIsRoot A = CFSG.Open.GLAIsRoot A :=
-  rfl
-
-theorem largeEvenRecipeChevalley_iff {r : ℕ} (A : Matrix (Fin r) (Fin r) ℤ) (q : ℕ) (d : Bool)
-    (Q : LargeEvenRawCont) :
-    LargeEvenRecipeChevalley A q d Q ↔ CFSG.Open.GLARecipeChevalley A q d Q :=
-  Iff.rfl
-
-theorem largeEvenRecipeTwisted_iff {r : ℕ} (A : Matrix (Fin r) (Fin r) ℤ)
-    (ρ : Equiv.Perm (Fin r)) (m n : ℕ) (Q : LargeEvenRawCont) :
-    LargeEvenRecipeTwisted A ρ m n Q ↔ CFSG.Open.GLARecipeTwisted A ρ m n Q :=
-  Iff.rfl
-
-theorem largeEvenRecipeTwF4_iff (a : ℕ) (Q : LargeEvenRawCont) :
-    LargeEvenRecipeTwF4 a Q ↔ CFSG.Open.GLARecipeTwF4 a Q :=
-  Iff.rfl
-
-theorem largeEvenRawDatum_iff (lab : LargeEvenLabel) (Q : LargeEvenRawCont) :
-    LargeEvenRawDatum lab Q ↔ CFSG.Open.GLARawDatum (labelEquiv lab) Q :=
-  Iff.rfl
-
-theorem largeEvenMarking_iff {L : Type*} [Group L] (P : LargeEvenMarkProp L)
-    (P' : CFSG.Open.GLAMarkProp L)
-    (hP : ∀ (lab : LargeEvenLabel) (R : Type) [Group R] (I F : Set (MulAut R))
-      (θ : L ⧸ Subgroup.center L ≃* R), P lab R I F θ ↔ P' (labelEquiv lab) R I F θ) :
-    LargeEvenMarking L P ↔ CFSG.Open.GLAMarking L P' := by
-  obtain rfl : P = P' := by
-    funext lab R _ I F θ
-    exact propext (hP lab R I F θ)
-  rfl
 
 theorem largeEvenStandardType_iff_glaStandardType {G : Type*} [Group G] [Finite G] (p : ℕ)
     (B : Subgroup G) (x : G) (L : Subgroup G) :

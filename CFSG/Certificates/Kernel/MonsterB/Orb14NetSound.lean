@@ -126,11 +126,6 @@ theorem posF_lt : ∀ {L : List (ℕ × ℕ)}, (∀ p ∈ L, p.2 < 2 ^ (1024 - p
   | p :: _, h, q, hq => swp_lt (h p List.mem_cons_self)
       (posF_lt (fun p' hp => h p' (List.mem_cons_of_mem _ hp)) q hq)
 
-theorem posR_lt : ∀ {L : List (ℕ × ℕ)}, (∀ p ∈ L, p.2 < 2 ^ (1024 - p.1)) →
-    ∀ q < 1024, posR L q < 1024
-  | [], _, _, hq => hq
-  | p :: _, h, _, hq => posR_lt (fun p' hp => h p' (List.mem_cons_of_mem _ hp)) _
-      (swp_lt (h p List.mem_cons_self) hq)
 
 theorem netK_eq (W x : ℕ) : netK W x = netF (stg W) x := rfl
 

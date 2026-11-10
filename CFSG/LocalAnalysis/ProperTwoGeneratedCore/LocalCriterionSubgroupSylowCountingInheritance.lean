@@ -54,13 +54,6 @@ theorem centralizer_sylow_of_odd_point_class [Finite G] (z : G) (hz : orderOf z 
   apply Subtype.ext
   exact Subgroup.mem_centralizer_singleton_iff.mp (hUle (hS ▸ c.property))
 
-theorem subgroup_centralizer_index_odd [Finite G]
-    {H A : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z) (hzA : z ∈ A)
-    (hescapeA : ¬ A ≤ H) (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G)) :
-    Odd (Subgroup.centralizer ({(⟨z, hzA⟩ : A)} : Set A)).index := by
-  rw [centralizer_index_eq_pointClass_card]
-  exact subgroup_full_class_card_odd h hzA hescapeA S hzS hzcenter
 
 theorem subgroup_centralizer_sylow_is_ambient [Finite G]
     {H A : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z) (hzA : z ∈ A)

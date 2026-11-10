@@ -133,46 +133,5 @@ theorem psl2_even_odd_element_full_centralizer
         eS x hxS0 hx hxodd
     exact ⟨hcyclic, Or.inr (hCcard.trans hS0card), hwholeinv⟩
 
-theorem linear_even_odd_element_centralizer
-    (K : Type) [Field K] [Finite K]
-    (hKeven : Even (Nat.card K)) (hKge : 4 ≤ Nat.card K)
-    (x : CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K))
-    (hx : x ≠ 1) (hxodd : Odd (orderOf x)) :
-    IsCyclic (Subgroup.centralizer ({x} :
-      Set (CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K)))) ∧
-      (Nat.card (Subgroup.centralizer ({x} :
-          Set (CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K)))) = Nat.card K - 1 ∨
-        Nat.card (Subgroup.centralizer ({x} :
-          Set (CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K)))) = Nat.card K + 1) ∧
-      ∀ a : CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K),
-        orderOf a = 2 → a⁻¹ * x * a = x⁻¹ →
-          ∀ y : CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K),
-            y ∈ Subgroup.centralizer ({x} :
-              Set (CFSG.Open.GLAProj (CFSG.Open.GLASLGroup (Fin 2) K))) →
-                a⁻¹ * y * a = y⁻¹ := by
-  obtain ⟨f, hf, hcard⟩ := even_field_binary_size hKeven hKge
-  let e := CFSG.ShultStronglyClosedTI.glaSLQuotientEquivPSL (ι := Fin 2) (K := K)
-  have hex : e x ≠ 1 := fun h => hx (e.map_eq_one_iff.mp h)
-  have heodd : Odd (orderOf (e x)) :=
-    (orderOf_injective e.toMonoidHom e.injective x).symm ▸ hxodd
-  obtain ⟨hcyclic, hCcard, hwholeinv⟩ :=
-    psl2_even_odd_element_full_centralizer f hf hcard (e x) hex heodd
-  let c := elementCentralizerEquiv e x
-  have hcardC := Nat.card_congr c.toEquiv
-  refine ⟨c.isCyclic.mpr hcyclic, ?_, ?_⟩
-  · rcases hCcard with hminus | hplus
-    · exact Or.inl (hcardC.trans hminus)
-    · exact Or.inr (hcardC.trans hplus)
-  · intro a ha hax y hy
-    have hai : a⁻¹ = a := inv_eq_self_of_orderOf_eq_two ha
-    have hax' : a * x * a⁻¹ = x⁻¹ := by simpa only [hai] using hax
-    have heax : e a * e x * (e a)⁻¹ = (e x)⁻¹ := by
-      simpa only [map_mul, map_inv] using congrArg e hax'
-    have hey : e y ∈ Subgroup.centralizer ({e x} : Set (PSL2MatrixGroup K)) :=
-      (c ⟨y, hy⟩).property
-    have h := hwholeinv (e a) heax (e y) hey
-    have hresult : a * y * a⁻¹ = y⁻¹ := e.injective
-      (by simpa only [map_mul, map_inv] using h)
-    simpa only [hai] using hresult
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowth

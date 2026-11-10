@@ -230,46 +230,6 @@ theorem GGStepTwoCoords.exists_witness [Fact p.Prime] {O : Subgroup (ZMod p)ˣ}
         linear_combination hs'
       · rw [hσβ, div_mul_cancel₀ _ hrc]
 
-theorem contrary_of_sub [Fact p.Prime] {O : Subgroup (ZMod p)ˣ}
-    {ι : Multiplicative (Fin r → ZMod p) →* G} {D : Subgroup G} {i j k : Fin r} (hij : i ≠ j)
-    (hki : k ≠ i) (hkj : k ≠ j)
-    (hD : ι (ofAdd (Pi.single i 1 - Pi.single j 1 : Fin r → ZMod p)) ∈ D) :
-    (r : ZMod p) - 1 = 0 → ∃ (k : Fin r) (o : Fin r → (ZMod p)ˣ) (s : Fin r → ZMod p),
-      (∀ i, o i ∈ O) ∧ s ≠ 0 ∧ s k = 0 ∧ ∑ i, (o i : ZMod p) * s i = 0 ∧
-        ι (ofAdd s) ∈ D := by
-  intro _
-  refine ⟨k, 1, Pi.single i 1 - Pi.single j 1, fun _ => O.one_mem, ?_, ?_, ?_, hD⟩
-  · intro h0
-    have h := congrFun h0 i
-    simp [hij] at h
-  · simp [hki, hkj]
-  · simp [Finset.sum_sub_distrib]
-
-theorem contrary_of_const [Fact p.Prime] {O : Subgroup (ZMod p)ˣ}
-    {ι : Multiplicative (Fin r → ZMod p) →* G} {D : Subgroup G} {k i₀ : Fin r} (hi₀ : i₀ ≠ k)
-    {ε : Fin r → (ZMod p)ˣ} (hε : ∀ i, ε i ∈ O)
-    (hD : ι (ofAdd fun i => if i = k then 0 else (ε i : ZMod p)) ∈ D) :
-    (r : ZMod p) - 1 = 0 → ∃ (k : Fin r) (o : Fin r → (ZMod p)ˣ) (s : Fin r → ZMod p),
-      (∀ i, o i ∈ O) ∧ s ≠ 0 ∧ s k = 0 ∧ ∑ i, (o i : ZMod p) * s i = 0 ∧
-        ι (ofAdd s) ∈ D := by
-  classical
-  intro hr
-  refine ⟨k, fun i => (ε i)⁻¹, fun i => if i = k then 0 else (ε i : ZMod p),
-    fun i => O.inv_mem (hε i), ?_, by simp, ?_, hD⟩
-  · intro h0
-    have h := congrFun h0 i₀
-    simp only [hi₀, ite_false, Pi.zero_apply] at h
-    exact (ε i₀).ne_zero h
-  · have hr1 : 1 ≤ r := Fin.pos k
-    calc ∑ i, (↑(ε i)⁻¹ : ZMod p) * (if i = k then 0 else (ε i : ZMod p))
-        = ∑ i ∈ Finset.univ.erase k, (1 : ZMod p) := by
-          rw [← Finset.add_sum_erase _ _ (Finset.mem_univ k), ite_eq_left rfl, mul_zero, zero_add]
-          refine Finset.sum_congr rfl fun i hi => ?_
-          rw [ite_eq_right (Finset.ne_of_mem_erase hi), Units.inv_mul]
-      _ = (r : ZMod p) - 1 := by
-          rw [Finset.sum_const, Finset.card_erase_of_mem (Finset.mem_univ k), Finset.card_univ,
-            Fintype.card_fin, nsmul_eq_mul, mul_one, Nat.cast_sub hr1, Nat.cast_one]
-      _ = 0 := hr
 
 end StepTwoToral
 

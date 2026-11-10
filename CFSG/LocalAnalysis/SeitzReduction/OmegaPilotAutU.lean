@@ -235,11 +235,6 @@ theorem mem_range_conj_of_fix_sylow_minus {n : ℕ} (hn : 4 ≤ n) {b c : K}
   rw [CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr]
   exact Subgroup.mem_top β
 
-theorem mem_range_conj_of_fix_sylow_plus_of_mulEquiv {X : Type*} [Group X] {n : ℕ}
-    (e : X ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) (hn : 5 ≤ n) (U : Sylow 2 X)
-    (β : MulAut X) (hβ : ∀ u ∈ (U : Subgroup X), β u = u) :
-    β ∈ (MulAut.conj : X →* MulAut X).range :=
-  autU_of_mulEquiv e (fun U β hβ => mem_range_conj_of_fix_sylow_plus hn U β hβ) U β hβ
 
 theorem mem_range_conj_of_fix_sylow_minus_of_mulEquiv {X : Type*} [Group X] {n : ℕ} (hn : 4 ≤ n)
     {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
@@ -311,13 +306,6 @@ theorem mem_range_conj_of_fix_sylow_plus_of_pow {n : ℕ} (hn : 4 ≤ n)
     exact mem_range_conj_of_fix_sylow_plus_four_of_pow U β hβm hβ
   · exact mem_range_conj_of_fix_sylow_plus h5 U β hβ
 
-theorem mem_range_conj_of_fix_sylow_plus_of_mul_self {n : ℕ} (hn : 4 ≤ n)
-    (U : Sylow 2 (matrixProjectiveDerived (coordinateQuadPlus n K)))
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))} (hβ2 : β * β = 1)
-    (hβ : ∀ u ∈ (U : Subgroup (matrixProjectiveDerived (coordinateQuadPlus n K))), β u = u) :
-    β ∈ (MulAut.conj : matrixProjectiveDerived (coordinateQuadPlus n K) →*
-      MulAut (matrixProjectiveDerived (coordinateQuadPlus n K))).range :=
-  mem_range_conj_of_fix_sylow_plus_of_pow hn U β (m := 1) (by rw [pow_one, _root_.sq, hβ2]) hβ
 
 theorem autU2_plus_of_mulEquiv {X : Type*} [Group X] {n : ℕ}
     (e : X ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) (hn : 4 ≤ n) :

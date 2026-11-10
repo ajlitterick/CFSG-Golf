@@ -36,8 +36,6 @@ variable {M : Subgroup X} {n : ℕ} {L D K J Mo V U Y : Subgroup X}
 omit [Finite X] in
 theorem U_le_V (H : Hyp156 M n L D K J Mo V U Y) : U ≤ V := H.VD_eq ▸ inf_le_left
 
-omit [Finite X] in
-theorem U_le_D (H : Hyp156 M n L D K J Mo V U Y) : U ≤ D := H.U_le.trans H.F.J_le_D
 
 omit [Finite X] in
 theorem U_comm_Mo (H : Hyp156 M n L D K J Mo V U Y) {u : X} (hu : u ∈ U) {m : X} (hm : m ∈ Mo) :

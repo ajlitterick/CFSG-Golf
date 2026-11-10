@@ -20,9 +20,6 @@ namespace P58b3
 @[expose] def CyclicCenterTwo (X : Type) [Group X] : Prop :=
   ∀ P : Subgroup X, P ≤ center X → IsPGroup 2 P → IsCyclic P
 
-theorem oddAutInner_of_index {X : Type} [Group X] {m : ℕ}
-    (h : (OuterAutomorphisms.inner X).index = 2 ^ m) : OddAutInner X :=
-  fun _ _ hk hα => mem_of_pow_mem_of_index_eq_two_pow h hk hα
 
 theorem cyclicCenterTwo_of_isCyclic {X : Type} [Group X] (h : IsCyclic (center X)) :
     CyclicCenterTwo X := fun _ hP _ =>
@@ -174,86 +171,6 @@ theorem le_sup_pPrimeCore_of_aut {M : Subgroup G} [hMn : M.Normal]
   rw [h1]
   exact mul_mem (mem_sup_right hdD) (hWle hw)
 
-theorem harris82Lemma57_of_aut {M : Subgroup G} [M.Normal]
-    (hM2 : ∀ g : G, ∀ k : ℕ, g ^ 2 ^ k = 1 → g ∈ M)
-    (ha : OddAutInner (↥M ⧸ pPrimeCore 2 ↥M)) (hb : CyclicCenterTwo (↥M ⧸ pPrimeCore 2 ↥M))
-    {z : G} (hz : orderOf z = 2) (hzX : z ∈ M) {J : Subgroup G}
-    (hJ : IsSolvableTwoComponentIn J (centralizer {z})) :
-    IsSolvableTwoComponentIn (J ⊓ M) (M ⊓ centralizer {z}) ∧
-      J = (pPrimeCore 2 ↥(centralizer ({z} : Set G))).map (centralizer {z}).subtype ⊔ (J ⊓ M) ∧
-      GH74.GLS.oPrimeResidualOf 2 J = GH74.GLS.oPrimeResidualOf 2 (J ⊓ M) := by
-  classical
-  set H := centralizer ({z} : Set G) with hHdef
-  set OH := (pPrimeCore 2 ↥H).map H.subtype with hOHdef
-  obtain ⟨hJH, hJs, hJO, hJiso⟩ := hJ
-  have hOHJ : OH ≤ J := by
-    rw [hOHdef, ← hJO]
-    exact map_subtype_le _
-  have hHD := le_sup_pPrimeCore_of_aut hM2 ha hb hz hzX
-  set J₁ := J ⊓ M with hJ₁def
-  have hJ₁D : J₁ ≤ M ⊓ H := le_inf inf_le_right (inf_le_left.trans hJH)
-  have hDn : M ⊓ H ≤ normalizer (OH : Set G) :=
-    inf_le_right.trans (F3L57.le_normalizer_map_subtype (pPrimeCore 2 ↥H))
-  have hJeq : J = OH ⊔ J₁ := by
-    apply le_antisymm
-    · intro x hx
-      have hx' : x ∈ ((M ⊓ H ⊔ OH : Subgroup G) : Set G) := by
-        rw [sup_comm]
-        exact hHD (hJH hx)
-      rw [coe_mul_of_left_le_normalizer_right _ _ hDn] at hx'
-      obtain ⟨d, hd, o, ho, rfl⟩ := hx'
-      have hdJ : d ∈ J := by
-        have h1 : d = d * o * o⁻¹ := by group
-        rw [h1]
-        exact mul_mem hx (inv_mem (hOHJ ho))
-      rw [sup_comm]
-      exact mul_mem_sup ⟨hdJ, hd.1⟩ ho
-    · exact sup_le hOHJ inf_le_left
-  have hJ₁J : (J₁.subgroupOf J).Normal := by
-    rw [hJ₁def, inf_comm, inf_subgroupOf_right]
-    infer_instance
-  have hJ₁sH : (J₁.subgroupOf H).IsSubnormal := by
-    have hJ₁J' : ((J₁.subgroupOf H).subgroupOf (J.subgroupOf H)).Normal := by
-      have heq : (J₁.subgroupOf H).subgroupOf (J.subgroupOf H) =
-          (J₁.subgroupOf J).comap (subgroupOfEquivOfLe hJH).toMonoidHom := by
-        ext x
-        exact Iff.rfl
-      rw [heq]
-      exact hJ₁J.comap _
-    exact IsSubnormal.step _ _ (subgroupOf_mono H inf_le_left) hJs hJ₁J'
-  have hJ₁s : (J₁.subgroupOf (M ⊓ H)).IsSubnormal :=
-    F3L57.isSubnormal_subgroupOf_of_le inf_le_right hJ₁sH
-  have hDH : ((M ⊓ H).subgroupOf H).Normal := by
-    rw [inf_subgroupOf_right]
-    infer_instance
-  have hOD : (pPrimeCore 2 ↥(M ⊓ H)).map (M ⊓ H).subtype ≤ OH :=
-    F3L57.map_pPrimeCore_le_of_normal inf_le_right hDH
-  have hOJ₁ : (pPrimeCore 2 ↥J₁).map J₁.subtype = (pPrimeCore 2 ↥(M ⊓ H)).map (M ⊓ H).subtype := by
-    rw [F3L57.map_pPrimeCore_eq_inf hJ₁D hJ₁s]
-    refine inf_eq_right.mpr (le_inf (hOD.trans hOHJ) ?_)
-    exact (map_subtype_le _).trans inf_le_left
-  obtain ⟨-, -, -, ⟨esat⟩⟩ := F3.saturate (hJ₁D.trans inf_le_right) hJ₁sH
-  have hsup : J₁ ⊔ OH = J := by rw [sup_comm, ← hJeq]
-  let eJ : ↥J ⧸ pPrimeCore 2 ↥J ≃* ↥J₁ ⧸ pPrimeCore 2 ↥J₁ :=
-    (QuotientGroup.congr _ _ (MulEquiv.subgroupCongr hsup).symm
-      (pPrimeCore_map_iso 2 _)).trans esat
-  have hJ₁iso : Nonempty (↥J₁ ⧸ pPrimeCore 2 ↥J₁ ≃* PSL(2, ZMod 3)) ∨
-      Nonempty (↥J₁ ⧸ pPrimeCore 2 ↥J₁ ≃* SL(2, ZMod 3)) := by
-    rcases hJiso with ⟨⟨e⟩⟩ | ⟨⟨e⟩⟩
-    · exact Or.inl ⟨eJ.symm.trans e⟩
-    · exact Or.inr ⟨eJ.symm.trans e⟩
-  have hO2 : GH74.GLS.oPrimeResidualOf 2 J = GH74.GLS.oPrimeResidualOf 2 J₁ := by
-    simp only [GH74.GLS.oPrimeResidualOf, GH74.GLS.oPrimeResidual, MonoidHom.map_closure]
-    congr 1
-    ext x
-    simp only [Set.mem_image, Set.mem_ofPred_eq, coe_subtype]
-    constructor
-    · rintro ⟨y, ⟨k, hk⟩, rfl⟩
-      have hyM : (y : G) ∈ M := hM2 _ k (by simpa using congrArg Subtype.val hk)
-      exact ⟨⟨y, y.2, hyM⟩, ⟨k, Subtype.ext (by simpa using congrArg Subtype.val hk)⟩, rfl⟩
-    · rintro ⟨y, ⟨k, hk⟩, rfl⟩
-      exact ⟨⟨y, y.2.1⟩, ⟨k, Subtype.ext (by simpa using congrArg Subtype.val hk)⟩, rfl⟩
-  exact ⟨⟨hJ₁D, hJ₁s, hOJ₁, hJ₁iso⟩, hJeq, hO2⟩
 
 omit [Finite G] in
 theorem mem_of_pow_mem_of_coprime {K : Subgroup G} {l : G} {a b : ℕ} (hab : Nat.Coprime a b)

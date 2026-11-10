@@ -39,7 +39,6 @@ theorem img_preSub (S : AddSubgroup M₀.E) : M₀.img (preSub M₀ S) = S := by
     obtain ⟨x, hxQ, rfl⟩ := M₀.π_surj e
     exact ⟨x, ⟨hxQ, he⟩, hxQ, rfl⟩
 
-variable {φ : ↥M →* Equiv.Perm M₀.E}
 
 end HS9
 

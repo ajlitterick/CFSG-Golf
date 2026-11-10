@@ -323,11 +323,5 @@ theorem ZDSetup.prop176
   rw [hcardM, ← hk3, ← hk]
   exact card_mul_card_le_card_sup hinf
 
-theorem ZDSetup.false_of_stmts_prop176
-    (S : ZDSetup X Z M)
-    (hconf : ∀ _ : Ctx16 Z M, Nonempty (Conf16 Z M)) (h121 : Thm121Stmt Z M)
-    (h163 : Lemma163Stmt Z M) (h166 : Cor166Stmt Z M) (h172 : Lemma172Stmt Z M)
-    (h173 : Lemma173Stmt Z M) (h174 : Lemma174Stmt Z M) (h175 : Lemma175Stmt Z M) : False :=
-  S.false_of_stmts hconf h163 h166 h173 h174 (S.prop176 h121 h166 h172 h175)
 
 end CFSG.GH74.Uniqueness

@@ -17,15 +17,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem HM.isClassicalMember3 (hΩ : HM Ω) {K : Subgroup G} (hK : K ∈ Ω) {z : G}
-    (hz : IsUniqueInvolution K z) : Q3.IsClassicalMember3 K z := by
-  obtain ⟨z', hz'⟩ := hΩ.classical K hK
-  have h3 := hz'.toQ3 (by norm_num)
-  have hz'2 : z' * z' = 1 := by
-    have := pow_orderOf_eq_one z'
-    rwa [h3.orderOf_eq_two, pow_two] at this
-  have : z' = z := (hz.unique z' h3.mem hz'2).resolve_left h3.ne_one
-  rwa [this] at h3
 
 theorem _root_.CFSG.ClassicalInvolution.Q3.Q3T7M.HM.toU {G : Type} [Group G] {Ω : Set (Subgroup G)} (hΩ : CFSG.ClassicalInvolution.Q3.Q3T7M.HM Ω) :
     CFSG.ClassicalInvolution.T7FU.HM (.sl2 3 1) Ω :=
@@ -46,18 +37,6 @@ theorem centralizer_eq_of_central {z t : G} (hc : t⁻¹ * z ∈ Subgroup.center
     Subgroup.centralizer ({t} : Set G) = Subgroup.centralizer ({z} : Set G) :=
   CFSG.ClassicalInvolution.T7FU.CentQ.centralizer_eq_of_central hc
 
-theorem comm_sylow_le_oddCoreOf (hΩ : HM Ω) (h62 : L6_2On Ω) {X : Subgroup G}
-    (hXc : X ≤ Subgroup.center G) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) {z t : G}
-    (hz : IsUniqueInvolution K z) (ht : IsUniqueInvolution J t) (hzt' : z ≠ t)
-    (hzt : t⁻¹ * z ∈ X) {V : Subgroup G} (hV : IsSylow2In V J) : ⁅V, K⁆ ≤ oddCoreOf K :=
-  CFSG.ClassicalInvolution.T7FU.CentQ.comm_sylow_le_oddCoreOf
-    (CFSG.ClassicalInvolution.Q3.Q3T7M.HM.toU hΩ) h62 hXc hK hJ hz ht hzt' hzt hV
-
-theorem conjSub_eq_of_mem_oddCore (hΩ : HM Ω) {M : Subgroup G} {z : G} (hM : M ∈ Ω)
-    (hz : IsUniqueInvolution M z) {n : G}
-    (hn : n ∈ oddCoreOf (Subgroup.centralizer ({z} : Set G))) : conjSub n M = M :=
-  CFSG.ClassicalInvolution.T7FU.CentQ.conjSub_eq_of_mem_oddCore
-    (CFSG.ClassicalInvolution.Q3.Q3T7M.HM.toU hΩ) hM hz hn
 
 theorem isSylow2In_sup_of_odd {N Q A : Subgroup G}
     (hQN : Q ≤ Subgroup.normalizer (N : Set G)) (hN : Odd (Nat.card N)) (hQN0 : Q ⊓ N = ⊥)
@@ -71,19 +50,6 @@ theorem exists_conjSub_of_le_sup_odd {N Q Q' : Subgroup G}
     (hle : Q' ≤ N ⊔ Q) : ∃ n ∈ N, conjSub n Q = Q' :=
   CFSG.ClassicalInvolution.T7FU.CentQ.exists_conjSub_of_le_sup_odd hQN hN hQN0 hQ2 hQ'2 hcard hle
 
-theorem le_normalizer_of_congr (hΩ : HM Ω) (h62 : L6_2On Ω) {X : Subgroup G}
-    (hXc : X ≤ Subgroup.center G) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) {z t : G}
-    (hz : IsUniqueInvolution K z) (ht : IsUniqueInvolution J t) (hzt' : z ≠ t)
-    (hzt : t⁻¹ * z ∈ X) : J ≤ Subgroup.normalizer (K : Set G) :=
-  CFSG.ClassicalInvolution.T7FU.CentQ.le_normalizer_of_congr
-    (CFSG.ClassicalInvolution.Q3.Q3T7M.HM.toU hΩ) h62 hXc hK hJ hz ht hzt' hzt
-
-theorem commutes_of_congr (hΩ : HM Ω) (h62 : L6_2On Ω) {X : Subgroup G}
-    (hXc : X ≤ Subgroup.center G) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKJ : K ≠ J)
-    {z t : G} (hz : IsUniqueInvolution K z) (ht : IsUniqueInvolution J t)
-    (hzt : t⁻¹ * z ∈ X) : ⁅K, J⁆ ≤ oddCoreOf K ⊓ oddCoreOf J :=
-  CFSG.ClassicalInvolution.T7FU.CentQ.commutes_of_congr
-    (CFSG.ClassicalInvolution.Q3.Q3T7M.HM.toU hΩ) h62 hXc hK hJ hKJ hz ht hzt
 
 end CentQ
 

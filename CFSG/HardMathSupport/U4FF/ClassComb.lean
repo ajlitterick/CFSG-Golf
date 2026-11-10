@@ -198,10 +198,6 @@ theorem two_mul_rk1 (l : Lbl n) : 2 * l.rk1 = l.dim - l.fix1 := by
   unfold rk1
   omega
 
-theorem dim_sub_fix1_mod_two (l : Lbl n) : (l.dim - l.fix1) % 2 = 0 := by
-  have h1 := l.fix1_le_dim
-  have h2 := l.dim_mod_two
-  omega
 
 theorem dim_ge_pow (l : Lbl n) (P : Finset (Fin n)) (hP : ∀ i, i ∈ P ↔ ¬ l.ZeroAt i)
     (c : ℕ) (hc : ∀ i ∈ P, c ≤ locM (l.a i) (l.b i) (l.c i)) : c ^ P.card ≤ l.dim := by

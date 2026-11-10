@@ -57,8 +57,6 @@ theorem map_solvableRadical [Finite H] (hρ : Function.Surjective ρ)
       ((QuotientGroup.mk' (CFSG.solvableRadical H')).comp ρ)
       ((QuotientGroup.mk'_surjective _).comp hρ))
 
-theorem solQuotEquiv_mk [Finite H] (hρ : Function.Surjective ρ) (hk : Group.IsSolvable ρ.ker)
-    (x : H) : solQuotEquiv hρ hk (QuotientGroup.mk x) = QuotientGroup.mk (ρ x) := rfl
 
 theorem comap_oStar [Finite H] (hρ : Function.Surjective ρ) (hk : Group.IsSolvable ρ.ker) :
     (oStar H').comap ρ = oStar H := by

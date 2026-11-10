@@ -26,10 +26,6 @@ structure SporadicResidualKernelsTrim : Prop where
   ly_five : SporadicKernelTrivial .Ly 5
   on_seven : SporadicKernelTrivial .ONan 7
 
-theorem SporadicResidualKernels.toTrim (h : SporadicResidualKernels) :
-    SporadicResidualKernelsTrim :=
-  ⟨h.co1_five, h.co1_seven, h.th_five, h.th_seven, h.co2_five, h.co3_five, h.mcl_five, h.suz_five,
-    h.hn_five, h.ly_five, h.on_seven⟩
 
 @[expose] def SectionExcluded (s : TauCeti.SporadicName) : Prop :=
   s = .Fi22 ∨ s = .Fi23 ∨ s = .Fi24Prime ∨ s = .B ∨ s = .M

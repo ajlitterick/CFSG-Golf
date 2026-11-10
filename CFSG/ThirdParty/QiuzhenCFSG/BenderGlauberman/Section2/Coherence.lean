@@ -129,38 +129,6 @@ private lemma orbit_mem_degree_eq (c : Hyp11 G)
   rcases (Finset.mem_image.mp hμ) with ⟨l, hl, rfl⟩
   simp [LambdaChar]
 
-/-- An orbit member takes either the same or the opposite value as another
-member at the central involution `t`. -/
-private lemma orbit_mem_value_eq_or_neg (c : Hyp11 G)
-    {ν μ : ClassFunction (↥c.H0)}
-    (hν : IsIrreducibleCharacter ν) (hμ : IsIrreducibleCharacter μ)
-    (hνL : ν ∈ orbit c.H0 c.U μ) :
-    ν (tH0 c) = μ (tH0 c) ∨ ν (tH0 c) = -μ (tH0 c) := by
-  have ht_sq : (tH0 c) ^ 2 = 1 := t_H0_sq c
-  have ht_central : ∀ g : ↥c.H0, (tH0 c) * g = g * (tH0 c) := t_central_H0' c
-  rcases char_apply_central_sign ht_central ht_sq hν with hνt | hνt
-  · rcases char_apply_central_sign ht_central ht_sq hμ with hμt | hμt
-    · left
-      calc
-        ν (tH0 c) = ν 1 := hνt
-        _ = μ 1 := orbit_mem_degree_eq c hνL
-        _ = μ (tH0 c) := hμt.symm
-    · right
-      calc
-        ν (tH0 c) = ν 1 := hνt
-        _ = μ 1 := orbit_mem_degree_eq c hνL
-        _ = -μ (tH0 c) := by rw [hμt]; ring
-  · rcases char_apply_central_sign ht_central ht_sq hμ with hμt | hμt
-    · right
-      calc
-        ν (tH0 c) = -ν 1 := hνt
-        _ = -μ 1 := by rw [orbit_mem_degree_eq c hνL]
-        _ = -μ (tH0 c) := by rw [hμt]
-    · left
-      calc
-        ν (tH0 c) = -ν 1 := hνt
-        _ = -μ 1 := by rw [orbit_mem_degree_eq c hνL]
-        _ = μ (tH0 c) := by rw [hμt]
 
 /-- An orbit member fixed by `s` forces the whole orbit to be `s`-invariant:
 `μ ∈ Lν`, `μ^s = μ` ⟹ `ν^s ∈ Lν`. -/
@@ -475,194 +443,6 @@ private lemma sum_chi_t_sq_over_deg (c : Hyp11 G) {φ χ₀ : ClassFunction G}
       _ = (-χ₀ c.t) ^ 2 / -χ₀ 1 := by
             field_simp [irreducible_char_one_ne_zero hχ₀]
 
-/-- The `(vi)`-step, reduced: with `δ* = (μ−ν)* = μ̃−ν̃` (field (ii)) and the
-`V = 0` content of Lemma 2.2 (explicit hypothesis), `μ̃(t)² = ν̃(t)²`. -/
-private lemma tilde_sq_eq_of_V_zero (c : Hyp11 G)
-    [Fintype ↥(LambdaHom c.H0 c.U)]
-    {tilde : Irr (↥c.H0) → ClassFunction G}
-    (hgen : ∀ ν : Irr (↥c.H0), IsGeneralizedCharacter (tilde ν))
-    {μ ν : Irr (↥c.H0)}
-    (hμnorm : normSq G (tilde μ) = 1) (hνnorm : normSq G (tilde ν) = 1)
-    (hind : ∀ μ ν : Irr (↥c.H0), μ.1 ∈ orbit c.H0 c.U ν.1 →
-      inducedClassFunction c.H0 (μ.1 - ν.1) = tilde μ - tilde ν)
-    (hμL : μ.1 ∈ orbit c.H0 c.U ν.1)
-    (hV : (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) *
-      scalarProduct G χ.1 (inducedClassFunction c.H0 (μ.1 - ν.1))) = 0) :
-    (tilde μ c.t) ^ 2 = (tilde ν c.t) ^ 2 := by
-  classical
-  rcases norm_one_signed_irreducible (hgen μ) hμnorm with ⟨χ₁, hχ₁, hμcase⟩
-  rcases norm_one_signed_irreducible (hgen ν) hνnorm with ⟨χ₂, hχ₂, hνcase⟩
-  have hδeq : inducedClassFunction c.H0 (μ.1 - ν.1) = tilde μ - tilde ν := hind μ ν hμL
-  -- δ*(1) = 0 (degrees are equal on an orbit)
-  have hδ1 : (inducedClassFunction c.H0 (μ.1 - ν.1)) 1 = 0 := by
-    unfold inducedClassFunction
-    have hsum : (∑ x : G, (if hx : x⁻¹ * 1 * x ∈ c.H0 then (μ.1 - ν.1) ⟨x⁻¹ * 1 * x, hx⟩ else 0)) =
-        Fintype.card G * (μ.1 1 - ν.1 1) := by
-      calc
-        (∑ x : G, (if hx : x⁻¹ * 1 * x ∈ c.H0 then (μ.1 - ν.1) ⟨x⁻¹ * 1 * x, hx⟩ else 0))
-            = ∑ x : G, (μ.1 1 - ν.1 1) := by
-                refine Finset.sum_congr rfl ?_
-                intro x hx
-                have hx1 : x⁻¹ * 1 * x = 1 := by group
-                have hxmem : x⁻¹ * 1 * x ∈ c.H0 := by
-                  rw [hx1]
-                  exact c.H0.one_mem
-                rw [dif_pos hxmem]
-                have hxeq : (⟨x⁻¹ * 1 * x, hxmem⟩ : ↥c.H0) = (1 : ↥c.H0) := by
-                  apply Subtype.ext
-                  exact hx1
-                rw [hxeq]
-                rfl
-        _ = Fintype.card G * (μ.1 1 - ν.1 1) := by
-                rw [Finset.sum_const]
-                simp [nsmul_eq_mul]
-    rw [hsum]
-    have hdeg : μ.1 1 = ν.1 1 := orbit_mem_degree_eq c hμL
-    simp [hdeg]
-  have hmu1 : tilde μ 1 = tilde ν 1 := by
-    have h := congrFun hδeq 1
-    rw [hδ1] at h
-    have h' : tilde μ 1 - tilde ν 1 = 0 := by simpa using h.symm
-    exact sub_eq_zero.mp h'
-  have hmu1_ne : tilde μ 1 ≠ 0 := by
-    rcases hμcase with hμcase1 | hμcase2
-    · rw [hμcase1]
-      exact irreducible_char_one_ne_zero hχ₁
-    · rw [hμcase2]
-      simpa using irreducible_char_one_ne_zero hχ₁
-  have hν1_ne : tilde ν 1 ≠ 0 := by
-    rcases hνcase with hνcase1 | hνcase2
-    · rw [hνcase1]
-      exact irreducible_char_one_ne_zero hχ₂
-    · rw [hνcase2]
-      simpa using irreducible_char_one_ne_zero hχ₂
-  -- split V over the two signed irreducibles
-  have hsplit : (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) *
-        scalarProduct G χ.1 (inducedClassFunction c.H0 (μ.1 - ν.1))) =
-      (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) * scalarProduct G χ.1 (tilde μ)) -
-        (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) * scalarProduct G χ.1 (tilde ν)) := by
-    rw [hδeq]
-    simp [scalarProduct_sub_right, mul_sub, Finset.sum_sub_distrib]
-  have hVμν : (tilde μ c.t) ^ 2 / tilde μ 1 - (tilde ν c.t) ^ 2 / tilde ν 1 = 0 := by
-    have hA : (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) * scalarProduct G χ.1 (tilde μ)) =
-        (tilde μ c.t) ^ 2 / tilde μ 1 := sum_chi_t_sq_over_deg c (φ := tilde μ) (χ₀ := χ₁) hχ₁ hμcase
-    have hB : (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) * scalarProduct G χ.1 (tilde ν)) =
-        (tilde ν c.t) ^ 2 / tilde ν 1 := sum_chi_t_sq_over_deg c (φ := tilde ν) (χ₀ := χ₂) hχ₂ hνcase
-    rw [← hA, ← hB, ← hsplit]
-    exact hV
-  rw [hmu1] at hVμν
-  have hVμν' : (tilde μ c.t) ^ 2 - (tilde ν c.t) ^ 2 = 0 := by
-    field_simp [hmu1_ne] at hVμν
-    simpa using hVμν
-  exact sub_eq_zero.mp hVμν'
-
-/-- The `(vi)`-argument of the Coherence Theorem: `ν̃(t) = 2ν(t)` for
-`ν^s ≠ ν`, from the fields (i),(ii),(v), the Lemma-2.1 sign choice, the
-`V = 0` content of Lemma 2.2, and `|H : H0| = 2` (the two blocked inputs as
-explicit hypotheses; see the theorem card). -/
-private lemma at_t_of_V_zero (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)]
-    (hH0index : (c.H0.subgroupOf c.H).index = 2)
-    (tilde : Irr (↥c.H0) → ClassFunction G)
-    (hgen : ∀ ν : Irr (↥c.H0), IsGeneralizedCharacter (tilde ν))
-    (hnorm : ∀ ν : Irr (↥c.H0), normSq G (tilde ν) =
-      (if conjChar c.H0 (s_normalizes_H0 c h12) ν.1 = ν.1 then 2 else 1))
-    (hind : ∀ μ ν : Irr (↥c.H0), μ.1 ∈ orbit c.H0 c.U ν.1 →
-      inducedClassFunction c.H0 (μ.1 - ν.1) = tilde μ - tilde ν)
-    (honT : ∀ μ ν : Irr (↥c.H0), μ.1 ∈ orbit c.H0 c.U ν.1 →
-      ∀ g : G, g ∈ c.T → (hg : g ∈ c.H) →
-      tilde μ g - tilde ν g =
-        inducedFromSub (h12.H0_normal_in_H).1 μ.1 ⟨g, hg⟩ -
-          inducedFromSub (h12.H0_normal_in_H).1 ν.1 ⟨g, hg⟩)
-    {μ ν : Irr (↥c.H0)} (hμL : μ.1 ∈ orbit c.H0 c.U ν.1)
-    (hμs : conjChar c.H0 (s_normalizes_H0 c h12) μ.1 ≠ μ.1)
-    (hμt : μ.1 (tH0 c) = -ν.1 (tH0 c))
-    (hνs : conjChar c.H0 (s_normalizes_H0 c h12) ν.1 ≠ ν.1)
-    (hV : (∑ χ : Irr G, (χ.1 c.t ^ 2 / χ.1 1) *
-      scalarProduct G χ.1 (inducedClassFunction c.H0 (μ.1 - ν.1))) = 0) :
-    tilde ν c.t = 2 * ν.1 (tH0 c) := by
-  classical
-  have hμnorm1 : normSq G (tilde μ) = 1 := by
-    by_cases hμ : conjChar c.H0 (s_normalizes_H0 c h12) μ.1 = μ.1
-    · exact False.elim (hμs hμ)
-    · simpa [hμ] using hnorm μ
-  have hνnorm1 : normSq G (tilde ν) = 1 := by
-    by_cases hν : conjChar c.H0 (s_normalizes_H0 c h12) ν.1 = ν.1
-    · exact False.elim (hνs hν)
-    · simpa [hν] using hnorm ν
-  have hsq := tilde_sq_eq_of_V_zero c (hgen := hgen) (hμnorm := hμnorm1)
-    (hνnorm := hνnorm1) (hind := hind) (μ := μ) (ν := ν) hμL hV
-  -- hsq : (tilde μ c.t)^2 = (tilde ν c.t)^2
-  have htmem : c.t ∈ c.T := ⟨S0_le_H0 c c.t_mem_S0, t_not_mem_U c⟩
-  have hHmem : c.t ∈ c.H := S_le_H c (c.S0_le_S c.t_mem_S0)
-  -- (v) + Remark 1.4: μ̃(t) − ν̃(t) = μ^H(t) − ν^H(t) = 2μ(t) − 2ν(t) = 4μ(t)
-  have hsh : c.s * c.t * c.s⁻¹ ∈ c.H0 := by
-    rw [s_conj_t c]
-    exact (tH0 c).2
-  have hmuH : (inducedFromSub (h12.H0_normal_in_H).1 μ.1) ⟨c.t, (h12.H0_normal_in_H).1 (tH0 c).2⟩ =
-      2 * μ.1 (tH0 c) := by
-    have h1 := (remark_1_4 (h12.H0_normal_in_H).1 hH0index (S_le_H c c.s_mem_S)
-      (s_not_mem_H0' c h12) μ.2).1 c.t (tH0 c).2 hsh
-    have h2 : μ.1 ⟨c.s * c.t * c.s⁻¹, hsh⟩ = μ.1 (tH0 c) := by
-      exact congrArg μ.1 (by
-        apply Subtype.ext
-        exact s_conj_t c)
-    have h3 : μ.1 ⟨c.t, (tH0 c).2⟩ = μ.1 (tH0 c) := rfl
-    calc
-      (inducedFromSub (h12.H0_normal_in_H).1 μ.1) ⟨c.t, (h12.H0_normal_in_H).1 (tH0 c).2⟩
-          = μ.1 ⟨c.t, (tH0 c).2⟩ + μ.1 ⟨c.s * c.t * c.s⁻¹, hsh⟩ := h1
-      _ = 2 * μ.1 (tH0 c) := by simp [h2, h3, two_mul]
-  have hnuH : (inducedFromSub (h12.H0_normal_in_H).1 ν.1) ⟨c.t, (h12.H0_normal_in_H).1 (tH0 c).2⟩ =
-      2 * ν.1 (tH0 c) := by
-    have h1 := (remark_1_4 (h12.H0_normal_in_H).1 hH0index (S_le_H c c.s_mem_S)
-      (s_not_mem_H0' c h12) ν.2).1 c.t (tH0 c).2 hsh
-    have h2 : ν.1 ⟨c.s * c.t * c.s⁻¹, hsh⟩ = ν.1 (tH0 c) := by
-      exact congrArg ν.1 (by
-        apply Subtype.ext
-        exact s_conj_t c)
-    have h3 : ν.1 ⟨c.t, (tH0 c).2⟩ = ν.1 (tH0 c) := rfl
-    calc
-      (inducedFromSub (h12.H0_normal_in_H).1 ν.1) ⟨c.t, (h12.H0_normal_in_H).1 (tH0 c).2⟩
-          = ν.1 ⟨c.t, (tH0 c).2⟩ + ν.1 ⟨c.s * c.t * c.s⁻¹, hsh⟩ := h1
-      _ = 2 * ν.1 (tH0 c) := by simp [h2, h3, two_mul]
-  have hdiff : tilde μ c.t - tilde ν c.t = 4 * μ.1 (tH0 c) := by
-    have h1 := honT μ ν hμL c.t htmem hHmem
-    have h2 : (inducedFromSub (h12.H0_normal_in_H).1 μ.1) ⟨c.t, hHmem⟩ = 2 * μ.1 (tH0 c) := by
-      convert hmuH using 1
-    have h3 : (inducedFromSub (h12.H0_normal_in_H).1 ν.1) ⟨c.t, hHmem⟩ = 2 * ν.1 (tH0 c) := by
-      convert hnuH using 1
-    rw [h1, h2, h3]
-    rw [hμt]
-    ring
-  have hdiff_ne : tilde μ c.t - tilde ν c.t ≠ 0 := by
-    rw [hdiff]
-    have hμt0 : μ.1 (tH0 c) ≠ 0 := char_apply_central_ne_zero
-      (G := ↥c.H0) (t := tH0 c) (by simpa [tH0] using t_central_H0' c)
-      (by simpa [tH0] using t_H0_sq c) μ.2
-    intro hz
-    rcases (mul_eq_zero.mp hz) with h4 | hν0
-    · norm_num at h4
-    · exact hμt0 hν0
-  have hsum0 : tilde μ c.t + tilde ν c.t = 0 := by
-    have hprod : (tilde μ c.t + tilde ν c.t) * (tilde μ c.t - tilde ν c.t) = 0 := by
-      calc
-        (tilde μ c.t + tilde ν c.t) * (tilde μ c.t - tilde ν c.t)
-            = (tilde μ c.t) ^ 2 - (tilde ν c.t) ^ 2 := by ring
-        _ = 0 := by rw [hsq]; ring
-    exact (mul_eq_zero.mp hprod).resolve_right hdiff_ne
-  have hb : tilde ν c.t = -tilde μ c.t := by
-    linear_combination hsum0
-  have ha : tilde μ c.t = 2 * μ.1 (tH0 c) := by
-    have h2m : 2 * tilde μ c.t = 4 * μ.1 (tH0 c) := by
-      linear_combination hdiff + hb
-    calc
-      tilde μ c.t = (2 * tilde μ c.t) / 2 := by ring
-      _ = (4 * μ.1 (tH0 c)) / 2 := by rw [h2m]
-      _ = 2 * μ.1 (tH0 c) := by ring
-  calc
-    tilde ν c.t = -tilde μ c.t := hb
-    _ = -(2 * μ.1 (tH0 c)) := by rw [ha]
-    _ = 2 * ν.1 (tH0 c) := by rw [hμt]; ring
 
 /-! ## The orbit-lift construction (route `R1-orbitwise`, step `orbit-lift`)
 
@@ -1537,7 +1317,6 @@ private lemma theta_tilde_two_eval (c : Hyp11 G) (h12 : Hyp12 c)
     _ = 2 * ν (tH0 c) := by rw [hμt]; ring
 
 
-
 /-- The `(vi)`-value `ν̃(t) = 2ν(t)` specialized to one sign-chosen pair
 `(μ,ν)`, so the fixed-member Fourier contradiction can use it without
 constructing the whole orbit lift. -/
@@ -1747,32 +1526,6 @@ private lemma theta_tilde_two_eval_pair (c : Hyp11 G) (h12 : Hyp12 c)
     _ = -(2 * μ (tH0 c)) := by rw [ha]
     _ = 2 * ν (tH0 c) := by rw [hμt]; ring
 
-/-- Clifford for `|H : H0| = 2`: `ν^H` is irreducible iff `ν^s ≠ ν`.
-(`⟸` is `remark_1_4`'s second assertion; `⟹` via `theta_norm`:
-`ν^s = ν` gives `|ν^H|² = 2`, while an irreducible has norm one.) -/
-private lemma theta_irreducible_iff (c : Hyp11 G) (h12 : Hyp12 c)
-    (hH0index : (c.H0.subgroupOf c.H).index = 2)
-    {ν : ClassFunction (↥c.H0)} (hν : IsIrreducibleCharacter ν) :
-    IsIrreducibleCharacter (inducedFromSub (h12.H0_normal_in_H).1 ν) ↔
-      conjChar c.H0 (s_normalizes_H0 c h12) ν ≠ ν := by
-  classical
-  constructor
-  · intro hIrr hEq
-    have hnorm2 : normSq (↥c.H) (inducedFromSub (h12.H0_normal_in_H).1 ν) = 2 := by
-      rw [theta_norm c h12 hH0index hν]
-      simp [hEq]
-    have hnorm1 : normSq (↥c.H) (inducedFromSub (h12.H0_normal_in_H).1 ν) = 1 := by
-      rw [normSq]
-      exact scalarProduct_irreducible_self hIrr
-    rw [hnorm1] at hnorm2
-    norm_num at hnorm2
-  · intro hne
-    apply (remark_1_4 (h12.H0_normal_in_H).1 hH0index (S_le_H c c.s_mem_S)
-      (s_not_mem_H0' c h12) hν).2
-    intro hAll
-    apply hne
-    ext x
-    simpa [conjChar, conjMonoidHom] using (hAll (x : G) x.2 (s_normalizes_H0 c h12 x))
 
 /-- `(ν−μ)*(1) = 0` for orbit members `ν, μ` (equal degrees): the value of the
 induced difference at `1`. -/
@@ -2258,7 +2011,6 @@ private lemma theta_eq_imp_conj (c : Hyp11 G) (h12 : Hyp12 c)
       simp [sp1, sp2, sp3, sp4]
 
 
-
 /-! ## The `n`-formula: `n = |L|` or `2n = |L| + 2` (Fact 2) -/
 
 /-- A fixed member of an orbit forces the orbit to be `s`-invariant. -/
@@ -2309,17 +2061,6 @@ private lemma theta_of_orbit_injective_of_not_invariant (c : Hyp11 G) (h12 : Hyp
     have ho2 : orbit c.H0 c.U μ₁ = orbit c.H0 c.U ν := orbit_eq_of_mem c hμ₁
     rw [← ho2, ho1]
     exact orbit_self_mem c (conjChar c.H0 (s_normalizes_H0 c h12) ν)
-
-/-- `n = |L|` when `ν^s ∉ Lν` (no `s`-fixed members, all induced characters
-irreducible, the induced map injective on the orbit). -/
-private lemma theta_card_eq_orbit_card_of_not_invariant (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν : ClassFunction (↥c.H0)}
-    (hν : IsIrreducibleCharacter ν)
-    (hνs : conjChar c.H0 (s_normalizes_H0 c h12) ν ∉ orbit c.H0 c.U ν) :
-    (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card = (orbit c.H0 c.U ν).card := by
-  classical
-  rw [thetaOfOrbit]
-  exact Finset.card_image_of_injOn (theta_of_orbit_injective_of_not_invariant c h12 hν hνs)
 
 
 /-- For an `s`-invariant orbit, the `s`-image of a member lies in the orbit:
@@ -2387,262 +2128,6 @@ private lemma theta_fiber_pair_of_invariant (c : Hyp11 G) (h12 : Hyp12 c)
         ⟨hLσ μ₀ hμ₀,
           (inducedFromSub_conjChar_eq c h12 (H0_index c h12) hIrr₀).trans hμ₀θ'⟩
 
-/-- `2n = |L| + 2` for an `s`-invariant orbit: exactly two `s`-fixed members
-(`orbit_s_fixed_card_eq_two_of_invariant`), the rest in `s`-pairs, and the
-induced-character map is constant on each `s`-pair
-(`inducedFromSub_conjChar_eq`) and injective across pairs
-(`theta_eq_imp_conj`). -/
-private lemma theta_card_mul_two_eq_orbit_card_add_two (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν : ClassFunction (↥c.H0)}
-    (hν : IsIrreducibleCharacter ν)
-    (hνs : conjChar c.H0 (s_normalizes_H0 c h12) ν ∈ orbit c.H0 c.U ν) :
-    (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card * 2 =
-      (orbit c.H0 c.U ν).card + 2 := by
-  classical
-  let L : Finset (ClassFunction (↥c.H0)) := orbit c.H0 c.U ν
-  let θ : ClassFunction (↥c.H0) → ClassFunction (↥c.H) :=
-    fun μ => inducedFromSub (h12.H0_normal_in_H).1 μ
-  let σ : ClassFunction (↥c.H0) → ClassFunction (↥c.H0) :=
-    fun μ => conjChar c.H0 (s_normalizes_H0 c h12) μ
-  let Θ : Finset (ClassFunction (↥c.H)) := thetaOfOrbit c h12 L
-  have hσ2 : ∀ μ : ClassFunction (↥c.H0), σ (σ μ) = μ := by
-    intro μ
-    exact conjChar_conjChar c h12 μ
-  -- the orbit is closed under `s`
-  have hLσ : ∀ a ∈ L, σ a ∈ L := by
-    intro a ha
-    have hσa : σ a ∈ orbit c.H0 c.U (σ ν) := by
-      rw [orbit_conjChar_eq c h12]
-      exact Finset.mem_image.mpr ⟨a, ha, rfl⟩
-    have hEqOrbit : orbit c.H0 c.U (σ ν) = L := by
-      change orbit c.H0 c.U (conjChar c.H0 (s_normalizes_H0 c h12) ν) = L
-      rw [orbit_eq_of_mem c hνs]
-    rwa [hEqOrbit] at hσa
-  -- each fiber of `θ` is an `s`-pair
-  have hfib_eq : ∀ {θ' : ClassFunction (↥c.H)} {μ₀ : ClassFunction (↥c.H0)},
-      μ₀ ∈ L → θ μ₀ = θ' →
-      L.filter (fun μ => θ μ = θ') = ({μ₀, σ μ₀} : Finset (ClassFunction (↥c.H0))) := by
-    intro θ' μ₀ hμ₀ hμ₀θ'
-    apply Finset.ext
-    intro μ
-    constructor
-    · intro hμ
-      have hμL : μ ∈ L := (Finset.mem_filter.mp hμ).1
-      have hμθ : θ μ = θ' := (Finset.mem_filter.mp hμ).2
-      have hIrr₀ : IsIrreducibleCharacter μ₀ := orbit_mem_isIrreducible c.H0 c.U hν hμ₀
-      have hIrrμ : IsIrreducibleCharacter μ := orbit_mem_isIrreducible c.H0 c.U hν hμL
-      rw [Finset.mem_insert, Finset.mem_singleton]
-      rcases theta_eq_imp_conj c h12 (H0_index c h12) hIrr₀ hIrrμ
-        (hμθ.trans hμ₀θ'.symm).symm with h | h
-      · left
-        exact h
-      · right
-        exact (hσ2 μ).symm.trans (congrArg σ h)
-    · intro hμ
-      rw [Finset.mem_insert, Finset.mem_singleton] at hμ
-      rcases hμ with h | h
-      · subst μ
-        exact Finset.mem_filter.mpr ⟨hμ₀, hμ₀θ'⟩
-      · subst h
-        have hIrr₀ : IsIrreducibleCharacter μ₀ := orbit_mem_isIrreducible c.H0 c.U hν hμ₀
-        exact Finset.mem_filter.mpr
-          ⟨hLσ μ₀ hμ₀,
-            (inducedFromSub_conjChar_eq c h12 (H0_index c h12) hIrr₀).trans hμ₀θ'⟩
-  -- the pair cardinality
-  have hpair_card : ∀ μ₀ : ClassFunction (↥c.H0),
-      ({μ₀, σ μ₀} : Finset (ClassFunction (↥c.H0))).card =
-        if σ μ₀ = μ₀ then 1 else 2 := by
-    intro μ₀
-    by_cases h : σ μ₀ = μ₀
-    · simp [h]
-    · have hne : μ₀ ≠ σ μ₀ := by
-        intro hEq
-        exact h hEq.symm
-      rw [Finset.card_insert_of_notMem (by simpa [Finset.mem_singleton] using hne)]
-      simp [h]
-  -- the fiberwise count
-  have hfib : L.card = ∑ θ' ∈ Θ, (L.filter (fun μ => θ μ = θ')).card := by
-    exact Finset.card_eq_sum_card_fiberwise (f := θ) (s := L) (t := Θ) (by
-      intro μ hμ
-      exact thetaOfOrbit_mem c h12 hμ)
-  -- the witness section of `θ` on `Θ`
-  let w : ClassFunction (↥c.H) → ClassFunction (↥c.H0) := fun θ' =>
-    if h : θ' ∈ Θ then Classical.choose (Finset.mem_image.mp h) else ν
-  have hw : ∀ {θ' : ClassFunction (↥c.H)}, θ' ∈ Θ → w θ' ∈ L ∧ θ (w θ') = θ' := by
-    intro θ' hθ'
-    unfold w
-    rw [dif_pos hθ']
-    exact Classical.choose_spec (Finset.mem_image.mp hθ')
-  -- the fiber cards in the sum
-  have hsum : (∑ θ' ∈ Θ, (L.filter (fun μ => θ μ = θ')).card) =
-      ∑ θ' ∈ Θ, (if σ (w θ') = w θ' then 1 else 2) := by
-    apply Finset.sum_congr rfl
-    intro θ' hθ'
-    rw [hfib_eq (hw hθ').1 (hw hθ').2]
-    exact hpair_card (w θ')
-  -- the singles (fixed members) are exactly two
-  have hfix : (L.filter (fun μ => σ μ = μ)).card = 2 := by
-    change (L.filter (fun μ => conjChar c.H0 (s_normalizes_H0 c h12) μ = μ)).card = 2
-    exact orbit_s_fixed_card_eq_two_of_invariant c h12 hν hνs
-  have hsing : (Θ.filter (fun θ' => σ (w θ') = w θ')).card = 2 := by
-    calc
-      (Θ.filter (fun θ' => σ (w θ') = w θ')).card
-          = (L.filter (fun μ => σ μ = μ)).card := by
-            symm
-            exact Finset.card_bij
-              (fun μ hμ => θ μ)
-              (by
-                intro μ hμ
-                have hμL : μ ∈ L := (Finset.mem_filter.mp hμ).1
-                have hμs : σ μ = μ := (Finset.mem_filter.mp hμ).2
-                have hθμΘ : θ μ ∈ Θ := thetaOfOrbit_mem c h12 hμL
-                have hw_eq : w (θ μ) = μ := by
-                  have hw' : w (θ μ) ∈ L ∧ θ (w (θ μ)) = θ μ := hw hθμΘ
-                  have hfib' : L.filter (fun μ' => θ μ' = θ μ) =
-                      ({μ, σ μ} : Finset (ClassFunction (↥c.H0))) :=
-                    hfib_eq hμL rfl
-                  have hwfib : w (θ μ) ∈ L.filter (fun μ' => θ μ' = θ μ) :=
-                    Finset.mem_filter.mpr ⟨hw'.1, hw'.2⟩
-                  rw [hfib'] at hwfib
-                  rw [Finset.mem_insert, Finset.mem_singleton] at hwfib
-                  rcases hwfib with h | h
-                  · exact h
-                  · exact h.trans hμs
-                exact Finset.mem_filter.mpr ⟨hθμΘ, by rw [hw_eq]; exact hμs⟩)
-              (by
-                intro a ha b hb hEq
-                have hIrr_a : IsIrreducibleCharacter a :=
-                  orbit_mem_isIrreducible c.H0 c.U hν (Finset.mem_filter.mp ha).1
-                have hIrr_b : IsIrreducibleCharacter b :=
-                  orbit_mem_isIrreducible c.H0 c.U hν (Finset.mem_filter.mp hb).1
-                rcases theta_eq_imp_conj c h12 (H0_index c h12) hIrr_a hIrr_b hEq with h | h
-                · exact h.symm
-                · exact h.symm.trans (Finset.mem_filter.mp hb).2)
-              (by
-                intro θ' hθ'
-                have hθ'Θ : θ' ∈ Θ := (Finset.mem_filter.mp hθ').1
-                have hw' : w θ' ∈ L ∧ θ (w θ') = θ' := hw hθ'Θ
-                refine ⟨w θ', Finset.mem_filter.mpr ⟨hw'.1, (Finset.mem_filter.mp hθ').2⟩, hw'.2⟩)
-      _ = 2 := hfix
-  -- `|L| + #singles = 2n`: each fiber has size `1` or `2`, the singletons
-  -- are the `s`-fixed members (`hfib_eq` + `hpair_card`)
-  have hmain : L.card + (Θ.filter (fun θ' => σ (w θ') = w θ')).card = 2 * Θ.card := by
-    rw [hfib, hsum]
-    calc
-      (∑ θ' ∈ Θ, (if σ (w θ') = w θ' then 1 else 2)) +
-            (Θ.filter (fun θ' => σ (w θ') = w θ')).card
-        = (∑ θ' ∈ Θ, (if σ (w θ') = w θ' then 1 else 2)) +
-            (∑ θ' ∈ Θ, (if σ (w θ') = w θ' then 1 else 0)) := by
-          congr 1
-          exact (Finset.sum_boole (fun θ' : ClassFunction (↥c.H) => σ (w θ') = w θ') Θ).symm
-      _ = (∑ θ' ∈ Θ, ((if σ (w θ') = w θ' then 1 else 2) +
-            (if σ (w θ') = w θ' then 1 else 0))) := by
-          rw [Finset.sum_add_distrib]
-      _ = ∑ θ' ∈ Θ, 2 := by
-          apply Finset.sum_congr rfl
-          intro θ' hθ'
-          by_cases h : σ (w θ') = w θ'
-          · simp [h]
-          · simp [h]
-      _ = 2 * Θ.card := by
-          rw [Finset.sum_const, nsmul_eq_mul, mul_comm]
-          norm_num
-  have hfinal : L.card + 2 = 2 * Θ.card := by
-    rw [hsing] at hmain
-    exact hmain
-  -- conclude: `2n = |L| + 2`
-  have hfinal' : L.card + 2 = Θ.card * 2 := by
-    rw [hfinal]
-    rw [mul_comm]
-  change Θ.card * 2 = L.card + 2
-  exact hfinal'.symm
-
-
-/-- For an `s`-invariant orbit with `n ≥ 4`: `n ≥ 5` (from `2n = 2^k + 2`,
-the `Λ`-orbit cardinality being a power of two). -/
-private lemma theta_card_ge_five_of_ge_four (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν : ClassFunction (↥c.H0)}
-    (hν : IsIrreducibleCharacter ν)
-    (hνs : conjChar c.H0 (s_normalizes_H0 c h12) ν ∈ orbit c.H0 c.U ν)
-    (hn4 : 4 ≤ (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card) :
-    5 ≤ (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card := by
-  classical
-  let n := (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card
-  rcases orbit_card_is_pow_two c h12 ν with ⟨k, hk⟩
-  have h2n : n * 2 = (orbit c.H0 c.U ν).card + 2 := by
-    change n * 2 = (orbit c.H0 c.U ν).card + 2
-    exact theta_card_mul_two_eq_orbit_card_add_two c h12 hν hνs
-  have hpow6 : 6 ≤ 2 ^ k := by
-    rw [← hk]
-    omega
-  have hk3 : 3 ≤ k := by
-    by_contra hk3
-    have hk2 : k ≤ 2 := by omega
-    have hle : 2 ^ k ≤ 4 := by
-      exact Nat.pow_le_pow_right (by decide : 0 < 2) hk2
-    nlinarith [hpow6, hle]
-  have hk8 : 8 ≤ 2 ^ k := by
-    exact Nat.pow_le_pow_right (by decide : 0 < 2) hk3
-  have hn : 5 ≤ n := by
-    nlinarith [h2n, hk, hk8]
-  change 5 ≤ (thetaOfOrbit c h12 (orbit c.H0 c.U ν)).card
-  exact hn
-
-/-- The reducible members of `Θ` are exactly the images of the `s`-fixed
-members: `#reducible = #fixed` (`theta_irreducible_iff`, the Clifford
-dichotomy). -/
-private lemma theta_reducible_card_eq_s_fixed_card (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν : ClassFunction (↥c.H0)}
-    (hν : IsIrreducibleCharacter ν) :
-    ((thetaOfOrbit c h12 (orbit c.H0 c.U ν)).filter
-        (fun θ' : ClassFunction (↥c.H) => ¬ IsIrreducibleCharacter θ')).card =
-      ((orbit c.H0 c.U ν).filter (fun μ =>
-        conjChar c.H0 (s_normalizes_H0 c h12) μ = μ)).card := by
-  classical
-  let L : Finset (ClassFunction (↥c.H0)) := orbit c.H0 c.U ν
-  let θ : ClassFunction (↥c.H0) → ClassFunction (↥c.H) :=
-    fun μ => inducedFromSub (h12.H0_normal_in_H).1 μ
-  let σ : ClassFunction (↥c.H0) → ClassFunction (↥c.H0) :=
-    fun μ => conjChar c.H0 (s_normalizes_H0 c h12) μ
-  let Θ : Finset (ClassFunction (↥c.H)) := thetaOfOrbit c h12 L
-  have hred : ∀ μ ∈ L, IsIrreducibleCharacter (θ μ) ↔ σ μ ≠ μ := by
-    intro μ hμL
-    exact theta_irreducible_iff c h12 (H0_index c h12)
-      (orbit_mem_isIrreducible c.H0 c.U hν hμL)
-  change (Θ.filter (fun θ' : ClassFunction (↥c.H) => ¬ IsIrreducibleCharacter θ')).card =
-      (L.filter (fun μ => σ μ = μ)).card
-  symm
-  exact Finset.card_bij
-    (fun μ hμ => θ μ)
-    (by
-      intro μ hμ
-      have hμL : μ ∈ L := (Finset.mem_filter.mp hμ).1
-      have hμs : σ μ = μ := (Finset.mem_filter.mp hμ).2
-      have hθμΘ : θ μ ∈ Θ := thetaOfOrbit_mem c h12 hμL
-      exact Finset.mem_filter.mpr ⟨hθμΘ, by
-        rw [hred μ hμL]
-        simp [hμs]⟩)
-    (by
-      intro a ha b hb hEq
-      have hIrr_a : IsIrreducibleCharacter a :=
-        orbit_mem_isIrreducible c.H0 c.U hν (Finset.mem_filter.mp ha).1
-      have hIrr_b : IsIrreducibleCharacter b :=
-        orbit_mem_isIrreducible c.H0 c.U hν (Finset.mem_filter.mp hb).1
-      have hμs_b : σ b = b := (Finset.mem_filter.mp hb).2
-      rcases theta_eq_imp_conj c h12 (H0_index c h12) hIrr_a hIrr_b hEq with h | h
-      · exact h.symm
-      · exact h.symm.trans hμs_b)
-    (by
-      intro θ' hθ'
-      have hθ'Θ : θ' ∈ Θ := (Finset.mem_filter.mp hθ').1
-      have hθ'red : ¬ IsIrreducibleCharacter θ' := (Finset.mem_filter.mp hθ').2
-      rcases (Finset.mem_image.mp hθ'Θ) with ⟨μ, hμL, hθμ⟩
-      have hμs : σ μ = μ := by
-        by_contra hne
-        apply hθ'red
-        rw [← hθμ]
-        exact (hred μ hμL).2 hne
-      refine ⟨μ, Finset.mem_filter.mpr ⟨hμL, hμs⟩, hθμ⟩)
 
 /-- `(δ₁*, δ₂*)_G = (δ₁^H, δ₂^H)_H` for orbit differences (Brauer–Suzuki,
 Lemma 1.3, with the `T`-support from the `U`-agreement of orbit members). -/
@@ -2787,7 +2272,6 @@ private lemma sigma_pair_star_zero_of_invariant (c : Hyp11 G) (h12 : Hyp12 c)
     rw [hθeq]
     simp [scalarProduct]
   exact (normSq_eq_zero_iff (inducedClassFunction c.H0 (conjChar c.H0 (s_normalizes_H0 c h12) a - a))).1 hnorm
-
 
 
 /-! ## The common constituent, the per-orbit lift, and the assembly -/
@@ -3917,7 +3401,6 @@ private lemma disjoint_of_orthogonal_norm_one_two {G : Type u} [Group G] [Fintyp
   exact hχψ
 
 /-! ## Fact 4: the undefined-`θ̃ⱼ` constituent decomposition -/
-
 
 
 /-- The difference of generalized characters is a generalized character. -/
@@ -7478,7 +6961,6 @@ private lemma theta_tilde_two_pair_data (c : Hyp11 G) (h12 : Hyp12 c)
   refine ⟨lift, hgenν, hgenμ, hnormν, hnormμ, hδeq, honT, hliftν⟩
 
 
-
 -- The `s`-image of a member of a non-invariant orbit lies in the other
 -- orbit: `σν ∉ L` for `ν ∈ L` (from `σν₀ ∉ L` via the orbit chain
 -- `orbit(σν) = orbit(σν₀)`).
@@ -7955,46 +7437,6 @@ private lemma orbitSetEarly_mem_nonempty (c : Hyp11 G) (h12 : Hyp12 c)
   rw [← hLν]
   exact orbit_self_mem c ν.1
 
-/-- The orbit representatives of `Irr(H0)` (early copy). -/
-private lemma exists_orbit_representatives_early (c : Hyp11 G) (h12 : Hyp12 c) :
-    ∃ (ι : Type u) (_ : Fintype ι) (rep : ι → ClassFunction (↥c.H0)),
-      (∀ i : ι, IsIrreducibleCharacter (rep i)) ∧
-      (∀ ν : {ν : ClassFunction (↥c.H0) // IsIrreducibleCharacter ν},
-        ∃! i : ι, ν.1 ∈ orbit c.H0 c.U (rep i)) := by
-  classical
-  let ι : Type u := {L : Finset (ClassFunction (↥c.H0)) // L ∈ orbitSetEarly c h12}
-  let rep : ι → ClassFunction (↥c.H0) := fun L =>
-    Classical.choose (orbitSetEarly_mem_nonempty c h12 L.2)
-  refine ⟨ι, inferInstance, rep, ?_, ?_⟩
-  · intro L
-    rcases Finset.mem_image.mp L.2 with ⟨ν, hν, hLν⟩
-    have hspec : rep L ∈ L.1 := Classical.choose_spec (orbitSetEarly_mem_nonempty c h12 L.2)
-    have hνL' : rep L ∈ orbit c.H0 c.U ν.1 := hLν ▸ hspec
-    exact orbit_mem_isIrreducible c.H0 c.U ν.2 hνL'
-  · intro ν
-    refine ⟨⟨orbit c.H0 c.U ν.1, Finset.mem_image.mpr ⟨ν, Finset.mem_univ ν, rfl⟩⟩, ?_, ?_⟩
-    · have hspec : rep ⟨orbit c.H0 c.U ν.1,
-          Finset.mem_image.mpr ⟨ν, Finset.mem_univ ν, rfl⟩⟩ ∈ orbit c.H0 c.U ν.1 :=
-        Classical.choose_spec (orbitSetEarly_mem_nonempty c h12
-          (Finset.mem_image.mpr ⟨ν, Finset.mem_univ ν, rfl⟩ :
-            orbit c.H0 c.U ν.1 ∈ orbitSetEarly c h12))
-      change ν.1 ∈ orbit c.H0 c.U
-        (rep ⟨orbit c.H0 c.U ν.1, Finset.mem_image.mpr ⟨ν, Finset.mem_univ ν, rfl⟩⟩)
-      rw [orbit_eq_of_mem c hspec]
-      exact orbit_self_mem c ν.1
-    · intro L hLmem
-      have hEqOrbit : L.1 = orbit c.H0 c.U ν.1 := by
-        have hspec : rep L ∈ L.1 := Classical.choose_spec (orbitSetEarly_mem_nonempty c h12 L.2)
-        rcases Finset.mem_image.mp L.2 with ⟨μ, hμ, hLμ⟩
-        have ho1 : orbit c.H0 c.U (rep L) = orbit c.H0 c.U ν.1 :=
-          (orbit_eq_of_mem c hLmem).symm
-        have ho2 : orbit c.H0 c.U (rep L) = orbit c.H0 c.U μ.1 := by
-          rw [← hLμ] at hspec
-          exact orbit_eq_of_mem c hspec
-        have ho3 : orbit c.H0 c.U μ.1 = L.1 := hLμ
-        rw [← ho1, ho2, ho3]
-      apply Subtype.ext
-      exact hEqOrbit
 
 /-- Orbit representatives with a prescribed representative `ν₁` for the
 `Λ`-orbit of `ν₁`.  Used by the Lemma-1.7 Fourier reduction in the
@@ -8206,71 +7648,6 @@ private lemma fourier_value_eq_orbit_sum (c : Hyp11 G) (h12 : Hyp12 c)
   rw [hii, hsum1, hsum2]
   simp [g]
 
-/-- Simplification of an orbit sum whose coefficients are `0` everywhere
-except `-1` at `ν₂`, `ν₃`, and on a small `Bad` subset: the sum is
-`-ν₂ x - ν₃ x - Σ_{μ∈Bad} μ x`. -/
-private lemma orbit_sum_coeff_fixed (c : Hyp11 G)
-    {L : Finset (ClassFunction (↥c.H0))}
-    (ν₁ ν₂ ν₃ : ClassFunction (↥c.H0))
-    (Bad : Finset (ClassFunction (↥c.H0)))
-    (hν₁L : ν₁ ∈ L) (hν₂L : ν₂ ∈ L) (hν₃L : ν₃ ∈ L)
-    (hBadL : Bad ⊆ L)
-    (hν₁₂ : ν₁ ≠ ν₂) (hν₁₃ : ν₁ ≠ ν₃) (hν₂₃ : ν₂ ≠ ν₃)
-    (h₁Bad : ν₁ ∉ Bad) (h₂Bad : ν₂ ∉ Bad) (h₃Bad : ν₃ ∉ Bad)
-    (coeff : ClassFunction (↥c.H0) → ℂ)
-    (hcoeff₁ : coeff ν₁ = 0) (hcoeff₂ : coeff ν₂ = -1)
-    (hcoeff₃ : coeff ν₃ = -1)
-    (hcoeffBad : ∀ μ ∈ Bad, coeff μ = -1)
-    (hcoeff0 : ∀ μ ∈ L, μ ∉ ({ν₁, ν₂, ν₃} : Finset (ClassFunction (↥c.H0))) ∪ Bad →
-      coeff μ = 0)
-    (x : ↥c.H0) :
-    (∑ μ ∈ L, coeff μ * μ x) = -ν₂ x - ν₃ x - ∑ μ ∈ Bad, μ x := by
-  classical
-  let U : Finset (ClassFunction (↥c.H0)) :=
-    ({ν₁, ν₂, ν₃} : Finset (ClassFunction (↥c.H0))) ∪ Bad
-  have hUL : U ⊆ L := by
-    intro μ hμ
-    rw [Finset.mem_union] at hμ
-    rcases hμ with hμT | hμB
-    · rw [Finset.mem_insert, Finset.mem_insert, Finset.mem_singleton] at hμT
-      rcases hμT with h | h | h
-      · rwa [h]
-      · rwa [h]
-      · rwa [h]
-    · exact hBadL hμB
-  have hsumL : (∑ μ ∈ L, coeff μ * μ x) = ∑ μ ∈ U, coeff μ * μ x := by
-    symm
-    refine Finset.sum_subset hUL ?_
-    intro μ hμL hμnot
-    rw [hcoeff0 μ hμL hμnot]
-    simp
-  have hdisj : Disjoint ({ν₁, ν₂, ν₃} : Finset (ClassFunction (↥c.H0))) Bad := by
-    rw [Finset.disjoint_left]
-    intro μ hμT hμB
-    rw [Finset.mem_insert, Finset.mem_insert, Finset.mem_singleton] at hμT
-    rcases hμT with h | h | h
-    · exact h₁Bad (by simpa [h] using hμB)
-    · exact h₂Bad (by simpa [h] using hμB)
-    · exact h₃Bad (by simpa [h] using hμB)
-  have hTriple : (∑ μ ∈ ({ν₁, ν₂, ν₃} : Finset (ClassFunction (↥c.H0))),
-      coeff μ * μ x) = -ν₂ x - ν₃ x := by
-    rw [Finset.sum_insert]
-    · rw [Finset.sum_insert]
-      · rw [Finset.sum_singleton]
-        simp [hcoeff₁, hcoeff₂, hcoeff₃]
-        ring
-      · intro h
-        exact hν₂₃ (by simpa using h)
-    · intro h
-      rw [Finset.mem_insert, Finset.mem_singleton] at h
-      rcases h with h | h
-      · exact hν₁₂ (by simpa [h])
-      · exact hν₁₃ (by simpa [h])
-  have hBadSum : (∑ μ ∈ Bad, coeff μ * μ x) = - (∑ μ ∈ Bad, μ x) := by
-    rw [Finset.sum_congr rfl (by intro μ hμ; rw [hcoeffBad μ hμ])]
-    simp [Finset.sum_neg_distrib]
-  rw [hsumL, Finset.sum_union hdisj, hTriple, hBadSum]
-  ring
 
 /-- Simplification of the orbit sum for `θ̃₂ = χ₂₃ − (ν₁−ν₂)*` in the
 fixed-member case: coefficients are `0` at `ν₁`, `+1` at `ν₂` and `σν₂`,
@@ -8322,157 +7699,7 @@ private lemma orbit_sum_coeff_theta_tilde_two (c : Hyp11 G)
     ring
   rw [hsumL, hsumU]
 
-/-- The fixed-member arithmetic contradiction: with `σν₂(t) = ν₂(t) = a`,
-`ν(t), ν'(t) ∈ {±a}` and `m ∈ {0,-1}`, the equality
-`2a = -ν₂(t) - σν₂(t) - ν(t) + m·ν'(t)` is impossible for `a ≠ 0`. -/
-private lemma fixed_value_contradiction (a : ℂ) (ha : a ≠ 0)
-    {b s v w m : ℂ}
-    (hb : b = a) (hs : s = a)
-    (hv : v = a ∨ v = -a) (hw : w = a ∨ w = -a)
-    (hm : m = 0 ∨ m = -1)
-    (heq : 2 * a = -(b + s) - v + m * w) : False := by
-  rcases hv with hv | hv <;> rcases hw with hw | hw <;> rcases hm with hm | hm
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (5 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (6 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (5 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (4 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (3 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (4 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (3 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
-  · rw [hb, hs, hv, hw, hm] at heq
-    have hz : (2 : ℂ) * a = 0 := by
-      linear_combination heq
-    exact ha ((mul_eq_zero.mp hz).resolve_left (by norm_num))
 
-/-- A sum of at most two orbit values at the central involution is a small
-integer multiple of their common absolute value `a`. -/
-private lemma bad_sum_eq_small_multiple (c : Hyp11 G)
-    {Bad : Finset (ClassFunction (↥c.H0))} (a : ℂ)
-    (hBadcard : Bad.card = 1 ∨ Bad.card = 2)
-    (hBad_t : ∀ μ ∈ Bad, μ (tH0 c) = a ∨ μ (tH0 c) = -a) :
-    ∃ n : ℤ, n.natAbs ≤ 2 ∧ ∑ μ ∈ Bad, μ (tH0 c) = (n : ℂ) * a := by
-  rcases hBadcard with hBad1 | hBad2
-  · rcases Finset.card_eq_one.mp hBad1 with ⟨b, hb⟩
-    have hbt : b (tH0 c) = a ∨ b (tH0 c) = -a :=
-      hBad_t b (by rw [hb]; simp)
-    rcases hbt with hba | hbna
-    · refine ⟨1, by norm_num, ?_⟩
-      rw [hb]
-      simp [hba]
-    · refine ⟨-1, by norm_num, ?_⟩
-      rw [hb]
-      simp [hbna]
-  · rcases Finset.card_eq_two.mp hBad2 with ⟨b, d, hbd, hb⟩
-    have hbt : b (tH0 c) = a ∨ b (tH0 c) = -a :=
-      hBad_t b (by rw [hb]; simp)
-    have hdt : d (tH0 c) = a ∨ d (tH0 c) = -a :=
-      hBad_t d (by rw [hb]; simp)
-    rcases hbt with hba | hbna <;> rcases hdt with hda | hdna
-    · refine ⟨2, by norm_num, ?_⟩
-      rw [hb]
-      rw [Finset.sum_insert (by simpa using hbd), Finset.sum_singleton]
-      simp [hba, hda]
-      ring
-    · refine ⟨0, by norm_num, ?_⟩
-      rw [hb]
-      rw [Finset.sum_insert (by simpa using hbd), Finset.sum_singleton]
-      simp [hba, hdna]
-    · refine ⟨0, by norm_num, ?_⟩
-      rw [hb]
-      rw [Finset.sum_insert (by simpa using hbd), Finset.sum_singleton]
-      simp [hbna, hda]
-    · refine ⟨-2, by norm_num, ?_⟩
-      rw [hb]
-      rw [Finset.sum_insert (by simpa using hbd), Finset.sum_singleton]
-      simp [hbna, hdna]
-      ring
-
-set_option maxHeartbeats 8000000 in
-/-- The arithmetic contradiction behind the fixed-member case: if the
-Fourier formulas give
-`θ̃₂(t)+ν₂(t)+ν₃(t)+Σ_{μ∈Bad} μ(t) = 0` and the same with `θ̃₃`, while
-`θ̃₂(t) = 2ν₂(t)` and `θ̃₃(t) = 2ν₃(t)`, then `4ν₂(t) + Σ μ(t) = 0`; the
-left side has absolute value at least `2|ν₂(t)|`, contradiction (all orbit
-values at the central involution `t` are `±ν₂(t)` and `|Bad| ≤ 2`). -/
-private lemma fixed_pairing_contradiction_of_formulas (c : Hyp11 G)
-    (ν₂ ν₃ : ClassFunction (↥c.H0)) (a : ℂ) (ha : a ≠ 0)
-    (hν₂t : ν₂ (tH0 c) = a ∨ ν₂ (tH0 c) = -a)
-    (hν₃t : ν₃ (tH0 c) = a ∨ ν₃ (tH0 c) = -a)
-    (Bad : Finset (ClassFunction (↥c.H0)))
-    (hBadcard : Bad.card = 1 ∨ Bad.card = 2)
-    (hBad_t : ∀ μ ∈ Bad, μ (tH0 c) = a ∨ μ (tH0 c) = -a)
-    (th2 th3 : ClassFunction G)
-    (hth2 : th2 c.t = 2 * ν₂ (tH0 c))
-    (hth3 : th3 c.t = 2 * ν₃ (tH0 c))
-    (hf2 : th2 c.t + ν₂ (tH0 c) + ν₃ (tH0 c) + ∑ μ ∈ Bad, μ (tH0 c) = 0)
-    (hf3 : th3 c.t + ν₂ (tH0 c) + ν₃ (tH0 c) + ∑ μ ∈ Bad, μ (tH0 c) = 0) :
-    False := by
-  classical
-  have hA : 3 * ν₂ (tH0 c) + ν₃ (tH0 c) + (∑ μ ∈ Bad, μ (tH0 c)) = 0 := by
-    have h := hf2
-    rw [hth2] at h
-    ring_nf at h
-    simpa [add_comm, mul_comm, add_left_comm] using h
-  have hB : ν₂ (tH0 c) + 3 * ν₃ (tH0 c) + (∑ μ ∈ Bad, μ (tH0 c)) = 0 := by
-    have h := hf3
-    rw [hth3] at h
-    ring_nf at h
-    simpa [add_comm, mul_comm, add_left_comm] using h
-  have hsub : ν₂ (tH0 c) = ν₃ (tH0 c) := by
-    have hz : 2 * ν₂ (tH0 c) - 2 * ν₃ (tH0 c) = 0 := by
-      linear_combination hA - hB
-    have hz' : 2 * (ν₂ (tH0 c) - ν₃ (tH0 c)) = 0 := by
-      linear_combination hz
-    have hz'' : ν₂ (tH0 c) - ν₃ (tH0 c) = 0 :=
-      (mul_eq_zero.mp hz').resolve_left (by norm_num)
-    exact sub_eq_zero.mp hz''
-  have hD : 4 * ν₂ (tH0 c) + (∑ μ ∈ Bad, μ (tH0 c)) = 0 := by
-    have h := hA
-    rw [hsub] at h
-    ring_nf at h
-    simpa [hsub, mul_comm, add_comm, add_left_comm] using h
-  rcases bad_sum_eq_small_multiple c a hBadcard hBad_t with ⟨n, hn, hS⟩
-  rw [hS] at hD
-  rcases hν₂t with hν₂a | hν₂na
-  · rw [hν₂a] at hD
-    ring_nf at hD
-    have hnz : (4 + n : ℤ) ≠ 0 := by omega
-    have hD' : ((4 + n : ℤ) : ℂ) * a = 0 := by
-      have hcast : ((4 + n : ℤ) : ℂ) = (4 : ℂ) + (n : ℂ) := by norm_num
-      rw [hcast, ← hD]
-      ring
-    have ha0 : a = 0 := (mul_eq_zero.mp hD').resolve_left (by exact_mod_cast hnz)
-    exact ha ha0
-  · rw [hν₂na] at hD
-    ring_nf at hD
-    have hnz : (n - 4 : ℤ) ≠ 0 := by omega
-    have hD' : ((n - 4 : ℤ) : ℂ) * a = 0 := by
-      have hcast : ((n - 4 : ℤ) : ℂ) = (n : ℂ) - (4 : ℂ) := by norm_num
-      rw [hcast, ← hD]
-      ring
-    have ha0 : a = 0 := (mul_eq_zero.mp hD').resolve_left (by exact_mod_cast hnz)
-    exact ha ha0
 set_option maxHeartbeats 8000000 in
 private lemma exists_theta_lift_orbit (c : Hyp11 G) (h12 : Hyp12 c)
     (hH0index : (c.H0.subgroupOf c.H).index = 2)
@@ -11022,7 +10249,6 @@ private theorem exists_coherence_data (c : Hyp11 G) (h12 : Hyp12 c) :
       rw [dif_pos hΘ]
     rw [htildeν]
     exact hres
-
 
 
 /-- `ν̃`: the Coherence-Theorem map from `Irr(H0)` to generalized characters

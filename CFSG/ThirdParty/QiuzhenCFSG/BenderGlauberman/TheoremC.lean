@@ -816,44 +816,6 @@ private lemma theoremC_mem_N_decompose (c : Hyp11 G) [Hyp11KData c] {x : G}
       _ = bp * ak := by rw [hakeq']
       _ = x := hxeq
 
-/-- `β(1)² ≤ |B|` for `β ∈ Irr(B)`: from `⟨β,β⟩ = 1` and one term of the
-sum of squared absolute values. -/
-private lemma theoremC_irr_degree_sq_le_card {B : Type u} [Group B] [Fintype B]
-    {β : ClassFunction B} (hβ : IsIrreducibleCharacter β) :
-    (β 1).re ^ 2 ≤ (Nat.card B : ℝ) := by
-  classical
-  rcases irr_one_int (H := B) ⟨β, hβ⟩ with ⟨a, ha⟩
-  have hsp : scalarProduct B β β = 1 := scalarProduct_irreducible_self hβ
-  unfold scalarProduct at hsp
-  have hcard_ne : (Nat.card B : ℂ) ≠ 0 := by
-    exact_mod_cast (Nat.card_pos (α := B)).ne'
-  have hsum : (∑ x : B, β x * star (β x)) = (Nat.card B : ℂ) := by
-    calc
-      (∑ x : B, β x * star (β x))
-          = (Nat.card B : ℂ) *
-              ((Nat.card B : ℂ)⁻¹ * (∑ x : B, β x * star (β x))) := by
-              rw [← mul_assoc, mul_inv_cancel₀ hcard_ne, one_mul]
-      _ = (Nat.card B : ℂ) * 1 := by rw [hsp]
-      _ = (Nat.card B : ℂ) := by simp
-  have hterm (x : B) : (β x * star (β x)).re = Complex.normSq (β x) := by
-    simp [Complex.normSq]
-  have hsumR : (∑ x : B, Complex.normSq (β x)) = (Nat.card B : ℝ) := by
-    have hre : (∑ x : B, (β x * star (β x)).re) = (Nat.card B : ℝ) := by
-      have h := congrArg Complex.re hsum
-      simpa using h
-    rw [← hre]
-    exact Finset.sum_congr rfl (fun x hx => (hterm x).symm)
-  have hβ1sq : (β 1).re ^ 2 = Complex.normSq (β 1) := by
-    have hβa : β 1 = (a : ℂ) := by simpa using ha
-    have h : (↑a : ℂ).re * (↑a : ℂ).re = Complex.normSq (↑a : ℂ) := by
-      norm_num [Complex.normSq]
-    simp [hβa, pow_two]
-  have hnonneg : ∀ x : B, 0 ≤ Complex.normSq (β x) := fun x => Complex.normSq_nonneg _
-  have hsum_nonneg : 0 ≤ ∑ x : B, Complex.normSq (β x) :=
-    Finset.sum_nonneg (fun x hx => hnonneg x)
-  have hle1 : Complex.normSq (β 1) ≤ ∑ x : B, Complex.normSq (β x) :=
-    Finset.single_le_sum (fun x hx => hnonneg x) (Finset.mem_univ (1 : B))
-  rwa [← hβ1sq, hsumR] at hle1
 
 /-- For a character `θ` of a finite group `B`,
 `θ(1)² ≤ |B|·(θ,θ)`: from `Σ|θ(b)|² = |B|·⟨θ,θ⟩` and one term. -/
@@ -1051,10 +1013,6 @@ private lemma theoremC_reflection_inverts_K (c : Hyp11 G) [Hyp11KData c] {x k : 
       _ = c.t2 * k * c.t2⁻¹ := by rw [hkr]
       _ = k⁻¹ := h2
 
-/-- The chosen involution `s ∈ S \ S0` inverts `K`. -/
-private lemma theoremC_s_inverts_K (c : Hyp11 G) [Hyp11KData c] {k : G} (hk : k ∈ c.K) :
-    c.s * k * c.s⁻¹ = k⁻¹ :=
-  theoremC_reflection_inverts_K c c.s_mem_S c.s_not_mem_S0 hk
 
 /-! ## Equation (3) character-side infrastructure: reflection-fixed
 characters kill `K`
@@ -2148,33 +2106,6 @@ private lemma theoremC_BK_decompose_join (c : Hyp11 G) [Hyp11KData c] {x : G}
   rcases hxcar with ⟨b, hbB, k, hkK, hEq⟩
   exact ⟨b, hbB, k, hkK, hEq⟩
 
-/-- Theorem-C instance of the direct-product restriction lemma: given the
-internal direct product `U ≅ (B₁∩K₂) × B` (factoring `K`) with `B`
-embedded as `{1} × B`, every `α ∈ Irr(U)` restricts to an irreducible
-character of `B`.  The isomorphism `e` is the exact missing hypothesis:
-the paper's `×` in `U = (B₁∩K₂) × BK` is not implied by `hU`/`hUint`
-alone. -/
-private lemma theoremC_direct_prod_restrict_B_irr (c : Hyp11 G) [Hyp11KData c]
-    (e : ↥c.U ≃* (↥(c.B1 ⊓ c.K2) × ↥c.B))
-    (heB : ∀ b : ↥c.B, e ⟨(b : G), theoremC_B_le_U c b.2⟩ = (1, b))
-    (α : Irr (↥c.U)) :
-    IsIrreducibleCharacter (fun b : ↥c.B => α.1 ⟨(b : G), theoremC_B_le_U c b.2⟩) := by
-  classical
-  let A : Subgroup G := c.B1 ⊓ c.K2
-  let φ : ClassFunction (↥A × ↥c.B) := fun p => α.1 (e.symm p)
-  have hφ : IsIrreducibleCharacter φ :=
-    isIrreducibleCharacter_congr (e := e.symm) (χ := α.1) α.2
-  have hres := theoremC_irr_restrict_of_abelian_factor (A := ↥A) (B := ↥c.B)
-    (theoremC_A_abelian c) hφ
-  have hfun : (fun b : ↥c.B => φ (1, b)) =
-      (fun b : ↥c.B => α.1 ⟨(b : G), theoremC_B_le_U c b.2⟩) := by
-    funext b
-    dsimp [φ]
-    have hsymm : e.symm (1, b) = ⟨(b : G), theoremC_B_le_U c b.2⟩ := by
-      have h := congrArg e.symm (heB b)
-      simpa using h.symm
-    rw [hsymm]
-  simpa [hfun] using hres
 
 /-- The theorem-C decomposition `U = (B₁∩K₂) × BK` forces `Section3Hyp`:
 `S'` centralizes `U`. -/
@@ -2997,24 +2928,6 @@ private lemma theoremC_reflTransGen_symm {α : Type*} {r : α → α → Prop}
   | tail h₁ h₂ ih =>
       exact (Relation.ReflTransGen.single (hr h₂)).trans ih
 
-private lemma theoremC_delta_finite (c : Hyp11 G) [Hyp11KData c] (h12 : Hyp12 c) :
-    (Delta c h12).Finite := by
-  classical
-  let f : Irr (↥c.H0) → ClassFunction G := fun ν => deltaNu c h12 ν
-  have hrange : (Set.range f).Finite := by
-    rw [show Set.range f = f '' (Set.univ : Set (Irr (↥c.H0))) by
-      ext δ
-      constructor
-      · rintro ⟨ν, rfl⟩
-        exact ⟨ν, Set.mem_univ _, rfl⟩
-      · rintro ⟨ν, _, rfl⟩
-        exact ⟨ν, rfl⟩]
-    exact Set.Finite.image f Set.finite_univ
-  apply hrange.subset
-  intro δ hδ
-  simp only [BenderGlauberman.Delta] at hδ
-  rcases hδ with ⟨ν, _hνs, _hνt, rfl⟩
-  exact ⟨ν, rfl⟩
 
 private lemma theoremC_deltaComponent_isConnected (c : Hyp11 G) [Hyp11KData c] (h12 : Hyp12 c)
     {δ₀ : ClassFunction G} (hδ₀ : δ₀ ∈ Delta c h12) :
@@ -3044,12 +2957,6 @@ private lemma theoremC_deltaComponent_isConnected (c : Hyp11 G) [Hyp11KData c] (
     change δ ∈ Delta c h12 ∧ _ at hadj
     exact ⟨hadj.1, (hpath δ' hδ').trans (Relation.ReflTransGen.single hadj')⟩
 
-private lemma theoremC_deltaComponent_finite (c : Hyp11 G) [Hyp11KData c] (h12 : Hyp12 c)
-    {δ₀ : ClassFunction G} :
-    (theoremC_deltaComponent c h12 δ₀).Finite := by
-  exact (theoremC_delta_finite c h12).subset (by
-    intro δ hδ
-    exact hδ.1)
 
 /-- Every Section-4 difference character has degree zero: the two
 `LambdaHom`-orbit representatives have the same value at the identity. -/
@@ -3754,7 +3661,6 @@ private lemma theoremC_S4_nonsingleton_degree_relations (c : Hyp11 G) [Hyp11KDat
     have hdiff : χ1 1 - χ4 1 = 0 :=
       (mul_eq_zero.mp htwo).resolve_left (by norm_num)
     linear_combination hdiff
-
 
 
 /-- In the `|S| ≥ 8` branch, `[H0 : U] = |S0| ≥ 4`. -/
@@ -5738,12 +5644,6 @@ private lemma theoremC_final_contradiction {Bcard : ℕ} {x : ℝ} {a : ℕ}
   have hB2R : (2 : ℝ) ≤ (Bcard : ℝ) := by exact_mod_cast hB2
   nlinarith [hlt, hnum, hx2, haB, hB2R]
 
-/-- Contrapositive of (4): if `|B(χ₁)| = 1` then `x = 0` (hence
-`x ≠ 0` forces `2 ≤ |B(χ₁)|`). -/
-private lemma theoremC_x_eq_zero_of_card_one {Bcard : ℕ} {x : ℝ}
-    (hx : |x| ≤ ((Bcard - 1 : ℕ) : ℝ)) (hcard : Bcard = 1) : x = 0 := by
-  have hz : |x| ≤ 0 := by simpa [hcard] using hx
-  exact abs_eq_zero.mp (le_antisymm hz (abs_nonneg x))
 
 /-- From (4): `|B(χ₁)| = 2` when `x ≠ 0` and `|B(χ₁)| ≤ 2`. -/
 private lemma theoremC_BOf_card_two_of_x_ne_zero {n Bcard : ℕ} {x : ℝ}

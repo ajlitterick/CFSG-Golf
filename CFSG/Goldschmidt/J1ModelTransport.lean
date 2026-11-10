@@ -10,11 +10,6 @@ namespace CFSG.Open
 open Matrix
 open scoped MatrixGroups
 
-theorem goldschmidtJ1GenA_eq_j1_first_matrix :
-    goldschmidtJ1GenA = CFSG.ProperTwoGeneratedCore.j1_first_matrix := rfl
-
-theorem goldschmidtJ1GenB_eq_j1_second_matrix :
-    goldschmidtJ1GenB = CFSG.ProperTwoGeneratedCore.j1_second_matrix := rfl
 
 theorem goldschmidtJ1_matrix_generators_eq :
     ({goldschmidtJ1GenA, goldschmidtJ1GenB} :
@@ -50,9 +45,5 @@ theorem goldschmidtJ1_iso_iff_native {L : Type} [Group L] :
   · rintro ⟨e⟩
     exact ⟨e.trans goldschmidtJ1_exact_model_equiv.symm⟩
 
-theorem goldschmidtJ1_native_model_of_iso {L : Type} [Group L]
-    (hJ : Nonempty (L ≃* goldschmidtJ1)) :
-    CFSG.Blueprint.NativeSporadic.IsSporadic L .J1 :=
-  goldschmidtJ1_iso_iff_native.mp hJ
 
 end CFSG.Open

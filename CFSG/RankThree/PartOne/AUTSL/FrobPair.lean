@@ -129,8 +129,6 @@ theorem tailLinInv_tailLin (hb : b ≠ 0) (v : Fin (2 * n) → K) :
     (LinearMap.ext fun v => tailLin_tailLinInv n hn b c hb v)
     (LinearMap.ext fun v => tailLinInv_tailLin n hn b c hb v)
 
-theorem tailEquiv_apply (hb : b ≠ 0) (v : Fin (2 * n) → K) :
-    tailEquiv n hn b c hb v = tailLin n hn b c v := rfl
 
 omit [Field K] in
 theorem coordQuadMinus_apply' {K : Type} [Field K] (b c : K) (v : Fin (2 * n) → K) :

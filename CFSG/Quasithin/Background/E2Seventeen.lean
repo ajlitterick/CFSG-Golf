@@ -29,16 +29,6 @@ variable {Γ : Type} [Group Γ]
           φ.ker = D.subgroupOf Y)) ∧
     8 ≤ (T ⊓ Subgroup.centralizer (V : Set Γ)).relIndex T)
 
-@[expose] def E217Statement : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (H T M V : Subgroup Γ) (h : Hyp28 H T M V), CharTwo H →
-    IsTISetIn V M → qhatOf (autI h.elem H) = (((3 : ℚ) / 2 : ℚ) : WithTop ℚ) →
-    twoResidual M ≤ Subgroup.centralizer (V : Set Γ) → Nat.card V = 2 ^ 4 → E217Concl H T V
-
-@[expose] def E217Nonsolvable : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (H T M V : Subgroup Γ) (h : Hyp28 H T M V), CharTwo H →
-    IsTISetIn V M → qhatOf (autI h.elem H) = (((3 : ℚ) / 2 : ℚ) : WithTop ℚ) →
-    twoResidual M ≤ Subgroup.centralizer (V : Set Γ) → Nat.card V = 2 ^ 4 →
-    ¬ Group.IsSolvable H → E217Concl H T V
 
 end E2
 

@@ -125,30 +125,6 @@ theorem torusPair_conj_pinnedX
   simp only [Units.val_mul]
   ring
 
-theorem torusWeight_surjective
-    [Finite K] (hK : Nat.card K = 2 ^ (2 * a + 1))
-    {α : Fin F4.tag.rank → ℤ} (hα : IsRoot F4.tag α) (hαp : 0 < height α) :
-    Function.Surjective (torusWeight (K := K) a α) := by
-  have hN : ∀ g : Kˣ, g ^ (2 * (2 ^ a : ℤ) ^ 2 - 1) = 1 := fun g => by
-    have h1 : g ^ Nat.card Kˣ = 1 := pow_card_eq_one'
-    rw [Nat.card_units, hK] at h1
-    have e : (2 * (2 ^ a : ℤ) ^ 2 - 1) = ((2 ^ (2 * a + 1) - 1 : ℕ) : ℤ) := by
-      rw [Nat.cast_sub Nat.one_le_two_pow, Nat.cast_pow, Nat.cast_ofNat, Nat.cast_one,
-        two_pow_two_mul_add_one, add_sub_cancel_right]
-    rw [e, zpow_natCast]
-    exact h1
-  have key : ∀ (E : ℤ), IsCoprime E (2 * (2 ^ a : ℤ) ^ 2 - 1) → ∀ g : Kˣ, ∃ u : Kˣ,
-      u ^ E = g := fun E hE g => by
-    obtain ⟨x, y, hxy⟩ := hE
-    refine ⟨g ^ x, ?_⟩
-    rw [← zpow_mul, mul_comm, show E * x = 1 - y * (2 * (2 ^ a : ℤ) ^ 2 - 1) by linarith,
-      zpow_sub, zpow_one, zpow_mul, hN, inv_one, mul_one]
-  intro g
-  rcases f4_torusExp_isCoprime (2 ^ a) hα hαp with h | h
-  · obtain ⟨u, hu⟩ := key _ h g
-    exact ⟨(u, 1), by rw [torusWeight_fst, hu]⟩
-  · obtain ⟨v, hv⟩ := key _ h g
-    exact ⟨(1, v), by rw [torusWeight_snd, hv]⟩
 
 theorem torusWeight_ne_one
     [Finite K] (ha : 2 ≤ a) (hK : Nat.card K = 2 ^ (2 * a + 1))

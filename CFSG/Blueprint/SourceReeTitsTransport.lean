@@ -27,6 +27,5 @@ theorem map_autFixedSubgroup_of_conj {A C : Type} [Group A] [Group C] (Φ : A �
     rw [hconj, MulEquiv.apply_symm_apply]
     exact (mem_autFixedSubgroup F x).1 hx
 
-variable {E : Type} [AddCommGroup E] [Module ℝ E]
 
 end CFSG.Blueprint.EvenSource

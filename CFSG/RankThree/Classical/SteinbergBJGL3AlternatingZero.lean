@@ -28,6 +28,5 @@ theorem basisInvolution_apply_basis {n : ℕ} (e : Module.Basis (Fin n) (ZMod 2)
     basisInvolution e f hf (e i) = f i :=
   e.constr_basis (ZMod 2) f i
 
-variable (b : V →ₗ[ZMod 2] V →ₗ[ZMod 2] V) (hb : ∀ v, b v v = 0)
 
 end CFSG.RankThree.Classical.GL3

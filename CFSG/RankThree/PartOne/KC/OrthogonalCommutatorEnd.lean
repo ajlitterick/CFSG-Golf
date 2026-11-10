@@ -54,58 +54,6 @@ theorem commutator_mem_oddPart_of_invariant {C : Type*} [Group C] [Finite C] {Z 
     orderOf_injective (MulAut.conj α).toMonoidHom (MulAut.conj α).injective x
   rwa [this]
 
-theorem odd_card_commutator_of_index_two {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime)
-    {S A Γ P : Subgroup G} (hA : IsPGroup p A) (hS : ¬ p ∣ Nat.card S)
-    (hAS : A ≤ Subgroup.normalizer (S : Set G)) (hSAΓ : ⁅S, A⁆ ≤ Γ)
-    (hidx : ∀ g ∈ Γ, ∀ g' ∈ Γ, g ∉ P → g' ∉ P → g⁻¹ * g' ∈ P)
-    (hAΓ : ∀ α ∈ A, ∀ g ∈ Γ, α * g * α⁻¹ ∈ Γ) (hAP : ∀ α ∈ A, ∀ g ∈ P, α * g * α⁻¹ ∈ P)
-    (hcomm : ∀ a ∈ P, ∀ b ∈ P, a * b = b * a)
-    (hfix : ∀ α ∈ A, ∀ z ∈ P, (∃ k : ℕ, z ^ 2 ^ k = 1) → α * z * α⁻¹ = z) :
-    Odd (Nat.card (⁅S, A⁆ : Subgroup G)) := by
-  classical
-  have hidem := CFSG.LargeEvenClassification.Helpers.coprime_normalized_commutator_idempotent hp A S
-    hA hS hAS
-  have hRΓ : ⁅S, A⁆ ≤ Γ := hSAΓ
-  have hRAP : ⁅(⁅S, A⁆ : Subgroup G), A⁆ ≤ P := by
-    rw [Subgroup.commutator_le]
-    intro r hr α hα
-    have hrΓ : r ∈ Γ := hRΓ hr
-    have hg' : α * r⁻¹ * α⁻¹ ∈ Γ := hAΓ α hα r⁻¹ (Γ.inv_mem hrΓ)
-    by_cases hrP : r ∈ P
-    · have h1 : α * r⁻¹ * α⁻¹ ∈ P := hAP α hα r⁻¹ (P.inv_mem hrP)
-      have h2 : r * (α * r⁻¹ * α⁻¹) ∈ P := P.mul_mem hrP h1
-      have h3 : ⁅r, α⁆ = r * (α * r⁻¹ * α⁻¹) := by
-        rw [commutatorElement_def]; group
-      rw [h3]
-      exact h2
-    · have hninvP : r⁻¹ ∉ P := fun h => hrP (by simpa using P.inv_mem h)
-      have hg'P : α * r⁻¹ * α⁻¹ ∉ P := by
-        intro h
-        have h1 := hAP α⁻¹ (A.inv_mem hα) _ h
-        apply hninvP
-        have h2 : α⁻¹ * (α * r⁻¹ * α⁻¹) * α⁻¹⁻¹ = r⁻¹ := by group
-        rwa [h2] at h1
-      have h1 := hidx r⁻¹ (Γ.inv_mem hrΓ) _ hg' hninvP hg'P
-      have h3 : ⁅r, α⁆ = (r⁻¹)⁻¹ * (α * r⁻¹ * α⁻¹) := by
-        rw [commutatorElement_def]; group
-      rw [h3]
-      exact h1
-  have hRP : (⁅S, A⁆ : Subgroup G) ≤ P := by
-    have := hRAP
-    rwa [hidem] at this
-  have hRodd : ⁅(⁅S, A⁆ : Subgroup G), A⁆ ≤ KCOddCommutator.oddPart P hcomm := by
-    rw [Subgroup.commutator_le]
-    intro r hr α hα
-    have hrP : r ∈ P := hRP hr
-    have h1 := commutator_mem_oddPart_of_invariant hcomm (fun z hz => hAP α hα z hz)
-      (hfix α hα) hrP
-    have h2 : ⁅r, α⁆ = (⁅α, r⁆)⁻¹ := (commutatorElement_inv α r).symm
-    rw [h2]
-    exact (KCOddCommutator.oddPart P hcomm).inv_mem h1
-  have hle : (⁅S, A⁆ : Subgroup G) ≤ KCOddCommutator.oddPart P hcomm := by
-    rwa [hidem] at hRodd
-  exact Odd.of_dvd_nat (KCOddCommutator.odd_card_oddPart hcomm) (Subgroup.card_dvd_of_le hle)
-
 
 section SmallIndex
 

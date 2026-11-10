@@ -100,9 +100,6 @@ theorem mem_pullback {π : E →* G} {ρ : H →* G} {x : H × E} :
 @[expose] def pullbackFst (π : E →* G) (ρ : H →* G) : pullback π ρ →* H :=
   (MonoidHom.fst H E).comp (pullback π ρ).subtype
 
-theorem pullbackFst_apply (π : E →* G) (ρ : H →* G) (x : pullback π ρ) :
-    pullbackFst π ρ x = (x : H × E).1 :=
-  rfl
 
 theorem pullbackFst_surjective {π : E →* G} (hπ : Function.Surjective π) (ρ : H →* G) :
     Function.Surjective (pullbackFst π ρ) := fun g => by

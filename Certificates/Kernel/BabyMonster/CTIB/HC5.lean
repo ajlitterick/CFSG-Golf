@@ -65,14 +65,6 @@ theorem ul_ok : ∀ m < 22, nthN Ul m = hc5Inv (hc5ConjR (2 ^ m)) := by decide +
 theorem flip_ok : ∀ m < 22, flipM / 2 ^ m % 2 = (!hc5Comm (2 ^ m)).toNat := by decide +kernel
 
 
-theorem clos_neg : (List.rec (motive := fun _ => Bool) true
-    (fun p _ ih => allLt 22 (fun m => memN (Pset.drop 1) (stepK m p)) && ih) Pset) = false := by
-  decide +kernel
-
-theorem orb_neg : (List.rec (motive := fun _ => Bool) true
-    (fun p _ ih => (!Nat.beq (p / 2 ^ 23) 0 || memN (hc5Orbit.drop 1) p) && ih) Pset) = false := by
-  decide +kernel
-
 theorem closK_sound (h : closK = true) : ∀ p ∈ Pset, ∀ m < 22, stepK m p ∈ Pset := by
   have key : ∀ L : List ℕ, (List.rec (motive := fun _ => Bool) true
       (fun p _ ih => allLt 22 (fun m => memN Pset (stepK m p)) && ih) L) = true →

@@ -326,18 +326,6 @@ theorem natCard_Ptwo :
     natCard_comap_of_surjective jhatToKv_surjective, natCard_ker_jhatToKv, natCard_M_in]
   norm_num
 
-@[expose] noncomputable def P2J : Subgroup Jhat :=
-  ((monoSub ceqHyp).subgroupOf (Kstab (phi0 (coordOf rStar)))).comap jhatToKv
-
-theorem Ptwo_subgroupOf_eq :
-    Ptwo.subgroupOf Jhat = P2J := Ptwo_eq_comap
-
-@[expose] noncomputable def ptwoQuotEquiv :
-    P2J ⧸ (jhatToKv.ker.subgroupOf P2J) ≃* Mfr :=
-  (QuotientGroup.quotientMulEquivOfEq (ker_comapRestrict jhatToKv _).symm).trans
-    ((QuotientGroup.quotientKerEquivOfSurjective _
-      (comapRestrict_surjective jhatToKv_surjective _)).trans
-      ((Subgroup.subgroupOfEquivOfLe monoSub_le_Kstab_rStar).trans mfrEquivMono.symm))
 
 theorem tauhat_mem_Ntwo : tauhat ∈ Ntwo := by
   refine Subgroup.mem_normalizer_fintype fun n hn => ?_

@@ -117,9 +117,6 @@ theorem H6K_eq_Usig :
     H6K = Usig :=
   Subgroup.eq_of_le_of_card_ge H6K_le_Usig (by rw [natCard_Usig, natCard_H6K])
 
-theorem H6_eq_Usig :
-    H6 = Usig.map (Kstab v0).subtype := by rw
-    [← map_H6K, H6K_eq_Usig]
 
 theorem orbit_Usig :
     MulAction.orbit Usig wFr = Set.range n6vec := by
@@ -214,30 +211,5 @@ theorem eq_one_of_fix_n6vec
   rw [h1]
   rfl
 
-theorem native_unitary_stabilizer_891_action :
-    sigmaW = decW 6144 ∧ sigmaW = wvec 0 ∧
-    H6 = Usig.map (Kstab v0).subtype ∧ Nat.card Usig = 18393661440 ∧
-    (∀ k : Fin 17, n6Elt k ∈ Kstab v0 ∧
-      ∀ c : ℕ, wAct v0 (genK k) (decW c) = decW (Native.actD 22 n6RowArr[(k : ℕ)]! c)) ∧
-    (∀ (k : Fin 17) (j : Fin 891), wAct v0 (genK k) (n6vec j) = n6vec (n6perm k j)) ∧
-    Function.Injective n6vec ∧ n6vec 0 = wFr ∧
-    (∀ x : Wv v0, (∃ u ∈ Usig, wAct v0 u wFr = x) ↔ x ∈ Set.range n6vec) ∧
-    Submodule.span (ZMod 2) (Set.range n6vec) = sigmaPerp ∧
-    Module.finrank (ZMod 2) sigmaPerp = 21 ∧
-    (∀ u ∈ Usig, (∀ j, wAct v0 u (n6vec j) = n6vec j) → u = 1) ∧
-    (∀ i j : Fin 891, ∃ u ∈ Usig, wAct v0 u (n6vec i) = n6vec j) ∧
-    (∀ k : Kstab v0, k ∈ Usig ⊓ Mfr ↔ ∃ a : C, (a : Fin 24 → ZMod 2) ∈ C012 ∧ ∃ p ∈ P2,
-      (k : OLq) = QuotientGroup.mk (gO a * PO p)) ∧
-    (∃ e : SDD c012Hyp ≃* (Usig ⊓ Mfr : Subgroup (Kstab v0)), ∀ (a : C012) (p : P2),
-      ((e ⟨Multiplicative.ofAdd (Submodule.Quotient.mk a), p⟩ : Kstab v0) : OLq) =
-        QuotientGroup.mk (gO ⟨a, (mem_C012.1 a.2).1⟩ * PO (p : AutPerm)⁻¹)) ∧
-    Nat.card (Usig ⊓ Mfr : Subgroup (Kstab v0)) = 20643840 ∧
-    Subgroup.closure (Set.range n6Aut) = P2 ∧ Nat.card P2 = 40320 := by
-  refine ⟨sigmaW_eq_decW, sigmaW_eq_wvec, H6_eq_Usig, natCard_Usig,
-    fun k => ⟨n6Elt_mem k, wAct_genK_decW k⟩, wAct_genK_n6vec, n6vec_injective, n6vec_zero,
-    mem_range_n6vec_iff, span_n6vec, finrank_sigmaPerp, fun u _ h => eq_one_of_fix_n6vec h,
-    transitive_n6vec, fun k => (mem_UsigW_iff k).trans (mem_monoSub_iff c012Hyp),
-    ⟨UsigWEquiv, fun a p => (coe_UsigWEquiv _).trans (monoD_mk c012Hyp a p)⟩, natCard_UsigW,
-    closure_n6Aut, natCard_P2⟩
 
 end CFSG.Monster.B.TwoA.Unitary

@@ -40,8 +40,6 @@ theorem itF_succ (f : Nat → Nat) (e x : Nat) : itF f (e + 1) x = f (itF f e x)
   change strictN (itF f e x) f = _
   rw [strictN_eq]
 
-theorem elemTR_zero (n nw : Nat) (LR TR : Nat → Nat) (j : Nat) (acc : List Nat) :
-    elemTR n nw LR TR 0 j acc = acc := rfl
 
 theorem elemTR_succ (n nw : Nat) (LR TR : Nat → Nat) (d j : Nat) (acc : List Nat) :
     elemTR n nw LR TR (d + 1) j acc = elemTR n nw LR TR d (j / rcnt (LR d))

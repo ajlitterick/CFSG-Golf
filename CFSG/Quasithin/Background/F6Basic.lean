@@ -236,9 +236,6 @@ theorem not_twoResidual_le_pCoreOf_left (h : IsGoldschmidtTriple G₁ G₂) :
     (Nat.Prime.dvd_of_dvd_pow Nat.prime_three hdvd)
   omega
 
-theorem not_twoResidual_le_pCoreOf_right (h : IsGoldschmidtTriple G₁ G₂) :
-    ¬ twoResidual G₂ ≤ pCoreOf 2 G₂ :=
-  not_twoResidual_le_pCoreOf_left h.symm
 
 theorem twoResidual_top_eq (h : IsGoldschmidtTriple G₁ G₂) :
     twoResidual (⊤ : Subgroup D) = twoResidual G₁ ⊔ twoResidual G₂ := by
@@ -377,10 +374,6 @@ theorem odd_card_map_of_normal (h : IsGoldschmidtTriple G₁ G₂) {X : Subgroup
     rwa [← hQX, Subgroup.inf_subgroupOf_right] at this
   exact Nat.not_even_iff_odd.mp fun he => hidx (even_iff_two_dvd.mp he)
 
-theorem isSolvable_map_of_normal (h : IsGoldschmidtTriple G₁ G₂) {X : Subgroup D} [X.Normal]
-    (h₁ : G₁ ⊓ X ≤ pCoreOf 2 G₁) (h₂ : G₂ ⊓ X ≤ pCoreOf 2 G₂) :
-    Group.IsSolvable ↥(X.map (QuotientGroup.mk' (Open.pCore 2 D))) :=
-  CFSG.FeitThompson.isSolvable_of_odd_natCard _ (odd_card_map_of_normal h h₁ h₂)
 
 end F6
 

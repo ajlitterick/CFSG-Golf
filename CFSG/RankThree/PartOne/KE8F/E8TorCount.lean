@@ -67,10 +67,6 @@ theorem torusOfGauss_mem {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q) 
   rw [torusOfGauss, bs_ofBasis, bs_ofBasis, gaussBasis_ev, gaussBasis_od]
   exact ⟨rfl, hc j⟩
 
-theorem exists_T0_of_gauss {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q) (c : Fin 4 → Lˣ)
-    (hc : ∀ j, c j ^ (q * q + 1) = 1) :
-    ∃ b ∈ fixedCharTuples e8P4V Fr, ∀ j, cg b j = c j :=
-  ⟨torusOfGauss q c, torusOfGauss_mem hFr hc, cg_torusOfGauss q c⟩
 
 theorem cg_pow_eq_one {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q)
     {b : Fin Tag.E8.rank → Lˣ} (hb : b ∈ fixedCharTuples e8P4V Fr) (j : Fin 4) :

@@ -57,14 +57,5 @@ theorem kernelTrivialAt_three_of_local_card {X : Type} [Group X] [Finite X] {m :
     closure_gX hR' (fun i h0 => absurd h0 (hord i).1) (fun i hi => ⟨rfl, hpow' i hi, (hord i).2⟩)
     hfin (hle.trans hcardN.ge) φ hφ hc hpg hd
 
-theorem kernelTrivialAt_three_of_local {X : Type} [Group X] [Finite X] {m : ℕ} (g : Fin m → X)
-    {R : List (List (Fin m × Bool))} {ord : Fin m → ℕ}
-    (hR : ∀ r ∈ R, FreeGroup.lift g (FreeGroup.mk r) = 1) (hpow : ∀ i, g i ^ ord i = 1)
-    (hord : ∀ i, ord i ≠ 0 ∧ (ord i).Coprime 3) {k cap n : ℕ}
-    (henum : subsetCheckShortCC (cover₃Words R (fun i => [(i, true)]) ord) [] k cap n = true)
-    (hcard : n ≤ Nat.card (Subgroup.closure (Set.range g)))
-    (hsyl : (Nat.card X).factorization 3 ≤ n.factorization 3) : KernelTrivialAt X 3 :=
-  kernelTrivialAt_three_of_local_card g hR hpow hord
-    (card_PG_le_of_subsetCheckShortCC_nil _ henum) hcard hsyl
 
 end CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator

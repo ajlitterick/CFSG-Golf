@@ -44,10 +44,6 @@ theorem thompsonJ_core_le_core : thompsonJ (CFSG.pCore 2 G) ≤ CFSG.pCore 2 G :
 
 theorem Fcore_le_core : Fcore G ≤ CFSG.pCore 2 G := Fcore_le_thompsonJ.trans thompsonJ_core_le_core
 
-theorem Fcore_commute {x y : G} (hx : x ∈ Fcore G) (hy : y ∈ Fcore G) [Finite G] : x * y = y * x := by
-  obtain ⟨hxQ, hxA⟩ := mem_Fcore_iff.mp hx
-  obtain ⟨A₀, hA₀⟩ := exists_maxElem (CFSG.pCore 2 G)
-  exact (isElemAbelian_iff.mp hA₀.2.1).1 x (hxA A₀ hA₀) y ((mem_Fcore_iff.mp hy).2 A₀ hA₀)
 
 theorem eq_one_of_forall_smul_eq' {k : Type*} [Field k] {g : Matrix.SpecialLinearGroup (Fin 2) k}
     (hall : ∀ w : Fin 2 → k, g • w = w) : g = 1 := by
@@ -302,8 +298,6 @@ theorem Hone_sup_core [Finite G] [Finite k] (h : IsSeed S ρ (Ecore G) ψ) :
   refine h.eq_top_of_map_eq_top le_sup_right ?_
   rw [Subgroup.map_sup, h.Hone_map_eq_top, (Subgroup.map_eq_bot_iff _).mpr h.core_le, sup_bot_eq]
 
-theorem Kodd_le_Hone [Finite G] [Finite k] (h : IsSeed S ρ (Ecore G) ψ) : Kodd G ≤ Hone S :=
-  pPrimeGen_top_le_of_sup_eq_top (CFSG.pCore_isPGroup (G := G) (p := 2)) h.Hone_sup_core
 
 theorem Zfix_le_Vmod : Zfix S ≤ Vmod G := inf_le_left
 
@@ -396,77 +390,6 @@ theorem sylow_inf_centralizer_Fcore_le [Finite G] [Finite k] (h : IsSeed S ρ (E
   exact h.mem_core_of_centralizes_Ecore haS fun e he =>
     (Subgroup.mem_centralizer_iff.mp hac e (h.Ecore_le_Fcore he)).symm
 
-open scoped commutatorElement in
-theorem Campbell_Thompson_center_module_structure [Finite G] [Finite k]
-    (h : IsSeed S ρ (Ecore G) ψ) :
-    Odd (Nat.card (ρ.ker.map (QuotientGroup.mk' (CFSG.pCore 2 G)))) ∧
-    (S : Subgroup G) ⊓ ρ.ker = CFSG.pCore 2 G ∧
-    ρ.ker ≤ Subgroup.centralizer (Ecore G : Set G) ∧
-    ⁅Vmod G, Kodd G⁆ = Vmod G ∧
-    Ecore G = Vmod G ⊔ (Ecore G ⊓ Subgroup.center G) ∧
-    (∀ w : Multiplicative (Fin 2 → k), ∃ v : Ecore G, (v : G) ∈ Vmod G ∧ ψ v = w) ∧
-    (∀ v : Ecore G, (v : G) ∈ Vmod G → (ψ v = 1 ↔ (v : G) ∈ Subgroup.center G)) ∧
-    ⁅(S : Subgroup G), Vmod G⁆ = Zfix S ∧
-    (∀ z ∈ Zfix S, ∀ s ∈ (S : Subgroup G), s * z = z * s) ∧
-    Hone S ⊔ CFSG.pCore 2 G = ⊤ ∧ Kodd G ≤ Hone S ∧ (Hone S).map ρ = ⊤ ∧
-    Vmod G ≤ Ecore G ∧ Ecore G ≤ Fcore G ∧ Fcore G ≤ thompsonJ (CFSG.pCore 2 G) ∧
-    thompsonJ (CFSG.pCore 2 G) ≤ thompsonJ (S : Subgroup G) ∧
-    (Ecore G).Normal ∧ (Fcore G).Normal ∧ (thompsonJ (CFSG.pCore 2 G)).Normal ∧
-    (Vmod G).Normal ∧
-    (∀ A B : Subgroup G, IsMaxElemAbelian (S : Subgroup G) A →
-      IsMaxElemAbelian (CFSG.pCore 2 G) B → Nat.card B = Nat.card A) ∧
-    (∀ B : Subgroup G, IsMaxElemAbelian (CFSG.pCore 2 G) B →
-      IsMaxElemAbelian (S : Subgroup G) B) ∧
-    (∀ A : Subgroup G, IsMaxElemAbelian (S : Subgroup G) A →
-      A ⊓ Subgroup.centralizer (Fcore G : Set G) = A ⊓ CFSG.pCore 2 G ∧
-      IsMaxElemAbelian (CFSG.pCore 2 G) ((A ⊓ CFSG.pCore 2 G) ⊔ Fcore G) ∧
-      IsMaxElemAbelian (S : Subgroup G) ((A ⊓ CFSG.pCore 2 G) ⊔ Fcore G) ∧
-      Fcore G = Vmod G ⊔ (A ⊓ Fcore G) ∧
-      (¬ A ≤ CFSG.pCore 2 G → (S : Subgroup G) = A ⊔ CFSG.pCore 2 G ∧
-        ⁅A, Fcore G⁆ = ⁅A, Vmod G⁆ ∧ ⁅A, Vmod G⁆ = Zfix S) ∧
-      (A ≤ CFSG.pCore 2 G → ⁅A, Fcore G⁆ = ⊥)) ∧
-    ⁅thompsonJ (S : Subgroup G), Fcore G⁆ = Zfix S ∧ ⁅Hone S, Fcore G⁆ = Vmod G ∧
-    (∀ Y A : Subgroup G, IsMaxElemAbelian (S : Subgroup G) A → Y ≤ A →
-      (∃ A' : Subgroup G, IsMaxElemAbelian (CFSG.pCore 2 G) A' ∧ Y ⊓ CFSG.pCore 2 G ≤ A') ∧
-      ⁅Y ⊓ CFSG.pCore 2 G, Fcore G⁆ = ⊥ ∧
-      Fcore G = Vmod G ⊔ (Fcore G ⊓ Subgroup.centralizer (Y : Set G))) ∧
-    (∀ s ∈ (S : Subgroup G), (∀ t ∈ (S : Subgroup G), s * t = t * s) → s ^ 2 = 1 →
-      s ∈ Fcore G) ∧
-    (S : Subgroup G) ⊓ Subgroup.centralizer (Fcore G : Set G) ≤ CFSG.pCore 2 G := by
-  refine ⟨h.odd_card_ker, h.sylow_inf_ker, h.ker_le_centralizer_Ecore, Vmod_commutator,
-    h.Ecore_eq_Vmod_sup, h.ψ_Vmod_surj, fun v _ => h.ψ_eq_one_iff, h.sylow_commutator_Vmod,
-    fun z hz s hs => Zfix_central hz hs, h.Hone_sup_core, h.Kodd_le_Hone, h.Hone_map_eq_top,
-    Vmod_le_Ecore, h.Ecore_le_Fcore, Fcore_le_thompsonJ, h.thompsonJ_core_le_thompsonJ_sylow,
-    inferInstance, inferInstance, inferInstance, inferInstance, h.max_core_facts.2,
-    h.max_core_facts.1, ?_, h.commutator_thompsonJ_Fcore, h.commutator_Hone_Fcore, ?_,
-    fun s hs hc hs2 => h.mem_Fcore_of_central_involution hs hc hs2,
-    h.sylow_inf_centralizer_Fcore_le⟩
-  · intro A hA
-    refine ⟨h.inf_centralizer_Fcore hA, (h.isMaxElemAbelian_core_sup_Fcore hA).1,
-      (h.isMaxElemAbelian_core_sup_Fcore hA).2, h.Fcore_eq_Vmod_sup hA, fun hAQ => ?_, fun hAQ => ?_⟩
-    · exact ⟨h.sylow_eq_sup hA hAQ, (h.commutator_A_Fcore hA hAQ).trans
-        (h.commutator_A_Vmod hA hAQ).symm, h.commutator_A_Vmod hA hAQ⟩
-    · exact commutator_A_Fcore_of_le hA hAQ
-  · intro Y A hA hYA
-    obtain ⟨A', hA', hle, -⟩ := h.exists_core_max hA
-    refine ⟨⟨A', hA', (inf_le_inf_right _ hYA).trans hle⟩, ?_, ?_⟩
-    · rw [eq_bot_iff, Subgroup.commutator_le]
-      intro y hy f hf
-      have hy' : y ∈ A' := (inf_le_inf_right _ hYA).trans hle hy
-      have hf' : f ∈ A' := (mem_Fcore_iff.mp hf).2 A' hA'
-      rw [Subgroup.mem_bot]
-      simp only [commutatorElement_def]
-      have := (isElemAbelian_iff.mp hA'.2.1).1 y hy' f hf'
-      calc y * f * y⁻¹ * f⁻¹ = (f * y) * y⁻¹ * f⁻¹ := by rw [this]
-        _ = 1 := by group
-    · apply le_antisymm
-      · calc Fcore G = Vmod G ⊔ (A ⊓ Fcore G) := h.Fcore_eq_Vmod_sup hA
-          _ ≤ Vmod G ⊔ (Fcore G ⊓ Subgroup.centralizer (Y : Set G)) := by
-            refine sup_le_sup_left ?_ _
-            rintro w ⟨hwA, hwF⟩
-            refine ⟨hwF, Subgroup.mem_centralizer_iff.mpr fun y hy => ?_⟩
-            exact (isElemAbelian_iff.mp hA.2.1).1 y (hYA hy) w hwA
-      · exact sup_le (Vmod_le_Ecore.trans h.Ecore_le_Fcore) inf_le_left
 
 end IsSeed
 

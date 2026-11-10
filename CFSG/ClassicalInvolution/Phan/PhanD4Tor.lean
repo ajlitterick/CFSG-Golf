@@ -228,29 +228,6 @@ theorem mTor_conj_ι (t : Fin 4 → normOne (unitaryInvolution K p f)) (j : Fin 
     Fin 3 → normOne (unitaryInvolution K p f) :=
   ![rho (edgeSrc e) t * rho (edgeTgt e) t, rho (edgeTgt e) t, 1]
 
-theorem mTor_conj_θ (hq : p ^ f ≠ 2) (e : Fin 3) (t : Fin 4 → normOne (unitaryInvolution K p f))
-    (g : Su K p f 3) :
-    mTor S t * S.θ e g * (mTor S t)⁻¹ = S.θ e (conjDiag hK (lam e t) g) := by
-  have hle : B12 K p f ⊔ B23 K p f ≤
-      MonoidHom.eqLocus ((MulAut.conj (mTor S t)).toMonoidHom.comp (S.θ e))
-        ((S.θ e).comp (conjDiag hK (lam e t))) := by
-    refine sup_le ?_ ?_
-    · rintro _ ⟨A, rfl⟩
-      show mTor S t * S.θ e (embSUid (unitaryInvolution K p f) 2 A) * (mTor S t)⁻¹ =
-        S.θ e (conjDiag hK (lam e t) (embSUid (unitaryInvolution K p f) 2 A))
-      rw [← ι_src, mTor_conj_ι hK, ι_src, conjDiag_embSUid_two hK]
-      congr 2
-      have : conjDiag hK ![lam e t 0, lam e t 1] = conjDiag hK ![rho (edgeSrc e) t, 1] := by
-        rw [conjDiag_two hK]
-        simp [lam]
-      rw [this]
-    · rintro _ ⟨A, rfl⟩
-      show mTor S t * S.θ e (embSUid (unitaryInvolution K p f) 0 A) * (mTor S t)⁻¹ =
-        S.θ e (conjDiag hK (lam e t) (embSUid (unitaryInvolution K p f) 0 A))
-      rw [← ι_tgt, mTor_conj_ι hK, ι_tgt, conjDiag_embSUid_zero hK]
-      rfl
-  rw [B12_sup_B23_eq_top hK hq] at hle
-  exact hle (Subgroup.mem_top g)
 
 end Tori
 

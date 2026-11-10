@@ -14,8 +14,6 @@ open Subgroup CFSG CFSG.GH74.GLS CFSG.GH74.GLS.LU.Local
 @[expose] def subEquiv {G H : Type*} [Group G] [Group H] (Φ : G ≃* H) (X : Subgroup G) :
     ↥X ≃* ↥(X.map Φ.toMonoidHom) := MulEquiv.subgroupMap Φ X
 
-theorem subEquiv_apply {G H : Type*} [Group G] [Group H] (Φ : G ≃* H) (X : Subgroup G) (x : ↥X) :
-    ((subEquiv Φ X x : ↥(X.map Φ.toMonoidHom)) : H) = Φ (x : G) := rfl
 
 theorem subgroupOf_map_equiv {G H : Type*} [Group G] [Group H] (Φ : G ≃* H) (X A : Subgroup G) :
     (A.subgroupOf X).map (subEquiv Φ X).toMonoidHom =

@@ -152,10 +152,6 @@ theorem Coding.gc_inv (C : Coding ↥V) {x : G}
   rw [C.gc_of (Subgroup.inv_mem _ hx), ← cB_inv_eq C hg, ← map_inv]
   rfl
 
-omit [Finite G] in
-theorem Coding.gc_eq_id (C : Coding ↥V) {x : G} (hx : x ∈ Subgroup.normalizer (V : Set G)) :
-    C.gc x = B6.id ↔ x ∈ Subgroup.centralizer (V : Set G) := by
-  rw [C.gc_of hx, C.cB_eq_one, conjAct_eq_one']
 
 omit [Finite G] [IsMulCommutative ↥V] in
 theorem inv_mul_mem_of_conj_eq {P : Subgroup G} (hPN : P ≤ Subgroup.normalizer (V : Set G))

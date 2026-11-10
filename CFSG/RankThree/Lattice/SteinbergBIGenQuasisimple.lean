@@ -435,21 +435,6 @@ theorem isSolvable_orbitBorel_subgroupOf :
     (f := (Subgroup.subgroupOfEquivOfLe D.orbitBorel_le_orbitGroup).symm.toMonoidHom)
     (Subgroup.subgroupOfEquivOfLe D.orbitBorel_le_orbitGroup).symm.surjective
 
-theorem isSolvable_quotient_of_not_le_center {M : Subgroup D.orbitGroup} (hM : M.Normal)
-    (hMZ : ¬ M ≤ Subgroup.center D.orbitGroup) : Group.IsSolvable (D.orbitGroup ⧸ M) := by
-  have htop := D.sup_orbitBorel_eq_top hM hMZ
-  have := D.isSolvable_orbitBorel_subgroupOf
-  have hsurj : Function.Surjective ((QuotientGroup.mk' M).comp
-      (D.orbitBorel.subgroupOf D.orbitGroup).subtype) := by
-    intro y
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective M y
-    have hg : g ∈ M ⊔ D.orbitBorel.subgroupOf D.orbitGroup := htop ▸ Subgroup.mem_top g
-    rw [← SetLike.mem_coe, Subgroup.normal_mul, Set.mem_mul] at hg
-    obtain ⟨m, hm, b, hb, rfl⟩ := hg
-    refine ⟨⟨b, hb⟩, ?_⟩
-    simp only [MonoidHom.comp_apply, Subgroup.coe_subtype, QuotientGroup.mk'_apply]
-    rw [QuotientGroup.mk_mul, (QuotientGroup.eq_one_iff m).2 hm, one_mul]
-  exact Group.isSolvable_of_surjective hsurj
 
 theorem nontrivial_orbitGroup {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
     Nontrivial D.orbitGroup := by
@@ -469,10 +454,6 @@ theorem isQuasisimple_orbitGroup_of_isPerfect {O : Set (Fin τ.rank → ℤ)} (h
     exact Or.inr (CFSG.LieType.TitsSimplicity.eq_top_of_sup_eq_top hperf
       D.isSolvable_orbitBorel_subgroupOf (D.sup_orbitBorel_eq_top hM hZ))
 
-@[expose] def orbitGroupEquiv :
-    (D.orbitGroupC.subgroupOf D.fixedGroup) ≃* D.orbitGroup :=
-  (Subgroup.subgroupOfEquivOfLe D.orbitGroupC_le_fixedGroup).trans
-    ((Subgroup.subgroupOfEquivOfLe D.orbitGroup_le_adjointGroup))
 
 end GenFixedRootDatum
 

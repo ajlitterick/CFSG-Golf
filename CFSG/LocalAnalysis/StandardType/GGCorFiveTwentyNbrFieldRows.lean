@@ -44,16 +44,6 @@ theorem ggTablePRow_fieldTwo {p : ℕ} {labJ labK : LargeEvenLabel} (hp : p.Prim
     have h9 : p ∣ 3 ^ 2 := by norm_num at hp9 ⊢; exact hp9
     exact Or.inl ⟨hpr3 (hp.dvd_of_dvd_pow h9), rfl⟩
 
-private theorem two_le_n_of_ggLabelIso {p : ℕ} {lab labJ labK : LargeEvenLabel}
-    (hrow : GGTablePRow p labJ labK) (hiso : GGLabelIso lab labJ) (h2 : 2 ≤ lab.n) :
-    2 ≤ labJ.n := by
-  rcases hiso with rfl | ⟨-, -, -, h⟩ | ⟨-, h⟩ | ⟨-, h⟩ | ⟨-, h⟩ | ⟨-, h⟩ | ⟨-, h⟩ | ⟨h, -⟩
-  · exact h2
-  · omega
-  all_goals first
-    | (rw [h]; exact h2)
-    | (rw [h]; dsimp only; omega)
-    | (exfalso; rw [h] at hrow; simp [GGTablePRow] at hrow)
 
 theorem ggNbr_label_J_of_tcj_onLabel (hTCJ : GGTCJKnown) {G : Type} [Group G] [Finite G]
     {S : ℕ → LargeEvenLabel → Prop} {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -108,30 +98,6 @@ theorem ggNbr_label_J_of_tcj_onLabel (hTCJ : GGTCJKnown) {G : Type} [Group G] [F
   exact ggHasLabel_of_mulEquiv (QuotientGroup.congr _ _ (Subgroup.subgroupOfEquivOfLe hJL)
     (Subgroup.map_center_eq _)) hhasJ
 
-theorem ggNbr_fieldRow_of_not_labelOk (hRig : GGLabelRigidInput) (hTCJ : GGTCJKnown)
-    (hTP : GGNbrTablePNbrInput) {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} (hH : GGCorFiveTwentyHyp p B Bs x L D J)
-    (hq : GGInnerDiagOnLabel GGLabQFour p Bs L) {y : G} {K : Subgroup G}
-    (hnb : GGNbr p B x D J y K) (hK : ¬ GGInnerDiagOnLabel GGLabNbrOk p Bs K) :
-    (p = 3 ∧ GGHasLabel ⟨.twE6, 0, 1⟩ (K ⧸ Subgroup.center K)) ∨
-      (p = 7 ∧ GGHasLabel ⟨.A, 8, 1⟩ (K ⧸ Subgroup.center K)) := by
-  have hcfg := hH.1
-  have hInn := hH.2.2.1
-  have hp : p.Prime := hcfg.1.2.2.2.2.2.1.1
-  obtain ⟨labK, hKΛ, hhasK, -⟩ := largeEvenMarking_exists_hasLabel (hInn.2 y K hnb)
-  obtain ⟨labL, labJ, -, hq4, -, hJΛ, hdvd, hhasJ⟩ :=
-    ggNbr_label_J_of_tcj_onLabel hTCJ hcfg hq hnb
-  have hJ2 : 2 ≤ labJ.n := le_trans hq4 (Nat.le_of_dvd (by have := hJΛ.1; omega) hdvd)
-  obtain ⟨jlab, klab, hjΛ, hkΛ, hrow, hhasJ1, hhasK1⟩ :=
-    hTP G p B Bs x L D J y K hcfg hInn.1 (hInn.2 y K hnb) hnb labJ labK hJΛ hKΛ hhasJ hhasK
-  have hj2 : 2 ≤ jlab.n :=
-    two_le_n_of_ggLabelIso hrow (hRig labJ jlab _ hJΛ hjΛ hhasJ hhasJ1) hJ2
-  have hnok : ¬ GGLabNbrOk p klab := fun hok => hK (largeEvenMarking_mono
-    (fun _ _ _ _ _ _ ⟨he, hP⟩ => ⟨he ▸ hok, hP⟩)
-    (ggInnerDiagOn_relabel hRig (hInn.2 y K hnb) hkΛ hhasK1))
-  rcases ggTablePRow_fieldTwo hp hrow hkΛ hj2 hnok with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
-  · exact Or.inl ⟨rfl, hhasK1⟩
-  · exact Or.inr ⟨rfl, hhasK1⟩
 
 @[expose] def GGCorFiveTwentyInputNbrFieldRows : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -144,15 +110,6 @@ theorem ggNbr_fieldRow_of_not_labelOk (hRig : GGLabelRigidInput) (hTCJ : GGTCJKn
             (p = 7 ∧ GGHasLabel ⟨.A, 8, 1⟩ (K ⧸ Subgroup.center K))) →
           Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem GGCorFiveTwentyInputNbrQTwoQFourNoA11CfgR3.toFieldRows
-    (h : GGCorFiveTwentyInputNbrQTwoQFourNoA11CfgR3) : GGCorFiveTwentyInputNbrFieldRows :=
-  fun G _ _ p B Bs x L D J hH hq hN hA hR _ => h G p B Bs x L D J hH hq hN hA hR
-
-theorem GGCorFiveTwentyInputNbrQTwoQFourNoA11CfgR3.of_fieldRows (hRig : GGLabelRigidInput)
-    (hTCJ : GGTCJKnown) (hTP : GGNbrTablePNbrInput) (h : GGCorFiveTwentyInputNbrFieldRows) :
-    GGCorFiveTwentyInputNbrQTwoQFourNoA11CfgR3 :=
-  fun G _ _ p B Bs x L D J hH hq hN hA hR => h G p B Bs x L D J hH hq hN hA hR
-    fun _ _ hnb hK => ggNbr_fieldRow_of_not_labelOk hRig hTCJ hTP hH hq hnb hK
 
 end CFSG.StandardType
 

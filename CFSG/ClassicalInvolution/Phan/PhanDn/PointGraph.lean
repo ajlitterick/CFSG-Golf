@@ -209,28 +209,6 @@ theorem FlipColl.isFlipLine {p p' : Submodule K (Fin n ⊕ Fin n → K)}
   rw [hinf, finrank_bot, add_zero, finrank_of_point hp, finrank_of_point hp'] at hdim
   omega
 
-theorem flipColl_iff_isCollinear (hσ : ∀ x, σ (σ x) = x)
-    {p p' : Submodule K (Fin n ⊕ Fin n → K)} (hp : IsFlipflopPt σ p)
-    (hp' : IsFlipflopPt σ p') (hf : p ≤ qPerp n K p') :
-    FlipColl σ p p' ↔
-      IsCollinear σ (p.map (toA n K).toLinearMap) (p'.map (toA n K).toLinearMap) := by
-  have hinj := Submodule.map_injective_of_injective (toA n K).injective
-  have hsing : QSing (p ⊔ p') := by
-    refine (qSing_iff_isTotallySingular (p ⊔ p')).mpr ?_
-    exact (qSing_iff_isTotallySingular p).mp
-      (show QSing p from (isFlipflopSub_of_point hp).total) |>.sup
-      ((qSing_iff_isTotallySingular p').mp
-        (show QSing p' from (isFlipflopSub_of_point hp').total)) hf
-  constructor
-  · intro h
-    refine ⟨fun hEq => h.1 (hinj hEq), ?_⟩
-    rw [← Submodule.map_sup]
-    exact (isFlipflopSub_iff_nondeg hσ hsing).mp h.2
-  · intro h
-    refine ⟨fun hEq => h.1 (by rw [hEq]), ?_⟩
-    refine (isFlipflopSub_iff_nondeg hσ hsing).mpr ?_
-    rw [Submodule.map_sup]
-    exact h.2
 
 theorem flipColl_of_le_line {L x y : Submodule K (Fin n ⊕ Fin n → K)} (hL : IsFlipLine σ L)
     (hx : x ∈ ptsOn σ L) (hy : y ∈ ptsOn σ L) (hxy : x ≠ y) : FlipColl σ x y := by

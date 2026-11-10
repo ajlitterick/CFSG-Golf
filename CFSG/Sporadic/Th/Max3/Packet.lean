@@ -65,26 +65,6 @@ theorem qP_eq
   obtain ⟨-, h⟩ := Packet.native_packet_facts
   exact (Packet.isRows_signedWord _).eq_of_eqRows ((isRows_q i).mul (isRows_z.pow _)) (h i)
 
-theorem qP_three :
-    qP 3 = q 3 * z := by
-  rw [qP_eq, show (qPShift 3).val = 1 from rfl, pow_one]
-
-theorem qP_seven :
-    qP 7 = q 7 * z := by
-  rw [qP_eq, show (qPShift 7).val = 1 from rfl, pow_one]
-
-theorem qP_of_ne
-    {i : Fin 8} (h3 : i ≠ 3) (h7 : i ≠ 7) : qP i = q i := by
-  have hs : ∀ i : Fin 8, i ≠ 3 → i ≠ 7 → qPShift i = 0 := by decide
-  rw [qP_eq, hs i h3 h7, ZMod.val_zero, pow_zero, mul_one]
-
-theorem qP_three_ne :
-    qP 3 ≠ q 3 := fun h =>
-  z_ne_one (mul_eq_left.1 (qP_three.symm.trans h))
-
-theorem qP_seven_ne :
-    qP 7 ≠ q 7 := fun h =>
-  z_ne_one (mul_eq_left.1 (qP_seven.symm.trans h))
 
 namespace Packet
 
@@ -143,30 +123,11 @@ theorem closure_eq_Q :
       rw [← zP_eq_z]
       exact Subgroup.pow_mem _ (Subgroup.subset_closure (Set.mem_insert _ _)) _
 
-theorem qP_mem_Q
-    (i : Fin 8) : qP i ∈ Q := by
-  rw [qP_eq]
-  exact Q.mul_mem (q_mem_Q i) (Subgroup.pow_mem _ z_mem_Q _)
-
-theorem qP_mul_self
-    (i : Fin 8) : qP i * qP i = 1 := relP.q_sq i
-
-theorem nfP_injective :
-    Function.Injective (Function.uncurry (ExtraspecialNF.nf zP qP)) :=
-  ExtraspecialNF.injective_of_card_ge relP (by rw [closure_eq_Q, card_Q]; norm_num)
 
 namespace Packet
 
 end Packet
 
-theorem EP_injective :
-    Function.Injective EP := by
-  intro k l h
-  rw [EP_eq_nf, EP_eq_nf] at h
-  obtain ⟨h0, h1⟩ := ExtraspecialNF.eq_of_nf_eq nfP_injective h
-  refine Packet.bits_injective (funext fun i => ?_)
-  refine Fin.cases h0 (fun j => ?_) i
-  exact congrFun h1 j
 
 theorem mem_Q_iff_EP
     (g : J) : g ∈ Q ↔ ∃ k, EP k = g := by
@@ -182,28 +143,6 @@ theorem mem_Q_iff_EP
 
 namespace Packet
 
-theorem z_pow_val_add
-    (a b : ZMod 2) : z ^ (a + b).val = z ^ a.val * z ^ b.val := by
-  have h := ExtraspecialNF.pow_val_add (G := J) (x := z) z_mul_self
-  exact h a b
-
-private theorem list_prod_twist
-    {l₁ l₂ : List J}
-    (h : List.Forall₂ (fun a b => ∃ t : ZMod 2, a = b * z ^ t.val) l₁ l₂)
-    (hc : ∀ b ∈ l₂, z * b = b * z) : ∃ t : ZMod 2, l₁.prod = l₂.prod * z ^ t.val := by
-  induction h with
-  | nil => exact ⟨0, by simp⟩
-  | @cons a b l₁ l₂ hab hl ih =>
-    obtain ⟨t, rfl⟩ := hab
-    obtain ⟨u, hu⟩ := ih fun b' hb' => hc b' (List.mem_cons_of_mem _ hb')
-    refine ⟨t + u, ?_⟩
-    have hzl : z ^ t.val * l₂.prod = l₂.prod * z ^ t.val :=
-      pow_mul_of_comm (z_mul_list_prod l₂ fun b' hb' => hc b' (List.mem_cons_of_mem _ hb')) _
-    rw [List.prod_cons, List.prod_cons, hu, z_pow_val_add]
-    calc b * z ^ t.val * (l₂.prod * z ^ u.val)
-        = b * (z ^ t.val * l₂.prod) * z ^ u.val := by simp only [mul_assoc]
-      _ = b * (l₂.prod * z ^ t.val) * z ^ u.val := by rw [hzl]
-      _ = b * l₂.prod * (z ^ t.val * z ^ u.val) := by simp only [mul_assoc]
 
 theorem mk_conj_eq
     {t : J} (ht : ∀ g ∈ Q, t * g * t⁻¹ ∈ Q) (hz : t * z = z * t) {g h : Q}
@@ -223,29 +162,6 @@ theorem mk_conj_eq
 
 end Packet
 
-theorem repP_eq
-    (v : Fin 8 → ZMod 2) : ∃ t : ZMod 2, repP v = nf t v := by
-  have hF : List.Forall₂ (fun a b => ∃ t : ZMod 2, a = b * z ^ t.val)
-      (List.ofFn fun i => qP i ^ (v i).val) (List.ofFn fun i => q i ^ (v i).val) :=
-    Packet.forall₂_ofFn _ _ _ fun i => by
-      rcases ExtraspecialNF.zmod_two_cases (v i) with h | h
-      · exact ⟨0, by simp [h]⟩
-      · exact ⟨qPShift i, by simp [h, ExtraspecialNF.val_one_two, qP_eq]⟩
-  obtain ⟨t, ht⟩ := Packet.list_prod_twist hF (by
-    intro b hb
-    obtain ⟨i, rfl⟩ := List.mem_ofFn.1 hb
-    exact (Packet.pow_mul_of_comm (z_mul_q i).symm _).symm)
-  refine ⟨t, ?_⟩
-  have e0 : nf 0 v = (List.ofFn fun i => q i ^ (v i).val).prod := by simp [nf]
-  have h := ExtraspecialNF.nf_mul_zpow symplectic_rel 0 t v
-  rw [zero_add] at h
-  exact ht.trans (by rw [← e0]; exact h)
-
-theorem repP_mem_Q
-    (v : Fin 8 → ZMod 2) : repP v ∈ Q :=
-  Subgroup.list_prod_mem _ fun g hg => by
-    obtain ⟨i, rfl⟩ := List.mem_ofFn.1 hg
-    exact Subgroup.pow_mem _ (qP_mem_Q i) _
 
 theorem theta_apply_nf
     (s : ZMod 2) (v : Fin 8 → ZMod 2) :
@@ -266,135 +182,11 @@ theorem theta_apply_nf
   exact (ExtraspecialNF.theta_apply_eq_mk symplectic_rel t v).symm.trans
     (ExtraspecialNF.theta_apply_eq_mk symplectic_rel s v)
 
-theorem theta_repP
-    (v : Fin 8 → ZMod 2) :
-    theta (Multiplicative.ofAdd v) = QuotientGroup.mk ⟨repP v, repP_mem_Q v⟩ := by
-  obtain ⟨t, ht⟩ := repP_eq v
-  have e : (⟨repP v, repP_mem_Q v⟩ : Q) = ⟨nf t v, nf_mem_Q t v⟩ := Subtype.ext ht
-  rw [e]
-  exact theta_apply_nf t v
-
-theorem theta_conj_x
-    (v : Fin 8 → ZMod 2) (g : Q)
-    (hg : theta (Multiplicative.ofAdd v) = QuotientGroup.mk g) :
-    theta (Multiplicative.ofAdd (Matrix.mulVec B1 v)) =
-      QuotientGroup.mk ⟨x * g * x⁻¹, x_conj_mem_Q g.2⟩ := by
-  have h0 : (QuotientGroup.mk ⟨nf 0 v, nf_mem_Q 0 v⟩ : Q ⧸ Subgroup.center Q) =
-      QuotientGroup.mk g := by
-    rw [← hg]
-    exact (theta_apply_nf 0 v).symm
-  have h1 := Packet.mk_conj_eq (fun g hg => x_conj_mem_Q hg) z_mul_x.symm h0
-  rw [theta_B1]
-  exact h1
-
-theorem theta_conj_y
-    (v : Fin 8 → ZMod 2) (g : Q)
-    (hg : theta (Multiplicative.ofAdd v) = QuotientGroup.mk g) :
-    theta (Multiplicative.ofAdd (Matrix.mulVec B2 v)) =
-      QuotientGroup.mk ⟨y * g * y⁻¹, y_conj_mem_Q g.2⟩ := by
-  have h0 : (QuotientGroup.mk ⟨nf 0 v, nf_mem_Q 0 v⟩ : Q ⧸ Subgroup.center Q) =
-      QuotientGroup.mk g := by
-    rw [← hg]
-    exact (theta_apply_nf 0 v).symm
-  have h1 := Packet.mk_conj_eq (fun g hg => y_conj_mem_Q hg) z_mul_y.symm h0
-  rw [theta_B2]
-  exact h1
-
-theorem sq_of_theta
-    {v : Fin 8 → ZMod 2} {g : Q}
-    (hg : theta (Multiplicative.ofAdd v) = QuotientGroup.mk g) :
-    (g : J) ^ 2 = zP ^ (ExtraspecialNF.qf c v).val := by
-  obtain ⟨g, hgQ⟩ := g
-  obtain ⟨s, w, rfl⟩ := mem_Q_iff.1 hgQ
-  have h2 : theta (Multiplicative.ofAdd v) = theta (Multiplicative.ofAdd w) :=
-    hg.trans (theta_apply_nf s w).symm
-  have hvw : v = w := Multiplicative.ofAdd.injective (theta.injective h2)
-  subst hvw
-  rw [zP_eq_z]
-  exact nf_sq s v
-
-theorem card_sq_eq_one_Q :
-    Nat.card {g : Q // g ^ 2 = 1} = 272 := by
-  calc Nat.card {g : Q // g ^ 2 = 1}
-      = 2 * Nat.card {v : Fin 8 → ZMod 2 // ExtraspecialNF.qf c v = 0} :=
-        ExtraspecialNF.card_sq_eq_one symplectic_rel nf_injective_generic
-    _ = 2 * 136 := by
-        rw [Nat.card_eq_fintype_card, Fintype.card_subtype, card_zeros_qf]
-    _ = 272 := by norm_num
 
 theorem zP_ne_one :
     zP ≠ 1 := by
   rw [zP_eq_z]
   exact z_ne_one
 
-theorem zP_sq :
-    zP ^ 2 = 1 := by
-  rw [sq]
-  exact zP_mul_self
-
-theorem qP_sq
-    (i : Fin 8) : qP i ^ 2 = 1 := by
-  rw [sq]
-  exact qP_mul_self i
-
-theorem zP_mem_M :
-    zP ∈ M := by
-  rw [zP_eq_z]
-  exact z_mem_M
-
-theorem zP_mem_center_M :
-    (⟨zP, zP_mem_M⟩ : M) ∈ Subgroup.center M := by
-  have e : (⟨zP, zP_mem_M⟩ : M) = ⟨z, z_mem_M⟩ := Subtype.ext zP_eq_z
-  rw [e]
-  exact z_mem_center_M
-
-theorem zP_mul_of_mem_M
-    {m : J} (hm : m ∈ M) : zP * m = m * zP := by
-  rw [zP_eq_z]
-  exact commute_z_of_mem_M hm
-
-theorem center_Q_zP :
-    Subgroup.center Q = (Subgroup.zpowers zP).subgroupOf Q := by
-  rw [zP_eq_z]
-  exact center_Q
-
-theorem commutator_Q_zP :
-    commutator Q = (Subgroup.zpowers zP).subgroupOf Q :=
-  isExtraspecialPGroup_Q.2.1.trans center_Q_zP
-
-theorem frattini_Q_zP :
-    frattini Q = (Subgroup.zpowers zP).subgroupOf Q :=
-  isExtraspecialPGroup_Q.2.2.1.trans center_Q_zP
-
-theorem max3_extraspecial_core :
-    Packet.run Packet.program 1 = x ∧ Packet.run Packet.program 2 = y ∧
-    Q = Subgroup.closure (insert zP (Set.range qP)) ∧
-    (∀ k : Fin 512, ∑ i : Fin 9, (Packet.bits k i).val * 2 ^ i.val = k.val) ∧
-    Function.Injective EP ∧ (∀ g : J, g ∈ Q ↔ ∃ k, EP k = g) ∧
-    zP ≠ 1 ∧ zP ^ 2 = 1 ∧ (∃ hz : zP ∈ M, (⟨zP, hz⟩ : M) ∈ Subgroup.center M) ∧
-    (∀ i : Fin 8, qP i ^ 2 = 1) ∧
-    Q ≤ M ∧ (Q.subgroupOf M).Normal ∧ Nat.card Q = 512 ∧
-    Subgroup.center Q = (Subgroup.zpowers zP).subgroupOf Q ∧
-    commutator Q = (Subgroup.zpowers zP).subgroupOf Q ∧
-    frattini Q = (Subgroup.zpowers zP).subgroupOf Q ∧
-    IsExtraspecialPGroup 2 Q ∧
-    (Finset.univ.filter fun v : Fin 8 → ZMod 2 => ExtraspecialNF.qf c v = 0).card = 136 ∧
-    Nat.card {g : Q // g ^ 2 = 1} = 272 ∧
-    ∃ θ : Multiplicative (Fin 8 → ZMod 2) ≃* Q ⧸ Subgroup.center Q,
-      (∀ v : Fin 8 → ZMod 2,
-        θ (Multiplicative.ofAdd v) = QuotientGroup.mk ⟨repP v, repP_mem_Q v⟩) ∧
-      (∀ (v : Fin 8 → ZMod 2) (g : Q), θ (Multiplicative.ofAdd v) = QuotientGroup.mk g →
-        (g : J) ^ 2 = zP ^ (ExtraspecialNF.qf c v).val) ∧
-      (∀ (v : Fin 8 → ZMod 2) (g : Q), θ (Multiplicative.ofAdd v) = QuotientGroup.mk g →
-        θ (Multiplicative.ofAdd (Matrix.mulVec B1 v)) =
-          QuotientGroup.mk ⟨x * g * x⁻¹, x_conj_mem_Q g.2⟩) ∧
-      (∀ (v : Fin 8 → ZMod 2) (g : Q), θ (Multiplicative.ofAdd v) = QuotientGroup.mk g →
-        θ (Multiplicative.ofAdd (Matrix.mulVec B2 v)) =
-          QuotientGroup.mk ⟨y * g * y⁻¹, y_conj_mem_Q g.2⟩) :=
-  ⟨Packet.program_x, Packet.program_y, closure_eq_Q.symm, Packet.bits_sum, EP_injective,
-    mem_Q_iff_EP, zP_ne_one, zP_sq, ⟨zP_mem_M, zP_mem_center_M⟩, qP_sq, Q_le_M,
-    normal_Q_subgroupOf_M, card_Q, center_Q_zP, commutator_Q_zP, frattini_Q_zP,
-    isExtraspecialPGroup_Q, card_zeros_qf, card_sq_eq_one_Q,
-    theta, theta_repP, fun _ _ hg => sq_of_theta hg, theta_conj_x, theta_conj_y⟩
 
 end CFSG.Sporadic.Th.Max3

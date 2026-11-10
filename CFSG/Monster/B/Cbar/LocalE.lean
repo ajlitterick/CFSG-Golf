@@ -25,8 +25,6 @@ theorem piKFun_mul (f f' : Jmat rStar) : piKFun (f * f') = piKFun f * piKFun f' 
 @[expose] noncomputable def piK : Jmat rStar →* Kstab (phi0 (coordOf rStar)) :=
   MonoidHom.mk' piKFun piKFun_mul
 
-theorem coe_piK (f : Jmat rStar) :
-    ((piK f : Kstab (phi0 (coordOf rStar))) : OLq) = (MulOpposite.unop (piJ rStar f))⁻¹ := rfl
 
 theorem piK_eq_one_iff (f : Jmat rStar) : piK f = 1 ↔ piJ rStar f = 1 := by
   constructor

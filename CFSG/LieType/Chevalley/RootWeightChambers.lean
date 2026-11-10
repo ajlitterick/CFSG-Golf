@@ -97,28 +97,12 @@ theorem inner_simpleVec_heightVec_pos
   | ordinary τ => exact inner_single_heightVec_pos i
   | fixed t σ hσ => exact inner_orbitSum_heightVec_pos i
 
-theorem weyl_eq_closure :
-    D.weyl = Subgroup.closure (Set.range D.simpleReflAmbient) := by
-  cases D with
-  | ordinary τ => exact (coxeterSystem τ).subgroup_closure_range_simple.symm
-  | fixed t σ hσ => exact (fixed_Weyl_folded_identification t).2.2.1
-
-theorem closure_range_simpleRefl :
-    Subgroup.closure (Set.range D.simpleRefl) = ⊤ := by
-  apply Subgroup.map_injective D.weyl.subtype_injective
-  rw [MonoidHom.map_closure, ← MonoidHom.range_eq_map, Subgroup.range_subtype, ← Set.range_comp]
-  exact (D.weyl_eq_closure).symm
 
 theorem parabolicWeyl_eq_closure
     (J : Set (Fin D.rank)) :
     D.parabolicWeyl J = Subgroup.closure (D.simpleReflAmbient '' J) := by
   cases D <;> rfl
 
-theorem parabolicWeyl_le
-    (J : Set (Fin D.rank)) : D.parabolicWeyl J ≤ D.weyl := by
-  rw [parabolicWeyl_eq_closure, Subgroup.closure_le]
-  rintro _ ⟨i, -, rfl⟩
-  exact D.simpleReflAmbient_mem i
 
 theorem weylAction_injective :
     Function.Injective D.weylAction := by
@@ -167,12 +151,6 @@ theorem weylAction_mem_weights
     exact Finset.mem_insert_of_mem (Finset.mem_image_of_mem _
       (mem_rootFinset.2 (IsRoot.smul (mem_rootFinset.1 hα) _)))
 
-theorem weylAction_mem_weights_iff
-    (w : D.weyl) (χ : D.space) :
-    D.weylAction w χ ∈ D.weights ↔ χ ∈ D.weights := by
-  refine ⟨fun h => ?_, D.weylAction_mem_weights w⟩
-  have := D.weylAction_mem_weights w⁻¹ h
-  rwa [weylAction_inv_apply] at this
 
 theorem span_weights
     : Submodule.span ℝ (D.weights : Set D.space) = ⊤ := by
@@ -198,11 +176,6 @@ theorem finrank_pos :
     0 < Module.finrank ℝ D.space :=
   Module.finrank_pos_iff_exists_ne_zero.2 ⟨_, D.simpleRoot_ne_zero ⟨0, D.rank_pos⟩⟩
 
-theorem linearIndependent_simpleRoot :
-    LinearIndependent ℝ D.simpleRoot := by
-  cases D with
-  | ordinary τ => exact linearIndependent_single_top
-  | fixed t σ hσ => exact linearIndependent_orbitSum
 
 theorem span_simpleRoot :
     Submodule.span ℝ (Set.range D.simpleRoot) = ⊤ := by
@@ -261,44 +234,6 @@ theorem face_ne_univ
     have : i ∈ D.face l := h ▸ Set.mem_univ i
     exact this)
 
-theorem root_weight_chambers_and_faces
-    (D : RootWeightDatum K) :
-    FiniteDimensional ℝ D.space ∧ 0 < Module.finrank ℝ D.space ∧
-    (D.weights : Set D.space).Finite ∧ Submodule.span ℝ (D.weights : Set D.space) = ⊤ ∧
-    Finite D.weyl ∧ Function.Injective D.weylAction ∧
-    (∀ (w : D.weyl) (χ : D.space), D.weylAction w χ ∈ D.weights ↔ χ ∈ D.weights) ∧
-    (∃ b : Module.Basis (Fin D.rank) ℝ D.space, ⇑b = D.simpleRoot) ∧
-    (∀ (i : Fin D.rank) (x : D.space), D.weylAction (D.simpleRefl i) x =
-      x - (2 * ⟪D.simpleRoot i, x⟫ / ⟪D.simpleRoot i, D.simpleRoot i⟫) • D.simpleRoot i) ∧
-    Subgroup.closure (Set.range D.simpleRefl) = ⊤ ∧
-    D.weyl = Subgroup.closure (Set.range D.simpleReflAmbient) ∧
-    (∃ h : RootWeightSpace D.tag, (∀ j, ⟪ofLattice (Pi.single j 1), h⟫ = 1) ∧
-      (∀ h' : RootWeightSpace D.tag, (∀ j, ⟪ofLattice (Pi.single j 1), h'⟫ = 1) → h' = h) ∧
-      ∃ hE : h ∈ D.space, (⟨h, hE⟩ : D.space) ∈ D.openDominant ∧
-        ∀ α, IsRoot D.tag α → 0 < height α → 0 < ⟪D.rootWeight α, ⟨h, hE⟩⟫) ∧
-    (∀ x : D.space, ∃ w : D.weyl, ∃ l ∈ D.dominant, D.weylAction w l = x) ∧
-    (∀ J : Set (Fin D.rank), D.parabolicWeyl J = Subgroup.closure (D.simpleReflAmbient '' J) ∧
-      D.parabolicWeyl J ≤ D.weyl) ∧
-    (∀ l ∈ D.dominant, ∀ w : D.weyl,
-      D.weylAction w l = l ↔ (w : WeylGroup D.tag) ∈ D.parabolicWeyl (D.face l)) ∧
-    (∀ l ∈ D.dominant, l ≠ 0 → D.face l ≠ Set.univ) ∧
-    (∀ l ∈ D.dominant, ∀ α, IsRoot D.tag α → 0 < height α → 0 ≤ ⟪D.rootWeight α, l⟫) ∧
-    (∀ l ∈ D.openDominant, ∀ α, IsRoot D.tag α → 0 < height α → 0 < ⟪D.rootWeight α, l⟫) := by
-  have hhE := D.heightVec_mem_space
-  have hhD : (⟨heightVec D.tag, hhE⟩ : D.space) ∈ D.openDominant := fun i =>
-    D.inner_simpleVec_heightVec_pos i
-  refine ⟨inferInstance, D.finrank_pos, D.weights.finite_toSet, D.span_weights, inferInstance,
-    D.weylAction_injective, D.weylAction_mem_weights_iff,
-    ⟨Module.Basis.mk D.linearIndependent_simpleRoot D.span_simpleRoot.ge,
-      funext fun i => Module.Basis.mk_apply _ _ i⟩,
-    fun i x => Subtype.ext (D.weylIsometry_simpleReflAmbient i x.2), D.closure_range_simpleRefl,
-    D.weyl_eq_closure,
-    ⟨heightVec D.tag, inner_single_heightVec, fun h' hh' => eq_heightVec_iff.1 hh', hhE, hhD,
-      fun α hα hpos => inner_rootWeight_pos hhD hα hpos⟩,
-    D.exists_weylAction_mem_dominant, fun J => ⟨D.parabolicWeyl_eq_closure J, D.parabolicWeyl_le J⟩,
-    fun l hl w => D.weylAction_eq_iff hl w, fun l _ hl0 => D.face_ne_univ hl0,
-    fun l hl α hα hpos => inner_rootWeight_nonneg hl hα hpos,
-    fun l hl α hα hpos => inner_rootWeight_pos hl hα hpos⟩
 
 end RootWeightDatum
 

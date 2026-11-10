@@ -51,10 +51,6 @@ theorem size_zeros (n : Nat) : (zeros n).size = n := by
   simpa only [ByteArray.size_data, Array.size_replicate] using
     congrArg Array.size (zeros_data n)
 
-theorem uget_zeros (n : Nat) (i : USize) (hi : i.toNat < n) :
-    (zeros n).uget i (by simpa only [size_zeros] using hi) = (0 : UInt8) := by
-  change (zeros n).data[i.toNat]'(by simpa [size_zeros] using hi) = 0
-  simp only [zeros_data, Array.getElem_replicate]
 
 theorem size_wrU32 (b : ByteArray) (i x : Nat) : (wrU32 b i x).size = b.size := by
   unfold wrU32

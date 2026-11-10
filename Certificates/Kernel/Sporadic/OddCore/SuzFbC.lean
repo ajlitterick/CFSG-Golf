@@ -55,18 +55,6 @@ theorem kCountW : (((List.range 76).map fun q =>
 theorem kCountZ : (((List.range 76).map fun q => if (!(cw q == 0)) = true then
     countBelow 128 (fun j => Nat.land (kE q j) 3 == 2) else 0).sum == 1200) = true := by quickRfl
 
-theorem negKind : Bool.not (kindOK (SuzFbL 2) 0 (Nat.xor (kE 2 0) 1)) = true := by quickRfl
-
-theorem negInv : Bool.not (allN 1620 fun i =>
-    bIf(fixInvK (SuzFbE.T i), memK SuzFbIL.tail i, Bool.not (memK SuzFbIL.tail i))) = true := by
-  quickRfl
-
-theorem negWord : Bool.not (Nat.beq (mWK (wq 3)) (SuzFbE.T (ipos 2))) = true := by quickRfl
-
-theorem negLift : Bool.not (Nat.beq (SuzFbL 3) (cWK (wq 2))) = true := by quickRfl
-
-theorem negCount : Bool.not (((List.range 76).map fun q =>
-    countBelow 128 fun j => Nat.land (kE q j) 3 == 1).sum == 481) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzFb
 

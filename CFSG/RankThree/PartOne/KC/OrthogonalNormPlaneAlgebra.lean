@@ -71,9 +71,6 @@ theorem X_one : D.X 1 = 1 := by simpa using D.X_algebraMap 1
 
 theorem Y_one : D.Y 1 = 0 := by simpa using D.Y_algebraMap 1
 
-theorem X_ω : D.X D.ω = 0 := (D.coords_unique (x := 0) (y := 1) (by simp)).1
-
-theorem Y_ω : D.Y D.ω = 1 := (D.coords_unique (x := 0) (y := 1) (by simp)).2
 
 theorem X_mul (z w : E) : D.X (z * w) = D.X z * D.X w - D.n * (D.Y z * D.Y w) := by
   refine (D.coords_unique (y := D.X z * D.Y w + D.Y z * D.X w + D.t * (D.Y z * D.Y w)) ?_).1
@@ -180,9 +177,6 @@ theorem cmat_mul_lmat (z : E) : D.cmat * D.lmat z = D.lmat (D.bar z) * D.cmat :=
   fin_cases i <;> fin_cases j <;>
     simp [cmat, lmat, Matrix.mul_apply, Fin.sum_univ_two, D.X_bar, D.Y_bar] <;> ring
 
-theorem trace_lmat_mul_cmat (w : E) : (D.lmat w * D.cmat).trace = 0 := by
-  simp [Matrix.trace_fin_two, lmat, cmat]
-  ring
 
 theorem cmat_det : D.cmat.det = -1 := by
   rw [Matrix.det_fin_two]
@@ -286,18 +280,6 @@ theorem phi_mul_lmat (c eta : E) (w : E × E) :
   have e2 : c * w.2 * D.bar eta = c * (D.bar eta * w.2) := by ring
   rw [e1, e2]
 
-theorem cmat_mul_phi_mul_cmat (w : E × E) :
-    D.cmat * D.phi 1 w * D.cmat = D.phi 1 (D.bar w.1, D.bar w.2) := by
-  have h1 := D.cmat_mul_lmat w.1
-  have h2 := D.cmat_mul_lmat w.2
-  have h3 := D.cmat_mul_cmat
-  unfold phi
-  simp only [one_mul]
-  calc D.cmat * (D.lmat w.1 + D.lmat w.2 * D.cmat) * D.cmat
-      = (D.cmat * D.lmat w.1) * D.cmat + (D.cmat * D.lmat w.2) * (D.cmat * D.cmat) := by
-        simp only [Matrix.mul_add, Matrix.add_mul, Matrix.mul_assoc]
-    _ = D.lmat (D.bar w.1) + D.lmat (D.bar w.2) * D.cmat := by
-        rw [h1, h2, h3, Matrix.mul_one, Matrix.mul_assoc, h3, Matrix.mul_one]
 
 theorem lmat_cmat_phi {c : E} (hc : c ≠ 0) (w : E × E) :
     (D.lmat c * D.cmat) * D.phi c w * (D.cmat * D.lmat c⁻¹) =
@@ -356,10 +338,6 @@ theorem lmatC_det {c : E} (hNc : D.Nm c = -1) : (D.lmat c * D.cmat).det = 1 := b
   rw [Matrix.det_mul, D.lmat_det, hNc, D.cmat_det]
   ring
 
-theorem lmat_det_eq_one {lam : E} (h : lam * D.bar lam = 1) : (D.lmat lam).det = 1 := by
-  rw [D.lmat_det]
-  refine (algebraMap K E).injective ?_
-  rw [D.algebraMap_Nm, h, map_one]
 
 end QuadData
 

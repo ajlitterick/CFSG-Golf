@@ -31,14 +31,6 @@ theorem ffChevConclusion_of_mulEquiv {Y Y' : Type} [Group Y] [Group Y'] (e : Y �
   · exact Or.inl (isChevTwo_of_mulEquiv e h)
   · exact Or.inr ⟨m, hm, ⟨e.symm.trans φ⟩⟩
 
-theorem ffChevConclusion_of_ffConclusion {Y : Type} [Group Y] (h : FFConclusion Y) :
-    FFChevConclusion Y := by
-  rcases h with h | h
-  · exact Or.inl (isChevTwo_of_classicalTwoOrG2 h)
-  · exact Or.inr h
-
-theorem ffChevModuleTheorem_of_ffModuleTheorem (hFF : FFModuleTheorem) : FFChevModuleTheorem :=
-  fun V _ _ hV H L hhyp hmod => ffChevConclusion_of_ffConclusion (hFF V hV H L hhyp hmod)
 
 theorem exists_ffHyp_of_component (X : Type) [Group X] [Finite X]
     (W : Type) [AddCommGroup W] [Module (ZMod 2) W] [Finite W] (ρ : Representation (ZMod 2) X W)
@@ -129,24 +121,5 @@ theorem chevConclusion_of_component (hFF : FFChevModuleTheorem) (X : Type) [Grou
     exists_ffHyp_of_component X W ρ hρ hK hO2 A hAel hAbest K hKc hKA
   exact ffChevConclusion_of_mulEquiv e (hFF V hV2 H L hHyp hmod)
 
-theorem gn_chevConclusion (hFF : FFChevModuleTheorem)
-    (X : Type) [Group X] [Finite X] (T : Subgroup X) (hGN : GNSetting X T)
-    (L : Subgroup (X ⧸ gnC T)) (hL : IsComponentOf L ⊤) (hJ : ⁅L, gnImg T (thompsonJ T)⁆ = L) :
-    FFChevConclusion (↥L ⧸ Subgroup.center ↥L) := by
-  obtain ⟨W, _, _, _, ρ, hρ, A, hAel, hAbest, -, hLA⟩ := exists_rep_offender X T hGN L hL hJ
-  have hLbot : L ≠ ⊥ := by
-    intro h
-    have hs : IsSimpleGroup (↥L ⧸ Subgroup.center ↥L) := hL.2.2.2
-    subst h
-    have : Nontrivial (↥(⊥ : Subgroup (X ⧸ gnC T)) ⧸ Subgroup.center ↥(⊥ : Subgroup (X ⧸ gnC T))) :=
-      hs.toNontrivial
-    obtain ⟨x, y, hxy⟩ := exists_pair_ne
-      (↥(⊥ : Subgroup (X ⧸ gnC T)) ⧸ Subgroup.center ↥(⊥ : Subgroup (X ⧸ gnC T)))
-    induction x using QuotientGroup.induction_on with
-    | _ a =>
-      induction y using QuotientGroup.induction_on with
-      | _ b => exact hxy (congrArg QuotientGroup.mk (Subsingleton.elim a b))
-  exact chevConclusion_of_component hFF (X ⧸ gnC T) W ρ hρ (isKGroup_gnQuot hGN)
-    (pCore_two_gnQuot hGN) A hAel hAbest L hL (by rw [hLA]; exact hLbot)
 
 end CFSG.HardMathSupport.Meierfrankenfeld.AGL81.FF531

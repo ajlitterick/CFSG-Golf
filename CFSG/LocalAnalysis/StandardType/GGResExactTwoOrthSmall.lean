@@ -260,43 +260,6 @@ theorem ggResExactTwoOrth_centralizer_J (hRig : GGLabelRigidInput)
   have hcard := ggResExact2_centralizer_J_card_eq_pow_three_of_fix_eq_three hfixJ ι hfix3
   exact ⟨ggResExact2_D_lt_centralizer_J_of_card_eq_pow_three hH hcard, hcard⟩
 
-theorem ggResExactTwoOrth_card_deleted_le_two (hRig : GGLabelRigidInput)
-    (hFix : GGResExactTwoOrthFixLeaf) {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hlab : GGInnerDiagOnLabel (fun p lab => p = 3 ∧ (lab.tag = .D ∨ lab.tag = .twD) ∧
-      lab.n = 1 ∧ (lab.rank = 4 ∨ lab.rank = 5)) p Bs L)
-    {k : ℕ} {sel : Prop → Prop → Prop}
-    {typ : ∀ {Λ Λ' : Type}, CoxeterMatrix Λ → CoxeterMatrix Λ' → Prop}
-    (hdat : GGResLeviDatumCard k p Bs L J K sel typ) : k ≤ 2 := by
-  classical
-  have hcfg : GGConfig p B Bs x L D J := hH.1
-  obtain ⟨-, -, -, -, -, -, -, -, ⟨hp3, -⟩, -⟩ := largeEvenMarking_exists_hasLabel hlab
-  obtain ⟨Λ, instΛ, decΛ, S, Λa, instΛa, decΛa, ML, CL, MK, CK, V, instV, instMod, ι, φ, h, α,
-    hk, -, -, hWL, hCL, -, -, -, hform, -, hpL, -, -, ⟨fL, -⟩, -, hgenL, -, -, hgenJ⟩ := hdat
-  have hdim := ggResX2Aux_finrank_eq_card_add_one hRig hH hlab hWL ι (fun i => φ (Sum.inl i))
-    (fun i => h (Sum.inl i)) (fun i => α (Sum.inl i)) (fun i w => hform (Sum.inl i) w) fL hgenL
-  have : Finite V := Finite.of_equiv _ ι.toEquiv
-  have hfix3 := ggResExact2_fix_le_three hH (ggResExactTwoOrth_fix_iff hRig hFix hcfg hlab) ι
-  have hdiagJ : ∀ i : {i : Λ // i ∉ S}, α (Sum.inl i.1) (h (Sum.inl i.1)) = 2 := by
-    intro i
-    rw [hpL i.1 i.1, hCL.1 i.1]
-    norm_num
-  have hker := ggFixedSubmodule_pi_ker (p := p) (Λ := Λ) (S := S) ι
-    (fun i : {i : Λ // i ∉ S} => φ (Sum.inl i.1)) (fun i => h (Sum.inl i.1))
-    (fun i => α (Sum.inl i.1)) (fun i w => hform (Sum.inl i.1) w) hdiagJ (by omega)
-    (ggAutomizer J Bs) hgenJ
-  have hle := finrank_le_card_add_finrank_ker_pi (p := p) (Λ := Λ) (S := S) (V := V)
-    (fun i : {i : Λ // i ∉ S} => α (Sum.inl i.1))
-  rw [hker] at hle
-  have hsub : Fintype.card {i : Λ // i ∈ S} = S.card := by
-    rw [Fintype.card_subtype]
-    simp
-  have hcomp : Fintype.card {i : Λ // i ∉ S} = Fintype.card Λ - S.card := by
-    rw [Fintype.card_subtype_compl (fun i : Λ => i ∈ S), hsub]
-  have hSle : S.card ≤ Fintype.card Λ := S.card_le_univ
-  omega
-
 
 theorem ggResExactTwoOrthQTwoOn_four_five (hRig : GGLabelRigidInput)
     (hFix : GGResExactTwoOrthFixLeaf) (hD4 : GGResExactTwoOrthDFourLeaf)

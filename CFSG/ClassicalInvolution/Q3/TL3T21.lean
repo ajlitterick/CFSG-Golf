@@ -116,15 +116,5 @@ theorem thmDAbsBelow_succ {r : ℕ} {IH : ℕ → Prop} (hZ : DLeafZ r IH) (hC :
   have hst := hstar G Ω hc hz hdisc hnE4
   exact hend G Ω hc hz hdisc hst (hc.mu hcl hdisc hst)
 
-theorem thmDAbs_of_leaves {r : ℕ} {IH : ℕ → Prop} (hZ : DLeafZ r IH) (hC : DLeafC r IH)
-    (hcls : DLeafCls r) (hE4 : DLeafE4 r IH) (hstar : DLeafStar r IH) (hend : DLeafEnd r IH)
-    (hih : ∀ n, IH n) : ThmDAbs r := by
-  have hall : ∀ n, ThmDAbsBelow r n := by
-    intro n
-    induction n with
-    | zero => exact fun G _ _ hG => absurd hG (Nat.not_lt_zero _)
-    | succ n ih => exact thmDAbsBelow_succ hZ hC hcls hE4 hstar hend (hih n) ih
-  intro G _ _
-  exact hall (Nat.card G + 1) G (Nat.lt_succ_self _)
 
 end CFSG.ClassicalInvolution.Q3.TC.Thin

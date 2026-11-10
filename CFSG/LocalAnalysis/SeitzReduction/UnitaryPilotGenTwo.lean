@@ -283,17 +283,6 @@ theorem iSup_blockSU_card_eq_top {m : ℕ} (hm : 4 ≤ m) (hmn : m ≤ n) :
   simp only [Subgroup.map_iSup] at h1
   exact h1
 
-theorem iSup_blockSU_card_four_eq_top (hn : 4 ≤ n) :
-    ⨆ (I : Finset (Fin n)) (_ : I.card = 4), blockSU h I = ⊤ :=
-  iSup_blockSU_card_eq_top h le_rfl hn
-
-theorem eq_of_eqOn_blockSU {M : Type*} [Monoid M] {m : ℕ} (hm : 4 ≤ m) (hmn : m ≤ n)
-    {φ₁ φ₂ : unitaryPSU h n →* M}
-    (hφ : ∀ I : Finset (Fin n), I.card = m → ∀ x ∈ blockSU h I, φ₁ x = φ₂ x) : φ₁ = φ₂ := by
-  have hle : (⨆ (I : Finset (Fin n)) (_ : I.card = m), blockSU h I) ≤ φ₁.eqLocus φ₂ :=
-    iSup₂_le fun I hI x hx => hφ I hI x hx
-  rw [iSup_blockSU_card_eq_top h hm hmn] at hle
-  exact MonoidHom.ext fun x => hle (mem_top x)
 
 theorem eq_of_eqOn_unitaryBlock {M : Type*} [Monoid M] {m : ℕ} (hm : 4 ≤ m) (hmn : m ≤ n)
     {φ₁ φ₂ : unitarySU p f K n →* M}

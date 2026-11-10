@@ -244,9 +244,6 @@ theorem exists_improve_of_words (hc : ∀ i, 0 < c i)
     simp only [toPi_smul, Pi.smul_apply, smul_eq_mul, RingHom.id_apply]
     ring
 
-theorem graphLinear_apply (x : RootSpace τ) (l : Fin τ.rank) :
-    graphLinear π c x l = c (π.symm l) * x (π.symm l) :=
-  rfl
 
 @[expose] noncomputable def graphLinearInv (π : Equiv.Perm (Fin τ.rank)) (c : Fin τ.rank → ℝ) :
     RootSpace τ →ₗ[ℝ] RootSpace τ where

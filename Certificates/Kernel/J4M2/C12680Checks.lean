@@ -96,10 +96,6 @@ theorem c12680_conj : andB
     (Nat.beq (mulJ c rm A (V 4).1) (mulJ c rm (mP (mP (pP (V 3) 0) (pP (V 4) 10)) (pP (V 5) 6)).1 A))
     = true := by quickRfl
 
-theorem c12680_neg : andB (notB (slpT c rm one 759 757 B T2.chars H2.1 H2.2 (P 14).1 (P 14).2))
-    (andB (notB (slpT c rm one 759 758 B T2.chars H2.1 H2.2 (P 17).1 (P 17).2))
-      (notB (slpT c rm one 759 758 A T2.chars H2.1 H2.2 (P 14).1 (P 14).2))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelC12680
 

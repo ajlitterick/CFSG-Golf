@@ -123,10 +123,6 @@ theorem false_of_omega6 (h : T7F2.Hyp25T p f Ω K K' W S R R' z t u₁ u₂ t') 
   have hbN : φ w ∈ Subgroup.normalizer (K' : Set G) := mem_normalizer_iff_conjSub_eq.mpr hbK'
   exact false_of_conj_normalizer' h haS ha2 hF' hbg hbz hba hbN
 
-theorem g1Omega6_proved : G1Omega6 p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ t' h h9 a haS ha2 hF' hat e₀ h5 hzA hL hO6 hp hq e d hdK
-    hdz hda hd'
-  exact (false_of_omega6 h h9 haS ha2 hF' hat h5 hzA hL hO6).elim
 
 end Proof
 

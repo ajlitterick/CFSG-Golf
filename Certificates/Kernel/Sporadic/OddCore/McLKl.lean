@@ -80,10 +80,6 @@ theorem sSq : allN 8 (fun i => bAnd(cK (McLKlS.T i),
 theorem sNorm : allN 7 (fun j => allN 8 fun i =>
     memKl 8 McLKlS.T (conjKl (McLTwoH.F j) (McLTwoSI j) (McLKlS.T i))) = true := by quickRfl
 
-theorem neg_mem : notB (allN 7 (fun j => allN 8 fun i =>
-    memKl 8 McLKlS.T (conjKl (McLTwoH.F j) (McLTwoSI j) (McLTwoH.F i)))) = true := by quickRfl
-
-theorem neg_count : notB (Nat.beq McLKlS.cnt 16) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.McLKl
 

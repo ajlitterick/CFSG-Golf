@@ -11,16 +11,6 @@ open CFSG CFSG.RankThree.PartTwo CFSG.GH74.GLS
 
 variable {G : Type*} [Group G] {A : Subgroup G} {LB : Subgroup G → Subgroup G}
 
-theorem rank3II_14_4_1 {a : G} {Q Y : Subgroup G}
-    (hQ : Q ∈ collectionIn (scriptQ A LB) (Subgroup.centralizer {a})) (hYQ : Y ≤ Q)
-    (hY : Y ∈ scriptY A) : Y ∈ collectionIn (scriptQ A LB) (Subgroup.centralizer {a}) :=
-  ⟨mem_scriptQ_of_le hQ.1 hYQ hY.2, hYQ.trans hQ.2⟩
-
-theorem rank3II_14_4_2 {a b : G} {Q : Subgroup G}
-    (hQ : Q ∈ collectionIn (scriptQ A LB) (Subgroup.centralizer {a}))
-    (hQb : Q ≤ Subgroup.centralizer {b}) :
-    Q ∈ collectionIn (scriptQ A LB) (Subgroup.centralizer {b}) :=
-  ⟨hQ.1, hQb⟩
 
 theorem map_conj_eq_of_mem_normalizer' {w : G} (hw : w ∈ Subgroup.normalizer (A : Set G)) :
     A.map (MulAut.conj w).toMonoidHom = A :=

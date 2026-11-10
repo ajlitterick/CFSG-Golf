@@ -94,57 +94,5 @@ namespace CFSG.ComponentClassification.GrSLit
 
 open CFSG Subgroup
 
-theorem target_stable_of_central_actor
-    {C : Type} [Group C] [Finite C] {a q s : C} {R : Subgroup C}
-    (hsaq : s = a * q) (hscent : s ∈ Subgroup.center C)
-    (hqlayer : q ∈ pLayer C 2) (hR : IsPComponent 2 R) :
-    conjugate R a = R := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have haq : a = s * q⁻¹ := by simp [hsaq, mul_assoc]
-  have haNorm : a ∈ normalizer (R : Set C) := by
-    rw [haq]
-    exact mul_mem (Subgroup.center_le_normalizer R hscent)
-      (inv_mem (CFSG.StandardType.GGPumpup.pLayer_le_normalizer hR hqlayer))
-  exact Subgroup.mem_normalizer_iff_map_conj_eq.mp (inv_mem haNorm)
-
-
-theorem target_stable_fixed_component
-    {C : Type} [Group C] [Finite C] {a q s : C} {Tq R : Subgroup C}
-    (hsaq : s = a * q) (hscent : s ∈ Subgroup.center C)
-    (hqlayer : q ∈ pLayer C 2)
-    (hR : IsPComponent 2 R)
-    (hTq_le : Tq ≤ (R ⊔ conjugate R a) ⊓ Subgroup.centralizer ({a} : Set C))
-    (hTq_pc : IsPComponent 2 (Tq.subgroupOf
-      ((R ⊔ conjugate R a) ⊓ Subgroup.centralizer ({a} : Set C)))) :
-    conjugate R a = R ∧ Tq ≤ R ⊓ Subgroup.centralizer ({a} : Set C) ∧
-      IsPComponent 2 (Tq.subgroupOf (R ⊓ Subgroup.centralizer ({a} : Set C))) := by
-  have hRa : conjugate R a = R :=
-    target_stable_of_central_actor hsaq hscent hqlayer hR
-  have hTqR : Tq ≤ R := by
-    have hle : Tq ≤ R ⊔ conjugate R a := hTq_le.trans inf_le_left
-    simpa [hRa, sup_idem] using hle
-  have hTqC : Tq ≤ Subgroup.centralizer ({a} : Set C) := hTq_le.trans inf_le_right
-  have hTqRC : Tq ≤ R ⊓ Subgroup.centralizer ({a} : Set C) := le_inf hTqR hTqC
-  have hX : (R ⊔ conjugate R a) ⊓ Subgroup.centralizer ({a} : Set C) =
-      R ⊓ Subgroup.centralizer ({a} : Set C) := by
-    rw [hRa, sup_idem]
-  have hpc : IsPComponent 2 (Tq.subgroupOf
-      (R ⊓ Subgroup.centralizer ({a} : Set C))) := by
-    rw [hX] at hTq_pc
-    exact hTq_pc
-  exact ⟨hRa, hTqRC, hpc⟩
-
-
-theorem target_stable_from_fixed_component
-    {C : Type} [Group C] [Finite C] {a q s : C} {Tq R : Subgroup C}
-    (hsaq : s = a * q) (hscent : s ∈ Subgroup.center C)
-    (hqTq : q ∈ Tq) (hTq_layer : Tq ≤ pLayer C 2)
-    (hR : IsPComponent 2 R)
-    (hTq_le : Tq ≤ (R ⊔ conjugate R a) ⊓ Subgroup.centralizer ({a} : Set C))
-    (hTq_pc : IsPComponent 2 (Tq.subgroupOf
-      ((R ⊔ conjugate R a) ⊓ Subgroup.centralizer ({a} : Set C)))) :
-    conjugate R a = R ∧ Tq ≤ R ⊓ Subgroup.centralizer ({a} : Set C) ∧
-      IsPComponent 2 (Tq.subgroupOf (R ⊓ Subgroup.centralizer ({a} : Set C))) :=
-  target_stable_fixed_component hsaq hscent (hTq_layer hqTq) hR hTq_le hTq_pc
 
 end CFSG.ComponentClassification.GrSLit

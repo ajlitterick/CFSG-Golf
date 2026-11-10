@@ -11,8 +11,6 @@ open Equiv CFSG.Quasithin.F53Mod CFSG.Quasithin.F53
 open scoped Pointwise
 open Multiplicative
 
-private theorem D0fin_fix_all : ∀ q : Fin 5, (∀ d ∈ D0fin, d q = q) → q = 4 := by
-  decide +kernel
 
 theorem exists_conj_D0 (P : Subgroup (Perm (Fin 5))) (hP : Nat.card P = 8) :
     ∃ g : Perm (Fin 5), ∀ x : Perm (Fin 5), x ∈ P ↔ g⁻¹ * x * g ∈ D0fin := by
@@ -40,49 +38,6 @@ private theorem sign_conj (g y : Perm (Fin 5)) : Perm.sign (g⁻¹ * y * g) = Pe
   rw [map_mul, map_mul, map_inv]
   exact (mul_comm _ _).trans (mul_inv_cancel_left _ _)
 
-private theorem D0_inf_all : ∀ z : Perm (Fin 5),
-    (z ∈ D0fin ∧ Perm.sign z = 1) ↔ (Perm.sign z = 1 ∧ z * z = 1 ∧ z 4 = 4) := by
-  decide +kernel
-
-theorem mem_inf_alt_iff_of_card_eight {P : Subgroup (Perm (Fin 5))} (hP : Nat.card P = 8)
-    {p₀ : Fin 5} (hp : ∀ σ ∈ P, σ p₀ = p₀) (y : Perm (Fin 5)) :
-    y ∈ P ⊓ alternatingGroup (Fin 5) ↔ (Perm.sign y = 1 ∧ y * y = 1 ∧ y p₀ = p₀) := by
-  obtain ⟨g, hg⟩ := exists_conj_D0 P hP
-  have hq : g⁻¹ p₀ = 4 := by
-    apply D0fin_fix_all
-    intro d hd
-    have hmem : g * d * g⁻¹ ∈ P := by
-      refine (hg _).mpr ?_
-      have : g⁻¹ * (g * d * g⁻¹) * g = d := by group
-      rw [this]
-      exact hd
-    have h1 := hp _ hmem
-    apply g.injective
-    simpa [Perm.mul_apply] using h1
-  have hp4 : p₀ = g 4 := by
-    rw [← hq]
-    simp
-  subst hp4
-  have hs := sign_conj g y
-  have hsq : g⁻¹ * y * g * (g⁻¹ * y * g) = 1 ↔ y * y = 1 := by
-    constructor
-    · intro e
-      calc y * y = g * ((g⁻¹ * y * g) * (g⁻¹ * y * g)) * g⁻¹ := by group
-        _ = 1 := by rw [e]; group
-    · intro e
-      calc g⁻¹ * y * g * (g⁻¹ * y * g) = g⁻¹ * (y * y) * g := by group
-        _ = 1 := by rw [e]; group
-  have hz4 : (g⁻¹ * y * g) 4 = 4 ↔ y (g 4) = g 4 := by
-    rw [show (g⁻¹ * y * g) 4 = g⁻¹ (y (g 4)) by simp [Perm.mul_apply], Perm.inv_eq_iff_eq]
-  rw [Subgroup.mem_inf, Equiv.Perm.mem_alternatingGroup, hg y]
-  constructor
-  · rintro ⟨hz, hs1⟩
-    obtain ⟨-, h2, h3⟩ := (D0_inf_all _).mp ⟨hz, by rw [hs]; exact hs1⟩
-    exact ⟨hs1, hsq.mp h2, hz4.mp h3⟩
-  · rintro ⟨hs1, h2, h3⟩
-    obtain ⟨hz, -⟩ := (D0_inf_all (g⁻¹ * y * g)).mpr ⟨by rw [hs]; exact hs1, hsq.mpr h2,
-      hz4.mpr h3⟩
-    exact ⟨hz, hs1⟩
 
 private theorem fix_point_of_natAct_fix_all : ∀ p : Fin 5, ∀ c : Fin 4 → ZMod 2, c ≠ 0 →
     (∀ y : Perm (Fin 5), Perm.sign y = 1 → y * y = 1 → y p = p → CFSG.Quasithin.F53Mod.natAct y c = c) →

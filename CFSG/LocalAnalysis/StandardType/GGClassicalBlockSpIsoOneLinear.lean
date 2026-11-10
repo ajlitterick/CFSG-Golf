@@ -1151,24 +1151,6 @@ private lemma ggJS1_linear_strong {K : Type} [Field K] [Fintype K] [CharP K 2] {
     exact ggJS1_blockDegree_eq_natDegree β hoddβ ha hae
   exact ⟨d, m, E, inferInstance, inferInstance, hd, hcard, hdim, hblockdeg, ⟨eG⟩⟩
 
-private lemma ggJS1_linear_old {K : Type} [Field K] [Fintype K] [CharP K 2] {n : ℕ}
-    (b : GL (Fin n ⊕ Fin n) K) (hb : b ∈ StatedSp n K) (hodd : Odd (orderOf b))
-    {ε : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K}
-    (hε : IsPrimAdjIdemIn (RingHom.id K)
-      (Matrix.fromBlocks 0 1 (-1) 0 : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K)
-      (Algebra.adjoin K (Units.val '' ({b} : Set (GL (Fin n ⊕ Fin n) K)))) ε)
-    (hp : ∃ e e' : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K,
-      IsPrimIdemIn (Algebra.adjoin K (Units.val '' ({b} : Set (GL (Fin n ⊕ Fin n) K)))) e ∧
-      IsPrimIdemIn (Algebra.adjoin K (Units.val '' ({b} : Set (GL (Fin n ⊕ Fin n) K)))) e' ∧
-      e ≠ e' ∧ ε = e + e') :
-    ∃ (d m : ℕ) (E : Type) (_ : Field E) (_ : Fintype E), 1 ≤ d ∧
-      Fintype.card E = Fintype.card K ^ d ∧
-      2 * d * m = Module.finrank K (LinearMap.range (Matrix.toLin' ε)) ∧
-      Nonempty (↥(glBlockCentralizer (StatedSp n K).subtype {b} ε) ≃* GL (Fin m) E) := by
-  obtain ⟨e, e', he, he', hne, hεe⟩ := hp
-  obtain ⟨d, m, E, hE, hF, hd, hcard, hdim, -, hiso⟩ :=
-    ggJS1_linear_strong b hb hodd hε he he' hne hεe
-  exact ⟨d, m, E, hE, hF, hd, hcard, hdim, hiso⟩
 
 theorem blockGroup_iso_Sp_linear {K : Type} [Field K] [Fintype K] [CharP K 2] {n : ℕ}
     (b : GL (Fin n ⊕ Fin n) K) (hb : b ∈ StatedSp n K) (hodd : Odd (orderOf b))

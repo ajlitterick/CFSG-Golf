@@ -62,49 +62,6 @@ theorem modelTwinClass_of_layer_family {ι : Type} (hΩ : InClass p f Ω) (hex :
     rw [key k, key l]
     exact htwin N hN.1 k l
 
-theorem tag_rank_of_twinFamily (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hex : ExactMembers Ω) (hP1 : LocalOddCentral Ω {x})
-    (D : LieSystemData p f (locQuot Ω x) (locFamily Ω x))
-    (hD : ∀ i, D.tag i ≠ .G2 ∧ D.tag i ≠ .trialityD4) {j : Fin D.card}
-    (hnA1 : ¬ (D.tag j = .PSL ∧ D.rank j = 2)) {a : ℕ} (ha : 2 ≤ a) (T : Fin a → Subgroup G)
-    (hTx : ∀ k, T k ∈ centralizingMembers Ω {x}) (hTj : ∀ k, locImg Ω x (T k) ≤ (D.hom j).range)
-    (hinj : Function.Injective T) (hcomm : ∀ k l, k ≠ l → Commutes (T k) (T l))
-    (htwin : ∀ N ∈ centralizingMembers Ω {x}, ∀ k l,
-      (N = T k ∨ Commutes N (T k)) ↔ (N = T l ∨ Commutes N (T l))) :
-    ShapeTable a (D.tag j) (D.rank j) ∨ (D.tag j = .POmegaPlus ∧ D.rank j = 4 ∧ a ≤ 4) := by
-  have hq4 : 4 ≤ p ^ f := by omega
-  obtain ⟨hsc, hperf⟩ := NonClassical.componentFacts_of_no_exotic D hp2 hq4 hD
-  obtain ⟨F, hF, hFinj, hFcomm, hFtwin⟩ :=
-    modelTwinClass_of_layer_family hΩ hex hP1 D (j := j) (hsc j) (hperf j) T hTx hTj hinj
-      hcomm htwin
-  have hexp : D.exp j = f := by
-    rcases D.exp_eq j with h | ⟨h, -⟩
-    · exact h
-    · exact absurd h (hD j).2
-  have hmtc : ModelTwinClass p (D.tag j) (D.rank j) (D.exp j) a :=
-    ⟨F, hF, hFinj, hFcomm, fun k l S hS => hFtwin k l S hS⟩
-  have hmtc' := modelTwinClass_congr (p := p) rfl rfl hexp hmtc
-  have hadm : StatedLieAdmissible (D.tag j) (D.rank j) p f := by
-    have := D.admissible j
-    rwa [hexp] at this
-  exact mfTwin (p := p) (f := f) hp2 hq (D.tag j) (D.rank j) a (D.isFundTag j) (hD j).1 (hD j).2
-    hadm hnA1 ha hmtc'
-
-theorem tag_rank_of_twinFamily_of_three_le (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hex : ExactMembers Ω) (hP1 : LocalOddCentral Ω {x})
-    (D : LieSystemData p f (locQuot Ω x) (locFamily Ω x))
-    (hD : ∀ i, D.tag i ≠ .G2 ∧ D.tag i ≠ .trialityD4) {j : Fin D.card}
-    (hnA1 : ¬ (D.tag j = .PSL ∧ D.rank j = 2)) {a : ℕ} (ha : 3 ≤ a) (T : Fin a → Subgroup G)
-    (hTx : ∀ k, T k ∈ centralizingMembers Ω {x}) (hTj : ∀ k, locImg Ω x (T k) ≤ (D.hom j).range)
-    (hinj : Function.Injective T) (hcomm : ∀ k l, k ≠ l → Commutes (T k) (T l))
-    (htwin : ∀ N ∈ centralizingMembers Ω {x}, ∀ k l,
-      (N = T k ∨ Commutes N (T k)) ↔ (N = T l ∨ Commutes N (T l))) :
-    D.tag j = .POmegaPlus ∧ D.rank j = 4 ∧ a ≤ 4 := by
-  rcases tag_rank_of_twinFamily hp2 hq hΩ hex hP1 D hD hnA1 (by omega) T hTx hTj hinj hcomm htwin
-    with h | h
-  · have h' : ShapeTable a (D.tag j) (D.rank j) := h
-    exact absurd (ShapeTable.le_two h') (by omega)
-  · exact h
 
 end Layer
 

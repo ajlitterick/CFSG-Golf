@@ -410,50 +410,6 @@ theorem H_inf_C (h : FCHyp L K n φ t) : 𝐇 ⊓ 𝐂 = 𝐐 := by
   rw [inf_comm]
   exact (eq_of_le_of_card_ge (le_inf h.setup.Q_le_C hQH) (le_of_eq h3)).symm
 
-theorem center_H (h : FCHyp L K n φ t) : (center 𝐇).map 𝐇.subtype = 𝐙 := by
-  have hQH : 𝐐 ≤ 𝐇 := le_sup_left.trans le_sup_left
-  have hZc : ∀ z ∈ 𝐙, ∀ y ∈ 𝐇, y * z = z * y := fun z hz y hy =>
-    comm_ZP_of (fun u hu => h.H_centralizes_U Axis.one hy hu)
-      (fun u hu => h.H_centralizes_U Axis.two hy hu) hz
-  have hZH : 𝐙 ≤ 𝐇 := fun z hz => hQH (mem_sup_left (Setup.ZP_le_PG hz))
-  apply le_antisymm
-  · intro x hx
-    rw [mem_center_map_iff] at hx
-    obtain ⟨hxH, hxc⟩ := hx
-    have htH : t ∈ 𝐇 := hQH (mem_sup_right (mem_zpowers t))
-    have hxC : x ∈ 𝐂 := mem_centralizer_singleton_iff.mpr (hxc t htH).symm
-    have hxQ : x ∈ 𝐐 := by
-      rw [← h.H_inf_C]
-      exact mem_inf.mpr ⟨hxH, hxC⟩
-    have hxZQ : x ∈ (center 𝐐).map 𝐐.subtype :=
-      mem_center_map_iff.mpr ⟨hxQ, fun y hy => hxc y (hQH hy)⟩
-    obtain ⟨z, hz, c, hc, rfl⟩ := h.setup.exists_of_mem_ZQ hxZQ
-    have hc' : c = 1 ∨ c = t := by
-      obtain ⟨j, rfl⟩ := hc
-      exact zpow_eq_one_or_eq h.setup.t_mul_t j
-    rcases hc' with hc1 | hc1 <;> rw [hc1] at hxc ⊢
-    · rw [mul_one]
-      exact hz
-    · exfalso
-      have htc : ∀ y ∈ 𝐇, y * t = t * y := by
-        intro y hy
-        have h1 := hxc y hy
-        have h2 := hZc z hz y hy
-        calc y * t = z⁻¹ * (y * (z * t)) * y⁻¹ * y := by rw [← mul_assoc y z t, h2]; group
-          _ = z⁻¹ * (z * t * y) * y⁻¹ * y := by rw [h1]
-          _ = t * y := by group
-      have hu := coordG_mem φ Axis.one 1
-      have hmem : t * coordG φ Axis.one 1 ∈ {x : G | ∃ g ∈ 𝐇, x = g⁻¹ * t * g} := by
-        rw [h.orbit_H]
-        exact ⟨_, pull_mono φ (rootU_le_center _) hu, rfl⟩
-      obtain ⟨g, hg, hgt⟩ := hmem
-      rw [mul_assoc, ← htc g hg, inv_mul_cancel_left] at hgt
-      have h3 : coordG φ Axis.one 1 = coordG φ Axis.one 0 := by
-        rw [coordG_zero]
-        exact mul_left_cancel (hgt.trans (mul_one t).symm)
-      exact one_ne_zero (coordG_injective φ Axis.one h3)
-  · intro z hz
-    exact mem_center_map_iff.mpr ⟨hZH hz, fun y hy => hZc z hz y hy⟩
 
 end Overgroup
 

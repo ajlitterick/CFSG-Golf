@@ -56,11 +56,6 @@ Then
   (c) is moved to endFieldRep_isAbsolutelyIrreducible
 -/
 
-public alias proposition_2_1_a := isAbsolutelyIrreducible_iff_surjective
-
-public alias proposition_2_1_b := jacobson_density_surjective_rep
-
-public alias proposition_2_1_c := endFieldRep_isAbsolutelyIrreducible
 
 /-
 **Kind**: Theorem

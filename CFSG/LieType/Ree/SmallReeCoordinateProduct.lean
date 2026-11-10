@@ -58,17 +58,5 @@ theorem smallReeCoord_pow_three
   · linear_combination (b + σ t * t) * h3
   · linear_combination (c - b * t + σ t * t ^ 2) * h3
 
-theorem small_Ree_positive_coordinate_product
-    (a : ℕ) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = 3 ^ (2 * a + 1)) :
-    (∀ t b c s d e : K, smallReeCoord a K t b c * smallReeCoord a K s d e =
-      smallReeCoord a K (t + s) (b + d + smallReeSigma a t * s)
-        (c + e - b * s + smallReeSigma a t * s ^ 2)) ∧
-    smallReeCoord a K 0 0 0 = 1 ∧
-    (∀ t b c : K, (smallReeCoord a K t b c)⁻¹ = smallReeCoord a K (-t)
-      (-b + t * smallReeSigma a t) (-c - b * t - t ^ 2 * smallReeSigma a t)) ∧
-    ∀ t b c : K,
-      smallReeCoord a K t b c ^ 3 = smallReeCoord a K 0 0 (-(t ^ 2 * smallReeSigma a t)) :=
-  ⟨smallReeCoord_mul hK, smallReeCoord_zero, smallReeCoord_inv hK, smallReeCoord_pow_three hK⟩
 
 end CFSG.LieType.Ree

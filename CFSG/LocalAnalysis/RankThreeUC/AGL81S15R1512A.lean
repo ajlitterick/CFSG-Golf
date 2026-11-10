@@ -9,27 +9,6 @@ public section
 
 namespace CFSG.LocalAnalysis.RankThreeUC.S15
 
-theorem rank_ge_four_aux {m : ℕ} (hm5 : 5 ≤ m) (hm7 : m ≤ 7) {Q : TauCeti.PrimePower}
-    (hQ : Q.p = 2) (hn2 : 2 ≤ Q.exponent) {z : ℕ} {eps : Bool}
-    (heps : eps = decide (Odd Q.exponent))
-    (h : ∀ r : ℕ, r.Prime → r ≠ 2 → rkLin m eps Q.card r z ≤ 3) :
-    m = 5 ∧ Q.exponent = 2 ∧ ¬ 5 ∣ z := by
-  rcases exists_prime_rank_ge_four Q.exponent m z hn2 hm5 hm7 with ⟨h1, h2, h3⟩ | ⟨q, hq, hqd, hge⟩
-  · exact ⟨h1, h2, h3⟩
-  · exfalso
-    have hq2 : q ≠ 2 := by
-      rintro rfl
-      have h2n : 2 ∣ 2 ^ Q.exponent := dvd_pow_self 2 (by omega)
-      have hpos : 0 < 2 ^ Q.exponent := by positivity
-      obtain ⟨k, hk⟩ := h2n
-      split_ifs at hqd
-      · obtain ⟨j, hj⟩ := hqd
-        omega
-      · obtain ⟨j, hj⟩ := hqd
-        omega
-    have h' := h q hq hq2
-    rw [TauCeti.PrimePower.card_def, hQ, heps] at h'
-    omega
 
 @[expose] def Res1512 : TauCeti.LieTypeIndex → Prop
   | .A l Q => 4 ≤ l ∧ l ≤ 6 ∧ Q.p = 2 ∧ Odd Q.exponent ∧ 3 ≤ Q.exponent
@@ -232,20 +211,6 @@ theorem exists_prime_four_le_of_res1512_twistedA {l : ℕ} {Q : TauCeti.PrimePow
       rw [TauCeti.PrimePower.card_def, hQ]
       exact hqge
 
-theorem in1512_of_ranks_le_three {d : TauCeti.LieTypeIndex} (hd : IsRankTwoPlus d) {z : ℕ}
-    (h : ∀ r : ℕ, r.Prime → r ≠ 2 → mRankChev d r z ≤ 3) : In1512 d := by
-  rcases in1512_or_res1512 hd (h 3 Nat.prime_three (by norm_num)) with hin | hres
-  · exact hin
-  · cases d with
-    | A l Q =>
-      obtain ⟨q, hq, hq2, -, hq4⟩ := exists_prime_four_le_of_res1512_A hres z
-      have := h q hq hq2
-      omega
-    | twistedA l Q =>
-      obtain ⟨q, hq, hq2, -, hq4⟩ := exists_prime_four_le_of_res1512_twistedA hres z
-      have := h q hq hq2
-      omega
-    | _ => exact hres.elim
 
 theorem not_dvd_of_rank_u5 {Q : TauCeti.PrimePower} (hc : Q.card = 4) {z : ℕ}
     (h : mRankChev (.twistedA 4 Q) 5 z ≤ 3) : ¬ 5 ∣ z := by

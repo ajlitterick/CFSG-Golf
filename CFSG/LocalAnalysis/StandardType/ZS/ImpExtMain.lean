@@ -48,13 +48,6 @@ theorem isOrthType_of_forall_isIsom_phiForm (hp : p ≠ 2) (f : Module.Basis (Fi
     exact hp (le_antisymm hp2 hpge2)
   exact (mul_eq_zero.mp h2).resolve_left (mul_ne_zero h2ne hw)
 
-private lemma two_ne_zero_of_prime_ne_two (hp : p ≠ 2) : (2 : ZMod p) ≠ 0 := by
-  intro h
-  have h' : ((2 : ℕ) : ZMod p) = 0 := h
-  have hdvd : p ∣ 2 := (ZMod.natCast_eq_zero_iff 2 p).mp h'
-  have hp2 : p ≤ 2 := Nat.le_of_dvd (by norm_num) hdvd
-  have hpge2 : 2 ≤ p := (Fact.out : Nat.Prime p).two_le
-  exact hp (le_antisymm hp2 hpge2)
 
 namespace ImpExtSetting
 

@@ -98,7 +98,6 @@ variable {κ : Type*} [Fintype κ] [DecidableEq κ]
 @[expose] def orbitSum (o : ι → κ) (v : ι → ℤ) : κ → ℤ :=
   fun c => ∑ j ∈ Finset.univ.filter (fun j => o j = c), v j
 
-@[expose] def twistedRoots (Φ : Set (ι → ℤ)) (o : ι → κ) : Set (κ → ℤ) := orbitSum o '' Φ
 
 @[expose] def twistedRootSubgroup {G : Type*} [Group G] (Φ : Set (ι → ℤ)) (o : ι → κ)
     (X : (ι → ℤ) → Subgroup G) (σ : G →* G) (β : κ → ℤ) : Subgroup G :=

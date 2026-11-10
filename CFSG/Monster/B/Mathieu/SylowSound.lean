@@ -50,9 +50,6 @@ theorem imageList_injective : Function.Injective (imageList (n := n)) := by
   have e' := List.ofFn_injective e
   exact Equiv.ext fun x => Fin.ext (congrFun e' x)
 
-theorem eq_of_rep_of_size {a b : Array ℕ} {g : Equiv.Perm (Fin n)} (ha : a.size = n)
-    (hb : b.size = n) (hra : Rep n a g) (hrb : Rep n b g) : a = b :=
-  Array.toList_inj.1 ((toList_eq_imageList ha hra).trans (toList_eq_imageList hb hrb).symm)
 
 theorem letterValue_def {G : Type*} [Group G] (gs : List G) (l : ℤ) :
     letterValue gs l = if 0 < l then gs.getD (l.natAbs - 1) 1 else (gs.getD (l.natAbs - 1) 1)⁻¹ :=
@@ -99,12 +96,6 @@ theorem evalWord_toLetters {G : Type*} [Group G] (gs : List G) :
     · rw [show decide (0 < l) = false by simpa using hpos,
         Quiver.SchreierGraph.evalWord_cons_false, ite_eq_right hpos]
 
-theorem evalWord_toLetters' {G : Type*} [Group G] (gs : List G) (j : ℕ) (hj : j = gs.length)
-    (w : List ℤ) (hw : lettersOK j w = true) :
-    Quiver.SchreierGraph.evalWord (fun h : Fin j => gs.getD h 1) (toLetters j w) =
-      wordValue gs w := by
-  subst hj
-  exact evalWord_toLetters gs w hw
 
 @[expose] noncomputable def rootGroup (r : GroupRecord) (n : ℕ) :
     Subgroup (Equiv.Perm (Fin n)) :=
@@ -123,11 +114,6 @@ theorem closure_origArrs (c : ChainRecord) :
     obtain ⟨k, hk, rfl⟩ := List.getElem_of_mem ha
     exact ⟨k, by rw [c.origArrs_size]; exact hk, by rw [arrPerm, c.origArrs_get hk]⟩
 
-theorem rootGens_mem (r : GroupRecord) : ∀ g ∈ r.rootGens n, g ∈ rootGroup r n := by
-  intro g hg
-  rw [GroupRecord.rootGens, List.mem_map] at hg
-  obtain ⟨a, ha, rfl⟩ := hg
-  exact Subgroup.subset_closure ⟨a, ha, rfl⟩
 
 theorem rootGens_getD (r : GroupRecord) {k : ℕ} (hk : k < r.chain.generators.length) :
     (r.rootGens n).getD k 1 = permOfArr n r.chain.origArrs[k]! := by
@@ -163,16 +149,6 @@ theorem root_facts {r : GroupRecord} (h : r.chain.check n = true) :
   · intro t g hg
     rw [hsift t g hg, hG]
 
-theorem rep_wordA_root {r : GroupRecord} (h : r.chain.check n = true) {w : List ℤ}
-    (hw : lettersOK r.chain.origArrs.size w = true) :
-    Rep n (wordA n r.chain.origArrs (rawInvs n r.chain.origArrs) w)
-      (wordValue (r.rootGens n) w) := by
-  obtain ⟨hreps, -, -⟩ := root_facts h
-  have hrep := rep_wordA (n := n) (gs := fun k => (r.rootGens n).getD k 1)
-    (j := r.chain.origArrs.size) (fun k hk => (hreps k hk).1) (fun k hk => (hreps k hk).2) w hw
-  have hlen : r.chain.origArrs.size = (r.rootGens n).length := by
-    rw [r.chain.origArrs_size, GroupRecord.rootGens, List.length_map]
-  rwa [evalWord_toLetters' (r.rootGens n) _ hlen w hw] at hrep
 
 @[expose] noncomputable def SylowRecord.subgroup (s : SylowRecord) (n : ℕ) :
     Subgroup (Equiv.Perm (Fin n)) :=
@@ -205,45 +181,6 @@ theorem genArrs_get (s : SylowRecord) {k : ℕ} (hk : k < s.generators.length) :
   rw [getElem!_pos s.genArrs k (by rw [genArrs_size]; exact hk)]
   simp [SylowRecord.genArrs]
 
-theorem all_genArrs {s : SylowRecord} {f : Array ℕ → Bool} (h : s.genArrs.all f = true) :
-    ∀ a ∈ s.generators, f a.toArray = true := by
-  rw [Array.all_eq_true_iff_forall_mem] at h
-  intro a ha
-  refine h _ ?_
-  rw [SylowRecord.genArrs, List.mem_toArray, List.mem_map]
-  exact ⟨a, ha, rfl⟩
-
-theorem all_repArrs {s : SylowRecord} {f : Array ℕ → Bool} (h : s.repArrs.all f = true) :
-    ∀ ng ∈ s.normalGeneration, f ng.representative.toArray = true := by
-  rw [Array.all_eq_true_iff_forall_mem] at h
-  intro ng hng
-  refine h _ ?_
-  rw [SylowRecord.repArrs, List.mem_toArray, List.mem_map]
-  exact ⟨ng, hng, rfl⟩
-
-theorem closure_genArrs (s : SylowRecord) :
-    Subgroup.closure {g | ∃ k < s.genArrs.size, permOfArr n s.genArrs[k]! = g} = s.subgroup n := by
-  unfold SylowRecord.subgroup
-  congr 1
-  ext g
-  constructor
-  · rintro ⟨k, hk, rfl⟩
-    rw [genArrs_size] at hk
-    exact ⟨s.generators[k], List.getElem_mem hk, by rw [arrPerm, genArrs_get s hk]⟩
-  · rintro ⟨a, ha, rfl⟩
-    obtain ⟨k, hk, rfl⟩ := List.getElem_of_mem ha
-    exact ⟨k, by rw [genArrs_size]; exact hk, by rw [arrPerm, genArrs_get s hk]⟩
-
-theorem exists_index_of_card {G : Type*} [Group G] (P : Subgroup G) [Finite P] (f : ℕ → G)
-    (m : ℕ) (hmem : ∀ i < m, f i ∈ P) (hinj : ∀ i < m, ∀ j < m, f i = f j → i = j)
-    (hcard : Nat.card P = m) : ∀ x ∈ P, ∃ i < m, f i = x := by
-  let F : Fin m → P := fun i => ⟨f i, hmem i i.2⟩
-  have hF : Function.Injective F := fun i j h =>
-    Fin.ext (hinj i i.2 j j.2 (congrArg Subtype.val h))
-  have hb := hF.bijective_of_nat_card_le (by simp [hcard])
-  intro x hx
-  obtain ⟨i, hi⟩ := hb.2 ⟨x, hx⟩
-  exact ⟨i, i.2, congrArg Subtype.val hi⟩
 
 theorem factorization_eq_of_dvd {N p k : ℕ} (hp : p.Prime) (h1 : N % p ^ k = 0)
     (h2 : N % p ^ (k + 1) ≠ 0) : N.factorization p = k := by
@@ -255,46 +192,6 @@ theorem factorization_eq_of_dvd {N p k : ℕ} (hp : p.Prime) (h1 : N % p ^ k = 0
     h2 (Nat.mod_eq_zero_of_dvd ((hp.pow_dvd_iff_le_factorization hN).2 h))
   omega
 
-theorem strongArrs_get_elems (s : SylowRecord) (n N : ℕ) {i : ℕ} (hi : i < (s.elems n N).size) :
-    (s.strongArrs n N)[s.genArrs.size + i]! = (s.elems n N)[i]! := by
-  have hlt : s.genArrs.size + i < (s.strongArrs n N).size := by
-    simp [SylowRecord.strongArrs, hi]
-  rw [getElem!_pos (s.strongArrs n N) (s.genArrs.size + i) hlt,
-    getElem!_pos (s.elems n N) i hi]
-  simp only [SylowRecord.strongArrs]
-  rw [Array.getElem_append_right (by omega)]
-  simp
-
-theorem sylow_enum_facts {s : SylowRecord} {n N : ℕ}
-    (hok : arraysOK n s.genArrs (s.strongArrs n N) (fullBase n) (s.wordArrs n N) = true)
-    (hsize : (rawOrbitSizes n (s.strongArrs n N) (fullBase n)).prod = (s.elems n N).size)
-    (hvalid : ∀ i < (s.elems n N).size, permArrOK n (s.elems n N)[i]! = true)
-    (hnd : ((s.elems n N).toList.map Array.toList).Nodup) :
-    Nat.card (s.subgroup n) = (s.elems n N).size ∧
-      (∀ i < (s.elems n N).size, permOfArr n (s.elems n N)[i]! ∈ s.subgroup n) ∧
-      ∀ x ∈ s.subgroup n, ∃ i < (s.elems n N).size, permOfArr n (s.elems n N)[i]! = x := by
-  obtain ⟨Q, -, -, hsub, hcard, hstrong, -⟩ := exists_valid_of_arraysOK hok
-  rw [closure_genArrs] at hsub
-  have hcardP : Nat.card (s.subgroup n) = (s.elems n N).size := by rw [← hsub, hcard, hsize]
-  have hmem : ∀ i < (s.elems n N).size, permOfArr n (s.elems n N)[i]! ∈ s.subgroup n := by
-    intro i hi
-    have hj : s.genArrs.size + i < (s.strongArrs n N).size := by
-      simp [SylowRecord.strongArrs, hi]
-    have := hstrong _ hj
-    rwa [strongArrs_get_elems s n N hi, hsub] at this
-  have hinj : ∀ i < (s.elems n N).size, ∀ j < (s.elems n N).size,
-      permOfArr n (s.elems n N)[i]! = permOfArr n (s.elems n N)[j]! → i = j := by
-    intro i hi j hj e
-    obtain ⟨hsi, hri, -⟩ := rep_of_permArrOK (hvalid i hi)
-    obtain ⟨hsj, hrj, -⟩ := rep_of_permArrOK (hvalid j hj)
-    rw [e] at hri
-    have hij := eq_of_rep_of_size hsi hsj hri hrj
-    have hlen : (s.elems n N).toList.length = (s.elems n N).size := by simp
-    refine (List.Nodup.getElem_inj_iff hnd (i := i) (j := j)
-      (hi := by simpa using hi) (hj := by simpa using hj)).1 ?_
-    simp only [List.getElem_map, Array.getElem_toList]
-    rw [← getElem!_pos (s.elems n N) i hi, ← getElem!_pos (s.elems n N) j hj, hij]
-  exact ⟨hcardP, hmem, exists_index_of_card _ _ _ hmem hinj hcardP⟩
 
 theorem rep_facts {p : ℕ} (hp : p.Prime) {elems : Array (Array ℕ)}
     {P : Subgroup (Equiv.Perm (Fin n))} (hmem : ∀ i < elems.size, permOfArr n elems[i]! ∈ P)
@@ -387,64 +284,6 @@ theorem lettersOK_spec {j : ℕ} {w : List ℤ} (h : lettersOK j w = true) :
     decide_eq_true_eq] at h
   exact h l hl
 
-theorem ChainRecord.rep_origArrs {c : ChainRecord} (h : c.check n = true) {k : ℕ}
-    (hk : k < c.generators.length) :
-    Rep n (c.generators[k]).toArray (arrPerm n c.generators[k]) := by
-  simp only [ChainRecord.check, arraysOK, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at h
-  obtain ⟨-, ⟨⟨-, hO⟩, -⟩⟩ := h
-  have := allLt_spec hO (by rw [c.origArrs_size]; exact hk)
-  rw [c.origArrs_get hk] at this
-  exact (rep_permOfArr this).1
-
-theorem normalGen_facts {r : GroupRecord} {N : ℕ} (hroot : r.chain.check n = true)
-    (hN : (r.chain.orbitSizes n).prod = N) {ng : NormalGenRecord}
-    (h : normalGenCheck n N r.chain.origArrs ng = true)
-    (hrep : Rep n ng.representative.toArray (arrPerm n ng.representative))
-    (hxG : arrPerm n ng.representative ∈ rootGroup r n) :
-    (∀ w ∈ ng.conjugators, ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ (r.rootGens n).length) ∧
-      Subgroup.closure {g | g ∈ ng.conjugates (r.rootGens n)} = rootGroup r n := by
-  simp only [normalGenCheck, Bool.and_eq_true, beq_iff_eq, List.all_eq_true] at h
-  obtain ⟨⟨⟨⟨hlet, hchain⟩, hprod⟩, hlen⟩, hzip⟩ := h
-  have hlenO : r.chain.origArrs.size = (r.rootGens n).length := by
-    rw [r.chain.origArrs_size, GroupRecord.rootGens, List.length_map]
-  refine ⟨fun w hw => by rw [← hlenO]; exact lettersOK_spec (hlet w hw), ?_⟩
-  obtain ⟨Q, -, -, hsub, hcard⟩ := ChainRecord.exists_records_of_check hchain
-  set X := arrPerm n ng.representative
-  set gs := r.rootGens n
-  have hgen : ∀ j (hj : j < ng.chain.generators.length) (hj' : j < ng.conjugators.length),
-      arrPerm n ng.chain.generators[j] =
-        (wordValue gs ng.conjugators[j])⁻¹ * X * wordValue gs ng.conjugators[j] := by
-    intro j hj hj'
-    have hz := hzip (ng.chain.generators[j], ng.conjugators[j])
-      (List.mem_iff_getElem.2 ⟨j, by simp [hj, hj'], by simp⟩)
-    simp only at hz
-    obtain ⟨hinv, heq⟩ := hz
-    have hg := rep_wordA_root hroot (hlet _ (List.getElem_mem hj'))
-    have hconj := rep_compA (rep_inv_of_isInvA hg hinv) (rep_compA hrep hg)
-    have e := eq_of_eqA (ChainRecord.rep_origArrs hchain hj) hconj heq
-    rw [e, mul_assoc]
-  have hset : {g | ∃ a ∈ ng.chain.generators, arrPerm n a = g} =
-      {g | g ∈ ng.conjugates gs} := by
-    ext g
-    simp only [Set.mem_ofPred_eq, NormalGenRecord.conjugates, List.mem_map]
-    constructor
-    · rintro ⟨a, ha, rfl⟩
-      obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem ha
-      exact ⟨ng.conjugators[j], List.getElem_mem (by omega), (hgen j hj (by omega)).symm⟩
-    · rintro ⟨w, hw, rfl⟩
-      obtain ⟨j, hj, rfl⟩ := List.getElem_of_mem hw
-      exact ⟨ng.chain.generators[j], List.getElem_mem (by omega), hgen j (by omega) hj⟩
-  rw [hset] at hsub
-  have hle : Subgroup.closure {g | g ∈ ng.conjugates gs} ≤ rootGroup r n := by
-    rw [Subgroup.closure_le]
-    intro g hg
-    simp only [Set.mem_ofPred_eq, NormalGenRecord.conjugates, List.mem_map] at hg
-    obtain ⟨w, -, rfl⟩ := hg
-    have hw := wordValue_mem gs (rootGroup r n) (rootGens_mem r) w
-    exact (rootGroup r n).mul_mem ((rootGroup r n).mul_mem ((rootGroup r n).inv_mem hw) hxG) hw
-  obtain ⟨-, hGcard, -⟩ := root_facts hroot
-  refine Subgroup.eq_of_le_of_card_ge hle ?_
-  rw [hGcard, hN, ← hsub, hcard, hprod]
 
 theorem normalClosure_eq_top_of_conjugates {G : Subgroup (Equiv.Perm (Fin n))}
     {x : Equiv.Perm (Fin n)} (hx : x ∈ G) (gs : List (Equiv.Perm (Fin n)))
@@ -475,159 +314,6 @@ theorem repArrs_get (s : SylowRecord) {j : ℕ} (hj : j < s.normalGeneration.len
   rw [getElem!_pos s.repArrs j (by rw [repArrs_size]; exact hj)]
   simp [SylowRecord.repArrs]
 
-theorem sylowFacts_of_check {r : GroupRecord} {N : ℕ} (hroot : r.chain.check n = true)
-    (hN : (r.chain.orbitSizes n).prod = N) {s : SylowRecord}
-    (hs : sylowCheck n N r.chain s = true) (hp : s.prime.Prime) :
-    SylowFacts (rootGroup r n) N (r.rootGens n) s := by
-  simp only [sylowCheck, Bool.and_eq_true, beq_iff_eq, bne_iff_ne, ne_eq,
-    decide_eq_true_eq] at hs
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨hgens, hok⟩, hsize⟩, hpts⟩, hvalid⟩, hnd⟩, hdiv⟩, hndiv⟩, hrnd⟩, hreps⟩,
-    hcov⟩, hngall⟩ := hs
-  set p := s.prime
-  set k := s.exponent N
-  set G := rootGroup r n
-  have hfact : N.factorization p = k := factorization_eq_of_dvd hp hdiv hndiv
-  obtain ⟨-, -, hsift⟩ := root_facts hroot
-  obtain ⟨-, hGcard, -⟩ := root_facts hroot
-  have hgen := all_genArrs hgens
-  have hgenrep : ∀ a ∈ s.generators, a.toArray.size = n ∧ Rep n a.toArray (arrPerm n a) := by
-    intro a ha
-    simp only [Bool.and_eq_true] at hgen
-    obtain ⟨hs1, hr1, -⟩ := rep_of_permArrOK (hgen a ha).1
-    exact ⟨hs1, hr1⟩
-  have hgenG : ∀ a ∈ s.generators, arrPerm n a ∈ G := by
-    intro a ha
-    simp only [Bool.and_eq_true] at hgen
-    exact (hsift _ _ (hgenrep a ha).2).1 (hgen a ha).2
-  have hPG : s.subgroup n ≤ G := by
-    rw [SylowRecord.subgroup, Subgroup.closure_le]
-    rintro _ ⟨a, ha, rfl⟩
-    exact hgenG a ha
-  have hvalid' : ∀ i < (s.elems n N).size, permArrOK n (s.elems n N)[i]! = true := by
-    intro i hi
-    rw [Array.all_eq_true] at hvalid
-    rw [getElem!_pos (s.elems n N) i hi]
-    exact hvalid i hi
-  obtain ⟨hPcard, hmem, hexh⟩ := sylow_enum_facts hok (by rw [hsize, hpts]) hvalid' hnd
-  rw [hpts] at hPcard
-  have hrep := all_repArrs hreps
-  have hrepf := fun ng hng => rep_facts hp hmem hvalid' (hrep ng hng)
-  have hcovf : ∀ Q : Subgroup (Equiv.Perm (Fin n)), Q ≤ s.subgroup n → Nat.card Q = p →
-      ∃ x ∈ s.reps n, x ∈ Q := by
-    intro Q hQP hQ
-    have hcov' : ∀ i < (s.elems n N).size, coverCheck n p s.repArrs (s.elems n N)[i]! = true := by
-      intro i hi
-      rw [Array.all_eq_true] at hcov
-      rw [getElem!_pos (s.elems n N) i hi]
-      exact hcov i hi
-    have hrv : ∀ j < s.repArrs.size, permArrOK n s.repArrs[j]! = true := by
-      intro j hj
-      rw [repArrs_size] at hj
-      rw [repArrs_get s hj]
-      have := hrep _ (List.getElem_mem hj)
-      simp only [repCheck, Bool.and_eq_true] at this
-      exact this.1.1.1.1
-    obtain ⟨j, hj, hjQ⟩ := cover_facts hexh hvalid' hcov' hrv hp.one_lt Q hQP hQ
-    rw [repArrs_size] at hj
-    rw [repArrs_get s hj] at hjQ
-    exact ⟨_, List.mem_map.2 ⟨_, List.getElem_mem hj, rfl⟩, hjQ⟩
-  have hrepsfacts : ∀ x ∈ s.reps n, x ∈ s.subgroup n ∧ orderOf x = p ∧
-      ∀ y ∈ Subgroup.zpowers x, y ≠ 1 → imageList x ≤ imageList y := by
-    intro x hx
-    obtain ⟨ng, hng, rfl⟩ := List.mem_map.1 hx
-    obtain ⟨-, -, h1, h2, h3⟩ := hrepf ng hng
-    exact ⟨h1, h2, h3⟩
-  have hngf : ∀ ng ∈ s.normalGeneration,
-      (∀ w ∈ ng.conjugators, ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ (r.rootGens n).length) ∧
-        Subgroup.closure {g | g ∈ ng.conjugates (r.rootGens n)} = G := by
-    intro ng hng
-    obtain ⟨-, hr, hP, -, -⟩ := hrepf ng hng
-    rw [List.all_eq_true] at hngall
-    exact normalGen_facts hroot hN (hngall ng hng) hr (hPG hP)
-  have hc1 : Nat.card (s.subgroup n) = p ^ N.factorization p := by rw [hPcard, hfact]
-  have hc2 : p ^ N.factorization p ∣ N := by
-    rw [hfact]
-    exact Nat.dvd_of_mod_eq_zero hdiv
-  have hc3 : ¬p ^ (N.factorization p + 1) ∣ N := by
-    rw [hfact]
-    exact fun h => hndiv (Nat.mod_eq_zero_of_dvd h)
-  refine ⟨hp, fun a ha => ?_, hPG, hc1, hc2, hc3, ?_, hrepsfacts, ?_, hngf, ?_⟩
-  · obtain ⟨hs1, hr1⟩ := hgenrep a ha
-    rw [← toList_eq_imageList hs1 hr1]
-  ·
-    have hinj : ∀ ng ∈ s.normalGeneration, ∀ ng' ∈ s.normalGeneration,
-        arrPerm n ng.representative = arrPerm n ng'.representative →
-          ng.representative = ng'.representative := by
-      intro ng hng ng' hng' e
-      obtain ⟨hs1, hr1, -⟩ := hrepf ng hng
-      obtain ⟨hs2, hr2, -⟩ := hrepf ng' hng'
-      rw [e] at hr1
-      have := eq_of_rep_of_size hs1 hs2 hr1 hr2
-      simpa using congrArg Array.toList this
-    have hnd' : (s.normalGeneration.map fun ng => ng.representative).Nodup := by
-      have : (s.repArrs.toList.map Array.toList) =
-          s.normalGeneration.map fun ng => ng.representative := by
-        simp [SylowRecord.repArrs]
-      rwa [this] at hrnd
-    rw [SylowRecord.reps]
-    have e : (s.normalGeneration.map fun ng => arrPerm n ng.representative) =
-        (s.normalGeneration.map fun ng => ng.representative).map (arrPerm n) := by
-      simp
-    rw [e]
-    refine hnd'.map_on ?_
-    intro a ha b hb hab
-    obtain ⟨ng, hng, rfl⟩ := List.mem_map.1 ha
-    obtain ⟨ng', hng', rfl⟩ := List.mem_map.1 hb
-    exact hinj ng hng ng' hng' hab
-  ·
-    intro Q hQP hQ
-    obtain ⟨x, hx, hxQ⟩ := hcovf Q hQP hQ
-    refine ⟨x, ⟨hx, hxQ⟩, fun x' ⟨hx', hx'Q⟩ => ?_⟩
-    obtain ⟨-, ho, hl⟩ := hrepsfacts x hx
-    obtain ⟨-, ho', hl'⟩ := hrepsfacts x' hx'
-    exact (eq_of_lex_least hp ho ho' hQ hxQ hx'Q hl hl').symm
-  ·
-    have : Fact p.Prime := ⟨hp⟩
-    have hcardP' : Nat.card ((s.subgroup n).subgroupOf G) =
-        p ^ (Nat.card G).factorization p := by
-      rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hPG).toEquiv, hPcard, hGcard, hN, hfact]
-    refine ⟨Sylow.ofCard _ hcardP', by
-      rw [Sylow.coe_ofCard, Subgroup.map_subgroupOf_eq_of_le hPG], fun Q hQ hQcard => ?_⟩
-    rw [Sylow.coe_ofCard] at hQ
-    have hQ1 : Q.map G.subtype ≤ s.subgroup n := by
-      have := Subgroup.map_mono (f := G.subtype) hQ
-      rwa [Subgroup.map_subgroupOf_eq_of_le hPG] at this
-    have hQ1card : Nat.card (Q.map G.subtype) = p := by
-      rw [Subgroup.card_map_of_injective G.subtype_injective, hQcard]
-    obtain ⟨x, hx, hxQ⟩ := hcovf _ hQ1 hQ1card
-    obtain ⟨q, hq, rfl⟩ := Subgroup.mem_map.1 hxQ
-    obtain ⟨ng, hng, hngx⟩ := List.mem_map.1 hx
-    obtain ⟨-, hcl⟩ := hngf ng hng
-    have hqx : (q : Equiv.Perm (Fin n)) = arrPerm n ng.representative := hngx.symm
-    have hcl' : Subgroup.closure {y | ∃ g ∈ ng.conjugators.map (wordValue (r.rootGens n)),
-        g⁻¹ * (q : Equiv.Perm (Fin n)) * g = y} = G := by
-      refine Eq.trans ?_ hcl
-      congr 1
-      ext y
-      simp only [Set.mem_ofPred_eq, List.mem_map, NormalGenRecord.conjugates,
-        exists_exists_and_eq_and]
-      constructor
-      · rintro ⟨w, hw, rfl⟩
-        exact ⟨w, hw, by rw [hqx]⟩
-      · rintro ⟨w, hw, rfl⟩
-        exact ⟨w, hw, by rw [hqx]⟩
-    have hgsG : ∀ g ∈ ng.conjugators.map (wordValue (r.rootGens n)), g ∈ G := by
-      intro g hg
-      obtain ⟨w, -, rfl⟩ := List.mem_map.1 hg
-      exact wordValue_mem _ G (rootGens_mem r) w
-    have htop := normalClosure_eq_top_of_conjugates q.2 _ hgsG hcl'
-    refine top_le_iff.1 ?_
-    rw [← htop]
-    refine Subgroup.normalClosure_mono ?_
-    intro y hy
-    rw [Set.mem_singleton_iff] at hy
-    rw [hy]
-    exact hq
 
 theorem rootGroup_eq_closure {r : GroupRecord} {a b : Equiv.Perm (Fin n)}
     (h : r.chain.generators = [imageList a, imageList b]) :

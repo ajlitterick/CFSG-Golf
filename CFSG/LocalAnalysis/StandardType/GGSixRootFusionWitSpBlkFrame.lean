@@ -35,9 +35,6 @@ theorem toMatrix_toLin' (C : Matrix (Fin e) (Fin e) K) :
     LinearMap.toMatrix (Pi.basisFun K (Fin e)) (Pi.basisFun K (Fin e)) (Matrix.toLin' C) = C := by
   rw [LinearMap.toMatrix_eq_toMatrix', LinearMap.toMatrix'_toLin']
 
-theorem toLin'_pow_apply (C : Matrix (Fin e) (Fin e) K) (m : ℕ) (z : Fin e → K) :
-    (Matrix.toLin' C ^ m) z = (C ^ m) *ᵥ z := by
-  rw [← Matrix.toLin'_apply, Matrix.toLin'_pow]
 
 theorem mat_mulVec_frameΦ {A₀ : GL (Fin n ⊕ Fin n) K}
     {ε : Fin n ⊕ Fin n ≃ (Fin e × Fin s) ⊕ Fin r} {C : Matrix (Fin e) (Fin e) K}

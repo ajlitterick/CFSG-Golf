@@ -34,14 +34,6 @@ theorem eprod_single {Y : Type*} [Group Y] (e : Fin 3 → Y) (i : Fin 3) :
     rw [toAdd_mul]
     exact eprod_add e (fun i j => (hc i j).eq) h3 c.toAdd c'.toAdd
 
-theorem eprodHom_apply (e : Fin 3 → X) (h3 : ∀ i, e i ^ 3 = 1)
-    (hc : ∀ i j, Commute (e i) (e j)) (c : A3) :
-    eprodHom e h3 hc c = eprod e c.toAdd := rfl
-
-theorem eprodHom_single (e : Fin 3 → X) (h3 : ∀ i, e i ^ 3 = 1)
-    (hc : ∀ i j, Commute (e i) (e j)) (i : Fin 3) :
-    eprodHom e h3 hc (Multiplicative.ofAdd (Pi.single i 1)) = e i := by
-  rw [eprodHom_apply, toAdd_ofAdd, eprod_single]
 
 @[expose] noncomputable def rhoA (ρ : Representation (ZMod 2) X W) (e : Fin 3 → X)
     (h3 : ∀ i, e i ^ 3 = 1) (hc : ∀ i j, Commute (e i) (e j)) :
@@ -59,15 +51,6 @@ theorem pow_three_eq_one_of_A3 (c : A3) : c ^ 3 = 1 := by
   revert c
   decide
 
-private theorem index_hyperplane (H : Subgroup A3) (hH : H.index = 3) : Nat.card H = 9 := by
-  have hc := Subgroup.card_eq_card_quotient_mul_card_subgroup H
-  have hidx : Nat.card (A3 ⧸ H) = 3 := hH
-  rw [card_A3, hidx] at hc
-  omega
-
-private theorem orderOf_eq_three (c : A3) (hc : c ≠ 1) : orderOf c = 3 := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  exact orderOf_eq_prime (pow_three_eq_one_of_A3 c) hc
 
 @[expose] def flipC (i : Fin 3) (c : Fin 3 → ZMod 3) : Fin 3 → ZMod 3 :=
   fun j => if j = i then -c j else c j
@@ -102,10 +85,6 @@ theorem flipMul_apply_apply (i : Fin 3) (c : A3) : flipMul i (flipMul i c) = c :
   apply Multiplicative.toAdd.injective
   rw [flipMul_toAdd, flipMul_toAdd, flipC_invol]
 
-theorem flipMul_sq (i : Fin 3) : flipMul i * flipMul i = 1 := by
-  refine MulEquiv.ext fun c => ?_
-  show flipMul i (flipMul i c) = c
-  exact flipMul_apply_apply i c
 
 theorem eprod_flip (e l : Fin 3 → X) (h3 : ∀ i, e i ^ 3 = 1)
     (hinv : ∀ i, l i * e i * (l i)⁻¹ = (e i)⁻¹)
@@ -206,8 +185,6 @@ theorem mem_kerH {f : Fin 3 → ZMod 3} {z : A3} : z ∈ kerH f ↔ dot3 f z.toA
     rw [show linForm f z = Multiplicative.ofAdd (dot3 f z.toAdd) from rfl, h]
     rfl
 
-theorem dot3_add (f c c' : Fin 3 → ZMod 3) : dot3 f (c + c') = dot3 f c + dot3 f c' := by
-  simp [dot3, mul_add, Finset.sum_add_distrib]
 
 theorem dot3_single (f : Fin 3 → ZMod 3) (i : Fin 3) (x : ZMod 3) :
     dot3 f (Pi.single i x) = f i * x := by
@@ -320,9 +297,6 @@ private theorem two_exists_Lfun_ker : ∀ c : Fin 3 → ZMod 3,
     ∃ j : Fin 4, dot3 (Lfun j) c = 0 := by
   decide
 
-private theorem eq_zero_of_all_Lfun : ∀ c : Fin 3 → ZMod 3,
-    (∀ j : Fin 4, dot3 (Lfun j) c = 0) → c = 0 := by
-  decide
 
 private theorem exists_single_of_not_two : ∀ c : Fin 3 → ZMod 3, ¬(c 0 ≠ 0 ∧ c 1 ≠ 0) →
     ¬(c 0 ≠ 0 ∧ c 2 ≠ 0) → ¬(c 1 ≠ 0 ∧ c 2 ≠ 0) → ∃ i, ∀ j, j ≠ i → c j = 0 := by
@@ -368,7 +342,6 @@ theorem Kfun_injective : Function.Injective Kfun := by
   have h2 : Multiplicative.ofAdd z ∈ (Kfun k).1 ↔ dot3 (Lfun k) z = 0 := by
     rw [mem_Kfun, toAdd_ofAdd]
   rw [← h1, ← h2, h']
-
 
 
 @[expose] noncomputable def flipH (i : Fin 3) (H : Hyperplane A3) : Hyperplane A3 :=
@@ -647,16 +620,6 @@ private theorem exists_fixed_of_invariant (ρ : Representation (ZMod 2) X W) (l 
 private def flipEps (ε : Fin 3 → ZMod 2) (f : Fin 3 → ZMod 3) : Fin 3 → ZMod 3 :=
   fun j => if ε j = 0 then f j else -f j
 
-private theorem flipEps_add (ε δ : Fin 3 → ZMod 2) (f : Fin 3 → ZMod 3) :
-    flipEps (ε + δ) f = flipEps ε (flipEps δ f) := by
-  funext j
-  have h2 : ∀ x : ZMod 2, x = 0 ∨ x = 1 := by decide
-  rcases h2 (ε j) with hε | hε <;> rcases h2 (δ j) with hδ | hδ
-  · simp [flipEps, Pi.add_apply, hε, hδ]
-  · simp [flipEps, Pi.add_apply, hε, hδ]
-  · simp [flipEps, Pi.add_apply, hε, hδ]
-  · simp [flipEps, Pi.add_apply, hε, hδ,
-      show (1 : ZMod 2) + 1 = 0 from by decide]
 
 private theorem flipEps_single (i : Fin 3) (ε : Fin 3 → ZMod 2) (f : Fin 3 → ZMod 3) :
     flipEps (ε + Pi.single i 1) f = flipC i (flipEps ε f) := by

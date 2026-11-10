@@ -412,59 +412,6 @@ theorem eq_one_of_conj_eq_mul {z x c : G} (hzc : z * c = c * z) (hzx : z * x * z
     Nat.Coprime.pow_left k (Nat.coprime_two_left.mpr hodd)
   exact orderOf_eq_one_iff.mp (Nat.dvd_one.mp (hcop ▸ Nat.dvd_gcd hd2 hd1))
 
-variable [Finite G]
-
-theorem eq_one_of_odd_of_commutator_mem {G₀ L : Subgroup G} (hC : CharTwo G₀) (hLG : L ≤ G₀)
-    (hGL : G₀ ≤ Subgroup.normalizer (L : Set G)) {z : G} (hz : z ∈ L)
-    (hodd : Odd (orderOf z))
-    (htriv : ∀ v ∈ ⁅pCoreOf 2 G₀, L⁆, z * v * z⁻¹ * v⁻¹ ∈ Subgroup.centralizer (L : Set G)) :
-    z = 1 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set Q := pCoreOf 2 G₀ with hQ
-  have hQ2 : IsPGroup 2 Q := CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 G₀
-  have h2elt : ∀ c ∈ Q, ∃ k : ℕ, c ^ 2 ^ k = 1 := fun c hc => by
-    obtain ⟨k, hk⟩ := hQ2 ⟨c, hc⟩
-    exact ⟨k, by simpa using congrArg Subtype.val hk⟩
-  have hVQ : ⁅Q, L⁆ ≤ Q := Subgroup.le_normalizer_iff_commutator_le_left.mp
-    (hLG.trans (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 G₀))
-  have hVn : L ≤ Subgroup.normalizer ((⁅Q, L⁆ : Subgroup G) : Set G) :=
-    hLG.trans (le_normalizer_commutator_of (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 G₀)
-      hGL)
-  have hV : ∀ v ∈ ⁅Q, L⁆, z * v = v * z := by
-    intro v hv
-    set c := z * v * z⁻¹ * v⁻¹ with hc
-    have hcC := htriv v hv
-    have hcV : c ∈ ⁅Q, L⁆ := Subgroup.mul_mem _
-      ((Subgroup.mem_normalizer_iff.mp (hVn hz) v).mp hv) (Subgroup.inv_mem _ hv)
-    have hzc : z * c = c * z := Subgroup.mem_centralizer_iff.mp hcC z hz
-    have hc1 := eq_one_of_conj_eq_mul (x := v) hzc (by rw [hc]; group) hodd (h2elt c (hVQ hcV))
-    have : z * v * z⁻¹ = v := by
-      have h := hc1
-      rw [hc] at h
-      calc z * v * z⁻¹ = z * v * z⁻¹ * v⁻¹ * v := by group
-        _ = v := by rw [h, one_mul]
-    calc z * v = z * v * z⁻¹ * z := by group
-      _ = v * z := by rw [this]
-  have hzQ : z ∈ Subgroup.centralizer (Q : Set G) := by
-    rw [Subgroup.mem_centralizer_iff]
-    intro x hx
-    set d := z * x * z⁻¹ * x⁻¹ with hd
-    have hdV : d ∈ ⁅Q, L⁆ := by
-      rw [Subgroup.commutator_comm]
-      exact Subgroup.commutator_mem_commutator hz hx
-    have hzd : z * d = d * z := hV d hdV
-    have hd1 := eq_one_of_conj_eq_mul (x := x) hzd (by rw [hd]; group) hodd (h2elt d (hVQ hdV))
-    have : z * x * z⁻¹ = x := by
-      calc z * x * z⁻¹ = z * x * z⁻¹ * x⁻¹ * x := by group
-        _ = x := by rw [← hd, hd1, one_mul]
-    calc x * z = z * x * z⁻¹ * z := by rw [this]
-      _ = z * x := by group
-  have hzQ' : z ∈ Q := hC ⟨hLG hz, hzQ⟩
-  obtain ⟨k, hk⟩ := h2elt z hzQ'
-  have hd2 : orderOf z ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one hk
-  have hcop : Nat.Coprime (2 ^ k) (orderOf z) :=
-    Nat.Coprime.pow_left k (Nat.coprime_two_left.mpr hodd)
-  exact orderOf_eq_one_iff.mp (Nat.dvd_one.mp (hcop ▸ Nat.dvd_gcd hd2 dvd_rfl))
 
 end Coprime
 

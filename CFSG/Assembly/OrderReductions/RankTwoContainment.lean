@@ -162,16 +162,6 @@ theorem odd_normal_le_of_four_involutions {group : Type*} [Group group] [Finite 
     first_conjugate second_conjugate conjugates_distinct conjugates_commute
     first_conjugate_mem second_conjugate_mem
 
-theorem odd_normal_le_normalCore_of_four_involutions {group : Type*}
-    [Group group] [Finite group] (subgroup : Subgroup group) (strong : StronglyEmbedded subgroup)
-    (normal : Subgroup group) [normal.Normal] (odd_normal : Odd (Nat.card normal))
-    (first second : Involution group) (distinct : first ≠ second)
-    (commutes : Commute first.val second.val) : normal ≤ subgroup.normalCore := by
-  have contains := odd_normal_le_of_four_involutions subgroup strong normal odd_normal
-    first second distinct commutes
-  rw [Subgroup.normalCore_eq_iSup]
-  exact le_iSup_of_le normal (le_iSup_of_le (inferInstance : normal.Normal)
-    (le_iSup_of_le contains le_rfl))
 
 theorem odd_subgroup_le_of_four_involutions_in_normalizer {group : Type*}
     [Group group] [Finite group] (subgroup : Subgroup group) (strong : StronglyEmbedded subgroup)

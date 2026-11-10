@@ -22,32 +22,12 @@ variable {K : Type*} [Field K] {σ : K ≃+* K} {m : ℕ}
 
 variable {W : Submodule K (Fin m → K)}
 
-theorem mem_geomWalks {x : ↥(nsPts σ W)} {c : (collGraph σ W).Walk x x} :
-    c ∈ geomWalks σ W x ↔ IsGeomWalk σ W c := Iff.rfl
-
-theorem isGeomWalk_of_le {x : ↥(nsPts σ W)} {c : (collGraph σ W).Walk x x}
-    {A : Submodule K (Fin m → K)} (hAW : A ≤ W) (hA : Nondeg σ A) (h2 : 2 ≤ finrank K A)
-    (hlt : finrank K A < finrank K W) (hv : ∀ v ∈ c.support, v.1 ≤ A) : IsGeomWalk σ W c :=
-  ⟨A, hAW, hA, h2, hlt, hv⟩
-
-theorem isGeomWalk_of_finrank_eq_two {x : ↥(nsPts σ W)} {c : (collGraph σ W).Walk x x}
-    {A : Submodule K (Fin m → K)} (hAW : A ≤ W) (hA : Nondeg σ A) (h2 : finrank K A = 2)
-    (hlt : finrank K A < finrank K W) (hv : ∀ v ∈ c.support, v.1 ≤ A) : IsGeomWalk σ W c :=
-  isGeomWalk_of_le hAW hA h2.ge hlt hv
-
-theorem isGeomWalk_of_finrank_eq_three {x : ↥(nsPts σ W)} {c : (collGraph σ W).Walk x x}
-    {A : Submodule K (Fin m → K)} (hAW : A ≤ W) (hA : Nondeg σ A) (h3 : finrank K A = 3)
-    (hlt : finrank K A < finrank K W) (hv : ∀ v ∈ c.support, v.1 ≤ A) : IsGeomWalk σ W c :=
-  isGeomWalk_of_le hAW hA (by omega) hlt hv
 
 theorem IsGeomWalk.reverse {x : ↥(nsPts σ W)} {c : (collGraph σ W).Walk x x}
     (h : IsGeomWalk σ W c) : IsGeomWalk σ W c.reverse := by
   obtain ⟨A, hAW, hA, h2, hlt, hv⟩ := h
   exact ⟨A, hAW, hA, h2, hlt, fun v hv' => hv v (by simpa using hv')⟩
 
-theorem geomWalks_reverse (x : ↥(nsPts σ W)) {c : (collGraph σ W).Walk x x}
-    (h : c ∈ geomWalks σ W x) : c.reverse ∈ geomWalks σ W x :=
-  IsGeomWalk.reverse h
 
 theorem two_le_finrank_of_adj {x y : ↥(nsPts σ W)} (h : (collGraph σ W).Adj x y)
     {Y : Submodule K (Fin m → K)} (hx : x.1 ≤ Y) (hy : y.1 ≤ Y) : 2 ≤ finrank K Y := by
@@ -119,11 +99,6 @@ theorem collinear_decomp (hq : 4 ≤ q) (hW : Nondeg σ W) (hd : 4 ≤ finrank K
     (coneTriangles_geomWalks hσ hK hq hW hd) (commonNeighbour4_collGraph hσ hK hq hW hd)
     (apexPentagon_collGraph hσ hK hq hW hd) x w
 
-theorem collinear_homotopic (hq : 4 ≤ q) (hW : Nondeg σ W) (hd : 4 ≤ finrank K W)
-    {x y : ↥(nsPts σ W)} (p r : (collGraph σ W).Walk x y) :
-    CycleHomotopic (geomWalks σ W) p r :=
-  (cycleTrivial_iff_homotopic (geomWalks σ W)).1
-    (fun _ w => collinear_decomp hσ hK hq hW hd w) x y p r
 
 end Decomp
 

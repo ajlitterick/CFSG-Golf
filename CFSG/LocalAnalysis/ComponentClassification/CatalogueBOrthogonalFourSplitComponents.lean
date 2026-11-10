@@ -13,12 +13,6 @@ universe u v
 variable {K : Type u} [Field K] [Finite K]
   {V : Type v} [AddCommGroup V] [Module K V] [FiniteDimensional K V]
 
-theorem splitFour_orthogonal_finite (Q : QuadraticForm K V)
-    (hQ : Q.polarBilin.Nondegenerate) (hdim : Module.finrank K V = 4)
-    (S : Submodule K V) (hSdim : Module.finrank K S = 2) (hS : ∀ x ∈ S, Q x = 0) :
-    Finite (TauCeti.QuadraticMap.orthogonalGroup Q) := by
-  obtain ⟨_, e, _, _, _⟩ := split_four_determinant_form_isometry Q hQ hdim S hSdim hS
-  exact Finite.of_injective e e.injective
 
 theorem orthogonal_four_split_pComponent_quasisimple (_hodd : Odd (Nat.card K))
     (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate)

@@ -38,17 +38,6 @@ section Field
         perfectCore (neighbourCore e N ⊓ centralizer ({t} : Set G)) =
           modelToG e ((N.levi (fixSubfield σ)).map (adjointGroup .F4 (fixSubfield σ)).subtype)
 
-@[expose] def FieldRowUniqueInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (K₂ : Type) [Field K₂] [Finite K₂]
-    [CharP K₂ 2] (σ : K₂ ≃+* K₂) (f : ℕ), QuadraticFrobenius K₂ σ f → 2 ≤ f →
-    ∀ (e : L ≃* adjointGroup .F4 (fixSubfield σ)) (t : G), F4Work L (fixSubfield σ) t f →
-    HR8Kind e t f .X .field → HR8Kind e t f .Y .field →
-    ∀ ψ : adjointGroup .F4 K₂ →* G, Function.Injective ψ → ψ.range = pieceSpan e →
-      (∀ x : adjointGroup .F4 (fixSubfield σ), ψ (fixedFieldInclusion σ x) = ((e.symm x : L) : G)) →
-      (∀ h : G, t ∈ normalizer (conjugate (pieceSpan e) h : Set G) →
-        conjugate (pieceSpan e) h ⊓ centralizer ({t} : Set G) = L →
-          conjugate (pieceSpan e) h = pieceSpan e) ∧
-        centralizer (pieceSpan e : Set G) = ⊥
 
 end Field
 
@@ -133,14 +122,6 @@ section E6Row
   (HR8Kind e t f .X .linear6 ∧ HR8Kind e t f .Y .omegaPlus8) ∨
     (HR8Kind e t f .X .omegaPlus8 ∧ HR8Kind e t f .Y .linear6)
 
-@[expose] def E6RowCTInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (K : Type) [Field K] [Finite K] [CharP K 2]
-    (e : L ≃* adjointGroup .F4 K) (t : G) (f : ℕ), F4Work L K t f → 2 ≤ f → E6RowKinds e t f →
-    ∃ (K' : Type) (_ : Field K') (_ : Finite K'), Nat.card K' = 2 ^ f ∧
-      ∃ (e₆ : pieceSpan e ≃* adjointGroup Tag.E6 K') (htN : t ∈ normalizer (pieceSpan e : Set G))
-        (φ : MulAut (adjointGroup Tag.E6 K')) (g : adjointGroup Tag.E6 K')
-        (a : Fin Tag.E6.rank → K'ˣ) (σ' : K' ≃+* K'),
-        φ * normalizerMulAut e₆ ⟨t, htN⟩ * φ⁻¹ = MulAut.conj g * exactNormalAut Tag.E6 K' a σ' 1
 
 end E6Row
 

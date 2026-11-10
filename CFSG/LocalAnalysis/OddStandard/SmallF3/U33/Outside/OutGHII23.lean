@@ -22,8 +22,5 @@ open CFSG.GH74.GLS.Bg.TwoGroups
       ∃ L : Subgroup P, L.index = 2 ∧
         Nonempty (L ≃* Multiplicative (ZMod 3) × alternatingGroup (Fin 5))
 
-private lemma card_alt8 : Nat.card (alternatingGroup (Fin 8)) = 20160 := by
-  rw [nat_card_alternatingGroup, Nat.card_fin]
-  decide
 
 end CFSG.OddStandard.SmallF3.HarrisU33.Outside

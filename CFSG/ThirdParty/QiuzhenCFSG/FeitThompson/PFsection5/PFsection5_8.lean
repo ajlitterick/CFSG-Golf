@@ -83,65 +83,6 @@ needed by the current formal proof.
                                           piChar k) →
                                       l = j ∨ l = k)
 
-/--
-Peterfalvi `(5.8)`: assuming the source hypotheses of `(5.3)(b)`,
-`S ∩ Irr(L) ≠ ∅`, and `μₖ ∈ S` for some non-base column `k`, any coherent
-extension on `Z[S]` sends `μₖ` either to the signed `k`-column of `ω^σ`, or
-to the signed conjugate column; in the second case, `j` and `k` are the only
-non-base columns of the same degree that still lie in `S`.
--/
-@[expose] public def theorem_5_8_statement
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    (K W1 W2 W H : Subgroup L)
-    (A : Set L)
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    (i0 : I) (j0 : J)
-    (ω : I → J → Section1.ClassFunction W)
-    (σL : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction L)
-    (σ : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction G)
-    (piChar : I → J → Section1.ClassFunction L)
-    (xChar : J → Section1.ClassFunction K)
-    (deltaSign : J → ℂ)
-    (τ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G)
-    (H_A H_A0 : G → Subgroup G)
-    (S : Finset (Section1.ClassFunction L)) : Prop :=
-  Section4Scratch.hypothesis_4_6_full_statement
-      L K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ H_A H_A0 →
-    hypothesis_5_2_a_statement S →
-      (∃ X : S,
-          Section1.IsIrreducibleCharacterOnGroup
-            (X : Section1.ClassFunction L)) →
-        inducedFromNonkernelFamily_statement K H S →
-          ∀ k : J, k ≠ j0 →
-              Section4Scratch.piColumn piChar k ∈ S →
-                ∀ j : J,
-                  Section1.conjugateCharacter
-                      (Section4Scratch.piColumn piChar k) =
-                    Section4Scratch.piColumn piChar j →
-                    ∀ T1 :
-                        Section1.ClassFunction L →ₗ[ℂ]
-                          Section1.ClassFunction G,
-                      isCFLinearIsometryOnSpan S T1 →
-                        mapsIntegerSpanToVirtualCharacters S T1 →
-                          agreesOnIntegerSpanOn S puncturedSet τ T1 →
-                            (T1 (Section4Scratch.piColumn piChar k) =
-                                deltaSign k •
-                                  Section4Scratch.omegaColumnSigma σ ω k) ∨
-                              (T1 (Section4Scratch.piColumn piChar k) =
-                                  (-deltaSign k) •
-                                    Section4Scratch.omegaColumnSigma σ ω j ∧
-                                ∀ l : J, l ≠ j0 →
-                                  Section4Scratch.piColumn piChar l ∈ S →
-                                    Section1.degree
-                                        (Section4Scratch.piColumn
-                                          piChar l) =
-                                      Section1.degree
-                                        (Section4Scratch.piColumn
-                                          piChar k) →
-                                      l = j ∨ l = k)
-
 
 private noncomputable def uliftRepresentation_pf58
     {G : Type u} [Group G] {V : Type}
@@ -2933,30 +2874,5 @@ public theorem theorem_5_8_core
             _ = 0 := hleftScalar
         exact (isSign_ne_zero_pf58 (hsign k)) hzero_delta
 
-public theorem theorem_5_8
-    {G : Type u} [Group G] [Finite G]
-    (L : Subgroup G) [Finite L]
-    (K W1 W2 W H : Subgroup L)
-    (A : Set L)
-    {I J : Type*} [Fintype I] [Fintype J]
-    [DecidableEq I] [DecidableEq J]
-    (i0 : I) (j0 : J)
-    (ω : I → J → Section1.ClassFunction W)
-    (σL : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction L)
-    (σ : Section1.ClassFunction W →ₗ[ℂ] Section1.ClassFunction G)
-    (piChar : I → J → Section1.ClassFunction L)
-    (xChar : J → Section1.ClassFunction K)
-    (deltaSign : J → ℂ)
-    (τ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G)
-    (H_A H_A0 : G → Subgroup G)
-    (S : Finset (Section1.ClassFunction L)) :
-    theorem_5_8_statement
-      L K W1 W2 W H A i0 j0 ω σL σ piChar xChar deltaSign τ H_A H_A0 S := by
-  classical
-  intro h46 h52a hIrrMem hInd k hk0 hkS j hconj T1 hIso hT1virt hAgree
-  exact theorem_5_8_core K W1 W2 W H A i0 j0
-    ω σL σ piChar xChar deltaSign τ S
-    (theorem_5_3_b_core_context_of_full_pf53 L h46)
-    h52a hIrrMem hInd k hk0 hkS j hconj T1 hIso hT1virt hAgree
 
 end CFSG.Section5

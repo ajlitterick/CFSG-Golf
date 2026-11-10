@@ -28,11 +28,6 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def centralizerInJ (M H B : Subgroup G) : Subgroup G :=
   Subgroup.centralizer (B : Set G) ⊓ jSub M H
 
-@[expose] def TwelveTenFinalA (M H Q : Subgroup G) (p : ℕ) : Prop :=
-  ∃ E D : Subgroup G,
-    E ≤ Q ∧ IsElemAbelian p E ∧ Nat.card E = p ^ 2 ∧
-      rankThreeGamma 1 p E ≤ M ∧
-      IsThreeOnePlusTwo ↥D ∧ D ≤ Q ∧ E ≤ D
 
 theorem seven_dvd_card_of_isL3TwoPow_one {X : Type} [Group X] [Finite X]
     (h : IsL3TwoPow 1 X) : 7 ∣ Nat.card X := by

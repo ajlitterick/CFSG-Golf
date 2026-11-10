@@ -31,7 +31,6 @@ theorem ptOf_nodup_all : ∀ c < 64, c ≠ 0 → (ptOf c).Nodup := by decide
 
 theorem zs6_presv_ptOf : ∀ c < 64, ∀ z ∈ zs6, ∀ a ∈ ptOf c, z.app a ∈ ptOf c := by decide
 
-theorem ptOf_length (c : ℕ) : (ptOf c).length = 4 := rfl
 
 theorem hyp_pts_l2c : ∀ d ∈ oVecL, d ∈ l2c →
     ptSetEq (ptOf d) (ptOf 1) = true ∨ ptSetEq (ptOf d) (ptOf 4) = true := by decide

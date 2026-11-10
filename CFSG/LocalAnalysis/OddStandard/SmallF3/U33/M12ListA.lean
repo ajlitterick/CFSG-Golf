@@ -75,32 +75,6 @@ private theorem mem_base_model (m : M12Mod) :
   rw [baseGrp_model_eq]
   rfl
 
-private theorem four_mul_closed :
-    ∀ (a b : Fin 4) (i j : Fin 2) (c d : Fin 4) (k l : Fin 2),
-      i = 0 → j = 0 → Even a.val → Even b.val → k = 0 → l = 0 →
-        Even c.val → Even d.val →
-        ((⟨a, b, i, j⟩ : M12Mod) * ⟨c, d, k, l⟩).i = 0 ∧
-          ((⟨a, b, i, j⟩ : M12Mod) * ⟨c, d, k, l⟩).j = 0 ∧
-          Even (((⟨a, b, i, j⟩ : M12Mod) * ⟨c, d, k, l⟩).a).val ∧
-          Even (((⟨a, b, i, j⟩ : M12Mod) * ⟨c, d, k, l⟩).b).val := by
-  decide +kernel
-
-private theorem four_inv_closed :
-    ∀ (a b : Fin 4) (i j : Fin 2), i = 0 → j = 0 → Even a.val → Even b.val →
-      ((⟨a, b, i, j⟩ : M12Mod)⁻¹).i = 0 ∧ ((⟨a, b, i, j⟩ : M12Mod)⁻¹).j = 0 ∧
-        Even (((⟨a, b, i, j⟩ : M12Mod)⁻¹).a).val ∧
-        Even (((⟨a, b, i, j⟩ : M12Mod)⁻¹).b).val := by
-  decide +kernel
-
-private def fourSub : Subgroup M12Mod where
-  carrier := {m | m.i = 0 ∧ m.j = 0 ∧ Even m.a.val ∧ Even m.b.val}
-  mul_mem' := by
-    rintro ⟨a, b, i, j⟩ ⟨c, d, k, l⟩ ⟨hi, hj, ha, hb⟩ ⟨hk, hl, hc, hd⟩
-    exact four_mul_closed a b i j c d k l hi hj ha hb hk hl hc hd
-  one_mem' := by decide +kernel
-  inv_mem' := by
-    rintro ⟨a, b, i, j⟩ ⟨hi, hj, ha, hb⟩
-    exact four_inv_closed a b i j hi hj ha hb
 
 private theorem map_baseGrp (φ : M12Mod →* G) (h1 : φ M12Mod.mx₁ = x₁)
     (h2 : φ M12Mod.mx₂ = x₂) :

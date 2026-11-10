@@ -955,34 +955,6 @@ theorem false_of_R_Y (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4
 
 end Ctx65
 
-theorem rank3II_6_5_one (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4_9)
-    (hB3 : BThreeProperty) (hG : PartTwoStanding G) {A : Subgroup G} (hA : A ∈ partTwoS G)
-    {L : Subgroup G} (hL : L ∈ thetaComponentFamily 3 A) {B : Subgroup G}
-    (hBab : CFSG.Assembly.IsElemAbelian 3 B) (hB9 : Nat.card B = 9)
-    (hBAL : B ≤ A ⊓ thetaQuotCentralizer L) {E : Subgroup G}
-    (hE : E ∈ collectionIn (partTwoE G) (A ⊔ L)) (hBE : B ≤ E) :
-    ∃ b ∈ B, b ≠ 1 ∧ ∃ K ∈ thetaComponentsAt 3 b,
-      inSubgroup perfectResidual ((L ⊓ Subgroup.centralizer {b}) ⊔
-        inSubgroup (aschbacherSolvableCore 3) (Subgroup.centralizer {b})) < K ∧
-      ∃ S ∈ invariantPiSubgroups K E (piOf 2), S ≠ ⊥ ∧ ⁅S, B⁆ = S := by
-  by_contra hcon
-  push Not at hcon
-  obtain ⟨a₀, ha₀A, ha₀1, hLa₀⟩ := mem_thetaComponentFamily_iff.mp hL
-  have h : Ctx65 G A L B E a₀ := ⟨hG, hA, ha₀A, ha₀1, hLa₀, hBab, hB9, hBAL, hE, hBE, hcon⟩
-  obtain ⟨Z', hZ', hZZ', hEZ', hZ'K⟩ := h.exists_Z' h45 h48
-  obtain ⟨R, Y, hR1, hR2, hER, hYp, hY1, hYZ', hZ'Y, hYR, -⟩ :=
-    h.exists_R_Y h45 h48 h49 hZ' hZZ' hEZ' hZ'K
-  exact h.false_of_R_Y h45 h48 h49 hB3 hZ' hZ'K hR1 hR2 hER hYp hY1 hYZ' hZ'Y hYR
-
-theorem rank3II_6_5 (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4_9)
-    (hB3 : BThreeProperty) : Item6_5 := by
-  intro G _ _ hG A hA L hL B hBab hB9 hBAL
-  exact ⟨fun E hE hBE => rank3II_6_5_one h45 h48 h49 hB3 hG hA hL hBab hB9 hBAL hE hBE,
-    fun hno => rank3II_6_5_two h45 h48 hG hA hL hBab hB9 hBAL hno⟩
-
-theorem rank3II_6_6_of_inputs (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4_9)
-    (hB3 : BThreeProperty) : Item6_6 :=
-  rank3II_6_6 (rank3II_6_5 h45 h48 h49 hB3)
 
 theorem rank3II_6_5_one_central (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4_9)
     (hB3 : BThreePropertyCentral) (hG : PartTwoStanding G) {A : Subgroup G}

@@ -23,7 +23,6 @@ open CFSG.Monster.Code CFSG.Open
 
 theorem sigma_apply (i : Fin 24) : sigma i = sigmaFun i := rfl
 
-theorem sigma_symm_apply (j : Fin 24) : sigma.symm j = sigmaInvFun j := rfl
 
 @[expose] def permLin : (Fin 24 → ZMod 2) ≃ₗ[ZMod 2] (Fin 24 → ZMod 2) :=
   LinearEquiv.funCongrLeft (ZMod 2) (ZMod 2) sigma.symm

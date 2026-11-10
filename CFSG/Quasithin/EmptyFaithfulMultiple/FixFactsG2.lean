@@ -94,10 +94,6 @@ theorem g2τ_mem : (g2τ K : quasithinZorn K ≃ₗ[K] quasithinZorn K) ∈
   rw [g2τ_eq_commutator]
   exact coe_commutator_mem _ _
 
-theorem g2A₃_pow_three : g2A₃ K ^ 3 = 1 := by
-  apply (specialLinearGroupEquivStatedSL 3 K).injective
-  rw [map_pow, g2A₃_eq, map_one]
-  exact slGamma_pow_three _
 
 theorem g2γ_eq_commutator_sq :
     g2γ K = ⁅cayleyEquivG2 K (g2A (g2A₁ K)), cayleyEquivG2 K (g2A (g2T₂₁ K))⁆ *

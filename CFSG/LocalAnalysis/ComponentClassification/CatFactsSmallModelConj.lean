@@ -50,8 +50,6 @@ theorem conjModel_A (M : AutModel K G) (k : G) (hk : k ∈ M.A) : (conjModel M k
 theorem conjModel_Φ (M : AutModel K G) (k : G) (hk : k ∈ M.A) (θ : MulAut K) :
     ((conjModel M k hk).Φ θ : G) = k * (M.Φ θ : G) * k⁻¹ := rfl
 
-theorem conjModel_e (M : AutModel K G) (k : G) (hk : k ∈ M.A) (x : K) :
-    ((conjModel M k hk).e x : G) = k * (M.e x : G) * k⁻¹ := rfl
 
 theorem exists_model_eq (M : AutModel K G) (θ : MulAut K) {σ₀ k : G} (hk : k ∈ M.A)
     (h : k⁻¹ * (M.Φ θ : G) * k = σ₀) :

@@ -51,7 +51,6 @@ private theorem central_mul_comm (hZ : Z ≤ Subgroup.center G) {z : G} (hz : z 
     rw [this]
     exact Z.inv_mem hz
 
-theorem mem_twistedFix (hZ : Z ≤ Subgroup.center G) {x : G} : x ∈ twistedFix β Z hZ ↔ x⁻¹ * β x ∈ Z := Iff.rfl
 
 theorem fixHom_le_twistedFix (hZ : Z ≤ Subgroup.center G) : fixHom β ≤ twistedFix β Z hZ := fun x hx => by
   have hx' : β x = x := hx
@@ -130,10 +129,6 @@ theorem commutator_fixHom_le :
   exact ⟨⁅x, y⁆, commutator_twistedFix_le β Z hZ (Subgroup.commutator_mem_commutator hx hy),
     (map_commutatorElement (QuotientGroup.mk' Z) x y)⟩
 
-include hZ hβ' in
-theorem le_map_fixHom_of_perfect {J : Subgroup (G ⧸ Z)} (hJ : ⁅J, J⁆ = J) (hJf : J ≤ fixHom β') :
-    J ≤ (fixHom β).map (QuotientGroup.mk' Z) :=
-  hJ ▸ (Subgroup.commutator_mono hJf hJf).trans (commutator_fixHom_le β hZ β' hβ')
 
 include hZ hβ' in
 theorem map_fixHom_normal :

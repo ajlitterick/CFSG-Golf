@@ -252,17 +252,6 @@ theorem perfectResidualOf_outerC : perfectResidualOf outerC = outerE := by
       _ = outerE := commutator_outerC_eq
   · exact le_perfectResidualOf outerE_le_outerC outerE_perfect
 
-theorem commutator_outerC_simple : IsSimpleGroup ↥⁅outerC, outerC⁆ := by
-  rw [commutator_outerC_eq]
-  exact outerE_simple
-
-theorem card_commutator_outerC : Nat.card ↥⁅outerC, outerC⁆ = 20160 := by
-  rw [commutator_outerC_eq]
-  exact card_outerE
-
-theorem index_commutator_outerC : (⁅outerC, outerC⁆.subgroupOf outerC).index = 2 := by
-  rw [commutator_outerC_eq]
-  exact index_outerE
 
 theorem map_commutator_outerC : (commutator ↥outerC).map outerC.subtype = outerE := by
   rw [_root_.commutator_def, Subgroup.map_commutator, Subgroup.map_top, Subgroup.range_subtype]

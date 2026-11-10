@@ -49,13 +49,6 @@ theorem wreath_involution_killing_image_isCyclic
     rw [hf _ (Original.orderOf_z m)]
     exact Subgroup.one_mem _
 
-theorem wreath_involution_quotient_isCyclic (m : ℕ) :
-    IsCyclic (Wreath m ⧸ involutionClosure (Wreath m)) := by
-  let f := QuotientGroup.mk' (involutionClosure (Wreath m))
-  have hc := wreath_involution_killing_image_isCyclic m f (fun x hx =>
-    (QuotientGroup.eq_one_iff x).mpr (Subgroup.subset_closure hx))
-  rw [MonoidHom.range_eq_top.mpr (QuotientGroup.mk'_surjective _)] at hc
-  exact (Subgroup.topEquiv (G := Wreath m ⧸ involutionClosure (Wreath m))).isCyclic.mp hc
 
 theorem original_r_mem_involutionClosure (m : ℕ) :
     Original.r m ∈ involutionClosure (Wreath m) := by

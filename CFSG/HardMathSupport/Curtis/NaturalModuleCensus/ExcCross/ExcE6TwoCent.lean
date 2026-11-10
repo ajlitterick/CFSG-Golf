@@ -111,8 +111,6 @@ variable (hFr : ∀ c, Fr c = c ^ Nat.card F) (h3 : 3 ∣ Nat.card F + 1)
   (ι3 F L).codRestrict (NFix (canonicalRep (coxeterSystem Tag.E6) L wE6W) Fr)
     fun b => twistedTorusOf_le_NFix _ _ (ι3_mem_T hFr b)
 
-theorem ι3N_coe (b : Fin 4 → μ3 F L) :
-    ((ι3N hFr b : NE6 Fr) : ModGL Tag.E6 L) = ι3 F L b := rfl
 
 theorem NE6_conj_ι3 (g : NE6 Fr) (b : Fin 4 → μ3 F L) :
     g * ι3N hFr b * g⁻¹ = ι3N hFr (mactC (A6 (πE6 Fr g)) b) := by
@@ -136,7 +134,6 @@ variable (F Fr) in
 @[expose] def πQ : NQ F Fr →* WeylGroup Tag.E6 :=
   QuotientGroup.lift (T'NFix F Fr) (πE6 Fr) T'NFix_le_ker
 
-theorem πQ_mk (g : NE6 Fr) : πQ F Fr (QuotientGroup.mk g) = πE6 Fr g := rfl
 
 include h3 in
 theorem ιQ_injective : Function.Injective (ιQ hFr) := by

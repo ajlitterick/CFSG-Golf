@@ -79,11 +79,6 @@ theorem mem_lnStar_iff (v : W F) : v ∈ (lnStar : Ln F).1 ↔ v 0 = 0 ∧ v 1 =
     ext i
     fin_cases i <;> simp [ev, h0, h1]
 
-omit [CharP F 2] in
-theorem smul_pt_eq_of_le {y : antiSp F} {p : Pt F} (h : mapSub y p.1 ≤ p.1) : y • p = p := by
-  apply Subtype.ext
-  show mapSub y p.1 = p.1
-  exact Submodule.eq_of_le_of_finrank_eq h (by rw [finrank_mapSub])
 
 omit [CharP F 2] in
 theorem smul_pt_eq_of_mem {y : antiSp F} {p p' : Pt F} {v : W F} (hp : p.1 = Submodule.span F {v})

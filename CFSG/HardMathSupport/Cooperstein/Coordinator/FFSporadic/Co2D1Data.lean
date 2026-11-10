@@ -17,14 +17,6 @@ structure D1Stage where
     [20, 17], [16, 5, -16], [16, 6, -16], [21, 5, -21], [21, 6, -21], [7, 10, -7], [8, 10, -8],
     [7, 11, -7], [8, 11, -8]]
 
-@[expose] def d1Zp : Nat := 10
-@[expose] def d1Fp : Nat := 11
-@[expose] def d1H1 : Nat := 16
-@[expose] def d1H2 : Nat := 21
-
-@[expose] def d1Cz : List Nat := [22, 23]
-@[expose] def d1Cf : List Nat := [24, 25]
-@[expose] def d1St : List Nat := [10, 11, 26, 27, 28, 29]
 
 @[expose] def d1EqsA : List (List Int × List Int) :=
   [([10, 10], []),

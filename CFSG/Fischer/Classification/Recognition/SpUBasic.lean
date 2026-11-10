@@ -11,8 +11,6 @@ open scoped commutatorElement
 
 variable {X : Type*} [Group X]
 
-theorem le_of_isSubnormal {A B : Subgroup X} (h : IsSubnormal A B) : A ≤ B :=
-  h.le
 
 theorem isSubnormal_subgroupOf {A B : Subgroup X} (h : IsSubnormal A B) :
     (A.subgroupOf B).IsSubnormal :=

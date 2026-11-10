@@ -52,6 +52,5 @@ theorem card_T : Nat.card ↥T = 512 := by
 
 end PullHyp
 
-variable [Finite G]
 
 end CFSG.EvenSporadicStandard.Fin76b

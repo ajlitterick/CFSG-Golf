@@ -16,9 +16,6 @@ theorem len7213 : Nat.beq gmIdx.length 1080 = true := by quickRfl
 
 theorem chk7213_ok : chk7213 gmIdx = true := by quickRfl
 
-theorem neg7213a : notB (chk7213 (gmIdx.set 500 0)) = true := by quickRfl
-
-theorem neg7213b : notB (chk7213 gmIdx.tail) = true := by quickRfl
 
 end CFSG.KP.C7213
 

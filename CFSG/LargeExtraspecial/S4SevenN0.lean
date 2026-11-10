@@ -45,11 +45,6 @@ theorem conj_mem_N0bar (haQ : g * S.z * g⁻¹ ∈ S.QG) {t r x : S.O} (hr : r �
     rwa [← mul_assoc, ← Subgroup.coe_mul] at this
   exact hle ⟨x, hx, rfl⟩
 
-theorem normal_N0bar_subgroupOf (haQ : g * S.z * g⁻¹ ∈ S.QG) {t : S.O} :
-    ((N0bar S g t).subgroupOf (Rbar S g t)).Normal :=
-  ⟨fun x hx r => by
-    rw [mem_subgroupOf] at hx ⊢
-    exact conj_mem_N0bar haQ r.2 hx⟩
 
 theorem isPGroup_N0bar (H : Hyp4 S g) {t : S.O} (ht : t ∈ S.Lbar g) :
     IsPGroup 2 (N0bar S g t) := by

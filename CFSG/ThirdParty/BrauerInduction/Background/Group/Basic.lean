@@ -91,50 +91,9 @@ lemma zpowers_le_centralizer (a : G) :
   intro x hx
   rw [Set.mem_singleton_iff.mp hx]
 
-lemma natCard_lt_natCard_of_ne_top
-    [Finite G] (H : Subgroup G) (hH : H ≠ ⊤) :
-    Nat.card H < Nat.card G := by
-  have h_ne : (H : Set G) ≠ Set.univ := by
-    intro contra
-    apply hH
-    exact Subgroup.coe_eq_univ.mp contra
-  exact Set.ncard_lt_card h_ne
 
 end Subgroup
 
-
-/--
-If `K` is a nontrivial normal subgroup of a finite group `G`, then the quotient
-`G ⧸ K` has strictly smaller cardinality than `G`.
--/
-lemma QuotientGroup.natCard_quotient_lt_natCard_of_ne_bot
-    {G : Type u} [Group G] [Finite G]
-    (K : Subgroup G) [K.Normal] (hK : K ≠ ⊥) :
-    Nat.card (G ⧸ K) < Nat.card G := by
-
-  letI : Fintype G := Fintype.ofFinite G
-  letI : Fintype K := Fintype.ofFinite K
-  letI : Fintype (G ⧸ K) := Fintype.ofFinite (G ⧸ K)
-  haveI: Nontrivial K := (Subgroup.nontrivial_iff_ne_bot K).mpr hK
-  have hKcard : 1 < Fintype.card K := Fintype.one_lt_card
-  have hquot_pos : 0 < Fintype.card (G ⧸ K) := Fintype.card_pos_iff.mpr ⟨1⟩
-
-  have hcard :
-      Fintype.card G =
-        Fintype.card (G ⧸ K) * Fintype.card K := by
-    simpa [Nat.card_eq_fintype_card] using
-      (Subgroup.card_eq_card_quotient_mul_card_subgroup K)
-
-  have hlt_fintype :
-      Fintype.card (G ⧸ K) < Fintype.card G := by
-    calc
-      Fintype.card (G ⧸ K)
-          = Fintype.card (G ⧸ K) * 1 := by rw [mul_one]
-      _ < Fintype.card (G ⧸ K) * Fintype.card K :=
-            Nat.mul_lt_mul_of_pos_left hKcard hquot_pos
-      _ = Fintype.card G := hcard.symm
-
-  simpa [Nat.card_eq_fintype_card] using hlt_fintype
 
 @[simp]
 lemma Subgroup.commute_subtype_iff
@@ -147,29 +106,3 @@ lemma Subgroup.commute_subtype_iff
   · intro h
     exact h.map (Subgroup.subtype H)
 
-/--
-The two ways of viewing `A ∩ B`, either as a subgroup of `A` or as a subgroup
-of `B`, are multiplicatively equivalent.
--/
-@[expose] def Subgroup.comapSubtypeCommEquiv
-    (A B : Subgroup G) :
-    Subgroup.comap (Subgroup.subtype A) B ≃*
-      Subgroup.comap (Subgroup.subtype B) A where
-  toFun x := by
-    refine ⟨⟨((x : A) : G), x.property⟩, ?_⟩
-    exact (x : A).property
-  invFun x := by
-    refine ⟨⟨((x : B) : G), x.property⟩, ?_⟩
-    exact (x : B).property
-  left_inv := by
-    intro x
-    ext
-    rfl
-  right_inv := by
-    intro x
-    ext
-    rfl
-  map_mul' := by
-    intro x y
-    ext
-    rfl

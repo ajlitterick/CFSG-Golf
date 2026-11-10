@@ -59,12 +59,6 @@ theorem getT_isSome_lt {t : Table} {i : Nat} (h : (getT t i).isSome) : i < t.siz
   obtain ⟨v, hv⟩ := Option.isSome_iff_exists.1 h
   exact getT_lt hv
 
-theorem getT_set_some {t : Table} {i k v : Nat} (hi : i < t.size) (hv : v < 4294967295)
-    (h : (getT t k).isSome) : (getT (t.set! i (UInt32.ofNat v)) k).isSome := by
-  rw [getT_set hi hv]
-  split
-  · rfl
-  · exact h
 
 theorem getT_push_some {t : Table} {k : Nat} (v : UInt32) (h : (getT t k).isSome) :
     (getT (t.push v) k).isSome := by
@@ -257,8 +251,6 @@ theorem sinv_reset {O : WOrbit} {qa qb n : Nat} {al bi : Table} {keys : Array (A
   ⟨H.1, H.2.1, H.2.2.1, H.2.2.2.1, H.2.2.2.2.1, H.2.2.2.2.2.1, H.2.2.2.2.2.2.1,
     H.2.2.2.2.2.2.2.1, fun _ h => h, fun _ _ h => h⟩
 
-theorem getT_some_of_isSome {t : Table} {k : Nat} (h : (getT t k).isSome) :
-    ∃ v, getT t k = some v := Option.isSome_iff_exists.1 h
 
 theorem stepA_skip {O : WOrbit} {h n : Nat} {al bi : Table} {keys : Array (Array W)}
     {index : Std.HashMap (Array W) Nat} {alpha beta binv par lab : Table}
@@ -532,21 +524,6 @@ theorem imgA_some {al alpha : Table} {h : Nat} {X : Array W}
   rw [e]
   rfl
 
-theorem imgB_some {bi binv : Table} {h : Nat} {X : Array W}
-    (hm2 : ∀ k p, getT bi k = some p → getT binv k = some p)
-    (hd : ∀ p, getT binv h = some p → getT binv p = none) :
-    (match getT bi h with
-      | some p => if (getT bi p).isSome = true then none else some X
-      | none => some X) = some X := by
-  rcases e : getT bi h with _ | p
-  · rfl
-  · have h1 := hd p (hm2 h p e)
-    have h2 : (getT bi p).isSome = false := by
-      rcases e2 : getT bi p with _ | r
-      · rfl
-      · rw [hm2 p r e2] at h1
-        cases h1
-    simp only [h2, Bool.false_eq_true, ↓reduceIte]
 
 theorem getElem!_map_range {α : Type} [Inhabited α] {n i : Nat} (g : Nat → α) (h : i < n) :
     ((Array.range n).map g)[i]! = g i := by

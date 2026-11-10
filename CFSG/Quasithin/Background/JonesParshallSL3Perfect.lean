@@ -39,12 +39,6 @@ theorem sl3Diag_inv_prod {d : Fin 3 → F} (h : d 0 * d 1 * d 2 = 1) :
     (d 0)⁻¹ * (d 1)⁻¹ * (d 2)⁻¹ = 1 := by
   rw [← mul_inv, ← mul_inv, h, inv_one]
 
-theorem sl3Diag_mul (d e : Fin 3 → F) (h : d 0 * d 1 * d 2 = 1) (h' : e 0 * e 1 * e 2 = 1)
-    (h'' : (d 0 * e 0) * (d 1 * e 1) * (d 2 * e 2) = 1) :
-    sl3Diag d h * sl3Diag e h' = sl3Diag (fun k => d k * e k) h'' := by
-  apply Subtype.ext
-  change diagonal d * diagonal e = diagonal (fun k => d k * e k)
-  rw [diagonal_mul_diagonal]
 
 theorem sl3Diag_inv {d : Fin 3 → F} (h : d 0 * d 1 * d 2 = 1) :
     (sl3Diag d h)⁻¹ = sl3Diag (fun k => (d k)⁻¹) (sl3Diag_inv_prod h) := by

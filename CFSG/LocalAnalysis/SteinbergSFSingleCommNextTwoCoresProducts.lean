@@ -769,12 +769,6 @@ theorem T₂_le_Y (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 
   rw [Y₂_eq h i hne hbot]
   exact le_sup_left
 
-theorem Y₁_eq' (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) : 𝐘[i, i] = 𝐓₁[i] ⊔ 𝐍𝐑[i] := by
-  have hNT : 𝐍𝐑[i] ≤ normalizer (𝐓₁[i] : Set G) :=
-    (NRB_le h i hne hbot i).trans (Y₁_le_normalizer_T₁ h i hne hbot)
-  refine SetLike.coe_injective ?_
-  rw [Y₁_eq h i hne hbot, coe_mul_of_right_le_normalizer_left _ _ hNT]
 
 end Products
 

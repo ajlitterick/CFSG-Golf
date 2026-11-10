@@ -10,14 +10,6 @@ namespace CFSG.QuasithinUnique
 open CFSG.Open CFSG.Quasithin Subgroup
 open scoped commutatorElement MatrixGroups LinearAlgebra.Projectivization
 
-theorem baumannLemmaC542 :
-    ∀ (G : Type) [Group G] [Finite G] (R H L : Subgroup G),
-      IsMinimalParabolic R H → CharTwo H → IsChi0Block H L →
-      (∃ n : ℕ, 1 < n ∧ IsLin2Type L n) →
-      ⁅L, thompsonJ R⁆ = L → H = L ⊔ R → R ≤ Subgroup.normalizer (L : Set G) →
-        baum R ≤ (baum R ⊓ L) ⊔ pCoreOf 2 (L ⊔ baum R) :=
-  fun _ _ _ _ _ _ hmin _ hblk ⟨_, hn, hlin⟩ hth hHLR hRN =>
-  C56.baumann_c542 hmin hblk hn hlin hth hHLR hRN
 
 namespace C56
 

@@ -73,26 +73,6 @@ theorem exists_lift_subgroup_of_bruhat' (π : E →* G) (B : Subgroup G) (Bh : S
     rw [hν1, mul_one] at hj1 ⊢
     exact hBinj _ (Bh.mul_mem hb₁ hb₂) hj1
 
-theorem exists_lift_subgroup_of_bruhat (π : E →* G) (B : Subgroup G) (Bh : Subgroup E)
-    (hBmap : Bh.map π = B) (hBinj : ∀ b ∈ Bh, π b = 1 → b = 1) (ν : W → E) (hν1 : ν 1 = 1)
-    (s : ι → W) (hs2 : ∀ i, s i * s i = 1) (ℓ : W → ℕ)
-    (hℓ : ∀ i w, ℓ (s i * w) = ℓ w + 1 ∨ ℓ w = ℓ (s i * w) + 1)
-    (hνmul : ∀ i w, ℓ (s i * w) = ℓ w + 1 → ν (s i * w) = ν (s i) * ν w)
-    (hνinv : ∀ i, ν (s i) * ν (s i) = 1)
-    (hgen : Subgroup.closure ((B : Set G) ∪ Set.range fun i => π (ν (s i))) = ⊤)
-    (hdisj : ∀ w, ∀ b₁ ∈ B, ∀ b₂ ∈ B, b₁ * π (ν w) * b₂ = 1 → w = 1)
-    (hcell : ∀ i w, ℓ (s i * w) = ℓ w + 1 → ∀ b ∈ Bh, ∃ b₁ ∈ Bh, ∃ b₂ ∈ Bh,
-      ν (s i) * b * ν w = b₁ * ν (s i * w) * b₂)
-    (hrank : ∀ i, ∀ b ∈ Bh, ν (s i) * b * ν (s i) ∈ Bh ∨
-      ∃ b₁ ∈ Bh, ∃ b₂ ∈ Bh, ν (s i) * b * ν (s i) = b₁ * ν (s i) * b₂) :
-    ∃ J : Subgroup E, J.map π = ⊤ ∧ ∀ j ∈ J, π j = 1 → j = 1 := by
-  refine exists_lift_subgroup_of_bruhat' π B Bh hBmap hBinj ν hν1 s hs2
-    (fun i w => ℓ (s i * w) = ℓ w + 1) (fun i w => ?_) hνmul hνinv hgen hdisj hcell hrank
-  rcases hℓ i w with h | h
-  · exact Or.inl h
-  · right
-    rw [← mul_assoc, hs2, one_mul]
-    exact h
 
 theorem exists_section_of_lift_subgroup (π : E →* G) {J : Subgroup E} (hJ : J.map π = ⊤)
     (hinj : ∀ j ∈ J, π j = 1 → j = 1) : ∃ σ : G →* E, ∀ x, π (σ x) = x := by
@@ -261,10 +241,6 @@ theorem invLiftHom_spec (n : E) (T : Subgroup G) [IsCyclic T]
       n * invLiftHom hπ hC hodd n T hT t * n⁻¹ = (invLiftHom hπ hC hodd n T hT t)⁻¹ :=
   invLift_spec hπ hC hodd n (hT t t.2)
 
-theorem mem_range_invLiftHom (n : E) (T : Subgroup G) [IsCyclic T]
-    (hT : ∀ t ∈ T, π n * t * (π n)⁻¹ = t⁻¹) {x : E} (hx : π x ∈ T)
-    (hxn : n * x * n⁻¹ = x⁻¹) : x ∈ (invLiftHom hπ hC hodd n T hT).range :=
-  ⟨⟨π x, hx⟩, (eq_invLift hπ hC hodd n (hT _ hx) rfl hxn).symm⟩
 
 omit hπ hC in
 theorem eq_one_of_mem_ker_of_eq_inv {c : E} (hc : c ∈ π.ker) (h : c = c⁻¹) : c = 1 := by

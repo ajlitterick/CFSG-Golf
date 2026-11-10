@@ -33,11 +33,6 @@ noncomputable abbrev vec : Nat → Nat → Nat :=
 
 noncomputable abbrev vec9 : Nat → Nat → Nat := vecR 5 13 117 9 9 LV9 HV9 RM9
 
-@[expose] noncomputable def chkJW (prg : List (Nat × Nat)) (wg wr : List Nat)
-    (hw rel fus : List (List Nat)) (bw : Nat) (hwm : List Nat) : Bool :=
-  CFSG.KC.SlpPc.chkJ mul vec (CFSG.KD.FamHNSeed.RW 1) (CFSG.KD.FamHNSeed.RW 2)
-    CFSG.KD.FamHNSeed.ONE CFSG.KD.FamHNSeed.L CFSG.KD.FamHNSeed.LV CFSG.KD.FamHNSeed.HV
-    CFSG.KD.FamHNSeed.RM L9 H9 prg wg wr hw rel fus bw hwm
 
 @[expose] noncomputable def chkWW (hwm : List Nat) (c0 : Nat) (keyc : List Nat) (dep jb : Nat)
     (fus oth : List (List Nat)) : Bool :=

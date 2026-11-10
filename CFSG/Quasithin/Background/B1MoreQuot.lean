@@ -47,8 +47,6 @@ theorem centQuot_le_stabSub (U : Subgroup V) : centQuot U ≤ stabSub U := by
     rw [this]
     exact U.mul_mem h1 h
 
-theorem centSub_le_centQuot_of_le {U W : Subgroup V} (h : W ≤ U) : centQuot W ≤ centQuot U :=
-  fun _ hg v => h (hg v)
 
 theorem map_eq_of_mem_stabSub {U : Subgroup V} {g : MulAut V} (hg : g ∈ stabSub U) :
     U.map (g : V ≃* V).toMonoidHom = U := by

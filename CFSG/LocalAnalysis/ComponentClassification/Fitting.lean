@@ -107,40 +107,5 @@ theorem radical_le_center_of_fitting_le_center {G : Type*} [Group G] [Finite G]
   let : Group.IsNilpotent candidate := hnilpotent
   exact (maximal candidate).trans hcentral
 
-theorem solvable_normal_centralizing_fitting_le {G : Type*} [Group G]
-    (solvableNormal : Subgroup G) [solvableNormal.Normal] [Group.IsSolvable solvableNormal]
-    (hcommutes : ⁅solvableNormal, subgroup G⁆ = ⊥) : solvableNormal ≤ subgroup G := by
-  have hdescend : ∀ stage : ℕ, (derivedSeries solvableNormal stage).map solvableNormal.subtype ≤
-      subgroup G → solvableNormal ≤ subgroup G := by
-    intro stage
-    induction stage with
-    | zero =>
-        intro hle member hmember
-        apply hle
-        rw [derivedSeries_zero]
-        exact Subgroup.mem_map.mpr ⟨⟨member, hmember⟩, Subgroup.mem_top _, rfl⟩
-    | succ stage hinduction =>
-        intro hle
-        let image := (derivedSeries solvableNormal stage).map solvableNormal.subtype
-        let : image.Normal := ConjAct.normal_of_characteristic_of_normal
-        have hderived : ⁅image, image⁆ ≤ subgroup G := by
-          rw [← Subgroup.map_commutator, ← derivedSeries_succ]
-          exact hle
-        have hintrinsic : commutator image ≤ Subgroup.center image := by
-          intro member hmember
-          have hmem : member.val ∈ subgroup G := hderived
-            (Subgroup.map_subtype_commutator image ▸ Subgroup.mem_map_of_mem image.subtype hmember)
-          apply Subgroup.mem_center_iff.mpr
-          intro other
-          have hother : other.val ∈ solvableNormal :=
-            Subgroup.map_subtype_le _ other.property
-          exact Subtype.ext (Subgroup.mem_centralizer_iff.mp
-            (Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcommutes hother) member.val hmem).symm
-        let : Group.IsNilpotent image := nilpotent_of_commutator_le_center hintrinsic
-        exact hinduction (maximal image)
-  obtain ⟨stage, hbot⟩ := Group.IsSolvable.solvable (G := solvableNormal)
-  apply hdescend stage
-  rw [hbot, Subgroup.map_bot]
-  exact bot_le
 
 end CFSG.ComponentClassification.Fitting

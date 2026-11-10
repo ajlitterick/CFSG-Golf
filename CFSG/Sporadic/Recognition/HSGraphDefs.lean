@@ -128,8 +128,6 @@ end Basic
     rw [← hσ (σ⁻¹ u) (σ⁻¹ v)]
     simp
 
-theorem mem_autGroup {σ : Equiv.Perm (Vert 𝓑)} :
-    σ ∈ autGroup 𝓑 ↔ ∀ u v, (hsGraph 𝓑).Adj (σ u) (σ v) ↔ (hsGraph 𝓑).Adj u v := Iff.rfl
 
 theorem card_vert [Fintype Ω] : Fintype.card (Vert 𝓑) = Fintype.card Ω + 𝓑.card + 1 := by
   simp [Fintype.card_option, Fintype.card_sum, Fintype.card_coe]

@@ -60,36 +60,6 @@ theorem not_isSolvable_of_le_sup {J P R O : Subgroup G} (hJ : ⁅J, J⁆ = J)
     _ ≤ ⁅J, R⁆ := commutator_mono le_rfl hJR'
     _ ≤ O := hJR
 
-omit [Finite G] in
-theorem isSolvable_of_le_sup {K P R : Subgroup G} (hPR : P ≤ normalizer (R : Set G))
-    (hKPR : K ≤ P ⊔ R) (hP : Group.IsSolvable P) (hKR : Group.IsSolvable ↥(K ⊓ R)) :
-    Group.IsSolvable K := by
-  set M := P ⊔ R with hM
-  have hMR : M ≤ normalizer (R : Set G) := sup_le hPR le_normalizer
-  have hRM : R ≤ M := le_sup_right
-  have : (R.subgroupOf M).Normal := (normal_subgroupOf_iff_le_normalizer hRM).mpr hMR
-  set π := QuotientGroup.mk' (R.subgroupOf M) with hπ
-  have hsurj : Function.Surjective (π.comp (Subgroup.inclusion (le_sup_left : P ≤ M))) := by
-    intro q
-    obtain ⟨⟨m, hm⟩, rfl⟩ := QuotientGroup.mk'_surjective (R.subgroupOf M) q
-    have hm' := hm
-    rw [hM, ← SetLike.mem_coe, coe_mul_of_left_le_normalizer_right P R hPR] at hm'
-    obtain ⟨p, hp, r, hr, rfl⟩ := hm'
-    refine ⟨⟨p, hp⟩, ?_⟩
-    rw [MonoidHom.comp_apply, hπ, QuotientGroup.mk'_apply, QuotientGroup.mk'_apply,
-      QuotientGroup.eq]
-    show ((Subgroup.inclusion le_sup_left ⟨p, hp⟩ : M)⁻¹ * ⟨p * r, hm⟩ : M) ∈ R.subgroupOf M
-    rw [mem_subgroupOf]
-    simpa using hr
-  have hsol : Group.IsSolvable (↥M ⧸ R.subgroupOf M) :=
-    Group.isSolvable_of_surjective hsurj
-  set ψ := π.comp (Subgroup.inclusion hKPR) with hψ
-  have hKRK : K ⊓ R ≤ K := inf_le_left
-  refine Group.isSolvable_of_ker_le_range (Subgroup.inclusion hKRK) ψ fun x hx => ?_
-  have h1 : ψ x = 1 := hx
-  rw [hψ, MonoidHom.comp_apply, hπ, QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff,
-    mem_subgroupOf] at h1
-  exact ⟨⟨x, mem_inf.mpr ⟨x.2, h1⟩⟩, rfl⟩
 
 omit [Finite G] in
 theorem le_normalizer_of_commutator_le {A R : Subgroup G} (h : ⁅A, R⁆ ≤ R) :

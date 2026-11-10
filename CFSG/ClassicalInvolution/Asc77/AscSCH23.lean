@@ -203,7 +203,6 @@ variable {E : Type*} [Group E] {π : E →* gramSU h (hypGram2 2 K)}
 @[expose] noncomputable def suE2' : K →+ skewHermMatrices h 2 :=
   (suE2 h).comp (AddMonoidHom.id K - (h.bar : K →+* K).toAddMonoidHom)
 
-theorem suE2'_apply (s : K) : suE2' h s = suE2 h (s - h.bar s) := rfl
 
 include hZ in
 theorem siegelSU_liftPair_eq_one [Fact ℓ.Prime] (hℓ2 : ℓ ≠ 2)

@@ -20,11 +20,6 @@ abbrev rootB : Fin Tag.G2.rank → ℤ := g2a
 
 abbrev rootAB : Fin Tag.G2.rank → ℤ := g2u
 
-abbrev root2AB : Fin Tag.G2.rank → ℤ := g2v
-
-abbrev root3AB : Fin Tag.G2.rank → ℤ := g2b
-
-abbrev root3A2B : Fin Tag.G2.rank → ℤ := g2c
 
 theorem le_normalizer_of_conj_mem {G : Type*} [Group G] {S H : Subgroup G}
     (h : ∀ s ∈ S, ∀ x ∈ H, s * x * s⁻¹ ∈ H) : S ≤ normalizer (H : Set G) := by
@@ -837,14 +832,6 @@ theorem image_preimage {E : Subgroup G} (hE : E ≤ L) : d.image (d.preimage E) 
     obtain ⟨g, rfl⟩ := d.exists_emb_eq (hE hx)
     exact ⟨g, d.mem_preimage.2 hx, rfl⟩
 
-theorem preimage_image {H : Subgroup (ModGL .G2 K)} (hH : H ≤ adjointGroup .G2 K) :
-    d.preimage (d.image H) = H := by
-  ext x
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    exact d.emb_mem_image_iff.1 hg
-  · intro hx
-    exact (d.mem_preimage (g := ⟨x, hH hx⟩)).2 (d.emb_mem_image hx)
 
 theorem isElementaryAbelian_image_iff {H : Subgroup (ModGL .G2 K)}
     (hH : H ≤ adjointGroup .G2 K) :

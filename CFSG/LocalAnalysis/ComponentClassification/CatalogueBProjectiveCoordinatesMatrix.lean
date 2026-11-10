@@ -38,9 +38,5 @@ theorem matrixActionEquiv_symm_mulVec (B : (ι → K) ≃ₗ[K] (ι → K)) (v :
     (matrixActionEquiv.symm B).val.mulVec v = B v := by
   rw [← matrixActionEquiv_apply, matrixActionEquiv_apply_symm_apply]
 
-theorem matrixActionEquiv_symm_scalar (c : Kˣ) :
-    matrixActionEquiv.symm (LinearEquiv.smulOfUnit c : (ι → K) ≃ₗ[K] (ι → K)) =
-      Matrix.GeneralLinearGroup.scalar ι c := by
-  rw [← matrixActionEquiv_scalar, matrixActionEquiv_symm_apply_apply]
 
 end CFSG.ComponentClassification.CatalogueBProjectiveCoordinates

@@ -27,9 +27,6 @@ variable {K : Type u} [Field K]
       TauCeti.QuadraticMap.orthogonalGroup (traceZeroForm K) :=
   traceZeroCoordinateToProjective.trans (traceZeroProjectiveEquiv h2)
 
-theorem traceZero_coordinate_representative (A : GL (Fin 2) K) :
-    (pglEquivCoordinateD_all_fields K (ProjGenLinGroup.mk A)).val =
-      coordinateGLAction K A := rfl
 
 theorem traceZeroCoordinateEquiv_val (h2 : (2 : K) ≠ 0) (A : GL (Fin 2) K)
     (ε : rootsOfUnity 2 K) (X : traceZeroSubmodule K) :

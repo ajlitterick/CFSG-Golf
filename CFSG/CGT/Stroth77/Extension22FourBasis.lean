@@ -156,14 +156,6 @@ theorem parityHom_b (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ 
     parityHom D hm D.b = Multiplicative.ofAdd (Pi.single (2 : Fin 3) 1) := by
   rw [parityHom_apply, D.ec_b, parityTorus_gen]
 
-theorem parityHom_c (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m) :
-    parityHom D hm D.c = Multiplicative.ofAdd (Pi.single (0 : Fin 3) 1) := by
-  rw [parityHom_apply, D.ec_c, parityTorus_gen]
-
-theorem parityHom_a_mul_b (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m) :
-    parityHom D hm (D.a * D.b) =
-      Multiplicative.ofAdd (Pi.single (1 : Fin 3) 1 + Pi.single (2 : Fin 3) 1) := by
-  rw [map_mul, parityHom_a, parityHom_b, ← ofAdd_add]
 
 theorem parityHom_ker_eq_sqSubgroup (D : StrothTypeData B (StrothTypeIndex.t100 m))
     (hm : 1 ≤ m) : (parityHom D hm).ker = sqSubgroup D := by
@@ -216,17 +208,6 @@ theorem sqSubgroup_index (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1
   rw [← parityHom_ker_eq_sqSubgroup D hm, Subgroup.index_ker]
   rw [MonoidHom.range_eq_top.mpr (parityHom_surjective D hm)]
   simp [Nat.card_eq_fintype_card]
-
-
-
-
-
-
-
-
-
-
-
 
 
 section Squaring
@@ -375,17 +356,6 @@ end Squaring
 
 section ParityInvariance
 
-theorem cParity_conj_u (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m)
-    (y : B) : cParity D hm (conjBy D.u_mem y) = cParity D hm y := by
-  obtain ⟨i, j, l, hy⟩ := torus_eq_zsmul_gens (StrothTypeIndex.t100 m).k (D.ec y)
-  have h1 : D.ec (conjBy D.u_mem y) 0 =
-      (i : ZMod (2 ^ (StrothTypeIndex.t100 m).k 0)) := by
-    rw [ec_conj_u D y, hy, Φu_apply_gens]
-    simp [gen, Pi.single_apply]
-  have h2 : D.ec y 0 = (i : ZMod (2 ^ (StrothTypeIndex.t100 m).k 0)) := by
-    rw [hy]
-    simp [gen, Pi.single_apply]
-  rw [cParity, cParity, h1, h2]
 
 theorem cParity_conj_ρ (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m)
     (y : B) : cParity D hm (conjBy D.ρ_mem y) = cParity D hm y := by
@@ -404,9 +374,6 @@ theorem cParity_conj_ρ (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 
   rw [h2z, zero_mul]
   exact sub_zero _
 
-theorem cParityHom_conj_u (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m)
-    (y : B) : cParityHom D hm (conjBy D.u_mem y) = cParityHom D hm y := by
-  rw [cParityHom_apply, cParityHom_apply, cParity_conj_u]
 
 theorem cParityHom_conj_ρ (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m)
     (y : B) : cParityHom D hm (conjBy D.ρ_mem y) = cParityHom D hm y := by

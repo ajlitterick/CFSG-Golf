@@ -27,9 +27,6 @@ theorem b30 : Nat.beq 3 0 = false := rfl
 theorem b31 : Nat.beq 3 1 = false := rfl
 theorem b32 : Nat.beq 3 2 = false := rfl
 
-theorem bIf_t {t e : Bool} : Bool.rec (motive := fun _ => Bool) e t true = t := rfl
-
-theorem bIf_f {t e : Bool} : Bool.rec (motive := fun _ => Bool) e t false = e := rfl
 
 theorem eqA_false {t u : Array Nat} {x : Nat} (hx : x < 1782) (h : t[x]! ≠ u[x]!) :
     eqA 1782 t u = false := by

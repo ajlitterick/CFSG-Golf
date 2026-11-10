@@ -109,21 +109,6 @@ theorem f_diag (q : S) (hq : orderOf q = 2) :
   · exact Or.inl ⟨h1, by rw [h2]; rfl⟩
   · exact Or.inr ⟨h1, by rw [h2]; rfl⟩
 
-theorem f_diag_four (q : S) (hq : orderOf q = 2)
-    (h4 : (Finset.univ.filter fun p : Fin 12 =>
-      ((q : NativeSporadic.M12) : Equiv.Perm (Fin 12)) p = p).card = 4) : f q q = 0 := by
-  rcases f_diag q hq with h | h
-  · exact h.2
-  · rw [h.1] at h4
-    exact absurd h4 (by norm_num)
-
-theorem f_diag_free (q : S) (hq : orderOf q = 2)
-    (h0 : (Finset.univ.filter fun p : Fin 12 =>
-      ((q : NativeSporadic.M12) : Equiv.Perm (Fin 12)) p = p).card = 0) : f q q = 1 := by
-  rcases f_diag q hq with h | h
-  · rw [h.1] at h0
-    exact absurd h0 (by norm_num)
-  · exact h.2
 
 abbrev R : Type := CocycleExtension fN
 
@@ -161,10 +146,6 @@ theorem lam_coboundary (s t : S) : lam s + lam t + lam (s * t) = f (βS s) (βS 
   rw [← d_mul, lam_d, lam_d, lam_d, f_βS, f_d, ← Nat.cast_add, ← Nat.cast_add, ← Nat.cast_add]
   exact zmod2_eq_of_mod (autCheck_spec.1 i i.2 j j.2).2
 
-theorem lam0_add_lam0_βS (s : S) : lam0 s + lam0 (βS s) = 0 := by
-  obtain ⟨j, rfl⟩ := d_surjective s
-  rw [βS_d, lam0_d, lam0_d, ← Nat.cast_add, ← Nat.cast_zero]
-  exact zmod2_eq_of_mod ((autCheck_spec.2 j j.2).1.trans (Nat.zero_mod 2).symm)
 
 theorem lam_add_lam_βS (s : S) : lam s + lam (βS s) = 0 := by
   obtain ⟨j, rfl⟩ := d_surjective s
@@ -179,9 +160,6 @@ theorem tau0_apply (x : R) : tau0 x = ⟨x.fst + lam0 x.snd, βS x.snd⟩ := rfl
 
 theorem tau_apply (x : R) : tau x = ⟨x.fst + lam x.snd, βS x.snd⟩ := rfl
 
-theorem lam0_one : lam0 1 = 0 := by
-  rw [← d_zero, lam0_d]
-  decide +kernel
 
 theorem lam_one : lam 1 = 0 := by
   rw [← d_zero, lam_d]
@@ -189,20 +167,12 @@ theorem lam_one : lam 1 = 0 := by
 
 theorem βS_one : βS 1 = 1 := map_one βS
 
-theorem tau0_tau0 (x : R) : tau0 (tau0 x) = x := by
-  refine CocycleExtension.ext ?_ ?_
-  · simp only [tau0_apply, add_assoc, lam0_add_lam0_βS, add_zero]
-  · simp only [tau0_apply, βS_βS]
 
 theorem tau_tau (x : R) : tau (tau x) = x := by
   refine CocycleExtension.ext ?_ ?_
   · simp only [tau_apply, add_assoc, lam_add_lam_βS, add_zero]
   · simp only [tau_apply, βS_βS]
 
-theorem tau0_z : tau0 ⟨1, 1⟩ = ⟨1, 1⟩ := by
-  refine CocycleExtension.ext ?_ ?_
-  · simp [tau0_apply, lam0_one]
-  · simp [tau0_apply, βS_one]
 
 theorem tau_z : tau ⟨1, 1⟩ = ⟨1, 1⟩ := by
   refine CocycleExtension.ext ?_ ?_
@@ -211,7 +181,6 @@ theorem tau_z : tau ⟨1, 1⟩ = ⟨1, 1⟩ := by
 
 theorem proj_tau0 (x : R) : (tau0 x).snd = βS x.snd := rfl
 
-theorem proj_tau (x : R) : (tau x).snd = βS x.snd := rfl
 
 theorem card_R : Nat.card R = 128 := by
   rw [CocycleExtension.card_eq, card_S]
@@ -239,7 +208,6 @@ theorem tauN_lt (l : ℕ → ℕ) (x : ℕ) : tauN l x < 128 := by
   unfold tauN
   omega
 
-@[expose] def tau0F (x : Fin 128) : Fin 128 := ⟨tauN lam0Idx x, tauN_lt _ _⟩
 
 @[expose] def tauF (x : Fin 128) : Fin 128 := ⟨tauN lamIdx x, tauN_lt _ _⟩
 
@@ -306,9 +274,6 @@ theorem tauN_encR {l : ℕ → ℕ} {L : S → ZMod 2} (hL : ∀ j : Fin 64, L (
     exact zmod2_eq_of_mod (Nat.mod_mod _ _)
   · exact (βS_d ⟨(x : ℕ) % 64, Nat.mod_lt _ (by norm_num)⟩).symm
 
-theorem encR_tau0F (x : Fin 128) : encR (tau0F x) = tau0 (encR x) := by
-  rw [tau0_apply, ← tauN_encR lam0_d]
-  rfl
 
 theorem encR_tauF (x : Fin 128) : encR (tauF x) = tau (encR x) := by
   rw [tau_apply, ← tauN_encR lam_d]

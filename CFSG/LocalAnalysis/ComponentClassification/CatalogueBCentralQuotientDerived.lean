@@ -35,9 +35,6 @@ theorem imageRestriction_kernel_central {X Y : Type*} [Group X] [Group Y]
     (f : X →* Y) (M : Subgroup Y) : M.comap f →* M :=
   (f.domRestrict (M.comap f)).codRestrict M (fun x => x.property)
 
-theorem preimageRestriction_apply {X Y : Type*} [Group X] [Group Y]
-    (f : X →* Y) (M : Subgroup Y) (x : M.comap f) :
-    (preimageRestriction f M x).val = f x.val := rfl
 
 theorem preimageRestriction_surjective {X Y : Type*} [Group X] [Group Y]
     (f : X →* Y) (hsurjective : Function.Surjective f) (M : Subgroup Y) :

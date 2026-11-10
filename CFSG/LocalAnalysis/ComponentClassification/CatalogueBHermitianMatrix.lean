@@ -134,11 +134,6 @@ theorem exists_hermitian_factorization [Finite K]
     _ = conjTr sigma (B⁻¹ : GL (Fin n) K).val * (B⁻¹ : GL (Fin n) K).val := by
       rw [hB, Matrix.mul_one]
 
-theorem exists_hermitian_matrix_factorization [Finite K]
-    (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1)
-    (A : GL (Fin n) K) (hA : (sigma.toRingHom.mapMatrix A.val).transpose = A.val) :
-    ∃ H : GL (Fin n) K, A.val = H.val * (sigma.toRingHom.mapMatrix H.val).transpose :=
-  exists_hermitian_factorization sigma hsigma hne A hA
 
 end
 

@@ -64,18 +64,5 @@ theorem listGroup_of_thmAConclusion_simple {G : Type} [Group G] [Finite G] [IsSi
   · exact absurd hZ (not_zStarCase_of_simple _ hnonabQ hevenQ)
   · exact ListGroup.of_mulEquiv eQ (listGroup_of_isCoveringOfList_simple _ hnonabQ hcov)
 
-theorem nodeStatement_of_corollaryB (hB : CorollaryBStmt) : NodeStatement := by
-  intro G _ _ _ hnonab B hel hcard hTI hWC
-  obtain ⟨x, hxB, hx1⟩ : ∃ x ∈ B, x ≠ 1 := by
-    rcases B.bot_or_exists_ne_one with hbot | h
-    · rw [hbot, Subgroup.card_bot] at hcard
-      omega
-    · exact h
-  have heven : Even (Nat.card G) := by
-    have hord : orderOf x = 2 := orderOf_eq_prime (hel.2 x hxB) hx1
-    exact even_iff_two_dvd.2 (hord ▸ orderOf_dvd_natCard x)
-  have hBne : B ≠ ⊥ := fun h => hx1 (Subgroup.mem_bot.1 (h ▸ hxB))
-  exact listGroup_of_thmAConclusion_simple hnonab heven (normalClosure_eq_top_of_simple hBne)
-    (hB G B (corBHyp_of_ti_of_weaklyClosed hel hTI hWC))
 
 end CFSG.CGT.Timmesfeld75

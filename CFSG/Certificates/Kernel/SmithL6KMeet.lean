@@ -174,9 +174,6 @@ theorem mem_setM {M x : Nat} : x ∈ setM M ↔ x < 64 ∧ M.testBit x = true :=
   unfold setM
   rw [Finset.mem_filter, Finset.mem_range]
 
-theorem ite_xor (p : Bool) (a b : Nat) :
-    ((if p then a else 0) ^^^ (if p then b else 0)) = if p then a ^^^ b else 0 := by
-  cases p <;> simp
 
 theorem comb_xor (a b c d d' : Nat) : comb a b c d ^^^ comb a b c d' = comb a b c (d ^^^ d') := by
   unfold comb

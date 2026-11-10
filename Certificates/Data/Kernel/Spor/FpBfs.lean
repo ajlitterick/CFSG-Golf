@@ -37,11 +37,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim
   bAnd(compEqK n w m nw (G s) (V i) (T i), bAnd(Nat.beq (FP i) (fpK w m (T i)),
     bIf(Nat.blt (Nat.succ i) cnt, Nat.blt c (PL (Nat.succ i)), true))))))))
 
-@[expose] noncomputable def fpBfsStK (w m k cnt : Nat) (G GI T PL POS FP : Nat → Nat) (e : Nat) :
-    Bool :=
-  strictB (POS e) (fun j => strictB (Nat.mod e k) (fun s =>
-  bAnd(Nat.blt j cnt, bAnd(Nat.beq (FP j) (fpCK w m (G s) (GI s) (T (Nat.div e k))),
-    bIf(Nat.beq j (nat_lit 0), true, Nat.ble (PL j) e)))))
 
 @[expose] noncomputable def fpBfsPtSlK (n w m nw k cnt : Nat) (G GI T V PL FP : Nat → Nat)
     (lo len : Nat) : Bool :=
@@ -49,10 +44,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim
     bIf(Nat.blt i cnt, bIf(Nat.beq i (nat_lit 0), true, fpBfsPtK n w m nw k cnt G GI T V PL FP i),
       true)))
 
-@[expose] noncomputable def fpBfsStSlK (w m k cnt E : Nat) (G GI T PL POS FP : Nat → Nat)
-    (lo len : Nat) : Bool :=
-  allN len (fun d => strictB (Nat.add lo d) (fun e =>
-    bIf(Nat.blt e E, fpBfsStK w m k cnt G GI T PL POS FP e, true)))
 
 end CFSG.KS.FpBfs
 

@@ -59,18 +59,6 @@ lemma mapIntCast_apply
     mapIntCast (k := k) ψ h = (ψ h : k) :=
   rfl
 
-/--
-Pointwise casting of integer-valued class functions commutes with integer
-scalar multiplication.
--/
-lemma intCast_zsmul
-    {H : Type v} [Group H]
-    (n : ℤ) (ψ : ClassFun ℤ H) :
-    (n : k) • mapIntCast (k := k) ψ =
-      mapIntCast (k := k) (n • ψ) := by
-  ext h
-  simp only [smul_apply, mapIntCast_apply, smul_eq_mul, zsmul_eq_mul, mul_apply,
-    intCast_apply, Int.cast_eq, Int.cast_mul]
 
 /--
 A class function is integer-valued if each of its values is the image of an
@@ -145,10 +133,6 @@ lemma neg_mem {f : ClassFun k G}
   refine ⟨-m, ?_⟩
   simp [hm]
 
-lemma sub_mem {f g : ClassFun k G}
-    (hf : f ∈ C_Z k G) (hg : g ∈ C_Z k G) :
-    f - g ∈ C_Z k G := by
-  simpa [sub_eq_add_neg] using add_mem hf (neg_mem hg)
 
 lemma zsmul_mem (n : ℤ) {f : ClassFun k G}
     (hf : f ∈ C_Z k G) :

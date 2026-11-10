@@ -66,13 +66,6 @@ theorem e7LeviEquiv_e7LeviPar {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E
   rw [e7LeviEquiv, MulEquiv.trans_apply, ← e7MinEquivLevi_xm hγ c, MulEquiv.symm_apply_apply,
     e7MinEquivAdjoint_apply, coe_e7Isogeny_xm hγ]
 
-theorem coe_e7LeviEquiv_of_coe_eq_pinnedX {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E7 γ)
-    {c : K} {g : e7Levi K}
-    (hg : ((g : adjointGroup .E8 K) : ModGL .E8 K) = pinnedX .E8 K (e7Embed γ) c) :
-    ((e7LeviEquiv K g : adjointGroup .E7 K) : ModGL .E7 K) = pinnedX .E7 K γ c := by
-  have hg' : g = ⟨e7LeviPar K γ c, e7LeviPar_mem_e7Levi hγ c⟩ :=
-    Subtype.ext (Subtype.ext hg)
-  rw [hg', e7LeviEquiv_e7LeviPar hγ c]
 
 theorem e7LeviEquiv_symm_pinnedX {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E7 γ) (c : K) :
     (e7LeviEquiv K).symm ⟨pinnedX .E7 K γ c, pinnedX_mem_adjointGroup γ c⟩ =
@@ -85,15 +78,6 @@ theorem coe_e7LeviEquiv_symm_pinnedX {γ : Fin (Tag.rank .E7) → ℤ} (hγ : Is
   rw [e7LeviEquiv_symm_pinnedX hγ c]
   rfl
 
-variable (K) in
-theorem exists_perpLevi_mulEquiv_adjointGroup_E7 :
-    ∃ e : ↥((rootSpan .E8 K (perpRoots .E8)).subgroupOf (adjointGroup .E8 K)) ≃*
-        ↥(adjointGroup .E7 K),
-      ∀ γ : Fin (Tag.rank .E7) → ℤ, IsRoot .E7 γ → ∀ (c : K)
-        (g : (rootSpan .E8 K (perpRoots .E8)).subgroupOf (adjointGroup .E8 K)),
-        ((g : adjointGroup .E8 K) : ModGL .E8 K) = pinnedX .E8 K (e7Embed γ) c →
-          ((e g : adjointGroup .E7 K) : ModGL .E7 K) = pinnedX .E7 K γ c :=
-  ⟨e7LeviEquiv K, fun _ hγ _ _ hg => coe_e7LeviEquiv_of_coe_eq_pinnedX hγ hg⟩
 
 theorem isQuasisimple_e7Levi : CFSG.IsQuasisimple (e7Levi K) :=
   CFSG.LieType.CurtisTits.isQuasisimple_of_surjective (φ := (e7MinEquivLevi K).toMonoidHom)

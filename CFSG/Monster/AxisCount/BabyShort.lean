@@ -40,10 +40,6 @@ theorem psiVis_smul_uStarCls {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Jstar) 
   rw [uStarCls_eq_phi0]
   exact (psiVis_smul_thetaEquiv p _).trans h2.symm
 
-theorem psiAmb_smul_uStarCls {g : SpaceB ≃ₗ[ℚ] SpaceB} (hg : g ∈ Jstar) :
-    psiAmb g • uStarCls = uStarCls := by
-  rw [psiAmb_of_mem (Jstar_le_Gvis hg)]
-  exact psiVis_smul_uStarCls hg
 
 @[expose] def babyDelta : Set L2 := {x | x ∈ frameDelta ∧ x + uStarCls ∈ shortSet}
 
@@ -102,15 +98,5 @@ theorem exists_dec (x : L2) : ∃ v < 2 ^ 24, dec v = x := by
   obtain ⟨v, hv, rfl⟩ := hx
   exact ⟨v, Finset.mem_range.1 hv, rfl⟩
 
-theorem shortSet_eq_image_shortFound :
-    shortSet = dec '' (shortFound CFSG.Monster.B.Short.Native.shortTables : Set ℕ) := by
-  have hsub := shortFacts.image_shortFound_subset_orbit kGenN_smul_dec
-  rw [closure_kGenN_Iio, dec_shortSeed] at hsub
-  have hcard := shortFacts.ncard_image_shortFound dec_inj
-  have horb : MulAction.orbit Kvis (classOf (vMinus 0 1)) ⊆ shortSet := by
-    rintro _ ⟨⟨u, hu⟩, rfl⟩
-    exact smul_mem_shortSet_of_mem_Hvis (Kvis_le_Hvis hu) classOf_vMinus_mem_shortSet
-  exact (Set.eq_of_subset_of_ncard_le (hsub.trans horb)
-    (by rw [ncard_shortSet, hcard]; rfl)).symm
 
 end CFSG.Monster.AxisCount.Baby

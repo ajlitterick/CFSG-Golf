@@ -210,11 +210,6 @@ where
     orbitOK r.1 T normGens[i]! normInvs[i]! reps (orbits r.1 T normGens[i]! normInvs[i]! reps) &&
     cases[i]!.all (caseOK Ls gs)
 
-@[expose] def membersOK (T : Array Nat)
-    (R : Array (Array Nat × Array Nat × Array Nat × Array Nat)) : Bool :=
-  let Ls := R.map (·.1)
-  R.size == 5 && (List.range 5).all (fun i => memberOK T Ls i R[i]!) && h3OK Ls[3]! &&
-    h4OK Ls[4]!
 
 @[expose] def codesOK (E : Array Nat) : Bool :=
   let (p, u, v, ui, vi) := h4Data
@@ -225,15 +220,6 @@ where
     cases.all (fun cs => cs.all fun c => memS E c.x && memS E c.g && memS E c.gi) &&
     [p, u, v, ui, vi, p1, p2, b1, b2, b1i, b2i, minusOneC].all (memS E)
 
-@[expose] def groupOK (E : Array Nat) (tr : Array Nat × Array Nat × Array Nat) : Bool :=
-  let gs := #[memGens[5]!.1, memGens[5]!.2]
-  E.size == 51840 && incOK E && codesOK E && treeOK E gs tr.1 tr.2.1 tr.2.2 && gOK E
-
-@[expose] def checkE (E : Array Nat) : Bool :=
-  groupOK E (etree E #[memGens[5]!.1, memGens[5]!.2]) &&
-    membersOK (threeArr E) ((Array.range 5).map fun i => bfs #[memGens[i]!.1, memGens[i]!.2] 2000)
-
-@[expose] def sp43Check (_ : Unit := ()) : Bool := checkE (spArr ())
 
 end CFSG.Sp43.Native
 

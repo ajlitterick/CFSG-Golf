@@ -73,8 +73,6 @@ variable (p f : ℕ) [Fact p.Prime] [CharP A p]
       mul_inv_cancel₀ h0, map_one, one_mul] at this
     exact this.symm
 
-theorem mem_formSubfield {β : A →+ A →+ Z₀} {α : A} :
-    α ∈ formSubfield p f β ↔ ∀ c c', β (α * c) c' = β c (α ^ p ^ f * c') := Iff.rfl
 
 end Form
 

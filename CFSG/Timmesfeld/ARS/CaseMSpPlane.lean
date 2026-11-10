@@ -55,14 +55,6 @@ theorem commute_of_mat_mulVec_eq {v : Fin n ⊕ Fin n → F} {T : Subgroup (Stat
   calc g * t = (g * t * g⁻¹) * g := by group
     _ = t * g := by rw [h2]
 
-theorem normalizes_of_mat_mulVec_eq_smul {v : Fin n ⊕ Fin n → F}
-    {T : Subgroup (StatedSp n F)} (hT : IsTransGroup v T) {g : StatedSp n F} {c : F}
-    (hg : SpExtras.mat n F g *ᵥ v = c • v) :
-    ∀ t ∈ T, g * t * g⁻¹ ∈ T := by
-  intro t ht
-  obtain ⟨a, ha⟩ := (hT.1 t).1 ht
-  rw [hT.1]
-  exact ⟨c * c * a, by rw [mat_conj_of_mat_eq ha g, hg, spTrans_smul]⟩
 
 theorem mat_longBlock_mulVec_plane (k : Fin n) (s : SL(2, F)) (u : Fin 2 → F) :
     SpExtras.mat n F (longBlock F n k s) *ᵥ
@@ -90,15 +82,6 @@ theorem mat_longBlock_mulVec_plane (k : Fin n) (s : SL(2, F)) (u : Fin 2 → F) 
     · simp [CFSG.LieType.Steinberg.Sp.blockMat, hik, Pi.single_eq_of_ne,
         Matrix.one_apply, Matrix.mulVec, Fin.sum_univ_two]
 
-theorem mat_longBlock_mulVec_perp (k : Fin n) (s : SL(2, F)) {x : Fin n ⊕ Fin n → F}
-    (hx₁ : x (Sum.inl k) = 0) (hx₂ : x (Sum.inr k) = 0) :
-    SpExtras.mat n F (longBlock F n k s) *ᵥ x = x := by
-  rw [mat_longBlock]
-  exact mulVec_eq_self_of_isSupp (isSupp_blockMat k _) (by
-    intro t ht
-    rcases mem_coords.1 ht with rfl | rfl
-    · exact hx₁
-    · exact hx₂)
 
 theorem mat_longBlock_conj_mulVec_plane (k : Fin n) (g : StatedSp n F) (s : SL(2, F))
     (u : Fin 2 → F) :
@@ -149,11 +132,6 @@ theorem spTrans_single_inl (k : Fin n) (c : F) :
       Matrix.transvection (Sum.inl k) (Sum.inr k) c := by
   rw [spTrans, spNil_inl, Matrix.transvection, Matrix.smul_single, smul_eq_mul, mul_one]
 
-theorem spTrans_single_inr (k : Fin n) (c : F) :
-    spTrans (Pi.single (Sum.inr k) 1 : Fin n ⊕ Fin n → F) (-c) =
-      Matrix.transvection (Sum.inr k) (Sum.inl k) c := by
-  rw [spTrans, spNil_inr, Matrix.transvection]
-  simp only [smul_neg, neg_smul, neg_neg, Matrix.smul_single, smul_eq_mul, mul_one]
 
 theorem mat_longBlock_upperElt (k : Fin n) (c : F) :
     SpExtras.mat n F (longBlock F n k (upperElt F c)) =
@@ -161,11 +139,6 @@ theorem mat_longBlock_upperElt (k : Fin n) (c : F) :
   rw [show upperElt F c = CFSG.LieType.Steinberg.sl2Upper c from rfl,
     longBlock_sl2Upper, SpExtras.mat_elt_positiveLong, spTrans_single_inl]
 
-theorem mat_longBlock_lowerElt (k : Fin n) (c : F) :
-    SpExtras.mat n F (longBlock F n k (lowerElt F c)) =
-      spTrans (Pi.single (Sum.inr k) 1 : Fin n ⊕ Fin n → F) (-c) := by
-  rw [show lowerElt F c = CFSG.LieType.Steinberg.sl2Lower c from rfl,
-    longBlock_sl2Lower, SpExtras.mat_elt_negativeLong, spTrans_single_inr]
 
 theorem isTransGroup_upper_longBlock (k : Fin n) :
     IsTransGroup (Pi.single (Sum.inl k) 1 : Fin n ⊕ Fin n → F)
@@ -181,19 +154,6 @@ theorem isTransGroup_upper_longBlock (k : Fin n) :
       exact SpExtras.mat_injective (by rw [mat_longBlock_upperElt, ← hc])
   · exact ⟨longBlock F n k (upperElt F c), mat_longBlock_upperElt k c⟩
 
-theorem isTransGroup_lower_longBlock (k : Fin n) :
-    IsTransGroup (Pi.single (Sum.inr k) 1 : Fin n ⊕ Fin n → F)
-      ((lowerUnipotent F).map (longBlock F n k)) := by
-  refine ⟨fun x => ?_, fun c => ?_⟩
-  · rw [Subgroup.mem_map]
-    constructor
-    · rintro ⟨u, hu, rfl⟩
-      obtain ⟨c, rfl⟩ := (mem_lowerUnipotent_iff F).1 hu
-      exact ⟨-c, mat_longBlock_lowerElt k c⟩
-    · rintro ⟨c, hc⟩
-      refine ⟨lowerElt F (-c), (mem_lowerUnipotent_iff F).2 ⟨-c, rfl⟩, ?_⟩
-      exact SpExtras.mat_injective (by rw [mat_longBlock_lowerElt, neg_neg, ← hc])
-  · exact ⟨longBlock F n k (lowerElt F (-c)), by rw [mat_longBlock_lowerElt, neg_neg]⟩
 
 theorem isTransGroup_upper_longBlock_conj (k : Fin n) (g : StatedSp n F) :
     IsTransGroup (SpExtras.mat n F g *ᵥ (Pi.single (Sum.inl k) 1 : Fin n ⊕ Fin n → F))
@@ -201,11 +161,6 @@ theorem isTransGroup_upper_longBlock_conj (k : Fin n) (g : StatedSp n F) :
   simpa only [CFSG.Timmesfeld.ARS.conjSub, Subgroup.map_map] using
     (isTransGroup_upper_longBlock (F := F) k).conjSub g
 
-theorem isTransGroup_lower_longBlock_conj (k : Fin n) (g : StatedSp n F) :
-    IsTransGroup (SpExtras.mat n F g *ᵥ (Pi.single (Sum.inr k) 1 : Fin n ⊕ Fin n → F))
-      ((lowerUnipotent F).map ((MulAut.conj g).toMonoidHom.comp (longBlock F n k))) := by
-  simpa only [CFSG.Timmesfeld.ARS.conjSub, Subgroup.map_map] using
-    (isTransGroup_lower_longBlock (F := F) k).conjSub g
 
 theorem rootGroup_last_eq_map_upper (hn : 1 ≤ n) :
     (CFSG.LieType.Universal.Symplectic.rootDatum n F).rootGroup

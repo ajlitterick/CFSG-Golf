@@ -9,9 +9,6 @@ namespace CFSG.ComponentClassification.CommutingFamilySupport
 @[expose] noncomputable def subproduct {G Index : Type*} [Group G]
     (family : Index → Subgroup G) (subset : Set Index) : Subgroup G := ⨆ index ∈ subset, family index
 
-theorem partial_le {G Index : Type*} [Group G]
-    (family : Index → Subgroup G) (subset : Set Index) : subproduct family subset ≤ ⨆ index, family index :=
-  iSup_le (fun index => iSup_le (fun _ => le_iSup family index))
 
 theorem support_iff {G Index : Type*} [Group G] [Fintype Index]
     (family : Index → Subgroup G)
@@ -158,21 +155,5 @@ theorem centralizer_transport {G : Type*} [Group G]
     rw [← map_mul, ← map_mul]
     exact congrArg automorphism (Subgroup.mem_centralizer_iff.mp hcentral lift hlift)
 
-theorem support_transport {G Index : Type*} [Group G]
-    (family : Index → Subgroup G) (automorphism : G ≃* G) (permutation : Equiv.Perm Index)
-    (hfamily : ∀ index, (family index).map automorphism.toMonoidHom = family (permutation index)) (member : G) :
-    support family (automorphism member) = permutation '' support family member := by
-  ext index
-  constructor
-  · intro hindex
-    refine ⟨permutation.symm index, ?_, permutation.apply_symm_apply index⟩
-    change member ∉ Subgroup.centralizer (family (permutation.symm index) : Set G)
-    have htransport := centralizer_transport automorphism (family (permutation.symm index)) member
-    rw [hfamily, permutation.apply_symm_apply] at htransport
-    exact hindex ∘ htransport.mpr
-  · rintro ⟨original, horiginal, rfl⟩
-    change automorphism member ∉ Subgroup.centralizer (family (permutation original) : Set G)
-    rw [← hfamily original]
-    exact horiginal ∘ (centralizer_transport automorphism (family original) member).mp
 
 end CFSG.ComponentClassification.CommutingFamilySupport

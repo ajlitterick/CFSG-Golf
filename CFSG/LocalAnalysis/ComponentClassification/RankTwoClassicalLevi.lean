@@ -30,10 +30,6 @@ structure AParts (A R T : Subgroup G) (p : G) (J : Subgroup G) : Prop where
   aPart_le : ∀ t ∈ T, ∀ p' ∈ A, t⁻¹ * p' ∈ R → p' ∈ J
   centralizer_le : A ⊓ centralizer ({p} : Set G) ≤ centralizer (J : Set G)
 
-omit [Finite G] in
-theorem JData.toAParts {A R T J : Subgroup G} {p y : G} (hJ : JData A R T p J y) :
-    AParts A R T p J :=
-  ⟨hJ.le hJ.mem, hJ.ne_one, hJ.aPart_mem, hJ.aPart_le, hJ.centralizer_le⟩
 
 theorem rightConjugate_perfectCore (H : Subgroup G) (x : G) :
     rightConjugate (CFSG.Quasithin.perfectCore H) x =

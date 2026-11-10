@@ -131,7 +131,6 @@ theorem y_mem_F : y ∈ F := subset_closure (Or.inr basisF_b.symm)
 
 theorem a_mem_A : x * y ∈ A := subset_closure (Or.inr basisA_b.symm)
 
-theorem a'_mem_A' : x * y ^ 2 ∈ A' := subset_closure (Or.inr basisA'_b.symm)
 
 theorem z_mem_sub (i : Fin 4) :
     ⁅x, y⁆ ∈ (ex27Basis x_cube y_cube z_comm_x z_comm_y z_ne_one i).sub :=
@@ -221,8 +220,6 @@ theorem NP_le_NF :
 
 abbrev QP : Type := normalizer (P0 : Set G12) ⧸ P0.subgroupOf (normalizer (P0 : Set G12))
 
-theorem mem_P0_of_tbl {g : G12} (h : P0T.contains (tbl g.1) = true) : g ∈ P0 :=
-  (mem_P0_iff g).2 (List.contains_iff_mem.1 h)
 
 theorem card_QP :
     Nat.card QP = 4 := by

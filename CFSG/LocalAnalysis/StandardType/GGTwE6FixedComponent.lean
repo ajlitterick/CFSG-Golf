@@ -72,14 +72,6 @@ theorem primeResidual_two_eq_of_normal_quasisimple {X : Type*} [Group X] [Finite
     have htZ : (⟨t, htN⟩ : N) ∈ Subgroup.center N := h htR
     exact hne (congrArg Subtype.val ((Subgroup.mem_center_iff.mp htZ) ⟨n, hn⟩)).symm
 
-theorem three_dvd_card_primeResidual_two_of_inverted {X : Type*} [Group X] [Finite X]
-    {g e : X} (hg : IsPGroup 2 (Subgroup.zpowers g)) (he1 : e ≠ 1) (he : e ^ 3 = 1)
-    (hinv : g * e * g⁻¹ = e⁻¹) : 3 ∣ Nat.card (primeResidual 2 X) := by
-  have hmem := mem_primeResidual_two_of_inverted hg he hinv
-  have hord : orderOf e = 3 := orderOf_eq_prime he he1
-  have hdvd := Subgroup.orderOf_dvd_natCard (primeResidual 2 X) hmem
-  rwa [hord] at hdvd
-
 
 theorem mem_center_of_map_commute {G D : Type*} [Group G] [Group D]
     (hDperf : Group.IsPerfect D) {Kc : Subgroup G} (ι : D →* G) (hιK : ∀ y, ι y ∈ Kc)
@@ -327,27 +319,6 @@ theorem mem_jgeom_of_two_pow_eq_one {g : ModGL Tag.E6 Ω}
     isPGroup_zpowers_of_pow_two_pow (Subtype.ext hg2)
   exact ⟨gF, pSubgroup_le_residual 2 _ hp (Subgroup.mem_zpowers gF), rfl⟩
 
-theorem three_dvd_card_jgeom
-    [Finite ↥(closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))) ⊓ TwistedDiag.Rgrp Ω Fr)]
-    {e g : ModGL Tag.E6 Ω}
-    (heK : e ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))))
-    (heF : e ∈ TwistedDiag.Rgrp Ω Fr) (he1 : e ≠ 1) (he3 : e ^ 3 = 1)
-    (hgK : g ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))))
-    (hgF : g ∈ TwistedDiag.Rgrp Ω Fr) {k : ℕ} (hg2 : g ^ (2 ^ k) = 1)
-    (hinv : g * e * g⁻¹ = e⁻¹) :
-    3 ∣ Nat.card ((primeResidual 2 ↥(closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))) ⊓ TwistedDiag.Rgrp Ω Fr)).map
-        (closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-          Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))) ⊓ TwistedDiag.Rgrp Ω Fr).subtype) := by
-  rw [Subgroup.card_map_of_injective Subtype.val_injective]
-  refine three_dvd_card_primeResidual_two_of_inverted (g := ⟨g, hgK, hgF⟩) (e := ⟨e, heK, heF⟩)
-    (isPGroup_zpowers_of_pow_two_pow (k := k) (Subtype.ext hg2)) ?_ (Subtype.ext he3)
-    (Subtype.ext hinv)
-  intro h
-  exact he1 (congrArg Subtype.val h)
 
 theorem isQuasisimple_jgeom_of_isogeny
     [Finite ↥(closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
@@ -1652,47 +1623,6 @@ theorem exists_central_mul_of_torus_conj [IsAlgClosed Ω] {K : Subgroup (ModGL T
     rw [map_mul]
     group
 
-open CFSG.RankThree.PartOne.KE CFSG.HardMathSupport.Timmesfeld.Torality in
-theorem exists_central_mul_rootTripleHom [IsAlgClosed Ω]
-    (β : Fin 3 → Fin Tag.E6.rank → ℤ)
-    (hβ : ∀ i, IsRoot .E6 (β i)) (horth : ∀ i j, i ≠ j → iform (β i) (β j) = 0)
-    {n : ModGL Tag.E6 Ω} {s₁ t₂ t₃ : Ωˣ}
-    (h₀ : ∀ A, n * rootSL2 .E6 Ω (β 0) A * n⁻¹ = rootSL2 .E6 Ω (β 1)
-      (CFSG.RankThree.Classical.conjSL (CFSG.RankThree.Classical.diagUnitOne s₁) A))
-    (h₁ : ∀ A, n * rootSL2 .E6 Ω (β 1) A * n⁻¹ = rootSL2 .E6 Ω (β 2)
-      (CFSG.RankThree.Classical.conjSL (CFSG.RankThree.Classical.diagUnitOne t₂) A))
-    (h₂ : ∀ A, n * rootSL2 .E6 Ω (β 2) A * n⁻¹ = rootSL2 .E6 Ω (β 0)
-      (CFSG.RankThree.Classical.conjSL (CFSG.RankThree.Classical.diagUnitOne t₃) A))
-    (hn : n ^ 3 = 1) (hnT : ∀ t ∈ torusGroup Tag.E6 Ω, n * t * n⁻¹ ∈ torusGroup Tag.E6 Ω)
-    {ι₀ : Type} (a : ι₀ → Fin Tag.E6.rank → Ωˣ)
-    (hker : familyKernel a = threeRootSet (β 0) (β 1) (β 2)) {Hh : Subgroup (ModGL Tag.E6 Ω)}
-    (ha : ∀ i, rootDiagUnit Tag.E6 (a i) ∈ Hh) (hnH : n ∈ Hh)
-    (hHι : ∀ h ∈ Hh, ∀ A, h * rootTripleHom β hβ horth s₁ (s₁ * t₂) A =
-      rootTripleHom β hβ horth s₁ (s₁ * t₂) A * h) {x : ModGL Tag.E6 Ω}
-    (hx : x ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω)))) :
-    ∃ z ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-        Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))),
-      z ∈ torusGroup Tag.E6 Ω ∧
-      (∀ y ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-        Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))), z * y = y * z) ∧
-      ∃ B : SL2 Ω, x = z * rootTripleHom β hβ horth s₁ (s₁ * t₂) B := by
-  set ι := rootTripleHom β hβ horth s₁ (s₁ * t₂) with hιdef
-  have hιK : ∀ A, ι A ∈ closedIdentityComponent (adjointGroup Tag.E6 Ω ⊓
-      Subgroup.centralizer (Hh : Set (ModGL Tag.E6 Ω))) := fun A =>
-    rootTripleHom_mem_closedIdentityComponent β hβ horth s₁ (s₁ * t₂)
-      (fun h hh t => ⟨hHι h hh _, hHι h hh _⟩) A
-  have hHSL : ∀ u : Ωˣ, ι (HSL u) ∈ torusGroup Tag.E6 Ω := by
-    intro u
-    rw [hιdef, rootTripleHom_apply, conjSL_diagUnitOne_HSL, conjSL_diagUnitOne_HSL]
-    exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (rootSL2_HSL_mem_torusGroup (hβ 0) u)
-      (rootSL2_HSL_mem_torusGroup (hβ 1) u)) (rootSL2_HSL_mem_torusGroup (hβ 2) u)
-  refine exists_central_mul_of_torus_conj ι hιK hHSL (fun y hy => ?_) hx
-  obtain ⟨t, htT, htn, A, rfl⟩ := closedIdentityComponent_le_torus_mul_rootTripleHom (s₁ := s₁)
-    (t₂ := t₂) (t₃ := t₃) β hβ horth h₀ h₁ h₂ hn hnT a hker ha hnH hy
-  obtain ⟨b, rfl⟩ := exists_rootDiagUnit_eq_of_mem_torusGroup htT
-  exact ⟨b, rootChar b (β 0),
-    fun A' => rootDiagUnit_conj_rootTripleHom_of_commute β hβ horth h₀ h₁ b htn A', A, rfl⟩
 
 end RootTriple
 
@@ -2362,17 +2292,6 @@ open SCFourCover NoOffTwE6Three CFSG.Assembly CFSG.LieType.Chevalley CFSG.LieTyp
   CFSG.LocalAnalysis.ComponentInitial.FourGroupChevalley CFSG.LieType.Steinberg.Adjoint
   CFSG.RankThree.PartOne.KE
 
-
-variable {n : ℕ} (hn : 1 ≤ n) {K : Type} [Field K] [Finite K] (hK : Nat.card K = (2 ^ n) ^ 2)
-  (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ 2 ^ n) {Ω : Type} [Field Ω] [Algebra K Ω]
-  [IsAlgClosure K Ω] (Fr : Ω →+* Ω) (hFr : ∀ c, Fr c = c ^ 2 ^ n)
-  (ε : ↥(graphFixedRootGroup TwistTag.E6 K σ.toRingHom) ≃* TwE6Delta.RecipeR K n)
-  (hε : ∀ x : MulAut ↥(graphFixedRootGroup TwistTag.E6 K σ.toRingHom),
-    MulAut.congr ε x ∈ TwE6Delta.RecipeI K n ↔ x ∈ (RecipeExcLang.twConj K σ).range)
-variable {L' : Type} [Group L'] {ψ : L' →* TwE6Delta.RecipeR K n}
-  (hψ : Function.Surjective ψ) (hker : ψ.ker ≤ Subgroup.center L') (hperf : commutator L' = ⊤)
-  {A : Subgroup (MulAut L')}
-  (hAI : ∀ a ∈ A, ∃ φ ∈ TwE6Delta.RecipeI K n, ∀ l, φ (ψ l) = ψ (a l))
 
 end OriginalMonomialOrbit
 

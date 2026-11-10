@@ -97,9 +97,6 @@ theorem ker_layerToOddQuot (hΩ : ConjInvariant Ω) :
     rw [MonoidHom.mem_ker, layerToOddQuot_apply]
     exact oddQuotMk_eq_one_iff.mpr (map_inclusion_oddCore_le hΩ ⟨d, hd, rfl⟩)
 
-omit [Finite G] in
-theorem le_centLayer_of_mem {K : Subgroup G} (hK : K ∈ centMembers Ω a) : K ≤ centLayer Ω a :=
-  le_centLayer hK
 
 @[expose] noncomputable def layerQuotientHom (hΩ : ConjInvariant Ω) (a : G) :
     (↥(centLayer Ω a) ⧸ classicalInvolutionOddCore ↥(centLayer Ω a)) →* OddQuot a :=

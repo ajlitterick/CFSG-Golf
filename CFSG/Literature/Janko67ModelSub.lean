@@ -1004,17 +1004,5 @@ theorem mem_pCore_C0_iff (x : C0) :
   · rintro ⟨p, rfl⟩
     exact ⟨p, Finset.mem_univ p, rfl⟩
 
-theorem mem_S0_iff (x : C0) :
-    x ∈ S0 ↔
-      ∃ p : Fin 4 → Fin 2,
-        x = tC ^ (p 0 : ℕ) * uC ^ (p 1 : ℕ) * (a1C * a2C) ^ (p 2 : ℕ) *
-          (b1C * b2C) ^ (p 3 : ℕ) := by
-  change x ∈ (S0 : Set C0) ↔ _
-  rw [← s0Set_eq_S0, s0Set, Finset.mem_coe, Finset.mem_image]
-  constructor
-  · rintro ⟨p, -, rfl⟩
-    exact ⟨p, rfl⟩
-  · rintro ⟨p, rfl⟩
-    exact ⟨p, Finset.mem_univ p, rfl⟩
 
 end CFSG.Literature.Janko67

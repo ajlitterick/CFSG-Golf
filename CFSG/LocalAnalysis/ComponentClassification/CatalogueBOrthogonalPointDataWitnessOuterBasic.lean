@@ -19,9 +19,6 @@ variable {G : Type u} [Group G] {D : Type v} [Group D] {X : Type w}
   MulEquiv.subgroupCongr (congrArg (fun S : Subgroup (Equiv.Perm X) =>
     Subgroup.normalizer (S : Set (Equiv.Perm X))) h)
 
-theorem imageNormalizerRangeEquiv_val (rho : G →* Equiv.Perm X)
-    (tau : D →* Equiv.Perm X) (h : rho.range = tau.range) (phi : imageNormalizer rho) :
-    (imageNormalizerRangeEquiv rho tau h phi).val = phi.val := rfl
 
 theorem imageNormalizerRangeEquiv_image (rho : G →* Equiv.Perm X)
     (tau : D →* Equiv.Perm X) (h : rho.range = tau.range) :
@@ -46,12 +43,6 @@ theorem imageNormalizerRangeEquiv_image (rho : G →* Equiv.Perm X)
   QuotientGroup.congr (normalizerImage rho) (normalizerImage tau)
     (imageNormalizerRangeEquiv rho tau h) (imageNormalizerRangeEquiv_image rho tau h)
 
-theorem normalizerOuterRangeEquiv_mk (rho : G →* Equiv.Perm X)
-    (tau : D →* Equiv.Perm X) (h : rho.range = tau.range) (phi : imageNormalizer rho) :
-    normalizerOuterRangeEquiv rho tau h ((QuotientGroup.mk' (normalizerImage rho)) phi) =
-      (QuotientGroup.mk' (normalizerImage tau)) (imageNormalizerRangeEquiv rho tau h phi) :=
-  QuotientGroup.congr_mk' (normalizerImage rho) (normalizerImage tau)
-    (imageNormalizerRangeEquiv rho tau h) (imageNormalizerRangeEquiv_image rho tau h) phi
 
 @[expose] def familyOuterRangeEquiv (rho : G →* Equiv.Perm X)
     (tau : D →* Equiv.Perm X) (h : rho.range = tau.range)
@@ -61,16 +52,5 @@ theorem normalizerOuterRangeEquiv_mk (rho : G →* Equiv.Perm X)
   ((quotientEquiv rho hrho hsrho).trans (normalizerOuterRangeEquiv rho tau h)).trans
     (quotientEquiv tau htau hstau).symm
 
-theorem familyOuter_derived_eq_bot_of_range (rho : G →* Equiv.Perm X)
-    (tau : D →* Equiv.Perm X) (h : rho.range = tau.range)
-    (hrho : Function.Injective rho) (hsrho : Function.Injective (pointStabilizer rho))
-    (htau : Function.Injective tau) (hstau : Function.Injective (pointStabilizer tau))
-    (d : ℕ) (hd : derivedSeries (familyOuter tau) d = ⊥) :
-    derivedSeries (familyOuter rho) d = ⊥ := by
-  have he := map_derivedSeries_eq
-    (f := (familyOuterRangeEquiv rho tau h hrho hsrho htau hstau).symm.toMonoidHom)
-    (familyOuterRangeEquiv rho tau h hrho hsrho htau hstau).symm.surjective d
-  rw [hd, Subgroup.map_bot] at he
-  exact he.symm
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

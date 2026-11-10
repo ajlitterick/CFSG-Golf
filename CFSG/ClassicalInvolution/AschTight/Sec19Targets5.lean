@@ -28,8 +28,6 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
-theorem c19_16FTmp_of_c19_16STmp (h : C19_16STmp p f) : C19_16FTmp p f :=
-  fun G _ _ _ K z S W hd => (h G K z S W hd).trans le_sup_left
 
 theorem c19_16FTmp_of_split (hne : C19_16FNe9Tmp p f) (h9 : C19_16F9Tmp p f) :
     C19_16FTmp p f := by

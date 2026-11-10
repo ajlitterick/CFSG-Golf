@@ -60,12 +60,6 @@ theorem leechPairStatement_of
   obtain ⟨L⟩ := exists_leechSystem h13 hz
   exact L.leechPairData hP
 
-theorem leechCosetStatement_of
-    (h13 : Co1ModuleUniqueness) (hI : Co1InvolutionFacts) :
-    LeechCosetStatement := by
-  intro G _ _ z hz
-  obtain ⟨L⟩ := exists_leechSystem h13 hz
-  exact L.leechCosetData hI
 
 theorem leechInvolutionStatement_of
     (h13 : Co1ModuleUniqueness) (hI : Co1InvolutionFacts) :

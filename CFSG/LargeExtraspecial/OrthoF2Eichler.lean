@@ -308,24 +308,5 @@ theorem existsUnique_of_totallySingular_finrank_two [FiniteDimensional (ZMod 2) 
     · exact absurd h hs1
     · exact h
 
-theorem isTypeA_of_totallySingular_finrank_two [FiniteDimensional (ZMod 2) V]
-    (hq : q.polarBilin.Nondegenerate) {U : Submodule (ZMod 2) V} (hU : ∀ u ∈ U, q u = 0)
-    (hU2 : finrank (ZMod 2) U = 2) {t : V ≃ₗ[ZMod 2] V} (ht : t ∈ orthogonalGroup q)
-    (ht1 : t ≠ 1) (hcomm : commSpace t ≤ U)
-    (hfix : ∀ x ∈ LinearMap.BilinForm.orthogonal q.polarBilin U, t x = x) :
-    IsTypeA q t 2 ∧ commSpace t = U := by
-  obtain ⟨v, w, hli, rfl⟩ := exists_pair_of_finrank_eq_two hU2
-  have hv : q v = 0 := hU v (Submodule.subset_span (by simp))
-  have hw : q w = 0 := hU w (Submodule.subset_span (by simp))
-  have hvw : polar q v w = 0 := by
-    have h := hU (v + w) (Submodule.add_mem _ (Submodule.subset_span (by simp))
-      (Submodule.subset_span (by simp)))
-    rwa [map_add_eq, hv, hw, zero_add, zero_add] at h
-  rcases eq_one_or_eq_eichler_of_totallySingular hq hli hv hw hvw ht hcomm
-    (fun x hxv hxw => hfix x (mem_orthogonal_span_pair_iff.mpr ⟨hxv, hxw⟩)) with h | h
-  · exact absurd h ht1
-  · subst h
-    obtain ⟨hA, hc, -⟩ := eichler_of_totallySingular hq hli hv hw hvw
-    exact ⟨hA, hc⟩
 
 end CFSG.LargeExtraspecial

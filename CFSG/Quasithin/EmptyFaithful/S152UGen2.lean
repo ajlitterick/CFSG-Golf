@@ -72,24 +72,6 @@ theorem le_normalizer_sup' {T A B : Subgroup G} (hA : T ≤ Subgroup.normalizer 
   have := key t⁻¹ (T.inv_mem ht) _ hx
   simpa [mul_assoc] using this
 
-theorem exists_relIndex_oTwoUpper [Finite G] (H : Subgroup G) :
-    ∃ j : ℕ, (oTwoUpper H).relIndex H = 2 ^ j := by
-  classical
-  have hNH : H ≤ Subgroup.normalizer (oTwoUpper H : Set G) := le_normalizer_oTwoUpper H
-  have hnorm : ((oTwoUpper H).subgroupOf H).Normal :=
-    Subgroup.normal_subgroupOf_of_le_normalizer hNH
-  have hQ : IsPGroup 2 (↥H ⧸ (oTwoUpper H).subgroupOf H) := by
-    intro q
-    obtain ⟨x, rfl⟩ := QuotientGroup.mk_surjective q
-    obtain ⟨k, hk⟩ := exists_pow_mem_oTwoUpper H x.2
-    refine ⟨k, ?_⟩
-    rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
-    exact Subgroup.mem_subgroupOf.mpr hk
-  obtain ⟨n, hn⟩ := IsPGroup.iff_card.mp hQ
-  refine ⟨n, ?_⟩
-  show ((oTwoUpper H).subgroupOf H).index = 2 ^ n
-  rw [Subgroup.index_eq_card]
-  exact hn
 
 theorem eq_one_of_mem_of_odd_of_isPGroup [Finite G] {E P : Subgroup G} (hE : Odd (Nat.card E))
     (hP : IsPGroup 2 P) {x : G} (hxE : x ∈ E) (hxP : x ∈ P) : x = 1 := by

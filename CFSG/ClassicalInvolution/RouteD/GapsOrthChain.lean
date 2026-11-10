@@ -142,17 +142,6 @@ def chainSpan (i : ℕ → V ≃ₗ[K] V) : ℕ → Submodule K V
   | 0 => ⊥
   | s + 1 => chainSpan i s ⊔ negSpace (i s)
 
-omit [Finite K] [FiniteDimensional K V] in
-theorem le_chainSpan (i : ℕ → V ≃ₗ[K] V) : ∀ {s a : ℕ}, a < s → negSpace (i a) ≤ chainSpan i s := by
-  intro s
-  induction s with
-  | zero => intro a ha; omega
-  | succ s ih =>
-    intro a ha
-    rcases Nat.lt_succ_iff_lt_or_eq.mp ha with h | h
-    · exact (ih h).trans le_sup_left
-    · subst h
-      exact le_sup_right
 
 omit [Finite K] [FiniteDimensional K V] in
 theorem polar_chainSpan {i : ℕ → V ≃ₗ[K] V} {x : V} :

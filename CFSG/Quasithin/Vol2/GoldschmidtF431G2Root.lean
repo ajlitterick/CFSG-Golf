@@ -50,7 +50,6 @@ theorem xa_mem_Xa (s : K) : xa s ∈ Xa K := ⟨s, rfl⟩
 
 theorem xu_mem_Xu (s : K) : xu s ∈ Xu K := ⟨s, rfl⟩
 
-theorem mem_Xv_iff {g : C K} : g ∈ Xv K ↔ ∃ s : K, xv s = g := Iff.rfl
 
 theorem xv_mem_Xv (s : K) : xv s ∈ Xv K := ⟨s, rfl⟩
 
@@ -129,17 +128,6 @@ theorem Xb_le_Q1 : Xb K ≤ Q1 K := le_sup_of_le_left le_sup_right
 
 theorem Xc_le_Q1 : Xc K ≤ Q1 K := le_sup_right
 
-theorem Xr_le_Q2 : Xr K ≤ Q2 K :=
-  le_sup_of_le_left (le_sup_of_le_left (le_sup_of_le_left le_sup_left))
-
-theorem Xu_le_Q2 : Xu K ≤ Q2 K :=
-  le_sup_of_le_left (le_sup_of_le_left (le_sup_of_le_left le_sup_right))
-
-theorem Xv_le_Q2 : Xv K ≤ Q2 K := le_sup_of_le_left (le_sup_of_le_left le_sup_right)
-
-theorem Xb_le_Q2 : Xb K ≤ Q2 K := le_sup_of_le_left le_sup_right
-
-theorem Xc_le_Q2 : Xc K ≤ Q2 K := le_sup_right
 
 theorem Xb_le_V : Xb K ≤ V K := le_sup_left
 
@@ -155,7 +143,6 @@ theorem xu_mem_Q1 (s : K) : xu s ∈ Q1 K := Xu_le_Q1 (xu_mem_Xu s)
 theorem xv_mem_Q1 (s : K) : xv s ∈ Q1 K := Xv_le_Q1 (xv_mem_Xv s)
 theorem xb_mem_Q1 (s : K) : xb s ∈ Q1 K := Xb_le_Q1 (xb_mem_Xb s)
 theorem xc_mem_Q1 (s : K) : xc s ∈ Q1 K := Xc_le_Q1 (xc_mem_Xc s)
-theorem xv_mem_Q2 (s : K) : xv s ∈ Q2 K := Xv_le_Q2 (xv_mem_Xv s)
 theorem xb_mem_V (s : K) : xb s ∈ V K := Xb_le_V (xb_mem_Xb s)
 theorem xc_mem_V (s : K) : xc s ∈ V K := Xc_le_V (xc_mem_Xc s)
 

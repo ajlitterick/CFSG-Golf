@@ -56,12 +56,6 @@ theorem plane_isometry_iff_matrix_det (b : Module.Basis (Fin 2) K V)
          (Matrix.GeneralLinearGroup.det : Matrix.GeneralLinearGroup (Fin 2) K →* Kˣ).ker).trans
     Matrix.SpecialLinearGroup.toGLKerEquiv.symm
 
-theorem planeIsometryEquivSL_toGL (b : Module.Basis (Fin 2) K V)
-    (B : BilinForm K V) (hB : B.IsAlt) (hBne : B ≠ 0) (g : isometryGroup B) :
-    Matrix.SpecialLinearGroup.toGL (planeIsometryEquivSL b B hB hBne g) =
-      basisMatrixEquiv b g.val := by
-  apply Units.ext
-  rfl
 
 variable [FiniteDimensional K V]
 

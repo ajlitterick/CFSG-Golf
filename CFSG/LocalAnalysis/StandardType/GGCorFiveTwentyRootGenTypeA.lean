@@ -209,13 +209,6 @@ theorem ggRootGenNbrInput_of_openOn (hopen : GGRootGenNbrInputOn GGRootGenOpenLa
     GGRootGenNbrInput :=
   ggRootGenNbrInput_of_typeA ggRootGenKGTypeA_holds hopen
 
-theorem ggRootGenLInputOn_open_of_full (h : GGRootGenLInput) :
-    GGRootGenLInputOn GGRootGenOpenLabel :=
-  fun G _ _ p B Bs x L D J hHyp hq hNb hW _ => h G p B Bs x L D J hHyp hq hNb hW
-
-theorem ggRootGenNbrInputOn_open_of_full (h : GGRootGenNbrInput) :
-    GGRootGenNbrInputOn GGRootGenOpenLabel :=
-  fun G _ _ p B Bs x L D J hHyp hq hNb hW y K hnb _ => h G p B Bs x L D J hHyp hq hNb hW y K hnb
 
 end Config
 

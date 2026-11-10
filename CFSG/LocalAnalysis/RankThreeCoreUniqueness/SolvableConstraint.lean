@@ -189,56 +189,5 @@ theorem not_prime_constrained_has_nonsolvable_core_centralizer
   exact solvable_centralizer_pCore_le_of_primeComplementCore_eq_bot prime hprime
     (primeComplementCore_quotient_eq_bot prime) hsolvable
 
-theorem solvable_signalizer_le_primeComplementCore
-    {G : Type*} [Group G] [Finite G] [Group.IsSolvable G]
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (actingGroup signalizer : Subgroup G) (hactor : IsPGroup prime actingGroup)
-    (hsignalizer : prime.Coprime (Nat.card signalizer))
-    (hinvariant : actingGroup ≤ Subgroup.normalizer (signalizer : Set G))
-    (hcontains : ∀ element : G,
-      element ∈ Subgroup.centralizer (actingGroup : Set G) →
-      orderOf element = prime → element ∈ actingGroup) :
-    signalizer ≤ primeComplementCore prime :=
-  prime_constraint_signalizer_le_primeComplementCore prime hprime hodd
-    (solvable_hasPrimeConstraint prime hprime) actingGroup signalizer hactor hsignalizer
-    hinvariant hcontains
-
-theorem rank_two_maximal_pair_transitive_of_solvable_overgroup
-    {G : Type*} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (actingGroup first second overgroup : Subgroup G) [Group.IsSolvable overgroup]
-    (hactor : IsPGroup prime actingGroup) (hactorLe : actingGroup ≤ overgroup)
-    (hfirst : rankTwoMaximalInvariantTwoSubgroup actingGroup first)
-    (hsecond : rankTwoMaximalInvariantTwoSubgroup actingGroup second)
-    (hfirstLe : first ≤ overgroup) (hsecondLe : second ≤ overgroup)
-    (hcontains : ∀ element : G, element ∈ overgroup →
-      element ∈ Subgroup.centralizer (actingGroup : Set G) →
-      orderOf element = prime → element ∈ actingGroup) :
-    ∃ conjugator : G, conjugator ∈ Subgroup.centralizer (actingGroup : Set G) ∧
-      first.map (MulAut.conj conjugator).toMonoidHom = second :=
-  rank_two_maximal_pair_transitive_of_prime_constraint prime hprime hodd
-    actingGroup first second overgroup hactor hactorLe hfirst hsecond hfirstLe hsecondLe
-    (solvable_hasPrimeConstraint prime hprime) hcontains
-
-theorem rank_two_nontransitive_pair_overgroup_not_solvable
-    {G : Type*} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (actingGroup first second overgroup : Subgroup G)
-    (hactor : IsPGroup prime actingGroup) (hactorLe : actingGroup ≤ overgroup)
-    (hfirst : rankTwoMaximalInvariantTwoSubgroup actingGroup first)
-    (hsecond : rankTwoMaximalInvariantTwoSubgroup actingGroup second)
-    (hfirstLe : first ≤ overgroup) (hsecondLe : second ≤ overgroup)
-    (hcontains : ∀ element : G, element ∈ overgroup →
-      element ∈ Subgroup.centralizer (actingGroup : Set G) →
-      orderOf element = prime → element ∈ actingGroup)
-    (hnontransitive : ¬ ∃ conjugator : G,
-      conjugator ∈ Subgroup.centralizer (actingGroup : Set G) ∧
-      first.map (MulAut.conj conjugator).toMonoidHom = second) :
-    ¬ Group.IsSolvable overgroup := by
-  intro hsolvable
-  let : Group.IsSolvable overgroup := hsolvable
-  exact hnontransitive (rank_two_maximal_pair_transitive_of_solvable_overgroup
-    prime hprime hodd actingGroup first second overgroup hactor hactorLe hfirst hsecond
-    hfirstLe hsecondLe hcontains)
 
 end CFSG.RankThreeCoreUniqueness.Helpers

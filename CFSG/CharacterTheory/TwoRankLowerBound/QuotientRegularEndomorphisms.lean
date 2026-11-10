@@ -81,11 +81,6 @@ variable {source target : Type*} [Ring source] [CommRing target] [Module source 
 theorem quotientRegularMultiplication_apply (coefficient value : target) :
     quotientRegularMultiplication quotient hmodule coefficient value = coefficient * value := rfl
 
-theorem quotientRegularMultiplication_injective :
-    Function.Injective (quotientRegularMultiplication quotient hmodule) := by
-  intro left right hequal
-  have hevaluation := congrArg (fun operator : Module.End source target => operator 1) hequal
-  simpa only [quotientRegularMultiplication_apply, mul_one] using hevaluation
 
 theorem quotientRegular_endomorphism_eq (hsurjective : Function.Surjective quotient)
     (operator : Module.End source target) :
@@ -97,22 +92,6 @@ theorem quotientRegular_endomorphism_eq (hsurjective : Function.Surjective quoti
   simp only [hmodule] at hequal
   simpa only [quotientRegularMultiplication_apply, mul_one, hscalar, mul_comm] using hequal.symm
 
-@[expose] noncomputable def quotientRegularEndomorphismEquiv (hsurjective : Function.Surjective quotient) :
-    target ≃+* Module.End source target :=
-  RingEquiv.ofBijective (quotientRegularMultiplication quotient hmodule)
-    ⟨quotientRegularMultiplication_injective quotient hmodule,
-      fun operator => ⟨operator 1, quotientRegular_endomorphism_eq quotient hmodule hsurjective operator⟩⟩
-
-theorem quotientRegularEndomorphismEquiv_apply (hsurjective : Function.Surjective quotient)
-    (coefficient value : target) :
-    quotientRegularEndomorphismEquiv quotient hmodule hsurjective coefficient value = coefficient * value := rfl
-
-theorem quotientRegularEndomorphismEquiv_symm_apply (hsurjective : Function.Surjective quotient)
-    (operator : Module.End source target) :
-    (quotientRegularEndomorphismEquiv quotient hmodule hsurjective).symm operator = operator 1 := by
-  apply quotientRegularMultiplication_injective quotient hmodule
-  exact (quotientRegularEndomorphismEquiv quotient hmodule hsurjective).apply_symm_apply operator |>.trans
-    (quotientRegular_endomorphism_eq quotient hmodule hsurjective operator).symm
 
 include hmodule in
 theorem quotientRegular_endomorphism_unit_or_complement (hsurjective : Function.Surjective quotient)

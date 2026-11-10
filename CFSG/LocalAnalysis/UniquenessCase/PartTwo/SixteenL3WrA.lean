@@ -90,7 +90,6 @@ theorem L3Wreath_aParam_eq_two {V : Type*} [CommGroup V] {H M : Subgroup (MulAut
   rw [← aParam_map_congrHom e M]
   exact le_antisymm (s16b_aParam_le_two h2) (s16b_two_le_aParam h1)
 
-variable {G : Type} [Group G] [Finite G]
 
 end Finite
 

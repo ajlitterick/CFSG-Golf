@@ -139,6 +139,5 @@ theorem para1619Five_of_at (h : Para1619At) : Para1619Five := by
         U = ⁅U, X⁆ → X ≤ thetaCen ({d} : Set G) → U ≤ thetaCen ({d} : Set G) →
           CFSG.Open.pCoreOf 2 (Subgroup.centralizer ({d} : Set G)) = ⊥ → False
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec16

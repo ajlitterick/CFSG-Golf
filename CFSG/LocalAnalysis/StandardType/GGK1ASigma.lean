@@ -1698,11 +1698,6 @@ private theorem ggK1As_perfect_subgroup_sesqUnitary_trivial
   haveI : Nontrivial ↥H := (Subgroup.nontrivial_iff_ne_bot H).mpr hne
   exact Group.IsPerfect.not_isSolvable ↥H inferInstance
 
-private noncomputable def ggK1As_su_projEquiv {N : ℕ} {K : Type} [Field K]
-    (hK : Nat.card K = 2 ^ 2) (hN : ¬ 3 ∣ N) :
-    ↥(LargeEvenSUGroup (Fin N) K 2) ≃* LargeEvenProj (LargeEvenSUGroup (Fin N) K 2) :=
-  MulEquiv.ofBijective (LargeEvenProjMk (LargeEvenSUGroup (Fin N) K 2))
-    ⟨ggK1As_su_projMk_injective hK hN, QuotientGroup.mk'_surjective _⟩
 
 private theorem ggK1As_su_map_centralizer {N : ℕ} {K : Type} [Field K]
     (hK : Nat.card K = 2 ^ 2) (hN : ¬ 3 ∣ N)

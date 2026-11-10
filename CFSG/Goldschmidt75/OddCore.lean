@@ -35,10 +35,6 @@ theorem oddCore_quotient_eq_bot [Finite G] :
     goldschmidtOddCore (G ⧸ goldschmidtOddCore G) = ⊥ :=
   goldschmidtOddCore_quotient_eq_bot G
 
-theorem map_oddCore_le [Finite G] {H : Type*} [Group H] (f : G →* H)
-    (hf : Function.Surjective f) : (goldschmidtOddCore G).map f ≤ goldschmidtOddCore H := by
-  refine le_oddCore ((goldschmidtOddCore_normal G).map f hf) ?_
-  exact Odd.of_dvd_nat odd_card_oddCore (Subgroup.card_map_dvd _ _)
 
 theorem oddCoreOf_le_of_normal [Finite G] {N : Subgroup G} [N.Normal] :
     oddCoreOf N ≤ goldschmidtOddCore G := by

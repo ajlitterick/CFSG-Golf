@@ -28,8 +28,6 @@ theorem odd_orderOf_mul_of_commute {M : Type*} [Monoid M] {x y : M} (hxy : Commu
     rw [orderOf_inv]
     exact hx
 
-theorem mem_oddUnits {F : Type} [Field F] {x : Fˣ} : x ∈ oddUnits F ↔ Odd (orderOf x) :=
-  Iff.rfl
 
 theorem orderOf_scalar {F : Type} [Field F] (a : Fˣ) :
     orderOf (GeneralLinearGroup.scalar (Fin 2) a : GL (Fin 2) F) = orderOf a := by

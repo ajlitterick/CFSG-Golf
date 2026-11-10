@@ -36,10 +36,6 @@ variable (F : Type u) [Field F] (a : Fˣ)
     apply Subtype.ext
     exact DFunLike.congr_fun (MatrixCover.slFieldEquiv_mul F sigma tau) X.val.val
 
-theorem torusFieldAction_matrix (A : Subgroup (F ≃+* F))
-    (hfix : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a) (sigma : A) (X : W F a) :
-    ((torusFieldAction F a A hfix sigma X).val.val : Matrix (Fin 2) (Fin 2) F) =
-      (sigma : F ≃+* F).toRingHom.mapMatrix (X.val.val : Matrix (Fin 2) (Fin 2) F) := rfl
 
 theorem W_mul_comm (X Y : W F a) : X * Y = Y * X :=
   Subtype.ext (mul_comm (X : Torus F a) Y)

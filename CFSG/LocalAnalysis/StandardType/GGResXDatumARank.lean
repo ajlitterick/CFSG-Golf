@@ -191,16 +191,6 @@ theorem ggResXDatumA_of_tbTorA_rank (hT : GGTBTorANarrow) (hLift : GGTBTorLiftAD
     l05nAR_datum_of_torData hH.1.1.2.2.2.2.2.1.2.1 (l05nAR_odd_ggTorM hlab) hdvdM hBs hS hN
       (l05nAR_weyl_A (by omega)) (ggIntCartan_A lab.rank) hTor⟩
 
-theorem ggResXDatumA_of_tbTor_rank (hT : GGTBTorAll) (hLift : GGTBTorLiftRows) {G : Type} [Group G]
-    [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (h : GGInnerDiagOnLabel (fun p lab => (lab.tag = .A ∨ lab.tag = .twA) ∧ 6 ≤ lab.rank ∧
-      p ∣ lab.rank + 1 ∧ p ∣ ggTorM lab) p Bs L) :
-    ∃ lab : LargeEvenLabel, LargeEvenInLambda2 lab ∧ GGHasLabel lab (↥L ⧸ Subgroup.center ↥L) ∧
-      (lab.tag = .A ∨ lab.tag = .twA) ∧ 6 ≤ lab.rank ∧ p ∣ lab.rank + 1 ∧ p ∣ ggTorM lab ∧
-      GGResXDatumA p Bs L lab.rank := by
-  exact ggResXDatumA_of_tbTorA_rank (ggTBTorANarrow_of_all hT) (ggTBTorLiftADepRows_of_rows hLift)
-    hH h
 
 theorem ggResXDatumA_of_tbTorA_rank_K (hT : GGTBTorANarrow) (hLift : GGTBTorLiftADepRows)
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
@@ -218,15 +208,5 @@ theorem ggResXDatumA_of_tbTorA_rank_K (hT : GGTBTorANarrow) (hLift : GGTBTorLift
     l05nAR_datum_of_torData hH.1.1.2.2.2.2.2.1.2.1 (l05nAR_odd_ggTorM hlab) hdvdM hBs hS hN
       (l05nAR_weyl_A (by omega)) (ggIntCartan_A lab.rank) hTor⟩
 
-theorem ggResXDatumA_of_tbTor_rank_K (hT : GGTBTorAll) (hLift : GGTBTorLiftRows) {G : Type}
-    [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (h : GGInnerDiagOnLabel (fun p lab => (lab.tag = .A ∨ lab.tag = .twA) ∧ 6 ≤ lab.rank ∧
-      p ∣ lab.rank + 1 ∧ p ∣ ggTorM lab) p Bs K) :
-    ∃ lab : LargeEvenLabel, LargeEvenInLambda2 lab ∧ GGHasLabel lab (↥K ⧸ Subgroup.center ↥K) ∧
-      (lab.tag = .A ∨ lab.tag = .twA) ∧ 6 ≤ lab.rank ∧ p ∣ lab.rank + 1 ∧ p ∣ ggTorM lab ∧
-      GGResXDatumA p Bs K lab.rank := by
-  exact ggResXDatumA_of_tbTorA_rank_K (ggTBTorANarrow_of_all hT)
-    (ggTBTorLiftADepRows_of_rows hLift) hH h
 
 end CFSG.StandardType

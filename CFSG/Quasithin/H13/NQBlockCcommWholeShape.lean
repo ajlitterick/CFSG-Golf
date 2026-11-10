@@ -138,8 +138,6 @@ theorem supercritical_nonabelian_eq_top {p : ℕ} [hp : Fact p.Prime] (hp2 : p �
   map_one' := one_pow n
   map_mul' x y := Commute.mul_pow (hcomm x y) n
 
-theorem commPowHom_apply (hcomm : ∀ x y : Q, x * y = y * x) (n : ℕ) (x : Q) :
-    commPowHom hcomm n x = x ^ n := rfl
 
 theorem card_le_of_pow_prime_pow_eq_one {p : ℕ} [Finite Q]
     (hcomm : ∀ x y : Q, x * y = y * x) (D : Subgroup Q) (hD : ∀ x : Q, x ^ p = 1 ↔ x ∈ D)

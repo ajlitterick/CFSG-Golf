@@ -65,33 +65,6 @@ theorem IsNsOmPlusParam.coe_eq_of_pcOPExt_eq {hr : 2 ≤ r} {hr3 : 3 ≤ r}
     rw [hg, pcOPExt_q2OmIota k hK hr3 x, hy']
   rw [hgx, hΦ.2 x, hy']
 
-theorem IsNsOmMinusParam.agree_on_iota {hr3 : 3 ≤ r} {l : Fin (r + 1)}
-    {Φ : StatedOmega (StatedQuadMinus (r + 1) K 1 1) ≃*
-      centralizerPerfectCore (modelToG e (nsTorusSp K k))}
-    {Ψ : StatedOmega (StatedQuadMinus (r + 1) K 1 1) ≃*
-      centralizerPerfectCore (modelToG e (nsTorusSp K l))}
-    (hΦ : IsNsOmMinusParam hK hr3 e t k Φ) (hΨ : IsNsOmMinusParam hK hr3 e t l Ψ)
-    {y : StatedSp (r + 1) K} (hyk : y ∈ complSp K k) (hyl : y ∈ complSp K l)
-    {g h : StatedOmega (StatedQuadMinus (r + 1) K 1 1)}
-    (hg : pcOMExt k g = q2OmIota (r := r + 1) (by omega) hK (by omega) y)
-    (hh : pcOMExt l h = q2OmIota (r := r + 1) (by omega) hK (by omega) y) :
-    ((Φ g : centralizerPerfectCore (modelToG e (nsTorusSp K k))) : G) =
-      ((Ψ h : centralizerPerfectCore (modelToG e (nsTorusSp K l))) : G) :=
-  (hΦ.coe_eq_of_pcOMExt_eq hyk hg).trans (hΨ.coe_eq_of_pcOMExt_eq hyl hh).symm
-
-theorem IsNsOmPlusParam.agree_on_iota {hr : 2 ≤ r} {hr3 : 3 ≤ r} {l : Fin (r + 1)}
-    {Φ : StatedOmega (StatedQuadPlus (r + 1) K) ≃*
-      centralizerPerfectCore (modelToG e (nsTorusSp K k))}
-    {Ψ : StatedOmega (StatedQuadPlus (r + 1) K) ≃*
-      centralizerPerfectCore (modelToG e (nsTorusSp K l))}
-    (hΦ : IsNsOmPlusParam hK hr hr3 e t k Φ) (hΨ : IsNsOmPlusParam hK hr hr3 e t l Ψ)
-    {y : StatedSp (r + 1) K} (hyk : y ∈ complSp K k) (hyl : y ∈ complSp K l)
-    {g h : StatedOmega (StatedQuadPlus (r + 1) K)}
-    (hg : pcOPExt k g = q2OmMIota (r := r + 1) (by omega) (q2Omega_irreducible_one_one hK) hK y)
-    (hh : pcOPExt l h = q2OmMIota (r := r + 1) (by omega) (q2Omega_irreducible_one_one hK) hK y) :
-    ((Φ g : centralizerPerfectCore (modelToG e (nsTorusSp K k))) : G) =
-      ((Ψ h : centralizerPerfectCore (modelToG e (nsTorusSp K l))) : G) :=
-  (hΦ.coe_eq_of_pcOPExt_eq hyk hg).trans (hΨ.coe_eq_of_pcOPExt_eq hyl hh).symm
 
 end Aligned
 

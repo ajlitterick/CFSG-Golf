@@ -24,8 +24,6 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 @[expose] def GGTBTorRemaining : Prop :=
   True
 
-theorem GGTBTorAll.remaining (_h : GGTBTorAll) : GGTBTorRemaining :=
-  trivial
 
 inductive GGTBTorRowAt (p : ℕ) (lab : LargeEvenLabel) :
     (r m N : ℕ) → Matrix (Fin N) (Fin N) ℤ → CoxeterMatrix (Fin N) → Prop
@@ -474,22 +472,5 @@ theorem ggResXDatum_of_cov_or_res (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
   have h2 := hR G p B Bs x L D J y K hH
   exact ⟨fun h => h.elim_or.elim h1.1 h2.1, fun h => h.elim_or.elim h1.2 h2.2⟩
 
-theorem ggTBXDatumInput_of_res (hT : GGTBTorAll) (hLift : GGTBTorLiftRows)
-    (hR : GGTBXDatumResInput) :
-    ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-      (y : G) (K : Subgroup G), GGResHyp p B Bs x L D J y K → ∀ [Fact p.Prime],
-      (GGInnerDiagOnLabel GGTBWeylRow p Bs L → GGResXDatum p Bs L) ∧
-        (GGInnerDiagOnLabel GGTBWeylRow p Bs K → GGResXDatum p Bs K) := by
-  intro G _ _ p B Bs x L D J y K hH _
-  have h := ggResXDatum_of_cov_or_res hT hLift hR G p B Bs x L D J y K hH
-  have hmono : ∀ lab, GGTBWeylRow p lab → GGTBTorCov p lab ∨ GGTBWeylRowRes p lab := by
-    intro lab hw
-    by_cases hc : GGTBTorCov p lab
-    · exact Or.inl hc
-    · exact Or.inr ⟨hc, hw.2.1, hw.2.2.1, hw.2.2.2.1, hw.2.2.2.2⟩
-  exact ⟨fun h' => h.1 (largeEvenMarking_mono
-      (fun lab _ _ _ _ _ hP => ⟨hmono lab hP.1, hP.2⟩) h'),
-    fun h' => h.2 (largeEvenMarking_mono
-      (fun lab _ _ _ _ _ hP => ⟨hmono lab hP.1, hP.2⟩) h')⟩
 
 end CFSG.StandardType

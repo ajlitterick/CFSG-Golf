@@ -142,20 +142,5 @@ theorem exists_prod_swaps {T : Set (Equiv.Perm (Fin n))} (hT : ∀ t ∈ T, t.Is
     obtain ⟨t, ht, rfl⟩ := Multiset.mem_map.1 hb
     exact Equiv.Perm.card_support_eq_two.2 (hT t (hfin.mem_toFinset.1 ht))
 
-theorem exists_conjSub_eq_of_isMaxSwapGroup {Y Y' : Subgroup (Equiv.Perm (Fin n))}
-    (hY : IsMaxSwapGroup Y) (hY' : IsMaxSwapGroup Y') :
-    ∃ g : Equiv.Perm (Fin n), conjSub g Y = Y' := by
-  obtain ⟨T, hT, hc, hcard, rfl⟩ := hY
-  obtain ⟨T', hT', hc', hcard', rfl⟩ := hY'
-  obtain ⟨σ, hσ, hσt⟩ := exists_prod_swaps hT hc
-  obtain ⟨σ', hσ', hσt'⟩ := exists_prod_swaps hT' hc'
-  obtain ⟨g, hg⟩ := isConj_iff.1 ((Equiv.Perm.isConj_iff_cycleType_eq (σ := σ) (τ := σ')).2
-    (by rw [hσt, hσt', hcard, hcard']))
-  refine ⟨g, ?_⟩
-  have hmap := Equiv.Perm.cycleFactorsFinset_conj σ g
-  rw [ConjAct.smul_def, ConjAct.ofConjAct_toConjAct, hg] at hmap
-  unfold conjSub
-  rw [MonoidHom.map_closure, ← hσ, ← hσ', hmap, Finset.coe_map]
-  rfl
 
 end CFSG.CGT.PushingUpLit.BHS

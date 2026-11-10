@@ -33,8 +33,6 @@ section Inner
     calc a⁻¹⁻¹ * w * a⁻¹ = a * (a⁻¹ * (s * w * s⁻¹) * a) * a⁻¹ := by rw [h']; group
       _ = s⁻¹⁻¹ * w * s⁻¹ := by group
 
-theorem mem_innerActing_iff {S : Subgroup G} {k : G} :
-    k ∈ innerActing S ↔ ∃ s ∈ S, ∀ w ∈ S, k⁻¹ * w * k = s⁻¹ * w * s := Iff.rfl
 
 theorem le_innerActing (S : Subgroup G) : S ≤ innerActing S :=
   fun k hk => ⟨k, hk, fun _ _ => rfl⟩

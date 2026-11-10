@@ -70,30 +70,11 @@ end Marking
 
 section Inputs
 
-@[expose] def GGSixKdInnerDiagInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ →
-    (∀ d ∈ D, d ≠ 1 → IsComponentOf (ggKd p B x L D J d) (Subgroup.centralizer {d})) →
-      ∀ d ∈ D, d ≠ 1 → GGInnerDiagOn Bs (ggKd p B x L D J d)
 
 end Inputs
 
 section Main
 
-
-theorem ggSixInnerOnKdInput_of_kdInnerDiag (hN : GGInndiagNormalInput)
-    (hKd : GGSixKdInnerDiagInput) : GGSixInnerOnKdInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx h65 _ _ d hd hd1 X _ hXN _ _ hXD
-  exact le_sup_centralizer_of_innerDiagOn (fun _ hlab => largeEvenLabelAll_outdiag_simple hlab) hN
-    (hKd G p B Bs x L D J t n f ψ hctx h65 d hd hd1) hctx.d_le_bstar hXN hXD
-
-theorem ggSixInndiagNormalInput_of_kdInnerDiag (hN : GGInndiagNormalInput)
-    (hKd : GGSixKdInnerDiagInput) : GGSixInndiagNormalInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx h65 _ d hd hd1
-  exact normalizer_le_normalizer_sup_of_innerDiagOn
-    (fun _ hlab => largeEvenLabelAll_outdiag_simple hlab) hN
-    (hKd G p B Bs x L D J t n f ψ hctx h65 d hd hd1)
 
 end Main
 

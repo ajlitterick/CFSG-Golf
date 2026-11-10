@@ -107,19 +107,5 @@ theorem Pair.card_A (hP : Pair X E) {d : X} (hd : d ∈ E) {k l m : ℕ}
       h2] at h
     omega
 
-theorem Pair.card_A_of_forall (hP : Pair X E) {d : X} (hd : d ∈ E) {k l m : ℕ}
-    (hk : ∀ e ∈ E, Nat.card (LocalClass E e) = k)
-    (hl : ∀ e ∈ E, ∀ f ∈ LocalClass E e, Nat.card ↥(LocalClass E e ∩ LocalClass E f) = l)
-    (hm : ∀ e ∈ E, ∀ c ∈ E, c * e ≠ e * c → Nat.card (muSet E e c) = m) :
-    Nat.card {c | c ∈ E ∧ c * d ≠ d * c} * m = k * (k - 1 - l) :=
-  Pair.card_A hP hd (hk d hd) (fun f hf => hk f hf.1) (hl d hd) (hm d hd)
-
-theorem Pair.card_A_eq_div (hP : Pair X E) {d : X} (hd : d ∈ E) {k l m : ℕ} (hm0 : 0 < m)
-    (hk : Nat.card (LocalClass E d) = k)
-    (hk' : ∀ f ∈ LocalClass E d, Nat.card (LocalClass E f) = k)
-    (hl : ∀ f ∈ LocalClass E d, Nat.card ↥(LocalClass E d ∩ LocalClass E f) = l)
-    (hm : ∀ c ∈ E, c * d ≠ d * c → Nat.card (muSet E d c) = m) :
-    Nat.card {c | c ∈ E ∧ c * d ≠ d * c} = k * (k - 1 - l) / m :=
-  (Nat.div_eq_of_eq_mul_left hm0 (Pair.card_A hP hd hk hk' hl hm).symm).symm
 
 end CFSG.Fischer

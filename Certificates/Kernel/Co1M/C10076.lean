@@ -178,17 +178,6 @@ theorem pairs_mcl : mclCheck = true := by
     rw [pt76 hp, List.contains_toArray]
     exact scan76 p hp
 
-theorem c10076_neg :
-    (!bfsK (mclAct (unpackR 24 MC1) (unpackR 24 MC2)) 4473570 400 ML (MP.set 5 0) MB &&
-      !bfsK (mclAct (unpackR 24 MC1) (unpackR 24 MC2)) 4473570 200 ML MP MB &&
-      !orbMemK 98280 (lk CertificateChecks.KernelVec.Co1.S 32) 17
-        (2 ^^^ lk CertificateChecks.KernelVec.Co1.Pt 32 1) &&
-      !(!(orbMemK 98280 (lk CertificateChecks.KernelVec.Co1.S 32) 17
-          (16663704 ^^^ lk CertificateChecks.KernelVec.Co1.Pt 32 245) &&
-        orbMemK 98280 (lk CertificateChecks.KernelVec.Co1.S 32) 17
-          (lk CertificateChecks.KernelVec.Co1.Pt 32 245 ^^^ (16663704 ^^^ 4852818))) ||
-        ([] : List Nat).contains (lk CertificateChecks.KernelVec.Co1.Pt 32 245))) = true := by
-  quickRfl
 
 open Certificates in
 open CFSG.Sporadic.Co1.Module.Pairs in

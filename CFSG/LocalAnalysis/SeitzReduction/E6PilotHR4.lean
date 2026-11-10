@@ -115,48 +115,5 @@ theorem exists_conj_ne_mem_sup_zpowers_E6 (hset : StandardSetting G L) {f : ℕ}
   exact exists_conj_ne_mem_sup_zpowers_of_fusion hset hOut
     (forall_perfectTwistedFusion_of_mulEquiv e (perfectTwistedFusion_of_outer_E6 hf K hK)) ht hKt
 
-theorem exists_conj_eq_or_eq_mul_involution_E6 (hset : StandardSetting G L) {f : ℕ}
-    (hf : 1 ≤ f) (K : Type) [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .E6 K)
-    {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t) :
-    ∃ g : G, ∃ y ∈ L, orderOf y = 2 ∧ g⁻¹ * t * g ≠ t ∧
-      (g⁻¹ * t * g = y ∨ g⁻¹ * t * g = t * y) := by
-  have htC : t ∈ centralizer (L : Set G) :=
-    (show t ∈ centralizer (L : Set G) ⊓ centralizer ({t} : Set G) from hKt ▸ mem_zpowers t).1
-  obtain ⟨g, hne, hmem⟩ := exists_conj_ne_mem_sup_zpowers_E6 hset hf K hK e ht hKt
-  obtain ⟨y, hyL, hy⟩ := exists_eq_or_eq_mul_of_mem_sup_zpowers ht htC hmem
-  have ht2 : t * t = 1 := by rw [← sq, ← ht, pow_orderOf_eq_one]
-  have hso : orderOf (g⁻¹ * t * g) = 2 := by
-    have h := MulEquiv.orderOf_eq (MulAut.conj g⁻¹) t
-    rw [MulAut.conj_apply, inv_inv] at h
-    rw [h, ht]
-  refine ⟨g, y, hyL, ?_, hne, hy⟩
-  rcases hy with h | h
-  · rw [← h, hso]
-  ·
-    have hs2 : (g⁻¹ * t * g) * (g⁻¹ * t * g) = 1 := by
-      calc (g⁻¹ * t * g) * (g⁻¹ * t * g) = g⁻¹ * (t * t) * g := by group
-        _ = 1 := by rw [ht2, mul_one, inv_mul_cancel]
-    have hc : (g⁻¹ * t * g) * t = t * (g⁻¹ * t * g) := by
-      rw [h, mul_assoc, ← mem_centralizer_iff.1 htC y hyL]
-    have hy' : y = t * (g⁻¹ * t * g) := by
-      rw [h, ← mul_assoc, ht2, one_mul]
-    rw [hy']
-    exact orderOf_mul_eq_two_of_commute ht2 hs2 hc hne
-
-theorem exists_involution_conj_ne_mem_sup_zpowers_E6 (hset : StandardSetting G L) {f : ℕ}
-    (hf : 1 ≤ f) (K : Type) [Field K] (hK : Nat.card K = 2 ^ f) (e : L ≃* adjointGroup .E6 K)
-    (hI : HypothesisOne (L ⧸ center L)) :
-    ∃ t : G, orderOf t = 2 ∧ t ∈ centralizer (L : Set G) ∧
-      centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t ∧
-      ∃ g : G, g⁻¹ * t * g ≠ t ∧ g⁻¹ * t * g ∈ L ⊔ zpowers t := by
-  have hZ : center L = ⊥ := by
-    rw [eq_bot_iff]
-    intro z hz
-    have hz' : e z ∈ center (adjointGroup .E6 K) := (MulEquivClass.apply_mem_center_iff e).2 hz
-    rw [center_adjointGroup_eq_bot_field, mem_bot] at hz'
-    exact mem_bot.2 (e.injective (hz'.trans (map_one e).symm))
-  obtain ⟨t, ht, htC, -, hKt, -⟩ := kernel hset hZ hI
-  exact ⟨t, ht, htC, hKt, exists_conj_ne_mem_sup_zpowers_E6 hset hf K hK e ht hKt⟩
 
 end CFSG.SeitzReduction.E6Pilot

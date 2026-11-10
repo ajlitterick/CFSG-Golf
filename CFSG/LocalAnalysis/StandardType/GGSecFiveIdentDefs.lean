@@ -63,23 +63,6 @@ end Vocab
 
 section Inputs
 
-@[expose] def GGSecFiveIdentInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg p B Bs x L D J 𝒦 →
-      ∃ (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G), 3 ≤ bnRank t n ∧
-        GGPresentsG0 (L ⊔ ⨆ K ∈ 𝒦, K) (ggU t n f).D t n f ψ
-
-@[expose] def GGSecFiveIdentCompatInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg p B Bs x L D J 𝒦 →
-      ∃ (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G), 3 ≤ bnRank t n ∧
-        GGPresentsG0 (L ⊔ ⨆ K ∈ 𝒦, K) (ggU t n f).D t n f ψ ∧
-          GGCompatPresented (ggU t n f).D ψ L
-
-@[expose] def GGSecFiveJoinInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (𝒦 : Finset (Subgroup G)), GGSecFiveRouteCfg p B Bs x L D J 𝒦 →
-      ggG0 p B x L D J = L ⊔ ⨆ K ∈ 𝒦, K
 
 @[expose] def GGSplitLie {G : Type} [Group G] (p : ℕ) (L : Subgroup G) : Prop :=
   ∃ (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),

@@ -112,13 +112,6 @@ theorem leviOneHom_apply_w_w (a : SpecialLinearGroup (Fin k) K) (x y : Fin k) :
     (P.leviOneHom K a : Matrix (Fin n) (Fin n) K) (P.w x) (P.w y) = a x y :=
   P.leviOneHom_apply_supp a (Sum.inr x) (Sum.inr y)
 
-theorem leviOneHom_apply_u_w (a : SpecialLinearGroup (Fin k) K) (x y : Fin k) :
-    (P.leviOneHom K a : Matrix (Fin n) (Fin n) K) (P.u x) (P.w y) = 0 :=
-  P.leviOneHom_apply_supp a (Sum.inl x) (Sum.inr y)
-
-theorem leviOneHom_apply_w_u (a : SpecialLinearGroup (Fin k) K) (x y : Fin k) :
-    (P.leviOneHom K a : Matrix (Fin n) (Fin n) K) (P.w x) (P.u y) = 0 :=
-  P.leviOneHom_apply_supp a (Sum.inr x) (Sum.inl y)
 
 theorem leviOneHom_apply_of_not_mem_outer (a : SpecialLinearGroup (Fin k) K) {i j : Fin n}
     (h : i ∉ P.outer ∨ j ∉ P.outer) :
@@ -465,11 +458,6 @@ theorem perfectCore_eq_of_perfect_of_commutator_le {G : Type*} [Group G] {C H : 
     _ = ⁅C, C⁆ := by rw [derivedSeriesOf_succ, derivedSeriesOf_zero]
     _ ≤ H := hC
 
-theorem perfectCore_centralizer_mat [Group.IsPerfect (SpecialLinearGroup (Fin k) K)]
-    [Group.IsPerfect (SpecialLinearGroup P.free K)] (hJ : 2 ≤ P.free.card) :
-    perfectCore (Subgroup.centralizer {P.mat K}) = P.core K :=
-  perfectCore_eq_of_perfect_of_commutator_le P.core_le_centralizer (P.commutator_core hJ)
-    P.commutator_centralizer_le_core
 
 end InvPlacement
 

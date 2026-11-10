@@ -151,9 +151,6 @@ theorem card_lvl_one : Nat.card (lvl 1) = 4089470473293004800 := by
     tree_size_of (l := 4) rfl, tree_size_of (l := 5) rfl]
   norm_num
 
-theorem card_lvl_zero :
-    Nat.card (lvl 0) = 1255205709190661721292800 := by
-  rw [lvl_zero, Subgroup.card_top, card_J]
 
 theorem sep
     (g : J) (hg : ∀ t < CFSG.Sporadic.Fi24.Native.chainBase.size, idx 306936 g CFSG.Sporadic.Fi24.Native.chainBase[t]! = CFSG.Sporadic.Fi24.Native.chainBase[t]!) :

@@ -145,9 +145,6 @@ theorem ggSixRootCentralizerQuotientInput_of_pieces (h : GGSixRootCentralizerPie
     ggExists_subnormal_of_pieces (ggSixRootCentralizer_pPrimeCore_le hctx hch) h𝒮
   exact ⟨X, hXV, hXsn, fun y hy hyp => hle (hcov y hy hyp)⟩
 
-theorem ggSixStepThreeBInput_of_pieces (hcyc : GGRootCentralizerCyclicInput)
-    (h : GGSixRootCentralizerPiecesInput) : GGSixStepThreeBInput :=
-  ggSixStepThreeBInput_of_quotient hcyc (ggSixRootCentralizerQuotientInput_of_pieces h)
 
 end Inputs
 

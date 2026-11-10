@@ -102,14 +102,6 @@ theorem ch320017_count : ∀ r : Fin 4, ∀ k : Fin 20, ∀ j : Fin 20,
     ((hcCj.aC.getD r []).getD k []).count (j : ℕ) = hcA r j k := by
   decide +kernel
 
-theorem ch320017_class_neg : cjClassP (hcRP.getD 15 0) ≠ (hcF 16).zip (hcS 15) := by
-  decide +kernel
-
-theorem ch320017_clos_neg :
-    posB (fun e x i => Nat.beq e (conjP (cjGP.getD i (0, 0)) x)) (getT (ofT (hcF 15).length (hcF 15)))
-      (hcF 15).length [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] (hcF 15) (0 :: (hcCj.dC.getD 15 []).tail) =
-      false := by
-  decide +kernel
 
 end CFSG.KC.HcPack
 

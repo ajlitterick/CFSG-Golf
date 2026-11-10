@@ -236,11 +236,5 @@ theorem exists_of_permCheck {n : ℕ} (D : PermData) {σA σB : Equiv.Perm (Fin 
     (gA := ⟨σA, Subgroup.subset_closure (Set.mem_insert _ _)⟩)
     (gB := ⟨σB, Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)⟩) hA hB h
 
-theorem not_gen4_of_permCheck {n : ℕ} (D : PermData) {σA σB : Equiv.Perm (Fin n)}
-    (hA : PermRel n D.seedA σA) (hB : PermRel n D.seedB σB) (h : permCheck n D = true)
-    (hr : 5 ≤ D.outs.length) :
-    ¬ Gen4 (Subgroup.closure {σA, σB} : Subgroup (Equiv.Perm (Fin n))) := by
-  obtain ⟨r, hrr, x, hsq, hcomm, hker⟩ := exists_of_permCheck D hA hB h
-  exact not_gen4_of_commuting_involutions (by omega) x hsq hcomm hker
 
 end CFSG.SectionRank

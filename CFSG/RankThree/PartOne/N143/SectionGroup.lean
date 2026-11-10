@@ -35,8 +35,6 @@ theorem injective_subgroupMap_of_disjoint {E : Subgroup G} (h : Disjoint E f.ker
   MulEquiv.ofBijective (f.subgroupMap E)
     ⟨injective_subgroupMap_of_disjoint f h, f.subgroupMap_surjective E⟩
 
-theorem mapEquiv_apply_coe {E : Subgroup G} (h : Disjoint E f.ker) (e : E) :
-    ((mapEquiv f h e : E.map f) : Q) = f (e : G) := rfl
 
 theorem card_map_of_disjoint_ker {E : Subgroup G} (h : Disjoint E f.ker) :
     Nat.card (E.map f) = Nat.card E :=

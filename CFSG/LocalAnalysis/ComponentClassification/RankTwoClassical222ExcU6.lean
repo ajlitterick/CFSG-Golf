@@ -274,8 +274,6 @@ theorem card_s3 :
     Nat.card s3 = 4096 := by
   rw [← s3Q.orderCertificate_eq_card chain_facts.2.2.1, chain_facts.2.2.2.1]
 
-abbrev sSize (r : Equiv.Perm (Fin 693)) : ℕ :=
-  (conjClosure 693 (listTables sGens) (listTables (sGens.map (·⁻¹))) (toTable r) 100).1.size
 
 theorem sylow_cover :
     (∀ u ∈ uS, orderOf u = 2 → ∃ r ∈ sReps, ∃ c ∈ uS, u = c * r * c⁻¹) ∧
@@ -291,20 +289,6 @@ theorem zip_map_self {α β : Type*} (f : α → β) :
   | [] => rfl
   | a :: l => by simp [zip_map_self f l]
 
-theorem size_facts :
-    ∀ r ∈ sReps, (fixCount r = 53 → 2 ≤ sSize r) ∧ (fixCount r = 21 → 8 ≤ sSize r) := by
-  have h := census_size_check
-  have e : sReps.zip (repSizes 693 (listTables sGens) (listTables (sGens.map (·⁻¹)))
-      (sReps.map toTable) 100) = sReps.map fun r => (r, sSize r) := by
-    rw [repSizes, List.map_map, zip_map_self]
-    rfl
-  rw [censusSizeCheck, e, List.all_map, List.all_eq_true] at h
-  intro r hr
-  have := h r hr
-  simp only [Function.comp, Bool.and_eq_true, Bool.or_eq_true, bne_iff_ne, ne_eq,
-    decide_eq_true_eq] at this
-  exact ⟨fun h53 => this.1.resolve_left (not_not.2 h53),
-    fun h21 => this.2.resolve_left (not_not.2 h21)⟩
 
 theorem reps_facts :
     (∀ u ∈ s2, orderOf u = 2 → ∃ r ∈ r2Reps, ∃ c ∈ s2, u = c * r * c⁻¹) ∧

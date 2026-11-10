@@ -69,7 +69,6 @@ theorem Qm_leviO (A : GL (Fin r) F) (v : Idx r → F) :
     (v ∘ Sum.inr ∘ Sum.inr) 1 + c * (v ∘ Sum.inr ∘ Sum.inr) 1 ^ 2) hd hd
 
 
-
 theorem leviO_mem_orthGroup (A : GL (Fin r) F) :
     leviO A ∈ orthGroup (Qm r F b c) :=
   Subgroup.subset_closure (fun v => Qm_leviO A v)
@@ -157,10 +156,6 @@ theorem mem_JΩ_of_supp {S : Finset ℕ} {g : GL (Idx r) F} (hg : g ∈ Ωm r F 
   rwa [Matrix.mulVec_mulVec, ← Units.val_mul, inv_mul_cancel, Units.val_one,
     Matrix.one_mulVec] at this
 
-@[expose] def LQ (Q : Fin r → Prop) : Idx r → Prop
-  | Sum.inl a => Q a
-  | Sum.inr (Sum.inl a) => Q a
-  | Sum.inr (Sum.inr _) => False
 
 theorem leviO_supp {Q : Fin r → Prop} (A : GL (Fin r) F)
     (h1 : ∀ a b, (A : Matrix (Fin r) (Fin r) F) a b ≠ (1 : Matrix (Fin r) (Fin r) F) a b → Q a ∧ Q b)

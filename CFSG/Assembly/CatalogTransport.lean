@@ -36,9 +36,6 @@ theorem KProper.of_catalogAgree (h : CatalogAgreeOn C D) {G : Type} [Group G] [F
     (hK : KProper C G) : KProper D G :=
   hK.of_catalogImp h.imp
 
-theorem kProper_iff_of_catalogAgree (h : CatalogAgreeOn C D) {G : Type} [Group G] [Finite G] :
-    KProper C G ↔ KProper D G :=
-  ⟨KProper.of_catalogAgree h, KProper.of_catalogAgree h.symm⟩
 
 theorem kGroupAllSimple_of_kGroupNonab_of_catalogImp (h : CatalogImp C D)
     (hD : KCore.IsoInvariant D) (hab : KCore.ContainsAbelianSimple D) {X : Type} [Group X]

@@ -108,9 +108,6 @@ theorem frobE6_mem_h1E6 (hp2 : p ≠ 2) (he : 1 ≤ e) {g : ModGL .E6 kE6} (hg :
   · exact frobTwistGL_mem_parabolicLevi_diagram p TwistTag.E6 e (fun _ hj => perm_mem_JE6 hj) hn
   · rw [map_mul, frobE6_rootSL2_thetaE6 p e hp2 he]
 
-theorem frobE6_mem_levi {g : ModGL .E6 kE6} (hg : g ∈ parabolicLevi .E6 kE6 JE6) :
-    LeviE6.frobE6 p e g ∈ parabolicLevi .E6 kE6 JE6 :=
-  frobTwistGL_mem_parabolicLevi_diagram p TwistTag.E6 e (fun _ hj => perm_mem_JE6 hj) hg
 
 theorem frobE6_signDiagE6 {δ : Fin (Tag.rank .E6) → ℤ}
     (hδρ : permLattice TwistTag.E6.perm δ = δ) :

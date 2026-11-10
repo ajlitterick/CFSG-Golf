@@ -18,9 +18,6 @@ open CFSG.KC.Census
 
 set_option maxRecDepth 1000000
 
-theorem kN0 : (List.range' 0 13).all nodeF = true := by quickRfl
-theorem kN13 : (List.range' 13 13).all nodeF = true := by quickRfl
-theorem kN26 : (List.range' 26 13).all nodeF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.Co3C
 

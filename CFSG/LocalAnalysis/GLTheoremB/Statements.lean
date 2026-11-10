@@ -9,11 +9,6 @@ namespace CFSG.LocalAnalysis.GLTheoremB
 
 open CFSG.Open
 
-@[expose] def TheoremB : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    IsKProper G → IsCharTwoType G → 4 ≤ evenRank G → ∀ m : ℕ, 4 ≤ m →
-      (∀ q ∈ GLABeta (m + 1) G, GLAWeakCoreLocal G q) →
-        ∀ p ∈ GLABeta m G, GLAWeakCoreLocal G p ∨ GLADeltaZero G p
 
 @[expose] def TheoremOne : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →

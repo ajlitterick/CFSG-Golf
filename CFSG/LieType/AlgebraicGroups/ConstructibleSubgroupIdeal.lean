@@ -148,11 +148,6 @@ variable {k : Type} [Field k] [IsAlgClosed k] {A : Type} [CommRing A] [HopfAlgeb
   map_mul' φ ψ := Subtype.ext (congrArg toConv
     (AlgHom.convMul_comp_bialgHom_distrib φ ψ (Bialgebra.Quotient.mkBialgHom (subgroupIdeal H))))
 
-theorem quotientPointsEquiv_apply (H : Subgroup (WithConv (A →ₐ[k] k)))
-    (φ : WithConv ((A ⧸ subgroupIdeal H) →ₐ[k] k)) :
-    ((quotientPointsEquiv H φ : closureSubgroup H) : WithConv (A →ₐ[k] k)).ofConv =
-      φ.ofConv.comp (Ideal.Quotient.mkₐ k (subgroupIdeal H)) :=
-  rfl
 
 end HopfIdeal
 

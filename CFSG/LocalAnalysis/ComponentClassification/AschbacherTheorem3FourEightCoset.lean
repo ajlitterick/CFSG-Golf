@@ -64,10 +64,6 @@ variable {G T S Q H : Subgroup X} {g y : X}
       rw [h1]
       exact A.inv_mem ha
 
-omit [Finite X] in
-theorem mem_cosetSub {A : Subgroup X} {w : X} {hw2 : w ^ 2 = 1} {hwA : ∀ a ∈ A, a * w = w * a}
-    {x : X} : x ∈ cosetSub A w hw2 hwA ↔ x ∈ A ∨ w⁻¹ * x ∈ A :=
-  Iff.rfl
 
 omit [Finite X] in
 theorem le_cosetSub {A : Subgroup X} {w : X} (hw2 : w ^ 2 = 1) (hwA : ∀ a ∈ A, a * w = w * a) :

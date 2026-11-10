@@ -20,9 +20,6 @@ section Inputs
     GGSixSeventeenWitnessDvdOn (fun t _ _ _ => t = .POmegaMinus) ∧
     GGSixSeventeenE8SevenInput ∧ GGSixSeventeenRootWitnessInputFor GGExceptionalTag
 
-theorem ggSixSeventeenWitnessRest9_of_rest8 (h : GGSixSeventeenWitnessRest8) :
-    GGSixSeventeenWitnessRest9 :=
-  h.2
 
 theorem ggSixSeventeenWitnessRest8_of_rest9 (h : GGSixSeventeenWitnessRest9) :
     GGSixSeventeenWitnessRest8 :=
@@ -32,16 +29,6 @@ end Inputs
 
 section Wiring
 
-theorem ggSixSeventeenWitnessOn_PSUNonsplit : GGSixSeventeenWitnessOn GGPSUNonsplit :=
-  ggSixSeventeenWitnessOn_of_dvdOn (fun t _ _ _ hP => by
-    obtain ⟨rfl, -⟩ := hP
-    exact ⟨ggNonsplitTag_PSU_holds, ggLayerPDivTag_PSU⟩) ggSixSeventeenWitnessDvdOn_PSUNonsplit
-
-theorem ggSixSeventeenWitnessRest7_of_rest9 (hPl : GGNonsplitTag .POmegaPlus)
-    (hMi : GGNonsplitTag .POmegaMinus) (h : GGSixSeventeenWitnessRest9) :
-    GGSixSeventeenWitnessRest7 :=
-  ggSixSeventeenWitnessRest7_of_rest8 ggNonsplitTag_PSU_holds ggNonsplitTag_PSp_holds hPl hMi
-    (ggSixSeventeenWitnessRest8_of_rest9 h)
 
 theorem ggSixSeventeenWitnessInput_of_rest9 (hPl : GGNonsplitTag .POmegaPlus)
     (hMi : GGNonsplitTag .POmegaMinus) (h : GGSixSeventeenWitnessRest9) :

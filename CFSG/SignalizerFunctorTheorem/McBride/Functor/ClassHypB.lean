@@ -76,34 +76,5 @@ theorem signalizerMcBrideHypothesisB_of_isPGroup {G : Type*} [Group G] [Finite G
     obtain ⟨a, b, hab⟩ := hnc
     exact hab ((IsSimpleGroup.comm_iff_isSolvable).mpr inferInstance a b)
 
-private theorem isSectionOf_prod {N M : Type*} [Group N] [Group M] {S : Type*} [Group S]
-    [IsSimpleGroup S] (h : IsSectionOf S (N × M)) : IsSectionOf S N ∨ IsSectionOf S M := by
-  rcases h.of_hom (MonoidHom.snd N M) with h | h
-  · refine Or.inl (h.of_injective ((MonoidHom.fst N M).comp (MonoidHom.snd N M).ker.subtype) ?_)
-    intro a b hab
-    have ha : (a : N × M).2 = 1 := a.2
-    have hb : (b : N × M).2 = 1 := b.2
-    exact Subtype.ext (Prod.ext (by simpa using hab) (ha.trans hb.symm))
-  · exact Or.inr h
-
-theorem signalizerMcBrideHypothesisB_sup {G : Type*} [Group G] [Finite G] {p : ℕ}
-    {N M : Subgroup G} (hcomm : ∀ x ∈ N, ∀ y ∈ M, x * y = y * x)
-    (hN : signalizerMcBrideHypothesisB p N) (hM : signalizerMcBrideHypothesisB p M) :
-    signalizerMcBrideHypothesisB p (N ⊔ M) := by
-  let φ : N × M →* G := N.subtype.noncommCoprod M.subtype fun n m => hcomm n n.2 m m.2
-  have hrange : φ.range = N ⊔ M :=
-    (MonoidHom.noncommCoprod_range _ _ _).trans
-      (by rw [Subgroup.range_subtype, Subgroup.range_subtype])
-  let ψ : N × M →* ↥(N ⊔ M) := (MulEquiv.subgroupCongr hrange).toMonoidHom.comp φ.rangeRestrict
-  have hψ : Function.Surjective ψ :=
-    (MulEquiv.subgroupCongr hrange).surjective.comp φ.rangeRestrict_surjective
-  refine signalizerMcBrideHypothesisB_iff.mpr ⟨hN.1, ?_, ?_⟩
-  · have hdvd : Nat.card ↥(N ⊔ M) ∣ Nat.card N * Nat.card M := by
-      simpa [Nat.card_prod] using Subgroup.card_dvd_of_surjective hψ
-    exact (Nat.Coprime.mul_right hN.2.1 hM.2.1).coprime_dvd_right hdvd
-  · intro S _ _ _ hS hnc
-    rcases isSectionOf_prod (hS.trans (IsSectionOf.of_surjective ψ hψ)) with h | h
-    · exact signalizerMcBrideHypothesisA_of_isSectionOf hN h hnc
-    · exact signalizerMcBrideHypothesisA_of_isSectionOf hM h hnc
 
 end CFSG.SignalizerFunctorTheorem.McBride

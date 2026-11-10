@@ -577,25 +577,6 @@ theorem series_bil (hF : Nat.card F = (3 ^ f) ^ 2) (hf : 2 ≤ f) (hσ : ∀ c, 
   · exact bil_diag hσ (by omega) hFn (by norm_num) (fun s => (coe_zpow_wt (by norm_num) s).symm)
       (fun k l hk hl => not_dvd_wt_one (by omega) hk hl) bf hb₁ hb₂ hv₁ hv₂ hT
 
-theorem su_three_char_three_cover_trivial (hF : Nat.card F = (3 ^ f) ^ 2) (hf : 2 ≤ f)
-    {E : Type*} [Group E] [Finite E] [Group.IsPerfect E]
-    (η : E →* SU (unitaryInvolution F 3 f) 3) (hη : Function.Surjective η)
-    (hC : η.ker ≤ Subgroup.center E) (h3 : IsPGroup 3 η.ker) : η.ker = ⊥ := by
-  have hσ := unitaryInvolution_involutive hF
-  obtain ⟨s₀, hs₀⟩ := exists_norm_ne_one hF (by omega)
-  have hUp : IsPGroup 3 ((xSub σ₀ hσ).subgroupOf (SU σ₀ 3)) := by
-    rw [xSub_subgroupOf hF]
-    exact isPGroup_heisX hF
-  have hUi : ¬ 3 ∣ ((xSub σ₀ hσ).subgroupOf (SU σ₀ 3)).index := by
-    rw [xSub_subgroupOf hF]
-    exact not_dvd_index_heisX hF
-  exact CFSG.LocalAnalysis.ComponentInitial.ker_eq_bot_of_coprime_central_series_prime η hη hC
-    h3 (xSub_le_SU hF) hUp hUi (coprime_three_card_units hF (by omega)) (torusHom σ₀)
-    (fun s => torusHom_mem hσ s) (fun s x hx => series_inv hσ (i := 2) le_rfl s hx) 2
-    (series σ₀ hσ) rfl rfl (fun i hi => series_mono hσ hi)
-    (fun i hi s x hx => series_inv hσ hi s hx) (fun i hi x hx g hg => series_cent hσ hi hx hg)
-    (fun i hi x hx => series_sq hσ hi hx) (fun i hi x hx hfx => series_fix hσ hs₀ hi hx hfx)
-    (fun i hi j hj bf hb₁ hb₂ hv₁ hv₂ hT => series_bil hF hf hσ hi hj bf hb₁ hb₂ hv₁ hv₂ hT)
 
 omit [CharP F 3] in
 theorem one_le_of_card (hF : Nat.card F = (3 ^ f) ^ 2) : 1 ≤ f := by

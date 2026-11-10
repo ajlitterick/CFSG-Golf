@@ -15,14 +15,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.RankThree.PartTwo.Late
 open CFSG.Assembly.RankThreeEven (projSL)
 
-@[expose] def Claim184Lc : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M : Subgroup G), Sec18Std G A M →
-    ∀ H ∈ scriptH A M,
-      Nonempty (inSubgroup perfectResidual H ⧸ CFSG.pCore 2 (inSubgroup perfectResidual H) ≃*
-        Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)) →
-      ∃ c ∈ A, c ≠ 1 ∧ ∃ K ∈ thetaComponentsAt 3 c,
-        Nonempty (K ⧸ CFSG.pCore 2 K ≃* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)) ∧
-        ∀ a ∈ A, InducesInnerMod a K (CFSG.Open.pCoreOf 2 K)
 
 @[expose] def Claim184LcLe : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A M : Subgroup G), Sec18Std G A M →

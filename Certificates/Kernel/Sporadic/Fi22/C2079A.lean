@@ -81,9 +81,6 @@ theorem bindsP4 : Binds 63 7 Fo22P4.S 11 6 Fo22P4.BP SP4 #[0, 1, 2, 4, 3, 5] :=
 theorem bindsP2 : Binds 27 5 Fo22P2.S 11 6 Fo22P2.BP SP2 #[0, 1, 2, 3, 5, 7] :=
   binds_ofFn (by norm_num) (by norm_num) (by norm_num) rfl Fo22M.bP2 rP2
 
-theorem two_get {α : Type} [Inhabited α] {a b : α} {k : Nat} (hk : k < 2) :
-    (#[a, b] : Array α)[k]! = if k = 0 then a else b := by
-  interval_cases k <;> rfl
 
 theorem orig2 {n w kS : Nat} {PS : Nat → Nat} {a b : Array Nat} (hk : 2 ≤ kS)
     (ha : a = unpack n w (PS 0)) (hb : b = unpack n w (PS 1)) :

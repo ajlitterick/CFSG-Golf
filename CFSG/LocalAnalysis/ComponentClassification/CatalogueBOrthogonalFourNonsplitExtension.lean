@@ -13,10 +13,6 @@ variable {K : Type u} [Field K]
 
 abbrev extension (delta : K) := QuadraticAlgebra K delta 0
 
-@[instance_reducible] def extensionField (delta : K) (hns : ¬ IsSquare delta) :
-    Field (extension delta) := by
-  letI : Fact (¬ IsSquare delta) := ⟨hns⟩
-  infer_instance
 
 theorem generator_square (delta : K) :
     (QuadraticAlgebra.omega : extension delta) ^ 2 =
@@ -34,9 +30,6 @@ theorem generator_square (delta : K) :
   commutes' x := by
     apply QuadraticAlgebra.ext <;> simp
 
-theorem conjugation_mk (delta s r : K) :
-    conjugation delta (⟨s, r⟩ : extension delta) = ⟨s, -r⟩ := by
-  apply QuadraticAlgebra.ext <;> simp [conjugation]
 
 theorem conjugation_square (delta : K) : (conjugation delta).toRingEquiv ^ 2 = 1 := by
   apply RingEquiv.ext

@@ -246,7 +246,6 @@ theorem layer_cent_transfer (hΩ : ConjInvariant Ω) {N : Subgroup G} {a u j : G
     rw [this]
     exact N.mul_mem (N.mul_mem hj h2) (N.inv_mem hj)
 
-variable {n : ℕ}
 
 end Bounds
 

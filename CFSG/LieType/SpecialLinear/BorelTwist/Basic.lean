@@ -18,26 +18,6 @@ theorem revGL_mul_mul (X : Matrix (Fin n) (Fin n) F) :
     PEquiv.toMatrix_toPEquiv_mul, PEquiv.mul_toMatrix_toPEquiv, Matrix.submatrix_submatrix]
   congr 1
 
-theorem revGL_conj_single (i j : Fin n) (c : F) :
-    LinearFlag.permMatrix n F Fin.revPerm * Matrix.single i j c *
-        LinearFlag.permMatrix n F Fin.revPerm =
-      Matrix.single (Fin.rev i) (Fin.rev j) c := by
-  rw [revGL_mul_mul]
-  change (Matrix.single i j c).submatrix Fin.revPerm Fin.revPerm =
-    Matrix.single (Fin.rev i) (Fin.rev j) c
-  rw [Matrix.submatrix_single_equiv]
-  rfl
-
-theorem borelGraph_transvection {i j : Fin n} (hij : i ≠ j) (c : F) :
-    borelGraph n F (SpecialLinearGroup.transvection hij c) =
-      SpecialLinearGroup.transvection (fun h => hij (Fin.rev_injective h).symm) (-c) := by
-  apply Subtype.ext
-  rw [coe_borelGraph, revGL_inv F n, coe_revGL, SpecialLinearGroup.transvection_inv,
-    SpecialLinearGroup.transvection_coe]
-  rw [Matrix.transpose_add, Matrix.transpose_one, Matrix.transpose_single]
-  rw [Matrix.mul_add, Matrix.add_mul, Matrix.mul_one, permMatrix_rev_mul_self F n,
-    revGL_conj_single]
-  rw [SpecialLinearGroup.transvection_coe]
 
 section RankOne
 
@@ -117,67 +97,6 @@ theorem weylMatrix_eq_permMatrix [CharP F 2] (a b : Fin (m + 1)) :
   ext r s
   rw [weylMatrix, signedPerm_apply, LinearFlag.permMatrix_apply, weylSign_eq_one]
 
-theorem transpose_permMatrix_swap (a b : Fin (m + 1)) :
-    (LinearFlag.permMatrix (m + 1) F (Equiv.swap a b))ᵀ =
-      LinearFlag.permMatrix (m + 1) F (Equiv.swap a b) := by
-  ext i j
-  simp only [Matrix.transpose_apply, LinearFlag.permMatrix_apply]
-  have hiff : i = (Equiv.swap a b) j ↔ j = (Equiv.swap a b) i := by
-    rw [eq_comm, Equiv.swap_apply_eq_iff]
-  by_cases h : i = (Equiv.swap a b) j
-  · rw [if_pos h, if_pos (hiff.mp h)]
-  · rw [if_neg h, if_neg (fun h' => h (hiff.mpr h'))]
-
-theorem permMatrix_submatrix_rev (σ : Equiv.Perm (Fin (m + 1))) :
-    (LinearFlag.permMatrix (m + 1) F σ).submatrix Fin.rev Fin.rev =
-      LinearFlag.permMatrix (m + 1) F (Fin.revPerm * σ * Fin.revPerm) := by
-  ext x y
-  simp only [Matrix.submatrix_apply, LinearFlag.permMatrix_apply, Equiv.Perm.mul_apply,
-    Fin.revPerm_apply, Fin.rev_eq_iff]
-
-theorem weylRep_mul_self_charTwo [CharP F 2] (s : Fin m) :
-    weylRep m F s * weylRep m F s = 1 := by
-  apply Subtype.ext
-  rw [Matrix.SpecialLinearGroup.coe_mul, coe_weylRep',
-    weylMatrix_mul_self (a := s.castSucc) (b := s.succ) Fin.castSucc_lt_succ.ne]
-  ext i j
-  simp [Matrix.diagonal_apply, Matrix.one_apply, CharTwo.neg_eq]
-
-theorem weylRep_inv_charTwo [CharP F 2] (s : Fin m) :
-    (weylRep m F s)⁻¹ = weylRep m F s :=
-  inv_eq_of_mul_eq_one_right (weylRep_mul_self_charTwo m F s)
-
-theorem swap_mul_perm_mul_inv {α : Type*} [DecidableEq α] (σ : Equiv.Perm α) (a b : α) :
-    σ * Equiv.swap a b * σ⁻¹ = Equiv.swap (σ a) (σ b) := by
-  ext i
-  by_cases h1 : i = σ a
-  · subst h1
-    simp
-  · by_cases h2 : i = σ b
-    · subst h2
-      simp
-    · have h1' : σ.symm i ≠ a := fun h => h1 (by rw [← h, σ.apply_symm_apply])
-      have h2' : σ.symm i ≠ b := fun h => h2 (by rw [← h, σ.apply_symm_apply])
-      simp [Equiv.Perm.mul_apply, Equiv.swap_apply_def, h2, h1', h2']
-      exact h1
-
-theorem revPerm_swap_conj (a b : Fin (m + 1)) :
-    Fin.revPerm * Equiv.swap a b * Fin.revPerm =
-      Equiv.swap (Fin.rev a) (Fin.rev b) := by
-  have h := swap_mul_perm_mul_inv (σ := (Fin.revPerm : Equiv.Perm (Fin (m + 1)))) a b
-  have hinv : (Fin.revPerm : Equiv.Perm (Fin (m + 1)))⁻¹ = Fin.revPerm := Fin.revPerm_symm
-  rw [hinv] at h
-  simpa [Fin.revPerm_apply] using h
-
-theorem borelGraph_weylRep [CharP F 2] (s : Fin m) :
-    borelGraph (m + 1) F (weylRep m F s) = weylRep m F (Fin.rev s) := by
-  apply Subtype.ext
-  rw [coe_borelGraph, revGL_inv F (m + 1), coe_revGL, weylRep_inv_charTwo, coe_weylRep',
-    weylMatrix_eq_permMatrix,
-    transpose_permMatrix_swap, revGL_mul_mul, permMatrix_submatrix_rev, revPerm_swap_conj,
-    coe_weylRep', weylMatrix_eq_permMatrix]
-  congr 1
-  rw [castSucc_rev, succ_rev, Equiv.swap_comm]
 
 end Weyl
 
@@ -274,16 +193,6 @@ theorem borelGraph_mem_U {g : SpecialLinearGroup (Fin (m + 1)) F}
       Matrix.transpose_apply]
     exact hg'.2 (Fin.rev j) (Fin.rev i) (Fin.rev_lt_rev.mpr hji)
 
-theorem borelGraph_mem_H {g : SpecialLinearGroup (Fin (m + 1)) F}
-    (hg : g ∈ (curtisDatum m F 2).H) :
-    borelGraph (m + 1) F g ∈ (curtisDatum m F 2).H := by
-  have hginv : g⁻¹ ∈ (curtisDatum m F 2).H := inv_mem hg
-  rw [mem_curtisDatum_H_iff] at hg ⊢
-  have hg' := (mem_curtisDatum_H_iff (m := m) (F := F) (p := 2)).mp hginv
-  intro i j hij
-  rw [coe_borelGraph, revGL_inv F (m + 1), coe_revGL, revGL_mul_mul, Matrix.submatrix_apply,
-    Matrix.transpose_apply]
-  exact hg' (Fin.rev j) (Fin.rev i) (fun h => hij (Fin.rev_injective h).symm)
 
 end Borel
 

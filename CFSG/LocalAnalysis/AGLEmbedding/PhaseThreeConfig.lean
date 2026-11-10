@@ -158,8 +158,6 @@ theorem TwoLocalPhaseThree.asc81bHyp (h : TwoLocalPhaseThree M H) : Asc81bHyp M 
   charTwo := h.charTwo_M
   cgs := by rw [h.cgsIn_eq, h.normalizer_twoCore_H]
 
-theorem TwoLocalPhaseThree.twoCore_M_lt (h : TwoLocalPhaseThree M H) : pCoreOf 2 M < pCoreOf 2 H :=
-  lt_of_le_of_ne (h.twoCore_M_le h.twoCore_inf) h.twoCore_M_ne
 
 theorem TwoLocalPhaseThree.omegaOneCenter_le (h : TwoLocalPhaseThree M H) :
     omegaOneCenterOf (pCoreOf 2 H) ≤ omegaOneCenterOf (pCoreOf 2 M) ∧
@@ -174,97 +172,15 @@ theorem TwoLocalPhaseThree.omegaOneCenter_le (h : TwoLocalPhaseThree M H) :
   rw [← h.normalizer_thompsonJ_eq.2]
   exact Subgroup.centralizer_le_normalizer _ (Subgroup.centralizer_le hΩ hx.2)
 
-theorem TwoLocalPhaseThree.conj_twoCore_M_le (h : TwoLocalPhaseThree M H) :
-    ∀ g ∈ H, (pCoreOf 2 M).map (MulAut.conj g).toMonoidHom ≤ pCoreOf 2 H ∧
-      (g ∈ Subgroup.normalizer (pCoreOf 2 M : Set G) ↔ g ∈ M) := by
-  intro g hg
-  refine ⟨?_, by rw [h.normalizer_twoCore_M]⟩
-  rintro _ ⟨x, hx, rfl⟩
-  have hgN : g ∈ Subgroup.normalizer (pCoreOf 2 H : Set G) := by
-    rw [h.normalizer_twoCore_H]
-    exact hg
-  simpa [MulAut.conj_apply] using
-    (Subgroup.mem_normalizer_iff.mp hgN x).mp (h.twoCore_M_le h.twoCore_inf hx)
-
-theorem TwoLocalPhaseThree.inf_centralizer_le_twoCore_M (h : TwoLocalPhaseThree M H) :
-    pCoreOf 2 H ⊓ (M ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G)) ≤
-      pCoreOf 2 M := by
-  set C := M ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G)
-  have hCS : C ≤ Subgroup.normalizer (pCoreOf 2 H : Set G) := by
-    rw [h.normalizer_twoCore_H]
-    exact h.omegaOneCenter_le.2.trans inf_le_left
-  have hnorm : ((pCoreOf 2 H ⊓ C).subgroupOf C).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer inf_le_right).mpr
-      ((le_inf hCS Subgroup.le_normalizer).trans Subgroup.inf_normalizer_le_normalizer_inf)
-  have h2 : IsPGroup 2 (pCoreOf 2 H ⊓ C : Subgroup G) :=
-    (CFSG.RankThreeCoreUniqueness.Helpers.pCoreOf_isPGroup 2 H).to_le inf_le_left
-  have hle : pCoreOf 2 H ⊓ C ≤ pCoreOf 2 C :=
-    normal_pGroup_le_pCoreOf 2 _ C inf_le_right hnorm h2
-  have hMV : M ≤ Subgroup.normalizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) :=
-    le_normalizer_of_characteristic_pCoreOf (QuasithinUnique.Setup.omegaOneCenterOf_le _)
-      (QuasithinUnique.Setup.characteristic_omegaOneCenterOf _)
-  have hMC : M ≤ Subgroup.normalizer (C : Set G) :=
-    (le_inf Subgroup.le_normalizer (hMV.trans
-      ((Subgroup.normal_subgroupOf_iff_le_normalizer (Subgroup.centralizer_le_normalizer _)).mp
-        (Subgroup.normal_subgroupOf_centralizer_normalizer _)))).trans
-      Subgroup.inf_normalizer_le_normalizer_inf
-  exact hle.trans (pCoreOf_le_of_normal_subgroupOf 2 C M inf_le_left
-    ((Subgroup.normal_subgroupOf_iff_le_normalizer inf_le_left).mpr hMC))
-
-theorem TwoLocalPhaseThree.exists_ffOffender (h : TwoLocalPhaseThree M H) :
-    ∃ A : Subgroup G, IsMaxElemAbelian (pCoreOf 2 H) A ∧
-      ¬ A ≤ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) ∧
-      Nat.card (omegaOneCenterOf (pCoreOf 2 M)) *
-          Nat.card (A ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) :
-            Subgroup G) ≤
-        Nat.card A * Nat.card (omegaOneCenterOf (pCoreOf 2 M) ⊓
-          Subgroup.centralizer (A : Set G) : Subgroup G) := by
-  have hVS : omegaOneCenterOf (pCoreOf 2 M) ≤ pCoreOf 2 H :=
-    (QuasithinUnique.Setup.omegaOneCenterOf_le _).trans (h.twoCore_M_le h.twoCore_inf)
-  obtain ⟨A, hA, hAQ⟩ := h.exists_isMaxElemAbelian_not_le h.twoCore_inf
-  refine ⟨A, hA, fun hAV => hAQ ?_, ?_⟩
-  · exact (le_inf hA.1 (le_inf (hA.1.trans h.twoCore_le) hAV)).trans
-      h.inf_centralizer_le_twoCore_M
-  · have h1 := card_le_relIndex_mul_card (isElemAbelian_omegaOneCenterOf _) hVS hA
-    have h2 := Subgroup.relIndex_mul_card
-      (A ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G)) A
-    rw [inf_of_le_left inf_le_left] at h2
-    calc _ ≤ _ := Nat.mul_le_mul_right _ h1
-      _ = _ := by rw [← h2]; ring
-
-theorem D1PhaseThree.twoCore_inf_normalizer (h : D1PhaseThree p P M H R) :
-    pCoreOf 2 (M ⊓ Subgroup.normalizer (pCoreOf 2 H : Set G)) = pCoreOf 2 H :=
-  h.toTwoLocalPhaseThree.twoCore_inf_normalizer
 
 theorem D1PhaseThree.asc81bHyp (h : D1PhaseThree p P M H R) : Asc81bHyp M (pCoreOf 2 H) :=
   h.toTwoLocalPhaseThree.asc81bHyp
 
-theorem D1PhaseThree.twoCore_M_lt (h : D1PhaseThree p P M H R) : pCoreOf 2 M < pCoreOf 2 H :=
-  h.toTwoLocalPhaseThree.twoCore_M_lt
 
 theorem D1PhaseThree.omegaOneCenter_le (h : D1PhaseThree p P M H R) :
     omegaOneCenterOf (pCoreOf 2 H) ≤ omegaOneCenterOf (pCoreOf 2 M) ∧
       M ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) ≤ H ⊓ M :=
   h.toTwoLocalPhaseThree.omegaOneCenter_le
 
-theorem D1PhaseThree.conj_twoCore_M_le (h : D1PhaseThree p P M H R) :
-    ∀ g ∈ H, (pCoreOf 2 M).map (MulAut.conj g).toMonoidHom ≤ pCoreOf 2 H ∧
-      (g ∈ Subgroup.normalizer (pCoreOf 2 M : Set G) ↔ g ∈ M) :=
-  h.toTwoLocalPhaseThree.conj_twoCore_M_le
-
-theorem D1PhaseThree.inf_centralizer_le_twoCore_M (h : D1PhaseThree p P M H R) :
-    pCoreOf 2 H ⊓ (M ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G)) ≤
-      pCoreOf 2 M :=
-  h.toTwoLocalPhaseThree.inf_centralizer_le_twoCore_M
-
-theorem D1PhaseThree.exists_ffOffender (h : D1PhaseThree p P M H R) :
-    ∃ A : Subgroup G, IsMaxElemAbelian (pCoreOf 2 H) A ∧
-      ¬ A ≤ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) ∧
-      Nat.card (omegaOneCenterOf (pCoreOf 2 M)) *
-          Nat.card (A ⊓ Subgroup.centralizer (omegaOneCenterOf (pCoreOf 2 M) : Set G) :
-            Subgroup G) ≤
-        Nat.card A * Nat.card (omegaOneCenterOf (pCoreOf 2 M) ⊓
-          Subgroup.centralizer (A : Set G) : Subgroup G) :=
-  h.toTwoLocalPhaseThree.exists_ffOffender
 
 end CFSG.AGLEmbedding

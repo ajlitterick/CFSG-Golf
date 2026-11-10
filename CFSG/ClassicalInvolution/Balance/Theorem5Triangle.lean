@@ -100,14 +100,6 @@ theorem rankThreeBalance_of_indepTripleOn_of_layers [IsSimpleGroup G]
   exact ⟨hM.elem, hM.card, weakBalanced_of_memberFamily hnab hp2 hq ModelFacts.modelClauseZero
     fundamentalWholeA1 hΩ hIH hM, twoBalancedWrt_of_memberFamily_of_layers hM hloc⟩
 
-theorem rankThreeBalance_of_indepTripleOn [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hf : 0 < f) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω) (hmodel : LayerGenerationInvolutoryModel)
-    {A : Subgroup G} (hA : IndepTripleOn p f Ω A)
-    (hF3 : ∀ a ∈ A, a ≠ 1 → NoComponentOverF3 p f Ω a) : RankThreeBalance A :=
-  rankThreeBalance_of_indepTripleOn_of_layers hnab hp2 hf hq hΩ hIH hA
-    (componentLayersAt_of_involutoryModel_of_noF3 hnab hp2 hq ModelFacts.modelClauseZero hΩ hIH
-      (memberFamily_of_indepTripleOn hp2 hf hA) hmodel hF3)
 
 omit [Finite G] in
 @[expose] def TriangleConnected (p f : ℕ) [Fact p.Prime] (Ω : Set (Subgroup G)) : Prop :=
@@ -115,29 +107,6 @@ omit [Finite G] in
     Relation.ReflTransGen
       (fun X Y => X ∈ triangleFrames p f Ω ∧ Y ∈ triangleFrames p f Ω ∧ ShareFour X Y) A A'
 
-theorem deltaCore_eq_bot_of_connected_triangleFamily [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hf : 0 < f) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω) (hmodel : LayerGenerationInvolutoryModel)
-    (hF3 : ∀ A, IndepTripleOn p f Ω A → ∀ a ∈ A, a ≠ 1 → NoComponentOverF3 p f Ω a)
-    {𝒯 : Set (Subgroup G)} (hsub : 𝒯 ⊆ triangleFrames p f Ω)
-    (hinv : ∀ A ∈ 𝒯, ∀ g : G, A.map (MulAut.conj g).toMonoidHom ∈ 𝒯)
-    (hconn : ∀ A ∈ 𝒯, ∀ A' ∈ 𝒯,
-      Relation.ReflTransGen (fun X Y => X ∈ 𝒯 ∧ Y ∈ 𝒯 ∧ ShareFour X Y) A A') :
-    ∀ A ∈ 𝒯, ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥ :=
-  deltaCore_eq_bot_of_connected_frames (𝒯 := 𝒯)
-    (componentClassificationOddCore_eq_bot_of_simple hnab) hinv
-    (fun A hA => rankThreeBalance_of_indepTripleOn hnab hp2 hf hq hΩ hIH hmodel (hsub hA)
-      (hF3 A (hsub hA))) hconn
-
-theorem deltaCore_eq_bot_of_triangleConnected [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hf : 0 < f) (hq : 5 ≤ p ^ f)
-    (hΩ : InClass p f Ω) (hIH : LocalLieSystems p f Ω) (hmodel : LayerGenerationInvolutoryModel)
-    (hF3 : ∀ A, IndepTripleOn p f Ω A → ∀ a ∈ A, a ≠ 1 → NoComponentOverF3 p f Ω a)
-    (htri : TriangleConnected p f Ω) :
-    ∀ A, IndepTripleOn p f Ω A → ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥ :=
-  fun A hA => deltaCore_eq_bot_of_connected_triangleFamily hnab hp2 hf hq hΩ hIH hmodel hF3
-    (𝒯 := triangleFrames p f Ω) (fun _ h => h)
-    (fun _ hA g => indepTripleOn_map hΩ.conjInvariant hA g) htri A hA
 
 end Balance
 

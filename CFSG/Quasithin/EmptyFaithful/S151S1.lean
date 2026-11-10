@@ -126,55 +126,5 @@ theorem s151s_mZ_eq_of_loc {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
     IsSporadic .J2 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsSporadic .HS (↥L ⧸ CFSG.pCore 2 ↥L) ∨
     IsSporadic .He (↥L ⧸ CFSG.pCore 2 ↥L)
 
-@[expose] def CompTypeDHard15120 (L : Subgroup G) : Prop :=
-  IsSporadic .M22 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsSporadic .M23 (↥L ⧸ CFSG.pCore 2 ↥L) ∨
-    IsSporadic .M24 (↥L ⧸ CFSG.pCore 2 ↥L) ∨ IsSporadic .Ru (↥L ⧸ CFSG.pCore 2 ↥L)
-
-omit [Finite G] in
-theorem compTypeD_easy_or_hard {L : Subgroup G} (h : CompTypeD15120 L) :
-    CompTypeDEasy15120 L ∨ CompTypeDHard15120 L := by
-  rcases h with h | h | h | h | h | h | h | h | h
-  · exact Or.inl (Or.inl h)
-  · exact Or.inl (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
-  · exact Or.inl (Or.inr (Or.inr (Or.inl h)))
-  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inl h))))
-  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inr h))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr h)))
-
-@[expose] def Input15120CentLoc : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L B : Subgroup G), CFSG.Open.IsQuasisimple ↥L →
-    IsPGroup 2 ↥(Subgroup.center ↥L) → IsSylowTwoOf B L →
-    ((IsPSU 3 3 1 ↥L ∨ IsTits ↥L ∨ Is3D4 2 1 ↥L) ∨ CompTypeD15120 L) →
-      AutFixOn L B ∧
-        (((IsPSU 3 3 1 ↥L ∨ IsTits ↥L ∨ Is3D4 2 1 ↥L) ∨ CompTypeDEasy15120 L) →
-          IsMaxSubgroupIn L (L ⊓ Subgroup.centralizer (centerOf B : Set G)))
-
-theorem input15120MLC_of_loc (hloc : Input15120CentLoc) : Input15120MLC := by
-  intro G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp hC
-  have hSyl : IsSylowTwoOf (s1516 T Z₁ ⊓ L) L := lemma_15_1_20_sylow hc.h18.four hc.hL
-  have hZ : IsPGroup 2 (Subgroup.center ↥L) :=
-    isPGroup_two_center_of_isComponentOf1515c hcomp hc.h19.one
-  obtain ⟨hfix, hmax⟩ := hloc G L _ hcomp.2.2 hZ hSyl (Or.inl hC)
-  exact s151s_mZ_eq_of_loc hc hcomp hfix (hmax (Or.inl hC))
-
-@[expose] def Input15120MLDHard : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
-    Ctx15120 T Mc M Z₁ Z₂ V₁ V₂ L → IsComponentOf L (g1_1516 Z₁) → CompTypeD15120 L →
-    CompTypeDHard15120 L →
-    mZ1516 Mc Z₁ ⊓ L ≤ L ⊓ Subgroup.centralizer (centerOf (s1516 T Z₁ ⊓ L) : Set G)
-
-theorem input15120MLD_of_loc (hloc : Input15120CentLoc) (hhard : Input15120MLDHard) :
-    Input15120MLD := by
-  intro G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp hD _
-  have hSyl : IsSylowTwoOf (s1516 T Z₁ ⊓ L) L := lemma_15_1_20_sylow hc.h18.four hc.hL
-  have hZ : IsPGroup 2 (Subgroup.center ↥L) :=
-    isPGroup_two_center_of_isComponentOf1515c hcomp hc.h19.one
-  obtain ⟨hfix, hmax⟩ := hloc G L _ hcomp.2.2 hZ hSyl (Or.inr hD)
-  rcases compTypeD_easy_or_hard hD with hE | hH
-  · exact s151s_mZ_eq_of_loc hc hcomp hfix (hmax (Or.inr hE))
-  · exact le_antisymm (hhard G T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp hD hH) (s151s_cent_le_mZ hc hcomp hfix)
 
 end CFSG.Quasithin

@@ -103,9 +103,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def hs100Case0Base : List (Fin 100) :=
   [1, 28, 41, 40, 77, 2, 70, 59]
 
-@[expose] def hs100Case0Chain : RawSchreierDatum 100 :=
-  RawSchreierDatum.ofArrays 100 (by decide) hs100Case0Arrs 3 (by simp [hs100Case0Arrs])
-    hs100Case0Base (by decide) hs100Case0Words
 
 @[expose] def hs100Case0Rels : List (ℕ × ℕ × ℕ) :=
   [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),
@@ -173,9 +170,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def hs100Case2Base : List (Fin 100) :=
   [0, 3, 18, 55, 83, 1, 30, 65, 2, 4]
 
-@[expose] def hs100Case2Chain : RawSchreierDatum 100 :=
-  RawSchreierDatum.ofArrays 100 (by decide) hs100Case2Arrs 3 (by simp [hs100Case2Arrs])
-    hs100Case2Base (by decide) hs100Case2Words
 
 @[expose] def hs100Case2Rels : List (ℕ × ℕ × ℕ) :=
   [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),
@@ -237,9 +231,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def hs100Case23Base : List (Fin 100) :=
   [0, 50, 75, 33, 21, 1, 53, 10, 2]
 
-@[expose] def hs100Case23Chain : RawSchreierDatum 100 :=
-  RawSchreierDatum.ofArrays 100 (by decide) hs100Case23Arrs 3 (by simp [hs100Case23Arrs])
-    hs100Case23Base (by decide) hs100Case23Words
 
 @[expose] def hs100Case23Rels : List (ℕ × ℕ × ℕ) :=
   [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),
@@ -381,9 +372,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def mcl275Case0Base : List (Fin 275) :=
   [0, 1, 79, 10, 107, 2, 202, 224]
 
-@[expose] def mcl275Case0Chain : RawSchreierDatum 275 :=
-  RawSchreierDatum.ofArrays 275 (by decide) mcl275Case0Arrs 3 (by simp [mcl275Case0Arrs])
-    mcl275Case0Base (by decide) mcl275Case0Words
 
 @[expose] def mcl275Case0Rels : List (ℕ × ℕ × ℕ) :=
   [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),
@@ -543,9 +531,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def mcl275Case1Base : List (Fin 275) :=
   [0, 198, 169, 259, 202, 1, 45, 226]
 
-@[expose] def mcl275Case1Chain : RawSchreierDatum 275 :=
-  RawSchreierDatum.ofArrays 275 (by decide) mcl275Case1Arrs 3 (by simp [mcl275Case1Arrs])
-    mcl275Case1Base (by decide) mcl275Case1Words
 
 @[expose] def mcl275Case1Rels : List (ℕ × ℕ × ℕ) :=
   [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (1, 2, 1), (1, 3, 2), (1, 4, 3), (1, 0, 4),

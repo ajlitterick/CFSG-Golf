@@ -41,28 +41,6 @@ namespace CFSG.ClassicalInvolution
 open CFSG.Open CFSG.Assembly.LowTwoRank
 open scoped MatrixGroups
 
-theorem noNonsolvableClassical_of_psl_two {X : Type} [Group X] {f : ℕ} (hf : 2 ≤ f)
-    (h : StatedClassicalModel X .PSL 2 2 f) : NoNonsolvableClassical X := by
-  obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := h
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have e' := e.trans (CFSG.ClassicalModels.statedLinearModelEquivGaloisPSL K 2 2 f (by omega) hK)
-  have : Finite PSL(2, GaloisField 2 f) := Finite.of_surjective
-    (QuotientGroup.mk : SL(2, GaloisField 2 f) → PSL(2, GaloisField 2 f))
-    QuotientGroup.mk_surjective
-  exact NoNonsolvableClassical.of_mulEquiv e'
-    (NoNonsolvableClassical.of_fusionBenderBorel (bender_psl2_borel_full f hf))
-
-theorem noNonsolvableClassical_of_psu_three {X : Type} [Group X] {f : ℕ} (hf : 2 ≤ f)
-    (h : StatedClassicalModel X .PSU 3 2 f) : NoNonsolvableClassical X := by
-  obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := h
-  have hcard : Nat.card K = 2 ^ (2 * f) := by rw [hK, ← pow_mul, mul_comm]
-  let e' : X ≃* CFSG.Open.GLAProj (CFSG.Open.GLASUGroup (Fin 3) K (2 ^ f)) := e
-  have e'' := e'.trans (CFSG.ShultStronglyClosedTI.glaSU3EquivNative f hf hcard)
-  have hX : Finite X := Finite.of_equiv
-    (CFSG.Open.GLAProj (CFSG.Open.GLASUGroup (Fin 3) K (2 ^ f))) e'.symm.toEquiv
-  have : Finite (PSU3 2 f) := Finite.of_equiv X e''.toEquiv
-  exact NoNonsolvableClassical.of_mulEquiv e''
-    (NoNonsolvableClassical.of_fusionBenderBorel (bender_psu3_borel_full f hf))
 
 theorem noNonsolvableClassical_of_suzukiModel {X : Type} [Group X] {f : ℕ}
     (h : CFSG.Blueprint.SuzukiModel X 2 f) : NoNonsolvableClassical X := by

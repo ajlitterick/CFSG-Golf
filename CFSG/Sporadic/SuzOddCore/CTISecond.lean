@@ -20,8 +20,6 @@ theorem hm1 : (fixList 1).length = 54 := cti_fix1
 
 theorem kperm1_mem (k : ℕ) : kperm1 k ∈ rho1.range := ⟨_, rfl⟩
 
-theorem tabRep_kperm1 {k : ℕ} (hk : k < 10) : TabRep (kGens 1)[k]! (kperm1 k) :=
-  tabRep_kperm1Of hm1 hk
 
 theorem range_rho1_eq : rho1.range = Subgroup.closure {g | ∃ k < 10, kperm1 k = g} := by
   rw [rho1, rho1Of, range_cRho]
@@ -37,12 +35,9 @@ theorem card_ker_rho1 : Nat.card rho1.ker = 2 := by
   simp only [invInnerOrders, List.getD_cons_succ, List.getD_cons_zero] at h
   exact Nat.eq_of_mul_eq_mul_right (by norm_num : 0 < 1658880) (h.trans (by norm_num))
 
-theorem tabRep_kperm1_inv {k : ℕ} (hk : k < 10) : TabRep (kInvs 1)[k]! (kperm1 k)⁻¹ :=
-  tabRep_kperm1Of_inv hm1 hk
 
 @[expose] def qperm (j : ℕ) : Equiv.Perm (Fin 54) := qpermOf hm1 j
 
-theorem tabRep_qperm {j : ℕ} (hj : j < 6) : TabRep qGens[j]! (qperm j) := tabRep_qpermOf hm1 hj
 
 @[expose] def suzQbar : Subgroup (Equiv.Perm (Fin 54)) := suzQbarOf hm1
 
@@ -67,16 +62,6 @@ theorem range_le_normalizer : rho1.range ≤ Subgroup.normalizer (suzQbar : Set 
   rintro _ ⟨k, hk, rfl⟩
   exact mem_normalizer_of_conj_mem fun x hx => conj_mem_qbar hk hx
 
-theorem qperm_comm {i j : ℕ} (hi : i < 6) (hj : j < 6) : qperm i * qperm j = qperm j * qperm i :=
-  qpermOf_comm hm1 hi hj
-
-theorem qbar_le_centralizer :
-    suzQbar ≤ Subgroup.centralizer (suzQbar : Set (Equiv.Perm (Fin 54))) := by
-  rw [suzQbar, suzQbarOf, Subgroup.centralizer_closure, Subgroup.closure_le]
-  rintro _ ⟨i, hi, rfl⟩
-  rw [SetLike.mem_coe, Subgroup.mem_centralizer_iff]
-  rintro _ ⟨j, hj, rfl⟩
-  exact qperm_comm hj hi
 
 theorem centralizer_qbar {y : Equiv.Perm (Fin 54)} (hy : y ∈ rho1.range)
     (hc : ∀ j < 6, y * qperm j = qperm j * y) : y ∈ suzQbar :=

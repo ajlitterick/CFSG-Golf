@@ -188,8 +188,6 @@ theorem qb_injective :
     obtain ⟨m, hm⟩ := Qbar_subset x.2
     exact ⟨m, Subtype.ext hm⟩⟩
 
-theorem qbEquiv_apply
-    (m : Fin 256) : (qbEquiv m : Perm (Fin 800)) = qb m := rfl
 
 theorem colPerm_spec
     {g : ℕ} (hg : g < 11) {m : ℕ} (hm : m < 256) :

@@ -54,11 +54,6 @@ theorem isConj_phiB_xBar_of_rank
   (isConj_rep_zero_of_rank hX hr).trans
     (isConj_rep_zero_of_rank orderOf_phiB_xBar rank_phiB_xBar_sub_one).symm
 
-theorem isConj_of_rank_2048
-    {X Y : NativeSporadic.B} (hX : orderOf X = 2)
-    (hXr : Matrix.rank (X.val.val - 1) = 2048) (hY : orderOf Y = 2)
-    (hYr : Matrix.rank (Y.val.val - 1) = 2048) : IsConj X Y :=
-  (isConj_phiB_xBar_of_rank hX hXr).trans (isConj_phiB_xBar_of_rank hY hYr).symm
 
 theorem natCard_centralizer_of_rank_2048
     {X : NativeSporadic.B} (hX : orderOf X = 2)

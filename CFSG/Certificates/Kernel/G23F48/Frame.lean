@@ -47,42 +47,5 @@ namespace CFSG.KC.G23F48
 
 open scoped Matrix
 
-variable {n : Type*} [Fintype n] [DecidableEq n] {K : Type*} [Field K]
-
-theorem eq_smul_one_of_frame {g V W : Matrix n n K} (hWV : W * V = 1) {c u : n → K}
-    (hc : ∀ i, c i ≠ 0) (hWu : W *ᵥ u = c) {lam : n → K}
-    (hcol : ∀ i, g *ᵥ (fun j => V j i) = lam i • fun j => V j i) {μ : K}
-    (hu : g *ᵥ u = μ • u) : g = μ • 1 := by
-  have hVW : V * W = 1 := (Matrix.mul_eq_one_comm_of_equiv (Equiv.refl n)).1 hWV
-  have key : ∀ x : n → K, W *ᵥ (V *ᵥ x) = x := fun x => by
-    rw [Matrix.mulVec_mulVec, hWV, Matrix.one_mulVec]
-  have hgV : g * V = V * Matrix.diagonal lam := by
-    ext j i
-    have := congrFun (hcol i) j
-    simp only [Matrix.mulVec, dotProduct, Pi.smul_apply, smul_eq_mul] at this
-    rw [Matrix.mul_apply, this, Matrix.mul_diagonal, mul_comm]
-  have huc : u = V *ᵥ c := by
-    rw [← hWu, Matrix.mulVec_mulVec, hVW, Matrix.one_mulVec]
-  have h2 : Matrix.diagonal lam *ᵥ c = μ • c := by
-    have e : V *ᵥ (Matrix.diagonal lam *ᵥ c) = V *ᵥ (μ • c) := by
-      rw [Matrix.mulVec_mulVec, ← hgV, ← Matrix.mulVec_mulVec, ← huc, hu, Matrix.mulVec_smul,
-        ← huc]
-    have := congrArg (W *ᵥ ·) e
-    rwa [key, key] at this
-  have hlam : ∀ i, lam i = μ := fun i => by
-    have := congrFun h2 i
-    simp only [Matrix.mulVec_diagonal, Pi.smul_apply, smul_eq_mul] at this
-    exact mul_right_cancel₀ (hc i) this
-  have hd : Matrix.diagonal lam = μ • (1 : Matrix n n K) := by
-    have hl : lam = fun _ => μ := funext hlam
-    rw [hl]
-    ext a b
-    by_cases hab : a = b
-    · subst hab
-      simp
-    · simp [hab]
-  calc g = g * (V * W) := by rw [hVW, Matrix.mul_one]
-    _ = V * Matrix.diagonal lam * W := by rw [← Matrix.mul_assoc, hgV]
-    _ = μ • 1 := by rw [hd, Matrix.mul_smul, Matrix.mul_one, Matrix.smul_mul, hVW]
 
 end CFSG.KC.G23F48

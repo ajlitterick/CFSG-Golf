@@ -130,17 +130,6 @@ theorem imgGL_mono {N : Subgroup G} (hN : IsElemAbelian 2 N) {L₁ L₂ : Subgro
   rintro _ ⟨y, rfl⟩
   exact mem_imgGL.mpr ⟨⟨y, h y.2⟩, rfl⟩
 
-theorem imgGL_eq_map_subgroupOf {N A Y : Subgroup G} (hN : IsElemAbelian 2 N)
-    (hA : A ≤ Y) (hAY : A ≤ Subgroup.normalizer (N : Set G))
-    (hY : Y ≤ Subgroup.normalizer (N : Set G)) :
-    imgGL hN A hAY = (A.subgroupOf Y).map (actGL hN Y hY) := by
-  ext g
-  rw [mem_imgGL, Subgroup.mem_map]
-  constructor
-  · rintro ⟨a, rfl⟩
-    exact ⟨⟨a, hA a.2⟩, a.2, rfl⟩
-  · rintro ⟨y, hy, rfl⟩
-    exact ⟨⟨y, hy⟩, rfl⟩
 
 noncomputable def unitsEquiv (V : Type) [AddCommGroup V] [Module (ZMod 2) V] :
     CFSG.Quasithin.G11.GLV V ≃* LinearMap.GeneralLinearGroup (ZMod 2) V :=
@@ -241,12 +230,6 @@ private theorem actGL_faithful (hU : IsElemAbelian 2 D.U) {E : Subgroup G}
   have h4 := congrArg (fun x : ↥D.U => (x : G)) h3
   simpa [actHom_apply_coe] using h4
 
-private def vnMulEquiv (hU : IsElemAbelian 2 D.U) : VN hU ≃* ↥D.U where
-  toFun := VN.toN
-  invFun := VN.ofN hU
-  left_inv _ := rfl
-  right_inv _ := rfl
-  map_mul' _ _ := rfl
 
 private theorem exists_axis_functional (hU : IsElemAbelian 2 D.U) (hUM : D.U ≤ D.M)
     (hMU : D.M ≤ Subgroup.normalizer (D.U : Set G)) (h3 : 3 ≤ rk ↥D.U)

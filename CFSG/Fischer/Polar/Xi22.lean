@@ -162,11 +162,6 @@ theorem adj_xv
     · show tvP f '' hypSet 0 k = hypSet 0 i
       rw [himg, hIm]
 
-theorem ncard_compl_of_mem_hypOrbit {i : Fin 3} {O : Set (Fin 693)} (hO : O ∈ hypOrbit i) :
-    Oᶜ.ncard = 567 := by
-  have h := Set.ncard_add_ncard_compl O
-  rw [ncard_of_mem_hypOrbit hO, Nat.card_eq_fintype_card, Fintype.card_fin] at h
-  omega
 
 theorem injOn_tvP_image
     {O : Set (Fin 693)} (hO : O ∈ hypOrbit 0) :
@@ -247,80 +242,6 @@ theorem IsClosedHyperoval.exists_not_perp
   rw [this, ncard_of_mem_hypOrbit hi] at h1
   norm_num at h1
 
-theorem image_adj_iff {g : Equiv.Perm (Fin 693)} (hg : IsPolarAut g) {O Q : Set (Fin 693)} :
-    (∃ f, f ∉ O ∧ tvP f '' O = Q) ↔ ∃ f, f ∉ ⇑g '' O ∧ tvP f '' (⇑g '' O) = ⇑g '' Q := by
-  have key : ∀ (h : Equiv.Perm (Fin 693)), IsPolarAut h → ∀ O Q : Set (Fin 693),
-      (∃ f, f ∉ O ∧ tvP f '' O = Q) → ∃ f, f ∉ ⇑h '' O ∧ tvP f '' (⇑h '' O) = ⇑h '' Q := by
-    rintro h hh O Q ⟨f, hf, rfl⟩
-    refine ⟨h f, fun ⟨y, hy, hyf⟩ => hf (h.injective hyf ▸ hy), ?_⟩
-    rw [Set.image_image, Set.image_image]
-    exact Set.image_congr fun y _ => (hh.map_tvP f y).symm
-  refine ⟨key g hg O Q, fun H => ?_⟩
-  have := key g⁻¹ hg.inv _ _ H
-  simpa [Set.image_image, perm_inv_apply_self] using this
-
-theorem inter_root {i : ℕ} (hi : i < 1408) (hi0 : i ≠ 0) :
-    (hypSet 0 0 ∩ hypSet 0 i).ncard = if (AD[0]!)[i]! then 30 else 18 := by
-  have h := xiFacts.inter
-  unfold xiInterOK at h
-  have h1 := (allIn_eq_true.1 h) i (Nat.one_le_iff_ne_zero.2 hi0) hi
-  dsimp only at h1
-  have hset : hypSet 0 0 ∩ hypSet 0 i = {x : Fin 693 | x.val ∈ (members (HX)[0]!).filter
-      (fun q => ((HX)[i]!)[q]!)} := by
-    ext x
-    rw [Set.mem_inter_iff, Set.mem_ofPred_eq, List.mem_filter, mem_members,
-      ← flagSet_HX (by norm_num : 0 < 1408), ← flagSet_HX hi, mem_flagSet, mem_flagSet]
-    exact ⟨fun ⟨h1, h2⟩ => ⟨⟨x.2, h1⟩, h2⟩, fun ⟨⟨_, h1⟩, h2⟩ => ⟨h1, h2⟩⟩
-  rw [hset, ncard_setOf_mem_list ((nodup_members _).filter _)
-    (fun j hj => (mem_members.1 (List.mem_filter.1 hj).1).1)]
-  split at h1
-  · rename_i hA
-    rw [ite_eq_left hA]
-    exact beq_iff_eq.1 h1
-  · rename_i hA
-    rw [ite_eq_right hA]
-    exact beq_iff_eq.1 h1
-
-theorem exists_root_pair
-    (O Q : hypOrbit 0) : ∃ i, ∃ hi : i < 1408,
-    ((O : Set (Fin 693)) ∩ Q).ncard = (hypSet 0 0 ∩ hypSet 0 i).ncard ∧
-      ((XI).Adj O Q ↔ (XI).Adj (xv 0 (by norm_num)) (xv i hi)) ∧ (O = Q ↔ i = 0) := by
-  obtain ⟨g, hg, hO⟩ := O.2
-  have ha := isPolarAut_of_mem hg
-  have hQ' : ⇑g⁻¹ '' (Q : Set (Fin 693)) ∈ hypOrbit 0 := image_mem_hypOrbit (T46.inv_mem hg) Q.2
-  obtain ⟨i, hi, hQi⟩ := mem_hypList.1 (mem_hypOrbit_iff.1 hQ')
-  have hQ : (Q : Set (Fin 693)) = ⇑g '' hypSet 0 i := by rw [← hQi, image_inv_image]
-  have hO' : (O : Set (Fin 693)) = ⇑g '' hypSet 0 0 := by rw [hO, hypSet_zero]
-  have hinj : Function.Injective (Set.image ⇑g) := Set.image_injective.2 g.injective
-  refine ⟨i, hi, ?_, ?_, ?_⟩
-  · rw [hO', hQ, ← Set.image_inter g.injective, Set.ncard_image_of_injective _ g.injective]
-  · rw [xiGraph_adj, xiGraph_adj]
-    have e1 : O ≠ Q ↔ xv 0 (by norm_num) ≠ xv i hi := by
-      rw [ne_eq, ne_eq, ← Subtype.coe_inj, ← Subtype.coe_inj]
-      show ¬ (O : Set (Fin 693)) = Q ↔ ¬ hypSet 0 0 = hypSet 0 i
-      rw [hO', hQ, hinj.eq_iff]
-    have e2 : (∃ f, f ∉ (O : Set (Fin 693)) ∧ tvP f '' (O : Set (Fin 693)) = Q) ↔
-        ∃ f, f ∉ hypSet 0 0 ∧ tvP f '' hypSet 0 0 = hypSet 0 i := by
-      rw [hO', hQ, ← image_adj_iff ha]
-    exact and_congr e1 e2
-  · rw [← Subtype.coe_inj, hO', hQ, hinj.eq_iff, hypSet_eq_iff (by norm_num) hi]
-    exact ⟨fun h => h.2.symm, fun h => ⟨rfl, h.symm⟩⟩
-
-theorem ncard_inter_of_adj
-    {O Q : hypOrbit 0} (h : (XI).Adj O Q) :
-    ((O : Set (Fin 693)) ∩ Q).ncard = 30 := by
-  obtain ⟨i, hi, hc, hadj, heq⟩ := exists_root_pair O Q
-  have hA := (adj_xv (by norm_num) hi).1 (hadj.1 h)
-  have hi0 : i ≠ 0 := fun h0 => h.ne (heq.2 h0)
-  rw [hc, inter_root hi hi0, ite_eq_left hA]
-
-theorem ncard_inter_of_not_adj
-    {O Q : hypOrbit 0} (hne : O ≠ Q) (h : ¬ (XI).Adj O Q) :
-    ((O : Set (Fin 693)) ∩ Q).ncard = 18 := by
-  obtain ⟨i, hi, hc, hadj, heq⟩ := exists_root_pair O Q
-  have hA : ¬ (AD[0]!)[i]! = true := fun hA => h (hadj.2 ((adj_xv (by norm_num) hi).2 hA))
-  have hi0 : i ≠ 0 := fun h0 => hne (heq.2 h0)
-  rw [hc, inter_root hi hi0, ite_eq_right hA]
 
 theorem diam_facts {v : ℕ} (hv : v < 1408) (hv0 : v ≠ 0) (hA : (AD[0]!)[v]! = false) :
     (∃ x < 1408, (AD[0]!)[x]! = true ∧ (AD[x]!)[v]! = true) ∧

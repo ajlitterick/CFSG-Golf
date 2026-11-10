@@ -26,10 +26,6 @@ namespace CFSG.Sporadic.RuSchreier
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certificates.Native
 open scoped Pointwise
 
-theorem ruZL_comm
-    {i : ℕ} (hi : i < 3)
-    {l : Equiv.Perm (Fin 4060)} (hl : l ∈ ruL) : ruZL i * l = l * ruZL i :=
-  (Subgroup.mem_centralizer_iff.1 (ruOrbLA_check.1 i hi) l hl).symm
 
 theorem ruOrb_disjoint
     {k k' : ℕ} (hk : k < 19)

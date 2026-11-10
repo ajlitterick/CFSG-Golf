@@ -237,27 +237,6 @@ structure IsCentralDoubleExt {E Q : Type*} [Group E] [Group Q] (π : E →* Q) (
   orderOf_eq : orderOf z = 2
   ker_eq : π.ker = zpowers z
 
-theorem CocycleExtension.isCentralDoubleExt_proj {Q : Type*} [Group Q] (f : NormCocycle Q) :
-    IsCentralDoubleExt (CocycleExtension.proj f) ⟨1, 1⟩ where
-  surjective q := ⟨⟨0, q⟩, rfl⟩
-  mem_center := CocycleExtension.mk_one_mem_center 1
-  orderOf_eq := by
-    apply orderOf_eq_prime
-    · rw [sq, CocycleExtension.mk_mul_mk, f.map_one_left]
-      ext
-      · rfl
-      · exact mul_one 1
-    · exact CocycleExtension.mk_one_one_ne_one
-  ker_eq := by
-    refine le_antisymm (fun x hx => ?_) (Subgroup.zpowers_le.2 (MonoidHom.mem_ker.2 rfl))
-    have hx1 : x.snd = 1 := hx
-    have : x = (⟨1, 1⟩ : CocycleExtension f) ^ x.fst.val := by
-      rw [CocycleExtension.mk_one_pow_val]
-      ext
-      · rfl
-      · exact hx1
-    rw [this]
-    exact pow_mem (mem_zpowers _) _
 
 noncomputable def binCoord {E : Type*} (x y : E) : ZMod 2 :=
   haveI := Classical.propDecidable (x = y)

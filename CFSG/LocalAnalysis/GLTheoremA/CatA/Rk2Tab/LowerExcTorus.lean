@@ -561,12 +561,5 @@ theorem rk2_low_e6_two_of_center_eq_bot (K : Type) [Group K] [Finite K] (lab : G
   exact le_evenRank_of_center_quotient θ Nat.prime_three (by norm_num) hZ hX hX2 hE'
     hE'card' hXE
 
-theorem rk2_low_e6_two (K : Type) [Group K] [Finite K] (lab : GLALabel)
-    (hK : Rk2IsLabel K lab) (htag : lab.tag = .E6)
-    (h : 3 ≤ lab.n ∨ (lab.n = 2 ∧ Subgroup.center K = ⊥)) :
-    5 ≤ evenRank K := by
-  rcases h with h3 | ⟨h2, hc⟩
-  · exact (rk2_low_e6_of_three_le K lab hK htag h3).trans' (by norm_num)
-  · exact rk2_low_e6_two_of_center_eq_bot K lab hK htag h2 hc
 
 end CFSG.LocalAnalysis.GLTheoremA

@@ -28,9 +28,6 @@ variable (h : UnitaryFieldData p f K)
 @[expose] def linearToSemilinear : linearSimilitudes h r ε →* semilinearSimilitudes h r ε :=
   SemidirectProduct.inl.subgroupComap (semilinearSimilitudes h r ε)
 
-theorem linearToSemilinear_left (A : linearSimilitudes h r ε) :
-    (linearToSemilinear h A : SemiGL (HypIndex r ε) K).left = A :=
-  rfl
 
 theorem linearToSemilinear_right (A : linearSimilitudes h r ε) :
     (linearToSemilinear h A : SemiGL (HypIndex r ε) K).right = 1 :=
@@ -44,9 +41,6 @@ variable (hr : 1 ≤ r) (hε : ε ≤ 1)
 @[expose] noncomputable def linearSimAutGroup : Subgroup (MulAut (hypPSU h r ε)) :=
   (linearSimAut h hr hε).range
 
-theorem linearSimAut_mem (A : linearSimilitudes h r ε) :
-    linearSimAut h hr hε A ∈ linearSimAutGroup h hr hε :=
-  ⟨A, rfl⟩
 
 theorem conj_mem_hypSU_of_linear (A : linearSimilitudes h r ε) (g : hypSU h r ε) :
     (A : GL (HypIndex r ε) K) * g * (A : GL (HypIndex r ε) K)⁻¹ ∈ hypSU h r ε := by
@@ -104,10 +98,6 @@ theorem ker_autFieldPart : (autFieldPart h hr hε hn hq).ker = linearSimAutGroup
     rw [MonoidHom.mem_ker, linearSimAut, MonoidHom.comp_apply, autFieldPart_apply]
     rfl
 
-include hn hq in
-theorem linearSimAutGroup_normal : (linearSimAutGroup h hr hε).Normal := by
-  rw [← ker_autFieldPart h hr hε hn hq]
-  exact MonoidHom.normal_ker _
 
 include h in
 theorem unitaryFieldAut_isCyclic : IsCyclic (K ≃+* K) := by

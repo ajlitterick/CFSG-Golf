@@ -49,9 +49,6 @@ theorem perm_four_center : ∀ σ : Equiv.Perm (Fin 4),
     (∀ ρ : Equiv.Perm (Fin 4), σ * ρ = ρ * σ) → σ = 1 := by
   decide +kernel
 
-theorem alternating_four_noncomm : ¬ ∀ σ ρ : Equiv.Perm (Fin 4),
-    (Equiv.Perm.sign σ = 1 ∧ Equiv.Perm.sign ρ = 1) → σ * ρ = ρ * σ := by
-  decide +kernel
 
 theorem dihedral_six_facts :
     (∀ g : DihedralGroup 6, DihedralGroup.r 3 * g = g * DihedralGroup.r 3) ∧

@@ -29,11 +29,6 @@ instance isometryLinearNormal (Q : QuadraticForm K (Fin d → K)) :
     ((matrixIsometryPairs Q).subgroupOf (linearSimilarityPairs Q)).Normal :=
   inferInstance
 
-theorem fieldProjection_kernel (Q : QuadraticForm K (Fin d → K)) :
-    (fieldProjection Q).ker = linearSimilarityPairs Q := rfl
-
-theorem linear_fieldProjection (Q : QuadraticForm K (Fin d → K))
-    (g : linearSimilarityPairs Q) : fieldProjection Q g.val = 1 := g.property
 
 theorem linear_pair_val (Q : QuadraticForm K (Fin d → K))
     (g : linearSimilarityPairs Q) :
@@ -50,9 +45,6 @@ theorem linear_pair_val (Q : QuadraticForm K (Fin d → K))
     rw [multiplier_mul Q hQ, (mem_linearSimilarityPairs_iff Q g.val).mp g.property]
     rfl
 
-theorem multiplierHom_apply (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) (g : linearSimilarityPairs Q) :
-    multiplierHom Q hQ g = multiplier Q g.val := rfl
 
 theorem multiplierHom_spec (Q : QuadraticForm K (Fin d → K))
     (hQ : ∃ v, Q v ≠ 0) (g : linearSimilarityPairs Q) (v : Fin d → K) :
@@ -88,13 +80,5 @@ theorem multiplierHom_kernel (Q : QuadraticForm K (Fin d → K))
   ext g
   exact multiplierHom_eq_one_iff Q hQ g
 
-theorem fieldProjection_isometry (Q : QuadraticForm K (Fin d → K))
-    (A : matrixIsometries Q) : fieldProjection Q (matrixIsometryInclusion Q A) = 1 := rfl
-
-theorem multiplierHom_isometry (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) (A : matrixIsometries Q) :
-    multiplierHom Q hQ
-      ⟨matrixIsometryInclusion Q A, fieldProjection_isometry Q A⟩ = 1 :=
-  (multiplierHom_eq_one_iff Q hQ _).mpr ⟨A, rfl⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalSemilinearFiltration

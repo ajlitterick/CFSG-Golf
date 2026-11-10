@@ -106,22 +106,6 @@ theorem original_four_group_isKleinFour (t s : H)
   rw [← ha]
   exact Monoid.order_dvd_exponent a
 
-theorem quotient_identifies_every_original_two_subgroup
-    (R : Subgroup H) [R.Normal] (hR : Odd (Nat.card R))
-    (P : Subgroup H) (hP : IsPGroup 2 P) :
-    ∃ e : P ≃* P.map (QuotientGroup.mk' R),
-      ∀ x : P, (e x : H ⧸ R) = QuotientGroup.mk' R (x : H) := by
-  let phi := (QuotientGroup.mk' R).comp P.subtype
-  let j : P →* P.map (QuotientGroup.mk' R) := phi.codRestrict _ (fun x =>
-    Subgroup.mem_map.mpr ⟨x, x.property, rfl⟩)
-  have hinj : Function.Injective j := by
-    intro x y hxy
-    exact quotient_injective_on_every_two_subgroup R hR P hP (congrArg Subtype.val hxy)
-  have hsurj : Function.Surjective j := by
-    intro y
-    obtain ⟨x, hx, hxy⟩ := Subgroup.mem_map.mp y.property
-    exact ⟨⟨x, hx⟩, Subtype.ext hxy⟩
-  exact ⟨MulEquiv.ofBijective j ⟨hinj, hsurj⟩, fun _ => rfl⟩
 
 theorem quotient_centrality_in_original_two_subgroup
     (R : Subgroup H) [R.Normal] (hR : Odd (Nat.card R))

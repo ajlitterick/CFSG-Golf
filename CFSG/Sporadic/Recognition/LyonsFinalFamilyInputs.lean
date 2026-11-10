@@ -30,8 +30,6 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native CFSG.Sporadic.Recogni
 
 @[expose] def isBWord (w : List (Fin 6 × Bool)) : Bool := w.all fun l => decide (l.1.val < 5)
 
-@[expose] def bWordCheck (r : List (Fin 6 × Bool)) : Bool :=
-  isBWord r && tblEq Ly0.deg (wordTabB r) (idT Ly0.deg)
 
 @[expose] def kLetter : Fin 6 × Bool := (5, true)
 
@@ -48,11 +46,6 @@ abbrev EEv := List ℤ × List (Fin 6 × Bool) × List (Fin 6 × Bool)
 
 @[expose] def isUWord (w : List ℤ) : Bool := w.all fun l => l != 0 && decide (l.natAbs ≤ 4)
 
-@[expose] def eCheck (ev : EEv) : Bool :=
-  isUWord ev.1 && isBWord ev.2.1 && isBWord ev.2.2 &&
-    tblEq Ly0.deg (wordTabB ev.2.1) (wordT Ly0.deg Glue.uLetB ev.1) &&
-    tblEq Ly0.deg (compT Ly0.deg (wordT Ly0.deg Glue.uLetB (substW ev.1)) (wordTabB ev.2.2))
-      (idT Ly0.deg)
 
 @[expose] def eRelOf (ev : EEv) : List (Fin 6 × Bool) := eRel ev.2.1 ev.2.2
 
@@ -86,9 +79,5 @@ abbrev TrEv := TrSeg × List TrSeg
   segCheck ev.1 && ev.2.all segCheck &&
     tblEq Ly243.deg (trWordTab (trWord ev)) (idT Ly243.deg)
 
-@[expose] def famCheck (eEvs : List EEv) (trEvs : List TrEv) (R : List (List (Fin 6 × Bool))) :
-    Bool :=
-  R.all fun r => bWordCheck r || r == kkRel || eEvs.any (fun e => r == eRelOf e && eCheck e) ||
-    trEvs.any (fun ev => r == trRel ev && trCheck ev)
 
 end CFSG.Sporadic.Recognition.LyonsSims.LyFinal

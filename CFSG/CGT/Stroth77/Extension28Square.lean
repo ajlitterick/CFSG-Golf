@@ -207,14 +207,6 @@ theorem exists_sq_eq_a310_of_data (D : StrothTypeData B (StrothTypeIndex.t310 m 
       rw [mul_inv_rev, inv_inv, ← mul_assoc, hcomm (y * y) aC, mul_assoc, mul_inv_cancel,
         mul_one]
 
-theorem exists_sq_eq_a310 (hB : HasStrothType B (StrothTypeIndex.t310 m hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) :
-    ∃ e : C, e * e = ⟨hB.data.a, hBC hB.data.a.2⟩ :=
-  exists_sq_eq_a310_of_data hB.data hBC hC hrel hL hH hcS hncyc
 
 end Main
 

@@ -70,11 +70,6 @@ open CFSG.Certificates.Native CFSG.CosetTable
 @[expose] def relA1 : List (List (Fin (subsetOf 2 [0]).length × Bool)) :=
   restrictWords (subsetOf 2 [0]) relA2
 
-@[expose] def nsCosetCheck : Bool :=
-  subsetCheck relPG [0, 1, 2, 3, 4, 5] 1000 28 && subsetCheck relE6 [1, 2, 3, 4, 5] 1000 27 &&
-    subsetCheck relD5 [1, 2, 3, 4] 1000 16 && subsetCheck relA4 [0, 1, 2] 1000 5 &&
-    subsetCheck relA3 [0, 1] 1000 4 && subsetCheck relA2 [0] 1000 3 &&
-    subsetCheck relA1 [] 1000 2
 
 @[expose] def extraStrongPlus : List (Array ℕ) := [
   #[0, 32, 2, 34, 4, 36, 6, 38, 8, 40, 10, 42, 12, 44, 14, 46, 16, 48, 18, 50, 20, 52, 22, 54,
@@ -252,23 +247,6 @@ abbrev nM (ε : Eps) : ℕ := mOf ε * 7
 
 @[expose] def iotaMat (ε : Eps) : Array ℕ := linBits 203 (29 * nM ε) (iotaB ε)
 
-@[expose] def redTab (tab : Array (ℕ × ℕ)) : ℕ → ℕ → ℕ → Option (ℕ × ℕ × ℕ)
-  | 0, _, _ => none
-  | fuel + 1, v, t =>
-    if v = 0 then none else
-      let h := Nat.log2 v
-      let q := tab.getD h (0, 0)
-      if q.1 = 0 then some (h, v, t) else redTab tab fuel (v ^^^ q.1) (t ^^^ q.2)
-
-@[expose] def echelon (b : ℕ) (rows : Array ℕ) : Array (ℕ × ℕ) :=
-  (List.range rows.size).foldl (fun tab r =>
-    match redTab tab (b + 1) (rows.getD r 0) (2 ^ r) with
-    | none => tab
-    | some (h, v, t) => tab.set! h (v, t)) (Array.replicate b (0, 0))
-
-@[expose] def annYOf (fm io : Array ℕ) (p b : ℕ) : Array ℕ :=
-  let rows := Array.ofFn (n := p) fun r => (fm.getD r 0 <<< 203) ||| io.getD r 0
-  ((echelon (b + 203) rows).extract 0 203).filterMap fun q => if q.1 = 0 then none else some q.2
 
 @[expose] def foxECols (ε : Eps) : Array ℕ := Array.ofFn (n := 49) fun k => foxEb ε (2 ^ (k : ℕ))
 
@@ -277,10 +255,6 @@ abbrev nM (ε : Eps) : ℕ := mOf ε * 7
 @[expose] def splitTest (ε : Eps) (p : ℕ) (fm io Y : Array ℕ) : Bool :=
   bIsZero Y.size (bmul Y.size p Y fm) && certCheck 203 49 Y.size (bmul Y.size p Y io) (foxECols ε)
 
-@[expose] def splitCheckOf (ε : Eps) (fm io : Array ℕ) : Bool :=
-  splitTest ε (29 * nM ε) fm io (annYOf fm io (29 * nM ε) (7 * nM ε))
-
-@[expose] def nsSplitCheck (ε : Eps) : Bool := splitCheckOf ε (fmMat ε) (iotaMat ε)
 
 @[expose] def cobCol (ε : Eps) (b : ℕ) : ℕ := foldOr 7 7 fun i => actECode ε i (2 ^ b) ^^^ 2 ^ b
 

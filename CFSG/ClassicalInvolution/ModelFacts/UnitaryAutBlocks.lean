@@ -368,35 +368,6 @@ theorem isPerfect_suTwo_of_card (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ 
   rw [CFSG.LieType.Steinberg.card_fixedSubfield hK]
   omega
 
-theorem innerDiag_of_partner_blocks_unitary (hK : Nat.card K = (p ^ f) ^ 2) (hp2 : p ≠ 2)
-    (hq : 5 ≤ p ^ f) {m : ℕ} (hm : 4 ≤ m) {Y : Type} [Group Y] (θ : Su K p f (m + 1) →* Y)
-    (hker : θ.ker ≤ Subgroup.center (Su K p f (m + 1))) (σ : Y ≃* Y) (hσ : ∀ y, σ (σ y) = y)
-    (hstab : ∀ x, σ (θ x) ∈ θ.range)
-    (hfix : ∀ a : Fin m, (a.val + 1 = m ∨ (1 ≤ a.val ∧ a.val + 3 ≤ m)) → ∀ A : Su K p f 2,
-      σ (θ (blockEmb2 K p f m a A)) = θ (blockEmb2 K p f m a A)) :
-    ∃ (g : GL (Fin (m + 1)) K)
-      (hg : ∀ x : Su K p f (m + 1), g * (x : GL (Fin (m + 1)) K) * g⁻¹ ∈
-        SUid (unitaryInvolution K p f) (m + 1)),
-      ∀ x, σ (θ x) = θ ⟨g * (x : GL (Fin (m + 1)) K) * g⁻¹, hg x⟩ := by
-  have hf : 1 ≤ f := by
-    rcases Nat.eq_zero_or_pos f with rfl | hf
-    · simp at hq
-    · exact hf
-  have h : UnitaryFieldData p f K := ⟨Fact.out, hf, by rw [hK, ← pow_mul, mul_comm]⟩
-  have := isPerfect_suTwo_of_card hK hq
-  obtain ⟨α, g, φ, hlift, hmat, hiso, hφ, hsq⟩ :=
-    unitaryAutClassification_ambient hK hp2 hq (by omega) θ hker σ hσ hstab
-  have hαfix : ∀ a : Fin m, (a.val + 1 = m ∨ (1 ≤ a.val ∧ a.val + 3 ≤ m)) → ∀ A : Su K p f 2,
-      α (blockEmb2 K p f m a A) = blockEmb2 K p f m a A := fun a ha A =>
-    DFunLike.congr_fun (lift_comp_eq_of_fixed hker hlift (blockEmb2 K p f m a) (hfix a ha)) A
-  rcases hφ with rfl | rfl
-  · have hα : ∀ x : Su K p f (m + 1), g * (x : GL (Fin (m + 1)) K) * g⁻¹ =
-        ((α x : Su K p f (m + 1)) : GL (Fin (m + 1)) K) := fun x =>
-      Units.ext (by rw [hmat x, Units.val_mul, Units.val_mul]; simp)
-    refine ⟨g, fun x => by rw [hα x]; exact (α x).2, fun x => ?_⟩
-    rw [← hlift x]
-    exact congrArg θ (Subtype.ext (hα x)).symm
-  · exact (not_fixed_blocks_of_graph h hK hp2 hm α g hmat hiso hsq hαfix).elim
 
 end Main
 

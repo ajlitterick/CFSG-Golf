@@ -136,15 +136,9 @@ theorem actionHom_range : actionHom.range = P := by
 @[expose] noncomputable def jEquivP : J ≃* P :=
   (MonoidHom.ofInjective actionHom_injective).trans (MulEquiv.subgroupCongr actionHom_range)
 
-theorem jEquivP_apply (g : J) : (jEquivP g : Equiv.Perm (Fin 315)) = actionHom g := rfl
 
 @[expose] noncomputable def nativeEquivP : NativeSporadic.J2 ≃* P := nativeEquiv.trans jEquivP
 
-theorem nativeEquivP_a : (nativeEquivP (nativeEquiv.symm a) : Equiv.Perm (Fin 315)) = permA := by
-  rw [nativeEquivP, MulEquiv.trans_apply, MulEquiv.apply_symm_apply, jEquivP_apply, actionHom_a]
-
-theorem nativeEquivP_b : (nativeEquivP (nativeEquiv.symm b) : Equiv.Perm (Fin 315)) = permB := by
-  rw [nativeEquivP, MulEquiv.trans_apply, MulEquiv.apply_symm_apply, jEquivP_apply, actionHom_b]
 
 theorem isSimpleGroup_P : IsSimpleGroup P :=
   @MulEquiv.isSimpleGroup _ _ _ _ isSimpleGroup_J jEquivP.symm

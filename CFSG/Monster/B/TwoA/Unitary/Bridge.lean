@@ -68,20 +68,5 @@ theorem n6Elt_of_ge {k : Fin 17} (h : ¬(k : ℕ) < 6) :
 
 @[expose] def H6 : Subgroup OLq := Subgroup.closure (Set.range n6Elt)
 
-theorem F4_omega_sq_add : CFSG.Fischer.F4.ω ^ 2 + CFSG.Fischer.F4.ω + 1 = 0 :=
-  CFSG.LinearGroups.F4_ω_sq
-
-theorem native_unitary_six_bridge_data :
-    sigmaCls ∈ vPerpL v0 ∧
-    (∀ k : Fin 6, decode n6PermArr[(k : ℕ)]! ∈ AutPerm) ∧
-    Fintype.card CFSG.Fischer.F4 = 4 ∧
-    CFSG.Fischer.F4.ω ^ 2 + CFSG.Fischer.F4.ω + 1 = 0 ∧
-    (∀ s t : V6, hU t s = CFSG.Monster.B.Classical.UnitarySix.bar (hU s t)) ∧
-    (∀ s : V6, (∀ t, hU s t = 0) → s = 0) ∧
-    Zh ≤ Subgroup.center SUh ∧
-    (∀ A ∈ SUh, frobGL A ∈ SUh) ∧ Zh ≤ Zh.comap frobSU ∧ frobQ * frobQ = 1 :=
-  ⟨sigmaCls_mem, fun k => (n6Aut k).2, CFSG.Fischer.F4.card, F4_omega_sq_add, hU_swap,
-    fun _ h => eq_zero_of_hU h, Zh_le_center, fun _ hA => frobGL_mem hA, Zh_le_comap_frobSU,
-    frobQ_mul_self⟩
 
 end CFSG.Monster.B.TwoA.Unitary

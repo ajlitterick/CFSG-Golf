@@ -55,6 +55,5 @@ theorem Sec4MRealizes.sq_eq_one (hinj : Function.Injective (sec4MPt t φ))
     exact Sec4MRealizes.one
   exact Sec4MRealizes.unique hinj (Sec4MRealizes.mul h h) h1
 
-variable [Finite G] {L S : Subgroup G} {z : G} {A B : Subgroup G} {u : G}
 
 end CFSG.OddStandard.SmallF3.Omega

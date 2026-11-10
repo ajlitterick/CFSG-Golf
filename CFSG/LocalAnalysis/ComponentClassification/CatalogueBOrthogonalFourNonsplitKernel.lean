@@ -112,10 +112,6 @@ theorem rho_eq_one_iff (h2 : (2 : K) ≠ 0) (A : normDeterminantOne delta) :
     rw [hAe]
     exact rho_scalarD delta h2 c hc
 
-theorem mem_rho_kernel (h2 : (2 : K) ≠ 0) (A : normDeterminantOne delta) :
-    A ∈ (rho delta h2).ker ↔ ∃ c : (extension delta)ˣ,
-      QuadraticAlgebra.norm (c : extension delta) = 1 ∧
-        A.val = GeneralLinearGroup.scalar (Fin 2) c := rho_eq_one_iff delta h2 A
 
 theorem specialRho_eq_one_iff (h2 : (2 : K) ≠ 0)
     (A : SpecialLinearGroup (Fin 2) (extension delta)) :

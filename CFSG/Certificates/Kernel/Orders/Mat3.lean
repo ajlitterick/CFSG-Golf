@@ -54,20 +54,6 @@ open CFSG.KC.Loop
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)
     (fun k acc => strictN acc (fun a => vstep3 d N RM v M k a)) d
 
-@[expose] noncomputable def vecTree (d RM : Nat) (f : Nat) : Nat → Nat → Nat → Nat → Nat → Nat :=
-  Nat.rec (motive := fun _ => Nat → Nat → Nat → Nat → Nat → Nat) (fun _ _ _ _ _ => nat_lit 0)
-    (fun _ ih v1 v2 P1 P2 n => Bool.rec (motive := fun _ => Nat)
-      ((fun n1 => (fun mv mp => strictN (ih (Nat.land v1 mv) (Nat.land v2 mv) (Nat.land P1 mp) (Nat.land P2 mp) n1)
-          (fun a => strictN (ih (Nat.shiftRight v1 n1) (Nat.shiftRight v2 n1) (Nat.shiftRight P1 (Nat.mul d n1))
-              (Nat.shiftRight P2 (Nat.mul d n1)) (Nat.sub n n1))
-            (fun b => add3 d (Nat.land a RM) (Nat.shiftRight a d) (Nat.land b RM) (Nat.shiftRight b d))))
-        (Nat.sub (Nat.shiftLeft (nat_lit 1) n1) (nat_lit 1)) (Nat.sub (Nat.shiftLeft (nat_lit 1) (Nat.mul d n1)) (nat_lit 1)))
-        (Nat.div n (nat_lit 2)))
-      (Nat.add (Nat.add (Nat.mul v1 P1) (Nat.mul v2 P2)) (Nat.shiftLeft (Nat.add (Nat.mul v1 P2) (Nat.mul v2 P1)) d))
-      (Nat.beq n (nat_lit 1))) f
-
-@[expose] noncomputable def vecT3 (d N RM LO f v M : Nat) : Nat :=
-  vecTree d RM f (Nat.land v RM) (Nat.shiftRight v d) (Nat.land M LO) (Nat.shiftRight M N) d
 
 @[expose] noncomputable def consts3OK (d f N LO RM CI ONE UP : Nat) : Bool :=
   andB (Nat.ble (nat_lit 1) d)

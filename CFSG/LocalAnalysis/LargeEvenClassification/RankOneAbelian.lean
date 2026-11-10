@@ -72,27 +72,5 @@ theorem rank_one_two_group_abelian_normal_cyclic {Ambient : Type groupUniverse} 
       hmaximal.2 ⟨hnormalLarger, hcommutativeLarger⟩ hlarger)
   exact ⟨Normal, hnormal, hcyclic, hselfCentralizing⟩
 
-theorem rank_one_two_group_three_generators {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] (hpgroup : IsPGroup 2 Ambient) (hrank : twoRank Ambient ≤ 1)
-    (Candidate : Subgroup Ambient) :
-    ∃ generators : Finset Candidate,
-      Subgroup.closure (generators : Set Candidate) = ⊤ ∧ generators.card ≤ 3 := by
-  obtain ⟨Normal, hnormal, hcyclic, hselfCentralizing⟩ :=
-    rank_one_two_group_abelian_normal_cyclic hpgroup hrank
-  let := hnormal
-  let := hcyclic
-  exact selfCentralizing_conj_subgroup_generator_bound Nat.prime_two hpgroup Normal inferInstance
-    hselfCentralizing Candidate (cyclic_pGeneratorRank_le_one Nat.prime_two (hpgroup.to_subgroup Normal))
-    (cyclic_two_aut_subgroup_generator_rank (hpgroup.to_subgroup Normal)
-      ((MulAut.conjNormal (H := Normal)).comp Candidate.subtype).range)
-
-theorem rank_one_two_group_generator_rank_le_three {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] (hpgroup : IsPGroup 2 Ambient) (hrank : twoRank Ambient ≤ 1) :
-    pGeneratorRank 2 Ambient ≤ 3 := by
-  obtain ⟨generators, hgenerates, hcard⟩ := rank_one_two_group_three_generators hpgroup hrank ⊤
-  have hbound : pGeneratorRank 2 (⊤ : Subgroup Ambient) ≤ 3 :=
-    (pGeneratorRank_le_generators Nat.prime_two (hpgroup.to_subgroup ⊤) generators hgenerates).trans hcard
-  rw [← pGeneratorRank_mulEquiv Nat.prime_two hpgroup (Subgroup.topEquiv.symm)] at hbound
-  exact hbound
 
 end CFSG.LargeEvenClassification.Helpers

@@ -110,8 +110,6 @@ theorem uElt_tau (i j : Fin 45) :
   rw [tqU_mul_tqU_mul_tqU (herm_vecK_uPt i) (herm_vecK_uPt j), ← hx, tqU_vecK_eq hx0 hxx,
     coe_uElt]
 
-theorem oIdx_neg_oPt (i : Fin 45) : oIdx (-oPt i) = i :=
-  (oIdx_oPt i).2
 
 theorem oElt_tau (i j : Fin 45) :
     tauE (pair_R3 isF3Form_I5Form (by norm_num)) (oElt i) (oElt j) =

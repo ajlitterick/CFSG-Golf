@@ -273,11 +273,6 @@ theorem mem_surv {L : Array Level} {q : Array Nat → Bool} {x : Array Nat}
   obtain ⟨_, _, _, _, _, _, _, _, ⟨_, _, _⟩, hq⟩ := h
   exact hq
 
-theorem commA_eq {t0 t1 t2 t3 t4 : Nat} (c0 : C t0) (c1 : C t1) (c2 : C t2) (c3 : C t3)
-    (c4 : C t4) : commR TitsT t0 t1 t2 t3 t4 =
-      commA (unpack 1755 11 (prod5K 1755 11 (mask 11) t0 t1 t2 t3 t4)) titsTArr := by
-  rw [commR_eq, t_eq, commPts_sound c0 c1 c2 c3 c4 cT]
-  rfl
 
 theorem canOf {LR TR : Nat → Nat} (hc : allN 5 (fun i => allN (rcnt (LR i)) (fun a =>
     canonK 1755 11 (mask 11) (1755 * 11) (trAt 1755 (1755 * 11) LR TR i a))) = true)

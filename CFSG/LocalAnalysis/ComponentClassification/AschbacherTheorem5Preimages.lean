@@ -9,8 +9,6 @@ open CFSG.Open
 
 namespace CFSG.ComponentClassification.AschbacherTheorem5
 
-theorem oddCore_eq_native (G : Type*) [Group G] :
-    aschbacherThm5OddCore G = componentClassificationOddCore G := rfl
 
 theorem oddCore_characteristic (G : Type*) [Group G] :
     (aschbacherThm5OddCore G).Characteristic := OddCore.characteristic G
@@ -47,12 +45,6 @@ theorem preimage_subgroupOf {G : Type*} [Group G] (D : Subgroup G)
       Abar.comap (QuotientGroup.mk' (aschbacherThm5OddCore D)) :=
   Subgroup.comap_map_eq_self_of_injective D.subtype_injective _
 
-theorem preimage_quotient_image {G : Type*} [Group G] (D : Subgroup G)
-    (Abar : Subgroup (D ⧸ aschbacherThm5OddCore D)) :
-    ((aschbacherThm5Preimage D Abar).subgroupOf D).map
-      (QuotientGroup.mk' (aschbacherThm5OddCore D)) = Abar := by
-  rw [preimage_subgroupOf]
-  exact Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective _) _
 
 theorem preimage_injective {G : Type*} [Group G] (D : Subgroup G) :
     Function.Injective (aschbacherThm5Preimage D) :=
@@ -67,39 +59,6 @@ theorem mem_preimage_iff {G : Type*} [Group G] (D : Subgroup G)
     (QuotientGroup.mk' (aschbacherThm5OddCore D))).map D.subtype ↔ _
   exact Subgroup.mem_map_iff_mem D.subtype_injective
 
-theorem preimage_top {G : Type*} [Group G] (D : Subgroup G) :
-    aschbacherThm5Preimage D ⊤ = D := by
-  rw [aschbacherThm5Preimage, Subgroup.comap_top, Subgroup.map_top,
-    Subgroup.range_subtype]
-
-theorem preimage_sup {G : Type*} [Group G] (D : Subgroup G)
-    (Abar Bbar : Subgroup (D ⧸ aschbacherThm5OddCore D)) :
-    aschbacherThm5Preimage D (Abar ⊔ Bbar) =
-      aschbacherThm5Preimage D Abar ⊔ aschbacherThm5Preimage D Bbar := by
-  rw [aschbacherThm5Preimage, ← Subgroup.comap_sup_eq _ _ _
-    (QuotientGroup.mk'_surjective _), Subgroup.map_sup]
-  rfl
-
-theorem preimages_generate {G Index : Type*} [Group G] [Nonempty Index]
-    (D : Subgroup G) (Abar : Index → Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (hgen : ⨆ i, Abar i = ⊤) :
-    (⨆ i, aschbacherThm5Preimage D (Abar i)) = D := by
-  let quotient := QuotientGroup.mk' (aschbacherThm5OddCore D)
-  let family := fun i => (Abar i).comap quotient
-  have hkernel : quotient.ker ≤ ⨆ i, family i := by
-    obtain ⟨i⟩ := ‹Nonempty Index›
-    exact (Subgroup.ker_le_comap quotient (Abar i)).trans (le_iSup family i)
-  have hmap : (⨆ i, family i).map quotient = ⊤ := by
-    rw [Subgroup.map_iSup]
-    simp only [family, quotient, Subgroup.map_comap_eq_self_of_surjective
-      (QuotientGroup.mk'_surjective _)]
-    exact hgen
-  have hfull : (⨆ i, family i) = ⊤ := by
-    have hcomap := Subgroup.comap_map_eq quotient (⨆ i, family i)
-    rw [hmap, Subgroup.comap_top, sup_eq_left.mpr hkernel] at hcomap
-    exact hcomap.symm
-  change (⨆ i, (family i).map D.subtype) = D
-  rw [← Subgroup.map_iSup, hfull, Subgroup.map_top, Subgroup.range_subtype]
 
 theorem preimage_normal {G : Type*} [Group G] (D : Subgroup G)
     (Abar : Subgroup (D ⧸ aschbacherThm5OddCore D)) [Abar.Normal] :

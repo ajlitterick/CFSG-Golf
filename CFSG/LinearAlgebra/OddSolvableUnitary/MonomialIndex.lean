@@ -14,16 +14,6 @@ open scoped commutatorElement
 
 variable {f : ℕ} {K : Type} [Field K]
 
-theorem coe_cycGL_eq_permMatrix :
-    ((cycGL : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = permMatrix 3 K (finRotate 3) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [coe_cycGL, cycMat, permMatrix_apply]
-
-theorem coe_s01GL_eq_permMatrix [CharP K 2] :
-    ((s01GL : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = permMatrix 3 K (Equiv.swap 0 1) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [coe_s01GL, s01Mat, permMatrix_apply, Equiv.swap_apply_def, CharTwo.neg_eq]
 
 theorem s01GL_conj_cycGL : (s01GL : GL (Fin 3) K) * cycGL * s01GL⁻¹ = cycGL⁻¹ := by
   apply Units.ext
@@ -31,14 +21,6 @@ theorem s01GL_conj_cycGL : (s01GL : GL (Fin 3) K) * cycGL * s01GL⁻¹ = cycGL�
   ext i j
   fin_cases i <;> fin_cases j <;> simp [s01Mat, cycMat, Matrix.mul_apply, Fin.sum_univ_three]
 
-theorem s01GL_ne_one : (s01GL : GL (Fin 3) K) ≠ 1 := by
-  intro h
-  have := congrFun (congrFun (congrArg (fun g : GL (Fin 3) K => (g : Matrix (Fin 3) (Fin 3) K))
-    h) 0) 0
-  simp [coe_s01GL, s01Mat] at this
-
-theorem orderOf_s01GL : orderOf (s01GL : GL (Fin 3) K) = 2 :=
-  orderOf_eq_prime s01GL_sq s01GL_ne_one
 
 theorem mem_normOne_iff_norm (hK : UnitaryFieldData 2 f K) {a : Kˣ} :
     a ∈ normOne K (2 ^ f) ↔ hK.norm a = 1 := by
@@ -379,16 +361,6 @@ theorem card_homologySU : Nat.card (homologySU : Subgroup (unitarySU 2 f K 3)) =
 variable {G' : Type*} [Group G'] (ψ : unitarySU 2 f K 3 →* G') (hψ : ψ.ker ≤ unitaryScalars hK 3)
 include hψ
 
-theorem orderOf_map_transpositionSU : orderOf (ψ (transpositionSU hK)) = 2 := by
-  refine orderOf_eq_prime ?_ fun h => ?_
-  · rw [← map_pow]
-    convert map_one ψ
-    exact Subtype.ext s01GL_sq
-  · obtain ⟨c, -, -, hc⟩ := mem_unitaryScalars.1 (hψ (MonoidHom.mem_ker.2 h))
-    have := congrFun (congrFun (congrArg (fun g : GL (Fin 3) K =>
-      (g : Matrix (Fin 3) (Fin 3) K)) hc) 0) 0
-    simp [coe_s01GL, s01Mat, Matrix.GeneralLinearGroup.coe_scalar] at this
-    exact c.ne_zero this.symm
 
 omit hψ in
 theorem commutator_map_monomialSU :
@@ -450,57 +422,5 @@ theorem ncard_conj_map_transpositionSU [Finite K] :
 
 end Quotient
 
-theorem even_unitary_three_monomial_odd_subgroup_involution_index (hK : UnitaryFieldData 2 f K)
-    (Z₀ : Subgroup (unitarySU 2 f K 3)) (hZ₀ : Z₀ ≤ unitaryScalars hK 3) :
-    haveI : Z₀.Normal := normal_of_le_center (hZ₀.trans (unitaryScalars_le_center hK 3))
-    let π : unitarySU 2 f K 3 →* unitarySU 2 f K 3 ⧸ Z₀ := QuotientGroup.mk' Z₀
-    (∀ a : Kˣ, a ∈ normOne K (2 ^ f) ↔ hK.norm a = 1) ∧
-      ((cycGL : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = permMatrix 3 K (finRotate 3) ∧
-      ((s01GL : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = permMatrix 3 K (Equiv.swap 0 1) ∧
-      monomialX (normOne K (2 ^ f)) ≤ unitarySU 2 f K 3 ∧
-      Nat.card (monomialX (normOne K (2 ^ f))) = 3 * (2 ^ f + 1) ^ 2 ∧
-      Odd (Nat.card (monomialX (normOne K (2 ^ f)))) ∧
-      (s01GL : GL (Fin 3) K) ∈ unitarySU 2 f K 3 ∧ orderOf (s01GL : GL (Fin 3) K) = 2 ∧
-      (s01GL : GL (Fin 3) K) ∈ normalizer (monomialX (normOne K (2 ^ f)) : Set (GL (Fin 3) K)) ∧
-      ⁅monomialX (normOne K (2 ^ f)), zpowers (s01GL : GL (Fin 3) K)⁆ =
-        monomialX (normOne K (2 ^ f)) ∧
-      orderOf (π (transpositionSU hK)) = 2 ∧
-      ⁅monomialSU.map π, zpowers (π (transpositionSU hK))⁆ = monomialSU.map π ∧
-      Nat.card (monomialSU.map π) = 3 * (2 ^ f + 1) ^ 2 / Nat.card Z₀ ∧
-      monomialSU.map π ⊓ centralizer {π (transpositionSU hK)} = homologySU.map π ∧
-      Nat.card (homologySU.map π) = (2 ^ f + 1) / Nat.card Z₀ ∧
-      {y | ∃ x ∈ monomialSU.map π, x * π (transpositionSU hK) * x⁻¹ = y}.ncard =
-        3 * (2 ^ f + 1) ∧
-      Nat.card (unitaryScalars hK 3) = Nat.gcd 3 (2 ^ f + 1) ∧
-      (Z₀ = unitaryScalars hK 3 →
-        Nat.card (monomialSU.map π) = 3 * (2 ^ f + 1) ^ 2 / Nat.gcd 3 (2 ^ f + 1)) := by
-  have := hK.finite
-  have : CharP K 2 := hK.charP
-  have : Z₀.Normal := normal_of_le_center (hZ₀.trans (unitaryScalars_le_center hK 3))
-  intro π
-  have hπ : π.ker ≤ unitaryScalars hK 3 := by
-    rw [QuotientGroup.ker_mk']
-    exact hZ₀
-  have hker : Nat.card π.ker = Nat.card Z₀ := by rw [QuotientGroup.ker_mk']
-  have hZpos : 0 < Nat.card Z₀ := Nat.card_pos
-  have hX := card_map_monomialSU hK π hπ
-  have hH := card_map_homologySU hK π hπ
-  rw [hker] at hX hH
-  have hcardZ := card_unitaryScalars hK (n := 3) (by norm_num)
-  refine ⟨fun a => mem_normOne_iff_norm hK, coe_cycGL_eq_permMatrix, coe_s01GL_eq_permMatrix,
-    monomialX_le_unitarySU hK, card_monomialX hK, ?_, s01GL_mem_unitarySU hK, orderOf_s01GL,
-    s01GL_mem_normalizer_monomialX _, commutator_monomialX_eq _ (odd_card_normOne hK),
-    orderOf_map_transpositionSU hK π hπ, commutator_map_monomialSU hK π,
-    (Nat.div_eq_of_eq_mul_left hZpos hX.symm).symm, inf_centralizer_map_monomialSU hK π hπ,
-    (Nat.div_eq_of_eq_mul_left hZpos hH.symm).symm, ncard_conj_map_transpositionSU hK π hπ,
-    hcardZ, fun h => ?_⟩
-  · rw [card_monomialX hK]
-    have h2 : Odd (2 ^ f + 1) := by
-      have : Even (2 ^ f) := (Nat.even_pow' (by have := hK.one_le; omega)).2 even_two
-      exact this.add_one
-    exact (by decide : Odd 3).mul (h2.pow)
-  · have hZ : Nat.card Z₀ = Nat.gcd 3 (2 ^ f + 1) := by rw [← hcardZ, h]
-    rw [← hZ]
-    exact (Nat.div_eq_of_eq_mul_left hZpos hX.symm).symm
 
 end CFSG.OddSolvableUnitary

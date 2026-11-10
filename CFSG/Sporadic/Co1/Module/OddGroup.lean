@@ -52,7 +52,6 @@ theorem OddCert.conj_mem {n t : G} (hn : n ∈ stabilizer G C.ω₀) (ht : t ∈
   refine ⟨Subgroup.mul_mem _ (Subgroup.mul_mem _ hn ht.1) (Subgroup.inv_mem _ hn), ?_⟩
   exact ht.2.trans (isConj_iff.2 ⟨n, rfl⟩)
 
-theorem OddCert.ρ_mem_S : C.ρ ∈ C.S := ⟨C.ρ_mem, IsConj.refl _⟩
 
 omit [MulAction G Ω] in
 theorem orderOf_conj' (g x : G) : orderOf (g * x * g⁻¹) = orderOf x := by

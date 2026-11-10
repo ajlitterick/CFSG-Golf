@@ -32,8 +32,6 @@ theorem k5 : d5K E8.RK E8.RT E8.PT E8.DP = true := by quickRfl
 theorem kInv : CFSG.KC.Enum.allN 112 (fun r => CFSG.KC.Enum.permOK 240 8 255 1920 (E8.RT r) (E8.RT r)) =
     true := by quickRfl
 
-theorem neg_inv : notB' (CFSG.KC.Enum.allN 112 (fun r => CFSG.KC.Enum.permOK 240 8 255 1920
-    (Nat.xor (E8.RT r) 1) (Nat.xor (E8.RT r) 1))) = true := by quickRfl
 
 open CFSG.EvenSmallLie.OmegaEight.Weyl in
 theorem cert3189 : dCheck = true := by

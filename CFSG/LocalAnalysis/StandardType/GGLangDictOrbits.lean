@@ -174,13 +174,6 @@ private def dictOrb_orbitRoots {τ : Tag} {M : Type*} [CommGroup M]
   {γ | ∃ (k : ℕ) (δ : Fin τ.rank → ℤ), δ ∈ componentRoots χ i ∧
     γ = (ρ : (Fin τ.rank → ℤ) → (Fin τ.rank → ℤ))^[k] δ}
 
-private theorem dictOrb_orbitRoots_mapsTo {τ : Tag} {M : Type*} [CommGroup M]
-    {ρ : Equiv.Perm (Fin τ.rank → ℤ)} {χ : Multiplicative (Fin τ.rank → ℤ) →* M}
-    (i : KernelComponent χ) :
-    Set.MapsTo (ρ : (Fin τ.rank → ℤ) → (Fin τ.rank → ℤ))
-      (dictOrb_orbitRoots ρ χ i) (dictOrb_orbitRoots ρ χ i) := by
-  rintro _ ⟨k, δ, hδ, rfl⟩
-  exact ⟨k + 1, δ, hδ, by rw [Function.iterate_succ_apply']⟩
 
 private theorem dictOrb_orbitRoots_subset_kernelRoots {τ : Tag} {M : Type*} [CommGroup M]
     {ρ : Equiv.Perm (Fin τ.rank → ℤ)} {χ : Multiplicative (Fin τ.rank → ℤ) →* M}

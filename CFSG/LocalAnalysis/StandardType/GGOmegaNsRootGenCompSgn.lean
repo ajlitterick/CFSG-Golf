@@ -43,9 +43,6 @@ variable {F : Type} [Field F] [Finite F] [CharP F 2] {V : Type} [AddCommGroup V]
 
 section FrameCalculus
 
-@[instance_reducible] private def frameCommMonoid (hF : IsPlaneFrame Q p U e E) : CommMonoid ↥E :=
-  letI : IsMulCommutative ↥E := hF.isElemAbelian.1
-  { (inferInstance : Group ↥E) with mul_comm := fun x y => mul_comm' x y }
 
 noncomputable def frameProj (hF : IsPlaneFrame Q p U e E) (i : Fin k) : V →ₗ[F] V :=
   (U i).projection (polarPerp Q (U i)) (isCompl_polarPerp (hF.nondeg i))

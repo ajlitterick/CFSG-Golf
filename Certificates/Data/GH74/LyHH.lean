@@ -41,19 +41,5 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Fi23.Native CFSG.Sporadic.Ly.Native
   ([9], [7], 0)
 ]
 
-@[expose] def hhCheck (alpha beta : Table) : Bool :=
-  let gens := genTables alpha beta
-  let L := slpLetters nPts gens hhWords
-  slpOK hhWords && hhWords.size == 8 && L.size == 16 &&
-    allIn 0 hhWords.size (fun j => invOK nPts L[2 * j]! L[2 * j + 1]!) &&
-    hhRels.all (fun r =>
-      wordT nPts (slpLetterT gens L) r.1 == wordT nPts (slpLetterT gens L) r.2) &&
-    hhNe.all (fun r => decide (r.2.2 < nPts) &&
-      ap (wordT nPts (slpLetterT gens L) r.1) r.2.2 !=
-        ap (wordT nPts (slpLetterT gens L) r.2.1) r.2.2)
-
-@[expose] def hhCertificate (_ : Unit) : Bool :=
-  let O := orbitData ()
-  hhCheck O.alpha O.beta
 
 end CFSG.Sporadic.Ly.HH

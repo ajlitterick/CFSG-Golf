@@ -259,20 +259,5 @@ theorem autEmbed_injective :
   rw [centralizer_P0] at hcen
   exact hcen
 
-theorem native_pair_stabilizer_catalog_M22_embedding :
-    Function.Injective jCat ∧ (∀ m : Fin 24, (m ≠ 0 ∧ m ≠ 1) ↔ ∃ i, jCat i = m) ∧
-    (∀ g : Equiv.Perm (Fin 22), psiHom g 0 = 0 ∧ psiHom g 1 = 1 ∧
-      ∀ i, psiHom g (jCat i) = jCat (g i)) ∧
-    (∃ e : CFSG.Blueprint.NativeSporadic.M22 ≃* P0, ∀ g,
-      (((e g : P0) : AutPerm) : Equiv.Perm (Fin 24)) = psiHom g) ∧
-    P0 ≤ Ppair ∧ P0in.Normal ∧ P0in.index = 2 ∧
-    Subgroup.centralizer (P0in : Set Ppair) = ⊥ ∧
-    Function.Injective autEmbed ∧ Nat.card autEmbed.range = 887040 := by
-  refine ⟨jCat_injective, fun m => ⟨fun h => exists_jCat m h.1 h.2, ?_⟩,
-    fun g => ⟨psiHom_zero g, psiHom_one g, psiHom_jCat g⟩, ⟨m22EquivP0, coe_m22EquivP0⟩,
-    P0_le_Ppair, inferInstance, index_P0in, centralizer_P0, autEmbed_injective, ?_⟩
-  · rintro ⟨i, rfl⟩
-    exact jCat_ne i
-  · rw [← Nat.card_congr (MonoidHom.ofInjective autEmbed_injective).toEquiv, natCard_Ppair]
 
 end CFSG.Monster.B.TwoA

@@ -485,21 +485,11 @@ theorem ea16_iff
     · exact ⟨eaSub_ea _, eaSub_card _⟩
     · exact ⟨eaSub_ea _, eaSub_card _⟩
 
-theorem lyE1_ne_lyE2 :
-    lyE1 ≠ lyE2 := by
-  intro h
-  have h3a : 3 ∈ e16a := by decide
-  have h3b : 3 ∉ e16b := by decide
-  have := (lists_eaSub e16a_mem).2 3 (by norm_num)
-  rw [show eaSub e16a_mem = lyE2 from h] at this
-  exact h3b ((lists_eaSub e16b_mem).2 3 (by norm_num) |>.2 (this.1 h3a))
 
 @[expose] def qSub :
     Subgroup lyS :=
   listSubgroup qList tableFacts.qLt tableFacts.qClosed tableFacts.qZero tableFacts.qInv
 
-theorem lists_qSub :
-    Lists qList qSub := lists_listSubgroup _ _ _ _ _
 
 theorem sylowElt_q
     {q : ℕ} (hq : q ∈ qList) : sylowElt q = (sE q : J) := by
@@ -874,25 +864,5 @@ theorem commutator_lyC :
   have := Subgroup.mul_mem _ hn hz'
   rwa [mul_inv_cancel_left] at this
 
-theorem sylow_structure_automorphisms :
-    (∃ P : Sylow 2 J, (P : Subgroup J) = lyS) ∧ Nat.card lyS = 256 ∧
-    Subgroup.center lyS = Subgroup.zpowers ⟨lyz, lyz_mem_lyS⟩ ∧
-    Nat.card (commutator lyS) = 32 ∧ (⟨lyz, lyz_mem_lyS⟩ : lyS) ∈ commutator lyS ∧
-    CFSG.IsElementaryAbelian 2 (lyS ⧸ commutator lyS) ∧ Nat.card (lyS ⧸ commutator lyS) = 8 ∧
-    (∃ E₁ E₂ : Subgroup lyS, E₁ ≠ E₂ ∧
-      (∀ E : Subgroup lyS, (CFSG.IsElementaryAbelian 2 E ∧ Nat.card E = 16) ↔
-        E = E₁ ∨ E = E₂) ∧
-      lyQ = (E₁ ⊔ E₂).map lyS.subtype) ∧
-    Nat.card lyQ = 64 ∧ Nonempty (Subgroup.center lyQ ≃* Multiplicative (ZMod 2 × ZMod 2)) ∧
-    lyQ ≤ lyS ∧ (lyQ.subgroupOf lyS).Characteristic ∧
-    (∀ g : J, lyQ.map (MulAut.conj g).toMonoidHom ≤ lyS →
-      lyQ.map (MulAut.conj g).toMonoidHom = lyQ) ∧
-    Group.IsSolvable (MulAut lyS) ∧ commutator lyC = ⊤ := by
-  have := isKleinFour_center_lyQ
-  exact ⟨⟨lySylow, rfl⟩, card_lyS, center_lyS, card_commutator_lyS, zS_mem_commutator,
-    isElementaryAbelian_quotient, card_quotient_lyS,
-    ⟨lyE1, lyE2, lyE1_ne_lyE2, ea16_iff, lyQ_eq⟩, card_lyQ,
-    IsKleinFour.nonempty_mulEquiv (G₁ := Subgroup.center lyQ),
-    lyQ_le, lyQ_characteristic, lyQ_weakly_closed, isSolvable_mulAut_lyS, commutator_lyC⟩
 
 end CFSG.Sporadic.LySchreier

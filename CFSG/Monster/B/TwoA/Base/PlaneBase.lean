@@ -148,10 +148,6 @@ theorem cbothFtwoHyp : MonoHyp Cboth Ftwo where
       · rw [← coe_inv_autPerm, h2, h3]; exact ha.2.2
       · rw [← coe_inv_autPerm, h2, h3]; exact ha.2.2.symm
 
-theorem mk_mem_Kstab_of_Ftwo
-    {a : C} (ha : (a : Fin 24 → ZMod 2) ∈ Ceq) {p : AutPerm}
-    (hp : p ∈ Ftwo) : (QuotientGroup.mk (gO a * PO p) : OLq) ∈ Kstab v0 :=
-  (mk_mem_Kstab_iff_monomial a p).2 ⟨Ftwo_le_Ppair hp, ha⟩
 
 theorem wAct_monomial_sW
     {a : C} {p : AutPerm}
@@ -432,22 +428,11 @@ theorem range_dvd_six :
 instance CU_subgroupOf_normal :
     (CU.subgroupOf NU).Normal := ker_resU ▸ resU.normal_ker
 
-theorem monoSub_ceqFtwo_le_Kstab :
-    monoSub ceqFtwoHyp ≤ Kstab v0 :=
-  (monoSub_mono ceqFtwoHyp ceqHyp le_rfl Ftwo_le_Ppair).trans monoSub_ceq_le_Kstab
 
 theorem monoSub_cbothFtwo_le_Kstab :
     monoSub cbothFtwoHyp ≤ Kstab v0 :=
   (monoSub_mono cbothFtwoHyp ceqHyp inf_le_left Ftwo_le_Ppair).trans monoSub_ceq_le_Kstab
 
-theorem map_NUw :
-    (NU ⊓ Mfr).map (Kstab v0).subtype = monoSub ceqFtwoHyp := by
-  ext x
-  constructor
-  · rintro ⟨k, hk, rfl⟩
-    exact (mem_NUw_iff k).1 hk
-  · intro hx
-    exact ⟨⟨x, monoSub_ceqFtwo_le_Kstab hx⟩, (mem_NUw_iff _).2 hx, rfl⟩
 
 theorem map_CU :
     CU.map (Kstab v0).subtype = monoSub cbothFtwoHyp := by
@@ -458,10 +443,6 @@ theorem map_CU :
   · intro hx
     exact ⟨⟨x, monoSub_cbothFtwo_le_Kstab hx⟩, (mem_CU_iff _).2 hx, rfl⟩
 
-@[expose] noncomputable def nuwEquivMono :
-    ↥(NU ⊓ Mfr) ≃* monoSub ceqFtwoHyp :=
-  ((NU ⊓ Mfr).equivMapOfInjective (Kstab v0).subtype Subtype.val_injective).trans
-    (MulEquiv.subgroupCongr map_NUw)
 
 @[expose] noncomputable def cuEquivMono :
     CU ≃* monoSub cbothFtwoHyp :=
@@ -515,9 +496,5 @@ theorem natCard_pCore_CU :
     Nat.card (CFSG.pCore 2 CU) = 2 ^ 14 := by
   rw [← ker_betaCU, natCard_ker_betaCU]
 
-@[expose] noncomputable def cuQuotEquiv :
-    CU ⧸ CFSG.pCore 2 CU ≃* Equiv.Perm (Fin 5) :=
-  (QuotientGroup.quotientMulEquivOfEq ker_betaCU.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective betaCU betaCU_surjective)
 
 end CFSG.Monster.B.TwoA

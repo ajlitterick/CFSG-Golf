@@ -28,7 +28,6 @@ namespace CFSG.OddStandard.SmallF3.HarrisU33.GH23Data
     k := k + 1
   return y
 
-@[expose] def invOK (x : Nat) : Bool := validC (invC x) && mulC x (invC x) == oneC
 
 @[expose] def bfsChain (gens : List Nat) : List (Nat × Nat × Nat) := Id.run do
   let ga := gens.toArray
@@ -47,22 +46,5 @@ namespace CFSG.OddStandard.SmallF3.HarrisU33.GH23Data
     i := i + 1
   return chain.toList
 
-@[expose] def replay (gens : List Nat) :
-    List (Nat × Nat × Nat) → Std.HashSet Nat → Option (Std.HashSet Nat)
-  | [], s => some s
-  | (e, p, g) :: rest, s =>
-    if s.contains p && gens.contains g && mulC p g == e && !s.contains e then
-      replay gens rest (s.insert e)
-    else none
-
-@[expose] def closData (gens : List Nat) : Option (List Nat × Std.HashSet Nat) :=
-  let chain := bfsChain gens
-  match replay gens chain (({} : Std.HashSet Nat).insert oneC) with
-  | none => none
-  | some s =>
-    let elems := oneC :: chain.map (·.1)
-    if gens.all validC && gens.all s.contains &&
-        elems.all (fun e => gens.all fun g => s.contains (mulC e g)) then some (elems, s)
-    else none
 
 end CFSG.OddStandard.SmallF3.HarrisU33.GH23Data

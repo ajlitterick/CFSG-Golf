@@ -82,17 +82,6 @@ section Roots
 
 @[expose] def e8P4Neg (l : List ℤ) : List ℤ := l.map fun x => -x
 
-@[expose] def e8P4SameClass (l l' : List ℤ) : Bool :=
-  l' == l || l' == e8P4Neg l || l' == lmulVec Tag.E8.rank e8P4VList l ||
-    l' == e8P4Neg (lmulVec Tag.E8.rank e8P4VList l)
-
-@[expose] def e8P4Nrm (c : List ℤ) (j : ℕ) : ℤ :=
-  c.getD (2 * j) 0 * c.getD (2 * j) 0 + c.getD (2 * j + 1) 0 * c.getD (2 * j + 1) 0
-
-theorem e8P4_coord_nonzero_list : ∀ l ∈ Tag.E8.artifactRoots,
-    (List.range 4).any (fun j => decide (1 ≤ e8P4Nrm (e8P4Coord l) j ∧
-      e8P4Nrm (e8P4Coord l) j ≤ 4)) = true := by
-  decide +kernel
 
 abbrev GZ := ℤ × ℤ
 

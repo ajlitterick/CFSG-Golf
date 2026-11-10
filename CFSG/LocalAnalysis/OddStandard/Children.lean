@@ -18,10 +18,6 @@ structure StandardSetting (G : Type) [Group G] [Finite G] (L : Subgroup G) : Pro
 @[expose] def AltOutcome (G : Type) [Group G] : Prop :=
   ∃ m : ℕ, 9 ≤ m ∧ Nonempty (G ≃* alternatingGroup (Fin m))
 
-@[expose] def ChildLargeAlt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), StandardSetting G L →
-    (∃ n : ℕ, 8 ≤ n ∧ Nonempty (L ⧸ center L ≃* alternatingGroup (Fin n))) →
-    AltOutcome G ∨ IsSporadic G .McL ∨ IsSporadic G .Ly
 
 @[expose] def ChildSmallAltOdd : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), StandardSetting G L →

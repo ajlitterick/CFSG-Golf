@@ -10,8 +10,6 @@ open CFSG CFSG.GH74.GLS
 
 variable {G : Type*} [Group G] (A : Subgroup G) (LB : Subgroup G → Subgroup G)
 
-@[expose] def Item147 : Prop :=
-  ∀ Y ∈ scriptY A, ⁅deltaZero A LB Y, pPrimeCoreOf 3 Y⁆ ≤ delta A LB (pPrimeCoreOf 3 Y)
 
 @[expose] def Item148Normal : Prop :=
   ∀ Y ∈ scriptY A,

@@ -36,16 +36,6 @@ theorem primaryCentralKernelOrder_zero_of_not_dvd {p : ℕ} [Fact p.Prime]
   refine primaryCentralKernelOrder_iff.2 (Nat.factorization_eq_zero_of_not_dvd fun hd => h ?_)
   exact dvd_card_of_dvd_card_hopfMultiplier Fact.out hd
 
-theorem card_hopfMultiplier_eq_of_cells {n : ℕ} (hn : n ≠ 0)
-    (hnX : ∀ p : ℕ, p.Prime → p ∣ n → p ∣ Nat.card X)
-    (h : ∀ (p : ℕ) [Fact p.Prime], p ∣ Nat.card X →
-      PrimaryCentralKernelOrder X p (n.factorization p)) :
-    Nat.card (hopfMultiplier X) = n := by
-  refine card_hopfMultiplier_eq_of_primaryCentralKernelOrder hn fun p hp => ?_
-  by_cases hpX : p ∣ Nat.card X
-  · exact h p hpX
-  · rw [Nat.factorization_eq_zero_of_not_dvd fun hd => hpX (hnX p hp.out hd)]
-    exact primaryCentralKernelOrder_zero_of_not_dvd hpX
 
 end Multiplier
 

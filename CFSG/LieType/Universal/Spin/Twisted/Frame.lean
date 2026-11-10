@@ -397,9 +397,5 @@ theorem commute_longRoot_twShortRoot_right {i j : Fin (n - 1)} (hij : i ≠ j) (
     rw [hL, hR]
   exact (Commute.one_left _).add_left ((Commute.one_right _).add_right (h.smul_left a))
 
-theorem commute_twShortRoot_twShortRoot_same (i : Fin (n - 1)) (s : Bool) (p q : Fin 2 → K) :
-    Commute (twShortRoot n hirr i s (.ofAdd p)) (twShortRoot n hirr i s (.ofAdd q)) := by
-  exact (Commute.all (Multiplicative.ofAdd p) (Multiplicative.ofAdd q)).map
-    (twShortRoot n hirr i s)
 
 end CFSG.LieType.Universal.Spin.Twisted

@@ -109,41 +109,6 @@ theorem closure_mul_pair_eq (z t : G) :
     · rw [hx]
       exact hz'
 
-theorem BadStd8.false_of_localAxis_rank [IsSimpleGroup G] (h : BadStd8 Ω K J S R T W z t)
-    {B : Subgroup G} (hbal : RankThreeBalance B)
-    (hpair : Subgroup.closure ({t, z} : Set G) ≤ B)
-    (hgen : Subgroup.centralizer ({z} : Set G) ≤ rankTwoSpan B) : False := by
-  have hF : Subgroup.closure ({t, z} : Set G) ∈ signalizerFunctorEk 2 2 B :=
-    ⟨hpair, by simpa using h.isElemAbelian2_pair.1⟩
-  have hAF : Balance.Theorem5.alphaFrame B = alphaCore (Subgroup.closure ({t, z} : Set G)) :=
-    Balance.Theorem5.alphaFrame_eq_alphaCore hbal hF
-  have hodd : Odd (Nat.card ↥(alphaCore (Subgroup.closure ({t, z} : Set G)))) := by
-    rw [← hAF]
-    exact Balance.Theorem5.odd_card_alphaFrame hbal
-  have hnormB : ∀ c ∈ rankTwoSpan B, conjSub c (alphaCore (Subgroup.closure ({t, z} : Set G))) =
-      alphaCore (Subgroup.closure ({t, z} : Set G)) := by
-    intro c hc
-    have := Balance.Theorem5.rankTwoSpan_le_normalizer_alphaFrame hbal hc
-    rw [hAF] at this
-    exact mem_normalizer_iff_conjSub_eq.mp this
-  refine h.false_of_linkConstCore ?_ hodd
-  intro J' hJ' t' ht'
-  obtain ⟨c, hcz, hct⟩ := h.omega_orbit_two hJ' ht'
-  have hcC : c ∈ Subgroup.centralizer ({z} : Set G) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc c * z = c * z * c⁻¹ * c := by group
-      _ = z * c := by rw [hcz]
-  have hpairEq : Subgroup.closure ({t', z} : Set G) =
-      conjSub c (Subgroup.closure ({t, z} : Set G)) := by
-    rcases hct with e | e
-    · rw [conjSub_closure_pair, hcz, e]
-    · rw [← closure_mul_pair_eq z t, conjSub_closure_pair, hcz, e]
-  rw [hpairEq, alphaCore_conjSub, hnormB c (hgen hcC)]
-
-theorem BadStd8.false_of_localAxis [IsSimpleGroup G] (h : BadStd8 Ω K J S R T W z t)
-    {B : Subgroup G} (hB : Hyp51 B) (hpair : Subgroup.closure ({t, z} : Set G) ≤ B)
-    (hgen : Subgroup.centralizer ({z} : Set G) ≤ rankTwoSpan B) : False :=
-  h.false_of_localAxis_rank (lemma52 G B hB) hpair hgen
 
 end Axis
 

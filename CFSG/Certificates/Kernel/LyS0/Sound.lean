@@ -104,10 +104,6 @@ theorem shapeK_spec {T : Nat → Nat} (h : shapeK T = true) : Shape T := by
   obtain ⟨e2, e3⟩ := (bAnd_iff _ _).1 e
   exact ⟨blt_of e1, blt_of e2, Nat.eq_of_beq_eq_true e3⟩
 
-theorem PP_zero {T : Nat → Nat} (h : T 0 = 0) : PP T 0 = 0 := by
-  unfold PP
-  rw [h]
-  rfl
 
 theorem vE {G T : Nat → Nat} (hs : Shape T) (hG : ∀ j < 5, vld (G j) = true) :
     ∀ i < 2187, vld (E G T i) = true := by

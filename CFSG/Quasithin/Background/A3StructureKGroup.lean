@@ -22,8 +22,6 @@ theorem kGroup_quotient {G : Type} [Group G] (hG : CFSG.SectionRank.IsKGroupCat 
     [M.Normal] : CFSG.SectionRank.IsKGroupCat (G ⧸ M) :=
   hG.quotient M
 
-theorem assemblyPRank_eq {G : Type*} [Group G] [Finite G] (p : ℕ) (H : Subgroup G) :
-    CFSG.Assembly.pRank p H = CFSG.Open.pRank p H := rfl
 
 theorem sqt_iff {G : Type} [Group G] [Finite G] :
     StronglyQuasithin G ↔ ∀ p : ℕ, p.Prime → p ≠ 2 → CFSG.Open.pRank p (⊤ : Subgroup G) ≤ 2 :=

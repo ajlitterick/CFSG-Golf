@@ -72,20 +72,5 @@ theorem ruLabelEquiv_apply
   · rw [show ruBitVec (ruQuotientBits.getD 3 0) = Pi.single 2 1 by decide, ruLabelHom_single]
     rfl
 
-theorem AT_Ru_Sylow_center_and_abelianization :
-    ruR = ⁅ruS, ruS⁆ ∧ ruR.subgroupOf ruS = commutator ruS ∧
-      frattini ruS = ruR.subgroupOf ruS ∧ (ruR.subgroupOf ruS).Normal ∧
-    CFSG.IsElementaryAbelian 2 (ruS ⧸ ruR.subgroupOf ruS) ∧
-      Nat.card (ruS ⧸ ruR.subgroupOf ruS) = 8 ∧
-    (Subgroup.center ruS).map ruS.subtype = Subgroup.zpowers ruZ ∧ orderOf ruZ = 2 ∧
-      ruZ ∈ ruR ∧
-    Nonempty ((ruS ⧸ (Subgroup.zpowers ruZ).subgroupOf ruS) ≃* ruImYS) ∧
-      Nat.card ruImYS = 8192 ∧ Nat.card ruImYR = 1024 ∧ ⁅ruImYS, ruImYS⁆ = ruImYR ∧
-    ∃ φ : (ruS ⧸ ruR.subgroupOf ruS) ≃* Multiplicative (Fin 3 → ZMod 2), ∀ i < 4,
-      φ (QuotientGroup.mk (ruSGenS i)) =
-        Multiplicative.ofAdd (ruBitVec (ruQuotientBits.getD i 0)) :=
-  ⟨ruR_eq_commutator, ruRS_eq_commutator, frattini_ruS, ruRS_normal, ruQ_elem, card_ruQ,
-    center_ruS, orderOf_ruZ, ruZ_memR, ruImYS_iso, card_ruImYS, card_ruImYR, ruImYS_commutator,
-    ruLabelEquiv, fun _ hi => ruLabelEquiv_apply hi⟩
 
 end CFSG.Sporadic.RuSchreier

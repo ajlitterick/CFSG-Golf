@@ -10,14 +10,6 @@ namespace CFSG.HardMathSupport.Timmesfeld.CrossChar
 
 open CFSG.Open CFSG.HardMathSupport.Solomon.LocalBalance CFSG.HardMathSupport.Timmesfeld.Coordinator
 
-theorem isLocallyBalancedAbs_of_innerPlanes {K : Type*} [Group K] {p : ℕ} (hp : p.Prime)
-    (hcyc : IsCyclic (MulAut K ⧸ innerAut K))
-    (h : ∀ E : Subgroup (MulAut K), E ≤ innerAut K → IsElemAbelian p E → Nat.card E = p ^ 2 →
-      ∀ H : Subgroup (MulAut K), innerAut K ≤ H → localDeltaIn p H E = ⊥) :
-    IsLocallyBalancedAbs p 3 K := by
-  intro D hD hcard H hH _
-  obtain ⟨E, hED, hEin, hE, hEc⟩ := exists_inner_plane_of_cyclic hcyc hp D hD hcard
-  exact le_bot_iff.1 ((localDeltaIn_antitone H hED).trans (h E hEin hE hEc H hH).le)
 
 theorem localDeltaIn_eq_bot_of_faithful_component {K : Type*} [Group K] [Finite K] {p : ℕ}
     (hp : p.Prime) (hinj : Function.Injective (MulAut.conj : K →* MulAut K))

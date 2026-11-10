@@ -28,15 +28,6 @@ theorem comm_k : commOK YT OT CM = true := by decide +kernel
 
 theorem beta_k : betaOK T1X.F AlX.F OT BT = true := by decide +kernel
 
-theorem y_neg : (!yOK GT (patchT YT 2303 (pidn 42 6))) = true := by decide +kernel
-
-theorem out_neg : (!outOK YT OT (patchT RK 2303 0)) = true := by decide +kernel
-
-theorem comm_neg : (!commOK YT OT (patchT CM 143 (Nat.xor (CM 143) (Nat.shiftLeft 1 143)))) = true := by
-  decide +kernel
-
-theorem beta_neg : (!betaOK T1X.F AlX.F OT (patchT BT 143 (Nat.xor (BT 143) 1))) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34W
 

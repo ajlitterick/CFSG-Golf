@@ -405,14 +405,6 @@ theorem ggL44ii_of_ggL43_noBL5 {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J X B�
       rw [← hSB₂]
       exact le_sup_left (a := I) ((hmemI _).mpr ⟨g, hg, rfl⟩)
 
-theorem ggL43HardInput_of_tableB_noBL5 (hTB : GGTableBCxInput) (hTBA : GGTableBActionInput) :
-    GGL43HardInput :=
-  fun _ _ _ _ _ _ _ _ _ _ _ _ hFC hM hxB₁ hB₂eq hB₂ne =>
-    ggL43Hard_noBL5 hTB hTBA hFC.noBL5 hM hxB₁ hB₂eq hB₂ne
-
-theorem ggL43Input_of_tableB_noBL5 (hTB : GGTableBCxInput) (hNN : GGXNotNormalInput)
-    (hTBM : GGTableBModuleInput) (hTBA : GGTableBActionInput) : GGL43Input :=
-  fun _ _ _ _ _ _ _ _ _ _ _ hFC => ggL43_noBL5 hTB hNN hTBM hTBA hFC.noBL5
 
 end Proofs
 

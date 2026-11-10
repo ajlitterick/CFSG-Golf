@@ -126,8 +126,6 @@ theorem nrm2_inv (a α β : K) (h : nrm2 a α β = 1) : nrm2 a (α + β) β = 1 
 @[expose] def rotGL (a α β : K) (h : nrm2 a α β = 1) : GL (Fin 2) K :=
   ⟨rotM a α β, rotM a (α + β) β, rotM_mul_inv a α β h, rotM_inv_mul a α β h⟩
 
-theorem rotGL_val (a α β : K) (h : nrm2 a α β = 1) :
-    (rotGL a α β h : Matrix (Fin 2) (Fin 2) K) = rotM a α β := rfl
 
 @[expose] def Tgrp (a : K) : Subgroup (GL (Fin 2) K) where
   carrier := {g | ∃ α β, nrm2 a α β = 1 ∧ (g : Matrix (Fin 2) (Fin 2) K) = rotM a α β}
@@ -148,8 +146,6 @@ theorem rotGL_val (a α β : K) (h : nrm2 a α β = 1) :
           ((g : Matrix (Fin 2) (Fin 2) K) * rotM a (α + β) β) := by rw [h1, Matrix.mul_one]
       _ = rotM a (α + β) β := by rw [← Matrix.mul_assoc, Units.inv_mul, Matrix.one_mul]
 
-theorem mem_Tgrp_iff (a : K) (g : GL (Fin 2) K) :
-    g ∈ Tgrp a ↔ ∃ α β, nrm2 a α β = 1 ∧ (g : Matrix (Fin 2) (Fin 2) K) = rotM a α β := Iff.rfl
 
 theorem sq_injective_K : ∀ x y : K, x ^ 2 = y ^ 2 → x = y := by
   intro x y h

@@ -127,7 +127,6 @@ theorem scatterAt_getD (off n : Nat) (T : Nat → List (Nat × Int)) (D : Array 
 
 theorem mmA_size (P Q : Array Int) : (mmA P Q).size = 576 := by simp [mmA]
 
-theorem trA_size (P : Array Int) : (trA P).size = 576 := by simp [trA]
 
 theorem mmA_getD (P Q : Array Int) (i j : Nat) (hi : i < 24) (hj : j < 24) :
     (mmA P Q).getD (i * 24 + j) 0 =
@@ -177,7 +176,6 @@ theorem latA_aIdx_aux (G D : Array Int) (i j : Nat) (hi : i < 24) (hj : j < 24) 
   rw [aFull_getD _ _ _ hk' hl']
   ring
 
-theorem wMul_size (G D : Array Int) : (wMul G D).size = 98304 := by simp [wMul]
 
 theorem wMul_getD (G D : Array Int) (r j : Nat) (hr : r < 4096) (hj : j < 24) :
     (wMul G D).getD (r * 24 + j) 0 =

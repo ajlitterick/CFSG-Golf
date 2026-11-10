@@ -37,12 +37,6 @@ set_option maxRecDepth 100000
   allN n fun a => (fun v => allN n' fun b => notB (Nat.beq v (valF 24 (recI o' b))))
     (valF 24 (recI o a))
 
-@[expose] noncomputable def par24 (y : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) (nat_lit 0)
-    (fun i ih => Nat.xor ih (Nat.land (Nat.shiftRight y i) 1)) 24
-
-@[expose] noncomputable def decD (x : Nat) : Nat :=
-  orN 12 fun k => Nat.shiftLeft (par24 (Nat.land x (fget DD k 24))) k
 
 theorem t0 : treeOK (actJR 0) 14 (fun _ => true) 0 (recI 0) 1 24 5 11 64 1 = true := by quickRfl
 theorem t1 : treeOK (actJR 0) 14 (fun _ => true) 255 (recI 1) 759 24 5 11 64 12 = true := by
@@ -80,7 +74,6 @@ theorem d12 : disjI 1 759 760 1288 = true := by quickRfl
 theorem d34 : disjI 2048 16 2064 112 = true := by quickRfl
 theorem d56 : disjI 2176 32 2208 32 = true := by quickRfl
 
-theorem kDec : (List.range 4096).all (fun m => decD (combI m) == m) = true := by decide +kernel
 
 end CertificateChecks.Mono3016
 

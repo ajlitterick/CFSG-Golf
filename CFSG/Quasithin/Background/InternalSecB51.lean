@@ -133,13 +133,6 @@ theorem b53Hyp_ffJ_autOn (hYW : Y ≤ Subgroup.normalizer (W : Set G)) (hS : SQT
   refine ⟨hQ, (ffJ_ffJ _).symm, ↥H, inferInstance, inferInstance, f.ker, inferInstance,
     sqtkGroup_subgroup hS H, ⟨(QuotientGroup.quotientKerEquivOfSurjective f hf).symm⟩⟩
 
-theorem b56Cases_of_isFFModule (h56 : AsB56) (hW2 : ∀ w ∈ W, w ^ 2 = 1)
-    (hYW : Y ≤ Subgroup.normalizer (W : Set G)) (hS : SQTKGroup ↥Y)
-    (hO2 : pCoreOf 2 (autOn Y W) = ⊥) (hFF : IsFFModule (autOn Y W)) :
-    B56Case1 (ffJ (autOn Y W)) ∨ B56Case2 (ffJ (autOn Y W)) ∨ B56Case3 (ffJ (autOn Y W)) ∨
-      B56Case4 (ffJ (autOn Y W)) ∨ B56Case5 (ffJ (autOn Y W)) := by
-  have hV : ∀ v : ↥W, v ^ 2 = 1 := fun v => Subtype.ext (by simpa using hW2 v v.2)
-  exact h56 ↥W hV _ (ffJ_ne_bot_of_isFFModule hV hFF) (b53Hyp_ffJ_autOn hYW hS hO2)
 
 end B51
 

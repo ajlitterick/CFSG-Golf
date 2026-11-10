@@ -319,10 +319,6 @@ theorem ggLayerPDivInput_of_remaining_five (hF4 : GGLayerPDivTag .F4)
   ggLayerPDivInput_of_remaining_seven ggLayerPDivTag_POmegaPlus ggLayerPDivTag_POmegaMinus hF4 hE6
     hE7 hE8 hTwE6
 
-theorem ggSixLayerCXInput_of_pDivTags_five (hF4 : GGLayerPDivTag .F4)
-    (hE6 : GGLayerPDivTag .E6) (hE7 : GGLayerPDivTag .E7) (hE8 : GGLayerPDivTag .E8)
-    (hTwE6 : GGLayerPDivTag .twistedE6) (hNS : GGSixLayerCXNonsplitInput) : GGSixLayerCXInput :=
-  ggSixLayerCXInput_of_split (ggLayerPDivInput_of_remaining_five hF4 hE6 hE7 hE8 hTwE6) hNS
 
 end Tags
 

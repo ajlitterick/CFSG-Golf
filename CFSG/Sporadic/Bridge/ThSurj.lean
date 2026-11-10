@@ -157,13 +157,6 @@ theorem J_le_range : J ≤ φ.range := by
   · rw [← std_gB]
     exact wordProd_std_mem 1
 
-theorem card_J_of
-    {c : ℕ} (hC : CertFacts c) : Nat.card J = 90745943887872000 := by
-  have := isPretransitive hC
-  have h := Subgroup.card_mul_index (MulAction.stabilizer J (root hC))
-  rw [MulAction.index_stabilizer, card_stabilizer_root hC, MulAction.orbit_eq_univ,
-    Set.ncard_univ, Nat.card_eq_fintype_card, Fintype.card_fin, hC.count] at h
-  omega
 
 theorem card_J :
     Nat.card J = 90745943887872000 := CFSG.Sporadic.Th.Kernel.card_J_eq th_kernel_facts

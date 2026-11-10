@@ -82,9 +82,6 @@ theorem f4chainLong_values :
     chainRoot f4chainLong 2 1 = -Pi.single (f4Index 1) 1 := by
   decide +kernel
 
-theorem f4chainLong_eq_sub :
-    ∀ i j : Fin 3, chainRoot f4chainLong i j = f4LongWeight i - f4LongWeight j := by
-  decide +kernel
 
 theorem f4chainLong_mem : ∀ k l : Fin 3, k ≠ l → ∃ m : Fin 48,
     f4RootVec m = chainRoot f4chainLong k l ∧
@@ -123,11 +120,6 @@ theorem f4chainLong_add :
 
 theorem f4chainLong_neg :
     ∀ i j : Fin 3, chainRoot f4chainLong j i = -chainRoot f4chainLong i j := by
-  decide +kernel
-
-theorem f4chainLong_sums :
-    (chainRoot f4chainLong 0 1 + chainRoot f4chainLong 1 2 = chainRoot f4chainLong 0 2) ∧
-    (chainRoot f4chainLong 2 1 + chainRoot f4chainLong 1 0 = chainRoot f4chainLong 2 0) := by
   decide +kernel
 
 

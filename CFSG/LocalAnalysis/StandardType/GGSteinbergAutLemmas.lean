@@ -69,21 +69,6 @@ theorem normalizer_posUnipotent {K : Type*} [Group K] {D : UniversalRootDatum K}
     (rootGroup_le_posUnipotent ((RootSystem.ofCartan D.isFiniteType D.divisible).single_mem i)
       (ht_single_pos i))
 
-theorem steinbergAut_not_le_centralizer {K : Type*} [Group K] {D : UniversalRootDatum K}
-    {n : Fin D.rank → K} {H : Fin D.rank → Subgroup K}
-    (hct : IsCTGroupDatum (coxeterMatrix D.isFiniteType).toCoxeterSystem
-      (weylAction D.isFiniteType) D.roots D.rootGroup n H)
-    (hext : SteinbergExtras D n H) (i : Fin D.rank) :
-    ¬ D.rootGroup (-Pi.single i 1) ≤
-      Subgroup.centralizer (D.rootGroup (Pi.single i 1) : Set K) := by
-  intro hc
-  have hsi := (RootSystem.ofCartan D.isFiniteType D.divisible).single_mem i
-  have hle : rankOne D.rootGroup i ≤
-      Subgroup.normalizer (D.rootGroup (Pi.single i 1) : Set K) :=
-    sup_le (Subgroup.le_normalizer) (hc.trans (Subgroup.centralizer_le_normalizer _))
-  refine n_notMem_normalizer hct hext i ?_ le_rfl (hle (hct.n_mem i))
-  exact eq_bot_iff.2 ((inf_le_inf_right _ (rootGroup_le_posUnipotent hsi (ht_single_pos i))).trans
-    (posUnipotent_inf_negUnipotent hext).le)
 
 theorem mem_H_of_mem_rankOne {K : Type*} [Group K] {D : UniversalRootDatum K}
     {n : Fin D.rank → K} {H : Fin D.rank → Subgroup K}
@@ -114,40 +99,6 @@ theorem mem_H_of_mem_rankOne {K : Type*} [Group K] {D : UniversalRootDatum K}
     exact eq_bot_iff.2 ((inf_le_inf_right _ (rootGroup_le_posUnipotent hsi (ht_single_pos i))).trans
       (posUnipotent_inf_negUnipotent hext).le)
 
-theorem le_posUnipotent_of_isPGroup {K : Type*} [Group K] {D : UniversalRootDatum K}
-    {n : Fin D.rank → K} {H : Fin D.rank → Subgroup K}
-    (hct : IsCTGroupDatum (coxeterMatrix D.isFiniteType).toCoxeterSystem
-      (weylAction D.isFiniteType) D.roots D.rootGroup n H)
-    (hext : SteinbergExtras D n H) [Finite K]
-    (hT : Nat.Coprime 2 (Nat.card (⨆ i, H i : Subgroup K)))
-    {P : Subgroup K} (hP : IsPGroup 2 P) (hPB : P ≤ borel D H) : P ≤ posUnipotent D := by
-  intro x hx
-  obtain ⟨a, ha⟩ := hP ⟨x, hx⟩
-  have hxa : x ^ 2 ^ a = 1 := by simpa using congrArg Subtype.val ha
-  have hxB := hPB hx
-  have hle : posUnipotent D ≤ borel D H := posUnipotent_le_borel
-  haveI hN : ((posUnipotent D).subgroupOf (borel D H)).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hle).2 (borel_le_normalizer_posUnipotent hct)
-  have hcardN : Nat.card ((posUnipotent D).subgroupOf (borel D H)) = Nat.card (posUnipotent D) :=
-    Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv
-  have hcard : Nat.card (borel D H ⧸ (posUnipotent D).subgroupOf (borel D H)) =
-      Nat.card (⨆ i, H i : Subgroup K) := by
-    have h1 := Subgroup.card_eq_card_quotient_mul_card_subgroup
-      ((posUnipotent D).subgroupOf (borel D H))
-    rw [hcardN, CentralExt.BorelIndex.card_borel hct hext] at h1
-    have hpos : 0 < Nat.card (posUnipotent D) := Nat.card_pos
-    exact (Nat.eq_of_mul_eq_mul_right hpos h1).symm
-  set y : borel D H ⧸ (posUnipotent D).subgroupOf (borel D H) := QuotientGroup.mk ⟨x, hxB⟩
-  have hy : y ^ 2 ^ a = 1 := by
-    rw [← QuotientGroup.mk_pow]
-    have : (⟨x, hxB⟩ : borel D H) ^ 2 ^ a = 1 := Subtype.ext (by simpa using hxa)
-    rw [this, QuotientGroup.mk_one]
-  have h1 : orderOf y ∣ 2 ^ a := orderOf_dvd_of_pow_eq_one hy
-  have h2 : orderOf y ∣ Nat.card (⨆ i, H i : Subgroup K) := hcard ▸ orderOf_dvd_natCard y
-  have hy1 : y = 1 := orderOf_eq_one_iff.1
-    (Nat.eq_one_of_dvd_coprimes (Nat.Coprime.pow_left a hT) h1 h2)
-  have := (QuotientGroup.eq_one_iff _).1 hy1
-  exact Subgroup.mem_subgroupOf.1 this
 
 theorem steinbergAut_le_of_isPGroup_of_le_sup {K : Type*} [Group K] [Finite K] {Z₀ X Y : Subgroup K}
     (hZ : Z₀ ≤ Subgroup.center K)

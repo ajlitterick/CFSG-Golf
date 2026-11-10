@@ -192,10 +192,6 @@ theorem exactCore_cover {z : G} (hK : Generic.IsClassicalMember K z)
     ∀ x ∈ K, ∃ i ∈ exactCore c K, ∃ n ∈ oddCoreIn K, x = i * n :=
   exactCore3_cover (hK.toQ3 (by norm_num)) hc2 hcK
 
-theorem axisResidual_exactCore {z : G} (hK : Generic.IsClassicalMember K z)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hcK : c ∈ trivialOnQuot K) :
-    AxisResidual K (Subgroup.zpowers c) (exactCore c K) z :=
-  axisResidual_exactCore3 (hK.toQ3 (by norm_num)) hc2 hcK
 
 theorem isSylow2In_exactCore_iff (_hΩ : HypOmegaMod Ω) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
     (_hK : K ∈ Ω) (hcK : c ∈ trivialOnQuot K) {V : Subgroup G} :

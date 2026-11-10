@@ -67,19 +67,6 @@ theorem nrep_conj_mem_Uplus_of_mul_self
       rw [weylHom_nrep, ← mul_smul, hw, one_smul]
       exact ⟨hα.2, hα.1⟩) hv
 
-theorem inv_nrep_conj_mem_Uplus_of_mul_self
-    {w : WeylGroup τ} (hw : w * w = 1)
-    {v : adjointGroup τ K} (hv : v ∈ Uplus τ K w) :
-    (nrep τ K w)⁻¹ * v * nrep τ K w ∈ Uplus τ K w := by
-  have h := RootGroupData.conj_mem_iSup_of_smul (D := nativeData τ K)
-    (⟨nrep τ K w, nrep_mem_monomialGroup τ K w⟩⁻¹ : monomialGroup τ K)
-    (S := fun α => 0 < height α.1 ∧ 0 < height (w • α).1)
-    (T := fun α => 0 < height α.1 ∧ 0 < height (w • α).1) (fun α hα => by
-      change 0 < height (weylHom τ K ⟨nrep τ K w, nrep_mem_monomialGroup τ K w⟩⁻¹ • α).1 ∧
-        0 < height (w • weylHom τ K ⟨nrep τ K w, nrep_mem_monomialGroup τ K w⟩⁻¹ • α).1
-      rw [map_inv, weylHom_nrep, inv_eq_of_mul_eq_one_right hw, ← mul_smul, hw, one_smul]
-      exact ⟨hα.2, hα.1⟩) hv
-  rwa [Subgroup.coe_inv, inv_inv] at h
 
 theorem inv_nrep_conj_mem_U_of_mem_Uminus
     {z w : WeylGroup τ}
@@ -150,15 +137,6 @@ theorem UminusFixed_le_reeUnipPart
     UminusFixed t K a w ≤ reeUnipPart t K a := fun _ h =>
   Uminus_le_U t.tag K w h
 
-theorem UplusFixed_le_reeBorelPart
-    (w : WeylGroup t.tag) :
-    UplusFixed t K a w ≤ reeBorelPart t K a := fun _ h =>
-  (nativeData t.tag K).U_le_B (Uplus_le_U t.tag K w h)
-
-theorem UminusFixed_le_reeBorelPart
-    (w : WeylGroup t.tag) :
-    UminusFixed t K a w ≤ reeBorelPart t K a := fun _ h =>
-  (nativeData t.tag K).U_le_B (Uminus_le_U t.tag K w h)
 
 theorem UplusFixed_inf_UminusFixed
     (w : WeylGroup t.tag) :
@@ -182,11 +160,6 @@ theorem nrepFixed_conj_mem_UplusFixed
     nrepFixed t K a hw * v * (nrepFixed t K a hw)⁻¹ ∈ UplusFixed t K a w :=
   nrep_conj_mem_Uplus_of_mul_self hww hv
 
-theorem inv_nrepFixed_conj_mem_UplusFixed
-    {w : WeylGroup t.tag} (hw : w ∈ t.relWeylRee)
-    (hww : w * w = 1) {v : reeFixed t K a} (hv : v ∈ UplusFixed t K a w) :
-    (nrepFixed t K a hw)⁻¹ * v * nrepFixed t K a hw ∈ UplusFixed t K a w :=
-  inv_nrep_conj_mem_Uplus_of_mul_self hww hv
 
 theorem inv_nrepFixed_conj_mem_reeUnipPart
     {z w : WeylGroup t.tag} (hw : w ∈ t.relWeylRee)

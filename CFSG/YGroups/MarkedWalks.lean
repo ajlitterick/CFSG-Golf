@@ -146,16 +146,6 @@ theorem markedHomotopic_reverse_append (T : V → V → V → Prop) {u v : V} (p
     MarkedHomotopic T (p.reverse.append p) .nil := by
   simpa using markedHomotopic_append_reverse T p.reverse
 
-theorem markedHomotopic_nil_iff {T : V → V → V → Prop} :
-    (∀ (u : V) (p : G.Walk u u), MarkedHomotopic T p .nil) ↔
-      ∀ (u v : V) (p q : G.Walk u v), MarkedHomotopic T p q := by
-  refine ⟨fun hG u v p q => ?_, fun h u p => h u u p .nil⟩
-  have h₁ : MarkedHomotopic T (p.append (q.reverse.append q)) p := by
-    simpa using (markedHomotopic_reverse_append T q).append_left p
-  have h₂ : MarkedHomotopic T ((p.append q.reverse).append q) q := by
-    simpa using (hG u (p.append q.reverse)).append_right q
-  rw [← Walk.append_assoc] at h₂
-  exact h₁.symm.trans h₂
 
 theorem MarkedMove.elemMove {T : V → V → V → Prop} {u v : V} {p q : G.Walk u v}
     (h : MarkedMove T p q) : ElemMove p q := by
@@ -163,11 +153,6 @@ theorem MarkedMove.elemMove {T : V → V → V → Prop} {u v : V} {p q : G.Walk
   | backtrack p q h => exact .backtrack p q h
   | triangle p q hxy hyz hzx _ => exact .triangle p q hxy hyz hzx
 
-theorem markedMove_of_elemMove {u v : V} {p q : G.Walk u v} (h : ElemMove p q) :
-    MarkedMove (fun _ _ _ => True) p q := by
-  cases h with
-  | backtrack p q h => exact .backtrack p q h
-  | triangle p q hxy hyz hzx => exact .triangle p q hxy hyz hzx (Or.inl trivial)
 
 theorem MarkedHomotopic.homotopic {T : V → V → V → Prop} {u v : V} {p q : G.Walk u v}
     (h : MarkedHomotopic T p q) : Homotopic p q := by
@@ -177,35 +162,11 @@ theorem MarkedHomotopic.homotopic {T : V → V → V → Prop} {u v : V} {p q : 
   | symm p q _ ih => exact ih.symm
   | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
-theorem markedHomotopic_true_iff {u v : V} {p q : G.Walk u v} :
-    MarkedHomotopic (fun _ _ _ => True) p q ↔ Homotopic p q := by
-  refine ⟨MarkedHomotopic.homotopic, fun h => ?_⟩
-  induction h with
-  | rel p q h => exact (markedMove_of_elemMove h).markedHomotopic
-  | refl p => exact MarkedHomotopic.refl _
-  | symm p q _ ih => exact ih.symm
-  | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
 @[expose] def LiftsMarked (f : H →g G) (T : V → V → V → Prop) : Prop :=
   ∀ a y z, G.Adj (f a) y → G.Adj y z → G.Adj z (f a) → permClosure T (f a) y z →
     ∃ b c, H.Adj a b ∧ H.Adj b c ∧ H.Adj c a ∧ f b = y ∧ f c = z
 
-theorem LiftsMarked.of_rotate {f : H →g G} {T : V → V → V → Prop}
-    (hrot : ∀ {u v w}, T u v w → T v w u)
-    (h : ∀ a y z, T (f a) y z →
-      ∃ b c, H.Adj a b ∧ H.Adj b c ∧ H.Adj c a ∧ f b = y ∧ f c = z) :
-    LiftsMarked f T := by
-  intro a y z _ _ _ hT
-  have swap : (∃ b c, H.Adj a b ∧ H.Adj b c ∧ H.Adj c a ∧ f b = z ∧ f c = y) →
-      ∃ b c, H.Adj a b ∧ H.Adj b c ∧ H.Adj c a ∧ f b = y ∧ f c = z :=
-    fun ⟨b, c, hab, hbc, hca, hb, hc⟩ => ⟨c, b, hca.symm, hbc.symm, hab.symm, hc, hb⟩
-  rcases hT with h₁ | h₁ | h₁ | h₁ | h₁ | h₁
-  · exact h a y z h₁
-  · exact swap (h a z y h₁)
-  · exact swap (h a z y (hrot h₁))
-  · exact h a y z (hrot (hrot h₁))
-  · exact h a y z (hrot h₁)
-  · exact swap (h a z y (hrot (hrot h₁)))
 
 section Lifting
 
@@ -246,20 +207,6 @@ theorem MarkedHomotopic.liftEnd_eq (hf : IsCovering f) (ht : LiftsMarked f T) {u
   | symm p q _ ih => exact ih.symm
   | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
-theorem eq_of_reachable_of_markedHomotopic (hf : IsCovering f) (ht : LiftsMarked f T)
-    (hG : ∀ (u : V) (p : G.Walk u u), MarkedHomotopic T p .nil) {a a' : W}
-    (hr : H.Reachable a a') (h : f a = f a') : a = a' := by
-  obtain ⟨p⟩ := hr
-  have h₁ := (hG (f a) ((p.map f).copy rfl h.symm)).liftEnd_eq hf ht a rfl
-  rw [hf.liftEnd_copy, hf.liftEnd_map, liftEnd_nil_eq] at h₁
-  exact h₁.symm
-
-theorem liftEnd_reverse_liftEnd (hf : IsCovering f) {u v : V} (p : G.Walk u v) (a : W)
-    (ha : f a = u) : hf.liftEnd p.reverse (hf.liftEnd p a ha) (hf.map_liftEnd p a ha) = a := by
-  have hT : LiftsMarked f (fun _ _ _ => False) := fun _ _ _ _ _ _ hT => by
-    rcases hT with h | h | h | h | h | h <;> exact h.elim
-  have h := (markedHomotopic_append_reverse (fun _ _ _ => False) p).liftEnd_eq hf hT a ha
-  rwa [hf.liftEnd_append, liftEnd_nil_eq] at h
 
 end Lifting
 
@@ -274,11 +221,6 @@ inductive ClosedMove (C : ∀ {a : V}, G.Walk a a → Prop) {u v : V} :
     Prop :=
   Relation.EqvGen (ClosedMove C) p q
 
-inductive CyclicClosure (C : ∀ {a : V}, G.Walk a a → Prop) : ∀ {a : V}, G.Walk a a → Prop
-  | base {a : V} {r : G.Walk a a} : C r → CyclicClosure C r
-  | rotate {a b : V} (p : G.Walk a b) (q : G.Walk b a) :
-      CyclicClosure C (p.append q) → CyclicClosure C (q.append p)
-  | reverse {a : V} {r : G.Walk a a} : CyclicClosure C r → CyclicClosure C r.reverse
 
 section ClosedLifting
 
@@ -287,29 +229,6 @@ variable {f : H →g G} {C : ∀ {a : V}, G.Walk a a → Prop}
 @[expose] def ClosedLifts (hf : IsCovering f) (C : ∀ {a : V}, G.Walk a a → Prop) : Prop :=
   ∀ {x : V} (r : G.Walk x x), C r → ∀ (a : W) (ha : f a = x), hf.liftEnd r a ha = a
 
-theorem ClosedLifts.cyclicClosure {hf : IsCovering f} (hC : ClosedLifts hf C) :
-    ClosedLifts hf (CyclicClosure C) := by
-  intro x r hr
-  induction hr with
-  | base h => exact hC _ h
-  | rotate p q _ ih =>
-    intro c hc
-    rw [hf.liftEnd_append]
-    have h1 : hf.liftEnd q (hf.liftEnd p (hf.liftEnd q c hc) (hf.map_liftEnd q c hc))
-        (hf.map_liftEnd p _ _) = hf.liftEnd q c hc := by
-      have := ih (hf.liftEnd q c hc) (hf.map_liftEnd q c hc)
-      rwa [hf.liftEnd_append] at this
-    calc _ = hf.liftEnd q.reverse (hf.liftEnd q (hf.liftEnd p (hf.liftEnd q c hc)
-            (hf.map_liftEnd q c hc)) (hf.map_liftEnd p _ _)) (hf.map_liftEnd q _ _) :=
-          (liftEnd_reverse_liftEnd hf q _ _).symm
-      _ = hf.liftEnd q.reverse (hf.liftEnd q c hc) (hf.map_liftEnd q c hc) :=
-          hf.liftEnd_congr q.reverse h1 _ _
-      _ = c := liftEnd_reverse_liftEnd hf q c hc
-  | @reverse a r _ ih =>
-    intro c hc
-    have h := liftEnd_reverse_liftEnd hf r.reverse c hc
-    rw [Walk.reverse_reverse] at h
-    exact (ih _ _).symm.trans h
 
 namespace ClosedHomotopic
 
@@ -326,9 +245,6 @@ variable {u v : V} {p q r : G.Walk u v}
 
 end ClosedHomotopic
 
-theorem ClosedMove.closedHomotopic {u v : V} {p q : G.Walk u v} (h : ClosedMove C p q) :
-    ClosedHomotopic C p q :=
-  Relation.EqvGen.rel _ _ h
 
 theorem ClosedMove.liftEnd_eq {hf : IsCovering f} (hC : ClosedLifts hf C) {u v : V}
     {p q : G.Walk u v} (hpq : ClosedMove C p q) (a : W) (ha : f a = u) :
@@ -348,13 +264,6 @@ theorem ClosedHomotopic.liftEnd_eq {hf : IsCovering f} (hC : ClosedLifts hf C) {
   | symm p q _ ih => exact ih.symm
   | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
-theorem eq_of_reachable_of_closedHomotopic {hf : IsCovering f} (hC : ClosedLifts hf C)
-    (hG : ∀ (u : V) (p : G.Walk u u), ClosedHomotopic C p .nil) {a a' : W}
-    (hr : H.Reachable a a') (h : f a = f a') : a = a' := by
-  obtain ⟨p⟩ := hr
-  have h₁ := (hG (f a) ((p.map f).copy rfl h.symm)).liftEnd_eq hC a rfl
-  rw [hf.liftEnd_copy, hf.liftEnd_map, liftEnd_nil_eq] at h₁
-  exact h₁.symm
 
 end ClosedLifting
 

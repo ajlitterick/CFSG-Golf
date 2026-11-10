@@ -601,11 +601,6 @@ theorem finite_statedProj_statedSp (n : ℕ) (K : Type) [Field K] [Finite K] :
     Finite (StatedProj (StatedSp n K)) :=
   inferInstance
 
-theorem fam_symplectic_projective_simple (K : Type) [Field K] (n : ℕ) (hn : 1 ≤ n)
-    (h : (Infinite K ∨ 4 ≤ Nat.card K) ∨ (Nat.card K = 3 ∧ 2 ≤ n) ∨ (Nat.card K = 2 ∧ 3 ≤ n)) :
-    IsSimpleGroup (StatedProj (StatedSp n K)) ∧
-      (Finite K → Finite (StatedProj (StatedSp n K))) :=
-  ⟨isSimpleGroup_statedProj_statedSp K n hn h, fun _ => finite_statedProj_statedSp n K⟩
 
 theorem isSimpleGroup_of_statedClassicalModel_PSp (G : Type) [Group G] (n p f : ℕ)
     (h : StatedClassicalModel G .PSp n p f) : IsSimpleGroup G := by

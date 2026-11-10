@@ -87,7 +87,6 @@ theorem map_fixIncl (σ : K ≃+* K) (A : SL2 (fixSubfield σ)) :
     Matrix.SpecialLinearGroup.map σ.toRingHom (fixIncl σ A) = fixIncl σ A :=
   map_sl2_eq_self fun i j => (A i j).2
 
-variable [Finite K]
 
 end Model
 

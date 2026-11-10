@@ -13,9 +13,6 @@ namespace F112R
 
 open CFSG.Open CFSG.QuasithinUnique CFSG.Quasithin.H13
 
-@[expose] def F112R1Q : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L1 L2 S : Subgroup G),
-    F112Hyp L1 L2 S → VS3 L1 → VBig L2 → ∃ n : ℕ, IsL2Quot n (oTwoQuot ↥L2)
 
 @[expose] def DSBStatementL2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L1 L2 S : Subgroup G), Hyp111 L1 L2 S →

@@ -136,20 +136,6 @@ private theorem isSubnormal_conjugateSubgroup {G : Type u} [Group G]
     (conjugateSubgroup E g).IsSubnormal := by
   simpa [conjugateSubgroup] using hE.map (MulAut.conj g).surjective
 
-/-- A conjugate of a component of `G` is again a component of `G`. -/
-private theorem isComponentOf_conjugateSubgroup {G : Type u} [Group G]
-    {E : Subgroup G} (hE : IsComponentOf E (⊤ : Subgroup G)) (g : G) :
-    IsComponentOf (conjugateSubgroup E g) (⊤ : Subgroup G) := by
-  refine ⟨?_, ?_, isQuasisimple_conjugateSubgroup E g hE.2.2⟩
-  · intro x hx
-    trivial
-  · -- subnormality: ambient `E` subnormal, transported by conjugation
-    have hsnE : E.IsSubnormal := by
-      have h' : ((E.subgroupOf (⊤ : Subgroup G)).map (⊤ : Subgroup G).subtype).IsSubnormal :=
-        hE.2.1.map (f := (⊤ : Subgroup G).subtype)
-          (by intro x; exact ⟨⟨x, trivial⟩, rfl⟩)
-      rwa [Subgroup.map_subgroupOf_eq_of_le (le_top : E ≤ (⊤ : Subgroup G))] at h'
-    exact (isSubnormal_conjugateSubgroup E g hsnE).subgroupOf
 
 /-- A component of `G` contained in `H` is a component of `H` (KS 6.5.2
 ingredient: component inheritance to intermediate subgroups). -/

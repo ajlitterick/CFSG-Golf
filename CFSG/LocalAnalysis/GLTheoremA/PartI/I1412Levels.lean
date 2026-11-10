@@ -28,13 +28,6 @@ open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup mem_fixSubgroup)
       ∀ I : Subgroup (TauCeti.CFSGIndex.lie d).Group, GLAPComponent p (fixSubgroup α) I →
         IsChevSimple p (PSimple p I)
 
-@[expose] def KDLevelTwo (p : ℕ) : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
-    catalogIs S (k2 p) → DownLe p 2 S
-
-@[expose] def KDLevelThree : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
-    catalogIs S (k3 3) → DownLe 3 3 S
 
 @[expose] def KDRankTwoDown : Prop :=
   (∀ (q : TauCeti.PrimePower) (hv : (TauCeti.LieTypeIndex.A 1 q).Valid), ¬ 3 ∣ q.card →
@@ -50,16 +43,6 @@ open CFSG.HardMathSupport.Solomon.Coordinator (fixSubgroup mem_fixSubgroup)
       GLAPComponent p (fixSubgroup α) I →
         ∃ m : ℕ, max 5 p ≤ m ∧ m + p ≤ n ∧ Nonempty (PSimple p I ≃* alternatingGroup (Fin m))
 
-@[expose] def KDLevelFinite (p : ℕ) : Prop :=
-  ∀ i : TauCeti.CFSGIndex,
-    (p = 3 → ∀ (d : TauCeti.ValidLieTypeIndex) (q : TauCeti.PrimePower), i = .lie d →
-      d.1 ≠ .A 1 q ∧ d.1 ≠ .A 2 q ∧ d.1 ≠ .twistedA 2 q) →
-    (∀ n h, i ≠ .alternating n h) →
-    (k2 p i → DownLe p 2 i.Group) ∧ (k3 p i → DownLe p 3 i.Group)
-
-private theorem i1412L_kLevel_le_four (p : ℕ) (S : Type) [Group S] : kLevel p S ≤ 4 := by
-  unfold kLevel
-  split_ifs <;> omega
 
 private theorem i1412L_kLevel_eq_one {p : ℕ} {S : Type} [Group S] (h : IsChevSimple p S) :
     kLevel p S = 1 := by
@@ -77,15 +60,6 @@ private theorem i1412L_isChev_of_kLevel_le_one {p : ℕ} {S : Type} [Group S]
   rw [if_neg hne] at h
   split_ifs at h <;> omega
 
-private theorem i1412L_kLevel_le_two {p : ℕ} {S : Type} [Group S] (h : catalogIs S (k2 p)) :
-    kLevel p S ≤ 2 := by
-  unfold kLevel
-  split_ifs <;> first | omega | exact absurd h ‹_›
-
-private theorem i1412L_kLevel_le_three {p : ℕ} {S : Type} [Group S] (h : catalogIs S (k3 p)) :
-    kLevel p S ≤ 3 := by
-  unfold kLevel
-  split_ifs <;> first | omega | exact absurd h ‹_›
 
 private theorem i1412L_fixSubgroup_one {K : Type*} [Group K] :
     fixSubgroup (1 : MulAut K) = ⊤ := by
@@ -216,78 +190,6 @@ private theorem i1412L_downLe_one_lie {p : ℕ} (hp : p.Prime) (hC : KDCharP p) 
       exact glaPComponent_ne_bot' hJ hle
     · exact i1412L_kLevel_le_one (hO d hd β hord hin J hJ)
 
-private theorem i1412L_p_ne_two_of_card_mod_two {q : TauCeti.PrimePower} (h : q.card % 2 = 1) :
-    q.p ≠ 2 := by
-  intro h2
-  have hd : 2 ∣ q.card := by
-    rw [TauCeti.PrimePower.card_def, h2]
-    exact dvd_pow_self 2 (Nat.pos_iff_ne_zero.1 q.exponent_pos)
-  omega
-
-private theorem i1412L_card_mod_three_even {q : TauCeti.PrimePower} (h2 : q.p = 2)
-    (he : Even q.exponent) : q.card % 3 = 1 := by
-  obtain ⟨k, hk⟩ := he
-  rw [TauCeti.PrimePower.card_def, h2, hk, ← two_mul, pow_mul, Nat.pow_mod]
-  norm_num
-
-private theorem i1412L_card_mod_three_odd {q : TauCeti.PrimePower} (h2 : q.p = 2)
-    (ho : Odd q.exponent) : q.card % 3 = 2 := by
-  obtain ⟨k, hk⟩ := ho
-  rw [TauCeti.PrimePower.card_def, h2, hk, pow_succ, pow_mul, Nat.mul_mod, Nat.pow_mod]
-  norm_num
-
-private theorem i1412L_k3Lie_cases {ld : TauCeti.LieTypeIndex} (h : k3Lie ld) :
-    (∃ q : TauCeti.PrimePower, ld = .A 2 q ∧ q.card % 6 = 1) ∨
-      (∃ q : TauCeti.PrimePower, ld = .twistedA 2 q ∧ q.card % 6 = 5) := by
-  cases ld with
-  | A n q =>
-    rcases n with _ | _ | _ | n
-    · exact (show False from h).elim
-    · exact (show False from h).elim
-    · exact Or.inl ⟨q, rfl, h⟩
-    · exact (show False from h).elim
-  | twistedA n q =>
-    rcases n with _ | _ | _ | n
-    · exact (show False from h).elim
-    · exact (show False from h).elim
-    · exact Or.inr ⟨q, rfl, h⟩
-    · exact (show False from h).elim
-  | _ => exact (show False from h).elim
-
-private theorem i1412L_downLe_alt {p j n : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hA : KDAltDown)
-    (hnc : ∃ a b : alternatingGroup (Fin n), a * b ≠ b * a)
-    [IsSimpleGroup (alternatingGroup (Fin n))] [Finite (alternatingGroup (Fin n))] (hn : 5 ≤ n)
-    (hkn : kLevel p (alternatingGroup (Fin n)) ≤ j)
-    (hm : ∀ m : ℕ, 5 ≤ m → m + p ≤ n → kLevel p (alternatingGroup (Fin m)) ≤ j) :
-    DownLe p j (alternatingGroup (Fin n)) := by
-  intro α hα I hI
-  by_cases hα1 : α = 1
-  · subst hα1
-    rw [i1412L_fixSubgroup_one] at hI
-    obtain ⟨f⟩ := i1412L_pSimple_top_equiv hp hnc hI
-    exact (kLevel_congr p f).trans_le hkn
-  · obtain ⟨m, hm5, hmn, ⟨f⟩⟩ := hA n p hn hp hp2 α hα hα1 I hI
-    exact (kLevel_congr p f).trans_le (hm m (le_trans (le_max_left 5 p) hm5) hmn)
-
-theorem kdLevel_of {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (h1 : KDChevDown p)
-    (h2 : KDLevelTwo p) (h3 : KDLevelThree) : KDLevel p := by
-  intro S _ _ hS hnc hcat
-  unfold kLevel
-  split_ifs with hA hB hC
-  · intro α hα I hI
-    exact i1412L_kLevel_le_one (h1 S hS hnc hA α hα I hI)
-  · exact h2 S hS hnc hB
-  · have hp3 : p = 3 := by
-      obtain ⟨i, hi, -⟩ := hC
-      cases i with
-      | cyclic q hq => exact (show False from hi).elim
-      | alternating n hn => exact hi.1
-      | lie d => exact hi.1
-      | sporadic s => exact hi.1
-    subst hp3
-    exact h3 S hS hnc hC
-  · intro α _ I _
-    exact i1412L_kLevel_le_four p _
 
 theorem kdChevDown_of {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hC : KDCharP p) (hO : KDOutChev p)
     (hamb : ∀ i : TauCeti.CFSGIndex, ambiguousChev p i → DownLe p 1 i.Group) :
@@ -308,101 +210,5 @@ theorem kdChevDown_of {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hC : KDCharP p) 
     · exact downLe_of_mulEquiv e.symm (hamb i hi)
   exact i1412L_isChev_of_kLevel_le_one (hD α hα I hI)
 
-theorem kdLevelTwo_of {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hF : KDRankTwoDown)
-    (hA : KDAltDown) (hfin : KDLevelFinite p) : KDLevelTwo p := by
-  intro S _ _ hS hnc hk2
-  obtain ⟨i, hi, ⟨e⟩⟩ := hk2
-  refine downLe_of_mulEquiv e.symm ?_
-  cases i with
-  | cyclic q hq => exact (show False from hi).elim
-  | alternating n hn =>
-    have hk : (p = 3 ∧ (n = 5 ∨ n = 9)) ∨ (p = 7 ∧ n = 7) := hi
-    haveI : IsSimpleGroup (alternatingGroup (Fin n)) := e.symm.isSimpleGroup
-    haveI : Finite (alternatingGroup (Fin n)) := Finite.of_equiv S e.toEquiv
-    have hkn : kLevel p (alternatingGroup (Fin n)) ≤ 2 :=
-      i1412L_kLevel_le_two ⟨TauCeti.CFSGIndex.alternating n hn, hi, ⟨MulEquiv.refl _⟩⟩
-    refine i1412L_downLe_alt hp hp2 hA (i1412L_nonab_of_mulEquiv e hnc) hn hkn ?_
-    intro m hm5 hmn
-    rcases hk with ⟨rfl, rfl | rfl⟩ | ⟨rfl, rfl⟩
-    · omega
-    · rcases (show m = 5 ∨ m = 6 by omega) with rfl | rfl
-      · exact i1412L_kLevel_le_two ⟨TauCeti.CFSGIndex.alternating 5 (by norm_num),
-          by simp [k2], ⟨MulEquiv.refl _⟩⟩
-      · have h6 : kLevel 3 (alternatingGroup (Fin 6)) ≤ 1 :=
-          i1412L_kLevel_le_one (Or.inr ⟨TauCeti.CFSGIndex.alternating 6 (by norm_num),
-            by simp [ambiguousChev], ⟨MulEquiv.refl _⟩⟩)
-        exact h6.trans (by norm_num)
-    · omega
-  | lie d =>
-    obtain ⟨ld, hv⟩ := d
-    by_cases hf : ∃ q : TauCeti.PrimePower,
-        ld = .A 1 q ∨ ld = .A 2 q ∨ ld = .twistedA 2 q
-    · obtain ⟨q, hq | hq | hq⟩ := hf
-      · subst hq
-        obtain ⟨rfl, hnd⟩ : p = 3 ∧ ¬ 3 ∣ q.card := hi
-        exact hF.1 q hv hnd
-      · subst hq
-        rcases (show (p = 3 ∧ q.p = 2 ∧ Even q.exponent) ∨ (p = 13 ∧ q.card = 3) from hi) with
-          ⟨rfl, hq2, hev⟩ | ⟨rfl, hc⟩
-        · have h := hF.2.1 q hv (i1412L_card_mod_three_even hq2 hev)
-          rwa [if_pos hq2] at h
-        · exact (hfin (TauCeti.CFSGIndex.lie ⟨.A 2 q, hv⟩)
-            (fun h3 => by norm_num at h3) (fun n h h' => by cases h')).1 hi
-      · subst hq
-        obtain ⟨rfl, hq2, hodd, -⟩ : p = 3 ∧ q.p = 2 ∧ Odd q.exponent ∧ 1 < q.exponent := hi
-        have h := hF.2.2 q hv (i1412L_card_mod_three_odd hq2 hodd)
-        rwa [if_pos hq2] at h
-    · exact (hfin (TauCeti.CFSGIndex.lie ⟨ld, hv⟩)
-        (fun _ d' q h => by
-          cases h
-          exact ⟨fun h' => hf ⟨q, Or.inl h'⟩, fun h' => hf ⟨q, Or.inr (Or.inl h')⟩,
-            fun h' => hf ⟨q, Or.inr (Or.inr h')⟩⟩)
-        (fun n h h' => by cases h')).1 hi
-  | sporadic s =>
-    exact (hfin (TauCeti.CFSGIndex.sporadic s) (fun _ d' q h => by cases h)
-      (fun n h h' => by cases h')).1 hi
-
-theorem kdLevelThree_of (hF : KDRankTwoDown) (hA : KDAltDown) (hfin : KDLevelFinite 3) :
-    KDLevelThree := by
-  have hp3 : Nat.Prime 3 := Nat.prime_three
-  intro S _ _ hS hnc hk3
-  obtain ⟨i, hi, ⟨e⟩⟩ := hk3
-  refine downLe_of_mulEquiv e.symm ?_
-  cases i with
-  | cyclic q hq => exact (show False from hi).elim
-  | alternating n hn =>
-    have hk : n = 7 ∨ n = 10 := hi.2
-    haveI : IsSimpleGroup (alternatingGroup (Fin n)) := e.symm.isSimpleGroup
-    haveI : Finite (alternatingGroup (Fin n)) := Finite.of_equiv S e.toEquiv
-    have hkn : kLevel 3 (alternatingGroup (Fin n)) ≤ 3 :=
-      i1412L_kLevel_le_three ⟨TauCeti.CFSGIndex.alternating n hn, hi, ⟨MulEquiv.refl _⟩⟩
-    refine i1412L_downLe_alt hp3 (by norm_num) hA (i1412L_nonab_of_mulEquiv e hnc) hn hkn ?_
-    intro m hm5 hmn
-    rcases hk with rfl | rfl
-    · omega
-    · rcases (show m = 5 ∨ m = 6 ∨ m = 7 by omega) with rfl | rfl | rfl
-      · have h5 : kLevel 3 (alternatingGroup (Fin 5)) ≤ 2 :=
-          i1412L_kLevel_le_two ⟨TauCeti.CFSGIndex.alternating 5 (by norm_num),
-            by simp [k2], ⟨MulEquiv.refl _⟩⟩
-        exact h5.trans (by norm_num)
-      · have h6 : kLevel 3 (alternatingGroup (Fin 6)) ≤ 1 :=
-          i1412L_kLevel_le_one (Or.inr ⟨TauCeti.CFSGIndex.alternating 6 (by norm_num),
-            by simp [ambiguousChev], ⟨MulEquiv.refl _⟩⟩)
-        exact h6.trans (by norm_num)
-      · exact i1412L_kLevel_le_three ⟨TauCeti.CFSGIndex.alternating 7 (by norm_num),
-          by simp [k3], ⟨MulEquiv.refl _⟩⟩
-  | lie d =>
-    obtain ⟨ld, hv⟩ := d
-    have hk : k3Lie ld := hi.2
-    rcases i1412L_k3Lie_cases hk with ⟨q, rfl, hq⟩ | ⟨q, rfl, hq⟩
-    · have hq2 : q.p ≠ 2 := i1412L_p_ne_two_of_card_mod_two (by omega)
-      have h := hF.2.1 q hv (by omega)
-      rwa [if_neg hq2] at h
-    · have hq2 : q.p ≠ 2 := i1412L_p_ne_two_of_card_mod_two (by omega)
-      have h := hF.2.2 q hv (by omega)
-      rwa [if_neg hq2] at h
-  | sporadic s =>
-    exact (hfin (TauCeti.CFSGIndex.sporadic s) (fun _ d' q h => by cases h)
-      (fun n h h' => by cases h')).2 hi
 
 end CFSG.LocalAnalysis.GLTheoremA

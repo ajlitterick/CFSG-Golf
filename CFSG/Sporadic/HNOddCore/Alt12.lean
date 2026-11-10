@@ -17,9 +17,6 @@ theorem card_centralizer_swap01 :
   rw [Perm.nat_card_centralizer, swap01_type]
   decide
 
-theorem card_centralizer_sig2 : Nat.card (Subgroup.centralizer {sig2}) = 322560 := by
-  rw [Perm.nat_card_centralizer, sig2_type]
-  decide
 
 theorem card_centralizer_sig4 : Nat.card (Subgroup.centralizer {sig4}) = 9216 := by
   rw [Perm.nat_card_centralizer, sig4_type]
@@ -41,12 +38,6 @@ theorem card_altCentralizer_swap01 :
   card_alt_of_mem (by decide) (Subgroup.mem_centralizer_singleton_iff.2 rfl)
     (by rw [card_centralizer_swap01])
 
-theorem card_altCentralizer_sig2 :
-    Nat.card (Subgroup.centralizer {sig2} ⊓ alternatingGroup (Fin 12) :
-      Subgroup (Perm (Fin 12))) = 161280 :=
-  card_alt_of_mem (a := 0) (b := 1) (by decide)
-    (Subgroup.mem_centralizer_singleton_iff.2 (by unfold sig2; decide))
-    (by rw [card_centralizer_sig2])
 
 theorem card_altCentralizer_sig4 :
     Nat.card (Subgroup.centralizer {sig4} ⊓ alternatingGroup (Fin 12) :

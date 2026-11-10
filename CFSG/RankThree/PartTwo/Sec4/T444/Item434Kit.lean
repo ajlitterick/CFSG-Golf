@@ -21,9 +21,6 @@ variable {G : Type} [Group G] {X : Type*} [Group X]
     layer G →* X :=
   e.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center (layer G)))
 
-theorem layerQuot_apply (e : layer G ⧸ Subgroup.center (layer G) ≃* X) (x : layer G) :
-    layerQuot e x = e (x : layer G ⧸ Subgroup.center (layer G)) :=
-  rfl
 
 theorem layerQuot_surjective (e : layer G ⧸ Subgroup.center (layer G) ≃* X) :
     Function.Surjective (layerQuot e) :=
@@ -56,9 +53,6 @@ theorem ker_quotConj (hL : IsQuasisimple (layer G)) (e : layer G ⧸ Subgroup.ce
     (hZ : Subgroup.center (layer G) = ⊥) : layer G ≃* X :=
   MulEquiv.ofBijective (layerQuot e) ⟨layerQuot_injective e hZ, layerQuot_surjective e⟩
 
-theorem layerEquiv_apply (e : layer G ⧸ Subgroup.center (layer G) ≃* X)
-    (hZ : Subgroup.center (layer G) = ⊥) (x : layer G) : layerEquiv e hZ x = layerQuot e x :=
-  rfl
 
 @[expose] noncomputable def liftSub (e : layer G ⧸ Subgroup.center (layer G) ≃* X)
     (hZ : Subgroup.center (layer G) = ⊥) (D : Subgroup X) : Subgroup G :=
@@ -191,10 +185,6 @@ theorem centralizer_layer_eq_bot (h : Ctx434Core G A M Q)
   · rw [hC, Subgroup.card_bot] at h3
     omega
 
-theorem quotConj_injective (h : Ctx434Core G A M Q)
-    (hC : A ⊓ Subgroup.centralizer (layer G : Set G) = ⊥)
-    (e : layer G ⧸ Subgroup.center (layer G) ≃* X) : Function.Injective (quotConj e) := by
-  rw [← MonoidHom.ker_eq_bot_iff, ker_quotConj h.isQuasisimple e, centralizer_layer_eq_bot h hC]
 
 theorem map_comap_conj_eq (h : Ctx434Core G A M Q)
     (e : layer G ⧸ Subgroup.center (layer G) ≃* X) (hX : ¬ 3 ∣ Nat.card (Outer X)) :
@@ -340,67 +330,6 @@ theorem false_of_fixed_gens (h : Ctx434Core G A M Q)
       F ≤ A.map (quotConj e) ∧ 9 ≤ Nat.card F ∧ ∀ φ ∈ F, φ σ = σ) : False :=
   h.not_le (layer_le_of_fixed_gens h e hS hgen)
 
-theorem layer_le_of_normalizer_gens (h : Ctx434Core G A M Q)
-    (hC : A ⊓ Subgroup.centralizer (layer G : Set G) = ⊥)
-    (e : layer G ⧸ Subgroup.center (layer G) ≃* X) {S : Set X}
-    (hS : (⊤ : Subgroup X) ≤ Subgroup.closure S)
-    (hgen : ∀ σ ∈ S, ∃ F : Subgroup (MulAut X), F ≤ A.map (quotConj e) ∧ 9 ≤ Nat.card F ∧
-      MulAut.conj σ ∈ Subgroup.normalizer (F : Set (MulAut X))) :
-    layer G ≤ M := by
-  have : Group.IsPerfect (layer G) := h.isQuasisimple.1
-  have hinj := quotConj_injective h hC e
-  set φ := layerQuot e with hφ
-  set R : Subgroup (layer G) := M.comap (layer G).subtype with hR
-  have hlift : ∀ σ ∈ S, σ ∈ R.map φ := by
-    intro σ hσ
-    obtain ⟨F, hFA, hF9, hFN⟩ := hgen σ hσ
-    obtain ⟨x, rfl⟩ := layerQuot_surjective e σ
-    set B := A ⊓ F.comap (quotConj e) with hB
-    have hB9 : 9 ≤ Nat.card B := hF9.trans (card_le_card_inf_comap e hFA)
-    have key : ∀ l : layer G, MulAut.conj (φ l) ∈ Subgroup.normalizer (F : Set (MulAut X)) →
-        ∀ b ∈ B, (l : G) * b * (l : G)⁻¹ ∈ B := by
-      intro l hl b hb
-      have hq : quotConj e ((l : G) * b * (l : G)⁻¹) =
-          MulAut.conj (φ l) * quotConj e b * (MulAut.conj (φ l))⁻¹ := by
-        rw [map_mul, map_mul, map_inv, quotConj_eq_conj_layerQuot e l.2]
-      have hmemF : quotConj e ((l : G) * b * (l : G)⁻¹) ∈ F := by
-        rw [hq]
-        exact (Subgroup.mem_normalizer_iff.mp hl _).mp hb.2
-      obtain ⟨a, ha, hae⟩ := hFA hmemF
-      have hal : a = (l : G) * b * (l : G)⁻¹ := hinj hae
-      exact ⟨hal ▸ ha, hmemF⟩
-    have hxN : (x : G) ∈ Subgroup.normalizer (B : Set G) := by
-      rw [Subgroup.mem_normalizer_iff]
-      intro b
-      refine ⟨key x hFN b, fun hb => ?_⟩
-      have hinv : MulAut.conj (φ x⁻¹) ∈ Subgroup.normalizer (F : Set (MulAut X)) := by
-        rw [map_inv, map_inv]
-        exact inv_mem hFN
-      have h1 := key x⁻¹ hinv _ hb
-      have e1 : ((x⁻¹ : layer G) : G) * ((x : G) * b * (x : G)⁻¹) * ((x⁻¹ : layer G) : G)⁻¹ =
-          b := by
-        simp only [Subgroup.coe_inv, inv_inv]
-        group
-      rwa [e1] at h1
-    exact ⟨x, normalizer_le h inf_le_left hB9 hxN, rfl⟩
-  have hker : φ.ker ≤ Subgroup.center (layer G) := by rw [hφ, ker_layerQuot]
-  have hrange : φ.range ≤ R.map φ := by
-    rw [MonoidHom.range_eq_top.mpr (layerQuot_surjective e)]
-    exact hS.trans ((Subgroup.closure_le _).mpr hlift)
-  have htop := eq_top_of_range_le_map φ hker hrange
-  intro x hx
-  have hmem : (⟨x, hx⟩ : layer G) ∈ R := by
-    rw [htop]
-    exact Subgroup.mem_top _
-  exact hmem
-
-theorem false_of_normalizer_gens (h : Ctx434Core G A M Q)
-    (hC : A ⊓ Subgroup.centralizer (layer G : Set G) = ⊥)
-    (e : layer G ⧸ Subgroup.center (layer G) ≃* X) {S : Set X}
-    (hS : (⊤ : Subgroup X) ≤ Subgroup.closure S)
-    (hgen : ∀ σ ∈ S, ∃ F : Subgroup (MulAut X), F ≤ A.map (quotConj e) ∧ 9 ≤ Nat.card F ∧
-      MulAut.conj σ ∈ Subgroup.normalizer (F : Set (MulAut X))) : False :=
-  h.not_le (layer_le_of_normalizer_gens h hC e hS hgen)
 
 end Ctx
 

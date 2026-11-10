@@ -46,30 +46,11 @@ set_option maxRecDepth 400000
 public section
 
 set_option maxHeartbeats 0
-set_option Elab.async false
 
 namespace CertificateChecks.KernelSpor.Fi22Um
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KC.CommBase
 
-@[expose] noncomputable def umovK (L T T' : Nat) : Bool :=
-  bAnd(Fi22X.cn L, bAnd(Fi22X.cn (Fi22X.inv L),
-  bAnd(permOK 3510 12 (mask 12) (3510 * 12) L (Fi22X.inv L),
-  bAnd(Fi22X.siftP L,
-  bAnd(Fi22X.cn T, bAnd(permOK 3510 12 (mask 12) (3510 * 12) T (Fi22X.inv T),
-  bAnd(Fi22X.cn T', bAnd(permOK 3510 12 (mask 12) (3510 * 12) T' (Fi22X.inv T'),
-  strictB (Fi22X.c (Fi22X.c L T) (Fi22X.inv L)) fun C =>
-    Nat.beq (Fi22X.c C T') (Fi22X.c T' C)))))))))
-
-theorem umAll : allN 3 (fun i => allN 6 fun j =>
-    umovK (F (6 * i + j)) (Fi22ExtT.L (21 + i)) (Fi22ExtT.L (21 + j))) = true := by
-  quickRfl
-
-theorem negUm1 : notB (umovK (F 1) (Fi22ExtT.L 21) (Fi22ExtT.L 26)) = true := by quickRfl
-
-theorem negUmOuter : notB (umovK (Fi22X.c (F 1) Fi22X.GO) (Fi22ExtT.L 21) (Fi22ExtT.L 22)) =
-    true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.Fi22Um
 

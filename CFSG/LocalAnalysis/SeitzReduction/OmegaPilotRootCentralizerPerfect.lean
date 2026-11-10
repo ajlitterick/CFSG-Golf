@@ -453,28 +453,6 @@ variable (K) in
       ((isHypCoord_coordinateQuadPlus (K := K) j).orth (isHypCoord_coordinateQuadPlus k)
         (pairDisjoint_plus hjk))
 
-omit [Finite K] [CharP K 2] in
-theorem stabTwoBar_le_rootLeviBar {i j : Fin n} :
-    stabTwoBar K i j ≤ rootLeviBar (coordinateQuadPlus n K)
-      (isHypCoord_coordinateQuadPlus (K := K) i).hypPair
-      (isHypCoord_coordinateQuadPlus (K := K) j).hypPair :=
-  stabPairsBar_le_rootLeviBar _ _
-
-omit [CharP K 2] in
-theorem rootLeviBar_le_sup (hn : 3 ≤ n) {i j : Fin n} (hij : i ≠ j) :
-    rootLeviBar (coordinateQuadPlus n K) (isHypCoord_coordinateQuadPlus (K := K) i).hypPair
-        (isHypCoord_coordinateQuadPlus (K := K) j).hypPair ≤
-      rootPairBar (coordinateQuadPlus n K) (isHypCoord_coordinateQuadPlus (K := K) i).hypPair.e
-        (isHypCoord_coordinateQuadPlus (K := K) j).hypPair.e ⊔ stabTwoBar K i j :=
-  rootLeviBar_le_sup_of _ _ (pairDisjoint_plus hij) (regular_coordinateQuadPlus n K hn).1
-    (regular_coordinateQuadPlus n K hn).2
-
-theorem centralizer_rootPairElt_eq_sup (hn : 3 ≤ n) {i j k : Fin n} (hij : i ≠ j) (hik : i ≠ k)
-    (hjk : j ≠ k) :
-    centralizer {plusRootElt (K := K) hn hij hik hjk} =
-      rootPairBar (coordinateQuadPlus n K) (isHypCoord_coordinateQuadPlus (K := K) i).hypPair.e
-        (isHypCoord_coordinateQuadPlus (K := K) j).hypPair.e ⊔ stabTwoBar K i j :=
-  centralizer_rootPairElt_eq_sup_of _ _ (pairDisjoint_plus hij) _ _ _
 
 theorem commutator_centralizer_rootPairElt (hn : 5 ≤ n) (hq : 4 ≤ Nat.card K) {i j k : Fin n}
     (hij : i ≠ j) (hik : i ≠ k) (hjk : j ≠ k) :

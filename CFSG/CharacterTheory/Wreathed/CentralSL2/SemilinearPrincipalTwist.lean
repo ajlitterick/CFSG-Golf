@@ -143,10 +143,6 @@ theorem borelTwist_apply (P : PrincipalSeriesParameter F b m) (S : Subgroup Sigm
   ρ.comp ((SemidirectProduct.rightHom.comp (semilinearInertia S).subtype).codRestrict S
     fun x => x.2)
 
-theorem inertiaLinear_apply (S : Subgroup Sigma) (ρ : S →* ℂˣ)
-    (x : semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma) S) :
-    inertiaLinear hSigma S ρ x =
-      ρ ⟨(x : SemilinearExtension F b m hm heven Sigma hSigma).right, x.2⟩ := rfl
 
 variable [Fintype F]
 

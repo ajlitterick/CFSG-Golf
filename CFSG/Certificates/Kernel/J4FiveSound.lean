@@ -131,32 +131,6 @@ theorem imgF_comp (f : Nat → Nat) {g : Nat → Nat} (hg : ∀ i < 24, g i < 24
   · rintro ⟨i, hi, h1, h2⟩
     exact ⟨g i, hg i hi, (testBit_imgF g m (g i)).2 ⟨i, hi, h1, rfl⟩, h2⟩
 
-theorem imgF_id {f : Nat → Nat} (hf : ∀ i < 24, f i = i) {m : Nat} (hm : m < 2 ^ 24) :
-    imgF f m = m := by
-  apply Nat.eq_of_testBit_eq
-  intro y
-  apply Bool.eq_iff_iff.2
-  rw [testBit_imgF]
-  constructor
-  · rintro ⟨i, hi, h1, rfl⟩
-    rwa [hf i hi]
-  · intro h
-    have hy : y < 24 := by
-      by_contra hy
-      rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le hm (Nat.pow_le_pow_right (by norm_num)
-        (by omega)))] at h
-      exact Bool.false_ne_true h
-    exact ⟨y, hy, h, hf y hy⟩
-
-theorem imgF_lt {f : Nat → Nat} (hf : ∀ i < 24, f i < 24) (m : Nat) : imgF f m < 2 ^ 24 := by
-  apply Nat.lt_pow_two_of_testBit
-  intro y hy
-  rw [Bool.eq_false_iff]
-  intro h
-  rw [testBit_imgF] at h
-  obtain ⟨i, hi, -, rfl⟩ := h
-  have := hf i hi
-  omega
 
 theorem shiftRight_and_one (m i : Nat) : (m >>> i) &&& 1 = if m.testBit i then 1 else 0 := by
   rw [Nat.and_one_is_mod, Nat.testBit, Nat.shiftRight_eq_div_pow, Nat.one_and_eq_mod_two]

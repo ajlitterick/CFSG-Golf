@@ -11,28 +11,6 @@ namespace H
 
 open CFSG.Open
 
-theorem mem_of_isPGroup_of_index_two {Q : Type*} [Group Q] [Finite Q] {p : ℕ} [Fact p.Prime]
-    (hp2 : p ≠ 2) {E : Subgroup Q} [E.Normal] (hidx : E.index = 2) {P : Subgroup Q}
-    (hP : IsPGroup p P) : P ≤ E := by
-  intro y hy
-  obtain ⟨k, hk⟩ := hP ⟨y, hy⟩
-  have hk' : y ^ p ^ k = 1 := by simpa using congrArg Subtype.val hk
-  by_contra hyE
-  have hq : (QuotientGroup.mk y : Q ⧸ E) ≠ 1 := by
-    rwa [Ne, QuotientGroup.eq_one_iff]
-  have hcard : Nat.card (Q ⧸ E) = 2 := by rw [← Subgroup.index_eq_card, hidx]
-  have h2 : orderOf (QuotientGroup.mk y : Q ⧸ E) = 2 := by
-    have h1 : orderOf (QuotientGroup.mk y : Q ⧸ E) ∣ 2 := hcard ▸ orderOf_dvd_natCard _
-    rcases (Nat.dvd_prime Nat.prime_two).mp h1 with h | h
-    · exact absurd (orderOf_eq_one_iff.mp h) hq
-    · exact h
-  have h3 : orderOf (QuotientGroup.mk y : Q ⧸ E) ∣ p ^ k := by
-    apply orderOf_dvd_of_pow_eq_one
-    rw [← QuotientGroup.mk_pow, hk', QuotientGroup.mk_one]
-  rw [h2] at h3
-  have := (Nat.prime_dvd_prime_iff_eq Nat.prime_two (Fact.out : p.Prime)).mp
-    (Nat.prime_two.dvd_of_dvd_pow h3)
-  exact hp2 this.symm
 
 variable {V : Type*} [CommGroup V]
 

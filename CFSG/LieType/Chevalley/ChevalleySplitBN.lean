@@ -118,11 +118,6 @@ theorem monomialSubHom_ker :
   (QuotientGroup.quotientMulEquivOfEq monomialSubHom_ker.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective _ monomialSubHom_surjective)
 
-theorem monomialSubQuotientEquiv_mk
-    (x : monomialSub τ K) :
-    monomialSubQuotientEquiv (x : monomialSub τ K ⧸
-      (borelSub τ K ⊓ monomialSub τ K).subgroupOf (monomialSub τ K)) = monomialSubHom x :=
-  rfl
 
 theorem simple_injective
     : Function.Injective (simple τ) := fun i j h => by

@@ -43,20 +43,6 @@ variable {K A F : Type*} [CommSemiring K] [Semiring A] [Algebra K A] [Group F]
     change rho (g * h) x.val = rho g (rho h x.val)
     rw [map_mul, AlgEquiv.mul_apply]
 
-theorem invariantSubalgebraAction_mem_ker (rho : F →* (A ≃ₐ[K] A))
-    (S : Subalgebra K A) (hS : ∀ g : F, ∀ x ∈ S, rho g x ∈ S) (g : F) :
-    g ∈ (invariantSubalgebraAction rho S hS).ker ↔
-      ∀ x ∈ S, rho g x = x := by
-  change invariantSubalgebraAction rho S hS g = 1 ↔ _
-  constructor
-  · intro hg x hx
-    have h := congrArg (fun e : S ≃ₐ[K] S => (e ⟨x, hx⟩ : A)) hg
-    exact h
-  · intro hg
-    apply AlgEquiv.ext
-    intro x
-    apply Subtype.ext
-    exact hg x.val x.property
 
 theorem invariantSubalgebraAction_ker_index_dvd (rho : F →* (A ≃ₐ[K] A))
     (S : Subalgebra K A) (hS : ∀ g : F, ∀ x ∈ S, rho g x ∈ S) :

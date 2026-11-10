@@ -127,33 +127,6 @@ theorem ggL46_omega_of_cyclic (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIs
 
 end Core
 
-theorem ggL46CoreInput_of_torus (hraw : GGRawInnFieldInput) (hcen : GGRawFieldCentralInput)
-    (hiso : GGRawInndiagIsoInput) (hcent : GGL45CentInput) (htorus : GGL45TorusInput)
-    (hcyc : GGL46CyclicInput) : GGL46CoreInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS
-  have hcfg := ggL45Config_of_setup hS
-  have : Fact p.Prime := ⟨hcfg.prime⟩
-  have hp := hcfg.prime
-  obtain ⟨hab, s, hs, hexp, hord, x', hx'x, hact⟩ := ggL46_torus hraw hcen hiso hcent htorus hS
-  have habU : IsMulCommutative U₁ := ⟨⟨fun a b => Subtype.ext (hab a a.2 b b.2)⟩⟩
-  obtain ⟨g₀, hg₀, hcycU⟩ := hcyc G p B Bs x L D J X B₂ d y K U U₁ hS
-  obtain ⟨hΩU, hΩ₁⟩ := ggL46_omega_of_cyclic hraw hiso hcfg hab hs hexp hx'x hact hg₀ hcycU
-  have hcard := ggL46_card_le_of_cyclic hS habU hs hexp hx'x hact hΩU hΩ₁ hg₀ hcycU
-  have hOU₁ : ggPowSubgroup U₁ habU (p ^ (s - 1)) ≤ U₁ := by
-    rintro _ ⟨u, hu, rfl⟩
-    exact U₁.pow_mem hu _
-  obtain ⟨r, hr⟩ := IsPGroup.iff_card.mp ((hcfg.isPGroup.to_le hcfg.part_le).to_le hOU₁)
-  obtain ⟨H, hHU₁, hHcard, hHB₁⟩ := exists_ggHomocyclic hp (by omega) habU hexp hΩ₁ hr
-  refine ⟨habU, ⟨s, hs, hexp, hord, ⟨x', hx'x, hact⟩, H, r, hHU₁, fun h hh => hexp h (hHU₁ hh),
-    hHcard, hHB₁, ?_⟩, hΩ₁, hΩU⟩
-  rw [hr] at hcard
-  rw [pow_succ, mul_comm]
-  exact hcard
-
-theorem ggL46Input_of_torus (h43 : GGL43Input) (hraw : GGRawInnFieldInput)
-    (hcen : GGRawFieldCentralInput) (hiso : GGRawInndiagIsoInput) (hcent : GGL45CentInput)
-    (htorus : GGL45TorusInput) (hcyc : GGL46CyclicInput) : GGL46Input :=
-  ggL46Input_of_core h43 (ggL46CoreInput_of_torus hraw hcen hiso hcent htorus hcyc) hcyc
 
 end CFSG.StandardType
 

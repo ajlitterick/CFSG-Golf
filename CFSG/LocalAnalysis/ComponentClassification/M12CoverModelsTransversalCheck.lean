@@ -27,8 +27,6 @@ theorem decompCheck_eq : decompCheck = true :=
 theorem betaCheck_eq : betaCheck = true :=
   Certificates.certificate10025.2.2.2.1
 
-theorem quotCheck_eq : quotCheck = true :=
-  Certificates.certificate10025.2.2.2.2.1
 
 theorem transferCheck_eq : transferCheck = true :=
   Certificates.certificate10025.2.2.2.2.2.1

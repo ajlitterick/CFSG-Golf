@@ -55,9 +55,6 @@ theorem eq_one_of_mem_fibVStar_of_mem_fibLStar
   rw [fibV_inf_fibLevi, Subgroup.mem_bot] at hl
   exact SemidirectProduct.ext (Subtype.ext hl) hr
 
-theorem fibVStar_inf_fibLStar
-    (d : Fin 5) : fibVStar d ⊓ fibLStar d = ⊥ :=
-  eq_bot_iff.2 fun _ hγ => eq_one_of_mem_fibVStar_of_mem_fibLStar hγ.1 hγ.2
 
 @[expose] def fibProd
     (d : Fin 5) (p : fibVStar d × fibLStar d) : fibCent d :=
@@ -97,11 +94,6 @@ theorem exists_mul_of_mem_fibCent
   obtain ⟨⟨v, l⟩, hp, -⟩ := existsUnique_mul_of_mem_fibCent hγ
   exact ⟨v, v.2, l, l.2, hp.symm⟩
 
-theorem fibCent_eq_sup
-    (d : Fin 5) : fibCent d = fibVStar d ⊔ fibLStar d := by
-  refine le_antisymm (fun γ hγ => ?_) (sup_le (fibVStar_le d) (fibLStar_le d))
-  obtain ⟨v, hv, l, hl, rfl⟩ := exists_mul_of_mem_fibCent hγ
-  exact mul_mem (Subgroup.mem_sup_left hv) (Subgroup.mem_sup_right hl)
 
 theorem conj_mem_stdRadical
     {g q : ModGL Tag.E6 K} (hg : g ∈ nativeParabolic firstJ)
@@ -153,79 +145,6 @@ theorem radStar_inf_centralizer
   ext γ
   exact ⟨fun h => ⟨h.1, radStar_le_parStar h.1, h.2⟩, fun h => ⟨h.1, h.2.2⟩⟩
 
-theorem fibCent_le_normalizer
-    (d : Fin 5) :
-    fibCent d ≤ Subgroup.normalizer (fibVStar d : Set GStar) := by
-  intro c hc
-  rw [Subgroup.mem_normalizer_iff]
-  intro v
-  rw [← radStar_inf_fibCent]
-  constructor
-  · intro hv
-    exact Subgroup.mem_inf.2 ⟨conj_mem_radStar hc.1 hv.1, mul_mem (mul_mem hc hv.2) (inv_mem hc)⟩
-  · intro hv
-    have h1 := conj_mem_radStar (inv_mem hc.1) hv.1
-    have h2 := mul_mem (mul_mem (inv_mem hc) hv.2) (inv_inv c ▸ hc)
-    rw [inv_inv] at h1 h2
-    have e : c⁻¹ * (c * v * c⁻¹) * c = v := by group
-    rw [e] at h1 h2
-    exact Subgroup.mem_inf.2 ⟨h1, h2⟩
-
-@[expose] def inlLevi
-    (d : Fin 5) : Subgroup GStar :=
-  ((fibLevi d).subgroupOf stdGroup).map SemidirectProduct.inl
-
-@[expose] def betaSub :
-    Subgroup GStar := (SemidirectProduct.inr : betaGroup →* GStar).range
-
-theorem mem_inlLevi
-    {d : Fin 5} {γ : GStar} :
-    γ ∈ inlLevi d ↔ (γ.left : ModGL Tag.E6 K) ∈ fibLevi d ∧ γ.right = 1 :=
-  mem_map_inl_iff
-
-theorem mem_betaSub
-    {γ : GStar} : γ ∈ betaSub ↔ γ.left = 1 := by
-  constructor
-  · rintro ⟨b, rfl⟩
-    rfl
-  · intro h
-    exact ⟨γ.right, SemidirectProduct.ext h.symm rfl⟩
-
-theorem fibLStar_eq_sup
-    (d : Fin 5) : fibLStar d = inlLevi d ⊔ betaSub := by
-  refine le_antisymm (fun γ hγ => ?_) (sup_le (fun _ hγ => (mem_inlLevi.1 hγ).1) ?_)
-  · have e : γ = SemidirectProduct.inl γ.left * SemidirectProduct.inr γ.right :=
-      (SemidirectProduct.inl_left_mul_inr_right γ).symm
-    rw [e]
-    exact mul_mem (Subgroup.mem_sup_left (mem_inlLevi.2 ⟨hγ, rfl⟩))
-      (Subgroup.mem_sup_right ⟨γ.right, rfl⟩)
-  · intro γ hγ
-    change (γ.left : ModGL Tag.E6 K) ∈ fibLevi d
-    rw [mem_betaSub.1 hγ]
-    exact one_mem _
-
-theorem inlLevi_inf_betaSub
-    (d : Fin 5) : inlLevi d ⊓ betaSub = ⊥ :=
-  eq_bot_iff.2 fun _ hγ => SemidirectProduct.ext (mem_betaSub.1 hγ.2) (mem_inlLevi.1 hγ.1).2
-
-theorem fibLStar_le_normalizer
-    (d : Fin 5) :
-    fibLStar d ≤ Subgroup.normalizer (inlLevi d : Set GStar) := by
-  have key : ∀ γ ∈ fibLStar d, ∀ x ∈ inlLevi d, γ * x * γ⁻¹ ∈ inlLevi d := by
-    intro γ hγ x hx
-    obtain ⟨hx1, hx2⟩ := mem_inlLevi.1 hx
-    have hx' : x = SemidirectProduct.inl x.left := SemidirectProduct.ext rfl hx2
-    rw [hx', conj_inl]
-    refine mem_inlLevi.2 ⟨?_, rfl⟩
-    rw [SemidirectProduct.left_inl, Subgroup.coe_mul, Subgroup.coe_mul, Subgroup.coe_inv]
-    exact mul_mem (mul_mem hγ (apply_mem_of_betaGL_mem (fun _ => betaGL_mem_leviParabolic)
-      γ.right hx1)) (inv_mem hγ)
-  intro γ hγ
-  rw [Subgroup.mem_normalizer_iff]
-  intro x
-  refine ⟨key γ hγ x, fun hx => ?_⟩
-  have := key γ⁻¹ (inv_mem hγ) _ hx
-  rwa [inv_inv, show γ⁻¹ * (γ * x * γ⁻¹) * γ = x by group] at this
 
 @[expose] def fibUSize : Fin 5 → ℕ := ![1, 2, 64, 2048, 2097152]
 

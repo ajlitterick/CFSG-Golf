@@ -275,8 +275,6 @@ variable {Γ : Type*} [Group Γ]
     rintro a ⟨haQ, hao⟩
     exact ⟨inv_mem haQ, by rwa [orderOf_inv]⟩
 
-theorem mem_oddOrderSubgroup {Q : Subgroup Γ} {hQ : ∀ x ∈ Q, ∀ y ∈ Q, Commute x y} {z : Γ} :
-    z ∈ oddOrderSubgroup Q hQ ↔ z ∈ Q ∧ Odd (orderOf z) := Iff.rfl
 
 theorem odd_card_of_forall_odd_orderOf (H : Subgroup Γ) [Finite H]
     (h : ∀ z ∈ H, Odd (orderOf z)) : Odd (Nat.card H) := by

@@ -34,11 +34,6 @@ theorem size_powP (p : Pr) (n : ℕ) : (powP p n).1.size = 64 := by
   | zero => exact size_oneP
   | succ n => exact size_mulP _ _
 
-theorem size_symP (s : ℕ) : (symP s).1.size = 64 := by
-  unfold symP
-  split_ifs
-  · exact size_letterArr s
-  · exact size_oneArr
 
 theorem size_wordP (w : List ℕ) : (wordP w).1.size = 64 := by
   induction w with

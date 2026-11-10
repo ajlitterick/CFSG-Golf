@@ -64,15 +64,6 @@ variable {θ : Vh → V} (hθ : GraphCovering Γh Γ θ)
 
 @[simp] theorem pathMap_apply {n : ℕ} (q : GPath Γh n) (i : ℕ) : hθ.pathMap q i = θ (q i) := rfl
 
-theorem GPath_eq_snoc_take {n : ℕ} (p : GPath Γ (n + 1)) :
-    p = (p.take n (Nat.le_succ n)).snoc (p (n + 1)) (by
-      simpa [GPath.take] using p.adj n (Nat.lt_succ_self n)) := by
-  refine GPath.ext' fun i hi => ?_
-  by_cases h : i ≤ n
-  · rw [GPath.snoc_of_le _ _ _ h, GPath.take_apply_of_le _ _ _ h]
-  · have : i = n + 1 := by omega
-    subst this
-    rw [GPath.snoc_last]
 
 theorem pathMap_take {n : ℕ} (r : GPath Γh n) (k : ℕ) (hk : k ≤ n) :
     hθ.pathMap (r.take k hk) = (hθ.pathMap r).take k hk :=
@@ -178,7 +169,6 @@ theorem bijOn_nbPaths (vh : Vh) (n : ℕ) :
 @[simp] theorem pathSetMap_apply (vh : Vh) (p : PathSet Γh vh) (i : ℕ) :
     (hθ.pathSetMap vh p).2.1 i = θ (p.2.1 i) := rfl
 
-theorem pathSetMap_length (vh : Vh) (p : PathSet Γh vh) : (hθ.pathSetMap vh p).1 = p.1 := rfl
 
 theorem pathSetMap_bijective (vh : Vh) : Function.Bijective (hθ.pathSetMap vh) := by
   constructor
@@ -369,15 +359,6 @@ omit [GraphAction Gh Γh] [GraphAction G Γ] in
     MulAction.stabilizer Gh uh ≃* MulAction.stabilizer G (θ uh) :=
   MulEquiv.ofBijective h.restrict h.restrict_bijective
 
-include hθ in
-@[expose] noncomputable def StabIso.quasiEquiv {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh) :
-    PermQuasiEquiv (MulAction.stabilizer Gh uh) (PathSet Γh uh) (MulAction.stabilizer G (θ uh))
-      (PathSet Γ (θ uh)) where
-  grp := hs.equiv
-  set := hθ.pathSetEquiv uh
-  map_smul g p := PathSet.ext rfl fun i => by
-    show θ ((g : Gh) • p.2.1 i) = θG g • θ (p.2.1 i)
-    exact hs.equivariant _ _
 
 include hθ in
 theorem map_stabPath_eq {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh) {n : ℕ} (q : GPath Γh n)
@@ -454,48 +435,6 @@ variable {V₂ : Type u₅} {Γ₂ : SimpleGraph V₂} {θ₂ : Vh → V₂} (h�
     MulAction.stabilizer G (θ uh) ≃* MulAction.stabilizer G₂ (θ₂ uh) :=
   hs.equiv.symm.trans hs₂.equiv
 
-omit [GraphAction Gh Γh] [GraphAction G Γ] [GraphAction G₂ Γ₂] in
-theorem StabIso.comp_spec {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh)
-    (hs₂ : StabIso (θ := θ₂) (θG := θG₂) uh) (gq : MulAction.stabilizer Gh uh) :
-    StabIso.comp hs hs₂ (hs.equiv gq) = hs₂.equiv gq := by
-  simp [StabIso.comp]
-
-include hθ hθ₂ in
-@[expose] noncomputable def quasiEquivComp {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh)
-    (hs₂ : StabIso (θ := θ₂) (θG := θG₂) uh) :
-    PermQuasiEquiv (MulAction.stabilizer G (θ uh)) (PathSet Γ (θ uh))
-      (MulAction.stabilizer G₂ (θ₂ uh)) (PathSet Γ₂ (θ₂ uh)) :=
-  (StabIso.quasiEquiv hθ hs).symm.trans (StabIso.quasiEquiv hθ₂ hs₂)
-
-include hθ hθ₂ in
-theorem quasiEquivComp_grp {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh)
-    (hs₂ : StabIso (θ := θ₂) (θG := θG₂) uh) :
-    (quasiEquivComp hθ hθ₂ hs hs₂).grp = StabIso.comp hs hs₂ := rfl
-
-include hθ hθ₂ in
-theorem quasiEquivComp_set {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh)
-    (hs₂ : StabIso (θ := θ₂) (θG := θG₂) uh) :
-    (quasiEquivComp hθ hθ₂ hs hs₂).set = psi hθ hθ₂ uh := rfl
-
-include hθ hθ₂ in
-theorem mem_stabPath_comp_iff {uh : Vh} (hs : StabIso (θ := θ) (θG := θG) uh)
-    (hs₂ : StabIso (θ := θ₂) (θG := θG₂) uh) (p : PathSet Γ (θ uh))
-    (g : MulAction.stabilizer G (θ uh)) :
-    (g : G) ∈ p.2.1.stabPath ↔
-      ((StabIso.comp hs hs₂ g : MulAction.stabilizer G₂ (θ₂ uh)) : G₂) ∈
-        (psi hθ hθ₂ uh p).2.1.stabPath := by
-  obtain ⟨ph, rfl⟩ := (hθ.pathSetEquiv uh).surjective p
-  obtain ⟨gq, rfl⟩ := hs.equiv.surjective g
-  rw [StabIso.comp_spec hs hs₂ gq]
-  have e : psi hθ hθ₂ uh (hθ.pathSetEquiv uh ph) = hθ₂.pathSetEquiv uh ph := by
-    simp [psi]
-  rw [e]
-  have h1 : (hs.equiv gq : G) = θG gq := rfl
-  have h2 : (hs₂.equiv gq : G₂) = θG₂ gq := rfl
-  rw [h1, h2]
-  have hgq : (gq : Gh) • uh = uh := MulAction.mem_stabilizer_iff.mp gq.2
-  have hp0 : ph.2.1 0 = uh := ph.2.2
-  exact (hθ.mem_stabPath_iff hs ph.2.1 hp0 hgq).symm.trans (hθ₂.mem_stabPath_iff hs₂ ph.2.1 hp0 hgq)
 
 end Two
 

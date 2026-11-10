@@ -22,14 +22,6 @@ namespace CertificateChecks.KernelSporSch.Co2M
 
 open CFSG.Sporadic.Co2Schreier CFSG.Sporadic.Co2Cert CFSG.Monster.B.Co2.Native
 
-meta def kerSift : Array (Array Nat) :=
-  #[(extendArrs dArrs localRec.chains.D.derivations)[6]!,
-    (extendArrs dArrs localRec.chains.D.derivations)[7]!,
-    (extendArrs dArrs localRec.chains.D.derivations)[8]!,
-    wordArr dArrs (witRec.wLocal.dAdditionalFixedWords.getD 0 [])]
-
-meta def kerSiftRows : Array (Array Nat) :=
-  kerSift.map fun a => Gen.rowsOf (Gen.matOf vecsM (Gen.basisOf vecsM) a)
 
 end CertificateChecks.KernelSporSch.Co2M
 
@@ -103,7 +95,6 @@ theorem words_ok : (extWordsOK 2 derivD && extWordsOK 2 localRec.dStrongDerivati
     centerIdxR.length == 32 && centerIdxR.getD 0 0 == 0) = true := by
   decide +kernel
 
-theorem V_size' : co2PackedVecs.size = 2300 := V_size
 
 theorem eqA_rep {a b : Array ℕ} {X X' Y Y' : ℕ} (ha : Rep 22 co2PackedVecs a X X')
     (hb : Rep 22 co2PackedVecs b Y Y') : eqA 2300 a b = Nat.beq (md X) (md Y) := by

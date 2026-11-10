@@ -103,15 +103,6 @@ private lemma inv_mul_self_matrix (K : Type u) [Field K]
     (M⁻¹ : Matrix (Fin 2) (Fin 2) K) * (M : Matrix (Fin 2) (Fin 2) K) = 1 := by
   simp [Matrix.GeneralLinearGroup.coe_inv]
 
-/-- A nonzero quotient `sigma x / x` is again nonzero. -/
-private lemma sigma_div_ne_zero (K : Type u) [Field K]
-    (sigma : K ≃+* K) {x : K} (hx : x ≠ 0) : sigma x / x ≠ 0 := by
-  intro h
-  apply hx
-  have h0 : sigma x = 0 := by
-    have h' : sigma x * x⁻¹ = 0 := by simpa [div_eq_mul_inv] using h
-    exact (mul_eq_zero.mp h').resolve_right (inv_ne_zero hx)
-  exact sigma.injective (by simpa [h0] using (map_zero sigma))
 
 /-- The projective conjugation equation `z · σ̃(mk N) · z⁻¹ = mk N` lifts to
 a matrix-level similarity `M · σ(N) · M⁻¹ = μ • N`. -/
@@ -542,22 +533,6 @@ private lemma moved_nonsplitTorus_element_inverted
         smul_eq_mul] using hp.symm
   simpa [hx, hMk] using hinverted
 
-/-- The matrix conjugation dichotomy for the semilinear conjugate on the
-concrete nonsplit torus: for an element `x ∈ U` with
-`z · σ̃(x) · z⁻¹ = x`, the parameter of `x` is either fixed by `sigma`
-(`σ̃(x) = x`) or inverted (`σ̃(x) = x⁻¹`). -/
-public theorem pGammaL2_nonsplitTorus_semilinearConjugate_dichotomy
-    {K : Type u} [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K))
-    (sigma : K ≃+* K) (lam : K) (hlamσ : sigma lam = lam) (hlam0 : lam ≠ 0)
-    (z : PGL2 K) (x : PGL2 K)
-    (hxU : x ∈ pgl2ConcreteNonsplitTorus K lam)
-    (hconj : z * pgl2FieldAut K sigma x * z⁻¹ = x) :
-    pgl2FieldAut K sigma x = x ∨ pgl2FieldAut K sigma x = x⁻¹ := by
-  by_cases hdiag : pgl2FieldAut K sigma x = x
-  · exact Or.inl hdiag
-  · exact Or.inr (moved_nonsplitTorus_element_inverted hK sigma lam hlamσ hlam0 z x
-      hxU hconj hdiag)
 
 set_option maxHeartbeats 8000000 in
 /-- The nonsplit half of the `hU0fixed` transport: a subgroup `A` of the

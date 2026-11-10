@@ -63,32 +63,6 @@ variable (Q : QuadraticForm K V) (T : Module.End K V) (d : K) (hd : d ≠ 0)
     (actualPositiveBilinear_isSymm Q T d hd hns hsquare hadj)
     (extension_two_ne_zero h2) g.val).mp g.property
 
-theorem positiveCentralizerToOrthogonal_apply (g : orthogonalOperatorCentralizer Q T) (x : V) :
-    (positiveCentralizerToOrthogonal Q T d hd hns hsquare hadj h2 g).val x = g.val.val x := rfl
-
-theorem positiveCentralizerToOrthogonal_symm_apply (g : orthogonalOperatorCentralizer Q T)
-    (x : V) :
-    (positiveCentralizerToOrthogonal Q T d hd hns hsquare hadj h2 g).val.symm x =
-      g.val.val.symm x := rfl
-
-theorem positiveOrthogonalToCentralizer_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : TauCeti.QuadraticMap.orthogonalGroup
-      (actualPositiveQuadratic Q T d hd hns hsquare hadj)) (x : V),
-      (positiveOrthogonalToCentralizer Q T d hd hns hsquare hadj h2 g).val.val x = g.val x := by
-  intros
-  rfl
-
-theorem positiveOrthogonalToCentralizer_symm_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : TauCeti.QuadraticMap.orthogonalGroup
-      (actualPositiveQuadratic Q T d hd hns hsquare hadj)) (x : V),
-      (positiveOrthogonalToCentralizer Q T d hd hns hsquare hadj h2 g).val.val.symm x =
-        g.val.symm x := by
-  intros
-  rfl
 
 theorem positiveOrthogonalToCentralizer_upgrade (g : orthogonalOperatorCentralizer Q T) :
     positiveOrthogonalToCentralizer Q T d hd hns hsquare hadj h2
@@ -124,18 +98,6 @@ theorem positiveCentralizerToOrthogonal_restriction :
     right_inv := positiveCentralizerToOrthogonal_restriction Q T d hd hns hsquare hadj h2
     map_mul' := (positiveCentralizerToOrthogonal Q T d hd hns hsquare hadj h2).map_mul }
 
-theorem actualPositiveCentralizerEquiv_apply (g : orthogonalOperatorCentralizer Q T) (x : V) :
-    (actualPositiveCentralizerEquiv Q T d hd hns hsquare hadj h2 g).val x = g.val.val x := rfl
-
-theorem actualPositiveCentralizerEquiv_symm_apply :
-    letI := scalarField T d hns hsquare
-    letI := evaluationModule T
-    ∀ (g : TauCeti.QuadraticMap.orthogonalGroup
-      (actualPositiveQuadratic Q T d hd hns hsquare hadj)) (x : V),
-      ((actualPositiveCentralizerEquiv Q T d hd hns hsquare hadj h2).symm g).val.val x =
-        g.val x := by
-  intros
-  rfl
 
 end Positive
 

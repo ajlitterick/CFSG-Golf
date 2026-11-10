@@ -16,15 +16,6 @@ variable {G : Type u} [Group G]
 @[expose] def borelCorrection (alpha : MulAut G) (g : G) : MulAut G :=
   MulAut.conj g⁻¹ * alpha
 
-theorem borelCorrection_apply (alpha : MulAut G) (g x : G) :
-    borelCorrection alpha g x = g⁻¹ * alpha x * g := by
-  change (MulAut.conj g⁻¹) (alpha x) = _
-  rw [MulAut.conj_apply, inv_inv]
-
-theorem borelCorrection_symm_apply (alpha : MulAut G) (g x : G) :
-    (borelCorrection alpha g).symm x = alpha.symm (g * x * g⁻¹) := by
-  change alpha.symm ((MulAut.conj g⁻¹).symm x) = _
-  rw [MulAut.conj_symm_apply, inv_inv]
 
 theorem sylow_normalizer_image_conjugate {p : ℕ} [Fact p.Prime]
     [Finite (Sylow p G)] (P : Sylow p G) (alpha : MulAut G) :
@@ -79,22 +70,5 @@ theorem borelCorrection_family (D : Subgroup G) (alpha : MulAut G) (g : G) :
   rw [← conjugacyFamily_covariance, borelCorrection, mul_smul,
     conjugacyFamily_covariance, conj_conjugacyFamily]
 
-theorem exists_sylow_borel_corrected_overgroup {p : ℕ} [Fact p.Prime]
-    [Finite (Sylow p G)] (P : Sylow p G) (D : Subgroup G)
-    (hBD : Subgroup.normalizer (P : Set G) ≤ D) (hD : IsCoatom D)
-    (alpha : MulAut G) :
-    ∃ g : G,
-      (Subgroup.normalizer (P : Set G)).map (borelCorrection alpha g).toMonoidHom =
-          Subgroup.normalizer (P : Set G) ∧
-        Subgroup.normalizer (P : Set G) ≤ D.map (borelCorrection alpha g).toMonoidHom ∧
-        IsCoatom (D.map (borelCorrection alpha g).toMonoidHom) ∧
-        (D.map (borelCorrection alpha g).toMonoidHom).index = D.index ∧
-        conjugacyFamily (D.map (borelCorrection alpha g).toMonoidHom) =
-          alpha • conjugacyFamily D := by
-  obtain ⟨g, hg⟩ := sylow_normalizer_image_conjugate P alpha
-  exact ⟨g, borelCorrection_borel _ alpha g hg,
-    borelCorrection_overgroup _ D hBD alpha g hg,
-    borelCorrection_isCoatom D hD alpha g, borelCorrection_index D alpha g,
-    borelCorrection_family D alpha g⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointPlusFamilyOrbit

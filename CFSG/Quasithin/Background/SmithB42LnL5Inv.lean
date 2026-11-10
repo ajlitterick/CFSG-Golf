@@ -61,13 +61,6 @@ theorem toMat_upB_codeU : ∀ c₀ c₁ c₂ c₃ c₄ c₅ c₆ c₇ c₈ c₉ 
     toMat (upB (codeU c₀ c₁ c₂ c₃ c₄ c₅ c₆ c₇ c₈ c₉)) = upMat c₀ c₁ c₂ c₃ c₄ c₅ c₆ c₇ c₈ c₉ := by
   decide +kernel
 
-@[expose] def t0B : BM := ![3, 2, 4, 8, 16]
-
-@[expose] def s0B : BM := ![5, 10, 4, 8, 16]
-
-theorem toMat_t0B : toMat t0B = t0M := by decide
-
-theorem toMat_s0B : toMat s0B = s0M := by decide
 
 @[expose] def invTab : List (ℕ × BM × BM) :=
   [(1, ![1, 2, 4, 8, 16], ![1, 2, 4, 8, 16]), (2, ![1, 4, 2, 8, 16], ![1, 4, 2, 8, 16]),

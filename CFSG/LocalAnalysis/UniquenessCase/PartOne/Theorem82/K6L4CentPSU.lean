@@ -891,17 +891,6 @@ private theorem tstblk3_transpose {F : Type} [Field F] (A : Matrix (Fin 3) (Fin 
   ext i j
   fin_cases i <;> fin_cases j <;> simp [tstblk3]
 
-private theorem tstblk3_gram {F : Type} [Field F] (τ : F →+* F)
-    (A : Matrix (Fin 3) (Fin 3) F) (c : F) :
-    ((tstblk3 A c).map τ)ᵀ * tstblk3 A c = tstblk3 ((A.map τ)ᵀ * A) (τ c * c) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [tstblk3, Matrix.mul_apply, Fin.sum_univ_four, Fin.sum_univ_three]
-
-private theorem tstblk3_gram_equiv {F : Type} [Field F] (σ : F ≃+* F)
-    (A : Matrix (Fin 3) (Fin 3) F) (c : F) :
-    ((tstblk3 A c).map σ)ᵀ * tstblk3 A c = tstblk3 ((A.map σ)ᵀ * A) (σ c * c) :=
-  tstblk3_gram (σ : F →+* F) A c
 
 private theorem tstblk3_map_equiv {F : Type} [Field F] (σ : F ≃+* F)
     (A : Matrix (Fin 3) (Fin 3) F) (c : F) :
@@ -947,10 +936,6 @@ private theorem tstpattern {F : Type} [Field F] {g : Matrix (Fin 4) (Fin 4) F} {
   · exact TauCeti.apply_eq_zero_of_commute_diagonal hc (by simpa using hω.symm)
 
 
-
-
-
-
 private def tstopLeft (g : GL (Fin 4) K) : Matrix (Fin 3) (Fin 3) K :=
   Matrix.submatrix (g : Matrix (Fin 4) (Fin 4) K) Fin.castSucc Fin.castSucc
 
@@ -965,8 +950,6 @@ private theorem tsblock_of_comm {ω : K} (hω : ω ≠ 1) {g : GL (Fin 4) K}
   fin_cases i <;> fin_cases j <;>
     simp [tstblk3, tstopLeft, tsbotRight, h03, h13, h23, h30, h31, h32]
 
-private theorem tshF {r : ℕ} (hK : Nat.card K = r ^ 2) : Nat.card K = (r ^ 1) ^ 2 := by
-  simpa using hK
 
 private theorem tsH_eq {r : ℕ} [Fact r.Prime] [CharP K r] (hK : Nat.card K = r ^ 2) :
     StatedSU 4 r K = SUid (unitaryInvolution K r 1) 4 := by
@@ -981,9 +964,6 @@ private theorem tsω_ne_one (ζ : CubeRoot K) : (ζ.ω : K) ≠ 1 := by
   apply ζ.ne_one
   apply Units.ext
   exact h
-
-
-
 
 
 private theorem tstblk3_one {F : Type} [Field F] :
@@ -1019,9 +999,6 @@ private theorem tscentralizer_facts {r : ℕ} [Fact r.Prime] [CharP K r] (hK : N
   refine ⟨hblk, hA, hc, ?_⟩
   rw [hblk, tstblk3_det] at hdet
   exact hdet
-
-
-
 
 
 private noncomputable def tstblk3GL {F : Type} [Field F] (A : GL (Fin 3) F) (c : Fˣ) :
@@ -1073,9 +1050,6 @@ private noncomputable def tsproj {d : StatedSU 4 r K} (hd : (d : GL (Fin 4) K) =
       exact hunit⟩
 
 end Cent3Equiv
-
-
-
 
 
 section Cent3Bij
@@ -1136,9 +1110,6 @@ private theorem tsproj_injective {d : StatedSU 4 r K} (hd : (d : GL (Fin 4) K) =
   rw [hgb, hhb, htop, hbot]
 
 end Cent3Bij
-
-
-
 
 
 private theorem tstblk3GL_det {F : Type} [Field F] (A : GL (Fin 3) F) (c : Fˣ) :
@@ -1214,9 +1185,6 @@ private theorem tsproj_surjective {d : StatedSU 4 r K} (hd : (d : GL (Fin 4) K) 
 end Cent3Surj
 
 
-
-
-
 section Cent3Card
 
 variable {r : ℕ} [Fact r.Prime] [CharP K r] (hK : Nat.card K = r ^ 2)
@@ -1246,9 +1214,6 @@ private theorem tscard_uniGL3 (hK : Nat.card K = r ^ 2) :
   rw [hZ, Nat.cast_mul, Nat.cast_pow, hP]
 
 end Cent3Card
-
-
-
 
 
 section Cent3Fact
@@ -1300,9 +1265,6 @@ private theorem tsfact (hK : Nat.card K = r ^ 2) :
     Nat.factorization_eq_zero_of_not_dvd hrP, add_zero]
 
 end Cent3Fact
-
-
-
 
 
 section Cent3Final
@@ -1550,15 +1512,6 @@ private lemma cent4_diag_comm {A B : GL (Fin 4) K}
   funext i
   ring
 
-private lemma cent4_omega {r : ℕ} (h3 : r % 3 = 2) (ζ : CubeRoot K) :
-    (ζ.ω : K) ^ (r + 1) = 1 := by
-  obtain ⟨m, hm⟩ : ∃ m, r + 1 = 3 * m := by
-    refine ⟨r / 3 + 1, ?_⟩
-    have := Nat.mod_add_div r 3
-    omega
-  have hu : ζ.ω ^ (r + 1) = 1 := by rw [hm, pow_mul, ζ.pow_three, one_pow]
-  have := congrArg (fun u : Kˣ => (u : K)) hu
-  simpa using this
 
 private lemma cent4_centralizer_eq_torus {r : ℕ} [Fact r.Prime] [CharP K r] (ζ : CubeRoot K)
     (hD : D₀ ζ ≤ StatedSU 4 r K)

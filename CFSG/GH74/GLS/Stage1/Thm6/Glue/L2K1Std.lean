@@ -19,6 +19,5 @@ theorem IV3K1LeafStd.sylowStd (h : IV3K1LeafStd) :
       ∀ (x : G) (Kb : Subgroup (CentralizerBar x)), IV3SylowLeaf x Kb :=
   fun G _ _ hStd h3 x Kb => (h G hStd h3 x Kb).sylowLeaf
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.GLS.Stage1.Thm6.Glue

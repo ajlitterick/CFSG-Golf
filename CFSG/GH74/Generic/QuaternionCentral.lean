@@ -14,7 +14,6 @@ abbrev Qgen (j : ℕ) : Type := QuaternionGroup (2 ^ j)
 
 @[expose] def Qgen.z (j : ℕ) : Qgen j := QuaternionGroup.a ((2 ^ j : ℕ) : ZMod (2 * 2 ^ j))
 
-theorem Qgen.z_one : Qgen.z 1 = QuaternionGroup.a 2 := rfl
 
 theorem Qgen.z_eq (j : ℕ) : Qgen.z j = QuaternionGroup.a (2 ^ j) := by
   unfold Qgen.z
@@ -271,30 +270,6 @@ theorem qgenFrattini_eq_one_iff {j : ℕ} (hj : 1 ≤ j) (g : Qgen j) :
     · rintro ⟨i', hi', -⟩
       cases hi'
 
-theorem qgenFrattini_one_eq_one_iff (g : Qgen 1) :
-    qgenFrattini 1 le_rfl g = 1 ↔ g = 1 ∨ g = Qgen.z 1 := by
-  rw [qgenFrattini_eq_one_iff]
-  have key : ∀ i : ZMod (2 * 2 ^ 1), qgenParity 1 i = 0 →
-      i = 0 ∨ i = ((2 ^ 1 : ℕ) : ZMod (2 * 2 ^ 1)) := by
-    decide
-  constructor
-  · rintro ⟨i, rfl, hi⟩
-    rcases key i hi with rfl | rfl
-    · exact Or.inl rfl
-    · exact Or.inr rfl
-  · rintro (rfl | rfl)
-    · exact ⟨0, rfl, map_zero _⟩
-    · exact ⟨_, rfl, qgenParity_natCast_pow le_rfl⟩
-
-theorem qgenFrattini_one : qgenFrattini 1 le_rfl = q8Frattini := by
-  refine MonoidHom.ext fun g => ?_
-  rcases g with i | i
-  · show Multiplicative.ofAdd (qgenParity 1 i, (0 : ZMod 2)) =
-      Multiplicative.ofAdd ((i.val : ZMod 2), (0 : ZMod 2))
-    rw [qgenParity, ZMod.castHom_apply, ZMod.cast_eq_val]
-  · show Multiplicative.ofAdd (qgenParity 1 i, (1 : ZMod 2)) =
-      Multiplicative.ofAdd ((i.val : ZMod 2), (1 : ZMod 2))
-    rw [qgenParity, ZMod.castHom_apply, ZMod.cast_eq_val]
 
 section Counting
 
@@ -438,89 +413,6 @@ end Counting
 
 section Rank
 
-variable {C : Type*} [Group C]
-
-theorem qq_commuting_two_subgroup_le_center [Finite C] (hC : Gen4 C) {j : ℕ} (hj : 1 ≤ j)
-    (φ : Qgen j × Qgen j →* C)
-    (hφ : ∀ g, φ g = 1 → g = 1 ∨ g = (Qgen.z j, Qgen.z j))
-    (T : Subgroup C) (hT : IsPGroup 2 T)
-    (hcomm : ∀ (a : Qgen j × Qgen j) (t : C), t ∈ T → φ a * t = t * φ a) :
-    ∀ t ∈ T, ∃ g : Qgen j × Qgen j, φ g = t ∧ (g.1 = 1 ∨ g.1 = Qgen.z j) ∧
-      (g.2 = 1 ∨ g.2 = Qgen.z j) := by
-  obtain ⟨ι, hι, hιz⟩ := exists_q8_embedding hj
-  let ψ : Q8 × Q8 →* C := φ.comp (ι.prodMap ι)
-  have hψ : ∀ g, ψ g = 1 → g = 1 ∨ g = (QuaternionGroup.a 2, QuaternionGroup.a 2) := by
-    intro g hg
-    rcases hφ ((ι.prodMap ι) g) hg with h | h
-    · left
-      have h1 : ι g.1 = ι 1 := by rw [map_one]; exact congrArg Prod.fst h
-      have h2 : ι g.2 = ι 1 := by rw [map_one]; exact congrArg Prod.snd h
-      exact Prod.ext (hι h1) (hι h2)
-    · right
-      have h1 : ι g.1 = ι (QuaternionGroup.a 2) := by rw [hιz]; exact congrArg Prod.fst h
-      have h2 : ι g.2 = ι (QuaternionGroup.a 2) := by rw [hιz]; exact congrArg Prod.snd h
-      exact Prod.ext (hι h1) (hι h2)
-  intro t ht
-  obtain ⟨g, hg, hgc⟩ :=
-    q8q8_commuting_two_subgroup_le' hC ψ hψ T hT (fun a t ht => hcomm _ t ht) t ht
-  have h1 : g.1 = 1 ∨ g.1 = QuaternionGroup.a 2 := quaternion_center g.1 (fun x => by
-    have := congrArg Prod.fst (hgc (x, 1))
-    simpa using this)
-  have h2 : g.2 = 1 ∨ g.2 = QuaternionGroup.a 2 := quaternion_center g.2 (fun x => by
-    have := congrArg Prod.snd (hgc (1, x))
-    simpa using this)
-  refine ⟨(ι g.1, ι g.2), hg, ?_, ?_⟩
-  · rcases h1 with h | h
-    · left
-      show ι g.1 = 1
-      rw [h, map_one]
-    · right
-      show ι g.1 = Qgen.z j
-      rw [h, hιz]
-  · rcases h2 with h | h
-    · left
-      show ι g.2 = 1
-      rw [h, map_one]
-    · right
-      show ι g.2 = Qgen.z j
-      rw [h, hιz]
-
-theorem qq_commuting_two_subgroup_le_range [Finite C] (hC : Gen4 C) {j : ℕ} (hj : 1 ≤ j)
-    (φ : Qgen j × Qgen j →* C)
-    (hφ : ∀ g, φ g = 1 → g = 1 ∨ g = (Qgen.z j, Qgen.z j))
-    (T : Subgroup C) (hT : IsPGroup 2 T)
-    (hcomm : ∀ (a : Qgen j × Qgen j) (t : C), t ∈ T → φ a * t = t * φ a) :
-    T ≤ (Subgroup.center (Qgen j × Qgen j)).map φ := by
-  intro t ht
-  obtain ⟨g, hg, h1, h2⟩ := qq_commuting_two_subgroup_le_center hC hj φ hφ T hT hcomm t ht
-  refine ⟨g, Subgroup.mem_center_iff.2 fun a => ?_, hg⟩
-  exact Prod.ext (Subgroup.mem_center_iff.1 ((Qgen.center_iff hj g.1).2 h1) a.1)
-    (Subgroup.mem_center_iff.1 ((Qgen.center_iff hj g.2).2 h2) a.2)
-
-theorem rankCertified_of_qq {j : ℕ} (hj : 1 ≤ j) (φ : Qgen j × Qgen j →* C)
-    (hφ : ∀ g, φ g = 1 → g = 1 ∨ g = (Qgen.z j, Qgen.z j)) : RankCertified C 3 := by
-  let β : Qgen j × Qgen j →* V4 × V4 := (qgenFrattini j hj).prodMap (qgenFrattini j hj)
-  have hβ : Function.Surjective β :=
-    (qgenFrattini_surjective hj).prodMap (qgenFrattini_surjective hj)
-  have hker : (QuotientGroup.mk' φ.ker).ker ≤ β.ker := by
-    rw [QuotientGroup.ker_mk']
-    intro k hk
-    rw [MonoidHom.mem_ker] at hk ⊢
-    rcases hφ k hk with rfl | rfl
-    · exact map_one _
-    · exact Prod.ext (qgenFrattini_z hj) (qgenFrattini_z hj)
-  have h : ¬ SectionalTwoRankLE ((Qgen j × Qgen j) ⧸ φ.ker) 3 :=
-    not_sectionalTwoRankLE_of_surjection 3 (QuotientGroup.mk' φ.ker) β hβ
-      (fun a b => Prod.ext (mul_comm _ _) (mul_comm _ _))
-      (fun a => Prod.ext (V4_sq_aux _) (V4_sq_aux _))
-      (by rw [Nat.card_prod, card_V4]; norm_num) hker
-  exact (rankCertified_of_not_sectionalTwoRankLE h).of_injective (QuotientGroup.kerLift φ)
-    (QuotientGroup.kerLift_injective φ)
-
-theorem rankCertified_of_q8q8 (φ : Q8 × Q8 →* C)
-    (hφ : ∀ g, φ g = 1 → g = 1 ∨ g = (QuaternionGroup.a 2, QuaternionGroup.a 2)) :
-    RankCertified C 3 :=
-  rankCertified_of_qq (j := 1) le_rfl φ hφ
 
 end Rank
 

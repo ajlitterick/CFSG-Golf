@@ -21,9 +21,6 @@ theorem ctr_mul (A B : Matrix (Fin n) (Fin n) F) : ctr τ (A * B) = ctr τ B * c
 theorem ctr_one : ctr τ (1 : Matrix (Fin n) (Fin n) F) = 1 := by
   simp [ctr]
 
-theorem ctr_submatrix (A : Matrix (Fin n) (Fin n) F) (e : Fin n ≃ Fin n) :
-    ctr τ (A.submatrix e e) = (ctr τ A).submatrix e e :=
-  rfl
 
 private theorem val_mul_val_inv (P : GL (Fin n) F) :
     (P : Matrix (Fin n) (Fin n) F) * ((P⁻¹ : GL (Fin n) F) : Matrix (Fin n) (Fin n) F) = 1 := by
@@ -68,8 +65,6 @@ theorem mem_SUgram {G : Matrix (Fin n) (Fin n) F} {A : GL (Fin n) F} :
       ctr τ (A : Matrix (Fin n) (Fin n) F) * G * (A : Matrix (Fin n) (Fin n) F) = G :=
   Iff.rfl
 
-theorem SUgram_antidiag (σ : F ≃+* F) : SUgram σ.toRingHom (antidiag n) = SU σ n :=
-  Subgroup.ext fun _ => Iff.rfl
 
 theorem SUgram_one (σ : F ≃+* F) : SUgram σ.toRingHom (1 : Matrix (Fin n) (Fin n) F) =
     SUid σ n :=
@@ -131,31 +126,6 @@ theorem coe_reindexGL (e : Fin n ≃ Fin n) (A : GL (Fin n) F) :
       (A : Matrix (Fin n) (Fin n) F).submatrix e e :=
   rfl
 
-theorem reindexGL_mem {G : Matrix (Fin n) (Fin n) F} (e : Fin n ≃ Fin n) {A : GL (Fin n) F}
-    (hA : A ∈ SUgram τ G) : reindexGL e A ∈ SUgram τ (G.submatrix e e) := by
-  refine ⟨by rw [coe_reindexGL, det_submatrix_equiv_self, hA.1], ?_⟩
-  rw [coe_reindexGL, ctr_submatrix, submatrix_mul_equiv, submatrix_mul_equiv, hA.2]
-
-@[expose] noncomputable def gramReindexEquiv (e : Fin n ≃ Fin n)
-    (G : Matrix (Fin n) (Fin n) F) : SUgram τ G ≃* SUgram τ (G.submatrix e e) where
-  toFun A := ⟨reindexGL e A, reindexGL_mem e A.2⟩
-  invFun B := ⟨reindexGL e.symm B, by
-    have h := reindexGL_mem e.symm B.2
-    rwa [submatrix_submatrix, Equiv.self_comp_symm, submatrix_id_id] at h⟩
-  left_inv A := Subtype.ext (Units.ext (by
-    change (((A : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).submatrix e e).submatrix e.symm
-      e.symm = _
-    rw [submatrix_submatrix, Equiv.self_comp_symm, submatrix_id_id]))
-  right_inv B := Subtype.ext (Units.ext (by
-    change (((B : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).submatrix e.symm e.symm).submatrix
-      e e = _
-    rw [submatrix_submatrix, Equiv.symm_comp_self, submatrix_id_id]))
-  map_mul' A B := Subtype.ext (Units.ext (by
-    change (((A * B : SUgram τ G) : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).submatrix e e =
-      ((A : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).submatrix e e *
-        ((B : GL (Fin n) F) : Matrix (Fin n) (Fin n) F).submatrix e e
-    rw [submatrix_mul_equiv]
-    rfl))
 
 end Gram
 
@@ -187,16 +157,6 @@ theorem blockPermFun_involutive (r ε : ℕ) : Function.Involutive (blockPermFun
 @[expose] def blockPerm (r ε : ℕ) : Equiv.Perm (Fin (2 * r + ε)) :=
   (blockPermFun_involutive r ε).toPerm _
 
-theorem antidiag_submatrix_blockPerm {r ε : ℕ} (hε : ε ≤ 1) :
-    (antidiag (2 * r + ε) : Matrix (Fin (2 * r + ε)) (Fin (2 * r + ε)) F).submatrix
-      (blockPerm r ε) (blockPerm r ε) = blockJ F r ε := by
-  ext i j
-  simp only [blockPerm, Function.Involutive.coe_toPerm, submatrix_apply, antidiag, of_apply,
-    blockJ, Fin.ext_iff, Fin.val_rev, val_blockPermFun]
-  have hi := i.isLt
-  have hj := j.isLt
-  split_ifs
-  all_goals first | rfl | omega
 
 end Block
 

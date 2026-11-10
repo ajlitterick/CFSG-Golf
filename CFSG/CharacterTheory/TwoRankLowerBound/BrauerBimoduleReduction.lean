@@ -109,39 +109,6 @@ theorem brauerBimodule_zero_fixedBasis_reduction {ring residue group : Type*}
     ⟨row.val, (conjugation_fixedPoints_iff_centralizer subgroup row.val).mp row.property⟩
     ⟨column.val, (conjugation_fixedPoints_iff_centralizer subgroup column.val).mp column.property⟩
 
-theorem brauerBimodule_fixedBasis_coeff {ring residue group : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [Fintype group]
-    (embedding : ring →+* residue) (subgroup : Subgroup group)
-    (left : MonoidAlgebra ring group)
-    (right : MonoidAlgebra ring (Subgroup.centralizer (subgroup : Set group))) :
-    letI : MulAction subgroup group := subgroupConjugationAction subgroup
-    ∀ row column : MulAction.fixedPoints subgroup group,
-      ((permutationFixedBasisReduction (group := subgroup) embedding
-        (subgroupBimoduleProjection (Subgroup.centralizer (subgroup : Set group)) left right))
-          (MonoidAlgebra.single column 1)).coeff row =
-        (MonoidAlgebra.mapRingHom (Subgroup.centralizer (subgroup : Set group)) embedding
-          (subgroupCoefficientProjection (Subgroup.centralizer (subgroup : Set group)) left) *
-            MonoidAlgebra.single
-              (⟨column.val, (conjugation_fixedPoints_iff_centralizer subgroup column.val).mp column.property⟩ :
-                Subgroup.centralizer (subgroup : Set group)) 1 *
-            MonoidAlgebra.mapRingHom (Subgroup.centralizer (subgroup : Set group)) embedding right).coeff
-              ⟨row.val, (conjugation_fixedPoints_iff_centralizer subgroup row.val).mp row.property⟩ := by
-  let : MulAction subgroup group := subgroupConjugationAction subgroup
-  intro row column
-  rw [permutationFixedBasisReduction_coeff]
-  let centralRow : Subgroup.centralizer (subgroup : Set group) :=
-    ⟨row.val, (conjugation_fixedPoints_iff_centralizer subgroup row.val).mp row.property⟩
-  let centralColumn : Subgroup.centralizer (subgroup : Set group) :=
-    ⟨column.val, (conjugation_fixedPoints_iff_centralizer subgroup column.val).mp column.property⟩
-  have hequal := congrArg (fun value : MonoidAlgebra ring (Subgroup.centralizer (subgroup : Set group)) =>
-    value.coeff centralRow) (subgroupBimoduleProjection_restrict_basis
-      (Subgroup.centralizer (subgroup : Set group)) left right centralColumn)
-  rw [subgroupCoefficientProjection_coeff] at hequal
-  rw [hequal]
-  change (MonoidAlgebra.mapRingHom (Subgroup.centralizer (subgroup : Set group)) embedding
-    (subgroupCoefficientProjection (Subgroup.centralizer (subgroup : Set group)) left *
-      MonoidAlgebra.single centralColumn 1 * right)).coeff centralRow = _
-  rw [map_mul, map_mul, MonoidAlgebra.mapRingHom_single, map_one]
 
 theorem subgroupConjugation_representation_eq_twoSided {ring group : Type*}
     [CommRing ring] [Group group] (subgroup : Subgroup group) (element : subgroup) :

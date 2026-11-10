@@ -138,58 +138,5 @@ theorem scalar_abelian_coverage_of_stationary_factorizations
   exact original_scalar_Sylow_action_gives_primewise_layer_coverage hnonab n hn S e hfour hell
     hdiv P v hv hne hnormalizes hscalarN
 
-variable [Finite G]
-
-theorem stationary_normalizer_factorizations_give_original_scalar_sylows_and_coverage
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4))) :
-    let x := wreathModelHom S e (Original.x (2 ^ n))
-    let y := wreathModelHom S e (Original.x2 (2 ^ n))
-    let T := Subgroup.closure ({x, y} : Set G)
-    let ι : Subgroup (centralizerOddCore n S e) → Subgroup G := fun P =>
-      (P.map (centralizerOddCore n S e).subtype).map (involutionCentralizer n S e).subtype
-    let Stationary : ℕ → Prop := fun ell => ∃ P₀ : Sylow ell (centralizerOddCore n S e),
-      ∃ Q : Sylow ell (CFSG.pPrimeCore 2 (Subgroup.normalizer (ι P₀ : Set G))),
-        ((Q : Subgroup _).map (CFSG.pPrimeCore 2
-          (Subgroup.normalizer (ι P₀ : Set G))).subtype).map
-            (Subgroup.normalizer (ι P₀ : Set G)).subtype = ι P₀
-    let Factorizations : ℕ → Prop := fun ell => ∀ U : Subgroup G, U ≠ ⊥ → IsPGroup ell U →
-      U ≤ (centralizerOddCore n S e).map (involutionCentralizer n S e).subtype →
-      T ≤ Subgroup.normalizer (U : Set G) →
-        (((CFSG.pPrimeCore 2 (Subgroup.normalizer (U : Set G))).map
-          (Subgroup.normalizer (U : Set G)).subtype : Subgroup G) : Set G) *
-          ((Subgroup.normalizer (U : Set G) ⊓ Subgroup.centralizer ({x} : Set G) :
-            Subgroup G) : Set G) = (Subgroup.normalizer (U : Set G) : Set G)
-    (∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-      Stationary ell → Factorizations ell →
-      ∀ P : Sylow ell (centralizerOddCore n S e), T ≤ Subgroup.normalizer (ι P : Set G) →
-        ((∀ a ∈ ι P, y * a * y⁻¹ = a) ∨ (∀ a ∈ ι P, y * a * y⁻¹ = a⁻¹)) ∧
-        ((∀ a ∈ ι P, y * a * y⁻¹ = a⁻¹) →
-          IsMulCommutative (P : Subgroup (centralizerOddCore n S e))) ∧
-        (Subgroup.centralizer (((P : Subgroup (centralizerOddCore n S e)).map
-          (centralizerOddCore n S e).subtype) : Set (involutionCentralizer n S e)) ⊓
-          (CFSG.layer (centralizerOddCoreQuotient n S e)).comap
-            (centralizerOddCoreMap n S e)).map (centralizerOddCoreMap n S e) =
-              CFSG.layer (centralizerOddCoreQuotient n S e)) ∧
-    ((∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-        Stationary ell ∧ Factorizations ell) →
-      ∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-        ∃ P : Sylow ell (centralizerOddCore n S e),
-          (Subgroup.centralizer (((P : Subgroup (centralizerOddCore n S e)).map
-            (centralizerOddCore n S e).subtype) : Set (involutionCentralizer n S e)) ⊓
-            (CFSG.layer (centralizerOddCoreQuotient n S e)).comap
-              (centralizerOddCoreMap n S e)).map (centralizerOddCoreMap n S e) =
-                CFSG.layer (centralizerOddCoreQuotient n S e)) := by
-  intro x y T ι Stationary Factorizations
-  have hTeq : modelT n S e = T := CompatibleFamilies.modelT_eq_closure S e (by omega)
-  refine ⟨fun ell hell hdiv hst hfac P hTP => ?_, fun hall ell hell hdiv => ?_⟩
-  · exact scalar_abelian_coverage_of_stationary_factorizations hnonab n hn S e hfour hell hdiv
-      hst (fun U hU1 hUp hUR hTU => hfac U hU1 hUp hUR (hTeq ▸ hTU)) P (hTeq ▸ hTP)
-  · obtain ⟨hst, hfac⟩ := hall ell hell hdiv
-    obtain ⟨P, hTP⟩ := exists_invariant_sylow_centralizerOddCore n hn S e hell
-    exact ⟨P, (scalar_abelian_coverage_of_stationary_factorizations hnonab n hn S e hfour hell
-      hdiv hst (fun U hU1 hUp hUR hTU => hfac U hU1 hUp hUR (hTeq ▸ hTU)) P hTP).2.2⟩
 
 end CFSG.Wreathed.StationaryScalarCoverage

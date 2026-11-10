@@ -26,10 +26,6 @@ theorem Pair.tauE_tauE_tauE (hP : Pair X E) (x f a b : E) :
   rw [Pair.tauE_tauE_eq_conjPerm hP x f, Pair.conjPerm_tauE, ← Pair.tauE_tauE_eq_conjPerm,
     ← Pair.tauE_tauE_eq_conjPerm]
 
-theorem Pair.tau_tau_adj_iff (hP : Pair X E) (x f : E) {a b : E} :
-    (commGraph E).Adj (tauE hP x (tauE hP f a)) (tauE hP x (tauE hP f b)) ↔
-      (commGraph E).Adj a b := by
-  rw [Pair.tau_adj_iff, Pair.tau_adj_iff]
 
 theorem Pair.exists_fixedPointFree_of_not_connected (hP : Pair X E)
     (hc : ¬(commGraph E).Connected) (h : ∃ e f, e ∈ E ∧ f ∈ E ∧ e ≠ f ∧ e * f = f * e) :

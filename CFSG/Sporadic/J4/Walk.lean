@@ -99,24 +99,6 @@ theorem fwd_spec {par t1 t2 t3 : ByteArray} {L1 L2 L3 : G} (h1 : RepT n t1 L1) (
       rw [mul_assoc]
       exact (ih _).apTab hq0 (RepT.letter3 h1 h2 h3 _)
 
-theorem bwd_spec {par t1 t2 t3 : ByteArray} {L1 L2 L3 : G} (h1 : RepT n t1 L1⁻¹)
-    (h2 : RepT n t2 L2⁻¹) (h3 : RepT n t3 L3⁻¹) {q0 : Array ℕ} (hq0 : ∀ j < q0.size, q0[j]! < n)
-    (f j : ℕ) {q : Array ℕ} {g : G} (hq : TupRep n q0 q g) :
-    TupRep n q0 (bwd par t1 t2 t3 f j q) ((treeElt par L1 L2 L3 f j)⁻¹ * g) := by
-  induction f generalizing j q g with
-  | zero => simpa [bwd, treeElt] using hq
-  | succ f ih =>
-    rw [bwd, treeElt]
-    by_cases hj : j = 0
-    · simp only [hj, beq_self_eq_true, ite_true, inv_one, one_mul]; exact hq
-    · simp only [beq_iff_eq, hj, ite_false]
-      have hl : RepT n (letter3 t1 t2 t3 (rdU32 par j >>> 30))
-          (letterG L1 L2 L3 (rdU32 par j >>> 30))⁻¹ := by
-        have := RepT.letter3 h1 h2 h3 (rdU32 par j >>> 30)
-        convert this using 2
-        unfold letterG; split_ifs <;> rfl
-      have := ih (rdU32 par j &&& 0x3FFFFFFF) (hq.apTab hq0 hl)
-      rwa [mul_inv_rev, mul_assoc]
 
 @[expose] def climbElt (L : Level) (Y : ℕ → G) : ℕ → ℕ → G
   | 0, _ => 1
@@ -142,8 +124,5 @@ theorem RepT.comp {c p q : ByteArray} {gp gq : G} (hp : RepT n p gp) (hq : RepT 
   rw [beq_iff_eq] at this
   rw [this, hq i hi, hp _ (idx_lt gq hi), idx_mul]
 
-theorem RepT.inv_of_self {t : ByteArray} {g : G} (h : RepT n t g) (hg : g * g = 1) :
-    RepT n t g⁻¹ := by
-  rwa [inv_eq_of_mul_eq_one_right hg]
 
 end CFSG.Sporadic.J4

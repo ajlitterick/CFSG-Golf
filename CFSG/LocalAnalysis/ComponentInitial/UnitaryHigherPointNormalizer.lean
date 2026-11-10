@@ -69,19 +69,6 @@ theorem exists_map_stabilizer_hypProjLine (hr : 1 ≤ r) (hε : ε ≤ 1)
 
 variable (hr : 1 ≤ r) (hε : ε ≤ 1)
 
-theorem map_projIsoStabilizer_linePerm (α : MulAut (hypPSU h r ε))
-    (L : hypIsotropicLines h r ε) :
-    (projIsoStabilizer h r ε (L : Submodule K (HypIndex r ε → K))).map α.toMonoidHom =
-      projIsoStabilizer h r ε (linePerm h hr hε α L : Submodule K (HypIndex r ε → K)) := by
-  rw [← stabilizer_hypProjLine, ← stabilizer_hypProjLine]
-  exact map_stabilizer_stabPerm _ _ α L
-
-theorem eq_linePerm_iff (α : MulAut (hypPSU h r ε)) (π : Equiv.Perm (hypIsotropicLines h r ε)) :
-    π = linePerm h hr hε α ↔ ∀ L : hypIsotropicLines h r ε,
-      (projIsoStabilizer h r ε (L : Submodule K (HypIndex r ε → K))).map α.toMonoidHom =
-        projIsoStabilizer h r ε (π L : Submodule K (HypIndex r ε → K)) := by
-  rw [linePerm, eq_stabPerm_iff]
-  simp only [stabilizer_hypProjLine]
 
 theorem linePerm_conj (α : MulAut (hypPSU h r ε)) (g : hypPSU h r ε) :
     linePerm h hr hε α * hypProjLineAction h r ε g * (linePerm h hr hε α)⁻¹ =
@@ -107,9 +94,6 @@ theorem map_inner_linePerm :
   (MonoidHom.ofInjective (linePerm_injective h hr hε)).trans
     (MulEquiv.subgroupCongr (range_linePerm h hr hε))
 
-theorem coe_linePermEquiv (α : MulAut (hypPSU h r ε)) :
-    (linePermEquiv h hr hε α : Equiv.Perm (hypIsotropicLines h r ε)) = linePerm h hr hε α :=
-  rfl
 
 theorem map_inner_linePermEquiv :
     (inner (hypPSU h r ε)).map (linePermEquiv h hr hε : MulAut (hypPSU h r ε) →* _) =
@@ -128,31 +112,5 @@ theorem map_inner_linePermEquiv :
       lineNormalizer h r ε ⧸ (hypProjLineAction h r ε).range.subgroupOf (lineNormalizer h r ε) :=
   QuotientGroup.congr (inner _) _ (linePermEquiv h hr hε) (map_inner_linePermEquiv h hr hε)
 
-theorem linePermOuterEquiv_mk (α : MulAut (hypPSU h r ε)) :
-    linePermOuterEquiv h hr hε (α : Outer (hypPSU h r ε)) =
-      ((linePermEquiv h hr hε α : lineNormalizer h r ε) : lineNormalizer h r ε ⧸
-        (hypProjLineAction h r ε).range.subgroupOf (lineNormalizer h r ε)) :=
-  QuotientGroup.congr_mk _ _ _ _ α
-
-theorem unitary_point_permutation_normalizer :
-    Function.Injective (hypProjLineAction h r ε) ∧
-    (∀ (α : MulAut (hypPSU h r ε)) (π : Equiv.Perm (hypIsotropicLines h r ε)),
-      π = linePerm h hr hε α ↔ ∀ L : hypIsotropicLines h r ε,
-        (projIsoStabilizer h r ε (L : Submodule K (HypIndex r ε → K))).map α.toMonoidHom =
-          projIsoStabilizer h r ε (π L : Submodule K (HypIndex r ε → K))) ∧
-    Function.Injective (linePerm h hr hε) ∧
-    (linePerm h hr hε).range = lineNormalizer h r ε ∧
-    (∀ α : MulAut (hypPSU h r ε),
-      (linePermEquiv h hr hε α : Equiv.Perm (hypIsotropicLines h r ε)) = linePerm h hr hε α) ∧
-    (∀ (α : MulAut (hypPSU h r ε)) (g : hypPSU h r ε),
-      linePerm h hr hε α * hypProjLineAction h r ε g * (linePerm h hr hε α)⁻¹ =
-        hypProjLineAction h r ε (α g)) ∧
-    (inner (hypPSU h r ε)).map (linePerm h hr hε) = (hypProjLineAction h r ε).range ∧
-    ∀ α : MulAut (hypPSU h r ε), linePermOuterEquiv h hr hε (α : Outer (hypPSU h r ε)) =
-      ((linePermEquiv h hr hε α : lineNormalizer h r ε) : lineNormalizer h r ε ⧸
-        (hypProjLineAction h r ε).range.subgroupOf (lineNormalizer h r ε)) :=
-  ⟨hypProjLineAction_injective h (by omega), eq_linePerm_iff h hr hε, linePerm_injective h hr hε,
-    range_linePerm h hr hε, coe_linePermEquiv h hr hε, linePerm_conj h hr hε,
-    map_inner_linePerm h hr hε, linePermOuterEquiv_mk h hr hε⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

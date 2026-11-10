@@ -909,35 +909,12 @@ private theorem k328dpso_det_eq_one_of_perfect {K : Type} [Field K] {n : ℕ}
   have h1 : ((f p : Kˣ) : K) = 1 := by rw [h]; rfl
   simpa [f, Matrix.GeneralLinearGroup.det] using h1
 
-private theorem k328dpso_det_reindex_map {K E : Type} [Field K] [Field E] (φ : K →+* E)
-    (n : ℕ) (M : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K) (hM : M.det = 1) :
-    (Matrix.reindex finSumFinEquiv finSumFinEquiv (φ.mapMatrix M)).det = 1 := by
-  rw [Matrix.det_reindex_self, ← RingHom.map_det, hM, map_one]
 
 private noncomputable def k328dpso_matHom {K E : Type} [Field K] [Field E] (φ : K →+* E)
     (n : ℕ) :
     Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K →+* Matrix (Fin (n+n)) (Fin (n+n)) E :=
   (Matrix.reindexRingEquiv E finSumFinEquiv).toRingHom.comp (φ.mapMatrix)
 
-open CFSG.Open in
-private noncomputable def k328dpso_slHomSp {K E : Type} [Field K] [Field E] (φ : K →+* E)
-    (n : ℕ) (hdet : ∀ g : CFSG.Open.StatedSp n K,
-      ((g : GL (Fin n ⊕ Fin n) K) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K).det = 1) :
-    CFSG.Open.StatedSp n K →* Matrix.SpecialLinearGroup (Fin (n+n)) E where
-  toFun g := ⟨k328dpso_matHom φ n ((g : GL (Fin n ⊕ Fin n) K) :
-    Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K), by
-      change (Matrix.reindex finSumFinEquiv finSumFinEquiv
-        (φ.mapMatrix ((g : GL (Fin n ⊕ Fin n) K) : Matrix (Fin n ⊕ Fin n) (Fin n ⊕ Fin n) K))).det = 1
-      exact k328dpso_det_reindex_map φ n _ (hdet g)⟩
-  map_one' := by
-    apply Subtype.ext
-    ext i j
-    simp [k328dpso_matHom, Units.val_one, Matrix.one_apply,
-      finSumFinEquiv.symm.injective.eq_iff]
-  map_mul' := by
-    intro g h
-    apply Subtype.ext
-    exact map_mul (k328dpso_matHom φ n) _ _
 
 private noncomputable def k328dpso_slHomP {K E : Type} [Field K] [Field E] (φ : K →+* E)
     (n : ℕ) (P : Subgroup (CFSG.Open.StatedSp n K)) (hP : Group.IsPerfect ↥P) :

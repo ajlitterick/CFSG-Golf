@@ -18,12 +18,6 @@ section TightDef
       ∀ T : Subgroup Y, IsComponentOf T ⊤ → T ⊔ L = ⊤ →
         L ≤ T ⊔ Subgroup.centralizer (T : Set Y)
 
-theorem solvableMemberInnerTight_of_inner (h : SolvableMemberInner) : SolvableMemberInnerTight :=
-  fun Y _ _ _ hO z L hz T hT _ => h Y hO z L hz T hT
-
-theorem solvableMemberInnerTight_of_L2PrimeBalanceSolv (hb : L2PrimeBalanceSolv) :
-    SolvableMemberInnerTight :=
-  solvableMemberInnerTight_of_inner (solvableMemberInner_of_L2PrimeBalanceSolv hb)
 
 end TightDef
 

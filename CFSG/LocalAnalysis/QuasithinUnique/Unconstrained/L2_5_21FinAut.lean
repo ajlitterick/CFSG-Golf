@@ -52,12 +52,6 @@ theorem center_trivial
     (hc : ∀ y ∈ K, y * x = x * y) : x = 1 :=
   BenderBranch.eq_one_of_commute_of_simple h.simple (nonabelian h) hx hc
 
-theorem inf_centralizer_eq_bot
-    (h : OutSetting K H S) : K ⊓ Subgroup.centralizer (K : Set G) = ⊥ := by
-  rw [eq_bot_iff]
-  intro x hx
-  rw [Subgroup.mem_bot]
-  exact center_trivial h hx.1 fun y hy => (Subgroup.mem_centralizer_iff.mp hx.2 y hy)
 
 theorem card_S (h : OutSetting K H S) :
     Nat.card ↥S = Nat.card ↥(S ⊓ Subgroup.centralizer (K : Set G)) * Nat.card ↥(autOn S K) := by

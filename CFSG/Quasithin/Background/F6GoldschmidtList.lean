@@ -136,20 +136,8 @@ variable {D : Type*} [Group D]
   IsGoldCaseL32 H₁ H₂ ∨ IsGoldCaseSp42 H₁ H₂ ∨ IsGoldCaseG22 H₁ H₂ ∨
     IsGoldCaseG22Prime H₁ H₂ ∨ IsGoldCaseM12 H₁ H₂ ∨ IsGoldCaseAutM12 H₁ H₂
 
-@[expose] def IsGoldCaseOriented (H₁ H₂ : Subgroup D) : Prop :=
-  IsGoldCaseI H₁ H₂ ∨ IsGoldCaseII H₁ H₂ ∨ IsGoldCaseIII H₁ H₂ ∨ IsGoldCaseIV H₁ H₂ ∨
-    IsGoldCaseV H₁ H₂ ∨ IsGoldCaseVI H₁ H₂
-
-@[expose] def IsGoldCase (H₁ H₂ : Subgroup D) : Prop :=
-  IsGoldCaseOriented H₁ H₂ ∨ IsGoldCaseOriented H₂ H₁
-
-theorem isGoldCase_comm {H₁ H₂ : Subgroup D} : IsGoldCase H₁ H₂ ↔ IsGoldCase H₂ H₁ :=
-  or_comm
 
 end F6
 
-@[expose] def F6.GoldschmidtS3List : Prop :=
-  ∀ (D : Type u) [Group D] [Finite D] (G₁ G₂ : Subgroup D), IsGoldschmidtAmalgam G₁ G₂ →
-    F6.IsGoldCase G₁ G₂
 
 end CFSG.Quasithin

@@ -85,27 +85,6 @@ theorem not_isComponent_of_selfCentralizing {L : Type*} [Group L] [Finite L] {Q 
   not_isComponent_of_surj_selfCentralizing (MonoidHom.id L) Function.surjective_id
     (fun x hx => by rw [show x = 1 from hx, one_mul]) hQn hQ2 hQc B
 
-theorem exists_selfCentralizing_card_of_mulEquiv {L M : Type*} [Group L] [Group M] (e : L ≃* M)
-    {Q : Subgroup M} (hQn : Q.Normal) (hQc : Subgroup.centralizer (Q : Set M) ≤ Q) :
-    ∃ Q' : Subgroup L, Q'.Normal ∧ Nat.card Q' = Nat.card Q ∧
-      Subgroup.centralizer (Q' : Set L) ≤ Q' := by
-  refine ⟨Q.comap e.toMonoidHom, hQn.comap _, Nat.card_congr
-    { toFun := fun x => ⟨e x, x.2⟩
-      invFun := fun y => ⟨e.symm y, by
-        show e (e.symm y) ∈ Q
-        rw [MulEquiv.apply_symm_apply]
-        exact y.2⟩
-      left_inv := fun x => Subtype.ext (e.symm_apply_apply x)
-      right_inv := fun y => Subtype.ext (e.apply_symm_apply y) }, ?_⟩
-  intro y hy
-  show e y ∈ Q
-  apply hQc
-  rw [Subgroup.mem_centralizer_iff]
-  intro m hm
-  have := Subgroup.mem_centralizer_iff.1 hy (e.symm m)
-    (by show e (e.symm m) ∈ Q; rwa [MulEquiv.apply_symm_apply])
-  have h := congrArg e this
-  rwa [map_mul, map_mul, MulEquiv.apply_symm_apply] at h
 
 theorem comap_selfCentralizing {L M : Type*} [Group L] [Group M] (ρ : L →* M)
     (hρ : Function.Surjective ρ) {N : Subgroup M}
@@ -120,31 +99,6 @@ theorem comap_selfCentralizing {L M : Type*} [Group L] [Group M] (ρ : L →* M)
   have := Subgroup.mem_centralizer_iff.1 hy x hm
   rw [← map_mul, ← map_mul, this]
 
-theorem rep_brayElt {G : Type*} [Group G] [MulAction G (Fin 306936)] {T Gt Gi : Table} {r g : G}
-    (hT : Rep 306936 T r) (hG : Rep 306936 Gt g) (hGi : Rep 306936 Gi g⁻¹) (e : ℕ) :
-    Rep 306936 (fi24BrayT T Gt Gi e true) (brayElt r g e) := by
-  have hBB := Rep.powT (n := 306936) (by norm_num)
-    (Rep.compT hT (Rep.compT hGi (Rep.compT hT hG))) e
-  simp only [fi24BrayT, ↓reduceIte]
-  exact Rep.compT hG hBB
-
-theorem card_fix_eq_fi24Fix {G : Type*} [Group G] [MulAction G (Fin 306936)] {T : Table} {g : G}
-    (hT : Rep 306936 T g) : Nat.card {k : Fin 306936 // g • k = k} = fi24Fix T := by
-  classical
-  have e1 : {k : Fin 306936 // g • k = k} ≃ {k : Fin 306936 // ap T k.val = k.val} :=
-    Equiv.subtypeEquivRight fun k => by
-      rw [hT k.val k.isLt, idx_of_lt g k.isLt]
-      exact ⟨fun h => by rw [h], fun h => Fin.ext h⟩
-  have e2 : {k : Fin 306936 // ap T k.val = k.val} ≃
-      ((Finset.range 306936).filter fun i => ap T i = i) :=
-    { toFun := fun k => ⟨k.1.1, Finset.mem_filter.2 ⟨Finset.mem_range.2 k.1.2, k.2⟩⟩
-      invFun := fun i => ⟨⟨i.1, Finset.mem_range.1 (Finset.mem_filter.1 i.2).1⟩,
-        (Finset.mem_filter.1 i.2).2⟩
-      left_inv := fun _ => rfl
-      right_inv := fun _ => rfl }
-  rw [Nat.card_congr (e1.trans e2), Nat.card_eq_finsetCard, ← Nat.count_eq_card_filter_range]
-  unfold Nat.count fi24Fix
-  exact List.countP_congr fun i _ => by simp
 
 theorem card_fix_conj {G : Type*} [Group G] [MulAction G (Fin 306936)] (c g : G) :
     Nat.card {k : Fin 306936 // (c * g * c⁻¹) • k = k} = Nat.card {k : Fin 306936 // g • k = k} :=
@@ -176,26 +130,6 @@ theorem smul_val_of_rep {G : Type*} [Group G] {n : ℕ} [MulAction G (Fin n)] {T
     (hT : Rep n T g) (k : Fin n) : (g • k).val = ap T k.val := by
   rw [hT k.val k.isLt, idx_of_lt g k.isLt]
 
-theorem rep_of_rep_jR
-    {T : Table} {g : J} (h : Rep 306936 T (jR g)) : Rep 306936 T g := by
-  intro i hi
-  rw [h i hi, Fi24.idx_jR]
-
-theorem rep_fi24R2 :
-    Rep 306936 fi24U3T fi24R2 := rep_of_rep_jR rep_fi24U3T
-
-theorem fi24J_rep_unique
-    {T : Table} {g h : J} (hg : Rep 306936 T g) (hh : Rep 306936 T h) :
-    g = h :=
-  Fi24.jR_injective (fi24_rep_unique (Fi24.rep_jR hg) (Fi24.rep_jR hh))
-
-abbrev fi24GaT : Table := wordT nPts (letterJ fi24L) fi24BrayWordA
-
-abbrev fi24GbT : Table := wordT nPts (letterJ fi24L) fi24BrayWordB
-
-abbrev fi24CaT : Table := fi24BrayT fi24U3T fi24GaT (invT nPts fi24GaT) fi24BrayExpA true
-
-abbrev fi24CbT : Table := fi24BrayT fi24U3T fi24GbT (invT nPts fi24GbT) fi24BrayExpB true
 
 abbrev fi24C :
     Subgroup J := Subgroup.centralizer ({fi24R2} : Set J)
@@ -211,20 +145,5 @@ theorem fi24C_smul_fixed
     (Subgroup.mem_centralizer_singleton_iff (G := J)).1 c.2
   rw [smul_smul, ← hc, mul_smul, hk]
 
-theorem fi24BrayWordA_letters : ∀ z ∈ fi24BrayWordA, z.natAbs ≤ 13 := by decide
-
-theorem fi24BrayWordB_letters : ∀ z ∈ fi24BrayWordB, z.natAbs ≤ 13 := by decide
-
-theorem rep_fi24Ca :
-    Rep 306936 fi24CaT fi24Ca := by
-  have hG := Rep.wordT (n := 306936) (G := J) (by norm_num) fi24BrayWordA
-    fun z hz => Fi24.rep_letterJ (fi24BrayWordA_letters z hz)
-  exact rep_brayElt rep_fi24R2 hG (rep_invT24 hG) _
-
-theorem rep_fi24Cb :
-    Rep 306936 fi24CbT fi24Cb := by
-  have hG := Rep.wordT (n := 306936) (G := J) (by norm_num) fi24BrayWordB
-    fun z hz => Fi24.rep_letterJ (fi24BrayWordB_letters z hz)
-  exact rep_brayElt rep_fi24R2 hG (rep_invT24 hG) _
 
 end CFSG.Sporadic.FischerOddCore

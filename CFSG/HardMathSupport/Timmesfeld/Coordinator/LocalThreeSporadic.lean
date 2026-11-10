@@ -42,17 +42,5 @@ theorem isLocallyBalancedAbs_three_of_noElemAbelianCubeAut (h : NoElemAbelianCub
     IsLocallyBalancedAbs p 3 K :=
   fun D hD hcard _ _ _ => absurd hcard (h D hD)
 
-@[expose] def SporadicLocalThreeData : Prop :=
-  ∀ (name : TauCeti.SporadicName) (p : ℕ), p.Prime → p ≠ 2 →
-    NoElemAbelianCubeAut p (TauCeti.CFSGIndex.sporadic name).Group ∨
-      IsLocallyOneBalancedAbs p (TauCeti.CFSGIndex.sporadic name).Group
-
-theorem localThreeBalanceSporadic_of_data (h : SporadicLocalThreeData) :
-    LocalThreeBalanceSporadic := by
-  intro S _ _ _ _ name ⟨e⟩ p hp hp2
-  refine IsLocallyBalancedAbs.of_mulEquiv e ?_
-  rcases h name p hp hp2 with h3 | h1
-  · exact isLocallyBalancedAbs_three_of_noElemAbelianCubeAut h3
-  · exact h1.isLocallyBalancedAbs hp (by norm_num)
 
 end CFSG.HardMathSupport.Timmesfeld.Coordinator

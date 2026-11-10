@@ -13,27 +13,6 @@ universe u
 
 variable {G : Type u} [Group G]
 
-theorem natCard_image_eq_relIndex {X : Type*} {A B : Subgroup G} (f : G → X)
-    (h : ∀ a ∈ A, ∀ a' ∈ A, f a = f a' ↔ a⁻¹ * a' ∈ B) :
-    Nat.card (f '' (A : Set G)) = B.relIndex A := by
-  let g : A ⧸ B.subgroupOf A → f '' (A : Set G) :=
-    Quotient.lift (fun a : A => ⟨f a, a, a.2, rfl⟩) fun a b hab => by
-      refine Subtype.ext ?_
-      have h1 : (a : A)⁻¹ * b ∈ B.subgroupOf A := QuotientGroup.leftRel_apply.mp hab
-      exact (h a a.2 b b.2).mpr h1
-  have hg : Function.Bijective g := by
-    constructor
-    · intro x y
-      induction x using Quotient.inductionOn
-      induction y using Quotient.inductionOn
-      intro hxy
-      rename_i a b
-      have h1 : f a = f b := congrArg Subtype.val hxy
-      exact Quotient.sound (QuotientGroup.leftRel_apply.mpr ((h a a.2 b b.2).mp h1))
-    · rintro ⟨_, a, ha, rfl⟩
-      exact ⟨Quotient.mk _ ⟨a, ha⟩, rfl⟩
-  rw [Subgroup.relIndex, Subgroup.index_eq_card]
-  exact (Nat.card_congr (Equiv.ofBijective g hg)).symm
 
 theorem exists_mem_normalizer_not_mem_sq_mem [Finite G] {T U : Subgroup G} (hU : IsPGroup 2 U)
     (hTU : T ≤ U) (hne : T ≠ U) :
@@ -83,10 +62,6 @@ theorem conjSubgroup_centralizer (g a : G) :
       _ = g⁻¹ * (y * (g * a * g⁻¹)) * g := by rw [h]
       _ = (g⁻¹ * y * g) * a := by group
 
-theorem natCard_centralizer_conj (g a : G) :
-    Nat.card (Subgroup.centralizer ({g * a * g⁻¹} : Set G)) =
-      Nat.card (Subgroup.centralizer ({a} : Set G)) := by
-  rw [← conjSubgroup_centralizer, card_conjSubgroup]
 
 theorem centralizer_ne_top_of_simple [IsSimpleGroup G] (hnc : ¬ ∀ a b : G, a * b = b * a) {c : G}
     (hc : c ≠ 1) : Subgroup.centralizer ({c} : Set G) ≠ ⊤ := by
@@ -104,23 +79,6 @@ theorem centralizer_ne_top_of_simple [IsSimpleGroup G] (hnc : ¬ ∀ a b : G, a 
     have ha : a ∈ Subgroup.center G := h ▸ Subgroup.mem_top a
     exact (Subgroup.mem_center_iff.mp ha b).symm
 
-theorem conj_eq_iff_mem_normalizer {S T : Subgroup G} {a a' : G}
-    (ha : a ∈ Subgroup.normalizer (T : Set G)) (ha' : a' ∈ Subgroup.normalizer (T : Set G)) :
-    conjSubgroup a S = conjSubgroup a' S ↔
-      a⁻¹ * a' ∈ Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G) := by
-  have key : conjSubgroup a S = conjSubgroup a' S ↔ conjSubgroup (a⁻¹ * a') S = S := by
-    constructor
-    · intro h
-      have := congrArg (conjSubgroup a⁻¹) h
-      rw [conjSubgroup_inv_conjSubgroup, conjSubgroup_conjSubgroup] at this
-      exact this.symm
-    · intro h
-      have := congrArg (conjSubgroup a) h
-      rw [conjSubgroup_conjSubgroup, mul_inv_cancel_left] at this
-      exact this.symm
-  rw [key, conjSubgroup_eq_self_iff]
-  exact ⟨fun h => ⟨h, (Subgroup.normalizer (T : Set G)).mul_mem
-    ((Subgroup.normalizer (T : Set G)).inv_mem ha) ha'⟩, fun h => h.1⟩
 
 theorem conj_eq_iff_mem_centralizer {t a a' : G} :
     a * t * a⁻¹ = a' * t * a'⁻¹ ↔ a⁻¹ * a' ∈ Subgroup.centralizer ({t} : Set G) := by
@@ -184,34 +142,6 @@ theorem normalizer_inf_eq (d : OddByQuat R S t)
     rw [← conjSubgroup_eq_self_iff, ← d.inf_R_eq hT, conjSubgroup_inf,
       conjSubgroup_eq_self_iff.mpr hn, conjSubgroup_eq_self_iff.mpr (d.normal hh)]
 
-theorem conj_t_eq_iff (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    {a a' : G} (ha : a ∈ Subgroup.normalizer (T : Set G))
-    (ha' : a' ∈ Subgroup.normalizer (T : Set G)) :
-    a * t * a⁻¹ = a' * t * a'⁻¹ ↔
-      a⁻¹ * a' ∈ Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G) := by
-  rw [d.normalizer_inf_eq hT, conj_eq_iff_mem_centralizer]
-  have hA : a⁻¹ * a' ∈ Subgroup.normalizer (T : Set G) :=
-    (Subgroup.normalizer (T : Set G)).mul_mem ((Subgroup.normalizer (T : Set G)).inv_mem ha) ha'
-  exact ⟨fun h => ⟨h, hA⟩, fun h => h.1⟩
-
-omit [Finite G] in
-theorem card_orbit_S (S T : Subgroup G) :
-    Nat.card ((fun a => conjSubgroup a S) '' (Subgroup.normalizer (T : Set G) : Set G)) =
-      (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)).relIndex
-        (Subgroup.normalizer (T : Set G)) :=
-  natCard_image_eq_relIndex _ fun _ ha _ ha' => conj_eq_iff_mem_normalizer ha ha'
-
-theorem card_orbit_t (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) :
-    Nat.card ((fun a => a * t * a⁻¹) '' (Subgroup.normalizer (T : Set G) : Set G)) =
-      (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)).relIndex
-        (Subgroup.normalizer (T : Set G)) :=
-  natCard_image_eq_relIndex _ fun _ ha _ ha' => d.conj_t_eq_iff hT ha ha'
-
-theorem conj_eq_iff_conj_t_eq (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) {a a' : G}
-    (ha : a ∈ Subgroup.normalizer (T : Set G)) (ha' : a' ∈ Subgroup.normalizer (T : Set G)) :
-    conjSubgroup a S = conjSubgroup a' S ↔ a * t * a⁻¹ = a' * t * a'⁻¹ :=
-  (conj_eq_iff_mem_normalizer ha ha').trans (d.conj_t_eq_iff hT ha ha').symm
 
 theorem conj_t_mem (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
     {a : G} (ha : a ∈ Subgroup.normalizer (T : Set G)) :
@@ -225,81 +155,6 @@ theorem conj_t_mem (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer
     _ = a * ((a⁻¹ * x * a) * t) * a⁻¹ := by rw [hc]
     _ = x * (a * t * a⁻¹) := by group
 
-theorem T_sylow_B (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) :
-    IsSylow2Of T (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)) := by
-  have hTB : T ≤ Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G) :=
-    le_inf hT.1 Subgroup.le_normalizer
-  exact ⟨hTB, hT.2.1, fun P' hP'B hP'2 hle =>
-    (d.T_sylow_H hT).2.2 P' (fun x hx => d.M_le_C (hP'B hx).1) hP'2 hle⟩
-
-omit [Finite G] in
-theorem card_normalizer_T (S T : Subgroup G) : Nat.card (Subgroup.normalizer (T : Set G)) =
-    Nat.card (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G) : Subgroup G) *
-      (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)).relIndex
-        (Subgroup.normalizer (T : Set G)) := by
-  have := Subgroup.card_mul_index ((Subgroup.normalizer (S : Set G) ⊓
-    Subgroup.normalizer (T : Set G)).subgroupOf (Subgroup.normalizer (T : Set G)))
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_right).toEquiv] at this
-  exact this.symm
-
-theorem sylow_top_iff_odd (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) : IsSylow2Of T ⊤ ↔ Odd
-    ((Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)).relIndex
-      (Subgroup.normalizer (T : Set G))) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hB := (d.T_sylow_B hT).card_eq
-  have hA := card_normalizer_T S T
-  set B := Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G) with hBdef
-  set A := Subgroup.normalizer (T : Set G) with hAdef
-  have hr : B.relIndex A ≠ 0 := by
-    intro h
-    rw [h, mul_zero] at hA
-    exact Nat.card_pos.ne' hA
-  have hf : (Nat.card A).factorization 2 =
-      (Nat.card B).factorization 2 + (B.relIndex A).factorization 2 := by
-    rw [hA, Nat.factorization_mul Nat.card_pos.ne' hr]
-    rfl
-  constructor
-  · intro hTtop
-    obtain ⟨P, hP, hTP⟩ := exists_isSylow2Of_ge hT.2.1 (Subgroup.le_normalizer : T ≤ A)
-    have h1 : Nat.card P = 2 ^ (Nat.card A).factorization 2 := hP.card_eq
-    have h2 : Nat.card P ≤ Nat.card T := by
-      have := card_le_of_isPGroup_le hP.2.1 (le_top : P ≤ ⊤)
-      rwa [← hTtop.card_eq] at this
-    have h3 : Nat.card T ≤ Nat.card P := Subgroup.card_le_of_le hTP
-    have h4 : 2 ^ (Nat.card A).factorization 2 = 2 ^ (Nat.card B).factorization 2 := by
-      rw [← h1, ← hB]
-      exact le_antisymm h2 h3
-    have h5 := Nat.pow_right_injective (le_refl 2) h4
-    have h6 : (B.relIndex A).factorization 2 = 0 := by omega
-    rw [Nat.odd_iff]
-    by_contra hcon
-    have hdvd : 2 ∣ B.relIndex A := by omega
-    have := Nat.Prime.factorization_pos_of_dvd Nat.prime_two hr hdvd
-    omega
-  · intro hodd
-    have hnd : ¬ 2 ∣ B.relIndex A := fun h =>
-      (Nat.not_even_iff_odd.mpr hodd) (even_iff_two_dvd.mpr h)
-    have h0 : (B.relIndex A).factorization 2 = 0 := Nat.factorization_eq_zero_of_not_dvd hnd
-    have hAB : (Nat.card A).factorization 2 = (Nat.card B).factorization 2 := by
-      rw [hf, h0]
-      rfl
-    obtain ⟨U, hU, hTU⟩ := exists_isSylow2Of_ge hT.2.1 (le_top : T ≤ ⊤)
-    by_cases hTU' : T = U
-    · rw [hTU']
-      exact hU
-    · exfalso
-      obtain ⟨s, hsU, hsN, hsT⟩ := exists_mem_normalizer_not_mem (p := 2) hU.2.1 hTU hTU'
-      have hzs : Subgroup.zpowers s ≤ A := (Subgroup.zpowers_le).mpr hsN
-      have hP2 : IsPGroup 2 (T ⊔ Subgroup.zpowers s : Subgroup G) :=
-        IsPGroup.to_sup_of_normal_left' hT.2.1 (hU.2.1.to_le ((Subgroup.zpowers_le).mpr hsU)) hzs
-      have hPA : T ⊔ Subgroup.zpowers s ≤ A := sup_le Subgroup.le_normalizer hzs
-      have h1 := card_le_of_isPGroup_le hP2 hPA
-      rw [hAB, ← hB] at h1
-      have h2 : T ⊔ Subgroup.zpowers s = T :=
-        (Subgroup.eq_of_le_of_card_ge le_sup_left h1).symm
-      exact hsT (h2 ▸ (le_sup_right : Subgroup.zpowers s ≤ T ⊔ Subgroup.zpowers s)
-        (Subgroup.mem_zpowers s))
 
 end Criterion
 
@@ -407,36 +262,6 @@ theorem commute_S_S₁ (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normal
   calc a * b = (a * b * a⁻¹ * b⁻¹) * (b * a) := by group
     _ = b * a := by rw [h3, one_mul]
 
-theorem card_sq_le_card_T (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) (e : Escape T U x) :
-    Nat.card S * Nat.card S ≤ Nat.card T := by
-  have hS₁N : conjSubgroup x S ≤ Subgroup.normalizer (S : Set G) :=
-    (d.S₁_le_T hT e).trans hT.1
-  have hmul := Subgroup.coe_mul_of_right_le_normalizer_left S (conjSubgroup x S) hS₁N
-  have hQ : Nat.card (S ⊔ conjSubgroup x S : Subgroup G) =
-      Nat.card S * Nat.card (conjSubgroup x S) := by
-    refine natCard_eq_mul_of_inf_eq_bot le_sup_left le_sup_right (d.inf_S_S₁ hT e) fun m hm => ?_
-    have h1 : m ∈ ((S ⊔ conjSubgroup x S : Subgroup G) : Set G) := hm
-    rw [hmul] at h1
-    obtain ⟨a, ha, b, hb, rfl⟩ := h1
-    exact ⟨a, ha, b, hb, rfl⟩
-  have hle : Nat.card (S ⊔ conjSubgroup x S : Subgroup G) ≤ Nat.card T :=
-    Subgroup.card_le_of_le (sup_le (d.S_le_T hT) (d.S₁_le_T hT e))
-  rw [hQ, card_conjSubgroup] at hle
-  exact hle
-
-theorem nonempty_mulEquiv_S_S₁ (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) (e : Escape T U x) :
-    Nonempty ((S ⊔ conjSubgroup x S : Subgroup G) ≃* S × conjSubgroup x S) := by
-  have hS₁N : conjSubgroup x S ≤ Subgroup.normalizer (S : Set G) :=
-    (d.S₁_le_T hT e).trans hT.1
-  have hmul := Subgroup.coe_mul_of_right_le_normalizer_left S (conjSubgroup x S) hS₁N
-  refine nonempty_mulEquiv_prod le_sup_left le_sup_right (d.inf_S_S₁ hT e)
-    (d.commute_S_S₁ hT e) fun m hm => ?_
-  have h1 : m ∈ ((S ⊔ conjSubgroup x S : Subgroup G) : Set G) := hm
-  rw [hmul] at h1
-  obtain ⟨a, ha, b, hb, rfl⟩ := h1
-  exact ⟨a, ha, b, hb, rfl⟩
 
 omit [Finite G] in
 theorem mem_W (e : Escape T U x) {w : G} (hw : w ∈ T ⊔ Subgroup.zpowers x) :
@@ -515,26 +340,6 @@ omit [Finite G] in
 theorem W_two (e : Escape T U x) : IsPGroup 2 (T ⊔ Subgroup.zpowers x : Subgroup G) :=
   e.two.to_le (sup_le e.le ((Subgroup.zpowers_le).mpr e.mem))
 
-omit [Finite G] in
-theorem W_le_normalizer_Q (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (e : Escape T U x) :
-    T ⊔ Subgroup.zpowers x ≤ Subgroup.normalizer ((S ⊔ conjSubgroup x S : Subgroup G) : Set G) := by
-  have hTS : ∀ y ∈ T, conjSubgroup y S = S := fun y hy => conjSubgroup_eq_self_iff.mpr (hT.1 hy)
-  have hTS₁ : ∀ y ∈ T, conjSubgroup y (conjSubgroup x S) = conjSubgroup x S := fun y hy =>
-    conjSubgroup_eq_self_iff.mpr (T_le_normalizer_S₁ hT e hy)
-  have hxS₁ : conjSubgroup x (conjSubgroup x S) = S := by
-    rw [conjSubgroup_conjSubgroup]
-    exact conjSubgroup_eq_self_iff.mpr (hT.1 e.sq_mem)
-  refine sup_le (fun y hy => ?_) ((Subgroup.zpowers_le).mpr ?_)
-  · rw [← conjSubgroup_eq_self_iff, conjSubgroup, Subgroup.map_sup]
-    have h1 := hTS y hy
-    have h2 := hTS₁ y hy
-    unfold conjSubgroup at h1 h2
-    rw [h1, h2]
-  · rw [← conjSubgroup_eq_self_iff, conjSubgroup, Subgroup.map_sup]
-    have h2 : (Subgroup.map (MulAut.conj x).toMonoidHom S) = conjSubgroup x S := rfl
-    have h3 : (Subgroup.map (MulAut.conj x).toMonoidHom (conjSubgroup x S)) = S := hxS₁
-    rw [h2, h3, sup_comm]
 
 theorem c_central (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
     (e : Escape T U x) :
@@ -585,106 +390,6 @@ theorem orderOf_c (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer 
     rw [h1]
     exact inv_eq_of_mul_eq_one_right ht2
 
-theorem inf_C_W_t (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (e : Escape T U x) :
-    (T ⊔ Subgroup.zpowers x) ⊓ Subgroup.centralizer ({t} : Set G) = T := by
-  refine le_antisymm (fun w hw => ?_) (le_inf le_sup_left (d.T_le_C hT))
-  rcases mem_W e hw.1 with h | ⟨y, hy, rfl⟩
-  · exact h
-  · exfalso
-    have hc := Subgroup.mem_centralizer_iff.mp hw.2 t rfl
-    have h1 : (y * x) * t * (y * x)⁻¹ = t := by
-      calc (y * x) * t * (y * x)⁻¹ = (t * (y * x)) * (y * x)⁻¹ := by rw [← hc]
-        _ = t := by group
-    have h2 : (y * x) * t * (y * x)⁻¹ = x * t * x⁻¹ := by
-      have := (d.conj_t_mem hT e.normalizes).2 y⁻¹ (T.inv_mem hy)
-      calc (y * x) * t * (y * x)⁻¹ = y * (x * t * x⁻¹) * y⁻¹ := by group
-        _ = y * ((x * t * x⁻¹) * y⁻¹) := by rw [mul_assoc]
-        _ = y * (y⁻¹ * (x * t * x⁻¹)) := by rw [this]
-        _ = x * t * x⁻¹ := by group
-    exact d.t₁_ne hT e (h2.symm.trans h1)
-
-theorem inf_C_W_t₁ (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (e : Escape T U x) :
-    (T ⊔ Subgroup.zpowers x) ⊓ Subgroup.centralizer ({x * t * x⁻¹} : Set G) = T := by
-  refine le_antisymm (fun w hw => ?_) (le_inf le_sup_left ?_)
-  · rcases mem_W e hw.1 with h | ⟨y, hy, rfl⟩
-    · exact h
-    · exfalso
-      have hc := Subgroup.mem_centralizer_iff.mp hw.2 (x * t * x⁻¹) rfl
-      have h1 : (y * x) * (x * t * x⁻¹) * (y * x)⁻¹ = x * t * x⁻¹ := by
-        calc (y * x) * (x * t * x⁻¹) * (y * x)⁻¹ = ((x * t * x⁻¹) * (y * x)) * (y * x)⁻¹ := by
-              rw [← hc]
-          _ = x * t * x⁻¹ := by group
-      have h2 : (y * x) * (x * t * x⁻¹) * (y * x)⁻¹ = t := by
-        have := d.t_central hT y⁻¹ (T.inv_mem hy)
-        calc (y * x) * (x * t * x⁻¹) * (y * x)⁻¹ = y * (x * (x * t * x⁻¹) * x⁻¹) * y⁻¹ := by group
-          _ = y * t * y⁻¹ := by rw [d.conj_t₁ hT e]
-          _ = y * (t * y⁻¹) := by rw [mul_assoc]
-          _ = y * (y⁻¹ * t) := by rw [this]
-          _ = t := by group
-      exact d.t₁_ne hT e (h1.symm.trans h2)
-  · intro y hy
-    rw [Subgroup.mem_centralizer_iff]
-    intro h hh
-    rw [Set.mem_singleton_iff] at hh
-    subst hh
-    exact ((d.conj_t_mem hT e.normalizes).2 y hy)
-
-theorem two_part_lt (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (e : Escape T U x) :
-    2 ^ (Nat.card (Subgroup.centralizer ({t} : Set G))).factorization 2 <
-      2 ^ (Nat.card (Subgroup.centralizer ({t * (x * t * x⁻¹)} : Set G))).factorization 2 := by
-  have h1 := (d.T_sylow_H hT).card_eq
-  rw [← h1]
-  have h2 := card_le_of_isPGroup_le (W_two e) (d.c_central hT e)
-  rw [card_W e] at h2
-  have : 0 < Nat.card T := Nat.card_pos
-  omega
-
-theorem not_isConj (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (e : Escape T U x) : ¬ IsConj t (t * (x * t * x⁻¹)) := by
-  intro h
-  obtain ⟨g, hg⟩ := isConj_iff.mp h
-  have h1 := d.two_part_lt hT e
-  rw [← hg, natCard_centralizer_conj] at h1
-  exact lt_irrefl _ h1
-
-theorem centralizer_c_ne_top [IsSimpleGroup G] (hnc : ¬ ∀ a b : G, a * b = b * a)
-    (d : OddByQuat R S t) (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G))) (e : Escape T U x) :
-    Subgroup.centralizer ({t * (x * t * x⁻¹)} : Set G) ≠ ⊤ :=
-  centralizer_ne_top_of_simple hnc fun h => by
-    have := d.orderOf_c hT e
-    rw [h, orderOf_one] at this
-    omega
-
-theorem sylow_top_of_card_lt (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (hlt : Nat.card T < Nat.card S * Nat.card S) : IsSylow2Of T ⊤ := by
-  by_contra hnot
-  obtain ⟨U, hU, hTU⟩ := exists_isSylow2Of_ge hT.2.1 (le_top : T ≤ ⊤)
-  have hne : T ≠ U := fun h => hnot (by rw [h]; exact hU)
-  obtain ⟨x, hxU, hxN, hxT, hxx⟩ := exists_mem_normalizer_not_mem_sq_mem hU.2.1 hTU hne
-  exact absurd (d.card_sq_le_card_T hT ⟨hU.2.1, hTU, hxU, hxN, hxT, hxx⟩) (not_le.mpr hlt)
-
-theorem sylow_top_of_characteristic (d : OddByQuat R S t)
-    (hT : IsSylow2Of T (Subgroup.normalizer (S : Set G)))
-    (hchar : (S.subgroupOf T).Characteristic) : IsSylow2Of T ⊤ := by
-  rw [d.sylow_top_iff_odd hT]
-  have hAB : Subgroup.normalizer (T : Set G) ≤ Subgroup.normalizer (S : Set G) := by
-    refine le_normalizer_of_conj_mem fun a ha s hs => ?_
-    let α : MulAut T := Subgroup.normalizerMonoidHom T ⟨a, ha⟩
-    have hα := Subgroup.characteristic_iff_map_eq.mp hchar α
-    have hsT : s ∈ T := d.S_le_T hT hs
-    have : α ⟨s, hsT⟩ ∈ S.subgroupOf T := by
-      rw [← hα]
-      exact ⟨⟨s, hsT⟩, hs, rfl⟩
-    exact this
-  have h1 : (Subgroup.normalizer (S : Set G) ⊓ Subgroup.normalizer (T : Set G)).relIndex
-      (Subgroup.normalizer (T : Set G)) = 1 :=
-    Subgroup.relIndex_eq_one.mpr (le_inf hAB le_rfl)
-  rw [h1]
-  exact odd_one
 
 end Escape
 

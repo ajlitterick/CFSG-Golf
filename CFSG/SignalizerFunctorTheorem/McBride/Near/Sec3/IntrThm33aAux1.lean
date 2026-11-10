@@ -57,9 +57,6 @@ theorem iThetaU_le_of {L : Subgroup Γ} (h : ∀ Z ∈ iUset A X Y, Z ≤ L) : i
 theorem admits_iThetaU : Admits (cenIn X (A : Set Γ) ⊔ A) (iThetaU A X Y) :=
   Admits.iSup fun _ => Admits.iSup fun hZ => hZ.1.2
 
-theorem admits_iThetaU_of {Q : Subgroup Γ} (h : ∀ Z ∈ iUset A X Y, Admits Q Z) :
-    Admits Q (iThetaU A X Y) :=
-  Admits.iSup fun Z => Admits.iSup fun hZ => h Z hZ
 
 theorem iUset_of_le {X' : Subgroup Γ} (hDX' : cenIn X (A : Set Γ) ≤ X') (hX'X : X' ≤ X) :
     iUset A X' Y = {Z | Z ∈ iUset A X Y ∧ Z ≤ X'} := by
@@ -138,16 +135,9 @@ theorem pair_admits_Y : Admits (cenIn X (A : Set Γ) ⊔ A) Y := by
   rw [← pair_inf hP]
   exact (pair_admits_DA₂ hP).inf (admits_cenIn_sup A X)
 
-theorem pair_admits_D_Y : Admits (cenIn X (A : Set Γ)) Y :=
-  le_sup_left.trans (pair_admits_Y hP)
 
 end Pair
 
-theorem dsub_mem_iUset (hY : Admits (cenIn X (A : Set Γ)) Y) (hYD : Y ≤ cenIn X (A : Set Γ)) :
-    cenIn X (A : Set Γ) ∈ iUset A X Y := by
-  refine ⟨⟨inf_le_left, admits_cenIn_sup A X⟩, le_rfl,
-    le_antisymm ?_ (le_inf (le_orbitClosure _ _) hYD)⟩
-  exact (inf_le_inf_right _ (orbitClosure_le_of_admits le_rfl hY)).trans inf_le_left
 
 theorem sup_mem_iUset (hP : (X₁, X₂) ∈ iPairsY A X Y) :
     X₁ ⊔ cenIn X (A : Set Γ) ∈ iUset A X Y := by

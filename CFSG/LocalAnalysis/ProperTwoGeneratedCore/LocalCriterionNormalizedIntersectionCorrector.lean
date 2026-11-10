@@ -22,12 +22,6 @@ theorem pairFlipGroup_eq_generated (H : Subgroup G)
   rw [Subgroup.closure_union, Subgroup.closure_eq, ← Subgroup.zpowers_eq_closure]
   rfl
 
-theorem pairFlipGroup_le_normalizer_iff (H : Subgroup G)
-    (beta : rightCosetSpace H) (t : G) (X : Subgroup G) :
-    pairFlipGroup H beta t ≤ Subgroup.normalizer (X : Set G) ↔
-      pairPointStabilizer H beta ≤ Subgroup.normalizer (X : Set G) ∧
-        t ∈ Subgroup.normalizer (X : Set G) := by
-  rw [pairFlipGroup, sup_le_iff, Subgroup.zpowers_le]
 
 theorem pair_class_mem_generated {H : Subgroup G}
     {beta : rightCosetSpace H} {t s : G}

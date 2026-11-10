@@ -159,47 +159,6 @@ theorem quotient_injective_on_of_isPGroup (N : Subgroup H) [N.Normal] (hN : Odd 
   rw [hUN, Subgroup.mem_bot] at hmem
   exact (inv_mul_eq_one.mp hmem)
 
-theorem map_ne_bot_of_isPGroup (N : Subgroup H) [N.Normal] (hN : Odd (Nat.card N))
-    {V : Subgroup H} (hV : IsPGroup 2 V) (hne : V ≠ ⊥) :
-    V.map (QuotientGroup.mk' N) ≠ ⊥ := by
-  intro hbot
-  apply hne
-  rw [eq_bot_iff]
-  intro v hv
-  have h1 : QuotientGroup.mk' N v = QuotientGroup.mk' N 1 := by
-    rw [map_one]
-    exact (Subgroup.map_eq_bot_iff _).mp hbot hv
-  exact Subgroup.mem_bot.mpr (quotient_injective_on_of_isPGroup N hN hV hv V.one_mem h1)
-
-theorem gammaOne_quotient_of_isPGroup (N : Subgroup H) [N.Normal] (hN : Odd (Nat.card N))
-    {U : Subgroup H} (hU : IsPGroup 2 U) :
-    gammaOne (U.map (QuotientGroup.mk' N)) = (gammaOne U).map (QuotientGroup.mk' N) := by
-  set π := QuotientGroup.mk' N
-  apply le_antisymm
-  · apply sSup_le
-    rintro _ ⟨Vb, hVbU, hVbne, rfl⟩
-    set V := Vb.comap π ⊓ U with hVdef
-    have hVU : V ≤ U := inf_le_right
-    have hV2 : IsPGroup 2 V := hU.to_le hVU
-    have hVmap : V.map π = Vb := by
-      apply le_antisymm
-      · rintro _ ⟨v, hv, rfl⟩
-        exact hv.1
-      · intro q hq
-        obtain ⟨u, huU, rfl⟩ := hVbU hq
-        exact ⟨u, ⟨hq, huU⟩, rfl⟩
-    have hVne : V ≠ ⊥ := by
-      intro hbot
-      apply hVbne
-      rw [← hVmap, hbot, Subgroup.map_bot]
-    rw [← hVmap, normalizer_quotient_of_isPGroup N hN hV2]
-    exact Subgroup.map_mono (normalizer_le_gammaOne U V hVU hVne)
-  · rw [Subgroup.map_le_iff_le_comap]
-    apply sSup_le
-    rintro _ ⟨V, hVU, hVne, rfl⟩
-    rw [← Subgroup.map_le_iff_le_comap, ← normalizer_quotient_of_isPGroup N hN (hU.to_le hVU)]
-    exact normalizer_le_gammaOne _ _ (Subgroup.map_mono hVU)
-      (map_ne_bot_of_isPGroup N hN (hU.to_le hVU) hVne)
 
 theorem centralizerJoin_quotient_of_isPGroup (N : Subgroup H) [N.Normal] (hN : Odd (Nat.card N))
     {U : Subgroup H} (hU : IsPGroup 2 U) :

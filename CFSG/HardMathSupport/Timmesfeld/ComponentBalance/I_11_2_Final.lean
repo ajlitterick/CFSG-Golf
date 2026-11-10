@@ -159,12 +159,5 @@ theorem kernel11_2_of_tables (T : Tables112) : Kernel11_2 := by
 theorem input11_6_of_tables (T : Tables112) (k : KernelT) : Input11_6 :=
   input11_6_of_kernels (kernel11_2_of_tables T) k
 
-theorem kernelT_iff_isInnerAut : KernelT ↔
-    ∀ (J : Type) [Group J] [Finite J], CFSG.Open.IsQuasisimple J → CFSG.Open.IsKGroup J →
-      ∀ p : ℕ, p.Prime → p ≠ 2 →
-        (∃ U : Subgroup J, U ≤ Subgroup.center J ∧ CFSG.Open.IsElemAbelian p U ∧
-          Nat.card U = p ^ 2) →
-        ∀ φ : MulAut J, IsPGroup p (Subgroup.zpowers φ) → IsInnerAut φ :=
-  Iff.rfl
 
 end CFSG.HardMathSupport.Timmesfeld.ComponentBalance

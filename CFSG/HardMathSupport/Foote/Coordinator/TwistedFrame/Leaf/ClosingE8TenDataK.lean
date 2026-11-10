@@ -19,11 +19,6 @@ theorem e8tK_mem_iff {v : Fin Tag.E8.rank → ℤ} :
     v ∈ rootFinset Tag.E8 ↔ List.ofFn v ∈ Tag.E8.artifactRoots :=
   mem_rootFinset.trans isRoot_iff_mem_artifactRoots
 
-theorem e8tK_forall {Q : (Fin Tag.E8.rank → ℤ) → Prop}
-    (h : ∀ l ∈ Tag.E8.artifactRoots, Q (e8tK_vec l)) : ∀ v ∈ rootFinset Tag.E8, Q v := by
-  intro v hv
-  have := h _ (e8tK_mem_iff.1 hv)
-  rwa [e8tK_vec_ofFn] at this
 
 theorem e8tK_filter_iff {p : (Fin Tag.E8.rank → ℤ) → Bool} {L : List (List ℤ)}
     (h : (Tag.E8.artifactRoots.filter (fun l => p (e8tK_vec l)) == L) = true)
@@ -236,9 +231,6 @@ theorem e8tK_ball_m {Q : (Fin Tag.E8.rank → ℤ) → Prop} :
     (∀ v ∈ mRoots, Q v) ↔ ∀ l ∈ e8tK_mL, Q (e8tK_vec l) :=
   e8tK_ball_of e8tK_m_iff (e8tK_sub_of_chk e8tK_m_chk)
 
-theorem e8tK_ball_lx {Q : (Fin Tag.E8.rank → ℤ) → Prop} :
-    (∀ v ∈ lxRoots, Q v) ↔ ∀ l ∈ e8tK_lxL, Q (e8tK_vec l) :=
-  e8tK_ball_of e8tK_lx_iff (e8tK_sub_of_chk e8tK_lx_chk)
 
 end CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame.E8TenAux
 

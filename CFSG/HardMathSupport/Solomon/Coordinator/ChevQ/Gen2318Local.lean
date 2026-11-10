@@ -133,26 +133,6 @@ theorem torusElt_mul {M : ℕ} (x y : Fin M → rootsOfUnity 3 F) :
     (Fin M → rootsOfUnity 3 F) →* Matrix.SpecialLinearGroup (Fin (M + 1 + 1)) F :=
   MonoidHom.mk' torusElt (fun x y => torusElt_mul x y)
 
-theorem torusHom_apply {M : ℕ} (x : Fin M → rootsOfUnity 3 F) :
-    torusHom (F := F) M x = torusElt x :=
-  rfl
-
-theorem torusHom_injective (M : ℕ) : Function.Injective (torusHom (F := F) M) := by
-  rw [injective_iff_map_eq_one]
-  intro x hx
-  have hdiag : ∀ i, tDiag x i = 1 := by
-    intro i
-    have h := congrArg (fun A : Matrix.SpecialLinearGroup (Fin (M + 1 + 1)) F =>
-      (A : Matrix (Fin (M + 1 + 1)) (Fin (M + 1 + 1)) F) i i) hx
-    change Matrix.diagonal (fun k => ((tDiag x k : Fˣ) : F)) i i =
-      (1 : Matrix (Fin (M + 1 + 1)) (Fin (M + 1 + 1)) F) i i at h
-    rw [Matrix.diagonal_apply_eq, Matrix.one_apply_eq] at h
-    exact Units.ext h
-  funext j
-  apply Subtype.ext
-  have h := hdiag j.castSucc.castSucc
-  rw [tDiag_castSucc_castSucc] at h
-  simpa using h
 
 @[expose] def trSL {n : ℕ} (i j : Fin n) (h : i ≠ j) (c : F) :
     Matrix.SpecialLinearGroup (Fin n) F :=

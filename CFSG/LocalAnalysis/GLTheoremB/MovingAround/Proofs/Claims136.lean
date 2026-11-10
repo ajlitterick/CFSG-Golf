@@ -139,62 +139,6 @@ theorem input19_1_O2_of_input19_1_two (hI : Lemma129.Input19_1_two) : Lemma136c.
     obtain ⟨hDN, hDc, hnb, -⟩ := h3 K hK hnc
     exact ⟨hDN, eq_bot_iff.2 ((centBar_le_inf p D K).trans hDc.le), hnb⟩
 
-@[expose] def Input19_16Three : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], CFSG.Open.IsKGroup K → CFSG.Open.IsQuasisimple K →
-    GLAPPrimeCore 3 K = ⊥ → ∀ (k : ℕ), 2 ≤ k → ∀ B : Subgroup (MulAut K), IsEkIn 3 k ⊤ B →
-      IsLocallyOTwoBalanced 3 k B ∨ Lemma136c.Alt19_16 3 k K B
-
-theorem input19_16Three_of_input19_16 (hI : Lemma136c.Input19_16) : Input19_16Three :=
-  fun K _ _ _ hq hO k hk B hB => hI K hq 3 Nat.prime_three (by norm_num) hO k hk B hB
-
-theorem alt_of_component {G : Type} [Group G] [Finite G] (hI : Input19_16Three) {k : ℕ} (hk : 2 ≤ k)
-    {X K B : Subgroup G} (hKG : CFSG.Open.IsKGroup (barOf 3 K)) (hK : GLAPComponent 3 X K)
-    (hB : IsEkIn 3 k X B) (hBK : B ≤ Subgroup.normalizer (K : Set G)) (hcent : centBar 3 B K = ⊥)
-    (hnb : ¬ IsCompLocallyOTwoBalanced 3 k B K) :
-    Lemma136c.Alt19_16 3 k (barOf 3 K) (autBar 3 B K) := by
-  haveI : Finite (barOf 3 K) := by unfold barOf; infer_instance
-  have hq : CFSG.Open.IsQuasisimple (barOf 3 K) :=
-    CFSG.HardMathSupport.Solomon.LocalBalance.isQuasisimple_quot_of_component Nat.prime_three hK
-  have hO : GLAPPrimeCore 3 (barOf 3 K) = ⊥ := glaPPrimeCore_quotient_eq_bot Nat.prime_three
-  rcases hI (barOf 3 K) hKG hq hO k hk (autBar 3 B K)
-      (Lemma136c.l136c_isEkIn_autBar hB hBK hcent) with h | h
-  · exact absurd h hnb
-  · exact h
-
-theorem iiHard_of_inputs' (hI191 : Lemma129.Input19_1_two) (hI1916 : Input19_16Three)
-    (hRed : Lemma136c.IIHardReduction) (hCase : Lemma136c.IIHardCases) : Lemma136.IIHardInput := by
-  have hF := centralizerFStarFact_holds
-  have hI191' := input19_1_O2_of_input19_1_two hI191
-  unfold Lemma136c.IIHardReduction at hRed
-  unfold Lemma136c.IIHardCases at hCase
-  unfold Lemma136c.CentralizerFStarFact at hF
-  intro G _ _ m B M E A D T L h hN d hd hd1 hfix
-  haveI : IsSimpleGroup G := h.standing.simple
-  obtain ⟨b, B1, hPD, hsetup⟩ := hRed G m h hN hd hd1 hfix
-  have hs := hsetup
-  obtain ⟨-, ⟨r, hr, hEk⟩, hS1Δ, hS1P, hS1C, hred⟩ := hsetup
-  have hX : Cg d ≠ ⊤ := Lemma136c.l136c_centralizer_ne_top h.standing.nonabelian hd1
-  have hI := hI191' G h.standing.kProper 3 Nat.prime_three (by norm_num) r (by omega) (Cg d)
-    (Lemma136c.bStarOf B L D b) hX hEk
-  have hS1O : Lemma136c.s1Of B L D d b B1 ≤ GLAPPrimeCoreOf 3 (Cg d) := by
-    by_contra hne
-    obtain ⟨K, hK, hnot⟩ : ∃ K : Subgroup G, GLAPComponent 3 (Cg d) K ∧
-        ¬ ⁅K, Lemma136c.s1Of B L D d b B1⁆ ≤ GLAPPrimeCoreOf 3 (Cg d) := by
-      by_contra hall
-      push Not at hall
-      exact hne (hF G (Cg d) (Lemma136c.s1Of B L D d b B1) hS1C hS1P
-        (fun K hK => hS1Δ.trans (hI.1 K hK))
-        (fun y hy z hz => hI.2.1 y (hS1Δ hy) z hz) hall)
-    have hnotΔ : ¬ ⁅K, localDeltaTwoIn (Cg d) (Lemma136c.bStarOf B L D b)⁆ ≤
-        GLAPPrimeCoreOf 3 (Cg d) :=
-      fun hle => hnot ((Subgroup.commutator_mono le_rfl hS1Δ).trans hle)
-    obtain ⟨hBsN, hcent, hnb⟩ := hI.2.2 K hK hnotΔ
-    have hKtop : K ≠ ⊤ := fun htop => hX (top_le_iff.1 (htop ▸ hK.1))
-    have hKG : CFSG.Open.IsKGroup (barOf 3 K) :=
-      (CFSG.Open.IsKProper.isKGroup h.standing.kProper K hKtop).quotient (GLAPPrimeCore 3 ↥K)
-    have halt := alt_of_component hI1916 hr hKG hK hEk hBsN hcent hnb
-    exact hCase G m h hN hd hd1 hfix b B1 hPD hs r hr hEk K hK hnot hBsN hcent halt
-  exact hred.trans (sup_le hS1O le_rfl)
 
 section P1GLift
 
@@ -1672,48 +1616,6 @@ theorem iiHardReduction_of_inputs (hP95 : Prop95) (h111 : Prop111Statement)
   · exact (CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 (L ⊓ Cg d)).to_le (hS1S.trans inf_le_right)
   · exact hS1S.trans (inf_le_right.trans ((CFSG.LieType.BorelTits.pCoreOf_le 2 _).trans inf_le_right))
 
-@[expose] def IIHardCaseAlt : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m : ℕ) {B M E A D T L : Subgroup G} (h : Cex134 G m 3 B M E A D T L)
-    (hN : D ≤ Subgroup.normalizer (L : Set G)) {d : G} (hd : d ∈ D) (hd1 : d ≠ 1),
-    pCoreOf 2 (fixSub (barAut 3 L ⟨d, hN hd⟩)) ≠ ⊥ →
-    ∀ (b : G) (B1 : Subgroup G), Lemma136c.IIHardPrinted B L D hN hd b B1 →
-    Lemma136c.IIHardSetupData B L D d (Lemma136c.bStarOf B L D b) (Lemma136c.s1Of B L D d b B1) →
-    ∀ (r : ℕ), 2 ≤ r → IsEkIn 3 r (Cg d) (Lemma136c.bStarOf B L D b) →
-    ∀ (K : Subgroup G), GLAPComponent 3 (Cg d) K →
-      ¬ ⁅K, Lemma136c.s1Of B L D d b B1⁆ ≤ GLAPPrimeCoreOf 3 (Cg d) →
-      Lemma136c.bStarOf B L D b ≤ Subgroup.normalizer (K : Set G) →
-      centBar 3 (Lemma136c.bStarOf B L D b) K = ⊥ →
-      ¬ ∃ m' r' : ℕ, Lemma136c.Alt19_16a 3 r (barOf 3 K) (autBar 3 (Lemma136c.bStarOf B L D b) K) m' r'
-
-@[expose] def IIHardCaseLie : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (m : ℕ) {B M E A D T L : Subgroup G} (h : Cex134 G m 3 B M E A D T L)
-    (hN : D ≤ Subgroup.normalizer (L : Set G)) {d : G} (hd : d ∈ D) (hd1 : d ≠ 1),
-    pCoreOf 2 (fixSub (barAut 3 L ⟨d, hN hd⟩)) ≠ ⊥ →
-    ∀ (b : G) (B1 : Subgroup G), Lemma136c.IIHardPrinted B L D hN hd b B1 →
-    Lemma136c.IIHardSetupData B L D d (Lemma136c.bStarOf B L D b) (Lemma136c.s1Of B L D d b B1) →
-    ∀ (r : ℕ), 2 ≤ r → IsEkIn 3 r (Cg d) (Lemma136c.bStarOf B L D b) →
-    ∀ (K : Subgroup G), GLAPComponent 3 (Cg d) K →
-      ¬ ⁅K, Lemma136c.s1Of B L D d b B1⁆ ≤ GLAPPrimeCoreOf 3 (Cg d) →
-      Lemma136c.bStarOf B L D b ≤ Subgroup.normalizer (K : Set G) →
-      centBar 3 (Lemma136c.bStarOf B L D b) K = ⊥ →
-      ¬ Lemma136c.Alt19_16c 3 r (barOf 3 K) (autBar 3 (Lemma136c.bStarOf B L D b) K)
-
-theorem iiHardCases_of_cases (hAlt : IIHardCaseAlt) (hLie : IIHardCaseLie) : Lemma136c.IIHardCases := by
-  intro G _ _ m B M E A D T L h hN d hd hd1 hfix b B1 hP hS r hr hEk K hK hnot hBsN hcent halt
-  rcases halt with ⟨m', r', ha⟩ | hb | hc
-  · exact hAlt G m h hN hd hd1 hfix b B1 hP hS r hr hEk K hK hnot hBsN hcent ⟨m', r', ha⟩
-  · exact absurd hb.1 (by norm_num)
-  · exact hLie G m h hN hd hd1 hfix b B1 hP hS r hr hEk K hK hnot hBsN hcent hc
-
-theorem iiHardInput_of_inputs (hI191 : Lemma129.Input19_1_two) (hI1916 : Input19_16Three)
-    (hP95 : Prop95) (h111 : Prop111Statement) (h121 : Prop121_of_cexStatement)
-    (hcomp : Sec13_compStatement) (hO2 : Cex134_O2Statement) (h121c : Prop121_corStatement)
-    (h133 : Lemma133Statement) (h135 : Lemma135_iStatement) (h91 : Lemma91ii)
-    (h912 : Lemma912Statement) (hAlt : IIHardCaseAlt) (hLie : IIHardCaseLie) :
-    Lemma136.IIHardInput :=
-  iiHard_of_inputs' hI191 hI1916
-    (iiHardReduction_of_inputs hP95 h111 h121 hcomp hO2 h121c h133 h135 h91 h912)
-    (iiHardCases_of_cases hAlt hLie)
 
 theorem p1BarInput_of_inputs' (h135 : Lemma135_iStatement) (h912 : Lemma912Statement)
     (hO2 : Cex134_O2Statement) (hP95 : Prop95) (h111 : Prop111Statement)
@@ -1721,15 +1623,6 @@ theorem p1BarInput_of_inputs' (h135 : Lemma135_iStatement) (h912 : Lemma912State
     Lemma136.P1BarInput :=
   Lemma136b.p1BarInput_of_inputs h135 (p1GLift_of_inputs h912 hO2 hP95 h111 h121 hcomp) hCore
 
-theorem lemma136_of_inputs' (hI191 : Lemma129.Input19_1_two) (hI1916 : Input19_16Three)
-    (hP95 : Prop95) (h111 : Prop111Statement) (h121 : Prop121_of_cexStatement)
-    (hcomp : Sec13_compStatement) (hO2 : Cex134_O2Statement) (h121c : Prop121_corStatement)
-    (h133 : Lemma133Statement) (h135 : Lemma135_iStatement) (h91 : Lemma91ii)
-    (h912 : Lemma912Statement) (hCore : Lemma136b.P1GCore) (hAlt : IIHardCaseAlt)
-    (hLie : IIHardCaseLie) : Lemma136Statement :=
-  lemma136_of_inputs hP95 h111 h121 hcomp input22_3_2_holds
-    (p1BarInput_of_inputs' h135 h912 hO2 hP95 h111 h121 hcomp hCore) hO2 h121c
-    (iiHardInput_of_inputs hI191 hI1916 hP95 h111 h121 hcomp hO2 h121c h133 h135 h91 h912 hAlt hLie)
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Claims136
 

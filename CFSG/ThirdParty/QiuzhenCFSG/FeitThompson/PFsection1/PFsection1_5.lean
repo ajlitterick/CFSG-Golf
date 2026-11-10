@@ -118,11 +118,6 @@ public theorem inducedCF_eq_representation_character
 
 /-! ## Honest helper lemmas used in the proof pattern of Proposition (1.5) -/
 
-private lemma scalarProduct_zero_left
-    {G : Type*} [Finite G] (phi : ClassFunction G) :
-    scalarProduct G 0 phi = 0 := by
-  simp [scalarProduct]
-
 
 public lemma scalarProduct_add_left
     {G : Type*} [Finite G] (phi1 phi2 psi : ClassFunction G) :

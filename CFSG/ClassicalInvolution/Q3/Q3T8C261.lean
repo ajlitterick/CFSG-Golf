@@ -28,13 +28,6 @@ end Setup
 section Normalizer
 variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
 
-theorem s26_conjSub_mem_omegaNbr [Finite G] (hΩ : HypOmegaMod Ω) {K J' : Subgroup G} {b : G}
-    (hb : conjSub b K = K) (hJ' : J' ∈ omegaNbr Ω K) : conjSub b J' ∈ omegaNbr Ω K :=
-  Q3CL.Frame.s26_conjSub_mem_omegaNbr hΩ hb hJ'
-
-theorem s26_conjSub_omegaNbrGen_le [Finite G] (hΩ : HypOmegaMod Ω) {K : Subgroup G} {b : G}
-    (hb : conjSub b K = K) : conjSub b (omegaNbrGen Ω K) ≤ omegaNbrGen Ω K :=
-  Q3CL.Frame.s26_conjSub_omegaNbrGen_le hΩ hb
 
 theorem s26_conjSub_omegaNbrGen [Finite G] (hΩ : HypOmegaMod Ω) {K : Subgroup G} {b : G}
     (hb : conjSub b K = K) : conjSub b (omegaNbrGen Ω K) = omegaNbrGen Ω K :=
@@ -133,11 +126,6 @@ theorem exists_conj_of_le_of_eq_sup_oddCoreOf {X J₀ L : Subgroup G} (hΩ : Hyp
     (hX : X = J₀ ⊔ oddCoreOf X) : ∃ x ∈ X, conjSub x J₀ = L :=
   Q3CL.Frame.T8R.exists_conj_of_le_of_eq_sup_oddCoreOf hΩ hJ₀ hL hJ₀X hLX hX
 
-theorem mul_inv_mem_oddCoreOf_of_mem_omegaNbr (hs : Std8 Ω K J S R T W z t)
-    (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) {L : Subgroup G}
-    (hL : L ∈ omegaNbr Ω K) {y : G} (hy : IsUniqueInvolution L y) :
-    y * t⁻¹ ∈ oddCoreOf (omegaNbrGen Ω K) :=
-  Q3CL.Frame.T8R.mul_inv_mem_oddCoreOf_of_mem_omegaNbr hs.toFrame hX hL hy
 
 theorem conj_zt_mul_inv_mem_oddCoreOf (hs : Std8 Ω K J S R T W z t)
     (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) {y : G}
@@ -145,9 +133,6 @@ theorem conj_zt_mul_inv_mem_oddCoreOf (hs : Std8 Ω K J S R T W z t)
     y * (z * t) * y⁻¹ * (z * t)⁻¹ ∈ oddCoreOf (omegaNbrGen Ω K) :=
   Q3CL.Frame.T8R.conj_zt_mul_inv_mem_oddCoreOf hs.toFrame hX hy
 
-theorem omegaNbrGen_conjSub (hΩ : HypOmegaMod Ω) {K : Subgroup G} (g : G) :
-    omegaNbrGen Ω (conjSub g K) = conjSub g (omegaNbrGen Ω K) :=
-  Q3CL.Frame.T8R.omegaNbrGen_conjSub hΩ g
 
 theorem Std8.symm' (hs : Std8 Ω K J S R T W z t) : Std8 Ω J K S T R W t z := by
   have hΩ : HypOmegaMod Ω := hs.stand.hyp
@@ -285,10 +270,6 @@ section Cert
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
-theorem sylow_inf_omegaNbrGen (hs : Std8 Ω K J S R T W z t)
-    (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) :
-    (S : Subgroup G) ⊓ omegaNbrGen Ω K = T :=
-  Q3CL.Frame.T8R.sylow_inf_omegaNbrGen hs.toFrame hX
 
 theorem not_mem_omegaNbr_of_four_le (hs : Std8 Ω K J S R T W z t)
     (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) {M : Subgroup G} (hM : M ∈ Ω)
@@ -430,10 +411,6 @@ theorem Std8.conj (hs : Std8 Ω K J S R T W z t) (n : G) :
             group
         _ = conjSub n W := by rw [this]
 
-theorem eq_sup_oddCoreOf_conj (hΩ : HypOmegaMod Ω)
-    (hX : omegaNbrGen Ω K = J ⊔ oddCoreOf (omegaNbrGen Ω K)) (n : G) :
-    omegaNbrGen Ω (conjSub n K) = conjSub n J ⊔ oddCoreOf (omegaNbrGen Ω (conjSub n K)) :=
-  Q3CL.Frame.T8R.eq_sup_oddCoreOf_conj hΩ hX n
 end Cert
 end T8R
 end Asc77

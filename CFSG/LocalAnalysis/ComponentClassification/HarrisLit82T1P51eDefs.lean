@@ -22,12 +22,6 @@ theorem NoSpin7.of_mulEquiv {L M : Type} [Group L] [Group M] {p : ℕ} (e : L �
   exact h r hr (hc ▸ hZ) (LieType.CurtisTits.lieModel_of_mulEquiv
     (QuotientGroup.congr _ _ e (Subgroup.map_center_eq e)) hL)
 
-theorem noSpin7_of_odd_card_center {L : Type} [Group L] {p : ℕ}
-    (h : Odd (Nat.card (center L))) : NoSpin7 p L := by
-  intro r _ hZ _
-  have h2 : ¬ 2 ∣ Nat.card (center L) := Nat.not_even_iff_odd.2 h ∘ even_iff_two_dvd.2
-  rw [Nat.factorization_eq_zero_of_not_dvd h2] at hZ
-  exact absurd hZ (by norm_num)
 
 theorem center_quotient_eq_map_center {G : Type*} [Group G] [Group.IsPerfect G]
     (A : Subgroup G) [A.Normal] (hA : A ≤ center G) :

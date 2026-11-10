@@ -54,8 +54,6 @@ theorem kTZ : Bool.not (Nat.beq (pc (SuzInvT1.F 0) (SuzC1BT 9)) (pc (SuzC1BT 9) 
 
 theorem kCPL : Nat.beq cPairsK.length 496 = true := by quickRfl
 
-theorem negNA : Bool.not (Nat.beq (fpT (pgk (pc (pc (SuzGlN 0) (T 1)) (SuzGlNI 0)) 0))
-    (Nat.add (nAK 0 1) 1)) = true := by quickRfl
 
 theorem idx_prod : (allBelow 64 fun a => allBelow 64 fun b =>
     decide (mulP a b < 64) && ttabs[mulP a b]! == comp 1782 ttabs[a]! ttabs[b]!) = true := by

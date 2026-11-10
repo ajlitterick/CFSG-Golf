@@ -46,17 +46,6 @@ theorem La1_apply (A : SL(2, F)) (x : W7 F) :
 
 namespace HA1
 
-theorem fr1_e₁_eq : (fr1 h2).e₁ = mk7 0 2 0 0 0 0 0 := by
-  simp [fr1, hyp1, HypFrame.toFrame, Frame.e₁]
-
-theorem fr1_f₁_eq : (fr1 h2).f₁ = mk7 0 0 0 0 (1 / 2) 0 0 := by
-  simp [fr1, hyp1, HypFrame.toFrame, Frame.f₁]
-
-theorem fr1_e₂_eq : (fr1 h2).e₂ = mk7 0 0 0 0 0 1 0 := by
-  simp [fr1, hyp1, HypFrame.toFrame, Frame.e₂]
-
-theorem fr1_f₂_eq : (fr1 h2).f₂ = mk7 0 0 1 0 0 0 0 := by
-  simp [fr1, hyp1, HypFrame.toFrame, Frame.f₂]
 
 end HA1
 

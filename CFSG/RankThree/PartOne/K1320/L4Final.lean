@@ -18,22 +18,6 @@ open CFSG.RankThree.PartOne.KFU CFSG.RankThree.PartOne.KFQ
 open CFSG.Assembly.LowTwoRank (StatedClassicalModel StatedProj StatedSL)
 open CFSG.LocalAnalysis.ComponentInitial (SchreierFor)
 
-@[expose] def KF1327 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G) (f : ℕ),
-    Sec12Hyp G p A c L E → Sec12Facts G p A c L E → Sec13Facts G p A c L E →
-    ¬ Outcome152Five p E A (lieGenerated p E) → E = A → ¬ IsLThreeTypeAt p L →
-    2 ≤ f → p ∣ 2 ^ f + 1 → StatedClassicalModel (L ⧸ Subgroup.center L) .PSL 4 2 f →
-    Nonempty (reflectionGroup p E ≃* Multiplicative (ZMod 2) × Equiv.Perm (Fin 4)) →
-    ∀ (r : ℕ) (R : Subgroup G), r.Prime → r ∣ 2 ^ f - 1 → Nat.card R = r → R ≤ L →
-      (∀ x ∈ R, ∀ e ∈ E, x * e = e * x) →
-      (∀ (y : G) (hy : y ∈ Subgroup.normalizer (E : Set G)),
-        conjAut E y hy ∈ reflectionGroup p E → conjBy y R = R) →
-      ∀ s s' : MulAut E, s ∈ reflectionSet p E → s ∈ torusImage E L →
-        s' ∈ reflectionSet p E → s' ∈ torusImage E L → KFAt p E f s → KFAt p E f s' →
-        s ≠ s' → s * s' = s' * s →
-        R ≤ Subgroup.centralizer (kZero p E s : Set G) →
-        R ≤ Subgroup.centralizer (kZero p E s' : Set G) →
-        StatedClassicalModel ↥(pElementSubgroup p (Subgroup.centralizer (R : Set G))) .PSU 4 2 f
 
 @[expose] def KF1320L4' : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G) (f : ℕ),
@@ -62,6 +46,5 @@ theorem prime_ne_two_of_dvd_two_pow_sub_one {r f : ℕ} (hf1 : 1 ≤ f) (hrf : r
     Nat.Even.sub_odd hq1 (Nat.even_pow.mpr ⟨even_two, by omega⟩) odd_one
   exact (Nat.not_even_iff_odd.2 this) (even_iff_two_dvd.2 hrf)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartOne.K1320

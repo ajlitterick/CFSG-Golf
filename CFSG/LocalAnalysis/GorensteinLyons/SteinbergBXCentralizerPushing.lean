@@ -67,6 +67,5 @@ theorem map_subtype_iSup_conjugate (H A R : Subgroup G) (hAH : A ≤ H) (hRH : R
     refine le_iSup_of_le (mem_subgroupOf.mpr ha) ?_
     rw [hconj]
 
-variable [Finite G]
 
 end CFSG.LocalAnalysis.GorensteinLyons

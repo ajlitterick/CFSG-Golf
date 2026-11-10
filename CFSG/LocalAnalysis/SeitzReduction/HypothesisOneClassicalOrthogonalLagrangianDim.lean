@@ -68,7 +68,6 @@ theorem finrank_eq_two_mul [FiniteDimensional K V] :
   smul_mem' a x hx := ⟨by rw [map_smul, hx.1, smul_zero],
     by rw [QuadraticMap.map_smul, hx.2, smul_zero]⟩
 
-theorem mem_singularPart {x : V} : x ∈ hL.singularPart ↔ N x = 0 ∧ Q x = 0 := Iff.rfl
 
 @[expose] def singularPreimage : Submodule K V where
   carrier := {y | Q (N y) = 0}
@@ -82,7 +81,6 @@ theorem mem_singularPart {x : V} : x ∈ hL.singularPart ↔ N x = 0 ∧ Q x = 0
     change Q (N (a • x)) = 0
     rw [map_smul, QuadraticMap.map_smul, hx, smul_zero]
 
-theorem mem_singularPreimage {y : V} : y ∈ hL.singularPreimage ↔ Q (N y) = 0 := Iff.rfl
 
 theorem finrank_ker_le [FiniteDimensional K V] [CharP K 2] (hsq : ∀ a : K, IsSquare a) :
     finrank K (LinearMap.ker N) ≤ finrank K hL.singularPart + 1 :=

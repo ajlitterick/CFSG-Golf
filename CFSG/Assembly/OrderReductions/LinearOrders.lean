@@ -150,15 +150,5 @@ theorem card_projectiveSpecialLinear_eq_orderA (field : Type*) [Field field] [Fi
   rw [card_projectiveSpecialLinear field (rank + 1) (by omega)]
   simp only [orderA, Nat.add_sub_cancel, Nat.mul_comm]
 
-theorem card_projectiveSpecialLinear_mem_orders (field : Type*) [Field field] [Finite field]
-    (rank : ℕ) (positive_rank : 1 ≤ rank) :
-    Nat.card (Matrix.ProjectiveSpecialLinearGroup (Fin (rank + 1)) field) ∈ cfsgOrders := by
-  let := Fintype.ofFinite field
-  have prime_power : IsPrimePow (Nat.card field) := by
-    simpa only [Nat.card_eq_fintype_card] using FiniteField.isPrimePow_card field
-  simp only [cfsgOrders, Set.mem_union, Set.mem_ofPred_eq]
-  iterate 9 apply Or.inl
-  exact Or.inr ⟨rank, Nat.card field, positive_rank, prime_power,
-    card_projectiveSpecialLinear_eq_orderA field rank⟩
 
 end CFSG.OrderReductions.LinearOrders

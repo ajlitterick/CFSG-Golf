@@ -45,7 +45,6 @@ theorem g2Hex_neg_two : -g2Hex 2 = g2Hex 5 := by decide +kernel
 
 theorem g2Hex_zero : g2Hex 0 = Pi.single g2Long 1 := by decide +kernel
 
-theorem g2Hex_two : g2Hex 2 = reflect .G2 g2Short (Pi.single g2Long 1) := by decide +kernel
 
 theorem g2Hex_reflect_zero : reflect .G2 g2Short (g2Hex 0) = g2Hex 2 := by decide +kernel
 

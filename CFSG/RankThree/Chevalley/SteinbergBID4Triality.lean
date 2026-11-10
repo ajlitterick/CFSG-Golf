@@ -58,21 +58,6 @@ theorem wordSign_eq_one_or (ω : List (Fin τ.rank)) {α : Fin τ.rank → ℤ} 
     have h := (all_root_weyl_infinitesimal.{0} τ).2.2.2.1 i _ (isRoot_wordAct ω hα)
     rcases h with h | h <;> rcases ih with ih | ih <;> simp [wordSign, h, ih]
 
-theorem baseChange_wordRep {R S : Type*} [CommRing R] [CommRing S] (f : R →+* S)
-    (ω : List (Fin τ.rank)) :
-    BaseChange f (wordRep τ R ω : Module.End R (RootModule τ R))
-      (wordRep τ S ω : Module.End S (RootModule τ S)) := by
-  induction ω with
-  | nil => simpa [wordRep] using BaseChange.one (τ := τ) (f := f)
-  | cons i ω ih =>
-    simp only [wordRep, List.map_cons, List.prod_cons, Units.val_mul]
-    exact (BaseChange.weylElt_one i).mul ih
-
-theorem wordRep_mem_adjointGroup (K : Type) [Field K] (ω : List (Fin τ.rank)) :
-    wordRep τ K ω ∈ adjointGroup τ K :=
-  Subgroup.list_prod_mem _ fun g hg => by
-    obtain ⟨i, -, rfl⟩ := List.mem_map.1 hg
-    exact weylElt_mem_adjointGroup i 1
 
 theorem baseChangeGL_wordRep {K L : Type} [Field K] [Field L] (σ : K →+* L)
     (ω : List (Fin τ.rank)) : baseChangeGL σ (wordRep τ K ω) = wordRep τ L ω := by
@@ -96,7 +81,6 @@ theorem d4Rho_d4RhoInv : ∀ k, d4Rho (d4RhoInv k) = k := by decide
 
 theorem d4RhoInv_d4Rho : ∀ k, d4RhoInv (d4Rho k) = k := by decide
 
-theorem d4Rho_d4Rho : ∀ k, d4Rho (d4Rho k) = d4RhoInv k := by decide
 
 theorem d4TrialityWord_check : ∀ k : Fin Tag.D4.rank,
     wordAct Tag.E6 d4TrialityWord (Pi.single (d4Idx k) 1) = Pi.single (d4Idx (d4Rho k)) 1 ∧
@@ -105,25 +89,6 @@ theorem d4TrialityWord_check : ∀ k : Fin Tag.D4.rank,
     wordSign Tag.E6 d4TrialityWord (-Pi.single (d4Idx k) 1) = 1 := by
   decide +kernel
 
-theorem d4TrialityWord_cube_check : ∀ i : Fin Tag.E6.rank,
-    wordAct Tag.E6 d4TrialityWord (wordAct Tag.E6 d4TrialityWord
-      (wordAct Tag.E6 d4TrialityWord (Pi.single i 1))) = Pi.single i 1 := by
-  decide +kernel
-
-theorem d4TrialityWord_ne_check :
-    wordAct Tag.E6 d4TrialityWord (Pi.single 1 1) ≠ Pi.single 1 1 := by
-  decide +kernel
-
-theorem d4TrialityWeyl_pow_three : (coxeterSystem Tag.E6).wordProd d4TrialityWord ^ 3 = 1 := by
-  refine ext_single fun i => ?_
-  rw [one_smul, pow_succ, pow_succ, pow_one, mul_smul, mul_smul, ← wordAct_eq_smul,
-    ← wordAct_eq_smul, ← wordAct_eq_smul]
-  exact d4TrialityWord_cube_check i
-
-theorem d4TrialityWeyl_ne_one : (coxeterSystem Tag.E6).wordProd d4TrialityWord ≠ 1 := by
-  intro h
-  apply d4TrialityWord_ne_check
-  rw [wordAct_eq_smul, h, one_smul]
 
 variable {K : Type} [Field K]
 
@@ -146,23 +111,6 @@ theorem d4TrialityRep_conj_yUnit (k : Fin Tag.D4.rank) (c : K) :
   rw [h2, h4, Int.cast_one, one_mul, pinnedX_neg_single, pinnedX_neg_single] at h
   exact h
 
-theorem d4TrialityRep_conj_rootSubgroup {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α) :
-    (rootSubgroup Tag.E6 K α).map (MulAut.conj (d4TrialityRep K)).toMonoidHom =
-      rootSubgroup Tag.E6 K ((coxeterSystem Tag.E6).wordProd d4TrialityWord • α) := by
-  have hs := wordSign_eq_one_or d4TrialityWord hα
-  have hss : ((wordSign Tag.E6 d4TrialityWord α : K) * wordSign Tag.E6 d4TrialityWord α) = 1 := by
-    rcases hs with h | h <;> simp [h]
-  ext g
-  rw [Subgroup.mem_map, mem_rootSubgroup, ← wordAct_eq_smul]
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    obtain ⟨c, rfl⟩ := mem_rootSubgroup.1 hx
-    exact ⟨_, (wordRep_conj_pinnedX K d4TrialityWord hα c).symm⟩
-  · rintro ⟨c, rfl⟩
-    refine ⟨pinnedX Tag.E6 K α ((wordSign Tag.E6 d4TrialityWord α : K) * c),
-      mem_rootSubgroup.2 ⟨_, rfl⟩, ?_⟩
-    change d4TrialityRep K * _ * (d4TrialityRep K)⁻¹ = _
-    rw [wordRep_conj_pinnedX K d4TrialityWord hα, ← mul_assoc, hss, one_mul]
 
 theorem map_conj_d4TrialityRep :
     (subsystemGroup Tag.E6 K d4Support).map (MulAut.conj (d4TrialityRep K)).toMonoidHom =
@@ -226,56 +174,12 @@ theorem d4Q_hom_ext {M : Type*} [Group M] {f g : subsystemGroup Tag.E6 K d4Suppo
     rw [e]
     exact hy k c
 
-theorem eq_d4Triality {φ : subsystemGroup Tag.E6 K d4Support ≃* subsystemGroup Tag.E6 K d4Support}
-    (hx : ∀ (k : Fin Tag.D4.rank) (c : K),
-      φ ⟨_, xUnit_mem_subsystemGroup (d4Idx_mem k) c⟩ =
-        ⟨_, xUnit_mem_subsystemGroup (d4Idx_mem (d4Rho k)) c⟩)
-    (hy : ∀ (k : Fin Tag.D4.rank) (c : K),
-      φ ⟨_, yUnit_mem_subsystemGroup (d4Idx_mem k) c⟩ =
-        ⟨_, yUnit_mem_subsystemGroup (d4Idx_mem (d4Rho k)) c⟩) : φ = d4Triality K := by
-  have h : φ.toMonoidHom = (d4Triality K).toMonoidHom :=
-    d4Q_hom_ext (fun k c => (hx k c).trans (d4Triality_xUnit k c).symm)
-      (fun k c => (hy k c).trans (d4Triality_yUnit k c).symm)
-  exact MulEquiv.ext fun g => DFunLike.congr_fun h g
-
-theorem d4Triality_cube (g : subsystemGroup Tag.E6 K d4Support) :
-    d4Triality K (d4Triality K (d4Triality K g)) = g := by
-  have h : ((d4Triality K).toMonoidHom.comp ((d4Triality K).toMonoidHom.comp
-      (d4Triality K).toMonoidHom)) = MonoidHom.id _ := by
-    refine d4Q_hom_ext (fun k c => ?_) (fun k c => ?_)
-    · simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, d4Triality_xUnit,
-        MonoidHom.id_apply, d4Rho_d4Rho, d4Rho_d4RhoInv]
-    · simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, d4Triality_yUnit,
-        MonoidHom.id_apply, d4Rho_d4Rho, d4Rho_d4RhoInv]
-  exact DFunLike.congr_fun h g
 
 theorem xOp_apply_hVec (i j : Fin Tag.E6.rank) (c : K) :
     xOp Tag.E6 K i c (hVec Tag.E6 K j) =
       hVec Tag.E6 K j + (((Tag.E6.cartan j i).natAbs : K) * c) •
         rootVec Tag.E6 K (Pi.single i 1) := by
   simp only [xOp, hVec, Finsupp.linearCombination_single, one_smul]
-
-theorem d4Triality_ne_one : d4Triality K ≠ 1 := by
-  intro h
-  have h1 := congrArg (fun g : subsystemGroup Tag.E6 K d4Support => (((g : ModGL Tag.E6 K) :
-    Module.End K (RootModule Tag.E6 K)) (hVec Tag.E6 K 3)) (Sum.inr ⟨Pi.single 1 1,
-      isRoot_single _ 1⟩)) (congrArg (fun φ => φ ⟨_, xUnit_mem_subsystemGroup (d4Idx_mem 0) 1⟩) h)
-  simp only [d4Triality_xUnit, MulAut.one_apply] at h1
-  change (xOp Tag.E6 K (d4Idx (d4Rho 0)) 1 (hVec Tag.E6 K 3)) _ =
-    (xOp Tag.E6 K (d4Idx 0) 1 (hVec Tag.E6 K 3)) _ at h1
-  rw [xOp_apply_hVec, xOp_apply_hVec] at h1
-  have e1 : d4Idx (d4Rho 0) = 2 := rfl
-  have e0 : d4Idx 0 = 1 := rfl
-  rw [e1, e0, rootVec_eq_single_of_isRoot (isRoot_single _ _),
-    rootVec_eq_single_of_isRoot (isRoot_single _ _)] at h1
-  have hc1 : (Tag.E6.cartan 3 1).natAbs = 1 := by decide
-  have hc2 : (Tag.E6.cartan 3 2).natAbs = 1 := by decide
-  have hne : (Sum.inr ⟨Pi.single 2 1, isRoot_single _ 2⟩ : Label Tag.E6) ≠
-      Sum.inr ⟨Pi.single 1 1, isRoot_single _ 1⟩ := by decide
-  simp only [Finsupp.add_apply, Finsupp.smul_apply, hVec, Finsupp.single_apply, hc1, hc2,
-    reduceCtorEq, ite_false, ite_eq_right hne, ite_true, smul_eq_mul, mul_zero, mul_one, add_zero,
-    zero_add, Nat.cast_one] at h1
-  exact zero_ne_one h1
 
 
 theorem d4TrialityRep_conj_torusElt (k : Fin Tag.D4.rank) (t : Kˣ) :
@@ -368,13 +272,6 @@ theorem d4KernelShift_check (p p' : Multiplicative (ZMod 2 × ZMod 2)) (hp : p �
   · exact Or.inr (Or.inl (Multiplicative.toAdd.injective e))
   · exact Or.inr (Or.inr (Multiplicative.toAdd.injective e))
 
-theorem d4Res_d4Triality_eq_one {g : subsystemGroup Tag.E6 K d4Support} (hg : d4Res K g = 1) :
-    d4Res K (d4Triality K g) = 1 := by
-  obtain ⟨a, b, d, ha, hb, hd, habd, he⟩ := (d4Res_eq_one_iff_mem_d4KernelSet g).1 hg
-  rw [← d4TorusHom_sign] at he
-  have e : g = ⟨_, d4TorusHom_mem_d4Q ![a, b, 1, d]⟩ := Subtype.ext he
-  rw [d4Res_eq_one_iff_mem_d4KernelSet, e, coe_d4Triality_d4TorusHom_sign]
-  exact ⟨d, a, b, hd, ha, hb, (mul_rotate d a b).trans habd, (d4TorusHom_sign d a b)⟩
 
 theorem d4Triality_cycles_kernel (h2 : ringChar K ≠ 2) {z z' : subsystemGroup Tag.E6 K d4Support}
     (hz : d4Res K z = 1) (hz' : d4Res K z' = 1) (hz1 : z ≠ 1) (hz1' : z' ≠ 1) :

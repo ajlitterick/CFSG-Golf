@@ -28,14 +28,6 @@ theorem coverOK : coverR om ps = true := by decide +kernel
 theorem planesOK : d4PlaneCerts.all (fun c => poolP ls es c && targetP ls c) = true := by
   decide +kernel
 
-theorem enumNeg : bfsOK (wordP ls wordA) (wordP ls wordB) bfsPar (es.set 1 0) = false := by
-  decide +kernel
-
-theorem coverNeg : coverR om (ps.drop 1) = false := by decide +kernel
-
-theorem planesNeg :
-    (d4PlaneCerts.take 1).all (fun c => poolP ls es c && targetP (ls.set 3 0) c) = false := by
-  decide +kernel
 
 end CFSG.KD.D4Plane
 

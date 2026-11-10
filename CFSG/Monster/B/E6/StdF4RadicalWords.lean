@@ -157,10 +157,6 @@ theorem bC_fourteen_left {i : ℕ} (hi : i < 15) : bC 14 i = false := by
   simp only [List.all_eq_true, List.mem_range, Bool.and_eq_true, Bool.not_eq_true'] at h
   exact (h i hi).1
 
-theorem bC_fourteen_right {i : ℕ} (hi : i < 15) : bC i 14 = false := by
-  have h := bC_fourteen
-  simp only [List.all_eq_true, List.mem_range, Bool.and_eq_true, Bool.not_eq_true'] at h
-  exact (h i hi).2
 
 theorem rels_qr :
     Rels qr rootInvM bC (List.range 15) where

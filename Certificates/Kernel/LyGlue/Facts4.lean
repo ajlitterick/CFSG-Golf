@@ -27,9 +27,6 @@ theorem ev_cvOf (p : Nat) (g : Perm (Fin n)) (hshr) (hpg) : ev (cvOf p g hshr hp
   rw [ev_apply]
   exact hpg i i.2
 
-theorem cvOf_val (p : Nat) (g : Perm (Fin n)) (hshr) (hpg) : (cvOf p g hshr hpg).1 = p := rfl
-
-theorem cv_eq_of_ev {a b : CV n} (h : ev a = ev b) : a = b := ev_injective h
 
 end
 

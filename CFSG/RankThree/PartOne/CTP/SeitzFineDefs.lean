@@ -24,10 +24,6 @@ open CFSG.RankThree.PartOne.Census3 (IsoLie)
         Subgroup.closure {k : K | ∃ F : Subgroup (MulAut K), F ≤ E ∧ F ≠ ⊥ ∧
           ∀ φ ∈ F, φ k = k} = ⊤ ∨ (p = 5 ∧ (d = .tits ∨ d = .suzuki 2))
 
-theorem ExtSeitzAtInnerFor.of_inner {d : TauCeti.LieTypeIndex} {P : ℕ → Prop}
-    (h : ExtSeitzAtInner d) : ExtSeitzAtInnerFor d P :=
-  fun K _ _ _ hnab hiso p hp hp5 hpd _ E hE hcard hinner =>
-    h K hnab hiso p hp hp5 hpd E hE hcard hinner
 
 theorem ExtSeitzAtOuterFor.of_outer {d : TauCeti.LieTypeIndex} {P : ℕ → Prop}
     (h : ExtSeitzAtOuter d) : ExtSeitzAtOuterFor d P :=

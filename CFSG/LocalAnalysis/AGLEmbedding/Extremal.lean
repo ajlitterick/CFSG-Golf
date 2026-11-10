@@ -121,10 +121,6 @@ theorem odd_card_of_twoLocals_le {p : ℕ} (hp : p.Prime) {P C O M : Subgroup G}
     exact Subgroup.le_normalizer_map C.subtype (Subgroup.mem_map_of_mem C.subtype hc)
   exact Subgroup.subgroupOf_eq_top.mp (top_unique htop)
 
-@[expose] def D1ExtremalCase : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], D1Global G →
-    ∀ (p : ℕ) (P : Sylow p G) (M : Subgroup G), D1Local p P M →
-      ∀ H R : Subgroup G, D1Extremal p P M H R → False
 
 theorem D1Escape.exists_extremal {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
     (h : D1Escape p P M H R) : ∃ K R' : Subgroup G, D1Extremal p P M K R' := by
@@ -180,18 +176,5 @@ theorem D1Escape.exists_extremal {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
         rw [pRank_map_of_injective p h.prime _ σ.injective]
         exact (hmax' X' ⟨hX', H', hH', hH'M, hrank, hX'H'⟩).2 hX'c }⟩
 
-theorem d1MaxCase_of_extremalCase (h : D1ExtremalCase) : D1MaxCase := by
-  intro G _ _ hglob p P M hloc H hH R hRP hRrank
-  by_contra hnot
-  obtain ⟨K, R', hext⟩ := (D1Escape.of_maxCase hloc hH R hRP hRrank hnot).exists_extremal
-  exact h G hglob p P M hloc K R' hext
-
-theorem d1_of_extremalCase (h : D1ExtremalCase) (G : Type) [Group G] [Finite G]
-    [IsSimpleGroup G] (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : IsKProper G)
-    (hchar : IsCharTwoType G) (he : 4 ≤ evenRank G) (hpre : GLBPreuniqueness G) (p : ℕ)
-    (hp : p ∈ GLBBetaFour G) (P : Sylow p G) (M : Subgroup G) (hM : GLBIsMaxTwoLocal M)
-    (hWM : GLBWeakCore p (P : Subgroup G) ≤ M) (H : Subgroup G) (hH : IsTwoLocal H)
-    (hHM : 3 ≤ pRank p (H ⊓ M)) : H ≤ M :=
-  d1_of_maxCase (d1MaxCase_of_extremalCase h) G hnonab hK hchar he hpre p hp P M hM hWM H hH hHM
 
 end CFSG.AGLEmbedding

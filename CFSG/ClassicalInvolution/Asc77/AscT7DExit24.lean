@@ -109,11 +109,5 @@ theorem c24_10_of_g (h4 : C24_4 p f) (h7 : C24_7 p f) (h8 : C24_8 p f) (h9 : C24
 
 end T7D
 
-theorem c24_1_of_inputs' (h4 : C24_4 p f) (h7 : C24_7 p f) (h8 : C24_8 p f) (h9 : C24_9 p f)
-    (hchain : C24_chain p f) : C24_1 p f := by
-  intro G _ _ _ Ω K K' z hs W hW hzW hS4 hZ
-  obtain ⟨S, R, R', b, b', hb, hb', ob, ob', hyp⟩ := c24_setupU p f G Ω K K' z hs W hW hzW hS4 hZ
-  obtain ⟨g, -, hg⟩ := T7D.c24_2_of_frame hs.setting hyp.data hb hb' ob ob' rfl
-  exact T7D.c24_10_of_g h4 h7 h8 h9 hchain hyp hg
 
 end CFSG.ClassicalInvolution.Asc77

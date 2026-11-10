@@ -489,10 +489,6 @@ theorem centMod_of_le_cen {p : ℕ} (hp : p.Prime) {J J' : Subgroup G} (hJJ' : J
       exact Nat.Coprime.coprime_dvd_right (Subgroup.card_dvd_of_le inf_le_right) hcopO
   exact hN ⟨h2, h1⟩
 
-theorem glaPPrimeCoreOf_eq_inf_of_cover {p : ℕ} (hp : p.Prime) {X K J : Subgroup G}
-    (hK : GLAPComponent p X K) (hJK : J ≤ K) (hcov : J ⊔ GLAPPrimeCoreOf p K = K) :
-    GLAPPrimeCoreOf p J = J ⊓ GLAPPrimeCoreOf p K := by
-  exact (cover_facts hp hJK hcov).1
 
 theorem nonempty_pQuot_of_cover {p : ℕ} (hp : p.Prime) {X K J : Subgroup G}
     (hK : GLAPComponent p X K) (hJK : J ≤ K) (hcov : J ⊔ GLAPPrimeCoreOf p K = K) :

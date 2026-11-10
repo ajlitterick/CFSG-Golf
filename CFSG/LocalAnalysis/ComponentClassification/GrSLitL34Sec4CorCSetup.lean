@@ -100,6 +100,5 @@ theorem gsUnbalancingTriple (hSol : GrSLit.SolomonCommutingCoreInput) (h : Confi
 
 end Config
 
-variable [Finite X]
 
 end CFSG.ComponentClassification.GSThmB.CorC

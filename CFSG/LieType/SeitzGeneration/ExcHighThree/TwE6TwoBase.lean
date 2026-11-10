@@ -367,25 +367,6 @@ noncomputable def eltT (c : ℕ) : twistedE6RootGroup K σ :=
   if c < 8 then iota σ S.hfix ((CFSG.RankThree.PartOne.SEITZX.letterOfCode c).elt k)
   else if c = 8 then Xw0 σ S.hK S.hσ S.ω else Xw1 σ S.hK S.hσ S.ω
 
-theorem hasBits2_eltT (c : ℕ) : HasBits2 K S.ω (tmat (eltT σ S c)) (letterBits2 c) := by
-  unfold eltT
-  by_cases h1 : c < 8
-  · rw [if_pos h1]
-    have hb : E6Bits.HasBits k (embE6F4 k ((CFSG.RankThree.PartOne.SEITZX.letterOfCode c).elt k))
-        (codeBits6 (f4ToE6Letter c)) := by
-      rw [iota_letter h1]
-      exact E6Bits.hasBits_evalG _
-    have := hasBits2_iota σ S.hfix S.ω hb
-    simpa [letterBits2, h1] using this
-  · rw [if_neg h1]
-    by_cases h2 : c = 8
-    · subst h2
-      rw [if_pos rfl]
-      exact hasBits2_Xw0 σ S.hK S.hσ S.hω
-    · rw [if_neg h2]
-      have e : letterBits2 c = letterBits2 9 := by simp [letterBits2, h1, h2]
-      rw [e]
-      exact hasBits2_Xw1 σ S.hK S.hσ S.hω
 
 end Closing
 

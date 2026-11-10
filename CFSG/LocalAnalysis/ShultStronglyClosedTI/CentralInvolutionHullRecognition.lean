@@ -106,36 +106,5 @@ theorem normalizer_elementary_ambient_hull_native_recognition
     ((Subgroup.normalizer (V : Set G)).subgroupOf (Subgroup.normalClosure (V : Set G)))
     (V.subgroupOf (Subgroup.normalClosure (V : Set G))) hB hWB hnormal hW hcardW hgen
 
-theorem central_involution_quotient_hull_native_recognition
-    (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥) (hUel : IsElemAbelian 2 U)
-    (hcard : 4 ≤ Nat.card U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (hnormal : ¬ U.Normal) (x : Subgroup.center G)
-    (hB : fusionStronglyEmbedded
-      ((Subgroup.normalizer
-        (U.map (QuotientGroup.mk' (centralLiftKernel x)) : Set (G ⧸ centralLiftKernel x))).subgroupOf
-        (Subgroup.normalClosure
-          (U.map (QuotientGroup.mk' (centralLiftKernel x)) : Set (G ⧸ centralLiftKernel x))))) :
-    let L := Subgroup.normalClosure (U : Set G)
-    let K := L.map (QuotientGroup.mk' (centralLiftKernel x))
-    IsQuasisimple K ∧ Subgroup.center K = oddCore K ∧
-      Odd (Nat.card (Subgroup.center K)) ∧ fusionIsBenderGroup (K ⧸ Subgroup.center K) := by
-  let π := QuotientGroup.mk' (centralLiftKernel x)
-  let V := U.map π
-  have hV : IsElemAbelian 2 V := CFSG.TwoRankLowerBound.Helpers.isElemAbelian_map U hUel π
-  have hcardV : 4 ≤ Nat.card V := by
-    have heq : Nat.card U = Nat.card V := Nat.card_congr
-      (tiCentralQuotientSubgroupEquiv T U hUT hU hUel hclosed hTI hnormal
-        (centralLiftKernel x) (centralLiftKernel_le_center x)).toEquiv
-    exact heq ▸ hcard
-  have hrec := normalizer_elementary_ambient_hull_native_recognition V hV hcardV hB
-  have himage : (Subgroup.normalClosure (U : Set G)).map π =
-      Subgroup.normalClosure (V : Set (G ⧸ centralLiftKernel x)) :=
-    Subgroup.map_normalClosure (U : Set G) π
-    (QuotientGroup.mk'_surjective (centralLiftKernel x))
-  dsimp only at hrec
-  rw [← himage] at hrec
-  exact hrec
 
 end CFSG.ShultStronglyClosedTI

@@ -87,8 +87,6 @@ theorem u33_conjB_G
       u33PresHom.rangeRestrict_surjective⟩).trans
     (MulEquiv.subgroupCongr range_u33PresHom)
 
-theorem u33ToJ_coe (x : U33G) :
-    ((u33ToJ x : ↥u33J) : Equiv.Perm (Fin 28)) = u33PresHom x := rfl
 
 @[expose] noncomputable def u33Phi'
     : MulAut U33G :=

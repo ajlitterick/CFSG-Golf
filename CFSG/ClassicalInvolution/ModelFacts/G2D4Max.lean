@@ -49,21 +49,6 @@ theorem conjSub_eq_of_same_involution {R : Subgroup K} {c g : K} (h : IsUniqueIn
   rw [← normalizer_eq_centralizer_of_isCoatom h hZ hcoatom] at hgc
   exact normalizer_iff_conjSub_eq.mp hgc
 
-theorem isCoatom_map_of_bijective {H : Type} [Group H] (ψ : H →* K) (hinj : Function.Injective ψ)
-    (hsurj : Function.Surjective ψ) {A : Subgroup H} (hA : IsCoatom A) : IsCoatom (A.map ψ) := by
-  refine ⟨fun htop => hA.1 ?_, fun B hB => ?_⟩
-  · rw [← Subgroup.comap_map_eq_self_of_injective hinj A, htop, Subgroup.comap_top]
-  · have h1 : A ≤ B.comap ψ := Subgroup.map_le_iff_le_comap.mp hB.le
-    have h2 : A < B.comap ψ := by
-      refine lt_of_le_of_ne h1 fun h => ?_
-      have := Subgroup.map_comap_eq_self_of_surjective hsurj B
-      rw [← h] at this
-      exact hB.ne this
-    have h3 : B.comap ψ = ⊤ := hA.2 _ h2
-    calc B = (B.comap ψ).map ψ := (Subgroup.map_comap_eq_self_of_surjective hsurj B).symm
-      _ = ⊤ := by
-        rw [h3, Subgroup.map_top]
-        exact MonoidHom.range_eq_top.mpr hsurj
 
 theorem normalizer_map_of_bijective {H : Type} [Group H] (ψ : H →* K)
     (hinj : Function.Injective ψ) (hsurj : Function.Surjective ψ) (A : Subgroup H) :
@@ -78,26 +63,6 @@ end Group
 
 section Model
 
-variable {p : ℕ} [Fact p.Prime]
-
-@[expose] def G2D4MaxNormalizer (p : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (t : StatedLieTag) (n e : ℕ), StatedLieAdmissible t n p e → p ≠ 2 →
-    ((t = .G2 ∧ 5 ≤ p ^ e) ∨ t = .trialityD4) →
-      ∀ R ∈ fundamentalSubgroups t (modelUniv t n p e Fact.out).D,
-        IsCoatom (Subgroup.normalizer (R : Set (modelUniv t n p e Fact.out).K))
-
-theorem normalizer_eq_centralizer_model (hM : G2D4MaxNormalizer p) {t : StatedLieTag} {n e : ℕ}
-    (hadm : StatedLieAdmissible t n p e) (hp2 : p ≠ 2)
-    (ht : (t = .G2 ∧ 5 ≤ p ^ e) ∨ t = .trialityD4)
-    {R : Subgroup (modelUniv t n p e Fact.out).K}
-    (hR : R ∈ fundamentalSubgroups t (modelUniv t n p e Fact.out).D)
-    {c : (modelUniv t n p e Fact.out).K} (hc : IsUniqueInvolution R c) :
-    Subgroup.normalizer (R : Set (modelUniv t n p e Fact.out).K) =
-      Subgroup.centralizer ({c} : Set (modelUniv t n p e Fact.out).K) :=
-  normalizer_eq_centralizer_of_isCoatom hc
-    (CFSG.ClassicalInvolution.RouteD.G2D4.center_modelUniv_g2d4_eq_bot hp2
-      (by rcases ht with ⟨h, -⟩ | h; exacts [Or.inl h, Or.inr h]) n hadm.2.1)
-    (hM t n e hadm hp2 ht R hR)
 
 end Model
 

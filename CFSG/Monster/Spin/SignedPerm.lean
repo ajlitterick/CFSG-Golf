@@ -53,8 +53,6 @@ theorem sgnR_injective (h2 : (2 : R) ≠ 0) : Function.Injective (sgnR R) := by
   · exact absurd hst.symm h
   · rfl
 
-theorem sgnR_eq_one_iff (h2 : (2 : R) ≠ 0) (t : ZMod 2) : sgnR R t = 1 ↔ t = 0 :=
-  ⟨fun h => sgnR_injective h2 (h.trans sgnR_zero.symm), fun h => h ▸ sgnR_zero⟩
 
 theorem map_sgnR {S : Type*} [CommRing S] (f : R →+* S) (t : ZMod 2) :
     f (sgnR R t) = sgnR S t := by
@@ -116,8 +114,6 @@ theorem sgnR_smul_spm (s : ZMod 2) (σ : ι → ι) (ε : ι → ZMod 2) :
   ext i j
   simp only [smul_apply, spm_apply, smul_eq_mul, mul_ite, mul_zero, sgnR_add]
 
-theorem neg_spm (σ : ι → ι) (ε : ι → ZMod 2) : -spm R σ ε = spm R σ (fun i => 1 + ε i) := by
-  rw [← sgnR_smul_spm, sgnR_one, neg_one_smul]
 
 theorem spm_transpose_of_involutive {σ : ι → ι} (hσ : Function.Involutive σ)
     (ε : ι → ZMod 2) : (spm R σ ε)ᵀ = spm R σ (fun i => ε (σ i)) := by
@@ -150,9 +146,6 @@ theorem single_vecMul_spm (σ : ι → ι) (ε : ι → ZMod 2) (i : ι) :
     Pi.single i 1 ᵥ* spm R σ ε = sgnR R (ε i) • Pi.single (σ i) 1 := by
   rw [single_one_vecMul, spm_row]
 
-theorem vecMul_spm_apply (σ : ι → ι) (ε : ι → ZMod 2) (v : ι → R) (j : ι) :
-    (v ᵥ* spm R σ ε) j = ∑ i, if σ i = j then v i * sgnR R (ε i) else 0 := by
-  simp only [vecMul, dotProduct, spm_apply, mul_ite, mul_zero, eq_comm]
 
 theorem spm_mul_apply (σ : ι → ι) (ε : ι → ZMod 2) (M : Matrix ι ι R) (i j : ι) :
     (spm R σ ε * M) i j = sgnR R (ε i) * M (σ i) j := by

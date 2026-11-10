@@ -18,13 +18,6 @@ theorem S5g_mem : S5g ∈ S5Syl := Subgroup.subset_closure (Or.inl rfl)
 
 theorem swap02_mem : swap (0 : Fin 5) 2 ∈ S5Syl := Subgroup.subset_closure (Or.inr rfl)
 
-theorem eq_top_of_wordSet (gens : List (Perm (Fin 5))) (k : ℕ)
-    (hw : ∀ x : Perm (Fin 5), x ∈ wordSet gens k) {K : Subgroup (Perm (Fin 5))}
-    (hK : ∀ g ∈ gens, g ∈ K) : K = ⊤ := by
-  rw [eq_top_iff]
-  intro x _
-  have h1 : x ∈ Subgroup.closure {g | g ∈ gens} := wordSet_subset_closure gens k x (hw x)
-  exact (Subgroup.closure_le K).mpr (fun g hg => hK g hg) h1
 
 private theorem top_of_words {K : Subgroup (Perm (Fin 5))} {a b z : Perm (Fin 5)}
     (ha : a ∈ K) (hb : b ∈ K) (hz : z ∈ K) (w0 w1 w2 w3 : List (Fin 3))

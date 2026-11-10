@@ -38,17 +38,6 @@ theorem inv_mul_mem_orbitTorus
   rw [hw'] at h2
   simpa using h1.inv.mul h2
 
-theorem fixedCell_eq_of_isOrbitLift
-    {n n' : ModGL τ k} {w : WeylGroup τ}
-    (hn : D.IsOrbitLift n w) (hn' : D.IsOrbitLift n' w) : D.fixedCell n = D.fixedCell n' := by
-  have ht := D.orbitTorus_le_orbitBorel (D.inv_mul_mem_orbitTorus hn hn')
-  ext g
-  rw [mem_fixedCell, mem_fixedCell]
-  constructor
-  · rintro ⟨b, hb, b', hb', rfl⟩
-    exact ⟨b, hb, (n⁻¹ * n')⁻¹ * b', mul_mem (inv_mem ht) hb', by group⟩
-  · rintro ⟨b, hb, b', hb', rfl⟩
-    exact ⟨b, hb, (n⁻¹ * n') * b', mul_mem ht hb', by group⟩
 
 theorem isOrbitLift_orbitN
     {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
@@ -382,74 +371,5 @@ theorem finite_orbitGroup :
 
 end OrthogonalSemilinearFixedRootDatum
 
-theorem orthogonal_semilinear_fixed_Bruhat
-    {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type}
-    [Field k] [CharP k p₀] [IsAlgClosed k] (D : OrthogonalSemilinearFixedRootDatum τ p₀ k) :
-    Finite D.fixedGroup ∧ Finite D.orbitGroup ∧
-    D.orbitGroupC ≤ D.fixedGroup ∧ (D.orbitGroupC.subgroupOf D.fixedGroup).Normal ∧
-    (D.fixedGroup : Set (adjointGroup τ k)) =
-      (D.fixedTorus : Set (adjointGroup τ k)) * (D.orbitGroupC : Set (adjointGroup τ k)) ∧
-    ⁅D.fixedGroup, D.fixedGroup⁆ ≤ D.orbitGroupC ∧
-    (D.orbitBorel : Set (ModGL τ k)) =
-      (D.orbitTorus : Set (ModGL τ k)) * (D.fixedUnipotentM : Set (ModGL τ k)) ∧
-    (∀ t ∈ D.orbitTorus, ∀ t' ∈ D.orbitTorus, ∀ u ∈ D.fixedUnipotentM,
-      ∀ u' ∈ D.fixedUnipotentM, t * u = t' * u' → t = t' ∧ u = u') ∧
-    D.fixedUnipotentM ≤ D.orbitBorel ∧ (D.fixedUnipotentM.subgroupOf D.orbitBorel).Normal ∧
-    Group.IsNilpotent D.fixedUnipotentM ∧
-    (∀ x ∈ D.orbitTorus, ∀ y ∈ D.orbitTorus, x * y = y * x) ∧
-    D.orbitTorus ≤ D.orbitMonomial ∧ D.orbitMonomial ≤ monomialSubgroup τ k ∧
-    (∃ ρ : D.orbitMonomial →* D.fixedWeyl, Function.Surjective ρ ∧
-      ρ.ker = D.orbitTorus.subgroupOf D.orbitMonomial ∧
-      ∀ n : D.orbitMonomial, (ρ n : WeylGroup τ) =
-        weylQuotientHom τ k ⟨n, D.orbitMonomial_le_monomialSubgroup n.2⟩) ∧
-    ∀ nw : WeylGroup τ → ModGL τ k, (∀ w ∈ D.fixedWeyl, D.IsOrbitLift (nw w) w) →
-      (∀ w ∈ D.fixedWeyl, Set.BijOn (fun p : ModGL τ k × ModGL τ k => p.1 * nw w * p.2)
-        ((D.orbitBorel : Set (ModGL τ k)) ×ˢ
-          (Subtype.val '' (D.fixedRootSpan (D.inversionRootsJ w) : Set (adjointGroup τ k))))
-        (D.fixedCell (nw w))) ∧
-      (D.orbitGroup : Set (ModGL τ k)) = ⋃ w ∈ D.fixedWeyl, D.fixedCell (nw w) ∧
-      (∀ w ∈ D.fixedWeyl, ∀ w' ∈ D.fixedWeyl, w ≠ w' →
-        Disjoint (D.fixedCell (nw w)) (D.fixedCell (nw w'))) ∧
-      D.orbitGroup = Subgroup.closure ((D.orbitBorel : Set (ModGL τ k)) ∪
-        {g | ∃ O ∈ D.orbits, g = D.orbitN O}) ∧
-      ∀ O ∈ D.orbits, ∀ w ∈ D.fixedWeyl,
-        (D.foldedLength (setReflection O * w) = D.foldedLength w + 1 →
-          D.fixedCell (nw (setReflection O)) * D.fixedCell (nw w) =
-            D.fixedCell (nw (setReflection O * w))) ∧
-        (D.foldedLength (setReflection O * w) ≠ D.foldedLength w + 1 →
-          D.fixedCell (nw (setReflection O)) * D.fixedCell (nw w) =
-            D.fixedCell (nw (setReflection O * w)) ∪ D.fixedCell (nw w)) := by
-  refine ⟨D.finite_fixedGroup, D.finite_orbitGroup, D.orbitGroupC_le_fixedGroup,
-    D.orbitGroupC_normal, D.coe_fixedGroup_eq_mul, D.commutator_fixedGroup_le,
-    D.coe_orbitBorel_eq_mul,
-    fun t ht t' ht' u hu u' hu' h => D.eq_and_eq_of_orbitBorel ht ht' hu hu' h,
-    D.fixedUnipotentM_le_orbitBorel, D.fixedUnipotentM_normal, D.isNilpotent_fixedUnipotentM,
-    fun x hx y hy => D.mul_comm_of_mem_orbitTorus hx hy, D.orbitTorus_le_orbitMonomial,
-    D.orbitMonomial_le_monomialSubgroup,
-    ⟨D.orbitWeylHom, D.orbitWeylHom_surjective, D.ker_orbitWeylHom, D.coe_orbitWeylHom⟩,
-    fun nw hnw => ?_⟩
-  have hlift : ∀ w ∈ D.fixedWeyl, ∃ x : adjointGroup τ k, (x : ModGL τ k) = nw w ∧ D.F x = x :=
-    fun w hw => (D.isOrbitLift_spec (hnw w hw)).2.2
-  choose! x hx hxF using hlift
-  have hnw' : ∀ w ∈ D.fixedWeyl, D.IsOrbitLift (x w : ModGL τ k) w ∧ D.F (x w) = x w :=
-    fun w hw => ⟨(hx w hw).symm ▸ hnw w hw, hxF w hw⟩
-  refine ⟨fun w hw => ?_, ?_, fun w hw w' hw' hne => ?_, D.orbitGroup_eq_closure,
-    fun O hO w hw => ?_⟩
-  · rw [← hx w hw]
-    exact D.bijOn_mul_fixedCell hw (hnw' w hw).1 (hxF w hw)
-  · have h := D.coe_orbitGroup_eq_iUnion (nw := x) hnw'
-    rw [h]
-    refine Set.iUnion₂_congr fun w hw => ?_
-    rw [hx w hw]
-  · exact (disjoint_unionCell D.rootWeylOne_union_spec hne).mono
-      (D.fixedCell_subset_unionCell (hnw w hw)) (D.fixedCell_subset_unionCell (hnw w' hw'))
-  · have hrO := D.setReflection_mem_fixedWeyl hO
-    have hrOw := mul_mem hrO hw
-    have e₁ : D.fixedCell (nw (setReflection O)) = D.fixedCell (D.orbitN O) :=
-      D.fixedCell_eq_of_isOrbitLift (hnw _ hrO) (D.isOrbitLift_orbitN hO)
-    have e₂ : D.fixedCell (nw (setReflection O * w)) = D.fixedCell (D.orbitN O * nw w) :=
-      D.fixedCell_eq_of_isOrbitLift (hnw _ hrOw) (D.isOrbitLift_orbitN_mul hO (hnw w hw))
-    rw [e₁, e₂]
-    exact D.fixedCell_orbitN_mul_fixedCell hO hw (hnw w hw)
 
 end CFSG.LieType.Chevalley

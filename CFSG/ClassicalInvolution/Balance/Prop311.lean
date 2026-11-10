@@ -416,11 +416,6 @@ theorem map_involutionOddCore_le [Finite X] {Z : Type*} [Group Z] (φ : X →* Z
   have := map_oddCoreCentralizer_le φ hφ ha
   rwa [MonoidHom.map_zpowers] at this
 
-theorem map_mk_oddCoreCentralizer_le [Finite X] (N : Subgroup X) [N.Normal] {B : Subgroup X}
-    (hB : IsPGroup 2 B) :
-    (oddCoreCentralizer B).map (QuotientGroup.mk' N) ≤
-      oddCoreCentralizer (B.map (QuotientGroup.mk' N)) :=
-  map_oddCoreCentralizer_le (QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N) hB
 
 omit [Group X] in
 theorem isPGroup_zpowers_of_mul_self_eq_one {Y : Type*} [Group Y] [Finite Y] {f : Y}

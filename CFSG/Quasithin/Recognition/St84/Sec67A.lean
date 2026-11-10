@@ -303,12 +303,6 @@ private theorem Z_zero_le_Q_one_aux (hGT : Even (Nat.card X.GT))
     (hZ0E.trans fun _ hx => (X.E_QT_le_Gi_two hGT hs hodd h5 hX hx).1)
     (Or.inr ⟨by norm_num, by norm_num⟩)
 
-theorem Z_zero_le_Q_one (hb : ¬ X.Z 0 ≤ X.Gi 3) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s)
-    (hn0 : X.n 0 = 1 ∨ X.n 0 = 2) (hn1 : X.n 1 = 1 ∨ X.n 1 = 2) :
-    X.Z 0 ≤ X.Q 1 :=
-  X.Z_zero_le_Q_one_aux hGT hs hodd h5 hX
 
 theorem Z_zero_le_Q_neg_one (hb : ¬ X.Z 0 ≤ X.Gi 3) (hGT : Even (Nat.card X.GT))
     (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
@@ -861,13 +855,6 @@ private theorem centerOf_L_zero_eq_bot_aux (hb : ¬ X.Z 0 ≤ X.Gi 3)
     (X := centerOf (X.L 0)) hXα hnα hXβ hnβ
   simpa [Setup.L, Setup.Gi] using hbot
 
-theorem centerOf_L_zero_eq_bot (hb : ¬ X.Z 0 ≤ X.Gi 3)
-    (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s)
-    (hn0 : X.n 0 = 1 ∨ X.n 0 = 2) (hn1 : X.n 1 = 1 ∨ X.n 1 = 2) :
-    centerOf (X.L 0) = ⊥ :=
-  X.centerOf_L_zero_eq_bot_aux hb hc hGT hs hodd h5 hX
 
 theorem natQuot_Z_zero (hb : ¬ X.Z 0 ≤ X.Gi 3)
     (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
@@ -1715,84 +1702,6 @@ theorem Q_zero_inf_Q_one_le_normalizer_Q_zero_inf_Q_neg_one :
   · exact (inf_le_left.trans hQ0Gm1).trans
       (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 (X.Gi (-1)))
 
-private theorem relIndex_Q_one_inf_Q_neg_one_Q_zero_inf_Q_neg_one
-    (hc : CharTwoStab (V := V) (G := G)) (hs : IsSingularity Γ G s) (h5 : 5 ≤ s) :
-    (X.Q 1 ⊓ X.Q (-1)).relIndex (X.Q 0 ⊓ X.Q (-1)) = 2 ^ X.n 1 := by
-  obtain ⟨-, -, hrelC, -, -⟩ := (X.reverse).Q_quot_of_normal_general hc hs (by omega)
-  rw [show (X.reverse).n 1 = X.n 1 from by simpa [Setup.n] using X.n_neg_one] at hrelC
-  simpa [inf_comm] using hrelC
-
-theorem commutator_Q_inf_one_S (hb : ¬ X.Z 0 ≤ X.Gi 3)
-    (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) :
-    ⁅X.Q 0 ⊓ X.Q 1, X.S⁆ ≤ X.Q 1 ⊓ X.Q (-1) := by
-  haveI hHfin : Finite ↥(X.Q 0 ⊓ X.Q 1) :=
-    finite_of_le_stabilizer X.hyp (H := X.Q 0 ⊓ X.Q 1) (inf_le_left.trans (X.Q_le_Gi 0))
-  haveI hCfin : Finite ↥(X.Q 0 ⊓ X.Q (-1)) :=
-    finite_of_le_stabilizer X.hyp (H := X.Q 0 ⊓ X.Q (-1)) (inf_le_left.trans (X.Q_le_Gi 0))
-  have hNnorm : X.Gi 0 ≤ Subgroup.normalizer ((X.Q 1 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    X.Q_one_inf_neg_one_normal hb hc hGT hs hodd h5 hX
-  have hsec := X.isElemSec_Q_one_inf_Q_neg_one hb hc hGT hs hodd h5 hX
-  obtain ⟨hQ0eq, -, -, -, -⟩ := X.Q_quot_of_normal_general hc hs (by omega)
-  have hHnorm : X.Q 0 ⊓ X.Q 1 ≤
-      Subgroup.normalizer ((X.Q 1 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    (inf_le_left.trans (X.Q_le_Gi 0)).trans hNnorm
-  have hHH : ⁅X.Q 0 ⊓ X.Q 1, X.Q 0 ⊓ X.Q 1⁆ ≤ X.Q 1 ⊓ X.Q (-1) :=
-    (Subgroup.commutator_mono inf_le_left inf_le_left).trans hsec.2.1
-  have hCnorm : X.Q 0 ⊓ X.Q (-1) ≤
-      Subgroup.normalizer ((X.Q 1 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    (inf_le_left.trans (X.Q_le_Gi 0)).trans hNnorm
-  have hCC : ⁅X.Q 0 ⊓ X.Q (-1), X.Q 0 ⊓ X.Q (-1)⁆ ≤ X.Q 1 ⊓ X.Q (-1) :=
-    (Subgroup.commutator_mono inf_le_left inf_le_left).trans hsec.2.1
-  have hHC : ⁅X.Q 0 ⊓ X.Q 1, X.Q 0 ⊓ X.Q (-1)⁆ ≤ X.Q 1 ⊓ X.Q (-1) :=
-    X.commutator_Q_zero_inf_Q_one_Q_zero_inf_Q_neg_one_le
-  have hZ1N : X.Z 1 ≤ X.Q 1 ⊓ X.Q (-1) :=
-    le_inf (X.Z_le_Q 1) ((X.Z_one_le_Z_zero hb hc hGT hs hodd h5 hX).trans
-      (X.Z_zero_le_Q_neg_one hb hGT hs hodd h5 hX))
-  have hHV : ⁅X.Q 0 ⊓ X.Q 1, X.Vone⁆ ≤ X.Q 1 ⊓ X.Q (-1) := by
-    have h1 : ⁅X.Q 0 ⊓ X.Q 1, X.Vone⁆ ≤ X.Z 1 := by
-      calc ⁅X.Q 0 ⊓ X.Q 1, X.Vone⁆ = ⁅X.Vone, X.Q 0 ⊓ X.Q 1⁆ :=
-            Subgroup.commutator_comm _ _
-        _ ≤ ⁅X.Vone, X.Q 1⁆ := Subgroup.commutator_mono_right inf_le_right
-        _ = X.Z 1 := X.commutator_Vone_Q_one hb hc hGT hs hodd h5 hX
-    exact h1.trans hZ1N
-  have hVnormN : X.Vone ≤ Subgroup.normalizer ((X.Q 1 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    ((X.Vone_le_Q_one hGT hs hodd h5 hX).trans
-      ((X.Q_le_Gi_adj 1).trans inf_le_left)).trans hNnorm
-  have hVNQ0 : X.Vone ≤ Subgroup.normalizer (X.Q 0 : Set G) :=
-    ((X.Vone_le_Q_one hGT hs hodd h5 hX).trans
-      ((X.Q_le_Gi_adj 1).trans inf_le_left)).trans
-      (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 (X.Gi 0))
-  have hHCnorm : X.Q 0 ⊓ X.Q 1 ≤
-      Subgroup.normalizer ((X.Q 0 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    X.Q_zero_inf_Q_one_le_normalizer_Q_zero_inf_Q_neg_one
-  refine Subgroup.commutator_le.mpr ?_
-  intro h hh s hsS
-  have hS := X.S_eq_Vone_sup_Q_zero hb hc hGT hs hodd h5 hX
-  have hsS' : s ∈ X.Vone ⊔ X.Q 0 := by rwa [hS] at hsS
-  obtain ⟨v, hv, q, hq, rfl⟩ :=
-    (CFSG.Quasithin.F1.mem_sup_iff_exists_mul_of_le_normalizer hVNQ0).mp hsS'
-  have hq' : q ∈ (X.Q 0 ⊓ X.Q 1) ⊔ (X.Q 0 ⊓ X.Q (-1)) := by rw [← hQ0eq]; exact hq
-  obtain ⟨h', hh', c, hc', rfl⟩ :=
-    (CFSG.Quasithin.F1.mem_sup_iff_exists_mul_of_le_normalizer hHCnorm).mp hq'
-  have hqN : ⁅h, h' * c⁆ ∈ X.Q 1 ⊓ X.Q (-1) := by
-    rw [commutatorElement_mul_right_eq_mul_conj]
-    have h2 : ⁅h, h'⁆ ∈ X.Q 1 ⊓ X.Q (-1) :=
-      hHH (Subgroup.commutator_mem_commutator hh hh')
-    have h3 : ⁅h, c⁆ ∈ X.Q 1 ⊓ X.Q (-1) :=
-      hHC (Subgroup.commutator_mem_commutator hh hc')
-    have h4 : h' * ⁅h, c⁆ * h'⁻¹ ∈ X.Q 1 ⊓ X.Q (-1) :=
-      (Subgroup.mem_normalizer_iff.mp (hHnorm hh') _).mp h3
-    have h5m := (X.Q 1 ⊓ X.Q (-1)).mul_mem h2 (by simpa [mul_assoc] using h4)
-    simpa [mul_assoc] using h5m
-  rw [commutatorElement_mul_right_eq_mul_conj]
-  have h1 : ⁅h, v⁆ ∈ X.Q 1 ⊓ X.Q (-1) :=
-    hHV (Subgroup.commutator_mem_commutator hh hv)
-  have h6 : v * ⁅h, h' * c⁆ * v⁻¹ ∈ X.Q 1 ⊓ X.Q (-1) :=
-    (Subgroup.mem_normalizer_iff.mp (hVnormN hv) _).mp hqN
-  have h7 := (X.Q 1 ⊓ X.Q (-1)).mul_mem h1 h6
-  simpa [mul_assoc] using h7
 
 theorem not_normal_Q_zero_inf_one (hc : CharTwoStab (V := V) (G := G))
     (hs : IsSingularity Γ G s) (h5 : 5 ≤ s) :
@@ -1800,124 +1709,6 @@ theorem not_normal_Q_zero_inf_one (hc : CharTwoStab (V := V) (G := G))
         X.Q 1 ≤ Subgroup.normalizer ((X.Q 0 ⊓ X.Q (-1) : Subgroup G) : Set G)) :=
   (X.Q_quot_of_normal_general hc hs (by omega)).2.2.2.1
 
-private theorem exists_commutator_L_zero_Q_zero_notMem
-    (hc : CharTwoStab (V := V) (G := G)) (hs : IsSingularity Γ G s) (h5 : 5 ≤ s) :
-    ∃ l ∈ X.L 0, ∃ v ∈ X.Q 0, ⁅l, v⁆ ∉ X.Q 1 ⊓ X.Q (-1) := by
-  by_contra h
-  push Not at h
-  have hcommL : ⁅X.L 0, X.Q 0⁆ ≤ X.Q 1 ⊓ X.Q (-1) := by
-    rw [Subgroup.commutator_le]
-    exact h
-  have hNQ0 : X.Q 1 ⊓ X.Q (-1) ≤ X.Q 0 := by
-    rw [inf_comm]
-    exact X.Q_neg_one_inf_Q_one_le_Q_zero
-  have hQ0L : X.Q 0 ≤ X.L 0 := (X.hyp.isLocL2_oTwoPrime (X.vert 0)).oTwo_le
-  have hQ1L : X.Q 1 ≤ X.L 0 := by
-    simpa using (X.Q_le_edgeSylow 0).trans (X.edgeSylow_le_L 0)
-  have hHnormC : X.Q 0 ⊓ X.Q 1 ≤
-      Subgroup.normalizer ((X.Q 0 ⊓ X.Q (-1) : Subgroup G) : Set G) := by
-    rw [Subgroup.le_normalizer_iff_commutator_le_right]
-    refine Subgroup.commutator_le.mpr ?_
-    intro h1 hh c hc'
-    exact le_inf hNQ0 inf_le_right
-      (hcommL (Subgroup.commutator_mem_commutator (hQ0L (Subgroup.mem_inf.mp hh).1)
-        (Subgroup.mem_inf.mp hc').1))
-  have hQ1normC : X.Q 1 ≤
-      Subgroup.normalizer ((X.Q 0 ⊓ X.Q (-1) : Subgroup G) : Set G) := by
-    rw [Subgroup.le_normalizer_iff_commutator_le_right]
-    refine Subgroup.commutator_le.mpr ?_
-    intro q hq c hc'
-    exact le_inf hNQ0 inf_le_right
-      (hcommL (Subgroup.commutator_mem_commutator (hQ1L hq) (Subgroup.mem_inf.mp hc').1))
-  exact X.not_normal_Q_zero_inf_one hc hs h5 ⟨hHnormC, hQ1normC⟩
-
-private theorem two_pow_le_relIndex_Q_one_inf_Q_neg_one (hb : ¬ X.Z 0 ≤ X.Gi 3)
-    (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) :
-    2 ^ (2 * X.n 0) ≤
-      ((X.Q 1 ⊓ X.Q (-1)).subgroupOf (X.L 0)).relIndex ((X.Q 0).subgroupOf (X.L 0)) := by
-  classical
-  haveI : Finite ↥(X.L 0) :=
-    finite_of_le_stabilizer X.hyp (H := X.L 0) (X.L_le_Gi 0)
-  let H : Subgroup G := X.L 0
-  let V' : Subgroup ↥H := (X.Q 0).subgroupOf H
-  let Z' : Subgroup ↥H := (X.Q 1 ⊓ X.Q (-1)).subgroupOf H
-  have hsec0 := X.isElemSec_Q_one_inf_Q_neg_one hb hc hGT hs hodd h5 hX
-  have hsec : IsElemSec Z' V' := isElemSec_subgroupOf hsec0
-  have hquot : IsL2Quot (X.n 0) (oTwoQuot ↥(X.L 0)) :=
-    (X.hyp.isLocL2_oTwoPrime (X.vert 0)).quot
-  have hquot' : IsL2Quot (X.n 0) (oTwoQuot ↥(⊤ : Subgroup ↥H)) := by
-    obtain ⟨e⟩ := hquot
-    exact ⟨(CFSG.Quasithin.F112R.oTwoQuotCongr Subgroup.topEquiv).trans e⟩
-  have hQ0L : X.Q 0 ≤ H := (X.hyp.isLocL2_oTwoPrime (X.vert 0)).oTwo_le
-  have hZL : X.Q 1 ⊓ X.Q (-1) ≤ H := by
-    rw [inf_comm]
-    exact X.Q_neg_one_inf_Q_one_le_Q_zero.trans hQ0L
-  have hNQ0 : H ≤ Subgroup.normalizer (X.Q 0 : Set G) :=
-    (X.L_le_Gi 0).trans (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 (X.Gi 0))
-  have hNZ : H ≤ Subgroup.normalizer ((X.Q 1 ⊓ X.Q (-1) : Subgroup G) : Set G) :=
-    (X.L_le_Gi 0).trans (X.Q_one_inf_neg_one_normal hb hc hGT hs hodd h5 hX)
-  have hL : (⊤ : Subgroup ↥H) ≤
-      Subgroup.normalizer (V' : Set ↥H) ⊓ Subgroup.normalizer (Z' : Set ↥H) :=
-    le_inf (le_normalizer_subgroupOf_of_le_normalizer hQ0L hNQ0)
-      (le_normalizer_subgroupOf_of_le_normalizer hZL hNZ)
-  have hQ0top : pCoreOf 2 (⊤ : Subgroup ↥H) = V' := by
-    rw [CFSG.Quasithin.F53Push.pCoreOf_top_eq, ← CFSG.openPCoreOf_subgroupOf 2 H,
-      X.pCoreOf_L_eq_Q 0]
-  have hQ : ∀ p ∈ pCoreOf 2 (⊤ : Subgroup ↥H), ∀ v ∈ V', ⁅p, v⁆ ∈ Z' := by
-    intro p hp v hv
-    rw [hQ0top] at hp
-    have hpQ : (p : G) ∈ X.Q 0 := Subgroup.mem_subgroupOf.mp hp
-    have hvQ : (v : G) ∈ X.Q 0 := Subgroup.mem_subgroupOf.mp hv
-    have hcomm : ⁅(p : G), (v : G)⁆ ∈ X.Q 1 ⊓ X.Q (-1) :=
-      hsec0.2.1 (Subgroup.commutator_mem_commutator hpQ hvQ)
-    refine Subgroup.mem_subgroupOf.mpr ?_
-    have hcoe : ((⁅p, v⁆ : ↥H) : G) = ⁅(p : G), (v : G)⁆ :=
-      map_commutatorElement (f := Subgroup.subtype H) (g₁ := p) (g₂ := v)
-    rwa [hcoe]
-  have hnt0 := X.exists_commutator_L_zero_Q_zero_notMem hc hs h5
-  obtain ⟨l, hl, v, hv, hne⟩ := hnt0
-  have hnt : ∃ l ∈ (⊤ : Subgroup ↥H), ∃ v ∈ V', ⁅l, v⁆ ∉ Z' := by
-    refine ⟨⟨l, hl⟩, Subgroup.mem_top _, ⟨v, hQ0L hv⟩,
-      Subgroup.mem_subgroupOf.mpr hv, ?_⟩
-    intro hmem
-    exact hne (by
-      have hmem' : ((⁅(⟨l, hl⟩ : ↥H), (⟨v, hQ0L hv⟩ : ↥H)⁆ : ↥H) : G) ∈
-          X.Q 1 ⊓ X.Q (-1) := Subgroup.mem_subgroupOf.mp hmem
-      have hcoe : ((⁅(⟨l, hl⟩ : ↥H), (⟨v, hQ0L hv⟩ : ↥H)⁆ : ↥H) : G) = ⁅l, v⁆ :=
-        map_commutatorElement (f := Subgroup.subtype H) (g₁ := ⟨l, hl⟩)
-          (g₂ := ⟨v, hQ0L hv⟩)
-      rwa [hcoe] at hmem')
-  exact two_pow_le_relIndex_of_nontrivial (G := ↥H) (V := V') (Z := Z') (L := ⊤)
-    (X.hyp.valency (X.vert 0)).1 hquot' hsec hL hQ hnt
-
-private theorem relIndex_Q_one_inf_Q_neg_one_Q_zero
-    (hc : CharTwoStab (V := V) (G := G)) (hs : IsSingularity Γ G s) (h5 : 5 ≤ s) :
-    ((X.Q 1 ⊓ X.Q (-1)).subgroupOf (X.L 0)).relIndex ((X.Q 0).subgroupOf (X.L 0))
-      = 2 ^ (2 * X.n 1) := by
-  have hQ0L : X.Q 0 ≤ X.L 0 := (X.hyp.isLocL2_oTwoPrime (X.vert 0)).oTwo_le
-  rw [Subgroup.relIndex_subgroupOf (H := X.Q 1 ⊓ X.Q (-1)) (K := X.Q 0)
-    (L := X.L 0) hQ0L]
-  obtain ⟨-, hrel, -⟩ := X.Q_quot_of_normal_general hc hs (by omega)
-  simpa [inf_comm] using hrel
-
-theorem n_zero_le_n_one (hb : ¬ X.Z 0 ≤ X.Gi 3)
-    (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s) : X.n 0 ≤ X.n 1 := by
-  have hle := X.two_pow_le_relIndex_Q_one_inf_Q_neg_one hb hc hGT hs hodd h5 hX
-  rw [X.relIndex_Q_one_inf_Q_neg_one_Q_zero hc hs h5] at hle
-  have h2 := (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp hle
-  omega
-
-theorem false_of_n_zero_eq_two_of_n_one_eq_one (hb : ¬ X.Z 0 ≤ X.Gi 3)
-    (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))
-    (hs : IsSingularity Γ G s) (hodd : Odd s) (h5 : 5 ≤ s)
-    (hX : ¬ RightTransitive Γ G (X.line.arc 0 s).vert 0 s)
-    (hn0 : X.n 0 = 2) (hn1 : X.n 1 = 1) : False := by
-  have h := X.n_zero_le_n_one hb hc hGT hs hodd h5 hX
-  omega
 
 theorem not_Z_le_Gi_three_of_not_le_ZM (hZ : ¬ X.Z 0 ≤ X.ZM)
     (hc : CharTwoStab (V := V) (G := G)) (hGT : Even (Nat.card X.GT))

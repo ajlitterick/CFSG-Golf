@@ -30,9 +30,6 @@ abbrev OddElements (E : Type*) [Group E] := {g : E // Odd (orderOf g)}
 theorem oddPullback_oddRestriction {E F : Type*} [Group E] [Group F] (f : E →* F)
     (φ : F → ℂ) : oddPullback f (oddRestriction φ) = oddRestriction (φ ∘ f) := rfl
 
-theorem oddPullback_comp {E F K : Type*} [Group E] [Group F] [Group K] (f : E →* F)
-    (g : F →* K) (φ : OddElements K → ℂ) :
-    oddPullback f (oddPullback g φ) = oddPullback (g.comp f) φ := rfl
 
 @[expose] noncomputable def oddRestrictionLattice {E : Type u} [Group E] [Fintype E]
     (basis : FiniteIrreducibleCharacterBasis E) (B : Finset basis.index) :
@@ -131,15 +128,6 @@ theorem oddRestrictionLattice_map_oddPullback (π : E →* Q)
   (Submodule.equivMapOfInjective (oddPullback π) (oddPullback_injective π hπ hker) _).trans
     (LinearEquiv.ofEq _ _ hmap)
 
-theorem oddRestrictionLatticeEquiv_coe (π : E →* Q) (hπ : Function.Surjective π)
-    (hker : Odd (Nat.card π.ker)) (basis : FiniteIrreducibleCharacterBasis E)
-    (quotientBasis : FiniteIrreducibleCharacterBasis Q) (B : Finset basis.index)
-    (BQ : Finset quotientBasis.index)
-    (hmap : (oddRestrictionLattice quotientBasis BQ).map (oddPullback π) =
-      oddRestrictionLattice basis B)
-    (φ : oddRestrictionLattice quotientBasis BQ) :
-    (oddRestrictionLatticeEquiv π hπ hker basis quotientBasis B BQ hmap φ :
-      OddElements E → ℂ) = oddPullback π φ := rfl
 
 end OddElements
 

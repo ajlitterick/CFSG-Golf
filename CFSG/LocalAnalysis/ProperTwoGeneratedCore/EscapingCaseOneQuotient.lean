@@ -181,10 +181,6 @@ theorem escaping_orderOf_mk (x : G) {a : Subgroup.centralizer ({x} : Set G)}
     (ha : orderOf a = 2) : orderOf (escapingMk x a) = 2 :=
   orderOf_mk_eq_two (escaping_oddCore_odd x) ha
 
-theorem escaping_conj_of_mk_eq (x : G) {a b : Subgroup.centralizer ({x} : Set G)}
-    (ha : orderOf a = 2) (hb : orderOf b = 2) (hab : escapingMk x a = escapingMk x b) :
-    ∃ n ∈ pPrimeCore 2 (Subgroup.centralizer ({x} : Set G)), n⁻¹ * a * n = b :=
-  exists_conj_of_mk_eq (escaping_oddCore_odd x) ha hb hab
 
 theorem escaping_isConj_of_isConj_mk (x : G) {a b : Subgroup.centralizer ({x} : Set G)}
     (ha : orderOf a = 2) (hb : orderOf b = 2) (h : IsConj (escapingMk x a) (escapingMk x b)) :

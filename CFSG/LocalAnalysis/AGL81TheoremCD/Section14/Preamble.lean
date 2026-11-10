@@ -246,19 +246,5 @@ theorem pLayerNotLeAt_of {M : Subgroup G} (h1211 : TwelveElevenGen) (h1210 : Twe
   obtain ⟨L, hL, hLnot, -⟩ := h.exists_component_not_le h1210 h97 (hU 3 E H h)
   exact not_pLayerIn_le_of_component hL hLnot
 
-theorem agl81FourteenFifteen_of_twelve
-    (hF : KFactL34FixedPointsGen) (h10 : NineTenGen)
-    (h97 : CFSG.LocalAnalysis.RankThreeUC.AGL81C.NineSevenTwoInputGen)
-    (h1210 : TwelveTenThree) (h1211 : TwelveElevenGen)
-    (h : ∀ (G : Type) [Group G] [Finite G], CStarGen G → ∀ M : Subgroup G,
-      CFSG.Open.rankThreeIsMaxTwoLocal M → (sigmaSet G M).Nonempty →
-        PreambleFiveTypes M ∧ ChoiceExists M ∧ CaseOneFalse M ∧ CaseTwoFalse M ∧
-          FourteenFifteenNormAt M ∧ NineNineOneAt M) :
-    AGL81FourteenFifteen := by
-  refine agl81FourteenFifteen_of_nineTen hF h10 ?_
-  intro G _ _ hC M hM hσ
-  obtain ⟨hpre, hch, h1, h2, hN, hU⟩ := h G hC M hM hσ
-  exact ⟨preambleTypes_of h1211 hC hM hσ hpre, hch, h1, h2, hN,
-    pLayerNotLeAt_of h1211 h1210 h97 hU, hU⟩
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section14

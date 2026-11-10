@@ -94,8 +94,6 @@ theorem cover_one {R₀ : List (List (Fin 7 × Bool))}
 theorem hnTL_length : hnTL.length = 6 := by decide
 
 theorem hnTL_get : ∀ j : Fin hnTL.length, (hnTL.get j).val = j.val := by decide
-theorem hnS1L_get : ∀ j : Fin hnS1L.length, (hnS1L.get j).val = j.val := by decide
-theorem hnS2L_get : ∀ j : Fin hnS2L.length, (hnS2L.get j).val = j.val := by decide
 
 theorem act_renumber {k : ℕ} {S : List (Fin k)} (hS : ∀ j : Fin S.length, (S.get j).val = j.val)
     {u : List (Fin k × Bool)} {v : List (Fin S.length × Bool)} (h : renumber S u = some v) :
@@ -251,14 +249,6 @@ theorem node1_fix : ∀ c ∈ CFSG.KC.LaneChain.getL CG 1,
     CFSG.KC.TwDce2.evP F (CFSG.KC.TwDce2.gWord INVM RW c) 0 = 0 :=
   fixesPt_sound (CFSG.Certificates.TwDce.Words.andB_iff.1 node1_ok).1
 
-theorem card_hnPR_le {k₃ k₂ k₁ c₃ c₂ c₁ : ℕ}
-    (e₃ : subsetCheckShortCC hnL3 [0, 1, 2, 3, 4] k₃ c₃ 2 = true)
-    (e₂ : subsetCheckShortCC hnL2 [0, 1] k₂ c₂ 704 = true)
-    (e₁ : subsetCheckShortCC hnL1 [] k₁ c₁ 126000 = true) :
-    Finite hnPR ∧ Nat.card hnPR ≤ 177408000 := by
-  obtain ⟨f, c⟩ := card_PG_le_chain₃_sub (ws := hnR) (S₁ := [0, 1, 2, 3, 4]) (S₂ := [0, 1])
-    hnL3_sub hnL2_sub hnL1_sub e₃ e₂ e₁
-  exact ⟨f, c.trans (by norm_num)⟩
 
 end CFSG.KD.HNDce2
 

@@ -57,10 +57,6 @@ theorem stabT_mem_star (hE : Pair X E) {d : X} (hd : d ∈ E) (σ : stabT hE hd)
   map_one' := by ext f; rfl
   map_mul' σ π := by ext f; rfl
 
-theorem resStar_apply (hE : Pair X E) {d : X} (hd : d ∈ E) (σ : stabT hE hd)
-    (f : LocalClass E d) :
-    ((resStar hE hd σ f : LocalClass E d) : X) =
-      (((σ : tauGroup hE) : Equiv.Perm E) ⟨f, f.2.1⟩ : X) := rfl
 
 theorem connected_of_D2 {V : Type*} {G : SimpleGraph V} (r : V)
     (hD2 : ∀ v, v ≠ r → ¬ G.Adj r v → ∃ x, G.Adj r x ∧ G.Adj x v) : G.Connected := by

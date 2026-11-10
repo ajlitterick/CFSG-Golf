@@ -63,12 +63,6 @@ private theorem kernelSet_conj {G X : Type*} [Group G] [MulAction G X]
       apply (smul_left_cancel a)
       simpa [mul_smul] using hx
 
-theorem fixed_unique {G X : Type*} [Group G] [MulAction G X]
-    (hfrob : ∀ g : G, g ≠ 1 → ∀ x y : X,
-      g • x = x → g • y = y → x = y)
-    {g : G} (hg : g ≠ 1) {x y : X}
-    (hx : g • x = x) (hy : g • y = y) : x = y :=
-  hfrob g hg x y hx hy
 
 private theorem sum_nonKernel_eq_sum_fixed
     {G X R : Type*} [Group G] [Fintype G] [Fintype X]
@@ -1244,21 +1238,6 @@ private theorem kernelAlgebra_mem_center
       exact hg ((kernelSet_conj a g).mp h)
     simp [hg, hc]
 
-theorem groupAlgebraAdjoint_kernelAlgebra
-    {G X : Type*} [Group G] [Fintype G] [MulAction G X]
-    [DecidablePred fun g : G => g ∈ kernelSet G X] :
-    groupAlgebraAdjoint (kernelAlgebra (G := G) (X := X)) =
-      kernelAlgebra (G := G) (X := X) := by
-  classical
-  ext g
-  simp only [groupAlgebraAdjoint_coeff, kernelAlgebra_coeff]
-  by_cases hg : g ∈ kernelSet G X
-  · have hi := (kernelSet_inv g).mpr hg
-    simp [hg, hi]
-  · have hi : g⁻¹ ∉ kernelSet G X := by
-      intro h
-      exact hg ((kernelSet_inv g).mp h)
-    simp [hg, hi]
 
 private theorem basis_elem_kernel_pair_identity
     {G X : Type*} [Group G] [Fintype G] [MulAction G X]

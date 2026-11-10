@@ -348,10 +348,6 @@ theorem u33_q_mem : u33q ∈ QP.originalSubgroup := by
   rw [← pb_eq]
   exact u33_pb_mem
 
-theorem u33_z_mem_P : u33z ∈ QP.originalSubgroup := by
-  have hpq : u33p * u33q ^ 2 ∈ QP.originalSubgroup :=
-    Subgroup.mul_mem _ u33_p_mem (Subgroup.pow_mem _ u33_q_mem 2)
-  exact Subgroup.pow_mem _ hpq 4
 
 theorem u33_t_mem_P : u33t ∈ QP.originalSubgroup := by
   have h1 : u33p ^ 2 ∈ QP.originalSubgroup := Subgroup.pow_mem _ u33_p_mem 2
@@ -404,10 +400,6 @@ theorem u33y12_mem_P : u33y12 ∈ QP.originalSubgroup := Subgroup.mul_mem _ u33y
 
 theorem u33_y_mem_P : u33y ∈ QP.originalSubgroup := u33y12_mem_P
 
-theorem u33_z_fixes_zero : u33z 0 = 0 := by
-  have h := u33_zL_rep (0 : Fin 28)
-  have h0 : u33zL[0]! = 0 := by unfold u33zL u33pL u33qL; decide +kernel
-  exact Fin.ext (h.symm.trans h0)
 
 theorem u33_x_fixes_zero : u33x 0 = 0 := by
   have h := u33_xL_rep (0 : Fin 28)
@@ -455,9 +447,6 @@ theorem u33_y_cube : u33y ^ 3 = 1 := by
 section Cert
 
 
-theorem u33_z_mem_Psub : u33z ∈ Psub :=
-  mem_Psub.mpr ⟨u33_z_mem_P, u33_z_fixes_zero, u33_z_cube⟩
-
 theorem u33_x_mem_Psub : u33x ∈ Psub :=
   mem_Psub.mpr ⟨u33_x_mem_P, u33_x_fixes_zero, u33_x_cube⟩
 
@@ -496,15 +485,6 @@ theorem u33_t_pow8 : u33t ^ 8 = 1 := by
   rw [← hrep i, ← rep_idA (n := 28) i]
   exact hpt i
 
-theorem u33_t_ne_one : u33t ≠ 1 := by
-  intro h
-  have h1 := u33_tL_rep (2 : Fin 28)
-  rw [h] at h1
-  have h2 : u33tL[(2 : Fin 28).val]! = 3 := by unfold u33tL u33pL u33qL; decide +kernel
-  rw [h2] at h1
-  have h3 : (((1 : Equiv.Perm (Fin 28)) (2 : Fin 28)).val) = 2 := rfl
-  rw [h3] at h1
-  norm_num at h1
 
 theorem u33_z_inv_eq : u33z⁻¹ = u33z ^ 2 := by
   have h : u33z ^ 2 * u33z = 1 := by
@@ -526,21 +506,6 @@ theorem u33_y_inv_eq : u33y⁻¹ = u33y ^ 2 := by
     rw [← pow_succ, show 2 + 1 = 3 by norm_num, u33_y_cube]
   exact (mul_eq_one_iff_eq_inv.mp h).symm
 
-theorem u33_z_invL_rep : Rep 28 (powArr 28 u33zL 2) u33z⁻¹ := by
-  rw [u33_z_inv_eq]
-  exact rep_powArr u33_zL_rep 2
-
-theorem u33_t_invL_rep : Rep 28 (powArr 28 u33tL 7) u33t⁻¹ := by
-  rw [u33_t_inv_eq]
-  exact rep_powArr u33_tL_rep 7
-
-theorem u33_x_invL_rep : Rep 28 (powArr 28 u33xL 2) u33x⁻¹ := by
-  rw [u33_x_inv_eq]
-  exact rep_powArr u33_xL_rep 2
-
-theorem u33_y_invL_rep : Rep 28 (powArr 28 u33yL 2) u33y⁻¹ := by
-  rw [u33_y_inv_eq]
-  exact rep_powArr u33_yL_rep 2
 
 noncomputable def u33conjL : Array ℕ :=
   compA 28 u33tLit (compA 28 u33zLit (powArr 28 u33tLit 7))
@@ -790,8 +755,6 @@ theorem u33_inverting_of_lieModel
           simp only [map_mul, map_inv]
       _ = φ w⁻¹ := by rw [ht₀'inv]
       _ = (φ w)⁻¹ := by simp
-
-
 
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

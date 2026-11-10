@@ -301,31 +301,6 @@ theorem normal_fixed_generation {actor group : Type*}
   intro element _
   exact (QuotientGroup.eq_one_iff element).mp (quotient_one (projection element))
 
-theorem abelian_fixed_generation {actor group : Type*}
-    [Group actor] [CommGroup group] [Finite group]
-    (prime : ℕ) [Fact (Nat.Prime prime)] (prime_actor : IsPGroup prime actor)
-    (coprime : ¬ prime ∣ Nat.card group) (odd_group : Odd (Nat.card group))
-    (action : actor →* MulAut group) (actor_automorphism : MulAut actor)
-    (actor_involutive : Function.Involutive actor_automorphism)
-    (actor_generated : Subgroup.closure {acting : actor | actor_automorphism acting = acting⁻¹} = ⊤)
-    (automorphism : MulAut group) (involutive : Function.Involutive automorphism)
-    (compatible : ∀ acting : actor, ∀ element : group,
-      automorphism (action acting element) = action (actor_automorphism acting) (automorphism element)) :
-    FixedGeneration action actor_automorphism automorphism := by
-  intro subgroup actor_fixed twisted_fixed
-  let generated := generationSubgroup action actor_automorphism automorphism
-  have generated_top : generated = ⊤ := by
-    apply normal_fixed_generation prime prime_actor coprime odd_group action actor_automorphism
-      actor_generated automorphism involutive compatible generated
-      (generation_actor_invariant action actor_automorphism actor_involutive automorphism compatible)
-      (generation_automorphism_invariant action actor_automorphism actor_involutive automorphism
-        involutive compatible)
-    · intro element fixed
-      exact Subgroup.subset_closure (Or.inl fixed)
-    · intro acting inverted element fixed
-      exact Subgroup.subset_closure (Or.inr ⟨acting, inverted, fixed⟩)
-  exact top_unique (generated_top ▸ generation_le action actor_automorphism automorphism subgroup
-    actor_fixed twisted_fixed)
 
 theorem solvable_fixed_generation {actor group : Type*}
     [Group actor] [Group group] [Finite group] [Group.IsSolvable group]

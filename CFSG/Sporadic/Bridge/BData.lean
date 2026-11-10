@@ -10,37 +10,6 @@ open CFSG.Monster.B.Bin CFSG.Monster.B.Primes.Native
 
 set_option compiler.extract_closed false
 
-@[expose] def sevenProg : List Ins :=
-  [
-    .pwr 2 2 3, .mu 3 1 4, .mu 3 4 5, .mu 5 5 6, .mu 6 6 6, .mu 6 6 6, .mu 6 6 6, .mu 6 5 6,
-    .mu 1 2 7, .mu 7 2 8, .mu 8 8 9, .mu 9 9 9, .mu 9 9 9, .mu 9 9 9, .mu 8 9 9, .mu 3 9 3,
-    .mu 6 3 3, .mu 4 4 10, .mu 10 4 10, .mu 10 10 10, .mu 10 10 10, .mu 10 4 10, .mu 5 4 5,
-    .mu 5 4 5, .mu 5 5 4, .mu 4 4 5, .mu 5 4 4, .mu 4 5 4, .mu 7 7 5, .mu 7 5 5, .mu 5 5 5,
-    .mu 5 5 5, .mu 7 5 5, .mu 4 5 4, .mu 10 4 4, .mu 3 4 4, .mu 3 4 3, .pwr 9 3 11, .pwr 10 4 12,
-    .mu 11 12 11, .mu 7 8 12, .mu 7 12 8, .mu 8 8 7, .mu 7 7 12, .mu 7 12 8, .mu 12 8 7,
-    .mu 10 7 12, .mu 12 5 8, .mu 6 2 10, .mu 10 9 7, .mu 8 7 12, .pwr 5 12 5, .mu 5 7 6,
-    .pwr 5 6 10, .mu 11 10 9, .pwr 10 12 8, .mu 12 7 6, .pwr 9 6 11, .mu 8 11 10, .mu 9 10 8,
-    .pwr 3 8 11, .pwr 2 4 9, .pwr 8 3 10, .pwr 5 4 3, .mu 10 3 4, .mu 9 4 10, .mu 10 7 3,
-    .pwr 8 6 9, .mu 5 9 4, .pwr 2 12 10, .mu 4 10 7, .mu 3 7 6, .pwr 2 6 5, .mu 11 5 9,
-    .mu 9 8 12, .mu 12 8 4, .mu 4 6 10, .mu 10 11 3, .mu 6 8 7, .mu 7 8 9, .mu 9 5 12,
-    .mu 12 8 4, .mu 4 8 10]
-
-@[expose] def sevenN : Nat := 13
-
-@[expose] def sevenRx : Nat := 3
-
-@[expose] def sevenRy : Nat := 10
-
-@[noinline, expose] def sevenChecks (R : Array Mat) (flag : Bool) : Bool :=
-  let X := R.getD sevenRx #[]
-  let Y := R.getD sevenRy #[]
-  flag && ordOK 4370 7 X && ordOK 4370 7 Y && (mulP 4370 X Y == mulP 4370 Y X) &&
-    (List.range 7).all fun k => neM 4370 Y (powM 4370 X k)
-
-@[expose] def sevenOK : Bool :=
-  let st := regRun 4370 sevenN sevenProg (seedMat 4370 CFSG.SectionRank.Native.bData.seedA)
-    (seedMat 4370 CFSG.SectionRank.Native.bData.seedB)
-  sevenChecks st.1 st.2
 
 @[expose] def bProg : List Ins :=
   [

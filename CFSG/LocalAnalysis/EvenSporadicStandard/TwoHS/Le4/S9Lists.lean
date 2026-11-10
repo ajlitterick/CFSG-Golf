@@ -54,33 +54,6 @@ theorem card_filter_V4_eq (P : V4 → Prop) [DecidablePred P] :
       exact hw.2
     · exact toRV_ofRV (wf_of_mem_vecAll hw.1)
 
-@[expose] def closureStep (gens : List R4) (L : List R4) : List R4 :=
-  (L ++ L.flatMap fun a => gens.map (rmul a)).dedup
-
-@[expose] def closureR (gens : List R4) : ℕ → List R4 → List R4
-  | 0, L => L
-  | n + 1, L => closureR gens n (closureStep gens L)
-
-theorem closureR_sound {R : Set M4} (hmul : ∀ A ∈ R, ∀ B ∈ R, A * B ∈ R) {gens : List R4}
-    (hg : ∀ g ∈ gens, ofR4 g ∈ R) :
-    ∀ (n : ℕ) (L : List R4), (∀ a ∈ L, ofR4 a ∈ R) → ∀ a ∈ closureR gens n L, ofR4 a ∈ R := by
-  intro n
-  induction n with
-  | zero => intro L hL a ha; exact hL a ha
-  | succ n ih =>
-    intro L hL a ha
-    refine ih (closureStep gens L) ?_ a ha
-    intro b hb
-    simp only [closureStep, List.mem_dedup, List.mem_append, List.mem_flatMap,
-      List.mem_map] at hb
-    rcases hb with hb | ⟨c, hc, g, hg', rfl⟩
-    · exact hL b hb
-    · rw [ofR4_rmul]
-      exact hmul _ (hL c hc) _ (hg g hg')
-
-@[expose] def genR : List R4 := [toR4 gamma1Mat, toR4 gamma2Mat]
-
-@[expose] def closureSet : List R4 := closureR genR 40 [R4.one]
 
 @[expose] def fixListNum (S : List R4) : ℕ :=
   (vecAll.filter fun w => S.all fun a => rmv a w == w).length
@@ -89,12 +62,6 @@ theorem closureR_sound {R : Set M4} (hmul : ∀ A ∈ R, ∀ B ∈ R, A * B ∈ 
   !(S.all fun a => S.all fun b => S.contains (rmul a b)) || !S.contains R4.one ||
     !(S.any fun a => a != R4.one) || decide (S.length * fixListNum S < 256)
 
-@[expose] def listCheck : Bool :=
-  q0R.length == 336 && decide q0R.Nodup && q0R.all (fun a => closureSet.contains a) &&
-  shatR.length == 16 && decide shatR.Nodup && shatR.contains R4.one &&
-  shatR.all (fun a => shatR.all fun b => shatR.contains (rmul a b)) &&
-  shatR.all (fun a => shatR.any fun b => rmul a b == R4.one && rmul b a == R4.one) &&
-  shatR.any (fun a => a.a22 == 3) && shatR.sublists.all subCheck
 
 structure ListFacts : Prop where
   q0_nodup : q0List.Nodup
@@ -117,9 +84,6 @@ theorem mem_shatR {a : R4} (h : a ∈ shatR) : ∃ A ∈ shatList, toR4 A = a :=
 theorem toR4_mem_shatR {A : M4} (h : A ∈ shatList) : toR4 A ∈ shatR :=
   List.mem_map.2 ⟨A, h, rfl⟩
 
-theorem wf_of_mem_shatR {a : R4} (h : a ∈ shatR) : a.wf := by
-  obtain ⟨A, -, rfl⟩ := mem_shatR h
-  exact wf_toR4 A
 
 theorem fix_iff {a : R4} {A : M4} (hA : ofR4 a = A) {w : RV} (hw : w.wf) :
     (A *ᵥ ofRV w = ofRV w) ↔ rmv a w = w := by
@@ -204,51 +168,5 @@ theorem sub_of_check (hnd0 : shatList.Nodup) (h : ∀ x ∈ shatR.sublists, subC
     exact Bool.noConfusion hnon
   · exact hlt
 
-
-theorem listFacts_of_check (h : listCheck = true) : ListFacts := by
-  simp only [listCheck, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, List.all_eq_true,
-    List.any_eq_true, List.contains_iff_mem] at h
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩, h6⟩, h7⟩, h8⟩, h9⟩, h10⟩ := h
-  have hone : ∀ A ∈ shatList, toR4 A = R4.one → A = 1 := fun A _ hA => by
-    rw [← ofR4_toR4 A, hA, ofR4_one]
-  refine ⟨List.Nodup.of_map toR4 h2, by simpa [q0R] using h1, ?_, List.Nodup.of_map toR4 h5,
-    by simpa [shatR] using h4, ?_, ?_, ?_, ?_, sub_of_check (List.Nodup.of_map toR4 h5) h10⟩
-  · intro R hmul h1R hg1 hg2 A hA
-    have hgens : ∀ g ∈ genR, ofR4 g ∈ R := by
-      intro g hg
-      simp only [genR, List.mem_cons, List.not_mem_nil, or_false] at hg
-      rcases hg with rfl | rfl
-      · rw [ofR4_toR4]; exact hg1
-      · rw [ofR4_toR4]; exact hg2
-    have hinit : ∀ a ∈ [R4.one], ofR4 a ∈ R := by
-      intro a ha
-      simp only [List.mem_cons, List.not_mem_nil, or_false] at ha
-      subst ha
-      rw [ofR4_one]
-      exact h1R
-    have := closureR_sound hmul hgens 40 [R4.one] hinit (toR4 A)
-      (h3 (toR4 A) (List.mem_map.2 ⟨A, hA, rfl⟩))
-    rwa [ofR4_toR4] at this
-  · obtain ⟨A, hA, hA1⟩ := mem_shatR h6
-    rw [← hone A hA hA1]
-    exact hA
-  · intro A hA B hB
-    obtain ⟨C, hC, hCe⟩ := mem_shatR (h7 _ (toR4_mem_shatR hA) _ (toR4_mem_shatR hB))
-    have : A * B = C := by
-      rw [← ofR4_toR4 A, ← ofR4_toR4 B, ← ofR4_rmul, ← hCe, ofR4_toR4]
-    rw [this]
-    exact hC
-  · intro A hA
-    obtain ⟨b, hb, hb1, hb2⟩ := h8 _ (toR4_mem_shatR hA)
-    obtain ⟨B, hB, rfl⟩ := mem_shatR hb
-    refine ⟨B, hB, ?_, ?_⟩
-    · rw [← ofR4_toR4 A, ← ofR4_toR4 B, ← ofR4_rmul, hb1, ofR4_one]
-    · rw [← ofR4_toR4 A, ← ofR4_toR4 B, ← ofR4_rmul, hb2, ofR4_one]
-  · obtain ⟨a, ha, ha3⟩ := h9
-    obtain ⟨A, hA, rfl⟩ := mem_shatR ha
-    refine ⟨A, hA, ?_⟩
-    have : (A 2 2).val = 3 := ha3
-    rw [← ZMod.natCast_zmod_val (A 2 2), this]
-    rfl
 
 end CFSG.EvenSporadicStandard.TwoHS

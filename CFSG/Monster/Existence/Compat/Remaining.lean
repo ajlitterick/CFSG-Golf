@@ -61,11 +61,5 @@ theorem twoARemaining :
     CFSG.Timmesfeld.card_chevalleyExceptionalModel_two (chevalleyModel_of_lieModel (by decide) h)
   u62_card := card_u62_of_lieModel
 
-theorem compat_two
-    (h : MonsterExistenceStatement MGriess) :
-    ∃ (G : Type) (_ : Group G) (_ : Finite G), IsSimpleGroup G ∧ Nat.card G = monsterOrder ∧
-      ∃ a z : G, MonsterIsF1Type a z ∧ ¬ IsConj a z ∧
-        (∀ t : G, orderOf t = 2 → IsConj a t ∨ IsConj z t) ∧ MonsterTwoAGraphData a z :=
-  compat_two_of_canonical twoARemaining h
 
 end CFSG.Monster.Existence.Compat

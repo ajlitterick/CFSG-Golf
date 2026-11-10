@@ -161,10 +161,6 @@ theorem colMat_mulVec (b : Fin n → Fin n → K) (v : Fin n → K) :
   simp only [colMat, Matrix.mulVec, dotProduct, Matrix.of_apply, Finset.sum_apply,
     Pi.smul_apply, smul_eq_mul, mul_comm]
 
-theorem colMat_mulVec_single (b : Fin n → Fin n → K) (c : Fin n) :
-    colMat b *ᵥ Pi.single c 1 = b c := by
-  rw [colMat_mulVec, Finset.sum_eq_single c (fun c' _ hc' => by
-    rw [Pi.single_eq_of_ne hc', zero_smul]) (by simp), Pi.single_eq_same, one_smul]
 
 variable (h : UnitaryFieldData 2 f K)
 

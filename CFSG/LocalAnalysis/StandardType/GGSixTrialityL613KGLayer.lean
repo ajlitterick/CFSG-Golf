@@ -307,11 +307,6 @@ theorem ggD4TrialityCentralInput_of_classThree (h4 : GGD4ClassThreeLayerInput) :
     GGD4TrialityCentralInput :=
   ggD4TrialityCentralInput_of_layer ggD4SemilinearLayerInput_holds h4
 
-theorem ggSixTrialityInput_of_classThree (h611 : GGSixLSixElevenInput)
-    (h4 : GGD4ClassThreeLayerInput) (h5 : GGD4ClassThreeCentralInput)
-    (h6 : GGSixTrialityDClassThreeInput) : GGSixTrialityInput :=
-  ggSixTrialityInput_of_lSixEleven_central h611 (ggD4TrialityCentralInput_of_classThree h4)
-    (ggSixTrialityDCentralInput_of_om8 h6 h5)
 
 end Assembly
 

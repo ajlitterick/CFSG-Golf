@@ -17,9 +17,6 @@ private def s16k_e (K : Type) [Field K] {m : ℕ} (i : Fin (m - 1)) :
     Fin (m - 1) ⊕ Fin (m - 1) ⊕ Fin 2 → K :=
   Pi.single (Sum.inl i) 1
 
-private def s16k_f (K : Type) [Field K] {m : ℕ} (i : Fin (m - 1)) :
-    Fin (m - 1) ⊕ Fin (m - 1) ⊕ Fin 2 → K :=
-  Pi.single (Sum.inr (Sum.inl i)) 1
 
 private def s16k_uu (K : Type) [Field K] (m : ℕ) :
     Fin (m - 1) ⊕ Fin (m - 1) ⊕ Fin 2 → K :=

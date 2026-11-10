@@ -39,10 +39,6 @@ structure IsInvariant (J J₁ : G) (lam : Subgroup.centralizer {J} →* ℂˣ) :
     rw [h]
     exact extend_mul hg hg'
 
-theorem conjChar_apply (N : Subgroup G) (lam : N →* ℂˣ) (Q : Subgroup G) (k : G)
-    (hk : Subgroup.centralizer (Q.map (MulAut.conj k⁻¹).toMonoidHom : Set G) ≤ N)
-    (g : Subgroup.centralizer (Q : Set G)) :
-    conjChar N lam Q k hk g = extend N lam (k⁻¹ * g * k) := rfl
 
 namespace LocalConfig
 

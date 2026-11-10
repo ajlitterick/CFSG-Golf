@@ -23,21 +23,6 @@ open CFSG.Blueprint (LieModel)
     u ^ p ∈ D ⊔ Subgroup.centralizer (D : Set G) ∧
     ∃ (t : StatedLieTag) (n f : ℕ), 1 ≤ f ∧ LieModel (D ⧸ Subgroup.center D) t n 2 (p * f)
 
-@[expose] def LieCentralizerComponent : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J : Subgroup G) (u : G), FieldAutSetting p J u →
-    u ^ p = 1 → FieldAutRank p J u → CFSG.pRank p ↥J = 1 →
-    ∀ d ∈ J, d ≠ 1 → d ^ p = 1 → u * d = d * u →
-      (∃ t ∈ J ⊓ Subgroup.centralizer ({d} : Set G), orderOf t = 2) →
-      ∃ D : Subgroup G, IsComponentOf (J ⊓ Subgroup.centralizer ({d} : Set G)) D
-
-@[expose] def LieFieldOnComponent : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J : Subgroup G) (u : G), FieldAutSetting p J u →
-    u ^ p = 1 → FieldAutRank p J u → ∀ d ∈ J, d ^ p = 1 → u * d = d * u →
-      ∀ D : Subgroup G, IsComponentOf (J ⊓ Subgroup.centralizer ({d} : Set G)) D →
-        u ∈ Subgroup.normalizer (D : Set G) →
-        FieldLike p u D ∧ ∃ t₁ ∈ D ⊓ Subgroup.centralizer ({u} : Set G),
-          ∃ t₂ ∈ D ⊓ Subgroup.centralizer ({u} : Set G), (∃ k : ℕ, orderOf t₁ = 2 ^ k) ∧
-            (∃ k : ℕ, orderOf t₂ = 2 ^ k) ∧ t₁ * t₂ ≠ t₂ * t₁
 
 @[expose] def FieldFixedTwoElements : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J : Subgroup G) (u : G), FieldAutSetting p J u →
@@ -48,12 +33,6 @@ open CFSG.Blueprint (LieModel)
         (∃ k : ℕ, orderOf g = 2 ^ k) →
         g ∈ inSubgroup perfectResidual (J ⊓ Subgroup.centralizer ({u} : Set G))
 
-@[expose] def LieTwoPartInLayer : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J : Subgroup G) (u : G), FieldAutSetting p J u →
-    u ^ p = 1 → FieldAutRank p J u → CFSG.pRank p ↥J = 1 → ∀ d ∈ J, d ^ p = 1 → u * d = d * u →
-      ∀ g ∈ J ⊓ Subgroup.centralizer ({u} : Set G) ⊓ Subgroup.centralizer ({d} : Set G),
-        (∃ k : ℕ, orderOf g = 2 ^ k) →
-          g ∈ inSubgroup layer (J ⊓ Subgroup.centralizer ({d} : Set G))
 
 @[expose] def LieGoodComponent : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (J : Subgroup G) (u : G), FieldAutSetting p J u →

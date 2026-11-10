@@ -16,20 +16,13 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.Parity Matrix
 @[expose] noncomputable def shortEig (a : symMat) (c : ShortIdx) : ℚ :=
   qf c (a : Matrix (Fin 24) (Fin 24) ℚ) / 8
 
-theorem shortEig_injective_iff (a : symMat) :
-    Function.Injective (shortEig a) ↔ ∀ c d : ShortIdx,
-      qf c (a : Matrix (Fin 24) (Fin 24) ℚ) = qf d (a : Matrix (Fin 24) (Fin 24) ℚ) → c = d := by
-  refine forall_congr' fun c => forall_congr' fun d => ?_
-  rw [shortEig, shortEig, div_left_inj' (by norm_num : (8 : ℚ) ≠ 0)]
 
 @[expose] noncomputable def inXₗ : SpaceX →ₗ[ℚ] SpaceB :=
   LinearMap.inr ℚ symMat (SpaceX × SpaceW) ∘ₗ LinearMap.inl ℚ SpaceX SpaceW
 
-theorem inXₗ_apply (x : SpaceX) : inXₗ x = inX x := rfl
 
 @[expose] noncomputable def inAₗ : symMat →ₗ[ℚ] SpaceB := LinearMap.inl ℚ symMat (SpaceX × SpaceW)
 
-theorem inAₗ_apply (A : symMat) : inAₗ A = inA A := rfl
 
 theorem gmul_inA_inX_shortEig (a : symMat) (x : SpaceX) :
     gmul (inA a) (inX x) = inX (fun c => shortEig a c * x c) := by
@@ -415,19 +408,6 @@ theorem sum_smul_basisB_eq_inX (β : SpaceX) :
   simp only [h1, ← map_smul, ← map_sum, h2]
   rfl
 
-theorem basisB_inr_inl_eq_Xlift (c : ShortIdx) :
-    basisB (Sum.inr (Sum.inl c)) = inX (Xlift (rep c.1)) := by
-  rw [basisB_inr_inl, Xlift_rep_eq]
-
-theorem exists_equiv_of_isometry (f : SpaceB →ₗ[ℚ] SpaceB)
-    (hiso : ∀ u v, bform (f u) (f v) = bform u v) : ∃ g : SpaceB ≃ₗ[ℚ] SpaceB, ∀ u, g u = f u := by
-  have hinj : Function.Injective f := by
-    refine LinearMap.ker_eq_bot.1 (LinearMap.ker_eq_bot'.2 fun u hu => ?_)
-    by_contra hne
-    have h1 := bform_self_pos hne
-    rw [← hiso, hu] at h1
-    simp at h1
-  exact ⟨LinearEquiv.ofInjectiveEndo f hinj, fun u => rfl⟩
 
 theorem eq_one_of_fixes_three_vectors {a₀ : symMat} {β : SpaceX} {N₀ : SpaceW}
     (hlam : Function.Injective (shortEig a₀)) (hβ : ∀ c, β c ≠ 0) (hN₀ : N₀ ≠ 0)
@@ -457,28 +437,6 @@ theorem eq_of_apply_eq_three_vectors {a₀ : symMat} {β : SpaceX} {N₀ : Space
       exact g.symm_apply_apply w
   exact inv_mul_eq_one.1 hq
 
-theorem rational_three_vector_separation {a₀ : symMat} {β : SpaceX} {N₀ : SpaceW}
-    (hlam : Function.Injective (shortEig a₀)) (hβ : ∀ c, β c ≠ 0) (hN₀ : N₀ ≠ 0)
-    {a b w : SpaceB} (ha : a = inA a₀) (hb : b = ∑ c, β c • basisB (Sum.inr (Sum.inl c)))
-    (hw : w = inW N₀) :
-    (∀ f : SpaceB →ₗ[ℚ] SpaceB, (∀ u v, bform (f u) (f v) = bform u v) →
-      (∀ u v, f (gmul u v) = gmul (f u) (f v)) → f a = a → f b = b → f w = w →
-      f = LinearMap.id) ∧
-    (∀ h : SpaceB ≃ₗ[ℚ] SpaceB, h ∈ AutO → h a = a → h b = b → h w = w → h = 1) ∧
-    (∀ g h : SpaceB ≃ₗ[ℚ] SpaceB, g ∈ AutO → h ∈ AutO → g a = h a → g b = h b → g w = h w →
-      g = h) := by
-  refine ⟨fun f hiso hmul hfa hfb hfw => ?_, fun h hh hha hhb hhw =>
-    eq_one_of_fixes_three_vectors hlam hβ hN₀ ha hb hw hh hha hhb hhw,
-    fun g h hg hh hga hgb hgw =>
-      eq_of_apply_eq_three_vectors hlam hβ hN₀ ha hb hw hg hh hga hgb hgw⟩
-  obtain ⟨g, hg⟩ := exists_equiv_of_isometry f hiso
-  have hgmem : g ∈ AutO := mem_AutO.2 ⟨fun u v => by rw [hg, hg, hg, hmul],
-    fun u v => by rw [hg, hg, hiso]⟩
-  have h1 : g = 1 := eq_one_of_fixes_three_vectors hlam hβ hN₀ ha hb hw hgmem
-    (by rw [hg, hfa]) (by rw [hg, hfb]) (by rw [hg, hfw])
-  refine LinearMap.ext fun u => ?_
-  rw [← hg, h1]
-  rfl
 
 theorem three_vector_separation_Gmat {a₀ : symMat} {β : SpaceX} {N₀ : SpaceW}
     (hlam : Function.Injective (shortEig a₀)) (hβ : ∀ c, β c ≠ 0) (hN₀ : N₀ ≠ 0)

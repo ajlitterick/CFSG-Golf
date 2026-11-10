@@ -2272,30 +2272,6 @@ private lemma T_sum_ge (c : Hyp11 G) (h12 : Hyp12 c) (hSC : Section3Hyp c)
       (Nat.card (↥c.H0) : ℝ) * (1 / 2) * ((BOf c h12 χ).card : ℝ) ≤ Tsum
   nlinarith [hgoal]
 
-/-- Distinct members of `B(χ)` lying in one `Λ`-orbit are `s`-conjugate
-(`BOf_orbit_pair_conj`), hence have equal coefficients
-(`tildeNu_invariance`).  This is the signed-orbit fact needed for the
-counting bound: in a 2-element orbit containing both members of `B(χ)`,
-the signed sum is `±2`, so `S_i²/n_i = 2 = t_i²/n_i`. -/
-private lemma BOf_orbit_pair_coeff_eq (c : Hyp11 G) (h12 : Hyp12 c)
-    {χ : ClassFunction G} (hχ : IsPMIrr G χ)
-    {μ ν : Irr (↥c.H0)}
-    (hμB : μ ∈ BOf c h12 χ) (hνB : ν ∈ BOf c h12 χ)
-    (hμL : μ.1 ∈ orbit c.H0 c.U ν.1) (hμν : μ ≠ ν) :
-    scalarProduct G χ (tildeNu c h12 μ) = scalarProduct G χ (tildeNu c h12 ν) := by
-  classical
-  have hconj : conjChar c.H0 (s_normalizes_H0 c h12) μ.1 = ν.1 :=
-    BOf_orbit_pair_conj c h12 hχ hμB hνB hμL hμν
-  -- `ν̃ = μ̃` because `ν = μ^s`
-  have htilde : tildeNu c h12 ν = tildeNu c h12 μ := by
-    have hνs : ν = conjIrr c h12 μ := by
-      apply Subtype.ext
-      rw [conjIrr_coe]
-      exact hconj.symm
-    rw [hνs]
-    exact tildeNu_invariance c h12 μ
-  rw [htilde]
-
 
 /-- Theorem 3.2: each `χ ∈ ±Irr(G)` satisfies `|B(χ)| ≤ 3`. -/
 public theorem theorem_3_2 (c : Hyp11 G) (h12 : Hyp12 c) (hSC : Section3Hyp c)

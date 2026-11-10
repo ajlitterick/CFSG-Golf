@@ -35,13 +35,6 @@ theorem isConj_subtype_iff {M : Type*} [Group M] (P : Subgroup M) {t x : M} (ht 
 theorem isConj_iff_mem_conjClass {M : Type*} [Group M] (P : Subgroup M) (X Y : ↥P) :
     IsConj X Y ↔ (Y : M) ∈ conjClass P (X : M) := isConj_subtype_iff P X.2 Y.2
 
-theorem mem_conjClass_of_conj {M : Type*} [Group M] {P : Subgroup M} {r x y : M} (hy : y ∈ P)
-    (h : y⁻¹ * x * y ∈ conjClass P r) : x ∈ conjClass P r := by
-  obtain ⟨c, hc, hcr⟩ := mem_conjClass.1 h
-  refine mem_conjClass.2 ⟨y * c, P.mul_mem hy hc, ?_⟩
-  have : x = y * (y⁻¹ * x * y) * y⁻¹ := by group
-  rw [this, hcr]
-  group
 
 theorem two_factorization_card_P1408 : (177408000 : ℕ).factorization 2 = 11 := by
   rw [show (177408000 : ℕ) = 2 ^ 11 * 86625 by norm_num,

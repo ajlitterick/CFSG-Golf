@@ -226,14 +226,6 @@ theorem centralizer_map_equiv (S : Subgroup H) :
     change e s * e y = e y * e s
     rw [← map_mul, ← map_mul, h s hs]
 
-omit [Finite Q] in
-theorem map_conj_map_equiv (K : Subgroup H) (g : H) :
-    (K.map (MulAut.conj g).toMonoidHom).map e.toMonoidHom =
-      (K.map e.toMonoidHom).map (MulAut.conj (e g)).toMonoidHom := by
-  rw [map_map, map_map]
-  congr 1
-  ext x
-  simp
 
 omit [Finite Q] in
 theorem standardComponentIsStandard_map_equiv {M : Subgroup H}

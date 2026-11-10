@@ -39,9 +39,6 @@ theorem exists_isB2Pair_of_l2Meets {G : Type} [Group G] [Finite G]
   ∀ (G : Type) [Group G] [Finite G], PG G → IsKProperSimple G → 3 ≤ pRank 2 G →
     ¬ L2Meets G InG2 → L2Meets G InB2 → HasTwoThinConfiguration G
 
-theorem S_twoThinOfB2_of_P (h : S_twoThinOfB2P GroupPred.trivial) : S_twoThinOfB2 := by
-  intro G _ _ hG h3 hnoG2 hB2
-  exact h G trivial hG h3 hnoG2 hB2
 
 theorem s_twoThinOfB2P_of_reduction {PG : GroupPred} (hRank : RankThreeCentralizers)
     (hClosed : ∀ (G : Type) [Group G] [Finite G], PG G → IsKProperSimple G → 3 ≤ pRank 2 G →
@@ -54,11 +51,5 @@ theorem s_twoThinOfB2P_of_reduction {PG : GroupPred} (hRank : RankThreeCentraliz
     (exists_isB2Pair_of_l2Meets hrank hB2)
   exact ⟨x, K, hxK, hB⟩
 
-theorem s_twoThinOfB2_of_reduction (hRank : RankThreeCentralizers)
-    (hClosed : ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → 3 ≤ pRank 2 G →
-      ¬ L2Meets G InG2 → B2PumpupClosed G)
-    (hTerm : TerminalExists) : S_twoThinOfB2 :=
-  S_twoThinOfB2_of_P
-    (s_twoThinOfB2P_of_reduction hRank (fun G _ _ _ hG h3 hno => hClosed G hG h3 hno) hTerm)
 
 end CFSG.GH74.GLS.TwoThin

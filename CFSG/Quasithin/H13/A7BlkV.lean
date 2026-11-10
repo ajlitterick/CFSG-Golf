@@ -282,9 +282,6 @@ theorem exists_psi_of_mem_blockV {v : G} (hv : v ∈ blockV K) :
 theorem theta_apply (v : ↥(blockV K)) :
     theta D hshort v = D.β ⟨v, blockV_le_blockU v.2⟩ := rfl
 
-theorem coe_theta_symm_apply (x : Multiplicative ↥(evenWeight 7)) :
-    (((theta D hshort).symm x : ↥(blockV K)) : G) =
-      psi D hshort ((Multiplicative.toAdd x : ↥(evenWeight 7)) : Fin 7 → ZMod 2) := rfl
 
 @[expose] def pwHom (σ : Perm (Fin 7)) : ↥(evenWeight 7) →+ ↥(evenWeight 7) where
   toFun := permWeight 7 σ

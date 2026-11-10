@@ -380,10 +380,6 @@ theorem torusElt_comp_d4Emb (k : Fin Tag.D4.rank) (t : Kˣ) :
       d4Emb K ∘ₗ (torusElt Tag.D4 K k t : Module.End K (RootModule Tag.D4 K)) :=
   mul_comp_d4Emb (weylElt_comp_d4Emb k t) (weylElt_comp_d4Emb k (-1))
 
-theorem d4Res_weylElt (k : Fin Tag.D4.rank) (t : Kˣ) :
-    d4Res K ⟨weylElt Tag.E6 K (d4Idx k) t, weylElt_mem_subsystemGroup (d4Idx_mem k) t⟩ =
-      weylElt Tag.D4 K k t :=
-  d4Res_eq fun v => LinearMap.congr_fun (weylElt_comp_d4Emb k t) v
 
 theorem torusElt_mem_d4Q (k : Fin Tag.D4.rank) (t : Kˣ) :
     torusElt Tag.E6 K (d4Idx k) t ∈ subsystemGroup Tag.E6 K d4Support :=

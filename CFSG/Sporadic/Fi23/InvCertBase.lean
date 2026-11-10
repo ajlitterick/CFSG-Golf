@@ -13,7 +13,6 @@ namespace CFSG.Sporadic.Fi23.Native
 
 open CFSG.Sporadic.Th.Native CFSG.Perm.Native
 
-set_option compiler.extract_closed false
 
 end CFSG.Sporadic.Fi23.Native
 

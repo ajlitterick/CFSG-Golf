@@ -52,17 +52,6 @@ private theorem swap23_mulVec_e0 :
   rw [swap23_mulVec]
   exact vec3_eq (by simp) (by simp) (by simp)
 
-private theorem swap23_mulVec_e1 :
-    ((swap23 : Matrix.SpecialLinearGroup (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) *ᵥ
-      ![0, 1, 0] = ![0, 0, 1] := by
-  rw [swap23_mulVec]
-  exact vec3_eq (by simp) (by simp) (by simp)
-
-private theorem lowerSL_mulVec_e1 (t : K) :
-    ((lowerSL t : Matrix.SpecialLinearGroup (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) *ᵥ
-      ![0, 1, 0] = ![0, 1, t] := by
-  rw [lowerSL_mulVec]
-  exact vec3_eq (by simp) (by simp) (by simp)
 
 private theorem unitriangular_le_Usl : unitriangular 3 K ≤ Usl K := by
   rintro B ⟨hlt, hd⟩
@@ -128,9 +117,6 @@ theorem setStab_eq (H : Subgroup (MulAut W)) (U : Subgroup W) :
   exact ⟨fun h => ⟨x.2, h⟩, fun h => h.2⟩
 
 end Stabilizer
-
-
-
 
 
 section Conjugate

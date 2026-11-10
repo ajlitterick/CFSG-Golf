@@ -267,10 +267,6 @@ theorem nonabelian_simple_even (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a) : Even (Nat.card G) ∧ ∃ t : G, orderOf t = 2 :=
   CFSG.ComponentClassification.SimpleEvenOrder.nonabelian_simple_even hnonab
 
-theorem maximal_local_over_sylow_exists {G : Type*} [Group G] [Finite G] (T : Sylow 2 G)
-    (hT : (T : Subgroup G) ≠ ⊥) :
-    ∃ M : Subgroup G, quasithinIsMaxTwoLocal M ∧ (T : Subgroup G) ≤ M :=
-  CFSG.QuasithinUnique.exists_maxTwoLocal_ge_sylow T hT
 
 theorem unique_maximal_local
     (G : Type) [Group G] [Finite G] [IsSimpleGroup G]

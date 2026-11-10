@@ -468,13 +468,5 @@ theorem false_of_sylowModel
   have ht2 : t * t = 1 := by rw [← pow_two, ← ht, pow_orderOf_eq_one]
   exact Hyp.false ⟨ht2, hTH, hTHp, hTHmax, hS⟩ hGt
 
-theorem false_of_sylowModel_of_simple
-    [Finite G]
-    (hG : IsSimpleGroup G) (hnab : ∃ a b : G, a * b ≠ b * a) {ε : Eps} {t : G}
-    {TH E₁ S : Subgroup G} (ht : orderOf t = 2) (hTH : TH ≤ centralizer ({t} : Set G))
-    (hTHp : IsPGroup 2 TH)
-    (hTHmax : ∀ V : Subgroup G, V ≤ centralizer ({t} : Set G) → IsPGroup 2 V → TH ≤ V → V = TH)
-    (hS : SylowModel ε t TH E₁ S) : False :=
-  false_of_sylowModel ht hTH hTHp hTHmax hS fun K hK => (not_index_two hG hnab K hK).elim
 
 end CFSG.EvenSmallLie.OmegaEight.SpBranch

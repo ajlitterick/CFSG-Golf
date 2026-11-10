@@ -255,20 +255,9 @@ theorem commute [Finite G] (hcard : Nat.card V = Nat.card A)
 
 end TIPairData
 
-theorem twoGroupTIInput : TwoGroupTIInput.{u} := by
-  intro G _ _ X V A hX hVX hAX hV hA hcard hVA hTIV hTIA _ hU v hv a ha
-  exact (TIPairData.mk hX hVX hAX hV hA hVA hTIV hTIA).commute hcard hU v hv a ha
 
 namespace TightData
 
-variable [Finite G] {K H Q S : Subgroup G} (d : TightData K H Q S)
-include d
-
-theorem commute_of_inf_normalizer_ne_bot {g : G} (hg : g ∈ H) (hne : conjSubgroup g Q ≠ Q)
-    (hgS : conjSubgroup g Q ≤ S)
-    (hN : conjSubgroup g Q ⊓ Subgroup.normalizer (Q : Set G) ≠ ⊥) :
-    Q ⊓ conjSubgroup g Q = ⊥ ∧ ∀ x ∈ Q, ∀ y ∈ conjSubgroup g Q, x * y = y * x :=
-  d.commute_of_normalizer_ne_bot twoGroupTIInput hg hne hgS hN
 
 end TightData
 

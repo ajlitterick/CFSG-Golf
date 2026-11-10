@@ -77,29 +77,5 @@ structure IsBTBlock (G T E : Subgroup Γ) : Prop where
           Nonempty ((((cStarIn G T ⊓ E).subgroupOf E).map (QuotientGroup.mk' (pCore 2 ↥E))) ≃*
             alternatingGroup (Fin (2 * m))))
 
-@[expose] def BHSLocalCStarStar : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (G T : Subgroup Γ), CharTwo G → IsMinParabolic2 T G →
-    cStarStarIn G T ≠ G →
-    ∃ ℰ : Set (Subgroup Γ),
-      autOn G (omegaOneCenterOf (pCoreOf 2 G)) =
-        autOn (thompsonJ G ⊔ T) (omegaOneCenterOf (pCoreOf 2 G)) ∧
-      autOn (thompsonJ G) (omegaOneCenterOf (pCoreOf 2 G)) =
-        ⨆ E ∈ ℰ, autOn E (omegaOneCenterOf (pCoreOf 2 G)) ∧
-      (∀ E ∈ ℰ, ∀ E' ∈ ℰ, autOn E (omegaOneCenterOf (pCoreOf 2 G)) ≠
-          autOn E' (omegaOneCenterOf (pCoreOf 2 G)) →
-        ∀ x ∈ autOn E (omegaOneCenterOf (pCoreOf 2 G)),
-          ∀ y ∈ autOn E' (omegaOneCenterOf (pCoreOf 2 G)), x * y = y * x) ∧
-      sSupIndep ((fun E => autOn E (omegaOneCenterOf (pCoreOf 2 G))) '' ℰ) ∧
-      (∀ E ∈ ℰ, ∀ E' ∈ ℰ, ∃ t ∈ T, autOn (conjSub t E) (omegaOneCenterOf (pCoreOf 2 G)) =
-        autOn E' (omegaOneCenterOf (pCoreOf 2 G))) ∧
-      (∀ E ∈ ℰ, ∀ t ∈ T, ∃ E' ∈ ℰ, autOn (conjSub t E) (omegaOneCenterOf (pCoreOf 2 G)) =
-        autOn E' (omegaOneCenterOf (pCoreOf 2 G))) ∧
-      omegaOneCenterOf (pCoreOf 2 G) =
-        (omegaOneCenterOf (pCoreOf 2 G) ⊓
-            Subgroup.centralizer ((⨆ E ∈ ℰ, E : Subgroup Γ) : Set Γ)) ⊔
-          ⨆ E ∈ ℰ, ⁅omegaOneCenterOf (pCoreOf 2 G), E⁆ ∧
-      (∀ E ∈ ℰ, ∀ E' ∈ ℰ, E ≠ E' → ⁅⁅omegaOneCenterOf (pCoreOf 2 G), E⁆, E'⁆ = ⊥) ∧
-      ∀ E ∈ ℰ, (∃ n : ℕ, IsNatSL E ⁅omegaOneCenterOf (pCoreOf 2 G), E⁆ n) ∨
-        ∃ n : ℕ, IsNatSym E ⁅omegaOneCenterOf (pCoreOf 2 G), E⁆ (2 ^ n + 1)
 
 end CFSG.CGT.PushingUpLit.BHS

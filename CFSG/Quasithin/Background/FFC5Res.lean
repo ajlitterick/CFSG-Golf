@@ -55,22 +55,11 @@ theorem conj_mem_G₁ : ∀ g ∈ G, ∀ x ∈ G₁, g * x * g⁻¹ ∈ G₁ := 
   have := h.normal₁.conj_mem ⟨x, h.G₁_le hx⟩ (by rwa [Subgroup.mem_subgroupOf]) ⟨g, hg⟩
   simpa [Subgroup.mem_subgroupOf] using this
 
-include h in
-theorem res_mem : ∀ g ∈ G, ∃ b ∈ G₂, ∀ v ∈ fixV G₁, g v = b v :=
-  ProdSplit.res_mem h.sup h.comm
 
 include h in
 theorem stab_G : G ≤ stabSub (fixV G₁) :=
   ProdSplit.stab_G h.sup h.comm
 
-include h in
-theorem autSub_sup_eq : autSub G (fixV G₁) = autSub G₂ (fixV G₁) :=
-  ProdSplit.autSub_sup_eq h.sup h.comm
-
-include h in
-theorem ffJ_autSub [Finite V] (hJ : G = ffJ G) :
-    autSub G₂ (fixV G₁) ≤ ffJ (autSub G₂ (fixV G₁)) :=
-  ProdSplit.ffJ_autSub h.sup h.comm hJ
 
 include h in
 theorem b53 [Finite V] (hO2 : pCoreOf 2 G = ⊥) (hJ : G = ffJ G) (hq : IsQuotientOfSQTKTauCeti ↥G) :
@@ -85,14 +74,6 @@ include h in
 theorem autSub_ne_bot (hne : G₂ ≠ ⊥) : autSub G₂ (fixV G₁) ≠ ⊥ :=
   ProdSplit.autSub_ne_bot h.comm h.faithful hne
 
-
-
-
-
-include h in
-theorem res_compat (g : ↥G₂) (w : ↥(fixV G₁)) :
-    (fixV G₁).subtype (((resEquiv h.stab h.faithful g : ↥(autSub G₂ (fixV G₁))) :
-      MulAut ↥(fixV G₁)) w) = (g : MulAut V) ((fixV G₁).subtype w) := rfl
 
 theorem map_top_eq : (⊤ : Subgroup ↥(fixV G₁)).map (fixV G₁).subtype = fixV G₁ :=
   SplitTransport.map_top_eq
@@ -112,10 +93,6 @@ theorem map_commV_eq :
   rw [commV_eq_commSub, map_commSub_autSub h.stab, map_top_eq,
     commSub_eq_commV h.dec_sup h.triv₁]
 
-include h in
-theorem map_modComm_eq :
-    (modComm (autSub G₂ (fixV G₁)) ⊤).map (fixV G₁).subtype = modComm G₂ (fixV G₁) :=
-  SplitTransport.map_modComm_eq h.stab
 
 include h in
 theorem realizes_transport {D : FFModel} {U Z : Subgroup ↥(fixV G₁)}

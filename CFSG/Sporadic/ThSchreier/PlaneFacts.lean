@@ -80,43 +80,6 @@ theorem iota_mem_planeY_iff (i : Fin nPlanes) : iota i ∈ planeY ↔ i.val ∈ 
     rw [iota_eq_rowPlane hF hS, ← hke, hkey, rowPlane_subset_planeUA_iff]
     exact ⟨hu, hv⟩
 
-theorem canonRows_image {k : ℕ} (hk : k < 120) :
-    ∃ h : centImageIdx[k]'(by rw [centImage_length]; exact hk) < nPlanes,
-      CanonRows (iota ⟨_, h⟩) (centImageRows.getD (2 * k) 0)
-        (centImageRows.getD (2 * k + 1) 0) := by
-  have hk' : k < centImageIdx.length := by rw [centImage_length]; exact hk
-  obtain ⟨hlt, hkey, -, -⟩ := centImage_mem hS hk'
-  have hlt' : centImageIdx[k] < nPlanes := nPlanes_eq_nX hF hS ▸ hlt
-  refine ⟨hlt', ?_⟩
-  have hr1 : centImageRows.getD (2 * k) 0 < 2 ^ 248 := by
-    rw [List.getD_eq_getElem _ _ (by rw [centImageRows_length]; omega)]
-    exact centImageRows_lt _ (List.getElem_mem _)
-  have hr2 : centImageRows.getD (2 * k + 1) 0 < 2 ^ 248 := by
-    rw [List.getD_eq_getElem _ _ (by rw [centImageRows_length]; omega)]
-    exact centImageRows_lt _ (List.getElem_mem _)
-  have hc := canonRows_of_isCanonical (rowKeyOf_canonical hF hlt)
-  have hu : (rowKeyOf (readKey thSt.keys centImageIdx[k])).u.toNat =
-      centImageRows.getD (2 * k) 0 := by
-    rw [hkey, centImageKeys_getElem hk, v4OfNat_toNat_of_lt hr1]
-  have hv : (rowKeyOf (readKey thSt.keys centImageIdx[k])).v.toNat =
-      centImageRows.getD (2 * k + 1) 0 := by
-    rw [hkey, centImageKeys_getElem hk, v4OfNat_toNat_of_lt hr2]
-  rw [hu, hv] at hc
-  rw [iota_eq_rowPlane hF hS]
-  exact hc
-
-theorem ncard_fixed : {P | P ∈ planeX ∧ a • P = P}.ncard = 10200 := by
-  have he : {P | P ∈ planeX ∧ a • P = P} = iota '' {i : Fin nPlanes | i.val ∈ centFixedIdx} := by
-    ext P
-    constructor
-    · rintro ⟨hP, hfix⟩
-      obtain ⟨i, rfl⟩ := iota_surjective hP
-      exact ⟨i, (a_smul_iota_iff_mem hF hS i).1 hfix, rfl⟩
-    · rintro ⟨i, hi, rfl⟩
-      exact ⟨iota_mem i, (a_smul_iota_iff_mem hF hS i).2 hi⟩
-  rw [he, Set.ncard_image_of_injective _ iota_injective,
-    ncard_fin_mem (centFixed_sorted hS).nodup fun x hx =>
-      nPlanes_eq_nX hF hS ▸ (centFixed_mem hS hx).1, centFixed_length]
 
 theorem ncard_planeY : planeY.ncard = 120 := by
   have he : planeY = iota '' {i : Fin nPlanes | i.val ∈ centImageIdx} := by

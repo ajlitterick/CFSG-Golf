@@ -63,25 +63,5 @@ theorem perfect_lifts_with_same_image_eq
   rw [← perfect_subgroup_eq_derived_of_image_preimage homomorphism hcentral first hfirst,
     himages, perfect_subgroup_eq_derived_of_image_preimage homomorphism hcentral second hsecond]
 
-theorem perfect_lift_normalizer_contains_image_normalizer
-    {G Image : Type*} [Group G] [Group Image]
-    (homomorphism : G →* Image) (hcentral : homomorphism.ker ≤ Subgroup.center G)
-    (perfectGroup : Subgroup G) (hperfect : Group.IsPerfect perfectGroup) :
-    Subgroup.comap homomorphism
-      (Subgroup.normalizer (Subgroup.map homomorphism perfectGroup : Set Image)) ≤
-        Subgroup.normalizer (perfectGroup : Set G) := by
-  intro conjugator hconjugator
-  have hpreimageNormalizes : conjugator ∈ Subgroup.normalizer
-      (Subgroup.comap homomorphism (Subgroup.map homomorphism perfectGroup) : Set G) := by
-    apply Subgroup.mem_normalizer_iff.mpr
-    intro element
-    change homomorphism element ∈ Subgroup.map homomorphism perfectGroup ↔
-      homomorphism (conjugator * element * conjugator⁻¹) ∈ Subgroup.map homomorphism perfectGroup
-    simpa only [map_mul, map_inv] using
-      Subgroup.mem_normalizer_iff.mp hconjugator (homomorphism element)
-  apply Subgroup.mem_normalizer_iff_map_conj_eq.mpr
-  have hmap := Subgroup.mem_normalizer_iff_map_conj_eq.mp hpreimageNormalizes
-  rw [← perfect_subgroup_eq_derived_of_image_preimage homomorphism hcentral perfectGroup hperfect,
-    Subgroup.map_commutator, hmap]
 
 end CFSG.RankThreeCoreUniqueness.Helpers

@@ -185,11 +185,5 @@ theorem commutator_mem_lambdaStar {B X : Subgroup G} (hB : B ∈ lambdaStar R A 
 
 end Levi
 
-theorem Sec13.exists_mem_levi_conjSet_deltaSet_eq {A A₀ : Subgroup G} (hS : Sec13 R A A₀)
-    {B C : Subgroup G} (hB : B ∈ lambdaStar R A A₀) (hC : C ∈ lambdaStar R A A₀) :
-    ∃ v ∈ levi R A A₀, conjSet (deltaSet R A A₀ B) v = deltaSet R A A₀ C := by
-  obtain ⟨v, hv, hBv⟩ :=
-    exists_mem_levi_conjSub_eq_of_isSigmaMaximal hS.hyp hS.mem hS.sec8.2 hS.max hS.opp hB hC
-  exact ⟨v, hv, by rw [conjSet_deltaSet hS.hyp.root hv, hBv]⟩
 
 end CFSG.Timmesfeld.ARS

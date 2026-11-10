@@ -33,25 +33,6 @@ end Prelim
 
 namespace Prelim
 
-@[expose] def commMap {V : Subgroup G} (hV : IsElementaryAbelian 2 V) {z : G}
-    (hz : z ∈ normalizer (V : Set G)) : V →* V :=
-  MonoidHom.mk' (fun w => ⟨z⁻¹ * w * z * (w : G)⁻¹,
-    V.mul_mem (conj_mem_of_mem_normalizer hz w.2) (V.inv_mem w.2)⟩) (by
-    intro a b
-    apply Subtype.ext
-    simp only [coe_mul]
-    have h2 : z⁻¹ * (b : G) * z ∈ V := conj_mem_of_mem_normalizer hz b.2
-    have hc : (a : G)⁻¹ * (z⁻¹ * b * z) = z⁻¹ * b * z * (a : G)⁻¹ :=
-      mul_comm_of_mem hV (V.inv_mem a.2) h2
-    have hc' : (b : G)⁻¹ * (a : G)⁻¹ = (a : G)⁻¹ * (b : G)⁻¹ :=
-      mul_comm_of_mem hV (V.inv_mem b.2) (V.inv_mem a.2)
-    calc z⁻¹ * ((a : G) * b) * z * ((a : G) * b)⁻¹
-        = (z⁻¹ * a * z) * ((z⁻¹ * b * z) * ((b : G)⁻¹ * (a : G)⁻¹)) := by group
-      _ = (z⁻¹ * a * z) * ((z⁻¹ * b * z) * ((a : G)⁻¹ * (b : G)⁻¹)) := by rw [hc']
-      _ = (z⁻¹ * a * z) * (((z⁻¹ * b * z) * (a : G)⁻¹) * (b : G)⁻¹) := by
-          simp only [mul_assoc]
-      _ = (z⁻¹ * a * z) * (((a : G)⁻¹ * (z⁻¹ * b * z)) * (b : G)⁻¹) := by rw [hc]
-      _ = z⁻¹ * a * z * (a : G)⁻¹ * (z⁻¹ * b * z * (b : G)⁻¹) := by simp only [mul_assoc])
 
 end Prelim
 

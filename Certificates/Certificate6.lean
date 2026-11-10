@@ -26,12 +26,5 @@ open Equiv
 
 namespace Certificates
 
-open Equiv in
-theorem certificate6 :
-      ∀ t : Equiv.Perm (Fin 4), t.sign = -1 →
-        t.support.card = 2 ∨ (t.support.card = 4 ∧ t ^ 2 ≠ 1) := by
-  intro t ht
-  revert t ht
-  decide
 
 end Certificates

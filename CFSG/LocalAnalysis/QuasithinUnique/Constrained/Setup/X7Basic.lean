@@ -481,43 +481,12 @@ end MatrixRep
 
 section FixedSub
 
-variable {G V k : Type*} [Group G] [Field k] [AddCommGroup V] [Module k V]
-
-theorem fixedSub_comp_subtype (ρ : Representation k G V) (H : Subgroup G) :
-    fixedSub (ρ.comp H.subtype) ⊤ = fixedSub ρ H := by
-  ext w
-  simp only [mem_fixedSub, Subgroup.mem_top, forall_true_left, MonoidHom.comp_apply,
-    Subgroup.subtype_apply]
-  exact ⟨fun h g hg => h ⟨g, hg⟩, fun h g => h g.1 g.2⟩
-
-theorem hline_of_finrank_le_one [FiniteDimensional k V] (ρ : Representation k G V) (H : Subgroup G)
-    (h : Module.finrank k (fixedSub ρ H) ≤ 1) :
-    ∃ n ∈ fixedSub ρ H, ∀ w ∈ fixedSub ρ H, ∃ c : k, w = c • n := by
-  obtain ⟨n, hn⟩ := finrank_le_one_iff.mp h
-  exact ⟨n.1, n.2, fun w hw => by
-    obtain ⟨c, hc⟩ := hn ⟨w, hw⟩
-    exact ⟨c, (congrArg Subtype.val hc).symm⟩⟩
 
 end FixedSub
 
 
 section Node
 
-variable {p : ℕ} {G V : Type*} (k : Type*) [Group G] [Fintype G] [Field k] [CharP k p]
-    [AddCommGroup V] [Module k V]
-
-theorem pGroup_norm_orbit_independence [FiniteDimensional k V] (hp : p.Prime) (hG : IsPGroup p G)
-    (ρ : G →* (V →ₗ[k] V)) :
-    (Nontrivial V → ∃ w : V, w ≠ 0 ∧ ∀ g, ρ g w = w) ∧
-    (∀ v : V, ∑ g, ρ g v ≠ 0 → LinearIndependent k (fun g : G => ρ g v)) ∧
-    (∀ v : V, ∑ g, ρ g v ≠ 0 → Module.finrank k V = Fintype.card G →
-      ∃ b : Module.Basis G k V, (∀ g, b g = ρ g v) ∧ (∀ g h, b (g * h) = ρ g (b h)) ∧
-        Module.finrank k (fixedSub ρ ⊤) = 1) := by
-  refine ⟨fun hnt => ?_, fun v hv => linearIndependent_orbit_of_norm_ne_zero k hp hG ρ v hv,
-    fun v hv hdim => orbit_regular_of_norm_ne_zero k hp hG ρ v hv hdim⟩
-  obtain ⟨v, hv⟩ := exists_ne (0 : V)
-  obtain ⟨w, hw0, hwf, -⟩ := exists_fixed_ne_zero_of_pGroup k hp hG ρ hv
-  exact ⟨w, hw0, hwf⟩
 
 end Node
 

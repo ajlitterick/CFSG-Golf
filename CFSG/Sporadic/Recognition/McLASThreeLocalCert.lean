@@ -24,10 +24,5 @@ theorem mcl_threeLocal_of_certificate :
       ThreeLocalAut CFSG.Blueprint.NativeSporadic.McL x R T A :=
   mcl_threeLocal threeFacts_cert' sylowThreeOK_eq_true' threeLocalCheck_eq_true
 
-theorem mcl_thompson_of_certificate :
-    ∃ (x : CFSG.Blueprint.NativeSporadic.McL) (R T A : Subgroup CFSG.Blueprint.NativeSporadic.McL),
-      ThreeLocalAut CFSG.Blueprint.NativeSporadic.McL x R T A ∧
-        CFSG.IsElementaryAbelian 3 ↥A ∧ Nat.card ↥A = 81 ∧ CFSG.thompsonSubgroup T = A :=
-  mcl_thompson threeFacts_cert' sylowThreeOK_eq_true' threeLocalCheck_eq_true
 
 end CFSG.Sporadic.Recognition.McLAS

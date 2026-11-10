@@ -29,9 +29,6 @@ theorem conjOrbit_eq_of_mem {Z J K' : Subgroup Γ} (h : K' ∈ L514.conjOrbit Z 
     rw [L514.map_conj_map_conj]
     simp
 
-theorem orbitClosure_eq_of_mem {Z J K' : Subgroup Γ} (h : K' ∈ L514.conjOrbit Z J) :
-    orbitClosure K' Z = orbitClosure J Z := by
-  rw [L514.orbitClosure_eq_sSup, L514.orbitClosure_eq_sSup, conjOrbit_eq_of_mem h]
 
 variable [Finite Γ]
 

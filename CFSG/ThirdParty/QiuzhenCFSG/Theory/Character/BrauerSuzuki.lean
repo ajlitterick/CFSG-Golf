@@ -36,10 +36,6 @@ universe u
 attribute [local instance] Fintype.ofFinite
 attribute [local instance] Classical.propDecidable
 
-/-- `star (if p then a else b) = if p then star a else star b`. -/
-private lemma star_ite {p : Prop} [Decidable p] (a b : ℂ) :
-    star (if p then a else b) = (if p then star a else star b) := by
-  by_cases h : p <;> simp [h]
 
 /-- Reindexing: `∑_{x,y} f (x⁻¹·y) = |L| · ∑_z f z`. -/
 public lemma conj_reindex {L : Type u} [Group L] [Fintype L] (f : L → ℂ) :

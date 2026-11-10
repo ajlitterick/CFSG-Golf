@@ -491,14 +491,6 @@ theorem exists_injective_swapRow (hX : SwapNeighbourIso e t .X) (hY : SwapNeighb
   · exact hclaim .X hX (subset_nodes_X_of_zero_not_mem h0) J.2 fun x =>
       ⟨x, (hψφ ⟨J.1, J.2⟩ x x.2).trans (swapFamily_of_zero_not_mem h0 _)⟩
 
-theorem exists_injective_swapRow_of_mem_centralizer (hX : SwapNeighbourIso e t .X)
-    (hY : SwapNeighbourIso e t .Y) (htL : t ∈ centralizer (L : Set G)) (hq : 4 ≤ Nat.card K) :
-    ∃ ψ : adjointGroup .F4 K →* G, Function.Injective ψ ∧
-      (∀ x y, Commute (ψ x) (t * ψ y * t⁻¹)) ∧
-      (∀ x, ψ x * (t * ψ x * t⁻¹) = ((e.symm x : L) : G)) ∧
-      ψ.range ⊔ ψ.range.map (MulAut.conj t).toMonoidHom =
-        ⨆ J : {J : Finset (Fin (Tag.rank .F4)) // J.card ≤ 2}, pieceCore e J.1 :=
-  exists_injective_swapRow hX hY (hX.toX' (commute_symm_n1242_of_mem_centralizer htL)) hq
 
 theorem exists_swapFactors (hX : SwapNeighbourIso e t .X) (hY : SwapNeighbourIso e t .Y)
     (hX' : SwapNeighbourIso e t .X') (hq : 4 ≤ Nat.card K) :
@@ -519,16 +511,6 @@ theorem exists_swapFactors (hX : SwapNeighbourIso e t .X) (hY : SwapNeighbourIso
     rw [hy]
     exact hdiag y
 
-theorem false_of_simple_of_swapRow [IsSimpleGroup G] (hX : SwapNeighbourIso e t .X)
-    (hY : SwapNeighbourIso e t .Y) (hX' : SwapNeighbourIso e t .X') (hq : 4 ≤ Nat.card K)
-    (ht : orderOf t = 2) {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ normalizer ((⨆ J : {J : Finset (Fin (Tag.rank .F4)) //
-        J.card ≤ 2}, pieceCore e J.1 : Subgroup G) : Set G) →
-      g ∈ normalizer ((⨆ J : {J : Finset (Fin (Tag.rank .F4)) // J.card ≤ 2},
-        pieceCore e J.1 : Subgroup G) : Set G)) : False := by
-  obtain ⟨G₁, G₂, ε, h₁₂, hswap, hsup, -⟩ := exists_swapFactors hX hY hX' hq
-  rw [← hsup] at huniq
-  exact false_of_simple_of_swap_F4 ht hf hK ε h₁₂ hswap huniq
 
 end Main
 

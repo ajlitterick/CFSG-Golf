@@ -26,14 +26,6 @@ structure AscStand3 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K :
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {K : Subgroup G}
 
-theorem ascStand3_of_ascStandT (h : AscStandT 3 1 Ω K) : AscStand3 Ω K where
-  hyp := h.hyp
-  below := h.below 1 (by norm_num)
-  ih := h.ih 1 (by norm_num)
-  aEmpty := h.aEmpty
-  mem := h.mem
-  trans := h.trans
-  gen := h.gen
 
 end Stand
 
@@ -54,19 +46,6 @@ section Forms
     AscStand3 Ω K → 3 ≤ CFSG.Open.twoRank G → ¬ TwoSubgroupsFourGenerated G → ¬ DEdgeless Ω →
       (∀ K' ∈ twinSet Ω K, K' = K) → ¬ DConnected Ω → False
 
-theorem conclusionD_of_cit3LargeWeak (h : CIT3LargeWeak) {G : Type} [Group G] [Finite G]
-    [IsSimpleGroup G] {Ω : Set (Subgroup G)} {K : Subgroup G} (hs : AscStand3 Ω K)
-    (h3 : 3 ≤ CFSG.Open.twoRank G) (h4 : ¬ TwoSubgroupsFourGenerated G) : ConclusionD G := by
-  obtain ⟨z, hz⟩ := hs.hyp.classical K hs.mem
-  obtain ⟨x, -, y, -, hxy⟩ := hz.exists_noncomm
-  exact h G ⟨x, y, hxy⟩ K z (hz.toQ3 (by norm_num))
-    ((citBelowT_three_iff (p := 3) (f := 1) (by norm_num) _).mp hs.below) h3 h4
-
-theorem thm6A3_of_cit3LargeWeak (h : CIT3LargeWeak) : Thm6A3 :=
-  fun _ _ _ _ _ _ hs h3 h4 _ => conclusionD_of_cit3LargeWeak h hs h3 h4
-
-theorem thm7A3_of_cit3LargeWeak (h : CIT3LargeWeak) : Thm7A3 :=
-  fun _ _ _ _ _ _ hs h3 h4 _ _ => conclusionD_of_cit3LargeWeak h hs h3 h4
 
 end Forms
 

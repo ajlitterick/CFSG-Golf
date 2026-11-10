@@ -240,9 +240,6 @@ end Pairs
 
 section QuotientStep
 
-@[expose] def Thm33aBelow.{v} (p n : ℕ) : Prop :=
-  ∀ (Γ : Type v) [Group Γ] [Finite Γ] (A X Y : Subgroup Γ), Nat.card ↥X < n →
-    NearAsolvAction p A X → (iPairsY A X Y).Nonempty → iThetaU A X Y ∈ iUset A X Y
 
 theorem lift_orbitClosure (h : NearAsolvAction p A X) (hP : (X₁, X₂) ∈ iPairsY A X Y)
     (hX : X ≤ AChief.nrm N) (hA : A ≤ AChief.nrm N) (hN : N ⊓ X₁ ≤ X₂)

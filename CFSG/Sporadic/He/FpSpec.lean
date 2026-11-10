@@ -46,9 +46,6 @@ theorem toVec_mulVec (p d : ℕ) (M : Array (Array ℕ)) (v : Array ℕ) :
   rw [getElem!_ofFn _ i.isLt, dot_cast]
   rfl
 
-theorem mulVec_size (p d : ℕ) (M : Array (Array ℕ)) (v : Array ℕ) :
-    (mulVec p d M v).size = d := by
-  unfold mulVec; simp
 
 theorem toMat_mulM (p d : ℕ) (X Y : Array (Array ℕ)) :
     toMat p d (mulM p d X Y) = toMat p d X * toMat p d Y := by

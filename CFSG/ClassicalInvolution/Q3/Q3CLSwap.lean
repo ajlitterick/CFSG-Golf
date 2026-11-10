@@ -249,36 +249,6 @@ theorem eq_of_centralizes_J (hs : Std8Core Ω K J S R T W z t)
   rw [hzt] at hb hxc ⊢
   exact eq_of_centralizes hs' hX' hV' hb hxJ hx4 hxc
 
-theorem false_of_loc [IsSimpleGroup G] (hs : Std8Core Ω K J S R T W z t)
-    (hX : Loc26 Ω K J S R T z t Q) (hXs : Loc26 Ω J K S T R t z Q') (hV : ExtraTrans Ω K J S z t)
-    (hV' : ExtraTrans Ω J K S t z) (hO : OuterFusion K J S R T z t) : False := by
-  have hΩ : HypOmegaGen Ω := hs.stand.hyp
-  have haa : z * t * (z * t) = 1 := T8.mul_self_zt hΩ hs.hz hs.hJ hs.ht
-  have hza : orderOf (z * t) = 2 := by
-    refine orderOf_eq_prime (by rw [pow_two]; exact haa) ?_
-    intro h
-    have hzt : z ≠ t := by
-      intro h'
-      exact hs.hJ.2.1 (hs.noTwins J ⟨hs.hJ.1, z, hs.hz, h' ▸ hs.ht⟩)
-    exact hzt ((eq_inv_of_mul_eq_one_left h).trans (inv_eq_of_mul_eq_one_right hs.ht.sq))
-  have haS := zt_mem_sylow hs
-  obtain ⟨g, hgS, hgne⟩ := T8R.exists_conj_mem_sylow_ne (exists_not_comm hs) S haS
-    (fun s hs' => by
-      have := conj_zt_of_mem_sylow hs hX hs'
-      calc s * (z * t) = (s * (z * t) * s⁻¹) * s := by group
-        _ = (z * t) * s := by rw [this]) hza
-  apply hgne
-  rcases fix_or_swap hs hX hgS with ⟨hR, hT⟩ | ⟨hR, -⟩
-  · by_cases hK : ∃ x ∈ K, orderOf x = 4 ∧
-        x * (g⁻¹ * (z * t) * g) = (g⁻¹ * (z * t) * g) * x
-    · obtain ⟨x, hxK, hx4, hxc⟩ := hK
-      exact eq_of_centralizes hs hX hV hgS hxK hx4 hxc
-    by_cases hJ : ∃ x ∈ J, orderOf x = 4 ∧
-        x * (g⁻¹ * (z * t) * g) = (g⁻¹ * (z * t) * g) * x
-    · obtain ⟨x, hxJ, hx4, hxc⟩ := hJ
-      exact eq_of_centralizes_J hs hXs hV' hgS hxJ hx4 hxc
-    exact hO g hgS hR hT hK hJ
-  · exact eq_of_swap hs hX hV hgS hR
 
 end T8R.Loc
 

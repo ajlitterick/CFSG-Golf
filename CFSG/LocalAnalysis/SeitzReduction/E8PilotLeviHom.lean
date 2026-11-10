@@ -205,11 +205,6 @@ theorem e7ToE8_xm {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E7 γ) (c : K
     e7ToE8 K (e7Data_valid.xm K γ c) = e7LeviPar K γ c :=
   liftOfPresentationB_apply _ _ _ _ _ (by rw [e7Sys_roots]; exact hγ) c
 
-theorem coe_e7ToE8_xm {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E7 γ) (c : K) :
-    ((e7ToE8 K (e7Data_valid.xm K γ c) : adjointGroup .E8 K) : ModGL .E8 K) =
-      pinnedX .E8 K (e7Embed γ) c := by
-  rw [e7ToE8_xm hγ]
-  rfl
 
 omit [CharP K 2] [Finite K]
   in
@@ -234,9 +229,6 @@ theorem range_e7ToE8 : (e7ToE8 K).range = e7Levi K := by
   · rintro ⟨γ, hγ, c, rfl⟩
     exact ⟨_, ⟨γ, hγ, c, rfl⟩, e7ToE8_xm hγ c⟩
 
-theorem e7ToE8_mem_e7Levi (g : e7Data_valid.minGroup K) : e7ToE8 K g ∈ e7Levi K := by
-  rw [← range_e7ToE8]
-  exact ⟨g, rfl⟩
 
 theorem exists_e7ToE8_ne_one : ∃ g, e7ToE8 K g ≠ 1 := by
   have h0 : (0 : ℕ) < Tag.rank .E7 := by decide

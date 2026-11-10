@@ -30,14 +30,6 @@ theorem actionCosetEquiv_smul (htrans : MulAction.IsPretransitive G Ω)
       g • actionCosetEquiv htrans alpha omega :=
   MulAction.ofQuotientStabilizer_smul G alpha g omega
 
-theorem actionCosetEquiv_stabilizer (htrans : MulAction.IsPretransitive G Ω)
-    (alpha : Ω) (omega : G ⧸ MulAction.stabilizer G alpha) :
-    MulAction.stabilizer G omega =
-      MulAction.stabilizer G (actionCosetEquiv htrans alpha omega) := by
-  ext g
-  rw [MulAction.mem_stabilizer_iff, MulAction.mem_stabilizer_iff]
-  rw [← actionCosetEquiv_smul]
-  exact (actionCosetEquiv htrans alpha).injective.eq_iff.symm
 
 def actionCosetFixedEquiv (htrans : MulAction.IsPretransitive G Ω)
     (alpha : Ω) (Q : Subgroup G) :
@@ -98,44 +90,5 @@ def fixedConjEquiv (Q : Subgroup G) (g : G) :
   left_inv omega := by apply Subtype.ext; exact inv_smul_smul g (omega : Ω)
   right_inv omega := by apply Subtype.ext; exact smul_inv_smul g (omega : Ω)
 
-theorem exists_maximal_three_fixed_overgroup [Finite G]
-    (p : ℕ) (P : Subgroup G) (hP : IsPGroup p P)
-    (hthree : 2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω P}) :
-    ∃ Q : Subgroup G, P ≤ Q ∧
-      Maximal (fun R : Subgroup G => IsPGroup p R ∧
-        2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω R}) Q := by
-  let family : Set (Subgroup G) := {Q | P ≤ Q ∧ IsPGroup p Q ∧
-    2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω Q}}
-  obtain ⟨Q, hQ⟩ := (Set.toFinite family).exists_maximal
-    (show family.Nonempty from ⟨P, le_rfl, hP, hthree⟩)
-  refine ⟨Q, hQ.1.1, ⟨hQ.1.2, ?_⟩⟩
-  intro R hR hQR
-  exact hQ.2 ⟨hQ.1.1.trans hQR, hR⟩ hQR
-
-theorem maximal_three_fixed_conj [Finite G] (p : ℕ) (P : Subgroup G) (g : G)
-    (hmax : Maximal (fun R : Subgroup G => IsPGroup p R ∧
-      2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω R}) P) :
-    Maximal (fun R : Subgroup G => IsPGroup p R ∧
-      2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω R})
-        (P.conjBy g) := by
-  have hcard (R : Subgroup G) (x : G) :
-      Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω (R.conjBy x)} =
-        Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω R} :=
-    (Nat.card_congr (fixedConjEquiv (Ω := Ω) R x)).symm
-  refine ⟨⟨hmax.1.1.map (MulAut.conj g).toMonoidHom, ?_⟩, ?_⟩
-  · rw [hcard]
-    exact hmax.1.2
-  · intro R hR hPR
-    have hPback : P ≤ R.conjBy g⁻¹ := by
-      have h := Subgroup.map_mono (f := (MulAut.conj g⁻¹).toMonoidHom) hPR
-      change (P.conjBy g).conjBy g⁻¹ ≤ R.conjBy g⁻¹ at h
-      simpa [Subgroup.conjBy_conjBy, Subgroup.conjBy_one] using h
-    have hRback : IsPGroup p (R.conjBy g⁻¹) ∧
-        2 < Nat.card {omega : Ω // omega ∈ fixedPointsOfSubgroup G Ω (R.conjBy g⁻¹)} :=
-      ⟨hR.1.map (MulAut.conj g⁻¹).toMonoidHom, by rw [hcard]; exact hR.2⟩
-    have hback := hmax.2 hRback hPback
-    have h := Subgroup.map_mono (f := (MulAut.conj g).toMonoidHom) hback
-    change (R.conjBy g⁻¹).conjBy g ≤ P.conjBy g at h
-    simpa [Subgroup.conjBy_conjBy, Subgroup.conjBy_one] using h
 
 end CFSG.ShultStronglyClosedTI.TripleSylowMaximality

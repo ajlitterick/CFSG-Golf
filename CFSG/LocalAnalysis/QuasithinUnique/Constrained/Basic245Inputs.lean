@@ -67,9 +67,6 @@ theorem lemma245_C56_7_iff : Lemma245_C56_7 ↔
     conjJoin S L ≠ L →
     ∀ M₀ : Subgroup G, S ≤ M₀ → M₀ ≤ T → S.relIndex M₀ = 2 → C56_7Concl S H L M₀
 
-@[expose] def BlockUEqO2Single : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
-    conjJoin S L = L → ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) → blockU L = blockQ L
 
 @[expose] def C61Concl (T H S L : Subgroup G) : Prop :=
   (S.relIndex (normT T S) = 2 ∧
@@ -104,11 +101,6 @@ theorem lemma245_C56_7_iff : Lemma245_C56_7 ↔
           Nat.card S ≤ Nat.card ↥(T ⊓ Subgroup.normalizer ((A₁ ⊔ pCoreOf 2 H : Subgroup G) :
             Set G))))
 
-theorem lemma245_3_iff : Lemma245_3 ↔
-    ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
-      (IsAltType L 3 ∨ (conjJoin S L = L ∧ ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 5))) →
-        C61Concl T H S L :=
-  Iff.rfl
 
 @[expose] def C61SingleTail : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
@@ -150,10 +142,5 @@ theorem lemma245_3_iff : Lemma245_3 ↔
               Nat.card S ≤ Nat.card ↥(T ⊓ Subgroup.normalizer ((A₁ ⊔ pCoreOf 2 H : Subgroup G) :
                 Set G))))
 
-@[expose] def C61OtherCases : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H S L : Subgroup G), ConstrainedSetting G T M H S L →
-    (IsAltType L 3 ∨ (conjJoin S L = L ∧ ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 5))) →
-      ¬ (conjJoin S L = L ∧ ((∃ n : ℕ, 1 < n ∧ IsLin2Type L n) ∨ IsAltType L 3) ∧
-        ¬ IsAltType L 5) → C61Concl T H S L
 
 end CFSG.QuasithinUnique

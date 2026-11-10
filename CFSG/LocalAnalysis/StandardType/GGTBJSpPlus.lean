@@ -204,21 +204,6 @@ theorem exists_spPlus_model_of_marking
   exact ⟨m, Kf, inferInstance, inferInstance, inferInstance, hBsN,
     e.toMonoidHom.comp (ggQuotHom θ), hm4, hpq, hZ, hTB'⟩
 
-theorem GGResHyp.bstar_eq_of_spPlus_L
-    {G : Type} [Group G] [Finite G]
-    {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K)
-    (hmark : GGInnerDiagOnLabel ggTBJSpPlusLabel p Bs L) :
-    B = Bs := by
-  classical
-  have hcfg : GGConfig p B Bs x L D J := hH.1
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := hcfg.1.2.2.2.2.2.1.2.1
-  obtain ⟨m, Kf, _, _, _, hN, ψ₀, hm4, hpq, _hZ, hTB⟩ :=
-    exists_spPlus_model_of_marking hp hp2 hmark
-      (fun _ _ θ _ hN hBsI _ hlift hXc => ggTorusTBGroup_of_L hcfg hXc θ hN hBsI hlift)
-  haveI : NeZero m := ⟨by omega⟩
-  exact (ggTBJ_sp_bstar_eq hp hp2 hcfg L hN hpq ψ₀ hTB).symm
 
 theorem ggTBJLeft_spPlus_sideDatum_of_marking
     {G : Type} [Group G] [Finite G]

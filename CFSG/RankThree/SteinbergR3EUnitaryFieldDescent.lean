@@ -18,9 +18,6 @@ variable {ℓ f : ℕ} {K : Type} [Field K]
 @[expose] def normσ (σ : K ≃+* K) (m : ℕ) (x : K) : K :=
   ∏ i ∈ Finset.range m, (σ ^ i) x
 
-theorem normσ_mul (σ : K ≃+* K) (m : ℕ) (x y : K) :
-    normσ σ m (x * y) = normσ σ m x * normσ σ m y := by
-  simp only [normσ, map_mul, Finset.prod_mul_distrib]
 
 theorem normσ_pow (σ : K ≃+* K) (m : ℕ) (x : K) (k : ℕ) :
     normσ σ m (x ^ k) = normσ σ m x ^ k := by

@@ -28,10 +28,6 @@ private theorem natCast_zmod_two_eq_ite (n : ℕ) :
       omega
     rw [h0]; norm_num
 
-private theorem ite_testBit_zero_eq_cast (n : ℕ) :
-    (if n.testBit 0 then (1 : ZMod 2) else 0) = (n : ZMod 2) := by
-  simp only [Nat.testBit_zero, decide_eq_true_eq]
-  exact (natCast_zmod_two_eq_ite n).symm
 
 private theorem bp_ite_zero (m : ℕ) (p : Prop) [Decidable p] (c : ℕ) :
     bp m (if p then c else 0) = if p then bp m c else 0 := by

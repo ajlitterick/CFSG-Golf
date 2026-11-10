@@ -63,6 +63,5 @@ open CFSG.KC.Loop
       (Nat.mul (nat_lit 16) (Nat.add (Nat.xor (f (nat_lit 4)) (f (nat_lit 0)))
         (Nat.mul (nat_lit 16) (Nat.xor (f (nat_lit 8)) (f (nat_lit 0))))))))))
 
-@[expose] noncomputable def isTC (c : Nat) : Bool := Nat.beq (Nat.shiftRight c (nat_lit 4)) (nat_lit 33825)
 
 end CFSG.KC.M24L2

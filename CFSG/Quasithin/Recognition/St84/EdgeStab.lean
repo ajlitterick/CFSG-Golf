@@ -272,26 +272,6 @@ theorem isSylowTwoOf_vertexSylowMap (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
   exact isSylowTwoOf_map_of_sylow
     (hN.pointSylowN h.adj_smul (h.finite_stab α) (h.valency α).2 (h.valency α).1 β)
 
-theorem edgeSylow_fixes_unique (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
-    (hN : IsLocL2 Γ G α (nOf Γ α) N) {β : V} (hαβ : Γ.Adj α β) :
-    ∃! a : V, Γ.Adj α a ∧ ∀ x : G, x ∈ vertexSylowMap h hN β → x • a = a := by
-  classical
-  let S0 : Sylow 2 N :=
-    hN.pointSylowN h.adj_smul (h.finite_stab α) (h.valency α).2 (h.valency α).1 β
-  obtain ⟨a0, ha0, huniq⟩ :=
-    hN.sylow_fixes_unique h.adj_smul (h.finite_stab α) (h.valency α).2 (h.valency α).1 S0
-  have hβ : Γ.Adj α β ∧ ∀ x : G,
-      x ∈ vertexSylowMap h hN β → x • β = β :=
-    ⟨hαβ, fun x hx => vertexSylowMap_fixes hN hαβ hx⟩
-  refine ⟨a0, ⟨ha0.1, ?_⟩, ?_⟩
-  · intro x hx
-    obtain ⟨y, hy, rfl⟩ := Subgroup.mem_map.mp hx
-    exact ha0.2 y hy
-  · intro b hb
-    have hbS : ∀ y : N, y ∈ (S0 : Subgroup N) → (y : G) • b = b := by
-      intro y hy
-      exact hb.2 (y : G) (Subgroup.mem_map_of_mem N.subtype hy)
-    exact (huniq b ⟨hb.1, hbS⟩).trans (huniq a0 ⟨ha0.1, ha0.2⟩).symm
 
 theorem edgeSylow_fixes_unique_of_not_pcore (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     (hN : IsLocL2 Γ G α (nOf Γ α) N) {β : V} (hαβ : Γ.Adj α β)
@@ -699,7 +679,6 @@ theorem exists_edgeTorus (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
   exact ⟨K, hKleN, hKleβ, hKinf, hKsup⟩
 
 
-
 @[expose] noncomputable def edgeTorus (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     (hN : IsLocL2 Γ G α (nOf Γ α) N) {β : V} (hαβ : Γ.Adj α β) : Subgroup G :=
   Classical.choose (exists_edgeTorus h hN hαβ)
@@ -783,7 +762,6 @@ theorem edgeTorus_cyclic (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     (Subgroup.subgroupOfEquivOfLe hKle).surjective
 
 
-
 theorem edgeTorus_N_facts (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     (hN : IsLocL2 Γ G α (nOf Γ α) N) {β : V} (hαβ : Γ.Adj α β) :
     let S' : Sylow 2 N :=
@@ -836,7 +814,6 @@ theorem edgeTorus_N_facts (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
   have hcyc := hN.torus_cyclic h.adj_smul (h.finite_stab α) (h.valency α).2
     (h.valency α).1 S' KN hKSinf hKSsup
   exact ⟨hKSinf, hKSsup, hcyc.1, hcyc.2⟩
-
 
 
 theorem exists_edgeGamma (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
@@ -996,7 +973,6 @@ theorem ncard_neighborSet_diff_two (h : Hyp30 Γ G) {α β γ : V}
   exact hcard'
 
 
-
 theorem stabilizer_edgeTorus_neighbor (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     (hN : IsLocL2 Γ G α (nOf Γ α) N) {β : V} (hαβ : Γ.Adj α β)
     {δ : V} (hδ : Γ.Adj α δ) (hδβ : δ ≠ β) (hδγ : δ ≠ edgeGamma h hN hαβ) :
@@ -1091,7 +1067,6 @@ theorem stabilizer_edgeTorus_neighbor (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     rw [Subgroup.mem_bot] at hk
     subst hk
     exact Subgroup.one_mem _
-
 
 
 theorem orbit_edgeTorus_neighbor_ncard (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
@@ -1200,7 +1175,6 @@ theorem edgeTorus_transitive (h : Hyp30 Γ G) {α : V} {N : Subgroup G}
     rw [SubMulAction.val_smul, MulAction.subgroup_smul_def] at this
     simpa [aΔ] using this
   rw [hval, hxb]
-
 
 
 theorem commutator_mem_kernel (h : Hyp30 Γ G) {α β : V} {Nα Nβ : Subgroup G}

@@ -49,36 +49,6 @@ theorem card_hsP :
   simp only [← RawSchreierDatum.orbitSize_eq_card, hsChain_orbitSize]
   rfl
 
-theorem hsP_orbit_zero :
-    MulAction.orbit hsP (0 : Fin 3850) = Set.univ := by
-  rw [hsP_eq_original]
-  have h0 : (0 : ℕ) < hsChain.baseCount := by decide
-  have horb := RawSchreierDatum.orbitPoints_eq_orbit hsChain ⟨0, h0⟩
-  rw [RawSchreierDatum.levelSubgroup_zero_eq_original hsChain hsChain_valid.1] at horb
-  have hcard : Nat.card (hsChain.orbitPoints ⟨0, h0⟩) = 3850 := by
-    rw [← RawSchreierDatum.orbitSize_eq_card, hsChain_orbitSize]
-    rfl
-  rw [horb, show hsChain.base.get ⟨0, h0⟩ = 0 from rfl] at hcard
-  refine Set.eq_of_subset_of_ncard_le (Set.subset_univ _) ?_ (Set.toFinite _)
-  rw [Set.ncard_univ, Nat.card_eq_fintype_card, Fintype.card_fin, ← Nat.card_coe_set_eq, hcard]
-
-theorem hsP_transitive :
-    MulAction.IsPretransitive hsP (Fin 3850) := by
-  refine ⟨fun x y => ?_⟩
-  have hx : x ∈ MulAction.orbit hsP (0 : Fin 3850) := by rw [hsP_orbit_zero]; trivial
-  have hy : y ∈ MulAction.orbit hsP (0 : Fin 3850) := by rw [hsP_orbit_zero]; trivial
-  obtain ⟨g, rfl⟩ := hx
-  obtain ⟨h, rfl⟩ := hy
-  exact ⟨h * g⁻¹, by rw [mul_smul, inv_smul_smul]⟩
-
-theorem card_hsP_stabilizer :
-    Nat.card (MulAction.stabilizer hsP (0 : Fin 3850)) = 11520 := by
-  have h1 := MulAction.index_stabilizer hsP (0 : Fin 3850)
-  have h2 := (MulAction.stabilizer hsP (0 : Fin 3850)).card_mul_index
-  rw [h1, hsP_orbit_zero, Set.ncard_univ, Nat.card_fin, card_hsP] at h2
-  have h3 : Nat.card (MulAction.stabilizer hsP (0 : Fin 3850)) * 3850 = 11520 * 3850 := by
-    rw [h2]
-  exact Nat.eq_of_mul_eq_mul_right (by norm_num) h3
 
 theorem hsGen_mem_P (k : ℕ) (hk : k < 2) : hsGen k ∈ hsP := by
   rcases (by omega : k = 0 ∨ k = 1) with rfl | rfl
@@ -128,24 +98,5 @@ theorem card_hs :
     Nat.card Blueprint.NativeSporadic.HS = 44352000 := by
   rw [Nat.card_congr hsPermEquiv.toEquiv, card_hsP]
 
-theorem orderOf_hsSeed
-    (u : Blueprint.NativeSporadic.HS) :
-    orderOf u = orderOf (hsPermEquiv u : Equiv.Perm (Fin 3850)) := by
-  rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq]
-
-theorem FAM_HS_order :
-    ValidSchreier hsChain ∧ hsChain.base.toList.map Fin.val = [0, 1, 2, 3] ∧
-      (List.finRange hsChain.baseCount).map hsChain.orbitSize = [3850, 960, 6, 2] ∧
-      Nat.card hsP = 44352000 ∧ MulAction.IsPretransitive hsP (Fin 3850) ∧
-      Nat.card (MulAction.stabilizer hsP (0 : Fin 3850)) = 11520 ∧
-      orderOf (hsGen 0) = 2 ∧ orderOf (hsGen 1) = 5 ∧ orderOf (hsGen 0 * hsGen 1) = 11 ∧
-      Nat.card Blueprint.NativeSporadic.HS = 44352000 ∧
-      orderOf hsSeedA = 2 ∧ orderOf hsSeedB = 5 ∧ orderOf (hsSeedA * hsSeedB) = 11 := by
-  obtain ⟨o1, o2, o3, -⟩ := hs_word_orders
-  refine ⟨hsChain_valid.1, hsChain_base, hsChain_orbitSizes, card_hsP, hsP_transitive,
-    card_hsP_stabilizer, o1, o2, o3, card_hs, ?_, ?_, ?_⟩
-  · rw [orderOf_hsSeed, hsPermEquiv_seedA, o1]
-  · rw [orderOf_hsSeed, hsPermEquiv_seedB, o2]
-  · rw [orderOf_hsSeed, map_mul, Subgroup.coe_mul, hsPermEquiv_seedA, hsPermEquiv_seedB, o3]
 
 end CFSG.Sporadic.Schreier

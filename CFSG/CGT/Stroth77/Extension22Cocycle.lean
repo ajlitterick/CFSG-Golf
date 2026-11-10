@@ -140,11 +140,6 @@ theorem conjBy_mul {H : Subgroup S} {g : S} (hg : g ∈ Subgroup.normalizer H) (
   simp only [conjBy_val, Subgroup.coe_mul]
   group
 
-theorem conjBy_one {H : Subgroup S} {g : S} (hg : g ∈ Subgroup.normalizer H) :
-    conjBy hg (1 : H) = 1 := by
-  apply Subtype.ext
-  simp only [conjBy_val, Subgroup.coe_one]
-  group
 
 theorem conjBy_inclusion {g : S} (hBC : B ≤ C) (hgC : g ∈ Subgroup.normalizer C)
     (hgB : g ∈ Subgroup.normalizer B) (x : B) :
@@ -168,17 +163,6 @@ noncomputable abbrev Φρ (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
     Torus (StrothTypeIndex.t100 m).k →+ Torus (StrothTypeIndex.t100 m).k :=
   (StrothTypeIndex.action (StrothTypeIndex.t100 m)).φρ
 
-theorem Φuv_eq (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φuv D = matAct (Type100.k m) Type100.uvM (Type100.compat_uv m) := rfl
-
-theorem Φt_eq (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φt D = matAct (Type100.k m) Type100.tM (Type100.compat_t m) := rfl
-
-theorem Φu_eq (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φu D = matAct (Type100.k m) Type100.uM (Type100.compat_u m) := rfl
-
-theorem Φρ_eq (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φρ D = matAct (Type100.k m) Type100.ρM (Type100.compat_rho m) := rfl
 
 theorem ec_conj_u (D : StrothTypeData B (StrothTypeIndex.t100 m)) (x : B) :
     D.ec (conjBy D.u_mem x) = Φu D (D.ec x) :=
@@ -468,9 +452,6 @@ theorem rel_u_rho (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C
   linear_combination h7
 
 
-noncomputable abbrev Φuv0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k m) :=
-  matAct (Type100.k m) Type100.uvM (Type100.compat_uv m)
-
 noncomputable abbrev Φt0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k m) :=
   matAct (Type100.k m) Type100.tM (Type100.compat_t m)
 
@@ -480,17 +461,6 @@ noncomputable abbrev Φu0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k 
 noncomputable abbrev Φρ0 (m : ℕ) : Torus (Type100.k m) →+ Torus (Type100.k m) :=
   matAct (Type100.k m) Type100.ρM (Type100.compat_rho m)
 
-theorem Φuv_eq_zero (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φuv D = Φuv0 m := rfl
-
-theorem Φt_eq_zero (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φt D = Φt0 m := rfl
-
-theorem Φu_eq_zero (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φu D = Φu0 m := rfl
-
-theorem Φρ_eq_zero (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    Φρ D = Φρ0 m := rfl
 
 theorem gens_coord_zero {k : Fin 3 → ℕ} {i j l i' j' l' : ℤ}
     (h : i • gen k 0 + j • gen k 1 + l • gen k 2 = i' • gen k 0 + j' • gen k 1 + l' • gen k 2) :
@@ -722,12 +692,6 @@ theorem t100_rho_c' (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
   show D.e (Additive.ofMul (conjBy D.ρ_mem D.c)) = Torus.c
   simpa only [one_zsmul] using D.t100_rho_c
 
-theorem t100_uv_c' (D : StrothTypeData B (StrothTypeIndex.t100 m)) :
-    D.ec (conjBy D.uv_mem D.c) =
-      (-3 : ℤ) • Torus.c + (-2 : ℤ) • Torus.a + (-2 : ℤ) • Torus.b := by
-  show D.e (Additive.ofMul (conjBy D.uv_mem D.c)) =
-    (-3 : ℤ) • Torus.c + (-2 : ℤ) • Torus.a + (-2 : ℤ) • Torus.b
-  simpa only [Int.reduceNeg] using D.t100_uv_c
 
 theorem sq_bU (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
     (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 2 * Nat.card B)
@@ -775,22 +739,6 @@ theorem sq_bR (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
   rw [h]
   rw [D.ec_mul, D.ec_inv, D.ec_c, t100_rho_c' D, neg_add_cancel]
 
-theorem sq_bUV (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 2 * Nat.card B)
-    {d : S} (hdC : d ∈ C) (hdB : d ∉ B) (hd2 : d * d = (D.c : S))
-    (hL : D.L ≤ Subgroup.normalizer C) :
-    (2 : ℤ) • wUV D hBC hrel hdC hdB hL =
-      (-4 : ℤ) • Torus.c + (-2 : ℤ) • Torus.a + (-2 : ℤ) • Torus.b := by
-  have hβ : conjBy D.uv_mem D.c = D.c * (D.c⁻¹ * conjBy D.uv_mem D.c) := by group
-  have h := sq_rel (D := D) (hBC := hBC) (hC := hC) (hrel := hrel) (d := d) (hdC := hdC)
-    (hd2 := hd2) (g := D.uv) (hgC := hL D.uv_mem_L) (hgB := D.uv_mem)
-    (b := bUV D hBC hrel hdC hdB hL) (β := D.c⁻¹ * conjBy D.uv_mem D.c)
-    (hb := conj_eq_bUV (D := D) (hBC := hBC) (hrel := hrel) (hdC := hdC) (hdB := hdB)
-      (hL := hL)) (hβ := hβ)
-  rw [← wUV] at h
-  rw [h]
-  rw [D.ec_mul, D.ec_inv, D.ec_c, t100_uv_c' D]
-  module
 
 theorem phi_bU (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
     (hrel : Nat.card C = 2 * Nat.card B) {d : S} (hdC : d ∈ C) (hdB : d ∉ B)
@@ -859,10 +807,6 @@ theorem rel_bU_bR (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C
     (hbR := conj_eq_bR (D := D) (hBC := hBC) (hrel := hrel) (hdC := hdC) (hdB := hdB)
       (hL := hL))
 
-theorem two_pow_cast (m : ℕ) :
-    ((2 ^ m : ℕ) : ZMod (2 ^ (m + 1))) = (2 : ZMod (2 ^ (m + 1))) ^ m := by
-  push_cast
-  ring
 
 theorem form_bt {m : ℕ} (hm : 1 ≤ m) {y : Torus (Type100.k m)}
     (h2 : (2 : ℤ) • y = (2 : ℤ) • gen (Type100.k m) 1) (hφ : y + Φt0 m y = 0) :
@@ -1107,9 +1051,6 @@ theorem form_zR (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
   form_br hm (sq_bR D hBC hC hrel hdC hdB hd2 hL) (phi_bR D hBC hrel hdC hdB hL)
 
 end Cocycle
-
-
-
 
 
 end CFSG.CGT.Stroth77

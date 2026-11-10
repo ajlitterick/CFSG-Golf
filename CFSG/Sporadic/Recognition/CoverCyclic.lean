@@ -12,24 +12,6 @@ open CFSG.CosetTable CFSG.LieType.Multipliers CFSG.Open CFSG.Sporadic.Recognitio
 
 variable {m : ℕ}
 
-private theorem card_finite_of_orderCheck {ws : List (List (Fin m × Bool))} {k cap n fuel : ℕ}
-    {words : List (List (Fin m × Bool) × ℕ)} (h : orderCheck ws [] k cap n words fuel = true) :
-    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n := by
-  have hS : subsetOf m [] = [] := by simp [subsetOf]
-  have : Finite (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) := by
-    rw [hS]; exact (inferInstance : Finite (PG 0 _))
-  have hc : Nat.card (PG (subsetOf m []).length (restrictWords (subsetOf m []) ws)) = 1 := by
-    rw [hS]; exact card_PG_zero _
-  have := card_le_of_subsetCheckShortC ws [] (subsetCheckShortC_of_orderCheck h)
-  rwa [hc, mul_one] at this
-
-theorem bounds_of_orderCheck {ws : List (List (Fin m × Bool))} {w : List (Fin m × Bool)}
-    {N k cap n fuel : ℕ} (hN : 0 < N) (h : orderCheck ws [] k cap n [(w, N)] fuel = true) :
-    Finite (PG m ws) ∧ Nat.card (PG m ws) ≤ n ∧
-      N ∣ orderOf (PresentedGroup.mk {r : FreeGroup (Fin m) | r ∈ ws.map FreeGroup.mk}
-        (FreeGroup.mk w)) :=
-  ⟨(card_finite_of_orderCheck h).1, (card_finite_of_orderCheck h).2,
-    dvd_orderOf_of_orderCheck h (List.mem_singleton_self _) hN⟩
 
 theorem cover_ker_cyclic_of_bounds {X : Type} [Group X] {g : Fin m → X}
     {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
@@ -92,16 +74,6 @@ theorem cover_ker_cyclic_of_bounds {X : Type} [Group X] {g : Fin m → X}
     exact isCyclic_of_orderOf_eq_card _ hord'
   exact key _ rfl hset.symm
 
-theorem cover_ker_cyclic_of_orderCheck {X : Type} [Group X] {g : Fin m → X}
-    {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
-    (c : Fin m → List (List (Fin m × Bool) × List (Fin m × Bool)))
-    (hwg : ∀ i, FreeGroup.lift g (FreeGroup.mk (commWords (c i))) = g i) {N : ℕ} (hN : 0 < N)
-    {w : List (Fin m × Bool)} (hw1 : FreeGroup.lift g (FreeGroup.mk w) = 1) {k cap n fuel : ℕ}
-    (h : orderCheck (coverWords R fun i => commWords (c i)) [] k cap n [(w, N)] fuel = true)
-    (hn : n ≤ N * Nat.card X) :
-    ∃ hw : ∀ i, FreeGroup.lift g (FreeGroup.mk (commWords (c i))) = g i,
-      IsCyclic (coverMap hP hw).ker ∧ Nat.card (coverMap hP hw).ker = N :=
-  cover_ker_cyclic_of_bounds hP c hwg hw1 (bounds_of_orderCheck hN h) hn
 
 theorem ker_cyclic_dvd_of_bounds {X : Type} [Group X] {g : Fin m → X}
     {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
@@ -145,16 +117,6 @@ theorem ker_cyclic_dvd_of_bounds {X : Type} [Group X] {g : Fin m → X}
     rw [hcard, ← hmap] at hdvd
     exact hdvd
 
-theorem ker_cyclic_dvd_of_orderCheck {X : Type} [Group X] {g : Fin m → X}
-    {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
-    (c : Fin m → List (List (Fin m × Bool) × List (Fin m × Bool)))
-    (hwg : ∀ i, FreeGroup.lift g (FreeGroup.mk (commWords (c i))) = g i) {N : ℕ} (hN : 0 < N)
-    {w : List (Fin m × Bool)} (hw1 : FreeGroup.lift g (FreeGroup.mk w) = 1) {k cap n fuel : ℕ}
-    (h : orderCheck (coverWords R fun i => commWords (c i)) [] k cap n [(w, N)] fuel = true)
-    (hn : n ≤ N * Nat.card X) {E : Type} [Group E] [Group.IsPerfect E] (q : E →* X)
-    (hq : Function.Surjective q) (hker : q.ker ≤ center E) :
-    IsCyclic q.ker ∧ Nat.card q.ker ∣ N :=
-  ker_cyclic_dvd_of_bounds hP c hwg hw1 (bounds_of_orderCheck hN h) hn q hq hker
 
 theorem center_cyclic_dvd_of_bounds {X : Type} [Group X] {g : Fin m → X}
     {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
@@ -180,15 +142,5 @@ theorem center_cyclic_dvd_of_bounds {X : Type} [Group X] {g : Fin m → X}
   have := ker_cyclic_dvd_of_bounds hP c hwg hw1 hb hn q hqs (le_of_eq hqk)
   rwa [hqk] at this
 
-theorem center_cyclic_dvd_of_orderCheck {X : Type} [Group X] {g : Fin m → X}
-    {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R))
-    (c : Fin m → List (List (Fin m × Bool) × List (Fin m × Bool)))
-    (hwg : ∀ i, FreeGroup.lift g (FreeGroup.mk (commWords (c i))) = g i) {N : ℕ} (hN : 0 < N)
-    {w : List (Fin m × Bool)} (hw1 : FreeGroup.lift g (FreeGroup.mk w) = 1) {k cap n fuel : ℕ}
-    (h : orderCheck (coverWords R fun i => commWords (c i)) [] k cap n [(w, N)] fuel = true)
-    (hn : n ≤ N * Nat.card X) {Q : Type} [Group Q] (hQ : Group.IsPerfect Q)
-    (e : Q ⧸ Subgroup.center Q ≃* X) :
-    IsCyclic (Subgroup.center Q) ∧ Nat.card (Subgroup.center Q) ∣ N :=
-  center_cyclic_dvd_of_bounds hP c hwg hw1 (bounds_of_orderCheck hN h) hn hQ e
 
 end CFSG.Sporadic.Recognition.CoverCyclic

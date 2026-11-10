@@ -30,12 +30,6 @@ theorem exists_plane_le_of_card_eq_cube {G : Type*} [Group G] (hp : p.Prime) {D 
     exact hD.2 x x.2
   · rw [Subgroup.card_map_of_injective D.subtype_injective, hE']
 
-theorem IsLocallyBalancedAbs.three_of_two (hp : p.Prime) (h : IsLocallyBalancedAbs p 2 K) :
-    IsLocallyBalancedAbs p 3 K := by
-  intro D hD hcard H hH hDH
-  obtain ⟨E, hED, hE, hEc⟩ := exists_plane_le_of_card_eq_cube hp hD hcard
-  exact le_bot_iff.1 ((localDeltaIn_antitone H hED).trans
-    (h E hE hEc H hH (hED.trans hDH)).le)
 
 theorem isInnerLocallyBalanced_of_innerPlanes (hp : p.Prime)
     (h : ∀ E : Subgroup (MulAut K), E ≤ innerAut K → IsElemAbelian p E → Nat.card E = p ^ 2 →
@@ -50,17 +44,6 @@ end Planes
 
 section Families
 
-theorem CrossCharFamAt.of_two {k : LieFamily} {R : TauCeti.ValidLieTypeIndex → ℕ → Prop}
-    (h : ∀ idx : TauCeti.ValidLieTypeIndex, k.Matches idx.1 → ∀ p : ℕ, p.Prime → p ≠ 2 →
-      idx.1.characteristic ≠ p → R idx p → IsLocallyBalancedAbs p 2 (Cat idx)) :
-    CrossCharFamAt k R := fun idx hk p hp hp2 hc hR =>
-  IsLocallyBalancedAbs.three_of_two hp (h idx hk p hp hp2 hc hR)
-
-theorem CrossCharInnerAt.of_two {k : LieFamily} {R : TauCeti.ValidLieTypeIndex → ℕ → Prop}
-    (h : ∀ idx : TauCeti.ValidLieTypeIndex, k.Matches idx.1 → ∀ p : ℕ, p.Prime → p ≠ 2 →
-      idx.1.characteristic ≠ p → R idx p → IsLocallyBalancedAbs p 2 (Cat idx)) :
-    CrossCharInnerAt k R :=
-  (CrossCharFamAt.of_two h).innerAt
 
 theorem CrossCharInnerAt.of_split {k : LieFamily} {R : TauCeti.ValidLieTypeIndex → ℕ → Prop}
     (h3 : CrossCharInnerAt k fun idx p => R idx p ∧ p = 3)

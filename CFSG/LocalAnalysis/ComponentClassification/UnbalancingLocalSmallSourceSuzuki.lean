@@ -75,16 +75,5 @@ theorem small_standard_source_Suzuki_model_exclusion_stated {m : ℕ} (hm : 1 �
     rw [hX3] at hXcard
     norm_num at hXcard
 
-theorem small_standard_source_Suzuki_model_exclusion {m : ℕ} (hm : 1 ≤ m) {K : Type}
-    [Field K] (hK : Nat.card K = 2 ^ (2 * m + 1)) {X : Type} [Group X]
-    (hX : Nonempty (X ≃* suzukiGroup m K)) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 →
-        ¬ Assembly.ComponentType.ClassicalModel X .PSL 2 p f) ∧
-      IsEmpty (X ≃* alternatingGroup (Fin 7)) ∧
-      ¬ Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 := by
-  obtain ⟨h1, h2, h3⟩ := small_standard_source_Suzuki_model_exclusion_stated hm hK hX
-  exact ⟨fun p f _ hp2 hY => h1 p f hp2
-      (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 p f hY), h2,
-    fun hZ => h3 (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 3 2 2 hZ)⟩
 
 end CFSG.ComponentClassification.UnbalancingLocal

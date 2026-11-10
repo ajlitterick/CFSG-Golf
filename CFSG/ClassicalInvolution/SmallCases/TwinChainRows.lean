@@ -126,118 +126,12 @@ theorem exists_chain_of_layer (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hcen : Subgrou
   obtain ⟨z₁, hz₁⟩ := hΩ.classical N hN.1
   exact ⟨N, K₂, z₁, hN.1, hK₂.1, hz₁, hKK₂, pKN, pNK₂, hK₂i⟩
 
-theorem commutes_ne_of_big_comp (hΩ : InClass p f Ω) (hex : ExactMembers Ω) {K : Subgroup G}
-    {z : G} (hz : IsClassicalMember p f K z) (hP1 : LocalOddCentral Ω {z})
-    (D : LieSystemData p f (locQuot Ω z) (locFamily Ω z)) {i₁ j₀ : Fin D.card} (hj₀ : j₀ ≠ i₁)
-    (hbig : ¬ (D.tag i₁ = .PSL ∧ D.rank i₁ = 2)) (hK : K ∈ Ω)
-    (hKj₀ : locImg Ω z K ≤ (D.hom j₀).range) {K₂ : Subgroup G}
-    (hK₂ : K₂ ∈ centralizingMembers Ω {z}) (hK₂i : locImg Ω z K₂ ≤ (D.hom i₁).range)
-    {w : G} (hw : IsClassicalMember p f K₂ w) :
-    K₂ ≠ K ∧ Commutes K K₂ ∧ z ≠ w := by
-  have hMFZ := Gaps.fundNoncentral p
-  have hKz : K ∈ centralizingMembers Ω {z} := ⟨hK, le_centralizer_of_isClassicalMember hz⟩
-  have hK₂K : K₂ ≠ K := by
-    rintro rfl
-    exact hj₀ (eq_of_locImg_le_range hΩ hex D hK₂ hKj₀ hK₂i)
-  exact ⟨hK₂K,
-    (commutes_or_eq_of_involution hMFZ hΩ hex hP1 D hKz hK₂ hz).resolve_right hK₂K,
-    fun h => not_mem_of_nonA1_comp hMFZ hΩ hex D hbig ⟨hK₂, hK₂i⟩ hz.orderOf_eq_two
-      (by rw [h]; exact hw.mem)⟩
 
 end CFSG.ClassicalInvolution.RouteD
 
 namespace CFSG.ClassicalInvolution.Generic.CoreAssembly
 
 open CFSG.Assembly.LowTwoRank CFSG.ClassicalInvolution.RouteD CFSG.LieType.Universal
-open CFSG.ClassicalInvolution.WeakCT (LinearBlockStandardPair)
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem twinSp2Chain_of_inputs (hP1 : ProductOfTwoP1 p f) (hlink : TwinSp2Linked p f)
-    (hTwin : NonClassical.TwinPartnerFactTwin p f .POmegaPlus 4 f) : TwinSp2Chain p f := by
-  intro G _ _ _ hnab K z S hshape
-  obtain ⟨Λ⟩ := hshape.nonempty_spLayer
-  obtain ⟨j₀, hj₀, hKj₀⟩ := SpLayer.exists_other_of_self S.five (mem_conjClass_self K) S.cls Λ
-  obtain ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, hK₂i⟩ :=
-    exists_chain_of_layer S.odd S.five (center_eq_bot hnab) S.inClass S.exact S.ih
-      (mem_conjClass_self K) (single_class K) S.cls S.p1 Λ.D Λ.i₁
-      (by have := Λ.card_eq; omega) Λ.rest
-      (by
-        rintro ⟨h, -⟩
-        rw [Λ.tag_eq] at h
-        exact absurd h (by decide))
-      ⟨j₀, hj₀, hKj₀⟩ (fun M hM w hw hc hzw => hP1 G hnab K z S M hM w hw hc hzw)
-      (fun K₂ hK₂ hi w hw => hlink G hnab K z S hshape Λ K₂ hK₂ hi w hw) hTwin
-  exact ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, Λ, hK₂i⟩
-
-theorem twinSU4ChainData_of_inputs (hP1 : ProductOfTwoP1 p f) (hlink : TwinSU4Linked p f)
-    (hTwin : NonClassical.TwinPartnerFactTwin p f .POmegaPlus 4 f) : TwinSU4ChainData p f := by
-  intro G _ _ _ hnab K z S hshape
-  obtain ⟨Λ⟩ := hshape.nonempty_suLayer
-  obtain ⟨j₀, hj₀, hKj₀⟩ := Λ.exists_other_of_self S.odd S.five (mem_conjClass_self K) S.cls
-  obtain ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, hK₂i⟩ :=
-    exists_chain_of_layer S.odd S.five (center_eq_bot hnab) S.inClass S.exact S.ih
-      (mem_conjClass_self K) (single_class K) S.cls S.p1 Λ.D Λ.i₁
-      (by have := Λ.card_eq; omega) Λ.rest
-      (by
-        rintro ⟨h, -⟩
-        rw [Λ.tag_eq] at h
-        exact absurd h (by decide))
-      ⟨j₀, hj₀, hKj₀⟩ (fun M hM w hw hc hzw => hP1 G hnab K z S M hM w hw hc hzw)
-      (fun K₂ hK₂ hi w hw => hlink G hnab K z S hshape Λ K₂ hK₂ hi w hw) hTwin
-  exact ⟨K₁, K₂, z₁, hK₁, hK₂, hz₁, c02, p01, p12, Λ, hK₂i⟩
-
-@[expose] def LinkedAtTwinProduct (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), RouteDSetup p f K z →
-      ∀ M ∈ conjClass K, ∀ w : G, IsClassicalMember p f M w → Commutes K M → z ≠ w →
-        LinkedAtProduct (conjClass K) K z w
-
-theorem twinSp2Linked_of_linkedAtTwinProduct (h : LinkedAtTwinProduct p f) :
-    TwinSp2Linked p f := by
-  intro G _ _ _ hnab K z S hshape Λ K₂ hK₂ hK₂i w hw
-  obtain ⟨j₀, hj₀, hKj₀⟩ := SpLayer.exists_other_of_self S.five (mem_conjClass_self K) S.cls Λ
-  obtain ⟨-, hc, hzw⟩ := commutes_ne_of_big_comp S.inClass S.exact S.cls S.p1 Λ.D hj₀
-    (by
-      rintro ⟨h', -⟩
-      rw [Λ.tag_eq] at h'
-      exact absurd h' (by decide))
-    (mem_conjClass_self K) hKj₀ hK₂ hK₂i hw
-  exact h G hnab K z S K₂ hK₂.1 w hw hc hzw
-
-theorem twinSU4Linked_of_linkedAtTwinProduct (h : LinkedAtTwinProduct p f) :
-    TwinSU4Linked p f := by
-  intro G _ _ _ hnab K z S hshape Λ K₂ hK₂ hK₂i w hw
-  obtain ⟨j₀, hj₀, hKj₀⟩ := Λ.exists_other_of_self S.odd S.five (mem_conjClass_self K) S.cls
-  obtain ⟨-, hc, hzw⟩ := commutes_ne_of_big_comp S.inClass S.exact S.cls S.p1 Λ.D hj₀
-    (by
-      rintro ⟨h', -⟩
-      rw [Λ.tag_eq] at h'
-      exact absurd h' (by decide))
-    (mem_conjClass_self K) hKj₀ hK₂ hK₂i hw
-  exact h G hnab K z S K₂ hK₂.1 w hw hc hzw
-
-theorem pieceTwinSp2_of_inputs (hP1 : ProductOfTwoP1 p f) (hlink : TwinSp2Linked p f)
-    (hTwin : NonClassical.TwinPartnerFactTwin p f .POmegaPlus 4 f) : PieceTwinSp2 p f :=
-  pieceTwinSp2_of_chain (twinSp2Chain_of_inputs hP1 hlink hTwin)
-
-theorem pieceTwinSU4_of_inputs (hb : SU4SpinMinus p f (minusCoeffs_irr p f))
-    (hg6 : SpinMinus6Generated (minusCoeffs_irr p f)) (hP1 : ProductOfTwoP1 p f)
-    (hlink : TwinSU4Linked p f) (hTwin : NonClassical.TwinPartnerFactTwin p f .POmegaPlus 4 f)
-    (hpat : SU4PatternStmt p f) : PieceTwinSU4 p f :=
-  pieceTwinSU4_of_chain hb hg6
-    (twinSU4Chain_of_chainData (twinSU4ChainData_of_inputs hP1 hlink hTwin) hpat)
-
-theorem twinSp2Chain_of_p1_linked (hP1 : ProductOfTwoP1 p f) (hlink : TwinSp2Linked p f) :
-    TwinSp2Chain p f := by
-  intro G _ _ _ hnab K z S hshape
-  exact twinSp2Chain_of_inputs hP1 hlink
-    (NonClassical.twinPartnerFactTwin_pOmegaPlus_four S.odd S.five) G hnab K z S hshape
-
-theorem twinSU4ChainData_of_p1_linked (hP1 : ProductOfTwoP1 p f) (hlink : TwinSU4Linked p f) :
-    TwinSU4ChainData p f := by
-  intro G _ _ _ hnab K z S hshape
-  exact twinSU4ChainData_of_inputs hP1 hlink
-    (NonClassical.twinPartnerFactTwin_pOmegaPlus_four S.odd S.five) G hnab K z S hshape
 
 end CFSG.ClassicalInvolution.Generic.CoreAssembly

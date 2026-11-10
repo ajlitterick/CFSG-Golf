@@ -42,34 +42,6 @@ theorem mat_pow [LySeed] (g : J) (n : ℕ) : mat (g ^ n) = mat g ^ n := by
   | zero => rw [pow_zero, pow_zero, mat_one]
   | succ n ih => rw [pow_succ, pow_succ, mat_mul, ih]
 
-@[expose] def lyOrb : KOrbit := orbitData ()
-
-@[expose, irreducible] def bpIdx : ℕ := bpStart lyOrb
-
-theorem bpIdx_def : bpIdx = bpStart lyOrb := by unfold bpIdx; rfl
-
-@[expose, irreducible] def bpR : Relabel := relabel nPts lyOrb.alpha lyOrb.beta bpIdx
-
-theorem bpR_def : bpR = relabel nPts lyOrb.alpha lyOrb.beta bpIdx := by unfold bpR; rfl
-
-theorem keyT_of_scaledOK {K K' : ByteArray} (h : scaledOK K K' = true) :
-    keyT K' = (4 : ZMod 5) • keyT K := by
-  unfold scaledOK at h
-  rw [Bool.and_eq_true] at h
-  obtain ⟨h1, h2⟩ := h
-  have hU : keyU K' = keyU K := by
-    ext j m
-    simp only [keyU, of_apply]
-    have := (allIn_eq_true.1 h1) (111 * m.val + j.val) (Nat.zero_le _) (by omega)
-    rw [beq_iff_eq] at this
-    rw [this]
-  have hC : keyC K' = (4 : ZMod 5) • keyC K := by
-    ext i j
-    simp only [keyC, of_apply, Matrix.smul_apply, smul_eq_mul]
-    have := (allIn_eq_true.1 h2) (777 + 7 * i.val + j.val) (by omega) (by omega)
-    rw [beq_iff_eq] at this
-    rw [this, ZMod.natCast_mod, Nat.cast_mul, Nat.cast_ofNat]
-  rw [keyT, keyT, hU, hC, Matrix.mul_smul, Matrix.smul_mul]
 
 theorem bpRoot_isRREF :
     IsRREF (keyU bpRootKey) (fun m => ⟨m.val, by omega⟩) := by

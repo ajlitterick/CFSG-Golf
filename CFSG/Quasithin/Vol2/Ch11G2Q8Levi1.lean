@@ -68,10 +68,6 @@ theorem mapsF3_of_mem {g : ↥(cayleyGroup F)} (hg : g ∈ stabV0 F) : MapsF3 g 
   obtain ⟨α, β, γ, A, hA, rfl⟩ := exists_eq_of_mem_stabV0 hg
   exact mapsF3_mul (mapsF3_mul (mapsF3_g2X α) (mapsF3_g2Y β γ)) (mapsF3_g2A hA)
 
-theorem stabV0_le_stabQ_three : stabV0 F ≤ stabQ (stdF F 3) := fun g hg =>
-  mem_stabQ.mpr fun w => ⟨mapsF3_of_mem hg w, fun h => by
-    have h1 := mapsF3_of_mem ((stabV0 F).inv_mem hg) _ h
-    rwa [g2Act_inv_apply] at h1⟩
 
 @[expose] def vpart (w : Ix3 → F) : Fin 2 → F := ![w (.inr 1), w (.inr 2)]
 

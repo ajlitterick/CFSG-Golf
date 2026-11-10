@@ -118,39 +118,5 @@ theorem map_pCore_H2 :
   rw [← ker_bigPhi_eq_pCore, ker_bigPhi, Subgroup.subgroupOf_map_subtype,
     inf_eq_left.2 R2_inf_le_H2]
 
-@[expose] noncomputable def h2QuotEquiv :
-    H2 ⧸ CFSG.pCore 2 H2 ≃* Equiv.Perm (Fin 3) × SigmaL3 :=
-  (QuotientGroup.quotientMulEquivOfEq ker_bigPhi_eq_pCore.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective bigPhi bigPhi_surjective)
-
-theorem short_second_parabolic_linear_centralizer :
-    H2 = Ntwo ⊓ Subgroup.centralizer {cQ} ∧
-    {d : Dfull | ∃ n ∈ Ntwo, n * cQ * n⁻¹ = d} =
-      {d | ∃ j : Fin 24, 2 ≤ j ∧ ∃ v ∈ Vhat, dhat 0 j * v = d} ∧
-    (∀ j k : Fin 24, 2 ≤ j → 2 ≤ k → ∀ v ∈ Vhat, ∀ v' ∈ Vhat,
-      dhat 0 j * v = dhat 0 k * v' → j = k ∧ v = v') ∧
-    {d : Dfull | ∃ n ∈ Ntwo, n * cQ * n⁻¹ = d}.ncard = 88 ∧
-    (∀ d ∈ {d : Dfull | ∃ n ∈ Ntwo, n * cQ * n⁻¹ = d}, orderOf d = 2) ∧
-    (∀ (n : Ntwo) (j : Fin 24), 2 ≤ j →
-      (fun d => (n : Dfull) * d * (n : Dfull)⁻¹) '' {d | ∃ v ∈ Vhat, dhat 0 j * v = d} =
-        {d | ∃ v ∈ Vhat, dhat 0
-          (((((twoCoreEquiv (QuotientGroup.mk n)).1 : Ppair) : AutPerm) : Equiv.Perm (Fin 24))
-            j) * v = d}) ∧
-    (∀ r ∈ R2, ∀ j : Fin 24, 2 ≤ j → ∀ d ∈ {d | ∃ v ∈ Vhat, dhat 0 j * v = d},
-      r * d * r⁻¹ ∈ {d | ∃ v ∈ Vhat, dhat 0 j * v = d}) ∧
-    (∀ j : Fin 24, 2 ≤ j → ∀ x ∈ {d | ∃ v ∈ Vhat, dhat 0 j * v = d},
-      ∀ y ∈ {d | ∃ v ∈ Vhat, dhat 0 j * v = d}, ∃ r ∈ R2, r * x * r⁻¹ = y) ∧
-    (H2.subgroupOf Ntwo).index = 88 ∧
-    (CFSG.pCore 2 H2).map H2.subtype = R2 ⊓ Subgroup.centralizer {cQ} ∧
-    Nat.card ↥(R2 ⊓ Subgroup.centralizer {cQ}) = 2 ^ 30 ∧
-    Nonempty (H2 ⧸ CFSG.pCore 2 H2 ≃* Equiv.Perm (Fin 3) × SigmaL3) ∧
-    Nat.card H2 = 259759622062080 := by
-  refine ⟨rfl, conjClass_eq', fun j k hj hk v hv v' hv' h => ?_, ncard_conjClass,
-    fun d hd => orderOf_of_mem_conjClass hd, fun n j hj => image_conj_blk n (toRest j hj),
-    fun r hr j hj d hd => conj_blk_R2 (j := toRest j hj) hr hd,
-    fun j hj x hx y hy => blk_R2_transitive (toRest j hj) hx hy, index_H2, map_pCore_H2,
-    natCard_R2c, ⟨h2QuotEquiv⟩, natCard_H2⟩
-  obtain ⟨h1, h2⟩ := dhat0_mul_inj (j := toRest j hj) (k := toRest k hk) hv hv' h
-  exact ⟨congrArg Subtype.val h1, h2⟩
 
 end CFSG.Monster.B.TwoA.Par2

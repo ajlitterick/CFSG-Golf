@@ -52,17 +52,6 @@ theorem Hyp24.data (h : Hyp24 p f Ω K K' W S R R' z u) : Hyp24Data Ω K K' W S 
   hR' := h.hR'
   hu := h.hu
 
-theorem Hyp24Data.hyp24 (h : Hyp24Data Ω K K' W S R R' z u) (hs : Hyp23 p f Ω K K' z) :
-    Hyp24 p f Ω K K' W S R R' z u where
-  std := hs
-  hW := h.hW
-  hzW := h.hzW
-  hS4 := h.hS4
-  hZ := h.hZ
-  hWS := h.hWS
-  hR := h.hR
-  hR' := h.hR'
-  hu := h.hu
 
 theorem Hyp25.data (h : Hyp25 p f Ω K K' W S R R' z t u₁ u₂) :
     Hyp25Data Ω K K' W S R R' z t u₁ u₂ where

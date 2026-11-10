@@ -157,7 +157,6 @@ theorem match_push {c : ℕ} {s : IState} (hP : ∀ i < N, P i < 2 ^ 576)
       exact hlab i hi
     · rw [← hlsz, push_size, hlsz]
 
-theorem bfsRowK_zero (h l c : ℕ) : bfsRowK (stepK G) P PAR LAB W ng h 0 l c = c := rfl
 
 theorem bfsRowK_succ (h k l c : ℕ) :
     bfsRowK (stepK G) P PAR LAB W ng h (k + 1) l c =

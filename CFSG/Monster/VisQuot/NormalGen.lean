@@ -42,7 +42,6 @@ theorem xiH_mem_JH : xiH ∈ JH := by
 @[expose] def permHomH : AutPerm →* Hvis :=
   permHom.codRestrict Hvis fun p => modTwoUnit_mem_Hvis (PO_mem_PvisLat p)
 
-theorem coe_permHomH (p : AutPerm) : (permHomH p : GLV) = permHom p := rfl
 
 theorem permHomH_betaAut_mem_JH : permHomH betaAut ∈ JH := by
   have e9 : (⟨kGen 9, kGen_mem_Hvis 9⟩ : Hvis) ∈ JH := kGenH_mem_JH_of_three_le (by decide)
@@ -89,23 +88,6 @@ theorem JH_eq_top : JH = ⊤ := by
   rw [← hyx']
   exact hy
 
-theorem closure_conj_Evis :
-    Subgroup.closure {u : GLV | ∃ h ∈ Hvis, ∃ e ∈ Evis, u = h * e * h⁻¹} = Hvis := by
-  apply le_antisymm
-  · rw [Subgroup.closure_le]
-    rintro _ ⟨h, hh, e, he, rfl⟩
-    exact Hvis.mul_mem (Hvis.mul_mem hh (Evis_le_Hvis he)) (Hvis.inv_mem hh)
-  · intro x hx
-    have h1 : (⟨x, hx⟩ : Hvis) ∈ Subgroup.closure (Group.conjugatesOfSet (EH : Set Hvis)) := by
-      have : (⟨x, hx⟩ : Hvis) ∈ JH := JH_eq_top ▸ Subgroup.mem_top _
-      exact this
-    have h2 := Subgroup.mem_map_of_mem Hvis.subtype h1
-    rw [MonoidHom.map_closure] at h2
-    refine Subgroup.closure_mono ?_ h2
-    rintro _ ⟨y, hy, rfl⟩
-    obtain ⟨a, ha, hay⟩ := Group.mem_conjugatesOfSet_iff.1 hy
-    obtain ⟨c, rfl⟩ := isConj_iff.1 hay
-    exact ⟨c, c.2, a, ha, rfl⟩
 
 @[expose] def signH (a : C) : Hvis := ⟨modTwoUnit (gO a), modTwoUnit_mem_Hvis (gO_mem_PvisLat a)⟩
 
@@ -197,20 +179,5 @@ theorem commutator_Hvis_eq_top :
     commutator Hvis = ⊤ :=
   eq_top_iff.2 (JH_eq_top.symm.le.trans (Subgroup.normalClosure_le_normal EH_le_commutator))
 
-theorem commutator_Hvis :
-    ⁅Hvis, Hvis⁆ = Hvis := by
-  rw [← Subgroup.map_subtype_commutator, commutator_Hvis_eq_top, ← MonoidHom.range_eq_map,
-    Subgroup.range_subtype]
-
-theorem visible_code_sign_normal_generation :
-    Subgroup.normalClosure ((Evis.subgroupOf Hvis : Subgroup Hvis) : Set Hvis) = ⊤ ∧
-    Subgroup.closure {u : GLV | ∃ h ∈ Hvis, ∃ e ∈ Evis, u = h * e * h⁻¹} = Hvis ∧
-    commutator Hvis = ⊤ ∧ ⁅Hvis, Hvis⁆ = Hvis ∧
-    kGen 0 ^ 3 = 1 ∧ kGen 0 = (kGen 0)⁻¹ * kGen 3 * kGen 0 * kGen 3 ∧
-    kGen 0 * kGen 9 * (kGen 0)⁻¹ = permHom betaAut ∧ betaAut ≠ 1 ∧
-    (∀ (d : C) (p : AutPerm), ⁅modTwoUnit (gO d), permHom p⁆ = modTwoUnit (gO (d + permC p d))) ∧
-    Evis.subgroupOf Hvis ≤ commutator Hvis :=
-  ⟨JH_eq_top, closure_conj_Evis, commutator_Hvis_eq_top, commutator_Hvis, kGen_zero_pow_three,
-    kGen_zero_eq, conj_kGen_nine, betaAut_ne_one, commutatorElement_gO_permHom, EH_le_commutator⟩
 
 end CFSG.Monster.VisQuot

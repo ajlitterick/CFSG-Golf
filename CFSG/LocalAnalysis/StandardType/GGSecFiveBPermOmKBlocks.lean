@@ -317,25 +317,6 @@ private theorem omk_coe_mem_ggBsCoordZeroOn {S : Set (Fin n)} {b : ↥Bs} :
     (b : G) ∈ ggBsCoordZeroOn Bs eta S ↔ ∀ c ∈ S, eta b c = 1 :=
   mem_ggBsCoordZeroOn.trans ⟨fun ⟨_, h⟩ => h, fun h => ⟨b.2, h⟩⟩
 
-private theorem omDiag_apply_of_fixes (hm2 : 2 ≤ m) {k : ℕ} (hkm : k < m)
-    (hχ : ∀ a : Multiplicative (ZMod p), normQuad E (χ a : K) = 1)
-    (v : Fin m → Multiplicative (ZMod p))
-    (hv : ∀ i : Fin k, v (Fin.castLE hkm.le i) = 1)
-    (q : (F × F) × (Fin m → K)) :
-    ((omDiag (E := E) (χ := χ) hm2 hχ v : normOmega E m) :
-        ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))) q =
-      (q.1, fun j : Fin m =>
-        if _hj : (j : ℕ) < k then q.2 j else (χ (v j) : K) * q.2 j) := by
-  rw [omDiag_apply]
-  refine Prod.ext rfl ?_
-  funext j
-  by_cases hj : (j : ℕ) < k
-  · have hvj : v j = 1 := by
-      have h : Fin.castLE hkm.le ⟨(j : ℕ), hj⟩ = j := Fin.ext rfl
-      rw [← h]
-      exact hv ⟨(j : ℕ), hj⟩
-    simp only [dif_pos hj, hvj, map_one, Units.val_one, one_mul]
-  · simp only [dif_neg hj]
 
 private theorem normOmegaCast_apply_of {k : ℕ} (hkm : k < m) (a : normOmega E k)
     (q : (F × F) × (Fin m → K)) :
@@ -350,27 +331,6 @@ private theorem normOmegaCast_apply_of {k : ℕ} (hkm : k < m) (a : normOmega E 
   rw [normOmegaCast_apply, castEquiv_apply, castLin_apply]
   rfl
 
-private theorem castRestr_omDiag_eq (hm2 : 2 ≤ m) {k : ℕ} (hkm : k < m)
-    (hχ : ∀ a : Multiplicative (ZMod p), normQuad E (χ a : K) = 1)
-    (v : Fin m → Multiplicative (ZMod p))
-    (hv : ∀ i : Fin k, v (Fin.castLE hkm.le i) = 1)
-    (q : (F × F) × (Fin m → K)) :
-    castRestr hkm.le
-      (((omDiag (E := E) (χ := χ) hm2 hχ v : normOmega E m) :
-        ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))) q) =
-      castRestr hkm.le q := by
-  apply Prod.ext
-  · rfl
-  · funext i
-    change (((omDiag (E := E) (χ := χ) hm2 hχ v : normOmega E m) :
-        ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))) q).2
-        (Fin.castLE hkm.le i) = q.2 (Fin.castLE hkm.le i)
-    have h := congrFun (congrArg Prod.snd
-      (omDiag_apply_of_fixes (E := E) (χ := χ) hm2 hkm hχ v hv q))
-      (Fin.castLE hkm.le i)
-    rw [h]
-    have hi : ((Fin.castLE hkm.le i).val) < k := by simp
-    simp only [dif_pos hi]
 
 private theorem omDiag_mul_normOmegaCast_comm (hm2 : 2 ≤ m) {k : ℕ} (hkm : k < m)
     (hχ : ∀ a : Multiplicative (ZMod p), normQuad E (χ a : K) = 1)
@@ -1464,10 +1424,6 @@ private theorem normOmegaCast_eLin_tail {k : ℕ} (hkm : k < m)
     simp [eLin, hne]
   · rw [dif_neg hi]
 
-omit [Algebra F K] [Finite K] [CharP K 2] in
-private theorem vkSet_zero {k : ℕ} : VkSet (m := m) (k := k) (0 : (F × F) × (Fin m → K)) := by
-  intro j hj
-  rfl
 
 private theorem normOmega_inv_mul_cancel (u : normOmega E m) :
     ((u⁻¹ : normOmega E m) : ((F × F) × (Fin m → K)) ≃ₗ[F]
@@ -1479,15 +1435,6 @@ private theorem normOmega_inv_mul_cancel (u : normOmega E m) :
     (inv_mul_cancel u)
   rwa [Subgroup.coe_mul, Subgroup.coe_one] at h
 
-private theorem normOmega_mul_inv_cancel (u : normOmega E m) :
-    ((u : normOmega E m) : ((F × F) × (Fin m → K)) ≃ₗ[F]
-      ((F × F) × (Fin m → K))) *
-    ((u⁻¹ : normOmega E m) : ((F × F) × (Fin m → K)) ≃ₗ[F]
-      ((F × F) × (Fin m → K))) = 1 := by
-  have h := congrArg (fun z : normOmega E m =>
-    (z : ((F × F) × (Fin m → K)) ≃ₗ[F] ((F × F) × (Fin m → K))))
-    (mul_inv_cancel u)
-  rwa [Subgroup.coe_mul, Subgroup.coe_one] at h
 
 private theorem commutator_eLin_fix {s t : normOmega E m} {j : Fin m}
     {ds dt : K}
@@ -1597,10 +1544,6 @@ private theorem fixTail_inv {k : ℕ} {u : normOmega E m}
   rw [← LinearEquiv.mul_apply, normOmega_inv_mul_cancel] at h2
   simpa using h2.symm
 
-omit [Finite K] [CharP K 2] in
-private theorem eLin_congr {j : Fin m} {x y : K} (h : x = y) :
-    eLin (F := F) (K := K) j x = eLin (F := F) (K := K) j y := by
-  rw [h]
 
 private def FixTail {k : ℕ} : Subgroup (normOmega E m) where
   carrier := {u | ∀ (j : Fin m), k ≤ (j : ℕ) → ∀ x : K,

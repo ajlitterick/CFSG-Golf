@@ -106,8 +106,5 @@ theorem exists_mulaut_data [Finite V] {Γ A L : Subgroup (GLV V)} {m : ℕ}
   ⟨toMulSub_le_normalizer hLn hAΓ, isElemAbelian2_toMulSub hAe,
     (natCard_toMulSub A).trans hAc, isIrrOn_toMulSub hirr⟩
 
-theorem two_pow_card_fixedSpace (A : Subgroup (GLV V)) :
-    Nat.card ↥(CFSG.Quasithin.fixV (toMulSub A)) = Nat.card ↥(fixedSpace A) := by
-  rw [fixV_toMulSub, natCard_subToSubgroup]
 
 end CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds

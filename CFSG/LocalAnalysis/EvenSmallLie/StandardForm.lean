@@ -31,34 +31,6 @@ theorem inf_centralizer_eq_center (L : Subgroup G) :
   · rintro _ ⟨z, hz, rfl⟩
     exact ⟨z.2, mem_centralizer_of_mem_center hz⟩
 
-theorem mem_sup_centralizer_of_conj_mod_center {L : Subgroup G} (hL : commutator L = ⊤)
-    {h l : G} (hl : l ∈ L)
-    (hx : ∀ x ∈ L, (h * x * h⁻¹)⁻¹ * (l * x * l⁻¹) ∈ (center L).map L.subtype) :
-    h ∈ L ⊔ centralizer (L : Set G) := by
-  have hc : l⁻¹ * h ∈ centralizer (L : Set G) := by
-    refine CFSG.Walter.mem_centralizer_of_commutator_mem_center hL fun x hxL => ?_
-    obtain ⟨z, hz, hzx⟩ := hx x hxL
-    have hzc : ∀ y ∈ L, y * (z : G)⁻¹ = (z : G)⁻¹ * y := fun y hy => by
-      have h1 := congrArg Subtype.val (mem_center_iff.1 hz ⟨y, hy⟩)
-      simp only [coe_mul] at h1
-      calc y * (z : G)⁻¹ = (z : G)⁻¹ * ((z : G) * y) * (z : G)⁻¹ := by group
-        _ = (z : G)⁻¹ * (y * z) * (z : G)⁻¹ := by rw [h1]
-        _ = (z : G)⁻¹ * y := by group
-    have e1 : h * x * h⁻¹ = l * x * l⁻¹ * (z : G)⁻¹ := by
-      rw [coe_subtype] at hzx
-      rw [hzx]
-      group
-    have key : l⁻¹ * h * x * (l⁻¹ * h)⁻¹ * x⁻¹ = (z : G)⁻¹ := by
-      calc l⁻¹ * h * x * (l⁻¹ * h)⁻¹ * x⁻¹ = l⁻¹ * (h * x * h⁻¹) * l * x⁻¹ := by group
-        _ = x * (l⁻¹ * (z : G)⁻¹ * l) * x⁻¹ := by rw [e1]; group
-        _ = x * (z : G)⁻¹ * x⁻¹ := by
-          rw [mul_assoc l⁻¹, ← hzc l hl, inv_mul_cancel_left]
-        _ = (z : G)⁻¹ := by rw [hzc x hxL, mul_inv_cancel_right]
-    rw [key]
-    exact ⟨z⁻¹, inv_mem hz, rfl⟩
-  have : h = l * (l⁻¹ * h) := by group
-  rw [this]
-  exact mul_mem_sup hl hc
 
 theorem exists_hom_quotient_center_of_sup {L R H : Subgroup G}
     (hRL : R ≤ centralizer (L : Set G)) (hH : L ⊔ R = H)
@@ -258,10 +230,6 @@ theorem std_centralizer_eq_sup_of_inner (hset : StandardSetting G L) {t : G}
   obtain ⟨-, -, -, -, -, hLt, hCt⟩ := std_center_facts hset ht htZ
   exact le_antisymm (fun h hh => (hinn ⟨h, hh⟩).1 (hinner _)) (sup_le hLt hCt)
 
-theorem std_mem_sup_of_conj_mod_center (hset : StandardSetting G L) {h l : G} (hl : l ∈ L)
-    (hx : ∀ x ∈ L, (h * x * h⁻¹)⁻¹ * (l * x * l⁻¹) ∈ (center L).map L.subtype) :
-    h ∈ L ⊔ centralizer (L : Set G) :=
-  mem_sup_centralizer_of_conj_mod_center hset.standard.1.1 hl hx
 
 theorem std_kernel_eq_zpowers_of_central (hset : StandardSetting G L) {t : G}
     (ht : orderOf t = 2) (htZ : t ∈ (center L).map L.subtype)

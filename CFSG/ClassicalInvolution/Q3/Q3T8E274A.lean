@@ -56,24 +56,6 @@ end Local
 section Main
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem mem_dComp_of_four_le_card (hΩ : HypOmegaMod Ω)
-    {K : Subgroup G} (hcomp : dComp Ω K = dstarComp Ω K) (hK : K ∈ Ω)
-    (hnt : ∀ K' ∈ twinSet Ω K, K' = K) {z : G} (hz : IsUniqueInvolution K z)
-    {R : Subgroup G} (hR : R ∈ RSet Ω) (hRK : R ≤ K) {S : Sylow 2 G}
-    (hRS : R ≤ (S : Subgroup G)) {W : Subgroup G} (hW : W ∈ WSet Ω)
-    (hWS : W ≤ (S : Subgroup G)) {L : Subgroup G} (hL : L ∈ Ω)
-    (hLS : 4 ≤ Nat.card ↥(L ⊓ (S : Subgroup G))) : L ∈ dComp Ω K :=
-  Q3CL.Frame.T8.mem_dComp_of_four_le_card hΩ hcomp hK hnt hz hR hRK hRS hW hWS hL hLS
-
-theorem exists_conj_mem_dComp (hΩ : HypOmegaMod Ω)
-    {K : Subgroup G} (hcomp : dComp Ω K = dstarComp Ω K) (hK : K ∈ Ω)
-    (hnt : ∀ K' ∈ twinSet Ω K, K' = K) {z : G} (hz : IsUniqueInvolution K z)
-    {R : Subgroup G} (hR : R ∈ RSet Ω) (hRK : R ≤ K) {S : Sylow 2 G}
-    (hRS : R ≤ (S : Subgroup G)) {W : Subgroup G} (hW : W ∈ WSet Ω)
-    (hWS : W ≤ (S : Subgroup G)) (hSH : (S : Subgroup G) ≤ H274 Ω K z) {L : Subgroup G}
-    (hL : L ∈ Ω) {x : G} (hxL : x ∈ L) (hxo : orderOf x = 4) (hxH : x ∈ H274 Ω K z) :
-    ∃ y ∈ H274 Ω K z, conjSub y L ∈ dComp Ω K :=
-  Q3CL.Frame.T8.exists_conj_mem_dComp hΩ hcomp hK hnt hz hR hRK hRS hW hWS hSH hL hxL hxo hxH
 
 theorem mem_H274_of_conj_mem_sylow {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
     {z t : G} (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {g : G}
@@ -166,27 +148,7 @@ open CFSG.ClassicalInvolution.Asc77.T8
 section Fuse
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem sylow_le_H274_of_mem {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
-    (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K) {S₂ : Sylow 2 G}
-    {X M : Subgroup G} (hX : X ∈ RSet Ω) (hXS : X ≤ (S₂ : Subgroup G)) (hM : M ∈ Ω)
-    (hXM : X ≤ M) {zM : G} (hzM : IsUniqueInvolution M zM) (hzH : zM ∈ H274 Ω K z) :
-    (S₂ : Subgroup G) ≤ H274 Ω K z :=
-  Q3CL.Frame.T8.sylow_le_H274_of_mem hs.toFrame hcomp hX hXS hM hXM hzM hzH
 
-theorem exists_mul_self_ne_one_of_mem_RSet (hΩ : HypOmegaMod Ω) {X : Subgroup G} (hX : X ∈ RSet Ω)
-    : ∃ x ∈ X, x * x ≠ 1 :=
-  Q3CL.Frame.T8.exists_mul_self_ne_one_of_mem_RSet hΩ hX
-
-theorem sylow_le_H274_of_good_four {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) (hcomp : dComp Ω K = dstarComp Ω K)
-    {S₂ : Sylow 2 G} {u v : G} (hu : u ∈ (S₂ : Subgroup G)) (hv : v ∈ (S₂ : Subgroup G))
-    (hu1 : u ≠ 1) (hv1 : v ≠ 1) (huv : u ≠ v) (hu2 : u * u = 1) (hv2 : v * v = 1)
-    (hc : u * v = v * u) (hgu : Subgroup.centralizer ({u} : Set G) ≤ H274 Ω K z)
-    (hgv : Subgroup.centralizer ({v} : Set G) ≤ H274 Ω K z)
-    (hguv : Subgroup.centralizer ({u * v} : Set G) ≤ H274 Ω K z) :
-    (S₂ : Subgroup G) ≤ H274 Ω K z :=
-  Q3CL.Frame.T8.sylow_le_H274_of_good_four hs.toFrame hcomp hu hv hu1 hv1 huv hu2 hv2 hc hgu hgv
-    hguv
 end Fuse
 end T8
 end Asc77

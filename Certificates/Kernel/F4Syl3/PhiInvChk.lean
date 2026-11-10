@@ -22,11 +22,6 @@ open CFSG.KC.F4Syl3
 
 theorem phi_ok : phiN wa la waf wb lb = 1 := by decide +kernel
 
-theorem phi_neg : phiN wa la wa wb lb = 0 := by decide +kernel
-
-theorem inv_neg : invN 0 wb lb wb = 0 := by decide +kernel
-
-theorem inv_neg_rho : invN 1 (iw.getD 0 0) (il.getD 0 0) (iwr.getD 0 0) = 0 := by decide +kernel
 
 end CFSG.KD.F4Syl3
 

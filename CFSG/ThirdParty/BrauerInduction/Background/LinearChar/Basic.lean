@@ -111,26 +111,7 @@ section Group
 variable {G : Type v} [Group G]
 
 open CategoryTheory
-/--
-Transporting `ofLinearChar` along an isomorphism `e : G ≃* H`.
-If `ψ` is a character on `G`, then `Transport(e, ofLinearChar ψ) ≅ ofLinearChar (ψ ∘ e⁻¹)`.
--/
-noncomputable def FDRep.transport_ofLinearChar_iso
-    {H : Type v} [Group H] (e : G ≃* H) (ψ : G →* kˣ) :
-    transport e (ofLinearChar ψ) ≅
-    ofLinearChar (ψ.comp e.symm.toMonoidHom) := Iso.refl (transport e (ofLinearChar ψ))
 
-/--
-If two linear characters differ, they differ at some element.
--/
-lemma CFSG.LinearChar.exists_apply_ne
-    {A : Subgroup G} {χ χ' : A →* kˣ} (hχ : χ ≠ χ') :
-    ∃ a : A, (χ a : k) ≠ (χ' a : k) := by
-  by_contra h
-  apply hχ
-  ext a
-  have hnne : ¬ (χ a : k) ≠ (χ' a : k) := (not_exists.mp h) a
-  exact not_ne_iff.mp hnne
 
 open Classical in
 @[simp]
@@ -155,20 +136,5 @@ lemma CFSG.LinearChar.char_ofTop_ulift_of
     ψ
     ⟨g, Subgroup.mem_top g⟩
 
-
-/--
-Transporting the representation attached to a linear character along a group
-equivalence gives the representation attached to the character precomposed with
-the inverse equivalence.
--/
-@[expose] noncomputable def FDRep.ofLinearChar_transportEquiv_iso
-    {H : Type v} [Group H]
-    (e : G ≃* H)
-    (θ : G →* kˣ) :
-    ((FDRep.transportEquiv (k := k) e).functor.obj
-        (FDRep.ofLinearChar θ))
-      ≅
-    FDRep.ofLinearChar (θ.comp e.symm.toMonoidHom) := by
-  rfl
 
 end Group

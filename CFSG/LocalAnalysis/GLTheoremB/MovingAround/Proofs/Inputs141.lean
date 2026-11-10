@@ -12,16 +12,6 @@ open CFSG.HardMathSupport.Solomon.LocalBalance (barAut barOf)
 open CFSG.Yardstones.Md0ec50421ce4 (IsChevSimple)
 open scoped commutatorElement
 
-@[expose] def Input14_1Core : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (K : Subgroup Y), CFSG.Open.IsQuasisimple ↥K →
-    CFSG.Open.IsKGroup ↥K → GLAPPrimeCore 3 ↥K = ⊥ →
-    ∀ B : Subgroup Y, B ≤ Subgroup.normalizer (K : Set Y) → IsElemAbelian 3 B →
-      B ⊓ Subgroup.centralizer (K : Set Y) = ⊥ → B ≠ ⊥ →
-      (Nat.card ↥B = 3 → IsChevSimple 2 (↥K ⧸ Subgroup.center ↥K)) →
-    ∀ J : Subgroup Y, GLAPComponent 3 (K ⊓ Subgroup.centralizer (B : Set Y)) J →
-      IsLThreeFour (barOf 3 J ⧸ Subgroup.center (barOf 3 J)) →
-    ∀ k : Y, k ∈ K → k ∈ Subgroup.centralizer (B : Set Y) → IsPGroup 2 ↥(Subgroup.zpowers k) →
-      InducesInner 3 J k
 
 section Elementary
 

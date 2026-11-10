@@ -183,9 +183,7 @@ section Perm
 @[expose] noncomputable def sig3 : Equiv.Perm (Fin 4) := Equiv.swap 0 1 * Equiv.swap 1 2
 
 theorem sig3_zero : sig3 0 = 1 := by decide
-theorem sig3_one : sig3 1 = 2 := by decide
 theorem sig3_two : sig3 2 = 0 := by decide
-theorem sig3_three : sig3 3 = 3 := by decide
 
 theorem sig3_cube_apply (k : Fin 4) : sig3 (sig3 (sig3 k)) = k := by
   fin_cases k <;> decide

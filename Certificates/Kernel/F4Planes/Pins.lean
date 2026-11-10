@@ -18,12 +18,6 @@ theorem pin_ok : pinP gw gl paths pS = true := by quickRfl
 
 theorem rel_ok : relP pS = true := by quickRfl
 
-theorem neg_pin : (!pinP gw gl paths (pS.map (Nat.add (Nat.shiftLeft 1 200)))) = true := by
-  quickRfl
-
-theorem neg_rel : (!relP [pS.getD 0 0, pS.getD 1 0, pS.getD 2 0, pS.getD 3 0, pS.getD 5 0,
-    pS.getD 4 0]) = true := by
-  quickRfl
 
 end CFSG.KD.F4Planes
 

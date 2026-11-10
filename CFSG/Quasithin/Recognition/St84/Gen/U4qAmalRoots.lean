@@ -101,9 +101,6 @@ theorem sMat_zero_u4 : sMat h 0 0 0 = 1 := by
     rintro g ⟨y, hg⟩
     exact ⟨y, by rw [coe_inv_of_sMat (sAdm_zero_y h y) hg, map_zero]⟩
 
-theorem mem_u4RootA {g : hypSU h 2 0} :
-    g ∈ u4RootA h ↔ ∃ y : K, ((g : GL Ix K) : Matrix Ix Ix K) = sMat h 0 y 0 :=
-  Iff.rfl
 
 theorem syElt_mem_u4RootA (y : K) : syElt h y ∈ u4RootA h :=
   ⟨y, coe_syElt y⟩
@@ -123,9 +120,6 @@ theorem syElt_add_u4 (y y' : K) : syElt h (y + y') = syElt h y * syElt h y' :=
     rw [Subgroup.coe_inv]
     exact Units.inv_eq_of_mul_eq_one_right (by rw [hg, u4xbMat_mul_self h])
 
-theorem mem_u4RootB {g : hypSU h 2 0} :
-    g ∈ u4RootB h ↔ ∃ t : K, h.bar t = t ∧ ((g : GL Ix K) : Matrix Ix Ix K) = u4xbMat t :=
-  Iff.rfl
 
 theorem u4xbElt_mem_u4RootB {t : K} (ht : h.bar t = t) : u4xbElt h ht ∈ u4RootB h :=
   ⟨t, ht, rfl⟩

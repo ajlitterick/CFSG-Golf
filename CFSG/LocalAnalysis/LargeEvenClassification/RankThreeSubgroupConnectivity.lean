@@ -85,16 +85,5 @@ theorem rank_three_elementary_subgroup_connectivity (S : Type u) [Group S] [Fini
   (rankThree_path_iff_subgroup_sequence A B).mp
     (rank_three_elementary_subgroup_path S htwo hrank A B hA hAcard hB hBcard)
 
-theorem rank_three_conn3 (S : Type u) [Group S] [Finite S]
-    (htwo : IsPGroup 2 S) (hrank : 3 ≤ twoRank S) : Conn3 S := by
-  refine ⟨rankThree_vertices_nonempty_of_twoRank hrank, ?_⟩
-  intro A B
-  exact rank_three_elementary_subgroup_path S htwo hrank A.val B.val
-    A.property.1 A.property.2 B.property.1 B.property.2
-
-theorem rank_three_subgroup_graph_connected (S : Type u) [Group S] [Finite S]
-    (htwo : IsPGroup 2 S) (hrank : 3 ≤ twoRank S) :
-    (RankThreeSubgroupGraph S).Connected :=
-  conn3_iff_graph_connected.mp (rank_three_conn3 S htwo hrank)
 
 end CFSG.LargeEvenClassification.Helpers

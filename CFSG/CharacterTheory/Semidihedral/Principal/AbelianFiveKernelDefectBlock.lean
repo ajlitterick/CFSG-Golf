@@ -128,10 +128,6 @@ theorem projJ_coe (j : J) : projJ φ (j : K) = j := by
   have h := projJ_mul φ hφ 1 j
   rwa [OneMemClass.coe_one, one_mul] at h
 
-include hφ in
-theorem projW_coe (w : W) : projW φ (w : K) = w := by
-  have h := projW_mul φ hφ w 1
-  rwa [OneMemClass.coe_one, mul_one] at h
 
 include hφ in
 theorem projJ_surjective : Function.Surjective (projJ φ) :=
@@ -456,73 +452,5 @@ theorem abelian_five_kernel_alternating_five_unique_defect_block {K : Type u} [G
     rw [h]
     exact sylowAugmentation_one e
 
-theorem abelian_five_kernel_alternating_five_unique_defect_block_shared {K : Type} [Group K]
-    [Fintype K] (W J : Subgroup K) (hWab : ∀ a ∈ W, ∀ b ∈ W, Commute a b) (hW : IsPGroup 5 W)
-    (hWJ : ∀ w ∈ W, ∀ j ∈ J, Commute w j) (hdisj : W ⊓ J = ⊥) (hsup : W ⊔ J = ⊤)
-    (hJ : Nonempty (J ≃* alternatingGroup (Fin 5))) (m : Ideal BlocksAlgInt) (hm : m.IsMaximal)
-    [CharP (BlocksAlgInt ⧸ m) 5] :
-    let θ : J → ℂ := fun j => (Nat.card (MulAction.fixedBy (Sylow 5 J) j) : ℂ) - 1
-    let b : Set (K → ℂ) := {ψ | ∃ lam ∈ BlocksIrr W, ∀ (w : W) (j : J),
-      ψ ((w : K) * j) = lam w * θ j}
-    Nat.card (Sylow 5 J) = 6 ∧ θ ∈ BlocksIrr J ∧ θ 1 = 5 ∧
-    (∀ j : J, orderOf j = 2 → θ j = 1) ∧ (∀ j : J, orderOf j = 3 → θ j = -1) ∧
-    (∀ j : J, orderOf j = 5 → θ j = 0) ∧
-    (∀ ψ ∈ BlocksIrr J, (∃ n : ℕ, ψ 1 = 5 * n) → ψ = θ) ∧
-    BlocksIsBlock m K b ∧ (∀ ψ ∈ b, ψ 1 = 5) ∧
-    (∀ ψ ∈ b, CFSG.BrauerThirdMainTheorem.Helpers.blockDefect 5 m ψ W) ∧
-    ∀ c : Set (K → ℂ), BlocksIsBlock m K c →
-      (∀ ψ ∈ c, CFSG.BrauerThirdMainTheorem.Helpers.blockDefect 5 m ψ W) → c = b := by
-  intro θ b
-  have := hm
-  obtain ⟨basisW⟩ := finiteIrreducibleCharacterBasis_exists (G := W)
-  obtain ⟨basisJ⟩ := finiteIrreducibleCharacterBasis_exists (G := J)
-  obtain ⟨basisK⟩ := finiteIrreducibleCharacterBasis_exists (G := K)
-  obtain ⟨hsyl, ⟨th, hth⟩, h1, h2, h3, h5, huniq, label, himage, hdeg, hdef, hunique⟩ :=
-    abelian_five_kernel_alternating_five_unique_defect_block W J hWab hW hWJ hdisj hsup hJ m
-      basisW basisJ basisK
-  have hb : b = BlocksBlockOf m K (basisK.representation label).character := by
-    rw [← CFSG.BlockBasics.coefficientBlock_image basisK m label, himage]
-    ext ψ
-    constructor
-    · rintro ⟨lam, hlam, hψ⟩
-      obtain ⟨l, rfl⟩ := CFSG.BlockBasics.exists_label_of_mem_irr basisW hlam
-      exact ⟨l, hψ⟩
-    · rintro ⟨l, hψ⟩
-      exact ⟨_, CFSG.BlockBasics.basis_character_mem_irr basisW l, hψ⟩
-  have hirr := CFSG.BlockBasics.basis_character_mem_irr basisK label
-  have hbBlock : BlocksIsBlock m K b := ⟨_, hirr, hb⟩
-  have hbDef : ∀ ψ ∈ b, CFSG.BrauerThirdMainTheorem.Helpers.blockDefect 5 m ψ W := by
-    rw [hb]
-    exact (CFSG.BlockBasics.forall_blockDefect_iff 5 m hm ⟨_, hirr, rfl⟩
-      (CFSG.BrauerThirdMainTheorem.Helpers.mem_blockOf_self m hirr) W).mpr
-      ((CFSG.BlockBasics.coefficientBlockDefect_iff basisK m 5 label W).mp hdef)
-  refine ⟨hsyl, ?_, h1, h2, h3, h5, fun ψ hψ hdvd => ?_, hbBlock, ?_, hbDef,
-    fun c hc hcDef => ?_⟩
-  · have hth' : (basisJ.representation th).character = θ := hth
-    rw [← hth']
-    exact CFSG.BlockBasics.basis_character_mem_irr basisJ th
-  · obtain ⟨l, rfl⟩ := CFSG.BlockBasics.exists_label_of_mem_irr basisJ hψ
-    apply huniq l
-    obtain ⟨n, hn⟩ := hdvd
-    rw [FiniteComplexRepresentation.character, Representation.char_one] at hn
-    exact ⟨n, by exact_mod_cast hn⟩
-  · rw [hb, ← CFSG.BlockBasics.coefficientBlock_image basisK m label]
-    rintro ψ ⟨l, hl, rfl⟩
-    have hmem : (basisK.representation l).character ∈
-        (fun l => (basisK.representation l).character) ''
-          (coefficientBlock basisK (localizedComplexIntegerRing m) label : Set basisK.index) :=
-      ⟨l, hl, rfl⟩
-    rw [himage] at hmem
-    exact hdeg _ hmem
-  · obtain ⟨χ, hχ, rfl⟩ := hc
-    have hχmem := CFSG.BrauerThirdMainTheorem.Helpers.mem_blockOf_self m hχ
-    obtain ⟨l, rfl⟩ := CFSG.BlockBasics.exists_label_of_mem_irr basisK hχ
-    have hl := hunique l ((CFSG.BlockBasics.coefficientBlockDefect_iff basisK m 5 l W).mpr
-      (hcDef _ hχmem))
-    have hlb : (basisK.representation l).character ∈ b := by
-      rw [hb, ← CFSG.BlockBasics.coefficientBlock_image basisK m label]
-      exact ⟨l, hl, rfl⟩
-    exact CFSG.BrauerThirdMainTheorem.Helpers.blocks_eq_of_common_member m ⟨_, hχ, rfl⟩ hbBlock
-      hχmem hlb
 
 end CFSG.Semidihedral.Principal

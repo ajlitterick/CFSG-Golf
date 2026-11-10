@@ -240,10 +240,6 @@ theorem kAll2_mem_left {α β : Type} (t : α → β → Bool) :
       · obtain ⟨i, hi, ht⟩ := kAll2_mem_left t cs is h.2 c' hc'
         exact ⟨i, List.mem_cons_of_mem _ hi, ht⟩
 
-theorem dk_length_of_veceq {a b : List ℕ} (h : ggTWLVecEq 3 a b = true) :
-    a.length = b.length := by
-  rw [ggTWLVecEq, Bool.and_eq_true] at h
-  exact decide_eq_true_eq.mp h.1
 
 theorem dk_matOfPair {q : GGDepANPair} (hq : GGDepELNValid q) :
     ggTWLMatWF 6 (ggTWLMatOfPair 3 6 q) ∧

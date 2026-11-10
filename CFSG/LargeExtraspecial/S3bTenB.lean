@@ -156,27 +156,6 @@ theorem cl_not_mem_clSub_of_not_mem_Qa {g h : G} (haQ : g * S.z * g⁻¹ ∈ S.Q
     rw [S.QG_inf_Qa_mul_of_mem_QG haQ hne hq] at h2
     exact hbQa h2.2
 
-theorem polar_eq_zero_of_eichler_fix {a u w : S.Qt} (ha0 : a ≠ 0) (haq : S.q a = 0)
-    (hau : polar S.q a u = 0) (hwa : polar S.q w a = 0) (hfix : eichler S.q a u w = w) :
-    polar S.q w u = 0 := by
-  rw [eichler_apply_zmod2 haq hau, hwa, zero_smul, add_zero, mul_zero, add_zero,
-    add_eq_left] at hfix
-  rcases zmod2_eq_zero_or_eq_one (polar S.q w u) with h | h
-  · exact h
-  · rw [h, one_smul] at hfix
-    exact absurd hfix ha0
-
-theorem q_eq_one_of_isTypeC_eichler {a u : S.Qt} (haq : S.q a = 0) (hau : polar S.q a u = 0)
-    (hC : IsTypeC S.q (eichler S.q a u) 2) : S.q u = 1 := by
-  obtain ⟨-, -, -, -, -, x, hx, hqx⟩ := hC
-  obtain ⟨c, c', rfl⟩ := Submodule.mem_span_pair.mp (commSpace_eichler_le a u hx)
-  rcases zmod2_eq_zero_or_eq_one (S.q u) with h | h
-  · exfalso
-    apply hqx
-    rw [map_add_eq, map_smul_zmod2, map_smul_zmod2, haq, h, polar_smul_left, polar_smul_right,
-      hau]
-    simp
-  · exact h
 
 theorem lemma_3_10_iii {g h y : G} (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * S.z * g⁻¹ ≠ S.z)
     (hh : h ∈ S.M) (hbQa : (h * g) * S.z * (h * g)⁻¹ ∉ S.Qa g) (hy : y ∈ S.M)
@@ -207,50 +186,6 @@ theorem lemma_3_10_iii {g h y : G} (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * 
   obtain ⟨h3, h4⟩ := span_sup_isTotallySingular ha0 haq hW' (h1.trans h2) haW
   exact ⟨haW, h1, h2, h3, h4⟩
 
-theorem lemma_3_10_iii_plusType {g h y : G} (haQ : g * S.z * g⁻¹ ∈ S.QG)
-    (hne : g * S.z * g⁻¹ ≠ S.z) (hh : h ∈ S.M) (hbQa : (h * g) * S.z * (h * g)⁻¹ ∉ S.Qa g)
-    (hy : y ∈ S.M) (hyC : S.IsTypeCOn ⟨y, hy⟩ 2)
-    (hya : S.cl (g * S.z * g⁻¹) ∈ commSpace (S.ρ ⟨y, hy⟩ : S.Qt ≃ₗ[ZMod 2] S.Qt))
-    (hyb : (S.ρ ⟨y, hy⟩ : S.Qt ≃ₗ[ZMod 2] S.Qt) (S.cl ((h * g) * S.z * (h * g)⁻¹)) =
-      S.cl ((h * g) * S.z * (h * g)⁻¹))
-    (hcard : Nat.card (S.QG ⊓ S.Qa g : Subgroup G) = 2 ^ S.width) :
-    ∃ X : Submodule (ZMod 2) S.Qt, (∀ x ∈ X, S.q x = 0) ∧ finrank (ZMod 2) X = S.width := by
-  obtain ⟨-, -, -, hX, hXdim⟩ := S.lemma_3_10_iii haQ hne hh hbQa hy hyC hya hyb
-  have hWb := S.finrank_clSub_QG_inf_Qa (S.conj_mul_mem_QG hh haQ) (S.conj_mul_ne_z hh hne)
-    (by rw [S.card_QG_inf_Qa_mul hh]; exact hcard)
-  exact ⟨_, hX, by rw [hXdim]; exact hWb⟩
-
-theorem lemma_3_10_iv {g : G} (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * S.z * g⁻¹ ≠ S.z)
-    (hplus : ∃ X : Submodule (ZMod 2) S.Qt, (∀ x ∈ X, S.q x = 0) ∧
-      finrank (ZMod 2) X = S.width)
-    (hcard : Nat.card (S.QG ⊓ S.Qa g : Subgroup G) = 2 ^ S.width)
-    {s s' : S.Qt ≃ₗ[ZMod 2] S.Qt} (hs : s ∈ pointRadical S.q (S.cl (g * S.z * g⁻¹)))
-    (hs' : s' ∈ pointRadical S.q (S.cl (g * S.z * g⁻¹)))
-    (hsW : ∀ w ∈ S.clSub (S.QG ⊓ S.Qa g), s w = w)
-    (hs'W : ∀ w ∈ S.clSub (S.QG ⊓ S.Qa g), s' w = w)
-    (hsC : IsTypeC S.q s 2) (hs'C : IsTypeC S.q s' 2) : ¬ IsTypeC S.q (s * s') 2 := by
-  intro hC
-  obtain ⟨X, hX, hXn⟩ := hplus
-  have ha0 := S.cl_conj_z_ne_zero haQ hne
-  have haq := S.q_cl_conj_z haQ
-  obtain ⟨u, hu, rfl⟩ := (mem_pointRadical_iff S.q_nondegenerate ha0 haq).mp hs
-  obtain ⟨v, hv, rfl⟩ := (mem_pointRadical_iff S.q_nondegenerate ha0 haq).mp hs'
-  rw [eichler_mul hu hv] at hC
-  have hperp : ∀ (u' : S.Qt), polar S.q (S.cl (g * S.z * g⁻¹)) u' = 0 →
-      (∀ w ∈ S.clSub (S.QG ⊓ S.Qa g), eichler S.q (S.cl (g * S.z * g⁻¹)) u' w = w) →
-      u' ∈ LinearMap.BilinForm.orthogonal S.q.polarBilin (S.clSub (S.QG ⊓ S.Qa g)) := by
-    intro u' hu' hfix
-    rw [LinearMap.BilinForm.mem_orthogonal_iff]
-    intro w hw
-    rw [polarBilin_apply_apply]
-    obtain ⟨x, hx, hxQ, rfl⟩ := S.mem_clSub_iff.mp hw
-    refine S.polar_eq_zero_of_eichler_fix ha0 haq hu' ?_ (hfix _ hw)
-    exact (S.polar_cl_eq_zero_iff hxQ haQ).mpr (S.QG_inf_Qa_comm hne hx ⟨haQ, S.conj_z_mem_Qa g⟩)
-  exact false_of_anisotropic_of_witt S.q_nondegenerate S.finrank_Qt_eq_two_mul_width
-    (fun w hw => S.q_eq_zero_of_mem_clSub_QG_inf_Qa hne hw)
-    (S.finrank_clSub_QG_inf_Qa haQ hne hcard) hX hXn (hperp u hu hsW) (hperp v hv hs'W)
-    (S.q_eq_one_of_isTypeC_eichler haq hu hsC) (S.q_eq_one_of_isTypeC_eichler haq hv hs'C)
-    (S.q_eq_one_of_isTypeC_eichler haq (by rw [polar_add_right, hu, hv, add_zero]) hC)
 
 theorem mem_Qa_of_commute_of_card_le {g h : G} (haQ : g * S.z * g⁻¹ ∈ S.QG)
     (hne : g * S.z * g⁻¹ ≠ S.z) (hno : ¬ S.HasTypeAInL g)

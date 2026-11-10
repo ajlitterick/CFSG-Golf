@@ -277,16 +277,6 @@ instance formallySmooth_quotient_parabolicDefiningHopfIdeal
 
 section FiniteType
 
-variable [IsNoetherianRing R] {H : FiniteTypeCommHopfAlgCat.{u, v} R}
-
-/-- **The dynamic parabolic of a smooth affine group of finite type over a Noetherian ring is
-smooth.** -/
-theorem smoothCommHopfAlgProperty_quotient_parabolicDefiningHopfIdeal
-    [Algebra.Smooth R H] (l : H →ₐc[R] _root_.LaurentPolynomial R) :
-    smoothCommHopfAlgProperty R
-      (FiniteTypeCommHopfAlgCat.quotient H (parabolicDefiningHopfIdeal l)).obj := by
-  rw [smoothCommHopfAlgProperty_iff]
-  exact ⟨inferInstance, Algebra.FinitePresentation.of_finiteType.mp inferInstance⟩
 
 end FiniteType
 

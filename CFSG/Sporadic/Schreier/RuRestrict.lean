@@ -18,29 +18,12 @@ theorem ruC_orbit_lab (x : Fin 4060) :
   rw [show (#[ruC0A, ruC1A].size) = 2 from rfl, genSubgroup_pair] at h
   exact h
 
-theorem ruN_orbit_lab (x : Fin 4060) :
-    MulAction.orbit ruN x = {y : Fin 4060 | ruNLab[(y : ℕ)]! = ruNLab[(x : ℕ)]!} := by
-  have h := orbit_eq_label rep_ruNsPair' ruOrbits_check.2.2.2.2.2.2.2.2.2 x
-  rw [show (#[ruNs0A, ruNs1A].size) = 2 from rfl, genSubgroup_pair] at h
-  exact h
 
 theorem ruCOrbit_iff {k : ℕ} (hk : k < 4) (x : Fin 4060) :
     x ∈ ptSet 4060 (ruCOrbit k) ↔ ruCLab[(x : ℕ)]! = k := by
   rw [← ruCOrbits_getD hk]
   exact (labListsOK_spec ruOrbits_check.2.2.2.2.2.2.1).2 k (by simpa [ruCOrbits] using hk) x
 
-theorem ruNOrbit_iff {k : ℕ} (hk : k < 3) (x : Fin 4060) :
-    x ∈ ptSet 4060 (ruNOrbit k) ↔ ruNLab[(x : ℕ)]! = k := by
-  rw [← ruNOrbits_getD hk]
-  exact (labListsOK_spec ruOrbits_check.2.2.2.2.2.2.2.1).2 k (by simpa [ruNOrbits] using hk) x
-
-theorem ruCLab_lt (x : Fin 4060) : ruCLab[(x : ℕ)]! < 4 := by
-  have := (labListsOK_spec ruOrbits_check.2.2.2.2.2.2.1).1 x
-  simpa [ruCOrbits] using this
-
-theorem ruNLab_lt (x : Fin 4060) : ruNLab[(x : ℕ)]! < 3 := by
-  have := (labListsOK_spec ruOrbits_check.2.2.2.2.2.2.2.1).1 x
-  simpa [ruNOrbits] using this
 
 theorem ruC_orbit
     {k : ℕ} (hk : k < 4) {x : Fin 4060} (hx : x ∈ ptSet 4060 (ruCOrbit k)) :
@@ -49,20 +32,6 @@ theorem ruC_orbit
   ext y
   rw [Set.mem_ofPred_eq, ruCOrbit_iff hk, (ruCOrbit_iff hk x).1 hx]
 
-theorem ruN_orbit
-    {k : ℕ} (hk : k < 3) {x : Fin 4060} (hx : x ∈ ptSet 4060 (ruNOrbit k)) :
-    MulAction.orbit ruN x = ptSet 4060 (ruNOrbit k) := by
-  rw [ruN_orbit_lab]
-  ext y
-  rw [Set.mem_ofPred_eq, ruNOrbit_iff hk, (ruNOrbit_iff hk x).1 hx]
-
-theorem ruCOrbit_cover
-    (x : Fin 4060) : ∃ k < 4, x ∈ ptSet 4060 (ruCOrbit k) :=
-  ⟨_, ruCLab_lt x, (ruCOrbit_iff (ruCLab_lt x) x).2 rfl⟩
-
-theorem ruNOrbit_cover
-    (x : Fin 4060) : ∃ k < 3, x ∈ ptSet 4060 (ruNOrbit k) :=
-  ⟨_, ruNLab_lt x, (ruNOrbit_iff (ruNLab_lt x) x).2 rfl⟩
 
 theorem ruC_mapsTo
     {k : ℕ} (hk : k < 4) {g : Equiv.Perm (Fin 4060)} (hg : g ∈ ruC) :

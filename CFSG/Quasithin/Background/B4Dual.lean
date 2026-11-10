@@ -36,8 +36,6 @@ theorem DualGrp.ext {f g : DualGrp V} (h : ∀ v, f v = g v) : f = g := DFunLike
     rw [hf u hu]
     exact inv_one
 
-theorem mem_dualAnn {U : Subgroup V} {f : DualGrp V} : f ∈ dualAnn U ↔ ∀ u ∈ U, f u = 1 :=
-  Iff.rfl
 
 @[expose] def dualCoann (M : Subgroup (DualGrp V)) : Subgroup V where
   carrier := {v | ∀ f ∈ M, f v = 1}
@@ -48,8 +46,6 @@ theorem mem_dualAnn {U : Subgroup V} {f : DualGrp V} : f ∈ dualAnn U ↔ ∀ u
     rw [map_inv, ha f hf]
     exact inv_one
 
-theorem mem_dualCoann {M : Subgroup (DualGrp V)} {v : V} :
-    v ∈ dualCoann M ↔ ∀ f ∈ M, f v = 1 := Iff.rfl
 
 @[expose] def F2Vec (V : Type*) [CommGroup V] (_hV : ∀ v : V, v ^ 2 = 1) : Type _ := Additive V
 
@@ -246,8 +242,6 @@ end Finite
 theorem dualAct_apply (a : MulAut V) (f : DualGrp V) (v : V) :
     ((dualAct V a : MulAut (DualGrp V)) f) v = f ((a⁻¹ : MulAut V) v) := rfl
 
-theorem mem_dualSub {A : Subgroup (MulAut V)} {x : MulAut (DualGrp V)} :
-    x ∈ dualSub A ↔ ∃ a ∈ A, dualAct V a = x := Iff.rfl
 
 theorem mem_dualAnn_commV {A : Subgroup (MulAut V)} {f : DualGrp V} :
     f ∈ dualAnn (commV A) ↔ ∀ a ∈ A, ∀ v : V, f (a v) = f v := by
@@ -394,24 +388,6 @@ theorem index_fixV_dualSub (A : Subgroup (MulAut V)) :
   have hpos : 0 < Nat.card ↥(dualAnn (commV A)) := Nat.card_pos
   exact Nat.eq_of_mul_eq_mul_left hpos (h2.trans h1.symm)
 
-omit [Finite V] hV in
-theorem dualAnn_map (a : MulAut V) (U : Subgroup V) :
-    dualAnn (U.map a.toMonoidHom) = (dualAnn U).map (dualAct V a).toMonoidHom := by
-  ext f
-  constructor
-  · intro hf
-    refine ⟨(dualAct V a⁻¹ : MulAut (DualGrp V)) f, ?_, ?_⟩
-    · intro u hu
-      show f (((a⁻¹)⁻¹ : MulAut V) u) = 1
-      rw [inv_inv]
-      exact hf (a u) ⟨u, hu, rfl⟩
-    · show (dualAct V a) ((dualAct V a⁻¹) f) = f
-      rw [← MulAut.mul_apply, ← map_mul, mul_inv_cancel, map_one]
-      rfl
-  · rintro ⟨g, hg, rfl⟩ x ⟨u, hu, rfl⟩
-    show g ((a⁻¹ : MulAut V) (a u)) = 1
-    rw [MulAut.inv_apply_self]
-    exact hg u hu
 
 omit [Finite V] in
 theorem isPGroup_two_subgroup (S : Subgroup V) : IsPGroup 2 ↥S := fun x => ⟨1, by
@@ -419,47 +395,6 @@ theorem isPGroup_two_subgroup (S : Subgroup V) : IsPGroup 2 ↥S := fun x => ⟨
   have := hV (x : V)
   simpa using this⟩
 
-theorem qOf_dualSub_le_two (A : Subgroup (MulAut V)) (hne : A ≠ ⊥) (hel : IsElemAbelian2 A)
-    (hq : IsQuadratic A) (hdim : Nat.card (commV A) ≤ Nat.card A ^ 2) :
-    qOf (dualSub A) ≤ ((2 : ℚ) : WithTop ℚ) := by
-  have hApos : 0 < rk ↥A := IsElemAbelian2.rk_pos hel hne
-  have hAdual : IsElemAbelian2 (dualSub A) := by
-    obtain ⟨hcomm, hsq⟩ := hel
-    refine ⟨?_, ?_⟩
-    · rintro x ⟨a, ha, rfl⟩ y ⟨b, hb, rfl⟩
-      have : dualAct V (a * b) = dualAct V (b * a) := by rw [hcomm a ha b hb]
-      exact (map_mul (dualAct V) a b).symm.trans (this.trans (map_mul (dualAct V) b a))
-    · rintro x ⟨a, ha, rfl⟩
-      exact (map_pow (dualAct V) a 2).symm.trans (by rw [hsq a ha, map_one]; rfl)
-  have hdne : dualSub A ≠ ⊥ := by
-    intro hbot
-    apply hne
-    have h1 : Nat.card (dualSub A) = Nat.card A := card_dualSub hV A
-    rw [hbot, Subgroup.card_bot] at h1
-    exact Subgroup.eq_bot_of_card_eq A h1.symm
-  refine qOf_le_iff.mpr ⟨dualSub A, ⟨le_rfl, hdne, hAdual⟩, (isQuadratic_dualSub_iff hV A).mp hq, ?_⟩
-  have hidx : rkIdx (fixV (dualSub A)) = padicValNat 2 (Nat.card (commV A)) := by
-    unfold rkIdx
-    rw [index_fixV_dualSub hV]
-  have hrk : rk ↥(dualSub A) = rk ↥A := by
-    unfold rk
-    rw [card_dualSub hV]
-  obtain ⟨m, hm⟩ := (IsElemAbelian2.isPGroup hel).exists_card_eq
-  obtain ⟨k, hk⟩ := (isPGroup_two_subgroup hV (commV A)).exists_card_eq
-  have hrkA : rk ↥A = m := by unfold rk; rw [hm, padicValNat.prime_pow]
-  have hkk : padicValNat 2 (Nat.card (commV A)) = k := by rw [hk, padicValNat.prime_pow]
-  have hle : k ≤ 2 * m := by
-    have h1 : 2 ^ k ≤ 2 ^ (2 * m) := by
-      calc 2 ^ k = Nat.card (commV A) := hk.symm
-        _ ≤ Nat.card A ^ 2 := hdim
-        _ = 2 ^ (2 * m) := by rw [hm, ← pow_mul, mul_comm]
-    exact (Nat.pow_le_pow_iff_right (by norm_num)).mp h1
-  have hmpos : 0 < m := hrkA ▸ hApos
-  have hmq : (0 : ℚ) < m := by exact_mod_cast hmpos
-  have key : (rkIdx (fixV (dualSub A)) : ℚ) / (rk ↥(dualSub A) : ℚ) ≤ 2 := by
-    rw [hidx, hrk, hrkA, hkk, div_le_iff₀ hmq]
-    exact_mod_cast (by omega : k ≤ 2 * m)
-  exact key
 
 end Finite2
 

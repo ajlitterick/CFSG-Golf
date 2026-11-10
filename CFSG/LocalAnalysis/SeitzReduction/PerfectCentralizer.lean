@@ -107,20 +107,6 @@ theorem le_centralizer_of_mem_centralizer {L : Subgroup G} {t : G}
     (htC : t ∈ centralizer (L : Set G)) : L ≤ centralizer ({t} : Set G) := fun l hl =>
   mem_centralizer_singleton_iff.2 (mem_centralizer_iff.1 htC l hl)
 
-theorem sup_centralizer_subgroupOf_normal {L H : Subgroup G}
-    (hHN : H ≤ normalizer (L : Set G)) : ((L ⊔ centralizer (L : Set G)).subgroupOf H).Normal := by
-  refine ⟨fun x hx h => ?_⟩
-  rw [mem_subgroupOf] at hx ⊢
-  obtain ⟨l, hl, c, hc, hx'⟩ := exists_mul_of_mem_sup_of_commute
-    (fun l hl c hc => mem_centralizer_iff.1 hc l hl) hx
-  have hhN := hHN h.2
-  have e : (h : G) * x * (h : G)⁻¹ = (h * l * (h : G)⁻¹) * (h * c * (h : G)⁻¹) := by
-    rw [hx']
-    group
-  simp only [coe_mul, coe_inv]
-  rw [e]
-  exact mul_mem_sup ((mem_normalizer_iff.1 hhN l).1 hl)
-    (conj_mem_centralizer_of_mem_normalizer hhN hc)
 
 end General
 
@@ -174,31 +160,6 @@ theorem std_perfect_le (hset : StandardSetting G L)
     (hPt : P ≤ centralizer ({t} : Set G)) : P ≤ L :=
   perfect_le_of_standard hset.standard hset.cyclic hOut htC ht (hset.core t ht) hP hPt
 
-theorem std_perfect_le_of_isSolvable_outer_center (hset : StandardSetting G L)
-    (hOut : Group.IsSolvable (Outer (L ⧸ center L))) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {P : Subgroup G}
-    (hP : ⁅P, P⁆ = P) (hPt : P ≤ centralizer ({t} : Set G)) : P ≤ L := by
-  have : Group.IsPerfect L := Group.isPerfect_def.2 hset.standard.1.1
-  exact std_perfect_le hset (solvable_of_centerQuotient L) htC ht hP hPt
-
-theorem std_perfect_le_of_ker_le (hset : StandardSetting G L) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {Q : Type*} [Group Q]
-    [Group.IsSolvable Q] (θ : centralizer ({t} : Set G) →* Q)
-    (hθ : θ.ker ≤ (L ⊔ centralizer (L : Set G)).subgroupOf (centralizer ({t} : Set G)))
-    {P : Subgroup G} (hP : ⁅P, P⁆ = P) (hPt : P ≤ centralizer ({t} : Set G)) : P ≤ L := by
-  refine perfect_le_of_le_sup_centralizer_of_standard hset.standard hset.cyclic htC ht
-    (hset.core t ht) hP hPt fun p hp => ?_
-  have hmem : (⟨p, hPt hp⟩ : centralizer ({t} : Set G)) ∈
-      P.subgroupOf (centralizer ({t} : Set G)) := mem_subgroupOf.2 hp
-  exact mem_subgroupOf.1 (hθ (perfect_le_ker θ (commutator_subgroupOf_eq_self hPt hP) hmem))
-
-theorem std_perfect_le_of_isSolvable_quotient (hset : StandardSetting G L) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2)
-    [((L ⊔ centralizer (L : Set G)).subgroupOf (centralizer ({t} : Set G))).Normal]
-    (hsolv : Group.IsSolvable (centralizer ({t} : Set G) ⧸
-      (L ⊔ centralizer (L : Set G)).subgroupOf (centralizer ({t} : Set G))))
-    {P : Subgroup G} (hP : ⁅P, P⁆ = P) (hPt : P ≤ centralizer ({t} : Set G)) : P ≤ L :=
-  std_perfect_le_of_ker_le hset htC ht (QuotientGroup.mk' _) (QuotientGroup.ker_mk' _).le hP hPt
 
 theorem std_perfect_le_inf_conjugate (hset : StandardSetting G L)
     (hOut : Group.IsSolvable (Outer L)) {t : G} (htC : t ∈ centralizer (L : Set G))
@@ -223,23 +184,6 @@ theorem std_perfect_le_inf_conjugate (hset : StandardSetting G L)
   simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
   group
 
-theorem std_layer_le_inf_conjugate (hset : StandardSetting G L)
-    (hOut : Group.IsSolvable (Outer L)) {t : G} (htC : t ∈ centralizer (L : Set G))
-    (ht : orderOf t = 2) (g : G) {X : Subgroup G} (hXt : X ≤ centralizer ({t} : Set G))
-    (hXtg : X ≤ centralizer ({g⁻¹ * t * g} : Set G)) :
-    inSubgroup layer X ≤ L ⊓ conjugate L g := by
-  have hE : ⁅inSubgroup layer X, inSubgroup layer X⁆ = inSubgroup layer X := by
-    simp only [inSubgroup]
-    rw [← map_commutator, CFSG.LocalCores.layer_perfect]
-  have hEX : inSubgroup layer X ≤ X := map_subtype_le _
-  exact std_perfect_le_inf_conjugate hset hOut htC ht g hE (hEX.trans hXt) (hEX.trans hXtg)
-
-theorem std_layer_centralizer_le_inf_conjugate (hset : StandardSetting G L)
-    (hOut : Group.IsSolvable (Outer L)) {t : G} (htC : t ∈ centralizer (L : Set G))
-    (ht : orderOf t = 2) (g : G) :
-    inSubgroup layer (L ⊓ centralizer ({g⁻¹ * t * g} : Set G)) ≤ L ⊓ conjugate L g :=
-  std_layer_le_inf_conjugate hset hOut htC ht g
-    (inf_le_left.trans (le_centralizer_of_mem_centralizer htC)) inf_le_right
 
 end Standard
 

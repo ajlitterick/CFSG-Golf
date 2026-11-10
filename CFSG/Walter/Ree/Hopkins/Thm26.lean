@@ -112,58 +112,5 @@ theorem apply_eq_of_sq {n : ℕ} (hn : 1 ≤ n) (hk : Fintype.card k = 3 ^ (2 * 
     interval_cases Q <;> omega
   rwa [hbn] at hbσ
 
-theorem exists_a_of_sq {n : ℕ} (hn : 1 ≤ n) (hk : Fintype.card k = 3 ^ (2 * n + 1))
-    (hσ : ∀ x, σ (σ x) = x ^ 3) : ∃ a : ℕ, Even a ∧ (∀ x : k, (σ x * x) ^ a = x ^ 2) ∧
-      a % 3 = 2 ∧ a + 3 < Fintype.card k := by
-  have hbσ := apply_eq_of_sq hn hk hσ
-  refine ⟨3 ^ (n + 1) - 1, ?_, ?_, ?_, ?_⟩
-  · have : Odd (3 ^ (n + 1)) := Odd.pow (by decide)
-    obtain ⟨c, hc⟩ := this
-    exact ⟨c, by omega⟩
-  · intro x
-    rcases eq_or_ne x 0 with rfl | hx
-    · have h9 : 1 < 3 ^ (n + 1) := Nat.one_lt_pow (by omega) (by norm_num)
-      have hne : 3 ^ (n + 1) - 1 ≠ 0 := by omega
-      rw [map_zero, zero_mul, zero_pow hne, zero_pow two_ne_zero]
-    · rw [hbσ, ← pow_succ, ← pow_mul]
-      have e : (3 ^ (n + 1) + 1) * (3 ^ (n + 1) - 1) + 1 = 3 * 3 ^ (2 * n + 1) := by
-        have h1 : 1 ≤ 3 ^ (n + 1) := Nat.one_le_pow _ _ (by norm_num)
-        have : 3 * 3 ^ (2 * n + 1) = 3 ^ (n + 1) * 3 ^ (n + 1) := by
-          rw [← pow_succ', ← pow_add]; congr 1; omega
-        rw [this]
-        zify [h1]
-        ring
-      have hx3 : x ^ (3 * 3 ^ (2 * n + 1)) = x ^ 3 := by
-        rw [pow_mul, ← hk, FiniteField.pow_card]
-      have : x ^ ((3 ^ (n + 1) + 1) * (3 ^ (n + 1) - 1)) * x = x ^ 2 * x := by
-        rw [← pow_succ, e, hx3]; ring
-      exact mul_right_cancel₀ hx this
-  · have : 3 ^ (n + 1) % 3 = 0 := by rw [pow_succ]; simp
-    have h1 : 1 ≤ 3 ^ (n + 1) := Nat.one_le_pow _ _ (by norm_num)
-    omega
-  · rw [hk]
-    have h1 : 3 ^ (n + 1) + 2 < 3 ^ (2 * n + 1) := by
-      have h2 : 3 ^ (2 * n + 1) = 3 ^ (n + 1) * 3 ^ n := by rw [← pow_add]; congr 1; omega
-      have h3 : 3 ≤ 3 ^ n := by
-        calc 3 = 3 ^ 1 := by norm_num
-          _ ≤ 3 ^ n := Nat.pow_le_pow_right (by norm_num) hn
-      have h4 : 9 ≤ 3 ^ (n + 1) := by
-        calc 9 = 3 ^ 2 := by norm_num
-          _ ≤ 3 ^ (n + 1) := Nat.pow_le_pow_right (by norm_num) (by omega)
-      rw [h2]; nlinarith
-    have h0 : 1 ≤ 3 ^ n := Nat.one_le_pow _ _ (by norm_num)
-    have h5 : 1 ≤ 3 ^ (n + 1) := Nat.one_le_pow _ _ (by norm_num)
-    omega
-
-theorem d_unique_of_sq {n s : ℕ} (hn : 1 ≤ n) (hk : Fintype.card k = 3 ^ (2 * n + 1))
-    (hσ : ∀ x, σ (σ x) = x ^ 3) (hs : Odd s) (hsσ : ∀ x : k, (σ x * x ^ 2) ^ s = x)
-    (h211 : ∀ a : ℕ, Even a → (∀ x : k, (σ x * x) ^ a = x ^ 2) → a < Fintype.card k - 1 →
-      ∃ c : k → k → k → k, ∀ (d : k) (G : Type) [Group G] [Finite G] (R : RType G k σ d),
-        Eq211 R a c)
-    {d₁ d₂ : k} {G₁ G₂ : Type} [Group G₁] [Finite G₁] [Group G₂] [Finite G₂]
-    (R₁ : RType G₁ k σ d₁) (R₂ : RType G₂ k σ d₂) : d₁ = d₂ := by
-  obtain ⟨a, ha, haσ, ha3, haq⟩ := exists_a_of_sq hn hk hσ
-  obtain ⟨c, hc⟩ := h211 a ha haσ (by omega)
-  exact d_unique hk (odd_two_mul_add_one n) ha haσ hs hsσ ha3 haq (hc d₁ G₁ R₁) (hc d₂ G₂ R₂)
 
 end CFSG.Walter.Ree.Hopkins

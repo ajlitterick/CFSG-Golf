@@ -30,8 +30,6 @@ variable {K : Type u} [Field K]
       have h := congrArg QuadraticAlgebra.im (hX.apply i j)
       simpa only [QuadraticAlgebra.im_star, mul_neg] using congrArg (a * ·) h
 
-theorem mem_hermitianSubmodule (delta : K) (X : Matrix (Fin 2) (Fin 2) (extension delta)) :
-    X ∈ hermitianSubmodule delta ↔ X.conjTranspose = X := Iff.rfl
 
 theorem hermitian_diagonal (delta : K) (h2 : (2 : K) ≠ 0)
     (X : hermitianSubmodule delta) (i : Fin 2) :
@@ -101,10 +99,6 @@ theorem hermitianCoordinates_symm_apply (delta : K) (h2 : (2 : K) ≠ 0)
     (hermitianCoordinates delta h2).symm X =
       ![(X.val 0 0).re, (X.val 1 1).re, (X.val 0 1).re, (X.val 0 1).im] := rfl
 
-theorem hermitian_finrank (delta : K) (h2 : (2 : K) ≠ 0) :
-    Module.finrank K (hermitianSubmodule delta) = 4 := by
-  rw [← (hermitianCoordinates delta h2).finrank_eq]
-  simp
 
 @[expose] def hermitianForm (delta : K) : QuadraticForm K (hermitianSubmodule delta) :=
   let entry (i j : Fin 2) := ((QuadraticAlgebra.reₗ (a := delta) (b := 0)).comp

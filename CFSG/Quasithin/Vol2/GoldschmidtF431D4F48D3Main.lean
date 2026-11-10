@@ -65,13 +65,6 @@ theorem d3_hexGeomOf (hZH : ∀ x ∈ d4H, (∀ h ∈ d4H, h * x = x * h) → x 
     e_adj := hadj
     dist_lay := d3_dist_lay }⟩
 
-include hD' in
-theorem d3F48 (hZH : ∀ x ∈ d4H, (∀ h ∈ d4H, h * x = x * h) → x = 1 ∨ x = d4z)
-    (hNN : ∀ g : D, (∀ x, x ∈ d4N ↔ g * x * g⁻¹ ∈ d4N) → g ∈ d4N) (hD : IsSimpleGroup D)
-    (Y : Type) [Group Y] [Finite Y] (β : d3Setting.α.Completion Y) (hβ : β.IsFaithful)
-    (hs : β.IsSmall d3Setting.m) : d3Setting.F48Concl β := by
-  obtain ⟨Gm⟩ := d3_hexGeomOf hZH hNN
-  exact d3F48_of_geom hD' hZH hNN hD Gm (d3_titsModel hZH hNN) (d3_hpoly hZH hNN) Y β hβ hs
 
 include hD' in
 theorem d3F424 (hZH : ∀ x ∈ d4H, (∀ h ∈ d4H, h * x = x * h) → x = 1 ∨ x = d4z)

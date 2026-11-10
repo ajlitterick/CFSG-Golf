@@ -55,7 +55,6 @@ theorem alt2_of_twin_centralizes {Y : Type} [Group Y] [Finite Y] {Δ : Set (Subg
   calc a * b = (a * b * a⁻¹ * b⁻¹) * (b * a) := by group
     _ = b * a := by rw [hb0, one_mul]
 
-variable {X : Type} [Group X] [Finite X] {Φ : Set (Subgroup X)}
 
 end E4
 

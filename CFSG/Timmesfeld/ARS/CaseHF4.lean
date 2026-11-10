@@ -33,15 +33,6 @@ theorem commute_x4 (z : F) {g : G} (hg : g ∈ M R A) : Commute (c.x4 z) g := by
   have := S.hyp.finite
   exact QD.commuting_M S.hyp.root S.hA _ (c.x4_mem z) g hg
 
-theorem x3_inv (r : E) : (c.x3 r)⁻¹ = c.x3 r :=
-  inv_eq_of_mul_eq_one_right (by rw [← c.x3_add, CharTwo.add_self_eq_zero, c.x3_zero])
-
-theorem x5_inv (w : E) : (c.x5 w)⁻¹ = c.x5 w :=
-  inv_eq_of_mul_eq_one_right (by rw [← c.x5_add, CharTwo.add_self_eq_zero, c.x5_zero])
-
-omit [CharP E 2] in
-theorem x2_inv [CharP F 2] (v : F) : (c.x2 v)⁻¹ = c.x2 v :=
-  inv_eq_of_mul_eq_one_right (by rw [← c.x2_add, CharTwo.add_self_eq_zero, c.x2_zero])
 
 theorem x5_mul_x3 [CharP F 2] (w r : E) :
     c.x5 w * c.x3 r = c.x4 (c.Tp r w) * (c.x3 r * c.x5 w) := by

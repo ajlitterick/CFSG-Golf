@@ -451,9 +451,6 @@ theorem toGL_map_sl (g : SpecialLinearGroup (Fin n) K) :
   (Subgroup.equivMapOfInjective R.B' SpecialLinearGroup.toGL
     SpecialLinearGroup.toGL_injective).trans (MulEquiv.subgroupCongr (R.B'_map hK4))
 
-theorem coe_eqv [Finite K] (hK4 : 4 ≤ Nat.card K) (g : ↥R.B') :
-    ((R.eqv hK4 g : ↥R.blk) : GL (Fin n) K) =
-      SpecialLinearGroup.toGL (g : SpecialLinearGroup (Fin n) K) := rfl
 
 theorem exists_coordData [Finite K] [CharP K 2] (hp : Odd p) (hK4 : 4 ≤ Nat.card K)
     (hσA : (A : Matrix (Fin n) (Fin n) K).map σ = A) :

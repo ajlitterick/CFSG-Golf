@@ -24,7 +24,6 @@ theorem strictN_eq (y : Nat) (k : Nat → Nat) : strictN y k = k y := by cases y
 
 theorem bAnd_eq (a b : Bool) : bAnd(a, b) = (a && b) := by cases a <;> rfl
 
-theorem bIf_eq (c t e : Bool) : bIf(c, t, e) = (if c = true then t else e) := by cases c <;> rfl
 
 theorem beq_eq (a b : Nat) : Nat.beq a b = true ↔ a = b := ⟨Nat.eq_of_beq_eq_true, Nat.beq_eq.mpr⟩
 
@@ -248,18 +247,6 @@ theorem app_of_val {g : G} {x : Fin 4060} {v : Nat} (hv : (x : Nat) = v) (hv' : 
   congr 1
   exact Fin.ext hv
 
-include hT0 hT1 hgen hin hcov hinv hk in
-theorem x_sq {i : Nat} (hi : i < 495) : X T0 T1 CD i * X T0 T1 CD i = 1 := by
-  obtain ⟨hc, -, h3, h4, h5, h6, -⟩ := inv_parts (hinv i hi)
-  obtain ⟨k0, k1⟩ := x_key hT0 hT1 hinv hk hi.le
-  have l0 : K0 i < 4060 := h3 ▸ img_lt hT0 hT1 hc (by norm_num)
-  have l1 : K1 i < 4060 := h4 ▸ img_lt hT0 hT1 hc (by norm_num)
-  refine eq_of_base01 hT0 hT1 hgen hcov (H.mul_mem (x_mem hin hinv i) (x_mem hin hinv i))
-    H.one_mem (Fin.ext ?_) (Fin.ext ?_)
-  · rw [Equiv.Perm.mul_apply, app_of_val k0 l0, x_val hT0 hT1 hinv hi, h5]
-    rfl
-  · rw [Equiv.Perm.mul_apply, app_of_val k1 l1, x_val hT0 hT1 hinv hi, h6]
-    rfl
 
 include hT0 hT1 hinv hk in
 theorem x_ne_one {i : Nat} (hi : i < 495) : X T0 T1 CD i ≠ 1 := by

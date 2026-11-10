@@ -13,9 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G]
 
-private lemma pi_zmod_two_add_self {n : ℕ} (v : Fin n → ZMod 2) : v + v = 0 := by
-  funext i
-  exact CharTwo.add_self_eq_zero (v i)
 
 private lemma isEvenVec_add {n : ℕ} {v w : Fin n → ZMod 2} (hv : IsEvenVec v)
     (hw : IsEvenVec w) : IsEvenVec (v + w) := by

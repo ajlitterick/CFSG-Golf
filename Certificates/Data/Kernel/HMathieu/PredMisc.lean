@@ -30,11 +30,6 @@ open CFSG.Quasithin.B45Mat CFSG.ASVolI.AppH
   ((List.range (2 ^ 11)).filter fun m => E.all fun e => actP ccECols liftECols e m == m) ==
     [0, 1192]
 
-@[expose] noncomputable def predOff24K (P L : List Nat) (st : List (List Nat) × List Nat) : Bool :=
-  let k := L.length
-  let d := Nat.log 2 st.2.length
-  decide (k ≤ 6) && (k == 0 || !decide (11 - d ≤ k + 1) ||
-    (k == 4 && L.all fun a => offPts24.all fun i => pg 5 (mask 5) (P.getD a 0) i == i))
 
 @[expose] noncomputable def predQ22inK (P L : List Nat) (Ms : List (List Nat)) : Bool :=
   !(L.all fun a => pg 5 (mask 5) (P.getD a 0) 0 == 0) || predQ 10 actM true Ms

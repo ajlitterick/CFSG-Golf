@@ -19,20 +19,6 @@ open CFSG.Open CFSG.QuasithinUnique
     ∀ A : Subgroup (MulAut W), A ≤ T → autSub A (orbSup T V) ∈ QhatStar (autSub T (orbSup T V)) →
       A ≤ stabSub (commSub (orbSup T V) L)
 
-@[expose] def D36ActsGlued : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W] (M Mp T L : Subgroup (MulAut W)) (V : Subgroup W)
-    (t : MulAut W), D36Norm M Mp T L V t →
-    ¬ IsIntDirect (commSub (orbSup T V) L) ((commSub (orbSup T V) L).map t.toMonoidHom)
-      (orbSup T V) →
-    ∀ A : Subgroup (MulAut W), A ≤ T → autSub A (orbSup T V) ∈ QhatStar (autSub T (orbSup T V)) →
-      A ≤ stabSub (commSub (orbSup T V) L)
-
-theorem d36Acts_of_split (h1 : D36ActsDirect) (h2 : D36ActsGlued) : D36Acts := by
-  intro W _ _ M Mp T L V t n A hA hQ
-  by_cases hd : IsIntDirect (commSub (orbSup T V) L) ((commSub (orbSup T V) L).map t.toMonoidHom)
-      (orbSup T V)
-  · exact h1 W M Mp T L V t n hd A hA hQ
-  · exact h2 W M Mp T L V t n hd A hA hQ
 
 section Perm
 

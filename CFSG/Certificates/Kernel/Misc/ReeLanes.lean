@@ -389,8 +389,6 @@ theorem normK_succ (sk G M15 ML n N : ℕ) : normK sk G M15 ML (n + 1) N =
       strictN (nIf(Nat.blt (nat_lit 0) (Nat.land e (Nat.shiftLeft (nat_lit 1) j)),
         mulK sk G M15 ML fuel sq a, sq)) ih)) j
 
-theorem powK_eq (sk G M15 ML fuel a e nb : ℕ) :
-    powK sk G M15 ML fuel a e nb = powR sk G M15 ML fuel a e nb 1 := rfl
 
 theorem powR_succ (sk G M15 ML fuel a e j acc : ℕ) :
     powR sk G M15 ML fuel a e (j + 1) acc = powR sk G M15 ML fuel a e j

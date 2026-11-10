@@ -45,34 +45,5 @@ theorem orthogonal_four_split_p_components_frontier (hodd : Odd (Nat.card K))
   CatalogueBOrthogonalFourSplitComponents.orthogonal_four_split_actual_p_component_verification
     hodd Q hQ hdim hsplit
 
-theorem orthogonal_four_nonsplit_p_components_frontier (hodd : Odd (Nat.card K))
-    (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate)
-    (hdim : Module.finrank K V = 4)
-    (hno : ¬ ∃ S : Submodule K V, Module.finrank K S = 2 ∧ ∀ x ∈ S, Q x = 0) :
-    ∀ p : ℕ, p.Prime → ∀ L : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q),
-      CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  open CatalogueBOrthogonalNonsplitFourComponents in
-  exact orthogonal_four_nonsplit_actual_p_component_verification hodd Q hQ hdim hno
-
-theorem orthogonal_five_p_components_frontier (hodd : Odd (Nat.card K))
-    (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate)
-    (hdim : Module.finrank K V = 5) :
-    ∀ p : ℕ, p.Prime → ∀ L : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q),
-      CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  intro p hp L hL
-  have : Fact p.Prime := ⟨hp⟩
-  exact CatalogueBOrthogonalFive.orthogonal_five_actual_p_component_verification hodd Q hQ hdim
-    p L hL
-
-theorem orthogonal_six_nonsplit_p_components_frontier (hodd : Odd (Nat.card K))
-    (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate)
-    (hdim : Module.finrank K V = 6)
-    (hno : ¬ ∃ S : Submodule K V, Module.finrank K S = 3 ∧ ∀ x ∈ S, Q x = 0) :
-    ∀ p : ℕ, p.Prime → ∀ L : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q),
-      CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  intro p hp L hL
-  have : Fact p.Prime := ⟨hp⟩
-  exact CatalogueBOrthogonalSix.orthogonal_six_nonsplit_actual_p_component_verification hodd Q
-    hQ hdim hno p L hL
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalLowDimensionFrontiers

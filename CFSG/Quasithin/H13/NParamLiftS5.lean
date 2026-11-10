@@ -187,37 +187,6 @@ theorem not_isSolvable_alt : ¬ Group.IsSolvable ↥(alternatingGroup (Fin 5)) :
   exact Group.isSolvable_of_ker_le_range (alternatingGroup (Fin 5)).subtype Perm.sign
     (fun x hx => ⟨⟨x, hx⟩, rfl⟩)
 
-theorem le_normalizer_of_isSolvable {V K : Subgroup (Perm (Fin 5))}
-    (hVA : V ≤ alternatingGroup (Fin 5)) (hV4 : Nat.card ↥V = 4) (hVK : V ≤ K)
-    (hK : Group.IsSolvable ↥K) : K ≤ Subgroup.normalizer (V : Set (Perm (Fin 5))) :=
-  (le_normalizer_or_alt_le hVA hV4 hVK).resolve_right fun h =>
-    not_isSolvable_alt (Group.isSolvable_of_isSolvable_injective (Subgroup.inclusion_injective h))
-
-theorem alt_le_of_not_isSolvable {K : Subgroup (Perm (Fin 5))} (hK : ¬ Group.IsSolvable ↥K) :
-    alternatingGroup (Fin 5) ≤ K := by
-  by_contra h
-  apply hK
-  set A5 := alternatingGroup (Fin 5) with hA5
-  have hprop : (K ⊓ A5).subgroupOf A5 < ⊤ := by
-    refine lt_top_iff_ne_top.mpr fun htop => h ?_
-    intro x hx
-    have : (⟨x, hx⟩ : ↥A5) ∈ (K ⊓ A5).subgroupOf A5 := by rw [htop]; trivial
-    exact this.1
-  have hs : Group.IsSolvable ↥((K ⊓ A5).subgroupOf A5) :=
-    SteinbergBM.alternating_five_proper_subgroup_solvable (by simp) hprop
-  have hs' : Group.IsSolvable ↥(A5.subgroupOf K) := by
-    let e : ↥(A5.subgroupOf K) →* ↥((K ⊓ A5).subgroupOf A5) :=
-      { toFun := fun x => ⟨⟨(x : ↥K), x.2⟩, ⟨(x : ↥K).2, x.2⟩⟩
-        map_one' := rfl
-        map_mul' := fun _ _ => rfl }
-    refine Group.isSolvable_of_isSolvable_injective (f := e) ?_
-    intro x y hxy
-    have := congrArg (fun z : ↥((K ⊓ A5).subgroupOf A5) => ((z : ↥A5) : Perm (Fin 5))) hxy
-    exact Subtype.ext (Subtype.ext this)
-  exact Group.isSolvable_of_ker_le_range (A5.subgroupOf K).subtype
-    (Perm.sign.comp K.subtype) (fun x hx => ⟨⟨x, by
-      rw [Subgroup.mem_subgroupOf]
-      exact Perm.mem_alternatingGroup.mpr hx⟩, rfl⟩)
 
 theorem not_alt_le_normalizer {V : Subgroup (Perm (Fin 5))} (hVA : V ≤ alternatingGroup (Fin 5))
     (hV4 : Nat.card ↥V = 4) :

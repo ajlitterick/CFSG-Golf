@@ -66,16 +66,6 @@ theorem MinCex.le_H (c : MinCex p f Ω K S R W H) : K ≤ H := by
   rw [Subgroup.mem_centralizer_singleton_iff]
   exact (hz.commute_of_mem hk).symm
 
-theorem MinCex.twin_le_H (c : MinCex p f Ω K S R W H) {K' : Subgroup G} (hK' : K' ∈ twinSet Ω K) :
-    K' ≤ H := by
-  obtain ⟨z, hz, hcz⟩ := c.exists_centralizer_le p f
-  obtain ⟨hK'Ω, z', hz'K, hz'K'⟩ := hK'
-  have hzz : z = z' := hz.eq hz'K
-  subst hzz
-  intro k hk
-  apply hcz
-  rw [Subgroup.mem_centralizer_singleton_iff]
-  exact (hz'K'.commute_of_mem hk).symm
 
 theorem MinCex.mem_of_conjSub_le (c : MinCex p f Ω K S R W H) (hA : EtaAbelian Ω)
     (hM : EtaMeet Ω) {g : G} (hg : conjSub g R ≤ H) : g ∈ H := by

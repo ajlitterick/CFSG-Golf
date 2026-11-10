@@ -145,15 +145,6 @@ theorem exists_mem_normalizer_conj_eq_inv_of_dvd_prime_pow (hp : p.Prime) (hp2 :
   · exact absurd (mem_centralizer_zpowers_of_conj_eq h) hnc
   · exact h
 
-theorem inv_ne_self_of_relIndex_eq_two (hp : p.Prime) (hp2 : p ≠ 2) {e : ℕ}
-    (hu : orderOf u ∣ p ^ e)
-    (hindex : (Subgroup.centralizer (Subgroup.zpowers u : Set G)).relIndex
-      (Subgroup.normalizer (Subgroup.zpowers u : Set G)) = 2) :
-    u⁻¹ ≠ u := by
-  intro hinv
-  obtain ⟨n, -, hnc, hn⟩ := exists_mem_normalizer_conj_eq_inv_of_dvd_prime_pow hp hp2 hu hindex
-  rw [hinv] at hn
-  exact hnc (mem_centralizer_zpowers_of_conj_eq hn)
 
 theorem conj_mem_zpowers_eq_or_inv {g x : G} (hx : x ∈ Subgroup.zpowers u)
     (hg : g * u * g⁻¹ = u ∨ g * u * g⁻¹ = u⁻¹) : g * x * g⁻¹ = x ∨ g * x * g⁻¹ = x⁻¹ := by
@@ -220,33 +211,6 @@ theorem orderOf_dvd_of_sylow_eq_zpowers (P : Sylow p G)
     orderOf u ∣ p ^ (Nat.card G).factorization p := by
   rw [← Nat.card_zpowers, ← hPu, Sylow.card_eq_multiplicity]
 
-theorem card_sylow_odd_three_le (hp2 : p ≠ 2) (P : Sylow p G)
-    (hPu : (P : Subgroup G) = Subgroup.zpowers u)
-    (hindex : (Subgroup.centralizer (Subgroup.zpowers u : Set G)).relIndex
-      (Subgroup.normalizer (Subgroup.zpowers u : Set G)) = 2) :
-    orderOf u = Nat.card P ∧ Nat.card P % 2 = 1 ∧ 3 ≤ Nat.card P := by
-  have hp : p.Prime := Fact.out
-  have hu := orderOf_dvd_of_sylow_eq_zpowers P hPu
-  have hcard : orderOf u = Nat.card P := by rw [← Nat.card_zpowers, ← hPu]
-  obtain ⟨b, -, hb⟩ := (Nat.dvd_prime_pow hp).mp hu
-  have hodd : Odd (orderOf u) := odd_orderOf_of_dvd_prime_pow hp hp2 hu
-  have hne : u ≠ 1 := by
-    intro h
-    exact inv_ne_self_of_relIndex_eq_two hp hp2 hu hindex (by rw [h, inv_one])
-  have hb0 : b ≠ 0 := by
-    rintro rfl
-    rw [pow_zero] at hb
-    exact hne (orderOf_eq_one_iff.mp hb)
-  have hp3 : 3 ≤ p := by
-    have := hp.two_le
-    omega
-  refine ⟨hcard, ?_, ?_⟩
-  · rw [← hcard]
-    exact Nat.odd_iff.mp hodd
-  · rw [← hcard, hb]
-    calc 3 ≤ p := hp3
-      _ = p ^ 1 := (pow_one p).symm
-      _ ≤ p ^ b := Nat.pow_le_pow_right hp.pos (Nat.pos_of_ne_zero hb0)
 
 theorem eq_or_eq_inv_of_isConj (hp2 : p ≠ 2) (P : Sylow p G)
     (hPu : (P : Subgroup G) = Subgroup.zpowers u)

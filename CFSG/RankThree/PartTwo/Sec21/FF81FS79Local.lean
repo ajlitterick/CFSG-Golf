@@ -56,6 +56,5 @@ theorem R_conj_V1 : ∀ r ∈ R, r * r = 1 → ∃ γ : S6, γ * r * γ⁻¹ ∈
 
 end J6
 
-variable {H : Type} [Group H] [Finite H]
 
 end CFSG.RankThree.PartTwo.Sec21.FF81

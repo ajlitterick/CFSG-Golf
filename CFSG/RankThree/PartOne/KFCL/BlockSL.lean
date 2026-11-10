@@ -61,13 +61,6 @@ theorem ext1_mul_ext2 (A : Matrix {i // p i} {i // p i} K) (B : Matrix {i // ¬ 
   rw [Matrix.submatrix_mul_equiv, Matrix.fromBlocks_multiply]
   simp
 
-theorem ext2_mul_ext1 (A : Matrix {i // p i} {i // p i} K) (B : Matrix {i // ¬ p i} {i // ¬ p i} K) :
-    ext2 p B * ext1 p A =
-      Matrix.reindex (Equiv.sumCompl p) (Equiv.sumCompl p) (Matrix.fromBlocks A 0 0 B) := by
-  unfold ext1 ext2
-  simp only [Matrix.reindex_apply]
-  rw [Matrix.submatrix_mul_equiv, Matrix.fromBlocks_multiply]
-  simp
 
 @[expose] def blk1 (M : Matrix m m K) : Matrix {i // p i} {i // p i} K :=
   M.submatrix (Subtype.val : {i // p i} → m) Subtype.val
@@ -98,16 +91,6 @@ theorem blk1_mul (M N : Matrix m m K) (h12 : ∀ a b, p a → ¬ p b → M a b =
     Finset.sum_eq_zero fun k _ => by rw [h12 a k a.2 k.2, zero_mul]
   rw [this, add_zero]
 
-omit [DecidableEq m] in
-theorem blk2_mul (M N : Matrix m m K) (h21 : ∀ a b, ¬ p a → p b → M a b = 0) :
-    blk2 p (M * N) = blk2 p M * blk2 p N := by
-  ext a b
-  simp only [blk2, Matrix.submatrix_apply, Matrix.mul_apply]
-  rw [← (Equiv.sumCompl p).sum_comp, Fintype.sum_sum_type]
-  simp only [Equiv.sumCompl_apply_inl, Equiv.sumCompl_apply_inr]
-  have : ∑ k : {i // p i}, M a k * N k b = 0 :=
-    Finset.sum_eq_zero fun k _ => by rw [h21 a k a.2 k.2, zero_mul]
-  rw [this, zero_add]
 
 omit [Fintype m] in
 theorem ext1_apply (A : Matrix {i // p i} {i // p i} K) (i j : m) :

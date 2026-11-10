@@ -75,21 +75,6 @@ theorem LongFundPair3.toSet {R : Subgroup Y} {t : Y} (h : LongFundPair3 R t) {K'
   · rw [iSup_twinSet_eq_of_pair hK₀ hK' hV Λ, hΛ₀, hΛ']
     exact hn
 
-theorem LongFundSet3.toPair {R : Subgroup Y} {t : Y} (h : LongFundSet3 R t) {K' : Subgroup Y}
-    (hK' : K' ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R))
-    (hne : K' ≠ tightCore R)
-    (hV : ∀ J ∈ twinSet (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-      J = tightCore R ∨ J = K') :
-    LongFundPair3 R t := by
-  obtain ⟨Λ, hΛ, hcomm, hn⟩ := h
-  have hK₀ := tightCore_mem_twinSet_of_twin ⟨K', hK', hne⟩
-  intro K'' hK'' hne''
-  have h'' : K'' = K' := (hV K'' hK'').resolve_left hne''
-  subst h''
-  refine ⟨Λ (tightCore R), Λ K'', (hΛ _ hK₀).1, (hΛ _ hK'').1, (hΛ _ hK₀).2, (hΛ _ hK'').2,
-    hcomm _ hK₀ _ hK'' (Ne.symm hne), ?_⟩
-  rw [← iSup_twinSet_eq_of_pair hK₀ hK'' hV Λ]
-  exact hn
 
 end Defs
 
@@ -115,8 +100,6 @@ theorem Thm1RTwinHasLiftBelow.mono {m n : ℕ} (h : m ≤ n) (H : Thm1RTwinHasLi
     Thm1RTwinHasLiftBelow m :=
   Thm1RTwinLiftGenBelow.mono h H
 
-theorem thm1RTwinHasLiftBelow_zero : Thm1RTwinHasLiftBelow 0 :=
-  fun _ _ _ hlt => absurd hlt (Nat.not_lt_zero _)
 
 theorem Thm1RTwinLiftBelow.toHasLift {n : ℕ} (H : Thm1RTwinLiftBelow n) :
     Thm1RTwinHasLiftBelow n := by
@@ -140,8 +123,6 @@ theorem Thm1RTwinLiftSetBelow.mono {m n : ℕ} (h : m ≤ n) (H : Thm1RTwinLiftS
     Thm1RTwinLiftSetBelow m :=
   fun Y _ _ hlt => H Y (lt_of_lt_of_le hlt h)
 
-theorem thm1RTwinLiftSetBelow_zero : Thm1RTwinLiftSetBelow 0 :=
-  fun _ _ _ hlt => absurd hlt (Nat.not_lt_zero _)
 
 theorem Thm1RTwinLiftSetBelow.hasLift {n : ℕ} (H : Thm1RTwinLiftSetBelow n) {Y : Type} [Group Y]
     [Finite Y] (hY : Nat.card Y < n) {R : Subgroup Y} {S : Sylow 2 R} {t : Y}

@@ -21,6 +21,5 @@ theorem normalClosure_eq_closure_of_conj_invariant {G : Type*} [Group G] {s : Se
       exact hs g a ha)
     Group.subset_conjugatesOfSet
 
-variable {G : Type*} [Group G]
 
 end CFSG.GroupTheory

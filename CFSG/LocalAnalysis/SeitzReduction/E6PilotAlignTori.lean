@@ -71,14 +71,6 @@ theorem rootDiagUnit_mem_leviTorus {J : Finset (Fin (Tag.rank .E6))}
     {b : Fin (Tag.rank .E6) → Kˣ} (hb : ∀ j ∈ J, b j = 1) : rootDiagUnit .E6 b ∈ leviTorus K J :=
   mem_leviTorus.2 ⟨b, hb, rfl⟩
 
-theorem leviTorus_anti {J J' : Finset (Fin (Tag.rank .E6))} (h : J ⊆ J') :
-    leviTorus K J' ≤ leviTorus K J := by
-  intro g hg
-  obtain ⟨b, hb, rfl⟩ := mem_leviTorus.1 hg
-  exact rootDiagUnit_mem_leviTorus fun j hj => hb j (h hj)
-
-variable (K) in
-theorem antitone_leviTorus : Antitone (leviTorus K) := fun _ _ h => leviTorus_anti h
 
 @[expose] def corootTuple (δ : Fin (Tag.rank .E6) → ℤ) (c : Kˣ) : Fin (Tag.rank .E6) → Kˣ :=
   fun i => c ^ iform δ (Pi.single i 1)
@@ -241,10 +233,6 @@ theorem torus_le_adjointGroup
     (N : E6Neighbour) : N.torus K ≤ adjointGroup .E6 K :=
   corootLine_le_adjointGroup _
 
-theorem torus_le_leviTorus_inf
-    (N : E6Neighbour) {J : Finset (Fin (Tag.rank .E6))} (hJ : J ⊆ N.nodes) :
-    N.torus K ≤ leviTorus K J ⊓ adjointGroup .E6 K :=
-  le_inf (N.torus_le_leviTorus hJ) N.torus_le_adjointGroup
 
 theorem map_conj_rep_torus_high
     (N : E6Neighbour) :
@@ -330,56 +318,6 @@ theorem rootSpan_amalgamRoots_le_centralizer_leviTorus (J : Finset (Fin (Tag.ran
   rootSpan_le_centralizer_leviTorus fun _ hγ =>
     ⟨isRoot_of_mem_amalgamRoots hγ, fun _ hi => apply_eq_zero_of_mem_amalgamRoots hγ hi⟩
 
-theorem iform_eq_zero_of_commute_corootTuple {δ γ : Fin (Tag.rank .E6) → ℤ} (hδ : IsRoot .E6 δ)
-    (hγ : IsRoot .E6 γ) {c : Kˣ} (hc : 3 ≤ orderOf c)
-    (h : rootDiagUnit .E6 (corootTuple δ c) * pinnedX .E6 K γ 1 *
-      (rootDiagUnit .E6 (corootTuple δ c))⁻¹ = pinnedX .E6 K γ 1) :
-    iform δ γ = 0 := by
-  rw [rootDiagUnit_conj_pinnedX _ hγ, mul_one] at h
-  have h1 : ((rootChar (corootTuple δ c) γ : Kˣ) : K) = 1 := pinnedX_injective .E6 K γ h
-  rw [rootChar_corootTuple] at h1
-  have h2 : c ^ iform δ γ = 1 := Units.ext h1
-  rw [← orderOf_dvd_iff_zpow_eq_one] at h2
-  refine Int.eq_zero_of_abs_lt_dvd h2 ?_
-  have := abs_iform_le_two hδ hγ
-  omega
-
-theorem iform_eq_zero_of_rootSubgroup_le_centralizer_leviTorus_inf [Finite K]
-    (hq : 4 ≤ Nat.card K) {J : Finset (Fin (Tag.rank .E6))} {γ : Fin (Tag.rank .E6) → ℤ}
-    (hγ : IsRoot .E6 γ)
-    (h : rootSubgroup .E6 K γ ≤
-      centralizer ((leviTorus K J ⊓ adjointGroup .E6 K : Subgroup (ModGL .E6 K)) :
-        Set (ModGL .E6 K)))
-    {δ : Fin (Tag.rank .E6) → ℤ} (hδ : IsRoot .E6 δ)
-    (hδJ : ∀ j ∈ J, iform δ (Pi.single j 1) = 0) : iform δ γ = 0 := by
-  obtain ⟨c, hc⟩ := F4Pilot.exists_three_le_orderOf hq
-  have hT : rootDiagUnit .E6 (corootTuple δ c) ∈ leviTorus K J ⊓ adjointGroup .E6 K :=
-    ⟨rootDiagUnit_corootTuple_mem_leviTorus hδJ c, rootDiagUnit_corootTuple_mem_adjointGroup δ c⟩
-  have hcomm := mem_centralizer_iff.1 (h (mem_rootSubgroup.2 ⟨1, rfl⟩)) _ hT
-  refine iform_eq_zero_of_commute_corootTuple hδ hγ hc ?_
-  rw [hcomm, mul_inv_cancel_right]
-
-theorem rootSubgroup_le_centralizer_leviTorus_inf_iff [Finite K] (hq : 4 ≤ Nat.card K)
-    {J : Finset (Fin (Tag.rank .E6))} (hJ : J.card ≤ 2) {γ : Fin (Tag.rank .E6) → ℤ}
-    (hγ : IsRoot .E6 γ) :
-    rootSubgroup .E6 K γ ≤
-        centralizer ((leviTorus K J ⊓ adjointGroup .E6 K : Subgroup (ModGL .E6 K)) :
-          Set (ModGL .E6 K)) ↔
-      ∀ i ∉ J, γ i = 0 := by
-  refine ⟨fun h => coeff_eq_zero_of_forall_iform_eq_zero hJ hγ fun δ hδ hδJ => ?_,
-    fun h => (rootSubgroup_le_centralizer_leviTorus hγ h).trans
-      (centralizer_le (SetLike.coe_subset_coe.2 inf_le_left))⟩
-  rw [iform_comm]
-  exact iform_eq_zero_of_rootSubgroup_le_centralizer_leviTorus_inf hq hγ h hδ hδJ
-
-theorem rootSubgroup_le_centralizer_leviTorus_iff [Finite K] (hq : 4 ≤ Nat.card K)
-    {J : Finset (Fin (Tag.rank .E6))} (hJ : J.card ≤ 2) {γ : Fin (Tag.rank .E6) → ℤ}
-    (hγ : IsRoot .E6 γ) :
-    rootSubgroup .E6 K γ ≤ centralizer (leviTorus K J : Set (ModGL .E6 K)) ↔
-      ∀ i ∉ J, γ i = 0 :=
-  ⟨fun h => (rootSubgroup_le_centralizer_leviTorus_inf_iff hq hJ hγ).1
-      (h.trans (centralizer_le (SetLike.coe_subset_coe.2 inf_le_left))),
-    rootSubgroup_le_centralizer_leviTorus hγ⟩
 
 end Kill
 

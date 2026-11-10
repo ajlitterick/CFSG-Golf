@@ -21,15 +21,9 @@ theorem permVec_single [DecidableEq ι] (i : ι) : permVec π (Pi.single i 1) = 
   ext j
   simp only [permVec_apply, Pi.single_apply, Equiv.symm_apply_eq]
 
-theorem permVec_add (v v' : ι → ℤ) : permVec π (v + v') = permVec π v + permVec π v' := rfl
-
-theorem permVec_neg (v : ι → ℤ) : permVec π (-v) = -permVec π v := rfl
 
 theorem permVec_nsmul (c : ℕ) (v : ι → ℤ) : permVec π (c • v) = c • permVec π v := rfl
 
-theorem permVec_symm_permVec (v : ι → ℤ) : permVec π.symm (permVec π v) = v := by
-  ext j
-  simp [permVec_apply]
 
 theorem ht_permVec [Fintype ι] (v : ι → ℤ) : ht (permVec π v) = ht v :=
   Equiv.sum_comp π.symm v

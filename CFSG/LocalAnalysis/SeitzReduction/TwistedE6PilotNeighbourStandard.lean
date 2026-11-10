@@ -23,14 +23,6 @@ theorem subgroupOf_le_centralizer_subgroupOf {Y D C : Subgroup M}
   intro d hd
   exact Subtype.ext (mem_centralizer_iff.1 (h (mem_subgroupOf.1 hy)) d (mem_subgroupOf.1 hd))
 
-theorem isSimpleGroup_map_conj {D : Subgroup M} [IsSimpleGroup D] (n : M) :
-    IsSimpleGroup (D.map (MulAut.conj n).toMonoidHom) :=
-  (D.equivMapOfInjective (MulAut.conj n).toMonoidHom (MulAut.conj n).injective).symm.isSimpleGroup
-
-theorem isPerfect_map_conj {D : Subgroup M} [Group.IsPerfect D] (n : M) :
-    Group.IsPerfect (D.map (MulAut.conj n).toMonoidHom) :=
-  Group.IsPerfect.ofSurjective (f := (D.equivMapOfInjective (MulAut.conj n).toMonoidHom
-    (MulAut.conj n).injective).toMonoidHom) (MulEquiv.surjective _)
 
 end General
 
@@ -104,36 +96,6 @@ theorem centralizer_shortRootTorus_subgroupOf (hf2 : 2 ≤ f) (hk : Nat.card k =
   exact centralizer_subgroupOf_eq_sup (shortRootTorus_le_C0 hσι) (w1Complement_le_C0 σ)
     (omegaMinusLevi_le_graphFixedRootGroup σ) (centralizer_w1Torus_inf_eq hf2 hk hK hσ).1
 
-theorem centralizer_thetaTorus_conj_subgroupOf (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
-    (n : graphFixedRootGroup TwistTag.E6 K σ) :
-    centralizer (((thetaTorus (algebraMap k K)).map
-          (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ) : Set (graphFixedRootGroup TwistTag.E6 K σ)) =
-      ((thetaTorus (algebraMap k K)).map
-          (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ) ⊔
-        ((su6Levi σ).map (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-          (graphFixedRootGroup TwistTag.E6 K σ) := by
-  have hf : 1 ≤ f := by omega
-  have : Finite k := Nat.finite_of_card_ne_zero (by rw [hk]; positivity)
-  refine centralizer_subgroupOf_eq_sup (map_conj_le (thetaTorus_le_C0 hf hk hK hσ) n.2)
-    (map_conj_le (thetaTorus_le_C0 hf hk hK hσ) n.2)
-    (map_conj_le (su6Levi_le_graphFixedRootGroup σ) n.2) ?_
-  rw [centralizer_map_conj_inf n.2, (centralizer_thetaTorus_inf_eq hf2 hk hK hσ).1,
-    Subgroup.map_sup]
-
-theorem isQuasisimple_su6Levi_conj_subgroupOf (hf : 1 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
-    (n : graphFixedRootGroup TwistTag.E6 K σ) :
-    CFSG.IsQuasisimple (((su6Levi σ).map
-      (MulAut.conj (n : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ)) := by
-  have := isSimpleGroup_su6Levi hf hk hK hσ
-  have := isPerfect_su6Levi hf hk hK hσ
-  have := isSimpleGroup_map_conj (D := su6Levi σ) (n : ModGL TwistTag.E6.tag K)
-  have := isPerfect_map_conj (D := su6Levi σ) (n : ModGL TwistTag.E6.tag K)
-  exact isQuasisimple_subgroupOf (map_conj_le (su6Levi_le_graphFixedRootGroup σ) n.2)
 
 end Data
 
@@ -159,27 +121,6 @@ theorem neighbour_layer_2E6_X (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
       (isQuasisimple_su6Levi_subgroupOf hf hk hK hσ)).symm,
     isQuasisimple_map_symm e (isQuasisimple_su6Levi_subgroupOf hf hk hK hσ)⟩
 
-theorem neighbour_layer_2E6_conj (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
-    (e : L ≃* graphFixedRootGroup TwistTag.E6 K σ) (w : graphFixedRootGroup TwistTag.E6 K σ)
-    {X : Subgroup G}
-    (hX : X = ((((thetaTorus (algebraMap k K)).map
-      (MulAut.conj (w : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype)
-    {D : Subgroup G}
-    (hDe : D = ((((su6Levi σ).map (MulAut.conj (w : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-      (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype) :
-    D = inSubgroup layer (L ⊓ centralizer (X : Set G)) ∧ CFSG.IsQuasisimple D := by
-  have hf : 1 ≤ f := by omega
-  subst hX hDe
-  exact ⟨(F4Pilot.inSubgroup_layer_inf_centralizer_map_symm e
-      (centralizer_thetaTorus_conj_subgroupOf hf2 hk hK hσ w)
-      (subgroupOf_le_centralizer_subgroupOf (map_conj_le_centralizer_map_conj
-        (centralizer_thetaTorus_inf_eq hf2 hk hK hσ).2.2 _))
-      (subgroupOf_le_centralizer_subgroupOf (map_conj_le_centralizer_map_conj
-        (thetaTorus_le_centralizer_self _) _))
-      (isQuasisimple_su6Levi_conj_subgroupOf hf hk hK hσ w)).symm,
-    isQuasisimple_map_symm e (isQuasisimple_su6Levi_conj_subgroupOf hf hk hK hσ w)⟩
 
 theorem neighbour_layer_2E6_Y (hf2 : 2 ≤ f) (hk : Nat.card k = 2 ^ f)
     (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
@@ -245,69 +186,6 @@ theorem neighbour_standard_2E6_X (hset : SeitzSetting G L) (hf2 : 2 ≤ f)
       (fun x hx => hβX x (mem_subgroupOf.2 hx)) (fun x hx => hβD x (mem_subgroupOf.2 hx)) n hβn)
     hX htX hDe
 
-theorem neighbour_standard_2E6_conj (hset : SeitzSetting G L) (hf2 : 2 ≤ f)
-    (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}
-    (hσ : ∀ c, σ c = c ^ 2 ^ f) (e : L ≃* graphFixedRootGroup TwistTag.E6 K σ)
-    (w : graphFixedRootGroup TwistTag.E6 K σ) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {X : Subgroup G}
-    (hX : X = ((((thetaTorus (algebraMap k K)).map
-      (MulAut.conj (w : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype)
-    (htX : t ∈ centralizer (X : Set G)) {D : Subgroup G}
-    (hDe : D = ((((su6Levi σ).map (MulAut.conj (w : ModGL TwistTag.E6.tag K)).toMonoidHom).subgroupOf
-      (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype) :
-    CFSG.Open.IsComponentOf
-        ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-        (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-      (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-        IsPGroup 2 U →
-        U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-        Nat.card U ≤ 2) ∧
-      standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) := by
-  have hf : 1 ≤ f := by omega
-  exact neighbour_standard_of_centralizer_eq_sup_gen hset.standardSetting.standard htC ht
-    (inf_centralizer_eq_zpowers_twistedE6 hset hf hK hσ e htC ht) e
-    (centralizer_thetaTorus_conj_subgroupOf hf2 hk hK hσ w)
-    (subgroupOf_le_centralizer_subgroupOf (map_conj_le_centralizer_map_conj
-      (centralizer_thetaTorus_inf_eq hf2 hk hK hσ).2.2 _))
-    (subgroupOf_le_centralizer_subgroupOf (map_conj_le_centralizer_map_conj
-      (thetaTorus_le_centralizer_self _) _))
-    (isQuasisimple_su6Levi_conj_subgroupOf hf hk hK hσ w)
-    (fun β hβX hβD n hβn => eq_one_of_fix_su6Levi_conj hf2 hk hK hσ w β
-      (fun x hx => hβX x (mem_subgroupOf.2 hx)) (fun x hx => hβD x (mem_subgroupOf.2 hx)) n hβn)
-    hX htX hDe
-
-theorem neighbour_standard_2E6_X' (hset : SeitzSetting G L) (hf2 : 2 ≤ f)
-    (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}
-    (hσ : ∀ c, σ c = c ^ 2 ^ f) (e : L ≃* graphFixedRootGroup TwistTag.E6 K σ) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {X : Subgroup G}
-    (hX : X = ((((thetaTorus (algebraMap k K)).map
-      (MulAut.conj (twistedE6RelWeyl K relWordXPrime)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype)
-    (htX : t ∈ centralizer (X : Set G)) {D : Subgroup G}
-    (hDe : D = ((((su6Levi σ).map
-      (MulAut.conj (twistedE6RelWeyl K relWordXPrime)).toMonoidHom).subgroupOf
-        (graphFixedRootGroup TwistTag.E6 K σ)).map e.symm.toMonoidHom).map L.subtype) :
-    CFSG.Open.IsComponentOf
-        ((D.subgroupOf (centralizer (X : Set G))).map
-          (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))))
-        (centralizer ({QuotientGroup.mk' (oddCore (centralizer (X : Set G))) ⟨t, htX⟩} :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))))) ∧
-      (∀ U : Subgroup (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G))),
-        IsPGroup 2 U →
-        U ≤ centralizer ((D.subgroupOf (centralizer (X : Set G))).map
-            (QuotientGroup.mk' (oddCore (centralizer (X : Set G)))) :
-          Set (centralizer (X : Set G) ⧸ oddCore (centralizer (X : Set G)))) →
-        Nat.card U ≤ 2) ∧
-      standardComponentIsStandard ((D.subgroupOf (centralizer (X : Set G))).map
-        (QuotientGroup.mk' (oddCore (centralizer (X : Set G))))) :=
-  neighbour_standard_2E6_conj hset hf2 hk hK hσ e
-    ⟨twistedE6RelWeyl K relWordXPrime, twistedE6RelWeyl_mem σ relWordXPrime⟩ htC ht hX htX hDe
 
 theorem neighbour_standard_2E6_Y (hset : SeitzSetting G L) (hf2 : 2 ≤ f)
     (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K}

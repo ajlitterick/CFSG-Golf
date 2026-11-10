@@ -85,13 +85,6 @@ theorem wxComm_add_left (c c' a : k) :
   rw [h, commutatorElement_mul_left_of_mem_center (wxComm_mem_center η hη hker c' a)]
   rfl
 
-include hker in
-theorem wyComm_add_left (c c' b : k) :
-    wyComm η hη (c + c') b = wyComm η hη c b * wyComm η hη c' b := by
-  have h : wyComm η hη (c + c') b = ⁅lift η hη (wP c) * lift η hη (wP c'), lift η hη (yP b)⁆ :=
-    comm_eq η hker (by rw [map_lift, map_mul, map_lift, map_lift, wP_add]) rfl
-  rw [h, commutatorElement_mul_left_of_mem_center (wyComm_mem_center η hη hker c' b)]
-  rfl
 
 include hker in
 theorem wxComm_zero_left (a : k) : wxComm η hη 0 a = 1 :=

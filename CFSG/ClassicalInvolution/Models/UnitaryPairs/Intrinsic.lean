@@ -133,15 +133,6 @@ theorem IsLongRootSU2.nondeg_minusSpaceSU (hp : p ≠ 2) {hn : 2 ≤ n}
     Nondeg (unitaryInvolution K p f) (minusSpaceSU i) :=
   nondeg_eigSpace_neg_one (two_ne_zero_of_charP_ne_two hp) i h.coe_mul_self
 
-theorem orth_minusSpaceSU_of_le_fixSpaceSU (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2)
-    {hn : 2 ≤ n} {L₂ : Subgroup (Su K p f n)} {i₁ i₂ : Su K p f n}
-    (h₂ : IsLongRootSU2 K p f hn L₂ i₂) (hle : minusSpaceSU i₁ ≤ fixSpaceSU i₂) :
-    Orth (unitaryInvolution K p f) (minusSpaceSU i₁) (minusSpaceSU i₂) := by
-  intro u hu v hv
-  have : u ∈ perp (unitaryInvolution K p f) (minusSpaceSU i₂) := by
-    rw [h₂.perp_minusSpaceSU hK hp]
-    exact hle hu
-  exact this v hv
 
 theorem IsLongRootSU2.exists_nondeg (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2) {hn : 2 ≤ n}
     {L : Subgroup (Su K p f n)} {i : Su K p f n} (h : IsLongRootSU2 K p f hn L i) :
@@ -278,11 +269,6 @@ theorem isLongRootSU2_range_blockEmb (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠
   rw [hi.eq_of_orderOf_eq_two hK hp hmem hord]
   exact hi
 
-theorem isLongRootSU2_standardU (hK : Nat.card K = (p ^ f) ^ 2) (hp : p ≠ 2) {n : ℕ}
-    (hn : 1 ≤ n) (i : Fin n) :
-    IsLongRootSU2 K p f (by omega : 2 ≤ n + 1) (standardU K p f n i)
-      (blockEmb2 K p f n i (negOneSU K p f)) :=
-  isLongRootSU2_range_blockEmb hK hp (j := i) (by have := i.isLt; omega)
 
 end LongRoot
 

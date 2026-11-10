@@ -283,16 +283,6 @@ theorem sign_eq_one_of_odd_orderOf {α : Type*} [Fintype α] [DecidableEq α] {�
     rw [map_pow, h1, h.neg_one_pow, map_one] at h2
     exact absurd h2 (by decide)
 
-theorem opResidual_perm_eq_alternating (α : Type*) [Fintype α] [DecidableEq α] :
-    opResidual 2 (⊤ : Subgroup (Equiv.Perm α)) = alternatingGroup α := by
-  apply le_antisymm
-  · rw [opResidual, Subgroup.closure_le]
-    rintro σ ⟨-, hodd⟩
-    exact Equiv.Perm.mem_alternatingGroup.2
-      (sign_eq_one_of_odd_orderOf (Nat.coprime_two_right.1 hodd))
-  · rw [← Equiv.Perm.closure_three_cycles_eq_alternating, Subgroup.closure_le]
-    intro σ hσ
-    exact mem_opResidual_of_coprime (Subgroup.mem_top σ) (by rw [hσ.orderOf]; decide)
 
 end Perm
 
@@ -655,95 +645,11 @@ end Split
 
 section Trace
 
-variable {V : Type*} [CommGroup V]
-
-theorem sup_fixV_eq_top [Finite V] (hV : ∀ v : V, v ^ 2 = 1) {X T : Subgroup (MulAut V)}
-    (hT : IsSylowOf 2 T X) (hU : commV (opResidual 2 X) ⊔ fixV T = ⊤)
-    (hXW : ∀ x ∈ X, ∀ p ∈ commV (opResidual 2 X), x p ∈ commV (opResidual 2 X)) :
-    commV (opResidual 2 X) ⊔ fixV (opResidual 2 X) = ⊤ := by
-  classical
-  have : Finite (MulAut V) :=
-    Finite.of_injective (fun f : MulAut V => (f : V → V)) DFunLike.coe_injective
-  refine eq_top_iff.2 (hU ▸ sup_le le_sup_left ?_)
-  intro c hc
-  have hmod : ∀ g ∈ X, g c * c⁻¹ ∈ commV (opResidual 2 X) := by
-    intro g hg
-    obtain ⟨s, hs, k, hk, rfl⟩ := exists_mul_eq_of_pow_mem (opResidual_normal 2 X)
-      (fun x hx => exists_pow_mem_opResidual hx) ⟨hT.1, hT.2.1, hT.2.2⟩ g hg
-    have h1 : (s * k) c * c⁻¹ = s (k c * c⁻¹) := by
-      rw [MulAut.mul_apply, map_mul, map_inv, hc s hs]
-    rw [h1]
-    exact hXW s (hT.1 hs) _ (G6.mem_commV_of_mem hk c)
-  let O := MulAction.orbit X c
-  have : Fintype O := Fintype.ofFinite O
-  have hodd : Odd (Fintype.card O) := by
-    have h1 : (MulAction.stabilizer X c).index ∣ T.relIndex X := by
-      apply Subgroup.index_dvd_of_le
-      intro t ht
-      rw [MulAction.mem_stabilizer_iff, Subgroup.smul_def, MulAut.smul_def]
-      exact hc _ (Subgroup.mem_subgroupOf.1 ht)
-    rw [MulAction.index_stabilizer, ← Nat.card_coe_set_eq, Nat.card_eq_fintype_card] at h1
-    exact Nat.odd_iff.2 (Nat.two_dvd_ne_zero.1 fun h2 => hT.2.2 (h2.trans h1))
-  have hTr : (∏ x : O, (x : V)) ∈ fixV (opResidual 2 X) := by
-    intro g hg
-    rw [map_prod]
-    exact Fintype.prod_equiv (MulAction.toPerm (⟨g, opResidual_le 2 X hg⟩ : X)) _ _
-      (fun x => rfl)
-  have hQ : (∏ x : O, ((x : V) * c⁻¹)) ∈ commV (opResidual 2 X) := by
-    refine Subgroup.prod_mem _ fun x _ => ?_
-    obtain ⟨g, hg⟩ := x.2
-    rw [← hg]
-    exact hmod g g.2
-  have hpow : c⁻¹ ^ Fintype.card O = c⁻¹ := by
-    obtain ⟨r, hr⟩ := hodd
-    rw [hr, pow_succ, pow_mul, hV, one_pow, one_mul]
-  have hc' : (∏ x : O, ((x : V) * c⁻¹))⁻¹ * ∏ x : O, (x : V) = c := by
-    rw [Finset.prod_mul_distrib, Finset.prod_const, Finset.card_univ, hpow, mul_inv_rev, inv_inv,
-      inv_mul_cancel_right]
-  rw [← hc']
-  exact Subgroup.mul_mem _ (Subgroup.mem_sup_left (Subgroup.inv_mem _ hQ))
-    (Subgroup.mem_sup_right hTr)
 
 end Trace
 
 section Main
 
-variable {V : Type*} [CommGroup V]
-
-theorem two_thirteen [Finite V] (hV : ∀ v : V, v ^ 2 = 1) (n : ℕ) (hn : Odd n) (h3 : 3 ≤ n)
-    {X T : Subgroup (MulAut V)} (hT : IsSylowOf 2 T X)
-    (hU : commV (opResidual 2 X) ⊔ fixV T = ⊤)
-    (hnat : IsSymNatSection X (commV (opResidual 2 X))
-      (commV (opResidual 2 X) ⊓ fixV (opResidual 2 X)) n) :
-    commV (opResidual 2 X) ⊓ fixV (opResidual 2 X) = ⊥ ∧
-      commV (opResidual 2 X) ⊔ fixV (opResidual 2 X) = ⊤ ∧
-      IsSymNatSection X (commV (opResidual 2 X)) ⊥ n := by
-  obtain ⟨hXW, θ, β, hsurj, hker, hβ⟩ := hnat
-  let D : SymSplitData X (opResidual 2 X) n :=
-    { θ := θ
-      β := β
-      surj := hsurj
-      ker_fix := fun w hw => by
-        have h1 : w ∈ β.ker := hw
-        rw [hker, Subgroup.mem_subgroupOf] at h1
-        exact h1.2
-      map_apply := hβ
-      apply_mem := hXW
-      three_mem := fun σ hσ => mem_opResidual_of_coprime (θ.symm σ).2 (by
-        rw [Subgroup.orderOf_coe, MulEquiv.orderOf_eq, hσ.orderOf]
-        decide) }
-  have hinj := D.β_injective hV hn h3 fun H hH => opResidual_le_of_three_cycles θ hH
-  have hZ : commV (opResidual 2 X) ⊓ fixV (opResidual 2 X) = ⊥ := by
-    refine eq_bot_iff.2 fun z hz => ?_
-    have h1 : (⟨z, hz.1⟩ : ↥(commV (opResidual 2 X))) ∈ β.ker := by
-      rw [hker, Subgroup.mem_subgroupOf]
-      exact hz
-    have h2 : (⟨z, hz.1⟩ : ↥(commV (opResidual 2 X))) = 1 :=
-      hinj ((MonoidHom.mem_ker.1 h1).trans (map_one β).symm)
-    exact Subgroup.mem_bot.2 (congrArg Subtype.val h2)
-  refine ⟨hZ, sup_fixV_eq_top hV hT hU hXW, ?_⟩
-  rw [← hZ]
-  exact ⟨hXW, θ, β, hsurj, hker, hβ⟩
 
 end Main
 

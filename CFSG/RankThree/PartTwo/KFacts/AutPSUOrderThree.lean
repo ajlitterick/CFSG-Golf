@@ -32,10 +32,6 @@ theorem bar_transpose_bar3 (X : Matrix (Fin 3) (Fin 3) K) :
   ext i j
   simp [UnitaryFieldData.bar_bar]
 
-theorem map_map_bar_comm3 (σ : K ≃+* K) (X : Matrix (Fin 3) (Fin 3) K) :
-    (X.map h.bar).map σ = (X.map σ).map h.bar := by
-  ext i j
-  simp [map_bar_comm h σ]
 
 theorem transpose_map_bar_map3 (σ : K ≃+* K) (X : Matrix (Fin 3) (Fin 3) K) :
     ((X.map h.bar)ᵀ).map σ = ((X.map σ).map h.bar)ᵀ := by

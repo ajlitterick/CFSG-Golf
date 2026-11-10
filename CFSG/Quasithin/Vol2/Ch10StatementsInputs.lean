@@ -39,15 +39,6 @@ open scoped IsMulCommutative Pointwise
           Subgroup.centralizer (autOn (fsuL0 T L) (fsuVM T L I) :
             Set (MulAut ↥(fsuVM T L I))))) ≃* Multiplicative (ZMod 5 × ZMod 5)))
 
-@[expose] def TmpL6_3_2_6 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), FSU G T L I → L < fsuL0 T L →
-    (∃ _ : IsMulCommutative ↥(fsuV T I),
-      qhatOf (V := ↥(fsuV T I)) (autOn (fsuL0 T L ⊔ T) (fsuV T I)) ≤ 2) ∧
-    (∃ _ : IsMulCommutative ↥(fsuVM T L I),
-      qhatOf (V := ↥(fsuVM T L I)) (autOn (fsuM T L) (fsuVM T L I)) ≤ 2) ∧
-    ((∃ _ : IsMulCommutative ↥(fsuV T I), I = fsuV T I ∧ fsuV T I = fsuVM T L I ∧
-        ((∃ n : ℕ, Row711OmegaPlus T L I n) ∨ Row711L3Wreath T L I)) ∨
-      Concl326Three T L I)
 
 @[expose] def TmpL6_3_2_10_eight : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L I Vp : Subgroup G), FSU G T L I →

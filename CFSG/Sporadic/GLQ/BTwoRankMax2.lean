@@ -78,16 +78,6 @@ theorem exists_elem2_five_B_of_max2 :
   rw [hprod, map_one, MulEquiv.map_eq_one_iff, hE, op_eq_one_iff, OneMemClass.coe_eq_one] at h1
   exact psiBar_prod_ne_one hβ a ha h1
 
-theorem b_two_rank_five_of_max2 :
-    ∀ (K : Type*) [Group K] [Finite K], Nonempty (K ≃* CFSG.Blueprint.NativeSporadic.B) →
-      (∃ A : Subgroup K, CFSG.IsElementaryAbelian 2 A ∧ Nat.card A = 32) ∧
-        5 ≤ CFSG.pRank 2 K := by
-  intro K _ _ hK
-  obtain ⟨f⟩ := hK
-  obtain ⟨x, hsq, hcomm, hker⟩ := exists_elem2_five_B_of_max2
-  obtain ⟨-, -, -, -, hE, hcard⟩ := exists_elemAbelian_two x hsq hcomm hker
-  obtain ⟨⟨A, hA, hAc⟩, hr⟩ := transport_elemAbelian_two _ hE hcard f
-  exact ⟨⟨A, hA, hAc.trans rfl⟩, hr⟩
 
 end
 

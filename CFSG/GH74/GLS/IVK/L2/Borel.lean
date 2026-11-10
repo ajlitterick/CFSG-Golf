@@ -68,48 +68,6 @@ end L2Borel
 
 open L2Borel
 
-theorem ivk_1_5c : IVK_1_5c := by
-  intro F _ _ hF K _ _ e p n hp hcard W x hx
-  have h2 : (2 : F) ≠ 0 := two_ne_zero_of_odd_card hF.1
-  obtain ⟨c, hc⟩ := exists_psiEquiv_eq e hp hcard W
-  set ψ := psiEquiv e c with hψ
-  have hN : normalizer ((W : Subgroup K) : Set K) = (borel F).map ψ.toMonoidHom := by
-    rw [hc, normalizer_map_equiv, normalizer_unipotent_eq h2]
-  have hx' : ψ.symm x ∉ borel F := by
-    intro h
-    apply hx
-    rw [hN]
-    exact ⟨ψ.symm x, h, by simp⟩
-  have hset : ((W : Subgroup K) : Set K) = ψ '' (unipotent F : Set (PSL(2, F))) := by
-    rw [hc]
-    rfl
-  have key : Subgroup.closure (((W : Subgroup K) : Set K) ∪ {x}) =
-      (Subgroup.closure ((unipotent F : Set (PSL(2, F))) ∪ {ψ.symm x})).map ψ.toMonoidHom := by
-    rw [MonoidHom.map_closure, Set.image_union, Set.image_singleton, hset]
-    simp
-  rw [key, closure_unipotent_insert_eq_top hx', Subgroup.map_top_of_surjective _ ψ.surjective]
-
-theorem ivk_1_5d : IVK_1_5d := by
-  intro F _ _ hF K _ _ e p n hp hcard W M hWM hModd x hxM
-  by_contra hx
-  have h := ivk_1_5c F hF K e p n hp hcard W x hx
-  have hM : M = ⊤ := by
-    rw [eq_top_iff, ← h]
-    exact (Subgroup.closure_le M).2 (Set.union_subset hWM (Set.singleton_subset_iff.2 hxM))
-  rw [hM, Subgroup.card_top] at hModd
-  obtain ⟨k, hk⟩ := hF.1
-  have hsq : Nat.card F ^ 2 - 1 = 4 * (k * (k + 1)) := by
-    apply Nat.sub_eq_of_eq_add
-    rw [hk]
-    ring
-  have hKeven : Even (Nat.card K) := by
-    rw [card_eq_of_L2Field e hF, hsq, hk]
-    have : (2 * k + 1) * (4 * (k * (k + 1))) / 2 = (2 * k + 1) * (2 * (k * (k + 1))) := by
-      rw [show (2 * k + 1) * (4 * (k * (k + 1))) = 2 * ((2 * k + 1) * (2 * (k * (k + 1)))) by ring]
-      exact Nat.mul_div_cancel_left _ (by norm_num)
-    rw [this]
-    exact ⟨(2 * k + 1) * (k * (k + 1)), by ring⟩
-  exact (Nat.not_even_iff_odd.2 hModd) hKeven
 
 theorem ivk_1_4g : IVK_1_4g := by
   intro F _ _ hF K _ _ e p n hp hcard W W₀ hW₀W hW₀

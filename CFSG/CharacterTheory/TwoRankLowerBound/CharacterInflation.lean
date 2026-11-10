@@ -38,17 +38,6 @@ theorem card_surjective_group_hom {source target : Type*} [Group source] [Group 
     ← Nat.card_eq_fintype_card] at hsum
   exact_mod_cast hsum
 
-theorem characterPairing_inflation {source target : Type*} [Group source] [Group target]
-    [Fintype source] [Fintype target] (homomorphism : source →* target)
-    (hsurjective : Function.Surjective homomorphism) (left right : target → ℂ) :
-    characterPairing (left ∘ homomorphism) (right ∘ homomorphism) = characterPairing left right := by
-  unfold characterPairing
-  simp only [Function.comp_apply, map_inv]
-  rw [sum_comp_surjective_group_hom homomorphism hsurjective
-    (fun element => left element * right element⁻¹), card_surjective_group_hom homomorphism hsurjective]
-  have hkernel : (Nat.card homomorphism.ker : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Nat.card_pos.ne'
-  push_cast
-  field_simp
 
 universe groupUniverse vectorUniverse
 

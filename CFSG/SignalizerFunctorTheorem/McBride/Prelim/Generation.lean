@@ -12,43 +12,6 @@ namespace CFSG.SignalizerFunctorTheorem.McBride
 
 variable {G : Type*} [Group G]
 
-theorem iSup_centralizer_cyclic_quotient [Finite G] {p : ℕ} (hp : p.Prime) {A X : Subgroup G}
-    [IsMulCommutative A] (hA : IsPGroup p A) (hAX : A ≤ Subgroup.normalizer (X : Set G))
-    (hX : Nat.Coprime p (Nat.card X)) :
-    ⨆ (B : Subgroup G) (_ : B ≤ A) (_ : IsCyclic (A ⧸ B.subgroupOf A)),
-      X ⊓ Subgroup.centralizer (B : Set G) = X := by
-  let _actorCommGroup : CommGroup A := { A.toGroup with mul_comm := mul_comm' }
-  let _action := CFSG.SignalizerFunctor.Helpers.conjugationAction A X hAX
-  have generated :=
-    CFSG.SignalizerFunctor.Helpers.coprime_cyclic_quotient_generation p hp A hA X hX
-  apply le_antisymm
-  · exact iSup_le fun B => iSup_le fun _ => iSup_le fun _ => inf_le_left
-  · have target_generated :
-        (⨆ (B' : Subgroup A) (_ : IsCyclic (A ⧸ B')), FixedPoints.subgroup B' X).map
-          X.subtype = X := by
-      rw [generated, ← MonoidHom.range_eq_map, X.subtype_range]
-    conv_lhs => rw [← target_generated]
-    rw [Subgroup.map_iSup]
-    refine iSup_le fun B' => ?_
-    rw [Subgroup.map_iSup]
-    refine iSup_le fun hcyc => ?_
-    set B : Subgroup G := B'.map A.subtype
-    have hBA : B ≤ A := by
-      rintro _ ⟨a, -, rfl⟩
-      exact a.2
-    have hsub : B.subgroupOf A = B' :=
-      Subgroup.comap_map_eq_self_of_injective A.subtype_injective B'
-    refine le_trans ?_ (le_iSup_of_le B (le_iSup_of_le hBA
-      (le_iSup_of_le (hsub ▸ hcyc) le_rfl)))
-    rintro element ⟨representative, fixed, rfl⟩
-    refine ⟨representative.property, Subgroup.mem_centralizer_iff.mpr ?_⟩
-    intro actorElement member
-    obtain ⟨internalElement, internal_member, rfl⟩ := member
-    have equality := congrArg (fun internalTarget : X => (internalTarget : G))
-      (fixed (⟨internalElement, internal_member⟩ : B'))
-    change internalElement.val * representative.val * internalElement.val⁻¹ =
-      representative.val at equality
-    exact mul_inv_eq_iff_eq_mul.mp equality
 
 theorem isCyclic_quotient_iff_of_isElemAbelian [Finite G] {p : ℕ} (hp : p.Prime)
     {A B : Subgroup G} [IsMulCommutative A] (hA : IsElemAbelian p A) (hBA : B ≤ A) :

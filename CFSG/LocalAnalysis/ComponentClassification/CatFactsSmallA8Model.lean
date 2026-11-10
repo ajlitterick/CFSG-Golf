@@ -66,8 +66,5 @@ theorem exists_model {K : Type*} [Group K] (e : K ≃* alternatingGroup (Fin 8))
   intro σ x
   rfl
 
-theorem s8_mem : s8 ∈ QS8.originalSubgroup := by
-  rw [QS8_eq]
-  exact mem_top _
 
 end CFSG.ComponentClassification.CatFactsSmall.A8

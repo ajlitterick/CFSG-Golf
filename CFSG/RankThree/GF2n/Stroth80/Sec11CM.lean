@@ -11,8 +11,6 @@ open scoped commutatorElement Matrix
 
 variable {G : Type} [Group G]
 
-@[expose] def IsF4Char2 (Y : Type) [Group Y] : Prop :=
-  ∃ x : ℕ, CFSG.Blueprint.LieModel Y .F4 0 2 x
 
 @[expose] def NaturalDualRep {ι : Type} [Fintype ι] [DecidableEq ι] (K : Type) [Field K]
     (X : Subgroup (GL ι K)) (R V Z N : Subgroup G) : Prop :=
@@ -49,10 +47,6 @@ theorem mk_mem_Xbar_of_LB (M Q Z B : Subgroup G) [(Q.subgroupOf M).Normal] (a : 
   ⨆ h : XbarH M Q Z B,
     LinearMap.range (((φ h : M₀.E ≃ₗ[K] M₀.E) : M₀.E →ₗ[K] M₀.E) - 1)
 
-@[expose] def CMF4Width : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M Q Z B : Subgroup G) [(Q.subgroupOf M).Normal]
-    (hc : Ctx M Q Z B) (n : ℕ), Width Q Z n → 2 < n →
-    (∃ a ∈ LB M Q B, IsA2 Q Z a) → IsF4Char2 (XbarMod M Q Z B) → 26 ≤ 2 * n
 
 @[expose] def piPre {K : Type} [Field K] {Q Z : Subgroup G} {γ : G → K}
     (M₀ : Tim79.QuadModel Q Z K γ)

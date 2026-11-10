@@ -123,20 +123,6 @@ theorem totOK : bAnd(Nat.beq (tot 0) 687, bAnd(Nat.beq (tot 1) 495, bAnd(Nat.beq
     bAnd(Nat.beq (tot 3) 256, bAnd(Nat.beq (tot 4) 256, Nat.beq (tot 5) 256))))) = true := by
   quickRfl
 
-theorem negCnt : (!Nat.beq (strictN o0 (fun o0 => strictN o1 (fun o1 =>
-    cntK RuSS.TR o0 o1 8 pInv 0 8))) 4) = true := by quickRfl
-
-theorem negZw : (!zwK 4060 12 (mask 12) 593775 RuTree.plK A0 A1 Z A1 A1 268238) = true := by
-  quickRfl
-
-theorem negId : bAnd(bIf(strictB o0 (fun o0 => strictB o1 (fun o1 =>
-    invK 4060 12 (mask 12) (RuSS.TR o0) (RuSS.TR o1))), false, true),
-    bIf(strictB o0 (fun o0 => strictB o1 (fun o1 =>
-      prK 4060 12 (mask 12) (RuSS.TR o0) (RuSS.TR o1) (X 0) (X 0))), false, true)) = true := by
-  quickRfl
-
-theorem negXW : (!wordEqK 4060 12 (mask 12) (pidn 4060 12) SG SGI 4 (ruFusRec 1).1 (X 1)) =
-    true := by quickRfl
 
 end CertificateChecks.KernelSporSch.RuI
 

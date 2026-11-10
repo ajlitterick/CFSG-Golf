@@ -367,10 +367,6 @@ open CFSG.Assembly.RankThreeEven (projSL projSU)
     Nonempty (K ≃* projSL 2 (GaloisField 2 m)) → 1 < m → Odd m →
     ∃ k : ℕ, Odd k ∧ Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSU 4 2 k)
 
-@[expose] def U4OrderThreeNotStdDiagonal : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (X : Subgroup G) (x : G) (k : ℕ), 1 ≤ k →
-    Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSU 4 2 k) → x ^ 3 = 1 →
-      ¬ KFacts.InducesStdKind X x .diagonal
 
 theorem nonempty_mulEquiv_projSU_of_list (hList : Inspection223List) {G : Type} [Group G]
     [Finite G] {X A B K : Subgroup G} {m : ℕ}
@@ -392,11 +388,5 @@ theorem nonempty_mulEquiv_projSU_of_list (hList : Inspection223List) {G : Type} 
     (hinner k hko.pos ⟨eX⟩) hBA hB27 hKX hKC hKN eK hm1
   exact ⟨eX⟩
 
-theorem inspection223_of (hList : Inspection223List) (hDiag : U4OrderThreeNotStdDiagonal) :
-    Inspection223 := by
-  intro G _ _ X A B K m hL hAe hA81 hAN hAC hdiag hBA hB27 hKX hKC hKN hK hm1 hmo
-  refine nonempty_mulEquiv_projSU_of_list hList hL hAe hA81 hAN hAC hdiag hBA hB27 hKX hKC hKN hK
-    hm1 hmo fun k hk eX x hx hout => ?_
-  exact hDiag G X x k hk eX (hAe.2 x hx) (hdiag x hx hout)
 
 end CFSG.RankThree.PartTwo.Sec21

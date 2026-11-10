@@ -41,25 +41,6 @@ theorem classicalInvolutionOddCore_eq_bot_of_mulEquiv {A B : Type*} [Group A] [G
 
 end Span
 
-@[expose] def TightThmD2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaGen Ω →
-    (∀ J ∈ Ω, IsPGroup 2 J) → (∀ J ∈ Ω, Nat.card J = 8) →
-    (∀ J ∈ Ω, ∀ u : G, IsUniqueInvolution J u →
-      Subgroup.centralizer ({u} : Set G) ≤ Subgroup.normalizer (J : Set G)) →
-    (∀ J ∈ Ω, AEmpty Ω J) →
-    (∀ J ∈ Ω, ∀ J' ∈ Ω, ∀ u : G, IsUniqueInvolution J u → IsUniqueInvolution J' u → J = J') →
-    ∀ P : Set (Subgroup G), P ⊆ Ω →
-    (∀ L ∈ P, ∀ L' ∈ P, ∃ x ∈ pSpan P, conjSub x L = L') →
-    (∀ L ∈ P, ∀ x ∈ pSpan P, conjSub x L ∈ P) →
-    classicalInvolutionOddCore ↥(pSpan P) = ⊥ →
-    (∀ L ∈ P, ∀ u : G, IsUniqueInvolution L u → ∃ Q : Subgroup G, Q ≤ pSpan P ∧
-      (∀ x ∈ pSpan P, ∀ q ∈ Q, x * q * x⁻¹ ∈ Q) ∧ IsPGroup 2 Q ∧ u ∈ Q) →
-    (∀ L ∈ P, ∀ u : G, IsUniqueInvolution L u → ∀ Q : Subgroup G, Q ≤ pSpan P →
-      (∀ x ∈ pSpan P, ∀ q ∈ Q, x * q * x⁻¹ ∈ Q) → IsPGroup 2 Q → ∀ x ∈ L, x ∈ Q →
-        x = 1 ∨ x = u) →
-    (∀ L ∈ P, ∀ L' ∈ P, L ≠ L' → ¬ nbrAdj Ω L L') ∨
-      ∃ L ∈ P, ∃ L' ∈ P, L ≠ L' ∧ ∃ u u' : G, IsUniqueInvolution L u ∧
-        IsUniqueInvolution L' u' ∧ ∀ I ∈ P, ∀ x ∈ I, (u * u') * x = x * (u * u')
 
 variable {G : Type} [Group G] [Finite G]
 variable {Ω : Set (Subgroup G)} {K : Subgroup G} (hS : ThinStd Ω K)
@@ -163,73 +144,6 @@ open CFSG.ClassicalInvolution.Q3.TC.Graph
 
 section Cit3
 
-
-@[expose] def TightCaseBLeaf (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
-    TightLargeHyp n Y R S t → TightOddCent t →
-      Disconnected.DConnected (CoreAssembly.conjClass (tightCore R)) →
-      TC.SepHyp (CoreAssembly.conjClass (tightCore R)) →
-      (∀ M N : Subgroup Y, MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N →
-        TC.ThinAt (CoreAssembly.conjClass (tightCore R)) M N) →
-      ∀ M N N' : Subgroup Y,
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N →
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) M N' → N ≠ N' →
-        ∀ u u' : Y, IsUniqueInvolution N u → IsUniqueInvolution N' u' →
-        TC.Thin.CentX (CoreAssembly.conjClass (tightCore R)) M (u * u') →
-        MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) N N' → False
-
-variable {n : ℕ}
-
-theorem tightIndepLeaf_of_thmD2 (hD : TC.Thin.TightThmD2) (hB : TightCaseBLeaf n) :
-    TightIndepLeaf n := by
-  intro Y _ _ R S t hL hO hconn hsep hall M hM
-  obtain ⟨g, rfl⟩ := hM
-  have hS := hL.thinStd hO hconn hsep
-  refine hS.indep_conj ?_ g
-  have huniq := hL.datum.isUniqueInvolution_core
-  set Ω := CoreAssembly.conjClass (tightCore R) with hΩdef
-  set K₀ := tightCore R with hK₀
-  have hOC : classicalInvolutionOddCore ↥(Subgroup.centralizer ({t} : Set Y)) = ⊥ := by
-    rw [eq_bot_iff]
-    intro x hx
-    have : (x : Y) ∈ oddCoreImg (Subgroup.centralizer ({t} : Set Y)) := ⟨x, hx, rfl⟩
-    unfold TightOddCent at hO
-    rw [hO, Subgroup.mem_bot] at this
-    exact (Subgroup.mem_bot).mpr (Subtype.ext this)
-  have hthM : TC.Thin.ThinAtM Ω K₀ := fun N h => hall K₀ N h
-  set P : Set (Subgroup Y) := {L : Subgroup Y | MaxAdj (TC.nbrAdj Ω) K₀ L} with hPdef
-  have hPΩ : P ⊆ Ω := fun L hL => (show MaxAdj (TC.nbrAdj Ω) K₀ L from hL).1.2.1
-  have htrans : ∀ L ∈ P, ∀ L' ∈ P, ∃ x ∈ TC.Thin.pSpan P, conjSub x L = L' :=
-    fun L hL L' hL' => hS.exists_conj_maxOrb hL hL'
-  have hinv : ∀ L ∈ P, ∀ x ∈ TC.Thin.pSpan P, conjSub x L ∈ P := fun L hL x hx =>
-    hS.maxAdj_conj_of_mem hL huniq (hS.pSpan_le_centralizer huniq hx)
-  have hodd := hS.oddCore_pSpan_eq_bot huniq hOC
-  have hE2 : ∀ L ∈ P, ∀ u : Y, IsUniqueInvolution L u → ∃ Q : Subgroup Y,
-      Q ≤ TC.Thin.pSpan P ∧ (∀ x ∈ TC.Thin.pSpan P, ∀ q ∈ Q, x * q * x⁻¹ ∈ Q) ∧
-        IsPGroup 2 Q ∧ u ∈ Q := by
-    intro L hL u hu
-    refine ⟨TC.Thin.Qz t ⊓ TC.Thin.pSpan P, inf_le_right, ?_, ?_, ?_⟩
-    · intro x hx q hq
-      refine ⟨(TC.Thin.isNormalTwoIn_Qz t).2.2 x (hS.pSpan_le_centralizer huniq hx) q hq.1, ?_⟩
-      exact (TC.Thin.pSpan P).mul_mem ((TC.Thin.pSpan P).mul_mem hx hq.2)
-        ((TC.Thin.pSpan P).inv_mem hx)
-    · exact (TC.Thin.isNormalTwoIn_Qz t).2.1.to_le inf_le_left
-    · exact ⟨TC.Thin.mem_Qz_of_maxAdj hthM hL huniq hu,
-        TC.Thin.le_pSpan hL hu.mem⟩
-  have hthin : ∀ L ∈ P, ∀ u : Y, IsUniqueInvolution L u → ∀ Q : Subgroup Y,
-      Q ≤ TC.Thin.pSpan P → (∀ x ∈ TC.Thin.pSpan P, ∀ q ∈ Q, x * q * x⁻¹ ∈ Q) →
-        IsPGroup 2 Q → ∀ x ∈ L, x ∈ Q → x = 1 ∨ x = u := by
-    intro L hL u hu Q hQX hQn hQ2 x hxL hxQ
-    exact hS.eq_of_mem_Qz (show MaxAdj (TC.nbrAdj Ω) K₀ L from hL).1 (hthM L hL) huniq hu hxL
-      (hS.le_Qz_of_normal huniq hQX hQn hQ2 hxQ)
-  rcases hD Y Ω hS.hyp hS.two hS.card hS.tight hS.aEmpty
-      (fun J hJ J' hJ' u hu hu' => hS.eq_of_uniqueInvolution hJ hJ' hu hu') P hPΩ htrans hinv
-      hodd hE2 hthin with hind | ⟨N, hN, N', hN', hne, u, u', hu, hu', hc⟩
-  · exact fun N N' hN hN' hne => hind N hN N' hN' hne
-  · exfalso
-    have hc' : TC.Thin.CentX Ω K₀ (u * u') := fun I hI x hx => hc I hI x hx
-    have hmax := hS.maxAdj_of_centX_mul hL.center hN hN' hne hu hu' hc'
-    exact hB Y R S t hL hO hconn hsep hall K₀ N N' hN hN' hne u u' hu hu' hc' hmax
 
 end Cit3
 

@@ -297,13 +297,6 @@ theorem wordElt_cons
     wordElt τ (p :: w) = letterElt τ p.1 p.2 * wordElt τ w := by
   rw [wordElt, List.map_cons, List.prod_cons, ← wordElt]
 
-theorem letterElt_true
-    (i : Fin τ.rank) (c : k) : letterElt τ (i, true) c = adjX τ k i c :=
-  rfl
-
-theorem letterElt_false
-    (i : Fin τ.rank) (c : k) : letterElt τ (i, false) c = adjY τ k i c :=
-  rfl
 
 section Psi
 

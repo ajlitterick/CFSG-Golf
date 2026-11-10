@@ -50,20 +50,6 @@ theorem centralizer_u_le_sigmaStarNorm (h14 : C21_14 p f) (hY : C21_YSigma p f)
   · exact hY G Ω K K' z u J t W h hα h1 htz
   · exact h3.trans htz
 
-variable (p f) in
-theorem c21_17_cent_of (h14 : C21_14 p f) (hY : C21_YSigma p f) (ha : C21_17_tz p f) :
-    C21_17_cent p f := by
-  intro G _ _ _ Ω K K' z u J t W h hα hD hSig
-  have htz := ha G Ω K K' z u J t W h hα hD hSig
-  exact ⟨htz, centralizer_u_le_sigmaStarNorm h14 hY h hα htz⟩
-
-variable (p f) in
-theorem c21_E_cent_of (h14 : C21_14 p f) (hY : C21_YSigma p f) (hb : C21_E_star p f) :
-    C21_E_cent p f := by
-  intro G _ _ _ Ω K K' z u J t W h hα hD hSigC hmu
-  have hstar := hb G Ω K K' z u J t W h hα hD hSigC hmu
-  have htz := T7A.centralizer_le_sigmaStarNorm_of_eq h.std.stand.hyp.conjInvariant hstar
-  exact ⟨hstar, centralizer_u_le_sigmaStarNorm h14 hY h hα htz⟩
 
 end Step14
 

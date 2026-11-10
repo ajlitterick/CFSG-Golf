@@ -53,11 +53,6 @@ theorem s_not_mem_J : s ∉ J := by
 theorem s_not_mem_zpowers_d : s ∉ Subgroup.zpowers d := fun hs =>
   h.s_not_mem_J ((Subgroup.zpowers_le.mpr h.d_mem) hs)
 
-theorem ts_ne_one : t * s ≠ 1 := by
-  intro h1
-  apply h.s_ne
-  calc s = t⁻¹ * (t * s) := by group
-    _ = t := by rw [h1, mul_one, h.t_inv_eq]
 
 theorem conj_inv_of_three_cycle {g : G} (hgt : g * t * g⁻¹ = s) (hgs : g * s * g⁻¹ = t * s) :
     g⁻¹ * t * g⁻¹⁻¹ = t * s := by

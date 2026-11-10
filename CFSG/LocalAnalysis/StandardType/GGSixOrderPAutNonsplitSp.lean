@@ -228,8 +228,6 @@ theorem ggOrdPInnerConjPSpNonsplit_holds : GGOrdPInnerConjPSpNonsplit := by
   have hyp : y ^ p = 1 := hyo ▸ pow_orderOf_eq_one y
   exact OrdPNsSp.exists_conj_mem_centralizer hS hyp hy
 
-theorem ggOrdPInnerConjAt_PSp : GGOrdPInnerConjAt .PSp :=
-  ggOrdPInnerConjAt_PSp_of_nonsplit ggOrdPInnerConjPSpNonsplit_holds
 
 end Family
 

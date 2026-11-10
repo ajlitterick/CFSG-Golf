@@ -22,9 +22,6 @@ theorem actualInvolution_mem_center (t : G) :
   apply Subtype.ext
   exact Subgroup.mem_centralizer_singleton_iff.mp x.property
 
-theorem actualInvolution_order (t : G) (ht : orderOf t = 2) :
-    orderOf (actualInvolution t) = 2 :=
-  (Subgroup.orderOf_coe (actualInvolution t)).symm.trans ht
 
 theorem centered_involution_isConj_s [Finite G] (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -269,96 +266,6 @@ theorem exists_original_aligned_equiv [Finite G] (n : ℕ) (hn : 4 ≤ n)
   · intro g
     exact conjugatedOriginalEquiv_apply F a A hfix t psi0 c g
 
-
-theorem aligned_originalFieldAction_pair (sigma : A) (x : MatrixCoverData.M F a) :
-    MatrixTorus.originalFieldAction F a A hfix sigma x =
-      ⟨Matrix.SpecialLinearGroup.map (sigma : F ≃+* F).toRingHom x.left, x.right⟩ :=
-  MatrixTorus.originalFieldAction_pair F a A hfix sigma x
-
-theorem exists_matrixFieldModel_aligned_equiv [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) (t : G) (ht : orderOf t = 2)
-    (psi0 : MatrixCover.MatrixFieldModel F A (MatrixTorus.originalCoefficient F a A hfix) ≃*
-      (Subgroup.centralizer {t} ⧸ pPrimeCore 2 (Subgroup.centralizer {t})))
-    (hz : psi0 (MatrixTorus.zInH F A (MatrixTorus.originalCoefficient F a A hfix)) =
-      QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) (actualInvolution t))
-    (s : Subgroup.centralizer {t}) (hs : orderOf s = 2) (hst : s ≠ actualInvolution t) :
-    ∃ (c : Subgroup.centralizer {t})
-      (psi : MatrixCover.MatrixFieldModel F A (MatrixTorus.originalCoefficient F a A hfix) ≃*
-        (Subgroup.centralizer {t} ⧸ pPrimeCore 2 (Subgroup.centralizer {t}))),
-      psi (MatrixTorus.zInH F A (MatrixTorus.originalCoefficient F a A hfix)) =
-        QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) (actualInvolution t) ∧
-      psi (MatrixTorus.uInH F A (MatrixTorus.originalCoefficient F a A hfix)) =
-        QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) s ∧
-      ∀ g : MatrixCover.MatrixFieldModel F A (MatrixTorus.originalCoefficient F a A hfix),
-        psi g = QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) c * psi0 g *
-          (QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) c)⁻¹ := by
-  let e := MatrixTorus.originalModelEquiv F a A hfix
-  let originalPsi := e.symm.trans psi0
-  have hz' : originalPsi (MatrixTorus.originalZ F a A hfix) =
-      QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) (actualInvolution t) := by
-    change psi0 (e.symm (MatrixTorus.originalZ F a A hfix)) = _
-    rw [← MatrixTorus.originalModelEquiv_z F a A hfix, e.symm_apply_apply]
-    exact hz
-  obtain ⟨c, psi, hzpsi, hupsi, hpoint⟩ :=
-    exists_original_aligned_equiv F a A hfix n hn S0 f0 hG t ht originalPsi hz' s hs hst
-  refine ⟨c, e.trans psi, ?_, ?_, ?_⟩
-  · change psi (e (MatrixTorus.zInH F A (MatrixTorus.originalCoefficient F a A hfix))) = _
-    rw [MatrixTorus.originalModelEquiv_z]
-    exact hzpsi
-  · change psi (e (MatrixTorus.uInH F A (MatrixTorus.originalCoefficient F a A hfix))) = _
-    rw [MatrixTorus.originalModelEquiv_u]
-    exact hupsi
-  · intro g
-    change psi (e g) = _
-    rw [hpoint]
-    change _ * psi0 (e.symm (e g)) * _ = _
-    rw [e.symm_apply_apply]
-
-
-theorem actual_four_group_involution_alignment [Finite G] [Finite F]
-    (hodd : Odd (Nat.card F)) (n : ℕ) (hn : 4 ≤ n)
-    (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) (t : G) (ht : orderOf t = 2)
-    (psi0 : MatrixTorus.OriginalH F a A hfix ≃*
-      (Subgroup.centralizer {t} ⧸ pPrimeCore 2 (Subgroup.centralizer {t})))
-    (hz : psi0 (MatrixTorus.originalZ F a A hfix) =
-      QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) (actualInvolution t))
-    (s : Subgroup.centralizer {t}) (hs : orderOf s = 2) (hst : s ≠ actualInvolution t) :
-    (∃ s' : Subgroup.centralizer {t}, orderOf s' = 2 ∧ s' ≠ actualInvolution t) ∧
-    (∀ x y : Subgroup.centralizer {t}, orderOf x = 2 → orderOf y = 2 →
-      x ≠ actualInvolution t → y ≠ actualInvolution t →
-      IsConj x y ∧ ∃ c : Subgroup.centralizer {t}, c * x * c⁻¹ = y) ∧
-    (∀ v : Subgroup.centralizer {t} ⧸ pPrimeCore 2 (Subgroup.centralizer {t}),
-      orderOf v = 2 → v ≠ QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t}))
-        (actualInvolution t) →
-      ∃ x : Subgroup.centralizer {t}, orderOf x = 2 ∧ x ≠ actualInvolution t ∧
-        QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) x = v) ∧
-    orderOf (MatrixTorus.originalU F a A hfix) = 2 ∧
-    MatrixTorus.originalU F a A hfix ≠ MatrixTorus.originalZ F a A hfix ∧
-    orderOf (MatrixTorus.originalZ F a A hfix) = 2 ∧
-    (∃ (c : Subgroup.centralizer {t})
-      (psi : MatrixTorus.OriginalH F a A hfix ≃*
-        (Subgroup.centralizer {t} ⧸ pPrimeCore 2 (Subgroup.centralizer {t}))),
-      psi (MatrixTorus.originalZ F a A hfix) =
-        QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) (actualInvolution t) ∧
-      psi (MatrixTorus.originalU F a A hfix) =
-        QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) s ∧
-      ∀ g : MatrixTorus.OriginalH F a A hfix,
-        psi g = QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) c * psi0 g *
-          (QuotientGroup.mk' (pPrimeCore 2 (Subgroup.centralizer {t})) c)⁻¹) ∧
-    ∀ (sigma : A) (x : MatrixCoverData.M F a),
-      MatrixTorus.originalFieldAction F a A hfix sigma x =
-        ⟨Matrix.SpecialLinearGroup.map (sigma : F ≃+* F).toRingHom x.left, x.right⟩ := by
-  refine ⟨exists_actual_noncentral_involution n hn S0 f0 hG t ht, ?_,
-    actual_quotient_noncentral_involution_lift t,
-    originalU_order F a A hfix, originalU_ne_originalZ F a A hfix,
-    originalZ_order F a A hfix hodd,
-    exists_original_aligned_equiv F a A hfix n hn S0 f0 hG t ht psi0 hz s hs hst,
-    aligned_originalFieldAction_pair F a A hfix⟩
-  intro x y hx hy hxt hyt
-  exact ⟨actual_noncentral_involutions_isConj n hn S0 f0 hG t ht x y hx hy hxt hyt,
-    exists_actual_noncentral_involution_conjugator n hn S0 f0 hG t ht x y hx hy hxt hyt⟩
 
 end OriginalModel
 end CFSG.Semidihedral.ActualFourGroupAlignment

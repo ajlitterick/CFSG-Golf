@@ -12,31 +12,6 @@ open CFSG.Open CFSG.Quasithin CFSG.Quasithin.E3 CFSG.Quasithin.H CFSG.Quasithin.
   CFSG.Quasithin.H13
 open scoped commutatorElement
 
-theorem s9g_conj_mem_kerIn {G : Type} [Group G] {M H : Subgroup G} {h x : G}
-    (hh : h ∈ H) (hx : x ∈ kerIn M H) : h * x * h⁻¹ ∈ kerIn M H := by
-  rw [mem_kerIn] at hx ⊢
-  intro b hb
-  have h1 := hx (b * h) (H.mul_mem hb hh)
-  convert h1 using 1
-  group
-
-def s9gCent {G : Type} [Group G] (M H K : Subgroup G) : Subgroup G where
-  carrier := {w | w ∈ H ∧ ∀ k ∈ K, ⁅w, k⁆ ∈ kerIn M H}
-  one_mem' := ⟨H.one_mem, fun k _ => by simp [commutatorElement_def]⟩
-  mul_mem' := by
-    rintro a b ⟨ha, ha'⟩ ⟨hb, hb'⟩
-    refine ⟨H.mul_mem ha hb, fun k hk => ?_⟩
-    have e : ⁅a * b, k⁆ = a * ⁅b, k⁆ * a⁻¹ * ⁅a, k⁆ := by
-      simp only [commutatorElement_def]; group
-    rw [e]
-    exact (kerIn M H).mul_mem (s9g_conj_mem_kerIn ha (hb' k hk)) (ha' k hk)
-  inv_mem' := by
-    rintro a ⟨ha, ha'⟩
-    refine ⟨H.inv_mem ha, fun k hk => ?_⟩
-    have e : ⁅a⁻¹, k⁆ = a⁻¹ * ⁅a, k⁆⁻¹ * a⁻¹⁻¹ := by
-      simp only [commutatorElement_def]; group
-    rw [e]
-    exact s9g_conj_mem_kerIn (H.inv_mem ha) ((kerIn M H).inv_mem (ha' k hk))
 
 theorem s9g_K_le_closure_conj {G : Type} [Group G] [Finite G] {M H K T : Subgroup G}
     (hKH : K ≤ H) (hperf : ⁅K, K⁆ = K) (hs : IsSimpleGroup ↥(E2.star M H K))

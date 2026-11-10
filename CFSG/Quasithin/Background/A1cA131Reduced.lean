@@ -23,9 +23,6 @@ theorem mem_preCore {φ : G →* Q} {x : G} : x ∈ preCore p φ ↔ φ x ∈ pC
 theorem preCore_normal (φ : G →* Q) : (preCore p φ).Normal :=
   (CFSG.pCore_normal (G := Q) (p := p)).comap φ
 
-theorem ker_le_preCore (φ : G →* Q) : φ.ker ≤ preCore p φ := fun x hx => by
-  rw [mem_preCore, MonoidHom.mem_ker.1 hx]
-  exact (pCore p Q).one_mem
 
 theorem map_preCore [Finite Q] {φ : G →* Q} (hφ : Function.Surjective φ) :
     (preCore p φ).map φ = pCore p Q :=

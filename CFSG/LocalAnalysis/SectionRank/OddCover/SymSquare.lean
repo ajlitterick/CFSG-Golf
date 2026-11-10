@@ -74,29 +74,6 @@ theorem coordMat_injective {p : ℕ} : Function.Injective (coordMat (p := p)) :=
   · exact congrFun (congrFun h 0) 1
   · exact congrFun (congrFun h 1) 1
 
-theorem coordMat_add {p : ℕ} (v w : Fin 3 → ZMod p) :
-    coordMat (v + w) = coordMat v + coordMat w := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
-
-theorem coordMat_neg {p : ℕ} (v : Fin 3 → ZMod p) : coordMat (-v) = -coordMat v := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
-
-theorem coordMat_single_zero {p : ℕ} :
-    coordMat (Pi.single 0 1 : Fin 3 → ZMod p) = !![1, 0; 0, 0] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
-
-theorem coordMat_single_one {p : ℕ} :
-    coordMat (Pi.single 1 1 : Fin 3 → ZMod p) = !![0, 1; 1, 0] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
-
-theorem coordMat_single_two {p : ℕ} :
-    coordMat (Pi.single 2 1 : Fin 3 → ZMod p) = !![0, 0; 0, 1] := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
 
 abbrev symD (p : ℕ) : Matrix (Fin 2) (Fin 2) (ZMod p) := !![-1, 0; 0, 1]
 

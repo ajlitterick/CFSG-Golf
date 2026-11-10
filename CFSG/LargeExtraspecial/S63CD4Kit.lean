@@ -97,37 +97,6 @@ theorem exists_conj_of_classTreeOK {gH : ℕ → H}
       rwa [show gH K[i]! * (c * x₀ * c⁻¹) * (gH K[i]!)⁻¹ =
         gH K[i]! * c * x₀ * (gH K[i]! * c)⁻¹ by group] at this
 
-theorem card_centralizer_mul_le_of_classTreeOK [Finite H] {gH : ℕ → H}
-    (hgs : ∀ k < gs.size, RepE E gs[k]! (gH k) ∧ gH k * gH k = 1) {x₀ : H}
-    (hx : RepE E x x₀) (h : classTreeOK gs x T P K idx = true) :
-    Nat.card (Subgroup.centralizer ({x₀} : Set H)) * T.size ≤ Nat.card H := by
-  classical
-  obtain ⟨-, -, hall⟩ := classTreeOK_parts h
-  have hconj := exists_conj_of_classTreeOK hgs hx h
-  choose! c hc using hconj
-  have hle : T.size ≤ (conjugatesOf x₀).ncard := by
-    let f : Fin T.size → H := fun i => c i * x₀ * (c i)⁻¹
-    have hf : Function.Injective f := by
-      intro i j hij
-      have h1 : T[i.val]! = T[j.val]! := by
-        refine arr_eq_of_repE (hall i i.2).1 (hall j j.2).1 (hc i i.2) ?_
-        rw [show c i * x₀ * (c i)⁻¹ = c j * x₀ * (c j)⁻¹ from hij]
-        exact hc j j.2
-      apply Fin.ext
-      rw [← (hall i i.2).2.1, ← (hall j j.2).2.1, h1]
-    have hsub : Set.range f ⊆ conjugatesOf x₀ := by
-      rintro _ ⟨i, rfl⟩
-      exact isConj_iff.2 ⟨c i, rfl⟩
-    calc T.size = Nat.card (Fin T.size) := (Nat.card_fin _).symm
-      _ = (Set.range f).ncard := by
-          rw [← Nat.card_coe_set_eq, Nat.card_range_of_injective hf]
-      _ ≤ (conjugatesOf x₀).ncard := Set.ncard_le_ncard hsub (Set.toFinite _)
-  have hidx := Subgroup.card_mul_index (Subgroup.centralizer ({x₀} : Set H))
-  rw [Subgroup.index_centralizer_eq_ncard] at hidx
-  calc Nat.card (Subgroup.centralizer ({x₀} : Set H)) * T.size ≤
-        Nat.card (Subgroup.centralizer ({x₀} : Set H)) * (conjugatesOf x₀).ncard :=
-        Nat.mul_le_mul_left _ hle
-    _ = Nat.card H := hidx
 
 end Tree
 
@@ -217,18 +186,6 @@ theorem memR_spec {El : Array (Array ℕ)} {idx : Array ℕ → ℕ} {y : Array 
     (h : memR El idx y = true) : idx y < El.size ∧ El[idx y]! = y := by
   simpa [memR] using h
 
-theorem marks_size (n : ℕ) (idx : Array ℕ → ℕ) (ps : List (Array ℕ)) :
-    (marks n idx ps).size = n := by
-  have : ∀ (ps : List (Array ℕ)) (m : Array Bool),
-      (ps.foldl (fun m p => m.set! (idx p) true) m).size = m.size := by
-    intro ps
-    induction ps with
-    | nil => intro m; rfl
-    | cons p ps ih =>
-      intro m
-      rw [List.foldl_cons, ih]
-      exact Array.size_setIfInBounds
-  rw [marks, this, Array.size_replicate]
 
 theorem getElem!_set!_true (m : Array Bool) (i j : ℕ) :
     (m.set! i true)[j]! = (if i = j ∧ j < m.size then true else m[j]!) := by

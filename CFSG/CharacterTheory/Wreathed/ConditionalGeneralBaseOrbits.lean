@@ -33,12 +33,6 @@ namespace CFSG.Wreathed.ConditionalGeneralBase
 
 variable {m : ℕ}
 
-theorem dualSwap_apply (I : ZMod m × ZMod m) : dualSwap m I = (I.2, I.1) := rfl
-
-theorem dualRotation_apply (I : ZMod m × ZMod m) : dualRotation m I = (I.2, -I.1 - I.2) := rfl
-
-theorem dualRotation_inv_apply (I : ZMod m × ZMod m) :
-    (dualRotation m)⁻¹ I = (-I.1 - I.2, I.1) := rfl
 
 theorem dualSwap_inv : (dualSwap m)⁻¹ = dualSwap m := rfl
 
@@ -213,13 +207,6 @@ theorem orbit_trichotomy (I : ZMod m × ZMod m) :
       linear_combination h
     exact (hdiag i hI).elim Or.inl fun h' => Or.inr (Or.inl h')
 
-theorem count_dualSix_self (I : ZMod m × ZMod m)
-    (h : (MulAction.orbit (dualGroup m) I).ncard = 6) : (dualSix I).count I = 1 :=
-  List.count_eq_one_of_mem ((ncard_orbit_eq_six_iff I).mp h) (mem_dualSix_self I)
-
-theorem count_dualSix_eq_zero (I J : ZMod m × ZMod m)
-    (h : I ∉ MulAction.orbit (dualGroup m) J) : (dualSix J).count I = 0 :=
-  List.count_eq_zero_of_not_mem fun hI => h ((mem_orbit_dualGroup_iff J I).mpr hI)
 
 section TwoPower
 
@@ -248,12 +235,6 @@ theorem ncard_orbit_diag (r : ZMod (2 ^ n)) (hr : r ≠ 0) :
   simp only [Set.mem_insert_iff, Set.mem_singleton_iff]
   tauto
 
-theorem count_dualSix_diag (r : ZMod (2 ^ n)) (hr : r ≠ 0) :
-    (dualSix (r, r)).count (r, r) = 2 := by
-  have hne := neg_sub_self_ne hr
-  have h1 : (r, -r - r) ≠ (r, r) := fun h => hne (congrArg Prod.snd h)
-  have h2 : (-r - r, r) ≠ (r, r) := fun h => hne (congrArg Prod.fst h)
-  simp [dualSix, h1, h2, hne]
 
 theorem ncard_orbits_three :
     ((fun I : ZMod (2 ^ n) × ZMod (2 ^ n) => MulAction.orbit (dualGroup (2 ^ n)) I) ''

@@ -33,10 +33,6 @@ structure EStand {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Su
     R₂ ∈ RSet Ω → R₂ ≤ J → (Commutes R₁ R₂ ∨ R₂ = R₁) → ∀ a ∈ R₁ ⊔ R₂, a ≠ 1 → a * a = 1 →
       Subgroup.centralizer ({a} : Set G) ≤ H
 
-theorem CentralizersTwinPerp.toSylowPairs {G : Type} [Group G] {Ω : Set (Subgroup G)}
-    {K H : Subgroup G} (h : CentralizersTwinPerp Ω K H) : CentralizersSylowPairs Ω K H :=
-  fun L hL J hJ _ _ _ h₁L _ h₂J _ a ha ha1 ha2 =>
-    h L hL J hJ a (sup_le_sup h₁L h₂J ha) ha1 ha2
 
 theorem CentralizersSylowPairs.of_twin {G : Type} [Group G] {Ω : Set (Subgroup G)}
     {K K' H : Subgroup G} (h : CentralizersSylowPairs Ω K H) (hK' : K' ∈ twinSet Ω K) :

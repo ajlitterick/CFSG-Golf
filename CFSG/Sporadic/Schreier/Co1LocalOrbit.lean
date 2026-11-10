@@ -244,11 +244,6 @@ theorem tree_check : (∀ k, treeOK k = true ∧ treeClosed k = true ∧
 
 @[expose] def orbSet (k : Fin 4) : Finset (Fin 6 → ZMod 3) := ((treeCodes k).map decodeF).toFinset
 
-theorem treeCodes_getD (k : Fin 4) {m : ℕ} (hm : m < (orbTree k).length) :
-    ((orbTree k).getD m (0, 0, 0)).1 ∈ treeCodes k := by
-  unfold treeCodes
-  rw [List.getD_eq_getElem _ _ hm]
-  exact List.mem_map_of_mem (List.getElem_mem hm)
 
 theorem orbSet_subset (k : Fin 4) : ↑(orbSet k) ⊆ charOrbit (orbRep k) := by
   have hok := (tree_check.1 k).1
@@ -315,72 +310,9 @@ theorem orbRep_mem (k : Fin 4) : orbRep k ∈ orbSet k := by
 theorem charOrbit_orbRep (k : Fin 4) : charOrbit (orbRep k) = ↑(orbSet k) :=
   le_antisymm (charOrbit_subset (orbRep_mem k) (orbSet_closed k)) (orbSet_subset k)
 
-theorem charOrbit_eq (f : Fin 6 → ZMod 3) : ∃ k, charOrbit f = ↑(orbSet k) := by
-  obtain ⟨k, hk⟩ := tree_check.2.1 f
-  refine ⟨k, ?_⟩
-  have hf : f ∈ orbSet k := by
-    simp only [orbSet, List.mem_toFinset, List.mem_map]
-    exact ⟨_, hk, tree_check.2.2.1 f⟩
-  rw [charOrbit_eq_of_mem (orbSet_subset k hf), charOrbit_orbRep]
 
 theorem ncard_charOrbit_orbRep (k : Fin 4) : (charOrbit (orbRep k)).ncard = orbSize k := by
   rw [charOrbit_orbRep, Set.ncard_coe_finset, card_orbSet]
 
-theorem orbSet_one : (orbSet 1 : Set (Fin 6 → ZMod 3)) = {f | ∃ j, f = γ j ∨ f = -γ j} := by
-  ext f
-  simp only [orbSet, List.coe_toFinset, List.mem_map, Set.mem_ofPred_eq]
-  rw [← tree_check.2.2.2 f]
-  constructor
-  · rintro ⟨c, hc, rfl⟩
-    rwa [(tree_check.1 1).2.2 c hc]
-  · intro hf
-    exact ⟨_, hf, tree_check.2.2.1 f⟩
-
-theorem charOrbit_facts :
-    Set.ncard (Set.range charOrbit) = 4 ∧
-    (∀ f, (charOrbit f).ncard = 1 ∨ (charOrbit f).ncard = 24 ∨ (charOrbit f).ncard = 264 ∨
-      (charOrbit f).ncard = 440) ∧
-    (∀ n ∈ ({1, 24, 264, 440} : Finset ℕ), ∃ f, (charOrbit f).ncard = n) ∧
-    ∀ f, (charOrbit f).ncard = 24 ↔ charOrbit f = {f' | ∃ j, f' = γ j ∨ f' = -γ j} := by
-  have hrange : Set.range charOrbit = Set.range fun k => charOrbit (orbRep k) := by
-    ext s
-    constructor
-    · rintro ⟨f, rfl⟩
-      obtain ⟨k, hk⟩ := charOrbit_eq f
-      exact ⟨k, (charOrbit_orbRep k).trans hk.symm⟩
-    · rintro ⟨k, rfl⟩
-      exact ⟨_, rfl⟩
-  have hinj : Function.Injective fun k => charOrbit (orbRep k) := by
-    intro k l h
-    have h' : orbSize k = orbSize l := by
-      have := congrArg Set.ncard h
-      simpa only [ncard_charOrbit_orbRep] using this
-    clear h
-    revert k l
-    decide
-  have h24 : charOrbit (orbRep 1) = {f' | ∃ j, f' = γ j ∨ f' = -γ j} := by
-    rw [charOrbit_orbRep, orbSet_one]
-  refine ⟨?_, fun f => ?_, ?_, fun f => ?_⟩
-  · rw [hrange, Set.ncard_range_of_injective hinj, Nat.card_fin]
-  · obtain ⟨k, hk⟩ := charOrbit_eq f
-    rw [hk, Set.ncard_coe_finset, card_orbSet]
-    fin_cases k <;> simp [orbSize]
-  · intro n hn
-    simp only [Finset.mem_insert, Finset.mem_singleton] at hn
-    rcases hn with rfl | rfl | rfl | rfl
-    exacts [⟨_, ncard_charOrbit_orbRep 0⟩, ⟨_, ncard_charOrbit_orbRep 1⟩,
-      ⟨_, ncard_charOrbit_orbRep 2⟩, ⟨_, ncard_charOrbit_orbRep 3⟩]
-  · obtain ⟨k, hk⟩ := charOrbit_eq f
-    constructor
-    · intro h
-      rw [hk, Set.ncard_coe_finset, card_orbSet] at h
-      have hk1 : k = 1 := by
-        revert h
-        fin_cases k <;> simp [orbSize]
-      rw [hk, hk1, ← charOrbit_orbRep]
-      exact h24
-    · intro h
-      rw [h, ← h24]
-      exact ncard_charOrbit_orbRep 1
 
 end CFSG.Sporadic.Co1Schreier

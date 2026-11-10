@@ -29,26 +29,5 @@ theorem layer_eq_normalClosure_eq_derived_of_containment {G : Type*} [Group G]
   exact ⟨le_antisymm ((Layer.le_derived G).trans hclosureDerived.ge) hclosureLayer,
     hclosureDerived⟩
 
-theorem layer_eq_normalClosure_eq_derived {G : Type*} [Group G] [Finite G]
-    (hfree : SolvableRadical.Free G) (element : G) (horder : orderOf element = 2)
-    (heven : ∀ component : Subgroup G, IsComponentOf component ⊤ → 2 ∣ Nat.card component)
-    (houter : ∀ component : Subgroup G, IsComponentOf component ⊤ →
-      Group.IsSolvable (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component)))
-    (localComponent : Subgroup (Subgroup.centralizer ({element} : Set G)))
-    (hlocal : TwoComponents.IsTwoComponent localComponent)
-    (hcover : Subgroup.normalClosure
-      (localComponent.map (Subgroup.centralizer ({element} : Set G)).subtype : Set G) ⊔
-        Subgroup.zpowers element = ⊤) :
-    Layer.subgroup G = Subgroup.normalClosure
-      (localComponent.map (Subgroup.centralizer ({element} : Set G)).subtype : Set G) ∧
-    Subgroup.normalClosure
-      (localComponent.map (Subgroup.centralizer ({element} : Set G)).subtype : Set G) =
-        commutator G := by
-  let image := localComponent.map (Subgroup.centralizer ({element} : Set G)).subtype
-  let : Group.IsPerfect localComponent := ⟨TwoComponents.perfect hlocal⟩
-  let : Group.IsPerfect image := Group.IsPerfect.map _
-  exact layer_eq_normalClosure_eq_derived_of_containment element image
-    (SemisimpleLocalContainment.component_enters_layer hfree element horder heven houter
-      localComponent hlocal) hcover
 
 end CFSG.ComponentClassification.SemisimpleNormalGeneration

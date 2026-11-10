@@ -15,9 +15,6 @@ open CFSG.Sporadic.LevelChain.Native
 
 variable {G : Type*} [Group G] {n : ℕ} [MulAction G (Fin n)]
 
-theorem levelLv_size (starts : Array ℕ) (i : ℕ) :
-    (levelLv starts i).size = 2 * (starts[i + 1]! - starts[i]!) := by
-  simp [levelLv]
 
 theorem mem_levelLv {starts : Array ℕ} {i : ℕ} (hle : starts[i]! ≤ starts[i + 1]!) {l : ℕ} :
     l ∈ levelLv starts i ↔ 2 * starts[i]! ≤ l ∧ l < 2 * starts[i + 1]! := by

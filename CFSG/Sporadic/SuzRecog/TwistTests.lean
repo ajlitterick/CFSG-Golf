@@ -125,6 +125,5 @@ open CFSG.ComponentClassification.AS81.SuzB0 CFSG.Monster.B.Co2.Native CFSG.PSL3
     (enumWord i).all fun k => decide (k < 10)) &&
   countW == 480 && countZ == 1200
 
-@[expose] def twistCheck : Bool := abCheck && fibreCheck
 
 end CFSG.Sporadic.SuzRecog

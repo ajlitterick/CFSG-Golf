@@ -33,12 +33,6 @@ theorem operator_square_apply (T : Module.End K V) (d : K)
     map_add' := g.val.map_add
     map_smul' := (commute_iff_evaluation_linear T g.val.toLinearMap).mp hcomm }
 
-theorem centralizerEvaluationEquiv_apply (T : Module.End K V)
-    (g : operatorCentralizer T) (x : V) : centralizerEvaluationEquiv T g x = g.val x := rfl
-
-theorem centralizerEvaluationEquiv_symm_apply (T : Module.End K V)
-    (g : operatorCentralizer T) (x : V) :
-    (centralizerEvaluationEquiv T g).symm x = g.val.symm x := rfl
 
 @[expose] def evaluationToCentralizer (T : Module.End K V) :
     letI := evaluationModule T
@@ -51,43 +45,5 @@ theorem centralizerEvaluationEquiv_symm_apply (T : Module.End K V)
   change g (T x) = T (g x)
   simpa only [evaluation_generator_smul] using g.map_smul (generator T) x
 
-theorem evaluationToCentralizer_apply (T : Module.End K V) :
-    letI := evaluationModule T
-    ∀ (g : V ≃ₗ[scalarAlgebra T] V) (x : V), (evaluationToCentralizer T g).val x = g x := by
-  intros
-  rfl
-
-theorem evaluationToCentralizer_symm_apply (T : Module.End K V) :
-    letI := evaluationModule T
-    ∀ (g : V ≃ₗ[scalarAlgebra T] V) (x : V),
-      (evaluationToCentralizer T g).val.symm x = g.symm x := by
-  intros
-  rfl
-
-theorem evaluationToCentralizer_evaluation (T : Module.End K V)
-    (g : operatorCentralizer T) :
-    evaluationToCentralizer T (centralizerEvaluationEquiv T g) = g := by
-  apply Subtype.ext
-  ext x
-  rfl
-
-theorem centralizerEvaluationEquiv_restriction (T : Module.End K V) :
-    letI := evaluationModule T
-    ∀ g : V ≃ₗ[scalarAlgebra T] V,
-      centralizerEvaluationEquiv T (evaluationToCentralizer T g) = g := by
-  intro g
-  ext x
-  rfl
-
-@[expose] def operatorCentralizerEvaluationEquiv (T : Module.End K V) :
-    letI := evaluationModule T
-    operatorCentralizer T ≃* (V ≃ₗ[scalarAlgebra T] V) := by
-  letI := evaluationModule T
-  exact {
-    toFun := centralizerEvaluationEquiv T
-    invFun := evaluationToCentralizer T
-    left_inv := evaluationToCentralizer_evaluation T
-    right_inv := centralizerEvaluationEquiv_restriction T
-    map_mul' := fun _ _ => by ext x; rfl }
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareForms

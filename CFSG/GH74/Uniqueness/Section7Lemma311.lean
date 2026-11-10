@@ -68,22 +68,6 @@ theorem IsZStarIn.isZStar_subtype {X : Type} [Group X] [Finite X] {A : Subgroup 
 @[expose] def omegaOrbit {X : Type} [Group X] (M R : Subgroup X) : Set (Subgroup X) :=
   {β | ∃ ρ ∈ R, conjugate M ρ = β}
 
-theorem self_mem_omegaOrbit {X : Type} [Group X] (M R : Subgroup X) : M ∈ omegaOrbit M R :=
-  ⟨1, R.one_mem, conjugate_one M⟩
-
-theorem omegaOrbit_subset_omega {X : Type} [Group X] (M R : Subgroup X) :
-    omegaOrbit M R ⊆ omega M :=
-  fun _ ⟨ρ, _, hρ⟩ => ⟨ρ, hρ⟩
-
-theorem conjugate_mem_omegaOrbit {X : Type} [Group X] {M R : Subgroup X} {β : Subgroup X}
-    (hβ : β ∈ omegaOrbit M R) {σ : X} (hσ : σ ∈ R) : conjugate β σ ∈ omegaOrbit M R := by
-  obtain ⟨ρ, hρ, rfl⟩ := hβ
-  exact ⟨ρ * σ, R.mul_mem hρ hσ, (conjugate_conjugate M ρ σ).symm⟩
-
-theorem exists_conjugate_eq_of_mem_omegaOrbit {X : Type} [Group X] {M R : Subgroup X}
-    {β : Subgroup X} (hβ : β ∈ omegaOrbit M R) : ∃ σ ∈ R, conjugate β σ = M := by
-  obtain ⟨ρ, hρ, rfl⟩ := hβ
-  exact ⟨ρ⁻¹, R.inv_mem hρ, by rw [conjugate_conjugate, mul_inv_cancel, conjugate_one]⟩
 
 theorem lemma311_omega_of_map {X : Type} [Group X] [Finite X] {Z : Set X} {M : Subgroup X}
     (h : IsProductDisconnected Z M) {Hs : Subgroup X} {z : X}

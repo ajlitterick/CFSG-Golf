@@ -20,9 +20,6 @@ variable {W : Type*} [Group W]
 @[expose] def YCensusF (X : Subgroup W) (Exc : Subgroup W → Prop) : Prop :=
   ∀ E : Subgroup W, IsElemAbelian 2 E → 4 ≤ Nat.card E → ¬ Exc E → YWitness X E ∨ FWitness X E
 
-theorem fWitness_of_le {X E₀ E : Subgroup W} (h : E₀ ≤ E) (hF : FWitness X E₀) :
-    FWitness X E :=
-  hF.trans (nE_mono X h)
 
 end Defs
 
@@ -209,21 +206,6 @@ deriving Inhabited
     slpOK n ys nd.prog && allLt xGens.size fun k =>
       decide (nd.gIdx.getD k 0 < regs.size) && eqA n xGens[k]! regs[nd.gIdx.getD k 0]!
 
-@[expose] def pairOK (n : ℕ) (ps : List ℕ) (fuel : ℕ) (nodes : Array FNode) (x y : Array ℕ) :
-    Bool :=
-  let c := enumBfs n #[x, y] ps fuel
-  enumOK n #[x, y] ps c && (List.range nodes.size).any fun k =>
-    allLt nodes[k]!.basis.size fun j => memA n c nodes[k]!.basis[j]!
-
-@[expose] def fCensusOK (n : ℕ) (ps : List ℕ) (fuel : ℕ) (inX : Array ℕ → Bool)
-    (xGens sGens : Array (Array ℕ)) (nodes : Array FNode) : Bool :=
-  let cS := enumBfs n sGens ps fuel
-  enumOK n sGens ps cS && (allLt xGens.size fun k => validA n xGens[k]!) &&
-    (allLt nodes.size fun k => fullOK n inX xGens nodes[k]!) &&
-    allLt cS.pts.size fun i => allLt cS.pts.size fun j =>
-      !(eqA n (compA n cS.pts[i]! cS.pts[i]!) (idA n)) || eqA n cS.pts[i]! (idA n) ||
-        eqA n cS.pts[j]! (idA n) || eqA n cS.pts[i]! cS.pts[j]! ||
-        !(commA n cS.pts[i]! cS.pts[j]!) || pairOK n ps fuel nodes cS.pts[i]! cS.pts[j]!
 
 section Soundness
 
@@ -275,83 +257,13 @@ theorem exists_pair_of_four_le {E : Subgroup (Equiv.Perm (Fin n))} (hE : IsElemA
     omega
   exact ⟨x, hxE, y, hyE, hx1, hy.1, hy.2⟩
 
-theorem fWitness_of_fCensusOK {ps : List ℕ} {fuel : ℕ} {xGens sGens : Array (Array ℕ)}
-    {nodes : Array FNode} (hps : ∀ p ∈ ps, p < n)
-    (hin : ∀ a, validA n a = true → inX a = true → permOfArr n a ∈ X)
-    (hX : X ≤ closure (permsA n xGens))
-    (h : fCensusOK n ps fuel inX xGens sGens nodes = true)
-    {E : Subgroup (Equiv.Perm (Fin n))} (hES : E ≤ closure (permsA n sGens))
-    (hE : IsElemAbelian 2 E) (hE4 : 4 ≤ Nat.card E) : FWitness X E := by
-  simp only [fCensusOK, Bool.and_eq_true] at h
-  obtain ⟨⟨⟨hS, hxv⟩, hnodes⟩, hpairs⟩ := h
-  set cS := enumBfs n sGens ps fuel
-  obtain ⟨hSmem, -, hSval⟩ := enumOK_spec hps hS
-  have hxv' : ∀ k < xGens.size, validA n xGens[k]! = true := fun k hk => allLt_spec hxv hk
-  obtain ⟨x, hxE, y, hyE, hx1, hy1, hxy⟩ := exists_pair_of_four_le hE hE4
-  obtain ⟨i, hi, rfl⟩ := (hSmem _).1 (hES hxE)
-  obtain ⟨j, hj, rfl⟩ := (hSmem _).1 (hES hyE)
-  have hri := rep_of_validA (hSval i hi)
-  have hrj := rep_of_validA (hSval j hj)
-  have hfalse : ∀ {a b : Array ℕ} {g h : Equiv.Perm (Fin n)}, Rep n a g → Rep n b h → g ≠ h →
-      eqA n a b = false := by
-    intro a b g h ha hb hgh
-    by_contra hc
-    exact hgh (eq_of_eqA ha hb (by simpa using hc))
-  have h1 : eqA n (compA n cS.pts[i]! cS.pts[i]!) (idA n) = true := by
-    rw [eqA_iff (rep_compA hri hri) rep_idA, ← sq]
-    exact hE.2 _ hxE
-  have h2 : commA n cS.pts[i]! cS.pts[j]! = true :=
-    (commA_iff hri hrj).2 (congrArg Subtype.val (hE.1.is_comm.comm ⟨_, hxE⟩ ⟨_, hyE⟩))
-  have hp : pairOK n ps fuel nodes cS.pts[i]! cS.pts[j]! = true := by
-    have hp := allLt_spec (allLt_spec hpairs hi) hj
-    rw [h1, hfalse hri rep_idA hx1, hfalse hrj rep_idA hy1, hfalse hri hrj hxy, h2] at hp
-    simpa using hp
-  simp only [pairOK, Bool.and_eq_true, List.any_eq_true, List.mem_range] at hp
-  obtain ⟨hc, k, hk, hkb⟩ := hp
-  have hnk := allLt_spec hnodes hk
-  have hbv : ∀ l < nodes[k]!.basis.size, validA n nodes[k]!.basis[l]! = true := by
-    have := hnk
-    simp only [fullOK, Bool.and_eq_true] at this
-    exact fun l hl => allLt_spec this.1.1.1 hl
-  have hxyE : closure (permsA n #[cS.pts[i]!, cS.pts[j]!]) ≤ E := by
-    rw [closure_le]
-    rintro _ ⟨l, hl, rfl⟩
-    have hl2 : l < 2 := hl
-    interval_cases l
-    · exact hxE
-    · exact hyE
-  have hkE : closure (permsA n nodes[k]!.basis) ≤ E := by
-    refine le_trans ?_ hxyE
-    rw [closure_le]
-    rintro _ ⟨l, hl, rfl⟩
-    exact enumOK_mem_of_any hps hc (rep_of_validA (hbv l hl)) (allLt_spec hkb hl)
-  exact hX.trans ((le_nE_of_fullOK hin hxv' hnk).trans (nE_mono X hkE))
 
 end Soundness
 
 section DecodeF
 
-variable (tk : Array ℕ) (regs : Array (Array ℕ))
-
-@[expose] def rdFNodeR (p : ℕ) : FNode × ℕ :=
-  let b := rdListC tk (rdReg tk regs) p
-  let f := rdListC tk (rdNFacR tk regs) b.2
-  let pr := rdListC tk (rdPair tk) f.2
-  let g := rdListC tk (fun p => (tk[p]!, p + 1)) pr.2
-  (⟨b.1.toArray, f.1, pr.1, g.1⟩, g.2)
-
-structure FCensusData where
-  sGens : Array (Array ℕ)
-  nodes : Array FNode
-
-@[expose] def rdFCensusR : FCensusData :=
-  let s := rdListC tk (rdReg tk regs) 0
-  let d := rdListC tk (rdFNodeR tk regs) s.2
-  ⟨s.1.toArray, d.1.toArray⟩
 
 end DecodeF
 
-@[expose] def decodeFCertR (regs : Array (Array ℕ)) (s : String) : FCensusData :=
-  rdFCensusR (decodeNats s) regs
 
 end CFSG.ComponentClassification.RankTwoSporadic.Cert

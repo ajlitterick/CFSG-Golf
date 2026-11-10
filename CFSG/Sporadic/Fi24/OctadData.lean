@@ -12,17 +12,6 @@ open CFSG.Sporadic.Th.Native CFSG.Perm.Native CFSG.Sporadic.Fi23.Native
   0, 235226, 260113, 28578, 188745, 203738, 125431, 94037, 226468, 170631, 98324, 93939, 183511,
   152544, 270869, 165737, 248839, 125087, 293, 148787, 28756, 264917, 118401, 212333]
 
-@[expose] def bbarWords : Array (List Int) := #[
-  [], [13, -12, 8, -3, 1], [-10, -5, -4, 5, 1], [12, 8, -7, -3, 1], [-13, 7, -13, 1],
-  [7, -2, 9, -2, 1], [5, -4, 10, -3, 1], [-5, -12, 4, -6, 1], [-3, -7, 13, -4, 1],
-  [-7, 4, -8, 3, 1], [11, -12, -10, 4, 1], [5, 11, 4, -6, 1], [8, 9, 12, 1], [5, 4, 5, 1],
-  [1, -8, -11, 4, 1], [-2, -11, 6, -4, 2], [11, -5, 4, 1], [2, 1, 6, -4, 2], [12, 7, -8, 5, 3, 1],
-  [-6, -4, 10, 4, 1], [5, 13, 4, 3, 1], [10, -8, -4, 13, 1], [10, 6, -5, -3, 1], [-12, -11, 3, 1]]
-
-@[expose] def octWords : Array (List Int) := #[
-  [-9, 4, 11, 4, 4, 3, -8, 9, 13, -8, 5, -10, -8, -12, -10, -8, 12, -10, -9, -13],
-  [12, 7, -8, 5, 3, 1, -10, 8, 6, 9, -3, -6, -10, -5, -13, 11, 5, 7, 8, -11, -7, 8, 7, 10, 9, -11,
-    14]]
 
 @[expose] def octPerms : Array (Array Nat) := #[
   #[0, 23, 2, 3, 9, 22, 11, 12, 17, 4, 19, 6, 7, 13, 14, 15, 16, 8, 20, 10, 18, 21, 5, 1],
@@ -177,8 +166,6 @@ open CFSG.Sporadic.Th.Native CFSG.Perm.Native CFSG.Sporadic.Fi23.Native
 @[expose] def letterJ (L : Array Table) (z : Int) : Table :=
   if 0 < z then L[2 * (z.natAbs - 1)]! else L[2 * (z.natAbs - 1) + 1]!
 
-@[expose] def letterR (L : Array Table) (tP : Table) (z : Int) : Table :=
-  if z.natAbs = 14 then tP else letterJ L z
 
 @[expose] def tPTable (O : Enum) (tA tB : Table) : Table := Id.run do
   let mut t : Table := Array.replicate nPts 0
@@ -192,37 +179,15 @@ open CFSG.Sporadic.Th.Native CFSG.Perm.Native CFSG.Sporadic.Fi23.Native
   ap tP 0 == 0 && allIn 1 nPts fun p =>
     ap tP p == ap (if ap O.lab p == 1 then tA else tB) (ap tP (ap O.par p))
 
-@[expose] def conjTab (tP W : Table) : Table := compT nPts W (compT nPts tP (invT nPts W))
-
-@[expose] def wordsOK (W : Array Table) : Bool :=
-  allIn 0 24 fun i => ap W[i]! 0 == bbarData[i]! && invOK nPts W[i]! (invT nPts W[i]!)
-
-@[expose] def commOK (D : Array Table) : Bool :=
-  allIn 0 24 fun i => allIn 0 24 fun j => ap D[i]! bbarData[j]! == bbarData[j]!
 
 @[expose] def pairsOK (D : Array Table) : Bool :=
   allIn 0 24 fun i => allIn 0 24 fun j => allIn 0 24 fun k => allIn 0 24 fun l =>
     i == j || k == l || i == k || i == l || j == k || j == l ||
       ap D[i]! (ap D[j]! octSep) != ap D[k]! (ap D[l]! octSep)
 
-@[expose] def prodTab (D : Array Table) (l : List Nat) : Table :=
-  l.foldr (fun i T => compT nPts D[i]! T) (idT nPts)
-
-@[expose] def prodOK (D : Array Table) : Bool :=
-  let P := prodTab D octO0
-  allIn 0 nPts fun p => ap P p == p
 
 @[expose] def normOK (N : Array Table) : Bool :=
   allIn 0 2 fun k => allIn 0 24 fun i => ap N[k]! bbarData[i]! == bbarData[octPerms[k]![i]!]!
 
-@[expose] def octadChecks (O : Enum) : Bool :=
-  let L := chainLetters O
-  let tA := wordT nPts (letterJ L) normWords[0]!
-  let tB := wordT nPts (letterJ L) normWords[1]!
-  let tP := tPTable O tA tB
-  let W := bbarWords.map (wordT nPts (letterR L tP))
-  let D := W.map (conjTab tP)
-  let N := octWords.map (wordT nPts (letterR L tP))
-  tPOK O tA tB tP && wordsOK W && commOK D && pairsOK D && prodOK D && normOK N
 
 end CFSG.Sporadic.Fi24.Native

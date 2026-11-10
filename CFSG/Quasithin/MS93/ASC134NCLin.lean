@@ -192,9 +192,5 @@ theorem card_pt0 [Finite F] : Nat.card (pt0 : Submodule F (Fin 3 → F)) = Nat.c
         · exact x.2.2.symm }
   rw [← Nat.card_congr e]
 
-theorem card_top_vec [Finite F] :
-    Nat.card (⊤ : Submodule F (Fin 3 → F)) = Nat.card F ^ 3 := by
-  rw [Nat.card_congr (Submodule.topEquiv : (⊤ : Submodule F (Fin 3 → F)) ≃ₗ[F] _).toEquiv,
-    Nat.card_fun, Nat.card_eq_fintype_card (α := Fin 3), Fintype.card_fin]
 
 end CFSG.Quasithin.MS93

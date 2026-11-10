@@ -277,23 +277,6 @@ theorem EnumCert.mem_iff {gens E : List ℕ} (h : EnumCert gens E)
     rw [← hg'c.eq_of_equiv hgc]
     exact hg'
 
-theorem mem_O₀_of_isoQ {minus : Bool} {g : V₀ ≃ₗ[ZMod 2] V₀} {m : ℕ}
-    (hg : Code.HasCode (g : V₀ →ₗ[ZMod 2] V₀) m)
-    (h : ∀ n < 64, qB minus (Code.act m n) = qB minus n) : g ∈ O₀ minus := by
-  rw [TauCeti.QuadraticMap.mem_orthogonalGroup_iff]
-  intro v
-  obtain ⟨n, hn, rfl⟩ := exists_vec v
-  rw [apply_vec_of_hasCode hg n, qModel_vec, qModel_vec, h n hn]
-
-theorem isoQ_of_mem_O₀ {minus : Bool} {g : V₀ ≃ₗ[ZMod 2] V₀} {m : ℕ}
-    (hg : Code.HasCode (g : V₀ →ₗ[ZMod 2] V₀) m) (h : g ∈ O₀ minus) :
-    ∀ n < 64, qB minus (Code.act m n) = qB minus n := by
-  intro n _
-  have hmem : qModel minus (g (Code.vec n)) = qModel minus (Code.vec n) :=
-    TauCeti.QuadraticMap.map_app_of_mem_orthogonalGroup h _
-  rw [apply_vec_of_hasCode hg n, qModel_vec, qModel_vec] at hmem
-  revert hmem
-  cases h1 : qB minus (Code.act m n) <;> cases h2 : qB minus n <;> simp [h1, h2]
 
 theorem codeSubgroup_map_wordC_le_O₀ {minus : Bool} (ws : List (List ℕ))
     (hl : ∀ w ∈ ws, ∀ n ∈ w, qB minus n = true) :
@@ -405,9 +388,6 @@ theorem eq_of_le_of_natCard {H K : Subgroup (V₀ ≃ₗ[ZMod 2] V₀)} (h : H �
   | false => [[57, 56, 29, 28], [29, 28], [57, 56, 49, 48], [53, 52, 49, 48], [48, 12, 3]]
   | true => [[49, 48, 13, 12], [49, 48], [21, 20], [17, 16], [48, 12, 3]]
 
-theorem oWords_eq_dropLast (minus : Bool) :
-    oWords minus = (omegaWords minus).dropLast ++ [[48, 12, 3]] := by
-  cases minus <;> rfl
 
 theorem omegaWords_letters (minus : Bool) :
     ∀ w ∈ omegaWords minus, ∀ n ∈ w, qB minus n = true := by
@@ -445,17 +425,11 @@ theorem kPGLGens_eq_wordC :
     kPGLGens = ([[57, 56, 29, 28], [53, 52, 49, 48], [48, 12, 3]].map wordC) := by
   decide +kernel
 
-theorem kPGL0Gens_eq_wordC :
-    kPGL0Gens = ([[49, 48, 23, 13, 12, 3], [13, 11, 7, 3]].map wordC) := by
-  decide +kernel
 
 theorem KPGL_le_O₀ : KPGL ≤ O₀ false := by
   rw [KPGL, kPGLGens_eq_wordC]
   exact codeSubgroup_map_wordC_le_O₀ (minus := false) _ (by decide +kernel)
 
-theorem KPGL0_le_Ω₀ : KPGL0 ≤ Ω₀ false := by
-  rw [KPGL0, kPGL0Gens_eq_wordC]
-  exact codeSubgroup_map_wordC_le_omega (minus := false) _ (by decide +kernel) (by decide +kernel)
 
 end CFSG.GF2Type.Smith1979W3.Cert690
 

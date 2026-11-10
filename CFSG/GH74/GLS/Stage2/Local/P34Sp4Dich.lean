@@ -53,13 +53,6 @@ theorem InvData.orth (h : InvData B τ) {x y : V} (hx : x ∈ eig1 τ) (hy : y �
   have h2 : (2 : F) * B x y = 0 := by linear_combination -h1
   exact (mul_eq_zero.1 h2).resolve_left h.two_ne_zero
 
-theorem InvData.eig_inf (h : InvData B τ) {x : V} (h1 : x ∈ eig1 τ) (h2 : x ∈ eig2 τ) : x = 0 := by
-  have hxx : x = -x := (mem_eig1.1 h1).symm.trans (mem_eig2.1 h2)
-  have h3 : x + x = 0 := by
-    nth_rewrite 2 [hxx]
-    exact add_neg_cancel x
-  have h4 : (2 : F) • x = 0 := by rw [two_smul]; exact h3
-  exact (smul_eq_zero.1 h4).resolve_left h.two_ne_zero
 
 variable [FiniteDimensional F V]
 

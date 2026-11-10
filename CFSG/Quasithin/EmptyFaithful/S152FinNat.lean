@@ -87,13 +87,6 @@ theorem relIndex_eq_four (h : NaturalSn 3 F L X) : L.relIndex X = 4 := by
   show Nat.card (↥X ⧸ L.subgroupOf X) = 4
   rw [← Nat.card_congr e.toEquiv, card_coreMod_three]
 
-theorem relIndex_cSecIn (h : NaturalSn 3 F L X) : (cSecIn F L X).relIndex F = 6 := by
-  obtain ⟨θ, -, hθs, hθk, -⟩ := h
-  have h1 := Subgroup.index_ker θ
-  rw [hθk, θ.range_eq_top_of_surjective hθs, Subgroup.card_top] at h1
-  unfold Subgroup.relIndex
-  rw [h1, Nat.card_perm]
-  simp [Nat.factorial]
 
 theorem irreducible (h : NaturalSn 3 F L X) {Y : Subgroup G} (hLY : L ≤ Y) (hYX : Y ≤ X)
     (hinv : ∀ f ∈ F, ∀ y ∈ Y, f * y * f⁻¹ ∈ Y) : Y = L ∨ Y = X := by

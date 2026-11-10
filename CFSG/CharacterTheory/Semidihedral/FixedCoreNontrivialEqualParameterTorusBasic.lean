@@ -108,10 +108,6 @@ theorem relIndex_K_H' : (torusK G t s₀).relIndex (torusH G t s₀) = 2 := by
   obtain ⟨-, -, -, -, -, h6, -⟩ := h.clauses
   exact h6
 
-theorem inv_of_not_mem_K' :
-    ∀ x ∈ torusH G t s₀, x ∉ torusK G t s₀ → ∀ w ∈ torusW G t s₀, x * w * x⁻¹ = w⁻¹ := by
-  obtain ⟨-, -, -, -, -, -, h7, -⟩ := h.clauses
-  exact h7
 
 theorem oddCore_H' :
     (CFSG.pPrimeCore 2 (torusH G t s₀)).map (torusH G t s₀).subtype = torusW G t s₀ := by
@@ -134,12 +130,6 @@ theorem d_comm_B : ∀ x ∈ (N t).map (C t).subtype, d * x = x * d := by
   obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, h18, -⟩ := h.clauses
   exact h18
 
-theorem image_K' :
-    (((torusK G t s₀).subgroupOf (torusH G t s₀)).map
-        (QuotientGroup.mk' (CFSG.pPrimeCore 2 (torusH G t s₀)))).map φ.toMonoidHom =
-      (Matrix.ProjectiveSpecialLinearGroup.toPGL (n := Fin 2) (R := F')).range := by
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, h22, -⟩ := h.clauses
-  exact h22
 
 theorem card_B_int' : 4 * (Nat.card ((N t).map (C t).subtype) : ℤ) =
     Nat.card F' - (if Nat.card F' % 4 = 1 then 1 else -1) := by
@@ -218,39 +208,6 @@ theorem exists_torusPsiD_eq {y : Equiv.Perm (Omega F')} (hy : y ∈ coordinateD 
   refine ⟨x, ?_⟩
   rw [torusPsiD_apply, CaseIData.torusPsi_apply, hz]
 
-theorem torusPsiD_mem_coordinateG_iff (x : torusH G t s₀) :
-    torusPsiD φ x ∈ coordinateG F' ↔ (x : G) ∈ torusK G t s₀ := by
-  have hR := pglPSLRange_map_coordinateD F'
-  have h1 : torusPsiD φ x ∈ coordinateG F' ↔
-      torusPsi φ x ∈ (Matrix.ProjectiveSpecialLinearGroup.toPGL (n := Fin 2) (R := F')).range := by
-    rw [torusPsiD_apply]
-    constructor
-    · intro hx
-      have hmem : pglEquivCoordinateD F' (torusPsi φ x) ∈
-          (coordinateG F').subgroupOf (coordinateD F') := Subgroup.mem_subgroupOf.mpr hx
-      rw [← hR] at hmem
-      obtain ⟨z, hz, hzx⟩ := hmem
-      have : z = torusPsi φ x := (pglEquivCoordinateD F').injective hzx
-      exact this ▸ hz
-    · intro hx
-      have hmem : pglEquivCoordinateD F' (torusPsi φ x) ∈
-          (coordinateG F').subgroupOf (coordinateD F') := by
-        rw [← hR]
-        exact ⟨_, hx, rfl⟩
-      exact Subgroup.mem_subgroupOf.mp hmem
-  rw [h1, ← h.image_K']
-  constructor
-  · rintro ⟨_, ⟨k, hk, rfl⟩, hkx⟩
-    have hkx' : torusPsi φ k = torusPsi φ x := hkx
-    have h2 : torusPsiD φ (k⁻¹ * x) = 1 := by
-      rw [torusPsiD_apply, map_mul, map_inv, hkx', inv_mul_cancel, map_one]
-      rfl
-    rw [h.torusPsiD_eq_one_iff] at h2
-    have h3 : (x : G) = k * (k⁻¹ * x : torusH G t s₀) := by simp
-    rw [h3]
-    exact (torusK G t s₀).mul_mem (Subgroup.mem_subgroupOf.mp hk) (h.W_le_K' h2)
-  · intro hx
-    exact ⟨_, ⟨x, Subgroup.mem_subgroupOf.mpr hx, rfl⟩, rfl⟩
 
 theorem mul_inv_mem_W_of_torusPsiD_eq {x y : torusH G t s₀}
     (hxy : torusPsiD φ x = torusPsiD φ y) : ((x * y⁻¹ : torusH G t s₀) : G) ∈ torusW G t s₀ := by

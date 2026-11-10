@@ -28,12 +28,6 @@ theorem chainHom_eq_one_iff (x : N.subgroupOf (fixedSubgroup ψ)) :
   rw [← Subtype.val_inj, chainHom_val, OneMemClass.coe_one, QuotientGroup.mk'_apply,
     QuotientGroup.eq_one_iff, mem_subgroupOf]
 
-theorem chainHom_ker_central (hcentral : Z ≤ center X) :
-    (chainHom N Z ψ hN hZ).ker ≤ center (N.subgroupOf (fixedSubgroup ψ)) := by
-  intro x hx
-  have hxZ : x.val.val ∈ Z := (chainHom_eq_one_iff N Z ψ hN hZ x).mp hx
-  refine mem_center_iff.mpr fun y => Subtype.ext (Subtype.ext ?_)
-  exact (mem_center_iff.mp (hcentral hxZ) y.val.val)
 
 theorem restrict_fixedImageProjection_ker_central (hcentral : Z ≤ center X) :
     (fixedImageProjection (Z.subgroupOf N) (restrictAutomorphism N ψ hN)

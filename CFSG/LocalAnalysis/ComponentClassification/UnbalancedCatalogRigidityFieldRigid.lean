@@ -37,9 +37,6 @@ theorem transportSemilinear_apply (ψ : Q₀.IsometryEquiv Qc) {φ : k ≃+* k}
     (ρ : W ≃ₛₗ[φ.toRingHom] W) (x : Fin d → k) :
     transportSemilinear ψ ρ x = ψ (ρ (ψ.symm x)) := rfl
 
-theorem transportSemilinear_symm_apply (ψ : Q₀.IsometryEquiv Qc) {φ : k ≃+* k}
-    (ρ : W ≃ₛₗ[φ.toRingHom] W) (x : Fin d → k) :
-    (transportSemilinear ψ ρ).symm x = ψ (ρ.symm (ψ.symm x)) := rfl
 
 theorem semilinear_eq_id_of_commute_derived [CharP k 2] (ψ : Q₀.IsometryEquiv Qc)
     (hQ : Qc.polarBilin.Nondegenerate)

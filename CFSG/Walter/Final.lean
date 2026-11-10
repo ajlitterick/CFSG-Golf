@@ -13,8 +13,6 @@ namespace CFSG.Walter
 
 open scoped MatrixGroups
 
-@[expose] def ReeIdentHyp : Prop := ∀ (G : Type) [Group G] [Finite G], Ward.ReeTypeHyp G →
-  ∃ f : ℕ, Odd f ∧ 3 ≤ f ∧ CFSG.Models.LieModel G .twistedG2 0 3 f
 
 theorem walter_structure
     (hJ : JRStrongHyp) (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
@@ -39,45 +37,17 @@ theorem walter_order_form_of
     WalterOrderForm :=
   walter_order_form benderHyp (jrHyp_of_jrStrongHyp (jrStrongHyp_of_open hT hJ1 hJT))
 
-theorem walter_models_form_of
-    (hT : W67.Theorem) (hJ1 : J1RecogHyp) (hJT : JTThreeHyp)
-    (hR : ReeIdentHyp) :
-    WalterModelsTauCeti := by
-  intro G _ _ _ hnonab P hP
-  rcases walter_structure (jrStrongHyp_of_open hT hJ1 hJT) G hnonab P hP with hL2 | hR' | hJ
-  · rcases hL2 with ⟨f, hf, ⟨e⟩⟩ | ⟨p, f, hp, hpodd, hf, h5, h8, ⟨e⟩⟩
-    · have h4 : 4 ≤ 2 ^ f := by
-        calc 4 = 2 ^ 2 := by norm_num
-          _ ≤ 2 ^ f := Nat.pow_le_pow_right (by norm_num) hf
-      exact Or.inl ⟨f, hf, lieModel_psl_two_of_mulEquiv 2 f h4 e⟩
-    · refine Or.inr (Or.inl ⟨p, f, hp.out, ?_, hf, h5, h8,
-        lieModel_psl_two_of_mulEquiv p f (by omega) e⟩)
-      rintro rfl
-      exact (Nat.not_even_iff_odd.mpr hpodd) even_two
-  · obtain ⟨hR'⟩ := hR'
-    obtain ⟨f, hfo, hf3, hm⟩ := hR G hR'
-    exact Or.inr (Or.inr (Or.inl ⟨f, hfo, hf3, hm⟩))
-  · obtain ⟨e⟩ := hJ
-    exact Or.inr (Or.inr (Or.inr (isSporadic_J1_of_mulEquiv e)))
 
 theorem walter_order_form_of'
     (hT : W67.Theorem) (hJT : JTThreeHyp) :
     WalterOrderForm :=
   walter_order_form_of hT j1RecogHyp hJT
 
-theorem walter_models_form_of'
-    (hT : W67.Theorem) (hJT : JTThreeHyp) (hR : ReeIdentHyp) :
-    WalterModelsTauCeti :=
-  walter_models_form_of hT j1RecogHyp hJT hR
 
 theorem walter_order_form_of_W67
     (hT : W67.Theorem) :
     WalterOrderForm :=
   walter_order_form_of' hT jtThreeHyp
 
-theorem walter_models_form_of_W67
-    (hT : W67.Theorem) (hR : ReeIdentHyp) :
-    WalterModelsTauCeti :=
-  walter_models_form_of' hT jtThreeHyp hR
 
 end CFSG.Walter

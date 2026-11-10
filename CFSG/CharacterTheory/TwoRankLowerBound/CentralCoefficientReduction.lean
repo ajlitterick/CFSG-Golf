@@ -124,12 +124,5 @@ theorem centralCharacterResidueHom_zero_of_coefficient_reduction_zero {G : Type*
   let : Field (ComplexAlgebraicIntegers ⧸ ideal) := Ideal.Quotient.field ideal
   exact (pow_eq_zero_iff Fintype.card_ne_zero).mp hscalar
 
-theorem centralCoefficientReduction_kernel_le_characterResidue_kernel {G : Type*}
-    [Group G] [Fintype G] (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal] (label : basis.index) :
-    RingHom.ker (centralCoefficientReductionHom (G := G) ideal) ≤
-      RingHom.ker (centralCharacterResidueHom basis ideal label) := by
-  intro value hvalue
-  exact centralCharacterResidueHom_zero_of_coefficient_reduction_zero basis ideal value hvalue label
 
 end CFSG.TwoRankLowerBound.Helpers

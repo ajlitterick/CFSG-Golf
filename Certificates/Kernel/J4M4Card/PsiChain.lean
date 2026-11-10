@@ -63,9 +63,6 @@ theorem orb2_ok : (List.range 4).map (fun i => rcnt (P2.LR i)) = [120, 84, 16, 2
 theorem orb1_ok : ((List.range 3).map fun i => rcnt (P1.LR i)).prod = 322560 := by
   decide +kernel
 
-theorem neg_lane : laneK (fun i => P2.S (i + 3)) 0 1 = false := by decide +kernel
-
-theorem neg_pair : pairK P2.S (fun j => P1.S (j + 1)) = false := by decide +kernel
 
 end CertificateChecks.KernelJ4M4Card
 

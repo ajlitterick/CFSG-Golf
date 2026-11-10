@@ -83,10 +83,5 @@ theorem card_Z1A_8 : Nat.card (Z1A coords8.actA) = 2 * Nat.card (B1A coords8.act
     (not_mem_B1A_of_codes cols8_lt act8 (by decide) f0_gens8 no8)
     (classify_Z1A closure_gens8 cols8_lt act8 rels8_eq (coords8.f0_mem 0) f0_gens8 class8)
 
-variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
-
-theorem finrank_H1_alternatingNatural_eight {ρ : Representation (ZMod 2) Γ W}
-    (h : Explicit.AlternatingNatural ρ 8 .alternating) : Module.finrank (ZMod 2) (H1 ρ) = 1 :=
-  coords8.finrank_H1_eq_one h card_Z1A_8
 
 end CFSG.Quasithin.SteinbergCB.I16

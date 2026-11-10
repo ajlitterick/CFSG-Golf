@@ -25,6 +25,5 @@ theorem le_of_isPerfect_of_isSolvable_quotient {L N : Subgroup G} [N.Normal]
   have : Group.IsSolvable (L.map (QuotientGroup.mk' N)) := inferInstance
   exact Group.IsPerfect.not_isSolvable _ this
 
-variable [Finite G]
 
 end CFSG.ComponentClassification.CatalogueBPrimeJoin

@@ -84,52 +84,5 @@ theorem commute_iff_evaluation_linear (T L : Module.End K V) :
     intro v
     exact hL (generator T) v
 
-@[expose] def evaluationLinearMap (T L : Module.End K V) (hLT : Commute L T) :
-    letI := evaluationModule T
-    Module.End (scalarAlgebra T) V := by
-  let := evaluationModule T
-  exact {
-    toFun := L
-    map_add' := L.map_add
-    map_smul' := (commute_iff_evaluation_linear T L).mp hLT }
-
-theorem evaluationLinearMap_apply (T L : Module.End K V) (hLT : Commute L T) (v : V) :
-    evaluationLinearMap T L hLT v = L v := rfl
-
-@[expose] def evaluationRestrictedLinearMap (T : Module.End K V) :
-    letI := evaluationModule T
-    Module.End (scalarAlgebra T) V → Module.End K V := by
-  letI := evaluationModule T
-  letI := evaluationCompatibleSMul T
-  exact fun L => L.restrictScalars K
-
-theorem evaluationRestrictedLinearMap_apply (T : Module.End K V) :
-    letI := evaluationModule T
-    ∀ (L : Module.End (scalarAlgebra T) V) (v : V),
-      evaluationRestrictedLinearMap T L v = L v := by
-  intros
-  rfl
-
-theorem evaluationRestrictedLinearMap_commutes (T : Module.End K V) :
-    letI := evaluationModule T
-    ∀ L : Module.End (scalarAlgebra T) V, Commute (evaluationRestrictedLinearMap T L) T := by
-  let := evaluationModule T
-  intro L
-  apply LinearMap.ext
-  intro v
-  change L (T v) = T (L v)
-  simpa only [evaluation_generator_smul] using L.map_smul (generator T) v
-
-theorem commute_iff_exists_evaluationLinearMap (T L : Module.End K V) :
-    letI := evaluationModule T
-    Commute L T ↔ ∃ F : Module.End (scalarAlgebra T) V, ∀ v : V, F v = L v := by
-  let := evaluationModule T
-  constructor
-  · intro hLT
-    exact ⟨evaluationLinearMap T L hLT, fun _ => rfl⟩
-  · rintro ⟨F, hF⟩
-    have hFL : evaluationRestrictedLinearMap T F = L := LinearMap.ext hF
-    rw [← hFL]
-    exact evaluationRestrictedLinearMap_commutes T F
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalScalarSquareField

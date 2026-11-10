@@ -12,15 +12,6 @@ variable {G : Type} [Group G] [Finite G]
 
 namespace StrothFrame.IsD
 
-theorem t231_uv_c {s : ℕ} {i F H : ℤ} (h : Type231.Data s i F H) :
-    (Type231.action h).φuv Torus.c =
-      (-i : ℤ) • Torus.c + (4 + 8 * (2 : ℤ) ^ s) • Torus.a + (-4 : ℤ) • Torus.b := by
-  refine (matAct_gen_of (Type231.uvM s i F H) (Type231.compat_uv h) 0 (-i)
-    (4 + 8 * (2 : ℤ) ^ s) (-4) ?_ ?_ ?_).trans ?_ <;>
-    first
-      | simp [Type231.uvM, Type231.uvA, Type231.tM, Type231.ρM, ofCols_apply,
-          Matrix.mul_apply, Matrix.mulVec, dotProduct, Fin.sum_univ_three, pow_mul]
-      | simp [Type231.action, SigmaFourAction.ofMatEq, Torus.c, Torus.a, Torus.b]
 
 theorem t231_uv_a {s : ℕ} {i F H : ℤ} (h : Type231.Data s i F H) :
     (Type231.action h).φuv Torus.a =
@@ -58,24 +49,6 @@ theorem t231_uv_b {s : ℕ} {i F H : ℤ} (h : Type231.Data s i F H) :
           h.hi, h.hF] <;> ring1)
       | simp [Type231.action, SigmaFourAction.ofMatEq, Torus.c, Torus.a, Torus.b]
 
-theorem t231_u_a {s : ℕ} {i F H : ℤ} (h : Type231.Data s i F H) :
-    (Type231.action h).φu Torus.a =
-      (-2 * F + 2 * (2 : ℤ) ^ s) • Torus.c + (1 : ℤ) • Torus.b := by
-  refine (matAct_gen_of (Type231.uM s i F H) (Type231.compat_u h) 1
-    (-2 * F + 2 * (2 : ℤ) ^ s) 0 1 ?_ ?_ ?_).trans ?_ <;>
-    first
-      | simp [Type231.uM, uMat, ofCols_apply]
-      | simp [Type231.action, SigmaFourAction.ofMatEq, Torus.c, Torus.a, Torus.b]
-
-theorem t231_u_b {s : ℕ} {i F H : ℤ} (h : Type231.Data s i F H) :
-    (Type231.action h).φu Torus.b =
-      (-(-2 * F + 2 * (2 : ℤ) ^ s) * (-1 + 2 * (2 : ℤ) ^ s)) • Torus.c +
-        (1 : ℤ) • Torus.a := by
-  refine (matAct_gen_of (Type231.uM s i F H) (Type231.compat_u h) 2
-    (-(-2 * F + 2 * (2 : ℤ) ^ s) * (-1 + 2 * (2 : ℤ) ^ s)) 1 0 ?_ ?_ ?_).trans ?_ <;>
-    first
-      | (simp [Type231.uM, uMat, ofCols_apply] <;> ring1)
-      | simp [Type231.action, SigmaFourAction.ofMatEq, Torus.c, Torus.a, Torus.b]
 
 theorem t231_u_a_half (s : ℕ) (hs : 1 ≤ s) :
     (StrothTypeIndex.t231 s hs).action.φu

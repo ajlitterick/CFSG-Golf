@@ -126,11 +126,6 @@ private theorem ulfExp_zero : ulfExp hζ 0 = 1 := by
   rw [map_zero]
   rfl
 
-private theorem ulfExp_pow (a : ZMod p) : ulfExp hζ a ^ p = 1 := by
-  have h : ulfExp hζ a ∈ rootsOfUnity p F := by
-    rw [← hζ.zpowers_eq]
-    exact (Additive.toMul (hζ.zmodEquivZPowers a)).2
-  exact (mem_rootsOfUnity p _).mp h
 
 omit [NeZero p] in
 private theorem ulfExp_injective : Function.Injective (ulfExp hζ) := by
@@ -147,8 +142,6 @@ private theorem ulfExp_ulfLog {z : Fˣ} (hz : z ^ p = 1) : ulfExp hζ (ulfLog h�
   rw [AddEquiv.apply_symm_apply]
   rfl
 
-private theorem ulfLog_ulfExp (a : ZMod p) : ulfLog hζ (ulfExp hζ a) = a :=
-  ulfExp_injective hζ (ulfExp_ulfLog hζ (ulfExp_pow hζ a))
 
 private theorem ulfLog_mul {z z' : Fˣ} (hz : z ^ p = 1) (hz' : z' ^ p = 1) :
     ulfLog hζ (z * z') = ulfLog hζ z + ulfLog hζ z' := by

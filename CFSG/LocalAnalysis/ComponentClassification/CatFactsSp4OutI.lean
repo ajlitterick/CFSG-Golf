@@ -68,9 +68,6 @@ theorem dA_transpose : (dA a)ᵀ = dA a := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [dA]
 
-theorem dAinv_transpose : (dAinv a)ᵀ = dAinv a := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [dAinv]
 
 theorem bA_transpose_formJ_bA : (bA a)ᵀ * formJ 2 K * bA a = kron J₁ (dA a) := by
   simp only [bA, formJ, fromBlocks_transpose, fromBlocks_multiply, kron, J₁, transpose_one,

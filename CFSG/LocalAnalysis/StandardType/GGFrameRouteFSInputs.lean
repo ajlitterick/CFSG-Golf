@@ -35,12 +35,6 @@ open CFSG.Open CFSG.Assembly
       IsMaxElemAb3 (Subgroup.centralizer ({b₀} : Set G)) E → b₀ ∈ E → Nat.card E = 3 ^ m →
       7 ≤ m → 2 ^ m * m.factorial < Nat.card (ggAutomizer ⊤ E) → IsEm m (⊤ : Subgroup G)
 
-@[expose] def FS81CentInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup G → IsCharTwoType G →
-    ∀ (b₀ : G) (K E : Subgroup G) (m : ℕ), FS81HypA b₀ K →
-      IsMaxElemAb3 (Subgroup.centralizer ({b₀} : Set G)) E → b₀ ∈ E → Nat.card E = 3 ^ m →
-      7 ≤ m → 2 ^ m * m.factorial < Nat.card (ggAutomizer ⊤ E) →
-        Subgroup.centralizer ({b₀} : Set G) = Subgroup.zpowers b₀ ⊔ K
 
 @[expose] def LSS92TorusMaxInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (m : ℕ), IsEm m (⊤ : Subgroup G) → IsSimpleGroup G →

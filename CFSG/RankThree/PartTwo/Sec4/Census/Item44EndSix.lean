@@ -223,13 +223,6 @@ private theorem coeffTransform_add_add (g : Matrix (Fin 4) (Fin 4) (ZMod 2))
   have h2 : ∀ x : ZMod 2, x + x = 0 := by decide
   linear_combination -h2 (g 0 i * g 3 i + g 1 i * g 2 i)
 
-private theorem coeffTransform_add (g : Matrix (Fin 4) (Fin 4) (ZMod 2)) (x y : Fin 4 → ZMod 2) :
-    coeffTransform g x + coeffTransform g y = (x + y) ᵥ* g := by
-  funext i
-  simp only [coeffTransform, quadForm, Pi.add_apply, Matrix.vecMul, dotProduct,
-    Fin.sum_univ_four]
-  have h2 : ∀ x : ZMod 2, x + x = 0 := by decide
-  linear_combination h2 (g 0 i * g 3 i + g 1 i * g 2 i)
 
 private theorem exists_omegaVec_add_add : ∀ a : Fin 4 → ZMod 2, (∀ k, omegaVec k ≠ a) →
     ∃ i j l : Fin 6, i < j ∧ j < l ∧ omegaVec i + omegaVec j + omegaVec l = a := by
@@ -240,13 +233,6 @@ private theorem omegaVec_add_add_ne : ∀ σ : Perm (Fin 6), σ ^ 5 = 1 → σ �
       omegaVec (σ i) + omegaVec (σ j) + omegaVec (σ l) ≠ omegaVec i + omegaVec j + omegaVec l := by
   decide +kernel
 
-private theorem exists_omegaVec_add : ∀ w : Fin 4 → ZMod 2, w ≠ 0 →
-    ∃ i j : Fin 6, i < j ∧ omegaVec i + omegaVec j = antidiagGram *ᵥ w := by
-  decide +kernel
-
-private theorem omegaVec_add_ne : ∀ σ : Perm (Fin 6), σ ^ 5 = 1 → σ ≠ 1 → ∀ i j : Fin 6,
-    i < j → omegaVec (σ i) + omegaVec (σ j) ≠ omegaVec i + omegaVec j := by
-  decide +kernel
 
 theorem eq_bot_of_perfect_of_quadForm {a : Fin 4 → ZMod 2} (ha : a ∉ Set.range omegaVec)
     {H : Subgroup sympFour} (hH : Group.IsPerfect H)
@@ -265,35 +251,5 @@ theorem eq_bot_of_perfect_of_quadForm {a : Fin 4 → ZMod 2} (ha : a ∉ Set.ran
   rw [omegaPerm_apply, omegaPerm_apply, omegaPerm_apply, omegaVec_omegaAct, omegaVec_omegaAct,
     omegaVec_omegaAct, ← coeffTransform_add_add, hsum, hT]
 
-theorem eq_bot_of_perfect_of_fix {w : Fin 4 → ZMod 2} (hw : w ≠ 0) {H : Subgroup sympFour}
-    (hH : Group.IsPerfect H)
-    (hfix : ∀ h ∈ H, ((h : GL (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) *ᵥ w = w) :
-    H = ⊥ := by
-  obtain ⟨i, j, hij, hpair⟩ := exists_omegaVec_add w hw
-  refine sympFour_eq_bot_of_perfect_of_pow_five hH fun h hh h5 => ?_
-  by_contra h1
-  refine omegaVec_add_ne (omegaPerm h) h5 h1 i j hij ?_
-  set M : Matrix (Fin 4) (Fin 4) (ZMod 2) :=
-    ((h : GL (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) with hM
-  set g : Matrix (Fin 4) (Fin 4) (ZMod 2) :=
-    (((h⁻¹ : sympFour) : GL (Fin 4) (ZMod 2)) : Matrix (Fin 4) (Fin 4) (ZMod 2)) with hg
-  have hMg : M * g = 1 := by
-    rw [hM, hg, ← Units.val_mul, ← Subgroup.coe_mul, mul_inv_cancel, OneMemClass.coe_one,
-      Units.val_one]
-  have hs : Mᵀ * antidiagGram * M = antidiagGram := h.2
-  have hJ : antidiagGram * g = Mᵀ * antidiagGram :=
-    calc antidiagGram * g = Mᵀ * antidiagGram * M * g := by rw [hs]
-      _ = Mᵀ * antidiagGram * (M * g) := Matrix.mul_assoc _ _ _
-      _ = Mᵀ * antidiagGram := by rw [hMg, Matrix.mul_one]
-  have hsym : antidiagGramᵀ = antidiagGram := by decide
-  calc omegaVec (omegaPerm h i) + omegaVec (omegaPerm h j)
-      = coeffTransform g (omegaVec i) + coeffTransform g (omegaVec j) := by
-        rw [omegaPerm_apply, omegaPerm_apply, omegaVec_omegaAct, omegaVec_omegaAct]
-    _ = (omegaVec i + omegaVec j) ᵥ* g := coeffTransform_add g _ _
-    _ = (w ᵥ* antidiagGram) ᵥ* g := by rw [hpair, ← Matrix.vecMul_transpose, hsym]
-    _ = w ᵥ* (Mᵀ * antidiagGram) := by rw [Matrix.vecMul_vecMul, hJ]
-    _ = (M *ᵥ w) ᵥ* antidiagGram := by rw [← Matrix.vecMul_vecMul, Matrix.vecMul_transpose]
-    _ = omegaVec i + omegaVec j := by
-        rw [hfix h hh, hpair, ← Matrix.vecMul_transpose, hsym]
 
 end CFSG.RankThree.PartTwo.Sec4.Census

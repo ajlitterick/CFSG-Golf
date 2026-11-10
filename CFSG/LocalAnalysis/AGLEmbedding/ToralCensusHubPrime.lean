@@ -129,15 +129,6 @@ theorem fixPrimeCycTorusFree_twistedD (hGA : CFSG.Open.GriessAllModelsStatement)
   fun _ _ _ _ _ _ _ h hX =>
     (ToralCensus.torusFree_of_classical hGA (Or.inr (Or.inr (Or.inr (Or.inr rfl)))) h hX).2
 
-theorem fixPrimeCycTorusFree_g2 (hGA : CFSG.Open.GriessAllModelsStatement) :
-    FixPrimeCycTorusFree IdxG2 := by
-  intro Y _ _ L J p u h hX
-  obtain ⟨d, hPd, ht, ⟨e⟩⟩ := hX
-  have hd : IsClassicalOrG2Index d.1 := by
-    obtain ⟨d, hv⟩ := d
-    cases d <;> first | exact hPd | exact hPd.elim
-  exact (h.torusFree_of_index hGA d hd ht e
-    (perfectJoinHub_of_index d hd e h.prime h.five_le ht)).2
 
 theorem fixPrimeA_of_torus (hGA : CFSG.Open.GriessAllModelsStatement) (hT : FixPrimeATorus) :
     FixPrimeA := by

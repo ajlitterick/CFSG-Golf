@@ -20,6 +20,5 @@ def fixedSubgroup (a : G ≃* G) : Subgroup G :=
 @[simp] theorem mem_fixedSubgroup (a : G ≃* G) (x : G) :
     x ∈ fixedSubgroup a ↔ a x = x := Iff.rfl
 
-variable [Finite G]
 
 end CFSG.OddIndexThree

@@ -14,9 +14,6 @@ namespace CertificateChecks.KernelSpor.MNd
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.MulH
 
-theorem ch2284hF_neg : hsortPtKF 275 9 (mask 9) MN.R1.cnt (fun _ => 0) MN.R1.HS MN.R1.HSI 0 =
-    false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.MNd
 

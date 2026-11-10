@@ -67,46 +67,5 @@ theorem supported_inducedFunction_mem_coefficientCharacterSpace {group : Type*}
   exact coefficientCharacterSpace_pairing_zero_of_projected_inverse_support
     localBasis localSupport domain function _ hspace hsupport (hzero label hlabel)
 
-theorem supported_local_principal_section_induced_mem {group quotientGroup : Type*}
-    [Group group] [Fintype group] [Group quotientGroup] [Finite quotientGroup]
-    (ring : Subring ℂ) [IsLocalRing ring] (prime : ℕ) [Fact prime.Prime]
-    [CharP (IsLocalRing.ResidueField ring) prime]
-    (basis : FiniteIrreducibleCharacterBasis group) (principal : basis.index)
-    (hprincipal : (basis.representation principal).character = 1)
-    (primary : group) (exponent : ℕ) (hprimary : orderOf primary ∣ prime ^ exponent)
-    (localBasis : FiniteIrreducibleCharacterBasis
-      (Subgroup.centralizer (Subgroup.zpowers primary : Set group)))
-    (localPrincipal : localBasis.index)
-    (hlocalPrincipal : (localBasis.representation localPrincipal).character = 1)
-    (quotient : Subgroup.centralizer (Subgroup.zpowers primary : Set group) →* quotientGroup)
-    (hsurjective : Function.Surjective quotient) (hquotient : IsPGroup prime quotientGroup)
-    [Fintype quotient.ker] (cardUnit : ringˣ) (hcard : (cardUnit : ring) = Nat.card quotient.ker)
-    (hroots : ∀ period : ℕ, 0 < period → ∀ root : ℂ, root ^ period = 1 → root ∈ ring)
-    (function : Subgroup.centralizer (Subgroup.zpowers primary : Set group) → ℂ)
-    (hspace : function ∈ coefficientCharacterSpace localBasis (coefficientBlock localBasis ring localPrincipal))
-    (hsupport : ∀ element, function element ≠ 0 →
-      ∃ regular : Subgroup.centralizer (Subgroup.zpowers primary : Set group),
-        Nat.Coprime prime (orderOf regular.val) ∧
-          element = (⟨primary, element_mem_centralizer_zpowers primary⟩ :
-            Subgroup.centralizer (Subgroup.zpowers primary : Set group)) * regular) :
-    inducedFunction (Subgroup.centralizer (Subgroup.zpowers primary : Set group)) function ∈
-      coefficientCharacterSpace basis (coefficientBlock basis ring principal) := by
-  apply supported_inducedFunction_mem_coefficientCharacterSpace _ basis _ localBasis _
-    {element | function element ≠ 0} function hspace
-  · intro element hzero
-    simpa only [Set.mem_ofPred_eq, not_not] using hzero
-  · intro label hlabel element helement
-    obtain ⟨regular, hregular, rfl⟩ := hsupport element helement
-    have hnotPrincipal : principal ∉ coefficientBlock basis ring label := by
-      intro hmember
-      have hblocks := coefficientBlock_eq_of_mem basis ring hmember
-      have hself := coefficientBlock_self_mem basis ring label
-      rw [← hblocks] at hself
-      exact hlabel hself
-    exact nonprincipal_admissible_local_principal_section_zero ring prime basis
-      (coefficientBlock basis ring label) (coefficientBlock_admissible basis ring label)
-      principal hprincipal hnotPrincipal primary exponent hprimary localBasis localPrincipal
-      hlocalPrincipal quotient hsurjective hquotient cardUnit hcard regular hregular hroots label
-      (coefficientBlock_self_mem basis ring label)
 
 end CFSG.TwoRankLowerBound.Helpers

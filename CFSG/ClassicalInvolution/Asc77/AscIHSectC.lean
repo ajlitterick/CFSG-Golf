@@ -61,56 +61,6 @@ section Ambient
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem transSection_oddQuotient (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (Y : Subgroup G)
-    (hgen : omegaGen (oddQuotientFamily (restrictFamily Ω Y)) = ⊤)
-    (htrans : ∀ K ∈ oddQuotientFamily (restrictFamily Ω Y),
-      ∀ L ∈ oddQuotientFamily (restrictFamily Ω Y),
-        ∃ g : ↥Y ⧸ classicalInvolutionOddCore ↥Y, conjSub g K = L)
-    (hA : ∀ L ∈ oddQuotientFamily (restrictFamily Ω Y),
-      AEmpty (oddQuotientFamily (restrictFamily Ω Y)) L) :
-    TransSection p f (oddQuotientFamily (restrictFamily Ω Y)) :=
-  { hyp := oddQuotHyp p f hp hq ↥Y (restrictFamily Ω Y) (hΩ.restrict Y)
-      (classicalInvolutionOddCore ↥Y) (CFSG.ComponentClassification.OddCore.odd_card ↥Y)
-    oddCore := CFSG.ComponentClassification.OddCore.quotient_corefree ↥Y
-    gen := hgen
-    trans := htrans
-    aEmpty := hA }
-
-theorem sectionLie_of_thm6 {n : ℕ} (h6 : Thm6SectBelow p f n) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (Y : Subgroup G) (hlt : Nat.card (↥Y ⧸ classicalInvolutionOddCore ↥Y) < n)
-    (hS : TransSection p f (oddQuotientFamily (restrictFamily Ω Y)))
-    (hne : (oddQuotientFamily (restrictFamily Ω Y)).Nonempty)
-    (htop : (⊤ : Subgroup (↥Y ⧸ classicalInvolutionOddCore ↥Y)) ∉
-      oddQuotientFamily (restrictFamily Ω Y))
-    (hDE : DEdgeless (oddQuotientFamily (restrictFamily Ω Y))) :
-    SectionLieType p f Ω Y .PSL 3 ∨ SectionLieType p f Ω Y .PSU 3 ∨
-      SectionLieType p f Ω Y .G2 0 ∨ SectionLieType p f Ω Y .trialityD4 0 := by
-  rcases h6 hp hq _ hlt _ hS hne htop hDE with h | h | h | h
-  · exact Or.inl (sectionLieType_of_hasLieType hS.gen h)
-  · exact Or.inr (Or.inl (sectionLieType_of_hasLieType hS.gen h))
-  · exact Or.inr (Or.inr (Or.inl (sectionLieType_of_hasLieType hS.gen h)))
-  · exact Or.inr (Or.inr (Or.inr (sectionLieType_of_hasLieType hS.gen h)))
-
-theorem sectionOrth_of_thm7 {n : ℕ} (h7 : Thm7SectBelow p f n) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (Y : Subgroup G) (hlt : Nat.card (↥Y ⧸ classicalInvolutionOddCore ↥Y) < n)
-    (hS : TransSection p f (oddQuotientFamily (restrictFamily Ω Y)))
-    {K : Subgroup (↥Y ⧸ classicalInvolutionOddCore ↥Y)}
-    (hK : K ∈ oddQuotientFamily (restrictFamily Ω Y))
-    (htw : ∃ K' ∈ twinSet (oddQuotientFamily (restrictFamily Ω Y)) K, K' ≠ K) :
-    ∃ d : ℕ, ∃ ε : Bool, 5 ≤ d ∧ SectionOrthType p f Ω Y d ε := by
-  obtain ⟨d, ε, hd, h⟩ := h7 hp hq _ hlt _ hS K hK htw
-  exact ⟨d, ε, hd, sectionOrthType_of_hasOrthType hS.gen h⟩
-
-theorem sectionOrth_of_thm8 {n : ℕ} (h8 : Thm8SectBelow p f n) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (Y : Subgroup G) (hlt : Nat.card (↥Y ⧸ classicalInvolutionOddCore ↥Y) < n)
-    (hS : TransSection p f (oddQuotientFamily (restrictFamily Ω Y)))
-    (hne : (oddQuotientFamily (restrictFamily Ω Y)).Nonempty)
-    (hNE : ¬ DEdgeless (oddQuotientFamily (restrictFamily Ω Y)))
-    (hNC : ¬ DConnected (oddQuotientFamily (restrictFamily Ω Y))) :
-    ∃ d : ℕ, ∃ ε : Bool, 5 ≤ d ∧ d ≤ 8 ∧ SectionOrthType p f Ω Y d ε := by
-  obtain ⟨d, ε, hd, hd8, h⟩ := h8 hp hq _ hlt _ hS hne hNE hNC
-  exact ⟨d, ε, hd, hd8, sectionOrthType_of_hasOrthType hS.gen h⟩
 
 end Ambient
 
@@ -137,17 +87,5 @@ theorem top_notMem_of_simple (hΩ : HypOmegaMod p f Ω) : (⊤ : Subgroup G) ∉
 
 end Simple
 
-theorem thm6TypedBelow_of_sect {n : ℕ} (h : Thm6SectBelow p f n) : Thm6TypedBelow p f n := by
-  intro hp2 hq G _ _ _ hlt Ω hΩ hA hne htrans hDE
-  exact h hp2 hq G hlt Ω (TransSection.of_simple hΩ hne htrans hA) hne (top_notMem_of_simple hΩ)
-    hDE
-
-theorem thm7TypedBelow_of_sect {n : ℕ} (h : Thm7SectBelow p f n) : Thm7TypedBelow p f n := by
-  intro hp2 hq G _ _ _ hlt Ω hΩ hA htrans K hK htw
-  exact h hp2 hq G hlt Ω (TransSection.of_simple hΩ ⟨K, hK⟩ htrans hA) K hK htw
-
-theorem thm8TypedBelow_of_sect {n : ℕ} (h : Thm8SectBelow p f n) : Thm8TypedBelow p f n := by
-  intro hp2 hq G _ _ _ hlt Ω hΩ hA hne htrans hNE hNC
-  exact h hp2 hq G hlt Ω (TransSection.of_simple hΩ hne htrans hA) hne hNE hNC
 
 end CFSG.ClassicalInvolution.Asc77

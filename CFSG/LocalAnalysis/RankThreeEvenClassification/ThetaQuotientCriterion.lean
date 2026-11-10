@@ -45,11 +45,5 @@ theorem CentralLineThetaCriterion.mixed_balance {G : Type u} [Group G] [Finite G
     (CentralLineThetaCriterion.raw_plane_containment prime hprime actor hab hactorCard hcriterion)
     first second hfirst hsecond hfirstNe hsecondNe
 
-theorem CentralLineThetaCriterion.solvable_signalizer {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (hab : IsElemAbelian prime actor)
-    (hactorCard : Nat.card actor = prime ^ 3) (hcriterion : CentralLineThetaCriterion prime actor) :
-    IsSolvableSignalizerFunctor prime actor (thetaActorSignalizer prime actor) := by
-  exact thetaActorSignalizer_of_rank_three_local_planes prime hprime actor hab hactorCard
-    (CentralLineThetaCriterion.raw_plane_containment prime hprime actor hab hactorCard hcriterion)
 
 end CFSG.RankThreeEvenClassification.Helpers

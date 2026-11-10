@@ -133,21 +133,5 @@ theorem perfect_lift_of_component {G : Type*} [Group G] [Finite G]
   rw [hmap]
   exact hcomponent
 
-theorem componentType_iff_perfect_local_lift (G : Type*) [Group G] [Finite G] :
-    componentClassificationComponentType G ↔
-      ∃ (involution : G) (_ : orderOf involution = 2)
-        (lift : Subgroup (Subgroup.centralizer ({involution} : Set G))),
-        IsSubnormal lift ⊤ ∧ commutator lift = ⊤ ∧
-          IsQuasisimple (lift ⧸ componentClassificationOddCore lift) := by
-  constructor
-  · rintro ⟨involution, hinvolution, component, hcomponent⟩
-    obtain ⟨lift, hsubnormal, _, hperfect, hquasisimple, _⟩ :=
-      perfect_lift_of_component component hcomponent
-    exact ⟨involution, hinvolution, lift, hsubnormal, hperfect, hquasisimple⟩
-  · rintro ⟨involution, hinvolution, lift, hsubnormal, _, hquasisimple⟩
-    exact ⟨involution, hinvolution,
-      lift.map (QuotientGroup.mk' (componentClassificationOddCore
-        (Subgroup.centralizer ({involution} : Set G)))),
-      (quotient_component_iff lift hsubnormal).mpr hquasisimple⟩
 
 end CFSG.ComponentClassification.Components

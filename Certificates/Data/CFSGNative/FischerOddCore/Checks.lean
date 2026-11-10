@@ -25,8 +25,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native
     (i : Nat) : Nat :=
   pos[q[tr3 L x.1 x.2.1 x.2.2 qi[if e then v[D[i]!]! else D[i]!]!]!]!
 
-@[expose] def extSize (L : Array Level) : Nat :=
-  2 * L[0]!.pts.size * L[1]!.pts.size * L[2]!.pts.size
 
 @[expose] def unidxS (L : Array Level) (I : Nat) : (Nat × Nat × Nat) × Bool :=
   let j := I / 2
@@ -47,51 +45,6 @@ structure LabelCert where
   nb : Array Nat
 deriving Inhabited
 
-@[expose] def labelSearch (m sz : Nat) (res : Nat → Array Nat) (steps stepsInv : Array (Array Nat))
-    (roots : Array Nat) : LabelCert := Id.run do
-  let r := roots.size
-  let ns := steps.size
-  let mut inv : Std.HashMap (Array Nat) Nat := {}
-  let mut invs : Array Nat := #[]
-  for I in [0:sz] do
-    let a := res I
-    if isInvArr m a then
-      inv := inv.insert a I
-      invs := invs.push I
-  let mut lab : Array Nat := Array.replicate sz r
-  let mut par : Array Nat := Array.replicate sz 0
-  let mut gen : Array Nat := Array.replicate sz 0
-  let mut dep : Array Nat := Array.replicate sz 0
-  for j in [0:r] do
-    let I0 := roots[j]!
-    if I0 < sz && lab[I0]! == r then
-      lab := lab.set! I0 j
-      let mut queue : Array Nat := #[I0]
-      let mut head := 0
-      for _ in [0:sz] do
-        if head < queue.size then
-          let I := queue[head]!
-          head := head + 1
-          let a := res I
-          for s in [0:ns] do
-            let y := conjArr m steps[s]! stepsInv[s]! a
-            match inv[y]? with
-            | some J =>
-              if lab[J]! == r then
-                lab := lab.set! J j
-                par := par.set! J I
-                gen := gen.set! J s
-                dep := dep.set! J (dep[I]! + 1)
-                queue := queue.push J
-            | none => pure ()
-        else
-          break
-  let mut nb : Array Nat := Array.replicate (sz * ns) 0
-  for I in invs do
-    let a := res I
-    for s in [0:ns] do
-      nb := nb.set! (I * ns + s) (inv.getD (conjArr m steps[s]! stepsInv[s]! a) sz)
-  return ⟨lab, par, gen, dep, nb⟩
 
 @[expose] def labelOKAt (m sz : Nat) (res : Nat → Array Nat) (steps stepsInv : Array (Array Nat))
     (roots : Array Nat) (C : LabelCert) (I : Nat) : Bool :=
@@ -116,9 +69,6 @@ deriving Inhabited
     (roots : Array Nat) (C : LabelCert) (chunks : Nat) : Bool :=
   parLt sz chunks (labelOKAt m sz res steps stepsInv roots C)
 
-@[expose] def labelSearchRes (m sz : Nat) (L : Array Level) (q qi v D pos : Array Nat)
-    (steps stepsInv : Array (Array Nat)) (roots : Array Nat) : LabelCert :=
-  labelSearch m sz (resIdx m L q qi v D pos) steps stepsInv roots
 
 @[expose] def labelOKRes (m sz : Nat) (L : Array Level) (q qi v D pos : Array Nat)
     (steps stepsInv : Array (Array Nat)) (roots : Array Nat) (C : LabelCert) (chunks : Nat) :
@@ -321,21 +271,6 @@ deriving Inhabited
 @[expose] def isOrdP (n p : Nat) (g : Array Nat) : Bool :=
   !(eqA n g (idA n)) && eqA n (powA n g p) (idA n)
 
-@[expose] def coverSearch (n p : Nat) (E xs : Array (Array Nat)) : Array (Nat × Nat × Nat) :=
-  Id.run do
-  let mut idx : Std.HashMap (Array Nat) Nat := {}
-  for i in [0:E.size] do
-    idx := idx.insert E[i]! i
-  let mut cov : Array (Nat × Nat × Nat) := Array.replicate E.size (xs.size, 0, 0)
-  for w in [0:xs.size] do
-    for s in [0:E.size] do
-      let si := invCand n E[s]!
-      for j in [1:p] do
-        let y := conjArr n E[s]! si (powA n xs[w]! j)
-        match idx[y]? with
-        | some i => if cov[i]!.1 == xs.size then cov := cov.set! i (w, s, j)
-        | none => pure ()
-  return cov
 
 @[expose] def coverOK (n p : Nat) (E xs : Array (Array Nat)) (cov : Array (Nat × Nat × Nat)) :
     Bool :=
@@ -346,7 +281,5 @@ deriving Inhabited
         decide (e.2.2 < p) &&
         eqA n (compA n E[e.2.1]! (powA n xs[e.1]! e.2.2)) (compA n E[i]! E[e.2.1]!))
 
-@[expose] def ordPCount (n p : Nat) (E : Array (Array Nat)) : Nat :=
-  E.toList.countP (isOrdP n p)
 
 end CFSG.Sporadic.FischerOddCore.Native

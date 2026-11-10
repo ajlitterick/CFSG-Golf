@@ -28,15 +28,6 @@ theorem ggOmCoordInput_of_inputs (hmove : GGOmFrameMoveInput) (hshape : GGOmFram
 
 section Certified
 
-theorem ggStepTwoCoordModelOn_POmegaPlus_of_inputs (hmove : GGOmFrameMoveInput)
-    (hshape : GGOmFrameShapeInput) (hsf : GGOmSplitFourCentInput) :
-    GGStepTwoCoordModelOn .POmegaPlus :=
-  ggStepTwoCoordModelOn_POmegaPlus_of_coord (ggOmCoordInput_of_inputs hmove hshape hsf)
-
-theorem ggStepTwoCoordModelOn_POmegaMinus_of_inputs (hmove : GGOmFrameMoveInput)
-    (hshape : GGOmFrameShapeInput) (hsf : GGOmSplitFourCentInput) :
-    GGStepTwoCoordModelOn .POmegaMinus :=
-  ggStepTwoCoordModelOn_POmegaMinus_of_coord (ggOmCoordInput_of_inputs hmove hshape hsf)
 
 end Certified
 

@@ -252,11 +252,6 @@ theorem mul_apply_self_of_blockTriangular {ι : Type} [Fintype ι] {b : ι → �
     rw [← Units.val_mul, mul_inv_cancel, Units.val_one, one_apply_eq, hg.2, one_mul] at this
     exact this.symm
 
-theorem mem_fullUnitriangular {g : GL (HypIndex r ε) K} :
-    g ∈ fullUnitriangular r ε K ↔
-      (g : Matrix (HypIndex r ε) (HypIndex r ε) K).BlockTriangular fullPos ∧
-        ∀ a, (g : Matrix (HypIndex r ε) (HypIndex r ε) K) a a = 1 :=
-  Iff.rfl
 
 abbrev hypUnitriangular (h : UnitaryFieldData p f K) (r ε : ℕ) : Subgroup (hypSU h r ε) :=
   (fullUnitriangular r ε K).subgroupOf (hypSU h r ε)

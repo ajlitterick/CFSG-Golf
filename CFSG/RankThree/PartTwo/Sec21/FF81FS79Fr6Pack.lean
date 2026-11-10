@@ -114,7 +114,6 @@ open CFSG.Permutation.FinPack Equiv J6
 
 @[expose] def cyc1P : List ℕ := [92573999051280, 92569469202465, 92565694329090]
 
-@[expose] def cyc2P : List ℕ := [92573999051280, 74019738305040, 58557856961040]
 
 @[expose] def cycdP : List ℕ := [92573999051280, 74015208456225, 58549552238850]
 
@@ -132,7 +131,6 @@ theorem pc6_c1i : pc6 c₁⁻¹ = 92565694329090 := by decide +kernel
 
 theorem pc6_c2 : pc6 c₂ = 74019738305040 := by decide +kernel
 
-theorem pc6_c2i : pc6 c₂⁻¹ = 58557856961040 := by decide +kernel
 
 theorem pc6_d :pc6 (c₁ * c₂) = 74015208456225 := by decide +kernel
 
@@ -164,7 +162,6 @@ theorem g1q_img : ({1, qqK} : Finset S6).image pc6 = g1qP.toFinset := by decide 
 
 theorem cyc1_img : ({1, c₁, c₁⁻¹} : Finset S6).image pc6 = cyc1P.toFinset := by decide +kernel
 
-theorem cyc2_img : ({1, c₂, c₂⁻¹} : Finset S6).image pc6 = cyc2P.toFinset := by decide +kernel
 
 theorem cycd_img :
     ({1, c₁ * c₂, (c₁ * c₂)⁻¹} : Finset S6).image pc6 = cycdP.toFinset := by
@@ -183,8 +180,6 @@ theorem orbC_code : ∀ σ, σ ∈ orbitCK ↔ memK (pc6 σ) orbCP = true := cod
 theorem cyc1_code : ∀ σ, σ ∈ ({1, c₁, c₁⁻¹} : Finset S6) ↔ memK (pc6 σ) cyc1P = true :=
   code_of_image cyc1_img
 
-theorem cyc2_code : ∀ σ, σ ∈ ({1, c₂, c₂⁻¹} : Finset S6) ↔ memK (pc6 σ) cyc2P = true :=
-  code_of_image cyc2_img
 
 theorem cycd_code :
     ∀ σ, σ ∈ ({1, c₁ * c₂, (c₁ * c₂)⁻¹} : Finset S6) ↔ memK (pc6 σ) cycdP = true :=
@@ -340,8 +335,6 @@ theorem norm_orbits : ∀ σ ∈ N6, σ * c₁ * σ⁻¹ ∈ orbitBK ∧ σ * c�
 theorem orbitB_cyc_c1 : ∀ x ∈ orbitBK, x ∈ ({1, c₁, c₁⁻¹} : Finset S6) → x = c₁ ∨ x = c₁⁻¹ :=
   pick_of_check orbB_code cyc1_code pc6_c1 pc6_c1i (by decide +kernel)
 
-theorem orbitB_cyc_c2 : ∀ x ∈ orbitBK, x ∈ ({1, c₂, c₂⁻¹} : Finset S6) → x = c₂ ∨ x = c₂⁻¹ :=
-  pick_of_check orbB_code cyc2_code pc6_c2 pc6_c2i (by decide +kernel)
 
 theorem orbitB_not_cyc_d : ∀ x ∈ orbitBK, x ∉ ({1, c₁ * c₂, (c₁ * c₂)⁻¹} : Finset S6) :=
   notin_of_check orbB_code cycd_code (by decide +kernel)
@@ -353,10 +346,5 @@ theorem orbitC_cyc_d : ∀ x ∈ orbitCK, x ∈ ({1, c₁ * c₂, (c₁ * c₂)�
     x = c₁ * c₂ ∨ x = (c₁ * c₂)⁻¹ :=
   pick_of_check orbC_code cycd_code pc6_d pc6_di (by decide +kernel)
 
-theorem orbitB_ne_one : ∀ x ∈ orbitBK, x ≠ 1 :=
-  ne_one_of_check orbB_code pc6_one (by decide +kernel)
-
-theorem orbitC_ne_one : ∀ x ∈ orbitCK, x ≠ 1 :=
-  ne_one_of_check orbC_code pc6_one (by decide +kernel)
 
 end CFSG.RankThree.PartTwo.Sec21.FF81.Fr6K

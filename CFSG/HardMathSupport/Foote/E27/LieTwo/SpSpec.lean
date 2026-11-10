@@ -9,11 +9,6 @@ namespace CFSG.HardMathSupport.Foote.E27
 
 open Matrix CFSG.Sporadic.He.Native TauCeti
 
-theorem toMat_trA (d : ℕ) (X : AM) : toMat 2 d (trA d X) = (toMat 2 d X)ᵀ := by
-  ext i j
-  rw [toMat_apply, Matrix.transpose_apply, toMat_apply]
-  unfold trA
-  rw [getElem!_ofFn _ i.isLt, getElem!_ofFn _ j.isLt]
 
 theorem JFin_finSum (r : ℕ) (x y : Fin r ⊕ Fin r) :
     JFin r (ZMod 2) (finSumFinEquiv x) (finSumFinEquiv y) = Matrix.J (Fin r) (ZMod 2) x y := by
@@ -59,18 +54,5 @@ theorem JFin_zmod_two_apply (r : ℕ) (i j : Fin (r + r)) :
       omega
     simp [hc]
 
-theorem jAM_spec (r : ℕ) : toMat 2 (r + r) (jAM r) = JFin r (ZMod 2) := by
-  ext i j
-  rw [toMat_apply, JFin_zmod_two_apply]
-  unfold jAM
-  rw [getElem!_ofFn _ i.isLt, getElem!_ofFn _ j.isLt]
-  split_ifs <;> simp
-
-theorem symplA_spec {r : ℕ} {X : AM} (h : symplA r X = true) :
-    ∃ x : SpJ r, matJ r x = toMat 2 (r + r) X := by
-  apply exists_of_sympl
-  unfold symplA at h
-  have := matEqB_true h
-  rwa [toMat_mulM, toMat_mulM, toMat_trA, jAM_spec] at this
 
 end CFSG.HardMathSupport.Foote.E27

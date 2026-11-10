@@ -19,6 +19,5 @@ theorem pin_mask : pinMapR maskC wData.toList wmk 0 1395 = true := by decide +ke
 
 theorem pin_ann : pinMapR annC wData.toList anm 0 1395 = true := by decide +kernel
 
-theorem pin_rev : pinMapR rev20 wtd rwt 0 1395 = true := by decide +kernel
 
 end CertificateChecks.KernelSmithL6K

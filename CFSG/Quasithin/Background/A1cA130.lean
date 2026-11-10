@@ -348,12 +348,6 @@ theorem not_injective_sl2_of_mulEquiv
   exact A1c.not_injective_sl2 hp4 ((MulAut.congr e).toMonoidHom.comp f)
     ((MulAut.congr e).injective.comp hf)
 
-theorem not_exists_subgroup_mulEquiv_sl2
-    (hP : Nonempty (P ≃* Multiplicative (Fin 2 → ZMod (p ^ 2)))) (hp4 : 3 < p) :
-    ¬ ∃ H : Subgroup (MulAut P), Nonempty (H ≃* SL(2, ZMod p)) := by
-  rintro ⟨H, ⟨φ⟩⟩
-  exact not_injective_sl2_of_mulEquiv hP hp4 (H.subtype.comp φ.symm.toMonoidHom)
-    (H.subtype_injective.comp φ.symm.injective)
 
 end A130
 

@@ -14,12 +14,6 @@ section Fifteen
 
 variable {G : Type} [Group G] [Finite G] {T M : Subgroup G}
 
-theorem Setting146.lemma_14_5_15_one (S : Setting146 G T M) {H : Subgroup G} (hH : IsHTM T M H) :
-    tildeOf (quasithinOmegaOneCenter T) (conjClosure (VZ T M) H) ≤
-        omegaOneCenterOf (tildeOf (quasithinOmegaOneCenter T) (pCoreOf 2 H)) ∧
-      IsTwoReducedIn (tildeOf (quasithinOmegaOneCenter T) H)
-        (tildeOf (quasithinOmegaOneCenter T) (conjClosure (VZ T M) H)) :=
-  S.hyp1281.lemma_12_8_4_two (S.isHz_iff.mpr hH)
 
 theorem Setting146.lemma_14_5_15_two (S : Setting146 G T M) {H : Subgroup G} (hH : IsHTM T M H) :
     IsElemAbelian 2 (conjClosure (VZ T M) H) :=

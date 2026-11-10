@@ -27,11 +27,5 @@ theorem exceptionalHypothesisOne_of_twistedE6FrameReduction
   exceptionalHypothesisOne_of_twistedE6 fun f K _ σ hf hK hσ =>
     innerInvolutionInput_twistedE6_of_frameReduction hf hK hσ (hred f K σ hf hK hσ)
 
-theorem exceptionalHypothesisOne_of_twistedE6CascadeReduction
-    (hred : ∀ (f : ℕ) (K : Type) [Field K] (σ : K ≃+* K), 1 ≤ f → Nat.card K = (2 ^ f) ^ 2 →
-      (∀ c, σ c = c ^ 2 ^ f) → TwistedE6CascadeReduction K σ.toRingHom) :
-    ExceptionalHypothesisOne :=
-  exceptionalHypothesisOne_of_twistedE6FrameReduction fun f K _ σ hf hK hσ =>
-    (hred f K σ hf hK hσ).frameReduction
 
 end CFSG.SeitzReduction

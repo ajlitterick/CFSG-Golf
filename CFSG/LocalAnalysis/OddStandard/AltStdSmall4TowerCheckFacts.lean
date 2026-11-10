@@ -51,8 +51,5 @@ theorem pinvol_conj {K : Subgroup G} {g : G} (hg : g ∈ normalizer (K : Set G))
     calc x = g⁻¹ * (g * x * g⁻¹) * g := by group
       _ = 1 := by rw [h]; group
 
-variable {K : Subgroup G} {n : ℕ} {mul : ℕ → ℕ → ℕ} {dec : ℕ → G}
-
-variable {gens : Array ℕ}
 
 end CFSG.OddStandard.AltStdSmall4.Tower

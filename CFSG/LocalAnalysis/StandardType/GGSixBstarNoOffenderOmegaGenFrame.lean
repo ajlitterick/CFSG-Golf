@@ -151,10 +151,6 @@ variable {K : Type} [Field K] [Finite K] [CharP K 2] {d : ℕ} {σ : K →+* K}
     have h1 := glin_inv_apply c u
     rwa [hc u hu] at h1
 
-omit [Finite K] [CharP K 2] in
-theorem mem_genFixOn {W : Set (Fin d → K)} {c : GL (Fin d) K} :
-    c ∈ genFixOn d K W ↔ ∀ u ∈ W, glin c u = u :=
-  Iff.rfl
 
 omit [Finite K] in
 theorem eq_zero_of_pow_fix' (hA : GenMax B Γ p A)

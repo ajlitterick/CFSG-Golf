@@ -63,12 +63,5 @@ theorem coordinate_plus_familyOuter_witness_thirdDerived
   rw [coordinate_plus_familyOuter_thirdDerived h K hK e, Subgroup.map_bot] at he
   exact he.symm
 
-theorem coordinate_plus_familyOuter_witness_solvable
-    (h : StatedClassicalModel H .POmegaPlus n p f) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = p ^ f)
-    (e : H ≃* StatedProj (StatedOmega (StatedQuadPlus n K))) :
-    Group.IsSolvable (familyOuter ((projectivePointAction (coordinateQuadPlus n K)).comp
-      (coordinatePlusWitnessEquiv K e).toMonoidHom)) :=
-  ⟨⟨3, coordinate_plus_familyOuter_witness_thirdDerived h K hK e⟩⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

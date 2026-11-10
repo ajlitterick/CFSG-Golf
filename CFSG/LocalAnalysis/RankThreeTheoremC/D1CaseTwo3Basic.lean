@@ -15,9 +15,6 @@ section Defs
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def D1CaseTwoClass (p : ℕ) (P : Sylow p G) (M R X H : Subgroup G) : Prop :=
-  ∃ Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p),
-    D1CaseTwoData3 p P M H R Rbar ∧ d1LayerX p H R = X
 
 end Defs
 

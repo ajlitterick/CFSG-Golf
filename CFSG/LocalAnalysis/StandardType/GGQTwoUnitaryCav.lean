@@ -28,28 +28,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G] {p : ℕ}
   {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem diag_mem_gamma (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {φ : ↥(unitarySU 2 n K d) →* L}
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU φ a t)
-    {Dmat : ↥(unitarySU 2 n K d)} {u : Fin d → K}
-    (hD : ((Dmat : GL (Fin d) K) : Matrix (Fin d) (Fin d) K) = diagonal u)
-    (hu : ∀ i, u i ^ p = 1) :
-    MulAut.conj (φ Dmat) ∈ (ggGamma L hN).range :=
-  UnitTB.conj_mem_of_selfCent (gamma_hyps hS hN).2 hdiag hD hu
-
-theorem perm_mem_normalizer_gamma (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {φ : ↥(unitarySU 2 n K d) →* L} (hM : UnitTB.Model φ)
-    (hp : p.Prime) (hpq : p ∣ 2 ^ n + 1) (hd : 3 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU φ a t)
-    (σ : Equiv.Perm (Fin d)) :
-    MulAut.conj (φ (LineU.permSU hM.field σ)) ∈
-      Subgroup.normalizer ((ggGamma L hN).range : Set (MulAut L)) :=
-  unitDvd_conj_perm_mem_normalizer hM hp hpq hd
-    (fun a ha => (gamma_hyps hS hN).1.2 a ha) (gamma_hyps hS hN).2 hdiag σ
 
 end CFSG.StandardType.QTwoUnitaryCav
 
@@ -124,19 +102,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G]
 variable {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem actual_block_image_automizer_four (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {ψ : ↥(unitarySU 2 n K d) →* L} (hM : UnitTB.Model ψ)
-    (hK : Nat.card K = (2 ^ n) ^ 2) (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 4 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t)
-    (S : Finset (Fin d)) (hS4 : 4 ≤ S.card) :
-    4 ∣ Nat.card ↥(ggAutomizer
-      (((TableBUE.blockSU (K := K) (n := n) S).map ψ).map
-        (MulAut.conj : L →* MulAut L)) ((ggGamma L hN).range)) :=
-  block_image_automizer_four hM hK hp hp2 hpq hd
-    (gamma_hyps hS hN).1 (gamma_hyps hS hN).2 hdiag S hS4
 
 theorem exists_diagModel_coprime_actual (hS : GGQTwoSetting p B Bs x L D J)
     (hN : Bs ≤ Subgroup.normalizer (L : Set G))
@@ -178,15 +143,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G]
 variable {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem heart_le_gamma (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {ψ : ↥(unitarySU 2 n K d) →* L}
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t) :
-    Subgroup.closure (UnitTB.heartSetU ψ p) ≤ (ggGamma L hN).range := by
-  refine (Subgroup.closure_le _).mpr ?_
-  rintro _ ⟨D, u, hD, hu, rfl⟩
-  exact UnitTB.conj_mem_of_selfCent (gamma_hyps hS hN).2 hdiag hD hu
 
 theorem exists_induced_mem_of_h3 (hN : Bs ≤ Subgroup.normalizer (L : Set G))
     {K : Type} [Field K] [Finite K] {n d : ℕ}
@@ -235,40 +191,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G]
 variable {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem actual_cav_local_of_model (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {ψ : ↥(unitarySU 2 n K d) →* L} (hM : UnitTB.Model ψ)
-    (hK : Nat.card K = (2 ^ n) ^ 2) (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 4 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t)
-    (S : Finset (Fin d)) (hS4 : 4 ≤ S.card) :
-    Subgroup.closure (UnitTB.heartSetU ψ p) ≤ (ggGamma L hN).range ∧
-      (∀ σ : Equiv.Perm (Fin d),
-        MulAut.conj (ψ (LineU.permSU hM.field σ)) ∈
-          Subgroup.normalizer ((ggGamma L hN).range : Set (MulAut L))) ∧
-      4 ∣ Nat.card ↥(ggAutomizer
-        (((TableBUE.blockSU (K := K) (n := n) S).map ψ).map
-          (MulAut.conj : L →* MulAut L)) ((ggGamma L hN).range)) :=
-  ⟨heart_le_gamma hS hN hdiag,
-    fun σ => perm_mem_normalizer_gamma hS hN hM hp hpq (by omega) hdiag σ,
-    actual_block_image_automizer_four hS hN hM hK hp hp2 hpq hd hdiag S hS4⟩
-
-theorem four_dvd_component_image_of_block_eq (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {ψ : ↥(unitarySU 2 n K d) →* L} (hM : UnitTB.Model ψ)
-    (hK : Nat.card K = (2 ^ n) ^ 2) (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 4 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t)
-    {S : Finset (Fin d)} (hS4 : 4 ≤ S.card)
-    (hJ : (J.subgroupOf L).map (MulAut.conj : L →* MulAut L) =
-      ((TableBUE.blockSU (K := K) (n := n) S).map ψ).map
-        (MulAut.conj : L →* MulAut L)) :
-    4 ∣ Nat.card ↥(ggAutomizer ((J.subgroupOf L).map (MulAut.conj : L →* MulAut L))
-      ((ggGamma L hN).range)) := by
-  rw [hJ]
-  exact actual_block_image_automizer_four hS hN hM hK hp hp2 hpq hd hdiag S hS4
 
 end CFSG.StandardType.QTwoUnitaryCav
 
@@ -277,76 +199,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G]
 variable {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem unitary_full_cav_local
-    (hS : GGQTwoSetting p B Bs x L D J) (hp3 : p = 3)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] (hK : Nat.card K = (2 ^ 1) ^ 2)
-    {d : ℕ} (hd : 5 ≤ d) (hpd : ¬ p ∣ d)
-    (θ : L ⧸ Subgroup.center L ≃* LargeEvenProj (unitarySU 2 1 K d))
-    (h3 : ∀ b ∈ Bs, ∃ φ ∈ LargeEvenMatConjImage (LargeEvenProjMk (unitarySU 2 1 K d))
-        (LargeEvenGUSet (Fin d) K (2 ^ 1)),
-        LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)
-    (S : Finset (Fin d)) (hS4 : 4 ≤ S.card) :
-    ∃ (ψ : ↥(unitarySU 2 1 K d) →* L) (hM : UnitTB.Model ψ),
-      (∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t) ∧
-      Subgroup.closure (UnitTB.heartSetU ψ p) ≤ (ggGamma L hN).range ∧
-      (∀ σ : Equiv.Perm (Fin d),
-        MulAut.conj (ψ (LineU.permSU hM.field σ)) ∈
-          Subgroup.normalizer ((ggGamma L hN).range : Set (MulAut L))) ∧
-      4 ∣ Nat.card ↥(ggAutomizer
-        (((TableBUE.blockSU (K := K) (n := 1) S).map ψ).map
-          (MulAut.conj : L →* MulAut L)) ((ggGamma L hN).range)) := by
-  classical
-  have hp : p.Prime := hp3 ▸ Nat.prime_three
-  have hp2 : p ≠ 2 := by rw [hp3]; norm_num
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  have hd6 : (d, 1) ≠ (6, 1) := by
-    rintro ⟨rfl, -⟩
-    exact hpd (by rw [hp3]; norm_num)
-  have hcov : UnitaryCoverAt 1 d K := unitaryCoverAt hK hd hd6
-  obtain ⟨ψ, hM, hdiag⟩ :=
-    exists_diagModel_coprime_actual hS hN hK (by norm_num) (by omega) hp hpq hpd hcov θ h3
-  obtain ⟨hheart, hperm, hfour⟩ :=
-    actual_cav_local_of_model (n := 1) hS hN hM hK hp hp2 hpq (by omega) hdiag S hS4
-  exact ⟨ψ, hM, hdiag, hheart, hperm, hfour⟩
-
-theorem unitary_heart_cav_local
-    (hS : GGQTwoSetting p B Bs x L D J) (hp3 : p = 3)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] (hK : Nat.card K = (2 ^ 1) ^ 2)
-    {d : ℕ} (hd : 9 ≤ d) (hpd : p ∣ d)
-    (θ : L ⧸ Subgroup.center L ≃* LargeEvenProj (unitarySU 2 1 K d))
-    (h3 : ∀ b ∈ Bs, ∃ φ ∈ LargeEvenMatConjImage (LargeEvenProjMk (unitarySU 2 1 K d))
-        (LargeEvenGUSet (Fin d) K (2 ^ 1)),
-        LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)
-    (hidx : ((Subgroup.centralizer (L : Set G)).subgroupOf Bs).index = p ^ (d - 2))
-    (S : Finset (Fin d)) (hS4 : 4 ≤ S.card) :
-    ∃ (ψ : ↥(unitarySU 2 1 K d) →* L) (hM : UnitTB.Model ψ),
-      (∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t) ∧
-      Subgroup.closure (UnitTB.heartSetU ψ p) ≤ (ggGamma L hN).range ∧
-      (∀ σ : Equiv.Perm (Fin d),
-        MulAut.conj (ψ (LineU.permSU hM.field σ)) ∈
-          Subgroup.normalizer ((ggGamma L hN).range : Set (MulAut L))) ∧
-      4 ∣ Nat.card ↥(ggAutomizer
-        (((TableBUE.blockSU (K := K) (n := 1) S).map ψ).map
-          (MulAut.conj : L →* MulAut L)) ((ggGamma L hN).range)) := by
-  classical
-  have hp : p.Prime := hp3 ▸ Nat.prime_three
-  have hp2 : p ≠ 2 := by rw [hp3]; norm_num
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  have hd6 : (d, 1) ≠ (6, 1) := by
-    rintro ⟨rfl, -⟩
-    omega
-  have hcov : UnitaryCoverAt 1 d K := unitaryCoverAt hK (by omega) hd6
-  have hcard : p ^ (d / p + 2) ≤ Nat.card (ggGamma L hN).range := by
-    rw [gamma_card hN, hidx, hp3]
-    apply Nat.pow_le_pow_right (by norm_num)
-    omega
-  obtain ⟨ψ, hM, hdiag⟩ :=
-    exists_diagModel_dvd_actual hS hN hK (by norm_num) (by omega) hp hpq hpd hcov θ h3 hcard
-  obtain ⟨hheart, hperm, hfour⟩ :=
-    actual_cav_local_of_model (n := 1) hS hN hM hK hp hp2 hpq (by omega) hdiag S hS4
-  exact ⟨ψ, hM, hdiag, hheart, hperm, hfour⟩
 
 end CFSG.StandardType.QTwoUnitaryCav
 
@@ -359,20 +211,6 @@ namespace CFSG.StandardType.QTwoUnitaryCav
 variable {G : Type} [Group G] [Finite G]
 variable {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem four_dvd_original_automizer_of_block (hS : GGQTwoSetting p B Bs x L D J)
-    (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-    {K : Type} [Field K] [Finite K] {n d : ℕ}
-    {ψ : ↥(unitarySU 2 n K d) →* L} (hM : UnitTB.Model ψ)
-    (hK : Nat.card K = (2 ^ n) ^ 2) (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 4 ≤ d)
-    (hdiag : ∀ a ∈ (ggGamma L hN).range, ∃ t : Fin d → K, ActsDiagU ψ a t)
-    {S : Finset (Fin d)} (hS4 : 4 ≤ S.card)
-    (hJ : (J.subgroupOf L).map (MulAut.conj : L →* MulAut L) =
-      ((TableBUE.blockSU (K := K) (n := n) S).map ψ).map
-        (MulAut.conj : L →* MulAut L)) :
-    4 ∣ Nat.card ↥(ggAutomizer J Bs) :=
-  dvd_trans (four_dvd_component_image_of_block_eq hS hN hM hK hp hp2 hpq hd hdiag hS4 hJ)
-    (QTwoCav.card_automizer_inner_image_dvd_of_setting hN hS hp hp2)
 
 end CFSG.StandardType.QTwoUnitaryCav
 
@@ -476,7 +314,6 @@ theorem prod_weight_eq_one_of_inner (hK : Nat.card K = (2 ^ 1) ^ 2) (hd : 3 ≤ 
     _ = 1 := hcd
 
 
-
 end CFSG.StandardType.QTwoUnitaryCav
 
 public section
@@ -531,52 +368,6 @@ theorem frameAct_qTwoFramePerm
 variable {G : Type} [Group G] [Finite G] {p : ℕ}
   {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem heart_inner_frame_prod_one [Fact p.Prime]
-    (hS : GGQTwoSetting p B Bs x L D J) (hp3 : p = 3)
-    {lab : LargeEvenLabel} (hq2 : GGLabQTwo p lab) (htag : lab.tag = .twA)
-    (h3d : 3 ∣ lab.rank + 1) (hd6 : 6 ≤ lab.rank + 1)
-    (hdq : (lab.rank + 1, 2 ^ 1) ≠ (3, 2))
-    (hmark : GGInnerDiagOnLabel (fun _ lab' => lab' = lab) p Bs L)
-    (hidx : ((Subgroup.centralizer (L : Set G)).subgroupOf Bs).index = p ^ (lab.rank - 1))
-    (M : GGQ2LDatum p Bs L x) (hM : M.HeartShape)
-    (hxC : x ∈ Subgroup.centralizer (L : Set G)) :
-    ∃ (K : Type) (hfield : Field K), letI := hfield;
-      ∃ (hfin : Finite K), letI := hfin;
-      ∃ (h : UnitaryFieldData 2 1 K),
-      ∃ (hK : Nat.card K = (2 ^ 1) ^ 2),
-      ∃ (θ : L ⧸ Subgroup.center L ≃*
-          LargeEvenProj (LargeEvenSUGroup (Fin (lab.rank + 1)) K (2 ^ 1)))
-        (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-        (Q : GL (Fin (lab.rank + 1)) K)
-        (hQ : Q ∈ primeFormUnitary h (idGram K (lab.rank + 1))),
-        (∀ e ∈ (ggBeta L θ hN).range, ∃ σ : Fin (lab.rank + 1) → Kˣ,
-          σ ⟨0, by omega⟩ = 1 ∧ (∀ k, σ k ^ 3 = 1) ∧
-          (∀ k, ((σ k : Kˣ) : K) ^ (2 ^ 1 + 1) = 1) ∧
-          (∏ k, ((σ k : Kˣ) : K)) = 1 ∧
-          TableBUD.FrameAct h Q hQ e σ) ∧
-        Nat.card ↥(TableBUD.frameWeights h Q hQ (by omega) 3
-          (ggBeta L θ hN).range) = 3 ^ ((lab.rank + 1) - 2) := by
-  classical
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := by rw [hp3]; norm_num
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  obtain ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, hfr, hcardW⟩ :=
-    QTwoUnitary.exists_frame_of_marking_twA_heart hS hp3 hq2 htag h3d hmark hidx
-  letI := hfield
-  letI := hfin
-  have hinner := GGQ2LDatum.beta_image_inner_of_heartShape M hp2 hN hM hxC θ
-  refine ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, ?_, hcardW⟩
-  intro e he
-  obtain ⟨σ, hσ0, hσ3, hσn, hfrσ⟩ := hfr e he
-  obtain ⟨r, hr⟩ := hinner he
-  obtain ⟨u, rfl⟩ := frameMk_surjective h Q hQ r
-  have hfr' : TableBUD.FrameAct h Q hQ (MulAut.conj (frameMk h Q hQ u)) σ := by
-    rw [← hr] at hfrσ
-    exact hfrσ
-  have hprod : ∏ k, ((σ k : Kˣ) : K) = 1 :=
-    prod_weight_eq_one_of_inner (K := K) (d := lab.rank + 1) hK (by omega) hdq
-      (hp3 ▸ hp) (hp3 ▸ hpq) u hσn hfr' (by simpa using h3d)
-  exact ⟨σ, hσ0, hσ3, hσn, hprod, hfrσ⟩
 
 end CFSG.StandardType.QTwoUnitaryCav
 
@@ -611,9 +402,6 @@ open Finset
     Subgroup (Fin d → Kˣ) :=
   normalizedWeightSubgroup (K := K) hd ⊓ (unitProductHom (K := K) d).ker
 
-theorem mem_heartWeightSubgroup {K : Type} [Field K] {d : ℕ} {hd : 1 ≤ d}
-    {σ : Fin d → Kˣ} : σ ∈ heartWeightSubgroup (K := K) hd ↔
-      σ ⟨0, hd⟩ = 1 ∧ (∏ k, σ k) = 1 := Iff.rfl
 
 theorem card_heartWeightSubgroup {K : Type} [Field K] [Finite K] {d : ℕ}
     (hK : Nat.card K = (2 ^ 1) ^ 2) (hd : 2 ≤ d) :
@@ -729,83 +517,6 @@ theorem heartWeightSubgroup_perm
 variable {G : Type} [Group G] [Finite G] {p : ℕ}
   {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem heart_inner_frame_weights_eq_of_le_sup_zpowers [Fact p.Prime]
-    (hS : GGQTwoSetting p B Bs x L D J) (hp3 : p = 3)
-    {lab : LargeEvenLabel} (hq2 : GGLabQTwo p lab) (htag : lab.tag = .twA)
-    (h3d : 3 ∣ lab.rank + 1) (hd6 : 6 ≤ lab.rank + 1)
-    (hdq : (lab.rank + 1, 2 ^ 1) ≠ (3, 2))
-    (hmark : GGInnerDiagOnLabel (fun _ lab' => lab' = lab) p Bs L)
-    (hidx : ((Subgroup.centralizer (L : Set G)).subgroupOf Bs).index = p ^ (lab.rank - 1))
-    (hBs : Bs ≤ L ⊔ Subgroup.zpowers x)
-    (hxC : x ∈ Subgroup.centralizer (L : Set G)) :
-    ∃ (K : Type) (hfield : Field K), letI := hfield;
-      ∃ (hfin : Finite K), letI := hfin;
-      ∃ (h : UnitaryFieldData 2 1 K),
-      ∃ (hK : Nat.card K = (2 ^ 1) ^ 2),
-      ∃ (θ : L ⧸ Subgroup.center L ≃*
-          LargeEvenProj (LargeEvenSUGroup (Fin (lab.rank + 1)) K (2 ^ 1)))
-        (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-        (Q : GL (Fin (lab.rank + 1)) K)
-        (hQ : Q ∈ primeFormUnitary h (idGram K (lab.rank + 1))),
-        (∀ e ∈ (ggBeta L θ hN).range,
-          ∃ σ : Fin (lab.rank + 1) → Kˣ,
-            σ ∈ heartWeightSubgroup (K := K) (by omega) ∧
-            TableBUD.FrameAct h Q hQ e σ) ∧
-        (∀ σ : Fin (lab.rank + 1) → Kˣ,
-          σ ∈ heartWeightSubgroup (K := K) (by omega) →
-            ∃ e ∈ (ggBeta L θ hN).range, TableBUD.FrameAct h Q hQ e σ) ∧
-        TableBUD.frameWeights h Q hQ (by omega) 3 (ggBeta L θ hN).range =
-          heartWeightSubgroup (K := K) (by omega) := by
-  classical
-  obtain ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, hfr, hcardW⟩ :=
-    QTwoUnitary.exists_frame_of_marking_twA_heart hS hp3 hq2 htag h3d hmark hidx
-  letI := hfield
-  letI := hfin
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := by rw [hp3]; norm_num
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  have hinnerRange := beta_image_inner_of_le_sup_zpowers hN hBs hxC θ
-  have hinner : ∀ e ∈ (ggBeta L θ hN).range,
-      ∃ u : ↥(unitarySU 2 1 K (lab.rank + 1)),
-        e = MulAut.conj (frameMk h Q hQ u) := by
-    intro e he
-    obtain ⟨r, hr⟩ := hinnerRange he
-    obtain ⟨u, rfl⟩ := frameMk_surjective h Q hQ r
-    exact ⟨u, hr.symm⟩
-  have hfr0 : ∀ e ∈ (ggBeta L θ hN).range,
-      ∃ σ : Fin (lab.rank + 1) → Kˣ,
-        σ ⟨0, by omega⟩ = 1 ∧ (∀ k, σ k ^ 3 = 1) ∧
-        (∀ k, ((σ k : Kˣ) : K) ^ (2 ^ 1 + 1) = 1) ∧
-        TableBUD.FrameAct h Q hQ e σ := by
-    intro e he
-    obtain ⟨σ, hσ0, hσ3, hσn, hfrσ⟩ := hfr e he
-    exact ⟨σ, hσ0, hσ3, hσn, hfrσ⟩
-  have heq : TableBUD.frameWeights h Q hQ (by omega) 3 (ggBeta L θ hN).range =
-      heartWeightSubgroup (K := K) (by omega) :=
-    frameWeights_eq_heartWeight hK (by omega) hdq (hp3 ▸ hp) (hp3 ▸ hpq)
-      hinner hfr0 (by simpa using h3d) hcardW
-  refine ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, ?_, ?_, heq⟩
-  · intro e he
-    obtain ⟨σ, hσ0, hσ3, hσn, hfrσ⟩ := hfr e he
-    obtain ⟨u, heu⟩ := hinner e he
-    have hfrσ' : TableBUD.FrameAct h Q hQ (MulAut.conj (frameMk h Q hQ u)) σ := by
-      rw [← heu]
-      exact hfrσ
-    have hprodK : ∏ k, ((σ k : Kˣ) : K) = 1 :=
-      prod_weight_eq_one_of_inner hK (by omega) hdq (hp3 ▸ hp) (hp3 ▸ hpq)
-        u hσn hfrσ' (by simpa using h3d)
-    refine ⟨σ, ?_, hfrσ⟩
-    refine Subgroup.mem_inf.mpr ⟨hσ0, ?_⟩
-    rw [MonoidHom.mem_ker]
-    rw [show (unitProductHom (K := K) (lab.rank + 1)) σ = ∏ k, σ k from rfl]
-    apply Units.ext
-    rw [Units.coe_prod, hprodK, Units.val_one]
-  · intro σ hσ
-    have hσW : σ ∈ TableBUD.frameWeights h Q hQ (by omega) 3 (ggBeta L θ hN).range := by
-      rw [heq]; exact hσ
-    rw [TableBUD.frameWeights, Subgroup.mem_mk] at hσW
-    obtain ⟨-, -, -, e, he, hfrσ⟩ := hσW
-    exact ⟨e, he, hfrσ⟩
 
 variable {K : Type} [Field K] [Finite K] {d : ℕ}
   {h : UnitaryFieldData 2 1 K} {Q : GL (Fin d) K}
@@ -895,57 +606,6 @@ theorem qTwoFramePerm_mem_normalizer
 
 variable {G : Type} [Group G] [Finite G] {p : ℕ}
   {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-
-theorem heart_framePerm_mem_normalizer_of_le_sup_zpowers [Fact p.Prime]
-    (hS : GGQTwoSetting p B Bs x L D J) (hp3 : p = 3)
-    {lab : LargeEvenLabel} (hq2 : GGLabQTwo p lab) (htag : lab.tag = .twA)
-    (h3d : 3 ∣ lab.rank + 1) (hd6 : 6 ≤ lab.rank + 1)
-    (hdq : (lab.rank + 1, 2 ^ 1) ≠ (3, 2))
-    (hmark : GGInnerDiagOnLabel (fun _ lab' => lab' = lab) p Bs L)
-    (hidx : ((Subgroup.centralizer (L : Set G)).subgroupOf Bs).index = p ^ (lab.rank - 1))
-    (hBs : Bs ≤ L ⊔ Subgroup.zpowers x)
-    (hxC : x ∈ Subgroup.centralizer (L : Set G))
-    (π : Equiv.Perm (Fin (lab.rank + 1))) :
-    ∃ (K : Type) (hfield : Field K), letI := hfield;
-      ∃ (hfin : Finite K), letI := hfin;
-      ∃ (h : UnitaryFieldData 2 1 K),
-      ∃ (hK : Nat.card K = (2 ^ 1) ^ 2),
-      ∃ (θ : L ⧸ Subgroup.center L ≃*
-          LargeEvenProj (LargeEvenSUGroup (Fin (lab.rank + 1)) K (2 ^ 1)))
-        (hN : Bs ≤ Subgroup.normalizer (L : Set G))
-        (Q : GL (Fin (lab.rank + 1)) K)
-        (hQ : Q ∈ primeFormUnitary h (idGram K (lab.rank + 1))),
-        qTwoFramePerm (h := h) (Q := Q) (hQ := hQ) π ∈
-          Subgroup.normalizer ((ggBeta L θ hN).range :
-            Set (MulAut (LargeEvenProj (LargeEvenSUGroup (Fin (lab.rank + 1)) K (2 ^ 1))))) := by
-  classical
-  obtain ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, hfr, hcardW⟩ :=
-    QTwoUnitary.exists_frame_of_marking_twA_heart hS hp3 hq2 htag h3d hmark hidx
-  letI := hfield
-  letI := hfin
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := by rw [hp3]; norm_num
-  have hpq : p ∣ 2 ^ 1 + 1 := by rw [hp3]; norm_num
-  have hinnerRange := beta_image_inner_of_le_sup_zpowers hN hBs hxC θ
-  have hinner : ∀ e ∈ (ggBeta L θ hN).range,
-      ∃ u : ↥(unitarySU 2 1 K (lab.rank + 1)),
-        e = MulAut.conj (frameMk h Q hQ u) := by
-    intro e he
-    obtain ⟨r, hr⟩ := hinnerRange he
-    obtain ⟨u, rfl⟩ := frameMk_surjective h Q hQ r
-    exact ⟨u, hr.symm⟩
-  have hfr0 : ∀ e ∈ (ggBeta L θ hN).range,
-      ∃ σ : Fin (lab.rank + 1) → Kˣ,
-        σ ⟨0, by omega⟩ = 1 ∧ (∀ k, σ k ^ 3 = 1) ∧
-        (∀ k, ((σ k : Kˣ) : K) ^ (2 ^ 1 + 1) = 1) ∧
-        TableBUD.FrameAct h Q hQ e σ := by
-    intro e he
-    obtain ⟨σ, hσ0, hσ3, hσn, hfrσ⟩ := hfr e he
-    exact ⟨σ, hσ0, hσ3, hσn, hfrσ⟩
-  refine ⟨K, hfield, hfin, h, hK, θ, hN, Q, hQ, ?_⟩
-  exact qTwoFramePerm_mem_normalizer (E := (ggBeta L θ hN).range)
-    hK (by omega) hdq (hp3 ▸ hp) (hp3 ▸ hpq) hinner hfr0
-    (by simpa using h3d) hcardW π
 
 
 open CFSG.SectionRank.OddCover (diagHom)

@@ -26,31 +26,6 @@ theorem projected_scalar_trace_equiv {ring algebra vector target : Type*}
     equivalence (operator (equivalence.symm (scalar • value)))
   rw [equivalence.symm.map_smul]
 
-theorem finiteIndex_local_summand_scalar_trace_zero {ring algebra index : Type*}
-    [CommRing ring] [CommRing algebra] [Algebra ring algebra] [Finite index] (vector : index → Type*)
-    [∀ label, AddCommGroup (vector label)] [∀ label, Module ring (vector label)]
-    [∀ label, Module algebra (vector label)] [∀ label, IsScalarTower ring algebra (vector label)]
-    [∀ label, Module.Free ring (vector label)] [∀ label, Module.Finite ring (vector label)]
-    (hlocal : ∀ label, ∀ operator : Module.End algebra (vector label),
-      IsUnit operator ∨ IsUnit (1 - operator)) (scalar : algebra)
-    (hzero : ∀ label, LinearMap.trace ring (vector label) (scalarActionEndomorphism ring scalar) = 0)
-    (projection : Module.End algebra (∀ label, vector label))
-    (hidempotent : IsIdempotentElem projection) :
-    LinearMap.trace ring (∀ label, vector label) ((projection.restrictScalars ring).comp
-      (scalarActionEndomorphism ring scalar)) = 0 := by
-  let := Fintype.ofFinite index
-  let labels := (Fintype.equivFin index).symm
-  let equivalence := (LinearEquiv.piCongrLeft algebra vector labels).symm
-  rw [projected_scalar_trace_equiv equivalence projection scalar]
-  exact finite_local_summand_scalar_trace_zero (Fintype.card index)
-    (fun label => vector (labels label)) (fun label => hlocal (labels label)) scalar
-    (fun label => hzero (labels label)) ((LinearEquiv.conjAlgEquiv ring equivalence) projection)
-    (by
-      change (LinearEquiv.conjAlgEquiv ring equivalence) projection *
-        (LinearEquiv.conjAlgEquiv ring equivalence) projection =
-          (LinearEquiv.conjAlgEquiv ring equivalence) projection
-      rw [← map_mul]
-      exact congrArg (LinearEquiv.conjAlgEquiv ring equivalence) hidempotent.eq)
 
 theorem finiteIndex_periodic_summand_scalar_trace_zero {ring algebra index : Type*}
     [CommRing ring] [IsDomain ring] [CommRing algebra] [Algebra ring algebra] [Finite index]

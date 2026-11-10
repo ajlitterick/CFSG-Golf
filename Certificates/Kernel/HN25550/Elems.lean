@@ -116,7 +116,6 @@ theorem jRegs0_eq (r : ℕ) : jRegs0 r = wordEl rEl (r0 r) := by
     · rw [if_neg h2, if_neg h2]
       rfl
 
-theorem hj_len : HJ.length = 17 := beq_iff_eq.1 ties.2.2.2.1
 
 theorem h1_eq : h1J = codeEl rEl (hjc.getD 0 0) := by
   rw [h1J, jRegs, runProg_tri _ _ _ _ ties.1 jRegs0_eq 1, tieW_sound rEl_roots ties.2.1]

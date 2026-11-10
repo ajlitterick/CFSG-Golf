@@ -288,11 +288,6 @@ theorem IsL24.eq_of_le (h : IsL24 S M A L) (hKL : K ≤ L) (hAK : A ≤ K) (hKM 
   rw [← h.sup_conj x (hKL hxK) hxM]
   exact sup_le hAK (map_conj_le hAK hxK)
 
-theorem IsL24.eq_of_inf_lt (h : IsL24 S M A L) (hAM : A ≤ M) (hKL : K ≤ L) (hlt : M ⊓ L < K) :
-    K = L := by
-  obtain ⟨x, hxK, hxML⟩ := SetLike.exists_of_lt hlt
-  have hxM : x ∉ M := fun hxM => hxML ⟨hxM, hKL hxK⟩
-  exact h.eq_of_le hKL ((le_inf hAM h.le).trans hlt.le) fun hKM => hxM (hKM hxK)
 
 theorem IsL24.oTwo_le [Finite H] (h : IsL24 S M A L) (hS : IsPGroup 2 S) (hSM : S ≤ M) :
     (oTwo ↥L).map L.subtype ≤ M := by
@@ -410,9 +405,6 @@ theorem IsL24.map_subtype {U : Subgroup H} (hAU : A ≤ U) {L' : Subgroup U}
 
 end Transport
 
-@[expose] def IH24 (n : ℕ) : Prop :=
-  ∀ (G : Type u) [Group G] [Finite G] [Group.IsSolvable G], Nat.card G < n →
-    ∀ {S M A : Subgroup G}, Hyp24 S M A → ∃ L, IsL24 S M A L
 
 section Steps
 
@@ -427,140 +419,12 @@ theorem relIndex_map_of_ker_le {H' : Type*} [Group H'] (f : H →* H') {S : Subg
     (hker : f.ker ≤ S) (L : Subgroup H) : (S.map f).relIndex (L.map f) = S.relIndex L := by
   rw [← relIndex_comap, comap_map_eq, sup_of_le_left hker]
 
-theorem exists_isL24_of_oTwo_ne_bot [Group.IsSolvable H] (ih : IH24.{u} (Nat.card H))
-    (h : Hyp24 S M A) (hO : oTwo H ≠ ⊥) : ∃ L, IsL24 S M A L := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set P := oTwo H with hPdef
-  set π := QuotientGroup.mk' P with hπdef
-  have hπs : Function.Surjective π := QuotientGroup.mk'_surjective P
-  have hker : π.ker = P := QuotientGroup.ker_mk' P
-  have hPS : P ≤ S := by
-    have := (oTwo_isPGroup H).le_sylow_of_normal (h.isPGroup.toSylow h.not_dvd_index)
-    simpa using this
-  have hPM : P ≤ M := hPS.trans h.le_M
-  have hcard : Nat.card (H ⧸ P) < Nat.card H := by
-    rw [card_eq_card_quotient_mul_card_subgroup P]
-    have h1 : 1 < Nat.card P := (one_lt_card_iff_ne_bot P).mpr hO
-    have h2 := Nat.card_pos (α := H ⧸ P)
-    nlinarith
-  obtain ⟨Lb, hLb⟩ := ih (H ⧸ P) hcard (h.map_quotient P hPM)
-  have hcM : (M.map π).comap π = M := by rw [comap_map_eq, hker, sup_of_le_left hPM]
-  have hnotM : ∀ x, x ∉ M → π x ∉ M.map π := fun x hx hxM =>
-    hx (by rw [← hcM]; exact hxM)
-  set L₁ := Lb.comap π with hL₁
-  obtain ⟨L, ⟨hAL, hLL₁, hLM⟩, hmin⟩ := exists_minimal_subgroup
-    (fun K => A ≤ K ∧ K ≤ L₁ ∧ ¬ K ≤ M)
-    ⟨L₁, map_le_iff_le_comap.mp hLb.le, le_rfl, fun hle => hLb.not_le (by
-      rw [← map_comap_eq_self_of_surjective hπs Lb]
-      exact map_mono hle)⟩
-  have hLmap : L.map π = Lb :=
-    hLb.eq_of_le (map_le_iff_le_comap.mpr hLL₁) (map_mono hAL) fun hle => hLM (by
-      rw [← hcM]
-      exact map_le_iff_le_comap.mp hle)
-  refine ⟨L, hAL, hLM, ?_, ?_, ?_⟩
-  · rw [← relIndex_map_of_ker_le π (by rw [hker]; exact hPS), hLmap]
-    exact hLb.not_dvd_relIndex
-  · intro x hxL hxM
-    refine hmin _ ⟨le_sup_left, sup_le hAL (map_conj_le hAL hxL) |>.trans hLL₁, ?_⟩
-      (sup_le hAL (map_conj_le hAL hxL))
-    intro hle
-    apply hLb.not_le
-    rw [← hLb.sup_conj (π x) (hLL₁ hxL) (hnotM x hxM), ← map_map_conj, ← Subgroup.map_sup]
-    exact map_mono hle
-  · obtain ⟨r, s, hr, hr2, hs, ⟨e⟩⟩ := hLb.dihedral
-    have hfker : (π.subgroupMap L).ker = P.comap L.subtype := by
-      ext x
-      rw [MonoidHom.mem_ker, mem_comap, coe_subtype]
-      have key : π.subgroupMap L x = 1 ↔ π (x : H) = 1 := by
-        constructor
-        · intro hx
-          simpa using congrArg Subtype.val hx
-        · intro hx
-          exact Subtype.ext (by simpa using hx)
-      rw [key, hπdef, QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff]
-    have hk2 : IsPGroup 2 (π.subgroupMap L).ker := by
-      rw [hfker]
-      exact (oTwo_isPGroup H).comap_subtype
-    obtain ⟨e₁⟩ := nonempty_quotient_oTwo_mulEquiv (π.subgroupMap L)
-      (π.subgroupMap_surjective L) hk2
-    obtain ⟨e₂⟩ := nonempty_quotient_oTwo_mulEquiv_of_mulEquiv (MulEquiv.subgroupCongr hLmap)
-    exact ⟨r, s, hr, hr2, hs, ⟨e₁.trans (e₂.trans e)⟩⟩
 
 omit [Finite H] in
 theorem mem_normalCore_iff {K : Subgroup H} {a : H} :
     a ∈ K.normalCore ↔ ∀ b : H, b * a * b⁻¹ ∈ K :=
   Iff.rfl
 
-theorem exists_isL24_of_sup_normalCore [Group.IsSolvable H] (ih : IH24.{u} (Nat.card H))
-    (h : Hyp24 S M A) {U : Subgroup H} (hSU : S ≤ U) (hUD : U ⊔ M.normalCore = ⊤)
-    (hU : U ≠ ⊤) : ∃ L, IsL24 S M A L := by
-  set D := M.normalCore with hDdef
-  have hDM : D ≤ M := normalCore_le M
-  have hAU : A ≤ U := h.le_S.trans hSU
-  have hdec : ∀ g : H, ∃ d ∈ D, ∃ u ∈ U, g = d * u := by
-    intro g
-    have hg : g ∈ ((D ⊔ U : Subgroup H) : Set H) := by
-      rw [SetLike.mem_coe, sup_comm, hUD]
-      exact mem_top g
-    rw [normal_mul D U] at hg
-    obtain ⟨d, hd, u, hu, rfl⟩ := hg
-    exact ⟨d, hd, u, hu, rfl⟩
-  have hcoatom : IsCoatom (M.subgroupOf U) := by
-    refine ⟨fun htop => h.isCoatom.1 ?_, fun K hK => ?_⟩
-    · rw [eq_top_iff, ← hUD]
-      refine sup_le (fun u hu => ?_) hDM
-      have : (⟨u, hu⟩ : U) ∈ M.subgroupOf U := by
-        rw [htop]
-        exact mem_top _
-      exact this
-    · obtain ⟨k, hkK, hkM⟩ := SetLike.exists_of_lt hK
-      have hKD : K.map U.subtype ⊔ D = ⊤ := by
-        apply h.isCoatom.2
-        refine lt_of_le_of_ne (fun m hm => ?_) fun heq => hkM ?_
-        · obtain ⟨d, hd, u', hu', rfl⟩ := hdec m
-          have hu'M : u' ∈ M := by
-            have := M.mul_mem (M.inv_mem (hDM hd)) hm
-            rwa [inv_mul_cancel_left] at this
-          have hu'K : (⟨u', hu'⟩ : U) ∈ K := hK.le (by rw [mem_subgroupOf]; exact hu'M)
-          rw [sup_comm]
-          exact mul_mem_sup hd ⟨_, hu'K, rfl⟩
-        · rw [mem_subgroupOf, heq]
-          exact mem_sup_left ⟨k, hkK, rfl⟩
-      rw [eq_top_iff]
-      rintro ⟨u, hu⟩ -
-      have hg : u ∈ ((K.map U.subtype ⊔ D : Subgroup H) : Set H) := by
-        rw [SetLike.mem_coe, hKD]
-        exact mem_top u
-      rw [mul_normal] at hg
-      obtain ⟨_, ⟨k', hk', rfl⟩, d, hd, hkd⟩ := hg
-      have hkd : (k' : H) * d = u := hkd
-      have hdU : d ∈ U := by
-        have := U.mul_mem (U.inv_mem k'.2) hu
-        rwa [← hkd, inv_mul_cancel_left] at this
-      have hdK : (⟨d, hdU⟩ : U) ∈ K := hK.le (by rw [mem_subgroupOf]; exact hDM hd)
-      have : (⟨u, hu⟩ : U) = k' * ⟨d, hdU⟩ := Subtype.ext hkd.symm
-      rw [this]
-      exact K.mul_mem hk' hdK
-  have hcore : ¬ A.subgroupOf U ≤ (M.subgroupOf U).normalCore := by
-    intro hle
-    apply h.not_le_normalCore
-    intro a ha
-    rw [mem_normalCore_iff]
-    intro g
-    obtain ⟨d, hd, u, hu, rfl⟩ := hdec g
-    have h1 : u * a * u⁻¹ ∈ M := by
-      have := mem_normalCore_iff.mp
-        (hle (show (⟨a, hAU ha⟩ : U) ∈ A.subgroupOf U from ha)) ⟨u, hu⟩
-      rwa [mem_subgroupOf] at this
-    have := M.mul_mem (M.mul_mem (hDM hd) h1) (M.inv_mem (hDM hd))
-    rwa [show d * (u * a * u⁻¹) * d⁻¹ = d * u * a * (d * u)⁻¹ by group] at this
-  have hSyl : ¬ 2 ∣ S.relIndex U := fun hd =>
-    h.not_dvd_index (hd.trans (relIndex_dvd_index_of_le hSU))
-  have hcard : Nat.card U < Nat.card H := by
-    have := card_lt_of_lt (lt_top_iff_ne_top.mpr hU)
-    rwa [card_top] at this
-  obtain ⟨L', hL'⟩ := ih U hcard (h.subgroupOf hSyl hcoatom hcore)
-  exact ⟨_, hL'.map_subtype hAU⟩
 
 theorem not_dvd_relIndex_of_normal (h : Hyp24 S M A) (N : Subgroup H) [N.Normal] :
     ¬ 2 ∣ S.relIndex N := by
@@ -654,88 +518,6 @@ theorem oTwo_quotient_normalCore_eq_bot (h : Hyp24 S M A) (hO : oTwo H = ⊥)
   calc P.map π ≤ D.map π := map_mono hPD
     _ = ⊥ := QuotientGroup.map_mk'_self D
 
-theorem exists_isL24_of_comap_ne_top [Group.IsSolvable H] (ih : IH24.{u} (Nat.card H))
-    (h : Hyp24 S M A) (hSD : S ⊓ M.normalCore = ⊥) (hDodd : ¬ 2 ∣ Nat.card M.normalCore)
-    {Lb : Subgroup (H ⧸ M.normalCore)}
-    (hLb : IsL24 (S.map (QuotientGroup.mk' M.normalCore)) (M.map (QuotientGroup.mk' M.normalCore))
-      (A.map (QuotientGroup.mk' M.normalCore)) Lb)
-    (hL₁ : Lb.comap (QuotientGroup.mk' M.normalCore) ≠ ⊤) : ∃ L, IsL24 S M A L := by
-  set D := M.normalCore with hDdef
-  set π := QuotientGroup.mk' D with hπdef
-  have hπs : Function.Surjective π := QuotientGroup.mk'_surjective D
-  have hker : π.ker = D := QuotientGroup.ker_mk' D
-  have hDM : D ≤ M := normalCore_le M
-  set L₁ := Lb.comap π with hL₁def
-  have hDL₁ : D ≤ L₁ := by rw [← hker]; exact MonoidHom.ker_le_comap π Lb
-  have hAL₁ : A ≤ L₁ := map_le_iff_le_comap.mp hLb.le
-  have hmapL₁ : L₁.map π = Lb := map_comap_eq_self_of_surjective hπs Lb
-  have hcM : (M.map π).comap π = M := by rw [comap_map_eq, hker, sup_of_le_left hDM]
-  have hnotM : ∀ x, x ∉ M → π x ∉ M.map π := fun x hx hxM => hx (by rw [← hcM]; exact hxM)
-  have hSyl : ¬ 2 ∣ S.relIndex L₁ := by
-    have h1 : S.relIndex ((S ⊔ D) ⊓ L₁) * (S ⊔ D).relIndex L₁ = S.relIndex L₁ := by
-      rw [relIndex_inf_mul_relIndex S (S ⊔ D) L₁, inf_of_le_left (le_sup_left : S ≤ S ⊔ D)]
-    have h2 : (S ⊔ D).relIndex L₁ = (S.map π).relIndex Lb := by
-      rw [show S ⊔ D = (S.map π).comap π by rw [comap_map_eq, hker], relIndex_comap, hmapL₁]
-    have h3 : S.relIndex ((S ⊔ D) ⊓ L₁) = Nat.card D := by
-      have hX : (S ⊔ D) ⊓ L₁ = (S ⊓ L₁) ⊔ D := by
-        rw [inf_comm, ← Subgroup.inf_sup_assoc_of_le
-          (by rw [normalizer_eq_top_iff.mpr inferInstance]; exact le_top) hDL₁, inf_comm L₁ S]
-      have hSX : S ⊓ ((S ⊔ D) ⊓ L₁) = S ⊓ L₁ := by
-        rw [← inf_assoc, inf_of_le_left (le_sup_left : S ≤ S ⊔ D)]
-      have hSLD : S ⊓ L₁ ⊓ D = ⊥ := by
-        rw [inf_right_comm, hSD, bot_inf_eq]
-      rw [← inf_relIndex_right S, hSX, hX, relIndex_sup_of_normal, ← inf_relIndex_right, hSLD,
-        relIndex_bot_left]
-    rw [← h1, h2, h3]
-    intro hd
-    rcases (Nat.Prime.dvd_mul Nat.prime_two).mp hd with hd | hd
-    · exact hDodd hd
-    · exact hLb.not_dvd_relIndex hd
-  have hcoatom : IsCoatom (M.subgroupOf L₁) := by
-    refine ⟨fun htop => hLb.not_le ?_, fun K hK => ?_⟩
-    · rw [← hmapL₁]
-      refine map_mono fun x hx => ?_
-      have : (⟨x, hx⟩ : L₁) ∈ M.subgroupOf L₁ := by
-        rw [htop]
-        exact mem_top _
-      exact this
-    · obtain ⟨k, hkK, hkM⟩ := SetLike.exists_of_lt hK
-      have hkM' : (k : H) ∉ M := by rwa [mem_subgroupOf] at hkM
-      set K₁ := K.map L₁.subtype with hK₁
-      have hMK : M ⊓ L₁ ≤ K₁ := by
-        intro x hx
-        exact ⟨⟨x, hx.2⟩, hK.le (by rw [mem_subgroupOf]; exact hx.1), rfl⟩
-      have hK₁L : K₁ ≤ L₁ := map_subtype_le K
-      have hK₁map : K₁.map π = Lb :=
-        hLb.eq_of_le ((map_mono hK₁L).trans hmapL₁.le)
-          (map_mono ((le_inf (h.le_S.trans h.le_M) hAL₁).trans hMK))
-          fun hle => hnotM k hkM' (hle ⟨k, ⟨k, hkK, rfl⟩, rfl⟩)
-      have hK₁eq : K₁ = L₁ := by
-        rw [hL₁def, ← hK₁map, comap_map_eq, hker, sup_of_le_left ((le_inf hDM hDL₁).trans hMK)]
-      rw [eq_top_iff]
-      intro x _
-      have : (x : H) ∈ K₁ := by rw [hK₁eq]; exact x.2
-      obtain ⟨y, hy, hyx⟩ := this
-      rwa [show y = x from Subtype.ext hyx] at hy
-  have hcore : ¬ A.subgroupOf L₁ ≤ (M.subgroupOf L₁).normalCore := by
-    intro hle
-    obtain ⟨xb, hxbL, hxbM⟩ : ∃ xb ∈ Lb, xb ∉ M.map π := Set.not_subset.mp hLb.not_le
-    obtain ⟨x, rfl⟩ := hπs xb
-    have hxL₁ : x ∈ L₁ := hxbL
-    have hconj : A.map (MulAut.conj x).toMonoidHom ≤ M := by
-      intro z hz
-      obtain ⟨a, ha, rfl⟩ := mem_map_conj.mp hz
-      have := mem_normalCore_iff.mp
-        (hle (show (⟨a, hAL₁ ha⟩ : L₁) ∈ A.subgroupOf L₁ from ha)) ⟨x, hxL₁⟩
-      rwa [mem_subgroupOf] at this
-    apply hLb.not_le
-    rw [← hLb.sup_conj (π x) hxbL hxbM, ← map_map_conj, ← Subgroup.map_sup]
-    exact map_mono (sup_le (h.le_S.trans h.le_M) hconj)
-  have hcard : Nat.card L₁ < Nat.card H := by
-    have := card_lt_of_lt (lt_top_iff_ne_top.mpr hL₁)
-    rwa [card_top] at this
-  obtain ⟨L', hL'⟩ := ih L₁ hcard (h.subgroupOf hSyl hcoatom hcore)
-  exact ⟨_, hL'.map_subtype hAL₁⟩
 
 theorem isL24_top_of_comap_eq_top (h : Hyp24 S M A) (hO : oTwo H = ⊥)
     (hstar : ∀ U : Subgroup H, S ≤ U → U ⊔ M.normalCore = ⊤ → U = ⊤)
@@ -1135,114 +917,8 @@ theorem isL24_zpowers_sup (h : Hyp24 S M A) {B : Subgroup H} (hBA : B ≤ A)
     rw [pow_one]
     exact ⟨Subgroup.topEquiv.symm.trans ((MulEquiv.subgroupCongr hcl.symm).trans e)⟩
 
-theorem exists_isL24_of_normalCore_eq_bot [Group.IsSolvable H] (h : Hyp24 S M A)
-    (hO : oTwo H = ⊥) (hD : M.normalCore = ⊥) : ∃ L, IsL24 S M A L := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Nontrivial H := by
-    by_contra hnt
-    rw [not_nontrivial_iff_subsingleton] at hnt
-    exact h.isCoatom.1 (Subsingleton.elim _ _)
-  obtain ⟨N, hNn, hNbot, -, p, k, hp, -, hNel, hNcard⟩ :=
-    CFSG.SignalizerFunctor.Helpers.solvable_minimal_normal_exists (GroupType := H)
-  have hp2 : p ≠ 2 := by
-    rintro rfl
-    apply hNbot
-    rw [eq_bot_iff, ← hO]
-    exact le_oTwo (IsPGroup.of_card hNcard)
-  have hNM : ¬ N ≤ M := fun hle => hNbot (by
-    rw [eq_bot_iff, ← hD]
-    exact normal_le_normalCore.mpr hle)
-  have hMN : M ⊔ N = ⊤ :=
-    h.isCoatom.2 _ (lt_of_le_of_ne le_sup_left fun heq => hNM (heq ▸ le_sup_right))
-  have hcop : Nat.Coprime 2 (Nat.card N) := by
-    rw [hNcard]
-    exact Nat.Coprime.pow_right _ ((Nat.coprime_primes Nat.prime_two hp).mpr (Ne.symm hp2))
-  have hNc : ∀ x ∈ N, ∀ y ∈ N, x * y = y * x := fun x hx y hy => isElemAbelian_comm hNel hx hy
-  obtain ⟨B, hBA, hcardB, c, ⟨hcN, hcB⟩, a, haA, hy⟩ :=
-    exists_hyperplane_conj_not_mem h hNc hcop hMN
-  set y := c⁻¹ * (a * c * a⁻¹) with hydef
-  have ha2 : a * a = 1 := by rw [← pow_two]; exact h.elemAb.2 a haA
-  have hBc : ∀ b ∈ B, b * c = c * b := fun b hb => mem_centralizer_iff.mp hcB b hb
-  have haB : a ∉ B := fun haB => hy (by
-    rw [hydef, hBc a haB, mul_inv_cancel_right, inv_mul_cancel]
-    exact M.one_mem)
-  have hidx : B.relIndex A = 2 := by
-    have := relIndex_mul_card B A
-    rw [inf_of_le_left hBA, hcardB] at this
-    exact Nat.eq_of_mul_eq_mul_right Nat.card_pos this
-  have hyB : y ∈ centralizer (B : Set H) := by
-    have hcaB : a * c * a⁻¹ ∈ centralizer (B : Set H) := by
-      rw [mem_centralizer_iff]
-      intro b hb
-      have hba : Commute b a := (isElemAbelian_comm h.elemAb haA (hBA hb)).symm
-      have hbc : Commute b c := hBc b hb
-      exact ((hba.mul_right hbc).mul_right hba.inv_right).eq
-    exact mul_mem (inv_mem hcB) hcaB
-  have hay : a * y * a⁻¹ = y⁻¹ := by
-    have e1 : a * y * a⁻¹ = a * c⁻¹ * a⁻¹ * (a * a * c * (a * a)⁻¹) := by rw [hydef]; group
-    rw [e1, ha2, one_mul, inv_one, mul_one, hydef]
-    group
-  have hyN : y ∈ N := N.mul_mem (N.inv_mem hcN) (hNn.conj_mem c hcN a)
-  have hy1 : y ≠ 1 := fun h1 => hy (by rw [h1]; exact M.one_mem)
-  have hyp : orderOf y = p := by
-    have : Fact p.Prime := ⟨hp⟩
-    exact orderOf_eq_prime (hNel.2 y hyN) hy1
-  exact ⟨_, isL24_zpowers_sup h hBA hidx haA haB hyB hay hp hp2 hyp hy⟩
 
 end Steps
 
-theorem exists_isL24_aux (n : ℕ) : ∀ (H : Type u) [Group H] [Finite H] [Group.IsSolvable H],
-    Nat.card H = n → ∀ {S M A : Subgroup H}, Hyp24 S M A → ∃ L, IsL24 S M A L := by
-  induction n using Nat.strong_induction_on with
-  | _ n ihn =>
-  intro H _ _ _ hn S M A h
-  have ih : IH24.{u} (Nat.card H) := fun G _ _ _ hG S' M' A' h' =>
-    ihn _ (hn ▸ hG) G rfl h'
-  by_cases hO : oTwo H = ⊥
-  swap
-  · exact exists_isL24_of_oTwo_ne_bot ih h hO
-  by_cases hU : ∃ U : Subgroup H, S ≤ U ∧ U ⊔ M.normalCore = ⊤ ∧ U ≠ ⊤
-  · obtain ⟨U, hSU, hUD, hU⟩ := hU
-    exact exists_isL24_of_sup_normalCore ih h hSU hUD hU
-  have hstar : ∀ U : Subgroup H, S ≤ U → U ⊔ M.normalCore = ⊤ → U = ⊤ := by
-    intro U hSU hUD
-    by_contra hU'
-    exact hU ⟨U, hSU, hUD, hU'⟩
-  by_cases hD : M.normalCore = ⊥
-  · exact exists_isL24_of_normalCore_eq_bot h hO hD
-  have hcard : Nat.card (H ⧸ M.normalCore) < Nat.card H := by
-    rw [card_eq_card_quotient_mul_card_subgroup M.normalCore]
-    have h1 : 1 < Nat.card M.normalCore := (one_lt_card_iff_ne_bot _).mpr hD
-    have h2 := Nat.card_pos (α := H ⧸ M.normalCore)
-    nlinarith
-  obtain ⟨Lb, hLb⟩ := ih _ hcard (h.map_quotient M.normalCore (normalCore_le M))
-  by_cases hL₁ : Lb.comap (QuotientGroup.mk' M.normalCore) = ⊤
-  · exact ⟨⊤, isL24_top_of_comap_eq_top h hO hstar hLb hL₁⟩
-  · exact exists_isL24_of_comap_ne_top ih h (inf_normalCore_eq_bot h hO hstar)
-      (odd_card_normalCore h hO hstar) hLb hL₁
-
-theorem exists_isL24_of_isSolvable {H : Type u} [Group H] [Finite H] [Group.IsSolvable H]
-    {S M A : Subgroup H} (hS : IsPGroup 2 S) (hSi : ¬ 2 ∣ S.index) (hM : IsCoatom M)
-    (hSM : S ≤ M) (hAS : A ≤ S) (hA : CFSG.Open.IsElemAbelian 2 A)
-    (hAD : ¬ A ≤ M.normalCore) : ∃ L, IsL24 S M A L :=
-  exists_isL24_aux _ H rfl ⟨hS, hSi, hM, hSM, hAS, hA, hAD⟩
-
-theorem exists_isL24_of_isSolvable_subgroup {G : Type u} [Group G] [Finite G] {H : Subgroup G}
-    [Group.IsSolvable H] {S M A : Subgroup G} (hS : IsPGroup 2 S) (hSH : S ≤ H)
-    (hSi : ¬ 2 ∣ S.relIndex H) (hMH : M ≤ H) (hM : IsCoatom (M.subgroupOf H)) (hSM : S ≤ M)
-    (hAS : A ≤ S) (hA : CFSG.Open.IsElemAbelian 2 A)
-    (hAD : ∃ h ∈ H, ∃ a ∈ A, h * a * h⁻¹ ∉ M) : ∃ L ≤ H, IsL24 S M A L := by
-  have hAH : A ≤ H := hAS.trans hSH
-  have hcore : ¬ A.subgroupOf H ≤ (M.subgroupOf H).normalCore := by
-    intro hle
-    obtain ⟨g, hg, a, ha, hgaM⟩ := hAD
-    have := mem_normalCore_iff.mp (hle (show (⟨a, hAH ha⟩ : H) ∈ A.subgroupOf H from ha))
-      ⟨g, hg⟩
-    rw [mem_subgroupOf] at this
-    exact hgaM this
-  obtain ⟨L', hL'⟩ := exists_isL24_of_isSolvable (H := H) (S := S.subgroupOf H)
-    (M := M.subgroupOf H) (A := A.subgroupOf H) hS.comap_subtype hSi hM (fun _ hx => hSM hx)
-    (fun _ hx => hAS hx) (isElemAbelian_subgroupOf hA) hcore
-  exact ⟨_, map_subtype_le L', hL'.map_subtype hAH⟩
 
 end CFSG.RankThree.S4Free.Stell

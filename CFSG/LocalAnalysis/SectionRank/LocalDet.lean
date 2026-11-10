@@ -13,24 +13,6 @@ open scoped commutatorElement
 
 variable {E : Type*} [Group E]
 
-theorem commutatorElement_pow_right_of_central (hc : ∀ x y z : E, Commute ⁅x, y⁆ z)
-    (x y : E) (n : ℕ) : ⁅x, y ^ n⁆ = ⁅x, y⁆ ^ n := by
-  rw [← commutatorElement_inv, commutatorElement_pow_left_of_central hc, ← inv_pow,
-    commutatorElement_inv]
-
-theorem commutatorElement_basis_of_central (hc : ∀ x y z : E, Commute ⁅x, y⁆ z) (x y : E)
-    (a b c d : ℕ) :
-    ⁅x ^ a * y ^ c, x ^ b * y ^ d⁆ = ⁅x, y⁆ ^ (a * d) * ⁅y, x⁆ ^ (c * b) := by
-  rw [commutatorElement_mul_left_of_central hc, commutatorElement_mul_right_of_central hc,
-    commutatorElement_mul_right_of_central hc]
-  have hxx : ⁅x ^ a, x ^ b⁆ = 1 :=
-    commutatorElement_eq_one_iff_commute.2 (Commute.pow_pow_self x a b)
-  have hyy : ⁅y ^ c, y ^ d⁆ = 1 :=
-    commutatorElement_eq_one_iff_commute.2 (Commute.pow_pow_self y c d)
-  rw [hxx, hyy, one_mul, mul_one, commutatorElement_pow_left_of_central hc,
-    commutatorElement_pow_right_of_central hc, commutatorElement_pow_left_of_central hc,
-    commutatorElement_pow_right_of_central hc, ← pow_mul, ← pow_mul, mul_comm d a,
-    mul_comm b c]
 
 theorem closure_preimage_eq_top {K : Type*} [Group K] {H : Subgroup K} {s : Set K}
     (hs : Subgroup.closure s = H) :

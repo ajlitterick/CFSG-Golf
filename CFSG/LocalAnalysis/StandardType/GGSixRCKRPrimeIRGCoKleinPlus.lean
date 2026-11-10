@@ -87,15 +87,6 @@ private theorem irgK1_ab_ne (i j : Fin 3) (s t : Bool) (hij : i ≠ j) :
   fin_cases i <;> fin_cases j <;> cases s <;> cases t <;>
     simp [irgK1_ab]
 
-private theorem irgK1_ab_swap (i j : Fin 3) (s t : Bool) :
-    irgK1_ab i j s t = irgK1_ab j i t s := by
-  fin_cases i <;> fin_cases j <;> cases s <;> cases t <;>
-    simp [irgK1_ab]
-
-private theorem irgK1_ab_neg (i j : Fin 3) (s t : Bool) :
-    irgK1_ab i j (!s) (!t) = ((irgK1_ab i j s t).2, (irgK1_ab i j s t).1) := by
-  fin_cases i <;> fin_cases j <;> cases s <;> cases t <;>
-    simp [irgK1_ab]
 
 private theorem irgK1_gen_01tt {hn : 3 ≤ 3} (hij : (0 : Fin 3) ≠ 1)
     (hab : (0 : Fin 4) ≠ 3) (c : F) :

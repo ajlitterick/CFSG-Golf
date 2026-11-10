@@ -59,9 +59,6 @@ theorem pow_map_comm {σ : K ≃+* K} {m : ℕ} (hσ : ∀ t, σ t = t ^ m) (φ 
   map_mul' x y := Subtype.ext (map_mul φ (x : K) y)
   map_add' x y := Subtype.ext (map_add φ (x : K) y)
 
-theorem coe_restrictDescent {σ : K ≃+* K} (hcomm : ∀ φ : K ≃+* K, ∀ t, σ (φ t) = φ (σ t))
-    (φ : K ≃+* K) (x : descentField σ) : (restrictDescent hcomm φ x : K) = φ x :=
-  rfl
 
 @[expose] def restrictDescentHom {σ : K ≃+* K}
     (hcomm : ∀ φ : K ≃+* K, ∀ t, σ (φ t) = φ (σ t)) :

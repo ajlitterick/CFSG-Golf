@@ -77,6 +77,5 @@ theorem exists_conj_eq_of_odd {x y : G} (hx : x * x = 1) (hy : y * y = 1)
   rw [pow_inv_mul_mul_pow_of_inv hinv, show 2 * (s + 1) = orderOf (x * y) + 1 by omega,
     pow_succ, pow_orderOf_eq_one, one_mul, ← hinv, ← mul_assoc, hx, one_mul]
 
-variable {H : Subgroup G} {D : Set G}
 
 end CFSG.LocalAnalysis.ComponentInitial

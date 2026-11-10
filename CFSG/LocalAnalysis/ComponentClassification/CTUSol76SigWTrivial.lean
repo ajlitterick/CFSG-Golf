@@ -36,13 +36,6 @@ open CFSG Subgroup CFSG.LocalCores CFSG.ComponentClassification.FooteLit
           ¬ Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (U : Set G))) E F) →
         ∃ g ∈ normalizer (wGroup B V : Set G), IsGoodFor N (wGroup B V) (g⁻¹ * x * g)
 
-theorem lemma39TwoDiscAt_of_for (h : Lemma39TwoDiscFor) (R : SigOrientation) :
-    Lemma39TwoDiscAt R :=
-  fun G _ _ hG N hN h2 K K' V B hP _ hW => h G hG N hN h2 K K' V B hP hW
-
-theorem goodInvolutionsLeftDiscAt_of_for (h : GoodInvolutionsLeftDiscFor) (R : SigOrientation) :
-    GoodInvolutionsLeftDiscAt R :=
-  fun G _ _ hG N hN h2 K K' V B hP _ hW => h G hG N hN h2 K K' V B hP hW
 
 variable {G : Type} [Group G] [Finite G] {N : Subgroup G}
 
@@ -176,22 +169,5 @@ theorem forcedSeparationFor_of_two (hq : QuasisimpleTwoPartInput) {R : SigOrient
     exists_sigPair_of_third hq hG hK hK' hne hK₃ hK₃K hK₃K' heK he2 hfK' hf2 hfe
   exact hforced.1 (hR3 G N K K' h2) (Or.inl ⟨V, B, hP, hfV, heB⟩)
 
-theorem lemma315bInputFor_simple_of_orientation (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (hC : SingleComponentCatalogFor) {R : SigOrientation}
-    (hR3 : ∀ (G : Type) [Group G] [Finite G] (N K K' : Subgroup G),
-      (kStarComponents N).ncard ≠ 2 → R G N K K')
-    (h39 : Lemma39TwoDiscAt R) (hgood : GoodInvolutionsLeftDiscAt R)
-    (hres : ForcedSeparationTwoFor R) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_forced hq hR1 (wTrivialFor_of_disc hq hR1 hF hC h39 hgood)
-    (forcedSeparationFor_of_two hq hR3 hres)
-
-theorem lemma315bInputFor_simple_of_solRestricted (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (hC : SingleComponentCatalogFor) (h39 : Lemma39TwoDiscAt solRestricted)
-    (hgood : GoodInvolutionsLeftDiscAt solRestricted)
-    (hres : ForcedSeparationTwoFor solRestricted) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_orientation hq hR1 hF hC
-    (fun _ _ _ _ _ _ h2 => fun h2' => absurd h2' h2) h39 hgood hres
 
 end CFSG.ComponentClassification.Sol76.Sig

@@ -16,15 +16,6 @@ abbrev pslRange (n : ℕ) (K : Type u) [Field K] :
     Subgroup (Matrix.ProjGenLinGroup (Fin n) K) :=
   (Matrix.ProjectiveSpecialLinearGroup.toPGL (n := Fin n) (R := K)).range
 
-theorem slToPGL_kernel (n : ℕ) (K : Type u) [Field K] :
-    (Matrix.SpecialLinearGroup.toPGL (n := Fin n) (R := K)).ker =
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K) :=
-  Matrix.SpecialLinearGroup.toPGL_ker
-
-theorem pslInclusion_injective (n : ℕ) (K : Type u) [Field K] :
-    Function.Injective (Matrix.ProjectiveSpecialLinearGroup.toPGL
-      (n := Fin n) (R := K)) :=
-  Matrix.ProjectiveSpecialLinearGroup.toPGL_injective
 
 theorem pslRange_eq_map (n : ℕ) (K : Type u) [Field K] :
     pslRange n K = (CatalogueBGeneralLinear.specialLinearRange n K).map
@@ -48,9 +39,6 @@ instance pslRangeNormal (n : ℕ) (K : Type u) [Field K] : (pslRange n K).Normal
     Matrix.ProjectiveSpecialLinearGroup (Fin n) K ≃* pslRange n K :=
   MonoidHom.ofInjective Matrix.ProjectiveSpecialLinearGroup.toPGL_injective
 
-theorem pslRangeEquiv_val (n : ℕ) (K : Type u) [Field K]
-    (x : Matrix.ProjectiveSpecialLinearGroup (Fin n) K) :
-    (pslRangeEquiv n K x).val = Matrix.ProjectiveSpecialLinearGroup.toPGL x := rfl
 
 theorem pslRangeEquiv_symm_toPGL (n : ℕ) (K : Type u) [Field K]
     (x : pslRange n K) :
@@ -153,15 +141,6 @@ theorem innerDiagonalAction_scalar (n : ℕ) (K : Type u) [Field K] (c : Kˣ) :
     innerDiagonalAction n K (Matrix.GeneralLinearGroup.scalar (Fin n) c) = 1 := by
   rw [innerDiagonalAction_eq_pglAction, Matrix.ProjGenLinGroup.mk_scalar, map_one]
 
-theorem innerDiagonalAction_mk_matrix (n : ℕ) (K : Type u) [Field K]
-    (A : Matrix.GeneralLinearGroup (Fin n) K)
-    (g : Matrix.SpecialLinearGroup (Fin n) K) :
-    innerDiagonalAction n K A
-        ((QuotientGroup.mk' (Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K))) g) =
-      QuotientGroup.mk (slConjugation n K A g) ∧
-      (slConjugation n K A g : Matrix (Fin n) (Fin n) K) =
-        A.val * (g : Matrix (Fin n) (Fin n) K) * (A⁻¹).val :=
-  ⟨innerDiagonalAction_mk n K A g, slConjugation_matrix n K A g⟩
 
 end
 

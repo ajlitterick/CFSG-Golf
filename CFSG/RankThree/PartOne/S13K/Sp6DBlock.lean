@@ -115,8 +115,6 @@ theorem UPres_symm {g : AutV K} (hg : UPres g) (hfix : ∀ a, g (sg 2 a) = sg 2 
       change (dMat g.1.symm).det = 1
       exact h3.symm
 
-theorem mem_dBlk_iff {g : ↥(M10 K)} : g ∈ dBlk K ↔
-    (∀ a : Qext K, g.1 (sg 2 a) = sg 2 a) ∧ UPres g.1 ∧ (dMat g.1).det = 1 := Iff.rfl
 
 theorem trQ_pairing_zero {d : Qext K} (h : ∀ c, trQ (c * d) = 0) : d = 0 := by
   by_contra hd
@@ -244,14 +242,6 @@ theorem dBlkToSL_injective : Function.Injective (dBlkToSL : ↥(dBlk K) →* _) 
     funext i
     fin_cases i <;> simp [Algebra.smul_def] <;> ring
 
-theorem dLin_apply0 (A : Matrix (Fin 2) (Fin 2) (Qext K)) (v : QV K (Fin 3)) :
-    dLin A v 0 = A 0 0 * v 0 + A 0 1 * v 1 := rfl
-
-theorem dLin_apply1 (A : Matrix (Fin 2) (Fin 2) (Qext K)) (v : QV K (Fin 3)) :
-    dLin A v 1 = A 1 0 * v 0 + A 1 1 * v 1 := rfl
-
-theorem dLin_apply2 (A : Matrix (Fin 2) (Fin 2) (Qext K)) (v : QV K (Fin 3)) :
-    dLin A v 2 = v 2 := rfl
 
 theorem dLin_mul (A B : Matrix (Fin 2) (Fin 2) (Qext K)) : dLin (A * B) = dLin A ∘ₗ dLin B := by
   refine LinearMap.ext fun v => ?_

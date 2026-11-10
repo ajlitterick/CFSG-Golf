@@ -59,21 +59,6 @@ theorem conjQ_cosetPair
   rw [cosetPair_eq, conjQ_mul, conjQ_sign_toQ, conjQ_perm_toQ _ (repPerm_cosetArr i)]
   rfl
 
-theorem genCheck_native :
-    genCheck Native.conjYN Native.conjPermN = true :=
-  Certificates.certificate3022.1
-
-theorem genCheck_eq_true : genCheck Model.conjYN Model.conjPermN =
-    true := by
-  rw [← native_conjYN, ← native_conjPermN]
-  exact genCheck_native
-
-theorem alphaN_gen {c : CosetRecord} (hc : c ∈ cosetData) {k : ℕ}
-    (hk : k < 24) :
-    alphaN c.index (genPauli k) = ofTriple (c.genImages.getD k (0, 0, 0)) := by
-  have h := genCheck_eq_true
-  simp only [genCheck, List.all_eq_true, List.mem_range, beq_iff_eq] at h
-  exact h c hc k hk
 
 theorem sqRowCheck_native : ∀ i ∈ [1, 2, 6],
     sqRowCheck Native.eYN Native.ePermN Native.ePauliN i (sqPauli i) = true :=

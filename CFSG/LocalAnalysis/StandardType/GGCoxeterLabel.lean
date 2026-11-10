@@ -91,13 +91,6 @@ theorem linearIndependent_of_det_ne_zero {K V Γ : Type*} [Field K] [AddCommGrou
     exact Finset.sum_congr rfl fun j _ => mul_comm _ _
   exact fun i => congrFun (Matrix.eq_zero_of_mulVec_eq_zero hdet hv) i
 
-@[expose] def GGCartanFaithfulInput : Prop :=
-  ∀ (p : ℕ), p.Prime → p ≠ 2 → ∀ (Γ : Type) (M : CoxeterMatrix Γ) (C : Matrix Γ Γ ℤ),
-    GGIsWeylMatrix M → ∀ (hC : GGIntCartan M C) (V : Type) [AddCommGroup V] [Module (ZMod p) V]
-      (h : Γ → V) (α : Γ → Module.Dual (ZMod p) V) (hα : ∀ i, α i (h i) = 2)
-      (hP : ∀ i j, α i (h j) = (C i j : ZMod p)), LinearIndependent (ZMod p) h →
-      Function.Injective (M.toCoxeterSystem.lift
-        ⟨fun i => reflection (hα i), isLiftable_reflection_of_intCartan hC h α hα hP⟩)
 
 section Main
 
@@ -148,77 +141,6 @@ theorem ggReflection_mul_pow_eq_one_iff (hp2 : p ≠ 2) (hNT : GGNoTransvection 
     ← map_mul, ← map_pow]
   exact ⟨fun h => by rw [h, map_one], fun h => ggLin_injective ι (by rw [h, map_one])⟩
 
-theorem ggWeylReflectionGroup_of_label (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs)
-    (hF : GGCartanFaithfulInput) {Γ : Type} {M : CoxeterMatrix Γ} (hM : GGIsWeylMatrix M)
-    {C : Matrix Γ Γ ℤ} (hC : GGIntCartan M C) (φ : Γ → MulAut ↥Bs)
-    (hφ : ∀ i, φ i ∈ ggInduced ⊤ Bs) {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    (ι : Additive ↥Bs ≃+ V) (h : Γ → V) (α : Γ → Module.Dual (ZMod p) V)
-    (hα : ∀ i, α i (h i) = 2) (hlin : ∀ i, ggLin (p := p) ι (φ i) = reflection (hα i))
-    (hind : LinearIndependent (ZMod p) h) (a b : Γ)
-    (hP : ∀ i j, (i, j) ≠ (b, a) → α i (h j) = (C i j : ZMod p)) (hCba : C b a = 0) :
-    GGWeylReflectionGroup p (Subgroup.closure (Set.range φ)) := by
-  have hPall : ∀ i j, α i (h j) = (C i j : ZMod p) := by
-    intro i j
-    by_cases hij : (i, j) = (b, a)
-    · obtain ⟨rfl, rfl⟩ := Prod.mk.inj hij
-      by_cases hab : j = i
-      · subst hab
-        rw [hα, hC.1]
-        norm_num
-      · have hu : α j (h i) = 0 := by
-          rw [hP j i (fun h' => hab (Prod.mk.inj h').1), hC.eq_zero_symm hab hCba,
-            Int.cast_zero]
-        rw [hCba, Int.cast_zero]
-        exact ggCross_eq_zero_of_noTransvection hp2 hNT ι (hφ j) (hφ i) (hα j) (hα i)
-          (hlin j) (hlin i) hu
-    · exact hP i j hij
-  have hlinL := isLiftable_reflection_of_intCartan hC h α hα hPall
-  have hφL : M.IsLiftable φ := by
-    intro i j
-    apply ggLin_injective (p := p) ι
-    rw [map_pow, map_mul, hlin, hlin, map_one]
-    exact hlinL i j
-  refine ggWeylReflectionGroup_of_lift hM φ hφL
-    (fun i => ggIsReflection_of_eq_reflection hp2 ι (hα i) (hlin i)) ?_
-  have hinjL := hF p Fact.out hp2 Γ M C hM hC V h α hα hPall hind
-  have hcomp : (ggLin (p := p) ι).comp (M.toCoxeterSystem.lift ⟨φ, hφL⟩) =
-      M.toCoxeterSystem.lift ⟨_, hlinL⟩ := by
-    refine M.toCoxeterSystem.ext_simple fun i => ?_
-    rw [MonoidHom.comp_apply, CoxeterSystem.lift_apply_simple, CoxeterSystem.lift_apply_simple,
-      hlin]
-  intro w₁ w₂ hw
-  apply hinjL
-  rw [← hcomp, MonoidHom.comp_apply, MonoidHom.comp_apply, hw]
-
-theorem ggWeylReflectionGroup_sup_of_label (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs)
-    (hF : GGCartanFaithfulInput) {Λ : Type} {M : CoxeterMatrix (Option Λ)}
-    (hM : GGIsWeylMatrix M) {C : Matrix (Option Λ) (Option Λ) ℤ} (hC : GGIntCartan M C)
-    (φ : Option Λ → MulAut ↥Bs) (hφ : ∀ i, φ i ∈ ggInduced ⊤ Bs) {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] (ι : Additive ↥Bs ≃+ V) (h : Option Λ → V)
-    (α : Option Λ → Module.Dual (ZMod p) V) (hα : ∀ i, α i (h i) = 2)
-    (hlin : ∀ i, ggLin (p := p) ι (φ i) = reflection (hα i))
-    (hind : LinearIndependent (ZMod p) h) (b : Λ)
-    (hP : ∀ i j, (i, j) ≠ (some b, none) → α i (h j) = (C i j : ZMod p))
-    (hCba : C (some b) none = 0) {L K : Subgroup G}
-    (hL : ggAutomizer L Bs = Subgroup.closure (Set.range fun i : Λ => φ (some i)))
-    (hK : ggAutomizer K Bs = Subgroup.closure
-      (Set.range (fun j : {j : Λ // j ≠ b} => φ (some j)) ∪ {φ none})) :
-    GGWeylReflectionGroup p (ggAutomizer L Bs ⊔ ggAutomizer K Bs) := by
-  have hrange : (Set.range fun i : Λ => φ (some i)) ∪
-      (Set.range (fun j : {j : Λ // j ≠ b} => φ (some j)) ∪ {φ none}) = Set.range φ := by
-    ext ψ
-    simp only [Set.mem_union, Set.mem_range, Set.mem_singleton_iff, Subtype.exists]
-    constructor
-    · rintro (⟨i, rfl⟩ | ⟨j, -, rfl⟩ | rfl)
-      · exact ⟨some i, rfl⟩
-      · exact ⟨some j, rfl⟩
-      · exact ⟨none, rfl⟩
-    · rintro ⟨i | i, rfl⟩
-      · exact Or.inr (Or.inr rfl)
-      · exact Or.inl ⟨i, rfl⟩
-  rw [hL, hK, ← Subgroup.closure_union, hrange]
-  exact ggWeylReflectionGroup_of_label hp2 hNT hF hM hC φ hφ ι h α hα hlin hind none (some b) hP
-    hCba
 
 end Main
 

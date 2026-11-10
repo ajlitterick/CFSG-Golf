@@ -54,32 +54,6 @@ variable {K : Type} [Field K]
 @[expose] def e6D4ACD : Fin TwistTag.E6.tag.rank → ℤ := (![1, 1, 1, 2, 1, 1] : Fin 6 → ℤ)
 @[expose] def e6D4ABCD : Fin TwistTag.E6.tag.rank → ℤ := (![1, 1, 2, 3, 2, 1] : Fin 6 → ℤ)
 
-theorem e6HighestRoot_eq_vec : e6HighestRoot = (![1, 2, 2, 3, 2, 1] : Fin 6 → ℤ) := rfl
-
-theorem twistedE6Cascade_eq :
-    twistedE6Cascade = [e6HighestRoot, e6CascR17, e6CascC, e6RootA4] := rfl
-
-@[expose] def twistedE6CascTable :
-    List (List (Fin TwistTag.E6.tag.rank → ℤ) × List (Fin TwistTag.E6.foldedTag.rank)) :=
-  [([e6HighestRoot], []), ([e6CascR17], ([3, 2, 1, 2, 3] : List (Fin 4))), ([e6CascC], ([3, 2, 1, 0, 2, 3] : List (Fin 4))),
-    ([e6RootA4], ([3, 2, 1, 0, 2, 1, 3] : List (Fin 4))), ([e6HighestRoot, e6CascR17], []),
-    ([e6HighestRoot, e6CascC], ([0] : List (Fin 4))), ([e6HighestRoot, e6RootA4], ([0, 1] : List (Fin 4))),
-    ([e6CascR17, e6CascC], ([0, 3, 2, 1, 2, 3] : List (Fin 4))), ([e6CascR17, e6RootA4], ([0, 1, 3, 2, 1, 2, 3] : List (Fin 4))),
-    ([e6CascC, e6RootA4], ([0, 1, 3, 2, 1, 0, 2, 3] : List (Fin 4))), ([e6HighestRoot, e6CascR17, e6CascC], []),
-    ([e6HighestRoot, e6CascR17, e6RootA4], ([1] : List (Fin 4))), ([e6HighestRoot, e6CascC, e6RootA4], ([1, 0] : List (Fin 4))),
-    ([e6CascR17, e6CascC, e6RootA4], ([1, 0, 3, 2, 1, 2, 3] : List (Fin 4))),
-    ([e6HighestRoot, e6CascR17, e6CascC, e6RootA4], [])]
-
-theorem twistedE6CascTable_check :
-    (∀ S ∈ twistedE6Cascade.sublists, S ≠ [] → ∃ e ∈ twistedE6CascTable, e.1 = S) ∧
-      ∀ e ∈ twistedE6CascTable,
-        (e.1.map (twistedE6RelAct e.2)).Perm (twistedE6Cascade.take e.1.length) := by
-  refine ⟨by decide, ?_⟩
-  intro e he
-  have h : ∀ e ∈ twistedE6CascTable,
-      (e.1.map (twistedE6RelAct e.2)).isPerm (twistedE6Cascade.take e.1.length) = true := by
-    decide
-  exact List.isPerm_iff.1 (h e he)
 
 theorem twistedE6_mulAutConj_mul {G : Type*} [Group G] (a b x : G) :
     MulAut.conj (a * b) x = MulAut.conj a (MulAut.conj b x) := by
@@ -140,29 +114,6 @@ theorem twistedE6_commute_cascade {γ δ : Fin TwistTag.E6.tag.rank → ℤ}
     decide
   exact twistedE6_commute_pinnedX (h γ hγ δ hδ hne) c d
 
-theorem exists_conj_cascade_sublist_eq_take [CharP K 2] (σ : K →+* K)
-    {S : List (Fin TwistTag.E6.tag.rank → ℤ)} (hS : S.Sublist twistedE6Cascade) (hS0 : S ≠ []) :
-    ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ,
-      g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * g⁻¹ =
-        ((twistedE6Cascade.take S.length).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod := by
-  obtain ⟨⟨S', ω⟩, he, rfl⟩ := twistedE6CascTable_check.1 S (List.mem_sublists.2 hS) hS0
-  have hperm := twistedE6CascTable_check.2 _ he
-  have hSr : ∀ β ∈ S', IsRoot TwistTag.E6.tag β := fun β hβ =>
-    isRoot_of_mem_twistedE6Cascade (hS.subset hβ)
-  refine ⟨twistedE6RelWeyl K ω, twistedE6RelWeyl_mem σ ω, ?_⟩
-  rw [twistedE6RelWeyl_conj_list_prod ω hSr fun _ => (1 : K)]
-  have e : (S'.map fun β => pinnedX TwistTag.E6.tag K (twistedE6RelAct ω β) 1) =
-      ((S'.map (twistedE6RelAct ω)).map fun γ => pinnedX TwistTag.E6.tag K γ 1) := by
-    rw [List.map_map]
-    rfl
-  rw [e]
-  refine (hperm.map _).prod_eq' ?_
-  have hnd : (S'.map (twistedE6RelAct ω)).Nodup :=
-    hperm.nodup_iff.2 (twistedE6Cascade_facts.1.sublist (List.take_sublist _ _))
-  have hmem : ∀ γ ∈ S'.map (twistedE6RelAct ω), γ ∈ twistedE6Cascade := fun γ hγ =>
-    List.mem_of_mem_take (hperm.subset hγ)
-  exact List.pairwise_map.2 (hnd.pairwise_of_forall_ne fun γ hγ δ hδ hne =>
-    twistedE6_commute_cascade (hmem γ hγ) (hmem δ hδ) hne 1 1)
 
 theorem twistedE6_mulAutConj_add [CharP K 2] {α β γ : Fin TwistTag.E6.tag.rank → ℤ}
     (h : (twistedE6TwoRootB α && twistedE6TwoRootB β && twistedE6TwoRootB γ &&
@@ -435,53 +386,5 @@ theorem exists_conj_y3_eq_twistedE6ClassV [CharP K 2] {σ : K →+* K} (hσσ : 
     MulAut.conj_apply (pinnedX TwistTag.E6.tag K e6D4CD 1 * _ * _ * _), twistedE6_d4_conj, hw4,
     MulAut.conj_apply, he₂]
 
-theorem twistedE6Cascade_take_prod :
-    ((twistedE6Cascade.take 1).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod =
-        pinnedX TwistTag.E6.tag K e6HighestRoot 1 ∧
-      ((twistedE6Cascade.take 2).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod =
-        pinnedX TwistTag.E6.tag K e6HighestRoot 1 * pinnedX TwistTag.E6.tag K e6CascR17 1 ∧
-      ((twistedE6Cascade.take 3).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod =
-        pinnedX TwistTag.E6.tag K e6HighestRoot 1 * pinnedX TwistTag.E6.tag K e6CascR17 1 *
-          pinnedX TwistTag.E6.tag K e6CascC 1 ∧
-      ((twistedE6Cascade.take 4).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod =
-        pinnedX TwistTag.E6.tag K e6HighestRoot 1 * pinnedX TwistTag.E6.tag K e6CascR17 1 *
-          pinnedX TwistTag.E6.tag K e6CascC 1 * pinnedX TwistTag.E6.tag K e6RootA4 1 := by
-  simp only [twistedE6Cascade_eq, List.take, List.map_cons, List.map_nil, List.prod_cons,
-    List.prod_nil, mul_one, mul_assoc]
-  exact ⟨trivial, trivial, trivial, trivial⟩
-
-theorem exists_conj_mem_twistedE6Reps_of_cascade_sublist [CharP K 2] {σ : K →+* K}
-    (hσσ : ∀ x, σ (σ x) = x) {δ : K} (hδ : δ + σ δ = 1)
-    {S : List (Fin TwistTag.E6.tag.rank → ℤ)} (hS : S.Sublist twistedE6Cascade) (hS0 : S ≠ []) :
-    ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ,
-      g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * g⁻¹ =
-          pinnedX TwistTag.E6.tag K e6HighestRoot 1 ∨
-        g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * g⁻¹ = twistedE6ClassU K ∨
-          g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * g⁻¹ = twistedE6ClassV K := by
-  obtain ⟨g₁, hg₁, he₁⟩ := exists_conj_cascade_sublist_eq_take σ hS hS0
-  have hlen : S.length ≤ 4 := hS.length_le
-  have hpos : 0 < S.length := List.length_pos_iff.2 hS0
-  obtain ⟨t1, t2, t3, t4⟩ := twistedE6Cascade_take_prod (K := K)
-  have comp : ∀ {g₂ y z : ModGL TwistTag.E6.tag K}, g₂ ∈ graphFixedRootGroup TwistTag.E6 K σ →
-      ((twistedE6Cascade.take S.length).map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod = y →
-      g₂ * y * g₂⁻¹ = z →
-      g₂ * g₁ ∈ graphFixedRootGroup TwistTag.E6 K σ ∧
-        g₂ * g₁ * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * (g₂ * g₁)⁻¹ = z := by
-    intro g₂ y z hg₂ hy hz
-    refine ⟨mul_mem hg₂ hg₁, ?_⟩
-    rw [← hz, ← hy, ← he₁]
-    group
-  interval_cases h : S.length
-  · obtain ⟨hm, he⟩ := comp (one_mem _) t1 (by rw [one_mul, inv_one, mul_one])
-    exact ⟨_, hm, Or.inl he⟩
-  · obtain ⟨g, hg, hu⟩ := exists_conj_y1_eq_twistedE6ClassU hσσ hδ
-    obtain ⟨hm, he⟩ := comp hg t2 hu
-    exact ⟨_, hm, Or.inr (Or.inl he)⟩
-  · obtain ⟨g, hg, hv⟩ := exists_conj_y2_eq_twistedE6ClassV hσσ hδ
-    obtain ⟨hm, he⟩ := comp hg t3 hv
-    exact ⟨_, hm, Or.inr (Or.inr he)⟩
-  · obtain ⟨g, hg, hv⟩ := exists_conj_y3_eq_twistedE6ClassV hσσ hδ
-    obtain ⟨hm, he⟩ := comp hg t4 hv
-    exact ⟨_, hm, Or.inr (Or.inr he)⟩
 
 end CFSG.SeitzReduction

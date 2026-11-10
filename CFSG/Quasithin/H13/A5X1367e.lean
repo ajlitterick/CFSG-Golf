@@ -26,46 +26,6 @@ theorem commV_apply_of_normalizer {J : Subgroup (MulAut U)} {g : MulAut U}
 
 end ModuleFacts
 
-theorem le_pCoreOf_of_le_abelian {Γ : Type} [Group Γ] [Finite Γ] {Z H P : Subgroup Γ}
-    (hZc : ∀ a ∈ Z, ∀ b ∈ Z, a * b = b * a) (hZH : Z ≤ H)
-    (hHZ : H ≤ Subgroup.normalizer (Z : Set Γ)) (hP : IsPGroup 2 P) (hPZ : P ≤ Z) :
-    P ≤ pCoreOf 2 H := by
-  set Q : Subgroup Γ :=
-    { carrier := {x | x ∈ Z ∧ ∃ k : ℕ, x ^ 2 ^ k = 1}
-      one_mem' := ⟨Z.one_mem, 0, by simp⟩
-      mul_mem' := by
-        rintro a b ⟨ha, k, hk⟩ ⟨hb, l, hl⟩
-        refine ⟨Z.mul_mem ha hb, k + l, ?_⟩
-        have e : (2 : ℕ) ^ (k + l) = 2 ^ k * 2 ^ l := pow_add 2 k l
-        rw [Commute.mul_pow (hZc a ha b hb), e, pow_mul, hk, one_pow, one_mul,
-          mul_comm (2 ^ k) (2 ^ l), pow_mul, hl, one_pow]
-      inv_mem' := by
-        rintro a ⟨ha, k, hk⟩
-        exact ⟨Z.inv_mem ha, k, by rw [inv_pow, hk, inv_one]⟩ } with hQ
-  have hQ2 : IsPGroup 2 Q := fun x => by
-    obtain ⟨-, k, hk⟩ := x.2
-    exact ⟨k, Subtype.ext (by simpa using hk)⟩
-  have hQH : Q ≤ H := fun x hx => hZH hx.1
-  have hHQ : H ≤ Subgroup.normalizer (Q : Set Γ) := by
-    intro h hh
-    refine B6.mem_normalizer_of_forall_mem (fun x hx => ?_) fun x hx => ?_
-    · obtain ⟨hxZ, k, hk⟩ := hx
-      refine ⟨(Subgroup.mem_normalizer_iff.mp (hHZ hh) x).mp hxZ, k, ?_⟩
-      rw [conj_pow, hk]; group
-    · obtain ⟨hxZ, k, hk⟩ := hx
-      have hh' := hHZ (H.inv_mem hh)
-      refine ⟨?_, k, ?_⟩
-      · have := (Subgroup.mem_normalizer_iff.mp hh' x).mp hxZ
-        simpa using this
-      · have : (h⁻¹ * x * h) ^ 2 ^ k = h⁻¹ * x ^ 2 ^ k * h := by
-          have := conj_pow (a := h⁻¹) (b := x) (i := 2 ^ k)
-          simpa using this
-        rw [this, hk]; group
-  have hQO : Q ≤ pCoreOf 2 H :=
-    CFSG.LieType.BorelTits.le_pCoreOf_of_le_normalizer 2 hQH hHQ hQ2
-  intro x hx
-  obtain ⟨k, hk⟩ := hP ⟨x, hx⟩
-  exact hQO ⟨hPZ hx, k, by simpa using congrArg Subtype.val hk⟩
 
 namespace Setting
 
@@ -76,12 +36,6 @@ variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} (S : Setting G T L
     autOn (thompsonJ S.Tv) S.Uv ≤ Subgroup.normalizer (K : Set (MulAut ↥S.Uv)) ∧
     ¬ autOn (thompsonJ S.Tv) S.Uv ≤ Subgroup.centralizer (K : Set (MulAut ↥S.Uv))
 
-theorem isPGroup_JTS : IsPGroup 2 (autOn (thompsonJ S.Tv) S.Uv) := by
-  have hJN : thompsonJ S.Tv ≤ Subgroup.normalizer (S.Uv : Set G) :=
-    (B6.thompsonJ_le S.Tv).trans (S.Tv_le_Gv.trans S.Gv_le_normalizer_Uv)
-  have hp : IsPGroup 2 (thompsonJ S.Tv) :=
-    S.isPGroup_T.to_le ((B6.thompsonJ_le S.Tv).trans inf_le_left)
-  exact (hp.of_equiv (Subgroup.subgroupOfEquivOfLe hJN).symm).map (conjAct S.Uv)
 
 theorem commutator_self_le {Γ : Type} [Group Γ] (J : Subgroup Γ) : ⁅J, J⁆ ≤ J := by
   rw [Subgroup.commutator_le]

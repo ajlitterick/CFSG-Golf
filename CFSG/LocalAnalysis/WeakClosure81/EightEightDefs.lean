@@ -190,32 +190,6 @@ theorem MinCex88.concl_of_lt {V H T X : Subgroup G} {i : ℕ} (h : MinCex88 V H 
   by_contra hfail
   exact absurd (Subgroup.card_lt_of_lt hXH) (not_lt.mpr (h.min X T i hX hfail))
 
-@[expose] def Asch5_11 : Prop :=
-  ∀ (Q : Type) [Group Q] [Finite Q] (H T : Subgroup Q),
-    CFSG.Open.IsKGroup ↥H → IsSylowIn 2 T H → T < H → ¬ HasCompFactor H IsCalL0 →
-    H ≠ lGen IsCalL0 H T →
-    (∀ p : ℕ, p.Prime → p ≠ 2 →
-      CFSG.Open.pRank p H ≤ 3 ∨ CFSG.Open.pRank p (lGen IsCalL0 H T) ≤ 1) →
-    (calNIn H T = {lGen IsCalL0 H T} ∧
-      (IsSolvable ↥H ∨ ∃ L : Subgroup Q, IsComponentModN (OInf H) H L ∧ L ⊔ T = H)) ∧
-    (InFSq 1 H ∨
-      (InFSq 2 H ∧ ∃ L : Subgroup Q, IsComponentModN (OInf H) H L ∧ L ⊔ T = H ∧
-        (HasQuotShape L (OInf H : Set Q) (fun X _ => IsL2 X 2) ∨
-          HasQuotShape L (OInf H : Set Q) (fun X _ => IsU3 X 2) ∨
-          ((HasQuotShape L (OInf H : Set Q) (fun X _ => IsL3 X 2) ∨
-              HasQuotShape L (OInf H : Set Q) (fun X _ => IsSp4 X 2)) ∧
-            ∃ t ∈ T, ActsOnDynkinMod (OInf H) L t))))
-
-@[expose] def Asch5_13 : Prop :=
-  ∀ (Q : Type) [Group Q] [Finite Q] (H T : Subgroup Q),
-    CFSG.Open.IsKGroup ↥H → IsSylowIn 2 T H → T < H → CFSG.Open.pRank 3 H ≤ 1 →
-    ¬ HasCompFactor H IsCalL1 → H ≠ lGen IsCalL1 H T →
-    calNIn H T = {lGen IsCalL1 H T} ∧
-      (InFSq 1 H ∨ ∃ n : ℕ, 1 ≤ n ∧
-        (HasQuotShape (fStarMod (relPPrimeCore 3 H) H) (relPPrimeCore 3 H : Set Q)
-            (fun X _ => IsL2 X (2 * n)) ∨
-          HasQuotShape (fStarMod (relPPrimeCore 3 H) H) (relPPrimeCore 3 H : Set Q)
-            (fun X _ => IsU3 X (2 * n))))
 
 end CFSG.LocalAnalysis.WeakClosure81
 

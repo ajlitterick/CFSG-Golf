@@ -1729,15 +1729,6 @@ public theorem lemma114_psl2_oddSylow_isCyclic_of_equiv
     exact hbar
   exact (e.subgroupMap (R : Subgroup E)).isCyclic.mpr hmapcyc
 
-/-- Corollary 8.5 makes the Lemma 11.4 residual `F₀` perfect. -/
-public theorem lemma114FZero_isPerfect
-    {X : Type u} [Group X] [Finite X]
-    {M : Subgroup X} {t u0 : X} {A P : Subgroup X}
-    (c85 : Corollary85Conclusion M t u0 A P) :
-    commutator (lemma114FZero A) = ⊤ := by
-  exact perfect_of_twoPrimeResidual_eq_top_of_model_quotient
-    (lemma114FZero_twoPrimeResidual_eq_top A)
-    c85.card_P_prime.two_le c85.model
 
 /-- The odd central kernel of the Lemma 11.4 residual vanishes once its
 quotient is known to be a PSL or Suzuki model. -/

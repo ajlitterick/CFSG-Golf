@@ -23,14 +23,6 @@ namespace CFSG.StandardType.LevTwo.E8K
           if bit acc.1 c then acc else (acc.1 ||| (1 <<< c), c :: acc.2)) (vis, [])
       bfsG img bit f (rest ++ r.2) r.1
 
-@[expose] def cdG (img : ℕ → List ℕ) (bit : ℕ → ℕ → Bool) (pm : ℕ) :
-    List ℕ → ℕ → List (ℕ × ℕ) → List (ℕ × ℕ)
-  | [], _, acc => acc
-  | b :: rest, vis, acc =>
-      if bit vis b || bit pm b then cdG img bit pm rest vis acc
-      else
-        let o := bfsG img bit 300 [b] (1 <<< b)
-        cdG img bit pm rest (vis ||| o) (acc ++ [(b, o)])
 
 @[expose] def e8NK : ℕ := 1460532797859117899353631121812917646915685822909421249408703672904039466154494946176175123542039292828495945380822451355341465229497250584762061337668886275693771050956281396053009994550369171008944395738550892457938654489536629937612853301260406166353700937682600370120652933774027328931813957084061637554052910379295217473111183622148591333452209546276160570059322576794105209587781932459445486601662542167790551307349877676761354230240107850513760661488116821422872235923233056382696808880051364398422053973715625320997753414504637058124011199547726227583307793637961455
 
@@ -193,11 +185,6 @@ theorem rep_mem (cl : List (ℕ × ℕ)) (R : List ℕ) (h0 : 0 ∈ R)
     have h1 := List.all_eq_true.1 h p hp
     simpa using h1
 
-@[expose] def sub2 (T : List ℕ) : List (List ℕ) :=
-  [] :: T.map (fun a => [a]) ++
-    (List.range T.length).flatMap (fun i =>
-      ((List.range T.length).filter (fun j => i < j)).map
-        (fun j => [T.getD i 0, T.getD j 0]))
 
 @[expose] def covG (img : ℕ → List ℕ) (ext : ℕ → ℕ → ℕ) (cl : List (ℕ × ℕ))
     (T T' : List ℕ) : Bool :=
@@ -206,11 +193,5 @@ theorem rep_mem (cl : List (ℕ × ℕ)) (R : List ℕ) (h0 : 0 ∈ R)
   let orb := bfsG (fun b => img b ++ reps.map (fun r => ext r b)) bitB 300 reps vis0
   T.all (fun a => bitB orb ((cl.getD a (0, 0)).1))
 
-@[expose] def coverG (R : List ℕ) (img : ℕ → List ℕ) (ext : ℕ → ℕ → ℕ)
-    (cl : List (ℕ × ℕ)) : Bool :=
-  cl.all (fun p => R.contains p.1) &&
-  (List.range (2 ^ cl.length)).all (fun mask =>
-    let T := (List.range cl.length).filter (fun i => mask.testBit i)
-    T.length < 3 || (sub2 T).any (fun T' => covG img ext cl T T'))
 
 end CFSG.StandardType.LevTwo.E8K

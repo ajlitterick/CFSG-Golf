@@ -150,19 +150,6 @@ public theorem theorem4b_section7_theta_le_normalizer
         (H := O) (K := pPrimeCore p O))
   exact Subgroup.le_normalizer.trans (hNormENormO.trans hNormONormT)
 
-/-- If a set and its centralizer lie in `E`, then the subgroup it generates
-and the centralizer of that generated subgroup lie in `E`.  This is the
-closure step converting `(7C)` into `W₁ C_D(W₁) ≤ E`. -/
-public theorem theorem4b_closure_sup_centralizer_le
-    {G : Type u} [Group G] {K : Set G} {E : Subgroup G}
-    (hKE : K ⊆ E)
-    (hcent : Subgroup.centralizer K ≤ E) :
-    Subgroup.closure K ⊔
-      Subgroup.centralizer (Subgroup.closure K : Set G) ≤ E := by
-  apply sup_le
-  · rw [Subgroup.closure_le]
-    exact hKE
-  · simpa [Subgroup.centralizer_closure] using hcent
 
 /-- Lemma 7.6, in the exact subgroup form consumed after `(7C)`.
 

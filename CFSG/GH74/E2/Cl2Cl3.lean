@@ -133,13 +133,6 @@ theorem Cl3.sq_cent (hQ : IsPGroup 2 Q) (h : Cl3 Q a b N) {u : Q} (hu : u ∈ ds
   rw [e, hc]
   exact h.N_elem _ hn
 
-theorem Cl3.dsub_ne_N (_hQ : IsPGroup 2 Q) (h : Cl3 Q a b N) : dsub Q ≠ N := by
-  intro heq
-  apply h.N_ne
-  have h1 := h.N_eq
-  rw [heq] at h1
-  calc N = ⁅N, (⊤ : Subgroup Q)⁆ := h1
-    _ = ⊥ := h.commutator_N_top
 
 end Basic
 

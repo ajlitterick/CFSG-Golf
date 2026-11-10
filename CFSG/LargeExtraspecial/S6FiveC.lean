@@ -75,31 +75,6 @@ theorem timmesfeld_6_5_bar :
   simp only [OneMemClass.coe_one, one_mul] at hA hB
   exact ⟨hA.1, hB⟩
 
-omit C ht1 hVQ in
-theorem timmesfeld_6_5_one :
-    N S g t = (S.La g ⊓ N S g t) ⊔ (S.La ((h : G) * g) ⊓ N S g t) := by
-  have hth := mem_Lbar_of_pair H ht hh
-  refine le_antisymm (fun x hx => ?_) (sup_le inf_le_right inf_le_right)
-  obtain ⟨hxM, hxN⟩ := (mem_N_iff ht).mp hx
-  have h1 := pair_one (t := t) hb
-  obtain ⟨y, hy, w, hw, hyw⟩ := exists_mul_of_pair H ht h1.1 hh
-    (hgen 1 h h1.1 hh h1.2) hN0 hxN
-  simp only [OneMemClass.coe_one, one_mul] at hy
-  obtain ⟨y₀, hy₀L, rfl⟩ := (mem_Lbar S).mp hy.1
-  obtain ⟨w₀, hw₀L, rfl⟩ := (mem_Lbar S).mp hw.1
-  have hQN : S.QG ≤ N S g t := fun q hq => (mem_N_iff ht).mpr ⟨S.QG_le_M hq, by
-    rw [(S.ρ_eq_one_iff ⟨q, S.QG_le_M hq⟩).mpr hq]; exact one_mem _⟩
-  have hy₀N : (y₀ : G) ∈ N S g t := (mem_N_iff ht).mpr ⟨y₀.2, hy.2⟩
-  have hw₀N : (w₀ : G) ∈ N S g t := (mem_N_iff ht).mpr ⟨w₀.2, hw.2⟩
-  have hq : ((y₀ : G) * w₀)⁻¹ * x ∈ S.QG := by
-    have e : S.ρ ((y₀ * w₀)⁻¹ * ⟨x, hxM⟩) = 1 := by
-      rw [map_mul, map_inv, map_mul, ← hyw, inv_mul_cancel]
-    exact (S.ρ_eq_one_iff _).mp e
-  have e : x = (y₀ : G) * ((w₀ : G) * (((y₀ : G) * w₀)⁻¹ * x)) := by group
-  rw [e]
-  refine mul_mem (mem_sup_left ⟨L0_le_La S g hy₀L, hy₀N⟩) (mem_sup_right ⟨?_, ?_⟩)
-  · exact mul_mem (L0_le_La S _ hw₀L) (QG_le_La S _ hq)
-  · exact mul_mem hw₀N (hQN hq)
 
 theorem timmesfeld_6_5_nqHyp : NQHyp S g t := by
   have h1 := pair_one (t := t) hb

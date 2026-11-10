@@ -40,8 +40,6 @@ theorem isConj_of_mem_hClass {e s : J} (hte : IsConj tJ e) (hs : s ∈ hClass e)
   obtain ⟨h, -, rfl⟩ := hs
   exact hte.trans (isConj_iff.2 ⟨h, rfl⟩)
 
-theorem hClass_ne {e e' : J} (h : (hClass e).ncard ≠ (hClass e').ncard) : hClass e ≠ hClass e' :=
-  fun e => h (by rw [e])
 
 theorem W_subgroupOf_le_centralizer
     : W.subgroupOf J ≤ Subgroup.centralizer ({tJ} : Set J) := by

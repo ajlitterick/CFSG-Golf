@@ -237,15 +237,6 @@ theorem ggStepTwoCoordModelOn_PSp_of_compShape (hcomp : GGSpCoordCompInput)
     GGStepTwoCoordModelOn .PSp :=
   ggStepTwoCoordModelOn_PSp_of_inputs hcomp (ggSpCoordContraryInput_of_compShape hshape) hns
 
-theorem ggStepTwoToralWitnessOn_PSL_of_compShape (hshape : GGSLCoordCompShapeInput) :
-    GGStepTwoToralWitnessOn .PSL :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_PSL_of_compShape hshape)
-
-theorem ggStepTwoToralWitnessOn_PSp_of_compShape (hcomp : GGSpCoordCompInput)
-    (hshape : GGSpCoordCompShapeInput) (hns : GGSpCoordModelNonsplitInput) :
-    GGStepTwoToralWitnessOn .PSp :=
-  ggStepTwoToralWitnessOn_of_coordModel
-    (ggStepTwoCoordModelOn_PSp_of_compShape hcomp hshape hns)
 
 end Reductions
 

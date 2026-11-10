@@ -133,15 +133,6 @@ theorem mem_scalarGLPi {w : PiGL E m} :
     w ∈ scalarGLPi E m ↔ ∀ b, ∃ c : (E b)ˣ, GeneralLinearGroup.scalar (Fin (m b)) c = w b := by
   simp [scalarGLPi, Subgroup.mem_pi]
 
-omit [DecidableEq ι] in
-theorem commute_of_mem_scalarGLPi {z : PiGL E m} (hz : z ∈ scalarGLPi E m) (w : PiGL E m) :
-    z * w = w * z := by
-  funext b
-  obtain ⟨c, hc⟩ := (mem_scalarGLPi.mp hz) b
-  have hmem : z b ∈ Subgroup.center (GL (Fin (m b)) (E b)) := by
-    rw [GeneralLinearGroup.center_eq_range_scalar]
-    exact ⟨c, hc⟩
-  exact (Subgroup.mem_center_iff.mp hmem (w b)).symm
 
 theorem mem_scalarGLPi_of_commute_blockEmbed {w : PiGL E m}
     (hw : ∀ b, 2 ≤ m b → ∀ s : SpecialLinearGroup (Fin (m b)) (E b),

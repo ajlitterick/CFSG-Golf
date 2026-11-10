@@ -179,23 +179,6 @@ theorem nonempty_swapNeighbourIso (N : AmalgamNeighbour) {Kc : Subgroup G} (htt 
         (t * (lam x : G) * t⁻¹) * ((t * t) * (lam y : G) * (t * t)⁻¹) := by group
       _ = (lam y : G) * (t * (lam x : G) * t⁻¹) := by rw [htt, hcy]; group
 
-theorem nonempty_swapNeighbourIso_of_perfectCore (N : AmalgamNeighbour)
-    {Kc : Subgroup G} (htt : t * t = 1) (hKperf : ⁅Kc, Kc⁆ = Kc)
-    (hcomm : Kc.map (MulAut.conj t).toMonoidHom ≤ centralizer (Kc : Set G))
-    (hdisj : Kc ⊓ Kc.map (MulAut.conj t).toMonoidHom = ⊥)
-    (hE : Kc ⊔ Kc.map (MulAut.conj t).toMonoidHom = neighbourCore e N)
-    (hfix : perfectCore (neighbourCore e N ⊓ centralizer ({t} : Set G)) =
-      modelToG e ((N.levi K).map (adjointGroup .F4 K).subtype)) :
-    Nonempty (SwapNeighbourIso e t N) := by
-  refine nonempty_swapNeighbourIso N htt hcomm hdisj hE ?_
-  have htop : ⁅(⊤ : Subgroup Kc), (⊤ : Subgroup Kc)⁆ = ⊤ := by
-    apply map_injective Kc.subtype_injective
-    rw [map_commutator, ← MonoidHom.range_eq_map, range_subtype, hKperf]
-  have hperf : ⁅(swapDiagHom hcomm).range, (swapDiagHom hcomm).range⁆ =
-      (swapDiagHom hcomm).range := by
-    rw [MonoidHom.range_eq_map, ← map_commutator, htop]
-  rw [← hfix, ← hE, ← range_swapDiagHom hcomm htt hdisj]
-  exact (CFSG.Quasithin.perfectCore_eq_self_of_perfect hperf).symm
 
 end Normalize
 
@@ -225,28 +208,6 @@ theorem exists_swapFactors_of_decomposition (htL : t ∈ centralizer (L : Set G)
   obtain ⟨hY⟩ := nonempty_swapNeighbourIso .Y htt hcY hdY hEY hfY
   exact exists_swapFactors hX hY (hX.toX' (commute_symm_n1242_of_mem_centralizer htL)) hq
 
-theorem false_of_simple_of_swapDecomposition [IsSimpleGroup G] (htL : t ∈ centralizer (L : Set G))
-    (ht : orderOf t = 2) {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hq : 4 ≤ Nat.card K)
-    {KX KY : Subgroup G}
-    (hcX : KX.map (MulAut.conj t).toMonoidHom ≤ centralizer (KX : Set G))
-    (hdX : KX ⊓ KX.map (MulAut.conj t).toMonoidHom = ⊥)
-    (hEX : KX ⊔ KX.map (MulAut.conj t).toMonoidHom = neighbourCore e .X)
-    (hfX : neighbourCore e .X ⊓ centralizer ({t} : Set G) =
-      modelToG e ((AmalgamNeighbour.X.levi K).map (adjointGroup .F4 K).subtype))
-    (hcY : KY.map (MulAut.conj t).toMonoidHom ≤ centralizer (KY : Set G))
-    (hdY : KY ⊓ KY.map (MulAut.conj t).toMonoidHom = ⊥)
-    (hEY : KY ⊔ KY.map (MulAut.conj t).toMonoidHom = neighbourCore e .Y)
-    (hfY : neighbourCore e .Y ⊓ centralizer ({t} : Set G) =
-      modelToG e ((AmalgamNeighbour.Y.levi K).map (adjointGroup .F4 K).subtype))
-    (huniq : ∀ g : G, g⁻¹ * t * g ∈ normalizer ((⨆ J : {J : Finset (Fin (Tag.rank .F4)) //
-        J.card ≤ 2}, pieceCore e J.1 : Subgroup G) : Set G) →
-      g ∈ normalizer ((⨆ J : {J : Finset (Fin (Tag.rank .F4)) // J.card ≤ 2},
-        pieceCore e J.1 : Subgroup G) : Set G)) : False := by
-  have htt : t * t = 1 := by rw [← sq, ← ht, pow_orderOf_eq_one]
-  obtain ⟨hX⟩ := nonempty_swapNeighbourIso .X htt hcX hdX hEX hfX
-  obtain ⟨hY⟩ := nonempty_swapNeighbourIso .Y htt hcY hdY hEY hfY
-  exact false_of_simple_of_swapRow hX hY (hX.toX' (commute_symm_n1242_of_mem_centralizer htL)) hq
-    ht hf hK huniq
 
 end Endgame
 

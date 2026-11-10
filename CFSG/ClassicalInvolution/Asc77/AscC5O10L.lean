@@ -40,23 +40,6 @@ theorem layerIso_mk (hΩ : ConjInvariant Ω) {c c' g : G} (hg : g * c * g⁻¹ =
       QuotientGroup.mk ⟨g * y * g⁻¹, conj_mem_exactLayer hΩ hg y.2⟩ :=
   rfl
 
-theorem layerIso_symm (hΩ : ConjInvariant Ω) {c c' g : G} (hg : g * c * g⁻¹ = c')
-    (hg' : g⁻¹ * c' * g⁻¹⁻¹ = c) : (layerIso hΩ hg).symm = layerIso hΩ hg' := by
-  ext e
-  induction e using QuotientGroup.induction_on with
-  | H y =>
-    rw [MulEquiv.symm_apply_eq, layerIso_mk, layerIso_mk]
-    congr 1
-    apply Subtype.ext
-    show y.1 = g * (g⁻¹ * y.1 * g⁻¹⁻¹) * g⁻¹
-    group
-
-theorem layerIso_symm_apply (hΩ : ConjInvariant Ω) {c c' g : G} (hg : g * c * g⁻¹ = c')
-    (y : ↥(exactLayer Ω c')) :
-    (layerIso hΩ hg).symm (QuotientGroup.mk y) =
-      QuotientGroup.mk ⟨g⁻¹ * y * g⁻¹⁻¹,
-        conj_mem_exactLayer hΩ (show g⁻¹ * c' * g⁻¹⁻¹ = c by rw [← hg]; group) y.2⟩ := by
-  rw [layerIso_symm hΩ hg (by rw [← hg]; group), layerIso_mk]
 
 theorem map_exactImg_layerIso (hΩ : ConjInvariant Ω) {c c' g : G} (hg : g * c * g⁻¹ = c')
     (K : Subgroup G) :

@@ -154,10 +154,5 @@ theorem lemma313InputFor_of_inputs (h33 : Lemma33CentralInputFor 𝒜)
     exact mem_normalizer_of_le_conjugate h33 hres h32 h315a h315c hbal hprod hG hN hK
       ((le_of_covers h315a hG hN hK hcov).trans hX)
 
-theorem lemma313Input_of_inputs (h33 : Lemma33Input) (hres : Lemma313ResidueInput)
-    (h32 : Lemma32Input) (h315a : Lemma315aInput) (h315c : Lemma315cInput)
-    (hbal : Lemma316BalancedInput) (hprod : Lemma316ProductInput) : Lemma313Input :=
-  lemma313InputFor_of_inputs (lemma33CentralInputFor_of_lemma33InputFor h33) hres h32 h315a h315c
-    hbal hprod
 
 end CFSG.ComponentClassification.Sol76

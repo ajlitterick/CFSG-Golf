@@ -41,19 +41,12 @@ theorem tpHom_mem_adjointGroup
     tpHom p K b ∈ adjointGroup .G2 K :=
   rootDiagUnit_mem_adjointGroup_g2 _
 
-theorem tpHom_mem_torusGroup
-    (b : Fin Tag.G2.rank → rootsOfUnity p K) :
-    tpHom p K b ∈ torusGroup .G2 K :=
-  rootDiagUnit_mem_torusGroup_g2 _
 
 variable (p K) in
 @[expose] noncomputable def tpM
     : (Fin Tag.G2.rank → rootsOfUnity p K) →* ↥(adjointGroup .G2 K) :=
   (tpHom p K).codRestrict _ tpHom_mem_adjointGroup
 
-theorem coe_tpM
-    (b : Fin Tag.G2.rank → rootsOfUnity p K) : ((tpM p K b : ↥(adjointGroup .G2 K)) :
-    ModGL .G2 K) = tpHom p K b := rfl
 
 theorem tpM_injective
     : Function.Injective (tpM p K) := fun _ _ h =>

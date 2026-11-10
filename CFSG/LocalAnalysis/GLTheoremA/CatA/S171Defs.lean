@@ -44,14 +44,6 @@ structure Cfg (G : Type) [Group G] [Finite G] (p : ℕ) (B : Subgroup G) (x : G)
         ∃ E : Subgroup G, E ≤ L ∧ IsElemAbelian 3 E ∧
           3 ^ 5 * Nat.card ↥(E ⊓ Subgroup.centralizer (L : Set G)) ≤ Nat.card E)
 
-@[expose] def I171SmallTypeFact : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (B : Subgroup G) (x : G) (L : Subgroup G),
-    Cfg G 3 B x L → CFSG.Open.IsKGroup ↥(Subgroup.centralizer ({x} : Set G)) → MaxG 3 B →
-    (∃ D K : Subgroup G, GLAStdSubPre 3 B x L D K) →
-    (∀ D K : Subgroup G, GLAStdSubPre 3 B x L D K → GLASmall K) →
-    (∃ T : Subgroup G, T ≤ Subgroup.normalizer (L : Set G) ∧ T ≤ Subgroup.centralizer ({x} : Set G) ∧
-      IsPGroup 2 T ∧ B ≤ Subgroup.normalizer (T : Set G) ∧ (⁅T, B⁆ : Subgroup G) ≠ ⊥) →
-    catalogIs (↥L ⧸ Subgroup.center ↥L) (fun i => S9.isU5two i ∨ S9.isU6two i ∨ S9.isD4two i)
 
 @[expose] def I171OutDiagFact : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (b : G), CFSG.Open.IsQuasisimple ↥L →

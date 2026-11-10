@@ -64,9 +64,6 @@ variable {G : Type} [Group G]
 @[expose] def StronglyClosedIn (A S : Subgroup G) : Prop :=
   A ≤ S ∧ ∀ a ∈ A, ∀ g : G, g * a * g⁻¹ ∈ S → g * a * g⁻¹ ∈ A
 
-@[expose] def oddTwoCoreOf (Y : Subgroup G) : Subgroup G :=
-  ((sSup {N : Subgroup (↥Y ⧸ classicalInvolutionOddCore ↥Y) | N.Normal ∧ IsPGroup 2 N}).comap
-    (QuotientGroup.mk' (classicalInvolutionOddCore ↥Y))).map Y.subtype
 
 @[expose] def oTwoCore (H : Subgroup G) : Subgroup G :=
   (sSup {N : Subgroup ↥H | N.Normal ∧ IsPGroup 2 N}).map H.subtype
@@ -132,6 +129,5 @@ end Notation
 
 @[expose] def piSign (p f : ℕ) : Bool := decide (p ^ f % 4 = 1)
 
-@[expose] def signMul (a b : Bool) : Bool := decide (a = b)
 
 end CFSG.ClassicalInvolution.Asc77

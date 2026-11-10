@@ -67,8 +67,5 @@ theorem e189ModelAt_three_all (t : StatedLieTag) (n : ℕ) (hfund : IsFundTag t)
   | twistedF4 => exact absurd hfund (by simp [IsFundTag])
   | Tits => exact absurd hfund (by simp [IsFundTag])
 
-theorem e189ModelAt_three (t : StatedLieTag) (n : ℕ) (hfund : IsFundTag t)
-    (hadm : StatedLieAdmissible t n 3 1) (_hG2 : t ≠ .G2) : E189ModelAt 3 1 t n :=
-  e189ModelAt_three_all t n hfund hadm
 
 end CFSG.ClassicalInvolution.Q3.Q3T7E9

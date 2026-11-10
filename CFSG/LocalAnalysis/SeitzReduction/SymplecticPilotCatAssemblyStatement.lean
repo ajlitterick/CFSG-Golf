@@ -18,9 +18,6 @@ open CFSG.SeitzReduction.LinearPilot (FixedCentralizerTwoSmall)
     Sp2mOvergroupType (K ⧸ center K) m f ∧
     LieModel (fixedSubgroup (centerQuotientAut τ)) .PSp m 2 f
 
-theorem sp2mOvergroup_three_iff {K : Type} [Group K] {τ : MulAut K} {f : ℕ} :
-    Sp2mOvergroup K τ 3 f ↔ F4Pilot.Sp6Overgroup K τ f :=
-  Iff.rfl
 
 @[expose] def CatSp2mEvenInner : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -31,14 +28,6 @@ theorem sp2mOvergroup_three_iff {K : Type} [Group K] {τ : MulAut K} {f : ℕ} :
   CatSp2mAlternating ∧ CatSp2mEvenInner ∧ CatSp2mEvenOuter m ∧ CatSp2mOddLie m ∧
     CatSp2mSporadic m ∧ CatSp2mCovers
 
-@[expose] def Sp2mCatalogueClauses : Prop :=
-  ∀ m : ℕ, 2 ≤ m → Sp2mCatalogueClausesAt m
-
-@[expose] def Sp2mOvergroupCatalogue : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], IsQuasisimple K → Catalog (K ⧸ center K) →
-    ∀ τ : MulAut K, orderOf τ = 2 → ∀ (m f : ℕ) (D : Subgroup (fixedSubgroup τ)),
-      IsComponent D → LieModel D .PSp m 2 f → FixedCentralizerTwoFree τ D →
-        Sp2mOvergroup K τ m f
 
 theorem sp2m_simple_of_clauses {m : ℕ} (h : Sp2mCatalogueClausesAt m) {S : Type} [Group S]
     [Finite S] (hS : IsSimpleGroup S) (hna : ∃ a b : S, a * b ≠ b * a) (hcat : Catalog S)
@@ -83,17 +72,5 @@ theorem sp2m_overgroup_catalogue {m : ℕ} (h : Sp2mCatalogueClausesAt m) {K : T
   obtain ⟨hout, htype, hfix⟩ := (sp2m_simple_of_clauses h hK.2.1 hK.2.2 hcat hτ' hD' hD'm).2 hodd2
   exact ⟨fun hin => hout (hinn hin), hZ, htype, hfix⟩
 
-theorem sp2mOvergroupCatalogue_of_clauses (h : Sp2mCatalogueClauses) : Sp2mOvergroupCatalogue :=
-  fun _ _ _ hK hcat τ hτ m _ D hD hDm hodd =>
-    sp2m_overgroup_catalogue (h m (admissible_of_lieModel_PSp hDm).2.1) hK hcat τ hτ D hD hDm hodd
-
-theorem catSp6EvenInner_of_catSp2mEvenInner (h : CatSp2mEvenInner) : F4Pilot.CatSp6EvenInner :=
-  fun S _ _ hS hna heven σ hσ hin f D hD hD6 => h S hS hna heven σ hσ hin 3 f D hD hD6
-
-theorem sp2mCatalogueClausesAt_three_of_sp6CatalogueClauses (h : F4Pilot.Sp6CatalogueClauses)
-    (hAlt : CatSp2mAlternating) (hEI : CatSp2mEvenInner) (hCov : CatSp2mCovers) :
-    Sp2mCatalogueClausesAt 3 :=
-  ⟨hAlt, hEI, catSp2mEvenOuter_three_of_catSp6EvenOuter h.2.2.1, catSp6OddLie_iff.mpr h.2.2.2.1,
-    catSp2mSporadic_three_of_catSp6Sporadic h.2.2.2.2.1, hCov⟩
 
 end CFSG.SeitzReduction.SymplecticPilot

@@ -89,31 +89,6 @@ end Generation
 
 section Stage2
 
-theorem exactMembers_and_localOddCentral_of_frameFamily [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h9 : p ^ f ≠ 9)
-    (h27 : p ^ f ≠ 27) (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hIH : LocalLieSystems p f Ω)
-    (hmodel : LayerGenerationModel) (hconn : OmegaConnected Ω) {A : Subgroup G}
-    (hM : MemberFamily p f Ω A (frameFamily p f Ω A))
-    (hMF1 : ∀ a ∈ A, a ≠ 1 → ∀ D : LieSystemData p f (LocalQuot Ω a) (localFamily Ω a),
-      SingleClassComponents p f D)
-    (hcover : ∀ a ∈ A, IsFrameInvolution p f (frameFamily p f Ω A) a → FamilyMeetsAt p f Ω A a) :
-    ExactMembers Ω ∧ ∀ L ∈ Ω, ∀ z : G, IsClassicalMember p f L z → LocalOddCentral Ω {z} := by
-  obtain ⟨K₀, hK₀⟩ := hM.nonempty
-  obtain ⟨z₀, -, hz₀, -⟩ := hM.involution K₀ hK₀
-  exact exactMembers_and_localOddCentral_of_memberFamily_meets hnab hp2 hq h9 hΩ hsingle hIH hM
-    hMF1
-    (componentLayersAt_of_model hnab hp2 hq h27 ModelFacts.modelClauseZero hΩ hIH
-      (fun x hx => by
-        rw [← pow_two]
-        exact hM.elem.2 x hx) hmodel)
-    hconn
-    (fun a ha hfa => centralizerGenerationModOTwo_of_memberFamily hp2 hq h27
-      ModelFacts.modelClauseZero fundamentalWholeA1 hΩ hIH hmodel hM ha
-      (by
-        obtain ⟨K, -, hK⟩ := hfa
-        exact not_subset_center_of_ne_one hnab hK.ne_one))
-    hK₀ hz₀ hcover
 
 end Stage2
 
@@ -137,21 +112,6 @@ section BootTriple
         ∀ a ∈ A, IsFrameInvolution p f (frameFamily p f (CoreAssembly.conjClass K) A) a →
           FamilyMeetsAt p f (CoreAssembly.conjClass K) A a
 
-theorem bootTriple_of_model (h9 : p ^ f ≠ 9) (h27 : p ^ f ≠ 27) (hmodel : LayerGenerationModel)
-    (hMF1 : FrameMF1 p f) (hcover : FrameCoverage p f) : CoreAssembly.BootTriple p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn hind
-  have hf : 0 < f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  obtain ⟨A, hM⟩ := exists_memberFamily_of_indepTriple hp2 hf hind
-  have hΩ : InClass p f (CoreAssembly.conjClass K) := inClass_conjugates hz
-  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_frameFamily hnab hp2 hq h9 h27 hΩ
-    (CoreAssembly.exists_single_class K) (localLieSystems_of_citBelowU hΩ hBelow) hmodel
-    (omegaConnected_of_deltaConnected hconn) hM
-    (hMF1 G hnab K z hz hBelow hconn A hM)
-    (hcover G hnab K z hz hBelow hconn A hM)
-  exact ⟨hex, hP1 K (CoreAssembly.mem_conjClass_self K) z hz⟩
 
 end BootTriple
 

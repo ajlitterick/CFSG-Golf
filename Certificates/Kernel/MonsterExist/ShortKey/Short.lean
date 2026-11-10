@@ -36,12 +36,6 @@ theorem popcT_sum (a : ℕ) : ∀ k, popcT k a = ∑ i ∈ Finset.range k, (a.te
 theorem popcT_eq (k a : ℕ) : popcT k a = Model.popcN k a := by
   rw [popcT_sum, popcN_sum]
 
-theorem selB_eq (b m : ℕ) (hb : b = 0 ∨ b = 1) : selB b m = if b = 1 then m else 0 := by
-  rcases hb with rfl | rfl <;> simp [selB]
-
-theorem bitN_le (x i : ℕ) : bitN x i = 0 ∨ bitN x i = 1 := by
-  rw [bitN_eq]
-  cases x.testBit i <;> simp
 
 theorem du_ok : ∀ i < 24, fld(DU, Nat.mul (nat_lit 12) i, nat_lit 4095) = Model.dualN (2 ^ i) := by
   decide +kernel

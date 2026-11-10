@@ -54,10 +54,6 @@ variable (G : Type) [Group G] [Finite G]
             IsFFOffender (L ⊔ (R ⊓ Subgroup.normalizer (L : Set G))) V A) ∧
         IsBorelOfBlock L (L ⊓ M)))
 
-@[expose] def ASC24Two : Prop :=
-  ∀ H R M L : Subgroup G, HypC23 H R M → L ∈ cComp H → CharTwo L →
-    CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) →
-    (IsSylowTwoOf (R ⊓ L) L ∨ R ≤ Subgroup.normalizer (L : Set G))
 
 @[expose] def ASC27Statement : Prop :=
   ∀ H R M K V : Subgroup G, HypC23 H R M → K ∈ cComp H →

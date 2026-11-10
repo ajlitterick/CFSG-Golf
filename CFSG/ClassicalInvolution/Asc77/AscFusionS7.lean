@@ -310,7 +310,6 @@ theorem quaternion_pair_fixed {M : Type*} [Group M] (c : M) (hc : ∀ x, c * x =
       _ = g₁ * g₂ := by rw [hcc, one_mul]
 
 
-
 section SignFix
 
 variable {F : Type} [Field F]
@@ -359,8 +358,6 @@ variable {F : Type} [Field F]
       rw [map_inv, h1, mul_inv_rev, hci]
       exact (hc h⁻¹).symm
 
-theorem mem_signFix_iff (ζ : MulAut SL(2, F)) (h : SL(2, F)) :
-    h ∈ signFix ζ ↔ ζ h = h ∨ ζ h = (-1 : SL(2, F)) * h := Iff.rfl
 
 variable [Finite F]
 

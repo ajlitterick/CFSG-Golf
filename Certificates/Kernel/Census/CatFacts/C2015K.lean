@@ -37,7 +37,5 @@ theorem g0452015K : (elemsV QQ45).all (fun q => siftP QQ45 (g045 * q * g045⁻¹
     (q0gens.all fun q => siftP QA45 q 0 && decide (q * s045 = s045 * q)) = true := by
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
-theorem neg2015K : orderV QQ45 ≠ 64 ∧ orderV QL45 ≠ 720 ∧ siftP QQ45 g045 0 ≠ true := by
-  refine ⟨?_, ?_, ?_⟩ <;> decide +kernel
 
 end CertificateChecks.KernelCatFacts

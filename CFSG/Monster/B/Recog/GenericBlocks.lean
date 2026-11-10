@@ -84,21 +84,6 @@ theorem eq_of_le_isPGroup_of_block [Finite G] {Y M P₀ : Subgroup G} (hP₀ : P
     Group.normalizerCondition_of_isNilpotent _ hself
   exact le_antisymm (Subgroup.subgroupOf_eq_top.1 htop) hPQ
 
-theorem exists_sylow_eq_subgroupOf_of_block [Finite G] {Y M P₀ : Subgroup G} (hP₀ : P₀ ≤ Y ⊓ M)
-    (hP₂ : IsPGroup 2 P₀)
-    (hmax : ∀ Q : Subgroup G, Q ≤ Y ⊓ M → IsPGroup 2 Q → P₀ ≤ Q → Q = P₀)
-    {w : G} (hwP : w ∈ P₀) (hblock : ∀ g : G, g * w * g⁻¹ ∈ M → g ∈ M) :
-    ∃ T : Sylow 2 Y, (T : Subgroup Y) = P₀.subgroupOf Y := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨T, hT⟩ := (hP₂.comap_of_injective Y.subtype Y.subtype_injective).exists_le_sylow
-  refine ⟨T, ?_⟩
-  have hPY : P₀ ≤ Y := hP₀.trans inf_le_left
-  have hTP : (T : Subgroup Y).map Y.subtype = P₀ := by
-    refine eq_of_le_isPGroup_of_block hP₀ hmax hwP hblock (Subgroup.map_subtype_le _)
-      (T.isPGroup'.map _) (fun x hx => ⟨⟨x, hPY hx⟩, hT ?_, rfl⟩)
-    rw [Subgroup.mem_comap]
-    exact hx
-  rw [← hTP, Subgroup.subgroupOf, Subgroup.comap_map_eq_self_of_injective Y.subtype_injective]
 
 theorem strongly_closed_of_blocks {Y : Type*} [Group Y] [Finite Y] {Y₀ V W : Subgroup Y}
     {D₀ : Set Y} (hVab : ∀ x ∈ V, ∀ y ∈ V, x * y = y * x) (hV2 : ∀ x ∈ V, x * x = 1)
@@ -169,21 +154,5 @@ theorem strongly_closed_of_blocks {Y : Type*} [Group Y] [Finite Y] {Y₀ V W : S
     exact (Subgroup.mem_centralizer_singleton_iff.1
       (hz (Subgroup.mem_sup_right (Subgroup.mem_zpowers w)))).symm
 
-theorem strongly_closed_map {Y : Type*} [Group Y] {V T Z : Subgroup Y} [Z.Normal]
-    (hZT : Z ≤ T) (hcl : ∀ a ∈ V, ∀ g : Y, g⁻¹ * a * g ∈ T → g⁻¹ * a * g ∈ V) :
-    ∀ a ∈ V.map (QuotientGroup.mk' Z), ∀ g : Y ⧸ Z,
-      g⁻¹ * a * g ∈ T.map (QuotientGroup.mk' Z) → g⁻¹ * a * g ∈ V.map (QuotientGroup.mk' Z) := by
-  rintro _ ⟨v, hv, rfl⟩ g hg
-  obtain ⟨h, rfl⟩ := QuotientGroup.mk'_surjective Z g
-  obtain ⟨t, ht, hth⟩ := hg
-  have hz : t⁻¹ * (h⁻¹ * v * h) ∈ Z := by
-    rw [← QuotientGroup.eq]
-    change QuotientGroup.mk' Z t = QuotientGroup.mk' Z (h⁻¹ * v * h)
-    rw [hth, map_mul, map_mul, map_inv]
-  have hT : h⁻¹ * v * h ∈ T := by
-    have := T.mul_mem ht (hZT hz)
-    rwa [mul_inv_cancel_left] at this
-  refine ⟨h⁻¹ * v * h, hcl v hv h hT, ?_⟩
-  rw [map_mul, map_mul, map_inv]
 
 end CFSG.Monster.B.Recog

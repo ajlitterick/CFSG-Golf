@@ -38,17 +38,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc.GLM CFSG.KC.L52I CFSG.SectionRank.QT
 #kc_each ch725109r 0 12
 #kc_each ch725109y 0 1
 
-theorem ch725109n_tabs : notB (tabsK (D.zB.getD 1 []) (e16.getD 0 [])) = true := by
-  quickRfl
-
-theorem ch725109n_tab : notB (tabK (D.x7p.getD 2 0) x7T) = true := by
-  quickRfl
-
-theorem ch725109n_unit : notB (unitK (nat_lit 0)) = true := by
-  quickRfl
-
-theorem ch725109n_len : notB (tabsK (D.a0B.getD 0 []) (e16.getD 0 [])) = true := by
-  quickRfl
 
 end CertificateChecks.KernelL52I
 

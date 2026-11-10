@@ -52,20 +52,10 @@ theorem card_outer_eq_two_of_mulEquiv_alternatingGroup_five {J : Type*} [Group J
     (e : J ≃* alternatingGroup (Fin 5)) : Nat.card (Outer J) = 2 :=
   card_outer_eq_two_of_mulEquiv_alternatingGroup (by norm_num) (by norm_num) e
 
-theorem card_outer_eq_two_of_mulEquiv_psl2Binary_two
-    {J : Type*} [Group J]
-    (e : J ≃* PSL2BinaryMatrixGroup 2) : Nat.card (Outer J) = 2 := by
-  obtain ⟨e₅⟩ := nonempty_psl2Binary_two_mulEquiv_alternatingGroup_five
-  exact card_outer_eq_two_of_mulEquiv_alternatingGroup_five (e.trans e₅)
 
 theorem card_outer_eq_two_of_mulEquiv_alternatingGroup_seven {J : Type*} [Group J]
     (e : J ≃* alternatingGroup (Fin 7)) : Nat.card (Outer J) = 2 :=
   card_outer_eq_two_of_mulEquiv_alternatingGroup (by norm_num) (by norm_num) e
 
-theorem isSolvable_outer_of_mulEquiv_alternatingGroup_seven {J : Type*} [Group J]
-    (e : J ≃* alternatingGroup (Fin 7)) : Group.IsSolvable (Outer J) := by
-  have := CFSG.ComponentClassification.CatalogueSchreierAlternating.outer_solvable_outside_six
-    (n := 7) (Or.inr le_rfl)
-  exact solvable_of_equiv e.symm
 
 end CFSG.ProperTwoGeneratedCore.BenderFacts

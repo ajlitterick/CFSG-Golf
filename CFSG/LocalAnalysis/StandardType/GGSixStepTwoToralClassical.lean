@@ -47,17 +47,6 @@ theorem ggStepTwoCentralizerInput_of_coordModels (hPSL : GGStepTwoCoordModelOn .
   ggStepTwoCentralizerInput_of_fusedWitness (ggStepTwoFusedWitnessInput_of_toral
     (ggStepTwoToralWitnessInput_of_coordModels hPSL hPSU hPSp hPlus hMinus hRest))
 
-open CFSG.LocalAnalysis.ComponentInitial in
-theorem ggSixStepTwoV2Input_of_coordModels (hSch : SchreierFor InCatalog)
-    (h613 : GGStepTwoLemmaSixThirteenInput) (hA : GGStepTwoLinearFusionInput)
-    (hKF : GGKGroupFusionLayerInput) (hRat : GGSixAutKHypRestAtInput)
-    (h5 : GGStepTwoAutKFiveInput) (h3 : GGStepTwoAutKThreeInput)
-    (hPSL : GGStepTwoCoordModelOn .PSL) (hPSU : GGStepTwoCoordModelOn .PSU)
-    (hPSp : GGStepTwoCoordModelOn .PSp) (hPlus : GGStepTwoCoordModelOn .POmegaPlus)
-    (hMinus : GGStepTwoCoordModelOn .POmegaMinus) (hRest : GGStepTwoToralWitnessRestInput) :
-    GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_fused hSch h613 hA hKF hRat h5 h3 (ggStepTwoFusedWitnessInput_of_toral
-    (ggStepTwoToralWitnessInput_of_coordModels hPSL hPSU hPSp hPlus hMinus hRest))
 
 end Inputs
 

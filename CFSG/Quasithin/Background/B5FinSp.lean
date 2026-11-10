@@ -74,8 +74,6 @@ theorem lfun_surjective (c : ZMod 2 ≃+* K) : Function.Surjective (lfun c) := b
   map_mul' _ _ := by
     exact congrArg Multiplicative.ofAdd (lfun_add c _ _)
 
-theorem toAdd_lhom (c : ZMod 2 ≃+* K) (w : Multiplicative (Fin 4 → ZMod 2)) :
-    Multiplicative.toAdd (lhom c w) = lfun c (Multiplicative.toAdd w) := rfl
 
 theorem lhom_injective (c : ZMod 2 ≃+* K) : Function.Injective (lhom c) := fun _ _ h =>
   Multiplicative.toAdd.injective (lfun_injective c (congrArg Multiplicative.toAdd h))
@@ -107,9 +105,6 @@ theorem theta_mulVec_lfun (c : ZMod 2 ≃+* K) (σ : Equiv.Perm (Fin 6)) (v : Fi
     ↥(G6.coreMod 6) →* ↥(⊤ : Subgroup (Multiplicative (Fin 2 ⊕ Fin 2 → K))) :=
   ((lhom c).comp (chiHom.comp (G6.coreMod 6).subtype)).codRestrict ⊤ fun _ => trivial
 
-theorem coe_ehat (c : ZMod 2 ≃+* K) (m : ↥(G6.coreMod 6)) :
-    ((ehat c m : ↥(⊤ : Subgroup (Multiplicative (Fin 2 ⊕ Fin 2 → K)))) :
-      Multiplicative (Fin 2 ⊕ Fin 2 → K)) = lhom c (chiHom m.1) := rfl
 
 theorem ehat_surjective (c : ZMod 2 ≃+* K) : Function.Surjective (ehat c) := by
   rintro ⟨t, -⟩

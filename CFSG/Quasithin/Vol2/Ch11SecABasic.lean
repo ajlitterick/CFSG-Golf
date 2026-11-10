@@ -90,30 +90,6 @@ theorem isSylowTwoOf_M (h : Hyp11 G T L I n) :
     QuasithinUnique.IsSylowTwoOf T (Subgroup.normalizer (L : Set G)) :=
   isSylowTwoOf_of_quasithinIsSylowTwo h.fsu.sylow h.normal
 
-theorem isUniqueM_L_sylow (h331 : Stmt3_3_1) (h : Hyp11 G T L I n) {Tp : Subgroup G}
-    (hTp : QuasithinUnique.IsSylowTwoOf Tp (Subgroup.normalizer (L : Set G))) :
-    IsUniqueM (L ⊔ Tp) (Subgroup.normalizer (L : Set G)) := by
-  have hU := isUniqueM_LT h331 h
-  obtain ⟨m, hm, hmT⟩ := A4.exists_conj_of_isSylowTwoOf (isSylowTwoOf_M h) hTp
-  have hLM : L ≤ Subgroup.normalizer (L : Set G) := Subgroup.le_normalizer
-  refine ⟨⟨hU.1.1, sup_le hLM hTp.1⟩, fun M' hM' => ?_⟩
-  have hM'' : InM (L ⊔ T) (M'.map (MulAut.conj m⁻¹).toMonoidHom) := by
-    refine ⟨CFSG.Quasithin.quasithinIsMaxTwoLocal_map_conj hM'.1 m⁻¹, sup_le ?_ ?_⟩
-    · intro x hx
-      rw [A38.mem_map_conj, inv_inv]
-      apply hM'.2 (Subgroup.mem_sup_left _)
-      have hmx := (Subgroup.mem_normalizer_iff.mp hm x).mp hx
-      simpa [mul_assoc] using hmx
-    · intro x hx
-      rw [A38.mem_map_conj, inv_inv]
-      apply hM'.2 (Subgroup.mem_sup_right _)
-      rw [hmT]
-      simpa [mul_assoc] using hx
-  have heq := hU.2 _ hM''
-  have h2 := CFSG.Quasithin.map_conj_map_conj_inv M' m⁻¹
-  rw [inv_inv, heq] at h2
-  rw [← h2]
-  exact A38.map_conj_eq_iff.mpr (Subgroup.le_normalizer hm)
 
 theorem exists_isHStar (h331 : Stmt3_3_1) (h : Hyp11 G T L I n) :
     ∃ H : Subgroup G, IsHStar T (Subgroup.normalizer (L : Set G)) H :=

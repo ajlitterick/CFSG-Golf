@@ -98,11 +98,6 @@ theorem zmodPow_mul_y (hxy : y * x * y = x⁻¹) (hy : y * y = 1) (i : ZMod n) :
         _ = y * (zmodPow x i * y) * zmodPow x j := by rw [zmodPow_mul_y x y hxy hy]
         _ = y * zmodPow x i * (y * zmodPow x j) := by simp only [mul_assoc]
 
-theorem dihedralLift_r (hx : x ^ n = 1) (hy : y * y = 1) (hxy : y * x * y = x⁻¹) (i : ZMod n) :
-    dihedralLift x y hx hy hxy (.r i) = x ^ i.val := rfl
-
-theorem dihedralLift_sr (hx : x ^ n = 1) (hy : y * y = 1) (hxy : y * x * y = x⁻¹) (i : ZMod n) :
-    dihedralLift x y hx hy hxy (.sr i) = y * x ^ i.val := rfl
 
 end Lift
 

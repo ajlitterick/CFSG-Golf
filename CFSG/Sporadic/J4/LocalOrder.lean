@@ -176,18 +176,6 @@ theorem idxO_eq_iff {g : Hj} {p q : ℕ} (hp : p < 15180) (hq : q < 15180) :
 
 noncomputable abbrev gq (k : ℕ) : Hj := if hk : k < 3 then ⟨(xJ k)⁻¹, Hj.inv_mem (xJ_mem hk)⟩ else 1
 
-theorem rep_posTable {k : ℕ} (hk : k < 3) : Rep 15180 (posTable O0 tx0[k]!) (gq k) := by
-  intro p hp
-  have hps : p < O0.pts.size := by rw [o0_size hO]; exact hp
-  obtain ⟨hlt, -⟩ := posImg_spec hO hk hp
-  unfold posTable ap
-  rw [getElem!_pos _ p (by rw [Array.size_map]; exact hps), Array.getElem_map,
-    ← getElem!_pos O0.pts p hps, UInt32.toNat_ofNat',
-    Nat.mod_eq_of_lt (lt_of_lt_of_le hlt (by norm_num))]
-  symm
-  rw [idxO_eq_iff hO hp hlt]
-  simp only [gq, dite_eq_left hk]
-  exact xJ_inv_smul_vecO hO hk hp
 
 end Act
 
@@ -198,56 +186,10 @@ noncomputable abbrev invs0 : Array Table := gens0.map (invT 15180)
 noncomputable abbrev gensT (l : ℤ) : Table :=
   if 0 < l then gens0[l.toNat - 1]?.getD (idT 15180) else invs0[(-l).toNat - 1]?.getD (idT 15180)
 
-noncomputable abbrev strong0 : Array Table := strongTables 15180 gens0 chainWords
 
 noncomputable abbrev gensG (l : ℤ) : Hj :=
   if 0 < l then gq (l.toNat - 1) else (gq ((-l).toNat - 1))⁻¹
 
-noncomputable abbrev gs0 (j : ℕ) : Hj :=
-  if j < 3 then gq j else wordG gensG (chainWords[j - 3]?.getD [])
-
-theorem letters0_eq : letters0 = chainLetters 15180 strong0 := rfl
-
-theorem gens0_size (hM : MatFacts) : gens0.size = 3 := by
-  rw [gens0, Array.size_map, tx0, Array.size_map]; exact hM.locSize
-
-theorem strong0_size (hM : MatFacts) : strong0.size = 3 + chainWords.length := by
-  rw [strong0, strongTables, Array.size_append, gens0_size hM, List.size_toArray, List.length_map]
-
-theorem letters0_size : letters0.size = 2 * strong0.size := by
-  rw [letters0_eq, chainLetters, Array.size_ofFn]
-
-theorem letters0_even {j : ℕ} (hj : j < strong0.size) : letters0[2 * j]! = strong0[j]! := by
-  rw [letters0_eq, chainLetters, getElem!_pos _ _ (by rw [Array.size_ofFn]; omega),
-    Array.getElem_ofFn]
-  simp only
-  rw [ite_eq_left (by omega)]
-  congr 1
-  omega
-
-theorem letters0_odd {j : ℕ} (hj : j < strong0.size) :
-    letters0[2 * j + 1]! = invT 15180 strong0[j]! := by
-  rw [letters0_eq, chainLetters, getElem!_pos _ _ (by rw [Array.size_ofFn]; omega),
-    Array.getElem_ofFn]
-  simp only
-  rw [ite_eq_right (by omega)]
-  congr 2
-  omega
-
-theorem strong0_lt (hM : MatFacts) {j : ℕ} (hj : j < 3) : strong0[j]! = gens0[j]! := by
-  rw [strong0, strongTables, getElem!_pos _ _ (by rw [Array.size_append, gens0_size hM]; omega),
-    Array.getElem_append_left (by rw [gens0_size hM]; exact hj),
-    getElem!_pos _ _ (by rw [gens0_size hM]; exact hj)]
-
-theorem strong0_ge (hM : MatFacts) {j : ℕ} (hj : 3 ≤ j) (hj' : j < strong0.size) :
-    strong0[j]! = wordT 15180 gensT (chainWords[j - 3]?.getD []) := by
-  have hs := strong0_size hM
-  have hw : j - 3 < chainWords.length := by omega
-  rw [strong0, strongTables, getElem!_pos _ _ (by
-      rw [Array.size_append, gens0_size hM, List.size_toArray, List.length_map]; omega),
-    Array.getElem_append_right (by rw [gens0_size hM]; exact hj)]
-  simp only [gens0_size hM, List.getElem_toArray, List.getElem_map,
-    List.getElem?_eq_getElem hw, Option.getD_some]
 
 section Chain
 
@@ -256,57 +198,6 @@ include hF
 
 theorem J4NativeFacts.o0Facts : O0Facts := ⟨hF.o0, hF.mat⟩
 
-theorem chain_inv {j : ℕ} (hj : j < strong0.size) :
-    invOK 15180 letters0[2 * j]! letters0[2 * j + 1]! = true :=
-  (chainOK_parts hF.chain).2.1 j (by rw [letters0_size]; omega)
-
-theorem rep_gens0 {k : ℕ} (hk : k < 3) : Rep 15180 gens0[k]! (gq k) := by
-  rw [gens0, getElem!_pos _ _ (by rw [Array.size_map, tx0_size hF.o0Facts]; exact hk),
-    Array.getElem_map, ← getElem!_pos tx0 k (by rw [tx0_size hF.o0Facts]; exact hk)]
-  exact rep_posTable hF.o0Facts hk
-
-theorem rep_invs0 {k : ℕ} (hk : k < 3) : Rep 15180 invs0[k]! (gq k)⁻¹ := by
-  have hs := strong0_size hF.mat
-  have h := chain_inv hF (j := k) (by omega)
-  rw [letters0_even (by omega), letters0_odd (by omega), strong0_lt hF.mat hk] at h
-  have e : invs0[k]! = invT 15180 gens0[k]! := by
-    rw [invs0, getElem!_pos _ _ (by rw [Array.size_map, gens0_size hF.mat]; exact hk),
-      Array.getElem_map, ← getElem!_pos gens0 k (by rw [gens0_size hF.mat]; exact hk)]
-  rw [e]
-  exact Rep.inv_of_invOK (rep_gens0 hF hk) h
-
-theorem rep_gensT (l : ℤ) : Rep 15180 (gensT l) (gensG l) := by
-  have hg := gens0_size hF.mat
-  have hi : invs0.size = 3 := by rw [invs0, Array.size_map, hg]
-  unfold gensT gensG
-  split_ifs with hl
-  · by_cases hk : l.toNat - 1 < 3
-    · rw [Array.getElem?_eq_getElem (by omega), Option.getD_some,
-        ← getElem!_pos gens0 _ (by omega)]
-      exact rep_gens0 hF hk
-    · rw [Array.getElem?_eq_none (by omega), Option.getD_none]
-      simp only [gq, dite_eq_right hk]
-      exact Rep.idT (by norm_num)
-  · by_cases hk : (-l).toNat - 1 < 3
-    · rw [Array.getElem?_eq_getElem (by omega), Option.getD_some,
-        ← getElem!_pos invs0 _ (by omega)]
-      exact rep_invs0 hF hk
-    · rw [Array.getElem?_eq_none (by omega), Option.getD_none]
-      simp only [gq, dite_eq_right hk, inv_one]
-      exact Rep.idT (by norm_num)
-
-theorem rep_strong0 : ∀ j < letters0.size / 2, Rep 15180 letters0[2 * j]! (gs0 j) := by
-  intro j hj
-  rw [letters0_size] at hj
-  have hj' : j < strong0.size := by omega
-  rw [letters0_even hj']
-  by_cases h3 : j < 3
-  · rw [strong0_lt hF.mat h3]
-    simp only [gs0, ite_eq_left h3]
-    exact rep_gens0 hF h3
-  · rw [strong0_ge hF.mat (by omega) hj']
-    simp only [gs0, ite_eq_right h3]
-    exact Rep.wordT (by norm_num) _ fun l _ => rep_gensT hF l
 
 theorem eq_one_of_fix_qIdx0 {g : J} (hg0 : idx nPts g 0 = 0)
     (hgq : ∀ t < qIdx0.size, idx nPts g qIdx0[t]! = qIdx0[t]!) : g = 1 := by
@@ -342,49 +233,6 @@ theorem hsep0 : ∀ g : Hj, (∀ t < (Array.range qLen).size,
   rw [idx_eq_iff hF.orbitFacts hlt hlt, vecAt_qIdx0 hF ht']
   exact hfix
 
-theorem level0_top : levelGroup letters0 chainBase (pairG gs0) 0 = ⊤ := by
-  rw [eq_top_iff, ← Subgroup.closure_closure_coe_preimage (k := ({xJ 0, xJ 1, xJ 2} : Set J)),
-    Subgroup.closure_le]
-  intro x hx
-  have hk : ∃ k < 3, (x : J) = xJ k := by
-    rcases hx with h | h | h
-    · exact ⟨0, by norm_num, h⟩
-    · exact ⟨1, by norm_num, h⟩
-    · exact ⟨2, by norm_num, h⟩
-  obtain ⟨k, hk, hxk⟩ := hk
-  have e : x = (gq k)⁻¹ := Subtype.ext (by simp [gq, dite_eq_left hk, hxk])
-  rw [e]
-  apply Subgroup.inv_mem
-  have hs := strong0_size hF.mat
-  have hl : 2 * k ∈ levelLetters letters0 chainBase 0 := by
-    rw [levelLetters, Array.mem_range, letters0_size]
-    omega
-  have := lG_mem (lG := pairG gs0) hl
-  have e2 : pairG gs0 (2 * k) = gq k := by
-    simp only [pairG, gs0]
-    rw [ite_eq_left (by omega), ite_eq_left (by omega)]
-    congr 1
-    omega
-  rw [e2] at this
-  exact this
-
-theorem trees0_size_at : ∀ l < 6, trees0[l]!.pts.size = chainSizes[l]! := by
-  have hs := hF.sizes
-  have hlen : trees0.size = 6 := by
-    have := congrArg List.length hs
-    simpa [orbitSizes, chainSizes] using this
-  intro l hl
-  rw [← hs, orbitSizes,
-    getElem!_pos (trees0.toList.map fun T => T.pts.size) l (by simp [hlen]; exact hl),
-    List.getElem_map, Array.getElem_toList, ← getElem!_pos trees0 l (by rw [hlen]; exact hl)]
-
-theorem card_Hj_N : Nat.card Hj = 501397585920 := by
-  have h := (chain_facts (G := Hj) (n := 15180) (gs := gs0) (rep_strong0 hF) (hsep0 hF)
-    hF.chain).2.2 0 (Nat.zero_le _)
-  rw [level0_top hF, Subgroup.card_top] at h
-  rw [h, show chainBase.size = 6 from rfl, ← Finset.range_eq_Ico,
-    Finset.prod_congr rfl fun l hl => trees0_size_at hF l (Finset.mem_range.1 hl)]
-  decide
 
 end Chain
 

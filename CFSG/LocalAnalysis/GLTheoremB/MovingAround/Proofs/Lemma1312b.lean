@@ -1676,21 +1676,6 @@ theorem V1_le_Worb_mul_Yorb (h133 : Lemma133Statement) (h : Cex1310 G m p B M E 
   exact (barX p M (L1of p M D L0)).mul_mem ((barX p M (L1of p M D L0)).inv_mem hwV1) hv
 
 
-theorem bar_eq_of_bar_eq (hp : p.Prime) {H : Subgroup G} (hHM : H ≤ M) {x y : G} (hx : x ∈ H)
-    (hy : y ∈ H)
-    (h : QuotientGroup.mk' (GLAPPrimeCore p ↥M) ⟨x, hHM hx⟩ =
-      QuotientGroup.mk' (GLAPPrimeCore p ↥M) ⟨y, hHM hy⟩) :
-    QuotientGroup.mk' (GLAPPrimeCore p ↥H) ⟨x, hx⟩ = QuotientGroup.mk' (GLAPPrimeCore p ↥H) ⟨y, hy⟩ := by
-  have h1 := (QuotientGroup.eq).1 h
-  have h2 : x⁻¹ * y ∈ GLAPPrimeCoreOf p M := ⟨_, h1, by simp⟩
-  have h3 : x⁻¹ * y ∈ GLAPPrimeCoreOf p H :=
-    inf_glaPPrimeCoreOf_le hp hHM ⟨H.mul_mem (H.inv_mem hx) hy, h2⟩
-  obtain ⟨z, hz, hzeq⟩ := h3
-  refine (QuotientGroup.eq).2 ?_
-  have : z = (⟨x, hx⟩ : ↥H)⁻¹ * ⟨y, hy⟩ := Subtype.ext (by simpa using hzeq)
-  rw [← this]
-  exact hz
-
 theorem exists_pElem_L0 (h : Cex1310 G m p B M E A D T R L0 d) : ∃ s ∈ L0, s ≠ 1 ∧ s ^ p = 1 := by
   have hp := prime_of h
   haveI : Fact p.Prime := ⟨hp⟩
@@ -2040,7 +2025,6 @@ theorem orbit_of_cex (h133 : Lemma133Statement) (h : Cex1310 G m p B M E A D T R
 
 
 end Config
-
 
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Lemma1312b

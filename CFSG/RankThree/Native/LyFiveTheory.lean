@@ -258,12 +258,6 @@ theorem comm_nf (c : ZMod 5) (e : Fin 4 → ZMod 5) (j : Fin 4) :
   congr 1
   ring
 
-theorem comm_nf_eq_one_iff (c : ZMod 5) (e : Fin 4 → ZMod 5) (j : Fin 4) :
-    ⁅fiveNF x v c e, v j⁆ = 1 ↔ ∑ i, e i * ω i j = 0 := by
-  rw [h.comm_nf, h.x_pow_eq_one_iff, Fin.sum_univ_four]
-  push_cast
-  simp only [ZMod.natCast_val, ZMod.cast_id', id]
-  constructor <;> intro hs <;> linear_combination hs
 
 theorem coord_eq_of_comm {c c' : ZMod 5} {e e' : Fin 4 → ZMod 5}
     (hcomm : ∀ j, ⁅fiveNF x v c e, v j⁆ = ⁅fiveNF x v c' e', v j⁆) : e = e' := by
@@ -458,8 +452,6 @@ theorem nf_injective :
       obtain ⟨c, e, he⟩ := h.mem_range_nf g.2
       exact ⟨(c, e), Subtype.ext he.symm⟩⟩
 
-theorem nfEquiv_apply (p : ZMod 5 × (Fin 4 → ZMod 5)) :
-    (h.nfEquiv p : G) = fiveNF x v p.1 p.2 := rfl
 
 theorem card_fiveQ : Nat.card (fiveQ x v) = 3125 := by
   rw [← Nat.card_congr h.nfEquiv, Nat.card_eq_fintype_card, Fintype.card_prod,
@@ -577,17 +569,12 @@ theorem coordHom_surjective : Function.Surjective h.coordHom := fun e =>
     change Multiplicative.ofAdd _ = e
     rw [h.coord_nf]; rfl⟩
 
-theorem zpowers_normal : ((zpowers x).subgroupOf (fiveQ x v)).Normal := by
-  rw [← h.coordHom_ker]; infer_instance
 
 @[expose] def quotEquiv [((zpowers x).subgroupOf (fiveQ x v)).Normal] :
     fiveQ x v ⧸ (zpowers x).subgroupOf (fiveQ x v) ≃* Multiplicative (Fin 4 → ZMod 5) :=
   (QuotientGroup.quotientMulEquivOfEq h.coordHom_ker.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective _ h.coordHom_surjective)
 
-theorem quotEquiv_mk [((zpowers x).subgroupOf (fiveQ x v)).Normal] (g : fiveQ x v) :
-    h.quotEquiv (g : fiveQ x v ⧸ (zpowers x).subgroupOf (fiveQ x v)) =
-      Multiplicative.ofAdd (h.coord g) := rfl
 
 theorem mem_center_iff (g : fiveQ x v) : g ∈ center (fiveQ x v) ↔ (g : G) ∈ zpowers x := by
   constructor

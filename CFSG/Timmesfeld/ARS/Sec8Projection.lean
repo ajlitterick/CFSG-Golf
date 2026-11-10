@@ -65,55 +65,6 @@ theorem sup_inf_levi_mem_leviSet {B : Subgroup G} (hBs : B ∈ sigmaSet R A)
   rw [heq]
   exact ⟨hBm, ⟨m, hm, rfl⟩, hsup⟩
 
-theorem exists_mem_M_conjSub_eq_of_sup_eq {E F : Subgroup G} (hEs : E ∈ sigmaSet R A)
-    (hEl : E ∉ lambdaSet R A) (hFs : F ∈ sigmaSet R A) (hFl : F ∉ lambdaSet R A)
-    (hEF : M R A ⊔ E = M R A ⊔ F) : ∃ m ∈ M R A, conjSub E m = F := by
-  obtain ⟨-, ⟨m₁, hm₁, hE₁⟩, -⟩ := sup_inf_levi_mem_leviSet h hA hAne hA₀ hEs hEl
-  obtain ⟨-, ⟨m₂, hm₂, hF₂⟩, -⟩ := sup_inf_levi_mem_leviSet h hA hAne hA₀ hFs hFl
-  rw [hEF, ← hF₂] at hE₁
-  refine ⟨m₂⁻¹ * m₁, Subgroup.mul_mem _ (Subgroup.inv_mem _ hm₂) hm₁, ?_⟩
-  rw [conjSub_mul, hE₁, ← conjSub_mul, inv_mul_cancel, conjSub_one]
-
-theorem coveredBy_sup_inf_levi {T : Subgroup G}
-    (hTA : T ≤ Subgroup.centralizer (A : Set G)) (hT : CoveredBy R T) (hTM : T ⊓ M R A = ⊥) :
-    (∀ x ∈ (M R A ⊔ T) ⊓ levi R A A₀, x ≠ 1 →
-      ∃ B ∈ leviSet R A A₀, B ≤ (M R A ⊔ T) ⊓ levi R A A₀ ∧ x ∈ B) ∧
-      M R A ⊔ (M R A ⊔ T) ⊓ levi R A A₀ = M R A ⊔ T := by
-  have := h.finite
-  have hR := h.root
-  have hTN : T ≤ Subgroup.normalizer ((M R A : Subgroup G) : Set G) := by
-    refine le_normalizer_of_conjSub_le fun g hg => le_of_eq ?_
-    exact (isPGroup_M hR hA).2.2 g ((Subgroup.centralizer_le_normalizer _) (hTA hg))
-  have hpt : ∀ B ∈ R, B ≤ T → B ∈ sigmaSet R A ∧ B ∉ lambdaSet R A := by
-    intro B hB hBT
-    have hBM : ¬ B ≤ M R A := fun hle => hR.ne_bot B hB (le_bot_iff.1 (hTM ▸ le_inf hBT hle))
-    refine ⟨⟨hB, fun e => hBM (e ▸ QD.le_M_self), (commuting_iff_le_centralizer.2
-      (hBT.trans hTA)).symm.symm⟩, fun hBl => hBM (QD.le_M hBl)⟩
-  refine ⟨fun x hx hx1 => ?_, le_antisymm (sup_le le_sup_left (inf_le_left)) ?_⟩
-  · have hx' : x ∈ ((M R A ⊔ T : Subgroup G) : Set G) := hx.1
-    rw [Subgroup.coe_mul_of_right_le_normalizer_left _ _ hTN] at hx'
-    obtain ⟨m, hm, y, hy, rfl⟩ := hx'
-    have hy1 : y ≠ 1 := by
-      rintro rfl
-      have hmV : m ∈ M R A ⊓ levi R A A₀ := ⟨hm, by simpa using hx.2⟩
-      rw [M_inf_levi_eq_bot h hA hA₀, Subgroup.mem_bot] at hmV
-      exact hx1 (by simp [hmV])
-    obtain ⟨B, hB, hBT, hyB⟩ := hT y hy hy1
-    obtain ⟨hBs, hBl⟩ := hpt B hB hBT
-    obtain ⟨hB', -, -⟩ := sup_inf_levi_mem_leviSet h hA hAne hA₀ hBs hBl
-    refine ⟨_, hB', inf_le_inf_right _ (sup_le_sup_left hBT _), ⟨?_, hx.2⟩⟩
-    exact Subgroup.mul_mem _ (Subgroup.mem_sup_left hm) (Subgroup.mem_sup_right hyB)
-  · refine sup_le le_sup_left fun y hy => ?_
-    by_cases hy1 : y = 1
-    · rw [hy1]
-      exact Subgroup.one_mem _
-    obtain ⟨B, hB, hBT, hyB⟩ := hT y hy hy1
-    obtain ⟨hBs, hBl⟩ := hpt B hB hBT
-    obtain ⟨-, -, hsup⟩ := sup_inf_levi_mem_leviSet h hA hAne hA₀ hBs hBl
-    have : B ≤ M R A ⊔ (M R A ⊔ T) ⊓ levi R A A₀ :=
-      le_sup_right.trans (hsup.symm.le.trans (sup_le_sup_left
-        (inf_le_inf_right _ (sup_le_sup_left hBT _)) _))
-    exact this hyB
 
 theorem exists_commutator_eq_of_mem_lambdaStar {B C : Subgroup G} (hB : B ∈ lambdaStar R A A₀)
     (hC : C ∈ lambdaStar R A A₀) (hBC : B ∈ lambdaSet R C) :

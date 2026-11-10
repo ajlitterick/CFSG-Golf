@@ -309,64 +309,8 @@ theorem normal_odd_matrix_overgroup_scalar
     (by simpa only [conjugatedImageSL_one] using hSB)
     (by simpa only [conjugatedImageSL_one] using hSnormal) R hRnormal hRodd
 
-theorem normal_odd_conjugated_specialLinear_eq_bot
-    (hFodd : Odd (Nat.card F)) (hF : 3 ≤ Nat.card F)
-    (i : F →+* E) (hi : Function.Injective i) (b : GeneralLinearGroup (Fin 2) E)
-    (R : Subgroup (conjugatedImageSL i b)) (hRnormal : R.Normal)
-    (hRodd : Odd (Nat.card R)) : R = ⊥ := by
-  let f := conjugatedEntrywiseSL i b
-  let fS : Matrix.SpecialLinearGroup (Fin 2) F →* conjugatedImageSL i b :=
-    f.codRestrict _ (by
-      intro x
-      rw [conjugatedImageSL_eq_range]
-      exact ⟨x, rfl⟩)
-  have hfS : Function.Injective fS := by
-    intro x y hxy
-    exact conjugatedEntrywiseSL_injective i hi b (congrArg Subtype.val hxy)
-  have hcomap : R.comap fS = ⊥ :=
-    normal_odd_specialLinear_eq_bot F hFodd hF _ (hRnormal.comap fS)
-      (hRodd.of_dvd_nat (R.card_comap_dvd_of_injective fS hfS))
-  apply le_antisymm _ bot_le
-  intro g hg
-  have hgrange : (g : GeneralLinearGroup (Fin 2) E) ∈ f.range := by
-    simpa only [conjugatedImageSL_eq_range] using g.property
-  obtain ⟨x, hx⟩ := hgrange
-  have hxg : fS x = g := Subtype.ext hx
-  have hxmem : x ∈ R.comap fS := by
-    change fS x ∈ R
-    rw [hxg]
-    exact hg
-  have hxone : x = 1 := by simpa only [hcomap, Subgroup.mem_bot] using hxmem
-  exact Subgroup.mem_bot.mpr (by simpa only [hxone, map_one] using hxg.symm)
 
 end MatrixOvergroups
 
-theorem odd_linear_two_normal_subgroups_are_scalar
-    (F : Type u) [Field F] [Finite F]
-    (hFodd : Odd (Nat.card F)) (hF : 3 ≤ Nat.card F) :
-    (∀ R : Subgroup (Matrix.SpecialLinearGroup (Fin 2) F),
-      R.Normal → Odd (Nat.card R) → R = ⊥) ∧
-    (∀ (E : Type v) [Field E] (i : F →+* E), Function.Injective i →
-      ∀ B : Subgroup (GeneralLinearGroup (Fin 2) E), imageSL i ≤ B →
-      ((imageSL i).subgroupOf B).Normal → ∀ (R : Subgroup B) [Finite R],
-      R.Normal → Odd (Nat.card R) → ∀ r : B, r ∈ R →
-      (r.val : Matrix (Fin 2) (Fin 2) E) ∈ Set.range (Matrix.scalar (Fin 2))) ∧
-    (∀ (E : Type v) [Field E] (i : F →+* E), Function.Injective i →
-      ∀ (b : GeneralLinearGroup (Fin 2) E) (R : Subgroup (conjugatedImageSL i b)),
-      R.Normal → Odd (Nat.card R) → R = ⊥) ∧
-    (∀ (E : Type v) [Field E] (i : F →+* E), Function.Injective i →
-      ∀ (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E)),
-      conjugatedImageSL i b ≤ B → ((conjugatedImageSL i b).subgroupOf B).Normal →
-      ∀ (R : Subgroup B) [Finite R], R.Normal → Odd (Nat.card R) → ∀ r : B, r ∈ R →
-      (r.val : Matrix (Fin 2) (Fin 2) E) ∈ Set.range (Matrix.scalar (Fin 2))) := by
-  refine ⟨normal_odd_specialLinear_eq_bot F hFodd hF, ?_, ?_, ?_⟩
-  · intro E _ i hi B hSB hSnormal R _ hRnormal hRodd
-    exact normal_odd_matrix_overgroup_scalar hFodd hF i hi B hSB hSnormal
-      R hRnormal hRodd
-  · intro E _ i hi b R hRnormal hRodd
-    exact normal_odd_conjugated_specialLinear_eq_bot hFodd hF i hi b R hRnormal hRodd
-  · intro E _ i hi b B hSB hSnormal R _ hRnormal hRodd
-    exact normal_odd_conjugated_matrix_overgroup_scalar hFodd hF i hi b B hSB hSnormal
-      R hRnormal hRodd
 
 end CFSG.Semidihedral.OddLinearNormals

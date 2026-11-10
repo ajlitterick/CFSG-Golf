@@ -24,9 +24,6 @@ theorem cyclicAction_minusIdentity (j : Multiplicative (ZMod (2 * m))) :
     rw [pow_succ, MulAut.mul_apply, beta_minusIdentity]
     exact ih
 
-theorem minusIdentity_mul (X : SpecialLinearGroup (Fin 2) F) :
-    CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F * X = -X := by
-  rw [CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity_eq_neg_one, neg_one_mul]
 
 theorem mul_minusIdentity (X : SpecialLinearGroup (Fin 2) F) :
     X * CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F = -X := by
@@ -90,10 +87,6 @@ theorem beta_pow_even (n : ℕ) (hn : Even n) (Y : SpecialLinearGroup (Fin 2) F)
   obtain ⟨k, rfl⟩ := hn
   rw [← two_mul, pow_mul, beta_square, one_pow, MulAut.one_apply]
 
-theorem beta_pow_odd (n : ℕ) (hn : Odd n) (Y : SpecialLinearGroup (Fin 2) F) :
-    (beta F b ^ n) Y = beta F b Y := by
-  obtain ⟨k, rfl⟩ := hn
-  rw [pow_succ, MulAut.mul_apply, beta_pow_even F b _ (even_two_mul k)]
 
 theorem cyclicGenerator_pow (n : ℕ) :
     cyclicGenerator F b m hm heven ^ n = quotientClass F b m hm heven 1 n := by
@@ -146,10 +139,6 @@ theorem quotientClass_eq_specialInclusion_mul (X : SpecialLinearGroup (Fin 2) F)
 
 end Algebra
 
-theorem cast_val_eq {m : ℕ} (hm : 0 < m) (j : ZMod (2 * m)) :
-    (ZMod.cast j : ZMod m) = (j.val : ZMod m) := by
-  have : NeZero (2 * m) := ⟨by omega⟩
-  rw [ZMod.cast_eq_val]
 
 section Action
 
@@ -178,8 +167,6 @@ theorem coordJ_pow_two_mul (n : ℕ) : coordJ F b ^ (2 * n) = 1 := by
   simp only [toAdd_mul, ZMod.val_add]
   rw [← pow_eq_pow_mod _ (coordJ_pow_two_mul F b m), pow_add]
 
-theorem cyclicPerm_apply (j : Multiplicative (ZMod (2 * m))) :
-    cyclicPerm F b m hm j = coordJ F b ^ j.toAdd.val := rfl
 
 theorem toGL_beta_pow (n : ℕ) (X : SpecialLinearGroup (Fin 2) F) :
     SpecialLinearGroup.toGL ((beta F b ^ n) X) =
@@ -335,11 +322,6 @@ theorem upperSL_add (s t : F) : upperSL F (s + t) = upperSL F s * upperSL F t :=
   rw [Matrix.mul_fin_two]
   simp [add_comm]
 
-theorem lowerSL_add (s t : F) : lowerSL F (s + t) = lowerSL F s * lowerSL F t := by
-  apply Subtype.ext
-  change !![1, 0; s + t, 1] = !![1, 0; s, 1] * !![(1 : F), 0; t, 1]
-  rw [Matrix.mul_fin_two]
-  simp [add_comm]
 
 theorem upperSL_zero : upperSL F 0 = 1 := by
   apply Subtype.ext
@@ -369,10 +351,6 @@ theorem diagSL_one : diagSL F 1 = 1 := by
   map_one' := upperSL_zero F
   map_mul' s t := upperSL_add F s.toAdd t.toAdd
 
-@[expose] def lowerHom : Multiplicative F →* SpecialLinearGroup (Fin 2) F where
-  toFun t := lowerSL F t.toAdd
-  map_one' := lowerSL_zero F
-  map_mul' s t := lowerSL_add F s.toAdd t.toAdd
 
 @[expose] def diagHom : Fˣ →* SpecialLinearGroup (Fin 2) F where
   toFun := diagSL F
@@ -382,8 +360,6 @@ theorem diagSL_one : diagSL F 1 = 1 := by
 theorem upperSL_neg_eq_inv (t : F) : upperSL F (-t) = (upperSL F t)⁻¹ := by
   rw [eq_inv_iff_mul_eq_one, ← upperSL_add, neg_add_cancel, upperSL_zero]
 
-theorem lowerSL_neg_eq_inv (t : F) : lowerSL F (-t) = (lowerSL F t)⁻¹ := by
-  rw [eq_inv_iff_mul_eq_one, ← lowerSL_add, neg_add_cancel, lowerSL_zero]
 
 theorem upperSL_eq_transvection (t : F) :
     upperSL F t = SpecialLinearGroup.transvection zero_ne_one t := by

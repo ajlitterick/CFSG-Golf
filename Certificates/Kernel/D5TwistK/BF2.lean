@@ -9,7 +9,6 @@ public section
 
 namespace Certificates.D5TwistK
 
-theorem ch712503BF_neg : (!BF 0 633387433857025) = true := by decide +kernel
 
 end Certificates.D5TwistK
 

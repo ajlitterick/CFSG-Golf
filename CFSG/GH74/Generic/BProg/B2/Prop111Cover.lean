@@ -102,6 +102,5 @@ theorem comm_pumpup_x (hs : Stage2Setup G x K A M P Q) {y : G} (hyQ : y ∈ Q) {
 
 end Prop111Cover
 
-variable {G : Type} [Group G] [Finite G] {x : G} {K A M P Q : Subgroup G}
 
 end CFSG.GH74.Generic.BProg.B2

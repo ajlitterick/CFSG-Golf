@@ -237,8 +237,6 @@ theorem repQ_mul_self {z : ↥(cayleyGroup F)} (hz : z * z = 1) : repQ z * repQ 
 theorem repLie_mul_self {z : ↥(cayleyGroup F)} (hz : z * z = 1) : repLie z * repLie z = 1 := by
   rw [← map_mul, hz, map_one]
 
-theorem repSt_mul_self {z : ↥(cayleyGroup F)} (hz : z * z = 1) : repSt z * repSt z = 1 := by
-  rw [← map_mul, hz, map_one]
 
 theorem two_le_rank_repQ [Finite F] {z : ↥(cayleyGroup F)} (hz : z * z = 1) (hz1 : z ≠ 1) :
     2 ≤ (repQ z - 1).rank := by
@@ -259,10 +257,6 @@ theorem two_le_rank_repQ [Finite F] {z : ↥(cayleyGroup F)} (hz : z * z = 1) (h
   change 2 ≤ Module.finrank F (LinearMap.range N)
   omega
 
-theorem rank_repQ_le {z : ↥(cayleyGroup F)} (hz : z * z = 1) : (repQ z - 1).rank ≤ 3 := by
-  have := two_mul_rank_le (repQ z) (repQ_mul_self hz)
-  rw [card_Ix3] at this
-  omega
 
 variable (F) in
 @[expose] def altSub : Submodule F (Ix3 × Ix3 → F) where

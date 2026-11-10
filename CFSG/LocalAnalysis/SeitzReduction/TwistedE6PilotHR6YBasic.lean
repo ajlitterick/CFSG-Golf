@@ -52,8 +52,6 @@ variable (K) in
   (MonoidHom.mulSingle (fun _ => Kˣ) 0).comp (MonoidHom.fst Kˣ Kˣ) *
     (MonoidHom.mulSingle (fun _ => Kˣ) 5).comp (MonoidHom.snd Kˣ Kˣ)
 
-theorem d4CentralHom_apply (p : Kˣ × Kˣ) : d4CentralHom K p = d4CentralDiag p.1 p.2 :=
-  rfl
 
 section Defs
 
@@ -71,10 +69,6 @@ theorem mem_d4CentralTorus {g : ModGL Tag.E6 K} :
     g ∈ d4CentralTorus K ↔ ∃ μ ν : Kˣ, rootDiagUnit Tag.E6 (d4CentralDiag μ ν) = g :=
   ⟨fun ⟨p, hp⟩ => ⟨p.1, p.2, hp⟩, fun ⟨μ, ν, h⟩ => ⟨(μ, ν), h⟩⟩
 
-theorem mem_w1Torus {k : Type} [Field k] {ι : k →+* K} {g : ModGL Tag.E6 K} :
-    g ∈ w1Torus ι ↔ ∃ l : kˣ, rootDiagUnit Tag.E6
-      (d4CentralDiag (Units.map ι.toMonoidHom l) (Units.map ι.toMonoidHom l)) = g :=
-  Iff.rfl
 
 theorem w1Torus_le_d4CentralTorus {k : Type} [Field k] (ι : k →+* K) :
     w1Torus ι ≤ d4CentralTorus K := by

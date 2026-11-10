@@ -1300,9 +1300,6 @@ end Lift
 theorem dLeafZ8_holds (r : ℕ) (IH : ℕ → Prop) : DLeafZ8 r IH :=
   fun _ _ _ _ hc hZK _ hE => center_eq_bot_of_e8 hc.toThmDHyp hZK hE
 
-theorem thmDAbs_of_leaves₃ {r : ℕ} {IH : ℕ → Prop} (hC : DLeafC r IH) (hE4 : DLeafE4 r IH)
-    (hstar : DLeafStar r IH) (hend : DLeafEnd r IH) (hih : ∀ n, IH n) : ThmDAbs r :=
-  thmDAbs_of_leaves₂ (dLeafZ8_holds r IH) hC hE4 hstar hend hih
 
 section Cit3
 

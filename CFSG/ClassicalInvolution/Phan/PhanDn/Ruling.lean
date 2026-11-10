@@ -176,15 +176,6 @@ theorem orthDerived_le_rulingGroup (E : QuadExt F K σ) (n : ℕ) :
 private def twoVec {n : ℕ} (i j : Fin n) : Fin n → K :=
   Pi.single i (1 : K) + Pi.single j 1
 
-omit [CharP K 2] in
-private theorem twoVec_apply_self {n : ℕ} {i j : Fin n} (hij : i ≠ j) :
-    twoVec (K := K) i j i = 1 := by
-  simp [twoVec, hij]
-
-omit [CharP K 2] in
-private theorem twoVec_apply_other {n : ℕ} {i j : Fin n} (hij : i ≠ j) :
-    twoVec (K := K) i j j = 1 := by
-  simp [twoVec, Ne.symm hij]
 
 private theorem Qn_smul_two (E : QuadExt F K σ) (n : ℕ) {i j : Fin n} (hij : i ≠ j) (a : K) :
     Qn E n (a • twoVec (K := K) i j) = 0 := by

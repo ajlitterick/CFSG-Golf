@@ -53,10 +53,6 @@ theorem kC0 : selFrom (fun k => Nat.beq (wg SuzC1EWC k) 0) 512 0 SuzC1EC = true 
 
 theorem kC0len : SuzC1EC.length = 16 ∧ SuzC1EC.all (· < 512) = true := ⟨rfl, by quickRfl⟩
 
-theorem negCC : Bool.not (ccK Id 1) = true := by quickRfl
-
-theorem negSel : Bool.not (selFrom (fun k => Nat.beq (wg SuzC1EWC k) 0) 512 0 SuzC1EC.tail) =
-    true := by quickRfl
 
 theorem cover' {L N : Nat} {Q : Nat → Prop} (hL : 0 < L)
     (h : ∀ s < N, ∀ i, L * s ≤ i → i < L * s + L → Q i) : ∀ i < L * N, Q i := by

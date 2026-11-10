@@ -130,33 +130,6 @@ theorem card_mulAut_le (T : Type) [Group T] [Finite T] :
   rw [← h]
   exact Nat.mul_le_mul_right _ (Nat.le_of_dvd Nat.card_pos (Subgroup.card_range_dvd _))
 
-theorem c1_not_two_pow_seven_dvd
-    {T : Type} [Group T] (hT : Catalog T)
-    (hnonab : ∃ a b : T, a * b ≠ b * a) (hdvd : Nat.card T ∣ 2 ^ 16 * 3 ^ 3 * 5 * 7)
-    (h7 : 7 ∣ Nat.card T) : ¬ 2 ^ 7 ∣ Nat.card T := by
-  have hN : (2 ^ 16 * 3 ^ 3 * 5 * 7 : ℕ) ≠ 0 := by norm_num
-  have hfin : Nat.card T ≠ 0 := fun h => hN (Nat.eq_zero_of_zero_dvd (h ▸ hdvd))
-  rcases catalog_order_cases hT hnonab hfin with ⟨n, hn, hc⟩ |
-      ⟨t, n, p, f, ht, hp, hf, hmin, hnB, hadm, hc, -⟩ | h13 | h19 | hs | h25
-  · rw [hc] at hdvd h7 ⊢
-    have h12 := le_twelve_of_factorial_div_two_dvd (by omega) (by norm_num) hdvd
-    revert hdvd h7
-    interval_cases n <;> decide
-  · rw [hc] at hdvd h7 ⊢
-    have hS : lieSearch [2, 3, 5, 7] (2 ^ 16 * 3 ^ 3 * 5 * 7)
-        (fun _ _ _ o => !(o % 7 == 0) || !(o % 128 == 0)) = true :=
-      lieSearch_of_lieSearchB (L := 25) (by decide +kernel)
-    have hps : ∀ q : ℕ, q.Prime → q ∣ 2 ^ 16 * 3 ^ 3 * 5 * 7 → q ∈ [2, 3, 5, 7] := fun q hq hd =>
-      by simpa using
-        mem_of_prime_dvd [(2, 16), (3, 3), (5, 1), (7, 1)] (by decide) (by decide) hq hd
-    have h := lieSearch_sound hN hps hS ht hp hf hmin hnB hadm hdvd
-    simp only [Bool.or_eq_true, Bool.not_eq_eq_eq_not, Bool.not_true, beq_eq_false_iff_ne] at h
-    omega
-  · exact absurd (h13.trans hdvd) (by norm_num)
-  · exact absurd (h19.trans hdvd) (by norm_num)
-  · have key : ∀ m ∈ sporadicOrders, ¬ m ∣ 2 ^ 16 * 3 ^ 3 * 5 * 7 := by decide
-    exact absurd hdvd (key _ hs)
-  · exact absurd (h25.trans hdvd) (by norm_num)
 
 theorem c1_card_mem
     {T : Type} [Group T] (hT : Catalog T)

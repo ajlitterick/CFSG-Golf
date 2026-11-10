@@ -230,9 +230,6 @@ theorem gLift_oct (p : AutPerm) (d : OctadWord) (v : Octad.EvenQuot (octSupp d))
 theorem mapSet_inter (p : AutPerm) (δ ε : Finset (Fin 24)) :
     mapSet p δ ∩ mapSet p ε = mapSet p (δ ∩ ε) := (Finset.map_inter _ _).symm
 
-theorem four_dvd_octSupp (d : OctadWord) : 4 ∣ (octSupp d).card := by
-  rw [card_octSupp]
-  norm_num
 
 theorem octHD_octQMap (p : AutPerm) (d : OctadWord) (v w : Octad.EvenQuot (octSupp d)) :
     octHD (octMap p d) (octQMap p d v) (octQMap p d w) = octHD d v w := by

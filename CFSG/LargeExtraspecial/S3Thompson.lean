@@ -150,19 +150,6 @@ theorem mem_QG_of_sq_eq_one_of_commute {F : Subgroup G} (hFQ : F ≤ S.QG)
     rw [S.pow_four_eq_one hcQ, h6, one_mul] at h8
     exact h8.symm
 
-theorem omegaOne_centralizer_le {F : Subgroup G} (hFQ : F ≤ S.QG) (hF : F.relIndex S.QG = 2) :
-    closure {x | x ∈ centralizer (F : Set G) ∧ x ^ 2 = 1} ≤ S.QG := by
-  rw [closure_le]
-  rintro x ⟨hxc, hx2⟩
-  refine S.mem_QG_of_sq_eq_one_of_commute hFQ hF hx2 fun f hf => ?_
-  exact (mem_centralizer_iff.mp hxc f hf).symm
-
-theorem omegaOne_centralizer_le_of_isCoatom {F : Subgroup G} (hFQ : F ≤ S.QG)
-    (hF : IsCoatom (F.subgroupOf S.QG)) :
-    closure {x | x ∈ centralizer (F : Set G) ∧ x ^ 2 = 1} ≤ S.QG := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact S.omegaOne_centralizer_le hFQ
-    (CFSG.SectionRank.Ccomm.normal_and_index_eq_of_isCoatom S.isPGroup_QG hF).2
 
 theorem centralizer_singleton_inf_QG {t : G} (ht : t ∈ S.QG) :
     S.QG ⊓ centralizer ({t} : Set G) =

@@ -45,7 +45,6 @@ theorem tRadical_le_C0 (σ : K →+* K) : tRadical σ ≤ graphFixedRootGroup Tw
 end Defs
 
 
-
 section Centralizer
 
 variable {f : ℕ} {k K : Type} [Field k] [Field K] [Algebra k K]
@@ -251,21 +250,6 @@ theorem isCoreLeviDecomp_stdRepC_zero [CharP K 2] (hf : 1 ≤ f) (hk : Nat.card 
     exact le_sup_right
 
 
-
-
-theorem factF3t_twistedE6 [CharP K 2] (hf : 1 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    ∃ Qt Mt : Subgroup (graphFixedRootGroup TwistTag.E6 K σ),
-      perfectCore (centralizer ({stdRepC (apply_apply_eq hK hσ) 0} :
-          Set (graphFixedRootGroup TwistTag.E6 K σ))) = Qt ⊔ Mt ∧
-        IsPGroup 2 Qt ∧ Mt ≤ normalizer (Qt : Set (graphFixedRootGroup TwistTag.E6 K σ)) ∧
-        Disjoint Qt Mt ∧ (∀ N : Subgroup Mt, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-        LieModel Mt .PSU 6 2 f := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := isCoreLeviDecomp_stdRepC_zero (k := k) hf hk hK hσ
-  exact ⟨_, _, h1, h2, h3, h4, h5, CFSG.LieType.CurtisTits.lieModel_of_mulEquiv
-    (subgroupOfEquivOfLe (su6Levi_le_graphFixedRootGroup σ)).symm
-    (lieModel_su6Levi hf hk hK hσ)⟩
-
 end F3
 
 section Transport
@@ -284,14 +268,6 @@ theorem repYC_eq_conj [CharP K 2] {σ : K →+* K} (hσσ : ∀ c, σ (σ c) = c
     repYC hσσ κ = relWeylC σ (repWordY κ) * stdRepC hσσ κ * (relWeylC σ (repWordY κ))⁻¹ :=
   Subtype.ext (conj_repWordY κ).symm
 
-theorem rootSubgroup_relAct_le_map [CharP K 2] (ω : List (Fin TwistTag.E6.foldedTag.rank))
-    {δ : Fin TwistTag.E6.tag.rank → ℤ} (hδ : IsRoot TwistTag.E6.tag δ) :
-    rootSubgroup TwistTag.E6.tag K (twistedE6RelAct ω δ) ≤
-      (rootSubgroup TwistTag.E6.tag K δ).map (MulAut.conj (twistedE6RelWeyl K ω)).toMonoidHom := by
-  intro g hg
-  obtain ⟨c, rfl⟩ := mem_rootSubgroup.1 hg
-  exact ⟨pinnedX TwistTag.E6.tag K δ c, mem_rootSubgroup.2 ⟨c, rfl⟩,
-    twistedE6RelWeyl_conj_pinnedX ω hδ c⟩
 
 theorem pinnedX_mem_subsystemGroup_setA {γ : Fin TwistTag.E6.tag.rank → ℤ}
     (hγ : IsRoot TwistTag.E6.tag γ) (h1 : γ 1 = 0) (c : K) :
@@ -306,12 +282,6 @@ theorem pinnedX_mem_subsystemGroup_setA {γ : Fin TwistTag.E6.tag.rank → ℤ}
     exact h1
   exact pinnedX_mem_rootSpan hmem c
 
-theorem rootSubgroup_le_subsystemGroup_setA {γ : Fin TwistTag.E6.tag.rank → ℤ}
-    (hγ : IsRoot TwistTag.E6.tag γ) (h1 : γ 1 = 0) :
-    rootSubgroup TwistTag.E6.tag K γ ≤ subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA := by
-  intro g hg
-  obtain ⟨c, rfl⟩ := mem_rootSubgroup.1 hg
-  exact pinnedX_mem_subsystemGroup_setA hγ h1 c
 
 end Transport
 
@@ -396,50 +366,6 @@ theorem shortRankOneGroup_le_map_relWordTY [CharP K 2] {k : Type} [Field k] (ι 
       (pinnedX_mem_map_relWeyl relWordTY (CFSG.LieType.Chevalley.IsRoot.neg hE') h6
         (pinnedX_mem_subsystemGroup_setA (CFSG.LieType.Chevalley.IsRoot.neg hE') rfl _))
 
-theorem rootSubgroup_short_le_map_relWordTY [CharP K 2] :
-    (rootSubgroup TwistTag.E6.tag K twistedE6ClassRootU ⊔
-        rootSubgroup TwistTag.E6.tag K (-twistedE6ClassRootU)) ⊔
-      (rootSubgroup TwistTag.E6.tag K twistedE6ClassRootU' ⊔
-        rootSubgroup TwistTag.E6.tag K (-twistedE6ClassRootU')) ≤
-      (subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA).map
-        (MulAut.conj (twistedE6RelWeyl K relWordTY)).toMonoidHom := by
-  obtain ⟨-, -, h3, h4, h5, h6, -⟩ := transportT_check
-  obtain ⟨hE, hE'⟩ := isRoot_rootE15
-  have key : ∀ {δ β : Fin TwistTag.E6.tag.rank → ℤ}, IsRoot TwistTag.E6.tag δ → δ 1 = 0 →
-      twistedE6RelAct relWordTY δ = β →
-      rootSubgroup TwistTag.E6.tag K β ≤ (subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA).map
-        (MulAut.conj (twistedE6RelWeyl K relWordTY)).toMonoidHom := by
-    intro δ β hδ h0 h
-    rw [← h]
-    exact (rootSubgroup_relAct_le_map relWordTY hδ).trans
-      (map_mono (rootSubgroup_le_subsystemGroup_setA hδ h0))
-  exact sup_le (sup_le (key hE rfl h3) (key (CFSG.LieType.Chevalley.IsRoot.neg hE) rfl h5))
-    (sup_le (key hE' rfl h4) (key (CFSG.LieType.Chevalley.IsRoot.neg hE') rfl h6))
-
-theorem shortRootTorus_le_map_relWordTY [CharP K 2] {k : Type} [Field k] (ι : k →+* K) :
-    shortRootTorus ι ≤
-      (subsystemGroup TwistTag.E6.tag K E6GraphLevi.setA).map
-        (MulAut.conj (twistedE6RelWeyl K relWordTY)).toMonoidHom := by
-  rintro _ ⟨l, rfl⟩
-  refine rootSubgroup_short_le_map_relWordTY ?_
-  change rootDiagUnit Tag.E6 (d4CentralDiag (Units.map ι.toMonoidHom l)
-    (Units.map ι.toMonoidHom l)) ∈ _
-  rw [← rootTorusSL2_mul_rootTorusSL2_eq]
-  refine mul_mem (mem_sup_left ?_) (mem_sup_right ?_)
-  · have h := CFSG.RankThree.Chevalley.range_rootSL2_of_isRoot (K := K)
-      (mem_rootFinset.1 shortRoots_check.1)
-    have hm : rootTorusSL2 Tag.E6 K shortRootU (Units.map ι.toMonoidHom l) ∈
-        rootSubgroup Tag.E6 K shortRootU ⊔ rootSubgroup Tag.E6 K (-shortRootU) := by
-      rw [← h]
-      exact ⟨_, rfl⟩
-    exact hm
-  · have h := CFSG.RankThree.Chevalley.range_rootSL2_of_isRoot (K := K)
-      (mem_rootFinset.1 shortRoots_check.2.1)
-    have hm : rootTorusSL2 Tag.E6 K shortRootU' (Units.map ι.toMonoidHom l) ∈
-        rootSubgroup Tag.E6 K shortRootU' ⊔ rootSubgroup Tag.E6 K (-shortRootU') := by
-      rw [← h]
-      exact ⟨_, rfl⟩
-    exact hm
 
 end Rank
 
@@ -453,63 +379,6 @@ theorem lieModel_su6Levi_subgroupOf (hf : 1 ≤ f) (hk : Nat.card k = 2 ^ f)
   CFSG.LieType.CurtisTits.lieModel_of_mulEquiv
     (subgroupOfEquivOfLe (su6Levi_le_graphFixedRootGroup σ)).symm (lieModel_su6Levi hf hk hK hσ)
 
-theorem factF3t_repX [CharP K 2] (hf : 1 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    ∃ Qt Mt : Subgroup (graphFixedRootGroup TwistTag.E6 K σ),
-      perfectCore (centralizer ({repXC (apply_apply_eq hK hσ) 0} :
-          Set (graphFixedRootGroup TwistTag.E6 K σ))) = Qt ⊔ Mt ∧
-        IsPGroup 2 Qt ∧ Mt ≤ normalizer (Qt : Set (graphFixedRootGroup TwistTag.E6 K σ)) ∧
-        Disjoint Qt Mt ∧ (∀ N : Subgroup Mt, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-        LieModel Mt .PSU 6 2 f ∧
-        (E6GraphLevi.thetaRankOneGroup (algebraMap k K)).subgroupOf
-          (graphFixedRootGroup TwistTag.E6 K σ) ≤ Mt := by
-  have := finite_of_card hK
-  have : Finite (ModGL TwistTag.E6.tag K) := finite_modGL
-  have := Nat.finite_of_card_ne_zero (show Nat.card k ≠ 0 by rw [hk]; positivity)
-  set n := relWeylC σ relWordTX with hn
-  have hd := (isCoreLeviDecomp_stdRepC_zero (k := k) hf hk hK hσ).map (MulAut.conj n)
-  rw [← centralizer_conj_eq_map] at hd
-  rw [repXC_eq_conj (apply_apply_eq hK hσ) 0]
-  obtain ⟨h1, h2, h3, h4, h5⟩ := hd
-  refine ⟨_, _, h1, h2, h3, h4, h5, CFSG.LieType.CurtisTits.lieModel_of_mulEquiv
-    (((su6Levi σ).subgroupOf _).equivMapOfInjective (MulAut.conj n).toMonoidHom
-      (MulAut.conj n).injective)
-    (lieModel_su6Levi_subgroupOf hf hk hK hσ), subgroupOf_le_map_conj n fun x hx => ?_⟩
-  refine mem_inf.2 ⟨mem_map_conj_iff.1 (thetaRankOneGroup_le_map_relWordTX _ hx), ?_⟩
-  exact mul_mem (mul_mem (inv_mem n.2) (thetaRankOneGroup_le_C0 hf hk hK hσ hx)) n.2
-
-theorem factF3t_repY [CharP K 2] (hf : 1 ≤ f) (hk : Nat.card k = 2 ^ f)
-    (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K →+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    ∃ Qt Mt : Subgroup (graphFixedRootGroup TwistTag.E6 K σ),
-      perfectCore (centralizer ({repYC (apply_apply_eq hK hσ) 0} :
-          Set (graphFixedRootGroup TwistTag.E6 K σ))) = Qt ⊔ Mt ∧
-        IsPGroup 2 Qt ∧ Mt ≤ normalizer (Qt : Set (graphFixedRootGroup TwistTag.E6 K σ)) ∧
-        Disjoint Qt Mt ∧ (∀ N : Subgroup Mt, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-        LieModel Mt .PSU 6 2 f ∧
-        (shortRankOneGroup (algebraMap k K)).subgroupOf (graphFixedRootGroup TwistTag.E6 K σ) ≤
-          Mt ∧
-        (shortRootTorus (algebraMap k K)).subgroupOf (graphFixedRootGroup TwistTag.E6 K σ) ≤
-          Mt := by
-  have := finite_of_card hK
-  have : Finite (ModGL TwistTag.E6.tag K) := finite_modGL
-  have := Nat.finite_of_card_ne_zero (show Nat.card k ≠ 0 by rw [hk]; positivity)
-  have hσι : ∀ c : k, σ (algebraMap k K c) = algebraMap k K c := fun c =>
-    (sigma_eq_self_iff hk hσ _).2 ⟨c, rfl⟩
-  set n := relWeylC σ relWordTY with hn
-  have hd := (isCoreLeviDecomp_stdRepC_zero (k := k) hf hk hK hσ).map (MulAut.conj n)
-  rw [← centralizer_conj_eq_map] at hd
-  rw [repYC_eq_conj (apply_apply_eq hK hσ) 0]
-  obtain ⟨h1, h2, h3, h4, h5⟩ := hd
-  refine ⟨_, _, h1, h2, h3, h4, h5, CFSG.LieType.CurtisTits.lieModel_of_mulEquiv
-    (((su6Levi σ).subgroupOf _).equivMapOfInjective (MulAut.conj n).toMonoidHom
-      (MulAut.conj n).injective)
-    (lieModel_su6Levi_subgroupOf hf hk hK hσ), subgroupOf_le_map_conj n fun x hx => ?_,
-    subgroupOf_le_map_conj n fun x hx => ?_⟩
-  · refine mem_inf.2 ⟨mem_map_conj_iff.1 (shortRankOneGroup_le_map_relWordTY _ hx), ?_⟩
-    exact mul_mem (mul_mem (inv_mem n.2)
-      (shortRankOneGroup_le_C0 (apply_apply_eq hK hσ) hσι hx)) n.2
-  · refine mem_inf.2 ⟨mem_map_conj_iff.1 (shortRootTorus_le_map_relWordTY _ hx), ?_⟩
-    exact mul_mem (mul_mem (inv_mem n.2) (shortRootTorus_le_C0 hσι hx)) n.2
 
 end TransportF3
 

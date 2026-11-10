@@ -21,7 +21,6 @@ theorem pa_le : ∀ j < 64, CFSG.KD.B4AT.PA.getD j 0 ≤ 1 := by decide +kernel
 
 theorem sum_Ev : ∑ i ∈ Ev, vN i = 1015970529280000 := by decide +kernel
 
-theorem mj_zero : CFSG.KD.B4AC.MJ 0 = 4089470473293004800 := by decide +kernel
 
 theorem idx0_mem : idxOf 0 ∈ Ev := by decide +kernel
 

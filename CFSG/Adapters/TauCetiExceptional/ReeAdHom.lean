@@ -69,9 +69,6 @@ theorem adConj_mul (g : Matrix.GeneralLinearGroup (Fin 7) A)
   map_one' := adConj_one
   map_mul' g h := adConj_mul (g : Matrix.GeneralLinearGroup (Fin 7) A) h.2
 
-theorem adHom_apply (g : normGroup A) :
-    adHom A g = adConj (g : Matrix.GeneralLinearGroup (Fin 7) A) :=
-  rfl
 
 @[expose] def adUnits (K : Type*) [Field K] : normGroup K →* ModGL .G2 K :=
   (adHom K).toHomUnits

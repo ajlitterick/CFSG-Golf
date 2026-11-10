@@ -88,10 +88,6 @@ theorem NSLType.g2Datum (K : Type) [Field K] (i₀ : Fin (Adjoint.g2Datum K).ran
     (hi₀ : i₀.val = 0) : NSLType (Adjoint.g2Datum K).rank (Adjoint.g2Datum K).cartan i₀ :=
   NSLType.g2 i₀ hi₀
 
-theorem NSLType.twistedD4Datum {K : Type} [Field K] (σ : K →+* K)
-    (i₀ : Fin (TwistedD4.twistedDatum σ).rank) (hi₀ : i₀.val = 0) :
-    NSLType (TwistedD4.twistedDatum σ).rank (TwistedD4.twistedDatum σ).cartan i₀ :=
-  NSLType.g2 i₀ hi₀
 
 theorem NSLType.f4Datum (K : Type) [Field K] (i₀ : Fin (Adjoint.f4Datum K).rank)
     (hi₀ : i₀.val < 2) : NSLType (Adjoint.f4Datum K).rank (Adjoint.f4Datum K).cartan i₀ :=

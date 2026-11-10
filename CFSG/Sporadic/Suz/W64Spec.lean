@@ -154,22 +154,6 @@ theorem toVM_rowsOf {d : ℕ} (hd : d ≤ 64) (s : String) :
   exact ⟨lt_of_lt_of_le h1 (Nat.pow_le_pow_right (by norm_num) hd),
     lt_of_lt_of_le h2 (Nat.pow_le_pow_right (by norm_num) hd)⟩
 
-theorem toVM_idW {d : ℕ} (hd : d ≤ 64) : toVM (idW d) = idM d := by
-  apply toVM_map_ofV
-  intro v hv
-  unfold idM at hv
-  obtain ⟨i, hi, rfl⟩ := Array.mem_iff_getElem.1 hv
-  rw [Array.getElem_ofFn]
-  simp only [Array.size_ofFn] at hi
-  refine ⟨?_, by simp⟩
-  rw [Nat.one_shiftLeft]
-  exact Nat.pow_lt_pow_right (by norm_num) (by omega)
-
-theorem toVM_powW {d : ℕ} (hd : d ≤ 64) (M : Array W) (e : ℕ) :
-    toVM (powW d M e) = powM d (toVM M) e := by
-  induction e with
-  | zero => exact toVM_idW hd
-  | succ e ih => rw [powW, powM, toVM_mulW, ih]
 
 theorem W.wf_spec {a : W} (h : a.wf = true) : a.toV.wf = true := by
   unfold W.wf at h

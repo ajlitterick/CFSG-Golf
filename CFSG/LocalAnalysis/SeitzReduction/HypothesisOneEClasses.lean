@@ -231,31 +231,5 @@ theorem innerInvolutionInput_E8_of_classes [Finite K] [CharP K 2]
     InnerInvolutionInput (adjointGroup .E8 K) :=
   innerInvolutionInput_of_representatives innerCentralizerCriterion_innerRepsE8 hrep
 
-theorem innerInvolutionInput_E6_of_classes' {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hrep : ∀ t : adjointGroup .E6 K, orderOf (MulAut.conj t) = 2 →
-      ∃ ψ : MulAut (adjointGroup .E6 K), ∃ s ∈ innerRepsE6 K, ψ s = t) :
-    InnerInvolutionInput (adjointGroup .E6 K) := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have : CharP K 2 :=
-    CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  exact innerInvolutionInput_E6_of_classes hrep
-
-theorem innerInvolutionInput_E7_of_classes' {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hrep : ∀ t : adjointGroup .E7 K, orderOf (MulAut.conj t) = 2 →
-      ∃ ψ : MulAut (adjointGroup .E7 K), ∃ s ∈ innerRepsE7 K, ψ s = t) :
-    InnerInvolutionInput (adjointGroup .E7 K) := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have : CharP K 2 :=
-    CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  exact innerInvolutionInput_E7_of_classes hrep
-
-theorem innerInvolutionInput_E8_of_classes' {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f)
-    (hrep : ∀ t : adjointGroup .E8 K, orderOf (MulAut.conj t) = 2 →
-      ∃ ψ : MulAut (adjointGroup .E8 K), ∃ s ∈ innerRepsE8 K, ψ s = t) :
-    InnerInvolutionInput (adjointGroup .E8 K) := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have : CharP K 2 :=
-    CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic Nat.prime_two hf hK
-  exact innerInvolutionInput_E8_of_classes hrep
 
 end CFSG.SeitzReduction

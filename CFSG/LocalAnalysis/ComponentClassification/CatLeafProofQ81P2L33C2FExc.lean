@@ -32,24 +32,6 @@ theorem TwoNilpFor'.or {C C' : (Y : Type) → [Group Y] → Prop} (hC : TwoNilpF
     (hC' : TwoNilpFor' C') : TwoNilpFor' fun Y _ => C Y ∨ C' Y :=
   fun Y _ _ hY => hY.elim (hC Y) (hC' Y)
 
-theorem isTwoNilpExc'_of_mulEquiv {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y')
-    (h : IsTwoNilpExc' Y') : IsTwoNilpExc' Y := by
-  rcases h with h | ⟨f, hf, h⟩
-  · exact Or.inl (isTwoNilpExc_of_mulEquiv e h)
-  · exact Or.inr ⟨f, hf, GSThmB.OddQuot.lieModel_of_equiv e.symm h⟩
-
-theorem twoNilpFor'_of_models {C D : (Y : Type) → [Group Y] → Prop}
-    (hmod : ∀ (Y : Type) [Group Y] [Finite Y], C Y →
-      ∃ (P : Type) (_ : Group P) (_ : Finite P), D P ∧ Nonempty (Y ≃* P))
-    (hD : TwoNilpFor' D) : TwoNilpFor' C := by
-  intro Y _ _ hY hs hnab a ha hP
-  obtain ⟨P, _, _, hDP, ⟨e⟩⟩ := hmod Y hY
-  have hsP : IsSimpleGroup P := MulEquiv.isSimpleGroup e.symm
-  have hnabP : ∃ x y : P, x * y ≠ y * x := by
-    obtain ⟨x, y, hxy⟩ := hnab
-    exact ⟨e x, e y, fun h => hxy (e.injective (by rw [map_mul, map_mul, h]))⟩
-  exact isTwoNilpExc'_of_mulEquiv e (hD P hDP hsP hnabP (MulAut.congr e a)
-    ((orderOf_congr e a).trans ha) (isPGroup_fixedPoints_congr e a hP))
 
 theorem twoNilpExc'_of_rows
     (hA : TwoNilpFor' fun Y _ => ∃ n : ℕ, 5 ≤ n ∧ Nonempty (Y ≃* alternatingGroup (Fin n)))

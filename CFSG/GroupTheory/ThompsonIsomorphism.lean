@@ -93,16 +93,6 @@ theorem map_orderZJ (φ : S ≃* T) : (orderZJ S).map φ.toMonoidHom = orderZJ T
   ext x
   rw [mem_map_center_subtype_iff, mem_map_center_subtype_iff, map_orderThompson φ]
 
-theorem thompson_isomorphism [Finite S] [Finite T] (φ : S ≃* T) :
-    maxAbelianOrder S = maxAbelianOrder T ∧
-      (fun A : Subgroup S => A.map φ.toMonoidHom) '' maxOrderAbelianFamily S =
-        maxOrderAbelianFamily T ∧
-      (orderThompson S).map φ.toMonoidHom = orderThompson T ∧
-      (orderZJ S).map φ.toMonoidHom = orderZJ T ∧
-      (orderThompson S).Characteristic ∧ (orderZJ S).Characteristic :=
-  ⟨maxAbelianOrder_eq_of_mulEquiv φ, image_maxOrderAbelianFamily φ, map_orderThompson φ,
-    map_orderZJ φ, characteristic_iff_map_eq.mpr fun ψ => map_orderThompson ψ,
-    characteristic_iff_map_eq.mpr fun ψ => map_orderZJ ψ⟩
 
 end Thompson
 

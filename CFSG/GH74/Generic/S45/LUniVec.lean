@@ -116,10 +116,6 @@ theorem projVec_mulVec (x z : Fin n → K) :
   exact Finset.sum_congr rfl fun j _ => by ring
 
 
-
-theorem sub_mulVec' (A B : Matrix (Fin n) (Fin n) K) (z : Fin n → K) :
-    (A - B) *ᵥ z = A *ᵥ z - B *ᵥ z := sub_mulVec A B z
-
 theorem pair_or_small (h2 : (2 : K) ≠ 0) {E : Matrix (Fin n) (Fin n) K}
     (hE : ∀ x y, stdHermForm h n (E *ᵥ x) y = stdHermForm h n x (E *ᵥ y))
     (hE2 : E * E = E) :
@@ -182,7 +178,6 @@ theorem exists_orth_pair (hn : 3 ≤ n) (x y : Fin n → K) :
     simpa [F] using this
 
 
-
 @[expose] noncomputable def pairRotU (x y : Fin n → K) : Matrix (Fin n) (Fin 2) K :=
   Matrix.of fun i j => ![y i - x i, -(x i + y i)] j
 
@@ -208,7 +203,6 @@ theorem pairRot_mulVec (x y z : Fin n → K) :
   rw [pairRot, add_mulVec, one_mulVec, ← mulVec_mulVec, pairRotV_mulVec, pairRotU_mulVec]
   simp only [Matrix.cons_val_zero, Matrix.cons_val_one, smul_neg]
   abel
-
 
 
 section Rot
@@ -364,11 +358,6 @@ theorem exists_rot_commuting (h2 : (2 : K) ≠ 0) (hn : 3 ≤ n) {x y : Fin n �
   ⟨pairRot h x y, unitary_of_isometry h (pairRot_isometry h hx hy hxy), pairRot_det h hx hy hxy,
     pairRot_not_scalar h hx hy hxy h2 hn, pairRot_pow_four h hx hy hxy,
     pairRot_comm h hε hTa hTx hTy⟩
-
-
-
-
-
 
 
 @[expose] noncomputable def eigProj (T : Matrix (Fin n) (Fin n) K) (ε : K) : Matrix (Fin n) (Fin n) K :=

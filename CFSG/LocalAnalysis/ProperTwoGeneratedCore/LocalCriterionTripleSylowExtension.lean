@@ -53,12 +53,6 @@ theorem invariant_two_subgroup_extends
         simpa only [inv_inv, mul_assoc, inv_mul_cancel_left, inv_mul_cancel_right,
           inv_mul_cancel, mul_one] using hpreB
 
-omit [Finite K] in
-theorem quotient_sylow_preimage_eq
-    (B J : Subgroup K) [J.Normal] (p : ℕ) (P : Sylow p B) :
-    (((P : Subgroup B).map B.subtype).map (QuotientGroup.mk' J)).comap
-        (QuotientGroup.mk' J) = (P : Subgroup B).map B.subtype ⊔ J := by
-  rw [Subgroup.comap_map_eq, QuotientGroup.ker_mk']
 
 theorem invariant_odd_subgroup_extends
     (p : ℕ) (hp : p.Prime) (hpodd : Odd p)

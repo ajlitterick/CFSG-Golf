@@ -9,12 +9,6 @@ attribute [-instance] instCommGroupOfIsSimpleGroupOfIsNilpotent
 
 namespace CFSG.Monster.Existence
 
-theorem deltaHat_mul_self
-    (j : ℕ) : deltaHat j * deltaHat j = 1 := by
-  unfold deltaHat
-  calc xHat j * fiAlpha * (xHat j)⁻¹ * (xHat j * fiAlpha * (xHat j)⁻¹)
-      = xHat j * (fiAlpha * fiAlpha) * (xHat j)⁻¹ := by group
-    _ = 1 := by rw [fiAlpha_mul_self]; group
 
 theorem fiBeta_mul_fiAlpha_mul_fiBeta :
     fiBeta * fiAlpha * fiBeta = fiAlpha * fiBeta * fiAlpha := by
@@ -29,15 +23,6 @@ theorem fiBeta_mul_fiAlpha_mul_fiBeta :
   rw [h4]
   simp only [mul_assoc]
 
-theorem betaPrime_mul_self :
-    betaPrime * betaPrime = 1 := by
-  unfold betaPrime
-  have hα : ∀ x, fiAlpha * (fiAlpha * x) = x := fun x => by
-    rw [← mul_assoc, fiAlpha_mul_self, one_mul]
-  have hβ : ∀ x, fiBeta * (fiBeta * x) = x := fun x => by
-    rw [← mul_assoc, fiBeta_mul_self, one_mul]
-  simp only [mul_assoc]
-  rw [hα (fiBeta * fiAlpha), hβ fiAlpha, fiAlpha_mul_self]
 
 theorem fiBeta_mul_betaPrime_mul_fiBeta :
     fiBeta * betaPrime * fiBeta = fiAlpha := by
@@ -91,17 +76,6 @@ theorem deltaHat_zero : deltaHat 0 = fiAlpha := by
   rw [xHat_zero]
   group
 
-theorem fiAlpha_mul_betaPrime_mul_fiAlpha :
-    fiAlpha * betaPrime * fiAlpha = fiBeta := by
-  unfold betaPrime
-  have hα : ∀ x, fiAlpha * (fiAlpha * x) = x := fun x => by
-    rw [← mul_assoc, fiAlpha_mul_self, one_mul]
-  simp only [mul_assoc]
-  rw [fiAlpha_mul_self, mul_one, hα]
-
-theorem fiBeta_mul_fiAlpha_mul_fiBeta_eq :
-    fiBeta * fiAlpha * fiBeta = betaPrime :=
-  fiBeta_mul_fiAlpha_mul_fiBeta
 
 theorem fiAlpha_not_commute_betaPrime :
     fiAlpha * betaPrime ≠ betaPrime * fiAlpha := by

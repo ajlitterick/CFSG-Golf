@@ -56,20 +56,11 @@ theorem le_ncard_conjClass_of_closureOK {H : Subgroup (Equiv.Perm (Fin 360))}
     _ ≤ (conjClass H b).ncard :=
       Set.ncard_le_ncard (fun y hy => hEcls y (List.mem_toFinset.1 hy)) (conjClass_finite H b)
 
-theorem word_spec {w : List Int} (hw : lettersOK 17 w = true)
-    (hinv : isInvA 360 (omegaW w) (invCand 360 (omegaW w)) = true) :
-    permOfArr 360 (omegaW w) ∈ omegaT ∧ Rep 360 (omegaW w) (permOfArr 360 (omegaW w)) ∧
-      Rep 360 (invCand 360 (omegaW w)) (permOfArr 360 (omegaW w))⁻¹ :=
-  ⟨(omegaW_spec hw).2, (omegaW_spec hw).1, (rep_permOfArr hinv).2⟩
 
 theorem main_rep {i : ℕ} (hi : i < 3) :
     Rep 360 (mainArrs.getD i #[]) (mainPerm i) :=
   (mainPerm_spec (by omega)).1
 
-theorem getElem!_toArray_map {α β : Type*} [Inhabited β] (L : List α) (f : α → β) (d : α) {l : ℕ}
-    (hl : l < L.length) : ((L.map f).toArray)[l]! = f (L.getD l d) := by
-  rw [getElem!_pos _ l (by simpa using hl), List.getElem_toArray, List.getElem_map,
-    List.getD_eq_getElem _ _ hl]
 
 theorem exists_conj_mem_sylowT_of_involution
     {x : Equiv.Perm (Fin 360)} (hx : x ∈ autT) (hx2 : orderOf x = 2) :
@@ -110,36 +101,5 @@ theorem exists_conj_main {u : Equiv.Perm (Fin 360)}
     _ = (a⁻¹ * c * conjPerm j) * mainPerm (repTypes.getD j 0) * (a⁻¹ * c * conjPerm j)⁻¹ := by
       group
 
-theorem noUniqueInvNormal_omegaT :
-    NoUniqueInvNormal omegaT := by
-  intro t N _ hN
-  obtain ⟨s, hsN, hst, hs4⟩ := hN.exists_sq_eq
-  obtain ⟨g, hg, h1, h2, h3, h4⟩ := Certificates.certificate272020.1 (s : Equiv.Perm (Fin 360))
-    s.2 (by rw [Subgroup.orderOf_coe]; exact hs4)
-  set g' : omegaT := ⟨g, hg⟩
-  have hgc : g' ∈ Subgroup.centralizer ({t} : Set omegaT) := by
-    rw [Subgroup.mem_centralizer_singleton_iff, ← hst]
-    exact Subtype.ext h1
-  have hy : s * (g' * s * g'⁻¹) ∈ N := N.mul_mem hsN (hN.conj_mem g' hgc s hsN)
-  have ey : ((s * (g' * s * g'⁻¹) : omegaT) : Equiv.Perm (Fin 360)) =
-      (s : Equiv.Perm (Fin 360)) * (g * s * g⁻¹) := rfl
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hy2 : orderOf (s * (g' * s * g'⁻¹)) = 2 := by
-    refine orderOf_eq_prime ?_ ?_
-    · apply Subtype.ext
-      rw [pow_two, Subgroup.coe_mul, ey]
-      exact h2
-    · intro e
-      exact h3 (by rw [← ey, e]; rfl)
-  have e := hN.eq_of_orderOf_eq_two _ hy hy2
-  apply h4
-  rw [← ey, e, ← hst]
-  rfl
-
-theorem noUniqueInvNormal_omega8plus2
-    {Y : Type} [Group Y]
-    (hY : CFSG.Blueprint.LieModel Y .POmegaPlus 4 2 1) : NoUniqueInvNormal Y := by
-  obtain ⟨e⟩ := nonempty_mulEquiv_omegaT hY
-  exact NoUniqueInvNormal.of_mulEquiv e noUniqueInvNormal_omegaT
 
 end CFSG.ClassicalInvolution.Q3.O8

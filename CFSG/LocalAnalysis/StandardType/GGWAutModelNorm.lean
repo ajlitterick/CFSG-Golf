@@ -1166,49 +1166,6 @@ private lemma ggWAutD_normD_core {n : ℕ} (hn : 5 ≤ n) [Fact (Nat.Prime 3)]
       omega) T g' hconj
   exact ⟨g, τ, hgB, hpm, by simpa [← hweylEq] using hmapD, fun i => hτ i⟩
 
-theorem ggQ2WeylNormD_holds {n : ℕ} (hn : 5 ≤ n) :
-    ∀ {U : Type} [AddCommGroup U] [Module (ZMod 3) U] (h : Fin n → U),
-      LinearIndependent (ZMod 3) h → Submodule.span (ZMod 3) (Set.range h) = ⊤ →
-      ∀ (α : Fin n → Module.Dual (ZMod 3) U),
-        (∀ i j, α i (h j) = ((CartanMatrix.D n i j : ℤ) : ZMod 3)) →
-        ∀ T : U ≃ₗ[ZMod 3] U,
-          T ∈ Subgroup.normalizer (ggQ2WeylOf h α : Set (U ≃ₗ[ZMod 3] U)) →
-          (∃ w ∈ ggQ2WeylOf h α, (∀ v, T v = w v) ∨ (∀ v, T v = -(w v))) ∨
-            ∃ s : U ≃ₗ[ZMod 3] U, IsReflLin s ∧ s ∉ ggQ2WeylOf h α ∧ ∃ w ∈ ggQ2WeylOf h α,
-              (∀ v, T v = s (w v)) ∨ (∀ v, T v = -(s (w v))) := by
-  classical
-  intro U instACG instMod h hb hspan α hα T hT
-  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  obtain ⟨g, τ, hgB, hpm, hmap, -⟩ := ggWAutD_normD_core hn h hb hspan α hα T hT
-  let a0 : Fin n := ⟨n - 1, by omega⟩
-  have hmem_iff : ∀ {x : GGBCV n ≃ₗ[ZMod 3] GGBCV n},
-      ggLinConj τ.symm x ∈ ggQ2WeylOf h α ↔ x ∈ ggBCReflGp (ggDRoots n) :=
-    fun {x} => ggWAutD_mem_W_iff hmap x
-  rcases ggWAutD_BCW_cases (by omega) a0 hgB with hgD | ⟨w, hwD, hgw⟩
-  · left
-    refine ⟨ggLinConj τ.symm g, (hmem_iff).mpr hgD, hpm⟩
-  · right
-    let s : U ≃ₗ[ZMod 3] U := ggLinConj τ.symm (ggWAutD_negLin a0)
-    let w' : U ≃ₗ[ZMod 3] U := ggLinConj τ.symm w
-    have hgw' : ggLinConj τ.symm g = s * w' := by
-      dsimp [s, w']
-      rw [hgw, map_mul]
-    have hsRefl : IsReflLin s :=
-      (ggLinConj_isReflLin τ.symm (ggWAutD_negLin a0)).mpr (ggWAutD_negLin_isReflLin a0)
-    have hsNot : s ∉ ggQ2WeylOf h α := by
-      intro hsW
-      have hmap' : ggWAutD_negLin a0 ∈ ggBCReflGp (ggDRoots n) := by
-        have hmem := Subgroup.mem_map_of_mem (ggLinConj τ).toMonoidHom hsW
-        change ggLinConj τ s ∈
-          (ggQ2WeylOf h α).map (ggLinConj τ).toMonoidHom at hmem
-        rw [show ggLinConj τ s = ggWAutD_negLin a0 from by
-          dsimp [s]; ext v; simp [ggLinConj_apply]] at hmem
-        rwa [hmap] at hmem
-      exact ggWAutD_negLin_not_mem_Dgp a0 hmap'
-    refine ⟨s, hsRefl, hsNot, w', (hmem_iff).mpr hwD, ?_⟩
-    rcases hpm with hh | hh
-    · left; intro v; rw [hh v, hgw']; rfl
-    · right; intro v; rw [hh v, hgw']; rfl
 
 private lemma ggWAutD_negLin_ggDSimple {n : ℕ} (hn : 2 ≤ n) (j : Fin n) :
     ggWAutD_negLin (⟨n - 1, by omega⟩ : Fin n) (ggDSimple 3 n j) =

@@ -85,8 +85,6 @@ theorem l2 : allLL 256 L2 = true := by quickRfl
 theorem l3 : allLL 256 L3 = true := by quickRfl
 theorem ct : bAnd(Nat.beq (CT1 0) 0, bAnd(Nat.beq (CT2 0) 0, bAnd(Nat.beq (CT3 0) 0,
     Nat.beq (CT4 0) 0))) = true := by quickRfl
-theorem ctN : bAnd(Nat.beq (CT1 1) nN1, bAnd(Nat.beq (CT2 (lenLL L1)) nN2,
-    bAnd(Nat.beq (CT3 (lenLL L2)) nN3, Nat.beq (CT4 (lenLL L3)) nN4))) = true := by quickRfl
 theorem lens : bAnd(Nat.beq (lenLL L1) nN1, bAnd(Nat.beq (lenLL L2) nN2, bAnd(Nat.beq (lenLL L3) nN3,
     bAnd(Nat.beq (lenLL L4) nN4, bAnd(Nat.ble (lenLL L1) 256, bAnd(Nat.ble (lenLL L2) 256,
     bAnd(Nat.ble (lenLL L3) 256, bAnd(Nat.ble (lenLL L4) 256,

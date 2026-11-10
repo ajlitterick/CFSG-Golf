@@ -23,14 +23,6 @@ theorem mem_zpowers_of_mk_eq_one {m : ↥(centralizer ({x} : Set G))}
   rw [Subgroup.coe_zpow] at this
   exact Subgroup.mem_zpowers_iff.2 ⟨k, this⟩
 
-theorem mk_eq_one_of_mem_zpowers {m : ↥(centralizer ({x} : Set G))}
-    (h : (m : G) ∈ zpowers x) : (QuotientGroup.mk m : CentQuot x) = 1 := by
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.1 h
-  rw [QuotientGroup.eq_one_iff]
-  refine Subgroup.mem_zpowers_iff.2 ⟨k, ?_⟩
-  apply Subtype.ext
-  rw [Subgroup.coe_zpow]
-  exact hk
 
 end Quot
 
@@ -38,7 +30,6 @@ end Quot
 
 theorem sign_c5p : sign c5p = 1 := by decide
 theorem c5p_pow_five : c5p ^ 5 = 1 := by decide
-theorem c5p_ne_one : c5p ≠ 1 := by decide
 theorem c5p_comm_x1p : c5p * x1p = x1p * c5p := by decide
 theorem c5p_comm_x2p : c5p * x2p = x2p * c5p := by decide
 
@@ -385,7 +376,6 @@ theorem exists_hom_of_quotient_equiv {M K' J : Type*} [Group M] [Group K'] [Grou
     rw [map_eq_one_iff _ f.injective, map_eq_one_iff _ e.injective, QuotientGroup.eq_one_iff]
 
 end Center
-
 
 
 section Cover

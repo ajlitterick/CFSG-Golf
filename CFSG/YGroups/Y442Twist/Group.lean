@@ -252,10 +252,6 @@ theorem card_Ghat : Nat.card (Ghat hsw) = Nat.card (YGroup 4 4 2) * 2 := by
   rw [Nat.card_congr SemidirectProduct.equivProd, Nat.card_prod,
     Nat.card_congr (Multiplicative.toAdd : Multiplicative (ZMod 2) ≃ ZMod 2), Nat.card_zmod]
 
-theorem card_range_psiG : Nat.card (psiG hsw).range = Nat.card psi442.range := by
-  rw [psiG, MonoidHom.range_comp]
-  exact Nat.card_congr
-    (Subgroup.equivMapOfInjective _ _ SemidirectProduct.inl_injective).symm.toEquiv
 
 end
 

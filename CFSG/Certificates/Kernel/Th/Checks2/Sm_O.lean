@@ -18,16 +18,6 @@ theorem CFSG.KD.ThS.o13 : CFSG.KC.Th.BigS.primeOrder CFSG.KD.ThS.c CFSG.KD.ThS.r
     13) (nat_lit 5) = true := by
   quickRfl
 
-theorem CFSG.KD.ThS.o31 : CFSG.KC.Th.BigS.primeOrder CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.ONE
-    (CFSG.KC.Th.BigS.wordAB CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.ONE (CFSG.KD.ThS.RBf (nat_lit
-    1)) (CFSG.KD.ThS.RBf (nat_lit 2)) CFSG.KD.ThS.Bi (nat_lit 149845545878689) (nat_lit 25))
-    (nat_lit 31) (nat_lit 5) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.o19 : CFSG.KC.Th.BigS.primeOrder CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.ONE
-    (CFSG.KC.Th.mulB CFSG.KD.ThS.c CFSG.KD.ThS.rm (CFSG.KD.ThS.RBf (nat_lit 1)) (CFSG.KD.ThS.RBf
-    (nat_lit 2))) (nat_lit 19) (nat_lit 5) = true := by
-  quickRfl
 
 theorem CFSG.KD.ThS.o2 : CFSG.KC.Th.BigS.primeOrder CFSG.KD.ThS.c CFSG.KD.ThS.rm CFSG.KD.ThS.ONE
     (CFSG.KD.ThS.RBf (nat_lit 1)) (nat_lit 2) (nat_lit 2) = true := by
@@ -44,12 +34,5 @@ theorem CFSG.KD.ThS.prim : CFSG.KC.Th.primOK (CFSG.KC.Th.BigS.sizesOf CFSG.KD.Th
     CFSG.KD.ThK1.nLive CFSG.KD.ThK3.nLive) (nat_lit 10)) (nat_lit 10) CFSG.KD.ThB.SUM = true := by
   quickRfl
 
-theorem CFSG.KD.ThS.prim19 : CFSG.KC.Th.andB (Nat.beq (Nat.mod (Nat.mul (Nat.mul CFSG.KD.ThK1.nLive
-    CFSG.KD.ThK3.nLive) CFSG.KD.ThB.SUM) (nat_lit 19)) (nat_lit 0)) (CFSG.KC.Th.chkNe (Nat.mod
-    (Nat.mul CFSG.KD.ThK1.nLive CFSG.KD.ThK3.nLive) (nat_lit 19)) (nat_lit 0)) = true := by
-  quickRfl
-
-theorem CFSG.KD.ThS.primND : Nat.beq CFSG.KD.ThB.ND (nat_lit 11) = true := by
-  quickRfl
 
 end

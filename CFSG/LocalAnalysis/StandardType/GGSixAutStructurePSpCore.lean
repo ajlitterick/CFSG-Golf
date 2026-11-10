@@ -27,9 +27,6 @@ section Fix
     intro c v hv s hs
     rw [Matrix.mulVec_smul, hv s hs]
 
-theorem mem_spFixVec {S : Subgroup (StatedSp n K)} {v : Fin n ⊕ Fin n → K} :
-    v ∈ spFixVec S ↔ ∀ s ∈ S, mat n K s *ᵥ v = v :=
-  Iff.rfl
 
 theorem mulVec_mem_spFixVec {S : Subgroup (StatedSp n K)} {y : StatedSp n K}
     (hy : ∀ s ∈ S, y⁻¹ * s * y ∈ S) {v : Fin n ⊕ Fin n → K} (hv : v ∈ spFixVec S) :

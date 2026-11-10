@@ -95,8 +95,6 @@ theorem rep_t1Arr : Rep 8330 PairHe.t1Arr heT1 := fun x => by
   rw [PairHe.t1Arr, getElem!_ofFn_nat _ x.2]
   exact repW_hewT x
 
-theorem repW_hewT1 : RepW 8330 PairHe.wT1 heT1 :=
-  RepW.single rep_t1Arr
 
 theorem he_card_order (m : ℕ) (hm : 0 < m) :
     Nat.card {x : heChain.originalSubgroup // orderOf x = m} = countOrd PairHe.bs m heBlocks := by

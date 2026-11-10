@@ -62,13 +62,5 @@ structure Tables112Rest : Prop where
 theorem tables112_of_rest (R : Tables112Rest) : Tables112 :=
   ⟨table112_T0, R.T1a, R.T1b, R.T2, R.T3, R.T11, R.T9, R.TFA_a, R.TFA_b⟩
 
-theorem kernel11_2_of_rest (R : Tables112Rest) : Kernel11_2 :=
-  kernel11_2_of_tables (tables112_of_rest R)
-
-theorem input11_6_of_rest (R : Tables112Rest) (k : KernelT) : Input11_6 :=
-  input11_6_of_tables (tables112_of_rest R) k
-
-theorem input11_3_of_rest (R : Tables112Rest) (TL : TableL2) : Input11_3 :=
-  input11_3_of_tables (tables112_of_rest R) TL
 
 end CFSG.HardMathSupport.Timmesfeld.ComponentBalance

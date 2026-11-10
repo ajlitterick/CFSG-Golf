@@ -287,35 +287,6 @@ variable {G : Type} [Group G] [Finite G]
 
 end Defs
 
-@[expose] def GGL46StructInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46Struct p Bs x X U U₁
-
-theorem ggL46Input_of_struct (h43 : GGL43Input) (h : GGL46StructInput) : GGL46Input := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS
-  obtain ⟨h1, h2, h3, h4, h5⟩ := h G p B Bs x L D J X B₂ d y K U U₁ hS
-  exact ⟨h1, h2, h3, h4, h5, ggOpAutTrivial_of_omega h43 hS.1 hS.2.2.2.2.2.2.1 h5⟩
-
-theorem ggL46Input_of_tableB (hTB : GGTableBCxInput) (hNN : GGXNotNormalInput)
-    (hTBM : GGTableBModuleInput) (hTBA : GGTableBActionInput) (h : GGL46StructInput) :
-    GGL46Input :=
-  ggL46Input_of_struct
-    (ggL43Input_of_inputs hTB hNN (ggL43ProdInput_of_hard hTBM (ggL43HardInput_of_tableB hTB hTBA)))
-    h
-
-theorem ggFieldCaseInput_of_tableB_l46 (hTB : GGTableBCxInput) (hNN : GGXNotNormalInput)
-    (hTBM : GGTableBModuleInput) (hTBA : GGTableBActionInput) (h44 : GGL44iiiInput)
-    (h45 : GGL45Input) (h46 : GGL46StructInput) (h47 : GGL47Input) (h48 : GGL48Input) :
-    GGFieldCaseInput :=
-  ggFieldCaseInput_of_tableB hTB hNN hTBM hTBA h44 h45 (ggL46Input_of_tableB hTB hNN hTBM hTBA h46)
-    h47 h48
-
-theorem ggProp41Input_of_tableB_l46 (hTB : GGTableBCxInput) (hNN : GGXNotNormalInput)
-    (hTBM : GGTableBModuleInput) (hTBA : GGTableBActionInput) (h44 : GGL44iiiInput)
-    (h45 : GGL45Input) (h46 : GGL46StructInput) (h47 : GGL47Input) (h48 : GGL48Input) :
-    GGProp41Input :=
-  ggProp41Input_of_input (ggFieldCaseInput_of_tableB_l46 hTB hNN hTBM hTBA h44 h45 h46 h47 h48)
 
 end CFSG.StandardType
 

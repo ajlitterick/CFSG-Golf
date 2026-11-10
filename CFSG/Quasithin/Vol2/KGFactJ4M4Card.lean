@@ -55,8 +55,6 @@ theorem GoodWord.ne_zero {w : List ℤ} (h : GoodWord w) : ∀ l ∈ w, l ≠ 0 
 theorem tWords_good : ∀ x < 31, GoodWord (tWords.getD x []) := by
   unfold GoodWord; decide +kernel
 
-theorem keWords_good : ∀ j < 10, GoodWord (keWords.getD j []) := by
-  unfold GoodWord; decide +kernel
 
 theorem schWord_good {i : ℕ} (hi : i < 62) : GoodWord (schWord i) := by
   have ht := tWords_good

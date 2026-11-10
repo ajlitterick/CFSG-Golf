@@ -16,8 +16,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.LQT.S CFSG.KC.LQT.W CFSG.KC.LQT.T2 CFSG.K
     (fun x _ ih k => ih fun rest => Nat.rec (motive := fun _ => β) (k (List.cons 0 rest))
       (fun m _ => k (List.cons (Nat.succ m) rest)) x) l k
 
-@[expose] noncomputable def orBs (l : List Bool) : Bool :=
-  List.rec (motive := fun _ => Bool) false (fun b _ ih => orB b ih) l
 
 @[expose] noncomputable def anyLs (l : List (List Nat)) (f : List Nat → Bool) : Bool :=
   List.rec (motive := fun _ => Bool) false (fun x _ ih => orB (f x) ih) l

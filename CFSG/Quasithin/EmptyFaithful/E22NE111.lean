@@ -16,11 +16,6 @@ open CFSG.Open CFSG.Quasithin.A1b CFSG.Quasithin.Vol2.Ch11.SecB
       SecAll G' Q → E1.InE n (⊤ : Subgroup G')) →
     E111Reduced G X T → ¬ IsSimpleGroup ↥X → E1.InEFor n ⊤ T
 
-@[expose] def E111CoreMultiQ (Q : GrpPred) : Prop := ∀ n : ℕ, 1 ≤ n → E111CoreMultiQn Q n
-
-@[expose] def E111CoreMultiK : Prop := E111CoreMultiQ TypeK
-
-@[expose] def E111CoreMultiOne : Prop := E111CoreMultiQn (fun X _ => TypeOne X) 1
 
 theorem inE_of_e111Hyp_Q {Q : GrpPred} (hQ : IsoInv Q) {n : ℕ} (hn : 1 ≤ n)
     (hMulti : E111CoreMultiQn Q n) :
@@ -143,29 +138,5 @@ theorem e111ForQn_of_core {Q : GrpPred} (hQ : IsoInv Q) {n : ℕ} (hn : 1 ≤ n)
   rw [E1.nParam_le_iff (by omega)]
   exact h
 
-theorem e111ForQ_of_core {Q : GrpPred} (hQ : IsoInv Q) (hMulti : E111CoreMultiQ Q) :
-    E111ForQ Q :=
-  fun n hn => e111ForQn_of_core hQ hn (hMulti n hn)
-
-theorem e111ForK_of_core (hMulti : E111CoreMultiK) : E111ForK :=
-  e111ForQ_of_core typeK_isoInv hMulti
-
-theorem e111CoreMultiQn_of_e111 (Q : GrpPred) {n : ℕ} (hn : 1 ≤ n) (h : ASInputs.AS_E_1_11) :
-    E111CoreMultiQn Q n := by
-  intro G _ _ X T hH _ _ hR _
-  exact (E1.nParam_le_iff (by omega)).mp (h G n hn hH) T hR.2.2.2.2.2.1
-
-theorem e111CoreMultiQ_of_e111 (Q : GrpPred) (h : ASInputs.AS_E_1_11) : E111CoreMultiQ Q :=
-  fun _ hn => e111CoreMultiQn_of_e111 Q hn h
-
-theorem e111CoreMultiK_of_e111 (h : ASInputs.AS_E_1_11) : E111CoreMultiK :=
-  e111CoreMultiQ_of_e111 TypeK h
-
-theorem e111ForOne_of_core (hMulti : E111CoreMultiOne) :
-    E111ForQn (fun X _ => TypeOne X) 1 :=
-  e111ForQn_of_core typeOne_isoInv le_rfl hMulti
-
-theorem e111CoreMultiOne_of_e111 (h : ASInputs.AS_E_1_11) : E111CoreMultiOne :=
-  e111CoreMultiQn_of_e111 _ le_rfl h
 
 end CFSG.Quasithin.E2.E22N

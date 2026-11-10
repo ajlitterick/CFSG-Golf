@@ -29,8 +29,6 @@ variable {cs}
       CoxeterSystem.wordProd_cons] at ih ⊢
     rw [ih]
 
-theorem toSWord_append (ω ω' : List ι) : toSWord cs (ω ++ ω') = toSWord cs ω ++ toSWord cs ω' :=
-  List.map_append ..
 
 theorem toSWord_take (ω : List ι) (j : ℕ) : toSWord cs (ω.take j) = (toSWord cs ω).take j :=
   List.map_take ..
@@ -46,10 +44,6 @@ theorem exists_toSWord_eq (l : List (simpleSet cs)) : ∃ ω : List ι, toSWord 
     congr 1
     exact Subtype.ext hi
 
-theorem toSWord_injective : Function.Injective (toSWord cs) := by
-  intro ω ω' h
-  refine List.map_injective_iff.mpr (fun i j hij => ?_) h
-  exact cs.simple_injective (congrArg Subtype.val hij)
 
 theorem wordLength_simpleSet (w : W) : wordLength (simpleSet cs) w = cs.length w := by
   refine le_antisymm ?_ ?_
@@ -77,9 +71,6 @@ theorem orderOf_simpleSet : ∀ s ∈ simpleSet cs, orderOf s = 2 := by
   rintro _ ⟨i, rfl⟩
   exact cs.orderOf_simple i
 
-theorem pairOrder_simpleSet (i j : ι) :
-    pairOrder (simpleSet cs) ⟨cs.simple i, i, rfl⟩ ⟨cs.simple j, j, rfl⟩ = M i j :=
-  cs.orderOf_simple_mul_simple i j
 
 theorem mem_leftDescents_simpleSet_iff {w : W} {i : ι} :
     (⟨cs.simple i, i, rfl⟩ : simpleSet cs) ∈ leftDescents (simpleSet cs) w ↔

@@ -88,9 +88,6 @@ theorem mem_EU {d : Dfull} : d ∈ EU U ↔ ∃ h : d ∈ Ehat, psiW ⟨d, h⟩ 
   · rintro ⟨h, hU⟩
     exact ⟨⟨d, h⟩, hU, rfl⟩
 
-theorem EU_le_Ehat : EU U ≤ Ehat := fun _ h => (mem_EU.1 h).1
-
-theorem EU_le_Jhat : EU U ≤ Jhat := EU_le_Ehat.trans Ehat_le_Jhat
 
 theorem mem_EU_of {e : Ehat} (h : psiW e ∈ U) : (e : Dfull) ∈ EU U := ⟨e, h, rfl⟩
 
@@ -351,10 +348,6 @@ theorem HU_le_Jhat : HU U ≤ Jhat := inf_le_left
 
 theorem ZU_le_Jhat : ZU U ≤ Jhat := centralizer_EU_le_Jhat
 
-theorem ZU_le_KU : ZU U ≤ KU U := Subgroup.centralizer_le_normalizer _
-
-theorem ZU_le_HU :
-    ZU U ≤ HU U := fun _ h => ⟨ZU_le_Jhat h, ZU_le_KU h⟩
 
 theorem HU_subgroupOf_eq :
     (HU U).subgroupOf Jhat = (wSetStab U).comap jhatToKv0 := by

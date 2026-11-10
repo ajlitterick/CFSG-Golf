@@ -47,25 +47,6 @@ variable {H : Type u} [Group H]
 @[expose] def automizerIndex (T : Subgroup H) : ℕ :=
   (Subgroup.centralizer (T : Set H)).relIndex (Subgroup.normalizer (T : Set H))
 
-theorem automizerIndex_map_mulEquiv {G H : Type*} [Group G] [Group H] (e : G ≃* H)
-    (R : Subgroup G) :
-    automizerIndex (R.map e.toMonoidHom) = automizerIndex R := by
-  have hC : (Subgroup.centralizer (R : Set G)).map e.toMonoidHom =
-      Subgroup.centralizer ((R.map e.toMonoidHom : Subgroup H) : Set H) := by
-    ext x
-    rw [Subgroup.mem_map_equiv, Subgroup.mem_centralizer_iff,
-      Subgroup.mem_centralizer_iff]
-    constructor
-    · intro h y hy
-      obtain ⟨z, hz, rfl⟩ := hy
-      simpa using congrArg e (h z hz)
-    · intro h z hz
-      have := h (e z) (Subgroup.mem_map_of_mem e.toMonoidHom hz)
-      simpa using congrArg e.symm this
-  rw [automizerIndex, automizerIndex, ← hC,
-    ← Subgroup.map_equiv_normalizer_eq,
-    Subgroup.relIndex_map_map_of_injective _ _ e.injective]
-
 
 @[expose] def outerAutomizerIndex (V : Subgroup H) : ℕ :=
   (V ⊔ Subgroup.centralizer (V : Set H)).relIndex (Subgroup.normalizer (V : Set H))

@@ -74,9 +74,6 @@ theorem fixedSLMap_restrict (M : fixedSpecialLinear sigma) :
   right_inv M := Subtype.ext (fixedSLMap_restrict sigma M)
   map_mul' M N := Subtype.ext (map_mul (fixedSLMap sigma) M N)
 
-theorem fixedSLInclusionEquiv_val
-    (M : SpecialLinearGroup (Fin 2) (CatalogueBLinearTwoDescent.fixedSubfield E sigma)) :
-    (fixedSLInclusionEquiv sigma M).val = fixedSLMap sigma M := rfl
 
 @[expose] def hyperbolicSpecialLinear : Subgroup (SpecialLinearGroup (Fin 2) E) :=
   (CatalogueBUnitaryIsometry.isometryGroup (hyperbolicForm sigma)).comap

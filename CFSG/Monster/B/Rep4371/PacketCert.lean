@@ -26,9 +26,6 @@ theorem genCheck_xi : Native.genCheck 46 = true :=
 theorem tauCheck_eq_true : Native.tauCheck = true :=
   Certificates.certificate3050.2.2.2.2.1
 
-theorem labelsCheck_eq_true :
-    Native.labelsCheck = true ∧ Native.spinIndexCheck = true :=
-  Certificates.certificate3050.2.2.2.2.2.1
 
 theorem octCheck_eq_true :
     Native.octDataOK = true ∧ Native.octSignOK = true :=

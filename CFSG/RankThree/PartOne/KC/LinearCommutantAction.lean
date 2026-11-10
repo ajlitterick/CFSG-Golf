@@ -60,10 +60,6 @@ variable {n : ℕ} {K : Type} [Field K]
   map_one' := RingEquiv.ext fun y => by simp
   map_mul' σ σ' := RingEquiv.ext fun y => by simp
 
-theorem matRingAutToEnd_apply (σ : RingAut (Matrix (Fin n) (Fin n) K))
-    (y : Module.End K (Fin n → K)) :
-    matRingAutToEnd σ y = Matrix.toLinAlgEquiv' (σ ((Matrix.toLinAlgEquiv' (R := K)
-      (n := Fin n)).symm y)) := rfl
 
 variable [Finite K]
 

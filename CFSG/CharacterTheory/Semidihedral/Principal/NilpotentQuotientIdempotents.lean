@@ -54,8 +54,6 @@ variable {A B : Type*} [Ring A] [Ring B]
 theorem zero_mem_centralIdempotents : (0 : A) ∈ centralIdempotents A :=
   ⟨Subring.zero_mem _, IsIdempotentElem.zero⟩
 
-theorem one_mem_centralIdempotents : (1 : A) ∈ centralIdempotents A :=
-  ⟨Subring.one_mem _, IsIdempotentElem.one⟩
 
 theorem mul_mem_centralIdempotents {e e' : A} (he : e ∈ centralIdempotents A)
     (he' : e' ∈ centralIdempotents A) : e * e' ∈ centralIdempotents A :=
@@ -175,23 +173,6 @@ section Nilpotent
 
 variable {A B : Type*} [Ring A] [Ring B]
 
-theorem mem_span_range_central_iff {m : ℕ} {c : Fin m → A} (hc : ∀ i, c i ∈ Subring.center A)
-    {x : A} : x ∈ Ideal.span (Set.range c) ↔ ∃ a : Fin m → A, x = ∑ i, c i * a i := by
-  rw [Ideal.mem_span_range_iff_exists_fun]
-  constructor
-  · rintro ⟨a, rfl⟩
-    exact ⟨a, Finset.sum_congr rfl fun i _ => (Subring.mem_center_iff.mp (hc i) (a i))⟩
-  · rintro ⟨a, rfl⟩
-    exact ⟨a, Finset.sum_congr rfl fun i _ => (Subring.mem_center_iff.mp (hc i) (a i))⟩
-
-theorem isTwoSided_span_central {m : ℕ} (c : Fin m → A) (hc : ∀ i, c i ∈ Subring.center A) :
-    (Ideal.span (Set.range c)).IsTwoSided := by
-  refine Ideal.IsTwoSided.mk fun {a} b ha => ?_
-  obtain ⟨r, rfl⟩ := (mem_span_range_central_iff hc).mp ha
-  rw [Finset.sum_mul]
-  refine Ideal.sum_mem _ fun i _ => ?_
-  rw [mul_assoc, ← Subring.mem_center_iff.mp (hc i) (r i * b)]
-  exact Ideal.mul_mem_left _ _ (Ideal.subset_span ⟨i, rfl⟩)
 
 theorem idempotent_eq_zero_of_mem_nilpotent {J : Ideal A} {d : ℕ} (hd : 1 ≤ d)
     (hnil : J ^ d = ⊥) {x : A} (hx : IsIdempotentElem x) (hxJ : x ∈ J) : x = 0 := by
@@ -300,15 +281,6 @@ theorem centralIdempotentCorrespondence_of_ker_eq_span_central (k : Type*) [Fiel
     rw [sub_mul, one_mul, sub_mul, sub_eq_zero] at h2
     rw [h2, ← h1]
 
-theorem central_nilpotent_quotient_central_idempotents (k : Type*) [Field k] [Algebra k A]
-    (p : ℕ) [Fact p.Prime] [CharP k p] {m : ℕ} (c : Fin m → A)
-    (hc : ∀ i, c i ∈ Subring.center A) {d : ℕ} (hd : 1 ≤ d)
-    (hnil : Ideal.span (Set.range c) ^ d = ⊥) :
-    haveI := isTwoSided_span_central c hc
-    CentralIdempotentCorrespondence (Ideal.Quotient.mk (Ideal.span (Set.range c))) := by
-  have := isTwoSided_span_central c hc
-  exact centralIdempotentCorrespondence_of_ker_eq_span_central k p _
-    Ideal.Quotient.mk_surjective c hc Ideal.mk_ker hd hnil
 
 end Nilpotent
 

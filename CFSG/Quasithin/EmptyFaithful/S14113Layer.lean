@@ -58,66 +58,6 @@ theorem isFaithfulLocal_of_isShort2 {T Mc M L : Subgroup G} (h : quasithinQTFE14
   exact isFaithfulLocal_iff_isXf.mpr ⟨hloc, ⟨ne_bot_of_mem_cComp hL,
     eq_oTwoUpper_of_perfect (perfect_of_mem_cComp hL), hB.2.1⟩, vY_ne_bot_of_isShort2 hB⟩
 
-theorem le_of_mem_cComp_of_hypC23 {T Mc M H R : Subgroup G} (h : quasithinQTFE14Cat G T Mc)
-    (hM : InM T M) (hyp : HypC23 M R H) (h22 : ASC22Three G) (h24 : ASC24One G)
-    (h24' : ASC24Two G) {L : Subgroup G} (hL : L ∈ cComp M) (hLc : CharTwo L)
-    (hLq : CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L)) : L ≤ H := by
-  have hMne : pCoreOf 2 M ≠ ⊥ := pCoreOf_ne_bot_of_isTwoLocal hM.1.1
-  have hloc : quasithinIsLocal T L :=
-    isLocal_of_mem_cComp_of_sylow (isSylowTwoOf_of_quasithinIsSylowTwo h.sylow hM.2) hMne hL
-  have hXc : IsXClass L :=
-    ⟨ne_bot_of_mem_cComp hL, eq_oTwoUpper_of_perfect (perfect_of_mem_cComp hL), hLc⟩
-  have hRp : IsPGroup 2 R := hyp.radical.isPGroup
-  have hRne : R ≠ ⊥ := hyp.radical.2.1
-  by_contra hLH
-  have hnotSyl : ¬ IsSylowTwoOf (R ⊓ L) L := by
-    intro hsyl
-    rcases h24 M R H L hyp hL hLc hLq hsyl with hle | ⟨hchi, -, -⟩
-    · exact hLH hle
-    · exact h.faithful_empty L (isFaithfulLocal_of_isShort2 h hM hL hchi.1.1)
-  have hRN : R ≤ Subgroup.normalizer (L : Set G) :=
-    (h24' M R H L hyp hL hLc hLq).resolve_left hnotSyl
-  have hRinf : R ⊓ Subgroup.normalizer (L : Set G) = R := inf_eq_left.mpr hRN
-  have hrad : IsTwoRadicalIn (L ⊔ R) R := by
-    have := (h22 M R L hyp.sqtk hyp.radical hL).2 (by rw [hRinf]; exact hRne)
-    rwa [hRinf] at this
-  have hPR : pCoreOf 2 (L ⊔ R) ≤ R := c2_1_pCore_le hrad
-  have hcharLR : CharTwo (L ⊔ R) := A4.charTwo_sup hLc hRN hRp
-  have hZR : omegaOneCenterOf R ≤ omegaOneCenterOf (pCoreOf 2 (L ⊔ R)) := by
-    refine (Subgroup.closure_le _).mpr fun z hz => ?_
-    obtain ⟨hzc, hz2⟩ := hz
-    have hzR : z ∈ R := hzc.1
-    have hzCP : z ∈ Subgroup.centralizer (pCoreOf 2 (L ⊔ R) : Set G) :=
-      Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr hPR) hzc.2
-    have hzP : z ∈ pCoreOf 2 (L ⊔ R) := hcharLR ⟨Subgroup.mem_sup_right hzR, hzCP⟩
-    have hzΩ : z ∈ omegaOneCenterOf (pCoreOf 2 (L ⊔ R)) :=
-      Subgroup.subset_closure ⟨⟨hzP, hzCP⟩, hz2⟩
-    exact hzΩ
-  have hVY : VY L = ⊥ := by
-    by_contra hne
-    exact h.faithful_empty L (isFaithfulLocal_iff_isXf.mpr ⟨hloc, hXc, hne⟩)
-  have hsub : IsSubnormal L (L ⊔ R) :=
-    A4.subnormal_of_normal le_sup_left
-      ((Subgroup.normal_subgroupOf_iff_le_normalizer le_sup_left).mpr
-        (sup_le Subgroup.le_normalizer hRN))
-  have hcomm1 : ⁅omegaOneCenterOf (pCoreOf 2 (L ⊔ R)), L⁆ = ⊥ := by
-    by_contra hne
-    exact (a4_9 hXc hsub).mp hne hVY
-  have hcomm2 : ⁅L, omegaOneCenterOf R⁆ = ⊥ := by
-    rw [Subgroup.commutator_comm]
-    have h1 := Subgroup.commutator_mono hZR (le_refl L)
-    rw [hcomm1] at h1
-    exact le_bot_iff.mp h1
-  have hZRne : omegaOneCenterOf R ≠ ⊥ :=
-    CFSG.QuasithinUnique.Setup.omegaOneCenterOf_ne_bot hRp hRne
-  have hLcent : L ≤ Subgroup.centralizer (omegaOneCenterOf R : Set G) :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcomm2
-  have hLM : L ≤ M := le_of_mem_cComp hL
-  have hLcgs : L ≤ cgsIn M R := fun x hx =>
-    inf_normalizer_le_cgsIn_of_char (A4.omegaOneCenterOf_le R) hZRne
-      (CFSG.QuasithinUnique.Setup.characteristic_omegaOneCenterOf R)
-      ⟨hLM hx, Subgroup.centralizer_le_normalizer _ (hLcent hx)⟩
-  exact hLH (hLcgs.trans hyp.cgs)
 
 theorem isQuasisimple_pCore_quotient {M L : Subgroup G} {L' : Subgroup ↥M}
     (hL : L = L'.map M.subtype)
@@ -179,35 +119,5 @@ theorem mem_of_mk_mem_imageOTwoQuot {M X : Subgroup G} (hOX : pCoreOf 2 M ≤ X)
   rw [e]
   exact X.mul_mem hxX h3
 
-theorem layer_le_imageOTwoQuot {T Mc M H R : Subgroup G} (h : quasithinQTFE14Cat G T Mc)
-    (hM : InM T M) (hyp : HypC23 M R H) (h22 : ASC22Three G) (h24 : ASC24One G)
-    (h24' : ASC24Two G) : CFSG.layer (OTwoQuot M) ≤ imageOTwoQuot M H := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hcharM : CharTwo M := charTwo_of_inM h hM
-  have hsolv : Group.IsSolvable (CFSG.Open.pCore 2 ↥M) := by
-    have hp : IsPGroup 2 (CFSG.Open.pCore 2 ↥M) := CFSG.LieType.BorelTits.pCore_isPGroup 2
-    have : Group.IsNilpotent (CFSG.Open.pCore 2 ↥M) := hp.isNilpotent
-    infer_instance
-  simp only [CFSG.layer.eq_sSup]
-  refine sSup_le fun K hK => ?_
-  have hKc : K ∈ cComp (⊤ : Subgroup (OTwoQuot M)) := mem_cComp_top_of_isComponent hK
-  obtain ⟨L', hL', hLK⟩ := (cComp_quotient_bijOn (CFSG.Open.pCore 2 ↥M) hsolv).surjOn hKc
-  subst hLK
-  have hL : L'.map M.subtype ∈ cComp M := map_subtype_mem_cComp hL'
-  have hLc : CharTwo (L'.map M.subtype) :=
-    charTwo_of_isSubnormal_of_charTwo hcharM (subnormal_of_mem_cComp hL)
-  have hLq := isQuasisimple_pCore_quotient rfl hK.1 (subnormal_of_mem_cComp hL)
-  have hLH : L'.map M.subtype ≤ H := le_of_mem_cComp_of_hypC23 h hM hyp h22 h24 h24' hL hLc hLq
-  have hle : L' ≤ H.subgroupOf M := fun x hx => hLH ⟨x, hx, rfl⟩
-  exact Subgroup.map_mono hle
-
-theorem oTwoEIn_le_of_hypC23 {T Mc M H R : Subgroup G} (h : quasithinQTFE14Cat G T Mc)
-    (hM : InM T M) (hyp : HypC23 M R H) (h22 : ASC22Three G) (h24 : ASC24One G)
-    (h24' : ASC24Two G) (hOH : pCoreOf 2 M ≤ H) : oTwoEIn M ≤ H := by
-  have hlayer := layer_le_imageOTwoQuot h hM hyp h22 h24 h24'
-  rw [oTwoEIn_eq_map_O2E]
-  rintro _ ⟨z, hz, rfl⟩
-  have hz' : (QuotientGroup.mk z : OTwoQuot M) ∈ CFSG.layer (OTwoQuot M) := hz
-  exact mem_of_mk_mem_imageOTwoQuot hOH (hlayer hz')
 
 end CFSG.Quasithin

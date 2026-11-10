@@ -641,12 +641,6 @@ private theorem isSL3_or_isSU3_of_mulEquiv {A B : Type} [Group A] [Group B] (e :
       (QuotientGroup.congr (Subgroup.center A) (Subgroup.center B) e
         (Subgroup.map_center_eq e)) h.2
 
-private theorem card_center_map_conj_eq {G : Type} [Group G] {X : Subgroup G} (g : G) :
-    Nat.card (Subgroup.center ↥(X.map (MulAut.conj g).toMonoidHom)) =
-      Nat.card (Subgroup.center ↥X) :=
-  Nat.card_congr (Subgroup.centerCongr
-    (Subgroup.equivMapOfInjective X (MulAut.conj g).toMonoidHom
-      (MulAut.conj g).injective)).symm.toEquiv
 
 private theorem card_inf_le_three_of_le_center {G : Type} [Group G] {A B X : Subgroup G}
     (h : A ⊓ B ≤ (Subgroup.center ↥X).map X.subtype)

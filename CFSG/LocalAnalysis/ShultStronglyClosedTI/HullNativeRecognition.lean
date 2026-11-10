@@ -49,17 +49,5 @@ theorem normal_elementary_hull_native_recognition (H V : Subgroup G)
     rankOneModel_of_equiv (QuotientGroup.quotientMulEquivOfEq hcenter)
       (elementary_hull_native_odd_quotient_model H V hH hV hcard hgen)⟩
 
-theorem normal_elementary_hull_native_explicit_recognition
-    (H V : Subgroup G)
-    (hH : fusionStronglyEmbedded H) (hVH : V ≤ H)
-    (hVnormal : (V.subgroupOf H).Normal) (hV : IsElemAbelian 2 V)
-    (hcard : 4 ≤ Nat.card V) (hgen : Subgroup.normalClosure (V : Set G) = ⊤) :
-    IsQuasisimple G ∧ Subgroup.center G = oddCore G ∧
-      Odd (Nat.card (Subgroup.center G)) ∧
-        ExplicitRankOneModel (G ⧸ Subgroup.center G) := by
-  obtain ⟨hquasi, hcenter, hodd, hmodel⟩ :=
-    normal_elementary_hull_native_recognition H V hH hVH hVnormal hV hcard hgen
-  exact ⟨hquasi, hcenter, hodd,
-    (explicitRankOneModel_iff_fusionIsBenderGroup _).mpr hmodel⟩
 
 end CFSG.ShultStronglyClosedTI

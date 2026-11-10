@@ -53,9 +53,6 @@ end
 
 namespace Ctx
 
-variable (C : Ctx D O J) (hrm : D.rm = 2 ^ 248 - 1) (h : orbChk D O = true)
-  (h9 : pt D O 9 < 2 ^ 1280) (hP9 : LIL (rowsOf (2 ^ 248 - 1) (pt D O 9)))
-include hrm h h9 hP9
 
 end Ctx
 

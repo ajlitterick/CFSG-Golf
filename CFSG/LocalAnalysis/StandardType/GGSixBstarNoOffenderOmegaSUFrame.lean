@@ -27,9 +27,6 @@ variable {f n : ℕ} {K : Type} [Field K] {p : ℕ} {A : Subgroup ↥(unitarySU 
       rfl
     rwa [hc u hu] at h1
 
-theorem mem_fixOn {W : Set (Fin n → K)} {c : ↥(unitarySU 2 f K n)} :
-    c ∈ fixOn f n K W ↔ ∀ u ∈ W, lin c u = u :=
-  Iff.rfl
 
 theorem eq_zero_of_pow_fix (h : UnitaryFieldData 2 f K) (hA : MaxElemAb p A)
     {y : ↥(unitarySU 2 f K n)} (hy : y ∈ A) {k : ℕ} (hk : ¬ p ∣ k) {u : Fin n → K}

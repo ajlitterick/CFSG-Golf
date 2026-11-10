@@ -43,11 +43,6 @@ theorem pathVecFrom_toVec : ∀ (path : List ℕ) (v : V2),
     rw [pathVecFrom, pathVecFrom_toVec ls, frApply_toVec_eq_vecMul, pathRows,
       rowsMatrix_mulRows, Matrix.vecMul_vecMul]
 
-theorem subReps_get {ℓ : ℕ} (hℓ : ℓ < 7) : subReps[ℓ]! = subReps[ℓ]?.getD 0 := by
-  interval_cases ℓ <;> rfl
-
-theorem subReps_lt {ℓ : ℕ} (hℓ : ℓ < 7) : subReps[ℓ]?.getD 0 < nPts := by
-  interval_cases ℓ <;> decide
 
 @[expose] def tSet : Set J := {x | ∃ c ∈ tMasks, x = eta uJ 11 c}
 

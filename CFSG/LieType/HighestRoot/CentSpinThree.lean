@@ -234,9 +234,6 @@ variable {K V : Type} [Field K] [AddCommGroup V] [Module K V] {Q : QuadraticForm
     · calc spinAction Q y⁻¹ v = spinAction Q y⁻¹ (spinAction Q y v) := by rw [hyv v hv]
         _ = v := by rw [← LinearEquiv.mul_apply, ← map_mul, inv_mul_cancel, map_one]; rfl
 
-theorem mem_planeFixer {y : spinGroup Q} :
-    y ∈ planeFixer F₀ hij s t ↔ y * F₀.longSL2 hij s t (-1) = F₀.longSL2 hij s t (-1) * y ∧
-      ∀ v ∈ (F₀.toFrame hij s t).span, spinAction Q y v = v := Iff.rfl
 
 theorem planeFixer_le_centralizer :
     planeFixer F₀ hij s t ≤ Subgroup.centralizer ({F₀.longSL2 hij s t (-1)} : Set (spinGroup Q)) :=

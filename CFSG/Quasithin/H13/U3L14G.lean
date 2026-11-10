@@ -166,13 +166,6 @@ theorem exists_odd_not_centralizer :
   intro y hy
   exact (mem_centralizer_iff.mp (hLp ((LieType.BorelTits.pCoreOf_le 2 Lp) hy)) v hv).symm
 
-theorem Q1_le_centralizer_V3 (hQ : pCoreOf 2 (A6.g1 T V) ≤ centralizer (V₂ : Set G)) :
-    pCoreOf 2 (A6.g1 T V) ≤ centralizer (V₃ : Set G) := by
-  have h1 : V₃ ≤ omegaOneCenterOf (pCoreOf 2 (A6.g1 T V)) := V3_U.trans (S.U_omega hQ)
-  intro q hq
-  rw [mem_centralizer_iff]
-  intro v hv
-  exact ((mem_centralizer_iff.mp ((omegaOneCenterOf_le_centralizer _) (h1 hv))) q hq).symm
 
 theorem isTwoReducedIn_W3 (hQ : pCoreOf 2 (A6.g1 T V) ≤ centralizer (V₂ : Set G))
     {K : Subgroup G} (hD : KData14 T L V V₂ Lp K) (hLpK : Lp ≤ K) :

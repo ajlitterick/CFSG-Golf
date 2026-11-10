@@ -68,22 +68,12 @@ theorem hypK_transpose : (hypK : Matrix (Fin 4) (Fin 4) F)ᵀ = hypK := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [hypK]
 
-theorem skewK_transpose : (skewK : Matrix (Fin 4) (Fin 4) F)ᵀ = -skewK := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [skewK]
-
-theorem hypK_mul_self : (hypK : Matrix (Fin 4) (Fin 4) F) * hypK = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [hypK, Matrix.mul_apply, Fin.sum_univ_four]
 
 theorem det_hypK : (hypK : Matrix (Fin 4) (Fin 4) F).det = 1 := by
   rw [Matrix.det_succ_row_zero]
   simp [Fin.sum_univ_succ, hypK, Matrix.det_succ_row_zero, Fin.succAbove]
   norm_num
 
-theorem skewK_mul_self : (skewK : Matrix (Fin 4) (Fin 4) F) * skewK = -1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [skewK, Matrix.mul_apply, Fin.sum_univ_four]
 
 @[expose] def kron1SL : SL(2, F) →* Matrix (Fin 4) (Fin 4) F where
   toFun X := kron1 (X : Matrix (Fin 2) (Fin 2) F)

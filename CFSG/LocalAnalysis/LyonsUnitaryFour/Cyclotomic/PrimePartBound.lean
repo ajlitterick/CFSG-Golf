@@ -39,24 +39,6 @@ theorem sylow_card_dvd_of_faithful_cyclotomic_character
   rw [card_sylow_eq_of_isPGroup P.isPGroup' Q] at h
   exact h
 
-theorem factorization_le_of_faithful_cyclotomic_character
-    (data : FiniteComplexRepresentation.{0, 0} G)
-    (hfaithful : Function.Injective data.representation) {m : ℕ} (hm : 0 < m) {ξ : ℂ}
-    (hξ : ξ ^ m = 1) (hχ : ∀ g, data.character g ∈ ℚ⟮ξ⟯) {p : ℕ} (hp : p.Prime)
-    (hpm : ¬ p ∣ m) :
-    (Nat.card G).factorization p ≤ Module.finrank ℂ data.vector / (p - 1) +
-      (Module.finrank ℂ data.vector / (p - 1)).factorial.factorization p := by
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨P⟩ := (inferInstance : Nonempty (Sylow p G))
-  have hcard := sylow_card_dvd_of_faithful_cyclotomic_character data hfaithful hm hξ hχ hpm P
-  rw [P.card_eq_multiplicity] at hcard
-  have hne : p ^ (Module.finrank ℂ data.vector / (p - 1)) *
-      (Module.finrank ℂ data.vector / (p - 1)).factorial ≠ 0 :=
-    mul_ne_zero (pow_ne_zero _ hp.ne_zero) (Nat.factorial_ne_zero _)
-  have := (hp.pow_dvd_iff_le_factorization hne).mp hcard
-  rw [Nat.factorization_mul (pow_ne_zero _ hp.ne_zero) (Nat.factorial_ne_zero _),
-    Finsupp.add_apply, Nat.Prime.factorization_pow hp, Finsupp.single_eq_same] at this
-  exact this
 
 theorem prime_le_of_faithful_cyclotomic_character (data : FiniteComplexRepresentation.{0, 0} G)
     (hfaithful : Function.Injective data.representation) {m : ℕ} (hm : 0 < m) {ξ : ℂ}

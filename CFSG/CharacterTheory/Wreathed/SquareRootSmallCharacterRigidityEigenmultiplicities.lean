@@ -189,32 +189,6 @@ theorem cyclicEigenmultiplicity_eq_of_isConj {G : Type*} [Group G]
     simp only [hvalues]
   exact_mod_cast heq
 
-theorem actual_root_character_eigenmultiplicities {G : Type} [Group G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* CFSG.Wreathed.Wreath (2 ^ n))
-    (data : FiniteComplexRepresentation G) (root : ℂ)
-    (hroot : IsPrimitiveRoot root (2 * 2 ^ n)) :
-    (∀ h : ℕ, data.character (CFSG.Wreathed.WreathCentralSquare.actualRoot S e ^ h) =
-      ∑ t ∈ Finset.range (2 * 2 ^ n),
-        (cyclicEigenmultiplicity data (CFSG.Wreathed.WreathCentralSquare.actualRoot S e)
-          root t : ℂ) * root ^ (t * h)) ∧
-    (∀ t : ℕ, ((2 * 2 ^ n : ℕ) : ℂ)⁻¹ * ∑ k ∈ Finset.range (2 * 2 ^ n),
-      (root ^ t)⁻¹ ^ k *
-        data.character (CFSG.Wreathed.WreathCentralSquare.actualRoot S e ^ k) =
-      (cyclicEigenmultiplicity data (CFSG.Wreathed.WreathCentralSquare.actualRoot S e)
-        root t : ℂ)) ∧
-    ∑ t ∈ Finset.range (2 * 2 ^ n),
-      cyclicEigenmultiplicity data (CFSG.Wreathed.WreathCentralSquare.actualRoot S e) root t =
-      Module.finrank ℂ data.vector := by
-  have hp : 0 < 2 * 2 ^ n := Nat.mul_pos (by omega) (pow_pos (by omega) _)
-  have hy : CFSG.Wreathed.WreathCentralSquare.actualRoot S e ^ (2 * 2 ^ n) = 1 := by
-    rw [← CFSG.Wreathed.WreathCentralSquare.actualRoot_orderOf n hn S e]
-    exact pow_orderOf_eq_one _
-  exact ⟨character_cyclic_eigenmultiplicity_expansion data _ _ hp hy root hroot,
-    character_cyclic_eigenmultiplicity_average data _ _ hp hy root hroot,
-    character_cyclic_eigenmultiplicity_degree data _ _ hp hy root hroot⟩
 
 end CFSG.Wreathed.SquareRootSmallCharacterRigidity
-
-
-
 

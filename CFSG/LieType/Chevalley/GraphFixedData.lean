@@ -69,10 +69,6 @@ theorem graphFixedRootGroup_le
     : graphFixedRootGroup t K σ ≤ twistedFixedGroup t K σ :=
   sup_le (graphFixedPosUnipotent_le t K σ) (graphFixedNegUnipotent_le t K σ)
 
-theorem graphFixedInversionUnipotent_le
-    (w : WeylGroup t.tag) :
-    graphFixedInversionUnipotent t K σ w ≤ twistedFixedGroup t K σ :=
-  inf_le_right
 
 theorem graphFixedPosUnipotent_le_graphFixedRootGroup :
     graphFixedPosUnipotent t K σ ≤ graphFixedRootGroup t K σ :=

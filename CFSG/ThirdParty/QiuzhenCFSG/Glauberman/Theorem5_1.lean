@@ -98,20 +98,6 @@ theorem thompsonCenter_le_local (P : Subgroup G) :
       exact inf_le_left
     _ ≤ P := thompsonSubgroup_le_local (G := G) P
 
-/-- `Z(J(P))` is abelian. -/
-theorem thompsonCenter_isMulCommutative_local (P : Subgroup G) :
-    IsMulCommutative (thompsonCenter (G := G) P) := by
-  refine (Subgroup.le_centralizer_iff_isMulCommutative (K := thompsonCenter (G := G) P)).1 ?_
-  have hle_left : thompsonCenter (G := G) P ≤ thompsonSubgroup (G := G) P := by
-    exact inf_le_left
-  have hle_right :
-      thompsonCenter (G := G) P ≤
-        Subgroup.centralizer (thompsonSubgroup (G := G) P : Set G) := by
-    exact inf_le_right
-  exact hle_right.trans <|
-    Subgroup.centralizer_le
-      (show (thompsonCenter (G := G) P : Set G) ⊆ (thompsonSubgroup (G := G) P : Set G) from
-        hle_left)
 
 /-- The abelian subgroups of `S` of maximal order form a non-empty set (finite `S`). -/
 theorem exists_mem_thompsonAbelianSubgroups (S : Subgroup G) [Finite ↥S] :

@@ -165,8 +165,6 @@ theorem sp44_commutant_matrix (X : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)
 theorem sp44J_mul_self : (sp44J : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) * sp44J = -1 := by
   simp [sp44J, fromBlocks_multiply, ← fromBlocks_one, fromBlocks_neg]
 
-theorem sp44J_transpose : (sp44J : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)ᵀ = -sp44J := by
-  simp [sp44J, fromBlocks_transpose, fromBlocks_neg]
 
 theorem sp44_mem_iff (g : GL (Fin 2 ⊕ Fin 2) K) :
     g ∈ StatedSp 2 K ↔
@@ -249,7 +247,6 @@ theorem sp44ω_mulVec (g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)
     rw [← Matrix.vecMul_transpose g u, Matrix.dotProduct_mulVec]
   simp only [sp44ω]
   rw [h1, Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, hg]
-
 
 
 theorem sp44_bilin_gram (β : (Fin 2 ⊕ Fin 2 → K) → (Fin 2 ⊕ Fin 2 → K) → K)

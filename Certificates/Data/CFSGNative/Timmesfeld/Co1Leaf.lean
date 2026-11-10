@@ -184,30 +184,6 @@ structure Enum where
   next : Array (Array Nat)
 deriving Inhabited
 
-@[expose] def enumBFS (gs : List Rows) (cap : Nat) : Enum := Id.run do
-  let ga := gs.toArray
-  let mut pos : Std.HashMap Rows Nat := (∅ : Std.HashMap Rows Nat).insert one 0
-  let mut elts : Array Rows := #[one]
-  let mut par : Array Nat := #[0]
-  let mut gen : Array Nat := #[0]
-  let mut next : Array (Array Nat) := #[]
-  for h in [0:cap] do
-    if h < elts.size then
-      let x := elts[h]!
-      let mut row : Array Nat := #[]
-      for j in [0:ga.size] do
-        let y := mul x ga[j]!
-        match pos.get? y with
-        | some k => row := row.push k
-        | none =>
-          pos := pos.insert y elts.size
-          row := row.push elts.size
-          elts := elts.push y
-          par := par.push h
-          gen := gen.push j
-      next := next.push row
-    else break
-  return ⟨elts, par, gen, next⟩
 
 @[expose] def rowsKey (R : Rows) : Nat := R.foldl (fun acc r => acc * 16777216 + r) 0
 

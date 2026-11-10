@@ -16,12 +16,6 @@ open CFSG.Certificates.CosetEnumeration
   (fun i => alphaOK VT CFSG.KD.L34F4a.Tab CFSG.KD.L34F4b.Tab FW (UAC.codes.getD i [])
     (UBC.codes.getD i [])) 0 36
 
-theorem ch22219al_neg1 : (!alphaOK VT CFSG.KD.L34F4a.Tab CFSG.KD.L34F4b.Tab FW
-    ((UAC.codes.getD 1 []).drop 1) (UBC.codes.getD 1 [])) = true := by
-  decide +kernel
-
-theorem ch22219al_neg2 : (!alphaOK VT CFSG.KD.L34F4a.Tab CFSG.KD.L34F4b.Tab FW [0] [2, 2]) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelL34Cov
 

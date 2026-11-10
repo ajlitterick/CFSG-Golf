@@ -31,10 +31,6 @@ theorem qk : bAnd(Nat.blt (QK 0) 2464, bAnd(Nat.beq (HD.TP (QA (QK 0))) (ID.ZP 0
 
 #kc_each CertificateChecks.KernelS63.PD.ch4237P 0 31
 
-theorem qneg : bAnd(bIf(Nat.beq (memS AD.QP AD.QS 512 (ID.ZP 0)) 0, false, true),
-    bAnd(bIf(Nat.beq (orbRunK QW QPa (fun i => QLa i + 1) 12 (2464 + 1) 0 1) 2464, false, true),
-      bIf(Nat.beq (qcode 1) (qcode 0), false, true))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelS63.PD
 

@@ -84,12 +84,6 @@ theorem ggIndepFrame_finrank_le {p N : ℕ} [Fact p.Prime] (hN : 1 ≤ N) {V : T
       _ = 1 := finrank_span_singleton F.x_ne
   omega
 
-theorem ggIndepFrame_finrank_ge {p N : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V]
-    [Module (ZMod p) V] [Module.Finite (ZMod p) V] {h : Fin (N - 1) → V}
-    {α : Fin (N - 1) → Module.Dual (ZMod p) V} {x : V} (F : GGIndepAFrame p N h α x) :
-    N - 1 ≤ Module.finrank (ZMod p) V := by
-  have := F.indep.fintype_card_le_finrank
-  simpa using this
 
 theorem ggIndepA_false_of_mem (hKG : GGReflClassLargeInput') {p N : ℕ} [Fact p.Prime] (hp : 5 ≤ p)
     (hN : 10 ≤ N) {V : Type} [AddCommGroup V] [Module (ZMod p) V] [Module.Finite (ZMod p) V]

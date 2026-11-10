@@ -23,7 +23,6 @@ open CFSG.KS.PK CFSG.Sporadic.Schreier
 @[expose] def ONE : Nat :=
   4707973897876518275756807182105570957375017328147580252423146288555550842944
 
-theorem rd_eq (x i : Nat) : rd x i = fd 6 x i := rfl
 
 theorem mulR_aux (a b : Nat) : ∀ n, Nat.rec (motive := fun _ => Nat) 0
     (fun i acc => Nat.add acc (Nat.mul (rd a (rd b i)) (Nat.pow 2 (Nat.mul 6 i)))) n =

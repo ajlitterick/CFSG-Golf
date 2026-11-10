@@ -20,33 +20,6 @@ theorem conj_mem_closure {s : Set G} {c : G} (hc : ∀ x ∈ s, c * x * c⁻¹ �
     (closure_le _).2 fun x hx => by simpa [MulAut.conj_apply] using hc x hx
   simpa [MulAut.conj_apply] using hle hh
 
-theorem mem_normalizer_closure_of_conj {s : Set G} {g : G}
-    (h1 : ∀ x ∈ s, g * x * g⁻¹ ∈ closure s) (h2 : ∀ x ∈ s, g⁻¹ * x * g ∈ closure s) :
-    g ∈ normalizer (closure s : Set G) := by
-  rw [mem_normalizer_iff]
-  intro h
-  refine ⟨fun hh => conj_mem_closure h1 hh, fun hh => ?_⟩
-  have := conj_mem_closure (c := g⁻¹) (fun x hx => by simpa using h2 x hx) hh
-  simpa [mul_assoc] using this
-
-theorem eq_of_mem_closure_pair {a b x : G} (ha : a * a = 1) (hb : b * b = 1)
-    (hab : a * b = b * a) (hx : x ∈ closure {a, b}) : x = 1 ∨ x = a ∨ x = b ∨ x = a * b := by
-  have haa : ∀ y, a * (a * y) = y := fun y => by rw [← mul_assoc, ha, one_mul]
-  have hba : ∀ y, b * (a * y) = a * (b * y) := fun y => by rw [← mul_assoc, ← hab, mul_assoc]
-  have hba' : b * a = a * b := hab.symm
-  have hai : a⁻¹ = a := inv_eq_of_mul_eq_one_right ha
-  have hbi : b⁻¹ = b := inv_eq_of_mul_eq_one_right hb
-  induction hx using closure_induction with
-  | mem x hx =>
-    rcases hx with rfl | rfl
-    · exact Or.inr (Or.inl rfl)
-    · exact Or.inr (Or.inr (Or.inl rfl))
-  | one => exact Or.inl rfl
-  | mul x y _ _ hx hy =>
-    rcases hx with rfl | rfl | rfl | rfl <;> rcases hy with rfl | rfl | rfl | rfl <;>
-      simp [mul_assoc, ha, hb, haa, hba, hba']
-  | inv x _ hx =>
-    rcases hx with rfl | rfl | rfl | rfl <;> simp [hai, hbi, hba']
 
 theorem mul_card_le_of_inv_mul_mem [Finite G] {H K : Subgroup G} (hKH : K ≤ H) {m : ℕ}
     (a : Fin m → G) (ha : ∀ i, a i ∈ H) (hd : ∀ i j, (a i)⁻¹ * a j ∈ K → i = j) :

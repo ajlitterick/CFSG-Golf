@@ -55,20 +55,6 @@ theorem reflM_mulRight_reflM {v : Matrix (Fin 2) (Fin 2) K} (hv : v.det ≠ 0)
     simp [reflM, polarDet, Matrix.det_fin_two_of, Matrix.adjugate_fin_two_of] <;> field_simp <;>
       ring
 
-@[expose] def reflMLin (v : Matrix (Fin 2) (Fin 2) K) :
-    Module.End K (Matrix (Fin 2) (Fin 2) K) where
-  toFun := reflM v
-  map_add' X Y := by
-    ext i j
-    simp only [reflM, polarDet, Matrix.add_apply, Matrix.sub_apply, Matrix.smul_apply, smul_eq_mul]
-    ring
-  map_smul' c X := by
-    ext i j
-    simp only [reflM, polarDet, Matrix.smul_apply, Matrix.sub_apply, smul_eq_mul, RingHom.id_apply]
-    ring
-
-theorem reflMLin_apply (v X : Matrix (Fin 2) (Fin 2) K) : reflMLin v X = reflM v X :=
-  rfl
 
 @[expose] def rightMult (v A : Matrix (Fin 2) (Fin 2) K) : Matrix (Fin 2) (Fin 2) K :=
   (v.det)⁻¹ • (adjugate v * adjugate A * v)

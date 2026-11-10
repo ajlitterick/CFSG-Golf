@@ -47,13 +47,6 @@ theorem inner_involution_projective_data
   obtain ⟨c, hc⟩ := unit_scalar_sq_of_innerDiagonalAction_sq_eq_one n K hn hparameter A hsq
   exact ⟨c, hc.symm⟩
 
-theorem sl_center_scalar_iff (n : ℕ) (K : Type u) [Field K] (hn : 1 ≤ n)
-    (g : Matrix.SpecialLinearGroup (Fin n) K) :
-    g ∈ Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K) ↔
-      ∃ c : K, c ^ n = 1 ∧ Matrix.scalar (Fin n) c = g := by
-  let : Nonempty (Fin n) := Fin.pos_iff_nonempty.mp (by omega)
-  simpa only [Fintype.card_fin] using
-    (Matrix.SpecialLinearGroup.mem_center_iff (A := g))
 
 @[expose] def slScalarCenter (n : ℕ) (K : Type u) [Field K] :
     Subgroup (Matrix.SpecialLinearGroup (Fin n) K) where
@@ -100,11 +93,6 @@ abbrev ScalarProjectiveSpecialLinear (n : ℕ) (K : Type u) [Field K] :=
     ScalarProjectiveSpecialLinear n K ≃* Matrix.ProjectiveSpecialLinearGroup (Fin n) K :=
   QuotientGroup.quotientMulEquivOfEq (slScalarCenter_eq_center n K)
 
-theorem scalarProjectiveSpecialLinearEquiv_mk (n : ℕ) (K : Type u) [Field K]
-    (g : Matrix.SpecialLinearGroup (Fin n) K) :
-    scalarProjectiveSpecialLinearEquiv n K ((QuotientGroup.mk' (slScalarCenter n K)) g) =
-      (QuotientGroup.mk' (Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K))) g :=
-  QuotientGroup.quotientMulEquivOfEq_mk (slScalarCenter_eq_center n K) g
 
 end
 

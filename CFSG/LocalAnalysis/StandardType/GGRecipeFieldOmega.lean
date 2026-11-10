@@ -76,13 +76,5 @@ theorem ggRawFieldCentralInput_of_rest_omega (hT : PlusFourTrialityInput)
     · exact Or.inl ho
     · exact Or.inr ⟨hlab, ho⟩)
 
-theorem ggL46CyclicInput_of_rest_omega (hT : PlusFourTrialityInput)
-    (h : GGRawPCyclicOn fun p lab => GGNotD4Three p lab ∧ ¬ GGRawPCyclicDoneLabel lab ∧
-      ¬ GGOmegaLabel lab)
-    (hD4 : GGL46CyclicD4Input) : GGL46CyclicInput :=
-  ggL46CyclicInput_of_rest (((ggRawPCyclicOn_omega hT).or h).mono fun p lab ⟨hne, hlab⟩ => by
-    by_cases ho : GGOmegaLabel lab
-    · exact Or.inl ⟨ho, hne⟩
-    · exact Or.inr ⟨hne, hlab, ho⟩) hD4
 
 end CFSG.StandardType

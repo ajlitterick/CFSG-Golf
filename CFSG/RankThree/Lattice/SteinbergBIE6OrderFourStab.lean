@@ -65,10 +65,6 @@ theorem rootKernel_smul {z : Fin Tag.E6.rank → K} {s : K} (hs : s ≠ 0) :
   ext α
   simp only [mem_rootKernel, charVal_smul_col, mul_eq_zero, hs, false_or]
 
-theorem dualWeylStabilizer_smul {z : Fin Tag.E6.rank → K} {s : K} (hs : s ≠ 0) :
-    dualWeylStabilizer (s • z) = dualWeylStabilizer z := by
-  ext g
-  simp only [mem_dualWeylStabilizer, charVal_smul_col, mul_right_inj' hs]
 
 end Transport
 

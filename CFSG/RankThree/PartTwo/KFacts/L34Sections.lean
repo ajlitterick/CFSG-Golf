@@ -70,40 +70,11 @@ instance finite_projSL_galoisField :
     Finite (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) :=
   Finite.of_equiv _ (projSLEquivProjectiveSL 3 (GaloisField 2 2)).symm.toEquiv
 
-theorem localRank_three_projSL :
-    CFSG.Assembly.RankThreeEven.localRank 3
-      (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) = 1 :=
-  localRank_three_of_mulEquiv card_galoisField_two_two (projSLEquivProjectiveSL 3 _)
 
 theorem pRank_three_mulAut_projSL :
     CFSG.pRank 3 (MulAut (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2))) = 2 :=
   pRank_three_mulAut_of_mulEquiv card_galoisField_two_two (projSLEquivProjectiveSL 3 _)
 
-theorem pRank_three_linearAutGroup (hk : Nat.card k = 4) :
-    CFSG.pRank 3 (linearAutGroup 3 k) = 2 := by
-  have : Finite (MulAut (projectiveSL 3 k)) :=
-    Nat.finite_of_card_ne_zero (by rw [card_mulAut hk]; norm_num)
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  apply le_antisymm
-  · calc CFSG.pRank 3 (linearAutGroup 3 k) ≤ CFSG.pRank 3 (MulAut (projectiveSL 3 k)) := by
-          rw [CFSG.SectionRank.pRank_eq_open_pRank_top, CFSG.SectionRank.pRank_eq_open_pRank_top]
-          exact (CFSG.SectionRank.pRank_le_map (by norm_num) _
-            (Subgroup.subtype_injective _) ⊤).trans (CFSG.SectionRank.pRank_mono (by norm_num)
-              le_top)
-      _ = 2 := pRank_three_mulAut hk
-  · have hle : (eZero k).map (MulAut.conj : projectiveSL 3 k →* MulAut (projectiveSL 3 k)) ≤
-        linearAutGroup 3 k := by
-      rintro _ ⟨x, -, rfl⟩
-      obtain ⟨g, rfl⟩ := proj_surjective 3 k x
-      rw [← conjAut_toGL]
-      exact conjAut_mem_linearAutGroup _
-    have := CFSG.RankThree.Asc83Table.IsElementaryAbelian.map_hom
-      (MulAut.conj : projectiveSL 3 k →* MulAut (projectiveSL 3 k)) (isElementaryAbelian_eZero hk)
-    refine CFSG.RankThree.Coprime.le_pRank_of_isElementaryAbelian (by norm_num)
-      (CFSG.IsElementaryAbelian.subgroupOf hle) ?_
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv,
-      Subgroup.card_map_of_injective (conj_injective hk), card_eZero hk]
-    norm_num
 
 end Transport
 
@@ -135,37 +106,11 @@ theorem hasSection_of_injective {J J' T : Type*} [Group J] [Group J'] [Group T]
   refine ⟨H.map f, N.map φ.toMonoidHom, hN', ⟨?_⟩⟩
   exact (QuotientGroup.congr N (N.map φ.toMonoidHom) φ rfl).symm.trans e
 
-theorem hasSection_specialLinearGroup (K : Type*) [Field K] :
-    HasSection (Matrix.SpecialLinearGroup (Fin 3) K) (projectiveSL 3 K) :=
-  hasSection_quotient (scalars 3 K)
-
-theorem hasSection_specialLinearGroup_galoisField {n : ℕ} (hn : 1 ≤ n) :
-    HasSection (Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 (2 * n)))
-      (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨φ⟩ : Nonempty (GaloisField 2 2 →ₐ[ZMod 2] GaloisField 2 (2 * n)) := by
-    refine FiniteField.nonempty_algHom_of_finrank_dvd ?_
-    rw [GaloisField.finrank 2 (by norm_num), GaloisField.finrank 2 (by omega)]
-    exact dvd_mul_right 2 n
-  have hinj : Function.Injective (Matrix.SpecialLinearGroup.map φ.toRingHom :
-      Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2) →* _) := by
-    intro A B hAB
-    apply Subtype.ext
-    ext i j
-    have := congrFun (congrFun (congrArg (fun C : Matrix.SpecialLinearGroup (Fin 3) _ =>
-      (C : Matrix (Fin 3) (Fin 3) (GaloisField 2 (2 * n)))) hAB) i) j
-    simpa using φ.toRingHom.injective this
-  exact hasSection_congr_right
-    (hasSection_of_injective (hasSection_specialLinearGroup (GaloisField 2 2)) _ hinj)
-    (projSLEquivProjectiveSL 3 (GaloisField 2 2)).symm
 
 theorem card_projSL :
     Nat.card (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) = 20160 :=
   CFSG.PGLModel.card_projSL_three_four
 
-theorem not_hasSection_of_not_dvd {J : Type*} [Group J] [Finite J] (h : ¬ 20160 ∣ Nat.card J) :
-    ¬ HasSection J (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) := fun hs =>
-  h (card_projSL ▸ hasSection_card_dvd hs)
 
 theorem card_of_isExtOf {X A B : Type*} [Group X] [Group A] [Group B] (h : IsExtOf X A B) :
     Nat.card X = Nat.card A * Nat.card B := by
@@ -173,20 +118,6 @@ theorem card_of_isExtOf {X A B : Type*} [Group X] [Group A] [Group B] (h : IsExt
   rw [Subgroup.card_eq_card_quotient_mul_card_subgroup K, Nat.card_congr e₁.toEquiv,
     Nat.card_congr e₂.toEquiv]
 
-theorem not_hasSection_of_isExtOf_alternating {X : Type*} [Group X] {m : ℕ} (hm : m = 6 ∨ m = 7)
-    (h : IsExtOf X (alternatingGroup (Fin m)) (Multiplicative (ZMod 3))) :
-    ¬ HasSection X (CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 2 2)) := by
-  have hcard := card_of_isExtOf h
-  have h3 : Nat.card (Multiplicative (ZMod 3)) = 3 := by
-    rw [Nat.card_eq_fintype_card]
-    rfl
-  rcases hm with rfl | rfl
-  · rw [nat_card_alternatingGroup, h3, Nat.card_fin] at hcard
-    have : Finite X := Nat.finite_of_card_ne_zero (by rw [hcard]; decide)
-    exact not_hasSection_of_not_dvd (by rw [hcard]; decide)
-  · rw [nat_card_alternatingGroup, h3, Nat.card_fin] at hcard
-    have : Finite X := Nat.finite_of_card_ne_zero (by rw [hcard]; decide)
-    exact not_hasSection_of_not_dvd (by rw [hcard]; decide)
 
 end Sections
 

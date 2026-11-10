@@ -371,25 +371,6 @@ theorem d4_root_certificate :
           ∀ k : ℤ, IsRoot .D4 (α + k • Pi.single i 1) ↔ -(q : ℤ) ≤ k ∧ k ≤ p :=
   artifact_root_certificate .D4
 
-theorem e6_root_certificate :
-    (∀ v : Fin Tag.E6.rank → ℤ, IsRoot .E6 v ↔ List.ofFn v ∈ e6ArtifactRoots) ∧
-      (∀ l ∈ e6ArtifactRoots, l.length = 6) ∧ e6ArtifactRoots.Nodup ∧
-      e6ArtifactRoots.length = 72 ∧
-      (∀ v : Fin Tag.E6.rank → ℤ, IsRoot .E6 v → v ≠ 0 ∧ ((∀ j, 0 ≤ v j) ∨ ∀ j, v j ≤ 0)) ∧
-      ∀ (i : Fin Tag.E6.rank) (α : Fin Tag.E6.rank → ℤ), IsRoot .E6 α → α ≠ Pi.single i 1 →
-        α ≠ -Pi.single i 1 → ∃ p q : ℕ, p + q ≤ 3 ∧
-          ∀ k : ℤ, IsRoot .E6 (α + k • Pi.single i 1) ↔ -(q : ℤ) ≤ k ∧ k ≤ p :=
-  artifact_root_certificate .E6
-
-theorem e7_root_certificate :
-    (∀ v : Fin Tag.E7.rank → ℤ, IsRoot .E7 v ↔ List.ofFn v ∈ e7ArtifactRoots) ∧
-      (∀ l ∈ e7ArtifactRoots, l.length = 7) ∧ e7ArtifactRoots.Nodup ∧
-      e7ArtifactRoots.length = 126 ∧
-      (∀ v : Fin Tag.E7.rank → ℤ, IsRoot .E7 v → v ≠ 0 ∧ ((∀ j, 0 ≤ v j) ∨ ∀ j, v j ≤ 0)) ∧
-      ∀ (i : Fin Tag.E7.rank) (α : Fin Tag.E7.rank → ℤ), IsRoot .E7 α → α ≠ Pi.single i 1 →
-        α ≠ -Pi.single i 1 → ∃ p q : ℕ, p + q ≤ 3 ∧
-          ∀ k : ℤ, IsRoot .E7 (α + k • Pi.single i 1) ↔ -(q : ℤ) ≤ k ∧ k ≤ p :=
-  artifact_root_certificate .E7
 
 theorem e8_root_certificate :
     (∀ v : Fin Tag.E8.rank → ℤ, IsRoot .E8 v ↔ List.ofFn v ∈ e8ArtifactRoots) ∧

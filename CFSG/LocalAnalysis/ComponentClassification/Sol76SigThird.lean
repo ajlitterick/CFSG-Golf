@@ -25,10 +25,5 @@ theorem solRestricted_of_ncard_ne_two {N K K' : Subgroup G}
   intro h2
   exact (hr h2).elim
 
-theorem lemma315bInputFor_simple_of_wTrivialFor_two (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hW : WTrivialFor solRestricted)
-    (h2 : ForcedSeparationTwoFor solRestricted) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_restricted hq hR1 hW
-    (forcedSeparationFor_of_two hq (fun _ _ _ _ _ _ hr => solRestricted_of_ncard_ne_two hr) h2)
 
 end CFSG.ComponentClassification.Sol76.Sig

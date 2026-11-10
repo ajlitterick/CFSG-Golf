@@ -36,28 +36,5 @@ instance naturalAction : MulAction (Gamma F) (Fin 2 → F) where
     exact Matrix.one_mulVec v
   mul_smul a b v := semilinearApply_mul a b v
 
-theorem naturalAction_apply (a : Gamma F) (v : Fin 2 → F) :
-    a • v = Matrix.mulVec (a.left : Matrix (Fin 2) (Fin 2) F)
-      (fun j => a.right (v j)) := by
-  change semilinearApply a.left a.right v = _
-  unfold semilinearApply
-  rfl
-
-theorem naturalAction_inl (h : SL(2, F)) (v : Fin 2 → F) :
-    (SemidirectProduct.inl h : Gamma F) • v = h • v := by
-  rw [naturalAction_apply]
-  rfl
-
-theorem naturalAction_inr (sigma : RingAut F) (v : Fin 2 → F) :
-    (SemidirectProduct.inr sigma : Gamma F) • v = fun j => sigma (v j) := by
-  rw [naturalAction_apply]
-  change Matrix.mulVec (1 : Matrix (Fin 2) (Fin 2) F) _ = _
-  exact Matrix.one_mulVec _
-
-theorem naturalAction_add (a : Gamma F) (v w : Fin 2 → F) :
-    a • (v + w) = a • v + a • w := semilinearApply_add _ _ _ _
-
-theorem naturalAction_smul (a : Gamma F) (c : F) (v : Fin 2 → F) :
-    a • (c • v) = a.right c • (a • v) := semilinearApply_smul _ _ _ _
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionSquareField

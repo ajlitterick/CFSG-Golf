@@ -26,9 +26,6 @@ variable {ι : Type} [Fintype ι] [DecidableEq ι] {F : Type} [Field F] [Finite 
         (∀ v : ι → F, Q (A.val *ᵥ (fun i => φ (v i))) = μ * φ (Q v)) ∧
           ∀ x, spinMatrix Q (α x) = A * glFieldEquiv ι φ (spinMatrix Q x) * A⁻¹
 
-omit [Finite F] in
-theorem liftSim_iff_forall_liftSimAt (ψ : spinGroup Q →* H) :
-    LiftSim Q ψ ↔ ∀ σ : ↥ψ.range ≃* ↥ψ.range, LiftSimAt Q ψ σ := Iff.rfl
 
 @[expose] def LiftSimFr (Q : QuadraticForm F (ι → F)) {H : Type} [Group H]
     (ψ : spinGroup Q →* H) : Prop :=

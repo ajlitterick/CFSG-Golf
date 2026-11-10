@@ -71,15 +71,6 @@ theorem classical_quot (hΩ : HM Ω) (h62 : L6_2On Ω) (X : Subgroup G) [X.Norma
     have h1 := one_le_padicValNat_of_dvd Nat.card_pos.ne' hdvd
     exact (h4' (le_antisymm h4 h1)).trans inf_le_left
 
-private theorem isSylowOf_of_isSylow2In {V P : Subgroup G} (h : IsSylow2In V P) :
-    CFSG.ABGLocalTools.IsSylowOf 2 V P :=
-  ⟨AscQuot.sylowOfIsSylow2In' h, by
-    show (V.subgroupOf P).map P.subtype = V
-    rw [Subgroup.subgroupOf_map_subtype, inf_eq_left.mpr h.1]⟩
-
-private theorem isSylow2In_of_isSylowOf {V P : Subgroup G}
-    (h : CFSG.ABGLocalTools.IsSylowOf 2 V P) : IsSylow2In V P :=
-  ⟨h.le, h.isPGroup, fun _ hV'P hV'2 hle => h.eq_of_le hle hV'P hV'2⟩
 
 theorem commutes_of_quot (hΩ : HM Ω) (h67 : L6_7On Ω) (h62 : L6_2On Ω) (h69 : L6_9On Ω)
     (h611 : L6_11On Ω) (X : Subgroup G) [X.Normal] (hXc : X ≤ Subgroup.center G)

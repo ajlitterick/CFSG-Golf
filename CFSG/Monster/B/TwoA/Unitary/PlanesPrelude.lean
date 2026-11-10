@@ -12,7 +12,5 @@ import all CFSG.Fischer.F4
 namespace CFSG.Monster.B.TwoA.Unitary
 
 open CFSG.Fischer Matrix
-open CFSG.Monster.B.Classical.UnitarySix (bar bar_add bar_mul bar_bar bar_zero bar_one
-  bar_eq_zero_iff)
 
 end CFSG.Monster.B.TwoA.Unitary

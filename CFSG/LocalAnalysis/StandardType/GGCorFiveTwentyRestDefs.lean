@@ -39,14 +39,6 @@ section Gamma
 
 variable {G : Type} [Group G] {Bs X : Subgroup G} (hBsN : Bs ≤ Subgroup.normalizer (X : Set G))
 
-theorem ggGamma_injective_of_inf_eq_bot (h : Bs ⊓ Subgroup.centralizer (X : Set G) = ⊥) :
-    Function.Injective (ggGamma X hBsN) := by
-  rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-  intro b hb
-  rw [MonoidHom.mem_ker, ggGamma_eq_one_iff] at hb
-  have hb' : (b : G) ∈ Bs ⊓ Subgroup.centralizer (X : Set G) := ⟨b.2, hb⟩
-  rw [h, Subgroup.mem_bot] at hb'
-  exact Subgroup.mem_bot.mpr (Subtype.ext hb')
 
 theorem conj_mem_normalizer_range_ggGamma {g : G} (hgX : g ∈ X)
     (hg : g ∈ Subgroup.normalizer (Bs : Set G)) :
@@ -65,19 +57,6 @@ theorem conj_mem_normalizer_range_ggGamma {g : G} (hgX : g ∈ X)
     rw [hb, map_inv]
     group
 
-theorem congr_ggConjAut_ggGamma (hinj : Function.Injective (ggGamma X hBsN)) {g : G}
-    (hgX : g ∈ X) (hg : g ∈ Subgroup.normalizer (Bs : Set G))
-    (hn : MulAut.conj (⟨g, hgX⟩ : X) ∈
-      Subgroup.normalizer ((ggGamma X hBsN).range : Set (MulAut X))) :
-    MulAut.congr (MonoidHom.ofInjective hinj).symm
-      (ggConjAut (ggGamma X hBsN).range hn) = ggConjAut Bs hg := by
-  refine MulEquiv.ext fun b => ?_
-  show (MonoidHom.ofInjective hinj).symm
-    (ggConjAut (ggGamma X hBsN).range hn (MonoidHom.ofInjective hinj b)) = ggConjAut Bs hg b
-  rw [MulEquiv.symm_apply_eq]
-  apply Subtype.ext
-  rw [ggConjAut_apply, MonoidHom.ofInjective_apply, MonoidHom.ofInjective_apply]
-  exact (ggGamma_conj X hBsN ⟨g, hgX⟩ b _).symm
 
 theorem mem_normalizer_of_ggTorusWeylElt [Finite G] {p : ℕ}
     (hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs) {n : X}
@@ -180,78 +159,12 @@ theorem pow_le_card_bstar_of_torusLift {p r : ℕ} {B Bs : Subgroup G} {x : G}
 
 end Config
 
-@[expose] def GGWeylPseudoReflGenInputOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGCorFiveTwentyHyp p B Bs x L D J → GGInnerDiagOnLabel S p Bs (ggG0 p B x L D J) →
-      GGPseudoReflGenerated p (ggAutomizer (ggG0 p B x L D J) Bs)
-
-@[expose] def GGWeylCentralizerScalarInputOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGCorFiveTwentyHyp p B Bs x L D J → GGInnerDiagOnLabel S p Bs (ggG0 p B x L D J) →
-      ∀ ψ ∈ ggAutomizer ⊤ Bs, (∀ w ∈ ggAutomizer (ggG0 p B x L D J) Bs, ψ * w = w * ψ) →
-        GGIsScalar ψ
-
-@[expose] def GGCorFiveTwentyOuterInputOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGCorFiveTwentyHyp p B Bs x L D J → GGInnerDiagOnLabel S p Bs (ggG0 p B x L D J) →
-      ∀ (g : G) (hg : g ∈ Subgroup.normalizer (Bs : Set G)),
-        ggConjAut Bs hg ∈ Subgroup.normalizer
-          (ggAutomizer (ggG0 p B x L D J) Bs : Set (MulAut ↥Bs)) →
-        (¬ ∃ w ∈ ggAutomizer (ggG0 p B x L D J) Bs, ∀ v ∈ ggAutomizer (ggG0 p B x L D J) Bs,
-          ggConjAut Bs hg * v * (ggConjAut Bs hg)⁻¹ = w * v * w⁻¹) →
-        g ∈ Subgroup.normalizer (ggG0 p B x L D J : Set G)
-
-@[expose] def GGInnerOnWeylInputOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGCorFiveTwentyHyp p B Bs x L D J → GGInnerDiagOnLabel S p Bs (ggG0 p B x L D J) →
-      ∀ φ ∈ ggAutomizer ⊤ Bs,
-        φ ∈ Subgroup.normalizer (ggAutomizer (ggG0 p B x L D J) Bs : Set (MulAut ↥Bs)) →
-        ∃ w ∈ ggAutomizer (ggG0 p B x L D J) Bs, ∀ v ∈ ggAutomizer (ggG0 p B x L D J) Bs,
-          φ * v * φ⁻¹ = w * v * w⁻¹
-
-theorem ggCorFiveTwentyOuterInputOn_of_inner {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGInnerOnWeylInputOn S) : GGCorFiveTwentyOuterInputOn S := by
-  intro G _ _ p B Bs x L D J hH hM g hg hN hout
-  exact absurd (h G p B Bs x L D J hH hM _
-    (ggConjAut_mem_ggAutomizer (Subgroup.mem_top g) hg) hN) hout
 
 section Cover
 
-variable {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-
-theorem GGCorFiveTwentyHyp.label_or (hH : GGCorFiveTwentyHyp p B Bs x L D J)
-    (S : ℕ → LargeEvenLabel → Prop) :
-    GGInnerDiagOnLabel S p Bs (ggG0 p B x L D J) ∨
-      GGInnerDiagOnLabel (fun p lab => ¬ S p lab) p Bs (ggG0 p B x L D J) :=
-  (hH.2.2.2.2.label S p).elim_or
 
 end Cover
 
-theorem ggWeylPseudoReflGenInput_of_on {S : ℕ → LargeEvenLabel → Prop}
-    (h₁ : GGWeylPseudoReflGenInputOn S) (h₂ : GGWeylPseudoReflGenInputOn fun p lab => ¬ S p lab) :
-    GGWeylPseudoReflGenInput := by
-  intro G _ _ p B Bs x L D J hH
-  rcases hH.label_or S with hM | hM
-  · exact h₁ G p B Bs x L D J hH hM
-  · exact h₂ G p B Bs x L D J hH hM
-
-theorem ggWeylCentralizerScalarInput_of_on {S : ℕ → LargeEvenLabel → Prop}
-    (h₁ : GGWeylCentralizerScalarInputOn S)
-    (h₂ : GGWeylCentralizerScalarInputOn fun p lab => ¬ S p lab) :
-    GGWeylCentralizerScalarInput := by
-  intro G _ _ p B Bs x L D J hH
-  rcases hH.label_or S with hM | hM
-  · exact h₁ G p B Bs x L D J hH hM
-  · exact h₂ G p B Bs x L D J hH hM
-
-theorem ggCorFiveTwentyOuterInput_of_on {S : ℕ → LargeEvenLabel → Prop}
-    (h₁ : GGCorFiveTwentyOuterInputOn S)
-    (h₂ : GGCorFiveTwentyOuterInputOn fun p lab => ¬ S p lab) :
-    GGCorFiveTwentyOuterInput := by
-  intro G _ _ p B Bs x L D J hH
-  rcases hH.label_or S with hM | hM
-  · exact h₁ G p B Bs x L D J hH hM
-  · exact h₂ G p B Bs x L D J hH hM
 
 end CFSG.StandardType
 

@@ -84,33 +84,6 @@ theorem hasNormalPComplement_of_mulEquiv [Finite H] (σ : H ≃* H')
     exact hcop
   · exact hq.of_equiv (QuotientGroup.congr N (N.map σ.toMonoidHom) σ rfl)
 
-theorem conjClassCountOfOrder_of_mulEquiv (σ : H ≃* H') (k : ℕ) :
-    conjClassCountOfOrder H' k = conjClassCountOfOrder H k := by
-  have himage : ConjClasses.mk '' {x : H' | orderOf x = k} =
-      (ConjClasses.map σ.toMonoidHom) '' (ConjClasses.mk '' {x : H | orderOf x = k}) := by
-    ext c
-    constructor
-    · rintro ⟨x, hx, rfl⟩
-      refine ⟨ConjClasses.mk (σ.symm x), ⟨σ.symm x, ?_, rfl⟩, ?_⟩
-      · change orderOf (σ.symm x) = k
-        rw [MulEquiv.orderOf_eq]
-        exact hx
-      · change ConjClasses.mk (σ (σ.symm x)) = _
-        rw [MulEquiv.apply_symm_apply]
-    · rintro ⟨_, ⟨x, hx, rfl⟩, rfl⟩
-      refine ⟨σ x, ?_, rfl⟩
-      change orderOf (σ x) = k
-      rw [MulEquiv.orderOf_eq]
-      exact hx
-  rw [conjClassCountOfOrder, himage, conjClassCountOfOrder]
-  apply Set.ncard_image_of_injective
-  intro a b hab
-  obtain ⟨x, rfl⟩ := ConjClasses.mk_surjective a
-  obtain ⟨y, rfl⟩ := ConjClasses.mk_surjective b
-  change ConjClasses.mk (σ x) = ConjClasses.mk (σ y) at hab
-  rw [ConjClasses.mk_eq_mk_iff_isConj] at hab ⊢
-  simpa only [MulEquiv.coe_toMonoidHom, MulEquiv.symm_apply_apply] using
-    σ.symm.toMonoidHom.map_isConj hab
 
 end Basic
 

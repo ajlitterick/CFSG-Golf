@@ -64,7 +64,6 @@ theorem Q8Fam.thmDConcl (F : Q8Fam Y Δ) {n : ℕ} (hD : TC.Thin.ThmDAbsBelow 3 
 
 end Fam
 
-variable {X : Type} [Group X] [Finite X] {Φ : Set (Subgroup X)}
 
 end ExitO2
 

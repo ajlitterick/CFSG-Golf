@@ -28,11 +28,5 @@ open Matrix
 
 namespace Certificates
 
-open CFSG.Glauberman.Dickson in
-open QuadraticAlgebra in
-open Matrix in
-theorem certificate10 : ∀ a b : ExceptionalSL3,
-      exceptionalSL3Fn (a * b) = exceptionalSL3Fn a * exceptionalSL3Fn b := by
-  decide
 
 end Certificates

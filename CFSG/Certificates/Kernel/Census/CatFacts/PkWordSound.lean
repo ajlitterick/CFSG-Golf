@@ -149,9 +149,6 @@ theorem sift_pkpW {n : Nat} (Q : RawSchreierDatum n) (w : List (VP n)) (i : Nat)
     Q.sift (pkpW w) i = siftW (levelsV (strongV Q) Q.base i) w := by
   rw [sift_eq_siftP, siftP, siftW_eq _ w _ (pkp_codeV _)]
 
-theorem sift_pkp {n : Nat} (Q : RawSchreierDatum n) (a : VP n) (i : Nat) :
-    Q.sift (pkp a) i = siftW (levelsV (strongV Q) Q.base i) [a] := by
-  rw [← sift_pkpW, pkpW_single]
 
 theorem productsW_map {n : Nat} (Ts : List (List (VP n))) :
     (productsV Ts).map pkp = (productsW Ts).map pkpW := by

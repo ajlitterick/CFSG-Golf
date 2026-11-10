@@ -45,30 +45,6 @@ theorem oddCoreOf_layerJoin_le_of_zt (hs : Std8 p f Ω K J S R T W z t) {K' : Su
     calc t * (z * t) = (t * z) * t := by group
       _ = (z * t) * t := by rw [huv]
 
-theorem exists_good_pair_of_nonabelian (hs : Std8 p f Ω K J S R T W z t)
-    (hcomp : dComp Ω K = dstarComp Ω K)
-    (hab : ¬ ∀ x ∈ muGroup Ω W, ∀ y ∈ muGroup Ω W, x * y = y * x) :
-    ∃ (ρ σ : Rep Ω W) (u v : G), repElt ρ * repElt σ ≠ repElt σ * repElt ρ ∧
-      IsUniqueInvolution ρ.K u ∧ IsUniqueInvolution σ.K v ∧ u * v = v * u ∧ u ≠ v ∧
-      u ∈ cenZ (z * t) ∧ v ∈ cenZ (z * t) ∧
-      Subgroup.centralizer ({u} : Set G) ≤ sigmaNorm Ω K ∧
-      Subgroup.centralizer ({v} : Set G) ≤ sigmaNorm Ω K ∧
-      Subgroup.centralizer ({u * v} : Set G) ≤ sigmaNorm Ω K := by
-  have hP := partIHyp_of_std8 hs
-  have hc := ctxOf hP hs.hW.1
-  have hp : p ≠ 2 := hs.stand.odd
-  have hq : 5 ≤ p ^ f := hs.stand.five
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  have hK : K ∈ Ω := hs.stand.mem
-  have hnt : ∀ M ∈ Ω, ∀ M' ∈ twinSet Ω M, M' = M := fun M hM =>
-    noTwins_of_mem hΩ.conjInvariant hs.stand.trans hs.noTwins hM
-  exact exists_good_pair_of_nonabelianE hΩ.conjInvariant
-    (fun hM => hΩ.exists_uniqueInvolution hp hq hM)
-    (fun hM hR hRM hx => uniqueInvolution_mem_W hp hq hΩ hs.hW.1 hM hR hRM hx) hc.comm_W
-    (repElt_eq_iff hc) (repElt_commute_iff hc) (repElt_omegaStar hc)
-    (fun ρ => mem_dComp_of_rep hs hcomp ρ) hK hnt hs.stand.aEmpty
-    (uniqueInvolution_mem_W hp hq hΩ hs.hW.1 hK (stdRepK hs).hR (stdRepK hs).hRK hs.hz).2
-    (uniqueInvolution_mem_W hp hq hΩ hs.hW.1 hs.hJ.1 (stdRepJ hs).hR (stdRepJ hs).hRK hs.ht).2 hab
 
 end Zt
 
@@ -89,9 +65,6 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
-theorem c27_Oab_of_c27_7ab (h : C27_7ab p f) : C27_Oab p f :=
-  fun G _ _ _ Ω K J S R T W z t hs hdisc hE4 hab _ =>
-    T8.oddCoreOf_layerJoin_le_of_alpha hs (h G Ω K J S R T W z t hs hdisc hE4 hab)
 
 theorem c27_YnE4_of_core' (hD4 : Ih8D4Star p f) (h2 : C27_2 p f) (hO : C27_Oab p f)
     (hY : C27_Ysmall p f) : C27_YnE4 p f := by
@@ -129,34 +102,6 @@ theorem thm8A_of_core' (hD4 : Ih8D4Star p f) (h2 : C26_2 p f) (h13 : C26_13 p f)
   thm8A_of_c26_2_c26_13 h2 h13 (c27_4a_of_min (c27_2_of_c26_2_c26_13 h2 h13) c27_4M_proved)
     (c27_8_of_core' hD4 (c27_2_of_c26_2_c26_13 h2 h13) hE hO hY)
 
-variable (p f)
-
-@[expose] def C27_Gamma : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), Std8 p f Ω K J S R T W z t →
-      ¬ DConnected Ω → ¬ MuIsoE4 Ω W → ¬ T3.DStarConnected (T8.layerFamQ Ω (z * t)) →
-        ∀ (ρ σ : Thompson.Rep Ω W) (u v : G),
-          T8.repElt ρ * T8.repElt σ ≠ T8.repElt σ * T8.repElt ρ →
-          IsUniqueInvolution ρ.K u → IsUniqueInvolution σ.K v → u * v = v * u → u ≠ v →
-          u ∈ T8.cenZ (z * t) → v ∈ T8.cenZ (z * t) →
-            T8.layerJoin Ω (z * t) ≤ oddCoreOf (T8.layerJoin Ω (z * t)) ⊔
-              ⨆ w ∈ ({u, v, u * v} : Set G),
-                (T8.layerJoin Ω (z * t) ⊓ Subgroup.centralizer ({w} : Set G))
-
-variable {p f}
-
-theorem c27_Ysmall_of_gamma (h2 : C27_2 p f) (hΓ : C27_Gamma p f) : C27_Ysmall p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc hE4 hab hconn
-  have hcomp := h2 G Ω K J S R T W z t hs hdisc
-  obtain ⟨ρ, σ, u, v, hnc, hu, hv, huv, hne, hux, hvx, hg1, hg2, hg3⟩ :=
-    T8.exists_good_pair_of_nonabelian hs hcomp hab
-  have hO := T8.oddCoreOf_layerJoin_le_of_nonabelian hs hcomp hab
-  refine (hΓ G Ω K J S R T W z t hs hdisc hE4 hconn ρ σ u v hnc hu hv huv hne hux hvx).trans
-    (sup_le hO (iSup₂_le fun w hw => inf_le_right.trans ?_))
-  rcases hw with rfl | rfl | rfl
-  · exact hg1
-  · exact hg2
-  · exact hg3
 
 end Residual
 

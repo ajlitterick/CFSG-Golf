@@ -65,11 +65,6 @@ theorem isConjBy_conj (s : SpecialLinearGroup (Fin 3) k) :
   rw [MulAut.conj_apply, ← map_inv]
   rfl
 
-theorem eq_of_isConjBy {σ τ : MulAut (SpecialLinearGroup (Fin 3) k)} {M : GL (Fin 3) k}
-    (hσ : IsConjBy σ M) (hτ : IsConjBy τ M) : σ = τ := by
-  ext1 t
-  apply Subtype.ext
-  rw [hσ t, hτ t]
 
 theorem det_heisC (α : k) : (heisC α).det = α := by
   simp [heisC, Matrix.det_fin_three]

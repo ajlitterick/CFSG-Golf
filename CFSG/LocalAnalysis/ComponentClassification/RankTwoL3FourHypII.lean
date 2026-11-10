@@ -70,19 +70,6 @@ theorem closure_permsA_l34GensS : closure (permsA 42 l34GensS) = S := by
     · exact ⟨1, by decide, permOfArr_eq_of_rep (rep_l34GensS 1 (by decide))⟩
     · exact ⟨2, by decide, permOfArr_eq_of_rep (rep_l34GensS 2 (by decide))⟩
 
-theorem l34InS_iff (h : enumOK 42 l34GensS l34PS l34EnumS = true) {a : Array ℕ}
-    {g : Equiv.Perm (Fin 42)} (ha : Rep 42 a g) : l34InS a = true ↔ g ∈ S := by
-  rw [← closure_permsA_l34GensS]
-  constructor
-  · intro hin
-    exact enumOK_mem_of_any l34PS_lt h ha hin
-  · intro hg
-    obtain ⟨i, hi, hr⟩ := enumOK_exists_rep l34PS_lt h hg
-    have hmem : l34EnumS.pts[i]! ∈ l34EnumS.pts.toList := by
-      rw [getElem!_pos l34EnumS.pts i hi]
-      exact Array.mem_toList_iff.mpr (Array.getElem_mem hi)
-    rw [l34InS, memA, List.any_eq_true]
-    exact ⟨l34EnumS.pts[i]!, hmem, (eqA_iff ha hr).2 rfl⟩
 
 theorem l34SW_getElem! {i : ℕ} (hi : i < 3) : l34SW[i]! = l34GensS[i]! :=
   CFSG.EvenSmallLie.OmegaEight.pushWords_getElem! _ _
@@ -119,20 +106,5 @@ theorem l34AutModel : AutModel ↥S ↥R (S.subgroupOf R) := by
   obtain ⟨e, he, -⟩ := full_automorphism_action
   exact autModel_of_conj S_le_R (MulEquiv.refl ↥S) e he
 
-theorem l34_yCensusII {sc sp : String}
-    (h : l34CheckII sc sp = true) : YCensus (S.subgroupOf R) (· ≤ S.subgroupOf R) := by
-  simp only [l34CheckII, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨hE, hslp⟩, hc⟩, hgen⟩, hsize⟩ := h
-  refine yCensusII_of_check_regs (k := 8) (m := 945) S_le_R S_normal l34PS_lt
-    (fun a g ha => l34InS_iff hE ha) (fun r hr => ?_) hc hgen hsize
-    (by rw [card_R]; norm_num) (by decide)
-  obtain ⟨g, hg, hrep⟩ := rep_slpRegs hslp r hr
-  exact ⟨g, closure_permsA_l34GensR ▸ hg, hrep⟩
-
-theorem hypII_L34_of_check {sc sp : String}
-    (hc : l34CheckII sc sp = true) : AS81.L34HypII := by
-  intro A _ _ hA hL
-  obtain ⟨e⟩ := nonempty_equiv_of_stated (A ⧸ center A) hL
-  exact hypII_of_yCensus l34AutModel (l34_yCensusII hc) hA e
 
 end CFSG.ComponentClassification.RankTwoL3Four.HypII

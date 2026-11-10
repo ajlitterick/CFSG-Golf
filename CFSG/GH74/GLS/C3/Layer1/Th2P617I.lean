@@ -294,6 +294,5 @@ theorem false_of_swap_in_E_A7 (hL34 : B_gen4_noL34_elem) (h102 : B_ivk_10_2) (hG
 
 end KeStep
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.GLS.Th2.Obs

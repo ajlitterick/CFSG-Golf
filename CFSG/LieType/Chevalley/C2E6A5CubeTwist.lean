@@ -24,8 +24,6 @@ theorem coeSL_mul (a b : SpecialLinearGroup (Fin 6) K) :
     ((a * b : SpecialLinearGroup (Fin 6) K) : Matrix (Fin 6) (Fin 6) K) =
       (a : Matrix (Fin 6) (Fin 6) K) * (b : Matrix (Fin 6) (Fin 6) K) := rfl
 
-theorem coeSL_one :
-    ((1 : SpecialLinearGroup (Fin 6) K) : Matrix (Fin 6) (Fin 6) K) = 1 := rfl
 
 @[expose] def thetaFun (g : SpecialLinearGroup (Fin 6) K) : SpecialLinearGroup (Fin 6) K :=
   ⟨J6 * ((g⁻¹ : SpecialLinearGroup (Fin 6) K) : Matrix (Fin 6) (Fin 6) K)ᵀ * J6, by
@@ -338,18 +336,6 @@ theorem mem_stdFixedGroup_iff
       ⟨groupA_le_adjointGroup g.2, ?_⟩
     rw [hF, e']
 
-theorem map_psiA_stdFixedGroup :
-    (stdFixedGroup.subgroupOf groupA).map psiA = SU6.map (cubeHom (K := K)) := by
-  apply le_antisymm
-  · rintro _ ⟨g, hg, rfl⟩
-    obtain ⟨h, hh⟩ : psiA g ∈ (cubeHom (K := K)).range := by
-      rw [← range_psiA]
-      exact ⟨g, rfl⟩
-    exact ⟨h, (mem_stdFixedGroup_iff hh.symm).mp hg, hh⟩
-  · rintro _ ⟨h, hh, rfl⟩
-    exact ⟨liftA h, (mem_stdFixedGroup_iff (psiA_liftA h)).mpr hh, psiA_liftA h⟩
-
-theorem scalars_le_SU6 : LinearFlag.scalars 6 K ≤ SU6 := fun _ hz => tauSL_of_mem_scalars hz
 
 theorem scalars_le_diagSL : LinearFlag.scalars 6 K ≤ diagSL := by
   intro z hz

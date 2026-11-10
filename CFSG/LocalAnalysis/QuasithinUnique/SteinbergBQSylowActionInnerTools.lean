@@ -41,7 +41,6 @@ theorem mem_range_conj_of_modelAut [Group.IsPerfect L] (η : L ⧸ Subgroup.cent
     rw [← QuotientGroup.mk'_apply, hℓ, MulEquiv.apply_symm_apply]
   rw [hyℓ]
 
-variable {K : Type*} [Field K]
 
 end SteinbergBQ.SylowActionInner
 

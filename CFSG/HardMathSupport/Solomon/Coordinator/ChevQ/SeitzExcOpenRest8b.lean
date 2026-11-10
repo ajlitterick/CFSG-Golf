@@ -1452,8 +1452,6 @@ section Residual
     ∀ E₀ : Subgroup (adjointGroup .E8 K), IsElemAbelian 3 E₀ → Nat.card E₀ = 3 ^ 3 →
       IsEmpty (LangPlaneData .E8 K E₀) → NormalizesRGroup (ringChar K) E₀
 
-@[expose] def SeitzNonToralResidual8 : Prop :=
-  E7NonToralTwoNormalizes ∧ E8NonToralNormalizes
 
 end Residual
 
@@ -1495,18 +1493,6 @@ theorem threeNonToralCubeRest_E8_of_normalizes (h : E8NonToralNormalizes) :
     ThreeNonToralCubeRest .E8 LieTypeIndex.E8 :=
   fun K _ _ hK hs E₀ hE₀ hc hN hD => (hN (h K hK hs E₀ hE₀ hc hD)).elim
 
-theorem seitzNonToral_of_residual8 (h : SeitzNonToralResidual8) :
-    ThreeNonToralCubeRest .F4 LieTypeIndex.F4 ∧ SeitzExcOpenRest5.E7NonToralTwoRest ∧
-      ThreeNonToralCubeRest .E8 LieTypeIndex.E8 :=
-  ⟨threeNonToralCubeRest_F4_holds, e7NonToralTwoRest_of_normalizes h.1,
-    threeNonToralCubeRest_E8_of_normalizes h.2⟩
-
-theorem seitzThreeResidual6_of_residual8 (h : SeitzNonToralResidual8)
-    (hE6 : SeitzGoodInnerExcThreeE6) (hTw : SeitzGoodInnerExcThreeTwE6)
-    (hE7 : SeitzExcOpenRest6.E7ToralNegCRest) (hE8 : SeitzExcOpenRest6.E8ToralNegTwistRest) :
-    SeitzExcOpenRest6.SeitzThreeResidual6 :=
-  ⟨threeNonToralCubeRest_F4_holds, hE6, hTw,
-    ⟨hE7, e7NonToralTwoRest_of_normalizes h.1⟩, ⟨hE8, threeNonToralCubeRest_E8_of_normalizes h.2⟩⟩
 
 end Reduction
 

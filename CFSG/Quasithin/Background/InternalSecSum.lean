@@ -58,17 +58,6 @@ theorem proj_eq_of_mul {a b : V} (ha : a ∈ W₁) (hb : b ∈ W₂) :
   eq_of_mul_eq_mul hinf (proj₁_mem hsum hinf _) ha (proj₂_mem hsum hinf _) hb
     (proj₁_mul_proj₂ hsum hinf (a * b))
 
-theorem proj₁_of_mem₁ {a : V} (ha : a ∈ W₁) : proj₁ hsum hinf a = a := by
-  simpa using (proj_eq_of_mul hsum hinf ha (W₂.one_mem)).1
-
-theorem proj₂_of_mem₁ {a : V} (ha : a ∈ W₁) : proj₂ hsum hinf a = 1 := by
-  simpa using (proj_eq_of_mul hsum hinf ha (W₂.one_mem)).2
-
-theorem proj₁_of_mem₂ {b : V} (hb : b ∈ W₂) : proj₁ hsum hinf b = 1 := by
-  simpa using (proj_eq_of_mul hsum hinf (W₁.one_mem) hb).1
-
-theorem proj₂_of_mem₂ {b : V} (hb : b ∈ W₂) : proj₂ hsum hinf b = b := by
-  simpa using (proj_eq_of_mul hsum hinf (W₁.one_mem) hb).2
 
 theorem proj_apply_of_stab {g : MulAut V} (h₁ : ∀ w ∈ W₁, g w ∈ W₁) (h₂ : ∀ w ∈ W₂, g w ∈ W₂)
     (v : V) : proj₁ hsum hinf (g v) = g (proj₁ hsum hinf v) ∧

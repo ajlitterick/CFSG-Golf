@@ -47,8 +47,6 @@ theorem ggRawPCyclicOn_rest5 :
       GGB2derLabel, GGRecipeExcCyclicLabel, GGRecipeExcOutLabel, GGRecipeOutCyclicLabel,
       GGInndiagUnitaryLabel, GGRecipeE6Label])
 
-theorem ggL46CyclicInput_of_D4 (hD4 : GGL46CyclicD4Input) : GGL46CyclicInput :=
-  ggL46CyclicInput_of_rest_omega plusFourTrialityInput_holds ggRawPCyclicOn_rest5 hD4
 
 theorem ggOddAutOn_rest5 : GGOddAutOn fun lab => ¬ GGNbrGraphDoneLabel lab := by
   intro p lab hp hp2 hlab hS hD
@@ -85,8 +83,6 @@ theorem ggOddAutOn_rest5 : GGOddAutOn fun lab => ¬ GGNbrGraphDoneLabel lab := b
 theorem ggOddAutOn_all : GGOddAutOn fun _ => True :=
   ggOddAutOn_true_of ggOddAutOn_done ggOddAutOn_rest5
 
-theorem ggNbrGraphInput_of_D4 (hD4 : GGNbrGraphD4Input) : GGNbrGraphInput :=
-  ggNbrGraphInput_of_rest ggOddAutOn_rest5 hD4
 
 theorem ggRawInnFieldOn_rest5_of_twF4 (h : GGRawInnFieldOn fun lab => lab.tag = .twF4) :
     GGRawInnFieldOn fun lab => ¬ GGRawInnFieldDoneLabel lab ∧ ¬ GGOmegaLabel lab := by

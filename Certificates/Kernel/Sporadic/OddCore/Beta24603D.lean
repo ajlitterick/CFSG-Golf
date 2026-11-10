@@ -63,14 +63,6 @@ namespace CertificateChecks.KernelSpor.B24603
 
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.PEnum CFSG.KS.MulH
 
-@[expose] noncomputable def e24603 (i : Nat) : Bool :=
-  penumSlK 6156 13 (mask 13) (6156 * 13) true B24603R.G B24603R.GI 2 B24603R.cnt B24603R.T
-    B24603R.PL B24603R.POS B24603R.SRT B24603R.SRI (Nat.mul i 90) 90
-
-@[expose] noncomputable def c24603 (i : Nat) : Bool :=
-  slK (Nat.mul B24603R.cnt 4)
-    (findPtK B24603R.cnt B24603R.T (prodQK 6156 13 (mask 13) 4 B24603R.T (bothK 2 B24603R.GI B24603I))
-      B24603Cl) (Nat.mul i 180) 180
 
 end CertificateChecks.KernelSpor.B24603
 

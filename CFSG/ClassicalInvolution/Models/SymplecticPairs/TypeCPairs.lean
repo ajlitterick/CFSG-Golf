@@ -149,15 +149,6 @@ theorem exists_isLeviPair_short (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k)
     rw [e, ← shortGroupNeg_eq_conj_left hij hex] at h
     exact h
 
-theorem exists_linearBlockStandardPair_short (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k)
-    (hex : ∃ a : Kˣ, (a : K) ≠ ((a⁻¹ : Kˣ) : K)) {S T : Subgroup (StatedSp n K)}
-    (hS : S = (shortBlock K hij).range ∨ S = shortGroupNeg K hij)
-    (hT : T = (shortBlock K hjk).range ∨ T = shortGroupNeg K hjk) :
-    ∃ W, LinearBlockStandardPair K W S T := by
-  have h := exists_isLeviPair_short hij hjk hik hex hS hT
-  obtain ⟨W, hW⟩ := h.exists_linearBlockStandardPair_map (MonoidHom.id _) (by simp)
-  rw [Subgroup.map_id, Subgroup.map_id] at hW
-  exact ⟨W, hW⟩
 
 theorem exists_linearBlockStandardPair_short_map {Y : Type} [Group Y] (hij : i ≠ j) (hjk : j ≠ k)
     (hik : i ≠ k) (hex : ∃ a : Kˣ, (a : K) ≠ ((a⁻¹ : Kˣ) : K))
@@ -190,12 +181,6 @@ theorem symplecticBlockStandardPair_shortGroupNeg (hij : i ≠ j) :
   rw [Subgroup.map_sup, map_conj_eq_of_mem hw] at h
   exact h
 
-theorem exists_symplecticBlockStandardPair_short (hij : i ≠ j) {S : Subgroup (StatedSp n K)}
-    (hS : S = (shortBlock K hij).range ∨ S = shortGroupNeg K hij) :
-    ∃ W, SymplecticBlockStandardPair K W (longBlock K n j).range S := by
-  rcases hS with rfl | rfl
-  · exact ⟨_, symplecticBlockStandardPair_longShort hij⟩
-  · exact ⟨_, symplecticBlockStandardPair_shortGroupNeg hij⟩
 
 end SymplecticPairs
 

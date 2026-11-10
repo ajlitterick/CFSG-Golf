@@ -823,8 +823,5 @@ theorem onl_latFact :
     rw [hXeq, hXM, h, Subgroup.comap_top, onl_toPv, ← MonoidHom.range_eq_map,
       Subgroup.range_subtype]
 
-theorem onl_kONanLattice_of_par
-    (hP : onl_ParFact) : K_ONanLattice :=
-  onl_kONanLattice_of_facts onl_latFact hP
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719

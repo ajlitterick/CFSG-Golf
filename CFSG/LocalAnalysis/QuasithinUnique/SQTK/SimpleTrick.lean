@@ -65,38 +65,6 @@ end Presentation
 
 section Witness
 
-theorem exists_isElemAbelian_card_three_pow_three {T : Type*} [Group T] {E : Subgroup T}
-    (hE : IsElemAbelian 3 E) {k : ℕ} (hk : 3 ≤ k) (hc : Nat.card E = 3 ^ k) :
-    ∃ E' : Subgroup T, IsElemAbelian 3 E' ∧ Nat.card E' = 3 ^ 3 := by
-  have hfin : Finite E := Nat.finite_of_card_ne_zero (by rw [hc]; positivity)
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨K, hK⟩ := Sylow.exists_subgroup_card_pow_prime (G := E) 3 (n := 3)
-    (by rw [hc]; exact pow_dvd_pow 3 hk)
-  have hcomm := hE.1
-  refine ⟨K.map E.subtype, ⟨⟨⟨fun a b => ?_⟩⟩, fun y hy => ?_⟩, ?_⟩
-  · obtain ⟨x, hx, hax⟩ := Subgroup.mem_map.1 a.2
-    obtain ⟨z, hz, hbz⟩ := Subgroup.mem_map.1 b.2
-    apply Subtype.ext
-    change (a : T) * b = b * a
-    rw [← hax, ← hbz]
-    exact congrArg (fun w : E => (w : T)) (mul_comm' x z)
-  · obtain ⟨x, -, rfl⟩ := Subgroup.mem_map.1 hy
-    exact hE.2 x x.2
-  · rw [Subgroup.card_map_of_injective E.subtype_injective, hK]
-
-theorem tcExcludedSporadic_of_equiv (s : TauCeti.SporadicName) {T : Type} [Group T]
-    (e : IsSimpleGroup s.Group → Nonempty (s.Group ≃* T))
-    (hw : ∃ E : Subgroup T, IsElemAbelian 3 E ∧ ∃ k : ℕ, 3 ≤ k ∧ Nat.card E = 3 ^ k) :
-    TCExcludedSporadic s := by
-  intro G _ _ _ _ ⟨eG⟩
-  have hs : IsSimpleGroup s.Group := eG.symm.isSimpleGroup
-  obtain ⟨eT⟩ := e hs
-  obtain ⟨E, hE, k, hk, hc⟩ := hw
-  obtain ⟨E₃, hE₃, hc₃⟩ := exists_isElemAbelian_card_three_pow_three hE hk hc
-  let φ : T ≃* G := eT.symm.trans eG.symm
-  exact ⟨3, Nat.prime_three, by norm_num, E₃.map φ.toMonoidHom,
-    CFSG.SectionRank.isElemAbelian_map hE₃ _, by
-      rw [Subgroup.card_map_of_injective φ.injective, hc₃]⟩
 
 end Witness
 

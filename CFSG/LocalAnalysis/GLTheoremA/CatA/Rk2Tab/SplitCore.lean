@@ -262,7 +262,6 @@ theorem pRank_griessHopfMultiplier_le_one {X : Type} [Group X] {lab : GLALabel}
         hp hg2 he1 he2
 
 
-
 theorem pRank_center_le_one_of_isLabel {K : Type} [Group K] [Finite K] {lab : GLALabel} {p : ℕ}
     (hK : Rk2IsLabel K lab) (hp : p.Prime) (hp2 : p ≠ 2) :
     CFSG.Open.pRank p (Subgroup.center K) ≤ 1 := by
@@ -380,12 +379,6 @@ theorem rk2Mult_le_rank {lab : GLALabel}
     · have hmle : m = 1 ∨ m = 2 := by omega
       rcases hmle with rfl | rfl <;> simp [rk2Mult, ht] <;> try (split_ifs <;> omega)
 
-theorem rk2Mult_A_le_div_three {lab : GLALabel} (ht : lab.tag = .A) {m : ℕ} (hm : 3 ≤ m) :
-    rk2Mult lab m ≤ (lab.rank + 1) / 3 := by
-  simp only [rk2Mult, ht]
-  have hm1 : m ≠ 1 := by omega
-  simp only [hm1, ↓reduceIte]
-  exact Nat.div_le_div_left hm (by norm_num)
 
 theorem rk2Mult_E6_le_six {lab : GLALabel} (ht : lab.tag = .E6) (m : ℕ) :
     rk2Mult lab m ≤ 6 := by
@@ -426,36 +419,6 @@ theorem rk2Mult_twE6_le_four_of_ne_two {lab : GLALabel} (ht : lab.tag = .twE6)
       (m := m) (by omega)]
     omega
 
-private theorem E7_small_three : ∀ m < 61, 3 ≤ m →
-    rk2Cnt [(2, true), (6, true), (8, true), (10, true), (12, true), (14, true), (18, true)] m ≤ 3 := by
-  decide
-
-theorem rk2Mult_E7_le_three {lab : GLALabel} (ht : lab.tag = .E7) {m : ℕ} (hm : 3 ≤ m) :
-    rk2Mult lab m ≤ 3 := by
-  simp only [rk2Mult, ht]
-  by_cases h : m < 61
-  · exact E7_small_three m h hm
-  · rw [rk2Cnt_large [(2, true), (6, true), (8, true), (10, true), (12, true), (14, true),
-      (18, true)] 60
-      (by intro f hf; simp at hf; rcases hf with rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> simp)
-      (m := m) (by omega)]
-    omega
-
-private theorem E8_small_four : ∀ m < 61, 3 ≤ m →
-    rk2Cnt [(2, true), (8, true), (12, true), (14, true), (18, true), (20, true), (24, true),
-      (30, true)] m ≤ 4 := by
-  decide
-
-theorem rk2Mult_E8_le_four {lab : GLALabel} (ht : lab.tag = .E8) {m : ℕ} (hm : 3 ≤ m) :
-    rk2Mult lab m ≤ 4 := by
-  simp only [rk2Mult, ht]
-  by_cases h : m < 61
-  · exact E8_small_four m h hm
-  · rw [rk2Cnt_large [(2, true), (8, true), (12, true), (14, true), (18, true), (20, true),
-      (24, true), (30, true)] 60
-      (by intro f hf; simp at hf; rcases hf with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> simp)
-      (m := m) (by omega)]
-    omega
 
 theorem rk2Mult_twA_le_half_of_ne_two {lab : GLALabel} (ht : lab.tag = .twA)
     {m : ℕ} (hm : 0 < m) (hm2 : m ≠ 2) : rk2Mult lab m ≤ (lab.rank + 1) / 2 := by

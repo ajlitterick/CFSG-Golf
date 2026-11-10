@@ -297,6 +297,4 @@ theorem data411_PG [Finite F] {M : ModelData F} (hG : GoodModel M) {q n : ℕ}
     exact bs_mul_comm M ha hb
 
 
-open CFSG.GH74.GLS.Stage2.Final.Thm6.L2011.CFT (Data411)
-
 end CFSG.GH74.Ivk411

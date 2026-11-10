@@ -61,7 +61,6 @@ theorem no_index_five_of_simple {G : Type*} [Group G] [IsSimpleGroup G]
     rw [hH', Subgroup.index_top] at hidx
     omega
 
-variable {S X : Type*} [Group S] [MulAction S X]
 
 end SteinbergCH
 

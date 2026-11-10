@@ -9,13 +9,6 @@ namespace CFSG.StandardType
 
 open CFSG CFSG.Assembly
 
-@[expose] def GGL45D4BoneRankInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ → p = 3 →
-    LargeEvenMarking K (fun lab _ _ _ _ _ => lab.tag = .D ∧ lab.rank = 4) →
-      27 * Nat.card (Bs ⊓ Subgroup.centralizer (X : Set G) ⊓ Subgroup.centralizer (K : Set G) :
-          Subgroup G) ≤ Nat.card (Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G)
 
 @[expose] def GGL45D4BstarProperInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
@@ -199,23 +192,5 @@ theorem GGL45Config.exists_cyclic_d4 (hraw : GGRawInnFieldInput) (hiso : GGRawIn
 
 end Cyclic
 
-theorem ggL45CyclicD4Input_of_boneRank (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
-    (hR : GGL45D4BoneRankInput) : GGL45CyclicD4Input := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hcfg hp3 hmk
-  subst hp3
-  refine hcfg.exists_cyclic_d4 hraw hiso
-    (hR G 3 B Bs x L D J X B₂ d y K U U₁ hcfg rfl
-      (largeEvenMarking_mono (fun _ _ _ _ _ _ h => ⟨h.1, h.2.1⟩) hmk)) hmk
-
-theorem ggL45D4BoneRankInput_of_proper (hcent : GGL45CentInput) (hR : GGL45D4BstarProperInput) :
-    GGL45D4BoneRankInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hcfg hp3 hmk
-  subst hp3
-  exact hcfg.card_bone_ge (hcent G 3 B Bs x L D J X B₂ d y K U U₁ hcfg)
-    (hcfg.pow_five_le_card_bstar (hR G 3 B Bs x L D J X B₂ d y K U U₁ hcfg rfl hmk))
-
-theorem ggL45CyclicD4Input_of_proper (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
-    (hcent : GGL45CentInput) (hR : GGL45D4BstarProperInput) : GGL45CyclicD4Input :=
-  ggL45CyclicD4Input_of_boneRank hraw hiso (ggL45D4BoneRankInput_of_proper hcent hR)
 
 end CFSG.StandardType

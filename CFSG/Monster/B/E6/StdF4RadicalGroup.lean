@@ -530,8 +530,6 @@ theorem zB_mem_radicalZ
 theorem rootInvM_mem_radicalZ :
     rootInvM ∈ radicalZ := zB_zero ▸ zB_mem_radicalZ (by norm_num)
 
-theorem rootInvM_mem_radicalQ :
-    rootInvM ∈ radicalQ := radicalZ_le_radicalQ rootInvM_mem_radicalZ
 
 theorem zB_mul_self
     {j : ℕ} (hj : j < 7) : zB j * zB j = 1 := qr_mul_self (zIdx_lt hj)
@@ -686,37 +684,6 @@ theorem commutator_mem_zpowers
     rw [e, comm_of_mem_zpowers h2 hyQ, mul_inv_cancel_right]
     exact mul_mem h1 h2
 
-theorem zpowers_rootInvM_eq
-    {c : ModGL Tag.E6 K} (hc : c ∈ Subgroup.zpowers rootInvM) :
-    c = 1 ∨ c = rootInvM := by
-  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hc
-  have h2 : rootInvM ^ (2 : ℤ) = 1 := by rw [zpow_two, rootInvM_mul_self]
-  rw [zpow_eq_zpow_emod k h2]
-  rcases Int.emod_two_eq_zero_or_one k with h | h <;> rw [h]
-  · left; rw [zpow_zero]
-  · right; rw [zpow_one]
-
-theorem commutator_qr_zero_qr_thirteen :
-    ⁅qr 0, qr 13⁆ = rootInvM := by
-  have h := qr_mul_qr (by norm_num : 0 < 15) (by norm_num : 13 < 15)
-  have hb : bC 0 13 = true := by decide +kernel
-  rw [hb, zb_true] at h
-  rw [commutatorElement_def, h, qr_inv (by norm_num), qr_inv (by norm_num)]
-  have hc := rootInvM_comm (qr_mem_radicalQ (by norm_num : 0 < 15))
-  have hc' := rootInvM_comm (qr_mem_radicalQ (by norm_num : 13 < 15))
-  calc qr 13 * qr 0 * rootInvM * qr 0 * qr 13 = qr 13 * qr 0 * (rootInvM * qr 0) * qr 13 := by
-        group
-    _ = qr 13 * (qr 0 * qr 0) * (rootInvM * qr 13) := by rw [← hc]; group
-    _ = rootInvM := by
-        rw [qr_mul_self (by norm_num), mul_one, ← hc', ← mul_assoc, qr_mul_self (by norm_num),
-          one_mul]
-
-theorem commutator_radicalQ :
-    ⁅radicalQ, radicalQ⁆ = Subgroup.zpowers rootInvM := by
-  refine le_antisymm (Subgroup.commutator_le.2 fun x hx y hy => commutator_mem_zpowers hx hy) ?_
-  rw [Subgroup.zpowers_le, ← commutator_qr_zero_qr_thirteen]
-  exact Subgroup.commutator_mem_commutator (qr_mem_radicalQ (by norm_num : 0 < 15))
-    (qr_mem_radicalQ (by norm_num : 13 < 15))
 
 theorem square_step
     {y : ModGL Tag.E6 K} (hyQ : y ∈ radicalQ) {j : ℕ} (hj : j < 15)
@@ -750,23 +717,11 @@ theorem mul_self_mem_zpowers
     rw [qr_inv hj]
     exact square_step hyQ hj (ih hyQ)
 
-theorem index_radicalZ :
-    (radicalZ.subgroupOf radicalQ).index = 2 ^ 8 := by
-  have h := Subgroup.card_mul_index (radicalZ.subgroupOf radicalQ)
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe radicalZ_le_radicalQ).toEquiv, card_radicalZ,
-    card_radicalQ] at h
-  have : 2 ^ 15 = 2 ^ 7 * 2 ^ 8 := by norm_num
-  rw [this] at h
-  exact Nat.eq_of_mul_eq_mul_left (by norm_num) h
 
 theorem zpowers_rootInvM_le_radicalZ :
     Subgroup.zpowers rootInvM ≤ radicalZ :=
   Subgroup.zpowers_le.2 rootInvM_mem_radicalZ
 
-theorem commutator_eq_one_or_eq
-    {x y : ModGL Tag.E6 K} (hx : x ∈ radicalQ) (hy : y ∈ radicalQ) :
-    ⁅x, y⁆ = 1 ∨ ⁅x, y⁆ = rootInvM :=
-  zpowers_rootInvM_eq (commutator_mem_zpowers hx hy)
 
 theorem zpowers_comm
     {c d : ModGL Tag.E6 K} (hc : c ∈ Subgroup.zpowers rootInvM)
@@ -787,29 +742,6 @@ theorem commutator_mul_left
     _ = (x' * y * x'⁻¹ * y⁻¹) * x * y * x⁻¹ * y⁻¹ := by rw [hc]
     _ = (x' * y * x'⁻¹ * y⁻¹) * (x * y * x⁻¹ * y⁻¹) := by group
 
-theorem mem_radicalZ_iff_commutator
-    {x : ModGL Tag.E6 K} (hx : x ∈ radicalQ) :
-    x ∈ radicalZ ↔ ∀ y ∈ radicalQ, ⁅x, y⁆ = 1 := by
-  rw [mem_radicalZ_iff']
-  constructor
-  · rintro ⟨-, h⟩ y hy
-    rw [commutatorElement_def, ← h y hy]
-    group
-  · intro h
-    refine ⟨hx, fun y hy => ?_⟩
-    have := h y hy
-    rw [commutatorElement_def] at this
-    calc y * x = (x * y * x⁻¹ * y⁻¹)⁻¹ * (x * y) := by group
-      _ = x * y := by rw [this, inv_one, one_mul]
-
-theorem mul_self_mem_radicalZ
-    {x : ModGL Tag.E6 K} (hx : x ∈ radicalQ) : x * x ∈ radicalZ :=
-  zpowers_rootInvM_le_radicalZ (mul_self_mem_zpowers hx)
-
-theorem commutator_mem_radicalZ
-    {x y : ModGL Tag.E6 K} (hx : x ∈ radicalQ) (hy : y ∈ radicalQ) :
-    ⁅x, y⁆ ∈ radicalZ :=
-  zpowers_rootInvM_le_radicalZ (commutator_mem_zpowers hx hy)
 
 @[expose] def sympA
     (i : Fin 4) : ModGL Tag.E6 K := qr ([0, 1, 4, 6].getD i 0)
@@ -867,34 +799,5 @@ theorem symp_relations
   · rw [sympA, sympA, commutator_of_bC ha ha', haa, zb_false]
   · rw [sympB, sympB, commutator_of_bC hb hb', hbb, zb_false]
 
-theorem radicalQ_eq_sup :
-    radicalQ =
-    radicalZ ⊔ Subgroup.closure (Set.range sympA ∪ Set.range sympB) := by
-  refine le_antisymm ?_ (sup_le radicalZ_le_radicalQ ((Subgroup.closure_le _).2 ?_))
-  · rw [radicalQ_eq_closure, Subgroup.closure_le]
-    rintro _ ⟨i, hi, rfl⟩
-    have hZ : ∀ {g}, g ∈ radicalZ → g ∈ radicalZ ⊔ Subgroup.closure
-        (Set.range sympA ∪ Set.range sympB) := fun h => Subgroup.mem_sup_left h
-    have hS : ∀ {g}, g ∈ Set.range sympA ∪ Set.range sympB → g ∈ radicalZ ⊔ Subgroup.closure
-        (Set.range sympA ∪ Set.range sympB) := fun h =>
-      Subgroup.mem_sup_right (Subgroup.subset_closure h)
-    interval_cases i
-    · exact hS (Or.inl ⟨0, rfl⟩)
-    · exact hS (Or.inl ⟨1, rfl⟩)
-    · exact hZ (zB_mem_radicalZ (j := 1) (by norm_num))
-    · exact hZ (zB_mem_radicalZ (j := 2) (by norm_num))
-    · exact hS (Or.inl ⟨2, rfl⟩)
-    · exact hZ (zB_mem_radicalZ (j := 3) (by norm_num))
-    · exact hS (Or.inl ⟨3, rfl⟩)
-    · exact hZ (zB_mem_radicalZ (j := 4) (by norm_num))
-    · exact hZ (zB_mem_radicalZ (j := 5) (by norm_num))
-    · exact hS (Or.inr ⟨3, rfl⟩)
-    · exact hS (Or.inr ⟨2, rfl⟩)
-    · exact hZ (zB_mem_radicalZ (j := 6) (by norm_num))
-    · exact hS (Or.inr ⟨1, rfl⟩)
-    · exact hS (Or.inr ⟨0, rfl⟩)
-    · exact hZ (zB_mem_radicalZ (j := 0) (by norm_num))
-  · rintro _ (⟨i, rfl⟩ | ⟨i, rfl⟩)
-    exacts [sympA_mem i, sympB_mem i]
 
 end CFSG.Monster.B.E6.StdF4Radical

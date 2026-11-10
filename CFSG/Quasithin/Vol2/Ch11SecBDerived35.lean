@@ -16,15 +16,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Quasithin.H13
       Function.Surjective φ → commutator X = ⊤ → CFSG.pCore 2 X = ⊥ →
         φ.ker ≤ Subgroup.center X → Function.Injective φ
 
-@[expose] def DerivedL2List : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G) (n : ℕ) (H K : Subgroup G) (k : ℕ),
-    Hyp11 G T L I n → IsHStar T (Subgroup.normalizer (L : Set G)) H →
-    ⁅quasithinOmegaOneCenter T, H⁆ ≠ ⊥ → E1.nParam H = k → 2 ≤ k →
-    K ∈ cComp H → H = K ⊔ T → CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) →
-    E2.E22Cases H T (H ⊓ Subgroup.normalizer (L : Set G)) K →
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = 2 ^ k ∧
-        ∃ φ : ↥K ⧸ CFSG.pCore 2 ↥K →* Matrix.SpecialLinearGroup (Fin 2) F,
-          Function.Surjective φ ∧ φ.ker ≤ Subgroup.center (↥K ⧸ CFSG.pCore 2 ↥K)
 
 @[expose] def DerivedTwoComponents : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G) (n : ℕ) (H K D : Subgroup G) (k p : ℕ),

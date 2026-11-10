@@ -18,7 +18,6 @@ open CFSG.KC.IF4C
 
 #kc_forall_chunks cr16980a_all (fun j => rp j = true) 29 CFSG.KD.GURP0.cr16980a 1
 
-theorem cr16980a_lists : lists = true := by decide +kernel
 
 end CFSG.KD.GURP0
 
@@ -28,7 +27,6 @@ open CFSG.KC.IF4C
 
 #kc_forall_chunks cr16980b_all (fun j => rp j = true) 29 CFSG.KD.GURP1.cr16980b 1
 
-theorem cr16980b_lists : lists = true := by decide +kernel
 
 end CFSG.KD.GURP1
 

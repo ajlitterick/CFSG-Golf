@@ -6,25 +6,6 @@ public section
 
 namespace CFSG.LocalAnalysis.UniquenessCase.PartTwo
 
-private theorem s16t3_eq_of_dvd_two_pow_mul_three_pow {n x a : ℕ}
-    (hn : n ∣ 2 ^ x * 3 ^ a) :
-    n = 2 ^ (n.factorization 2) * 3 ^ (n.factorization 3) := by
-  have hpos : 0 < 2 ^ x * 3 ^ a := by positivity
-  have hn0 : n ≠ 0 := by
-    rintro rfl
-    exact hpos.ne' (zero_dvd_iff.mp hn)
-  have hsupp : n.factorization.support ⊆ {2, 3} := by
-    intro q hq
-    rw [Nat.support_factorization, Nat.mem_primeFactors] at hq
-    obtain ⟨hqprime, hqdvd, -⟩ := hq
-    rcases (Nat.Prime.dvd_mul hqprime).1 (hqdvd.trans hn) with h | h
-    · exact Finset.mem_insert.2 (Or.inl ((Nat.prime_dvd_prime_iff_eq hqprime
-        Nat.prime_two).1 (hqprime.dvd_of_dvd_pow h)))
-    · exact Finset.mem_insert.2 (Or.inr (Finset.mem_singleton.2
-        ((Nat.prime_dvd_prime_iff_eq hqprime Nat.prime_three).1 (hqprime.dvd_of_dvd_pow h))))
-  conv_lhs => rw [← Nat.prod_factorization_pow_eq_self hn0]
-  rw [Finsupp.prod_of_support_subset _ hsupp _ fun _ _ => pow_zero _,
-    Finset.prod_pair (by norm_num : (2 : ℕ) ≠ 3)]
 
 theorem s16t3_pow_three_of_isPGroup_ker {P H : Type*} [Group P] [Group H] (β : P →* H)
     (hker : IsPGroup 2 β.ker) (hH : ∀ h : H, ∀ k : ℕ, h ^ 3 ^ k = 1 → h ^ 3 = 1) :

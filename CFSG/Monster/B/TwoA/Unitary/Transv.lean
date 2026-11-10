@@ -102,16 +102,6 @@ theorem mem_OmegaW_iff_wAct
     have := wAct_mem_OmegaW u⁻¹ h
     rwa [wAct_inv_apply] at this⟩
 
-theorem mem_usigOrbit_iff_wAct
-    {u : Kstab v0} (hu : u ∈ Usig) (x y : Wv v0) :
-    y ∈ usigOrbit x ↔ wAct v0 u y ∈ usigOrbit x := by
-  constructor
-  · rintro ⟨v, hv, rfl⟩
-    refine ⟨v * u, Usig.mul_mem hv hu, ?_⟩
-    rw [wAct_mul, Module.End.mul_apply]
-  · rintro ⟨v, hv, e⟩
-    refine ⟨v * u⁻¹, Usig.mul_mem hv (Usig.inv_mem hu), ?_⟩
-    rw [wAct_mul, Module.End.mul_apply, e, wAct_inv_apply]
 
 theorem coe_conj_genU
     (u : Usig) :
@@ -128,16 +118,6 @@ theorem finrank_range_transvU
   obtain ⟨u, hu⟩ := exists_transvU_conj hR
   rw [hu, coe_conj_genU, finrank_range_conj, finrank_range_genK_six]
 
-theorem finrank_ker_transvU
-    {R : Submodule F4 V6} (hR : IsSingPt R) :
-    finrank (ZMod 2) (LinearMap.ker (wAct v0 (transvU R) - 1)) = 16 := by
-  have h := LinearMap.finrank_range_add_finrank_ker (wAct v0 (transvU R) - 1)
-  rw [finrank_range_transvU hR, finrank_W] at h
-  omega
-
-theorem wAct_transvU_sigmaW
-    (R : Submodule F4 V6) : wAct v0 (transvU R) sigmaW = sigmaW :=
-  (transvU R).2
 
 theorem ncard_fix_OmegaW_transvU
     {R : Submodule F4 V6} (hR : IsSingPt R) :
@@ -145,18 +125,6 @@ theorem ncard_fix_OmegaW_transvU
   obtain ⟨u, hu⟩ := exists_transvU_conj hR
   rw [hu, coe_conj_genU, ncard_fix_conj (mem_OmegaW_iff_wAct u), ncard_fix_OmegaW]
 
-theorem ncard_fix_DeltaW_transvU
-    {R : Submodule F4 V6} (hR : IsSingPt R) :
-    {x | x ∈ DeltaW ∧ wAct v0 (transvU R) x = x}.ncard = 27 := by
-  obtain ⟨u, hu⟩ := exists_transvU_conj hR
-  rw [hu, coe_conj_genU, ← usigOrbit_delta,
-    ncard_fix_conj (mem_usigOrbit_iff_wAct u.2 (sigmaW + wFr)), usigOrbit_delta, ncard_fix_DeltaW]
-
-theorem ncard_fix_tauOrb_transvU
-    {R : Submodule F4 V6} (hR : IsSingPt R) :
-    {x | x ∈ usigOrbit tauW ∧ wAct v0 (transvU R) x = x}.ncard = 256 := by
-  obtain ⟨u, hu⟩ := exists_transvU_conj hR
-  rw [hu, coe_conj_genU, ncard_fix_conj (mem_usigOrbit_iff_wAct u.2 tauW), ncard_fix_tauOrb]
 
 theorem singVec_five : singVec 5 = e6 2 := by decide +kernel
 
@@ -242,40 +210,5 @@ theorem fixTauPts_eq :
     rw [singPt_five]
     exact fixTauPts_smul Rsp_mem_fixTauPts ha
 
-theorem ncard_ptOrbit_zero :
-    (ptOrbit 0).ncard = 126 := by
-  rw [ncard_ptOrbit (c := 0) (by norm_num), card_singPart.1]
-
-theorem ncard_setOf_isSingPt :
-    {R : Submodule F4 V6 | IsSingPt R}.ncard = 693 := by
-  rw [setOf_isSingPt, Set.ncard_range_of_injective singPt_injective, Nat.card_eq_fintype_card,
-    Fintype.card_fin]
-
-theorem native_unitary_transvection_rank_and_1408_fixed_points :
-    {R : Submodule F4 V6 | IsSingPt R}.ncard = 693 ∧
-    (∀ v x : V6, x ᵥ* uTransvMat v = x + hU x v • v) ∧
-    (∀ v : V6, hU v v = 0 →
-      (((transvSU v : SUh) : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) = uTransvMat v) ∧
-    (∀ v : V6, transvSig v = ⟨((transvSU v : SUh) : SUh ⧸ Zh), 1⟩) ∧
-    (∀ R : Submodule F4 V6, IsSingPt R → ∀ v ∈ R, v ≠ 0 →
-      transvAt R = transvSig v ∧ ∀ P : Submodule F4 V6,
-        ((sigmaAct P (transvAt R) : Submodule F4 V6) : Set V6) = (fun x => x + hU x v • v) '' P) ∧
-    (∀ R : Submodule F4 V6, transvU R = phiU.symm (transvAt R)) ∧
-    transvU Rsp = genU 6 ∧ (genU 6 : Kstab v0) = Co2Inv.rK ∧
-    (∀ R : Submodule F4 V6, IsSingPt R →
-      finrank (ZMod 2) (LinearMap.range (wAct v0 (transvU R) - 1)) = 6 ∧
-      finrank (ZMod 2) (LinearMap.ker (wAct v0 (transvU R) - 1)) = 16 ∧
-      {x | x ∈ OmegaW ∧ wAct v0 (transvU R) x = x}.ncard = 284 ∧
-      wAct v0 (transvU R) sigmaW = sigmaW ∧
-      {x | x ∈ DeltaW ∧ wAct v0 (transvU R) x = x}.ncard = 27 ∧
-      {x | x ∈ usigOrbit tauW ∧ wAct v0 (transvU R) x = x}.ncard = 256) ∧
-    {R : Submodule F4 V6 | IsSingPt R ∧ wAct v0 (transvU R) tauW = tauW} = ptOrbit 0 ∧
-    (ptOrbit 0).ncard = 126 ∧ (∀ P ∈ ptOrbit 0, orbitA P = ptOrbit 0) :=
-  ⟨ncard_setOf_isSingPt, vecMul_uTransvMat, fun _ hv => coe_transvSU hv, fun _ => rfl,
-    fun _ hR _ hv hv0 => ⟨transvAt_eq hR hv hv0, coe_sigmaAct_transvAt hR hv hv0⟩,
-    fun _ => rfl, transvU_Rsp, Amalgam.genK_six,
-    fun _ hR => ⟨finrank_range_transvU hR, finrank_ker_transvU hR, ncard_fix_OmegaW_transvU hR,
-      wAct_transvU_sigmaW _, ncard_fix_DeltaW_transvU hR, ncard_fix_tauOrb_transvU hR⟩,
-    fixTauPts_eq, ncard_ptOrbit_zero, fun _ hP => orbitA_of_mem_ptOrbit (by norm_num) hP⟩
 
 end CFSG.Monster.B.TwoA.Unitary

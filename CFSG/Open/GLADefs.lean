@@ -20,7 +20,6 @@ abbrev GLALabel := @CFSG.Assembly.LargeEvenLabel
 
 abbrev GLAInLambda2 := @CFSG.Assembly.LargeEvenInLambda2
 
-abbrev GLAUntwisted := @CFSG.Assembly.LargeEvenUntwisted
 
 abbrev GLASplit := @CFSG.Assembly.LargeEvenSplit
 
@@ -30,11 +29,6 @@ abbrev GLASplit16 := @CFSG.Assembly.LargeEvenSplit16
 
 abbrev GLAHalfSplit16 := @CFSG.Assembly.LargeEvenHalfSplit16
 
-abbrev GLAHalfSplitWithE6Four := @CFSG.Assembly.LargeEvenHalfSplitWithE6Four
-
-abbrev GLAGraphAut := @CFSG.Assembly.LargeEvenGraphAut
-
-abbrev GLAInnSet := @CFSG.Assembly.LargeEvenInnSet
 
 abbrev GLAScalars := @CFSG.Assembly.LargeEvenScalars
 
@@ -46,13 +40,9 @@ abbrev GLASLGroup := @CFSG.Assembly.LargeEvenSLGroup
 
 abbrev GLASUGroup := @CFSG.Assembly.LargeEvenSUGroup
 
-abbrev GLASpForm := @CFSG.Assembly.LargeEvenSpForm
-
-abbrev GLASpGroup := @CFSG.Assembly.LargeEvenSpGroup
 
 abbrev GLAOrthGroup := @CFSG.Assembly.LargeEvenOrthGroup
 
-abbrev GLAOmega := @CFSG.Assembly.LargeEvenOmega
 
 abbrev GLAQPlus := @CFSG.Assembly.LargeEvenQPlus
 
@@ -60,107 +50,14 @@ abbrev GLAMinusIdx := @CFSG.Assembly.LargeEvenMinusIdx
 
 abbrev GLAQMinus := @CFSG.Assembly.LargeEvenQMinus
 
-abbrev GLAGUSet := @CFSG.Assembly.LargeEvenGUSet
-
-abbrev GLAGSpSet := @CFSG.Assembly.LargeEvenGSpSet
-
-abbrev GLAMatConjImage := @CFSG.Assembly.LargeEvenMatConjImage
-
-abbrev GLAMatFieldImage := @CFSG.Assembly.LargeEvenMatFieldImage
-
-abbrev GLAFrobBlock := @CFSG.Assembly.LargeEvenFrobBlock
-
-abbrev GLAPhiQ := @CFSG.Assembly.LargeEvenPhiQ
 
 abbrev GLARawCont := @CFSG.Assembly.LargeEvenRawCont
 
-abbrev GLARecipeLinear := @CFSG.Assembly.LargeEvenRecipeLinear
-
-abbrev GLARecipeUnitary := @CFSG.Assembly.LargeEvenRecipeUnitary
-
-abbrev GLARecipeSymplectic := @CFSG.Assembly.LargeEvenRecipeSymplectic
-
-abbrev GLARecipeOmegaPlus := @CFSG.Assembly.LargeEvenRecipeOmegaPlus
-
-abbrev GLARecipeOmegaMinus := @CFSG.Assembly.LargeEvenRecipeOmegaMinus
-
-abbrev GLACartanG2 := @CFSG.Assembly.LargeEvenCartanG2
-
-abbrev GLACartanF4 := @CFSG.Assembly.LargeEvenCartanF4
-
-abbrev GLACartanD4 := @CFSG.Assembly.LargeEvenCartanD4
-
-abbrev GLACartanE := @CFSG.Assembly.LargeEvenCartanE
-
-abbrev GLARhoE6 := @CFSG.Assembly.LargeEvenRhoE6
-
-abbrev GLARhoD4 := @CFSG.Assembly.LargeEvenRhoD4
-
-abbrev GLARhoF4 := @CFSG.Assembly.LargeEvenRhoF4
-
-abbrev GLAReflect := @CFSG.Assembly.LargeEvenReflect
-
-abbrev GLAIsRoot := @CFSG.Assembly.LargeEvenIsRoot
-
-abbrev GLARootIndex := @CFSG.Assembly.LargeEvenRootIndex
-
-abbrev GLAChevModule := @CFSG.Assembly.LargeEvenChevModule
-
-abbrev GLAChevGL := @CFSG.Assembly.LargeEvenChevGL
-
-abbrev GLAHVec := @CFSG.Assembly.LargeEvenHVec
-
-abbrev GLARootVec := @CFSG.Assembly.LargeEvenRootVec
-
-abbrev GLAStringUp := @CFSG.Assembly.LargeEvenStringUp
-
-abbrev GLAStringDown := @CFSG.Assembly.LargeEvenStringDown
-
-abbrev GLAXOp := @CFSG.Assembly.LargeEvenXOp
-
-abbrev GLAYOp := @CFSG.Assembly.LargeEvenYOp
-
-abbrev GLAChevGroup := @CFSG.Assembly.LargeEvenChevGroup
-
-abbrev GLAEntrywise := @CFSG.Assembly.LargeEvenEntrywise
-
-abbrev GLADiagramMap := @CFSG.Assembly.LargeEvenDiagramMap
-
-abbrev GLADiagMap := @CFSG.Assembly.LargeEvenDiagMap
-
-abbrev GLACenterQuot := @CFSG.Assembly.LargeEvenCenterQuot
-
-abbrev GLACenterMk := @CFSG.Assembly.LargeEvenCenterMk
-
-abbrev GLAChevDiagImage := @CFSG.Assembly.LargeEvenChevDiagImage
-
-abbrev GLAChevIDImage := @CFSG.Assembly.LargeEvenChevIDImage
-
-abbrev GLAParentConjImage := @CFSG.Assembly.LargeEvenParentConjImage
-
-abbrev GLAChevParentIDImage := @CFSG.Assembly.LargeEvenChevParentIDImage
-
-abbrev GLAChevFieldImage := @CFSG.Assembly.LargeEvenChevFieldImage
-
-abbrev GLAChevH := @CFSG.Assembly.LargeEvenChevH
-
-abbrev GLATwistedH := @CFSG.Assembly.LargeEvenTwistedH
-
-abbrev GLATwF4Exp := @CFSG.Assembly.LargeEvenTwF4Exp
-
-abbrev GLATwF4H := @CFSG.Assembly.LargeEvenTwF4H
 
 abbrev GLASzGens := @CFSG.Assembly.LargeEvenSzGens
 
 abbrev GLASzGroup := @CFSG.Assembly.LargeEvenSzGroup
 
-abbrev GLARecipeChevalley := @CFSG.Assembly.LargeEvenRecipeChevalley
-
-abbrev GLARecipeTwisted := @CFSG.Assembly.LargeEvenRecipeTwisted
-
-abbrev GLARecipeSuzuki := @CFSG.Assembly.LargeEvenRecipeSuzuki
-
-abbrev GLARecipeTwF4 := @CFSG.Assembly.LargeEvenRecipeTwF4
 
 abbrev GLARawDatum := @CFSG.Assembly.LargeEvenRawDatum
 
@@ -171,8 +68,6 @@ abbrev GLAMarking := @CFSG.Assembly.LargeEvenMarking
 abbrev GLAInduces := @CFSG.Assembly.LargeEvenInduces
 
 abbrev GLAPrimeField := @CFSG.Assembly.LargeEvenPrimeField
-
-abbrev GLAIsU42 := @CFSG.Assembly.LargeEvenIsU42
 
 
 section Local

@@ -167,46 +167,6 @@ lemma mul_mem
     φ * ψ ∈ InducedCharacterSpan P :=
   characterSpan_mul_mem P (le_characterSpan P hφ) hψ
 
-/--
-Induction from a subgroup maps one induced-character span into another,
-provided the subgroup predicate is preserved when subgroups are mapped into
-the ambient group.
--/
-lemma induction_mem
-    {H : Subgroup G}
-    {P : Subgroup H → Prop}
-    {Q : Subgroup G → Prop}
-    (hmap : ∀ K : Subgroup H, P K → Q (K.map H.subtype))
-    {ψ : ClassFun k H}
-    (hψ : ψ ∈ InducedCharacterSpan P) :
-    ClassFun.ind H ψ ∈ InducedCharacterSpan Q := by
-  refine Submodule.span_induction
-    (p := fun f _ =>
-      ClassFun.ind H f ∈ InducedCharacterSpan Q)
-    ?gen ?zero ?add ?smul hψ
-
-  · rintro f ⟨K, hK, W, rfl⟩
-    let K_G : Subgroup G := K.map H.subtype
-    let eK : K ≃* K_G :=
-      K.equivMapOfInjective H.subtype Subtype.coe_injective
-    let W_G : FDRep k K_G := FDRep.transport eK W
-    have h_transport_char :
-        ClassFun.character W_G =
-          (ClassFun.equivOfMulEquiv eK).symm
-            (ClassFun.character W) := by
-      ext x
-      rfl
-    rw [ClassFun.ind_trans (K := H) (H := K) (ClassFun.character W)]
-    rw [← h_transport_char]
-    exact inducedCharacter_mem (P := Q) K_G (hmap K hK) W_G
-  · rw [ClassFun.ind_zero]
-    exact Submodule.zero_mem _
-  · intro x y _ _ hx hy
-    rw [ClassFun.ind_add]
-    exact Submodule.add_mem _ hx hy
-  · intro n x _ hx
-    rw [ClassFun.ind_zsmul]
-    exact Submodule.smul_mem _ n hx
 
 end InducedCharacterSpan
 
@@ -310,17 +270,6 @@ lemma characterSpan_mul_mem
   InducedCharacterSpan.characterSpan_mul_mem
     (fun H => IsBrauerElementary H) hφ hψ
 
-/--
-Multiplication on the left by the character of a representation preserves
-membership in `BrauerSpanChar`.
--/
-lemma character_mul_mem
-    (V : FDRep k G)
-    {φ : ClassFun k G}
-    (hφ : φ ∈ BrauerSpanChar) :
-    ClassFun.character V * φ ∈ BrauerSpanChar :=
-  characterSpan_mul_mem
-    (ClassFun.characterSpan.character_mem V) hφ
 
 /--
 The Brauer-character span is closed under pointwise multiplication.
@@ -333,49 +282,6 @@ lemma mul_mem
     φ * ψ ∈ BrauerSpanChar :=
   characterSpan_mul_mem (le_characterSpan hφ) hψ
 
-/--
-Induction from a subgroup preserves membership in `BrauerSpanChar`.
--/
-lemma induction_mem
-    {H : Subgroup G}
-    {ψ : ClassFun k H}
-    (hψ :
-      ψ ∈ BrauerSpanChar (G := H)) :
-    ClassFun.ind H ψ ∈ BrauerSpanChar := by
-  apply InducedCharacterSpan.induction_mem
-    (P := fun K : Subgroup H => IsBrauerElementary K)
-    (Q := fun K : Subgroup G => IsBrauerElementary K)
-    ?_ hψ
-  intro K hK
-  exact IsBrauerElementary.ofMulEquiv
-    hK (K.equivMapOfInjective H.subtype Subtype.coe_injective)
-
-/--
-Every character of a Brauer-elementary group belongs to its Brauer character
-span.
--/
-theorem character_mem_of_isBrauerElementary
-    (hG : IsBrauerElementary G)
-    (V : FDRep k G) :
-    ClassFun.character V ∈ BrauerSpanChar := by
-  have htop : IsBrauerElementary (⊤ : Subgroup G) :=
-      IsBrauerElementary.ofMulEquiv hG Subgroup.topEquiv.symm
-  have hgen :
-      ClassFun.ind ⊤
-        (ClassFun.character (FDRep.res V ⊤)) ∈ BrauerSpanChar := by
-    apply Submodule.subset_span
-    exact ⟨⊤, htop, FDRep.res V (⊤ : Subgroup G), rfl⟩
-  let e : FDRep.ind ⊤ (FDRep.res V ⊤) ≅ V :=
-    FDRep.indTopIsoOfTop (FDRep.res V ⊤) ≪≫ FDRep.ofTop_res_top_iso V
-  have hchar :
-      ClassFun.ind (⊤ : Subgroup G)
-          (ClassFun.character (FDRep.res V ⊤))
-        =
-      ClassFun.character V := by
-    rw [ClassFun.ind_ofChar]
-    exact ClassFun.char_eq_of_iso e
-  rw [hchar] at hgen
-  exact hgen
 
 end BrauerSpanChar
 

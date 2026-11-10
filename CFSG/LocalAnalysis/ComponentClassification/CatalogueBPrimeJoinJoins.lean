@@ -63,27 +63,6 @@ theorem p_component_subnormal_join_irreducibility {G : Type*} [Group G] [Finite 
   let : Fact p.Prime := ⟨hp⟩
   exact exists_le_of_le_iSup p L hL N hN hle
 
-theorem component_sets_eq_of_sSup_eq {G : Type*} [Group G] [Finite G]
-    (p : ℕ) [Fact p.Prime] (C D : Set (Subgroup G))
-    (hC : ∀ L ∈ C, CFSG.IsPComponent p L) (hD : ∀ L ∈ D, CFSG.IsPComponent p L)
-    (hjoins : sSup C = sSup D) : C = D := by
-  apply Set.Subset.antisymm
-  · intro L hL
-    have hle : L ≤ sSup D := by
-      rw [← hjoins]
-      exact le_sSup hL
-    obtain ⟨K, hK, hcontained⟩ := exists_le_of_le_sSup p L (hC L hL) D
-      (fun H hH => (hD H hH).choose_spec.2.1) hle
-    have heq := eq_of_le p L K (hC L hL) (hD K hK) hcontained
-    exact heq ▸ hK
-  · intro L hL
-    have hle : L ≤ sSup C := by
-      rw [hjoins]
-      exact le_sSup hL
-    obtain ⟨K, hK, hcontained⟩ := exists_le_of_le_sSup p L (hD L hL) C
-      (fun H hH => (hC H hH).choose_spec.2.1) hle
-    have heq := eq_of_le p L K (hD L hL) (hC K hK) hcontained
-    exact heq ▸ hK
 
 theorem p_component_quasisimplicity_subnormal_join {X : Type*} [Group X] [Finite X]
     (p : ℕ) (hp : p.Prime) (r : ℕ) (N : Fin r → Subgroup X)

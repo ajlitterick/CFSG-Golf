@@ -187,49 +187,5 @@ theorem span_single_mem_hypIsotropicLines {a : HypIndex 1 1} (ha : hypPartner a 
   change gramForm h (hypGram 1 1 K) (c • Pi.single a 1) (c • Pi.single a 1) = 0
   simp [gramForm_single, hypGram_apply, Ne.symm ha]
 
-theorem unitary_rank_one_point_data :
-    infPt ∈ hypIsotropicLines h 1 1 ∧ zeroPt ∈ hypIsotropicLines h 1 1 ∧
-    (infPt : Submodule K (HypIndex 1 1 → K)) ≠ zeroPt ∧
-    (∀ a b : K, h.norm a + h.trace b = 0 →
-      ((rkOneQ h a b).map h.bar)ᵀ * hypGram 1 1 K * rkOneQ h a b = hypGram 1 1 K ∧
-        (rkOneQ h a b).det = 1) ∧
-    (∀ a b : K, rkOneQ h a b =
-      (!![1, -h.bar a, b; 0, 1, a; 0, 0, 1] : Matrix (Fin 3) (Fin 3) K).submatrix hypIndexFin3
-        hypIndexFin3) ∧
-    (∀ s : K, s ≠ 0 →
-      ((rkOneD h s).map h.bar)ᵀ * hypGram 1 1 K * rkOneD h s = hypGram 1 1 K ∧
-        (rkOneD h s).det = 1) ∧
-    (∀ s : K, rkOneD h s = diagonal (rkOneDiag h s) ∧ rkOneDiag h s (.inl 0) = s ∧
-      rkOneDiag h s (.inr (.inl 0)) = h.bar s / s ∧ rkOneDiag h s (.inr (.inr 0)) = (h.bar s)⁻¹) ∧
-    rkOneC h ≤ rkOneG h ∧ rkOneT h ≤ rkOneG h ∧ rkOneUStar h ≤ rkOneG h ∧
-    (∀ x, x ∈ rkOneC h ↔
-      ∃ (t : K) (ht : t ∈ h.traceZero), rkOneU h 0 t (norm_zero_add_trace ht) = x) ∧
-    (∀ x, x ∈ rkOneT h ↔ ∃ s : Kˣ, rkOneTElt h s = x) ∧
-    (∀ s : Kˣ, (rkOneChi h s : K) = h.bar s ^ 2 / s) ∧
-    rkOneDelta p f = Nat.gcd 3 (p ^ f + 1) := by
-  have hne : (Pi.single (.inl 0) 1 : HypIndex 1 1 → K) ∉ zeroPt := fun hmem => by
-    obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hmem
-    have := congrFun hc (.inl 0)
-    simp at this
-  refine ⟨span_single_mem_hypIsotropicLines (by simp), span_single_mem_hypIsotropicLines
-    (by simp), fun heq => hne (heq ▸ Submodule.mem_span_singleton_self _),
-    fun a b hab => ⟨rkOneQ_gram h hab, det_rkOneQ h hab⟩, fun a b => rfl,
-    fun s hs => ⟨rkOneD_gram h hs, det_rkOneD h hs⟩, fun s => ⟨rfl, rfl, rfl, rfl⟩, ?_, ?_, ?_,
-    fun x => ?_, fun x => ⟨fun ⟨s, hs⟩ => ⟨s, hs⟩, fun ⟨s, hs⟩ => ⟨s, hs⟩⟩, fun s => ?_, rfl⟩
-  · rintro _ ⟨t, rfl⟩
-    exact ⟨hypProj h 1 1 (rkOneCHomSU h t), rfl⟩
-  · rintro _ ⟨t, rfl⟩
-    exact ⟨hypProj h 1 1 (rkOneDHomSU h t), rfl⟩
-  · rintro _ ⟨x, -, rfl⟩
-    exact ⟨x, rfl⟩
-  · constructor
-    · rintro ⟨t, rfl⟩
-      exact ⟨t.toAdd, t.toAdd.2, rfl⟩
-    · rintro ⟨t, ht, rfl⟩
-      exact ⟨Multiplicative.ofAdd ⟨t, ht⟩, rfl⟩
-  · change ((Units.map (h.bar : K →* K) s ^ 2 * s⁻¹ : Kˣ) : K) = _
-    rw [Units.val_mul, Units.val_pow_eq_pow_val, Units.coe_map, Units.val_inv_eq_inv_val,
-      div_eq_mul_inv]
-    rfl
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

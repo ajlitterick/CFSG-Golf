@@ -466,11 +466,6 @@ theorem conjSub_mem_uFamHat {n : G} {H X U : Subgroup G} (hn : n ∈ H)
 theorem uHat_le (H X : Subgroup G) : uHat H X ≤ H :=
   iSup₂_le fun _ hU => hU.1.1
 
-theorem uFam_eq_empty_of_eq {H : Subgroup G} : uFam H H = ∅ := by
-  ext U
-  simp only [Set.mem_empty_iff_false, iff_false]
-  rintro ⟨hUH, hHU, -⟩
-  exact absurd hUH (not_le_of_gt hHU)
 
 theorem conjSub_uHat_le {H X : Subgroup G} {m : G} (hm : m ∈ H)
     (hmX : m ∈ Subgroup.normalizer (X : Set G)) : conjSub m (uHat H X) ≤ uHat H X := by

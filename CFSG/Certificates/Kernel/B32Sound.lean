@@ -40,7 +40,6 @@ theorem toUTF8_toList {cs : List Char} (h : ∀ c ∈ cs, c.toNat < 128) :
   rw [String.toUTF8_eq_toByteArray, String.toByteArray_ofList, List.utf8Encode,
     CFSG.KS.Text.flatMap_ascii' cs h, List.data_toByteArray, List.toList_toArray]
 
-theorem digit_eq (c : Nat) : digitOf c = digit c := rfl
 
 theorem fold_map : ∀ (cs : List Char) (st : Array Nat × Nat), (∀ c ∈ cs, c.toNat < 128) →
     (cs.map fun c => UInt8.ofNat c.toNat).foldl (fun (st : Array Nat × Nat) b =>

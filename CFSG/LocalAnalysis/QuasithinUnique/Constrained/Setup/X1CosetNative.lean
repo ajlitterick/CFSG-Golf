@@ -7,7 +7,6 @@ namespace CFSG.QuasithinUnique.Setup.X1
 
 @[expose] def arrImg (t : Array Nat) (p : Nat) : Nat := t.getD p 0
 
-@[expose] def cArr (s t : Array Nat) : Array Nat := t.map fun j => s.getD j 0
 
 @[expose] def bfsExpand (ts : List (Array Nat)) (x : Nat) (st : Array Bool × List Nat) :
     Array Bool × List Nat :=

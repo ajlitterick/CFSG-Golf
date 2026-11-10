@@ -111,41 +111,6 @@ end Rank
 
 section Main
 
-theorem sec6EightSection_of_tables
-    (hGA : CFSG.Open.GriessAllModelsStatement)
-    (hAlt : ∀ (K : Type) [Group K] [Finite K] [Group.IsPerfect K] (n : ℕ), 5 ≤ n →
-      (K ⧸ Subgroup.center K ≃* alternatingGroup (Fin n)) → ∀ p : ℕ, p.Prime → 3 < p →
-      ¬ p ∣ Nat.card (Subgroup.center K))
-    (hExc : ExceptionalCenterSmallPrimes) (hSpor : SporadicCenterSmallPrimes) :
-    SectionProvider Sec68Hyp := by
-  intro G _ _ he I Γ _ _ φ p hp hp5 hloc hK hcat hpZ
-  have hp3 : 3 < p := by omega
-  have : Group.IsPerfect ↥φ.range := hK.1
-  rcases hcat with ⟨q, hq, ⟨e⟩⟩ | ⟨m, hm, ⟨e⟩⟩ | hcl | hex | hsp
-  · exfalso
-    obtain ⟨a, b, hab⟩ := hK.2.2
-    exact hab (e.injective (by rw [map_mul, map_mul]; exact mul_comm _ _))
-  · exact absurd hpZ (hAlt ↥φ.range m hm e p hp hp3)
-  · obtain ⟨t, n, ℓ, f, hmod⟩ := hcl
-    have hdvd := card_center_dvd_of_model hGA hK hmod
-    rcases prime_dvd_table hp hp3 (hpZ.trans hdvd) with ⟨rfl, hpn, hpq⟩ | ⟨rfl, hpn, hpq⟩
-    · exact (sec68_psl_section he φ.rangeRestrict φ.rangeRestrict_surjective hp hp3 hloc hmod
-        hpn hpq).elim
-    · obtain ⟨rfl, rfl, rfl⟩ := sec68_psu_section he φ.rangeRestrict φ.rangeRestrict_surjective
-        hp hp3 hloc hmod hpn hpq
-      have hf : 1 ≤ f := hmod.1.2.1
-      have hord : (genericOrders .PSU 5 2 f).1 * (genericOrders .PSU 5 2 f).2 *
-          ((exceptionalOrders .PSU 5 2 f).1 * (exceptionalOrders .PSU 5 2 f).2) = 5 := by
-        have h1 : genericOrders .PSU 5 2 f = (Nat.gcd 5 (2 ^ f + 1), 1) := rfl
-        have h2 : exceptionalOrders .PSU 5 2 f = (1, 1) := by
-          unfold exceptionalOrders
-          simp
-        rw [h1, h2, Nat.gcd_eq_left hpq]
-        norm_num
-      rw [hord] at hdvd
-      exact ⟨rfl, Nat.dvd_antisymm hdvd hpZ, f, hf, hmod⟩
-  · exact absurd hpZ (hExc ↥φ.range hK hex p hp hp3)
-  · exact absurd hpZ (hSpor ↥φ.range hK hsp p hp hp3)
 
 end Main
 

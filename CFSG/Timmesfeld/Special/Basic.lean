@@ -74,10 +74,6 @@ section SpecialPair
 
 variable {d e : G}
 
-theorem mul_sq_mem_of_mem_rootSet (hD : IsRootInvolutionSet D) (hd : d ∈ D) (he : e ∈ D)
-    (h4 : orderOf (d * e) = 4) {a b : G} (ha : a ∈ rootSet D d) (hb : b ∈ rootSet D e) :
-    (a * b) ^ 2 ∈ D :=
-  hD.sq_mem ha.1 hb.1 (orderOf_mul_eq_four_of_mem_rootSet hD hd he ha hb h4)
 
 theorem commute_mul_sq_of_mem_rootGroup_left (hD : IsRootInvolutionSet D) (hd : d ∈ D)
     (he : e ∈ D) (h4 : orderOf (d * e) = 4) {a b g : G} (ha : a ∈ rootSet D d)
@@ -105,17 +101,6 @@ theorem rootGroup_sq_le_centralizer (hD : IsRootInvolutionSet D) (hd : d ∈ D) 
   · exact commute_of_mem_rootGroup_of_commute' he hc hg hez.symm
   · exact commute_of_mem_rootGroup hz hc hg
 
-theorem rootGroup_sq_subgroupOf_le_center (hD : IsRootInvolutionSet D) (hd : d ∈ D) (he : e ∈ D)
-    (h4 : orderOf (d * e) = 4) :
-    (rootGroup D ((d * e) ^ 2)).subgroupOf (rootGroup D d ⊔ rootGroup D e ⊔
-      rootGroup D ((d * e) ^ 2)) ≤
-      Subgroup.center ↥(rootGroup D d ⊔ rootGroup D e ⊔ rootGroup D ((d * e) ^ 2)) := by
-  intro x hx
-  rw [Subgroup.mem_subgroupOf] at hx
-  rw [Subgroup.mem_center_iff]
-  intro y
-  exact Subtype.ext
-    (Subgroup.mem_centralizer_iff.mp (rootGroup_sq_le_centralizer hD hd he h4 hx) y y.2)
 
 theorem commutator_sup_rootGroup_le_centralizer (hD : IsRootInvolutionSet D) (hd : d ∈ D)
     (he : e ∈ D) (h4 : orderOf (d * e) = 4) :
@@ -177,13 +162,6 @@ theorem isNilpotent_sup_rootGroup (hD : IsRootInvolutionSet D) (hd : d ∈ D) (h
     (h4 : orderOf (d * e) = 4) : Group.IsNilpotent ↥(rootGroup D d ⊔ rootGroup D e) :=
   ⟨⟨2, upperCentralSeries_sup_rootGroup_eq_top hD hd he h4⟩⟩
 
-theorem nilpotencyClass_sup_rootGroup_le_two (hD : IsRootInvolutionSet D) (hd : d ∈ D)
-    (he : e ∈ D) (h4 : orderOf (d * e) = 4) :
-    haveI := isNilpotent_sup_rootGroup hD hd he h4
-    Group.nilpotencyClass ↥(rootGroup D d ⊔ rootGroup D e) ≤ 2 :=
-  haveI := isNilpotent_sup_rootGroup hD hd he h4
-  Subgroup.upperCentralSeries_eq_top_iff_nilpotencyClass_le.mp
-    (upperCentralSeries_sup_rootGroup_eq_top hD hd he h4)
 
 end SpecialPair
 

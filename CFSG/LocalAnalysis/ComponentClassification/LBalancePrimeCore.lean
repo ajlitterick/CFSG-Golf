@@ -58,16 +58,6 @@ theorem primeCore_top (p : ℕ) : lBalancePrimeCore p (⊤ : Subgroup G) = pPrim
   rw [primeCore_eq_map]
   exact pPrimeCore_map_iso p Subgroup.topEquiv
 
-theorem primeCore_quotient_corefree (p : ℕ) [Fact p.Prime] [Finite G] (Y : Subgroup G) :
-    pPrimeCore p (Y ⧸ (lBalancePrimeCore p Y).subgroupOf Y) = ⊥ := by
-  let e : (Y ⧸ (lBalancePrimeCore p Y).subgroupOf Y) ≃* (Y ⧸ pPrimeCore p Y) :=
-    QuotientGroup.congr _ _ (MulEquiv.refl Y) (by
-      change ((lBalancePrimeCore p Y).subgroupOf Y).map (MonoidHom.id Y) =
-        pPrimeCore p Y
-      rw [Subgroup.map_id, primeCore_subgroupOf_eq])
-  have heq := pPrimeCore_map_iso p e
-  rw [pPrimeCore_quotient_pPrimeCore_eq_bot] at heq
-  exact (Subgroup.map_eq_bot_iff_of_injective _ e.injective).mp heq
 
 theorem primeCore_normal_intersection (p : ℕ) [Fact p.Prime] [Finite G]
     (Y : Subgroup G) [Y.Normal] :

@@ -25,17 +25,6 @@ open CFSG.ComponentClassification.GrSLit.L34Facts
 
 @[expose] def z4 : List (ZMod 4) := [0, 1, 2, 3]
 
-@[expose] def isSubKB (kb : List Bool) : Bool :=
-  kb.length == 16 && inKB kb 0 0 &&
-    z4.all fun a => z4.all fun b => z4.all fun c => z4.all fun d =>
-      !(inKB kb a b && inKB kb c d) || inKB kb (a + c) (b + d)
-
-@[expose] def allBool : ℕ → List (List Bool)
-  | 0 => [[]]
-  | n + 1 => (allBool n).flatMap fun l => [false :: l, true :: l]
-
-@[noinline, expose] def kClassOK : Bool :=
-  (allBool 16).all fun kb => !isSubKB kb || kbList.contains kb
 
 @[expose] def kbZero (kb : List Bool) : Bool := kb == kbOfMask 1
 
@@ -56,15 +45,6 @@ open CFSG.ComponentClassification.GrSLit.L34Facts
   (List.range 36).flatMap fun i => if repInS.contains i then [] else
     ((List.range 64).filter fun t => comp 42 (yTab t i) (yTab t i) == idTab 42).map fun t => (t, i)
 
-@[expose] def esS : Enum := enumBFS 42 gensS 20160
-
-@[expose] def idxS : Std.HashMap Tab ℕ := indexOf esS.tabs
-
-@[expose] def inSB (x : Tab) : Bool := found idxS esS.tabs x
-
-@[expose] def pairOK (p p' : ℕ × ℕ) : Bool :=
-  comp 42 (yTab p.1 p.2) (yTab p'.1 p'.2) == comp 42 (yTab p'.1 p'.2) (yTab p.1 p.2) &&
-    !inSB (comp 42 (yTab p.1 p.2) (yTab p'.1 p'.2))
 
 @[expose] def rhoTab (lab : ℕ) : Tab := if lab = 0 then r₂T else if lab = 1 then r₃T else r₄T
 
@@ -112,13 +92,6 @@ open CFSG.ComponentClassification.GrSLit.L34Facts
 
 @[expose] def typeOf (t i : ℕ) : ℕ := ((outerTypes.find? fun e => e.1 == (t, i)).map (·.2.1)).getD 3
 
-@[noinline, expose] def typesOK : Bool :=
-  outerTypes.map (·.1) == outerInvs &&
-    outerTypes.all fun e => decide (e.2.1 < 3) && decide (e.2.2.2 < 36) &&
-      conjOK e.1.1 e.1.2 e.2.1 e.2.2.1 e.2.2.2
-
-@[noinline, expose] def typePairOK : Bool :=
-  outerTypes.all fun e => outerTypes.all fun e' => !pairOK e.1 e'.1 || e.2.1 != e'.2.1
 
 @[expose] def isInvKB (kb : List Bool) (x : MElt) : Bool :=
   eqKB kb (mulM x x) oneM && !eqKB kb x oneM
@@ -131,11 +104,6 @@ open CFSG.ComponentClassification.GrSLit.L34Facts
 @[expose] def fixInvs (kb : List Bool) (t i : ℕ) : List MElt :=
   allM.filter fun x => fixKB kb t i x && isInvKB kb x
 
-@[noinline, expose] def d1K (kb : List Bool) : Bool :=
-  outerInvs.all fun p => !liftsKB kb p.2 ||
-    let F := fixInvs kb p.1 p.2
-    outerInvs.all fun p' => !liftsKB kb p'.2 || !pairOK p p' ||
-      2 ≤ (dedupKB kb (F.filter fun x => fixKB kb p'.1 p'.2 x)).length
 
 @[expose] def kVals (t i : ℕ) : List ℕ :=
   (List.range 64).filter fun k =>
@@ -143,15 +111,5 @@ open CFSG.ComponentClassification.GrSLit.L34Facts
 
 @[expose] def expType (kb : List Bool) : ℕ := if kbZero kb then 0 else 2
 
-@[expose] def dCase (kb : List Bool) (t i k : ℕ) (F : List MElt) : Bool :=
-  let I := F.filter fun x => eqKB kb (mulM x (k, 0, 0)) (mulM (k, 0, 0) x)
-  (I.any fun x => x.1 != 0 && x.1 != k) || 4 ≤ (dedupKB kb I).length ||
-    (k != 0 && typeOf t i == expType kb && (kbZero kb || kbCyc kb) &&
-      (kbFull kb || 3 ≤ (dedupKB kb I).length))
-
-@[noinline, expose] def dK (kb : List Bool) : Bool :=
-  outerInvs.all fun p => !liftsKB kb p.2 ||
-    let F := fixInvs kb p.1 p.2
-    (kVals p.1 p.2).all fun k => dCase kb p.1 p.2 k F
 
 end CFSG.ComponentClassification.GrSLit.L34Facts.Real.WIso

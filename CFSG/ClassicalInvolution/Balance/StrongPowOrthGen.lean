@@ -321,30 +321,5 @@ theorem exists_eigen_split (h2 : (2 : F) ≠ 0) {t : V ≃ₗ[F] V} (ht : t * t 
   · simp only [map_smul, map_sub, e1]
     match_scalars <;> first | ring1 | linear_combination (-a) * hε
 
-theorem polarNondegOn_eigenSub (h2 : (2 : F) ≠ 0) (hQ : (polarBilin Q).Nondegenerate)
-    {t : V ≃ₗ[F] V} (ht : t ∈ TauCeti.QuadraticMap.orthogonalGroup Q) (hsq : t * t = 1) {ε : F}
-    (hε : ε * ε = 1) : PolarNondegOn Q (eigenSub t ε) := by
-  intro x hx hxW
-  apply eq_zero_of_polar_eq_zero hQ
-  intro z
-  obtain ⟨zp, zm, hz, hzp, hzm⟩ := exists_eigen_split h2 hsq hε z
-  have hne : ε * -ε ≠ 1 := fun h => by
-    apply h2
-    linear_combination -h - hε
-  rw [hz, polar_add_right, hxW zp hzp, polar_eq_zero_of_eigen ht (mem_eigenSub.mp hx) hzm hne,
-    add_zero]
-
-theorem mem_eigenSub_iff_of_comm {s g : V ≃ₗ[F] V} (hg : g * s = s * g) {ε : F} {x : V} :
-    x ∈ eigenSub s ε ↔ g x ∈ eigenSub s ε := by
-  have hgs : ∀ x, g (s x) = s (g x) := fun x => by
-    have := congrArg (fun h : V ≃ₗ[F] V => h x) hg
-    simpa using this
-  rw [mem_eigenSub, mem_eigenSub]
-  constructor
-  · intro h
-    rw [← hgs, h, LinearEquiv.map_smul]
-  · intro h
-    apply g.injective
-    rw [hgs, h, LinearEquiv.map_smul]
 
 end CFSG.ClassicalInvolution.Balance.StrongBalance.Orth

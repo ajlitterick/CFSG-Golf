@@ -47,8 +47,6 @@ theorem vertexOf_surjective : Function.Surjective vertexOf := by
   · obtain ⟨j, rfl⟩ := exists_lnSub_eq hU h2
     exact ⟨.inr j, rfl⟩
 
-theorem vertexOf_bijective : Function.Bijective vertexOf :=
-  ⟨vertexOf_injective, vertexOf_surjective⟩
 
 @[expose] def CInc : Fin 27 ⊕ Fin 45 → Fin 27 ⊕ Fin 45 → Prop
   | .inl i, .inl i' => i = i'

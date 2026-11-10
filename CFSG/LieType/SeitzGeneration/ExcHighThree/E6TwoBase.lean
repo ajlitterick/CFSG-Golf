@@ -217,10 +217,6 @@ section Closing
 
 variable {K : Type} [Field K] [Finite K] [CharP K 2]
 
-theorem xElement_weylElement_xElement (i : Fin Tag.E6.rank) :
-    xElement (τ := Tag.E6) (K := K) i 1 * weylElement Tag.E6 K i * xElement i 1 =
-      yElement i 1 :=
-  Subtype.ext (xUnit_weylElt_xUnit Tag.E6 i)
 
 theorem evalG6_x (i : Fin Tag.E6.rank) :
     E6Bits.evalG K (wordOfCodes6 [i.val]) = xElement i 1 := by

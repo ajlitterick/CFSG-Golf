@@ -44,10 +44,6 @@ theorem mat_torusElt [NeZero p] {ζ : Fˣ} (hζ : ζ ^ p = 1) (β : Fin n → ZM
   · change (((ζ ^ (β i).val)⁻¹ : Fˣ) : F) = ((ζ ^ (-β i).val : Fˣ) : F)
     rw [pow_val_neg hζ]
 
-theorem frameHom_eq_torusElt {G : Type} [Group G] [NeZero p] (ψ : StatedSp n F →* G)
-    (A₀ : StatedSp n F) {ζ : Fˣ} (hζ : ζ ^ p = 1) (t : Fin n → ZMod p) :
-    frameHom ψ A₀ hζ (ofAdd t) = ψ (A₀ * torusElt ζ t * A₀⁻¹) :=
-  rfl
 
 theorem eq_of_pow_val_eq [NeZero p] {ζ : Fˣ} (hζo : orderOf ζ = p) {a b : ZMod p}
     (h : ζ ^ a.val = ζ ^ b.val) : a = b := by
@@ -99,9 +95,6 @@ theorem commute_torusElt_inv {ζ : Fˣ} {β : Fin n → ZMod p} {u : StatedSp n 
     _ = u⁻¹ * (u * torusElt ζ β) * u⁻¹ := by rw [hu]
     _ = torusElt ζ β * u⁻¹ := by group
 
-theorem torusElt_mul_comm (ζ : Fˣ) (β t : Fin n → ZMod p) :
-    torusElt ζ t * torusElt ζ β = torusElt ζ β * torusElt ζ t := by
-  rw [torusElt, torusElt, ← spDiag_mul, ← spDiag_mul, mul_comm]
 
 theorem diagonal_mul_comm {ι : Type*} [Fintype ι] [DecidableEq ι] {d : ι → F}
     {M : Matrix ι ι F} (h : ∀ a b, M a b ≠ 0 → d a = d b) :

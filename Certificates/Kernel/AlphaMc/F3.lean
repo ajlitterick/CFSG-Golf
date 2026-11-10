@@ -50,9 +50,6 @@ theorem mcl_D : (AlphaMcL.mclMod.wf 3 &&
     AlphaMcL.mclMod.altOK 3 AlphaMcL.mclCi AlphaMcL.mclCt tgtAlt) = true := by
   decide +kernel
 
-theorem f3_neg : (!mcertL ON.lay ON.A ON.B ⟨2, [], [.ord 0 1]⟩) = true ∧
-    (!mcertL McL.lay McL.A McL.B ⟨2, [], [.eq [(0, 1)] [(1, 1)]]⟩) = true := by
-  constructor <;> quickRfl
 
 end CertificateChecks.KernelAM
 

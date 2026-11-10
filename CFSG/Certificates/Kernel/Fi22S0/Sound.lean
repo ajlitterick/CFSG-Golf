@@ -26,9 +26,6 @@ theorem blt_iff (i k : ℕ) : Nat.blt i k = true ↔ i < k := by
 theorem beq_iff (i k : ℕ) : Nat.beq i k = true ↔ i = k :=
   ⟨Nat.eq_of_beq_eq_true, fun h => by rw [h, Nat.beq_refl]⟩
 
-theorem ent_lt (P x : ℕ) : ent P x < 4096 := by
-  change (P >>> (12 * x)) &&& 4095 < 4096
-  exact Nat.lt_succ_of_le Nat.and_le_right
 
 @[expose] def pk5 (y : ℕ → ℕ) : ℕ :=
   y 0 ||| (y 1 <<< 12 ||| (y 2 <<< 24 ||| (y 3 <<< 36 ||| y 4 <<< 48)))

@@ -212,10 +212,6 @@ theorem dLeafC_of (h1 : D1GenLeaf r) (hW : CLeafW r IH) (hE8 : CLeafE8 r IH)
   · exact hAE G Ω K J hS n hn hI
   · exact hE29 G Ω K J hS hI
 
-theorem thmDAbs_of_leaves₄ (h1 : D1GenLeaf r) (hW : CLeafW r IH) (hE8 : CLeafE8 r IH)
-    (hE64 : CLeafE64 r IH) (hE29 : CLeafE29 r IH) (hAE : CLeafAE r IH) (hE4 : DLeafE4 r IH)
-    (hstar : DLeafStar r IH) (hend : DLeafEnd r IH) (hih : ∀ n, IH n) : ThmDAbs r :=
-  thmDAbs_of_leaves₃ (dLeafC_of h1 hW hE8 hE64 hE29 hAE) hE4 hstar hend hih
 
 section Cit3
 

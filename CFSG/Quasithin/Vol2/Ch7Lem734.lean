@@ -58,19 +58,6 @@ theorem hypE336_of_hypE61 {V M : Subgroup G} (hE : E6.HypE61 T M V)
     HypE336 T V M :=
   ⟨hE.hyp322, hE.qtke, hE.isUniqueM_normalizer_Q, hloc⟩
 
-theorem wParam_le_nPrime_of_E339 (h339 : ASInputs.AS_E_3_39) (h331 : Stmt3_3_1)
-    (hyp : Hyp7_0_2 G T L I) (hV : IsElemAbelian 2 (fsuV T I))
-    (hE : HypE336 T (fsuV T I) (fsuM T L))
-    (hr : (nPrime (autI hV ⊤) : ℕ∞) < rParam (fsuV T I)) :
-    (∀ H : Subgroup G, IsHStar T (fsuM T L) H →
-        wParam T (fsuV T I) ≤ E1.nParam H ∧ E1.nParam H ≤ (nPrime (autI hV ⊤) : ℕ∞)) ∧
-      wParam T (fsuV T I) ≤ (nPrime (autI hV ⊤) : ℕ∞) := by
-  have hall : ∀ H : Subgroup G, IsHStar T (fsuM T L) H →
-      wParam T (fsuV T I) ≤ E1.nParam H ∧ E1.nParam H ≤ (nPrime (autI hV ⊤) : ℕ∞) :=
-    fun H hH => (h339 G T (fsuV T I) (fsuM T L) hV (fsuV_ne_bot hyp.fsu) hE hr H hH).1
-  obtain ⟨H, hH⟩ := ((h331 G T hyp.fsu.simple hyp.fsu.nonabelian hyp.fsu.qtke
-    hyp.fsu.sylow).2 L hyp.fsu.maximal hyp.fsu.quasisimple).2.2.1
-  exact ⟨hall, ((hall H hH).1).trans (hall H hH).2⟩
 
 omit [Finite G] in
 theorem nPrime_lt_sParam {V : Subgroup G} (hV : IsElemAbelian 2 V)

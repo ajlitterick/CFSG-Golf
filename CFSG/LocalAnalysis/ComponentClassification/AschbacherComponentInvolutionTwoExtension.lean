@@ -26,6 +26,5 @@ theorem normal_two_extension_quotient (N B : Subgroup G) [N.Normal]
       _ = x := by rw [heq]; exact hg
   exact hB.of_surjective (q.comp B.subtype) hsurj
 
-variable [Finite G]
 
 end CFSG.ComponentClassification.AschbacherComponentInvolution

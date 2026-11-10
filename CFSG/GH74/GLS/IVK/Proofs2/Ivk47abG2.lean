@@ -109,21 +109,6 @@ theorem isInvolutionCentralizerOfModel_G2_of_shape' {Y : Type} [Group Y] {F₁ F
       (Subgroup.centralizer ({z₀ (GaloisField p f)} : Set (G2g (GaloisField p f)))).subtype
       Subtype.val_injective)⟩⟩
 
-theorem isInvolutionCentralizerOfModel_G2_of_shape {H : Type} [Group H] {z : H} {K₁ K₂ : Subgroup H}
-    {F₁ F₂ : Type} [Field F₁] [Field F₂] [Finite F₁] [Finite F₂] {t : H}
-    (hRem : Ch6Rem z K₁ K₂ F₁ F₂ t) (hcomm : ∀ x ∈ K₁, ∀ y ∈ K₂, x * y = y * x)
-    (hinter : K₁ ⊓ K₂ = zpowers z) (hz : orderOf z = 2) {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (h5 : 5 ≤ p ^ f) (h₁ : Nat.card F₁ = p ^ f) (h₂ : Nat.card F₂ = p ^ f) :
-    IsInvolutionCentralizerOfModel ↥(oPrimeResidualOf 2 (centralizer ({z} : Set H))) .G2 p f := by
-  obtain ⟨S⟩ := Ch6Rem.exists_shape hRem hcomm hinter hz
-  have h4₁ : 4 ≤ Nat.card F₁ := by rw [h₁]; omega
-  have h4₂ : 4 ≤ Nat.card F₂ := by rw [h₂]; omega
-  have htop := S.oPrimeResidual_eq_top h4₁ h4₂
-  obtain ⟨M, _, z', hM, hz', ⟨e⟩⟩ :=
-    isInvolutionCentralizerOfModel_G2_of_shape' S hp hp2 (by omega) h₁ h₂
-  exact ⟨M, inferInstance, z', hM, hz', ⟨((MulEquiv.subgroupCongr hRem.gen.symm).trans
-    ((Subgroup.topEquiv (G := ↥(K₁ ⊔ K₂ ⊔ zpowers t))).symm.trans
-      (MulEquiv.subgroupCongr htop.symm))).trans e⟩⟩
 
 theorem isInvolutionCentralizerOfModel_G2_of_diag {H : Type} [Group H] {z : H} {K₁ K₂ : Subgroup H}
     {F₁ F₂ : Type} [Field F₁] [Field F₂] [Finite F₁] [Finite F₂] {t : H} (hsq : t * t = 1)
@@ -162,14 +147,6 @@ theorem ivk_4_7ab_G2 :
   intro M _ _ p f hp hp2 h5 hM z hz
   exact ivk_4_7ab_G2_aux p f hp hp2 h5 hM z hz
 
-theorem ivk_4_7ab_G2_involutionCentralizer_of_ch6Rem
-    {H : Type} [Group H] {z : H} {K₁ K₂ : Subgroup H} {F₁ F₂ : Type} [Field F₁] [Field F₂] [Finite F₁]
-    [Finite F₂] {t : H} (hRem : Stage4.Rest.Ch6Rem z K₁ K₂ F₁ F₂ t)
-    (hcomm : ∀ x ∈ K₁, ∀ y ∈ K₂, x * y = y * x) (hinter : K₁ ⊓ K₂ = Subgroup.zpowers z)
-    (hz : orderOf z = 2) {p f : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ f)
-    (h₁ : Nat.card F₁ = p ^ f) (h₂ : Nat.card F₂ = p ^ f) :
-    IsInvolutionCentralizerOfModel ↥(oPrimeResidualOf 2 (Subgroup.centralizer ({z} : Set H))) .G2 p f := by
-  exact isInvolutionCentralizerOfModel_G2_of_shape hRem hcomm hinter hz hp hp2 h5 h₁ h₂
 
 theorem ivk_4_7ab_G2_involutionCentralizer_of_diag
     {H : Type} [Group H] {z : H} {K₁ K₂ : Subgroup H} {F₁ F₂ : Type} [Field F₁] [Field F₂] [Finite F₁]

@@ -62,21 +62,6 @@ theorem e7_rootSubgroupPoints_inr
   rw [E7Minuscule.coe_rootSubgroupPoints_inr, toAdd_ofAdd, e7_loweringMatrix]
   exact (e7Match.toMat_rootUnit_neg_single e7Data_valid A i c).symm
 
-theorem e7_weightTorusPoints
-    (A : Type*) [CommRing A] (s : Fin 7 → Aˣ) :
-    (E7Minuscule.weightTorusPoints A s : Matrix.GeneralLinearGroup (Fin 56) A) =
-      toMat e7Match.lab A
-        (diagUnit fun a => torusCharacter (s ∘ e7Match.node.symm) (e7Data.wt a)) := by
-  refine Units.ext ?_
-  rw [E7Minuscule.coe_weightTorusPoints, UniversalEnvelopingAlgebra.kostantTorusMatrix_apply,
-    diagGL_coe, e7Match.coe_toMat_diagUnit_torusCharacter A s, E7Minuscule.weightTable_weight]
-
-theorem e7_weightTorusPoints_eq_torusElt
-    (K : Type*) [Field K] (s : Fin 7 → Kˣ) :
-    (E7Minuscule.weightTorusPoints K s : Matrix.GeneralLinearGroup (Fin 56) K) =
-      toMat e7Match.lab K
-        (torusElt e7Data_valid K (s ∘ e7Match.node.symm) : e7Data_valid.minGroup K) := by
-  rw [e7_weightTorusPoints, coe_torusElt]
 
 @[expose] def e7Elementary (A : Type*) [CommRing A] :
     Subgroup (Matrix.GeneralLinearGroup (Fin 56) A) :=

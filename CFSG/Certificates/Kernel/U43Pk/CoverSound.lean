@@ -153,7 +153,6 @@ theorem dg_nrmK {R : ℕ} {k : ℕ} (hk : k < 16) : dg (nrmK R) k = mT (dg MCT (
   rw [dg_pack16 (fun k => dg_lt _ _) (dg_lt _ _), if_pos hk, dg_shr]
   rfl
 
-theorem dig_lt16 {R : ℕ} (hR : Dig R) {k : ℕ} (hk : k < 16) : dg R k < 9 := hR k hk
 
 theorem cross_of_nrm {A B : ℕ} (hA : Dig A) (hB : Dig B) (h : nrmK A = nrmK B) {p q : ℕ}
     (hp : p < 16) (hq : q < 16) : mT (dg A p) (dg B q) = mT (dg A q) (dg B p) := by

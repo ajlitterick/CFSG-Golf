@@ -283,13 +283,6 @@ private def k1566l7b_W {L : Type} [Field L] [IsAlgClosed L]
     intro a ha
     exact ⟨D.torus.inv_mem ha.1, by rw [inv_pow, ha.2, inv_one]⟩
 
-private noncomputable abbrev k1566l7b_T (L : Type) [Field L]
-    (Fr : L →+* L) (eps : ℤ) :
-    Subgroup (ModGL TwistTag.D4.tag L) :=
-  CFSG.RankThree.PartOne.KE.twistedTorusOf
-    (canonicalRep (coxeterSystem TwistTag.D4.tag) L
-      ((coxeterSystem TwistTag.D4.tag).wordProd (cycWord eps)))
-    (twistHom TwistTag.D4 L Fr)
 
 private abbrev k1566l7b_w (eps : ℤ) : WeylGroup TwistTag.D4.tag :=
   (coxeterSystem TwistTag.D4.tag).wordProd (cycWord eps)

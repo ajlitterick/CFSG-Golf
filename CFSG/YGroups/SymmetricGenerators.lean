@@ -94,7 +94,6 @@ theorem T_mul_self (p : Ω) : S.T p * S.T p = 1 := by
       = S.ψ (S.w p) * (S.t * S.t) * (S.ψ (S.w p))⁻¹ := by group
     _ = 1 := by rw [S.t_mul_t]; group
 
-theorem T_inv (p : Ω) : (S.T p)⁻¹ = S.T p := inv_eq_of_mul_eq_one_right (S.T_mul_self p)
 
 theorem T_o : S.T S.o = S.t := by
   rw [S.T_eq_of_smul 1 S.o (one_smul _ _)]; simp

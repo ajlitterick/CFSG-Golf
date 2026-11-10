@@ -92,29 +92,5 @@ theorem finite_card_le_of_index {G G' : Type*} [Group G] [Group G'] [Finite G] (
   · rw [← hcard, Nat.mul_comm]
     exact Nat.mul_le_mul h.2 hle
 
-theorem card_le_of_step (m : ℕ → ℕ) (hm : ∀ w ∈ yRels p q r, w.map m ∈ yRels p' q' r')
-    {maxPts k : ℕ}
-    (h : Native.enumOK (ngen p' q' r') (yRels p' q' r')
-      (((List.range (ngen p q r)).map m).map fun c => [c]) maxPts k = true)
-    [Finite (YGroup p q r)] :
-    Finite (YGroup p' q' r') ∧ Nat.card (YGroup p' q' r') ≤ k * Nat.card (YGroup p q r) := by
-  apply finite_card_le_of_index (yHom m hm)
-  rw [range_yHom]
-  refine index_le_of_enumOK (closure_yGen p' q' r') (yGen_of_le le_rfl) (yGen_mul_self _ _ _)
-    (fun w hw => evalWord_yGen_of_mem hw) ?_ h
-  intro w hw
-  simp only [List.map_map, List.mem_map, List.mem_range, Function.comp_apply] at hw
-  obtain ⟨c, hc, rfl⟩ := hw
-  simp only [evalWord_cons, evalWord_nil, mul_one]
-  exact Subgroup.subset_closure ⟨m c, ⟨c, hc, rfl⟩, rfl⟩
-
-theorem card_le_of_enum_bot {maxPts k : ℕ}
-    (h : Native.enumOK (ngen p q r) (yRels p q r) [] maxPts k = true) :
-    Finite (YGroup p q r) ∧ Nat.card (YGroup p q r) ≤ k := by
-  have key := index_le_of_enumOK (H := ⊥) (closure_yGen p q r) (yGen_of_le le_rfl)
-    (yGen_mul_self _ _ _) (fun w hw => evalWord_yGen_of_mem hw) (by simp) h
-  have hfi := key.1.index_ne_zero
-  rw [Subgroup.index_bot] at hfi
-  exact ⟨Nat.finite_of_card_ne_zero hfi, by simpa [Subgroup.index_bot] using key.2⟩
 
 end CFSG.YGroups

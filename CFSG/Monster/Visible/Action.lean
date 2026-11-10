@@ -175,19 +175,10 @@ theorem theta_mem_BR_iff (p : Pvis) {u : SpaceB} : theta p u ∈ BR ↔ u ∈ BR
   have h' := mem_BR_iff.2 (isDyadicVec_theta p⁻¹ (mem_BR_iff.1 h))
   rwa [← theta_mul_apply, mul_inv_cancel, theta_one_apply] at h'
 
-theorem map_theta_BR (p : Pvis) : BR.map ((theta p).restrictScalars dyadic) = BR := by
-  ext u
-  refine ⟨?_, fun h => ⟨theta p⁻¹ u, (theta_mem_BR_iff p⁻¹).2 h, ?_⟩⟩
-  · rintro ⟨v, hv, rfl⟩
-    exact (theta_mem_BR_iff p).2 hv
-  · show theta p (theta p⁻¹ u) = u
-    rw [← theta_mul_apply, inv_mul_cancel, theta_one_apply]
 
 theorem zU_conj (r : GL SpinIdx ℚ) : zU⁻¹ * r * zU = r := by
   rw [mul_assoc, inv_mul_eq_iff_eq_mul, zU, mul_neg_one, neg_one_mul]
 
-theorem zU_mul_self : zU * zU = 1 := by
-  rw [zU, neg_one_mul, neg_neg]
 
 theorem isDyadicSpinNormalizer_zU : IsDyadicSpinNormalizer zU := by
   refine ⟨?_, fun i j => ?_, (image_conj_eq_Q_iff zU).2 fun r => by rw [zU_conj]⟩
@@ -218,14 +209,6 @@ theorem negOneO_ne_one : negOneO ≠ 1 := by
 theorem negOneO_mul_self : negOneO * negOneO = 1 :=
   mat_injective (by rw [mat_mul, mat_negOneO, mat_one, neg_one_mul, neg_neg])
 
-theorem negPair_ne_one : negPair ≠ 1 := fun h =>
-  negOneO_ne_one (congrArg (fun p : Pvis => p.1.2) h)
-
-theorem negPair_mul_self : negPair * negPair = 1 :=
-  Subtype.ext (Prod.ext zU_mul_self negOneO_mul_self)
-
-theorem orderOf_negPair : orderOf negPair = 2 :=
-  orderOf_eq_prime (by rw [pow_two, negPair_mul_self]) negPair_ne_one
 
 theorem negPair_mem_center : negPair ∈ Subgroup.center Pvis := by
   rw [Subgroup.mem_center_iff]
@@ -339,9 +322,6 @@ theorem mem_ker_thetaHom_iff (p : Pvis) : p ∈ thetaHom.ker ↔ p = 1 ∨ p = n
     · exact thetaEquiv_one
     · exact thetaEquiv_negPair
 
-theorem coe_ker_thetaHom : (thetaHom.ker : Set Pvis) = {1, negPair} := by
-  ext p
-  rw [SetLike.mem_coe, mem_ker_thetaHom_iff, Set.mem_insert_iff, Set.mem_singleton_iff]
 
 theorem ker_thetaHom_eq_zpowers : thetaHom.ker = Subgroup.zpowers negPair := by
   refine le_antisymm (fun p hp => ?_)
@@ -353,14 +333,6 @@ theorem ker_thetaHom_eq_zpowers : thetaHom.ker = Subgroup.zpowers negPair := by
 instance : (Subgroup.zpowers negPair).Normal :=
   ker_thetaHom_eq_zpowers ▸ thetaHom.normal_ker
 
-theorem natCard_ker_thetaHom : Nat.card thetaHom.ker = 2 := by
-  rw [ker_thetaHom_eq_zpowers, Nat.card_zpowers, orderOf_negPair]
-
-theorem ker_thetaHom_le_center : thetaHom.ker ≤ Subgroup.center Pvis := by
-  intro p hp
-  rcases (mem_ker_thetaHom_iff p).1 hp with rfl | rfl
-  · exact one_mem _
-  · exact negPair_mem_center
 
 theorem thetaEquiv_mem_Gvis (p : Pvis) : thetaEquiv p ∈ Gvis := ⟨p, rfl⟩
 
@@ -394,13 +366,6 @@ theorem ker_thetaGvis : thetaGvis.ker = Subgroup.zpowers negPair := by
     exact congrArg MulOpposite.op
       (Subtype.ext h1 : (⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩ : Gvis) = 1)
 
-@[expose] def quotEquivGvis : Pvis ⧸ Subgroup.zpowers negPair ≃* (Gvis)ᵐᵒᵖ :=
-  (QuotientGroup.quotientMulEquivOfEq ker_thetaGvis.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective thetaGvis thetaGvis_surjective)
-
-theorem quotEquivGvis_mk (p : Pvis) :
-    quotEquivGvis (QuotientGroup.mk p) = MulOpposite.op ⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩ :=
-  rfl
 
 theorem isDyadicSpinNormalizer_of_mem_Q {r : GL SpinIdx ℚ} (hr : r ∈ Q) :
     IsDyadicSpinNormalizer r := by
@@ -513,34 +478,5 @@ theorem rhoEquiv_zQ : rhoEquiv zQ = xB := by
   rw [coe_coe_zQ, mat_one, Matrix.mul_one, transpose_neg, transpose_one, Matrix.neg_mul,
     Matrix.one_mul]
 
-theorem compatible_pair_algebra_action_data :
-    (∀ (p : Pvis) (u v : SpaceB), bform (theta p u) (theta p v) = bform u v) ∧
-    (∀ p : Pvis, BR.map ((theta p).restrictScalars dyadic) = BR) ∧
-    (∀ (p : Pvis) (u : SpaceB), theta p u ∈ BR ↔ u ∈ BR) ∧
-    (negPair : GL SpinIdx ℚ × latticeO) = (zU, negOneO) ∧
-    (zU : Matrix SpinIdx SpinIdx ℚ) = -1 ∧ mat negOneO = -1 ∧
-    (thetaHom.ker : Set Pvis) = {1, negPair} ∧
-    thetaHom.ker = Subgroup.zpowers negPair ∧ Nat.card thetaHom.ker = 2 ∧
-    thetaHom.ker ≤ Subgroup.center Pvis ∧
-    (∀ p : Pvis, quotEquivGvis (QuotientGroup.mk p) =
-      MulOpposite.op ⟨thetaEquiv p, thetaEquiv_mem_Gvis p⟩) ∧
-    (∀ r : Q, ((r : GL SpinIdx ℚ), (1 : latticeO)) ∈ Pvis) ∧
-    (∀ r : Q, (rhoPair r : GL SpinIdx ℚ × latticeO) = ((r : GL SpinIdx ℚ), 1) ∧
-      rhoEquiv r = thetaEquiv (rhoPair r) ∧ rho r = MulOpposite.op (rhoEquiv r) ∧
-      rhoEquiv r ∈ Gvis) ∧
-    (∀ r r' : Q, rhoEquiv (r * r') = rhoEquiv r' * rhoEquiv r) ∧
-    Function.Injective rhoEquiv ∧ Function.Injective rho ∧
-    (∀ (r : Q) (A : symMat), rhoEquiv r (A, 0, 0) = (A, 0, 0)) ∧
-    (∀ r t : Q, rhoEquiv r (0, Xlift t, 0) = (0, Xlift (r⁻¹ * t * r), 0)) ∧
-    (∀ (r : Q) (q : SpinIdx → ℚ) (v : Fin 24 → ℚ), rhoEquiv r (0, 0, tensor q v) =
-      (0, 0, tensor (q ᵥ* ((r : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ)) v)) ∧
-    (∀ f : SpaceB ≃ₗ[ℚ] SpaceB, f ∈ rhoQ ↔ ∃ r : Q, rhoEquiv r = f) ∧ rhoQ ≤ Gvis ∧
-    rhoEquiv zQ = xB :=
-  ⟨bform_theta, map_theta_BR, fun p _ => theta_mem_BR_iff p, coe_negPair, coe_zU,
-    mat_negOneO, coe_ker_thetaHom, ker_thetaHom_eq_zpowers, natCard_ker_thetaHom,
-    ker_thetaHom_le_center, quotEquivGvis_mk, mem_Pvis_of_mem_Q,
-    fun r => ⟨coe_rhoPair r, rfl, rho_apply r, rhoEquiv_mem_Gvis r⟩, rhoEquiv_mul,
-    rhoEquiv_injective, rho_injective, rhoEquiv_symMat, rhoEquiv_Xlift, rhoEquiv_tensor,
-    fun _ => mem_rhoQ, rhoQ_le_Gvis, rhoEquiv_zQ⟩
 
 end CFSG.Monster.Visible

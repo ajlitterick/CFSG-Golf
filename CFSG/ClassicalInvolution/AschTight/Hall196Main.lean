@@ -65,40 +65,5 @@ theorem mem_inf_of_commute [IsSimpleGroup G] (hstar : C19_11aTmp p f) {K : Subgr
       Subgroup.mem_centralizer_singleton_iff.mp (hle hw)
   exact ⟨hstar _ K z S W hd hxW, hx.2⟩
 
-variable (p f) in
-theorem c19_6_of (hstar : C19_11aTmp p f) (hdih : C19_6DihTmp p f) : C19_6Tmp p f := by
-  intro G _ _ _ K z S W hd
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨L, t, V, hDT⟩ := exists_sec19DataT hd
-  have ef := S1911.etaYForm p f G K z S W L t V hDT
-  show W ⊔ sec19Y K z = oddCoreOf (sec19Y K z) ⊔ W ∨
-    IsQuaternionSub ((S : Subgroup G) ⊓ sec19Y K z)
-  have hSY : (S : Subgroup G) ≤ Subgroup.normalizer ((sec19Y K z : Subgroup G) : Set G) :=
-    hd.hSz.trans (centralizer_le_normalizer_sec19Y hd.tight)
-  have hP := isSylow2In_inf_of_le_normalizer S hSY
-  obtain ⟨-, -, -, hVcyc, -⟩ := hDT.memV
-  have hcomm : ∀ x ∈ (S : Subgroup G) ⊓ sec19Y K z, ∀ w ∈ W,
-      x * w * x⁻¹ * w⁻¹ ∈ W ⊓ sec19Y K z := by
-    intro x hx w hw
-    refine ⟨W.mul_mem ((Subgroup.mem_normalizer_iff.mp (ef.normalizes hx) w).mp hw)
-      (W.inv_mem hw), ?_⟩
-    have hw' : w * x⁻¹ * w⁻¹ ∈ sec19Y K z := by
-      rw [← conjSub_sec19Y hd.tight (hd.hSz (hd.hWS hw))]
-      exact conj_mem_conjSub (Subgroup.inv_mem _ hx.2)
-    have e : x * w * x⁻¹ * w⁻¹ = x * (w * x⁻¹ * w⁻¹) := by group
-    rw [e]
-    exact Subgroup.mul_mem _ hx.2 hw'
-  rcases eq_or_isQuaternionSub_or_isDihedralSub ef.comm hDT.leW inf_le_left ef.cyclic hVcyc
-      ef.card.symm (ef.card ▸ ef.four)
-      (S.isPGroup'.to_le (inf_le_left.trans hd.hWS)) (S.isPGroup'.to_le (hDT.leW.trans hd.hWS))
-      hDT.memT hDT.invL.ne_one hDT.invL.sq (inf_le_inf_right _ hd.hWS) ef.normalizes hcomm
-      (fun x hx hxt => mem_inf_of_commute hstar hDT ef hx hxt) with h | h | h
-  ·
-    left
-    refine sup_eq_oddCoreOf_sup_of_isCyclic hP ?_ (h ▸ inf_le_left)
-    rw [h]
-    exact ef.cyclic
-  · exact Or.inr h
-  · exact absurd h (hdih G K z S W hd)
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Hall196

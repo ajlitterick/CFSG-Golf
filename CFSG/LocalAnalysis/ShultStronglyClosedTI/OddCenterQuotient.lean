@@ -30,18 +30,6 @@ theorem oddCenterSubgroup_odd_card : Odd (Nat.card (oddCenterSubgroup E)) := by
   rw [oddCenterSubgroup, Subgroup.card_subtype]
   exact Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2))
 
-omit [Finite E] in
-theorem oddCenterSubgroup_maximal (B : Subgroup E)
-    (hB : B ≤ Subgroup.center E) (hodd : Odd (Nat.card B)) :
-    B ≤ oddCenterSubgroup E := by
-  have hlocal : B.subgroupOf (Subgroup.center E) ≤
-      CFSG.pPrimeCore 2 (Subgroup.center E) := by
-    apply le_sSup
-    refine ⟨Subgroup.normal_of_isMulCommutative _, ?_⟩
-    rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hB).toEquiv]
-    exact hodd.coprime_two_left
-  intro b hb
-  exact Subgroup.mem_map.mpr ⟨⟨b, hB hb⟩, hlocal hb, rfl⟩
 
 theorem oddCenterSubgroup_center_image_isPGroup :
     IsPGroup 2 ((Subgroup.center E).map (QuotientGroup.mk' (oddCenterSubgroup E))) := by
@@ -76,13 +64,6 @@ theorem oddCenterSubgroup_center_image :
     (QuotientGroup.mk' (oddCenterSubgroup E)) (QuotientGroup.mk'_surjective _)
     (by simpa only [QuotientGroup.ker_mk'] using oddCenterSubgroup_le_center E)
 
-omit [Finite E] in
-theorem oddCenterSubgroup_center_preimage :
-    (Subgroup.center (E ⧸ oddCenterSubgroup E)).comap
-      (QuotientGroup.mk' (oddCenterSubgroup E)) = Subgroup.center E :=
-  CFSG.ComponentClassification.Quasisimple.center_comap_of_central_kernel
-    (QuotientGroup.mk' (oddCenterSubgroup E)) (QuotientGroup.mk'_surjective _)
-    (by simpa only [QuotientGroup.ker_mk'] using oddCenterSubgroup_le_center E)
 
 theorem oddCenterSubgroup_quotient_center_isPGroup :
     IsPGroup 2 (Subgroup.center (E ⧸ oddCenterSubgroup E)) := by

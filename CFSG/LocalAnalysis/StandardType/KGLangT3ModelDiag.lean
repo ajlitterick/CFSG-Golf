@@ -77,13 +77,6 @@ private lemma l02qj3b_mk_inv (k K : Type) [Field k] [Field K] [Algebra k K]
       triD4LineMk k K g⁻¹ c⁻¹ (l02qj3b_det_inv k K h) :=
   triD4LineMk_inv k K g c h _
 
-private lemma l02qj3b_mk_congr (k K : Type) [Field k] [Field K] [Algebra k K]
-    (g : GL (Fin 3) k) (c : Kˣ)
-    (h h' : Matrix.GeneralLinearGroup.det g = Units.map (Algebra.norm k (S := K)) c) :
-    triD4LineMk k K g c h = triD4LineMk k K g c h' := by
-  have hs : (⟨(g, c), h⟩ : triD4LineFibre k K) = ⟨(g, c), h'⟩ := Subtype.ext rfl
-  unfold triD4LineMk
-  rw [hs]
 
 theorem kgLangT3_model_lang_diag (k K : Type) [Field k] [Field K] [Algebra k K] [Finite K]
     (hdeg : Module.finrank k K = 3) (σ : K ≃ₐ[k] K) (hσ : orderOf σ = 3) (ζ : kˣ)

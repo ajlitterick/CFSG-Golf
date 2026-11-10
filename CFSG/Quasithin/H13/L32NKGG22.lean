@@ -226,11 +226,6 @@ theorem kgG22PointStabModel : KGG22PointStabModel := by
   !![0, 0, 0, 1, 0, 0; 0, 0, 0, 0, 1, 0; 0, 0, 0, 0, 0, 1;
     1, 0, 0, 0, 0, 0; 0, 1, 0, 0, 0, 0; 0, 0, 1, 0, 0, 0]
 
-theorem g22Form_alternating : g22Form.transpose = g22Form ∧ ∀ i, g22Form i i = 0 := by
-  refine ⟨?_, fun i => ?_⟩
-  · ext i j
-    fin_cases i <;> fin_cases j <;> rfl
-  · fin_cases i <;> rfl
 
 theorem g22Form_mul_self : g22Form * g22Form = 1 := by
   ext i j

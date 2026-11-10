@@ -21,12 +21,5 @@ open Subgroup
     ∃ H : Subgroup G, H ≤ normalizer (zConjClosure z₀ u : Set G) ∧ IsSimpleGroup H ∧
       ¬ IsMulCommutative H ∧ z₀ ∈ H ∧ 3 ∣ Nat.card H
 
-structure ZCData where
-  p : ℕ
-  z : PW
-  syl : List PW
-  k : ℕ
-  seeds : List PW
-  hs : List (PW × PW × PSimple)
 
 end CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.FongSporLocal

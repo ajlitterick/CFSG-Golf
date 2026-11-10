@@ -110,18 +110,5 @@ theorem barM_le_of_le_preimage {M X : Subgroup G} {T : Subgroup (↥M ⧸ CFSG.p
   subst this
   exact hm
 
-theorem barM_blockClosure_le_normalizer [Finite G] {M K L : Subgroup G} (hKM : K ≤ M)
-    (hL : IsTwoPrimeComponent M L) {k : G} (hk : k ∈ K) :
-    barM M (blockClosure M K L) ≤
-      Subgroup.normalizer (barM M (L.map (MulAut.conj k).toMonoidHom) : Set _) := by
-  refine barM_le_of_le_preimage (blockClosure_le_preimage hKM hL fun k' hk' z hz => ?_)
-  by_cases he : barM M (L.map (MulAut.conj k').toMonoidHom) =
-      barM M (L.map (MulAut.conj k).toMonoidHom)
-  · rw [he] at hz
-    exact Subgroup.le_normalizer hz
-  · have hc := CFSG.ComponentClassification.LocalComponents.commute_of_ne _ _
-      (hL.map_conj (hKM hk')).component (hL.map_conj (hKM hk)).component he
-    exact Subgroup.centralizer_le_normalizer _
-      ((Subgroup.commutator_eq_bot_iff_le_centralizer).mp hc hz)
 
 end CFSG.AGLEmbedding

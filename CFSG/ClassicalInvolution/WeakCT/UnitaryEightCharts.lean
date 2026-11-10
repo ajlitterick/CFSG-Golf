@@ -61,25 +61,6 @@ theorem rankOne_six_long_le_range (hK : Nat.card K = (2 ^ f) ^ 2) :
   · obtain ⟨c, rfl⟩ := CFSG.RankThree.PartTwo.CTU6.rL_param_lower hK g hg
     exact ⟨_, rfl⟩
 
-theorem agree_of_blocks (hK : Nat.card K = (2 ^ f) ^ 2) {G : Type} [Group G]
-    (φ : SL(4, K) →* G) (κ : SU (unitaryInvolution K 2 f) 6 →* G)
-    (h1 : φ.comp (blockSL2 K 3 1) = κ.comp (rS0 _ (unitaryInvolution_involutive hK)))
-    (h2 : φ.comp (blockSL2 K 3 2) = κ.comp (rS1 _ (unitaryInvolution_involutive hK))) :
-    φ.comp (blockSL K 4 3 1 (by norm_num)) =
-      κ.comp (embSL3 _ (unitaryInvolution_involutive hK)) := by
-  have hle : (⊤ : Subgroup SL(3, K)) ≤ (φ.comp (blockSL K 4 3 1 (by norm_num))).eqLocus
-      (κ.comp (embSL3 _ (unitaryInvolution_involutive hK))) := by
-    rw [← iSup_range_blockSL2 (K := K) 2]
-    refine iSup_le fun k => ?_
-    rintro _ ⟨A, rfl⟩
-    fin_cases k
-    · have e := DFunLike.congr_fun h1 A
-      rw [← blockSL_four_comp_blk_zero] at e
-      exact e
-    · have e := DFunLike.congr_fun h2 A
-      rw [← blockSL_four_comp_blk_one] at e
-      exact e
-  exact MonoidHom.ext fun A => hle (Subgroup.mem_top A)
 
 theorem weakCT_unitary_eight_of_charts (hK : Nat.card K = (2 ^ f) ^ 2) (hf : 2 ≤ f) {G : Type}
     [Group G] (φ : SL(4, K) →* G) (hφ : φ.ker ≤ Subgroup.center SL(4, K))

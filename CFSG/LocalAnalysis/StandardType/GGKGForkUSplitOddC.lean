@@ -272,27 +272,6 @@ private def ggKGUo_oc (r : ℕ) : HypIndex r 0 → HypIndex r 1
   | .inr (.inl k) => Fin.elim0 k
   | .inr (.inr i) => .inr (.inr i)
 
-private theorem ggKGUo_oc_injective (r : ℕ) : Function.Injective (ggKGUo_oc r) := by
-  intro a b h
-  rcases a with i | k | i <;> rcases b with j | l | j
-  · simpa [ggKGUo_oc] using h
-  · exact Fin.elim0 l
-  · simp [ggKGUo_oc] at h
-  · exact Fin.elim0 k
-  · exact Fin.elim0 k
-  · exact Fin.elim0 k
-  · simp [ggKGUo_oc] at h
-  · exact Fin.elim0 l
-  · simpa [ggKGUo_oc] using h
-
-private theorem ggKGUo_oc_ne_c (r : ℕ) (a : HypIndex r 0) : ggKGUo_oc r a ≠ ggKGUo_c r := by
-  rcases a with i | k | i
-  · simp [ggKGUo_oc, ggKGUo_c]
-  · exact Fin.elim0 k
-  · simp [ggKGUo_oc, ggKGUo_c]
-
-private theorem ggKGUo_c_ne_oc (r : ℕ) (a : HypIndex r 0) : ggKGUo_c r ≠ ggKGUo_oc r a :=
-  (ggKGUo_oc_ne_c r a).symm
 
 private def ggKGUo_osplit (r : ℕ) : HypIndex r 1 ≃ HypIndex r 0 ⊕ Unit where
   toFun
@@ -359,13 +338,6 @@ private theorem ggKGUo_betaMat_apply_c_c {K : Type} [Field K] {r : ℕ} (g : GL 
     [ggKGUo_betaMat, ggKGUo_betaMatOfMat, Matrix.reindex_apply, Matrix.submatrix_apply,
     ggKGUo_osplit_apply_c]
 
-private theorem ggKGUo_betaMat_apply_c_oc {K : Type} [Field K] {r : ℕ} (g : GL (HypIndex r 0) K)
-  (b : HypIndex r 0) :
-    ggKGUo_betaMat g (ggKGUo_c r) (ggKGUo_oc r b) = 0 := by
-  simp
-    [ggKGUo_betaMat, ggKGUo_betaMatOfMat, Matrix.reindex_apply, Matrix.submatrix_apply,
-    ggKGUo_osplit_apply_oc,
-    ggKGUo_osplit_apply_c]
 
 private theorem ggKGUo_betaMat_apply_oc_c {K : Type} [Field K] {r : ℕ} (g : GL (HypIndex r 0) K)
   (a : HypIndex r 0) :
@@ -557,23 +529,6 @@ private theorem ggKGUo_betaMatOfMat_delMat {n r : ℕ} {K : Type} [Field K]
     simpa [ggKGUo_betaMatOfMat, ggKGUo_osplit, ggKGUo_c, Matrix.submatrix_apply] using h1.symm
   · simp [ggKGUo_betaMatOfMat, ggKGUo_delMat, ggKGUo_osplit, ggKGUo_oc]
 
-private theorem ggKGUo_osplit_symm_inl {r : ℕ} (a : HypIndex r 0) :
-    (ggKGUo_osplit r).symm (Sum.inl a) = ggKGUo_oc r a := by
-  rcases a with i | k | i <;> rfl
-
-private theorem ggKGUo_osplit_symm_unit {r : ℕ} :
-    (ggKGUo_osplit r).symm (Sum.inr ()) = ggKGUo_c r := rfl
-
-private theorem ggKGUo_sum_hypIndex {r : ℕ} {M : Type*} [AddCommMonoid M]
-    (f : HypIndex r 1 → M) :
-    ∑ a, f a = (∑ b : HypIndex r 0, f (ggKGUo_oc r b)) + f (ggKGUo_c r) := by
-  rw [← Equiv.sum_comp (ggKGUo_osplit r).symm f]
-  rw [Fintype.sum_sum_type]
-  congr 1
-  · apply Finset.sum_congr rfl
-    intro a _
-    rw [ggKGUo_osplit_symm_inl]
-  · simp [ggKGUo_osplit_symm_unit]
 
 private theorem ggKGUo_reindexEquiv_blockJ {K : Type} [Field K] {r : ℕ} :
     ggKGUo_reindexEquiv (K := K) (Matrix.fromBlocks (hypGram r 0 K) 0 0
@@ -690,16 +645,6 @@ private theorem ggKGUo_beta_smul_c {n r : ℕ} {K : Type} [Field K]
     Matrix (HypIndex r 1) (HypIndex r 1) K) *ᵥ ggKGUo_eC (K := K) = ggKGUo_eC (K := K)
   exact ggKGUo_betaMat_mulVec_c (K := K) (r := r) (g : GL (HypIndex r 0) K)
 
-private theorem ggKGUo_det_ne_zero_of_isometry {n r : ℕ} {K : Type} [Field K]
-    (h : UnitaryFieldData 2 n K) (M : Matrix (HypIndex r 1) (HypIndex r 1) K)
-    (hM : (M.map h.bar)ᵀ * hypGram r 1 K * M = hypGram r 1 K) : M.det ≠ 0 := by
-  have hmap : (M.map h.bar).det = h.bar M.det := (RingHom.map_det h.bar M).symm
-  have h := congrArg Matrix.det hM
-  rw [Matrix.det_mul, Matrix.det_mul, Matrix.det_transpose, hmap] at h
-  intro h0
-  rw [h0] at h
-  simp only [map_zero, zero_mul] at h
-  exact det_hypGram_ne_zero h.symm
 
 private theorem ggKGUo_det_betaMatOfMat {K : Type} [Field K] {r : ℕ}
     (B : Matrix (HypIndex r 0) (HypIndex r 0) K) :
@@ -1580,12 +1525,6 @@ private theorem ggKGUo_eC_norm {n r : ℕ} {K : Type} [Field K]
   · intro hc
     exact absurd (Finset.mem_univ (ggKGUo_c r)) hc
 
-private theorem ggKGUo_eC_ne_zero {K : Type} [Field K] {r : ℕ} :
-    ggKGUo_eC (K := K) (r := r) ≠ 0 := by
-  intro h0
-  have h1 := congrFun h0 (ggKGUo_c r)
-  rw [ggKGUo_eC, Pi.single_eq_same] at h1
-  exact one_ne_zero h1
 
 private theorem ggKGUo_normalizer_scalar {n r p : ℕ} {K : Type} [Field K]
     (h : UnitaryFieldData 2 n K) (hp : p.Prime) (hp2 : p ≠ 2) (hpq : p ∣ 2 ^ n - 1)

@@ -239,68 +239,6 @@ theorem map_qTwoTor_iSup_conjTau (hK : Nat.card K = 4) (m : ℕ) (hm : 3 ≤ m) 
   exact map_stdConj_diagTorus E m
 
 
-private theorem chainTheta_commute_tau (m : ℕ) (k : Fin m) (h : k.val + 1 < m)
-    (hk : k.val + 2 < m) (B : Su K 2 1 3) :
-    Commute (stdChainTheta (F := F) (f := 1) m k h B) (stdTau E m) := by
-  have hblk : k.val + 3 ≤ m + 1 := by omega
-  have hl : ¬ (k.val ≤ (Fin.last m).val ∧ (Fin.last m).val < k.val + 3) := by
-    simp only [Fin.val_last]
-    omega
-  have hfix : blockEmb3 K 2 1 m k h B •
-      (Pi.single (Fin.last m) (1 : K) : Fin (m + 1) → K) =
-      Pi.single (Fin.last m) 1 := by
-    change blockEmb K 2 1 (m + 1) 3 k.val hblk B • _ = _
-    exact blockEmb_smul_single_of_not_mem hblk B hl
-  have hpres : ∀ x : Fin (m + 1) → K, x (Fin.last m) = 0 →
-      (blockEmb3 K 2 1 m k h B • x) (Fin.last m) = 0 := by
-    intro x hx
-    rw [CFSG.ClassicalGroups.Unitary.smul_def, coe_coe_blockEmb3, blockMat_mulVec_of_not_mem _ _ hl]
-    exact hx
-  exact suEndN_commute_tauAt E (blockEmb3 K 2 1 m k h B) (Fin.last m) hfix hpres
-
-private theorem stdConj_chainTheta (m : ℕ) (k : Fin m) (h : k.val + 1 < m)
-    (hk : k.val + 2 < m) (B : Su K 2 1 3) :
-    (stdConj E m).toMonoidHom (stdChainTheta (F := F) (f := 1) m k h B) =
-      stdChainTheta (F := F) (f := 1) m k h B := by
-  have hc := chainTheta_commute_tau E m k h hk B
-  rw [stdConj]
-  change MulAut.conj (stdTau E m) (stdChainTheta (F := F) (f := 1) m k h B) =
-    stdChainTheta (F := F) (f := 1) m k h B
-  rw [MulAut.conj_apply, ← hc, mul_assoc, mul_inv_cancel, mul_one]
-
-private theorem stdConj_chainTheta_fork (m : ℕ) (hm : 3 ≤ m) (B : Su K 2 1 3) :
-    (stdConj E m).toMonoidHom
-        (stdChainTheta (F := F) (f := 1) m ⟨m - 2, by omega⟩ (by omega : m - 2 + 1 < m) B) =
-      stdForkTheta E m hm B := by
-  rw [stdForkTheta]
-  rfl
-
-private theorem stdConj_forkTheta (m : ℕ) (hm : 3 ≤ m) (B : Su K 2 1 3) :
-    (stdConj E m).toMonoidHom (stdForkTheta E m hm B) =
-      stdChainTheta (F := F) (f := 1) m ⟨m - 2, by omega⟩ (by omega : m - 2 + 1 < m) B := by
-  rw [stdForkTheta, MonoidHom.comp_apply]
-  exact stdConj_stdConj E m _
-
-
-private theorem qTwoForkSwap_lt_iff_of_three (m : ℕ) (hm : 3 ≤ m)
-    {i j : Fin (m + 1)}
-    (hM : CFSG.StandardType.ggCoxeterMatrixD (m + 1) i j = 3) :
-    i < j ↔ qTwoForkSwap m hm i < qTwoForkSwap m hm j := by
-  let a : Fin (m + 1) := ⟨m - 1, by omega⟩
-  let b : Fin (m + 1) := Fin.last m
-  have hs : qTwoForkSwap m hm = Equiv.swap a b := rfl
-  rw [hs]
-  have hedge := (qtwoLabel_three_iff hm i j).mp hM
-  have hi_lt := i.isLt
-  have hj_lt := j.isLt
-  have ha_val : (a : ℕ) = m - 1 := rfl
-  have hb_val : (b : ℕ) = m := rfl
-  by_cases hia : i = a <;> by_cases hib : i = b <;>
-    by_cases hja : j = a <;> by_cases hjb : j = b <;>
-    simp [Equiv.swap_apply_def, hia, hib, hja, hjb, a, b, ha_val] at hedge ⊢ <;> omega
-
-
-
 private theorem qTwoForkSwap_apply_of_ne_val (m : ℕ) (hm : 3 ≤ m) {i : Fin (m + 1)}
     (hi₁ : i.val ≠ m - 1) (hi₂ : i.val ≠ m) :
     qTwoForkSwap m hm i = i := by

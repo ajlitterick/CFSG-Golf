@@ -141,13 +141,6 @@ theorem nonempty_autFixed_mulEquiv_isometry {φ : E ≃+* E} (hφ : ∀ x, φ x 
         exact ⟨g, Subtype.ext hg⟩⟩
   exact ⟨(MulEquiv.ofBijective ι' hbij).symm⟩
 
-theorem glAut_map_subtype_general (φ : E ≃+* E) (g : GL (Fin 3) h.fixedField) :
-    glAut φ (GeneralLinearGroup.map h.fixedField.subtype g) =
-      GeneralLinearGroup.map h.fixedField.subtype (glAut (fixedRestrict h φ) g) := by
-  apply Units.ext
-  rw [coe_glAut]
-  ext i j
-  rfl
 
 include hCl in
 theorem psi_apply_fixedIsometryProj

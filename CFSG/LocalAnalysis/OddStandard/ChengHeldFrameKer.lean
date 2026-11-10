@@ -57,13 +57,6 @@ section Frames
 
 variable {E : Type*} [Group E] {q : E →* Equiv.Perm (Fin 42)} {l : Cover →* E}
 
-theorem frame4_nfM (hC : frame4OK = true) (h : IsQSetting q l) {α : ℕ} (hα : α ≤ 1)
-    (hκ : ∀ i j : ZMod 4, zz l i j = 1 ↔ inK (kapOf α) i j) :
-    Frame4 α (nfM l (frM α 0)) (nfM l (frM α 1)) (nfM l (frM α 2)) (nfM l (frM α 3))
-      (nfM l (frM α 4)) (nfM l (frM α 5)) (nfM l (frM α 6)) :=
-  frame4_of_rels α (fun i => nfM l (frM α i))
-    (eval_eq_of_relsOK h (eqf := eqKM (kapOf α)) (fun _ _ hx hy => eqKM_iff h hκ hx hy)
-      (frM_lt α) (relsOK_of_frame4 hC hα))
 
 theorem act_nfM (hC : act4OK = true) (h : IsQSetting q l)
     {α : ℕ} (hα : α ≤ 1) (hκ : ∀ i j : ZMod 4, zz l i j = 1 ↔ inK (kapOf α) i j)
@@ -77,12 +70,6 @@ theorem act_nfM (hC : act4OK = true) (h : IsQSetting q l)
     exact this k (by interval_cases k <;> simp)
   exact act_of_actOK h (fun _ _ hx hy => eqKM_iff h hκ hx hy) (frM_lt α) (by omega) hβ hr
 
-theorem frame2_nfM (hC : frame2OK = true) (h : IsQSetting q l)
-    (hκ : ∀ i j : ZMod 4, zz l i j = 1 ↔ j.val % 2 = 0) :
-    Frame2 (nfM l (frM 2 0)) (nfM l (frM 2 1)) (nfM l (frM 2 2)) (nfM l (frM 2 3))
-      (nfM l (frM 2 4)) (nfM l (frM 2 5)) (nfM l (frM 2 6)) :=
-  frame2_of_rels (fun i => nfM l (frM 2 i))
-    (eval_eq_of_relsOK h (eqf := eqN2) (fun _ _ hx hy => eqN2_iff h hκ hx hy) (frM_lt 2) hC)
 
 theorem act2_nfM (hC : act2OK = true) (h : IsQSetting q l)
     (hκ : ∀ i j : ZMod 4, zz l i j = 1 ↔ j.val % 2 = 0) {β : E ≃* E} {k : ℕ} (hk : k < 3)
@@ -246,7 +233,6 @@ theorem std_after_twist
 theorem inN2_zero_one (x : ZMod 4 × ZMod 4) : inN2 (0, 1) x = true ↔ x.2.val % 2 = 0 := by
   simp [inN2]
 
-theorem mem_kap2Gens_zero_one : ((0 : ZMod 4), (1 : ZMod 4)) ∈ kap2Gens := by simp [kap2Gens]
 
 theorem std2_of_FG
     (hC : ChCoverParts) (h : IsQSetting q l) (h2 : Nat.card ↥q.ker = 2) {β : E ≃* E} {j : ℕ}

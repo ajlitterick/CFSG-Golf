@@ -63,7 +63,6 @@ theorem rowsOf_U0 (hbv : ∀ l < 5, D.bvL l < 2 ^ 248) :
 @[expose] noncomputable def uVecN (D : DempData) (c n : ℕ) : ℕ :=
   Nat.rec (motive := fun _ => ℕ) 0 (fun k acc => Nat.xor acc (Nat.mul (bitsN c k 1) (D.bvL k))) n
 
-theorem uVec_eq (c : ℕ) : uVec D c = uVecN D c 5 := rfl
 
 theorem uVecN_succ (c n : ℕ) : uVecN D c (n + 1) = uVecN D c n ^^^ bitsN c n 1 * D.bvL n := rfl
 

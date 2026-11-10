@@ -141,19 +141,6 @@ theorem inner_step (hd : ∀ t < n, ∀ t' < n, T t = T t' → t = t') {h s : �
       · subst ht
         rw [heq, beq_self_eq_true, if_pos rfl, e1]
 
-theorem C_le (hk : 0 < gs.size) (hC0 : C 0 = 1) (hn : 0 < n)
-    (hS : ∀ i < n * gs.size, StepE gs T PA PB C POS n i) : ∀ i ≤ n * gs.size, C i ≤ n := by
-  intro i hi
-  induction i with
-  | zero => omega
-  | succ i ih =>
-    obtain ⟨-, hp1, hp2, -, hnew, hold⟩ := hS i (by omega)
-    have := ih (by omega)
-    by_cases he : POS i = C i
-    · rw [(hnew he).1]
-      omega
-    · rw [hold he]
-      exact this
 
 theorem head_step (hd : ∀ t < n, ∀ t' < n, T t = T t' → t = t') {h : ℕ} (hh : h < n)
     (hS : ∀ i < n * gs.size, StepE gs T PA PB C POS n i) {E : Enum}

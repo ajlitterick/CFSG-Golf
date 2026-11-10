@@ -23,12 +23,6 @@ theorem i28_14_N_inv_apply (g : LinearMap.GeneralLinearGroup (ZMod 2) U) (x : U)
   rw [inv_mul_cancel]
   rfl
 
-theorem i28_14_N_apply_inv (g : LinearMap.GeneralLinearGroup (ZMod 2) U) (x : U) :
-    (g : U →ₗ[ZMod 2] U)
-      (((g⁻¹ : LinearMap.GeneralLinearGroup (ZMod 2) U) : U →ₗ[ZMod 2] U) x) = x := by
-  change ((g * g⁻¹ : LinearMap.GeneralLinearGroup (ZMod 2) U) : U →ₗ[ZMod 2] U) x = x
-  rw [mul_inv_cancel]
-  rfl
 
 theorem i28_14_N_apply_ne_zero (g : LinearMap.GeneralLinearGroup (ZMod 2) U) {a : U}
     (ha : a ≠ 0) : (g : U →ₗ[ZMod 2] U) a ≠ 0 := fun h => ha (by

@@ -11,10 +11,6 @@ namespace CFSG
 open Subgroup
 open scoped commutatorElement
 
-theorem isExtraspecialPGroup_iff {p : ℕ} {P : Type*} [Group P] :
-    IsExtraspecialPGroup p P ↔ IsPGroup p P ∧ commutator P = center P ∧
-      (⨅ M ∈ {M : Subgroup P | IsCoatom M}, M) = center P ∧ Nat.card (center P) = p :=
-  Iff.rfl
 
 theorem frattini_le_of_isElementaryAbelian_quotient {p : ℕ} [Fact p.Prime] {P : Type*} [Group P]
     [Finite P] (hP : IsPGroup p P) (N : Subgroup P) [N.Normal]

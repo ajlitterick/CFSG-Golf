@@ -18,7 +18,6 @@ theorem land1 (x : ℕ) : Nat.land x 1 = x % 2 := land_pow x 1
 theorem land255 (x : ℕ) : Nat.land x 255 = x % 256 := land_pow x 8
 theorem land65535 (x : ℕ) : Nat.land x 65535 = x % 65536 := land_pow x 16
 theorem landM32 (x : ℕ) : Nat.land x mask32 = x % 4294967296 := land_pow x 32
-theorem landM144 (x : ℕ) : Nat.land x mask144 = x % 2 ^ 144 := land_pow x 144
 
 theorem shr (x k : ℕ) : Nat.shiftRight x k = x / 2 ^ k := Nat.shiftRight_eq_div_pow x k
 theorem shl (x k : ℕ) : Nat.shiftLeft x k = x * 2 ^ k := Nat.shiftLeft_eq x k

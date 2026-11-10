@@ -116,11 +116,6 @@ end Cases
     ∀ G L : Subgroup (MulAut V), B4Hyp G L →
       ∀ A : Subgroup (MulAut V), IsFFStarOffender G A → B42Conclusion G L A
 
-@[expose] def AsB43 : Prop :=
-  ∀ (V : Type) [CommGroup V] [Finite V], (∀ v : V, v ^ 2 = 1) →
-    ∀ G L : Subgroup (MulAut V), B4Hyp G L → (∃ A, IsFFStarOffender G A ∧ ¬ A ≤ L) →
-      ((∃ n, 5 ≤ n ∧ n ≤ 8 ∧ SymmetricNatural (ffJ G) ⊤ ⊥ n) ∨ G2Natural (ffJ G) ⊤ ⊥ 1) ∧
-        ((2 / 3 : ℚ) : WithTop ℚ) ≤ qOf G
 
 section Table
 

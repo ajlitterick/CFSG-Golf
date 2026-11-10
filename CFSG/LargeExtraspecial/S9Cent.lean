@@ -66,9 +66,6 @@ theorem comm_identity {a b c d : X} (hca : Commute c a) (hcb : Commute c b) (hcd
     _ = a * b * a⁻¹ * (d * d) * b := by group
     _ = a * b * a⁻¹ * b := by rw [hdd, mul_one]
 
-theorem mem_commZ {y t : X} {r : X} :
-    r ∈ commZ X y t ↔ r * t = t * r ∧ y * r * y⁻¹ * r⁻¹ ∈ zpowers t :=
-  Iff.rfl
 
 theorem exists_mul_ne_one_of_three_le (K : Subgroup X) (hK : 3 ≤ Nat.card K)
     (hsq : ∀ x ∈ K, x * x = 1) : ∃ x ∈ K, ∃ y ∈ K, x ≠ 1 ∧ y ≠ 1 ∧ x * y ≠ 1 := by

@@ -154,30 +154,6 @@ theorem ggL44iiiMarkingInput_of_parts_exc (hBN : GGBstarNbrNormalInput) (hgr : G
       (fun hne => hlangθ hne hs hna) (fun hex => hD4θ hex hgrθ hB₁ (hS1θ hgrθ)) hgrθ hB₁
       (hS1θ hgrθ)⟩
 
-theorem ggL44iiiTriD4LangInput_of_conj (hraw : GGRawInnFieldInput)
-    (hlang : GGRawFieldConjInput) : GGL44iiiTriD4LangInput := by
-  intro G _ _ p B Bs x L D J X B₂ hFC _ h43 _ _ _ _ _ y K _ _ hN P hP
-  obtain ⟨hI, hBstar, -⟩ := hFC.1
-  have hp : p.Prime := hI.2.2.2.2.2.1.1
-  have : Fact p.Prime := ⟨hp⟩
-  have hp2 : p ≠ 2 := hI.2.2.2.2.2.1.2.1
-  have hS : LargeEvenSStar p B x L := hI.2.2.2.2.2.2.1
-  have hBs : IsElemAbelian p Bs := hBstar.2.1
-  have hxBs : x ∈ Bs := hBstar.1 hS.2.1
-  have hxp : x ^ p = 1 := hBs.2 x hxBs
-  have hxc : ∀ b ∈ Bs ⊓ Subgroup.centralizer (X : Set G), x * b = b * x :=
-    fun b hb => mul_comm_of_isElemAbelian hBs hxBs hb.1
-  have hP2 := largeEvenMarking_and_labelAll (S := fun _ => True)
-    (fun lab hlab _ => hraw p hp hp2 lab hlab) (fun _ _ _ _ _ _ _ => trivial) hP
-  have hP3 := largeEvenMarking_and_labelAll (S := fun _ => True)
-    (fun lab hlab _ => hlang p hp hp2 lab hlab) (fun _ _ _ _ _ _ _ => trivial) hP2
-  refine largeEvenMarking_mono_of_simple ?_ hP3
-  rintro lab R _ I F θ hs hna ⟨⟨hPθ, hrawθ⟩, hlangθ⟩
-  refine ⟨hPθ, fun _ hgrθ hB₁ hS1θ => ?_⟩
-  obtain ⟨hmul, hinv, hinn, -⟩ := hrawθ hs hna
-  have hone : (1 : MulAut R) ∈ I := by simpa using hinn 1
-  exact (ggL44iiiMarking_core θ hN hxBs hxp h43.2 hxc hmul hinv hone (hlangθ hs hna) hgrθ hB₁
-    hS1θ).2
 
 end CFSG.StandardType
 

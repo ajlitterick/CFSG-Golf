@@ -348,14 +348,6 @@ open CFSG.Monster.B.Co2.Native
   [[10, 0, 11, 3, 1, 3, 1, 1, 3, 1, 3, 1],
    [10, 2, 11, 2, 2, 0, 2, 0, 0]]
 
-@[expose] def s1Word : List Nat :=
-  [0, 2, 0, 0, 3, 10]
-
-@[expose] def s2Word : List Nat :=
-  [12]
-
-@[expose] def t1Word : List Nat :=
-  [0, 0, 2, 0, 2, 0, 0, 2, 0, 2]
 
 @[expose] def relX : List Nat :=
   [0, 2, 0, 0, 3, 10, 12, 0, 2, 0, 0, 3, 10, 12, 0, 2, 0, 0, 3, 10, 12, 3, 1, 3, 1, 1, 3, 1, 3, 1,
@@ -364,7 +356,5 @@ open CFSG.Monster.B.Co2.Native
 @[expose] def twRels : List (List Nat) :=
   relsC ++ relsN ++ relsT ++ [relX]
 
-@[expose] def twSubs : List (List Nat) :=
-  [[0], [2], [4], [6], [8], [10]]
 
 end CFSG.Sporadic.SuzRecog.B0TwistData

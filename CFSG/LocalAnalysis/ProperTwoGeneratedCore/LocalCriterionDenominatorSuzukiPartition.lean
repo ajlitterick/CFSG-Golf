@@ -72,18 +72,5 @@ theorem suzuki_derangement_centralizer_exact (hm : 0 < m) (g : SzG)
   · intro a ha
     exact Subgroup.mem_centralizer_singleton_iff.mpr (comm g hg a c ha hc)
 
-theorem suzuki_derangement_centralizer_hall (hm : 0 < m) (g : SzG)
-    (hg : suzukiDerangement m g) :
-    Nat.Coprime (Nat.card (Subgroup.centralizer ({g} : Set SzG)))
-      (Subgroup.centralizer ({g} : Set SzG)).index :=
-  xi1115_centralizer_card_coprime_index_core _
-    (suzuki_derangement_centralizer_exact m hm g hg)
-
-theorem suzuki_derangement_centralizer_TI (hm : 0 < m) (g : SzG)
-    (hg : suzukiDerangement m g) (s : SzG)
-    (hs : s ∉ Subgroup.normalizer (Subgroup.centralizer ({g} : Set SzG) : Set SzG)) :
-    Subgroup.centralizer ({g} : Set SzG) ⊓
-      (Subgroup.centralizer ({g} : Set SzG)).map (MulAut.conj s).toMonoidHom = ⊥ :=
-  xi1115_centralizer_TI_core g (suzuki_derangement_centralizer_exact m hm g hg) s hs
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionDenominator

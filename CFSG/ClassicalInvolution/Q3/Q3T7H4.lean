@@ -168,10 +168,6 @@ section NormalTwo
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem commutes_of_commutator_commutes {N : Subgroup G} (hN : IsPGroup 2 N) {y : G}
-    (hyN : ∀ g ∈ N, y * g * y⁻¹ ∈ N) (hy : Odd (orderOf y)) {g : G} (hg : g ∈ N)
-    (hd : y * (g⁻¹ * (y * g * y⁻¹)) = (g⁻¹ * (y * g * y⁻¹)) * y) : y * g = g * y :=
-  CFSG.ClassicalInvolution.T7FU.Asc77.commutes_of_commutator_commutes hN hyN hy hg hd
 
 theorem centralizes_of_isSubnormal {Q : Subgroup G} [Q.Normal] (hQ2 : IsPGroup 2 ↥Q) {T : Set G}
     (hT : ∀ x ∈ T, Odd (orderOf x)) {M K : Subgroup G} (h : IsSubnormal M K)

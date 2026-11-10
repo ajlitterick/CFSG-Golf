@@ -17,16 +17,6 @@ open Subgroup
 @[expose] def shortRoots : Finset (Fin Tag.G2.rank → ℤ) :=
   {rootR, rootU, rootV, -rootR, -rootU, -rootV}
 
-theorem longRoots_union_shortRoots : longRoots ∪ shortRoots = rootFinset .G2 := by
-  decide +kernel
-
-theorem disjoint_longRoots_shortRoots : Disjoint longRoots shortRoots := by
-  decide +kernel
-
-theorem mem_longRoots_or_mem_shortRoots {γ : Fin Tag.G2.rank → ℤ}
-    (hγ : IsRoot .G2 γ) : γ ∈ longRoots ∨ γ ∈ shortRoots := by
-  rw [← Finset.mem_union, longRoots_union_shortRoots, mem_rootFinset]
-  exact hγ
 
 theorem reflect_a_rootB : reflect .G2 g2ia rootB = rootC := List.ofFn_injective (by decide +kernel)
 
@@ -194,34 +184,5 @@ theorem orderOf_eq_four_of_isConj_short_of_quotient
     hK (e.surjective.comp (QuotientGroup.mk'_surjective _)) (fun k hk => (hπ k).1 hk) hz1
     (fun k => (hπ k).trans (hzc k)) hγ hs hx
 
-theorem orderOf_eq_two_of_isConj_long_of_adjointQuotient
-    {L : Type*} [Group L] (hZ : Nat.card (center L) = 2) (hK : Nat.card K = 4)
-    (e : L ⧸ center L ≃* AdjointQuotient .G2 K) {γ : Fin Tag.G2.rank → ℤ} (hγ : γ ∈ longRoots)
-    {s : K} (hs : s ≠ 0) {x : L} (hx : IsConj (e x) (rootX γ s : AdjointQuotient .G2 K)) :
-    orderOf x = 2 := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; norm_num)
-  let eA : AdjointQuotient .G2 K ≃* adjointGroup .G2 K :=
-    (QuotientGroup.quotientMulEquivOfEq center_adjointGroup_eq_bot).trans QuotientGroup.quotientBot
-  have heA : ∀ g : adjointGroup .G2 K, eA g = g := fun g => by
-    rw [MulEquiv.trans_apply, QuotientGroup.quotientMulEquivOfEq_mk]
-    rfl
-  refine orderOf_eq_two_of_isConj_long_of_quotient hZ hK (e.trans eA) hγ hs ?_
-  rw [MulEquiv.trans_apply, ← heA (rootX γ s)]
-  exact eA.toMonoidHom.map_isConj hx
-
-theorem orderOf_eq_four_of_isConj_short_of_adjointQuotient
-    {L : Type*} [Group L] [Finite L] [Group.IsPerfect L] (hZ : Nat.card (center L) = 2)
-    (hK : Nat.card K = 4) (e : L ⧸ center L ≃* AdjointQuotient .G2 K)
-    {γ : Fin Tag.G2.rank → ℤ} (hγ : γ ∈ shortRoots) {s : K} (hs : s ≠ 0) {x : L}
-    (hx : IsConj (e x) (rootX γ s : AdjointQuotient .G2 K)) : orderOf x = 4 := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; norm_num)
-  let eA : AdjointQuotient .G2 K ≃* adjointGroup .G2 K :=
-    (QuotientGroup.quotientMulEquivOfEq center_adjointGroup_eq_bot).trans QuotientGroup.quotientBot
-  have heA : ∀ g : adjointGroup .G2 K, eA g = g := fun g => by
-    rw [MulEquiv.trans_apply, QuotientGroup.quotientMulEquivOfEq_mk]
-    rfl
-  refine orderOf_eq_four_of_isConj_short_of_quotient hZ hK (e.trans eA) hγ hs ?_
-  rw [MulEquiv.trans_apply, ← heA (rootX γ s)]
-  exact eA.toMonoidHom.map_isConj hx
 
 end CFSG.LieType.Steinberg.CentralExt.G2Four

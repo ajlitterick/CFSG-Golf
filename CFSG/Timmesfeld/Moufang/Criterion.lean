@@ -174,16 +174,6 @@ theorem exists_orderOf_mul_eq_three (h : Hyp G D) (hc : RootClosure D) (hs : Spe
     rw [mul_mul_eq_mul_sq hy'2, hbw]
   rw [e1, e2, hwy'.eq]
 
-@[expose] def CommutatorInput (D : Set G) : Prop :=
-  ∀ d ∈ D, ∀ c ∈ D, ¬ Commute d c → Odd (orderOf (d * c)) →
-    ∃ y ∈ D, Commute d y ∧ d * y ∈ D ∧ orderOf (y * c) = 4 ∧
-      ∀ a ∈ rootSet D d, ((y * c) ^ 2 * a) ^ 2 ∈ rootSet D y
-
-theorem rootMoufang_of_commutatorInput (h : Hyp G D) (hc : RootClosure D)
-    (hs : SpecialClosure D) (hE : CommutatorInput D) : RootMoufang D := by
-  intro d hd c hcD hdc hodd a ha
-  obtain ⟨y, hy, hdy, hdyD, hyc, hQ⟩ := hE d hd c hcD hdc hodd
-  exact exists_orderOf_mul_eq_three h hc hs hd hcD hdc hodd hy hdy hdyD hyc ha (hQ a ha)
 
 theorem orderOf_mul_eq_three_of_line (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
     (hD : IsRootInvolutionSet D) {d c y : G} (hd : d ∈ D) (hcD : c ∈ D)

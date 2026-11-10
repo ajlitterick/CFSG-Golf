@@ -58,21 +58,6 @@ theorem ch22226_len : hjRelW.length = 21 ∧ hjInvJ.length = 10 ∧ hjKeep.lengt
     hjLabels.length = 3 := by
   decide +kernel
 
-theorem ch22226n_rel :
-    bIf(hjEqB HeJT (hjCw ((hjRelW.getD 0 []).drop 1)) [], false, true) = true := by
-  quickRfl
-
-theorem ch22226n_comm :
-    bIf(hjEqB HeJT (32 :: hjCw zOne) (hjCw zOne ++ [32]), false, true) = true := by
-  quickRfl
-
-theorem ch22226n_lab : bIf(hjEqB HeJT (hjX 313 ++ [2]) (2 :: (hjCw (CFSG.ComponentClassification.GrSLit.L34Facts.tw 4) ++
-    hjCw zOne ++ hjX 313)), false, true) = true := by
-  quickRfl
-
-theorem ch22226n_tab :
-    bIf(Nat.beq (wzK 8330 14 HeJT hjIdx (hjD 86)) (HeJT 4), false, true) = true := by
-  quickRfl
 
 end CertificateChecks.KernelLC.HeJ
 

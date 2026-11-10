@@ -68,23 +68,5 @@ theorem quaternionEight_automorphism_action {Q : Type*} [Group Q]
   · intro H K hKH hK
     exact card_eq_or_eq_top_of_le (by norm_num) (by rw [hAut]) hKH hK
 
-theorem four_and_quaternion_eight_automorphism_actions {V : Type*} [Group V] [IsKleinFour V]
-    {Q : Type*} [Group Q] (hQ : Nonempty (Q ≃* QuaternionGroup 2)) :
-    ((∃ e : MulAut V ≃* Equiv.Perm {x : V // x ≠ 1}, ∀ φ x, (e φ x : V) = φ x) ∧
-      Nat.card (MulAut V) = 6 ∧
-      (∀ N : Subgroup (MulAut V), N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      (∀ H K : Subgroup (MulAut V), K ≤ H → Nat.card K = 2 → Nat.card H = 2 ∨ H = ⊤)) ∧
-    (Nat.card {H : Subgroup Q // IsCyclic H ∧ Nat.card H = 4} = 3 ∧
-      Nat.card (MulAut Q) = 24 ∧
-      (∃ ρ : MulAut Q →* Equiv.Perm {H : Subgroup Q // IsCyclic H ∧ Nat.card H = 4},
-        (∀ φ H, (ρ φ H : Subgroup Q) = (H : Subgroup Q).map φ.toMonoidHom) ∧
-        Function.Surjective ρ ∧ ρ.ker = (MulAut.conj : Q →* MulAut Q).range) ∧
-      Nat.card (MulAut.conj : Q →* MulAut Q).range = 4 ∧
-      (MulAut.conj : Q →* MulAut Q).range.Normal ∧
-      IsPGroup 2 (MulAut.conj : Q →* MulAut Q).range ∧
-      (∀ N : Subgroup (MulAut Q), N.Normal → IsPGroup 2 N →
-        N ≤ (MulAut.conj : Q →* MulAut Q).range) ∧
-      (∀ H K : Subgroup (MulAut Q), K ≤ H → Nat.card K = 8 → Nat.card H = 8 ∨ H = ⊤)) :=
-  ⟨kleinFour_automorphism_action, quaternionEight_automorphism_action hQ⟩
 
 end CFSG.Semidihedral.Local

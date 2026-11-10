@@ -431,11 +431,6 @@ theorem special_of_special_quotMap [Finite G] (hR : IsRootClass R) (hiso : NoIso
       fun e => hXY (injOn_quotMap hR hiso hΔR hΔV hΔopp hX hY e)) (h.not_opposite hR' hX')
   · exact hs
 
-theorem commutator_mem_and_quotMap {Δ : Set (Subgroup G)} (hΔV : ∀ X ∈ Δ, X ≤ V)
-    (hΔcl : ∀ X ∈ Δ, ∀ Y ∈ Δ, Special R X Y → ⁅X, Y⁆ ∈ Δ) {X Y : Subgroup G} (hX : X ∈ Δ)
-    (hY : Y ∈ Δ) (hs : Special R X Y) :
-    ⁅X, Y⁆ ∈ Δ ∧ quotMap V ⁅X, Y⁆ = ⁅quotMap V X, quotMap V Y⁆ :=
-  ⟨hΔcl X hX Y hY hs, quotMap_commutator (hΔV X hX) (hΔV Y hY)⟩
 
 theorem commutator_eq_of_special {Δ : Set (Subgroup G)} {E₀ : Subgroup G}
     (hΔV : ∀ X ∈ Δ, X ≤ V) (hΔtrans : ∀ X ∈ Δ, ∃ g ∈ V, conjSub E₀ g = X)

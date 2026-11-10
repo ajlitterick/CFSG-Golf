@@ -103,16 +103,6 @@ theorem f4SplitFrame_of (K : Type) [Field K] [Finite K] (hK : Nat.card K % 3 = 1
     · exact normalizerSolvable_of_twFrame hXS
         ((frameNormalizerSolvable_iff Tag.F4 K _).1 (frameNormalizerSolvable_F4 K hK4))
 
-theorem f4SplitFrame (K : Type) [Field K] [Finite K] (hK : Nat.card K % 3 = 1) :
-    ∃ z : adjointGroup .F4 K, z ≠ 1 ∧ z ^ 3 = 1 ∧
-      ∃ X : Subgroup (adjointGroup .F4 K), ClosingFrameAt z X := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hdvd : 3 ∣ Nat.card Kˣ := by
-    rw [Nat.card_units]
-    have : 1 ≤ Nat.card K := Nat.card_pos
-    omega
-  obtain ⟨ω, hω⟩ := exists_prime_orderOf_dvd_card' 3 hdvd
-  exact ⟨zSplit K ω, f4SplitFrame_of K hK ω hω⟩
 
 end SplitF4
 

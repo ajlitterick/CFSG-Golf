@@ -51,47 +51,6 @@ public theorem theoremA {p : ℕ} [Fact p.Prime] (hpodd : p ≠ 2) {G : Type*} [
 
 /-! ## Lemma 6.3: sorry-free partial infrastructure -/
 
-/-- The sorry-free `(b) ⟹ (a)` direction of Lemma 6.3: if every subquotient of `G` is
-`p`-stable, then `Qd(p)` is not involved in `G`.  An involvement witness
-`K ⧸ N ≃ Qd(p)` gives `pStable (Qd p)` by `pStable_iso`, contradicting the
-sorry-free `qd_not_pStable` (proved in `Glauberman/Lemma6_3.lean`). -/
-private theorem lemma_6_3_backward {p : ℕ} [Fact p.Prime] (hpodd : p ≠ 2) {G : Type*}
-    [Group G]
-    (hb : ∀ (K : Subgroup G) (N : Subgroup K) [_hN : N.Normal], pStable p (K ⧸ N)) :
-    ¬ Involved (Qd p) G := by
-  intro hInv
-  rcases hInv with ⟨K, N, hN, hq⟩
-  let : N.Normal := hN
-  rcases hq with ⟨e⟩
-  have hstab : pStable p (K ⧸ N) := hb K N
-  have hqd : pStable p (Qd p) := (pStable_iso (G := K ⧸ N) (G' := Qd p) e).1 hstab
-  exact qd_not_pStable hpodd hqd
-
-/-- The `(a) ⟹ (b)` direction of Lemma 6.3 abstracted over its
-minimal-counterexample implication. -/
-private theorem lemma_6_3_forward_of_qd_involved {p : ℕ} [Fact p.Prime]
-    {G : Type*} [Group G] [Finite G]
-    (hbridge : (∃ (K : Subgroup G) (N : Subgroup K) (hN : N.Normal),
-      letI : N.Normal := hN; ¬ pStable p (K ⧸ N)) → Involved (Qd p) G)
-    (hInv : ¬ Involved (Qd p) G) :
-    ∀ (K : Subgroup G) (N : Subgroup K) [_hN : N.Normal], pStable p (K ⧸ N) := by
-  classical
-  intro K N _hN
-  let : N.Normal := _hN
-  by_contra h
-  exact hInv (hbridge ⟨K, N, _hN, h⟩)
-
-/-- Lemma 6.3 assembled from its backward direction and an abstract
-minimal-counterexample implication. -/
-private theorem lemma_6_3_of_qd_involved {p : ℕ} [Fact p.Prime] (hpodd : p ≠ 2)
-    {G : Type*} [Group G] [Finite G]
-    (hbridge : (∃ (K : Subgroup G) (N : Subgroup K) (hN : N.Normal),
-      letI : N.Normal := hN; ¬ pStable p (K ⧸ N)) → Involved (Qd p) G) :
-    (¬ Involved (Qd p) G) ↔
-      ∀ (K : Subgroup G) (N : Subgroup K) [N.Normal], pStable p (K ⧸ N) := by
-  constructor
-  · exact lemma_6_3_forward_of_qd_involved hbridge
-  · exact lemma_6_3_backward hpodd
 
 /-- Glauberman's Lemma 6.3 ([6], §6, p. 1122): for an odd prime `p` and a finite group
 `G`, `Qd(p)` is not involved in `G` if and only if every subquotient of `G` is

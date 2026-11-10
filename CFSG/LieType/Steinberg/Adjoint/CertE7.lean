@@ -56,7 +56,5 @@ theorem e7AdjData_valid : e7AdjData.Valid :=
   ⟨e7AdjData_checkTables, e7AdjData_checkSimple, e7AdjData_checkWeyl, e7AdjData_checkPairs,
     e7AdjData_checkPairNorm⟩
 
-theorem e7AdjData_checkPinned : e7AdjData.checkPinned = true := by
-  exact Certificates.certificate119.2.2.2.2
 
 end CFSG.LieType.Steinberg.Adjoint

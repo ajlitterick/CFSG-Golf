@@ -10,9 +10,6 @@ namespace CFSG.ClassicalInvolution.Asc77
 open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
   CFSG.ClassicalInvolution.Asc77.Thompson
 
-theorem sq_eq_of_rel {A : Type*} [Group A] (hc : ∀ x y : A, x * y = y * x) {za zb w s : A}
-    (h : za * (w * s) = (zb * za) * (w⁻¹ * s)) : w * w = zb :=
-  CFSG.ClassicalInvolution.Asc77.sq_eq_of_rel_gen hc h
 
 theorem prod_eq_one_of_sq {A : Type*} [Group A] (hc : ∀ x y : A, x * y = y * x)
     {za w₁ w₂ w₃ u z₁ z₂ z₃ zP : A} (hza : za * za = 1) (h₁ : w₁ * w₁ = z₁)
@@ -425,52 +422,6 @@ end Thompson
 
 section Frame
 
-variable {G : Type} [Group G] [Finite G] {p f : ℕ} [Fact p.Prime] {Ω : Set (Subgroup G)}
-  {K K' J W : Subgroup G} {z u t : G}
-
-theorem Hyp21.exists_twin_of_J (h : Hyp21 p f Ω K K' z u J t W)
-    (hne : dComp Ω K ≠ dstarComp Ω K) :
-    ∃ J' ∈ Ω, J' ≠ J ∧ IsUniqueInvolution J' t ∧ J' ≠ K ∧ J' ≠ K' ∧ J' ∈ omegaNbr Ω K ∧
-      J' ∈ omegaNbr Ω K' ∧ J' ∈ omegaNbr Ω J := by
-  have hst := h.std.stand
-  have hΩ : HypOmegaMod p f Ω := hst.hyp
-  have hK : K ∈ Ω := hst.mem
-  have hK'Ω : K' ∈ Ω := h.std.hK'.1
-  have hz : IsUniqueInvolution K z := h.std.hz
-  have hzK' : IsUniqueInvolution K' z := isUniqueInvolution_of_mem_twinSet hz h.std.hK'
-  have c : Thompson.Ctx p f Ω W := T7D.ctx_of_stand hst h.hW
-  have hnc : ¬ DbarConnected Ω W := h.not_dbarConnected hne
-  obtain ⟨ρ₁, hρ₁⟩ := c.exists_rep_of_involution_mem hK hz h.hzW
-  obtain ⟨ρ₂, hρ₂⟩ := c.exists_rep_of_involution_mem hK'Ω hzK' h.hzW
-  obtain ⟨ρ₃, hρ₃⟩ := c.exists_rep_of_involution_mem h.hJ.1 h.ht h.htW
-  have h12 : ρ₂.K ∈ omegaNbr Ω ρ₁.K := by
-    rw [hρ₁, hρ₂]
-    exact T3.twin_mem_omegaNbr hΩ hK hK'Ω h.std.hne hz hzK'
-  have h13 : ρ₃.K ∈ omegaNbr Ω ρ₁.K := by
-    rw [hρ₁, hρ₃]
-    exact h.hJ.2 K (mem_twinSet_self hK hz)
-  have h23 : ρ₃.K ∈ omegaNbr Ω ρ₂.K := by
-    rw [hρ₂, hρ₃]
-    exact h.hJ.2 K' h.std.hK'
-  obtain ⟨ρ₄, hK41, hK42, hK43, hn41, hn42, hn43, hprod⟩ :=
-    c.exists_fourth hnc ρ₁ ρ₂ ρ₃ h12 h13 h23 (hρ₁ ▸ hz) (hρ₂ ▸ hzK') (hρ₃ ▸ h.ht)
-  obtain ⟨z₄, hz₄⟩ := hΩ.exists_uniqueInvolution hst.odd hst.five ρ₄.hK
-  have h4 := hprod z₄ hz₄
-  have hzz : z * z = 1 := hz.sq
-  have hz₄t : z₄ = t := by
-    have h1 : t * z₄ = 1 := by
-      have : z * z * t * z₄ = 1 := h4
-      rwa [hzz, one_mul] at this
-    have h2 : z₄ = t⁻¹ := eq_inv_of_mul_eq_one_right h1
-    rw [h2]
-    exact inv_eq_of_mul_eq_one_left h.ht.sq
-  refine ⟨ρ₄.K, ρ₄.hK, ?_, hz₄t ▸ hz₄, ?_, ?_, ?_, ?_, ?_⟩
-  · rw [← hρ₃]; exact hK43
-  · rw [← hρ₁]; exact hK41
-  · rw [← hρ₂]; exact hK42
-  · rw [← hρ₁]; exact hn41
-  · rw [← hρ₂]; exact hn42
-  · rw [← hρ₃]; exact hn43
 
 end Frame
 

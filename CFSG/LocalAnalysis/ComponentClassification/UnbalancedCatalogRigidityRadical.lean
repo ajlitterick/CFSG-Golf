@@ -19,9 +19,6 @@ variable {C : Type*} [Group C]
   inv_mem' {α} hα x := by
     rw [← hα, MulAut.apply_inv_self]
 
-theorem mem_setStabilizer {U : Subgroup C} {α : MulAut C} :
-    α ∈ setStabilizer U ↔ ∀ x, α x ∈ U ↔ x ∈ U :=
-  Iff.rfl
 
 theorem mul_conj_mul_inv (α : MulAut C) (c : C) :
     α * MulAut.conj c * α⁻¹ = MulAut.conj (α c) := by

@@ -76,13 +76,6 @@ theorem cGen_mem_G21
   rw [G21_eq]
   exact Subgroup.subset_closure ⟨k, rfl⟩
 
-theorem orbit_G21_wFr :
-    MulAction.orbit G21 wFr =
-    (fun i => decW frameOrbit[i]!) '' {i | i < frameOrbit.size} := by
-  have h := orbit_of_natCertOK (G := Kstab v0) frameCheck_parts.1
-    (fun k hk a _ => decW_actFrame hk a)
-  rw [frameCheck_parts.2, ← wFr_eq_decW] at h
-  exact h
 
 theorem ncard_orbit_G21_wFr :
     (MulAction.orbit G21 wFr).ncard

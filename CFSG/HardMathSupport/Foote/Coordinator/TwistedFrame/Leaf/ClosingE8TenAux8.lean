@@ -30,7 +30,6 @@ theorem g_mem_adjointGroup' {K : Type} [Field K] [Finite K] {w : WeylGroup Tag.E
 
 @[expose] def w8 : WeylGroup Tag.E8 := (coxeterSystem Tag.E8).wordProd TwClass.wordE8Ten
 
-theorem w8_eq : TwClass.e8Ten.w = w8 := rfl
 
 theorem w_smul (γ : Fin Tag.E8.rank → ℤ) : w8 • γ = wm.mulVec γ :=
   wordProd_smul_eq_wordMat_mulVec Tag.E8 TwClass.wordE8Ten γ
@@ -264,10 +263,6 @@ theorem listB_mem_S₁ : ∀ γ ∈ listB, ∀ t : D.L,
 
 variable [IsAlgClosed D.L]
 
-theorem invE_e8Ten (h1 : D.frame TwClass.e8Ten.S₁ ≤ H) (h2 : D.frame TwClass.e8Ten.S₂ ≤ H) :
-    InvE (Uspace D.g H) :=
-  (toSetup D H).invE_pos (toSetup_hw D H) _ _ (xlink D H TwClass.e8Ten.S₂ h2)
-    (xlink D H TwClass.e8Ten.S₁ h1) (listA_mem_S₂ D) (listB_mem_S₁ D)
 
 theorem block_e8Ten (h1 : D.frame TwClass.e8Ten.S₁ ≤ H) (h2 : D.frame TwClass.e8Ten.S₂ ≤ H)
     {u : Fn D.L} (hu : u ∈ Uspace D.g H) {μ : Fin Tag.E8.rank → ℤ} (hμ : μ ∈ mRoots)

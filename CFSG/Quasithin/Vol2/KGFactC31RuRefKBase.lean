@@ -17,11 +17,6 @@ theorem rep_commutA {a b : Array ℕ} {g h : Equiv.Perm (Fin 4060)} (ha : Rep 40
 
 section Facts
 
-theorem ruKGensA_size : ruKGensA.size = 8 := by simp [ruKGensA, ruKWords]
-
-theorem ruKGensA_mem {i : ℕ} (hi : i < 8) : ruKGensA[i]! ∈ ruKGensA.toList := by
-  rw [getElem!_pos ruKGensA i (by rw [ruKGensA_size]; exact hi)]
-  exact Array.getElem_mem_toList _
 
 theorem mem_center_ruK_iff
     (x : ↥ruK) :
@@ -95,29 +90,6 @@ theorem isE2_of_card' {V : Type} [Group V] [Finite V] (hc : ∀ x y : V, x * y =
     b.equivFun.trans (LinearEquiv.funCongrLeft (ZMod 2) (ZMod 2) (finCongr hd.symm))
   exact ⟨AddEquiv.toMultiplicativeRight e.toAddEquiv⟩
 
-theorem rep_bEA (i : Fin 3) : Rep 4060 (bEA.getD i #[]) (vE i) := by
-  have hl : i.val < bEA.length := by simp [bEA, wsA, basisEW]
-  have h := (List.forall₂_iff_get.mp hbE).2 i hl (by simp)
-  simp only [List.get_eq_getElem, List.getElem_ofFn] at h
-  rw [List.getD_eq_getElem _ _ hl]
-  exact h
-
-theorem vE_eq_commut {i a b : ℕ} (hi : i < 3) (ha : a < 8) (hb : b < 8)
-    (h : eqA 4060 (commutA ruKGensA[a]! ruKGensA[b]!) (bEA.getD i #[]) = true) :
-    vE ⟨i, hi⟩ = ruKGens.getD a 1 * ruKGens.getD b 1 * (ruKGens.getD a 1)⁻¹ *
-      (ruKGens.getD b 1)⁻¹ :=
-  (eq_of_eqA (rep_commutA (rep_ruKGens a ha) (rep_ruKGens b hb)) (rep_bEA ⟨i, hi⟩) h).symm
-
-theorem rep_xgens :
-    (∀ h < 2, Rep 4060 (#[xEA, cjA nEA (ruInv nEA) xEA] : Array (Array ℕ))[h]!
-      ([xE, nE * xE * nE⁻¹].getD h 1)) ∧
-    ∀ h < 2, Rep 4060 (#[ruInv xEA, ruInv (cjA nEA (ruInv nEA) xEA)] : Array (Array ℕ))[h]!
-      ([xE, nE * xE * nE⁻¹].getD h 1)⁻¹ := by
-  have h1 := rep_cjA rep_nE (rep_ruInv' rep_nE) rep_xE
-  exact ⟨rep_getD_two' rep_xE h1, rep_getD_two_inv' (rep_ruInv' rep_xE) (rep_ruInv' h1)⟩
-
-theorem rep_r30 : Rep 4060 root30A r30 :=
-  rep_conjA (rep_abA (by decide)) rep_ruZ
 
 end Facts
 

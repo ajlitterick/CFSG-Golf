@@ -80,13 +80,6 @@ theorem rt_inl_inr (i j : Fin n) : rt (Sum.inl i) (Sum.inr j) = Pi.single i 1 - 
   rw [rt, sub_eq_add_neg]
   rfl
 
-theorem rt_inl_inl' (i j : Fin n) : rt (Sum.inl i) (Sum.inl j) = Pi.single i 1 + Pi.single j 1 :=
-  rfl
-
-theorem rt_inr_inr' (i j : Fin n) :
-    rt (Sum.inr i) (Sum.inr j) = -Pi.single i 1 - Pi.single j 1 := by
-  rw [rt, sub_eq_add_neg]
-  rfl
 
 theorem ofPos_ne {a b : Fin n ⊕ Fin n} (h : b ≠ Sum.swap a) : a ≠ Sum.swap b := by
   rintro rfl
@@ -299,8 +292,6 @@ open Classical in
       mem_roots_iff, Sp.toStd_comb]
     simp
 
-theorem list_spOrder (K : Type) [Field K] (α β : Fin n → ℤ) :
-    (spOrder n K).list α β = epsList (toStd n α) (toStd n β) := rfl
 
 variable {K : Type} [Field K] {G : Type*} [Group G]
 

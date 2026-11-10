@@ -58,10 +58,6 @@ theorem map_mem_extremalParabolics (φ : G ≃* G) {M : Subgroup G}
       rw [← e.map_inf]
       exact e.monotone hle
 
-theorem parabolicGraphAut_apply (φ : G ≃* G) (M : extremalParabolics G p) :
-    ((parabolicGraphAut p φ M : extremalParabolics G p) : Subgroup G) =
-      (M : Subgroup G).map (φ : G →* G) :=
-  rfl
 
 end Group
 

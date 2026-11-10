@@ -33,7 +33,6 @@ theorem exists_odd_preimage {Q Q' : Type*} [Group Q] [Finite Q] [Group Q'] (f : 
   · have hfx : f x = 1 := orderOf_eq_one_iff.mp (by omega)
     exact ⟨1, one_mem _, by rw [orderOf_one]; exact odd_one, by rw [map_one, hfx]⟩
 
-variable {G : Type} [Group G] [Finite G]
 
 end Lemma39
 

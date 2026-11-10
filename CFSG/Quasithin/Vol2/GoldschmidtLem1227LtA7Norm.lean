@@ -96,7 +96,6 @@ theorem enc_bD : V7.enc (perm7 [[0, 2], [4, 5]]) = bR := by decide +kernel
 
 theorem enc_tD : V7.enc (perm7 [[4, 5]]) = tR := by decide +kernel
 
-theorem dGens_eq : dGens = [perm7 [[0, 1, 2, 3], [4, 5]], perm7 [[0, 2], [4, 5]]] := rfl
 
 theorem D7R_mul : ∀ u ∈ D7R, ∀ v ∈ D7R, u * v ∈ D7R := by decide +kernel
 

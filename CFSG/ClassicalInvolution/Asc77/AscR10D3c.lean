@@ -17,7 +17,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 open scoped MatrixGroups commutatorElement
 
 
-
 section TD4
 
 variable {X : Type} [Group X] [Finite X] {Φ : Set (Subgroup X)}
@@ -104,19 +103,11 @@ theorem qv3ModelV_of_dich3
   · exact quotViol_false_of_dich3 (hDich t n hft hadm ht2 ht4) hft hadm ht2 ht4 hΦ D.card_eq hk
       (D.hom i) (D.ker_le_center i) hR hS h
 
-theorem g2Comp3_of_qv3ModelV (hM : QV3ModelV) : G2Comp3 :=
-  g2Comp3_of_qv3Comp (qv3Comp_of_qv3ModelV hM)
 
 theorem res10aNoConj9_of_qv3ModelV (p f : ℕ) [Fact p.Prime] (hM : QV3ModelV) :
     Q3.CIT3Inductive → p ^ f = 9 → Res10aNoConj p f :=
   res10aNoConj9_of_qv3Comp p f (qv3Comp_of_qv3ModelV hM)
 
-theorem res10aNoConj9_of_dich3 (p f : ℕ) [Fact p.Prime]
-    (hDich : ∀ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n : ℕ), IsFundTag t →
-      CFSG.Assembly.LowTwoRank.StatedLieAdmissible t n 3 1 → t ≠ .G2 → t ≠ .trialityD4 →
-        StdDich3 t n) :
-    Q3.CIT3Inductive → p ^ f = 9 → Res10aNoConj p f :=
-  res10aNoConj9_of_qv3ModelV p f (qv3ModelV_of_dich3 hDich)
 
 end Residual
 

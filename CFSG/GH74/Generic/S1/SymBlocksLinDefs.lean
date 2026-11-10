@@ -103,8 +103,6 @@ theorem permGL_mem (σ : Equiv.Perm (Fin 4)) {g : GL (Fin 4) F} (hg : g ∈ Stat
     simp only [permGL_apply, Equiv.Perm.inv_def, Equiv.symm_symm, Equiv.apply_symm_apply]))
   map_mul' g h := Subtype.ext (map_mul (permGL σ) _ _)
 
-theorem coe_permS (σ : Equiv.Perm (Fin 4)) (g : ↥(StatedSL 4 F)) :
-    ((permS σ g : ↥(StatedSL 4 F)) : GL (Fin 4) F) = permGL σ (g : GL (Fin 4) F) := rfl
 
 theorem permGL_inv_permGL (σ : Equiv.Perm (Fin 4)) (g : GL (Fin 4) F) :
     permGL σ⁻¹ (permGL σ g) = g := by

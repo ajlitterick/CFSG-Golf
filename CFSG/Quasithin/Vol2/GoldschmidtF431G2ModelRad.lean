@@ -32,8 +32,6 @@ variable {n : ℕ} (R : RankTwoSystem X n)
 theorem Uplus_true_eq_iSup : Uplus R true = ⨆ k ∈ intList 2 (n : ℤ), R.root k :=
   eq_iSup_of_coe_eq_chainProd _ _ _ (coe_Uplus_true R)
 
-theorem Uplus_false_eq_iSup : Uplus R false = ⨆ k ∈ intList 1 ((n : ℤ) - 1), R.root k :=
-  eq_iSup_of_coe_eq_chainProd _ _ _ (coe_Uplus_false R)
 
 end Generic
 
@@ -87,11 +85,6 @@ theorem root_eq_map_Xe (hK : 3 ≤ Nat.card K) {k : ℤ} (h0 : k ≠ 0) (h6 : k.
   rw [rootGroup_eq_Xe (isRoot_hexPos h0 h6)]
   rfl
 
-theorem map_Xr (hK : 3 ≤ Nat.card K) :
-    (Xr K).map (proj K) = (g2ModelSystem K hK).root 1 := by
-  rw [root_eq_map_Xe hK (by norm_num) (by norm_num)]
-  have e : hexPos 1 = rR := by simp [hexPos, rR]
-  rw [e]
 
 theorem map_Xb (hK : 3 ≤ Nat.card K) :
     (Xb K).map (proj K) = (g2ModelSystem K hK).root 2 := by
@@ -157,42 +150,6 @@ theorem Q_true_eq [Finite K] [CharP K 2] (hK : 3 ≤ Nat.card K) :
     · rw [map_Xc hK]
       exact le_iSup₂_of_le 4 (hmem 4 (by norm_num) (by norm_num)) le_rfl
 
-theorem Q_false_eq [Finite K] [CharP K 2] (hK : 3 ≤ Nat.card K) :
-    Q (g2ModelSystem K hK) false = (Q2 K).map (mk K).toMonoidHom := by
-  rw [Q_eq_Uplus _ (isSylowTwoOf_modelU hK) false, Uplus_false_eq_iSup]
-  apply le_antisymm
-  · refine iSup₂_le fun k hk => ?_
-    obtain ⟨h1, h5⟩ := mem_intList_iff.1 hk
-    have h5' : k ≤ 5 := by
-      have : k ≤ ((6 : ℕ) : ℤ) - 1 := h5
-      push_cast at this
-      omega
-    interval_cases k
-    · rw [← map_Xr hK]
-      exact Subgroup.map_mono Xr_le_Q2
-    · rw [← map_Xb hK]
-      exact Subgroup.map_mono Xb_le_Q2
-    · rw [← map_Xv hK]
-      exact Subgroup.map_mono Xv_le_Q2
-    · rw [← map_Xc hK]
-      exact Subgroup.map_mono Xc_le_Q2
-    · rw [← map_Xu hK]
-      exact Subgroup.map_mono Xu_le_Q2
-  · show (Xr K ⊔ Xu K ⊔ Xv K ⊔ Xb K ⊔ Xc K).map (proj K) ≤ _
-    simp only [Subgroup.map_sup]
-    have hmem : ∀ k : ℤ, 1 ≤ k → k ≤ 5 → k ∈ intList 1 (((6 : ℕ) : ℤ) - 1) := fun k h1 h2 =>
-      mem_intList_iff.2 ⟨h1, by push_cast; omega⟩
-    refine sup_le (sup_le (sup_le (sup_le ?_ ?_) ?_) ?_) ?_
-    · rw [map_Xr hK]
-      exact le_iSup₂_of_le 1 (hmem 1 le_rfl (by norm_num)) le_rfl
-    · rw [map_Xu hK]
-      exact le_iSup₂_of_le 5 (hmem 5 (by norm_num) le_rfl) le_rfl
-    · rw [map_Xv hK]
-      exact le_iSup₂_of_le 3 (hmem 3 (by norm_num) (by norm_num)) le_rfl
-    · rw [map_Xb hK]
-      exact le_iSup₂_of_le 2 (hmem 2 (by norm_num) (by norm_num)) le_rfl
-    · rw [map_Xc hK]
-      exact le_iSup₂_of_le 4 (hmem 4 (by norm_num) (by norm_num)) le_rfl
 
 theorem Pmin_one_inf_Pmin_zero [Finite K] (hK : 3 ≤ Nat.card K) :
     Pmin K ⟨1, by decide⟩ ⊓ Pmin K ⟨0, by decide⟩ = borelSub Tag.G2 K := by

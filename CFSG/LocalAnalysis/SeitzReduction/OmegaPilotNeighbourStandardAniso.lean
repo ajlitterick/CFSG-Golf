@@ -267,13 +267,6 @@ theorem exists_mem_anisoTorus_eq_conj (hn : 4 ≤ n) {b c : K}
   rw [CFSG.RankThree.PartOne.KCOrthogonalAut.matrixProjectiveImage_eq_top_minus K n hn b c hirr]
   exact Subgroup.mem_top β
 
-theorem eq_one_of_two_pow_fix_anisoTorus (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    {β : MulAut (matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c))} {m : ℕ}
-    (hβ : β ^ 2 ^ m = 1) (hX : ∀ x ∈ anisoTorus (K := K) (one_le_of_four_le hn) b c, β x = x)
-    (hD : ∀ x ∈ anisoPerp (K := K) (one_le_of_four_le hn) b c, β x = x) : β = 1 :=
-  eq_one_of_two_pow_of_forall_fix_eq_conj (odd_card_anisoTorus _ hirr)
-    (fun _ hX hD => exists_mem_anisoTorus_eq_conj hn hirr hX hD) β hX hD m hβ
 
 end Main
 
@@ -371,17 +364,6 @@ theorem bLift_inputs_anisoTorus (hL : standardComponentIsStandard L) {t : G}
     (isQuasisimple_anisoPerp hn hirr) (odd_card_anisoTorus _ hirr)
     (fun _ hX hD => exists_mem_anisoTorus_eq_conj hn hirr hX hD) hX hDe
 
-theorem mem_anisoTorus_of_odd_of_commute (hset : SeitzSetting G L) {f : ℕ}
-    (hKc : Nat.card K = 2 ^ f) (hn : 4 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : L ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) {X : Subgroup G}
-    (hX : X = ((anisoTorus (K := K) (by omega) b c).map e.symm.toMonoidHom).map L.subtype)
-    {D : Subgroup G}
-    (hDe : D = ((anisoPerp (K := K) (by omega) b c).map e.symm.toMonoidHom).map L.subtype)
-    {x : G} (hx : x ∈ centralizer (X : Set G) ⊓ centralizer ({t} : Set G) ⊓ centralizer (D : Set G))
-    (hxo : Odd (orderOf x)) : x ∈ X :=
-  (bLift_inputs_anisoTorus hset.standardSetting.standard htC ht
-    (inf_centralizer_eq_zpowers_minus hset hn hKc hirr e htC ht) hn hirr e hX hDe).2.2.2 x hx hxo
 
 theorem neighbour_standard_anisoTorus_of_seitzSetting (hset : SeitzSetting G L) {f : ℕ}
     (hKc : Nat.card K = 2 ^ f) (hn : 4 ≤ n) {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)

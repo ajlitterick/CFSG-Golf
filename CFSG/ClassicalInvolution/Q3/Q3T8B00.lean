@@ -24,18 +24,6 @@ structure BadStd8 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K J :
   bad : alphaOf (Subgroup.closure ({t, z} : Set G)) ≠ ⊥
 
 
-
-@[expose] def C26_2B : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), BadStd8 Ω K J S R T W z t →
-      omegaNbrGen Ω K ≠ ⊤ → ¬ MuIsoS4 Ω W
-
-
-@[expose] def CFB : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K J : Subgroup G)
-    (S : Sylow 2 G) (R T W : Subgroup G) (z t : G), BadStd8 Ω K J S R T W z t →
-      omegaNbrGen Ω K ≠ ⊤ → ¬ MuIsoE4 Ω W
-
 end Defs
 
 section Route

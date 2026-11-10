@@ -28,28 +28,12 @@ namespace U433
 
 @[expose] noncomputable def E₁ : U433 := yGen 4 3 3 (armStart 1 + 3)
 
-theorem yEdges_433 : yEdges 4 3 3 =
-    [(0, armStart 1), (0, armStart 2), (0, armStart 3),
-      (armStart 1, armStart 1 + 1), (armStart 1 + 1, armStart 1 + 2),
-      (armStart 1 + 2, armStart 1 + 3),
-      (armStart 2, armStart 2 + 1), (armStart 2 + 1, armStart 2 + 2),
-      (armStart 3, armStart 3 + 1), (armStart 3 + 1, armStart 3 + 2)] := by
-  decide
-
-theorem spiderWord_433 : spiderWord 4 3 =
-    [0, armStart 1, armStart 1 + 1, 0, armStart 2, armStart 2 + 1, 0, armStart 3,
-      armStart 3 + 1] := by
-  decide
 
 theorem A_mul_self : A * A = 1 := yGen_mul_self 4 3 3 0
 
-theorem B_mul_self (i : ℕ) : B i * B i = 1 := yGen_mul_self 4 3 3 _
-
-theorem C_mul_self (i : ℕ) : C i * C i = 1 := yGen_mul_self 4 3 3 _
 
 theorem D_mul_self (i : ℕ) : D i * D i = 1 := yGen_mul_self 4 3 3 _
 
-theorem E₁_mul_self : E₁ * E₁ = 1 := yGen_mul_self 4 3 3 _
 
 @[expose] noncomputable def T (i : ℕ) : U433 := A * B i * C i
 

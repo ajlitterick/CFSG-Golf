@@ -30,11 +30,6 @@ variable {G : Type} [Group G] [Finite G]
 
 end Defs
 
-@[expose] def GGFieldCaseInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J X : Subgroup G),
-    GGFieldCase p B Bs x L D J X →
-      ∃ M R U U₁ : Subgroup G, GGFieldCaseData p Bs X M R U U₁ ∧
-        ∃ ψ : Subgroup.normalizer (U₁ : Set G) →* Multiplicative (ZMod p), ψ ≠ 1
 
 section Proof
 
@@ -50,15 +45,6 @@ theorem ggFieldCaseData_false {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) (hG : IsS
 
 end Proof
 
-theorem ggProp41Input_of_input (h : GGFieldCaseInput) : GGProp41Input := by
-  intro G _ _ p B Bs x L D J hcfg hbl5 X hXN hCX hXn hXp
-  by_contra hXC
-  obtain ⟨M, R, U, U₁, hdata, ψ, hψ⟩ :=
-    h G p B Bs x L D J X ⟨hcfg, hbl5, hXN, hCX, hXn, hXp, hXC⟩
-  have hI := hcfg.1
-  have hβ := hI.2.2.2.2.2.1
-  have : Fact p.Prime := ⟨hβ.1⟩
-  exact ggFieldCaseData_false hβ.2.1 hI.1 hI.2.1 hdata ψ hψ
 
 end CFSG.StandardType
 

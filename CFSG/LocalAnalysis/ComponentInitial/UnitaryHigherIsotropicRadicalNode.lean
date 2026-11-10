@@ -11,17 +11,6 @@ open Matrix CFSG.ClassicalGroups.UnitaryFlag
 variable {f n : ℕ} {K : Type} [Field K] (h : UnitaryFieldData 2 f K) {C : GL (Fin n) K}
   (hC : IsPrimeFormGram C)
 
-include hC in
-theorem gramForm_map_ringEquiv (φ : K ≃+* K) (x y : Fin n → K) :
-    φ (gramForm h (C : Matrix (Fin n) (Fin n) K) x y) =
-      gramForm h (C : Matrix (Fin n) (Fin n) K) (fun i => φ (x i)) (fun i => φ (y i)) := by
-  rw [gramForm_apply, gramForm_apply]
-  simp only [dotProduct, map_sum, map_mul]
-  refine Finset.sum_congr rfl fun a _ => ?_
-  rw [map_bar_comm, show φ (((C : Matrix (Fin n) (Fin n) K) *ᵥ y) a) =
-    (φ : K →+* K) (((C : Matrix (Fin n) (Fin n) K) *ᵥ y) a) from rfl, RingHom.map_mulVec,
-    hC.map_eq (φ : K →+* K)]
-  rfl
 
 include hC in
 theorem eq_of_primeFormConjHom_eq (hn : 3 ≤ n)

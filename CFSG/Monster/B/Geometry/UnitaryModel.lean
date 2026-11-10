@@ -69,7 +69,6 @@ theorem uHerm_smul_right (c : K) (v w : UV) : uHerm v (c • w) = bar c * uHerm 
 
 theorem uHerm_zero_left (w : UV) : uHerm 0 w = 0 := by simp [uHerm]
 
-theorem uHerm_zero_right (v : UV) : uHerm v 0 = 0 := by simp [uHerm, C2E6Overlap.bar_zero]
 
 theorem uHerm_swap (v w : UV) : uHerm w v = bar (uHerm v w) := by
   simp only [uHerm, C2E6Overlap.bar_add, C2E6Overlap.bar_mul, C2E6Overlap.bar_bar]; ring
@@ -166,7 +165,6 @@ theorem finrank_le_three_of_uIso {U : Submodule K UV} (hU : ∀ v ∈ U, uHerm v
 
 theorem uData_iso (v : UV) : UData.Iso v ↔ uHerm v v = 0 := Iff.rfl
 
-theorem uData_pair (w v : UV) : UData.pair w v = uHerm v w := rfl
 
 theorem uHerm_self_eq_zero_of_mem_cspan {s : Finset (Fin 6)} (h0 : 0 ∉ s ∨ 3 ∉ s)
     (h1 : 1 ∉ s ∨ 4 ∉ s) (h2 : 2 ∉ s ∨ 5 ∉ s) {v : UV} (hv : v ∈ cspan K s) :

@@ -66,8 +66,6 @@ private theorem exists_level_mul_s :
 private theorem level_eq_four_iff : ∀ g : K, level g = 4 ↔ g = z := by
   decide
 
-private theorem level_le_four : ∀ g : K, level g ≤ 4 := by
-  decide
 
 private theorem reachable_and_dist_eq (g h : K) :
     T.Reachable g h ∧ T.dist g h = level (g⁻¹ * h) := by
@@ -86,19 +84,6 @@ theorem connected : T.Connected :=
 theorem dist_eq_four_iff (g h : K) : T.dist g h = 4 ↔ h = τ g := by
   rw [(reachable_and_dist_eq g h).2, level_eq_four_iff, inv_mul_eq_iff_eq_mul, τ]
 
-theorem card_sphere :
-    (univ.filter fun g => T.dist o g = 0).card = 1 ∧
-      (univ.filter fun g => T.dist o g = 1).card = 3 ∧
-      (univ.filter fun g => T.dist o g = 2).card = 6 ∧
-      (univ.filter fun g => T.dist o g = 3).card = 5 ∧
-      (univ.filter fun g => T.dist o g = 4).card = 1 ∧ ∀ g, T.dist o g ≤ 4 := by
-  have hd : ∀ g, T.dist o g = level g := fun g => by
-    rw [(reachable_and_dist_eq o g).2, o, inv_one, one_mul]
-  have e : ∀ n, (univ.filter fun g => T.dist o g = n) = univ.filter fun g => level g = n :=
-    fun n => Finset.filter_congr fun g _ => by rw [hd g]
-  rw [e 0, e 1, e 2, e 3, e 4]
-  exact ⟨by decide, by decide, by decide, by decide, by decide, fun g => (hd g).symm ▸
-    level_le_four g⟩
 
 private theorem parity_mul_s : ∀ (g : K) (i : Fin 3),
     decide (g.vec 0 + g.vec 1 + g.vec 2 = 1) ≠
@@ -110,41 +95,6 @@ def parity : T.Coloring Bool :=
     obtain ⟨i, rfl⟩ := hgh
     exact parity_mul_s g i
 
-theorem isBipartite : T.IsBipartite := by
-  simpa using parity.colorable
-
-private theorem no_square_word :
-    ∀ a b c d : Fin 3, s a * s b * s c * s d = 1 → s a * s b = 1 ∨ s b * s c = 1 := by
-  decide
-
-theorem six_le_length_of_isCycle {g : K} (p : T.Walk g g) (hp : p.IsCycle) : 6 ≤ p.length := by
-  have heven : Even p.length := (parity.even_length_iff_congr p).mpr Iff.rfl
-  have h3 := hp.three_le_length
-  by_contra hlt
-  have h4 : p.length = 4 := by
-    obtain ⟨m, hm⟩ := heven
-    omega
-  have hnd := hp.support_nodup
-  rcases p with _ | ⟨h₁, _ | ⟨h₂, _ | ⟨h₃, _ | ⟨h₄, _ | ⟨h₅, p⟩⟩⟩⟩⟩ <;>
-    simp only [SimpleGraph.Walk.length_cons, SimpleGraph.Walk.length_nil] at h4 <;> try omega
-  rw [SimpleGraph.Walk.support_cons, List.tail_cons, SimpleGraph.Walk.support_cons,
-    SimpleGraph.Walk.support_cons, SimpleGraph.Walk.support_cons,
-    SimpleGraph.Walk.support_nil] at hnd
-  obtain ⟨a, rfl⟩ := h₁
-  obtain ⟨b, rfl⟩ := h₂
-  obtain ⟨c, rfl⟩ := h₃
-  obtain ⟨d, hd⟩ := h₄
-  have n20 : g * s a * s b ≠ g := fun h => by
-    rw [h] at hnd
-    simp at hnd
-  have n13 : g * s a ≠ g * s a * s b * s c := fun h => by
-    rw [← h] at hnd
-    simp at hnd
-  have e : s a * s b * s c * s d = 1 :=
-    mul_left_cancel (a := g) (by simpa only [mul_assoc, mul_one] using hd.symm)
-  rcases no_square_word a b c d e with h | h
-  · exact n20 (by rw [mul_assoc, h, mul_one])
-  · exact n13 (by rw [mul_assoc (g * s a), h, mul_one])
 
 theorem τ_τ (g : K) : τ (τ g) = g := by
   rw [τ, τ, mul_assoc, z_mul_self, mul_one]
@@ -152,10 +102,6 @@ theorem τ_τ (g : K) : τ (τ g) = g := by
 theorem τ_mul_s (g : K) (i : Fin 3) : τ (g * s i) = τ g * s i := by
   rw [τ, τ, mul_assoc, mul_assoc, z_mul]
 
-theorem adj_τ_iff {g h : K} : T.Adj (τ g) (τ h) ↔ T.Adj g h := by
-  simp only [adj_iff, τ]
-  refine exists_congr fun i => ?_
-  rw [mul_assoc g z, z_mul, ← mul_assoc, mul_left_inj]
 
 private theorem nodup_word :
     ∀ a b c : Fin 3, a ≠ b → b ≠ c → [1, s a, s a * s b, s a * s b * s c].Nodup := by

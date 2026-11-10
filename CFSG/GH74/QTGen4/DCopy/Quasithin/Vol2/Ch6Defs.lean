@@ -13,6 +13,5 @@ open CFSG.Open CFSG.Blueprint
   ∀ (G : Type) [Group G] [CFSG.GH74.QTGen4.Finite4 G] (T M L V : Subgroup G) (n : ℕ), Hyp611 G T M L V n →
     Nonempty (G ≃* NativeSporadic.M22)
 
-variable {G : Type} [Group G] [CFSG.GH74.QTGen4.Finite4 G]
 
 end CFSG.Quasithin.H13

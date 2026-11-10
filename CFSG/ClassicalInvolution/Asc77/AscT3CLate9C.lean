@@ -60,12 +60,6 @@ section Pure
 
 variable {G : Type} [Group G]
 
-theorem late_klein_trich {z t : G} (hz2 : z * z = 1) (ht2 : t * t = 1) (hzt : z * t = t * z)
-    {a ε₁ ε₂ : G} (ha : a = z ∨ a = t ∨ a = z * t)
-    (h₁ : ε₁ = 1 ∨ ε₁ = z ∨ ε₁ = t ∨ ε₁ = z * t) (h₂ : ε₂ = 1 ∨ ε₂ = z ∨ ε₂ = t ∨ ε₂ = z * t)
-    (h₂1 : ε₂ ≠ 1) (h₂a : ε₂ ≠ a) (h₁1 : ε₁ ≠ 1) (h₁a : ε₁ ≠ a) :
-    ε₁ = ε₂ ∨ ε₁ = ε₂ * a := by
-  exact late_klein_trichE hz2 ht2 hzt ha h₁ h₂ h₂1 h₂a h₁1 h₁a
 
 end Pure
 

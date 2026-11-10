@@ -419,21 +419,6 @@ theorem caseAlphaEnd_bstar_of_mem (hin : I1015coverAt G) {B K : Subgroup G} {y :
   exact ⟨0, g, hEK hg, by simp⟩
 
 
-theorem alpha_Kf_E (hc : S10Ctx G p) {B : Subgroup G} {x : G} {L : Subgroup G} {b a : G} {E₀ F : Subgroup G}
-    {y : G} {E K : Subgroup G} (h : Cfg p B x L b) (hd : AlphaData p B x L b a E₀ F y E K) :
-    Kf p K E = K := by
-  have hp : p.Prime := hc.ctx.prime
-  have hLc : GLAPComponent p (cx x) L := (sstar_triple h.star).2.2
-  have hxD : x ∈ Dgrp b x := Subgroup.subset_closure (by simp)
-  have hDE : Dgrp b x ≤ E := by rw [hd.E_def]; exact le_sup_left
-  have hxE : x ∈ E := hDE hxD
-  have hcsE : cs E ≤ cx x := Subgroup.centralizer_le (Set.singleton_subset_iff.2 (SetLike.mem_coe.2 hxE))
-  have hK_csE : GLAPComponent p (cs E) K := by
-    refine glaPComponent_of_isSubnormal' hp ?_ hd.K_comp
-    have hsn := isSubnormal_inf hLc.2.1 (cs E)
-    rwa [inf_eq_right.2 hcsE] at hsn
-  exact closureIn_layer_eq_of_component hp hK_csE hd.K_comp le_rfl
-
 section CBAux
 
 variable {G : Type} [Group G] [Finite G]

@@ -153,8 +153,6 @@ theorem posFold_spec {α : Type} [Inhabited α] (ord : Array Nat) (f : Nat → �
     p := p.set! ord[i]! (UInt32.ofNat i)
   return p
 
-theorem trCompute_muPos (O : WOrbit) (D bi : Table) (z : PBits) :
-    (trCompute O D bi z).muPos = muPosOf (trCompute O D bi z).mOrd := rfl
 
 theorem muPosOf_eq (ord : Array Nat) : muPosOf ord =
     (List.range ord.size).foldl (fun p i => p.set! ord[i]! (UInt32.ofNat i))

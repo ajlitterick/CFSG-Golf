@@ -88,9 +88,5 @@ theorem sl3_rankTwoPresentation
     RankTwoPresentation.{0, w} (SpecialLinear.rootDatum 2 k) k (SL.x 2 k) :=
   rankTwoPresentation_of_conclusionB (sl_conclusionB 2 k le_rfl)
 
-theorem sp4_rankTwoPresentation
-    (k : Type) [Field k] [Finite k] :
-    RankTwoPresentation.{0, w} (Symplectic.rootDatum 2 k) k (Sp.x 2 k) :=
-  rankTwoPresentation_of_conclusionB (sp_conclusionB 2 k le_rfl)
 
 end CFSG.LieType.Steinberg.RankTwo

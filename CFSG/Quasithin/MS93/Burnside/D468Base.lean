@@ -25,9 +25,5 @@ theorem burnsideD468_s468DegN_of_base (h32 : S32) (h43 : S43) (h14 : MS14AS)
   have h := burnsideD468_items_of_base h32 h43 h14 hSQ
   burnsideD468_s468DegN_of_items h.1 h.2.1 h.2.2
 
-theorem burnsideD468_s46_of_base (h32 : S32) (h43 : S43) (h14 : MS14AS) (hSQ : SQTKQuot) :
-    S46 :=
-  s46_of_degN h32 (s39_of h32) (s42_of h32) h43 h14 hSQ
-    (burnsideD468_s468DegN_of_base h32 h43 h14 hSQ)
 
 end CFSG.Yardstones.M71b2fd3d34b9

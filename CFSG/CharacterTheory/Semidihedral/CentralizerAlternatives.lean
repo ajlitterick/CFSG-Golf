@@ -115,17 +115,11 @@ theorem sylow_two_card_of_card {G : Type u} [Group G] [Finite G]
 theorem alternatingFour_card : Nat.card (alternatingGroup (Fin 4)) = 12 :=
   alternatingGroup.card_of_card_eq_four (by simp)
 
-theorem alternatingFour_sylow_two_card (S : Sylow 2 (alternatingGroup (Fin 4))) :
-    Nat.card S = 4 := by
-  exact sylow_two_card_of_card S 2 (by rw [alternatingFour_card]; norm_num)
 
 theorem symmetricFour_card : Nat.card (Equiv.Perm (Fin 4)) = 24 := by
   rw [Nat.card_perm]
   norm_num [Nat.card_eq_fintype_card, Fintype.card_fin, Nat.factorial]
 
-theorem symmetricFour_sylow_two_card (S : Sylow 2 (Equiv.Perm (Fin 4))) :
-    Nat.card S = 8 := by
-  exact sylow_two_card_of_card S 3 (by rw [symmetricFour_card]; norm_num)
 
 theorem not_twoGroup_of_residual {G : Type u} [Group G] [Finite G]
     (n : ℕ) (hn : 4 ≤ n) (J : Subgroup G) (T : Sylow 2 J)

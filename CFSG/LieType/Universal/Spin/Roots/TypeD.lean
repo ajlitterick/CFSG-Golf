@@ -221,25 +221,6 @@ theorem toStdD_reflection_of_lt {k : Fin n} (h : k.val + 1 < n) (v : Fin n → �
     toStdD n (reflection (cartanD n) k v) = toStdD n v ∘ Equiv.swap k ⟨k.val + 1, h⟩ := by
   rw [toStdD_reflection, stdReflD_of_lt n h]
 
-theorem toStdD_reflection_of_not_lt {k : Fin n} (h : ¬k.val + 1 < n) (v : Fin n → ℤ) :
-    toStdD n (reflection (cartanD n) k v) = fun a =>
-      if a.val + 2 = n then -toStdD n v k
-      else if a = k then -toStdD n v ⟨k.val - 1, by omega⟩ else toStdD n v a := by
-  rw [toStdD_reflection, stdReflD_of_not_lt n h]
-  funext a
-  by_cases ha : a.val + 2 = n
-  · have hp : a = ⟨k.val - 1, by omega⟩ := Fin.ext (by simp only; omega)
-    rw [ite_eq_left (Or.inl ha), ite_eq_left ha, hp, Equiv.swap_apply_left]
-    ring
-  rw [ite_eq_right ha]
-  by_cases hak : a = k
-  · subst hak
-    rw [ite_eq_left (Or.inr (by omega)), ite_eq_left rfl, Equiv.swap_apply_right]
-    ring
-  · have hak' : a.val ≠ k.val := fun e => hak (Fin.ext e)
-    have hap : a ≠ ⟨k.val - 1, by omega⟩ := fun e => ha (by rw [e]; simp only; omega)
-    rw [ite_eq_right hak, ite_eq_right (by omega), Equiv.swap_apply_of_ne_of_ne hap hak]
-    ring
 
 private theorem stdReflD_of_succ {k k' : Fin n} (h : k.val + 1 = k'.val) (e : Fin n → ℤ) :
     stdReflD n k e = e ∘ Equiv.swap k k' := by

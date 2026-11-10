@@ -31,8 +31,6 @@ variable {X : Type*} [Group X]
       _ = x⁻¹ * y⁻¹ := by
         rw [← mul_inv_rev, ← mul_inv_rev, this]
 
-theorem mem_commMul {A B : Subgroup X} {h : ∀ x ∈ A, ∀ y ∈ B, x * y = y * x} {z : X} :
-    z ∈ commMul A B h ↔ ∃ x ∈ A, ∃ y ∈ B, z = x * y := Iff.rfl
 
 end Comm
 

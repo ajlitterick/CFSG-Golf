@@ -60,8 +60,6 @@ theorem mem_Rm {p : Amb 5} : p ∈ Rm ↔ p ∈ Rml := Iff.rfl
 theorem Pml_nodup : Pml.Nodup :=
   Certificates.certificate5045.2.2.2.2.2.2.2.1
 
-theorem Qml_nodup : Qml.Nodup :=
-  Certificates.certificate5045.2.2.2.2.2.2.2.2.1
 
 theorem Rml_nodup : Rml.Nodup :=
   Certificates.certificate5045.2.2.2.2.2.2.2.2.2.1
@@ -70,9 +68,6 @@ theorem card_Pm : Nat.card Pm = 4 := by
   rw [natCard_eq_length Pm Pml Pml_nodup (fun p => Iff.rfl)]
   rfl
 
-theorem card_Qm : Nat.card Qm = 4 := by
-  rw [natCard_eq_length Qm Qml Qml_nodup (fun p => Iff.rfl)]
-  rfl
 
 theorem card_Rm : Nat.card Rm = 16 := by
   rw [natCard_eq_length Rm Rml Rml_nodup (fun p => Iff.rfl)]
@@ -101,13 +96,6 @@ theorem Rml_prod_chk :
     true :=
   Certificates.certificate5045.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem Rm_eq_sup : Pm ⊔ Qm = Rm := by
-  apply le_antisymm (sup_le Pm_le_Rm Qm_le_Rm)
-  intro r hr
-  have h := Rml_prod_chk
-  simp only [List.all_eq_true, List.any_eq_true, decide_eq_true_eq] at h
-  obtain ⟨p, hp, q, hq, rfl⟩ := h r hr
-  exact mul_mem (mem_sup_left hp) (mem_sup_right hq)
 
 theorem Pml_Qml_chk :
     Pml.all (fun p => imp (decide (p ∈ Qml)) (decide (p = 1))) = true :=
@@ -159,8 +147,6 @@ theorem wm_mem_Km : wm ∈ Km :=
 theorem wm_cube : wm * wm * wm = 1 :=
   Certificates.certificate5045.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem wm_ne_one : wm ≠ 1 :=
-  Certificates.certificate5045.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem wm_comm_Q_chk :
     Qml.all (fun q => decide (wm * q = q * wm)) = true :=
@@ -180,14 +166,6 @@ theorem wm_norm_P : ∀ p ∈ Pm, wm * p * wm⁻¹ ∈ Pm := by
   simp only [List.all_eq_true, decide_eq_true_eq] at h
   exact fun p hp => h p hp
 
-theorem wm_free_chk :
-    Pml.all (fun p => imp (decide (p ≠ 1)) (decide (wm * p * wm⁻¹ ≠ p))) = true :=
-  Certificates.certificate5045.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem wm_free : ∀ p ∈ Pm, p ≠ 1 → wm * p * wm⁻¹ ≠ p := by
-  have h := wm_free_chk
-  simp only [List.all_eq_true, imp_eq_true, decide_eq_true_eq] at h
-  exact fun p hp hp1 => h p hp hp1
 
 theorem wm_norm_R_chk :
     Rml.all (fun r => decide (wm * r * wm⁻¹ ∈ Rml)) = true :=
@@ -297,17 +275,6 @@ theorem T5_norm_Rm
   simp only [List.all_eq_true, decide_eq_true_eq] at h
   exact h t (mem_allT5.2 ht) r hr
 
-theorem Rm_inf_Km : Rm ⊓ Km = Pm := by
-  ext g
-  rw [Subgroup.mem_inf]
-  constructor
-  · rintro ⟨hR, hK⟩
-    rw [← T5_inf_Km]
-    exact ⟨Rm_le_T5 hR, hK⟩
-  · intro hP
-    refine ⟨Pm_le_Rm hP, ?_⟩
-    have : g ∈ T5 ⊓ Km := T5_inf_Km ▸ hP
-    exact this.2
 
 theorem V4_cent_chk :
     (g5Perms 4).all (fun τ => imp (decide (τ * x4 = x4 * τ))
@@ -320,14 +287,6 @@ theorem V4_cent
   simp only [List.all_eq_true, imp_eq_true, decide_eq_true_eq] at h
   exact h τ (mem_g5Perms 4 τ) h1 h2
 
-theorem V4_even_chk :
-    V4l.all (fun τ => decide (sign τ = 1)) = true :=
-  Certificates.certificate5045.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
-
-theorem V4_even {τ : Perm (Fin 4)} (h : τ ∈ V4l) : sign τ = 1 := by
-  have h' := V4_even_chk
-  simp only [List.all_eq_true, decide_eq_true_eq] at h'
-  exact h' τ h
 
 theorem f1_mem_Qm : f1 ∈ Qm := by simp [mem_Qm, Qml]
 

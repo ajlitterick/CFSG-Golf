@@ -42,7 +42,6 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3
 
 @[expose] noncomputable def twoList : List J := strongWords.foldl twoStep twoU4
 
-@[expose] noncomputable def twoU (i : ℕ) : J := twoList.getD i 1
 
 theorem getD_forall₂ {Rs : List (Array V4)} {us : List J} (h : List.Forall₂ IsRows Rs us)
     (n : ℕ) : IsRows (Rs.getD n idRows) (us.getD n 1) := by

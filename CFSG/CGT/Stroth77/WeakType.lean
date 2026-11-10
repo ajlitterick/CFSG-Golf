@@ -40,8 +40,6 @@ structure StrothWeakTypeData (B : Subgroup S) (τ : StrothTypeIndex) where
   ρ_conj : ∀ x : B,
     e (Additive.ofMul (conjBy ρ_mem x)) = τ.action.φρ (e (Additive.ofMul x))
 
-@[expose] def HasStrothWeakType (B : Subgroup S) (τ : StrothTypeIndex) : Prop :=
-  Nonempty (StrothWeakTypeData B τ)
 
 variable {B : Subgroup S} {τ : StrothTypeIndex}
 
@@ -99,12 +97,6 @@ theorem u_mem_L (D : StrothWeakTypeData B τ) : D.u ∈ D.L :=
 theorem ρ_mem_L (D : StrothWeakTypeData B τ) : D.ρ ∈ D.L :=
   Subgroup.subset_closure (by simp)
 
-theorem L_le_normalizer (D : StrothWeakTypeData B τ) : D.L ≤ Subgroup.normalizer B := by
-  rw [L, Subgroup.closure_le]
-  intro x hx
-  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hx
-  rcases hx with rfl | rfl | rfl | rfl
-  exacts [D.uv_mem, D.t_mem, D.u_mem, D.ρ_mem]
 
 theorem isMulCommutative (D : StrothWeakTypeData B τ) : IsMulCommutative B := by
   refine IsMulCommutative.of_comm fun x y => ?_

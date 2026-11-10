@@ -175,7 +175,6 @@ noncomputable def permThreeEquivPSL :
     Equiv.Perm (Fin 3) ≃* Matrix.ProjectiveSpecialLinearGroup (Fin 2) (GaloisField 2 1) :=
   slTwoEquivPermThree.symm.trans (pslTwoGf2EquivSl 1).symm
 
-theorem isL2Quot_one_perm_three : IsL2Quot 1 (Equiv.Perm (Fin 3)) := ⟨permThreeEquivPSL⟩
 
 theorem IsL2Quot.of_perm_three {X : Type*} [Group X] (e : X ≃* Equiv.Perm (Fin 3)) :
     IsL2Quot 1 X := ⟨e.trans permThreeEquivPSL⟩

@@ -51,9 +51,5 @@ theorem localThreeBalanceCrossChar_of_families (h : ∀ k, CrossCharFam k) :
   obtain ⟨k, hk⟩ := exists_lieFamily idx.1
   exact h k S hS hnab idx hk hidx p hp hp2 hc
 
-theorem localThreeBalanceCrossChar_iff_families :
-    LocalThreeBalanceCrossChar ↔ ∀ k, CrossCharFam k :=
-  ⟨fun h _ S _ _ hS hnab idx _ hidx p hp hp2 hc => h S hS hnab idx hidx p hp hp2 hc,
-    localThreeBalanceCrossChar_of_families⟩
 
 end CFSG.HardMathSupport.Timmesfeld.CrossChar

@@ -67,13 +67,6 @@ theorem ti_central_quotient_injective_on_subgroup (T : Sylow 2 G) (U : Subgroup 
     obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp hq
     exact ⟨⟨a, ha⟩, rfl⟩
 
-theorem tiCentralQuotientSubgroupEquiv_apply (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (hnormal : ¬ U.Normal)
-    (Z : Subgroup G) [Z.Normal] (hZ : Z ≤ Subgroup.center G) (a : U) :
-    (tiCentralQuotientSubgroupEquiv T U hUT hU hUel hclosed hTI hnormal Z hZ a : G ⧸ Z) =
-      (QuotientGroup.mk' Z) (a : G) := rfl
 
 theorem ti_central_quotient_conjugate_eq_iff (T : Sylow 2 G) (U : Subgroup G)
     (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥) (hUel : IsElemAbelian 2 U)

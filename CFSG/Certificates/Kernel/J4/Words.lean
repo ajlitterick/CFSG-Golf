@@ -59,8 +59,6 @@ namespace CFSG.KJ4
           (Prod.mk (wCat v k zwi) (Nat.add k m)) (Nat.beq (wLet w i) (nat_lit 6)))
         (Prod.mk (wCat v k zw) (Nat.add k m)) (Nat.beq (wLet w i) (nat_lit 5))) acc) n
 
-@[expose] noncomputable def chkSubst (w n zw zwi m u k : Nat) : Bool :=
-  Prod.rec (motive := fun _ => Bool) (fun v l => andB (Nat.beq l k) (Nat.beq v u)) (substZ w n zw zwi m)
 
 @[expose] noncomputable def chkSubstRed (inv w n zw zwi m u k : Nat) : Bool :=
   Prod.rec (motive := fun _ => Bool) (fun v l => Nat.beq (freeRed inv v l) (freeRed inv u k))

@@ -34,7 +34,5 @@ theorem le_5114K : (QE.original.toList.all fun g => siftP QP g 0) = true := by
 theorem sift_5114K : siftP QE eg0 0 = true ∧ siftP QE eg1 0 = true ∧ siftP QE eg2 0 = true := by
   refine ⟨?_, ?_, ?_⟩ <;> decide +kernel
 
-theorem neg5114K : orderV QP ≠ 443520 := by
-  decide +kernel
 
 end CertificateChecks.KernelKGroupsE

@@ -156,8 +156,6 @@ private theorem bActN_fixed_inj :
   decide +kernel
 
 
-
-
 private theorem uD_mem_P0 {k : ℕ} (hk : k < 10) : uD k ∈ P0 := by
   simpa only [P0] using uD_mem_PLam hk
 
@@ -284,9 +282,6 @@ private theorem tVec_conj_uD (k : ℕ) (hk : k < 10) {t : Dfull} (ht : t ∈ T9)
   exact DFunLike.congr_fun (conjPhi_eq_bMapHom k hk) (tVec t)
 
 
-
-
-
 private def uEl (l : List ℕ) (κ : ℕ) : Dfull :=
   wordX (l.flatMap fun k => if κ.testBit k then uWord k else [])
 
@@ -340,10 +335,6 @@ private theorem tT_mem_T9 (j : Fin 9) : tT j ∈ T9 := by
   rw [← tD_two_pow j]
   exact tD_mem_T9 _
 
-
-private theorem T9_comm {a b : Dfull} (ha : a ∈ T9) (hb : b ∈ T9) : a * b = b * a := by
-  apply eq_of_tVec_eq (T9.mul_mem ha hb) (T9.mul_mem hb ha)
-  rw [tVec_mul ha hb, tVec_mul hb ha, add_comm]
 
 private theorem foldr_range_finRange (n : ℕ) (hn : n ≤ 10) (κ : ℕ) (v : Fin 9 → ZMod 2) :
     (List.range n).foldr (fun k w => if κ.testBit k then bMap k w else w) v
@@ -452,10 +443,6 @@ private theorem natCard_Q : Nat.card Q = 1024 := by
         Subgroup.index_eq_card_div (H := Lgrp.subgroupOf P0)
     _ = 2 ^ 35 / 2 ^ 25 := by rw [natCard_P0, hN, natCard_Lgrp]
     _ = 1024 := by norm_num
-
-
-
-
 
 
 private theorem comm_prod_map {M : Type*} [Monoid M] (b : Fin 10 → M)
@@ -955,7 +942,6 @@ theorem sCoord_conj (g : P0) (x : Lgrp) :
     have h1 : uCoord ⟨lD σ * tD τ, hxP⟩ = 1 := (uCoord_eq_one_iff _).mpr hL
     rw [h1, uCoord_uE, one_mul]
   rw [hu, toAdd_ofAdd, aAct_eq_range_fold, mul_comm (sCoord l), mul_inv_cancel_right]
-
 
 
 end CFSG.Monster.B.TwoA.Sp8.WordRel

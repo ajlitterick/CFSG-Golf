@@ -219,23 +219,6 @@ theorem sharp_congruence (h2 : (2 : K) ≠ 0)
     ht, Matrix.one_mul, Units.mul_inv, Matrix.mul_one, Matrix.mul_smul,
     Matrix.smul_mul] using h
 
-theorem skew_four_pfaffian_identities (h2 : (2 : K) ≠ 0)
-    (X : Matrix (Fin 4) (Fin 4) K) (hX : X.transpose = -X) :
-    sharp (sharp X) = X ∧ pfaffian (sharp X) = pfaffian X ∧
-      X * sharp X = -pfaffian X • (1 : Matrix (Fin 4) (Fin 4) K) ∧
-      sharp X * X = -pfaffian X • (1 : Matrix (Fin 4) (Fin 4) K) ∧
-      X.det = pfaffian X ^ 2 ∧
-      (∀ Y : Matrix (Fin 4) (Fin 4) K, Y.transpose = -Y →
-        X * sharp Y + Y * sharp X =
-          -(pfaffian (X + Y) - pfaffian X - pfaffian Y) •
-            (1 : Matrix (Fin 4) (Fin 4) K)) ∧
-      (∀ g : Matrix.GeneralLinearGroup (Fin 4) K,
-        pfaffian (g.val * X * g.val.transpose) = g.val.det * pfaffian X ∧
-          sharp (g.val * X * g.val.transpose) =
-            g.val.det • ((g⁻¹).val.transpose * sharp X * (g⁻¹).val)) :=
-  ⟨sharp_sharp h2 hX, pfaffian_sharp h2 hX, mul_sharp h2 hX, sharp_mul h2 hX,
-    skew_det h2 hX, fun _ hY => polarized_product h2 hX hY,
-    fun g => ⟨pfaffian_congruence h2 g.val hX, sharp_congruence h2 g hX⟩⟩
 
 end Field
 

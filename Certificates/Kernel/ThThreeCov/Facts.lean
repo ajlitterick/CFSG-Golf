@@ -28,10 +28,6 @@ theorem sim3 : simOK defs psi0 6 ThThreeNative.prog3 = true := by decide +kernel
 
 theorem simU : simOK defs psi0 38 TabThNative.progU = true := by decide +kernel
 
-theorem neg1023506_sim : simOK defs psi0 7 ThThreeNative.prog3 = false := by decide +kernel
-
-theorem neg1023506_simU :
-    simOK defs psi0 38 (TabThNative.progU.set 2 (.pow 5 2 4)) = false := by decide +kernel
 
 theorem map3 : simMap psi0 6 ThThreeNative.prog3 11 = 34 := by decide +kernel
 

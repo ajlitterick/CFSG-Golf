@@ -81,8 +81,6 @@ theorem planeLine_injective : ∀ j j', planeLine j = planeLine j' → j = j' :=
 
 theorem exists_planeLine_mem : ∀ a b, ∃ j, a ∈ planeLine j ∧ b ∈ planeLine j := by decide
 
-theorem eq_of_mem_planeLine : ∀ a b, a ≠ b → ∀ j j', a ∈ planeLine j → b ∈ planeLine j →
-    a ∈ planeLine j' → b ∈ planeLine j' → j = j' := by decide
 
 theorem planeCollinear_iff : ∀ a b c, PlaneCollinear a b c ↔
     planeDet (planeVec a) (planeVec b) (planeVec c) = 0 := by decide

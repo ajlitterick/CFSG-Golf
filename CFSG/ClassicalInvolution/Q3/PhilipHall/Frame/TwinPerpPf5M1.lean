@@ -69,33 +69,6 @@ open CFSG.ClassicalInvolution.Asc77.Thompson
 variable {G : Type} [Group G]
 section Mu
 variable {Ω : Set (Subgroup G)}
-theorem conjSub_MGrp [Finite G] (hΩ : HypOmegaMod Ω) (g : G) (W : Subgroup G) :
-    conjSub g (MGrp Ω W) = MGrp Ω (conjSub g W) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.Thompson.conjSub_MGrp hΩ g W
-noncomputable def muGroupConjEquiv [Finite G] (hΩ : HypOmegaMod Ω) (g : G) (W : Subgroup G) :
-    ↥(muGroup Ω W) ≃* ↥(muGroup Ω (conjSub g W)) :=
-  (MulEquiv.subgroupMap (nquotConj g (conjSub_sup_OCW g W)) (muGroup Ω W)).trans
-    (MulEquiv.subgroupCongr (by
-      ext q
-      constructor
-      · rintro ⟨q₀, hq₀, rfl⟩
-        obtain ⟨m, hm, rfl⟩ := mem_muGroup_iff.mp hq₀
-        have hmN : m ∈ Subgroup.normalizer (W : Set G) := MGrp_sup_le_normalizer Ω W hm
-        show nquotConj g (conjSub_sup_OCW g W) (piG W m) ∈ _
-        rw [nquotConj_piG g W hmN]
-        refine piG_mem_muGroup ?_
-        rw [← conjSub_MGrp hΩ, ← conjSub_OCW, ← Asc77.conjSub_sup]
-        exact conj_mem_conjSub hm
-      · intro hq
-        obtain ⟨m', hm', rfl⟩ := mem_muGroup_iff.mp hq
-        rw [← conjSub_MGrp hΩ, ← conjSub_OCW, ← Asc77.conjSub_sup, mem_conjSub_iff] at hm'
-        refine ⟨piG W (g⁻¹ * m' * g), piG_mem_muGroup hm', ?_⟩
-        have hmN : g⁻¹ * m' * g ∈ Subgroup.normalizer (W : Set G) :=
-          MGrp_sup_le_normalizer Ω W hm'
-        show nquotConj g (conjSub_sup_OCW g W) (piG W (g⁻¹ * m' * g)) = _
-        rw [nquotConj_piG g W hmN]
-        congr 1
-        group))
 end Mu
 end Thompson
 end Asc77

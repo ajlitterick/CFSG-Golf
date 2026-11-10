@@ -115,13 +115,6 @@ theorem D_symm (a b : Fin n) : CartanMatrix.D n a b = CartanMatrix.D n b a := by
       refine Finset.prod_congr rfl fun j _ => ?_
       rw [TypeDStd.rootGeneratorWeight_inr, D_symm, _root_.zpow_neg])
 
-theorem rootData_G (K : Type) [Field K] : (rootData n hn K).G = points n hn K := rfl
-
-theorem rootData_root (K : Type) [Field K] (k : Fin n ⊕ Fin n) :
-    (rootData n hn K).root k = rootSubgroupPoints n hn k K := rfl
-
-theorem rootData_torus (K : Type) [Field K] :
-    (rootData n hn K).torus = weightTorusPoints n hn K := rfl
 
 theorem rootData_CM (K : Type) [Field K] : (rootData n hn K).CM = CartanMatrix.D n := rfl
 

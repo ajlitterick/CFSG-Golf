@@ -16,19 +16,11 @@ variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W
     rw [det_transpose]
     exact (g⁻¹).2⟩
 
-theorem invTransposeFun_coe {d : ℕ} {F : Type} [Field F] (g : SpecialLinearGroup (Fin d) F) :
-    ((invTransposeFun g : SpecialLinearGroup (Fin d) F) : Matrix (Fin d) (Fin d) F) =
-      ((g⁻¹ : SpecialLinearGroup (Fin d) F) : Matrix (Fin d) (Fin d) F)ᵀ :=
-  rfl
 
 @[expose] def transposeFun {d : ℕ} {F : Type} [Field F] (g : SpecialLinearGroup (Fin d) F) :
     SpecialLinearGroup (Fin d) F :=
   ⟨(g : Matrix (Fin d) (Fin d) F)ᵀ, by rw [det_transpose]; exact g.2⟩
 
-theorem transposeFun_coe {d : ℕ} {F : Type} [Field F] (g : SpecialLinearGroup (Fin d) F) :
-    ((transposeFun g : SpecialLinearGroup (Fin d) F) : Matrix (Fin d) (Fin d) F) =
-      (g : Matrix (Fin d) (Fin d) F)ᵀ :=
-  rfl
 
 theorem invTransposeFun_invTransposeFun {d : ℕ} {F : Type} [Field F]
     (g : SpecialLinearGroup (Fin d) F) : invTransposeFun (invTransposeFun g) = g := by

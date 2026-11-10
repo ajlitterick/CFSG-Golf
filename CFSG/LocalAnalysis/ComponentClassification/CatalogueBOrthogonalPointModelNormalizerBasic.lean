@@ -18,23 +18,6 @@ variable {V : Type v} [AddCommGroup V] [Module K V]
 variable (Q : QuadraticForm K V)
 variable {G : Type w} [Group G] {D : Type w'} [Group D]
 
-@[expose] def PointCountGeometry : Prop :=
-  Finite (Points Q) ∧
-    (∀ (L : Points Q) (P : HypPair Q), L.val = K ∙ P.e →
-      PolarNondegOn Q P.perp ∧ (Q.restrict P.perp).polarBilin.Nondegenerate ∧
-      Module.finrank K P.perp = Module.finrank K V - 2 ∧
-      Nat.card (perpendicularPoints Q L) =
-        Nat.card K * Nat.card (singularLinesIn Q P.perp) ∧
-      Nat.card (nonperpendicularPoints Q L) = Nat.card K ^ (Module.finrank K V - 2) ∧
-      Nat.card (Points Q) = 1 + Nat.card K * Nat.card (singularLinesIn Q P.perp) +
-        Nat.card K ^ (Module.finrank K V - 2)) ∧
-    (∀ L : Points Q, Nat.card K ∣ Nat.card (perpendicularPoints Q L) ∧
-      ¬ Nat.card K ^ 2 ∣ Nat.card (perpendicularPoints Q L) ∧
-      Nat.card K ^ 2 ∣ Nat.card (nonperpendicularPoints Q L) ∧
-      Nat.card (perpendicularPoints Q L) ≠ Nat.card (nonperpendicularPoints Q L)) ∧
-    ∃ a b : ℕ, a ≠ b ∧ Nat.card K ∣ a ∧ ¬ Nat.card K ^ 2 ∣ a ∧
-      Nat.card K ^ 2 ∣ b ∧ ∀ L : Points Q,
-        Nat.card (perpendicularPoints Q L) = a ∧ Nat.card (nonperpendicularPoints Q L) = b
 
 @[expose] def ActionNormalizerOrthogonality (ρ : G →* Equiv.Perm (Points Q)) : Prop :=
   ∀ φ : Equiv.Perm (Points Q), φ ∈ Subgroup.normalizer ρ.range →
@@ -66,29 +49,6 @@ section FiniteGeometry
 
 variable [Finite K] [FiniteDimensional K V]
 
-theorem regular_hyperbolic_point_counts (hQ : Q.polarBilin.Nondegenerate)
-    (L : Points Q) (P : HypPair Q) (hL : L.val = K ∙ P.e) :
-    PolarNondegOn Q P.perp ∧ (Q.restrict P.perp).polarBilin.Nondegenerate ∧
-      Module.finrank K P.perp = Module.finrank K V - 2 ∧
-      Nat.card (perpendicularPoints Q L) =
-        Nat.card K * Nat.card (singularLinesIn Q P.perp) ∧
-      Nat.card (nonperpendicularPoints Q L) = Nat.card K ^ (Module.finrank K V - 2) ∧
-      Nat.card (Points Q) = 1 + Nat.card K * Nat.card (singularLinesIn Q P.perp) +
-        Nat.card K ^ (Module.finrank K V - 2) := by
-  have hP := HypPair.polarNondegOn_perp hQ P
-  exact ⟨hP, nondegenerate_polarBilin_restrict hP,
-    CatalogueBOrthogonalPointCount.hyperbolic_perp_finrank P,
-    CatalogueBOrthogonalPointCount.perpendicular_point_count P L hL,
-    CatalogueBOrthogonalPointCount.nonperpendicular_point_count P L hL,
-    CatalogueBOrthogonalPointCount.point_count_recurrence P⟩
-
-theorem point_count_geometry (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K V, Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0) :
-    PointCountGeometry Q :=
-  ⟨CatalogueBOrthogonalPointCount.points_finite,
-    regular_hyperbolic_point_counts Q hQ,
-    CatalogueBOrthogonalPointCount.point_subdegree_divisibility hQ hT,
-    CatalogueBOrthogonalPointCount.exists_uniform_subdegrees_divisibility hQ hT⟩
 
 theorem action_normalizer_orthogonality (ρ : G →* Equiv.Perm (Points Q))
     (hQ : Q.polarBilin.Nondegenerate)
@@ -105,10 +65,6 @@ theorem action_normalizer_orthogonality (ρ : G →* Equiv.Perm (Points Q))
     CatalogueBOrthogonalPointNormalizer.nonperpendicularPoints_normalizer_image
       Q ρ φ hφ hρ a b (fun L => (hcounts L).1) (fun L => (hcounts L).2) hab⟩
 
-theorem projective_normalizer_orthogonality (hQ : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K V, Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0) :
-    ActionNormalizerOrthogonality Q (projectivePointAction Q) :=
-  action_normalizer_orthogonality Q _ hQ hT (projective_action_properties Q hQ hT)
 
 end FiniteGeometry
 

@@ -20,7 +20,6 @@ namespace SBc12
         ∃ φ : ↥(conjClosure (V154 T Mc M) H) →* Equiv.Perm (Fin 3), Function.Surjective φ ∧
           φ.ker = D.subgroupOf (conjClosure (V154 T Mc M) H)) → False
 
-variable {G : Type} [Group G] [Finite G] {T Mc M H : Subgroup G}
 
 end SBc12
 

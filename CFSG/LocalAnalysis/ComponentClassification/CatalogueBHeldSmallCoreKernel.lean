@@ -106,13 +106,6 @@ theorem jointDisplacementHom_injective (A : Subgroup G) [A.Characteristic] :
     element⁻¹ * (right : MulAut G) element at hvalue
   exact mul_left_cancel hvalue
 
-theorem jointKernel_isMulCommutative (A : Subgroup G) [A.Characteristic] :
-    IsMulCommutative (jointKernel A) := by
-  apply IsMulCommutative.of_comm
-  intro left right
-  apply jointDisplacementHom_injective A
-  rw [map_mul, map_mul]
-  exact mul_comm' _ _
 
 theorem jointKernel_solvable (A : Subgroup G) [A.Characteristic] :
     Group.IsSolvable (jointKernel A) :=

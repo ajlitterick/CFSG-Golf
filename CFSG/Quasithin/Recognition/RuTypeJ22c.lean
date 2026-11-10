@@ -180,37 +180,6 @@ theorem comm_K_HC {k : G} (hk : k ∈ N.K) : ∀ x ∈ N.HC, k * x * k⁻¹ * x�
   refine mul_mem (mul_mem ⟨c.2, N.comm_HC_of_pow_five c.2 hc5⟩ ⟨d.2, N.comm_HC_of_pow_five d.2 hd5⟩)
     ⟨pCoreOf_le 2 _ hq, fun x hx => (N.two.QU_elem _ hq x (N.HC_le_Q hx)).1⟩
 
-theorem comm_K_mem_U_iff {q : G} (hq : q ∈ ruQ N.T) :
-    (∀ k ∈ N.K, k * q * k⁻¹ * q⁻¹ ∈ ruU N.L N.T) ↔ q ∈ N.HC := by
-  constructor
-  · intro h
-    by_contra hqC
-    have hne : Multiplicative.toAdd (N.ψQ ⟨q, hq⟩) ≠ 0 := by
-      intro h0
-      apply hqC
-      have : (⟨q, hq⟩ : ruQ N.T) ∈ N.ψQ.ker :=
-        Multiplicative.toAdd.injective (by rw [h0, toAdd_one])
-      rw [N.ψQ_ker, Subgroup.mem_subgroupOf] at this
-      exact this
-    obtain ⟨A, hA⟩ := Sigma.exists_sl_smul_ne _ hne
-    apply hA
-    obtain ⟨⟨k, hkH⟩, hk⟩ := N.φ_surj (SemidirectProduct.inl A)
-    have hkK : k ∈ N.K := N.mem_K_iff.mpr ⟨hkH, by rw [hk]; rfl⟩
-    have hmem : k * q * k⁻¹ * q⁻¹ ∈ N.HC := N.U_le_HC (h k hkK)
-    have hmemQ : k * q * k⁻¹ ∈ ruQ N.T := N.conj_mem_Q hkH hq
-    have e1 : N.ψQ ⟨k * q * k⁻¹, hmemQ⟩ = N.ψQ ⟨q, hq⟩ := by
-      have : (⟨k * q * k⁻¹, hmemQ⟩ : ruQ N.T) * (⟨q, hq⟩ : ruQ N.T)⁻¹ ∈ N.ψQ.ker := by
-        rw [N.ψQ_ker, Subgroup.mem_subgroupOf]
-        exact hmem
-      rw [MonoidHom.mem_ker, map_mul, map_inv, mul_inv_eq_one] at this
-      exact this
-    have e2 := N.ψQ_conj ⟨k, hkH⟩ ⟨q, hq⟩
-    simp only at e2
-    rw [e1, hk, Sigma.sigmaAct_inl] at e2
-    exact e2.symm
-  · intro hqC k hk
-    have := N.comm_K_HC hk q hqC
-    exact this
 
 end RuDataN
 

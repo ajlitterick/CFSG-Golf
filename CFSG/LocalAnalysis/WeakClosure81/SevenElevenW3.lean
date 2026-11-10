@@ -55,6 +55,5 @@ theorem isBarMap_mk_pCore (K : Subgroup G) :
 
 end Sections
 
-variable {G : Type} [Group G] [Finite G] {V H E : Subgroup G}
 
 end CFSG.LocalAnalysis.WeakClosure81

@@ -29,9 +29,6 @@ theorem commute_of_le_center (hZ : Z ≤ center L) (a b : Z) : Commute a b :=
     rintro _ ⟨a, rfl⟩
     exact ⟨a⁻¹, inv_pow a 3⟩
 
-theorem mem_centralCubes (hZ : Z ≤ center L) {w : Z} :
-    w ∈ centralCubes hZ ↔ ∃ z : Z, z ^ 3 = w :=
-  Iff.rfl
 
 instance centralCubes_normal (hZ : Z ≤ center L) : (centralCubes hZ).Normal :=
   ⟨fun _ hn g => by

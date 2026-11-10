@@ -124,8 +124,6 @@ theorem F4Space.omega_smul_val (w : F4Space z hz) : (F4.ω • w).val = z w.val 
     show g (f4a x • w.val + f4b x • z w.val) = f4a x • g w.val + f4b x • z (g w.val)
     rw [map_add, map_smul, map_smul, hg]
 
-theorem toF4Lin_val (g : W →ₗ[ZMod 2] W) (hg : ∀ x, g (z x) = z (g x)) (w : F4Space z hz) :
-    (toF4Lin z hz g hg w).val = g w.val := rfl
 
 theorem natCard_F4Space [Finite W] :
     Nat.card (F4Space z hz) = 4 ^ Module.finrank F4 (F4Space z hz) := by
@@ -152,8 +150,6 @@ variable {Γ : Type*} [Group Γ]
     rw [map_mul]
     rfl
 
-theorem f4Action_val (α : Γ →* (W →ₗ[ZMod 2] W)) (hα : ∀ γ x, α γ (z x) = z (α γ x)) (γ : Γ)
-    (x : F4Space z hz) : (f4Action z hz α hα γ x).val = α γ x.val := rfl
 
 theorem det_f4Action_eq_one (hΓ : Group.IsPerfect Γ) (α : Γ →* (W →ₗ[ZMod 2] W))
     (hα : ∀ γ x, α γ (z x) = z (α γ x)) (γ : Γ) :

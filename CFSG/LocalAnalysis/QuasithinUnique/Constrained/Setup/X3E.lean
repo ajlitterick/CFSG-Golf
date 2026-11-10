@@ -191,32 +191,5 @@ theorem a6SimpleModules : A6SimpleModules := by
       (fix_facts i hi hd4) Ψ _ (fun b s => by
         simpa using hΨ b s)
 
-theorem composition_series :
-    (∀ i ≤ 12, ∀ b, ∀ u ∈ Submodule.map (lin 45 eB) (Fl 45 (eNs.getD i 0)),
-        lin 45 (piColsOf b) u ∈ Submodule.map (lin 45 eB) (Fl 45 (eNs.getD i 0))) ∧
-    (∀ i < 12, IrredPair
-      (fun b => lin (eNs.getD (i + 1) 0 - eNs.getD i 0) (blkOf i b))) ∧
-    ((List.range 12).map fun i => eNs.getD (i + 1) 0 - eNs.getD i 0) =
-      [4, 1, 4, 1, 1, 4, 4, 1, 4, 1, 4, 16] ∧
-    (∀ i < 12, eNs.getD (i + 1) 0 - eNs.getD i 0 = 4 →
-      ((List.range 16).filter fun t => eR0W.all fun w => wapp 4 (blkOf i) w t == t).length = 2) := by
-  obtain ⟨hns0, hnsN, hmono, hfl⟩ := flagOK_facts
-  refine ⟨?_, ?_, by decide +kernel, fix_facts⟩
-  · intro i hi b u hu
-    obtain ⟨v, hv, rfl⟩ := hu
-    refine ⟨lin 45 (colsOf b) v, ?_, lin_eB_cols b v⟩
-    apply lin_mem_Fl _ hv
-    intro j hj
-    have := hfl i hi j hj
-    cases b
-    · exact this.1
-    · exact this.2
-  · intro i hi
-    have hwin : eNs.getD i 0 + (eNs.getD (i + 1) 0 - eNs.getD i 0) ≤ 45 := by
-      have h1 := hmono i hi
-      have h2 : eNs.getD (i + 1) 0 ≤ eNs.getD 12 0 :=
-        ns_mono (ns := fun i => eNs.getD i 0) (nSteps := 12) hmono (i + 1) 12 (by omega) le_rfl
-      omega
-    exact nortonOK_sound (blocksOK_facts i hi)
 
 end CFSG.QuasithinUnique.Setup.X3E

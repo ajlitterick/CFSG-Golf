@@ -14,12 +14,6 @@ section StandardPair
 
 variable {K : Type} [Field K] {G : Type} [Group G]
 
-theorem linearBlockStandardPair_of_blocks {θ : SL(3, K) →* G}
-    (hker : θ.ker ≤ Subgroup.center SL(3, K)) {U V : Subgroup G} (hU : (B12 K).map θ = U)
-    (hV : (B23 K).map θ = V) : LinearBlockStandardPair K θ.range U V := by
-  have hc : ∀ H : Subgroup SL(3, K),
-      H.map (MulAut.conj (1 : SL(3, K))⁻¹).toMonoidHom = H := fun H => by ext x; simp
-  exact ⟨θ, 1, rfl, hker, Or.inl ⟨by rw [hc]; exact hU, by rw [hc]; exact hV⟩⟩
 
 theorem linearBlockStandardPair_eq_sup {W U V : Subgroup G}
     (h : LinearBlockStandardPair K W U V) : W = U ⊔ V := by
@@ -129,13 +123,6 @@ theorem lieModel_iSup_of_isSimpleGroup (p f : ℕ) (hp : p.Prime) (hK : Nat.card
   exact CFSG.LieType.CurtisTits.lieModel_of_mulEquiv
     ((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot) hmodel
 
-theorem lieModel_A4_of_isSimpleGroup (p f : ℕ) (hp : p.Prime) (hK : Nat.card K = p ^ f)
-    (hq : 3 ≤ p ^ f) {G : Type} [Group G] (J : Fin 4 → Subgroup G)
-    (hcomm : ∀ i j : Fin 4, (i : ℕ) + 1 < j → ∀ x ∈ J i, ∀ y ∈ J j, x * y = y * x)
-    (hpair : ∀ i j : Fin 4, (j : ℕ) = i + 1 → ∃ W, LinearBlockStandardPair K W (J i) (J j))
-    (hs : IsSimpleGroup ↥(⨆ i, J i)) :
-    LieModel ↥(⨆ i, J i) StatedLieTag.PSL 5 p f :=
-  lieModel_iSup_of_isSimpleGroup p f hp hK hq (n := 4) (by norm_num) J hcomm hpair hs
 
 theorem lieModel_of_iSup_eq_top (p f : ℕ) (hp : p.Prime) (hK : Nat.card K = p ^ f)
     (hq : 3 ≤ p ^ f) {n : ℕ} (hn : 3 ≤ n) {G : Type} [Group G] (J : Fin n → Subgroup G)

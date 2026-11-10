@@ -119,8 +119,6 @@ theorem natEnd_val (g : SL(2, F)) : (natEnd F g).val = natEndHom F g := rfl
       funext fun i => map_add σ (v i) (w i)
     rw [h, Matrix.mulVec_add])
 
-theorem semilinEnd_apply (g : Matrix (Fin 2) (Fin 2) F) (σ : RingAut F) (v : Fin 2 → F) :
-    semilinEnd g σ v = g *ᵥ (fun i => σ (v i)) := rfl
 
 @[expose] def semilinInv (g : Matrix (Fin 2) (Fin 2) F) (σ : RingAut F) :
     AddMonoid.End (Fin 2 → F) :=
@@ -150,15 +148,10 @@ theorem semilinEnd_apply (g : Matrix (Fin 2) (Fin 2) F) (σ : RingAut F) (v : Fi
 theorem semilin_apply (g : Matrix.GeneralLinearGroup (Fin 2) F) (σ : RingAut F) (v : Fin 2 → F) :
     (semilin g σ).val v = (g : Matrix (Fin 2) (Fin 2) F) *ᵥ (fun i => σ (v i)) := rfl
 
-theorem semilin_inv_apply (g : Matrix.GeneralLinearGroup (Fin 2) F) (σ : RingAut F)
-    (w : Fin 2 → F) :
-    ((semilin g σ)⁻¹).val w = fun i => σ.symm ((((g⁻¹ : Matrix.GeneralLinearGroup (Fin 2) F) :
-      Matrix (Fin 2) (Fin 2) F) *ᵥ w) i) := rfl
 
 @[expose] def scalEnd (c : F) : AddMonoid.End (Fin 2 → F) :=
   AddMonoidHom.mk' (fun v => c • v) (fun v w => smul_add c v w)
 
-theorem scalEnd_apply (c : F) (v : Fin 2 → F) : scalEnd c v = c • v := rfl
 
 @[expose] def scalMonoidHom (F : Type*) [Field F] : F →* AddMonoid.End (Fin 2 → F) where
   toFun := scalEnd
@@ -168,7 +161,6 @@ theorem scalEnd_apply (c : F) (v : Fin 2 → F) : scalEnd c v = c • v := rfl
 @[expose] def scalHom (F : Type*) [Field F] : Fˣ →* (AddMonoid.End (Fin 2 → F))ˣ :=
   Units.map (scalMonoidHom F)
 
-theorem scalHom_apply (c : Fˣ) (v : Fin 2 → F) : (scalHom F c).val v = (c : F) • v := rfl
 
 theorem semilin_conj_natEnd (g : Matrix.GeneralLinearGroup (Fin 2) F) (σ : RingAut F)
     (s : SL(2, F)) :

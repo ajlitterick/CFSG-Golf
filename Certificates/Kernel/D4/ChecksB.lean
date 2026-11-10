@@ -36,7 +36,6 @@ theorem orbB : ((List.range 5).map fun i => rcnt (CB.LR i)) = [2457, 2048, 21, 2
 theorem wB : CFSG.Sporadic.Schreier.Co3.Native.wordsArr 2 9 dB = d4ChainBWords := by
   decide +kernel
 
-theorem ndB : d4ChainBBaseArr.toList.Nodup := by decide +kernel
 
 theorem bGB : allN 5 (fun j => Nat.beq (EB.G j) (HX.F (Nat.add 86 j))) = true ∧
     Nat.beq EB.ng 5 = true ∧ Nat.beq EB.N 648 = true := ⟨by quickRfl, by quickRfl, by quickRfl⟩

@@ -61,9 +61,6 @@ theorem chainFrameHyp51z : ChainFrameHyp51z p f := by
     hd.hz.ne_one (Subgroup.subset_closure (by simp)) hd.ht.ne_one (hd.t_ne_z hp hq hΩ) hzJ
     (isClassicalMember_of_twin hΩ hd.memJ hd.ht) hs.toral
 
-theorem chainFrameHyp51_of_vertices' (ht : ChainFrameHyp51t p f) (hzt : ChainFrameHyp51zt p f) :
-    ChainFrameHyp51 p f :=
-  chainFrameHyp51_of_vertices (chainFrameHyp51z p f) ht hzt
 
 end Vertex
 

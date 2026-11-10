@@ -70,13 +70,6 @@ theorem oddToMinus_oddVec (n : ℕ) (b c : F) (i : Fin (n - 1)) (s : Bool) :
   rcases x with j | j | t <;> cases s <;>
     simp [oddVec, minusVec, eVec, fVec, Pi.single_apply]
 
-theorem oddToMinus_oddZ (n : ℕ) (b c : F) :
-    oddToMinus n b c (oddZ (n - 1) F) = planeVec n planeOne := by
-  funext x
-  rcases x with j | j | t
-  · simp [oddZ, planeVec]
-  · simp [oddZ, planeVec]
-  · fin_cases t <;> simp [oddZ, planeVec, planeOne]
 
 @[expose] def pairShift (n : ℕ) (hn : 3 ≤ n) (i : Fin (3 - 1)) : Fin (n - 1) :=
   ⟨n - 3 + i.val, by have := i.2; omega⟩
@@ -231,15 +224,6 @@ theorem spinGroupMap_oddToMinus_longRoot (n : ℕ) (b c : F) {i j : Fin (n - 1)}
   simp only [map_add, map_one, map_smul, map_mul, CliffordAlgebra.map_apply_ι, oddFrame_vec,
     minusFrame_vec, oddToMinus_oddVec]
 
-theorem spinGroupMap_oddToMinus_longSL2 (n : ℕ) (b c : F) {i j : Fin (n - 1)} (hij : i ≠ j)
-    (s t : Bool) :
-    (oddToMinus n b c).spinGroupMap.comp ((oddFrame (n - 1) F).longSL2 hij s t) =
-      (minusFrame n b c).longSL2 hij s t := by
-  refine hom_ext_sl2 (fun x => ?_) (fun x => ?_)
-  · rw [MonoidHom.comp_apply, tv01_eq_upperSL2, HypFrame.longSL2_upperSL2,
-      HypFrame.longSL2_upperSL2, spinGroupMap_oddToMinus_longRoot]
-  · rw [MonoidHom.comp_apply, tv10_eq_lowerSL2, HypFrame.longSL2_lowerSL2,
-      HypFrame.longSL2_lowerSL2, spinGroupMap_oddToMinus_longRoot]
 
 theorem spinGroupMap_minusShift_longRoot (n : ℕ) (hn : 3 ≤ n) (b c : F) {i j : Fin (3 - 1)}
     (hij : i ≠ j) (s t : Bool) (x : F) :

@@ -139,14 +139,6 @@ theorem chk2_spec {LR TR W : Nat → Nat} {H T lo cnt : Nat} (h : chk2 LR TR W H
   intro d hd
   exact RuBase.allN_iff.1 h d hd
 
-theorem chk3_spec {LR TR W : Nat → Nat} {H T lo cnt : Nat} (h : chk3 LR TR W H T lo cnt = true) :
-    ∀ d < cnt, witK [H, TR (roff 4060 48720 (LR 0) + (lo + d) / rcnt (LR 2) / rcnt (LR 1)),
-      TR (roff 4060 48720 (LR 1) + (lo + d) / rcnt (LR 2) % rcnt (LR 1)),
-      TR (roff 4060 48720 (LR 2) + (lo + d) % rcnt (LR 2))] T (W (lo + d)) = true := by
-  unfold chk3 at h
-  simp only [strictB_eq] at h
-  intro d hd
-  exact RuBase.allN_iff.1 h d hd
 
 theorem chunk_of {K cnt i : Nat} (hi : i < K * cnt) :
     i / cnt < K ∧ i % cnt < cnt ∧ cnt * (i / cnt) + i % cnt = i := by
@@ -175,15 +167,6 @@ theorem chk2_all {LR TR W : Nat → Nat} {H T K cnt : Nat}
   have := chk2_spec (h _ hq) _ hd
   rwa [e] at this
 
-theorem chk3_all {LR TR W : Nat → Nat} {H T K cnt : Nat}
-    (h : ∀ q < K, chk3 LR TR W H T (cnt * q) cnt = true) :
-    ∀ i < K * cnt, witK [H, TR (roff 4060 48720 (LR 0) + i / rcnt (LR 2) / rcnt (LR 1)),
-      TR (roff 4060 48720 (LR 1) + i / rcnt (LR 2) % rcnt (LR 1)),
-      TR (roff 4060 48720 (LR 2) + i % rcnt (LR 2))] T (W i) = true := by
-  intro i hi
-  obtain ⟨hq, hd, e⟩ := chunk_of hi
-  have := chk3_spec (h _ hq) _ hd
-  rwa [e] at this
 
 theorem witKD_eq {ys : List Nat} {T r : Nat} (hr : Nat.land r 3 ≠ 2) : witKD ys T r = witK ys T r := by
   unfold witKD
@@ -494,66 +477,6 @@ theorem enum3 (hb : Binds 4060 12 PS kS 3 BP S base)
 
 end Enum
 
-theorem scan2_sound {n0 : Nat} {Q : RawSchreierDatum 4060} {O S : Array (Array Nat)}
-    {base : Array Nat} {Wd : Array (List ℤ)} {chunks : Nat} (hA : ChainArrays Q O S base Wd)
-    (hc0 : 0 < chunks) (hchk : rawChainOK 4060 O S base Wd chunks = true) (hQ : Q.baseCount = 2)
-    {PS PSI LR TR TRI : Nat → Nat} {kS BP : Nat} (hb : Binds 4060 12 PS kS 2 BP S base)
-    (hp : allN kS (fun j => permOK 4060 12 (mask 12) (4060 * 12) (PS j) (PSI j)) = true)
-    (hl : LevelsOK 4060 12 PS PSI LR TR TRI kS 2 BP) {W : Nat → Nat} {H T K cnt : Nat}
-    {h τ : G} (hH : PRep 4060 12 H h) (hT : PRep 4060 12 T τ)
-    (hK : rcnt (LR 0) * rcnt (LR 1) ≤ K * cnt)
-    (hck : ∀ q < K, chk2 LR TR W H T (cnt * q) cnt = true)
-    (hbd : ∀ q < K, bndK W (cnt * q) cnt = true) {c : G} (hc : c ∈ Q.originalSubgroup) :
-    (∀ e ∈ [125, 7, 13, 29], (h * c) ^ e ≠ 1) ∨
-      ∃ j : Nat, τ * ((h * c) ^ j * τ * ((h * c) ^ j)⁻¹) ≠ (h * c) ^ j * τ * ((h * c) ^ j)⁻¹ * τ := by
-  have hm := mem_products_of_mem hA hc0 hchk hc
-  rw [hQ] at hm
-  obtain ⟨i, hi, g₀, g₁, P0, P1, rfl⟩ := enum2 hb hp hl hm
-  have hi' : i < K * cnt := lt_of_lt_of_le hi hK
-  have hpl : PL [H, TR (roff 4060 48720 (LR 0) + i / rcnt (LR 1)),
-      TR (roff 4060 48720 (LR 1) + i % rcnt (LR 1))] [h, g₀, g₁] :=
-    .cons hH (.cons P0 (.cons P1 .nil))
-  have e : [h, g₀, g₁].prod = h * (g₀ * g₁) := by simp [mul_assoc]
-  have := witK_sound hpl hT (bnd_all hbd i hi') (chk2_all hck i hi')
-  rwa [e] at this
-
-theorem leaf_facts {M : Type} [Group M] {y τ : M} {q : Nat} (hq : 0 < q) {L : Nat → M}
-    (h0 : L 0 = τ) (hs : ∀ j < q, y * L j * y⁻¹ = L ((j + 1) % q)) {cand : List M}
-    (hc : ∀ x ∈ cand, x ∈ Subgroup.closure {g | ∃ j < q, L j = g})
-    (hL : ∀ j < q, L j ∈ Subgroup.closure {x | x ∈ cand}) :
-    (∀ x ∈ cand, x ∈ orbSub y τ) ∧ ∀ x ∈ cand, y * x * y⁻¹ ∈ Subgroup.closure {x | x ∈ cand} := by
-  have horb : ∀ j, y ^ j * τ * (y ^ j)⁻¹ = L (j % q) := by
-    intro j
-    induction j with
-    | zero => rw [pow_zero, inv_one, mul_one, one_mul, Nat.zero_mod, h0]
-    | succ j ih =>
-      calc y ^ (j + 1) * τ * (y ^ (j + 1))⁻¹ = y * (y ^ j * τ * (y ^ j)⁻¹) * y⁻¹ := by group
-        _ = L ((j % q + 1) % q) := by rw [ih, hs _ (Nat.mod_lt _ hq)]
-        _ = L ((j + 1) % q) := by rw [Nat.mod_add_mod]
-  have hle : Subgroup.closure {g | ∃ j < q, L j = g} ≤ orbSub y τ := by
-    rw [Subgroup.closure_le]
-    rintro _ ⟨j, hj, rfl⟩
-    rw [← Nat.mod_eq_of_lt hj, ← horb]
-    exact conj_mem_orbSub y τ j
-  have heq : Subgroup.closure {g | ∃ j < q, L j = g} = Subgroup.closure {x | x ∈ cand} := by
-    apply le_antisymm
-    · rw [Subgroup.closure_le]
-      rintro _ ⟨j, hj, rfl⟩
-      exact hL j hj
-    · rw [Subgroup.closure_le]
-      intro x hx
-      exact hc x hx
-  refine ⟨fun x hx => hle (hc x hx), fun x hx => ?_⟩
-  rw [← heq]
-  have hconj : Subgroup.closure {g | ∃ j < q, L j = g} ≤
-      (Subgroup.closure {g | ∃ j < q, L j = g}).comap (MulAut.conj y).toMonoidHom := by
-    rw [Subgroup.closure_le]
-    rintro _ ⟨j, hj, rfl⟩
-    rw [SetLike.mem_coe, Subgroup.mem_comap]
-    change y * L j * y⁻¹ ∈ _
-    rw [hs j hj]
-    exact Subgroup.subset_closure ⟨_, Nat.mod_lt _ hq, rfl⟩
-  exact hconj (hc x hx)
 
 theorem period3 {M : Type*} [Group M] {h τ c : M} (hc : c * τ = τ * c)
     (hs : c * (h * τ * h⁻¹) = h * τ * h⁻¹ * c)

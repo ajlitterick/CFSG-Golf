@@ -282,9 +282,6 @@ theorem lieGenerated_eq {f : ℕ} (hK : ∀ t ∈ reflectionSet p E, KFAt p E f 
   · refine iSup_le fun i => le_sSup ⟨tt i, (htt i).1, ?_⟩
     exact (isKt_iff_of_nonexceptional (hK _ (htt i).1).1).2 rfl
 
-omit [Finite G] in
-theorem conjAut_mem_torusWeyl {w : G} (hw : w ∈ Subgroup.normalizer (E : Set G)) :
-    conjAut E w hw ∈ torusWeyl E := ⟨⟨w, hw⟩, rfl⟩
 
 omit [Finite G] in
 theorem kZero_le_lieGenerated {f : ℕ} (hK : ∀ t ∈ reflectionSet p E, KFAt p E f t)

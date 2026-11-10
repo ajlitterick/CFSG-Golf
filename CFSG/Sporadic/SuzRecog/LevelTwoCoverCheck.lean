@@ -101,57 +101,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.SuzRecog.L
 @[expose] def treeEidsOf (nb : Array (Array Nat)) (par : Array Nat) : Array Nat :=
   Array.ofFn (n := 8991) fun z => eidOf nb par[z.val]! z.val
 
-@[expose] def elimCoreC (cs ids : Array (Nat × Nat × Nat)) (par tids : Array Nat) :
-    Array (Array Nat) × Array Nat := Id.run do
-  let ne := 8991 * 36
-  let mut steps : Array (Array Nat) := #[]
-  let mut stepOf : Array Nat := Array.replicate ne 0
-  let mut done : Array Bool := Array.replicate ne false
-  for z in [1:8991] do
-    let e := tids[z]!
-    stepOf := stepOf.set! e steps.size
-    done := done.set! e true
-    steps := steps.push #[par[z]!, z]
-  let mut ecells : Array (Array Nat) := Array.replicate ne #[]
-  for c in [0:cs.size] do
-    let (e₁, e₂, e₃) := ids[c]!
-    ecells := ecells.modify e₁ (·.push c)
-    ecells := ecells.modify e₂ (·.push c)
-    ecells := ecells.modify e₃ (·.push c)
-  let mut queue : Array Nat := #[]
-  for c in [0:cs.size] do
-    let (e₁, e₂, e₃) := ids[c]!
-    if (if done[e₁]! then 0 else 1) + (if done[e₂]! then 0 else 1) +
-        (if done[e₃]! then 0 else 1) == 1 then
-      queue := queue.push c
-  for h in [0:4 * cs.size] do
-    if h < queue.size then
-      let c := queue[h]!
-      let (e₁, e₂, e₃) := ids[c]!
-      if (if done[e₁]! then 0 else 1) + (if done[e₂]! then 0 else 1) +
-          (if done[e₃]! then 0 else 1) == 1 then
-        let (a, b, v) := cs[c]!
-        let (x, z, y, e, f₁, f₂) := if !done[e₁]! then (a, b, v, e₁, e₂, e₃)
-          else if !done[e₂]! then (a, v, b, e₂, e₁, e₃) else (b, v, a, e₃, e₁, e₂)
-        stepOf := stepOf.set! e steps.size
-        done := done.set! e true
-        steps := steps.push #[x, z, y, stepOf[f₁]!, stepOf[f₂]!]
-        for c' in ecells[e]! do
-          let (d₁, d₂, d₃) := ids[c']!
-          if (if done[d₁]! then 0 else 1) + (if done[d₂]! then 0 else 1) +
-              (if done[d₃]! then 0 else 1) == 1 then
-            queue := queue.push c'
-  return (steps, stepOf)
-
-@[expose] def elimRunC : Array (Array Nat) × Array Nat :=
-  elimCoreC cellsC.1 cellsC.2 treeParC (treeEidsOf nbrC treeParC)
-
-@[expose] def elimStepsC : Array (Array Nat) := elimRunC.1
-
-@[expose] def emapOf (nb : Array (Array Nat)) (st : Array Nat) : Array (Array Nat) :=
-  Array.ofFn (n := 8991) fun x => nb[x.val]!.map fun y => st[eidOf nb x.val y]!
-
-@[expose] def elimEmapC : Array (Array Nat) := emapOf nbrC elimRunC.2
 
 @[expose] def liftAt0 (y : Nat) : Nat := (nbrC[0]!)[posIn 0 y]!
 
@@ -186,7 +135,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.SuzRecog.L
     eqA 8991 (CFSG.Sporadic.SuzOddCore.powA 8991
       (compA 8991 (liftArr 0) (compA 8991 (liftArr 0) (liftArr 1))) 8) deckArr
 
-@[expose] def coverElimOK : Bool := ok 8991 nbrC treeParC treeDepC (triC nbrC) elimStepsC elimEmapC
 
 @[expose] def coverLocOK : Bool :=
   listedAt0 p1 && listedAt0 2835 &&

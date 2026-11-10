@@ -283,15 +283,5 @@ theorem Nbar_apply_sub_mem_Vone {x : S.O} (hx : x ∈ Nbar S g t) {w : S.Qt}
 
 end Sp
 
-theorem timmesfeld_6_3_five (H : Hyp4 S g) (C : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar g)
-    (ht1 : t ≠ 1) (hVQ : ¬ V S g t ≤ S.Qa g) (hSp : SpCase H C ht ht1 hVQ) :
-    (∀ v : S.Qt, ((chi H C ht ht1 hVQ (Submodule.Quotient.mk v) : Vt S g t) : S.Qt) =
-      (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v) ∧
-    (∀ (x : Rbar S g t) (v : S.Qt),
-      chi H C ht ht1 hVQ (Submodule.Quotient.mk (((x : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) v)) =
-        resV H.conj_mem t x (chi H C ht ht1 hVQ (Submodule.Quotient.mk v))) ∧
-    RmodN S g t = TauCeti.BilinForm.isometryGroup (beta H C ht ht1 hVQ) ∧
-    LmodN S g t = spPointRadical (beta H C ht ht1 hVQ) (aV ht) :=
-  ⟨coe_chi_apply_mk H C ht ht1 hVQ, chi_equivariant H C ht ht1 hVQ, hSp.eq_sp, hSp.LmodN_eq⟩
 
 end CFSG.LargeExtraspecial.S6

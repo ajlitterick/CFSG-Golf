@@ -46,14 +46,6 @@ theorem generalized_fitting_of_inner {Q : Type*} [Group Q] (hZ : Subgroup.center
   exact almost_simple_of_inner hinner hinv _ hJ
     (centralizer_generalizedFitting_eq_bot_of_center (center_eq_bot_of_mulEquiv hJ.some hZ))
 
-theorem CTUC_Fi23_almost_simple_involution_centralizer_odd_core_trivial
-    {X : Type*} [Group X]
-    [Finite X] (S : Subgroup X) [S.Normal] (hS : Nonempty (S ≃* Blueprint.NativeSporadic.Fi23))
-    (hC : Subgroup.centralizer (S : Set X) = ⊥) :
-    S = ⊤ ∧ ∀ t : X, orderOf t = 2 →
-      CFSG.oddCore ↥(Subgroup.centralizer ({t} : Set X)) = ⊥ :=
-  @almost_simple_of_inner Blueprint.NativeSporadic.Fi23 Units.instGroup fi23_mulAut_eq_conj
-    CTUC_Fi23_all_involution_centralizers_odd_core_trivial X _ _ S _ hS hC
 
 theorem CTUC_Fi23_generalized_Fitting_involution_centralizer_odd_core_trivial
     {X : Type*}

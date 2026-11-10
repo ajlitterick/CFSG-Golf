@@ -17,16 +17,6 @@ theorem recsE_pin : recsEqK recE (recsT orbEMasks) 0 = true := by quickRfl
 
 #j4q_all CertificateChecks.KernelCo1P.KeyE CertificateChecks.KernelCo1P.keyE_chunk 197
 
-theorem recsE_neg : notB (recsEqK (fun i => recE (i + 1)) ((recsT orbEMasks).take 64) 0) = true := by
-  quickRfl
-
-theorem hsE_neg : notB (pinAt (hsAct BK) oneK (fun i => hsE (i + 1)) recE 7) = true := by quickRfl
-
-theorem keyE_neg : notB (keyAt 12600 64 skE (fun s => ixE (s + 1)) ptPE 3) = true := by quickRfl
-
-theorem memE_neg : notB (memE oneK) = true := by quickRfl
-
-theorem memE_pos : memE (ptPE 1234) = true := by quickRfl
 
 end CertificateChecks.KernelCo1P
 

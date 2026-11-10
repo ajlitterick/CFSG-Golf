@@ -73,9 +73,6 @@ def centralPreimage (M Q : Subgroup G) (hQ : Q ≤ Subgroup.centralizer (M : Set
     rw [heq]
     exact Q.inv_mem hq
 
-theorem mem_centralPreimage_iff {M Q : Subgroup G} {hQ : Q ≤ Subgroup.centralizer (M : Set G)}
-    {a : G} : a ∈ centralPreimage M Q hQ ↔ a ∈ M ∧ ∀ m ∈ M, a * m * a⁻¹ * m⁻¹ ∈ Q :=
-  Iff.rfl
 
 def fixedCosetPreimage (A Q : Subgroup G) (hQ : Q ≤ Subgroup.centralizer (A : Set G)) (y : G) :
     Subgroup G where
@@ -108,10 +105,6 @@ def fixedCosetPreimage (A Q : Subgroup G) (hQ : Q ≤ Subgroup.centralizer (A : 
     rw [heq]
     exact Q.inv_mem hb
 
-theorem mem_fixedCosetPreimage_iff {A Q : Subgroup G}
-    {hQ : Q ≤ Subgroup.centralizer (A : Set G)} {y b : G} :
-    b ∈ fixedCosetPreimage A Q hQ y ↔ b ∈ A ∧ b⁻¹ * (y * b * y⁻¹) ∈ Q :=
-  Iff.rfl
 
 variable [Finite G]
 

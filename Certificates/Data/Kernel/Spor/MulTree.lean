@@ -13,8 +13,6 @@ open CFSG.KC.Enum CFSG.KS
     (fun _ ih i z => Nat.rec (motive := fun _ => Nat) z
       (fun _ _ => pg w (mask w) (GS (LA i)) (ih (PA i) z)) i) f
 
-@[expose] noncomputable def itn (g : Nat → Nat) (k z : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) z (fun _ y => g y) k
 
 end CFSG.KS.MulTree
 

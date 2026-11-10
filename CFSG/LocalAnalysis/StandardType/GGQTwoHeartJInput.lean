@@ -20,16 +20,6 @@ open CFSG CFSG.Assembly
       M.rootForm a yV = 0} :=
   SimpleGraph.fromRel fun a b => (∑ i, ∑ j, a.1 i * M.cartan i j * b.1 j) ≠ 0
 
-@[expose] def GGQ2HeartJInput : Prop :=
-  ∀ {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G},
-    GGQTwoSetting p B Bs x L D J → p = 3 → ∀ [Fact p.Prime] {labL : LargeEvenLabel},
-      labL.tag = .twE6 → LargeEvenMarking L (fun lab _ _ _ _ _ => lab = labL) →
-      ∀ M : GGQ2LDatum p Bs L x, GGQ2LabelWeyl labL M.coxeter → M.ShapeB →
-        ∀ yB : ↥Bs, (yB : G) ∈ D → (yB : G) ∉ Subgroup.zpowers x →
-          ∃ c : (M.phiGraph (M.model (Additive.ofMul yB))).ConnectedComponent,
-            6 < Nat.card c.supp ∧
-            ∀ b : ↥Bs, (∀ j ∈ J, (b : G) * j = j * (b : G)) ↔
-              ∀ a : ↥c.supp, M.rootForm a.1.1 (M.model (Additive.ofMul b)) = 0
 
 @[expose] def GGQ2HeartJCentralizes : Prop :=
   ∀ {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G},

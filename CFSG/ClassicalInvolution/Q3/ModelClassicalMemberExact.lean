@@ -9,11 +9,6 @@ namespace CFSG.ClassicalInvolution.Q3
 open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
   CFSG.ClassicalInvolution.Balance CFSG.Assembly.LowTwoRank
 
-@[expose] def ClassicalMembersExact3 : Prop :=
-  ∀ (t : StatedLieTag) (n : ℕ) (hp : Nat.Prime 3), IsFundTag t → StatedLieAdmissible t n 3 1 →
-    ∀ (X : Type) [Group X] [Finite X] (ψ : (modelUniv t n 3 1 hp).K →* X),
-      Function.Surjective ψ → ψ.ker ≤ Subgroup.center _ →
-      ∀ (L : Subgroup X) (z : X), IsClassicalMember3 L z → classicalInvolutionOddCore L = ⊥
 
 @[expose] def OddCentralizerFreeTag (t : StatedLieTag) : Prop :=
   ∀ (n : ℕ) (hp : Nat.Prime 3), IsFundTag t → StatedLieAdmissible t n 3 1 →
@@ -25,20 +20,6 @@ theorem modelOddCentralizerFree3_of_tags (h : ∀ t, IsFundTag t → OddCentrali
     ModelOddCentralizerFree3 :=
   fun t n hp hFT hadm X _ _ ψ hψ hker x hx => h t hFT n hp hFT hadm X ψ hψ hker x hx
 
-theorem classicalMembersExact3_of_oddCentralizerFree (h : ModelOddCentralizerFree3) :
-    ClassicalMembersExact3 :=
-  fun t n hp hFT hadm X _ _ ψ hψ hker _ z hL =>
-    hL.oddCore_eq_bot_of_centralizer (h t n hp hFT hadm X ψ hψ hker z hL.orderOf_eq_two)
-
-theorem classicalIsFundamental3_of_exact (h1 : ClassicalMembersFundamental3)
-    (h2 : ModelFiniteCenterTwoGroup3) (h3 : ClassicalMembersExact3) : ClassicalIsFundamental3 := by
-  intro t n hp hFT hadm X _ _ ψ hψ hker L z hL
-  obtain ⟨hfin, hZ2⟩ := h2 t n hp hFT hadm
-  have hO : classicalInvolutionOddCore L = ⊥ := h3 t n hp hFT hadm X ψ hψ hker L z hL
-  obtain ⟨L', z', hL', hmap, -, hO'⟩ := hL.exists_lift ψ hψ hker (hZ2.to_le hker) hO
-  refine ⟨⟨L', h1 t n hp hFT hadm L' z' hL' hO', hmap.symm⟩, ?_⟩
-  obtain ⟨e⟩ := hL.nonempty_equiv_sl2 hO
-  rw [Nat.card_congr e.toEquiv, natCard_sl2Three]
 
 theorem oddCentralizerFreeTag_of_simple (t : StatedLieTag) (h : SimpleOddCentralizerFreeTag t) :
     OddCentralizerFreeTag t := by

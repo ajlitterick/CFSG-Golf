@@ -56,46 +56,5 @@ theorem subgroupSubconjugate_card_le {G : Type*} [Group G] [Finite G]
   have hcard := Nat.card_congr ((MulAut.conj conjugator).subgroupMap left).toEquiv
   exact hcard.symm ▸ Subgroup.card_le_of_le hconjugator
 
-theorem subgroupSubconjugate_symm_of_card_le {G : Type*} [Group G] [Finite G]
-    {left right : Subgroup G} (hsubconjugate : subgroupSubconjugate left right)
-    (hcard : Nat.card right ≤ Nat.card left) : subgroupSubconjugate right left := by
-  obtain ⟨conjugator, hconjugator⟩ := hsubconjugate
-  have hmapCard := Nat.card_congr ((MulAut.conj conjugator).subgroupMap left).toEquiv
-  have hequal : left.map (MulAut.conj conjugator).toMonoidHom = right :=
-    Subgroup.eq_of_le_of_card_ge hconjugator (hmapCard ▸ hcard)
-  refine ⟨conjugator⁻¹, ?_⟩
-  intro element hmember
-  obtain ⟨factor, hfactor, rfl⟩ := Subgroup.mem_map.mp hmember
-  rw [← hequal] at hfactor
-  obtain ⟨original, horiginal, rfl⟩ := Subgroup.mem_map.mp hfactor
-  change conjugator⁻¹ * (conjugator * original * conjugator⁻¹) *
-    (conjugator⁻¹)⁻¹ ∈ left
-  have helement : conjugator⁻¹ * (conjugator * original * conjugator⁻¹) *
-      (conjugator⁻¹)⁻¹ = original := by group
-  rw [helement]
-  exact horiginal
-
-theorem classDefect_exists {G : Type*} [Group G]
-    (prime : ℕ) (conjugacyClass : ConjClasses G) :
-    ∃ defect : Subgroup G, classDefect prime conjugacyClass defect := by
-  obtain ⟨element, helement⟩ := ConjClasses.exists_rep conjugacyClass
-  let sylow : Sylow prime (Subgroup.centralizer {element}) := Classical.choice inferInstance
-  exact ⟨(sylow : Subgroup (Subgroup.centralizer {element})).map
-    (Subgroup.centralizer {element}).subtype, element, helement, sylow, rfl⟩
-
-theorem classDefect_isPGroup {G : Type*} [Group G] (prime : ℕ)
-    {conjugacyClass : ConjClasses G} {defect : Subgroup G}
-    (hdefect : classDefect prime conjugacyClass defect) : IsPGroup prime defect := by
-  obtain ⟨element, _, sylow, rfl⟩ := hdefect
-  exact sylow.isPGroup'.of_equiv
-    ((sylow : Subgroup (Subgroup.centralizer {element})).equivMapOfInjective
-      (Subgroup.centralizer {element}).subtype (Subgroup.subtype_injective _))
-
-theorem classDefect_centralizes {G : Type*} [Group G] (prime : ℕ)
-    {conjugacyClass : ConjClasses G} {defect : Subgroup G}
-    (hdefect : classDefect prime conjugacyClass defect) :
-    ∃ element : G, ConjClasses.mk element = conjugacyClass ∧ defect ≤ Subgroup.centralizer {element} := by
-  obtain ⟨element, helement, sylow, rfl⟩ := hdefect
-  exact ⟨element, helement, Subgroup.map_subtype_le _⟩
 
 end CFSG.BrauerThirdMainTheorem.Helpers

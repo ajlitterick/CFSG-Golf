@@ -118,13 +118,5 @@ theorem rank3II_15_1_of' (h134 : Item134)
     Y = deltaZero A (lB A) Y :=
   rank3II_15_1_lB h.isE27 (exists_isHyperplane_lB_eq_bot' h134 hJ2 h48 h415 hJ2c h) hY
 
-theorem rank3II_14_9_lB_of' (h134 : Item134)
-    (hJ2 : IsSimpleGroup CFSG.Blueprint.NativeSporadic.J2) (h48 : Sec4.Item4_8)
-    (h415 : Sec4.Item4_15)
-    (hJ2c : Subgroup.center CFSG.Blueprint.NativeSporadic.J2 = ⊥) {A L : Subgroup G} {c : G}
-    (h : Sec14Std G A c L) (h147 : Item147 A (lB A)) (h148 : Item148Normal A (lB A)) :
-    Item149 A (lB A) :=
-  rank3II_14_9_of h.isE27 (isNaturalFamily_lB A)
-    (exists_isHyperplane_lB_eq_bot' h134 hJ2 h48 h415 hJ2c h) h147 h148
 
 end CFSG.RankThree.PartTwo.Sec14

@@ -67,23 +67,5 @@ theorem twoSubgroupsFourGenerated_of_e2Prime (hE : C19_E2PrimeTmp p f)
   refine ⟨s₁ ∪ s₂, (Finset.card_union_le _ _).trans (by omega), ?_⟩
   rw [Finset.coe_union, Subgroup.closure_union, hcl₂, hcl₁]
 
-variable (p f) in
-theorem tightControlledD_of_targets4 (hB3 : GoldschmidtB3Tmp) (h11b : C19_11bTmp p f)
-    (h16 : C19_16STmp p f) (hIH : IHAllD p f) : TightControlledD p f := by
-  intro G _ _ _ K z ht0
-  have ht := S19R.tightStd_of_tightBranchD ht0
-  by_cases hc : ConcOrTF4 G
-  · exact hc.conclusionD ht.branch.notFourGenerated
-  exfalso
-  by_cases hA : AllTypeTwo K z
-  · exact false_of_allTypeTwo hB3 ht hA
-  obtain ⟨Q₀, S, hRS, -, hSz, -⟩ := exists_sylow_setup ht
-  obtain ⟨W, hWmem, hWS⟩ := exists_wSet_le ht S
-  have hd : Sec19Data p f K z S W :=
-    ⟨ht, hA, hIH G K z ht.branch, hc, ⟨Q₀, hRS⟩, hSz, hWmem, hWS⟩
-  have hE3 := normalizerQuotientTwoGeneratedStar_of_innerDiagonalTwo ht.branch.odd
-    ht.branch.five ht.branch.member (innerDiagonalTwo_of_sec19 h16 hd)
-  exact ht.branch.notFourGenerated
-    (twoSubgroupsFourGenerated_of_e2Prime (c19_E2PrimeTmp_of p f h11b) hd hE3)
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S1911

@@ -21,7 +21,6 @@ variable {L S : Type*} [Group L] [Group S]
     simp only [Set.mem_ofPred_eq] at ha ⊢
     rw [map_inv, ha]
 
-theorem mem_autFix {β : MulAut L} {x : L} : x ∈ autFix β ↔ β x = x := Iff.rfl
 
 section Lift
 

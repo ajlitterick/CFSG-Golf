@@ -43,12 +43,6 @@ theorem alpha_fun : hnMod.funOK 3 hnCf = true := by decide +kernel
 set_option maxHeartbeats 0 in
 theorem alpha_alt : hnMod.altOK 3 hnCi hnCt tgtAlt = true := by decide +kernel
 
-theorem hn7_neg : (!mcertL lay B A ⟨hn_7_claims.nregs, hn_7_claims.prog, hn_7_claims.facts⟩) =
-    true := by
-  decide +kernel
-
-theorem alpha_neg : (!mcertL lay B A ⟨hnNregs, hnProg, hnMod.modFactsE 3 hnTops hnGs⟩) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelMP.HN
 

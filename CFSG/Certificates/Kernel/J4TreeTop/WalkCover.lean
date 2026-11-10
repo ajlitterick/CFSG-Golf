@@ -534,10 +534,6 @@ theorem tau_lt (g : J) : tau g < 2 ^ 11 := by
     rw [dif_neg hg]
     decide
 
-theorem tau_one : tau 1 = 0 := by
-  unfold tau
-  rw [burnsideJ4NP_encJ_one]
-  rfl
 
 theorem tau_testBit {g : J} (hg : g ∈ Hj) {j : ℕ} (hj : j < 11) :
     (tau g).testBit j = decide (burnsideJ4NP_rho g 0 ⟨j + 1, by omega⟩ = 1) := by

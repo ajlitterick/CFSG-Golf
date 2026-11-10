@@ -15,11 +15,6 @@ open scoped commutatorElement
 variable {G : Type} [Group G] [Finite G] {p : ℕ}
 
 
-theorem kLevel_eq_one_iff (p : ℕ) (S : Type) [Group S] : kLevel p S = 1 ↔ IsChevSimple p S := by
-  classical
-  unfold kLevel
-  split_ifs with h1 h2 h3 <;> simp [h1]
-
 theorem fullCoverLevel_eq_one_iff (p : ℕ) (Q : Type) [Group Q] :
     fullCoverLevel p Q = 1 ↔ K1Cover p Q := by
   classical

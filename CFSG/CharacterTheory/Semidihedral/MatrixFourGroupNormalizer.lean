@@ -22,9 +22,6 @@ variable (F : Type u) [Field F]
     intro h
     exact a.ne_zero (congrArg Subtype.val h))
 
-theorem fixedCoefficient_literal (A : Subgroup (F ≃+* F)) (a : Fˣ)
-    (ha : ∀ sigma : A, (sigma : F ≃+* F) (a : F) = a) :
-    fixedUnit F A (fixedCoefficient F A a ha) = a := Units.ext rfl
 
 theorem scaled_two_squares [Finite F] (hodd : Odd (Nat.card F))
     (a : F) (ha : a ≠ 0) (c : F) : ∃ x y : F, x ^ 2 + a * y ^ 2 = c := by
@@ -82,20 +79,6 @@ theorem nativeX_square (a : Fˣ) (x y : F)
       OddFieldSL2.minusIdentity] <;>
       first | (solve | convert hxy using 1 <;> ring) | ring
 
-theorem nativeX_anticommutes (a : Fˣ) (x y : F) :
-    xMatrix F a x y * (J F a : Matrix (Fin 2) (Fin 2) F) =
-      -(J F a : Matrix (Fin 2) (Fin 2) F) * xMatrix F a x y := by
-  ext i j
-  fin_cases i <;> fin_cases j <;>
-    simp [xMatrix, J_matrix, Matrix.mul_apply, Fin.sum_univ_two] <;> ring
-
-theorem nativeX_inv (a : Fˣ) (x y : F)
-    (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    (nativeX F a x y hxy)⁻¹ = OddFieldSL2.minusIdentity F * nativeX F a x y hxy := by
-  symm
-  apply eq_inv_of_mul_eq_one_left
-  rw [mul_assoc, ← pow_two, nativeX_square, ← pow_two]
-  exact OddFieldSL2.minusIdentity_square F
 
 theorem nativeX_order [Finite F] (hF : Odd (Nat.card F)) (a : Fˣ) (x y : F)
     (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) : orderOf (nativeX F a x y hxy) = 4 := by
@@ -228,33 +211,6 @@ theorem generatedDihedral_equiv {G : Type u} [Group G] [Finite G]
   rw [hr0] at h
   exact h
 
-theorem xInM_order [Finite F] (hF : Odd (Nat.card F)) (a : Fˣ) (x y : F)
-    (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) : orderOf (xInM F a x y hxy) = 4 := by
-  exact (orderOf_injective (inclusion F a) (inclusion_injective F a) _).trans
-    (nativeX_order F hF a x y hxy)
-
-theorem u_not_mem_xInM_zpowers (a : Fˣ) (x y : F)
-    (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    u F a ∉ Subgroup.zpowers (xInM F a x y hxy) := by
-  intro h
-  have hx : xInM F a x y hxy ∈ (SemidirectProduct.rightHom : M F a →* C2).ker := rfl
-  have hz : Subgroup.zpowers (xInM F a x y hxy) ≤
-      (SemidirectProduct.rightHom : M F a →* C2).ker := Subgroup.zpowers_le_of_mem hx
-  have hc : (Multiplicative.ofAdd (1 : ZMod 2) : C2) = 1 := hz h
-  exact (by decide : (Multiplicative.ofAdd (1 : ZMod 2) : C2) ≠ 1) hc
-
-theorem matrix_dihedral_eight [Finite F] (hF : Odd (Nat.card F)) (a : Fˣ) (x y : F)
-    (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    Nonempty (generatedDihedral (xInM F a x y hxy) (u F a) ≃* DihedralGroup 4) ∧
-    Nat.card (generatedDihedral (xInM F a x y hxy) (u F a)) = 8 := by
-  let : Finite (M F a) := Finite.of_equiv (SL F × C2)
-    SemidirectProduct.equivProd.symm
-  have he := generatedDihedral_equiv (xInM F a x y hxy) (u F a)
-    (xInM_order F hF a x y hxy) (u_square F a) (u_inverts_xInM F a x y hxy)
-    (u_not_mem_xInM_zpowers F a x y hxy)
-  refine ⟨he, ?_⟩
-  obtain ⟨e⟩ := he
-  rw [Nat.card_congr e.toEquiv, DihedralGroup.nat_card]
 
 theorem nativeX_inverts_coordinates (a : Fˣ) (x y : F)
     (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) (Y : SL F)
@@ -278,7 +234,6 @@ theorem nativeX_inverts_coordinates (a : Fˣ) (x y : F)
 
   rw [h]
   group
-
 
 
 section
@@ -459,9 +414,6 @@ theorem commutingProduct_injective (S B : Subgroup G)
     obtain ⟨p, hp⟩ := hk
     exact ⟨p, Subtype.ext hp⟩
 
-theorem commutingProductEquiv_coe (S B : Subgroup G)
-    (hc : ∀ s : S, ∀ b : B, Commute (S.subtype s) (B.subtype b)) (hd : Disjoint S B)
-    (p : S × B) : (commutingProductEquiv S B hc hd p : G) = (p.1 : G) * p.2 := rfl
 
 theorem disjoint_commutingProduct_of_projection {Q : Type v} [Group Q]
     (W S B : Subgroup G) (pr : G →* Q)
@@ -555,27 +507,6 @@ theorem subgroupSemidirectMap_injective (W K : Subgroup G)
     obtain ⟨p, hp⟩ := hn
     exact ⟨p, Subtype.ext hp⟩
 
-theorem subgroupSemidirectEquiv_coe (W K : Subgroup G)
-    (hK : K ≤ Subgroup.normalizer (W : Set G)) (hd : Disjoint W K)
-    (p : SemidirectProduct W K (subgroupAction W K hK)) :
-    (subgroupSemidirectEquiv W K hK hd p : G) = (p.left : G) * p.right := rfl
-
-
-theorem subgroup_internal_complement (W K : Subgroup G)
-    (hK : K ≤ Subgroup.normalizer (W : Set G)) (hd : Disjoint W K) :
-    (W.subgroupOf (W ⊔ K)).IsComplement' (K.subgroupOf (W ⊔ K)) := by
-  apply Subgroup.isComplement'_of_disjoint_and_mul_eq_univ
-  · apply Subgroup.disjoint_def.mpr
-    intro g hgW hgK
-    apply Subtype.ext
-    exact Subgroup.disjoint_def.mp hd hgW hgK
-  · apply Set.eq_univ_of_forall
-    intro g
-    obtain ⟨p, hp⟩ := (subgroupSemidirectEquiv W K hK hd).surjective g
-    refine ⟨⟨p.left.val, (show W ≤ W ⊔ K from le_sup_left) p.left.property⟩, p.left.property,
-      ⟨p.right.val, (show K ≤ W ⊔ K from le_sup_right) p.right.property⟩, p.right.property, ?_⟩
-    apply Subtype.ext
-    exact (subgroupSemidirectEquiv_coe W K hK hd p).symm.trans (congrArg Subtype.val hp)
 
 theorem sylow_two_of_card_eight (P : Subgroup G) (k : ℕ)
     (hP : Nat.card P = 8) (hG : Nat.card G = 8 * k) (hk : Odd k) :
@@ -691,7 +622,6 @@ theorem Z_central : MatrixTorus.originalZ F a A hfix ∈ Subgroup.center (H F a 
       (MatrixTorus.originalCoefficient F a A hfix)) k)
 
 
-
 theorem U_inverts_X (x y : F) (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
     MatrixTorus.originalU F a A hfix * X F a A hfix x y hxy *
       (MatrixTorus.originalU F a A hfix)⁻¹ = (X F a A hfix x y hxy)⁻¹ := by
@@ -801,7 +731,6 @@ theorem originalCentralizer_le_product [Finite F] (hF : Odd (Nat.card F)) (ha : 
     ((Complement F a A hfix x y hxy).mul_mem (Subgroup.mem_sup_left hs) (Subgroup.mem_sup_right hf))
 
 
-
 theorem field_fixes_X (x y : FixedField F A)
     (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) (sigma : A) :
     MatrixTorus.originalFieldAction F a A hfix sigma (xInM F a x y hxy) =
@@ -885,7 +814,6 @@ theorem Complement_normalizes_W [Finite F] (x y : F)
     rintro w ⟨t, rfl⟩
     rw [W_field_action]
     exact ⟨MatrixTorus.WFieldEquiv F a sigma (hfix sigma) t, rfl⟩
-
 
 
 theorem normalizer_centralizer_X [Finite F] (x y : F)
@@ -1003,11 +931,6 @@ theorem W_complement_disjoint [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquar
     (commutingProductEquiv (S0 F a A hfix x y hxy) (FieldGroup F a A hfix)
       (S0_field_commute F a A hfix x y hxy) (S0_field_disjoint F a A hfix x y hxy))
 
-theorem ComplementEquiv_coe (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (p : S0 F a A hfix x y hxy × A) :
-    (ComplementEquiv F a A hfix x y hxy p : H F a A hfix) =
-      p.1.val * MatrixTorus.originalFieldInH F a A hfix p.2 := rfl
 
 @[expose] def normalizerAction [Finite F] (x y : FixedField F A)
     (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
@@ -1017,19 +940,6 @@ theorem ComplementEquiv_coe (x y : FixedField F A)
       (Complement_normalizes_W F a A hfix x y hxy)).comp
         (ComplementEquiv F a A hfix x y hxy).toMonoidHom)
 
-theorem normalizerAction_coe [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (p : S0 F a A hfix x y hxy × A) (w : MatrixTorus.W F a) :
-    WInH F a A hfix (normalizerAction F a A hfix x y hxy p w) =
-      (p.1.val * MatrixTorus.originalFieldInH F a A hfix p.2) *
-        WInH F a A hfix w *
-        (p.1.val * MatrixTorus.originalFieldInH F a A hfix p.2)⁻¹ := by
-  have he := (WGroupEquiv F a A hfix).apply_symm_apply
-    (subgroupAction (WGroup F a A hfix) (Complement F a A hfix x y hxy)
-      (Complement_normalizes_W F a A hfix x y hxy)
-      (ComplementEquiv F a A hfix x y hxy p) (WGroupEquiv F a A hfix w))
-  have hv := congrArg Subtype.val he
-  exact hv
 
 @[expose] def NormalizerEquiv [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
     (x y : FixedField F A)
@@ -1055,23 +965,6 @@ theorem NormalizerEquiv_coe [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare 
     (p.right.1.val * MatrixTorus.originalFieldInH F a A hfix p.right.2) = _
   exact (mul_assoc _ _ _).symm
 
-theorem normalizer_internal_complement [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    ((WGroup F a A hfix).subgroupOf (Normalizer F a A hfix)).IsComplement'
-      ((Complement F a A hfix x y hxy).subgroupOf (Normalizer F a A hfix)) := by
-  rw [normalizer_eq_product F a A hfix hF ha x y hxy]
-  exact subgroup_internal_complement (WGroup F a A hfix) (Complement F a A hfix x y hxy)
-    (Complement_normalizes_W F a A hfix x y hxy)
-    (W_complement_disjoint F a A hfix hF ha x y hxy)
-
-theorem W_normal_in_normalizer [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    ((WGroup F a A hfix).subgroupOf (Normalizer F a A hfix)).Normal := by
-  rw [normalizer_eq_product F a A hfix hF ha x y hxy, sup_comm]
-  exact Subgroup.normal_subgroupOf_sup_of_le_normalizer
-    (Complement_normalizes_W F a A hfix x y hxy)
 
 theorem Normalizer_card [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
     (x y : FixedField F A)
@@ -1099,42 +992,6 @@ theorem S0_sylow [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
     nlinarith
   · exact hA.mul (MatrixTorus.torusSize_half_odd hF)
 
-@[expose] def XInS0 (x y : F) (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    S0 F a A hfix x y hxy :=
-  ⟨X F a A hfix x y hxy, Subgroup.mem_sup_left (Subgroup.mem_zpowers _)⟩
-
-@[expose] def UInS0 (x y : F) (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    S0 F a A hfix x y hxy :=
-  ⟨MatrixTorus.originalU F a A hfix, Subgroup.mem_sup_right (Subgroup.mem_zpowers _)⟩
-
-theorem normalizerAction_X [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) (w : MatrixTorus.W F a) :
-    normalizerAction F a A hfix x y hxy (XInS0 F a A hfix x y hxy, 1) w = w⁻¹ := by
-  apply WInH_injective F a A hfix
-  rw [normalizerAction_coe, map_one, mul_one]
-  exact W_X_action F a A hfix x y hxy w
-
-theorem normalizerAction_U [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) (w : MatrixTorus.W F a) :
-    normalizerAction F a A hfix x y hxy (UInS0 F a A hfix x y hxy, 1) w = w := by
-  apply WInH_injective F a A hfix
-  rw [normalizerAction_coe, map_one, mul_one]
-  exact W_U_action F a A hfix w
-
-theorem normalizerAction_field [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) (sigma : A) (w : MatrixTorus.W F a) :
-    normalizerAction F a A hfix x y hxy (1, sigma) w =
-      MatrixTorus.WFieldEquiv F a sigma (hfix sigma) w := by
-  apply WInH_injective F a A hfix
-  rw [normalizerAction_coe, Subgroup.coe_one, one_mul]
-  exact W_field_action F a A hfix w sigma
-
-theorem normalizerAction_field_entries [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) (sigma : A) (w : MatrixTorus.W F a) :
-    ((normalizerAction F a A hfix x y hxy (1, sigma) w).val.val : Matrix (Fin 2) (Fin 2) F) =
-      (sigma : F ≃+* F).toRingHom.mapMatrix (w.val.val : Matrix (Fin 2) (Fin 2) F) := by
-  rw [normalizerAction_field]
-  rfl
 
 include hfix in
 theorem original_fixed_pair_exists [Finite F] (hF : Odd (Nat.card F))
@@ -1144,159 +1001,6 @@ theorem original_fixed_pair_exists [Finite F] (hF : Odd (Nat.card F))
   refine ⟨x, y, ?_⟩
   exact congrArg (fun t : FixedField F A => (t : F)) hxy
 
-theorem WGroup_odd [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a) :
-    Odd (Nat.card (WGroup F a A hfix)) := by
-  rw [WGroup_card F a A hfix hF ha]
-  exact MatrixTorus.torusSize_half_odd hF
-
-theorem Complement_card [Finite F] (hF : Odd (Nat.card F)) (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    Nat.card (Complement F a A hfix x y hxy) = 8 * Nat.card A := by
-  rw [← Nat.card_congr (ComplementEquiv F a A hfix x y hxy).toEquiv, Nat.card_prod,
-    S0_card F a A hfix hF x y hxy]
-
-@[expose] def WInNormalizer : MatrixTorus.W F a →* Normalizer F a A hfix :=
-  (WInH F a A hfix).codRestrict _ (by
-    intro w
-    exact W_le_normalizer F a A hfix ⟨w, rfl⟩)
-
-@[expose] def ComplementInNormalizer [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    S0 F a A hfix x y hxy × A →* Normalizer F a A hfix :=
-  ((Complement F a A hfix x y hxy).subtype.comp
-    (ComplementEquiv F a A hfix x y hxy).toMonoidHom).codRestrict _ (by
-      intro p
-      exact (sup_le (S0_le_normalizer F a A hfix x y hxy)
-        (field_le_normalizer F a A hfix)) (ComplementEquiv F a A hfix x y hxy p).property)
-
-theorem WInNormalizer_coe (w : MatrixTorus.W F a) :
-    (WInNormalizer F a A hfix w : H F a A hfix) = WInH F a A hfix w := rfl
-
-theorem ComplementInNormalizer_coe [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (p : S0 F a A hfix x y hxy × A) :
-    (ComplementInNormalizer F a A hfix x y hxy p : H F a A hfix) =
-      p.1.val * MatrixTorus.originalFieldInH F a A hfix p.2 := rfl
-
-theorem NormalizerEquiv_inl [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A) (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (w : MatrixTorus.W F a) :
-    NormalizerEquiv F a A hfix hF ha x y hxy (SemidirectProduct.inl w) =
-      WInNormalizer F a A hfix w := by
-  apply Subtype.ext
-  rw [NormalizerEquiv_coe, WInNormalizer_coe]
-  simp
-
-theorem NormalizerEquiv_inr [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A) (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (p : S0 F a A hfix x y hxy × A) :
-    NormalizerEquiv F a A hfix hF ha x y hxy (SemidirectProduct.inr p) =
-      ComplementInNormalizer F a A hfix x y hxy p := by
-  apply Subtype.ext
-  rw [NormalizerEquiv_coe, ComplementInNormalizer_coe]
-  simp
-
-theorem normalizer_unique_presentation [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A) (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1)
-    (g : H F a A hfix) :
-    g ∈ Normalizer F a A hfix ↔ ∃! p : MatrixTorus.W F a × (S0 F a A hfix x y hxy × A),
-      g = WInH F a A hfix p.1 * p.2.1.val * MatrixTorus.originalFieldInH F a A hfix p.2.2 := by
-  constructor
-  · intro hg
-    let e := NormalizerEquiv F a A hfix hF ha x y hxy
-    let t := e.symm ⟨g, hg⟩
-    refine ⟨(t.left, t.right), ?_, ?_⟩
-    · exact (congrArg Subtype.val (e.apply_symm_apply ⟨g, hg⟩)).symm.trans
-        (NormalizerEquiv_coe F a A hfix hF ha x y hxy t)
-    · intro p hp
-      have he : e (SemidirectProduct.mk p.1 p.2) = ⟨g, hg⟩ := by
-        apply Subtype.ext
-        exact (NormalizerEquiv_coe F a A hfix hF ha x y hxy _).trans hp.symm
-      have ht : SemidirectProduct.mk p.1 p.2 = t := e.injective (he.trans (e.apply_symm_apply ⟨g, hg⟩).symm)
-      exact congrArg (fun v => (v.left, v.right)) ht
-  · rintro ⟨p, hp, _⟩
-    rw [hp]
-    exact (Normalizer F a A hfix).mul_mem
-      ((Normalizer F a A hfix).mul_mem (W_le_normalizer F a A hfix ⟨p.1, rfl⟩)
-        (S0_le_normalizer F a A hfix x y hxy p.2.1.property))
-      (field_le_normalizer F a A hfix ⟨p.2.2, rfl⟩)
-
-
-theorem WInNormalizer_injective : Function.Injective (WInNormalizer F a A hfix) := by
-  intro w v h
-  exact WInH_injective F a A hfix (congrArg Subtype.val h)
-
-theorem ComplementInNormalizer_injective [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    Function.Injective (ComplementInNormalizer F a A hfix x y hxy) := by
-  intro p q h
-  apply (ComplementEquiv F a A hfix x y hxy).injective
-  have he : (ComplementEquiv F a A hfix x y hxy p).val =
-      (ComplementEquiv F a A hfix x y hxy q).val := congrArg
-        (fun n : Normalizer F a A hfix => n.val) h
-  exact Subtype.ext he
-
-theorem WInNormalizer_range :
-    (WInNormalizer F a A hfix).range =
-      (WGroup F a A hfix).subgroupOf (Normalizer F a A hfix) := by
-  ext g
-  constructor
-  · rintro ⟨w, rfl⟩
-    exact ⟨w, rfl⟩
-  · rintro ⟨w, hw⟩
-    exact ⟨w, Subtype.ext hw⟩
-
-theorem ComplementInNormalizer_range [Finite F] (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    (ComplementInNormalizer F a A hfix x y hxy).range =
-      (Complement F a A hfix x y hxy).subgroupOf (Normalizer F a A hfix) := by
-  ext g
-  constructor
-  · rintro ⟨p, rfl⟩
-    exact (ComplementEquiv F a A hfix x y hxy p).property
-  · intro hg
-    obtain ⟨p, hp⟩ := (ComplementEquiv F a A hfix x y hxy).surjective ⟨g.val, hg⟩
-    have he : (ComplementInNormalizer F a A hfix x y hxy p).val = g.val :=
-      congrArg (fun n : Complement F a A hfix x y hxy => n.val) hp
-    exact ⟨p, Subtype.ext he⟩
-
-theorem S0_field_internal_direct (x y : FixedField F A)
-    (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    ((S0 F a A hfix x y hxy).subgroupOf (Complement F a A hfix x y hxy)).IsComplement'
-      ((FieldGroup F a A hfix).subgroupOf (Complement F a A hfix x y hxy)) := by
-  apply Subgroup.isComplement'_of_disjoint_and_mul_eq_univ
-  · apply Subgroup.disjoint_def.mpr
-    intro g hgS hgF
-    exact Subtype.ext (Subgroup.disjoint_def.mp
-      (S0_field_disjoint F a A hfix x y hxy) hgS hgF)
-  · apply Set.eq_univ_of_forall
-    intro g
-    obtain ⟨p, hp⟩ := (ComplementEquiv F a A hfix x y hxy).surjective g
-    refine ⟨⟨p.1.val, Subgroup.mem_sup_left p.1.property⟩, p.1.property,
-      ⟨MatrixTorus.originalFieldInH F a A hfix p.2, Subgroup.mem_sup_right ⟨p.2, rfl⟩⟩,
-      ⟨p.2, rfl⟩, ?_⟩
-    apply Subtype.ext
-    exact (ComplementEquiv_coe F a A hfix x y hxy p).symm.trans (congrArg Subtype.val hp)
-
-theorem originalV0_card [Finite F] (hF : Odd (Nat.card F)) :
-    Nat.card (MatrixTorus.originalV0 F a A hfix) = 4 := by
-  rw [← Nat.card_congr (MatrixTorus.originalFourEquiv F a A hfix).toEquiv]
-  exact MatrixTorus.V0_card F A (MatrixTorus.originalCoefficient F a A hfix) hF
-
-theorem X_coordinates (x y : F) (hxy : x ^ 2 + (a : F) * y ^ 2 = -1) :
-    ((X F a A hfix x y hxy).left.left : Matrix (Fin 2) (Fin 2) F) =
-      !![x, (a : F) * y; y, -x] ∧
-    (X F a A hfix x y hxy).left.right = 1 ∧
-    (X F a A hfix x y hxy).right = 1 := ⟨rfl, rfl, rfl⟩
-
-theorem originalSlInH_coordinates (Y : SL F) :
-    (MatrixTorus.originalSlInH F a A hfix Y).left.left = Y ∧
-    (MatrixTorus.originalSlInH F a A hfix Y).left.right = 1 ∧
-    (MatrixTorus.originalSlInH F a A hfix Y).right = 1 := ⟨rfl, rfl, rfl⟩
-
-theorem originalFieldInH_coordinates (sigma : A) :
-    (MatrixTorus.originalFieldInH F a A hfix sigma).left = 1 ∧
-    (MatrixTorus.originalFieldInH F a A hfix sigma).right = sigma := ⟨rfl, rfl⟩
 
 @[expose] def fourGroupSign (q : ℕ) : ℤ := if q % 4 = 1 then 1 else -1
 
@@ -1309,191 +1013,6 @@ theorem torusSize_eq_signed {q : ℕ} (hq : Odd q) :
     rw [Nat.cast_sub (by omega : 1 ≤ q)]
     simp only [Nat.cast_one]
     ring
-
-theorem fourGroupSign_mod_four {q : ℕ} (hq : Odd q) :
-    (q % 4 = 1 ∨ q % 4 = 3) ∧
-    (fourGroupSign q = 1 ↔ q % 4 = 1) ∧
-    (fourGroupSign q = -1 ↔ q % 4 = 3) := by
-  have htwo := Nat.odd_iff.mp hq
-  have hlt := Nat.mod_lt q (by decide : 0 < 4)
-  have hm : (q % 4) % 2 = 1 := by
-    rw [Nat.mod_mod_of_dvd q (by decide : 2 ∣ 4)]
-    exact htwo
-  have hor : q % 4 = 1 ∨ q % 4 = 3 := by omega
-  refine ⟨hor, ?_, ?_⟩
-  · simp [fourGroupSign]
-  · rcases hor with h | h <;> simp [fourGroupSign, h]
-
-theorem Normalizer_card_signed [Finite F] (hF : Odd (Nat.card F)) (ha : ¬IsSquare a)
-    (x y : FixedField F A) (hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1) :
-    (Nat.card (Normalizer F a A hfix) : ℤ) =
-      4 * (Nat.card A : ℤ) * ((Nat.card F : ℤ) + fourGroupSign (Nat.card F)) := by
-  rw [Normalizer_card F a A hfix hF ha x y hxy, Nat.cast_mul, Nat.cast_mul,
-    torusSize_eq_signed hF]
-  norm_num
-
-
-theorem fixed_field_literal : FixedField F A = FixedPoints.subfield A F := rfl
-
-theorem fixed_pair_equation_iff (x y : FixedField F A) :
-    x ^ 2 + (fixedCoefficient F A a hfix : FixedField F A) * y ^ 2 = -1 ↔
-      (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1 := by
-  constructor
-  · intro h
-    exact congrArg (fun t : FixedField F A => (t : F)) h
-  · intro h
-    exact Subtype.ext h
-
-theorem originalH_multiplication (g k : H F a A hfix) :
-    (g * k).left.left = g.left.left * MatrixCoverData.action F a g.left.right
-      (MatrixCover.slFieldEquiv F g.right k.left.left) ∧
-    (g * k).left.right = g.left.right * k.left.right ∧
-    (g * k).right = g.right * k.right := ⟨rfl, rfl, rfl⟩
-
-theorem nonsquare_matrix_four_group_normalizer_action [Finite F]
-    (hF : Odd (Nat.card F)) (ha : ¬IsSquare a) (hA : Odd (Nat.card A)) :
-    fixedUnit F A (fixedCoefficient F A a hfix) = a ∧
-    FixedField F A = FixedPoints.subfield A F ∧
-    Odd (Nat.card (FixedPoints.subfield A F)) ∧
-    (∃ x y : FixedPoints.subfield A F,
-      x ^ 2 + (fixedCoefficient F A a hfix : FixedPoints.subfield A F) * y ^ 2 = -1) ∧
-    (∀ g k : H F a A hfix,
-      (g * k).left.left = g.left.left * MatrixCoverData.action F a g.left.right
-        (MatrixCover.slFieldEquiv F g.right k.left.left) ∧
-      (g * k).left.right = g.left.right * k.left.right ∧
-      (g * k).right = g.right * k.right) ∧
-    (∀ sigma : A, ∀ Y : M F a, MatrixTorus.originalFieldAction F a A hfix sigma Y =
-      ⟨Matrix.SpecialLinearGroup.map (sigma : F ≃+* F).toRingHom Y.left, Y.right⟩) ∧
-    (∀ Y : SL F, (MatrixTorus.originalSlInH F a A hfix Y).left.left = Y ∧
-      (MatrixTorus.originalSlInH F a A hfix Y).left.right = 1 ∧
-      (MatrixTorus.originalSlInH F a A hfix Y).right = 1) ∧
-    (∀ sigma : A, (MatrixTorus.originalFieldInH F a A hfix sigma).left = 1 ∧
-      (MatrixTorus.originalFieldInH F a A hfix sigma).right = sigma) ∧
-    IsCyclic (MatrixTorus.Torus F a) ∧
-    Nat.card (MatrixTorus.Torus F a) = MatrixTorus.torusSize (Nat.card F) ∧
-    IsCyclic (MatrixTorus.W F a) ∧
-    (∀ w : MatrixTorus.Torus F a, w ∈ MatrixTorus.W F a ↔ Odd (orderOf w)) ∧
-    Nat.card (MatrixTorus.W F a) = MatrixTorus.torusSize (Nat.card F) / 2 ∧
-    Odd (Nat.card (MatrixTorus.W F a)) ∧
-    Nat.card (MatrixTorus.originalV0 F a A hfix) = 4 ∧
-    (Nat.card F % 4 = 1 ∨ Nat.card F % 4 = 3) ∧
-    (fourGroupSign (Nat.card F) = 1 ↔ Nat.card F % 4 = 1) ∧
-    (fourGroupSign (Nat.card F) = -1 ↔ Nat.card F % 4 = 3) ∧
-    ∀ x y : FixedPoints.subfield A F,
-      ∀ hxy : (x : F) ^ 2 + (a : F) * (y : F) ^ 2 = -1,
-      (nativeX F a x y hxy : Matrix (Fin 2) (Fin 2) F) =
-        !![(x : F), (a : F) * (y : F); (y : F), -(x : F)] ∧
-      (xMatrix F a x y).det = 1 ∧
-      nativeX F a x y hxy ^ 2 = OddFieldSL2.minusIdentity F ∧
-      orderOf (nativeX F a x y hxy) = 4 ∧
-      (((X F a A hfix x y hxy).left.left : Matrix (Fin 2) (Fin 2) F) =
-        !![(x : F), (a : F) * (y : F); (y : F), -(x : F)] ∧
-        (X F a A hfix x y hxy).left.right = 1 ∧
-        (X F a A hfix x y hxy).right = 1) ∧
-      X F a A hfix x y hxy ^ 2 = MatrixTorus.originalZ F a A hfix ∧
-      orderOf (X F a A hfix x y hxy) = 4 ∧
-      X F a A hfix x y hxy * MatrixTorus.originalU F a A hfix *
-        (X F a A hfix x y hxy)⁻¹ = MatrixTorus.originalZ F a A hfix *
-          MatrixTorus.originalU F a A hfix ∧
-      MatrixTorus.originalU F a A hfix * X F a A hfix x y hxy *
-        (MatrixTorus.originalU F a A hfix)⁻¹ = (X F a A hfix x y hxy)⁻¹ ∧
-      Nonempty (S0 F a A hfix x y hxy ≃* DihedralGroup 4) ∧
-      Nat.card (S0 F a A hfix x y hxy) = 8 ∧
-      MatrixTorus.originalV0 F a A hfix ≤ S0 F a A hfix x y hxy ∧
-      (∀ sigma : A, Matrix.SpecialLinearGroup.map (sigma : F ≃+* F).toRingHom
-        (nativeX F a x y hxy) = nativeX F a x y hxy) ∧
-      (∀ t : MatrixTorus.Torus F a, X F a A hfix x y hxy *
-        MatrixTorus.originalSlInH F a A hfix t.val * (X F a A hfix x y hxy)⁻¹ =
-          MatrixTorus.originalSlInH F a A hfix t.val⁻¹) ∧
-      (∀ t : MatrixTorus.Torus F a, MatrixTorus.originalU F a A hfix *
-        MatrixTorus.originalSlInH F a A hfix t.val * (MatrixTorus.originalU F a A hfix)⁻¹ =
-          MatrixTorus.originalSlInH F a A hfix t.val) ∧
-      (∀ s : S0 F a A hfix x y hxy, ∀ sigma : A,
-        Commute s.val (MatrixTorus.originalFieldInH F a A hfix sigma)) ∧
-      Disjoint (S0 F a A hfix x y hxy) (FieldGroup F a A hfix) ∧
-      ((S0 F a A hfix x y hxy).subgroupOf (Complement F a A hfix x y hxy)).IsComplement'
-        ((FieldGroup F a A hfix).subgroupOf (Complement F a A hfix x y hxy)) ∧
-      (∀ p : S0 F a A hfix x y hxy × A,
-        (ComplementEquiv F a A hfix x y hxy p : H F a A hfix) =
-          p.1.val * MatrixTorus.originalFieldInH F a A hfix p.2) ∧
-      Normalizer F a A hfix = WGroup F a A hfix ⊔ Complement F a A hfix x y hxy ∧
-      Disjoint (WGroup F a A hfix) (Complement F a A hfix x y hxy) ∧
-      ((WGroup F a A hfix).subgroupOf (Normalizer F a A hfix)).Normal ∧
-      ((WGroup F a A hfix).subgroupOf (Normalizer F a A hfix)).IsComplement'
-        ((Complement F a A hfix x y hxy).subgroupOf (Normalizer F a A hfix)) ∧
-      Function.Injective (WInNormalizer F a A hfix) ∧
-      (WInNormalizer F a A hfix).range =
-        (WGroup F a A hfix).subgroupOf (Normalizer F a A hfix) ∧
-      Function.Injective (ComplementInNormalizer F a A hfix x y hxy) ∧
-      (ComplementInNormalizer F a A hfix x y hxy).range =
-        (Complement F a A hfix x y hxy).subgroupOf (Normalizer F a A hfix) ∧
-      (∀ p : SemidirectProduct (MatrixTorus.W F a) (S0 F a A hfix x y hxy × A)
-          (normalizerAction F a A hfix x y hxy),
-        (NormalizerEquiv F a A hfix hF ha x y hxy p : H F a A hfix) =
-          WInH F a A hfix p.left * p.right.1.val *
-            MatrixTorus.originalFieldInH F a A hfix p.right.2) ∧
-      (∀ g : H F a A hfix, g ∈ Normalizer F a A hfix ↔
-        ∃! p : MatrixTorus.W F a × (S0 F a A hfix x y hxy × A),
-          g = WInH F a A hfix p.1 * p.2.1.val *
-            MatrixTorus.originalFieldInH F a A hfix p.2.2) ∧
-      (∀ w : MatrixTorus.W F a,
-        normalizerAction F a A hfix x y hxy (XInS0 F a A hfix x y hxy, 1) w = w⁻¹) ∧
-      (∀ w : MatrixTorus.W F a,
-        normalizerAction F a A hfix x y hxy (UInS0 F a A hfix x y hxy, 1) w = w) ∧
-      (∀ sigma : A, ∀ w : MatrixTorus.W F a,
-        normalizerAction F a A hfix x y hxy (1, sigma) w =
-          MatrixTorus.WFieldEquiv F a sigma (hfix sigma) w) ∧
-      (∀ sigma : A, ∀ w : MatrixTorus.W F a,
-        ((normalizerAction F a A hfix x y hxy (1, sigma) w).val.val :
-            Matrix (Fin 2) (Fin 2) F) =
-          (sigma : F ≃+* F).toRingHom.mapMatrix (w.val.val : Matrix (Fin 2) (Fin 2) F)) ∧
-      Nat.card (Normalizer F a A hfix) =
-        4 * Nat.card A * MatrixTorus.torusSize (Nat.card F) ∧
-      (Nat.card (Normalizer F a A hfix) : ℤ) =
-        4 * (Nat.card A : ℤ) * ((Nat.card F : ℤ) + fourGroupSign (Nat.card F)) ∧
-      ∃ S : Sylow 2 (Normalizer F a A hfix), (S : Subgroup (Normalizer F a A hfix)) =
-        (S0 F a A hfix x y hxy).subgroupOf (Normalizer F a A hfix) := by
-  have hsign := fourGroupSign_mod_four hF
-  refine ⟨fixedCoefficient_literal F A a hfix, fixed_field_literal F A,
-    fixed_field_odd F A hF hA, exists_fixed_pair F A hF hA _,
-    originalH_multiplication F a A hfix, MatrixTorus.originalFieldAction_pair F a A hfix,
-    originalSlInH_coordinates F a A hfix, originalFieldInH_coordinates F a A hfix,
-    MatrixTorus.torus_cyclic F a hF ha, MatrixTorus.torus_card F a hF ha,
-    MatrixTorus.W_cyclic F a hF ha, MatrixTorus.mem_W_iff_odd_order F a hF ha,
-    MatrixTorus.W_card F a hF ha, ?_, originalV0_card F a A hfix hF,
-    hsign.1, hsign.2.1, hsign.2.2, ?_⟩
-  · rw [MatrixTorus.W_card F a hF ha]
-    exact MatrixTorus.torusSize_half_odd hF
-  · intro x y hxy
-    refine ⟨nativeX_matrix F a x y hxy, ?_, nativeX_square F a x y hxy,
-      nativeX_order F hF a x y hxy, X_coordinates F a A hfix x y hxy,
-      X_square F a A hfix x y hxy, X_order F a A hfix hF x y hxy,
-      X_conjugates_U F a A hfix x y hxy, U_inverts_X F a A hfix x y hxy,
-      ⟨S0Equiv F a A hfix hF x y hxy⟩, S0_card F a A hfix hF x y hxy,
-      V0_le_S0 F a A hfix x y hxy, ?_, X_inverts_T F a A hfix x y hxy,
-      U_trivial_T F a A hfix, ?_, S0_field_disjoint F a A hfix x y hxy,
-      S0_field_internal_direct F a A hfix x y hxy, ComplementEquiv_coe F a A hfix x y hxy,
-      normalizer_eq_product F a A hfix hF ha x y hxy,
-      W_complement_disjoint F a A hfix hF ha x y hxy,
-      W_normal_in_normalizer F a A hfix hF ha x y hxy,
-      normalizer_internal_complement F a A hfix hF ha x y hxy,
-      WInNormalizer_injective F a A hfix, WInNormalizer_range F a A hfix,
-      ComplementInNormalizer_injective F a A hfix x y hxy,
-      ComplementInNormalizer_range F a A hfix x y hxy,
-      NormalizerEquiv_coe F a A hfix hF ha x y hxy,
-      normalizer_unique_presentation F a A hfix hF ha x y hxy,
-      normalizerAction_X F a A hfix x y hxy, normalizerAction_U F a A hfix x y hxy,
-      normalizerAction_field F a A hfix x y hxy,
-      normalizerAction_field_entries F a A hfix x y hxy,
-      Normalizer_card F a A hfix hF ha x y hxy,
-      Normalizer_card_signed F a A hfix hF ha x y hxy,
-      S0_sylow F a A hfix hF ha hA x y hxy⟩
-    · rw [xMatrix_det, hxy, neg_neg]
-    · intro sigma
-      exact nativeX_field_fixed F sigma a x y (hfix sigma)
-        (x.property sigma) (y.property sigma) hxy
-    · intro s sigma
-      exact S0_field_commute F a A hfix x y hxy s ⟨_, ⟨sigma, rfl⟩⟩
 
 
 end OriginalNormalizer

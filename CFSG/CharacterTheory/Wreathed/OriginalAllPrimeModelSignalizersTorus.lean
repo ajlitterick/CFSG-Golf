@@ -292,9 +292,6 @@ theorem SL_inv_coe (A : SpecialLinearGroup (Fin 2) F) :
     ((A⁻¹ : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
       adjugate (A : Matrix (Fin 2) (Fin 2) F) := rfl
 
-theorem SL_neg_coe (A : SpecialLinearGroup (Fin 2) F) :
-    ((-A : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) =
-      -(A : Matrix (Fin 2) (Fin 2) F) := rfl
 
 theorem SL_ext_entries {A B : SpecialLinearGroup (Fin 2) F} (h00 : A 0 0 = B 0 0)
     (h01 : A 0 1 = B 0 1) (h10 : A 1 0 = B 1 0) (h11 : A 1 1 = B 1 1) : A = B := by

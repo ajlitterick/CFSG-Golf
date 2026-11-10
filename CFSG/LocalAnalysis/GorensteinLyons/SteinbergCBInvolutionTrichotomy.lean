@@ -57,8 +57,6 @@ theorem card_preim [Finite Q] [Module (ZMod 2) (Additive (Abelianization Q))]
       left_inv := fun _ => rfl
       right_inv := fun _ => rfl }
 
-variable {z : Q} (hz : zpowers z = center Q)
-include hz
 
 end Group
 

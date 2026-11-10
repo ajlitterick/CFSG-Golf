@@ -163,8 +163,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
   words := [[-1, 3], [-1, 4], [-1, 6], [-10, -12, -1, -7, 5, 2]]
   base := [1, 3, 45]
 
-@[expose] def a2TabA : Array (Array ℕ) :=
-  (a2Tab.map fun p => wA (cjW p.1 a2Reps[p.2]!)).toArray
 
 @[expose] def a1Reps : List (List ℕ) := [[0], [13, 0]]
 
@@ -247,8 +245,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
   words := []
   base := [1]
 
-@[expose] def a1TabA : Array (Array ℕ) :=
-  (a1Tab.map fun p => wA (cjW p.1 a1Reps[p.2]!)).toArray
 
 @[expose] def a3Reps : List (List ℕ) := [[2], [8, 2], [9, 2], [10, 2], [10, 3]]
 
@@ -352,8 +348,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
   words := [[5, 8], [-6, 9], [-4, 2, 1], [-1, -10, 7, 3], [-1, -12, 11, 3]]
   base := [3, 1]
 
-@[expose] def a3TabA : Array (Array ℕ) :=
-  (a3Tab.map fun p => wA (cjW p.1 a3Reps[p.2]!)).toArray
 
 @[expose] def singReps : List (List ℕ) := [[], [0], [1], [0, 1], [5], [0, 5], [1, 5], [0, 1, 5],
     [6], [0, 6], [1, 6], [0, 1, 6], [5, 6], [0, 5, 6], [1, 5, 6], [0, 1, 5, 6], [9], [0, 9], [1, 9],
@@ -379,7 +373,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
     [0, 5, 9, 10, 12, 13], [1, 5, 9, 10, 12, 13], [0, 6, 9, 10, 12, 13], [1, 6, 9, 10, 12, 13],
     [5, 6, 9, 10, 12, 13], [0, 1, 5, 6, 9, 10, 12, 13]]
 
-@[expose] def singA : Array (Array ℕ) := (singReps.map wA).toArray
 
 @[expose] def zCls : List (List ℕ) := [[14], [15, 14, 15], [0, 15, 14, 15, 0], [1, 15, 14, 15, 1],
     [16, 15, 14, 15, 16], [1, 0, 15, 14, 15, 0, 1], [16, 0, 15, 14, 15, 0, 16],
@@ -401,28 +394,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Monster.B.Fischer CFSG.Ra
 
 @[expose] def zClsA : Array (Array ℕ) := (zCls.map wA).toArray
 
-@[expose] def a2OrbCheck : Bool :=
-  allLt eA2.pts.size fun j => eqA 693 eA2.pts[j]! (idA 693) ||
-    a2TabA.any fun t => eqA 693 t eA2.pts[j]!
-
-@[expose] def a1OrbCheck : Bool :=
-  (allLt eA1.pts.size fun j => siftA 693 lvZ chZ.B 0 eA1.pts[j]! ||
-    a1TabA.any fun t => eqA 693 t eA1.pts[j]! || eqA 693 (compA 693 t (gA 14)) eA1.pts[j]!) &&
-  eqA 693 (wA (a1Reps[0]! ++ a1Reps[0]!)) (idA 693) &&
-    eqA 693 (wA (a1Reps[1]! ++ a1Reps[1]!)) (gA 14)
-
-@[expose] def a3OrbCheck : Bool :=
-  a3TabA.all (validA 693) &&
-  allLt eA3.pts.size fun j => siftA 693 lvA4 chA4.B 0 eA3.pts[j]! ||
-    a3TabA.any fun t => t[205]! == (eA3.pts[j]!)[205]! && t[251]! == (eA3.pts[j]!)[251]! &&
-      siftA 693 lvA4 chA4.B 0 (compA 693 (invCand 693 t) eA3.pts[j]!)
-
-@[expose] def singCheck : Bool :=
-  singA.all (fun s => siftA 693 lvA1 chA1.B 0 s && eqA 693 (compA 693 s s) (idA 693)) &&
-  (allLt singA.size fun i => allLt singA.size fun j => i == j ||
-    (!(eqA 693 singA[i]! singA[j]!) && !(eqA 693 (compA 693 singA[i]! (gA 14)) singA[j]!))) &&
-  allLt eA1.pts.size fun j => !(eqA 693 (compA 693 eA1.pts[j]! eA1.pts[j]!) (idA 693)) ||
-    singA.any fun s => eqA 693 s eA1.pts[j]! || eqA 693 (compA 693 s (gA 14)) eA1.pts[j]!
 
 @[expose] def zClsCheck : Bool :=
   (chK2.O.all fun s => zClsA.all fun c => zClsA.any fun c' => eqA 693 (conjA 693 s c) c') &&

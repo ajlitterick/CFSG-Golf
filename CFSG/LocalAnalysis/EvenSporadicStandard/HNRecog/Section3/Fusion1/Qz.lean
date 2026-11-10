@@ -34,7 +34,6 @@ private lemma sigmaC2_ne_one : sigmaC2 ≠ 1 := by decide
 
 private lemma sigmaC2_inv : sigmaC2⁻¹ = sigmaC2 := by decide
 
-private lemma sigmaC2_mul_self : sigmaC2 * sigmaC2 = 1 := by decide
 
 private theorem isThreeCycle_swap :
     Equiv.Perm.IsThreeCycle (Equiv.swap (1 : Fin 5) 0 * Equiv.swap (1 : Fin 5) 2) :=

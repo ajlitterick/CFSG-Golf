@@ -36,9 +36,6 @@ theorem commutatorHom_eq_one_iff {t a : P} :
     commutatorHom hc t a = 1 ↔ a ∈ centralizer {t} := by
   rw [commutatorHom_apply, mul_inv_eq_one, mul_inv_eq_iff_eq_mul, mem_centralizer_singleton_iff]
 
-theorem ker_commutatorHom (t : P) : (commutatorHom hc t).ker = centralizer {t} := by
-  ext a
-  exact commutatorHom_eq_one_iff hc
 
 theorem commutatorHom_eq_one_of_mem_center {t z : P} (hz : z ∈ center P) :
     commutatorHom hc t z = 1 := by

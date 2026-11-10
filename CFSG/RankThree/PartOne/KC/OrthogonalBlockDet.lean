@@ -141,9 +141,6 @@ theorem coe_scalarGL (h : K[X]) (c : (AdjoinRoot h)ˣ) (v : primaryComponent x.t
     ((scalarGL x h c : BlockGL x h) : Module.End (AdjoinRoot h)
       (primaryComponent x.toLinearMap h)) v = (c : AdjoinRoot h) • v := rfl
 
-theorem scalarGL_mul (h : K[X]) (c d : (AdjoinRoot h)ˣ) :
-    scalarGL x h (c * d) = scalarGL x h c * scalarGL x h d := by
-  simp [scalarGL]
 
 theorem scalarGL_pow (h : K[X]) (c : (AdjoinRoot h)ˣ) (n : ℕ) :
     scalarGL x h (c ^ n) = scalarGL x h c ^ n := by

@@ -66,11 +66,6 @@ theorem linearFieldPart_conj_eq (hn : 3 ≤ n) (α β : MulAut (projectiveSL n K
   rw [map_mul, map_mul, map_inv, ringEquiv_mul_comm (linearFieldPart K hn β), mul_assoc,
     mul_inv_cancel, mul_one]
 
-theorem linearFieldPart_commutator (hn : 3 ≤ n) (α β : MulAut (projectiveSL n K)) :
-    linearFieldPart K hn ⁅α, β⁆ = 1 := by
-  rw [commutatorElement_def, map_mul, map_mul, map_mul, map_inv, map_inv,
-    ringEquiv_mul_comm (linearFieldPart K hn α) (linearFieldPart K hn β)]
-  group
 
 theorem apply_eq_mul_linearFieldPart_of_apply_transvection (hn : 3 ≤ n)
     (β : MulAut (projectiveSL n K)) {i j : Fin n} (hij : i ≠ j) (μ : K → K)
@@ -102,24 +97,6 @@ theorem apply_eq_mul_linearFieldPart_of_apply_transvection (hn : 3 ≤ n)
   rw [single_apply_same, single_apply_same] at h3
   rw [h3, mul_comm]
 
-theorem exists_unit_apply_transvection_eq (hn : 3 ≤ n) (β : MulAut (projectiveSL n K))
-    {i j : Fin n} (hij : i ≠ j)
-    (hU : ∀ c : K, ∃ c' : K, β (proj n K (Matrix.SpecialLinearGroup.transvection hij c)) =
-      proj n K (Matrix.SpecialLinearGroup.transvection hij c')) :
-    ∃ l : Kˣ, ∀ c : K, β (proj n K (Matrix.SpecialLinearGroup.transvection hij c)) =
-      proj n K (Matrix.SpecialLinearGroup.transvection hij
-        ((l : K) * linearFieldPart K hn β c)) := by
-  choose μ hμ using hU
-  have hrel := apply_eq_mul_linearFieldPart_of_apply_transvection hn β hij μ hμ
-  have h1 : μ 1 ≠ 0 := by
-    intro h0
-    have h := hμ 1
-    rw [h0, Matrix.SpecialLinearGroup.transvection_coeff_zero, map_one,
-      MulEquiv.map_eq_one_iff, proj_eq_one_iff, scalars_eq_center,
-      Matrix.SpecialLinearGroup.transvection_mem_center_iff] at h
-    exact one_ne_zero h
-  refine ⟨Units.mk0 (μ 1) h1, fun c => ?_⟩
-  rw [hμ c, hrel c, Units.val_mk0]
 
 end FieldPart
 

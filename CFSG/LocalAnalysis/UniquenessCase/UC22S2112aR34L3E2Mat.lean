@@ -223,12 +223,6 @@ private theorem uc22s2112r34_two_cases {K : Type} [Field K] {B : Matrix (Fin 2) 
     rw [smul_smul, inv_mul_cancel₀ hcase, one_smul, smul_smul] at h1
     rw [h1, div_eq_inv_mul]
 
-private theorem uc22s2112r34_solve {K : Type} [Field K] {X Y a0 a1 b0 b1 : K}
-    (h1 : X * a0 + Y * a1 = 0) (h2 : X * b0 + Y * b1 = 0) (hdet : a0 * b1 - a1 * b0 ≠ 0) :
-    X = 0 ∧ Y = 0 := by
-  have hX : X * (a0 * b1 - a1 * b0) = 0 := by linear_combination b1 * h1 - a1 * h2
-  have hY : Y * (a0 * b1 - a1 * b0) = 0 := by linear_combination -b0 * h1 + a0 * h2
-  exact ⟨(mul_eq_zero.mp hX).resolve_right hdet, (mul_eq_zero.mp hY).resolve_right hdet⟩
 
 private theorem uc22s2112r34_inner_pres {p f : ℕ} {K : Type} [Field K]
     (h : CFSG.LocalAnalysis.ComponentInitial.UnitaryFieldData p f K)

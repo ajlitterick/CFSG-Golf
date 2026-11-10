@@ -89,9 +89,6 @@ theorem thm2BelowU_of_citBelowT {n : ℕ} (hn : CITBelowT (.sl2 p f) n) : Thm2Be
     have hr1 : r = 1 := Subgroup.mem_bot.mp (hbot ▸ hrc)
     rw [← hrz, hr1, map_one]
 
-theorem ihInterfaceU_of_thm4 (h4 : ∀ n : ℕ, CITBelowT (.sl2 p f) n → Thm4BelowU p f n) :
-    IHInterfaceU p f :=
-  fun n hn => ⟨h4 n hn, thm2BelowU_of_citBelowT hn⟩
 
 end Thm2
 

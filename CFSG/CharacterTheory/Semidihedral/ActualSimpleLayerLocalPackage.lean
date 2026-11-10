@@ -203,11 +203,6 @@ variable {t : G}
     (hrange : rho.range = OddFieldLift.Gamma F A) : Q →* OddFieldLift.Gamma F A :=
   ((MulEquiv.subgroupCongr hrange).toMonoidHom.comp rho.rangeRestrict).comp pi
 
-theorem coordinateCover_value {Q : Type v} [Group Q]
-    (F : Type) [Field F] [Finite F] (A : Subgroup (F ≃+* F))
-    (pi : Q →* Gamma t) (rho : Gamma t →* coordinateE F)
-    (hrange : rho.range = OddFieldLift.Gamma F A) (x : Q) :
-    (coordinateCover F A pi rho hrange x : coordinateE F) = rho (pi x) := rfl
 
 theorem coordinateCover_surjective {Q : Type v} [Group Q]
     (F : Type) [Field F] [Finite F] (A : Subgroup (F ≃+* F))

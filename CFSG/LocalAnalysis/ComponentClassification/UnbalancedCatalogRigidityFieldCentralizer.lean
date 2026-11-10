@@ -57,8 +57,6 @@ variable {Q : QuadraticForm K (Fin d → K)} {S : similarityPairs Q}
 @[expose] def descentExt : ↥(pairDescentDerived hS) →* matrixIsometries Q :=
   (extIsometry e).comp (Subgroup.inclusion (Subgroup.commutator_le_self _))
 
-theorem descentExt_apply (g : pairDescentDerived hS) :
-    descentExt e g = extIsometry e ⟨g, Subgroup.commutator_le_self _ g.2⟩ := rfl
 
 theorem inclusion_descentExt_commute (g : pairDescentDerived hS) :
     Commute (matrixIsometryInclusion Q (descentExt e g)) S :=
@@ -272,28 +270,5 @@ theorem evenOrthogonalFieldCentralizer_of_regular {f n : ℕ} (hf : 1 ≤ f)
     le_antisymm (centralizer_extKappa_le hQ hT hE hd e he hspan hfix ψ hQc hTc hEc)
       (zpowers_le_centralizer_extKappa e)⟩
 
-theorem even_orthogonal_field_centralizer_fixed_derived_group (G : Type) [Group G]
-    (t : StatedLieTag) (ht : t = .POmegaPlus ∨ t = .POmegaMinus) (n f : ℕ)
-    (h : StatedClassicalModel G t n 2 f) :
-    match t with
-    | .POmegaPlus => ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadPlus n K)),
-          EvenOrthogonalFieldCentralizer (coordinateQuadPlus n K) f
-    | .POmegaMinus => ∀ (hn : 1 ≤ n) (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-        ∀ b c : K, (∀ s : K, s ^ 2 + b * s + c ≠ 0) →
-        ∀ _e : G ≃* StatedProj (StatedOmega (StatedQuadMinus n K b c)),
-          EvenOrthogonalFieldCentralizer (coordinateQuadMinus n K hn b c) f
-    | _ => False := by
-  rcases ht with rfl | rfl
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro K _ _ hK _
-    have hreg := regular_coordinateQuadPlus n K (by omega)
-    exact evenOrthogonalFieldCentralizer_of_regular hf hK hn _ hreg.1 hreg.2
-      (commutator_coordinateQuadPlus n K (by omega))
-  · obtain ⟨-, hf, hn⟩ := h.1
-    intro hn1 K _ _ hK b c hirr _
-    have hreg := regular_coordinateQuadMinus n K b c hn hirr
-    exact evenOrthogonalFieldCentralizer_of_regular hf hK hn _ hreg.1 hreg.2
-      (commutator_coordinateQuadMinus n K b c hn hirr)
 
 end CFSG.ComponentClassification.UnbalancedCatalog

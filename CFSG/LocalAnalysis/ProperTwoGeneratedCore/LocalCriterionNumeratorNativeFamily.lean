@@ -70,41 +70,5 @@ theorem native_family_matches_exact_borel_degree
       (Nat.add_right_cancel (hindex.symm.trans hactual))
     exact Or.inr (Or.inr ⟨hi, E, hfield, hfinite, J, hJ, hEcard, hfixed, ⟨e⟩⟩)
 
-variable {G : Type u} [Group G] [Finite G]
-
-theorem original_central_sylow_native_family_and_degree
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (u : G) (huH : u ∈ H) (hu : orderOf u = 2) (huz : Commute u z)
-    (hescape : ¬ Subgroup.centralizer ({u} : Set G) ≤ H)
-    (hrank : 2 ≤ twoRank (localInvolutionPointHull z u)) :
-    let L := localInvolutionPointHull z u
-    let F := L ⧸ CFSG.oddCore L
-    let B := (H.subgroupOf L).map (QuotientGroup.mk' (CFSG.oddCore L))
-    letI := hullFixedSetAction H z u
-    ∃ a i : ℕ, 2 ≤ a ∧ i ∈ ({1, 2, 3} : Set ℕ) ∧
-      IsSimpleBenderGroupAtExponent a F ∧ IsBorelSubgroup B ∧
-      B.index = (2 ^ a) ^ i + 1 ∧
-      Nat.card (elementFixedSet H u) = (2 ^ a) ^ i + 1 ∧
-      MulAction.IsMultiplyPretransitive L (elementFixedSet H u) 2 ∧
-      ((i = 1 ∧ Nonempty (F ≃* PSL2BinaryMatrixGroup a)) ∨
-        (i = 2 ∧ ∃ m : ℕ, a = 2 * m + 1 ∧
-          Nonempty (F ≃* SuzukiMatrixGroup m)) ∨
-        (i = 3 ∧ ∃ (E : Type) (_ : Field E) (_ : Finite E)
-          (J : HermitianForm 3 E),
-          J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0] ∧
-          Nat.card E = (2 ^ a) ^ 2 ∧
-          Nat.card {x : E // J.conj x = x} = 2 ^ a ∧
-          Nonempty (F ≃* ProjectiveSpecialUnitaryMatrixGroup J))) := by
-  let L := localInvolutionPointHull z u
-  let F := L ⧸ CFSG.oddCore L
-  let B := (H.subgroupOf L).map (QuotientGroup.mk' (CFSG.oddCore L))
-  let := hullFixedSetAction H z u
-  obtain ⟨_hmodel, _hcore, hB, _hfull, a, i, ha, hi, hmodelAt,
-    _helem, _hUB, _hUset, _hUcard, _hfour, hindex, hcard, _hphi, hdouble⟩ :=
-    original_central_sylow_native_fixedSet_model h S hzS hzcenter u huH hu huz hescape hrank
-  exact ⟨a, i, ha, hi, hmodelAt, hB, hindex, hcard, hdouble,
-    native_family_matches_exact_borel_degree a i ha hmodelAt B hB hindex⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

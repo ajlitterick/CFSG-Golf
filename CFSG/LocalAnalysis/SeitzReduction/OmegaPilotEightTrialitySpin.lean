@@ -33,21 +33,12 @@ theorem fundPerm_mul (π π' : Equiv.Perm I) (v : I → ℤ) :
   funext j
   simp only [fundPerm_apply, Equiv.Perm.mul_def, Equiv.symm_trans_apply]
 
-theorem fundPerm_one (v : I → ℤ) : fundPerm (1 : Equiv.Perm I) v = v := rfl
 
 theorem fundPerm_symm_fundPerm (π : Equiv.Perm I) (v : I → ℤ) :
     fundPerm π.symm (fundPerm π v) = v := by
   funext j
   simp only [fundPerm_apply, Equiv.symm_symm, Equiv.symm_apply_apply]
 
-theorem fundPerm_fundPerm_symm (π : Equiv.Perm I) (v : I → ℤ) :
-    fundPerm π (fundPerm π.symm v) = v := by
-  funext j
-  simp only [fundPerm_apply, Equiv.symm_symm, Equiv.apply_symm_apply]
-
-theorem fundPerm_nsmul (π : Equiv.Perm I) (k : ℕ) (v : I → ℤ) :
-    fundPerm π (k • v) = k • fundPerm π v :=
-  map_nsmul (fundPerm π) k v
 
 theorem fundPerm_reflection {A : Matrix I I ℤ} {π : Equiv.Perm I}
     (hπ : ∀ i j, A (π i) (π j) = A i j) (i : I) (v : I → ℤ) :
@@ -100,13 +91,6 @@ section Diagram
 
 @[expose] def d4ForkPerm : Equiv.Perm (Fin 4) := Equiv.swap 2 3
 
-theorem d4TrialityPerm_apply_zero : d4TrialityPerm 0 = 2 := by decide
-
-theorem d4TrialityPerm_apply_one : d4TrialityPerm 1 = 1 := by decide
-
-theorem d4TrialityPerm_apply_two : d4TrialityPerm 2 = 3 := by decide
-
-theorem d4TrialityPerm_apply_three : d4TrialityPerm 3 = 0 := by decide
 
 theorem cartanD_submatrix_d4TrialityPerm :
     (cartanD 4).submatrix d4TrialityPerm d4TrialityPerm = cartanD 4 := by decide
@@ -137,8 +121,6 @@ theorem d4ForkPerm_conj_d4TrialityPerm :
     rw [hπ, hπ']
   inv_mem' := fun {π} hπ i j => cartan_symm_of_perm hπ i j
 
-theorem mem_d4DiagramGroup_iff {π : Equiv.Perm (Fin 4)} :
-    π ∈ d4DiagramGroup ↔ ∀ i j, cartanD 4 (π i) (π j) = cartanD 4 i j := Iff.rfl
 
 @[expose] def d4TrialitySym : d4DiagramGroup := ⟨d4TrialityPerm, cartanD_d4TrialityPerm⟩
 
@@ -161,8 +143,6 @@ variable {F : Type} [Field F]
 
 theorem d4_three_le : 3 ≤ 4 := by norm_num
 
-theorem d4_roots_eq : (SpinPlus.Φ 4 F d4_three_le).roots = roots (isFiniteType_cartanD 4) ∅ :=
-  rfl
 
 theorem fundPerm_mem_spinRoots (π : d4DiagramGroup) {γ : Fin 4 → ℤ}
     (hγ : γ ∈ (SpinPlus.Φ 4 F d4_three_le).roots) :
@@ -309,8 +289,6 @@ theorem spinGraphHom_one : spinGraphHom (F := F) 1 = MonoidHom.id _ := by
     change spinGraphHom (π * π') y = spinGraphHom π (spinGraphHom π' y)
     rw [spinGraphHom_mul, MonoidHom.comp_apply]
 
-theorem spinGraphAut_apply (π : d4DiagramGroup) (y : spinGroup (quadPlus 4 F)) :
-    spinGraphAut π y = spinGraphHom π y := rfl
 
 theorem spinGraphAut_x (π : d4DiagramGroup) {γ : Fin 4 → ℤ}
     (hγ : γ ∈ (SpinPlus.Φ 4 F d4_three_le).roots) (c : F) :

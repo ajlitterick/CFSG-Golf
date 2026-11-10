@@ -259,13 +259,9 @@ theorem ex_U_bwd (hp : τ = g * r⁻¹ * p) (hτ : u⁻¹ * σ * u = τ) :
 
 end StepGroup
 
-theorem gm_lt (HB GB : ℕ → ℕ) (j : ℕ) : gm HB GB j < 2 ^ 576 := mat_lt _ _
 
 theorem gi_lt (HB GB : ℕ → ℕ) (j : ℕ) : gi HB GB j < 2 ^ 576 := mat_lt _ _
 
-theorem tSig_lt (HB TB : ℕ → ℕ) (e : ℕ) : tSig HB TB e < 2 ^ 576 := mat_lt _ _
-
-theorem tPsi_lt (HB TB : ℕ → ℕ) (e : ℕ) : tPsi HB TB e < 2 ^ 576 := mat_lt _ _
 
 section Steps
 
@@ -348,7 +344,6 @@ theorem step_own (hsh : ShapeF HB GB TB TL VL nT W Wi c R e S S' ∨
     exact ofF (InM_cancelL (h.gj _ (rJ_sub hR hj)).1 hGF (rFI_lt R))
   · have hGF := InM_cancelR hS (eT ▸ (h.ts e he).2.1) (mul24_lt _ _)
     exact ofF (InM_cancelL (h.gj _ (rJ_sub hR hj)).1 hGF (rFI_lt R))
-
 
 
 theorem step_sem_fwd (w : ℕ → G) (ν : G)
@@ -676,7 +671,6 @@ theorem mR_inM {el : Bool} {ND NO R : ℕ} (hR : RecGood el ND NO R) (hel : el =
   cases Nat.beq dir 1
   · exact hn
   · exact InM_invR hn (rNI_lt R) (hR.nn hel)
-
 
 
 theorem WStep_lt {FB HB GB TB : ℕ → ℕ} {sh wd LT TL VL NL nT W Wi : ℕ} {el : Bool}
@@ -1087,12 +1081,6 @@ theorem axiomOK_spec {HB : ℕ → ℕ} {nH Jf R : ℕ} {el : Bool}
   rw [hel] at e7
   exact Nat.eq_of_beq_eq_true e7
 
-theorem runFacts_eq (FB HB GB TB WD : ℕ → ℕ)
-    (sh wd LT TL VL NL ND NO nH nT nW W Wi : ℕ) (el : Bool) (Cs : List ℕ) (S : ℕ) :
-    DceS.runFacts FB HB GB TB WD sh wd LT TL VL NL ND NO nH nT nW W Wi el Cs S =
-      factsG (factG (DceS.recOK ND NO el) (DceS.treeOK HB GB el) (DceS.axiomOK HB nH el)
-        (fun i Jf R => walkOK FB HB GB TB WD sh wd LT TL VL NL ND nH nT nW W Wi el i Jf R)
-        (rec FB sh wd)) Cs S := rfl
 
 abbrev FChk (HB GB TB FB WD : ℕ → ℕ) (LT TL VL NL ND NO nH nT nW W Wi sh wd : ℕ) (el : Bool) :=
   FactOK (DceS.recOK ND NO el) (DceS.treeOK HB GB el) (DceS.axiomOK HB nH el)

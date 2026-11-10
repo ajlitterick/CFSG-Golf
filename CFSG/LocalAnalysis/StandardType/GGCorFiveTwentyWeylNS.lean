@@ -18,9 +18,6 @@ section Dom
 
 variable {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
 
-theorem ggCorFiveTwentyWeylDom_iff_ns :
-    GGCorFiveTwentyWeylDom p B Bs x L D J ↔
-      GGScalarsPmOne Bs ∧ GGCorFiveTwentyWeylDomNS p B Bs x L D J := Iff.rfl
 
 theorem GGCorFiveTwentyWeylDom.toNS (h : GGCorFiveTwentyWeylDom p B Bs x L D J) :
     GGCorFiveTwentyWeylDomNS p B Bs x L D J := h.2
@@ -83,22 +80,12 @@ theorem five_le_of_not_scalarsPmOne {G : Type} [Group G] [Finite G] {p : ℕ}
         ¬ GGScalarsPmOne Bs → 5 ≤ p →
           Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem ggCorFiveTwentyQFourInput_of_weylNS (hN : GGCorFiveTwentyQFourNonWeylNSInput)
-    (hW : GGCorFiveTwentyQFourWeylNSInput) : GGCorFiveTwentyQFourInput := by
-  intro G _ _ p B Bs x L D J hH hq hN'
-  by_cases hD : GGCorFiveTwentyWeylDomNS p B Bs x L D J
-  · exact hW G p B Bs x L D J hH hq hN' hD
-  · exact hN G p B Bs x L D J hH hq hN' hD
 
 theorem ggCorFiveTwentyQFourNonWeylNSInput_of_nonWeyl (h : GGCorFiveTwentyQFourNonWeylInput) :
     GGCorFiveTwentyQFourNonWeylNSInput :=
   fun G _ _ p B Bs x L D J hH hq hN hD =>
     h G p B Bs x L D J hH hq hN (fun hW => hD hW.2)
 
-theorem ggCorFiveTwentyQFourNonWeylNSInput_of_aggregate (h : GGCorFiveTwentyInput) :
-    GGCorFiveTwentyQFourNonWeylNSInput :=
-  fun G _ _ p B Bs x L D J hH _ _ _ =>
-    h G p B Bs x L D J hH.1 hH.2.1 hH.2.2.1 hH.2.2.2.1 hH.2.2.2.2
 
 theorem ggCorFiveTwentyQFourNonWeylInput_iff :
     GGCorFiveTwentyQFourNonWeylInput ↔
@@ -114,16 +101,6 @@ theorem ggCorFiveTwentyQFourNonWeylInput_iff :
       exact hS G p B Bs x L D J hH hq hN hDNS hs (five_le_of_not_scalarsPmOne hH.1 hs)
     · exact hNS G p B Bs x L D J hH hq hN hDNS
 
-theorem ggCorFiveTwentyQFourWeylNSInput_of_weyl (hW : GGCorFiveTwentyQFourWeylInput)
-    (hS : GGCorFiveTwentyQFourScalarFailInput) : GGCorFiveTwentyQFourWeylNSInput := by
-  intro G _ _ p B Bs x L D J hH hq hN hD
-  by_cases hs : GGScalarsPmOne Bs
-  · exact hW G p B Bs x L D J hH hq hN ⟨hs, hD⟩
-  · exact hS G p B Bs x L D J hH hq hN hD hs (five_le_of_not_scalarsPmOne hH.1 hs)
-
-theorem ggCorFiveTwentyQFourScalarFailInput_of_nonWeyl (h : GGCorFiveTwentyQFourNonWeylInput) :
-    GGCorFiveTwentyQFourScalarFailInput :=
-  (ggCorFiveTwentyQFourNonWeylInput_iff.mp h).2
 
 end CFSG.StandardType
 

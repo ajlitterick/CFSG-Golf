@@ -102,17 +102,10 @@ theorem c26_3_S4_of_x (hMu : Ih8MuTableSect p f) (hB : S26XProper p f) (hE : S26
     rw [hpi'] at hlie
     exact sectionLieType_of_hasLieType hGen.gen (by simpa using hlie)
 
-theorem c26_2_u_of_x (hMu : Ih8MuTableSect p f) (hB : S26XProper p f) (hE : S26XEdgeless p f)
-    (hT : S26XTop p f) (hZ : S26XMuZ2 p f) : C26_2_u p f :=
-  c26_2_u_of_c26_3 (c26_3_S4_of_x hMu hB hE hT hZ)
 
 theorem c26_2_of_x (hMu : Ih8MuTableSect p f) (hB : S26XProper p f) (hE : S26XEdgeless p f)
     (hT : S26XTop p f) (hZ : S26XMuZ2 p f) : C26_2 p f :=
   c26_2_of_c26_3 (c26_3_S4_of_x hMu hB hE hT hZ)
 
-theorem thm8A_of_s26_x (hMu : Ih8MuTableSect p f) (hB : S26XProper p f) (hE : S26XEdgeless p f)
-    (h1 : C26_1 p f) (hZ : S26XMuZ2 p f) (h13 : C26_13_sc p f) (h274a : C27_4a p f)
-    (h8E4 : C27_8E4 p f) (h8nE4 : C27_8nE4 p f) : Thm8A p f :=
-  thm8A_of_s26_c26_3 (c26_3_S4_of_x hMu hB hE (s26XTop_of_c26_1 h1) hZ) h13 h274a h8E4 h8nE4
 
 end CFSG.ClassicalInvolution.Asc77

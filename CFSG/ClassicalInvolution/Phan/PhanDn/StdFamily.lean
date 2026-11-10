@@ -555,34 +555,6 @@ theorem stdFamilyV_ι_mem_orthogonalGroup (m : ℕ) (hm : 3 ≤ m) (k : Fin (m +
     exact tauAt_conj_mem_orthogonalGroup E (Fin.last m)
       (suEndN_mem_orthogonalGroup E (m + 1) (blockEmb2 K 2 f m ⟨m - 1, by omega⟩ a))
 
-theorem stdFamilyV_θ_mem_orthogonalGroup (m : ℕ) (hm : 3 ≤ m) (i j : Fin (m + 1))
-    (a : Su K 2 f 3) :
-    (stdFamilyV E m hm).θ i j a ∈
-      TauCeti.QuadraticMap.orthogonalGroup (Qn E (m + 1)) := by
-  rcases Fin.eq_castSucc_or_eq_last (n := m) j with ⟨j', rfl⟩ | rfl
-  · rw [stdFamilyV_θ, stdTheta_castSucc]
-    unfold stdThetaAt
-    split_ifs with h
-    · unfold stdChainTheta
-      exact suEndN_mem_orthogonalGroup E (m + 1)
-        (blockEmb3 K 2 f m ⟨i.val, by omega⟩ (by
-          show i.val + 1 < m
-          omega) a)
-    · exact Subgroup.one_mem _
-  · rw [stdFamilyV_θ, stdTheta_last]
-    unfold stdForkTheta stdChainTheta stdConj
-    change MulAut.conj (stdTau E m)
-        (suEndN (F := F) (unitaryInvolution K 2 f) (m + 1)
-          (blockEmb3 K 2 f m ⟨m - 2, by omega⟩ (by
-            show m - 2 + 1 < m
-            omega) a)) ∈ _
-    rw [MulAut.conj_apply]
-    unfold stdTau
-    exact tauAt_conj_mem_orthogonalGroup E (Fin.last m)
-      (suEndN_mem_orthogonalGroup E (m + 1)
-        (blockEmb3 K 2 f m ⟨m - 2, by omega⟩ (by
-            show m - 2 + 1 < m
-            omega) a))
 
 theorem two_le_of_four_le_pow (hq : 4 ≤ 2 ^ f) : 2 ≤ f := by
   rcases Nat.lt_or_ge f 2 with h | h

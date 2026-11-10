@@ -29,8 +29,6 @@ variable {K : Type} [Field K] {n : ℕ}
     funext x
     rcases x with x | x | x <;> simp [minusUnits, mul_comm]
 
-theorem minusHom_apply {m : ℕ} (u : Fin m → Kˣ) : minusHom u = minusUnits u :=
-  rfl
 
 theorem isHypCoord_quadMinus (b c : K) (k : Fin (n - 1)) :
     SeitzReduction.OmegaPilot.IsHypCoord (quadMinus n K b c) (Sum.inl k)

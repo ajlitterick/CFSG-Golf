@@ -41,6 +41,5 @@ theorem isExtraspecialPGroup_of_card_center [Finite P] {p : ℕ} [Fact p.Prime] 
   intro x _ y _
   exact CFSG.SectionRank.Ccomm.commutator_mem_frattini hP x y
 
-variable [Finite P] {p : ℕ} [hp : Fact p.Prime]
 
 end CFSG.LargeExtraspecial

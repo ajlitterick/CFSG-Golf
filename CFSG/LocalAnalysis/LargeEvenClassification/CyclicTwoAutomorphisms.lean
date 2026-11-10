@@ -35,10 +35,6 @@ theorem binaryResidualShearHom_injective : Function.Injective binaryResidualShea
     CyclicTwoAut n →* Multiplicative (ZMod 2 × ZMod 2) :=
   binaryResidualShearHom.comp (cyclicTwoResidualUnits (2 ^ (n + 2)) (dvd_pow_self 2 (by omega)))
 
-theorem cyclicTwoAut_diagonal (n : ℕ) (u : CyclicTwoAut n) :
-    cyclicReduction (2 ^ (n + 2)) 2 (cyclicPairEndCoefficients (2 ^ (n + 2)) 2 u.val).1.1 = 1 ∧
-      (cyclicPairEndCoefficients (2 ^ (n + 2)) 2 u.val).2.2 = 1 :=
-  binaryResidualUnit_diagonal (cyclicTwoResidualUnits (2 ^ (n + 2)) (dvd_pow_self 2 (by omega)) u)
 
 theorem cyclicTwo_unit_reduction (n : ℕ) (u : (ZMod (2 ^ (n + 2) * 2))ˣ) :
     cyclicReduction (2 ^ (n + 2)) 2 u.val = 1 := by
@@ -514,61 +510,6 @@ theorem cyclicTwo_scalar_normal_form (n : ℕ) (u : (ZMod (2 ^ (n + 2) * 2))ˣ) 
       ring
     rw [mul_assoc, hsq, mul_one]
 
-theorem cyclicTwoAut_generators (n : ℕ) :
-    Subgroup.closure ({cyclicTwoTau n, cyclicTwoRho n, cyclicTwoC n, cyclicTwoZ n} : Set (CyclicTwoAut n)) = ⊤ := by
-  apply top_unique
-  intro g _
-  obtain ⟨v, w, u, rfl⟩ := cyclicTwoAut_normal_form n g
-  obtain ⟨j, e, rfl⟩ := cyclicTwo_scalar_normal_form n u
-  rw [map_mul, map_zpow, map_pow]
-  apply Subgroup.mul_mem
-  · apply Subgroup.mul_mem
-    · apply Subgroup.pow_mem
-      exact Subgroup.subset_closure (by simp)
-    · apply Subgroup.pow_mem
-      exact Subgroup.subset_closure (by simp)
-  · apply Subgroup.mul_mem
-    · apply Subgroup.zpow_mem
-      exact Subgroup.subset_closure (by simp [cyclicTwoC])
-    · apply Subgroup.pow_mem
-      exact Subgroup.subset_closure (by simp [cyclicTwoZ])
-
-theorem cyclicTwoAut_center_generators (n : ℕ) :
-    Subgroup.center (CyclicTwoAut n) = Subgroup.zpowers (cyclicTwoC n) ⊔ Subgroup.zpowers (cyclicTwoZ n) := by
-  rw [← cyclicTwoAut_scalar_center]
-  apply le_antisymm
-  · rintro g ⟨u, rfl⟩
-    obtain ⟨j, e, rfl⟩ := cyclicTwo_scalar_normal_form n u
-    rw [map_mul, map_zpow, map_pow]
-    exact (Subgroup.zpowers (cyclicTwoC n) ⊔ Subgroup.zpowers (cyclicTwoZ n)).mul_mem
-      (Subgroup.mem_sup_left (Subgroup.zpow_mem _ (Subgroup.mem_zpowers _) _))
-      (Subgroup.mem_sup_right (Subgroup.pow_mem _ (Subgroup.mem_zpowers _) _))
-  · apply sup_le
-    · exact Subgroup.zpowers_le.mpr ⟨cyclicTwoFive n, rfl⟩
-    · exact Subgroup.zpowers_le.mpr ⟨-1, rfl⟩
-
-theorem cyclicTwoAut_center_disjoint (n : ℕ) :
-    Disjoint (Subgroup.zpowers (cyclicTwoC n)) (Subgroup.zpowers (cyclicTwoZ n)) := by
-  apply Subgroup.disjoint_def.mpr
-  intro g hc hz
-  have hcentralC := Subgroup.zpowers_le.mpr
-    (show cyclicTwoC n ∈ (cyclicTwoScalar n).range from ⟨cyclicTwoFive n, rfl⟩)
-  obtain ⟨u, hu⟩ := hcentralC hc
-  have hCmod : cyclicTwoModFour n u = 1 := by
-    obtain ⟨j, hj⟩ := Subgroup.mem_zpowers_iff.mp hc
-    have heq : cyclicTwoScalar n u = cyclicTwoScalar n (cyclicTwoFive n ^ j) := by
-      rw [map_zpow]
-      exact hu.trans hj.symm
-    rw [cyclicTwoScalar_injective n heq, map_zpow, cyclicTwoFive_mod_four, one_zpow]
-  rcases zpowers_involution_cases (cyclicTwoZ n) (cyclicTwoZ_square n) hz with h | h
-  · exact h
-  · have heq : u = -1 := cyclicTwoScalar_injective n (hu.trans h)
-    rw [heq] at hCmod
-    have hval := congrArg Units.val hCmod
-    change (ZMod.castHom (show 4 ∣ 2 ^ (n + 2) * 2 from (Nat.pow_dvd_pow 2 (by omega : 2 ≤ n + 2)).trans (dvd_mul_right _ _)) (ZMod 4)) (-1 : ZMod (2 ^ (n + 2) * 2)) = 1 at hval
-    rw [map_neg, map_one] at hval
-    have hneq : (-1 : ZMod 4) ≠ 1 := by decide +kernel
-    exact False.elim (hneq hval)
 
 theorem cyclicTwo_scalar_projection_commute {Q : Type*} [Group Q] (n : ℕ)
     (projection : CyclicTwoAut n →* Q) (u : (ZMod (2 ^ (n + 2) * 2))ˣ) (g : CyclicTwoAut n) :
@@ -674,64 +615,12 @@ theorem cyclicTwoAut_cyclic_scalar_quotient (n : ℕ) :
     exact Nat.eq_of_mul_eq_mul_right hpos (hformula.symm.trans hpower)
   exact ⟨hcommutative, hexponent, hcard⟩
 
-theorem cyclicTwoAut_center_quotient (n : ℕ) :
-    IsMulCommutative (CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n)) ∧
-      (∀ x : CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n), x ^ 2 = 1) ∧
-      Nat.card (CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n)) = 4 ∧
-      ∀ x : CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n),
-        ∃ v w : ZMod 2, x =
-          (QuotientGroup.mk' (Subgroup.center (CyclicTwoAut n))) (cyclicTwoTau n) ^ v.val *
-          (QuotientGroup.mk' (Subgroup.center (CyclicTwoAut n))) (cyclicTwoRho n) ^ w.val := by
-  let Z := Subgroup.center (CyclicTwoAut n)
-  have hker : (cyclicTwoShearHom n).ker = Z :=
-    (cyclicTwoShearHom_kernel n).trans (cyclicTwoAut_scalar_center n)
-  let quotient := QuotientGroup.lift Z (cyclicTwoShearHom n) hker.symm.le
-  have hsurjective : Function.Surjective quotient := by
-    intro x
-    obtain ⟨g, hg⟩ := cyclicTwoShearHom_surjective n x
-    exact ⟨QuotientGroup.mk' Z g, hg⟩
-  have hinjective : Function.Injective quotient := by
-    apply (MonoidHom.ker_eq_bot_iff quotient).mp
-    apply le_antisymm _ bot_le
-    intro x hx
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective Z x
-    apply Subgroup.mem_bot.mpr
-    apply (QuotientGroup.eq_one_iff _).mpr
-    apply hker.le
-    exact hx
-  have hcommutative : IsMulCommutative (CyclicTwoAut n ⧸ Z) := by
-    apply isMulCommutative_iff.mpr
-    intro x y
-    apply hinjective
-    rw [map_mul, map_mul]
-    exact mul_comm _ _
-  have hexponent (x : CyclicTwoAut n ⧸ Z) : x ^ 2 = 1 := by
-    apply hinjective
-    rw [map_pow, map_one]
-    have h : ∀ x : Multiplicative (ZMod 2 × ZMod 2), x ^ 2 = 1 := by decide +kernel
-    exact h _
-  have hcard : Nat.card (CyclicTwoAut n ⧸ Z) = 4 := by
-    rw [Nat.card_eq_of_bijective quotient ⟨hinjective, hsurjective⟩, Nat.card_eq_fintype_card]
-    decide +kernel
-  refine ⟨hcommutative, hexponent, hcard, ?_⟩
-  intro x
-  obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective Z x
-  obtain ⟨v, w, u, rfl⟩ := cyclicTwoAut_normal_form n g
-  refine ⟨v, w, ?_⟩
-  simp only [map_mul, map_pow]
-  have hu : (QuotientGroup.mk' Z) (cyclicTwoScalar n u) = 1 :=
-    (QuotientGroup.eq_one_iff _).mpr ((cyclicTwoAut_scalar_center n).le ⟨u, rfl⟩)
-  rw [hu, mul_one]
 
 theorem cyclicTwoTau_apply (n : ℕ) (x : CyclicTwoSpace n) :
     (cyclicTwoTau n).val x = (x.1 + scaledCyclicInclusion (2 ^ (n + 2)) 2 x.2, x.2) := by
   rw [cyclicPairEnd_apply, cyclicTwoTau_coefficients]
   simp
 
-theorem cyclicTwoRho_apply (n : ℕ) (x : CyclicTwoSpace n) :
-    (cyclicTwoRho n).val x = (x.1, cyclicReduction (2 ^ (n + 2)) 2 x.1 + x.2) := by
-  rw [cyclicPairEnd_apply, cyclicTwoRho_coefficients]
-  simp
 
 theorem cyclicTwoScalar_apply (n : ℕ) (u : (ZMod (2 ^ (n + 2) * 2))ˣ) (x : CyclicTwoSpace n) :
     (cyclicTwoScalar n u).val x = (u.val * x.1, x.2) := by
@@ -748,31 +637,5 @@ theorem cyclicTwoDelta_apply (n : ℕ) (x : CyclicTwoSpace n) :
     rw [nsmul_eq_mul, Nat.cast_add, Nat.cast_one,
       (ZMod.natCast_eq_zero_iff _ _).mpr (dvd_pow_self 2 (by omega)), add_zero, one_mul]
 
-theorem rank_two_cyclic_times_two_automorphism_structure (n : ℕ) :
-    cyclicTwoTau n ^ 2 = 1 ∧ cyclicTwoRho n ^ 2 = 1 ∧ cyclicTwoZ n ^ 2 = 1 ∧
-      orderOf (cyclicTwoC n) = 2 ^ (n + 1) ∧
-      cyclicTwoC n ^ (2 ^ n) = cyclicTwoDelta n ∧
-      Subgroup.center (CyclicTwoAut n) =
-        Subgroup.zpowers (cyclicTwoC n) ⊔ Subgroup.zpowers (cyclicTwoZ n) ∧
-      Disjoint (Subgroup.zpowers (cyclicTwoC n)) (Subgroup.zpowers (cyclicTwoZ n)) ∧
-      Subgroup.closure ({cyclicTwoTau n, cyclicTwoRho n, cyclicTwoC n, cyclicTwoZ n} : Set (CyclicTwoAut n)) = ⊤ ∧
-      Nat.card (CyclicTwoAut n) = 2 ^ (n + 4) ∧
-      IsMulCommutative (CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n)) ∧
-      Nat.card (CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n)) = 4 ∧
-      (∀ x : CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n), x ^ 2 = 1) ∧
-      (∀ x : CyclicTwoAut n ⧸ Subgroup.center (CyclicTwoAut n), ∃ v w : ZMod 2, x =
-        (QuotientGroup.mk' (Subgroup.center (CyclicTwoAut n))) (cyclicTwoTau n) ^ v.val *
-        (QuotientGroup.mk' (Subgroup.center (CyclicTwoAut n))) (cyclicTwoRho n) ^ w.val) ∧
-      commutator (CyclicTwoAut n) = Subgroup.zpowers (cyclicTwoDelta n) ∧
-      ⁅cyclicTwoTau n, cyclicTwoRho n⁆ = cyclicTwoDelta n ∧
-      IsMulCommutative (CyclicTwoAut n ⧸ Subgroup.zpowers (cyclicTwoC n)) ∧
-      (∀ x : CyclicTwoAut n ⧸ Subgroup.zpowers (cyclicTwoC n), x ^ 2 = 1) ∧
-      Nat.card (CyclicTwoAut n ⧸ Subgroup.zpowers (cyclicTwoC n)) = 8 := by
-  obtain ⟨hcenterComm, hcenterExponent, hcenterCard, hcenterBasis⟩ := cyclicTwoAut_center_quotient n
-  obtain ⟨hquotientComm, hquotientExponent, hquotientCard⟩ := cyclicTwoAut_cyclic_scalar_quotient n
-  exact ⟨cyclicTwoTau_square n, cyclicTwoRho_square n, cyclicTwoZ_square n, cyclicTwoC_order n,
-    cyclicTwoC_half_power n, cyclicTwoAut_center_generators n, cyclicTwoAut_center_disjoint n,
-    cyclicTwoAut_generators n, cyclicTwoAut_card n, hcenterComm, hcenterCard, hcenterExponent, hcenterBasis,
-    cyclicTwoAut_commutator n, cyclicTwoTauRho_commutator n, hquotientComm, hquotientExponent, hquotientCard⟩
 
 end CFSG.LargeEvenClassification.Helpers

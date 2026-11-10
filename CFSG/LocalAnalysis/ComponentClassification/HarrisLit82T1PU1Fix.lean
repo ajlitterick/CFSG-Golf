@@ -118,11 +118,6 @@ theorem eichler_mem_fixElem {Q' : QuadraticForm K V} (u w : semilinearFixedSubmo
   · rw [eichler_of_not h]
     exact one_mem _
 
-theorem fixElem_le_elementaryGroup (Q' : QuadraticForm K V) :
-    fixElem hG Q' ≤ elementaryGroup Q' := by
-  rw [fixElem, Subgroup.closure_le]
-  rintro _ ⟨u, w, -, -, rfl⟩
-  exact eichler_mem_elementaryGroup Q' _ _
 
 theorem fixElem_le_commGroup {Q' : QuadraticForm K V} (hQG : ∀ x, Q' (G x) = σ (Q' x)) :
     fixElem hG Q' ≤ commGroup K G := by

@@ -191,28 +191,6 @@ theorem pointwiseStab_le_centralizer_blockEnd_sesq (hp : p.Prime) (hpF : (p : K)
       blockEnd_apply_of_ker A hp hpF hA t ht D hr, map_add, hgfix _ hmem]
   rw [LHS, RHS]
 
-theorem ker_projBlock_eq_ker_blockEnd_sub_one (hp : p.Prime) (hpF : (p : K) ≠ 0)
-    (hA : IsElemAbelian p A) (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1)
-    (D : Hyperplane A p) :
-    LinearMap.ker (projBlock A hp hpF hA D) =
-      LinearMap.ker ((blockEnd A hp hpF hA t ht D : V →ₗ[K] V) - 1) := by
-  ext v
-  rw [LinearMap.mem_ker, LinearMap.mem_ker, LinearMap.sub_apply,
-    show (1 : V →ₗ[K] V) v = v from rfl, sub_eq_zero]
-  rw [show (blockEnd A hp hpF hA t ht D : V →ₗ[K] V) v =
-    v + ((t D : V ≃ₗ[K] V) (projBlock A hp hpF hA D v) - projBlock A hp hpF hA D v) from
-    blockEnd_apply_eq A hp hpF hA t ht D v]
-  constructor
-  · intro hv
-    rw [hv]; simp
-  · intro hv
-    have h2 : (t D : V ≃ₗ[K] V) (projBlock A hp hpF hA D v) = projBlock A hp hpF hA D v := by
-      have h3 : v + ((t D : V ≃ₗ[K] V) (projBlock A hp hpF hA D v) -
-          projBlock A hp hpF hA D v) = v + 0 := by rw [add_zero]; exact hv
-      exact sub_eq_zero.mp (add_left_cancel h3)
-    have h4 : projBlock A hp hpF hA D v = 0 :=
-      eq_zero_of_fixed_mem_blockSpace A hp hpF hA (ht D) (projBlock_apply_mem A hp hpF hA D v) h2
-    exact h4
 
 theorem centralizer_mapsTo_blockSpace (hp : p.Prime) (hpF : (p : K) ≠ 0)
     (hA : IsElemAbelian p A) (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1)
@@ -253,44 +231,6 @@ theorem dvd_card_pointwiseStab_sesq [Finite K] (hp : p.Prime) (hpF : (p : K) ≠
     {D E : Hyperplane A p} (hDE : E ≠ D) (hE : blockSpace A E.1 ≠ ⊥) :
     p ∣ Nat.card (pointwiseStab (sesqSpecialUnitaryGroupLE B) (blockSpace A D.1)) :=
   dvd_card_pointwiseStab A hp hpF hA t ht hbH hDE hE
-
-theorem isQuasisimple_pointwiseStab_blockSpace_of_two_le (A : Subgroup (V ≃ₗ[K] V)) [Fintype A]
-    (hp : p.Prime) (hpK : (p : K) ≠ 0) (hA : IsElemAbelian p A) (hB : InvariantSesq A B)
-    (hBsym : B.IsSymm) (hBn : B.SeparatingLeft) (D : Hyperplane A p)
-    (hdim : 2 ≤ Module.finrank K (Submodule.orthogonalBilin B (blockSpace A D.1)))
-    (hq2 : Module.finrank K (Submodule.orthogonalBilin B (blockSpace A D.1)) = 2 → 4 ≤ 2 ^ n)
-    (hq3 : Module.finrank K (Submodule.orthogonalBilin B (blockSpace A D.1)) = 3 → 3 ≤ 2 ^ n) :
-    CFSG.IsQuasisimple ↥(pointwiseStab (sesqSpecialUnitaryGroupLE B) (blockSpace A D.1)) := by
-  have hW : (B.domRestrict₁₂ (Submodule.orthogonalBilin B (blockSpace A D.1))
-      (Submodule.orthogonalBilin B (blockSpace A D.1))).SeparatingLeft :=
-    separatingLeft_domRestrict_orthogonalBilin hBsym.isRefl hBn
-      (isCompl_blockSpace_orthogonalBilin A hp hpK hA hB hBsym.isRefl hBn D)
-  have hSU : CFSG.IsQuasisimple ↥(sesqSpecialUnitaryGroupLE (B.domRestrict₁₂
-      (Submodule.orthogonalBilin B (blockSpace A D.1))
-      (Submodule.orthogonalBilin B (blockSpace A D.1)))) := by
-    rcases Nat.lt_or_ge (Module.finrank K (Submodule.orthogonalBilin B (blockSpace A D.1))) 3
-      with h2 | h3
-    · obtain ⟨e2⟩ := sesqSpecialUnitaryGroupLE_mulEquiv (B := B.domRestrict₁₂
-        (Submodule.orthogonalBilin B (blockSpace A D.1))
-        (Submodule.orthogonalBilin B (blockSpace A D.1)))
-      refine CFSG.LocalCores.isQuasisimple_of_mulEquiv e2.symm ?_
-      exact CFSG.RankThree.Classical.isQuasisimple_sesqSpecialUnitaryGroup h
-        (hBsym.domRestrict _) hW (by omega) (hq2 (by omega))
-    · obtain ⟨e2⟩ := sesqSpecialUnitaryGroupLE_mulEquiv (B := B.domRestrict₁₂
-        (Submodule.orthogonalBilin B (blockSpace A D.1))
-        (Submodule.orthogonalBilin B (blockSpace A D.1)))
-      refine CFSG.LocalCores.isQuasisimple_of_mulEquiv e2.symm ?_
-      refine CFSG.RankThree.PartOne.KCOrthogonal.isQuasisimple_sesqSpecialUnitaryGroup_of_three_le
-        h (hBsym.domRestrict _) hW h3 ?_
-      intro hcon
-      have h1 : Module.finrank K (Submodule.orthogonalBilin B (blockSpace A D.1)) = 3 :=
-        congrArg Prod.fst hcon
-      have h2 : 2 ^ n = 2 := congrArg Prod.snd hcon
-      rw [h1] at hq3
-      have h3' := hq3 rfl
-      omega
-  obtain ⟨e⟩ := pointwiseStab_blockSpace_mulEquiv (A := A) (B := B) hp hpK hA hB hBsym.isRefl hBn D
-  exact CFSG.LocalCores.isQuasisimple_of_mulEquiv e.symm hSU
 
 
 section DimensionBound
@@ -357,9 +297,6 @@ private theorem aeval_inv_pow_of_root {B : W →ₛₗ[h.bar] W →ₗ[K] K} (hB
   rw [hroot_map, zero_pow (by positivity : (2 : ℕ) ^ n ≠ 0)] at hpow
   rw [hP]
   exact hpow.symm
-
-
-
 
 
 private theorem exists_eigenvalue [Finite K] {B : W →ₛₗ[h.bar] W →ₗ[K] K} (hBsym : B.IsSymm)

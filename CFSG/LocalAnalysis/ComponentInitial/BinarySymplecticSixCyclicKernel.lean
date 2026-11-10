@@ -23,8 +23,6 @@ open CFSG.ComponentClassification.StandardRecognition
       exact statedScalars_subgroupOf_eq_bot (Nat.card_zmod 2) 3,
     SymplecticHigher.proj_surjective⟩
 
-theorem projEquiv_apply (g : StatedSp 3 (ZMod 2)) : projEquiv g = proj 3 (ZMod 2) g :=
-  rfl
 
 theorem exists_eq_conj_statedSp (α : MulAut (StatedSp 3 (ZMod 2))) :
     ∃ g : StatedSp 3 (ZMod 2), α = MulAut.conj g := by
@@ -284,9 +282,6 @@ theorem projL_eq_one_iff {L T : Subgroup G} (hT : T ≤ centralizer (L : Set G))
   · intro hx
     exact Subtype.ext (projL_eq_of_mul hT hLT x (one_mem L) hx (one_mul _).symm)
 
-theorem projL_of_mem {L T : Subgroup G} (hT : T ≤ centralizer (L : Set G)) (hLT : L ⊓ T = ⊥)
-    (x : (L ⊔ T : Subgroup G)) (hx : (x : G) ∈ L) : (projL hT hLT x : G) = x :=
-  projL_eq_of_mul hT hLT x hx (one_mem T) (mul_one _).symm
 
 end Decomposition
 

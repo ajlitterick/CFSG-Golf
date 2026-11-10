@@ -30,11 +30,6 @@ theorem ggBstarInnerDiagLInputOn_openLIDRest_of_rest3
     GGBstarInnerDiagLInputOn GGCorFourTwoOpenLIDRestLabel :=
   (ggCorFourTwoVacOn_vacMore hSR).bstarInnerDiag h
 
-theorem ggBstarInnerDiagLInputOn_rest3_of_openLIDRest
-    (hSR : TableBExcSmallRanks.GGTwF4ThreeRankInput)
-    (h : GGBstarInnerDiagLInputOn GGCorFourTwoOpenLIDRestLabel) :
-    GGBstarInnerDiagLInputOn GGCorFourTwoOpenLIDRest3Label :=
-  (ggCorFourTwoVacOn_vacMore hSR).bstarInnerDiag_rest h
 
 theorem ggLTransvectionCenterInputOn_open_of_rest3
     (hSR : TableBExcSmallRanks.GGTwF4ThreeRankInput)
@@ -65,29 +60,6 @@ theorem ggTableBActionInputOn_rest2_of_rest3 (hSR : TableBExcSmallRanks.GGTwF4Th
 
 end Reductions
 
-theorem ggLTransvectionCenterInputOn_rest3_of_open
-    (h : GGLTransvectionCenterInputOn GGCorFourTwoOpenLabel) :
-    GGLTransvectionCenterInputOn GGCorFourTwoOpenTvRest3Label :=
-  CorFourTwoVacMore.lTransvectionCenterInputOn_mono (fun _ _ h => h.1) h
-
-theorem ggLNoInvariantLineInputOn_rest3_of_lineRest
-    (h : GGLNoInvariantLineInputOn GGCorFourTwoOpenLineRestLabel) :
-    GGLNoInvariantLineInputOn GGCorFourTwoOpenLineRest3Label :=
-  CorFourTwoVacMore.lNoInvariantLineInputOn_mono (fun _ _ h => h.1) h
-
-theorem ggTableBCxInputOn_rest3_of_rest2 (h : GGTableBCxInputOn GGCorFourTwoOpenTableBRest2Label) :
-    GGTableBCxInputOn GGCorFourTwoOpenTableBVacRest3Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBModuleInputOn_rest3_of_rest2
-    (h : GGTableBModuleInputOn GGCorFourTwoOpenTableBRest2Label) :
-    GGTableBModuleInputOn GGCorFourTwoOpenTableBVacRest3Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBActionInputOn_rest3_of_rest2
-    (h : GGTableBActionInputOn GGCorFourTwoOpenTableBRest2Label) :
-    GGTableBActionInputOn GGCorFourTwoOpenTableBVacRest3Label :=
-  h.mono fun _ _ h => h.1
 
 section Certs
 

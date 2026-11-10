@@ -272,20 +272,5 @@ theorem small_standard_source_even_simple_symplectic_parameters_stated {X : Type
     rw [h20160] at h262080
     norm_num at h262080
 
-theorem small_standard_source_even_simple_symplectic_parameters {X : Type} [Group X]
-    {k : Type} [Field k] [Finite k] {g r : ℕ} (hk : Nat.card k = 2 ^ g) (hr : 1 ≤ r)
-    (hX : Nonempty (X ≃* StatedSp r k)) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 → Assembly.ComponentType.ClassicalModel X .PSL 2 p f →
-      r = 1 ∧ g = 2 ∧ p = 5 ∧ f = 1) ∧
-      IsEmpty (X ≃* alternatingGroup (Fin 7)) ∧
-      ¬ Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 ∧
-      (StatedScalars (Fin r ⊕ Fin r) k).subgroupOf (StatedSp r k) = ⊥ ∧
-      Nonempty (StatedProj (StatedSp r k) ≃* StatedSp r k) := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ :=
-    small_standard_source_even_simple_symplectic_parameters_stated hk hr hX
-  exact ⟨fun p f _ hp2 hY => h1 p f hp2
-      (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 p f hY), h2,
-    fun hZ => h3 (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 3 2 2 hZ),
-    h4, h5⟩
 
 end CFSG.ComponentClassification.SymmetricLocal

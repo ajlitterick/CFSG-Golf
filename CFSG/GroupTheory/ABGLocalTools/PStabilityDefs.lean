@@ -24,11 +24,6 @@ variable {H : Type*} [Group H]
 @[expose] def IsMaximalPSignalizer (X : Subgroup H) (p : ℕ) (R : Subgroup H) : Prop :=
   R ∈ pSignalizers X p ∧ ∀ R' ∈ pSignalizers X p, R ≤ R' → R' = R
 
-@[expose] def SignalizerCover (D : Subgroup H) : Prop :=
-  ∃ L₀ : Subgroup H, (∀ K : Subgroup H, K.Normal → K ≠ ⊥ → L₀ ≤ K) ∧
-    ∀ X : Subgroup H, Odd (Nat.card X) → D ≤ normalizer (X : Set H) →
-      ∃ V : Subgroup H, X ≤ V ∧ Odd (Nat.card V) ∧ D ≤ normalizer (V : Set H) ∧
-        (L₀ ⊔ V).index ≤ 2
 
 end Signalizers
 
@@ -42,9 +37,6 @@ structure QGroupStanding : Prop where
   sylow : HasQDOrWreathedSylow H
   pPrimeCore_le : pPrimeCore p H ≤ solvableRadical H
 
-structure DGroupStanding : Prop where
-  isDGroup : IsDGroup H
-  pPrimeCore_le : pPrimeCore p H ≤ oddCore H
 
 end Standing
 

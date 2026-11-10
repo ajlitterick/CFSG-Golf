@@ -56,18 +56,6 @@ theorem exactLayer3_eq_iSup : exactLayer3 Ω c = ⨆ L ∈ exactFamily3 Ω c, L 
   unfold exactLayer3 centralizingLayer
   rw [centralizingMembers_exactFamily3]
 
-@[expose] def LayerLieType3 (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n : ℕ) : Prop :=
-  SectionLieTypeU 3 1 (exactFamily3 Ω c) (exactLayer3 Ω c) t n
-
-@[expose] def LayerOrthType3 (d : ℕ) (ε : Bool) : Prop :=
-  SectionOrthTypeU 3 1 (exactFamily3 Ω c) (exactLayer3 Ω c) d ε
-
-theorem layerLieType3_iff (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n : ℕ) :
-    LayerLieType3 Ω c t n ↔
-      ∃ D : LieSystemDataU 3 1 (Fin 1) (layerQuot3 Ω c) (layerFam3 Ω c),
-        CompIs 3 1 (D.kind 0) t n := by
-  unfold LayerLieType3 SectionLieTypeU
-  rw [← exactPair3_eq]
 
 theorem card_exactLayer3_lt (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
     Nat.card (exactLayer3 Ω c) < Nat.card G :=
@@ -80,10 +68,6 @@ section Layer
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {K : Subgroup G} {c : G}
 
-theorem layerSystemU (hs : AscStand3 Ω K) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
-    (hnc : ¬ ({c} : Set G) ⊆ Subgroup.center G) :
-    LieSystemU 3 1 (layerQuot3 Ω c) (layerFam3 Ω c) :=
-  lieSystemU_three_iff.mpr (lieSystemMod3_exactPair3_of_stand3 hs hc2 hnc)
 
 theorem omega4_exactCore3 (hs : AscStand3 Ω K) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
     {K₀ J₀ : Subgroup G} (hK₀ : K₀ ∈ tqMembers3 Ω c) (hJ₀ : J₀ ∈ tqMembers3 Ω c)

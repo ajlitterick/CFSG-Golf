@@ -340,10 +340,6 @@ theorem mul_self_of_mem_R0 {x : Equiv.Perm (Fin 1782)} (hx : x ∈ Model.R0) : x
       ← w0_comm_r1, show Model.w0 * (Model.w0 * r1) * r1 = Model.w0 * Model.w0 * (r1 * r1) by
         group, w0_mul_self, r1_mul_self, one_mul]
 
-theorem isElemAbelian_R0 : CFSG.Open.IsElemAbelian 2 Model.R0 :=
-  ⟨⟨⟨fun x y => Subtype.ext (R0_comm x.2 y.2)⟩⟩, fun x hx => by
-    rw [pow_two]
-    exact mul_self_of_mem_R0 hx⟩
 
 theorem R0_le_invE : Model.R0 ≤ invE 1 := fun x hx => by
   rcases mem_R0_iff.mp hx with rfl | rfl | rfl | rfl
@@ -457,18 +453,6 @@ theorem hB_conj : hB * suzInv 0 * hB⁻¹ = Model.w0 := by
       (tabRep_w0.comp tabRep_hB)).mp base_parts.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
   rw [h, mul_inv_cancel_right]
 
-theorem exists_conj_suzInv_zero {r : Equiv.Perm (Fin 1782)} (hr : r ∈ Model.R0) (hr1 : r ≠ 1) :
-    ∃ c ∈ suzM, c * suzInv 0 * c⁻¹ = r := by
-  have hrho := invE_le_suzM rho1_mem_invE
-  rcases mem_R0_iff.mp hr with rfl | rfl | rfl | rfl
-  · exact (hr1 rfl).elim
-  · exact ⟨hB, hB_mem_suzM, hB_conj⟩
-  · refine ⟨Model.rho1 * hB, mul_mem hrho hB_mem_suzM, ?_⟩
-    rw [r1, ← hB_conj]
-    group
-  · refine ⟨Model.rho1 * (Model.rho1 * hB), mul_mem hrho (mul_mem hrho hB_mem_suzM), ?_⟩
-    rw [r2, r1, ← hB_conj]
-    group
 
 theorem card_centralizer_w0 :
     Nat.card ↥(centralizer ({Model.w0} : Set (Equiv.Perm (Fin 1782))) ⊓ suzM) = 161280 := by

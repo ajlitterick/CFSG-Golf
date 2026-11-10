@@ -47,7 +47,6 @@ theorem sd_centralizer_s (n : ℕ) (hn : 4 ≤ n) (g : SemidihedralGroup n) (hg 
       rw [z_eq_element n hn3, s_eq_element n hn3, element_rotation_mul, add_zero]
 
 
-
 theorem sd_quarter_mem_of_index_two (n : ℕ) (hn : 4 ≤ n) (M : Subgroup (SemidihedralGroup n))
     (hM : M.index = 2) : r n ^ (half n / 2) ∈ M := by
   have h2 : r n ^ 2 ∈ M := Subgroup.sq_mem_of_index_two hM (r n)
@@ -605,15 +604,6 @@ section CosetSq
 
 open Subgroup CFSG QuaternionGroup CFSG.DisconnectedInvolutionGraph CFSG.DisconnectedInvolutionGraph.Helpers
 
-theorem quat_rot_cyclic (N : ℕ) [NeZero N] (Y : Subgroup (QuaternionGroup N))
-    (h : ∀ g ∈ Y, ∃ i, g = a i) : IsCyclic Y := by
-  have hle : Y ≤ Subgroup.zpowers (a 1 : QuaternionGroup N) := by
-    intro g hg
-    obtain ⟨i, rfl⟩ := h g hg
-    refine ⟨(i.val : ℤ), ?_⟩
-    simp only [zpow_natCast]
-    rw [a_one_pow, ZMod.natCast_zmod_val]
-  exact Subgroup.isCyclic_of_le hle
 
 theorem quat_top_of_a_one_xa (N : ℕ) [NeZero N] (Y : Subgroup (QuaternionGroup N))
     (h1 : (a 1 : QuaternionGroup N) ∈ Y) (j : ZMod (2 * N)) (hj : xa j ∈ Y) :

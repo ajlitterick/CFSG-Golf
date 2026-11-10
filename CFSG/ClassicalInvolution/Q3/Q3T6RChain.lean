@@ -169,7 +169,6 @@ theorem exists_conj_of_twin_pairs {K K' : Subgroup F} {z : F} (hK : Mem3 K z)
     _ = x⁻¹ * y * x := by rw [hh]
     _ = κ * κ' := by rw [hy]; group
 
-variable [IsSimpleGroup F]
 
 end Act
 

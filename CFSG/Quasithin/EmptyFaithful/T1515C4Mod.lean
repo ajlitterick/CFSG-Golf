@@ -54,8 +54,6 @@ theorem normOf_apply_of_mem {g : MulAut V} (hsq : ∀ v : V, v * v = 1) {w : V} 
   calc w * w * w = (w * w) * w := rfl
     _ = w := by rw [hsq, one_mul]
 
-theorem normOf_ker_apply {g : MulAut V} {w : V} (hw : w ∈ (normOf g).ker) :
-    w * g w * g (g w) = 1 := hw
 
 theorem fixOf_inf_ker {g : MulAut V} (hsq : ∀ v : V, v * v = 1) :
     fixOf g ⊓ (normOf g).ker = ⊥ := by

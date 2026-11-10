@@ -141,8 +141,6 @@ open CFSG.KS.SporSch.C11 MulAction CertificateChecks.KernelJ4Q
 open CFSG.Sporadic.SmallF2 (toVecD toVecD_apply)
 open CFSG.Sporadic.J4Schreier (app11)
 
-theorem PR_el5 (w : List ℤ) : PR (el5 w) (encR (wR w)) :=
-  PR_of ⟨(wR_enc w).1, rfl⟩ (Mx_el5 matFacts w)
 
 theorem PR_gE_q {n : ℕ} (hn : n < 12) : PR (gE n) (getN one QAs n) := by
   have h := qR_enc hn
@@ -311,14 +309,6 @@ theorem card_cent_E : Nat.card ↥(Eg uJ 11 ⊓ Subgroup.centralizer ({cE} : Set
   rw [← CC, CFSG.Sporadic.J4Schreier.fixCount] at h
   exact h
 
-theorem cE_ne_one' : cE ≠ 1 := by
-  intro h
-  have e := card_cent_E
-  rw [h] at e
-  have : Eg uJ 11 ⊓ Subgroup.centralizer ({(1 : J)} : Set J) = Eg uJ 11 := by
-    refine inf_eq_left.2 fun x _ => Subgroup.mem_centralizer_singleton_iff.2 (by simp)
-  rw [this, card_Eg_uJ matFacts] at e
-  norm_num at e
 
 end E
 

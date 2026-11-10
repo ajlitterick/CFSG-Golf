@@ -162,91 +162,6 @@ theorem input31_3_two {G : Type} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (
   exact ⟨W, input31_isEkIn_iff.2 ⟨hWR, hW.1, hW.2⟩,
     (Subgroup.normal_subgroupOf_iff_le_normalizer hWR).2 hNR⟩
 
-theorem input31_3_zero {G : Type} [Group G] [Finite G] {p : ℕ} (R : Subgroup G) :
-    ∃ E : Subgroup G, IsEkIn p 0 R E ∧ (E.subgroupOf R).Normal := by
-  refine ⟨⊥, input31_isEkIn_iff.2 ⟨bot_le, ⟨inferInstance, fun x hx => ?_⟩, by simp⟩, ?_⟩
-  · simp [Subgroup.mem_bot.1 hx]
-  · rw [Subgroup.bot_subgroupOf]
-    exact Subgroup.normal_bot
-
-theorem input31_3_one {G : Type} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) {R : Subgroup G}
-    (hR : IsPGroup p ↥R) (h1 : 1 ≤ CFSG.Open.pRank p R) :
-    ∃ E : Subgroup G, IsEkIn p 1 R E ∧ (E.subgroupOf R).Normal := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨E₁, hE₁R, hE₁, hE₁c⟩ := CFSG.SectionRank.exists_pRank hp.one_lt R
-  have hE₁ne : E₁ ≠ ⊥ := by
-    intro h
-    have hcard : Nat.card E₁ = 1 := by rw [h]; exact Subgroup.card_bot
-    have hle : p ^ 1 ≤ p ^ CFSG.Open.pRank p R := Nat.pow_le_pow_right hp.pos h1
-    rw [← hE₁c, hcard, pow_one] at hle
-    exact absurd hp.one_lt (by omega)
-  obtain ⟨⟨x, hxE⟩, hx1⟩ := Subgroup.ne_bot_iff_exists_ne_one.1 hE₁ne
-  haveI : Nontrivial ↥R :=
-    ⟨⟨⟨x, hE₁R hxE⟩, 1, fun h => hx1 (Subtype.ext (by
-      simpa using congrArg (fun r : ↥R => (r : G)) h))⟩⟩
-  haveI : Nontrivial (Subgroup.center ↥R) := IsPGroup.center_nontrivial hR
-  have hZ : IsPGroup p ↥(Subgroup.center ↥R) := hR.to_subgroup _
-  have hdvd : p ∣ Nat.card ↥(Subgroup.center ↥R) := by
-    rcases hZ.card_eq_or_dvd with h | h
-    · exact absurd h (Nat.card_eq_one_iff_unique.not.2 (by
-        intro ⟨hs, _⟩
-        exact (not_subsingleton _ hs)))
-    · exact h
-  obtain ⟨z, hz⟩ := exists_prime_orderOf_dvd_card' (G := ↥(Subgroup.center ↥R)) p hdvd
-  set g : G := ((z : ↥R) : G) with hg
-  have hgp : g ^ p = 1 := by
-    have h1 : ((z : ↥R) ^ p : ↥R) = 1 := by
-      have := pow_orderOf_eq_one (z : ↥R)
-      rwa [Subgroup.orderOf_coe z, hz] at this
-    have h2 := congrArg (Subtype.val : ↥R → G) h1
-    simpa using h2
-  have hgo : orderOf g = p := by
-    rw [hg, Subgroup.orderOf_coe (z : ↥R), Subgroup.orderOf_coe z, hz]
-  have hER : Subgroup.zpowers g ≤ R := Subgroup.zpowers_le.2 (z : ↥R).2
-  refine ⟨Subgroup.zpowers g, input31_isEkIn_iff.2 ⟨hER, CFSG.Open.isElemAbelian_zpowers hgp, ?_⟩, ?_⟩
-  · rw [Nat.card_zpowers, hgo, pow_one]
-  · refine (Subgroup.normal_subgroupOf_iff_le_normalizer hER).2 fun r hr => ?_
-    refine Subgroup.mem_normalizer_fintype fun y hy => ?_
-    obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.1 hy
-    have hc : (⟨r, hr⟩ : ↥R) * (z : ↥R) = (z : ↥R) * ⟨r, hr⟩ :=
-      Subgroup.mem_center_iff.1 z.2 ⟨r, hr⟩
-    have hcG : r * g = g * r := congrArg Subtype.val hc
-    have : r * g ^ n * r⁻¹ = g ^ n := by
-      have h' : Commute r g := hcG
-      rw [(h'.zpow_right n).eq]
-      group
-    rw [this]
-    exact Subgroup.zpow_mem _ (Subgroup.mem_zpowers g) n
-
-theorem input31_3_of_rankFourOdd
-    (hOdd : CFSG.LocalAnalysis.RankFourTheoremC.P5.GL83NormalElementaryRankFourOdd) :
-    Input31_3 := by
-  intro G _ _ p hp hp2 R hR k hk4 hkr
-  haveI : Fact p.Prime := ⟨hp⟩
-  have hk : k = 0 ∨ k = 1 ∨ k = 2 ∨ k = 3 ∨ k = 4 := by omega
-  rcases hk with rfl | rfl | rfl | rfl | rfl
-  · exact input31_3_zero R
-  · exact input31_3_one hp hR hkr
-  · exact input31_3_two hp hp2 hR hkr
-  · exact input31_3_three G p hp hp2 R hR hkr
-  · by_cases h3 : p = 3
-    · subst h3
-      obtain ⟨E, hER, hRE, hEel, hEc⟩ :=
-        CFSG.HardMathSupport.Timmesfeld.ComponentBalance.gl83NormalElementaryRankFour_holds G R hR
-          hkr
-      exact ⟨E, input31_isEkIn_iff.2 ⟨hER, hEel, hEc⟩,
-        (Subgroup.normal_subgroupOf_iff_le_normalizer hER).2 hRE⟩
-    · have h5 : 5 ≤ p := by
-        have h2 := hp.two_le
-        rcases Nat.lt_or_ge p 5 with h | h
-        · interval_cases p
-          · exact absurd rfl hp2
-          · exact absurd rfl h3
-          · exact absurd hp (by norm_num)
-        · exact h
-      obtain ⟨E, hER, hRE, hEel, hEc⟩ := hOdd G p hp h5 R hR hkr
-      exact ⟨E, input31_isEkIn_iff.2 ⟨hER, hEel, hEc⟩,
-        (Subgroup.normal_subgroupOf_iff_le_normalizer hER).2 hRE⟩
 
 end Bridges1
 
@@ -1125,54 +1040,11 @@ section Input2320
 
 open CFSG.HardMathSupport.Solomon.UniquenessMaximal
   (Input23_20 input23_20_proved gammaClBelow dQ mem_dQ InputL34Cover)
-open CFSG.HardMathSupport.Solomon.LocalBalance (barOf barAut)
 open CFSG.HardMathSupport.Solomon.Coordinator
   (conj_mem_gLAPPrimeCoreOf_of_mem_normalizer mem_centralizerQuot_iff_barAut_eq_one)
 
 namespace Bridges1
 
-theorem input23_20_W_gammaCl (hcov : InputL34Cover) {G : Type} [Group G] [Finite G]
-    {X K B : Subgroup G} (hK : GLAPComponent 3 X K)
-    (hL : IsLThreeFour (barOf 3 K ⧸ Subgroup.center (barOf 3 K))) (hBX : B ≤ X)
-    (hBel : CFSG.Open.IsElemAbelian 3 B) (hBN : B ≤ Subgroup.normalizer (K : Set G))
-    (hnot : ¬ ∀ x ∈ B, InducesInner 3 K x) :
-    K ≤ gammaClBelow B K ⊔ GLAPPrimeCoreOf 3 K := by
-  have hKbar : IsLThreeFour (↥K ⧸ GLAPPrimeCore 3 ↥K) ∨ IsSLThreeFour (↥K ⧸ GLAPPrimeCore 3 ↥K) :=
-    Lemma1111.barOf_L34_or_SL34 hcov hK hL
-  rcases input23_20_proved G X K B hK hKbar hBX hBel hBN with h | ⟨hin, -⟩
-  · exact h
-  · exfalso
-    refine hnot fun x hx => ?_
-    obtain ⟨k, hk, hy⟩ := hin x hx
-    have hkN : k ∈ Subgroup.normalizer (K : Set G) := Subgroup.le_normalizer hk
-    have hxN : x ∈ Subgroup.normalizer (K : Set G) := hBN hx
-    have hmem : k⁻¹ * x ∈ Subgroup.normalizer (K : Set G) :=
-      (Subgroup.normalizer _).mul_mem ((Subgroup.normalizer _).inv_mem hkN) hxN
-    have hNO : ∀ g ∈ Subgroup.normalizer (K : Set G),
-        g ∈ Subgroup.normalizer ((GLAPPrimeCoreOf 3 K : Subgroup G) : Set G) := by
-      intro g hg
-      rw [Subgroup.mem_normalizer_iff]
-      intro y
-      refine ⟨fun hy' => ?_, fun hy' => ?_⟩
-      · exact conj_mem_gLAPPrimeCoreOf_of_mem_normalizer hg hy'
-      · have := conj_mem_gLAPPrimeCoreOf_of_mem_normalizer
-          ((Subgroup.normalizer _).inv_mem hg) hy'
-        simpa [mul_assoc] using this
-    have hdQ : k⁻¹ * x ∈ dQ K := by
-      refine mem_dQ.2 ⟨hmem, hNO _ hmem, fun y hyK => ?_⟩
-      have h1 := hy y⁻¹ (K.inv_mem hyK)
-      have h2 := CFSG.HardMathSupport.Solomon.UniquenessMaximal.conj_mem_glaPPrimeCoreOf (p := 3)
-        (A := K) (a := y * k⁻¹) (K.mul_mem hyK (K.inv_mem hk)) h1
-      have e : y * k⁻¹ * (x * y⁻¹ * x⁻¹ * (k * y⁻¹ * k⁻¹)⁻¹) * (y * k⁻¹)⁻¹ =
-          y * (k⁻¹ * x) * y⁻¹ * (k⁻¹ * x)⁻¹ := by group
-      rw [e] at h2
-      exact h2
-    refine ⟨k, hk, ?_⟩
-    have hbar : barAut 3 K ⟨k⁻¹ * x, hmem⟩ = 1 :=
-      (mem_centralizerQuot_iff_barAut_eq_one 3 ⟨k⁻¹ * x, hmem⟩).1 hdQ
-    unfold centBar
-    exact Subgroup.mem_inf.2 ⟨Subgroup.mem_map.2 ⟨⟨k⁻¹ * x, hmem⟩, MonoidHom.mem_ker.2 hbar, rfl⟩,
-      Subgroup.mem_top _⟩
 
 end Bridges1
 

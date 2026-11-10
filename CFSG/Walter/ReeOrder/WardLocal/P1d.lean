@@ -172,13 +172,6 @@ theorem centralizer_AA {x : G} (hx : x ∈ AA S) :
   refine ⟨IsPGroup.of_card (n := 3 * (2 * k + 1)) ?_, hcx⟩
   rw [hcx, hq, ← pow_mul, mul_comm]
 
-include hA in
-theorem conj_mem_CC {n x : G} (hn : n ∈ Subgroup.normalizer (PP1 S : Set G))
-    (hx : x ∈ CC S hq hK hcT hG) : n * x * n⁻¹ ∈ CC S hq hK hcT hG := by
-  by_cases hx1 : x = 1
-  · rw [hx1, mul_one, mul_inv_cancel]; exact Subgroup.one_mem _
-  · exact AA_subset_CC hq hK hcT hG hA
-      (conj_mem_AA hn (mem_AA_of_mem_CC hq hK hcT hG hA hx hx1))
 
 include hq hK hcT hG hA in
 theorem card_N1 {x : G} (hx : x ∈ AA S) :

@@ -75,7 +75,6 @@ theorem sub_eq_add_V (x y : V) : x - y = x + y := by
   revert a b
   decide
 
-variable {A : V ≃ₗ[ZMod 2] V} {π : Equiv.Perm (Fin 1953)}
 
 end Main
 

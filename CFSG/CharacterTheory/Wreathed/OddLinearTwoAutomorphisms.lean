@@ -16,7 +16,6 @@ variable (F : Type*) [Field F] (V : Type*) [AddCommGroup V] [Module F V]
     ext v
     exact mul_smul (a : F) (b : F) v
 
-theorem scalarHom_apply (a : Fˣ) (v : V) : scalarHom F V a v = (a : F) • v := rfl
 
 theorem scalarHom_central : (scalarHom F V).range ≤ Subgroup.center (V ≃ₗ[F] V) := by
   rintro g ⟨a, rfl⟩
@@ -58,12 +57,6 @@ theorem matrixEquiv_scalar (b : Module.Basis (Fin 2) F V) (a : Fˣ) :
   congr 1
   simp [Fintype.linearCombination_apply]
 
-theorem scalarHom_det (hV : Module.finrank F V = 2)
-    (a : Fˣ) : (scalarHom F V a).det = a ^ 2 := by
-  apply Units.ext
-  have hs : (scalarHom F V a).toLinearMap = (a : F) • LinearMap.id := by ext; rfl
-  rw [LinearEquiv.coe_det, hs, LinearMap.det_smul, hV, LinearMap.det_id, mul_one]
-  rfl
 
 theorem imageSL_id_eq_ker_det :
     CFSG.Semidihedral.OddLinearNormals.imageSL (RingHom.id F) =
@@ -117,25 +110,6 @@ theorem normal_odd_is_scalar [Finite F] [FiniteDimensional F V]
   rw [e.apply_symm_apply] at hm
   exact (matrixEquiv_scalar F V b a).symm.trans hm
 
-variable {F V} in
-theorem mem_scalarHom_range_iff {g : V ≃ₗ[F] V} :
-    g ∈ (scalarHom F V).range ↔ ∃ a : Fˣ, ∀ v : V, g v = (a : F) • v := by
-  constructor
-  · rintro ⟨a, rfl⟩
-    exact ⟨a, scalarHom_apply F V a⟩
-  · rintro ⟨a, ha⟩
-    exact ⟨a, LinearEquiv.ext (fun v => (ha v).symm)⟩
-
-theorem normal_odd_scalar_unique [Finite F] [FiniteDimensional F V]
-    (hFodd : Odd (Nat.card F)) (hF : 3 ≤ Nat.card F)
-    (hV : Module.finrank F V = 2) (R : Subgroup (V ≃ₗ[F] V))
-    (hRnormal : R.Normal) (hRodd : Odd (Nat.card R))
-    (g : V ≃ₗ[F] V) (hg : g ∈ R) :
-    ∃! a : Fˣ, g = scalarHom F V a := by
-  obtain ⟨a, ha⟩ := normal_odd_is_scalar F V hFodd hF hV R hRnormal hRodd hg
-  refine ⟨a, ha.symm, ?_⟩
-  intro c hc
-  exact scalarHom_injective F V hV (hc.symm.trans ha.symm)
 
 theorem finite_automorphisms [Finite F] [FiniteDimensional F V]
     (hV : Module.finrank F V = 2) : Finite (V ≃ₗ[F] V) :=
@@ -167,25 +141,5 @@ theorem card_automorphisms [Finite F] [FiniteDimensional F V]
   rw [← Nat.card_congr (matrixEquiv F V (Module.finBasisOfFinrankEq F V hV)).toEquiv]
   exact card_matrix_two F
 
-theorem scalarImage_isCyclic [Finite F] (A : Subgroup Fˣ) :
-    IsCyclic (A.map (scalarHom F V)) := by
-  let f : A →* A.map (scalarHom F V) :=
-    ((scalarHom F V).comp A.subtype).codRestrict _ (fun a => ⟨a, a.property, rfl⟩)
-  apply isCyclic_of_surjective f
-  rintro ⟨g, a, ha, rfl⟩
-  exact ⟨⟨a, ha⟩, rfl⟩
 
-theorem original_two_dimensional_linear_automorphisms_scalar_normal_subgroups_and_order
-    [Finite F] [FiniteDimensional F V] (hFodd : Odd (Nat.card F))
-    (hF : 3 ≤ Nat.card F) (hV : Module.finrank F V = 2) :
-    Function.Injective (scalarHom F V) ∧
-      (scalarHom F V).range ≤ Subgroup.center (V ≃ₗ[F] V) ∧
-      (∀ a : Fˣ, ∀ v : V, scalarHom F V a v = (a : F) • v) ∧
-      (∀ a : Fˣ, (scalarHom F V a).det = a ^ 2) ∧
-      (∀ R : Subgroup (V ≃ₗ[F] V), R.Normal → Odd (Nat.card R) →
-        R ≤ (scalarHom F V).range) ∧
-      Nat.card (V ≃ₗ[F] V) = Nat.card F * (Nat.card F - 1) ^ 2 * (Nat.card F + 1) :=
-  ⟨scalarHom_injective F V hV, scalarHom_central F V,
-    scalarHom_apply F V, scalarHom_det F V hV,
-    normal_odd_is_scalar F V hFodd hF hV, card_automorphisms F V hV⟩
 end CFSG.Wreathed.OddLinearTwoAutomorphisms

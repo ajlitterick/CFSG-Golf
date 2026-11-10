@@ -137,20 +137,6 @@ theorem commA_permOfMat {l : ℕ → List ℕ} (hs : Spans d V l) {P X : ℕ}
   rw [commA, compA_permOfMat hX, compA_permOfMat hP]
   exact eqA_permOfMat hs (maps_mmul hX hP) (maps_mmul hP hX) (mmul_lt _ _) (mmul_lt _ _)
 
-theorem beq_permOfMat {l : ℕ → List ℕ} (hs : Spans d V l) {A B : ℕ}
-    (hA : ∀ v ∈ V, vmul d v A ∈ V) (hB : ∀ v ∈ V, vmul d v B ∈ V) (hAl : A < 2 ^ (d * d))
-    (hBl : B < 2 ^ (d * d)) : (permOfMat d V A == permOfMat d V B) = Nat.beq A B := by
-  rw [← eqA_permOfMat hs hA hB hAl hBl, Bool.eq_iff_iff, beq_iff_eq, eqA, allLt_iff]
-  constructor
-  · rintro h i -
-    rw [h, beq_self_eq_true]
-  · intro h
-    apply Array.ext (by rw [permOfMat_size, permOfMat_size])
-    intro i h1 h2
-    have hi : i < V.size := by rwa [permOfMat_size] at h1
-    have := h i hi
-    rw [beq_iff_eq, getElem!_pos _ i h1, getElem!_pos _ i h2] at this
-    exact this
 
 end CFSG.RankThree.Native.F2
 

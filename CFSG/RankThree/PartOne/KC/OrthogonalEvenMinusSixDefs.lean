@@ -258,10 +258,6 @@ theorem EvenNormPlane.sixForm_sixElement (a c d f₀ : K) (b : E) :
   rw [D.sixElement_eq_sixCoord, D.sixForm_sixCoord, evenNormTailForm_apply]
   simp [Fin.sum_univ_two]
 
-theorem EvenNormPlane.exists_sixElement_eq (X : D.sixSpace) :
-    ∃ (a c d f₀ : K) (b : E), X = D.sixElement a c d f₀ b := by
-  obtain ⟨a, c, d, f₀, b, hX⟩ := (D.mem_sixSpace_iff X.1).1 X.2
-  exact ⟨a, c, d, f₀, b, Subtype.ext hX⟩
 
 end Coordinates
 

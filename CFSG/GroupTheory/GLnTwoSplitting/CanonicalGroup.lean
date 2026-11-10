@@ -306,9 +306,6 @@ variable (X) in
 
 variable {hE : 6 ≤ finrank (ZMod 2) E} {e₀ : E} {he₀ : e₀ ≠ 0}
 
-theorem mem_canonicalGroup {g : G} : g ∈ X.canonicalGroup hE he₀ ↔ (X.EqMod e₀ 1 g ∨
-    ∃ (ψ : Dual (ZMod 2) E) (hψ : ψ e₀ = 0), ψ ≠ 0 ∧ X.IsCanonical hψ g) :=
-  Iff.rfl
 
 theorem canonicalGroup_mul_self {g : G} (hg : g ∈ X.canonicalGroup hE he₀) : g * g = 1 := by
   rcases hg with ⟨w, -, rfl⟩ | ⟨ψ, hψ, hψ0, hg⟩

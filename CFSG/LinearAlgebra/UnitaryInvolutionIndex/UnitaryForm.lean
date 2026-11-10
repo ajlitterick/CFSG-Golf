@@ -21,20 +21,11 @@ variable {F : Type*} [Field F] {σ : F →+* F} {n : Type*} [Fintype n] [Decidab
     simp only [mulVec_mulVec, ← Units.val_mul, mul_inv_cancel, Units.val_one, one_mulVec] at this
     exact this.symm
 
-theorem mem_unitaryGroup {h : (n → F) →ₛₗ[σ] (n → F) →ₗ[F] F} {g : GL n F} :
-    g ∈ unitaryGroup h ↔
-      ∀ v w, h ((g : Matrix n n F) *ᵥ v) ((g : Matrix n n F) *ᵥ w) = h v w :=
-  Iff.rfl
 
 @[expose] def specialUnitaryGroup (h : (n → F) →ₛₗ[σ] (n → F) →ₗ[F] F) :
     Subgroup (SpecialLinearGroup n F) :=
   (unitaryGroup h).comap SpecialLinearGroup.toGL
 
-theorem mem_specialUnitaryGroup {h : (n → F) →ₛₗ[σ] (n → F) →ₗ[F] F}
-    {g : SpecialLinearGroup n F} :
-    g ∈ specialUnitaryGroup h ↔
-      ∀ v w, h ((g : Matrix n n F) *ᵥ v) ((g : Matrix n n F) *ᵥ w) = h v w :=
-  Iff.rfl
 
 @[expose] def unitaryScalars (h : (n → F) →ₛₗ[σ] (n → F) →ₗ[F] F) :
     Subgroup (specialUnitaryGroup h) where

@@ -38,21 +38,6 @@ theorem isChevalleyOver_of_mulEquiv {p : ℕ} {A B : Type} [Group A] [Group B] (
     · obtain ⟨e'⟩ := h
       exact .inr ⟨e.symm.trans e'⟩
 
-theorem theorem1_of_isTwoQuasisimple (hT1 : Harris82Theorem1Input) {Y : Type} [Group Y]
-    [Finite Y] (hY : IsTwoQuasisimple Y) {z : Y} (hz : orderOf z = 2) {J : Subgroup Y}
-    (hJ : IsTwoComponentIn J (centralizer {z})) (hzJ : z ∈ J) {p : ℕ} (hp : p.Prime)
-    (hp2 : p ≠ 2) (hM : IsMTypeSchur p ↥J) :
-    IsChevalleyOver p (Y ⧸ pPrimeCore 2 Y) ∨
-      Nonempty (Y ⧸ pPrimeCore 2 Y ≃* ↥Blueprint.NativeSporadic.M11) := by
-  have htop := oPrimeResidual_two_eq_top hY.1
-  let e : ↥(GH74.GLS.oPrimeResidual 2 Y) ≃* Y :=
-    (MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv
-  have hN : IsTwoQuasisimple ↥(GH74.GLS.oPrimeResidual 2 Y) :=
-    isTwoQuasisimple_of_mulEquiv e.symm hY
-  rcases hT1 Y hN z hz J (.inl hJ) hzJ p hp hp2 hM with h | h
-  · exact .inl (isChevalleyOver_of_mulEquiv
-      (QuotientGroup.congr _ _ e (pPrimeCore_map_iso 2 e)) h)
-  · exact .inr h
 
 theorem lieModel_of_theorem1 {Y : Type} [Group Y] [Finite Y] (hY : IsTwoQuasisimple Y) {p : ℕ}
     (hc : ∃ c ∈ center (Y ⧸ pPrimeCore 2 Y), c ≠ 1)

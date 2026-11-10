@@ -80,23 +80,6 @@ universe u v w
 
 namespace CFSG.Open
 
-theorem _root_.CFSG.Milestones.ct_even_small_lie_standard_frontier
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
-    (L : Subgroup G) (hL : standardComponentIsStandard L)
-    (hcore : ∀ t : G, orderOf t = 2 →
-      standardComponentOddCore (Subgroup.centralizer ({t} : Set G)) = ⊥)
-    (S : Sylow 2 (Subgroup.centralizer (L : Set G)))
-    (hS : IsCyclic (S : Subgroup (Subgroup.centralizer (L : Set G))))
-    (htype : Blueprint.Recognition.Exact.EvenStandardType (L ⧸ Subgroup.center L))
-    (hexc : ¬ Blueprint.Recognition.Exact.EvenStandardException (L ⧸ Subgroup.center L))
-    (hres : Blueprint.Recognition.Exact.EvenStandardResidual L)
-    (hbcd : Blueprint.Recognition.Exact.ResidualB L ∨ Blueprint.Recognition.Exact.ResidualC L ∨
-      Blueprint.Recognition.Exact.ResidualD L) :
-    Nat.card G ∈ standardComponentEvenSporadicOrders :=
-  CFSG.EvenSmallLie.FrontierFinal.frontier_of_epsilonOne
-    CFSG.EvenSmallLie.Child3.gapEpsilonOne G hnonab hK L hL hcore S hS htype hexc hres hbcd
 
 end CFSG.Open
 

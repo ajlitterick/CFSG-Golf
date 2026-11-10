@@ -205,11 +205,6 @@ theorem mem_parabolic_K_iff'
     w ∈ ncs.parabolic E6Folded.K ↔ weylPerm w ∈ E6Folded.WK :=
   mem_parabolic_iff_weylPerm E6Folded.K w
 
-theorem mem_parabolic_J_iff
-    (w : NW) :
-    w ∈ ncs.parabolic E6Folded.J ↔ wsmul w E6Folded.θ = E6Folded.θ := by
-  rw [mem_parabolic_J_iff', E6Folded.mem_WJ_iff_stabilizer]
-  refine ⟨fun h => congrArg Subtype.val h.2, fun h => ⟨mem_W_weylPerm w, Subtype.ext h⟩⟩
 
 @[expose] def level
     (w : NW) : ℤ :=

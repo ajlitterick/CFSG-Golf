@@ -27,9 +27,6 @@ theorem strongEmbeddingInput_of_asc73 (hA : Asc73Input) (hP : DisconnectedNoPola
   have := hS.finite
   exact hA G D hS.normal hS.root hS.gen (hP G D hS hdisc hsimp hfaith hM2) hdisc d hd
 
-theorem simpleCaseInput_of_asc73 (hA : Asc73Input) (hP : DisconnectedNoPolarInput) :
-    SimpleCaseInput.{0} :=
-  simpleCaseInput_of_strongEmbedding (strongEmbeddingInput_of_asc73 hA hP)
 
 theorem commConnected_of_asc73 (hA : Asc73Input) (hP : DisconnectedNoPolarInput) {G : Type}
     [Group G] {D : Set G} (h : Hyp G D) : Closure.CommConnected D :=

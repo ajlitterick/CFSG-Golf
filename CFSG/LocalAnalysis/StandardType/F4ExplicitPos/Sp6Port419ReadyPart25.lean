@@ -135,7 +135,6 @@ open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.LieType.Steinberg.Adjo
 
 namespace CFSG.StandardType.F4ExplicitPos.RootBaseChange
 
-variable {τ : Tag} {R S : Type} [Field R] [Field S]
 
 end CFSG.StandardType.F4ExplicitPos.RootBaseChange
 end

@@ -110,48 +110,6 @@ theorem not_swap {x u v : G} {a : ℕ} (hx : x ^ 3 ^ a = 1) (huv : u ≠ v) (hu 
   apply huv
   rw [← hu, hc.eq, mul_inv_cancel_right]
 
-theorem exists_central_involution [Finite G] {T : Subgroup G} (hT : IsPGroup 2 T) (hne : T ≠ ⊥) :
-    ∃ z ∈ T, orderOf z = 2 ∧ ∀ x ∈ T, z * x = x * z := by
-  haveI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  haveI : Nontrivial T := (Subgroup.nontrivial_iff_ne_bot T).2 hne
-  haveI := hT.center_nontrivial
-  obtain ⟨n, hn⟩ := IsPGroup.iff_card.1 (hT.to_subgroup (Subgroup.center T))
-  have hn0 : n ≠ 0 := by
-    rintro rfl
-    rw [pow_zero] at hn
-    obtain ⟨a, b, hab⟩ := (inferInstance : Nontrivial (Subgroup.center T))
-    exact hab (Subsingleton.elim (h := (Nat.card_eq_one_iff_unique.1 hn).1) a b)
-  obtain ⟨g, hg⟩ := exists_prime_orderOf_dvd_card' (G := Subgroup.center T) 2
-    (by rw [hn]; exact dvd_pow_self 2 hn0)
-  refine ⟨((g : T) : G), (g : T).2, by rw [Subgroup.orderOf_coe, Subgroup.orderOf_coe, hg],
-    fun x hx => ?_⟩
-  exact congrArg Subtype.val (Subgroup.mem_center_iff.1 g.2 ⟨x, hx⟩).symm
-
-theorem conj_mem_inf {E D T : Subgroup G} (hE : IsElemAbelian 3 E) (hDE : D ≤ E)
-    (hET : E ≤ Subgroup.normalizer (T : Set G)) {a w : G} (ha : a ∈ E)
-    (hw : w ∈ T ⊓ Subgroup.centralizer (D : Set G)) :
-    a * w * a⁻¹ ∈ T ⊓ Subgroup.centralizer (D : Set G) := by
-  refine Subgroup.mem_inf.2 ⟨(Subgroup.mem_normalizer_iff.1 (hET ha) w).1 hw.1, ?_⟩
-  rw [Subgroup.mem_centralizer_iff]
-  intro δ hδ
-  have h1 : a * δ = δ * a := comm_of_isElemAbelian' hE ha (hDE hδ)
-  have h2 : δ * w = w * δ := Subgroup.mem_centralizer_iff.1 hw.2 δ hδ
-  have h3 : δ * a⁻¹ = a⁻¹ * δ := by
-    rw [mul_inv_eq_iff_eq_mul, mul_assoc, ← h1, inv_mul_cancel_left]
-  calc δ * (a * w * a⁻¹) = a * (δ * w) * a⁻¹ := by
-        rw [show δ * (a * w * a⁻¹) = δ * a * w * a⁻¹ by group, ← h1]; group
-    _ = a * w * (δ * a⁻¹) := by rw [h2]; group
-    _ = a * w * a⁻¹ * δ := by rw [h3]; group
-
-theorem le_normalizer_inf {E D T : Subgroup G} (hE : IsElemAbelian 3 E) (hDE : D ≤ E)
-    (hET : E ≤ Subgroup.normalizer (T : Set G)) :
-    E ≤ Subgroup.normalizer ((T ⊓ Subgroup.centralizer (D : Set G) : Subgroup G) : Set G) := by
-  intro a ha
-  rw [Subgroup.mem_normalizer_iff]
-  intro w
-  refine ⟨fun hw => conj_mem_inf hE hDE hET ha hw, fun hw => ?_⟩
-  have := conj_mem_inf hE hDE hET (E.inv_mem ha) hw
-  rwa [inv_inv, show a⁻¹ * (a * w * a⁻¹) * a = w by group] at this
 
 theorem le_centralizer_of_closed {E D T : Subgroup G} (hE : IsElemAbelian 3 E) (hDE : D ≤ E)
     (hET : E ≤ Subgroup.normalizer (T : Set G)) (hT : IsPGroup 2 T)

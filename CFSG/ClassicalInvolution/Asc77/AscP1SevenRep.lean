@@ -97,7 +97,6 @@ theorem conj_involution (ρ σ : Rep Ω W) (hne : ρ.K ≠ σ.K) (hnot : σ.K �
     refine ⟨W.inv_mem hxW, ?_⟩
     rw [inv_pow, hx, inv_one]
 
-theorem mem_W4 {x : G} : x ∈ c.W4 ↔ x ∈ W ∧ x ^ 4 = 1 := Iff.rfl
 
 theorem W4_le : c.W4 ≤ W := fun _ hx => hx.1
 

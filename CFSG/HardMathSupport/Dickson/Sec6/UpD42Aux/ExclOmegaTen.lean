@@ -574,19 +574,6 @@ theorem reflection_apply_self_of_char_two {m : V} [Invertible (Q m)] :
       _ = 0 := by rw [zero_smul]
   exact neg_eq_iff_add_eq_zero.mpr h2
 
-omit [Finite K] in
-theorem reflection_not_mem_omegaGroup
-    (hQ : (QuadraticMap.polarBilin Q).Nondegenerate) {m : V} [Invertible (Q m)] :
-    TauCeti.QuadraticMap.reflection Q m ∉
-      CFSG.RankThree.OrthogonalInvolutions.omegaGroup Q hQ := by
-  intro h
-  have hEven : Even (Module.finrank K
-      (CFSG.RankThree.OrthogonalInvolutions.commSpace (TauCeti.QuadraticMap.reflection Q m))) := h.2
-  have h1 : Module.finrank K
-      (CFSG.RankThree.OrthogonalInvolutions.commSpace (TauCeti.QuadraticMap.reflection Q m)) = 1 :=
-    CFSG.RankThree.OrthogonalInvolutions.finrank_commSpace_reflection hQ m
-  rw [h1] at hEven
-  norm_num at hEven
 
 theorem isCompl_orthPerp_fixedSpace {K : Type} [Field K] [Finite K] [CharP K 2] {V : Type}
     [AddCommGroup V] [Module K V] [FiniteDimensional K V] {Q : QuadraticForm K V}

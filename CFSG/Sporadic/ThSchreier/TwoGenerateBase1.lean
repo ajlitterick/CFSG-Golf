@@ -60,8 +60,6 @@ theorem conj_mem_centralizer_a
 
 section Facts
 
-variable {c : ℕ} (hC : CertFacts c) (hS : ThScanFacts)
-include hC hS
 
 end Facts
 

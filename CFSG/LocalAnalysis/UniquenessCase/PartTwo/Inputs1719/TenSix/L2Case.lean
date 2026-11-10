@@ -459,14 +459,6 @@ private theorem false_of_card_eight {Y L : Subgroup (MulAut W)} {K : Type} [Grou
   have htrH : Abar ≤ pCoreOf 2 H := htr
   exact habar_prop H hAH hHle hmid htrH
 
-private theorem le_three_of_card_pow_eight {K : Type} [Group K] {F : Type} [Field F] [Finite F]
-    (hcard8 : Nat.card F = 8) (e : K ≃* L2 F) {Abar : Subgroup (MulAut K)}
-    (hAbar : IsElemAbelian 2 Abar) {n : ℕ} (hcard : Nat.card Abar = 2 ^ n) : n ≤ 3 := by
-  have h8 := TenSix.card_le_eight_of_isElemAbelian_eight (K := K) hcard8 e hAbar
-  rw [hcard] at h8
-  have h23 : (2 : ℕ) ^ 3 = 8 := by norm_num
-  rw [← h23] at h8
-  exact (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp h8
 
 private theorem aParam_le_two {Y L : Subgroup (MulAut W)} {K : Type} [Group K] [Finite K]
     {F : Type} [Field F] [Finite F] (hFld : L2Field F) (e : K ≃* L2 F)
@@ -553,31 +545,6 @@ private theorem aParam_eq_one {Y L : Subgroup (MulAut W)} {K : Type} [Group K] [
       exact ⟨by norm_num, ⟨_, hmem⟩⟩
   rw [E3.aParam, if_pos hEvenY, hset, csSup_singleton]
 
-private theorem aParam_le_three_eight {Y : Subgroup (MulAut W)} {K : Type} [Group K]
-    [Finite K] {F : Type} [Field F] [Finite F] (hcard8 : Nat.card F = 8) (e : K ≃* L2 F)
-    (ψ : ↥Y →* MulAut K) (hodd : Odd (Nat.card ψ.ker)) :
-    E3.aParam Y ≤ 3 := by
-  classical
-  by_cases hev : Even (Nat.card Y)
-  · rw [E3.aParam, if_pos hev]
-    by_cases hne : {k : ℕ | 0 < k ∧ (E3.aSet k Y).Nonempty}.Nonempty
-    · refine csSup_le hne ?_
-      rintro k ⟨hk, A, hA⟩
-      have hA2 : IsPGroup 2 A := E3.isPGroup_of_isElemAbelian2 hA.2.2.1
-      obtain ⟨n, hAn⟩ := (IsPGroup.iff_card (p := 2)).mp hA2
-      have hkn : k ≤ n := le_of_mem_aSet_card hA hAn
-      have hA'ea : IsElemAbelian 2 (A.subgroupOf Y) :=
-        CFSG.Open.IsElemAbelian.subgroupOf (isElemAbelian_of_isElemAbelian2 hA.2.2.1) Y
-      have hAbar_ea : IsElemAbelian 2 ((A.subgroupOf Y).map ψ) :=
-        CFSG.Open.IsElemAbelian.map hA'ea ψ
-      have hAbar_card : Nat.card ((A.subgroupOf Y).map ψ) = 2 ^ n := by
-        rw [card_map_subgroupOf ψ hodd hA2 hA.1, hAn]
-      have hn3 : n ≤ 3 := le_three_of_card_pow_eight hcard8 e hAbar_ea hAbar_card
-      omega
-    · rw [Set.not_nonempty_iff_eq_empty.mp hne, csSup_empty]
-      exact Nat.zero_le 3
-  · rw [E3.aParam_of_odd hev]
-    exact Nat.zero_le 3
 
 theorem w4Lem10_6_psl2 (hW : ∀ w : W, w ^ 2 = 1) {Y L : Subgroup (MulAut W)} {p e : ℕ}
     (hLY : L ≤ Y) (hLn : (L.subgroupOf Y).Normal) (hF : Fstar Y = L) (hLq : IsQuasisimple ↥L)
@@ -623,17 +590,5 @@ theorem w4Lem10_6_psl2 (hW : ∀ w : W, w ^ 2 = 1) {Y L : Subgroup (MulAut W)} {
     exact aParam_eq_one hFld eL (TenSix.quotAct Y L hLn) hodd hmap hsimple h9' hW hinv
   · exact aParam_le_two hFld eL (TenSix.quotAct Y L hLn) hodd hmap hsimple hW
 
-theorem w4Lem10_6_psl2_eight {Y L : Subgroup (MulAut W)}
-    (hLY : L ≤ Y) (hLn : (L.subgroupOf Y).Normal) (hF : Fstar Y = L) (hLq : IsQuasisimple ↥L)
-    (hO2 : O2Trivial L) (hM : LieModel (↥L ⧸ Subgroup.center ↥L) .PSL 2 2 3) :
-    E3.aParam Y ≤ 3 := by
-  obtain ⟨hp, he1, h2, h3, F, hField, hFin, hcard, ⟨e₁⟩⟩ :=
-    CFSG.ComponentClassification.AutL2Facts.lieModel_psl2_data hM
-  have hcard8 : Nat.card F = 8 := by rw [hcard]; norm_num
-  have e₁' : (↥L ⧸ Subgroup.center ↥L) ≃* CFSG.GorensteinWalter.PSL2 F := e₁
-  obtain ⟨e₂⟩ := TenSix.nonempty_quotL_equiv hLY
-  let eL := e₂.trans (e₁'.trans (L2.equivPSL F).symm)
-  have hodd := TenSix.odd_card_ker_quotAct hLY hLn hF hLq hO2
-  exact aParam_le_three_eight hcard8 eL (TenSix.quotAct Y L hLn) hodd
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719

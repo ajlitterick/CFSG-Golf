@@ -43,11 +43,6 @@ theorem coxeterM_G2_one_zero
   rw [CoxeterMatrix.symmetric]
   exact coxeterM_G2_zero_one
 
-theorem card_coxeterMatrix_G2 :
-    Nat.card (coxeterMatrix (g2Shape X).isFiniteType).Group = 12 := by
-  have h := card_coxeterGroup_fin_two (coxeterMatrix (g2Shape X).isFiniteType)
-  rw [coxeterM_G2_zero_one] at h
-  omega
 
 theorem hexT_le_hexN : ⨆ i, H i ≤ weylN n H := le_sup_left
 
@@ -55,8 +50,6 @@ variable (hd : G2Data X n H)
 
 include hd
 
-theorem hexB_inf_hexN : borel (g2Shape X) H ⊓ weylN n H = ⨆ i, H i :=
-  borel_inf_weylN hd.ct hd.ext
 
 theorem hexT_conj_mem {m h : K} (hm : m ∈ weylN n H) (hh : h ∈ ⨆ i, H i) :
     m * h * m⁻¹ ∈ ⨆ i, H i :=

@@ -149,9 +149,5 @@ theorem commuting_gen_of_isWeakTI_of (hΔ : IsWeakTI R Δ) : Commuting (gen Δ) 
 
 end WeakTI
 
-theorem commuting_gen_of_isWeakTI (h : Hyp G R) {Δ : Set (Subgroup G)} (hΔ : IsWeakTI R Δ) :
-    Commuting (gen Δ) (gen Δ) := by
-  have := h.finite
-  exact commuting_gen_of_isWeakTI_of h.root h.noIsolated h.nondeg hΔ
 
 end CFSG.Timmesfeld.ARS

@@ -119,11 +119,6 @@ variable (f) in
   mul_mem' := fun ha hb e he => (ha e he).mul_right (hb e he)
   inv_mem' := fun ha e he => (ha e he).inv_right
 
-omit [Group G] in
-theorem mem_diagCentU {S : Set G} {δ : G → Fin (m + 1) → Kˣ}
-    {z : ↥(unitarySU 2 f K (m + 1))} :
-    z ∈ diagCentU f S δ ↔ ∀ e ∈ S, Commute (diagHom (m + 1) (δ e)) (z : GL (Fin (m + 1)) K) :=
-  Iff.rfl
 
 omit [Group G] in
 theorem eq_of_mem_diagCentU {S : Set G} {δ : G → Fin (m + 1) → Kˣ}

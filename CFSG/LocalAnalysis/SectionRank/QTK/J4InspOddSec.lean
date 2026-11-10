@@ -18,9 +18,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Assembly.LowTwoRank
 @[expose] def OddCharSectionalTwoRankQTK : Prop :=
   ∀ (S : Type) [Group S] [Finite S], OddCharList S → CFSG.GH74.SectionalTwoRankLE S 8
 
-theorem oddCharTwoRankQTK_of_sectional (h : OddCharSectionalTwoRankQTK) : OddCharTwoRankQTK := by
-  intro S _ _ hB
-  simpa only [CFSG.Open.twoRank] using (h S hB).twoRank_le
 
 theorem two_pow_nine_le_card_frattini (hFM : FaithfulL34ModDim) {L : Type} [Group L] [Finite L]
     (Q : Subgroup L) [Q.Normal] (hQ : IsPGroup 2 ↥Q)
@@ -74,40 +71,6 @@ theorem odd_branch_false_of_sectional (hSec : OddCharSectionalTwoRankQTK) (hFM :
   norm_num at h9 hcard
   omega
 
-theorem j4ListInspect_of_sectional
-    (hFM : FaithfulL34ModDim) (hChar2 : Char2LeviFactorsRank2) (hL34Levi : L34NotLeviFamily)
-    (hSec : OddCharSectionalTwoRankQTK) (hSp6 : Sp6TwoOrder) : J4ListInspect := by
-  unfold J4ListInspect
-  intro S _ _ hS L _ _ j hj hperf Q _ hQ hPSL hnt
-  unfold QTKSimpleList at hS
-  have h15 := two_pow_fifteen_dvd_card hFM j hj Q hQ hperf hPSL hnt
-  rcases hS with hA | hB | hC | hD | hE
-  · obtain ⟨n, h5, h9, ⟨e⟩⟩ := hA
-    exact absurd h15 (not_two_pow_fifteen_dvd_alt h5 h9 e)
-  · exact (odd_branch_false_of_sectional hSec hFM hB j hj Q hQ hperf hPSL hnt).elim
-  · exact (char2_branch_false hChar2 hL34Levi hC j hj Q hQ hperf hPSL hnt).elim
-  · rcases hD with ⟨n, hn, hPSLn⟩ | hPSp
-    · exact absurd h15 (not_two_pow_fifteen_dvd_psl_four_five_two hn hPSLn)
-    · rw [hSp6 S hPSp] at h15
-      norm_num at h15
-  · obtain ⟨s, hs, ⟨e⟩⟩ := hE
-    by_cases hJ : s = .J4
-    · subst hJ
-      obtain ⟨b⟩ := CFSG.Sporadic.Bridge.J4.nonempty_mulEquiv
-      exact ⟨e.trans b⟩
-    · exfalso
-      have hs' : s = .M11 ∨ s = .M12 ∨ s = .M22 ∨ s = .M23 ∨ s = .M24 ∨ s = .J1 ∨ s = .J2 ∨
-          s = .J3 ∨ s = .HS ∨ s = .He ∨ s = .Ru ∨ s = .McL := by
-        tauto
-      have hc : Nat.card S = Nat.card (CFSG.Blueprint.NativeSporadic.Carrier s) :=
-        Nat.card_congr e.toEquiv
-      rw [hc] at h15
-      exact not_two_pow_fifteen_dvd_sporadic s hs' h15
-
-theorem j4ListInspect_of_char2_sectional
-    (hChar2 : Char2LeviFactorsRank2) (hSec : OddCharSectionalTwoRankQTK) : J4ListInspect :=
-  j4ListInspect_of_sectional faithfulL34ModDim_holds hChar2 l34NotLeviFamily_holds hSec
-    sp6TwoOrder_holds
 
 end CFSG.SectionRank.QTK
 

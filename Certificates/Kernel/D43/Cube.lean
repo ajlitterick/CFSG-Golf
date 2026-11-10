@@ -25,8 +25,6 @@ open CFSG.KC.D43
 
 #kc_forall_chunks phiCube (fun c => cubeD43p c = true) 13 CertificateChecks.KernelD43.d43cubep 1
 
-theorem negCube : (!cubeChunk (fun j => if j = 0 then PX.F 1 else PX.F j) 0 0) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelD43
 

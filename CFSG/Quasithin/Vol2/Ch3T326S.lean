@@ -131,26 +131,5 @@ end Conclusions
                 (Subgroup.normalizer (conjClosure L T : Set G)))) ⊤ ⊥) ∨
           Concl326C3 T L V₀)
 
-private theorem conjugate_one_aux {G : Type} [Group G] (V : Subgroup G) :
-    CFSG.conjugate V 1 = V := by
-  ext x
-  simp [CFSG.conjugate]
-
-theorem concl326_imp_C (h : Stmt3_2_6) : Stmt3_2_6C := by
-  intro G _ _ T L V₀ hfsu hne
-  obtain ⟨hV, hVM, hq, hc⟩ := h G T L V₀ hfsu hne
-  refine ⟨hV, hVM, hq, ?_⟩
-  rcases hc with h1 | h2 | ⟨ha, hb, hq', hci | ⟨hA, hVeq, hs, hall, hcard⟩ | hiii⟩
-  · exact Or.inl h1
-  · exact Or.inr (Or.inl h2)
-  · refine Or.inr (Or.inr ⟨⟨ha, hb, hq'⟩, Or.inl ⟨1, T.one_mem, ?_, hci.2⟩⟩)
-    rw [conjugate_one_aux]
-    exact hci.1
-  · refine Or.inr (Or.inr ⟨⟨ha, hb, hq'⟩, Or.inr (Or.inl ⟨hA, hVeq, hs, ⟨1, T.one_mem, ?_⟩,
-      hcard⟩)⟩)
-    intro s hsT hsn
-    rw [conjugate_one_aux]
-    exact hall s hsT hsn
-  · exact Or.inr (Or.inr ⟨⟨ha, hb, hq'⟩, Or.inr (Or.inr (Or.inl hiii))⟩)
 
 end CFSG.Quasithin.H13

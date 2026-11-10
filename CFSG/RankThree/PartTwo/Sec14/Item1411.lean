@@ -59,11 +59,6 @@ theorem exists_meet_of_not_isConjIn {p : ℕ} (hp : p.Prime) (hp3 : p ≠ 3) (hA
   exact exists_ne_one_inf_centralizer_ne_bot hA hS0 hT0 hS.prop.1.1.1.2.2 hT.prop.1.1.1.2.2
     (hcop S hS.prop) (hcop T hT.prop)
 
-theorem rank3II_14_17_1 (hA : IsE27 A) {X S T : Subgroup G}
-    (hS : S ∈ scriptQPiStar A LB ⊤ (piOf 2)) (hT : T ∈ scriptQPiStar A LB ⊤ (piOf 2))
-    (hST : ¬ IsConjIn X S T) :
-    ∃ a ∈ A, a ≠ 1 ∧ S ⊓ Subgroup.centralizer {a} ≠ ⊥ ∧ T ⊓ Subgroup.centralizer {a} ≠ ⊥ :=
-  exists_meet_of_not_isConjIn Nat.prime_two (by norm_num) hA hS hT hST
 
 theorem normalizer_ne_top_of_isPGroup (hsimp : IsSimpleGroup G)
     (hnab : ∃ a b : G, a * b ≠ b * a) {p : ℕ} [Fact p.Prime] {D : Subgroup G} (hD : D ≠ ⊥)
@@ -162,17 +157,6 @@ theorem rank3II_14_11_2_reduction (hsimp : IsSimpleGroup G) (hnab : ∃ a b : G,
   rank3II_14_11_reduction hsimp hnab hA hnat
     ((pPrimeCoreOf_le 3 _).trans (Subgroup.centralizer_le_normalizer _)) hloc hS hT
 
-theorem rank3II_17_24_2_reduction {p : ℕ} [Fact p.Prime] (hp3 : p ≠ 3)
-    (hsimp : IsSimpleGroup G) (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hA : IsE27 A) (hnat : IsNaturalFamily A LB)
-    (hloc : ∀ Y ∈ scriptY A, ∀ S ∈ scriptQPiStar A LB Y (piOf p),
-      ∀ T ∈ scriptQPiStar A LB Y (piOf p),
-        IsConjIn (pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G)) ⊓ Y) S T)
-    {S T : Subgroup G} (hS : S ∈ scriptQPiStar A LB ⊤ (piOf p))
-    (hT : T ∈ scriptQPiStar A LB ⊤ (piOf p)) :
-    IsConjIn (pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G))) S T :=
-  isConjIn_of_local_scriptY hp3 hsimp hnab hA hnat
-    ((pPrimeCoreOf_le 3 _).trans (Subgroup.centralizer_le_normalizer _)) hloc hS hT
 
 theorem rank3II_14_15_reduction (hnat : IsNaturalFamily A LB) {X : Subgroup G}
     (hXA : X ≤ Subgroup.normalizer (A : Set G))

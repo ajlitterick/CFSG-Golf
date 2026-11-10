@@ -59,13 +59,6 @@ section Minus
 
 variable {K : Type} [Field K] {b c : K}
 
-private lemma pi_single_inl_ne_zero_L19 (k : ℕ) :
-    (Pi.single (Sum.inl (⟨0, by omega⟩ : Fin ((k + 3) - 1))) (1 : K) :
-      Fin ((k + 3) - 1) ⊕ Fin ((k + 3) - 1) ⊕ Fin 2 → K) ≠ 0 := by
-  intro h
-  have h1 : (1 : K) = 0 := by
-    simpa using congrFun h (Sum.inl (⟨0, by omega⟩ : Fin ((k + 3) - 1)))
-  exact one_ne_zero h1
 
 private lemma map_span_singleton_iff_L19 {V : Type} [AddCommGroup V] [Module K V]
     (e : V ≃ₗ[K] V) {v : V} (hv : v ≠ 0) :

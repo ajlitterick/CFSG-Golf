@@ -16,12 +16,6 @@ universe u v w x
 variable {G : Type u} {F : Type v} {Ω : Type w} {Ξ : Type x}
 variable [Group G] [Group F]
 
-theorem quotient_stabilizer_identification_smul {A B : Subgroup G}
-    (h : A = B) (g : G) (z : G ⧸ A) :
-    Subgroup.quotientEquivOfEq h (g • z) =
-      g • Subgroup.quotientEquivOfEq h z := by
-  induction z using Quotient.inductionOn with
-  | h z => rfl
 
 theorem transitive_action_equiv_of_stabilizer_eq
     [MulAction G Ω] [MulAction G Ξ]

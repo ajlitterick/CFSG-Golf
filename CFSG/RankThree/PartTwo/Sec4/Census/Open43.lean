@@ -25,19 +25,11 @@ open CFSG CFSG.RankThree.PartTwo TauCeti
   ∀ (n : ℕ) (G : Type) [Group G] [Finite G], 5 ≤ n →
     IsThreeCenterCover G (alternatingGroup (Fin n)) → n = 6 ∨ n = 7
 
-@[expose] def TripleCoverSporadic : Prop :=
-  ∀ (s : SporadicName) (G : Type) [Group G] [Finite G],
-    IsThreeCenterCover G (CFSGIndex.sporadic s).Group →
-      s = .M22 ∨ s = .J3 ∨ s = .McL ∨ s = .Suz ∨ s = .ONan ∨ s = .Fi22 ∨ s = .Fi24Prime
 
 @[expose] def TripleCoverLie : Prop :=
   ∀ (d : ValidLieTypeIndex) (G : Type) [Group G] [Finite G],
     IsThreeCenterCover G (CFSGIndex.lie d).Group → TripleCoverLieIndex d.1
 
-structure TripleCoverInputs : Prop where
-  alternating : TripleCoverAlternating
-  sporadic : TripleCoverSporadic
-  lie : TripleCoverLie
 
 @[expose] def TripleCoverSuzRankFour : Prop :=
   ∀ (G : Type) [Group G] [Finite G], IsThreeCenterCover G (CFSGIndex.sporadic .Suz).Group →

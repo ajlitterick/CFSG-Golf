@@ -91,8 +91,6 @@ theorem exists_ne_one_commute_of_normalizes [Finite G] {q : ℕ} [hq : Fact q.Pr
       _ = a⁻¹ * (a * s) * a⁻¹ := by rw [this]
       _ = s * a⁻¹ := by group
 
-theorem mem_centralInvolutions {S : Subgroup G} {z : G} :
-    z ∈ centralInvolutions S ↔ z ∈ S ∧ (∀ s ∈ S, z * s = s * z) ∧ z ^ 2 = 1 := Iff.rfl
 
 theorem conj_mem_centralInvolutions {S : Subgroup G} {n z : G}
     (hn : n ∈ normalizer (S : Set G)) (hz : z ∈ centralInvolutions S) :

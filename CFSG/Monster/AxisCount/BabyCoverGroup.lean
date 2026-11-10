@@ -43,8 +43,6 @@ theorem mem_Nfr_iff_psiAmb {g : SpaceB ≃ₗ[ℚ] SpaceB} :
 @[expose] def psiOrbit (U : Subgroup (SpaceB ≃ₗ[ℚ] SpaceB)) (x : L2) : Set L2 :=
   {y | ∃ u ∈ U, psiAmb u • x = y}
 
-theorem mem_psiOrbit_self {U : Subgroup (SpaceB ≃ₗ[ℚ] SpaceB)} (x : L2) : x ∈ psiOrbit U x :=
-  ⟨1, U.one_mem, by rw [psiAmb_one, one_smul]⟩
 
 section Cover
 

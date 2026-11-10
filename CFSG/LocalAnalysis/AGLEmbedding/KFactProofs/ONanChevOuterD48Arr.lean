@@ -85,14 +85,6 @@ theorem GF512.card_eq : Nat.card GF512 = 512 := by
 theorem frobF_apply (a : GF512) : frobF a = a ^ 8 := by
   simp [frobF, iterateFrobenius_def]
 
-theorem frobF_cube (a : GF512) : frobF (frobF (frobF a)) = a := by
-  have : Fintype GF512 := inferInstance
-  have h := FiniteField.pow_card a
-  have hc : Fintype.card GF512 = 512 := by
-    rw [← Nat.card_eq_fintype_card]; exact GF512.card_eq
-  rw [hc] at h
-  rw [frobF_apply, frobF_apply, frobF_apply, ← pow_mul, ← pow_mul]
-  exact h
 
 @[expose] def frobArr (A : Array GF512) : Array GF512 := A.map frobF
 
@@ -105,7 +97,6 @@ theorem getD_frobArr (A : Array GF512) (t : ℕ) :
   simp only [frobArr, Array.getD_eq_getD_getElem?, Array.getElem?_map]
   cases A[t]? <;> simp
 
-theorem size_frobArr (A : Array GF512) : (frobArr A).size = A.size := by simp [frobArr]
 
 theorem toMat_frobArr (A : Array GF512) : toMat (frobArr A) = (toMat A).map frobF := by
   ext i j
@@ -119,9 +110,5 @@ theorem toMat_frobPow (n : ℕ) (A : Array GF512) :
   | zero => rfl
   | succ n ih => rw [frobPow, toMat_frobArr, ih, Function.iterate_succ_apply']
 
-theorem size_frobPow (n : ℕ) (A : Array GF512) : (frobPow n A).size = A.size := by
-  induction n with
-  | zero => rfl
-  | succ n ih => rw [frobPow, size_frobArr, ih]
 
 end CFSG.AGLEmbedding.ChevOuterD48

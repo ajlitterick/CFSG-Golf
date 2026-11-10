@@ -65,36 +65,6 @@ theorem chamberAdj_iff
     (i : Fin 4) (g h : Eam) :
     chamberAdj i (chamberOf g) (chamberOf h) ↔ ((g * h⁻¹ : Eam) : Dfull) ∈ Qam i := Iff.rfl
 
-@[expose] def rcoset (H : Subgroup Dfull) (g : Dfull) : Set Dfull :=
-  (H : Set Dfull) * ({g} : Set Dfull)
-
-theorem chamberAdj_iff_rightCoset
-    (i : Fin 4) (g h : Eam) :
-    chamberAdj i (chamberOf g) (chamberOf h) ↔ rcoset (Qam i) g = rcoset (Qam i) h := by
-  unfold rcoset
-  rw [chamberAdj_iff, Set.mul_singleton, Set.mul_singleton]
-  constructor
-  · intro hgh
-    ext x
-    constructor
-    · rintro ⟨q, hq, rfl⟩
-      refine ⟨q * ((g * h⁻¹ : Eam) : Dfull), (Qam i).mul_mem hq hgh, ?_⟩
-      simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      group
-    · rintro ⟨q, hq, rfl⟩
-      refine ⟨q * ((g * h⁻¹ : Eam) : Dfull)⁻¹, (Qam i).mul_mem hq ((Qam i).inv_mem hgh), ?_⟩
-      simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      group
-  · intro e
-    have hg : (g : Dfull) ∈ (fun x => x * (h : Dfull)) '' (Qam i : Set Dfull) := by
-      rw [← e]
-      exact ⟨1, (Qam i).one_mem, one_mul _⟩
-    obtain ⟨q, hq, hqe⟩ := hg
-    have : ((g * h⁻¹ : Eam) : Dfull) = q := by
-      simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      rw [← hqe, mul_inv_cancel_right]
-    rw [this]
-    exact hq
 
 theorem chamberAdj_equivalence
     (i : Fin 4) : Equivalence (chamberAdj i) := by
@@ -144,19 +114,5 @@ theorem chamberAdj_chamberMul
   rw [chamberMul_chamberOf, chamberMul_chamberOf, chamberAdj_iff, chamberAdj_iff, mul_inv_rev,
     mul_assoc, mul_inv_cancel_left]
 
-theorem short_F4_chamber_system_data :
-    Finite Chamber ∧ Function.Surjective chamberOf ∧
-    (∀ g h : Eam, chamberOf g = chamberOf h ↔ ((h * g⁻¹ : Eam) : Dfull) ∈ Bam) ∧
-    (∀ (i : Fin 4) (g h : Eam), chamberAdj i (chamberOf g) (chamberOf h) ↔
-      rcoset (Qam i) g = rcoset (Qam i) h) ∧
-    (∀ (i : Fin 4) (g h : Eam), chamberAdj i (chamberOf g) (chamberOf h) ↔
-      ((g * h⁻¹ : Eam) : Dfull) ∈ Qam i) ∧
-    (∀ i, Equivalence (chamberAdj i)) ∧
-    (∀ h g : Eam, chamberMul (chamberOf h) g = chamberOf (h * g)) ∧
-    (∀ c, chamberMul c 1 = c) ∧ (∀ c g g', chamberMul c (g * g') = chamberMul (chamberMul c g) g') ∧
-    (∀ i c d g, chamberAdj i (chamberMul c g) (chamberMul d g) ↔ chamberAdj i c d) :=
-  ⟨inferInstance, chamberOf_surjective, fun _ _ => chamberOf_eq_iff, chamberAdj_iff_rightCoset,
-    chamberAdj_iff, chamberAdj_equivalence, chamberMul_chamberOf, chamberMul_one, chamberMul_mul,
-    chamberAdj_chamberMul⟩
 
 end CFSG.Monster.B.TwoA.Amalgam

@@ -247,13 +247,6 @@ theorem ker_eq_bot_of_sylow_quaternion
   rw [zpowers_inf_ker_eq_bot η hαker (hx ▸ hord) hc0] at hker
   exact le_bot_iff.1 hker
 
-theorem ker_eq_bot_of_exists_sylow_quaternion
-    (hE : Subgroup.closure {x : E | Odd (orderOf x)} = ⊤) (η : E →* Q)
-    (hη : Function.Surjective η) (hcen : η.ker ≤ Subgroup.center E) (h2 : IsPGroup 2 η.ker)
-    (hS : ∃ S : Sylow 2 Q, ∃ n : ℕ, 3 ≤ n ∧
-      Nonempty ((S : Subgroup Q) ≃* QuaternionGroup (2 ^ (n - 2)))) : η.ker = ⊥ := by
-  obtain ⟨S, n, hn, ⟨φ⟩⟩ := hS
-  exact ker_eq_bot_of_sylow_quaternion hE η hη hcen h2 S hn φ
 
 theorem ker_eq_bot_of_mulEquiv_specialLinearGroup {K : Type*} [Field K] [Finite K]
     (hK : ringChar K ≠ 2) (hE : Subgroup.closure {x : E | Odd (orderOf x)} = ⊤) (η : E →* Q)

@@ -802,42 +802,6 @@ theorem original_regular_actual_family_rotation_support {G : Type} [Group G] [Fi
     intro i hi j hj
     exact sub_eq_zero.mpr ((hν i hi).trans (hν j hj).symm)
 
-theorem original_fourier_ordinary_pairings {G : Type u} [Group G] [Fintype G]
-    {n : ℕ} (hn : 4 ≤ n) {S : Sylow 2 G}
-    (presentation : SemidihedralGroup n ≃* (S : Subgroup G))
-    (basis : FiniteIrreducibleCharacterBasis G) (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] (principal : basis.index)
-    (hprincipal : (basis.representation principal).character = 1)
-    (I : Finset (ZMod (modulus n)))
-    (hI : IsOddResidueTransversal (((modulus n / 2 : ℕ) : ZMod (modulus n)) - 1) I) :
-    let B := coefficientBlock basis (localizedComplexIntegerRing ideal) principal
-    let ρ : G := presentation (r n)
-    let M := modulus n
-    let Θ := principalCyclicProjection basis B ρ
-      (fun x => 1 - cyclicLinearCharacter ρ M ((M / 2 : ℕ) : ℤ) x)
-    let E := fun l : ℕ => principalCyclicProjection basis B ρ
-      (fun x => 1 - cyclicLinearCharacter ρ M (2 * l) x)
-    let F := fun j : ZMod M => principalCyclicProjection basis B ρ
-      (fun x => cyclicLinearCharacter ρ M j.val x - cyclicLinearCharacter ρ M 1 x)
-    characterPairing Θ 1 = 1 ∧ characterPairing Θ Θ = 4 ∧
-      (∀ l : ℕ, 1 ≤ l → l ≤ M / 4 - 1 →
-        E l 1 = 0 ∧ characterPairing (E l) 1 = 1 ∧ characterPairing Θ (E l) = 2) ∧
-      (∀ j l : ℕ, 1 ≤ j → j ≤ M / 4 - 1 → 1 ≤ l → l ≤ M / 4 - 1 →
-        characterPairing (E j) (E l) = 2 + if j = l then 1 else 0) ∧
-      F 1 = 0 ∧
-      (∀ j ∈ I, F j 1 = 0 ∧ characterPairing (F j) 1 = 0 ∧
-        characterPairing (F j) Θ = 0 ∧
-        ∀ l : ℕ, 1 ≤ l → l ≤ M / 4 - 1 → characterPairing (F j) (E l) = 0) ∧
-      (∀ j ∈ I, ∀ k ∈ I, j ≠ 1 → k ≠ 1 →
-        characterPairing (F j) (F k) = 1 + if j = k then 1 else 0) := by
-  intro B ρ M Θ E F
-  obtain ⟨-, -, -, -, -, hE1, -, -, hΘone, hEone, -, -, -, hΘΘ, hΘE, hEE, -⟩ :=
-    even_cyclic_principal_Fourier_family hn presentation basis ideal principal hprincipal
-  obtain ⟨-, -, -, hFone, hF1, -, hFprincipal, -, hFF, hFΘ, hFE, -⟩ :=
-    odd_cyclic_principal_Fourier_family hn presentation basis ideal principal hprincipal I hI
-  exact ⟨hΘone, hΘΘ, fun l hl1 hl2 => ⟨hE1 l hl1 hl2, hEone l hl1 hl2,
-    hΘE l hl1 hl2⟩, hEE, hFone, fun j hj => ⟨hF1 j hj, hFprincipal j hj,
-      (hFΘ j hj).2, fun l hl1 hl2 => (hFE j hj l hl1 hl2).2⟩, hFF⟩
 
 theorem original_regular_rotation_pairings_of_character_restrictions
     {G : Type} [Group G] [Fintype G]

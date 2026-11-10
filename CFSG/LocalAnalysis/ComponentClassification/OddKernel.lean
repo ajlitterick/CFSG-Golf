@@ -81,14 +81,6 @@ noncomputable def coreQuotientEquiv {G H : Type*} [Group G] [Finite G] [Group H]
     exact core_preimage quotient hsurjective hoddKernel
   exact QuotientGroup.liftEquiv _ hsurjectiveComposite hkernel.symm
 
-theorem coreQuotientEquiv_mk {G H : Type*} [Group G] [Finite G] [Group H] [Finite H]
-    (quotient : G →* H) (hsurjective : Function.Surjective quotient)
-    (hoddKernel : Odd (Nat.card quotient.ker)) (g : G) :
-    coreQuotientEquiv quotient hsurjective hoddKernel
-      (QuotientGroup.mk' (componentClassificationOddCore G) g) =
-      QuotientGroup.mk' (componentClassificationOddCore H) (quotient g) := by
-  unfold coreQuotientEquiv
-  rfl
 
 theorem odd_card_restriction_kernel {G H : Type*} [Group G] [Group H]
     (quotient : G →* H) (hoddKernel : Odd (Nat.card quotient.ker))

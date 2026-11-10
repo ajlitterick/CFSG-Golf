@@ -29,36 +29,6 @@ open scoped Pointwise
     IsCyclic A → IsCyclic B → (∀ w ∈ W, ∃ a ∈ A, ∃ b ∈ B, w = a * b) →
     E ≤ W → IsElemAbelian 3 E → Nat.card E ≠ 27
 
-@[expose] def KFactHuppertMetacyclicThree : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (W A B : Subgroup G), IsPGroup 3 W → A ≤ W → B ≤ W →
-    IsCyclic A → IsCyclic B → (∀ w ∈ W, ∃ a ∈ A, ∃ b ∈ B, w = a * b) → CFSG.IsMetacyclic W
-
-theorem card_ne_twentySeven_of_metacyclic {G : Type} [Group G] [Finite G] {W E : Subgroup G}
-    (hW : IsPGroup 3 W) (hmeta : CFSG.IsMetacyclic W) (hEW : E ≤ W)
-    (hE : IsElemAbelian 3 E) : Nat.card E ≠ 27 := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  set Q : Subgroup W := E.subgroupOf W with hQ
-  have hQmeta : CFSG.IsMetacyclic Q :=
-    (CFSG.GroupTheory.SteinbergBK.isMetacyclic_subgroup hmeta Q).1
-  have hQp : IsPGroup 3 Q := hW.to_subgroup Q
-  have hcard : Nat.card (CFSG.omega₁ (G := Q) (p := 3)) ≤ 3 ^ 2 :=
-    CFSG.GroupTheory.SteinbergBK.card_omega₁_le (p := 3) (by norm_num) hQp hQmeta
-  have htop : CFSG.omega₁ (G := Q) (p := 3) = ⊤ := by
-    rw [eq_top_iff]
-    intro x _
-    apply Subgroup.subset_closure
-    have h3 : ((x : W) : G) ^ 3 = 1 := hE.2 _ (Subgroup.mem_subgroupOf.mp x.2)
-    change x ^ 3 ^ 1 = 1
-    exact Subtype.ext (Subtype.ext (by simpa using h3))
-  rw [htop, Subgroup.card_top] at hcard
-  have hEQ : Nat.card E = Nat.card Q :=
-    (Nat.card_congr (Subgroup.subgroupOfEquivOfLe hEW).toEquiv).symm
-  omega
-
-theorem kFactHuppertProductThree_of_metacyclic (h : KFactHuppertMetacyclicThree) :
-    KFactHuppertProductThree :=
-  fun G _ _ W A B _ hW hA hB hAc hBc hprod hEW hE =>
-    card_ne_twentySeven_of_metacyclic hW (h G W A B hW hA hB hAc hBc hprod) hEW hE
 
 section Generic
 

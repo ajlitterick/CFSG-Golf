@@ -98,12 +98,6 @@ theorem mem_rightConjugate_iff (htL : t ∈ L) (ht2 : t * t = 1) (x : F.J.specia
     F.mem_point, map_mul, map_mul, mul_smul, mul_smul, hτ, smul_eq_iff_eq_inv_smul, ← map_inv,
     hτ]
 
-theorem coset_eq_flip_iff (htL : t ∈ L) (ht2 : t * t = 1) (x : F.J.specialSubgroup ⧸ F.C) :
-    rightCosetMk H (F.θ x : G) = rightCosetMk H t ↔
-      coverToPGL F.J F.C F.hJ F.hC x⁻¹ • unitaryCoordinatePoint (K := F.k) 0 =
-        unitaryCoordinatePoint 2 := by
-  have h := F.coset_eq_iff x (F.flipElt htL)
-  rwa [F.θ_flipElt htL, F.flipElt_inv htL ht2, F.flipElt_smul htL] at h
 
 theorem mem_pairPointStabilizer_iff (htL : t ∈ L) (ht2 : t * t = 1)
     {beta : rightCosetSpace H} (hbeta : beta = rightCosetMk H t) (x : F.J.specialSubgroup ⧸ F.C) :

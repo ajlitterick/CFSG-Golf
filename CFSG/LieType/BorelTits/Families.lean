@@ -123,11 +123,6 @@ theorem isLagrangian_iff_maximal [FiniteDimensional K V] {X₀ : Submodule K V}
   have h3 := hX₀.2
   omega
 
-theorem finrank_eq_of_maximal [FiniteDimensional K V] {n : ℕ} (hn : finrank K V = 2 * n)
-    {X₀ : Submodule K V} (hX₀ : Φ.IsLagrangian X₀) {X : Submodule K V}
-    (hX : Maximal Φ.IsTotallySingular X) : finrank K X = n := by
-  have := ((isLagrangian_iff_maximal hX₀).mpr hX).2
-  omega
 
 theorem exists_isLagrangian_le [FiniteDimensional K V] {X₀ : Submodule K V}
     (hX₀ : Φ.IsLagrangian X₀) {W : Submodule K V} (hW : Φ.IsTotallySingular W) :
@@ -467,23 +462,6 @@ theorem dicksonInvariant_eq_one_of_reflection [FiniteDimensional K V] {X₀ : Su
       (lt_of_le_of_ne inf_le_left fun h => hne (h.symm.le.trans inf_le_right))
   rw [dicksonInvariant, show finrank K X - finrank K ↥(X ⊓ X.map g) = 1 by omega, Nat.cast_one]
 
-theorem apply_mem_of_dicksonInvariant_eq_zero [FiniteDimensional K V] {X A : Submodule K V}
-    (hAX : A ≤ X) (hrank : finrank K X = finrank K A + 1) {g : Module.End K V}
-    (hg : ∀ v, Φ.Q (g v) = Φ.Q v) (hgA : ∀ v ∈ A, g v ∈ A) (hε : dicksonInvariant X g = 0) :
-    ∀ v ∈ X, g v ∈ X := by
-  have hgA' : A.map g ≤ A := Submodule.map_le_iff_le_comap.mpr hgA
-  have hAgX : A ≤ X ⊓ X.map g := le_inf hAX
-    ((Submodule.eq_of_le_of_finrank_eq hgA' (finrank_map_of_Q hg A)).ge.trans
-      (Submodule.map_mono hAX))
-  have h1 := Submodule.finrank_mono hAgX
-  have h2 := Submodule.finrank_mono (inf_le_left : X ⊓ X.map g ≤ X)
-  have hXX : X ⊓ X.map g = X := by
-    refine Submodule.eq_of_le_of_finrank_eq inf_le_left ?_
-    rw [dicksonInvariant, ← Nat.cast_zero, ZMod.natCast_eq_natCast_iff'] at hε
-    omega
-  have hle : X ≤ X.map g := hXX.symm.le.trans inf_le_right
-  have heq : X.map g = X := (Submodule.eq_of_le_of_finrank_eq hle (finrank_map_of_Q hg X).symm).symm
-  exact fun v hv => heq ▸ Submodule.mem_map_of_mem hv
 
 @[expose] noncomputable def dicksonHom [FiniteDimensional K V] {H : Type w} [Group H]
     (ρ : H →* Module.End K V) (hρ : ∀ h v, Φ.Q (ρ h v) = Φ.Q v) {X₀ : Submodule K V}
@@ -618,9 +596,6 @@ theorem map_eq_one_of_mem_statedOmega {A : Type*} [CommGroup A] {Q : (ι → K) 
 
 namespace QuadForm
 
-@[expose] noncomputable def orthDicksonHom (Φ : QuadForm K (ι → K)) {X₀ : Submodule K (ι → K)}
-    (hX₀ : Φ.IsLagrangian X₀) : orthGroup Φ.Q →* Multiplicative (ZMod 2) :=
-  dicksonHom (natRep (orthGroup Φ.Q)) Φ.Q_natRep_orthGroup hX₀
 
 @[expose] noncomputable def prodNegDicksonHom (Φ : QuadForm K (ι → K)) :
     orthGroup Φ.Q →* Multiplicative (ZMod 2) :=
@@ -646,31 +621,6 @@ theorem not_reflection_on_quotient_of_mem_statedOmega (Φ : QuadForm K (ι → K
   rw [ofAdd_eq_one, h2] at h1
   exact one_ne_zero h1
 
-theorem even_finrank_sub_finrank_inf_of_mem_statedOmega (Φ : QuadForm K (ι → K))
-    {X : Submodule K (ι → K)} (hX : Φ.IsLagrangian X) {g : GL ι K} (hg : g ∈ StatedOmega Φ.Q) :
-    Even (finrank K X - finrank K ↥(X ⊓ X.map (Matrix.toLin' (g : Matrix ι ι K)))) := by
-  have h : Multiplicative.ofAdd
-      (dicksonInvariant X (natRep (orthGroup Φ.Q) ⟨g, statedOmega_le_orthGroup Φ.Q hg⟩)) = 1 :=
-    map_eq_one_of_mem_statedOmega (Φ.orthDicksonHom hX) hg
-  have he : natRep (orthGroup Φ.Q) ⟨g, statedOmega_le_orthGroup Φ.Q hg⟩ =
-      Matrix.toLin' (g : Matrix ι ι K) :=
-    LinearMap.ext fun v => by rw [natRep_apply, Matrix.toLin'_apply]
-  rw [ofAdd_eq_one, he, dicksonInvariant, ZMod.natCast_eq_zero_iff_even] at h
-  exact h
-
-theorem mulVec_mem_of_mem_statedOmega (Φ : QuadForm K (ι → K)) {X A : Submodule K (ι → K)}
-    (hX : Φ.IsLagrangian X) (hAX : A ≤ X) (hrank : finrank K X = finrank K A + 1) {g : GL ι K}
-    (hg : g ∈ StatedOmega Φ.Q) (hgA : ∀ v ∈ A, (g : Matrix ι ι K) *ᵥ v ∈ A) :
-    ∀ v ∈ X, (g : Matrix ι ι K) *ᵥ v ∈ X := by
-  have h : Multiplicative.ofAdd
-      (dicksonInvariant X (natRep (orthGroup Φ.Q) ⟨g, statedOmega_le_orthGroup Φ.Q hg⟩)) = 1 :=
-    map_eq_one_of_mem_statedOmega (Φ.orthDicksonHom hX) hg
-  rw [ofAdd_eq_one] at h
-  intro v hv
-  have := QuadForm.apply_mem_of_dicksonInvariant_eq_zero hAX hrank
-    (Φ.Q_natRep_orthGroup ⟨g, statedOmega_le_orthGroup Φ.Q hg⟩)
-    (fun v hv => by rw [natRep_apply]; exact hgA v hv) h v hv
-  rwa [natRep_apply] at this
 
 theorem reflection_notMem_statedOmega (Φ : QuadForm K (ι → K)) {g : GL ι K} {a : ι → K}
     (hQa : Φ.Q a ≠ 0) (hga : ∀ v, (g : Matrix ι ι K) *ᵥ v = v - (Φ.polar.β v a / Φ.Q a) • a) :
@@ -696,9 +646,6 @@ theorem isLagrangian_quadPlusForm (n : ℕ) (K : Type) [Field K] :
     rw [Module.finrank_fintype_fun_eq_card, Fintype.card_sum, Fintype.card_fin]
     omega
 
-@[expose] noncomputable def quadPlusDicksonHom (n : ℕ) (K : Type) [Field K] :
-    orthGroup (StatedQuadPlus n K) →* Multiplicative (ZMod 2) :=
-  (quadPlusForm n K).orthDicksonHom (isLagrangian_quadPlusForm n K)
 
 theorem not_reflection_on_quotient_of_mem_statedOmega_quadPlus (n : ℕ) {K : Type} [Field K]
     {g : GL (Fin n ⊕ Fin n) K} (hg : g ∈ StatedOmega (StatedQuadPlus n K))

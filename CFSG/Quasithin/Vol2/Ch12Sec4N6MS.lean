@@ -94,13 +94,6 @@ theorem isMSPair
   rw [heq] at hLN
   exact hNC.trans (Ch4.isUniqueM_normalizer_le c.uniq hC1 hC2 hLN)
 
-theorem exists_c134Case (hMS : C134L32Corr)
-    (hN : ¬ Subgroup.normalizer (c.R1 : Set G) ≤ Subgroup.normalizer (L : Set G)) :
-    ∃ i : ℕ, C134CorrLocal.IsC134CaseCorr i (L ⊔ c.R1) c.R1 L := by
-  obtain ⟨α, hα⟩ := c.exists_alpha
-  have hcomp : L ∈ cComp (L ⊔ c.R1) := c.sup_R1_eq ▸ c.comp
-  exact hMS G (L ⊔ c.R1) c.R1 L (c.isMSPair hN) hcomp c.coe_sup_R1
-    ⟨ZMod 2, inferInstance, inferInstance, α, by simp, hα⟩
 
 theorem c134Q_le : c134Q (L ⊔ c.R1) L ≤ T ⊓ Subgroup.centralizer (V : Set G) := by
   unfold c134Q
@@ -159,25 +152,6 @@ theorem card_c134Q_of_case5 (hi : IsC134Case5 (L ⊔ c.R1) c.R1 L) :
     rw [hker, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv, hcard]
   rw [h1, h2, h3]
 
-theorem commutator_Q_eq (hMS : C134L32Corr)
-    (hN : ¬ Subgroup.normalizer (c.R1 : Set G) ≤ Subgroup.normalizer (L : Set G)) :
-    ⁅pCoreOf 2 (L ⊔ T), L⁆ = V := by
-  obtain ⟨i, hi⟩ := c.exists_c134Case hMS hN
-  have hi5 : i = 5 := by
-    by_contra h5
-    rcases (by omega : i ≤ 4 ∨ 5 < i) with h | h
-    · exact c.not_case_le_four hi h
-    · revert hi
-      unfold C134CorrLocal.IsC134CaseCorr
-      split <;> first | omega | exact id
-  subst hi5
-  have h16 := c.card_c134Q_of_case5 hi
-  have hVQ := c.V_le_c134Q
-  have heq : V = c134Q (L ⊔ c.R1) L :=
-    Subgroup.eq_of_le_of_card_ge hVQ (by rw [h16, c.card16]; norm_num)
-  rw [heq]
-  unfold c134Q
-  rw [c.sup_R1_eq]
 
 end Ctx
 

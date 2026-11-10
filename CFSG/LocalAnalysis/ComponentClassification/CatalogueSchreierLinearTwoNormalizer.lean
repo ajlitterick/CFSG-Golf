@@ -111,11 +111,6 @@ theorem coordinateConjugation_surjective (K : Type u) [Field K] [Finite K] :
   exact (Nat.card_congr (semilinearEquivCoordinateE K).toEquiv).symm.trans
     (Nat.card_congr (semilinearEquivCoordinateAut K).toEquiv)
 
-theorem coordinateNormalizerAction_surjective (K : Type u) [Field K] [Finite K] :
-    Function.Surjective (coordinateG K).normalizerMonoidHom := by
-  intro alpha
-  obtain ⟨e, he⟩ := coordinateConjugation_surjective K alpha
-  exact ⟨Subgroup.inclusion (coordinateE_le_normalizer_G K) e, he⟩
 
 @[expose] def coordinateConjugationEquiv (K : Type u) [Field K] [Finite K] :
     coordinateE K ≃* MulAut (coordinateG K) :=

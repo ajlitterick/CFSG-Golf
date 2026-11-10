@@ -19,24 +19,6 @@ open Subgroup CFSG.Blueprint CFSG.Blueprint.NativeSporadic CFSG.EvenSporadicStan
     (K₁.subgroupOf (K₁ ⊔ K₂)).Normal ∧ (K₂.subgroupOf (K₁ ⊔ K₂)).Normal ∧
     Nonempty (↥K₁ ≃* ↥K) ∧ Nonempty (↥K₂ ≃* ↥K)
 
-@[expose] def Sol78Thm24_1 : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (N : Subgroup H), FStarSimple N → ∀ A : Subgroup H, SolStd A →
-    (∃ S : Sylow 2 (centralizer (A : Set H)), IsGenQuaternion ↥S) → OddLieType ↥N
-
-@[expose] def Sol78Thm24_3 : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (N : Subgroup H), FStarSimple N → ∀ A : Subgroup H, SolStd A →
-    ((∃ n : ℕ, 5 ≤ n ∧ Nonempty ((↥A ⧸ center ↥A) ≃* alternatingGroup (Fin n))) ∨
-      (∃ (t : CFSG.Assembly.LowTwoRank.StatedLieTag) (n p f : ℕ),
-        LieModel (↥A ⧸ center ↥A) t n p f) ∨
-      (∃ s : TauCeti.SporadicName, s ≠ .M ∧ IsSporadic (↥A ⧸ center ↥A) s)) →
-    2 ≤ CFSG.pRank 2 ↥(centralizer (A : Set H)) →
-      (∀ S : Sylow 2 (centralizer (A : Set H)), IsKleinFour ↥S) ∧
-        ((∃ n : ℕ, 5 ≤ n ∧ Nonempty (↥A ≃* alternatingGroup (Fin n))) ∨
-          (LieModel ↥A .PSL 3 2 2 ∧ IsSporadic ↥N .Suz) ∨
-          (CFSG.IsQuasisimple ↥A ∧ IsKleinFour ↥(center ↥A) ∧
-            LieModel (↥A ⧸ center ↥A) .PSL 3 2 2 ∧ IsSporadic ↥N .He) ∨
-          (SuzukiModel ↥A 2 3 ∧ IsSporadic ↥N .Ru) ∨
-          (LieModel ↥A .G2 0 2 2 ∧ IsSporadic ↥N .Co1))
 
 @[expose] def Sol78Thm46 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], CFSG.solvableRadical G = ⊥ → ∀ K : Subgroup G, SolStd K →

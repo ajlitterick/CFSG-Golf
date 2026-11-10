@@ -136,14 +136,6 @@ variable {G : Type*} [Group G]
   (MulEquiv.subgroupCongr (Subgroup.subgroupOf_normalizer_eq hDH).symm).trans
     (Subgroup.subgroupOfEquivOfLe hND)
 
-theorem normalizerInEquiv_apply (D H : Subgroup G) (hDH : D ≤ H)
-    (hND : Subgroup.normalizer (D : Set G) ≤ H)
-    (x : Subgroup.normalizer ((D.subgroupOf H : Subgroup H) : Set H)) :
-    (normalizerInEquiv D H hDH hND x : G) = ((x : H) : G) := rfl
-
-theorem normalizerInEquiv_symm_apply (D H : Subgroup G) (hDH : D ≤ H)
-    (hND : Subgroup.normalizer (D : Set G) ≤ H) (y : Subgroup.normalizer (D : Set G)) :
-    (((normalizerInEquiv D H hDH hND).symm y : H) : G) = y := rfl
 
 theorem normalizerInEquiv_map_defect (D H : Subgroup G) (hDH : D ≤ H)
     (hND : Subgroup.normalizer (D : Set G) ≤ H) :

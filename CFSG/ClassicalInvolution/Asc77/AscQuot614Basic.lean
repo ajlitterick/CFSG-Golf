@@ -63,11 +63,6 @@ theorem oddCoreOf_eq_bot_of_normal [Finite G] (X : Subgroup G) [X.Normal]
     (hO : classicalInvolutionOddCore G = ⊥) : oddCoreOf X = ⊥ := by
   rw [oddCoreOf_normal_eq_inf, hO, inf_bot_eq]
 
-theorem oddCoreOf_eq_bot_of_normal_of_top [Finite G] (X : Subgroup G) [X.Normal]
-    (hO : oddCoreOf (⊤ : Subgroup G) = ⊥) : oddCoreOf X = ⊥ := by
-  have h : oddCoreOf (⊤ : Subgroup G) = classicalInvolutionOddCore G := by
-    rw [oddCoreOf_normal_eq_inf, top_inf_eq]
-  exact oddCoreOf_eq_bot_of_normal X (h ▸ hO)
 
 namespace AscQuot
 

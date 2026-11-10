@@ -151,7 +151,6 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 :1 1 1 1 1 1 1 1 1 0
 "
 
-@[expose] def rWordsStr : String := ":
 :0
 :1
 :2
@@ -8217,7 +8216,6 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 :1 4 4 8 2 6
 "
 
-@[expose] def rMulStr : String := "0 1 0 2 0 3 0 4 0 5 0 6 0 7 0 8 0 9
 0 10 0 11 0 12 0 13 0 14 0 15 0 16 0 17 0 18
 0 11 0 19 0 20 0 21 0 22 0 23 0 24 0 25 0 26
 0 27 0 28 0 29 0 30 0 31 0 32 0 33 0 34 0 35
@@ -16283,7 +16281,6 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 42 3007 17 3681 51 5623 15 7183 27 7102 35 7679 0 6594 59 5548 74 7374
 "
 
-@[expose] def rClsStr : String := "0 0 0
 1 0 0
 2 0 0
 3 0 0
@@ -24349,7 +24346,6 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 75 72 29
 "
 
-@[expose] def jxStr : String := "1
 2
 3
 4
@@ -24518,37 +24514,9 @@ namespace CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77
 "
 
 @[expose] def pWords : Array (List Nat) := parseWords pWordsStr
-@[expose] def rWords : Array (List Nat) := parseWords rWordsStr
-@[expose] def rMulData : Array Nat := parseNats rMulStr
-@[expose] def rClsData : Array Nat := parseNats rClsStr
-@[expose] def jxData : Array Nat := parseNats jxStr
 @[expose] def sWords : Array (List Nat) := parseWords sWordsStr
 
 @[expose] def PE : Array (Array Nat) := pWords.map (evalW dataP)
-@[expose] def RE : Array (Array Nat) := rWords.map (evalW dataS)
-@[expose] def XE (i : Nat) : Array Nat := RE.getD (jxData.getD i 0) idA
 
-@[expose] def chkR0 : Bool := rWords.getD 0 [] == []
-
-@[expose] def chkMul : Bool :=
-  (List.range 8064).all fun j => (List.range 9).all fun k =>
-    decide (rMulData.getD (2 * (9 * j + k) + 1) 0 < 8064) &&
-      comp (RE.getD j idA) (dataS.getD k idA) ==
-        comp (PE.getD (rMulData.getD (2 * (9 * j + k)) 0) idA)
-          (RE.getD (rMulData.getD (2 * (9 * j + k) + 1) 0) idA)
-
-@[expose] def chkCls : Bool :=
-  (List.range 8064).all fun j =>
-    let i := rClsData.getD (3 * j) 0
-    let p := PE.getD (rClsData.getD (3 * j + 1) 0) idA
-    let q := PE.getD (rClsData.getD (3 * j + 2) 0) idA
-    if i = 0 then RE.getD j idA == p
-    else decide (i ≤ 82) && RE.getD j idA == comp (comp p (XE (i - 1))) q
-
-@[expose] def chkSigma : Bool :=
-  (List.range 82).all fun i =>
-    evalW #[dataA, dataB, dataZ, XE i] (sWords.getD i []) == dataSigma
-
-@[expose] def over77Check : Bool := chkR0 && chkMul && chkCls && chkSigma
 
 end CFSG.AGLEmbeddingD2.Wilson.MaximalityAmbient.Over77

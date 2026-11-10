@@ -49,27 +49,11 @@ theorem oddSchurTrivial_adjointGroup_E7_of_charTwo (K : Type) [Field K] [Finite 
     OddSchurTrivial (adjointGroup .E7 K) :=
   oddSchurTrivial_of_oddCentralSplit (oddCentralSplit_adjointGroup_E7 K)
 
-theorem oddSchurTrivial_adjointGroup_E7_of_card {K : Type} [Field K] {f : ℕ}
-    (hK : Nat.card K = 2 ^ f) : OddSchurTrivial (adjointGroup .E7 K) := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have := charTwo_of_natCard_eq_two_pow hK
-  exact oddSchurTrivial_adjointGroup_E7_of_charTwo K
 
 theorem oddSchurTrivial_e7Levi (K : Type) [Field K] [Finite K] [CharP K 2] :
     OddSchurTrivial (E8Pilot.e7Levi K) :=
   (oddSchurTrivial_adjointGroup_E7_of_charTwo K).of_mulEquiv (E8Pilot.e7LeviEquiv K).symm
 
-theorem oddSchurTrivial_of_lieModel_E7 {X : Type} [Group X] {f : ℕ}
-    (hX : LieModel X .E7 0 2 f) : OddSchurTrivial X := by
-  rcases hX with ⟨ht, -⟩ | ⟨-, -, hm⟩ | ⟨-, ht, -⟩ | ⟨-, ht, -⟩
-  · exact absurd ht (by decide)
-  · obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := hm
-    have hZ := center_adjointGroup_eq_bot (τ := .E7) (K := K)
-    let e' : X ≃* adjointGroup .E7 K :=
-      e.trans ((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot)
-    exact (oddSchurTrivial_adjointGroup_E7_of_card hK).of_mulEquiv e'.symm
-  · exact absurd ht (by decide)
-  · exact absurd ht (by decide)
 
 theorem e7_exists_section_of_central_of_four_le {F : Type} [Field F] [Finite F] [CharP F 2]
     (hF : 4 ≤ Nat.card F) {E : Type} [Group E] [Finite E] {π : E →* e7Data_valid.minGroup F}

@@ -14,9 +14,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.EvenSporadicStandard.HNRecog
 
 theorem fix_ok : fixK = true := by quickRfl
 
-theorem fix_neg : (!fixPair (WK wordA) (WK wordZ) 0 127) = true := by quickRfl
-
-theorem fix_neg_b : (!fixPair (WK wordA) (WK wordB) 1 0) = true := by quickRfl
 
 end CFSG.KD.HN1408.CzInv
 

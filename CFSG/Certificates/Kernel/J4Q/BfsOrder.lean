@@ -187,9 +187,6 @@ theorem inv_le (T : Tree n s L PAR LAB TT) {i m k : Nat} (hI : Inv n s L PAR LAB
     have h2 : (PAR k + 1) * L ≤ i * L := Nat.mul_le_mul_right _ (by omega)
     omega
 
-theorem inv_lt (T : Tree n s L PAR LAB TT) {i m : Nat} (hI : Inv n s L PAR LAB i 0 m) (hi : i < n) :
-    i < m :=
-  inv_le T hI hi (Nat.le_refl i)
 
 theorem inv_done (T : Tree n s L PAR LAB TT) {i m : Nat} (hI : Inv n s L PAR LAB i 0 m)
     (hle : m ≤ i) : m = n := by

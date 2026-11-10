@@ -43,8 +43,6 @@ theorem tvM_mul (v : Fin 2 → F) (x y : F) : tvM v x * tvM v y = tvM v (x + y) 
 theorem tvSL_mul (v : Fin 2 → F) (x y : F) : tvSL v x * tvSL v y = tvSL v (x + y) :=
   Subtype.ext (by rw [Matrix.SpecialLinearGroup.coe_mul]; exact tvM_mul v x y)
 
-theorem tvSL_mul_comm (v : Fin 2 → F) (x y : F) : tvSL v x * tvSL v y = tvSL v y * tvSL v x := by
-  rw [tvSL_mul, tvSL_mul, add_comm]
 
 @[expose] def tvHom (v : Fin 2 → F) : Multiplicative F →* SpecialLinearGroup (Fin 2) F where
   toFun x := tvSL v (Multiplicative.toAdd x)

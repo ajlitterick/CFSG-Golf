@@ -68,18 +68,6 @@ theorem coprime_facts :
   · exact Nat.Coprime.mul_right (h1.1.pow_right 2) h1.2
   · exact Nat.Coprime.mul_right h3.1 h2'.1
 
-include φ hZ in
-theorem card_dvd_of_isPGroup_le_centralizer {H : Subgroup G}
-    (hH : IsPGroup (ringChar F) H) (hHC : H ≤ Subgroup.centralizer {J}) :
-    Nat.card H ∣ Nat.card F := by
-  have : Finite (Subgroup.centralizer ({J} : Set G)) := Finite.of_equiv _ φ.symm.toEquiv
-  obtain ⟨f, hf, hq⟩ := exists_card_eq_ringChar_pow F
-  have hp : (ringChar F).Prime := CharP.char_is_prime F _
-  rw [hq]
-  apply card_dvd_of_isPGroup_of_le hp hH hHC (l := Nat.card Z)
-    (R := (Nat.card F - 1) ^ 2 * (Nat.card F + 1)) _ (coprime_facts hZ).2.1
-  rw [card_centralizer_J φ, hq]
-  ring
 
 include φ hZ in
 theorem not_sq_dvd_card_centralizer :

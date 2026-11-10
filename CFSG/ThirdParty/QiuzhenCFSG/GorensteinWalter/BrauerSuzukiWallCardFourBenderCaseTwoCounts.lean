@@ -2197,63 +2197,6 @@ private theorem normalizer_involutions_outside_kleinFour_card_six
         Nat.card OutV := Nat.card_congr outVEquiv.symm
     _ = 6 := hOutV
 
-/-- The ordered pairs of distinct involutions in common non-base normalizer
-cosets have cardinality twelve. -/
-private theorem nonbase_offDiagonal_involution_coset_pairs_card_twelve
-    {G : Type u} [Group G] [Finite G]
-    (h : BrauerSuzukiWallHypotheses G)
-    (hk : Nat.card h.K = 4)
-    (V X : Subgroup G)
-    (hV : IsKleinFour V)
-    (hCentV : Subgroup.centralizer (V : Set G) = V)
-    (hNcard : Nat.card (Subgroup.normalizer (V : Set G)) = 24)
-    (hXle : X ≤ Subgroup.normalizer (V : Set G))
-    (hXcard : Nat.card X = 3)
-    (hcase : Subgroup.centralizer (X : Set G) ≤
-      Subgroup.normalizer (V : Set G)) :
-    let N : Subgroup G := Subgroup.normalizer (V : Set G)
-    let Nonbase := {omega : G ⧸ N // omega ≠ ((1 : G) : G ⧸ N)}
-    Nat.card
-      (Sigma fun omega : Nonbase =>
-        {p : involutionCosetFiber N omega.1 ×
-            involutionCosetFiber N omega.1 // p.1 ≠ p.2}) = 12 := by
-  classical
-  let N : Subgroup G := Subgroup.normalizer (V : Set G)
-  let Internal := {s : G // s ∈ N ∧ IsInvolution s ∧ s ∉ V}
-  let External (s : Internal) :=
-    {u : G // IsInvolution u ∧ u ∉ N ∧ Commute (s : G) u}
-  let Nonbase := {omega : G ⧸ N // omega ≠ ((1 : G) : G ⧸ N)}
-  let OffDiag := Sigma fun omega : Nonbase =>
-    {p : involutionCosetFiber N omega.1 ×
-        involutionCosetFiber N omega.1 // p.1 ≠ p.2}
-  let : Fintype Internal := Fintype.ofFinite _
-  have hInternal : Nat.card Internal = 6 := by
-    simpa [Internal, N] using
-      normalizer_involutions_outside_kleinFour_card_six
-        h hk V X hV hCentV hNcard hXle hXcard
-  have hExternal (s : Internal) : Nat.card (External s) = 2 := by
-    simpa [External, N] using outside_commuting_involutions_card_two
-      h hk V X hV hCentV hNcard hXle hXcard
-        s.property.1 s.property.2.1 s.property.2.2
-  have hIncidence : Nat.card (Sigma External) = 12 := by
-    calc
-      Nat.card (Sigma External) =
-          ∑ s : Internal, Nat.card (External s) := Nat.card_sigma
-      _ = ∑ _s : Internal, 2 := by
-        apply Finset.sum_congr rfl
-        intro s _hs
-        exact hExternal s
-      _ = Nat.card Internal * 2 := by
-        simp [Nat.card_eq_fintype_card]
-      _ = 12 := by rw [hInternal]
-  have e := incidenceEquivOffDiagCosetFibers
-    h hk V X hV hCentV hNcard hXle hXcard hcase
-  change Nat.card OffDiag = 12
-  calc
-    Nat.card OffDiag = Nat.card (Sigma External) := by
-      simpa [OffDiag, External, Internal, Nonbase, N] using
-        Nat.card_congr e.symm
-    _ = 12 := hIncidence
 
 public theorem
     BrauerSuzukiWallHypotheses.exists_bender_case_two_aggregate_counts

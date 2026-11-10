@@ -126,12 +126,6 @@ variable (n w : Nat)
   | a :: b :: l => Nat.blt a b && asc (b :: l)
   | _ => true
 
-@[expose] noncomputable def ppointOK (gs : Array Nat) (c : ArrCertP) (i : Nat) : Bool :=
-  pvalid n w c.pts[i]! && Nat.beq (c.edges[i]!).size gs.size &&
-    (List.range gs.size).all (fun k => Nat.blt (c.edges[i]![k]!) c.pts.size &&
-      Nat.beq c.pts[c.edges[i]![k]!]! (pc n w gs[k]! c.pts[i]!)) &&
-    (Nat.beq i 0 || (Nat.blt c.par[i]! i && Nat.blt c.lab[i]! gs.size &&
-      Nat.beq c.pts[i]! (pc n w gs[c.lab[i]!]! c.pts[c.par[i]!]!)))
 
 @[expose] noncomputable def ppointAt (gs : Array Nat) (c : ArrCertP) (i u : Nat) (e : Array Nat)
     (pa la : Nat) : Bool :=

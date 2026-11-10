@@ -46,37 +46,19 @@ end Chain
 
 section Highest
 
-@[expose] def θE6 : Fin 6 → ℤ := ![1, 2, 2, 3, 2, 1]
 @[expose] def θE7 : Fin 7 → ℤ := ![2, 2, 3, 4, 3, 2, 1]
-@[expose] def θE8 : Fin 8 → ℤ := ![2, 3, 4, 6, 5, 4, 3, 2]
 
-theorem θE6_pair : ∀ j : Fin 6, pair (Tag.cartan .E6) θE6 j = if j = 1 then 1 else 0 := by
-  intro j
-  fin_cases j <;> decide
 
 theorem θE7_pair : ∀ j : Fin 7, pair (Tag.cartan .E7) θE7 j = if j = 0 then 1 else 0 := by
   intro j
   fin_cases j <;> decide
 
-theorem θE8_pair : ∀ j : Fin 8, pair (Tag.cartan .E8) θE8 j = if j = 7 then 1 else 0 := by
-  intro j
-  fin_cases j <;> decide
-
-theorem θE6_chain : ([1, 3, 2, 0, 4, 3, 1, 2, 3, 4] : List (Fin 6)).foldl
-    (fun v i => reflFun (Tag.cartan .E6) i v) θE6 = (Pi.single 5 1 : Fin 6 → ℤ) := by
-  funext j
-  fin_cases j <;> decide
 
 theorem θE7_chain : ([0, 2, 3, 1, 4, 3, 2, 0, 5, 4, 3, 1, 2, 3, 4, 5] : List (Fin 7)).foldl
     (fun v i => reflFun (Tag.cartan .E7) i v) θE7 = (Pi.single 6 1 : Fin 7 → ℤ) := by
   funext j
   fin_cases j <;> decide
 
-theorem θE8_chain : ([7, 6, 5, 4, 3, 1, 2, 0, 3, 2, 4, 3, 1, 5, 4, 3, 2, 0, 6, 5, 4, 3, 1, 2, 3, 4,
-    5, 6] : List (Fin 8)).foldl (fun v i => reflFun (Tag.cartan .E8) i v) θE8 =
-    (Pi.single 7 1 : Fin 8 → ℤ) := by
-  funext j
-  fin_cases j <;> decide
 
 end Highest
 
@@ -231,22 +213,11 @@ section Families
 open CFSG.ClassicalInvolution.RouteD (charOf)
 open CFSG.ClassicalInvolution.Generic (conjSub)
 
-theorem cartanE6_nb' : ∀ k : Fin 6, ∃ j : Fin 6, j ≠ 1 ∧ Tag.cartan .E6 j k = -1 := by decide
 theorem cartanE7_nb' : ∀ k : Fin 7, ∃ j : Fin 7, j ≠ 0 ∧ Tag.cartan .E7 j k = -1 := by decide
-theorem cartanE8_nb' : ∀ k : Fin 8, ∃ j : Fin 8, j ≠ 7 ∧ Tag.cartan .E8 j k = -1 := by decide
 
-theorem exactPerm_E6_one (ε : ℕ) (hε : ε < 2) :
-    exactPerm Tag.E6 ε (⟨1, by decide⟩ : Fin Tag.E6.rank) = ⟨1, by decide⟩ := by
-  interval_cases ε <;> decide
 
 variable (F : Type) [Field F] [Finite F]
 
-theorem liftsToNormalFormStd_E6 {p : ℕ} [Fact p.Prime] [CharP F p] :
-    LiftsToNormalFormStd (e6Datum F) (e6Data_valid.xm F) (1 : Fin 6) := by
-  intro X _ f hf hker σ
-  obtain ⟨α, g, a, φ, ε, hαθ, h⟩ := excAut_E6 (p := p) f hf hker σ
-  exact ⟨α, g, a, φ, exactPerm Tag.E6 ε, hαθ, ⟨fun i c => (h i c).1, fun i c => (h i c).2⟩,
-    fun j l => cartan_exactPerm_E6 ε ε.isLt j l, exactPerm_E6_one ε ε.isLt⟩
 
 theorem liftsToNormalFormStd_E7 {p : ℕ} [Fact p.Prime] [CharP F p] :
     LiftsToNormalFormStd (e7Datum F) (e7Data_valid.xm F) (0 : Fin 7) := by
@@ -255,21 +226,6 @@ theorem liftsToNormalFormStd_E7 {p : ℕ} [Fact p.Prime] [CharP F p] :
   exact ⟨α, g, a, φ, exactPerm Tag.E7 ε, hαθ, ⟨fun i c => (h i c).1, fun i c => (h i c).2⟩,
     fun j l => rfl, rfl⟩
 
-theorem liftsToNormalFormStd_E8 {p : ℕ} [Fact p.Prime] [CharP F p] :
-    LiftsToNormalFormStd (Adjoint.e8Datum F) (Adjoint.e8Par F) (7 : Fin 8) := by
-  intro X _ f hf hker σ
-  obtain ⟨α, g, a, φ, ε, hαθ, h⟩ := excAut_E8 (p := p) f hf hker σ
-  exact ⟨α, g, a, φ, exactPerm Tag.E8 ε, hαθ, ⟨fun i c => (h i c).1, fun i c => (h i c).2⟩,
-    fun j l => rfl, rfl⟩
-
-omit [Finite F] in
-theorem θE6_mem_roots : θE6 ∈ (e6Datum F).roots := by
-  refine mem_roots_of_chain (e6Datum F).isFiniteType
-    ([1, 3, 2, 0, 4, 3, 1, 2, 3, 4] : List (Fin 6)) θE6 ?_
-  have h : ([1, 3, 2, 0, 4, 3, 1, 2, 3, 4] : List (Fin 6)).foldl
-      (fun v i => reflFun (e6Datum F).cartan i v) θE6 = (Pi.single 5 1 : Fin 6 → ℤ) := θE6_chain
-  rw [h]
-  exact (RootSystem.ofCartan (e6Datum F).isFiniteType (e6Datum F).divisible).single_mem (5 : Fin 6)
 
 omit [Finite F] in
 theorem θE7_mem_roots : θE7 ∈ (e7Datum F).roots := by
@@ -280,37 +236,6 @@ theorem θE7_mem_roots : θE7 ∈ (e7Datum F).roots := by
   rw [h]
   exact (RootSystem.ofCartan (e7Datum F).isFiniteType (e7Datum F).divisible).single_mem (6 : Fin 7)
 
-omit [Finite F] in
-theorem θE8_mem_roots : θE8 ∈ (Adjoint.e8Datum F).roots := by
-  refine mem_roots_of_chain (Adjoint.e8Datum F).isFiniteType
-    ([7, 6, 5, 4, 3, 1, 2, 0, 3, 2, 4, 3, 1, 5, 4, 3, 2, 0, 6, 5, 4, 3, 1, 2, 3, 4, 5, 6] :
-      List (Fin 8)) θE8 ?_
-  have h : ([7, 6, 5, 4, 3, 1, 2, 0, 3, 2, 4, 3, 1, 5, 4, 3, 2, 0, 6, 5, 4, 3, 1, 2, 3, 4, 5, 6] :
-      List (Fin 8)).foldl (fun v i => reflFun (Adjoint.e8Datum F).cartan i v) θE8 =
-      (Pi.single 7 1 : Fin 8 → ℤ) := θE8_chain
-  rw [h]
-  exact (RootSystem.ofCartan (Adjoint.e8Datum F).isFiniteType
-    (Adjoint.e8Datum F).divisible).single_mem (7 : Fin 8)
-
-theorem toral_std_E6 {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2) (hq : 5 ≤ Nat.card F)
-    {Y : Type} [Group Y] (ψ : ↥(e6Data_valid.minGroup F) →* Y)
-    (hψ : ψ.ker ≤ Subgroup.center ↥(e6Data_valid.minGroup F)) (σ : Y ≃* Y)
-    (hσ2 : ∀ y, σ (σ y) = y) (hσr : ∀ k, σ (ψ k) ∈ ψ.range) (k₀ : ↥(e6Data_valid.minGroup F))
-    (H2 : ∀ j : Fin 6, j ≠ 1 → ∀ h ∈ e6Data_valid.torus F j,
-      σ (ψ (k₀ * h * k₀⁻¹)) = ψ (k₀ * h * k₀⁻¹))
-    (H1 : ∀ y ∈ (e6Datum F).rootGroup θE6 ⊔ (e6Datum F).rootGroup (-θE6),
-      σ (ψ (k₀ * y * k₀⁻¹)) = ψ (k₀ * y * k₀⁻¹)) :
-    ∃ v : Fin Tag.E6.rank → ZMod 2, ∀ γ ∈ (e6Datum F).roots,
-      (∀ y ∈ (conjSub k₀ ((e6Datum F).rootGroup γ ⊔ (e6Datum F).rootGroup (-γ))).map ψ,
-          σ y ∈ (conjSub k₀ ((e6Datum F).rootGroup γ ⊔ (e6Datum F).rootGroup (-γ))).map ψ) ∧
-      ((∀ y ∈ (conjSub k₀ ((e6Datum F).rootGroup γ ⊔ (e6Datum F).rootGroup (-γ))).map ψ,
-          σ y = y) ↔ charOf v γ = 0) := by
-  have hS := torusSetup_E6 F
-  have hfin := finite_minGroup e6Data_valid F
-  exact toral_ambient_std (p := p) hS (1 : Fin 6) (liftsToNormalFormStd_E6 F) hp2 hq
-    (by show 0 < 6; norm_num) (fun k => isLongest_single_E6 rfl _ k) cartanE6_nb'
-    cartanE6_offDiag θE6 (θE6_mem_roots F) θE6_pair (by decide) (hC_E6 F) ψ hψ σ hσ2 hσr k₀
-    (fun j hj s => H2 j hj _ ((hS.H_iff j _).2 ⟨s, rfl⟩)) H1
 
 theorem toral_std_E7 {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2) (hq : 5 ≤ Nat.card F)
     {Y : Type} [Group Y] (ψ : ↥(e7Data_valid.minGroup F) →* Y)
@@ -332,26 +257,6 @@ theorem toral_std_E7 {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2) (hq : 
     cartanE7_offDiag θE7 (θE7_mem_roots F) θE7_pair (by decide) (hC_E7 F) ψ hψ σ hσ2 hσr k₀
     (fun j hj s => H2 j hj _ ((hS.H_iff j _).2 ⟨s, rfl⟩)) H1
 
-theorem toral_std_E8 {p : ℕ} [Fact p.Prime] [CharP F p] (hp2 : p ≠ 2) (hq : 5 ≤ Nat.card F)
-    {Y : Type} [Group Y] (ψ : ↥(adjointGroup Tag.E8 F) →* Y)
-    (hψ : ψ.ker ≤ Subgroup.center ↥(adjointGroup Tag.E8 F)) (σ : Y ≃* Y)
-    (hσ2 : ∀ y, σ (σ y) = y) (hσr : ∀ k, σ (ψ k) ∈ ψ.range) (k₀ : ↥(adjointGroup Tag.E8 F))
-    (H2 : ∀ j : Fin 8, j ≠ 7 → ∀ h ∈ Adjoint.torus (τ := Tag.E8) F j,
-      σ (ψ (k₀ * h * k₀⁻¹)) = ψ (k₀ * h * k₀⁻¹))
-    (H1 : ∀ y ∈ (Adjoint.e8Datum F).rootGroup θE8 ⊔ (Adjoint.e8Datum F).rootGroup (-θE8),
-      σ (ψ (k₀ * y * k₀⁻¹)) = ψ (k₀ * y * k₀⁻¹)) :
-    ∃ v : Fin Tag.E8.rank → ZMod 2, ∀ γ ∈ (Adjoint.e8Datum F).roots,
-      (∀ y ∈ (conjSub k₀ ((Adjoint.e8Datum F).rootGroup γ ⊔
-          (Adjoint.e8Datum F).rootGroup (-γ))).map ψ,
-        σ y ∈ (conjSub k₀ ((Adjoint.e8Datum F).rootGroup γ ⊔
-          (Adjoint.e8Datum F).rootGroup (-γ))).map ψ) ∧
-      ((∀ y ∈ (conjSub k₀ ((Adjoint.e8Datum F).rootGroup γ ⊔
-          (Adjoint.e8Datum F).rootGroup (-γ))).map ψ, σ y = y) ↔ charOf v γ = 0) := by
-  have hS := torusSetup_E8 F
-  exact toral_ambient_std (p := p) hS (7 : Fin 8) (liftsToNormalFormStd_E8 F) hp2 hq
-    (by show 0 < 8; norm_num) (fun k => isLongest_single_E8 rfl _ k) cartanE8_nb'
-    cartanE8_offDiag θE8 (θE8_mem_roots F) θE8_pair (by decide) (hC_E8 F) ψ hψ σ hσ2 hσr k₀
-    (fun j hj s => H2 j hj _ ((hS.H_iff j _).2 ⟨s, rfl⟩)) H1
 
 end Families
 

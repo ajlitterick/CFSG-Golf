@@ -12,14 +12,6 @@ open Subgroup CFSG.Open CFSG.ABGLocalTools CFSG.ComponentClassification.Aschbach
 open CFSG.ComponentClassification.RankTwoStandard
 open scoped MatrixGroups
 
-@[expose] def GMS42Residual : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L T U₁ : Subgroup G), Sec3 G L T → Foundation →
-    Nonempty (rankTwoQuot L ≃* PSL(2, GaloisField 2 4)) → Sec3.Facts L T (2 ^ 4) →
-    Lemma313 L T (2 ^ 4) → Sec4Homo L T U₁ (2 ^ 4) →
-    Nat.card (T ⊓ centralizer (L : Set G) : Subgroup G) = 4 →
-    (∃ t₀ ∈ T ⊓ centralizer (L : Set G), t₀ ≠ 1 ∧ ∀ u ∈ U₁, t₀ * u * t₀⁻¹ = u⁻¹) →
-    ¬ T ≤ gmsV L T →
-    ∀ v ∈ gmsV L T, ∀ g : G, g * v * g⁻¹ ∈ U₁ ⊔ T → g * v * g⁻¹ ∈ U₁ ⊔ (T ⊓ centralizer (L : Set G))
 
 @[expose] def GMS42ResidualU : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L T U₁ : Subgroup G), Sec3 G L T → Foundation →

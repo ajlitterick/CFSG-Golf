@@ -46,17 +46,10 @@ private theorem zmod2_eq_zero_or_one (c : ZMod 2) : c = 0 ∨ c = 1 := by
   · exact Or.inl h
   · exact Or.inr (zmod2_eq_one_of_ne_zero h)
 
-private theorem zmod2_mul_self (c : ZMod 2) : c * c = c := by
-  rcases zmod2_eq_zero_or_one c with h | h <;> simp [h]
-
-private theorem zmod2_add_self_self (p a : ZMod 2) : p + a + a = p := by
-  revert p a; decide +kernel
 
 private theorem add_self_eq_zero_V6 (x : V6) : x + x = 0 := by
   funext i
   exact CharTwo.add_self_eq_zero (x i)
 
-private theorem add_add_self_V6 (x y : V6) : x + (x + y) = y := by
-  rw [← add_assoc, add_self_eq_zero_V6, zero_add]
 
 end CFSG.EvenSporadicStandard.HNRecog.HaradaLA

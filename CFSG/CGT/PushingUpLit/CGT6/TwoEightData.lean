@@ -148,7 +148,6 @@ theorem sigPerm_inv (x : L) : (sigPerm D x)⁻¹ = sigPerm D x := by
     rintro _ ⟨x, rfl⟩
     exact ⟨x, (sigPerm_inv D x).symm⟩
 
-theorem mem_S0 {g : Equiv.Perm (Wd F L)} : g ∈ S0 D ↔ ∃ x, sigPerm D x = g := Iff.rfl
 
 theorem sigPerm_injective : Function.Injective (sigPerm D) := by
   intro x y h
@@ -168,14 +167,6 @@ theorem sigPerm_isAdd (x : L) : IsAddPerm (sigPerm D x) := by
 
 @[expose] def Fix (G : Subgroup (Equiv.Perm (Wd F L))) : Set (Wd F L) := {w | ∀ a ∈ G, a w = w}
 
-theorem lamPerm_isAdd (x : L) : IsAddPerm (lamPerm D x) := by
-  intro w w'
-  refine Prod.ext ?_ (Prod.ext ?_ ?_)
-  · simp [lamPerm_apply, lamFun]
-  · simp only [lamPerm_apply, lamFun, Prod.fst_add, Prod.snd_add, add_smul]
-    abel
-  · simp only [lamPerm_apply, lamFun, Prod.fst_add, Prod.snd_add, map_add, mul_add]
-    ring
 
 end Flag
 

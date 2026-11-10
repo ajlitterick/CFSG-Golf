@@ -53,13 +53,6 @@ theorem xm_ne_one {t : K} (ht : t ≠ 0) : xm t ≠ 1 := by
   simp [xm] at this
   exact ht this
 
-theorem eq_zero_of_xp_eq_one {t : K} (h : xp t = 1) : t = 0 := by
-  by_contra ht
-  exact xp_ne_one ht h
-
-theorem eq_zero_of_xm_eq_one {t : K} (h : xm t = 1) : t = 0 := by
-  by_contra ht
-  exact xm_ne_one ht h
 
 theorem rotSL_xp (t : K) : (rotSL : SL(2, K)) * xp t * rotSL⁻¹ = xm (-t) := by
   refine Subtype.ext ?_

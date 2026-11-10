@@ -30,11 +30,6 @@ variable (L) in
       evalMat (natMat .F4 L (h : Module.End L (RootModule .F4 L))) P = 0) →
     H ≤ adjointGroup .F4 L
 
-theorem zerosInAdjoint_of_isAlgClosed [IsAlgClosed L] [Algebra.IsAlgebraic (ZMod 2) L] :
-    ZerosInAdjoint L := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : CharP L 2 := charP_of_injective_algebraMap (algebraMap (ZMod 2) L).injective 2
-  exact fun H hCH hH => CFSG.TauCetiBridge.Even.le_adjointGroup_F4_two_rankThree (p := 2) rfl H hCH hH
 
 theorem range_adPoints (hZ : ZerosInAdjoint L) : (adPoints L).range = adjointGroup .F4 L := by
   refine le_antisymm (hZ _ adjointGroup_le_range ?_) adjointGroup_le_range

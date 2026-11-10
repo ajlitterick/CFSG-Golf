@@ -148,9 +148,6 @@ theorem blockLin_one (h2 : (2 : F) ≠ 0) (x : V) : blockLin i 1 x = x := by
       rw [LinearMap.comp_apply, ← blockLin_mul h2 hii g⁻¹ hg, inv_mul_cancel, blockLin_one h2]
       rfl)
 
-theorem blockEquiv_apply (h2 : (2 : F) ≠ 0) (hii : i * i = 1) {g : V ≃ₗ[F] V}
-    (hg : g * i = i * g) (x : V) : blockEquiv h2 hii g hg x = g (projP i x) + projM i x :=
-  rfl
 
 theorem blockEquiv_apply_add (h2 : (2 : F) ≠ 0) (hii : i * i = 1) {g : V ≃ₗ[F] V}
     (hg : g * i = i * g) {u v : V} (hu : u ∈ plusSp i) (hv : v ∈ minusSp i) :

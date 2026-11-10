@@ -120,12 +120,6 @@ theorem lookup_eq {f : ℕ → Vec} {m : ℕ} (hf : ∀ i < m, ∀ j < m, f i = 
   have hs := Nat.find_spec hex
   exact hf _ hs.1 k hk hs.2
 
-theorem lookup_lt {f : ℕ → Vec} {m : ℕ} (hm : 0 < m) (w : Vec) : lookup f m w < m := by
-  classical
-  unfold lookup
-  split_ifs with h
-  · exact (Nat.find_spec h).1
-  · exact hm
 
 theorem f0_eq
     {i : ℕ} (hi : i < N) : f0 i = ap vectorOrbit.alpha i := by
@@ -304,7 +298,6 @@ abbrev piT : Array ℕ := piTab vectorOrbit posU
 
 abbrev sigmaT : Array ℕ := sigmaTab vectorOrbit posV
 
-abbrev preT : Array ℕ := piPre nL piT
 
 theorem lparts :
     lineOrbit.keys.size = nL ∧ lineOrbit.alpha.size = nL ∧
@@ -342,15 +335,6 @@ theorem pparts :
   obtain ⟨⟨⟨⟨⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h6⟩, h7⟩, h8⟩, h9⟩, h10⟩ := this
   exact ⟨h1, h2, h3, h4, h6, h7, h8, h9, h10⟩
 
-theorem preparts : ∀ j < nL, preT[j]! < N ∧ piT[preT[j]!]! = j := by
-  have h := lineFacts.lines
-  unfold linesOK at h
-  simp only [Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨-, h6⟩ := h
-  intro j hj
-  have := (CFSG.Sporadic.Th.allIn_eq_true.1 h6) j (Nat.zero_le _) hj
-  simp only [Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq] at this
-  exact this
 
 theorem uu_of_lt
     {j : ℕ} (hj : j < nL) : uu j = vecOf lineOrbit.keys[j]! := by
@@ -415,8 +399,6 @@ theorem l1_eq
   rw [l1, (nuB_uu hj).2]
   exact lookup_eq (fun a ha b hb h => uu_injective ha hb h) (nuB_uu hj).1
 
-theorem vv_wf
-    {i : ℕ} (hi : i < N) : vectorOrbit.keys[i]!.toV.wf = true := vkeys_wf hi
 
 theorem uu_piT
     {i : ℕ} (hi : i < N) : uu piT[i]! = normalize (vv i) := by
@@ -523,34 +505,12 @@ theorem vv_sigmaMap
     {i : ℕ} (hi : i < N) : vv (sigmaMap i) = -vv i := by
   rw [sigmaMap_eq hi]; exact vv_sigmaT hi
 
-theorem sigmaMap_sigmaMap
-    {i : ℕ} (hi : i < N) : sigmaMap (sigmaMap i) = i := by
-  rw [sigmaMap_eq hi, sigmaMap_eq (pparts i hi).2.2.1]; exact (pparts i hi).2.2.2.2.1
-
-theorem sigmaMap_ne {i : ℕ} (hi : i < N) : sigmaMap i ≠ i := by
-  rw [sigmaMap_eq hi]; exact (pparts i hi).2.2.2.2.2.1
 
 theorem piMap_sigmaMap
     {i : ℕ} (hi : i < N) : piMap (sigmaMap i) = piMap i := by
   rw [piMap_eq (sigmaMap_lt hi), sigmaMap_eq hi, piMap_eq hi]
   exact (pparts i hi).2.2.2.2.2.2.1
 
-theorem piMap_f0
-    {i : ℕ} (hi : i < N) : piMap (f0 i) = l0 (piMap i) := by
-  rw [piMap_eq (f0_lt hi), f0_eq hi, piMap_eq hi, l0_eq (pparts i hi).1]
-  exact (pparts i hi).2.2.2.2.2.2.2.1
-
-theorem piMap_f1
-    {i : ℕ} (hi : i < N) : piMap (f1 i) = l1 (piMap i) := by
-  rw [piMap_eq (f1_lt hi), f1_eq hi, piMap_eq hi, l1_eq (pparts i hi).1]
-  exact (pparts i hi).2.2.2.2.2.2.2.2
-
-theorem piMap_zero : piMap 0 = 0 := by
-  have h0 : uu 0 = normalize (vv 0) := by
-    rw [uu_of_lt (by norm_num), lineFacts.root, vecOf_nuW (wf_of_canon154 root_canon),
-      vecOf_root, vv_zero]
-  rw [piMap, ← h0]
-  exact lookup_eq (fun a ha b hb h => uu_injective ha hb h) (by norm_num)
 
 theorem piMap_eq_iff
     {i k : ℕ} (hi : i < N) (hk : k < N) :
@@ -582,34 +542,9 @@ theorem piMap_eq_iff
 
 @[expose] def piX (i : Fin N) : Fin nL := ⟨piMap i % nL, Nat.mod_lt _ (by norm_num)⟩
 
-theorem piX_val
-    (i : Fin N) : (piX i : ℕ) = piMap i := Nat.mod_eq_of_lt (piMap_lt i.isLt)
-
-theorem piX_surjective : Function.Surjective piX := by
-  intro j
-  obtain ⟨hlt, hpre⟩ := preparts j j.isLt
-  refine ⟨⟨_, hlt⟩, Fin.ext ?_⟩
-  rw [piX_val, piMap_eq hlt, hpre]
 
 @[expose] def sigmaX (i : Fin N) : Fin N := ⟨sigmaMap i % N, Nat.mod_lt _ (by norm_num)⟩
 
-theorem sigmaX_val (i : Fin N) : (sigmaX i : ℕ) = sigmaMap i :=
-  Nat.mod_eq_of_lt (sigmaMap_lt i.isLt)
-
-theorem piX_fiber_card (j : Fin nL) :
-    (Finset.univ.filter fun i : Fin N => piX i = j).card = 2 := by
-  obtain ⟨k, hk⟩ := piX_surjective j
-  have hs : (Finset.univ.filter fun i : Fin N => piX i = j) = {k, sigmaX k} := by
-    ext i
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_insert,
-      Finset.mem_singleton]
-    rw [← hk, Fin.ext_iff, piX_val, piX_val, piMap_eq_iff i.isLt k.isLt, Fin.ext_iff,
-      Fin.ext_iff, sigmaX_val]
-  rw [hs, Finset.card_pair]
-  intro h
-  have h1 := congrArg Fin.val h
-  rw [sigmaX_val] at h1
-  exact sigmaMap_ne k.isLt h1.symm
 
 theorem spanIdx_size : Data.spanIdx.size = 154 := by
   have h := vectorFacts.basis
@@ -902,30 +837,6 @@ theorem a0_mem :
 theorem a1_mem :
     a1 ∈ Pv := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
 
-theorem exists_pv_zero :
-    ∀ k < N, ∃ g ∈ Pv, (g ⟨0, by norm_num⟩ : ℕ) = k := by
-  intro k
-  induction k using Nat.strong_induction_on with
-  | _ k ih =>
-    intro hk
-    rcases Nat.eq_zero_or_pos k with rfl | hpos
-    · exact ⟨1, one_mem _, rfl⟩
-    · obtain ⟨hlt, hor⟩ := vtree k hpos hk
-      obtain ⟨g, hg, hgq⟩ := ih _ hlt (by omega)
-      rcases hor with h | h
-      · refine ⟨a0 * g, mul_mem a0_mem hg, ?_⟩
-        rw [Equiv.Perm.mul_apply, a0_apply, hgq, h]
-      · refine ⟨a1 * g, mul_mem a1_mem hg, ?_⟩
-        rw [Equiv.Perm.mul_apply, a1_apply, hgq, h]
-
-theorem pv_transitive
-    (i j : Fin N) : ∃ g ∈ Pv, g i = j := by
-  obtain ⟨g, hg, hgi⟩ := exists_pv_zero i i.isLt
-  obtain ⟨h, hh, hhj⟩ := exists_pv_zero j j.isLt
-  refine ⟨h * g⁻¹, mul_mem hh (inv_mem hg), ?_⟩
-  have hgi' : g ⟨0, by norm_num⟩ = i := Fin.ext hgi
-  rw [Equiv.Perm.mul_apply, ← hgi', Equiv.Perm.inv_def, Equiv.symm_apply_apply, Fin.ext_iff]
-  exact hhj
 
 theorem ltree : ∀ k, 0 < k → k < nL →
     (discPar nL lineOrbit.alpha lineOrbit.beta)[k]! < k ∧
@@ -970,41 +881,5 @@ theorem pl_transitive
   rw [Equiv.Perm.mul_apply, ← hgi', Equiv.Perm.inv_def, Equiv.symm_apply_apply, Fin.ext_iff]
   exact hhj
 
-theorem fam_on_vector_and_projective_orbit_actions :
-    initialVector ≠ 0 ∧
-    (vectorOrbit.keys.size = N ∧ (∀ i < N, ∀ j < N, vv i = vv j → i = j) ∧
-      ∀ i < N, vv i ≠ 0) ∧
-    (lineOrbit.keys.size = nL ∧ (∀ i < nL, ∀ j < nL, uu i = uu j → i = j) ∧
-      ∀ j < nL, uu j ≠ 0 ∧ normalize (uu j) = uu j) ∧
-    (∀ i < N, mA *ᵥ vv i = vv (f0 i) ∧ mB *ᵥ vv i = vv (f1 i)) ∧
-    (∀ j < nL, normalize (mA *ᵥ uu j) = uu (l0 j) ∧ normalize (mB *ᵥ uu j) = uu (l1 j)) ∧
-    (∀ i : Fin N, (a0 i : ℕ) = f0 i ∧ (a1 i : ℕ) = f1 i) ∧
-    (∀ j : Fin nL, (d0 j : ℕ) = l0 j ∧ (d1 j : ℕ) = l1 j) ∧
-    (basisMatrix * spanningBasisInverse = 1 ∧ spanningBasisInverse * basisMatrix = 1) ∧
-    ((∀ i : Fin N, (piX i : ℕ) = piMap i) ∧ Function.Surjective piX ∧
-      (∀ j : Fin nL, (Finset.univ.filter fun i : Fin N => piX i = j).card = 2) ∧
-      piMap 0 = 0 ∧ (∀ i < N, uu (piMap i) = normalize (vv i)) ∧
-      ∀ i < N, piMap (f0 i) = l0 (piMap i) ∧ piMap (f1 i) = l1 (piMap i)) ∧
-    (∀ i < N, sigmaMap i < N ∧ sigmaMap (sigmaMap i) = i ∧ sigmaMap i ≠ i ∧
-      vv (sigmaMap i) = -vv i) ∧
-    (phiV ga = a0 ∧ phiV gb = a1 ∧ phiV.range = Pv ∧ ∀ g i, vv (phiV g i) = mat g *ᵥ vv i) ∧
-    (phiL ga = d0 ∧ phiL gb = d1 ∧ phiL.range = Pl ∧
-      ∀ g j, uu (phiL g j) = normalize (mat g *ᵥ uu j)) ∧
-    (∀ i j : Fin N, ∃ g ∈ Pv, g i = j) ∧ (∀ i j : Fin nL, ∃ g ∈ Pl, g i = j) ∧
-    Function.Injective phiV ∧
-    ∃ e : Blueprint.NativeSporadic.ON ≃* Pv,
-      ∀ u, (e u : Equiv.Perm (Fin N)) = phiV (onEquivJ u) :=
-  ⟨initialVector_ne_zero,
-    ⟨vparts.1, fun _ hi _ hj h => vv_injective hi hj h, vv_ne_zero⟩,
-    ⟨lparts.1, fun _ hi _ hj h => uu_injective hi hj h,
-      fun _ hj => ⟨uu_ne_zero hj, uu_normalize hj⟩⟩,
-    fun _ hi => ⟨(vv_f0 hi).symm, (vv_f1 hi).symm⟩,
-    fun _ hj => ⟨(uu_l0 hj).symm, (uu_l1 hj).symm⟩,
-    fun i => ⟨a0_apply i, a1_apply i⟩, fun j => ⟨d0_apply j, d1_apply j⟩, basis_mul,
-    ⟨piX_val, piX_surjective, piX_fiber_card, piMap_zero, fun _ hi => uu_piMap hi,
-      fun _ hi => ⟨piMap_f0 hi, piMap_f1 hi⟩⟩,
-    fun _ hi => ⟨sigmaMap_lt hi, sigmaMap_sigmaMap hi, sigmaMap_ne hi, vv_sigmaMap hi⟩,
-    ⟨phiV_ga, phiV_gb, range_phiV, vv_phiV⟩, ⟨phiL_ga, phiL_gb, range_phiL, uu_phiL⟩,
-    pv_transitive, pl_transitive, phiV_injective, ⟨onEquivPv, fun _ => rfl⟩⟩
 
 end CFSG.ONSchreier

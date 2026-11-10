@@ -272,14 +272,6 @@ theorem not_twoSubgroupsFourGenerated_subgroup {G : Type} [Group G] [Finite G]
   intro hTF
   exact hlarge (twoSubgroupsFourGenerated_of_mulEquiv e hTF)
 
-omit [Finite Y] in
-theorem isQuasisimple_genFittingFStar_subgroup {G : Type} [Group G] [Finite G]
-    [IsSimpleGroup (genFittingFStar G)] (hnab : ∃ a b : genFittingFStar G, a * b ≠ b * a)
-    {H : Subgroup G} (hFH : genFittingFStar G ≤ H) : TightFStarQuasisimple ↥H := by
-  obtain ⟨e⟩ := nonempty_equiv_genFittingFStar_subgroup hnab hFH
-  have : (genFittingFStar G).Normal := genFittingFStar_normal G
-  exact CFSG.ComponentClassification.Components.quasisimple_of_equiv e
-    (isComponentOf_top_of_normal_simple (genFittingFStar G) hnab).2.2
 
 omit [Finite Y] in
 theorem isClassicalMember3_map_subnormal {G : Type} [Group G] [Finite G] {H : Subgroup G}
@@ -310,88 +302,5 @@ theorem isClassicalMember3_map_subnormal {G : Type} [Group G] [Finite G] {H : Su
       CFSG.ComponentClassification.OddCore.equiv_invariant e
     exact ⟨(QuotientGroup.congr _ _ e hO).symm.trans e'⟩
 
-omit [Finite Y] in
-theorem tightTopRestrict :
-    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup (genFittingFStar G)],
-      (∃ a b : genFittingFStar G, a * b ≠ b * a) →
-      ¬ TwoSubgroupsFourGenerated (genFittingFStar G) →
-      ∀ (R : Subgroup G) (S : Sylow 2 R) (t : G), TightDatum R S t →
-        Nonempty ((S : Subgroup R) ≃* QuaternionGroup 2) →
-        ∃ (H : Subgroup G) (R' : Subgroup H) (S' : Sylow 2 R') (t' : H),
-          TightDatum R' S' t' ∧ TightCls H R' S' t' ∧ ¬ TightInO2 t' ∧
-          TightFStarQuasisimple H ∧ Subgroup.center ↥H = ⊥ ∧
-          ¬ TwoSubgroupsFourGenerated (genFittingFStar H) ∧
-          ((∃ L : Subgroup H, IsClassicalMember3 L t') →
-            ∃ (z : G) (J : Subgroup G), IsClassicalMember3 J z) := by
-  intro G _ _ _ hnab hlarge R S t hd hq8
-  obtain ⟨hC, hO⟩ := centralizer_fstar_eq_bot_and_oddCore_eq_bot hnab
-  have : (genFittingFStar G).Normal := genFittingFStar_normal G
-  have ht2 : IsPGroup 2 (Subgroup.zpowers t) :=
-    IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hd.order]; norm_num)
-  have htK : t ∈ tightCore R := Subgroup.subset_closure ⟨hd.mem_right, ht2⟩
-  have hK0ne : tightCore R ≠ ⊥ := by
-    intro h
-    rw [h, Subgroup.mem_bot] at htK
-    have := hd.order
-    rw [htK, orderOf_one] at this
-    norm_num at this
-  have hSK : (S : Subgroup R).map R.subtype ≤ tightCore R := by
-    rintro _ ⟨s, hs, rfl⟩
-    refine Subgroup.subset_closure ⟨s.2, ?_⟩
-    have h1 : IsPGroup 2 ↥(Subgroup.zpowers s) := S.isPGroup'.to_le (Subgroup.zpowers_le.mpr hs)
-    have h2 : IsPGroup 2 ↥((Subgroup.zpowers s).map R.subtype) := h1.map _
-    rw [MonoidHom.map_zpowers] at h2
-    exact h2
-  set H := subnormalClosure (tightCore R) with hH
-  have hHsub : IsSubnormal H ⊤ := isSubnormal_subnormalClosure _
-  have hKH : tightCore R ≤ H := le_subnormalClosure _
-  have hFH : genFittingFStar G ≤ H :=
-    le_subnormalClosure_of_isComponentOf (isComponentOf_top_of_normal_simple _ hnab) hC hK0ne
-  have hSH : (S : Subgroup R).map R.subtype ≤ H := hSK.trans hKH
-  obtain ⟨S', hd', ⟨eS⟩⟩ := hd.restrict hSH
-  have hord : orderOf (⟨t, hSH hd.mem⟩ : H) = 2 := by
-    rw [Subgroup.orderOf_mk]
-    exact hd.order
-  refine ⟨H, R.subgroupOf H, S', ⟨t, hSH hd.mem⟩, hd', ⟨⟨eS.trans hq8.some⟩, ?_, ?_⟩, ?_, ?_, ?_,
-    ?_, ?_⟩
-  · unfold TightSelfGen
-    rw [tightCore_subgroupOf hKH]
-    exact iSup_conjSub_eq_top_of_subnormalClosure (subnormalClosure_subgroupOf_subnormalClosure _)
-  · exact CFSG.ComponentClassification.OddCore.subnormal_corefree hO H hHsub
-  · exact not_inO2_of_fstar_le hnab hFH hord
-  · exact isQuasisimple_genFittingFStar_subgroup hnab hFH
-  ·
-    rw [eq_bot_iff]
-    intro x hx
-    have hxC : (x : G) ∈ Subgroup.centralizer (genFittingFStar G : Set G) := by
-      rw [Subgroup.mem_centralizer_iff]
-      intro f hf
-      exact congrArg Subtype.val (Subgroup.mem_center_iff.mp hx ⟨f, hFH hf⟩)
-    rw [hC, Subgroup.mem_bot] at hxC
-    exact (Subgroup.mem_bot).mpr (Subtype.ext hxC)
-  · exact not_twoSubgroupsFourGenerated_subgroup hnab hlarge hFH
-  · rintro ⟨L, hL⟩
-    exact ⟨_, _, isClassicalMember3_map_subnormal hHsub hL⟩
-
-theorem tightHasMember3LargeBelow_of_inductive (hI : ∀ N, TightInductive N)
-    (hE : ∀ n, TightLargeEdge n) (hR4 : TightR4) : Q3T.MFS.TightHasMember3LargeBelow := by
-  intro n hn G _ _ _ hlt hnab hlarge R S hS t ht hto hRC hRn h2
-  have hd : TightDatum R S t := ⟨hS, ht, hto, hRC, hRn, h2⟩
-  obtain ⟨H, R', S', t', hd', hcls, hE2, hQS, hZH, hlargeH, hmem⟩ :=
-    tightTopRestrict G hnab hlarge R S t hd (hR4 n hn G hlt hnab hlarge R S t hd)
-  have hHn : Nat.card H < n :=
-    lt_of_le_of_lt (Nat.card_le_card_of_injective _ H.subtype_injective) hlt
-  have hbelow : TightBelow (Nat.card H) := fun Y _ _ hlt' R S t hd hc =>
-    hI n hn Y (lt_trans hlt' hHn) R S t hd hc
-  have hedge := hE (Nat.card H) (CIT3Below.mono hHn.le hn) hbelow H rfl R' S' t' hd' hcls hE2 hQS
-    hlargeH
-  rcases hI n hn H hHn R' S' t' hd' hcls with
-    (hex | ⟨hedgeless, -⟩ | ⟨hedgeless, -⟩ | h4) | hgood
-  · exact absurd hex hE2
-  · exact absurd hedgeless hedge
-  · exact absurd hedgeless hedge
-  · exact absurd h4 (hd'.not_tightE4 hcls hE2 hZH)
-  · obtain ⟨L, -, hL⟩ := tightHasLift_of_good hd' hgood
-    exact hmem ⟨L, hL⟩
 
 end CFSG.ClassicalInvolution.Q3

@@ -33,10 +33,6 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.Blueprint CFSG.Assembly.LowTwoRa
     b ∉ Q → b * b ∈ Q → (∀ x ∈ X, x ∈ Q ∨ x * b⁻¹ ∈ Q) → (∀ u ∈ X, u * u = 1 → u = 1 ∨ u = z) →
       ¬ IsCyclic ↥X → ∃ t ∈ X, t ∉ Q ∧ t * t = z
 
-@[expose] def Lem510_cyc : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K : Subgroup G), Std6r1 G z S K →
-    pRank 2 ↥(Qof S K) = 1 → ∀ b ∈ S, b * b ∈ Qof S K → InducesFAut b K → b ∉ cSec K →
-      IsCyclic ↥(Qof S K ⊔ zpowers b) → ∃ F : Subgroup G, Std4r1 G z S K F ∧ IsCyclic ↥F
 
 @[expose] def IVK_f_pow : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S : Subgroup G), Std6 G z S →

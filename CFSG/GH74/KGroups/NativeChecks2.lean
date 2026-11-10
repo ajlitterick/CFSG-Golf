@@ -61,34 +61,5 @@ theorem pairCountB_eq_E (Q : RawSchreierDatum n) (oa ob : ℕ) (ws : List (List 
   unfold pairCountN pairCountE
   rw [enumA_eq]
 
-theorem solvCheck_eq_E (QA QP : RawSchreierDatum n) :
-    solvCheck (elemsT QA) (elemsT QP) = solvN n (enumA QA) (enumA QP) := by
-  rw [solvCheck_eq, enumA_eq, enumA_eq]
-
-theorem centInCheck_eq_E (QA QS : RawSchreierDatum n) :
-    centInCheck (elemsT QA) (elemsT QS) = centInA n (enumA QA) (enumA QS) := by
-  rw [centInCheck_eq, enumA_eq, enumA_eq]
-
-theorem powInA_sound (QA QP : RawSchreierDatum n) (hQA : ValidSchreier QA)
-    (hQP : ValidSchreier QP) {k : ℕ} (h : powInA n (enumA QA) (enumA QP) k = true) :
-    ∀ g ∈ QA.originalSubgroup, g ^ k = 1 → g ∈ QP.originalSubgroup := by
-  intro g hg hgk
-  unfold powInA at h
-  rw [List.all_eq_true] at h
-  have hmem : toA g ∈ enumA QA := by
-    rw [enumA_eq]
-    exact List.mem_map.2 ⟨g, (mem_elemsT QA hQA g).2 hg, rfl⟩
-  have h1 := h (toA g) hmem
-  have h2 : eqA n (powA n (toA g) k) (idA n) = true := by
-    rw [eqA_eq_decide (rep_powA (rep_toA g) k) (rep_idA (n := n))]
-    simpa using hgk
-  rw [h2] at h1
-  simp only [Bool.not_true, Bool.false_or, List.any_eq_true] at h1
-  obtain ⟨q, hq, hqe⟩ := h1
-  rw [enumA_eq, List.mem_map] at hq
-  obtain ⟨σ, hσ, rfl⟩ := hq
-  have hgσ : g = σ := (eqA_iff (rep_toA g) (rep_toA σ)).1 hqe
-  rw [hgσ]
-  exact (mem_elemsT QP hQP σ).1 hσ
 
 end CFSG.GH74.KGroups.NativeChecks

@@ -48,16 +48,6 @@ theorem mem_oTwoZIn_iff {K : Subgroup G} {x : G} :
 
 theorem oTwoZIn_le (K : Subgroup G) : oTwoZIn K ≤ K := fun _ hx => (mem_oTwoZIn_iff.mp hx).1
 
-theorem pCoreOf_le_oTwoZIn (K : Subgroup G) : pCoreOf 2 K ≤ oTwoZIn K := by
-  intro x hx
-  have hxK : x ∈ K := pCoreOf_le 2 K hx
-  refine mem_oTwoZIn_iff.mpr ⟨hxK, fun w hw => ?_⟩
-  have h1 : w * x⁻¹ * w⁻¹ ∈ pCoreOf 2 K :=
-    (Subgroup.mem_normalizer_iff.mp (le_normalizer_pCoreOf 2 K hw) _).mp
-      ((pCoreOf 2 K).inv_mem hx)
-  have e : x * w * x⁻¹ * w⁻¹ = x * (w * x⁻¹ * w⁻¹) := by group
-  rw [e]
-  exact (pCoreOf 2 K).mul_mem hx h1
 
 theorem normalizer_le_normalizer_oTwoZIn (K : Subgroup G) :
     Subgroup.normalizer (K : Set G) ≤ Subgroup.normalizer (oTwoZIn K : Set G) := by
@@ -376,17 +366,6 @@ theorem le_pCoreOf_sup_oTwoZIn_of_centralizes {X K E : Subgroup G}
   rw [sup_comm]
   exact hle.trans (sup_le_sup hEK hPX)
 
-theorem exists_odd_pow_mem_pCoreOf_of_mem_oTwoZIn {K : Subgroup G} {z : G}
-    (hz : z ∈ oTwoZIn K) : ∃ m : ℕ, Odd m ∧ z ^ m ∈ pCoreOf 2 K := by
-  obtain ⟨s, m, hm, hn⟩ := Nat.exists_eq_two_pow_mul_odd (orderOf_pos z).ne'
-  refine ⟨m, hm, ?_⟩
-  have h2 : (z ^ m) ^ 2 ^ s = 1 := by
-    rw [← pow_mul, mul_comm, ← hn, pow_orderOf_eq_one]
-  have hKE : K ≤ Subgroup.normalizer (oTwoZIn K : Set G) :=
-    Subgroup.le_normalizer.trans (normalizer_le_normalizer_oTwoZIn K)
-  exact mem_pCoreOf_of_centralizes Subgroup.le_normalizer (fun x hx => ⟨0, by simpa using hx⟩)
-    (oTwoZIn_le K) hKE (fun e he w hw => (mem_oTwoZIn_iff.mp he).2 w hw)
-    ((oTwoZIn K).pow_mem hz m) h2
 
 end Centralizing
 

@@ -70,11 +70,6 @@ theorem mem_NHA₂Y_of_crossed_mem (h : d.Hyp) {x : G} (hx : x ∈ d.XC₀)
   rw [← h.sec4_7]
   exact (h.mem_normalizer_withT_Y_iff hx).2 hθ
 
-theorem crossed_mem_Y_of_mem_NHA₂Y (h : d.Hyp) {x : G}
-    (hx : x ∈ (normalizer (d.A₂ : Set G) ⊓ d.H) ⊔ d.Y) : x * d.t * x⁻¹ * d.t ∈ d.Y := by
-  have hx' : x ∈ d.XC₀ := h.NHA₂Y_le_XC₀ hx
-  rw [← h.sec4_7] at hx
-  exact (h.mem_normalizer_withT_Y_iff hx').1 hx
 
 theorem mem_A₂_of_comm_F {s : G} (hs : s ∈ d.S) (hc : ∀ f ∈ d.F, s * f = f * s) :
     s ∈ d.A₂ := by

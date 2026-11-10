@@ -59,43 +59,6 @@ theorem t2S_closure_sq {G : Type} [Group G] {z u : G} (hz : z * z = 1) (hu : u *
     calc x⁻¹ * x⁻¹ = (x * x)⁻¹ := by group
       _ = 1 := by rw [hx2, inv_one]
 
-theorem t2S_exists_core {G : Type} [Group G] [Finite G] {z u : G} (hz2 : z * z = 1)
-    (P : Sylow 2 G) (hPz : ∀ s ∈ (P : Subgroup G), s * z = z * s) (hu : u * u = 1)
-    (huz : u * z = z * u) :
-    ∃ S : Subgroup G, IsPGroup 2 ↥S ∧ ¬ 2 ∣ S.index ∧ z ∈ S ∧ u ∈ S ∧
-      ∀ s ∈ S, s * z = z * s := by
-  set C : Subgroup G := centralizer ({z} : Set G) with hC
-  have hmemC : ∀ g : G, g ∈ C ↔ g * z = z * g := fun g => Subgroup.mem_centralizer_singleton_iff
-  have hPC : (P : Subgroup G) ≤ C := fun s hs => (hmemC s).2 (hPz s hs)
-  have hzA : z ∈ Subgroup.closure ({z, u} : Set G) := Subgroup.subset_closure (by simp)
-  have huA : u ∈ Subgroup.closure ({z, u} : Set G) := Subgroup.subset_closure (by simp)
-  have hA : IsPGroup 2 ↥(Subgroup.closure ({z, u} : Set G)) := by
-    intro g
-    refine ⟨1, ?_⟩
-    apply Subtype.ext
-    simpa [pow_two] using t2S_closure_sq hz2 hu huz g g.2
-  have hA' : IsPGroup 2 ↥((Subgroup.closure ({z, u} : Set G)).subgroupOf C) := hA.comap_subtype
-  obtain ⟨Q, hQ⟩ := hA'.exists_le_sylow
-  refine ⟨(Q : Subgroup ↥C).map C.subtype, Q.isPGroup'.map C.subtype, ?_, ?_, ?_, ?_⟩
-  · rw [Subgroup.index_map_subtype]
-    intro h
-    rcases (Nat.prime_two.dvd_mul).1 h with h | h
-    · exact Q.not_dvd_index h
-    · exact P.not_dvd_index (h.trans (Subgroup.index_dvd_of_le hPC))
-  · exact ⟨⟨z, (hmemC z).2 rfl⟩, hQ hzA, rfl⟩
-  · exact ⟨⟨u, (hmemC u).2 huz⟩, hQ huA, rfl⟩
-  · rintro s ⟨c, _, rfl⟩
-    exact (hmemC c.1).1 c.2
-
-theorem exists_sylow_two_centralizer {G : Type} [Group G] [Finite G] {z u : G}
-    (hz : IsCentralInvolution z) (hu : u * u = 1) (huz : u * z = z * u) :
-    ∃ S : Subgroup G, IsPGroup 2 ↥S ∧ ¬ 2 ∣ S.index ∧ z ∈ S ∧ u ∈ S ∧
-      ∀ s ∈ S, s * z = z * s := by
-  obtain ⟨hord, P, _, hPz⟩ := hz
-  have hz2 : z * z = 1 := by
-    have h : z ^ 2 = 1 := orderOf_dvd_iff_pow_eq_one.1 hord.dvd
-    simpa [pow_two] using h
-  exact t2S_exists_core hz2 P hPz hu huz
 
 theorem t2S_closure_pow {G : Type} [Group G] {s : Set G} (hc : ∀ a ∈ s, ∀ b ∈ s, a * b = b * a)
     {n : ℕ} (hn : ∀ a ∈ s, a ^ n = 1) : ∀ g ∈ Subgroup.closure s, g ^ n = 1 := by

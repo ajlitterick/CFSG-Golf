@@ -241,48 +241,5 @@ theorem perfect_central_cover_abelian_sylow_prime_kernel_bound {E Q : Type*} [Gr
   rw [← hvz]
   exact hv
 
-theorem perfect_central_cover_elementary_sylow_prime_kernel_bound {E Q : Type*} [Group E]
-    [Group Q] [Finite E] [Finite Q] [Group.IsPerfect E] {η : E →* Q}
-    (hη : Function.Surjective η) (hC : η.ker ≤ center E) {ℓ : ℕ} [hℓ : Fact ℓ.Prime]
-    (Cℓ : Sylow ℓ η.ker) (S : Sylow ℓ Q) {d : ℕ}
-    (hS : Nonempty ((S : Subgroup Q) ≃* (Fin d → Multiplicative (ZMod ℓ)))) :
-    CFSG.IsElementaryAbelian ℓ (Cℓ : Subgroup η.ker) ∧
-      ∃ r ≤ d * (d - 1) / 2, Nat.card (Cℓ : Subgroup η.ker) = ℓ ^ r := by
-  classical
-  obtain ⟨e⟩ := hS
-  let e' : (S : Subgroup Q) ≃* ((i : Fin d) → Multiplicative (ZMod (ℓ ^ (fun _ => 1) i))) :=
-    e.trans (MulEquiv.piCongrRight fun _ =>
-      (ZMod.ringEquivCongr (pow_one ℓ).symm).toAddEquiv.toMultiplicative)
-  obtain ⟨φ, hφ⟩ := perfect_central_cover_abelian_sylow_prime_kernel_bound hη hC Cℓ S
-    (fun _ => 1) (fun _ => le_rfl) ⟨e'⟩
-  have hℓ0 : ((ℓ : ℕ) : ZMod (ℓ ^ min 1 1)) = 0 := by
-    have h := ZMod.natCast_self (ℓ ^ min 1 1)
-    simpa using h
-  have hexp : ∀ z : (Cℓ : Subgroup η.ker), z ^ ℓ = 1 := by
-    intro z
-    obtain ⟨v, rfl⟩ := hφ z
-    rw [← map_pow]
-    have hv : v ^ ℓ = 1 := by
-      funext q
-      rw [Pi.pow_apply, Pi.one_apply, ← ofAdd_toAdd (v q), ← ofAdd_nsmul, nsmul_eq_mul, hℓ0,
-        zero_mul, ofAdd_zero]
-    rw [hv, map_one]
-  refine ⟨{ is_comm := ⟨fun u v => Subtype.ext (Subtype.ext
-              (mem_center_iff.1 (hC v.1.2) _))⟩
-            exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one hexp }, ?_⟩
-  obtain ⟨r, hr⟩ := (IsPGroup.iff_card).1 Cℓ.isPGroup'
-  refine ⟨r, ?_, hr⟩
-  have hle := Nat.card_le_card_of_surjective φ hφ
-  have hcardP : Nat.card ((p : {p : Fin d × Fin d // p.1 < p.2}) →
-      Multiplicative (ZMod (ℓ ^ min ((fun _ : Fin d => 1) p.1.1) ((fun _ : Fin d => 1) p.1.2)))) =
-      ℓ ^ (d * (d - 1) / 2) := by
-    rw [Nat.card_pi]
-    simp only [min_self, pow_one, Nat.card_eq_fintype_card, Fintype.card_multiplicative,
-      ZMod.card, Finset.prod_const, Finset.card_univ]
-    congr 1
-    rw [Fintype.card_subtype, Fintype.card_product_filter_lt, Fintype.card_fin,
-      Nat.choose_two_right]
-  rw [hr, hcardP] at hle
-  exact (Nat.pow_le_pow_iff_right hℓ.out.one_lt).1 hle
 
 end CFSG.LocalAnalysis.ComponentInitial

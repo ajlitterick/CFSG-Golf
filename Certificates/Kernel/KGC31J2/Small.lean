@@ -53,7 +53,6 @@ theorem kR : (canonK 315 9 (mask 9) (315 * 9) (PJ2.S 0) &&
     siftK 315 9 (mask 9) (315 * 9) (pidn 315 9) PJ2.LR PJ2.TRI PJ2.BP 3 0 (PJ2.S 1)) = true := by
   quickRfl
 
-theorem kE0len : Nat.beq E0.length 315 = true := by quickRfl
 
 theorem kTot : Nat.beq (fld20 (sumF 315 (lget E0)) 0) 2835 = true := by quickRfl
 

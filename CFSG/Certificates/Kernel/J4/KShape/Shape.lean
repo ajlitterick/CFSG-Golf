@@ -71,30 +71,18 @@ theorem words_ok : wordsOK WREC = true := by quickRfl
 
 theorem sq_ok : sqOK CFSG.KJ4.KRS.RZT CFSG.KJ4.KRS.INV WREC = true := by quickRfl
 
-theorem comm_ok0 : commOK CFSG.KJ4.KRS.RZT CFSG.KJ4.KRS.INV WREC (nat_lit 0) (nat_lit 3) = true := by quickRfl
-
-theorem comm_ok1 : commOK CFSG.KJ4.KRS.RZT CFSG.KJ4.KRS.INV WREC (nat_lit 3) (nat_lit 11) = true := by quickRfl
 
 theorem conj_ok : conjOK CFSG.KJ4.KRS.RZT CFSG.KJ4.KRS.INV WREC CM = true := by quickRfl
 
-theorem f_mask : notB (conjOK CFSG.KJ4.KRS.RZT CFSG.KJ4.KRS.INV WREC
-    (Nat.xor CM (Nat.shiftLeft (nat_lit 1) (nat_lit 208)))) = true := by quickRfl
 
 theorem f_comm : notB (same CFSG.KJ4.KRS.INV (CFSG.KJ4.KRS.RZT (nat_lit 11))
     (rcat (rcat (zr CFSG.KJ4.KRS.INV WREC (nat_lit 1) (nat_lit 6)) (zr CFSG.KJ4.KRS.INV WREC (nat_lit 0) (nat_lit 6)))
       (rcat (zr CFSG.KJ4.KRS.INV WREC (nat_lit 1) (nat_lit 5)) (zr CFSG.KJ4.KRS.INV WREC (nat_lit 0) (nat_lit 5)))))
     = true := by quickRfl
 
-theorem f_w0 : notB (wordsOK (Nat.lor WREC (nat_lit 1))) = true := by quickRfl
-
-theorem f_shift : notB (sqOK (fun i => CFSG.KJ4.KRS.RZT (Nat.succ i)) CFSG.KJ4.KRS.INV WREC) = true := by
-  quickRfl
 
 theorem f_inv : notB (Nat.beq CFSG.KJ4.KRS.INV (nat_lit 0x5060400010203)) = true := by quickRfl
 
-theorem f_len : notB (same CFSG.KJ4.KRS.INV (Nat.sub (CFSG.KJ4.KRS.RZT (nat_lit 0)) (nat_lit 1))
-    (rcat (zr CFSG.KJ4.KRS.INV WREC (nat_lit 0) (nat_lit 5)) (zr CFSG.KJ4.KRS.INV WREC (nat_lit 0) (nat_lit 5))))
-    = true := by quickRfl
 
 end CFSG.KJ4.KShape
 

@@ -227,11 +227,6 @@ theorem ggNbr_exc_of_not_reflGen (hnc : GGNbrReflGenNonSplitFull) (hTB : GGNbrTa
   · exact Or.inl hhas
   · exact Or.inr hhas
 
-theorem eq_of_ggLabelIso_D4 {lab : LargeEvenLabel} {f : ℕ} (h : GGLabelIso lab ⟨.D, 4, f⟩) :
-    lab = ⟨.D, 4, f⟩ := by
-  obtain ⟨t, r, n⟩ := lab
-  unfold GGLabelIso at h
-  rcases h with h | h | h | h | h | h | h | h <;> simp_all
 
 theorem eq_of_ggLabelIso_triD4 {lab : LargeEvenLabel} {r f : ℕ}
     (h : GGLabelIso lab ⟨.triD4, r, f⟩) : lab = ⟨.triD4, r, f⟩ := by

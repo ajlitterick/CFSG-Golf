@@ -72,6 +72,5 @@ theorem card_cyclic_pow_eq_one (hp : p.Prime) (ha : 1 ≤ a) :
 
 end Model
 
-variable {p a : ℕ}
 
 end CFSG.LocalAnalysis.SteinbergBV

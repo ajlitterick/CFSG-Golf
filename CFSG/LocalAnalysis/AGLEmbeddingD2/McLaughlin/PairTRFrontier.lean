@@ -22,18 +22,6 @@ open CFSG.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData
 @[expose] def IsA6OrU33 (Y : Type) [Group Y] : Prop :=
   Nonempty (Y ≃* alternatingGroup (Fin 6)) ∨ IsUThreeThree Y
 
-@[expose] def PairTwoImageTR : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (P : Sylow 3 G) (M A H R : Subgroup G),
-    PairStrongCtx P M A H R → PairEvenIndex M H →
-    ∀ L₁ L₂ : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L₁ → IsWeakSBlock M (pCoreOf 2 H) L₂ →
-    barM M L₁ ≠ barM M L₂ →
-    (∀ L' : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L' →
-      barM M L' = barM M L₁ ∨ barM M L' = barM M L₂) →
-    ¬ 3 ∣ Nat.card (barM M L₁ ⊓
-      Subgroup.centralizer (barM M L₁ : Set (↥M ⧸ CFSG.pCore 2 ↥M)) : Subgroup _) →
-    ¬ 3 ∣ Nat.card (barM M L₂ ⊓
-      Subgroup.centralizer (barM M L₂ : Set (↥M ⧸ CFSG.pCore 2 ↥M)) : Subgroup _) →
-    IsA6OrU33 ↥(barM M L₁) ∧ IsA6OrU33 ↥(barM M L₂)
 
 @[expose] def PairOneImagePureE : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (P : Sylow 3 G) (M A H R : Subgroup G),

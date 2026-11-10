@@ -104,45 +104,6 @@ theorem lemma_F36 {m : ℕ} (hm : 1 < m) (hU : UniqueGeod (graph (G₁ ⊔ G₂)
   exact Lemma36.lemma_F36 hs ht adj_γ₀_γ₁ hsx htl hsl htx (connected rfl)
     (fun _ _ h => vtype_ne_of_adj h) hm hU hn hnm hx hl
 
-theorem lemma_F37 {m : ℕ} (hm4 : 4 ≤ m) (hmeven : Even m)
-    (hU : UniqueGeod (graph (G₁ ⊔ G₂) G₁ G₂) m) {c : CosetGeom (G₁ ⊔ G₂) G₁ G₂}
-    (hxc : (graph (G₁ ⊔ G₂) G₁ G₂).Adj (γ₀ (G₁ ⊔ G₂) G₁ G₂) c) (hlc : c ≠ γ₁ (G₁ ⊔ G₂) G₁ G₂)
-    {s t : ↥(G₁ ⊔ G₂)} (hs : s * s = 1) (ht : t * t = 1) (hsc : (s : G) ∈ stab c)
-    (hsxc : (s : G) ∉ G₁ ⊓ stab c) (ht2 : (t : G) ∈ G₂) (ht12 : (t : G) ∉ G₁ ⊓ G₂) {n : ℕ}
-    (hn : 0 < n) (hnm : n ≤ m / 2) (hst : (((s * t) ^ n : ↥(G₁ ⊔ G₂)) : G) ∈ G₁ ⊓ G₂ ⊓ stab c) :
-    n = m / 2 ∧
-      IsPolygon (graph (G₁ ⊔ G₂) G₁ G₂)
-        (MulAction.orbit (Subgroup.closure {s, t}) (γ₀ (G₁ ⊔ G₂) G₁ G₂) ∪
-          MulAction.orbit (Subgroup.closure {s, t}) (γ₁ (G₁ ⊔ G₂) G₁ G₂) ∪
-          MulAction.orbit (Subgroup.closure {s, t}) c) (2 * m) ∧
-      (∀ w ∈ Subgroup.closure {s, t},
-        (∀ v ∈ MulAction.orbit (Subgroup.closure {s, t}) (γ₀ (G₁ ⊔ G₂) G₁ G₂) ∪
-          MulAction.orbit (Subgroup.closure {s, t}) (γ₁ (G₁ ⊔ G₂) G₁ G₂) ∪
-          MulAction.orbit (Subgroup.closure {s, t}) c, w • v = v) ↔
-          w ∈ Subgroup.zpowers ((s * t) ^ n)) ∧
-      (Subgroup.zpowers ((s * t) ^ n)).relIndex (Subgroup.closure {s, t}) = 2 * n := by
-  have hG1 : G₁ ≤ G₁ ⊔ G₂ := le_sup_left
-  have hG2 : G₂ ≤ G₁ ⊔ G₂ := le_sup_right
-  have hsx : (s : G) ∉ G₁ := fun h => hsxc ⟨h, hsc⟩
-  have ht1 : (t : G) ∉ G₁ := fun h => ht12 ⟨h, ht2⟩
-  have hsc' : s • c = c := smul_eq_of_mem_stab hsc
-  have htl : t • γ₁ (G₁ ⊔ G₂) G₁ G₂ = γ₁ (G₁ ⊔ G₂) G₁ G₂ :=
-    smul_eq_of_mem_stab (by rw [stab_γ₁ hG2]; exact ht2)
-  have hsx' : s • γ₀ (G₁ ⊔ G₂) G₁ G₂ ≠ γ₀ (G₁ ⊔ G₂) G₁ G₂ := fun h => by
-    have := mem_stab_of_smul_eq h
-    rw [stab_γ₀ hG1] at this
-    exact hsx this
-  have htx : t • γ₀ (G₁ ⊔ G₂) G₁ G₂ ≠ γ₀ (G₁ ⊔ G₂) G₁ G₂ := fun h => by
-    have := mem_stab_of_smul_eq h
-    rw [stab_γ₀ hG1] at this
-    exact ht1 this
-  have hx : (s * t) ^ n • γ₀ (G₁ ⊔ G₂) G₁ G₂ = γ₀ (G₁ ⊔ G₂) G₁ G₂ :=
-    smul_eq_of_mem_stab (by rw [stab_γ₀ hG1]; exact hst.1.1)
-  have hl : (s * t) ^ n • γ₁ (G₁ ⊔ G₂) G₁ G₂ = γ₁ (G₁ ⊔ G₂) G₁ G₂ :=
-    smul_eq_of_mem_stab (by rw [stab_γ₁ hG2]; exact hst.1.2)
-  have hcc : (s * t) ^ n • c = c := smul_eq_of_mem_stab hst.2
-  exact Lemma37.lemma_F37 hs ht adj_γ₀_γ₁ hxc hlc.symm hsc' htl hsx' htx (connected rfl)
-    (fun _ _ h => vtype_ne_of_adj h) hm4 hmeven hU hn hnm hx hl hcc
 
 end CosetGeom
 

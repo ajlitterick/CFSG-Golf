@@ -29,9 +29,6 @@ theorem fam_PSL_simplicity (G : Type) [Group G] (n p f : ℕ)
     (e.trans (projectiveSpecialLinearGroupEquivStatedProj n K).symm).isSimpleGroup
   exact ⟨hG.toNontrivial, hG⟩
 
-theorem finite_statedProj {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type} [Field K]
-    [Finite K] (H : Subgroup (GL ι K)) : Finite (StatedProj H) :=
-  inferInstance
 
 theorem finite_of_statedClassicalModel {G : Type} [Group G] {t : StatedLieTag} {n p f : ℕ}
     (h : StatedClassicalModel G t n p f) : Finite G :=

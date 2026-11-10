@@ -17,7 +17,6 @@ namespace Certificates
 
 open CertificateChecks
 
-theorem certificate7296 : CFSG.EvenSporadicStandard.TwoRu.CentCover.ccChk () = true := KernelMisc.RuCoverNet.ccChk_true
 
 end Certificates
 

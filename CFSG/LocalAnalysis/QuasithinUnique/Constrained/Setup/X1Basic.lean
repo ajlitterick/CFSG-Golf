@@ -75,22 +75,6 @@ attribute [instance] IrrSection.commGroup IrrSection.finite
     ∀ G L A : Subgroup (MulAut V), IsComp L G → IsBestOffender G A → ⁅L, A⁆ ≠ ⊥ →
       A ≤ Subgroup.normalizer (L : Set (MulAut V)) ∧ ⁅L, A⁆ = L ∧ Nonempty (IrrSection V L A)
 
-@[expose] def M11M12ExclusionProp : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w * w = 1) →
-    ∀ L E : Subgroup (MulAut W), CFSG.IsQuasisimple ↥L → IsIrrOn L →
-      (Nonempty (CQ L ≃* NativeSporadic.Carrier .M11) ∨
-        Nonempty (CQ L ≃* NativeSporadic.Carrier .M12)) →
-      E ≤ Subgroup.normalizer (L : Set (MulAut W)) → E ≠ ⊥ → IsElemAbelian2 E →
-      Nat.card E * Nat.card (fixV E) < Nat.card W
-
-@[expose] def MathieuExclusionProp : Prop :=
-  ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w * w = 1) →
-    ∀ L E : Subgroup (MulAut W), CFSG.IsQuasisimple ↥L → IsIrrOn L →
-      (Nonempty (CQ L ≃* NativeSporadic.Carrier .M22) ∨
-        Nonempty (CQ L ≃* NativeSporadic.Carrier .M23) ∨
-        Nonempty (CQ L ≃* NativeSporadic.Carrier .M24)) →
-      E ≤ Subgroup.normalizer (L : Set (MulAut W)) → E ≠ ⊥ → IsElemAbelian2 E → IsQuadratic E →
-      Nat.card E * Nat.card (fixV E) < Nat.card W
 
 @[expose] def J1ExclusionProp : Prop :=
   ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w * w = 1) →
@@ -113,12 +97,6 @@ attribute [instance] IrrSection.commGroup IrrSection.finite
       Nat.card W ≤ Nat.card E * Nat.card (fixV E) →
       ¬ Nonempty (CQ L ≃* NativeSporadic.Carrier .J4)
 
-@[expose] def TwoExtensionProp : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (T K : Subgroup X), K.Normal → IsPGroup 2 T →
-    ¬ 2 ∣ T.index → K ⊔ T = ⊤ →
-    (Nonempty (↥K ≃* NativeSporadic.Carrier .J2) ∨ Nonempty (↥K ≃* NativeSporadic.Carrier .HS) ∨
-      Nonempty (↥K ≃* NativeSporadic.Carrier .Ru)) →
-    ∃ U₁ U₂ : Subgroup X, U₁ ≠ U₂ ∧ IsCoatom U₁ ∧ IsCoatom U₂ ∧ T ≤ U₁ ∧ T ≤ U₂
 
 @[expose] def SporadicExclusion (s : TauCeti.SporadicName) : Prop :=
   ∀ (W : Type) [CommGroup W] [Finite W], (∀ w : W, w * w = 1) →
@@ -132,21 +110,6 @@ attribute [instance] IrrSection.commGroup IrrSection.finite
     ¬ 2 ∣ T.index → K ⊔ T = ⊤ → Nonempty (↥K ≃* NativeSporadic.Carrier s) →
     ∃ U₁ U₂ : Subgroup X, U₁ ≠ U₂ ∧ IsCoatom U₁ ∧ IsCoatom U₂ ∧ T ≤ U₁ ∧ T ≤ U₂
 
-theorem sporadicExclusion_of_M11M12 (h : M11M12ExclusionProp) :
-    SporadicExclusion .M11 ∧ SporadicExclusion .M12 :=
-  ⟨fun W _ _ hW L E hq hirr hiso hE hEne hEel _ =>
-      h W hW L E hq hirr (Or.inl hiso) hE hEne hEel,
-    fun W _ _ hW L E hq hirr hiso hE hEne hEel _ =>
-      h W hW L E hq hirr (Or.inr hiso) hE hEne hEel⟩
-
-theorem sporadicExclusion_of_Mathieu (h : MathieuExclusionProp) :
-    SporadicExclusion .M22 ∧ SporadicExclusion .M23 ∧ SporadicExclusion .M24 :=
-  ⟨fun W _ _ hW L E hq hirr hiso hE hEne hEel hq2 =>
-      h W hW L E hq hirr (Or.inl hiso) hE hEne hEel hq2,
-    fun W _ _ hW L E hq hirr hiso hE hEne hEel hq2 =>
-      h W hW L E hq hirr (Or.inr (Or.inl hiso)) hE hEne hEel hq2,
-    fun W _ _ hW L E hq hirr hiso hE hEne hEel hq2 =>
-      h W hW L E hq hirr (Or.inr (Or.inr hiso)) hE hEne hEel hq2⟩
 
 theorem sporadicExclusion_of_J1 (h : J1ExclusionProp) : SporadicExclusion .J1 :=
   fun W _ _ hW L E hq hirr hiso hE hEne hEel _ =>
@@ -162,10 +125,5 @@ theorem sporadicExclusion_of_J4 (h : J4ExclusionProp) : SporadicExclusion .J4 :=
     by_contra hcon
     exact h W hW L E hq.1 hirr hE hEne hEel (not_lt.1 hcon) hiso
 
-theorem twoExtensionFor_of (h : TwoExtensionProp) :
-    TwoExtensionFor .J2 ∧ TwoExtensionFor .HS ∧ TwoExtensionFor .Ru :=
-  ⟨fun X _ _ T K hK hT hidx hsup hiso => h X T K hK hT hidx hsup (Or.inl hiso),
-    fun X _ _ T K hK hT hidx hsup hiso => h X T K hK hT hidx hsup (Or.inr (Or.inl hiso)),
-    fun X _ _ T K hK hT hidx hsup hiso => h X T K hK hT hidx hsup (Or.inr (Or.inr hiso))⟩
 
 end CFSG.QuasithinUnique.Setup.X1

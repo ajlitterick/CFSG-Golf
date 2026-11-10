@@ -13,7 +13,6 @@ variable (m : ℕ) (F : Type) [Field F]
 
 @[expose] def typeALeviJ (k : ℕ) : Finset (Fin m) := Finset.univ.filter fun j => j.val + 1 < k
 
-theorem typeALeviJ_self : typeALeviJ m m = typeAJ₁ m := rfl
 
 theorem typeALevi_mem_lattice {k : ℕ} {v : Fin m → ℤ}
     (h : ∀ a : Fin (m + 1), k ≤ a.val → toStd m v a = 0) :

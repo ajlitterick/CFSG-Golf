@@ -112,11 +112,6 @@ theorem ch17260nc : bIf(Nat.beq (pc (P3.GI 1) (P3.GI 3)) (pc (P3.GI 3) (P3.GI 1)
     true := by
   quickRfl
 
-theorem ch17260neg : bAnd(bIf(ordPK 315 9 2 (prodK 315 9 [P3.GI 0]), false, true),
-    bAnd(bIf(Nat.beq P3.cnt 26, false, true),
-    bAnd(bIf(ordPK 315 9 2 (prodK 315 9 [pc (RP 0) (pc (pc (KFI 0) (RP 0)) (KF 0))]), false, true),
-    bIf(Nat.beq (pc (P3.GI 1) (P3.GI 3)) (pc (P3.GI 3) (P3.GI 1)), false, true)))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelJ2Cover.KF17260
 

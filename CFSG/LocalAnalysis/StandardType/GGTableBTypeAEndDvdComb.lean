@@ -20,9 +20,6 @@ variable {d p : ℕ} {K : Type} [Field K]
     simp only [Pi.inv_apply]
     rw [ha k hk l hl]
 
-theorem mem_constSub {S : Finset (Fin d)} {y : Fin d → Kˣ} :
-    y ∈ constSub (K := K) S ↔ ∀ k ∈ S, ∀ l ∈ S, y k = y l :=
-  Iff.rfl
 
 theorem le_zpowers_of_card_le {G : Type*} [Group G] (hp : p.Prime) {W : Subgroup G}
     [Finite W] (hW : Nat.card W ≤ p) {y : G} (hyW : y ∈ W) (hy1 : y ≠ 1) (hyp : y ^ p = 1) :

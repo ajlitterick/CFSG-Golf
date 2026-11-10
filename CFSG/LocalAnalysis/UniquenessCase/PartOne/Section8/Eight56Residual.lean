@@ -48,30 +48,6 @@ theorem r857_of_parts {G : Type} [Group G] [Finite G] {D : Data G}
     (hList : R857List D) (hMoreover : R857Moreover D) (hCover : R857Cover D) : R857 D :=
   fun L Q P h => ⟨hList L Q P h, hMoreover L Q P h, hCover L Q P h⟩
 
-private theorem res_mem_uniqueSet_of_inU {G : Type} [Group G] {M X : Subgroup G}
-    (h : UC6.InU M X) : X ∈ CFSG.LocalAnalysis.RankThreeUC.uniqueSet M := by
-  refine ⟨h.1, ?_⟩
-  intro k hk
-  have hk' : X ≤ CFSG.Open.uniqueFourConj k⁻¹ M := by
-    simpa [CFSG.Open.uniqueFourConj] using hk
-  have hconj := h.2 k⁻¹ hk'
-  simpa [CFSG.Open.uniqueFourConj] using hconj
-
-theorem r862_of_inputs {G : Type} [Group G] [Finite G] {D : Data G}
-    (h63 : UC6.R6_3 D) (h859 : R859 D) (h861 : R861 D) : R862 D := by
-  intro L Q P hcex
-  have hLM : L ≤ D.M := hcex.mem.1.le
-  have hLrank : 2 ≤ CFSG.Open.pRank 3 L := hcex.rank.ge
-  have hPL : P ≤ normalizer (L : Set G) := h859 L Q P hcex
-  have h61 : ∀ X : Subgroup G, X ≤ P → Nat.card X = 3 → ¬ X ≤ Q →
-      2 ≤ CFSG.Open.pRank 3 (centralizer (X : Set G) ⊓ L) :=
-    fun X hXP hXc hXQ => (h861 L Q P hcex X hXP hXc hXQ).1
-  refine ⟨fun X hX g hg => ?_, fun X hXP hN => ?_⟩
-  · exact exists_mem_conj_forall_of_centralizer_transport h63 hLM hcex.sylowQ hcex.le
-      hcex.sylowP hLrank hcex.gamma hPL h61 hX hg
-  · exact res_mem_uniqueSet_of_inU
-      (inU_of_normalizer_le_of_centralizer_transport h63 hLM hcex.sylowQ hcex.le hcex.sylowP
-        hLrank hcex.gamma hPL h61 hXP hN)
 
 private theorem res_le_omegaOne_of_isElemAbelian {G : Type} [Group G] {E Q : Subgroup G}
     (hEQ : E ≤ Q) (hE : CFSG.Open.IsElemAbelian 3 E) : E ≤ omegaOne 3 Q := by

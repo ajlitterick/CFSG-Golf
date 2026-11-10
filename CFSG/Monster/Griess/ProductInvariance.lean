@@ -111,7 +111,6 @@ theorem oddSlot_add3_ne_zero {k l m : Fin 3} (h : ¬ (k ≠ l ∧ l ≠ m ∧ k 
   revert k l m
   decide
 
-theorem fst_ne_zero {g : Gam} (h : g.1 ≠ 0) : g ≠ 0 := fun h0 => h (by rw [h0]; rfl)
 
 theorem clsΩ_octad_ne_zero (d : OctadWord) : clsΩ (d : C) ≠ 0 := by
   intro h
@@ -243,17 +242,12 @@ open ProdInv in
   (T.compl₁₂ (tauB : SpaceB →ₗ[ℚ] SpaceB) (tauB : SpaceB →ₗ[ℚ] SpaceB)).compr₂
     (LinearMap.lcomp ℚ ℚ (tauB : SpaceB →ₗ[ℚ] SpaceB))
 
-theorem tauT_apply (u v w : SpaceB) : tauT u v w = T (tauB u) (tauB v) (tauB w) := rfl
 
 theorem T_tauB (u v w : SpaceB) : T (tauB u) (tauB v) (tauB w) = T u v w := by
   have h : tauT = T := tbasis.ext fun i => tbasis.ext fun j => tbasis.ext fun k =>
     ProdInv.inv3_basis i j k
   exact congrArg (fun f => f u v w) h
 
-theorem T_tauB_symm (u v w : SpaceB) :
-    T (tauB.symm u) (tauB.symm v) (tauB.symm w) = T u v w := by
-  rw [← T_tauB (tauB.symm u), tauB.apply_symm_apply, tauB.apply_symm_apply,
-    tauB.apply_symm_apply]
 
 theorem tauB_gmul (u v : SpaceB) : tauB (gmul u v) = gmul (tauB u) (tauB v) := by
   refine eq_of_bform_eq fun w => ?_
@@ -281,31 +275,5 @@ theorem IsAlgAut.inv {f : SpaceB ≃ₗ[ℚ] SpaceB} (hf : IsAlgAut f) : IsAlgAu
 
 theorem isAlgAut_tauB : IsAlgAut tauB := tauB_gmul
 
-theorem isAlgAut_xB : IsAlgAut xB := xB_gmul
-
-theorem tauB_oneB : tauB oneB = oneB := by
-  have h : ((quarterI : symMat) : Matrix (Fin 24) (Fin 24) ℚ) = diagonal fun _ => (4 : ℚ)⁻¹ := by
-    change (4 : ℚ)⁻¹ • (1 : Matrix (Fin 24) (Fin 24) ℚ) = _
-    ext i j
-    simp [Matrix.one_apply, diagonal_apply]
-  exact tauB_inA_of_diagonal h
-
-theorem rational_triality_product_invariance :
-    (∀ u v w : SpaceB, T (tauB u) (tauB v) (tauB w) = T u v w) ∧
-    (∀ u v w : SpaceB, T (tauB.symm u) (tauB.symm v) (tauB.symm w) = T u v w) ∧
-    (∀ u v : SpaceB, tauB (gmul u v) = gmul (tauB u) (tauB v)) ∧
-    (∀ u v : SpaceB, bform (tauB u) (tauB v) = bform u v) ∧
-    orderOf tauB = 3 ∧
-    BR.map ((tauB : SpaceB →ₗ[ℚ] SpaceB).restrictScalars dyadic) = BR ∧
-    tauB oneB = oneB ∧
-    (∀ g ∈ fourGroupB, ∀ u v : SpaceB, g (gmul u v) = gmul (g u) (g v)) := by
-  refine ⟨T_tauB, T_tauB_symm, tauB_gmul, bform_tauB, orderOf_tauB, map_tauB_BR, tauB_oneB, ?_⟩
-  intro g hg
-  rcases (rational_triality_four_group.2.2.2.2.2.1 g).1 hg with rfl | rfl | rfl | rfl
-  · exact isAlgAut_one
-  · exact isAlgAut_xB
-  · exact (isAlgAut_tauB.mul isAlgAut_xB).mul isAlgAut_tauB.inv
-  · have h2 : IsAlgAut (tauB ^ 2) := by rw [pow_two]; exact isAlgAut_tauB.mul isAlgAut_tauB
-    exact (h2.mul isAlgAut_xB).mul h2.inv
 
 end CFSG.Monster.Griess

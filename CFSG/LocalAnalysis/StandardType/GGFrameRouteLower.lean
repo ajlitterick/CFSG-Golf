@@ -211,17 +211,6 @@ theorem pow_le_card_of_weylOfType_of_two {G : Type} [Group G] [Finite G] {p : �
     exact Nat.card_le_card_of_injective f hf
   exact pow_le_card_of_elemAbelian_two hp hp2 hBs hS hcard
 
-theorem ggFrameBstarLowerInput_E7 : GGFrameBstarLowerInput CoxeterMatrix.E₇ 7 := by
-  intro G _ _ B Bs x L D J hR _ hAt _
-  obtain ⟨y, K, -, hM⟩ := hAt
-  exact pow_le_card_of_weylOfType_of_two Nat.prime_three (by norm_num) hR.1.2.1.2.1 hM
-    exists_elemAbelian_two_coxeterE7
-
-theorem ggFrameBstarLowerInput_E8 : GGFrameBstarLowerInput CoxeterMatrix.E₈ 8 := by
-  intro G _ _ B Bs x L D J hR _ hAt _
-  obtain ⟨y, K, -, hM⟩ := hAt
-  exact pow_le_card_of_weylOfType_of_two Nat.prime_three (by norm_num) hR.1.2.1.2.1 hM
-    exists_elemAbelian_two_coxeterE8
 
 end CFSG.StandardType.FrameRoute
 

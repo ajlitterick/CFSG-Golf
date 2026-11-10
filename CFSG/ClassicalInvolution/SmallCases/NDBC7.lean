@@ -106,68 +106,6 @@ theorem exists_triangle_plus {t : CFSG.Assembly.LowTwoRank.StatedLieTag} {n e : 
     Asc77.MuTab.clique_plus hp2 hq hadm hR
   exact ⟨R₂, h₂, R₃, h₃, n12, n13, n23, c12, c13, c23⟩
 
-variable [IsSimpleGroup G] in
-theorem shape_of_noTwin (hB : NoExoticSingle p f) {K : Subgroup G} (hS : Setting p f K z)
-    (hnoF : ∀ A : Subgroup G, ¬ Theorem5.FuzzyFrameOn p f (𝒞 K) A) (hnoT : ¬ HasTwin p f K z)
-    (D : LocalLieSystemAt p f (exactFamily (𝒞 K) z) z) {i₁ : Fin D.card}
-    (hQ : ¬ (D.tag i₁ = .PSL ∧ D.rank i₁ = 2))
-    (hrest : ∀ i, i ≠ i₁ → D.tag i = .PSL ∧ D.rank i = 2) :
-    Asc77.ChainShape p f (𝒞 K) z ∨ PSpShape p f (𝒞 K) z := by
-  set C := toXCtx hS.nonabelian hS.odd hS.five hS.member hS.below D with hC
-  have htrans : ∀ M ∈ 𝒞 K, ∃ g : G, conjSub g C.K = M := fun M hM => hM
-  have hnoT' : ¬ ∃ T ∈ 𝒞 K, T ≠ C.K ∧ IsClassicalMember p f T z := hnoT
-  obtain ⟨i₀, hi₀, hK₀⟩ := C.exists_A1_of_K
-  have hi₀₁ : i₀ ≠ i₁ := fun h => hQ (h ▸ hi₀)
-  have hcases : ∀ i, i = i₀ ∨ i = i₁ := by
-    intro i
-    by_cases h1 : i = i₁
-    · exact Or.inr h1
-    by_cases h0 : i = i₀
-    · exact Or.inl h0
-    obtain ⟨T, hT, hTK, hTz, -⟩ := A1_member_twin C hnoF hQ hi₀ hK₀ (hrest i h1) h0
-    exact (hnoT ⟨T, hT, hTK, hTz⟩).elim
-  have hcard : D.card = 2 := card_eq_two_of hi₀₁ hcases
-  have hG2 : D.tag i₁ ≠ .G2 := fun h => hB G K z hS hnoT D i₁ (Or.inl h)
-  have hD4 : D.tag i₁ ≠ .trialityD4 := fun h => hB G K z hS hnoT D i₁ (Or.inr (Or.inl h))
-  have hq' : 5 ≤ p ^ D.exp i₁ := by
-    rw [show D.exp i₁ = f from C.exp_eq i₁ hD4]
-    exact hS.five
-  have hadm := D.admissible i₁
-  rcases small_of_noFrame C hnoF hQ hG2 hD4 with
-    ⟨ht, hn⟩ | ⟨ht, hn⟩ | ⟨ht, hn⟩ | ⟨ht, hn⟩ | ⟨ht, hn⟩ | ⟨ht, hn⟩
-  · have h2 := two_le_of_psl hadm ht
-    have hne : D.rank i₁ ≠ 2 := fun h => hQ ⟨ht, h⟩
-    have hn' : D.rank i₁ ≤ 4 := hn
-    exact Or.inl ⟨D, hcard, i₀, i₁, hi₀₁, hi₀.1, hi₀.2, Or.inl ht, by omega⟩
-  · have h3 := three_le_of_psu hadm ht
-    have hn' : D.rank i₁ ≤ 4 := hn
-    exact Or.inl ⟨D, hcard, i₀, i₁, hi₀₁, hi₀.1, hi₀.2, Or.inr ht, by omega⟩
-  · right
-    obtain ⟨R₁, hR₁, R₂, hR₂, hne, hc⟩ := Asc77.ih8SmallEdge p (D.tag i₁) (D.rank i₁)
-      (D.exp i₁) hadm hS.odd hq' (Or.inr (Or.inr (Or.inl ⟨ht, hn⟩)))
-    obtain ⟨b, hb⟩ := zbar_mem_of_pair C htrans hnoF hnoT' hQ hG2 hD4 hR₁ hR₂ hne hc
-    have hzK : oddQuotMk z ⟨z, Asc77.XCtx.hzC z⟩ ∈ (C.psi i₀).range := by
-      rw [← hK₀, C.exactCore_K]
-      exact oddQuotMk_mem_modOdd C.K_cl.mem _
-    obtain ⟨a, ha⟩ := hzK
-    have hab : D.hom i₀ a = D.hom i₁ b :=
-      Bootstrap.sectionQuotientHom_injective C.hs.normalizes (ha.trans hb.symm)
-    refine ⟨D, hcard, i₀, i₁, hi₀₁, hi₀.1, hi₀.2, ht, hn, D.hom i₀ a, fun h1 => ?_, ⟨a, rfl⟩,
-      ⟨b, hab.symm⟩⟩
-    have h2 : oddQuotMk z ⟨z, Asc77.XCtx.hzC z⟩ = 1 := by
-      rw [← ha]
-      show Bootstrap.sectionQuotientHom C.hs.normalizes (D.hom i₀ a) = 1
-      rw [h1]
-      exact map_one _
-    exact C.hKz.ne_one (congrArg Subtype.val
-      (eq_one_of_oddQuotMk_eq_one (Subtype.ext C.hKz.sq) h2))
-  · exact (hB G K z hS hnoT D i₁ (Or.inr (Or.inr (Or.inl ⟨ht, hn⟩)))).elim
-  · exfalso
-    obtain ⟨R, hR, -⟩ := exists_member_of_meets C i₁
-    obtain ⟨R₂, hR₂, R₃, hR₃, n12, n13, n23, c12, c13, c23⟩ :=
-      exists_triangle_plus hS.odd hq' ht hn hadm hR
-    exact false_of_triangle C htrans hnoF hnoT' hQ hG2 hD4 hR hR₂ hR₃ n12 n13 n23 c12 c13 c23
-  · exact (hB G K z hS hnoT D i₁ (Or.inr (Or.inr (Or.inr ⟨ht, hn⟩)))).elim
 
 end Shape
 

@@ -141,8 +141,6 @@ theorem let_TRW : CFSG.KC.McL.RangeX.entsBelow trw (nat_lit 2) (nat_lit 4) = tru
 theorem ep_M : CFSG.KC.McL.RangeX.epWrap CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED CFSG.KD.McL.M.nE
     (nat_lit 128) = true := by quickRfl
 
-theorem norm_TC : CFSG.Certificates.LCE.relsNorm CFSG.KC.McL.TC.sel (nat_lit 15) = true := by
-  quickRfl
 theorem norm_GR : CFSG.Certificates.LCE.relsNorm CFSG.KC.McL.Rels.GR (nat_lit 34) = true := by
   quickRfl
 theorem norm_STBM : CFSG.Certificates.LCE.relsNorm CFSG.KD.McL.BM.ST CFSG.KD.McL.BM.K = true := by

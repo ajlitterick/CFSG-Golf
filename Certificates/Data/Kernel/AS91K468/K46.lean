@@ -80,8 +80,6 @@ open CFSG.KC.Mat12P CFSG.KC.Mat8P Certificates.Kernel.HJ12K
 
 @[expose] def pfOf (P : List ℕ) : List (ℕ × ℕ) := P.map fun x => (x, fixMask (unpackQ x))
 
-@[expose] def fixClQ (PF : List (ℕ × ℕ)) : List ℕ :=
-  closN (PF.map fun rf F => F &&& rf.2) 100 [fullM] (insP (.tip []) fullM) []
 
 @[expose] def jFQ (PF : List (ℕ × ℕ)) (m F : ℕ) : Bool :=
   let C := (PF.filter fun rf => F &&& rf.2 == F).map Prod.fst
@@ -93,7 +91,6 @@ open CFSG.KC.Mat12P CFSG.KC.Mat8P Certificates.Kernel.HJ12K
 @[expose] def jAt (PF : List (ℕ × ℕ)) (L : List ℕ) (S : NT ℕ) : Bool :=
   (L.all fun F => PF.all fun rf => memP S (F &&& rf.2)) && L.all (jFQ PF w1M)
 
-@[expose] def jAtL (PF : List (ℕ × ℕ)) : Bool := jAt PF (fixClQ PF) (ofListP (fixClQ PF))
 
 @[expose] def pNodup46Q : Bool := nodupP (enumQ pQ)
 

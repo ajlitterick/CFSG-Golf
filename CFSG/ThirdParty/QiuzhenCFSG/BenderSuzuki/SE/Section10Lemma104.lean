@@ -499,22 +499,6 @@ public theorem mem_normalizer_sup_of_mem_normalizers
       hAinv hBinv hy
     simpa [mul_assoc] using h
 
-/-- If normalizing a join is already known to preserve both factors, the
-normalizer of one factor inside the normalizer of the other is the normalizer
-of the join. -/
-public theorem normalizerIn_normalizerIn_eq_normalizerIn_sup
-    {G : Type*} [Group G] {M A B : Subgroup G}
-    (hSupA : Subgroup.normalizer ((A ⊔ B : Subgroup G) : Set G) ≤
-      Subgroup.normalizer (A : Set G))
-    (hSupB : Subgroup.normalizer ((A ⊔ B : Subgroup G) : Set G) ≤
-      Subgroup.normalizer (B : Set G)) :
-    normalizerIn (normalizerIn M B) A = normalizerIn M (A ⊔ B) := by
-  apply le_antisymm
-  · intro x hx
-    exact ⟨hx.1.1,
-      mem_normalizer_sup_of_mem_normalizers hx.2 hx.1.2⟩
-  · intro x hx
-    exact ⟨⟨hx.1, hSupB hx.2⟩, hSupA hx.2⟩
 
 private theorem lemma104_natCard_sup_eq_mul_of_disjoint_of_le_normalizer
     {G : Type u} [Group G] (A B : Subgroup G)

@@ -23,6 +23,5 @@ open scoped commutatorElement
             IsSylowOf 2 (S ⊓ Subgroup.normalizer (Y : Set G)) (Subgroup.normalizer (Y : Set G)) →
             ⁅omegaOneCenterIn S, Y⁆ ≠ ⊥ → oTwoIn (Subgroup.normalizer (R : Set G)) = R
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.CGT.PushingUpLit.CGT6

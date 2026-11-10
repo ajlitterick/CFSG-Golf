@@ -39,9 +39,5 @@ theorem maxTwoLocal_cgsIn_eq_inf {H : Subgroup G} (hH : GLBIsMaxTwoLocal H) (X :
   · have h := CFSG.Quasithin.inf_normalizer_le_cgsIn (H := X) (twoLocal_pCoreOf_ne_bot H hH.1)
     rwa [← maxTwoLocal_eq_normalizer_pCoreOf H hH] at h
 
-theorem maxTwoLocal_cgsIn_lt {H X : Subgroup G} (hH : GLBIsMaxTwoLocal H) (hXH : ¬ X ≤ H) :
-    CFSG.Quasithin.cgsIn X (pCoreOf 2 H) < X := by
-  rw [maxTwoLocal_cgsIn_eq_inf hH]
-  exact lt_of_le_of_ne inf_le_left fun h => hXH (inf_eq_left.mp h)
 
 end CFSG.AGLEmbedding

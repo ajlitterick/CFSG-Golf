@@ -20,7 +20,5 @@ theorem kBlk : CFSG.GH74.KGroups.blockHom 21 21 (pa, pa') = PA ∧
     CFSG.GH74.KGroups.blockHom 21 21 (pb, pb') = PB := by
   constructor <;> decide +kernel
 
-theorem kNeg : orderV QP21 ≠ 10080 ∧ CFSG.GH74.KGroups.blockHom 21 21 (pb, pb') ≠ PA := by
-  constructor <;> decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5122

@@ -802,59 +802,6 @@ end Table
 
 section Model
 
-theorem unitaryFourSylowShape_of_statedClassicalModel {T : Type} [Group T]
-    (hT : CFSG.Assembly.LowTwoRank.StatedClassicalModel T .PSU 3 2 2) (S : Sylow 2 T) :
-    UnitaryFourSylowShape (S : Subgroup T) := by
-  obtain ⟨hcard, hcz, hsq, hsqmem, hZ⟩ :=
-    unitary_four_sylow_structure (G := T) hT S S ⟨MulEquiv.refl _⟩
-  have hK : Nat.card (GaloisField 2 4) = 16 := by
-    rw [GaloisField.card 2 4 (by norm_num)]
-    norm_num
-  obtain ⟨ψ⟩ := CFSG.RankTwoShapes.nonempty_sylow_equiv_unitaryFourW hT S (GaloisField 2 4) hK
-  refine ⟨hcard, hcz, hsq, hsqmem, hZ, fun x hx => ?_⟩
-  have hψx : ψ x ∉ Subgroup.center (CFSG.RankTwoShapes.unitaryFourW (GaloisField 2 4) hK) := by
-    rwa [mem_center_iff_of_mulEquiv ψ x]
-  have hfst : CFSG.RankTwoShapes.UnitaryFourW.fst (ψ x) ≠ 0 := by
-    intro h0
-    apply hψx
-    rw [CFSG.RankTwoShapes.UnitaryFourW.center_eq_ker_firstCoord,
-      CFSG.RankTwoShapes.UnitaryFourW.mem_ker_firstCoord]
-    exact h0
-  rw [← CFSG.RankTwoShapes.UnitaryFourW.natCard_centralizer (ψ x) hfst]
-  refine Nat.card_congr (Equiv.subtypeEquiv ψ.toEquiv fun y => ?_)
-  rw [Subgroup.mem_centralizer_singleton_iff, Subgroup.mem_centralizer_singleton_iff]
-  change y * x = x * y ↔ ψ y * ψ x = ψ x * ψ y
-  rw [← map_mul, ← map_mul, ψ.injective.eq_iff]
-
-theorem unitary_four_sylow_character_table {T : Type} [Group T]
-    (hT : CFSG.Assembly.LowTwoRank.StatedClassicalModel T .PSU 3 2 2) (S : Sylow 2 T) :
-    {χ | χ ∈ CFSG.BlocksIrr (S : Subgroup T) ∧ χ 1 = 1} =
-      Set.range (fun l : (S : Subgroup T) ⧸ Subgroup.center (S : Subgroup T) →* ℤˣ =>
-        fun s : (S : Subgroup T) =>
-          (((l (s : (S : Subgroup T) ⧸ Subgroup.center (S : Subgroup T)) : ℤˣ) : ℤ) : ℂ)) ∧
-    Nat.card ((S : Subgroup T) ⧸ Subgroup.center (S : Subgroup T) →* ℤˣ) = 16 ∧
-    {χ | χ ∈ CFSG.BlocksIrr (S : Subgroup T) ∧ χ 1 = 1}.ncard = 16 ∧
-    Nat.card {l : Subgroup.center (S : Subgroup T) →* ℤˣ // l ≠ 1} = 3 ∧
-    (∀ l : Subgroup.center (S : Subgroup T) →* ℤˣ, l ≠ 1 →
-      ∃! ψ : ↥(S : Subgroup T) → ℂ, ψ ∈ CFSG.BlocksIrr (S : Subgroup T) ∧
-        ∀ z : Subgroup.center (S : Subgroup T), ψ z = ψ 1 * (((l z : ℤˣ) : ℤ) : ℂ)) ∧
-    (∀ l : Subgroup.center (S : Subgroup T) →* ℤˣ, l ≠ 1 →
-      ∀ ψ ∈ CFSG.BlocksIrr (S : Subgroup T),
-        (∀ z : Subgroup.center (S : Subgroup T), ψ z = ψ 1 * (((l z : ℤˣ) : ℤ) : ℂ)) →
-          ψ 1 = 4 ∧
-          (∀ z : Subgroup.center (S : Subgroup T), ψ z = 4 * (((l z : ℤˣ) : ℤ) : ℂ)) ∧
-          ∀ x : (S : Subgroup T), x ∉ Subgroup.center (S : Subgroup T) → ψ x = 0) ∧
-    (∀ χ ∈ CFSG.BlocksIrr (S : Subgroup T), χ 1 = 1 ∨
-      ∃ l : Subgroup.center (S : Subgroup T) →* ℤˣ, l ≠ 1 ∧
-        ∀ z : Subgroup.center (S : Subgroup T), χ z = χ 1 * (((l z : ℤˣ) : ℤ) : ℂ)) ∧
-    (CFSG.BlocksIrr (S : Subgroup T)).ncard = 19 ∧
-    (∀ χ ∈ CFSG.BlocksIrr (S : Subgroup T), ∀ s : (S : Subgroup T), ∃ n : ℤ, χ s = n) ∧
-    (∀ x : (S : Subgroup T), x ∉ Subgroup.center (S : Subgroup T) →
-      ∀ y : (S : Subgroup T),
-        IsConj x y ↔ ∃ z ∈ Subgroup.center (S : Subgroup T), y = x * z) := by
-  have : Finite T := CFSG.RankTwoShapes.finite_of_statedClassicalModel_PSU_three_two_two hT
-  let : Fintype (S : Subgroup T) := Fintype.ofFinite _
-  exact (unitaryFourSylowShape_of_statedClassicalModel hT S).character_table
 
 end Model
 

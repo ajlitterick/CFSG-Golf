@@ -75,26 +75,5 @@ theorem central_involution_hull_embedding_transport (U : Subgroup G)
   rwa [Subgroup.map_normalClosure (U : Set G) (QuotientGroup.mk' (centralLiftKernel x))
     (QuotientGroup.mk'_surjective (centralLiftKernel x))]
 
-theorem central_involution_ti_hull_embedding_of_quotient_embedding
-    (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥) (hUel : IsElemAbelian 2 U)
-    (hcard : 4 ≤ Nat.card U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) (hnormal : ¬ U.Normal)
-    (x : Subgroup.center G) (horder : orderOf (x : G) = 2)
-    (hB : fusionStronglyEmbedded
-      ((Subgroup.normalizer
-        (U.map (QuotientGroup.mk' (centralLiftKernel x)) : Set (G ⧸ centralLiftKernel x))).subgroupOf
-        (Subgroup.normalClosure
-          (U.map (QuotientGroup.mk' (centralLiftKernel x)) : Set (G ⧸ centralLiftKernel x))))) :
-    fusionStronglyEmbedded ((Subgroup.normalizer (U : Set G)).subgroupOf
-      (Subgroup.normalClosure (U : Set G))) := by
-  obtain ⟨hquasi, _, _, hmodel⟩ := central_involution_quotient_hull_native_recognition
-    T U hUT hU hUel hcard hclosed hTI hnormal x hB
-  obtain ⟨_, _, _, _, e, he⟩ := central_involution_hull_lifting
-    T U hUT hUel hcard hclosed hTI x horder hquasi hmodel
-  exact central_involution_hull_embedding_transport U x e he
-    (ti_central_quotient_normalizer_preimage T U hUT hU hUel hclosed hTI hnormal
-      (centralLiftKernel x) (centralLiftKernel_le_center x)) hB
 
 end CFSG.ShultStronglyClosedTI

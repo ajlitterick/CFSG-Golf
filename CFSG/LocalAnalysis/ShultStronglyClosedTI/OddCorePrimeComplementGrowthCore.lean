@@ -33,14 +33,6 @@ theorem primeComplementGrowth_native_ambient_core_eq (p : ℕ) [Fact p.Prime]
   unfold CFSG.OrderReductions.PrimeComplementCore.ambientCore
   rw [primeComplementGrowth_native_core_eq, pPrimeCore_eq_piCore]
 
-theorem primeComplementGrowth_native_maximum_iff (A : Subgroup D) :
-    CFSG.OrderReductions.ThompsonCenter.MaximumOrderAbelian D A ↔
-      A ∈ maxOrderAbelianFamily D :=
-  isMaxCardAbelian_iff_mem_maxOrderAbelianFamily
-
-theorem primeComplementGrowth_native_thompson_eq :
-    CFSG.OrderReductions.ThompsonCenter.thompson D = orderThompson D :=
-  maxCardThompson_eq_orderThompson
 
 theorem primeComplementGrowth_native_zj_eq :
     CFSG.OrderReductions.ThompsonCenter.thompsonCenter D = orderZJ D :=
@@ -82,11 +74,5 @@ theorem primeComplementGrowth_odd_product_characteristic (p : ℕ) [Fact p.Prime
   exact CFSG.OrderReductions.ThompsonSolvableOdd.coreProduct_characteristic_of_solvable_odd
     p hpodd hDodd P
 
-theorem primeComplementGrowth_product_ne_bot [Nontrivial D]
-    (p : ℕ) [Fact p.Prime] (P : Sylow p D) :
-    pPrimeCore p D ⊔
-      (orderZJ (P : Subgroup D)).map (P : Subgroup D).subtype ≠ ⊥ := by
-  rw [← primeComplementGrowth_native_product_eq]
-  exact CFSG.OrderReductions.ThompsonCoreProduct.coreProduct_nontrivial p P
 
 end CFSG.ShultStronglyClosedTI

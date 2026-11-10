@@ -14,15 +14,6 @@ variable {K : Type*} [CommRing K] {V : Type*} [AddCommGroup V] [Module K V]
   {Q : QuadraticForm K V} {P : SpinPolarizationData Q} {ι : Type*}
   {b : Module.Basis ι K P.W} {z : CliffordAlgebra Q}
 
-theorem zS_sq {m : ι} (hzc : z * cr b m = -(cr b m * z)) : cr b m * z * (cr b m * z) = 0 := by
-  calc cr b m * z * (cr b m * z) = cr b m * (z * cr b m) * z := by noncomm_ring
-    _ = 0 := by rw [hzc, mul_neg, ← mul_assoc, cr_sq, zero_mul, neg_mul, zero_mul, neg_zero]
-
-theorem zT_sq {m : ι} (hza : z * an b m = -(an b m * z)) : z * an b m * (z * an b m) = 0 := by
-  calc z * an b m * (z * an b m) = z * (an b m * z) * an b m := by noncomm_ring
-    _ = 0 := by
-        rw [show an b m * z = -(z * an b m) by rw [hza, neg_neg], mul_neg, neg_mul, mul_assoc,
-          mul_assoc, an_sq, mul_zero, mul_zero, neg_zero]
 
 theorem zSTS (hz : z * z = 1) (m : ι) :
     cr b m * z * (z * an b m) * (cr b m * z) = cr b m * z := by

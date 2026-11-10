@@ -236,16 +236,6 @@ theorem twistHomE6_rootDiagUnit (Fr : L →+* L) (b : Fin Tag.E6.rank → Lˣ) :
       rootDiagUnit Tag.E6 (fun i => Units.map Fr.toMonoidHom (b (twE6Rho.symm i))) :=
   twistHom_rootDiagUnit_eq (t := TwistTag.E6) (σ := Fr) b
 
-theorem twFrobE6_rootDiagUnit (Fr : L →+* L) (v : WeylGroup Tag.E6) (b : Fin Tag.E6.rank → Lˣ) :
-    twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L v) Fr (rootDiagUnit Tag.E6 b) =
-      rootDiagUnit Tag.E6 (weylTuple v fun i => Units.map Fr.toMonoidHom (b (twE6Rho.symm i))) :=
-  twFrob_rootDiagUnit TwistTag.E6 Fr v b
-
-theorem map_twFrobE6_rootSubgroup {Fr : L →+* L} (hFr : Function.Surjective Fr)
-    (v : WeylGroup Tag.E6) {β : Fin Tag.E6.rank → ℤ} (hβ : IsRoot Tag.E6 β) :
-    (rootSubgroup Tag.E6 L β).map (twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L v) Fr) =
-      rootSubgroup Tag.E6 L (v • permLattice twE6Rho β) :=
-  map_twFrob_rootSubgroup TwistTag.E6 hFr v hβ
 
 theorem map_twFrobE6_rootSpan {Fr : L →+* L} (hFr : Function.Surjective Fr)
     (v : WeylGroup Tag.E6) {S : Set (Fin Tag.E6.rank → ℤ)} (hS : ∀ α ∈ S, IsRoot Tag.E6 α) :
@@ -257,41 +247,6 @@ theorem heisTw_rootChar_neg {a : Fin Tag.E6.rank → Lˣ} (v : Fin Tag.E6.rank �
     rootChar a (-v) = (rootChar a v)⁻¹ := by
   rw [show -v = (-1 : ℤ) • v by simp, rootChar_zsmul, zpow_neg_one]
 
-theorem twFrobE6_negNeg_rootDiagUnit (Fr : L →+* L) (b : Fin Tag.E6.rank → Lˣ) :
-    twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr (rootDiagUnit Tag.E6 b) =
-      rootDiagUnit Tag.E6 (fun i => (Units.map Fr.toMonoidHom (b i))⁻¹) := by
-  rw [twFrobE6_rootDiagUnit]
-  congr 1
-  funext i
-  simp only [weylTuple]
-  rw [twNeg_inv_smul, permLattice_single, heisTw_rootChar_neg, CTTorus.rootChar_single]
-  simp
-
-theorem map_twFrobE6_negNeg_rootSubgroup {Fr : L →+* L} (hFr : Function.Surjective Fr)
-    {β : Fin Tag.E6.rank → ℤ} (hβ : IsRoot Tag.E6 β) :
-    (rootSubgroup Tag.E6 L β).map (twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr) =
-      rootSubgroup Tag.E6 L (-β) := by
-  rw [map_twFrobE6_rootSubgroup hFr twNeg hβ, twNeg_smul_perm]
-
-theorem twFrobE6_canonicalRep_mul_negNeg_rootDiagUnit (Fr : L →+* L) (u : WeylGroup Tag.E6)
-    (b : Fin Tag.E6.rank → Lˣ) :
-    twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L u * canonicalRep (coxeterSystem Tag.E6) L twNeg)
-        Fr (rootDiagUnit Tag.E6 b) =
-      rootDiagUnit Tag.E6 (weylTuple u fun i => (Units.map Fr.toMonoidHom (b i))⁻¹) := by
-  rw [twFrobE6_mul_left, twFrobE6_negNeg_rootDiagUnit, canonicalRep_conj_rootDiagUnit]
-
-theorem map_twFrobE6_canonicalRep_mul_negNeg_rootSubgroup {Fr : L →+* L}
-    (hFr : Function.Surjective Fr) (u : WeylGroup Tag.E6) {β : Fin Tag.E6.rank → ℤ}
-    (hβ : IsRoot Tag.E6 β) :
-    (rootSubgroup Tag.E6 L β).map (twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L u *
-        canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr) = rootSubgroup Tag.E6 L (u • -β) := by
-  have e : twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L u *
-      canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr =
-        (MulAut.conj (canonicalRep (coxeterSystem Tag.E6) L u)).toMonoidHom.comp
-          (twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr) :=
-    MonoidHom.ext fun g => twFrobE6_mul_left _ _ _ g
-  rw [e, ← Subgroup.map_map, map_twFrobE6_negNeg_rootSubgroup hFr hβ]
-  exact (canonical_weyl_root_transport Tag.E6 L).2.1 u _ (CFSG.LieType.Chevalley.IsRoot.neg hβ)
 
 end Frobenius
 
@@ -475,33 +430,6 @@ section TrivialOnWeyl
 
 variable {L : Type} [Field L]
 
-theorem twFrobE6_negNeg_canonicalRep (Fr : L →+* L) (v : WeylGroup Tag.E6) :
-    ∃ t ∈ torusGroup Tag.E6 L,
-      twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr
-        (canonicalRep (coxeterSystem Tag.E6) L v) = t * canonicalRep (coxeterSystem Tag.E6) L v := by
-  have hmono : twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr
-      (canonicalRep (coxeterSystem Tag.E6) L v) ∈ monomialSubgroup Tag.E6 L := by
-    rw [twFrobE6_apply, twistHomE6_canonicalRep]
-    exact mul_mem (mul_mem (canonicalRep_mem_monomialSubgroup' _)
-      (canonicalRep_mem_monomialSubgroup' _)) (inv_mem (canonicalRep_mem_monomialSubgroup' _))
-  have hmaps : MapsRootLines (twFrobE6 (canonicalRep (coxeterSystem Tag.E6) L twNeg) Fr
-      (canonicalRep (coxeterSystem Tag.E6) L v)) v := by
-    rw [twFrobE6_apply, twistHomE6_canonicalRep]
-    have h := ((mapsRootLines_canonicalRep (R := L) twNeg).mul
-      (mapsRootLines_canonicalRep (R := L) (twDelta v))).mul
-        (mapsRootLines_canonicalRep (R := L) twNeg).inv
-    have e : twNeg * twDelta v * twNeg⁻¹ = v := by
-      rw [twDelta_eq_conj', twNeg_inv]
-      calc twNeg * (twNeg * v * twNeg) * twNeg = (twNeg * twNeg) * v * (twNeg * twNeg) := by group
-        _ = v := by rw [twNeg_mul_self]; group
-    rwa [e] at h
-  obtain ⟨x', t, ht, hg⟩ := exists_torus_mul_canonicalRep_of_mem_monomial hmono
-  have h1 : MapsRootLines (t * canonicalRep (coxeterSystem Tag.E6) L x') (1 * x') :=
-    (mapsRootLines_of_mem_torusGroup ht).mul (mapsRootLines_canonicalRep x')
-  rw [one_mul, ← hg] at h1
-  have e := hmaps.unique h1
-  subst e
-  exact ⟨t, ht, hg⟩
 
 end TrivialOnWeyl
 
@@ -965,34 +893,6 @@ theorem twFrame_straighten {ℓ f : ℕ} (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) 
   · rw [hg₂def] at hvc2
     exact hvc2
 
-theorem twFrame_card_mod_three {ℓ f : ℕ} (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) (hf : 1 ≤ f)
-    (hK : Nat.card K = (ℓ ^ f) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ (ℓ ^ f))
-    {E : Subgroup (MulAut (twistedE6RootGroup K σ))} (hE : CFSG.IsElementaryAbelian 3 E)
-    (F : TwE6HeisenbergFrame K σ (ℓ ^ f) E) : ((ℓ ^ f : ℕ) : ZMod 3) = -1 := by
-  classical
-  haveI : Fact ℓ.Prime := ⟨hℓ⟩
-  haveI : Fintype K := Fintype.ofFinite K
-  haveI : CharP K ℓ := charP_of_card_eq_prime_pow (f := f * 2)
-    (by rw [← Nat.card_eq_fintype_card, hK, ← pow_mul])
-  haveI : CharP (AlgebraicClosure K) ℓ :=
-    charP_of_injective_algebraMap (algebraMap K (AlgebraicClosure K)).injective ℓ
-  have hFrEq : F.Fr = iterateFrobenius (AlgebraicClosure K) ℓ f :=
-    RingHom.ext fun c => by rw [F.hFr c, iterateFrobenius_def]
-  obtain ⟨g0, g₁, g₂, hg0C, hg0, hT, hg₁, hg₂, hF₂, hg₂3, -, -⟩ :=
-    twFrame_coords hℓ hf hK σ hσ hE F
-  rw [hFrEq] at hg0 hT hF₂
-  exact (twHeis_frame_straighten (ℓ := ℓ) hf hℓ3 F.ha3 F.hw F.hsh (rootSpan_le_heisM F.a F.hu)
-    hg0C hg0 hT hg₁ hg₂ hF₂ hg₂3 (one_mem (heisM F.a))).1
-
-theorem twFrame_three_dvd_pow_add_one {ℓ f : ℕ} (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) (hf : 1 ≤ f)
-    (hK : Nat.card K = (ℓ ^ f) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ (ℓ ^ f))
-    {E : Subgroup (MulAut (twistedE6RootGroup K σ))} (hE : CFSG.IsElementaryAbelian 3 E)
-    (F : TwE6HeisenbergFrame K σ (ℓ ^ f) E) : 3 ∣ ℓ ^ f + 1 := by
-  have h := twFrame_card_mod_three hℓ hℓ3 hf hK σ hσ hE F
-  refine (ZMod.natCast_eq_zero_iff _ _).1 ?_
-  push_cast at h ⊢
-  rw [h]
-  ring
 
 theorem twFrame_exists_fixedElt_of_exists_x {ℓ f : ℕ} (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) (hf : 1 ≤ f)
     (hK : Nat.card K = (ℓ ^ f) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ (ℓ ^ f))

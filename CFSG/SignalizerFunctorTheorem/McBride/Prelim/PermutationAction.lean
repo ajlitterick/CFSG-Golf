@@ -6,33 +6,6 @@ public section
 
 namespace CFSG.SignalizerFunctorTheorem.McBride
 
-theorem pResidual_eq_pPrimeCore_iff {H : Type*} [Group H] [Finite H] {p : ℕ} (hp : p.Prime) :
-    pResidual p H = CFSG.pPrimeCore p H ↔ IsPGroup p (H ⧸ CFSG.pPrimeCore p H) := by
-  have := Fact.mk hp
-  constructor
-  · intro h g
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk_surjective g
-    obtain ⟨e, m, hm, hord⟩ :=
-      Nat.exists_eq_pow_mul_and_not_dvd (orderOf_pos g).ne' p hp.ne_one
-    refine ⟨e, ?_⟩
-    rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff, ← h]
-    refine Subgroup.subset_normalClosure ?_
-    show ¬ p ∣ orderOf (g ^ p ^ e)
-    rwa [orderOf_pow_of_dvd (pow_ne_zero _ hp.ne_zero) ⟨m, hord⟩, hord,
-      Nat.mul_div_cancel_left _ (pow_pos hp.pos _)]
-  · intro hq
-    refine le_antisymm (Subgroup.normalClosure_le_normal fun g hg => ?_) fun r hr => ?_
-    · obtain ⟨k, hk⟩ := IsPGroup.iff_orderOf.mp hq (g : H ⧸ CFSG.pPrimeCore p H)
-      have hdvd : orderOf (g : H ⧸ CFSG.pPrimeCore p H) ∣ orderOf g :=
-        orderOf_map_dvd (QuotientGroup.mk' (CFSG.pPrimeCore p H)) g
-      have hk0 : k = 0 := by
-        by_contra hk0
-        exact hg ((dvd_pow_self p hk0).trans (hk ▸ hdvd))
-      rw [hk0, pow_zero, orderOf_eq_one_iff] at hk
-      exact (QuotientGroup.eq_one_iff g).mp hk
-    · refine Subgroup.subset_normalClosure fun hpdvd => ?_
-      exact hp.coprime_iff_not_dvd.mp CFSG.pPrimeCore_coprime_card
-        (hpdvd.trans (Subgroup.orderOf_dvd_natCard _ hr))
 
 theorem smul_eq_of_isPGroup_transitive {H Ω : Type*} [Group H] [Finite H] [MulAction H Ω] {p : ℕ}
     (hp : p.Prime) {A X : Subgroup H} [X.Normal] (hA : IsPGroup p A)
@@ -72,22 +45,6 @@ theorem smul_eq_of_isPGroup_transitive {H Ω : Type*} [Group H] [Finite H] [MulA
   rw [hb, Set.mem_singleton_iff] at hω hxω
   rw [hxω, hω]
 
-theorem sylow_eq_top_of_transitive {H Ω : Type*} [Group H] [Finite H] [MulAction H Ω]
-    [FaithfulSMul H Ω] {p : ℕ} (hp : p.Prime) (S : Sylow p H)
-    (htrans : ∀ x y : Ω, ∃ s ∈ (S : Subgroup H), s • x = y)
-    (hO : pResidual p H = CFSG.pPrimeCore p H) : (S : Subgroup H) = ⊤ := by
-  have := Fact.mk hp
-  have hq := (pResidual_eq_pPrimeCore_iff hp).mp hO
-  have hR : ∀ x ∈ CFSG.pPrimeCore p H, x = 1 := fun x hx =>
-    eq_of_smul_eq_smul fun ω => by
-      rw [one_smul]
-      exact smul_eq_of_isPGroup_transitive hp S.isPGroup' CFSG.pPrimeCore_coprime_card htrans
-        x hx ω
-  have hH : IsPGroup p H := fun g => by
-    obtain ⟨k, hk⟩ := hq (g : H ⧸ CFSG.pPrimeCore p H)
-    rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff] at hk
-    exact ⟨k, hR _ hk⟩
-  exact (S.is_maximal' (hH.to_subgroup ⊤) le_top).symm
 
 theorem normalizes_of_isPGroup_transitive_conj {G : Type*} [Group G] [Finite G] {p : ℕ}
     (hp : p.Prime) {A X : Subgroup G} (hA : IsPGroup p A) (hX : Nat.Coprime p (Nat.card X))

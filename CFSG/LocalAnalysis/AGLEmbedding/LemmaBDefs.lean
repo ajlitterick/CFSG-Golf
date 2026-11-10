@@ -11,15 +11,6 @@ open CFSG.Open CFSG.Quasithin CFSG.QuasithinUnique
 @[expose] def PerfectCyclicSylow {X : Type*} [Group X] (p : ℕ) (J : Subgroup X) : Prop :=
   ∀ V : Subgroup X, V ≤ J → ⁅V, V⁆ = V → ∀ A : Subgroup X, A ≤ V → IsPGroup p A → IsCyclic A
 
-@[expose] def KFactParabolicAutomizerCyc : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (L J U : Subgroup X) (y : X) (p r : ℕ),
-    IsComponentOf L ⊤ → IsClassicalTwoOrG2 (↥L ⧸ Subgroup.center ↥L) → IsParabolicTwo L J →
-    p.Prime → p ≠ 2 → PerfectCyclicSylow p J →
-    U ≤ Subgroup.normalizer (L : Set X) → U ≤ Subgroup.normalizer (J : Set X) → IsPGroup p U →
-    y ∈ Subgroup.normalizer (L : Set X) → y ∈ Subgroup.normalizer (J : Set X) →
-    y ∈ Subgroup.normalizer (U : Set X) →
-    r.Prime → r ≠ 2 → r ≠ 3 → r ≠ p → ¬ r ∣ p - 1 →
-    ∃ n : ℕ, ¬ r ∣ n ∧ ∀ u ∈ U, y ^ n * u * (y ^ n)⁻¹ * u⁻¹ ∈ Subgroup.centralizer (L : Set X)
 
 @[expose] def KFactAltSixSevenAut : Prop :=
   ∀ (X : Type) [Group X] [Finite X] (L U : Subgroup X) (p : ℕ), IsComponentOf L ⊤ →

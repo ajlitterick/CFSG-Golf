@@ -37,12 +37,6 @@ theorem simple_center_eq_bot [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b 
     have ha : a ∈ Subgroup.center G := h ▸ Subgroup.mem_top a
     exact hab ((Subgroup.mem_center_iff.mp ha b).symm)
 
-theorem simple_odd_normal_eq_bot [IsSimpleGroup G] (N : Subgroup G) [N.Normal]
-    (hnot : ¬ Odd (Nat.card G)) (hodd : Odd (Nat.card N)) : N = ⊥ := by
-  rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal N with h | h
-  · exact h
-  · rw [h, Subgroup.card_top] at hodd
-    exact absurd hodd hnot
 
 end CFSG.ClassicalInvolution.Q3.PhilipHall.Proving
 

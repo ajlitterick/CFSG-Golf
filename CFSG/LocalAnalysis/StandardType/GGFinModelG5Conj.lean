@@ -45,10 +45,6 @@ private theorem g5_ggLangReidx_add {R N : ℕ} (h : R = N) (a b : Fin R → ℤ)
   subst h
   rfl
 
-private theorem g5_ggLangReidx_zsmul {R N : ℕ} (h : R = N) (c : ℤ) (a : Fin R → ℤ) :
-    ggLangReidx h (c • a) = c • ggLangReidx h a := by
-  subst h
-  rfl
 
 private theorem g5_latChar_ggLangReidx_symm {R N p : ℕ} (h : R = N) (z : Fin R → ZMod p)
     (w : Fin N → ℤ) :

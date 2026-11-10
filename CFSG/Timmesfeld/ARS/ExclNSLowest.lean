@@ -38,10 +38,6 @@ theorem exists_weylAction_eq_neg_ev {A : Matrix (Fin n) (Fin n) ℤ} (hA : TauCe
   rw [this]
   simp [sub_eq_add_neg]
 
-theorem roots_cartanB {A : Matrix (Fin n) (Fin n) ℤ} (hA : TauCeti.IsFiniteType A)
-    (hC : A = Spin.cartanB n) : roots hA ∅ = roots (Spin.isFiniteType_cartanB n) ∅ := by
-  subst hC
-  rfl
 
 theorem exists_ht_le_cartanB {A : Matrix (Fin n) (Fin n) ℤ} (hA : TauCeti.IsFiniteType A)
     (hC : A = Spin.cartanB n) (hn : 2 ≤ n) {i₀ : Fin n} (hi₀ : i₀.val + 1 < n) :

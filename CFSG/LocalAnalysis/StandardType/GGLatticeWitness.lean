@@ -7,20 +7,6 @@ public section
 
 namespace CFSG.StandardType
 
-@[expose] def GGLatticeWitness {Λ : Type} [Fintype Λ] [DecidableEq Λ]
-    (X : Matrix (Option Λ) (Option Λ) ℤ) (p : ℕ) : Prop :=
-  ∃ (ψ : List (Option Λ)) (k : Option Λ),
-    ((ggSWordR X ψ (Pi.single k 1) none : ℤ) : ZMod p) = 0 ∧
-    ∀ v ∈ ggLCoroots X, ∀ r : (ZMod p)ˣ,
-      (fun i => ((ggSWord X ψ (Pi.single k 1) i : ℤ) : ZMod p)) ≠
-        fun i => (r : ZMod p) * (v i : ZMod p)
-
-private theorem lw_single_comp {α β M : Type} [DecidableEq α] [DecidableEq β] [Zero M] [One M]
-    (ee : α ≃ β) (k : α) :
-    (fun x : α => (Pi.single (M := fun _ => M) (ee k) (1 : M) : β → M) (ee x))
-      = (Pi.single (M := fun _ => M) k (1 : M) : α → M) := by
-  funext x
-  simp only [Pi.single_apply, ee.injective.eq_iff]
 
 private theorem lw_comp_symm_map {Λ Λ' : Type} (e : Λ ≃ Λ') (b : Option Λ) :
     (Equiv.optionCongr e).symm (Option.map e b) = b := by
@@ -151,35 +137,6 @@ theorem lw_coroots_mem {Λ Λ' : Type} [Fintype Λ] [DecidableEq Λ] [Fintype Λ
     _ = ggSWord X ((ψ.map e.symm).map some) (Pi.single (some (e.symm i)) (1 : ℤ)) := by
           rw [Function.comp_assoc, Equiv.symm_comp_self, Function.comp_id]
 
-theorem ggLatticeWitness_of_equiv {Λ Λ' : Type} [Fintype Λ] [DecidableEq Λ] [Fintype Λ']
-    [DecidableEq Λ'] (e : Λ ≃ Λ') {X : Matrix (Option Λ) (Option Λ) ℤ}
-    {X' : Matrix (Option Λ') (Option Λ') ℤ}
-    (hX : ∀ i j, X' (Option.map e i) (Option.map e j) = X i j) {p : ℕ}
-    (h : GGLatticeWitness X p) : GGLatticeWitness X' p := by
-  obtain ⟨ψ, k, ha, hnp⟩ := h
-  refine ⟨ψ.map (Option.map e), Option.map e k, ?_, ?_⟩
-  · have hword := lw_sWordR_comp e hX ψ (Pi.single k (1 : ℤ))
-    rw [← lw_single_comp' e k] at hword
-    have hnone := congrFun hword none
-    simp only [Function.comp_apply] at hnone
-    have hφnone : (Equiv.optionCongr e).symm none = none := rfl
-    rw [hφnone] at hnone
-    rw [hnone, ha]
-  · intro v' hv' r hcon
-    refine hnp (v' ∘ (Equiv.optionCongr e)) (lw_coroots_mem e hX hv') r ?_
-    have hword := lw_sWord_comp e hX ψ (Pi.single k (1 : ℤ))
-    rw [← lw_single_comp' e k] at hword
-    funext i
-    have hw := congrFun hword ((Equiv.optionCongr e) i)
-    simp only [Function.comp_apply] at hw
-    rw [show (Equiv.optionCongr e).symm ((Equiv.optionCongr e) i) = i from
-      Equiv.symm_apply_apply (Equiv.optionCongr e) i] at hw
-    have hcon' := congrFun hcon ((Equiv.optionCongr e) i)
-    calc ((ggSWord X ψ (Pi.single k (1 : ℤ)) i : ℤ) : ZMod p)
-        = ((ggSWord X' (ψ.map (Option.map e)) (Pi.single (Option.map e k) (1 : ℤ))
-            ((Equiv.optionCongr e) i) : ℤ) : ZMod p) := by rw [hw]
-      _ = (r : ZMod p) * (v' ((Equiv.optionCongr e) i) : ZMod p) := hcon'
-      _ = (r : ZMod p) * ((v' ∘ (Equiv.optionCongr e)) i : ZMod p) := rfl
 
 theorem ggAttachCartan_map_equiv {Λ : Type} [DecidableEq Λ] {n : ℕ} (e : Fin n ≃ Λ)
     {C : Matrix Λ Λ ℤ} {C₀ : Matrix (Fin n) (Fin n) ℤ} (hC : ∀ i j, C (e i) (e j) = C₀ i j)
@@ -354,7 +311,6 @@ private theorem lw_sRefl_bridge {n : ℕ} (X : Matrix (Option (Fin n)) (Option (
       · rw [if_neg (by simp [Fin.ext_iff, hij]), if_neg hij]; ring
 
 
-
 private theorem lw_dot_comm (a b : List ℤ) : ggLWdot a b = ggLWdot b a := by
   induction a generalizing b with
   | nil => cases b <;> simp [ggLWdot]
@@ -450,7 +406,6 @@ private theorem lw_sReflR_bridge {n : ℕ} (X : Matrix (Option (Fin n)) (Option 
       · rw [if_neg (by simp [Fin.ext_iff, hij]), if_neg hij]; ring
 
 
-
 theorem lw_sWord_bridge {n : ℕ} (X : Matrix (Option (Fin n)) (Option (Fin n)) ℤ)
     (ψ : List ℕ) (hψ : ∀ j ∈ ψ, j ≤ n) (l : List ℤ) (hl : l.length = n + 1) :
     ggSWord X (ψ.map (ggLWnode n)) (lw_vecOf l) = lw_vecOf (ggLWword (ggLWmat X) ψ l) := by
@@ -532,7 +487,6 @@ private theorem lw_rowC {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) {j : ℕ} (hj
   simp only [dif_pos hj]
 
 
-
 private theorem lw_attach_sRefl_bridge {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) (k : Fin n)
     {j : ℕ} (hj : j < n) (v : List ℤ) (hv : v.length = n) :
     ggSRefl (ggAttachCartan C k) (ggLWnode n j) (lw_vecOf (v ++ [0]))
@@ -610,7 +564,6 @@ private theorem lw_attach_sRefl_bridge {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ
     · rw [if_neg hij, if_neg (by simp [Fin.ext_iff, hij])]; ring
 
 
-
 theorem lw_mem_R {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) (k : Fin n) (R : List (List ℤ))
     (hclosed : ggLWclosed (ggLWmatC C) n R = true) :
     ∀ v ∈ ggLCoroots (ggAttachCartan C k),
@@ -637,7 +590,6 @@ theorem lw_mem_R {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) (k : Fin n) (R : Lis
                 (ggSWord (ggAttachCartan C k) (ψ.map some) (Pi.single (some i) 1)) from rfl,
           hleq, show some j = ggLWnode n j.1 from (lw_node_fin j).symm,
           lw_attach_sRefl_bridge C k j.2 l hll]
-
 
 
 theorem lw_pair_bridge {n : ℕ} (X : Matrix (Option (Fin n)) (Option (Fin n)) ℤ)
@@ -737,152 +689,5 @@ theorem lw_h2ms_identity {R : Type} [CommRing R] {s a₀ : ℤ} {m : ℕ}
   rw [← h2ms]
   ring
 
-theorem ggLatticeWitness_of_data {n : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) (k : Fin n)
-    (hC : ∀ j, C j j = 2) (R : List (List ℤ)) (ψ₀ : List ℕ) (k₀ : ℕ) (ψγ : List ℕ) (kγ : ℕ)
-    (hclosed : ggLWclosed (ggLWmatC C) n R = true)
-    (hdata : ggLWdata (ggLWmat (ggAttachCartan C k)) n R ψ₀ k₀ ψγ kγ = true) {p : ℕ}
-    (hp : p.Prime) (h5 : 5 ≤ p) : GGLatticeWitness (ggAttachCartan C k) p := by
-  haveI : NeZero p := ⟨hp.ne_zero⟩
-  haveI : Fact p.Prime := ⟨hp⟩
-  set XL : List (List ℤ) := ggLWmat (ggAttachCartan C k) with hXL
-  have hd := hdata
-  simp only [ggLWdata, Bool.and_eq_true, decide_eq_true_eq, List.all_eq_true] at hd
-  set g₀ : List ℤ := ggLWword XL ψ₀ (ggLWunit (n + 1) k₀) with hg₀
-  set c₀ : List ℤ := ggLWwordR XL ψ₀ (ggLWunit (n + 1) k₀) with hc₀
-  set g : List ℤ := ggLWword XL ψγ (ggLWunit (n + 1) kγ) with hg
-  set cγ : List ℤ := ggLWwordR XL ψγ (ggLWunit (n + 1) kγ) with hcγ
-  set s : ℤ := c₀.getD n 0 + cγ.getD n 0 with hs
-  set a₀ : ℤ := c₀.getD n 0 with ha₀
-  set w : List ℤ := List.zipWith (fun x y => (s - a₀) * x - a₀ * y) g₀ g with hw
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨hψ0, hψγ⟩, hk0⟩, hkγ⟩, hp1⟩, hp2⟩, hs0⟩, h12⟩, hmin⟩ := hd
-  have hlen0 : (ggLWunit (n + 1) k₀).length = n + 1 := by
-    simp only [ggLWunit, List.length_map, List.length_range]
-  have hlenγ : (ggLWunit (n + 1) kγ).length = n + 1 := by
-    simp only [ggLWunit, List.length_map, List.length_range]
-  have hg0len : g₀.length = n + 1 := by rw [hg₀, lw_word_length, hlen0]
-  have hglen : g.length = n + 1 := by rw [hg, lw_word_length, hlenγ]
-  have hc0len : c₀.length = n + 1 := by rw [hc₀, lw_wordR_length, hlen0]
-  have hcγlen : cγ.length = n + 1 := by rw [hcγ, lw_wordR_length, hlenγ]
-  have hwlen : w.length = n + 1 := by rw [hw, List.length_zipWith, hg0len, hglen, min_self]
-  have hXdiag : ∀ j : Option (Fin n), ggAttachCartan C k j j = 2 := by
-    intro j
-    rcases j with _ | i
-    · exact ggAttachCartan_none_none C k
-    · exact hC i
-  have hg0 : ggSWord (ggAttachCartan C k) (ψ₀.map (ggLWnode n)) (Pi.single (ggLWnode n k₀) 1)
-      = lw_vecOf g₀ := by
-    rw [← lw_unit_bridge k₀ hk0]
-    have h := lw_sWord_bridge (ggAttachCartan C k) ψ₀ hψ0 (ggLWunit (n + 1) k₀) hlen0
-    rwa [← hXL, ← hg₀] at h
-  have hgγ : ggSWord (ggAttachCartan C k) (ψγ.map (ggLWnode n)) (Pi.single (ggLWnode n kγ) 1)
-      = lw_vecOf g := by
-    rw [← lw_unit_bridge kγ hkγ]
-    have h := lw_sWord_bridge (ggAttachCartan C k) ψγ hψγ (ggLWunit (n + 1) kγ) hlenγ
-    rwa [← hXL, ← hg] at h
-  have hc0 : ggSWordR (ggAttachCartan C k) (ψ₀.map (ggLWnode n)) (Pi.single (ggLWnode n k₀) 1)
-      = lw_vecOf c₀ := by
-    rw [← lw_unit_bridge k₀ hk0]
-    have h := lw_sWordR_bridge (ggAttachCartan C k) ψ₀ hψ0 (ggLWunit (n + 1) k₀) hlen0
-    rwa [← hXL, ← hc₀] at h
-  have hcγ : ggSWordR (ggAttachCartan C k) (ψγ.map (ggLWnode n)) (Pi.single (ggLWnode n kγ) 1)
-      = lw_vecOf cγ := by
-    rw [← lw_unit_bridge kγ hkγ]
-    have h := lw_sWordR_bridge (ggAttachCartan C k) ψγ hψγ (ggLWunit (n + 1) kγ) hlenγ
-    rwa [← hXL, ← hcγ] at h
-  have hP1 : (∑ i, ∑ j, ggSWordR (ggAttachCartan C k) (ψ₀.map (ggLWnode n))
-        (Pi.single (ggLWnode n k₀) 1) i * ggAttachCartan C k i j
-        * ggSWord (ggAttachCartan C k) (ψγ.map (ggLWnode n))
-          (Pi.single (ggLWnode n kγ) 1) j) = -2 := by
-    rw [hc0, hgγ, lw_pair_bridge (ggAttachCartan C k) c₀ g hc0len hglen, ← hXL]
-    exact hp1
-  have hP2 : (∑ i, ∑ j, ggSWordR (ggAttachCartan C k) (ψγ.map (ggLWnode n))
-        (Pi.single (ggLWnode n kγ) 1) i * ggAttachCartan C k i j
-        * ggSWord (ggAttachCartan C k) (ψ₀.map (ggLWnode n))
-          (Pi.single (ggLWnode n k₀) 1) j) = -2 := by
-    rw [hcγ, hg0, lw_pair_bridge (ggAttachCartan C k) cγ g₀ hcγlen hg0len, ← hXL]
-    exact hp2
-  have h2s_ne : ((2 * s : ℤ) : ZMod p) ≠ 0 := by
-    intro h
-    have hdvd : (p : ℤ) ∣ 2 * s := (ZMod.intCast_zmod_eq_zero_iff_dvd (2 * s) p).mp h
-    have hdiv12 : (2 * s : ℤ) ∣ 12 := Int.dvd_of_emod_eq_zero h12
-    have hp12 : (p : ℤ) ∣ 12 := dvd_trans hdvd hdiv12
-    have hp12' : p ∣ 12 := by exact_mod_cast hp12
-    exact lw_prime_not_dvd_12 hp h5 hp12'
-  let m : ℕ := ((a₀ : ZMod p) * ((2 * s : ℤ) : ZMod p)⁻¹).val
-  have hm : ((m : ℕ) : ZMod p) = (a₀ : ZMod p) * ((2 * s : ℤ) : ZMod p)⁻¹ :=
-    ZMod.natCast_zmod_val _
-  have h2ms : (2 : ZMod p) * (m : ZMod p) * (s : ZMod p) = (a₀ : ZMod p) := by
-    rw [hm]
-    field_simp [h2s_ne]
-    push_cast
-    ring
-  let T : List (Option (Fin n)) :=
-    ψγ.map (ggLWnode n) ++ [ggLWnode n kγ] ++ (ψγ.map (ggLWnode n)).reverse ++
-      ψ₀.map (ggLWnode n) ++ [ggLWnode n k₀] ++ (ψ₀.map (ggLWnode n)).reverse
-  let ψw : List (Option (Fin n)) := (List.replicate m T).flatten ++ ψ₀.map (ggLWnode n)
-  obtain ⟨hword, hwordR⟩ := ggAffinePair_word_gen (ggAttachCartan C k) hXdiag
-    (ggLWnode n k₀) (ggLWnode n kγ) (ψ₀.map (ggLWnode n)) (ψγ.map (ggLWnode n)) hP1 hP2 m
-  have hw_point : ∀ i : Option (Fin n),
-      lw_vecOf w i = (s - a₀) * lw_vecOf g₀ i - a₀ * lw_vecOf g i := by
-    intro i
-    rcases i with _ | a
-    · rw [lw_node_none w, lw_node_none g₀, lw_node_none g, hw]
-      exact lw_w_point g₀ g _ s a₀ rfl hg0len hglen (le_refl n)
-    · rw [lw_node_some w a, lw_node_some g₀ a, lw_node_some g a, hw]
-      exact lw_w_point g₀ g _ s a₀ rfl hg0len hglen (le_of_lt a.2)
-  have hcor : ggSWord (ggAttachCartan C k) ψw (Pi.single (ggLWnode n k₀) 1)
-      = lw_vecOf g₀ - (2 * (m : ℤ)) • (lw_vecOf g₀ + lw_vecOf g) := by
-    rw [hword, hg0, hgγ]
-  refine ⟨ψw, ggLWnode n k₀, ?_, ?_⟩
-  · rw [hwordR, hc0, hcγ]
-    simp only [Pi.sub_apply, Pi.smul_apply, Pi.add_apply, smul_eq_mul, lw_node_none]
-    rw [← hs, ← ha₀]
-    push_cast
-    rw [h2ms]
-    ring
-  · intro v hv r hprop
-    obtain ⟨l, hlR, hll, hleq⟩ := lw_mem_R C k R hclosed v hv
-    have hs_cor : ∀ i : Option (Fin n),
-        (s : ZMod p) * ((ggSWord (ggAttachCartan C k) ψw (Pi.single (ggLWnode n k₀) 1) i : ℤ) : ZMod
-          p)
-          = ((lw_vecOf w i : ℤ) : ZMod p) := by
-      intro i
-      rw [hcor, hw_point i]
-      simp only [Pi.sub_apply, Pi.smul_apply, Pi.add_apply, smul_eq_mul]
-      push_cast
-      exact lw_h2ms_identity h2ms _ _
-    have hw_prop : ∀ a ≤ n, ((w.getD a 0 : ℤ) : ZMod p)
-        = ((s : ZMod p) * (r : ZMod p)) * (((l ++ [0]).getD a 0 : ℤ) : ZMod p) := by
-      intro a ha
-      have h1 := hs_cor (ggLWnode n a)
-      rw [lw_node w ha] at h1
-      rw [← h1, congrFun hprop (ggLWnode n a), hleq, lw_node (l ++ [0]) ha]
-      ring
-    have hmin_dvd : p ∣ ggLWminors w (l ++ [0]) := by
-      apply lw_minors_dvd_of_minors
-      intro i j hi hj hij
-      have hi' : i ≤ n := by rw [hwlen] at hi; omega
-      have hj' : j ≤ n := by rw [hwlen] at hj; omega
-      have hwi := hw_prop i hi'
-      have hwj := hw_prop j hj'
-      have hzero : (((w.getD i 0 * (l ++ [0]).getD j 0
-          - w.getD j 0 * (l ++ [0]).getD i 0 : ℤ)) : ZMod p) = 0 := by
-        rw [Int.cast_sub, Int.cast_mul, Int.cast_mul, hwi, hwj]
-        ring
-      exact (ZMod.intCast_zmod_eq_zero_iff_dvd _ p).mp hzero
-    exact lw_prime_not_dvd_12 hp h5 (dvd_trans hmin_dvd (Nat.dvd_iff_mod_eq_zero.mpr (hmin l hlR)))
-
-theorem ggFork_c_eq {Λ : Type} [DecidableEq Λ] {C : Matrix Λ Λ ℤ} {b c : Λ}
-    (hF : GGForkMatrix C b c) {n : ℕ} (e : Fin n ≃ Λ) {i j : Fin n} (hb : b = e i)
-    (hCij : C (e i) (e j) = -1) (hij : i ≠ j) : c = e j := by
-  have hjb : e j ≠ b := by
-    intro h
-    exact hij (e.injective (by rw [← hb, h]))
-  have h := hF.bL (e j) hjb
-  rw [hb, hCij] at h
-  by_cases hc : e j = c
-  · exact hc.symm
-  · rw [if_neg hc] at h
-    norm_num at h
 
 end CFSG.StandardType

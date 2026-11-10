@@ -40,12 +40,6 @@ theorem le_pPrimeCore_of_sup_eq_top {C₀ K₀ : Subgroup Y} (hY : pPrimeCore 2 
     QuotientGroup.ker_mk'] at hle
   exact hle
 
-theorem sup_eq_top_of_sup_eq_top {C₀ K₀ M : Subgroup Y} (hY : pPrimeCore 2 Y ⊔ C₀ = ⊤)
-    (hK₀ : ∀ c ∈ C₀, ∀ k ∈ K₀, c * k * c⁻¹ ∈ K₀) (hodd : Odd (Nat.card K₀))
-    (hC₀ : C₀ ≤ K₀ ⊔ M) : pPrimeCore 2 Y ⊔ M = ⊤ := by
-  have hK := le_pPrimeCore_of_sup_eq_top hY hK₀ hodd
-  rw [eq_top_iff, ← hY]
-  exact sup_le le_sup_left (hC₀.trans (sup_le (hK.trans le_sup_left) le_sup_right))
 
 end Bypass
 

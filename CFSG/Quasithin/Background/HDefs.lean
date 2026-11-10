@@ -52,13 +52,6 @@ theorem isElemAbelian2_iff {A : Subgroup (MulAut V)} : IsElemAbelian2 A ↔ IsEl
     have := @mul_comm' (↥A) _ hc ⟨a, ha⟩ ⟨b, hb⟩
     exact congrArg Subtype.val this
 
-theorem pRank_set_bddAbove [Finite G] {p : ℕ} (hp : 1 < p) (H : Subgroup G) :
-    BddAbove {k : ℕ | ∃ E : Subgroup G, E ≤ H ∧ IsElemAbelian p E ∧ Nat.card E = p ^ k} := by
-  refine ⟨Nat.card G, ?_⟩
-  rintro k ⟨E, -, -, hk⟩
-  calc k ≤ p ^ k := (Nat.lt_pow_self hp).le
-    _ = Nat.card E := hk.symm
-    _ ≤ Nat.card G := E.card_le_card_group
 
 theorem exists_isElemAbelian_card_pRank [Finite G] (H : Subgroup G) :
     ∃ E : Subgroup G, E ≤ H ∧ IsElemAbelian 2 E ∧ Nat.card E = 2 ^ CFSG.Open.pRank 2 H :=
@@ -75,8 +68,6 @@ theorem card_le_two_pow_pRank [Finite G] {E H : Subgroup G} (hEH : E ≤ H)
   rw [hk]
   exact Nat.pow_le_pow_right (by norm_num) (le_pRank Nat.prime_two hEH hE hk)
 
-theorem pRank_two_mono [Finite G] {R S : Subgroup G} (h : R ≤ S) :
-    CFSG.Open.pRank 2 R ≤ CFSG.Open.pRank 2 S := CFSG.SectionRank.pRank_mono one_lt_two h
 
 theorem rk_le_pRank [Finite V] {A H : Subgroup (MulAut V)} (hAH : A ≤ H)
     (hA : IsElemAbelian2 A) : rk ↥A ≤ CFSG.Open.pRank 2 H := by
@@ -203,105 +194,6 @@ theorem mem_fixV_zpowers_iff {x : MulAut V} {v : V} :
     v ∈ fixV (Subgroup.zpowers x) ↔ x v = v :=
   CFSG.Quasithin.mem_fixV_zpowers_iff_apply
 
-theorem lemma_H_0_1 [Finite V] {F : Type*} [Field F] {n : ℕ} (hn : 1 ≤ n)
-    (hF : Nat.card F = 2 ^ n) [Module F (Additive V)] {d : ℕ}
-    (hd : Module.finrank F (Additive V) = d) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    {x : MulAut V} (hx : orderOf x = p) {σ : F ≃+* F} (hσ : σ ≠ 1)
-    (hxσ : ∀ (c : F) (v : Additive V),
-      MulEquiv.toAdditive x (c • v) = σ c • MulEquiv.toAdditive x v) :
-    rkIdx (fixV (Subgroup.zpowers x)) * p = (p - 1) * n * d ∧
-      2 * n * d ≤ 3 * rkIdx (fixV (Subgroup.zpowers x)) := by
-  have : Finite F := Nat.finite_of_card_ne_zero (by rw [hF]; positivity)
-  have : FiniteDimensional F (Additive V) := Module.Finite.of_finite
-  set a : Additive V ≃+ Additive V := MulEquiv.toAdditive x with ha
-  have hxp : x ^ p = 1 := by rw [← hx]; exact pow_orderOf_eq_one x
-  have hap : ∀ v, (⇑a)^[p] v = v := by
-    intro v
-    have : ∀ k : ℕ, (⇑a)^[k] v = MulEquiv.toAdditive (x ^ k) v := by
-      intro k
-      induction k with
-      | zero => rfl
-      | succ k ih =>
-        rw [Function.iterate_succ_apply', ih, pow_succ']
-        rfl
-    rw [this, hxp]
-    rfl
-  have hVne : Nontrivial (Additive V) := by
-    by_contra hcon
-    rw [not_nontrivial_iff_subsingleton] at hcon
-    have : x = 1 := by
-      ext v
-      exact congrArg Additive.toMul (Subsingleton.elim (Additive.ofMul (x v)) (Additive.ofMul v))
-    rw [this, orderOf_one] at hx
-    exact hp.one_lt.ne hx
-  have hσp : σ ^ p = 1 := by
-    obtain ⟨v, hv⟩ := exists_ne (0 : Additive V)
-    ext c
-    have h1 : (⇑a)^[p] (c • v) = (σ ^ p) c • (⇑a)^[p] v :=
-      CFSG.RankThree.Classical.iterate_smul σ a hxσ p c v
-    rw [hap, hap] at h1
-    have h2 : ((σ ^ p) c - c) • v = 0 := by rw [sub_smul, ← h1, sub_self]
-    rcases smul_eq_zero.mp h2 with h3 | h3
-    · exact (sub_eq_zero.mp h3)
-    · exact absurd h3 hv
-  have hσord : orderOf σ = p := by
-    rcases (Nat.dvd_prime hp).mp (orderOf_dvd_of_pow_eq_one hσp) with h | h
-    · exact absurd (orderOf_eq_one_iff.mp h) hσ
-    · exact h
-  obtain ⟨hpn, k₀, -, -, b, -, C, hC, -, -, hCcard⟩ :=
-    CFSG.RankThree.Classical.semilinear_fixed_basis Nat.prime_two hn hF σ hσord hd a hxσ hap
-  have hfix : Nat.card (fixV (Subgroup.zpowers x)) = 2 ^ (n * d / p) := by
-    rw [← hCcard]
-    refine Nat.card_congr
-      { toFun := fun v => ⟨Additive.ofMul v.1, ?_⟩
-        invFun := fun w => ⟨Additive.toMul w.1, ?_⟩
-        left_inv := fun v => rfl
-        right_inv := fun w => rfl }
-    · change Additive.ofMul v.1 ∈ (C : Set (Additive V))
-      rw [hC]
-      have hv : x v.1 = v.1 := (mem_fixV_zpowers_iff (V := V)).mp v.2
-      exact congrArg Additive.ofMul hv
-    · have hw : w.1 ∈ (C : Set (Additive V)) := w.2
-      rw [hC] at hw
-      have hw' : x (Additive.toMul w.1) = Additive.toMul w.1 := congrArg Additive.toMul hw
-      exact (mem_fixV_zpowers_iff (V := V)).mpr hw'
-  have hV : Nat.card V = 2 ^ (n * d) := by
-    have h1 : Nat.card (Additive V) = Nat.card F ^ Module.finrank F (Additive V) :=
-      Module.natCard_eq_pow_finrank
-    rw [hF, hd, ← pow_mul] at h1
-    exact h1
-  obtain ⟨k, hk⟩ := hpn
-  have hpd : n * d / p = k * d := by
-    rw [hk, mul_assoc, mul_comm p, Nat.mul_div_cancel _ hp.pos]
-  have hle : n * d / p ≤ n * d := Nat.div_le_self _ _
-  have hidx : (fixV (Subgroup.zpowers x)).index = 2 ^ (n * d - n * d / p) := by
-    have h1 := (fixV (Subgroup.zpowers x)).card_mul_index
-    rw [hfix, hV] at h1
-    have h2 : (2 : ℕ) ^ (n * d) = 2 ^ (n * d / p) * 2 ^ (n * d - n * d / p) := by
-      rw [← pow_add, Nat.add_sub_cancel' hle]
-    rw [h2] at h1
-    exact Nat.eq_of_mul_eq_mul_left (by positivity) h1
-  have hrk : rkIdx (fixV (Subgroup.zpowers x)) = n * d - n * d / p := by
-    unfold rkIdx
-    rw [hidx, padicValNat.prime_pow]
-  have hp3 : 3 ≤ p := by
-    rcases hp.eq_two_or_odd' with h | h
-    · exact absurd h hp2
-    · have := hp.two_le
-      obtain ⟨j, hj⟩ := h
-      omega
-  have hnd : n * d = p * (k * d) := by rw [hk]; ring
-  have hsub : n * d - n * d / p = (p - 1) * (k * d) := by
-    rw [hpd, hnd, Nat.sub_mul, one_mul]
-  rw [hrk, hsub]
-  constructor
-  · rw [hk]
-    ring
-  · rw [hk]
-    have h2 : 2 * p ≤ 3 * (p - 1) := by omega
-    calc 2 * (p * k) * d = (2 * p) * (k * d) := by ring
-      _ ≤ (3 * (p - 1)) * (k * d) := Nat.mul_le_mul_right _ h2
-      _ = 3 * ((p - 1) * (k * d)) := by ring
 
 end H
 

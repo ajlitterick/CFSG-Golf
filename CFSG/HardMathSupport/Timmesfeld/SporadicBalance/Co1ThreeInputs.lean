@@ -29,39 +29,19 @@ open CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.SmallF2.Native
 
 @[expose] def lInvs (_ : Unit := ()) : List Rows := (lRows ()).map inv
 
-@[expose] def lCheck (_ : Unit := ()) : Bool :=
-  (sDag ()).2.2 && (lRows ()).length == 75 &&
-    ((lRows ()).zip (lInvs ())).all fun xy => mul xy.1 xy.2 == one
 
 @[expose] def wordL (w : List Nat) : Rows := word (lRows ()) (lInvs ()) (decWord w)
 
 @[expose] def qGens (_ : Unit := ()) : List Rows := Data.qGenWords.map wordL
 
-@[expose] def qEnum (_ : Unit := ()) : Timmesfeld.Co1Leaf.Enum :=
-  Timmesfeld.Co1Leaf.enumBFS (qGens ()) 19683
-
-@[expose] def qCheck (_ : Unit := ()) : Bool :=
-  Timmesfeld.Co1Leaf.enumOK (qGens ()) (qEnum ()) 19683
 
 @[expose] def aGens (_ : Unit := ()) : List Rows := (List.range 6).map aRows
 
-@[expose] def eElts (_ : Unit := ()) : List Rows := (Timmesfeld.Co1Leaf.eltsOf (aGens ())).toList
 
 @[expose] def repRows (i : Nat) : Rows := wordL (Data.repWords.getD i [])
 
 @[expose] def rootRows (j : Nat) : Rows := wordL (Data.rootWords.getD j [])
 
-@[expose] def fusCheck (_ : Unit := ()) : Bool :=
-  let es := eElts ()
-  Data.repWords.length == 42 &&
-    Timmesfeld.Co1Leaf.fusOK (qEnum ()) (qGens ()) ((List.range 42).map repRows) es.contains
-
-@[expose] def conjCheck (_ : Unit := ()) : Bool :=
-  Data.repWords.length == 42 && Data.repRoot.length == 42 && Data.repConj.length == 42 &&
-    (List.range 42).all fun i =>
-      decide (Data.repRoot.getD i 0 < 3) &&
-        mul (wordL (Data.repConj.getD i [])) (repRows i) ==
-          mul (rootRows (Data.repRoot.getD i 0)) (wordL (Data.repConj.getD i []))
 
 @[expose] def xList (_ : Unit := ()) : List Nat := CFSG.Sporadic.Co1Block.certVecs.toList
 
@@ -71,15 +51,6 @@ open CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.SmallF2.Native
 @[expose] def eCheck (_ : Unit := ()) : Bool :=
   Timmesfeld.Co1Leaf.splitOK [] (aGens ()) && Timmesfeld.Co1Leaf.leavesOK (xList ()) (eLeaves ())
 
-@[expose] def splitRows (j : Nat) : List Rows := (Data.splitBC.getD j []).map wordL
-
-@[expose] def bcLeaves (j : Nat) : List (List Rows) :=
-  (Timmesfeld.Co1Leaf.normVecs 3 4).map fun f =>
-    rootRows j :: Timmesfeld.Co1Leaf.kerElts 3 (splitRows j) f
-
-@[expose] def bcCheck (j : Nat) : Bool :=
-  (splitRows j).length == 4 && Timmesfeld.Co1Leaf.splitOK [rootRows j] (splitRows j) &&
-    Timmesfeld.Co1Leaf.leavesOK (xList ()) (bcLeaves j)
 
 @[expose] def planeRows (_ : Unit := ()) : List Rows := Data.planeD.map wordL
 

@@ -54,17 +54,5 @@ theorem perfect_le_inner
   have hle : ⁅P, P⁆ ≤ inner (Sz n) := Subgroup.commutator_le.mpr fun a _ b _ => hcomm a b
   rwa [Subgroup.commutator_eq_self] at hle
 
-theorem exists_aut
-    (hp : (2 * n + 1).Prime) : ∃ f : MulAut (Sz n), orderOf f = 2 * n + 1 := by
-  have hn : 1 ≤ n := Nat.pos_of_ne_zero (by rintro rfl; exact Nat.not_prime_one hp)
-  obtain ⟨E⟩ := Suzuki.nonempty_mulEquiv_sz_suzukiGroup n
-  have hK : Nat.card (GaloisField 2 (2 * n + 1)) = 2 ^ (2 * n + 1) :=
-    GaloisField.card 2 (2 * n + 1) (by omega)
-  obtain ⟨σ, -, hord, -⟩ :=
-    CFSG.LocalAnalysis.ComponentInitial.finite_field_automorphism_fixed_field_cardinality
-      Nat.prime_two (by omega) hK
-  have hφ : orderOf (Suzuki.szFieldAut n (GaloisField 2 (2 * n + 1)) σ) = 2 * n + 1 := by
-    rw [orderOf_injective _ Suzuki.szFieldAut_injective σ, hord]
-  exact ⟨MulAut.congr E.symm (Suzuki.szFieldAut n _ σ), by rw [orderOf_congr, hφ]⟩
 
 end CFSG.SignalizerFunctorTheorem.McBride.SzModel

@@ -102,21 +102,6 @@ theorem even_unitary_fieldBar_fixed_cases (h : UnitaryFieldData 2 f K) (hn : 3 �
       (congrArg matrixIsometryGroup hJ)).trans
         (OutcomeLocal.blockSwapIsometryEquivStatedSp (by omega)))⟩⟩
 
-theorem even_unitary_fieldBar_evenLieConclusion (h : UnitaryFieldData 2 f K) (hn : 3 ≤ n)
-    (hq : ¬(n = 3 ∧ 2 ^ f = 2)) {C : GL (Fin n) K} (hC : IsPrimeFormGram C)
-    (hcase : (C : Matrix (Fin n) (Fin n) K) = 1 ∨
-      ∃ r, n = 2 * r ∧ (C : Matrix (Fin n) (Fin n) K) = blockSwapJ n r)
-    (σ : K ≃+* K) (hσ : ∀ x, σ x = h.bar x)
-    (M : Subgroup (fixedSubgroup (primeFormFieldHom h hC σ))) (hM : IsPComponent 2 M) :
-    EvenLieConclusion M := by
-  have : CharP K 2 := h.charP
-  have : Finite K := h.finite
-  have := fixedField_charP h
-  have := fixedField_finite h
-  rcases even_unitary_fieldBar_fixed_cases h hn hq hC hcase σ hσ with hch | ⟨r, hr, -, ⟨Φ⟩⟩
-  · exact absurd hM (not_isPComponent_of_isCharacteristicP hch M)
-  · exact evenLieConclusion_of_mulEquiv Φ (fun M' hM' =>
-      evenLieConclusion_statedSp h.one_le (UnitaryFieldData.card_fixedField h) hr M' hM') hM
 
 theorem nonempty_mulEquiv_primeFormP_of_lieModel {J : Type} [Group J]
     (hadm : StatedLieAdmissible .PSU n 2 f) (hm : Blueprint.LieModel J .PSU n 2 f) :

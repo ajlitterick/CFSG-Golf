@@ -177,8 +177,6 @@ theorem bil_eq_zero_of_comm {α μ ν β γ a u v b e : K}
   rw [nf_comm_Q1] at h1
   exact xc_eq_one_iff.1 h1
 
-theorem center_U_iff {g : C K} (hg : g ∈ U K) : g ∈ Xc K ↔ ∀ h ∈ U K, h * g = g * h :=
-  ⟨fun hc _ hh => Xc_le_center_U hc _ hh, center_U hg⟩
 
 end Coordinates
 

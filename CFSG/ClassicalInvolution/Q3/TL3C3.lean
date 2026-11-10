@@ -108,10 +108,6 @@ theorem mem_orbOf_comm {K J M : Subgroup G} (hM : M ∈ orbOf A K J) : J ∈ orb
   rw [orbOf_eq_of_mem hM]
   exact mem_orbOf_self K J
 
-omit hG in
-theorem orbOf_eq_of_mem_of_mem {K J J' M : Subgroup G} (h : M ∈ orbOf A K J)
-    (h' : M ∈ orbOf A K J') : orbOf A K J = orbOf A K J' := by
-  rw [← orbOf_eq_of_mem h, orbOf_eq_of_mem h']
 
 theorem orbOf_subset_gen {K J : Subgroup G} (hKJ : A K J) :
     orbOf A K J ⊆ {M | ∃ a ∈ ⨆ I ∈ orbOf A K J, I, conjSub a J = M} := by

@@ -14,14 +14,6 @@ open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
     ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ 5 ≤ p ^ f ∧
       Blueprint.LieModel (L ⧸ pPrimeCore 2 L) .PSL 2 p f
 
-@[expose] def footeFamily {X : Type} [Group X] (L : Subgroup X) : Set (Subgroup X) :=
-  {A | GSMaximalComponent A ∧ Nonempty (A ⧸ Open.fusionZStar A ≃* L ⧸ Open.fusionZStar L)}
-
-@[expose] def FooteSetting (X : Type) [Group X] (x : X) (L : Subgroup X) : Prop :=
-  IsSimpleGroup X ∧ (∃ a b : X, a * b ≠ b * a) ∧ Assembly.KProper Blueprint.Catalog X ∧
-    orderOf x = 2 ∧ L ≤ centralizer ({x} : Set X) ∧
-    IsPComponent 2 (L.subgroupOf (centralizer ({x} : Set X))) ∧ GSMaximalComponent L ∧
-    FooteType L
 
 @[expose] def FooteExceptional (X : Type) [Group X] (L : Subgroup X) : Prop :=
   (Nonempty (X ≃* alternatingGroup (Fin 9)) ∧
@@ -33,25 +25,6 @@ open CFSG Subgroup CFSG.ComponentClassification.UnbalancedLayer
     (Nonempty (X ≃* Blueprint.NativeSporadic.J2) ∧
       Nonempty (L ⧸ pPrimeCore 2 L ≃* alternatingGroup (Fin 5)))
 
-@[expose] def FooteCaseOne : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (x : X) (L : Subgroup X), FooteSetting X x L →
-    (∃ A ∈ footeFamily L, CFSG.pRank 2 ↥A = 1) → Blueprint.OddLieType X
-
-@[expose] def FooteCaseRankBound : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (x : X) (L : Subgroup X), FooteSetting X x L →
-    (∀ A ∈ footeFamily L, CFSG.pRank 2 ↥A ≠ 1) →
-    ∀ A ∈ footeFamily L, CFSG.pRank 2 ↥(coreActionKernel A) ≤ 2
-
-@[expose] def FooteCaseRankTwo : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (x : X) (L : Subgroup X), FooteSetting X x L →
-    (∀ A ∈ footeFamily L, CFSG.pRank 2 ↥A ≠ 1) →
-    (∀ A ∈ footeFamily L, CFSG.pRank 2 ↥(coreActionKernel A) ≤ 2) →
-    CFSG.pRank 2 ↥(coreActionKernel L) = 2 →
-    Blueprint.OddLieType X ∨ FooteExceptional X L
-
-theorem mem_footeFamily_self {X : Type} [Group X] {L : Subgroup X} (h : GSMaximalComponent L) :
-    L ∈ footeFamily L :=
-  ⟨h, ⟨MulEquiv.refl _⟩⟩
 
 theorem one_le_pRank_of_orderOf_eq_two {H : Type*} [Group H] [Finite H] {g : H}
     (hg : orderOf g = 2) : 1 ≤ CFSG.pRank 2 H := by
@@ -94,21 +67,5 @@ theorem one_le_pRank_coreActionKernel {X : Type} [Group X] [Finite X] {x : X}
   exact one_le_pRank_of_orderOf_eq_two (g := (⟨x, hxC⟩ : coreActionKernel L))
     (by rw [Subgroup.orderOf_mk]; exact hx)
 
-theorem footeInput_of_cases (h1 : FooteCaseOne) (h3 : FooteCaseRankBound)
-    (h4 : FooteCaseRankTwo) : GSLit.FooteInput := by
-  intro X _ _ _ hnonab hK x hx L hLx hL hmax htype
-  have hS : FooteSetting X x L := ⟨inferInstance, hnonab, hK, hx, hLx, hL, hmax, htype⟩
-  by_cases hone : ∃ A ∈ footeFamily L, CFSG.pRank 2 ↥A = 1
-  · exact Or.inl (h1 X x L hS hone)
-  have hone' : ∀ A ∈ footeFamily L, CFSG.pRank 2 ↥A ≠ 1 := fun A hA h => hone ⟨A, hA, h⟩
-  have hbound := h3 X x L hS hone'
-  have hle := hbound L (mem_footeFamily_self hmax)
-  have hge := one_le_pRank_coreActionKernel hx hLx
-  rcases (show CFSG.pRank 2 ↥(coreActionKernel L) = 1 ∨
-      CFSG.pRank 2 ↥(coreActionKernel L) = 2 by omega) with h | h
-  · exact Or.inr (Or.inl h)
-  · rcases h4 X x L hS hone' hbound h with h' | h'
-    · exact Or.inl h'
-    · exact Or.inr (Or.inr h')
 
 end CFSG.ComponentClassification.FooteLit

@@ -165,21 +165,6 @@ theorem exists_benderQuotient_normal_simpleBender
     exact hB.1.map_mulEquiv ((QuotientGroup.quotientMulEquivOfEq hO).trans
       QuotientGroup.quotientBot)
 
-theorem benderImage_fusionStronglyEmbedded
-    (hsq : ∀ w : EscapingQuotient x, w ^ 2 ≠ escapingBar x) :
-    fusionStronglyEmbedded (benderImage H x) :=
-  fusionStronglyEmbedded.of_native (hq.benderImage_isStronglyEmbedded hsq)
-
-theorem benderQuotient_normal_series
-    (hsq : ∀ w : EscapingQuotient x, w ^ 2 ≠ escapingBar x) :
-    ∃ (N₁ N₂ : Subgroup (BenderQuotient x)) (_ : N₁.Normal) (_ : N₂.Normal)
-      (_ : (N₁.subgroupOf N₂).Normal), N₁ = ⊥ ∧ N₁ ≤ N₂ ∧ Odd (Nat.card N₁) ∧ Odd N₂.index ∧
-        fusionIsBenderGroup (N₂ ⧸ N₁.subgroupOf N₂) := by
-  obtain ⟨N, hN, hNodd, hNB⟩ := hq.exists_benderQuotient_normal_simpleBender hsq
-  refine ⟨⊥, N, inferInstance, hN, inferInstance, rfl, bot_le, by simp, hNodd, ?_⟩
-  exact fusionIsBenderGroup_of_isSimpleBenderGroup (hNB.map_mulEquiv
-    ((QuotientGroup.quotientMulEquivOfEq (Subgroup.bot_subgroupOf N)).trans
-      QuotientGroup.quotientBot).symm)
 
 end EscapingQuotientData
 

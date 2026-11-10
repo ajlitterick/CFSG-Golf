@@ -257,34 +257,6 @@ theorem miyamotoFieldFactor_eq_one_iff (α : MulAut (gramSU h (miyamotoJ4 K))) :
   · rintro ⟨s, rfl⟩
     exact miyamotoFieldFactor_conj h s
 
-theorem miyamotoFieldFactor_surjective : Function.Surjective (miyamotoFieldFactor h) :=
-  fun φ => ⟨miyamotoFieldAut h φ, miyamotoFieldFactor_fieldAut h φ⟩
-
-@[expose] def miyamotoPsi : gramSU h (miyamotoJ4 K) ⋊[miyamotoFieldHom h] (K ≃+* K) →*
-    MulAut (gramSU h (miyamotoJ4 K)) :=
-  SemidirectProduct.lift MulAut.conj (miyamotoFieldHom h) fun φ => MonoidHom.ext fun s => by
-    change MulAut.conj (miyamotoFieldAut h φ s) =
-      miyamotoFieldAut h φ * MulAut.conj s * (miyamotoFieldAut h φ)⁻¹
-    rw [miyamotoFieldAut_mul_conj_mul_inv]
-
-theorem miyamotoPsi_apply (s : gramSU h (miyamotoJ4 K)) (φ : K ≃+* K) :
-    miyamotoPsi h ⟨s, φ⟩ = MulAut.conj s * miyamotoFieldAut h φ := by
-  rw [SemidirectProduct.mk_eq_inl_mul_inr, map_mul, miyamotoPsi, SemidirectProduct.lift_inl,
-    SemidirectProduct.lift_inr, miyamotoFieldHom_apply]
-
-@[expose] def miyamotoAutEquiv : gramSU h (miyamotoJ4 K) ⋊[miyamotoFieldHom h] (K ≃+* K) ≃*
-    MulAut (gramSU h (miyamotoJ4 K)) :=
-  MulEquiv.ofBijective (miyamotoPsi h) ⟨fun x y e => by
-    obtain ⟨s, φ⟩ := x
-    obtain ⟨t, ψ⟩ := y
-    rw [miyamotoPsi_apply, miyamotoPsi_apply, conj_mul_fieldAut_inj] at e
-    rw [e.1, e.2], fun α => by
-    obtain ⟨s, hs⟩ := exists_eq_conj_mul_fieldAut h α
-    exact ⟨⟨s, miyamotoFieldFactor h α⟩, by rw [miyamotoPsi_apply, ← hs]⟩⟩
-
-theorem miyamotoAutEquiv_apply (s : gramSU h (miyamotoJ4 K)) (φ : K ≃+* K) :
-    miyamotoAutEquiv h ⟨s, φ⟩ = MulAut.conj s * miyamotoFieldAut h φ :=
-  miyamotoPsi_apply h s φ
 
 include h in
 theorem card_ringAut : Nat.card (K ≃+* K) = 2 * f := by
@@ -292,9 +264,6 @@ theorem card_ringAut : Nat.card (K ≃+* K) = 2 * f := by
     (by have := h.one_le; omega) h.card
   exact hcard
 
-theorem card_mulAut_miyamoto :
-    Nat.card (MulAut (gramSU h (miyamotoJ4 K))) = Nat.card (gramSU h (miyamotoJ4 K)) * (2 * f) := by
-  rw [← Nat.card_congr (miyamotoAutEquiv h).toEquiv, SemidirectProduct.card, card_ringAut h]
 
 end Model
 
@@ -392,12 +361,6 @@ theorem miyamotoAct_mem_iff_of_mem_normalizer {M : Subgroup (GL (Fin 4) K)}
     ← symm_mem_miyamotoPull_iff h L η]
   exact (mem_normalizer_iff.mp hx _).symm
 
-theorem miyamotoAct_mem_of_mem_normalizer {M : Subgroup (GL (Fin 4) K)}
-    (x : normalizer (L : Set G)) (hx : (x : G) ∈ normalizer (miyamotoPull h L η M : Set G))
-    {g : gramSU h (miyamotoJ4 K)} (hg : (g : GL (Fin 4) K) ∈ M) :
-    ((miyamotoAct h L η x g : gramSU h (miyamotoJ4 K)) : GL (Fin 4) K) ∈ M := by
-  rw [← symm_mem_miyamotoPull_iff h L η, coe_symm_miyamotoAct_apply]
-  exact (mem_normalizer_iff.mp hx _).mp ((symm_mem_miyamotoPull_iff h L η).mpr hg)
 
 end Ambient
 

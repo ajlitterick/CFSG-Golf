@@ -45,8 +45,6 @@ structure KClosed (KP : ∀ (Y : Type) [Group Y], Prop) : Prop where
   inj : ∀ {A B : Type} [Group A] [Group B] (f : A →* B), Function.Injective f → KP B → KP A
   quot : ∀ {Y : Type} [Group Y] (N : Subgroup Y) [N.Normal], KP Y → KP (Y ⧸ N)
 
-theorem kClosed_tc : KClosed CFSG.Open.SQTKTauCeti.KGroup :=
-  ⟨fun f hf hB => TauCetiK.kGroup_of_injective f hf hB, fun N _ h => TauCetiK.kGroup_quotient h N⟩
 
 theorem kClosed_native : KClosed CFSG.SectionRank.IsKGroupCat :=
   ⟨fun {_ _} _ _ f hf hB =>

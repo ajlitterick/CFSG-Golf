@@ -347,29 +347,6 @@ theorem opposite_of_le_line (hH : SigmaEqLambda R) {A B D P X : Subgroup G} (hA 
   · exact hop
   · exact absurd ((huniq X ⟨hX, hXV, ⟨hX, hs⟩⟩).trans hPu.symm) hXP
 
-theorem exists_opposite_of_le_line (hH : SigmaEqLambda R) {A D C : Subgroup G} (hA : A ∈ R)
-    (hD : D ∈ lambdaSet R A) (hC : C ∈ R)
-    (hfar : ∀ X ∈ R, X ≤ A ⊔ D → X ≠ C ∧ X ∉ lambdaSet R C) :
-    ∃ X ∈ R, X ≤ A ⊔ D ∧ Opposite C X := by
-  have hR := h.root
-  by_contra hno
-  push Not at hno
-  have hpsi : ∀ X ∈ R, X ≤ A ⊔ D → X ∈ psiSet R C := by
-    intro X hX hXV
-    obtain ⟨hXC, hXl⟩ := hfar X hX hXV
-    rcases hR.rel C hC X hX hXC.symm with hc | hop | hs
-    · exact absurd (mem_lambdaSet_of_commuting hH hC hX hXC hc) hXl
-    · exact absurd hop (hno X hX hXV)
-    · exact ⟨hX, hs⟩
-  have hAψ := hpsi A hA le_sup_left
-  have hDψ := hpsi D hD.1.1 le_sup_right
-  have heq := commutator_eq_of_mem_psiSet h hH hC hAψ hDψ hD
-  obtain ⟨hZC, hZA⟩ := commutator_mem_lambdaSet h hC hA hAψ.2
-  obtain ⟨-, hZD⟩ := commutator_mem_lambdaSet h hC hD.1.1 hDψ.2
-  rw [← heq] at hZD
-  have hZV : ⁅C, A⁆ ≤ A ⊔ D := le_line h hH hA hD hA le_sup_left hD.1.1 le_sup_right
-    hD.1.2.1.symm hAψ.2.1 hZA.1.2.2.symm hZD.1.2.2.symm
-  exact (hfar _ hAψ.2.1 hZV).2 hZC
 
 end Local
 

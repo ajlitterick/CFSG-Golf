@@ -49,50 +49,5 @@ theorem coe_statedOmegaOrthEquiv (hQ : ⇑Q = Q₀) (A : StatedOmega Q₀) :
 
 end Bridge
 
-theorem lieCentralizerComponentT_POmegaPlus : LieCentralizerComponentT .POmegaPlus := by
-  intro T _ _ p n f hp hp5 hf hmodel x y hxp hx1 hy2 hy1 hxy
-  obtain ⟨hadm, K, hKf, hKfin, hcard, ⟨e⟩⟩ :=
-    statedClassicalModel_of_lieModel_classical (by decide) hmodel
-  have : CharP K 2 := charP_two_of_card_eq_pow hcard
-  have hq : 4 ≤ Nat.card K := by
-    rw [hcard]
-    calc 4 = 2 ^ 2 := by norm_num
-      _ ≤ 2 ^ (p * f) := Nat.pow_le_pow_right (by norm_num) (by nlinarith)
-  set ψ := e.trans (statedProjOrthEquiv (CFSG.LieType.Universal.Spin.coe_quadPlus (n := n)
-    (K := K))) with hψ
-  refine exists_centralizer_component_of_mulEquiv ψ ?_
-  refine orth_centralizer_component
-    (CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadPlus n K) hq hp hp5
-    (a := ψ x) (b := ψ y) ?_ ?_ ?_ ?_ ?_
-  · rw [← map_pow, hxp, map_one]
-  · intro h1
-    exact hx1 (ψ.injective (by rw [h1, map_one]))
-  · rw [← map_pow, hy2, map_one]
-  · intro h1
-    exact hy1 (ψ.injective (by rw [h1, map_one]))
-  · rw [← map_mul, ← map_mul, hxy]
-
-theorem lieCentralizerComponentT_POmegaMinus : LieCentralizerComponentT .POmegaMinus := by
-  intro T _ _ p n f hp hp5 hf hmodel x y hxp hx1 hy2 hy1 hxy
-  obtain ⟨hadm, K, hKf, hKfin, hcard, b, c, hirr, ⟨e⟩⟩ :=
-    statedClassicalModel_of_lieModel_classical (by decide) hmodel
-  have : CharP K 2 := charP_two_of_card_eq_pow hcard
-  have hq : 4 ≤ Nat.card K := by
-    rw [hcard]
-    calc 4 = 2 ^ 2 := by norm_num
-      _ ≤ 2 ^ (p * f) := Nat.pow_le_pow_right (by norm_num) (by nlinarith)
-  set ψ := e.trans (statedProjOrthEquiv (CFSG.LieType.Universal.Spin.coe_quadMinus (n := n)
-    (K := K) b c)) with hψ
-  refine exists_centralizer_component_of_mulEquiv ψ ?_
-  refine orth_centralizer_component
-    (CFSG.LieType.Universal.Spin.nondegenerate_polarBilin_quadMinus_of_finite n K hirr) hq hp hp5
-    (a := ψ x) (b := ψ y) ?_ ?_ ?_ ?_ ?_
-  · rw [← map_pow, hxp, map_one]
-  · intro h1
-    exact hx1 (ψ.injective (by rw [h1, map_one]))
-  · rw [← map_pow, hy2, map_one]
-  · intro h1
-    exact hy1 (ψ.injective (by rw [h1, map_one]))
-  · rw [← map_mul, ← map_mul, hxy]
 
 end CFSG.RankThree.PartOne

@@ -72,26 +72,6 @@ theorem ggStepTwoCentralizerInput_of_fusedWitness (h : GGStepTwoFusedWitnessInpu
     h G p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair hsn hDR
   exact ggStepTwo_centralizer_le_of_conj_mem s1.2.1 (hBsM hpair.1) hpair.le_ggM hsn haR ha1 hm hmD
 
-theorem ggStepTwoContraryXInput_of_fusedWitness (h : GGStepTwoFusedWitnessInput) :
-    GGStepTwoContraryXInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair hsn hDR _
-  exact inf_le_left.trans (ggStepTwoCentralizerInput_of_fusedWitness h G p B Bs x L D J t n f ψ
-    hctx s1 hlin b L₁ hpair hsn hDR)
-
-theorem ggStepTwoContraryNormalizerInput_of_fusedWitness (h : GGStepTwoFusedWitnessInput) :
-    GGStepTwoContraryNormalizerInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair hsn hDR _
-  exact ggStepTwoCentralizerInput_of_fusedWitness h G p B Bs x L D J t n f ψ hctx s1 hlin b L₁
-    hpair hsn hDR
-
-open CFSG.LocalAnalysis.ComponentInitial in
-theorem ggSixStepTwoV2Input_of_fused (hSch : SchreierFor InCatalog)
-    (h613 : GGStepTwoLemmaSixThirteenInput) (hA : GGStepTwoLinearFusionInput)
-    (hKF : GGKGroupFusionLayerInput) (hRat : GGSixAutKHypRestAtInput)
-    (h5 : GGStepTwoAutKFiveInput) (h3 : GGStepTwoAutKThreeInput)
-    (hfw : GGStepTwoFusedWitnessInput) : GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_schreierLayer hSch h613 hA hKF (ggStepTwoAutKRestInput_of_finer hRat h5 h3)
-    (ggStepTwoCentralizerInput_of_fusedWitness hfw)
 
 end Inputs
 

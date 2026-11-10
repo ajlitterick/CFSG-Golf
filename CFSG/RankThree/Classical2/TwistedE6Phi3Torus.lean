@@ -461,10 +461,6 @@ theorem odd_phi3_order (q : ℕ) : Odd ((q ^ 2 + q + 1) ^ 2 * (q ^ 2 - q + 1)) :
       rw [← hb]
       exact x.2.2.2⟩
 
-theorem coe_phi3TorusEquiv [IsAlgClosed Ω] {q : ℕ} (hFr : ∀ c, Fr c = c ^ q)
-    (b : (monomialHom (G := Ωˣ) (phi3Matrix q)ᵀ).ker) :
-    ((phi3TorusEquiv hFr b : phi3Torus Ω Fr) : ModGL Tag.E6 Ω) = rootDiagUnit Tag.E6 b.1 :=
-  rfl
 
 theorem natCard_phi3Torus [IsAlgClosed Ω] {q : ℕ} (hFr : ∀ c, Fr c = c ^ q)
     (hq : (q : Ω) = 0) :
@@ -572,9 +568,6 @@ variable (Ω Fr) in
   one_mem' := ⟨one_mem _, one_pow p⟩
   inv_mem' {x} hx := ⟨inv_mem hx.1, by rw [inv_pow, hx.2, inv_one]⟩
 
-theorem mem_phi3TorusTorsion {p : ℕ} {t : ModGL Tag.E6 Ω} :
-    t ∈ phi3TorusTorsion Ω Fr p ↔ t ∈ phi3Torus Ω Fr ∧ t ^ p = 1 :=
-  Iff.rfl
 
 variable {r : ℕ}
 
@@ -751,10 +744,6 @@ theorem odd_card_of_isSolvable_normal [Finite D] {P V : Subgroup D} [P.Normal] [
   rw [hk] at hodd
   exact (Nat.odd_mul.mp hodd).1
 
-theorem eq_of_isElemAbelian_of_card {p : ℕ} {S E : Subgroup D} [Finite S]
-    (hS : ∀ x, x ∈ S ↔ x ^ p = 1) (hSc : Nat.card S = p ^ 2)
-    (hE : ∀ x ∈ E, x ^ p = 1) (hEc : Nat.card E = p ^ 2) : E = S :=
-  Subgroup.eq_of_le_of_card_ge (fun x hx => (hS x).mpr (hE x hx)) (by rw [hSc, hEc])
 
 end GroupTheory
 

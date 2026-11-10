@@ -57,13 +57,6 @@ theorem swapChk_iff_KB {u : P45} (huu : u * u = 1) :
     List.all_eq_true, and_comm]
   simp only [memB_iff, mem_KAl, mem_KBl]
 
-theorem stabChk_iff {u : P45} (huu : u * u = 1) :
-    Certificates.OmegaTypes.stabChk KAl KBl u = true ↔
-      CFSG.conjugate Pk.KA u = Pk.KA ∧ CFSG.conjugate Pk.KB u = Pk.KB := by
-  rw [conjugate_eq_iff huu, conjugate_eq_iff huu, Certificates.OmegaTypes.stabChk,
-    Bool.and_eq_true, List.all_eq_true, List.all_eq_true]
-  simp only [memB_iff, mem_KAl, mem_KBl]
-  tauto
 
 theorem pockets_cases {G : Type}
     [Group G] {L : Subgroup G} (F : PspFrame L) {z : G} (hzL : z ∈ L)

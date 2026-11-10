@@ -81,8 +81,6 @@ theorem toNat_inj {a b : V4} : a.toNat = b.toNat ↔ a = b :=
 theorem toNat_zero : zero.toNat = 0 := by
   unfold toNat zero; simp
 
-theorem toNat_eq_zero {a : V4} : a.toNat = 0 ↔ a = zero := by
-  rw [← toNat_zero, toNat_inj]
 
 theorem wf_iff_w3 (a : V4) : a.wf = true ↔ a.w3.toNat < 2 ^ 56 := by
   unfold wf
@@ -147,11 +145,6 @@ theorem toVec_inj {a b : V4} (ha : a.wf = true) (hb : b.wf = true) :
     a.toVec = b.toVec ↔ a = b :=
   ⟨eq_of_toVec_eq ha hb, fun h => h ▸ rfl⟩
 
-theorem ne_zero_of_toVec_ne_zero {a : V4} (h : a.toVec ≠ 0) : a ≠ zero := by
-  rintro rfl; exact h toVec_zero
-
-theorem toVec_ne_zero_of_ne_zero {a : V4} (ha : a.wf = true) (h : a ≠ zero) : a.toVec ≠ 0 := by
-  rw [← toVec_zero]; exact fun h' => h (eq_of_toVec_eq ha zero_wf h')
 
 theorem beq_iff {a b : V4} : a.beq b = true ↔ a = b := by
   constructor
@@ -167,8 +160,6 @@ theorem isZero_iff {a : V4} : a.isZero = true ↔ a = zero := by
     exact ext_words h.1.1.1 h.1.1.2 h.1.2 h.2
   · rintro rfl; decide
 
-theorem isZero_iff_toVec {a : V4} (ha : a.wf = true) : a.isZero = true ↔ a.toVec = 0 := by
-  rw [isZero_iff, ← toVec_zero, toVec_inj ha zero_wf]
 
 theorem lt_iff {a b : V4} : a.lt b = true ↔ a.toNat < b.toNat := by
   have := UInt64.toNat_lt a.w0; have := UInt64.toNat_lt a.w1
@@ -179,8 +170,6 @@ theorem lt_iff {a b : V4} : a.lt b = true ↔ a.toNat < b.toNat := by
   simp only [bne_iff_ne, ne_eq, ← UInt64.toNat_inj, UInt64.lt_iff_toNat_lt]
   split_ifs <;> simp only [decide_eq_true_eq] <;> omega
 
-theorem lt_eq_decide (a b : V4) : a.lt b = decide (a.toNat < b.toNat) := by
-  rw [Bool.eq_iff_iff, lt_iff, decide_eq_true_iff]
 
 theorem lt_irrefl (a : V4) : a.lt a = false := by
   rw [← Bool.not_eq_true, lt_iff]; exact Nat.lt_irrefl _
@@ -216,11 +205,6 @@ theorem xor_xor_cancel_left (a b : V4) : a.xor (a.xor b) = b := by
 theorem xor_xor_cancel_right (a b : V4) : (a.xor b).xor b = a := by
   rw [xor_assoc, xor_self, xor_zero]
 
-theorem xor_xor_cancel_left' (a b : V4) : (a.xor b).xor a = b := by
-  rw [xor_comm a b, xor_xor_cancel_right]
-
-theorem xor_xor_cancel_right' (a b : V4) : b.xor (a.xor b) = a := by
-  rw [xor_comm a b, xor_xor_cancel_left]
 
 theorem setBit_testBit (a : V4) {i j : ℕ} (hi : i < 256) (hj : j < 256) :
     (a.setBit j).testBit i = (a.testBit i || decide (i = j)) := by
@@ -289,12 +273,6 @@ theorem isCanonical_iff {k : Key} : k.isCanonical = true ↔ k.u.wf = true ∧ k
   simp only [Bool.and_eq_true, Bool.not_eq_true', V4.lt_iff, and_assoc]
   rw [← Bool.not_eq_true, V4.isZero_iff]
 
-theorem toVec_of_isCanonical {k : Key} (hk : k.isCanonical = true) :
-    k.u.toVec ≠ 0 ∧ k.v.toVec ≠ 0 ∧ k.u.toVec ≠ k.v.toVec := by
-  obtain ⟨hu, hv, hu0, huv, -⟩ := isCanonical_iff.1 hk
-  refine ⟨V4.toVec_ne_zero_of_ne_zero hu hu0, V4.toVec_ne_zero_of_ne_zero hv ?_, ?_⟩
-  · intro h; rw [h, V4.toNat_zero] at huv; omega
-  · rw [Ne, V4.toVec_inj hu hv]; intro h; rw [h] at huv; omega
 
 end Native.Key
 
@@ -638,11 +616,6 @@ private theorem vec_add_add_cancel_right' (x y : Fin 248 → ZMod 2) : y + (x + 
 private theorem vec_eq_of_add_eq_zero {x y : Fin 248 → ZMod 2} (h : x + y = 0) : x = y := by
   rw [← vec_add_add_cancel_right x y, h, zero_add]
 
-private theorem vec_add_eq_zero_iff {x y : Fin 248 → ZMod 2} : x + y = 0 ↔ x = y :=
-  ⟨vec_eq_of_add_eq_zero, fun h => h ▸ vec_add_self x⟩
-
-private theorem vec_zero_eq_add_iff {x y : Fin 248 → ZMod 2} : 0 = x + y ↔ x = y := by
-  rw [eq_comm, vec_add_eq_zero_iff]
 
 @[expose] def keyPlane (k : Key) : Set (Fin 248 → ZMod 2) :=
   {0, k.u.toVec, k.v.toVec, k.u.toVec + k.v.toVec}
@@ -659,10 +632,6 @@ theorem canon_cases (p q : V4) :
     by_cases h3 : (p.xor q).lt q = true <;> by_cases h4 : p.lt q = true <;>
     simp [h1, h2, h3, h4]
 
-theorem canon_wf {p q : V4} (hp : p.wf = true) (hq : q.wf = true) :
-    (canon p q).u.wf = true ∧ (canon p q).v.wf = true := by
-  have hs := V4.xor_wf hp hq
-  rcases canon_cases p q with h | h | h | h | h | h <;> rw [h] <;> exact ⟨‹_›, ‹_›⟩
 
 theorem keyPlane_canon (p q : V4) :
     keyPlane (canon p q) = {0, p.toVec, q.toVec, p.toVec + q.toVec} := by
@@ -671,29 +640,6 @@ theorem keyPlane_canon (p q : V4) :
       vec_add_add_cancel_left, vec_add_add_cancel_right, vec_add_add_cancel_left',
       vec_add_add_cancel_right', add_comm q.toVec p.toVec] <;> tauto
 
-theorem canon_isCanonical {p q : V4} (hp : p.wf = true) (hq : q.wf = true) (hp0 : p.toVec ≠ 0)
-    (hq0 : q.toVec ≠ 0) (hpq : p.toVec ≠ q.toVec) : (canon p q).isCanonical = true := by
-  have hs := V4.xor_wf hp hq
-  have np : p.toNat ≠ 0 := fun h => V4.ne_zero_of_toVec_ne_zero hp0 (V4.toNat_eq_zero.1 h)
-  have nq : q.toNat ≠ 0 := fun h => V4.ne_zero_of_toVec_ne_zero hq0 (V4.toNat_eq_zero.1 h)
-  have ns : (p.xor q).toNat ≠ 0 := fun h => hpq (vec_eq_of_add_eq_zero (by
-    rw [← V4.toVec_xor, V4.toNat_eq_zero.1 h, V4.toVec_zero]))
-  have npq : p.toNat ≠ q.toNat := fun h => hpq (by rw [V4.toNat_inj.1 h])
-  have nps : p.toNat ≠ (p.xor q).toNat := fun h => hq0 (by
-    rw [← vec_add_add_cancel_left p.toVec q.toVec, ← V4.toVec_xor, ← V4.toNat_inj.1 h,
-      vec_add_self])
-  have nqs : q.toNat ≠ (p.xor q).toNat := fun h => hp0 (by
-    rw [← vec_add_add_cancel_right p.toVec q.toVec, ← V4.toVec_xor, ← V4.toNat_inj.1 h,
-      add_comm, vec_add_self])
-  unfold canon
-  by_cases h1 : q.lt p = true <;> by_cases h2 : (p.xor q).lt p = true <;>
-    by_cases h3 : (p.xor q).lt q = true <;> by_cases h4 : p.lt q = true <;>
-    simp only [h1, h2, h3, h4, reduceIte, Bool.false_eq_true] <;>
-    rw [Key.isCanonical_iff] <;>
-    simp only [V4.xor_xor_cancel_left, V4.xor_xor_cancel_right, V4.xor_xor_cancel_left',
-      V4.xor_xor_cancel_right', V4.xor_comm q p, ne_eq, ← V4.toNat_eq_zero] <;>
-    simp only [V4.lt_iff] at h1 h2 h3 h4 <;>
-    refine ⟨‹_›, ‹_›, ?_, ?_, ?_⟩ <;> omega
 
 theorem eq_of_mem_keyPlane {k : Key} (hk : k.isCanonical = true) {x : V4} (hx : x.wf = true)
     (h : x.toVec ∈ keyPlane k) (h0 : x ≠ V4.zero) : x = k.u ∨ x = k.v ∨ x = k.u.xor k.v := by
@@ -743,17 +689,6 @@ theorem keyPlane_eq_span (k : Key) :
   · rintro ⟨a, b, rfl⟩
     rcases zmod_two_cases a with rfl | rfl <;> rcases zmod_two_cases b with rfl | rfl <;> simp
 
-theorem linearIndependent_of_isCanonical {k : Key} (hk : k.isCanonical = true) :
-    LinearIndependent (ZMod 2) ![k.u.toVec, k.v.toVec] := by
-  obtain ⟨h1, h2, h3⟩ := Key.toVec_of_isCanonical hk
-  have h1' := Ne.symm h1
-  have h2' := Ne.symm h2
-  have h3' := Ne.symm h3
-  rw [LinearIndependent.pair_iffₛ]
-  intro s t s' t' hst
-  rcases zmod_two_cases s with rfl | rfl <;> rcases zmod_two_cases t with rfl | rfl <;>
-    rcases zmod_two_cases s' with rfl | rfl <;> rcases zmod_two_cases t' with rfl | rfl <;>
-    simp [vec_add_eq_zero_iff, vec_zero_eq_add_iff, h1, h2, h3, h1', h2', h3'] at hst ⊢
 
 theorem keyPlane_imageKey (r : Array V4) (k : Key) :
     keyPlane (imageKey (frTable (transposeRows r)) k) =
@@ -763,16 +698,5 @@ theorem keyPlane_imageKey (r : Array V4) (k : Key) :
   simp only [keyPlane, Set.image_insert_eq, Set.image_singleton, Matrix.mulVec_zero,
     Matrix.mulVec_add]
 
-theorem imageKey_isCanonical (r : Array V4) {k : Key} (hk : k.isCanonical = true)
-    (hr : Function.Injective fun v => rowsMatrix r *ᵥ v) :
-    (imageKey (frTable (transposeRows r)) k).isCanonical = true := by
-  obtain ⟨h1, h2, h3⟩ := Key.toVec_of_isCanonical hk
-  unfold imageKey
-  refine canon_isCanonical (frApply_frTable_wf (transposeRows_wf r) _)
-    (frApply_frTable_wf (transposeRows_wf r) _) ?_ ?_ ?_ <;>
-    simp only [frApply_transposeRows_toVec, ne_eq]
-  · exact fun h => h1 (hr (h.trans (Matrix.mulVec_zero _).symm))
-  · exact fun h => h2 (hr (h.trans (Matrix.mulVec_zero _).symm))
-  · exact fun h => h3 (hr h)
 
 end CFSG.Sporadic.Th

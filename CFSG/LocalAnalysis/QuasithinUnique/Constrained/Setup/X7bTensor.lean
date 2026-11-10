@@ -513,11 +513,6 @@ theorem finrank_tensorRepS (A : Finset ℕ) :
     Module.finrank k ((A → Fin 4) → k) = 4 ^ A.card := by
   rw [Module.finrank_fintype_fun_eq_card, Fintype.card_fun, Fintype.card_coe, Fintype.card_fin]
 
-omit [CharP k 2] in
-theorem finrank_tensorRepS_empty :
-    Module.finrank k (((∅ : Finset ℕ) → Fin 4) → k) = 1 := by
-  rw [finrank_tensorRepS]
-  simp
 
 theorem tensorRepS_fixed_irreducible (hF : Fintype.card F = 2 ^ f) {A : Finset ℕ}
     (hA : A ⊆ Finset.range (2 * f)) :
@@ -564,39 +559,6 @@ theorem tensorRepS_empty (g : antiSp F) : tensorRepS k (∅ : Finset ℕ) g = 1 
   subst hx
   simp [tensorRepS_apply]
 
-omit [CharP k 2] in
-theorem fundamental_tensor_data (hF : Fintype.card F = 2 ^ f) :
-    (∀ (i : ℕ) (g h : antiSp F), natRepS k i (g * h) = natRepS k i g * natRepS k i h) ∧
-      (∀ i : ℕ, natRepS (F := F) k i 1 = 1) ∧
-      (∀ g : antiSp F, natRepS k 0 g = (glMat (g : GL (Fin 4) F)).map (algebraMap F k)) ∧
-      (∀ (i : ℕ) (g : antiSp F), natRepS k (i + 2 * f) g = natRepS k i g) ∧
-      (∀ (i : ℕ) (g : antiSp F), natRepS k (i + 2) g = (natRepS k i g).map fun x => x ^ 2) ∧
-      (∀ (A : Finset ℕ) (g h : antiSp F),
-        tensorRepS k A (g * h) = tensorRepS k A g * tensorRepS k A h) ∧
-      (∀ g : antiSp F, tensorRepS k (∅ : Finset ℕ) g = 1) ∧
-      (∀ A : Finset ℕ, Module.finrank k ((A → Fin 4) → k) = 4 ^ A.card) :=
-  ⟨fun i g h => map_mul _ g h, fun i => map_one _, fun g => by simp [natRepS_apply],
-    natRepS_add_two_mul k hF, natRepS_add_two k, fun A g h => map_mul _ g h,
-    tensorRepS_empty k, finrank_tensorRepS k⟩
-
-theorem full_squarefree_tensor_absolutely_irreducible (hF : Fintype.card F = 2 ^ f) :
-    Module.finrank k ((Finset.range (2 * f) → Fin 4) → k) = Nat.card F ^ 4 ∧
-      ∑ g : lowerUniSp F, ((tensorRepS k (Finset.range (2 * f)) (g : antiSp F)).mulVec
-        (hwS k (Finset.range (2 * f)))) (fun _ => 3) = 1 ∧
-      (∃ b : Module.Basis (lowerUniSp F) k ((Finset.range (2 * f) → Fin 4) → k), ∀ u : lowerUniSp F,
-        b u = (tensorRepS k (Finset.range (2 * f)) (u : antiSp F)).mulVec
-          (hwS k (Finset.range (2 * f)))) ∧
-      fixedSub (matRep (tensorRepS (F := F) k (Finset.range (2 * f)))) (upperUniSp F) =
-        Submodule.span k {hwS k (Finset.range (2 * f))} ∧
-      (matRep (tensorRepS (F := F) k (Finset.range (2 * f)))).IsIrreducible := by
-  have hcard : Nat.card F = 2 ^ f := by rw [Nat.card_eq_fintype_card, hF]
-  have h4 : Module.finrank k ((Finset.range (2 * f) → Fin 4) → k) = Nat.card F ^ 4 := by
-    rw [finrank_tensorRepS, Finset.card_range, hcard, ← pow_mul, show (4 : ℕ) = 2 ^ 2 by norm_num,
-      ← pow_mul]
-    ring_nf
-  exact ⟨h4, norm_coeff_full k hF, fullOrbit_basis k hF,
-    (tensorRepS_fixed_irreducible k hF (subset_refl _)).1,
-    (tensorRepS_fixed_irreducible k hF (subset_refl _)).2⟩
 
 theorem squarefree_tensor_fixed_line_and_character (hF : Fintype.card F = 2 ^ f) {A : Finset ℕ}
     (hA : A ⊆ Finset.range (2 * f)) :

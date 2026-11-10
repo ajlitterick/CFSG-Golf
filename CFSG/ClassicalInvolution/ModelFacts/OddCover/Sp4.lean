@@ -71,11 +71,9 @@ variable {K : Type} [Field K] {E : Type*} [Group E] {π : E →* StatedSp 2 K}
 
 @[expose] noncomputable def Uhat4 (π : E →* StatedSp 2 K) : Subgroup E := (Usp K).comap π
 
-theorem mem_Qhat {g : E} : g ∈ Qhat π ↔ ∃ x y z : K, π g = qSp x y z := Iff.rfl
 
 theorem mem_Ahat {g : E} : g ∈ Ahat π ↔ ∃ r : K, π g = nSp r := Iff.rfl
 
-theorem mem_Uhat4 {g : E} : g ∈ Uhat4 π ↔ ∃ x y z r : K, π g = qSp x y z * nSp r := Iff.rfl
 
 theorem ker_le_Qhat : π.ker ≤ Qhat π := fun c hc =>
   ⟨0, 0, 0, by rw [MonoidHom.mem_ker.1 hc, qSp_zero]⟩

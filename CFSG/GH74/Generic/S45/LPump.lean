@@ -162,31 +162,5 @@ end Lift
         (∀ k ∈ K₀, piC x k ∈ K) ∧ (∀ z ∈ K, ∃ k ∈ K₀, piC x k = z) ∧
         (∀ a ∈ K₀, ∀ b ∈ K₀, piC x a = piC x b → a = b)
 
-@[expose] def B_S45_semisimple : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup G → (∃ a b : G, a * b ≠ b * a) → Gen4 G → KGH G →
-    ∀ x : G, orderOf x = 2 → ∀ K : Subgroup (CentralizerBar x), IsComponent K → IsJ1OrRee ↥K →
-      xbar x ∉ K → ∀ T : Subgroup G, S45Conf x K T →
-      ∀ v : G, v ∈ T → v ∈ Pre x K → v ≠ 1 →
-      ∀ W : Subgroup G, W ≤ centralizer ({x} : Set G) ⊓ centralizer ({v} : Set G) →
-        (W.subgroupOf (centralizer ({x} : Set G) ⊓ centralizer ({v} : Set G))).Normal →
-        IsSimpleGroup ↥W → (∃ a b : ↥W, a * b ≠ b * a) → HasL2Model ↥W Odd →
-        ∃ J : Subgroup G, W ≤ J ∧ J ≤ centralizer ({v} : Set G) ∧
-          (J.subgroupOf (centralizer ({v} : Set G))).IsSubnormal ∧ IsQuasisimple ↥J
-
-theorem b_S45_pumpStruct_of_leaves
-    (hl : B_S45_lift) (hs : B_S45_semisimple) :
-    B_S45_pumpStruct := by
-  intro G _ _ hsimple hnab hgen hKGH x hx K hKc hj hnot T hT v hvT hvK hv1
-  obtain ⟨K₀, h1, h2, h3, h4, h5⟩ := hl G hsimple hnab hgen hKGH x hx K hKc hj hnot T hT
-  have hvC : v ∈ centralizer ({x} : Set G) := hvK.1
-  have hvK' : piC x v ∈ K := hvK.2
-  have hv2 : v * v = 1 := hT.sq v hvT
-  have hvord : orderOf v = 2 := orderOf_eq_prime (by rw [pow_two]; exact hv2) hv1
-  have hvK₀ : v ∈ K₀ := mem_lift_of_involution h1 h2 h4 h5 hvC hvK' hv2
-  obtain ⟨W, hWY, hWn, hWs, hWnab, hWL⟩ :=
-    exists_W_of_lift (kCent_of_isJ1OrRee hj) h1 h2 h3 h4 h5 hvK₀ hvord
-  obtain ⟨J, hWJ, hJC, hJsub, hJq⟩ :=
-    hs G hsimple hnab hgen hKGH x hx K hKc hj hnot T hT v hvT hvK hv1 W hWY hWn hWs hWnab hWL
-  exact ⟨W, J, hWY, hWn, hWs, hWnab, hWL, hWJ, hJC, hJsub, hJq⟩
 
 end CFSG.GH74.Generic.S45

@@ -107,8 +107,6 @@ theorem pR_ge {M : Nat → Nat} (h : NV M) {q : Nat} (hq : 524288 ≤ q) : pR M 
   compF_fix (τ := fun l => swp (ldist (36 - l)) (M (36 - l))) (c := 37)
     (fun i hi => swp_ge (h (36 - i) (by omega)) hq) 0 37 (Nat.le_refl _)
 
-theorem lt_of_testBit {x n : Nat} (h : ∀ q, n ≤ q → x.testBit q = false) : x < 2 ^ n :=
-  Nat.lt_pow_two_of_testBit x h
 
 theorem netR_small {M : Nat → Nat} (h : NV M) {v : Nat} (hv : ∀ q, 524288 ≤ q → v.testBit q = false) :
     ∀ q, 524288 ≤ q → (netR M v).testBit q = false := by
@@ -120,7 +118,6 @@ theorem netR_small {M : Nat → Nat} (h : NV M) {v : Nat} (hv : ∀ q, 524288 �
 
 @[expose] noncomputable def cv (c p : Nat) : Nat := kv (lo c) (hi c) p
 
-@[expose] def KV (a b : Nat) : Prop := ∀ p < 524288, ¬ (a.testBit p = true ∧ b.testBit p = true)
 
 theorem testBit_onesW (W q : Nat) : (ones W).testBit q = decide (q < W) := by
   rw [ones_eq, Nat.testBit_two_pow_sub_one]
@@ -427,18 +424,6 @@ theorem fibF_fib {NW : Nat → Nat → Nat} {z : Int} (hz : netOK (NW (z.natAbs 
     rw [pF_pR hv'] at this
     exact this hp
 
-theorem lK_lt {NW : Nat → Nat → Nat} {KA KB : Nat → Nat} {z : Int}
-    (hz : kapOK KA KB (z.natAbs - 1) = true) (p : Nat) : lK NW KA KB z p < 3 := by
-  cases z with
-  | ofNat m =>
-    by_cases hm : m = 0
-    · subst hm
-      change 0 < 3
-      decide
-    · have e : lK NW KA KB (Int.ofNat m) p = kv (KA (m - 1)) (KB (m - 1)) p := if_neg hm
-      rw [e]
-      exact kv_lt _ _ _ ((kapOK_spec hz).1 p)
-  | negSucc n => exact Nat.mod_lt _ (by decide)
 
 theorem eW_eq {NW : Nat → Nat → Nat} {KA KB : Nat → Nat} :
     ∀ (w : List Int), WOK NW KA KB w → ∀ N < 920808,

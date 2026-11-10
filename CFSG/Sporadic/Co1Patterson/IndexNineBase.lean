@@ -411,10 +411,6 @@ theorem brayCList_getD {i : ℕ} (hi : i < 8) :
   rw [brayCList, List.getD_eq_getElem _ _ (by simpa [brayCList_length] using hi),
     List.getElem_ofFn]
 
-theorem co1MatsC_getD {i : ℕ} (hi : i < 8) :
-    (co1MatsC ()).getD i idCols = findCols (brayArr[i]!) := by
-  rw [co1MatsC, List.getD_eq_getElem _ _ (by simpa using hi), List.getElem_map,
-    List.getElem_range]
 
 @[expose] noncomputable def co1WordElGo :
     List (Nat × Nat) → centralizer ({aNC} : Set NativeSporadic.Co1)
@@ -484,8 +480,6 @@ theorem hasCols_wordC (M : List (List Nat))
 @[expose] noncomputable def co1UGens (i : Fin 4) : L₀ :=
   typeSystemC.φ (co1WordEl (co1UWords.get i))
 
-@[expose] noncomputable def co1EvalWord {n : Nat} (gens : Fin n → L₀) (w : List (Fin n)) : L₀ :=
-  w.foldr (fun i acc => gens i * acc) 1
 
 theorem closure_brayC :
     Subgroup.closure (Set.range fun i : Fin 8 =>
@@ -552,56 +546,6 @@ theorem co1Cols_eq_of_hasCols {g : L₀} {m : List Nat} (hm : m.length = 8)
 @[simp] theorem co1WordFin_nil {n : Nat} (hw : ∀ i ∈ ([] : List Nat), i < n) :
     co1WordFin [] hw = [] := rfl
 
-theorem co1WordFin_cons {n : Nat} {i : Nat} {w : List Nat} (hi : i < n)
-    (hw : ∀ j ∈ w, j < n) :
-    co1WordFin (i :: w) (fun j hj => by
-      rcases List.mem_cons.mp hj with rfl | hj
-      · exact hi
-      · exact hw j hj) = ⟨i, hi⟩ :: co1WordFin w hw := by
-  rw [co1WordFin, List.pmap_cons]
-  rfl
-
-@[expose] def co1LetterFin (n : Nat) [NeZero n] (i : Nat) : Fin n :=
-  ⟨i % n, Nat.mod_lt _ (Nat.pos_of_ne_zero (NeZero.ne n))⟩
-
-@[expose] def co1WordMod (n : Nat) [NeZero n] (w : List Nat) : List (Fin n) :=
-  w.map (co1LetterFin n)
-
-theorem co1WordMod_eq_wordFin {n : Nat} [NeZero n] (w : List Nat)
-    (hw : ∀ i ∈ w, i < n) :
-    co1WordMod n w = co1WordFin w hw := by
-  rw [co1WordMod, co1WordFin]
-  rw [← List.pmap_eq_map (p := fun i => i < n) (f := co1LetterFin n) (l := w) hw]
-  exact (List.pmap_congr_left w fun a _ h1 h2 => Fin.ext (Nat.mod_eq_of_lt h1).symm).symm
-
-theorem hasCols_evalWordR {n : Nat} {gens : Fin n → L₀} {cols : Fin n → List Nat}
-    (h : ∀ i, HasCols ((gens i : L₀) :
-      (Fin 8 → ZMod 2) →ₗ[ZMod 2] (Fin 8 → ZMod 2)) (cols i))
-    (w : List Nat) (hw : ∀ i ∈ w, i < n) :
-    HasCols ((co1EvalWord gens (co1WordFin w hw) : L₀) :
-      (Fin 8 → ZMod 2) →ₗ[ZMod 2] (Fin 8 → ZMod 2))
-      (co1EvalColsR (List.ofFn cols) w) := by
-  induction w with
-  | nil => simpa [co1EvalWord, co1EvalColsR] using hasCols_id
-  | cons i w ih =>
-    have hi : i < n := hw i (by simp)
-    have hw' : ∀ j ∈ w, j < n := fun j hj => hw j (by simp [hj])
-    rw [co1WordFin_cons hi hw', co1EvalColsR]
-    rw [show (List.ofFn cols).getD i idCols = cols ⟨i, hi⟩ from by
-      rw [List.getD_eq_getElem _ _ (by simpa [List.length_ofFn] using hi), List.getElem_ofFn]]
-    rw [co1EvalWord, List.foldr_cons]
-    exact HasCols.comp (h ⟨i, hi⟩) (ih hw')
-
-theorem hasCols_evalWordMod {n : Nat} [NeZero n] {gens : Fin n → L₀}
-    {cols : Fin n → List Nat}
-    (h : ∀ i, HasCols ((gens i : L₀) :
-      (Fin 8 → ZMod 2) →ₗ[ZMod 2] (Fin 8 → ZMod 2)) (cols i))
-    (w : List Nat) (hw : ∀ i ∈ w, i < n) :
-    HasCols ((co1EvalWord gens (co1WordMod n w) : L₀) :
-      (Fin 8 → ZMod 2) →ₗ[ZMod 2] (Fin 8 → ZMod 2))
-      (co1EvalColsR (List.ofFn cols) w) := by
-  rw [co1WordMod_eq_wordFin w hw]
-  exact hasCols_evalWordR h w hw
 
 theorem co1PowCols_getD_lt {m : List Nat} (hm : ∀ k, m.getD k 0 < 256) (n : Nat) :
     ∀ k, (co1PowCols m n).getD k 0 < 256 := by
@@ -639,32 +583,9 @@ theorem co1WordC_length (M : List (List Nat)) (w : List (Nat × Nat)) :
     (co1WordC M w).length = 8 :=
   co1WordCGo_length M w.reverse
 
-theorem co1EvalColsR_length (gens : List (List Nat)) (w : List Nat) :
-    (co1EvalColsR gens w).length = 8 := by
-  induction w with
-  | nil => rfl
-  | cons i w ih => simp only [co1EvalColsR, colsMul, List.length_map, List.length_range]
 
 theorem co1Ubar_eq_closure : co1Ubar = Subgroup.closure (Set.range co1UGens) := rfl
 
-theorem co1EvalWord_mem_co1Ubar {n : Nat} {gens : Fin n → L₀}
-    (hgens : Set.range gens ⊆ (co1Ubar : Set L₀)) (w : List (Fin n)) :
-    co1EvalWord gens w ∈ co1Ubar := by
-  induction w with
-  | nil => exact Subgroup.one_mem _
-  | cons i w ih =>
-    rw [co1EvalWord, List.foldr_cons]
-    exact Subgroup.mul_mem _ (hgens ⟨i, rfl⟩) ih
-
-theorem co1EvalColsR_getD_lt {gens : List (List Nat)}
-    (h : ∀ i k, (gens.getD i idCols).getD k 0 < 256) (w : List Nat) :
-    ∀ k, (co1EvalColsR gens w).getD k 0 < 256 := by
-  induction w with
-  | nil => intro k; simpa [co1EvalColsR] using idCols_getD_lt k
-  | cons i w ih =>
-    intro k
-    rw [co1EvalColsR]
-    exact colsMul_getD_lt (h i) k
 
 theorem co1Cols_mem_lt (g : L₀) {x : Nat} (hx : x ∈ co1Cols g) : x < 256 := by
   obtain ⟨k, hk, rfl⟩ := List.mem_iff_getElem.mp hx
@@ -831,8 +752,6 @@ theorem co1Key_injective :
   exact co1RowsKeyC_injOn (co1Cols_length g) (co1Cols_length h)
     (fun x hx => co1Cols_mem_lt g hx) (fun x hx => co1Cols_mem_lt h hx) hk
 
-theorem findCols_length (h : Co1Schreier.Native.Rows) : (findCols h).length = 8 := by
-  simp [findCols]
 
 theorem co1Phi_eq_one_iff {x : centralizer ({aNC} : Set NativeSporadic.Co1)} :
     typeSystemC.φ x = 1 ↔ x ∈ twoAQC := by

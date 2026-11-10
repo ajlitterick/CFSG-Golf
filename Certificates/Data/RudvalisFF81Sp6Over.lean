@@ -59,15 +59,6 @@ open CFSG.Quasithin.H13.MatNCert
     ([0, 2, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2], 6), ([0, 1, 2, 2], 6), ([0, 0, 0, 2], 6),
     ([2, 0, 2, 0, 0, 0, 0, 0, 0], 6)]
 
-@[expose] def h6Chk899108 : Bool :=
-  pairCheck (ovGamC, ovGamI) && pairCheck (ovHC, ovHI) && pairCheck (ovCC, ovCI) &&
-    relW.all (fun r => powCode (wordC r.1) r.2 == one6) &&
-    powCode ovGamC 7 == one6 && !(ovGamC == one6) && powCode ovHC 6 == one6 &&
-    mul6 ovHC ovGamC == mul6 (powCode ovGamC 3) ovHC &&
-    mul6 ovCC (mul6 ovHC ovHC) == mul6 (mul6 ovHC ovHC) ovCC &&
-    wordC wZ0 == zCode 0 && wordC wZ1 == zCode 1 && wordC wT == tCode &&
-    wS.map wordC == sylowP.map Prod.fst &&
-    powCode (wordC [0, 1, 2]) 5 == one6 && !(wordC [0, 1, 2] == one6)
 
 @[expose] def nGc : List ℕ := [1, 4, 8, 6, 32, 64, 80]
 
@@ -88,15 +79,9 @@ open CFSG.Quasithin.H13.MatNCert
 @[expose] def relsOK (x : List ℕ) : Bool :=
   relW.all fun r => powN 7 (evalW 7 [nGc, nHc, x] r.1) r.2 == oneN 7
 
-@[expose] def pinChk899108 : Bool :=
-  (List.range 128).all (fun c => !(mvN n2c c == c) || fixL.contains c) &&
-    (List.range 128).all (fun c => !(mvN n2c (mvN n2c c) == (c ^^^ mvN n2c c)) || wL.contains c) &&
-    fixL.all fun a => wL.all fun u => fixL.all fun b => wL.all fun v =>
-      !relsOK (cand a u b v) || cand a u b v == xSc || cand a u b v == xIc
 
 @[expose] def kC (m : ℕ) : List ℕ := 1 :: (List.range 6).map fun j => 2 ^ (j + 1) + m / 2 ^ j % 2
 
-@[expose] def conj7 (y gp : List ℕ) : List ℕ := mulN (mulN (gp.take 7) y) (gp.drop 7)
 
 @[expose] def orbR (act : List ℕ → List ℕ → List ℕ) (dflt t : List ℕ) (gens : List (List ℕ))
     (par : List (ℕ × ℕ)) : Array (List ℕ) :=
@@ -105,26 +90,12 @@ open CFSG.Quasithin.H13.MatNCert
 @[expose] def kGps (x : List ℕ) : List (List ℕ) :=
   [nGc ++ powN 7 nGc 6, nHc ++ powN 7 nHc 5, x ++ powN 7 x 5]
 
-@[expose] def kTab (x : List ℕ) : Array (List ℕ) :=
-  orbR conj7 (oneN 7 ++ oneN 7) (kC 1) (kGps x) (bfsParents (kC 1) conj7 (kGps x) 64)
 
 @[expose] def bbarC (x : List ℕ) : List ℕ := evalW 7 [nGc, nHc, x] wZ1
 
 @[expose] def rGens (x : List ℕ) : List (List ℕ) :=
   [kC 6, kC 8, kC 17, kC 33, evalW 7 [nGc, nHc, x] wP1]
 
-@[expose] def caseChk (x : List ℕ) : Bool :=
-  (kGps x).all (fun gp => mulN (gp.take 7) (gp.drop 7) == oneN 7 &&
-      mulN (gp.drop 7) (gp.take 7) == oneN 7) &&
-    (let tab := kTab x
-     (List.range 64).all fun m => m == 0 || found tab (indexMap tab) (kC m)) &&
-    ((List.range 128).filter fun v => mvN (bbarC x) v == v).length == 32 &&
-    (rGens x).all (fun g => mulN g (bbarC x) == mulN (bbarC x) g) &&
-    [6, 8, 17, 33].all (fun m => mulN (kC m) (kC m) == oneN 7) &&
-    subB 7 (rGens x) (elemsOf 7 (rGens x) 64) && (elemsOf 7 (rGens x) 64).length == 32
-
-@[expose] def kChk899108 : Bool :=
-  caseChk xSc && caseChk xIc
 
 @[expose] def piC (x : List ℕ) : List ℕ := (x.drop 1).map (· / 2)
 
@@ -135,17 +106,11 @@ open CFSG.Quasithin.H13.MatNCert
 @[expose] def uGens : List (List ℕ) :=
   [[1, 15, 9, 5, 29, 45], [1, 39, 33, 45, 53, 5], [2, 1, 7, 8, 30, 45]]
 
-@[expose] def uChk899108 : Bool :=
-  piC xIc == piC xSc &&
-    uGens.all (fun u => mulN u u == oneN 6 && mulN u pibbarC == mulN pibbarC u) &&
-    subB 6 uGens (elemsOf 6 uGens 64) && (elemsOf 6 uGens 64).length == 32
 
 @[expose] def bitsOf (f : ℕ → Bool) : ℕ → ℕ
   | 0 => 0
   | k + 1 => bitsOf f k ^^^ (if f k then 2 ^ k else 0)
 
-@[expose] def formAct (w g : List ℕ) : List ℕ :=
-  (List.range 6).map fun j => bitsOf (fun i => dotN 6 (g.getD i 0) (mvN w (g.getD j 0))) 6
 
 @[expose] def w0c : List ℕ := [56, 48, 32, 1, 3, 7]
 
@@ -160,21 +125,5 @@ open CFSG.Quasithin.H13.MatNCert
   [[41, 20, 34, 3, 40, 59], [11, 51, 62, 16, 55, 3], [22, 50, 13, 47, 58, 26],
     [17, 28, 15, 38, 12, 22], [61, 57, 25, 39, 42, 1]]
 
-@[expose] def fTab (w : List ℕ) (gens : List (List ℕ)) : Array (List ℕ) :=
-  orbR formAct (oneN 6) w gens (bfsParents w formAct gens 14000)
-
-@[expose] def fAll : Array (List ℕ) :=
-  grs.foldl (fun acc g => acc ++ fTab (formAct w0c g) sbGens) #[w0c]
-
-@[expose] def formChk899108 : Bool :=
-  validB 6 w0c && sbGens.all (validB 6) && grs.all (validB 6) &&
-    sbGens.all (fun g => formAct w0c g == w0c) &&
-    sbGens.all (fun g => sbInv.any fun h => validB 6 h && mulN g h == oneN 6 &&
-      mulN h g == oneN 6) &&
-    grs.all (fun g => grsInv.any fun h => validB 6 h && mulN g h == oneN 6 &&
-      mulN h g == oneN 6) &&
-    grs.all (fun g => let t := fTab w0c (sbGens ++ [g])
-      t.size == 13888 && distinctCheck t && allCheck (validB 6) t) &&
-    fAll.size == 13888 && distinctCheck fAll && allCheck (validB 6) fAll
 
 end CFSG.RankThree.PartTwo.Sec21.FF81.Sp6Over

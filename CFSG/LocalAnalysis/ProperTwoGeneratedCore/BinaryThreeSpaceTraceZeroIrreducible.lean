@@ -113,32 +113,5 @@ theorem trace_zero_irreducibility :
       exact hinv t E31 hE31
     exact hle hspan
 
-theorem conjRep_isIrreducible : conjRep.IsIrreducible where
-  exists_pair_ne := ⟨⊥, ⊤, fun h => by
-    have hE31A : E31 ∈ traceZero := by
-      rw [traceZero, LinearMap.mem_ker, Matrix.traceLinearMap_apply]
-      decide
-    have hmem : (⟨E31, hE31A⟩ : traceZero) ∈ (⊤ : Subrepresentation conjRep) :=
-      Submodule.mem_top
-    rw [← h] at hmem
-    have h0 : (⟨E31, hE31A⟩ : traceZero) = 0 := (Submodule.mem_bot (ZMod 2)).mp hmem
-    have hne : E31 ≠ 0 := by decide
-    exact hne (congrArg Subtype.val h0)⟩
-  eq_bot_or_eq_top ρ' := by
-    rcases (trace_zero_irreducibility.2.2 (ρ'.toSubmodule.map traceZero.subtype)
-        (Submodule.map_subtype_le _ _) fun g X hX => by
-          obtain ⟨Y, hY, rfl⟩ := hX
-          exact ⟨conjRep g Y, ρ'.apply_mem_toSubmodule g hY, rfl⟩) with h | h
-    · left
-      refine Subrepresentation.toSubmodule_injective ?_
-      exact Submodule.map_injective_of_injective traceZero.injective_subtype
-        (h.trans (Submodule.map_bot _).symm)
-    · right
-      refine Subrepresentation.toSubmodule_injective (eq_top_iff.mpr fun X _ => ?_)
-      have hX : (X : Mat3) ∈ ρ'.toSubmodule.map traceZero.subtype := by
-        rw [h]
-        exact X.2
-      obtain ⟨Y, hY, hYX⟩ := hX
-      exact (Subtype.ext hYX : Y = X) ▸ hY
 
 end CFSG.ProperTwoGeneratedCore.BinaryThreeSpace

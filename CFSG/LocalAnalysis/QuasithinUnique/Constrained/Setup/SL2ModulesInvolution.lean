@@ -277,18 +277,6 @@ theorem finrank_ker_tensor_involution [Nonempty ι] (e : ι → ℕ) (a : SL(2, 
   congr 1
   omega
 
-theorem finrank_range_tensor_involution [Nonempty ι] (e : ι → ℕ) (a : SL(2, F)) (ha1 : a ≠ 1)
-    (ha2 : a * a = 1) :
-    Module.finrank k (LinearMap.range (tensorRep F k e a - 1)) = 2 ^ (Fintype.card ι - 1) := by
-  have h := LinearMap.finrank_range_add_finrank_ker (tensorRep F k e a - 1)
-  rw [finrank_ker_tensor_involution e a ha1 ha2, Module.finrank_fintype_fun_eq_card] at h
-  have hcard : Fintype.card (ι → Fin 2) = 2 ^ Fintype.card ι := by simp
-  rw [hcard] at h
-  have hpos : 0 < Fintype.card ι := Fintype.card_pos
-  have : 2 ^ Fintype.card ι = 2 ^ (Fintype.card ι - 1) + 2 ^ (Fintype.card ι - 1) := by
-    conv_lhs => rw [show Fintype.card ι = (Fintype.card ι - 1) + 1 by omega, pow_succ]
-    ring
-  omega
 
 end Rank
 

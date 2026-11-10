@@ -41,10 +41,6 @@ theorem mem_rootSubgroup {α : Fin τ.rank → ℤ} {g : (Module.End R (RootModu
   (MonoidHom.ofInjective (pinnedHom_injective τ R α)).trans
     (MulEquiv.subgroupCongr (rootSubgroup_eq_range τ R α).symm)
 
-theorem coe_rootSubgroupEquiv (α : Fin τ.rank → ℤ) (c : R) :
-    (rootSubgroupEquiv τ R α (Multiplicative.ofAdd c) : (Module.End R (RootModule τ R))ˣ) =
-      pinnedX τ R α c :=
-  rfl
 
 variable {τ}
 
@@ -96,20 +92,5 @@ theorem orderOf_eq_of_mem_rootSubgroup {K : Type v} [Field K] {p : ℕ} [Fact p.
   rw [pinnedHom_apply, toAdd_ofAdd, orderOf_ofAdd_eq_addOrderOf, addOrderOf_eq_prime hpc hc] at h
   exact h
 
-theorem all_root_subgroup_structure (τ : Tag) :
-    (∀ (R : Type u) [CommRing R] (α : Fin τ.rank → ℤ), IsRoot τ α →
-      ∃ e : Multiplicative R ≃* rootSubgroup τ R α, ∀ c : R,
-        (e (Multiplicative.ofAdd c) : (Module.End R (RootModule τ R))ˣ) = pinnedX τ R α c) ∧
-      (∀ (K : Type v) [Field K],
-        (∀ α : Fin τ.rank → ℤ, IsRoot τ α → rootSubgroup τ K α ≤ adjointGroup τ K) ∧
-          adjointGroup τ K = rootSpan τ K {α | IsRoot τ α}) ∧
-      ∀ (K : Type v) [Field K] [Finite K] (p : ℕ) [CharP K p] (α : Fin τ.rank → ℤ),
-        IsRoot τ α → Nat.card (rootSubgroup τ K α) = Nat.card K ∧
-          ∀ g ∈ rootSubgroup τ K α, g ≠ 1 → orderOf g = p := by
-  refine ⟨fun R _ α _ => ⟨rootSubgroupEquiv τ R α, coe_rootSubgroupEquiv τ R α⟩,
-    fun K _ => ⟨fun α _ => rootSubgroup_le_adjointGroup α, adjointGroup_eq_rootSpan⟩,
-    fun K _ _ p _ α _ => ⟨card_rootSubgroup α, fun g hg hg1 => ?_⟩⟩
-  have : Fact p.Prime := ⟨CharP.char_is_prime K p⟩
-  exact orderOf_eq_of_mem_rootSubgroup hg hg1
 
 end CFSG.Blueprint.Chevalley

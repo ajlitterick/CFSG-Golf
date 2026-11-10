@@ -44,14 +44,6 @@ theorem d4bEs_mul_self :
     ∀ (i : Fin Tag.D4.rank) (s : Bool), d4bEs i s * d4bEs i s = 0 :=
   Certificates.certificate19954.2.2.2.2.2.2.2.2.1
 
-theorem d4bTh_simple : ∀ (i : Fin Tag.D4.rank) (s : Bool),
-    d4bTh (.inr ⟨d4bSimple i s, by cases s <;> fin_cases i <;> decide⟩) = d4bEs i s := by
-  intro i s
-  rfl
-
-theorem d4bSimple_root : ∀ (i : Fin Tag.D4.rank) (s : Bool),
-    d4Certificate.root (d4bSimple i s) = (if s then 1 else -1) • Pi.single i 1 :=
-  Certificates.certificate19954.2.2.2.2.2.2.2.2.2.1
 
 theorem d4b_root_injective :
     ∀ m n : Fin d4Certificate.roots.length,

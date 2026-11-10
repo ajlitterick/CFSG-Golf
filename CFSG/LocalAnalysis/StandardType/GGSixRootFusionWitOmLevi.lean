@@ -145,11 +145,6 @@ section Cent
     (C : Matrix ι' ι' K) : Matrix ι ι K :=
   Matrix.reindex e.symm e.symm (Matrix.fromBlocks (Matrix.fromBlocks A 0 0 B) 0 0 C)
 
-omit [Fintype ι] [DecidableEq ι] [Fintype ι'] [DecidableEq ι'] in
-theorem leviMat3_apply (e : ι ≃ (Fin 2 ⊕ Fin 2) ⊕ ι') (A B : Matrix (Fin 2) (Fin 2) K)
-    (C : Matrix ι' ι' K) (x y : ι) :
-    leviMat3 e A B C x y = Matrix.fromBlocks (Matrix.fromBlocks A 0 0 B) 0 0 C (e x) (e y) := by
-  rw [leviMat3, Matrix.reindex_apply, Matrix.submatrix_apply, Equiv.symm_symm]
 
 omit [Fintype ι] [DecidableEq ι] [Fintype ι'] in
 theorem leviMat_eq_leviMat3 (e : ι ≃ (Fin 2 ⊕ Fin 2) ⊕ ι') (A B : Matrix (Fin 2) (Fin 2) K) :

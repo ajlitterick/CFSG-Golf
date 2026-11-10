@@ -62,9 +62,6 @@ theorem four_eq_zero' : (4 : F) = 0 := by
   have h := CharTwo.two_eq_zero (R := F)
   linear_combination 2 * h
 
-theorem five_eq_one' : (5 : F) = 1 := by
-  have h := CharTwo.two_eq_zero (R := F)
-  linear_combination 2 * h
 
 theorem six_eq_zero' : (6 : F) = 0 := by
   have h := CharTwo.two_eq_zero (R := F)
@@ -289,10 +286,6 @@ theorem adjugate_swap12 :
   rw [adjugate_fin_three]
   simp [swap12, CharTwo.neg_eq]
 
-theorem adjugate_swap01 :
-    adjugate ((swap01 : SL3 F) : Matrix (Fin 3) (Fin 3) F) = !![0, 1, 0; 1, 0, 0; 0, 0, 1] := by
-  rw [adjugate_fin_three]
-  simp [swap01, CharTwo.neg_eq]
 
 theorem conj_swap12_x1 (t : F) : g2A swap12 * g2X ![0, t, 0] * (g2A swap12)⁻¹ = g2X ![0, 0, t] := by
   rw [g2A_mul_g2X, mul_inv_cancel_right]

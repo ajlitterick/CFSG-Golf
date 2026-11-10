@@ -41,14 +41,5 @@ theorem actor_card_dvd_card_sub_one_of_free
   rw [hXcard] at hcard
   exact hcard ▸ dvd_mul_left (Nat.card A) _
 
-theorem odd_cyclic_actor_two_kernel_data
-    {M : Type u} [Group M] [Finite M] {A : Type v} [Group A] [Finite A]
-    (hM : IsPGroup 2 M) (hA : Odd (Nat.card A)) (a : A) (Q : Subgroup M) :
-    Nat.card (Subgroup.zpowers a) = orderOf a ∧
-      Odd (Nat.card (Subgroup.zpowers a)) ∧ Group.IsSolvable Q ∧
-        Nat.Coprime (Nat.card (Subgroup.zpowers a)) (Nat.card Q) := by
-  have hCodd : Odd (Nat.card (Subgroup.zpowers a)) :=
-    Odd.of_dvd_nat hA (Subgroup.zpowers a).card_subgroup_dvd_card
-  exact ⟨Nat.card_zpowers a, hCodd, two_subgroup_solvable_coprime hM hCodd Q⟩
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowthCoprime

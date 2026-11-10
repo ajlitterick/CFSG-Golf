@@ -104,40 +104,5 @@ theorem jq_vecMul_seed {G : Array ℕ}
     SmallF2.rowsMatrix_mulRows, SmallF2.rowsMatrix_transposeRows]
   rfl
 
-theorem jq_eq_sum (v : Fin 112 → ZMod 2) :
-    jq v = (∑ i, ∑ j, if i < j then formF i j * v i * v j else 0) + ∑ i, v i := by
-  have hent : ∀ i j : Fin 112, formUp i j =
-      if i < j then formF i j else if i = j then 1 else 0 := by
-    intro i j
-    rw [formUp, formF, SmallF2.rowsMatrix_apply, SmallF2.rowsMatrix_apply, toVecD_apply,
-      toVecD_apply, formUp_check.2.1 i i.isLt j j.isLt]
-    by_cases hij : i < j
-    · have h1 : i.val < j.val := hij
-      simp [h1, hij]
-    · have h1 : ¬ i.val < j.val := hij
-      by_cases he : i = j
-      · subst he
-        simp
-      · have h2 : ¬ i.val = j.val := fun h => he (Fin.ext h)
-        simp [h1, hij, he, h2]
-  have hsq : ∀ c : ZMod 2, c * c = c := by decide
-  rw [jq_apply, dotProduct, ← Finset.sum_add_distrib]
-  refine Finset.sum_congr rfl fun i _ => ?_
-  have hdiag : (∑ j, if i < j then formF i j * v i * v j else 0) + v i =
-      ∑ j, ((if i < j then formF i j * v i * v j else 0) + if i = j then v j else 0) := by
-    rw [Finset.sum_add_distrib, Finset.sum_ite_eq]
-    simp
-  rw [hdiag, Matrix.mulVec, dotProduct, Finset.mul_sum]
-  refine Finset.sum_congr rfl fun j _ => ?_
-  rw [hent]
-  by_cases hij : i < j
-  · have hne : i ≠ j := ne_of_lt hij
-    simp only [hij, hne, ite_true, ite_false, add_zero]
-    ring
-  · by_cases he : i = j
-    · subst he
-      simp only [hij, ite_true, ite_false, zero_add]
-      rw [one_mul, hsq]
-    · simp only [hij, he, ite_false, mul_zero, zero_mul, add_zero]
 
 end CFSG.Sporadic.J4Schreier

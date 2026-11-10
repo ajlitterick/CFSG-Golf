@@ -41,9 +41,6 @@ theorem ZDSetup.exists_commuting_ne (S : ZDSetup X Z M) {z : X} (hz : z ∈ Z) :
     ∃ y ∈ Z, y ≠ z ∧ y * z = z * y :=
   S.prodDisc.exists_commuting_ne S.invariant S.gen S.two_le_twoRank hz
 
-theorem ZDSetup.not_isZStarIn (S : ZDSetup X Z M) {z : X} (hz : z ∈ Z) (hzM : z ∈ M) :
-    ¬ IsZStarIn M z :=
-  S.prodDisc.not_isZStarIn S.invariant S.gen S.two_le_twoRank hz hzM
 
 theorem ZDSetup.two_le_pRank_zHull (S : ZDSetup X Z M) {z : X} (hz : z ∈ Z) (hzM : z ∈ M) :
     2 ≤ Open.pRank 2 (zHull Z M) :=
@@ -54,9 +51,6 @@ theorem ZDSetup.odd_zNum (S : ZDSetup X Z M) : Odd (zNum Z M) := by
   obtain ⟨z, hz, hzM⟩ := S.exists_mem_inter
   exact S.prodDisc.odd_zNum S.invariant ht htM hz hzM
 
-theorem ZDSetup.one_lt_card_inter_centralizer (S : ZDSetup X Z M) {z : X} (hz : z ∈ Z) :
-    1 < Nat.card ↥(Z ∩ ((centralizer ({z} : Set X) : Subgroup X) : Set X)) :=
-  S.prodDisc.one_lt_card_inter_centralizer S.invariant S.gen S.two_le_twoRank hz
 
 theorem ZDSetup.lemma313 (S : ZDSetup X Z M) {Y : Subgroup X} (hY : Odd (Nat.card Y))
     (hrank : 2 ≤ Open.pRank 2 (zHull Z (normalizer (Y : Set X)))) {s : X} (hs : s ∈ Z)
@@ -134,19 +128,5 @@ theorem S_ZD_gen_of_no_setup
     exact H X Z M ⟨hZ, hgen, hpd, fun Y _ _ hlt Z' M' hZ' hgen' hpd' =>
       ih (Nat.card Y) (hn ▸ hlt) Y rfl Z' M' hZ' hgen' hpd', hfail⟩
 
-theorem S_ZD_gen_iff_no_setup : S_ZD_gen ↔
-    ∀ (X : Type) [Group X] [Finite X] (Z : Set X) (M : Subgroup X), ZDSetup X Z M → False :=
-  ⟨fun h X _ _ Z M S => S.counterexample (h X Z M S.invariant S.gen S.prodDisc),
-    S_ZD_gen_of_no_setup⟩
-
-theorem S_ZD_of_no_setup
-    (H : ∀ (X : Type) [Group X] [Finite X] (Z : Set X) (M : Subgroup X), ZDSetup X Z M → False) :
-    S_ZD :=
-  S_ZD_of_S_ZD_gen (S_ZD_gen_of_no_setup H)
-
-theorem S_CorZD_of_no_setup
-    (H : ∀ (X : Type) [Group X] [Finite X] (Z : Set X) (M : Subgroup X), ZDSetup X Z M → False) :
-    S_CorZD :=
-  S_CorZD_of_S_ZD_gen (S_ZD_gen_of_no_setup H)
 
 end CFSG.GH74.Uniqueness

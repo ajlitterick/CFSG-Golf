@@ -78,10 +78,6 @@ section Components
 
 variable {G : Type*} [Group G]
 
-theorem IsComponentOf.of_le_normalizer {L Y X : Subgroup G} (hL : IsComponentOf L Y)
-    (hYX : Y ≤ X) (hXY : X ≤ Subgroup.normalizer (Y : Set G)) : IsComponentOf L X :=
-  ⟨hL.1.trans hYX, isSubnormal_subgroupOf_trans hL.1 hL.2.1
-    (isSubnormal_subgroupOf_of_le_normalizer hYX hXY), hL.2.2⟩
 
 theorem IsComponentOf.of_le {L X Y : Subgroup G} (hL : IsComponentOf L X) (hLY : L ≤ Y)
     (hYX : Y ≤ X) : IsComponentOf L Y :=

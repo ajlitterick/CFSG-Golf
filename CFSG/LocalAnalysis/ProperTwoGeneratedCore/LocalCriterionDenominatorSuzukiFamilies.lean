@@ -115,11 +115,6 @@ theorem suzuki_derangement_family_normalizer_index_dvd_four
   exact suzuki_degree_divisor_full_normalizer_index_dvd_four m hm g
     (suzuki_derangement_ne_one m g hg) (suzuki_derangement_order_dvd m hm g hg)
 
-theorem suzuki_derangement_family_hall (hm : 0 < m)
-    (A : suzukiDerangementCentralizers m) : Nat.Coprime (Nat.card A.val) A.val.index := by
-  obtain ⟨g, hg, hA⟩ := A.property
-  rw [hA]
-  exact suzuki_derangement_centralizer_hall m hm g hg
 
 theorem suzuki_derangement_conjugate_family_actual
     (c : suzukiDerangementCentralizerClasses m) (W : suzukiDerangementCentralizerFamily m c) :

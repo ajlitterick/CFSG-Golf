@@ -377,51 +377,6 @@ theorem oddLieType_inCatalog
   · exact classicalModel_inCatalog X t n p f hp h
   · exact ⟨.lie d, he⟩
 
-theorem inCatalog_of_models_lieModel {G : Type} [Group G] {t : LowTwoRank.StatedLieTag}
-    {n p f : ℕ} (h : Models.LieModel G t n p f) : InCatalog G := by
-  obtain ⟨-, hc | ⟨-, d, -, ⟨e⟩⟩⟩ := h
-  · exact CFSG.ClassicalModels.inCatalog_of_statedClassicalModel G t n p f hc
-  · exact ⟨.lie d, ⟨e⟩⟩
-
-theorem catalog_nonabelian_type_partition_tauCeti (G : Type) [Group G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) :
-    InCatalog G ↔
-      (∃ n : ℕ, 5 ≤ n ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∨
-        Models.OddLieType G ∨ Models.EvenLieType G ∨ Models.SporadicRep G := by
-  constructor
-  · rintro ⟨i, ⟨e⟩⟩
-    cases i with
-    | cyclic p hp =>
-      obtain ⟨a, b, hab⟩ := hnonab
-      refine absurd (e.injective ?_) hab
-      rw [map_mul, map_mul]
-      exact mul_comm (G := Multiplicative (ZMod p)) _ _
-    | alternating n hn => exact .inl ⟨n, hn, ⟨e⟩⟩
-    | lie d =>
-      rcases Models.oddLieType_or_evenLieType_of_valid d ⟨e⟩ with h | h
-      · exact .inr (.inl h)
-      · exact .inr (.inr (.inl h))
-    | sporadic s => exact .inr (.inr (.inr ⟨s, ⟨e⟩⟩))
-  · rintro (⟨n, hn, ⟨e⟩⟩ | ⟨t, n, p, f, -, hL⟩ | ⟨t, n, f, hL⟩ | ⟨s, ⟨e⟩⟩)
-    · exact ⟨.alternating n hn, ⟨e⟩⟩
-    · exact inCatalog_of_models_lieModel hL
-    · exact inCatalog_of_models_lieModel hL
-    · exact ⟨.sporadic s, ⟨e⟩⟩
-
-theorem catalog_nonabelian_type_partition_tauCeti_nativeSporadic
-    (G : Type) [Group G] (hnonab : ∃ a b : G, a * b ≠ b * a) :
-    InCatalog G ↔
-      (∃ n : ℕ, 5 ≤ n ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∨
-        Models.OddLieType G ∨ Models.EvenLieType G ∨ Blueprint.NativeSporadic.SporadicRep G := by
-  have hs : Models.SporadicRep G ↔ Blueprint.NativeSporadic.SporadicRep G := by
-    constructor
-    · rintro ⟨s, ⟨e⟩⟩
-      obtain ⟨b⟩ := CFSG.RankThree.PartOne.TCB.nonempty_carrier_mulEquiv_group s
-      exact ⟨s, ⟨e.trans b.symm⟩⟩
-    · rintro ⟨s, ⟨e⟩⟩
-      obtain ⟨b⟩ := CFSG.RankThree.PartOne.TCB.nonempty_carrier_mulEquiv_group s
-      exact ⟨s, ⟨e.trans b⟩⟩
-  rw [catalog_nonabelian_type_partition_tauCeti G hnonab, hs]
 
 end ComponentType
 

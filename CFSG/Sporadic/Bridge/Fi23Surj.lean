@@ -143,44 +143,6 @@ theorem rep_imgLetter
   · exact rep_img (by omega)
   · exact rep_img_inv (by omega)
 
-theorem wordG_map_letterOf (v : List (ℕ × Bool)) :
-    wordG imgG (v.map letterOf) = wordProd img v := by
-  induction v with
-  | nil => rfl
-  | cons l v ih =>
-    simp only [wordG, List.map_cons, List.prod_cons] at ih ⊢
-    rw [ih]
-    simp only [wordProd, List.map_cons, List.prod_cons]
-    congr 1
-    obtain ⟨i, b⟩ := l
-    cases b <;> simp [letterOf, imgG]
-
-theorem letterOf_natAbs (l : ℕ × Bool) : (letterOf l).natAbs = l.1 + 1 := by
-  unfold letterOf; split <;> omega
-
-theorem eq_one_of_tupleEq {g : J} {X : Table} (hX : Rep 31671 X g)
-    (h : tupleEq (apT X chainQ) chainQ = true) : g = 1 := by
-  apply sep
-  intro t ht
-  simp only [tupleEq, Bool.and_eq_true, beq_iff_eq] at h
-  have := (allIn_eq_true.1 h.2) t (Nat.zero_le _) ht
-  simp only [beq_iff_eq] at this
-  rw [apT_get _ _ ht, hX _ (chainQ_lt ht)] at this
-  exact this
-
-theorem eq_of_tupleEq
-    {g h : J} {X Y : Table} (hX : Rep 31671 X g) (hY : Rep 31671 Y h)
-    (e : tupleEq (apT X chainQ) (apT Y chainQ) = true) : g = h := by
-  have : h⁻¹ * g = 1 := by
-    apply sep
-    intro t ht
-    simp only [tupleEq, Bool.and_eq_true, beq_iff_eq, apT_size] at e
-    have := (allIn_eq_true.1 e.2) t (Nat.zero_le _) ht
-    simp only [beq_iff_eq] at this
-    rw [apT_get _ _ ht, apT_get _ _ ht, hX _ (chainQ_lt ht), hY _ (chainQ_lt ht)] at this
-    rw [idx_mul, this, idx_inv_idx]
-  rw [inv_mul_eq_one] at this
-  exact this.symm
 
 private theorem presentation_eq : SporadicName.Fi23.presentation = Sporadic.fi23Presentation :=
   rfl
@@ -275,11 +237,6 @@ theorem surjWords_mem
   rw [getElem!_pos surjWords i hi']
   exact Array.getElem_mem hi'
 
-theorem rep_surjWord
-    {i : ℕ} (hi : i < 2) :
-    Rep 31671 (wordT 31671 (imgLetter imgT imgTv) surjWords[i]!) (wordG imgG surjWords[i]!) :=
-  Rep.wordT (by norm_num) _ fun z hz =>
-    rep_imgLetter (letters_ok _ (surjWords_mem hi) z hz).2
 
 theorem mat_wordG_imgG
     {X : ℕ → Matrix (Fin 253) (Fin 253) (ZMod 3)}

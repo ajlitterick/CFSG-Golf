@@ -173,53 +173,5 @@ theorem IsDihedralGen.ell_gen_mul (h : IsDihedralGen x y n) {s : W} (hs : s = x 
       split_ifs <;> simp (disch := omega) only [hL, hL', or_true] <;>
         first | omega | (have := hodd t ‹_›; omega)
 
-theorem IsDihedralGen.eq_altWord_of_wordLength_eq (h : IsDihedralGen x y n) {w : W}
-    (hw : wordLength ({x, y} : Set W) w = n) : w = altWord x y n := by
-  obtain ⟨t, ht, rfl | rfl⟩ := h.exists_altWord w
-  · rw [h.wordLength_altWord ht] at hw
-    rw [hw]
-  · rw [h.wordLength_altWord' ht] at hw
-    rw [hw]
-    exact h.altWord_eq.symm
-
-theorem IsDihedralGen.eq_one_of_wordLength_eq_zero (h : IsDihedralGen x y n) {w : W}
-    (hw : wordLength ({x, y} : Set W) w = 0) : w = 1 := by
-  have hJ : ∀ s ∈ ({x, y} : Set W), s * s = 1 := by
-    intro s hs
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hs
-    rcases hs with rfl | rfl
-    · exact h.mul_self_a
-    · exact h.mul_self_b
-  have hw' : w ∈ Subgroup.closure ({x, y} : Set W) := by rw [h.closure_eq]; trivial
-  exact (wordLength_eq_zero_iff hJ hw').1 hw
-
-theorem IsDihedralGen.wordLength_gen (h : IsDihedralGen x y n) {s : W} (hs : s = x ∨ s = y) :
-    wordLength ({x, y} : Set W) s = 1 := by
-  have := h.ell_gen_mul hs 1
-  rw [mul_one, wordLength_one] at this
-  omega
-
-theorem IsDihedralGen.exactly_one_ascent (h : IsDihedralGen x y n) {w : W}
-    (h0 : 0 < wordLength ({x, y} : Set W) w) (hn : wordLength ({x, y} : Set W) w < n) :
-    (wordLength ({x, y} : Set W) (x * w) < wordLength ({x, y} : Set W) w ∧
-        wordLength ({x, y} : Set W) w < wordLength ({x, y} : Set W) (y * w)) ∨
-      (wordLength ({x, y} : Set W) (y * w) < wordLength ({x, y} : Set W) w ∧
-        wordLength ({x, y} : Set W) w < wordLength ({x, y} : Set W) (x * w)) := by
-  have hn3 := h.three_le
-  have hx := h.mul_self_a
-  have hy := h.mul_self_b
-  have hbr := h.altWord_eq
-  have hbr2 : altWord y x n = altWord x y n := hbr.symm
-  have hL : ∀ {j : ℕ}, j ≤ n → wordLength ({x, y} : Set W) (altWord x y j) = j :=
-    fun hj => h.wordLength_altWord hj
-  have hL' : ∀ {j : ℕ}, j ≤ n → wordLength ({x, y} : Set W) (altWord y x j) = j :=
-    fun hj => h.wordLength_altWord' hj
-  obtain ⟨t, ht, rfl | rfl⟩ := h.exists_altWord w
-  · rw [hL ht] at h0 hn ⊢
-    rw [mul_altWord_x hx hbr (by omega) ht, mul_altWord_y hy hbr (by omega) ht]
-    split_ifs <;> simp (disch := omega) only [hL, hL'] <;> omega
-  · rw [hL' ht] at h0 hn ⊢
-    rw [mul_altWord_x hy hbr2 (by omega) ht, mul_altWord_y hx hbr2 (by omega) ht]
-    split_ifs <;> simp (disch := omega) only [hL, hL'] <;> omega
 
 end CFSG.GH74.BNPair

@@ -142,25 +142,6 @@ end Conjugate
 
 variable {G : Type*} [Group G]
 
-theorem minimal_normal_product [Finite G] (𝒮 : Set (Subgroup G))
-    (h𝒮 : ∀ N ∈ 𝒮, N.Normal ∧ N ≠ ⊥ ∧ ∀ M : Subgroup G, M.Normal → M ≤ N → M = ⊥ ∨ M = N) :
-    ∃ 𝒯 ⊆ 𝒮, ∃ e : ((N : 𝒯) → (N : Subgroup G)) ≃* ↥(sSup 𝒮),
-      ∀ (N : 𝒯) (x : (M : 𝒯) → (M : Subgroup G)), (∀ M, M ≠ N → x M = 1) →
-        (e x : G) = x N := by
-  obtain ⟨𝒯, h𝒯𝒮, hind, hsup⟩ := exists_sSupIndep_subset_sSup_eq 𝒮 h𝒮
-  have hcomm : Pairwise fun M M' : 𝒯 =>
-      ∀ x y : G, x ∈ (M : Subgroup G) → y ∈ (M' : Subgroup G) → Commute x y := by
-    intro M M' hMM' x y hx hy
-    have h1 := h𝒮 M (h𝒯𝒮 M.2)
-    have h2 := h𝒮 M' (h𝒯𝒮 M'.2)
-    have : (M : Subgroup G).Normal := h1.1
-    have : (M' : Subgroup G).Normal := h2.1
-    exact commute_of_normal_of_inf_eq_bot
-      (inf_eq_bot_of_minimal_normal h1 h2 fun h => hMM' (Subtype.ext h)) hx hy
-  obtain ⟨e, he⟩ := exists_mulEquiv_pi_iSup (fun M : 𝒯 => (M : Subgroup G)) hcomm
-    ((sSupIndep_iff 𝒯).mp hind)
-  have heq : (⨆ M : 𝒯, (M : Subgroup G)) = sSup 𝒮 := by rw [← sSup_eq_iSup', hsup]
-  exact ⟨𝒯, h𝒯𝒮, e.trans (MulEquiv.subgroupCongr heq), fun N x hx => he N x hx⟩
 
 theorem minimal_normal_simple_factors [Finite G] {N : Subgroup G} (hN : N.Normal) (hN1 : N ≠ ⊥)
     (hmin : ∀ M : Subgroup G, M.Normal → M ≤ N → M = ⊥ ∨ M = N) :

@@ -24,9 +24,6 @@ theorem stGen_of_ne {i j : Fin (m + 1)} (hij : i ≠ j) (c : F) :
 theorem stGen_self (i : Fin (m + 1)) (c : F) : stGen (i, i, c) = 1 :=
   dite_eq_right (not_not.2 rfl)
 
-theorem x_eq_stGen (γ : Fin m → ℤ) (c : F) :
-    x m F γ c = stGen ((pairOf m γ).1, (pairOf m γ).2, c) :=
-  rfl
 
 private theorem transvection_inv' {i j : Fin (m + 1)} (hij : i ≠ j) (c : F) :
     (SpecialLinearGroup.transvection hij c)⁻¹ = SpecialLinearGroup.transvection hij (-c) := by

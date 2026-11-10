@@ -117,10 +117,6 @@ theorem ggOrdPFieldConjAt_of_small {t : StatedLieTag} (ht : GGOrdPSmallTag t) :
   intro G _ _ p Bs G₀ n f ψ hS
   exact absurd hS.presents (not_ggPresentsG0_of_small ht)
 
-theorem ggOrdPOutdiagAt_of_small {t : StatedLieTag} (ht : GGOrdPSmallTag t) :
-    GGOrdPOutdiagAt t := by
-  intro G _ _ p Bs G₀ n f ψ hS
-  exact absurd hS.presents (not_ggPresentsG0_of_small ht)
 
 theorem ggOrdPGraphAt_of_small {t : StatedLieTag} (ht : GGOrdPSmallTag t) : GGOrdPGraphAt t := by
   intro G _ _ n f ψ G₀ hpres

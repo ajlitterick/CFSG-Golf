@@ -108,10 +108,6 @@ theorem isPSL_of_lieModel {n f : ℕ} (hn : 1 ≤ n) (h : LieModel X .PSL n 2 f)
   · exact h
   all_goals omega
 
-theorem isPSU_of_lieModel (h : LieModel X .PSU 3 3 1) : IsPSU 3 3 1 X := by
-  rcases h with ⟨-, h⟩ | ⟨h, -⟩ | ⟨h, -⟩ | ⟨h, -⟩
-  · exact h
-  all_goals omega
 
 theorem card_of_lieModel_psl32 (h : LieModel X .PSL 3 2 1) : Nat.card X = 168 :=
   CFSG.Open.StatedAPI.card_of_statedClassicalModel_psl_three_two (h.statedClassicalModel (by decide))

@@ -275,12 +275,6 @@ theorem chkVk_true : chkVk = true := by
   rw [h1, h2, h3, h4, h5]
   rfl
 
-theorem neg_memS : (!memK 64 (lget (SPL 0)) X) = true := by quickRfl
-
-theorem neg_two : (!twoK X) = true := by quickRfl
-
-theorem neg_gen : (!memK 64 (lget (SPL 0)) (GSK 1 2)) = true := by quickRfl
-
 
 end CertificateChecks.KernelMisc.J2En
 

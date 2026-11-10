@@ -43,8 +43,6 @@ theorem localInductionHull_image (u z : G) :
     (localCentralizer u).subtype_injective).trans
       (MulEquiv.subgroupCongr (localInductionHull_image u z))
 
-theorem localInductionHullEquiv_apply (u z : G) (a : localHull u z) :
-    (localInductionHullEquiv u z a : G) = ((a : localCentralizer u) : G) := rfl
 
 theorem localInductionHullEquiv_symm_apply (u z : G)
     (a : localInvolutionPointHull z u) :

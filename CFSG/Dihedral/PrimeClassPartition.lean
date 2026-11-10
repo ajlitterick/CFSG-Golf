@@ -98,6 +98,5 @@ theorem sigma_pairwise_disjoint (R : Subgroup G) :
   obtain ⟨k, _hk, hunique⟩ := (primeSupport_iff_exists_unique_sigma p R).mp hp
   exact hij ((hunique i hi).trans (hunique j hj).symm)
 
-variable {H : Type} [Group H] [Finite H]
 
 end CFSG.DihedralBlueprint

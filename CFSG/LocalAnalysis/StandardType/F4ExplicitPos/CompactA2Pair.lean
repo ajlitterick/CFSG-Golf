@@ -141,31 +141,6 @@ theorem frameSpan_le_of_two_root_spans
     exact h0 ((block0_rootSpan h).le ⟨A, rfl⟩)
   · rintro _ ⟨A, rfl⟩
     exact h1 ((block1_rootSpan h).le ⟨A, rfl⟩)
-theorem frameSpan_le_centralizer_of_two_root_chars
-    (h : CFSG.RankThree.PartOne.KF4.IsA2Frame ρ σ)
-    {F : Set (Fin τ.rank → Lˣ)}
-    (h0 : ∀ a ∈ F, rootChar a (σ 0 1) = 1)
-    (h1 : ∀ a ∈ F, rootChar a (σ 1 2) = 1) :
-    rootSpan τ L (frameRoots σ) ≤
-      Subgroup.centralizer (rootDiagUnit τ '' F) := by
-  intro x hx
-  apply Subgroup.mem_centralizer_iff.mpr
-  rintro _ ⟨a, ha, rfl⟩
-  have hroot : ∀ (i j : Fin 3), i ≠ j → rootChar a (σ i j) = 1 →
-      ({σ i j, -σ i j} : Set (Fin τ.rank → ℤ)) ⊆ rootCharKernel a := by
-    intro i j hij hchar α hα
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hα
-    rcases hα with rfl | rfl
-    · exact ⟨h.isRoot i j hij, hchar⟩
-    · refine ⟨?_, ?_⟩
-      · rw [← h.neg i j]
-        exact h.isRoot j i (Ne.symm hij)
-      · rw [show -σ i j = 0 - σ i j by simp, rootChar_sub, rootChar_zero, hchar]
-        simp
-  have hle := frameSpan_le_of_two_root_spans h
-    (rootSpan_le_centralizer a (hroot 0 1 (by decide) (h0 a ha)))
-    (rootSpan_le_centralizer a (hroot 1 2 (by decide) (h1 a ha)))
-  exact (Subgroup.mem_centralizer_singleton_iff.mp (hle hx)).symm
 theorem frameSpan_le_centralizer_of_two_family_kernels
     (h : CFSG.RankThree.PartOne.KF4.IsA2Frame ρ σ)
     (F0 F1 : Set (Fin τ.rank → Lˣ))
@@ -902,28 +877,6 @@ theorem compactA2Pair_of_LangDatum
   · rw [compactA2Map_B12 hf hpair D.step F hF hFcard H Φ' hHdiag hΦ' hfix, hmodel01]
   · rw [compactA2Map_B23 hf hpair D.step F hF hFcard H Φ' hHdiag hΦ' hfix, hmodel12]
 
-
-
-
-theorem compactA2Pair_of_LangSetup
-    (hf : 1 ≤ f)
-    (j : Matrix.SpecialLinearGroup (Fin 3) Ω →* ModGL τ Ω)
-    (σ : Fin 3 → Fin 3 → Fin τ.rank → ℤ)
-    (hpair : CFSG.RankThree.PartOne.KF4.IsA2Frame j σ)
-    {p : ℕ} (S : LangSetup τ Ω p)
-    (hρ : ∀ (i k : Fin 3), i ≠ k → S.ρ (σ i k) = σ k i)
-    (hq : S.D.q = 2 ^ f)
-    (F : Subfield Ω) [Fact (Nat.Prime 2)] [CharP F 2] [Finite F]
-    (hF : ∀ c : Ω, c ∈ F ↔ c ^ (2 ^ f) ^ 2 = c)
-    (hFcard : Nat.card F = (2 ^ f) ^ 2) :
-    ∃ θ : Su F 2 f 3 →* ModGL τ Ω,
-      Function.Injective θ ∧
-      θ.range = rootSpan τ Ω (frameRoots σ) ⊓ S.D.model ∧
-      (B12 F 2 f).map θ = rootSpan τ Ω ({σ 0 1, -σ 0 1} : Set (Fin τ.rank → ℤ)) ⊓
-        S.D.model ∧
-      (B23 F 2 f).map θ = rootSpan τ Ω ({σ 1 2, -σ 1 2} : Set (Fin τ.rank → ℤ)) ⊓
-        S.D.model :=
-  compactA2Pair_of_LangDatum hf j σ hpair S.D S.ρ S.frob hρ hq F hF hFcard
 
 end ActualMap
 

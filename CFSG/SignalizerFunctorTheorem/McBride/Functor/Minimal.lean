@@ -112,15 +112,5 @@ theorem sSup_signalizers_sup_eq_top (_hp : p.Prime) (hCl : IsSigClass p Cl)
     (le_sup_right : A ≤ sSup (signalizers p A θ (Cl G A)) ⊔ A) (card_lt_of_ne_top hne)
   exact hinc ⟨W, hW, fun Y hY => hmax Y hY ((le_sSup hY).trans le_sup_left)⟩
 
-theorem minimal_counterexample_structure (hp : p.Prime) (hCl : IsSigClass p Cl)
-    (hA : IsElemAbelian p A) (hθ : IsFunctor p A θ) (hC : ∀ a ∈ A, a ≠ 1 → Cl G A (θ a))
-    (IH : CompleteBelow p Cl (Nat.card G) (Nat.card A))
-    (hinc : ¬ IsCompleteIn (signalizers p A θ (Cl G A))) :
-    sSup (signalizers p A θ (Cl G A)) ⊔ A = ⊤ ∧
-      (∀ N : Subgroup G, N.Normal → N ∈ signalizers p A θ (Cl G A) → N = ⊥) ∧
-      IsLocallyCompleteIn (signalizers p A θ (Cl G A)) :=
-  ⟨sSup_signalizers_sup_eq_top hp hCl hA hθ hC IH hinc,
-    fun _ _ hNm => eq_bot_of_normal_of_incomplete hp hCl hA hθ hC IH hinc hNm,
-    isLocallyCompleteIn_of_incomplete hp hCl hA hθ hC IH hinc⟩
 
 end CFSG.SignalizerFunctorTheorem.McBride

@@ -24,17 +24,6 @@ theorem baseFlag_eq_span (k : Fin 3) :
   simp only [Set.mem_ofPred_eq, Fin.le_iff_val_le_val]
   omega
 
-theorem mem_stdLeviBorel_iff_baseFlag
-    (l : stdLevi fourthJ) :
-    (l : ModGL Tag.E6 K) ∈ stdLeviBorel fourthJ ↔
-      ∀ k : Fin 3, (baseFlag k).map (rhoMinus l : V0 →ₗ[ZMod 2] V0) = baseFlag k := by
-  rw [mem_stdLeviBorel_iff, mem_tailBorel, and_iff_right (rhoMinus_mem_elementaryGroup l)]
-  constructor
-  · intro h k
-    exact h (k + 1) (by omega) (by omega)
-  · intro h i hi1 hi3
-    have := h ⟨i - 1, by omega⟩
-    rwa [baseFlag_apply, show (⟨i - 1, by omega⟩ : Fin 3).val + 1 = i by simp; omega] at this
 
 @[expose] def panelStab (d : Fin 3) : Subgroup (V0 ≃ₗ[ZMod 2] V0) :=
   orthElementaryGroup Qminus ⊓

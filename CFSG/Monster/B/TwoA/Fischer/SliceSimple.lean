@@ -84,10 +84,6 @@ theorem toConjAct_mem_stabilizer {C : Set V} (g : setStab act lab Y C) :
       obtain ⟨z, hz, hzc⟩ := c.2
       exact ⟨⟨z, hz⟩, Subtype.ext (Subtype.ext hzc)⟩⟩
 
-theorem coe_labelsInEquiv {C : Set V} (hCY : C ⊆ Y) (z : C) :
-    (((hS.labelsInEquiv hCY z : labelsIn (lab := lab) (Y := Y) C) : sliceGroup lab Y) : S) =
-      lab z :=
-  rfl
 
 theorem dvd_card_range_toPermHom {C : Set V} (hCY : C ⊆ Y) {ℓ : ℕ} (hℓ : ℓ.Prime)
     (hℓC : ℓ ∣ Nat.card (setStabPerm act lab Y C).range) :

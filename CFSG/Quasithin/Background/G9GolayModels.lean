@@ -33,8 +33,6 @@ abbrev GolayAmbient := Fin 24 → ZMod 2
     change scalar • word first = scalar • word second
     rw [word_mem]
 
-theorem mem_golayPairKernel (first second : Fin 24) (word : GolayAmbient) :
-    word ∈ golayPairKernel first second ↔ word first = word second := Iff.rfl
 
 @[expose] def IsGolaySectionModule {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
     (H : Subgroup (GLV V)) {Model : Type} [Group Model]
@@ -57,13 +55,6 @@ theorem mem_golayPairKernel (first second : Fin 24) (word : GolayAmbient) :
         (image : GolayAmbient) = permAct (action (marking element)) (word : GolayAmbient) →
           quotientMap image = (element : GLV V) (quotientMap word)
 
-theorem isGolaySectionModule_group {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
-    {H : Subgroup (GLV V)} {Model : Type} [Group Model] {small : Bool}
-    {numerator denominator : Submodule (ZMod 2) GolayAmbient}
-    (realization : IsGolaySectionModule (Model := Model) H small numerator denominator) :
-    Nonempty (↥H ≃* Model) := by
-  rcases realization with ⟨marking, remaining⟩
-  exact ⟨marking⟩
 
 @[expose] def IsMathieu24CodeOrCocode {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
     (H : Subgroup (GLV V)) : Prop :=

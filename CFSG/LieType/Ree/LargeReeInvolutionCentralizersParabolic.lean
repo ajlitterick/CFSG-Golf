@@ -207,11 +207,6 @@ theorem reeFixedPosUnipotent_le_normalizer
       (fixedOrbitComplementRoots_absorbs j) (Subgroup.mem_inf.1 hu).1,
       Subgroup.le_normalizer (Subgroup.mem_inf.1 hu).2⟩)
 
-theorem reeFixedOrbitComplementUnipotent_normal
-    (j : Fin F4.fixedOrbitCount) :
-    ((F4.reeFixedOrbitComplementUnipotent K a j).subgroupOf (F4.reeFixedPosUnipotent K a)).Normal :=
-  Subgroup.normal_subgroupOf_iff_le_normalizer (reeFixedOrbitComplementUnipotent_le j) |>.2
-    (reeFixedPosUnipotent_le_normalizer j)
 
 theorem reeFixedTorus_le_normalizer_complement
     (j : Fin F4.fixedOrbitCount) :
@@ -234,14 +229,6 @@ theorem map_conj_reeFixedOrbitComplementUnipotent
     (bijOn_fixedOrbitComplementRoots j).image_eq,
     map_conj_eq_of_mem_normalizer (Subgroup.le_normalizer hn)]
 
-theorem exists_mul_eq_of_mem_reeFixedPosUnipotent'
-    (j : Fin F4.fixedOrbitCount)
-    {u : ModGL F4.tag K} (hu : u ∈ F4.reeFixedPosUnipotent K a) :
-    ∃ x ∈ F4.reeFixedOrbitUnipotent K a j,
-      ∃ v ∈ F4.reeFixedOrbitComplementUnipotent K a j, x * v = u := by
-  obtain ⟨v, hv, x, hx, h⟩ := exists_mul_eq_of_mem_reeFixedPosUnipotent j (inv_mem hu)
-  refine ⟨x⁻¹, inv_mem hx, v⁻¹, inv_mem hv, ?_⟩
-  rw [← mul_inv_rev, h, inv_inv]
 
 theorem reeFixedOrbitComplementUnipotent_sup
     (j : Fin F4.fixedOrbitCount) :

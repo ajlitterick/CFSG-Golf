@@ -94,20 +94,6 @@ private theorem fusionIsSylowIn_inf_of_le_normalizer' {P K N : Subgroup G}
   fusionIsSylowIn_of_isSylowOf' (CFSG.ABGLocalTools.IsSylowOf.inf_of_le_normalizer
     (exists_sylow_map_eq_of_fusionIsSylowIn hP) hNK hKN)
 
-private theorem exists_fusionIsSylowIn_mem_normalizer' {Y : Subgroup G} {s : G}
-    (hs : IsPGroup p (Subgroup.zpowers s)) (hsY : s ∈ Subgroup.normalizer (Y : Set G)) :
-    ∃ P, fusionIsSylowIn p P Y ∧ s ∈ Subgroup.normalizer (P : Set G) := by
-  have hY' : Y ⊔ Subgroup.zpowers s ≤ Subgroup.normalizer (Y : Set G) :=
-    sup_le Subgroup.le_normalizer (Subgroup.zpowers_le.mpr hsY)
-  obtain ⟨Q, hsQ, hQ⟩ := exists_fusionIsSylowIn_ge hs (le_sup_right : _ ≤ Y ⊔ Subgroup.zpowers s)
-  refine ⟨Q ⊓ Y, fusionIsSylowIn_inf_of_le_normalizer' hQ le_sup_left hY', ?_⟩
-  have hsQ' : s ∈ Q := hsQ (Subgroup.mem_zpowers s)
-  refine Subgroup.inf_normalizer_le_normalizer_inf (Subgroup.mem_inf.mpr ⟨?_, hsY⟩)
-  rw [Subgroup.mem_normalizer_iff]
-  intro x
-  refine ⟨fun hx => Q.mul_mem (Q.mul_mem hsQ' hx) (Q.inv_mem hsQ'), fun hx => ?_⟩
-  have := Q.mul_mem (Q.mul_mem (Q.inv_mem hsQ') hx) hsQ'
-  simpa [mul_assoc] using this
 
 end SylowHelpers
 

@@ -73,10 +73,5 @@ theorem outer_card_hs100P : Nat.card (Outer hs100P) ≤ 2 := by
 
 theorem outer_card_mcl275P : Nat.card (Outer mcl275P) ≤ 2 := mcl_outer_card_le
 
-theorem CTUC_HS_McL_two_element_outer_automorphism_bounds :
-    (center hs100P = ⊥ ∧ Nat.card (Outer hs100P) ≤ 2) ∧
-      (center mcl275P = ⊥ ∧ Nat.card (Outer mcl275P) ≤ 2) :=
-  ⟨⟨center_eq_bot_of_centralizer centralizer_hs100P, outer_card_hs100P⟩,
-    ⟨center_eq_bot_of_centralizer centralizer_mcl275P, outer_card_mcl275P⟩⟩
 
 end CFSG.RankThree.Native

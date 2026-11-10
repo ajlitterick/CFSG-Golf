@@ -407,13 +407,6 @@ theorem rel_rot {G : Type} [Group G] (gen : ℕ → G) {m : ℕ} {RL RN : ℕ �
     rw [← inv_one, ← hrel, ← prodR_rev]
     exact prodR_congr (fun i hi => hinv' _ (hlet _ (by omega)))
 
-theorem emptyRel_fact : factK 1 1 2 0 (fun _ => 0) (fun _ => 0) (fun _ => 1048582) (fun _ => 0)
-    (fun _ => 0) (fun _ => 0) (fun _ => 0) 0 = true := by
-  quickRfl
-
-theorem emptyRel_head :
-    Bool.not (hdK 1 1 1 0 0 0 [[]] [] (fun _ => 0) (fun _ => 0) (fun _ => 1048582)) = true := by
-  quickRfl
 
 public section
 

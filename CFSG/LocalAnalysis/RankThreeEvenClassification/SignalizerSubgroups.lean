@@ -80,54 +80,6 @@ theorem signalizer_value_compatible {G : Type u} [Group G]
   · intro member hmember hmemberNe
     exact hsignalizer.balance element hmem hne member hmember hmemberNe
 
-theorem SignalizerCompatible.le_generated {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor plane : Subgroup G) (signalizer : G → Subgroup G)
-    (hplaneLe : plane ≤ actor) (hpower : ∀ member : plane, member ^ prime = 1)
-    (hplaneCard : Nat.card plane = prime ^ 2)
-    (subgroup : Subgroup G) (hcompatible : SignalizerCompatible prime actor signalizer subgroup) :
-    subgroup ≤ signalizerGenerated actor signalizer := by
-  rw [solvable_centralizer_generation_of_plane prime hprime plane subgroup hpower hplaneCard
-    hcompatible.solvable hcompatible.primeComplement (hplaneLe.trans hcompatible.normalized)]
-  apply iSup_le
-  intro member
-  apply iSup_le
-  intro hne
-  have hmemberNe : (member : G) ≠ 1 := fun heq => hne (Subtype.ext heq)
-  exact (hcompatible.fixed_le member (hplaneLe member.property) hmemberNe).trans
-    (signalizer_value_le_generated actor signalizer member (hplaneLe member.property) hmemberNe)
-
-theorem exists_maximal_signalizer_compatible_above {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (subgroup : Subgroup G) (hcompatible : SignalizerCompatible prime actor signalizer subgroup) :
-    ∃ maximal : Subgroup G, subgroup ≤ maximal ∧
-      Maximal (SignalizerCompatible prime actor signalizer) maximal := by
-  exact Finite.exists_le_maximal hcompatible
-
-theorem signalizer_complete_iff_exists_greatest_compatible
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor plane : Subgroup G) (signalizer : G → Subgroup G)
-    (hsignalizer : IsSolvableSignalizerFunctor prime actor signalizer)
-    (hplaneLe : plane ≤ actor) (hpower : ∀ member : plane, member ^ prime = 1)
-    (hplaneCard : Nat.card plane = prime ^ 2) :
-    SignalizerComplete prime actor signalizer ↔
-      ∃ greatest : Subgroup G, SignalizerCompatible prime actor signalizer greatest ∧
-        ∀ subgroup : Subgroup G, SignalizerCompatible prime actor signalizer subgroup → subgroup ≤ greatest := by
-  constructor
-  · intro hcomplete
-    exact ⟨signalizerGenerated actor signalizer, hcomplete, fun subgroup hcompatible =>
-      SignalizerCompatible.le_generated prime hprime actor plane signalizer hplaneLe hpower hplaneCard
-        subgroup hcompatible⟩
-  · rintro ⟨greatest, hcompatible, hgreatest⟩
-    have hgeneratedLe : signalizerGenerated actor signalizer ≤ greatest := by
-      apply iSup_le
-      intro element
-      apply iSup_le
-      intro hmem
-      apply iSup_le
-      intro hne
-      exact hgreatest _ (signalizer_value_compatible prime hprime actor signalizer hsignalizer element hmem hne)
-    exact SignalizerCompatible.of_le prime actor signalizer greatest _ hcompatible hgeneratedLe
-      (signalizerGenerated_normalized prime actor signalizer hsignalizer)
 
 theorem SignalizerComplete.centralizer_eq {G : Type u} [Group G]
     (prime : ℕ) (actor : Subgroup G) (signalizer : G → Subgroup G)
@@ -140,16 +92,5 @@ theorem SignalizerComplete.centralizer_eq {G : Type u} [Group G]
     (le_inf (signalizer_value_le_generated actor signalizer element hmem hne)
       (hsignalizer.le_centralizer element hmem hne))
 
-theorem thetaPlaneAlpha_solvable_prime_complement_of_signalizer_complete
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor plane : Subgroup G)
-    (hab : IsElemAbelian prime actor) (hplaneLe : plane ≤ actor)
-    (element : G) (hmem : element ∈ plane) (hne : element ≠ 1)
-    (hcomplete : SignalizerComplete prime actor (thetaActorSignalizer prime actor)) :
-    Group.IsSolvable (thetaPlaneAlpha prime plane) ∧ ¬prime ∣ Nat.card (thetaPlaneAlpha prime plane) := by
-  exact ⟨thetaPlaneAlpha_solvable_of_generated_solvable prime hprime actor plane hab hplaneLe
-      element hmem hne hcomplete.solvable,
-    thetaPlaneAlpha_prime_complement_of_generated_prime_complement prime hprime actor plane hab
-      hplaneLe element hmem hne hcomplete.primeComplement⟩
 
 end CFSG.RankThreeEvenClassification.Helpers

@@ -36,14 +36,6 @@ end Exact
 section GroupLevel
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem ih8_nbr_sylow (hΩ : HypOmegaMod Ω) {K J : Subgroup G}
-    (hJ : J ∈ omegaNbr Ω K) :
-    ∃ A : Subgroup G, IsPGroup 2 A ∧ A ≤ J ∧ A ≤ Subgroup.normalizer (K : Set G) ∧
-      ∃ x ∈ A, ∃ y ∈ A, x * y ≠ y * x := by
-  obtain ⟨-, -, A, hA, hAJ, hAN⟩ := hJ
-  have hA' := hA
-  obtain ⟨M, -, P, rfl⟩ := hA
-  exact ⟨_, P.isPGroup'.map _, hAJ, hAN, (hΩ.isQuatSub_of_mem_RSet hA').exists_not_commute⟩
 end GroupLevel
 section NbrModel
 variable {K G : Type} [Group K] [Group G]
@@ -146,13 +138,6 @@ namespace T8V
 open CFSG.ClassicalInvolution.Asc77.T8V
 variable {G : Type} [Group G] [Finite G]
 
-theorem commutator_mem_oddCoreIn_of_pow {N : Subgroup G} {z : G} (hN : Generic.IsClassicalMember N
-    z) {R : Subgroup G}
-    (hR : IsSylow2In R N) {a : G} (haN : a ∈ Subgroup.normalizer (N : Set G)) {m : ℕ}
-    (ham : a ^ 2 ^ m = 1) (haR : ∀ r ∈ R, a * r = r * a) :
-    ∀ x ∈ N, ⁅a, x⁆ ∈ oddCoreIn N := by
-  intro x hx
-  exact commutator_mem_oddCoreOf_of_pow3 hN.isUniqueInvolution_sl2 hR haN ham haR x hx
 
 end T8V
 end Asc77
@@ -241,9 +226,6 @@ open CFSG.ClassicalInvolution.Asc77.T8
 section Eight
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
 
-theorem zt_not_central [IsSimpleGroup G] {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
-    {z t : G} (hs : Std8 Ω K J S R T W z t) : ¬ ({z * t} : Set G) ⊆ Subgroup.center G := by
-  exact Layer.zt_not_central3 hs
 
 end Eight
 end T8

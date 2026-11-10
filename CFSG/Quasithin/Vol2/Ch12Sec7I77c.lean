@@ -284,17 +284,6 @@ theorem centralizer_V_eq
   ((lemma12_7_6_of h1222 h1226 G T L V s.d.hyp (s.isHatA6Block h1222)).2
     (s.centralizer_L_eq_bot h331)).2.2.1
 
-theorem centralizer_Kt_eq
-    (h1222 : Stmt12_2_2) (h1226 : Stmt12_2_6) (h331 : Stmt3_3_1) :
-    Subgroup.centralizer (Kt L t : Set G) = Vt L t := by
-  apply le_antisymm
-  · intro c hc
-    have hcV : c ∈ Subgroup.centralizer (V : Set G) :=
-      Subgroup.centralizer_le (s.d.v_le_lt.trans (lt_le_Kt L t)) hc
-    rw [s.centralizer_V_eq h1222 h1226 h331] at hcV
-    exact s.d.inf_centralizer_le ⟨hcV, Subgroup.centralizer_le (lt_le_Kt L t) hc⟩
-  · intro v hv
-    exact (s.mem_vt_iff.mp hv).2
 
 end Set77
 

@@ -287,10 +287,6 @@ def hopfMultiplierEquivKer : hopfMultiplier X ≃* (coverMap hP hwg).ker :=
 def griessHopfMultiplierEquivKer : griessHopfMultiplier X ≃* (coverMap hP hwg).ker :=
   (hopfMultiplierEquivGriess X).trans (hopfMultiplierEquivKer hP hw hwg)
 
-include hw in
-theorem coverMap_ker_mulEquiv_griessHopfMultiplier :
-    Nonempty (griessHopfMultiplier X ≃* (coverMap hP hwg).ker) :=
-  ⟨griessHopfMultiplierEquivKer hP hw hwg⟩
 
 include hP hw hwg in
 theorem card_presentedCover :

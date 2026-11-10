@@ -21,11 +21,6 @@ abbrev ruVec : CFSG.Sporadic.SmallF2.Native.VecData := CFSG.Sporadic.Ru.Native.r
 
 @[expose] noncomputable def ruGen (i : Fin gc) : J ruVec := img ruSpec (seedG ruVec) i.val
 
-theorem lift_ruGen_mk (w : List (Fin gc × Bool)) :
-    FreeGroup.lift ruGen (FreeGroup.mk w) =
-      wordG (imgG ruSpec (seedG ruVec)) ((natWord w).map letterOf) := by
-  rw [wordG_map_letterOf]
-  exact lift_mk_eq_wordProd (img ruSpec (seedG ruVec)) w
 
 abbrev RuTabFact : Prop := ∀ w ∈ ruTabWords, FreeGroup.lift ruGen (FreeGroup.mk w) = 1
 

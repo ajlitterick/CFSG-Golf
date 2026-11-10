@@ -29,7 +29,6 @@ theorem sgnI_mul_self : ∀ t : ZMod 2, sgnI t * sgnI t = 1 := by decide
 
 theorem sgnI_injective : Function.Injective sgnI := by decide
 
-theorem sgnI_ne_zero : ∀ t : ZMod 2, sgnI t ≠ 0 := by decide
 
 theorem sgnI_eq_one_or : ∀ t : ZMod 2, sgnI t = 1 ∨ sgnI t = -1 := by decide
 

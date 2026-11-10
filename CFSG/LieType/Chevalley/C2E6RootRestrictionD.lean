@@ -58,9 +58,6 @@ theorem weight_rootD : ∀ (j : Fin 8) (k : Fin 4),
     rootWeight (jD k) (rootD j) = natWeight (natD j) k := by
   decide +kernel
 
-theorem eq_natD_of_weight : ∀ (j : Fin 8) (s : Fin 4 ⊕ Fin 4),
-    (∀ k, rootWeight (jD k) (rootD j) = natWeight s k) → s = natD j := by
-  decide +kernel
 
 theorem raise_rootD : ∀ (j : Fin 8) (k : Fin 4),
     ((∃ j', rootD j' = rootD j + Pi.single (jD k) 1) ↔
@@ -150,21 +147,6 @@ theorem phiD_vecD
   rw [← basisD_apply, phiD, Module.Basis.equiv_apply, Pi.basisFun_apply]
   rfl
 
-theorem phiD_rootVec
-    {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α) (h0 : α (0 : Fin 6) = 1)
-    (h5 : α (5 : Fin 6) = 1) (hmem : rootVec Tag.E6 K α ∈ moduleD) (s : Fin 4 ⊕ Fin 4)
-    (hs : ∀ k : Fin 4, rootWeight (jD k) α = natWeight s k) :
-    phiD ⟨rootVec Tag.E6 K α, hmem⟩ = Pi.single s 1 := by
-  obtain ⟨j, rfl⟩ := exists_rootD_eq hα h0 h5
-  rw [eq_natD_of_weight j s hs]
-  exact phiD_vecD j
-
-theorem existsUnique_natWeight
-    {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α)
-    (h0 : α (0 : Fin 6) = 1) (h5 : α (5 : Fin 6) = 1) :
-    ∃! s : Fin 4 ⊕ Fin 4, ∀ k : Fin 4, rootWeight (jD k) α = natWeight s k := by
-  obtain ⟨j, rfl⟩ := exists_rootD_eq hα h0 h5
-  exact ⟨natD j, weight_rootD j, fun s hs => eq_natD_of_weight j s hs⟩
 
 theorem orthElementaryMap_single (p q s : Fin 4 ⊕ Fin 4) (t : K) :
     orthElementaryMap (quadPlus 4 K) (Pi.single p 1) (t • Pi.single q 1) (Pi.single s 1) =

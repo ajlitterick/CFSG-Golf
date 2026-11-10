@@ -144,9 +144,6 @@ variable (σ : F ≃+* F) in
     change blockExt he (mat σ r (y * z)) = blockExt he (mat σ r y) * blockExt he (mat σ r z)
     rw [map_mul, blockExt_mul]))
 
-theorem mat_blockExtHom (σ : F ≃+* F) (he : Function.Injective e)
-    (hrev : ∀ i, e (Fin.rev i) = Fin.rev (e i)) (y : SU σ r) :
-    mat σ n (blockExtHom σ he hrev y) = blockExt he (mat σ r y) := rfl
 
 end Ext
 

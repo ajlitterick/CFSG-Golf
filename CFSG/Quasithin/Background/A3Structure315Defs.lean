@@ -36,9 +36,6 @@ namespace A315
 
 end A315
 
-structure LieAutVocab where
-  innDiag : ∀ (L : Type) [Group L], Subgroup (MulAut L)
-  IsFieldGroup : ∀ (L : Type) [Group L], Subgroup L → Subgroup (MulAut L) → Prop
 
 structure A315Hyp {G : Type} [Group G] (L T B : Subgroup G) : Prop where
   sqtk : SQTKHyp G
@@ -79,15 +76,6 @@ structure A315Hyp {G : Type} [Group G] (L T B : Subgroup G) : Prop where
 @[expose] def A315Case4 {G : Type} [Group G] (L T B : Subgroup G) : Prop :=
   IsSporadic .J1 ↥L ∧ B ≤ L ⊓ Subgroup.normalizer (T : Set G) ∧ Nat.card ↥B = 7
 
-@[expose] def A315Case5 (V : LieAutVocab) {G : Type} [Group G] (L T B : Subgroup G) : Prop :=
-  ∃ (_ : L.Normal) (n : ℕ), 2 ≤ n ∧ A315.IsLieChar2 n ↥L ∧
-    ∃ F H : Subgroup (MulAut ↥L),
-      IsCyclic ↥F ∧ Nat.card ↥F ∣ n ∧ V.IsFieldGroup ↥L ((T ⊓ L).subgroupOf L) F ∧
-      F ≤ Subgroup.normalizer (H : Set (MulAut ↥L)) ∧
-      A315.IsCartan 2 (A315.autImage L (T ⊓ L))
-        ((F ⊔ A315.autImage L B ⊔ A315.autImage L L) ⊓ V.innDiag ↥L) H ∧
-      F ⊔ A315.autImage L B ⊔ A315.autImage L L = H ⊔ A315.autImage L B ⊔ A315.autImage L L ∧
-      A315.autImage L B ≤ F ⊔ H
 
 @[expose] def A315Case6 {G : Type} [Group G] (L T B : Subgroup G) : Prop :=
   Is3D4 2 1 ↥L ∧ ∃ D : Subgroup G, A315.IsCartan 2 (T ⊓ L) L D ∧ Nat.card ↥D = 7 ∧
@@ -97,8 +85,5 @@ structure A315Hyp {G : Type} [Group G] (L T B : Subgroup G) : Prop where
 @[expose] def A315Case7 {G : Type} [Group G] (L _T B : Subgroup G) : Prop :=
   IsTits ↥L ∧ Nat.card ↥B = 5
 
-@[expose] def A315Conclusion (V : LieAutVocab) {G : Type} [Group G] (L T B : Subgroup G) : Prop :=
-  A315Case1 L T B ∨ A315Case2 L T B ∨ A315Case3 L T B ∨ A315Case4 L T B ∨
-    A315Case5 V L T B ∨ A315Case6 L T B ∨ A315Case7 L T B
 
 end CFSG.Quasithin

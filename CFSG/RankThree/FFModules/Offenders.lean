@@ -119,25 +119,6 @@ theorem IsOffender.sup [Finite G] {A₁ A₂ : Subgroup G} (h₁ : IsOffender ρ
             (Nat.card A₂ * Nat.card (fixSub ρ A₂)) := Nat.mul_le_mul_left _ hD
   exact h₁.trans (Nat.le_of_mul_le_mul_right key hpos2)
 
-theorem isOffender_finset_sup [Finite G] (𝓑 : Finset (Subgroup G)) (hne : 𝓑.Nonempty)
-    (hbest : ∀ B ∈ 𝓑, IsBestOffender ρ B)
-    (hc : ∀ B ∈ 𝓑, ∀ B' ∈ 𝓑, ∀ x ∈ B, ∀ y ∈ B', x * y = y * x) :
-    IsOffender ρ (𝓑.sup id) := by
-  classical
-  induction hne using Finset.Nonempty.cons_induction with
-  | singleton B => simpa using (hbest B (Finset.mem_singleton_self B)).isOffender
-  | cons B 𝓒 hB h𝓒 ih =>
-    rw [Finset.sup_cons, id, sup_comm]
-    refine IsOffender.sup (ih (fun B' hB' => hbest B' (Finset.mem_cons_of_mem hB'))
-      (fun B' hB' B'' hB'' => hc B' (Finset.mem_cons_of_mem hB') B'' (Finset.mem_cons_of_mem hB'')))
-      (hbest B (Finset.mem_cons_self B 𝓒)) ?_
-    intro x hx y hy
-    have hxC : x ∈ Subgroup.centralizer (B : Set G) := by
-      have : 𝓒.sup id ≤ Subgroup.centralizer (B : Set G) :=
-        Finset.sup_le fun B' hB' z hz => Subgroup.mem_centralizer_iff.mpr fun y hy =>
-          hc B (Finset.mem_cons_self B 𝓒) B' (Finset.mem_cons_of_mem hB') y hy z hz
-      exact this hx
-    exact (Subgroup.mem_centralizer_iff.mp hxC y hy).symm
 
 omit [Finite W] in
 theorem exists_isBestOffender [Finite G] {A : Subgroup G} (hA : IsOffender ρ A) (hA1 : A ≠ ⊥) :

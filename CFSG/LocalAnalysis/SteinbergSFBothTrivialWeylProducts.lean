@@ -221,13 +221,6 @@ theorem F_comm_P (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 �
       (fun a ha => mem_centralizer_singleton_iff.mpr (F_comm_A h hbt _ hf ha).symm)
   exact (mem_centralizer_singleton_iff.mp (hle hp)).symm
 
-theorem F_comm_Ks (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
-    {f : G} (hf : f ∈ 𝐅) {k : G} (hk : k ∈ 𝐊⋆) : f * k = k * f := by
-  have hle : 𝐊⋆ ≤ centralizer ({f} : Set G) := by
-    rw [Ks_eq h]
-    exact sup_le (fun g hg => mem_centralizer_singleton_iff.mpr (F_comm h hf hg).symm)
-      (fun p hp => mem_centralizer_singleton_iff.mpr (F_comm_P h hbt hf hp).symm)
-  exact (mem_centralizer_singleton_iff.mp (hle hk)).symm
 
 theorem L_comm (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
     (i : Axis) {x y : G} (hx : x ∈ 𝐋[i]) (hy : y ∈ 𝐋[i]) : x * y = y * x := by
@@ -507,14 +500,6 @@ theorem L_mul_self (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 
   rw [mul_self_mul_of_comm (F_comm_A h hbt i hf ha), F_mul_self h hbt hf,
     h.B_mul_self i (mem_sup_right ha), one_mul]
 
-theorem Hi_eq (h : FCHyp L K n φ t) (i : Axis) : 𝐇 ⊓ 𝐄[i] = 𝐅 ⊔ 𝐁[i] := by
-  rw [← L_sup_t h i, sup_assoc, sup_comm 𝐀[i] (zpowers t)]
-
-theorem F_mul_B (h : FCHyp L K n φ t) (i : Axis) :
-    (𝐅 : Set G) * (𝐁[i] : Set G) = ((𝐇 ⊓ 𝐄[i] : Subgroup G) : Set G) := by
-  rw [Hi_eq h i]
-  exact (coe_mul_of_right_le_normalizer_left _ _
-    (((h.B_le_D i).trans (D_le_H i)).trans (H_le_normalizer_F h))).symm
 
 theorem X_inf_H (h : FCHyp L K n φ t) (i : Axis) : 𝐗[i] ⊓ 𝐇 = 𝐋[i] := by
   refine le_antisymm (fun x hx => ?_) (le_inf (L_le_X h i) ((L_le_Hi h i).trans inf_le_left))
@@ -597,11 +582,6 @@ variable (φ t) in
     rwa [show (g * (g⁻¹ * x * g⁻¹⁻¹) * g⁻¹ * (g⁻¹ * x * g⁻¹⁻¹)⁻¹)⁻¹ =
       g⁻¹ * x * g⁻¹⁻¹ * x⁻¹ by group] at h1
 
-omit [Finite G] [Finite K] in
-theorem mem_kerY {i : Axis} {g : G} :
-    g ∈ kerY φ t i ↔ g ∈ normalizer (𝐇 : Set G) ∧ g ∈ normalizer (𝐋[i] : Set G) ∧
-      ∀ x ∈ 𝐇, g * x * g⁻¹ * x⁻¹ ∈ 𝐋[i] :=
-  Iff.rfl
 
 omit [Finite G] [Finite K] in
 theorem conj_mem_kerY {i : Axis} {r : G} (hrH : r ∈ normalizer (𝐇 : Set G))
@@ -857,20 +837,6 @@ theorem T_le_normalizer_R (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i]
   · exact sup_le le_normalizer (R_le_normalizer_R h hbt Axis.one)
   · exact sup_le (R_le_normalizer_R h hbt Axis.two) le_normalizer
 
-theorem ZP_le_center_T (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥) :
-    𝐙 ≤ (center (𝐑[Axis.one] ⊔ 𝐑[Axis.two] : Subgroup G)).map
-      (𝐑[Axis.one] ⊔ 𝐑[Axis.two] : Subgroup G).subtype := by
-  intro z hz
-  have hcomm : ∀ i : Axis, ∀ y ∈ 𝐑[i], y * z = z * y := fun i y hy => by
-    have hz' : z ∈ (center 𝐑[i]).map 𝐑[i].subtype := by
-      rw [(centers_of_bot h i (hbt i)).2]
-      exact hz
-    exact (mem_center_map_iff.mp hz').2 y hy
-  have hle : (𝐑[Axis.one] ⊔ 𝐑[Axis.two] : Subgroup G) ≤ centralizer ({z} : Set G) :=
-    sup_le (fun y hy => mem_centralizer_singleton_iff.mpr (hcomm _ y hy))
-      (fun y hy => mem_centralizer_singleton_iff.mpr (hcomm _ y hy))
-  exact mem_center_map_iff.mpr ⟨mem_sup_left (mem_sup_left (mem_sup_left (Setup.ZP_le_PG hz))),
-    fun y hy => mem_centralizer_singleton_iff.mp (hle hy)⟩
 
 theorem ZP_comm_R (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
     (i : Axis) {r : G} (hr : r ∈ 𝐑[i]) {z : G} (hz : z ∈ 𝐙) : r * z = z * r := by
@@ -972,12 +938,6 @@ theorem conj_T_mem_X (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], �
         _ = Nat.card K ^ 6 := by ring
     omega
 
-theorem ZP_normal_R (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
-    (i : Axis) : (𝐙.subgroupOf 𝐑[i]).Normal :=
-  ⟨fun z hz r => mem_subgroupOf.mpr (by
-    rw [coe_mul, coe_mul, coe_inv, ZP_comm_R h hbt i r.2 (mem_subgroupOf.mp hz),
-      mul_inv_cancel_right]
-    exact mem_subgroupOf.mp hz)⟩
 
 theorem ZP_normal_E (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
     (i : Axis) : (𝐙.subgroupOf 𝐄[i]).Normal :=
@@ -1028,58 +988,6 @@ theorem maximal_E (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 �
       hle (mem_subgroupOf.mpr (mem_inf.mpr ⟨t_mem_H, t_mem_E h i⟩))
     exact mem_subgroupOf.mp h1
 
-theorem maximal_R (h : FCHyp L K n φ t) (hbt : ∀ i : Axis, ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ = ⊥)
-    (i : Axis) :
-    ∃ _ : (𝐙.subgroupOf 𝐑[i]).Normal,
-      (∀ S : Subgroup (↥𝐑[i] ⧸ 𝐙.subgroupOf 𝐑[i]),
-        Maximal (fun S : Subgroup (↥𝐑[i] ⧸ 𝐙.subgroupOf 𝐑[i]) => IsElementaryAbelian 2 S) S ↔
-          S = (𝐗[i].subgroupOf 𝐑[i]).map (QuotientGroup.mk' (𝐙.subgroupOf 𝐑[i])) ∨
-            S = (𝐇.subgroupOf 𝐑[i]).map (QuotientGroup.mk' (𝐙.subgroupOf 𝐑[i]))) ∧
-      Nat.card ((𝐗[i].subgroupOf 𝐑[i]).map (QuotientGroup.mk' (𝐙.subgroupOf 𝐑[i]))) =
-        Nat.card K ^ 4 ∧
-      Nat.card ((𝐇.subgroupOf 𝐑[i]).map (QuotientGroup.mk' (𝐙.subgroupOf 𝐑[i]))) =
-        2 * Nat.card K ^ 4 := by
-  have := ZP_normal_R h hbt i
-  have hZX : 𝐙 ≤ 𝐗[i] := (ZP_le_F h).trans le_sup_left
-  have hXR : 𝐗[i] ≤ 𝐑[i] := (X_normal_R h i).1
-  have hZR : 𝐙 ≤ 𝐑[i] := hZX.trans hXR
-  have hNX : 𝐙.subgroupOf 𝐑[i] ≤ 𝐗[i].subgroupOf 𝐑[i] :=
-    fun x hx => mem_subgroupOf.mpr (hZX (mem_subgroupOf.mp hx))
-  have hNH : 𝐙.subgroupOf 𝐑[i] ≤ 𝐇.subgroupOf 𝐑[i] :=
-    fun x hx => mem_subgroupOf.mpr (ZP_le_H (mem_subgroupOf.mp hx))
-  have hcardZ : Nat.card (𝐙.subgroupOf 𝐑[i]) = Nat.card K ^ 2 := by
-    rw [Nat.card_congr (subgroupOfEquivOfLe hZR).toEquiv, FCHyp.card_ZP]
-  have hq2 : 0 < Nat.card K ^ 2 := by have : 0 < Nat.card K := Nat.card_pos; positivity
-  refine ⟨this, fun S => maximal_elem_quotient _ hNX hNH
-    (fun y hy => ?_) (fun a ha a' ha' => ?_) (fun a ha => ?_) (fun b hb b' hb' => ?_)
-    (fun b hb => ?_) ?_ ?_ S, ?_, ?_⟩
-  · rcases mem_X_or_H h hbt i y.2 (mem_subgroupOf.mp hy) with h1 | h1
-    · exact Or.inl (mem_subgroupOf.mpr h1)
-    · exact Or.inr (mem_subgroupOf.mpr h1)
-  · rw [mem_subgroupOf, coe_mul, coe_mul, coe_mul, coe_inv, coe_inv,
-      X_commutator h hbt i (mem_subgroupOf.mp ha) (mem_subgroupOf.mp ha')]
-    exact one_mem _
-  · rw [mem_subgroupOf, coe_mul, X_mul_self h hbt i (mem_subgroupOf.mp ha)]
-    exact one_mem _
-  · rw [mem_subgroupOf, coe_mul, coe_mul, coe_mul, coe_inv, coe_inv]
-    exact commutator_mem_ZP h (mem_subgroupOf.mp hb) (mem_subgroupOf.mp hb')
-  · rw [mem_subgroupOf, coe_mul]
-    exact mul_self_mem_ZP h (mem_subgroupOf.mp hb)
-  · intro hle
-    refine X_not_le_H h i fun x hx => ?_
-    have h1 : (⟨x, hXR hx⟩ : 𝐑[i]) ∈ 𝐇.subgroupOf 𝐑[i] := hle (mem_subgroupOf.mpr hx)
-    exact mem_subgroupOf.mp h1
-  · intro hle
-    refine t_not_mem_X h i ?_
-    have h1 : (⟨t, H_le_R h i t_mem_H⟩ : 𝐑[i]) ∈ 𝐗[i].subgroupOf 𝐑[i] :=
-      hle (mem_subgroupOf.mpr t_mem_H)
-    exact mem_subgroupOf.mp h1
-  · have h1 := card_map_mk' (𝐙.subgroupOf 𝐑[i]) hNX
-    rw [hcardZ, Nat.card_congr (subgroupOfEquivOfLe hXR).toEquiv, card_X h i] at h1
-    exact Nat.eq_of_mul_eq_mul_right hq2 (by rw [h1]; ring)
-  · have h1 := card_map_mk' (𝐙.subgroupOf 𝐑[i]) hNH
-    rw [hcardZ, Nat.card_congr (subgroupOfEquivOfLe (H_le_R h i)).toEquiv, h.H_facts.2.2] at h1
-    exact Nat.eq_of_mul_eq_mul_right hq2 (by rw [h1]; ring)
 
 end Cent
 
@@ -1091,130 +999,5 @@ open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique
   CFSG.RankThree.PartOne.KCRootAxis
 open scoped Matrix Pointwise
 
-theorem standard_symplectic_four_both_trivial_Weyl_products_mutual_normality
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) (φ : L ≃* antiSp K)
-    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) :
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    let ZP := (center PG).map PG.subtype
-    let U : Axis → Subgroup G := fun i => ((rootU K i).comap φ.toMonoidHom).map L.subtype
-    let A : Axis → Subgroup G := fun i => ((rootA K i).comap φ.toMonoidHom).map L.subtype
-    let V : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ U i
-    let B : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ A i
-    let M : Axis → Subgroup G := fun i => normalizer (V i : Set G)
-    let N : Axis → Subgroup G := fun i => normalizer (B i : Set G)
-    let D : Axis → Subgroup G := fun i => (CFSG.pCore 2 (M i)).map (M i).subtype
-    let E : Axis → Subgroup G := fun i => (CFSG.pCore 2 (N i)).map (N i).subtype
-    let Qi : Axis → Subgroup G := fun i => Q ⊔ D i
-    let R : Axis → Subgroup G := fun i => Q ⊔ E i
-    let H := Qi Axis.one ⊔ Qi Axis.two
-    let Hi : Axis → Subgroup G := fun i => H ⊓ E i
-    let E₀ := E Axis.one ⊓ E Axis.two
-    let J₀ := ((diagTorus K).comap φ.toMonoidHom).map L.subtype
-    let J : Axis → Subgroup G := fun i => ((axisTorus K i).comap φ.toMonoidHom).map L.subtype
-    let F := closure {x : G | ∃ e ∈ E₀, ∃ j ∈ J₀, x = e⁻¹ * (j⁻¹ * e * j)}
-    let Fi : Axis → Subgroup G := fun i => F ⊓ D i
-    let W : Axis → Subgroup G := fun i => F ⊓ centralizer (J i : Set G)
-    let w : Axis → G := fun i => ((φ.symm (weylElt K i) : L) : G)
-    let Kc : Axis → Subgroup G := fun i => A i ⊔ Fi i
-    let Ks := Kc Axis.one ⊔ Kc Axis.two
-    let L₀ : Axis → Subgroup G := fun i => F ⊔ A i
-    let Fw : Axis → Subgroup G := fun i => F.map (MulAut.conj (w i)⁻¹).toMonoidHom
-    let X : Axis → Subgroup G := fun i => F ⊔ Fw i
-    let T₀ := R Axis.one ⊔ R Axis.two
-    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ ZP, x = t * z} →
-    ⁅A Axis.one, Fi Axis.two⁆ = ⊥ → ⁅A Axis.two, Fi Axis.one⁆ = ⊥ →
-    ((Kc Axis.one : Set G) * (Kc Axis.two : Set G) = Ks ∧ (F : Set G) * (PG : Set G) = Ks) ∧
-      (∀ i : Axis, L₀ i ≤ Ks ∧ (∀ x ∈ L₀ i, ∀ y ∈ L₀ i, x * y = y * x) ∧
-        Nat.card (L₀ i) = (2 ^ n) ^ 5) ∧ L₀ Axis.one ≠ L₀ Axis.two ∧
-      (∀ S : Subgroup G, S ≤ Ks → (∀ x ∈ S, ∀ y ∈ S, x * y = y * x) →
-        Nat.card S ≤ (2 ^ n) ^ 5 ∧
-          (Nat.card S = (2 ^ n) ^ 5 → S = L₀ Axis.one ∨ S = L₀ Axis.two)) ∧
-      (∀ i j : Axis, L₀ j ≤ R i ∧ ((L₀ j).subgroupOf (R i)).Normal) ∧
-      (∀ i : Axis, IsElementaryAbelian 2 (W i)) ∧ IsElementaryAbelian 2 F ∧
-      (∀ i : Axis, (F : Set G) * (Fw i : Set G) = X i ∧ IsElementaryAbelian 2 (X i) ∧
-        Nat.card (X i) = (2 ^ n) ^ 6) ∧
-      (∀ i : Axis, Hi i = F ⊔ B i ∧ (F : Set G) * (B i : Set G) = Hi i ∧ X i ⊓ H = L₀ i ∧
-        (F : Set G) * (A i : Set G) = L₀ i) ∧
-      R Axis.one ≤ normalizer (R Axis.two : Set G) ∧
-      R Axis.two ≤ normalizer (R Axis.one : Set G) ∧
-      ((R Axis.one : Set G) * (R Axis.two : Set G) = T₀ ∧ IsPGroup 2 T₀ ∧
-        (∀ i : Axis, R i ≤ T₀ ∧ ((R i).subgroupOf T₀).Normal) ∧
-        ZP ≤ (center T₀).map T₀.subtype) ∧
-      (∀ i : Axis,
-        (∃ _ : (ZP.subgroupOf (E i)).Normal, ∀ S : Subgroup (↥(E i) ⧸ ZP.subgroupOf (E i)),
-          Maximal (fun S : Subgroup (↥(E i) ⧸ ZP.subgroupOf (E i)) => IsElementaryAbelian 2 S)
-              S ↔
-            S = ((X i).subgroupOf (E i)).map (QuotientGroup.mk' (ZP.subgroupOf (E i))) ∨
-              S = ((Hi i).subgroupOf (E i)).map (QuotientGroup.mk' (ZP.subgroupOf (E i)))) ∧
-        (∃ _ : (ZP.subgroupOf (R i)).Normal,
-          (∀ S : Subgroup (↥(R i) ⧸ ZP.subgroupOf (R i)),
-            Maximal (fun S : Subgroup (↥(R i) ⧸ ZP.subgroupOf (R i)) =>
-                IsElementaryAbelian 2 S) S ↔
-              S = ((X i).subgroupOf (R i)).map (QuotientGroup.mk' (ZP.subgroupOf (R i))) ∨
-                S = (H.subgroupOf (R i)).map (QuotientGroup.mk' (ZP.subgroupOf (R i)))) ∧
-          Nat.card (((X i).subgroupOf (R i)).map (QuotientGroup.mk' (ZP.subgroupOf (R i)))) =
-            (2 ^ n) ^ 4 ∧
-          Nat.card ((H.subgroupOf (R i)).map (QuotientGroup.mk' (ZP.subgroupOf (R i)))) =
-            2 * (2 ^ n) ^ 4)) ∧
-      ∀ i : Axis, X i ≤ T₀ ∧ ((X i).subgroupOf T₀).Normal := by
-  intro TG PG Q ZP U A V B M N D E Qi R H Hi E₀ J₀ J F Fi W w Kc Ks L₀ Fw X T₀ hfull hb1 hb2
-  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
-  have hPG : PG = pull φ (antiUnipotent K) := by
-    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
-    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
-  have hZP : ZP = pull φ (antiUnipotentCenter K) := by
-    change (center ↥PG).map PG.subtype = _
-    rw [hPG, center_pull_antiUnipotent]
-  have hfull' : {x : G | ∃ m ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) :
-      Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ pull φ (antiUnipotentCenter K), x = t * z} := by
-    rw [← hPG, ← hZP]
-    exact hfull
-  obtain ⟨hTG₀, hF⟩ := FCHyp.of_setup hS (hO := hO) hLn hfull'
-  have hTG : TG = zpowers (t : G) := hTG₀
-  clear_value ZP PG TG
-  subst hTG hPG hZP
-  have hbt : ∀ i : Axis, ⁅A i, F ⊓ D i.swap⁆ = ⊥ := fun i => by
-    cases i
-    · exact hb1
-    · exact hb2
-  have hRN1 : R Axis.one ≤ normalizer (R Axis.two : Set G) := R_le_normalizer_R hF hbt Axis.two
-  have hRN2 : R Axis.two ≤ normalizer (R Axis.one : Set G) := R_le_normalizer_R hF hbt Axis.one
-  refine ⟨⟨K_mul_K hF, F_mul_P hF⟩, fun i => ⟨L_le_Ks hF i,
-      fun x hx y hy => L_comm hF hbt i hx hy, (card_L hF i).trans (by rw [hK])⟩, L_ne hF,
-    fun S hSK hSc => ?_,
-    fun i j => ⟨(L_le_Ks hF j).trans (Ks_normal_R hF i).1, normal_subgroupOf_of_le_normalizer
-      fun r hr => mem_normalizer_of_conj_le fun l hl => conj_R_mem_L' hF hbt i j hr hl⟩,
-    fun i => isElementaryAbelian_of (fun x hx y hy => F_comm hF hx.1 hy.1)
-      (fun x hx => W_mul_self hF hbt i hx),
-    isElementaryAbelian_of (fun x hx y hy => F_comm hF hx hy) (fun x hx => F_mul_self hF hbt hx),
-    fun i => ⟨F_mul_Fw' hF i, X_elem hF hbt i, (card_X hF i).trans (by rw [hK])⟩,
-    fun i => ⟨Hi_eq hF i, F_mul_B hF i, X_inf_H hF i, L_mul hF i⟩, hRN1, hRN2,
-    ⟨(coe_mul_of_left_le_normalizer_right _ _ hRN1).symm,
-      IsPGroup.to_sup_of_normal_right' (R_isPGroup hF _) (R_isPGroup hF _) hRN1,
-      fun i => ⟨?_, normal_subgroupOf_of_le_normalizer (T_le_normalizer_R hF hbt i)⟩,
-      ZP_le_center_T hF hbt⟩, fun i => ⟨maximal_E hF hbt i, ?_⟩, fun i => ⟨?_, ?_⟩⟩
-  · obtain ⟨h1, h2⟩ := abelian_Ks hF hbt hSK hSc
-    rw [hK] at h1 h2
-    exact ⟨h1, h2⟩
-  · cases i
-    · exact le_sup_left
-    · exact le_sup_right
-  · obtain ⟨hN, hmax, h1, h2⟩ := maximal_R hF hbt i
-    exact ⟨hN, hmax, h1.trans (by rw [hK]), h2.trans (by rw [hK])⟩
-  · have hXR : X i ≤ R i := (X_normal_R hF i).1
-    cases i
-    · exact hXR.trans le_sup_left
-    · exact hXR.trans le_sup_right
-  · exact normal_subgroupOf_of_le_normalizer fun g hg =>
-      mem_normalizer_of_conj_le fun x hx => conj_T_mem_X hF hbt i hg hx
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

@@ -163,10 +163,6 @@ namespace D1Escape
 
 variable {G : Type*} [Group G] [Finite G] {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
 
-theorem twoCore_subgroupOf_not_le (h : D1Escape p P M H R)
-    (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :
-    ¬ (pCoreOf 2 H).subgroupOf M ≤ CFSG.pCore 2 M :=
-  h.toTwoLocalPair.twoCore_subgroupOf_not_le hS
 
 theorem exists_component_or_oddCore (h : D1Escape p P M H R)
     (hS : pCoreOf 2 (H ⊓ M) = pCoreOf 2 H) :

@@ -14,11 +14,6 @@ open CFSG.Open CFSG.Semidihedral CFSG.Semidihedral.CentralizerResidual
 open CFSG.Semidihedral.ReducedQuotients CFSG.Semidihedral.FourPointQuotient
 open CFSG.Semidihedral.FourPointCentralizer
 
-theorem ambientZ_centralizer_eq_zpowers {G : Type*} [Group G] (t : G) :
-    CentralQuotients.ambientZ (⟨t, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ :
-      Subgroup.centralizer ({t} : Set G)) (Local.self_mem_center_centralizer t) =
-      Subgroup.zpowers ⟨t, Subgroup.mem_centralizer_singleton_iff.mpr rfl⟩ :=
-  rfl
 
 theorem four_point_reduced_centralizer_GL2_quotient {G : Type*} [Group G] [Finite G]
     (hG : ∀ L : Subgroup G, L.index ≠ 2) (n : ℕ) (hn : 4 ≤ n) (S₀ : Sylow 2 G)

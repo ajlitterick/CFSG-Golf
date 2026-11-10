@@ -35,7 +35,6 @@ theorem card_alt3 : Nat.card (alternatingGroup (Fin 3)) = 3 := by
 
 theorem sigma3_inv0 : ((sigma3 : Equiv.Perm (Fin 3))⁻¹) 0 = 2 := by decide
 
-theorem sigma3_inv1 : ((sigma3 : Equiv.Perm (Fin 3))⁻¹) 1 = 0 := by decide
 
 theorem sigma3_inv2 : ((sigma3 : Equiv.Perm (Fin 3))⁻¹) 2 = 1 := by decide
 

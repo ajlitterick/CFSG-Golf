@@ -119,16 +119,6 @@ theorem pinnedX_eq_sum (α : Fin τ.rank → ℤ) (c : R) :
   push_cast
   ring_nf
 
-theorem pinnedE_pow (α : Fin τ.rank → ℤ) (k : ℕ) :
-    pinnedE τ R α ^ k = (k ! : R) • pinnedCoeff τ R α k := by
-  simp only [pinnedE, pinnedCoeff, smul_pow, Units.conj_pow, infE_pow, mul_smul_comm,
-    smul_mul_assoc, smul_smul]
-  push_cast
-  ring_nf
-
-theorem pinnedE_pow_four (α : Fin τ.rank → ℤ) : pinnedE τ R α ^ 4 = 0 := by
-  rw [pinnedE_pow, pinnedCoeff, xCoeff_eq_zero _ (le_refl 4)]
-  simp
 
 theorem pinnedCoeff_zero (α : Fin τ.rank → ℤ) : pinnedCoeff τ R α 0 = 1 := by
   simp [pinnedCoeff, xCoeff_zero]
@@ -136,16 +126,5 @@ theorem pinnedCoeff_zero (α : Fin τ.rank → ℤ) : pinnedCoeff τ R α 0 = 1 
 theorem pinnedCoeff_one (α : Fin τ.rank → ℤ) : pinnedCoeff τ R α 1 = pinnedE τ R α := by
   simp [pinnedCoeff, pinnedE, xCoeff_one]
 
-theorem pinnedX_eq_sum_pow {R : Type*} [CommRing R] [Algebra ℚ R] (α : Fin τ.rank → ℤ) (c : R) :
-    (pinnedX τ R α c : Module.End R (RootModule τ R)) =
-      ∑ k ∈ Finset.range 4, ((k ! : ℚ)⁻¹ • c ^ k) • pinnedE τ R α ^ k := by
-  rw [pinnedX_eq_sum]
-  refine Finset.sum_congr rfl fun k _ => ?_
-  rw [pinnedE_pow, smul_smul]
-  congr 1
-  have h1 : c ^ k * (k ! : R) = ((k ! : ℚ)) • c ^ k := by
-    rw [mul_comm, ← nsmul_eq_mul, ← Nat.cast_smul_eq_nsmul ℚ]
-  rw [smul_mul_assoc, h1, smul_smul, inv_mul_cancel₀ (by exact_mod_cast Nat.factorial_ne_zero k),
-    one_smul]
 
 end CFSG.Blueprint.Chevalley

@@ -209,9 +209,6 @@ theorem mem_moduleA_of_mem_groupA
   · obtain ⟨t, rfl⟩ := exists_jA_of_mem_setA hi
     exact yOp_mem_moduleA t c
 
-variable (K) in
-@[expose] def diagA : ⋀[K]^3 (Fin 6 → K) →ₗ[K] ⋀[K]^3 (Fin 6 → K) :=
-  ((Pi.basisFun K (Fin 6)).exteriorPower 3).constr K fun I => wedgeBasis (compRevPC I)
 
 variable (K) in
 @[expose] def restrictEndA :

@@ -68,9 +68,6 @@ namespace CertificateChecks.KernelPropA
 @[expose] def pa450010wR : List (List Int) :=
   [[1], [-2, 1, -2, 1, 2, 3, -2, 3, 2, 3, 2, 1, 3, -2]]
 
-@[expose] def pa450010wRP : List (List Int) :=
-  [pa450010comm [-1, 2, -1, -2, -1, 2, 1] [-1, -2, 1, 2, 2, 2, 1],
-   pa450010comm [2, 1, -2, -1, -2, -1, 2, 1] [2, 1, -2, -1, -2, -1, 2, 1, -2]]
 
 end CertificateChecks.KernelPropA
 

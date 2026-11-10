@@ -11,20 +11,11 @@ namespace CFSG.Assembly.Dichotomy
 
 variable {G : Type*} [Group G]
 
-theorem assembly_isElemAbelian_iff_open (p : ℕ) (E : Subgroup G) :
-    IsElemAbelian p E ↔ CFSG.Open.IsElemAbelian p E :=
-  Iff.rfl
 
 theorem assembly_pRank_eq_open [Finite G] (p : ℕ) (H : Subgroup G) :
     pRank p H = CFSG.Open.pRank p H :=
   rfl
 
-theorem assembly_twoRank_eq_open (G : Type*) [Group G] [Finite G] :
-    twoRank G = CFSG.Open.twoRank G :=
-  rfl
-
-theorem isPerfect_of_commutator_eq_top (h : commutator G = ⊤) : Group.IsPerfect G :=
-  Group.isPerfect_def.mpr h
 
 private theorem le_normalizer_map_subtype {S : Subgroup G} (V : Subgroup S) [V.Normal] :
     S ≤ Subgroup.normalizer ((V.map S.subtype : Subgroup G) : Set G) := by

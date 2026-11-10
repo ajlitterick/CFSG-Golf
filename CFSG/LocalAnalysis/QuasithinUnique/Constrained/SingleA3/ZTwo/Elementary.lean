@@ -15,7 +15,6 @@ variable {G : Type} [Group G] [Finite G] {T S U R : Subgroup G} {y x c : G}
 
 include h
 
-theorem U_le_S' : U ≤ S := h.U_le
 
 theorem zpowers_y_le_S : zpowers y ≤ S := zpowers_le.mpr h.y_mem
 

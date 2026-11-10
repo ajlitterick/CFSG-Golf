@@ -66,13 +66,6 @@ theorem centralizer_pinnedX_highRoot_inf_eq (hτ : τ = .E6 ∨ τ = .E7 ∨ τ 
     rintro _ rfl
     exact (commute_pinnedX_highRoot_of_mem_perpLevi hτ hl c).symm
 
-theorem centralizer_pinnedX_highRoot_inf_eq_sup_centralizer [Finite K] [CharP K 2]
-    (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) (hq : 4 ≤ Nat.card K) {c : K} (hc : c ≠ 0) :
-    centralizer ({pinnedX τ K (highRoot τ) c} : Set (ModGL τ K)) ⊓ adjointGroup τ K =
-      parabolicRadical τ K (perpNodes τ) ⊔
-        adjointGroup τ K ⊓ centralizer (highRootSL2 τ K : Set (ModGL τ K)) := by
-  rw [centralizer_highRootSL2_eq hτ hq]
-  exact centralizer_pinnedX_highRoot_inf_eq hτ hc
 
 theorem parabolicRadical_perpNodes_inf_rootSpan_perpRoots :
     parabolicRadical τ K (perpNodes τ) ⊓ rootSpan τ K (perpRoots τ) = ⊥ := by
@@ -89,69 +82,6 @@ theorem isPGroup_parabolicRadical [Finite K] (p : ℕ) [Fact p.Prime] [CharP K p
     (J : Set (Fin τ.rank)) : IsPGroup p (parabolicRadical τ K J) :=
   ((parabolic_root_radical_Levi_factors τ K J).2.2.2.2.2.2.2.2.2.2.2.2 p).2.1
 
-theorem torusGroup_inf_centralizer_pinnedX_highRoot (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {c : K}
-    (hc : c ≠ 0) :
-    torusGroup τ K ⊓ centralizer ({pinnedX τ K (highRoot τ) c} : Set (ModGL τ K)) =
-      torusGroup τ K ⊓ rootSpan τ K (perpRoots τ) := by
-  refine le_antisymm (fun h hh => ?_) (fun h hh => ?_)
-  · obtain ⟨hhT, hhC⟩ := mem_inf.1 hh
-    exact mem_inf.2 ⟨hhT, mem_perpLevi_of_mem_torusGroup_of_commute hτ hhT hc
-      (mem_centralizer_singleton_iff.1 hhC)⟩
-  · obtain ⟨hhT, hhD⟩ := mem_inf.1 hh
-    exact mem_inf.2 ⟨hhT, mem_centralizer_singleton_iff.2
-      (commute_pinnedX_highRoot_of_mem_perpLevi hτ hhD c)⟩
-
-theorem torusGroup_inf_centralizer_highRoot_eq_closure (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    {c : K} (hc : c ≠ 0) :
-    torusGroup τ K ⊓ centralizer ({pinnedX τ K (highRoot τ) c} : Set (ModGL τ K)) =
-      closure {g | ∃ j : Fin τ.rank, j ≠ highNode τ ∧ ∃ u : Kˣ, torusElt τ K j u = g} := by
-  refine le_antisymm (fun h hh => ?_) ((closure_le _).2 ?_)
-  · obtain ⟨hhT, hhC⟩ := mem_inf.1 hh
-    have hθ := conj_pinnedX_highRoot_one_of_commute hhT hc (mem_centralizer_singleton_iff.1 hhC)
-    obtain ⟨c', rfl⟩ := exists_cartanChar_eq_of_mem_torusGroup hhT
-    have hc' : c' (highNode τ) = 1 := by
-      rw [rootDiagUnit_conj_pinnedX _ (isRoot_highRoot τ)] at hθ
-      have e := pinnedX_injective τ K _ hθ
-      rw [mul_one, rootChar_cartanChar_highRoot hτ] at e
-      exact Units.ext e
-    rw [← list_prod_torusElt_eq_rootDiagUnit]
-    refine list_prod_mem fun x hx => ?_
-    obtain ⟨j, -, rfl⟩ := List.mem_map.1 hx
-    by_cases hj : j = highNode τ
-    · subst hj
-      rw [hc', torusElt_eq_rootDiagUnit]
-      simp only [one_zpow]
-      rw [show (fun _ : Fin τ.rank => (1 : Kˣ)) = 1 from rfl, rootDiagUnit_one]
-      exact one_mem _
-    · exact subset_closure ⟨j, hj, c' j, rfl⟩
-  · rintro _ ⟨j, hj, u, rfl⟩
-    exact mem_inf.2 ⟨subset_closure ⟨(j, u), rfl⟩, mem_centralizer_singleton_iff.2
-      (commute_pinnedX_highRoot_of_mem_perpLevi hτ (torusElt_mem_rootSpan_perpRoots hj u) c)⟩
-
-theorem parabolicLevi_perpNodes_inf_centralizer_eq (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {c : K}
-    (hc : c ≠ 0) :
-    parabolicLevi τ K (perpNodes τ) ⊓
-        centralizer ({pinnedX τ K (highRoot τ) c} : Set (ModGL τ K)) =
-      rootSpan τ K (perpRoots τ) := by
-  refine le_antisymm (fun m hm => ?_) (fun l hl => mem_inf.2 ⟨?_, ?_⟩)
-  · obtain ⟨hmM, hmC⟩ := mem_inf.1 hm
-    have hm' : m ∈ (torusGroup τ K : Set (ModGL τ K)) *
-        (rootSpan τ K (perpRoots τ) : Set (ModGL τ K)) := by
-      rw [← coe_mul_of_left_le_normalizer_right _ _
-        (torusGroup_le_normalizer_rootSpan (fun α hα => hα.1)), ← parabolicRoots_perpNodes]
-      exact F4Pilot.parabolicLevi_le_torusGroup_sup _ hmM
-    obtain ⟨h, hh, l, hl, rfl⟩ := hm'
-    have hcm : Commute (h * l) (pinnedX τ K (highRoot τ) c) := mem_centralizer_singleton_iff.1 hmC
-    have hcl : Commute l (pinnedX τ K (highRoot τ) c) :=
-      commute_pinnedX_highRoot_of_mem_perpLevi hτ hl c
-    have hch : Commute h (pinnedX τ K (highRoot τ) c) := by
-      have e : h = h * l * l⁻¹ := by group
-      rw [e]
-      exact hcm.mul_left hcl.inv_left
-    exact mul_mem (mem_perpLevi_of_mem_torusGroup_of_commute hτ hh hc hch.eq) hl
-  · rw [← parabolicRoots_perpNodes] at hl
-    exact F4Pilot.rootSpan_parabolicRoots_le_parabolicLevi _ hl
-  · exact mem_centralizer_singleton_iff.2 (commute_pinnedX_highRoot_of_mem_perpLevi hτ hl c)
 
 end InGL
 
@@ -188,12 +118,6 @@ theorem isTwoRadicalDecomp_highRoot [Finite K] [CharP K 2] (hτ : τ = .E6 ∨ �
     rootSpan_perpRoots_le_normalizer_parabolicRadical
   exact ⟨F4Pilot.isPGroup_subgroupOf_of_le hQC (isPGroup_parabolicRadical 2 _), h1, h2, h3⟩
 
-theorem factF3_highRoot [Finite K] [CharP K 2] (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8) :
-    ∃ Q : Subgroup (adjointGroup τ K), IsPGroup 2 Q ∧
-      Q ⊔ perpLevi τ K =
-        centralizer ({pinnedElt τ (highRoot τ) (1 : K)} : Set (adjointGroup τ K)) ∧
-      Q ⊓ perpLevi τ K = ⊥ ∧ perpLevi τ K ≤ normalizer (Q : Set (adjointGroup τ K)) :=
-  ⟨_, isTwoRadicalDecomp_highRoot hτ one_ne_zero⟩
 
 end Inside
 
@@ -326,12 +250,6 @@ theorem isTwoRadicalDecomp_root [Finite K] [CharP K 2] (hτ : τ = .E6 ∨ τ = 
   exact ⟨F4Pilot.isPGroup_subgroupOf_of_le (rootSpan_le_adjointGroup' _)
     (isPGroup_rootSpan_radicalRoots 2 hτ hγ), h1, h2, h3⟩
 
-theorem factF3_root [Finite K] [CharP K 2] (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    {γ : Fin τ.rank → ℤ} (hγ : IsRoot τ γ) :
-    ∃ Q : Subgroup (adjointGroup τ K), IsPGroup 2 Q ∧
-      Q ⊔ rootPerpLevi τ K γ = centralizer ({pinnedElt τ γ (1 : K)} : Set (adjointGroup τ K)) ∧
-      Q ⊓ rootPerpLevi τ K γ = ⊥ ∧ rootPerpLevi τ K γ ≤ normalizer (Q : Set (adjointGroup τ K)) :=
-  ⟨_, isTwoRadicalDecomp_root hτ hγ one_ne_zero⟩
 
 end Transport
 

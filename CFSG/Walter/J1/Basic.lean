@@ -202,9 +202,6 @@ theorem nonabelian : ∃ a b : G, a * b ≠ b * a := by
 
 theorem conj_F (g : G) : (h.conj g).F = h.F.map (MulAut.conj g).toMonoidHom := rfl
 
-theorem mem_conj_F {g x : G} : x ∈ (h.conj g).F ↔ g⁻¹ * x * g ∈ h.F := by
-  rw [conj_F, Subgroup.mem_map_equiv]
-  simp [MulAut.conj_symm_apply]
 
 end JankoHyp
 

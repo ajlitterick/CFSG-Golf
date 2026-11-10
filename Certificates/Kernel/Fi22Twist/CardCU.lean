@@ -269,10 +269,6 @@ theorem uSub_le_P {j : ℕ} (hj : j < 5) : uSub j ≤ fi22P := by
   rintro _ ⟨t, ht, rfl⟩
   exact ug_memP (ugIdx_lt hj ht)
 
-theorem card_cSub {j : ℕ} (hj : j < 5) :
-    Nat.card (cSub j) = [162, 972, 486, 1458, 486][j]! := by
-  rw [(orbC hj).2.2]
-  interval_cases j <;> decide
 
 theorem card_uSub {j : ℕ} (hj : j < 5) :
     Nat.card (uSub j) = 3 ^ [4, 5, 5, 6, 5][j]! := by

@@ -34,12 +34,6 @@ private theorem le_normalizer_centerOf (H : Subgroup G) :
     H ≤ Subgroup.normalizer (centerOf H : Set G) :=
   Subgroup.le_normalizer.trans (normalizer_le_normalizer_centerOf H)
 
-private theorem centerOf_le_centralizer_centerOf (H : Subgroup G) :
-    centerOf H ≤ Subgroup.centralizer (centerOf H : Set G) := by
-  intro a ha
-  rw [Subgroup.mem_centralizer_iff]
-  intro b hb
-  exact Subgroup.mem_centralizer_iff.mp ha.2 b hb.1
 
 private theorem le_centralizer_centerOf (H : Subgroup G) :
     H ≤ Subgroup.centralizer (centerOf H : Set G) :=

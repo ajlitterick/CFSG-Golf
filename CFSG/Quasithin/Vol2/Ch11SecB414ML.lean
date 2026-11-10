@@ -123,10 +123,6 @@ theorem delta_eq (hF : Nat.card F = 4) {A : Matrix (Fin 3) (Fin 3) F} (h10 : A 1
   have h3 := pow_three_eq_one hF h0
   linear_combination A 0 0 ^ 2 * hdet - (A 1 1 * A 2 2 - A 1 2 * A 2 1) * h3
 
-omit [Finite F] [CharP F 2] in
-theorem twAdj_add (k : ℕ) (g : GL (Fin 3) F) (M N : Matrix (Fin 3) (Fin 3) F) :
-    twAdj k g (M + N) = twAdj k g M + twAdj k g N := by
-  simp only [twAdj, Matrix.mul_add, Matrix.add_mul, smul_add]
 
 omit [Finite F] [CharP F 2] in
 theorem twAdj_smul (k : ℕ) (g : GL (Fin 3) F) (t : F) (M : Matrix (Fin 3) (Fin 3) F) :

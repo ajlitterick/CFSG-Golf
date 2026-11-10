@@ -64,36 +64,6 @@ structure Hyp1222 (D : Data G) (V₀ V : Subgroup G) (L : Subgroup G) (j : ℕ)
   delta_unique : UniqueMax D.M (⨆ H ∈ Δ, H)
   either : XCond1218 D.M V₀ V hyp125.isElemAbelian j (conjClosure D.M L)
 
-@[expose] def IsDelta18 (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G)
-    (Δ : Set (Subgroup G)) : Prop :=
-  (∀ H ∈ Δ, D.T ≤ H ∧ H ≤ conjClosure D.M L ⊔ D.T) ∧
-    (((∃ f : ℕ, IsSp4 (Bar2 (conjClosure D.M L)) f) ∧
-          S17.SwapsParabolics D.T (conjClosure D.M L)) ∨
-        conjClosure D.M L ∉ S17.calL1Star D p →
-      Δ = {conjClosure D.M L ⊔ D.T}) ∧
-    (¬ ((∃ f : ℕ, IsSp4 (Bar2 (conjClosure D.M L)) f) ∧
-          S17.SwapsParabolics D.T (conjClosure D.M L)) →
-      conjClosure D.M L ∈ S17.calL1Star D p →
-      ((∃ f : ℕ, IsU4 (Bar2 (conjClosure D.M L)) f) →
-        ∃ (P₁ X₁ K Y : Subgroup G),
-          S17.IsMaxParabolicOver (conjClosure D.M L) (D.T ⊓ conjClosure D.M L) P₁ ∧
-          X₁ = D.T ⊔ Opp 2 P₁ ∧ K ∈ calC X₁ ∧ IsL2 (Bar2 K) (S17.nOf L) ∧
-          Y ≤ P₁ ⊓ S17.centSection (conjClosure D.M L) K (pCoreOf 2 K) ∧
-          Nat.card Y = p ∧ Permutes Y D.T ∧ Δ = {X₁, D.T ⊔ Y}) ∧
-      (IsU5 (Bar2 (conjClosure D.M L)) 2 →
-        ∃ (P₁ X₁ K : Subgroup G),
-          S17.IsMaxParabolicOver (conjClosure D.M L) (D.T ⊓ conjClosure D.M L) P₁ ∧
-          X₁ = D.T ⊔ Opp 2 P₁ ∧ K ∈ calC X₁ ∧ IsSU3 (Bar2 K) 2 ∧ Δ = {X₁}) ∧
-      ((¬ ∃ f : ℕ, IsU4 (Bar2 (conjClosure D.M L)) f) →
-        ¬ IsU5 (Bar2 (conjClosure D.M L)) 2 →
-        ∃ (P₁ P₂ X₁ X₂ : Subgroup G),
-          P₁ ≠ P₂ ∧
-          S17.IsMaxParabolicOver (conjClosure D.M L) (D.T ⊓ conjClosure D.M L) P₁ ∧
-          S17.IsMaxParabolicOver (conjClosure D.M L) (D.T ⊓ conjClosure D.M L) P₂ ∧
-          (∀ P : Subgroup G,
-            S17.IsMaxParabolicOver (conjClosure D.M L) (D.T ⊓ conjClosure D.M L) P →
-              P = P₁ ∨ P = P₂) ∧
-          X₁ = D.T ⊔ Opp 2 P₁ ∧ X₂ = D.T ⊔ Opp 2 P₂ ∧ Δ = {X₁, X₂}))
 
 section Coords
 
@@ -157,10 +127,6 @@ theorem apply_eq {x : MulAut W} (hx : x ∈ centVec X v) : x v = v :=
 
 end centVec
 
-@[expose] def P18_6_1 (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G)
-    (h : Hyp18 D V₀ V p L) (Δ : Set (Subgroup G)) : Prop :=
-  MBarGT D.M V₀ V (bBar (conjClosure D.M L) D.M V₀ V h.hyp125.isElemAbelian + 2) ∧
-    (V₀ ≠ ⊥ → (fIndexMax Δ + 2 : ℕ∞) < (mBar D.M V₀ V h.hyp125.isElemAbelian : ℕ∞))
 
 @[expose] def P18_6_2 (D : Data G) (V₀ V : Subgroup G) (p : ℕ) (L : Subgroup G)
     (h : Hyp18 D V₀ V p L) : Prop :=

@@ -175,10 +175,6 @@ variable (W L : Submodule K (Fin r ⊕ Fin r → K))
 
 variable {W L}
 
-theorem mem_flagKernel {g : StatedSp r K} :
-    g ∈ flagKernel W L ↔ (∀ w ∈ W, spMat g *ᵥ w = w) ∧ (∀ l ∈ L, spMat g *ᵥ l - l ∈ W) ∧
-      ∀ v, spMat g *ᵥ v - v ∈ L :=
-  Iff.rfl
 
 theorem pow_four_eq_one_of_mem_flagKernel [CharP K 2] {g : StatedSp r K}
     (hg : g ∈ flagKernel W L) : g ^ 4 = 1 := by

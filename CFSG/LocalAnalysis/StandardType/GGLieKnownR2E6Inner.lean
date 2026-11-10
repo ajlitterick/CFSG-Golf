@@ -38,31 +38,6 @@ private theorem l10se6i_a_highRootData :
     HighRootData .E6 (highRoot .E6) l10se6i_i₀ :=
   RootCentExc.highRootData_E6
 
-private def l10se6i_a_scalarGroup
-    (K : Type) [Field K] (θ : Fin Tag.E6.rank → ℤ) : Subgroup (ModGL .E6 K) where
-  carrier := {g | ∃ l : K, ∀ c : K, g * pinnedX .E6 K θ c * g⁻¹ = pinnedX .E6 K θ (l * c)}
-  one_mem' := ⟨1, by intro c; rw [one_mul, inv_one, mul_one, one_mul]⟩
-  mul_mem' := by
-    rintro g h ⟨l, hl⟩ ⟨l', hl'⟩
-    refine ⟨l * l', fun c => ?_⟩
-    calc g * h * pinnedX .E6 K θ c * (g * h)⁻¹
-        = g * (h * pinnedX .E6 K θ c * h⁻¹) * g⁻¹ := by group
-      _ = g * pinnedX .E6 K θ (l' * c) * g⁻¹ := by rw [hl' c]
-      _ = pinnedX .E6 K θ (l * (l' * c)) := hl (l' * c)
-      _ = pinnedX .E6 K θ ((l * l') * c) := by rw [mul_assoc]
-  inv_mem' := by
-    rintro g ⟨l, hl⟩
-    have hl0 : l ≠ 0 := by
-      intro h0
-      have h1 := hl 1
-      rw [h0, zero_mul, pinnedX_zero, mul_inv_eq_one, mul_eq_left] at h1
-      exact one_ne_zero (pinnedX_injective .E6 K θ (h1.trans (pinnedX_zero .E6 K θ).symm))
-    refine ⟨l⁻¹, fun c => ?_⟩
-    have h2 := hl (l⁻¹ * c)
-    rw [← mul_assoc, mul_inv_cancel₀ hl0, one_mul] at h2
-    calc g⁻¹ * pinnedX .E6 K θ c * (g⁻¹)⁻¹
-        = g⁻¹ * (g * pinnedX .E6 K θ (l⁻¹ * c) * g⁻¹) * g := by rw [← h2]; group
-      _ = pinnedX .E6 K θ (l⁻¹ * c) := by group
 
 private theorem l10se6i_a_rootGroup_eq_subgroupOf
     (K : Type) [Field K] :

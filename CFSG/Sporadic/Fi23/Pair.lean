@@ -74,24 +74,5 @@ theorem pair_Fi23 :
     CFSG.Blueprint.Fischer.Pair Blueprint.NativeSporadic.Fi23 {x | IsConj dFi23 x} :=
   pair_of_equiv fi23EquivJ.toEquiv (map_mul fi23EquivJ) d pair_J
 
-theorem card_class_dFi23 :
-    Nat.card {x : Blueprint.NativeSporadic.Fi23 // IsConj dFi23 x} = 31671 := by
-  rw [← card_class_d]
-  exact Nat.card_congr (fi23EquivJ.toEquiv.subtypeEquiv fun x =>
-    isConj_symm_iff fi23EquivJ.toEquiv (map_mul fi23EquivJ) d x)
-
-theorem card_centralizer_dFi23 :
-    Nat.card (Subgroup.centralizer ({dFi23} : Set Blueprint.NativeSporadic.Fi23)) =
-      129123503308800 := by
-  rw [← card_centralizer_d]
-  refine Nat.card_congr (fi23EquivJ.toEquiv.subtypeEquiv fun x => ?_)
-  rw [Subgroup.mem_centralizer_singleton_iff, Subgroup.mem_centralizer_singleton_iff]
-  have hd : fi23EquivJ.toEquiv dFi23 = d := fi23EquivJ.toEquiv.apply_symm_apply d
-  have h1 : fi23EquivJ.toEquiv (x * dFi23) = fi23EquivJ.toEquiv x * d := by
-    rw [← hd]; exact map_mul fi23EquivJ x dFi23
-  have h2 : fi23EquivJ.toEquiv (dFi23 * x) = d * fi23EquivJ.toEquiv x := by
-    rw [← hd]; exact map_mul fi23EquivJ dFi23 x
-  rw [← h1, ← h2]
-  exact fi23EquivJ.toEquiv.injective.eq_iff.symm
 
 end CFSG.Sporadic.Fi23

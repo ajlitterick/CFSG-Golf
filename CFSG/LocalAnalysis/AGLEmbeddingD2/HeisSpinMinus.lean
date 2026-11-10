@@ -381,11 +381,6 @@ theorem matM_pow_five : (matM : Matrix (Fin 4) (Fin 4) F) ^ 5 = 1 := by
   ext i j
   fin_cases i <;> fin_cases j <;> simp [matM, matM4, Matrix.mul_apply, Fin.sum_univ_four] <;> grind
 
-omit [CharP F 2] in
-theorem matM_ne_one : (matM : Matrix (Fin 4) (Fin 4) F) ≠ 1 := by
-  intro h
-  have := congrArg (fun A : Matrix (Fin 4) (Fin 4) F => A 0 0) h
-  simp [matM] at this
 
 end Matrices
 

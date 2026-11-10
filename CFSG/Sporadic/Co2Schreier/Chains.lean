@@ -108,21 +108,6 @@ theorem repTuple_s :
   rw [cStarTuple_length]
   exact localShape.sWords_letters
 
-theorem chainC_valid :
-    ValidSchreier chainC :=
-  (validSchreier_of_chainOK chainC_arrays (by norm_num) chainC_check.1).1
-
-theorem chainD_valid :
-    ValidSchreier chainD :=
-  (validSchreier_of_chainOK chainD_arrays (by norm_num) chainD_check.1).1
-
-theorem chainS_valid :
-    ValidSchreier chainS :=
-  (validSchreier_of_chainOK chainS_arrays (by norm_num) chainS_check.1).1
-
-theorem chainJoin_valid :
-    ValidSchreier chainJoin :=
-  (validSchreier_of_chainOK chainJoin_arrays (by norm_num) chainJoin_check.1).1
 
 theorem chainC_original :
     chainC.originalSubgroup = locC := by
@@ -271,12 +256,6 @@ theorem locZ_ne_one :
   rw [(eqA_iff rep_z rep_idA).2 h] at this
   exact Bool.noConfusion this
 
-theorem locT_ne_one :
-    locT ≠ 1 := by
-  intro h
-  have := wordFacts.tNe
-  rw [(eqA_iff rep_t rep_idA).2 h] at this
-  exact Bool.noConfusion this
 
 theorem locC_le_centralizer :
     locC ≤ Subgroup.centralizer {locZ} := by
@@ -294,21 +273,5 @@ theorem locD_le_centralizer :
   rw [SetLike.mem_coe, Subgroup.mem_centralizer_singleton_iff]
   exact (commA_iff (repTuple_d.rep hk) rep_t).1 (wordFacts.commT k (dTuple_length ▸ hk))
 
-theorem AT_Co2_local_chain_orders :
-    ValidSchreier chainC ∧ ValidSchreier chainD ∧ ValidSchreier chainS ∧
-    ValidSchreier chainJoin ∧
-    chainC.originalSubgroup = locC ∧ chainD.originalSubgroup = locD ∧
-    chainS.originalSubgroup = locS ∧ chainJoin.originalSubgroup = locC ⊔ locD ∧
-    Nat.card locC = 743178240 ∧ Nat.card locD = 41287680 ∧ Nat.card locS = 262144 ∧
-    Nat.card ↥(locC ⊔ locD) = 42305421312000 ∧ locC ⊔ locD = co2P ∧ locS ≤ co2P ∧
-    (∃ T : Sylow 2 co2P, (T : Subgroup co2P) = locS.subgroupOf co2P) ∧
-    locQ ≤ locS ∧ locR ≤ locS ∧ locZ ∈ locS ∧ locT ∈ locS ∧ locZ ^ 2 = 1 ∧ locT ^ 2 = 1 ∧
-    locZ ≠ 1 ∧ locT ≠ 1 ∧ locC ≤ co2P ⊓ Subgroup.centralizer {locZ} ∧
-    locD ≤ co2P ⊓ Subgroup.centralizer {locT} :=
-  ⟨chainC_valid, chainD_valid, chainS_valid, chainJoin_valid, chainC_original, chainD_original,
-    chainS_original, chainJoin_original, card_locC, card_locD, card_locS, card_locC_sup_locD,
-    locC_sup_locD, locS_le_P, ⟨locSylow, rfl⟩, locQ_le_S, locR_le_S, locZ_mem_S, locT_mem_S,
-    locZ_sq, locT_sq, locZ_ne_one, locT_ne_one, le_inf locC_le_P locC_le_centralizer,
-    le_inf locD_le_P locD_le_centralizer⟩
 
 end CFSG.Sporadic.Co2Schreier

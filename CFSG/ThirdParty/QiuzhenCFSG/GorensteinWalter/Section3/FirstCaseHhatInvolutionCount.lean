@@ -77,23 +77,6 @@ private theorem firstCase_klein_V_normal
       (pCore_normal (p := 2) (G := c.Hhat)).conj_mem
         x0 hx0 (⟨h, hh⟩ : c.Hhat), by simp⟩
 
-private theorem firstCase_klein_V_sq_one
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (hklein : IsKleinFour (pCore 2 c.Hhat))
-    {v : G} (hv : v ∈ twoCoreOf c.Hhat) :
-    v * v = 1 := by
-  have hV := firstCase_klein_V_klein c hklein
-  simpa [pow_two] using
-    congrArg Subtype.val (hV.mul_self (⟨v, hv⟩ : twoCoreOf c.Hhat))
-
-private theorem firstCase_klein_V_involution
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (hklein : IsKleinFour (pCore 2 c.Hhat))
-    {v : G} (hv : v ∈ twoCoreOf c.Hhat) (hvne : v ≠ 1) :
-    IsInvolution v := by
-  exact ⟨hvne, by simpa [pow_two] using firstCase_klein_V_sq_one c hklein hv⟩
 
 /- The centralizer of the Klein core inside `H` has no involution outside
 `V`.  This is the only local Sylow-model argument in the incidence proof. -/
@@ -688,17 +671,5 @@ public theorem firstCase_klein_Hhat_involution_count_with_K
   refine ⟨K, hKHall, hKne, hHcount, ?_⟩
   simpa [JH] using hJHcard
 
-public theorem firstCase_klein_Hhat_involution_count
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (hfirst : FirstCase c)
-    (hklein : IsKleinFour (pCore 2 c.Hhat)) :
-    ∃ K : Subgroup G, IsHallIn K c.FU ∧ K ≠ ⊥ ∧
-      Nat.card {x : G // IsInvolution x ∧ x ∈ c.Hhat} =
-        3 + 6 * Nat.card K := by
-  rcases firstCase_klein_Hhat_involution_count_with_K hmin c hfirst hklein with
-    ⟨K, hK, hKne, _hH, hHhat⟩
-  exact ⟨K, hK, hKne, hHhat⟩
 
 end CFSG.GorensteinWalter

@@ -21,7 +21,6 @@ theorem cT_mul {l m n : Type} [Fintype m] (A : Matrix l m E) (B : Matrix m n E) 
 omit [Fintype ι] in
 theorem cT_one : cT σ (1 : Matrix ι ι E) = 1 := by simp [cT]
 
-theorem cT_conjTr {n : ℕ} (A : Matrix (Fin n) (Fin n) E) : cT σ A = conjTr σ A := rfl
 
 omit [Fintype ι] [DecidableEq ι] in
 theorem cT_smul (c : E) (A : Matrix ι ι E) : cT σ (c • A) = σ c • cT σ A := by
@@ -95,8 +94,6 @@ variable {E : Type} [Field E] (σ : E ≃+* E) {ι ι' : Type} [Fintype ι] [Dec
     rw [this, h2, Matrix.mul_one]
     simp only [Matrix.mul_assoc]
 
-theorem conjMat_apply (Q : Matrix ι ι' E) (Q' : Matrix ι' ι E) (h1 : Q * Q' = 1) (h2 : Q' * Q = 1)
-    (x : Matrix ι' ι' E) : conjMat Q Q' h1 h2 x = Q * x * Q' := rfl
 
 theorem fintype_card_eq_of_mul_eq_one {Q : Matrix ι ι' E} {Q' : Matrix ι' ι E} (h1 : Q * Q' = 1)
     (h2 : Q' * Q = 1) : Fintype.card ι' = Fintype.card ι := by
@@ -132,9 +129,6 @@ theorem coe_conjGL (Q : Matrix ι ι' E) (Q' : Matrix ι' ι E) (h1 : Q * Q' = 1
     (x : GL ι' E) :
     ((conjGL Q Q' h1 h2 x : GL ι E) : Matrix ι ι E) = Q * (x : Matrix ι' ι' E) * Q' := rfl
 
-theorem coe_conjGL_symm (Q : Matrix ι ι' E) (Q' : Matrix ι' ι E) (h1 : Q * Q' = 1)
-    (h2 : Q' * Q = 1) (y : GL ι E) :
-    (((conjGL Q Q' h1 h2).symm y : GL ι' E) : Matrix ι' ι' E) = Q' * (y : Matrix ι ι E) * Q := rfl
 
 theorem conjGL_mem_SUG_iff {Q : Matrix ι ι' E} {Q' : Matrix ι' ι E} (h1 : Q * Q' = 1)
     (h2 : Q' * Q = 1) {G : Matrix ι ι E} {M : Matrix ι' ι' E} (hM : cT σ Q * G * Q = M)
@@ -179,11 +173,6 @@ theorem conjGL_mem_SUG_iff {Q : Matrix ι ι' E} {Q' : Matrix ι' ι E} (h1 : Q 
         exact ⟨(conjGL Q Q' h1 h2).symm y,
           (conjGL_mem_SUG_iff σ h1 h2 hM _).mp (by simpa using hy), by simp⟩))
 
-theorem coe_conjSUG {Q : Matrix ι ι' E} {Q' : Matrix ι' ι E} (h1 : Q * Q' = 1)
-    (h2 : Q' * Q = 1) {G : Matrix ι ι E} {M : Matrix ι' ι' E} (hM : cT σ Q * G * Q = M)
-    (x : SUG σ M) :
-    (((conjSUG σ h1 h2 hM x : SUG σ G) : GL ι E) : Matrix ι ι E) =
-      Q * (((x : SUG σ M) : GL ι' E) : Matrix ι' ι' E) * Q' := rfl
 
 end Conj
 

@@ -164,15 +164,5 @@ theorem sectionTenSetup_charTwo {G : Type} [Group G] [Finite G] {p : ℕ} {A : S
     (h : SteinbergBM.SectionTenSetup G p A) : IsCharTwoType G :=
   (CFSG.GH74.isCharTwoType_iff.mpr h.2.2.2.1)
 
-theorem sectionTenSetup_sec9Hyp {G : Type} [Group G] [Finite G] {p : ℕ} {A : Subgroup G}
-    (h : SteinbergBM.SectionTenSetup G p A) : Sec9Hyp G p where
-  simple := h.1
-  nonabelian := h.2.1
-  kProper := sectionTenSetup_kProper h
-  charTwo := sectionTenSetup_charTwo h
-  evenRank_eq := sectionTenSetup_evenRank_eq h
-  prime := sectionTenSetup_prime h
-  three_lt := sectionTenSetup_three_lt h
-  mem_sigma := sectionTenSetup_mem_sigmaA h
 
 end CFSG.RankThree.PartOne

@@ -185,94 +185,6 @@ theorem commutator_unitaryBlockDiag_le_unitaryBlock {I : Finset (Fin n)} {j₀ :
   rw [hbot, sup_bot_eq] at hmem
   simpa only [commutatorElement_def, map_mul, map_inv] using hmem
 
-theorem inSubgroup_layer_eq_unitaryBlock {I : Finset (Fin n)} {j₀ : Fin n} (hI : Iᶜ = {j₀})
-    {l ν : K} (hlν : l ≠ ν) {d : Fin n → K} (hv : ∀ i, d i = if i ∈ I then l else ν)
-    (hd : ∀ i, h.norm (d i) = 1) (hdet : ∏ i, d i = 1) (h3 : 3 ≤ I.card)
-    (hq : (I.card, p ^ f) ≠ (3, 2)) :
-    CFSG.inSubgroup CFSG.layer
-        (Subgroup.centralizer ({diagSU h d hd hdet} : Set (unitarySU p f K n))) =
-      unitaryBlock h I := by
-  have hDH : unitaryBlock h I ≤
-      Subgroup.centralizer ({diagSU h d hd hdet} : Set (unitarySU p f K n)) := by
-    intro A hA
-    rw [centralizer_diagSU_eq_unitaryBlockDiag h hlν hv hd hdet]
-    exact unitaryBlock_le_unitaryBlockDiag h I hA
-  have hcomm : ∀ g ∈ Subgroup.centralizer ({diagSU h d hd hdet} : Set (unitarySU p f K n)),
-      ∀ k ∈ Subgroup.centralizer ({diagSU h d hd hdet} : Set (unitarySU p f K n)),
-      g * k * g⁻¹ * k⁻¹ ∈ unitaryBlock h I := by
-    intro g hg k hk
-    rw [centralizer_diagSU_eq_unitaryBlockDiag h hlν hv hd hdet] at hg hk
-    exact commutator_unitaryBlockDiag_le_unitaryBlock h hI
-      (Subgroup.commutator_mem_commutator hg hk)
-  have hQ : CFSG.IsQuasisimple ↥(unitaryBlock h I) :=
-    CFSG.LocalCores.isQuasisimple_of_mulEquiv (unitaryBlockEquiv h I)
-      (isQuasisimple_unitarySU h h3 hq)
-  exact CFSG.SeitzReduction.LinearPilot.inSubgroup_layer_eq_of_commutator_mem hDH hcomm hQ
-
-theorem inSubgroup_layer_centralizer_unitaryProj_diagSU {I : Finset (Fin n)}
-    (hI2 : n < 2 * I.card) {j₀ : Fin n} (hI : Iᶜ = {j₀}) {l ν : K} (hlν : l ≠ ν)
-    {d : Fin n → K} (hv : ∀ i, d i = if i ∈ I then l else ν) (hd : ∀ i, h.norm (d i) = 1)
-    (hdet : ∏ i, d i = 1) (h3 : 3 ≤ I.card) (hq : (I.card, p ^ f) ≠ (3, 2)) :
-    CFSG.inSubgroup CFSG.layer
-        (Subgroup.centralizer
-          ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n))) =
-      blockSU h I := by
-  have hC := centralizer_unitaryProj_diagSU_eq_unitaryBlockDiag h hI2 hlν hv hd hdet
-  have hDH : blockSU h I ≤ Subgroup.centralizer
-      ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n)) := by
-    intro x hx
-    obtain ⟨A, hA, rfl⟩ := (mem_blockSU h).1 hx
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    have hcomm : A * diagSU h d hd hdet = diagSU h d hd hdet * A :=
-      Subgroup.mem_centralizer_singleton_iff.1
-        ((centralizer_diagSU_eq_unitaryBlockDiag h hlν hv hd hdet).ge
-          (unitaryBlock_le_unitaryBlockDiag h I hA))
-    rw [← map_mul, ← map_mul, hcomm]
-  have hcomm : ∀ g ∈ Subgroup.centralizer
-        ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n)),
-      ∀ k ∈ Subgroup.centralizer
-        ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n)),
-      g * k * g⁻¹ * k⁻¹ ∈ blockSU h I := by
-    intro g hg k hk
-    rw [hC] at hg hk
-    obtain ⟨A, hA, rfl⟩ := Subgroup.mem_map.1 hg
-    obtain ⟨B, hB, rfl⟩ := Subgroup.mem_map.1 hk
-    have hAB : A * B * A⁻¹ * B⁻¹ ∈ unitaryBlock h I :=
-      commutator_unitaryBlockDiag_le_unitaryBlock h hI
-        (Subgroup.commutator_mem_commutator hA hB)
-    have hpi : (unitaryProj h n) (A * B * A⁻¹ * B⁻¹) =
-        (unitaryProj h n) A * (unitaryProj h n) B * ((unitaryProj h n) A)⁻¹ *
-          ((unitaryProj h n) B)⁻¹ := by
-      simp only [map_mul, map_inv]
-    rw [← hpi]
-    exact unitaryProj_mem_blockSU h hAB
-  have hIn : I.card < n := by
-    have h := Finset.card_compl (s := I)
-    rw [hI, Finset.card_singleton, Fintype.card_fin] at h
-    omega
-  have hQ : CFSG.IsQuasisimple ↥(blockSU h I) :=
-    isQuasisimple_blockSU_of_three_le h h3 hq hIn
-  exact CFSG.SeitzReduction.LinearPilot.inSubgroup_layer_eq_of_commutator_mem hDH hcomm hQ
-
-theorem glaLayer_centralizer_unitaryProj_diagSU {I : Finset (Fin n)}
-    (hI2 : n < 2 * I.card) {j₀ : Fin n} (hI : Iᶜ = {j₀}) {l ν : K} (hlν : l ≠ ν)
-    {d : Fin n → K} (hv : ∀ i, d i = if i ∈ I then l else ν) (hd : ∀ i, h.norm (d i) = 1)
-    (hdet : ∏ i, d i = 1) (h3 : 3 ≤ I.card) (hq : (I.card, p ^ f) ≠ (3, 2)) :
-    CFSG.Open.GLALayer
-        (Subgroup.centralizer
-          ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n))) =
-      blockSU h I := by
-  have hbridge : CFSG.inSubgroup CFSG.layer
-      (Subgroup.centralizer
-        ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n))) =
-      CFSG.Open.GLALayer (Subgroup.centralizer
-        ({unitaryProj h n (diagSU h d hd hdet)} : Set (unitaryPSU h n))) :=
-    le_antisymm
-      (CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.map_layer_le_glaLayer _)
-      (CFSG.HardMathSupport.Solomon.Coordinator.LieSemisimple.glaLayer_le_map_layer _)
-  rw [← hbridge]
-  exact inSubgroup_layer_centralizer_unitaryProj_diagSU h hI2 hI hlν hv hd hdet h3 hq
-
 
 theorem unitaryNorm_pow_eq_one {ζ : K} (hζ : h.norm ζ = 1) (k : ℕ) : h.norm (ζ ^ k) = 1 := by
   induction k with
@@ -306,9 +218,6 @@ theorem coe_diagFiveLast (ζ : K) (hζ : h.norm ζ = 1) :
       Matrix (Fin 6) (Fin 6) K) = diagonal (diagFiveLastEntries ζ) :=
   rfl
 
-private theorem compl_erase_five : ((Finset.univ : Finset (Fin 6)).erase 5)ᶜ = {5} := by
-  ext i
-  simp [Finset.mem_erase, eq_comm]
 
 private theorem diagFiveLast_ne_inv {ζ : K} (hζ : h.norm ζ = 1) (hζ6 : ζ ^ 6 ≠ 1) :
     ζ ≠ (ζ ^ 5)⁻¹ := by
@@ -356,55 +265,5 @@ theorem centralizer_unitaryProj_diagFiveLast {ζ : K} (hζ : h.norm ζ = 1)
   rwa [show diagSU h (diagFiveLastEntries ζ) (diagFiveLastEntries_norm h hζ)
       (diagFiveLastEntries_prod h hζ) = diagFiveLast h ζ hζ from rfl] at hmain
 
-theorem glaLayer_centralizer_unitaryProj_diagFiveLast {ζ : K} (hζ : h.norm ζ = 1)
-    (hζ6 : ζ ^ 6 ≠ 1) :
-    CFSG.Open.GLALayer (Subgroup.centralizer
-        ({unitaryProj h 6 (diagFiveLast h ζ hζ)} : Set (unitaryPSU h 6))) =
-      blockSU h ((Finset.univ : Finset (Fin 6)).erase 5) := by
-  have hlν := diagFiveLast_ne_inv h hζ hζ6
-  have hv := diagFiveLastEntries_eq (ζ := ζ)
-  have hI2 : 6 < 2 * ((Finset.univ : Finset (Fin 6)).erase 5).card := by
-    simp [Finset.card_erase_of_mem]
-  have h3 : 3 ≤ ((Finset.univ : Finset (Fin 6)).erase 5).card := by
-    simp [Finset.card_erase_of_mem]
-  have hq : (((Finset.univ : Finset (Fin 6)).erase 5).card, p ^ f) ≠ (3, 2) := by
-    simp [Finset.card_erase_of_mem]
-  have hmain := glaLayer_centralizer_unitaryProj_diagSU h hI2 compl_erase_five (l := ζ)
-    (ν := (ζ ^ 5)⁻¹) hlν hv (diagFiveLastEntries_norm h hζ) (diagFiveLastEntries_prod h hζ)
-    h3 hq
-  rwa [show diagSU h (diagFiveLastEntries ζ) (diagFiveLastEntries_norm h hζ)
-      (diagFiveLastEntries_prod h hζ) = diagFiveLast h ζ hζ from rfl] at hmain
-
-
-theorem inSubgroup_layer_eq_diagFiveLast {ζ : K} (hζ : h.norm ζ = 1) (hζ6 : ζ ^ 6 ≠ 1) :
-    CFSG.inSubgroup CFSG.layer
-        (Subgroup.centralizer ({diagFiveLast h ζ hζ} : Set (unitarySU p f K 6))) =
-      unitaryBlock h ((Finset.univ : Finset (Fin 6)).erase 5) := by
-  have h3 : 3 ≤ ((Finset.univ : Finset (Fin 6)).erase 5).card := by
-    simp [Finset.card_erase_of_mem]
-  have hq : (((Finset.univ : Finset (Fin 6)).erase 5).card, p ^ f) ≠ (3, 2) := by
-    simp [Finset.card_erase_of_mem]
-  have hmain := inSubgroup_layer_eq_unitaryBlock h compl_erase_five (l := ζ)
-    (ν := (ζ ^ 5)⁻¹) (diagFiveLast_ne_inv h hζ hζ6) (diagFiveLastEntries_eq (ζ := ζ))
-    (diagFiveLastEntries_norm h hζ) (diagFiveLastEntries_prod h hζ) h3 hq
-  rwa [show diagSU h (diagFiveLastEntries ζ) (diagFiveLastEntries_norm h hζ)
-      (diagFiveLastEntries_prod h hζ) = diagFiveLast h ζ hζ from rfl] at hmain
-
-theorem inSubgroup_layer_centralizer_unitaryProj_diagFiveLast {ζ : K} (hζ : h.norm ζ = 1)
-    (hζ6 : ζ ^ 6 ≠ 1) :
-    CFSG.inSubgroup CFSG.layer (Subgroup.centralizer
-        ({unitaryProj h 6 (diagFiveLast h ζ hζ)} : Set (unitaryPSU h 6))) =
-      blockSU h ((Finset.univ : Finset (Fin 6)).erase 5) := by
-  have hI2 : 6 < 2 * ((Finset.univ : Finset (Fin 6)).erase 5).card := by
-    simp [Finset.card_erase_of_mem]
-  have h3 : 3 ≤ ((Finset.univ : Finset (Fin 6)).erase 5).card := by
-    simp [Finset.card_erase_of_mem]
-  have hq : (((Finset.univ : Finset (Fin 6)).erase 5).card, p ^ f) ≠ (3, 2) := by
-    simp [Finset.card_erase_of_mem]
-  have hmain := inSubgroup_layer_centralizer_unitaryProj_diagSU h hI2 compl_erase_five
-    (l := ζ) (ν := (ζ ^ 5)⁻¹) (diagFiveLast_ne_inv h hζ hζ6) (diagFiveLastEntries_eq (ζ := ζ))
-    (diagFiveLastEntries_norm h hζ) (diagFiveLastEntries_prod h hζ) h3 hq
-  rwa [show diagSU h (diagFiveLastEntries ζ) (diagFiveLastEntries_norm h hζ)
-      (diagFiveLastEntries_prod h hζ) = diagFiveLast h ζ hζ from rfl] at hmain
 
 end CFSG.LocalAnalysis.GLTheoremA.Y10F

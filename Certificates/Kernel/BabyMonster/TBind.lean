@@ -49,25 +49,6 @@ theorem text_eq : CFSG.Monster.B.TText24.text = String.ofList (charsOf CFSG.KD.T
     CFSG.KD.TBind24.CH, CFSG.KD.TBind24.appP_eq, CFSG.KD.TBind24.appP_eq,
     CFSG.KD.TBind24.appP_eq, List.append_assoc, List.append_assoc]
 
-theorem text_rows : ∀ k t : Nat, k < 4370 → t < 4416 →
-    ((CFSG.Monster.B.Bin.b64Decode CFSG.Monster.B.TText24.text 2412256).get!
-      (16 + 552 * k + t / 8)).toNat.testBit (t % 8) = (TR24 k).testBit t := by
-  have hr : ∀ s < 69, rangeOK (dropP CFSG.KD.TBind24.CH (1 + 64 * s)) (64 * s)
-      (CFSG.KC.BM.rowsS s) TR24 = true := by
-    forall_lt_consts CFSG.KD.TBind24.r 69
-  have hasc : asciiOK CFSG.KD.TBind24.CH = true := by
-    rw [CFSG.KD.TBind24.CH, CFSG.KD.TBind24.appP_eq, CFSG.KD.TBind24.appP_eq,
-      CFSG.KD.TBind24.appP_eq]
-    exact asciiOK_append CFSG.KD.TBind24.asc0 (asciiOK_append CFSG.KD.TBind24.asc1
-      (asciiOK_append CFSG.KD.TBind24.asc2 CFSG.KD.TBind24.asc3))
-  rw [text_eq]
-  exact b64Decode_rows hasc CFSG.KD.TBind24.len CFSG.KD.TBind24.hdr hr CFSG.KD.TBind24.last
-
-theorem rowsMat_TR : CFSG.KC.BSeed.rowsMat 4370 TR24 =
-    CFSG.KC.BM.stripMat CFSG.KC.BM.NativePair24.T :=
-  CFSG.KC.BM.rowsMat_eq_stripMat (R := CFSG.KC.BM.NativePair24.T.rows)
-    (S := CFSG.KC.BM.NativePair24.T) (by bm_blocks CFSG.KC.BM.NativePair24.rows_T 69)
-    CFSG.KC.BM.NativePair24.wf_T
 
 end CertificateChecks.KernelBM
 

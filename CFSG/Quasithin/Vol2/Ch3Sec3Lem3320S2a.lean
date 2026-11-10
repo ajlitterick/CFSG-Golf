@@ -284,36 +284,6 @@ theorem sq_comm_mem (hB : IsB₀ X T D B₀) (habel : ⁅conjClosure X D, conjCl
     exact hc
   exact (hι1 (⁅(⟨t, hTB ht⟩ : ↥B), (⟨t', hTB ht'⟩ : ↥B)⁆).2).mp hc1
 
-theorem four_le_index (hB : IsB₀ X T D B₀) : 4 ≤ (T ⊓ B₀).relIndex T := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨-, hT₀, hlt⟩ := H.T₀_eq hB.le hB.nor hB.inf hB.max
-  obtain ⟨e⟩ := H.hS3
-  have h3 : T.relIndex (X ⊔ T) = 3 := Lem3320.relIndex_eq_three_of_iso H.isSylowTwoOf_XT e
-  have hpc : CFSG.pCore 2 ↥(X ⊔ T) = (pCoreOf 2 (X ⊔ T)).subgroupOf (X ⊔ T) := by
-    ext y
-    rw [Lem3328.mem_pCore_iff, Subgroup.mem_subgroupOf]
-  have h6 : (pCoreOf 2 (X ⊔ T)).relIndex (X ⊔ T) = 6 := by
-    rw [Subgroup.relIndex, ← hpc, Subgroup.index_eq_card, Nat.card_congr e.toEquiv,
-      Nat.card_perm, Nat.card_fin]
-    rfl
-  have hRT := H.R_le_T
-  have h2 : (pCoreOf 2 (X ⊔ T)).relIndex T = 2 := by
-    have := Subgroup.relIndex_mul_relIndex (pCoreOf 2 (X ⊔ T)) T (X ⊔ T) hRT le_sup_right
-    rw [h3, h6] at this
-    omega
-  have hT₀R : T ⊓ B₀ ≤ pCoreOf 2 (X ⊔ T) := hT₀ ▸ hlt.le
-  have hge : 2 ≤ (T ⊓ B₀).relIndex (pCoreOf 2 (X ⊔ T)) := by
-    have h0 : (T ⊓ B₀).relIndex (pCoreOf 2 (X ⊔ T)) ≠ 0 :=
-      show ((T ⊓ B₀).subgroupOf (pCoreOf 2 (X ⊔ T))).index ≠ 0 from
-        Subgroup.index_ne_zero_of_finite
-    have h1 : (T ⊓ B₀).relIndex (pCoreOf 2 (X ⊔ T)) ≠ 1 := fun h => by
-      rw [Subgroup.relIndex_eq_one] at h
-      rw [← hT₀] at hlt
-      exact hlt.not_ge h
-    omega
-  have := Subgroup.relIndex_mul_relIndex (T ⊓ B₀) (pCoreOf 2 (X ⊔ T)) T hT₀R hRT
-  rw [h2] at this
-  omega
 
 end Hyp3320
 

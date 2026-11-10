@@ -52,32 +52,5 @@ theorem exists_conj_Jelt_m12Rep1 :
       exact Subgroup.card_dvd_of_le hS
     omega
 
-theorem sylowData_m12 :
-    Fin76b.SylowData NativeSporadic.M12 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨c0, hc0, hJ0⟩ := exists_conj_Jelt_m12Rep1
-  obtain ⟨hb, hbo⟩ := m12_reps_mem m12Rep2 (by simp)
-  have hord2 : ∀ a : G12, a * a = 1 → a ≠ 1 → orderOf (a : Equiv.Perm (Fin 12)) = 2 := by
-    intro a ha2 ha1
-    rw [Subgroup.orderOf_coe]
-    exact orderOf_eq_prime (by rw [pow_two]; exact ha2) ha1
-  refine ⟨bfS', Jelt, ⟨m12Rep2, hb⟩, IsPGroup.of_card (n := 6) (by rw [card_bfS']; norm_num),
-    ⟨1485, by decide, by rw [card_G12, card_bfS']⟩, Jelt_mul_self, Jelt_ne_one, Jelt_mem_bfS',
-    fun x hx => bfS'_comm_Jelt hx, fun y hy hc => bfS'_center hy hc,
-    ⟨Felt * Felt, Subtype.ext ?_⟩, ?_⟩
-  · show bfF * bfF * (bfF * bfF) = bfF ^ 4
-    simp [pow_succ, mul_assoc]
-  · intro a ha2 ha1
-    obtain ⟨r, hr, c, hc, hac⟩ := m12_involution_cover.1 (a : Equiv.Perm (Fin 12))
-      (by simp) (hord2 a ha2 ha1)
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hr
-    rcases hr with rfl | rfl
-    · refine Or.inl ⟨⟨c * c0⁻¹, mul_mem hc (inv_mem hc0)⟩, Subtype.ext ?_⟩
-      have h1 : m12Rep1 = c0⁻¹ * (Jelt : Equiv.Perm (Fin 12)) * c0 := by
-        rw [hJ0]; group
-      rw [hac, h1]
-      simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-      group
-    · exact Or.inr ⟨⟨c, hc⟩, Subtype.ext hac⟩
 
 end CFSG.EvenSporadicStandard.M12Std

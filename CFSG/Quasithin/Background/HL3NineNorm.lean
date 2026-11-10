@@ -50,35 +50,6 @@ theorem mem_scalars_of_comm (hn : 1 ≤ n) (hK : Nat.card K = (2 ^ n) ^ 2)
     rfl
   rw [h2, hd, coe_scalGL, Matrix.smul_mul, Matrix.one_mul, smul_smul]
 
-theorem mem_norm_of (hK : Nat.card K = (2 ^ n) ^ 2) {x : MulAut (HMod n K)}
-    (h1 : ∀ g, x * rho hK g * x⁻¹ ∈ img hK) (h2 : ∀ g, x⁻¹ * rho hK g * x ∈ img hK) :
-    x ∈ norm hK := by
-  rw [Subgroup.mem_normalizer_iff]
-  intro y
-  constructor
-  · rintro ⟨g, rfl⟩
-    exact h1 g
-  · rintro ⟨g, hg⟩
-    have := h2 g
-    rw [hg] at this
-    simpa [mul_assoc] using this
-
-theorem rhoT_conj_rho (hK : Nat.card K = (2 ^ n) ^ 2) (A : GL (Fin 3) K)
-    (g : SpecialLinearGroup (Fin 3) K) :
-    rhoT hK A * rho hK g * (rhoT hK A)⁻¹ ∈ img hK := by
-  rw [← map_inv]
-  change rhoT hK A * rhoT hK (SpecialLinearGroup.toGL g) * rhoT hK A⁻¹ ∈ img hK
-  rw [← map_mul, ← map_mul]
-  apply rhoT_mem_img
-  rw [Units.val_mul, Units.val_mul, Matrix.det_mul, Matrix.det_mul, mul_comm, ← mul_assoc,
-    ← Matrix.det_mul, ← Units.val_mul, inv_mul_cancel, Units.val_one, Matrix.det_one, one_mul]
-  exact g.2
-
-theorem rhoT_mem_norm (hK : Nat.card K = (2 ^ n) ^ 2) (A : GL (Fin 3) K) :
-    rhoT hK A ∈ norm hK :=
-  mem_norm_of hK (rhoT_conj_rho hK A) fun g => by
-    rw [← map_inv, ← inv_inv (rhoT hK A⁻¹), ← map_inv]
-    simpa using rhoT_conj_rho hK A⁻¹ g
 
 theorem conj_rho_eq (hK : Nat.card K = (2 ^ n) ^ 2) (A : GL (Fin 3) K) (σ : K ≃+* K)
     (k : SpecialLinearGroup (Fin 3) K) :

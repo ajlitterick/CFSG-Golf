@@ -44,13 +44,6 @@ private theorem q2cFS_hermLin_eq_blockDot (lo hi : ℕ) (u v : Fin n → K) :
   rw [q2cFS_blockDot_apply, q2cFS_hermLin_apply, Finset.sum_filter]
   exact Finset.sum_congr rfl fun i _ => by rw [sgv_apply]
 
-private theorem q2cFS_hermLin_symm (hK : Nat.card K = (2 ^ f) ^ 2) (lo hi : ℕ) (u v : Fin n → K) :
-    hermLin K f n lo hi v u = sg K f (hermLin K f n lo hi u v) := by
-  rw [q2cFS_hermLin_apply, q2cFS_hermLin_apply, map_sum]
-  exact Finset.sum_congr rfl fun i _ => by
-    by_cases h : lo ≤ i.val ∧ i.val < hi
-    · rw [if_pos h, if_pos h, map_mul, sg_sg hK]; exact mul_comm _ _
-    · rw [if_neg h, if_neg h, map_zero]
 
 private theorem q2cFS_mem_blockDot_ker {lo hi : ℕ} {x : Fin n → K} :
     x ∈ LinearMap.ker (q2cFS_blockDot n lo hi) ↔
@@ -193,30 +186,5 @@ theorem q2cFS_finrank_perpB_inf_Vsub (hK : Nat.card K = (2 ^ f) ^ 2) {lo hi : �
       _ = hi := finrank_Vsub hhi_n
   omega
 
-theorem q2cFS_perpB_inf_Vsub_inf_perpB (hK : Nat.card K = (2 ^ f) ^ 2) {lo hi : ℕ}
-    (hlh : lo ≤ hi) (hhi_n : hi ≤ n) {U : Submodule K (Fin n → K)} (hlo : Vsub n lo ≤ U)
-    (hhi : U ≤ Vsub n hi) :
-    perpB K f n lo hi (perpB K f n lo hi U ⊓ Vsub n hi) ⊓ Vsub n hi = U := by
-  have hPlo : Vsub n lo ≤ perpB K f n lo hi U ⊓ Vsub n hi :=
-    le_inf (q2cFS_le_perpB_of_Vsub _) (le_trans hlo hhi)
-  have hPhi : perpB K f n lo hi U ⊓ Vsub n hi ≤ Vsub n hi := inf_le_right
-  have hUP : U ≤ perpB K f n lo hi (perpB K f n lo hi U ⊓ Vsub n hi) ⊓ Vsub n hi := by
-    refine le_inf ?_ hhi; intro u hu
-    simp only [perpB, Submodule.mem_iInf, LinearMap.mem_ker]
-    intro w hw
-    have hwU : w ∈ perpB K f n lo hi U := hw.1
-    simp only [perpB, Submodule.mem_iInf, LinearMap.mem_ker] at hwU
-    rw [q2cFS_hermLin_symm (hK := hK) (lo := lo) (hi := hi), hwU u hu, map_zero]
-  have hdimP := q2cFS_finrank_perpB_inf_Vsub (hK := hK) (lo := lo) (hi := hi) hlh hhi_n hlo hhi
-  have hdimQ := q2cFS_finrank_perpB_inf_Vsub (hK := hK) (lo := lo) (hi := hi) hlh hhi_n hPlo hPhi
-  have hfin : finrank K U =
-      finrank K (perpB K f n lo hi (perpB K f n lo hi U ⊓ Vsub n hi) ⊓ Vsub n hi :
-        Submodule K (Fin n → K)) := by
-    have hUle : finrank K U ≤ lo + hi := by
-      calc finrank K U ≤ finrank K (Vsub n hi) := Submodule.finrank_mono hhi
-        _ = hi := finrank_Vsub hhi_n
-        _ ≤ lo + hi := Nat.le_add_left _ _
-    omega
-  exact (Submodule.eq_of_le_of_finrank_eq hUP hfin).symm
 
 end CFSG.ClassicalInvolution.Phan.PhanE.Flag

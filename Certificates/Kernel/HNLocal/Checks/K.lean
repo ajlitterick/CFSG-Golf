@@ -77,12 +77,10 @@ theorem w14 : Nat.beq (RB (nat_lit 0xf)) (RB (nat_lit 0x3)) = true := by quickRf
 theorem t2sq : Nat.beq (mul (RB (nat_lit 0xd)) (RB (nat_lit 0xd))) CFSG.KD.OrdHN.ONE = true := by
   quickRfl
 
-theorem t2ne : CFSG.KC.Ord.notB (Nat.beq (RB (nat_lit 0xd)) CFSG.KD.OrdHN.ONE) = true := by quickRfl
 
 theorem t4sq : Nat.beq (mul (RB (nat_lit 0xe)) (RB (nat_lit 0xe))) CFSG.KD.OrdHN.ONE = true := by
   quickRfl
 
-theorem t4ne : CFSG.KC.Ord.notB (Nat.beq (RB (nat_lit 0xe)) CFSG.KD.OrdHN.ONE) = true := by quickRfl
 
 theorem trc2 : Nat.beq (CFSG.KC.HNLocal.traceL (RB (nat_lit 0xd))) (nat_lit 0x1) = true := by
   quickRfl

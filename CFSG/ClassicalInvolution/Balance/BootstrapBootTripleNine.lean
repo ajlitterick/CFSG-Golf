@@ -95,18 +95,6 @@ section BootTriple
         ∀ a ∈ A, IsFrameInvolution p f (frameFamily p f (CoreAssembly.conjClass K) A) a →
           p ^ f = 9 → LocalLeviComponent p f (CoreAssembly.conjClass K) a
 
-@[expose] def FrameNoExceptionalComponents (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
-      RouteD.DeltaConnected (CoreAssembly.conjClass K) → ∀ A : Subgroup G,
-        MemberFamily p f (CoreAssembly.conjClass K) A
-          (frameFamily p f (CoreAssembly.conjClass K) A) →
-        ∀ a ∈ A, a ≠ 1 → ∀ D : LieSystemData p f (LocalQuot (CoreAssembly.conjClass K) a)
-          (localFamily (CoreAssembly.conjClass K) a), ∀ i, D.tag i ≠ .G2 ∧ D.tag i ≠ .trialityD4
-
-theorem frameMF1_of_noExceptionalComponents (h : FrameNoExceptionalComponents p f) :
-    FrameMF1 p f := fun G _ _ _ hnab K z hz hBelow hconn A hM a ha ha1 D =>
-  singleClassComponents_of_tags D (h G hnab K z hz hBelow hconn A hM a ha ha1 D)
 
 theorem bootTriple_of_model_nine (h27 : p ^ f ≠ 27) (hmodel : LayerGenerationModel)
     (hMF1 : FrameMF1 p f) (hcover : FrameCoverage p f) (hlevi : FrameLevi p f) :

@@ -78,14 +78,6 @@ theorem isCyclic_quotient_subgroupOf_of_le {A B C : Subgroup G} (hBC : B ≤ C)
   exact isCyclic_of_surjective (QuotientGroup.quotientMulEquivOfEq hker)
     (QuotientGroup.quotientMulEquivOfEq hker).surjective
 
-theorem isCyclic_quotient_of_le {H : Type*} [Group H] {A A' : Subgroup H} [A.Normal]
-    [A'.Normal] (h : A ≤ A') (hcyc : IsCyclic (H ⧸ A)) : IsCyclic (H ⧸ A') := by
-  let f : H ⧸ A →* H ⧸ A' :=
-    QuotientGroup.map (N := A) A' (MonoidHom.id H) (by simpa using h)
-  have hf : Function.Surjective f :=
-    QuotientGroup.map_surjective_of_surjective (N := A) A' (MonoidHom.id H)
-      (by simpa using (QuotientGroup.mk'_surjective A')) (by simpa using h)
-  exact isCyclic_of_surjective f hf
 
 end K31
 

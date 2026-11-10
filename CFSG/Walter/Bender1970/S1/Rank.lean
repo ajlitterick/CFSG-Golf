@@ -28,28 +28,11 @@ theorem rank_le {X : Subgroup G} {n : ℕ} (h : ∀ p : ℕ, p.Prime → pRank p
     rank X ≤ n :=
   csSup_le ⟨0, 2, Nat.prime_two, Nat.zero_le _⟩ fun _ ⟨p, hp, hm⟩ => hm.trans (h p hp)
 
-theorem rank_le_iff {X : Subgroup G} {n : ℕ} :
-    rank X ≤ n ↔ ∀ p : ℕ, p.Prime → pRank p X ≤ n :=
-  ⟨fun h _ hp => (pRank_le_rank hp X).trans h, rank_le⟩
-
-theorem exists_pRank_eq_rank (X : Subgroup G) : ∃ p : ℕ, p.Prime ∧ pRank p X = rank X := by
-  obtain ⟨p, hp, hle⟩ := Nat.sSup_mem (s := {n | ∃ p : ℕ, p.Prime ∧ n ≤ pRank p X})
-    ⟨0, 2, Nat.prime_two, Nat.zero_le _⟩ (rank_set_bddAbove X)
-  exact ⟨p, hp, le_antisymm (pRank_le_rank hp X) hle⟩
-
-theorem exists_isElemAbelian_card_eq_pow_rank (X : Subgroup G) :
-    ∃ p : ℕ, p.Prime ∧ ∃ E : Subgroup G, E ≤ X ∧ IsElemAbelian p E ∧
-      Nat.card E = p ^ rank X := by
-  obtain ⟨p, hp, hpr⟩ := exists_pRank_eq_rank X
-  obtain ⟨E, hEX, hE, hcard⟩ := exists_pRank hp.one_lt X
-  exact ⟨p, hp, E, hEX, hE, hpr ▸ hcard⟩
 
 theorem le_rank {p : ℕ} (hp : p.Prime) {X E : Subgroup G} (hEX : E ≤ X)
     (hE : IsElemAbelian p E) {k : ℕ} (hk : Nat.card E = p ^ k) : k ≤ rank X :=
   (le_pRank hp.one_lt hEX hE hk).trans (pRank_le_rank hp X)
 
-theorem rank_mono {X Y : Subgroup G} (hXY : X ≤ Y) : rank X ≤ rank Y :=
-  rank_le fun _ hp => (pRank_mono hp.one_lt hXY).trans (pRank_le_rank hp Y)
 
 theorem pRank_eq_zero_of_isPGroup {p q : ℕ} (hp : p.Prime) (hq : q.Prime) (hpq : q ≠ p)
     {X : Subgroup G} (hX : IsPGroup p X) : pRank q X = 0 := by

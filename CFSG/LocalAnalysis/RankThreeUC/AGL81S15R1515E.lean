@@ -198,24 +198,6 @@ theorem xlevel_1519_gen (hT : LieOddRankTable) (hKSMOdd : KSMOdd) (hKSML3 : KSML
     exact hp3 ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_three).1 this)
 
 
-
-theorem xlevel_1519 (hT : LieOddRankTable) (hKSMOdd : KSMOdd) (hKSML3 : KSML3)
-    (hK517 : K517_4a) (hK518 : K518) {T T₁ T₂ : Subgroup X} (hX : GNSetting X T)
-    (hg : GNGood T T₁ T₂)
-    (hr3 : ∀ r : ℕ, r.Prime → r ≠ 2 → CFSG.Open.pRank r (⊤ : Subgroup X) ≤ 3)
-    {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hp3 : p ≠ 3)
-    (hX3 : CFSG.Open.pRank p (⊤ : Subgroup X) = 3)
-    (h₁ : CFSG.Open.pRank p (Subgroup.normalizer (T₁ : Set X)) ≤ 1)
-    (h₂ : CFSG.Open.pRank p (Subgroup.normalizer (T₂ : Set X)) ≤ 1)
-    (hLifts : ∀ Is : Subgroup (X ⧸ gnC T), GNYComponent T T₁ T₂ Is → ∃ I, LiftOf T I Is)
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hLs : GNYComponent T T₁ T₂ Ls)
-    (hL : LiftOf T L Ls) (hrk : CFSG.Open.pRank p L = 2)
-    {d : TauCeti.ValidLieTypeIndex} {Q : TauCeti.PrimePower} (hQ : Q.p = 2)
-    (hpQ : p ∣ Q.card + 1) (hd : d.1 = .G2 Q ∨ d.1 = .B 2 Q ∨ d.1 = .A 3 Q)
-    (e : Nonempty (↥Ls ≃* (TauCeti.CFSGIndex.lie d).Group)) : False  :=
-  xlevel_1519_gen hT hKSMOdd hKSML3 hK517 hK518 hX hg
-    (hr3 3 Nat.prime_three (by norm_num)) hp hp2 hp3 hX3.ge h₁ h₂ hLifts hLs hL hrk hQ hpQ hd e
-
 end Row1519
 
 theorem row1519_gen (hT : LieOddRankTable) (hKSMOdd : KSMOdd) (hKSML3 : KSML3) (hK517 : K517_4a)

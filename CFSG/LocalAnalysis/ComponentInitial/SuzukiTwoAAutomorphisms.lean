@@ -62,8 +62,6 @@ theorem suzukiQuotFun_mul (α β : MulAut (SuzukiA K φ)) (x : K) :
     suzukiQuotFun (α * β) x = suzukiQuotFun α (suzukiQuotFun β x) :=
   (suzukiQuotFun_fst α (β ⟨x, 0⟩)).symm
 
-theorem suzukiQuotFun_one (x : K) : suzukiQuotFun (1 : MulAut (SuzukiA K φ)) x = x :=
-  rfl
 
 theorem suzukiQuotFun_add (α : MulAut (SuzukiA K φ)) (x y : K) :
     suzukiQuotFun α (x + y) = suzukiQuotFun α x + suzukiQuotFun α y := by
@@ -90,9 +88,6 @@ theorem suzukiQuotFun_add (α : MulAut (SuzukiA K φ)) (x y : K) :
   map_one' := Units.ext (LinearMap.ext fun _ => rfl)
   map_mul' α β := Units.ext (LinearMap.ext fun x => suzukiQuotFun_mul α β x)
 
-theorem suzukiQuotAction_apply (α : MulAut (SuzukiA K φ)) (x : K) :
-    (suzukiQuotAction α : K →ₗ[ZMod 2] K) x = (α ⟨x, 0⟩).fst :=
-  rfl
 
 @[expose] def suzukiResFun (α : MulAut (SuzukiA K φ)) (z : K) : K :=
   (α ⟨0, z⟩).snd
@@ -173,10 +168,6 @@ theorem frobenius_pow_comm {s i : ℕ} (σ τ : K ≃+* K) (hσ : ∀ x, σ x = 
       rw [map_add, map_add, map_mul, map_mul, hσφ]
       ring
 
-theorem suzukiQuotAction_suzukiSemilinearAut (c : Kˣ) (σ : K ≃+* K)
-    (hσφ : ∀ x, φ (σ x) = σ (φ x)) (x : K) :
-    (suzukiQuotAction (suzukiSemilinearAut c σ hσφ) : K →ₗ[ZMod 2] K) x = c * σ x :=
-  rfl
 
 @[expose] def suzukiShearAut (h : K →+ K) : MulAut (SuzukiA K φ) where
   toFun p := ⟨p.fst, p.snd + h p.fst⟩
@@ -189,9 +180,6 @@ theorem suzukiQuotAction_suzukiSemilinearAut (c : Kˣ) (σ : K ≃+* K)
     rw [map_add]
     ring)
 
-theorem suzukiShearAut_apply (h : K →+ K) (p : SuzukiA K φ) :
-    suzukiShearAut h p = ⟨p.fst, p.snd + h p.fst⟩ :=
-  rfl
 
 theorem suzuki_two_A_automorphism_solvable [Finite K] {n : ℕ} (hn : 1 ≤ n)
     (hK : Nat.card K = 2 ^ n) (φ : K ≃+* K) (hφ : φ ^ 4 ≠ 1) :

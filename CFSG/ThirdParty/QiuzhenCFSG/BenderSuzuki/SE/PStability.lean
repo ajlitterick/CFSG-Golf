@@ -740,34 +740,6 @@ private instance : DecidableEq SL23Concrete := fun A B =>
   decidable_of_iff (A.1 = B.1)
     ⟨fun h => Subtype.ext h, fun h => congrArg Subtype.val h⟩
 
-private def sl23I : SL23Concrete :=
-  ⟨!![(0 : ZMod 3), -1; 1, 0], by
-    norm_num [Matrix.det_fin_two_of]⟩
-
-private def sl23J : SL23Concrete :=
-  ⟨!![(1 : ZMod 3), 1; 1, -1], by
-    rw [Matrix.det_fin_two_of]
-    decide⟩
-
-/-- The standard quaternion subgroup of `SL(2,3)`. -/
-private def quaternionToSL23 : QuaternionGroup 2 →* SL23Concrete where
-  toFun
-    | QuaternionGroup.a i => sl23I ^ i.val
-    | QuaternionGroup.xa i => sl23J * sl23I ^ i.val
-  map_one' := by
-    rfl
-  map_mul' := by
-    rintro (i | i) (j | j)
-    all_goals
-      fin_cases i <;> fin_cases j <;>
-        apply Subtype.ext <;>
-        ext a b <;>
-        fin_cases a <;> fin_cases b <;>
-        decide
-
-private theorem quaternionToSL23_injective :
-    Function.Injective quaternionToSL23 := by
-  decide
 
 private theorem quaternionGroupTwo_isPGroup :
     IsPGroup 2 (QuaternionGroup 2) := by
@@ -787,41 +759,5 @@ private theorem quaternionGroupTwo_not_isMulCommutative :
   have hbad := QuaternionGroup.xa.inj hcomm
   exact (by decide : (-(1 : ZMod 4)) ≠ 1) hbad
 
-private theorem SL23_not_hasAbelianSylowTwo :
-    ¬ HasAbelianSylow 2 SL23Concrete := by
-  intro hSL
-  have hRangeP : IsPGroup 2 quaternionToSL23.range := by
-    have hrange :
-        (⊤ : Subgroup (QuaternionGroup 2)).map quaternionToSL23 =
-          quaternionToSL23.range := by
-      ext x
-      simp
-    rw [← hrange]
-    exact (quaternionGroupTwo_isPGroup.to_subgroup
-      (⊤ : Subgroup (QuaternionGroup 2))).map quaternionToSL23
-  obtain ⟨P, hRangePLe⟩ := hRangeP.exists_le_sylow
-  let : IsMulCommutative (P : Subgroup SL23Concrete) := hSL P
-  apply quaternionGroupTwo_not_isMulCommutative
-  refine ⟨⟨?_⟩⟩
-  intro x y
-  apply quaternionToSL23_injective
-  let xP : P := ⟨quaternionToSL23 x, hRangePLe ⟨x, rfl⟩⟩
-  let yP : P := ⟨quaternionToSL23 y, hRangePLe ⟨y, rfl⟩⟩
-  simpa [xP, yP] using congrArg Subtype.val (mul_comm xP yP)
-
-/-- A finite group with abelian Sylow `2`-subgroups has no subquotient
-isomorphic to `SL(2,3)`.  This is the exposed form of the obstruction; the
-existing `Involves` definition currently has no public elimination theorem. -/
-public theorem not_exists_SL23_section_of_hasAbelianSylowTwo
-    {G : Type u} [Group G] [Finite G]
-    (hG : HasAbelianSylow 2 G) :
-    ¬ ∃ (H : Subgroup G) (N : Subgroup H) (_hN : N.Normal),
-      Nonempty ((H ⧸ N) ≃* Matrix.SpecialLinearGroup (Fin 2) (ZMod 3)) := by
-  rintro ⟨H, N, hN, ⟨e⟩⟩
-  let : N.Normal := hN
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  apply SL23_not_hasAbelianSylowTwo
-  exact (hG.subgroup H).mapSurjective
-    (QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N) |>.of_mulEquiv e
 
 end CFSG.BenderSuzuki

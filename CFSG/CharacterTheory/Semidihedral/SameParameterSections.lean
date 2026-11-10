@@ -233,13 +233,6 @@ theorem even_order_agreement [Finite G] (n : ℕ) (hn : 4 ≤ n)
   { vector := V.vector
     representation := V.representation.comp U.subtype }
 
-theorem restrictRepresentation_character (U : Subgroup G)
-    (V : FiniteComplexRepresentation G) (x : U) :
-    (restrictRepresentation U V).character x = V.character (x : G) := rfl
-
-theorem restrictRepresentation_degree (U : Subgroup G)
-    (V : FiniteComplexRepresentation G) :
-    Module.finrank ℂ (restrictRepresentation U V).vector = Module.finrank ℂ V.vector := rfl
 
 theorem restriction_on_involution_section (U : Subgroup G) (t : U)
     (V : FiniteComplexRepresentation G) (W : FiniteComplexRepresentation U) (lambda : ℂ)

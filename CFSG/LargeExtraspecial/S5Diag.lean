@@ -31,7 +31,6 @@ theorem isQuasisimple_Xhat : CFSG.Open.IsQuasisimple D.Xhat :=
 
 theorem chi_mem_Xhat (z : D.Z) : D.chi z ∈ D.Xhat := ⟨z, rfl⟩
 
-theorem mem_Xhat_iff {x : S.O} : x ∈ D.Xhat ↔ ∃ z : D.Z, D.chi z = x := Iff.rfl
 
 theorem Xhat_le_Mbar : D.Xhat ≤ S.Mbar := by
   rintro _ ⟨z, rfl⟩
@@ -147,21 +146,6 @@ theorem eq_one_of_mem_center_Xhat {c : S.O} (hcX : c ∈ D.Xhat)
     rw [this, map_one]
   exact eq_one_of_pow_odd_of_pow_two hodd hc1 hk
 
-theorem commute_of_chi_commute (z : D.Z) (hz : ∀ y ∈ D.Xhat, D.chi z * y = y * D.chi z)
-    {w : S.O} (hw : w ∈ D.Z) : (z : S.O) * w = w * z := by
-  have : Group.IsPerfect D.Z := ⟨D.isQuasisimple_Z.1⟩
-  have hker : D.chiR.ker ≤ center D.Z := by
-    intro x hx
-    have hx' : D.chi x = 1 := by
-      have := congrArg Subtype.val (MonoidHom.mem_ker.mp hx)
-      simpa [coe_chiR] using this
-    exact SwappedQuasisimpleProduct.diagonal_kernel_central D.Z (MulAut.conj D.t)
-      D.commutator_eq_bot (MonoidHom.mem_ker.mpr hx')
-  have hc := Quasisimple.center_comap_of_central_kernel D.chiR D.chiR_surjective hker
-  have hzc : z ∈ (center D.Xhat).comap D.chiR :=
-    mem_center_iff.mpr fun y => Subtype.ext (hz y y.2).symm
-  rw [hc] at hzc
-  exact congrArg Subtype.val ((mem_center_iff.mp hzc) ⟨w, hw⟩).symm
 
 theorem map_conj_W {y : S.O} (hyt : y * D.t = D.t * y) :
     D.W.map (MulAut.conj y).toMonoidHom =

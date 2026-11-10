@@ -23,11 +23,6 @@ theorem card_le_twoPart {P X : Subgroup G} (hP : IsPGroup 2 P) (hPX : P ≤ X) :
   rw [twoPart, ← hB.card_eq]
   exact card_le_of_le hPB
 
-theorem twoPart_mono {K H : Subgroup G} (hKH : K ≤ H) : twoPart K ≤ twoPart H := by
-  unfold twoPart
-  refine Nat.pow_le_pow_right (by norm_num) ?_
-  exact (Nat.factorization_le_iff_dvd Nat.card_pos.ne' Nat.card_pos.ne').mpr
-    (Subgroup.card_dvd_of_le hKH) 2
 
 theorem isSylowOf_of_twoPart_le {P X : Subgroup G} (hP : IsPGroup 2 P) (hPX : P ≤ X)
     (hcard : twoPart X ≤ Nat.card P) : IsSylowOf 2 P X := by
@@ -223,90 +218,5 @@ theorem exists_sec5
   exact ⟨L, Q, S, T, z, t, h4, hrankC, hLF, hLmax, hrkL, hQsyl, hmaxQ, hSsyl, hQS, hmaxS,
     hT, hST, hzQ, hzS, htS, htL, htZ, hto⟩
 
-@[expose] def eligibleSolomonClass (X : Subgroup G) : Set (Subgroup G) :=
-  {K | K ∈ solomonKStar G ∧ SolomonEquiv X K ∧ ∃ v : G, IsTwoComponentAt v K}
-
-theorem eligible_kernel_sylow_isElemAbelian_card_four_l216
-    {X : Subgroup G}
-    (hU2 : ∀ K ∈ eligibleSolomonClass X,
-      CFSG.pRank 2 (coreActionKernel K) = 2)
-    (hD : ∀ K ∈ eligibleSolomonClass X,
-      twoPart (coreActionKernel K) ≤ 4) :
-    ∀ K ∈ eligibleSolomonClass X, ∀ Q : Subgroup G,
-      IsSylowOf 2 Q (coreActionKernel K) →
-      CFSG.Open.IsElemAbelian 2 Q ∧ Nat.card Q = 4 := by
-  intro K hK Q hQ
-  have hQcard : Nat.card Q ≤ 4 := by
-    rw [hQ.card_eq]
-    exact hD K hK
-  have hQrank : 2 ≤ CFSG.pRank 2 Q := by
-    calc
-      2 = CFSG.pRank 2 (coreActionKernel K) := (hU2 K hK).symm
-      _ ≤ CFSG.pRank 2 Q := pRank_le_of_isSylowOf hQ
-  have hrankO : 2 ≤ CFSG.Open.pRank 2 Q := by
-    rw [SectionRank.pRank_eq_pRank_top_subgroup,
-      ← SectionRank.pRank_eq_open_pRank_top]
-    exact hQrank
-  obtain ⟨E, hEQ, hE, hEc⟩ := SectionRank.exists_pRank one_lt_two Q
-  have hEge : 4 ≤ Nat.card E := by
-    rw [hEc]
-    simpa using Nat.pow_le_pow_right (by decide : 0 < 2) hrankO
-  have hcard : Nat.card Q = 4 :=
-    le_antisymm hQcard (hEge.trans (Subgroup.card_le_of_le hEQ))
-  have hEq : E = Q :=
-    Subgroup.eq_of_le_of_card_ge hEQ (by rw [hcard]; exact hEge)
-  exact ⟨hEq ▸ hE, hcard⟩
-
-theorem exists_eligibleSolomonClass_optimizer {X : Subgroup G} {v : G}
-    (hX : X ∈ solomonKStar G) (hXv : IsTwoComponentAt v X) :
-    ∃ L P S T : Subgroup G,
-      L ∈ eligibleSolomonClass X ∧
-      IsSylowOf 2 P (coreActionKernel L) ∧ P ≤ S ∧
-      IsSylowOf 2 S (normalizer (L : Set G)) ∧ S ≤ T ∧ IsSylowOf 2 T ⊤ ∧
-      (∀ K ∈ eligibleSolomonClass X, twoPart (coreActionKernel K) ≤ Nat.card P) ∧
-      (∀ K ∈ eligibleSolomonClass X,
-        twoPart (coreActionKernel K) = Nat.card P →
-          twoPart (normalizer (K : Set G)) ≤ Nat.card S) := by
-  classical
-  have hXelig : X ∈ eligibleSolomonClass X :=
-    ⟨hX, ⟨hX.1.1, Relation.ReflTransGen.refl⟩, ⟨v, hXv⟩⟩
-  set 𝒮 : Set (Subgroup G) := eligibleSolomonClass X with h𝒮
-  have h𝒮ne : Nonempty 𝒮 := ⟨⟨X, hXelig⟩⟩
-  have := h𝒮ne
-  obtain ⟨⟨L₁, hL₁⟩, hL₁max⟩ :=
-    Finite.exists_max (fun K : 𝒮 => twoPart (coreActionKernel (K : Subgroup G)))
-  set 𝒮₀ : Set (Subgroup G) :=
-    {K | K ∈ 𝒮 ∧ twoPart (coreActionKernel K) = twoPart (coreActionKernel L₁)} with h𝒮₀
-  have h𝒮₀ne : Nonempty 𝒮₀ := ⟨⟨L₁, hL₁, rfl⟩⟩
-  have := h𝒮₀ne
-  obtain ⟨⟨L, ⟨hL𝒮, hLd⟩⟩, hLmax⟩ :=
-    Finite.exists_max (fun K : 𝒮₀ => twoPart (normalizer ((K : Subgroup G) : Set G)))
-  obtain ⟨P, hP⟩ := exists_isSylowOf 2 (coreActionKernel L)
-  have hCN : coreActionKernel L ≤ normalizer (L : Set G) := fun x hx => hx.1
-  obtain ⟨S, hS, hPS⟩ := exists_isSylowOf_ge_of_le (hP.le.trans hCN) hP.isPGroup
-  obtain ⟨T, hT, hST⟩ := exists_isSylowOf_ge_of_le (le_top : S ≤ ⊤) hS.isPGroup
-  have hmaxP : ∀ K ∈ eligibleSolomonClass X, twoPart (coreActionKernel K) ≤ Nat.card P := by
-    intro K hK
-    have h1 : twoPart (coreActionKernel K) ≤ twoPart (coreActionKernel L₁) :=
-      hL₁max ⟨K, hK⟩
-    calc
-      twoPart (coreActionKernel K) ≤ twoPart (coreActionKernel L₁) := h1
-      _ = twoPart (coreActionKernel L) := hLd.symm
-      _ = Nat.card P := hP.card_eq.symm
-  have hmaxS : ∀ K ∈ eligibleSolomonClass X,
-      twoPart (coreActionKernel K) = Nat.card P →
-        twoPart (normalizer (K : Set G)) ≤ Nat.card S := by
-    intro K hK hKcard
-    have hK₀ : K ∈ 𝒮₀ := ⟨hK, by
-      calc
-        twoPart (coreActionKernel K) = Nat.card P := hKcard
-        _ = twoPart (coreActionKernel L) := hP.card_eq
-        _ = twoPart (coreActionKernel L₁) := hLd⟩
-    have h1 : twoPart (normalizer (K : Set G)) ≤ twoPart (normalizer (L : Set G)) :=
-      hLmax ⟨K, hK₀⟩
-    calc
-      twoPart (normalizer (K : Set G)) ≤ twoPart (normalizer (L : Set G)) := h1
-      _ = Nat.card S := hS.card_eq.symm
-  exact ⟨L, P, S, T, hL𝒮, hP, hPS, hS, hST, hT, hmaxP, hmaxS⟩
 
 end CFSG.ComponentClassification.Foote5

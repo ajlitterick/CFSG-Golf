@@ -180,18 +180,6 @@ theorem sum_smul_orbitSum_apply
   rw [Finset.sum_ite_eq]
   simp
 
-theorem linearIndependent_orbitSum :
-    LinearIndependent ℝ fun a : Fin t.foldedTag.rank =>
-      (⟨ofLattice (t.orbitSum a), orbitSum_mem_twistFixedSpace a⟩ : twistFixedSpace t) := by
-  rw [Fintype.linearIndependent_iff]
-  intro c hc a
-  have hc' : ∑ a, c a • ofLattice (t.orbitSum a) = 0 := by
-    have := congrArg Subtype.val hc
-    simpa using this
-  obtain ⟨j, rfl⟩ := t.exists_orbitIndex_eq a
-  have := congrArg (fun x : RootWeightSpace t.tag => x j) hc'
-  simp only [sum_smul_orbitSum_apply] at this
-  simpa using this
 
 theorem span_orbitSum :
     Submodule.span ℝ (Set.range fun a : Fin t.foldedTag.rank =>

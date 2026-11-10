@@ -18,12 +18,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
   CFSG.RankThree.PartTwo.Sec13 CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.PartTwo.Sec15
   CFSG.GH74.GLS
 
-@[expose] noncomputable def Step1619Sz : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Ctx169 G A c L → Item167 A (lB A) c L → ∀ Y ∈ scriptY1 A (lB A), ¬ Group.IsSolvable ↥Y →
-      ∃ (K : Subgroup G) (n : ℕ), K ≤ Y ∧ A ≤ Subgroup.normalizer (K : Set G) ∧
-        generalizedFitting ↥K = CFSG.pCore 2 ↥K ∧
-        CFSG.Blueprint.SuzukiModel (↥K ⧸ CFSG.pCore 2 ↥K) 2 n
 
 @[expose] noncomputable def KS1619SzFix : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G) (c : G) (n : ℕ),

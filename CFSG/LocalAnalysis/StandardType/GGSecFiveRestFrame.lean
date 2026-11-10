@@ -502,41 +502,6 @@ theorem typeAFrameLift₂_range_le {H : Subgroup X} (hφ : φ₁.range ≤ H) (h
 
 end Cent
 
-theorem ggSecFiveTypeA_of_endNodeAt {G : Type} [Group G] [Finite G] {p : ℕ} {B : Subgroup G}
-    {x : G} {L D J H : Subgroup G} {n f : ℕ} (hn : 3 ≤ n) (hf : 1 ≤ f)
-    (φ₁ : SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G) (hφH : φ₁.range = H)
-    (hker : φ₁.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f)))
-    {T : G} (hT : GGTypeAEndNode φ₁ T) (hHG : H ≤ ggG0 p B x L D J)
-    (hTG : T ∈ ggG0 p B x L D J) (hL : L ≤ H ⊔ H.map (MulAut.conj T).toMonoidHom)
-    (hnbr : ∀ (y : G) (K : Subgroup G), GGNbr p B x D J y K →
-      K ≤ H ⊔ H.map (MulAut.conj T).toMonoidHom) :
-    GGSecFiveTypeA p B x L D J (n + 1) (n + 1) f := by
-  have h2 : (2 : GaloisField 2 f) = 0 := two_eq_zero_of_card (GaloisField.card 2 f (by omega)) hf
-  have hHcl : H ≤ ggClosure (rootDatum (n + 1) (GaloisField 2 f))
-      (fun _ : Unit => ggSupp (rootDatum (n + 1) (GaloisField 2 f)) (typeALeviJ (n + 1) (n + 1)))
-      (fun _ => typeALeviHom φ₁) (typeAFrameLift h2 hT).range := by
-    rw [← hφH, ← range_typeALeviHom]
-    exact range_le_ggClosure (Δ := rootDatum (n + 1) (GaloisField 2 f))
-      (S := fun _ : Unit =>
-        ggSupp (rootDatum (n + 1) (GaloisField 2 f)) (typeALeviJ (n + 1) (n + 1)))
-      (φ := fun _ => typeALeviHom φ₁) (R := (typeAFrameLift h2 hT).range) ()
-  have hTR : T ∈ (typeAFrameLift h2 hT).range := ⟨_, typeAFrameLift_last h2 hT⟩
-  have hHT : H.map (MulAut.conj T).toMonoidHom ≤ ggClosure (rootDatum (n + 1) (GaloisField 2 f))
-      (fun _ : Unit => ggSupp (rootDatum (n + 1) (GaloisField 2 f)) (typeALeviJ (n + 1) (n + 1)))
-      (fun _ => typeALeviHom φ₁) (typeAFrameLift h2 hT).range := by
-    rw [← hφH, ← range_typeALeviHom]
-    exact map_conj_le_ggClosure (Δ := rootDatum (n + 1) (GaloisField 2 f))
-      (S := fun _ : Unit =>
-        ggSupp (rootDatum (n + 1) (GaloisField 2 f)) (typeALeviJ (n + 1) (n + 1)))
-      (φ := fun _ => typeALeviHom φ₁) (R := (typeAFrameLift h2 hT).range) ⟨T, hTR⟩ ()
-  refine ⟨typeALeviHom φ₁, typeAFrameLift h2 hT, typeAFrameLift_injective h2 hT hn hker,
-    fun j hj => typeAFrame_special h2 hT j hj, typeAFrame_hcent h2 hT,
-    typeAFrame_hnt (by omega) hker, ?_, ?_, hL.trans (sup_le hHcl hHT), ?_⟩
-  · rw [range_typeALeviHom, hφH]
-    exact hHG
-  · exact typeAFrameLift_range_le h2 hT (hφH ▸ hHG) hTG
-  · intro y K hK
-    exact (hnbr y K hK).trans (sup_le hHcl hHT)
 
 theorem ggSecFiveTypeA_of_twoEndNodesAt {G : Type} [Group G] [Finite G] {p : ℕ}
     {B : Subgroup G} {x : G} {L D J H : Subgroup G} {n f : ℕ} (hn : 3 ≤ n) (hf : 1 ≤ f)
@@ -605,63 +570,5 @@ theorem ggSecFiveTypeA_of_twoEndNodes {G : Type} [Group G] [Finite G] {p : ℕ} 
   ggSecFiveTypeA_of_twoEndNodesAt hn hf φ₁ hφL hker hT (le_ggG0_left p B x L D J) hT₁G hT₂G
     (le_sup_left.trans (le_sup_left.trans le_sup_left)) hnbr
 
-theorem ggTypeATwoEndNodes_standard {n : ℕ} {F : Type} [Field F] {X : Type*} [Group X]
-    (h2 : (2 : F) = 0) (ψ : SpecialLinearGroup (Fin (n + 1 + 1 + 1)) F →* X) :
-    GGTypeATwoEndNodes (ψ.comp (slBlockHom₂ n F))
-      (ψ (weylRep (n + 1 + 1) F ⟨n, by omega⟩)) (ψ (weylRep (n + 1 + 1) F ⟨n + 1, by omega⟩)) := by
-  have hW : (coxeterMatrix (isFiniteType_A (n + 1 + 1))).IsLiftable (weylRep (n + 1 + 1) F) :=
-    isLiftable_of_braid _ (weylRep_mul_self (n + 1 + 1) h2) (isCTGroupDatum (n + 1 + 1) F).braid
-  have hT₁ := ggTypeAEndNode_standard (n := n) h2 (ψ.comp (slBlockHom (n + 1) F))
-  have e1 : (ψ.comp (slBlockHom (n + 1) F)).comp (slBlockHom n F) = ψ.comp (slBlockHom₂ n F) := rfl
-  have e2 : (ψ.comp (slBlockHom (n + 1) F)) (weylRep (n + 1) F (Fin.last n)) =
-      ψ (weylRep (n + 1 + 1) F ⟨n, by omega⟩) := by
-    rw [MonoidHom.comp_apply, slBlockHom_weylRep]
-    rfl
-  rw [e1, e2] at hT₁
-  refine ⟨hT₁, ?_, ?_, ?_⟩
-  · rw [← map_mul, weylRep_mul_self (n + 1 + 1) h2, map_one]
-  · have hne : (⟨n, by omega⟩ : Fin (n + 1 + 1)) ≠ ⟨n + 1, by omega⟩ := fun e => by
-      have := congrArg Fin.val e
-      simp at this
-    have h3 := hW ⟨n, by omega⟩ ⟨n + 1, by omega⟩
-    rw [coxeterMatrix_A_adj hne (Or.inl rfl)] at h3
-    rw [← map_mul, ← map_pow, h3, map_one]
-  ·
-    set P := weylRep (n + 1 + 1) F (⟨n + 1, by omega⟩ : Fin (n + 1 + 1)) with hP_def
-    have hfix : ∀ y : Fin (n + 1),
-        Equiv.swap (⟨n + 1, by omega⟩ : Fin (n + 1 + 1)).castSucc
-          (⟨n + 1, by omega⟩ : Fin (n + 1 + 1)).succ y.castSucc.castSucc = y.castSucc.castSucc := by
-      intro y
-      have hy := y.isLt
-      refine Equiv.swap_apply_of_ne_of_ne (fun e => ?_) (fun e => ?_)
-      · have := congrArg Fin.val e
-        simp only [Fin.val_castSucc] at this
-        omega
-      · have := congrArg Fin.val e
-        simp only [Fin.val_castSucc, Fin.val_succ] at this
-        omega
-    have htr : ∀ {i j : Fin (n + 1)} (hij : i ≠ j) (c : F),
-        P * slBlockHom₂ n F (SpecialLinearGroup.transvection hij c) * P⁻¹ =
-          slBlockHom₂ n F (SpecialLinearGroup.transvection hij c) := by
-      intro i j hij c
-      rw [slBlockHom₂_transvection]
-      have hg := coe_weylRep_of_two (n + 1 + 1) h2 (⟨n + 1, by omega⟩ : Fin (n + 1 + 1))
-      have key := conj_transvection_of_coe_eq_signedPerm hg (fun _ => by simp)
-        ((Fin.castSucc_injective _).ne ((Fin.castSucc_injective _).ne hij)) c
-      rw [transvection_eq_of_eq _
-        ((Fin.castSucc_injective _).ne ((Fin.castSucc_injective _).ne hij))
-        (hfix i) (hfix j)] at key
-      simp only [Pi.one_apply, one_mul] at key
-      exact key
-    have heq : (MulAut.conj P).toMonoidHom.comp (slBlockHom₂ n F) = slBlockHom₂ n F :=
-      MonoidHom.eq_of_eqOn_dense
-        Matrix.SpecialLinearGroup.closure_range_toSpecialLinearGroup_eq_top_of_field (by
-          rintro _ ⟨⟨i, j, hij, c⟩, rfl⟩
-          exact htr hij c)
-    intro g
-    have hg := congrArg (fun φ => φ g) heq
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply] at hg
-    rw [mul_inv_eq_iff_eq_mul] at hg
-    rw [MonoidHom.comp_apply, ← map_mul, ← map_mul, hg]
 
 end CFSG.StandardType

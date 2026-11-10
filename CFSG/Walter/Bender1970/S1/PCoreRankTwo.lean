@@ -328,13 +328,5 @@ theorem bender1970_1_4 {H : Subgroup G} (hH : HasAbelianSylowTwo H) {p : ℕ} (h
     exact (Subgroup.mem_centralizer_iff.mp (hMY m hm).2 _ hyKK).symm
   exact le_qCoreOf_of_pPrime_central H hp hMH hcent hPM hP
 
-theorem bender1970_1_4_top (hG : HasAbelianSylowTwo G) {p : ℕ} (hp : p.Prime)
-    {P : Subgroup G} (hP : IsPGroup p P) (hrank : rank (qCoreOf (⊤ : Subgroup G) p) ≤ 2)
-    (hcomm : ⁅P, pResidualOf (generalizedFittingSubgroupOf (⊤ : Subgroup G)) p⁆ = ⊥) :
-    P ≤ qCoreOf (⊤ : Subgroup G) p := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hH : HasAbelianSylowTwo (⊤ : Subgroup G) :=
-    (show BenderSuzuki.HasAbelianSylow 2 G from hG).subgroup ⊤
-  exact bender1970_1_4 hH hp le_top hP hrank hcomm
 
 end CFSG.Walter

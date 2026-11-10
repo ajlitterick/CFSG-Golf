@@ -81,10 +81,6 @@ theorem wordProd_smul_eq_simpleWordAct (l : List (Fin τ.rank)) (v : Fin τ.rank
     rw [CoxeterSystem.wordProd_cons, mul_smul, ih, simpleWordAct_cons]
     exact simple_smul j _
 
-theorem weylQuotientHom_simpleWordElt (l : List (Fin τ.rank)) :
-    weylQuotientHom τ F ⟨simpleWordElt τ F l, simpleWordElt_mem_monomialSubgroup l⟩ =
-      (coxeterSystem τ).wordProd l :=
-  weylQuotientHom_eq (mapsRootLines_list_prod l)
 
 end Words
 

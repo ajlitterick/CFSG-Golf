@@ -68,7 +68,6 @@ theorem map_fixAll_normalizerMonoidHom_eq_frame [Finite K] [CharP K 2]
     change δ (τ x) * y * (δ (τ x))⁻¹ = y
     rw [hy _ ⟨τ x, (hτ x).1, rfl⟩, mul_inv_cancel_right]
 
-variable [Finite G] [Finite F]
 
 end Glue
 

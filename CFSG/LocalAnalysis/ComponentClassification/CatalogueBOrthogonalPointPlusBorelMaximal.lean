@@ -25,17 +25,6 @@ theorem native_partialBorel_eq_fullBorel [Finite K] (hn : 3 ≤ n) :
     obtain ⟨hgE, hgF⟩ := mem_borel.mp hg
     exact mem_flagStab.mpr ⟨hgE, fun i hi hin => hgF i hi (by omega)⟩
 
-theorem plusDerivedBorel_fixes_top [Finite K] (hn : 3 ≤ n)
-    (g : StatedOmega (StatedQuadPlus n K)) (hg : g ∈ plusDerivedBorel n K) :
-    (flag n K n).map (CFSG.ClassicalGroups.Orthogonal.toLinEquiv
-      (Fin n ⊕ Fin n) K g.val).toLinearMap = flag n K n := by
-  have hm : plusDerivedEquiv n K hn g ∈
-      (borel n K).subgroupOf (orthElementaryGroup (quadPlus n K)) := by
-    rw [← native_partialBorel_eq_fullBorel n K hn, ← plusDerivedBorel_map n K hn]
-    exact ⟨g, hg, rfl⟩
-  have hf := (mem_borel.mp (Subgroup.mem_subgroupOf.mp hm)).2 n (by omega) le_rfl
-  rw [plusDerivedEquiv_val] at hf
-  exact hf
 
 theorem plusProjectiveMaximal_comap
     (M : Subgroup (StatedProj (StatedOmega (StatedQuadPlus n K)))) (hM : IsCoatom M) :

@@ -28,11 +28,6 @@ theorem theta_le_wGroup {E U : Subgroup G} {e : G} (he : e ∈ E) (he1 : e ≠ 1
     theta U e ≤ wGroup E U :=
   le_iSup₂_of_le e he (le_iSup_of_le he1 le_rfl)
 
-theorem wGroup_eq_bot_iff {E U : Subgroup G} :
-    wGroup E U = ⊥ ↔ ∀ e ∈ E, e ≠ 1 → theta U e = ⊥ := by
-  refine ⟨fun h e he he1 => eq_bot_iff.mpr (h ▸ theta_le_wGroup he he1), fun h => ?_⟩
-  refine eq_bot_iff.mpr (iSup₂_le fun e he => iSup_le fun he1 => ?_)
-  rw [h e he he1]
 
 theorem theta_le_oddCoreIn {U : Subgroup G} {b : G} (hU : U ≤ centralizer ({b} : Set G)) :
     theta U b ≤ oddCoreIn (centralizer ({b} : Set G)) :=

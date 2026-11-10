@@ -206,15 +206,5 @@ theorem exists_rank_two_of_bad_gen (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hK
     obtain ⟨e'⟩ := equiv_of_centre_bot (Subgroup.eq_bot_of_card_eq _ h1) e
     exact hbad (Or.inr (Or.inr (Or.inr (Or.inr ⟨d, ⟨q, hq3, hd⟩, ⟨e'⟩⟩))))
 
-theorem exists_rank_two_of_bad (hT : LieOddRankTable) (hKSMAlt : KSMAlt) (hKSMOdd : KSMOdd)
-    (hKSMU4 : KSMU4) (hKSML3 : KSML3) (k517_4b : K517_4b) {T T₁ T₂ : Subgroup X}
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) (hLn : L.Normal)
-    (h20 : CFSG.Open.pRank 3 L < 3)
-    (hsl : gnA T T₂ Ls ≤ (Subgroup.normalizer (T₂ : Set X) ⊓ L).map (toStar T))
-    (hbad : ¬ Small1522 ↥Ls) :
-    ∃ (Ti : Subgroup X) (r : ℕ), (Ti = T₁ ∨ Ti = T₂) ∧ r.Prime ∧ r ≠ 2 ∧
-      2 ≤ CFSG.Open.pRank r (Subgroup.normalizer (Ti : Set X) ⊓ L) :=
-  exists_rank_two_of_bad_gen hT hKSMAlt hKSMOdd hKSMU4 hKSML3 k517_4b hl.toGen hLn h20 hsl
-    hbad
 
 end CFSG.LocalAnalysis.RankThreeUC.S15

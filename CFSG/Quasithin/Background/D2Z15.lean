@@ -56,9 +56,6 @@ omit [Finite V] in
     K →* (∀ i, MulAut ↥(W i)) :=
   MonoidHom.pi fun i => (resHom (W i)).comp (Subgroup.inclusion (hK i))
 
-omit [Finite V] in
-theorem restrAll_apply (hK : ∀ i, K ≤ stabSub (W i)) (g : K) (i : Fin s) (w : ↥(W i)) :
-    ((restrAll hK g i w : ↥(W i)) : V) = (g : MulAut V) w := rfl
 
 omit [Finite V] in
 theorem restrAll_injective (hK : ∀ i, K ≤ stabSub (W i)) (htop : ⨆ i, W i = ⊤) :

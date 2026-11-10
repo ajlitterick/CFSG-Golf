@@ -163,16 +163,6 @@ theorem tOp_mul_self {S : List Rt} (hS : SOrth S) : tOp K S * tOp K S = 1 := by
           rw [← mul_assoc (tOp K S), h3, mul_assoc]
       _ = 1 := by rw [ih hS', mul_one, h2]
 
-theorem NOp_mul_self {S : List Rt} (hS : SOrth S) : NOp K S * NOp K S = 0 := by
-  have h := tOp_mul_self (K := K) hS
-  have hneg : ∀ x : Module.End K (V K), -x = x := fun x =>
-    neg_eq_of_add_eq_zero_right (add_self_eq_zero_of_charTwo (K := K) x)
-  have h1 : NOp K S = tOp K S + 1 := by rw [NOp_eq, sub_eq_add_neg, hneg]
-  have key : (tOp K S + 1) * (tOp K S + 1) = (1 + 1) + (tOp K S + tOp K S) := by
-    rw [add_mul, mul_add, mul_add, h, mul_one, one_mul, one_mul]
-    abel
-  rw [h1, key, add_self_eq_zero_of_charTwo (K := K) (1 : Module.End K (V K)),
-    add_self_eq_zero_of_charTwo (K := K) (tOp K S), add_zero]
 
 theorem tOp_single_apply {S : List Rt} (hS : ∀ β ∈ S, IsRoot .E7 β) (a b : Fin e7Data.d) :
     (tOp K S (Finsupp.single a 1)) b = (cntW S a (e7Data.wt b) : K) := by

@@ -72,34 +72,5 @@ theorem E27Config.card_le_nine_of_isPGroup (h : E27Config X K R T z) (hz : z ∉
   calc Nat.card Q ≤ Nat.card T := Nat.card_le_card_of_injective _ hinj
     _ = 9 := h.card_T
 
-theorem E27Config.isSylow_centralizer_of_not_mem (h : E27Config X K R T z) (hz : z ∉ K) :
-    ∃ S : Sylow 3 ↥(centralizer ({z} : Set X) ⊓ K),
-      Subgroup.map (centralizer ({z} : Set X) ⊓ K).subtype
-        (S : Subgroup ↥(centralizer ({z} : Set X) ⊓ K)) = T := by
-  set D := centralizer ({z} : Set X) ⊓ K with hD
-  have hTD : T ≤ D := by
-    refine le_inf ?_ h.T_le_K
-    intro t ht
-    rw [mem_centralizer_singleton_iff]
-    exact congrArg Subtype.val
-      (h.elem.1.is_comm.comm (⟨t, h.T_le_R ht⟩ : R) ⟨z, h.z_mem⟩)
-  let T' : Subgroup ↥D := T.subgroupOf D
-  have hT'card : Nat.card T' = 9 := by
-    rw [← h.card_T]
-    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe hTD).toEquiv
-  have hT'p : IsPGroup 3 T' := by
-    have : Nat.card T' = 3 ^ 2 := by rw [hT'card]; norm_num
-    exact IsPGroup.of_card this
-  obtain ⟨Q, hQ⟩ := hT'p.exists_le_sylow
-  have hQp : IsPGroup 3 (Subgroup.map D.subtype (Q : Subgroup ↥D)) := Q.isPGroup'.map _
-  have hQle : Nat.card (Subgroup.map D.subtype (Q : Subgroup ↥D)) ≤ 9 :=
-    h.card_le_nine_of_isPGroup hz (by rintro _ ⟨x, -, rfl⟩; exact x.2) hQp
-  have hQcard : Nat.card (Q : Subgroup ↥D) ≤ 9 := by
-    rwa [Subgroup.card_map_of_injective D.subtype_injective] at hQle
-  have hQeq : T' = (Q : Subgroup ↥D) :=
-    Subgroup.eq_of_le_of_card_ge hQ (by omega)
-  refine ⟨Q, ?_⟩
-  rw [← hQeq]
-  exact Subgroup.map_subgroupOf_eq_of_le hTD
 
 end CFSG.HardMathSupport.Foote.E27

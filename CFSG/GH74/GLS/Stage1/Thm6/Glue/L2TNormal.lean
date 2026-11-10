@@ -19,21 +19,6 @@ theorem zpow_cases_of_sq {M : Type*} [Group M] {u : M} (hu : u * u = 1) (k : ℤ
   · left; rw [zpow_mul, zpow_two, hu, one_zpow]
   · right; rw [zpow_add, zpow_mul, zpow_two, hu, one_zpow, one_mul, zpow_one]
 
-theorem x_central (h : SitFacts x Kb e N T) (hx : x * x = 1) (hx1 : x ≠ 1)
-    (hQ : Qg x Kb T = Subgroup.zpowers x) : ∀ t ∈ T, t * x = x * t := by
-  intro t ht
-  have hxQ : x ∈ Qg x Kb T := h.x_mem_Q hx hx1
-  have h1 : t * x * t⁻¹ ∈ Qg x Kb T := (Qg_normal x Kb h.T_le_C).2 t ht x hxQ
-  rw [hQ] at h1
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.1 h1
-  rcases zpow_cases_of_sq hx k with h0 | h0
-  · exfalso
-    apply hx1
-    have h2 : t * x * t⁻¹ = 1 := by rw [← hk, h0]
-    calc x = t⁻¹ * (t * x * t⁻¹) * t := by group
-      _ = 1 := by rw [h2]; group
-  · calc t * x = (t * x * t⁻¹) * t := by group
-      _ = x * t := by rw [← hk, h0]
 
 theorem card_P_cases (h : SitFacts x Kb e N T) (h12c : IVK.IVK_1_2c) :
     Nat.card (Pg x Kb T) = 4 ∨ 8 ≤ Nat.card (Pg x Kb T) := by

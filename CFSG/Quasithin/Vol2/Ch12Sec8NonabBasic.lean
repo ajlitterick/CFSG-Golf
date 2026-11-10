@@ -35,26 +35,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G]
 
-theorem card_mulAut_le_six_of_card_four {V : Type*} [Group V] [Finite V] (hV : Nat.card V = 4) :
-    Nat.card (MulAut V) ≤ 6 ∧ Finite (MulAut V) := by
-  classical
-  let f : MulAut V → Equiv.Perm {v : V // v ≠ 1} := fun a =>
-    Equiv.Perm.subtypePerm a.toEquiv (by intro v; simp)
-  have hf : Function.Injective f := by
-    intro a b hab
-    ext v
-    by_cases hv : v = 1
-    · simp [hv]
-    · exact congrArg Subtype.val (DFunLike.congr_fun hab ⟨v, hv⟩)
-  have : Fintype V := Fintype.ofFinite V
-  have hthree : Nat.card {v : V // v ≠ 1} = 3 := by
-    rw [Nat.card_eq_fintype_card, Fintype.card_subtype_compl]
-    have hone : Fintype.card {v : V // v = 1} = 1 := by simp
-    rw [hone, ← Nat.card_eq_fintype_card, hV]
-  refine ⟨?_, Finite.of_injective f hf⟩
-  calc Nat.card (MulAut V) ≤ Nat.card (Equiv.Perm {v : V // v ≠ 1}) :=
-        Nat.card_le_card_of_injective f hf
-    _ = 6 := by rw [Nat.card_perm, hthree]; rfl
 
 variable [Finite G] {T M L : Subgroup G}
 
@@ -185,38 +165,11 @@ theorem VZ_cases (h : Hyp1281Two G T M L) {z a : G} (hzZ : z ∈ quasithinOmegaO
   · exact Or.inr (Or.inr (Or.inl (congrArg Subtype.val he)))
   · exact Or.inr (Or.inr (Or.inr (congrArg Subtype.val he)))
 
-theorem card_OTwoQuot (h : Hyp1281Two G T M L) : Nat.card (OTwoQuot (L ⊔ T)) = 6 := by
-  obtain ⟨e⟩ := h.sThree
-  rw [Nat.card_congr e.toEquiv, Nat.card_perm, Nat.card_eq_fintype_card, Fintype.card_fin]
-  rfl
 
 theorem LT_le_normalizer_VZ (h : Hyp1281Two G T M L) :
     L ⊔ T ≤ Subgroup.normalizer (VZ T M : Set G) :=
   (sup_le h.le h.inM.2).trans h.isTwoReducedIn.1.2.1
 
-theorem card_autOn_LT (h : Hyp1281Two G T M L) : Nat.card (autOn (L ⊔ T) (VZ T M)) = 6 := by
-  rw [card_autOn_eq_relIndex h.LT_le_normalizer_VZ, h.centralizer]
-  have hsub : (pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T) = CFSG.Open.pCore 2 ↥(L ⊔ T) :=
-    map_subtype_subgroupOf' (CFSG.Open.pCore 2 ↥(L ⊔ T))
-  show ((pCoreOf 2 (L ⊔ T)).subgroupOf (L ⊔ T)).index = 6
-  rw [hsub]
-  exact h.card_OTwoQuot
-
-theorem autOn_LT_eq_top (h : Hyp1281Two G T M L) : autOn (L ⊔ T) (VZ T M) = ⊤ := by
-  obtain ⟨hcard, hfin⟩ := card_mulAut_le_six_of_card_four (V := ↥(VZ T M)) h.rank_two
-  have h6 := h.card_autOn_LT
-  have := hfin
-  have hle := Subgroup.card_le_card_group (autOn (L ⊔ T) (VZ T M))
-  exact Subgroup.eq_top_of_card_eq _ (by omega)
-
-theorem lemma_12_8_3_one (h : Hyp1281Two G T M L) :
-    autOn M (VZ T M) = ⊤ ∧ autOn M (VZ T M) = autOn (L ⊔ T) (VZ T M) := by
-  have hle : autOn (L ⊔ T) (VZ T M) ≤ autOn M (VZ T M) :=
-    autOn_le_autOn (VZ T M) (sup_le h.le h.inM.2)
-  have htop : autOn M (VZ T M) = ⊤ := by
-    rw [eq_top_iff]
-    exact h.autOn_LT_eq_top ▸ hle
-  exact ⟨htop, htop.trans h.autOn_LT_eq_top.symm⟩
 
 theorem conj_eq_of_not_centralizes (h : Hyp1281Two G T M L) {z a x : G}
     (hzZ : z ∈ quasithinOmegaOneCenter T) (hz1 : z ≠ 1) (haV : a ∈ VZ T M)
@@ -328,12 +281,6 @@ theorem isMulCommutative_of_le_centerOf {U : Subgroup G} (h : U ≤ centerOf U) 
     have := Subgroup.mem_centralizer_iff.mp (h a.2).2 b b.2
     exact this.symm)⟩⟩
 
-omit [Finite G] in
-theorem le_centerOf_of_isMulCommutative {U : Subgroup G} (h : IsMulCommutative ↥U) :
-    U ≤ centerOf U := fun x hx =>
-  ⟨hx, Subgroup.mem_centralizer_iff.mpr fun y hy => by
-    have := h.is_comm.comm (⟨y, hy⟩ : U) ⟨x, hx⟩
-    exact (congrArg Subtype.val this)⟩
 
 theorem uOfL22_le_normalizer_VZ (h : Hyp1281Two G T M L) :
     uOfL22 T M ≤ Subgroup.normalizer (VZ T M : Set G) :=
@@ -390,51 +337,6 @@ theorem lemma_12_8_8_three (h : Hyp1281Two G T M L)
   · have hcard := card_le_two_of_le_of_ne_of_card_four inf_le_left heq h.rank_two
     exact (Subgroup.eq_of_le_of_card_ge hZle (by rw [h.card_omegaOneCenter]; exact hcard)).symm
 
-theorem commutator_uOfL22_eq (h : Hyp1281Two G T M L)
-    (hU : ¬ IsMulCommutative ↥(uOfL22 T M)) :
-    ⁅uOfL22 T M, uOfL22 T M⁆ = quasithinOmegaOneCenter T := by
-  have hle : ⁅uOfL22 T M, uOfL22 T M⁆ ≤ quasithinOmegaOneCenter T := by
-    rw [Subgroup.commutator_le]
-    intro a ha b hb
-    exact h.commutator_mem_omegaOneCenter ha hb
-  by_cases hbot : ⁅uOfL22 T M, uOfL22 T M⁆ = ⊥
-  · exfalso
-    apply hU
-    refine ⟨⟨fun a b => ?_⟩⟩
-    obtain ⟨x, hx⟩ := a
-    obtain ⟨y, hy⟩ := b
-    refine Subtype.ext ?_
-    show x * y = y * x
-    have : ⁅x, y⁆ ∈ ⁅uOfL22 T M, uOfL22 T M⁆ := Subgroup.commutator_mem_commutator hx hy
-    rw [hbot, Subgroup.mem_bot, commutatorElement_def] at this
-    calc x * y = (x * y * x⁻¹ * y⁻¹) * y * x := by group
-      _ = y * x := by rw [this]; group
-  · have hcard : Nat.card ↥⁅uOfL22 T M, uOfL22 T M⁆ ∣ 2 := by
-      rw [← h.card_omegaOneCenter]
-      exact Subgroup.card_dvd_of_le hle
-    have h1 : Nat.card ↥⁅uOfL22 T M, uOfL22 T M⁆ ≠ 1 := fun h1 =>
-      hbot (Subgroup.card_eq_one.mp h1)
-    have h2 : Nat.card ↥⁅uOfL22 T M, uOfL22 T M⁆ = 2 := by
-      rcases (Nat.dvd_prime Nat.prime_two).mp hcard with h | h
-      · exact absurd h h1
-      · exact h
-    exact Subgroup.eq_of_le_of_card_ge hle (by rw [h2, h.card_omegaOneCenter])
-
-theorem frattiniOf_uOfL22 (h : Hyp1281Two G T M L)
-    (hU : ¬ IsMulCommutative ↥(uOfL22 T M)) :
-    frattiniOf (uOfL22 T M) = quasithinOmegaOneCenter T := by
-  apply le_antisymm h.almostSpecialHyp_g1.G22_two
-  calc quasithinOmegaOneCenter T = ⁅uOfL22 T M, uOfL22 T M⁆ := (h.commutator_uOfL22_eq hU).symm
-    _ ≤ frattiniOf (uOfL22 T M) := by
-      rw [Subgroup.commutator_le]
-      intro a ha b hb
-      have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-      have : Fact (IsPGroup 2 ↥(uOfL22 T M)) := ⟨h.sylow.1.to_le h.uOfL22_le_T⟩
-      have hc : commutator ↥(uOfL22 T M) ≤ frattini ↥(uOfL22 T M) :=
-        commutator_le_frattini_of_isPGroup (p := 2)
-      have : ⁅(⟨a, ha⟩ : ↥(uOfL22 T M)), ⟨b, hb⟩⁆ ∈ frattini ↥(uOfL22 T M) :=
-        hc (Subgroup.commutator_mem_commutator (Subgroup.mem_top _) (Subgroup.mem_top _))
-      exact ⟨_, this, by simp [commutatorElement_def]⟩
 
 @[expose] def wOfU (T M : Subgroup G) : Subgroup G :=
   uOfL22 T M ⊓ Subgroup.centralizer (VZ T M : Set G)
@@ -451,13 +353,6 @@ theorem centerOf_uOfL22_le_wOfU (T M : Subgroup G) : centerOf (uOfL22 T M) ≤ w
   le_inf inf_le_left (fun _ hx => Subgroup.mem_centralizer_iff.mpr fun y hy =>
     (Subgroup.mem_centralizer_iff.mp hx.2) y (VZ_le_uOfL22 T M hy))
 
-theorem uOfL22_le_normalizer_wOfU (h : Hyp1281Two G T M L) :
-    uOfL22 T M ≤ Subgroup.normalizer (wOfU T M : Set G) := by
-  intro u hu
-  have h1 : u ∈ Subgroup.normalizer (Subgroup.centralizer (VZ T M : Set G) : Set G) :=
-    normalizer_le_normalizer_centralizer'' _ (h.uOfL22_le_normalizer_VZ hu)
-  have h2 : u ∈ Subgroup.normalizer (uOfL22 T M : Set G) := Subgroup.le_normalizer hu
-  exact Subgroup.inf_normalizer_le_normalizer_inf ⟨h2, h1⟩
 
 theorem T_le_normalizer_wOfU (h : Hyp1281Two G T M L) :
     T ≤ Subgroup.normalizer (wOfU T M : Set G) := by

@@ -610,12 +610,6 @@ theorem not_mem_of_comm_eq {x y : G} (hy : y ∈ H) (h : x * y * x⁻¹ * y⁻¹
   rw [← h, D.comm_of_mem hxV hy]
   group
 
-theorem not_mem_of_comm_eq' {x y : G} (hx : x ∈ H) (h : x * y * x⁻¹ * y⁻¹ = z) :
-    y ∉ V₁ := by
-  intro hyV
-  apply D.z_ne
-  rw [← h, ← D.comm_of_mem hyV hx]
-  group
 
 theorem b_basis {e₁ e₂ f₁ f₂ : G} (he₁ : e₁ ∈ X) (he₂ : e₂ ∈ X) (hf₁ : f₁ ∈ Y) (hf₂ : f₂ ∈ Y)
     (h11 : e₁ * f₁ * e₁⁻¹ * f₁⁻¹ = z) (h22 : e₂ * f₂ * e₂⁻¹ * f₂⁻¹ = z)

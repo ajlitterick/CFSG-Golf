@@ -189,9 +189,6 @@ theorem c2slomqnt_XEquiv_bijective {n : ℕ} (hn : 3 ≤ n) (s : Fin n) :
     obtain ⟨c, hc⟩ := hx
     exact ⟨c.toAdd, Subtype.ext (by simpa using hc)⟩
 
-noncomputable def c2slomqnt_XEquiv {n : ℕ} (hn : 3 ≤ n) (s : Fin n) :
-    F ≃ (omPlusCurtisDatum n F hn).X s :=
-  Equiv.ofBijective _ (c2slomqnt_XEquiv_bijective hn s)
 
 omit [Finite F] [CharP k 2] in
 theorem c2slomqnt_weylD_zero_e0 {n : ℕ} (hn : 3 ≤ n) (φ : F →+* k) :

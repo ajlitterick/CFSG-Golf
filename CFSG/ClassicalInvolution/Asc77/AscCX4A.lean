@@ -86,10 +86,5 @@ theorem layerTwinFacts_map_of (e : Y₁ ≃* Y₂) {A A' : Subgroup Y₁} {z' : 
       exact h1
     · rw [← map_inv, ← map_mul, ← map_mul, ← map_mul, ← map_mul, hxc]
 
-theorem layerTwinFacts_map (e : Y₁ ≃* Y₂) {A A' : Subgroup Y₁} {z' : Y₁}
-    (h : LayerTwinFacts A A' z') :
-    LayerTwinFacts (A.map e.toMonoidHom) (A'.map e.toMonoidHom) (e z') :=
-  layerTwinFacts_map_of e (center_eq_bot_of_mulEquiv e h.1) (oddCoreOf_map_eq_bot e h.2.1)
-    (oddCoreOf_map_eq_bot e h.2.2.1) h.2.2.2.1 h.2.2.2.2
 
 end CFSG.ClassicalInvolution.Asc77.CX.CX4

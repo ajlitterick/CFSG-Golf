@@ -499,13 +499,6 @@ private def LZp (p w : Nat) : Prop := ∀ L, w ≤ L → bt p L = false
 private def LZ6 (x : P6) (w : Nat) : Prop :=
   LZp x.re.b0 w ∧ LZp x.re.b1 w ∧ LZp x.re.b2 w ∧ LZp x.im.b0 w ∧ LZp x.im.b1 w ∧ LZp x.im.b2 w
 
-private theorem bits6_of_lz6 {x : P6} {w L : Nat} (h : LZ6 x w) (hL : w ≤ L) :
-    bits6 x L = z6b := by
-  obtain ⟨h0, h1, h2, h3, h4, h5⟩ := h
-  simp only [bits6, z6b, h0 L hL, h1 L hL, h2 L hL, h3 L hL, h4 L hL, h5 L hL]
-
-private theorem lv6_of_lz6 {x : P6} {w L : Nat} (h : LZ6 x w) (hL : w ≤ L) : lv6 x L = 0 := by
-  rw [lv6_eq, bits6_of_lz6 h hL, val6_z6b]
 
 private theorem bits6_z6 (L : Nat) : bits6 z6 L = z6b := by
   simp only [bits6, z6, z3, bt_zero, z6b]

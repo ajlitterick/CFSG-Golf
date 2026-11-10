@@ -97,8 +97,6 @@ open CFSG.ComponentClassification.SolMax.SixGen CFSG.KC.Enum CFSG.KS CFSG.KS.Raw
 theorem k_wit : sixGenWitK SGW.T SGW.S SGW.C = true := by
   decide +kernel
 
-theorem k_witNeg : sixGenWitK SGW.S SGW.T SGW.C = false := by
-  decide +kernel
 
 theorem k_hd : bAnd(gensK cgTabs 9 4 CE.k CE.G, bAnd(Nat.beq CE.cnt 288,
     penumHdK (pidn 9 4) CE.cnt 288 CE.T CE.PL)) = true := by

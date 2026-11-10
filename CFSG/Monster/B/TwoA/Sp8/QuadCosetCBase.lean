@@ -55,6 +55,5 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.Spin CFSG.Monster.SpinLattice
 
 theorem qPoly_zero' : qPoly 0 = 0 := by decide
 
-theorem cImg_triality : cImg 44 = 0 := by decide
 
 end CFSG.Monster.B.TwoA.Sp8

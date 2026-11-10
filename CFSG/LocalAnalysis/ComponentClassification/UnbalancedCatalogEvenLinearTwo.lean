@@ -306,9 +306,6 @@ variable {K : Type} [Field K] [Finite K]
 abbrev subfieldGImage (k : Subfield K) : Subgroup (Equiv.Perm (Omega K)) :=
   ((coordinateG k).subgroupOf (coordinateD k)).map ((coordinateD K).subtype.comp (subfieldD k))
 
-theorem subfieldD_eq_subfieldCoordinateMap (k : Subfield K) :
-    subfieldD k = subfieldCoordinateMap K k :=
-  rfl
 
 omit [Finite K] in
 theorem fieldExtension_commute (hcyc : IsCyclic (K ≃+* K)) (φ ψ : K ≃+* K) :

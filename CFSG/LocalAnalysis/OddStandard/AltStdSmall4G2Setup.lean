@@ -63,9 +63,6 @@ theorem perm_pow_four_of_sign_of_le {m : ℕ} (hm : m ≤ 9) {σ : Perm (Fin m)}
     revert hsign
     decide
 
-theorem perm_pow_four_of_sign {σ : Perm (Fin 9)} (hσ : Perm.sign σ = 1) {j : ℕ}
-    (hj : σ ^ 2 ^ j = 1) : σ ^ 4 = 1 :=
-  perm_pow_four_of_sign_of_le le_rfl hσ hj
 
 end Perm
 
@@ -77,7 +74,6 @@ variable {G : Type} [Group G] [Finite G] {L Q : Subgroup G} {n : ℕ}
 @[expose] def Yodd (L : Subgroup G) (z : G) : Subgroup G :=
   AltStdBal.oddPart (centralizer (L : Set G) ⊓ centralizer ({z} : Set G))
 
-theorem Lfree_eq (L : Subgroup G) (z : G) : Lfree L z = L ⊔ Yodd L z := rfl
 
 theorem zpowers_eq (c : Config G L Q n θ z) : zpowers z = Q :=
   Subgroup.eq_of_le_of_card_ge (zpowers_le.2 c.ot.cyc.mem)
@@ -134,11 +130,6 @@ theorem odd_orderOf_of_mem_Yodd (c : Config G L Q n θ z) {y : G} (hy : y ∈ Yo
     rwa [Subgroup.orderOf_mk] at this
   exact Odd.of_dvd_nat (Yodd_spec c).2.1 h1
 
-theorem Lfree_le_cent_z (c : Config G L Q n θ z) : Lfree L z ≤ centralizer ({z} : Set G) :=
-  sup_le (L_le_centralizer_z c) (Yodd_le_cent_z c)
-
-theorem Lfree_le_sup (c : Config G L Q n θ z) : Lfree L z ≤ L ⊔ centralizer (L : Set G) :=
-  sup_le le_sup_left ((Yodd_le_cent_L c).trans le_sup_right)
 
 theorem mem_Lfree_iff (c : Config G L Q n θ z) {g : G} :
     g ∈ Lfree L z ↔ ∃ l ∈ L, ∃ y ∈ Yodd L z, g = l * y := by
@@ -175,8 +166,6 @@ theorem mem_L_of_two_pow (c : Config G L Q n θ z) {g : G} (hg : g ∈ Lfree L z
   rw [hy', mul_one]
   exact hl
 
-theorem z_not_mem_Lfree (c : Config G L Q n θ z) : z ∉ Lfree L z := fun hz =>
-  N0.z_not_mem_L c (mem_L_of_two_pow c hz (j := 1) (by rw [pow_one, sq, z_mul_self c]))
 
 theorem mem_Lfree_of_odd_pow (c : Config G L Q n θ z) {g : G}
     (hgC : g ∈ centralizer ({z} : Set G)) (hgL : g ∈ L ⊔ centralizer (L : Set G)) {m : ℕ}
@@ -280,11 +269,6 @@ theorem ecoords_iotaE : ECoords θ hn 1 (E θ hn) (iotaE θ hn) :=
 theorem coe_psiE (g : normalizer (E θ hn : Set G)) :
     (psiE θ hn g : Matrix (Fin 3) (Fin 3) (ZMod 2)) = mat (iotaE θ hn) g := rfl
 
-theorem psiE_spec (g : normalizer (E θ hn : Set G)) (v : Fin 3 → ZMod 2) :
-    (g : G) * epsV θ hn v * (g : G)⁻¹ =
-      epsV θ hn ((psiE θ hn g : Matrix (Fin 3) (Fin 3) (ZMod 2)) *ᵥ v) := by
-  rw [← el_iotaE, mat_spec, coe_psiE]
-  rfl
 
 theorem psiE_eq_one_iff (g : normalizer (E θ hn : Set G)) :
     psiE θ hn g = 1 ↔ (g : G) ∈ centralizer (E θ hn : Set G) := by
@@ -338,9 +322,6 @@ theorem expo_of_ASmall (h : IsASmall L n z) : expo L n z = 4 := by
 theorem expo_of_not_ASmall (h : ¬ IsASmall L n z) : expo L n z = 8 := by
   simp only [expo, if_neg h]
 
-theorem expo_of_A9 (h : n = 9 ∧ centralizer ({z} : Set G) ≤ L ⊔ centralizer (L : Set G)) :
-    expo L n z = 4 :=
-  expo_of_ASmall ⟨Or.inr h.1, h.2⟩
 
 theorem cardN_of_ASmall (h : IsASmall L n z) : cardN L n z = 2 ^ 7 := by
   simp only [cardN, if_pos h]
@@ -348,9 +329,6 @@ theorem cardN_of_ASmall (h : IsASmall L n z) : cardN L n z = 2 ^ 7 := by
 theorem cardN_of_not_ASmall (h : ¬ IsASmall L n z) : cardN L n z = 2 ^ 8 := by
   simp only [cardN, if_neg h]
 
-theorem cardN_of_A9 (h : n = 9 ∧ centralizer ({z} : Set G) ≤ L ⊔ centralizer (L : Set G)) :
-    cardN L n z = 2 ^ 7 :=
-  cardN_of_ASmall ⟨Or.inr h.1, h.2⟩
 
 theorem expo_eq_four_or_eight (L : Subgroup G) (n : ℕ) (z : G) :
     expo L n z = 4 ∨ expo L n z = 8 := by
@@ -358,8 +336,6 @@ theorem expo_eq_four_or_eight (L : Subgroup G) (n : ℕ) (z : G) :
   · exact Or.inl (expo_of_ASmall h)
   · exact Or.inr (expo_of_not_ASmall h)
 
-theorem expo_dvd_eight (L : Subgroup G) (n : ℕ) (z : G) : expo L n z ∣ 8 := by
-  rcases expo_eq_four_or_eight L n z with h | h <;> rw [h] <;> norm_num
 
 theorem pow_four_of_mem_L_of_le (θ : L ≃* alternatingGroup (Fin n)) (hn : n ≤ 9) {l : G}
     (hl : l ∈ L) {j : ℕ} (hj : l ^ 2 ^ j = 1) : l ^ 4 = 1 := by
@@ -375,9 +351,6 @@ theorem pow_four_of_mem_L_of_le (θ : L ≃* alternatingGroup (Fin n)) (hn : n �
     exact θ.injective h4
   simpa using congrArg Subtype.val h5
 
-theorem pow_four_of_mem_L (θ : L ≃* alternatingGroup (Fin 9)) {l : G} (hl : l ∈ L) {j : ℕ}
-    (hj : l ^ 2 ^ j = 1) : l ^ 4 = 1 :=
-  pow_four_of_mem_L_of_le θ le_rfl hl hj
 
 theorem pow_eight_of_mem_L (θ : L ≃* alternatingGroup (Fin n)) (hn : n ≤ 15) {l : G} (hl : l ∈ L)
     {j : ℕ} (hj : l ^ 2 ^ j = 1) : l ^ 8 = 1 := by

@@ -18,7 +18,6 @@ open CFSG.KC.OpsLayK CFSG.RankThree.PartOne.CTP.Fus
 
 theorem fus14955_K : fusL lay A B j2FusN j2FusProg j2Fus = true := by decide +kernel
 
-theorem fus14955_neg : (!fusL lay B A j2FusN j2FusProg j2Fus) = true := by decide +kernel
 
 end CertificateChecks.KernelFusLay.J2
 

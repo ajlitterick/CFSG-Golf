@@ -24,8 +24,6 @@ open CFSG.ComponentClassification.OuterAutomorphisms
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
     ExceptionalRep S → OuterPrimeTwoTrivial S
 
-@[expose] def SporadicOuterOrderLeTwo : Prop :=
-  ∀ s : TauCeti.SporadicName, Nat.card (Outer (NativeSporadic.Carrier s)) ≤ 2
 
 theorem outerPrimeTwoTrivial_of_card_le_four {S : Type} [Group S] [Finite S]
     (h : Nat.card (Outer S) ≤ 4) : OuterPrimeTwoTrivial S := by
@@ -61,30 +59,6 @@ theorem outerPrimeTwoTrivial_alternating {S : Type} [Group S] [Finite S] {n : �
       (CatalogueSchreierAlternating.outer_card_dvd_two_of_equiv_outside_six (by omega) e)).trans
       (by norm_num)
 
-theorem outerPrimeTwoTrivial_sporadic (hsp : SporadicOuterOrderLeTwo) {S : Type} [Group S]
-    [Finite S] (hS : NativeSporadic.SporadicRep S) : OuterPrimeTwoTrivial S := by
-  obtain ⟨s, ⟨e⟩⟩ := hS
-  apply outerPrimeTwoTrivial_of_card_le_four
-  rw [Nat.card_congr (equivalence e).toEquiv]
-  exact (hsp s).trans (by norm_num)
-
-theorem outerPrimeTwoTrivial_of_catalog (hcl : ClassicalOuterPrimeTwoTrivial)
-    (hex : ExceptionalOuterPrimeTwoTrivial) (hsp : SporadicOuterOrderLeTwo) {S : Type}
-    [Group S] [Finite S] (hsimple : IsSimpleGroup S) (hnonab : ∃ a b : S, a * b ≠ b * a)
-    (hcat : Catalog S) : OuterPrimeTwoTrivial S := by
-  rcases hcat with ⟨q, hq, ⟨e⟩⟩ | ⟨n, hn, ⟨e⟩⟩ | hclass | hexc | hspor
-  ·
-    exfalso
-    obtain ⟨a, b, hab⟩ := hnonab
-    apply hab
-    have h1 : e (a * b) = e (b * a) := by
-      rw [map_mul, map_mul]
-      exact mul_comm _ _
-    exact e.injective h1
-  · exact outerPrimeTwoTrivial_alternating hn e
-  · exact hcl S hsimple hnonab hclass
-  · exact hex S hsimple hnonab hexc
-  · exact outerPrimeTwoTrivial_sporadic hsp hspor
 
 theorem catalogPrimeTwoAutomorphismsInner_of_outer
     (h : ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -112,10 +86,5 @@ theorem catalogPrimeTwoAutomorphismsInner_of_outer
   have h3 : q ∈ inner J := (QuotientGroup.eq_one_iff q).mp h2
   exact h3
 
-theorem catalogPrimeTwoAutomorphismsInner_of_inspections (hcl : ClassicalOuterPrimeTwoTrivial)
-    (hex : ExceptionalOuterPrimeTwoTrivial) (hsp : SporadicOuterOrderLeTwo) :
-    CatalogPrimeTwoAutomorphismsInner :=
-  catalogPrimeTwoAutomorphismsInner_of_outer fun _ _ _ hsimple hnonab hcat =>
-    outerPrimeTwoTrivial_of_catalog hcl hex hsp hsimple hnonab hcat
 
 end CFSG.RankThree.PartOne

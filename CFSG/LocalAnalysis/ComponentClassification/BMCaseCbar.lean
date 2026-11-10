@@ -113,27 +113,5 @@ theorem cbar_inner : ∀ α : MulAut Cbar, ∃ g : Cbar, α = MulAut.conj g := b
 theorem native_B_generated_quotient_Schreier : Group.IsSolvable (Outer Cbar) :=
   isSolvable_outer_of_inner cbar_inner
 
-theorem isPGroup_ebarJ : IsPGroup 2 (Ebar.subgroupOf Jbar) :=
-  IsPGroup.of_card ((Nat.card_congr ebarJEquiv.toEquiv).trans Ebar_extraspecial.2)
-
-theorem natCard_jbarQuot : Nat.card (Jbar ⧸ Ebar.subgroupOf Jbar) = 42305421312000 :=
-  (Nat.card_congr jbarQuotKvEquiv.toEquiv).trans Kstab_rStar_simple.2
-
-theorem isSimpleGroup_jbarQuot : IsSimpleGroup (Jbar ⧸ Ebar.subgroupOf Jbar) :=
-  @MulEquiv.isSimpleGroup _ _ _ _ Kstab_rStar_simple.1 jbarQuotKvEquiv
-
-theorem center_jbarQuot : Subgroup.center (Jbar ⧸ Ebar.subgroupOf Jbar) = ⊥ := by
-  have := isSimpleGroup_jbarQuot
-  exact center_eq_bot_of_isSimpleGroup
-    (exists_mul_ne_mul_of_not_prime (by rw [natCard_jbarQuot]; norm_num))
-
-theorem native_B_visible_centralizer_Schreier :
-    Group.IsSolvable (Outer Jbar) ∧
-      (∀ α : MulAut Jbar, ∃ g : Jbar, ∃ r ∈ quotKerAut (Ebar.subgroupOf Jbar),
-        α = MulAut.conj g * r) ∧
-      ∃ F : Subgroup (quotKerAut (Ebar.subgroupOf Jbar)), ∃ _ : F.Normal, IsPGroup 2 F ∧
-        IsPGroup 3 (quotKerAut (Ebar.subgroupOf Jbar) ⧸ F) :=
-  ⟨isSolvable_outer_of_inner jbar_perfect_and_inner.2,
-    quotKerAut_of_inner isPGroup_ebarJ center_jbarQuot jbar_perfect_and_inner.2⟩
 
 end CFSG.ComponentClassification.BMCase

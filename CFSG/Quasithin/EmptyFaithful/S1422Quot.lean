@@ -47,28 +47,11 @@ theorem isLin2Type_eq_one_of_card_six {G : Type*} [Group G] {L : Subgroup G} {n 
   have := isLin2Type_card_quot h
   omega
 
-theorem isL2Quot_card_le_false {f : ℕ} (hf : 2 ≤ f) {X : Type*} [Group X] (h : IsL2Quot f X)
-    (hX : Nat.card X ≤ 20) : False := by
-  have := two_pow_mul_four_pow_sub_one_ge f hf
-  have := h.card (by omega)
-  omega
 
 namespace Setting1422
 
 variable {G : Type} [Group G] [Finite G] {T M Y H : Subgroup G}
 
-theorem card_quot_H_le (hSz : Nat.card ↥(Sz 0) = 20) (S : Setting1422 T M Y H) :
-    Nat.card (OTwoQuot H) ≤ 20 := by
-  obtain ⟨k, r, hk, hr, hr2, hcard⟩ := S.exists_card_H hSz
-  obtain h | h | h := S.small
-  · obtain ⟨e⟩ := h
-    rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card, DihedralGroup.card]
-    norm_num
-  · obtain ⟨e⟩ := h
-    rw [Nat.card_congr e.toEquiv, hSz]
-  · obtain ⟨e⟩ := h
-    rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card, Fintype.card_perm]
-    decide
 
 end Setting1422
 

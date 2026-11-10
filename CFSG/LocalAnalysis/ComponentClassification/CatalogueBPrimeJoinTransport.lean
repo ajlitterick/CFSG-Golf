@@ -65,12 +65,5 @@ theorem pComponent_subnormal_overgroup_iff {G : Type*} [Group G] [Finite G]
     simpa only [Subgroup.map_subgroupOf_eq_of_le hle] using h
   · exact fun hL => pComponent_restrict_overgroup p hL hle
 
-theorem p_component_overgroup_subnormal_transport {G : Type*} [Group G] [Finite G]
-    (p : ℕ) (hp : p.Prime) (L H : Subgroup G) (hle : L ≤ H) :
-    (CFSG.IsPComponent p L → CFSG.IsPComponent p (L.subgroupOf H)) ∧
-      (H.IsSubnormal → CFSG.IsPComponent p (L.subgroupOf H) → CFSG.IsPComponent p L) := by
-  let : Fact p.Prime := ⟨hp⟩
-  exact ⟨fun hL => pComponent_restrict_overgroup p hL hle,
-    fun hH hL => (pComponent_subnormal_overgroup_iff p L H hle hH).mp hL⟩
 
 end CFSG.ComponentClassification.CatalogueBPrimeJoin

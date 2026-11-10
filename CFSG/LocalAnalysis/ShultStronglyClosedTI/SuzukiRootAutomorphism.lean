@@ -48,14 +48,6 @@ theorem rootCenterPoint_surjective :
   obtain ⟨b, hb⟩ := (mem_suzukiZ0_iff hK).1 (Subgroup.mem_subgroupOf.1 hx)
   exact ⟨b, Subtype.ext (Prod.ext (Subtype.ext hb) (Subgroup.mem_bot.1 hp).symm)⟩
 
-theorem exists_rootCenter_equiv :
-    ∃ e : Multiplicative K ≃* rootCenter a K P, ∀ b : K,
-      e (.ofAdd b) = rootCenterPoint a K P b :=
-  ⟨MulEquiv.ofBijective (⟨fun b => rootCenterPoint a K P (Multiplicative.toAdd b),
-      fun _ _ => rootCenterPoint_add hK _ _⟩ : Multiplicative K →ₙ* rootCenter a K P)
-    ⟨fun _ _ h => Multiplicative.toAdd.injective (rootCenterPoint_injective (K := K) h), fun z =>
-      let ⟨b, hb⟩ := rootCenterPoint_surjective hK z; ⟨Multiplicative.ofAdd b, hb⟩⟩,
-    fun _ => rfl⟩
 
 end Coordinates
 
@@ -129,36 +121,5 @@ theorem exists_semilinear_of_mem_autStabilizer
   rw [this, RingEquiv.ofBijective_apply, iterateFrobenius_def, Units.val_mul,
     Units.val_pow_eq_pow_val]
 
-theorem suzuki_direct_product_root_center_automorphism_two_part
-    (ha : 1 ≤ a)
-    (hK : Nat.card K = 2 ^ (2 * a + 1)) :
-    (∀ γ ∈ autStabilizer (rootCenter a K P), ∃ (c : Kˣ) (σ : K ≃+* K), ∀ b : K,
-      γ (rootCenterPoint a K P b) = rootCenterPoint a K P (c * σ b)) ∧
-    (∀ ψ ∈ (autStabilizerRestrict (rootCenter a K P)).range, ∃ (c : Kˣ) (σ : K ≃+* K),
-      ∀ b : K, ψ (rootCenterPoint a K P b) = rootCenterPoint a K P (c * σ b)) ∧
-    Odd (Nat.card (autStabilizerRestrict (rootCenter a K P)).range) ∧
-    Nat.card (autStabilizerRestrict (rootCenter a K P)).range ∣
-      (2 ^ (2 * a + 1) - 1) * (2 * a + 1) := by
-  have h1 : ∀ γ ∈ autStabilizer (rootCenter a K P), ∃ (c : Kˣ) (σ : K ≃+* K), ∀ b : K,
-      γ (rootCenterPoint a K P b) = rootCenterPoint a K P (c * σ b) := fun γ hγ =>
-    exists_semilinear_of_mem_autStabilizer ha hK hγ
-  have h2 : ∀ ψ ∈ (autStabilizerRestrict (rootCenter a K P)).range, ∃ (c : Kˣ) (σ : K ≃+* K),
-      ∀ b : K, ψ (rootCenterPoint a K P b) = rootCenterPoint a K P (c * σ b) := by
-    rintro _ ⟨γ, rfl⟩
-    obtain ⟨c, σ, h⟩ := h1 γ γ.2
-    exact ⟨c, σ, fun b => Subtype.ext (h b)⟩
-  obtain ⟨e, he⟩ := exists_rootCenter_equiv (P := P) hK
-  have hdvd := card_dvd_of_forall_coordSemilinear e fun ψ hψ => by
-    obtain ⟨c, σ, h⟩ := h2 ψ hψ
-    exact ⟨c, σ, fun b => by rw [he, he, h]⟩
-  obtain ⟨-, -, -, -, hAut, -⟩ :=
-    finite_field_automorphism_fixed_field_cardinality (F := K) Nat.prime_two (by omega) hK
-  rw [Nat.card_units, hK, hAut] at hdvd
-  have hodd : Odd ((2 ^ (2 * a + 1) - 1) * (2 * a + 1)) := by
-    refine Nat.odd_mul.2 ⟨⟨2 ^ (2 * a) - 1, ?_⟩, odd_two_mul_add_one a⟩
-    have : 1 ≤ 2 ^ (2 * a) := Nat.one_le_two_pow
-    rw [pow_succ]
-    omega
-  exact ⟨h1, h2, hodd.of_dvd_nat hdvd, hdvd⟩
 
 end CFSG.ShultStronglyClosedTI.SuzukiRootAutomorphism

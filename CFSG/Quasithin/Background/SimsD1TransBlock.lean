@@ -76,22 +76,6 @@ theorem isShort2_map_iff (f : A →* B) (hf : Function.Injective f) (L : Subgrou
         (and_congr (Subgroup.map_lt_map_iff_of_injective hf) (irreducible_map_iff f hf L _ _)))))
   rw [← Nat.card_congr q.toEquiv]
 
-theorem isSubnormal_subgroupOf_map_iff (f : A →* B) (hf : Function.Injective f)
-    (X L : Subgroup A) :
-    ((L.map f).subgroupOf (X.map f)).IsSubnormal ↔ (L.subgroupOf X).IsSubnormal := by
-  let e : ↥X ≃* ↥(X.map f) := X.equivMapOfInjective f hf
-  have h : ((L.map f).subgroupOf (X.map f)).comap e.toMonoidHom = L.subgroupOf X := by
-    ext x
-    show f x ∈ L.map f ↔ (x : A) ∈ L
-    exact Subgroup.mem_map_iff_mem hf
-  refine ⟨fun h' => h ▸ h'.comap e.toMonoidHom, fun h' => ?_⟩
-  have h'' := h'.map (f := e.toMonoidHom) e.surjective
-  rwa [← h, Subgroup.map_comap_eq_self_of_surjective e.surjective] at h''
-
-theorem isBlock2_map_iff (f : A →* B) (hf : Function.Injective f) (X L : Subgroup A) :
-    IsBlock2 (X.map f) (L.map f) ↔ IsBlock2 X L :=
-  and_congr (isShort2_map_iff f hf L) (and_congr (Subgroup.map_le_map_iff_of_injective hf)
-    (isSubnormal_subgroupOf_map_iff f hf X L))
 
 theorem isAltType_of_mulEquiv {G H : Type*} [Group G] [Group H] {L : Subgroup G}
     {L' : Subgroup H} (φ : ↥L ≃* ↥L') (ψ : ↥(blockU L) ≃* ↥(blockU L'))
@@ -131,27 +115,5 @@ theorem isAltType_map_iff (f : A →* B) (hf : Function.Injective f) (L : Subgro
     · rw [← hZ (ψ.symm w), MulEquiv.apply_symm_apply]
     · simp only [map_mul, InvMemClass.coe_inv, map_inv, hψs, hes, h]
 
-theorem prodA3_map_iff (f : A →* B) (hf : Function.Injective f) (X Y : Subgroup A) :
-    (∃ S : Finset (Subgroup B), (∀ L ∈ S, IsBlock2 (X.map f) L ∧ IsAltType L 3) ∧
-      Y.map f = ⨆ L ∈ S, L) ↔
-    (∃ S : Finset (Subgroup A), (∀ L ∈ S, IsBlock2 X L ∧ IsAltType L 3) ∧ Y = ⨆ L ∈ S, L) := by
-  classical
-  constructor
-  · rintro ⟨S, hS, hY⟩
-    have hmc : ∀ L ∈ S, (L.comap f).map f = L := fun L hL =>
-      TransGrp.map_comap_of_le_map f (hS L hL).1.2.1
-    refine ⟨S.image (Subgroup.comap f), fun K hK => ?_, Subgroup.map_injective hf ?_⟩
-    · obtain ⟨L, hL, rfl⟩ := Finset.mem_image.1 hK
-      have h := hS L hL
-      rw [← hmc L hL] at h
-      exact ⟨(isBlock2_map_iff f hf X _).1 h.1, (isAltType_map_iff f hf _ 3).1 h.2⟩
-    · simp only [Subgroup.map_iSup, Finset.iSup_finset_image]
-      rw [hY]
-      exact biSup_congr fun L hL => (hmc L hL).symm
-  · rintro ⟨S, hS, rfl⟩
-    refine ⟨S.image (Subgroup.map f), fun K hK => ?_, ?_⟩
-    · obtain ⟨L, hL, rfl⟩ := Finset.mem_image.1 hK
-      exact ⟨(isBlock2_map_iff f hf X L).2 (hS L hL).1, (isAltType_map_iff f hf L 3).2 (hS L hL).2⟩
-    · simp only [Subgroup.map_iSup, Finset.iSup_finset_image]
 
 end CFSG.Quasithin.SimsD1.TransBlock

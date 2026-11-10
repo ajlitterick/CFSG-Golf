@@ -36,9 +36,6 @@ theorem commutator_mem_Q {G₀ L : Subgroup G} {t g : G} (ht : t ∈ pCoreOf 2 G
 theorem coe_cm {G₀ L : Subgroup G} {x : G} (hx : x ∈ pCoreOf 2 G₀) (y : ↥L) :
     ((cm hx y : ↥(c134Q G₀ L)) : G) = x⁻¹ * y * x * (y : G)⁻¹ := rfl
 
-theorem mul_comm_U {G₀ L : Subgroup G} {u v : G} (hu : u ∈ centerOf (c134Q G₀ L))
-    (hv : v ∈ centerOf (c134Q G₀ L)) : u * v = v * u :=
-  (Subgroup.mem_centralizer_iff.mp hv.2 u hu.1)
 
 theorem eq_zero_of_fixed {k : ℕ} {x : Fin k → Fin 3 → F}
     (hx : ∀ γ : Matrix.SpecialLinearGroup (Fin 3) F,
@@ -109,52 +106,6 @@ theorem crd_cm_mul {x : G} (hx : x ∈ pCoreOf 2 G₀) (y y' : ↥L) :
   rw [e, crd_mul, crd_conj_true H.dual y (cm hx y') ⟨_, hmem⟩ rfl]
   rfl
 
-theorem mem_centralizer_of_triv {y z : G} (hyN : y ∈ Subgroup.normalizer (c134Q G₀ L : Set G))
-    (hzN : z ∈ Subgroup.normalizer (c134Q G₀ L : Set G))
-    (hy : ∀ q, crd H.dual (cnj hyN q) = crd H.dual q)
-    (hz : ∀ q, crd H.dual (cnj hzN q) = crd H.dual q)
-    (hyU : ∀ u ∈ centerOf (c134Q G₀ L), y * u = u * y)
-    (hzU : ∀ u ∈ centerOf (c134Q G₀ L), z * u = u * z) :
-    y * z * y⁻¹ * z⁻¹ ∈ Subgroup.centralizer (c134Q G₀ L : Set G) := by
-  have he : ∀ {w : G} (hwN : w ∈ Subgroup.normalizer (c134Q G₀ L : Set G)),
-      (∀ q, crd H.dual (cnj hwN q) = crd H.dual q) → ∀ q : ↥(c134Q G₀ L),
-        ∃ e ∈ centerOf (c134Q G₀ L), w * q * w⁻¹ = q * e := by
-    intro w hwN hw q
-    have h1 := (crd_eq_iff H.dual q (cnj hwN q)).mp (hw q).symm
-    refine ⟨_, h1, ?_⟩
-    simp only [Subgroup.coe_mul, Subgroup.coe_inv, coe_cnj]
-    group
-  have hcomm : ∀ q : ↥(c134Q G₀ L), (y * z) * q * (y * z)⁻¹ = (z * y) * q * (z * y)⁻¹ := by
-    intro q
-    obtain ⟨e₁, he₁, h₁⟩ := he hyN hy q
-    obtain ⟨e₂, he₂, h₂⟩ := he hzN hz q
-    have hye : y * e₂ * y⁻¹ = e₂ := by rw [hyU e₂ he₂]; group
-    have hze : z * e₁ * z⁻¹ = e₁ := by rw [hzU e₁ he₁]; group
-    calc (y * z) * q * (y * z)⁻¹ = y * (z * q * z⁻¹) * y⁻¹ := by group
-      _ = y * (q * e₂) * y⁻¹ := by rw [h₂]
-      _ = (y * q * y⁻¹) * (y * e₂ * y⁻¹) := by group
-      _ = q * e₁ * e₂ := by rw [h₁, hye]
-      _ = q * e₂ * e₁ := by rw [mul_assoc, mul_comm_U he₁ he₂, ← mul_assoc]
-      _ = (z * q * z⁻¹) * (z * e₁ * z⁻¹) := by rw [h₂, hze]
-      _ = z * (q * e₁) * z⁻¹ := by group
-      _ = z * (y * q * y⁻¹) * z⁻¹ := by rw [h₁]
-      _ = (z * y) * q * (z * y)⁻¹ := by group
-  refine Subgroup.mem_centralizer_iff.mpr fun q hq => ?_
-  have hq' : (z * y)⁻¹ * q * (z * y) ∈ c134Q G₀ L := by
-    have := (Subgroup.mem_normalizer_iff.mp
-      ((Subgroup.normalizer (c134Q G₀ L : Set G)).inv_mem
-        ((Subgroup.normalizer (c134Q G₀ L : Set G)).mul_mem hzN hyN)) q).mp hq
-    simpa using this
-  have h1 := hcomm ⟨_, hq'⟩
-  simp only at h1
-  have h2 : (y * z * y⁻¹ * z⁻¹) * q * (y * z * y⁻¹ * z⁻¹)⁻¹ = q := by
-    have e : (y * z * y⁻¹ * z⁻¹) * q * (y * z * y⁻¹ * z⁻¹)⁻¹ =
-        y * z * ((z * y)⁻¹ * q * (z * y)) * (y * z)⁻¹ := by group
-    rw [e, h1]
-    group
-  calc q * (y * z * y⁻¹ * z⁻¹) =
-        ((y * z * y⁻¹ * z⁻¹) * q * (y * z * y⁻¹ * z⁻¹)⁻¹) * (y * z * y⁻¹ * z⁻¹) := by rw [h2]
-    _ = (y * z * y⁻¹ * z⁻¹) * q := by group
 
 theorem eq_one_of_equivariant (δ : ↥(c134Q G₀ L) → ↥(centerOf (c134Q G₀ L)))
     (hmul : ∀ q q', δ (q * q') = δ q * δ q')

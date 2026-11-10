@@ -1474,9 +1474,6 @@ set_option compiler.extract_closed false
 25 3 25 6 30 6 0 29 14 8 28 19 16 20 16 2 2 7 9 30 7 25 10 25 10 12 31 12 16 0 16 2 12 30 6
 2 14 20 6 22 11 26 10 19 24 12 31"
 
-@[expose] def ord4Str : String :=
-  "16 30 2 2 7 22 9 6 0 12 25 9 28 25 12 26 16"
-
 
 @[expose] def labRep (_ : Unit := ()) : Array Nat := parseNats labRepStr
 
@@ -1500,15 +1497,9 @@ set_option compiler.extract_closed false
   let a := parseNats conjStr
   splitWords a a.size 0 #[]
 
-@[expose] def ord4W (_ : Unit := ()) : List Nat := (parseNats ord4Str).toList
 
 @[expose] def globRep : Array Nat := #[6228, 19195, 19264, 19260]
 
-@[expose] def fpfPts : List Nat := [0, 428, 71, 353, 3, 1]
-
-@[expose] def fpfBounds : List Nat := [108, 2, 9, 3, 3, 2]
-
-@[expose] def fixExtra : Array Nat := #[0, 0, 1, 6]
 
 @[expose] def regT (O : COrbit) : Array Table :=
   let os := ops
@@ -1531,7 +1522,6 @@ decreasing_by exact _h.2
 
 @[expose] def eqT (P Q : Table) : Bool := allIn 0 3510 fun i => ap P i == ap Q i
 
-@[expose] def idOK (P : Table) : Bool := allIn 0 3510 fun i => ap P i == i
 
 @[expose] def classifyCore (P : Array (Nat × Nat)) (LL : Array (Array Nat)) (G : Array Table)
     (letters : Array Table) (lr lc lo wo : Array Nat) (cw : Array (List Nat)) : Bool :=
@@ -1551,46 +1541,13 @@ decreasing_by exact _h.2
 @[expose] def classifyOK (O : COrbit) : Bool :=
   classifyCore par L (genT O) (chainLetters O) labRep labCls labOf witOf conjW
 
-@[expose] def transT (O : COrbit) : Array Table :=
-  let bi := genTables O (-2)
-  Array.ofFn (n := 3510) fun k => cTab O bi k.val
 
 @[expose] def fixList (X : Table) : List Nat := (List.range 3510).filter fun v => ap X v == v
 
 @[expose] def commB (D : Array Table) (d e : Nat) : Bool := ap D[d]! e == e
 
-@[expose] def sepOK (D : Array Table) (F : List Nat) : Bool :=
-  F.all fun d => F.all fun d' =>
-    d == d' || !commB D d d' || F.any fun e => commB D e d' && !commB D e d
-
-@[expose] def nbrOf (T : Table) (v : Nat) : List Nat :=
-  (List.range 3510).filter fun w => w != v && ap T w == w
-
-@[expose] def nbrJ (D : Array Table) : Array (List Nat) := Array.ofFn (n := 3510) fun v =>
-  nbrOf D[v.val]! v.val
 
 @[expose] def fixCount (Y : Table) : Nat := (List.range 3510).countP fun w => ap Y w == w
 
-@[expose] def c0J (D : Array Table) (X : Table) : Array Nat := Array.ofFn (n := 3510) fun v =>
-  fixCount (compT 3510 D[v.val]! X)
-
-@[expose] def natOf (X : Table) : Array Nat := X.map fun u => u.toNat
-
-@[expose] def repsCore (P : Array (Nat × Nat)) (G D : Array Table) (nb : Array (List Nat))
-    (letters : Array Table) (w4 : List Nat) : Bool :=
-  let X0 := eltT P G globRep[0]!
-  let T4 := lettersT letters w4
-  fixList X0 == [] && w4.all (fun z => decide (z < letters.size)) &&
-    !idOK (compT 3510 T4 T4) && idOK (compT 3510 (compT 3510 T4 T4) (compT 3510 T4 T4)) &&
-    eqT (compT 3510 T4 X0) (compT 3510 X0 T4) &&
-    boundsXOK 3510 nb (natOf X0) (c0J D X0) [] fpfPts fpfBounds 3 &&
-    [1, 2, 3].all fun k =>
-      sepOK D (fixList (eltT P G globRep[k]!)) &&
-        boundsXOK 3510 nb (natOf (eltT P G globRep[k]!)) (c0J D (eltT P G globRep[k]!))
-          (fixList (eltT P G globRep[k]!)) [fixExtra[k]!] [3] 3
-
-@[expose] def repsOK (O : COrbit) : Bool :=
-  let D := transT O
-  repsCore par (genT O) D (nbrJ D) (chainLetters O) ord4W
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.Fi22Native

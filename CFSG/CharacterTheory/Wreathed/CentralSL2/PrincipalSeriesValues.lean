@@ -35,8 +35,6 @@ theorem weylParameter_spec (heven : Even m) (P : PrincipalSeriesParameter F b m)
     PrincipalSeriesParameter F b m :=
   ⟨(P.1.1⁻¹, P.1.1 b * P.1.2), weylParameter_spec F b m heven P⟩
 
-theorem weylParameter_fst (heven : Even m) (P : PrincipalSeriesParameter F b m) :
-    (weylParameter F b m heven P).1 = (P.1.1⁻¹, P.1.1 b * P.1.2) := rfl
 
 theorem weylParameter_involutive (heven : Even m) :
     Function.Involutive (weylParameter F b m heven) := by
@@ -187,10 +185,6 @@ theorem extendByZero_borelInflation_of_mem_splitTorus (lam : splitTorus F b m hm
   simp only [borelInflation, MonoidHom.comp_apply]
   rw [borelProjection_of_mem_splitTorus F b m hm heven _ hg]
 
-theorem cyclicGenerator_pow_m_mem_splitTorus :
-    cyclicGenerator F b m hm heven ^ m ∈ splitTorus F b m hm heven := by
-  rw [← torusDiag_neg_one]
-  exact torusDiag_mem_splitTorus F b m hm heven (-1)
 
 end TorusCharacters
 
@@ -313,17 +307,6 @@ theorem principalSeries_eq_zero (lam : splitTorus F b m hm heven →* ℂˣ)
   rw [principalSeries_apply]
   exact Finset.sum_eq_zero fun p _ => principalSeries_term_of_not_fixed F b m hm heven lam (hg p)
 
-theorem principalSeries_x (P : PrincipalSeriesParameter F b m) :
-    principalSeries F b m hm heven (torusCharacter F b m hm heven P)
-        (cyclicGenerator F b m hm heven ^ m) = ((Nat.card F : ℂ) + 1) * (P.1.1 (-1) : ℂ) := by
-  rw [principalSeries_of_central F b m hm heven _
-    (cyclicGenerator_pow_m_mem_splitTorus F b m hm heven)
-    (cyclicGenerator_pow_m_comm F b m hm heven)]
-  have hx : (⟨cyclicGenerator F b m hm heven ^ m,
-      cyclicGenerator_pow_m_mem_splitTorus F b m hm heven⟩ : splitTorus F b m hm heven) =
-        ⟨torusDiag F b m hm heven (-1), torusDiag_mem_splitTorus F b m hm heven (-1)⟩ :=
-    Subtype.ext (torusDiag_neg_one F b m hm heven).symm
-  rw [hx, torusCharacter_torusDiag]
 
 theorem principalSeries_inner (lam mu : splitTorus F b m hm heven →* ℂˣ) :
     BlocksInnerProduct (principalSeries F b m hm heven lam) (principalSeries F b m hm heven mu) =

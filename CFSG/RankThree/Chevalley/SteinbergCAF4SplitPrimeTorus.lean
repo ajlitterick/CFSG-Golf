@@ -112,16 +112,6 @@ theorem rootChar_pow_val_eq {τ : Tag} {p : ℕ} [NeZero p] {ζ : kˣ} (hζ : or
   refine Finset.sum_congr rfl fun i _ => ?_
   rw [ZMod.natCast_zmod_val, mul_comm]
 
-theorem rootDiagUnit_pow_val_add {τ : Tag} {p : ℕ} [NeZero p] {ζ : kˣ} (hζ : orderOf ζ = p)
-    (x y : Fin τ.rank → ZMod p) :
-    rootDiagUnit τ (fun i => ζ ^ (x i + y i).val) =
-      rootDiagUnit τ (fun i => ζ ^ (x i).val) * rootDiagUnit τ (fun i => ζ ^ (y i).val) := by
-  rw [← rootDiagUnit_mul]
-  congr 1
-  funext i
-  have h := pow_mod_orderOf ζ ((x i).val + (y i).val)
-  rw [hζ] at h
-  rw [Pi.mul_apply, ← pow_add, ZMod.val_add, h]
 
 theorem eq_of_pow_val_eq_pow_val {p : ℕ} [NeZero p] {ζ : kˣ} (hζ : orderOf ζ = p)
     {m n : ZMod p} (h : ζ ^ m.val = ζ ^ n.val) : m = n := by
@@ -261,109 +251,6 @@ theorem F4_natCard_torusPow [Finite k] (hp : p.Prime) (hpk : p ∣ Nat.card kˣ)
     Nat.card_zmod, Nat.card_eq_fintype_card, Fintype.card_fin]
   rfl
 
-theorem F4_canonicalRep_conj_rootDiagUnit_pow_val [NeZero p] {ζ : kˣ} (hζ : orderOf ζ = p)
-    (w : WeylGroup .F4) (x : Fin Tag.F4.rank → ZMod p) :
-    canonicalRep (coxeterSystem .F4) k w * rootDiagUnit .F4 (fun i => ζ ^ (x i).val) *
-        (canonicalRep (coxeterSystem .F4) k w)⁻¹ =
-      rootDiagUnit .F4 (fun i => ζ ^ ((((invTranspose (weylToAut .F4 w)).map
-        (Int.castRingHom (ZMod p))).mulVec x) i).val) := by
-  refine ((rootDiagUnit_eq_conj_canonicalRep_iff _ _ w).2 fun v => ?_).symm
-  rw [rootChar_pow_val_eq hζ, rootChar_pow_val_eq hζ]
-  have e : (invTranspose (weylToAut .F4 w)).map (Int.castRingHom (ZMod p)) =
-      dualMatrix (ZMod p) w⁻¹ := by
-    rw [invTranspose_weylToAut_eq, dualMatrix, Matrix.transpose_map]
-    rfl
-  rw [e, charVal_dualMatrix, inv_smul_smul]
-
-theorem F4_adjointGroup_inf_centralizer_torusPow
-    [Finite k] (hp : p.Prime) (hp3 : 3 < p)
-    (hpk : p ∣ Nat.card kˣ) :
-    adjointGroup .F4 k ⊓
-        Subgroup.centralizer {h : ModGL .F4 k | h ∈ torusGroup .F4 k ∧ h ^ p = 1} =
-      torusGroup .F4 k := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hTcomm := (triangular_borel_structure.{0, 0} .F4 k).1
-  refine le_antisymm (fun z hz => ?_) (le_inf torusGroup_le_adjointGroup_F4 fun h hh =>
-    Subgroup.mem_centralizer_iff.2 fun x hx => hTcomm _ hx.1 _ hh)
-  obtain ⟨hzC, hzV⟩ := Subgroup.mem_inf.1 hz
-  obtain ⟨ζ, hζ⟩ := exists_prime_orderOf_dvd_card' p hpk
-  have hζp : ζ ^ p = 1 := hζ ▸ pow_orderOf_eq_one ζ
-  have hbV : ∀ i, rootDiagUnit .F4 (Pi.mulSingle i ζ) ∈
-      {h : ModGL .F4 k | h ∈ torusGroup .F4 k ∧ h ^ p = 1} := fun i =>
-    ⟨F4_rootDiagUnit_mem_torusGroup _, by
-      rw [rootDiagUnit_pow, ← Pi.mulSingle_pow, hζp, Pi.mulSingle_one, rootDiagUnit_one]⟩
-  have hX : ∀ i, z ∈ toralCentralizer .F4 k (Pi.mulSingle i ζ) := fun i =>
-    mem_toralCentralizer.2 ⟨hzC, by
-      rw [Subgroup.mem_centralizer_iff.1 hzV _ (hbV i), mul_inv_cancel_right]⟩
-  have hB := Chevalley_toral_centralizer_Bruhat_factors .F4 k (Pi.mulSingle ⟨0, by decide⟩ ζ)
-  obtain ⟨w, -, h, hh, u, hu, v, hv, hz1⟩ := hB.1 z (hX _)
-  have hwall : ∀ i, w ∈ rootCharStabilizer (Pi.mulSingle i ζ) := by
-    intro i
-    obtain ⟨w', hw', h', hh', u', hu', v', hv', hz2⟩ :=
-      (Chevalley_toral_centralizer_Bruhat_factors .F4 k (Pi.mulSingle i ζ)).1 z (hX i)
-    obtain ⟨hww, -, -, -⟩ := hB.2.1 w w' h h' u u' v v' hh hh'
-      (rootSpan_le_posUnipotent (fun α hα => hα.2) hu)
-      (rootSpan_le_posUnipotent (fun α hα => hα.2) hu')
-      (rootSpan_mono Set.inter_subset_right hv) (rootSpan_mono Set.inter_subset_right hv')
-      (hz1.symm.trans hz2)
-    rw [hww]
-    exact hw'
-  have hw1 : w = 1 := F4_eq_one_of_smul_modEq (p := p) (by omega) fun v i => by
-    have := natCast_mul_smul_apply_eq_of_rootChar (m := 1) hζ (fun v => by
-      rw [pow_one]
-      exact hwall i v) v
-    rwa [Nat.cast_one, one_mul] at this
-  subst hw1
-  have hbot : rootSpan .F4 k (∅ : Set (Fin Tag.F4.rank → ℤ)) = ⊥ := by simp [rootSpan]
-  rw [inversionSet_one, Set.inter_empty, hbot, Subgroup.mem_bot] at hv
-  subst hv
-  rw [canonicalRep_one, mul_one, mul_one] at hz1
-  have hu1 : u = 1 := by
-    refine eq_one_of_mem_posUnipotent_of_conj_rootDiagUnit_eq
-      (rootSpan_le_posUnipotent (fun α hα => hα.2) hu)
-      (A := Set.range fun i => Pi.mulSingle i ζ) (fun α hα _ => ?_) ?_
-    · obtain ⟨i, hi⟩ := F4_exists_rootChar_mulSingle_ne_one (p := p)
-        (by have := five_le_of_prime_of_three_lt hp hp3; omega) hζ hα
-      exact ⟨_, ⟨i, rfl⟩, hi⟩
-    · rintro _ ⟨i, rfl⟩
-      have hd := (mem_toralCentralizer.1 (hX i)).2
-      rw [hz1] at hd
-      exact conj_eq_self_of_commute_of_conj_mul_eq (hTcomm _ (hbV i).1 _ hh) hd
-  rw [hz1, hu1, mul_one]
-  exact hh
-
-theorem F4_exists_conj_eq_pow_iff [Finite k] (hp : p.Prime) (hp3 : 3 < p)
-    (hpk : p ∣ Nat.card kˣ) (w : WeylGroup .F4) :
-    (∃ a : ZMod p, ∀ x ∈ {h : ModGL .F4 k | h ∈ torusGroup .F4 k ∧ h ^ p = 1},
-      canonicalRep (coxeterSystem .F4) k w * x * (canonicalRep (coxeterSystem .F4) k w)⁻¹ =
-        x ^ a.val) ↔
-    (w = 1 ∨ ∀ v : Fin Tag.F4.rank → ℤ, w • v = -v) := by
-  have : Fact p.Prime := ⟨hp⟩
-  have : Fact (1 < p) := ⟨hp.one_lt⟩
-  constructor
-  · rintro ⟨a, ha⟩
-    obtain ⟨ζ, hζ⟩ := exists_prime_orderOf_dvd_card' p hpk
-    have hζp : ζ ^ p = 1 := hζ ▸ pow_orderOf_eq_one ζ
-    refine F4_eq_one_or_neg_of_scalar_mod (p := p) (by omega) (a := a) fun v i => ?_
-    obtain ⟨n, hn⟩ : ∃ n, canonicalRep (coxeterSystem .F4) k w = n := ⟨_, rfl⟩
-    rw [hn] at ha
-    have hbV : rootDiagUnit .F4 (Pi.mulSingle i ζ) ∈
-        {h : ModGL .F4 k | h ∈ torusGroup .F4 k ∧ h ^ p = 1} :=
-      ⟨F4_rootDiagUnit_mem_torusGroup (Pi.mulSingle i ζ), by
-        rw [rootDiagUnit_pow, ← Pi.mulSingle_pow, hζp, Pi.mulSingle_one, rootDiagUnit_one]⟩
-    have h1 := ha _ hbV
-    rw [rootDiagUnit_pow] at h1
-    have h3 := (rootDiagUnit_eq_conj_canonicalRep_iff (τ := .F4) (K := k)
-      (Pi.mulSingle i ζ ^ a.val) (Pi.mulSingle i ζ) w).1 (by rw [hn]; exact h1.symm)
-    have := natCast_mul_smul_apply_eq_of_rootChar hζ h3 v
-    rwa [ZMod.natCast_zmod_val] at this
-  · rintro (rfl | hw)
-    · refine ⟨1, fun x _ => ?_⟩
-      rw [canonicalRep_one, one_mul, inv_one, mul_one, ZMod.val_one, pow_one]
-    · refine ⟨((-1 : ℤ) : ZMod p), fun x hx => ?_⟩
-      have h1 := mul_canonicalRep_conj_eq_inv_of_smul_eq_neg (one_mem (torusGroup .F4 k)) hw hx.1
-      rw [one_mul] at h1
-      rw [h1, pow_val_eq_zpow_of_pow_eq_one hx.2 _ (-1) rfl, zpow_neg_one]
 
 theorem F4_centralizer_eq_torusGroup_of_regular
     (hp : p.Prime) (hp3 : 3 < p)
@@ -414,62 +301,5 @@ theorem F4_centralizer_eq_torusGroup_of_regular
 
 end Torsion
 
-theorem F4_full_split_prime_torus_normalizer_and_regular_centralizers
-    (M : Type) [Field M]
-    [Finite M] {p : ℕ} (hp : p.Prime) (hp3 : 3 < p) (hpM : p ∣ Nat.card Mˣ)
-    (V : Set (ModGL .F4 M)) (hV : V = {h | h ∈ torusGroup .F4 M ∧ h ^ p = 1}) :
-    (∀ ζ : Mˣ, orderOf ζ = p →
-      Set.BijOn (fun x : Fin Tag.F4.rank → ZMod p => rootDiagUnit .F4 fun i => ζ ^ (x i).val)
-        Set.univ V ∧
-      (∀ x y : Fin Tag.F4.rank → ZMod p,
-        rootDiagUnit .F4 (fun i => ζ ^ (x i + y i).val) =
-          rootDiagUnit .F4 (fun i => ζ ^ (x i).val) * rootDiagUnit .F4 (fun i => ζ ^ (y i).val)) ∧
-      ∀ (w : WeylGroup .F4) (x : Fin Tag.F4.rank → ZMod p),
-        canonicalRep (coxeterSystem .F4) M w * rootDiagUnit .F4 (fun i => ζ ^ (x i).val) *
-            (canonicalRep (coxeterSystem .F4) M w)⁻¹ =
-          rootDiagUnit .F4 (fun i => ζ ^ ((((invTranspose (weylToAut .F4 w)).map
-            (Int.castRingHom (ZMod p))).mulVec x) i).val)) ∧
-    Nat.card V = p ^ 4 ∧
-    adjointGroup .F4 M ⊓ Subgroup.centralizer V = torusGroup .F4 M ∧
-    ((adjointGroup .F4 M ⊓ Subgroup.normalizer V : Subgroup (ModGL .F4 M)) :
-        Set (ModGL .F4 M)) =
-      ⋃ w : WeylGroup .F4, (torusGroup .F4 M : Set (ModGL .F4 M)) *
-        ({canonicalRep (coxeterSystem .F4) M w} : Set (ModGL .F4 M)) ∧
-    (∀ w w' : WeylGroup .F4, w ≠ w' →
-      Disjoint ((torusGroup .F4 M : Set (ModGL .F4 M)) *
-          ({canonicalRep (coxeterSystem .F4) M w} : Set (ModGL .F4 M)))
-        ((torusGroup .F4 M : Set (ModGL .F4 M)) *
-          ({canonicalRep (coxeterSystem .F4) M w'} : Set (ModGL .F4 M)))) ∧
-    (∀ w : WeylGroup .F4,
-      (∃ a : ZMod p, ∀ x ∈ V,
-        canonicalRep (coxeterSystem .F4) M w * x * (canonicalRep (coxeterSystem .F4) M w)⁻¹ =
-          x ^ a.val) ↔
-        (w = 1 ∨ ∀ v : Fin Tag.F4.rank → ℤ, w • v = -v)) ∧
-    ∀ a : Fin Tag.F4.rank → Mˣ, orderOf (rootDiagUnit .F4 a) = p →
-      (∀ α, IsRoot .F4 α → rootChar a α ≠ 1) →
-      adjointGroup .F4 M ⊓ Subgroup.centralizer {rootDiagUnit .F4 a} = torusGroup .F4 M := by
-  subst hV
-  have : Fact p.Prime := ⟨hp⟩
-  have hCV := F4_adjointGroup_inf_centralizer_torusPow hp hp3 hpM
-  refine ⟨fun ζ hζ => ⟨F4_bijOn_rootDiagUnit_pow_val hζ, rootDiagUnit_pow_val_add hζ,
-    F4_canonicalRep_conj_rootDiagUnit_pow_val hζ⟩, F4_natCard_torusPow hp hpM, hCV, ?_, ?_,
-    F4_exists_conj_eq_pow_iff hp hp3 hpM,
-    fun a ha hreg => F4_centralizer_eq_torusGroup_of_regular hp hp3 ha hreg⟩
-  · ext g
-    simp only [SetLike.mem_coe, Set.mem_iUnion, Set.mem_mul, Set.mem_singleton_iff]
-    constructor
-    · intro hg
-      obtain ⟨h, hh, w, rfl⟩ :=
-        exists_eq_mul_canonicalRep_of_mem_normalizer (fun x hx => hx.1) hCV hg
-      exact ⟨w, h, hh, _, rfl, rfl⟩
-    · rintro ⟨w, h, hh, _, rfl, rfl⟩
-      exact Subgroup.mem_inf.2 ⟨mul_mem (torusGroup_le_adjointGroup_F4 hh)
-          (canonicalRep_mem_adjointGroup (coxeterSystem .F4) M w),
-        mem_normalizer_torusPow_of_mem_normalizer
-          (mul_mem (Subgroup.le_normalizer hh) (canonicalRep_mem_normalizer (R := M) w))⟩
-  · intro w w' hww
-    refine Set.disjoint_left.2 ?_
-    rintro _ ⟨h, hh, _, rfl, rfl⟩ ⟨h', hh', _, rfl, heq⟩
-    exact hww (eq_and_eq_of_mul_canonicalRep_eq hh' hh heq).2.symm
 
 end CFSG.RankThree.Chevalley

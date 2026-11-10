@@ -142,13 +142,5 @@ theorem forall_forall_mem {gA LA gB LB : Array Table} (hA : EnumSpec n gA LA)
   hA.forall_mem (Q := fun x => ∀ y ∈ closure (tp n '' {x | x ∈ gB}), Q x y)
     fun a ha => hB.forall_mem (Q := fun y => Q (tablePerm n a) y) fun b hb => H a ha b hb
 
-theorem exists_mem_iff (h : EnumSpec n gens L) {Q : Equiv.Perm (Fin n) → Prop} :
-    (∃ g ∈ closure (tp n '' {x | x ∈ gens}), Q g) ↔ ∃ T ∈ L, Q (tablePerm n T) := by
-  constructor
-  · rintro ⟨g, hg, hQ⟩
-    obtain ⟨T, hT, hrep⟩ := h.cover_mem hg
-    exact ⟨T, hT, by rw [tablePerm_eq hrep]; exact hQ⟩
-  · rintro ⟨T, hT, hQ⟩
-    exact ⟨tablePerm n T, (h.rep_mem hT).2, hQ⟩
 
 end CFSG.EvenSporadicStandard.Fin76b.EnumSpec

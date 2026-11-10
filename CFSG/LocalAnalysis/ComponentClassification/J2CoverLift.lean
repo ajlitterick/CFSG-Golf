@@ -287,10 +287,6 @@ theorem fixedCount_eq_card (q : J2Cover.P) :
     fixedCount q = Nat.card {i : Fin 315 // (q : Equiv.Perm (Fin 315)) i = i} := by
   rw [fixedCount_eq_fixCount, Models.fixCount, Nat.card_eq_fintype_card]
 
-theorem fixedCount_eq_card_filter (q : J2Cover.P) :
-    fixedCount q =
-      (Finset.univ.filter fun i : Fin 315 => (q : Equiv.Perm (Fin 315)) i = i).card := by
-  rw [fixedCount_eq_fixCount, Models.fixCount, Fintype.card_subtype]
 
 @[expose] noncomputable def toModels : J2Cover.P ≃* Models.P :=
   MulEquiv.subgroupCongr P_eq_autP.symm

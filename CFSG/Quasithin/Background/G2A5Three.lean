@@ -169,34 +169,11 @@ end A5SettingCore
 
 namespace AlmostSpecialA5Core
 
-variable [Finite G] {V V₁ L T H : Subgroup G} (hyp : AlmostSpecialA5Core V V₁ L T H)
-
-include hyp
-
-theorem G24_three {U I S W : Subgroup G} (hU : U = conjClosure V H) {g : G} (hg : g ∈ L)
-    (hgN : g ∉ Subgroup.normalizer (V₁ : Set G)) (hI : I = U ⊔ rconj U g)
-    (hS : S = pCoreOf 2 I) (hW : W = U ⊓ S) :
-    S = W ⊔ rconj W g ∧ (S : Set G) = (W : Set G) * (rconj W g : Set G) := by
-  obtain ⟨D⟩ := hyp.natural.nonempty_natData5 hyp.base.le_V (le_conjClosure V₁ L) hyp.card_V₁
-    hyp.V_eq
-  let St : A5SettingCore V V₁ L T H := ⟨hyp, D⟩
-  subst hS
-  subst hW
-  exact St.pCoreOf_I_eq hU hg hgN hI
 
 end AlmostSpecialA5Core
 
 namespace AlmostSpecialA5Hyp
 
-variable [Finite G] {V V₁ L T H : Subgroup G} (hyp : AlmostSpecialA5Hyp V V₁ L T H)
-
-include hyp
-
-theorem G24_three {U I S W : Subgroup G} (hU : U = conjClosure V H) {g : G} (hg : g ∈ L)
-    (hgN : g ∉ Subgroup.normalizer (V₁ : Set G)) (hI : I = U ⊔ rconj U g)
-    (hS : S = pCoreOf 2 I) (hW : W = U ⊓ S) :
-    S = W ⊔ rconj W g ∧ (S : Set G) = (W : Set G) * (rconj W g : Set G) :=
-  hyp.toCore.G24_three hU hg hgN hI hS hW
 
 end AlmostSpecialA5Hyp
 

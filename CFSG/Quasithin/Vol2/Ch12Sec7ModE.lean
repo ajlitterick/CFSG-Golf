@@ -19,8 +19,6 @@ theorem bitV_xor (v w i x : ℕ) : bitV (v ^^^ w) i x = bitV v i x ^^^ bitV w i 
   simp only [bitV, Nat.testBit_xor]
   cases v.testBit i <;> cases w.testBit i <;> simp
 
-theorem bitV_zero_right (v i : ℕ) : bitV v i 0 = 0 := by
-  simp [bitV]
 
 theorem app_zero (B : B6) : B.app 0 = 0 := by
   simp [app, bitV]
@@ -74,10 +72,6 @@ theorem pow_valid {B : B6} (hB : B.Valid) : ∀ n, (B.pow n).Valid
   | 0 => id_valid
   | _ + 1 => comp_valid hB _
 
-theorem pow_app (B : B6) : ∀ n v, v < 64 → (B.pow n).app v = (B.app)^[n] v
-  | 0, v, hv => id_app v hv
-  | n + 1, v, hv => by
-    rw [pow, app_comp, pow_app B n v hv, Function.iterate_succ_apply']
 
 theorem app_c0 (B : B6) : B.app 1 = B.c0 := by simp (config := {decide := true}) [app, bitV]
 

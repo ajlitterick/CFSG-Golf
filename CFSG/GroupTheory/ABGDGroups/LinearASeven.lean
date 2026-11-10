@@ -69,28 +69,6 @@ theorem a7U_le_centralizer_a7V : a7U ≤ Subgroup.centralizer (a7V : Set A₇) :
   change v = 1 ∨ v = a7t ∨ v = a7u ∨ v = a7t * a7u at hv
   rcases hx with rfl | rfl | rfl <;> rcases hv with rfl | rfl | rfl | rfl <;> decide +kernel
 
-theorem a7S_le_normalizer_a7U : a7S ≤ Subgroup.normalizer (a7U : Set A₇) := by
-  intro s hs
-  apply Subgroup.mem_normalizer_fintype
-  intro n hn
-  change n = 1 ∨ n = a7a ∨ n = a7a ^ 2 at hn
-  change s * n * s⁻¹ = 1 ∨ s * n * s⁻¹ = a7a ∨ s * n * s⁻¹ = a7a ^ 2
-  change s = 1 ∨ s = a7v ∨ s = a7v ^ 2 ∨ s = a7v ^ 3 ∨ s = a7s ∨ s = a7s * a7v ∨
-    s = a7s * a7v ^ 2 ∨ s = a7s * a7v ^ 3 at hs
-  rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
-    rcases hn with rfl | rfl | rfl <;> decide +kernel
-
-theorem a7U_inf_a7S : a7U ⊓ a7S = ⊥ := by
-  rw [eq_bot_iff]
-  rintro x ⟨hxU, hxS⟩
-  change x = 1 ∨ x = a7a ∨ x = a7a ^ 2 at hxU
-  change x = 1 ∨ x = a7v ∨ x = a7v ^ 2 ∨ x = a7v ^ 3 ∨ x = a7s ∨ x = a7s * a7v ∨
-    x = a7s * a7v ^ 2 ∨ x = a7s * a7v ^ 3 at hxS
-  rw [Subgroup.mem_bot]
-  rcases hxU with rfl | rfl | rfl
-  · rfl
-  · exact absurd hxS (by decide +kernel)
-  · exact absurd hxS (by decide +kernel)
 
 set_option synthInstance.maxSize 4096 in
 theorem aSeven_centralizer_involution_a7V_certificate : ∀ x : A₇,
@@ -201,28 +179,6 @@ theorem exists_kleinFour_centralizing_sylow_signalizer
     apply φ.injective
     simpa using hc
 
-theorem card_eq_three_of_maximal_sylow_signalizer
-    (e : H ≃* alternatingGroup (Fin 7))
-    (S : Sylow 2 H) {Y : Subgroup H} (hY : (S : Subgroup H) ≤ Subgroup.normalizer (Y : Set H))
-    (hYS : Y ⊓ S = ⊥)
-    (hmax : ∀ Y' : Subgroup H, (S : Subgroup H) ≤ Subgroup.normalizer (Y' : Set H) →
-      Y' ⊓ S = ⊥ → Y ≤ Y' → Y' = Y) :
-    Nat.card Y = 3 ∧
-      ∃ V : Subgroup H, V ≤ S ∧ IsKleinFour V ∧ Y ≤ Subgroup.centralizer (V : Set H) := by
-  refine ⟨?_, (exists_kleinFour_centralizing_sylow_signalizer e S hY hYS).2⟩
-  obtain ⟨φ, hφ⟩ := exists_mulEquiv_aSeven_map_sylow_eq e S
-  have hYU := map_le_a7U_of_sylow_signalizer φ hφ hY hYS
-  have hS := map_symm_a7S_eq φ hφ
-  have h1 : (S : Subgroup H) ≤ Subgroup.normalizer ((a7U.map φ.symm.toMonoidHom : Subgroup H) :
-      Set H) := by
-    rw [← hS]
-    exact (Subgroup.map_mono a7S_le_normalizer_a7U).trans (Subgroup.le_normalizer_map _)
-  have h2 : a7U.map φ.symm.toMonoidHom ⊓ S = ⊥ := by
-    rw [← hS, ← Subgroup.map_inf_eq _ _ _ φ.symm.injective, a7U_inf_a7S, Subgroup.map_bot]
-  have h3 : Y ≤ a7U.map φ.symm.toMonoidHom := fun y hy =>
-    ⟨φ y, hYU ⟨y, hy, rfl⟩, φ.symm_apply_apply y⟩
-  rw [← hmax _ h1 h2 h3, Subgroup.card_map_of_injective φ.symm.injective]
-  exact aSeven_structure_fact_1_8_ii_centralizer.1
 
 end Transport
 

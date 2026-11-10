@@ -17,8 +17,6 @@ variable {K ι : Type*} [Field K] [Fintype ι] [DecidableEq ι]
 abbrev matrixOperator (A : Matrix.GeneralLinearGroup ι K) : Module.End K (ι → K) :=
   (matrixActionEquiv A).toLinearMap
 
-theorem matrixOperator_apply (A : Matrix.GeneralLinearGroup ι K) (v : ι → K) :
-    matrixOperator A v = A.val.mulVec v := rfl
 
 theorem matrixOperator_square (A : Matrix.GeneralLinearGroup ι K) (lambda : Kˣ)
     (hsq : A ^ 2 = Matrix.GeneralLinearGroup.scalar ι lambda) :

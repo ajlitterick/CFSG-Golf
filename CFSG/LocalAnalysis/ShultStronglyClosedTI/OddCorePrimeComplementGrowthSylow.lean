@@ -32,15 +32,6 @@ theorem primeComplementGrowth_normalizer_action_involutive
 
 variable [Finite G]
 
-theorem primeComplementGrowth_prime_part_spec (p : ℕ) [Fact p.Prime]
-    (n : ℕ) (hn : n ≠ 0) :
-    CFSG.OrderReductions.PrimePart.primePart p n ∣ n ∧
-      ∀ k : ℕ, p ^ k ∣ n →
-        p ^ k ≤ CFSG.OrderReductions.PrimePart.primePart p n := by
-  have hp : p.Prime := Fact.out
-  refine ⟨(hp.pow_dvd_iff_le_factorization hn).mpr le_rfl, ?_⟩
-  intro k hk
-  exact Nat.pow_le_pow_right hp.pos ((hp.pow_dvd_iff_le_factorization hn).mp hk)
 
 theorem primeComplementGrowth_exists_invariant_sylow
     (p : ℕ) [Fact p.Prime] (V J : Subgroup G) (hVJ : V ≤ J)

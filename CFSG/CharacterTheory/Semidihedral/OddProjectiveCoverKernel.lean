@@ -122,9 +122,6 @@ theorem defining_not_dvd_sq_sub_one {p f : ℕ} [Fact p.Prime]
     exact dvd_mul_of_dvd_left h 2
   exact hpgroup.toSylow hno
 
-theorem rootSylow_coe [Finite K] {p f : ℕ} [Fact p.Prime]
-    (hchar : ringChar K ≠ 2) (hf : 1 ≤ f) (hcard : Nat.card K = p ^ f) :
-    (rootSylow K hchar hf hcard : Subgroup (S K)) = U K := rfl
 
 theorem diagonal_normalizes (a : Kˣ) :
     scalarQuotient K 2 (SpecialLinearGroup.diag2 (a : K) a.ne_zero) ∈
@@ -180,55 +177,6 @@ theorem splitTorus_card : Nat.card (splitTorus K) = Nat.card K - 1 := by
   rw [← Nat.card_congr ((diagonalHom K).ofInjective (diagonalHom_injective K)).toEquiv,
     Nat.card_units]
 
-theorem scalar_le_splitTorus : nativeScalarKernel K 2 ≤ splitTorus K := by
-  intro g hg
-  rcases (scalar_membership K g).mp hg with rfl | rfl
-  · exact Subgroup.one_mem _
-  · refine ⟨-1, ?_⟩
-    change SpecialLinearGroup.diag2 ((-1 : Kˣ) : K) (-1 : Kˣ).ne_zero = minusIdentity K
-    apply Subtype.ext
-    rw [SpecialLinearGroup.diag2_coe', minusIdentity_matrix]
-    ext i j
-    fin_cases i <;> fin_cases j <;> simp
-
-theorem scalar_le_nonsplitTorus (a : Kˣ) :
-    nativeScalarKernel K 2 ≤ MatrixTorus.Torus K a := by
-  intro g hg
-  rcases (scalar_membership K g).mp hg with rfl | rfl
-  · exact Subgroup.one_mem _
-  · have h : OddFieldSL2.minusIdentity K ∈ MatrixTorus.Torus K a :=
-      (MatrixTorus.z K a).property
-    simpa only [minusIdentity_eq_neg_one, OddFieldSL2.minusIdentity] using h
-
-theorem projective_torus_card (hchar : ringChar K ≠ 2)
-    (T : Subgroup (SpecialLinearGroup (Fin 2) K))
-    (hT : nativeScalarKernel K 2 ≤ T) :
-    Nat.card (T.map (scalarQuotient K 2)) * 2 = Nat.card T := by
-  let r := (scalarQuotient K 2).subgroupMap T
-  have hker : r.ker = (nativeScalarKernel K 2).subgroupOf T := by
-    ext x
-    constructor
-    · intro hx
-      have hq : scalarQuotient K 2 x.val = 1 := congrArg Subtype.val hx
-      exact (QuotientGroup.eq_one_iff x.val).mp hq
-    · intro hx
-      change r x = 1
-      apply Subtype.ext
-      exact (QuotientGroup.eq_one_iff x.val).mpr hx
-  have hkcard : Nat.card r.ker = 2 := by
-    rw [hker, Nat.card_congr (Subgroup.subgroupOfEquivOfLe hT).toEquiv,
-      nativeScalarKernel_two_card K hchar]
-  have h := Subgroup.card_ker_mul_card_of_surjective
-    ((scalarQuotient K 2).subgroupMap_surjective T)
-  rw [hkcard, mul_comm] at h
-  exact h
-
-theorem projective_torus_cyclic
-    (T : Subgroup (SpecialLinearGroup (Fin 2) K)) (hT : IsCyclic T) :
-    IsCyclic (T.map (scalarQuotient K 2)) := by
-  let : IsCyclic T := hT
-  exact isCyclic_of_surjective ((scalarQuotient K 2).subgroupMap T)
-    ((scalarQuotient K 2).subgroupMap_surjective T)
 
 theorem sylow_cyclic_of_full_torus {G : Type v} [Group G] [Finite G]
     {r : ℕ} [Fact r.Prime] (T : Subgroup G) (hcyclic : IsCyclic T)
@@ -395,11 +343,6 @@ theorem odd_kernel_isPGroup_of_cyclic_sylows {E : Type v} {J : Type w} [Group E]
   (rootSylow K hchar hf hcard).comapOfKerIsPGroup pi hpker
     (by rw [pi.range_eq_top_of_surjective hpi]; exact le_top)
 
-theorem preimageSylow_coe [Finite K] {p f : ℕ} [Fact p.Prime]
-    (hchar : ringChar K ≠ 2) (hf : 1 ≤ f) (hcard : Nat.card K = p ^ f)
-    {E : Type v} [Group E] (pi : E →* S K) (hpi : Function.Surjective pi)
-    (hpker : IsPGroup p pi.ker) :
-    (preimageSylow K hchar hf hcard pi hpi hpker : Subgroup E) = (U K).comap pi := rfl
 
 theorem root_preimage_commutator_mem_kernel {E : Type v} [Group E]
     (pi : E →* S K) {x y : E} (hx : pi x ∈ U K) (hy : pi y ∈ U K) :
@@ -618,12 +561,6 @@ theorem coverCommutator_square_invariant {E : Type v} [Group E] (pi : E →* S K
   SquareInvariantAlternating.bilinearOfBiadditive p
     (coverCommutatorBiadditive K pi hpi hcentral)
 
-theorem coverCommutatorBilinear_apply {p : ℕ} [Fact p.Prime] [Algebra (ZMod p) K]
-    {E : Type v} [Group E] (pi : E →* S K) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center E) [CFSG.IsElementaryAbelian p pi.ker]
-    (x y : K) :
-    coverCommutatorBilinear K (p := p) pi hpi hcentral x y =
-      Additive.ofMul (coverCommutator K pi hpi x y) := rfl
 
 theorem coverCommutatorBilinear_isAlt {p : ℕ} [Fact p.Prime] [Algebra (ZMod p) K]
     {E : Type v} [Group E] (pi : E →* S K) (hpi : Function.Surjective pi)

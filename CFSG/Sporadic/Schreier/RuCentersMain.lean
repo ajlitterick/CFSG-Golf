@@ -212,13 +212,5 @@ theorem ruCentralizer_K :
   exact ⟨hnC, Subgroup.mem_centralizer_iff.2 fun x hx =>
     Subgroup.mem_centralizer_iff.1 hnK x (ruE_le_K hx)⟩
 
-theorem AT_Ru_local_center_and_centralizer_checks :
-    (ruESub : Set (Equiv.Perm (Fin 4060))) = ruE ∧ CFSG.IsElementaryAbelian 2 ruESub ∧
-    Nat.card ruESub = 8 ∧ ruESub = (Subgroup.center ruK).map ruK.subtype ∧ ruZ ∈ ruE ∧
-    ruC ⊓ Subgroup.centralizer (ruE : Set (Equiv.Perm (Fin 4060))) = ruK ∧
-    ruC ⊓ Subgroup.centralizer (ruJ : Set (Equiv.Perm (Fin 4060))) ≤ ruJ ∧
-    ruN ⊓ Subgroup.centralizer (ruK : Set (Equiv.Perm (Fin 4060))) ≤ ruK :=
-  ⟨rfl, ruESub_elem, card_ruESub, ruE_eq_center, ruZ_memE, ruCentralizer_E, ruCentralizer_J,
-    ruCentralizer_K⟩
 
 end CFSG.Sporadic.RuSchreier

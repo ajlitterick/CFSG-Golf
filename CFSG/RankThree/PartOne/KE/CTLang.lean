@@ -216,13 +216,6 @@ theorem finite_fixed_subgroup_rational_perfect (d : ℕ)
   let h := finite_fixed_subgroup_rational_perfect_card_units d hτ Fr hFr X hXC hXF
   exact ⟨h.1, h.2.1, h.2.2.1⟩
 
-theorem finite_fixed_subgroup_rational_perfect_relIndex_card_units (d : ℕ)
-    (hτ : (τ = .E6 ∧ d = 3) ∨ (τ = .E7 ∧ d = 2) ∨ (τ = .E8 ∧ d = 1))
-    (Fr : L →+* L) (hFr : ∀ c, Fr c = c ^ Nat.card K) (X : Subgroup (ModGL τ L)) [Finite X]
-    (hXC : X ≤ adjointGroup τ L) (hXF : ∀ x ∈ X, Units.map (entrywiseHom Fr) x = x) :
-    ((adjointGroup τ K).map (baseChangeGL (algebraMap K L))).relIndex X ∣
-      (Nat.card K - 1) ^ τ.rank := by
-  exact (finite_fixed_subgroup_rational_perfect_card_units d hτ Fr hFr X hXC hXF).2.2.2
 
 theorem finite_fixed_subgroup_rational_card_dvd (d : ℕ)
     (hτ : (τ = .E6 ∧ d = 3) ∨ (τ = .E7 ∧ d = 2) ∨ (τ = .E8 ∧ d = 1))

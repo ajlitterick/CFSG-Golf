@@ -17,12 +17,6 @@ theorem suzOuter_sq :
     suzOuter * suzOuter = 1 :=
   (eqA_iff (rep_compA rep_suzOuter rep_suzOuter) rep_idA).1 outer_check.1
 
-theorem suzOuter_ne_one :
-    suzOuter ≠ 1 := by
-  intro h
-  have := (eqA_iff rep_suzOuter rep_idA).2 h
-  rw [outer_check.2.1] at this
-  exact Bool.false_ne_true this
 
 theorem suzOuter_inv :
     suzOuter⁻¹ = suzOuter := by
@@ -149,16 +143,6 @@ theorem suzOuter_conj_mem
     rw [this]
     exact suzP.inv_mem hg
 
-theorem suzOuter_conj_eq :
-    suzP.map (MulAut.conj suzOuter).toMonoidHom = suzP := by
-  apply le_antisymm
-  · rintro _ ⟨p, hp, rfl⟩
-    exact suzOuter_conj_mem hp
-  · intro p hp
-    refine ⟨suzOuter * p * suzOuter⁻¹, suzOuter_conj_mem hp, ?_⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, suzOuter_inv]
-    rw [show suzOuter * (suzOuter * p * suzOuter) * suzOuter = (suzOuter * suzOuter) * p *
-      (suzOuter * suzOuter) by group, suzOuter_sq, one_mul, mul_one]
 
 theorem suzOuter_mem_suzR : suzOuter ∈ suzR := Subgroup.subset_closure (Set.mem_insert _ _)
 
@@ -214,13 +198,6 @@ theorem suzR_conj_mem
     have := suzOuter_conj_mem (suzP.mul_mem (suzP.mul_mem h hp) (suzP.inv_mem h))
     rwa [suzOuter_inv] at this
 
-theorem suzP_normal_R :
-    (suzP.subgroupOf suzR).Normal := by
-  constructor
-  intro n hn g
-  rw [Subgroup.mem_subgroupOf] at hn ⊢
-  simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-  exact suzR_conj_mem g.2 hn
 
 theorem suzP_index_R :
     (suzP.subgroupOf suzR).index = 2 := by
@@ -251,25 +228,6 @@ theorem suzR_card :
     suzP_card] at h
   rw [← h]
 
-theorem suzR_semidirect :
-    Subgroup.zpowers suzOuter ⊓ suzP = ⊥ ∧ suzP ⊔ Subgroup.zpowers suzOuter = suzR := by
-  refine ⟨?_, le_antisymm (sup_le suzP_le_suzR (Subgroup.zpowers_le.2 suzOuter_mem_suzR)) ?_⟩
-  · rw [eq_bot_iff]
-    rintro g ⟨hg, hgP⟩
-    obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hg
-    rw [Subgroup.mem_bot]
-    have hord : orderOf suzOuter = 2 :=
-      orderOf_eq_prime (by rw [pow_two]; exact suzOuter_sq) suzOuter_ne_one
-    rw [zpow_eq_zpow_emod' k (show suzOuter ^ 2 = 1 by rw [pow_two]; exact suzOuter_sq)] at hgP ⊢
-    have hk : k % (2 : ℕ) = 0 ∨ k % (2 : ℕ) = 1 := by omega
-    rcases hk with hk | hk
-    · rw [hk, zpow_zero]
-    · rw [hk, zpow_one] at hgP
-      exact absurd hgP suzOuter_not_mem
-  · rw [suzR, Subgroup.closure_le]
-    rintro g (rfl | hg)
-    · exact Subgroup.mem_sup_right (Subgroup.mem_zpowers _)
-    · exact Subgroup.mem_sup_left hg
 
 theorem suzP_centralizer :
     Subgroup.centralizer (suzP : Set (Equiv.Perm (Fin 22880))) = ⊥ := by
@@ -348,19 +306,6 @@ theorem card_mulAut_suzP :
   rw [← suzR_card]
   exact (Nat.card_congr (Equiv.ofBijective _ suzConjR_bijective)).symm
 
-theorem suzConjR_map_suzP :
-    (suzP.subgroupOf suzR).map suzConjR = (MulAut.conj : suzP →* MulAut suzP).range := by
-  ext α
-  constructor
-  · rintro ⟨r, hr, rfl⟩
-    rw [SetLike.mem_coe, Subgroup.mem_subgroupOf] at hr
-    refine ⟨⟨r, hr⟩, ?_⟩
-    ext p
-    simp [suzConjR_apply, MulAut.conj_apply]
-  · rintro ⟨p, rfl⟩
-    refine ⟨⟨p, suzP_le_suzR p.2⟩, by rw [SetLike.mem_coe, Subgroup.mem_subgroupOf]; exact p.2, ?_⟩
-    ext q
-    simp [suzConjR_apply, MulAut.conj_apply]
 
 theorem center_eq_bot_of_simple {G : Type*} [Group G] [IsSimpleGroup G]
     (h : ∃ a b : G, a * b ≠ b * a) : Subgroup.center G = ⊥ := by
@@ -401,14 +346,6 @@ theorem card_out_eq_two {G : Type*} [Group G] (hpos : 0 < Nat.card G)
   have : Nat.card G * Nat.card (Outer G) = Nat.card G * 2 := by rw [h1]; ring
   exact Nat.eq_of_mul_eq_mul_left hpos this
 
-theorem suzP_center :
-    Subgroup.center suzP = ⊥ := by
-  have := suzP_isSimpleGroup
-  exact center_eq_bot_of_simple suzP_not_comm
-
-theorem card_out_suzP :
-    Nat.card (Outer suzP) = 2 :=
-  card_out_eq_two (by rw [suzP_card]; norm_num) suzP_center (by rw [card_mulAut_suzP, suzP_card])
 
 theorem isCyclic_solvable_of_card_two {G : Type*} [Group G] (h : Nat.card G = 2) :
     IsCyclic G ∧ Group.IsSolvable G := by
@@ -460,23 +397,5 @@ theorem outer_carrier_suz :
     Group.IsSolvable (Outer (Blueprint.NativeSporadic.Carrier .Suz)) :=
   out_suz
 
-theorem CTUC_Suz_full_automorphism_permutation_model :
-    suzOuter * suzOuter = 1 ∧ suzOuter ≠ 1 ∧ suzOuter ∉ suzP ∧
-    suzP.map (MulAut.conj suzOuter).toMonoidHom = suzP ∧
-    Function.Bijective suzConjR ∧
-    (∀ (r : suzR) (p : suzP),
-      ((suzConjR r p : suzP) : Equiv.Perm (Fin 22880)) = r * p * (r : Equiv.Perm (Fin 22880))⁻¹) ∧
-    (suzP.subgroupOf suzR).map suzConjR = (MulAut.conj : suzP →* MulAut suzP).range ∧
-    suzP ≤ suzR ∧ (suzP.subgroupOf suzR).Normal ∧
-    Subgroup.zpowers suzOuter ⊓ suzP = ⊥ ∧ suzP ⊔ Subgroup.zpowers suzOuter = suzR ∧
-    Nat.card suzR = 896690995200 ∧
-    Nonempty (Outer suzP ≃* Multiplicative (ZMod 2)) ∧
-    Nat.card (Outer Blueprint.NativeSporadic.Suz) = 2 ∧
-    IsCyclic (Outer Blueprint.NativeSporadic.Suz) ∧
-    Group.IsSolvable (Outer Blueprint.NativeSporadic.Suz) :=
-  ⟨suzOuter_sq, suzOuter_ne_one, suzOuter_not_mem, suzOuter_conj_eq, suzConjR_bijective,
-    suzConjR_apply, suzConjR_map_suzP, suzP_le_suzR, suzP_normal_R, suzR_semidirect.1,
-    suzR_semidirect.2, suzR_card, ⟨mulEquivOfPrimeCardEq card_out_suzP (by simp)⟩, out_suz.1,
-    out_suz.2.1, out_suz.2.2⟩
 
 end CFSG.Sporadic.SuzOddCore

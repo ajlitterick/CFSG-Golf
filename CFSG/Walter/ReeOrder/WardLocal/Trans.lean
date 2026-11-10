@@ -54,20 +54,6 @@ theorem sum_normalizer_Q :
   simp_rw [B.xi3_class]
   exact B.sum_normalizer hq hK hG hP1P hPc hPn hN1c
 
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem xi3_cases_Q {n : G} (hn : n ∈ Subgroup.normalizer (Q : Set G)) :
-    n = 1 ∨ orderOf n = 2 ∨ B.ξ₃ n = 0 ∨ B.ξ₃ n = 1 := by
-  have h := B.xi3_cases hq hK hG hP1P hPc hPn hN1c ((mem_normalizer_Q hQ).mp hn)
-  have ho : orderOf (g⁻¹ * n * g) = orderOf n := by
-    rw [show g⁻¹ * n * g = g⁻¹ * n * g⁻¹⁻¹ by group, ← MulAut.conj_apply, MulEquiv.orderOf_eq]
-  have hx : B.ξ₃ (g⁻¹ * n * g) = B.ξ₃ n := by
-    rw [show g⁻¹ * n * g = g⁻¹ * n * g⁻¹⁻¹ by group, B.xi3_class]
-  rw [ho, hx] at h
-  rcases h with h | h
-  · left
-    have := congrArg (fun t => g * t * g⁻¹) h
-    simpa [mul_assoc] using this
-  · exact Or.inr h
 
 include B hq hK hG hP1P hPc hPn hN1c hQ in
 theorem card_normalizer_Q_eq : Nat.card (Subgroup.normalizer (Q : Set G)) = q ^ 3 * (q - 1) := by
@@ -113,10 +99,6 @@ theorem card_fixedBy_three {x : G} (hx : 3 ∣ orderOf x) :
     Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) x) = 1 :=
   B.card_fixedBy hq hK hG hP1P hPc hPn hN1c hQ (by rw [B.xi3_eq_zero hq hG hx]; simp)
 
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem card_fixedBy_involution {t : G} (ht : orderOf t = 2) :
-    Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) t) = q + 1 :=
-  B.card_fixedBy hq hK hG hP1P hPc hPn hN1c hQ (by rw [B.xi3_involution ht]; push_cast; ring)
 
 omit [Fintype G] in
 theorem conj_smul_eq_of_mem_normalizer {H : Subgroup G} {c : G}
@@ -168,155 +150,6 @@ theorem isMultiplyPretransitive :
   rw [B.fixedPointCount_eq hq hK hG hP1P hPc hPn hN1c hQ, add_sub_cancel_left]
   exact B.irr_3
 
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem eq_one_or_involution {n : G} (hn : n ∈ Subgroup.normalizer (Q : Set G))
-    (h3 : 3 ≤ Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) n)) :
-    n = 1 ∨ orderOf n = 2 := by
-  rcases B.xi3_cases_Q hq hK hG hP1P hPc hPn hN1c hQ hn with h | h | h | h
-  · exact Or.inl h
-  · exact Or.inr h
-  · rw [B.card_fixedBy hq hK hG hP1P hPc hPn hN1c hQ (n := 1) (by rw [h]; simp)] at h3
-    omega
-  · rw [B.card_fixedBy hq hK hG hP1P hPc hPn hN1c hQ (n := 2) (by rw [h]; norm_num)] at h3
-    omega
-
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem eq_one_or_involution' {s : G}
-    (h3 : 3 ≤ Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) s))
-    (a : G ⧸ Subgroup.normalizer (Q : Set G)) (ha : s • a = a) : s = 1 ∨ orderOf s = 2 := by
-  obtain ⟨g₀, hg₀⟩ := MulAction.exists_smul_eq G a ((1 : G) : G ⧸ Subgroup.normalizer (Q : Set G))
-  set s' := g₀ * s * g₀⁻¹ with hs'
-  have hs'N : s' ∈ Subgroup.normalizer (Q : Set G) := by
-    have h1 : s' • ((1 : G) : G ⧸ Subgroup.normalizer (Q : Set G)) = (1 : G) := by
-      rw [← hg₀, hs', mul_smul, mul_smul, inv_smul_smul, ha]
-    rw [smul_mk_eq_iff] at h1
-    simpa using h1
-  have hcard : Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) s') =
-      Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) s) := by
-    have h1 := congrFun (B.fixedPointCount_eq hq hK hG hP1P hPc hPn hN1c hQ) (g₀ * s * g₀⁻¹)
-    have h2 := congrFun (B.fixedPointCount_eq hq hK hG hP1P hPc hPn hN1c hQ) s
-    simp only [Pi.add_apply, Pi.one_apply] at h1 h2
-    rw [B.xi3_class, ← h2] at h1
-    simp only [fixedPointCount] at h1
-    exact_mod_cast h1
-  rcases B.eq_one_or_involution hq hK hG hP1P hPc hPn hN1c hQ hs'N (hcard ▸ h3) with h | h
-  · left
-    have := congrArg (fun t => g₀⁻¹ * t * g₀) h
-    simpa [hs', mul_assoc] using this
-  · right
-    rw [← h, hs', show g₀ * s * g₀⁻¹ = MulAut.conj g₀ s from rfl, MulEquiv.orderOf_eq]
-
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem faithfulSMul : FaithfulSMul G (G ⧸ Subgroup.normalizer (Q : Set G)) := by
-  refine ⟨fun {g₁ g₂} h => ?_⟩
-  set n := g₂⁻¹ * g₁ with hn
-  have hfix : ∀ a : G ⧸ Subgroup.normalizer (Q : Set G), n • a = a := by
-    intro a; rw [hn, mul_smul, h a, inv_smul_smul]
-  have hall : Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) n) =
-      q ^ 3 + 1 := by
-    rw [← B.index_normalizer_Q hq hK hG hP1P hPc hPn hN1c hQ, Subgroup.index]
-    rw [show MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) n = Set.univ from
-      Set.eq_univ_of_forall hfix, Nat.card_univ]
-  have hq3 : 3 ≤ q := by rw [hq]; exact Nat.le_self_pow (by omega) 3
-  have h3 : 3 ≤ Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) n) := by
-    rw [hall]
-    have : 27 ≤ q ^ 3 := by
-      calc 27 = 3 ^ 3 := by norm_num
-        _ ≤ q ^ 3 := Nat.pow_le_pow_left hq3 3
-    omega
-  rcases B.eq_one_or_involution' hq hK hG hP1P hPc hPn hN1c hQ h3 _
-    (hfix ((1 : G) : G ⧸ Subgroup.normalizer (Q : Set G))) with h1 | h2
-  · have := congrArg (fun t => g₂ * t) h1
-    simpa [hn] using this
-  · exfalso
-    rw [B.card_fixedBy_involution hq hK hG hP1P hPc hPn hN1c hQ h2] at hall
-    have : q < q ^ 3 := by
-      calc q = q ^ 1 := (pow_one q).symm
-        _ < q ^ 3 := Nat.pow_lt_pow_right (by omega) (by norm_num)
-    omega
-
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem card_stabilizer_three_le (a b c : G ⧸ Subgroup.normalizer (Q : Set G)) (hab : a ≠ b)
-    (hac : a ≠ c) (hbc : b ≠ c) : Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) ≤ 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hel : ∀ s ∈ (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G), s = 1 ∨ orderOf s = 2 := by
-    intro s hs
-    obtain ⟨hsab, hsc⟩ := Subgroup.mem_inf.mp hs
-    obtain ⟨hsa, hsb⟩ := Subgroup.mem_inf.mp hsab
-    rw [MulAction.mem_stabilizer_iff] at hsa hsb hsc
-    have h3 : 3 ≤ Nat.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) s) := by
-      rw [Nat.card_eq_fintype_card]
-      have := (Fintype.two_lt_card_iff
-        (α := MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) s)).mpr
-        ⟨⟨a, hsa⟩, ⟨b, hsb⟩, ⟨c, hsc⟩,
-        fun h => hab (congrArg Subtype.val h), fun h => hac (congrArg Subtype.val h),
-        fun h => hbc (congrArg Subtype.val h)⟩
-      omega
-    exact B.eq_one_or_involution' hq hK hG hP1P hPc hPn hN1c hQ h3 a hsa
-  have hp : IsPGroup 2 (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) := by
-    rw [IsPGroup.iff_orderOf]
-    rintro ⟨s, hs⟩
-    rw [Subgroup.orderOf_mk]
-    rcases hel s hs with rfl | h
-    · exact ⟨0, by simp⟩
-    · exact ⟨1, by rw [h, pow_one]⟩
-  obtain ⟨e, he⟩ := hp.exists_card_eq
-  have hdvd : Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) ∣ q ^ 3 * (q - 1) := by
-    have h1 : Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) ∣ Nat.card (MulAction.stabilizer G a) :=
-      Subgroup.card_dvd_of_le (inf_le_left.trans inf_le_left)
-    have h2 := (MulAction.stabilizer G a).card_mul_index
-    rw [MulAction.index_stabilizer_of_transitive, ← Subgroup.index,
-      B.index_normalizer_Q hq hK hG hP1P hPc hPn hN1c hQ, hG] at h2
-    have hq3 : 3 ≤ q := by rw [hq]; exact Nat.le_self_pow (by omega) 3
-    have h2' : Nat.card (MulAction.stabilizer G a) = q ^ 3 * (q - 1) := by
-      have : Nat.card (MulAction.stabilizer G a) * (q ^ 3 + 1) = q ^ 3 * (q - 1) * (q ^ 3 + 1) :=
-        by rw [h2]; ring
-      exact Nat.eq_of_mul_eq_mul_right (by positivity) this
-    rwa [h2'] at h1
-  rw [he] at hdvd ⊢
-  obtain ⟨k', hk', hodd⟩ := Block.q_half hq
-  have hle : e ≤ 1 := by
-    by_contra hlt
-    push Not at hlt
-    have h4 : 4 ∣ q ^ 3 * (q - 1) := (pow_dvd_pow 2 hlt).trans hdvd
-    have hq1 : q - 1 = 2 * k' := by omega
-    rw [hq1] at h4
-    have hqodd : Odd (q ^ 3) := by rw [hq, ← pow_mul]; exact Odd.pow (by decide)
-    have : Odd (q ^ 3 * k') := hqodd.mul hodd
-    obtain ⟨t, ht⟩ := this
-    have : 4 ∣ 2 * (q ^ 3 * k') := by rw [mul_left_comm] at h4; exact h4
-    omega
-  calc 2 ^ e ≤ 2 ^ 1 := Nat.pow_le_pow_right (by norm_num) hle
-    _ = 2 := by norm_num
-
-include B hq hK hG hP1P hPc hPn hN1c hQ in
-theorem exists_card_stabilizer_three_eq : ∃ a b c : G ⧸ Subgroup.normalizer (Q : Set G),
-    a ≠ b ∧ a ≠ c ∧ b ≠ c ∧ Nat.card (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) = 2 := by
-  have hJ := B.card_fixedBy_involution hq hK hG hP1P hPc hPn hN1c hQ S.orderOf_J
-  have hq3 : 3 ≤ q := by rw [hq]; exact Nat.le_self_pow (by omega) 3
-  have h2 : 2 < Fintype.card (MulAction.fixedBy (G ⧸ Subgroup.normalizer (Q : Set G)) S.J) := by
-    rw [← Nat.card_eq_fintype_card, hJ]; omega
-  obtain ⟨⟨a, ha⟩, ⟨b, hb⟩, ⟨c, hc⟩, hab, hac, hbc⟩ := Fintype.two_lt_card_iff.mp h2
-  have hab' : a ≠ b := fun h => hab (Subtype.ext h)
-  have hac' : a ≠ c := fun h => hac (Subtype.ext h)
-  have hbc' : b ≠ c := fun h => hbc (Subtype.ext h)
-  refine ⟨a, b, c, hab', hac', hbc', le_antisymm
-    (B.card_stabilizer_three_le hq hK hG hP1P hPc hPn hN1c hQ a b c hab' hac' hbc') ?_⟩
-  have hJs : S.J ∈ (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) := ⟨⟨ha, hb⟩, hc⟩
-  have hne : (MulAction.stabilizer G a ⊓ MulAction.stabilizer G b ⊓
-      MulAction.stabilizer G c : Subgroup G) ≠ ⊥ := by
-    intro h
-    rw [h, Subgroup.mem_bot] at hJs
-    exact S.J_ne hJs
-  have := (Subgroup.one_lt_card_iff_ne_bot _).mpr hne
-  omega
 
 end Block
 

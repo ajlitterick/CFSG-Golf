@@ -330,8 +330,6 @@ theorem res10aCyc_proved : Res10aCyc p f := by
   obtain ⟨u, k, -, hu, huo, -⟩ := hb.modular
   exact d.y_cyc_of_swapComm c3 c8 (fun n hn w hw _ => d.y_comm_N c7 hu huo hn hw)
 
-theorem swapComm_proved : SwapComm p f :=
-  swapComm_of_res10aCyc p f (res10aCyc_proved p f)
 
 end Props
 

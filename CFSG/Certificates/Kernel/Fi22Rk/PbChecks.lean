@@ -33,8 +33,6 @@ theorem anyLt_iff' {N : Nat} {p : Nat → Bool} : anyLt N p = true ↔ ∃ i < N
   rw [Bool.not_eq_true', ← Bool.not_eq_true, allLt_iff]
   simp
 
-theorem anyLt_eq_anyN (N : Nat) (p : Nat → Bool) : anyLt N p = anyN N p :=
-  Bool.eq_iff_iff.mpr (anyLt_iff'.trans anyN_iff.symm)
 
 variable {MUK LK EK PLK SL MTK FMK : Nat → Nat}
 

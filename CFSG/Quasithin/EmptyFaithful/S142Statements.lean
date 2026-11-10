@@ -11,11 +11,6 @@ namespace CFSG.Quasithin
 
 open CFSG.Open
 
-@[expose] def StageTheorem1427 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Hyp1421 G T M →
-    (∀ H : Subgroup G, IsHStar T M H → E1.nParam H = 1) ∨
-      (Nonempty (G ≃* quasithinTrialityD4Two) ∨ Nonempty (G ≃* quasithinJ2) ∨
-        Nonempty (G ≃* quasithinJ3))
 
 @[expose] def StageTheorem14220 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Hyp1421 G T M →

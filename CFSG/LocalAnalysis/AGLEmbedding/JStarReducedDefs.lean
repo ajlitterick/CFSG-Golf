@@ -115,11 +115,6 @@ theorem eq_top_of_coprime_card_quotient (h : JStarHyp p n Rb Y₀ Jt Xt φ) (V :
   obtain ⟨y, hy, hyx⟩ := hx
   rwa [Subtype.ext hyx] at hy
 
-theorem eq_of_coprime_relIndex (h : JStarHyp p n Rb Y₀ Jt Xt φ) {V : Subgroup Y} (hVJ : V ≤ Jt)
-    (hJV : Jt ≤ Subgroup.normalizer (V : Set Y)) (hV : p.Coprime (V.relIndex Jt)) : V = Jt := by
-  have : (V.subgroupOf Jt).Normal := (Subgroup.normal_subgroupOf_iff_le_normalizer hVJ).mpr hJV
-  have htop := h.eq_top_of_coprime_card_quotient (V.subgroupOf Jt) hV
-  exact le_antisymm hVJ (Subgroup.subgroupOf_eq_top.mp htop)
 
 theorem eq_top_of_map_eq_top (h : JStarHyp p n Rb Y₀ Jt Xt φ) (V : Subgroup Jt) [V.Normal]
     (hV : V.map φ = ⊤) : V = ⊤ := by
@@ -152,15 +147,6 @@ theorem eq_or_le_ker (h : JStarHyp p n Rb Y₀ Jt Xt φ) {V : Subgroup Y} (hVJ :
     rw [← Subgroup.map_subgroupOf_eq_of_le hVJ]
     exact Subgroup.map_mono hle
 
-theorem nonempty_mulEquiv_of_isSimpleGroup (h : JStarHyp p n Rb Y₀ Jt Xt φ)
-    (hs : IsSimpleGroup Jt) : Nonempty (Jt ≃* PSL2GF p n) := by
-  have hker : φ.ker = ⊥ := by
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal φ.ker with hbot | htop
-    · exact hbot
-    · obtain ⟨x, hx⟩ := exists_ne (1 : PSL2GF p n)
-      obtain ⟨j, rfl⟩ := h.surj x
-      exact absurd (MonoidHom.mem_ker.mp (htop ▸ Subgroup.mem_top j)) hx
-  exact ⟨MulEquiv.ofBijective φ ⟨(MonoidHom.ker_eq_bot_iff φ).mp hker, h.surj⟩⟩
 
 theorem commutator_eq_top (h : JStarHyp p n Rb Y₀ Jt Xt φ) : commutator Jt = ⊤ := by
   refine h.eq_top_of_map_eq_top _ ?_

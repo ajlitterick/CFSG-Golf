@@ -356,47 +356,5 @@ theorem exists_blockIdempotent_eq (basis : FiniteIrreducibleCharacterBasis G)
     rw [← hy, ← hsum, hE₂0, add_zero]
     rfl
 
-theorem relative_central_idempotents_reduce_bijectively (p : ℕ) [Fact p.Prime]
-    [CharP (ComplexAlgebraicIntegers ⧸ ideal) p] (basis : FiniteIrreducibleCharacterBasis G) :
-    CentralIdempotentCorrespondence
-        (MonoidAlgebra.mapRingHom G (localizedComplexIntegerResidue ideal)) ∧
-      {e : MonoidAlgebra (ComplexAlgebraicIntegers ⧸ ideal) G | IsPrimitiveCentralIdempotent e} =
-        Set.range (fun label => MonoidAlgebra.mapRingHom G (localizedComplexIntegerResidue ideal)
-          (blockIdempotent ideal basis label)) ∧
-      ∀ χ ψ, MonoidAlgebra.mapRingHom G (localizedComplexIntegerResidue ideal)
-          (blockIdempotent ideal basis χ) =
-            MonoidAlgebra.mapRingHom G (localizedComplexIntegerResidue ideal)
-              (blockIdempotent ideal basis ψ) ↔
-        coefficientBlock basis (localizedComplexIntegerRing ideal) χ =
-          coefficientBlock basis (localizedComplexIntegerRing ideal) ψ := by
-  set R := localizedComplexIntegerRing ideal
-  set ρ := MonoidAlgebra.mapRingHom G (localizedComplexIntegerResidue ideal)
-  have hcorr := CentralIdempotentCorrespondence.of_bijOn ρ
-    (residueMap_bijOn_centralIdempotents ideal basis)
-  refine ⟨hcorr, ?_, ?_⟩
-  · ext ē
-    constructor
-    · intro hē
-      obtain ⟨e, he, rfl⟩ := hcorr.primitive_bijOn.surjOn hē
-      obtain ⟨label, rfl⟩ := exists_blockIdempotent_eq ideal basis he
-      exact ⟨label, rfl⟩
-    · rintro ⟨label, rfl⟩
-      exact hcorr.primitive_bijOn.mapsTo (blockIdempotent_isPrimitive ideal basis label)
-  · intro χ ψ
-    constructor
-    · intro h
-      have hbi := hcorr.bijOn.injOn (blockIdempotent_isPrimitive ideal basis χ).1
-        (blockIdempotent_isPrimitive ideal basis ψ).1 h
-      have hval := congrArg Subtype.val (centralCoefficientLiftHom_injective R hbi)
-      exact characterSubsetIdempotent_injective basis hval
-    · intro h
-      have hval : coefficientBlockIdempotent basis R χ = coefficientBlockIdempotent basis R ψ :=
-        Subtype.ext (by
-          change characterSubsetIdempotent basis (coefficientBlock basis R χ) =
-            characterSubsetIdempotent basis (coefficientBlock basis R ψ)
-          rw [h])
-      change ρ (centralCoefficientLiftHom R (coefficientBlockIdempotent basis R χ)) =
-        ρ (centralCoefficientLiftHom R (coefficientBlockIdempotent basis R ψ))
-      rw [hval]
 
 end CFSG.Semidihedral.Principal

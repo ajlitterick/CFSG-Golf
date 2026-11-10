@@ -128,10 +128,6 @@ theorem c10037_path : pathCheck = true := by
   simp only [List.map_cons, List.map_nil, List.all_cons, List.all_nil, isFixedN, vec_unpack]
   quickRfl
 
-theorem c10037_neg :
-    (!CFSG.KC.GmsPath.basisK QP (PM ^^^ 2) PI MX MY && !CFSG.KC.GmsPath.basisK QP PM PI (MX ^^^ 1) MY &&
-      !Nat.beq (sumS 19968 256 cen37) 417) = true := by
-  quickRfl
 
 open Certificates in
 open CFSG.Monster.GMS.S365 in

@@ -202,8 +202,6 @@ theorem two_le_of_ggFieldFiveRankTag {G : Type} [Group G] [Finite G] {p : ℕ} {
     (fun e he => hctx.2.2.2.2.2.2.1.2 e he)
   omega
 
-theorem ggSixFieldFiveInput_of_tags (h : ∀ t, GGFieldFiveNbrTag t) : GGSixFieldFiveInput :=
-  fun _ _ _ _ _ _ _ _ _ _ t _ _ _ hctx s1 hp5 => two_le_of_ggFieldFiveNbrTag (h t) hctx s1 hp5
 
 theorem ggSixFieldFiveInput_of_tags_or_rank
     (h : ∀ t, GGFieldFiveNbrTag t ∨ GGFieldFiveRankTag t) : GGSixFieldFiveInput := by
@@ -221,25 +219,6 @@ theorem ggFieldFiveNbrTag_of_vacuous (t : StatedLieTag)
     | exact absurd hpres not_ggPresentsG0_POmegaOdd
     | exact absurd hpres (not_ggPresentsG0_of_placeholder t (by simp [h]))
 
-theorem ggSixFieldFiveInput_of_genuine (hPSL : GGFieldFiveNbrTag .PSL)
-    (hPSU : GGFieldFiveNbrTag .PSU) (hPSp : GGFieldFiveNbrTag .PSp)
-    (hPlus : GGFieldFiveNbrTag .POmegaPlus) (hMinus : GGFieldFiveNbrTag .POmegaMinus)
-    (hF4 : GGFieldFiveNbrTag .F4) (hE6 : GGFieldFiveNbrTag .E6) (hE7 : GGFieldFiveNbrTag .E7)
-    (hE8 : GGFieldFiveNbrTag .E8) (hTwE6 : GGFieldFiveNbrTag .twistedE6) :
-    GGSixFieldFiveInput := by
-  refine ggSixFieldFiveInput_of_tags fun t => ?_
-  cases t with
-  | PSL => exact hPSL
-  | PSU => exact hPSU
-  | PSp => exact hPSp
-  | POmegaPlus => exact hPlus
-  | POmegaMinus => exact hMinus
-  | F4 => exact hF4
-  | E6 => exact hE6
-  | E7 => exact hE7
-  | E8 => exact hE8
-  | twistedE6 => exact hTwE6
-  | _ => exact ggFieldFiveNbrTag_of_vacuous _ (by simp)
 
 end Main
 

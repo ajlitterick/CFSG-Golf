@@ -180,11 +180,6 @@ theorem unitaryFourMatrix_mul [CharP K 2] (a b c d : K) :
   fin_cases i <;> fin_cases j <;>
     simp [unitaryFourMatrix, Matrix.mul_apply, Fin.sum_univ_three] <;> grind
 
-theorem unitaryFourMatrix_injective {a b c d : K}
-    (h : unitaryFourMatrix a b = unitaryFourMatrix c d) : a = c ∧ b = d := by
-  constructor
-  · simpa using congrArg (fun M : Matrix (Fin 3) (Fin 3) K => M 1 2) h
-  · simpa using congrArg (fun M : Matrix (Fin 3) (Fin 3) K => M 0 2) h
 
 @[expose] def unitaryFourGL (a b : K) : GL (Fin 3) K :=
   Matrix.GeneralLinearGroup.mkOfDetNeZero (unitaryFourMatrix a b)
@@ -218,10 +213,6 @@ theorem unitaryFourMatrix_injective {a b c d : K}
       rw [unitaryFourMatrix_mul, ← unitaryFourMatrix_zero_zero]
       congr 1 <;> grind
 
-theorem mem_unitaryFourW_iff {hK : Nat.card K = 16} {A : GL (Fin 3) K} :
-    A ∈ unitaryFourW K hK ↔ ∃ a b : K, b + b ^ 4 = a ^ 5 ∧
-      (A : Matrix (Fin 3) (Fin 3) K) = unitaryFourMatrix a b :=
-  Iff.rfl
 
 namespace UnitaryFourW
 
@@ -339,18 +330,6 @@ theorem snd_commutatorElement (v w : unitaryFourW K hK) :
   simp only [commutatorElement_def, fst_mul, fst_inv, snd_mul, snd_inv]
   grind
 
-theorem fst_inv_mul_inv_mul_mul (v w : unitaryFourW K hK) : fst (v⁻¹ * w⁻¹ * v * w) = 0 := by
-  have := charP_two_of_natCard_eq_sixteen hK
-  simp only [fst_mul, fst_inv]
-  grind
-
-theorem snd_inv_mul_inv_mul_mul (v w : unitaryFourW K hK) :
-    snd (v⁻¹ * w⁻¹ * v * w) = fst v ^ 4 * fst w + fst v * fst w ^ 4 := by
-  have := charP_two_of_natCard_eq_sixteen hK
-  have hv := snd_add_snd_pow_four v
-  have hw := snd_add_snd_pow_four w
-  simp only [fst_mul, fst_inv, snd_mul, snd_inv]
-  grind
 
 @[expose] def firstCoord (hK : Nat.card K = 16) : unitaryFourW K hK →* Multiplicative K where
   toFun w := Multiplicative.ofAdd (fst w)

@@ -60,28 +60,6 @@ theorem mk_routeDSetup [Finite G] [IsSimpleGroup G] (hp2 : p ≠ 2) (hq : 5 ≤ 
       BootData p f (conjClass K) → ¬ IndepTriple p f (conjClass K) →
       ExactMembers (conjClass K) ∧ LocalOddCentral (conjClass K) {z}
 
-theorem bootData_of_hasEFrameRank4 [Finite G] [IsSimpleGroup G]
-    {K : Subgroup G} {z : G} (hz : IsClassicalMember p f K z)
-    (h : HasEFrameRank4 K) : BootData p f (conjClass K) := by
-  obtain ⟨E, E₀, L₀, z₀, t, hL₀, hz₀, -, -, -, hE₀, hcard, hz₀E, -, -, -, hcent, -, -, -⟩ :=
-    HasEFrameRank4.exists_data h
-  rw [conjugateSet_eq_range] at hL₀
-  obtain ⟨g, rfl⟩ := hL₀
-  have hconj := hz.conj g
-  have hzz : g * z * g⁻¹ = z₀ := by
-    have hsq : (g * z * g⁻¹) * (g * z * g⁻¹) = 1 := by
-      have h2 := hconj.orderOf_eq_two
-      have h3 : (g * z * g⁻¹) ^ 2 = 1 := by rw [← h2]; exact pow_orderOf_eq_one _
-      simpa [pow_two] using h3
-    rcases hz₀.unique _ (conj_mem_conjSub hz.mem) hsq with h1 | h1
-    · exact absurd h1 (fun e => by
-        have := hconj.orderOf_eq_two
-        rw [e, orderOf_one] at this
-        omega)
-    · exact h1
-  refine ⟨_, z₀, E₀, ⟨g, rfl⟩, ?_, hE₀, hcard, hz₀E, hcent⟩
-  rw [← hzz]
-  exact hconj
 
 @[expose] def ShapePiece (p f : ℕ) [Fact p.Prime] (a : ℕ) (tY : StatedLieTag) (nY : ℕ) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -163,15 +141,6 @@ theorem shapeExcluded_of_pieces (h1 : PieceAllA1 p f) (h2 : PieceNoA1 p f)
 @[expose] def PieceTwinTD (p f : ℕ) [Fact p.Prime] : Prop := RowPiece p f ShapeTwinTD
 @[expose] def PieceTwinSU4 (p f : ℕ) [Fact p.Prime] : Prop := RowPiece p f ShapeTwinSU4
 
-@[expose] def ChainPieceSLs (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), RouteDSetup p f K z → ∀ m : ℕ, 2 ≤ m → m ≤ 4 →
-      LocalShapeA p f m (conjClass K) z →
-      ∃ U : Fin (m + 2) → Subgroup G, (∀ i, U i ∈ conjClass K) ∧
-        (∀ i j : Fin (m + 2), (i : ℕ) + 1 < j → Commutes (U i) (U j)) ∧
-        ∀ i j : Fin (m + 2), (j : ℕ) = i + 1 →
-          ∃ W, CFSG.ClassicalInvolution.WeakCT.LinearBlockStandardPair (GaloisField p f) W
-            (U i) (U j)
 
 @[expose] def ChainPieceTwinD (p f : ℕ) [Fact p.Prime] : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
@@ -221,11 +190,6 @@ theorem shapeExcluded_of_pieces (h1 : PieceAllA1 p f) (h2 : PieceNoA1 p f)
       ¬ BootData p f (conjClass K) → ¬ A2Configuration z K →
       CFSG.Blueprint.OddLieType G ∨ CFSG.Blueprint.NativeSporadic.IsSporadic G .M11
 
-@[expose] def FrameConnected (p f : ℕ) [Fact p.Prime] : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    p ≠ 2 → 5 ≤ p ^ f → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
-      CITBelowU p f (Nat.card G) → HasEFrameRank4 K →
-      CFSG.ClassicalInvolution.DeltaConnected K
 
 @[expose] def SmallUpgrade (p f : ℕ) [Fact p.Prime] : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →

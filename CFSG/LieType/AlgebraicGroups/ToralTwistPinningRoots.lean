@@ -25,24 +25,6 @@ theorem unionSimpleRoots_univ_eq :
     have hβS : β ∈ kernelRoots χ := simpleRoots_subset hβ
     exact ⟨_, Set.mem_univ _, (mem_simpleRoots_kernelRoots_iff hβS).1 hβ⟩
 
-theorem smul_mem_posRoots_kernelRoots
-    {ω : WeylGroup τ} (hω : ω ∈ kernelPosStabilizer χ)
-    {α : Fin τ.rank → ℤ} (hα : α ∈ posRoots (kernelRoots χ)) :
-    ω • α ∈ posRoots (kernelRoots χ) := by
-  rw [← hω.2]
-  exact ⟨α, hα, rfl⟩
-
-theorem smul_mem_simpleRoots_kernelRoots
-    {ω : WeylGroup τ} (hω : ω ∈ kernelPosStabilizer χ)
-    {β : Fin τ.rank → ℤ} (hβ : β ∈ simpleRoots (kernelRoots χ)) :
-    ω • β ∈ simpleRoots (kernelRoots χ) := by
-  obtain ⟨hβr, hβpos, hns⟩ := mem_simpleRoots.1 hβ
-  have hω' : ω⁻¹ ∈ kernelPosStabilizer χ := inv_mem hω
-  refine mem_simpleRoots.2 ⟨IsRoot.smul hβr ω, smul_mem_posRoots_kernelRoots hω hβpos,
-    fun γ hγ δ hδ e => ?_⟩
-  refine hns (ω⁻¹ • γ) (smul_mem_posRoots_kernelRoots hω' hγ) (ω⁻¹ • δ)
-    (smul_mem_posRoots_kernelRoots hω' hδ) ?_
-  rw [← smul_add, ← e, inv_smul_smul]
 
 theorem iform_nonpos_of_mem_simpleRoots_kernelRoots
     {β γ : Fin τ.rank → ℤ}

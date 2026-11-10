@@ -59,10 +59,6 @@ theorem le_conjClosure_of_mem_conjSetUnder {K' : Subgroup (MulAut V)}
   rintro _ ⟨z, hz, rfl⟩
   simpa [MulAut.conj_apply] using mem_conjClosure ht hz
 
-theorem self_mem_conjSetUnder (hT : (1 : MulAut V) ∈ T) : K ∈ conjSetUnder T K := by
-  refine ⟨1, hT, ?_⟩
-  ext y
-  simp [Subgroup.mem_map]
 
 theorem map_conj_mem_conjSetUnder {K' : Subgroup (MulAut V)} (hK' : K' ∈ conjSetUnder T K)
     {t : MulAut V} (ht : t ∈ T) : K'.map (MulAut.conj t).toMonoidHom ∈ conjSetUnder T K := by

@@ -728,15 +728,6 @@ theorem unitary_split_prime_central_cover_two_local_rank {G : Type*} [Group G] [
       hswap hz₀S hz₀sc hz₀2 (fun a => diagHom_commute _ _)
     exact ⟨u, huY, hu2, V, hV, hVab, by rw [hVcard, hr]⟩
 
-theorem le_localRank_of_unitary_split_prime {G : Type*} [Group G] [Finite G]
-    (Y : Subgroup G) (hK : UnitaryFieldData ℓ f K) {p : ℕ} (hp : p.Prime) (hp3 : 3 < p)
-    (hpq : p ∣ ℓ ^ f + 1) {n : ℕ} (hn : 3 ≤ n) (φ : Y →* unitaryPSU hK n)
-    (hφ : Function.Surjective φ) (hker : φ.ker ≤ Subgroup.center Y) :
-    (if ℓ = 2 then n - 2 - (if p ∣ n then 1 else 0) else n - 1 - (if p ∣ n then 1 else 0)) ≤
-      localRank p G := by
-  obtain ⟨u, -, hu, V, hV, hVab, hVcard⟩ :=
-    unitary_split_prime_central_cover_two_local_rank Y hK hp hp3 hpq hn φ hφ hker
-  exact le_localRank_of_involution_elemAbelian hp hu (le_inf_iff.mp hV).2 hVab hVcard
 
 end Main
 

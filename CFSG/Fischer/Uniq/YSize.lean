@@ -12,8 +12,6 @@ variable {X Y : Type} [Group X] [Group Y] {E : Set X} {F : Set Y}
 
 @[expose] def ySet (E : Set X) (e x : X) : Set X := {y | y ∈ E ∧ muSet E e x ⊆ LocalClass E y}
 
-theorem mem_ySet {e x y : X} : y ∈ ySet E e x ↔ y ∈ E ∧ muSet E e x ⊆ LocalClass E y :=
-  Iff.rfl
 
 theorem Pair.subset_ySet (hP : Pair X E) {e x : X} (he : e ∈ E) (hx : x ∈ E)
     (hex : e * x ≠ x * e) : ({e, x, e * x * e} : Set X) ⊆ ySet E e x := by
@@ -31,12 +29,6 @@ theorem Pair.ncard_line (hP : Pair X E) {e x : X} (he : e ∈ E) (hex : e * x �
   · exact hex (by rw [h])
   · exact Pair.mul_mul_ne_left hP he hex h.symm
 
-theorem Pair.ySet_eq_of_card (hP : Pair X E) {e x : X} (he : e ∈ E) (hx : x ∈ E)
-    (hex : e * x ≠ x * e) (h : Nat.card (ySet E e x) = 3) : ySet E e x = {e, x, e * x * e} := by
-  have := Pair.finite hP
-  rw [Nat.card_coe_set_eq] at h
-  exact (Set.eq_of_subset_of_ncard_le (Pair.subset_ySet hP he hx hex)
-    (by rw [h, Pair.ncard_line hP he hex])).symm
 
 theorem mem_ySet_iff_adj {e x y : E} : (y : X) ∈ ySet E e x ↔
     ∀ a : E, (commGraph E).Adj a e → (commGraph E).Adj a x → (commGraph E).Adj a y := by

@@ -305,76 +305,6 @@ namespace CFSG.ASVolI
     true), (1, true), (1, true), (3, true), (1, true), (3, true), (1, false), (1, false), (3,
     true), (0, false), (3, true), (1, false)]]
 
-@[expose] def burnsideF48t_g23WX : Array (List ℤ) :=
-  #[[],
-    [],
-    [],
-    [],
-    [-1, 2, 1],
-    [-2, -5, 2, 5],
-    [2, 5, -1, 5, 1],
-    [6, 5, -1, 4, 2, 4],
-    [6, -4, 6, 4],
-    [9, -6, 7, 2, 5, 1, 3, 1, 3]]
-
-@[expose] def burnsideF48t_g23BaseX : List (Fin 728) :=
-  [0, 1, 3, 16, 2, 7, 5]
-
-@[expose] def burnsideF48t_g23SizesX : List ℕ :=
-  [364, 12, 9, 9, 2, 3, 2]
-
-@[expose] def burnsideF48t_g23WP1 : Array (List ℤ) :=
-  #[[],
-    [],
-    [],
-    [-1, -1],
-    [-1, -2],
-    [-5, -5],
-    [-4, 5, 4],
-    [7, 7, 6],
-    [-5, -7, -2, 7, 1],
-    [7, -9, -5, -7, -2, -2, 1]]
-
-@[expose] def burnsideF48t_g23BaseP1 : List (Fin 728) :=
-  [0, 2, 3, 7, 16, 5]
-
-@[expose] def burnsideF48t_g23SizesP1 : List ℕ :=
-  [1, 12, 9, 18, 3, 2]
-
-@[expose] def burnsideF48t_g23WP2 : Array (List ℤ) :=
-  #[[],
-    [],
-    [],
-    [-1, -1],
-    [-1, -2],
-    [-5, -5],
-    [-4, 5, 4],
-    [7, 7, 6],
-    [-5, -7, -2, 7, 1],
-    [7, -9, -5, -7, -2, -2, 1]]
-
-@[expose] def burnsideF48t_g23BaseP2 : List (Fin 728) :=
-  [0, 2, 3, 7, 16, 5]
-
-@[expose] def burnsideF48t_g23SizesP2 : List ℕ :=
-  [4, 3, 9, 18, 3, 2]
-
-@[expose] def burnsideF48t_g23WB : Array (List ℤ) :=
-  #[[],
-    [],
-    [-1, -1],
-    [-1, -2],
-    [-4, -4],
-    [-3, 4, 3],
-    [6, 6, 5],
-    [-4, -6, -2, 6, 1],
-    [6, -8, -4, -6, -2, -2, 1]]
-
-@[expose] def burnsideF48t_g23BaseB : List (Fin 728) :=
-  [0, 2, 3, 7, 16, 5]
-
-@[expose] def burnsideF48t_g23SizesB : List ℕ :=
-  [1, 3, 9, 18, 3, 2]
 
 @[expose] def burnsideF48t_g23WS0 : Array (List ℤ) :=
   #[[],
@@ -387,8 +317,6 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_g23BaseS0 : List (Fin 728) :=
   [0, 7, 16]
 
-@[expose] def burnsideF48t_g23SizesS0 : List ℕ :=
-  [1, 27, 27]
 
 @[expose] def burnsideF48t_g23WK : Array (List ℤ) :=
   #[[],
@@ -398,18 +326,6 @@ namespace CFSG.ASVolI
 @[expose] def burnsideF48t_g23BaseK : List (Fin 728) :=
   [0, 5, 2]
 
-@[expose] def burnsideF48t_g23SizesK : List ℕ :=
-  [1, 2, 2]
-
-@[expose] def burnsideF48t_g23HA : List (List (Fin 4 × Bool)) :=
-  [[(2, true)],
-    [(2, true), (3, true), (2, true)],
-    [(2, true), (3, true), (2, true), (3, true), (2, true)]]
-
-@[expose] def burnsideF48t_g23HB : List (List (Fin 4 × Bool)) :=
-  [[(3, true)],
-    [(3, true), (2, true), (3, true)],
-    [(3, true), (2, true), (3, true), (2, true), (3, true)]]
 
 @[expose] def burnsideF48t_g23PtsStr : String :=
   "100000000000001100000000000012000000000000111101000000000100000000000012220200000000121201" ++

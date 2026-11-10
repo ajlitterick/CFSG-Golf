@@ -36,9 +36,6 @@ variable {X : Type} [Group X]
           g ^ (Multiplicative.toAdd w).1.val) * h ^ (Multiplicative.toAdd w).2.val := by rw [hc]
       _ = _ := by simp only [mul_assoc]
 
-theorem hom33_ofAdd (g h : X) (hg : g ^ 3 = 1) (hh : h ^ 3 = 1) (hgh : g * h = h * g)
-    (a b : ZMod 3) : hom33 g h hg hh hgh (Multiplicative.ofAdd (a, b)) = g ^ a.val * h ^ b.val :=
-  rfl
 
 theorem map_conj_range_eq {V : Type} [Group V] (ψ : V →* X) (n : X) (f : V → V)
     (hf : Function.Surjective f) (h : ∀ v, n * ψ v * n⁻¹ = ψ (f v)) :

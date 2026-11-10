@@ -26,10 +26,6 @@ theorem CenterOrderTwo.sq_eq_one {P : Type*} [Group P] {w : P} (hw1 : w ≠ 1)
     have : w * w = w * 1 := by rw [mul_one, ← pow_two, h]
     exact mul_left_cancel this
 
-theorem CenterOrderTwo.uci {P : Type*} [Group P] (h : CenterOrderTwo P) :
-    UniqueCentralInvolution P := by
-  obtain ⟨w, hw1, hwc, hu⟩ := h
-  exact ⟨w, hw1, CenterOrderTwo.sq_eq_one hw1 hwc hu, hwc, fun x hx _ => hu x hx⟩
 
 theorem CenterOrderTwo.of_mulEquiv {P Q : Type*} [Group P] [Group Q] (e : P ≃* Q)
     (h : CenterOrderTwo P) : CenterOrderTwo Q := by
@@ -265,70 +261,10 @@ theorem centerOrderTwo_of_commuting_two (h : A ≤ Subgroup.centralizer (B : Set
     have e2 : b = u := (congrArg Subtype.val h2).trans hub.symm
     rw [e1, e2, hu2]
 
-theorem cyclic_four_involution {A : Type*} [Group A] (hc : IsCyclic A) (h4 : Nat.card A = 4)
-    {x y : A} (hx1 : x ≠ 1) (hx2 : x ^ 2 = 1) (hy1 : y ≠ 1) (hy2 : y ^ 2 = 1) : x = y := by
-  have e : Multiplicative (ZMod 4) ≃* A := by
-    have := zmodCyclicMulEquiv hc
-    rw [h4] at this
-    exact this
-  have key : ∀ z : Multiplicative (ZMod 4), z ^ 2 = 1 → z = 1 ∨ z = Multiplicative.ofAdd 2 := by
-    decide
-  have hx := key (e.symm x) (by rw [← map_pow, hx2, map_one])
-  have hy := key (e.symm y) (by rw [← map_pow, hy2, map_one])
-  rcases hx with hx | hx
-  · exact absurd (by simpa using hx) hx1
-  · rcases hy with hy | hy
-    · exact absurd (by simpa using hy) hy1
-    · exact e.symm.injective (hx.trans hy.symm)
-
-theorem uci_of_cyclic_commuting (h : A ≤ Subgroup.centralizer (B : Set P)) (hgen : A ⊔ B = ⊤)
-    (hAc : IsCyclic ↥A) (hA4 : Nat.card ↥A = 4) (hB : CenterOrderTwo ↥B)
-    (hAB : Nat.card ↥(A ⊓ B) = 2) : UniqueCentralInvolution P := by
-  obtain ⟨wb, hwb1, hwbc, hwbu⟩ := hB
-  have hwb2 : (wb : ↥B) ^ 2 = 1 := CenterOrderTwo.sq_eq_one hwb1 hwbc hwbu
-  obtain ⟨u, hu, hu1⟩ := exists_ne_one_of_card_two hAB
-  obtain ⟨huA, huB⟩ := inf_central h hu
-  have hub : u = (wb : P) := by
-    have hc : ∀ y : B, (⟨u, hu.2⟩ : B) * y = y * ⟨u, hu.2⟩ := fun y =>
-      Subtype.ext (huB y y.2)
-    rcases hwbu _ hc with h1 | h1
-    · exact absurd (congrArg Subtype.val h1) hu1
-    · exact congrArg Subtype.val h1
-  have hu2 : u ^ 2 = 1 := by
-    have := congrArg Subtype.val hwb2
-    rw [hub]
-    simpa using this
-  refine ⟨u, hu1, hu2, central_of_commutes h hgen huA huB, fun x hx hx2 => ?_⟩
-  obtain ⟨a, ha, b, hb, rfl⟩ := mem_sup_of_commute h (hgen ▸ Subgroup.mem_top x)
-  have hcb := central_factor_right h ha hx
-  have hb' : (⟨b, hb⟩ : B) = 1 ∨ (⟨b, hb⟩ : B) = wb :=
-    hwbu _ (fun y => Subtype.ext (hcb y y.2))
-  have hbA : b ∈ A := by
-    rcases hb' with h1 | h1
-    · have : b = 1 := congrArg Subtype.val h1
-      rw [this]; exact A.one_mem
-    · have : b = u := (congrArg Subtype.val h1).trans hub.symm
-      rw [this]; exact hu.1
-  have hxA : a * b ∈ A := A.mul_mem ha hbA
-  by_cases hx1 : a * b = 1
-  · exact Or.inl hx1
-  · right
-    exact congrArg Subtype.val (cyclic_four_involution hAc hA4
-      (x := (⟨a * b, hxA⟩ : A)) (y := (⟨u, hu.1⟩ : A))
-      (fun h1 => hx1 (congrArg Subtype.val h1)) (Subtype.ext hx2)
-      (fun h1 => hu1 (congrArg Subtype.val h1)) (Subtype.ext hu2))
 
 theorem card_quaternion_two : Nat.card (QuaternionGroup 2) = 8 := by
   rw [Nat.card_eq_fintype_card, QuaternionGroup.card]
 
-theorem uci_of_isZ4StarQ8 {P : Type*} [Group P] [Finite P] (h : IsZ4StarQ8 P) :
-    UniqueCentralInvolution P := by
-  obtain ⟨hcard, A, B, ⟨hAB, hgen⟩, hA4, hAc, ⟨eB⟩⟩ := h
-  have hB8 : Nat.card B = 8 := by rw [Nat.card_congr eB.toEquiv, card_quaternion_two]
-  have hprod := card_sup_mul_card_inf_of_le_centralizer hAB
-  rw [hgen, Subgroup.card_top, hcard, hA4, hB8] at hprod
-  have hAB2 : Nat.card ↥(A ⊓ B) = 2 := by omega
-  exact uci_of_cyclic_commuting hAB hgen hAc hA4 (centerOrderTwo_quaternion.of_mulEquiv eB.symm) hAB2
 
 theorem centerOrderTwo_of_isQ8Sq {P : Type*} [Group P] [Finite P] (h : IsQ8Sq P) :
     CenterOrderTwo P := by
@@ -341,9 +277,6 @@ theorem centerOrderTwo_of_isQ8Sq {P : Type*} [Group P] [Finite P] (h : IsQ8Sq P)
   exact centerOrderTwo_of_commuting_two hAB hgen (centerOrderTwo_quaternion.of_mulEquiv eA.symm)
     (centerOrderTwo_quaternion.of_mulEquiv eB.symm) hAB2
 
-theorem uci_of_isSpecialPow {P : Type*} [Group P] {w : ℕ} (h : IsSpecialPow 2 2 w P) :
-    UniqueCentralInvolution P :=
-  (centerOrderTwo_of_card_center_two h.2.2).uci
 
 end Commuting
 
@@ -361,32 +294,5 @@ theorem card_centerOf_eq_card_center {G : Type*} [Group G] (R : Subgroup G) :
   rw [← h]
   exact Nat.card_congr ((Subgroup.center ↥R).equivMapOfInjective _ R.subtype_injective).symm
 
-theorem uci_of_isAutM12Vertex {G : Type*} [Group G] {L : Subgroup G} (h : IsAutM12Vertex L) :
-    UniqueCentralInvolution ↥(CFSG.Open.pCoreOf 2 L) :=
-  (centerOrderTwo_of_card_center_two
-    ((card_centerOf_eq_card_center (CFSG.Open.pCoreOf 2 L)).symm.trans h.2.2)).uci
-
-theorem exists_central_of_uci {G : Type*} [Group G] {K R : Subgroup G} (hn : K ≤ Subgroup.normalizer (R : Set G))
-    (h : UniqueCentralInvolution ↥R) : ∃ w ∈ R, w ≠ 1 ∧ ∀ k ∈ K, k * w = w * k := by
-  obtain ⟨w, hw1, hw2, hwc, hu⟩ := h
-  refine ⟨w, w.2, fun h1 => hw1 (Subtype.ext h1), fun k hk => ?_⟩
-  let φ : ↥R ≃* ↥R := R.normalizerMonoidHom ⟨k, hn hk⟩
-  have hφ : ∀ x : ↥R, ((φ x : ↥R) : G) = k * x * k⁻¹ := fun x =>
-    R.normalizerMonoidHom_apply_apply_coe ⟨k, hn hk⟩ x
-  have hcen : ∀ y : ↥R, φ w * y = y * φ w := by
-    intro y
-    apply φ.symm.injective
-    simp only [map_mul, MulEquiv.symm_apply_apply]
-    exact hwc (φ.symm y)
-  have hsq : φ w ^ 2 = 1 := by rw [← map_pow, hw2, map_one]
-  rcases hu (φ w) hcen hsq with h1 | h1
-  · exfalso
-    exact hw1 (φ.injective (by rw [h1, map_one]))
-  · have h2 := hφ w
-    rw [h1] at h2
-    have : (w : G) * k = k * w := by
-      calc (w : G) * k = (k * w * k⁻¹) * k := by rw [← h2]
-        _ = k * w := by group
-    exact this.symm
 
 end CFSG.Quasithin

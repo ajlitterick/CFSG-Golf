@@ -15,10 +15,6 @@ theorem automorphisms_commutative (G : Type*) [Group G] [IsCyclic G] :
   apply equivalence.injective
   rw [map_mul, map_mul, mul_comm]
 
-theorem action_eq_one {G H : Type*} [Group G] [Group.IsPerfect G] [Group H] [IsCyclic H]
-    (action : G →* MulAut H) : action = 1 := by
-  let : IsMulCommutative (MulAut H) := automorphisms_commutative H
-  exact PerfectAutomorphisms.hom_eq_one_of_commutative action
 
 theorem normal_cyclic_le_derived_centralizer {G : Type*} [Group G]
     (subgroup : Subgroup G) [subgroup.Normal] [IsCyclic subgroup] :

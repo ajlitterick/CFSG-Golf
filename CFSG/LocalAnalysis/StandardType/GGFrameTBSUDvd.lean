@@ -80,11 +80,6 @@ private lemma frameSUD_inducedSub_subset_I {R : Type} [Group R] {I : Set (MulAut
   obtain ⟨φa, hφaI, hφa⟩ := hAI a ha
   exact TypeA.induced_unique ψ hψ hφa hxa ▸ hφaI
 
-private lemma frameSUD_X_is_elem_abelian {R : Type} [Group R]
-    {L' : Type} [Group L'] {ψ : L' →* R} {A : Subgroup (MulAut L')} {p : ℕ}
-    (hψ : Function.Surjective ψ) (hA : IsElemAbelian p A) :
-    IsElemAbelian p (TypeA.inducedSub ψ A) :=
-  TypeA.isElemAbelian_inducedSub hψ hA
 
 private lemma frameSUD_X_map_q_cyclic {R : Type} [Group R] {I : Set (MulAut R)}
     {L' : Type} [Group L'] {ψ : L' →* R} {A : Subgroup (MulAut L')}
@@ -317,7 +312,6 @@ theorem exists_noncyclic_three_of_outdiagCyclic {R : Type} [Group R] {I : Set (M
     intro a ha
     exact frameSUD_A0_inner hψ hker hperf hAI a ha
   exact exists_noncyclic_three_of_forall_conj hA0_elem hA0_ge hA0_inner
-
 
 
 private lemma frameSUD_udPerm_data {m : ℕ} (hm : 8 ≤ m) (h3 : 3 ∣ m + 1)

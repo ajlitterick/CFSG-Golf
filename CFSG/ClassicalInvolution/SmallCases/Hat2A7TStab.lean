@@ -32,9 +32,6 @@ theorem map_conj_one' (L : Subgroup F) : L.map (MulAut.conj (1 : F)).toMonoidHom
   ext x
   simp
 
-theorem map_conj_map_conj_inv (L : Subgroup F) (g : F) :
-    (L.map (MulAut.conj g).toMonoidHom).map (MulAut.conj g⁻¹).toMonoidHom = L := by
-  rw [map_map_conj, inv_mul_cancel, map_conj_one']
 
 variable (hZ : CenterTrivial F) (IH : ClassicalCommuteBelow F)
 

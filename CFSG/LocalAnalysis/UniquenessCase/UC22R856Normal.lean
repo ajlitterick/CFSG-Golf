@@ -264,47 +264,5 @@ theorem stronglyEmbedded_of_normal_g2_of_not_nine
     exact (Nat.prime_three.not_dvd_mul (by norm_num) hf3) (h.trans hdvd)
   exact stronglyEmbedded_of_normal_extraspecial h63 hM3 hL hML hQ hΓ hQext hZ hOut
 
-theorem false_of_normal_triple_cover_of_rank_le_two
-    {D : Data G} {L Q P X : Subgroup G} (hX : ChoiceX D L Q P X)
-    (hML : D.M ≤ normalizer (L : Set G)) (hcover : List857Clause2 (Bar2 L))
-    (hM3 : CFSG.Open.pRank 3 D.M ≤ 2) : False := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hc := hX.cex
-  have hQext := isExtraspecialExpP_of_isSylowOf_bar hc.sylowQ
-    (fun Qb => threeCoverSylowExtraspecial_holds _ hcover Qb)
-  have hQL : Q ≤ L := hc.sylowQ.le
-  have hPNL : P ≤ normalizer (L : Set G) := hc.sylowP.le.trans hML
-  have hQeq : Q = P ⊓ L :=
-    (hc.sylowQ.eq_of_le (le_inf hc.le hQL) inf_le_right
-      (hc.sylowP.isPGroup.to_le inf_le_left)).symm
-  have hQn : (Q.subgroupOf P).Normal :=
-    normal_subgroupOf_of_isSylowOf_of_le_normalizer hc.sylowQ hc.le hc.sylowP.isPGroup hPNL
-  have hPQ : P ≤ Q ⊔ centralizerBar P L :=
-    le_sup_centralizerBar_of_inner hc.le hQL hQeq hQn hc.sylowQ hc.sylowP.isPGroup
-      hPNL le_rfl (inner_action_of_not_three_dvd_outer
-        (not_three_dvd_card_outer_of_cover hcover) hc.sylowP.isPGroup hPNL)
-  have hcomm : ∀ q ∈ Q, ∀ c ∈ centralizerBar P L, q * c = c * q :=
-    fun q hq c hcc => commute_of_mem_centralizerBar Nat.prime_three (by norm_num)
-      hc.sylowP.isPGroup hQL hc.le hq hcc
-  have hQexp : ∀ q ∈ Q, q ^ 3 = 1 := by
-    intro q hq
-    have hexp := Monoid.pow_exponent_eq_one (⟨q, hq⟩ : Q)
-    rw [hQext.2.1] at hexp
-    exact congrArg Subtype.val hexp
-  obtain ⟨E, hEQ, hEel, hEcard⟩ := CFSG.Quasithin.A1c.exists_isElemAbelian_card_sq
-    (p := 3) (by norm_num) hc.sylowQ.isPGroup hc.not_isCyclic_sylowQ
-  have hXQ : X ≤ Q := by
-    intro x hx
-    have hxp : x ^ 3 = 1 := by
-      have hx3 := pow_card_eq_one' (G := X) (x := ⟨x, hx⟩)
-      rw [hX.card] at hx3
-      exact congrArg Subtype.val hx3
-    exact uc22s213_mem_of_pow_three_eq_one hM3 (hQL.trans hc.mem.1.le)
-      ((centralizerBar_le P L).trans hc.sylowP.le)
-      ((centralizerBar_le P L).trans
-        ((Subgroup.normal_subgroupOf_iff_le_normalizer hc.le).mp hQn))
-      hcomm hQexp hEQ hEel hEcard (hPQ (hX.le hx)) hxp
-  exact hX.not_le_sylowQ hXQ
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22.R856Normal

@@ -126,7 +126,6 @@ theorem n6ToV_surjective : Function.Surjective n6ToV := by
 @[expose] noncomputable def n6ModEquiv : N6 ≃* Mod.V 6 Mod.ut0 :=
   MulEquiv.ofBijective n6ToV ⟨n6ToV_injective, n6ToV_surjective⟩
 
-theorem n6ModEquiv_apply (a : N6) : n6ModEquiv a = n6ToV a := rfl
 
 theorem n6ModEquiv_isModIso :
     IsModIso (V := N6) (V' := Mod.V 6 Mod.ut0) n6ActL (actL 6 Mod.ut0) n6ModEquiv :=

@@ -37,9 +37,5 @@ theorem exists_isElemAbelian_three_pow_three_of_mulEquiv_Fi23 {G : Type*} [Group
     ∃ E : Subgroup G, IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 3 :=
   exists_isElemAbelian_three_of_mulEquiv_Fi23 e hG le_rfl
 
-theorem tcExcludedSporadic_Fi23 : TCExcludedSporadic .Fi23 := by
-  intro G _ _ _ hG ⟨e⟩
-  obtain ⟨E, hE, hcard⟩ := exists_isElemAbelian_three_pow_three_of_mulEquiv_Fi23 e hG
-  exact ⟨3, Nat.prime_three, by norm_num, E, hE, hcard⟩
 
 end CFSG.QuasithinUnique.SQTK

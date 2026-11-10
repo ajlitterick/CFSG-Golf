@@ -60,7 +60,6 @@ theorem card_img_conj_zU_F4 [CFSG.GH74.QTGen4.Finite4 G] (h12810 : Lemma12_8_10_
     Subgroup.card_map_of_injective (MulAut.conj g⁻¹).injective, hV1] at h1
   exact h1
 
-variable {T V V₂ : Subgroup G} (D : HatModelU (fsuU T V))
 
 end L14332
 

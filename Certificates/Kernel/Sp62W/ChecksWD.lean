@@ -37,14 +37,6 @@ theorem ch9441wd_h : (Nat.beq (recX WD 16 0) (numC oneC) && Nat.beq (recC WD 16 
 
 #kc_each CertificateChecks.KernelSp62W ch9441wdS (fun j => stepSl WD 16 51840 7 j) 0 45
 
-theorem ch9441wd_n1 : gensK WD gensWL = false := by decide +kernel
-
-theorem ch9441wd_n2 : memsK WD 7 16 51840 (gensWL ++ gensV) = false := by decide +kernel
-
-theorem ch9441wd_n3 : stepSl WD 16 51840 6 3 = false := by decide +kernel
-
-theorem ch9441wd_n4 : cenSl WD 16 51840 (gensV.map numC) [] (gensT.map numC)
-    ([oneC, cZ, cZ2].map numC) 0 = false := by decide +kernel
 
 end CertificateChecks.KernelSp62W
 

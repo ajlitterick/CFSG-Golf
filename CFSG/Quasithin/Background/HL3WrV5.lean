@@ -178,7 +178,6 @@ theorem mem_Z00_iff {X : WMod} :
 theorem eW00_mem_V5 : eW 0 0 ∈ V5 := by
   refine ⟨?_, ?_, ?_, ?_⟩ <;> decide
 
-theorem Z00_le_V5 : Z00 ≤ V5 := (Subgroup.zpowers_le).mpr eW00_mem_V5
 
 theorem toAdd_eW (i j : Fin 3) : Multiplicative.toAdd (eW i j) = Matrix.single i j 1 := rfl
 
@@ -483,18 +482,6 @@ theorem toAdd_ddW (i j k l : ℕ) (X : WMod) :
   rw [toAdd_mul, toAdd_inv, toAdd_rho_pow, toAdd_mul, toAdd_inv, toAdd_rho_pow, neg_eq_self',
     neg_eq_self']
 
-theorem rho_c3_pow_eq_one_iff (i j : Fin 3) :
-    rho (c3 ^ (i : ℕ), c3 ^ (j : ℕ)) = 1 → ((i : ℕ), (j : ℕ)) = (0, 0) := by
-  intro h
-  have h' := rho_injective (h.trans (map_one rho).symm)
-  have hi : c3 ^ (i : ℕ) = 1 := congrArg Prod.fst h'
-  have hj : c3 ^ (j : ℕ) = 1 := congrArg Prod.snd h'
-  have hi' := orderOf_dvd_of_pow_eq_one hi
-  have hj' := orderOf_dvd_of_pow_eq_one hj
-  rw [orderOf_c3] at hi' hj'
-  have := i.2
-  have := j.2
-  ext <;> simp <;> omega
 
 theorem not_forall_of_mem_E9 {x y : MulAut WMod} (hx : x ∈ E9) (hy : y ∈ E9) (hx1 : x ≠ 1)
     (hyx : y ∉ Subgroup.zpowers x) :

@@ -683,22 +683,6 @@ private theorem exists_extremal_representative
   refine ⟨hAb, ?_⟩
   simpa [U, NU] using hfacInf
 
-public theorem HuppertConjugationDecomposition.result_le
-    {G : Type u} [Group G]
-    {P A : Subgroup G} {family : Subgroup G → Prop} {g : G}
-    (hAP : A ≤ P)
-    (h : HuppertConjugationDecomposition P family A g) :
-    rightConjugate A g ≤ P := by
-  induction h with
-  | one => simpa [rightConjugate_one] using hAP
-  | @tail g0 h0 U hprev _ hUP hcur hn ih =>
-      rw [← rightConjugate_rightConjugate]
-      have hle := Subgroup.map_mono
-        (f := (MulAut.conj h0⁻¹).toMonoidHom) hcur
-      change rightConjugate (rightConjugate A g0) h0 ≤
-        rightConjugate U h0 at hle
-      rw [rightConjugate_eq_self_of_mem_normalizer hn] at hle
-      exact hle.trans hUP
 
 public theorem HuppertConjugationDecomposition.mono
     {G : Type u} [Group G]
@@ -727,22 +711,6 @@ public theorem HuppertConjugationDecomposition.trans
       simpa [mul_assoc] using
         (HuppertConjugationDecomposition.tail ih hU hUP hcur' hn)
 
-public theorem HuppertCentricConjugationDecomposition.result_le
-    {G : Type u} [Group G]
-    {P A : Subgroup G} {family : Subgroup G → Prop} {g : G}
-    (hAP : A ≤ P)
-    (h : HuppertCentricConjugationDecomposition P family A g) :
-    rightConjugate A g ≤ P := by
-  induction h with
-  | one => simpa [rightConjugate_one] using hAP
-  | @tail g0 h0 U hprev _ hUP hcur hn _ ih =>
-      rw [← rightConjugate_rightConjugate]
-      have hle := Subgroup.map_mono
-        (f := (MulAut.conj h0⁻¹).toMonoidHom) hcur
-      change rightConjugate (rightConjugate A g0) h0 ≤
-        rightConjugate U h0 at hle
-      rw [rightConjugate_eq_self_of_mem_normalizer hn] at hle
-      exact hle.trans hUP
 
 public theorem HuppertCentricConjugationDecomposition.mono
     {G : Type u} [Group G]

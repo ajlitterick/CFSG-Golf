@@ -66,22 +66,6 @@ theorem pieceCore_eq_map_of_conjTorus_of_sep [Finite G] (e : L ≃* unitaryPSU h
   obtain ⟨c, hc, hcij⟩ := hsep i hi j hj hij hIJ
   exact exists_unitaryBlockTorusLift_ne h hc hcij
 
-theorem pieceCore_eq_range_of_conjTorus [Finite G] (e : L ≃* unitaryPSU h n)
-    {N : Finset (Fin n)}
-    (hperf : ⁅blockSpecialLinear (K := K) N, blockSpecialLinear (K := K) N⁆ =
-      blockSpecialLinear N)
-    {X : Subgroup G} (hXN : X ≤ modelToG e (unitaryBlockTorus h N))
-    (Φ : blockSpecialLinear (K := K) N →* G)
-    (hker : Φ.ker ≤ center (blockSpecialLinear (K := K) N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦ : ∀ c : unitaryTorusParam h (∅ : Finset (Fin n)), c.1 ∈ unitaryTorusParam h N →
-      ∀ x : blockSpecialLinear (K := K) N,
-        Φ (conjTorus h N c x) = ((e.symm (unitaryProj h n (torusDiagSU h c)) : L) : G) * Φ x *
-          ((e.symm (unitaryProj h n (torusDiagSU h c)) : L) : G)⁻¹) :
-    pieceCore e N = Φ.range := by
-  rw [pieceCore_eq_map_of_conjTorus_of_sep e subset_rfl
-    (fun _ hi _ hj _ hIJ => absurd hIJ (by simp [hi, hj])) hperf hXN Φ hker hrange hΦ,
-    subgroupOf_self, ← MonoidHom.range_eq_map]
 
 end General
 
@@ -113,64 +97,6 @@ theorem pieceCore_eq_map_of_conjTorus {N I : Finset (Fin n)} (hIN : I ⊆ N) (hI
     (fun _ _ _ _ hij hIJ => exists_mem_unitaryTorusParam_ne h hIc hij hIJ)
     (commutator_blockSpecialLinear_eq_of_unitaryFieldData h hI2) hXI Φ hker hrange hΦ
 
-theorem pieceCore_eq_map_of_neighbourCore {a b : Fin n} (hab : a ≠ b) {I : Finset (Fin n)}
-    (hI : I ⊆ {a, b}ᶜ) (hI2 : 2 ≤ I.card)
-    (Φ : blockSpecialLinear (K := K) ({a, b}ᶜ : Finset (Fin n)) →* G)
-    (hker : Φ.ker ≤ center (blockSpecialLinear (K := K) ({a, b}ᶜ : Finset (Fin n))))
-    (hrange : Φ.range = neighbourCore e hab) (hΦ : TorusEquivariant e {a, b}ᶜ I Φ) :
-    pieceCore e I = ((blockSpecialLinear (K := K) I).subgroupOf
-      (blockSpecialLinear ({a, b}ᶜ : Finset (Fin n)))).map Φ :=
-  pieceCore_eq_map_of_conjTorus e hI hI2 (two_le_card_compl_of_subset_compl_pair hab hI)
-    (modelToG_unitaryRootTorus_le e hab hI) Φ hker hrange hΦ
-
-theorem map_eq_map_of_conjTorus {N N' I : Finset (Fin n)} (hIN : I ⊆ N) (hIN' : I ⊆ N')
-    (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card) {X X' : Subgroup G}
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I)) (hXI' : X' ≤ modelToG e (unitaryBlockTorus h I))
-    (Φ : blockSpecialLinear (K := K) N →* G)
-    (hker : Φ.ker ≤ center (blockSpecialLinear (K := K) N))
-    (hrange : Φ.range = centralizerPerfectCore X) (hΦ : TorusEquivariant e N I Φ)
-    (Φ' : blockSpecialLinear (K := K) N' →* G)
-    (hker' : Φ'.ker ≤ center (blockSpecialLinear (K := K) N'))
-    (hrange' : Φ'.range = centralizerPerfectCore X') (hΦ' : TorusEquivariant e N' I Φ') :
-    ((blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear N)).map Φ =
-      ((blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear N')).map Φ' := by
-  rw [← pieceCore_eq_map_of_conjTorus e hIN hI2 hIc hXI Φ hker hrange hΦ,
-    ← pieceCore_eq_map_of_conjTorus e hIN' hI2 hIc hXI' Φ' hker' hrange' hΦ']
-
-theorem nonempty_mulEquiv_pieceCore_of_conjTorus {N I : Finset (Fin n)} (hIN : I ⊆ N)
-    (hne : I ≠ N) (hI2 : 2 ≤ I.card) (hIc : 2 ≤ Iᶜ.card) {X : Subgroup G}
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I))
-    (Φ : blockSpecialLinear (K := K) N →* G)
-    (hker : Φ.ker ≤ center (blockSpecialLinear (K := K) N))
-    (hrange : Φ.range = centralizerPerfectCore X) (hΦ : TorusEquivariant e N I Φ) :
-    Nonempty (Matrix.SpecialLinearGroup (Fin I.card) K ≃* pieceCore e I) := by
-  set H := (blockSpecialLinear (K := K) I).subgroupOf (blockSpecialLinear (K := K) N)
-  have hinj := LinearPilot.injective_comp_subtype_of_ker_le_center hIN hne Φ hker
-  have hrangeH : (Φ.comp H.subtype).range = pieceCore e I := by
-    rw [MonoidHom.range_comp, range_subtype,
-      pieceCore_eq_map_of_conjTorus e hIN hI2 hIc hXI Φ hker hrange hΦ]
-  have e₁ : H ≃* pieceCore e I :=
-    (MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrangeH)
-  have e₂ : blockSpecialLinear (K := K) I ≃* H :=
-    (Subgroup.subgroupOfEquivOfLe (blockSpecialLinear_mono hIN)).symm
-  have e₃ : Matrix.SpecialLinearGroup (Fin I.card) K ≃* blockSpecialLinear (K := K) I :=
-    (LinearPilot.reindexSpecialLinear I.equivFin).symm.trans
-      ((MonoidHom.ofInjective (LinearPilot.blockEmbed_injective I)).trans
-        (MulEquiv.subgroupCongr (LinearPilot.range_blockEmbed I)))
-  exact ⟨e₃.trans (e₂.trans e₁)⟩
-
-theorem pieceCore_le_centralizer_pieceCore_of_disjoint {N I J : Finset (Fin n)} (hIN : I ⊆ N)
-    (hJN : J ⊆ N) (hIJ : Disjoint I J) (hI2 : 2 ≤ I.card) (hJ2 : 2 ≤ J.card)
-    (hIc : 2 ≤ Iᶜ.card) (hJc : 2 ≤ Jᶜ.card) {X : Subgroup G}
-    (hXI : X ≤ modelToG e (unitaryBlockTorus h I)) (hXJ : X ≤ modelToG e (unitaryBlockTorus h J))
-    (Φ : blockSpecialLinear (K := K) N →* G)
-    (hker : Φ.ker ≤ center (blockSpecialLinear (K := K) N))
-    (hrange : Φ.range = centralizerPerfectCore X) (hΦI : TorusEquivariant e N I Φ)
-    (hΦJ : TorusEquivariant e N J Φ) :
-    pieceCore e I ≤ centralizer (pieceCore e J : Set G) := by
-  rw [pieceCore_eq_map_of_conjTorus e hIN hI2 hIc hXI Φ hker hrange hΦI,
-    pieceCore_eq_map_of_conjTorus e hJN hJ2 hJc hXJ Φ hker hrange hΦJ]
-  exact LinearPilot.map_subgroupOf_le_centralizer_of_disjoint hIJ Φ
 
 end Even
 

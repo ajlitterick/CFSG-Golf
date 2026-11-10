@@ -251,12 +251,6 @@ theorem map_ker_fixedLiftObstruction [L.Normal] (π : L →* Q) (hπ : Function.
     apply Subtype.ext
     rw [fixedLiftObstruction_apply π hπ hkert htH p α hα _ l rfl, hdisp, OneMemClass.coe_one]
 
-private theorem ker_inf_centralizer_eq (π : L →* Q) {t : L} (hkert : π.ker = zpowers t)
-    (htH : (t : H) ∈ center H) (p : H) :
-    π.ker ⊓ (centralizer {p}).subgroupOf L = zpowers t := by
-  rw [hkert, inf_eq_left, zpowers_le, mem_subgroupOf, mem_centralizer_iff]
-  simp only [Set.mem_singleton_iff, forall_eq]
-  exact mem_center_iff.mp htH p
 
 theorem fixedLiftObstruction_surjective_of_conj [L.Normal] (π : L →* Q)
     (hπ : Function.Surjective π) {t : L} (hkert : π.ker = zpowers t)
@@ -279,55 +273,8 @@ theorem fixedLiftObstruction_surjective_of_conj [L.Normal] (π : L →* Q)
   rw [map_zpow, SubgroupClass.coe_zpow,
     fixedLiftObstruction_apply π hπ hkert htH p α hα _ l rfl, hdisp, inv_zpow', neg_neg, hk]
 
-private theorem exists_conj_eq_of_index_eq_two (hidx : L.index = 2) {p g y : H} (hpL : p ∉ L)
-    (hg : g * p * g⁻¹ = y) : ∃ l : L, (l : H) * p * (l : H)⁻¹ = y := by
-  by_cases hgL : g ∈ L
-  · exact ⟨⟨g, hgL⟩, hg⟩
-  · have hmem : g * p⁻¹ ∈ L := by
-      rw [mul_mem_iff_of_index_two hidx]
-      simp [hgL, hpL]
-    refine ⟨⟨g * p⁻¹, hmem⟩, ?_⟩
-    rw [← hg]
-    group
 
 end Obstruction
 
-theorem central_double_cover_full_action_kernel_and_fixed_lift_obstruction [L.Normal]
-    (hLq : CFSG.IsQuasisimple L) {t : L} (hZ : center L = zpowers t) (ht : orderOf t = 2)
-    (hCL : centralizer (L : Set H) = zpowers (t : H)) (π : L →* Q)
-    (hπ : Function.Surjective π) (hker : π.ker = zpowers t) :
-    ∃ θ : H →* MulAut Q, (∀ (h : H) (l : L), θ h (π l) = π (MulAut.conjNormal h l)) ∧
-      (∀ θ' : H →* MulAut Q, (∀ (h : H) (l : L), θ' h (π l) = π (MulAut.conjNormal h l)) →
-        θ' = θ) ∧
-      θ.ker = zpowers (t : H) ∧ (OuterAutomorphisms.inner Q).comap θ = L ∧
-      ∀ p : H, p ∉ L → orderOf p = 2 →
-        θ p ∉ OuterAutomorphisms.inner Q ∧ orderOf (θ p) = 2 ∧
-        ∃ δ : FixedCommutingProduct.fixedSubgroup (θ p) →* zpowers (t : H),
-          (∀ (q : FixedCommutingProduct.fixedSubgroup (θ p)) (l : L), π l = q →
-            (δ q : H) = (l : H)⁻¹ * p * l * p⁻¹) ∧
-          δ.ker.map (FixedCommutingProduct.fixedSubgroup (θ p)).subtype =
-            ((centralizer {p}).subgroupOf L).map π ∧
-          π.ker ⊓ (centralizer {p}).subgroupOf L = zpowers t ∧
-          (L.index = 2 → IsConj p ((t : H) * p) → Function.Surjective δ) := by
-  have hperf : Group.IsPerfect L := hLq.1
-  have hkerZ : π.ker = center L := hker.trans hZ.symm
-  have htH : (t : H) ∈ center H :=
-    coe_mem_center_of_center_eq_zpowers hZ (by rw [← ht, pow_orderOf_eq_one])
-  have hCL' : centralizer (L : Set H) ≤ L := by
-    rw [hCL, zpowers_le]
-    exact t.2
-  refine ⟨fullAction π hπ hkerZ, fullAction_apply π hπ hkerZ,
-    fun θ' hθ' => fullAction_unique π hπ hkerZ θ' hθ', by rw [ker_fullAction, hCL],
-    comap_inner_fullAction π hπ hkerZ hCL', fun p hpL hp2 => ?_⟩
-  refine ⟨fullAction_notMem_inner π hπ hkerZ hCL' hpL,
-    orderOf_fullAction π hπ hkerZ hCL' hpL hp2,
-    fixedLiftObstruction π hπ hker htH p _ (fullAction_apply π hπ hkerZ p),
-    fixedLiftObstruction_apply π hπ hker htH p _ (fullAction_apply π hπ hkerZ p),
-    map_ker_fixedLiftObstruction π hπ hker htH p _ (fullAction_apply π hπ hkerZ p),
-    ker_inf_centralizer_eq π hker htH p, fun hidx hconj => ?_⟩
-  obtain ⟨g, hg⟩ := isConj_iff.mp hconj
-  obtain ⟨l, hl⟩ := exists_conj_eq_of_index_eq_two hidx hpL hg
-  exact fixedLiftObstruction_surjective_of_conj π hπ hker htH p _
-    (fullAction_apply π hπ hkerZ p) hl
 
 end CFSG.ComponentClassification.CentralCover

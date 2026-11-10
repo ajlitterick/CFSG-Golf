@@ -35,8 +35,6 @@ theorem one_eq_oneF : Code.one = oneF := oneF_eq.symm
 theorem card_hashSet (A : Array ℕ) : (hashSetOfArray A).size = A.toList.dedup.length := by
   rw [hashSetOfArray_size, List.card_toFinset]
 
-theorem contains_hashSet (A : Array ℕ) (x : ℕ) :
-    (hashSetOfArray A).contains x = A.toList.contains x := hashSetOfArray_contains A x
 
 section
 

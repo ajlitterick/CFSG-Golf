@@ -457,15 +457,6 @@ theorem tightCaseE64Leaf_holds (n : ℕ) : TightCaseE64Leaf n := by
   exact ⟨_, hS.aeTwinRel_e64 (TC.Thin.AEIdentOn.ofEq (hS.maxAdjSet_conj _ g).symm (I.conj g))
     (hS.oddCore_pSpan_conj hOK g)⟩
 
-variable {n : ℕ} in
-theorem tightCaseBLeaf_of_indep (h : TightIndepLeaf n) : TightCaseBLeaf n := by
-  intro Y _ _ R S t hL hO hconn hsep hall M N N' hN hN' hne u u' hu hu' hc hNN'
-  exact h Y R S t hL hO hconn hsep hall M hN.1.1 N N' hN hN' hne hNN'.1
-
-variable {n : ℕ} in
-theorem tightIndepLeaf_of_thmD3' (hD : TC.Thin.TightThmD3) (h29 : TightCase29Leaf n) :
-    TightIndepLeaf n :=
-  tightIndepLeaf_of_thmD3 hD (tightCaseE64Leaf_holds n) h29
 
 end Cit3
 

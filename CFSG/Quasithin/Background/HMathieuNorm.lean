@@ -167,7 +167,6 @@ theorem psi23_injective : Function.Injective psi23 := by
   have := congrArg (fun σ : Equiv.Perm (Fin 24) => j23Split (σ (j23Split.symm (some i)))) hgh
   simpa [psi23] using this
 
-theorem psi23_zero (g : Equiv.Perm (Fin 23)) : psi23 g 0 = 0 := rfl
 
 theorem psi23_a_arr : HasArr (psi23 (List.formPerm [0, 1] * List.formPerm [2, 3] *
     List.formPerm [6, 7] * List.formPerm [8, 9] * List.formPerm [12, 13] * List.formPerm [14, 15] *

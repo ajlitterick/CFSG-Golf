@@ -147,8 +147,6 @@ section Cyclic
     conv_rhs => rw [← Nat.mod_add_div ((Multiplicative.toAdd x).val +
       (Multiplicative.toAdd y).val) r, pow_add, pow_mul, h, one_pow, mul_one]
 
-theorem cycHom_apply {G : Type*} [Group G] (g : G) (r : ℕ) [NeZero r] (h : g ^ r = 1)
-    (x : Multiplicative (ZMod r)) : cycHom g r h x = g ^ (Multiplicative.toAdd x).val := rfl
 
 theorem cycHom_injective {G : Type*} [Group G] (g : G) (r : ℕ) [NeZero r] (h : g ^ r = 1)
     (ho : orderOf g = r) : Function.Injective (cycHom g r h) := by
@@ -437,8 +435,6 @@ open CFSG.Assembly.LowTwoRank
 @[expose] noncomputable def isoGL (Q : (ι₀ → K) → K) : Subgroup (GL ι₀ K) :=
   (isoGroup Q).comap (glLin (K := K) (ι₀ := ι₀)).toMonoidHom
 
-theorem mem_isoGL {Q : (ι₀ → K) → K} {A : GL ι₀ K} :
-    A ∈ isoGL Q ↔ ∀ v, Q ((A : Matrix ι₀ ι₀ K) *ᵥ v) = Q v := Iff.rfl
 
 theorem statedOmega_eq (Q : (ι₀ → K) → K) : StatedOmega Q = ⁅isoGL Q, isoGL Q⁆ := by
   unfold StatedOmega

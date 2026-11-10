@@ -195,8 +195,6 @@ theorem uniqueindex2 (L : Subgroup H) (hL : L.index = 2) : L = K := by
     omega
   exact (Subgroup.eq_of_le_of_card_ge hcomm (by rw [hcL, K_card])).symm
 
-theorem index_two_iff (L : Subgroup H) : L.index = 2 ↔ L = K := by
-  exact ⟨uniqueindex2 L, fun h => h ▸ K_index⟩
 
 theorem center_index_two (L : Subgroup H) (hL : L.index = 2) :
     (Subgroup.center L).map L.subtype = Subgroup.zpowers z := by

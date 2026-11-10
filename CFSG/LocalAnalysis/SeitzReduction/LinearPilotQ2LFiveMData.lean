@@ -32,7 +32,6 @@ theorem map_conj_map_conj_eq_of_mul_self {t : G} (ht : t * t = 1) (X : Subgroup 
       _ = y := by rw [ht]; group
   rw [map_map, hid, map_id]
 
-variable [Finite G]
 
 end Data
 

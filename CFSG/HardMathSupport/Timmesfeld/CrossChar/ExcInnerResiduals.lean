@@ -56,15 +56,6 @@ theorem crossCharInnerAt_E8_of_split
   CrossCharInnerAt.of_split (fun idx hk p hp hp2 hc h => h3 idx hk p hp hp2 hc h.2)
     (fun idx hk p hp hp2 hc h => h5 idx hk p hp hp2 hc h.2) h7
 
-theorem three_le_degCount_E8_of_three_or_five {p n : ℕ} (hp : p = 3 ∨ p = 5) (hn : ¬ p ∣ n) :
-    3 ≤ degCount Tag.E8 (orderOf ((n : ℕ) : ZMod p)) := by
-  rcases hp with rfl | rfl
-  · rcases orderOf_natCast_zmod_three hn with h | h <;> rw [h] <;> decide
-  · rcases orderOf_natCast_zmod_five hn with h | h | h <;> rw [h] <;> decide
-
-theorem three_le_degCount_E7_of_three {n : ℕ} (hn : ¬ 3 ∣ n) :
-    3 ≤ degCount Tag.E7 (orderOf ((n : ℕ) : ZMod 3)) := by
-  rcases orderOf_natCast_zmod_three hn with h | h <;> rw [h] <;> decide
 
 theorem crossCharInnerAt_E7_of_split
     (h3 : CrossCharInnerAt .E7 fun _ p => p = 3)

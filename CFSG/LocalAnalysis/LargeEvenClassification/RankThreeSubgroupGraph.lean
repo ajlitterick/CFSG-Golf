@@ -41,12 +41,6 @@ universe u v
 
 variable {G : Type u} [Group G]
 
-theorem mem_E3_iff (A : Subgroup G) :
-    A ∈ E3 G ↔ IsElemAbelian 2 A ∧ Nat.card A = 8 := Iff.rfl
-
-theorem rankThree_graph_adj_iff (A B : RankThreeVertex G) :
-    (RankThreeSubgroupGraph G).Adj A B ↔ Nat.card (A.val ⊓ B.val : Subgroup G) = 4 :=
-  Iff.rfl
 
 instance rankThreeVertex_finite [Finite G] : Finite (RankThreeVertex G) :=
   inferInstanceAs (Finite {A : Subgroup G // A ∈ E3 G})
@@ -159,13 +153,5 @@ theorem rankThree_path_map {H : Type v} [Group H] (f : G →* H)
     rw [← Subgroup.map_inf _ _ f hinjective, Subgroup.card_map_of_injective hinjective]
     exact hsteps i
 
-theorem conn3_iff_graph_connected : Conn3 G ↔ (RankThreeSubgroupGraph G).Connected := by
-  rw [SimpleGraph.connected_iff]
-  constructor
-  · rintro ⟨⟨A, hA⟩, hpaths⟩
-    exact ⟨fun A B => (rankThree_path_iff_reachable A B).mp (hpaths A B), ⟨⟨A, hA⟩⟩⟩
-  · rintro ⟨hconnected, ⟨A⟩⟩
-    exact ⟨⟨A.val, A.property⟩,
-      fun A B => (rankThree_path_iff_reachable A B).mpr (hconnected A B)⟩
 
 end CFSG.LargeEvenClassification

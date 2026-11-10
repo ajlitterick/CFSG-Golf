@@ -50,7 +50,6 @@ theorem nonempty_mulEquiv_psl_galoisField (G : Type) [Group G] (n p f : ℕ) [Fa
     (projectiveSpecialLinearGroupCongr (Fin n) (FiniteField.ringEquivOfCardEq hcard)))⟩
 
 
-
 section Projective
 
 variable {ι : Type} [Fintype ι] [DecidableEq ι]
@@ -92,7 +91,6 @@ variable {ι : Type} [Fintype ι] [DecidableEq ι]
     rwa [Φ.injective hgh] at hg
 
 
-
 end Projective
 
 section FieldTransport
@@ -128,8 +126,6 @@ theorem glCongr_statedScalars {K L : Type} [Field K] [Field L] (e : K ≃+* L) :
     ext i j
     simp [Matrix.scalar_apply, Matrix.diagonal_apply]
     split_ifs <;> simp
-
-
 
 
 end FieldTransport
@@ -337,7 +333,6 @@ theorem conj_unitary_inv (σ : L →+* L) (J : M3 L) (P B : GL (Fin 3) L)
       = hcσ σ Pm * hcσ σ Bm * (hcσ σ Qm * Qm) * Bm * Pm := by simp only [Matrix.mul_assoc]
     _ = hcσ σ Pm * (hcσ σ Bm * J * Bm) * Pm := by rw [hJ]; simp only [Matrix.mul_assoc]
     _ = 1 := by rw [hB, hP]
-
 
 
 @[expose] def antidiag3 (L : Type) [Field L] : M3 L := !![0, 0, 1; 0, 1, 0; 1, 0, 0]
@@ -553,23 +548,6 @@ end M11
 
 section Catalogue
 
-theorem semidihedral_catalogue_of_stated (G : Type) [Group G]
-    (h : (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ p ^ f % 4 = 3 ∧
-          CFSG.Open.StatedClassicalModel G .PSL 3 p f) ∨
-      (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ p ^ f % 4 = 1 ∧
-          CFSG.Open.StatedClassicalModel G .PSU 3 p f) ∨
-      Nonempty (G ≃* CFSG.Open.StatedM11)) :
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 3 ∧
-        Nonempty (G ≃* ProjectiveSpecialLinearGroup (Fin 3) (GaloisField p k))) ∨
-    (∃ p k : ℕ, ∃ _hp : Fact p.Prime, 0 < k ∧ p ^ k % 4 = 1 ∧
-        Nonempty (G ≃* CFSG.Open.PSU3 p k)) ∨
-    Nonempty (G ≃* CFSG.Open.M11) := by
-  rcases h with ⟨p, f, hp, -, hf, hq, hm⟩ | ⟨p, f, hp, hp2, hf, hq, hm⟩ | ⟨⟨e⟩⟩
-  · let _ : Fact p.Prime := ⟨hp⟩
-    exact Or.inl ⟨p, f, ⟨hp⟩, hf, hq, nonempty_mulEquiv_psl_galoisField G 3 p f hm⟩
-  · let _ : Fact p.Prime := ⟨hp⟩
-    exact Or.inr (Or.inl ⟨p, f, ⟨hp⟩, hf, hq, nonempty_mulEquiv_psu3 G p f hp2 hm⟩)
-  · exact Or.inr (Or.inr ⟨e.trans statedM11EquivM11⟩)
 
 theorem wreathed_catalogue_of_stated (G : Type) [Group G]
     (h : (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ p ^ f % 4 = 1 ∧

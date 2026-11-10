@@ -40,8 +40,6 @@ theorem flagSpace_mono {i j : ℕ} (h : i ≤ j) : flagSpace n K i ≤ flagSpace
   rw [mem_flagSpace] at hv ⊢
   exact fun c hc => hv c (h.trans hc)
 
-theorem isCompleteFlag_standardFlag : IsCompleteFlag (standardFlag n K) :=
-  ⟨fun _ _ h => flagSpace_mono h, fun i => finrank_flagSpace (by omega)⟩
 
 theorem flagFamilyStabilizer_standardFlag :
     flagFamilyStabilizer (standardFlag n K) = upperTriangular n K := by

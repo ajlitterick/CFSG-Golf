@@ -68,22 +68,12 @@ private theorem nontrivial_of_isQuasisimple {K : Type*} [Group K] (h : CFSG.Open
   haveI : IsSimpleGroup (K ⧸ Subgroup.center K) := h.2
   exact (QuotientGroup.mk_surjective (s := Subgroup.center K)).nontrivial
 
-private theorem false_of_isQuasisimple_of_isSolvable {K : Type*} [Group K]
-    (h : CFSG.Open.IsQuasisimple K) (hs : Group.IsSolvable K) : False := by
-  haveI := nontrivial_of_isQuasisimple h
-  haveI : Group.IsPerfect K := ⟨h.1⟩
-  exact Group.IsPerfect.not_isSolvable K hs
 
 theorem card_of_isHatSix {X : Type*} [Group X] [Finite X] (h : IsHatSix X) : Nat.card X = 1080 := by
   obtain ⟨-, hc, ⟨e⟩⟩ := h
   rw [Subgroup.card_eq_card_quotient_mul_card_subgroup (Subgroup.center X), hc,
     Nat.card_congr e.toEquiv, card_A6]
 
-theorem false_of_isHatSix_of_card_lt {C K : Subgroup G} (hK : K ≤ C) (h : IsHatSix ↥K)
-    (hC : Nat.card C < 1080) : False := by
-  have h1 := Subgroup.card_dvd_of_le hK
-  rw [card_of_isHatSix h] at h1
-  exact absurd (Nat.le_of_dvd Nat.card_pos h1) (by omega)
 
 theorem false_of_isHatSix_of_not_five {C K : Subgroup G} (hK : K ≤ C) (h : IsHatSix ↥K ∨
     Nonempty (↥K ≃* alternatingGroup (Fin 6))) (hC : ¬ 5 ∣ Nat.card C) : False := by
@@ -95,19 +85,6 @@ theorem false_of_isHatSix_of_not_five {C K : Subgroup G} (hK : K ≤ C) (h : IsH
       rw [Nat.card_congr e.toEquiv, card_A6]; norm_num
   exact h5.trans (Subgroup.card_dvd_of_le hK)
 
-theorem false_of_component_of_solvable {C K : Subgroup G} (hK : IsComponentOf K C)
-    (hC : IsSolvable ↥C) : False := by
-  haveI : Group.IsSolvable ↥C := hC
-  haveI : Group.IsSolvable ↥K := Group.isSolvable_of_isSolvable_injective
-    (f := Subgroup.inclusion hK.1) (Subgroup.inclusion_injective hK.1)
-  exact false_of_isQuasisimple_of_isSolvable hK.2.2 inferInstance
-
-theorem false_of_component_of_card_two_three {C K : Subgroup G} (hK : IsComponentOf K C) {a b : ℕ}
-    (hC : Nat.card C = 2 ^ a * 3 ^ b) : False := by
-  refine false_of_component_of_solvable hK ?_
-  haveI : Fintype ↥C := Fintype.ofFinite _
-  exact CFSG.Burnside.finite_group_isSolvable_of_card_eq_prime_pow_mul_prime_pow Nat.prime_two
-    Nat.prime_three (by norm_num) (by rw [← Nat.card_eq_fintype_card, hC])
 
 theorem mem_of_isSubnormal_of_coprime {C K : Subgroup G} (hK : IsSubnormal K C) {g : G}
     (hg : g ∈ C) (hco : Nat.Coprime (orderOf g) (K.relIndex C)) : g ∈ K := by
@@ -173,43 +150,6 @@ theorem false_of_isHatSix_of_elem {C K : Subgroup G} (hK : IsComponentOf K C) (h
   rw [Subgroup.orderOf_mk] at h4
   omega
 
-theorem false_of_isHatSix_of_noA6 {C K : Subgroup G} (hK : K ≤ C) (h : IsHatSix ↥K)
-    (hC : NoA6 C) : False := by
-  obtain ⟨-, -, ⟨e⟩⟩ := h
-  exact hC K hK (e.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center ↥K)))
-    (e.surjective.comp (QuotientGroup.mk'_surjective _))
-
-theorem false_of_alt6_of_noA6 {C K : Subgroup G} (hK : K ≤ C)
-    (h : Nonempty (↥K ≃* alternatingGroup (Fin 6))) (hC : NoA6 C) : False := by
-  obtain ⟨e⟩ := h
-  exact hC K hK e.toMonoidHom e.surjective
-
-theorem false_of_component_of_selfCentralizing {C K R : Subgroup G} (hK : IsComponentOf K C)
-    (hRC : R ≤ C) (hRn : (R.subgroupOf C).Normal) (hR : IsPGroup 3 R)
-    (hcen : C ⊓ Subgroup.centralizer (R : Set G) ≤ R) : False := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hKC := hK.1
-  have hcomp : CFSG.Open.IsComponentOf (K.subgroupOf C) ⊤ := by
-    refine ⟨le_top, ?_, ?_⟩
-    · have h1 := hK.2.1.comap C.subtype
-      rwa [show C.comap C.subtype = ⊤ from Subgroup.subgroupOf_self C] at h1
-    · exact CFSG.Open.IsQuasisimple.of_mulEquiv (Subgroup.subgroupOfEquivOfLe hKC) hK.2.2
-  have hR' : IsPGroup 3 ↥(R.subgroupOf C) := hR.of_equiv (Subgroup.subgroupOfEquivOfLe hRC).symm
-  haveI : Group.IsNilpotent ↥(R.subgroupOf C) := hR'.isNilpotent
-  have hRsub : IsSubnormal (R.subgroupOf C) ⊤ := IsSubnormal.of_mathlib hRn.isSubnormal
-  have hbot := CFSG.ComponentClassification.LocalComponents.commutes_with_solvable_subnormal
-    (K.subgroupOf C) (R.subgroupOf C) hcomp hRsub
-  have hKR : K ≤ R := by
-    intro k hk
-    apply hcen
-    refine ⟨hKC hk, Subgroup.mem_centralizer_iff.2 fun r hr => ?_⟩
-    have hmem := Subgroup.commutator_mem_commutator
-      (show (⟨k, hKC hk⟩ : ↥C) ∈ K.subgroupOf C from hk)
-      (show (⟨r, hRC hr⟩ : ↥C) ∈ R.subgroupOf C from hr)
-    rw [hbot, Subgroup.mem_bot, commutatorElement_eq_one_iff_mul_comm] at hmem
-    exact (congrArg Subtype.val hmem).symm
-  haveI : Group.IsNilpotent ↥K := (hR.to_le hKR).isNilpotent
-  exact false_of_isQuasisimple_of_isSolvable hK.2.2 inferInstance
 
 theorem component_eq_of_normal_simple {C K N : Subgroup G} (hK : IsComponentOf K C)
     (hNC : N ≤ C) (hNn : (N.subgroupOf C).Normal) (hN : IsSimpleGroup ↥N)

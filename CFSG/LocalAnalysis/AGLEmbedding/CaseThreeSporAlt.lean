@@ -208,10 +208,6 @@ open CFSG.RankThree.PartOne.StrongP
     Subgroup.closure S = ⊤ ∧
     ∀ g ∈ S, ∃ i, g ∈ Subgroup.normalizer (U i : Set X)
 
-@[expose] def RankThreeDatum (X : Type) [Group X] (p : ℕ) : Prop :=
-  ∃ (r : ℕ) (D : Fin r → ModuleSpec X p) (P : Subgroup X), IsPGroup p P ∧
-    (∀ i, (D i).span ≤ P) ∧ (∀ i, 3 ≤ (D i).n ∧ (D i).NoAlt) ∧
-    Subgroup.closure (⋃ i, Set.range (D i).g) = ⊤
 
 @[expose] def CoverPointDatum (X : Type) [Group X] (p : ℕ) : Prop :=
   ∃ (D : ModuleSpec X p) (k : ℕ) (b : Fin k → X) (l : Fin k → ℕ)

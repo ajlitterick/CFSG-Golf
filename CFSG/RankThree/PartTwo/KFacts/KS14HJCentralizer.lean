@@ -162,16 +162,6 @@ theorem j2_perfectResidual_centralizer_eq_top (h415 : Sec4.Item4_15)
     (MonoidHom.id ↥(Subgroup.centralizer ({z} : Set X)))).2.2 ⊤
       (Group.IsPerfect.top_iff.mpr hperf))
 
-theorem j2_perfectResidual_centralizer_isTripleCover (h415 : Sec4.Item4_15)
-    (hX : Nonempty (X ≃* NativeSporadic.J2)) {z : X} (hz1 : z ≠ 1)
-    (hz : ∃ P' : Sylow 3 X, z ∈ (P' : Subgroup X) ∧
-      (P' : Subgroup X) ≤ Subgroup.centralizer ({z} : Set X)) :
-    Sec4.IsTripleCover ↥(perfectResidual ↥(Subgroup.centralizer ({z} : Set X)))
-      (alternatingGroup (Fin 6)) := by
-  have htop := j2_perfectResidual_centralizer_eq_top h415 hX hz1 hz
-  exact isTripleCover_congr
-    ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv).symm
-    (j2_centralizer_isTripleCover h415 hX hz1 hz)
 
 theorem j2_pCore_two_centralizer_eq_bot (h415 : Sec4.Item4_15)
     (hX : Nonempty (X ≃* NativeSporadic.J2)) {z : X} (hz1 : z ≠ 1)

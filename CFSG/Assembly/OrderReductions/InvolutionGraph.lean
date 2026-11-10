@@ -220,15 +220,6 @@ theorem exists_sylow_containing_involution {group : Type*} [Group group]
   obtain ⟨sylow, contains⟩ := cyclic_two.exists_le_sylow
   exact ⟨sylow, contains (Subgroup.mem_zpowers involution.val)⟩
 
-theorem componentStabilizer_contains_sylow {group : Type*} [Group group] [Finite group]
-    (involution : Involution group) :
-    ∃ sylow : Sylow 2 group,
-      (sylow : Subgroup group) ≤
-        componentStabilizer ((commutingGraph group).connectedComponentMk involution) := by
-  obtain ⟨sylow, mem_sylow⟩ := exists_sylow_containing_involution involution
-  refine ⟨sylow, ?_⟩
-  exact (sylow : Subgroup group).le_normalizer.trans
-    (sylow_normalizer_le_componentStabilizer sylow involution mem_sylow)
 
 theorem involution_smul_mem_sylow {group : Type*} [Group group]
     (conjugator : group) (sylow : Sylow 2 group) (involution : Involution group)
@@ -335,16 +326,6 @@ theorem componentStabilizer_even {group : Type*} [Group group] [Finite group]
       rw [← involution.property]
       exact Subgroup.orderOf_dvd_natCard _ (involution_mem_componentStabilizer involution)
 
-theorem componentStabilizer_odd_index {group : Type*} [Group group] [Finite group]
-    (component : Component group) : Odd (componentStabilizer component).index := by
-  have : Fact (Nat.Prime 2) := ⟨by decide⟩
-  induction component using SimpleGraph.ConnectedComponent.ind with
-  | h involution =>
-      obtain ⟨sylow, contains⟩ := componentStabilizer_contains_sylow involution
-      by_contra not_odd
-      exact sylow.not_dvd_index
-        ((Nat.not_odd_iff_even.mp not_odd).two_dvd.trans
-          (Subgroup.index_dvd_of_le contains))
 
 theorem componentStabilizer_ne_top {group : Type*} [Group group] [Finite group]
     (component : Component group) (disconnected : ∃ other : Component group, other ≠ component) :
@@ -448,42 +429,10 @@ theorem stronglyEmbedded_not_preconnected {group : Type*} [Group group] [Finite 
   exact not_mem (stronglyEmbedded_involution_conjugator_mem subgroup strong involution
     element.property conjugator conjugated_mem)
 
-theorem not_preconnected_iff_exists_stronglyEmbedded {group : Type*} [Group group]
-    [Finite group] : ¬ (commutingGraph group).Preconnected ↔
-      ∃ subgroup : Subgroup group, StronglyEmbedded subgroup := by
-  classical
-  constructor
-  · intro not_preconnected
-    change ¬ ∀ first second : Involution group,
-      (commutingGraph group).Reachable first second at not_preconnected
-    push Not at not_preconnected
-    obtain ⟨first, second, not_reachable⟩ := not_preconnected
-    refine ⟨componentStabilizer ((commutingGraph group).connectedComponentMk first),
-      componentStabilizer_stronglyEmbedded _ ?_⟩
-    refine ⟨(commutingGraph group).connectedComponentMk second, ?_⟩
-    intro equal_components
-    exact not_reachable (SimpleGraph.ConnectedComponent.exact equal_components.symm)
-  · rintro ⟨subgroup, strong⟩
-    exact stronglyEmbedded_not_preconnected subgroup strong
-
-theorem not_connected_iff_exists_stronglyEmbedded {group : Type*} [Group group]
-    [Finite group] (even_order : Even (Nat.card group)) :
-    ¬ (commutingGraph group).Connected ↔
-      ∃ subgroup : Subgroup group, StronglyEmbedded subgroup := by
-  have : Fact (Nat.Prime 2) := ⟨by decide⟩
-  obtain ⟨element, element_order⟩ := exists_prime_orderOf_dvd_card' 2 even_order.two_dvd
-  have vertices_nonempty : Nonempty (Involution group) := ⟨⟨element, element_order⟩⟩
-  rw [SimpleGraph.connected_iff, and_iff_left vertices_nonempty]
-  exact not_preconnected_iff_exists_stronglyEmbedded
 
 instance componentIsPretransitive (group : Type*) [Group group] [Finite group] :
     MulAction.IsPretransitive group (Component group) := ⟨components_transitive⟩
 
-theorem componentStabilizer_index_eq_card {group : Type*} [Group group] [Finite group]
-    (component : Component group) :
-    (componentStabilizer component).index = Nat.card (Component group) := by
-  change (MulAction.stabilizer group component).index = _
-  rw [MulAction.index_stabilizer, MulAction.orbit_eq_univ, Set.ncard_univ]
 
 theorem componentStabilizer_injective {group : Type*} [Group group] [Finite group] :
     Function.Injective (componentStabilizer (group := group)) := by
@@ -506,24 +455,6 @@ theorem involution_unique_fixed_component {group : Type*} [Group group] [Finite 
   intro component fixed
   exact ((fixed_iff component).mp fixed).symm
 
-theorem simple_component_action_injective {group : Type*} [Group group] [Finite group]
-    [IsSimpleGroup group] (component : Component group)
-    (disconnected : ∃ other : Component group, other ≠ component) :
-    Function.Injective (MulAction.toPermHom group (Component group)) := by
-  apply (MonoidHom.ker_eq_bot_iff _).mp
-  rcases CFSG.eq_bot_or_eq_top_of_normal
-    (MulAction.toPermHom group (Component group)).ker inferInstance with
-    kernel_bot | kernel_top
-  · exact kernel_bot
-  · exfalso
-    apply componentStabilizer_ne_top component disconnected
-    apply (componentStabilizer component).eq_top_iff'.mpr
-    intro element
-    have mem_kernel : element ∈ (MulAction.toPermHom group (Component group)).ker := by
-      rw [kernel_top]
-      trivial
-    exact congrArg (fun permutation : Equiv.Perm (Component group) => permutation component)
-      mem_kernel
 
 theorem involution_stabilizer_eq_centralizer {group : Type*} [Group group]
     (involution : Involution group) :

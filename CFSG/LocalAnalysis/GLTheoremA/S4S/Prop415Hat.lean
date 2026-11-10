@@ -80,9 +80,6 @@ private def hatModComm (T N : Subgroup G) (Y : Set G)
       (Subgroup.mem_normalizer_iff.1 (hTN (T.inv_mem haT)) _).1 (N.inv_mem (ha y hy))
     simpa using h1
 
-private theorem mem_hatModComm {T N : Subgroup G} {Y : Set G}
-    {hTN : T ≤ Subgroup.normalizer (N : Set G)} {x : G} :
-    x ∈ hatModComm T N Y hTN ↔ x ∈ T ∧ ∀ y ∈ Y, ⁅x, y⁆ ∈ N := Iff.rfl
 
 private theorem hat_coprime_card {B X : Subgroup G} (hB : Nat.card B = 3 ^ 4)
     (hX : IsPGroup 2 X) : Nat.Coprime (Nat.card B) (Nat.card X) := by

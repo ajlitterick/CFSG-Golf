@@ -97,12 +97,6 @@ theorem conjMulEquiv_map_subgroupOf {u : G}
     (huM : u ∈ Subgroup.normalizer ((cfgM T T₁ : Subgroup G) : Set G)) : MulAut XQ :=
   QuotientGroup.congr _ _ (conjMulEquiv (T ⊔ T₁) u huX) (conjMulEquiv_map_subgroupOf huX huM)
 
-omit [Finite G] in
-theorem quotConj_mk {u : G} (huX : u ∈ Subgroup.normalizer ((T ⊔ T₁ : Subgroup G) : Set G))
-    (huM : u ∈ Subgroup.normalizer ((cfgM T T₁ : Subgroup G) : Set G)) (x : ↥(T ⊔ T₁)) :
-    quotConj huX huM (QuotientGroup.mk x) = QuotientGroup.mk (conjMulEquiv (T ⊔ T₁) u huX x) :=
-  rfl
-
 
 theorem exists_comm_of_normalizes (hS : Sec3 T T₁) {a : ℕ}
     (ha : 1 ≤ a) (e : XQ ≃* Sz a) {u : G}

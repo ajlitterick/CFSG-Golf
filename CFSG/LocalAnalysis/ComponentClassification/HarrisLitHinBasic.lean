@@ -48,15 +48,6 @@ theorem hinConcl_of_list {Y : Type} [Group Y] {p m : ℕ} {τ : MulAut Y} (hτ :
     HinConcl Y p m τ :=
   ⟨fun _ => hτ, fun _ _ => hY⟩
 
-theorem hinConcl_of_not_inner_of_rank {Y : Type} [Group Y] {p m : ℕ} {τ : MulAut Y}
-    (hτ : τ ∉ innAut Y)
-    (hY : GH74.SectionalTwoRankLE ↥(fixedPoints τ) 2 →
-      Nonempty (Y ≃* Blueprint.NativeSporadic.J2) ∨
-      Nonempty (Y ≃* Blueprint.NativeSporadic.J3) ∨
-      Blueprint.LieModel Y .PSL 3 2 2 ∨ Blueprint.LieModel Y .PSL 3 p m ∨
-      Blueprint.LieModel Y .PSU 3 p m ∨ Blueprint.LieModel Y .PSL 2 p (2 * m)) :
-    HinConcl Y p m τ :=
-  ⟨fun _ => hτ, fun _ h => hY h⟩
 
 theorem hinConcl_of_rank {Y : Type} [Group Y] {p m : ℕ} {τ : MulAut Y}
     (hin : τ ∈ innAut Y → ¬ GH74.SectionalTwoRankLE ↥(fixedPoints τ) 3)
@@ -116,30 +107,6 @@ theorem ne_bot_of_isPComponent {X : Type*} [Group X] {K : Subgroup X} (hK : IsPC
     rw [Subsingleton.elim x y]
   exact hab (Subsingleton.elim _ _)
 
-theorem isPComponent_pLayer (h : Blueprint.LieModel ↥(GSThmB.layerIn C) .PSL 2 p m) :
-    IsPComponent 2 (pLayer ↥C 2) := by
-  have hs := isSimpleGroup_pLayer h
-  obtain ⟨K, hK⟩ : ∃ K : Subgroup ↥C, IsPComponent 2 K := by
-    by_contra hno
-    push Not at hno
-    have hbot : pLayer ↥C 2 = ⊥ := by
-      refine le_antisymm (sSup_le fun K hK => (hno K hK).elim) bot_le
-    have : Nontrivial ↥(pLayer ↥C 2) := hs.toNontrivial
-    rw [hbot] at this
-    exact (not_nontrivial_iff_subsingleton.mpr inferInstance) this
-  have hKL : K ≤ pLayer ↥C 2 := le_sSup hK
-  have hsn : (K.subgroupOf (pLayer ↥C 2)).IsSubnormal := by
-    obtain ⟨-, -, hKs, -⟩ := hK
-    exact hKs.subgroupOf
-  rcases Subgroup.IsSubnormal.eq_bot_or_top_of_isSimpleGroup hs hsn with hb | ht
-  · exact ((ne_bot_of_isPComponent hK) (by
-      rw [eq_bot_iff]
-      intro x hx
-      have : (⟨x, hKL hx⟩ : ↥(pLayer ↥C 2)) ∈ K.subgroupOf (pLayer ↥C 2) := hx
-      rw [hb, mem_bot] at this
-      simpa using congrArg Subtype.val this)).elim
-  · have hLK : pLayer ↥C 2 ≤ K := subgroupOf_eq_top.mp ht
-    rwa [le_antisymm hKL hLK] at hK
 
 end Layer
 

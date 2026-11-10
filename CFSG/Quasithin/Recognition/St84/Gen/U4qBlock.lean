@@ -342,28 +342,6 @@ theorem q2Blk_conj_mem [CharP K 2] (h : UnitaryFieldData 2 m K)
       q₀ * (lev2Hom h A * q * (lev2Hom h A)⁻¹) * q₀⁻¹ := by group
   rw [hassoc, hq₀x, q2Blk_conj_lev2 h A hq]
 
-private theorem mem_hermA_one [CharP K 2] : (1 : Matrix (Fin 2) (Fin 2) K) ∈ hermA m K := by
-  rw [mem_hermA]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [frobPow]
-
-private theorem mem_hermA_E11 [CharP K 2] :
-    (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) K) ∈ hermA m K := by
-  rw [mem_hermA]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [frobPow]
-
-private theorem mem_hermA_E22 [CharP K 2] :
-    (!![0, 0; 0, 1] : Matrix (Fin 2) (Fin 2) K) ∈ hermA m K := by
-  rw [mem_hermA]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [frobPow]
-
-private theorem mem_hermA_off [CharP K 2] :
-    (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) K) ∈ hermA m K := by
-  rw [mem_hermA]
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [frobPow]
 
 private theorem eq_one_of_forall_twistAct [CharP K 2] (h : UnitaryFieldData 2 m K)
     (A : Matrix.SpecialLinearGroup (Fin 2) K)
@@ -750,19 +728,6 @@ private noncomputable def q2BlkHom (h : UnitaryFieldData 2 m K) :
     rw [Subgroup.coe_mul, q2Blk_add h q.2 q'.2]
     rfl
 
-private theorem q2BlkHom_ker (h : UnitaryFieldData 2 m K) : (q2BlkHom h).ker = ⊥ := by
-  ext q
-  rw [MonoidHom.mem_ker, Subgroup.mem_bot]
-  constructor
-  · intro hq
-    have h0 : q2Blk h (q : hypSU h 2 0) = 0 := by
-      have h := congrArg Multiplicative.toAdd hq
-      simpa [q2BlkHom] using h
-    have hinj := q2Blk_inj h q.2 (Subgroup.one_mem _) (by rw [h0, q2Blk_one])
-    exact Subtype.ext hinj
-  · intro hq
-    rw [hq]
-    exact map_one _
 
 theorem blockZ_perfectCore_parP2 (h : UnitaryFieldData 2 m K) :
     blockZ (perfectCore (parP2 h)) = ⊥ := by

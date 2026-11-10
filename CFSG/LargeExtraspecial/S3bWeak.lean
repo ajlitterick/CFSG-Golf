@@ -118,17 +118,6 @@ theorem lemma_4_1 {g h x : G} (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * S.z *
   rw [hux, ← mul_assoc, S.Qa_eq_QG_of_conj_eq (by rw [mul_assoc u a (h * g)]; exact hz)] at hmem
   exact hx'Q hmem
 
-theorem lemma_4_1_of_inf_normalizer_ne_bot (h2 : 2 ≤ S.width) {g h : G}
-    (haQ : g * S.z * g⁻¹ ∈ S.QG) (hne : g * S.z * g⁻¹ ≠ S.z) (hno : ¬ S.HasTypeAInL g)
-    (hh : h ∈ S.M) (hL : S.Lbar (h * g) ⊓ normalizer (S.Lbar g : Set S.O) ≠ ⊥) :
-    g * S.z * g⁻¹ * ((h * g) * S.z * (h * g)⁻¹) =
-      (h * g) * S.z * (h * g)⁻¹ * (g * S.z * g⁻¹) := by
-  obtain ⟨s, ⟨hs, hsN⟩, hs1⟩ := (Subgroup.bot_or_exists_ne_one _).resolve_left hL
-  obtain ⟨y, hy, hys⟩ := S.mem_Lbar_iff.mp hs
-  have hyQ : (y : G) ∉ S.QG := fun h' => hs1 (by rw [← hys, (S.ρ_eq_one_iff y).mpr h'])
-  have h1 := S.fixes_of_mem_normalizer_Lbar h2 haQ hne hno hsN
-  rw [← hys, S.ρ_cl _ haQ] at h1
-  exact S.lemma_4_1 haQ hne hh hy hyQ ((S.cl_eq_cl_iff haQ (S.conj_mem_QG y.2 haQ)).mp h1.symm)
 
 theorem lemma_3_11_weaklyClosed (h2 : 2 ≤ S.width) {g : G} (haQ : g * S.z * g⁻¹ ∈ S.QG)
     (hne : g * S.z * g⁻¹ ≠ S.z) (hno : ¬ S.HasTypeAInL g) {h : G} (hh : h ∈ S.M)

@@ -244,29 +244,6 @@ theorem A2_mul_pow_three_eq_one
   refine ggLin_injective (p := 3) ι ?_
   simpa [map_pow, map_mul] using hlin
 
-theorem A2_image_mul_pow_three_eq_one
-    {G : Type} [Group G] [Finite G] {Bs J : Subgroup G}
-    (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (ι : Additive ↥Bs ≃+ V) (r : Fin 2 → MulAut ↥Bs) (h : Fin 2 → V)
-    (α : Fin 2 → Module.Dual (ZMod 3) V)
-    (hform : ∀ i v, ggLin (p := 3) ι (r i) v = v - α i v • h i)
-    (hpair : ∀ i j, α i (h j) = (CartanMatrix.A 2 i j : ZMod 3))
-    (hmem : ∀ i, r i ∈ ggAutomizer J Bs) :
-    ((ggAutomizerGammaHom hN ⟨r 0, hmem 0⟩ : MulAut ↥(ggGamma J hN).range) *
-      (ggAutomizerGammaHom hN ⟨r 1, hmem 1⟩ : MulAut ↥(ggGamma J hN).range)) ^ 3 = 1 := by
-  have hcube : (r 0 * r 1) ^ 3 = 1 := A2_mul_pow_three_eq_one ι r h α hform hpair
-  have hsub : (⟨r 0, hmem 0⟩ * ⟨r 1, hmem 1⟩ : ggAutomizer J Bs) ^ 3 = 1 := by
-    apply Subtype.ext
-    simpa using hcube
-  have hmap : ggAutomizerGammaHom hN
-      ((⟨r 0, hmem 0⟩ * ⟨r 1, hmem 1⟩ : ggAutomizer J Bs) ^ 3) = 1 := by
-    rw [hsub, map_one]
-  have hφ : ((ggAutomizerGammaHom hN ⟨r 0, hmem 0⟩ *
-      ggAutomizerGammaHom hN ⟨r 1, hmem 1⟩) ^ 3) = 1 := by
-    rw [← map_mul, ← map_pow]
-    exact hmap
-  simpa using congrArg Subtype.val hφ
 
 theorem no_mem_inverted_by_both_of_A2
     {G : Type} [Group G] {Bs : Subgroup G}
@@ -368,48 +345,6 @@ theorem same_sign_of_mulAut_cube
 
 namespace GGResLineJDatum
 
-theorem A2_exists_image_fixed_ne
-    {G : Type} [Group G] [Finite G] {Bs J : Subgroup G}
-    (hBs : IsElemAbelian 3 Bs) (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (hNoTr : GGNoTransvection 3 Bs)
-    (hD : GGResLineJDatum 3 Bs J .A2) :
-    ∃ (r : Fin 2 → MulAut ↥Bs) (hmem : ∀ i, r i ∈ ggAutomizer J Bs),
-      (∀ i, GGIsReflection 3 (r i)) ∧
-      ¬ (∀ a : ↥(ggGamma J hN).range,
-          ((ggAutomizerGammaHom hN ⟨r 0, hmem 0⟩ :
-              MulAut ↥(ggGamma J hN).range) a = a ↔
-            (ggAutomizerGammaHom hN ⟨r 1, hmem 1⟩ :
-              MulAut ↥(ggGamma J hN).range) a = a)) := by
-  classical
-  obtain ⟨V, instA, instM, ι, r, h, α, hform, hrefl, hpair, hind, hgen⟩ := hD
-  letI : AddCommGroup V := instA
-  letI : Module (ZMod 3) V := instM
-  have hmem : ∀ i : Fin 2, r i ∈ ggAutomizer J Bs := by
-    intro i
-    rw [hgen]
-    exact Subgroup.subset_closure ⟨i, rfl⟩
-  have hpairA : ∀ i j, α i (h j) = (CartanMatrix.A 2 i j : ZMod 3) := by
-    intro i j
-    simpa [GGResLineJType.cartan] using hpair i j
-  exact ⟨r, hmem, hrefl,
-    not_forall_ggAutomizerGammaHom_fixed_iff_of_A2 hBs hN hNoTr ι r h α
-      hform hpairA hind hrefl hmem⟩
-
-theorem A2_exists_cube_and_no_both_inverted
-    {G : Type} [Group G] {Bs J : Subgroup G}
-    (hD : GGResLineJDatum 3 Bs J .A2) :
-    ∃ r : Fin 2 → MulAut ↥Bs,
-      (r 0 * r 1) ^ 3 = 1 ∧
-      ¬ ∃ b : ↥Bs, b ≠ 1 ∧ r 0 b = b⁻¹ ∧ r 1 b = b⁻¹ := by
-  classical
-  obtain ⟨V, instA, instM, ι, r, h, α, hform, _hrefl, hpair, hind, _hgen⟩ := hD
-  letI : AddCommGroup V := instA
-  letI : Module (ZMod 3) V := instM
-  have hpairA : ∀ i j, α i (h j) = (CartanMatrix.A 2 i j : ZMod 3) := by
-    intro i j
-    simpa [GGResLineJType.cartan] using hpair i j
-  exact ⟨r, A2_mul_pow_three_eq_one ι r h α hform hpairA,
-    no_mem_inverted_by_both_of_A2 ι r h α hform hind⟩
 
 theorem A2_exists_pair_obstructions
     {G : Type} [Group G] [Finite G] {Bs J : Subgroup G}

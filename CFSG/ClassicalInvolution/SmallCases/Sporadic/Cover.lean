@@ -10,9 +10,6 @@ namespace CFSG.ClassicalInvolution
 open CFSG.Certificates CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier
   CFSG.Sporadic.Schreier.Native
 
-@[expose] def closureList {M : Type*} [Group M] [DecidableEq M] (gens : List M) (fuel : ℕ) :
-    List M :=
-  (List.range fuel).foldl (fun L _ => (L ++ L.flatMap fun x => gens.map (x * ·)).eraseDups) [1]
 
 variable {n : ℕ}
 

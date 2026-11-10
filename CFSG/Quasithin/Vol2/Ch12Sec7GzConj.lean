@@ -65,8 +65,6 @@ theorem cjS_inf (x : G) (A B : Subgroup G) : cjS x (A ⊓ B) = cjS x A ⊓ cjS x
 theorem card_cjS (x : G) (K : Subgroup G) : Nat.card (cjS x K) = Nat.card K :=
   Subgroup.card_map_of_injective (MulAut.conj x).injective
 
-theorem cjS_injective (x : G) {A B : Subgroup G} (h : cjS x A = cjS x B) : A = B :=
-  Subgroup.map_injective (MulAut.conj x).injective h
 
 theorem isElemAbelian_cjS {p : ℕ} {x : G} {K : Subgroup G} (hK : IsElemAbelian p K) :
     IsElemAbelian p (cjS x K) := by

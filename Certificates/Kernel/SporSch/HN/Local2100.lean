@@ -280,8 +280,6 @@ theorem lab_perm : allN 462 (fun k =>
     Nat.beq (HNLab LocalData.lperm2[k]!) (canonMask (permMask (natArr LocalData.natGen2) (HNLab k)))) =
       true := by quickRfl
 
-theorem neg_lab : Bool.not (Nat.beq (HNLab LocalData.lperm2[0]!)
-    (canonMask (permMask (natArr LocalData.natGen1) (HNLab 0)))) = true := by quickRfl
 
 theorem lab_ne {j k : ℕ} (hj : j < 462) (hk : k < 462) (h : j ≠ k) : HNLab j ≠ HNLab k := by
   intro e

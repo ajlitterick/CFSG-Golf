@@ -329,11 +329,6 @@ private noncomputable def gammaSU (h : UnitaryFieldData ℓ f K) (hn : 3 ≤ n)
   (MulAut.congr (barModelSU h hn hφS hφk).symm).toMonoidHom.comp
     (MulAut.conjNormal.comp (barMk S))
 
-private theorem gammaSU_apply (h : UnitaryFieldData ℓ f K) (hn : 3 ≤ n)
-    {φ : ↥(StatedSU n (ℓ ^ f) K) →* Ω} (hφS : φ.range = S)
-    (hφk : φ.ker ≤ (StatedScalars (Fin n) K).subgroupOf (StatedSU n (ℓ ^ f) K)) (x : Ω) :
-    gammaSU h hn hφS hφk x = transAut (barModelSU h hn hφS hφk) (barMk S x) :=
-  rfl
 
 private theorem gammaSU_eq_conjHom_iff (h : UnitaryFieldData ℓ f K) (hn : 3 ≤ n)
     (hq : ¬(n = 3 ∧ ℓ ^ f = 2)) {φ : ↥(StatedSU n (ℓ ^ f) K) →* Ω} (hφS : φ.range = S)

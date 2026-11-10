@@ -103,8 +103,5 @@ theorem rank3II_19_20_reduction (hΓ : ∀ (G : Type) [Group G] [Finite G], Gamm
 theorem rank3II_20_11_reduction (h2010 : Item2010) (h1920 : Item1920) : Item2011 :=
   fun G _ _ hst hS P => h1920 G ⟨hst, hS, h2010 G hst hS⟩ P
 
-theorem item2011_of_items (h2010 : Item2010) (h1912 : Item1912)
-    (hΓ : ∀ (G : Type) [Group G] [Finite G], GammaZeroLemma G) : Item2011 :=
-  rank3II_20_11_reduction h2010 (rank3II_19_20_reduction hΓ h1912)
 
 end CFSG.RankThree.PartTwo.Late

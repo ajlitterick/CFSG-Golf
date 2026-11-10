@@ -95,26 +95,6 @@ theorem quotientToCover_quotientClass (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : 
     quotientToCover F b m hm heven i tau htau hbeta hminus
       (quotientClass F b m hm heven X j) = i X * tau ^ j.val := rfl
 
-theorem quotientToCover_specialInclusion (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hminus : i (CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) = tau ^ m)
-    (X : SpecialLinearGroup (Fin 2) F) :
-    quotientToCover F b m hm heven i tau htau hbeta hminus
-      (specialInclusion F b m hm heven X) = i X := by
-  rw [specialInclusion_apply, quotientToCover_quotientClass]
-  simp
-
-theorem quotientToCover_cyclicGenerator (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hminus : i (CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) = tau ^ m) :
-    quotientToCover F b m hm heven i tau htau hbeta hminus
-      (cyclicGenerator F b m hm heven) = tau := by
-  rw [cyclicGenerator, quotientToCover_quotientClass]
-  have hval : (1 : ZMod (2 * m)).val = 1 := by
-    simpa only [Nat.cast_one] using (ZMod.val_natCast_of_lt (show 1 < 2 * m by omega))
-  simp only [map_one, one_mul, hval, pow_one]
 
 theorem quotientToCover_fieldAction (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
     (i : SpecialLinearGroup (Fin 2) F →* H) (tau : H) (htau : tau ^ (2 * m) = 1)
@@ -158,17 +138,6 @@ theorem quotientToCover_fieldAction (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Ev
       exact quotientToCover_fieldAction F b m hm heven i tau htau hbeta hminus
         Sigma hSigma e hfield hfix sigma q)
 
-theorem semilinearToCover_formula (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hminus : i (CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) = tau ^ m)
-    (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b)
-    (e : Sigma →* H)
-    (hfield : ∀ (sigma : Sigma) X, i (fieldSL F sigma X) = e sigma * i X * (e sigma)⁻¹)
-    (hfix : ∀ sigma : Sigma, Commute (e sigma) tau)
-    (X : SpecialLinearGroup (Fin 2) F) (j : ZMod (2 * m)) (sigma : Sigma) :
-    semilinearToCover F b m hm heven i tau htau hbeta hminus Sigma hSigma e hfield hfix
-      ⟨quotientClass F b m hm heven X j, sigma⟩ = i X * tau ^ j.val * e sigma := rfl
 
 theorem mem_diagonalKernel_iff (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
     (v : PairGroup F b m hm) :
@@ -239,16 +208,6 @@ theorem pairToCover_ker (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
   QuotientGroup.liftEquiv (diagonalKernel F b m hm heven) hsurjective
     (pairToCover_ker F b m hm heven i hi tau htau hbeta hminus hintersection).symm
 
-theorem quotientCoverEquiv_quotientClass (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (hi : Function.Injective i)
-    (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hminus : i (CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) = tau ^ m)
-    (hintersection : ∀ j : ℕ, j < 2 * m → tau ^ j ∈ i.range → j = 0 ∨ j = m)
-    (hsurjective : Function.Surjective (pairToCover F b m hm i tau htau hbeta))
-    (X : SpecialLinearGroup (Fin 2) F) (j : ZMod (2 * m)) :
-    quotientCoverEquiv F b m hm heven i hi tau htau hbeta hminus hintersection hsurjective
-      (quotientClass F b m hm heven X j) = i X * tau ^ j.val := rfl
 
 theorem cyclic_involution_intersection_residues [Finite H]
     (tau : H) (m : ℕ) (hm : 0 < m) (horder : orderOf tau = 2 * m)
@@ -387,36 +346,6 @@ theorem pow_mem_index_two_iff_even (Q : Subgroup H) (hQ : Q.index = 2)
     simp only [htau, iff_false, ih]
     exact Nat.even_add_one.symm
 
-theorem cyclic_intersection_of_original_projective [Finite H]
-    {Q : Type u} [Group Q] (chi : H →* Q)
-    (L : Subgroup Q) (hL : L.index = 2)
-    (M : Subgroup H) (hM : M.map chi ≤ L)
-    (tau : H) (m : ℕ) (hm : 0 < m) (horder : orderOf tau = 2 * m)
-    (houtside : chi tau ∉ L) (hker : chi.ker = Subgroup.zpowers (tau ^ 2))
-    (hintersection : chi.ker ⊓ M = Subgroup.zpowers (tau ^ m))
-    (j : ℕ) (hj : j < 2 * m) (hjM : tau ^ j ∈ M) : j = 0 ∨ j = m := by
-  have hmem : (chi tau) ^ j ∈ L := by
-    rw [← map_pow]
-    exact hM ⟨tau ^ j, hjM, rfl⟩
-  have heven := (pow_mem_index_two_iff_even L hL (chi tau) houtside j).mp hmem
-  obtain ⟨r, hr⟩ := heven
-  have hker' : tau ^ j ∈ chi.ker := by
-    rw [hker, hr, ← two_mul, pow_mul]
-    exact (Subgroup.zpowers (tau ^ 2)).pow_mem (Subgroup.mem_zpowers _) r
-  have hin : tau ^ j ∈ Subgroup.zpowers (tau ^ m) := hintersection ▸ ⟨hker', hjM⟩
-  exact cyclic_involution_intersection_residues tau m hm horder j hj hin
-
-theorem original_cyclic_intersection_residues [Finite H]
-    {Q : Type u} [Group Q] (chi : H →* Q)
-    (L : Subgroup Q) (hL : L.index = 2)
-    (M : Subgroup H) (hM : M.map chi ≤ L)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (hi : i.range = M)
-    (tau : H) (m : ℕ) (hm : 0 < m) (horder : orderOf tau = 2 * m)
-    (houtside : chi tau ∉ L) (hker : chi.ker = Subgroup.zpowers (tau ^ 2))
-    (hintersection : chi.ker ⊓ M = Subgroup.zpowers (tau ^ m))
-    (j : ℕ) (hj : j < 2 * m) (hji : tau ^ j ∈ i.range) : j = 0 ∨ j = m :=
-  cyclic_intersection_of_original_projective chi L hL M hM tau m hm horder houtside
-    hker hintersection j hj (hi ▸ hji)
 
 theorem factorization_of_index_two (Q : Subgroup H) (hQ : Q.index = 2)
     (tau : H) (htau : tau ∉ Q) (h : H) :
@@ -444,56 +373,8 @@ theorem matrix_layer_le_pair_range (b : Fˣ) (m : ℕ) (hm : 0 < m)
   rintro h ⟨X, rfl⟩
   exact ⟨pair F b m hm X 0, by rw [pairToCover_pair]; simp⟩
 
-theorem quotientToCover_surjective (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (i : SpecialLinearGroup (Fin 2) F →* H) (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hminus : i (CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) = tau ^ m)
-    (hs : Function.Surjective (pairToCover F b m hm i tau htau hbeta)) :
-    Function.Surjective (quotientToCover F b m hm heven i tau htau hbeta hminus) := by
-  intro h
-  obtain ⟨v, hv⟩ := hs h
-  exact ⟨QuotientGroup.mk' (diagonalKernel F b m hm heven) v, hv⟩
 
 end CyclicIntersection
-
-
-theorem pairToCover_surjective_of_original_projective
-    {Q : Type u} [Group Q] (chi : H →* Q)
-    (L : Subgroup Q) (hL : L.index = 2)
-    (b : Fˣ) (m : ℕ) (hm : 0 < m)
-    (i : SpecialLinearGroup (Fin 2) F →* H)
-    (tau : H) (htau : tau ^ (2 * m) = 1)
-    (hbeta : ∀ X, i (beta F b X) = tau * i X * tau⁻¹)
-    (hiL : i.range.map chi = L)
-    (houtside : chi tau ∉ L)
-    (hker : chi.ker = Subgroup.zpowers (tau ^ 2)) :
-    Function.Surjective (pairToCover F b m hm i tau htau hbeta) := by
-  let : NeZero (2 * m) := ⟨by omega⟩
-  let f := pairToCover F b m hm i tau htau hbeta
-  have hkernel : chi.ker ≤ f.range := by
-    rw [hker]
-    exact cyclic_kernel_le_pair_range F b m hm i tau htau hbeta
-  have hmatrix : i.range ≤ f.range := matrix_layer_le_pair_range F b m hm i tau htau hbeta
-  have hpre : L.comap chi ≤ f.range := by
-    rw [← hiL, Subgroup.comap_map_eq]
-    exact sup_le hmatrix hkernel
-  have ht : tau ∈ f.range := by
-    refine ⟨pair F b m hm 1 (1 : ZMod (2 * m)), ?_⟩
-    change i 1 * tau ^ (1 : ZMod (2 * m)).val = tau
-    rw [map_one, one_mul]
-    have hval : (1 : ZMod (2 * m)).val = 1 := by
-      simpa only [Nat.cast_one] using
-        (ZMod.val_natCast_of_lt (show 1 < 2 * m by omega))
-    rw [hval, pow_one]
-  intro h
-  change h ∈ f.range
-  rcases factorization_of_index_two L hL (chi tau) houtside (chi h) with hh | hh
-  · exact hpre hh
-  · have hp : h * tau⁻¹ ∈ L.comap chi := by
-      change chi (h * tau⁻¹) ∈ L
-      rwa [map_mul, map_inv]
-    have hf := f.range.mul_mem (hpre hp) ht
-    simpa only [inv_mul_cancel_right] using hf
 
 
 section OriginalSquareRoot
@@ -1182,25 +1063,6 @@ theorem matrixLayer_image_of_values
   (QuotientGroup.congr _ _ Phi hM).symm.trans
     (CFSG.Wreathed.CentralSL2Abelianization.matrixQuotientEquiv F b m hm heven Sigma hSigma)
 
-theorem originalMatrixQuotientEquiv_mk
-    (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (Sigma : Subgroup (F ≃+* F)) (hSigma : ∀ sigma ∈ Sigma, sigma (b : F) = b)
-    (Phi : SemilinearExtension F b m hm heven Sigma hSigma ≃* H)
-    (M : Subgroup H) [M.Normal]
-    (hM : (CFSG.Wreathed.CentralSL2Abelianization.matrixLayer F b m hm heven Sigma hSigma).map
-      Phi.toMonoidHom = M)
-    (X : SpecialLinearGroup (Fin 2) F) (j : ZMod (2 * m)) (sigma : Sigma) :
-    originalMatrixQuotientEquiv F b m hm heven Sigma hSigma Phi M hM
-      (QuotientGroup.mk (Phi ⟨quotientClass F b m hm heven X j, sigma⟩)) =
-      (Multiplicative.ofAdd (ZMod.castHom (dvd_mul_left m 2) (ZMod m) j), sigma) := by
-  change CFSG.Wreathed.CentralSL2Abelianization.matrixQuotientEquiv F b m hm heven Sigma hSigma
-    ((QuotientGroup.congr _ _ Phi hM).symm
-      (QuotientGroup.mk (Phi ⟨quotientClass F b m hm heven X j, sigma⟩))) = _
-  have heq := QuotientGroup.congr_mk
-    (CFSG.Wreathed.CentralSL2Abelianization.matrixLayer F b m hm heven Sigma hSigma)
-    M Phi hM (⟨quotientClass F b m hm heven X j, sigma⟩)
-  rw [← heq, MulEquiv.symm_apply_apply]
-  rfl
 
 theorem original_matrix_quotient_card
     (b : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
@@ -1560,86 +1422,6 @@ theorem wreathed_central_cover_exact_matrix_field_model_of_finite [Finite F] [Fi
   intro sigma v i j
   rw [original_eta_field_conjugation F p hpodd M eta Sigma pi hpi hcentral hK hd heta]
   rfl
-
-@[expose] def OriginalCentralCoverModel [Finite F] [Finite H]
-    (p f : ℕ) (_hp : p.Prime) (_hpodd : Odd p) (_hf : 1 ≤ f)
-    (_hcard : Nat.card F = p ^ f)
-    (Sigma : Subgroup (F ≃+* F)) (hd : Odd (Nat.card Sigma))
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 H) (e : S ≃* Wreath (2 ^ n))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hker : pi.ker = modelCenter S e) (hcentral : pi.ker ≤ Subgroup.center H)
-    (M : Subgroup H) [M.Normal] (hSM : (S : Subgroup H) ⊓ M = modelY S e)
-    (eta : M ≃* SpecialLinearGroup (Fin 2) F)
-    (_heta : ∀ v : M, slCoordinateAction F (eta v) = coordinateProjection F Sigma pi v)
-    (_hminus : eta (originalLayerX n hn S e M hSM) =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F) : Prop :=
-    let m := 2 ^ n
-    let hm : 0 < m := by positivity
-    let heven : Even m := even_two.pow_of_ne_zero (by omega)
-    let hK := original_kernel_isPGroup n S e pi hker
-    let E0 := CFSG.Wreathed.CentralTwoPowerFieldLift.E F Sigma pi hcentral
-    let eField := originalFieldLift F Sigma pi hpi hcentral hK hd
-    let fixParam := original_fixed_parameter F Sigma
-    Nat.card Sigma ∣ f ∧
-    Nat.card (FixedPoints.subfield Sigma F) = p ^ (f / Nat.card Sigma) ∧
-    (∀ t : H, t ∈ E0 ↔ t ∈ B F Sigma pi ∧ t ^ Nat.card Sigma = 1) ∧
-    (∀ sigma : Sigma, ∃! t : E0, coordinateProjection F Sigma pi t = fieldExtension F sigma) ∧
-    (∀ b : (FixedField F Sigma)ˣ, ¬IsSquare b →
-      ¬IsSquare (fixedUnit F Sigma b) ∧
-      ∃ tau : H, tau ∈ Subgroup.centralizer (E0 : Set H) ∧
-        tau ^ 2 = wreathModelHom S e (Original.a m) ∧
-        tau ^ m = wreathModelHom S e (Original.x m) ∧
-        orderOf tau = 2 * m ∧
-        coordinateProjection F Sigma pi tau =
-          (jProjective F (fixedUnit F Sigma b) : Equiv.Perm (Omega F)) ∧
-        ∃ Phi : SemilinearExtension F (fixedUnit F Sigma b) m hm heven Sigma (fixParam b) ≃* H,
-          (∀ X j sigma, Phi ⟨quotientClass F (fixedUnit F Sigma b) m hm heven X j, sigma⟩ =
-            (eta.symm X : H) * tau ^ j.val * eField sigma) ∧
-          (∀ X, Phi ⟨specialInclusion F (fixedUnit F Sigma b) m hm heven X, 1⟩ =
-            (eta.symm X : H)) ∧
-          Phi ⟨cyclicGenerator F (fixedUnit F Sigma b) m hm heven, 1⟩ = tau ∧
-          Phi (⟨cyclicGenerator F (fixedUnit F Sigma b) m hm heven, 1⟩ ^ 2) =
-            wreathModelHom S e (Original.a m) ∧
-          (∀ sigma : Sigma, Phi ⟨1, sigma⟩ = eField sigma) ∧
-          (∀ X j sigma, coordinateProjection F Sigma pi
-            (Phi ⟨quotientClass F (fixedUnit F Sigma b) m hm heven X j, sigma⟩) =
-              coordinatePGLAction F (ProjGenLinGroup.mk
-                (SpecialLinearGroup.toGL X * nonsquareMatrix F (fixedUnit F Sigma b) ^ j.val)) *
-                  fieldExtension F sigma) ∧
-          (CFSG.Wreathed.CentralSL2Abelianization.matrixLayer F (fixedUnit F Sigma b) m hm heven
-            Sigma (fixParam b)).map Phi.toMonoidHom = M) ∧
-    Nat.card H = m * Nat.card Sigma * Nat.card F * (Nat.card F ^ 2 - 1) ∧
-    IsCyclic (H ⧸ M) ∧ Nat.card (H ⧸ M) = m * Nat.card Sigma ∧
-    (∀ sigma : Sigma, ∀ v : M, ∀ i j : Fin 2,
-      eta (conjugateIn M (eField sigma) v) i j = (sigma : F ≃+* F) (eta v i j)) ∧
-    ((Subgroup.centralizer (E0 : Set H)).subgroupOf M).map eta.toMonoidHom =
-      (fixedSL2Inclusion F Sigma).range ∧
-    (∃ eps : (Subgroup.centralizer (E0 : Set H)).subgroupOf M ≃*
-      SpecialLinearGroup (Fin 2) (FixedPoints.subfield Sigma F),
-      ∀ v, fixedSL2Inclusion F Sigma (eps v) = eta v)
-
-
-theorem wreathed_central_cover_exact_matrix_field_model
-    (F : Type u) [Field F] (H : Type v) [Group H] [Finite H]
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f)
-    (hcard : Nat.card F = p ^ f) :
-    let : Finite F := Nat.finite_of_card_ne_zero (hcard.trans_ne (pow_ne_zero f hp.ne_zero))
-    ∀ (Sigma : Subgroup (F ≃+* F)) (hd : Odd (Nat.card Sigma))
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 H) (e : S ≃* Wreath (2 ^ n))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hker : pi.ker = modelCenter S e) (hcentral : pi.ker ≤ Subgroup.center H)
-    (M : Subgroup H) [M.Normal] (hSM : (S : Subgroup H) ⊓ M = modelY S e)
-    (eta : M ≃* SpecialLinearGroup (Fin 2) F)
-    (heta : ∀ v : M, slCoordinateAction F (eta v) = coordinateProjection F Sigma pi v)
-    (hminus : eta (originalLayerX n hn S e M hSM) =
-      CFSG.Semidihedral.ProjectiveSL2Cover.minusIdentity F),
-    OriginalCentralCoverModel F p f hp hpodd hf hcard Sigma hd n hn S e pi hpi hker
-      hcentral M hSM eta heta hminus := by
-  dsimp only
-  let : Finite F := Nat.finite_of_card_ne_zero (hcard.trans_ne (pow_ne_zero f hp.ne_zero))
-  intro Sigma hd n hn S e pi hpi hker hcentral M hM hSM eta heta hminus
-  exact wreathed_central_cover_exact_matrix_field_model_of_finite F p f hp hpodd hf hcard
-    Sigma hd n hn S e pi hpi hker hcentral M hSM eta heta hminus
 
 
 end CFSG.Wreathed.WreathedCentralCover

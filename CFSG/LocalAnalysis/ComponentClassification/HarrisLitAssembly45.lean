@@ -71,39 +71,5 @@ theorem isLemma45 (hFC : AutPSL2FieldCentralizerInput) (hKC : AutPSL2Centralizer
 
 end Standing.Setup42
 
-@[expose] def SectionFourAfter45 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-    Assembly.KProper Blueprint.Catalog X → ¬ Blueprint.Catalog X →
-    ∀ (t : X) (L : Subgroup X) (p f : ℕ) (h : Standing t L p f),
-      (∀ (t' : X) (L' : Subgroup X) (p' f' : ℕ), Config t' L' p' f' →
-        twoPart (centralizer ({t'} : Set X)) ≤ twoPart (centralizer ({t} : Set X))) →
-      ∀ (S : Subgroup X) (hS : IsSylowOf 2 S (centralizer ({t} : Set X))) (w z : X),
-        Standing.Setup42 h hS w z →
-      ∀ V : Subgroup X,
-        IsSylowOf 2 V (normalizer ((zpowers t ⊔ (S ⊓ L) ⊔ zpowers w : Subgroup X) : Set X)) →
-        S ≤ V →
-      ∀ β : X, IsBeta411 t L S w z V β →
-        (∀ β' : X, IsBeta411 t L S w z V β' →
-          twoPart (centralizer ({β'} : Set X)) ≤ twoPart (centralizer ({β} : Set X))) →
-        (IsBeta411 t L S w z V (w ^ (orderOf w / 2)) ∧
-          twoPart (centralizer ({β} : Set X)) ≤
-            twoPart (centralizer ({w ^ (orderOf w / 2)} : Set X)) →
-          β = w ^ (orderOf w / 2)) →
-        IsLemma45 t L S w z p f β → False
-
-theorem sectionFourAfter411_of_after45 (hFC : AutPSL2FieldCentralizerInput)
-    (hKC : AutPSL2CentralizerInput) (h45 : SectionFourAfter45) : SectionFourAfter411 := by
-  intro X _ _ _ hnonab hK hcat t L p f h hmax S hS w z hσ V hV hSV β hβ hβmax hu
-  obtain ⟨i, j, rfl⟩ := hσ.mem_X_not_tD hβ.mem_X hβ.not_mem
-  exact h45 X hnonab hK hcat t L p f h hmax S hS w z hσ V hV hSV _ hβ hβmax hu
-    (hσ.isLemma45 hFC hKC i j)
-
-theorem harrislit_of_inputs_45 (hCU : CatalogueU.CatalogAlmostSimpleUnbalancedOutcome)
-    (hGH : UFrontier.GH74ModelsInput) (hHSF : GSLit.HarrisSolomonFritzInput)
-    (hHS : HarrisSolomonDihedralInput) (hKG : AutPSL2SylowInput)
-    (hKC : AutPSL2CentralizerInput) (hKF : AutPSL2FusionInput)
-    (hFC : AutPSL2FieldCentralizerInput) (h45 : SectionFourAfter45) : GSLit.HarrisInput :=
-  harrislit_of_inputs_411 hCU hGH hHSF hHS hKG hKC hKF
-    (sectionFourAfter411_of_after45 hFC hKC h45)
 
 end CFSG.ComponentClassification.HarrisLit

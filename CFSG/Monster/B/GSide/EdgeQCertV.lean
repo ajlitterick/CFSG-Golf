@@ -178,8 +178,6 @@ theorem ncard_usigOrbit_of_orbitOK
 
 @[expose] def orbSize : Fin 4 → ℕ := ![1408, 228096, 798336, 20736]
 
-theorem edgeT_zero :
-    edgeT 0 = Unitary.usigOrbit Unitary.tauW := rfl
 
 theorem ncard_edgeT
     (i : Fin 4) : (edgeT i).ncard = orbSize i := by

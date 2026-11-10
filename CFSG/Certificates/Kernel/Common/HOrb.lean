@@ -42,20 +42,6 @@ open CFSG.KC CFSG.KC.Loop CFSG.KC.LceS
       (alive LVs y))
     (Nat.blt (nat_lit 0) S)
 
-@[expose] noncomputable def orbChunk (blk DT SW LVs : Nat → Nat) (nf nSW RO nr C Y : Nat) : Nat :=
-  strictN (Nat.land C (nat_lit 1048575)) (fun y0 =>
-    strictN (Nat.land (Nat.shiftRight C (nat_lit 20)) (nat_lit 511)) (fun cnt =>
-      Bool.rec (motive := fun _ => Nat) (nat_lit 0)
-        (Bool.rec (motive := fun _ => Nat) (nat_lit 0) (Nat.add (Nat.add y0 cnt) (nat_lit 1))
-          (Nat.beq (Nat.rec (motive := fun _ => Nat → Nat) (fun S => S)
-              (fun k ih S => strictN (orbStep blk DT SW LVs nf nSW RO nr
-                (Nat.add y0 (Nat.sub (Nat.sub cnt (nat_lit 1)) k)) S) ih)
-              cnt (Nat.shiftRight C (nat_lit 29))) (nat_lit 1)))
-        (Nat.beq Y (Nat.succ y0))))
-
-@[expose] noncomputable def runOrb (blk DT SW LVs : Nat → Nat) (nf nSW RO nr : Nat) (Cs : List Nat) : Nat → Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun Y => Y)
-    (fun C _ ih Y => strictN (orbChunk blk DT SW LVs nf nSW RO nr C Y) ih) Cs
 
 @[expose] noncomputable def rootOK (blk DT : Nat → Nat) (nf RO k w R : Nat) : Bool :=
   letB (Nat.land (Nat.shiftRight RO (Nat.mul (nat_lit 20) k)) (nat_lit 1048575)) (fun r =>

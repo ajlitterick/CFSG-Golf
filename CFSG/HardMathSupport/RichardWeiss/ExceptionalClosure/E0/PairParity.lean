@@ -106,8 +106,5 @@ theorem pair_parity (F : PiFrame θ ρ U π L S) (hN : Even N) (h6 : 6 ≤ N) {t
       · exact hja h
       · exact hjb (Finset.mem_singleton.1 h))
 
-variable {W : Type*} [AddCommGroup W] {M : Type*} [Group M] {N : ℕ}
-variable {θ : M →* Perm (Fin N)} {ρ : M →* AddMonoid.End W} {U : AddSubgroup W}
-  {π : U →+ altHeart N} {L S : Subgroup M}
 
 end CFSG.HardMathSupport.RichardWeiss.ExceptionalClosure.E0

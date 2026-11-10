@@ -97,14 +97,6 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 3) V] [FiniteDimensional (ZMo
 theorem ff_XOut_le (L : Subgroup G) (s : G) : XOut L s ≤ L := by
   exact (ff_twoPrimeRes_twoRes_le _).trans inf_le_left
 
-theorem ff_mem_layerCent_iff (hQ : Q.Nondegenerate) (h5 : 5 ≤ Module.finrank (ZMod 3) V)
-    (hz : Subgroup.center ↥L = ⊥) (e : ↥L ⧸ Subgroup.center ↥L ≃* omegaProj hQ) {s : G}
-    {x : ProjSim Q} (hs : InducesViaP L (Subgroup.center ↥L) hQ e s x) {u : G} (hu : u ∈ L) :
-    u ∈ layerCent L s ↔
-      ffPhi hz e ⟨u, hu⟩ ∈ CFSG.inSubgroup CFSG.layer (ffFix hQ (by omega) x) := by
-  obtain ⟨f, hf⟩ := ff_exists_centEquiv hQ h5 hz e hs
-  exact ff_mem_inSubgroup_iff CFSG.layer (fun _ _ _ _ ε => ff_layer_map ε) (ffPhi hz e)
-    (inf_le_left : L ⊓ centralizer ({s} : Set G) ≤ L) f (fun c => hf c) hu
 
 theorem ff_mem_XOut_iff (hQ : Q.Nondegenerate) (h5 : 5 ≤ Module.finrank (ZMod 3) V)
     (hz : Subgroup.center ↥L = ⊥) (e : ↥L ⧸ Subgroup.center ↥L ≃* omegaProj hQ) {s : G}

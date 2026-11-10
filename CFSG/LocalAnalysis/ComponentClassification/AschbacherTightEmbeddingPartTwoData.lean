@@ -12,31 +12,6 @@ namespace CFSG.ComponentClassification.AschbacherTightEmbedding
   ∀ g : G, g ∉ Subgroup.normalizer (Q : Set G) →
     Odd (Nat.card ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)))
 
-theorem oddNormalizerOverlaps_iff_trivial_sylows {G : Type*} [Group G] [Finite G]
-    (Q : Subgroup G) :
-    OddNormalizerOverlaps Q ↔ ∀ g : G, g ∉ Subgroup.normalizer (Q : Set G) →
-      ∀ T : Sylow 2 ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G)),
-        sylowImage _ T = ⊥ := by
-  constructor
-  · intro h g hg T
-    exact two_subgroup_of_odd_eq_bot _ _ (sylowImage_isPGroup _ T) (h g hg) (sylowImage_le _ T)
-  · intro h g hg
-    by_contra hodd
-    have heven : Even (Nat.card ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G))) :=
-      Nat.not_odd_iff_even.mp hodd
-    obtain ⟨v, hv⟩ := exists_prime_orderOf_dvd_card'
-      (G := ↥(rightConjugate Q g ⊓ Subgroup.normalizer (Q : Set G))) 2
-        (even_iff_two_dvd.mp heven)
-    have htwo : IsPGroup 2 (Subgroup.zpowers v) :=
-      IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, hv, pow_one])
-    obtain ⟨T, hT⟩ := htwo.exists_le_sylow
-    have hvImage : (v : G) ∈ sylowImage _ T :=
-      Subgroup.mem_map.mpr ⟨v, hT (Subgroup.mem_zpowers v), rfl⟩
-    rw [h g hg T] at hvImage
-    have hvone : (v : G) = 1 := Subgroup.mem_bot.mp hvImage
-    have hvone' : v = 1 := Subtype.ext hvone
-    rw [hvone', orderOf_one] at hv
-    norm_num at hv
 
 theorem involution_conjugate_mem_normalizer_iff {G : Type*} [Group G] [Finite G]
     (Q : Subgroup G) (hodd : OddNormalizerOverlaps Q) (z : G) (hzQ : z ∈ Q)

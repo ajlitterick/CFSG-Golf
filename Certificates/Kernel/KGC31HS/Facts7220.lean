@@ -292,8 +292,6 @@ theorem kSIP : ((List.range 2).all fun j => permOK 100 7 (mask 7) (100 * 7) (CM1
 theorem idImg : imageList (1 : Equiv.Perm (Fin 100)) = (unpack 100 7 (pidn 100 7)).toList :=
   CertificateChecks.KernelLC.ExcGlue.one_img (idK_of_szOK hsz)
 
-theorem permsOf_len (ws : List (List Int)) : (permsOf ws).length = ws.length := by
-  simp [permsOf]
 
 theorem evalM16 {wd : List Int} (h : lettersK 2 wd = true) :
     imageList (evalCodes (permsOf m16GenW) wd) =

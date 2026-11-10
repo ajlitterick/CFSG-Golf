@@ -242,13 +242,6 @@ theorem plusFourInput_of_triality (hT : PlusFourTrialityInput) : GGAutModelPlusF
   exact (AutOm.autModel_of_triality le_rfl h3 hρθ hφθ hgen huniq hroot).mono
     fun r hr => AutOm.plusRootElt_of_modelRoot _ hr
 
-theorem ggAutModelAt_POmegaPlus_of_triality (hT : PlusFourTrialityInput) :
-    GGAutModelAt .POmegaPlus :=
-  ggAutModelAt_POmegaPlus_of_four (plusFourInput_of_triality hT)
-
-theorem ggAutStructureAt_POmegaPlus_of_triality (hT : PlusFourTrialityInput) :
-    GGAutStructureAt .POmegaPlus :=
-  ggAutStructureAt_of_autModelAt (ggAutModelAt_POmegaPlus_of_triality hT)
 
 end Family
 

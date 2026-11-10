@@ -12,12 +12,6 @@ namespace CFSG.StandardType
 open CFSG CFSG.Assembly TableB Matrix CFSG.ClassicalGroups.UnitaryFlag CFSG.StandardType.LineU
 open CFSG.LocalAnalysis.ComponentInitial
 
-private lemma permSU_inv_rowA {K : Type} [Field K] {n d : ℕ} (hK : UnitaryFieldData 2 n K)
-    (σ : Equiv.Perm (Fin d)) :
-    (permSU hK σ)⁻¹ = permSU hK σ⁻¹ := by
-  apply Subtype.ext
-  rw [Subgroup.coe_inv]
-  exact (map_inv (CFSG.RankThree.Classical.permGL (K := K)) σ).symm
 
 private lemma exists_diag_commutator_rowA
     {d n p : ℕ} {K : Type} [Field K] (hK : UnitaryFieldData 2 n K) (hd : 3 ≤ d)

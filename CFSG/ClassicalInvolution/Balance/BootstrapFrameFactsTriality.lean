@@ -108,14 +108,5 @@ variable (p) in
 theorem twoClassInvolutionsConj : TwoClassInvolutionsConj p :=
   twoClassInvolutionsConj_of_trialityD4 (trialityD4InvolutionsConj p)
 
-theorem bootTriple_of_model_noFrameMF1 {f : ℕ} (h9 : p ^ f ≠ 9) (h27 : p ^ f ≠ 27)
-    (hmodel : Balance.LayerGenerationModel)
-    (hcover : p ≠ 2 → 5 ≤ p ^ f → FrameCoverage p f) : Generic.CoreAssembly.BootTriple p f :=
-  bootTriple_of_model' h9 h27 hmodel (twoClassInvolutionsConj p) hcover
-
-theorem bootTriple_of_model_nine_noFrameMF1 {f : ℕ} (h27 : p ^ f ≠ 27)
-    (hmodel : Balance.LayerGenerationModel) (hcover : p ≠ 2 → 5 ≤ p ^ f → FrameCoverage p f)
-    (hlevi : FrameLevi p f) : Generic.CoreAssembly.BootTriple p f :=
-  bootTriple_of_model_nine' h27 hmodel (twoClassInvolutionsConj p) hcover hlevi
 
 end CFSG.ClassicalInvolution.Balance.Bootstrap

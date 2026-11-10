@@ -234,7 +234,6 @@ section Setting
 
 variable {σ : Setting G}
 
-theorem x₃_eq : σ.x₃ = σ.x * σ.x₂ := rfl
 
 theorem x₃_mem_T : σ.x₃ ∈ σ.T := σ.T.mul_mem σ.x_mem_T σ.x₂_mem_T
 

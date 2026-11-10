@@ -43,17 +43,6 @@ theorem exists_sp2mKindType_of_sp2mOvergroupType {S : Type} [Group S] {m f : ℕ
   · exact ⟨.omegaPlus, by decide, h⟩
   · exact ⟨.omegaMinus, by decide, h⟩
 
-theorem sp2mOvergroupType_of_sp2mKindType {S : Type} [Group S] {m f : ℕ} {κ : Sp2mKind}
-    (h : Sp2mKindType S m f κ) : Sp2mOvergroupType S m f := by
-  cases κ
-  · exact Or.inl h
-  · exact h.elim
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h)))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h)))))
 
 theorem sp2mKindType_of_mulEquiv {S S' : Type} [Group S] [Group S'] (φ : S ≃* S') {m f : ℕ}
     {κ : Sp2mKind} (h : Sp2mKindType S m f κ) : Sp2mKindType S' m f κ := by
@@ -94,11 +83,6 @@ theorem exists_neighbourOvergroupSp2mKind {s : Y} {D : Subgroup Y} {m f : ℕ}
     exact ⟨κ, Kc, hKc, hDK, .inl ⟨hκ, hfix, hlt, hsK, hsN, hov, hty⟩⟩
   · exact ⟨.swap, Kc, hKc, hDK, .inr ⟨rfl, h2⟩⟩
 
-theorem NeighbourOvergroupSp2mKind.neighbourOvergroupSp2m {s : Y} {D : Subgroup Y} {m f : ℕ}
-    {κ : Sp2mKind} (h : NeighbourOvergroupSp2mKind s D m f κ) : NeighbourOvergroupSp2m s D m f := by
-  obtain ⟨Kc, hKc, hDK, ⟨-, hfix, hlt, hsK, hsN, hov, -⟩ | ⟨-, h2⟩⟩ := h
-  · exact ⟨Kc, hKc, hDK, .inl ⟨hfix, hlt, hsK, hsN, hov⟩⟩
-  · exact ⟨Kc, hKc, hDK, .inr h2⟩
 
 end Kinds
 

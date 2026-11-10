@@ -281,9 +281,6 @@ private theorem D2_le_K : t.D2 ≤ t.K := le_sup_right
 
 private theorem D2_le_Gv (i : ℤ) : t.D2 ≤ t.Gv i := t.D2_le_K.trans (t.K_le_Gv i)
 
-private theorem K_le_normalizer_pCoreOf_Gw (a b : ℤ) :
-    t.K ≤ normalizer (pCoreOf 2 (t.Gw a b) : Set G) :=
-  (t.K_le_Gw a b).trans (le_normalizer_pCoreOf 2 _)
 
 private theorem Q2_le_S (hF : F112HypW L1 L2 S) : Q2 L1 L2 S ≤ S :=
   F7.isSylowTwoOf_pCoreOf_le (f112_isSylowTwoOf_P2 hF)

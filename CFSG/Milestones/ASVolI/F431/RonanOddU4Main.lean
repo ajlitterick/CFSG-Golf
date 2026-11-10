@@ -11,11 +11,6 @@ open CFSG.ASVolI.ChF
 
 section Main
 
-theorem lieOfAutCtx : LieOfAutCtx := fun _ _ _ _ _ _ c =>
-  CFSG.Quasithin.H13.F431.U42Aut.lieModel_of_autCtx c
-
-theorem oddIndex_U4 : OddIndexU4 :=
-  oddIndex_U4_of_lie lieOfAutCtx
 
 end Main
 

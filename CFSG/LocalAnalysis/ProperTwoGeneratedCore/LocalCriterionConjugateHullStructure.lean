@@ -63,17 +63,5 @@ theorem conjugate_hull_oddCore_eq_bot (z u g : G)
     oddCore (localInvolutionPointHull z (rightConjugateElem u g)) = ⊥ := by
   rw [← conjugate_hull_oddCore_map, hodd, Subgroup.map_bot]
 
-theorem conjugate_hull_ambient_oddCore_map (z u g : G) :
-    ((oddCore (localInvolutionPointHull z u)).map
-        (localInvolutionPointHull z u).subtype).map (MulAut.conj g⁻¹).toMonoidHom =
-      (oddCore (localInvolutionPointHull z (rightConjugateElem u g))).map
-        (localInvolutionPointHull z (rightConjugateElem u g)).subtype := by
-  have he : (localInvolutionPointHull z (rightConjugateElem u g)).subtype.comp
-      (localHullConjugateEquiv z u g).toMonoidHom =
-        (MulAut.conj g⁻¹).toMonoidHom.comp (localInvolutionPointHull z u).subtype := by
-    ext x
-    simp only [MonoidHom.comp_apply, Subgroup.coe_subtype, MulEquiv.coe_toMonoidHom,
-      localHullConjugateEquiv_apply, MulAut.conj_apply, inv_inv]
-  rw [Subgroup.map_map, ← he, ← Subgroup.map_map, conjugate_hull_oddCore_map]
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionConjugateHull

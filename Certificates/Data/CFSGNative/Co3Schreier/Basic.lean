@@ -32,8 +32,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native
 @[expose] def renameA (k : Nat) (c π : Array Nat) : Array Nat :=
   compA k (compA k c π) (invCand k c)
 
-@[expose] def preservesOK (I : Array Nat) (m : Array Nat) : Bool :=
-  allLt I.size fun i => decide (posIn I m[I[i]!]! < I.size)
 
 @[inline, expose] def anyLt (n : Nat) (p : Nat → Bool) : Bool := Nat.any n fun i _ => p i
 

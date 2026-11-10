@@ -89,9 +89,6 @@ theorem orderOf_lowInvolution (hn : 4 ≤ n) : orderOf (lowInvolution n hn) = 2 
     change (a : Perm (Fin n))⁻¹ j = j
     rw [Perm.inv_eq_iff_eq, ha j hj]
 
-theorem mem_lowFix {σ : alternatingGroup (Fin n)} :
-    σ ∈ lowFix n ↔ ∀ j : Fin n, j.val < 4 → (σ : Perm (Fin n)) j = j :=
-  Iff.rfl
 
 theorem lowFix_apply_high {σ : alternatingGroup (Fin n)} (hσ : σ ∈ lowFix n) (j : Fin n) :
     4 ≤ ((σ : Perm (Fin n)) j).val ↔ 4 ≤ j.val := by

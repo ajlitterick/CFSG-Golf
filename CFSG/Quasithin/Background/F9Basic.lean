@@ -198,11 +198,6 @@ theorem F92_1 (h : HypF91 T V L V₁ Vp H) :
 theorem isPGroup_conjClosure (h : HypF91 T V L V₁ Vp H) : IsPGroup 2 (conjClosure Vp H) :=
   (pCoreOf_isPGroup 2 H).to_le h.conjClosure_Vp_le_pCoreOf
 
-theorem F92_2 (h : HypF91 T V L V₁ Vp H) :
-    (frattini (conjClosure Vp H)).map (conjClosure Vp H).subtype ≤ V₁ :=
-  frattini_map_le_of_forall h.isPGroup_conjClosure
-    (fun x hx y hy => h.commutator_conjClosure_le x hx y (h.conjClosure_Vp_le_pCoreOf hy))
-    h.sq_mem_conjClosure
 
 theorem pCoreOf_eq_centralizerMod (h : HypF91 T V L V₁ Vp H) :
     pCoreOf 2 H = centralizerMod V₁ H (conjClosure Vp H) := by
@@ -621,14 +616,6 @@ theorem HypF81.toHypF98 [Finite G] (h : HypF81 T V L V₁ H) (hc : Nat.card V₁
           (Subgroup.mem_centralizer_iff.mp hx.2 v hv).symm
     rw [this]; exact bot_le
 
-theorem HypF98.toHypF81 [Finite G] (h : HypF98 T V L V₁ V H) : HypF81 T V L V₁ H :=
-  { sylow := h.sylow, elemAbelian := h.elemAbelian, normalizes_L := h.normalizes_L,
-    oTwoRes_eq := h.oTwoRes_eq, charTwo_L := h.charTwo_L, reduced := h.reduced, cT := h.cT,
-    V₁_ne_bot := h.V₁_ne_bot, V₁_le_V := h.V₁_le_Vp, T_normalizes_V₁ := h.T_normalizes_V₁,
-    weak_a := fun g hne => h.weak_f g (le_of_card_eq_two_of_inf_ne_bot h.card_V₁ hne),
-    V₁_lt_V := h.V₁_lt_Vp, irred := h.irred, H_normalizes_V₁ := h.H_normalizes_V₁,
-    L₁T_le_H := h.L₁T_le_H, charTwo_H := h.charTwo_H, ker_le := h.ker_le,
-    o2_trivial := h.o2_trivial }
 
 namespace HypF98
 

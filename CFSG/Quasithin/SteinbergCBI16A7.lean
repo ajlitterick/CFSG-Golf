@@ -313,40 +313,6 @@ theorem Z1A_le_B1A_A7 (M : A7 →* GL (Fin 4) (ZMod 2)) (hM : Function.Injective
     have hz : f l - (matAct M l m - m) = 0 := hzero
     exact sub_eq_zero.1 hz
 
-@[expose] def transposeInvHom : GL (Fin 4) (ZMod 2) →* GL (Fin 4) (ZMod 2) where
-  toFun g := ⟨((g⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ, (g : Mat4)ᵀ,
-    by rw [← transpose_mul, ← Units.val_mul, mul_inv_cancel, Units.val_one, transpose_one],
-    by rw [← transpose_mul, ← Units.val_mul, inv_mul_cancel, Units.val_one, transpose_one]⟩
-  map_one' := Units.ext (by
-    change ((1⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ = 1
-    rw [inv_one, Units.val_one, transpose_one])
-  map_mul' g h := Units.ext (by
-    change (((g * h)⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ =
-      ((g⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ * ((h⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ
-    rw [_root_.mul_inv_rev, Units.val_mul, transpose_mul])
-
-theorem transposeInvHom_injective : Function.Injective transposeInvHom := by
-  intro g h hgh
-  have h1 : ((g⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ = ((h⁻¹ : GL (Fin 4) (ZMod 2)) : Mat4)ᵀ :=
-    congrArg Units.val hgh
-  have h2 : g⁻¹ = h⁻¹ := Units.ext (transpose_injective h1)
-  exact inv_injective h2
-
-theorem altLift7At_injective (p : Fin 8) : Function.Injective (altLift7At p) := by
-  intro a b hab
-  have h := congrArg Subtype.val hab
-  exact Subtype.ext (Perm.viaEmbeddingHom_injective _ h)
-
-@[expose] noncomputable def a7Hom (α : ↥(alternatingGroup (Fin 8)) ≃* GL (Fin 4) (ZMod 2))
-    (p : Fin 8) : NatDual → A7 →* GL (Fin 4) (ZMod 2)
-  | .natural => α.toMonoidHom.comp (altLift7At p)
-  | .dual => transposeInvHom.comp (α.toMonoidHom.comp (altLift7At p))
-
-theorem a7Hom_injective (α : ↥(alternatingGroup (Fin 8)) ≃* GL (Fin 4) (ZMod 2)) (p : Fin 8)
-    (ε : NatDual) : Function.Injective (a7Hom α p ε) := by
-  cases ε with
-  | natural => exact α.injective.comp (altLift7At_injective p)
-  | dual => exact transposeInvHom_injective.comp (α.injective.comp (altLift7At_injective p))
 
 variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
 
@@ -355,19 +321,5 @@ theorem Z1_le_B1_of_transport {ρ : Representation (ZMod 2) Γ W} {G : Type*} [G
     (hβ : ∀ γ w, β (ρ γ w) = μ (θ γ) (β w)) (h : Z1A μ ≤ B1A μ) : Z1 ρ ≤ B1 ρ := fun _ hf =>
   (transport_mem_B1A hβ).1 (h ((transport_mem_Z1A hβ).2 hf))
 
-theorem finrank_H1_a7Four {ρ : Representation (ZMod 2) Γ W} {p : Fin 8} {ε : NatDual}
-    (h : Explicit.A7Four ρ p ε) : Module.finrank (ZMod 2) (H1 ρ) = 0 := by
-  obtain ⟨α, θ, β, hw⟩ := h
-  have hamb := Witness.ambient (D := a7FourModel α p ε) rfl rfl hw
-  set e := (β.trans (secEquivAmb (a7FourModel α p ε) rfl rfl).toAdditive).trans
-    (AddEquiv.additiveMultiplicative Vec4) with he
-  have hβ : ∀ γ w, e (ρ γ w) = matAct (a7Hom α p ε) (θ γ) (e w) := by
-    intro γ w
-    change AddEquiv.additiveMultiplicative Vec4
-      ((β.trans (secEquivAmb (a7FourModel α p ε) rfl rfl).toAdditive) (ρ γ w)) = _
-    rw [hamb γ w]
-    cases ε <;> rfl
-  exact finrank_H1_eq_zero_of_le (Z1_le_B1_of_transport hβ
-    (Z1A_le_B1A_A7 _ (a7Hom_injective α p ε)))
 
 end CFSG.Quasithin.SteinbergCB.I16

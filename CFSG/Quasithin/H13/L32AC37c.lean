@@ -66,6 +66,5 @@ theorem exists_sl_fix_of_ne {n : ℕ} {w₂ w : Fin n → ZMod 2} (hw : w ≠ 0)
     rw [hMv, h1, one_smul]
     exact hwd
 
-variable {G : Type} [Group G] [Finite G] {T L V H V₂ : Subgroup G}
 
 end CFSG.Quasithin.H13.L32A.C

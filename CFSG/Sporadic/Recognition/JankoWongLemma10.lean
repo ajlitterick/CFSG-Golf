@@ -211,7 +211,6 @@ theorem mem_cg_iff {g : G} : g ∈ c.Cg ↔ g * c.s * g⁻¹ = c.s := by
   unfold Cg
   rw [Subgroup.mem_centralizer_singleton_iff, mul_inv_eq_iff_eq_mul]
 
-theorem mem_ng_of_mem_cg {g : G} (hg : g ∈ c.Cg) : g ∈ c.Ng := c.cg_le_ng hg
 
 theorem conj_mul_d (B : G) :
     (B * (c.d : G)) * c.s * (B * (c.d : G))⁻¹ = (B * c.s * B⁻¹)⁻¹ := by
@@ -1008,7 +1007,6 @@ theorem false_of_card_OG_eq_three
     (by rcases hp with rfl | rfl; exact Or.inl hord; exact Or.inr hord) hinv
 
 end Ctx
-
 
 
 theorem twentySeven_dvd_card

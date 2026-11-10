@@ -80,8 +80,6 @@ theorem catSLmEvenOuterFamilyAt_PSU {m : ℕ} (hm : 3 ≤ m) (hdet : SLmEvenType
   exact (false_of_spFixedOrNoPComponent hdet (psu_outer_fixed_exact hadm hmS σ hσ hout) hD hm
     hDm).elim
 
-theorem catSLmEvenOuterFamily_PSU (hdet : SLmEvenTypeDet) : CatSLmEvenOuterFamily .PSU :=
-  fun m hm => catSLmEvenOuterFamilyAt_PSU hm (hdet m hm)
 
 end Unitary
 
@@ -186,9 +184,6 @@ theorem catSLmEvenOuterFamilyAt_PSp {m : ℕ} (hm : 3 ≤ m)
       (LieType.CurtisTits.lieModel_of_mulEquiv eD.symm hLie)
     exact absurd htt (by decide)
 
-theorem catSLmEvenOuterFamily_PSp (hdet : SLmEvenTypeDet) :
-    CatSLmEvenOuterFamily .PSp :=
-  fun m hm => catSLmEvenOuterFamilyAt_PSp hm (hdet m hm)
 
 end Symplectic
 

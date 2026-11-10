@@ -229,23 +229,6 @@ theorem IsUniqueSubgroup.exists_sylow_normalizer_le {M W : Subgroup X} (p : ℕ)
   have hPM : (P : Subgroup X) ≤ M := hW.le_of_isPGroup p hWP P.isPGroup'
   exact ⟨P, hW.normalizer_le hWP hPM⟩
 
-omit [Finite X] in
-theorem IsUniqueSubgroup.mem_of_le_centralizer_conj {M W : Subgroup X} {p : ℕ} {x : X}
-    (hx : x ∈ uniqC M p) (hW : IsUniqueSubgroup M W) {g : X}
-    (hWg : W ≤ centralizer ({g⁻¹ * x * g} : Set X)) : g ∈ M := by
-  have hconj : conjugate W g⁻¹ ≤ M := by
-    intro y hy
-    rw [mem_conjugate_iff, inv_inv] at hy
-    have hyc : y ∈ centralizer ({x} : Set X) := by
-      rw [Subgroup.mem_centralizer_singleton_iff]
-      have := Subgroup.mem_centralizer_singleton_iff.mp (hWg hy)
-      calc y * x = g * (g⁻¹ * y * g) * g⁻¹ * x := by group
-        _ = g * ((g⁻¹ * y * g) * (g⁻¹ * x * g)) * g⁻¹ := by group
-        _ = g * ((g⁻¹ * x * g) * (g⁻¹ * y * g)) * g⁻¹ := by rw [this]
-        _ = x * y := by group
-    exact hx.2.2 hyc
-  have := hW.2 g⁻¹ hconj
-  simpa using this
 
 end Lemmas
 

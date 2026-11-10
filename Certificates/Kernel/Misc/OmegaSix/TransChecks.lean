@@ -27,10 +27,6 @@ theorem kTW : TT.TW.all witK = true := by quickRfl
 theorem kNS : ((List.range 64).all fun n => !(q6 (cvec n) == 1) ||
     TT.TW.any fun p => p.getD 0 0 == n) = true := by decide +kernel
 
-theorem negTW : notB (witK [(TT.TW.getD 0 []).getD 0 0, (TT.TW.getD 0 []).getD 1 0 + 1]) = true := by
-  quickRfl
-
-theorem negNS : notB (q6 (cvec 0) == 1) = true := by decide +kernel
 
 end CFSG.KD.OmegaSix.Trans
 

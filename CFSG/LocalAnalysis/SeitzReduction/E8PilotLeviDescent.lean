@@ -31,9 +31,6 @@ theorem coe_e7LeviBaseChange (ι : K →+* M) (g : e7Levi K) :
       baseChangeGL ι ((g : adjointGroup .E8 K) : ModGL .E8 K) :=
   rfl
 
-theorem e7LeviBaseChange_injective (ι : K →+* M) : Function.Injective (e7LeviBaseChange ι) :=
-  fun _ _ hgh => Subtype.ext (Subtype.ext (baseChangeGL_injective ι
-    (congrArg (fun x : e7Levi M => ((x : adjointGroup .E8 M) : ModGL .E8 M)) hgh)))
 
 theorem e7LeviBaseChange_e7LeviPar (ι : K →+* M) {γ : Fin (Tag.rank .E7) → ℤ}
     (hγ : IsRoot .E7 γ) (c : K) :

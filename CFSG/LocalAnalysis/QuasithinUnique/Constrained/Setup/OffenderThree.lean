@@ -212,32 +212,6 @@ theorem binary_three_group_rank_two_elements_commute [Module.Finite k V] (hk : N
   have hcomm := comm_of_isPGroup_three_card_le hA3 (by simpa using h9)
   exact congrArg Subtype.val (hcomm ⟨a, haA⟩ ⟨b, hbA⟩)
 
-theorem binary_three_group_rank_two_generated_isElementaryAbelian [Module.Finite k V]
-    (hk : Nat.card k = 2) {B : Subgroup (V ≃ₗ[k] V)} (hB : IsPGroup 3 B)
-    {S : Set (V ≃ₗ[k] V)} (hSB : S ⊆ B)
-    (hS : ∀ s ∈ S, orderOf s = 3 ∧ finrank k (dispOf s) = 2) :
-    CFSG.IsElementaryAbelian 3 (Subgroup.closure S) := by
-  have hcomm : ∀ s ∈ S, ∀ t ∈ S, s * t = t * s := fun s hs t ht =>
-    binary_three_group_rank_two_elements_commute hk hB (hSB hs) (hSB ht) (hS s hs).1 (hS t ht).1
-      (hS s hs).2 (hS t ht).2
-  have hpair : S.Pairwise Commute := fun s hs t ht _ => hcomm s hs t ht
-  have : IsMulCommutative (Subgroup.closure S) := Subgroup.isMulCommutative_closure hpair
-  have hall : ∀ x ∈ Subgroup.closure S, ∀ y ∈ Subgroup.closure S, x * y = y * x := fun x hx y hy =>
-    congrArg Subtype.val (IsMulCommutative.is_comm.comm (⟨x, hx⟩ : Subgroup.closure S) ⟨y, hy⟩)
-  refine { toIsMulCommutative := ⟨⟨fun a b => ?_⟩⟩, exponent_dvd_p := ?_ }
-  · exact Subtype.ext (hall a a.2 b b.2)
-  · refine Monoid.exponent_dvd_iff_forall_pow_eq_one.2 fun x => Subtype.ext ?_
-    show (x : V ≃ₗ[k] V) ^ 3 = 1
-    refine Subgroup.closure_induction (p := fun y _ => y ^ 3 = 1) ?_ ?_ ?_ ?_ x.2
-    · intro s hs
-      rw [← (hS s hs).1]
-      exact pow_orderOf_eq_one s
-    · exact one_pow 3
-    · intro y z hy hz hy3 hz3
-      have hyz : Commute y z := hall y hy z hz
-      rw [hyz.mul_pow, hy3, hz3, one_mul]
-    · intro y hy hy3
-      rw [inv_pow, hy3, inv_one]
 
 theorem isCompl_commGL_fixGL_of_odd [CharP k 2] (D : Subgroup (V ≃ₗ[k] V)) [Finite D]
     (hodd : Odd (Nat.card D)) : IsCompl (commGL D ⊤) (fixGL D) := by

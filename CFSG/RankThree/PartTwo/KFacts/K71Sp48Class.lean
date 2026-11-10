@@ -185,8 +185,6 @@ theorem coe_sp4TT :
   funext j
   fin_cases j <;> simp
 
-theorem sp4TT_pow_three : sp4TT F ^ 3 = 1 := by
-  rw [sp4TT, Commute.mul_pow (sp4T_commute F) 3, sp4T_pow_three, sp4T'_pow_three, one_mul]
 
 end TT
 

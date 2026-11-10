@@ -355,16 +355,5 @@ theorem cover_or_single (hq : QuasisimpleTwoPartInput)
       (hf K hK).2 (hf K' hK').2 hKK'
     exact ⟨f K, ⟨(hf K hK).1, h2⟩, (hf K hK).2, h1⟩
 
-theorem exists_isTwoComponentIn_forall_le (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hF : False316CoverFor simpleAmbient)
-    (hG : SimpleAmbient G) (hN : IsSolomonChoice N) (hKH : ∀ K ∈ kStarComponents N, K ≤ H)
-    (hLH : ∀ K ∈ kStarComponents N, ∀ s ∈ K, orderOf s = 2 →
-      twoLayerIn (centralizer ({s} : Set G)) ≤ H)
-    (hcent : ∀ K ∈ kStarComponents N, ∀ s ∈ K, orderOf s = 2 →
-      centralizer ({s} : Set G) ≤ H) :
-    ∃ B : Subgroup G, IsTwoComponentIn B H ∧ ∀ K ∈ kStarComponents N, K ≤ B := by
-  rcases cover_or_single hq hR1 hG hN hKH hLH with hcov | h
-  · exact (false_of_cover hq hF hG hN hcov hcent).elim
-  · exact h
 
 end CFSG.ComponentClassification.Sol76.Sig

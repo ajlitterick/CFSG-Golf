@@ -40,15 +40,6 @@ private lemma l05nPC_dot_smul_left {p N : ℕ} (k : ZMod p) (a v : GGDepAE p N) 
   simp only [ggDepAdot, Pi.smul_apply, smul_eq_mul, mul_assoc]
   rw [← Finset.mul_sum]
 
-private lemma l05nPC_refl_invol {p N : ℕ} (c f : GGDepAE p N) (h : ggDepAdot f c = 2) :
-    ggDepARefl c f * ggDepARefl c f = 1 := by
-  apply LinearMap.ext; intro v
-  ext j
-  have hone : (1 : Module.End (ZMod p) (GGDepAE p N)) v = v := rfl
-  simp only [Module.End.mul_apply, l05nPC_refl_apply, Pi.sub_apply, Pi.smul_apply,
-    l05nPC_dot_sub, l05nPC_dot_smul, h]
-  rw [hone]
-  ring
 
 private lemma l05nPC_refl_conj {p N : ℕ} (c f gc gf : GGDepAE p N)
     (h : ggDepAdot gf gc = 2) :
@@ -165,7 +156,6 @@ private lemma l05nPCxTab_eq : l05nPCxTab = ggDepAx 5 5 := by decide +kernel
 
 private def l05nPCcvals : List (Fin 4) := [0, 1, 2, 3]
 
-private lemma l05nPCmem_cvals : ∀ c : Fin 4, c ∈ l05nPCcvals := by decide +kernel
 
 private def l05nPCgenPair (ha aa : GGDepAE 5 5) (i : Fin 5) :
     GGDepAE 5 5 × GGDepAE 5 5 :=

@@ -1196,37 +1196,6 @@ theorem two_le_pRank_centralizer_nine_of_sigma_rank_gap
         hp hp2 hp3 hpq hEL hEe hEc).trans
         (CFSG.SectionRank.pRank_mono hp.one_lt (inf_le_inf_right _ hL.1.le))
 
-theorem pRank_inf_centralizer_nine_eq_two_of_dvd_add_one
-    {G : Type} [Group G] [Finite G] {M L E : Subgroup G}
-    (hGA : GriessAllModelsStatement) (hL : L ∈ calC M)
-    {f p : ℕ} (hf : Odd f) (hf3 : 3 ≤ f) (hmodel : LieModel (BarInf L) .PSL 4 2 f)
-    (hp : p.Prime) (hp2 : p ≠ 2) (hp3 : p ≠ 3) (hpq : p ∣ 2 ^ f + 1)
-    (hEL : E ≤ L) (hEe : IsElemAbelian 3 E) (hEc : Nat.card E = 9) :
-    CFSG.Open.pRank p (L ⊓ centralizer (E : Set G)) = 2 := by
-  have hshape : LieModel (BarInf L) .PSL 4 2 f ∨
-      LieModel (BarInf L) .PSp 3 2 f ∨ IsOmega8m (BarInf L) f := Or.inl hmodel
-  have hZ : center (Bar2 L) = ⊥ :=
-    Subgroup.card_eq_one.mp (uc22s2114r3l_card_center_eq_one hGA hL hshape)
-  obtain ⟨e⟩ := uc22p21k_barInf_equiv_of_center_bot hL.2.2 hZ
-  have hmodelK : LieModel (Bar2 L) .PSL 4 2 f := LieModel.of_mulEquiv e hmodel
-  have hlo := two_le_pRank_inf_centralizer_nine_of_dvd_add_one hmodelK hf
-    hp hp2 hp3 hpq hEL hEe hEc
-  have hpq' : ¬ p ∣ 2 ^ f - 1 := by
-    intro hd
-    have h2 : p ∣ 2 := by
-      have h := Nat.dvd_sub hpq hd
-      have hq : 1 ≤ 2 ^ f := Nat.one_le_two_pow
-      have hdiff : 2 ^ f + 1 - (2 ^ f - 1) = 2 := by omega
-      rwa [hdiff] at h
-    exact hp2 ((Nat.prime_dvd_prime_iff_eq hp Nat.prime_two).mp h2)
-  have he : eP (2 ^ f) p ≠ 1 := fun he =>
-    hpq' ((eP_eq_one_iff Nat.one_le_two_pow).mp he)
-  have htab := uc22s2114r3l_pRank_eq_rkLin hGA hL (by omega) hmodel hp hp2
-  simp only [rkLin, ↓reduceIte, if_neg he] at htab
-  have hle := uc22s218_u4_div_le_two he
-  have hmono := CFSG.SectionRank.pRank_mono hp.one_lt
-    (inf_le_left : L ⊓ centralizer (E : Set G) ≤ L)
-  omega
 
 end GenericSigma
 

@@ -340,75 +340,11 @@ end Layers
 
 section Main
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Φ : Set (Subgroup G)} {a : G}
-
-theorem layerGenerationLie_sec_pair {A : Subgroup G} {S : Set G} (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (h0 : ModelClauseZero) (hBelow : CITBelowU p f (Nat.card G)) (hs : SecData p f a Φ)
-    (T : SecToral Φ a A S) (hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G)
-    (hpair : ∀ (D : LocalLieSystemAt p f Φ a) (j : Fin D.card),
-      LayerGenerationPairAt (D.tag j) (D.rank j) p (D.exp j) Fact.out) :
-    LayerGenerationLie Φ A a := by
-  have ha1 : a ≠ 1 := fun h => hnc (by simp [h])
-  unfold LayerGenerationLie LayerGenerationOn
-  intro L hL hlie hjoin F₀ hF
-  obtain ⟨Dsys⟩ := hs.nonempty_lieSystem hBelow hnc
-  obtain ⟨D', hD'Q, -⟩ := hs.lieDecomposition_comp hp2 h0 fundamentalWholeA1 hq Dsys
-  have : (memberJoin Φ a).Normal := memberJoin_normal_of_normalizes hs.normalizes
-  have hL' : CFSG.Open.IsComponentOf L ⊤ := (CFSG.isComponent_iff_open L).mp hL
-  rcases D'.eq_or_commutes_of_isComponentOf hL' with ⟨i, rfl⟩ | hcomm
-  · obtain ⟨j, hj⟩ := hD'Q i
-    have hQ : D'.Q i = (secComponentHom hs.normalizes Dsys j).range := hj.symm
-    obtain ⟨R₁, hR₁, R₂, hR₂, z₁, hz₁, z₂, hz₂, hc₁, hc₂, hc₁₂, hc₂₁, f₁, hf₁, f₂, hf₂, hf₁1,
-      hf₂1, hf₁₂, hact₁, hact₂⟩ := T.exists_pair_frame_data hs ha1 Dsys j hQ
-      (fun K hK => modOdd_le_or_commutes D' i hK) hF
-    rw [hQ] at hF hL ⊢
-    obtain ⟨hF₀A, h4, hFn, hfaith⟩ := hF
-    have hFC : F₀ ≤ Subgroup.centralizer ({a} : Set G) := fun g hg =>
-      T.mem_centralizer (hF₀A hg)
-    have hF2 : ∀ g ∈ F₀, g * g = 1 := fun g hg => T.sq (hF₀A hg)
-    exact OddCentralizerFree.of_le_layers (hpair Dsys j (OddQuot a)
-      (secComponentHom hs.normalizes Dsys j) (secComponentHom_ker_le_center hs.normalizes Dsys j) hL
-      R₁ hR₁ R₂ hR₂ z₁ hz₁ z₂ hz₂ hc₁ hc₂ hc₁₂ hc₂₁ (modOdd a F₀)
-      (by rw [card_modOdd_of_exponent_two hFC hF2, h4])
-      (modOdd_sq_eq_one (fun x hx => T.sq hx) hF₀A) hFn hfaith f₁ hf₁ f₂ hf₂ hf₁1 hf₂1 hf₁₂
-      hact₁ hact₂)
-  · exfalso
-    exact not_commutes_self_of_isQuasisimple hL'.2.2 fun x hx y hy => hcomm x hx y (hjoin hy)
-
-theorem componentLayersAt_sec_pair {A : Subgroup G} {S : Set G} (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (h0 : ModelClauseZero) (hBelow : CITBelowU p f (Nat.card G)) (hs : SecData p f a Φ)
-    (T : SecToral Φ a A S) (hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G)
-    (hpair : ∀ (D : LocalLieSystemAt p f Φ a) (j : Fin D.card),
-      LayerGenerationPairAt (D.tag j) (D.rank j) p (D.exp j) Fact.out) :
-    ComponentLayersAt Φ A a :=
-  componentLayersAt_of_layerGenerationOn (P := fun L => IsOddLieComponent L)
-    (fun _ hL => hs.trichotomy hp2 h0 fundamentalWholeA1 hq hBelow hnc hL)
-    (layerGenerationLie_sec_pair hp2 hq h0 hBelow hs T hnc hpair)
 
 end Main
 
 section Triangle
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {J₁ J₂ J₃ : Subgroup G}
-  {z₁ z₂ z₃ : G}
-
-theorem AxisTriangle.rankThreeBalance_pair [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (h0 : ModelClauseZero) (hA1 : FundamentalWholeA1)
-    (hBelow : CITBelowU p f (Nat.card G)) (hT : AxisTriangle p f J₁ J₂ J₃ z₁ z₂ z₃)
-    (hne₁₂ : z₁ ≠ z₂) (hne₁₃ : z₁ ≠ z₃) (hne₂₃ : z₂ ≠ z₃) (hind : z₁ * z₂ ≠ z₃)
-    (hI : ∀ b ∈ triangleAxis z₁ z₂ z₃, b ≠ 1 →
-      FuzzyPairInputs p f (triangleSecFamily J₁ J₂ J₃ b) b) :
-    RankThreeBalance (triangleAxis z₁ z₂ z₃) := by
-  have hcard := hT.card_axis hne₁₂ hne₁₃ hne₂₃ hind
-  refine ⟨hT.isElemAbelian, hcard, hT.weakBalanced hnab hp2 hq h0 hA1 hBelow, ?_⟩
-  refine twoBalancedWrt_of_secToral (S := {z₁, z₂, z₃}) hT.isElemAbelian fun a ha ha1 => ?_
-  have hs := hT.secData ha
-  have hnc := not_subset_center_of_ne_one hnab ha1
-  obtain ⟨Dsys⟩ := hs.nonempty_lieSystem hBelow hnc
-  have hqs : ∀ K ∈ triangleSecFamily J₁ J₂ J₃ a, CFSG.Open.IsQuasisimple ↥(modOdd a K) :=
-    fun K hK => hs.isQuasisimple_modOdd Dsys ((hI a ha ha1).quasi Dsys) hK
-  have T := hT.secToral ha hcard hqs
-  exact ⟨_, T, componentLayersAt_sec_pair hp2 hq h0 hBelow hs T hnc (hI a ha ha1).pair⟩
 
 end Triangle
 

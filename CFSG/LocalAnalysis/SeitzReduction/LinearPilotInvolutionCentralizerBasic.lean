@@ -349,18 +349,6 @@ theorem mul_unitri_apply {M B : Matrix (Fin n) (Fin n) K} (hM : M.BlockTriangula
   · intro h
     exact absurd (Finset.mem_univ j) h
 
-theorem unitri_mul_apply {M B : Matrix (Fin n) (Fin n) K} (hM : M.BlockTriangular P.level)
-    (hB : ∀ i j, P.level j ≤ P.level i → B i j = (1 : Matrix (Fin n) (Fin n) K) i j)
-    {i j : Fin n} (hij : P.level i = P.level j) : (B * M) i j = M i j := by
-  rw [P.mul_apply_of_level_eq (P.blockTriangular_of_unitri hB) hM hij,
-    Finset.sum_eq_single i]
-  · rw [ite_eq_left rfl, hB i i le_rfl, one_apply_eq, one_mul]
-  · intro l _ hli
-    split_ifs with hl
-    · rw [hB i l (by omega), one_apply_ne (Ne.symm hli), zero_mul]
-    · rfl
-  · intro h
-    exact absurd (Finset.mem_univ i) h
 
 variable (K) in
 @[expose] def radical : Subgroup (SpecialLinearGroup (Fin n) K) where
@@ -594,14 +582,6 @@ theorem coe_regionHom (α β : ℕ) (hαβ : α < β) (X : Matrix (Fin n) (Fin n
       Matrix (Fin n) (Fin n) K) = 1 + P.regionPart K α β X :=
   rfl
 
-theorem regionHom_mem_radical (α β : ℕ) (hαβ : α < β)
-    (X : Multiplicative (Matrix (Fin n) (Fin n) K)) :
-    P.regionHom K α β hαβ X ∈ P.radical K := by
-  intro i j hij
-  show (1 + P.regionPart K α β (Multiplicative.toAdd X)) i j = _
-  rw [Matrix.add_apply, regionPart_apply, ite_eq_right, add_zero]
-  rintro ⟨hi, hj⟩
-  omega
 
 @[expose] def radicalRootSet : Set (SpecialLinearGroup (Fin n) K) :=
   {g | ∃ (i j : Fin n) (hij : i ≠ j) (c : K), P.level i < P.level j ∧
@@ -614,9 +594,6 @@ theorem transvection_mem_radical {i j : Fin n} (hij : i ≠ j) (h : P.level i < 
   rintro ⟨rfl, rfl⟩
   omega
 
-theorem radicalRootSet_subset_radical : P.radicalRootSet (K := K) ⊆ P.radical K := by
-  rintro _ ⟨i, j, hij, c, h, rfl⟩
-  exact P.transvection_mem_radical hij h c
 
 theorem regionHom_single_mem_closure (α β : ℕ) (hαβ : α < β) (i j : Fin n) (c : K) :
     P.regionHom K α β hαβ (Multiplicative.ofAdd (single i j c)) ∈

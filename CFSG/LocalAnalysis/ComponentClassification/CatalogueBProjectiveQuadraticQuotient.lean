@@ -15,16 +15,6 @@ variable {K ι : Type*} [Field K] [Fintype ι] [DecidableEq ι]
   (Matrix.GeneralLinearGroup.scalar (Fin m)).comp
     (Units.map (algebraMap K (extension lambda)).toMonoidHom)
 
-theorem matrixKScalars_apply (lambda : K) (m : ℕ) (c : Kˣ) :
-    matrixKScalars lambda m c = Matrix.GeneralLinearGroup.scalar (Fin m)
-      (Units.map (algebraMap K (extension lambda)).toMonoidHom c) := rfl
-
-theorem mem_matrixKScalars_range (lambda : K) (m : ℕ)
-    (B : Matrix.GeneralLinearGroup (Fin m) (extension lambda)) :
-    B ∈ (matrixKScalars lambda m).range ↔
-      ∃ c : Kˣ, Matrix.GeneralLinearGroup.scalar (Fin m)
-        (Units.map (algebraMap K (extension lambda)).toMonoidHom c) = B :=
-  Iff.rfl
 
 theorem matrixKScalars_range_le_center (lambda : K) (m : ℕ) :
     (matrixKScalars lambda m).range ≤

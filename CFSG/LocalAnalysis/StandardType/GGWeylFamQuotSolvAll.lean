@@ -126,19 +126,6 @@ theorem le_famReflectionGroup_of_coprime [Finite K] {p : ℕ} (hp : p.Prime)
   rw [inner_ofLattice_dualVector, Int.cast_eq_zero] at h0
   exact ⟨α, hRker α hα h0, rfl⟩
 
-theorem rootReflection_mem_famStabilizerSubgroup {F : Set (Fin τ.rank → Kˣ)}
-    {α : Fin τ.rank → ℤ} (hα : α ∈ famKernel F) :
-    rootReflection α ∈ famStabilizerSubgroup F := by
-  show ∀ a ∈ F, ∀ v, rootChar a (rootReflection α • v) = rootChar a v
-  intro a ha v
-  rw [rootReflection_smul hα.1, sub_eq_add_neg, ← neg_smul, rootChar_add, rootChar_zsmul,
-    hα.2 a ha, one_zpow, mul_one]
-
-theorem famReflectionGroup_le_famStabilizerSubgroup (F : Set (Fin τ.rank → Kˣ)) :
-    famReflectionGroup F ≤ famStabilizerSubgroup F := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro _ ⟨α, hα, rfl⟩
-  exact rootReflection_mem_famStabilizerSubgroup hα
 
 theorem conj_mem_famReflectionGroup {F : Set (Fin τ.rank → Kˣ)} {w s : WeylGroup τ}
     (hw : w ∈ famStabilizerSubgroup F) (hs : s ∈ famReflectionGroup F) :
@@ -240,9 +227,6 @@ theorem ggLayerTagsPilotRestSixSylow_of_cores (h : GGLayerTagsPilotRestSixSylowC
     GGLayerTagsPilotRestSixSylow :=
   ggLayerTagsPilotRestSixSylow_of_nonToral h.1 h.2.1 h.2.2.1 h.2.2.2.1 h.2.2.2.2
 
-theorem ggLayerTagsPilotRestSixSylowCores_of_rest (h : GGLayerTagsPilotRestSixSylow) :
-    GGLayerTagsPilotRestSixSylowCores :=
-  ⟨h.1, h.2.1.2, h.2.2.1.2, h.2.2.2.1.2, h.2.2.2.2⟩
 
 end Bundle
 

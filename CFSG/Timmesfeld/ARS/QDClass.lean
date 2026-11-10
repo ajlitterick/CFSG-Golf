@@ -99,9 +99,6 @@ section ZTwo
 
 variable {D : Subgroup G}
 
-theorem mem_zTwo {y : G} : y ∈ zTwo R D ↔ y ∈ Q R D ∧ ∀ x ∈ Q R D, ⁅y, x⁆ ∈ D := Iff.rfl
-
-theorem zTwo_le_Q : zTwo R D ≤ Q R D := fun _ hy => hy.1
 
 variable (hR : IsRootClass R)
 include hR

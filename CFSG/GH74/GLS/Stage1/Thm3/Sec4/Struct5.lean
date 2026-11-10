@@ -60,14 +60,6 @@ theorem secCent_of_gen (h : M4 O FA SD z S K₁ K₂) {c : G} (hc : c ∈ centra
     rw [e]
     exact mul_mem (h.coreK.normal x (mem_sup_left hx) _ (h2 y hy)) (h1 x hx)
 
-theorem not_mem_ZsK (h : M4 O FA SD z S K₁ K₂) {t : G} (htS : t ∈ S)
-    (ht1 : t ≠ 1) (htz : t ≠ z) : t ∉ ZsM O (K₁ ⊔ K₂) := by
-  intro htZ
-  have : t ∈ S ⊓ ZsM O (K₁ ⊔ K₂) := ⟨htS, htZ⟩
-  rw [h.S_inf_Zs] at this
-  rcases (mem_zpowers_of_sq h.z_sq).1 this with h1 | h1
-  · exact ht1 h1
-  · exact htz h1
 
 end M4
 

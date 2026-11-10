@@ -12,9 +12,6 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.Blueprint CFSG.Assembly.LowTwoRa
 @[expose] def RankG2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S : Subgroup G), G2Term G z S → pRank 2 ↥S ≤ 3
 
-@[expose] def RankL4U4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S : Subgroup G) (ε : Bool), L4U4TermTypeE ε G z S →
-    pRank 2 ↥S = 4
 
 @[expose] def RankTerm7 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S : Subgroup G) (q : ℕ) (w : G), Term7Out G z S q w →

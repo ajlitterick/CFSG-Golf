@@ -23,16 +23,6 @@ theorem monoidAlgebra_basis_repr_coeff {ring points : Type*} [CommRing ring]
     operator.comp (Representation.ofMulAction ring group source element) =
       (Representation.ofMulAction ring group target element).comp operator
 
-theorem permutationMapEquivariant_comp {ring group source middle target : Type*}
-    [CommRing ring] [Group group] [MulAction group source]
-    [MulAction group middle] [MulAction group target]
-    (left : MonoidAlgebra ring middle →ₗ[ring] MonoidAlgebra ring target)
-    (right : MonoidAlgebra ring source →ₗ[ring] MonoidAlgebra ring middle)
-    (hleft : permutationMapEquivariant (group := group) left)
-    (hright : permutationMapEquivariant (group := group) right) :
-    permutationMapEquivariant (group := group) (left.comp right) := by
-  intro element
-  rw [LinearMap.comp_assoc, hright, ← LinearMap.comp_assoc, hleft, LinearMap.comp_assoc]
 
 theorem permutationMapEquivariant_of_commute {ring group points : Type*}
     [CommRing ring] [Group group] [MulAction group points]
@@ -104,44 +94,6 @@ theorem permutationFixedBasisReduction_coeff {ring residue group source target :
   simpa only [LinearMap.toMatrix_apply, MonoidAlgebra.basis_apply,
     monoidAlgebra_basis_repr_coeff] using hequal
 
-theorem permutationFixedBasisReduction_add {ring residue group source target : Type*}
-    [CommRing ring] [CommRing residue] [Group group]
-    [MulAction group source] [MulAction group target] [Fintype source] [Fintype target]
-    (embedding : ring →+* residue)
-    (left right : MonoidAlgebra ring source →ₗ[ring] MonoidAlgebra ring target) :
-    permutationFixedBasisReduction (group := group) embedding (left + right) =
-      permutationFixedBasisReduction (group := group) embedding left +
-        permutationFixedBasisReduction (group := group) embedding right := by
-  apply (MonoidAlgebra.basis (MulAction.fixedPoints group source) residue).ext
-  intro column
-  ext row
-  simp only [MonoidAlgebra.basis_apply, permutationFixedBasisReduction_coeff,
-    LinearMap.add_apply, MonoidAlgebra.coeff_add, Finsupp.add_apply, map_add]
-
-theorem permutationFixedBasisReduction_smul {ring residue group source target : Type*}
-    [CommRing ring] [CommRing residue] [Group group]
-    [MulAction group source] [MulAction group target] [Fintype source] [Fintype target]
-    (embedding : ring →+* residue) (scalar : ring)
-    (operator : MonoidAlgebra ring source →ₗ[ring] MonoidAlgebra ring target) :
-    permutationFixedBasisReduction (group := group) embedding (scalar • operator) =
-      embedding scalar • permutationFixedBasisReduction (group := group) embedding operator := by
-  apply (MonoidAlgebra.basis (MulAction.fixedPoints group source) residue).ext
-  intro column
-  ext row
-  simp only [MonoidAlgebra.basis_apply, permutationFixedBasisReduction_coeff,
-    LinearMap.smul_apply, MonoidAlgebra.coeff_smul, Finsupp.smul_apply, smul_eq_mul, map_mul]
-
-theorem permutationFixedBasisReduction_identity {ring residue group points : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [MulAction group points] [Fintype points]
-    (embedding : ring →+* residue) :
-    permutationFixedBasisReduction (group := group) embedding
-      (LinearMap.id : Module.End ring (MonoidAlgebra ring points)) = LinearMap.id := by
-  apply (MonoidAlgebra.basis (MulAction.fixedPoints group points) residue).ext
-  intro column
-  ext row
-  simp only [MonoidAlgebra.basis_apply, permutationFixedBasisReduction_coeff,
-    LinearMap.id_apply, MonoidAlgebra.coeff_single, Finsupp.single_apply, Subtype.val_inj]
-  split_ifs <;> simp
 
 theorem permutationFixedBasisReduction_comp {ring residue group source middle target : Type*}
     [CommRing ring] [CommRing residue] [Group group] [Finite group]
@@ -180,76 +132,5 @@ theorem permutationFixedBasisReduction_comp {ring residue group source middle ta
   intro member
   simp only [Finset.mem_filter, Finset.mem_univ, true_and]
 
-theorem permutationFixedBasisReduction_idempotent {ring residue group points : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [Finite group]
-    [MulAction group points] [Fintype points]
-    (embedding : ring →+* residue) (prime : ℕ) [Fact prime.Prime] [CharP residue prime]
-    (hgroup : IsPGroup prime group) (projection : Module.End ring (MonoidAlgebra ring points))
-    (hequivariant : permutationMapEquivariant (group := group) projection)
-    (hidempotent : IsIdempotentElem projection) :
-    IsIdempotentElem (permutationFixedBasisReduction (group := group) embedding projection) := by
-  apply isIdempotentElem_iff.mpr
-  change (permutationFixedBasisReduction (group := group) embedding projection).comp
-    (permutationFixedBasisReduction (group := group) embedding projection) = _
-  rw [← permutationFixedBasisReduction_comp embedding prime hgroup projection projection
-    hequivariant hequivariant]
-  exact congrArg (permutationFixedBasisReduction (group := group) embedding) hidempotent.eq
-
-theorem permutationFixedBasisReduction_split_relation {ring residue group source target : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [Finite group]
-    [MulAction group source] [MulAction group target] [Fintype source] [Fintype target]
-    (embedding : ring →+* residue) (prime : ℕ) [Fact prime.Prime] [CharP residue prime]
-    (hgroup : IsPGroup prime group)
-    (sourceProjection : Module.End ring (MonoidAlgebra ring source))
-    (targetProjection : Module.End ring (MonoidAlgebra ring target))
-    (operator : MonoidAlgebra ring source →ₗ[ring] MonoidAlgebra ring target)
-    (hsource : permutationMapEquivariant (group := group) sourceProjection)
-    (htarget : permutationMapEquivariant (group := group) targetProjection)
-    (hoperator : permutationMapEquivariant (group := group) operator)
-    (hsplit : operator = targetProjection.comp (operator.comp sourceProjection)) :
-    permutationFixedBasisReduction (group := group) embedding operator =
-      (permutationFixedBasisReduction (group := group) embedding targetProjection).comp
-        ((permutationFixedBasisReduction (group := group) embedding operator).comp
-          (permutationFixedBasisReduction (group := group) embedding sourceProjection)) := by
-  have hfirst := permutationFixedBasisReduction_comp embedding prime hgroup targetProjection
-    (operator.comp sourceProjection) htarget (permutationMapEquivariant_comp operator sourceProjection
-      hoperator hsource)
-  rw [← hsplit, permutationFixedBasisReduction_comp embedding prime hgroup operator sourceProjection
-    hoperator hsource] at hfirst
-  exact hfirst
-
-theorem permutationFixedBasisReduction_maps_range {ring residue group source target : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [Finite group]
-    [MulAction group source] [MulAction group target] [Fintype source] [Fintype target]
-    (embedding : ring →+* residue) (prime : ℕ) [Fact prime.Prime] [CharP residue prime]
-    (hgroup : IsPGroup prime group)
-    (sourceProjection : Module.End ring (MonoidAlgebra ring source))
-    (targetProjection : Module.End ring (MonoidAlgebra ring target))
-    (operator : MonoidAlgebra ring source →ₗ[ring] MonoidAlgebra ring target)
-    (hsource : permutationMapEquivariant (group := group) sourceProjection)
-    (htarget : permutationMapEquivariant (group := group) targetProjection)
-    (hoperator : permutationMapEquivariant (group := group) operator)
-    (hsplit : operator = targetProjection.comp (operator.comp sourceProjection))
-    (value : MonoidAlgebra residue (MulAction.fixedPoints group source)) :
-    permutationFixedBasisReduction (group := group) embedding operator value ∈
-      (permutationFixedBasisReduction (group := group) embedding targetProjection).range := by
-  have hequal := congrArg (fun reduced => reduced value)
-    (permutationFixedBasisReduction_split_relation embedding prime hgroup sourceProjection
-      targetProjection operator hsource htarget hoperator hsplit)
-  exact ⟨(permutationFixedBasisReduction (group := group) embedding operator)
-    ((permutationFixedBasisReduction (group := group) embedding sourceProjection) value), hequal.symm⟩
-
-theorem permutationFixedBasisReduction_identity_on_range {ring residue group points : Type*}
-    [CommRing ring] [CommRing residue] [Group group] [Finite group]
-    [MulAction group points] [Fintype points]
-    (embedding : ring →+* residue) (prime : ℕ) [Fact prime.Prime] [CharP residue prime]
-    (hgroup : IsPGroup prime group) (projection : Module.End ring (MonoidAlgebra ring points))
-    (hequivariant : permutationMapEquivariant (group := group) projection)
-    (hidempotent : IsIdempotentElem projection)
-    (value : (permutationFixedBasisReduction (group := group) embedding projection).range) :
-    permutationFixedBasisReduction (group := group) embedding projection value = value := by
-  exact (LinearMap.IsIdempotentElem.mem_range_iff
-    (permutationFixedBasisReduction_idempotent embedding prime hgroup projection hequivariant hidempotent)).mp
-      value.property
 
 end CFSG.TwoRankLowerBound.Helpers

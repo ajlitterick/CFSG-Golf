@@ -17,15 +17,6 @@ open scoped CFSG.ConvolutionPoints
 
 variable {τ : Tag} {k : Type} [Field k]
 
-theorem comp_convOne' {C D F : Type} [CommRing C] [Bialgebra k C] [CommRing D] [Algebra k D]
-    [CommRing F] [Algebra k F] (z : D →ₐ[k] F) :
-    toConv (z.comp (1 : WithConv (C →ₐ[k] D)).ofConv) = 1 := by
-  rw [← TauCeti.AlgHom.mapValue_apply, map_one]
-
-theorem antipode_comp_mul_self {A F : Type} [CommRing A] [HopfAlgebra k A] [CommRing F]
-    [Algebra k F] (φ : A →ₐ[k] F) :
-    toConv (φ.comp (HopfAlgebra.antipodeAlgHom k A)) * toConv φ = 1 := by
-  rw [toConv_comp_antipodeAlgHom, inv_mul_cancel]
 
 theorem convMul_apply_glEntry {F : Type} [CommRing F] [Algebra k F]
     (u v : WithConv (GLCoord k (Label τ) →ₐ[k] F)) (a b : Label τ) :

@@ -195,10 +195,6 @@ theorem card_twA5Param (hcard : Nat.card F = 64) :
       ((rootsOfUnity 3 F).prod ((rootsOfUnity 3 F).prod (rootsOfUnity 3 F)))).toEquiv,
     Nat.card_prod, h9, h333]
 
-theorem card_range_twA5Hom (hcard : Nat.card F = 64) :
-    Nat.card (twA5Hom h).range = 243 := by
-  rw [← Nat.card_congr (MonoidHom.ofInjective (twA5Hom_injective h)).toEquiv]
-  exact card_twA5Param (F := F) hcard
 
 end TwA5Eight
 

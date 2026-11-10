@@ -67,14 +67,6 @@ deriving DecidableEq
   if A.all st.2.contains then some ⟨st.1, sortSet st.2⟩ else none
 
 
-@[expose] def bGens (T : KTab) : List Nat :=
-  ((List.range T.nb).foldl (fun (st : List Nat × HashSet Nat) i =>
-    if st.2.contains (i * 64) then st else (st.1 ++ [i * 64], mulCl T (st.1 ++ [i * 64])))
-    ([], mulCl T [])).1
-
-@[expose] def kgensOf (T : KTab) : List Nat :=
-  [1, 2, 4, 8, 16, 32].map (fun c => T.idB * 64 + c) ++ bGens T
-
 @[expose] def twoElems (T : KTab) : List Nat := (klist T).filter (isTwoN T)
 
 @[expose] def cheapBad (T : KTab) (kgens : List Nat) (x : Nat) : Bool :=
@@ -83,13 +75,6 @@ deriving DecidableEq
 @[expose] def poolElems (T : KTab) (kgens : List Nat) : List Nat :=
   (twoElems T).filter fun x => !cheapBad T kgens x
 
-@[expose] def pcList (T : KTab) (kgens : List Nat) : List (Nat × Node) :=
-  (poolElems T kgens).filterMap fun x => (normClosure T kgens [x]).bind fun N =>
-    if N.elems.all (isTwoN T) then some (x, N) else none
-
-@[expose] def distinctNodes (l : List Node) : List Node :=
-  (l.foldl (fun (st : List Node × HashSet (List Nat)) N =>
-    if st.2.contains N.elems then st else (N :: st.1, st.2.insert N.elems)) ([], ∅)).1.reverse
 
 @[expose] def subsetL (a b : List Nat) : Bool :=
   let S : HashSet Nat := b.foldl (fun s x => s.insert x) ∅
@@ -110,21 +95,6 @@ deriving DecidableEq
 @[expose] def joinNode (T : KTab) (kgens : List Nat) (N P : Node) : Option Node :=
   normClosure T kgens (N.gens ++ P.gens)
 
-@[expose] def latticeRound (T : KTab) (kgens : List Nat) (PCs : List Node) (nodes : List Node) :
-    List Node :=
-  let known : HashSet (List Nat) := nodes.foldl (fun s N => s.insert N.elems) ∅
-  let new := nodes.flatMap fun N => PCs.filterMap fun P =>
-    if subsetL P.elems N.elems then none else
-      (joinNode T kgens N P).bind fun J =>
-        if J.elems.all (isTwoN T) && !known.contains J.elems then some J else none
-  nodes ++ distinctNodes new
-
-@[expose] def latticeNodes (T : KTab) (kgens : List Nat) (PCs : List Node) : Nat → List Node
-  | 0 => [botNode T]
-  | n + 1 =>
-    let l := latticeNodes T kgens PCs n
-    let l' := latticeRound T kgens PCs l
-    if l'.length == l.length then l else l'
 
 @[expose] def latticeOK (T : KTab) (kgens : List Nat) (PCs nodes : List Node) : Bool :=
   nodes.any (· == botNode T) &&

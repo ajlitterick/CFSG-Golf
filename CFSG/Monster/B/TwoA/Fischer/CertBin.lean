@@ -58,19 +58,6 @@ theorem toVecD_dotProduct : ∀ (d a b : ℕ),
   | a :: b :: l => decide (a < b) && strictSorted (b :: l)
   | _ => true
 
-theorem pairwise_of_strictSorted : ∀ {l : List ℕ}, strictSorted l = true → l.Pairwise (· < ·)
-  | [], _ => List.Pairwise.nil
-  | [_], _ => List.pairwise_singleton _ _
-  | a :: b :: l, h => by
-    rw [strictSorted, Bool.and_eq_true, decide_eq_true_iff] at h
-    have ih := pairwise_of_strictSorted h.2
-    refine List.Pairwise.cons (fun c hc => ?_) ih
-    rcases List.mem_cons.1 hc with rfl | hc
-    · exact h.1
-    · exact lt_trans h.1 (List.rel_of_pairwise_cons ih hc)
-
-theorem nodup_of_strictSorted {l : List ℕ} (h : strictSorted l = true) : l.Nodup :=
-  (pairwise_of_strictSorted h).nodup
 
 theorem sum_map_range (f : ℕ → ℕ) :
     ∀ n, ((List.range n).map f).sum = ∑ i ∈ Finset.range n, f i
@@ -111,8 +98,6 @@ theorem finrank_listSpan {d : ℕ} {vs : List ℕ} {r : ℕ} (h : spanRankIs d v
   obtain ⟨hinv, -⟩ := elimTable_spec hvs hT
   rw [← entrySpan_elimTable hvs hT, finrank_entrySpan hinv.entry, card_filter_tableRank, hr]
 
-theorem mem_listSpan {d : ℕ} {vs : List ℕ} {v : ℕ} (hv : v ∈ vs) : toVecD d v ∈ listSpan d vs :=
-  Submodule.subset_span ⟨v, hv, rfl⟩
 
 theorem dotProduct_listSpan {d : ℕ} {vs : List ℕ} {y : Fin d → ZMod 2}
     (h : ∀ v ∈ vs, toVecD d v ⬝ᵥ y = 0) : ∀ w ∈ listSpan d vs, w ⬝ᵥ y = 0 := by
@@ -197,19 +182,6 @@ theorem rank_eq_finrank_listSpan {m : Type*} [Fintype m] {d : ℕ}
     Matrix (ι × Fin d) (Fin d) (ZMod 2) :=
   Matrix.of fun p => (M p.1 - 1) p.2
 
-theorem mem_ker_stackSubOne {ι : Type*} [Fintype ι] {d : ℕ}
-    (M : ι → Matrix (Fin d) (Fin d) (ZMod 2)) (v : Fin d → ZMod 2) :
-    v ∈ LinearMap.ker (stackSubOne M).mulVecLin ↔ ∀ k, M k *ᵥ v = v := by
-  rw [LinearMap.mem_ker, Matrix.mulVecLin_apply]
-  constructor
-  · intro h k
-    have hk : (M k - 1) *ᵥ v = 0 := funext fun i => congrFun h (k, i)
-    rwa [Matrix.sub_mulVec, Matrix.one_mulVec, sub_eq_zero] at hk
-  · intro h
-    funext p
-    have hk : (M p.1 - 1) *ᵥ v = 0 := by
-      rw [Matrix.sub_mulVec, Matrix.one_mulVec, h p.1, sub_self]
-    exact congrFun hk p.2
 
 theorem transpose_sub_one_row (d : ℕ) (C : Array ℕ) (i : Fin d) :
     ((rowsMatrix d C)ᵀ - 1) i = toVecD d ((transposeRows d C)[(i : ℕ)]! ^^^ (1 <<< (i : ℕ))) := by

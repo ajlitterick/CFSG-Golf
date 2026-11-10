@@ -38,8 +38,6 @@ theorem mem_translationGroup {g : V ≃ᵃ[ZMod 2] V} :
     g ∈ translationGroup V ↔ ∃ w : V, AffineEquiv.constVAdd (ZMod 2) V w = g :=
   ⟨fun ⟨w, hw⟩ => ⟨w.toAdd, hw⟩, fun ⟨w, hw⟩ => ⟨Multiplicative.ofAdd w, hw⟩⟩
 
-theorem mem_zeroFixing {g : V ≃ᵃ[ZMod 2] V} : g ∈ zeroFixing V ↔ g 0 = 0 :=
-  Iff.rfl
 
 theorem apply_eq_linear_add (g : V ≃ᵃ[ZMod 2] V) (v : V) : g v = g.linear v + g 0 := by
   have h := g.map_vadd 0 v

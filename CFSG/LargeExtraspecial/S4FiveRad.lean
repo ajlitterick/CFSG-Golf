@@ -88,8 +88,6 @@ theorem LmodN_le_spPointRadical :
     rw [hea] at h1
     rw [map_sub, h1, sub_self]
 
-theorem aV_mem_perp : (aV ht : S.Qt) ∈ S.clSub (S.QG ⊓ S.Qa g) :=
-  (beta_aV_eq_zero_iff H H11 ht ht1 hVQ _).mp (beta_isAlt H H11 ht ht1 hVQ _)
 
 theorem card_LmodN_ge :
     2 ^ (finrank (ZMod 2) (Vt S g t) - 2) ≤ Nat.card (LmodN S g t) := by

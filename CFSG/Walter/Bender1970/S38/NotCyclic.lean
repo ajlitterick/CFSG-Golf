@@ -319,14 +319,5 @@ theorem bender1970_3_8_not_isCyclic
   calc n * t * n⁻¹ = t * n * n⁻¹ := by rw [hnH]
     _ = t := by group
 
-theorem bender1970_3_8_not_isCyclic_of_isComponentOf_layer
-    (hG : BenderCounterexample G)
-    {t : G} (ht : orderOf t = 2) {H : Subgroup G} (hH : H ∈ benderM t) (T : Sylow 2 G)
-    (htT : t ∈ (T : Subgroup G)) {K : Subgroup G} (hK : IsComponentOf K (componentLayerOf H))
-    (hFstar : ∀ s : G, orderOf s = 2 → ∀ M ∈ benderM s, s ∈ generalizedFittingSubgroupOf M) :
-    ¬ IsCyclic ((T : Subgroup G) ⊓ Subgroup.centralizer (K : Set G) : Subgroup G) :=
-  bender1970_3_8_not_isCyclic hG ht hH T htT (isComponentOf_of_isSubnormal
-    (componentLayerOf_isNormalIn H).1
-    (isSubnormal_subgroupOf_of_isNormalIn (componentLayerOf_isNormalIn H)) hK) hFstar
 
 end CFSG.Walter

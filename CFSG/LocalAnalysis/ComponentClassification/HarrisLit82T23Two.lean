@@ -15,57 +15,6 @@ namespace L35.Config
 
 variable {G : Type} [Group G] [Finite G] {p : ℕ} {w v : G} {L K : Subgroup G}
 
-theorem false_of_lieModel_char (hGA : TBLit.GriessMultipliersAllModels) (h : Config G p w v L K)
-    {t : StatedLieTag} {n f : ℕ} (hL : Blueprint.LieModel (↥K ⧸ Open.fusionZStar ↥K) t n p f) :
-    False := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨eZ⟩ := h.nonempty_bar_equiv
-  obtain ⟨n', k', hn', -, hm, hne⟩ := h.exists_partialCover hL
-  rcases (by omega : n' = 1 ∨ 2 ≤ n') with rfl | hn2
-  · rw [mul_one] at hm
-    rcases hm with hm | hm
-    ·
-      apply hne
-      have hm' := GH74.Generic.models_of_blueprint_of_ne_zero (by norm_num) hm
-      have hcardM := GH74.Generic.card_hopfMultiplier_of_griess hGA hm'
-      rw [← Nat.card_congr (RankThree.PerfectCover.hopfMultiplierEquivGriess _).toEquiv] at hcardM
-      have hexc := L35.odd_exceptionalOrders_psl_two (f := k') h.ne_two
-      have hgcd : Nat.gcd 2 (p ^ k' - 1) = 2 := by
-        obtain ⟨i, hi⟩ : Odd (p ^ k') := (h.prime.odd_of_ne_two h.ne_two).pow
-        rw [hi, Nat.add_sub_cancel]
-        exact Nat.gcd_eq_left ⟨i, rfl⟩
-      have hgen : (Blueprint.Multiplier.genericOrders .PSL 2 p k').1 = 2 := by
-        simpa [Blueprint.Multiplier.genericOrders] using hgcd
-      have hgen2 : (Blueprint.Multiplier.genericOrders .PSL 2 p k').2 = 1 := by
-        simp [Blueprint.Multiplier.genericOrders]
-      rw [hgen, hgen2, mul_one] at hcardM
-      have hfM : (Nat.card (Open.griessHopfMultiplier (↥K ⧸ Open.fusionZStar ↥K))).factorization
-          2 = 1 := by
-        rw [hcardM, factorization_two_mul_odd two_ne_zero hexc]
-        exact Nat.Prime.factorization_self Nat.prime_two
-      have hM0 : Nat.card (Open.griessHopfMultiplier (↥K ⧸ Open.fusionZStar ↥K)) ≠ 0 := by
-        rw [hcardM]
-        exact Nat.mul_ne_zero two_ne_zero hexc.pos.ne'
-      have hz0 : Nat.card ↥(center (↥K ⧸ pPrimeCore 2 ↥K)) ≠ 0 := Nat.card_pos.ne'
-      have hzdvd : Nat.card ↥(center (↥K ⧸ pPrimeCore 2 ↥K)) ∣
-          Nat.card (Open.griessHopfMultiplier (↥K ⧸ Open.fusionZStar ↥K)) := by
-        rw [Nat.card_congr (LieType.Steinberg.CentralExt.griessHopfMultiplierCongr eZ).toEquiv]
-        exact Center47.card_center_dvd_card_griessHopfMultiplier h.quasisimple_quot
-      have hle : (Nat.card ↥(center (↥K ⧸ pPrimeCore 2 ↥K))).factorization 2 ≤ 1 := by
-        rw [← hfM]
-        exact (Nat.factorization_le_iff_dvd hz0 hM0).mpr hzdvd 2
-      have hge : 0 < (Nat.card ↥(center (↥K ⧸ pPrimeCore 2 ↥K))).factorization 2 :=
-        Nat.Prime.factorization_pos_of_dvd Nat.prime_two hz0
-          (even_iff_two_dvd.mp h.even_card_center)
-      rw [hfM]
-      congr 1
-      omega
-    ·
-      exact absurd (N36.admissible_of_lieModel' hm).2.2.1 (by norm_num)
-  · obtain ⟨rfl, -⟩ := h.four_of_partialCover hn2 hm
-    rcases hm with hm | hm
-    · exact h.false_of_psl4 hGA hm hne
-    · exact h.false_of_psu4 hGA hm hne
 
 theorem quotAut_tau_eq_one (h : Config G p w v L K)
     (hc : ∀ k : ↥K, k⁻¹ * h.beta k ∈ pPrimeCore 2 ↥K) : quotAut h.tau = 1 := by

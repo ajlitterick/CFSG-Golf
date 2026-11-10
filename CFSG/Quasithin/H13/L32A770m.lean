@@ -370,44 +370,6 @@ theorem card_T_ge (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63
   calc 2 ^ 11 = 8 * 2 ^ 8 := by norm_num
     _ ≤ 8 * Nat.card ↥(pCoreOf 2 (hz T V)) := Nat.mul_le_mul_left _ hQ
 
-theorem exists_normal (hedge : GoldschmidtEdgeBoundSubgroups.{0}) (h : Hyp147 G T L V)
-    (hMod : StmtL32NModule) (h63 : Thm14_7_63) (hF : HypF98 T V L (fsuV1 T V) V (hz T V))
-    (h1222 : Stmt12_2_2) (h1332 : Stmt13_3_2) (h1334 : A6.Stmt13_3_4)
-    (h13314 : A6.Stmt13_3_14) (h68 : Lemma14_7_68) (h69 : Lemma14_7_69)
-    (h2 : (pCoreOf 2 (hz T V)).relIndex (conjSub (k : G) (F8.Uγ V (hz T V) (g : G)) ⊔
-      pCoreOf 2 (hz T V)) = 2) (h8 : Nat.card ↥(u0 T V) = 8)
-    (hTE : T ≤ Subgroup.normalizer
-      ((fsuV1 T V ⊔ conjSub ((k : G) * g) (fsuV1 T V) : Subgroup G) : Set G)) :
-    ∃ N₀ : Subgroup G, N₀ ≠ ⊥ ∧ N₀ ≤ T ∧
-      (L₁Of L (fsuV1 T V) ⊔ T) ⊔ Subgroup.normalizer
-        ((fsuV1 T V ⊔ conjSub ((k : G) * g) (fsuV1 T V) : Subgroup G) : Set G) ≤
-          Subgroup.normalizer (N₀ : Set G) ∧
-      N₀ ≤ Subgroup.centralizer (conjSub ((k : G) * g) (fsuV1 T V) : Set G) ∧
-      N₀ ≤ Subgroup.centralizer (V : Set G) := by
-  set E := fsuV1 T V ⊔ conjSub ((k : G) * g) (fsuV1 T V) with hE
-  set X := Subgroup.normalizer (E : Set G) with hX
-  have hNHE := N.normalizer_inf_eq h hMod h63 hF h1222 h1332 h1334 h68 h2 hTE
-  have hC : (L₁Of L (fsuV1 T V) ⊔ T) ⊓ X = T := by
-    refine le_antisymm ?_ (le_inf le_sup_right hTE)
-    exact (inf_le_inf_right _ hF.L₁T_le_H).trans hNHE.le
-  have hcard : 2 ^ 7 < Nat.card ↥T := by
-    have := N.card_T_ge h hMod h63 hF h1222 h1332 h1334 h13314 h68 h2 h8
-    omega
-  obtain ⟨N₀, hN₀1, hN₀T, hN₀N⟩ := exists_normal_of_edgeBound hedge hC
-    (relIndex_T_L1T h hMod h63 hF h1222 h1332 h1334)
-    (N.relIndex_T_X h hMod h63 hF h1222 h1332 h1334 h13314 h68 h69 h2 hTE) hcard
-  have hQαX := N.Qα_le_normalizer_E h hMod h63 hF h1222 h1332 h1334 h69 h2
-  have hcZ := N.comm_zα_of_normal h hMod h63 hF h1222 h1332 h1334 h13314 h68 h69 h2 hTE hN₀T
-    (hQαX.trans (le_sup_right.trans hN₀N))
-  refine ⟨N₀, hN₀1, hN₀T, hN₀N, hcZ, ?_⟩
-  obtain ⟨zα, hzα, hzα1, -⟩ := exists_gen_of_card_two (card_zα (g := g) (k := k) hF)
-  obtain ⟨s, hsW, hsQ, -⟩ := N.exists_mem_not_mem h hMod hF h2
-  have hzαVU : zα ∈ V ⊔ u0 T V := by
-    rw [← N.sup_u0 h hMod h63 hF h1222 h1332 h1334 hsW hsQ]
-    exact Subgroup.mem_sup_left (N.zα_le h hMod h63 hF h1222 h1332 h1334 h2 hzα)
-  exact le_centralizer_V h hMod hF h1222 h1332 h1334 (hN₀T.trans hF.T_le_H)
-    (le_sup_left.trans hN₀N) hzαVU (N.gen_not_mem_u0 h hF h68 hzα hzα1)
-    fun p hp => (Subgroup.mem_centralizer_iff.mp (hcZ hp) zα hzα).symm
 
 end Not1471
 

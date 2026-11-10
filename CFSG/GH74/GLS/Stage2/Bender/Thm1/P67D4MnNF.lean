@@ -140,8 +140,5 @@ theorem d4MinusNF : D4MinusNF := by
     charP_of_injective_algebraMap (algebraMap K (AlgebraicClosure K)).injective p
   exact d4Minus_nf_aux hp hp2 hf hq K hK σ hσ (AlgebraicClosure K) g hg
 
-theorem d4OuterThreeMinus_of_leaves (hA2 : D4OuterThreeA2Minus) (hEll : D4OuterThreeEllMinus) :
-    D4OuterThreeMinus :=
-  d4Minus_of_stages d4MinusNF hA2 hEll
 
 end CFSG.GH74.GLS.Stage2.Bender.Thm1

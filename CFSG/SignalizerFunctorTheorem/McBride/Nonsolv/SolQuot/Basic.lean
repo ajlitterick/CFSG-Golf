@@ -105,10 +105,6 @@ theorem qimg_biSup {ι : Type*} {s : Set ι} {S : ι → Subgroup Γ} (hS : ∀ 
   rw [qimg_iSup h1]
   exact iSup_congr fun i => qimg_iSup (ι := i ∈ s) (S := fun _ => S i) fun hi => hS i hi
 
-theorem qimg_sSup {S : Set (Subgroup Γ)} (hS : ∀ M ∈ S, M ≤ nrm R) :
-    qimg R (sSup S) = sSup (qimg R '' S) := by
-  rw [sSup_eq_iSup, sSup_image]
-  exact qimg_biSup hS
 
 theorem qimg_sup {S T : Subgroup Γ} (hS : S ≤ nrm R) (hT : T ≤ nrm R) :
     qimg R (S ⊔ T) = qimg R S ⊔ qimg R T :=

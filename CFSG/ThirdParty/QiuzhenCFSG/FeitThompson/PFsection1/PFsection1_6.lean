@@ -1335,36 +1335,5 @@ public theorem proposition_1_6_b_classFunction
       intro g
       exact quotientInducedCF_mk H A hAH thetaRep hkerRep g)
 
-public theorem proposition_1_6_b
-    {G V : Type*} [Group G] [Finite G]
-    [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
-    (H A : Subgroup G) [Finite H] [H.Normal] [A.Normal] (hAH : A ≤ H)
-    (thetaRep : Representation ℂ H V)
-    (htheta_irreducible : Representation.IsIrreducible thetaRep)
-    (hthetaKernel : subgroupInKernel' thetaRep.character (A.subgroupOf H)) :
-    (quotientInducedRepresentation H A hAH thetaRep hthetaKernel).character =
-      (Representation.ind (quotientImageSubgroup H A).subtype
-        (quotientThetaRepresentation H A thetaRep
-          ((subgroupInKernel'_character_iff_subgroupInRepresentationKernel
-            thetaRep (A.subgroupOf H)).mp hthetaKernel))).character := by
-  classical
-  have _hthetaIrr : Representation.IsIrreducible thetaRep := htheta_irreducible
-  have hkerRep :
-      subgroupInRepresentationKernel thetaRep (A.subgroupOf H) :=
-    (subgroupInKernel'_character_iff_subgroupInRepresentationKernel
-      thetaRep (A.subgroupOf H)).mp hthetaKernel
-  calc
-    (quotientInducedRepresentation H A hAH thetaRep hthetaKernel).character =
-        quotientInducedCF H A thetaRep.character := by
-          exact quotientInducedRepresentation_character H A hAH thetaRep hthetaKernel
-    _ = inducedCF (quotientImageSubgroup H A) (quotientThetaCharacter H A thetaRep) := by
-          exact proposition_1_6_b_classFunction H A hAH thetaRep hthetaKernel
-    _ =
-        (Representation.ind (quotientImageSubgroup H A).subtype
-          (quotientThetaRepresentation H A thetaRep hkerRep)).character := by
-          rw [← quotientThetaRepresentation_character H A thetaRep hkerRep]
-          exact inducedCF_eq_representation_character_pf15
-            (quotientImageSubgroup H A)
-            (quotientThetaRepresentation H A thetaRep hkerRep)
 
 end CFSG.Section1

@@ -115,51 +115,5 @@ open Module
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-theorem ggCartan_functionals_vanish_of_moving_coroots_mem_axis
-    {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
-    {Λ : Type} [Fintype Λ] {M : CoxeterMatrix Λ}
-    (hM : GGIsWeylMatrix M) {C : Matrix Λ Λ ℤ} (hC : GGIntCartan M C)
-    (h3 : 3 ≤ Fintype.card Λ)
-    {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    (h : Λ → V) (α : Λ → Module.Dual (ZMod p) V) (x : V)
-    (hpair : ∀ i j, α i (h j) = (C i j : ZMod p))
-    (hfixed : ∃ i, α i x = 0)
-    (haxis : ∀ i, α i x ≠ 0 → h i ∈ Submodule.span (ZMod p) {x}) :
-    ∀ i, α i x = 0 := by
-  classical
-  intro i
-  by_contra hi
-  let S : Set Λ := {j | α j x ≠ 0}
-  have hS : S = Set.univ := ggCartan_closed_eq_univ hp2 hM hC h3
-    (Set.nonempty_of_mem hi) (by
-      intro k hk j hjk
-      change α j x ≠ 0
-      intro hj
-      obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp (haxis k hk)
-      apply hjk
-      rw [← hpair, ← hc, map_smul, hj, smul_zero])
-  obtain ⟨j, hj⟩ := hfixed
-  have hjS : j ∈ S := by rw [hS]; trivial
-  exact hjS hj
-
-theorem ggCartan_exists_moving_coroot_outside_axis
-    {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2)
-    {Λ : Type} [Fintype Λ] {M : CoxeterMatrix Λ}
-    (hM : GGIsWeylMatrix M) {C : Matrix Λ Λ ℤ} (hC : GGIntCartan M C)
-    (h3 : 3 ≤ Fintype.card Λ)
-    {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    (h : Λ → V) (α : Λ → Module.Dual (ZMod p) V) (x : V)
-    (hpair : ∀ i j, α i (h j) = (C i j : ZMod p))
-    (hfixed : ∃ i, α i x = 0) (hmoving : ∃ i, α i x ≠ 0) :
-    ∃ i, α i x ≠ 0 ∧ h i ∉ Submodule.span (ZMod p) {x} := by
-  classical
-  by_contra hnone
-  have haxis : ∀ i, α i x ≠ 0 → h i ∈ Submodule.span (ZMod p) {x} := by
-    intro i hi
-    by_contra hout
-    exact hnone ⟨i, hi, hout⟩
-  obtain ⟨i, hi⟩ := hmoving
-  exact hi (ggCartan_functionals_vanish_of_moving_coroots_mem_axis
-    hp2 hM hC h3 h α x hpair hfixed haxis i)
 
 end CFSG.StandardType

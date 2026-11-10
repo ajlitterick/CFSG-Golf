@@ -22,20 +22,6 @@ structure FERootList (n L : ℕ) (R : Fin L → FEVec n) : Prop where
     ∃ (i : Fin n) (j : Fin L), j.val < k.val ∧
       R j = (feS n i).mulVec (R k)
 
-private theorem glueIdentWRootsAux_feCol_entry {n : ℕ} (p i : Fin n) :
-    feCol n i p = (if p = i then 1 else 0) - feS n i p i := by
-  have hrow : feRow n i i = 1 := by
-    have h := feRow_dot n i (Pi.single i 1)
-    simpa using h
-  rw [feS_eq]
-  simp only [Matrix.sub_apply, Matrix.one_apply, Matrix.vecMulVec_apply]
-  rw [hrow]
-  ring
-
-private theorem glueIdentWRootsAux_feCol_eq {n : ℕ} (i : Fin n) :
-    feCol n i = fun p => (if p = i then 1 else 0) - feS n i p i := by
-  funext p
-  exact glueIdentWRootsAux_feCol_entry p i
 
 namespace FERootList
 

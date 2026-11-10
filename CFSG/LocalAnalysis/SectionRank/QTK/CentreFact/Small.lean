@@ -52,33 +52,6 @@ namespace CFSG.SectionRank.QTK.CentreFact
 
 open Subgroup CFSG.Open
 
-theorem small_oddBound_of_pRank_top {S : Type} [Group S] [Finite S] {r : ℕ} (hr : 1 < r)
-    (h : CFSG.Open.pRank r (⊤ : Subgroup S) ≤ 2) : OddBound r S :=
-  fun _ _ _ => (CFSG.SectionRank.pRank_mono hr le_top).trans h
-
-theorem small_oddBound_of_mulEquiv {S T : Type} [Group S] [Group T] [Finite S] [Finite T] {r : ℕ}
-    (hr : 1 < r) (e : S ≃* T) (h : OddBound r T) : OddBound r S := by
-  intro R hR hR2
-  have hR' : R.map e.toMonoidHom ≠ ⊥ := fun hb =>
-    hR ((Subgroup.map_eq_bot_iff_of_injective _ e.injective).mp hb)
-  calc CFSG.Open.pRank r (normalizer (R : Set S))
-      ≤ CFSG.Open.pRank r ((normalizer (R : Set S)).map e.toMonoidHom) :=
-        CFSG.SectionRank.pRank_le_map hr e.toMonoidHom e.injective _
-    _ ≤ CFSG.Open.pRank r (normalizer ((R.map e.toMonoidHom : Subgroup T) : Set T)) :=
-        CFSG.SectionRank.pRank_mono hr (Subgroup.le_normalizer_map _)
-    _ ≤ 2 := h _ hR' (hR2.map _)
-
-theorem small_oddBound_of_localRank {S : Type} [Group S] [Finite S] {r : ℕ} (hr : 1 < r)
-    (h : CFSG.Assembly.RankThreeEven.localRank r S ≤ 2) : OddBound r S := by
-  intro R hR hR2
-  refine le_trans ?_ h
-  refine le_csSup ⟨Nat.card S, fun k hk => ?_⟩ ⟨_, ⟨R, hR, hR2, rfl⟩, rfl⟩
-  obtain ⟨H, -, rfl⟩ := hk
-  refine csSup_le' fun j hj => ?_
-  obtain ⟨F, -, -, hF⟩ := hj
-  have h1 : j < r ^ j := Nat.lt_pow_self hr
-  have h2 : Nat.card F ≤ Nat.card S := Subgroup.card_le_card_group F
-  omega
 
 theorem small_pRank_top_le_two_of_not_dvd {S : Type} [Group S] [Finite S] {r : ℕ} (hr : r.Prime)
     (h : ¬ r ^ 3 ∣ Nat.card S) : CFSG.Open.pRank r (⊤ : Subgroup S) ≤ 2 := by
@@ -98,33 +71,6 @@ theorem small_pRank_top_le_two_of_not_dvd {S : Type} [Group S] [Finite S] {r : �
     omega)
   exact h (h3.trans (hk ▸ Subgroup.card_subgroup_dvd_card E))
 
-theorem small_oddBound_of_not_dvd {S : Type} [Group S] [Finite S] {r : ℕ} (hr : r.Prime)
-    (h : ¬ r ^ 3 ∣ Nat.card S) : OddBound r S :=
-  small_oddBound_of_pRank_top hr.one_lt (small_pRank_top_le_two_of_not_dvd hr h)
-
-theorem oddBound_of_alternating {S : Type} [Group S] [Finite S] {n : ℕ} (hn : n ≤ 8)
-    (e : S ≃* alternatingGroup (Fin n)) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) : OddBound r S :=
-  small_oddBound_of_mulEquiv hr.one_lt e
-    (small_oddBound_of_pRank_top hr.one_lt (CFSG.SectionRank.pRank_alternating_le_two hn hr hr2))
-
-theorem oddBound_of_psl_two_nine {S : Type} [Group S] [Finite S]
-    (h : StatedClassicalModel S .PSL 2 3 2) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    OddBound r S := by
-  obtain ⟨e⟩ := CFSG.Open.StatedAPI.nonempty_mulEquiv_alternating_six_of_psl_two_nine h
-  exact oddBound_of_alternating (by norm_num) e hr hr2
-
-theorem oddBound_of_alternating_nine_of_ne_three {S : Type} [Group S] [Finite S]
-    (e : S ≃* alternatingGroup (Fin 9)) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) (hr3 : r ≠ 3) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, Nat.card_eq_fintype_card, card_alternatingGroup, Fintype.card_fin]
-  intro hd
-  have h2 : r ^ 2 ∣ 2 ^ 6 * 3 ^ 4 * 35 := by
-    rw [show 2 ^ 6 * 3 ^ 4 * 35 = Nat.factorial 9 / 2 by decide]
-    exact (pow_dvd_pow r (by norm_num : 2 ≤ 3)).trans hd
-  exact CFSG.SectionRank.not_sq_dvd_of_not_sq_dvd_cofactor hr hr2 hr3
-    (CFSG.SectionRank.not_sq_dvd_of_bound (B := 6) (by norm_num) (by norm_num) (by decide) hr hr2
-      hr3) h2
 
 section ThreeRank
 
@@ -191,80 +137,11 @@ theorem small_pRank_three_statedSL_le_two {K : Type} [Field K] [Finite K] {p f :
 
 end ThreeRank
 
-theorem oddBound_three_of_psl_three {S : Type} [Group S] [Finite S] {p f : ℕ}
-    (h : StatedClassicalModel S .PSL 3 p f) (h3 : 3 ∣ p ^ f - 1) : OddBound 3 S := by
-  obtain ⟨⟨hp, hf, -⟩, K, _, _, hK, ⟨e⟩⟩ := h
-  exact small_oddBound_of_mulEquiv (by norm_num) e
-    (small_oddBound_of_pRank_top (by norm_num) (small_pRank_three_statedSL_le_two hp hf hK h3))
-
-theorem oddBound_three_of_psu_three {S : Type} [Group S] [Finite S] {p f : ℕ}
-    (h : StatedClassicalModel S .PSU 3 p f) (h3 : 3 ∣ p ^ f + 1) : OddBound 3 S := by
-  obtain ⟨⟨hp, hf, -⟩, K, _, _, hK, ⟨e⟩⟩ := h
-  have hU : CFSG.LocalAnalysis.ComponentInitial.UnitaryFieldData p f K :=
-    ⟨hp, hf, by rw [hK, ← pow_mul, mul_comm]⟩
-  exact small_oddBound_of_mulEquiv (by norm_num) e
-    (small_oddBound_of_pRank_top (by norm_num)
-      (CFSG.LieType.SeitzGeneration.pRank_three_projSU_three_le hU h3))
-
-theorem oddBound_of_psl_three {S : Type} [Group S] [Finite S] {p f : ℕ}
-    (h : StatedClassicalModel S .PSL 3 p f) {r : ℕ} (hr : r.Prime) (hr3 : r ∣ 3)
-    (hrq : r ∣ p ^ f - 1) : OddBound r S := by
-  obtain rfl : r = 3 := (Nat.prime_dvd_prime_iff_eq hr Nat.prime_three).1 hr3
-  exact oddBound_three_of_psl_three h hrq
-
-theorem oddBound_of_psu_three {S : Type} [Group S] [Finite S] {p f : ℕ}
-    (h : StatedClassicalModel S .PSU 3 p f) {r : ℕ} (hr : r.Prime) (hr3 : r ∣ 3)
-    (hrq : r ∣ p ^ f + 1) : OddBound r S := by
-  obtain rfl : r = 3 := (Nat.prime_dvd_prime_iff_eq hr Nat.prime_three).1 hr3
-  exact oddBound_three_of_psu_three h hrq
 
 section Sporadic
 
 open CFSG.Blueprint
 
-theorem small_not_pow_three_dvd {n : ℕ}
-    (hn : n = 7920 ∨ n = 443520 ∨ n = 10200960 ∨ n = 175560) {r : ℕ} (hr : r.Prime)
-    (hr2 : r ≠ 2) : ¬ r ^ 3 ∣ n := by
-  obtain ⟨h3, hr'⟩ := CFSG.SectionRank.small_sporadic_order_conditions hn
-  by_cases hr3 : r = 3
-  · subst hr3
-    exact h3
-  · exact fun hd => hr' r hr hr2 hr3 ((pow_dvd_pow r (by norm_num : 2 ≤ 3)).trans hd)
-
-theorem oddBound_of_M11 {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .M11) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, show Nat.card (NativeSporadic.Carrier .M11) = 7920 from
-    CFSG.Sporadic.Mathieu.card_M11]
-  exact small_not_pow_three_dvd (Or.inl rfl) hr hr2
-
-theorem oddBound_of_M22 {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .M22) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, show Nat.card (NativeSporadic.Carrier .M22) = 443520 from
-    CFSG.Sporadic.Mathieu.card_M22]
-  exact small_not_pow_three_dvd (Or.inr (Or.inl rfl)) hr hr2
-
-theorem oddBound_of_M23
-    {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .M23) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, show Nat.card (NativeSporadic.Carrier .M23) = 10200960 from by
-    change Nat.card NativeSporadic.M23 = _
-    rw [CFSG.Sporadic.Mathieu.nativeM23_eq, Nat.card_eq_fintype_card]
-    exact CFSG.M23.M23Group.card_M23]
-  exact small_not_pow_three_dvd (Or.inr (Or.inr (Or.inl rfl))) hr hr2
-
-theorem oddBound_of_J1 {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .J1) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, show Nat.card (NativeSporadic.Carrier .J1) = 175560 from
-    CFSG.Sporadic.J1.card_J1]
-  exact small_not_pow_three_dvd (Or.inr (Or.inr (Or.inr rfl))) hr hr2
 
 end Sporadic
 

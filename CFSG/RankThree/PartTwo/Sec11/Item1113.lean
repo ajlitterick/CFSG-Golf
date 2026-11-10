@@ -150,14 +150,6 @@ theorem mem_thetaComponentsIn_sec11K_inf {A : Subgroup G} {c : G} {L : Subgroup 
       (QuotientGroup.congr _ _ e (CFSG.RankThree.aschbacherSolvableCore_map_mulEquiv
         Nat.prime_three e)).symm (isQuasisimple_sec11K_quotient haN ha3 hQ hZ)
 
-@[expose] def FieldCentRigid : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Y K : Subgroup G) (c t : G),
-    KFacts.InducesStdKind Y c .field → c ^ 3 = 1 →
-    K ∈ thetaComponentsIn (Y ⊓ Subgroup.centralizer ({c} : Set G)) →
-    IsType424 (K ⧸ aschbacherSolvableCore 3 K) →
-    t ∈ Subgroup.normalizer (Y : Set G) → (∃ k : ℕ, t ^ 3 ^ k = 1) → t * c = c * t →
-    (∀ k ∈ K, t * k * t⁻¹ * k⁻¹ ∈ inSubgroup (aschbacherSolvableCore 3) K) →
-      ∃ i : ℕ, t * c ^ i ∈ Sec4.thetaQuotCentralizer Y
 
 theorem eq_one_of_mem_zpowers_s {A : Subgroup G} {c : G} {L : Subgroup G} {a : G}
     {R Y : Subgroup G} {d x s r g : G} (h : Sec11Data G A c L a R Y d x s r g)

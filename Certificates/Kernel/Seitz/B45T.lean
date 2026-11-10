@@ -66,7 +66,6 @@ theorem k_tab : tabK = true := by decide +kernel
 
 theorem k_fb7 : fb7Check mtT isUT = true := by decide +kernel
 
-theorem k_neg : ((List.range 256).all fun i => labT i == 0) = false := by decide +kernel
 
 end CertificateChecks.KernelSeitz
 

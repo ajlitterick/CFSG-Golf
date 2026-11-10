@@ -167,12 +167,6 @@ theorem mul_self_mem_matrixDerived (hnd : Q.polarBilin.Nondegenerate)
   rw [hmul]
   exact CharTwo.add_self_eq_zero _
 
-theorem reflMat_mul_reflMat_mem (hnd : Q.polarBilin.Nondegenerate)
-    (hT : ∃ T : Submodule K (Fin d → K), Module.finrank K T = 3 ∧ ∀ x ∈ T, Q x = 0)
-    (w w' : Fin d → K) (hw : Q w ≠ 0) (hw' : Q w' ≠ 0) :
-    reflMat Q w' hw' * reflMat Q w hw ∈ matrixDerived Q :=
-  (mul_reflMat_mem_iff hnd hT (reflMat_mem_isometries w' hw') w hw).2
-    (reflMat_not_mem_derived hnd hT w' hw')
 
 end ReflectionDickson
 

@@ -43,12 +43,6 @@ theorem ent_blkSL (M : Matrix.SpecialLinearGroup (Fin 2) K) (a b : Fin 2) :
     ent (blkSL M) a.castSucc b.castSucc = (M : Matrix (Fin 2) (Fin 2) K) a b := by
   fin_cases a <;> fin_cases b <;> simp [ent, coe_blkSL, blkMat]
 
-theorem blkSL_injective : Function.Injective (blkSL : Matrix.SpecialLinearGroup (Fin 2) K →* SL3 K) := by
-  intro M N h
-  apply Subtype.ext
-  ext a b
-  have := congrArg (fun z : SL3 K => ent z a.castSucc b.castSucc) h
-  simpa [ent_blkSL] using this
 
 theorem eq_one_of_blkSL_mem_center {M : Matrix.SpecialLinearGroup (Fin 2) K}
     (h : blkSL M ∈ Subgroup.center (SL3 K)) : M = 1 := by

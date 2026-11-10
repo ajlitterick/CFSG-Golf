@@ -19,9 +19,6 @@ variable {Ω : Type} [Field Ω]
 
 @[expose] def sl2Jinv : Matrix (Fin 2) (Fin 2) Ω := !![0, -1; 1, 0]
 
-theorem sl2J_mul_sl2Jinv : (sl2J : Matrix (Fin 2) (Fin 2) Ω) * sl2Jinv = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [sl2J, sl2Jinv, Matrix.mul_apply, Fin.sum_univ_two]
 
 theorem sl2Jinv_mul_sl2J : (sl2Jinv : Matrix (Fin 2) (Fin 2) Ω) * sl2J = 1 := by
   ext i j
@@ -38,9 +35,6 @@ theorem transpose_sl2Jinv : (sl2Jinv : Matrix (Fin 2) (Fin 2) Ω)ᵀ = sl2J := b
 theorem det_sl2J : (sl2J : Matrix (Fin 2) (Fin 2) Ω).det = 1 := by
   simp [sl2J, Matrix.det_fin_two]
 
-theorem sl2Jinv_mul_sl2Jinv : (sl2Jinv : Matrix (Fin 2) (Fin 2) Ω) * sl2Jinv = -1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [sl2Jinv, Matrix.mul_apply, Fin.sum_univ_two]
 
 theorem transpose_mul_sl2J_mul (B : Matrix (Fin 2) (Fin 2) Ω) :
     Bᵀ * sl2J * B = B.det • sl2J := by
@@ -59,17 +53,6 @@ theorem neg_one_pow_char_pow {ℓ : ℕ} [Fact ℓ.Prime] [CharP Ω ℓ] (d : �
   have h := map_neg (iterateFrobenius Ω ℓ d) 1
   rwa [map_one, iterateFrobenius_def] at h
 
-theorem map_sl2J {ℓ : ℕ} [Fact ℓ.Prime] [CharP Ω ℓ] (d : ℕ) :
-    (sl2J : Matrix (Fin 2) (Fin 2) Ω).map (· ^ (ℓ ^ d)) = sl2J := by
-  have h0 : (0 : Ω) ^ (ℓ ^ d) = 0 := zero_pow (pow_ne_zero _ (Fact.out : ℓ.Prime).ne_zero)
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [sl2J, h0, neg_one_pow_char_pow]
-
-theorem map_sl2Jinv {ℓ : ℕ} [Fact ℓ.Prime] [CharP Ω ℓ] (d : ℕ) :
-    (sl2Jinv : Matrix (Fin 2) (Fin 2) Ω).map (· ^ (ℓ ^ d)) = sl2Jinv := by
-  have h0 : (0 : Ω) ^ (ℓ ^ d) = 0 := zero_pow (pow_ne_zero _ (Fact.out : ℓ.Prime).ne_zero)
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [sl2Jinv, h0, neg_one_pow_char_pow]
 
 theorem coe_WSL_inv : ((WSL⁻¹ : SL(2, Ω)) : Matrix (Fin 2) (Fin 2) Ω) = sl2Jinv := by
   rw [Matrix.SpecialLinearGroup.coe_inv, coe_WSL, Matrix.adjugate_fin_two]

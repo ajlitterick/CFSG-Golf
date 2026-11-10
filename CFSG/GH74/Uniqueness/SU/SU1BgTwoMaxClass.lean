@@ -83,6 +83,5 @@ theorem b_two_maximalClass_shape : CFSG.GH74.GLS.Bg.B_two_maximalClass_shape := 
     exact nonempty_mulEquiv_semidihedral hn hm (by rw [← ha]; exact pow_orderOf_eq_one a)
       hSD.1 hSD.2 hgen
 
-theorem ig10_25 : CFSG.GH74.GLS.Bg.B_two_maximalClass_shape := b_two_maximalClass_shape
 
 end CFSG.GH74.Uniqueness.SU.SU1

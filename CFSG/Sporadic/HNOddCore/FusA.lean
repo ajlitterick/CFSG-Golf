@@ -54,9 +54,6 @@ theorem involution_odd_type {σ : Perm (Fin 12)} (h : σ ^ 2 = 1) (hs : sign σ 
   · right; left; rw [hk]
   · right; right; rw [hk]
 
-theorem sign_of_type {σ : Perm (Fin 12)} {k : ℕ} (h : σ.cycleType = Multiset.replicate k 2) :
-    sign σ = (-1) ^ k := by
-  rw [sign_involution (sq_eq_one_of_cycleType_replicate h), h, Multiset.card_replicate]
 
 theorem isConj_RV_of_cycleType
     {r s : RV} (h : (thetaR r).cycleType = (thetaR s).cycleType) :
@@ -143,10 +140,6 @@ theorem thetaR_ne_one
   have e' : r = 1 := thetaR.injective (e.trans (map_one thetaR).symm)
   rw [e', Subgroup.coe_one]
 
-theorem thetaR_jR'
-    {h : JH} (hh : jR h ∈ RV) :
-    thetaR ⟨jR h, hh⟩ = (thetaJ ⟨h, (jR_mem_RV_iff h).1 hh⟩ : Perm (Fin 12)) :=
-  thetaR_jR _
 
 theorem sq_of_isConj {G : Type*} [Group G] {a b : G} (h : IsConj a b) (ha : a ^ 2 = 1) :
     b ^ 2 = 1 := by

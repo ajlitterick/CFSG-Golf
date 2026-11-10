@@ -85,9 +85,6 @@ theorem mem_normalizer_of_forall {H : Subgroup Γ} {g : Γ} (h1 : ∀ x ∈ H, g
   intro x
   exact ⟨h1 x, fun hx => by simpa [mul_assoc] using h2 _ hx⟩
 
-theorem mem_scalSet_iff {X A D S : Subgroup Γ} :
-    S ∈ scalSet X A D ↔ S ≤ X ∧ Admits ((X ⊓ D) ⊔ A) S ∧ Group.IsSolvable S :=
-  Iff.rfl
 
 theorem le_scalJoin {X A D S : Subgroup Γ} (hS : S ∈ scalSet X A D) : S ≤ scalJoin X A D :=
   le_iSup₂ (f := fun S (_ : S ∈ scalSet X A D) => S) S hS

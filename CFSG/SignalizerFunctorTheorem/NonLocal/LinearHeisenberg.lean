@@ -14,8 +14,6 @@ namespace CFSG.SignalizerFunctorTheorem.NonLocal
 variable {n : ℕ} {k : Type*} [Field k] (hn : 3 ≤ n)
 
 
-
-
 @[expose] def i0 : Fin n := ⟨0, by omega⟩
 @[expose] def iL : Fin n := ⟨n - 1, by omega⟩
 
@@ -80,15 +78,10 @@ theorem rowElt_mul (β β' : Fin n → k) (hβ : β (i0 hn) = 0) (hβ' : β' (i0
     rowElt hn β hβ * rowElt hn β' hβ' = rowElt hn (β + β') (by simp [hβ, hβ']) :=
   Subtype.ext (rowMat_mul hn β β' hβ)
 
-theorem colElt_mul (v v' : Fin n → k) (hv : v (iL hn) = 0) (hv' : v' (iL hn) = 0) :
-    colElt hn v hv * colElt hn v' hv' = colElt hn (v + v') (by simp [hv, hv']) :=
-  Subtype.ext (colMat_mul hn v v' hv')
 
 theorem rowElt_zero : rowElt hn (0 : Fin n → k) (by simp) = 1 :=
   Subtype.ext (rowMat_zero hn)
 
-theorem colElt_zero : colElt hn (0 : Fin n → k) (by simp) = 1 :=
-  Subtype.ext (colMat_zero hn)
 
 theorem rowElt_inv (β : Fin n → k) (hβ : β (i0 hn) = 0) :
     (rowElt hn β hβ)⁻¹ = rowElt hn (-β) (by simp [hβ]) := by

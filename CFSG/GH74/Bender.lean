@@ -59,10 +59,6 @@ theorem isBenderGroup_of_fusionIsBenderGroup {X : Type*} [Group X]
     exact .isPSU3 f hf (e.trans (MulEquiv.subgroupCongr hmodel.symm))
   · exact .isSuzuki a ha (e.trans (MulEquiv.subgroupCongr (Bender.szModel_eq_sz a).symm))
 
-theorem gh74Conclusion_of_fusionIsBenderGroup {G : Type} [Group G] [Finite G]
-    (hB : CFSG.Open.fusionIsBenderGroup G) (hrank : 3 ≤ CFSG.Open.twoRank G) (hgen : Gen4 G) :
-    GH74Conclusion G :=
-  gh74Conclusion_of_isBenderGroup (isBenderGroup_of_fusionIsBenderGroup hB) hrank hgen
 
 theorem gh74Conclusion_of_stronglyEmbedded
     {G : Type} [Group G] [Finite G] [IsSimpleGroup G]

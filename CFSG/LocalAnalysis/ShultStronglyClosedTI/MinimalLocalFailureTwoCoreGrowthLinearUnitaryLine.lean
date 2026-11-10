@@ -152,21 +152,5 @@ theorem unitary_middle_stabilizer_proper [Finite K] (J : HermitianForm 3 K)
   intro htop
   exact hmove (htop ▸ Subgroup.mem_top _)
 
-theorem unitary_middle_generators_proper [Finite K] (J : HermitianForm 3 K)
-    (q : ℕ) (hcard : Nat.card K = q ^ 2)
-    (hfixed : Nat.card {x : K // J.conj x = x} = q)
-    (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) :
-    Subgroup.closure
-      ({g : ProjectiveSpecialUnitaryMatrixGroup J |
-          ∃ z : hermitianUnipotentCoord J, z.1.1 = 0 ∧
-            hermitianUnipotentPSU J hJ z = g} ∪
-        {g : ProjectiveSpecialUnitaryMatrixGroup J |
-          unitaryCoordinatePairPreserving J g}) < ⊤ := by
-  apply lt_of_le_of_lt _ (unitary_middle_stabilizer_proper J q hcard hfixed hJ)
-  apply (Subgroup.closure_le _).mpr
-  intro g hg
-  rcases hg with ⟨z, hz, rfl⟩ | hpair
-  · exact (unitary_root_mem_middle_iff J hJ z).mpr hz
-  · exact unitary_projective_pair_preserves_middle J hJ g hpair
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowth

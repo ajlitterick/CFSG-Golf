@@ -288,14 +288,6 @@ theorem centralizer_mul_of_mul_eq [Finite G] {K S X Y : Subgroup G} (hK : Odd (N
   · rintro _ ⟨x, hx, y, hy, rfl⟩
     exact ⟨K.mul_mem (hXK hx.1) (hYK hy.1), Subgroup.mul_mem _ hx.2 hy.2⟩
 
-theorem centralizer_mul_of_hall [Finite G] {K S X Y : Subgroup G} (hK : Odd (Nat.card K))
-    (hS : IsPGroup 2 S) (_hSK : S ≤ normalizer (K : Set G)) (hXK : X ≤ K) (hYK : Y ≤ K)
-    (hSX : S ≤ normalizer (X : Set G)) (hSY : S ≤ normalizer (Y : Set G))
-    (hXY : (K : Set G) = (X : Set G) * Y) (_hHall : Nat.Coprime (Nat.card X) (X.relIndex K)) :
-    ((K ⊓ centralizer (S : Set G) : Subgroup G) : Set G) =
-      ((X ⊓ centralizer (S : Set G) : Subgroup G) : Set G) *
-        ((Y ⊓ centralizer (S : Set G) : Subgroup G) : Set G) :=
-  centralizer_mul_of_mul_eq hK hS hXK hYK hSX hSY hXY
 
 end Ambient
 

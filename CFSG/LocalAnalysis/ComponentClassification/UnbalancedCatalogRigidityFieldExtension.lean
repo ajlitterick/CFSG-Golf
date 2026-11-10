@@ -121,8 +121,6 @@ theorem extHom_commute (g : TauCeti.QuadraticMap.orthogonalGroup (pairDescentFor
     ↥(TauCeti.QuadraticMap.orthogonalGroup (pairDescentForm hS)) →* matrixIsometries Q :=
   (extHom e).codRestrict _ (extHom_mem e)
 
-theorem extIsometry_val (g : TauCeti.QuadraticMap.orthogonalGroup (pairDescentForm hS)) :
-    (extIsometry e g : GL (Fin d) K) = extHom e g := rfl
 
 theorem extIsometry_injective : Function.Injective (extIsometry e) := fun _ _ hgh =>
   extHom_injective e (congrArg Subtype.val hgh)

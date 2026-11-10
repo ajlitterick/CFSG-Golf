@@ -79,23 +79,6 @@ theorem oTwoUpper_eq_top_of_isPGroup [Finite G] (X : Subgroup G)
   have : z = ⟨x, hx⟩ := Subtype.ext hzx
   rwa [← this]
 
-theorem oTwoUpper_top_eq_top_of_isSimpleGroup {X : Type*} [Group X] [Finite X] [IsSimpleGroup X]
-    (hnab : ∃ a b : X, a * b ≠ b * a) : oTwoUpper (⊤ : Subgroup X) = ⊤ := by
-  have hn : (oTwoUpper (⊤ : Subgroup X)).Normal :=
-    ⟨fun x hx g => (Subgroup.mem_normalizer_iff.1
-      (normalizer_le_normalizer_oTwoUpper (⊤ : Subgroup X) (by
-        rw [Subgroup.normalizer_eq_top_iff.2 inferInstance]; exact Subgroup.mem_top g)) x).1 hx⟩
-  rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal (oTwoUpper (⊤ : Subgroup X)) with h | h
-  · exfalso
-    have h2 : IsPGroup 2 X := fun x => by
-      obtain ⟨k, hk⟩ := exists_pow_mem_oTwoUpper (⊤ : Subgroup X) (Subgroup.mem_top x)
-      rw [h, Subgroup.mem_bot] at hk
-      exact ⟨k, hk⟩
-    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    have : Group.IsNilpotent X := h2.isNilpotent
-    obtain ⟨a, b, hab⟩ := hnab
-    exact hab ((IsSimpleGroup.comm_iff_isSolvable.2 inferInstance) a b)
-  · exact h
 
 theorem not_isPGroup_of_isSimpleGroup {X : Type*} [Group X] [Finite X] [IsSimpleGroup X]
     (hnab : ∃ a b : X, a * b ≠ b * a) {p : ℕ} [Fact p.Prime] : ¬ IsPGroup p X := by

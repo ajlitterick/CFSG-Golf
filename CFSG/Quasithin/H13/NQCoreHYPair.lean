@@ -20,6 +20,5 @@ theorem isPerfect_of_surjective {Q Q' : Type*} [Group Q] [Group Q'] (f : Q →* 
   rwa [_root_.commutator_def, Subgroup.map_commutator, ← MonoidHom.range_eq_map,
     MonoidHom.range_eq_top.mpr hf, ← _root_.commutator_def] at h1
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.H13.NQCore

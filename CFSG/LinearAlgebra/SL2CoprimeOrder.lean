@@ -184,47 +184,5 @@ theorem pow_card_sub_one_or_pow_card_add_one (A : Matrix (Fin 2) (Fin 2) k) (hA 
     rw [pow_succ, hθq']
     linear_combination -h
 
-theorem finite_field_SL2_coprime_cyclic_order {K : Type*} [Field K] [Finite K] (p : ℕ)
-    [CharP K p] :
-    (∀ A : Matrix (Fin 2) (Fin 2) K, A.det = 1 → Nat.Coprime (orderOf A) p →
-      orderOf A ∣ Nat.card K - 1 ∨ orderOf A ∣ Nat.card K + 1) ∧
-    (∀ C : Subgroup (Matrix.SpecialLinearGroup (Fin 2) K), IsCyclic C →
-      Nat.Coprime (Nat.card C) p → Nat.card C ∣ Nat.card K - 1 ∨ Nat.card C ∣ Nat.card K + 1) := by
-  classical
-  have : Fintype K := Fintype.ofFinite K
-  have hp : p.Prime := CharP.char_is_prime K p
-  have hmatrix : ∀ A : Matrix (Fin 2) (Fin 2) K, A.det = 1 → Nat.Coprime (orderOf A) p →
-      orderOf A ∣ Nat.card K - 1 ∨ orderOf A ∣ Nat.card K + 1 := by
-    intro A hA hcop
-    have hn0 : orderOf A ≠ 0 := by
-      intro h
-      rw [h, Nat.coprime_zero_left] at hcop
-      exact hp.one_lt.ne' hcop
-    have hnk : ((orderOf A : ℕ) : K) ≠ 0 := by
-      rw [ne_eq, CharP.cast_eq_zero_iff K p]
-      intro hdvd
-      have := Nat.Coprime.coprime_dvd_left hdvd hcop
-      rw [Nat.coprime_self] at this
-      exact hp.one_lt.ne' this
-    rw [Nat.card_eq_fintype_card]
-    rcases pow_card_sub_one_or_pow_card_add_one A hA (pow_orderOf_eq_one A) hnk with h | h
-    · exact Or.inl (orderOf_dvd_of_pow_eq_one h)
-    · exact Or.inr (orderOf_dvd_of_pow_eq_one h)
-  refine ⟨hmatrix, fun C hC hcop => ?_⟩
-  obtain ⟨g, hg⟩ := IsCyclic.exists_generator (α := C)
-  have hcard : orderOf g = Nat.card C := orderOf_eq_card_of_forall_mem_zpowers hg
-  have horder : orderOf (((g : Matrix.SpecialLinearGroup (Fin 2) K) :
-      Matrix (Fin 2) (Fin 2) K)) = orderOf g := by
-    rw [← Subgroup.orderOf_coe, orderOf_eq_orderOf_iff]
-    intro m
-    rw [← Matrix.SpecialLinearGroup.coe_pow]
-    constructor
-    · intro h
-      exact Matrix.SpecialLinearGroup.ext _ _ fun i j => by rw [h]; rfl
-    · intro h
-      rw [h]
-      rfl
-  rw [← hcard, ← horder]
-  exact hmatrix _ (Matrix.SpecialLinearGroup.det_coe _) (by rw [horder, hcard]; exact hcop)
 
 end CFSG.LinearAlgebra

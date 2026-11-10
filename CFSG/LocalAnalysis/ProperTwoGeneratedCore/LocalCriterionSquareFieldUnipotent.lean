@@ -79,8 +79,5 @@ theorem pgroup_sl2_card_le [Finite F] [CharP F 2]
       Nat.card_le_card_of_injective (Subgroup.inclusion hx) (Subgroup.inclusion_injective hx)
     _ = Nat.card F := upperUnipotent_card
 
-theorem elementary_sl2_card_le [Finite F] [CharP F 2]
-    (A : Subgroup SL(2, F)) [CFSG.IsElementaryAbelian 2 A] : Nat.card A ≤ Nat.card F :=
-  pgroup_sl2_card_le A (CFSG.IsElementaryAbelian.isPGroup 2 A)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionSquareField

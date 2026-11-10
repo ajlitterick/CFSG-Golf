@@ -254,10 +254,6 @@ theorem OddL3Shape.facts {m : ℕ} (h : OddL3Shape m) :
 
 theorem dvd_of_mul_two_pow_eq {m0 y0 k : ℕ} (h : m0 * 2 ^ k = y0) : m0 ∣ y0 := ⟨_, h.symm⟩
 
-theorem false_of_mul_two_pow_eq {m0 y0 k q : ℕ} (h : m0 * 2 ^ k = y0) (hm0 : 0 < m0)
-    (hq : q.Prime) (hq2 : q ≠ 2) (hqm : q * m0 ∣ y0) : False := by
-  rw [← h, mul_comm q] at hqm
-  exact prime_not_dvd_two_pow hq hq2 k (Nat.dvd_of_mul_dvd_mul_left hm0 hqm)
 
 theorem OddL3Shape.false_of_two {m n : ℕ} (h : OddL3Shape m) (hn : 2 ≤ n)
     (hm : m = 2 ^ n * (4 ^ n - 1)) : False := by

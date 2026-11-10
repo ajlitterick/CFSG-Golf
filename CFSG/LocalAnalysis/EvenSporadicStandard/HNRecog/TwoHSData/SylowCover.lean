@@ -53,13 +53,5 @@ theorem exists_conj_mem_of_orderOf_eq_prime {M : Type*} [Group M] [Finite M] {p 
   apply IsPGroup.of_card (n := 1)
   rw [Nat.card_zpowers, htp, pow_one]
 
-theorem exists_conj_mem_of_orderOf_eq_four {M : Type*} [Group M] [Finite M] {R S : Subgroup M}
-    (hSR : S ≤ R) (hS : Nat.card S = 2 ^ (Nat.card R).factorization 2) {t : M} (ht : t ∈ R)
-    (ht4 : orderOf t = 4) : ∃ x ∈ R, x⁻¹ * t * x ∈ S := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  apply exists_conj_mem_of_card_prime hSR hS ht
-  apply IsPGroup.of_card (n := 2)
-  rw [Nat.card_zpowers, ht4]
-  norm_num
 
 end CFSG.EvenSporadicStandard.HNRecog.TwoHSData

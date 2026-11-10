@@ -589,32 +589,6 @@ private theorem k891a94reduce_pCore_two_eq_bot_of_isPGroup_three {X : Type} [Gro
   have hcard : Nat.card (CFSG.pCore 2 X) = 1 := by rw [hk, hk0, pow_zero]
   exact Subgroup.card_eq_one.mp hcard
 
-private theorem k891a94reduce_eq_of_map_eq {P Q : Type} [Group P] [Group Q]
-    (f : P →* Q) {U V W : Subgroup P} (hU : U ≤ W) (hV : V ≤ W)
-    (hdisj : Disjoint W f.ker) (h : U.map f = V.map f) : U = V := by
-  refine le_antisymm ?_ ?_
-  · intro x hx
-    have hx' : f x ∈ V.map f := h ▸ Subgroup.mem_map_of_mem f hx
-    obtain ⟨v, hv, hvx⟩ := Subgroup.mem_map.1 hx'
-    have hker : v⁻¹ * x ∈ f.ker := by
-      rw [MonoidHom.mem_ker, map_mul, map_inv, hvx]
-      simp
-    have hbot : v⁻¹ * x ∈ (⊥ : Subgroup P) :=
-      hdisj.le_bot ⟨W.mul_mem (W.inv_mem (hV hv)) (hU hx), hker⟩
-    rw [Subgroup.mem_bot] at hbot
-    rw [(inv_mul_eq_one.mp hbot).symm]
-    exact hv
-  · intro x hx
-    have hx' : f x ∈ U.map f := h.symm ▸ Subgroup.mem_map_of_mem f hx
-    obtain ⟨u, hu, hux⟩ := Subgroup.mem_map.1 hx'
-    have hker : u⁻¹ * x ∈ f.ker := by
-      rw [MonoidHom.mem_ker, map_mul, map_inv, hux]
-      simp
-    have hbot : u⁻¹ * x ∈ (⊥ : Subgroup P) :=
-      hdisj.le_bot ⟨W.mul_mem (W.inv_mem (hU hu)) (hV hx), hker⟩
-    rw [Subgroup.mem_bot] at hbot
-    rw [(inv_mul_eq_one.mp hbot).symm]
-    exact hu
 
 private theorem k891a94reduce_commutator_subgroupOf {G : Type} [Group G]
     {A B L' : Subgroup G} (hA : A ≤ L') (hB : B ≤ L') :

@@ -36,17 +36,6 @@ theorem aStar_mem_lyH [LySeed] {j : ℕ} (h2 : 2 ≤ j) : aStar j ∈ lyH := by
   · exact Subgroup.subset_closure ⟨j, ⟨h2, h7⟩, rfl⟩
   · rw [aStar_of_ge (by omega)]; exact lyH.one_mem
 
-theorem aStar_fix
-    [LySeed]
-    {j : ℕ} (h2 : 2 ≤ j) (h7 : j < 7) :
-    aStar j • CFSG.Sporadic.Ly.Omega.opE = CFSG.Sporadic.Ly.Omega.opE := by
-  have hk := (sevenFacts.gens j h2 h7).1
-  have e := keyT_actKey (pairAt asArr j).1 bpRoot_canon.1 hk
-  rw [(repM_asArr j).1] at e
-  ext1
-  change mat (aStar j) * lyE * mat (aStar j)⁻¹ = lyE
-  have hE : lyE = keyT bpRootKey * lyF := by rw [keyT_bpRoot]; rfl
-  rw [hE, conj_tensor, ← e]
 
 theorem aStar_mem_stabU
     [LySeed] {j : ℕ} (h2 : 2 ≤ j) (h7 : j < 7) : aStar j ∈ stabU :=

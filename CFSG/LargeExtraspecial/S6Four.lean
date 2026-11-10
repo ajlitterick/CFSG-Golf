@@ -59,9 +59,6 @@ variable (S g) in
   restrictHom (S.O.subtype.comp (Rbar S g t).subtype) (Wt S g t)
     (fun x _ hu => apply_mem_Wt H x.2 hu)
 
-theorem coe_resW_apply (H : Hyp4 S g) {t : S.O} (x : Rbar S g t) (w : Wt S g t) :
-    ((resW S g H t x w : Wt S g t) : S.Qt) = ((x : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) w :=
-  rfl
 
 theorem resW_eq_one_iff (H : Hyp4 S g) {t : S.O} (x : Rbar S g t) :
     resW S g H t x = 1 ↔ ∀ w ∈ Wt S g t, ((x : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) w = w :=

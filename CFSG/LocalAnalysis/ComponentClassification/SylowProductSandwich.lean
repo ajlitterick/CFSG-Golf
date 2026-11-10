@@ -13,13 +13,6 @@ theorem collapse {G : Type*} [Group G] [Finite G]
   have heq : first = first ⊔ second := Subgroup.eq_of_le_of_card_ge le_sup_left (by simpa only [hfirst] using hproduct)
   exact ⟨heq.symm, heq.symm ▸ (le_sup_right : second ≤ first ⊔ second)⟩
 
-theorem sandwich {G : Type*} [Group G] [Finite G]
-    (first second middle : Subgroup G)
-    (hproduct : Nat.card ↥(first ⊔ second) ≤ Nat.card middle) (hmiddle : Nat.card middle ≤ Nat.card first) :
-    first ⊔ second = first ∧ second ≤ first ∧ Nat.card middle = Nat.card first := by
-  obtain ⟨hcollapse, hcontained⟩ := collapse first second (Nat.card first) rfl (hproduct.trans hmiddle)
-  refine ⟨hcollapse, hcontained, le_antisymm hmiddle ?_⟩
-  rwa [hcollapse] at hproduct
 
 theorem intersection_center {G : Type*} [Group G]
     (first second : Subgroup G) (hcommutes : ⁅first, second⁆ = ⊥)

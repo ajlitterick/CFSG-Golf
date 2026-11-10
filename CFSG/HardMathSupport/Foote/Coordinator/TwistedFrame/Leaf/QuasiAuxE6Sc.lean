@@ -463,16 +463,6 @@ theorem Fsc_minBC {K : Type} [Field K] (ι : K →+* k) (σ : k →+* k) (hσι 
   simp only [MonoidHom.comp_apply, hσι] at h
   exact h.symm
 
-theorem Fsc_tilde (σ : k →+* k) : Fsc σ (tilde k) = tilde k := by
-  unfold tilde CFSG.HardMathSupport.Timmesfeld.CrossChar.e6NWord Fsc
-  rw [map_list_prod, List.map_map]
-  refine congrArg List.prod (List.map_congr_left fun i _ => ?_)
-  show CFSG.HardMathSupport.Timmesfeld.CrossChar.minBC e6Data_valid σ (e6Data_valid.nt k i 1) =
-    e6Data_valid.nt k i 1
-  unfold CFSG.LieType.Steinberg.Minuscule.MinData.Valid.nt
-  rw [map_mul, map_mul, CFSG.HardMathSupport.Timmesfeld.CrossChar.minBC_xm_single,
-    CFSG.HardMathSupport.Timmesfeld.CrossChar.minBC_xm_neg_single]
-  simp
 
 @[expose] def sigmaTilde (σ : k →+* k) : G k →* G k :=
   (MulAut.conj (tilde k)).toMonoidHom.comp (Fsc σ)

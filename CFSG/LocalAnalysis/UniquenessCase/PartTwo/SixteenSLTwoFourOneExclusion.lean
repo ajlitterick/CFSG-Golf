@@ -247,18 +247,5 @@ theorem s168e3_false_of_sl2_four_of_s_eq_one
     s168e3_kernel_of_transitive (W := W) (p := 3) Nat.prime_three hcop hrank htransW
   exact s168e3_false_of_kernel c Nat.prime_three hfacts.1 (by simpa only [A] using hk)
 
-theorem s168e3_concl163F_of_sl2_four_of_s_eq_one
-    {G : Type} [Group G] [Finite G]
-    {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV)
-    (_hcomp : IsComponentOf (lBar V₀ V hV L) (Mbar D.M V₀ V hV))
-    (_hthin : ∀ q : ℕ, q.Prime → q ≠ 2 →
-      CFSG.Open.pRank q (lBar V₀ V hV L) ≤ 1)
-    (hs : s15 D.M V₀ V hV L = 1)
-    (hrow : s16h_H5RowSL2 (lBar V₀ V hV L)
-      (commSub ⊤ (lBar V₀ V hV L))
-      (commSub ⊤ (lBar V₀ V hV L) ⊓ fixV (lBar V₀ V hV L)) 2) :
-    Concl163F D V₀ V hV L :=
-  (s168e3_false_of_sl2_four_of_s_eq_one c _hcomp _hthin hs hrow).elim
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

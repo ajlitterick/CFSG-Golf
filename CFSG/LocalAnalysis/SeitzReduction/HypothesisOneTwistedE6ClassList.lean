@@ -11,13 +11,6 @@ open CFSG.LieType.Steinberg.Adjoint
 
 variable {K : Type} [Field K]
 
-@[expose] def TwistedE6CascadeReduction
-    (K : Type) [Field K] (σ : K →+* K) : Prop :=
-  ∀ ℓ ∈ graphFixedPosUnipotent TwistTag.E6 K σ, ℓ ^ 2 = 1 →
-    ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ, ∃ S : List (Fin TwistTag.E6.tag.rank → ℤ),
-      S.Sublist twistedE6Cascade ∧ ∃ c : (Fin TwistTag.E6.tag.rank → ℤ) → K,
-        (∀ γ ∈ S, c γ ≠ 0 ∧ σ (c γ) = c γ) ∧
-          g * ℓ * g⁻¹ = (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod
 
 theorem twistedE6ClassList_exists_sigma_ne {f : ℕ} (hf : 1 ≤ f) [Finite K]
     (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K ≃+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) :
@@ -53,100 +46,6 @@ theorem exists_twistedE6_add_sigma_eq_one [CharP K 2] {f : ℕ} (hf : 1 ≤ f) [
   rw [map_div₀, map_add, hσσ, add_comm (σ d) d, ← add_div, div_self hne]
 
 
-theorem exists_conj_mem_twistedE6Reps_of_cascade_prod [Finite K] [CharP K 2] {σ : K →+* K}
-    (hσσ : ∀ x, σ (σ x) = x) {δ : K} (hδ : δ + σ δ = 1)
-    {S : List (Fin TwistTag.E6.tag.rank → ℤ)} (hS : S.Sublist twistedE6Cascade) (hS0 : S ≠ [])
-    (c : (Fin TwistTag.E6.tag.rank → ℤ) → K) (hc : ∀ γ ∈ S, c γ ≠ 0 ∧ σ (c γ) = c γ) :
-    ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ,
-      g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod * g⁻¹ =
-          pinnedX TwistTag.E6.tag K e6HighestRoot 1 ∨
-        g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod * g⁻¹ = twistedE6ClassU K ∨
-          g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod * g⁻¹ =
-            twistedE6ClassV K := by
-  have hF : ∀ γ ∈ S, IsRoot TwistTag.E6.tag γ ∧ permLattice TwistTag.E6.perm γ = γ :=
-    fun γ hγ => ⟨isRoot_of_mem_twistedE6Cascade (hS.subset hγ),
-      (twistedE6Cascade_facts.2.1 γ (hS.subset hγ)).1⟩
-  obtain ⟨h, hh, -, hhe⟩ := exists_twistedE6_torus_conj_frame_prod σ hF
-    (twistedE6Cascade_facts.2.2.sublist hS) c hc
-  obtain ⟨g, hg, hge⟩ := exists_conj_mem_twistedE6Reps_of_cascade_sublist hσσ hδ hS hS0
-  have e : g * h * (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod * (g * h)⁻¹ =
-      g * (S.map fun γ => pinnedX TwistTag.E6.tag K γ 1).prod * g⁻¹ := by
-    rw [← hhe]
-    group
-  refine ⟨g * h, mul_mem hg hh, ?_⟩
-  rw [e]
-  exact hge
-
-theorem exists_conj_mem_twistedE6ClassReps {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = (2 ^ f) ^ 2)
-    {σ : K ≃+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)
-    (hred : TwistedE6CascadeReduction K σ.toRingHom)
-    {x : graphFixedRootGroup TwistTag.E6 K σ.toRingHom} (hx : x ^ 2 = 1) (hx1 : x ≠ 1) :
-    ∃ g : graphFixedRootGroup TwistTag.E6 K σ.toRingHom,
-      g * x * g⁻¹ ∈ twistedE6ClassReps K σ.toRingHom := by
-  have : Finite K := Nat.finite_of_card_ne_zero (by rw [hK]; positivity)
-  have : CharP K 2 := CFSG.LocalAnalysis.ComponentInitial.finite_field_prime_power_characteristic
-    Nat.prime_two (by omega : 1 ≤ 2 * f) (by rw [hK, ← pow_mul, mul_comm])
-  have hσσ : ∀ y : K, σ (σ y) = y := fun y => by
-    have h := congrArg (fun g : K ≃+* K => g y) (twistedE6_sigma_pow_order hK hσ)
-    simpa [TwistTag.order, pow_two] using h
-  obtain ⟨δ, hδ⟩ := exists_twistedE6_add_sigma_eq_one hf hK hσ
-  obtain ⟨a, ha⟩ := exists_conj_mem_graphFixedPosUnipotent_of_sq_eq_one σ hx
-  set ℓ : ModGL TwistTag.E6.tag K :=
-    ((a * x * a⁻¹ : graphFixedRootGroup TwistTag.E6 K σ.toRingHom) : ModGL TwistTag.E6.tag K)
-    with hℓ
-  have hℓ2 : ℓ ^ 2 = 1 := by
-    rw [hℓ, ← Subgroup.coe_pow, conj_pow, hx, mul_one, mul_inv_cancel, Subgroup.coe_one]
-  obtain ⟨g, hg, S, hS, c, hc, hge⟩ := hred ℓ ha hℓ2
-  have hS0 : S ≠ [] := by
-    rintro rfl
-    apply hx1
-    have h1 : ℓ = 1 := by
-      have h := hge
-      rw [List.map_nil, List.prod_nil, mul_inv_eq_one, mul_eq_left] at h
-      exact h
-    have h2 : a * x * a⁻¹ = 1 := Subtype.ext h1
-    rw [mul_inv_eq_one, mul_eq_left] at h2
-    exact h2
-  obtain ⟨k, hk, hke⟩ := exists_conj_mem_twistedE6Reps_of_cascade_prod hσσ hδ hS hS0 c hc
-  refine ⟨⟨k * g, mul_mem hk hg⟩ * a, ?_⟩
-  have e : ((⟨k * g, mul_mem hk hg⟩ * a * x * (⟨k * g, mul_mem hk hg⟩ * a)⁻¹ :
-      graphFixedRootGroup TwistTag.E6 K σ.toRingHom) : ModGL TwistTag.E6.tag K) =
-      k * (S.map fun γ => pinnedX TwistTag.E6.tag K γ (c γ)).prod * k⁻¹ := by
-    rw [← hge, hℓ]
-    simp only [Subgroup.coe_mul, Subgroup.coe_inv]
-    group
-  change _ ∨ _ ∨ _
-  rw [e]
-  exact hke
-
-theorem twistedE6_hrep_of_cascadeReduction {f : ℕ} (hf : 1 ≤ f) (hK : Nat.card K = (2 ^ f) ^ 2)
-    {σ : K ≃+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f) (hred : TwistedE6CascadeReduction K σ.toRingHom)
-    (t : graphFixedRootGroup TwistTag.E6 K σ.toRingHom) (ht : orderOf (MulAut.conj t) = 2) :
-    ∃ ψ : MulAut (graphFixedRootGroup TwistTag.E6 K σ.toRingHom),
-      ∃ s ∈ twistedE6ClassReps K σ.toRingHom, ψ s = t := by
-  have hcen := center_graphFixedRootGroup_eq_bot (t := TwistTag.E6) (K := K)
-    (σ := σ.toRingHom) σ.surjective
-  have ht1 : t ≠ 1 := by
-    rintro rfl
-    rw [map_one, orderOf_one] at ht
-    exact absurd ht (by norm_num)
-  have ht2 : t ^ 2 = 1 := by
-    have h : MulAut.conj (t ^ 2) = 1 := by rw [map_pow, ← ht, pow_orderOf_eq_one]
-    have hz : t ^ 2 ∈ Subgroup.center (graphFixedRootGroup TwistTag.E6 K σ.toRingHom) := by
-      refine Subgroup.mem_center_iff.2 fun y => ?_
-      have hy := congrArg (fun φ => φ y) h
-      simp only [MulAut.conj_apply, MulAut.one_apply] at hy
-      have hy' : t ^ 2 * y = y * t ^ 2 := by
-        calc t ^ 2 * y = t ^ 2 * y * (t ^ 2)⁻¹ * t ^ 2 := by group
-          _ = y * t ^ 2 := by rw [hy]
-      exact hy'.symm
-    rw [hcen, Subgroup.mem_bot] at hz
-    exact hz
-  obtain ⟨g, hg⟩ := exists_conj_mem_twistedE6ClassReps hf hK hσ hred ht2 ht1
-  refine ⟨MulAut.conj g⁻¹, g * t * g⁻¹, hg, ?_⟩
-  rw [MulAut.conj_apply]
-  group
-
 @[expose] def TwistedE6FrameReduction (K : Type) [Field K] (σ : K →+* K) : Prop :=
   ∀ ℓ ∈ graphFixedPosUnipotent TwistTag.E6 K σ, ℓ ^ 2 = 1 →
     ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ, ∃ R : List (Fin TwistTag.E6.tag.rank → ℤ),
@@ -157,28 +56,6 @@ theorem twistedE6_hrep_of_cascadeReduction {f : ℕ} (hf : 1 ≤ f) (hK : Nat.ca
         (∀ γ ∈ R, c γ ≠ 0 ∧ (permLattice TwistTag.E6.perm γ = γ → σ (c γ) = c γ)) ∧
           g * ℓ * g⁻¹ = (R.map fun γ => twistedE6RelX K σ γ (c γ)).prod
 
-theorem TwistedE6CascadeReduction.frameReduction {σ : K →+* K}
-    (h : TwistedE6CascadeReduction K σ) : TwistedE6FrameReduction K σ := by
-  intro ℓ hℓ h2
-  obtain ⟨g, hg, S, hS, c, hc, he⟩ := h ℓ hℓ h2
-  have hfix : ∀ γ ∈ S, permLattice TwistTag.E6.perm γ = γ := fun γ hγ =>
-    (twistedE6Cascade_facts.2.1 γ (hS.subset hγ)).1
-  have hunit : S.flatMap twistedE6Unit = S := by
-    have : ∀ γ ∈ S, twistedE6Unit γ = [γ] := fun γ hγ => by
-      simp [twistedE6Unit, hfix γ hγ]
-    rw [List.flatMap_congr this, List.flatMap_singleton']
-  refine ⟨g, hg, S, ?_, ?_, ?_, c, fun γ hγ => ⟨(hc γ hγ).1, fun _ => (hc γ hγ).2⟩, ?_⟩
-  · rw [hunit]
-    exact twistedE6Cascade_facts.1.sublist hS
-  · rw [hunit]
-    exact fun β hβ => ⟨isRoot_of_mem_twistedE6Cascade (hS.subset hβ),
-      (twistedE6Cascade_facts.2.1 β (hS.subset hβ)).2.1⟩
-  · rw [hunit]
-    exact twistedE6Cascade_facts.2.2.sublist hS
-  · rw [he]
-    congr 1
-    refine List.map_congr_left fun γ hγ => ?_
-    simp [twistedE6RelX, hfix γ hγ]
 
 theorem exists_conj_mem_twistedE6ClassReps_of_frameReduction {f : ℕ} (hf : 1 ≤ f)
     (hK : Nat.card K = (2 ^ f) ^ 2) {σ : K ≃+* K} (hσ : ∀ c, σ c = c ^ 2 ^ f)

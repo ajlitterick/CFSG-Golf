@@ -363,7 +363,6 @@ variable {X : Type*} [Group X]
 
 attribute [local instance] i116pI_act
 
-theorem i116pI_smul_def (g : X) (M : Subgroup X) : g • M = GLBConj g⁻¹ M := rfl
 
 theorem i116pI_smul_sub (K : Subgroup X) (g : K) (M : Subgroup X) :
     g • M = GLBConj (g : X)⁻¹ M := rfl

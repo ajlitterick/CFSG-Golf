@@ -158,15 +158,6 @@ variable (p f : ℕ) [Fact p.Prime]
 
 variable {p f}
 
-theorem c21_14_Y_disc_of_c21_14 (h14 : C21_14 p f) : C21_14_Y_disc p f := by
-  intro G _ _ _ Ω K K' z u J t W h _
-  obtain ⟨hN, hY⟩ := h14 G Ω K K' z u J t W h
-  refine ⟨(rLayer_le_centralizer Ω u).trans hN, fun hα => ?_⟩
-  rcases hY with h1 | ⟨h2, -, -⟩
-  · rw [hα, bot_sup_eq] at h1
-    exact Or.inl h1
-  · rw [hα, bot_sup_eq] at h2
-    exact Or.inr h2
 
 theorem c21_14_N_disc_of_Ydisc (hC3 : C21_3 p f) (hY : C21_14_Y_disc p f) :
     C21_14_N_disc p f := by

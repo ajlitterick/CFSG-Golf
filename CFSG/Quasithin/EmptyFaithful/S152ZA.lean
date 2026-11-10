@@ -62,12 +62,6 @@ theorem charTwo_Lc_of_charTwo_G₀ {Lc : Subgroup G} (hn : (Lc.subgroupOf (g0Of 
 
 end Ctx15204
 
-@[expose] def Input15204OTwoZ : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M H K₁ K₂ : Subgroup G) (π : ↥H →* W5),
-    Ctx15204 T Mc M H K₁ K₂ π → pCoreOf 2 (g0Of T Mc M K₁) ≠ ⊥ →
-    IsSylowTwoOf (sOf T K₁) (g0Of T Mc M K₁) →
-    ¬ pCoreOf 2 (yOf152 T Mc M) ≤ pCoreOf 2 (g0Of T Mc M K₁) →
-    (T ⊓ Subgroup.centralizer (T : Set G)) ⊓ g0Of T Mc M K₁ ≤ pCoreOf 2 (g0Of T Mc M K₁)
 
 @[expose] def Input15204CharTwoLc : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M H K₁ K₂ : Subgroup G) (π : ↥H →* W5),

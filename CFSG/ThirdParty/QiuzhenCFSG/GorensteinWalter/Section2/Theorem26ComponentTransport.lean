@@ -28,7 +28,6 @@ namespace CFSG.GorensteinWalter
 universe u
 
 
-
 /-! ## Model facts for the reflected-torus containment -/
 
 /-- In the odd `PGL₂` model, the reflected torus `R = U ∩ PGL₂'` has
@@ -1153,29 +1152,6 @@ private lemma centralizer_derived_card_of_torus_data
     _ = Nat.card U := by
       omega
 
-private lemma card_conjugates_eq_index_normalizer
-    {G : Type u} [Group G] [Finite G] (H : Subgroup G) :
-    Nat.card (MulAction.orbit (ConjAct G) H) =
-      (Subgroup.normalizer (H : Set G)).index := by
-  classical
-  let : Group (ConjAct G) := inferInstance
-  rw [Nat.card_coe_set_eq, ← MulAction.index_stabilizer (G := ConjAct G) (x := H)]
-  let N : Subgroup G := Subgroup.normalizer (H : Set G)
-  have hmap : MulAction.stabilizer (ConjAct G) H =
-      N.map (ConjAct.toConjAct : G ≃* ConjAct G) := by
-    ext x
-    constructor
-    · intro hx
-      rcases ConjAct.toConjAct.surjective x with ⟨g0, rfl⟩
-      rw [Subgroup.mem_map]
-      refine ⟨g0, ?_, rfl⟩
-      exact (Subgroup.conjAct_pointwise_smul_iff.mp
-        (MulAction.mem_stabilizer_iff.mp hx))
-    · intro hx
-      rcases Subgroup.mem_map.mp hx with ⟨g0, hg0, rfl⟩
-      rw [MulAction.mem_stabilizer_iff]
-      exact (Subgroup.conjAct_pointwise_smul_iff.mpr hg0)
-  rw [hmap, Subgroup.index_map_equiv N ConjAct.toConjAct]
 
 public theorem pgl2_inner_involution_centralizer_card
     {K : Type u} [Field K] [Finite K]
@@ -1692,115 +1668,6 @@ private theorem pgl2_low_reflected_tori_data_swap
     hg2_s, T.conj_t_eq_central, hfour2⟩,
     hs2eq, rfl, rfl, rfl, rfl⟩
 
-/-- In the odd `PGL₂` model, the commutator of the inner reflector with the
-derived-subgroup centralizer of the opposite outer involution is contained in
-the second reflected torus `R*`.  This is the model-side half of the
-`N_G(R*) ⊇ Syl₂(C_G(ts))` transfer: `R*` is the derived subgroup of
-`J ⊓ C_G(ts)`. -/
-private lemma pgl2_Rstar_commutator_le_Rstar
-    {K : Type u} [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (hcard : 3 < Nat.card K)
-    (P : Sylow 2 (PGL2 K)) {m : ℕ} (eP : P ≃* DihedralGroup (2 ^ m))
-    (T : PGL2LowReflectedToriData K P eP) :
-    let J : Subgroup (PGL2 K) := commutator (PGL2 K)
-    let C : Subgroup (PGL2 K) :=
-      J ⊓ Subgroup.centralizer ({T.t * T.s} : Set (PGL2 K))
-    ⁅Subgroup.zpowers T.t, C⁆ ≤ T.Rstar := by
-  classical
-  intro J C
-  let : Finite (PGL2 K) :=
-    Finite.of_surjective Matrix.ProjGenLinGroup.mk
-      Matrix.ProjGenLinGroup.mk_surjective
-  have hqOdd : Odd (Nat.card K) := by
-    rcases hK with ⟨p, f, hp, hpOdd, hf, hKcard⟩
-    rw [hKcard]
-    exact hpOdd.pow
-  have hJindex : J.index = 2 := by
-    dsimp [J]
-    rw [pgl2_commutator_eq_psl2_range_of_card_gt_three K hK hcard]
-    exact pgl2_psl2Range_index_eq_two K hK
-  let : J.Normal := by
-    dsimp [J]
-    infer_instance
-  let n : ℕ := Nat.card T.U / 2
-  have hUtwo : Nat.card T.U = 2 * n := by
-    dsimp [n]
-    rcases T.U_card with hU | hU
-    · rw [hU]
-      rcases hqOdd with ⟨a, ha⟩
-      omega
-    · rw [hU]
-      rcases hqOdd with ⟨a, ha⟩
-      omega
-  have hUJ : ¬ T.U ≤ J := by
-    intro h
-    exact T.s_not_mem_commutator (h T.s_mem_U)
-  have hCcard : Nat.card C = 2 * n := by
-    dsimp [C, n]
-    have hconj : T.k * T.s * T.k⁻¹ = T.t * T.s := T.k_conj_s
-    have hcard_s : Nat.card ((Subgroup.centralizer ({T.s} : Set (PGL2 K)) ⊓ J)
-        : Subgroup (PGL2 K)) = Nat.card T.U :=
-      centralizer_derived_card_of_torus_data hJindex T.U T.s T.w
-        T.centralizer_eq T.w_not_mem_U T.w_involution T.w_inverts_U hUJ
-    have hcard_ts : Nat.card ((Subgroup.centralizer ({T.t * T.s} : Set (PGL2 K)) ⊓ J)
-        : Subgroup (PGL2 K)) = Nat.card T.U := by
-      calc
-        Nat.card ((Subgroup.centralizer ({T.t * T.s} : Set (PGL2 K)) ⊓ J)
-            : Subgroup (PGL2 K)) =
-            Nat.card ((Subgroup.centralizer ({T.s} : Set (PGL2 K)) ⊓ J)
-              : Subgroup (PGL2 K)) :=
-          (centralizer_card_conj_eq_normal J hconj).symm
-        _ = Nat.card T.U := hcard_s
-    calc
-      Nat.card C = Nat.card ((Subgroup.centralizer ({T.t * T.s} : Set (PGL2 K)) ⊓ J)
-          : Subgroup (PGL2 K)) := by
-        rw [inf_comm]
-      _ = Nat.card T.U := hcard_ts
-      _ = 2 * n := hUtwo
-  have hRstar_card : Nat.card T.Rstar = n := by
-    dsimp [n]
-    rw [T.Rstar_eq, Subgroup.card_map_of_injective (MulAut.conj T.k).injective]
-    exact pgl2_reflected_torus_R_card_eq_half hK hcard P eP T
-  have hRstar_leC : T.Rstar ≤ C := by
-    intro x hx
-    exact ⟨T.Rstar_le_commutator hx, T.Rstar_le_centralizer_ts hx⟩
-  let RD : Subgroup C := T.Rstar.subgroupOf C
-  have hRDcard : Nat.card RD = Nat.card T.Rstar :=
-    Nat.card_congr (Subgroup.subgroupOfEquivOfLe hRstar_leC).toEquiv
-  have hnpos : 0 < n := by
-    rw [← hRstar_card]
-    exact Nat.card_pos
-  have hRDindex : RD.index = 2 := by
-    have hmul := RD.index_mul_card
-    rw [hRDcard, hRstar_card, hCcard] at hmul
-    exact Nat.eq_of_mul_eq_mul_right hnpos hmul
-  have hRDnormal : RD.Normal := Subgroup.normal_of_index_eq_two hRDindex
-  have hcommC_le_RD : commutator C ≤ RD :=
-    commutator_le_of_normal_index_two (G := C) RD hRDnormal hRDindex
-  have hcommC_amb_le_Rstar :
-      ((commutator C).map C.subtype : Subgroup (PGL2 K)) ≤ T.Rstar := by
-    intro x hx
-    rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
-    exact Subgroup.mem_subgroupOf.mp (hcommC_le_RD hy)
-  have hcommC_amb : (commutator C).map C.subtype = ⁅C, C⁆ :=
-    C.map_subtype_commutator
-  have hCcomm_le_Rstar : (⁅C, C⁆ : Subgroup (PGL2 K)) ≤ T.Rstar := by
-    rw [← hcommC_amb]
-    exact hcommC_amb_le_Rstar
-  have htJ : T.t ∈ J := by simpa [J] using T.t_mem_commutator
-  have htC : T.t ∈ Subgroup.centralizer ({T.t * T.s} : Set (PGL2 K)) := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc
-      T.t * (T.t * T.s) = T.s := by
-        rw [← mul_assoc]
-        simpa [pow_two] using congrArg (fun x : PGL2 K => x * T.s) T.t_involution.right
-      _ = (T.t * T.s) * T.t := by
-        rw [mul_assoc, ← T.t_commutes_s.eq, ← mul_assoc]
-        rw [show T.t * T.t = 1 by simpa [pow_two] using T.t_involution.right, one_mul]
-  have hZt_leC : Subgroup.zpowers T.t ≤ C := by
-    intro x hx
-    exact ⟨Subgroup.zpowers_le.mpr htJ hx, Subgroup.zpowers_le.mpr htC hx⟩
-  exact (Subgroup.commutator_mono hZt_leC le_rfl).trans hCcomm_le_Rstar
 
 /-- The two halves of `q±1` are coprime for odd `q`. -/
 private lemma coprime_halves_of_odd {q : ℕ} (hq : Odd q) :

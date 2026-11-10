@@ -317,11 +317,6 @@ theorem no_strongly_embedded_of_coverFacts
     rw [hTc] at hle
     omega
 
-theorem no_strongly_embedded
-    {G : Type} [Group G] [Finite G] (hs : IsSimpleGroup G)
-    (hG : OneClassDoubleCover G 8) (M : Subgroup G) (hM : CFSG.IsStronglyEmbedded M)
-    (hcent : ∀ u : G, u ∈ M → orderOf u = 2 → centralizer ({u} : Set G) ≤ M) : False :=
-  no_strongly_embedded_of_coverFacts hs coverFacts_eight hG M hM hcent
 
 theorem card_centralizer_involution_of_coverFacts {G : Type} [Group G] [Finite G] {n c : ℕ}
     (hF : CoverFacts n c) (hG : OneClassDoubleCover G n) {u : G} (hu : orderOf u = 2) :

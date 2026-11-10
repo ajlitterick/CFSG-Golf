@@ -17,8 +17,6 @@ open scoped MatrixGroups
 
 variable {G : Type} [Group G]
 
-@[expose] noncomputable def InM0 [Finite G] (S : Setting G) (c : G) : Prop :=
-  ∃ h : c ∈ S.M, (⟨S.ρ ⟨c, h⟩, ⟨⟨c, h⟩, rfl⟩⟩ : S.Mbar) ∈ Mbar0 S
 
 @[expose] def SmithL6Module : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (S : Setting G), S.width = 10 →

@@ -119,9 +119,5 @@ theorem presentationB [Finite F] (hn : 2 ≤ n) : PresentationB (Φ := Φ n F) (
     (fun O C hC => chevalleyExtras hn O C hC)
     (bijective_stPi_of (isCTGroupDatum n F) (steinbergExtras n F)).2
 
-theorem redundantR2 [Finite F] (hn : 2 ≤ n) : RedundantR2 (Φ n F) (rootDatum n F).rootGroup :=
-  redundantR2_of rfl (fun O => ⟨commC, commutatorFormula O⟩)
-    (fun O C hC => chevalleyExtras hn O C hC)
-    (bijective_stPi_of (isCTGroupDatum n F) (steinbergExtras n F)).2
 
 end CFSG.LieType.Steinberg.Sp

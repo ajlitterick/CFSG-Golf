@@ -41,12 +41,6 @@ variable (G) in
 theorem le_maxCardThompson {A : Subgroup G} (hA : IsMaxCardAbelian A) : A ≤ maxCardThompson G :=
   le_sSup hA
 
-theorem maxCardThompson_eq_iSup :
-    maxCardThompson G = ⨆ A ∈ {A : Subgroup G | IsMaxCardAbelian A}, A :=
-  sSup_eq_iSup
-
-theorem maxCardZJ_le_maxCardThompson : maxCardZJ G ≤ maxCardThompson G :=
-  map_subtype_le _
 
 theorem maxCardZJ_eq_inf_centralizer :
     maxCardZJ G = maxCardThompson G ⊓ centralizer (maxCardThompson G : Set G) :=
@@ -221,9 +215,6 @@ theorem ambientMaxCardZJ_eq_map (S : Subgroup G) :
   unfold ambientMaxCardZJ
   rw [maxCardZJ_eq_inf_centralizer, ambientMaxCardThompson_eq_map, map_subtype_inf_centralizer_self]
 
-theorem ambientMaxCardZJ_top : ambientMaxCardZJ (⊤ : Subgroup G) = maxCardZJ G := by
-  unfold ambientMaxCardZJ
-  rw [ambientMaxCardThompson_top, maxCardZJ_eq_inf_centralizer]
 
 instance ambientMaxCardZJ_isMulCommutative (S : Subgroup G) :
     IsMulCommutative (ambientMaxCardZJ S) := by

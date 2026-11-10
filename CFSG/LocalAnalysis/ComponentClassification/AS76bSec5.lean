@@ -285,20 +285,5 @@ theorem fusionLemma_full (h : Hyp51 X A B R U W) :
   · have hUm := h.mem_U_of_occ hU
     exact Or.inr ⟨(card_of_mem_members hUm).trans hR4, hR4, hUm, h.mem_W_of_occ hW⟩
 
-theorem fusionLemma (h : Hyp51 X A B R U W) :
-    (fused X R = ((U ⊔ W : AddSubgroup V) : Set V)ᶜ ∧ (members X R).ncard = Nat.card U ^ 2) ∨
-    (Nat.card U = 4 ∧ Nat.card R = 4 ∧ U ∈ members X R ∧ W ∈ members X R) := by
-  rcases fusionLemma_full h with ⟨h1, h2, -, -⟩ | h'
-  · exact Or.inl ⟨h1, h2⟩
-  · exact Or.inr h'
-
-theorem fusionLemma_rot (h : Hyp51 X A B R U W) :
-    (fused X R = ((U ⊔ W : AddSubgroup V) : Set V)ᶜ ∧
-      (∃ T ∈ members X R, T ≤ R ⊔ U ∧ T ⊓ U = ⊥ ∧ T ⊓ R = ⊥) ∧
-      (∃ T ∈ members X R, T ≤ R ⊔ W ∧ T ⊓ W = ⊥ ∧ T ⊓ R = ⊥)) ∨
-    (Nat.card U = 4 ∧ Nat.card R = 4 ∧ U ∈ members X R ∧ W ∈ members X R) := by
-  rcases fusionLemma_full h with ⟨h1, -, h3, h4⟩ | h'
-  · exact Or.inl ⟨h1, h3, h4⟩
-  · exact Or.inr h'
 
 end CFSG.ComponentClassification.AS76b.Sec5

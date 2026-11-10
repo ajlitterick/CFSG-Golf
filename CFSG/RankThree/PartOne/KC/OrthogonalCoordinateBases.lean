@@ -116,8 +116,6 @@ variable {K : Type*} (E : Type*) {U : Type*} [Field K] [Field E] [Algebra K E] [
 @[expose] noncomputable def hermFunctional (u w : U) : E →ₗ[K] K :=
   (β u).comp ((LinearMap.toSpanSingleton E U w).restrictScalars K)
 
-omit [Finite E] in
-theorem hermFunctional_apply (u w : U) (c : E) : hermFunctional E β u w c = β u (c • w) := rfl
 
 @[expose] noncomputable def hermForm (u w : U) : E :=
   Classical.choose (exists_unique_trace_dual (hermFunctional E β u w)).exists

@@ -149,18 +149,6 @@ theorem exists_mem_gen_conjSub_eq {B E F : Subgroup G} (hB : B ∈ lambdaStar R 
     (mem_lambdaSet_comm hF.1.1.1 hDF)
   exact ⟨g' * g, Subgroup.mul_mem _ hg' hg, by rw [conjSub_mul, hgD, hg'F]⟩
 
-include hcl in
-theorem reflTransGen_deltaSet {B E F : Subgroup G} (hB : B ∈ lambdaStar R A A₀)
-    (hE : E ∈ deltaSet R A A₀ B) (hF : F ∈ deltaSet R A A₀ B) :
-    Relation.ReflTransGen (fun X Y => X ∈ deltaSet R A A₀ B ∧ Y ∈ deltaSet R A A₀ B ∧
-      Y ∈ lambdaSet R X) E F := by
-  by_cases hEF : E = F
-  · exact hEF ▸ Relation.ReflTransGen.refl
-  by_cases hFE : F ∈ lambdaSet R E
-  · exact Relation.ReflTransGen.single ⟨hE, hF, hFE⟩
-  obtain ⟨D, hD, hDE, hDF⟩ := hS.exists_mem_deltaSet_of_notMem_lambdaSet hcl hB hE hF hEF hFE
-  exact (Relation.ReflTransGen.single ⟨hE, hD, hDE⟩).tail
-    ⟨hD, hF, mem_lambdaSet_comm hF.1.1.1 hDF⟩
 
 end Sec13
 

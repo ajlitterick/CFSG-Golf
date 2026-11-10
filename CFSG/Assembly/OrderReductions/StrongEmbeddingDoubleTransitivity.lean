@@ -84,34 +84,5 @@ theorem double_transitive_of_odd_order_and_rank_one_inputs
       · intro normal
         exact even_point (Subgroup.normalizer (normal : Set group))
 
-theorem double_transitive_of_odd_order_and_proper_normal_inputs
-    (odd_solvable : ∀ (group : Type group_universe) [Group group] [Finite group],
-      Odd (Nat.card group) → Group.IsSolvable group)
-    (proper_normal : ∀ (group : Type group_universe) [Group group] [Finite group],
-      CFSG.OrderReductions.RankOneInduction.NoFourInvolutions group → CFSG.OrderReductions.OddCore.oddCore group = ⊥ →
-      ∀ involution : Involution group,
-        (∃ normal : Subgroup group, normal.Normal ∧ normal ≠ ⊤ ∧ involution.val ∈ normal) ∨
-        ∃ sylow : Sylow 2 group, IsCyclic sylow)
-    (group : Type group_universe) [Group group] [Finite group]
-    (first second : Involution group) (distinct : first ≠ second) (commutes : Commute first.val second.val)
-    (subgroup : Subgroup group) (strong : StronglyEmbedded subgroup) :
-    MulAction.IsMultiplyPretransitive group (CFSG.OrderReductions.StrongEmbedding.Conjugates subgroup) 2 :=
-  double_transitive_of_odd_order_and_rank_one_inputs odd_solvable
-    (CFSG.OrderReductions.RankOneInduction.coreFree_centrality_of_proper_normal_step proper_normal)
-    group first second distinct commutes subgroup strong
-
-theorem double_transitive_of_odd_order_and_simple_rank_one_inputs
-    (odd_solvable : ∀ (group : Type group_universe) [Group group] [Finite group],
-      Odd (Nat.card group) → Group.IsSolvable group)
-    (simple_rank_one : ∀ (group : Type group_universe) [Group group] [Finite group]
-      [IsSimpleGroup group], ¬ Group.IsSolvable group → Even (Nat.card group) →
-        CFSG.OrderReductions.RankOneInduction.NoFourInvolutions group → False)
-    (group : Type group_universe) [Group group] [Finite group]
-    (first second : Involution group) (distinct : first ≠ second) (commutes : Commute first.val second.val)
-    (subgroup : Subgroup group) (strong : StronglyEmbedded subgroup) :
-    MulAction.IsMultiplyPretransitive group (CFSG.OrderReductions.StrongEmbedding.Conjugates subgroup) 2 :=
-  double_transitive_of_odd_order_and_rank_one_inputs odd_solvable
-    (CFSG.OrderReductions.RankOneSimpleReduction.coreFree_centrality_of_nonsolvable_simple_rank_one
-      simple_rank_one) group first second distinct commutes subgroup strong
 
 end CFSG.OrderReductions.StrongEmbeddingDoubleTransitivity

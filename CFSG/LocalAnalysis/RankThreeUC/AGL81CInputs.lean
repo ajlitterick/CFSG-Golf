@@ -15,10 +15,6 @@ abbrev NineSevenTwoInputConclusion (G : Type) [Group G] [Finite G]
   ∃ L : Subgroup (↥H ⧸ CFSG.pPrimeCore 3 ↥H), CFSG.IsComponent L ∧ ¬ L ≤ barInf 3 M H ∧
     (IsL34Type ↥L ∨ IsA11Type ↥L)
 
-@[expose] def NineSevenTwoInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G),
-    NineSetting G M 3 Q H E 2 → H ∈ H2Fam M Q → 3 ∉ sigmaM G M →
-    NineSevenTwoInputConclusion G M Q H E
 
 @[expose] def NineSevenTwoInputGen : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (M Q H E : Subgroup G),

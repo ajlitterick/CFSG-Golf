@@ -54,11 +54,6 @@ theorem canonicalRep_mem_graphFixedMonomial
 
 variable {t K σ}
 
-theorem mapsRootLines_graphFixedWeylHom
-    (g : graphFixedMonomial t K σ) :
-    MapsRootLines (g : ModGL t.tag K) (graphFixedWeylHom t K σ g) :=
-  mapsRootLines_weylQuotientHom
-    (Subgroup.inclusion (graphFixedMonomial_le_monomialSubgroup t K σ) g)
 
 theorem graphFixedWeylHom_eq
     {g : graphFixedMonomial t K σ} {w : WeylGroup t.tag}

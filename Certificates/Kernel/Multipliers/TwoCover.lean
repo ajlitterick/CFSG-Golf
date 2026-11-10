@@ -74,10 +74,6 @@ noncomputable def mulEquivOfIsPresentation {X : Type*} [Group X] {g : Fin m → 
   (QuotientGroup.quotientMulEquivOfEq hP.ker_lift.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective _ hP.lift_surjective)
 
-theorem card_PG_eq_of_isPresentation {X : Type*} [Group X] {g : Fin m → X}
-    {R : List (List (Fin m × Bool))} (hP : IsPresentation g (wordSet R)) :
-    Nat.card (PG m R) = Nat.card X :=
-  Nat.card_congr (mulEquivOfIsPresentation hP).toEquiv
 
 end CertificateChecks.KernelTwoCover
 

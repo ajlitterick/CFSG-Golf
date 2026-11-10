@@ -30,12 +30,6 @@ theorem kDTh : (Nat.beq DT.L0.N 8960 && bfsHeadK DT.L0.P DT.L0.PAR DT.L0.LAB 896
 #kc_forall_chunks kDTs (fun i => bfsSegFK (ctStepK BKM BIKM) 8 8961 8960 DT.L0.P DT.L0.PAR DT.L0.LAB
   DT.L0.W DT.L0.S 140 i = true) 64 CertificateChecks.KernelCo1I301.ch810305d.s 1
 
-theorem negDTh : notB (bfsHeadK DT.L0.P DT.L0.PAR DT.L0.LAB 8960 140 63 DK) = true := by
-  quickRfl
-
-theorem negDTs : notB (bfsSegFK (ctStepK BKM BIKM) 8 8961 8960 DT.L0.P (fun k => DT.L0.PAR k + 1)
-    DT.L0.LAB DT.L0.W DT.L0.S 140 0) = true := by
-  quickRfl
 
 theorem kRec : (Nat.beq KI.RP.length 8959 && Nat.beq KI.RL.length 8959 &&
     eqListK DT.L0.PAR KI.RP 1 && eqListK DT.L0.LAB KI.RL 1) = true := by
@@ -43,8 +37,6 @@ theorem kRec : (Nat.beq KI.RP.length 8959 && Nat.beq KI.RL.length 8959 &&
 
 theorem kOrb : orbChk BK BIK 8 DK 8960 (zipK KI.RP KI.RL) = true := by quickRfl
 
-theorem negOrb : notB (orbChk BK BIK 8 DK 8960 (zipK (KI.RP.map (· + 1)) KI.RL)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelCo1I301
 

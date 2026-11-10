@@ -66,9 +66,6 @@ theorem eq_sqLift (hK : f.ker ≤ center P) (hodd : Odd (Nat.card f.ker)) {q : Q
     exact h.choose_spec
   exact eq_of_sq_eq_one hK hodd (hy.trans hs.1.symm) hy2 hs.2
 
-theorem sqLift_inv (hK : f.ker ≤ center P) (hodd : Odd (Nat.card f.ker)) {q : Q}
-    (hq : q ∈ f.range) (hq2 : q ^ 2 = 1) : (sqLift f q)⁻¹ = sqLift f q :=
-  inv_eq_of_mul_eq_one_right (by rw [← sq, (sqLift_spec hK hodd hq hq2).2])
 
 theorem sqLift_conj (hK : f.ker ≤ center P) (hodd : Odd (Nat.card f.ker)) (g : P) {q : Q}
     (hq : q ∈ f.range) (hq2 : q ^ 2 = 1) :

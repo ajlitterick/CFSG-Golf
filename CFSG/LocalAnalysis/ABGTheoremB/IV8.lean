@@ -1202,12 +1202,6 @@ theorem lemmaIV83 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) : σ.LemmaIV83 :=
     (σ.S.isPGroup'.to_le inf_le_left) σ.odd_card_ON hyS
     (hodd.of_dvd_nat (Subgroup.orderOf_dvd_natCard _ hy.2))
 
-variable (σ) in
-theorem familyM_subset_familyMstar (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ}
-    (hr : σ.HypIV7 r) (d : σ.IV7Data r) : d.familyM ⊆ σ.familyMstar r := by
-  intro K hK
-  exact ⟨hK.1, hK.2.1, d.isDGroupWrt_of_mem_familyM hσ hII hr hK,
-    d.odd_card_pPrimeCoreIn_of_mem_familyM hσ hII hr hK⟩
 
 private theorem IV7Data.R_le_Rstar {r : ℕ} (hr : r.Prime) (d : σ.IV7Data r)
     (hN : d.Nstar = Subgroup.normalizer (d.R : Set G)) : d.R ≤ d.Rstar := by

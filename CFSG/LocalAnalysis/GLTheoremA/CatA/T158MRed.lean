@@ -171,8 +171,6 @@ theorem t158_shape_cover {p : ℕ} {j : TauCeti.CFSGIndex} (h : onLie (I171.I171
   ∀ (X : Type) [Group X] [Finite X] (p : ℕ) (K B : Subgroup X) (x₁ x₂ : X) (L₁ L₂ : Subgroup X),
     catalogIs (PSimple p K) Q → ¬ IsChevSimple 2 (PSimple p K) → T158Hyp p K B x₁ x₂ L₁ L₂ → False
 
-theorem t158NoOn_of_falseOn {Q : TauCeti.CFSGIndex → Prop} (h : T158FalseOn Q) : T158NoOn Q :=
-  fun X _ _ p K B x₁ x₂ L₁ L₂ hQ _ hh => h X p K B x₁ x₂ L₁ L₂ hQ hh
 
 @[expose] def T158InnOn (Q : TauCeti.CFSGIndex → Prop) : Prop :=
   ∀ (X : Type) [Group X] [Finite X] (p : ℕ) (K B : Subgroup X) (x₁ x₂ : X) (L₁ L₂ : Subgroup X),
@@ -195,41 +193,6 @@ theorem t158NoOn_of_falseOn {Q : TauCeti.CFSGIndex → Prop} (h : T158FalseOn Q)
       ∀ T : Subgroup X, T ≤ (⊤ : Subgroup X) → IsPGroup 2 T → B ≤ Subgroup.normalizer (T : Set X) →
         (⁅T, B⁆ : Subgroup X) = ⊥
 
-theorem t158FalseOn_mono {Q Q' : TauCeti.CFSGIndex → Prop} (hsub : ∀ i, Q i → Q' i) (h : T158FalseOn Q') :
-    T158FalseOn Q := by
-  intro X _ _ p K B x₁ x₂ L₁ L₂ hQ hh
-  obtain ⟨i, hi, e⟩ := hQ
-  exact h X p K B x₁ x₂ L₁ L₂ ⟨i, hsub i hi, e⟩ hh
-
-theorem t158FalseOn_or {Q₁ Q₂ : TauCeti.CFSGIndex → Prop} (h₁ : T158FalseOn Q₁) (h₂ : T158FalseOn Q₂) :
-    T158FalseOn (fun i => Q₁ i ∨ Q₂ i) := by
-  intro X _ _ p K B x₁ x₂ L₁ L₂ hQ hh
-  obtain ⟨i, hi, e⟩ := hQ
-  rcases hi with h | h
-  · exact h₁ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hh
-  · exact h₂ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hh
-
-theorem t158InnOn_mono {Q Q' : TauCeti.CFSGIndex → Prop} (hsub : ∀ i, Q i → Q' i) (h : T158InnOn Q') :
-    T158InnOn Q := by
-  intro X _ _ p K B x₁ x₂ L₁ L₂ hQ hp hp2 hh
-  obtain ⟨i, hi, e⟩ := hQ
-  exact h X p K B x₁ x₂ L₁ L₂ ⟨i, hsub i hi, e⟩ hp hp2 hh
-
-theorem t158InnOn_or {Q₁ Q₂ : TauCeti.CFSGIndex → Prop} (h₁ : T158InnOn Q₁) (h₂ : T158InnOn Q₂) :
-    T158InnOn (fun i => Q₁ i ∨ Q₂ i) := by
-  intro X _ _ p K B x₁ x₂ L₁ L₂ hQ hp hp2 hh
-  obtain ⟨i, hi, e⟩ := hQ
-  rcases hi with h | h
-  · exact h₁ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hp hp2 hh
-  · exact h₂ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hp hp2 hh
-
-theorem t158TailOn_or {Q₁ Q₂ : TauCeti.CFSGIndex → Prop} (h₁ : T158TailOn Q₁) (h₂ : T158TailOn Q₂) :
-    T158TailOn (fun i => Q₁ i ∨ Q₂ i) := by
-  intro X _ _ p K B x₁ x₂ L₁ L₂ hQ hh hc
-  obtain ⟨i, hi, e⟩ := hQ
-  rcases hi with h | h
-  · exact h₁ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hh hc
-  · exact h₂ X p K B x₁ x₂ L₁ L₂ ⟨i, h, e⟩ hh hc
 
 theorem t158_catalogue {X : Type} [Group X] [Finite X] {p : ℕ} {K B : Subgroup X} {x₁ x₂ : X}
     {L₁ L₂ : Subgroup X} (h : T158Hyp p K B x₁ x₂ L₁ L₂) : IsCatalogGroup (PSimple p K) := by

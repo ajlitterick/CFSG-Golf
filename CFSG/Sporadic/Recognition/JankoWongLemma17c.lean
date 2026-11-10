@@ -98,42 +98,6 @@ theorem IsW.card_normalizer
         (inf_le_right.trans (centralizer_le_normalizer_zpowers (c.a : G)))) inf_le_right)
   rw [hW.normalizer_eq, h2, hinf, c.card_NG_inf_centralizer_a]
 
-theorem IsW.exists_sylow_two_normalizer
-    {W : Subgroup G} (hW : c.IsW W) :
-    ∃ Q : Subgroup G, Q ≤ normalizer (W : Set G) ∧ Nat.card Q = 8 ∧
-      ∃ q₀ ∈ Q, orderOf q₀ = 2 ∧ (∀ u ∈ Q, u ^ 2 = 1 → u ≠ 1 → u = q₀) ∧
-        ∀ u ∈ Q, u * q₀ = q₀ * u := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set N' : Subgroup G := normalizer (W : Set G) with hN'
-  have hcard : Nat.card N' = 5832 := hW.card_normalizer
-  obtain ⟨Q₀⟩ : Nonempty (Sylow 2 ↥N') := inferInstance
-  have hf2 : (Nat.card N').factorization 2 = 3 := by
-    rw [hcard]
-    have : (5832 : ℕ) = 2 ^ 3 * 729 := by norm_num
-    rw [this, Nat.factorization_mul (by norm_num) (by norm_num), Finsupp.add_apply,
-      Nat.Prime.factorization_pow Nat.prime_two]
-    have h : (729 : ℕ).factorization 2 = 0 := Nat.factorization_eq_zero_of_not_dvd (by norm_num)
-    simp [h]
-  set Q : Subgroup G := (Q₀ : Subgroup ↥N').map N'.subtype with hQ
-  have hQcard : Nat.card Q = 8 := by
-    rw [hQ, Subgroup.card_map_of_injective N'.subtype_injective, Q₀.card_eq_multiplicity, hf2]
-    norm_num
-  have hQp : IsPGroup 2 Q := Q₀.isPGroup'.map _
-  have hQle : Q ≤ N' := Subgroup.map_subtype_le _
-  have hQne : Q ≠ ⊥ := by
-    intro h
-    rw [h] at hQcard
-    simp at hQcard
-  obtain ⟨q₀, hq₀Q, hq₀2, hq₀c⟩ := Setup.exists_central_involution hQp hQne
-  refine ⟨Q, hQle, hQcard, q₀, hq₀Q, hq₀2, ?_, hq₀c⟩
-  intro u huQ hu2 hu1
-  by_contra hne
-  have hq₀sq : q₀ ^ 2 = 1 := by rw [← hq₀2]; exact pow_orderOf_eq_one q₀
-  have hq₀1 : q₀ ≠ 1 := fun e => by rw [e, orderOf_one] at hq₀2; omega
-  have hN'a : ∀ y ∈ Q, y ∈ normalizer ((zpowers (c.a : G) : Subgroup G) : Set G) := fun y hy =>
-    hW.normalizer_le_normalizer_zpowers_a (hQle hy)
-  exact c.false_of_klein_four_normalizing_a hu2 hq₀sq hu1 hq₀1 hne (hq₀c u huQ) (hN'a u huQ)
-    (hN'a q₀ hq₀Q)
 
 end Ctx
 

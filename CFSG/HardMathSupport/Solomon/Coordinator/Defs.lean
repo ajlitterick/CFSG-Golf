@@ -26,8 +26,6 @@ variable {G : Type*} [Group G]
 @[expose] def thetaAt (p k : ℕ) (A : Subgroup G) (a : G) : Subgroup G :=
   ⨆ (D : Subgroup G) (_ : IsEkIn p k A D), Subgroup.centralizer ({a} : Set G) ⊓ GLADelta p D
 
-@[expose] def thetaStarAt (p k : ℕ) (A : Subgroup G) (a : G) : Subgroup G :=
-  thetaAt p k A a ⊔ GLAPPrimeCoreOf p (Subgroup.centralizer (A : Set G))
 
 @[expose] def thetaClosure (p k : ℕ) (A : Subgroup G) : Subgroup G :=
   ⨆ (D : Subgroup G) (_ : IsEkIn p k A D), GLADelta p D

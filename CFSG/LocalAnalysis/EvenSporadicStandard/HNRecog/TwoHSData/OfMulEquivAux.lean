@@ -142,9 +142,6 @@ theorem centralizerMulEquiv'_coe (e : H ≃* H') (x' : H')
   simp only [centralizerMulEquiv', MulEquiv.trans_apply, MulEquiv.subgroupCongr_apply]
   exact centralizerMulEquiv_coe e (e.symm x') y
 
-theorem nonempty_centralizer_mulEquiv (e : H ≃* H') (x : H) :
-    Nonempty (↥(centralizer ({x} : Set H)) ≃* ↥(centralizer ({e x} : Set H'))) :=
-  ⟨centralizerMulEquiv e x⟩
 
 theorem map_commutator_mulEquiv (e : H ≃* H') :
     (commutator H).map e.toMonoidHom = commutator H' := by

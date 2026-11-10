@@ -67,15 +67,6 @@ theorem rank3II_14_15_lB {X : Subgroup G} (hXA : X ≤ Subgroup.normalizer (A : 
     (hT : T ∈ scriptQPiStar A (lB A) ⊤ (piOf 2)) (hST : ¬ IsConjIn X S T) : S ⊓ T = ⊥ :=
   rank3II_14_15_reduction (isNaturalFamily_lB A) hXA hloc hS hT hST
 
-theorem rank3II_17_24_2_lB (h : Sec14Std G A c L) {p : ℕ} [Fact p.Prime] (hp3 : p ≠ 3)
-    (hloc : ∀ Y ∈ scriptY A, ∀ S ∈ scriptQPiStar A (lB A) Y (piOf p),
-      ∀ T ∈ scriptQPiStar A (lB A) Y (piOf p),
-        IsConjIn (pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G)) ⊓ Y) S T)
-    {S T : Subgroup G} (hS : S ∈ scriptQPiStar A (lB A) ⊤ (piOf p))
-    (hT : T ∈ scriptQPiStar A (lB A) ⊤ (piOf p)) :
-    IsConjIn (pPrimeCoreOf 3 (Subgroup.centralizer (A : Set G))) S T :=
-  rank3II_17_24_2_reduction hp3 h.isSimpleGroup h.nonabelian h.isE27 (isNaturalFamily_lB A) hloc
-    hS hT
 
 end Standing
 

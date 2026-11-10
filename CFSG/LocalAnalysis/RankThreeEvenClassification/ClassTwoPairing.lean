@@ -47,15 +47,6 @@ theorem classTwo_commutator_mul_right {G : Type u} [Group G]
   map_one' := Subtype.ext (commutatorElement_one_right first)
   map_mul' second third := Subtype.ext (classTwo_commutator_mul_right hclass first second third)
 
-@[expose] def classTwoCommutatorHom {G : Type u} [Group G]
-    (hclass : commutator G ≤ Subgroup.center G) : G →* (G →* Subgroup.center G) where
-  toFun first := classTwoCommutatorHomRight hclass first
-  map_one' := by
-    ext second
-    exact commutatorElement_one_left second
-  map_mul' first second := by
-    ext third
-    exact classTwo_commutator_mul_left hclass first second third
 
 @[expose] def classTwoQuotientHom {G : Type u} [Group G]
     (hclass : commutator G ≤ Subgroup.center G) : G →* (Abelianization G →* Subgroup.center G) where

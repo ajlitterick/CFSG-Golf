@@ -75,8 +75,5 @@ open CFSG.Sporadic.Th.Native CFSG.Perm.Native CFSG.Sporadic.LevelChain.Native
     allIn 0 3 (fun i => treeOK nPts genBase[i]! T[i]! L (levelLv genStarts i)) &&
     orbitSizes T == genSizes
 
-@[expose] def genCertificate (_ : Unit) : Bool :=
-  let O := orbitData ()
-  genCheck O.alpha O.beta
 
 end CFSG.Sporadic.Ly.Gen

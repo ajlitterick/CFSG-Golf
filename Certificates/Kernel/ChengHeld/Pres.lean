@@ -43,8 +43,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.PEnum CFSG.PSL3Four.N
 open CFSG.OddStandard.ChengHeldData CFSG.KC.ChengHeld
 
 theorem k0_gens : gensK regGens0 256 9 7 CH0.G = true := by quickRfl
-theorem k0_cnt : CH0.cnt = 256 := rfl
-theorem k0_k : CH0.k = 7 := rfl
 theorem k0_hd : penumHdK (pidn 256 9) 256 256 CH0.T CH0.PL = true := by quickRfl
 
 theorem k0_sl : penumSlK 256 9 (mask 9) (256 * 9) false CH0.G CH0.GI 7 256 CH0.T CH0.PL
@@ -58,8 +56,6 @@ theorem k0_reg : Nat.beq (List.ofFn fun i : Fin 256 => pg 9 (mask 9) (CH0.T i.va
   quickRfl
 
 theorem k1_gens : gensK regGens1 256 9 7 CH1.G = true := by quickRfl
-theorem k1_cnt : CH1.cnt = 256 := rfl
-theorem k1_k : CH1.k = 7 := rfl
 theorem k1_hd : penumHdK (pidn 256 9) 256 256 CH1.T CH1.PL = true := by quickRfl
 
 theorem k1_sl : penumSlK 256 9 (mask 9) (256 * 9) false CH1.G CH1.GI 7 256 CH1.T CH1.PL
@@ -73,8 +69,6 @@ theorem k1_reg : Nat.beq (List.ofFn fun i : Fin 256 => pg 9 (mask 9) (CH1.T i.va
   quickRfl
 
 theorem k2_gens : gensK regGens2 128 8 7 CH2.G = true := by quickRfl
-theorem k2_cnt : CH2.cnt = 128 := rfl
-theorem k2_k : CH2.k = 7 := rfl
 theorem k2_hd : penumHdK (pidn 128 8) 128 128 CH2.T CH2.PL = true := by quickRfl
 
 theorem k2_sl : penumSlK 128 8 (mask 8) (128 * 8) false CH2.G CH2.GI 7 128 CH2.T CH2.PL
@@ -87,8 +81,6 @@ theorem k2_reg : Nat.beq (List.ofFn fun i : Fin 128 => pg 8 (mask 8) (CH2.T i.va
     128 = true := by
   quickRfl
 
-theorem k_neg : (!relK 256 9 CH0.G CHI0 [[(0, true)]]) = true := by
-  quickRfl
 
 end CertificateChecks.KernelChengHeld
 

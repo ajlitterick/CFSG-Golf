@@ -77,9 +77,6 @@ variable {J : Type v} [Group J]
     (primeFieldAction (p := p) ρ j : Module.End (ZMod p) (Additive R))
       (Additive.ofMul r) = Additive.ofMul (ρ j r) := rfl
 
-theorem primeFieldAction_comp {K : Type w} [Group K]
-    (ρ : J →* MulAut R) (φ : K →* J) :
-    primeFieldAction (p := p) (ρ.comp φ) = (primeFieldAction (p := p) ρ).comp φ := rfl
 
 theorem primeFieldAction_kernel (ρ : J →* MulAut R) :
     (primeFieldAction (p := p) ρ).ker = ρ.ker :=
@@ -120,10 +117,6 @@ theorem primeFieldAction_inversion_ne_one [Nontrivial R]
   exact hr (hz r)
 
 
-theorem isElemAbelian_iff_native {G : Type*} [Group G] (n : ℕ) (A : Subgroup G) :
-    CFSG.Open.IsElemAbelian n A ↔ IsElementaryAbelian n A :=
-  (CFSG.SectionRank.isElementaryAbelian_iff_isElemAbelian n A).symm
-
 instance subgroupElementary (A : Subgroup R) : IsElementaryAbelian p A where
   toIsMulCommutative := inferInstance
   exponent_dvd_p := Monoid.exponent_dvd_iff_forall_pow_eq_one.mpr fun a =>
@@ -141,19 +134,6 @@ instance subgroupElementary (A : Subgroup R) : IsElementaryAbelian p A where
     (W : Submodule (ZMod p) (Additive R)) (r : R) :
     r ∈ (subgroupEquivSubmodule (p := p)).symm W ↔ Additive.ofMul r ∈ W := Iff.rfl
 
-theorem subgroupEquivSubmodule_map (A : Subgroup R) (a : MulAut R) :
-    subgroupEquivSubmodule (p := p) (A.map a.toMonoidHom) =
-      (subgroupEquivSubmodule (p := p) A).map
-        (autToGL (p := p) a : Module.End (ZMod p) (Additive R)) := by
-  ext x
-  change (∃ y : R, y ∈ A ∧ a y = Additive.toMul x) ↔
-    ∃ y : Additive R, y ∈ subgroupEquivSubmodule (p := p) A ∧
-      (autToGL (p := p) a : Module.End (ZMod p) (Additive R)) y = x
-  constructor
-  · rintro ⟨y, hy, hxy⟩
-    exact ⟨Additive.ofMul y, hy, congrArg Additive.ofMul hxy⟩
-  · rintro ⟨y, hy, hxy⟩
-    exact ⟨Additive.toMul y, hy, congrArg Additive.toMul hxy⟩
 
 @[expose] def primeFieldRepresentation (ρ : J →* MulAut R) :
     Representation (ZMod p) J (Additive R) :=
@@ -254,14 +234,6 @@ theorem card_eq_prime_pow_finrank [Finite R] :
       simpa [ZMod.card] using
         (Module.natCard_eq_pow_finrank (K := ZMod p) (V := Additive R))
 
-theorem subgroup_finrank_eq (A : Subgroup R) :
-    Module.finrank (ZMod p) (Additive A) =
-      Module.finrank (ZMod p) (subgroupEquivSubmodule (p := p) A) :=
-  (subgroupLinearEquiv (p := p) A).finrank_eq
-
-theorem subgroup_card_eq_prime_pow_finrank [Finite R] (A : Subgroup R) :
-    Nat.card A = p ^ Module.finrank (ZMod p) (subgroupEquivSubmodule (p := p) A) := by
-  rw [card_eq_prime_pow_finrank (p := p) (R := A), subgroup_finrank_eq]
 
 @[expose] def internalProductLinearEquiv (A B : Subgroup R) (e : A × B ≃* R) :
     (Additive A × Additive B) ≃ₗ[ZMod p] Additive R :=
@@ -288,9 +260,6 @@ theorem internalProduct_finrank [Finite R] (A B : Subgroup R) (e : A × B ≃* R
       Module.finrank (ZMod p) (Additive A) + Module.finrank (ZMod p) (Additive B) :=
   (internalProductLinearEquiv (p := p) A B e).finrank_eq.symm.trans Module.finrank_prod
 
-theorem internalProduct_card (A B : Subgroup R) (e : A × B ≃* R) :
-    Nat.card R = Nat.card A * Nat.card B :=
-  (Nat.card_congr e.toEquiv).symm.trans (Nat.card_prod A B)
 
 theorem equal_factor_finranks [Finite R] (A B : Subgroup R)
     (hcard : Nat.card A = Nat.card B) :
@@ -312,26 +281,6 @@ theorem equal_internalProduct_factors_of_finrank [Finite R] (A B : Subgroup R)
     by rw [card_eq_prime_pow_finrank (p := p) (R := B), hB],
     by rw [card_eq_prime_pow_finrank (p := p) (R := R), hdim]⟩
 
-theorem equal_internalProduct_factors_of_card [Finite R] (A B : Subgroup R)
-    (e : A × B ≃* R) (hcard : Nat.card A = Nat.card B) (f : ℕ)
-    (hR : Nat.card R = p ^ (2 * f)) :
-    Module.finrank (ZMod p) (Additive R) = 2 * f ∧
-      Module.finrank (ZMod p) (Additive A) = f ∧
-      Module.finrank (ZMod p) (Additive B) = f ∧
-      Nat.card A = p ^ f ∧ Nat.card B = p ^ f := by
-  have hdim : Module.finrank (ZMod p) (Additive R) = 2 * f := by
-    apply Nat.pow_right_injective (Fact.out : p.Prime).two_le
-    simpa only [card_eq_prime_pow_finrank (p := p)] using hR
-  obtain ⟨hA, hB, hcA, hcB, _⟩ :=
-    equal_internalProduct_factors_of_finrank (p := p) A B e hcard f hdim
-  exact ⟨hdim, hA, hB, hcA, hcB⟩
-
-
-theorem primeFieldRepresentation_kernel (ρ : J →* MulAut R) :
-    (primeFieldRepresentation (p := p) ρ).ker = ρ.ker :=
-  (MonoidHom.ker_comp_of_injective (primeFieldAction (p := p) ρ)
-    (Units.coeHom (Module.End (ZMod p) (Additive R))) Units.coeHom_injective).trans
-      (primeFieldAction_kernel ρ)
 
 @[expose] def descendedOriginalAction {H : Type w} [Group H] (β : J →* H)
     (hβ : Function.Surjective β) (ρ : J →* MulAut R) (hker : β.ker ≤ ρ.ker) :
@@ -369,89 +318,6 @@ theorem descendedOriginalAction_injective {H : Type w} [Group H] (β : J →* H)
   · intro hh
     rw [hh, map_one]
 
-theorem descendedOriginalAction_primeFieldAction {H : Type w} [Group H]
-    (β : J →* H) (hβ : Function.Surjective β) (ρ : J →* MulAut R)
-    (hker : β.ker ≤ ρ.ker)
-    (hlinear : β.ker ≤ (primeFieldRepresentation (p := p) ρ).ker) :
-    primeFieldAction (p := p) (descendedOriginalAction β hβ ρ hker) =
-      OddCentralDimension.descendedAction β hβ (primeFieldRepresentation (p := p) ρ) hlinear := by
-  apply MonoidHom.ext
-  intro h
-  obtain ⟨j, rfl⟩ := hβ h
-  rw [OddCentralDimension.descendedAction_apply]
-  change autToGL (p := p) (descendedOriginalAction β hβ ρ hker (β j)) = _
-  rw [descendedOriginalAction_apply]
-  exact (OddCentralDimension.asGroupHom_coeHom_comp (primeFieldAction (p := p) ρ))
-    |> congrArg (fun f => f j) |> Eq.symm
-
-theorem originalAction_of_checked_full_GL_equality {H : Type w} [Group H]
-    (β : J →* H) (hβ : Function.Surjective β) (ρ : J →* MulAut R) (t : J) (n : ℕ)
-    (hequality : Module.finrank (ZMod p) (Additive R) = n →
-      OddCentralDimension.negativeSpace (primeFieldRepresentation (p := p) ρ) t = ⊤ ∧
-        Representation.IsIrreducible (primeFieldRepresentation (p := p) ρ) ∧
-        (primeFieldAction (p := p) ρ).ker = β.ker ∧
-        ∃ (hlinear : β.ker ≤ (primeFieldRepresentation (p := p) ρ).ker),
-          Function.Injective (OddCentralDimension.descendedAction β hβ
-            (primeFieldRepresentation (p := p) ρ) hlinear) ∧
-          (OddCentralDimension.descendedAction β hβ
-            (primeFieldRepresentation (p := p) ρ) hlinear).comp β = primeFieldAction (p := p) ρ)
-    (hdim : Module.finrank (ZMod p) (Additive R) = n) :
-    OddCentralDimension.negativeSpace (primeFieldRepresentation (p := p) ρ) t = ⊤ ∧
-      Representation.IsIrreducible (primeFieldRepresentation (p := p) ρ) ∧
-      ρ.ker = β.ker ∧
-      ∃ (hker : β.ker ≤ ρ.ker) (hlinear : β.ker ≤ (primeFieldRepresentation (p := p) ρ).ker),
-        Function.Injective (descendedOriginalAction β hβ ρ hker) ∧
-        (descendedOriginalAction β hβ ρ hker).comp β = ρ ∧
-        primeFieldAction (p := p) (descendedOriginalAction β hβ ρ hker) =
-          OddCentralDimension.descendedAction β hβ (primeFieldRepresentation (p := p) ρ) hlinear ∧
-        ∀ (j : J) (r : R), descendedOriginalAction β hβ ρ hker (β j) r = ρ j r := by
-  obtain ⟨hspace, hirr, hGLker, hlinear, hinj, _⟩ := hequality hdim
-  have hkernel : ρ.ker = β.ker := (primeFieldAction_kernel ρ).symm.trans hGLker
-  have hker : β.ker ≤ ρ.ker := hkernel.ge
-  have htransport := descendedOriginalAction_primeFieldAction β hβ ρ hker hlinear
-  have hfaithful : Function.Injective (descendedOriginalAction β hβ ρ hker) := by
-    intro x y hxy
-    apply hinj
-    rw [← htransport]
-    exact congrArg (autToGL (p := p)) hxy
-  exact ⟨hspace, hirr, hkernel, hker, hlinear, hfaithful,
-    descendedOriginalAction_comp β hβ ρ hker, htransport,
-    descendedOriginalAction_apply_element β hβ ρ hker⟩
-
-theorem original_elementary_odd_cover_full_dimension_and_equality
-    [Finite J] [Group.IsPerfect J] [Finite R] [Nontrivial R]
-    {F : Type w} [Field F] {f : ℕ} (hpodd : Odd p) (hf : 1 ≤ f)
-    (hF : Nat.card F = p ^ f) (hq : 5 ≤ p ^ f)
-    (β : J →* Matrix.SpecialLinearGroup (Fin 2) F) (hβ : Function.Surjective β)
-    (hcentral : β.ker ≤ Subgroup.center J) (hodd : Odd (Nat.card β.ker))
-    (t : J) (ht : t ∈ Subgroup.center J) (htorder : orderOf t = 2)
-    (htβ : β t = OddFieldSL2.minusIdentity F)
-    (ρ : J →* MulAut R) (hinv : ∀ r : R, ρ t r = r⁻¹) :
-    2 * f ≤ Module.finrank (ZMod p)
-      (OddCentralDimension.negativeSpace (primeFieldRepresentation (p := p) ρ) t) ∧
-      2 * f ≤ Module.finrank (ZMod p) (Additive R) ∧
-      OddCentralDimension.AllNegativeIrreducibleSubquotientsBound β hβ
-        (primeFieldRepresentation (p := p) ρ) t ht (2 * f) ∧
-      (Module.finrank (ZMod p) (Additive R) = 2 * f →
-        OddCentralDimension.negativeSpace (primeFieldRepresentation (p := p) ρ) t = ⊤ ∧
-          Representation.IsIrreducible (primeFieldRepresentation (p := p) ρ) ∧
-          ρ.ker = β.ker ∧
-          ∃ (hker : β.ker ≤ ρ.ker)
-            (hlinear : β.ker ≤ (primeFieldRepresentation (p := p) ρ).ker),
-            Function.Injective (descendedOriginalAction β hβ ρ hker) ∧
-            (descendedOriginalAction β hβ ρ hker).comp β = ρ ∧
-            primeFieldAction (p := p) (descendedOriginalAction β hβ ρ hker) =
-              OddCentralDimension.descendedAction β hβ
-                (primeFieldRepresentation (p := p) ρ) hlinear ∧
-            ∀ (j : J) (r : R), descendedOriginalAction β hβ ρ hker (β j) r = ρ j r) := by
-  let : Finite F := Nat.finite_of_card_ne_zero (hF ▸ pow_ne_zero f (Fact.out : p.Prime).ne_zero)
-  obtain ⟨hneg, hwhole, hfactors, hequality⟩ :=
-    OddCentralDimension.odd_central_SL2_cover_defining_characteristic_minimum_dimension
-      (Fact.out : p.Prime) hpodd hf hF hq (by simp [ZMod.card]) β hβ hcentral hodd
-      t ht htorder htβ (primeFieldAction (p := p) ρ)
-      (primeFieldAction_inversion_ne_one hpodd ρ t hinv)
-  exact ⟨hneg, hwhole, hfactors,
-    originalAction_of_checked_full_GL_equality β hβ ρ t (2 * f) hequality⟩
 
 end
 

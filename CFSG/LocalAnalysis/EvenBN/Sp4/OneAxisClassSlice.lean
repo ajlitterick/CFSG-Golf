@@ -58,14 +58,6 @@ theorem orbit_eq [Finite G] [Finite K] (h : OneAxisData L K n φ TG t M) :
     refine ⟨m⁻¹, inv_mem ((le_sup_right : 𝐌₂ ≤ 𝐕) hm), ?_⟩
     rw [inv_inv, (h.conj_t_eq hab).1]
 
-theorem orbit_eq_inter [Finite G] [Finite K] (h : OneAxisData L K n φ TG t M) :
-    {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} =
-      {x | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ 𝐁₂} := by
-  rw [h.orbit_eq, h.heis.sec.fus]
-
-theorem card_orbit [Finite G] [Finite K] (h : OneAxisData L K n φ TG t M) :
-    Nat.card {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} = (2 ^ n) ^ 2 := by
-  rw [h.orbit_eq, Hyp.card_pair_set, h.heis.sec.two.card_K]
 
 theorem uElt_eq_mul_mul_mul (a b c : K) :
     uElt a b c 0 = uElt a b 0 0 * (uElt 1 0 0 0 * uElt 0 c 0 0 * uElt 1 c 0 0) := by
@@ -268,22 +260,5 @@ end OneAxisData
 
 open OneAxisData
 
-theorem one_axis_class_slice {G : Type} [Group G] [Finite G]
-    {L : Subgroup G} {K : Type} [Field K] [Finite K] [CharP K 2] {n : ℕ} {φ : L ≃* antiSp K}
-    {TG : Subgroup G} {t : G} {M : Subgroup G} (h : OneAxisData L K n φ TG t M) :
-    {x : G | ∃ g : G, x = g⁻¹ * t * g} ∩ (h.T₁ : Set G) =
-        {x | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} ∧
-      (h.T₁ = h.V₁ ⊔ zpowers t ∧ h.V₁ ⊓ zpowers t = ⊥) ∧
-      {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} =
-        {x | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ zpowers t ⊔ pull φ (rootA K Axis.two)} ∧
-      {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} =
-        {x | ∃ a b : K, x = t * ((φ.symm (uElt a b 0 0) : L) : G)} ∧
-      Nat.card {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} = (2 ^ n) ^ 2 ∧
-      closure {x : G | ∃ v ∈ h.V₁, x = v⁻¹ * t * v} = zpowers t ⊔ pull φ (rootA K Axis.two) ∧
-      h.V₁ ⊓ centralizer ({t} : Set G) = pull φ (antiUnipotent K) ∧
-      {x : G | (∃ v ∈ h.V₁, x = t * v) ∧ orderOf x = 2} =
-        {x | ∃ v ∈ h.V₁, ∃ a ∈ pull φ (rootA K Axis.one), x = v⁻¹ * (t * a) * v} :=
-  ⟨h.class_slice, h.T₁_eq, h.orbit_eq_inter, h.orbit_eq, h.card_orbit, h.closure_orbit_eq,
-    h.V₁_inf_centralizer, h.involution_coset_eq⟩
 
 end CFSG.LocalAnalysis.EvenBN.Sp4

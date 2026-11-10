@@ -574,12 +574,6 @@ private def e27_diff (g : MulAut V) : V →* V where
     simp only [map_mul, mul_inv]
     exact mul_mul_mul_comm _ _ _ _
 
-omit [Finite V] in
-private theorem e27_diff_apply (g : MulAut V) (v : V) : e27_diff g v = g v * v⁻¹ := rfl
-
-omit [Finite V] in
-private theorem e27_mem_ker_diff {g : MulAut V} {v : V} : v ∈ (e27_diff g).ker ↔ g v = v := by
-  rw [MonoidHom.mem_ker, e27_diff_apply, mul_inv_eq_one]
 
 omit [Finite V] in
 private theorem e27_zpowers_inv {z : MulAut V} (hz3 : z ^ 3 = 1) {B : Subgroup V}
@@ -592,10 +586,6 @@ private theorem e27_zpowers_inv {z : MulAut V} (hz3 : z ^ 3 = 1) {B : Subgroup V
     rw [this]
     exact hzB _ (hzB _ hb)
 
-omit [Finite V] in
-private theorem e27_zpowers_fix {y : MulAut V} {v : V} (hv : y v = v) :
-    ∀ g ∈ Subgroup.zpowers y, g v = v := fun g hg =>
-  (mem_fixV_zpowers_iff.mpr hv) g hg
 
 private theorem e27_zpowers_triv_mod {y : MulAut V} {H : Subgroup V}
     (hy : ∀ v : V, y v * v⁻¹ ∈ H) :

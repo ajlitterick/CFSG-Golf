@@ -569,64 +569,6 @@ theorem mem_torus_sup_plane_of_mem_closedIdentityComponent [IsAlgClosed Ω] {ζ 
   have h1 : z ∈ torusGroup Tag.E6 Ω ⊔ rootSpan Tag.E6 Ω (familyKernel a) := h.1
   rwa [hkerA] at h1
 
-theorem exists_planeKey_and_connected_centralizer_le_rank_three [IsAlgClosed Ω] {ζ : Ωˣ}
-    (hζo : orderOf ζ = 3) (hζ : ζ ^ 3 = 1) {E : Subgroup (ModGL .E6 Ω)}
-    (hEM : E ≤ monomialSubgroup .E6 Ω) [Finite E] (hE : IsElemAbelian 3 E)
-    (hcard : Nat.card E = 3 ^ 3)
-    (hEA : ∀ w, w ∈ Subgroup.zpowers cE6 ↔ ∃ e, ∃ he : e ∈ E,
-      weylQuotientHom .E6 Ω ⟨e, hEM he⟩ = w) :
-    ∃ k : Fin 3 → ZMod 3, k ≠ 0 ∧
-      (∀ v, v ∈ expE ζ hζ E ↔ ∃ x : Fin 3 → ZMod 3,
-        ∑ i, k i * x i = 0 ∧ v = combC x) ∧
-      closedIdentityComponent (adjointGroup .E6 Ω ⊓
-        Subgroup.centralizer (E : Set (ModGL .E6 Ω))) ≤
-        torusGroup .E6 Ω ⊔ rootSpan .E6 Ω {α | IsRoot .E6 α ∧ sigmaTest k α} := by
-  obtain ⟨k, hk0, hk⟩ := exists_planeKey_of_zpowers_c_rank_three hζo hζ hEM hE hcard hEA
-  refine ⟨k, hk0, hk, fun z hz => ?_⟩
-  refine mem_torus_sup_plane_of_mem_closedIdentityComponent hζo hζ k (fun v hv => ?_) hz
-  exact mem_expE.mp ((hk v).mpr hv)
-
-theorem connected_centralizer_rank_three_cases [IsAlgClosed Ω] {ζ : Ωˣ}
-    (hζo : orderOf ζ = 3) (hζ : ζ ^ 3 = 1) {E : Subgroup (ModGL .E6 Ω)}
-    (hEM : E ≤ monomialSubgroup .E6 Ω) [Finite E] (hE : IsElemAbelian 3 E)
-    (hcard : Nat.card E = 3 ^ 3)
-    (hEA : ∀ w, w ∈ Subgroup.zpowers cE6 ↔ ∃ e, ∃ he : e ∈ E,
-      weylQuotientHom .E6 Ω ⟨e, hEM he⟩ = w) :
-    let C := closedIdentityComponent (adjointGroup .E6 Ω ⊓
-      Subgroup.centralizer (E : Set (ModGL .E6 Ω)))
-    C ≤ torusGroup .E6 Ω ∨
-    (∃ β ∈ rootFinset .E6,
-      iform β (cAct β) = 0 ∧ iform β (cAct (cAct β)) = 0 ∧
-      iform (cAct β) (cAct (cAct β)) = 0 ∧
-      C ≤ torusGroup .E6 Ω ⊔ rootSpan .E6 Ω
-        {α | α ∈ [β, -β, cAct β, -cAct β, cAct (cAct β), -cAct (cAct β)]}) ∨
-    C ≤ torusGroup .E6 Ω ⊔ rootSpan .E6 Ω {α | α ∈ fixedA2E6} ∨
-    C ≤ torusGroup .E6 Ω ⊔ rootSpan .E6 Ω
-      {α | IsRoot .E6 α ∧ α + cAct α + cAct (cAct α) = 0} := by
-  obtain ⟨k, hk0, _, hC⟩ :=
-    exists_planeKey_and_connected_centralizer_le_rank_three hζo hζ hEM hE hcard hEA
-  rcases planeTypes_c_all k hk0 with h | ⟨β, hβ, hroots, h1, h2, h3, _⟩ | h | ⟨_, h⟩
-  · left
-    have hempty : {α | IsRoot .E6 α ∧ sigmaTest k α} = ∅ := by
-      ext α
-      simp only [Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false, not_and]
-      exact fun hα => h α (mem_rootFinset.mpr hα)
-    simpa [hempty, rootSpan] using hC
-  · refine Or.inr (Or.inl ⟨β, (Finset.mem_filter.mp hβ).1, h1, h2, h3, ?_⟩)
-    apply hC.trans
-    apply sup_le_sup_left
-    apply rootSpan_mono
-    intro α hα
-    simpa only [Set.mem_setOf_eq, List.mem_cons, List.not_mem_nil, or_false] using
-      (hroots α (mem_rootFinset.mpr hα.1)).mp hα.2
-  · refine Or.inr (Or.inr (Or.inl (hC.trans (sup_le_sup_left (rootSpan_mono ?_) _))))
-    intro α hα
-    rcases h with rfl | rfl
-    · exact (sigmaTest_fixed α (mem_rootFinset.mpr hα.1)).1.mp hα.2
-    · exact (sigmaTest_fixed α (mem_rootFinset.mpr hα.1)).2.mp hα.2
-  · refine Or.inr (Or.inr (Or.inr (hC.trans (sup_le_sup_left (rootSpan_mono ?_) _))))
-    intro α hα
-    exact ⟨hα.1, (h α (mem_rootFinset.mpr hα.1)).mp hα.2⟩
 
 theorem isRoot_and_rootChar_zetaVec_iff {L : Type} [Field L] {ζ : Lˣ} (hζo : orderOf ζ = 3)
     (hζ : ζ ^ 3 = 1) (α : Fin Tag.E6.rank → ℤ) :

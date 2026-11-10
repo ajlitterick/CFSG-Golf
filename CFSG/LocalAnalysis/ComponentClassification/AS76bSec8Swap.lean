@@ -31,23 +31,6 @@ theorem conjAction_apply (ψ : normalizer (A : Set G) →* W) (g x : G)
       ψ ⟨g * x * g⁻¹, (AS76b.mem_normalizer_rightConjugate_iff A g x).1 hx⟩ :=
   rfl
 
-theorem isActionHom_conjAction {ψ : normalizer (A : Set G) →* W} (hψ : IsActionHom A X ψ)
-    (g : G) : IsActionHom (rightConjugate A g) X (conjAction ψ g) := by
-  refine ⟨fun a ha => ?_, fun x hx => ?_, fun n => ?_⟩
-  · rw [conjAction_apply]
-    exact hψ.map_mem _ ((mem_rightConjugate_iff A g a).1 ha)
-  · obtain ⟨a, ha, h⟩ := hψ.exists_eq x hx
-    have ha' : g⁻¹ * a * g ∈ rightConjugate A g := by
-      rw [mem_rightConjugate_iff]
-      simpa [mul_assoc] using ha
-    refine ⟨g⁻¹ * a * g, ha', ?_⟩
-    rw [conjAction_apply, ← h]
-    congr 1
-    apply Subtype.ext
-    simp only
-    group
-  · obtain ⟨x, hx⟩ := n
-    rw [conjAction_apply, hψ.eq_one_iff, RankTwoL3Even.mem_centralizer_rightConjugate_iff]
 
 end ConjAction
 

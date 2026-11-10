@@ -76,16 +76,11 @@ open CFSG.KC CFSG.KC.Loop
   Nat.beq (netApply k (Nat.shiftLeft (nat_lit 1) k) (repU (Nat.shiftLeft (nat_lit 1) k) k) N (idP k))
     (colPlanes RAW rec n k c)
 
-@[expose] noncomputable def wordId (k : Nat) (Ns : List Nat) : Bool :=
-  Nat.beq (netsApply k (Nat.shiftLeft (nat_lit 1) k) (repU (Nat.shiftLeft (nat_lit 1) k) k) Ns (idP k))
-    (idP k)
 
 @[expose] noncomputable def wordNet (k : Nat) (Ns : List Nat) (N : Nat) : Bool :=
   Nat.beq (netsApply k (Nat.shiftLeft (nat_lit 1) k) (repU (Nat.shiftLeft (nat_lit 1) k) k) Ns (idP k))
     (netApply k (Nat.shiftLeft (nat_lit 1) k) (repU (Nat.shiftLeft (nat_lit 1) k) k) N (idP k))
 
-@[expose] noncomputable def rawEnt (RAW rec p c : Nat) : Nat :=
-  Nat.land (Nat.shiftRight RAW (Nat.add (Nat.mul rec p) (Nat.mul (nat_lit 32) c))) (ones (nat_lit 32))
 
 @[expose] noncomputable def orbStep (k : Nat) (Ns : List Nat) (X : Nat) : Nat :=
   List.rec (motive := fun _ => Nat) X

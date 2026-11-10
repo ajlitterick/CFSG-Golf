@@ -109,37 +109,5 @@ theorem alternating_no_classical (n : ℕ) (z : alternatingGroup (Fin n)) (hz : 
   rw [Subgroup.mem_subgroupOf, hFix] at hzA
   exact ha₀ (hzA a₀ ha₀)
 
-theorem no_classical_of_mulEquiv_alternating {F : Type*} [Group F] {n : ℕ}
-    (e : F ≃* alternatingGroup (Fin n)) (z : F) (hz : orderOf z = 2) (K : Subgroup F)
-    (hzK : z ∈ K) (hK : IsSubnormal K (Subgroup.centralizer {z}))
-    (hw : classicalInvolutionWitness K) (hns : ¬ Group.IsSolvable K) : False := by
-  have hC : (Subgroup.centralizer ({z} : Set F)).map e.toMonoidHom =
-      Subgroup.centralizer ({e z} : Set (alternatingGroup (Fin n))) := by
-    ext x
-    rw [Subgroup.mem_map, Subgroup.mem_centralizer_iff]
-    constructor
-    · rintro ⟨y, hy, rfl⟩ h hh
-      rw [Set.mem_singleton_iff] at hh
-      subst hh
-      have := Subgroup.mem_centralizer_iff.mp hy z (Set.mem_singleton z)
-      simpa using congrArg e this
-    · intro hx
-      refine ⟨e.symm x, ?_, by simp⟩
-      rw [Subgroup.mem_centralizer_iff]
-      intro h hh
-      rw [Set.mem_singleton_iff] at hh
-      subst hh
-      have := hx (e h) (Set.mem_singleton _)
-      apply e.injective
-      simpa using this
-  refine alternating_no_classical n (e z) (by rwa [MulEquiv.orderOf_eq]) (K.map e.toMonoidHom)
-    ⟨z, hzK, rfl⟩ ?_ ?_ ?_
-  · rw [← hC]
-    exact isSubnormal_map_mulEquiv e hK
-  · exact classicalInvolutionWitness_of_mulEquiv (e.subgroupMap K) hw
-  · intro hs
-    have : Group.IsSolvable (K.map (e : F →* alternatingGroup (Fin n))) := hs
-    exact hns (Group.isSolvable_of_surjective (f := (e.subgroupMap K).symm.toMonoidHom)
-      (e.subgroupMap K).symm.surjective)
 
 end CFSG.ClassicalInvolution

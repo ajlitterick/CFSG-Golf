@@ -61,10 +61,6 @@ variable [Module (ZMod 2) (Additive V)]
   ((subEquiv X).trans ((MulEquiv.toAdditive φ).trans (subEquiv X).symm)).toLinearEquiv
     (ZMod.map_smul _)
 
-theorem linEquivOf_apply {X : Subgroup V} (φ : X ≃* X) (v : X) :
-    ((linEquivOf φ ⟨Additive.ofMul (v : V), mem_subE.2 v.2⟩ : subE X) : Additive V) =
-      Additive.ofMul ((φ v : X) : V) :=
-  rfl
 
 theorem natCard_subE (X : Subgroup V) : Nat.card (subE X) = Nat.card X :=
   Nat.card_congr ((subEquiv X).toEquiv.trans Additive.toMul)

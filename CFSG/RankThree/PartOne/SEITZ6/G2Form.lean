@@ -24,27 +24,6 @@ theorem jForm_single (a b : Label .G2) :
     jForm K (Finsupp.single a 1) (Finsupp.single b 1) = (jLab a b : K) := by
   simp [jForm, Finsupp.linearCombination_single]
 
-theorem jLab_comm (a b : Label .G2) : jLab a b = jLab b a := by
-  rcases a with i | ⟨α, hα⟩ <;> rcases b with j | ⟨β, hβ⟩
-  · simp only [jLab]
-    by_cases h : i = j
-    · simp [h]
-    · simp [h, Ne.symm h]
-  · rfl
-  · rfl
-  · simp only [jLab]
-    by_cases h : β = -α
-    · have h' : α = -β := by rw [h]; simp
-      rw [ite_eq_left h, ite_eq_left h']
-    · have h' : ¬ α = -β := fun e => h (by rw [e]; simp)
-      rw [ite_eq_right h, ite_eq_right h']
-
-theorem jForm_comm (x y : RootModule .G2 K) : jForm K x y = jForm K y x := by
-  have h : LinearMap.flip (jForm K) = jForm K := by
-    refine LinearMap.ext_basis Finsupp.basisSingleOne Finsupp.basisSingleOne fun a b => ?_
-    simp only [Finsupp.coe_basisSingleOne, LinearMap.flip_apply, jForm_single, jLab_comm b a]
-  calc jForm K x y = LinearMap.flip (jForm K) y x := rfl
-    _ = jForm K y x := by rw [h]
 
 theorem neg_rt_mem : ∀ p < 12, ∃ q < 12, rt q = -rt p := by decide +kernel
 

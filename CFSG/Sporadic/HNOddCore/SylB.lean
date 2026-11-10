@@ -132,11 +132,6 @@ theorem classSet_tree
       rw [e, ← hye, mul_inv_rev]
       group
 
-theorem classSet_mem_Pbar
-    {c : ℕ} (hc : c < 29) {x : Perm (Fin 800)} (hx : x ∈ classSet c) :
-    x ∈ Pbar := by
-  obtain ⟨j, hj, rfl⟩ := hx
-  exact ePerm_mem _ ((classOK_spec hc).2.2.1 j hj)
 
 theorem classSet_conj
     {c : ℕ} (hc : c < 29) :
@@ -151,10 +146,6 @@ theorem classSet_conj
   rw [getElem!_pos _ j' hj', hj'e]
   exact (eq_of_peq (prep_ePerm hm) (prep_pconj g.2 (prep_ePerm (hlt j hj))) he)
 
-theorem rep_mem_classSet
-    {c : ℕ} (hc : c < 29) : repPerm c ∈ classSet c := by
-  obtain ⟨hpos, h0, -, -, -⟩ := classOK_spec hc
-  exact ⟨0, hpos, by rw [h0]; rfl⟩
 
 theorem rep_lt {c : ℕ} (hc : c < 29) : pReps[c]! < 16384 := by
   obtain ⟨hpos, h0, hlt, -, -⟩ := classOK_spec hc
@@ -170,8 +161,6 @@ theorem repPerm_sq
     {c : ℕ} (hc : c < 29) : repPerm c ^ 2 = 1 :=
   (pE_sq_iff (rep_lt hc)).1 (cls_parts.2.2.1 c hc).1
 
-theorem repPerm_mem
-    {c : ℕ} (hc : c < 29) : repPerm c ∈ Pbar := ePerm_mem _ (rep_lt hc)
 
 theorem classes_Pbar :
     ∀ x ∈ Pbar, x ^ 2 = 1 → ∃! c : Fin 29, ∃ y ∈ Pbar, y * repPerm c * y⁻¹ = x := by
@@ -204,22 +193,5 @@ theorem classes_Pbar :
     rw [this] at hdis
     exact Bool.noConfusion hdis
 
-theorem card_inv_Pbar :
-    Nat.card {x : Pbar // x ^ 2 = 1} = 880 := by
-  have e : {k : Fin 16384 // ePerm k ^ 2 = 1} ≃ {x : Pbar // x ^ 2 = 1} :=
-    Equiv.subtypeEquiv (Equiv.ofBijective eMap eMap_bijective) fun k => by
-      show ePerm k ^ 2 = 1 ↔ eMap k ^ 2 = 1
-      rw [Subtype.ext_iff, Subgroup.coe_pow, Subgroup.coe_one]
-      rfl
-  rw [← Nat.card_congr e, Nat.card_eq_fintype_card, Fintype.card_subtype]
-  have h2 : (Finset.univ.filter fun k : Fin 16384 => ePerm k ^ 2 = 1) =
-      Finset.univ.filter fun k : Fin 16384 =>
-        peq 800 (pcomp 800 pE[(k : ℕ)]! pE[(k : ℕ)]!) (pid 800) = true := by
-    ext k
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
-    exact (pE_sq_iff k.2).symm
-  rw [h2]
-  exact (card_eq_countP_fin (p := fun k => peq 800 (pcomp 800 pE[k]! pE[k]!) (pid 800))).trans
-    p_parts.2.2.2.2.2.2.2.2.2.2.2
 
 end CFSG.Sporadic.HNOddCore

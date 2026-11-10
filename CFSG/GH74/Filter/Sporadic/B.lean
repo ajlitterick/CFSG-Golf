@@ -9,9 +9,6 @@ namespace CFSG.GH74.Filter
 
 open CFSG.Blueprint CFSG.SectionRank CFSG.SectionRank.Native
 
-theorem b_not_gen4 : ¬ Gen4 NativeSporadic.B := by
-  obtain ⟨E, hE, hc⟩ := Certificates.certificate5023
-  exact not_gen4_of_elemAbelian E hE (by rw [hc]; norm_num)
 
 theorem not_gen4_B :
     ¬ Gen4 NativeSporadic.B :=

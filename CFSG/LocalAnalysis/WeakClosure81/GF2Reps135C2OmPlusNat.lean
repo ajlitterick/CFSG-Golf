@@ -280,14 +280,6 @@ private theorem omPlusNat_XEquiv_bijective {n : ℕ} (hn : 3 ≤ n) (s : Fin n) 
     obtain ⟨c, hc⟩ := hx
     exact ⟨c.toAdd, Subtype.ext (by simpa using hc)⟩
 
-private noncomputable def omPlusNat_XEquiv {n : ℕ} (hn : 3 ≤ n) (s : Fin n) :
-    F ≃ (omPlusCurtisDatum n F hn).X s :=
-  Equiv.ofBijective _ (omPlusNat_XEquiv_bijective hn s)
-
-private theorem omPlusNat_card_X {n : ℕ} (hn : 3 ≤ n) (hF : Nat.card F = 2) (s : Fin n) :
-    Nat.card ((omPlusCurtisDatum n F hn).X s) = 2 := by
-  rw [← Nat.card_congr (omPlusNat_XEquiv hn s)]
-  exact hF
 
 omit [Finite F] [CharP k 2] in
 private theorem omPlusNat_weylD_zero_e0 {n : ℕ} (hn : 3 ≤ n) (φ : F →+* k) :
@@ -469,29 +461,5 @@ theorem isCurtisType_omPlus_two_natural (hF : Nat.card F = 2) {n : ℕ} (hn : 3 
   · intro s
     simpa using omPlusNat_hecke hn hF φ s
 
-theorem isCurtisType_omPlus_two_trivial (hF : Nat.card F = 2) {n : ℕ} (hn : 3 ≤ n)
-    {χ : spinGroup (quadPlus n F) → k} (hχ : χ 1 = 1) :
-    (omPlusCurtisDatum n F hn).IsCurtisType
-      (Representation.trivial k (spinGroup (quadPlus n F)) k) 1 χ 0 := by
-  refine ⟨?_, one_ne_zero, ?_, ?_⟩
-  · intro u _
-    rw [Representation.trivial_apply]
-  · intro h hh
-    have h1 : h = 1 := by
-      have hmem : h ∈ (omPlusCurtisDatum n F hn).H := hh
-      rw [omPlusCurtisDatum_two_H hF hn] at hmem
-      simpa using hmem
-    subst h1
-    rw [hχ]
-    simp
-  · intro s
-    have : Fintype ((omPlusCurtisDatum n F hn).X s) := Fintype.ofFinite _
-    erw [CurtisDatum.heckeT_apply (omPlusCurtisDatum n F hn)]
-    simp only [Representation.trivial_apply]
-    rw [Finset.sum_const, Finset.card_univ,
-      show Fintype.card ((omPlusCurtisDatum n F hn).X s) = 2 by
-        rw [← Nat.card_eq_fintype_card]; exact omPlusNat_card_X hn hF s]
-    simp only [Pi.zero_apply, zero_smul, nsmul_eq_mul, mul_one]
-    exact CharTwo.two_eq_zero
 
 end CFSG.LocalAnalysis.WeakClosure81

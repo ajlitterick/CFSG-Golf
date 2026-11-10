@@ -35,32 +35,6 @@ private lemma ggJSt3_coe_map {K : Type} [Field K] {N : ℕ} (σ : K ≃+* K) (a 
     ((a.map σ.toRingHom : GL (Fin N) K) : Matrix (Fin N) (Fin N) K)
       = (a : Matrix (Fin N) (Fin N) K).map σ := rfl
 
-theorem exists_matrix_hilbert90 {K : Type} [Field K] [Finite K] {N : ℕ} (σ : K ≃+* K)
-    (hσ : σ ≠ RingEquiv.refl K) (hσ2 : ∀ x, σ (σ x) = x) (A : GL (Fin N) K)
-    (hA : A * A.map σ.toRingHom = 1) :
-    ∃ P : GL (Fin N) K, A = P⁻¹ * P.map σ.toRingHom := by
-  have hord : orderOf σ = 2 := ggJSt3_orderOf_sigma σ hσ hσ2
-  have hAmat : (A : Matrix (Fin N) (Fin N) K) * ((A : Matrix (Fin N) (Fin N) K).map σ) = 1 := by
-    have h := congrArg (fun x : GL (Fin N) K => (x : Matrix (Fin N) (Fin N) K)) hA
-    simpa [ggJSt3_coe_map] using h
-  have hAi : CFSG.HardMathSupport.Foote.ModuleExclusions.Ai σ
-      (A : Matrix (Fin N) (Fin N) K) 2 = 1 := by
-    simpa [CFSG.HardMathSupport.Foote.ModuleExclusions.Ai] using hAmat
-  obtain ⟨B, hBdet, hAB⟩ :=
-    CFSG.HardMathSupport.Foote.ModuleExclusions.speiser σ (A : Matrix (Fin N) (Fin N) K) 2
-      hord (by norm_num) hAi
-  let Bgl : GL (Fin N) K := Matrix.GeneralLinearGroup.mkOfDetNeZero B hBdet
-  have hBgl : (Bgl : Matrix (Fin N) (Fin N) K) = B :=
-    Matrix.GeneralLinearGroup.val_mkOfDetNeZero B hBdet
-  have hABgl : A * Bgl.map σ.toRingHom = Bgl := by
-    apply Units.ext
-    simpa [ggJSt3_coe_map, hBgl] using hAB
-  have hmap : Bgl.map σ.toRingHom = A⁻¹ * Bgl := by
-    calc Bgl.map σ.toRingHom = A⁻¹ * (A * Bgl.map σ.toRingHom) := by rw [inv_mul_cancel_left]
-      _ = A⁻¹ * Bgl := by rw [hABgl]
-  refine ⟨Bgl⁻¹, ?_⟩
-  rw [map_inv, hmap, _root_.mul_inv_rev, inv_inv]
-  group
 
 private lemma ggJSt3_hilbert90 {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K] [Finite K]
     (σ : K ≃+* K) (hσ : σ ≠ RingEquiv.refl K) (hσ2 : ∀ x, σ (σ x) = x) (A : GL ι K)
@@ -288,16 +262,6 @@ private lemma ggJSt3_map_subtype_fixed {ι K : Type} [Fintype ι] [DecidableEq �
   simp only [Matrix.map_apply]
   exact fixedField_coe K σ (Y i j)
 
-private lemma ggJSt3_descendMatrix_mul {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
-    (σ : K ≃+* K) (M N : Matrix ι ι K)
-    (hM : ∀ i j, σ (M i j) = M i j) (hN : ∀ i j, σ (N i j) = N i j) :
-    ggJSt3_descendMatrix σ (M * N)
-        (fun i j => by
-          rw [Matrix.mul_apply, map_sum]
-          exact Finset.sum_congr rfl fun k _ => by rw [map_mul, hM i k, hN k j])
-      = ggJSt3_descendMatrix σ M hM * ggJSt3_descendMatrix σ N hN := by
-  ext i j
-  simp [ggJSt3_descendMatrix, Matrix.mul_apply]
 
 private noncomputable def ggJSt3_fixedGL_equiv {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
     (σ : K ≃+* K) : ↥(ggJSt3_fixedSubgroup (ι := ι) σ) ≃* GL ι ↥(fixedField K σ) where

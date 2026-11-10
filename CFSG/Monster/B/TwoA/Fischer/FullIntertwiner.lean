@@ -115,11 +115,6 @@ theorem intertwinerFun_fiber (f : setStab act lab Y C) :
   rw [intertwinerFun, dite_eq_right hnot, dite_eq_right hnex]
   exact orbitTransport_apply (fun g hg => (H.act_fix_iff hT₀ hy₀ ht g).1 hg) f
 
-theorem intertwinerFun_base :
-    intertwinerFun act lab Y C x η φ α y₀ (Sum.inr (Sum.inr (zMk 1 t))) y₀ =
-      Sum.inr (Sum.inr (zMk 1 t)) := by
-  have h := H.intertwinerFun_fiber hT₀ hy₀ ht 1
-  rwa [Subgroup.coe_one, map_one, Equiv.Perm.one_apply, map_one, one_smul] at h
 
 theorem intertwinerFun_injective : Function.Injective fun v : Y =>
     intertwinerFun act lab Y C x η φ α y₀ (Sum.inr (Sum.inr (zMk 1 t))) v := by

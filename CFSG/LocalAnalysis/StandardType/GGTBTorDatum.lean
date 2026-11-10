@@ -304,23 +304,6 @@ theorem ggTD_fix_mem_centralizer
     simpa only [map_pow, map_one] using hpow
   exact ggTD_zeta_val_inj hm.pos.ne' hpm (F k b) 0 (by simpa using hz)
 
-theorem ggTD_fix_iff_mem_centralizer
-    {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.Prime]
-    (hm : Odd m) (hpm : p ∣ m) {C : Matrix (Fin N) (Fin N) ℤ}
-    {M : CoxeterMatrix (Fin N)} {Bs X : Subgroup G}
-    (hBs : IsElemAbelian p Bs)
-    (hS : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hN : Bs ≤ Subgroup.normalizer (X : Set G))
-    (hTor : GGTorusTorData m N C M ↥X (ggGamma X hN).range)
-    (b : Bs) :
-    (∀ φ ∈ ggAutomizer X Bs, φ b = b) ↔ (b : G) ∈ Subgroup.centralizer (X : Set G) := by
-  constructor
-  · intro hfix
-    exact ggTD_fix_mem_centralizer hm hpm hBs hS hN hTor b hfix
-  · intro hb φ hφ
-    exact ggAutomizer_apply_eq_of_le_centralizer (H := X) (x := b)
-      (fun x hx => Subgroup.mem_centralizer_singleton_iff.mpr
-        ((Subgroup.mem_centralizer_iff.mp hb) x hx)) hφ
 
 theorem ggTD_closure {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.Prime]
     {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)} {Bs X : Subgroup G}
@@ -468,32 +451,6 @@ theorem ggTBWeyl_of_torW {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.P
   exact ⟨fun k => ggTDρB X Bs (ggTDnH w hnk k), e,
     fun k => by rw [← ggTDρB_range]; exact ⟨_, rfl⟩, he⟩
 
-theorem ggTBDatum_of_torW {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.Prime]
-    (hp2 : p ≠ 2)
-    (hm : Odd m) (hpm : p ∣ m) {C : Matrix (Fin N) (Fin N) ℤ} {M : CoxeterMatrix (Fin N)}
-    (hM : GGIsWeylMatrix M) (hMC : GGIntCartan M C)
-    {Bs X : Subgroup G} (hBs : IsElemAbelian p Bs)
-    (hS : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hN : Bs ≤ Subgroup.normalizer (X : Set G))
-    (hTor : GGTorusTorData m N C M ↥X (ggGamma X hN).range)
-    (hInd : ∀ w : GGTorusTorWit m N ↥X (ggGamma X hN).range, w.Holds C M →
-      ∀ c : Fin N → ZMod p, (List.ofFn fun k => w.cor k (ggZetaP p m ^ (c k).val)).prod = 1 →
-        c = 0)
-    (hcard : Nat.card Bs ≤ p ^ N)
-    (V : Type) [AddCommGroup V] [Module (ZMod p) V] (ι : Additive ↥Bs ≃+ V) :
-    ∃ (φ : Fin N → MulAut ↥Bs) (h : Fin N → V) (α : Fin N → Module.Dual (ZMod p) V),
-      GGIsWeylMatrix M ∧ GGIntCartan M C ∧
-      (∀ k, φ k ∈ ggAutomizer X Bs) ∧
-      (∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i) ∧
-      (∀ i j, α i (h j) = (C i j : ZMod p)) ∧
-      LinearIndependent (ZMod p) h ∧ Submodule.span (ZMod p) (Set.range h) = ⊤ ∧
-      ggAutomizer X Bs = Subgroup.closure (Set.range φ) := by
-  obtain ⟨w, hw⟩ := hTor
-  obtain ⟨hnk, hbk, α, hlin, hpair, -, -, hind⟩ :=
-    ggTD_lin hm hpm hBs hS hN w hw (hInd w hw) V ι
-  refine ⟨fun k => ggTDρB X Bs (ggTDnH w hnk k), _, α, hM, hMC,
-    fun k => by rw [← ggTDρB_range]; exact ⟨_, rfl⟩, hlin, hpair, hind,
-    ggTD_span_top ι _ hind (by simpa using hcard), ggTD_closure hN hw hp2 hBs hnk⟩
 
 theorem ggTBDatumOpt_of_torW_weyl {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.Prime]
     (hp2 : p ≠ 2) (hm : Odd m) (hpm : p ∣ m) {C : Matrix (Fin N) (Fin N) ℤ}
@@ -565,29 +522,5 @@ theorem ggTBDatumOpt_of_torW_weyl {G : Type} [Group G] [Finite G] {p m N : ℕ} 
     fun k => by rw [← ggTDρB_range]; exact ⟨_, rfl⟩, hlin, hpair, fun i => hα1 i _ hγx, hind',
     ggTD_span_top ι _ hind' (by simpa using hcard), ggTD_closure hN hw hp2 hBs hnk, ⟨e, he⟩⟩
 
-theorem ggTBDatumOpt_of_torW {G : Type} [Group G] [Finite G] {p m N : ℕ} [Fact p.Prime]
-    (hp2 : p ≠ 2) (hm : Odd m) (hpm : p ∣ m) {C : Matrix (Fin N) (Fin N) ℤ}
-    {M : CoxeterMatrix (Fin N)} (hM : GGIsWeylMatrix M) (hMC : GGIntCartan M C)
-    {Bs X : Subgroup G} {x : G} (hBs : IsElemAbelian p Bs)
-    (hS : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hN : Bs ≤ Subgroup.normalizer (X : Set G)) (hxBs : x ∈ Bs) (hxX : x ∉ X)
-    (hCx : ∀ b ∈ Bs, b ∈ Subgroup.centralizer (X : Set G) → b ∈ Subgroup.zpowers x)
-    (hTor : GGTorusTorData m N C M ↥X (ggGamma X hN).range)
-    (hInd : ∀ w : GGTorusTorWit m N ↥X (ggGamma X hN).range, w.Holds C M →
-      ∀ c : Fin N → ZMod p, (List.ofFn fun k => w.cor k (ggZetaP p m ^ (c k).val)).prod = 1 →
-        c = 0)
-    (hcard : Nat.card Bs ≤ p ^ (N + 1))
-    (V : Type) [AddCommGroup V] [Module (ZMod p) V] (ι : Additive ↥Bs ≃+ V) :
-    ∃ (φ : Fin N → MulAut ↥Bs) (h : Fin N → V) (α : Fin N → Module.Dual (ZMod p) V),
-      GGIsWeylMatrix M ∧ GGIntCartan M C ∧
-      (∀ k, φ k ∈ ggAutomizer X Bs) ∧
-      (∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i) ∧
-      (∀ i j, α i (h j) = (C i j : ZMod p)) ∧ (∀ i, α i (ι (Additive.ofMul ⟨x, hxBs⟩)) = 0) ∧
-      LinearIndependent (ZMod p) (ggOptFam (ι (Additive.ofMul ⟨x, hxBs⟩)) h) ∧
-      Submodule.span (ZMod p) (Set.range (ggOptFam (ι (Additive.ofMul ⟨x, hxBs⟩)) h)) = ⊤ ∧
-      ggAutomizer X Bs = Subgroup.closure (Set.range φ) := by
-  obtain ⟨φ, h, α, hM', hMC', hφ, hlin, hpair, hα1, hli, hspan, hclos, e, he⟩ :=
-    ggTBDatumOpt_of_torW_weyl hp2 hm hpm hM hMC hBs hS hN hxBs hxX hCx hTor hInd hcard V ι
-  exact ⟨φ, h, α, hM', hMC', hφ, hlin, hpair, hα1, hli, hspan, hclos⟩
 
 end CFSG.StandardType

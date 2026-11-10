@@ -33,14 +33,6 @@ meta def span (bs : List (Array Nat)) : Std.HashSet (Array Nat) :=
 meta def norm (bs : List (Array Nat)) (S : Std.HashSet (Array Nat)) (g : Array Nat) : Bool :=
   bs.all fun b => S.contains (comp (comp g b) (invA g))
 
-meta def counts (ws rs : List (List Int)) : List Nat :=
-  let bs := ws.map gw
-  let S := span bs
-  let C := cb
-  rs.map fun r => (C.filter fun c => norm bs S (comp (gw r) c)).size
-
-meta def k16 : List Nat := counts u16W u16CosetW
-meta def k8 : List Nat := counts u8W u8CosetW
 
 end CertificateChecks.KernelKGC31HS.CosE
 

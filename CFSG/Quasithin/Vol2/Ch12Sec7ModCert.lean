@@ -95,17 +95,11 @@ theorem cert_odd2 :
     ∀ g ∈ gm6, onQuot g = true → g.pow 15 = B6.id → g ∈ l2 :=
   Certificates.certificate7215.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem cert_ost1 :
-    ∀ g ∈ gm6, presv p1c g = true → g.pow 15 = B6.id → ∃ a ∈ l1, ∃ z ∈ zs6, g = a.comp z :=
-  Certificates.certificate7215.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem cert_sq1 :
     ∀ g ∈ gm6, presv p1c g = true → ∃ a ∈ l1, ∃ z ∈ zs6, g.comp g = a.comp z :=
   Certificates.certificate7215.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem cert_ost2 :
-    ∀ g ∈ gm6, presv l2c g = true → g.pow 15 = B6.id → ∃ a ∈ l2, ∃ z ∈ zs6, g = a.comp z :=
-  Certificates.certificate7215.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem cert_sq2 :
     ∀ g ∈ gm6, presv l2c g = true → ∃ a ∈ l2, ∃ z ∈ zs6, g.comp g = a.comp z :=

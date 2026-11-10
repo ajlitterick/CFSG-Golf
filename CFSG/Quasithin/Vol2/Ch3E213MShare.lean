@@ -137,10 +137,6 @@ theorem nonempty_mulEquiv_star {H M : Subgroup G} (hMH : M ≤ H) (K : Subgroup 
     (↥H ⧸ kerIn (M.subgroupOf H) ⊤) ≃* E2.StarQuot M H :=
   QuotientGroup.quotientMulEquivOfEq (kerIn_subgroupOf_top_eq hMH)
 
-theorem starEquiv_mk {H M : Subgroup G} (hMH : M ≤ H) (x : H) :
-    starEquiv hMH (QuotientGroup.mk' (kerIn (M.subgroupOf H) ⊤) x) =
-      QuotientGroup.mk' ((kerIn M H).subgroupOf H) x :=
-  rfl
 
 theorem map_barIn_starEquiv {H M : Subgroup G} (hMH : M ≤ H) (X : Subgroup G) :
     (barIn M H X).map (starEquiv hMH).toMonoidHom = E2.star M H X := by

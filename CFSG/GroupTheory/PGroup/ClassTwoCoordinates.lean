@@ -81,17 +81,6 @@ theorem quadMapOfCoeffs_smul {n d : ℕ} (a : ZMod 2) (sq : Fin n → Fin d → 
   · simpa using quadMapOfCoeffs_zero (n := n) (d := d) v
   · simp only [one_smul]
 
-theorem quadMapOfCoeffs_sum {n d : ℕ} {ι : Type*} (s : Finset ι) (c : ι → ZMod 2)
-    (sq : ι → Fin n → Fin d → ZMod 2) (cm : ι → Fin n → Fin n → Fin d → ZMod 2)
-    (v : Fin n → ZMod 2) :
-    quadMapOfCoeffs (∑ x ∈ s, c x • sq x) (∑ x ∈ s, c x • cm x) v =
-      ∑ x ∈ s, c x • quadMapOfCoeffs (sq x) (cm x) v := by
-  classical
-  induction s using Finset.induction_on with
-  | empty => simp only [Finset.sum_empty, quadMapOfCoeffs_zero]
-  | insert a s ha ih =>
-    rw [Finset.sum_insert ha, Finset.sum_insert ha, quadMapOfCoeffs_add,
-      quadMapOfCoeffs_smul, ih, Finset.sum_insert ha]
 
 theorem quadMapOfCoeffs_congr {n d : ℕ} {sq : Fin n → Fin d → ZMod 2}
     {cm cm' : Fin n → Fin n → Fin d → ZMod 2} (h : ∀ i j, i < j → cm i j = cm' i j)

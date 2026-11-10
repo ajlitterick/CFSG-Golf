@@ -129,12 +129,6 @@ theorem sq_or_cube_of_mem_normalizer (hAcard : Nat.card A ≤ p ^ 3) {N : Subgro
   · exact Or.inl fun n hn => autRep_injective (h n hn)
   · exact Or.inr fun n hn => autRep_injective (h n hn)
 
-theorem commute_of_coprime_six (hAcard : Nat.card A ≤ p ^ 3) {N : Subgroup (MulAut A)}
-    (hN : ∀ a ∈ N, ∀ b ∈ N, a * b = b * a) (hNp : ¬ p ∣ Nat.card N) {g : MulAut A}
-    (hg : g ∈ Subgroup.normalizer (N : Set (MulAut A))) (hcop : Nat.Coprime (orderOf g) 6) :
-    ∀ n ∈ N, g * n * g⁻¹ = n := fun n hn =>
-  autRep_injective (map_conj_eq_of_coprime_six (autRep p A) N (autRep_comm hN)
-    (cast_card_ne_zero hNp) (finrank_autRep_le hAcard) hg hcop n hn)
 
 theorem commute_of_isPGroup (hAcard : Nat.card A ≤ p ^ 3) {N : Subgroup (MulAut A)}
     (hN : ∀ a ∈ N, ∀ b ∈ N, a * b = b * a) (hNp : ¬ p ∣ Nat.card N) {r : ℕ} (hr : r.Prime)

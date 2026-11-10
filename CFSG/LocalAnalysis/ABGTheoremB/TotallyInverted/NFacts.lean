@@ -42,10 +42,6 @@ structure TIFacts [Finite G] : Prop where
     Odd (Nat.card U) → (U : Set G) * (σ.C : Set G) = (σ.C : Set G) * (U : Set G) →
       ∃ (p : ℕ) (X : Subgroup G), p.Prime ∧ X ∈ signalizers J σ.C p ∧ U ≤ σ.C ⊔ X ⊔ σ.ON
 
-theorem TIFacts.C_le_oddCoreIn_sup_D [Finite G] {σ : Setting G} (h : σ.TIFacts) :
-    σ.C ≤ oddCoreIn σ.C ⊔ σ.D := by
-  calc σ.C = oddCoreIn σ.C ⊔ σ.F₀ := h.C_eq.symm
-    _ ≤ oddCoreIn σ.C ⊔ σ.D := sup_le_sup_left inf_le_left _
 
 end Setting
 

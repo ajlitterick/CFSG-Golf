@@ -67,29 +67,5 @@ end Vocabulary
       M₀ ≤ Subgroup.normalizer (R : Set G) →
       ∃ R₀ : Subgroup G, R₀ ≠ ⊥ ∧ R₀ ≤ R ∧ M₀ ⊔ H ≤ Subgroup.normalizer (R₀ : Set G)
 
-@[expose] def D15Conclusions {G : Type} [Group G] [Finite G] (G₁ G₂ V : Subgroup G)
-    (hV : IsElemAbelian 2 V) : Prop :=
-  ¬ V ≤ pCoreOf 2 G₂ ∨
-  (qInt G₁ V hV ≤ 1 ∧ IsFFInt G₁ V hV) ∨
-  IsDualFFInt G₁ V hV ∨
-  (qInt G₁ V hV ≤ 2 ∧ (∀ x ∈ conjClosure V G₂, ∀ y ∈ conjClosure V G₂, x * y = y * x) ∧
-    ∃ c : ℕ, 2 ≤ c ∧ IsChiefSeriesFrom G₂ (conjClosure V G₂) (conjClosure V G₂) c) ∨
-  (((pCoreOf 2 G₁ ⊓ pCoreOf 2 G₂).subgroupOf G₂).Normal ∧ IsElemAbelian 2 (conjClosure V G₂))
-
-@[expose] def D15Used : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (G₁ G₂ T V M₂ : Subgroup G) (h : D11Hyp G₁ G₂ T V M₂),
-    D15Conclusions G₁ G₂ V h.reduced.2.2.1
-
-theorem d15Used_of_D15 (h : D15.{0}) : D15Used := by
-  intro G _ _ G₁ G₂ T V M₂ hyp
-  have := h G G₁ G₂ T V M₂ hyp
-  unfold D15Concl at this
-  unfold D15Conclusions
-  rcases this with h1 | h2 | h3 | h4 | h5
-  · exact Or.inl h1
-  · exact Or.inr (Or.inl h2)
-  · exact Or.inr (Or.inr (Or.inl h3))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h4)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr ⟨h5.1, h5.2.1⟩)))
 
 end CFSG.Quasithin

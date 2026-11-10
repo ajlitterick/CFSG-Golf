@@ -49,10 +49,6 @@ theorem negOff_of_mem_upperSub {x : SL2m F} (hx : x ∈ upperSub F) : negOff F x
   apply sl2_ext <;>
     simp [negOff, inv_apply_00, inv_apply_01, inv_apply_10, inv_apply_11, h0, h1, h2]
 
-theorem negOff_of_mem_lowerSub {x : SL2m F} (hx : x ∈ lowerSub F) : negOff F x = x⁻¹ := by
-  obtain ⟨h0, h1, h2⟩ := hx
-  apply sl2_ext <;>
-    simp [negOff, inv_apply_00, inv_apply_01, inv_apply_10, inv_apply_11, h0, h1, h2]
 
 theorem negOff_mul_w0 {s : SL2m F} (hs : s ∈ diagSub F) :
     negOff F (s * w0 F) = s * w0 F * (s * w0 F * (s * w0 F)) := by

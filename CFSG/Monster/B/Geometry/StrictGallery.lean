@@ -82,14 +82,6 @@ theorem BraidMove.wordProd_target_of_isValid {e : BraidMove ι}
   simp only [BraidMove.target, BraidMove.source, cs.wordProd_append, hlen,
     wordProd_altWord_comm e.s e.t]
 
-theorem IsBraidPath.wordProd_eq_of_braidExponent {x y : List ι} {p : List (BraidMove ι)}
-    (h : IsBraidPath (braidExponent cs) x p y) : cs.wordProd y = cs.wordProd x :=
-  h.apply_eq cs.wordProd fun _ he => BraidMove.wordProd_target_of_isValid he
-
-theorem IsBraidPath.isReduced_of_braidExponent {x y : List ι} {p : List (BraidMove ι)}
-    (h : IsBraidPath (braidExponent cs) x p y) (hx : cs.IsReduced x) : cs.IsReduced y := by
-  rw [CoxeterSystem.IsReduced, h.wordProd_eq_of_braidExponent, h.length_eq]
-  exact hx
 
 noncomputable def simpleIndex (s : simpleSet cs) : ι := s.2.choose
 

@@ -34,21 +34,6 @@ theorem cgsIn_mono {K H Q : Subgroup G} (hKH : K ≤ H) : cgsIn K Q ≤ cgsIn H 
   iSup_mono fun _ => iSup_mono fun _ => iSup_mono fun _ => iSup_mono fun _ =>
     inf_le_inf_right _ hKH
 
-omit [Finite G] in
-theorem coe_eq_mul_iSup {K M : Subgroup G} {r : ℕ} {Lb : Fin r → Subgroup G}
-    (hLK : ∀ i, Lb i ≤ K)
-    (hprod : ∀ h ∈ K, ∃ m ∈ K ⊓ M, ∃ x : Fin r → G, (∀ i, x i ∈ Lb i) ∧
-      h = m * (List.ofFn x).prod) :
-    (K : Set G) = ((K ⊓ M : Subgroup G) : Set G) * ((⨆ i, Lb i : Subgroup G) : Set G) := by
-  ext h
-  constructor
-  · intro hh
-    obtain ⟨m, hm, x, hx, rfl⟩ := hprod h hh
-    refine ⟨m, hm, (List.ofFn x).prod, Subgroup.list_prod_mem (K := ⨆ i, Lb i) fun y hy => ?_, rfl⟩
-    obtain ⟨i, rfl⟩ := List.mem_ofFn.1 hy
-    exact le_iSup Lb i (hx i)
-  · rintro ⟨m, hm, l, hl, rfl⟩
-    exact K.mul_mem hm.1 (iSup_le hLK hl)
 
 end E6
 end CFSG.Quasithin

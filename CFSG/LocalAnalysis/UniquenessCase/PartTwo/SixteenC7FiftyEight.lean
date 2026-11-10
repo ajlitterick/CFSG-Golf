@@ -59,33 +59,5 @@ theorem exists_noncyclic_seven_fix {M V₀ V L : Subgroup G} (hV : IsElemAbelian
     have : 2 ^ rk ↥(fixV Q) ≤ 2 ^ 2 := Nat.pow_le_pow_right (by norm_num) this
     omega
 
-theorem r16_58_r_holds (D : Data G) (hx : DataExt D) (h61 : UC6.R6_1 D) : R16_58_r D := by
-  intro V₀ V L hV hS h7
-  obtain ⟨K, _, hfin, hK, hmodel⟩ := h7.2.1
-  have hK2 : Nat.card K = 2 := by simpa using hK
-  have hT := tensorNat_realizes_zmod_two hK2 hmodel
-  have hP := hS.setting.hyp16.hyp125.pairFacts
-  have hnorm := Mbar_le_normalizer_lBar_of_tensor D hV hS.setting.hyp151 hS.ne_bot hT
-  have hsig : D.sig = {7} := h7.2.2
-  have h7s : 7 ∈ D.sig := by rw [hsig]; exact Set.mem_singleton 7
-  have hMs : D.M ≤ stabTil V₀ V := le_stabTil hP.le_normalizer hP.le_normalizer₀
-  obtain ⟨B, hBM, hBp, hBc, hB3⟩ :=
-    exists_noncyclic_seven_fix hV hMs (hx.three_le 7 h7s) hT hnorm
-  have hBst : B ≤ stabTil V₀ V := hBM.trans hMs
-  have hBV₀ : B ≤ centralizer (V₀ : Set G) :=
-    le_centralizer_of_mSub_le_two (by norm_num) (by norm_num) hP.elemAbelian₀
-      hS.setting.hyp16.small hBp (hBst.trans (stabTil_le_normalizer₀ V₀ V))
-  have hV₀B : V₀ ≤ centralizer (B : Set G) := by
-    intro v hv
-    rw [Subgroup.mem_centralizer_iff]
-    intro b hb
-    exact (Subgroup.mem_centralizer_iff.1 (hBV₀ hb) v hv).symm
-  have h1 := rk_add_rk_fixV_barSub_le hV hP.le (by norm_num : Nat.Prime 7) (by norm_num) hBp
-    hBst hV₀B
-  have h2 := rk_inf_centralizer_le_rMV D h61 h7s hBM hBp hBc hV
-  have h3 : mSub V₀ + 3 ≤ rk ↥(V ⊓ centralizer (B : Set G)) := by
-    have h4 : mSub V₀ = rk ↥V₀ := rfl
-    omega
-  exact le_trans (by exact_mod_cast h3) h2
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

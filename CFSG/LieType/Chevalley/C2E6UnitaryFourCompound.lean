@@ -80,18 +80,6 @@ theorem pfSigned_ext2 (A : Matrix (Fin 4) (Fin 4) R) (x : Fin 6 → R) :
 
 end General
 
-theorem wedge_eq (u v : V) :
-    wedge u v = fun p => u (pairFst p) * v (pairSnd p) - u (pairSnd p) * v (pairFst p) := by
-  funext p
-  fin_cases p <;> rfl
-
-theorem ext2_mulVec_wedge (A : Matrix (Fin 4) (Fin 4) K) (u v : V) :
-    ext2 A *ᵥ wedge u v = wedge (A *ᵥ u) (A *ᵥ v) := by
-  rw [wedge_eq, wedge_eq]
-  funext p
-  fin_cases p <;>
-    simp [ext2, Matrix.mulVec, dotProduct, Fin.sum_univ_four, Fin.sum_univ_six, pairFst,
-      pairSnd] <;> ring
 
 theorem neg_K (a : K) : -a = a := by revert a; decide
 

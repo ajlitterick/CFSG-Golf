@@ -51,36 +51,6 @@ namespace CFSG.GorensteinWalter
 
 universe u
 
-/-- Nontriviality of `B ∩ M` in the A₇ layer model, via the nontrivial
-Sylow `p`-subgroup `P₂` of `B` contained in `M`. -/
-private theorem firstCase_cyclic_B_inter_M_ne_bot_of_a7
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hfirst : FirstCase c) (hHhat : c.Hhat = c.H)
-    (hU : od.d.bg.U = fittingSubgroupOf od.d.bg.U ⊔ od.d.bg.B)
-    (Q : Sylow od.p ↥od.d.bg.B)
-    (M : Subgroup G)
-    (hMN : Subgroup.normalizer
-      (sylowCarrier (firstCase_P2_sylow c od hU Q) : Set G) ≤ M) :
-    od.d.bg.B ⊓ M ≠ ⊥ := by
-  let P2 : Subgroup G :=
-    sylowCarrier (firstCase_P2_sylow c od hU Q)
-  have hP2ne : P2 ≠ ⊥ :=
-    firstCase_P2_ne_one hmin c od hfirst hHhat hU Q
-  have hP2leBM : P2 ≤ od.d.bg.B ⊓ M := by
-    intro x hx
-    exact Subgroup.mem_inf.mpr
-      ⟨firstCase_cyclic_P2_le_B c od hU Q x hx,
-        hMN (Subgroup.le_normalizer hx)⟩
-  intro hbot
-  apply hP2ne
-  apply le_bot_iff.mp
-  intro x hx
-  have hxBM : x ∈ od.d.bg.B ⊓ M := hP2leBM hx
-  rw [hbot] at hxBM
-  exact Subgroup.mem_bot.mp hxBM
 
 /-- First-case normalizer control `N_G(P) ≤ H` for `P = O_p(U)`. -/
 private theorem firstCase_normalizer_P_le_H_local
@@ -711,80 +681,5 @@ public theorem firstCase_cyclic_exists_B_normalized_nontrivial_le_B_inter_M
 
   exact ⟨X, hXne, hXleBM, hBleNX, hXleCentP⟩
 
-/-- Strict reduction of the corrected source witness: `B ≤ M` already
-gives the existential with `X = B ∩ M`. -/
-private theorem firstCase_cyclic_exists_B_normalized_nontrivial_le_B_inter_M_of_B_le_M
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hfirst : FirstCase c) (hHhat : c.Hhat = c.H)
-    (hU : od.d.bg.U = fittingSubgroupOf od.d.bg.U ⊔ od.d.bg.B)
-    (Q : Sylow od.p ↥od.d.bg.B)
-    (M : Subgroup G) (hMmax : IsCoatom M)
-    (hMN : Subgroup.normalizer
-      (sylowCarrier (firstCase_P2_sylow c od hU Q) : Set G) ≤ M)
-    (hSM : (c.S : Subgroup G) ≤ M)
-    (fd : FirstCaseFourData c od.d)
-    (hV2 : fd.V2 ≤ componentLayerOf M)
-    (hA7 : Nonempty ((componentLayerOf M) ⧸
-      pPrimeCore 2 (componentLayerOf M) ≃* alternatingGroup (Fin 7)))
-    (hp3 : od.p = 3)
-    (hBM : od.d.bg.B ≤ M) :
-    ∃ X : Subgroup G, X ≠ ⊥ ∧ X ≤ od.d.bg.B ⊓ M ∧
-      od.d.bg.B ≤ Subgroup.normalizer (X : Set G) := by
-  refine ⟨od.d.bg.B ⊓ M, ?_, le_rfl, ?_⟩
-  · exact firstCase_cyclic_B_inter_M_ne_bot_of_a7
-      hmin c od hfirst hHhat hU Q M hMN
-  · intro b hbB
-    rw [Subgroup.mem_normalizer_iff]
-    intro x
-    constructor
-    · intro hx
-      exact Subgroup.mem_inf.mpr
-        ⟨od.d.bg.B.mul_mem (od.d.bg.B.mul_mem hbB hx.1)
-            (od.d.bg.B.inv_mem hbB),
-          M.mul_mem (M.mul_mem (hBM hbB) hx.2) (M.inv_mem (hBM hbB))⟩
-    · intro hx
-      have hbB' : b⁻¹ ∈ od.d.bg.B := od.d.bg.B.inv_mem hbB
-      have hbM' : b⁻¹ ∈ M := M.inv_mem (hBM hbB)
-      have hbBM' : b⁻¹ ∈ od.d.bg.B ⊓ M := Subgroup.mem_inf.mpr ⟨hbB', hbM'⟩
-      have hbBM : b ∈ od.d.bg.B ⊓ M := Subgroup.mem_inf.mpr ⟨hbB, hBM hbB⟩
-      have hxBM : b * (x : G) * b⁻¹ ∈ od.d.bg.B ⊓ M := hx
-      have hback : b⁻¹ * (b * (x : G) * b⁻¹) ∈ od.d.bg.B ⊓ M :=
-        (od.d.bg.B ⊓ M).mul_mem hbBM' hxBM
-      have hback' : b⁻¹ * (b * (x : G) * b⁻¹) * b ∈ od.d.bg.B ⊓ M :=
-        (od.d.bg.B ⊓ M).mul_mem hback hbBM
-      have hEq : b⁻¹ * (b * (x : G) * b⁻¹) * b = (x : G) := by group
-      simpa [hEq] using hback'
-
-/-- The exact missing normalizer leg stated as a strict reduction: from
-`B ≤ N_G(B ∩ M)` the corrected source witness exists. -/
-private theorem firstCase_cyclic_exists_B_normalized_nontrivial_le_B_inter_M_of_B_normalizes_inter
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hfirst : FirstCase c) (hHhat : c.Hhat = c.H)
-    (hU : od.d.bg.U = fittingSubgroupOf od.d.bg.U ⊔ od.d.bg.B)
-    (Q : Sylow od.p ↥od.d.bg.B)
-    (M : Subgroup G) (hMmax : IsCoatom M)
-    (hMN : Subgroup.normalizer
-      (sylowCarrier (firstCase_P2_sylow c od hU Q) : Set G) ≤ M)
-    (hSM : (c.S : Subgroup G) ≤ M)
-    (fd : FirstCaseFourData c od.d)
-    (hV2 : fd.V2 ≤ componentLayerOf M)
-    (hA7 : Nonempty ((componentLayerOf M) ⧸
-      pPrimeCore 2 (componentLayerOf M) ≃* alternatingGroup (Fin 7)))
-    (hp3 : od.p = 3)
-    (hBnorm : od.d.bg.B ≤ Subgroup.normalizer
-      ((od.d.bg.B ⊓ M : Subgroup G) : Set G)) :
-    ∃ X : Subgroup G, X ≠ ⊥ ∧ X ≤ od.d.bg.B ⊓ M ∧
-      od.d.bg.B ≤ Subgroup.normalizer (X : Set G) := by
-  have hBM : od.d.bg.B ≤ M :=
-    firstCase_cyclic_B_le_M_of_a7_layer
-      hmin c od hfirst hHhat M hMmax hSM fd hV2 hA7 hU Q hMN hBnorm
-  exact firstCase_cyclic_exists_B_normalized_nontrivial_le_B_inter_M_of_B_le_M
-    hmin c od hfirst hHhat hU Q M hMmax hMN hSM fd hV2 hA7 hp3 hBM
 
 end CFSG.GorensteinWalter

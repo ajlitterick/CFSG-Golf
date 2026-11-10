@@ -312,18 +312,6 @@ theorem lemma12_8_8_six (h1222 : Stmt12_2_2) {T L V : Subgroup G} {n : ℕ}
     Setting1282One G T L V n V₁ V₂ →
       Subgroup.normalizer (V₁ : Set G) ≤ Subgroup.normalizer (lOne L V₁ : Set G) → n ≤ 3
 
-theorem lemma12_8_8_of_five (h1222 : Stmt12_2_2) (h12213 : Stmt12_2_13)
-    (h5 : Lemma12_8_8_five) :
-    ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G) (n : ℕ) (V₁ V₂ : Subgroup G),
-      Setting1282One G T L V n V₁ V₂ →
-        (∃ U₀ : Subgroup G, U₀ ≤ u128 V V₁ ∧ CFSG.IsExtraspecialPGroup 2 ↥U₀ ∧
-          frattiniOf U₀ = V₁ ∧ U₀ ⊔ zU128 V V₁ = u128 V V₁) ∧
-        V ⊓ zU128 V V₁ = V₁ ∧
-        (Subgroup.normalizer (V₁ : Set G) ≤ Subgroup.normalizer (lOne L V₁ : Set G) → n ≤ 3) ∧
-        u128 V V₁ = conjClosure V₂ (Subgroup.normalizer (V₁ : Set G)) := by
-  intro G _ _ T L V n V₁ V₂ hs
-  exact ⟨lemma12_8_8_one h1222 h12213 hs, lemma12_8_8_three h1222 h12213 hs,
-    h5 G T L V n V₁ V₂ hs, lemma12_8_8_six h1222 hs⟩
 
 theorem lemma12_8_8_n3 (h1222 : Stmt12_2_2) (h12213 : Stmt12_2_13) {T L V V₁ V₂ : Subgroup G}
     (hs : Setting1282One G T L V 3 V₁ V₂) :

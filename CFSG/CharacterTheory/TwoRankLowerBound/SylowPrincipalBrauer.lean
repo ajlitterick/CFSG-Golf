@@ -42,20 +42,6 @@ theorem classDefectAt_of_global_sylow {group : Type*} [Group group] [Finite grou
   rw [Sylow.coe_comapOfInjective]
   rfl
 
-theorem normal_p_class_residue_zero_of_no_centralizer_member {group : Type*}
-    [Group group] [Fintype group] (basis : FiniteIrreducibleCharacterBasis group)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    (prime : ℕ) [Fact prime.Prime] [CharP (ComplexAlgebraicIntegers ⧸ ideal) prime]
-    (primary : Subgroup group) [primary.Normal] (hprimary : IsPGroup prime primary)
-    (conjugacyClass : ConjClasses group)
-    (houtside : ¬∃ element : group, ConjClasses.mk element = conjugacyClass ∧
-      element ∈ Subgroup.centralizer (primary : Set group)) (label : basis.index) :
-    centralCharacterResidueHom basis ideal label (centralConjugacyClassSum _ conjugacyClass) = 0 := by
-  obtain ⟨element, hclass⟩ := ConjClasses.exists_rep conjugacyClass
-  rw [← hclass]
-  apply normal_p_class_residue_zero basis ideal prime primary hprimary element _ label
-  intro hmember
-  exact houtside ⟨element, hclass, hmember⟩
 
 theorem sylowNormalizer_principal_residue_preimage {group : Type*} [Group group] [Fintype group]
     (basis : FiniteIrreducibleCharacterBasis group)
@@ -113,23 +99,5 @@ theorem sylowNormalizer_principal_residue_preimage {group : Type*} [Group group]
       normal_p_class_residue_zero localBasis ideal prime localPrimary hprimary.comap_subtype
         element houtside localPrincipal]
 
-theorem sylowNormalizer_principal_block_preimage {group : Type*} [Group group] [Fintype group]
-    (basis : FiniteIrreducibleCharacterBasis group)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    (prime : ℕ) [Fact prime.Prime] [CharP (ComplexAlgebraicIntegers ⧸ ideal) prime]
-    (primary : Subgroup group) (hsylow : subgroupIsSylow prime primary)
-    (localBasis : FiniteIrreducibleCharacterBasis (Subgroup.normalizer (primary : Set group)))
-    (principal : basis.index) (hprincipal : (basis.representation principal).character = 1)
-    (localPrincipal : localBasis.index)
-    (hlocalPrincipal : (localBasis.representation localPrincipal).character = 1)
-    (label : localBasis.index)
-    (himage : brauerNormalizerCharacterResidueHom ideal prime primary
-      ((subgroupIsSylow_iff prime primary).mp hsylow).1
-      (Subgroup.normalizer (primary : Set group)) (Subgroup.centralizer_le_normalizer _) le_rfl
-        localBasis label = centralCharacterResidueHom basis ideal principal) :
-    sameCoefficientBlock localBasis (localizedComplexIntegerRing ideal) label localPrincipal :=
-  (sameCoefficientBlock_iff_centralCharacterResidueHom_eq localBasis ideal label localPrincipal).mpr
-    (sylowNormalizer_principal_residue_preimage basis ideal prime primary hsylow localBasis
-      principal hprincipal localPrincipal hlocalPrincipal label himage)
 
 end CFSG.TwoRankLowerBound.Helpers

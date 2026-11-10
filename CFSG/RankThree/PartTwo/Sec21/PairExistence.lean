@@ -207,8 +207,5 @@ theorem item612Sec21_of_items (h612 : Item612) (h45 : Item45) : Item612Sec21 := 
     (le_normalizer_of_item45 h45 hA.standing.toTheoremFourHyp hA.mem_S.1.1 hcA hc1)
     hc hc1 hL hUL hUcomm hV⟩
 
-theorem item236_of_items_six_twelve (h64 : Item64One) (h612 : Item612) (h45 : Item45)
-    (h233 : Item233) (h234 : Item234) (hHolt : HoltUniqueFixedPointSimple) : Item236 :=
-  item236_of_items h64 (item612Sec21_of_items h612 h45) h233 h234 hHolt
 
 end CFSG.RankThree.PartTwo.Sec21

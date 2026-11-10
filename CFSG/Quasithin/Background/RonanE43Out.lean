@@ -99,15 +99,6 @@ theorem card_outer_eq_of_mulEquiv {X Y : Type*} [Group X] [Group Y] (e : X ≃* 
 section M12
 
 
-theorem index_le_two_of_M12 {L : Subgroup G} (hLF : L = CFSG.generalizedFitting G)
-    (hLq : CFSG.IsQuasisimple ↥L) (h : IsSporadic .M12 (↥L ⧸ Subgroup.center ↥L)) :
-    L.index ≤ 2 := by
-  obtain ⟨e⟩ := h
-  have e' : (↥L ⧸ Subgroup.center ↥L) ≃* ↥CFSG.Blueprint.NativeSporadic.M12 := e
-  have h1 := index_dvd_card_outer hLF hLq
-  rw [card_outer_eq_of_mulEquiv e', M12Cover.card_outer] at h1
-  exact Nat.le_of_dvd (by norm_num) h1
-
 end M12
 
 section M22
@@ -129,20 +120,6 @@ end M22
 
 section M24
 
-
-theorem index_eq_one_of_M24 {L : Subgroup G} (hLF : L = CFSG.generalizedFitting G)
-    (hLq : CFSG.IsQuasisimple ↥L) (h : IsSporadic .M24 (↥L ⧸ Subgroup.center ↥L)) :
-    L.index = 1 := by
-  obtain ⟨e⟩ := h
-  have e' : (↥L ⧸ Subgroup.center ↥L) ≃* ↥CFSG.Blueprint.NativeSporadic.M24 := e
-  have h1 := index_dvd_card_outer hLF hLq
-  rw [card_outer_eq_of_mulEquiv e'] at h1
-  have h2 : Nat.card (Outer ↥CFSG.Blueprint.NativeSporadic.M24) ≤ 1 :=
-    card_outer_le_of_card_mulAut_le (c := 1) CFSG.Sporadic.Schreier.m24_center_eq_bot'
-      (by simpa using CFSG.Sporadic.Schreier.m24_mulAut_card)
-  have := (Nat.le_of_dvd Nat.card_pos h1).trans h2
-  have hp : L.index ≠ 0 := Subgroup.index_ne_zero_of_finite
-  omega
 
 end M24
 

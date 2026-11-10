@@ -96,10 +96,6 @@ theorem ElemMoveT.mono {T' : V → V → V → Prop} (hTT' : ∀ x y z, T x y z 
   | backtrack p q h => exact .backtrack p q h
   | triangle p q hxy hyz hzx hT => exact .triangle p q hxy hyz hzx (hTT' _ _ _ hT)
 
-theorem ElemMoveT.elemMove {u v : V} {p q : G.Walk u v} (h : ElemMoveT T p q) : ElemMove p q := by
-  cases h with
-  | backtrack p q h => exact .backtrack p q h
-  | triangle p q hxy hyz hzx _ => exact .triangle p q hxy hyz hzx
 
 theorem ElemMoveT.map {V' : Type*} {G' : SimpleGraph V'} (f : G →g G')
     {T' : V' → V' → V' → Prop} (hf : ∀ x y z, T x y z → T' (f x) (f y) (f z)) {u v : V}
@@ -156,12 +152,6 @@ theorem mono {T' : V → V → V → Prop} (hTT' : ∀ x y z, T x y z → T' x y
   | symm p q _ ih => exact ih.symm
   | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
-theorem homotopic {p q : G.Walk u v} (h : HomotopicT T p q) : Homotopic p q := by
-  induction h with
-  | rel p q h => exact h.elemMove.homotopic
-  | refl p => exact Homotopic.refl _
-  | symm p q _ ih => exact ih.symm
-  | trans p q r _ _ ih₁ ih₂ => exact ih₁.trans ih₂
 
 theorem map {V' : Type*} {G' : SimpleGraph V'} (f : G →g G') {T' : V' → V' → V' → Prop}
     (hf : ∀ x y z, T x y z → T' (f x) (f y) (f z)) {p q : G.Walk u v} (h : HomotopicT T p q) :

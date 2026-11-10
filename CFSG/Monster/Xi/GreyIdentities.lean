@@ -31,12 +31,6 @@ theorem qG_add (μ ν : Fin 6 → ZMod 2) : qG (μ + ν) = qG μ + qG ν + bG μ
   exact forall_fin6 fun a b c d e f => forall_fin6 fun a' b' c' d' e' f' =>
     qG_add_aux a b c d e f a' b' c' d' e' f'
 
-private theorem bG_self_aux : ∀ a b c d e f : ZMod 2,
-    bG ![a, b, c, d, e, f] ![a, b, c, d, e, f] = 0 := by
-  decide +kernel
-
-theorem bG_self (μ : Fin 6 → ZMod 2) : bG μ μ = 0 :=
-  forall_fin6 (P := fun μ => bG μ μ = 0) bG_self_aux μ
 
 theorem bG_comm (μ ν : Fin 6 → ZMod 2) : bG μ ν = bG ν μ := by
   rw [bG_apply, bG_apply, Finset.sum_comm]
@@ -45,52 +39,9 @@ theorem bG_comm (μ ν : Fin 6 → ZMod 2) : bG μ ν = bG ν μ := by
   · subst h; simp
   · rw [ite_eq_left (Ne.symm h), ite_eq_left h, mul_comm]
 
-theorem bG_isAlt : bG.IsAlt := bG_self
-
-theorem bG_isSymm : bG.IsSymm := ⟨bG_comm⟩
-
-theorem bG_nondegenerate : bG.Nondegenerate :=
-  ⟨fun μ h => bG_eq_zero_of_forall fun ν => by rw [bG_comm]; exact h ν,
-    fun ν h => bG_eq_zero_of_forall h⟩
 
 @[simp] theorem qG_zero : qG 0 = 0 := rfl
 
-@[expose] def qGForm : QuadraticForm (ZMod 2) (Fin 6 → ZMod 2) where
-  toFun := qG
-  toFun_smul a μ := by
-    have : ∀ a : ZMod 2, a = 0 ∨ a = 1 := by decide
-    rcases this a with rfl | rfl
-    · rw [zero_smul, qG_zero, zero_mul, zero_smul]
-    · rw [one_smul, one_mul, one_smul]
-  exists_companion' := ⟨bG, qG_add⟩
-
-theorem qGForm_apply (μ : Fin 6 → ZMod 2) : qGForm μ = qG μ := rfl
-
-theorem polarBilin_qGForm : QuadraticMap.polarBilin qGForm = bG := by
-  refine LinearMap.ext fun μ => LinearMap.ext fun ν => ?_
-  rw [QuadraticMap.polarBilin_apply_apply, QuadraticMap.polar, qGForm_apply, qGForm_apply,
-    qGForm_apply, qG_add]
-  ring
-
-theorem sum_sgn_qG : ∑ μ : Fin 6 → ZMod 2, sgn (qG μ) = -8 := by
-  decide +kernel
-
-theorem coe_greyC_one : (greyC 1 : Fin 24 → ZMod 2) = Ω := by
-  rw [coe_greyC, Ω_eq_sum_g]
-  simp only [Pi.one_apply, one_smul]
-
-theorem greyC_add_coe (μ ν : Fin 6 → ZMod 2) :
-    (greyC (μ + ν) : Fin 24 → ZMod 2) = greyC μ + greyC ν := by
-  rw [map_add, Submodule.coe_add]
-
-private theorem qG_one_add_aux : ∀ a b c d e f : ZMod 2,
-    qG (1 + ![a, b, c, d, e, f]) = qG ![a, b, c, d, e, f] + 1 + ∑ i, ![a, b, c, d, e, f] i := by
-  decide +kernel
-
-theorem qG_one_add (μ : Fin 6 → ZMod 2) : qG (1 + μ) = qG μ + 1 + ∑ i, μ i :=
-  forall_fin6 (P := fun μ => qG (1 + μ) = qG μ + 1 + ∑ i, μ i) qG_one_add_aux μ
-
-theorem qG_single : ∀ i : Fin 6, qG (Pi.single i 1) = 0 := by decide +kernel
 
 theorem pair_greyC_eq_sum (μ : Fin 6 → ZMod 2) (δ : Cocode) :
     pair (greyC μ) δ = ∑ i, μ i * pair ⟨g i, g_mem_C i⟩ δ := by
@@ -119,11 +70,6 @@ theorem exists_gammaD_add_mem_Hstar (δ : Cocode) :
   refine ⟨M6 p, mem_Hstar_iff.2 fun μ => ?_⟩
   rw [map_sub, pair_greyC_gammaD, bG_eq_sum_M6, M6_M6, pair_greyC_eq_sum, sub_self]
 
-theorem Gstar_sup_Hstar : Gstar ⊔ Hstar = ⊤ := by
-  refine eq_top_iff.2 fun δ _ => ?_
-  obtain ⟨ν, hν⟩ := exists_gammaD_add_mem_Hstar δ
-  rw [show δ = gammaD ν + (δ - gammaD ν) by abel]
-  exact Submodule.add_mem_sup (gammaD_mem_Gstar ν) hν
 
 theorem disjoint_Gstar_Hstar : Disjoint Gstar Hstar := by
   rw [Submodule.disjoint_def]
@@ -135,17 +81,6 @@ theorem disjoint_Gstar_Hstar : Disjoint Gstar Hstar := by
     exact mem_Hstar_iff.1 hH μ
   rw [this, map_zero]
 
-theorem isCompl_Gstar_Hstar : IsCompl Gstar Hstar :=
-  ⟨disjoint_Gstar_Hstar, codisjoint_iff.2 Gstar_sup_Hstar⟩
-
-theorem finrank_Gstar : Module.finrank (ZMod 2) Gstar = 6 := by
-  rw [← gammaEquiv.finrank_eq, Module.finrank_fin_fun]
-
-theorem finrank_Hstar : Module.finrank (ZMod 2) Hstar = 6 := by
-  have h := Submodule.finrank_sup_add_finrank_inf_eq Gstar Hstar
-  rw [Gstar_sup_Hstar, disjoint_iff.1 disjoint_Gstar_Hstar, finrank_top, finrank_bot,
-    finrank_cocode, finrank_Gstar] at h
-  omega
 
 theorem pair_H_Gstar {h : C} (hh : (h : Fin 24 → ZMod 2) ∈ H) {δ : Cocode} (hδ : δ ∈ Gstar) :
     pair h δ = 0 := by
@@ -248,25 +183,5 @@ theorem Hstar_eq_span : Hstar = Submodule.span (ZMod 2) lowerPairs := by
   rw [hx0, zero_add]
   exact hy
 
-theorem grey_quadratic_pairing_identities :
-    (∀ μ ν : Fin 6 → ZMod 2, qG (μ + ν) = qG μ + qG ν + bG μ ν) ∧
-    QuadraticMap.polarBilin qGForm = bG ∧
-    (∀ μ ν : Fin 6 → ZMod 2, bG μ ν = pair (greyC μ) (gammaD ν)) ∧
-    bG.Nondegenerate ∧ bG.IsAlt ∧
-    ∑ μ : Fin 6 → ZMod 2, sgn (qG μ) = -8 ∧
-    IsCompl Gstar Hstar ∧ Module.finrank (ZMod 2) Gstar = 6 ∧
-    Module.finrank (ZMod 2) Hstar = 6 ∧
-    (∀ h : C, (h : Fin 24 → ZMod 2) ∈ H → ∀ δ ∈ Gstar, pair h δ = 0) ∧
-    Hstar = Submodule.span (ZMod 2) {δ | ∃ (j : Fin 6) (r s : Fin 4), r ≠ 0 ∧ s ≠ 0 ∧ r ≠ s ∧
-      δ = Submodule.Quotient.mk (Pi.single (coord r j) 1 + Pi.single (coord s j) 1)} ∧
-    (greyC 1 : Fin 24 → ZMod 2) = Ω ∧
-    (∀ μ : Fin 6 → ZMod 2, (greyC (1 + μ) : Fin 24 → ZMod 2) = Ω + greyC μ ∧
-      qG (1 + μ) = qG μ + 1 + ∑ i, μ i) ∧
-    (∀ i : Fin 6, (greyC (Pi.single i 1) : Fin 24 → ZMod 2) = g i ∧ qG (Pi.single i 1) = 0) :=
-  ⟨qG_add, polarBilin_qGForm, fun μ ν => (pair_greyC_gammaD μ ν).symm, bG_nondegenerate,
-    bG_isAlt, sum_sgn_qG, isCompl_Gstar_Hstar, finrank_Gstar, finrank_Hstar,
-    fun _ hh _ hδ => pair_H_Gstar hh hδ, Hstar_eq_span, coe_greyC_one,
-    fun μ => ⟨by rw [greyC_add_coe, coe_greyC_one], qG_one_add μ⟩,
-    fun i => ⟨by rw [greyC_single], qG_single i⟩⟩
 
 end CFSG.Monster.Xi

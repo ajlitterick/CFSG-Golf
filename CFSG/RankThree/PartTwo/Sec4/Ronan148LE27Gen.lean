@@ -96,16 +96,6 @@ theorem conj_permMat_τ4 {n : GL (Fin 4) F} {σ : Equiv.Perm (Fin 4)}
   · have h' : ¬ i = σ.symm j := fun h' => h (by rw [h', Equiv.apply_symm_apply])
     simp [h, h']
 
-theorem τ4_comm_neg (v : Multiplicative (Fin 3 → ZMod 3)) :
-    emb4G (TauCeti.diagGL ![-1, -1, 1]) * τ4 hω3 v =
-      τ4 hω3 v * emb4G (TauCeti.diagGL ![-1, -1, 1]) := by
-  change emb4G (TauCeti.diagGL ![-1, -1, 1]) * emb4G (tau3 hω3 v) =
-    emb4G (tau3 hω3 v) * emb4G (TauCeti.diagGL ![-1, -1, 1])
-  rw [← map_mul, ← map_mul]
-  congr 1
-  change TauCeti.diagGL ![-1, -1, 1] * TauCeti.diagGL (powVec ω hω3 v) =
-    TauCeti.diagGL (powVec ω hω3 v) * TauCeti.diagGL ![-1, -1, 1]
-  rw [← map_mul, ← map_mul, mul_comm (![-1, -1, 1] : Fin 3 → Fˣ)]
 
 end Omega
 
@@ -329,62 +319,6 @@ theorem exists_e27_projImage (hG : G ≤ CFSG.Open.StatedSL 4 F) (hω : orderOf 
   rw [card_map_piG hG fun x hx => hTe.2 x hx, card_torusOmega hτ₃, card_V3_three]
   norm_num
 
-theorem invE9_projImage (hG : G ≤ CFSG.Open.StatedSL 4 F) (hω : orderOf ω = 3)
-    (hmem4 : ∀ v, τ4 hω3 v ∈ G) (ht : emb4G (TauCeti.diagGL ![-1, -1, 1]) ∈ G)
-    (h2 : (2 : F) ≠ 0) :
-    InvE9 (CFSG.Assembly.RankThreeEven.projImage G) := by
-  let τ₃ : Multiplicative (Fin 3 → ZMod 3) →* G := (τ4 hω3).codRestrict G hmem4
-  have hτ₃ : Function.Injective τ₃ := fun x y h =>
-    τ4_injective hω3 hω (congrArg Subtype.val h)
-  set T := torusOmega τ₃ with hT
-  set F₀ : Subgroup G := (τ₃.comp incl2).range with hF₀
-  have hF₀T : F₀ ≤ T := by
-    rintro _ ⟨v, rfl⟩
-    exact ⟨Multiplicative.toAdd (incl2 v), KFacts.KS21.L44.three_smul_V3 _, rfl⟩
-  have hTe : CFSG.Assembly.IsElemAbelian 3 T := isElemAbelian_torusOmega _
-  have hT3 : ∀ x ∈ T, x ^ 3 = 1 := fun x hx => hTe.2 x hx
-  have hF₀e : CFSG.Assembly.IsElemAbelian 3 F₀ := isElemAbelian_mono hF₀T hTe
-  have hTc : Nat.card T = 27 := by
-    rw [hT, card_torusOmega hτ₃, card_V3_three]
-    norm_num
-  have hF₀c : Nat.card F₀ = 9 := by
-    rw [hF₀, ← Nat.card_congr (MonoidHom.ofInjective (f := τ₃.comp incl2)
-      (fun x y h => incl2_injective (hτ₃ h))).toEquiv]
-    rw [Nat.card_eq_fintype_card, Fintype.card_multiplicative, Fintype.card_fun, ZMod.card,
-      Fintype.card_fin]
-    norm_num
-  let t : G := ⟨emb4G (TauCeti.diagGL ![-1, -1, 1]), ht⟩
-  have ht2 : t ^ 2 = 1 := by
-    apply Subtype.ext
-    rw [Subgroup.coe_pow]
-    change emb4G (TauCeti.diagGL ![-1, -1, 1]) ^ 2 = 1
-    rw [← map_pow, ← map_pow]
-    have : (![-1, -1, 1] : Fin 3 → Fˣ) ^ 2 = 1 := by
-      funext i
-      fin_cases i <;> simp
-    rw [this, map_one, map_one]
-  have ht1 : piG G t ≠ 1 := by
-    intro h
-    obtain ⟨c, hc⟩ := exists_scalar_of_mem_ker_piG (G := G) (z := t)
-      (by rw [MonoidHom.mem_ker]; exact h)
-    have h0 := congrArg (fun g : GL (Fin 4) F => (g : Matrix (Fin 4) (Fin 4) F) 0 0) hc
-    have h3 := congrArg (fun g : GL (Fin 4) F => (g : Matrix (Fin 4) (Fin 4) F) 3 3) hc
-    change _ = blk4G (TauCeti.diagGL ![-1, -1, 1]) 0 0 at h0
-    change _ = blk4G (TauCeti.diagGL ![-1, -1, 1]) 3 3 at h3
-    rw [blk4G_diagGL] at h0 h3
-    simp [GeneralLinearGroup.scalar] at h0 h3
-    have hm : ((-1 : Fˣ) : F) = 1 := by rw [← h0, h3, Units.val_one]
-    apply h2
-    simp only [Units.val_neg, Units.val_one] at hm
-    linear_combination -hm
-  refine ⟨F₀.map (piG G), T.map (piG G), Subgroup.map_mono hF₀T, isElemAbelian_map _ hF₀e,
-    by rw [card_map_piG hG fun x hx => hT3 x (hF₀T hx), hF₀c],
-    ⟨isElemAbelian_map _ hTe, by rw [card_map_piG hG hT3, hTc]⟩, piG G t, ht1,
-    by rw [← map_pow, ht2, map_one], ?_⟩
-  rintro _ ⟨_, ⟨v, rfl⟩, rfl⟩
-  rw [← map_mul, ← map_mul]
-  congr 1
-  exact Subtype.ext (τ4_comm_neg hω3 _)
 
 end Proj
 

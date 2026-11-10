@@ -444,7 +444,6 @@ theorem conjSLAut_sq_eq {g : GL (Fin 2) F}
   exact conjSLAut_of_scalar μ (by rw [Units.val_mul]; exact hμ) A
 
 
-
 theorem mem_normalizer_of_commute {Y : Type} [Group Y] {H : Subgroup Y} {b : Y}
     (h : ∀ x ∈ H, b * x = x * b) : b ∈ Subgroup.normalizer (H : Set Y) := by
   rw [Subgroup.mem_normalizer_iff]
@@ -849,9 +848,6 @@ section Transport
   right_inv A := by apply Subtype.ext; ext i j; simp
   map_mul' := map_mul _
 
-theorem slMap_coe {F F' : Type} [Field F] [Field F'] (σ : F ≃+* F') (A : SL(2, F)) :
-    ((slMap σ A : SL(2, F')) : Matrix (Fin 2) (Fin 2) F') =
-      (A : Matrix (Fin 2) (Fin 2) F).map σ := rfl
 
 variable {F₁ F₂ F₁' : Type} [Field F₁] [Field F₂] [Field F₁'] {Y Y' : Type} [Group Y] [Group Y']
 
@@ -1067,12 +1063,6 @@ section PGLHom
 
 open Matrix.ProjGenLinGroup
 
-theorem toPGL_conjSLAut (g : GL (Fin 2) F) (B : SL(2, F)) :
-    Matrix.SpecialLinearGroup.toPGL (conjSLAut g B) =
-      mk g * Matrix.SpecialLinearGroup.toPGL B * (mk g)⁻¹ := by
-  show mk (Matrix.SpecialLinearGroup.toGL (conjSLAut g B)) = _
-  rw [toGL_conjSLAut]
-  simp [map_mul, map_inv]
 
 variable {F₁ F₂ : Type} [Field F₁] [Field F₂] {Y : Type} [Group Y]
 

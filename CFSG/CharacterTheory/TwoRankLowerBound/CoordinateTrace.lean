@@ -66,35 +66,6 @@ theorem coordinatewiseEndomorphism_trace {ring index : Type*} [CommRing ring] [F
   intro value
   simp
 
-@[expose] noncomputable def coordinatewiseSupportedEndomorphism {ring index : Type*} [Ring ring]
-    (vector : index → Type*) [∀ label, AddCommGroup (vector label)]
-    [∀ label, Module ring (vector label)] (support : Set index)
-    (operator : ∀ label, Module.End ring (vector label)) :
-    Module.End ring (supportedCoordinateSubmodule (ring := ring) vector support) :=
-  { toFun := fun value => ⟨coordinatewiseEndomorphism vector operator value.val, by
-      intro label hnot
-      simp only [coordinatewiseEndomorphism_apply, value.property label hnot, map_zero]⟩
-    map_add' := by intros; apply Subtype.ext; exact map_add _ _ _
-    map_smul' := by intros; apply Subtype.ext; exact LinearMap.map_smul _ _ _ }
-
-theorem coordinatewiseSupportedEndomorphism_trace {ring index : Type*}
-    [CommRing ring] [Fintype index] (vector : index → Type*)
-    [∀ label, AddCommGroup (vector label)] [∀ label, Module ring (vector label)]
-    [∀ label, Module.Free ring (vector label)] [∀ label, Module.Finite ring (vector label)]
-    (support : Set index) (operator : ∀ label, Module.End ring (vector label)) :
-    LinearMap.trace ring (supportedCoordinateSubmodule (ring := ring) vector support)
-      (coordinatewiseSupportedEndomorphism vector support operator) =
-      ∑ label : support, LinearMap.trace ring (vector label.val) (operator label.val) := by
-  let equivalence := supportedCoordinatesEquiv (ring := ring) vector support
-  have hconjugate : equivalence.conj (coordinatewiseSupportedEndomorphism vector support operator) =
-      coordinatewiseEndomorphism (fun label : support => vector label.val)
-        (fun label => operator label.val) := by
-    apply LinearMap.ext
-    intro value
-    funext label
-    simp [LinearEquiv.conj_apply_apply, equivalence, supportedCoordinatesEquiv,
-      coordinatewiseSupportedEndomorphism, coordinatewiseEndomorphism_apply]
-  rw [← LinearMap.trace_conj' _ equivalence, hconjugate, coordinatewiseEndomorphism_trace]
 
 theorem groupAlgebra_leftMultiplication_trace {ring group : Type*} [CommRing ring]
     [Group group] [Finite group] (value : MonoidAlgebra ring group) :

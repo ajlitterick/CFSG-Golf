@@ -59,24 +59,5 @@ end ReeTag
 
 open ReeTag
 
-theorem finite_short_module_faithful
-    (t : ReeTag) (f : ℕ) (_hf : 1 ≤ f) (K : Type) [Field K]
-    [Finite K] (hK : Nat.card K = t.prime ^ f) :
-    ∃ ρ : adjointGroup t.tag K →* (t.shortModule K ≃ₗ[K] t.shortModule K),
-      Function.Injective ρ ∧
-      (∀ (g : adjointGroup t.tag K) (v : t.shortModule K),
-        (ρ g v : RootModule t.tag K) = (g.1 : Module.End K (RootModule t.tag K)) v) ∧
-      (t = .G2 → Module.finrank K (t.shortModule K) = 7) ∧
-      (t = .F4 → Module.finrank K (t.shortModule K) = 26) := by
-  have : Fintype K := Fintype.ofFinite K
-  have : Fact t.prime.Prime := ⟨by cases t <;> decide⟩
-  have : CharP K t.prime := charP_of_card_eq_prime_pow (f := f) (by
-    rw [← Nat.card_eq_fintype_card, hK])
-  refine ⟨shortRep t K (CharP.cast_eq_zero K t.prime), shortRep_injective,
-    coe_shortRep_apply _, fun ht => ?_, fun ht => ?_⟩
-  · subst ht
-    exact finrank_shortModule _ K
-  · subst ht
-    exact finrank_shortModule _ K
 
 end CFSG.LieType.Ree

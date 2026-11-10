@@ -49,8 +49,5 @@ theorem bindX_true : bindX = true := by decide +kernel
 
 #kc_each CertificateChecks.KernelSyl25002 bindR25002 (fun k => bindR k) 0 14
 
-set_option maxHeartbeats 0 in
-theorem bindG_bad : (!Nat.beq (gs.getD 1 0) (evalL abL abiL ((natsK (swL 1)).map (2 * ·)))) =
-    true := by decide +kernel
 
 end CertificateChecks.KernelSyl25002

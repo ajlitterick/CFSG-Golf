@@ -77,24 +77,6 @@ theorem sum_sq_linear_combination {ι κ : Type*} [Fintype κ] (B : Finset ι) (
   refine sum_congr rfl fun n _ => ?_
   rw [mul_sum]
 
-theorem gram_row_contribution_le {ι κ : Type*} [DecidableEq ι] [Fintype κ] (B : Finset ι)
-    {j : ι} (hj : j ∈ B) (v : κ → ι → ℝ) (w : ι → ℝ)
-    (hw : ∀ m, ∑ k ∈ B, v m k * w k = 0) (a : κ → ℝ) :
-    (∑ m, a m * v m j) ^ 2 * ∑ k ∈ B, w k ^ 2 ≤
-      (∑ m, ∑ n, a m * a n * ∑ k ∈ B, v m k * v n k) * (∑ k ∈ B, w k ^ 2 - w j ^ 2) := by
-  have hxw : ∑ k ∈ B, (∑ m, a m * v m k) * w k = 0 := by
-    simp only [sum_mul]
-    rw [sum_comm]
-    simp only [mul_assoc, ← mul_sum, hw, mul_zero, sum_const_zero]
-  rw [← sum_sq_linear_combination]
-  exact coord_sq_mul_le_of_orthogonal B hj (fun k => ∑ m, a m * v m k) w hxw
-
-theorem five_sum_sq_sub_sq_sum (d : Fin 5 → ℝ) :
-    5 * ∑ i, d i ^ 2 - (∑ i, d i) ^ 2 =
-      ∑ h, ∑ i ∈ univ.filter (fun i => h < i), (d h - d i) ^ 2 := by
-  simp only [sum_filter, Fin.sum_univ_five]
-  simp only [Fin.isValue, Fin.reduceLT, lt_self_iff_false, ite_true, ite_false]
-  ring
 
 theorem six_column_strict_contribution_lt {ι : Type*} [DecidableEq ι] (B : Finset ι)
     (t w : ι → ℝ) (d : Fin 5 → ι → ℝ) (htt : ∑ k ∈ B, t k * t k = 16)
@@ -171,16 +153,5 @@ theorem six_column_strict_contribution_lt {ι : Type*} [DecidableEq ι] (B : Fin
     nlinarith [hkey, hQpos]
   nlinarith [h1, hW, hwj2]
 
-theorem six_column_strict_row_contribution {ι : Type*} [DecidableEq ι] (B : Finset ι)
-    (t w : ι → ℝ) (d : Fin 5 → ι → ℝ) (htt : ∑ k ∈ B, t k * t k = 16)
-    (htd : ∀ i, ∑ k ∈ B, t k * d i k = 0)
-    (hdd : ∀ i l, ∑ k ∈ B, d i k * d l k = if i = l then 16 else 12)
-    (hwt : ∑ k ∈ B, t k * w k = 0) (hwd : ∀ i, ∑ k ∈ B, d i k * w k = 0) {j : ι} (hj : j ∈ B)
-    (hwj : w j ≠ 0) :
-    4 * t j ^ 2 + ∑ i, d i j ^ 2 +
-      3 * ∑ h, ∑ i ∈ univ.filter (fun i => h < i), (d h j - d i j) ^ 2 < 64 := by
-  have h := six_column_strict_contribution_lt B t w d htt htd hdd hwt hwd hj hwj
-  rw [← five_sum_sq_sub_sq_sum (fun i => d i j)]
-  linarith
 
 end CFSG.LyonsUnitaryFour

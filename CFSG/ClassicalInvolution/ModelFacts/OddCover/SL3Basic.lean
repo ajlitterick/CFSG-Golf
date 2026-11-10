@@ -120,8 +120,6 @@ variable {K}
 theorem mem_Usl {g : SpecialLinearGroup (Fin 3) K} : g ∈ Usl K ↔ ∃ a b c : K, g = uSL a b c :=
   Iff.rfl
 
-theorem mem_Zsl {g : SpecialLinearGroup (Fin 3) K} : g ∈ Zsl K ↔ ∃ b : K, g = uSL 0 b 0 :=
-  Iff.rfl
 
 theorem uSL_mem_Usl (a b c : K) : uSL a b c ∈ Usl K := ⟨a, b, c, rfl⟩
 

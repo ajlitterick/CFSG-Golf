@@ -69,9 +69,6 @@ theorem kvCh611_mul_self (c : Fin 4 → ZMod 2) : kvCh611 b hb c * kvCh611 b hb 
 theorem kvCh611_inv (c : Fin 4 → ZMod 2) : (kvCh611 b hb c)⁻¹ = kvCh611 b hb c :=
   inv_eq_of_mul_eq_one_right (kvCh611_mul_self b hb c)
 
-theorem kvCh611_comm (c c' : Fin 4 → ZMod 2) :
-    kvCh611 b hb c * kvCh611 b hb c' = kvCh611 b hb c' * kvCh611 b hb c := by
-  rw [← kvCh611_add, ← kvCh611_add, add_comm]
 
 variable {b hb}
 
@@ -208,9 +205,6 @@ variable (b hb)
     rintro _ ⟨α, β, rfl⟩
     exact ⟨α, β, (kvCh611_inv b hb _).symm⟩
 
-theorem mem_kapLineCh611 {p q : Fin 4 → ZMod 2} {x : G} :
-    x ∈ kapLineCh611 b hb p q ↔ ∃ α β : ZMod 2, kvCh611 b hb (α • p + β • q) = x :=
-  Iff.rfl
 
 variable {b hb}
 
@@ -242,13 +236,6 @@ theorem kapLineCh611_congr {p q p' q' : Fin 4 → ZMod 2}
     obtain ⟨α', β', he⟩ := h' α β
     exact ⟨α', β', by rw [he]⟩
 
-theorem kapLineCh611_ne (hind : ∀ c, kvCh611 b hb c = 1 → c = 0) {p q p' q' : Fin 4 → ZMod 2}
-    {α β : ZMod 2} (hc : ∀ α' β' : ZMod 2, α • p + β • q ≠ α' • p' + β' • q') :
-    kapLineCh611 b hb p q ≠ kapLineCh611 b hb p' q' := by
-  intro heq
-  have hmem : kvCh611 b hb (α • p + β • q) ∈ kapLineCh611 b hb p' q' := heq ▸ ⟨α, β, rfl⟩
-  obtain ⟨α', β', he⟩ := hmem
-  exact hc α' β' (kvCh611_injective hind he).symm
 
 end Coord
 

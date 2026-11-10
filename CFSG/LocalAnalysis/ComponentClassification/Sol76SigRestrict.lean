@@ -131,9 +131,5 @@ abbrev coreQuot (K : Subgroup G) : Type := ↥K ⧸ pPrimeCore 2 ↥K
 
 @[expose] def solRestricted : SigOrientation := fun _ _ _ N K K' => SolRestricted N K K'
 
-theorem lemma315bInputFor_simple_of_restricted (hq : QuasisimpleTwoPartInput)
-    (hR1 : Lemma32ConditionTwoInputFor simpleAmbient) (hW : WTrivialFor solRestricted)
-    (hres : ForcedSeparationFor solRestricted) : Lemma315bInputFor simpleAmbient :=
-  lemma315bInputFor_simple_of_forced hq hR1 hW hres
 
 end CFSG.ComponentClassification.Sol76.Sig

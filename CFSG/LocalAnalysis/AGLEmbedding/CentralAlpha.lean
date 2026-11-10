@@ -207,44 +207,6 @@ theorem false_of_kOutNormalSylow (h : ReducedNongeneration p X R X₀) {K : Subg
   obtain ⟨k, hk⟩ := exists_pow_mem_of_mem_sup S.isPGroup' hw
   exact ⟨k, by rw [Subgroup.mem_comap, map_pow]; exact hk⟩
 
-theorem outTwo_of_mem (h : ReducedNongeneration p X R X₀)
-    (hR4 : 4 ≤ Open.pRank p (R : Subgroup X)) (hX : CatalogSimpleSections X) {z : X}
-    (hz : z ∈ Subgroup.center X) (hzp : orderOf z = p) {K : Subgroup X}
-    (hK : IsComponentOf K ⊤) (hKn : K.Normal) (hzK : z ∈ K) (hKF : KFactAlpha) :
-    (∀ c ∈ (R : Subgroup X) ⊓ Subgroup.centralizer (K : Set X), orderOf c = p →
-        c ∈ Subgroup.zpowers z) ∧
-      KOutTwoGroup K ∧
-      ((∃ A : Subgroup X, A ≤ (R : Subgroup X) ⊓ K ∧
-          A ≤ Subgroup.centralizer (((R : Subgroup X) ⊓ K : Subgroup X) : Set X) ∧
-          IsElemAbelian p A ∧ Nat.card A = p ^ 2) ∨
-        ((∀ t ∈ (R : Subgroup X) ⊓ K, t ^ p = 1) ∧
-          Open.pRank p ((R : Subgroup X) ⊓ K) ≤ 3) ∨
-        (∃ A : Subgroup X, A ≤ (R : Subgroup X) ⊓ K ∧
-          (R : Subgroup X) ⊓ K ≤ Subgroup.normalizer (A : Set X) ∧ IsElemAbelian p A ∧
-          p ^ (p + 1) ≤ Nat.card A)) := by
-  have hp := h.prime
-  have : Fact p.Prime := ⟨hp⟩
-  have hnc := h.not_isCyclic_inf_of_mem hz hzp hK hzK
-  obtain ⟨T, hT⟩ := Walter.exists_sylow_map_eq_inf_of_isSubnormal R
-    (ComponentClassification.Components.mathlib_subnormal_of_chain hK.2.1
-      Subgroup.IsSubnormal.top)
-  refine ⟨h.mem_zpowers_of_mem_inf_centralizer hz hzp hK hKn hzK, ?_⟩
-  rcases hKF K hK.2.2 (hX.isCatalogGroup_center_quotient hK) p hp h.ne_two
-      (center_ne_bot_of_mem hp hz hzp hzK) (isPGroup_center_of_isComponentOf hp h.core_eq_bot hK)
-      (h.isCyclic_center hK hKn) T with
-    ⟨hgen, h3 | hout⟩ | hb | ⟨hc, h3⟩ | ⟨h2, hd⟩
-  · exact (h.false_of_three_le_pRank_of_le hKn (h.le_of_kGenThree hR4 hz hzp hK hKn hzK hgen)
-      h3).elim
-  · exact (h.false_of_kOutNormalSylow (h.le_of_kGenThree hR4 hz hzp hK hKn hzK hgen)
-      (h.centralizer_le_of_not_isCyclic hKn hnc) hout).elim
-  · exact (h.false_of_pRank_mulAut_le_two hR4 hz hzp hK hKn hzK hb).elim
-  · exact (h.false_of_three_le_pRank_of_le hKn (h.le_of_glbCore_eq_top hT hc) h3).elim
-  · refine ⟨h2, ?_⟩
-    rw [← hT]
-    rcases hd with hd | hd | hd
-    · exact Or.inl (exists_map_of_exists_centralizer hd)
-    · exact Or.inr (Or.inl (pow_and_pRank_map hp hd))
-    · exact Or.inr (Or.inr (exists_map_of_exists_normalizer hd))
 
 end ReducedNongeneration
 

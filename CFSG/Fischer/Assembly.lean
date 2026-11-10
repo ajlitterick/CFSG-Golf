@@ -58,45 +58,6 @@ theorem full_of_facts :
       Sporadic.Fi24.fischer_uniqueness_two polarFacts hyperovalFacts hFF hTF hfix22 hcent22
         Sporadic.Fi24.edgeSwap_a hd1 hcover X E hP hZ hS hT⟩
 
-include hTF in
-theorem open_of_facts :
-    ∀ k ∈ ({22, 23, 24} : Set ℕ),
-      (∃ (G : Type) (_ : Group G) (_ : Finite G) (D : Set G),
-        fischerEUIsCenterlessPair D ∧ fischerEUType k D ∧
-        (∀ D' : Set G, fischerEUIsPair D' → D' = D) ∧
-        ∀ d ∈ D, fischerEULocalStructure k d) ∧
-      (∀ (G H : Type) [Group G] [Group H] [Finite G] [Finite H] (D : Set G) (E : Set H),
-        fischerEUIsCenterlessPair D → fischerEUType k D →
-        fischerEUIsCenterlessPair E → fischerEUType k E →
-        ∃ φ : G ≃* H, φ '' D = E) := by
-  have hFF := Sporadic.Fi22.fi22Facts polarFacts hyperovalFacts
-  intro k hk
-  rcases hk with rfl | rfl | rfl
-  · refine ⟨Sporadic.Fi22.open_existence_22, fun G H _ _ _ _ D E hD hDT hE hET => ?_⟩
-    obtain ⟨-, hDT'⟩ | ⟨h, -⟩ | ⟨h, -⟩ := hDT
-    · obtain ⟨-, hET'⟩ | ⟨h, -⟩ | ⟨h, -⟩ := hET
-      · exact Sporadic.Fi22.open_uniqueness_22 polarFacts G H D E hD hDT' hE hET'
-      all_goals exact absurd h (by decide)
-    all_goals exact absurd h (by decide)
-  · refine ⟨Sporadic.Fi23.open_existence_23, fun G H _ _ _ _ D E hD hDT hE hET => ?_⟩
-    obtain ⟨h, -⟩ | ⟨-, hDT'⟩ | ⟨h, -⟩ := hDT
-    · exact absurd h (by decide)
-    · obtain ⟨h, -⟩ | ⟨-, hET'⟩ | ⟨h, -⟩ := hET
-      · exact absurd h (by decide)
-      · exact Sporadic.Fi23.open_uniqueness_23 polarFacts hyperovalFacts hFF G H D E hD hDT' hE
-          hET'
-      · exact absurd h (by decide)
-    · exact absurd h (by decide)
-  · refine ⟨Sporadic.Fi24.open_existence_24 polarFacts,
-      fun G H _ _ _ _ D E hD hDT hE hET => ?_⟩
-    obtain ⟨h, -⟩ | ⟨h, -⟩ | ⟨-, hDT'⟩ := hDT
-    · exact absurd h (by decide)
-    · exact absurd h (by decide)
-    · obtain ⟨h, -⟩ | ⟨h, -⟩ | ⟨-, hET'⟩ := hET
-      · exact absurd h (by decide)
-      · exact absurd h (by decide)
-      · exact Sporadic.Fi24.open_uniqueness_24 polarFacts hyperovalFacts hFF hTF G H D E hD hDT'
-          hE hET'
 
 end Facts
 

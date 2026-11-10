@@ -117,22 +117,5 @@ theorem ggStdSubPreInputOn_of_notE7E8All (hF7 : TableBExcTwo.GGE7TwoRootFusionIn
   · exact Or.inl hE
   · exact Or.inr ⟨hS, hE⟩
 
-theorem ggTableBOtherRest4_cases_of_noF4E7E8 {p : ℕ} {lab : LargeEvenLabel} (hp : p.Prime)
-    (hlab : LargeEvenInLambda2 lab) (h : GGTableBOtherRest4 p lab)
-    (hF : ¬ GGTableBF4AllLabel p lab) (hE : ¬ GGTableBE7E8AllLabel p lab)
-    (hs : LargeEvenSplit p lab) :
-    lab.tag = .E6 ∨ lab.tag = .twE6 ∨ lab.tag = .triD4 ∨ lab.tag = .twF4 ∨ lab.tag = .G2der ∨
-      lab.tag = .twF4der := by
-  rcases ggTableBOtherRest4_cases hp hlab h hs with h1 | h1 | h1 | h1 | h1 | h1 | ⟨ht, -⟩
-  · exact Or.inl h1
-  · exact Or.inr (Or.inl h1)
-  · exact Or.inr (Or.inr (Or.inl h1))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h1)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h1))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h1))))
-  · exfalso
-    rcases ht with ht | ht
-    · exact hF ⟨ht, hs⟩
-    · exact hE ⟨ht, hs⟩
 
 end CFSG.StandardType

@@ -226,8 +226,6 @@ theorem parOfGroup_parToGroup (v : (parMatrix M J).Group) :
     parOfGroup cs J ⟨parToGroup cs J v, parToGroup_mem cs J v⟩ = v :=
   parOfGroup_parToPar cs J v
 
-theorem parOfGroup_injective : Function.Injective (parOfGroup cs J) := fun w w' h =>
-  Subtype.ext (by rw [← parToGroup_parOfGroup cs J w, h, parToGroup_parOfGroup])
 
 theorem parToGroup_injective : Function.Injective (parToGroup cs J) := fun v v' h => by
   rw [← parOfGroup_parToGroup cs J v, ← parOfGroup_parToGroup cs J v']
@@ -244,9 +242,6 @@ theorem parOfGroup_eq_iff {w : cs.parabolic J} {v : (parMatrix M J).Group} :
     congr 1
     exact Subtype.ext h
 
-theorem parOfGroup_eq_simple_iff {w : cs.parabolic J} {j : J} :
-    parOfGroup cs J w = (parMatrix M J).simple j ↔ (w : W) = cs.simple j := by
-  rw [parOfGroup_eq_iff, parToGroup_simple]
 
 include cs in
 theorem finite_parGroup [Finite W] : Finite (parMatrix M J).Group :=

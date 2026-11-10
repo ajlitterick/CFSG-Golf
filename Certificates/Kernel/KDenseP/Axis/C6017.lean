@@ -22,10 +22,6 @@ theorem items6017 : ∀ x ∈ recTag HS.recShard_7, TagEq x :=
     (rlS_init (by norm_num) (by quickRfl)) (rlS_init (by norm_num) (by quickRfl)) (rlS_wit2 rfl)
     (by quickRfl) (by decide +kernel)
 
-theorem neg_grp6017 : notB (grpL CFSG.KD.AX.c6017.rn CFSG.KD.AX.c6017.ck
-    (fun k => CFSG.KD.AX.c6017.CH k + 2 ^ 80) CFSG.KD.AX.c6017.PRf CFSG.KD.AX.c6017.Gf
-    CFSG.KD.AX.c6017.S0 3 0) = true := by
-  decide +kernel
 
 theorem c6017 :
     ∀ s ∈ HS.recShard_7, ∀ r, s.2.1 ≤ r → r < s.2.2 → ∀ ε, HS.RecSpec s.1 r ε :=

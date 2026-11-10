@@ -251,36 +251,6 @@ theorem levTwoS2b_isLong_ofCoord_sub' (n : ℕ) {a b : Fin n} (hab : a ≠ b) {s
   convert h using 2
   rw [sub_eq_add_neg, Pi.single_neg]
 
-theorem levTwoS2b_eps_sub_mem (n : ℕ) (p : ℕ) (c : Fin n → ZMod p) {a b : Fin n}
-    (hab : a ≠ b) :
-    levTwoS2b_ofCoord n (Pi.single a 1 - Pi.single b 1) ∈ levTwoS2b_PhiCase3 n p c ↔
-      levTwoS2b_D c a = levTwoS2b_D c b := by
-  simp only [levTwoS2b_PhiCase3, Set.mem_setOf_eq]
-  constructor
-  · intro hv
-    have h0 : levTwoS2b_D c a - levTwoS2b_D c b = 0 := by
-      rw [← levTwoS2b_lam_eps_sub n p c a b]
-      exact hv.2.2
-    exact sub_eq_zero.mp h0
-  · intro h
-    exact ⟨levTwoS2b_isRt_ofCoord_sub n hab, levTwoS2b_isLong_ofCoord_sub n hab,
-      by rw [levTwoS2b_lam_eps_sub, h, sub_self]⟩
-
-theorem levTwoS2b_eps_add_mem (n : ℕ) (p : ℕ) (c : Fin n → ZMod p) {a b : Fin n}
-    (hab : a ≠ b) :
-    levTwoS2b_ofCoord n (Pi.single a 1 + Pi.single b 1) ∈ levTwoS2b_PhiCase3 n p c ↔
-      levTwoS2b_D c a = - levTwoS2b_D c b := by
-  simp only [levTwoS2b_PhiCase3, Set.mem_setOf_eq]
-  constructor
-  · intro hv
-    have h0 : levTwoS2b_D c a + levTwoS2b_D c b = 0 := by
-      rw [← levTwoS2b_lam_eps_add n p c a b]
-      exact hv.2.2
-    exact (add_eq_zero_iff_eq_neg.mp h0)
-  · intro h
-    exact ⟨levTwoS2b_isRt_ofCoord_long n hab (Or.inl rfl) (Or.inl rfl),
-      levTwoS2b_isLong_ofCoord_long n hab (Or.inl rfl) (Or.inl rfl),
-      by rw [levTwoS2b_lam_eps_add, h, neg_add_cancel]⟩
 
 theorem levTwoS2b_allLong_of_D_zero (n : ℕ) (p : ℕ) (c : Fin n → ZMod p)
     (hD : ∀ a : Fin n, levTwoS2b_D c a = 0) :

@@ -358,97 +358,6 @@ public theorem CFSG.normalizer_le_normalizer_thompsonCenter
   intro g y hy
   exact hconj_mem g g.property y hy
 
-public theorem CFSG.thompsonCenter_le_map_of_mem_thompsonAbelianSubgroups
-    [Finite G] {p : ℕ} [Fact p.Prime] (P : Sylow p G) {A : Subgroup P}
-    (hA : A ∈ thompsonAbelianSubgroups (G := P) (⊤ : Subgroup P)) :
-    thompsonCenter (G := G) (P : Subgroup G) ≤ A.map P.toSubgroup.subtype := by
-  classical
-  let Z : Subgroup P := (thompsonCenter (G := G) (P : Subgroup G)).subgroupOf (P : Subgroup G)
-  have hAimage :
-      A.map P.toSubgroup.subtype ∈ thompsonAbelianSubgroups (G := G) (P : Subgroup G) := by
-    refine ⟨by simpa using (Subgroup.map_subtype_le (H := (P : Subgroup G)) (K := A)), ?_, ?_⟩
-    · let : IsMulCommutative A := hA.2.1
-      exact Subgroup.map_isMulCommutative (H := A) P.toSubgroup.subtype
-    · intro B hB hBcomm
-      let B' : Subgroup P := B.subgroupOf (P : Subgroup G)
-      have hAmax := hA.2.2 B' (by simp) (by
-        let : IsMulCommutative B := hBcomm
-        infer_instance)
-      calc
-        Nat.card B = Nat.card B' := by
-          simpa [B', Subgroup.map_subgroupOf_eq_of_le hB] using
-            (Subgroup.card_subtype (P : Subgroup G) B')
-        _ ≤ Nat.card A := hAmax
-        _ = Nat.card (A.map P.toSubgroup.subtype) := by
-          symm
-          exact Subgroup.card_map_of_injective (K := A) P.toSubgroup.subtype_injective
-  have hZ_normal : Z.Normal := by
-    simpa [Z] using thompsonCenter_normal_subgroupOf_sylow (G := G) (p := p) P
-  have hZ_cent_A : Z ≤ Subgroup.centralizer (A : Set P) := by
-    intro z hz
-    rw [Subgroup.mem_centralizer_iff]
-    intro a ha
-    have hz' : ((z : P) : G) ∈ thompsonCenter (G := G) (P : Subgroup G) := hz
-    have hzcent :
-        ((z : P) : G) ∈ Subgroup.centralizer (thompsonSubgroup (G := G) (P : Subgroup G) : Set G) := by
-      simpa [thompsonCenter, centerIn] using hz'.2
-    have haJ : ((a : P) : G) ∈ thompsonSubgroup (G := G) (P : Subgroup G) := by
-      exact le_sSup hAimage (Subgroup.mem_map_of_mem P.toSubgroup.subtype ha)
-    apply Subtype.ext
-    exact Subgroup.mem_centralizer_iff.mp hzcent _ haJ
-  let B : Subgroup P := A ⊔ Z
-  have hB_comm : IsMulCommutative B := by
-    let hAcomm : IsMulCommutative A := hA.2.1
-    let hZcomm : IsMulCommutative Z := by
-      let : IsMulCommutative (thompsonCenter (G := G) (P : Subgroup G)) :=
-        thompsonCenter_isMulCommutative (G := G) (P : Subgroup G)
-      infer_instance
-    refine (Subgroup.le_centralizer_iff_isMulCommutative (K := B)).1 ?_
-    intro u hu
-    rw [Subgroup.mem_centralizer_iff]
-    intro v hv
-    rcases (Subgroup.mem_sup_of_normal_right (x := u) (s := A) (t := Z)).1 hu with
-      ⟨a1, ha1, z1, hz1, rfl⟩
-    rcases (Subgroup.mem_sup_of_normal_right (x := v) (s := A) (t := Z)).1 hv with
-      ⟨a2, ha2, z2, hz2, rfl⟩
-    symm
-    have hz1a2 : z1 * a2 = a2 * z1 :=
-      (Subgroup.mem_centralizer_iff.mp (hZ_cent_A hz1) a2 ha2).symm
-    have hz2a1 : z2 * a1 = a1 * z2 :=
-      (Subgroup.mem_centralizer_iff.mp (hZ_cent_A hz2) a1 ha1).symm
-    have ha1a2 : a1 * a2 = a2 * a1 := by
-      simpa using congrArg Subtype.val
-        ((IsMulCommutative.is_comm (M := A)).comm ⟨a1, ha1⟩ ⟨a2, ha2⟩)
-    have hz1z2 : z1 * z2 = z2 * z1 := by
-      simpa using congrArg Subtype.val
-        ((IsMulCommutative.is_comm (M := Z)).comm ⟨z1, hz1⟩ ⟨z2, hz2⟩)
-    calc
-      (a1 * z1) * (a2 * z2) = a1 * a2 * (z1 * z2) := by
-        rw [mul_assoc, ← mul_assoc z1 a2 z2, hz1a2]
-        simp [mul_assoc]
-      _ = a2 * a1 * (z2 * z1) := by rw [ha1a2, hz1z2]
-      _ = a2 * (z2 * (a1 * z1)) := by
-        have hinner : a1 * (z2 * z1) = z2 * (a1 * z1) := by
-          calc
-            a1 * (z2 * z1) = (a1 * z2) * z1 := by simp [mul_assoc]
-            _ = (z2 * a1) * z1 := by rw [← hz2a1]
-            _ = z2 * (a1 * z1) := by simp [mul_assoc]
-        rw [mul_assoc, hinner]
-      _ = (a2 * z2) * (a1 * z1) := by
-        simp [mul_assoc]
-  have hB_card_le : Nat.card B ≤ Nat.card A := hA.2.2 B (by simp) hB_comm
-  have hB_eq_A : B = A := by
-    symm
-    exact Subgroup.eq_of_le_of_card_ge le_sup_left hB_card_le
-  have hZ_le_A : Z ≤ A := by
-    intro z hz
-    have hzB : z ∈ B := Subgroup.mem_sup_right hz
-    simpa [B, hB_eq_A] using hzB
-  intro z hz
-  let zP : P := ⟨z, thompsonCenter_le (G := G) (P : Subgroup G) hz⟩
-  have hzZ : zP ∈ Z := hz
-  have hzA : zP ∈ A := hZ_le_A hzZ
-  exact Subgroup.mem_map_of_mem P.toSubgroup.subtype hzA
 
 public theorem CFSG.thompsonAbelianSubgroups_nonempty [Finite G] (P : Subgroup G) :
     ∃ A : Subgroup G, A ∈ thompsonAbelianSubgroups (G := G) P := by
@@ -541,47 +450,6 @@ public theorem CFSG.thompsonSubgroup_eq_of_le [Finite G]
         thompsonAbelianSubgroups_mem_of_le (G := G) hR_le_P hA
           ((le_sSup hA).trans hJP_le_R)
 
-public theorem CFSG.thompsonCenter_eq_of_le [Finite G]
-    {P R : Subgroup G} (hR_le_P : R ≤ P)
-    (hJP_le_R : thompsonSubgroup (G := G) P ≤ R) :
-    thompsonCenter (G := G) R = thompsonCenter (G := G) P := by
-  rw [thompsonCenter, thompsonCenter, thompsonSubgroup_eq_of_le (G := G) hR_le_P hJP_le_R]
-
-public theorem CFSG.thompsonAbelianSubgroups_centralizer_eq [Finite G]
-    {P A : Subgroup G} (hA : A ∈ thompsonAbelianSubgroups (G := G) P) :
-    subgroupCentralizerIn P A = A := by
-  apply le_antisymm
-  · intro x hx
-    let B : Subgroup G := Subgroup.closure ((A : Set G) ∪ {x})
-    have hB_le_P : B ≤ P := by
-      refine (Subgroup.closure_le (K := P)).2 ?_
-      intro y hy
-      rcases hy with hyA | rfl
-      · exact hA.1 hyA
-      · exact hx.1
-    have hB_comm : IsMulCommutative B := by
-      change IsMulCommutative (Subgroup.closure ((A : Set G) ∪ {x}))
-      let : IsMulCommutative A := hA.2.1
-      apply Subgroup.isMulCommutative_closure
-      intro y hy z hz _
-      rcases hy with hyA | rfl
-      · rcases hz with hzA | rfl
-        · exact setLike_mul_comm (s := A) hyA hzA
-        · exact Subgroup.mem_centralizer_iff.mp hx.2 _ hyA
-      · rcases hz with hzA | rfl
-        · exact (Subgroup.mem_centralizer_iff.mp hx.2 _ hzA).symm
-        · simp
-    have hB_card_le : Nat.card B ≤ Nat.card A := hA.2.2 B hB_le_P hB_comm
-    have hA_le_B : A ≤ B := by
-      intro y hy
-      exact Subgroup.subset_closure (Or.inl hy)
-    have hB_eq_A : A = B := Subgroup.eq_of_le_of_card_ge hA_le_B hB_card_le
-    have hxB : x ∈ B := Subgroup.subset_closure (Or.inr (by simp))
-    rw [← hB_eq_A] at hxB
-    exact hxB
-  · intro x hx
-    refine ⟨hA.1 hx, ?_⟩
-    exact ((Subgroup.le_centralizer_iff_isMulCommutative (K := A)).2 hA.2.1) hx
 
 @[expose] public def CFSG.replacementCommChain (B A : Subgroup G) : ℕ → Subgroup G
   | 0 => B
@@ -593,71 +461,6 @@ public theorem CFSG.thompsonAbelianSubgroups_centralizer_eq [Finite G]
 @[simp] public theorem CFSG.replacementCommChain_succ (B A : Subgroup G) (n : ℕ) :
     replacementCommChain B A (n + 1) = ⁅replacementCommChain B A n, A⁆ := rfl
 
-public theorem CFSG.replacementCommChain_le_normalizer
-    (B A : Subgroup G) [B.Normal] :
-    ∀ n, A ≤ Subgroup.normalizer (replacementCommChain B A n : Set G)
-  | 0 => by
-      rw [replacementCommChain_zero, Subgroup.normalizer_eq_top (H := B)]
-      exact le_top
-  | n + 1 => by
-      let D : Subgroup G := replacementCommChain B A n
-      let : ((⁅D, A⁆).subgroupOf (D ⊔ A)).Normal := commutator_normal_in_sup D A
-      have hsup_norm : D ⊔ A ≤ Subgroup.normalizer (((⁅D, A⁆ : Subgroup G) : Set G)) := by
-        exact
-          Subgroup.le_normalizer_of_normal_subgroupOf
-            (H := ⁅D, A⁆) (K := D ⊔ A) (commutator_le_sup D A)
-      rw [replacementCommChain_succ]
-      exact le_sup_right.trans hsup_norm
-
-public theorem CFSG.replacementCommChain_descends
-    (B A : Subgroup G) [B.Normal] (n : ℕ) :
-    replacementCommChain B A (n + 1) ≤ replacementCommChain B A n := by
-  rw [replacementCommChain_succ]
-  refine (Subgroup.commutator_le).2 ?_
-  intro x hx a ha
-  have ha_norm : a ∈ Subgroup.normalizer (replacementCommChain B A n : Set G) :=
-    replacementCommChain_le_normalizer B A n ha
-  have hconj : a * x⁻¹ * a⁻¹ ∈ replacementCommChain B A n :=
-    (Subgroup.mem_normalizer_iff.mp ha_norm x⁻¹).1
-      ((replacementCommChain B A n).inv_mem hx)
-  rw [commutatorElement_def]
-  simpa [mul_assoc] using (replacementCommChain B A n).mul_mem hx hconj
-
-public theorem CFSG.replacementCommChain_le_left
-    (B A : Subgroup G) [B.Normal] :
-    ∀ n, replacementCommChain B A n ≤ B
-  | 0 => le_rfl
-  | n + 1 =>
-      (replacementCommChain_descends B A n).trans (replacementCommChain_le_left B A n)
-
-public theorem CFSG.replacementCommChain_antitone
-    (B A : Subgroup G) [B.Normal] {i j : ℕ}
-    (hij : i ≤ j) :
-    replacementCommChain B A j ≤ replacementCommChain B A i := by
-  induction hij with
-  | refl =>
-      exact le_rfl
-  | @step j hij ih =>
-      exact (replacementCommChain_descends B A j).trans ih
-
-public theorem CFSG.replacementCommChain_eq_bot_of_eq_bot_of_le
-    (B A : Subgroup G) [B.Normal] {i j : ℕ}
-    (hij : i ≤ j) (hi : replacementCommChain B A i = ⊥) :
-    replacementCommChain B A j = ⊥ := by
-  apply le_antisymm
-  · exact (replacementCommChain_antitone B A hij).trans_eq hi
-  · exact bot_le
-
-public theorem CFSG.replacementCommChain_le_sup
-    (B A : Subgroup G) :
-    ∀ n, replacementCommChain B A n ≤ B ⊔ A
-  | 0 => le_sup_left
-  | n + 1 =>
-      calc
-        replacementCommChain B A (n + 1) = ⁅replacementCommChain B A n, A⁆ := by
-          rw [replacementCommChain_succ]
-        _ ≤ replacementCommChain B A n ⊔ A := commutator_le_sup _ _
-        _ ≤ B ⊔ A := sup_le (replacementCommChain_le_sup B A n) le_sup_right
 
 @[expose] public def CFSG.replacementCommChainSub (B A : Subgroup G) : ℕ → Subgroup ↥(B ⊔ A)
   | 0 => B.subgroupOf (B ⊔ A)
@@ -670,108 +473,6 @@ public theorem CFSG.replacementCommChain_le_sup
     replacementCommChainSub B A (n + 1) =
       ⁅replacementCommChainSub B A n, A.subgroupOf (B ⊔ A)⁆ := rfl
 
-public theorem CFSG.replacementCommChainSub_eq_subgroupOf
-    (B A : Subgroup G) :
-    ∀ n,
-      replacementCommChainSub B A n =
-        (replacementCommChain B A n).subgroupOf (B ⊔ A)
-  | 0 => by
-      ext x
-      simp [replacementCommChainSub, replacementCommChain]
-  | n + 1 => by
-      let S : Subgroup G := B ⊔ A
-      apply (Subgroup.map_subtype_inj (H := S)).mp
-      calc
-        (replacementCommChainSub B A (n + 1)).map S.subtype =
-            ⁅(replacementCommChainSub B A n).map S.subtype,
-              (A.subgroupOf S).map S.subtype⁆ := by
-              rw [replacementCommChainSub_succ, Subgroup.map_commutator]
-        _ = ⁅replacementCommChain B A n, A⁆ := by
-              rw [replacementCommChainSub_eq_subgroupOf B A n,
-                Subgroup.map_subgroupOf_eq_of_le
-                  (replacementCommChain_le_sup B A n),
-                Subgroup.map_subgroupOf_eq_of_le le_sup_right]
-        _ = ((replacementCommChain B A (n + 1)).subgroupOf S).map S.subtype := by
-              simpa [replacementCommChain_succ] using
-                (Subgroup.map_subgroupOf_eq_of_le
-                  (replacementCommChain_le_sup B A (n + 1)))
-
-public theorem CFSG.replacementCommChainSub_le_lowerCentralSeries
-    (B A : Subgroup G) :
-    ∀ n,
-      replacementCommChainSub B A n ≤
-        (Subgroup.lowerCentralSeries (⊤ : Subgroup ↥(B ⊔ A)) n)
-  | 0 => by
-      simp [Subgroup.lowerCentralSeries_zero]
-  | n + 1 => by
-      rw [replacementCommChainSub_succ, Subgroup.lowerCentralSeries_succ]
-      exact
-        (Subgroup.commutator_mono
-          (replacementCommChainSub_le_lowerCentralSeries B A n) le_top)
-
-public theorem CFSG.replacementCommChain_eventually_bot_of_isNilpotent
-    (B A : Subgroup G)
-    (hnil : Group.IsNilpotent ↥(B ⊔ A)) :
-    ∃ n, replacementCommChain B A n = ⊥ := by
-  obtain ⟨n, hn⟩ :=
-    (Subgroup.nilpotent_iff_lowerCentralSeries (G := ↥(B ⊔ A))).1 hnil
-  refine ⟨n, ?_⟩
-  calc
-    replacementCommChain B A n =
-        ((replacementCommChain B A n).subgroupOf (B ⊔ A)).map (B ⊔ A).subtype := by
-          symm
-          exact Subgroup.map_subgroupOf_eq_of_le (replacementCommChain_le_sup B A n)
-    _ = (replacementCommChainSub B A n).map (B ⊔ A).subtype := by
-          rw [replacementCommChainSub_eq_subgroupOf]
-    _ = ⊥ := by
-          apply le_antisymm
-          · intro x hx
-            rcases Subgroup.mem_map.mp hx with ⟨y, hy, rfl⟩
-            have hybot : y ∈ (⊥ : Subgroup ↥(B ⊔ A)) := by
-              exact (replacementCommChainSub_le_lowerCentralSeries B A n).trans_eq hn hy
-            simpa using hybot
-          · exact bot_le
-
-public theorem CFSG.replacementCommChain_eventually_bot
-    {p : ℕ} [Fact (Nat.Prime p)] [Finite G]
-    (B A : Subgroup G)
-    (hBAp : IsPGroup p ↥(B ⊔ A)) :
-    ∃ n, replacementCommChain B A n = ⊥ := by
-  exact
-    replacementCommChain_eventually_bot_of_isNilpotent B A
-      (IsPGroup.isNilpotent (p := p) hBAp)
-
-public theorem CFSG.replacementCommChain_exists_positive_abelian
-    {p : ℕ} [Fact (Nat.Prime p)] [Finite G]
-    (B A : Subgroup G) (hBne : B ≠ ⊥)
-    (hBAp : IsPGroup p ↥(B ⊔ A)) :
-    ∃ n, 0 < n ∧ IsMulCommutative (replacementCommChain B A n) := by
-  obtain ⟨n, hn⟩ := replacementCommChain_eventually_bot (p := p) B A hBAp
-  have hnpos : 0 < n := by
-    cases n with
-    | zero =>
-        exfalso
-        exact hBne (by simpa [replacementCommChain_zero] using hn)
-    | succ n =>
-        simp
-  refine ⟨n, hnpos, ?_⟩
-  rw [hn]
-  infer_instance
-
-public theorem CFSG.replacementCommChain_le_of_succ_eq_bot [Finite G]
-    {P B A : Subgroup G} [B.Normal]
-    (hA : A ∈ thompsonAbelianSubgroups (G := G) P) (hB_le_P : B ≤ P) {n : ℕ}
-    (hsucc : replacementCommChain B A (n + 1) = ⊥) :
-    replacementCommChain B A n ≤ A := by
-  have hcent : replacementCommChain B A n ≤ Subgroup.centralizer (A : Set G) := by
-    exact
-      (Subgroup.commutator_eq_bot_iff_le_centralizer).1 <| by
-        simpa [replacementCommChain_succ] using hsucc
-  have hleP : replacementCommChain B A n ≤ P := by
-    exact (replacementCommChain_le_left B A n).trans hB_le_P
-  intro x hx
-  have hx' : x ∈ subgroupCentralizerIn P A := ⟨hleP hx, hcent hx⟩
-  rwa [thompsonAbelianSubgroups_centralizer_eq (G := G) hA] at hx'
 
 public theorem CFSG.inf_le_centralizer_commutator_of_commutator_le
     {P B A : Subgroup G}
@@ -811,49 +512,6 @@ public theorem CFSG.inf_le_centralizer_commutator_of_commutator_le
   exact
     (Subgroup.commutator_eq_bot_iff_le_centralizer).1 hbot
 
-public theorem CFSG.thompsonAbelianSubgroups_normalizer_iff_commutator_eq_bot [Finite G]
-    {P A B : Subgroup G} (hA : A ∈ thompsonAbelianSubgroups (G := G) P) (hB_le_P : B ≤ P) :
-    B ≤ Subgroup.normalizer (A : Set G) ↔ ⁅⁅B, A⁆, A⁆ = ⊥ := by
-  constructor
-  · intro hB_norm
-    have hBA_le_A : ⁅B, A⁆ ≤ A := by
-      refine (Subgroup.commutator_le).2 ?_
-      intro b hb a ha
-      have hb_norm : b ∈ Subgroup.normalizer (A : Set G) := hB_norm hb
-      have hba : b * a * b⁻¹ ∈ A := (Subgroup.mem_normalizer_iff.mp hb_norm a).1 ha
-      rw [commutatorElement_def]
-      simpa [mul_assoc] using A.mul_mem hba (A.inv_mem ha)
-    have hA_le_centralizer_A :
-        A ≤ Subgroup.centralizer (A : Set G) :=
-      (Subgroup.le_centralizer_iff_isMulCommutative (K := A)).2 hA.2.1
-    exact (Subgroup.commutator_eq_bot_iff_le_centralizer).2
-      (hBA_le_A.trans hA_le_centralizer_A)
-  · intro hcomm2
-    have hBA_le_centralizer_A : ⁅B, A⁆ ≤ Subgroup.centralizer (A : Set G) :=
-      (Subgroup.commutator_eq_bot_iff_le_centralizer).1 hcomm2
-    have hBA_le_P : ⁅B, A⁆ ≤ P := by
-      exact (Subgroup.commutator_mono hB_le_P hA.1).trans (Subgroup.commutator_le_self P)
-    have hBA_le_A : ⁅B, A⁆ ≤ A := by
-      intro x hx
-      have hx' : x ∈ subgroupCentralizerIn P A := ⟨hBA_le_P hx, hBA_le_centralizer_A hx⟩
-      rwa [thompsonAbelianSubgroups_centralizer_eq (G := G) hA] at hx'
-    intro b hb
-    rw [Subgroup.mem_normalizer_iff]
-    intro a
-    constructor
-    · intro ha
-      have hcomm : ⁅b, a⁆ ∈ A := hBA_le_A (Subgroup.commutator_mem_commutator hb ha)
-      rw [show b * a * b⁻¹ = ⁅b, a⁆ * a by simp [commutatorElement_def, mul_assoc]]
-      exact A.mul_mem hcomm ha
-    · intro hba
-      have hbinv : b⁻¹ ∈ B := B.inv_mem hb
-      have hcomm : ⁅b⁻¹, b * a * b⁻¹⁆ ∈ A :=
-        hBA_le_A (Subgroup.commutator_mem_commutator hbinv hba)
-      have : b⁻¹ * (b * a * b⁻¹) * b ∈ A := by
-        rw [show b⁻¹ * (b * a * b⁻¹) * b = ⁅b⁻¹, b * a * b⁻¹⁆ * (b * a * b⁻¹) by
-          simp [commutatorElement_def, mul_assoc]]
-        exact A.mul_mem hcomm hba
-      simpa [mul_assoc] using this
 
 public theorem CFSG.commutator_lt_self_of_isSolvable_local (M : Subgroup G)
     [Group.IsSolvable (↥M)] [Nontrivial (↥M)] : ⁅M, M⁆ < M := by
@@ -867,18 +525,6 @@ public theorem CFSG.commutator_lt_self_of_isSolvable_local (M : Subgroup G)
   have htop_map : (⊤ : Subgroup (↥M)).map M.subtype = M := by
     simpa [MonoidHom.range_eq_map] using (M.range_subtype : M.subtype.range = M)
   simpa [Subgroup.map_subtype_commutator, htop_map] using hlt'
-
-public theorem CFSG.replacementCommChain_two_ne_bot_of_not_normalizer [Finite G]
-    {P B A : Subgroup G}
-    (hA : A ∈ thompsonAbelianSubgroups (G := G) P) (hB_le_P : B ≤ P)
-    (hB_not_norm : ¬ B ≤ Subgroup.normalizer (A : Set G)) :
-    replacementCommChain B A 2 ≠ ⊥ := by
-  intro htwo_bot
-  apply hB_not_norm
-  exact
-    (thompsonAbelianSubgroups_normalizer_iff_commutator_eq_bot
-      (G := G) (P := P) (A := A) (B := B) hA hB_le_P).2 <| by
-        simpa [replacementCommChain_succ, replacementCommChain_zero] using htwo_bot
 
 
 public lemma CFSG.card_odd_finite {G : Type*} (ho : Odd (Nat.card G)) : Finite G :=

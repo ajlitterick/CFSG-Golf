@@ -58,10 +58,6 @@ theorem e₁_ne_zero (fr : OFrame Q) : fr.e₁ ≠ 0 := fun h => by
   rw [h] at this
   simp at this
 
-theorem e₂_ne_zero (fr : OFrame Q) : fr.e₂ ≠ 0 := fun h => by
-  have := fr.polar_e₂_f₂
-  rw [h] at this
-  simp at this
 
 theorem e₂_mem_wPlane (fr : OFrame Q) : fr.e₂ ∈ wPlane fr :=
   ⟨!![0, -1; 0, 0], by simp [Frame.incl_apply]⟩

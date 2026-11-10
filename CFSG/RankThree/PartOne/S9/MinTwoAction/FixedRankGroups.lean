@@ -262,8 +262,6 @@ theorem abelianization_sq [Finite S] (hS : IsExtraspecialPGroup 2 S) (x : Abelia
     rw [map_mul]
     rfl
 
-theorem abAut_of {A : Type*} [Group A] (φ : A →* MulAut S) (a : A) (s : S) :
-    abAut φ a (Abelianization.of s) = Abelianization.of (φ a s) := rfl
 
 theorem center_fixed [Finite S] {A : Type*} [Group A] (φ : A →* MulAut S)
     (hS : IsExtraspecialPGroup 2 S) {z : S} (hz : Subgroup.center S = Subgroup.zpowers z)

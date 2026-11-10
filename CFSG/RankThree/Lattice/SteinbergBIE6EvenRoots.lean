@@ -200,9 +200,6 @@ theorem isRoot_of_mem_Ξ {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) : Is
   rw [D.Ξ_eq_parabolicRoots] at hα
   exact hα.1
 
-theorem neg_mem_Ξ {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) : -α ∈ D.Ξ := by
-  rw [D.Ξ_eq] at hα ⊢
-  exact neg_mem_e6Xi D.qpIndex D.i₀_mem' hα
 
 theorem δ_mem_Ξ {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) : D.δ α ∈ D.Ξ := by
   rw [D.Ξ_eq] at hα ⊢
@@ -213,10 +210,6 @@ theorem δ_δ (x : Fin Tag.E6.rank → ℤ) : D.δ (D.δ x) = x := by
   rw [D.δ_eq]
   exact e6Delta_qp_involutive D.qpIndex x
 
-theorem height_δ {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) : height (D.δ α) = height α := by
-  rw [D.Ξ_eq] at hα
-  rw [D.δ_eq]
-  exact height_e6Delta_of_mem_e6Xi D.qpIndex D.i₀_mem' hα
 
 theorem δ_add (x y : Fin Tag.E6.rank → ℤ) : D.δ (x + y) = D.δ x + D.δ y := by
   rw [D.δ_eq]
@@ -252,10 +245,6 @@ theorem iform_δ_eq_zero {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) (hne
   have h := D.orthogonal α hα 1 (by rw [Function.iterate_one]; exact hne)
   rwa [Function.iterate_one] at h
 
-theorem height_δ_pos {α : Fin Tag.E6.rank → ℤ} (hα : α ∈ D.Ξ) (hpos : 0 < height α) :
-    0 < height (D.δ α) := by
-  rw [D.height_δ hα]
-  exact hpos
 
 end E6EvenFixedRootDatum
 

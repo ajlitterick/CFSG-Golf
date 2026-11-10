@@ -24,7 +24,6 @@ open CFSG.KC.Fi24FiveK CFSG.KC.Fi24Base CFSG.KC.Fi24NetPt
 
 @[expose] noncomputable def head : Bool := headOK E D.M D.H D.R 331
 
-@[expose] noncomputable def bck : Bool := bOK E D.R
 
 end CFSG.KD.Fi24FiveK
 

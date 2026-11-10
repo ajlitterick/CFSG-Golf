@@ -303,7 +303,5 @@ theorem res10aInv : Res10aInv p f := by
       exact ⟨hK2.congr_card ((late_natCard_conjSub y R').trans hcardRR'.symm),
         hK1.congr_card ((late_natCard_conjSub y R).trans hcardRR')⟩
 
-theorem c20_10a_of_Y (hY : Res10aY p f) : C20_10a p f :=
-  c20_10a_of_res p f (res10aInv p f) hY
 
 end CFSG.ClassicalInvolution.Asc77.T3CII

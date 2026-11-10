@@ -103,14 +103,10 @@ local macro "zorn_q" : tactic => `(tactic| (
 theorem zPos_inv (i : Fin 6) (c : F) : (zPos i c)⁻¹ = zPos i c := by
   fin_cases i <;> simp only [zPos, g2X_inv, g2Y_inv, ← map_inv, tv_inv]
 
-theorem zNeg_inv (i : Fin 6) (c : F) : (zNeg i c)⁻¹ = zNeg i c := by
-  fin_cases i <;> simp only [zNeg, g2X_inv, g2Y_inv, ← map_inv, tv_inv]
 
 theorem zPos_add (i : Fin 6) (c d : F) : zPos i (c + d) = zPos i c * zPos i d := by
   fin_cases i <;> simp only [zPos] <;> zorn_q
 
-theorem zNeg_add (i : Fin 6) (c d : F) : zNeg i (c + d) = zNeg i c * zNeg i d := by
-  fin_cases i <;> simp only [zNeg] <;> zorn_q
 
 theorem zPos_comm02 (s t : F) : ⁅zPos 0 s, zPos 2 t⁆ = zPos 1 (s * t) := by
   rw [commutatorElement_def, zPos_inv, zPos_inv]

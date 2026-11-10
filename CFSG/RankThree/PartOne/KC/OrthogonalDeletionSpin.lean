@@ -193,16 +193,6 @@ theorem deletionIsometryEquiv_symm_apply (r : ℕ) (b c : F)
   rw [← deletionIsometryEquiv_apply r b c ((deletionIsometryEquiv r b c).symm a)]
   exact congrArg Subtype.val ((deletionIsometryEquiv r b c).apply_symm_apply a)
 
-theorem deletionIsometry_comp_longRoot (r : ℕ) (b c : F) {i j : Fin r} (hij : i ≠ j)
-    (s t : Bool) :
-    (deletionIsometry r b c).spinGroupMap.comp
-        ((minusFrame (r + 1) b c).longRoot hij s t) =
-      (minusFrame (r + 2) b c).longRoot ((Fin.succ_injective r).ne hij) s t := by
-  refine spinGroupMap_comp_longRoot (deletionIsometry r b c)
-    (minusFrame (r + 1) b c).toHypFrame (minusFrame (r + 2) b c).toHypFrame
-    hij ((Fin.succ_injective r).ne hij) s t ?_ ?_
-  · exact deletionIsometry_minusVec r b c i s
-  · exact deletionIsometry_minusVec r b c j t
 
 theorem deletionIsometry_comp_twShortRoot (r : ℕ) (b c : F)
     (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) (i : Fin r) (s : Bool) :

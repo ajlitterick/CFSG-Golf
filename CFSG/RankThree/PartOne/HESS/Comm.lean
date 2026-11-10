@@ -49,11 +49,6 @@ theorem HessSetup.mem_rootPairs (hS : HessSetup p A c L f P z) {J : Subgroup G}
     (hij : i ≠ j) : (nodeOf A ρ i j, rootG ρ hij) ∈ RootPairs p A f :=
   ⟨hL.nodeOf_mem_reflectionSet hij, by rw [hS.rootSet_nodeOf hJ hL hij]; exact Set.mem_insert _ _⟩
 
-theorem HessSetup.mem_rootPairs' (hS : HessSetup p A c L f P z) {J : Subgroup G}
-    (hJ : J ∈ thetaCompZeroStarE p A) {c' : G} (hL : LineHyp p A c' J f ρ) {i j : Fin 3}
-    (hij : i ≠ j) : (nodeOf A ρ i j, rootG ρ hij.symm) ∈ RootPairs p A f :=
-  ⟨hL.nodeOf_mem_reflectionSet hij, by
-    rw [hS.rootSet_nodeOf hJ hL hij]; exact Set.mem_insert_of_mem _ (Set.mem_singleton _)⟩
 
 theorem HessSetup.ne_bot_of_mem_rootSet (hS : HessSetup p A c L f P z) {t : MulAut A}
     {S : Subgroup G} (hSr : S ∈ RootSet A f p t) : S ≠ ⊥ := by

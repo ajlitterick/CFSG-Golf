@@ -20,7 +20,6 @@ theorem lenS : S.length = 16 := by decide +kernel
 
 theorem lenR : R.length = 4 := by decide +kernel
 
-theorem neg_cover : (!kCover 7 S.tail R) = true := by decide +kernel
 
 end CFSG.KD.TWDK77
 

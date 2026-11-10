@@ -156,52 +156,6 @@ theorem comm_of {lx : List (Perm (Fin 6))} (hX : lx.map enc = LX) (hL : l.map en
   rw [← enc_conj, ← enc_inv h16, ← enc_mul h16, memL hL] at this
   exact this
 
-@[expose] noncomputable def qCos12 (c : ℕ) : Bool :=
-  !memK (mulK 6 c 5517570) L4 ||
-    allK (fun k₁ => allK (fun k₂ =>
-      memK (mulK 6 (mulK 6 (mulK 6 c k₁) (invPK 6 k₂)) 5517570) L4 &&
-        memK (mulK 6 (mulK 6 (mulK 6 (invPK 6 c) k₁) (invPK 6 k₂)) 5517345) L4) L4) L4
-
-theorem cos12_walk : walkK 6 qCos12 6 0 0 0 = true := by decide +kernel
-
-@[expose] noncomputable def qCos3 (c : ℕ) : Bool :=
-  !memK (mulK 6 c 5517345) L4 ||
-    allK (fun k => memK (mulK 6 (mulK 6 (invPK 6 c) k) 5517570) L4) L4
-
-theorem cos3_walk : walkK 6 qCos3 6 0 0 0 = true := by decide +kernel
-
-theorem memL4 (hL : l.map enc = L4) {κ : Perm (Fin 6)} (h : κ ∈ l) : enc κ ∈ L4 := by
-  rw [← hL]
-  exact List.mem_map_of_mem h
-
-theorem cos12_of {c : Perm (Fin 6)} (hc : enc c = 5517345) (hci : enc c⁻¹ = 5517570)
-    (hL : l.map enc = L4) : ∀ a : Perm (Fin 6), a * c⁻¹ ∈ l → ∀ κ₁ ∈ l, ∀ κ₂ ∈ l,
-      a * κ₁ * κ₂⁻¹ * c⁻¹ ∈ l ∧ a⁻¹ * κ₁ * κ₂⁻¹ * c ∈ l := by
-  intro a ha κ₁ h₁ κ₂ h₂
-  have h := walkK_sound cos12_walk a
-  have e : memK (mulK 6 (enc a) 5517570) L4 = true := by
-    rw [← hci, ← enc_mul h16, memL hL]
-    exact ha
-  rw [qCos12.eq_1, e] at h
-  simp only [Bool.not_true, Bool.false_or] at h
-  have h' := allK_iff.1 (allK_iff.1 h (enc κ₁) (memL4 hL h₁)) (enc κ₂) (memL4 hL h₂)
-  rw [← hc, ← hci, ← enc_inv h16, ← enc_inv h16] at h'
-  simp only [← enc_mul h16, Bool.and_eq_true, memL hL] at h'
-  exact h'
-
-theorem cos3_of {c : Perm (Fin 6)} (hc : enc c = 5517345) (hci : enc c⁻¹ = 5517570)
-    (hL : l.map enc = L4) : ∀ a : Perm (Fin 6), a * c ∈ l → ∀ κ ∈ l, a⁻¹ * κ * c⁻¹ ∈ l := by
-  intro a ha κ hκ
-  have h := walkK_sound cos3_walk a
-  have e : memK (mulK 6 (enc a) 5517345) L4 = true := by
-    rw [← hc, ← enc_mul h16, memL hL]
-    exact ha
-  rw [qCos3.eq_1, e] at h
-  simp only [Bool.not_true, Bool.false_or] at h
-  have h' := allK_iff.1 h (enc κ) (memL4 hL hκ)
-  rw [← hci, ← enc_inv h16] at h'
-  simp only [← enc_mul h16, memL hL] at h'
-  exact h'
 
 @[expose] noncomputable def qCent (c : ℕ) : Bool :=
   !d6K c || !memK (mulK 6 (mulK 6 (mulK 6 c 5517345) (invPK 6 c)) 5517570) L4 || memK c LX

@@ -51,10 +51,6 @@ theorem vtx_inter_nonempty_iff
   · rintro ⟨k, h1, h2⟩
     exact ⟨chamberOf k, (chamberOf_mem_vtx_iff i g k).2 h1, (chamberOf_mem_vtx_iff j h k).2 h2⟩
 
-theorem image_vtx
-    (i : Fin 4) (g : Eam) (x : Chamber) :
-    chamberMulPerm g '' vtx i x = vtx i (chamberMul x g) :=
-  ChamberSystem.image_residue_of_mem_typeAut (chamberMulPerm_mem_typeAut_F4 g) _ x
 
 @[expose] def ptMap :
     P1Cos → Set Chamber :=
@@ -71,16 +67,6 @@ theorem ptMap_injective :
   obtain ⟨f, rfl⟩ := Quotient.mk_surjective w
   exact Quotient.sound (p1rel_iff.2 ((vtx_eq_iff 0 e f).1 h))
 
-theorem range_ptMap :
-    Set.range ptMap = {R | ∃ x : Chamber, R = vtx 0 x} := by
-  ext R
-  constructor
-  · rintro ⟨u, rfl⟩
-    obtain ⟨e, rfl⟩ := Quotient.mk_surjective u
-    exact ⟨chamberOf e, rfl⟩
-  · rintro ⟨x, rfl⟩
-    obtain ⟨e, rfl⟩ := chamberOf_surjective x
-    exact ⟨Quotient.mk _ e, rfl⟩
 
 theorem exists_ptMap_eq
     (u : P1Cos) : ∃ x : Chamber, ptMap u = vtx 0 x := by
@@ -95,10 +81,6 @@ theorem exists_ptMap_eq
       obtain ⟨e, rfl⟩ := chamberOf_surjective x
       exact ⟨Quotient.mk _ e, Subtype.ext hx.symm⟩⟩
 
-theorem ptMap_mk_mul
-    (e f : Eam) :
-    ptMap (Quotient.mk _ (e * f)) = chamberMulPerm f '' ptMap (Quotient.mk _ e) := by
-  rw [ptMap_mk, ptMap_mk, image_vtx, chamberMul_chamberOf]
 
 theorem mem_cSigma_iff
     (v : CVert) (s : Shat) : v ∈ cSigma s ↔ cvMul v s⁻¹ ∈ cSigma 1 := by
@@ -172,9 +154,6 @@ theorem nbr_mem_cSigma_diff_iff
 theorem cv0_mem_cSigma :
     cv0 ∈ cSigma 1 := mem_cSigma_one.2 ⟨1, Xgrp.one_mem, rfl⟩
 
-theorem ncard_cSigma_diff :
-    (cSigma 1 \ {cv0}).ncard = 119 := by
-  rw [Set.ncard_sdiff_singleton_of_mem cv0_mem_cSigma, ncard_cSigma]
 
 theorem nbr_adj_of_common_vtx
     {a : Dfull} (ha : a ∈ Ehat) (hn : a ∉ N1) {u w : P1Cos}

@@ -14,9 +14,6 @@ variable {G : Type*} [Group G]
 @[expose] def fusionTwoComponentCond (L K : Subgroup G) : Prop :=
   CFSG.Open.IsSubnormal L K ∧ commutator L = ⊤ ∧ CFSG.Open.IsQuasisimple (L ⧸ fusionOddCore L)
 
-theorem fusionIsTwoComponent_iff_cond {L K : Subgroup G} :
-    fusionIsTwoComponent L K ↔ L ≤ K ∧ fusionTwoComponentCond L K :=
-  Iff.rfl
 
 @[expose] def fusionFixedLayer (N : Subgroup G) (t : G) : Subgroup G :=
   fusionTwoLayer (N ⊓ centralizer ({t} : Set G))
@@ -77,28 +74,6 @@ theorem fusionMaximalComponent_iff_grammar {J : Subgroup G} :
         (fun H => fusionZStar H) J :=
   Iff.rfl
 
-theorem fusionIsInvolutionTwoComponent_iff_paper {J : Subgroup G} :
-    fusionIsInvolutionTwoComponent J ↔
-      ∃ a : G, orderOf a = 2 ∧ fusionIsTwoComponent J (centralizer ({a} : Set G)) :=
-  Iff.rfl
-
-theorem fusionUnbalancingTriple_iff_paper {a x : G} {J : Subgroup G} :
-    fusionUnbalancingTriple a x J ↔ orderOf a = 2 ∧ orderOf x = 2 ∧ a * x = x * a ∧
-      fusionIsTwoComponent J (centralizer ({a} : Set G)) ∧ ⁅J, zpowers x⁆ = J ∧
-      ⁅J, fusionOddCoreOf (centralizer ({x} : Set G)) ⊓ centralizer ({a} : Set G)⁆ = J :=
-  fusionUnbalancingTriple_iff_grammar.trans GSGrammar.unbalancingTriple_iff_commutator
-
-theorem fusionCorr_iff_paper {a b : G} {J L : Subgroup G} :
-    fusionCorr a J b L ↔ orderOf a = 2 ∧ orderOf b = 2 ∧ a * b = b * a ∧
-      fusionIsTwoComponent J (centralizer ({a} : Set G)) ∧
-      fusionIsTwoComponent L (centralizer ({b} : Set G)) ∧
-      b ∈ normalizer (J : Set G) ∧ ⁅J, zpowers b⁆ ≤ fusionOddCoreOf J ∧
-      fusionTwoLayer (J ⊓ centralizer ({b} : Set G)) =
-        fusionTwoLayer ((L ⊔ L.map (MulAut.conj a).toMonoidHom) ⊓ centralizer ({a} : Set G)) :=
-  fusionCorr_iff_grammar.trans GSGrammar.corr_iff_commutator
-
-theorem fusionTwoLayer_le (K : Subgroup G) : fusionTwoLayer K ≤ K :=
-  iSup₂_le fun _ hL => hL.1
 
 theorem le_normalizer_fusionOddCoreOf (L : Subgroup G) :
     L ≤ normalizer (fusionOddCoreOf L : Set G) := by
@@ -107,17 +82,6 @@ theorem le_normalizer_fusionOddCoreOf (L : Subgroup G) :
     infer_instance
   exact le_normalizer_of_normal_subgroupOf (map_subtype_le _)
 
-theorem fusionIsoCorr_iff_paper {a b : G} {J L : Subgroup G} :
-    fusionIsoCorr a J b L ↔ fusionCorr a J b L ∧ L ⊔ L.map (MulAut.conj a).toMonoidHom = L ∧
-      fusionTwoLayer (J ⊓ centralizer ({b} : Set G)) ⊔ fusionOddCoreOf L = L := by
-  refine fusionIsoCorr_iff_grammar.trans <| (GSGrammar.isoCorr_iff_sup
-    (fun h hK => GSGrammar.Corr.layer_le (fun N t => (fusionTwoLayer_le _).trans inf_le_left)
-      (fusionCorr_iff_grammar.1 h) hK) (le_normalizer_fusionOddCoreOf L)).trans ?_
-  constructor
-  · rintro ⟨h, hK, hT⟩
-    exact ⟨h, GSGrammar.conjugate_eq_map_conj h.1 L ▸ hK, hT⟩
-  · rintro ⟨h, hK, hT⟩
-    exact ⟨h, (GSGrammar.conjugate_eq_map_conj h.1 L).symm ▸ hK, hT⟩
 
 theorem fusionIsSylowIn_iff {p : ℕ} {S H : Subgroup G} :
     fusionIsSylowIn p S H ↔ S ≤ H ∧ ∃ P : Sylow p ↥H, (P : Subgroup ↥H) = S.subgroupOf H := by
@@ -140,32 +104,5 @@ theorem fusionIsSylowIn_iff {p : ℕ} {S H : Subgroup G} :
     have h2 := congrArg (Subgroup.map H.subtype) h1
     rwa [map_subgroupOf_eq_of_le hQH, map_subgroupOf_eq_of_le hSH] at h2
 
-theorem fusionMaximalUnbalancingTriple_iff_paper {a x : G} {J : Subgroup G} :
-    fusionMaximalUnbalancingTriple a x J ↔ fusionUnbalancingTriple a x J ∧
-      ∀ (b : G) (L : Subgroup G), b ∈ centralizer ({a} : Set G) → fusionCorr a J b L →
-        (∀ y ∈ centralizer ({a} : Set G) ⊓ normalizer (J : Set G),
-            fusionUnbalancingTriple b y L → fusionIsoCorr a J b L) ∧
-        (∀ S : Subgroup G,
-            fusionIsSylowIn 2 S (centralizer ({a} : Set G) ⊓ normalizer (J : Set G)) →
-            b ∈ S → (∀ s ∈ S, s * b = b * s) →
-            fusionIsSylowIn 2 S (centralizer ({b} : Set G) ⊓ normalizer (L : Set G))) := by
-  refine fusionMaximalUnbalancingTriple_iff_grammar.trans <|
-    and_congr_right fun _ => ⟨fun h b L hba hC => ?_, fun h b L _ hba hC => ?_⟩
-  · obtain ⟨h1, h2⟩ := h b L hC.2.1 hba hC
-    exact ⟨h1, fun S hS hbS hbZ => fusionIsSylowIn_iff.2
-      (h2 S (fusionIsSylowIn_iff.1 hS).1 (fusionIsSylowIn_iff.1 hS).2 hbS hbZ)⟩
-  · obtain ⟨h1, h2⟩ := h b L hba hC
-    exact ⟨h1, fun S hSH hSsyl hbS hbZ =>
-      fusionIsSylowIn_iff.1 (h2 S (fusionIsSylowIn_iff.2 ⟨hSH, hSsyl⟩) hbS hbZ)⟩
-
-theorem fusionReach_iff_paper {J L : Subgroup G} :
-    fusionReach J L ↔ fusionIsInvolutionTwoComponent J ∧
-      Relation.ReflTransGen (fun J' L' : Subgroup G => ∃ a b : G, fusionCorr a J' b L') J L :=
-  Iff.rfl
-
-theorem fusionMaximalComponent_iff_paper {J : Subgroup G} :
-    fusionMaximalComponent J ↔ fusionIsInvolutionTwoComponent J ∧
-      ∀ L : Subgroup G, fusionReach J L → Nonempty (J ⧸ fusionZStar J ≃* L ⧸ fusionZStar L) :=
-  Iff.rfl
 
 end CFSG.Open

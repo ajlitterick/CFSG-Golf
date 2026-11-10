@@ -47,35 +47,5 @@ theorem citInductiveU_of_coreStep (hcore : CoreStep p f) (hfund : ClassicalIsFun
     (hlift : CentralLift p) : CITInductiveU p f :=
   citInductiveU_of_step p f (citStepU_of_coreStep hcore hfund hlift)
 
-theorem coreStep_of_localLieSystems
-    (h : p ≠ 2 → 5 ≤ p ^ f → ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G],
-      (∃ a b : G, a * b ≠ b * a) → ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z →
-      LocalLieSystems p f (Set.range fun g : G => conjSub g K) →
-      LieSystem p f G (Set.range fun g : G => conjSub g K)) :
-    CoreStep p f :=
-  fun hp2 hq G _ _ _ hnab K z hK hBelow =>
-    h hp2 hq G hnab K z hK (localLieSystems_of_citBelowU (inClass_conjugates hK) hBelow)
-
-theorem coreStep_of_coreStepModel (hfund : ClassicalIsFundamental p f) (h : CoreStepModel p f) :
-    CoreStep p f := by
-  intro hp2 hq G _ _ _ hnab K z hK hBelow
-  obtain ⟨t, n, e, hp, ψ, hsurj, hker, hFT, hadm, hexp⟩ := h hp2 hq G hnab K z hK hBelow
-  obtain ⟨R, hR, hKR⟩ := hfund hp2 hq t n e hp hFT hadm hexp G ψ hsurj hker K z hK
-  rw [hKR]
-  exact lieSystem_range_conj_of_model hp hFT hadm hexp ψ hsurj hker hR
-
-theorem coreStepModel_of_coreStep (h : CoreStep p f) : CoreStepModel p f := by
-  intro hp2 hq G _ _ _ hnab K z hK hBelow
-  obtain ⟨D⟩ := h hp2 hq G hnab K z hK hBelow
-  obtain ⟨t, n, e, hp, ψ, hsurj, hker, hFT, hadm, hexp⟩ := D.exists_model_of_simple hnab
-  exact ⟨t, n, e, hp, ψ, hsurj, hker.le, hFT, hadm, hexp⟩
-
-theorem citStepU_of_coreStepModel (hcore : CoreStepModel p f) (hfund : ClassicalIsFundamental p f)
-    (hlift : CentralLift p) (n : ℕ) : CITStepU p f n :=
-  citStepU_of_coreStep (coreStep_of_coreStepModel hfund hcore) hfund hlift n
-
-theorem citInductiveU_of_coreStepModel (hcore : CoreStepModel p f)
-    (hfund : ClassicalIsFundamental p f) (hlift : CentralLift p) : CITInductiveU p f :=
-  citInductiveU_of_step p f (citStepU_of_coreStepModel hcore hfund hlift)
 
 end CFSG.ClassicalInvolution.Generic

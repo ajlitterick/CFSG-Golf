@@ -76,27 +76,6 @@ theorem Std20.y_psi (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V
             map_mul' := fun x y => psi_mul hρv (hTN x.2) (hTN y.2) }, fun x => ?_⟩
   exact ⟨fun h => hψker x x.2 h, fun h => hXT x x.2 h⟩
 
-theorem y_eq_of_sq_eq_one {Q : Type*} [Group Q] [Finite Q] [IsCyclic Q] {x y : Q}
-    (hx : x ^ 2 = 1) (hy : y ^ 2 = 1) (hx1 : x ≠ 1) (hy1 : y ≠ 1) : x = y := by
-  classical
-  by_contra hxy
-  have : Fintype Q := Fintype.ofFinite Q
-  have hcard := IsCyclic.card_pow_eq_one_le (α := Q) (n := 2) (by norm_num)
-  have hsub : ({1, x, y} : Finset Q) ⊆ Finset.univ.filter (fun a : Q => a ^ 2 = 1) := by
-    intro a ha
-    simp only [Finset.mem_insert, Finset.mem_singleton] at ha
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
-    rcases ha with rfl | rfl | rfl
-    · exact one_pow 2
-    · exact hx
-    · exact hy
-  have h3 : ({1, x, y} : Finset Q).card = 3 := by
-    rw [Finset.card_insert_of_notMem, Finset.card_insert_of_notMem, Finset.card_singleton]
-    · simpa using hxy
-    · simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
-      exact ⟨fun h => hx1 h.symm, fun h => hy1 h.symm⟩
-  have := Finset.card_le_card hsub
-  omega
 
 theorem Std20.y_comm_T (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V z)
     (c8 : Concl20_8 S K' R) {x y : G}
@@ -111,73 +90,6 @@ theorem Std20.y_comm_T (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K
   have h2 := (hψ _).mp h1
   simpa [commutatorElement_def] using h2
 
-theorem Std20.y_sq_mem_X (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V z)
-    (c8 : Concl20_8 S K' R) (hf : f % 4 = 2) {x : G}
-    (hx : x ∈ (S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G)) :
-    x * x ∈ sec20X (CoreAssembly.conjClass K) z K K' := by
-  obtain ⟨ψ, hψ⟩ := d.y_psi c3 c8
-  have hT2 : IsPGroup 2 ↥((S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G)) :=
-    S.isPGroup'.to_le inf_le_left
-  set x' : ↥((S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G)) := ⟨x, hx⟩ with hx'
-  obtain ⟨n, hn⟩ := hT2 x'
-  have hψn : (ψ x') ^ (2 ^ n) = 1 := by rw [← map_pow, hn, map_one]
-  have hf0 : f ≠ 0 := by omega
-  have hcard := (CFSG.LocalAnalysis.ComponentInitial.card_ringAut_and_isCyclic
-    (Fact.out : p.Prime) (GaloisField p f) (GaloisField.card p f hf0)).1
-  have hdvd1 : orderOf (ψ x') ∣ 2 ^ n := orderOf_dvd_of_pow_eq_one hψn
-  have hdvd2 : orderOf (ψ x') ∣ f := by
-    have h := orderOf_dvd_natCard (ψ x')
-    rwa [hcard] at h
-  have hsq : (ψ x') ^ 2 = 1 := by
-    rw [← orderOf_dvd_iff_pow_eq_one]
-    obtain ⟨k, hk, hk'⟩ := (Nat.dvd_prime_pow Nat.prime_two).mp hdvd1
-    rcases Nat.lt_or_ge k 2 with h | h
-    · interval_cases k
-      · rw [hk']; simp
-      · rw [hk']; simp
-    · exfalso
-      have h4 : 4 ∣ f := by
-        have h1 : 2 ^ 2 ∣ 2 ^ k := pow_dvd_pow 2 h
-        rw [hk'] at hdvd2
-        exact (by simpa using h1 : 4 ∣ 2 ^ k).trans hdvd2
-      omega
-  have h1 : ψ (x' * x') = 1 := by rw [map_mul, ← sq, hsq]
-  exact (hψ _).mp h1
-
-theorem Std20.y_psi_eq (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V z)
-    (c8 : Concl20_8 S K' R)
-    (hsq : ∀ x ∈ (S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G),
-      x * x ∈ sec20X (CoreAssembly.conjClass K) z K K') {x y : G}
-    (hx : x ∈ (S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G))
-    (hy : y ∈ (S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G))
-    (hxX : x ∉ sec20X (CoreAssembly.conjClass K) z K K')
-    (hyX : y ∉ sec20X (CoreAssembly.conjClass K) z K K') :
-    x⁻¹ * y ∈ sec20X (CoreAssembly.conjClass K) z K K' := by
-  obtain ⟨ψ, hψ⟩ := d.y_psi c3 c8
-  have hp := d.branch.odd
-  have hq := d.branch.five
-  have hf : f ≠ 0 := by
-    rintro rfl
-    simp at hq
-  have hcc := CFSG.LocalAnalysis.ComponentInitial.card_ringAut_and_isCyclic
-    (Fact.out : p.Prime) (GaloisField p f) (GaloisField.card p f hf)
-  have : IsCyclic (RingAut (GaloisField p f)) := hcc.2
-  have : Finite (RingAut (GaloisField p f)) := Nat.finite_of_card_ne_zero (by
-    rw [hcc.1]; exact hf)
-  set x' : ↥((S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G)) := ⟨x, hx⟩ with hx'
-  set y' : ↥((S : Subgroup G) ⊓ Subgroup.normalizer (K : Set G)) := ⟨y, hy⟩ with hy'
-  have h1 : ψ x' ≠ 1 := fun h => hxX ((hψ x').mp h)
-  have h2 : ψ y' ≠ 1 := fun h => hyX ((hψ y').mp h)
-  have h1' : (ψ x') ^ 2 = 1 := by
-    rw [sq, ← map_mul]
-    exact (hψ _).mpr (hsq x hx)
-  have h2' : (ψ y') ^ 2 = 1 := by
-    rw [sq, ← map_mul]
-    exact (hψ _).mpr (hsq y hy)
-  have h3 : ψ x' = ψ y' := y_eq_of_sq_eq_one h1' h2' h1 h2
-  have h4 : ψ (x'⁻¹ * y') = 1 := by rw [map_mul, map_inv, h3, inv_mul_cancel]
-  have h5 := (hψ _).mp h4
-  simpa using h5
 
 end Psi
 

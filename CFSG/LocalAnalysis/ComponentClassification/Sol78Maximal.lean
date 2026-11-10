@@ -163,29 +163,6 @@ theorem oPrimeResidualOf_core_sup_eq [Finite X] {C J : Subgroup X} (hJC : J ≤ 
       exact subset_closure ⟨k, by rw [← map_pow, ← hk, pow_orderOf_eq_one, map_one]⟩
     exact ⟨inclusion hJY ⟨j, hj⟩, hmap ⟨_, hjT, rfl⟩, rfl⟩
 
-theorem mem_solomonFamily_of_isAltTwoComponent [Finite X] {t : X} {J : Subgroup X} {n : ℕ}
-    (h : SolAltLit.IsAltTwoComponent t J n) : J ∈ solomonFamily X := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨ht, hJC, hJ, -⟩ := h
-  set C := centralizer ({t} : Set X) with hC
-  have hCT : centralizer ((zpowers t : Subgroup X) : Set X) = C := by
-    rw [zpowers_eq_closure, centralizer_closure]
-  have hJinf : J ⊓ C = J := inf_eq_left.mpr hJC
-  have hlayer : pLayerOf 2 J = J := by
-    apply le_antisymm
-    · exact sSup_le fun K hK => hK.1
-    · exact le_sSup ⟨le_rfl, CatalogueBPrimeJoin.pComponent_subgroupOf_of_le le_rfl hJC hJ⟩
-  refine ⟨UnbalancedCorr.commutator_eq_of_isPComponent hJC hJ, zpowers t, ?_, ?_, ?_, ?_⟩
-  · intro h
-    rw [zpowers_eq_bot] at h
-    rw [h, orderOf_one] at ht
-    norm_num at ht
-  · exact IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, ht, pow_one])
-  · rw [zpowers_le]
-    exact mem_coreActionKernel_of_commute fun j hj => (mem_centralizer_singleton_iff.mp (hJC hj))
-  · rw [hCT, hJinf, hlayer, oPrimeResidualOf_core_sup_eq hJC hJ]
-    exact ⟨hJC, hJ⟩
 
 theorem oddResidualIn_eq_oPrimeResidualOf (Y : Subgroup X) :
     FooteLit.oddResidualIn Y = oPrimeResidualOf 2 Y := by

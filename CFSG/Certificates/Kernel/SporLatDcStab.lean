@@ -159,16 +159,6 @@ private theorem Kstab_injective {j : ℕ} (hj : j < P.D.obase.length)
   have h3 : i.1 = j'.1 := (Kelts_nodup P hj h0).getElem_inj_iff.mp h2
   exact Fin.ext h3
 
-private theorem Kelts_card_le {j : ℕ} (hj : j < P.D.obase.length)
-    (h0 : 0 < (P.D.K.getD j []).length) :
-    (P.D.K.getD j []).length ≤
-      Nat.card (MulAction.stabilizer P.S (⟨P.D.obase.getD j 0, obase_lt P hj⟩ : Fin n)) := by
-  haveI : Fintype ↥(MulAction.stabilizer P.S (⟨P.D.obase.getD j 0, obase_lt P hj⟩ : Fin n)) :=
-    Fintype.ofFinite _
-  have h := Fintype.card_le_of_injective (Kstab P hj) (Kstab_injective P hj h0)
-  rw [Fintype.card_fin] at h
-  rw [Nat.card_eq_fintype_card]
-  exact h
 
 private theorem Kelts_card_eq {j : ℕ} (hj : j < P.D.obase.length)
     (h0 : 0 < (P.D.K.getD j []).length) :

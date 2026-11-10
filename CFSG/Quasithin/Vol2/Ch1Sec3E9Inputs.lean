@@ -117,7 +117,5 @@ structure Facts134E9He : Prop where
   ru : OrderThree (fun (X : Type) [Group X] => Nonempty (X ≃* NativeSporadic.Carrier .Ru)) ∧
     NoE9Config fun (X : Type) [Group X] => Nonempty (X ≃* NativeSporadic.Carrier .Ru)
 
-structure Facts134E9 : Prop extends Facts134E9He where
-  heNoE9 : NoE9Config fun (X : Type) [Group X] => Nonempty (X ≃* NativeSporadic.Carrier .He)
 
 end CFSG.Quasithin.P134

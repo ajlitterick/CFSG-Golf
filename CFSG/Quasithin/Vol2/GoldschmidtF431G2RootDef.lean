@@ -117,7 +117,6 @@ theorem xc_add (s t : K) : xc (s + t) = xc s * xc t := xe_add rC s t
 
 theorem xc_zero : xc (0 : K) = 1 := xe_zero rC
 
-theorem xc_injective : Function.Injective (xc (K := K)) := xe_injective rC
 
 theorem xc_eq_one_iff {s : K} : xc s = 1 ↔ s = 0 := xe_eq_one_iff rC
 

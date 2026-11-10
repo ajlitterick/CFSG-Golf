@@ -103,14 +103,6 @@ theorem mem_of_inRegs {ps : List ℕ} {regs : Array (Array ℕ)} {idx : Std.Hash
     exact ⟨_, h.1, h.2⟩
   · exact absurd h (by decide)
 
-theorem mem_closure_of_inRegs {gens : Array (Array ℕ)} {prog : List (ℕ × ℕ)} {ps : List ℕ}
-    {idx : Std.HashMap ℕ ℕ} (hslp : slpOK n gens prog = true) {a : Array ℕ}
-    (hv : validA n a = true) (h : inRegs n ps (slpRegs n gens prog) idx a = true) :
-    permOfArr n a ∈ closure (permsA n gens) := by
-  obtain ⟨k, hk, he⟩ := mem_of_inRegs h
-  obtain ⟨g, hg, hr⟩ := rep_slpRegs hslp k hk
-  rw [eq_of_eqA (rep_of_validA hv) hr he]
-  exact hg
 
 end Soundness
 

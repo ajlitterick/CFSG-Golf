@@ -58,25 +58,6 @@ theorem fixes_of_invariant {p : ℕ} [Fact p.Prime] (g : Act) (u : Fin 3 → ZMo
     simp only [ZMod.natCast_val, ZMod.cast_id', id_eq]
     linear_combination e12
 
-theorem noAlt_of_bool {D : Spec} [Fact D.p.Prime] (h : D.noAlt = true) {m : Mod}
-    (hm : m ∈ D.mods) (u : Fin 3 → ZMod D.p)
-    (hu : ∀ g ∈ m.acts, (actMat D.p g).transpose * alt3 u * actMat D.p g = alt3 u) : u = 0 := by
-  by_contra hne
-  have hv : ((u 0).val, (u 1).val, (u 2).val) ∈ nonzeroTriples D.p := by
-    rw [mem_nonzeroTriples]
-    refine ⟨ZMod.val_lt _, ZMod.val_lt _, ZMod.val_lt _, ?_⟩
-    rintro ⟨h0, h1, h2⟩
-    apply hne
-    ext k
-    fin_cases k
-    · exact (ZMod.val_eq_zero _).1 h0
-    · exact (ZMod.val_eq_zero _).1 h1
-    · exact (ZMod.val_eq_zero _).1 h2
-  unfold Spec.noAlt at h
-  obtain ⟨g, hg, hgf⟩ := List.any_eq_true.1
-    (List.all_eq_true.1 (List.all_eq_true.1 h m hm) _ hv)
-  rw [fixes_of_invariant g u (hu g hg)] at hgf
-  exact Bool.false_ne_true hgf
 
 theorem noAlt_of_entries {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) {n m : ℕ} (hn : n = 3)
     (M : Fin m → Matrix (Fin n) (Fin n) (ZMod p)) (acts : List Act)
@@ -304,151 +285,11 @@ theorem exists_moduleSpec_core [Fact p.Prime] (m : Mod)
     obtain ⟨j, rfl⟩ := List.mem_iff_get.1 hg
     exact ⟨j, rfl, fun k i => rfl⟩
 
-include Sp hC in
-theorem exists_moduleSpec [Fact p.Prime] (hp2 : p ≠ 2) (m : Mod)
-    (hf : ∀ f ∈ m.facts p, f ∈ C.facts)
-    (hindep : ∀ v ∈ nonzeroTriples p, ∃ q ∈ m.indep, q.1 = v.1 ∧ q.2.1 = v.2.1 ∧ q.2.2.1 = v.2.2)
-    (hNA : ∀ u : Fin 3 → ZMod p,
-      (∀ g ∈ m.acts, (actMat p g).transpose * alt3 u * actMat p g = alt3 u) → u = 0) :
-    ∃ DS : ModuleSpec (certMonoid c d sA sB)ˣ p, 3 ≤ DS.n ∧ DS.NoAlt ∧
-      DS.span = Subgroup.closure (Set.range fun i : Fin 3 => regUnit Sp hC (m.basis i)) ∧
-      (∀ g ∈ m.acts, regUnit Sp hC g.reg ∈ Set.range DS.g) := by
-  obtain ⟨DS, h3, hact, hspan⟩ := exists_moduleSpec_core Sp hC m hf hindep
-  refine ⟨DS, h3.ge, noAlt_of_entries hp2 h3 DS.M m.acts (fun g hg => ?_) hNA, hspan,
-    fun g hg => ?_⟩
-  · obtain ⟨j, -, hj⟩ := hact g hg
-    exact ⟨j, hj⟩
-  · obtain ⟨j, hj, -⟩ := hact g hg
-    exact ⟨j, hj⟩
 
 end Module
 
 section Main
 
-variable {M V : Type} [Inhabited M] {O : Ops M V} {c d : ℕ} (Sp : OpsSpec O c d)
-  {sA sB : String} {nregs : ℕ} {prog : List Op} {D : Spec}
-
-include Sp in
-theorem rankThreeDatum_of_check (hp : D.p.Prime) (hp2 : D.p ≠ 2)
-    (h : r3Check O sA sB nregs prog D = true) (hNA : D.noAlt = true) :
-    RankThreeDatum (NativeSporadic.seedMonoid c d 1 sA sB)ˣ D.p := by
-  have : Fact D.p.Prime := ⟨hp⟩
-  unfold r3Check at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq] at h
-  obtain ⟨⟨⟨⟨⟨hC, hrA⟩, hrB⟩, hAeq⟩, hBeq⟩, hwf⟩ := h
-  let C : MCert := ⟨nregs, prog, D.facts⟩
-  have hC' : mcertCheck O sA sB C = true := hC
-  have fordA : MFact.ord D.rA D.oA ∈ D.facts := by simp [Spec.facts]
-  have fordB : MFact.ord D.rB D.oB ∈ D.facts := by simp [Spec.facts]
-  have feA : MFact.eq [(D.rA, 1)] D.wA ∈ D.facts := by simp [Spec.facts]
-  have feB : MFact.eq [(D.rB, 1)] D.wB ∈ D.facts := by simp [Spec.facts]
-  have hpcf : ∀ q ∈ D.pc, ∀ f ∈ q.facts D.p, f ∈ D.facts := by
-    intro q hq f hf
-    simp only [Spec.facts, List.mem_append, List.mem_flatMap]
-    exact Or.inl (Or.inr ⟨q, hq, hf⟩)
-  have hmodf : ∀ m ∈ D.mods, ∀ f ∈ m.facts D.p, f ∈ D.facts := by
-    intro m hm f hf
-    simp only [Spec.facts, List.mem_append, List.mem_flatMap]
-    exact Or.inr ⟨m, hm, hf⟩
-  unfold Spec.wf at hwf
-  simp only [Bool.and_eq_true, decide_eq_true_eq] at hwf
-  obtain ⟨⟨⟨-, hpcwf⟩, hmodwf⟩, hseedwf⟩ := hwf
-  let P : Subgroup (certMonoid c d sA sB)ˣ :=
-    Subgroup.closure {u | ∃ q ∈ D.pc, u = regUnit Sp hC' q.reg}
-  have hP : IsPGroup D.p P := chain_isPGroup Sp hC' D.pc hpcwf hpcf
-  have hactord : ∀ m ∈ D.mods, ∀ g ∈ m.acts, MFact.ord g.reg g.ord ∈ D.facts := by
-    intro m hm g hg
-    apply hmodf m hm
-    simp only [Mod.facts, List.mem_append, List.mem_flatMap]
-    exact Or.inr ⟨g, hg, by simp⟩
-  have hmods : ∀ m ∈ D.mods, ∃ DS : ModuleSpec (certMonoid c d sA sB)ˣ D.p, 3 ≤ DS.n ∧
-      DS.NoAlt ∧ DS.span ≤ P ∧ ∀ g ∈ m.acts, regUnit Sp hC' g.reg ∈ Set.range DS.g := by
-    intro m hm
-    have hmw := List.all_eq_true.1 hmodwf m hm
-    simp only [Bool.and_eq_true] at hmw
-    obtain ⟨hwords, hind⟩ := hmw
-    have hindep : ∀ v ∈ nonzeroTriples D.p, ∃ q ∈ m.indep,
-        q.1 = v.1 ∧ q.2.1 = v.2.1 ∧ q.2.2.1 = v.2.2 := by
-      intro v hv
-      obtain ⟨q, hq, hqv⟩ := List.any_eq_true.1 (List.all_eq_true.1 hind v hv)
-      simp only [Bool.and_eq_true, beq_iff_eq] at hqv
-      exact ⟨q, hq, hqv.1.1, hqv.1.2, hqv.2⟩
-    obtain ⟨DS, h3, hDSNA, hspan, hrange⟩ := exists_moduleSpec Sp hC' hp2 m
-      (fun f hf => hmodf m hm f hf) hindep (fun u hu => noAlt_of_bool hNA hm u hu)
-    refine ⟨DS, h3, hDSNA, ?_, hrange⟩
-    rw [hspan, Subgroup.closure_le]
-    have hw : ∀ w : Word, w.all (fun a => D.pc.any (·.reg == a.1)) = true →
-        ∀ b : ℕ, MFact.eq [(b, 1)] w ∈ D.facts → MFact.ord b D.p ∈ D.facts →
-          regUnit Sp hC' b ∈ P := by
-      intro w hw b hf hb
-      have hu : HasOrd C [(b, 1)] := fun a ha => by
-        simp only [List.mem_singleton] at ha; rw [ha]; exact ⟨D.p, hb⟩
-      have := regUnit_eq Sp hC' hf hu (hasOrd_of_chain D.pc hpcf hw)
-      have e : wordUnit Sp hC' [(b, 1)] = regUnit Sp hC' b := by simp [wordUnit]
-      rw [e] at this
-      rw [this]
-      exact wordUnit_mem_chain Sp hC' D.pc hw
-    simp only [List.all_append, Bool.and_eq_true] at hwords
-    rintro _ ⟨i, rfl⟩
-    fin_cases i
-    · exact hw m.w0 hwords.1.1 m.b0 (hmodf m hm _ (by simp [Mod.facts]))
-        (hmodf m hm _ (by simp [Mod.facts]))
-    · exact hw m.w1 hwords.1.2 m.b1 (hmodf m hm _ (by simp [Mod.facts]))
-        (hmodf m hm _ (by simp [Mod.facts]))
-    · exact hw m.w2 hwords.2 m.b2 (hmodf m hm _ (by simp [Mod.facts]))
-        (hmodf m hm _ (by simp [Mod.facts]))
-  have hex : ∀ i : Fin D.mods.length, ∃ DS : ModuleSpec (certMonoid c d sA sB)ˣ D.p, 3 ≤ DS.n ∧
-      DS.NoAlt ∧ DS.span ≤ P ∧ ∀ g ∈ (D.mods.get i).acts, regUnit Sp hC' g.reg ∈ Set.range DS.g :=
-    fun i => hmods _ (List.get_mem _ _)
-  choose Dm hDm3 hDmNA hDmP hDmR using hex
-  refine ⟨D.mods.length, Dm, P, hP, hDmP, fun i => ⟨hDm3 i, hDmNA i⟩, ?_⟩
-  have hAB' : ∀ q ∈ D.wA ++ D.wB, ∃ m ∈ D.mods, ∃ g ∈ m.acts, g.reg = q.1 := by
-    intro q hq
-    obtain ⟨m, hm, hmq⟩ := List.any_eq_true.1 (List.all_eq_true.1 hseedwf q hq)
-    obtain ⟨g, hg, hgq⟩ := List.any_eq_true.1 hmq
-    exact ⟨m, hm, g, hg, by simpa using hgq⟩
-  have hOrdGens : ∀ w : Word, (∀ q ∈ w, ∃ m ∈ D.mods, ∃ g ∈ m.acts, g.reg = q.1) → HasOrd C w := by
-    intro w hw q hq
-    obtain ⟨m, hm, g, hg, hgq⟩ := hw q hq
-    exact ⟨g.ord, hgq ▸ hactord m hm g hg⟩
-  have hΓreg : ∀ q ∈ D.wA ++ D.wB, regUnit Sp hC' q.1 ∈
-      Subgroup.closure (⋃ i, Set.range (Dm i).g) := by
-    intro q hq
-    obtain ⟨m, hm, g, hg, hgq⟩ := hAB' q hq
-    obtain ⟨i, rfl⟩ := List.mem_iff_get.1 hm
-    apply Subgroup.subset_closure
-    exact Set.mem_iUnion.2 ⟨i, by rw [← hgq]; exact hDmR i g hg⟩
-  have hrA' : D.rA < C.nregs := hrA
-  have hrB' : D.rB < C.nregs := hrB
-  have hvalA : valHom (certMonoid c d sA sB) (regUnit Sp hC' D.rA) =
-      NativeSporadic.decode c d 1 sA := by
-    rw [val_regUnit Sp hC' fordA, Sp.toMat_eq (reg_ok Sp hC' hrA').1 (Sp.decode_wf sA) hAeq,
-      Sp.toMat_decode]
-  have hvalB : valHom (certMonoid c d sA sB) (regUnit Sp hC' D.rB) =
-      NativeSporadic.decode c d 1 sB := by
-    rw [val_regUnit Sp hC' fordB, Sp.toMat_eq (reg_ok Sp hC' hrB').1 (Sp.decode_wf sB) hBeq,
-      Sp.toMat_decode]
-  have htop := CFSG.RankThree.PartOne.CTP.Fus.closure_pair_units_eq_top (certMonoid c d sA sB) rfl
-    (regUnit Sp hC' D.rA) (regUnit Sp hC' D.rB) hvalA hvalB
-  have hAw : regUnit Sp hC' D.rA = wordUnit Sp hC' D.wA := by
-    have := regUnit_eq Sp hC' feA (fun q hq => by
-      simp only [List.mem_singleton] at hq; subst hq; exact ⟨D.oA, fordA⟩)
-      (hOrdGens D.wA fun q hq => hAB' q (List.mem_append.2 (Or.inl hq)))
-    simpa [wordUnit] using this
-  have hBw : regUnit Sp hC' D.rB = wordUnit Sp hC' D.wB := by
-    have := regUnit_eq Sp hC' feB (fun q hq => by
-      simp only [List.mem_singleton] at hq; subst hq; exact ⟨D.oB, fordB⟩)
-      (hOrdGens D.wB fun q hq => hAB' q (List.mem_append.2 (Or.inr hq)))
-    simpa [wordUnit] using this
-  refine eq_top_iff.mpr ?_
-  rw [← htop, Subgroup.closure_le]
-  rintro g (rfl | rfl)
-  · rw [hAw]
-    exact CFSG.RankThree.PartOne.CTP.Fus.wordUnit_mem_subgroup Sp hC' _ D.wA fun q hq =>
-      hΓreg q (List.mem_append.2 (Or.inl hq))
-  · rw [hBw]
-    exact CFSG.RankThree.PartOne.CTP.Fus.wordUnit_mem_subgroup Sp hC' _ D.wB fun q hq =>
-      hΓreg q (List.mem_append.2 (Or.inr hq))
 
 end Main
 

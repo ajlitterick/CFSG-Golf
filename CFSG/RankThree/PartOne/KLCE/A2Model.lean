@@ -457,7 +457,6 @@ theorem a2_split_model {f₀ p : ℕ} (hf₀ : 1 ≤ f₀) (hK₀ : Nat.card K�
 end SplitModel
 
 
-
 section Quadratic
 
 variable {L : Type} [Field L] [IsAlgClosed L] [CharP L 2]
@@ -522,9 +521,6 @@ variable {K : Type} [Field K] [Finite K] {g : ℕ}
   map_one' := Subtype.ext rfl
   map_mul' _ _ := Subtype.ext rfl
 
-theorem coe_statedSU_toSL (hK : Nat.card K = (2 ^ g) ^ 2) (A : ↥(StatedSU 3 (2 ^ g) K)) :
-    ((statedSU_toSL hK A : SL(3, K)) : Matrix (Fin 3) (Fin 3) K) =
-      ((A : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) := rfl
 
 theorem statedSU_toSL_injective (hK : Nat.card K = (2 ^ g) ^ 2) :
     Function.Injective (statedSU_toSL hK) := by

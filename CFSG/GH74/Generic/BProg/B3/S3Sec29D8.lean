@@ -101,6 +101,5 @@ end GLevel
 
 end S3Sec29D8
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.Generic.BProg.B3

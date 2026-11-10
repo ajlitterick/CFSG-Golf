@@ -70,6 +70,5 @@ theorem a8x_prod_four {G : Type*} [Group G] (e : Fin 4 → G) (a : Fin 4 → Fin
       e 0 ^ (a 0 : ℕ) * (e 1 ^ (a 1 : ℕ) * (e 2 ^ (a 2 : ℕ) * e 3 ^ (a 3 : ℕ))) := by
   simp [List.ofFn_succ]
 
-variable {G : Type} [Group G]
 
 end CFSG.CGT.T75P

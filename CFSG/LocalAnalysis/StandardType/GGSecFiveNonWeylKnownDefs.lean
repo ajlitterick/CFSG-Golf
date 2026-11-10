@@ -92,10 +92,6 @@ section Input
     GGSecFiveRestHyp p B Bs x L D J → GGSecFiveA11Config p B Bs x L D J →
       GGSecFiveData p B x L D J
 
-@[expose] def GGSecFiveN1Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSecFiveRestHyp p B Bs x L D J → ¬ GGScalarsPmOne Bs →
-      GGSecFiveWeylCase' p B Bs x D J → GGSecFiveData p B x L D J
 
 @[expose] def GGSecFiveN2Input : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
@@ -103,14 +99,6 @@ section Input
       (∃ (y : G) (K : Subgroup G), GGNbr p B x D J y K ∧ ¬ GGReflGenerated p (ggAutomizer K Bs)) →
       GGSecFiveData p B x L D J
 
-@[expose] def GGSecFiveTwE6ResidualInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSecFiveRestHyp p B Bs x L D J → ¬ GGSecFiveWeylCase' p B Bs x D J →
-      (∃ (y : G) (K : Subgroup G), GGNbr p B x D J y K ∧
-        ¬ LargeEvenMarking ↥K (fun lab _ _ _ _ _ => GGNbrSplitLabel p lab) ∧
-        LargeEvenMarking ↥K (fun lab _ _ _ _ _ => GGTwE6BadLabel p lab) ∧
-        ¬ GGReflGenerated p (ggAutomizer K Bs)) →
-      GGSecFiveData p B x L D J
 
 @[expose] def GGSecFiveNonWeylKnown : Prop :=
   GGNbrReflGenNonSplitInput ∧ GGTwE6ThreeNbrRankInput ∧
@@ -127,14 +115,6 @@ theorem ggSecFiveNonWeylInput_iff : GGSecFiveNonWeylInput ↔ GGSecFiveN2Input :
     obtain ⟨y, K, hK, hn⟩ := hW
     exact h2 G p B Bs x L D J hR ⟨y, K, hK, hn⟩
 
-theorem ggSecFiveA11Input_of_nonWeyl (h : GGSecFiveNonWeylInput) : GGSecFiveA11Input := by
-  intro G _ _ p B Bs x L D J hR hA
-  obtain ⟨-, -, y, K, hK, -, hn⟩ := hA
-  exact ggSecFiveNonWeylInput_iff.1 h G p B Bs x L D J hR ⟨y, K, hK, hn⟩
-
-theorem ggSecFiveTwE6ResidualInput_of_nonWeyl (h : GGSecFiveNonWeylInput) :
-    GGSecFiveTwE6ResidualInput :=
-  fun G _ _ p B Bs x L D J hR hW _ => h G p B Bs x L D J hR hW
 
 end Input
 

@@ -175,21 +175,6 @@ theorem existsUnique_stdRadical_mul_stdBorel
   obtain ⟨e1, e2⟩ := hBuniq q' hq'' q hq x' hx''' x hx heq.symm
   rw [e1, e2]
 
-theorem stdLevi_inf_stdBorel
-    (hJ : (2 : Fin 4) ∈ J) : stdLevi J ⊓ stdBorel = stdLeviBorel J := by
-  refine le_antisymm (fun x hx => ?_) (le_inf (stdLeviBorel_le_stdLevi hJ)
-    (stdLeviBorel_le_stdBorel J))
-  obtain ⟨hx1, hx2⟩ := Subgroup.mem_inf.mp hx
-  obtain ⟨⟨q, c⟩, ⟨hq, hc, rfl⟩, -⟩ := existsUnique_stdRadical_mul_stdBorel J hx2
-  have hqL : q ∈ stdLevi J := by
-    have := mul_mem hx1 (inv_mem (stdLeviBorel_le_stdLevi hJ hc))
-    rwa [mul_inv_cancel_right] at this
-  have hq1 : q = 1 := by
-    have : q ∈ stdRadical J ⊓ stdLevi J := ⟨hq, hqL⟩
-    rw [stdRadical_inf_stdLevi] at this
-    exact this
-  simp only [hq1, one_mul]
-  exact hc
 
 theorem wordProd_mem_parabolicWeylGroup
     {S : Set (Fin Tag.E6.rank)} {ω : List (Fin Tag.E6.rank)}

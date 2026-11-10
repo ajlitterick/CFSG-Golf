@@ -33,16 +33,6 @@ theorem adPoints_frobenius {L : Type} [Field L] [Algebra (ZMod 3) L] (m : ℕ)
   rw [coe_adPoints, G2ShortRoot.PrimeField.coe_frobenius, adConj_map]
   rfl
 
-theorem frobenius_iterate_rootSubgroupPoints {A : Type} [CommRing A] [Algebra (ZMod 3) A]
-    (m : ℕ) (k : Fin 2 ⊕ Fin 2) (u : A) :
-    (G2ShortRoot.PrimeField.frobenius 1 A)^[m]
-        (G2ShortRoot.PrimeField.rootSubgroupPoints k A (Multiplicative.ofAdd u)) =
-      G2ShortRoot.PrimeField.rootSubgroupPoints k A (Multiplicative.ofAdd (u ^ 3 ^ m)) := by
-  induction m with
-  | zero => rw [Function.iterate_zero, id, pow_zero, pow_one]
-  | succ m ih =>
-    rw [Function.iterate_succ_apply', ih, G2ShortRoot.PrimeField.frobenius_rootSubgroupPoints,
-      toAdd_ofAdd, pow_one, ← pow_mul, ← pow_succ]
 
 variable {K L : Type} [Field K] [Finite K] [Field L] [Algebra K L] [Algebra.IsAlgebraic K L]
 

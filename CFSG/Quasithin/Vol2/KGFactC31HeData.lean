@@ -34,11 +34,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
 
 @[expose] def decodeWss (s : String) : List (List (List ℤ)) := (s.splitOn "|").map decodeWs
 
-@[expose] def noDer (k : ℕ) : Array (List ℤ) := (List.replicate k ([] : List ℤ)).toArray
 
 @[expose] def t1W : List ℤ := decodeW "1222122212221222"
 
-@[expose] def t0A : Array ℕ := wA [1]
 
 @[expose] def t1A : Array ℕ := wA t1W
 
@@ -46,9 +44,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   baaaba2121221b1bb1222121212a2a2a2a22abb a bbbbabbabababbabbabbbb1221bb1221bb1222ab bababababbbba\
   babba2a22ababaaaba2121ba22a2a22a2a2a2a2a2222aba2abbbb1b1212212121212a"
 
-@[expose] def c0B : Vector (Fin 8330) 2 := #v[7236, 3504]
-
-@[expose] def c0S : Array (Array ℕ) := (c0W.map wA).toArray
 
 @[expose] def c1W : List (List ℤ) := decodeWs "aba222a222abababa21212abababa2121ba22aabababa21212a\
   bababa212122aba2ababbab1b12a22a2a2a2a221b bbbabababbabba2aabababa2121ba22abababa2121ba22abababa2\
@@ -62,21 +57,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   21ba22abba22abababa2121b1221bb1221bb1222abbbb1b1212212121212a 122aba2abab1b1b1b1babababbba222aba\
   bba222ababbb12122212212212"
 
-@[expose] def c1B : Vector (Fin 8330) 3 := #v[5, 197, 196]
-
-@[expose] def c1S : Array (Array ℕ) := (c1W.map wA).toArray
-
-@[expose] def reps0W : List (List ℤ) := decodeWs "221b122aba2abba2abba bbabbbabababba222ababaaaba2\
-  121ba22ababaaaba21212ababaaaba2121221b1bb12212121b1221b1ba2abb bbabbbabababba222ababaaaba2121ba2\
-  2ababaaaba21212ababaaaba2121221b1bb12212121b1221b1ba2abba babbbbbababbba222ababaaaba2121ba22abba\
-  22ababaaaba21212ababaaaba21212aba2ababa22221b12121bba2ababa bababbbabbaba22ababbababaaaba21212a2\
-  21bbb121222121b12221b12121bba2ababa"
-
-@[expose] def fix0 : List ℕ := [346, 346, 42, 42, 346]
-
-@[expose] def size0 : List ℕ := [240, 315, 315, 630, 2]
-
-@[expose] def scan0I : List ℕ := [0, 1, 4]
 
 @[expose] def scan0H : List (List ℤ) := decodeWs "bbbbbababababbbabbabbaababaaaba2121ba22ababaaaba\
   21212a2abba2aba22aba2aba2ab abbbbbabbab122212121222aba2aba2abb abbbabbabbbabbabbabbbba22ababaaab\
@@ -87,24 +67,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   1ba22abba22ababaaaba21212abba22abba221221b121b121bba bbabbabbababbababaaaba2121ba22abba22ababaaa\
   ba21212aba2ababa222121212a2a2a2a22ab1b|"
 
-@[expose] def scan0K : List (List ℕ) := [[], [0, 0, 0, 0], []]
-
-@[expose] def reps1W : List (List ℤ) := decodeWs "bbbbbabba222abbbababaaaba2121ba22aababaaaba21212\
-  ababaaaba2121ba22aababaaaba21212ababaaaba2121ba22ababaaaba21212abababa2a2a2221bb1b1b1b1bababba a\
-  babbabbababbbba22ababaaaba21212abba22aababaaaba2121ba22ababaaaba212122aba2ababba2ababababbaba2a2\
-  2221ba aba222a222ababaaaba21212abba22abba22ababaaaba21212ababaaaba21212ababaaaba212122aba2ababba\
-  222121212a2a2a2a22abba bbbbabbbbabbabbabbbba22aababaaaba21212ababaaaba2121ba22ababaaaba21212abba\
-  22abba22ababaaaba21212abba22abba22a2a21bb1b1b1b1bababab bbb1b1bbb12ababaaaba21212abba22aababaaab\
-  a21212ababaaaba21212aba2ababbbaba222ababa2aba bbbbabbababbababbbabbbbba22ababaaaba21212ababaaaba\
-  2121ba22ababaaaba21212ababaaaba2121ba22ababaaaba21212abba22abababa2a2a2121b1221b121ba2abba abbba\
-  2221b12221ba22ababaaaba2121ba22aababaaaba2121ba22ababaaaba2121ba22abba22a2abba21b122aba2abbbb1b1\
-  212212121212"
-
-@[expose] def fix1 : List ℕ := [346, 42, 42, 42, 346, 42, 42]
-
-@[expose] def size1 : List ℕ := [84, 168, 84, 168, 42, 14, 14]
-
-@[expose] def scan1I : List ℕ := [1, 2, 3, 5, 6]
 
 @[expose] def scan1H : List (List ℤ) := decodeWs "ababababbabbbbabbbababbababaaaba2121ba22ababaaab\
   a21212abba2221bb121b1221babba22221bb1b1b1b1bababb bbb1b12122121212121bb1221b121b1b1221bb12abab12\
@@ -126,8 +88,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   abbcbab 3b1b121babc2a2221223bb1bb1ba2a2212221 abbabacbbabbbababbabbb1b1bb1ba2a222121b1212a 1bb1b\
   1bb1ba2a222121b12123b1b121221 1bbababbaba212221223212212122121221212221221b1"
 
-@[expose] def scan1K : List (List ℕ) := [[1, 1, 1, 0, 0], [], [1, 0, 0, 1, 1], [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]]
 
 @[expose] def w5W : List (List ℤ) := decodeWs "1222122212221222 ababbabbababbbba22ababaaaba21212ab\
   ba22aababaaaba2121ba22ababaaaba212122aba2ababba2ababababbaba2a22221ba bbbbabbbbbababbababbbba22a\
@@ -172,9 +132,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   a22abba2abbbb12221bb121b1221b1bb121bb1221212212121212 bbbbbabbbbbababba22a2abbbbbbababbbbbbabbba\
   22abbbbbbabbbabbbbababba222abbba22abba222121212a2a2a2a22ab1ba"
 
-@[expose] def nsB : Vector (Fin 8330) 4 := #v[2464, 1, 0, 161]
-
-@[expose] def nsS : Array (Array ℕ) := (nsW.map wA).toArray
 
 @[expose] def n7W : List (List ℤ) := decodeWs "aba222abbbababbbbbbab1bb12221b121bbb1b1b12a22a2a2a2\
   a221b aba22a2abbbabbbabbbbababbabbbbabbba22abbbbbbabbba22abba2221b1bb1221bb122221b1221bb121b1ba \
@@ -194,9 +151,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   babbbbababbbbbbababba22abba22abbbbbbabbb1221bb1221bb1222121212a2a2a2a22ab1b babbbbbbabbbabbababb\
   bbbbbbabbba22abbbbbbababbabbbbaba2ababba22a2abbba222abbbb1b1212212121212a"
 
-@[expose] def n7B : Vector (Fin 8330) 4 := #v[5, 203, 202, 201]
-
-@[expose] def n7S : Array (Array ℕ) := (n7W.map wA).toArray
 
 @[expose] def y5W : List ℤ := decodeW "2a21bb1b1b1b1babababbb1bb1b122212221221bb12abab121112121bab\
   ab12111212122121bbb12222122121"
@@ -205,67 +159,22 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.HeldB CFSG.Certificates.Native
   12121222121221bbb122122abb1b1b1b1bb1ba2a222 21b121b1bb12122aba22aba2abbbabab121112121babab121112\
   12112221bb1b1bb1"
 
-@[expose] def lsDer : List (List ℤ) := decodeWs "a2231cba211b1b1b c2a312aba212a 1b1b1cac1 121c1ba2\
-  1 2 3 1"
 
 @[expose] def lsGenW : List (List ℤ) := y5W :: njW.map fun n => n ++ y5W ++ invW n
 
-@[expose] def lsS : Array (Array ℕ) :=
-  lsDer.foldl (fun S w => S.push (wordA 8330 S (S.map (invCand 8330)) w)) (lsGenW.map wA).toArray
-
-@[expose] def lsWd : Array (List ℤ) := (List.replicate lsGenW.length ([] : List ℤ) ++ lsDer).toArray
-
-@[expose] def lsB : Vector (Fin 8330) 2 := #v[0, 1]
 
 @[expose] def bB : List ℕ := [2464, 7750, 8271, 8281, 5830, 6837]
 
-@[expose] def w5A : List (Array ℕ) := w5W.map wA
 
 @[expose] def eA : List (Array ℕ) := eW.map wA
 
-@[expose] def w7A : List (Array ℕ) := w7W.map wA
 
 @[expose] def qA : List (Array ℕ) := qW.map wA
 
-@[expose] def sigA : Array ℕ := wA sigmaW
-
-@[expose] def sigAi : Array ℕ := wAi sigmaW
-
-@[expose] def refA (k : ℕ) : List (Array ℕ) := if k = 0 then w5A else w7A
-
-@[expose] def candsOf (D : List (List ℤ)) (K : List ℕ) : List (List (List (Array ℕ))) :=
-  (D.zip K).map fun p => (refA p.2).map fun b => [wAi p.1, b, wA p.1]
-
-@[expose] def heL : Array Level := rawLevels 8330 heStrongArrs heBase.toArray
-
-@[expose] def fixA (t : Array ℕ) : ℕ := (List.range 8330).countP fun i => t[i]! == i
-
-@[expose] def commA (g t : Array ℕ) : Bool := baseImgs bs [g, t] == baseImgs bs [t, g]
-
-@[expose] def conjOK (t : Array ℕ) (reps : List (List ℤ)) (I : List ℕ) (H : List (List ℤ)) :
-    Bool :=
-  (I.zip H).all fun p => baseImgs bs [wAi p.2, t, wA p.2] == baseImgs bs [wA (reps.getD p.1 [])]
-
-@[expose] def fixOK (t : Array ℕ) (reps : List (List ℤ)) (I : List ℕ) : Bool :=
-  (List.range reps.length).all fun i => I.contains i || fixA (wA (reps.getD i [])) != fixA t
-
-@[expose] def scanCount (S : Array (Array ℕ)) (B : Array ℕ) (k : ℕ) (t : Array ℕ)
-    (reps : List (List ℤ)) (I : List ℕ) (H : List (List ℤ)) (D : List (List (List ℤ)))
-    (K : List (List ℕ)) (j : ℕ) : ℕ :=
-  countWI (badTest bs t (wA (reps.getD (I.getD j 0) [])) [25, 343, 17] [5, 7, 17] false
-    (candsOf (D.getD j []) (K.getD j []))) (levBlocksI (rawLevels 8330 S B) k)
-    [wA (H.getD j [])] [wAi (H.getD j [])]
-
-@[expose] def blk1 : List (Array (Array ℕ)) := blocksOf 8330 (rawLevels 8330 c1S (arrBase c1B))
-  [[0], [1], [2]]
 
 @[expose] def centIn (B : List (Array ℕ)) (w : List (Array ℕ)) : Bool :=
   B.all fun b => baseImgs bs (w ++ [b]) == baseImgs bs (b :: w)
 
-@[expose] def centOut (B : List (Array ℕ)) (w : List (Array ℕ)) : Bool :=
-  B.all fun b => baseImgs bs (b :: w) == baseImgs bs (w ++ [sigA, b, sigAi])
-
-@[expose] def fixesB (w : List (Array ℕ)) : Bool := bB.all fun p => evR w p == p
 
 end CFSG.Quasithin.KGC31.He
 

@@ -68,32 +68,6 @@ set_option compiler.extract_closed false
 
 @[expose] def gB (L : Array ByteArray) : ByteArray := wordB L #[1, 2, 5, 0, 8, 9]
 
-@[expose] def relHs (L : Array ByteArray) : Array ByteArray :=
-  (List.range 8).foldl (fun acc _ => acc.push (bcomp deg acc.back! (gB L))) #[bid deg]
-
-@[expose] def relPi (L : Array ByteArray) : ByteArray :=
-  let gi := binvCand deg (gB L)
-  (List.range 9).foldl (fun acc _ => bcomp deg acc gi) (bid deg)
-
-@[expose] def certText (_ : Unit) : String := include_str "../../../../../CFSG/YGroups/Data/b433.cert"
-
-@[expose] def certB433 (_ : Unit) : Cert := parseCert (tokens (certText ()).toUTF8)
-
-@[expose] def nodesOf (O : BigOmega) (L : Array ByteArray) (ws : Array (Nat × Array Nat)) :
-    Array (Nat × Nat) :=
-  ws.map fun w => (w.1, O.act (wordB L w.2) 0)
-
-@[expose] def ctxB433 (O : BigOmega) (L : Array ByteArray) (cert : Cert) : CtxB where
-  n := deg
-  letters := L
-  cl := 9
-  N := O.N
-  act := O.act
-  actAll := fun σ => O.actAll σ
-  nodes := nodesOf O L cert.words
-  one := bid deg
-  braid := true
-  rels := #[(relHs L, relPi L)]
 
 @[expose] def smallOK (O : BigOmega) (L : Array ByteArray) (cert : Cert) : Bool :=
   L.size == 10 && O.N == 86316516 && bisInv deg (gB L) (binvCand deg (gB L)) &&

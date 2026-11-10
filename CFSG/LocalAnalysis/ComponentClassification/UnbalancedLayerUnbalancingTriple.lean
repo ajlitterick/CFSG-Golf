@@ -23,8 +23,6 @@ theorem gsUnbalancingTriple_iff_grammar {a x : G} {J : Subgroup G} :
 
 alias closure_conj_commutator_eq_commutator := GSGrammar.closure_conj_commutator_eq_commutator
 
-alias closure_elem_commutator_eq_commutator_zpowers :=
-  GSGrammar.closure_elem_commutator_eq_commutator_zpowers
 
 theorem gsUnbalancingTriple_iff {a x : G} {J : Subgroup G} :
     GSUnbalancingTriple a x J ↔ orderOf a = 2 ∧ orderOf x = 2 ∧ a * x = x * a ∧

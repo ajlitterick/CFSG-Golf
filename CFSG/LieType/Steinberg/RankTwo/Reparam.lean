@@ -176,15 +176,6 @@ theorem existsUnique_hom_reparam {x : (ι → ℤ) → k → K}
     ∃! φ : K →* H, ∀ γ ∈ Φ.roots, ∀ c, φ (reparam x η γ c) = y γ c :=
   existsUnique_hom_of_bijective (reparam_rels hrel) (reparam_bijective hrel hbij) hyA hyB
 
-omit [Fintype ι] [DecidableEq ι] [Group K] in
-theorem reparam_one (x : (ι → ℤ) → k → K) : reparam x 1 = x := by
-  funext γ c
-  simp [reparam]
-
-omit [Fintype ι] [DecidableEq ι] in
-theorem reparamConst_one (C : (ι → ℤ) → (ι → ℤ) → ℕ × ℕ → k) : reparamConst C 1 = C := by
-  funext α β p
-  simp [reparamConst]
 
 omit [Fintype ι] [DecidableEq ι] [Group K] in
 theorem range_reparam (x : (ι → ℤ) → k → K) (η : (ι → ℤ) → kˣ) (γ : ι → ℤ) :
@@ -196,20 +187,6 @@ theorem range_reparam (x : (ι → ℤ) → k → K) (η : (ι → ℤ) → kˣ)
     refine ⟨((η γ)⁻¹ : kˣ) * c, ?_⟩
     simp only [reparam, ← mul_assoc, Units.mul_inv, one_mul]
 
-theorem isParametrization_reparam {X : (ι → ℤ) → Subgroup K} {x : (ι → ℤ) → k → K}
-    (hx : IsParametrization (Φ := Φ) X x) (η : (ι → ℤ) → kˣ) :
-    IsParametrization (Φ := Φ) X (reparam x η) := by
-  intro γ hγ
-  obtain ⟨hmem, hadd, hinj⟩ := hx γ hγ
-  refine ⟨fun g => ?_, fun c d => ?_, fun c d h => ?_⟩
-  · rw [hmem g]
-    constructor
-    · rintro ⟨c, rfl⟩
-      exact ⟨((η γ)⁻¹ : kˣ) * c, by simp only [reparam, ← mul_assoc, Units.mul_inv, one_mul]⟩
-    · rintro ⟨c, rfl⟩
-      exact ⟨_, rfl⟩
-  · simp only [reparam, mul_add, hadd]
-  · exact (Units.mul_right_inj (η γ)).1 (hinj h)
 
 universe w
 

@@ -30,9 +30,6 @@ universe u v
   right_inv h := Subtype.ext (e.apply_symm_apply h.val)
   map_mul' g h := Subtype.ext (e.map_mul g.val h.val)
 
-theorem originalCentralizerEquiv_coe {G : Type u} {H : Type v} [Group G] [Group H]
-    (e : G ≃* H) (t : G) (g : Subgroup.centralizer ({t} : Set G)) :
-    (originalCentralizerEquiv e t g : H) = e g := rfl
 
 @[expose] def reducedFullCenterEquivOfEquiv {G H : Type}
     [Group G] [Group H] [Finite G] [Finite H] (e : G ≃* H) :
@@ -43,13 +40,6 @@ theorem originalCentralizerEquiv_coe {G : Type u} {H : Type v} [Group G] [Group 
   let theta := ReducedCentralizerInclusion.reducedSurjectionEquiv e.toMonoidHom e.surjective hker
   exact QuotientGroup.congr _ _ theta (Subgroup.map_center_eq theta)
 
-theorem reducedFullCenterEquivOfEquiv_mk {G H : Type}
-    [Group G] [Group H] [Finite G] [Finite H] (e : G ≃* H) (g : G) :
-    reducedFullCenterEquivOfEquiv e
-      (QuotientGroup.mk' (Subgroup.center (G ⧸ CFSG.oddCore G))
-        (QuotientGroup.mk' (CFSG.oddCore G) g)) =
-      QuotientGroup.mk' (Subgroup.center (H ⧸ CFSG.oddCore H))
-        (QuotientGroup.mk' (CFSG.oddCore H) (e g)) := rfl
 
 theorem localQuotientConclusions_of_equiv {G H : Type}
     [Group G] [Group H] [Finite H] (e : G ≃* H) (p f : ℕ)
@@ -234,14 +224,6 @@ variable (hE : Nat.card E = (p ^ f) ^ 2)
   exact QuotientGroup.congr _ _ (originalIdentitySpecialEquiv p f hE)
     (originalIdentitySpecialEquiv_map_scalars p f hE)
 
-theorem originalIdentityProjectiveEquiv_mk
-    (g : specialIsometry (originalIdentityForm p f hE)) :
-    let h := originalIdentityForm p f hE
-    let D := scalarCenter h (Module.finrank_fin_fun E)
-    letI : D.Normal := scalar_subgroup_normal h (Module.finrank_fin_fun E) D le_rfl
-    originalIdentityProjectiveEquiv p f hE (QuotientGroup.mk' D g) =
-      QuotientGroup.mk' ((StatedScalars (Fin 3) E).subgroupOf (StatedSU 3 (p ^ f) E))
-        (originalIdentitySpecialEquiv p f hE g) := rfl
 
 end OriginalUnitaryModel
 

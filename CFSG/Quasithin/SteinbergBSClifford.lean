@@ -175,7 +175,6 @@ theorem exists_niso_of_le_sSup {B : Submodule k E} (hB : IsIrr ρ N B) (s : Set 
         (isInv_sSup fun C hC => (hsi C (Set.mem_insert_of_mem _ hC)).1) ?_ hBs⟩
       rwa [sup_comm]
 
-variable [Finite k] {p : ℕ} [hp : Fact p.Prime] [CharP k p] [FiniteDimensional k E]
 
 end Clifford
 

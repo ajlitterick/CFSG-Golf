@@ -42,10 +42,6 @@ theorem mem_L0_mul_iff {h g x : G} (hh : h ∈ S.M) :
   · simpa using conj_mem_M S (S.M.inv_mem hh) hx
   · simpa [mul_assoc] using conj_mem_M S hh hx
 
-theorem conj_mem_L0_mul {h g x : G} (hh : h ∈ S.M) (hx : x ∈ S.L0 g) :
-    h * x * h⁻¹ ∈ S.L0 (h * g) := by
-  rw [mem_L0_mul_iff S hh]
-  simpa [mul_assoc] using hx
 
 theorem mul_conj_z (h g : G) : h * g * S.z * (h * g)⁻¹ = h * (g * S.z * g⁻¹) * h⁻¹ := by
   group

@@ -15,7 +15,6 @@ theorem sub_eq_add_F4 (x y : F4) : x - y = x + y := by
   revert x y
   decide
 
-theorem code_vecOfCode (c : ℕ) (i : Fin 6) : (vecOfCode c i).code.val = coord c i.val := rfl
 
 theorem hermC_vecOfCode (c d : ℕ) :
     hermC c d = (hermStd (vecOfCode c) (vecOfCode d)).code.val := by

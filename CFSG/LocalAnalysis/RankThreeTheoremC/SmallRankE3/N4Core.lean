@@ -317,44 +317,5 @@ theorem n4_strong_of_alpha {p : ℕ} {P : Sylow p G} {M : Subgroup G} (hS : Sett
     (L613B.not_mem_rankThreePrimeCore hzord)
     (CFSG.LocalAnalysis.RankThreeTheoremC.isPConstrained_of_hasPrimeConstraint hα)
 
-theorem n4_false_of_kgData3 (hzj : CFSG.LocalAnalysis.RankFourTheoremC.KFactZJFactorizationGe)
-    (hAutO : KFactAutAltOrder) (hAutE : KFactAutAltEmbed) (h2024 : KG2024)
-    (h2401 : KFact2401Three) (hAlt6 : KGAltSix) (h2715 : KFact2715) (h131 : KFact131)
-    (hpc : KFactParabolicCover) (h282 : KFact282) (h6n : KGStep6Noncyc) (hT : KGTransvCent)
-    (h241 : KFact2401ThreeOmega) {A : Type} [Group A] [Finite A] {p : ℕ}
-    {H D S B L M : Subgroup A} {z : A} (d3 : KGC.KGData3 p H D S B L M z)
-    (hG : KGC.KGStrongEmb p M z) : False := by
-  haveI : (D.subgroupOf H).Normal := d3.toData.normal_subgroupOf
-  have hchev := d3.chev_or_alt hzj
-  have hc := KGQ.kgroup_step4 d3.toData.cfg (d3.toData.strong_img hG) hAutO hAutE h2024 h2401
-    hAlt6 hchev
-  by_cases hbot : KGC.img H D S ⊓ KGC.img H D L = ⊥
-  · by_cases hcyc : IsCyclic ↥(KGC.img H D S)
-    · haveI := hcyc
-      exact KGSix.false_of_data hT h241 d3 hG hc hbot
-    · exact h6n _ p _ _ _ _ _ d3.toData.cfg hc hbot hcyc
-  · by_cases hsyl : CFSG.ABGLocalTools.IsSylowOf 2
-        (KGC.img H D S ⊓ KGC.img H D L) (KGC.img H D L)
-    · by_cases hB : fusionIsBenderGroup ↥(KGC.img H D L)
-      · exact KGQ.false_of_bender_sylow d3.toData.cfg h2715 hsyl hB
-      · exact KGFive.false_of_sylow h282 d3 hc hsyl hB
-    · exact kgStep5Para_of_inputs h131 hpc _ p _ _ _ _ _ d3.toData.cfg (d3.toData.strongEmb_img hG)
-        hc hbot hsyl
-
-theorem n4_false_of_alpha (hKF : KFact64iiL)
-    (hzj : CFSG.LocalAnalysis.RankFourTheoremC.KFactZJFactorizationGe)
-    (hAutO : KFactAutAltOrder) (hAutE : KFactAutAltEmbed) (h2024 : KG2024)
-    (h2401 : KFact2401Three) (hAlt6 : KGAltSix) (h2715 : KFact2715) (h131 : KFact131)
-    (hpc : KFactParabolicCover) (h282 : KFact282) (h6n : KGStep6Noncyc) (hT : KGTransvCent)
-    (h241 : KFact2401ThreeOmega) {p : ℕ} {P : Sylow p G} {M : Subgroup G} (hS : Setting G)
-    (hsit : SmallRankSituation G p P M) (hp5 : 5 ≤ p) {x z : G} (hx : SmallRankPoint P M x)
-    (hz : SmallRankCentral P z) {H S : Subgroup G} (hopt : Fail614OptimalGen p M x z H S)
-    (hO : rankThreePrimeCore p H ≤ M)
-    (hΩ : ∀ Q : Subgroup G, Q ≤ H → IsPGroup p Q → zpowers x ⊔ zpowers z ≤ Q →
-      ∀ q ∈ Q, q ^ p = 1 → q ∈ zpowers x ⊔ zpowers z)
-    (h2 : IsPGroup 2 (rankThreePrimeCore p H)) (hα : HasPrimeConstraint (G := M) p) : False := by
-  obtain ⟨L, d3⟩ := n4_exists_kgData3 hKF hS hsit hp5 hx hz hopt hO hΩ h2
-  exact n4_false_of_kgData3 hzj hAutO hAutE h2024 h2401 hAlt6 h2715 h131 hpc h282 h6n hT h241 d3
-    (n4_strong_of_alpha hS hsit hz hα)
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3

@@ -14,9 +14,6 @@ open CFSG.Assembly
       ¬ GGNbrLabelsOk p B Bs x D J →
         Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
-theorem GGCorFiveTwentyInputNbrQTwo.qFour (h : GGCorFiveTwentyInputNbrQTwo) :
-    GGCorFiveTwentyInputNbrQTwoQFour :=
-  fun G _ _ p B Bs x L D J hH _ hN => h G p B Bs x L D J hH hN
 
 theorem ggCorFiveTwentyInput_of_splitQFour (hQ2 : GGCorFiveTwentyInputQTwo)
     (hRn : GGCorFiveTwentyInputNbrQTwoQFour) (hW : GGCorFiveTwentyQFourInput) :

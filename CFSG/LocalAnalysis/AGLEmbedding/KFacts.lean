@@ -54,20 +54,5 @@ end Aut
       (IsCyclic (T : Subgroup K) ∨ GLBCore p 1 (T : Subgroup K) ≠ ⊤) →
       Open.pRank p (⊤ : Subgroup (MulAut K)) ≤ 2 ∨ RankOneLieAutFacts p K
 
-@[expose] def KFactAlpha : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K →
-    IsCatalogGroup (K ⧸ Subgroup.center K) → ∀ p : ℕ, p.Prime → p ≠ 2 →
-    Subgroup.center K ≠ ⊥ → IsPGroup p (Subgroup.center K) → IsCyclic (Subgroup.center K) →
-    ∀ T : Sylow p K,
-      (KGenThree p K ∧ (3 ≤ Open.pRank p (⊤ : Subgroup K) ∨ KOutNormalSylow p K)) ∨
-      Open.pRank p (⊤ : Subgroup (MulAut K)) ≤ 2 ∨
-      (GLBCore p 3 (T : Subgroup K) = ⊤ ∧ 3 ≤ Open.pRank p (⊤ : Subgroup K)) ∨
-      (KOutTwoGroup K ∧
-        ((∃ A : Subgroup K, A ≤ (T : Subgroup K) ⊓ Subgroup.centralizer (T : Set K) ∧
-            IsElemAbelian p A ∧ Nat.card A = p ^ 2) ∨
-          ((∀ t ∈ (T : Subgroup K), t ^ p = 1) ∧ Open.pRank p (T : Subgroup K) ≤ 3) ∨
-          (∃ A : Subgroup K, A ≤ (T : Subgroup K) ∧
-            (T : Subgroup K) ≤ Subgroup.normalizer (A : Set K) ∧ IsElemAbelian p A ∧
-            p ^ (p + 1) ≤ Nat.card A)))
 
 end CFSG.AGLEmbedding

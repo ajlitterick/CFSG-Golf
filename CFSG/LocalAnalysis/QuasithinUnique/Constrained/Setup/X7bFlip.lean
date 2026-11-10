@@ -13,8 +13,6 @@ section ShiftNat
 
 @[expose] def shiftNat (f i : ℕ) : ℕ := (i + f) % (2 * f)
 
-theorem shiftNat_lt {f : ℕ} (hf : 1 ≤ f) (i : ℕ) : shiftNat f i < 2 * f :=
-  Nat.mod_lt _ (by omega)
 
 theorem shiftNat_shiftNat {f : ℕ} {i : ℕ} (hi : i < 2 * f) :
     shiftNat f (shiftNat f i) = i := by

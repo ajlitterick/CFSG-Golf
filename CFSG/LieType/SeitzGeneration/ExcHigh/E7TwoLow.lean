@@ -600,19 +600,6 @@ theorem e7TwoSylowFive_of_even (h : E7TwoSylowFiveEven) : E7TwoSylowFive := by
   · exact h K he hpq E₀ hE₀p hE₀c hN
   · exact e7TwoSylowFive_of_odd K ho hpq E₀ hE₀p hE₀c hN
 
-theorem e7TwoSylowLow_of_five_seven (h5 : E7TwoSylowFive) (h7 : E7TwoSylowSeven) :
-    E7TwoSylowLow := by
-  intro K _ _ p hpF hp5 hlt hpq E₀ hE₀p hE₀c hN
-  have hp : p.Prime := hpF.out
-  have h57 : p = 5 ∨ p = 7 := by
-    interval_cases p <;> first | omega | (exfalso; revert hp; norm_num)
-  rcases h57 with rfl | rfl
-  · exact h5 K hpq E₀ hE₀p hE₀c hN
-  · exact h7 K hpq E₀ hE₀p hE₀c hN
-
-theorem seitzExcHighE7Two_of_even_seven (h5 : E7TwoSylowFiveEven) (h7 : E7TwoSylowSeven) :
-    SeitzExcHighE7Two :=
-  seitzExcHighE7Two_of_sylow_low (e7TwoSylowLow_of_five_seven (e7TwoSylowFive_of_even h5) h7)
 
 end Glue
 

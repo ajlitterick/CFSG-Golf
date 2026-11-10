@@ -118,10 +118,6 @@ theorem exists_Gam_levS (hσσ : ∀ c, σ (σ c) = c) (B : SL(2, K)) :
 theorem coe_tSL {ω : K} (hω : ω * ω = -1) :
     ((tSL hω : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = !![-ω, 0; 0, ω] := rfl
 
-theorem coe_tSL_inv {ω : K} (hω : ω * ω = -1) :
-    (((tSL hω)⁻¹ : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = !![ω, 0; 0, -ω] := by
-  rw [Matrix.SpecialLinearGroup.coe_inv, coe_tSL, Matrix.adjugate_fin_two_of]
-  simp
 
 theorem levS_tSL {ω : K} (hω : ω * ω = -1) (hσω : σ ω = ω) :
     levS σ (tSL hω) = Matrix.diagonal ![-ω, ω, ω, -ω] := by
@@ -132,10 +128,6 @@ theorem levS_tSL {ω : K} (hω : ω * ω = -1) (hσω : σ ω = ω) :
 
 theorem coe_upSL : ((upSL : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = !![1, 1; 0, 1] := rfl
 
-theorem coe_upSL_inv :
-    (((upSL : SL(2, K))⁻¹ : SL(2, K)) : Matrix (Fin 2) (Fin 2) K) = !![1, -1; 0, 1] := by
-  rw [Matrix.SpecialLinearGroup.coe_inv, coe_upSL, Matrix.adjugate_fin_two_of]
-  simp
 
 theorem levS_upSL : levS σ (upSL (K := K)) =
     (!![1, 1, 0, 0; 0, 1, 0, 0; 0, 0, 1, 0; 0, 0, -1, 1] : Matrix (Fin 4) (Fin 4) K) := by

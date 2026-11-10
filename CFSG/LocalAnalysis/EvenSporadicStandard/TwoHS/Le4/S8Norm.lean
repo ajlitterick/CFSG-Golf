@@ -12,14 +12,6 @@ open Matrix
   | 0 => [[]]
   | k + 1 => (allBits k).flatMap fun l => [0 :: l, 1 :: l]
 
-theorem mem_allBits : ∀ {l : List ℕ}, (∀ x ∈ l, x < 2) → l ∈ allBits l.length
-  | [], _ => by simp [allBits]
-  | x :: l, hl => by
-    simp only [List.length_cons, allBits, List.mem_flatMap]
-    refine ⟨l, mem_allBits fun y hy => hl y (List.mem_cons_of_mem _ hy), ?_⟩
-    obtain rfl | rfl : x = 0 ∨ x = 1 := by have := hl x List.mem_cons_self; omega
-    · simp
-    · simp
 
 @[expose] def R4.ofList (l : List ℕ) : R4 :=
   ⟨l.getD 0 0, l.getD 1 0, l.getD 2 0, l.getD 3 0, l.getD 4 0, l.getD 5 0, l.getD 6 0,
@@ -43,13 +35,6 @@ theorem mem_allBits : ∀ {l : List ℕ}, (∀ x ∈ l, x < 2) → l ∈ allBits
    b.a20 + 2 * x.a20, b.a21 + 2 * x.a21, b.a22 + 2 * x.a22, b.a23 + 2 * x.a23,
    b.a30 + 2 * x.a30, b.a31 + 2 * x.a31, b.a32 + 2 * x.a32, b.a33 + 2 * x.a33⟩
 
-theorem mem_bitsR {b : R4} (hb : b.wf2) : b ∈ bitsR := by
-  obtain ⟨h0, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12, h13, h14, h15⟩ := hb
-  refine List.mem_map.2 ⟨[b.a00, b.a01, b.a02, b.a03, b.a10, b.a11, b.a12, b.a13, b.a20, b.a21,
-    b.a22, b.a23, b.a30, b.a31, b.a32, b.a33], mem_allBits ?_, rfl⟩
-  intro x hx
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
-  omega
 
 theorem mod2_wf2 (a : R4) : a.mod2.wf2 := by
   simp only [R4.wf2, R4.mod2]
@@ -130,7 +115,6 @@ instance (b : R4) (T : List (R4 × List R4)) : Decidable (NRawB b T) := by
 
 instance : Decidable NRaw := by unfold NRaw; infer_instance
 
-@[expose] def normR : Bool := decide NRaw
 
 theorem norm1B_iff {T : List (R4 × List R4)} {a : R4} : norm1B T a = true ↔ Norm1T T a := by
   simp [norm1B, Norm1T, List.all_eq_true, List.any_eq_true, beq_iff_eq]
@@ -225,29 +209,5 @@ theorem norm2_inv {A A' : M4} (h : A * A' = 1) (h' : A' * A = 1) (hN1 : Norm1 A)
     _ = (A' * A) * s' * A' := by simp only [mul_assoc]
     _ = s' * A' := by rw [h', one_mul]
 
-theorem normComplete_of_raw (h : NRaw) : NormComplete := by
-  intro A ⟨A', hAA', hA'A⟩ hN1 hN2
-  have hwa : (toR4 A).wf := wf_toR4 A
-  have hinv : rmul (toR4 A) (toR4 A') = R4.one := by
-    apply ofR4_inj (wf_rmul _ _) wf_one
-    rw [ofR4_rmul, ofR4_toR4, ofR4_toR4, hAA', ofR4_one]
-  have hn1 := norm1R_of_norm1 hN1
-  have hn2 := norm2R_of_norm2 hN2
-  have hn1' := norm1R_of_norm1 (norm1_inv hAA' hA'A hN2)
-  have hn2' := norm2R_of_norm2 (norm2_inv hAA' hA'A hN1)
-  have hb : (toR4 A).mod2 ∈ survR := by
-    refine List.mem_filter.2
-      ⟨List.mem_filter.2 ⟨mem_bitsR (mod2_wf2 _), normB2_of_norm hn1 hn2⟩, ?_⟩
-    simp only [List.any_eq_true, beq_iff_eq]
-    refine ⟨(toR4 A').mod2, List.mem_filter.2 ⟨mem_bitsR (mod2_wf2 _), normB2_of_norm hn1' hn2'⟩,
-      ?_⟩
-    rw [← mod2_rmul, hinv, mod2_one]
-  have key := h _ hb (R4.hi (toR4 A)) (mem_bitsR (hi_wf2 hwa))
-  rw [lift2_mod2_hi] at key
-  refine concl_of_raw ?_
-  rcases nCaseB_sound key with h1 | h1 | h1
-  · exact Or.inl h1
-  · exact absurd ⟨norm1T_of_norm1R hn1, hn2⟩ h1
-  · exact Or.inr h1
 
 end CFSG.EvenSporadicStandard.TwoHS

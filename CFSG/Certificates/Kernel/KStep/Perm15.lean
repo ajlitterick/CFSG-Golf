@@ -249,10 +249,6 @@ theorem testBit_planeLoop {S n : ℕ} (h sh : ℕ → ℕ) (hsh : ∀ k, sh k = 
   · intro e
     exact ⟨b, hb, by rw [testBit_shl_plane (hh b hb) hp]; simp [e]⟩
 
-theorem orLoop_lt (g : ℕ → ℕ) {W : ℕ} (hg : ∀ k, k < W → g k < 2 ^ W) : ∀ n, n ≤ W →
-    Nat.rec (motive := fun _ => ℕ) 0 (fun k acc => Nat.lor acc (g k)) n < 2 ^ W
-  | 0, _ => Nat.two_pow_pos W
-  | n + 1, hn => Nat.or_lt_two_pow (orLoop_lt g hg n (by omega)) (hg n (by omega))
 
 theorem planeLoop_lt {S n : ℕ} (h sh : ℕ → ℕ) (hsh : ∀ k, sh k = k * S)
     (hh : ∀ k < n, h k < 2 ^ S) :
@@ -537,12 +533,6 @@ theorem holds_thetaPl {S X p x : ℕ} (hp : p < S) (hX : Holds 12 S X p x) :
     ← CFSG.Monster.B.Rep4371.native_dualN, ← CFSG.Monster.B.Rep4371.native_bmaskN]
   cases x.testBit m <;> cases decide (m < n) <;> simp
 
-theorem thetaPl_lt (S X : ℕ) : thetaPl S X < 2 ^ (12 * S) := by
-  unfold thetaPl
-  refine xorLoop_lt (fun n => Nat.land (repP S 12 (plane S n X))
-    (Nat.xor (constP S (packBetaT n) (ones S)) (thetaInner S X n))) (fun n => ?_) 12
-  exact Nat.lt_of_le_of_lt Nat.and_le_left (planeLoop_lt (n := 12) (fun _ => plane S n X)
-    (fun k => Nat.mul k S) (fun _ => rfl) (fun _ _ => plane_lt' S n X))
 
 @[expose] noncomputable def quadInner (S BT X i : ℕ) : ℕ :=
   Nat.rec (motive := fun _ => ℕ) 0 (fun j acc2 => Nat.xor acc2
@@ -655,9 +645,6 @@ theorem eq5_lt (S o v : ℕ) : eq5 S o v < 2 ^ S := by
   exact Nat.lt_of_le_of_lt (andLoop_le (ones S) (fun t => Bool.rec (motive := fun _ => ℕ)
     (clr S (Nat.add o t)) (idPlane S (Nat.add o t)) (Nat.beq (bitN v t) 1)) 5) (ones_lt _)
 
-theorem pe_lt (P c : ℕ) : pe P c < 2 ^ 5 := by
-  change (P >>> (5 * c)) &&& 31 < _
-  exact Nat.and_lt_two_pow _ (by decide)
 
 theorem testBit_lookP {K o P p b : ℕ} (hoK : o + 5 ≤ K) (hp : p < 2 ^ K) (hb : b < 5) :
     (lookP (2 ^ K) o P).testBit (b * 2 ^ K + p) =
@@ -1424,9 +1411,6 @@ theorem wT_perm (arr : Array ℕ) {p : ℕ} (hp : p < 98304) :
   rw [monoRows_get _ (by omega), (ePermT_rows arr _).1, (ePermT_rows arr _).2]
   rfl
 
-theorem xor_inj' {x y T : ℕ} (e : x ^^^ T = y ^^^ T) : x = y := by
-  have := congrArg (· ^^^ T) e
-  simpa [Nat.xor_assoc] using this
 
 theorem perm_resW (h2 : 2 * h = 1) {arr : Array ℕ} {P : ℕ} (hA : ArrOK arr P)
     (hRinj : ∀ r < 4096, ∀ r' < 4096, rowP arr r = rowP arr r' → r = r') (v : Native.DVec)

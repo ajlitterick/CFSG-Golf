@@ -139,23 +139,5 @@ public theorem MonoidHom.eq_one_of_perfect_of_cyclic
   rw [hRcomm] at hxmap
   exact Subgroup.mem_bot.mp hxmap
 
-public theorem card_dvd_field_card_of_pgroup_subgroup_psl2
-    {F : Type u} [Field F] [Finite F]
-    {r f : ℕ} [Fact r.Prime]
-    (hFcard : Nat.card F = r ^ f)
-    (N : Subgroup (BenderSuzuki.MatrixGroups.PSL2MatrixGroup F))
-    (hN : IsPGroup r N) :
-    Nat.card N ∣ Nat.card F := by
-  obtain ⟨S, hNS⟩ := hN.exists_le_sylow
-  have hNdivS : Nat.card N ∣ Nat.card (S : Subgroup
-      (BenderSuzuki.MatrixGroups.PSL2MatrixGroup F)) :=
-    Subgroup.card_dvd_of_le hNS
-  have hScard : Nat.card (S : Subgroup
-      (BenderSuzuki.MatrixGroups.PSL2MatrixGroup F)) = Nat.card F := by
-    obtain ⟨e⟩ := Glauberman.Dickson.huppert_II_8_2_a_sylow_equiv_additive
-      hFcard S
-    exact (Nat.card_congr e.toEquiv).symm
-  rw [hScard] at hNdivS
-  exact hNdivS
 
 end CFSG.GorensteinWalter

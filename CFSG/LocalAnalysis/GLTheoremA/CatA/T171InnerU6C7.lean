@@ -390,7 +390,6 @@ private noncomputable def diagFixEquiv
 
 private noncomputable def omegaU : F4ˣ := Units.mk0 F4.ω (by decide)
 
-private theorem omegaU_val : (omegaU : F4) = F4.ω := rfl
 
 private theorem omegaU_cube : (omegaU : F4) ^ 3 = 1 := by decide
 
@@ -724,7 +723,6 @@ private theorem commute_embSU_of_fixing
       = ((ĥ : GL (Fin 6) F4) * ((embSU d a A : M6) : GL (Fin 6) F4) *
           (ĥ : GL (Fin 6) F4)⁻¹) * (ĥ : GL (Fin 6) F4) := by group
     _ = ((embSU d a A : M6) : GL (Fin 6) F4) * (ĥ : GL (Fin 6) F4) := by rw [hmat]
-
 
 
 private theorem block_scalar_of_commute

@@ -32,7 +32,6 @@ theorem r₃_mul_self : r₃ * r₃ = 1 := by
 
 section Extension
 
-variable {E : Type*} [Group E]
 
 end Extension
 

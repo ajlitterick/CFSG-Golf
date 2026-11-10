@@ -25,10 +25,6 @@ variable {F : Type v} [Group F] {Ξ : Type w}
     elementFixedSet H (rightConjugateElem x g) ≃ Ξ :=
   (elementFixedSetConjugateEquiv H x g).symm.trans f
 
-theorem conjugateHullModelEquiv_apply (z x g : G)
-    (e : localInvolutionPointHull z x ≃* F)
-    (l : localInvolutionPointHull z (rightConjugateElem x g)) :
-    conjugateHullModelEquiv z x g e l = e ((localHullConjugateEquiv z x g).symm l) := rfl
 
 theorem conjugateFixedSetModelEquiv_apply (H : Subgroup G) (x g : G)
     (f : elementFixedSet H x ≃ Ξ) (a : elementFixedSet H (rightConjugateElem x g)) :
@@ -67,10 +63,6 @@ theorem conjugate_model_original_point (H : Subgroup G) (x g : G)
     conjugateFixedSetModelEquiv H x g f (elementFixedSetConjugateEquiv H x g a) = f a := by
   rw [conjugateFixedSetModelEquiv_apply, Equiv.symm_apply_apply]
 
-theorem conjugate_model_original_element (z x g : G)
-    (e : localInvolutionPointHull z x ≃* F) (l : localInvolutionPointHull z x) :
-    conjugateHullModelEquiv z x g e (localHullConjugateEquiv z x g l) = e l := by
-  rw [conjugateHullModelEquiv_apply, MulEquiv.symm_apply_apply]
 
 theorem conjugate_model_transitive [MulAction F Ξ]
     (H : Subgroup G) (z x g : G)

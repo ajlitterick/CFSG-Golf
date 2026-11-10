@@ -121,9 +121,6 @@ theorem rfEquiv_e (x : RfN) : (rfEquiv x).e = x.fst := rfl
 
 theorem rfEquiv_g (x : RfN) : (rfEquiv x).g = eS x.snd := rfl
 
-theorem rfEquiv_symm_fst (y : Rf) : (rfEquiv.symm y).fst = y.e := rfl
-
-theorem rfEquiv_symm_snd (y : Rf) : (rfEquiv.symm y).snd = eS.symm y.g := rfl
 
 theorem rfEquiv_mk_one_one : rfEquiv ⟨1, 1⟩ = CocExt.central :=
   CocExt.ext rfl (map_one eS)
@@ -148,8 +145,6 @@ theorem betaP_repF (i : Fin 4725) : betaP (repF i) = incl (aElt i) * repF (sigma
     rw [Subgroup.coe_mul, incl_coe]
     exact betaP_repP i)
 
-theorem autIndex_eq (i : Fin 4725) : isRightTransversal.autIndex betaP i = sigmaIdx i :=
-  isRightTransversal.autIndex_eq_of_eq betaP (incl_mem_Sp (aElt i)) (betaP_repF i)
 
 theorem autCoef_eq (i : Fin 4725) : isRightTransversal.autCoef betaP i = eS.symm (aElt i) :=
   Subtype.ext ((isRightTransversal.coe_autCoef_eq_of_eq betaP (incl_mem_Sp (aElt i))
@@ -285,14 +280,6 @@ theorem aut_fix_center_of_mulEquiv {G H : Type*} [Group G] [Group H] (e : G ≃*
 theorem card_TepsN (ε : ZMod 2) : Nat.card (TepsN ε) = 512 := by
   rw [Nat.card_congr (tEquiv ε).toEquiv, card_Teps]
 
-theorem aut_fix_center_TN0 (φ : TepsN 0 ≃* TepsN 0) :
-    ∀ x ∈ Subgroup.center (TepsN 0), φ x = x :=
-  aut_fix_center_of_mulEquiv (tEquiv 0) aut_fix_center_T0 φ
-
-theorem aut_fix_center_TN1 (φ : TepsN 1 ≃* TepsN 1) :
-    ∀ x ∈ Subgroup.center (TepsN 1), φ x = x :=
-  aut_fix_center_of_mulEquiv (tEquiv 1) aut_fix_center_T1 φ
-
 
 @[expose] noncomputable def hN (j : ℕ) (s t : Sp) : ZMod 2 := hCoc j (eS s) (eS t)
 
@@ -328,25 +315,9 @@ theorem transfer₂_hN {j : ℕ} (hj : j < 6) (s t : Sp) :
     map_mul]
   rfl
 
-theorem fN_not_coboundary : ¬ ∃ b : Sp → ZMod 2, ∀ s t, fN s t = coboundary b s t := by
-  rintro ⟨b, hb⟩
-  refine fCoc_not_cob ⟨fun s => b (eS.symm s), fun s t => ?_⟩
-  have := hb (eS.symm s) (eS.symm t)
-  rw [fN_apply, MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply] at this
-  rw [this, coboundary_apply, cob, map_mul]
-
-theorem fN_diag (s : Sp) (hs : orderOf s = 2) :
-    (fixCount ((s : P) : Perm315) = 11 ∧ fN s s = 0) ∨
-      (fixCount ((s : P) : Perm315) = 15 ∧ fN s s = 1) := by
-  have h := fCoc_diag (eS s) (by
-    rw [← hs]
-    exact orderOf_injective eS.toMonoidHom eS.injective s)
-  rw [coe_eS] at h
-  exact h
 
 @[expose] noncomputable def zN : Sp := eS.symm (elt 4)
 
-theorem coe_zN : ((zN : P) : Perm315) = elt 4 := by rw [zN, coe_eS_symm, incl_coe]
 
 theorem center_RfN' (x : RfN) :
     x ∈ Subgroup.center RfN ↔ x = 1 ∨ x = ⟨0, zN⟩ ∨ x = ⟨1, 1⟩ ∨ x = ⟨1, zN⟩ := by

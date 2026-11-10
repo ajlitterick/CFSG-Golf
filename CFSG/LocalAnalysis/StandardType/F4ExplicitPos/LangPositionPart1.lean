@@ -22,31 +22,6 @@ open scoped Pointwise
 
 namespace CFSG.StandardType.F4ExplicitPos.LangPosition
 
-theorem f4_exists_inv_mul_entrywise_frobenius
-    {Ω : Type} [Field Ω] [IsAlgClosed Ω] [CharP Ω 2]
-    (e : ℕ) (he : 1 ≤ e) {y : ModGL Tag.F4 Ω} (hy : y ∈ adjointGroup Tag.F4 Ω) :
-    ∃ z ∈ adjointGroup Tag.F4 Ω,
-      z⁻¹ * entrywiseFrobGL Tag.F4 Ω 2 e z = y := by
-  letI : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  let S : Set (Fin Tag.F4.rank → ℤ) := {α | IsRoot Tag.F4 α}
-  have hT : torusGroup Tag.F4 Ω ≤ adjointGroup Tag.F4 Ω := by
-    apply (Subgroup.closure_le (adjointGroup Tag.F4 Ω)).2
-    rintro _ ⟨⟨i, u⟩, rfl⟩
-    exact torusElt_mem_adjointGroup i u
-  have hC : torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω S = adjointGroup Tag.F4 Ω := by
-    rw [show rootSpan Tag.F4 Ω S = adjointGroup Tag.F4 Ω from adjointGroup_eq_rootSpan.symm]
-    exact sup_eq_right.mpr hT
-  have hstable : ∀ g ∈ torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω S,
-      frobTwistGL Tag.F4 Ω 2 e 1 g ∈ torusGroup Tag.F4 Ω ⊔ rootSpan Tag.F4 Ω S := by
-    intro g hg
-    rw [hC] at hg ⊢
-    simpa [frobTwistGL_apply] using entrywiseFrobGL_mem_adjointGroup_no117 2 e hg
-  obtain ⟨z, hz, hzy⟩ := exists_frobTwist_eq_mul_torus_sup_rootSpan_no117
-    (τ := Tag.F4) 2 S e he 1 hstable y (by rwa [hC])
-  refine ⟨z, by rwa [hC] at hz, ?_⟩
-  have h : entrywiseFrobGL Tag.F4 Ω 2 e z = z * y := by
-    simpa [frobTwistGL_apply] using hzy
-  rw [h, inv_mul_cancel_left]
 
 theorem rootChar_pow_no117 {τ : Tag} {L : Type} [Field L] (b : Fin τ.rank → Lˣ) (n : ℕ)
     (v : Fin τ.rank → ℤ) : rootChar (b ^ n) v = rootChar b v ^ n := by

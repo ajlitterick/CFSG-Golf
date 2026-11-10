@@ -322,16 +322,6 @@ theorem run_closed (hF : ∀ l ∈ lv, ∀ x < n, F l x < n) (hr : r < n) :
   obtain ⟨i, hi, rfl⟩ := exists_getD hp
   exact hcl i (lt_of_lt_of_le hi hok.le) hi l hl
 
-theorem trans_root {s : BS} (hs : RunOK n F lv r s) {k : Nat} (hk : k < s.pts.length) :
-    BS.trans F s k r = s.pts.getD k 0 := by
-  induction k using Nat.strong_induction_on with
-  | _ k ih =>
-    by_cases hk0 : 0 < k
-    · have hpar := hs.par_lt k hk0 hk
-      rw [BS.trans, dif_pos ⟨hk0, hpar⟩, ih _ hpar (by omega), hs.edge k hk0 hk]
-    · have hk0' : k = 0 := by omega
-      subst hk0'
-      rw [BS.trans, dif_neg (by simp), hs.root]
 
 theorem trans_isPermN {s : BS} (hs : RunOK n F lv r s) (hF : ∀ l ∈ lv, IsPermN n (F l)) {k : Nat}
     (hk : k < s.pts.length) : IsPermN n (BS.trans F s k) := by

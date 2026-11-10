@@ -161,9 +161,6 @@ private theorem exists_mul_ne_mul_of_isPerfect (S : Type) [Group S] [Nontrivial 
     exact h ⟨a, b, hab⟩
   exact Group.IsPerfect.not_isMulCommutative S (isMulCommutative_iff.mpr hcm)
 
-private theorem mem_setD_iff {i : Fin 6} :
-    i ∈ C2E6Std.setD ↔ i = 1 ∨ i = 2 ∨ i = 3 ∨ i = 4 := by
-  simp [C2E6Std.setD]
 
 private theorem notMem_setD_iff {i : Fin 6} : i ∉ C2E6Std.setD ↔ i = 0 ∨ i = 5 := by
   fin_cases i <;> simp [C2E6Std.setD]

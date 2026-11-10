@@ -621,10 +621,6 @@ theorem lineIdx_mul (hv : IsOrthonormalFrame hU v) {g h : GL (Fin 3) E}
   map_mul' g h := Equiv.ext fun i => lineIdx_mul hv ((mem_frameMonoSU hU v).mp g.2).1
     ((mem_frameMonoSU hU v).mp h.2).1 i
 
-theorem linePermHom_apply (hv : IsOrthonormalFrame hU v) (g : frameMonoSU hU v) (i : Fin 3) :
-    linePermHom hv g i = lineIdx v (((g : gramSU hU (1 : Matrix (Fin 3) (Fin 3) E)) :
-      GL (Fin 3) E) : Matrix (Fin 3) (Fin 3) E) i :=
-  rfl
 
 theorem ker_linePermHom (hv : IsOrthonormalFrame hU v) :
     (linePermHom hv).ker = (frameTorusSU hU v).subgroupOf (frameMonoSU hU v) := by

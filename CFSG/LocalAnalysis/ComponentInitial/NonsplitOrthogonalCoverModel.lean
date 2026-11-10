@@ -21,9 +21,6 @@ variable {K : Type*} [Field K] [CharP K 2]
 @[expose] def binEquiv [Finite K] (hK : Nat.card K = 2) : ZMod 2 ≃+* K :=
   RingEquiv.ofBijective (castTwo K) (castTwo_bijective hK)
 
-theorem binEquiv_apply [Finite K] (hK : Nat.card K = 2) (a : ZMod 2) :
-    binEquiv hK a = castTwo K a :=
-  rfl
 
 theorem castTwo_binEquiv_symm [Finite K] (hK : Nat.card K = 2) (x : K) :
     castTwo K ((binEquiv hK).symm x) = x :=
@@ -414,12 +411,6 @@ variable (K r) in
       abel
     rw [h0, uMap_zero_zero]
 
-omit [CharP K 2] in
-theorem mem_radN {g : orthElementaryGroup (quadTail r (minusTailForm K 1 1))} :
-    g ∈ radN K r ↔ ∃ (L : Fin r → Fin 2 → K) (C : Matrix (Fin r) (Fin r) K), Cᵀ = -C ∧
-      (∀ i, C i i = 0) ∧ (g : ((Fin r ⊕ Fin r → K) × (Fin 2 → K)) ≃ₗ[K] _) =
-        uMap (minusTailForm K 1 1) L C :=
-  Iff.rfl
 
 variable (K r) in
 @[expose] def radTau :

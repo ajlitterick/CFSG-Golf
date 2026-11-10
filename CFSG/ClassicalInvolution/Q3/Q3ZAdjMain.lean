@@ -35,23 +35,6 @@ theorem slMap_surjective (e : K ≃+* K') (m : ℕ) :
   ext i j
   simp
 
-theorem slMap_blockSL_zero (φ : K →+* K') (A : SL(2, K)) :
-    Matrix.SpecialLinearGroup.map φ (blockSL K 3 2 0 (by omega) A) =
-      blockSL K' 3 2 0 (by omega) (Matrix.SpecialLinearGroup.map φ A) := by
-  apply Subtype.ext
-  show φ.mapMatrix ((blockSL K 3 2 0 (by omega) A : SL(3, K)) : Matrix (Fin 3) (Fin 3) K) = _
-  rw [coe_blockSL_three_zero, coe_blockSL_three_zero]
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp
-
-theorem slMap_blockSL_one (φ : K →+* K') (A : SL(2, K)) :
-    Matrix.SpecialLinearGroup.map φ (blockSL K 3 2 1 (by omega) A) =
-      blockSL K' 3 2 1 (by omega) (Matrix.SpecialLinearGroup.map φ A) := by
-  apply Subtype.ext
-  show φ.mapMatrix ((blockSL K 3 2 1 (by omega) A : SL(3, K)) : Matrix (Fin 3) (Fin 3) K) = _
-  rw [coe_blockSL_three_one, coe_blockSL_three_one]
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp
 
 theorem range_comp_of_surjective {A B C : Type*} [Group A] [Group B] [Group C] (g : B →* C)
     {f : A →* B} (hf : Function.Surjective f) : (g.comp f).range = g.range := by
@@ -63,43 +46,6 @@ section Pairs
 
 variable {G : Type} [Group G] {F : Type} [Field F]
 
-theorem exists_pairA_zmod (e : ZMod 3 ≃+* F) {W U V : Subgroup G}
-    (h : LinearBlockStandardPair F W U V) :
-    ∃ θ : SL(3, ZMod 3) →* G,
-      Function.Injective (θ.comp (blockSL (ZMod 3) 3 2 1 (by omega))) ∧
-      (blockSL (ZMod 3) 3 2 0 (by omega)).range.map θ = U ∧
-      (blockSL (ZMod 3) 3 2 1 (by omega)).range.map θ = V := by
-  obtain ⟨θ, -, hker, h0, h1⟩ := pair_normalize h
-  obtain ⟨-, -, hinj1, -⟩ := pair_block_inj hker h0 h1
-  let Φ3 : SL(3, ZMod 3) →* SL(3, F) := Matrix.SpecialLinearGroup.map e.toRingHom
-  let Φ2 : SL(2, ZMod 3) →* SL(2, F) := Matrix.SpecialLinearGroup.map e.toRingHom
-  have c0 : (θ.comp Φ3).comp (blockSL (ZMod 3) 3 2 0 (by omega)) =
-      (θ.comp (blockSL F 3 2 0 (by omega))).comp Φ2 := by
-    ext A
-    exact congrArg θ (slMap_blockSL_zero e.toRingHom A)
-  have c1 : (θ.comp Φ3).comp (blockSL (ZMod 3) 3 2 1 (by omega)) =
-      (θ.comp (blockSL F 3 2 1 (by omega))).comp Φ2 := by
-    ext A
-    exact congrArg θ (slMap_blockSL_one e.toRingHom A)
-  refine ⟨θ.comp Φ3, ?_, ?_, ?_⟩
-  · rw [c1]
-    exact hinj1.comp (slMap_injective e 2)
-  · calc (blockSL (ZMod 3) 3 2 0 (by omega)).range.map (θ.comp Φ3)
-        = ((θ.comp Φ3).comp (blockSL (ZMod 3) 3 2 0 (by omega))).range :=
-          (MonoidHom.range_comp _ _).symm
-      _ = (θ.comp (blockSL F 3 2 0 (by omega))).range := by
-          rw [c0]
-          exact range_comp_of_surjective _ (slMap_surjective e 2)
-      _ = (B12 F).map θ := MonoidHom.range_comp _ _
-      _ = U := h0
-  · calc (blockSL (ZMod 3) 3 2 1 (by omega)).range.map (θ.comp Φ3)
-        = ((θ.comp Φ3).comp (blockSL (ZMod 3) 3 2 1 (by omega))).range :=
-          (MonoidHom.range_comp _ _).symm
-      _ = (θ.comp (blockSL F 3 2 1 (by omega))).range := by
-          rw [c1]
-          exact range_comp_of_surjective _ (slMap_surjective e 2)
-      _ = (B23 F).map θ := MonoidHom.range_comp _ _
-      _ = V := h1
 
 theorem exists_pairB_zmod (e : ZMod 3 ≃+* F) {W U V : Subgroup G}
     (h : SymplecticBlockStandardPair F W U V) :
@@ -154,42 +100,5 @@ theorem nonempty_ringEquiv_galoisField_three : Nonempty (ZMod 3 ≃+* GaloisFiel
   exact ⟨FiniteField.ringEquivOfCardEq (by
     rw [ZMod.card, ← Nat.card_eq_fintype_card, natCard_galoisField_three])⟩
 
-theorem weakCT3_symplectic_chain_of {G : Type} [Group G]
-    (hU : ∀ g : Fin 12 → G, RelsHold g v6Words →
-      ∃ ψ : StatedSp 3 (ZMod 3) →* G, ∀ i, ψ (v6Mat i) = g i)
-    (hC : ∀ k : Fin 24, gluingComplete k = false → ∀ g : Fin 12 → G,
-      RelsHold g (v6aWords k) → ∀ i, g i = 1)
-    (U : Fin 3 → Subgroup G) (hcomm : ∀ a ∈ U 0, ∀ b ∈ U 2, a * b = b * a)
-    (hA : ∃ W, WeakCT.LinearBlockStandardPair (GaloisField 3 1) W (U 0) (U 1))
-    (hB : ∃ W, Models.SymplecticPairs.SymplecticBlockStandardPair (GaloisField 3 1) W (U 2)
-      (U 1)) :
-    ∃ Ψ : StatedSp 3 (GaloisField 3 1) →* G,
-      Ψ.ker ≤ Subgroup.center (StatedSp 3 (GaloisField 3 1)) ∧
-      (Models.SymplecticPairs.longBlock (GaloisField 3 1) 3 2).range.map Ψ = U 2 := by
-  obtain ⟨e⟩ := nonempty_ringEquiv_galoisField_three
-  obtain ⟨WA, hWA⟩ := hA
-  obtain ⟨WB, hWB⟩ := hB
-  obtain ⟨θA, hιA, hA0, hA1⟩ := exists_pairA_zmod e hWA
-  obtain ⟨θB, hιL, hιS, hB2, hB1⟩ := exists_pairB_zmod e hWB
-  obtain ⟨ψ, hψ, x, hx⟩ := exists_hom_of_chain U hcomm hU hC θA hιA hA0 hA1 θB hιS hιL hB2 hB1
-  have hqs : IsQuasisimple (StatedSp 3 (GaloisField 3 1)) :=
-    CFSG.LieType.Universal.Symplectic.isQuasisimple 3 (GaloisField 3 1) (by norm_num)
-      (Or.inr (Or.inl ⟨natCard_galoisField_three, by norm_num⟩))
-  refine ⟨ψ.comp (spMap e.symm.toRingHom), ?_, ?_⟩
-  · obtain ⟨y, rfl⟩ := spMap_surjective e.symm x
-    exact CFSG.LieType.CurtisTits.ker_le_center_of_isQuasisimple hqs ⟨y, hx⟩
-  · have c : (ψ.comp (spMap e.symm.toRingHom)).comp (longBlock (GaloisField 3 1) 3 2) =
-        (ψ.comp (longBlock (ZMod 3) 3 2)).comp
-          (Matrix.SpecialLinearGroup.map e.symm.toRingHom) := by
-      ext A
-      exact congrArg ψ (spMap_longBlock e.symm.toRingHom 2 A)
-    calc (longBlock (GaloisField 3 1) 3 2).range.map (ψ.comp (spMap e.symm.toRingHom))
-        = ((ψ.comp (spMap e.symm.toRingHom)).comp (longBlock (GaloisField 3 1) 3 2)).range :=
-          (MonoidHom.range_comp _ _).symm
-      _ = (ψ.comp (longBlock (ZMod 3) 3 2)).range := by
-          rw [c]
-          exact range_comp_of_surjective _ (slMap_surjective e.symm 2)
-      _ = (longBlock (ZMod 3) 3 2).range.map ψ := MonoidHom.range_comp _ _
-      _ = U 2 := hψ
 
 end CFSG.ClassicalInvolution.Q3.Q3Z

@@ -20,8 +20,6 @@ theorem trace_tStar :
     LinearMap.trace ℚ SpaceB (tStar : SpaceB →ₗ[ℚ] SpaceB) = 4372 :=
   trace_rho_short isShortCoord_rStar
 
-theorem trace_xmat' :
-    LinearMap.trace ℚ SpaceB (xmat : SpaceB →ₗ[ℚ] SpaceB) = 276 := trace_xmat
 
 theorem trace_eq_of_isConj {a b : SpaceB ≃ₗ[ℚ] SpaceB} (h : IsConj a b) :
     LinearMap.trace ℚ SpaceB (a : SpaceB →ₗ[ℚ] SpaceB) =

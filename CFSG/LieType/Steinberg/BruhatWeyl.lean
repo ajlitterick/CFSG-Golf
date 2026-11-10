@@ -113,10 +113,6 @@ theorem rootGroup_le_borel {γ : Fin D.rank → ℤ} (hγ : γ ∈ D.roots) (h :
     D.rootGroup γ ≤ borel D H :=
   (rootGroup_le_posUnipotent hγ h).trans posUnipotent_le_borel
 
-theorem bruhatExtras_iff : BruhatExtras D H ↔
-    ((⨆ i, H i) ⊔ ⨆ γ ∈ {γ | γ ∈ D.roots ∧ 0 < ht γ}, D.rootGroup γ) ⊓
-      (⨆ γ ∈ {γ | γ ∈ D.roots ∧ ht γ < 0}, D.rootGroup γ) = ⊥ :=
-  ⟨fun h => h.borel_inf_negUnipotent, fun h => ⟨h⟩⟩
 
 namespace ActsAs
 
@@ -181,7 +177,6 @@ theorem actsAs_list_prod (ω : List (Fin D.rank)) : ActsAs D (ω.map n).prod ((c
 
 @[expose] noncomputable def nrep (w : W) : K := posLift (cs) n hct.braid w
 
-theorem nrep_eq_posLift (w : W) : nrep hct w = posLift (cs) n hct.braid w := rfl
 
 theorem nrep_wordProd {ω : List (Fin D.rank)} (hω : (cs).IsReduced ω) :
     nrep hct ((cs).wordProd ω) = (ω.map n).prod :=
@@ -302,11 +297,6 @@ theorem exists_actsAs {x : K} (hx : x ∈ weylN n H) : ∃ w : W, ActsAs D x w :
   obtain ⟨t, ht, ω, rfl⟩ := (mem_weylN_iff hct).1 hx
   exact ⟨1 * (cs).wordProd ω, (actsAs_of_mem_iSup hct ht).mul (actsAs_list_prod hct ω)⟩
 
-include hct in
-theorem existsUnique_actsAs (hext : SteinbergExtras D n H) {x : K} (hx : x ∈ weylN n H) :
-    ∃! w : W, ActsAs D x w :=
-  let ⟨w, hw⟩ := exists_actsAs hct hx
-  ⟨w, hw, fun _ hw' => hw'.unique hext hw⟩
 
 include hct in
 theorem exists_conj_n_eq (hext : SteinbergExtras D n H) {x : K} {w : W} (hx : ActsAs D x w)
@@ -419,9 +409,6 @@ theorem weylNHom_n (i : Fin D.rank) : weylNHom hct hext ⟨n i, n_mem_weylN i⟩
 theorem weylNHom_nrep (w : W) : weylNHom hct hext ⟨nrep hct w, nrep_mem_weylN hct w⟩ = w :=
   (weylNHom_eq_iff hct hext).2 (actsAs_nrep hct w)
 
-theorem weylNHom_of_mem_iSup {t : K} (ht : t ∈ ⨆ i, H i) :
-    weylNHom hct hext ⟨t, iSup_le_weylN ht⟩ = 1 :=
-  (weylNHom_eq_iff hct hext).2 (actsAs_of_mem_iSup hct ht)
 
 theorem weylNHom_surjective : Function.Surjective (weylNHom hct hext) :=
   fun w => ⟨_, weylNHom_nrep hct hext w⟩
@@ -436,12 +423,6 @@ include hct hext in
 theorem iSup_subgroupOf_weylN_normal : ((⨆ i, H i).subgroupOf (weylN n H)).Normal :=
   ker_weylNHom hct hext ▸ (weylNHom hct hext).normal_ker
 
-noncomputable def weylNQuotientEquiv :
-    haveI := iSup_subgroupOf_weylN_normal hct hext
-    weylN n H ⧸ (⨆ i, H i).subgroupOf (weylN n H) ≃* W :=
-  haveI := iSup_subgroupOf_weylN_normal hct hext
-  (QuotientGroup.quotientMulEquivOfEq (ker_weylNHom hct hext).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective _ (weylNHom_surjective hct hext))
 
 include hct in
 theorem borel_le_normalizer_posUnipotent :

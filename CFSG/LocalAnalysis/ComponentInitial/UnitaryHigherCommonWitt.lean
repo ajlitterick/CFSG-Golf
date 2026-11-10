@@ -239,17 +239,5 @@ theorem exists_common_witt_basis (h : UnitaryFieldData p f K) (ε : ℕ) (hε : 
         congr 1
         exact Set.image_congr fun x _ => by simp only [consHyp_shiftIdx, hux, subtype_apply]
 
-theorem unitary_common_Witt_flag_basis (h : UnitaryFieldData p f K) {V : Type u}
-    [AddCommGroup V] [Module K V] [FiniteDimensional K V] {B : V →ₛₗ[h.bar] V →ₗ[K] K}
-    (hB : B.IsSymm) (hBl : B.SeparatingLeft) {n : ℕ} (hn : finrank K V = n)
-    {F G : ℕ → Submodule K V} (hF : IsSelfDualFlag B n F) (hG : IsSelfDualFlag B n G) :
-    ∃ w : Basis (HypIndex (n / 2) (n - 2 * (n / 2))) K V,
-      (∀ x y, B (w x) (w y) = hypGram (n / 2) (n - 2 * (n / 2)) K x y) ∧
-      (∀ i ≤ n, F i = span K (w '' {x | fullPos x < i})) ∧
-      ∀ i ≤ n, ∃ s : Set (HypIndex (n / 2) (n - 2 * (n / 2))), G i = span K (w '' s) := by
-  have e : 2 * (n / 2) + (n - 2 * (n / 2)) = n := by omega
-  obtain ⟨w, hw, hFw, hGw⟩ := exists_common_witt_basis h (n - 2 * (n / 2)) (by omega) (n / 2)
-    hB hBl (by rw [hn, e]) F G (by rw [e]; exact hF) (by rw [e]; exact hG)
-  exact ⟨w, hw, fun i hi => hFw i (by omega), fun i hi => hGw i (by omega)⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

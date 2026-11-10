@@ -67,45 +67,6 @@ theorem relIndex_le_of_cyclic_mod_central {Y Z : Subgroup G} {p : ℕ} (hp : 0 <
   have := Nat.card_le_card_of_surjective f hf
   rwa [Nat.card_eq_fintype_card (α := Fin p), Fintype.card_fin] at this
 
-private def trivOnAbelianization (Y : Subgroup G) : Subgroup G where
-  carrier := {g | g ∈ Subgroup.normalizer (Y : Set G) ∧ ∀ y ∈ Y, g * y * g⁻¹ * y⁻¹ ∈ ⁅Y, Y⁆}
-  one_mem' := ⟨Subgroup.one_mem _, fun y _ => by simp⟩
-  mul_mem' := by
-    rintro g h ⟨hgN, hg⟩ ⟨hhN, hh⟩
-    refine ⟨Subgroup.mul_mem _ hgN hhN, fun y hy => ?_⟩
-    have hgZ : g ∈ Subgroup.normalizer ((⁅Y, Y⁆ : Subgroup G) : Set G) :=
-      Subgroup.mem_normalizer_iff_map_conj_eq.mpr
-        (by rw [Subgroup.map_commutator, Subgroup.mem_normalizer_iff_map_conj_eq.mp hgN])
-    have e : g * h * y * (g * h)⁻¹ * y⁻¹ =
-        (g * (h * y * h⁻¹ * y⁻¹) * g⁻¹) * (g * y * g⁻¹ * y⁻¹) := by group
-    rw [e]
-    exact Subgroup.mul_mem _ ((Subgroup.mem_normalizer_iff.mp hgZ _).mp (hh y hy)) (hg y hy)
-  inv_mem' := by
-    rintro g ⟨hgN, hg⟩
-    refine ⟨Subgroup.inv_mem _ hgN, fun y hy => ?_⟩
-    have hy' : g⁻¹ * y * g⁻¹⁻¹ ∈ Y :=
-      (Subgroup.mem_normalizer_iff.mp (Subgroup.inv_mem _ hgN) y).mp hy
-    have h1 := hg _ hy'
-    have e : g⁻¹ * y * g⁻¹⁻¹ * y⁻¹ = (g * (g⁻¹ * y * g⁻¹⁻¹) * g⁻¹ * (g⁻¹ * y * g⁻¹⁻¹)⁻¹)⁻¹ := by
-      group
-    rw [e]
-    exact Subgroup.inv_mem _ h1
-
-theorem conj_mem_of_coprime {Y : Subgroup G} {t : G} (htY : t ∈ Subgroup.normalizer (Y : Set G))
-    {n r : ℕ} (hnr : Nat.Coprime n r)
-    (hn : ∀ y ∈ Y, t ^ n * y * (t ^ n)⁻¹ * y⁻¹ ∈ ⁅Y, Y⁆)
-    (hr : ∀ y ∈ Y, t ^ r * y * (t ^ r)⁻¹ * y⁻¹ ∈ ⁅Y, Y⁆) :
-    ∀ y ∈ Y, t * y * t⁻¹ * y⁻¹ ∈ ⁅Y, Y⁆ := by
-  have h1 : t ^ n ∈ trivOnAbelianization Y := ⟨Subgroup.pow_mem _ htY n, hn⟩
-  have h2 : t ^ r ∈ trivOnAbelianization Y := ⟨Subgroup.pow_mem _ htY r, hr⟩
-  have hg : ((Nat.gcd n r : ℕ) : ℤ) = n * Nat.gcdA n r + r * Nat.gcdB n r := Nat.gcd_eq_gcd_ab n r
-  rw [hnr.gcd_eq_one, Nat.cast_one] at hg
-  have ht : t = (t ^ n) ^ (Nat.gcdA n r) * (t ^ r) ^ (Nat.gcdB n r) := by
-    rw [← zpow_natCast, ← zpow_natCast, ← zpow_mul, ← zpow_mul, ← zpow_add, ← hg, zpow_one]
-  have h3 : t ∈ trivOnAbelianization Y := by
-    rw [ht]
-    exact Subgroup.mul_mem _ (Subgroup.zpow_mem _ h1 _) (Subgroup.zpow_mem _ h2 _)
-  exact h3.2
 
 theorem isCyclic_of_le_map {G₁ G₂ : Type*} [Group G₁] [Group G₂] [Finite G₁] {p : ℕ}
     [Fact p.Prime] (φ : G₁ →* G₂) {B : Subgroup G₁}

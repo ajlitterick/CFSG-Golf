@@ -102,27 +102,6 @@ noncomputable def blockJ : K × K →ₗ[K] K × K :=
 lemma blockJ_apply (p q : K) : blockJ (K := K) (p, q) = (p, p + q) := by
   simp [blockJ]
 
-noncomputable def blockJFixedEquiv : K ≃ₗ[K] LinearMap.ker (blockJ (K := K) - 1) where
-  toFun q := ⟨(0, q), by
-    simp [LinearMap.mem_ker, blockJ]⟩
-  invFun z := z.1.2
-  map_add' x y := by
-    apply Subtype.ext
-    simp
-  map_smul' c x := by
-    apply Subtype.ext
-    simp
-  left_inv q := rfl
-  right_inv z := by
-    obtain ⟨⟨p, q⟩, hz⟩ := z
-    have hz' : blockJ (K := K) (p, q) = (p, q) := by
-      simpa [LinearMap.mem_ker, sub_eq_zero] using hz
-    have h : p + q = q := congrArg Prod.snd hz'
-    have hp : p = 0 := by
-      have h2 : p + q = 0 + q := by simpa using h
-      exact add_right_cancel h2
-    subst hp
-    exact Subtype.ext (Prod.ext rfl rfl)
 
 noncomputable def submodulePiEquiv {ι : Type*} {M : ι → Type*}
     [∀ i, AddCommGroup (M i)] [∀ i, Module K (M i)] (p : ∀ i, Submodule K (M i)) :

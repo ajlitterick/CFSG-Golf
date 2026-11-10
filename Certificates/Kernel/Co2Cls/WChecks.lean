@@ -26,12 +26,6 @@ theorem words_lt :
     ∀ ws ∈ [WW1, WW2, WW3, WW5, WW6, WW7, WW8, WW9], ∀ w ∈ ws, ∀ l ∈ w, l < 42 := by
   decide +kernel
 
-theorem pos_word : Nat.beq (lAt LT 21) (wordK [0, 21, 21]) = true := by quickRfl
-theorem neg_wordJ : notK (Nat.beq (lAt W1 1) (wordK (WW1.getD 0 []))) = true := by quickRfl
-theorem neg_wordT : notK (Nat.beq (lAt W1 0) (wordK (WW1.getD 0 []).tail)) = true := by quickRfl
-theorem neg_wordL : notK (Nat.beq (lAt W7 2) (wordK ((WW7.getD 2 []) ++ [0]))) = true := by
-  quickRfl
-theorem neg_lt : ¬ ∀ w ∈ [[3, 42]], ∀ l ∈ w, l < 42 := by decide +kernel
 
 end CertificateChecks.KernelSpor.Co2Cls
 

@@ -239,10 +239,6 @@ public noncomputable def psl2_three_equiv_alternatingGroup :
     PSL2 (ZMod 3) ≃* alternatingGroup (Fin 4) :=
   psl_three_equiv_alt
 
-/-- The projective line over `𝔽₃` has four points. -/
-public theorem projectiveLine_zmod3_card :
-    Nat.card (ℙ (ZMod 3) (Fin 2 → ZMod 3)) = 4 :=
-  projectiveLine_three_card
 
 /-- `PSL₂(3)` has order `12`. -/
 public theorem nat_card_psl2_zmod3 : Nat.card (PSL2 (ZMod 3)) = 12 :=

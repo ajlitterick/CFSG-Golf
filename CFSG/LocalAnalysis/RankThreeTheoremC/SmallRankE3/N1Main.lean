@@ -101,35 +101,5 @@ theorem p65_engineAt {p : ℕ} (hK1 : KFactP65RankThreeAt G) (hK2 : KFactP65Rank
     exact htail f F Fs R hf hf2 hfp hFp hF1 hFFs.le hFsM hFsp hBF hHM hBFs
       (fun F' h1 h2 h3 h4 => hFsmax.2 F' ⟨h1, h2, h3⟩ h4) hNFs hM2 hRH hR3 hcyc
 
-theorem p65_engine {p : ℕ} (hK1 : KFactP65RankThree) (hK2 : KFactP65RankTwo)
-    (hKA : KFactP65SingleAt p) (hβ : NoTwoComponentsAt p) {P : Sylow p G} {M : Subgroup G}
-    (hS : Sit G p P M) {x z : G} (hx : SmallRankPoint P M x) (hz : SmallRankCentral P z)
-    (htail : P65AfterLemma68 p M x z) {F : Subgroup G} (hF1 : F ≠ ⊥) (hFM : F ≤ M)
-    (hcop : Nat.Coprime p (Nat.card F)) (hodd : Odd (Nat.card F))
-    (hBF : zpowers x ⊔ zpowers z ≤ normalizer (F : Set G)) : normalizer (F : Set G) ≤ M :=
-  p65_engineAt (hK1 G) (hK2 G) hKA hβ hS hx hz htail hF1 hFM hcop hodd hBF
-
-theorem stepP65OddFive_of_kfacts (hK1 : KFactP65RankThree) (hK2 : KFactP65RankTwo)
-    (hK3 : KFactP65SingleE3) (hβ : NoTwoComponentsE3) : StepP65OddFive := by
-  intro G _ _ hSet hD1 P M hsit x z hx hz F hF1 hFM hcop5 hodd hBF
-  have hU0 : FullCoreLocal G := fullCoreLocal_of_theoremD1_situation_five hSet hD1 hsit
-  have hS : Sit G 5 P M := ⟨hSet, hU0, hsit, le_rfl⟩
-  refine p65_engine hK1 hK2 hK3.toAt hβ.toAt hS hx hz ?_ hF1 hFM hcop5 hodd hBF
-  intro f F Fs R hf hf2 hfp _ _ _ hFsM hFsp _ _ _ _ _ hM2 hRH hR3 hcyc
-  have hprime : (5 : ℕ).Prime := Nat.prime_five
-  obtain ⟨hDM, hMD, hDp⟩ := CFSG.LocalAnalysis.RankThreeUC.rankThreePrimeCore_spec 5 M
-  have hX3 : Open.pRank f M ≤ 3 :=
-    (local_pRank_le_evenRank f hf hf2 M hS.isTwoLocal).trans hSet.rank.le
-  have hX7 : 7 ≤ f → Open.pRank f M ≤ 2 := fun h7 =>
-    pRank_le_two_of_five_mem hSet.rank hsit.mem_sigmaA hf (by omega) hS.isTwoLocal
-  exact lemma69_e3 (X := M) (D := rankThreePrimeCore 5 M) (Fs := Fs) (R := R) rfl hf hf2 hfp
-    (fun N _ hN => hS.eq_top_of_isPGroup_quotient N hN) hDM
-    (fun y hy d hd => (mem_normalizer_iff.mp (hMD hy) d).mp hd)
-    ((Nat.Prime.coprime_iff_not_dvd hprime).mp hDp)
-    hFsp hFsM hM2 hRH hR3 hcyc hX3 hX7
-
-theorem slotProp65Five_of_kfacts (hK1 : KFactP65RankThree) (hK2 : KFactP65RankTwo)
-    (hK3 : KFactP65SingleE3) (hβ : NoTwoComponentsE3) : SlotProp65Five :=
-  slotProp65Five_of_stepP65OddFive (stepP65OddFive_of_kfacts hK1 hK2 hK3 hβ)
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3.N1

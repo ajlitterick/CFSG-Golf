@@ -58,29 +58,5 @@ public theorem fact_2_preamble_H_eq_SU
     (c.S : Subgroup G) ⊔ c.U = c.H := by
   exact fact_2_preamble_H_eq_SU_proved hmin c
 
-/-- The equality alternative in Lemma 2.3(iii).  If the normalizer-control
-arrows run both ways, the maximal subgroups coincide unless their generalized
-Fitting subgroups are `p`-groups for one common prime.
-
-Proof (via the control-core bridge of
-`GorensteinWalter/Section2/ControlCore.lean`): the layer of `A` centralizes
-`F(A)` (KS 6.5.2/6.5.3, proved in `ControlCore.lean`), so
-`NormalizerControlledBy` yields the `ControlCore` relation
-(`controlCore_of_normalizerControlledBy`), and the arrow form
-`lemma_2_3_of_controlCore` (Bender [1, 1.6/1.7]) gives the alternative. -/
-public theorem lemma_2_3
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    {A M : Subgroup G}
-    (hA : IsCoatom A) (hM : IsCoatom M)
-    (hAM : NormalizerControlledBy A M)
-    (hMA : NormalizerControlledBy M A) :
-    A = M ∨
-      ∃ p : ℕ, p.Prime ∧
-        IsPGroup p (generalizedFittingSubgroupOf A) ∧
-          IsPGroup p (generalizedFittingSubgroupOf M) :=
-  lemma_2_3_of_controlCore (minimalCounterexample_isSimple hmin) hA hM
-    (controlCore_of_normalizerControlledBy hAM)
-    (controlCore_of_normalizerControlledBy hMA)
 
 end CFSG.GorensteinWalter

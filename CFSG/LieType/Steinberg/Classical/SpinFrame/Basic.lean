@@ -43,8 +43,6 @@ theorem boolSign_add_boolSign_not (s : Bool) : boolSign s + boolSign (!s) = 0 :=
 theorem boolSign_mul_self (s : Bool) : boolSign s * boolSign s = 1 := by
   cases s <;> rfl
 
-theorem boolSign_eq_boolSign_iff {s t : Bool} : boolSign s = boolSign t ↔ s = t :=
-  boolSign_injective.eq_iff
 
 theorem IsLong.apply_mem {e : Fin n → ℤ} (he : IsLong e) (m : Fin n) :
     e m = 0 ∨ e m = 1 ∨ e m = -1 := by
@@ -102,14 +100,6 @@ theorem repSign_eq_one_or_eq_neg_one (i j : Fin n) (s t : Bool) :
   · exact boolSign_eq_one_or_eq_neg_one s
   · rcases boolSign_eq_one_or_eq_neg_one t with h | h <;> rw [h] <;> simp
 
-theorem repSign_mul_self (i j : Fin n) (s t : Bool) : repSign i j s t * repSign i j s t = 1 := by
-  rcases repSign_eq_one_or_eq_neg_one i j s t with h | h <;> rw [h] <;> rfl
-
-theorem repSign_swap {i j : Fin n} (hij : i ≠ j) (s t : Bool) :
-    repSign j i t s = -repSign i j s t := by
-  rcases lt_or_gt_of_ne hij with h | h
-  · rw [repSign_of_not_lt (lt_asymm h), repSign_of_lt h]
-  · rw [repSign_of_lt h, repSign_of_not_lt (lt_asymm h), neg_neg]
 
 end Vectors
 

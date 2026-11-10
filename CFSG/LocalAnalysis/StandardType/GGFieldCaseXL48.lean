@@ -21,43 +21,6 @@ variable {G : Type} [Group G]
 
 end Defs
 
-@[expose] def GGL48QuotInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        ∃ ψ : Subgroup.normalizer (U₁ : Set G) →* Multiplicative (ZMod p), ψ ≠ 1
-
-@[expose] def GGL48CentInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        x ∉ ⁅ggL48H0 x U₁, ggL48H0 x U₁⁆ ⊔ ggL48U2 x U₁
-
-@[expose] def GGL48NonCoverInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        x ∉ ⁅ggL48H0 x U₁, ggL48H0 x U₁⁆ ⊔ ggL48U2 x U₁ →
-        ¬ Subgroup.normalizer (U₁ : Set G) ≤
-          ggL48H0 x U₁ ⊔ Subgroup.centralizer (U₁ : Set G) →
-        ∃ ψ : Subgroup.normalizer (U₁ : Set G) →* Multiplicative (ZMod p), ψ ≠ 1
-
-@[expose] def GGL48NonCoverXInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        x ∉ ⁅ggL48H0 x U₁, ggL48H0 x U₁⁆ ⊔ ggL48U2 x U₁ →
-        ¬ Subgroup.normalizer (U₁ : Set G) ≤
-          ggL48H0 x U₁ ⊔ Subgroup.centralizer (U₁ : Set G) →
-        x ∉ ⁅Subgroup.normalizer (U₁ : Set G), Subgroup.normalizer (U₁ : Set G)⁆
 
 namespace GGL48
 
@@ -308,39 +271,6 @@ theorem not_mem_commutator_of_cover {p : ℕ} {B Bs : Subgroup G} {x : G}
 
 end Config
 
-theorem ggL48QuotInput_of_ggL48Input (h : GGL48Input) : GGL48QuotInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA
-  obtain ⟨hp, hxp, hxN, -, -⟩ := ggL48_facts hS h46 hRp hRmax hA
-  have : Fact p.Prime := ⟨hp⟩
-  exact exists_monoidHom_zmod_ne_one_of_not_mem_commutator' hxN hxp
-    (h G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA)
-
-theorem ggL48NonCoverInput_of_x (h : GGL48NonCoverXInput) : GGL48NonCoverInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov
-  obtain ⟨hp, hxp, hxN, -, -⟩ := ggL48_facts hS h46 hRp hRmax hA
-  have : Fact p.Prime := ⟨hp⟩
-  exact exists_monoidHom_zmod_ne_one_of_not_mem_commutator' hxN hxp
-    (h G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov)
-
-theorem ggL48Input_of_cent (hC : GGL48CentInput) (hN : GGL48NonCoverXInput) : GGL48Input := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA
-  have hcent := hC G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA
-  by_cases hcov : Subgroup.normalizer (U₁ : Set G) ≤
-      ggL48H0 x U₁ ⊔ Subgroup.centralizer (U₁ : Set G)
-  · exact not_mem_commutator_of_cover hS h46 hRp hRmax hA hcent hcov
-  · exact hN G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov
-
-theorem ggL48QuotInput_of_cent (hC : GGL48CentInput) (hN : GGL48NonCoverInput) :
-    GGL48QuotInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA
-  have hcent := hC G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA
-  by_cases hcov : Subgroup.normalizer (U₁ : Set G) ≤
-      ggL48H0 x U₁ ⊔ Subgroup.centralizer (U₁ : Set G)
-  · obtain ⟨hp, hxp, hxN, -, -⟩ := ggL48_facts hS h46 hRp hRmax hA
-    have : Fact p.Prime := ⟨hp⟩
-    exact exists_monoidHom_zmod_ne_one_of_not_mem_commutator' hxN hxp
-      (not_mem_commutator_of_cover hS h46 hRp hRmax hA hcent hcov)
-  · exact hN G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov
 
 end CFSG.StandardType
 

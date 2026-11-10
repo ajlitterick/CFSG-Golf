@@ -69,8 +69,6 @@ theorem toGL_beta_pow (b μ : Fˣ) (k : ℕ) (X : SpecialLinearGroup (Fin 2) F) 
       simp only [toAdd_mul, ZMod.val_add]
       rw [← pow_eq_pow_mod _ hg, pow_add] }
 
-theorem cyclicHom_apply (g : GL (Fin 2) F) (m : ℕ) (hm : 0 < m) (hg : g ^ (2 * m) = 1)
-    (j : Multiplicative (ZMod (2 * m))) : cyclicHom g m hm hg j = g ^ j.toAdd.val := rfl
 
 theorem scaledJ_pow_two_mul_eq_one (b μ : Fˣ) (m : ℕ) (heven : Even m)
     (hμ : (μ ^ 2 * -b) ^ (m / 2) = -1) : scaledJ b μ ^ (2 * m) = 1 := by
@@ -124,10 +122,6 @@ theorem diagonalKernel_le_ker (b μ : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even 
     (hμ : (μ ^ 2 * -b) ^ (m / 2) = -1) : CentralExtension F b m hm heven →* GL (Fin 2) F :=
   QuotientGroup.lift _ (pairHom b μ m hm heven hμ) (diagonalKernel_le_ker b μ m hm heven hμ)
 
-theorem centralEmbedding_quotientClass (b μ : Fˣ) (m : ℕ) (hm : 0 < m) (heven : Even m)
-    (hμ : (μ ^ 2 * -b) ^ (m / 2) = -1) (X : SpecialLinearGroup (Fin 2) F) (j : ZMod (2 * m)) :
-    centralEmbedding b μ m hm heven hμ (quotientClass F b m hm heven X j) =
-      SpecialLinearGroup.toGL X * scaledJ b μ ^ j.val := rfl
 
 theorem orderOf_det_scaledJ (b μ : Fˣ) (n : ℕ) (hn : 2 ≤ n)
     (hμ : (μ ^ 2 * -b) ^ (2 ^ n / 2) = -1) (hneg : (-1 : Fˣ) ≠ 1) :

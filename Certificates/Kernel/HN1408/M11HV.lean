@@ -13,8 +13,6 @@ set_option maxRecDepth 400000
 
 namespace CFSG.KD.HN1408.M11Gen
 
-meta def hvA : Array (Array Nat) :=
-  rA.map fun t => #[(CFSG.Sporadic.SmallOddCore.Native.hkey 1408 (t.map UInt32.ofNat)).toNat]
 
 end CFSG.KD.HN1408.M11Gen
 

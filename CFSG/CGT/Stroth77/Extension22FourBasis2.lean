@@ -311,24 +311,6 @@ theorem sqQuotientHom_range_le_cParity_ker
   rw [hcard_range] at hle_card
   omega
 
-theorem sq_range_eq_ab
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C))
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hm : 1 ≤ m) :
-    (sqQuotientHom (isMulCommutative_of_relIndex_four_of_not_cyclic hB hBC hC hrel hL hncyc)
-        hB.data hBC hC hrel hncyc).range = (cParityQuotient hB.data hm).ker := by
-  have hcommC : IsMulCommutative C :=
-    isMulCommutative_of_relIndex_four_of_not_cyclic hB hBC hC hrel hL hncyc
-  refine Subgroup.eq_of_le_of_card_ge
-    (sqQuotientHom_range_le_cParity_ker hcommC hB.data hBC hC hrel hncyc hL hH hcS hm) ?_
-  rw [sqQuotientHom_range_card hcommC hB.data hBC hC hrel hncyc hH hcS,
-    cParityQuotient_ker_card hB.data hm]
-
 
 theorem t100_a_not_mem_sqSubgroup
     (D : StrothTypeData B (StrothTypeIndex.t100 m)) (hm : 1 ≤ m) :
@@ -376,81 +358,6 @@ theorem t100_ab_not_mem_sqSubgroup
     Pi.single_eq_of_ne (by decide : (2 : Fin 3) ≠ 1), neg_zero, add_zero] at h1
   exact one_ne_zero h1
 
-theorem exists_sq_eq_a_b
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C))
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hm : 1 ≤ m) :
-    ∃ e f : C, e * e = ⟨hB.data.a, hBC hB.data.a.2⟩ ∧
-      f * f = ⟨hB.data.b, hBC hB.data.b.2⟩ := by
-  classical
-  let D := hB.data
-  let hcommC : IsMulCommutative C :=
-    isMulCommutative_of_relIndex_four_of_not_cyclic hB hBC hC hrel hL hncyc
-  let sq := sqQuotientHom hcommC D hBC hC hrel hncyc
-  have hca : cParity D hm D.a = 0 := by
-    rw [cParity, D.ec_a]
-    simp [Torus.a, gen, Pi.single_apply]
-  have hcb : cParity D hm D.b = 0 := by
-    rw [cParity, D.ec_b]
-    simp [Torus.b, gen, Pi.single_apply]
-  have ha_range : QuotientGroup.mk' (sqSubgroup D) D.a ∈ sq.range := by
-    have hreq := sq_range_eq_ab hB hBC hC hrel hL hncyc hH hcS hm
-    rw [show sq.range = (cParityQuotient D hm).ker from hreq]
-    rw [MonoidHom.mem_ker, cParityQuotient_mk, cParityHom_apply, hca]
-    rfl
-  have hb_range : QuotientGroup.mk' (sqSubgroup D) D.b ∈ sq.range := by
-    have hreq := sq_range_eq_ab hB hBC hC hrel hL hncyc hH hcS hm
-    rw [show sq.range = (cParityQuotient D hm).ker from hreq]
-    rw [MonoidHom.mem_ker, cParityQuotient_mk, cParityHom_apply, hcb]
-    rfl
-  obtain ⟨e0, he0⟩ := MonoidHom.mem_range.mp ha_range
-  obtain ⟨f0, hf0⟩ := MonoidHom.mem_range.mp hb_range
-  have haC : (⟨D.a, hBC D.a.2⟩ : C) = Subgroup.inclusion hBC D.a := rfl
-  have hbC : (⟨D.b, hBC D.b.2⟩ : C) = Subgroup.inclusion hBC D.b := rfl
-  let ea : B := ⟨(e0 : S) * (e0 : S),
-    sq_mem_of_not_cyclic_quotient_four hBC hC hrel hncyc e0⟩
-  have hsq_e0 : sq e0 = QuotientGroup.mk' (sqSubgroup D) ea := rfl
-  have hza : ea⁻¹ * D.a ∈ sqSubgroup D := by
-    have h := (QuotientGroup.eq (s := sqSubgroup D)).mp (by simpa [hsq_e0] using he0)
-    simpa using h
-  obtain ⟨sa, hsa⟩ := exists_sq_eq_of_mem_sqSubgroup D hza
-  let saC : C := Subgroup.inclusion hBC sa
-  have hsaC : saC * saC = (Subgroup.inclusion hBC ea)⁻¹ * (⟨D.a, hBC D.a.2⟩ : C) := by
-    apply Subtype.ext
-    have h := congrArg (fun z : B => (z : S)) hsa
-    simpa [saC, ea] using h
-  have he_sq : (e0 * saC) * (e0 * saC) = ⟨D.a, hBC D.a.2⟩ := by
-    calc (e0 * saC) * (e0 * saC) = (e0 * e0) * (saC * saC) := by
-          rw [mul_mul_mul_comm]
-      _ = (e0 * e0) * ((Subgroup.inclusion hBC ea)⁻¹ * ⟨D.a, hBC D.a.2⟩) := by rw [hsaC]
-      _ = ⟨D.a, hBC D.a.2⟩ := by
-          rw [show (e0 * e0 : C) = Subgroup.inclusion hBC ea from rfl]
-          rw [← mul_assoc, mul_inv_cancel, one_mul]
-  let fb : B := ⟨(f0 : S) * (f0 : S),
-    sq_mem_of_not_cyclic_quotient_four hBC hC hrel hncyc f0⟩
-  have hsq_f0 : sq f0 = QuotientGroup.mk' (sqSubgroup D) fb := rfl
-  have hzb : fb⁻¹ * D.b ∈ sqSubgroup D := by
-    have h := (QuotientGroup.eq (s := sqSubgroup D)).mp (by simpa [hsq_f0] using hf0)
-    simpa using h
-  obtain ⟨sb, hsb⟩ := exists_sq_eq_of_mem_sqSubgroup D hzb
-  let sbC : C := Subgroup.inclusion hBC sb
-  have hsbC : sbC * sbC = (Subgroup.inclusion hBC fb)⁻¹ * (⟨D.b, hBC D.b.2⟩ : C) := by
-    apply Subtype.ext
-    have h := congrArg (fun z : B => (z : S)) hsb
-    simpa [sbC, fb] using h
-  have hf_sq : (f0 * sbC) * (f0 * sbC) = ⟨D.b, hBC D.b.2⟩ := by
-    calc (f0 * sbC) * (f0 * sbC) = (f0 * f0) * (sbC * sbC) := by
-          rw [mul_mul_mul_comm]
-      _ = (f0 * f0) * ((Subgroup.inclusion hBC fb)⁻¹ * ⟨D.b, hBC D.b.2⟩) := by rw [hsbC]
-      _ = ⟨D.b, hBC D.b.2⟩ := by
-          rw [show (f0 * f0 : C) = Subgroup.inclusion hBC fb from rfl]
-          rw [← mul_assoc, mul_inv_cancel, one_mul]
-  exact ⟨e0 * saC, f0 * sbC, he_sq, hf_sq⟩
 
 theorem closure_c_e_f_of_comm
     (hcommC : IsMulCommutative C)
@@ -627,20 +534,6 @@ theorem orderOf_eq_two_pow_succ_of_sq {G : Type*} [Group G] [Finite G]
   have hk : k = m + 2 := by omega
   rw [hk_eq, hk]
 
-theorem closure_c_e_f
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C))
-    (hm : 1 ≤ m) {e f : C}
-    (he : e * e = ⟨hB.data.a, hBC hB.data.a.2⟩)
-    (hf : f * f = ⟨hB.data.b, hBC hB.data.b.2⟩) :
-    Subgroup.closure ({⟨hB.data.c, hBC hB.data.c.2⟩, e, f} : Set C) = ⊤ :=
-  closure_c_e_f_of_comm
-    (isMulCommutative_of_relIndex_four_of_not_cyclic hB hBC hC hrel hL hncyc)
-    hB.data hBC hrel hm he hf
 
 theorem torusBasisEquivFour_of_sq
     [hN : (B.subgroupOf C).Normal]
@@ -689,19 +582,3 @@ theorem torusBasisEquivFour_of_sq
     orderOf_eq_two_pow_succ_of_sq hf hbC_order
   exact torusBasisEquivFour_of_generators hcommC D hBC hrel hgenS he_order hf_order
 
-theorem torusBasisEquivFour
-    [hN : (B.subgroupOf C).Normal]
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C))
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hm : 1 ≤ m) :
-    ∃ e f : C, e * e = ⟨hB.data.a, hBC hB.data.a.2⟩ ∧
-      f * f = ⟨hB.data.b, hBC hB.data.b.2⟩ ∧
-      Nonempty (TorusBasisEquivFour hB.data hBC e f) := by
-  have hcommC : IsMulCommutative C :=
-    isMulCommutative_of_relIndex_four_of_not_cyclic hB hBC hC hrel hL hncyc
-  obtain ⟨e, f, he, hf⟩ := exists_sq_eq_a_b hB hBC hC hrel hL hncyc hH hcS hm
-  exact ⟨e, f, he, hf, torusBasisEquivFour_of_sq hcommC hB.data hBC hrel hm he hf⟩

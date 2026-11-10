@@ -26,9 +26,6 @@ section Basic
 
 variable {a s : ℕ} (haσ : ∀ x : k, (σ x * x) ^ a = x ^ 2) (hsσ : ∀ x : k, (σ x * x ^ 2) ^ s = x)
 
-omit [Fintype k] [CharP k 3] in
-theorem sigmaP_mul (x y : k) : σ (x * y) * (x * y) ^ 2 = σ x * x ^ 2 * (σ y * y ^ 2) := by
-  rw [map_mul]; ring
 
 omit [Fintype k] [CharP k 3] in
 theorem sigmaQ_mul (x y : k) : σ (x * y) * (x * y) = σ x * x * (σ y * y) := by

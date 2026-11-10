@@ -207,11 +207,6 @@ theorem exists_comp_ne_one (D : LieSystemData3 ι Yb Ψ) (θ : Yb →* X) (hθ :
           exact Subgroup.mem_centralizer_singleton_iff.mp ((iSup_le hcen) hg)
     · exact Or.inr (Or.inr (range_m11 hM hc (θ.comp (D.hom i)) (exists_comp_ne_one D θ hθ i)))
 
-theorem lieDecomposition3Of_Q (h0 : ModelClauseZero) (hM : M11Facts)
-    (D : LieSystemData3 ι Yb Ψ) (θ : Yb →* X) (hθ : Function.Injective θ)
-    (hnc : ∀ L ∈ Ψ, ¬ L ≤ Subgroup.center Yb) (i : ι) :
-    (lieDecomposition3Of h0 hM D θ hθ hnc).Q i = (θ.comp (D.hom i)).range :=
-  rfl
 
 theorem eq_range_or_commutes [Finite X] (h0 : ModelClauseZero) (hM : M11Facts)
     (D : LieSystemData3 ι Yb Ψ) (θ : Yb →* X) (hθ : Function.Injective θ)

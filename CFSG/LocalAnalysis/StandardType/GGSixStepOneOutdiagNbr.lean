@@ -128,10 +128,6 @@ theorem ggSixInnerOnKdInput_of_prime (hN : GGInndiagNormalInput)
     (hpJ : GGStdSubPrimeInput) : GGSixInnerOnKdInput :=
   ggSixInnerOnKdInput_of_nbr hN hc₀ hc₁ hc₂ (ggSixKdNbrInput_of_prime hpJ)
 
-theorem ggSixInndiagNormalInput_of_prime (hN : GGInndiagNormalInput)
-    (hc₀ : GGFieldNbrCanonicalInput) (hc₁ : GGProp41Input) (hc₂ : GGCor42Input)
-    (hpJ : GGStdSubPrimeInput) (hJ : GGSixBstarInnerDiagJInput) : GGSixInndiagNormalInput :=
-  ggSixInndiagNormalInput_of_nbr hN hc₀ hc₁ hc₂ (ggSixKdNbrInput_of_prime hpJ) hJ
 
 end Main
 

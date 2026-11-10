@@ -50,16 +50,6 @@ variable (p f) in
         SectionConnected Ω u → SpinSection p f Ω u →
           rLayer Ω u ≤ sigmaGen Ω K ∨ rLayer Ω u ≤ rLayer Ω (t * z)
 
-variable (p f) in
-@[expose] def SpinSectionRecog : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K K' : Subgroup G)
-    (z u : G) (J : Subgroup G) (t : G) (W : Subgroup G), Hyp21 p f Ω K K' z u J t W → u ∈ W →
-      alphaOf (Subgroup.closure {u, z}) = ⊥ → dComp Ω K ≠ dstarComp Ω K →
-        SectionConnected Ω u → SpinSection p f Ω u → False
-
-theorem spinSectionConn_of_recog (h : SpinSectionRecog p f) : SpinSectionConn p f :=
-  fun G _ _ _ Ω K K' z u J t W hH huW hα hne hconn hspin =>
-    (h G Ω K K' z u J t W hH huW hα hne hconn hspin).elim
 
 theorem c21_14_Y_conn_W_of_spinSectionConn (hHt : TwinFrameHyp51t p f) (hHu : TwinFrameHyp51u p f)
     (hSpin : SpinSectionConn p f) : C21_14_Y_conn_W p f := by
@@ -81,15 +71,6 @@ theorem c21_14_Y_conn_W_of_spinSectionConn (hHt : TwinFrameHyp51t p f) (hHu : Tw
     exact le_iSup₂_of_le R hR (le_iSup_of_le (hRY.trans hY) le_rfl)
   · exact hSpin G Ω K K' z u J t W h huW hα hne hconn hspin
 
-theorem c21_14_Y_conn_W_of_spinRecog (hHt : TwinFrameHyp51t p f) (hHu : TwinFrameHyp51u p f)
-    (hSpin : SpinSectionRecog p f) : C21_14_Y_conn_W p f :=
-  c21_14_Y_conn_W_of_spinSectionConn hHt hHu (spinSectionConn_of_recog hSpin)
-
-theorem c21_14_Y_conn_W_iff_spinSectionConn (hHt : TwinFrameHyp51t p f)
-    (hHu : TwinFrameHyp51u p f) : C21_14_Y_conn_W p f ↔ SpinSectionConn p f :=
-  ⟨fun hc G _ _ _ Ω K K' z u J t W h huW hα hne hconn _ =>
-    hc G Ω K K' z u J t W h huW hα hne hconn,
-    c21_14_Y_conn_W_of_spinSectionConn hHt hHu⟩
 
 end Main
 

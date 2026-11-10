@@ -38,14 +38,6 @@ theorem ltEdge_not_isDiag (p : LtPair) : ¬ (ltEdge p).IsDiag := by
   rw [Sym2.mk_isDiag_iff]
   exact p.2.ne
 
-theorem ltEdge_injective : Function.Injective ltEdge := by
-  intro p q h
-  rcases Sym2.eq_iff.1 h with ⟨h1, h2⟩ | ⟨h1, h2⟩
-  · exact ltPair_eq h1 h2
-  · have h3 : q.1.2 < q.1.1 := by
-      rw [← h1, ← h2]
-      exact p.2
-    exact absurd q.2 (lt_asymm h3)
 
 private theorem ind3 (a b c : Prop) [Decidable a] [Decidable b] [Decidable c] :
     (if a then (1 : ℚ) else 0) * (if b then 1 else 0) * (if c then 1 else 0) =

@@ -117,9 +117,5 @@ theorem statedClassicalModel_typeD_even (r : ℕ) (q : PrimePower) (hv : (LieTyp
   rw [ValidLieTypeIndex.card_fixedField]
   simp [ValidLieTypeIndex.fieldOrder]
 
-theorem catalogBridgeFor_D_even (r : ℕ) (q : PrimePower) (hv : (LieTypeIndex.D r q).Valid)
-    (hp : q.p = 2) : CFSG.QuasithinUnique.B1.CatalogBridgeFor (.lie ⟨.D r q, hv⟩) := by
-  intro G _ _ _ ⟨e⟩
-  exact Or.inr (Or.inr (Or.inl ⟨_, _, _, _, statedClassicalModel_typeD_even r q hv hp e⟩))
 
 end CFSG.RankThree.PartTwo.Census

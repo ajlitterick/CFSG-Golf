@@ -160,9 +160,6 @@ theorem tripleLevel_le_dLevel {p : ℕ} {B L : Subgroup G} {x : G} (hS : IsSTrip
     rintro j ⟨B', x', L', -, rfl⟩
     exact tripleLevel_le_five' p B' L'⟩ ⟨B, x, L, hS, rfl⟩
 
-theorem kLevel_le_four (p : ℕ) (S : Type) [Group S] : kLevel p S ≤ 4 := by
-  unfold kLevel
-  split_ifs <;> omega
 
 theorem tripleLevel_le_of_pumpRel {p : ℕ} (h49 : Lemma49At G p) {t t' : Triple G}
     (hrel : PumpRel p t t') : tripleLevel p t.1 t.2.2 ≤ tripleLevel p t'.1 t'.2.2 := by

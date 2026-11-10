@@ -177,9 +177,6 @@ theorem modelStarFact : ModelStarFact p := by
   exact ⟨R_β, hRβ, R₁, hR₁, R₂, hR₂, Relation.ReflTransGen.refl, Relation.ReflTransGen.refl,
     a, b, c⟩
 
-theorem multiPiece_of_exotic {f : ℕ} (hconn : ModelConnExotic p) (hno : NoG2D4 p f) :
-    MultiPiece p f :=
-  multiPiece_of_modelFactsNe (modelConnFactNe_of_exotic hconn) modelStarFact hno
 
 end Models
 

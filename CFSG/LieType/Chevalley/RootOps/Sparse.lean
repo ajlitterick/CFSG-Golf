@@ -189,15 +189,6 @@ theorem validVec_nPos (i : Fin τ.rank) {p : ℕ} (hp : p < dim τ) : ValidVec �
 @[expose] def nVecL (τ : Tag) (i : Fin τ.rank) (v : List (ℕ × ℤ)) : List (ℕ × ℤ) :=
   v.flatMap fun x => (nPos τ i x.1).map fun y => (y.1, x.2 * y.2)
 
-theorem weylElt_vecOf (i : Fin τ.rank) {v : List (ℕ × ℤ)} (hv : ValidVec τ v) :
-    (weylElt τ R i 1 : Module.End R (RootModule τ R)) (vecOf τ R v) =
-      vecOf τ R (nVecL τ i v) := by
-  induction v with
-  | nil => simp [nVecL]
-  | cons x v ih =>
-    rw [vecOf_cons, map_add, map_smul, weylElt_posVec i (hv x (List.mem_cons_self ..)),
-      ih fun y hy => hv y (List.mem_cons_of_mem _ hy)]
-    simp only [nVecL, List.flatMap_cons, vecOf_append, vecOf_map_mul]
 
 @[expose] def insertCoeff (x : ℕ × ℤ) : List (ℕ × ℤ) → List (ℕ × ℤ)
   | [] => [x]

@@ -65,13 +65,6 @@ theorem simple_nonabelian_center_eq_bot
     have hmem : second ∈ Subgroup.center G := by rw [htop]; trivial
     exact (hne (Subgroup.mem_center_iff.mp hmem first)).elim
 
-theorem simple_odd_normal_subgroup_eq_bot (heven : Even (Nat.card G))
-    (subgroup : Subgroup G) (hnormal : subgroup.Normal) (hodd : Odd (Nat.card subgroup)) :
-    subgroup = ⊥ := by
-  rcases CFSG.eq_bot_or_eq_top_of_normal subgroup hnormal with hbot | htop
-  · exact hbot
-  · rw [htop, Subgroup.card_top] at hodd
-    exact ((Nat.not_even_iff_odd.mpr hodd) heven).elim
 
 theorem simple_even_sylow_two_not_cyclic [Finite G]
     (hnonab : ∃ first second : G, first * second ≠ second * first)

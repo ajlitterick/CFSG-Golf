@@ -237,9 +237,5 @@ theorem catalogBridgeFor_twistedD (r : ℕ) (q : PrimePower)
   intro G _ _ _ ⟨e⟩
   exact Or.inr (Or.inr (Or.inl ⟨_, _, _, _, statedClassicalModel_typeTwistedD r q hv e⟩))
 
-theorem catalogBridgeFor_twistedD_odd (r : ℕ) (q : PrimePower)
-    (hv : (LieTypeIndex.twistedD r q).Valid) (_hp : q.p ≠ 2) :
-    CFSG.QuasithinUnique.B1.CatalogBridgeFor (.lie ⟨.twistedD r q, hv⟩) :=
-  catalogBridgeFor_twistedD r q hv
 
 end CFSG.RankThree.PartTwo.Census

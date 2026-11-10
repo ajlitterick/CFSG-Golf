@@ -71,46 +71,6 @@ theorem centralizer_le_normalizer_stdSub {p : ℕ} {B : Subgroup G} {x : G} {L D
   exact le_normalizer_of_map_conj_le fun g hg => map_conj_largeEvenLayer_le
     (mem_normalizer_inf_centralizer (mem_normalizer_of_sstar hS hnc (hCx hg)) (hCD hg))
 
-theorem exists_mem_bstar_inf_of_not_dvd {p : ℕ} {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J)
-    (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S) (hpJ : p ∣ Nat.card J)
-    (hZ : ¬ p ∣ Nat.card (Subgroup.center J)) :
-    ∃ b ∈ Bs ⊓ J, b ∉ Subgroup.centralizer (J : Set G) := by
-  have hp : p.Prime := hcfg.1.2.2.2.2.2.1.1
-  have := Fact.mk hp
-  have hS : LargeEvenSStar p B x L := hcfg.1.2.2.2.2.2.2.1
-  have hBsN : Bs ≤ Subgroup.normalizer (J : Set G) :=
-    hcfg.2.1.le_centralizer.trans (centralizer_le_normalizer_stdSub hS hnc hcfg.2.2.1)
-  have hBsp : IsPGroup p Bs := fun g =>
-    ⟨1, by rw [pow_one]; exact Subtype.ext (hcfg.2.1.2.1.2 g g.2)⟩
-  obtain ⟨b, ⟨hbBs, hbJ⟩, hb1, hbp⟩ :=
-    exists_mem_inf_ne_one_of_dvd hp hBsN hBsp hcfg.2.1.2.2.2 hpJ
-  refine ⟨b, ⟨hbBs, hbJ⟩, fun hbC => hZ ?_⟩
-  have hcen : (⟨b, hbJ⟩ : ↥J) ∈ Subgroup.center ↥J := by
-    rw [Subgroup.mem_center_iff]
-    intro j
-    exact Subtype.ext ((Subgroup.mem_centralizer_iff.mp hbC) j j.2)
-  have hord : orderOf (⟨⟨b, hbJ⟩, hcen⟩ : Subgroup.center ↥J) = p := by
-    rw [Subgroup.orderOf_mk, Subgroup.orderOf_mk]
-    exact orderOf_eq_prime hbp hb1
-  exact hord ▸ orderOf_dvd_natCard _
-
-@[expose] def GGStdSubOrderInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGThmIHyp p B x L → LargeEvenStdSub p B x L D J → p ∣ Nat.card J
-
-@[expose] def GGStdSubCenterMeetInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → p ∣ Nat.card (Subgroup.center J) →
-      ∃ b ∈ Bs ⊓ J, b ∉ Subgroup.centralizer (J : Set G)
-
-theorem ggStdSubBstarMeetInput_of_center (ha₀ : GGLNoncyclicInput) (hord : GGStdSubOrderInput)
-    (hcen : GGStdSubCenterMeetInput) : GGStdSubBstarMeetInput := by
-  intro G _ _ p B Bs x L D J hcfg
-  by_cases hZ : p ∣ Nat.card (Subgroup.center J)
-  · exact hcen G p B Bs x L D J hcfg hZ
-  · exact exists_mem_bstar_inf_of_not_dvd hcfg (ha₀ G p B x L hcfg.1)
-      (hord G p B x L D J hcfg.1 hcfg.2.2) hZ
 
 theorem inf_centralizer_le_of_twoSubgroup {p : ℕ} (hp : p.Prime) {B Bs J T : Subgroup G}
     (hBmax : LargeEvenIsBmax p B) (hBBs : B ≤ Bs) (hBs : IsElemAbelian p Bs) (hT : T ≠ ⊥)
@@ -142,15 +102,6 @@ theorem ggStdSubBstarCentralizer_of_twoSubgroup {p : ℕ} {B Bs : Subgroup G} {x
   rw [hcfg.2.2.1.2.2.2.2.2.2]
   exact ⟨hle he, he.2⟩
 
-theorem ggStdSubBstarCentralizer_of_ggBeta {p : ℕ} {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J)
-    (hBN : B ≤ Subgroup.normalizer (J : Set G))
-    {R : Type} [Group R] (θ : J ⧸ Subgroup.center J ≃* R)
-    (h : ∃ U : Subgroup R, U ≠ ⊥ ∧ IsPGroup 2 U ∧
-      ∀ a ∈ (ggBeta J θ hBN).range, ∀ u ∈ U, a u ∈ U) :
-    Bs ⊓ Subgroup.centralizer (J : Set G) ≤ D := by
-  obtain ⟨U, hUJ, hU1, hU2, hBU⟩ := exists_two_subgroup_of_ggBeta hBN θ h
-  exact ggStdSubBstarCentralizer_of_twoSubgroup hcfg ⟨U, hU1, hU2, hUJ, hBU⟩
 
 end CFSG.StandardType
 

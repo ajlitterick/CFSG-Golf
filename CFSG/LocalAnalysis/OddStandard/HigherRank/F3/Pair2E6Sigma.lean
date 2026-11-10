@@ -90,40 +90,6 @@ private theorem unitaryJ6_conj_apply (X : Matrix (Fin 6) (Fin 6) E) (a b : Fin 6
 @[expose] def sigmaA6 (ψ : E ≃+* E) : SL(6, E) ≃* SL(6, E) :=
   (fieldAutSL ψ 6).trans ((invTransposeSL 6).trans (conjSL unitaryJ6 unitaryJInv6 unitaryJ6_mul))
 
-private theorem coe_blockSL_six_zero (A : SL(2, E)) :
-    ((blockSL E 6 2 0 (by omega) A : SL(6, E)) : Matrix (Fin 6) (Fin 6) E) =
-      !![A 0 0, A 0 1, 0, 0, 0, 0; A 1 0, A 1 1, 0, 0, 0, 0; 0, 0, 1, 0, 0, 0;
-        0, 0, 0, 1, 0, 0; 0, 0, 0, 0, 1, 0; 0, 0, 0, 0, 0, 1] := by
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp [coe_blockSL, blockMat_apply]
-
-private theorem coe_blockSL_six_one (A : SL(2, E)) :
-    ((blockSL E 6 2 1 (by omega) A : SL(6, E)) : Matrix (Fin 6) (Fin 6) E) =
-      !![1, 0, 0, 0, 0, 0; 0, A 0 0, A 0 1, 0, 0, 0; 0, A 1 0, A 1 1, 0, 0, 0;
-        0, 0, 0, 1, 0, 0; 0, 0, 0, 0, 1, 0; 0, 0, 0, 0, 0, 1] := by
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp [coe_blockSL, blockMat_apply]
-
-private theorem coe_blockSL_six_two (A : SL(2, E)) :
-    ((blockSL E 6 2 2 (by omega) A : SL(6, E)) : Matrix (Fin 6) (Fin 6) E) =
-      !![1, 0, 0, 0, 0, 0; 0, 1, 0, 0, 0, 0; 0, 0, A 0 0, A 0 1, 0, 0;
-        0, 0, A 1 0, A 1 1, 0, 0; 0, 0, 0, 0, 1, 0; 0, 0, 0, 0, 0, 1] := by
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp [coe_blockSL, blockMat_apply]
-
-private theorem coe_blockSL_six_three (A : SL(2, E)) :
-    ((blockSL E 6 2 3 (by omega) A : SL(6, E)) : Matrix (Fin 6) (Fin 6) E) =
-      !![1, 0, 0, 0, 0, 0; 0, 1, 0, 0, 0, 0; 0, 0, 1, 0, 0, 0;
-        0, 0, 0, A 0 0, A 0 1, 0; 0, 0, 0, A 1 0, A 1 1, 0; 0, 0, 0, 0, 0, 1] := by
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp [coe_blockSL, blockMat_apply]
-
-private theorem coe_blockSL_six_four (A : SL(2, E)) :
-    ((blockSL E 6 2 4 (by omega) A : SL(6, E)) : Matrix (Fin 6) (Fin 6) E) =
-      !![1, 0, 0, 0, 0, 0; 0, 1, 0, 0, 0, 0; 0, 0, 1, 0, 0, 0;
-        0, 0, 0, 1, 0, 0; 0, 0, 0, 0, A 0 0, A 0 1; 0, 0, 0, 0, A 1 0, A 1 1] := by
-  ext a b
-  fin_cases a <;> fin_cases b <;> simp [coe_blockSL, blockMat_apply]
 
 theorem sigmaA6_blockSL2 (ψ : E ≃+* E) (i : Fin 5) (A : SL(2, E)) :
     sigmaA6 ψ (blockSL2 E 5 i A) = blockSL2 E 5 (Fin.rev i) (fieldAutSL ψ 2 A) := by

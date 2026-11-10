@@ -457,32 +457,6 @@ theorem sextIdx_sextOf_lt {t : ℕ} (ht : t ∈ Native.tetrads0 ()) :
   obtain ⟨-, -, -, -, htet⟩ := h
   exact (htet t ht).2
 
-theorem octIdx_img_lt {i : ℕ} (hi : i < 759) {g : Array ℕ} (hg : g ∈ Native.genTabs) :
-    Native.octIdx (Native.img g (Native.octList ())[i]!) < 759 := by
-  have h := octCheck_true
-  simp only [Native.octCheck, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, Native.allLt_iff,
-    List.all_eq_true, and_assoc] at h
-  obtain ⟨-, -, hall, -⟩ := h
-  obtain ⟨-, -, -, -, hgen⟩ := hall i hi
-  exact hgen g hg
-
-theorem trioIdx_imgTrio_lt {p : ℕ} (hp : p < 3795) {g : Array ℕ} (hg : g ∈ Native.genTabs) :
-    Native.trioIdx (Native.imgTrio g (Native.trioList ())[p]!) < 3795 := by
-  have h := trioCheck_true
-  simp only [Native.trioCheck, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, Native.allLt_iff,
-    List.all_eq_true, and_assoc, bne_iff_ne, ne_eq, Bool.or_eq_true] at h
-  obtain ⟨-, -, hall, -, -⟩ := h
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, hgen⟩ := hall p hp
-  exact hgen g hg
-
-theorem sextIdx_imgSext_lt {q : ℕ} (hq : q < 1771) {g : Array ℕ} (hg : g ∈ Native.genTabs) :
-    Native.sextIdx (Native.imgSext g (Native.sextList ())[q]!) < 1771 := by
-  have h := sextCheck_true
-  simp only [Native.sextCheck, Bool.and_eq_true, beq_iff_eq, decide_eq_true_eq, Native.allLt_iff,
-    List.all_eq_true, and_assoc, bne_iff_ne, ne_eq, Bool.or_eq_true] at h
-  obtain ⟨-, -, hall, -, -⟩ := h
-  obtain ⟨-, -, -, -, -, -, -, hgen⟩ := hall q hq
-  exact hgen g hg
 
 theorem isOctad_octFin {i : ℕ} (hi : i < 759) : IsOctad (octFin i) := by
   obtain ⟨h1, h2, h3, -⟩ := octList_get hi rfl

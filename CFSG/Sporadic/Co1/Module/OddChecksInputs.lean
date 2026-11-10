@@ -70,26 +70,9 @@ open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 
 @[expose] def FS : Forest := forestBFS PS QS rootsS 10000000
 
-@[expose] def ordsR : Array ℕ := ordersWith (rr 27) FS
-
-@[expose] def ords1 : Array ℕ := ordersWith (rr 86) FS
-
-@[expose] def forestSOK : Bool :=
-  forestOK PS QS rootsS FS && (FS.pts.size == 182919) && (rtCount FS 0 == 759) &&
-  (rtCount FS 1 == 182160) && (zeroCount ordsR == 0) && (oddCount ordsR == 37888) &&
-  (zeroCount ords1 == 0) && (oddCount ords1 == 0)
 
 @[expose] def PO : Array (Array ℕ) := (brayIdx.map rr).toArray
 
-@[expose] def QO : Array (Array ℕ) := (brayInvIdx.map rr).toArray
-
-@[expose] def rootsO : Array (Array ℕ) := (sIdx.map rr).toArray
-
-@[expose] def FO : Forest := forestBFS PO QO rootsO 10000000
-
-@[expose] def forestOOK : Bool :=
-  forestOK PO QO rootsO FO && (FO.pts.size == 37888) && (rtCount FO 0 == 7168) &&
-  (rtCount FO 1 == 2048) && (rtCount FO 2 == 28672)
 
 @[expose] def QZ (k : ℕ) : Array (Array ℕ) := ((zIdx[k]!).map rr).toArray
 
@@ -99,12 +82,8 @@ open CFSG.Blueprint CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 
 @[expose] def FZ (k : ℕ) : Forest := forestBFS (PZ k) (QZ k) rootsZ 10000000
 
-@[expose] def forestZOK (k n : ℕ) : Bool :=
-  forestOK (PZ k) (QZ k) rootsZ (FZ k) && ((FZ k).pts.size == n)
 
 @[expose] def Wk (k : ℕ) : List ℕ := fixList ([rr 27, rr (sIdx[k]!)].map (transposeRows 24))
 
-@[expose] def faithGramOK (k : ℕ) : Bool :=
-  faithfulOK (FZ k).pts (Wk k) && gramOK (transposeRows 24 f0Rows) (Wk k)
 
 end CFSG.Sporadic.Co1.Module.Odd

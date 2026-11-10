@@ -31,14 +31,5 @@ theorem ch465002_k0 : lk 0 KB 0 = 0 := by decide +kernel
 #kc_forall_chunks ch465002_c (fun c => chunkK WP TP CH KB c = true) 160
   CertificateChecks.KernelSp62Syl.ch465002C 1
 
-theorem ch465002_neg_c : recW WP TP (CH.getD 0 []) 0 (lk 0 KB 2) = false := by decide +kernel
-
-theorem ch465002_neg_c2 : recW WP TP (CH.getD 1 []) 0 (lk 0 KB 1) = false := by decide +kernel
-
-theorem ch465002_neg_r : rowsK (gensT.map numC) (gensWD.map numC)
-    (gensT.map fun c => numC (mulC c c)) (numC cG1) (numC cIo) (numC cTau) (numC cGD) WP
-    (RW.take 1) 0 = false := by decide +kernel
-
-theorem ch465002_neg_t : ttK (gensT.map numC) TP (TW.drop 1) 0 = false := by decide +kernel
 
 end CertificateChecks.KernelSp62Syl

@@ -183,26 +183,6 @@ theorem ggIsSolvable_quot_generalizedFitting {W : Type} [Group W] [Finite W]
     (QuotientGroup.map_surjective_of_surjective Φ.ker K (MonoidHom.id W)
       (QuotientGroup.mk_surjective) hle)
 
-open CFSG.LocalAnalysis.ComponentInitial in
-theorem ggHypThreeSixteen_eq_top_of_le (hSch : SchreierFor InCatalog) {W : Type} [Group W]
-    [Finite W] {p : ℕ} {H E : Subgroup W} (hyp : GGHypThreeSixteen p H E)
-    (hKH : CFSG.generalizedFitting W ≤ H) : H = ⊤ := by
-  obtain ⟨⟨hp, -, hE, hEcard, hfus⟩, ⟨hsimple, hnab, hcat⟩, -⟩ := hyp
-  have : (CFSG.generalizedFitting W).Normal :=
-    CFSG.LocalCores.generalized_fitting_characteristic.2
-  have : IsSimpleGroup ↥(CFSG.generalizedFitting W) := hsimple
-  have hout := hSch _ hnab hcat
-  exact hfus.eq_top_of_le_of_isSolvable hp hE hEcard hKH
-    (ggIsSolvable_quot_generalizedFitting hsimple hnab hout)
-
-open CFSG.LocalAnalysis.ComponentInitial in
-theorem ggKGroupFusionLayerInput_of_at (hSch : SchreierFor InCatalog)
-    (h : GGKGroupFusionAt fun _ _ => True) : GGKGroupFusionLayerInput := by
-  intro W _ _ p H E hyp hL
-  by_cases hKH : CFSG.generalizedFitting W ≤ H
-  · exact Or.inl (ggHypThreeSixteen_eq_top_of_le hSch hyp hKH)
-  · obtain ⟨i, he⟩ := hyp.2.1.2.2
-    exact Or.inr (h W p H E i trivial hyp hL hKH he)
 
 end Schreier
 

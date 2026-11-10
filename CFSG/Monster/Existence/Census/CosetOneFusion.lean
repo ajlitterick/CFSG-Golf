@@ -90,13 +90,6 @@ theorem conj_cosetElt_one
           (g.toLin * rhoEquiv (pauliQ (pauliDec n)) * g.toLin⁻¹) := by group
     _ = _ := by rw [e1]; group
 
-theorem fusGens_match_fusionData :
-    fusionData.generators.length = 11 ∧
-      ((List.range 11).all fun j => match fusionData.generators[j]? with
-        | some r => genMatches (fusGen j) r && (ofTriple r.shift == fusShift j)
-        | none => false) = true := by
-  refine ⟨by decide +kernel, ?_⟩
-  exact Certificates.certificate6021.1
 
 @[expose] noncomputable def fusElt (j : ℕ) : Gvis :=
   ⟨(fusGen j).toLin, Native.Gen.toLin_mem_Gvis _ (fusGen_ne_tau j)⟩
@@ -136,9 +129,6 @@ theorem cosetElt_mem_qmatClass_of_walk
   obtain ⟨w, hw, rfl⟩ := h
   exact cosetElt_walkEnc_mem_qmatClass w hw (classEnc t)
 
-theorem coe_fusElt_conj (j : ℕ) (f : Gvis) :
-    ((fusElt j * f * (fusElt j)⁻¹ : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) =
-      (fusGen j).toLin * (f : SpaceB ≃ₗ[ℚ] SpaceB) * (fusGen j).toLin⁻¹ := rfl
 
 theorem fusElt_conj_classRep
     {j k t : ℕ} (hj : j < 11)
@@ -153,20 +143,6 @@ theorem fusElt_conj_classRep
   rw [e]
   exact h2
 
-theorem fusGens_fix_zero_four_check :
-    ∀ j < 11,
-      (∃ w : List ℕ, w.all (· < 24) = true ∧
-        walkEnc w (classEnc 0) = fusF (fusGen j) (fusShift j) (classEnc 0)) ∧
-      (∃ w : List ℕ, w.all (· < 24) = true ∧
-        walkEnc w (classEnc 4) = fusF (fusGen j) (fusShift j) (classEnc 4)) :=
-  Certificates.certificate6021.2.2.1
-
-theorem fusGens_fix_zero_four
-    (j : ℕ) (hj : j < 11) :
-    fusElt j * classRep 0 * (fusElt j)⁻¹ ∈ qmatClass (classRep 0) ∧
-      fusElt j * classRep 4 * (fusElt j)⁻¹ ∈ qmatClass (classRep 4) := by
-  have h := fusGens_fix_zero_four_check j hj
-  exact ⟨fusElt_conj_classRep hj h.1, fusElt_conj_classRep hj h.2⟩
 
 theorem fusTargets_check :
     ∀ j < 11, ∀ k < 137, fusTarget j k < 137 ∧
@@ -274,33 +250,5 @@ theorem exists_conj_cosetElt_of_mem_cosetInv_one
   calc u' * g' * u * f * (u' * g' * u)⁻¹ = u' * (g' * (u * f * u⁻¹) * g'⁻¹) * u'⁻¹ := by group
     _ = cosetElt 1 196668 := by rw [hux, hu'x]
 
-theorem visible_involution_coset_one_fusion :
-    (∀ f ∈ cosetInv 1, ∃ g : Gvis,
-      ((g * f * g⁻¹ : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) = cosetRep 1 ∨
-      ((g * f * g⁻¹ : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) =
-        rhoEquiv (qP 0 63 0) * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB) ∨
-      ((g * f * g⁻¹ : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) =
-        rhoEquiv (qP 0 60 48) * (cosetRep 1 : SpaceB ≃ₗ[ℚ] SpaceB)) ∧
-    (∀ j < 11, ∀ n : ℕ, (fusGen j).toLin * ((cosetElt 1 n : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB) *
-        (fusGen j).toLin⁻¹ =
-      ((cosetElt 1 (fusF (fusGen j) (fusShift j) n) : Gvis) : SpaceB ≃ₗ[ℚ] SpaceB)) ∧
-    (∀ k < 137, k ≠ 0 → k ≠ 4 →
-      ∃ g : Gvis, g * classRep k * g⁻¹ ∈ qmatClass (classRep 17)) ∧
-    (∀ j < 11, fusElt j * classRep 0 * (fusElt j)⁻¹ ∈ qmatClass (classRep 0) ∧
-      fusElt j * classRep 4 * (fusElt j)⁻¹ ∈ qmatClass (classRep 4)) ∧
-    (∀ j < 11, ∀ k < 137, fusTarget j k < 137 ∧
-      fusElt j * classRep k * (fusElt j)⁻¹ ∈ qmatClass (classRep (fusTarget j k))) := by
-  refine ⟨?_, fun j hj n => conj_cosetElt_one (fusGen j) (fusShift j) (fusGen_valid j hj)
-    (fusGen_ne_tau j) (fusGens_comm j hj) n, fusion_to_seventeen, fusGens_fix_zero_four,
-    fun j hj k hk => fusElt_conj_classRep_recorded j k hj hk⟩
-  intro f hf
-  obtain ⟨g, n, hn, hgf⟩ := exists_conj_cosetElt_of_mem_cosetInv_one hf
-  refine ⟨g, ?_⟩
-  rw [hgf]
-  simp only [Finset.mem_insert, Finset.mem_singleton] at hn
-  rcases hn with rfl | rfl | rfl
-  · exact Or.inl cosetElt_zero
-  · exact Or.inr (Or.inl cosetElt_sixtythree)
-  · exact Or.inr (Or.inr cosetElt_196668)
 
 end CFSG.Monster.Existence.Census

@@ -12,12 +12,6 @@ open CFSG.Assembly.LowTwoRank CFSG.ClassicalInvolution.Generic CFSG.LieType.Univ
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] {Ω : Set (Subgroup G)} {x : G}
 
-theorem SuLayer.exists_shortNode_odd {a : ℕ} (Λ : SuLayer p f a Ω x) [Finite G] (hp2 : p ≠ 2)
-    (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω) (hP1 : LocalOddCentral Ω {x}) {M : Subgroup G}
-    (hM : M ∈ centralizingMembers Ω {x}) (hMi : locImg Ω x M ≤ (Λ.D.hom Λ.i₁).range) :
-    ∃ Us : Subgroup G, Λ.IsShortNode (minusCoeffs_irr p f) M Us :=
-  Λ.exists_shortNode hp2 hq hΩ hP1 (WeakCT.SU4.su4SpinMinus_galois hp2 hq)
-    (spinMinus6Generated_galois hp2) (spinMinus6_noCover_galois hp2 hq) hM hMi
 
 end CFSG.ClassicalInvolution.RouteD
 

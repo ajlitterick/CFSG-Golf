@@ -51,34 +51,11 @@ namespace CFSG.OrderReductions.ThompsonCenter
 @[expose, reducible] def thompsonCenter (group : Type*) [Group group] : Subgroup group :=
   CFSG.maxCardZJ group
 
-private theorem thompson_eq_canonical (group : Type*) [Group group] [Finite group] :
-    thompson group = CFSG.orderThompson group :=
-  CFSG.maxCardThompson_eq_orderThompson
 
 private theorem thompsonCenter_eq_canonical (group : Type*) [Group group] [Finite group] :
     thompsonCenter group = CFSG.orderZJ group :=
   CFSG.maxCardZJ_eq_orderZJ
 
-theorem exists_maximum_order_abelian (group : Type*) [Group group] [Finite group] :
-    ∃ subgroup : Subgroup group, MaximumOrderAbelian group subgroup := by
-  obtain ⟨subgroup, member⟩ := CFSG.maxOrderAbelianFamily_nonempty (G := group)
-  exact ⟨subgroup, CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.mpr member⟩
-
-theorem maximum_order_abelian_map {source target : Type*} [Group source] [Group target]
-    (equivalence : source ≃* target) (subgroup : Subgroup source)
-    (maximal : MaximumOrderAbelian source subgroup) :
-    MaximumOrderAbelian target (subgroup.map equivalence.toMonoidHom) :=
-  CFSG.IsMaxCardAbelian.map_mulEquiv equivalence maximal
-
-theorem thompson_map_le {source target : Type*} [Group source] [Group target]
-    (equivalence : source ≃* target) :
-    (thompson source).map equivalence.toMonoidHom ≤ thompson target :=
-  CFSG.maxCardThompson_map_le equivalence
-
-theorem thompson_map_eq {source target : Type*} [Group source] [Group target]
-    (equivalence : source ≃* target) :
-    (thompson source).map equivalence.toMonoidHom = thompson target :=
-  CFSG.maxCardThompson_map_mulEquiv equivalence
 
 instance thompson_characteristic (group : Type*) [Group group] : (thompson group).Characteristic :=
   CFSG.maxCardThompson_characteristic
@@ -110,30 +87,6 @@ instance thompsonCenter_characteristic (group : Type*) [Group group] :
     (thompsonCenter group).Characteristic :=
   CFSG.maxCardZJ_characteristic
 
-theorem thompsonCenter_le (group : Type*) [Group group] : thompsonCenter group ≤ thompson group :=
-  Subgroup.map_subtype_le _
-
-theorem thompson_eq_top_of_abelian (group : Type*) [Group group] [Finite group] [IsMulCommutative group] :
-    thompson group = ⊤ :=
-  (thompson_eq_canonical group).trans CFSG.orderThompson_eq_top
-
-theorem thompsonCenter_eq_top_of_abelian (group : Type*) [Group group] [Finite group] [IsMulCommutative group] :
-    thompsonCenter group = ⊤ :=
-  (thompsonCenter_eq_canonical group).trans CFSG.orderZJ_eq_top
-
-theorem maximum_order_abelian_contains_center {group : Type*} [Group group] [Finite group]
-    (subgroup : Subgroup group) (maximal : MaximumOrderAbelian group subgroup) :
-    Subgroup.center group ≤ subgroup :=
-  CFSG.center_le_of_mem_maxOrderAbelianFamily
-    (CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.mp maximal)
-
-theorem center_le_thompson {group : Type*} [Group group] [Finite group] :
-    Subgroup.center group ≤ thompson group :=
-  (thompson_eq_canonical group).symm ▸ CFSG.center_le_orderThompson
-
-theorem center_le_thompsonCenter {group : Type*} [Group group] [Finite group] :
-    Subgroup.center group ≤ thompsonCenter group :=
-  (thompsonCenter_eq_canonical group).symm ▸ CFSG.center_le_orderZJ_of_finite
 
 theorem thompsonCenter_nontrivial_of_prime_group {group : Type*} [Group group] [Finite group]
     (prime : ℕ) [Fact (Nat.Prime prime)] (prime_group : IsPGroup prime group) [Nontrivial group] :
@@ -146,12 +99,6 @@ theorem maximum_order_abelian_subgroupOf {group : Type*} [Group group] [Finite g
     MaximumOrderAbelian overgroup (subgroup.subgroupOf overgroup) :=
   CFSG.IsMaxCardAbelian.subgroupOf maximal contains
 
-theorem maximum_order_abelian_image_of_contains_maximum {group : Type*} [Group group] [Finite group]
-    (overgroup maximum : Subgroup group) (contains : maximum ≤ overgroup)
-    (ambient_maximal : MaximumOrderAbelian group maximum)
-    (subgroup : Subgroup overgroup) (maximal : MaximumOrderAbelian overgroup subgroup) :
-    MaximumOrderAbelian group (subgroup.map overgroup.subtype) :=
-  CFSG.IsMaxCardAbelian.map_subtype ambient_maximal contains maximal
 
 theorem thompsonCenter_le_maximum_order_abelian {group : Type*} [Group group] [Finite group]
     (subgroup : Subgroup group) (maximal : MaximumOrderAbelian group subgroup) :
@@ -159,11 +106,6 @@ theorem thompsonCenter_le_maximum_order_abelian {group : Type*} [Group group] [F
   (thompsonCenter_eq_canonical group).symm ▸ CFSG.orderZJ_le_of_mem_maxOrderAbelianFamily
     (CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.mp maximal)
 
-theorem thompsonCenter_mem_iff {group : Type*} [Group group] [Finite group] (element : group) :
-    element ∈ thompsonCenter group ↔ ∀ subgroup : Subgroup group,
-      MaximumOrderAbelian group subgroup → element ∈ subgroup := by
-  rw [thompsonCenter_eq_canonical, CFSG.mem_orderZJ_iff]
-  exact forall_congr' fun _ => imp_congr_left CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.symm
 
 theorem thompsonCenter_eq_intersection {group : Type*} [Group group] [Finite group] :
     thompsonCenter group = sInf {subgroup : Subgroup group | MaximumOrderAbelian group subgroup} := by

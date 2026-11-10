@@ -32,9 +32,6 @@ theorem pw_add (σ : Perm (Fin 5)) (x y : ↥Ev) : pw σ (x + y) = pw σ x + pw 
 
 theorem pw_zero (σ : Perm (Fin 5)) : pw σ 0 = 0 := rfl
 
-theorem pw_one (x : ↥Ev) : pw 1 x = x := rfl
-
-theorem pw_mul (σ τ : Perm (Fin 5)) (x : ↥Ev) : pw (σ * τ) x = pw σ (pw τ x) := rfl
 
 @[expose] def pact : Perm (Fin 5) →* MulAut W5 where
   toFun σ :=
@@ -88,8 +85,6 @@ theorem wA_inj : ∀ i j : Fin 5, wA i = wA j → i = j := by
 theorem exists_sum_wA : ∀ x : ↥Ev, ∃ s : Finset (Fin 5), x = ∑ i ∈ s, wA i := by
   set_option maxRecDepth 100000 in decide
 
-theorem pw_e2 : ∀ (σ : Perm (Fin 5)) (a b : Fin 5), pw σ (e2 a b) = e2 (σ a) (σ b) := by
-  set_option maxRecDepth 100000 in decide
 
 theorem eq_zero_or_e2_or_wA :
     ∀ x : ↥Ev, x = 0 ∨ (∃ a b : Fin 5, a ≠ b ∧ x = e2 a b) ∨ ∃ i : Fin 5, x = wA i := by
@@ -103,9 +98,6 @@ theorem perm_of_pw_e2 :
 theorem pw_wA_eq_iff : ∀ (σ : Perm (Fin 5)) (i : Fin 5), pw σ (wA i) = wA i ↔ σ i = i := by
   set_option maxRecDepth 100000 in decide
 
-theorem pw_sub_coe (σ : Perm (Fin 5)) (x : ↥Ev) (i : Fin 5) :
-    ((x - pw σ x : ↥Ev) : Fin 5 → ZMod 2) i =
-      (x : Fin 5 → ZMod 2) i - (x : Fin 5 → ZMod 2) (σ⁻¹ i) := rfl
 
 private theorem B1 : ∀ x : ↥Ev, x ≠ 0 →
     ∃ σ : Perm (Fin 5), σ.sign = 1 ∧ (pw σ x = e2 0 1 ∨ pw σ x = wA 4) := by
@@ -359,8 +351,6 @@ theorem kl_four : ∀ σ : Perm (Fin 5), σ ∈ kl 4 ↔ (σ = 1 ∨ σ = pa ∨
   intro σ
   simp [kl, dbl, pa, pb, pc]
 
-theorem conj_mem_kl : ∀ x : Perm (Fin 5), ∀ k ∈ kl 4, x⁻¹ * k * x ∈ kl (x⁻¹ 4) := by
-  set_option maxRecDepth 100000 in decide
 
 theorem kl_gen : ∀ p : Fin 5, p ≠ 4 → ∀ σ : Perm (Fin 5), σ.sign = 1 →
     ∃ a₁ ∈ kl 4, ∃ b₁ ∈ kl p, ∃ a₂ ∈ kl 4, ∃ b₂ ∈ kl p, σ = a₁ * b₁ * a₂ * b₂ := by
@@ -371,7 +361,6 @@ theorem kl_gen : ∀ p : Fin 5, p ≠ 4 → ∀ σ : Perm (Fin 5), σ.sign = 1 �
 theorem pactA_injective : Function.Injective pactA := fun _ _ h =>
   Subtype.ext (pact_injective h)
 
-theorem pactA_apply (σ : A5) (x : W5) : pactA σ x = pact (σ : Perm (Fin 5)) x := rfl
 
 theorem A4s_prod_three : ∀ σ : A5, σ ∈ A4s →
     ∃ α β : A5, α ∈ A4s ∧ β ∈ A4s ∧ α ^ 3 = 1 ∧ β ^ 3 = 1 ∧ σ = α * β := by

@@ -36,8 +36,6 @@ variable {X : Type*} [Group X]
     rw [hai]
     exact ⟨haV, hac, ha2⟩
 
-theorem mem_omegaZ {V : Subgroup X} {a : X} :
-    a ∈ omegaZ V ↔ a ∈ V ∧ (∀ v ∈ V, v * a = a * v) ∧ a * a = 1 := Iff.rfl
 
 theorem omegaZ_normal {V : Subgroup X} (hV : V.Normal) : (omegaZ V).Normal := by
   refine ⟨fun n hn g => ?_⟩

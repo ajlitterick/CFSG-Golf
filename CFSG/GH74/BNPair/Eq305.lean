@@ -362,8 +362,5 @@ theorem eq30_5_B {i : ℕ} (hi : i ≤ n) (m : D.N) (hm : (m : D.Weyl) = altWord
 
 end RankTwoSystem
 
-theorem eq30_5 : Eq30_5.{u} := by
-  intro X _ n D i hi
-  exact ⟨fun m hm => D.eq30_5_A hi m hm, fun m hm => D.eq30_5_B hi m hm⟩
 
 end CFSG.GH74.BNPair

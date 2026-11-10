@@ -115,65 +115,6 @@ namespace CFSG.ClassicalInvolution.Q3.Q3Y
 
 section Pair
 
-variable {P : Type*} [Group P]
-
-theorem false_of_quaternion_pair (S : Subgroup P) {ζ w a a' b : P} (hζ1 : ζ ≠ 1)
-    (hζ2 : ζ * ζ = 1) (haa : a * a = ζ) (ha'a' : a' * a' = ζ) (hbb : b * b = ζ)
-    (hnc : a * a' ≠ a' * a) (hab : a * b = b * a) (ha'b : a' * b = b * a')
-    (haS : a ∈ S) (ha'S : a' ∈ S) (hbS : b ∈ S) (hwζ : w ≠ ζ)
-    (hBD : ∀ p q : P, p ∈ S → q ∈ S → p * p = 1 → q * q = 1 → p ≠ 1 → q ≠ 1 → p ≠ q →
-      p * q = q * p → w = p ∨ w = q ∨ w = p * q) : False := by
-  have hζb : ζ * b = b * ζ := by rw [← hbb, ← mul_assoc, mul_assoc]
-  have hζS : ζ ∈ S := haa ▸ S.mul_mem haS haS
-  have core : ∀ u v : P, u ∈ S → u * u = ζ → v * v = ζ → u * b = b * u → v * b = b * v →
-      u * v ≠ v * u → w = u * b ∨ w = u * b * ζ := by
-    intro u v huS huu hvv hub hvb huv
-    have hζu : ζ * u = u * ζ := by rw [← huu, ← mul_assoc, mul_assoc]
-    have hζv : ζ * v = v * ζ := by rw [← hvv, ← mul_assoc, mul_assoc]
-    have hvbi : Commute v b⁻¹ := (show Commute v b from hvb).inv_right
-    have hvζ : Commute v ζ := (show Commute v ζ from hζv.symm)
-    have hc2 : (u * b) * (u * b) = 1 := by
-      calc (u * b) * (u * b) = u * (b * u) * b := by group
-        _ = u * (u * b) * b := by rw [← hub]
-        _ = (u * u) * (b * b) := by group
-        _ = 1 := by rw [huu, hbb, hζ2]
-    have hc1 : u * b ≠ 1 := by
-      intro h
-      apply huv
-      rw [eq_inv_of_mul_eq_one_left h]
-      exact hvbi.eq.symm
-    have hcζ : u * b ≠ ζ := by
-      intro h
-      apply huv
-      rw [eq_mul_inv_of_mul_eq h]
-      exact (Commute.mul_right hvζ hvbi).eq.symm
-    have hcomm : (u * b) * ζ = ζ * (u * b) := by
-      calc (u * b) * ζ = u * (b * ζ) := mul_assoc _ _ _
-        _ = u * (ζ * b) := by rw [hζb]
-        _ = (u * ζ) * b := by rw [← mul_assoc]
-        _ = (ζ * u) * b := by rw [hζu]
-        _ = ζ * (u * b) := mul_assoc _ _ _
-    rcases hBD (u * b) ζ (S.mul_mem huS hbS) hζS hc2 hζ2 hc1 hζ1 hcζ hcomm with h | h | h
-    · exact Or.inl h
-    · exact absurd h hwζ
-    · exact Or.inr h
-  have hζa' : ζ * a' = a' * ζ := by rw [← ha'a', ← mul_assoc, mul_assoc]
-  have e : a' * b * ζ = a' * ζ * b := by rw [mul_assoc, ← hζb, ← mul_assoc]
-  have e' : a * b * ζ = a * ζ * b := by
-    have hζa : ζ * a = a * ζ := by rw [← haa, ← mul_assoc, mul_assoc]
-    rw [mul_assoc, ← hζb, ← mul_assoc]
-  have hA := core a a' haS haa ha'a' hab ha'b hnc
-  have hB := core a' a ha'S ha'a' haa ha'b hab (fun h => hnc h.symm)
-  have hζa : ζ * a = a * ζ := by rw [← haa, ← mul_assoc, mul_assoc]
-  rcases hA with h1 | h1 <;> rcases hB with h2 | h2
-  · exact hnc (by rw [mul_right_cancel (h1.symm.trans h2)])
-  · have h3 : a = a' * ζ := mul_right_cancel ((h1.symm.trans h2).trans e)
-    apply hnc
-    rw [h3, mul_assoc, hζa', ← mul_assoc]
-  · have h3 : a' = a * ζ := mul_right_cancel ((h2.symm.trans h1).trans e')
-    apply hnc
-    rw [h3, mul_assoc, hζa, ← mul_assoc]
-  · exact hnc (by rw [mul_right_cancel (mul_right_cancel (h1.symm.trans h2))])
 
 end Pair
 

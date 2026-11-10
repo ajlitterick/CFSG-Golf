@@ -62,37 +62,6 @@ theorem le_of_perfect_of_centralizes {H : Type*} [Group H] {K P N : Subgroup H}
   rw [hφ] at this
   simpa using this
 
-theorem le_of_sectionTenRel {G : Type} [Group G] [Finite G] {p : ℕ} (hp : p.Prime)
-    {K I J : Subgroup G} (hK : Group.IsPerfect ↥K) (hKI : K ≤ I)
-    (hKθ : K ≤ Subgroup.centralizer (inSubgroup (aschbacherSolvableCore p) I : Set G))
-    (hIJ : sectionTenRel p I J) : K ≤ J := by
-  classical
-  set N := inSubgroup (aschbacherSolvableCore p) I with hN
-  obtain ⟨hNI, hNn⟩ := theta_le_and_normal p I
-  obtain ⟨hNs, -⟩ := theta_solvable_and_not_dvd hp I
-  have hsup : (I ⊓ J ⊔ N).subgroupOf I = (I ⊓ J).subgroupOf I ⊔ N.subgroupOf I :=
-    Subgroup.subgroupOf_sup inf_le_left hNI
-  have hIJ' : I = I ⊓ J ⊔ N := hIJ
-  rw [← hIJ', Subgroup.subgroupOf_self] at hsup
-  have hKperf : Group.IsPerfect ↥(K.subgroupOf I) := by
-    have := hK
-    exact Group.IsPerfect.ofSurjective (f := (Subgroup.subgroupOfEquivOfLe hKI).symm.toMonoidHom)
-      (MulEquiv.surjective _)
-  have hNsolv : Group.IsSolvable ↥(N.subgroupOf I) :=
-    Group.isSolvable_of_isSolvable_injective (f := (Subgroup.subgroupOfEquivOfLe hNI).toMonoidHom)
-      (MulEquiv.injective _)
-  have hc : K.subgroupOf I ≤ Subgroup.centralizer (N.subgroupOf I : Set ↥I) := by
-    intro x hx
-    rw [Subgroup.mem_centralizer_iff]
-    intro y hy
-    apply Subtype.ext
-    exact Subgroup.mem_centralizer_iff.mp (hKθ (Subgroup.mem_subgroupOf.mp hx)) y
-      (Subgroup.mem_subgroupOf.mp hy)
-  have hmain := le_of_perfect_of_centralizes hKperf hNn hNsolv
-    (le_of_eq_of_le rfl (hsup ▸ le_top)) hc
-  intro k hk
-  have := hmain (Subgroup.mem_subgroupOf.mpr hk : (⟨k, hKI hk⟩ : ↥I) ∈ K.subgroupOf I)
-  exact (Subgroup.mem_inf.mp (Subgroup.mem_subgroupOf.mp this)).2
 
 theorem centralizes_of_mem_theta_of_mem_normalizer {G : Type} [Group G] [Finite G] {p : ℕ}
     (hp : p.Prime) {E : Subgroup G} (hE : IsElementaryAbelian p E) {e : G} (heE : e ∈ E) {y : G}

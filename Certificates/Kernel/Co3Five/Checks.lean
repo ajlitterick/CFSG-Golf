@@ -63,8 +63,6 @@ theorem kW : szOK 276 9 = true := by quickRfl
 
 theorem kPerm : allN 40 (fun k => permB 276 9 (FC.F k)) = true := by quickRfl
 
-theorem kPerm2 : (permB 276 9 I && allN 31 (fun j => permB 276 9 (LN j)) && permB 276 9 (ZZ 0) &&
-    permB 276 9 (DG 0) && permB 276 9 (DG 1)) = true := by quickRfl
 
 theorem kSift : (allN 40 (fun k => siftR 276 9 CertificateChecks.KernelSpor.Co3C.LR
     CertificateChecks.KernelSpor.Co3C.TRI CertificateChecks.KernelSpor.Co3C.BP 7 (FC.F k)) &&

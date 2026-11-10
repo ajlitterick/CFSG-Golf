@@ -16,8 +16,6 @@ open scoped IsMulCommutative
         ((∃ n : ℕ, Row711OmegaPlus T L I n) ∨ Row711L3Wreath T L I)) ∨
       Concl326ThreeCA T L I
 
-theorem stmt3_2_6Lt_of_A (h : Stmt3_2_6LtA) : Stmt3_2_6Lt := fun G _ _ T L I hfsu hlt =>
-  (h G T L I hfsu hlt).imp_right concl326ThreeC_of_A
 
 theorem stmt3_2_6LtA_of_C (h326 : Stmt3_2_6C) : Stmt3_2_6LtA := by
   intro G _ _ T L I hfsu hlt

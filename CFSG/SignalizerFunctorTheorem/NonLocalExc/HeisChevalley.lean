@@ -58,10 +58,6 @@ noncomputable abbrev subfieldJ
   ⟨⟨pinnedX τ K α (c : K), pinnedX_mem_adjointGroup α _⟩,
     Subgroup.mem_subgroupOf.2 (pinnedX_mem_fixedFieldImage α c.2)⟩
 
-theorem coe_pinnedJ
-    (σ : K ≃+* K) (α : Fin τ.rank → ℤ) (c : fixSubfield σ) :
-    (((pinnedJ σ α c : ↥(subfieldJ τ σ)) : ↥(adjointGroup τ K)) : ModGL τ K) =
-      pinnedX τ K α (c : K) := rfl
 
 theorem pinnedJ_ext
     {σ : K ≃+* K} {x y : ↥(subfieldJ τ σ)}
@@ -74,9 +70,6 @@ theorem pinnedJ_add
     pinnedJ σ α (c + d) = pinnedJ σ α c * pinnedJ σ α d :=
   pinnedJ_ext (pinnedX_add τ K α (c : K) (d : K))
 
-theorem pinnedJ_zero
-    (σ : K ≃+* K) (α : Fin τ.rank → ℤ) : pinnedJ σ α 0 = 1 :=
-  pinnedJ_ext (pinnedX_zero τ K α)
 
 theorem pinnedJ_neg
     (σ : K ≃+* K) (α : Fin τ.rank → ℤ) (c : fixSubfield σ) :

@@ -74,12 +74,6 @@ theorem basisCombination_unitVector (B : Finset basis.index) {α : basis.index} 
   simp only [unitVector, Int.cast_ite, Int.cast_one, Int.cast_zero, ite_smul, one_smul, zero_smul]
   rw [Finset.sum_ite_eq' B α, ite_eq_left hα]
 
-theorem basisCombination_one (B : Finset basis.index) (e : basis.index → ℤ) :
-    basisCombination basis B e 1 = ((∑ ψ ∈ B, basisDegree basis ψ * e ψ : ℤ) : ℂ) := by
-  rw [basisCombination_apply, Finset.sum_apply]
-  push_cast
-  exact Finset.sum_congr rfl fun ψ _ => by
-    rw [Pi.smul_apply, smul_eq_mul, basisDegree_cast, mul_comm]
 
 theorem blocksInnerProduct_basisCombination (B : Finset basis.index) (e e' : basis.index → ℤ) :
     BlocksInnerProduct (basisCombination basis B e) (basisCombination basis B e') =

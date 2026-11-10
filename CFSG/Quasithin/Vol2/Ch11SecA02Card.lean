@@ -32,22 +32,6 @@ theorem card_center_SL_three_le :
   have := card_rootsOfUnity (R := K) (Fintype.card (Fin 3))
   simpa using this
 
-theorem card_PSL_three :
-    ∃ c : ℕ, (c = 1 ∨ c = 3) ∧
-      c * Nat.card (Matrix.ProjectiveSpecialLinearGroup (Fin 3) K) =
-        Nat.card (Matrix.SpecialLinearGroup (Fin 3) K) := by
-  have hq := (Subgroup.center
-    (Matrix.SpecialLinearGroup (Fin 3) K)).card_eq_card_quotient_mul_card_subgroup
-  refine ⟨Nat.card (Subgroup.center (Matrix.SpecialLinearGroup (Fin 3) K)), ?_, ?_⟩
-  · rw [OrderReductions.LinearOrders.card_specialLinear_center K 3 (by norm_num)]
-    have h3 : Nat.gcd 3 (Nat.card K - 1) ∣ 3 := Nat.gcd_dvd_left _ _
-    have hle : Nat.gcd 3 (Nat.card K - 1) ≤ 3 := Nat.le_of_dvd (by norm_num) h3
-    have hpos : 0 < Nat.gcd 3 (Nat.card K - 1) := Nat.gcd_pos_of_pos_left _ (by norm_num)
-    interval_cases h : Nat.gcd 3 (Nat.card K - 1)
-    · exact Or.inl rfl
-    · exact absurd h3 (by norm_num)
-    · exact Or.inr rfl
-  · rw [hq, mul_comm]
 
 theorem card_PSL_two {m : ℕ} (hK : Nat.card K = 2 ^ m) :
     Nat.card (Matrix.ProjectiveSpecialLinearGroup (Fin 2) K) =

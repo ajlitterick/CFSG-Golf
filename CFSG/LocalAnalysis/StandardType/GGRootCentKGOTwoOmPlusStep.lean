@@ -34,11 +34,6 @@ theorem quadPlus_vPlusS (hn : 1 ≤ n) : quadPlus n K (vPlusS hn) = 1 := by
     polar_quadPlus_plusVec]
   simp
 
-theorem vPlusS_ne_zero (hn : 1 ≤ n) : vPlusS hn ≠ (0 : Fin n ⊕ Fin n → K) := by
-  intro h
-  have h1 := quadPlus_vPlusS (K := K) hn
-  rw [h] at h1
-  exact zero_ne_one (show (0 : K) = 1 from by simpa using h1)
 
 theorem polar_vPlusS_plusVec (hn : 1 ≤ n) {m : Fin n} (hm : m ≠ ⟨0, by omega⟩) (r : Bool) :
     polar (quadPlus n K) (vPlusS hn) (plusVec n K m r) = 0 := by
@@ -61,18 +56,6 @@ theorem fieldMap_vPlusS (hn : 1 ≤ n) (τ : K ≃+* K) :
   funext m
   rcases m with k | k <;> simp [vPlusS, plusVec, Pi.single_apply]
 
-theorem plusSemi_add (hn : 1 ≤ n) (ε : Bool) (τ : K ≃+* K)
-    (y z : Fin n ⊕ Fin n → K) :
-    plusSemi hn ε τ (y + z) = plusSemi hn ε τ y + plusSemi hn ε τ z := by
-  cases ε
-  · funext m
-    simp only [plusSemi_false, Pi.add_apply, map_add]
-  · rw [plusSemi_true, plusSemi_true, plusSemi_true]
-    have hL : (fun m => τ ((y + z) m)) = (fun m => τ (y m)) + (fun m => τ (z m)) := by
-      funext m
-      simp only [Pi.add_apply, map_add]
-    rw [hL, polar_add_right, add_smul]
-    abel
 
 theorem plusSemi_smul (hn : 1 ≤ n) (ε : Bool) (τ : K ≃+* K) (b : K)
     (y : Fin n ⊕ Fin n → K) :

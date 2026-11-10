@@ -62,44 +62,6 @@ theorem sword_subst (gen : ℕ → G) (ims : ℕ → List (ℕ × Bool)) (w : Li
 
 @[expose] def cnt (s : ℕ → Bool) (w : List (ℕ × Bool)) : ℕ := (w.filter fun x => s x.1).length
 
-theorem sword_tw (gen : ℕ → G) {z : G} (hz : ∀ g, z * g = g * z) (hz2 : z * z = 1)
-    (s : ℕ → Bool) (w : List (ℕ × Bool)) :
-    sword (tw gen z s) w = sword gen w * z ^ cnt s w := by
-  have hzi : z⁻¹ = z := inv_eq_of_mul_eq_one_right hz2
-  have hcomm : ∀ (g : G) (k : ℕ), z ^ k * g = g * z ^ k := fun g k =>
-    (Commute.pow_left (hz g) k)
-  have hmove : ∀ (a S : G) (e c : ℕ), a * z ^ e * (S * z ^ c) = a * S * z ^ (c + e) := by
-    intro a S e c
-    rw [mul_assoc a (z ^ e), ← mul_assoc (z ^ e) S, hcomm S e, mul_assoc S, ← pow_add,
-      ← mul_assoc, Nat.add_comm]
-  have hlet : ∀ (g : ℕ) (b : Bool), (if b then tw gen z s g else (tw gen z s g)⁻¹) =
-      (if b then gen g else (gen g)⁻¹) * z ^ (if s g then 1 else 0) := by
-    intro g b
-    by_cases hs : s g
-    · cases b
-      · simp only [tw, hs, ↓reduceIte, Bool.false_eq_true, pow_one, mul_inv_rev, hzi]
-        exact (hz _)
-      · simp [tw, hs]
-    · cases b <;> simp [tw, hs]
-  induction w with
-  | nil => simp [sword_nil, cnt]
-  | cons x w ih =>
-    rw [sword_cons, sword_cons, ih]
-    obtain ⟨g, b⟩ := x
-    have hc : cnt s ((g, b) :: w) = cnt s w + (if s g then 1 else 0) := by
-      by_cases hs : s g <;> simp [cnt, hs]
-    rw [hlet g b, hc, hmove]
-
-theorem pow_eq_of_sq {z : G} (hz2 : z * z = 1) (k : ℕ) : z ^ k = if k % 2 = 0 then 1 else z := by
-  induction k with
-  | zero => simp
-  | succ k ih =>
-    rw [pow_succ, ih]
-    rcases Nat.mod_two_eq_zero_or_one k with h | h
-    · have h' : (k + 1) % 2 = 1 := by omega
-      simp [h, h']
-    · have h' : (k + 1) % 2 = 0 := by omega
-      simp [h, h', hz2]
 
 theorem code_true (g : ℕ) : Schur.Pack.code (g, true) = 2 * g := rfl
 

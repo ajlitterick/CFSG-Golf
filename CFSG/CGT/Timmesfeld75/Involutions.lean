@@ -210,28 +210,6 @@ theorem card_commSub_eq_iff [Finite G] (hT : IsElemAbelian 2 T) (ha : a ^ 2 = 1)
   · intro hC
     rw [le_antisymm hle hC]
 
-theorem comm_comm_of_mem (hT : IsElemAbelian 2 T) (hN : a ∈ Subgroup.normalizer (T : Set G))
-    {t : G} (ht : t ∈ T) : ⁅t, a⁆ = ⁅a, t⁆ := by
-  rw [← commutatorElement_inv]
-  have h2 : ⁅a, t⁆ * ⁅a, t⁆ = 1 := by simpa [pow_two] using comm_sq_eq_one hT hN ht
-  exact inv_eq_of_mul_eq_one_right h2
-
-theorem commutator_eq_image_card [Finite G] {A : Subgroup G} {x : G} (hA : IsElemAbelian 2 A)
-    (hx : x ^ 2 = 1) (hN : x ∈ Subgroup.normalizer (A : Set G)) :
-    ((⁅A, Subgroup.zpowers x⁆ : Subgroup G) : Set G) = {c | ∃ a ∈ A, c = ⁅a, x⁆} ∧
-      Nat.card ↥⁅A, Subgroup.zpowers x⁆ * Nat.card ↥(A ⊓ Subgroup.centralizer ({x} : Set G)) =
-        Nat.card ↥A := by
-  have hcomm : ⁅A, Subgroup.zpowers x⁆ = commSub x A := Subgroup.commutator_comm _ _
-  refine ⟨?_, by rw [hcomm]; exact card_commSub_mul_card_centralizer hA hx hN⟩
-  ext c
-  rw [hcomm]
-  change c ∈ commSub x A ↔ _
-  rw [mem_commSub_iff hA hx hN]
-  constructor
-  · rintro ⟨t, ht, rfl⟩
-    exact ⟨t, ht, (comm_comm_of_mem hA hN ht).symm⟩
-  · rintro ⟨a, ha, rfl⟩
-    exact ⟨a, ha, comm_comm_of_mem hA hN ha⟩
 
 end Basic
 

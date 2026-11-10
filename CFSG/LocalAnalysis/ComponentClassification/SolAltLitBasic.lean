@@ -47,19 +47,6 @@ theorem exists_isAltTwoComponent_max_odd
   · exact Nat.le_findGreatest (le_two_mul_card_of_isAltTwoComponent h') ⟨ho', h9', t', K', h'⟩
   · omega
 
-theorem exists_isAltTwoComponent_max
-    (h : ∃ (t : X) (K : Subgroup X) (n : ℕ), IsAltTwoComponent t K n ∧ 8 ≤ n) :
-    ∃ (t : X) (K : Subgroup X) (n : ℕ), IsAltTwoComponent t K n ∧ 8 ≤ n ∧
-      ∀ (t' : X) (K' : Subgroup X) (n' : ℕ), IsAltTwoComponent t' K' n' → n' ≤ n := by
-  classical
-  let P : ℕ → Prop := fun n => 8 ≤ n ∧ ∃ (t : X) (K : Subgroup X), IsAltTwoComponent t K n
-  obtain ⟨t₀, K₀, n₀, h₀, h8₀⟩ := h
-  obtain ⟨h8N, t, K, hK⟩ : P (Nat.findGreatest P (2 * Nat.card X)) :=
-    Nat.findGreatest_spec (le_two_mul_card_of_isAltTwoComponent h₀) ⟨h8₀, t₀, K₀, h₀⟩
-  refine ⟨t, K, _, hK, h8N, fun t' K' n' h' => ?_⟩
-  by_cases h8' : 8 ≤ n'
-  · exact Nat.le_findGreatest (le_two_mul_card_of_isAltTwoComponent h') ⟨h8', t', K', h'⟩
-  · omega
 
 end Degree
 

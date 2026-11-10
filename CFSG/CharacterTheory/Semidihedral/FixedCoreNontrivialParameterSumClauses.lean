@@ -189,10 +189,6 @@ theorem eq_one_of_mem_W_of_commute {w : G} (hw : w ∈ torusW G t s₀)
   calc w * w = w * w⁻¹ := by rw [← hinv]
     _ = 1 := mul_inv_cancel w
 
-theorem eq_one_of_mem_U_of_mem_W {u : G} (hu : u ∈ torusU G t s₀ d)
-    (hw : u ∈ torusW G t s₀) : u = 1 :=
-  h.eq_one_of_mem_W_of_commute hw
-    (Subgroup.mem_centralizer_singleton_iff.mp (U_le_centralizer hu))
 
 theorem q_odd : Odd q := by
   obtain ⟨p, f, -, hpodd, -, rfl⟩ := h.oddPrimePower

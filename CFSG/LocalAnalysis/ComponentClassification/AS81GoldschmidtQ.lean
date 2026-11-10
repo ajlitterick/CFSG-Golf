@@ -266,19 +266,6 @@ theorem sq_eq_one_of_extraspecial {Q : Subgroup G} {z : G}
   rw [← hc]
   exact pow_orderOf_eq_one z
 
-theorem centralizer_le_normalizer_of_goldschmidt_of_extraspecial
-    (hGA : Asc76X.GoldschmidtTheoremA) {z : G} {S Q : Subgroup G}
-    (hext : CFSG.IsExtraspecialPGroup 2 Q) (hcen : centerIn Q = zpowers z)
-    (hS : IsSylowOf 2 S (centralizer ({z} : Set G))) (hQS : Q ≤ S)
-    (hcl : ∀ x ∈ Q, ∀ h ∈ centralizer ({z} : Set G), h⁻¹ * x * h ∈ S → h⁻¹ * x * h ∈ Q)
-    (hnc : QbarNoComponent z Q) :
-    centralizer ({z} : Set G) ≤
-      normalizer ((Q ⊔ AS76b.oddCoreIn (centralizer ({z} : Set G)) : Subgroup G) : Set G) := by
-  have hzQ : z ∈ Q := by
-    have : z ∈ centerIn Q := by rw [hcen]; exact mem_zpowers z
-    exact this.1
-  exact centralizer_le_normalizer_of_goldschmidt hGA (sq_eq_one_of_extraspecial hext hcen) hS hQS
-    hzQ (fun x hx y hy => commutator_mem_of_extraspecial hext hcen hx hy) hcl hnc
 
 end Centralizer
 

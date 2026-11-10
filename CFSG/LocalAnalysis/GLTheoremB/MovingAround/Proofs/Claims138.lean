@@ -43,13 +43,6 @@ theorem inputI113p_of_inputs (h : CFSG.LocalAnalysis.GLTheoremB.Input11_3) :
   rw [hbot] at hle
   exact le_bot_iff.1 hle
 
-theorem inputI113p_of_I112 (h : CFSG.HardMathSupport.Timmesfeld.ComponentBalance.I112) :
-    Lemma138.InputI113p :=
-  inputI113p_of_inputs (CFSG.HardMathSupport.Timmesfeld.ComponentBalance.input11_3_of_I112 h)
-
-theorem inputI113p_of_tables (T : CFSG.HardMathSupport.Timmesfeld.ComponentBalance.Tables112)
-    (TL : CFSG.HardMathSupport.Timmesfeld.ComponentBalance.TableL2) : Lemma138.InputI113p :=
-  inputI113p_of_inputs (CFSG.HardMathSupport.Timmesfeld.ComponentBalance.input11_3_of_tables T TL)
 
 section Rank
 
@@ -930,31 +923,5 @@ theorem inputI226_holds : Lemma138.InputI226 := by
 
 end TwoSix
 
-@[expose] def InputI2711 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (p : ℕ), p.Prime → p ≠ 2 → ∀ (L B : Subgroup X),
-    CFSG.IsKGroup ↥L → CFSG.Open.IsQuasisimple ↥L → IsElemAbelian p B →
-    B ≤ Subgroup.normalizer (L : Set X) →
-    (∀ A : Subgroup X, A ≤ B ⊔ L → IsElemAbelian p A → Nat.card A ≤ Nat.card B) →
-    4 ≤ CFSG.Open.pRank p B →
-    ∀ J0 : Subgroup X,
-      IsComponentOf J0 (⨆ (U : Subgroup X) (_ : U ≤ B) (_ : 2 ≤ CFSG.Open.pRank p U),
-        L ⊓ Subgroup.normalizer (U : Set X)) →
-      ((∃ k : ℕ, 5 ≤ k * p ∧ IsAltType (k * p) J0) ∨ (∃ k : ℕ, IsAltType (k * p + 2) J0) ∨
-        (∃ (ε : Bool) (n : ℕ), 1 ≤ n ∧ HasFixedPointFreeOrder ε n p ∧
-          Nonempty (↥J0 ≃* ↥(⁅(StatedSp n (ZMod 2)), (StatedSp n (ZMod 2))⁆ : Subgroup
-            (GL (Fin n ⊕ Fin n) (ZMod 2))))) ∨
-        (∃ (ε : Bool) (n : ℕ), 1 ≤ n ∧ IsOmegaTwo ε (n + 1) J0 ∧
-          HasFixedPointFreeOrder ε n p)) →
-      ¬ (p = 3 ∧ IsAltType 5 J0) →
-      (∃ E : Subgroup X, E ≤ B ∧ Nat.card B ≤ p ^ 2 * Nat.card E ∧
-        GLAPLayer p (J0 ⊓ Subgroup.centralizer (E : Set X)) ≠ ⊥) →
-      L = ⨆ (U : Subgroup X) (_ : U ≤ B) (_ : 2 ≤ CFSG.Open.pRank p U),
-        L ⊓ Subgroup.normalizer (U : Set X)
-
-theorem inputI2711_iff_inputI27111 : InputI2711 ↔ Lemma138.InputI27111 :=
-  ⟨fun h => h, fun h => h⟩
-
-theorem inputI2711_of_inputI27111 (h : Lemma138.InputI27111) : InputI2711 :=
-  inputI2711_iff_inputI27111.2 h
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Claims138

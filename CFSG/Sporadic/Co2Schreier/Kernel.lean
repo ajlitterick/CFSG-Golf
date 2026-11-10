@@ -51,11 +51,6 @@ theorem rep_zeta
   rw [toArray_map_getElem! _ _ 0 (by rw [centerIdxR_length]; exact hk)]
   exact enumR_facts.rep (centerIdxR_lt k hk)
 
-theorem zeta_mem_centerIn
-    {k : ℕ} (hk : k < 32) : zeta k ∈ CFSG.centerIn locR := by
-  refine (enumR_facts.mem_centerIn_iff repTuple_r (centerIdxR_lt k hk)).2 ?_
-  rw [(coreOK_spec coreR_check.1).2.2]
-  exact getD_mem (by rw [centerIdxR_length]; exact hk)
 
 theorem exists_zeta
     {v : Equiv.Perm (Fin 2300)} (hv : v ∈ CFSG.centerIn locR) :
@@ -68,9 +63,6 @@ theorem exists_zeta
 
 theorem zeta_zero : zeta 0 = 1 := enumR_facts.elt_zero
 
-theorem zeta_mem_P
-    {k : ℕ} (hk : k < 32) : zeta k ∈ co2P :=
-  locD_le_P (locR_le_D (Subgroup.mem_inf.1 (zeta_mem_centerIn hk)).1)
 
 theorem rep_dArrs
     {i : ℕ} (hi : i < 2) : Rep 2300 kerData.d[i]! (dTuple.getD i 1) :=

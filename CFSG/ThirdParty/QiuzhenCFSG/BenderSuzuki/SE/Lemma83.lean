@@ -155,27 +155,6 @@ public theorem eq_one_of_mem_peterfalviKSet_and_centralizes_involution
   hM.eq_one_of_mem_centralizer_and_inverted_by_outside_involution
     hsM hs ht htM hxC hxI.2
 
-/-- Set-level form of `C_I(s) = 1`. -/
-public theorem peterfalviKSet_inter_centralizer_involution_eq_singleton
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (D : Subgroup X) {s t : X}
-    (hsM : s ∈ M) (hs : IsInvolution s)
-    (ht : IsInvolution t) (htM : t ∉ M) :
-    peterfalviKSet D t ∩
-        (Subgroup.centralizer ({s} : Set X) : Set X) = {1} := by
-  ext x
-  constructor
-  · rintro ⟨hxI, hxC⟩
-    have hx :=
-      hM.eq_one_of_mem_peterfalviKSet_and_centralizes_involution
-        hsM hs ht htM hxI hxC
-    simp [hx]
-  · intro hx
-    have hxone : x = 1 := Set.mem_singleton_iff.mp hx
-    subst x
-    constructor
-    · simp [peterfalviKSet, rightConjugateElem]
-    · exact (Subgroup.centralizer ({s} : Set X)).one_mem
 
 /-- Lemma 8.3(a): with `D = M ⊓ M^t` and `V = C_D(t)`, there is an
 involution `u ∈ M` such that `V = C_D(u)`.

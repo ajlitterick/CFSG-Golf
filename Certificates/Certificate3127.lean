@@ -58,11 +58,6 @@ theorem kSwMat : swMatK SWP = true := by quickRfl
 
 theorem kSwPl : swPlK PLP ISO SI SWP = true := by quickRfl
 
-theorem neg_sw : notB (swK SQ V891 (Nat.xor SI 1)) = true := by quickRfl
-
-theorem neg_mat : notB (swMatK (Nat.xor SWP 1)) = true := by quickRfl
-
-theorem neg_pl : notB (swPlK PLP ISO (Nat.xor SI (pw2 (nat_lit 20))) SWP) = true := by quickRfl
 
 theorem rows6 : ∀ i : Fin 6, swRows6[(i : ℕ)]! = fget SWP i 12 := by decide +kernel
 

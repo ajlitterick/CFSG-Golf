@@ -495,17 +495,6 @@ theorem hasUnequalCovers_of_ambient {C U B P₁ P₂ : Subgroup M} {n₁ n₂ : 
   · rw [hnorm, Subgroup.relIndex_subgroupOf hP₁]; exact hi₁
   · rw [hnorm, Subgroup.relIndex_subgroupOf hP₂]; exact hi₂
 
-theorem hasInvariantCovers_of_ambient {C U B P₁ P₂ : Subgroup M}
-    (hU : CFSG.QuasithinUnique.IsSylowTwoOf U C)
-    (hB : C ⊓ Subgroup.normalizer (U : Set M) = B)
-    (hcov : ∀ A : Subgroup M, A ≤ C → (B ⋖ A ↔ A = P₁ ∨ A = P₂))
-    (hP₁ : P₁ ≤ C) (hP₂ : P₂ ≤ C) (h₁ : P₁ ≠ C) (h₂ : P₂ ≠ C) (hgen : P₁ ⊔ P₂ = C)
-    (hinv : ∀ α : MulAut C, (U.subgroupOf C).map α.toMonoidHom = U.subgroupOf C →
-      (P₁.subgroupOf C).map α.toMonoidHom = P₁.subgroupOf C ∧
-        (P₂.subgroupOf C).map α.toMonoidHom = P₂.subgroupOf C) :
-    HasInvariantCovers C (U.subgroupOf C) := by
-  obtain ⟨hc, hn₁, hn₂, hg, -⟩ := ambient_covers_data hU.1 hB hcov hP₁ hP₂ h₁ h₂ hgen
-  exact ⟨_, _, hc, hn₁, hn₂, hg, hinv⟩
 
 end Ambient
 
@@ -735,17 +724,6 @@ theorem TwoGeneratingSylowOvergroups.of_mulEquiv [Finite X] (e : X ≃* X')
     rw [this, Subgroup.map_id]
   rwa [e1, e2] at h1
 
-theorem false_of_twoGeneratingSylowOvergroups {L Q : Type} [Group L] [Group Q] [Finite L]
-    [Finite Q] (c : MulAut L →* MulAut Q) (hc : Function.Injective c)
-    (hinner : inner Q ≤ (inner L).map c) {A S P : Subgroup (MulAut L)} (hAi : inner L ≤ A)
-    (hS : CFSG.QuasithinUnique.IsSylowTwoOf S A)
-    (hmax : S ≤ P ∧ P ⋖ A ∧ ∀ M, M ⋖ A → S ≤ M → M = P)
-    (hQ : TwoGeneratingSylowOvergroups Q) : False := by
-  have hS' := isSylowTwoOf_iff_isSylowOf.1 hS
-  have h1 : inner Q ≤ A.map c := hinner.trans (Subgroup.map_mono hAi)
-  have h2 : CFSG.QuasithinUnique.IsSylowTwoOf (S.map c) (A.map c) :=
-    isSylowTwoOf_iff_isSylowOf.2 (isSylowOf_map_injective c hc hS')
-  exact ((hQ _ h1 _ h2).of_map_injective hS'.le c hc).not_uniqueMaximal hmax
 
 end Transport
 

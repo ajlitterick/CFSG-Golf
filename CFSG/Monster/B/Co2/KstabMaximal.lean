@@ -161,9 +161,6 @@ theorem ncard_orbit_olq_v0 :
     (MulAction.orbit OLq v0).ncard = 98280 := by
   rw [orbit_olq_v0, ncard_shortSet]
 
-theorem index_Kstab_v0 :
-    (Kstab v0).index = 98280 := by
-  rw [← stabilizer_olq, MulAction.index_stabilizer, ncard_orbit_olq_v0]
 
 @[expose] def wordO (w : List ℕ) : OLq := (w.map alphaN).prod
 
@@ -244,77 +241,6 @@ theorem exists_smul_dec_genXY
   · exact ⟨⟨(wordO yWordN)⁻¹, Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)⟩,
       smul_dec_genXY_one v⟩
 
-theorem orbPoint_spec {seed : ℕ} {lev par lab : ℕ → ℕ} {v : ℕ}
-    (h : orbPoint seed lev par lab v = true) (hv : lev v ≠ 0) :
-    (lev v = 1 → v = seed) ∧
-    (lev v ≠ 1 → par v < 2 ^ 24 ∧ lab v < 2 ∧ lev (par v) + 1 = lev v ∧
-      genXY (lab v) (par v) = v) ∧
-    genXY 0 v < 2 ^ 24 ∧ lev (genXY 0 v) ≠ 0 ∧ genXY 1 v < 2 ^ 24 ∧ lev (genXY 1 v) ≠ 0 := by
-  unfold orbPoint at h
-  have h0 : (lev v == 0) = false := by simpa using hv
-  simp only [h0, Bool.false_eq_true, ↓reduceIte, Bool.and_eq_true, decide_eq_true_eq,
-    bne_iff_ne, ne_eq] at h
-  obtain ⟨⟨⟨⟨h1, h2⟩, h3⟩, h4⟩, h5⟩ := h
-  refine ⟨fun hl => ?_, fun hl => ?_, h2, h3, h4, h5⟩
-  · simpa [hl] using h1
-  · have hl' : (lev v == 1) = false := by simpa using hl
-    simp only [hl', Bool.false_eq_true, ↓reduceIte, Bool.and_eq_true, decide_eq_true_eq,
-      beq_iff_eq] at h1
-    obtain ⟨⟨⟨hp, hg⟩, hlp⟩, hgp⟩ := h1
-    exact ⟨hp, hg, hlp, hgp⟩
-
-theorem ncard_orbit_Sgrp_of_orbCheck
-    {seed N chunks : ℕ} {T : OrbTables} (hc : 0 < chunks)
-    (h : orbCheck seed N T chunks = true) :
-    (MulAction.orbit Sgrp (dec seed)).ncard = N := by
-  simp only [orbCheck, Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at h
-  obtain ⟨⟨⟨hs, hlev⟩, hpar⟩, hcount⟩ := h
-  have hpt := VisCert.parAll_spec hc hpar
-  let F : Set ℕ := {v | v < 2 ^ 24 ∧ VisCert.Native.rd8 T.lev v ≠ 0}
-  have hFfin : (dec '' F).Finite :=
-    ((Set.finite_lt_nat (2 ^ 24)).subset fun v hv => hv.1).image dec
-  have hseed : seed ∈ F := ⟨hs, by rw [hlev]; omega⟩
-  have hX : ∀ v ∈ F, genXY 0 v ∈ F := fun v hv => by
-    obtain ⟨-, -, h2, h3, -, -⟩ := orbPoint_spec (hpt v hv.1) hv.2
-    exact ⟨h2, h3⟩
-  have hY : ∀ v ∈ F, genXY 1 v ∈ F := fun v hv => by
-    obtain ⟨-, -, -, -, h4, h5⟩ := orbPoint_spec (hpt v hv.1) hv.2
-    exact ⟨h4, h5⟩
-  have hreach : ∀ m v, v < 2 ^ 24 → VisCert.Native.rd8 T.lev v = m → m ≠ 0 →
-      dec v ∈ MulAction.orbit Sgrp (dec seed) := by
-    intro m
-    induction m using Nat.strong_induction_on with
-    | _ m ih =>
-      intro v hv hm hm0
-      obtain ⟨h1, hpar', -⟩ := orbPoint_spec (hpt v hv) (by rw [hm]; exact hm0)
-      by_cases hl1 : VisCert.Native.rd8 T.lev v = 1
-      · rw [h1 hl1]
-        exact MulAction.mem_orbit_self _
-      · obtain ⟨hp, hg, hlp, himg⟩ := hpar' hl1
-        have hpl : VisCert.Native.rd8 T.lev (VisCert.Native.rd32 T.par v) ≠ 0 := by omega
-        have ih' := ih (VisCert.Native.rd8 T.lev (VisCert.Native.rd32 T.par v)) (by omega)
-          (VisCert.Native.rd32 T.par v) hp rfl hpl
-        obtain ⟨s, hs'⟩ := exists_smul_dec_genXY hg (VisCert.Native.rd32 T.par v)
-        rw [← himg, ← hs']
-        exact MulAction.mem_orbit_of_mem_orbit _ ih'
-  have horb : MulAction.orbit Sgrp (dec seed) = dec '' F := by
-    apply Set.Subset.antisymm
-    · refine VisCert.orbit_closure_subset
-        (S := ({(wordO xWordN)⁻¹, (wordO yWordN)⁻¹} : Set OLq)) hFfin ?_
-        (x := dec seed) ⟨seed, hseed, rfl⟩
-      rintro s (rfl | rfl) _ ⟨v, hv, rfl⟩
-      · exact ⟨genXY 0 v, hX v hv, (smul_dec_genXY_zero v).symm⟩
-      · exact ⟨genXY 1 v, hY v hv, (smul_dec_genXY_one v).symm⟩
-    · rintro _ ⟨v, hv, rfl⟩
-      exact hreach _ v hv.1 rfl hv.2
-  have hcardF : F.ncard = N := by
-    have hF : F = ↑((Finset.range (2 ^ 24)).filter fun v => VisCert.Native.rd8 T.lev v ≠ 0) := by
-      ext v
-      simp [F]
-    rw [hF, Set.ncard_coe_finset, ← hcount, VisCert.countBelow_eq]
-    congr 1
-  have hinj : Set.InjOn dec F := fun a ha b hb hab => dec_injective ha.1 hb.1 hab
-  rw [horb, hinj.ncard_image, hcardF]
 
 theorem ncard_orbit_Sgrp_of_orbitOf
     {seed N : ℕ} (hlt : CFSG.KC.AxisPlane.orbitOf 2 genXY seed ⊆ Set.Iio (2 ^ 24))
@@ -418,15 +344,5 @@ theorem _root_.CFSG.Monster.B.Co2.Kstab_v0_eq_or_eq_top
   · rw [ncard_orbit_olq_v0]
     exact subset_sum_condition
 
-theorem Kstab_v0_ne_top :
-    Kstab v0 ≠ ⊤ := by
-  intro h
-  have := index_Kstab_v0
-  rw [h, Subgroup.index_top] at this
-  omega
-
-theorem _root_.CFSG.Monster.B.Co2.isCoatom_Kstab_v0 :
-    IsCoatom (Kstab v0) :=
-  ⟨Kstab_v0_ne_top, fun X hX => (Kstab_v0_eq_or_eq_top X hX.le).resolve_left hX.ne'⟩
 
 end CFSG.Monster.B.Co2.KstabMaximal

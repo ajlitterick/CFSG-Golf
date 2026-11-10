@@ -84,12 +84,6 @@ theorem word_tcyc_trans : ∀ p p' : Fin 4, ∀ o : Bool,
       tcyc p' o' := by
   decide +kernel
 
-theorem cyc016_mem_alternating : cyc016 ∈ alternatingGroup (Fin 7) := by
-  rw [mem_alternatingGroup]
-  decide +kernel
-
-theorem permAct7_cyc016_vecFour : permAct7 cyc016 vecFour = vecFour := by
-  decide +kernel
 
 theorem cyc016_pow_three : cyc016 ^ 3 = 1 := by
   decide +kernel

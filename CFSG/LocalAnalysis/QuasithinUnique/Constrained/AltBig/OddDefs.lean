@@ -28,7 +28,5 @@ theorem OddInv.mu_eq_omega_iff (p : OddInv α) {x : α} : p.μ x = p.ω ↔ x = 
   · rintro rfl
     exact p.fix
 
-theorem OddInv.mu_ne_omega (p : OddInv α) {x : α} (hx : x ≠ p.ω) : p.μ x ≠ p.ω :=
-  fun h => hx (p.mu_eq_omega_iff.1 h)
 
 end CFSG.QuasithinUnique.L246C127.AltBig

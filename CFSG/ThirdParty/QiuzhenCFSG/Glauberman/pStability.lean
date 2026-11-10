@@ -161,20 +161,6 @@ public theorem pCore_quotient_centralizer_le_of_centralizer_le_core {G : Type*} 
 
 /-! ## Lemma B: `[P, Z, Z] = 1` for `Z ⊴ G` Abelian -/
 
-/-- If `Z` is an Abelian normal subgroup of `G`, then `⁅⁅P, Z⁆, Z⁆ = ⊥` for every subgroup
-`P ≤ G`.  This is the content of the first line of the proof of Theorem A
-(`refs/glauberman-p-stable.tex` L977–L978: "Since `Z` is an Abelian normal subgroup of `S`,
-then `[P,Z,Z] = 1`"): normality of `Z` gives `[P,Z] ⊆ Z` (each commutator `[p,z]` lies in
-`Z` because `p⁻¹z⁻¹p ∈ Z`), and Abelian-ness gives `[Z,Z] = 1`. -/
-public theorem commutator_commutator_eq_bot_of_abelian_normal {G : Type*} [Group G]
-    {P Z : Subgroup G} (hZnorm : Z.Normal) (hZcomm : IsMulCommutative Z) :
-    ⁅⁅P, Z⁆, Z⁆ = ⊥ := by
-  have : Z.Normal := hZnorm
-  have hPZ : ⁅P, Z⁆ ≤ Z := Subgroup.commutator_le_right (H₁ := P) (H₂ := Z)
-  have hZZ : ⁅Z, Z⁆ = ⊥ := Subgroup.commutator_self_eq_bot_iff.mpr hZcomm
-  have hle : ⁅⁅P, Z⁆, Z⁆ ≤ ⁅Z, Z⁆ := Subgroup.commutator_mono hPZ le_rfl
-  rw [hZZ] at hle
-  exact le_bot_iff.mp hle
 
 /-- Variant of `commutator_commutator_eq_bot_of_abelian_normal` with the hypotheses the paper
 actually has at the point of Theorem A's first line: `Z` is Abelian and `P` normalizes `Z`

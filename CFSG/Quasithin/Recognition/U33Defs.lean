@@ -60,10 +60,6 @@ private def ofQuaternion : QuaternionGroup 2 → Z4StarQ8Model
   | .a k => ⟨k, ZMod.castHom (show 2 ∣ 4 by norm_num) (ZMod 2) k, 0⟩
   | .xa k => ⟨1 - k, ZMod.castHom (show 2 ∣ 4 by norm_num) (ZMod 2) k, 1⟩
 
-private theorem ofQuaternion_mul (x y : QuaternionGroup 2) :
-    ofQuaternion (x * y) = ofQuaternion x * ofQuaternion y := by
-  revert x y
-  decide
 
 private def z4Q8Hom : Multiplicative (ZMod 4) × QuaternionGroup 2 →* Z4StarQ8Model where
   toFun t := ⟨(Multiplicative.toAdd t.1), 0, 0⟩ * ofQuaternion t.2
@@ -188,18 +184,12 @@ private instance : DecidableEq (WreathedTwoGroup 2) := fun x y =>
     · rintro rfl
       exact ⟨rfl, rfl⟩)
 
-theorem wreathedTwoGroup_natCard_two : Nat.card (WreathedTwoGroup 2) = 32 := by
-  rw [Nat.card_eq_fintype_card]
-  decide
 
 theorem wreathedTwoGroup_natCard_involutions_two :
     Nat.card {x : WreathedTwoGroup 2 // x * x = 1 ∧ x ≠ 1} = 7 := by
   rw [Nat.card_eq_fintype_card]
   decide
 
-theorem wreathedTwoGroup_natCard_of_equiv {P : Type*} [Group P] (e : P ≃* WreathedTwoGroup 2) :
-    Nat.card P = 32 := by
-  rw [Nat.card_congr e.toEquiv, wreathedTwoGroup_natCard_two]
 
 theorem wreathedTwoGroup_natCard_involutions_of_equiv {P : Type*} [Group P]
     (e : P ≃* WreathedTwoGroup 2) : Nat.card {x : P // x * x = 1 ∧ x ≠ 1} = 7 := by

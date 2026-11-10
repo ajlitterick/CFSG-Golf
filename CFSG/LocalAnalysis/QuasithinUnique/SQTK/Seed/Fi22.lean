@@ -28,11 +28,5 @@ theorem nonempty_mulEquiv_carrier_Fi22
     CFSG.Sporadic.Fi22.closure_ab
   exact ⟨e.trans CFSG.Sporadic.Fi22.fi22EquivJ.symm⟩
 
-theorem tcExcludedSporadic_Fi22 :
-    TCExcludedSporadic .Fi22 :=
-  tcExcludedSporadic_of_equiv .Fi22 (T := Blueprint.NativeSporadic.Carrier .Fi22)
-    (fun _ => nonempty_mulEquiv_carrier_Fi22) (by
-      obtain ⟨E, hE, hc⟩ := CFSG.SectionRank.Fi22_elementary_three_rank_four
-      exact ⟨E, hE, 4, by norm_num, hc⟩)
 
 end CFSG.QuasithinUnique.SQTK

@@ -108,7 +108,6 @@ private theorem pkW_spec (w : ℕ) (g : ℕ → ℕ) (n : ℕ) (hg : ∀ i, i < 
 private theorem fld6_eq' (P i : ℕ) : fld6 P i = P / 2 ^ (6 * i) % 2 ^ 6 := by
   rw [fld6_eq, Nat.pow_mul]; rfl
 
-private theorem compK_eq (A B : ℕ) : compK A B = pkW 6 (fun i => evV A (fld6 B i)) 6 := rfl
 
 private theorem compK_lt (A B : ℕ) : compK A B < 2 ^ 36 :=
   (pkW_spec 6 (fun i => evV A (fld6 B i)) 6 (fun i _ => evV_lt _ _)).1

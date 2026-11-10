@@ -17,22 +17,10 @@ variable (φ) in
 instance radPre_normal : (radPre φ).Normal :=
   Subgroup.normal_comap _
 
-theorem inl_mem_radPre (n : N) : (inl n : N ⋊[φ] S) ∈ radPre φ := by
-  change rightHom (inl n : N ⋊[φ] S) ∈ Subgroup.center S
-  rw [rightHom_inl]
-  exact one_mem _
 
 @[expose] noncomputable def radPreHom : radPre φ →* Subgroup.center S :=
   (rightHom.comp (radPre φ).subtype).codRestrict _ fun x => x.2
 
-theorem radPreHom_surjective : Function.Surjective (radPreHom (φ := φ)) := by
-  rintro ⟨s, hs⟩
-  have hmem : (SemidirectProduct.inr s : N ⋊[φ] S) ∈ radPre φ := by
-    change SemidirectProduct.rightHom (SemidirectProduct.inr s : N ⋊[φ] S) ∈ Subgroup.center S
-    rw [SemidirectProduct.rightHom_inr]
-    exact hs
-  exact ⟨⟨SemidirectProduct.inr s, hmem⟩,
-    Subtype.ext (SemidirectProduct.rightHom_inr (N := N) (φ := φ) s)⟩
 
 theorem mem_ker_radPreHom {x : radPre φ} : x ∈ (radPreHom (φ := φ)).ker ↔ rightHom x.1 = 1 := by
   rw [MonoidHom.mem_ker]
@@ -55,21 +43,6 @@ theorem isSolvable_radPre : Group.IsSolvable (radPre φ) := by
   exact Group.isSolvable_of_ker_le_range (radPreHom (φ := φ)).ker.subtype radPreHom
     fun x hx => ⟨⟨x, hx⟩, rfl⟩
 
-theorem card_radPre : Nat.card (radPre φ) = Nat.card N * Nat.card (Subgroup.center S) := by
-  have h := Subgroup.card_ker_mul_card_of_surjective (radPreHom_surjective (φ := φ))
-  rw [← h]
-  congr 1
-  have hmem : ∀ n : N, (⟨SemidirectProduct.inl n, inl_mem_radPre n⟩ : radPre φ) ∈
-      (radPreHom (φ := φ)).ker := fun n => mem_ker_radPreHom.2 (rightHom_inl n)
-  refine Nat.card_congr (Equiv.ofBijective (fun n : N => ⟨⟨SemidirectProduct.inl n,
-    inl_mem_radPre n⟩, hmem n⟩) ⟨?_, ?_⟩).symm
-  · intro m n hmn
-    exact inl_injective (congrArg (fun x : (radPreHom (φ := φ)).ker => x.1.1) hmn)
-  · rintro ⟨x, hx⟩
-    have hx' : rightHom x.1 = 1 := mem_ker_radPreHom.1 hx
-    rw [← MonoidHom.mem_ker, ← range_inl_eq_ker_rightHom] at hx'
-    obtain ⟨n, hn⟩ := hx'
-    exact ⟨n, Subtype.ext (Subtype.ext hn)⟩
 
 @[expose] noncomputable def toCenterQuot : N ⋊[φ] S →* S ⧸ Subgroup.center S :=
   (QuotientGroup.mk' (Subgroup.center S)).comp rightHom

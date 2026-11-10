@@ -55,15 +55,6 @@ variable {G : Type} [Group G] {Ω : Set (Subgroup G)}
 section Finite
 variable [Finite G] {N : Subgroup G} [N.Normal]
 
-theorem eq_one_or_eq_of_map_eq_of_twin (hΩ : HM MT Ω)
-    (hN : Odd (Nat.card N)) {K J : Subgroup G} (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKJ : K ≠ J) {z : G}
-    (hzK : IsUniqueInvolution K z) (hzJ : IsUniqueInvolution J z) {x k : G} (hx : x ∈ J)
-    (hk : k ∈ K) (hk2 : IsPGroup 2 (Subgroup.zpowers k))
-    (hxk : QuotientGroup.mk' N x = QuotientGroup.mk' N k) : k = 1 ∨ k = z :=
-  E187C.eq_one_or_eq_of_map_eq_of_twin_of
-    (fun hK hJ hKJ hzK hzJ => hΩ.comm_le_oddCore_of_twin hK hJ hKJ hzK hzJ)
-    (fun hK hz => hΩ.center_two hK hz)
-    hN hK hJ hKJ hzK hzJ hx hk hk2 hxk
 
 theorem exists_conj_of_map_eq (hΩ : HM MT Ω)
     (hN : Odd (Nat.card N)) {K L : Subgroup G} (hK : K ∈ Ω) (hL : L ∈ Ω)

@@ -53,14 +53,6 @@ theorem coverCenterThree_of_rest (h : CoverCenterThreeRest) : CoverCenterThree :
 section Item46
 
 
-theorem rank3II_4_6_of_cover_rest (h41 : Item4_1) (hmult : TripleCoverInputs)
-    (hsl : CoverSLThree46) (hcen : CoverCenterThreeRest) : Item4_6 :=
-  rank3II_4_6_of_cover h41 hmult hsl (coverCenterThree_of_rest hcen)
-
-theorem rank3II_4_6_of_cover_rest' (h41 : Item4_1) (hmult : TripleCoverInputs)
-    (hcen : CoverCenterThreeRest) : Item4_6 :=
-  rank3II_4_6_of_cover_rest h41 hmult coverSLThree46 hcen
-
 end Item46
 
 end CFSG.RankThree.PartTwo.Sec4.Census

@@ -32,11 +32,6 @@ theorem greyC_injective : Function.Injective greyC := fun μ ν h =>
 theorem mem_G_iff (x : Fin 24 → ZMod 2) : x ∈ G ↔ ∃ μ, (greyC μ : Fin 24 → ZMod 2) = x :=
   Submodule.mem_span_range_iff_exists_fun (ZMod 2)
 
-theorem mem_G_iff_existsUnique (x : Fin 24 → ZMod 2) :
-    x ∈ G ↔ ∃! μ, (greyC μ : Fin 24 → ZMod 2) = x := by
-  rw [mem_G_iff]
-  refine ⟨fun ⟨μ, hμ⟩ => ⟨μ, hμ, fun ν hν => greyC_injective (Subtype.ext (hν.trans hμ.symm))⟩,
-    fun h => h.exists⟩
 
 @[simp] theorem greyC_single (i : Fin 6) : greyC (Pi.single i 1) = ⟨g i, g_mem_C i⟩ := by
   apply Subtype.ext
@@ -126,9 +121,6 @@ theorem mem_Hstar_iff {δ : Cocode} : δ ∈ Hstar ↔ ∀ μ, pair (greyC μ) �
 theorem g_dotProduct_γ : ∀ i j : Fin 6, g i ⬝ᵥ γ j = if i = j then 0 else 1 := by
   decide +kernel
 
-theorem pair_g_γ (i j : Fin 6) :
-    pair ⟨g i, g_mem_C i⟩ (Submodule.Quotient.mk (γ j)) = if i = j then 0 else 1 :=
-  g_dotProduct_γ i j
 
 theorem pair_greyC_gammaD (μ ν : Fin 6 → ZMod 2) : pair (greyC μ) (gammaD ν) = bG μ ν := by
   rw [gammaD_apply, pair_mk, coe_greyC, bG_apply, sum_dotProduct]
@@ -180,22 +172,5 @@ theorem range_gammaD : LinearMap.range gammaD = Gstar := by
 @[simp] theorem qGstar_gammaEquiv (μ : Fin 6 → ZMod 2) : qGstar (gammaEquiv μ) = qG μ := by
   rw [qGstar, LinearEquiv.symm_apply_apply]
 
-theorem grey_cocode_quadratic_data :
-    (∀ x : Fin 24 → ZMod 2, x ∈ G ↔ ∃! μ : Fin 6 → ZMod 2, (greyC μ : Fin 24 → ZMod 2) = x) ∧
-    (∀ μ : Fin 6 → ZMod 2, (greyC μ : Fin 24 → ZMod 2) = ∑ i, μ i • g i) ∧
-    (∀ μ : Fin 6 → ZMod 2, gammaD μ = Submodule.Quotient.mk (∑ i, μ i • γ i)) ∧
-    (∀ μ : Fin 6 → ZMod 2, qG μ = (((∑ i, (μ i).val).choose 2 : ℕ) : ZMod 2)) ∧
-    (∀ μ ν : Fin 6 → ZMod 2, bG μ ν = ∑ i, ∑ j, if i ≠ j then μ i * ν j else 0) ∧
-    (∀ (a : C) (x : Fin 24 → ZMod 2), pair a (Submodule.Quotient.mk x) =
-      (a : Fin 24 → ZMod 2) ⬝ᵥ x) ∧
-    (∀ i j : Fin 6, pair ⟨g i, g_mem_C i⟩ (Submodule.Quotient.mk (γ j)) =
-      if i = j then 0 else 1) ∧
-    Gstar = Submodule.span (ZMod 2) (Set.range fun j => Submodule.Quotient.mk (p := C) (γ j)) ∧
-    Function.Injective gammaD ∧ LinearMap.range gammaD = Gstar ∧
-    (∀ μ : Fin 6 → ZMod 2, ((gammaG (greyEquiv μ) : Gstar) : Cocode) = gammaD μ) ∧
-    (∀ μ : Fin 6 → ZMod 2, qGstar (gammaEquiv μ) = qG μ) ∧
-    (∀ δ : Cocode, δ ∈ Hstar ↔ ∀ a : C, (a : Fin 24 → ZMod 2) ∈ G → pair a δ = 0) :=
-  ⟨mem_G_iff_existsUnique, coe_greyC, gammaD_apply, qG_def, bG_apply, pair_mk, pair_g_γ, rfl,
-    gammaD_injective, range_gammaD, gammaG_greyEquiv, qGstar_gammaEquiv, fun _ => mem_Hstar⟩
 
 end CFSG.Monster.Xi

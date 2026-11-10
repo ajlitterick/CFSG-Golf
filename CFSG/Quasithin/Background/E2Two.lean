@@ -70,12 +70,6 @@ abbrev StarQuot (M H : Subgroup Γ) : Type := ↥H ⧸ (kerIn M H).subgroupOf H
         ((p % 4 = 1 ∧ IsPSU 3 p 1 ↥Ks) ∨ (p % 4 = 3 ∧ IsPSL 3 p 1 ↥Ks ∧ InducesOuter Ts Ks)) ∧
         MKs = Ks ⊓ Subgroup.centralizer (ZTK : Set (StarQuot M H)) ∧ E1.nParam H = 1)))
 
-@[expose] def E22Statement : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (H T M : Subgroup Γ), MinParabolic H T M → SQTKGroup ↥H →
-    ¬ Group.IsSolvable ↥H →
-    (∃ K : Subgroup Γ, K ∈ cComp H ∧ H = K ⊔ T ∧
-      CFSG.Open.IsQuasisimple (↥K ⧸ CFSG.Open.pCore 2 ↥K) ∧ E22Cases H T M K) ∧
-    SQTKGroup (StarQuot M H)
 
 end E2
 

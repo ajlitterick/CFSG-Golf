@@ -37,9 +37,6 @@ theorem exists_split (hK : WeakInSigma3 E K) :
   · exact Or.inr h1
   · exact Or.inl h1
 
-theorem exists_mem_not_mem_axis (hK : WeakInSigma3 E K) : ∃ a ∈ E, a ∉ axisSub E K := by
-  obtain ⟨a, ha, hna, -⟩ := hK.exists_split
-  exact ⟨a, ha, hna⟩
 
 theorem conj (hK : WeakInSigma3 E K) {n : G} (hn : n ∈ Subgroup.normalizer (E : Set G)) :
     WeakInSigma3 E (conjSub n K) := by
@@ -102,10 +99,6 @@ structure WeakPreFrame3 (Ω : Set (Subgroup G)) (E : Subgroup G) (S : Set (Subgr
   gen : Subgroup.closure (wzSet S) = E
   card : 8 ≤ Nat.card E
 
-structure WeakToralFrame3 (Ω : Set (Subgroup G)) (E : Subgroup G) (S : Set (Subgroup G)) : Prop
-    extends WeakPreFrame3 Ω E S where
-  sym : WeakPairingSymmetric E S
-  conn : WeakPairingConnected E S
 
 namespace WeakPreFrame3
 
@@ -151,9 +144,6 @@ theorem mem_of_central [Finite G] {K : Subgroup G} (hK : K ∈ S) {z : G}
 theorem comm {x y : G} (hx : x ∈ E) (hy : y ∈ E) : x * y = y * x :=
   comm_of_sq_eq_one Fr.elem hx hy
 
-theorem mem_axisSub_of_central [Finite G] {K : Subgroup G} (hK : K ∈ S) {z : G}
-    (hz : IsCentralInvolution K z) : z ∈ axisSub E K :=
-  mem_axisSub_iff.mpr ⟨Fr.mem_of_central hK hz, fun k hk => (hz.central k hk).symm⟩
 
 theorem exists_ne [Finite G] : ∃ K ∈ S, ∃ L ∈ S, K ≠ L := by
   by_contra hne

@@ -61,7 +61,6 @@ open CFSG.SmithE (tri applyCols)
 
 @[expose] def adjW (i j : Nat) : Bool := atLeast4 (wMask i &&& wMask j)
 
-@[expose] def oppW (i j : Nat) : Bool := wMask i &&& wMask j == 1
 
 @[expose] def fB (u v : Nat) : Bool :=
   (List.range 20).foldl (fun b t => b ^^ (u.testBit t && v.testBit (19 - t))) false

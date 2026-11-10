@@ -55,19 +55,11 @@ theorem freeLift_eq_one_of_evalLs {α : Type*} {K : Subgroup Y} (f : α → K)
 
 @[expose] def genU (k : ℕ) : Y := ⟨wordP (uWords.getD k []), wordP_mem _⟩
 
-abbrev zU : Y := genU 0
-
-abbrev tU : Y := genU 1
-
-abbrev eU : Y := genU 2
-
-abbrev xU : Y := genU 3
 
 abbrev yU : Y := genU 4
 
 abbrev sU : Y := genU 5
 
-theorem xU_eq_c3Y : xU = c3Y := rfl
 
 @[expose] def uLists : List (List ℕ) :=
   [[0, 2, 1, 6, 7, 8, 3, 4, 5, 12, 13, 14, 9, 10, 11, 15, 16, 19, 22, 17, 20, 23, 18, 21, 24, 25,
@@ -158,17 +150,6 @@ theorem genU_mem_P2 {k : ℕ} (hk : k < 6) (h4 : k ≠ 4) : genU k ∈ P2 :=
 theorem genU_mem_B0 {k : ℕ} (hk : k < 4) : genU k ∈ B0 :=
   Subgroup.mem_inf.2 ⟨genU_mem_P1 (by omega), genU_mem_P2 (by omega) (by omega)⟩
 
-theorem zU_mem_B0 : zU ∈ B0 := genU_mem_B0 (by norm_num)
-
-theorem tU_mem_B0 : tU ∈ B0 := genU_mem_B0 (by norm_num)
-
-theorem eU_mem_B0 : eU ∈ B0 := genU_mem_B0 (by norm_num)
-
-theorem xU_mem_B0 : xU ∈ B0 := genU_mem_B0 (by norm_num)
-
-theorem yU_mem_P1 : yU ∈ P1 := genU_mem_P1 (by norm_num)
-
-theorem sU_mem_P2 : sU ∈ P2 := genU_mem_P2 (by norm_num) (by norm_num)
 
 theorem yU_notMem_P2 : yU ∉ P2 := notMem_P2_of_repL (repL_genU (by norm_num)) uLists_four_sameSet
 

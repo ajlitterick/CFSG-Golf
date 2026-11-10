@@ -125,9 +125,6 @@ theorem tb_eq {k : Nat} (hk : k < 20) {x : Nat} (hx : x < 3510) :
   rw [e3] at h'
   rw [Nat.eq_of_beq_eq_true h', wordK_eq]
 
-theorem tb_lt {k : Nat} (hk : k < 20) {x : Nat} (hx : x < 3510) : tb k x < 3510 := by
-  rw [tb_eq hk hx]
-  exact wordF_lt _ hx
 
 theorem gWords_n_all : ∀ j < 18, List.getD gWords (2 + j) [] = nWord j := by decide +kernel
 
@@ -197,8 +194,6 @@ theorem eT_TR {i : Nat} (hi : i < 4) :
   refine TR_congr h fun y hy => ?_
   exact (Nat.eq_of_beq_eq_true (allN_spec (allN_spec e_ok i hi) y hy)).symm
 
-theorem eT_lt {i : Nat} (hi : i < 4) {y : Nat} (hy : y < 3510) : eT i y < 3510 :=
-  ((eT_TR hi).2 y hy).2
 
 theorem e_checks : eChecks 3510
     (eTab 3510 orbL.alpha orbL.alpha orbL.beta (invT 3510 orbL.beta) 0)

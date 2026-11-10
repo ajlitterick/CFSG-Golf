@@ -255,61 +255,6 @@ theorem exists_untwist_one_step_native
   show z ∈ Zsub χ
   exact hzZ
 
-theorem f4_exists_untwist_one_step_rankThree_native
-    {Ω : Type} [Field Ω] [IsAlgClosed Ω]
-    [CharP Ω 2]
-    (D : LangDatum Tag.F4 Ω) (f : ℕ) (hf : 1 ≤ f) (hq : D.q = 2 ^ f)
-    (ρ : Equiv.Perm (Fin Tag.F4.rank → ℤ)) (hρ : FrobRootMap D ρ)
-    {p : ℕ} (hp : p.Prime) (hp2 : p % 2 = 1) (hpΩ : (p : Ω) ≠ 0)
-    {a : Fin Tag.F4.rank → Ωˣ} (ha : rootDiagUnit Tag.F4 a ∈ D.torus)
-    (hap : rootDiagUnit Tag.F4 a ^ p = 1) (ha1 : rootDiagUnit Tag.F4 a ≠ 1)
-    (i : KernelComponent (rootCharHom a))
-    (h3 : 3 ≤ compRank (componentRoots (rootCharHom a) i)) :
-    ∃ (v : WeylGroup Tag.F4) (J : Set (Fin Tag.F4.rank))
-      (σ : Ω ≃+* Ω) (z : ModGL Tag.F4 Ω),
-      (J = CFSG.HardMathSupport.Solomon.Coordinator.LieComp.f4LeviB3 ∨
-        J = CFSG.ComponentClassification.CatLeafProof.f4LeviC3) ∧
-      componentRoots (rootCharHom a) i = (fun α => v • α) '' parabolicRoots Tag.F4 J ∧
-      (∀ c, σ c = c ^ D.q) ∧
-      z ∈ Zsub (rootCharHom a) ∧ normalizesAll (rootCharHom a) z ∧
-      ∀ g ∈ rootSpan Tag.F4 Ω (componentRoots (rootCharHom a) i),
-        D.step (z * g * z⁻¹) = z * frobGL σ g * z⁻¹ := by
-  classical
-  obtain ⟨v, J, hJ, hshape, hr, hc⟩ :=
-    CFSG.HardMathSupport.Timmesfeld.CrossChar.f4_rank_ge_three_component_is_levi
-      hp hp2 hpΩ hap ha1 i h3
-  have h2 : 2 ≤ compRank (componentRoots (rootCharHom a) i) := by omega
-  obtain ⟨hstable, -⟩ :=
-    JointRankOrbit.f4_cyclic_componentOrbitLength_eq_one_of_rank_ge_two
-      D ρ hρ a ha i h2
-  have hstable' : (fun γ => ρ γ) '' componentRoots (rootCharHom a) i =
-      componentRoots (rootCharHom a) i := hstable
-  obtain ⟨u, hu, huγ⟩ :=
-    CFSG.StandardType.F4ExplicitPos.RankThreeInner.f4_rankThree_component_rho_isInner
-      hρ i hr hc hstable'
-  have hWle : componentWeylGroup (componentRoots (rootCharHom a) i) ≤
-      Subgroup.closure {s : WeylGroup Tag.F4 |
-        ∃ γ ∈ componentRoots (rootCharHom a) i, s = rootReflection γ} := by
-    rw [componentWeylGroup]
-    exact Subgroup.closure_mono
-      (by rintro _ ⟨β, hβ, rfl⟩; exact ⟨β, simpleRoots_subset hβ, rfl⟩)
-  have hinner : twistInner (componentRoots (rootCharHom a) i) ρ := ⟨u, hWle hu, huγ⟩
-  have hker : ∀ γ ∈ kernelRoots (rootCharHom a), ρ γ ∈ kernelRoots (rootCharHom a) := by
-    intro γ hγ
-    have hγroot : IsRoot Tag.F4 γ := isRoot_of_mem_kernelRoots (L := Ω) hγ
-    have hγ1 : rootChar a γ = 1 := by
-      rw [kernelRoots] at hγ
-      exact hγ.2
-    rw [kernelRoots]
-    refine ⟨(hρ.isRoot_iff γ).2 hγroot, ?_⟩
-    show rootChar a (ρ γ) = 1
-    rw [hρ.rootChar_eq a ha γ hγroot, hγ1, one_pow]
-  obtain ⟨σ, z, hσc, hzZ, hnorm, hgoal⟩ :=
-    exists_untwist_one_step_native (χ := rootCharHom a) D f hf hq ρ hρ i hker hinner
-  refine ⟨v, J, σ, z, hJ, hshape, hσc, ?_, ?_, ?_⟩
-  · exact hzZ
-  · exact hnorm
-  · exact hgoal
 
 theorem Zsub_eq
     {Ω : Type} [Field Ω] {M : Type*} [CommGroup M]
@@ -334,13 +279,6 @@ theorem Zsub_le_adjointGroup
   exact sup_le CFSG.RankThree.PartOne.KE.torusGroup_le_adjointGroup'
     (CFSG.LieType.Chevalley.rootSpan_le_adjointGroup Ω (kernelRoots χ))
 
-theorem normalizesAll_iff
-    {Ω : Type} [Field Ω] {M : Type*} [CommGroup M]
-    (χ : Multiplicative (Fin Tag.F4.rank → ℤ) →* M) (z : ModGL Tag.F4 Ω) :
-    normalizesAll χ z ↔ ∀ j : KernelComponent χ, ∀ g : ModGL Tag.F4 Ω,
-      g ∈ rootSpan Tag.F4 Ω (componentRoots χ j) ↔
-        z * g * z⁻¹ ∈ rootSpan Tag.F4 Ω (componentRoots χ j) :=
-  Iff.intro (fun h j g => h j g) (fun h j g => h j g)
 
 theorem normalizesAll_apply
     {Ω : Type} [Field Ω] {M : Type*} [CommGroup M]

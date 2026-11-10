@@ -470,69 +470,6 @@ theorem commutator_self_le (W : Subgroup K) : ⁅W, W⁆ ≤ W := by
   rw [commutatorElement_def]
   exact mul_mem (mul_mem (mul_mem h₁ h₂) (inv_mem h₁)) (inv_mem h₂)
 
-theorem footeCore_of_abelianCore_of_oddOuterInner (hLB : FooteLBalanceInput)
-    (hAC : FooteAbelianCoreAxiom) (hK : SectionRank.IsKGroupCat K) {a : K} (ha : orderOf a = 2)
-    {Y : Subgroup K} (hY : IsPComponent 2 Y) (hout : OddOuterInner (Y ⧸ Open.fusionZStar Y)) :
-    (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-      Blueprint.LieModel (Y ⧸ Open.fusionZStar Y) .PSL 2 p f) ∨
-    ⁅⁅oddCoreOfCentralizer a, oddCoreOfCentralizer a⁆, Y⁆ ≤ pPrimeCore 2 K := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  by_cases hL2 : ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-      Blueprint.LieModel (Y ⧸ Open.fusionZStar Y) .PSL 2 p f
-  · exact Or.inl hL2
-  right
-  have hsub : Y.IsSubnormal := by
-    obtain ⟨-, -, h, -, -⟩ := hY
-    exact h
-  have hOK := Walter.map_pPrimeCore_le_of_isSubnormal hsub
-  obtain ⟨hWN, hcent⟩ := hLB K a ha Y hY
-  set W := oddCoreOfCentralizer a
-  have hWW := commutator_self_le W
-  by_cases hswap : conjugate Y a ≠ Y
-  · exact ((commutator_mono hWW le_rfl).trans (hcent (Or.inl hswap))).trans hOK
-  have haN := mem_normalizer_of_conjugate_eq (not_not.mp hswap)
-  set ψ := Y.normalizerMonoidHom
-  set ᾱ := zStarAut Y (ψ ⟨a, haN⟩) with hᾱ
-  have ha2 : a * a = 1 := by rw [← sq, ← ha]; exact pow_orderOf_eq_one a
-  have hainv : a⁻¹ = a := inv_eq_of_mul_eq_one_right ha2
-  by_cases hα1 : ᾱ = 1
-  ·
-    refine ((commutator_mono hWW le_rfl).trans (hcent (Or.inr fun x hx => ?_))).trans hOK
-    have hc := commutator_mem_oddCore_of_zStarAut_eq_one hY haN hα1 hx
-    have hc' := Walter.conj_mem_map_of_characteristic (D := pPrimeCore 2 ↥Y)
-      (le_normalizer (inv_mem hx)) hc
-    rw [show x⁻¹ * ⁅a, x⁆ * x⁻¹⁻¹ = x⁻¹ * a⁻¹ * x * a by
-      rw [commutatorElement_def, hainv]; group] at hc'
-    exact hc'
-  obtain ⟨hsimple, hna⟩ := zStarQuotient_simple hY
-  have hord : orderOf ᾱ = 2 := by
-    refine orderOf_eq_prime ?_ hα1
-    rw [hᾱ, ← map_pow, ← map_pow, sq]
-    have : (⟨a, haN⟩ : normalizer (Y : Set K)) * ⟨a, haN⟩ = 1 := Subtype.ext ha2
-    rw [this, map_one, map_one]
-  have hcomm := hAC _ hna (hK Y (Open.fusionZStar Y) hsimple) hL2 ᾱ hord
-  have hker : ⁅W, W⁆ ≤ ((zStarAut Y).comp ψ).ker.map (normalizer (Y : Set K)).subtype := by
-    rw [commutator_le]
-    intro w₁ hw₁ w₂ hw₂
-    refine ⟨⁅(⟨w₁, hWN hw₁⟩ : normalizer (Y : Set K)), ⟨w₂, hWN hw₂⟩⁆, ?_,
-      by simp [commutatorElement_def]⟩
-    rw [SetLike.mem_coe, MonoidHom.mem_ker, map_commutatorElement,
-      commutatorElement_eq_one_iff_mul_comm]
-    obtain ⟨x₁, hx₁, e₁⟩ := zStarAut_mem_oddCore_centralizer hY ha haN hWN hout hw₁
-    obtain ⟨x₂, hx₂, e₂⟩ := zStarAut_mem_oddCore_centralizer hY ha haN hWN hout hw₂
-    show zStarAut Y (ψ ⟨w₁, hWN hw₁⟩) * zStarAut Y (ψ ⟨w₂, hWN hw₂⟩) =
-      zStarAut Y (ψ ⟨w₂, hWN hw₂⟩) * zStarAut Y (ψ ⟨w₁, hWN hw₁⟩)
-    rw [← e₁, ← e₂]
-    have h₁ := hcomm ⟨x₁, hx₁⟩ ⟨x₂, hx₂⟩
-    have h₂ : x₁ * x₂ = x₂ * x₁ := by
-      have := congrArg Subtype.val h₁
-      simpa using this
-    have h₃ := congrArg Subtype.val h₂
-    simpa using h₃
-  rw [commutator_le]
-  intro g hg y hy
-  obtain ⟨n, hn, rfl⟩ := hker hg
-  exact hOK (commutator_mem_oddCore_of_zStarAut_eq_one hY n.2 (by simpa using hn) hy)
 
 @[expose] def UBalanced (S : Type) [Group S] : Prop :=
   ¬ (Blueprint.OddLieType S ∨

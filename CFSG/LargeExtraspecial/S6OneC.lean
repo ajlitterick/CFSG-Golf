@@ -97,17 +97,5 @@ theorem beta_aV_bV (H : Hyp4 S g) (C : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar
   · exact absurd ((beta_aV_eq_zero_iff H C ht ht1 hVQ _).mp h0) (cl_b_not_mem H hb)
   · exact h1
 
-theorem timmesfeld_6_1_three (H : Hyp4 S g) (C : Cons311 S g) {t : S.O} (ht : t ∈ S.Lbar g)
-    (ht1 : t ≠ 1) (hVQ : ¬ V S g t ≤ S.Qa g) (hΩ : OmegaCase H C ht ht1 hVQ) :
-    (∀ v : S.Qt, ((chi H C ht ht1 hVQ (Submodule.Quotient.mk v) : Vt S g t) : S.Qt) =
-      (t : S.Qt ≃ₗ[ZMod 2] S.Qt) v - v) ∧
-    (∀ (x : Rbar S g t) (v : S.Qt),
-      chi H C ht ht1 hVQ (Submodule.Quotient.mk (((x : S.O) : S.Qt ≃ₗ[ZMod 2] S.Qt) v)) =
-        resV H.conj_mem t x (chi H C ht ht1 hVQ (Submodule.Quotient.mk v))) ∧
-    ∃ (Q : QuadraticForm (ZMod 2) (Vt S g t)) (hQ : Q.polarBilin.Nondegenerate),
-      Q.polarBilin = beta H C ht ht1 hVQ ∧ RmodN S g t = omegaGroup Q hQ ∧
-        LmodN S g t = pointRadical Q (aV ht) ∧
-        ∀ v : Vt S g t, v ≠ 0 → (Q v = 0 ↔ v ∈ orbitOf (RmodN S g t) (aV ht)) :=
-  ⟨coe_chi_apply_mk H C ht ht1 hVQ, chi_equivariant H C ht ht1 hVQ, hΩ.exists_form⟩
 
 end CFSG.LargeExtraspecial.S6

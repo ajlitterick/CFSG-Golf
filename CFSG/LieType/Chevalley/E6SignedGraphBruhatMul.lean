@@ -12,15 +12,6 @@ open scoped Pointwise
 
 variable {K : Type} [Field K]
 
-theorem nSL_one_mul_uSL (c : Kˣ) :
-    nSL (1 : Kˣ) * uSL (c : K) =
-      uSL (-((c⁻¹ : Kˣ) : K)) * HSL (-c⁻¹) * vSL ((c⁻¹ : Kˣ) : K) := by
-  rw [nSL_one]
-  refine SL2_ext ?_ ?_ ?_ ?_ <;> simp [SL2_mul_apply, coe_uSL, coe_vSL, coe_HSL, coe_WSL]
-
-theorem nSL_one_mul_self : nSL (1 : Kˣ) * nSL 1 = HSL (-1) := by
-  rw [nSL_one]
-  refine SL2_ext ?_ ?_ ?_ ?_ <;> simp [SL2_mul_apply, coe_HSL, coe_WSL]
 
 theorem gen_mem_weylGroup
     (i : Fin 4) : gen i ∈ weylGroup :=
@@ -277,108 +268,6 @@ variable
   (hva : ∀ i, v i ∈ relWeylTwist TwistTag.E6 ∧ orbitImage (v i) (a i) = simpleOrbit i)
 include hva
 
-omit hva in
-theorem simpleLift_mul_uSL
-    (i : Fin 4) (c : Kˣ) :
-    simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL (c : K)) =
-      orbitSL2 K (v i) (a i) (uSL (-((c⁻¹ : Kˣ) : K))) * orbitSL2 K (v i) (a i) (HSL (-c⁻¹)) *
-        orbitSL2 K (v i) (a i) (vSL ((c⁻¹ : Kˣ) : K)) := by
-  rw [simpleLift, ← map_mul, ← map_mul, ← map_mul, nSL_one_mul_uSL]
-
-theorem simpleLift_mul_self
-    (i : Fin 4) :
-    simpleLift K v a i * simpleLift K v a i = orbitSL2 K (v i) (a i) (HSL (-1)) ∧
-      orbitSL2 K (v i) (a i) (HSL (-1)) ∈ torusPart K := by
-  obtain ⟨hw, he⟩ := hva i
-  have hO : orbitImage (v i) (a i) ∈ orbits := he ▸ (simpleOrbit_spec i).1
-  refine ⟨by rw [simpleLift, ← map_mul, nSL_one_mul_self], Subgroup.mem_inf.2
-    ⟨range_orbitSL2_le_rootGenerated hw hO ⟨_, rfl⟩, orbitSL2_HSL_mem_torusGroup _ _ _⟩⟩
-
-theorem signedCell_mul_of_neg
-    (hK : ringChar K ≠ 2) (i : Fin 4) {w : WeylGroup TwistTag.E6.tag}
-    (hw : w ∈ weylGroup) {d : ModGL TwistTag.E6.tag K} (hdS : d ∈ rootGenerated K)
-    (hdN : d ∈ monomialSubgroup TwistTag.E6.tag K) (hdw : MapsRootLines d w)
-    (hneg : height (w⁻¹ • simpleVec i) < 0) :
-    signedCell K (simpleLift K v a i) * signedCell K d =
-      signedCell K (simpleLift K v a i * d) ∪ signedCell K d := by
-  obtain ⟨hzS, -, hzw⟩ := simpleLift_mem (K := K) hva i
-  have hzN : simpleLift K v a i ∈ monomialSubgroup TwistTag.E6.tag K :=
-    orbitSL2_nSL_mem_monomialSubgroup _ _ _
-  obtain ⟨hwi, he⟩ := hva i
-  have hOi : orbitImage (v i) (a i) ∈ orbits := he ▸ (simpleOrbit_spec i).1
-  have hs := orbitSign_eq_one_of_mem_orbits (K := K) hOi
-  have hQU : orbitFixed K (simpleOrbit i) ≤ posFixed K := by
-    refine inf_le_inf_right _ (rootSpan_le_posUnipotent ?_)
-    exact (height_orbitVec_pos_iff (simpleOrbit_spec i).1).1
-      (by rw [(simpleOrbit_spec i).2]; exact (simpleVec_mem_posVecs i).2)
-  have hupper := (orbitFixed_orbitImage_upper hwi hs).2
-  have hlower := (orbitFixed_orbitImage_lower hwi hs).2
-  rw [he] at hupper hlower
-  have hq : ∀ c : K, orbitSL2 K (v i) (a i) (uSL c) ∈ orbitFixed K (simpleOrbit i) := fun c => by
-    rw [← SetLike.mem_coe, ← hupper]
-    exact ⟨c, rfl⟩
-  have hl : ∀ c : K, orbitSL2 K (v i) (a i) (vSL c) ∈
-      orbitFixed K ((simpleOrbit i).image fun α => -α) := fun c => by
-    rw [← SetLike.mem_coe, ← hlower]
-    exact ⟨c, rfl⟩
-  have hh : ∀ t : Kˣ, orbitSL2 K (v i) (a i) (HSL t) ∈ borelPart K := fun t =>
-    le_sup_left (b := posFixed K) (Subgroup.mem_inf.2
-      ⟨range_orbitSL2_le_rootGenerated hwi hOi ⟨_, rfl⟩, orbitSL2_HSL_mem_torusGroup _ _ _⟩)
-  have hqB : ∀ c : K, orbitSL2 K (v i) (a i) (uSL c) ∈ borelPart K := fun c =>
-    le_sup_right (a := torusPart K) (hQU (hq c))
-  refine Set.Subset.antisymm (fun x hx => ?_) (Set.union_subset signedCell_mul_subset
-    fun x hx => ?_)
-  · obtain ⟨b, hb, q, hq', b', hb', rfl⟩ := exists_of_mem_mul hK i hzS hzN hzw hx
-    rw [← SetLike.mem_coe, ← hupper] at hq'
-    obtain ⟨c, rfl⟩ := hq'
-    by_cases hc : c = 0
-    · left
-      subst hc
-      refine mem_signedCell.2 ⟨b, hb, b', hb', ?_⟩
-      simp only [uSL_zero, map_one, mul_one]
-      group
-    · right
-      have hrank := simpleLift_mul_uSL (v := v) (a := a) (K := K) i (Units.mk0 c hc)
-      simp only [Units.val_mk0] at hrank
-      have hu := conj_inv_mem_posFixed_of_neg hw hdS hdN hdw i hneg
-        (hl ((((Units.mk0 c hc)⁻¹ : Kˣ) : K)))
-      refine mem_signedCell.2 ⟨b * orbitSL2 K (v i) (a i) (uSL (-(((Units.mk0 c hc)⁻¹ : Kˣ) : K))) *
-          orbitSL2 K (v i) (a i) (HSL (-(Units.mk0 c hc)⁻¹)),
-        mul_mem (mul_mem hb (hqB _)) (hh _),
-        d⁻¹ * orbitSL2 K (v i) (a i) (vSL (((Units.mk0 c hc)⁻¹ : Kˣ) : K)) * d * b',
-        mul_mem (le_sup_right (a := torusPart K) hu) hb', ?_⟩
-      calc b * orbitSL2 K (v i) (a i) (uSL (-(((Units.mk0 c hc)⁻¹ : Kˣ) : K))) *
-            orbitSL2 K (v i) (a i) (HSL (-(Units.mk0 c hc)⁻¹)) * d *
-            (d⁻¹ * orbitSL2 K (v i) (a i) (vSL (((Units.mk0 c hc)⁻¹ : Kˣ) : K)) * d * b') =
-          b * (orbitSL2 K (v i) (a i) (uSL (-(((Units.mk0 c hc)⁻¹ : Kˣ) : K))) *
-            orbitSL2 K (v i) (a i) (HSL (-(Units.mk0 c hc)⁻¹)) *
-              orbitSL2 K (v i) (a i) (vSL (((Units.mk0 c hc)⁻¹ : Kˣ) : K))) * d * b' := by group
-        _ = b * simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL c) * d * b' := by
-          rw [← hrank]
-          group
-  ·
-    obtain ⟨b, hb, b', hb', rfl⟩ := mem_signedCell.1 hx
-    have hrank := simpleLift_mul_uSL (v := v) (a := a) (K := K) i 1
-    simp only [inv_one, Units.val_one] at hrank
-    set l := orbitSL2 K (v i) (a i) (vSL 1) with hldef
-    set A := orbitSL2 K (v i) (a i) (uSL (-1)) * orbitSL2 K (v i) (a i) (HSL (-1)) with hAdef
-    have hAB : A ∈ borelPart K := mul_mem (hqB _) (hh _)
-    have hlA : l = A⁻¹ * simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL 1) := by
-      rw [mul_assoc, hrank]
-      group
-    have hu := conj_inv_mem_posFixed_of_neg hw hdS hdN hdw i hneg (hl 1)
-    refine ⟨b * A⁻¹ * simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL 1),
-      mem_signedCell.2 ⟨b * A⁻¹, mul_mem hb (inv_mem hAB), orbitSL2 K (v i) (a i) (uSL 1),
-        hqB 1, rfl⟩, d * ((d⁻¹ * l * d)⁻¹ * b'),
-      mem_signedCell.2 ⟨1, one_mem _, (d⁻¹ * l * d)⁻¹ * b',
-        mul_mem (inv_mem (le_sup_right (a := torusPart K) hu)) hb', by group⟩, ?_⟩
-    calc b * A⁻¹ * simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL 1) *
-          (d * ((d⁻¹ * l * d)⁻¹ * b')) =
-        b * (A⁻¹ * simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL 1)) * d *
-          ((d⁻¹ * l * d)⁻¹ * b') := by group
-      _ = b * d * b' := by
-        rw [← hlA]
-        group
 
 omit hva in
 theorem signedCell_mul_left_inc
@@ -404,24 +293,6 @@ theorem signedCell_mul_left_inc
     (hz.2.2.mul hd.2.2)]
   exact signedCell_mul_of_pos hK i hw hz.1 hz.2.1 hz.2.2 hd.1 hd.2.1 hd.2.2 hpos
 
-theorem signedCell_mul_left_dec
-    (hK : ringChar K ≠ 2) (i : Fin 4)
-    {w : WeylGroup TwistTag.E6.tag} (hw : w ∈ weylGroup) {z d e : ModGL TwistTag.E6.tag K}
-    (hz : z ∈ rootGenerated K ∧ z ∈ monomialSubgroup TwistTag.E6.tag K ∧ MapsRootLines z (gen i))
-    (hd : d ∈ rootGenerated K ∧ d ∈ monomialSubgroup TwistTag.E6.tag K ∧ MapsRootLines d w)
-    (he : e ∈ rootGenerated K ∧ e ∈ monomialSubgroup TwistTag.E6.tag K ∧
-      MapsRootLines e (gen i * w))
-    (hlen : wordLength (gen i * w) = wordLength w - 1) :
-    signedCell K z * signedCell K d = signedCell K e ∪ signedCell K d := by
-  obtain ⟨-, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, -, h19, -⟩ :=
-    E6_signed_graph_root_system_and_Weyl_stabilizer
-  have hneg : height (w⁻¹ • simpleVec i) < 0 := (h19 w hw i).2.1 hlen
-  obtain ⟨hzS, -, hzw⟩ := simpleLift_mem (K := K) hva i
-  have hzN : simpleLift K v a i ∈ monomialSubgroup TwistTag.E6.tag K :=
-    orbitSL2_nSL_mem_monomialSubgroup _ _ _
-  rw [signedCell_eq hz.1 hzS hz.2.1 hzN hz.2.2 hzw,
-    signedCell_eq he.1 (mul_mem hzS hd.1) he.2.1 (mul_mem hzN hd.2.1) he.2.2 (hzw.mul hd.2.2)]
-  exact signedCell_mul_of_neg hva hK i hw hd.1 hd.2.1 hd.2.2 hneg
 
 omit hva in
 theorem lift_inv
@@ -450,25 +321,6 @@ theorem signedCell_mul_right_inc
   rw [← inv_signedCell, ← inv_signedCell, ← inv_signedCell, ← mul_inv_rev] at h
   exact inv_injective h
 
-theorem signedCell_mul_right_dec
-    (hK : ringChar K ≠ 2) (i : Fin 4)
-    {w : WeylGroup TwistTag.E6.tag} (hw : w ∈ weylGroup) {z d e : ModGL TwistTag.E6.tag K}
-    (hz : z ∈ rootGenerated K ∧ z ∈ monomialSubgroup TwistTag.E6.tag K ∧ MapsRootLines z (gen i))
-    (hd : d ∈ rootGenerated K ∧ d ∈ monomialSubgroup TwistTag.E6.tag K ∧ MapsRootLines d w)
-    (he : e ∈ rootGenerated K ∧ e ∈ monomialSubgroup TwistTag.E6.tag K ∧
-      MapsRootLines e (w * gen i))
-    (hlen : wordLength (w * gen i) = wordLength w - 1) :
-    signedCell K d * signedCell K z = signedCell K e ∪ signedCell K d := by
-  have hz' := lift_inv hz
-  rw [gen_inv] at hz'
-  have he' := lift_inv he
-  rw [mul_inv_rev, gen_inv] at he'
-  have hlen' : wordLength (gen i * w⁻¹) = wordLength w⁻¹ - 1 := by
-    rw [wordLength_inv, ← wordLength_inv (gen i * w⁻¹), mul_inv_rev, inv_inv, gen_inv, hlen]
-  have h := signedCell_mul_left_dec hva hK i (inv_mem hw) hz' (lift_inv hd) he' hlen'
-  rw [← inv_signedCell, ← inv_signedCell, ← inv_signedCell, ← mul_inv_rev,
-    ← Set.union_inv] at h
-  exact inv_injective h
 
 end Lifts
 
@@ -481,43 +333,5 @@ open CFSG.Blueprint.Chevalley CFSG.LocalAnalysis.ComponentInitial
   E6SignedGraph
 open scoped Pointwise
 
-theorem E6_signed_graph_simple_Bruhat_multiplication
-    (K : Type) [Field K]
-    (hK : ringChar K ≠ 2) (v : Fin 4 → WeylGroup TwistTag.E6.tag)
-    (a : Fin 4 → Fin TwistTag.E6.foldedTag.rank)
-    (hva : ∀ i, v i ∈ relWeylTwist TwistTag.E6 ∧ orbitImage (v i) (a i) = simpleOrbit i)
-    (dot : WeylGroup TwistTag.E6.tag → ModGL TwistTag.E6.tag K)
-    (hdot : ∀ w ∈ weylGroup, ∃ hd : dot w ∈ liftGroup K v a, liftWeylHom K v a ⟨dot w, hd⟩ = w) :
-    (∀ i, ∀ w ∈ weylGroup, wordLength (gen i * w) = wordLength w + 1 →
-      signedCell K (dot (gen i)) * signedCell K (dot w) = signedCell K (dot (gen i * w))) ∧
-    (∀ i, ∀ w ∈ weylGroup, wordLength (gen i * w) = wordLength w - 1 →
-      signedCell K (dot (gen i)) * signedCell K (dot w) =
-        signedCell K (dot (gen i * w)) ∪ signedCell K (dot w)) ∧
-    (∀ i, ∀ w ∈ weylGroup, wordLength (w * gen i) = wordLength w + 1 →
-      signedCell K (dot w) * signedCell K (dot (gen i)) = signedCell K (dot (w * gen i))) ∧
-    (∀ i, ∀ w ∈ weylGroup, wordLength (w * gen i) = wordLength w - 1 →
-      signedCell K (dot w) * signedCell K (dot (gen i)) =
-        signedCell K (dot (w * gen i)) ∪ signedCell K (dot w)) ∧
-    (∀ i (c : Kˣ), simpleLift K v a i * orbitSL2 K (v i) (a i) (uSL (c : K)) =
-      orbitSL2 K (v i) (a i) (uSL (-((c⁻¹ : Kˣ) : K))) * orbitSL2 K (v i) (a i) (HSL (-c⁻¹)) *
-        orbitSL2 K (v i) (a i) (vSL ((c⁻¹ : Kˣ) : K))) ∧
-    ∀ i, simpleLift K v a i * simpleLift K v a i = orbitSL2 K (v i) (a i) (HSL (-1)) ∧
-      orbitSL2 K (v i) (a i) (HSL (-1)) ∈ torusPart K := by
-  have hlift : ∀ w ∈ weylGroup, dot w ∈ rootGenerated K ∧
-      dot w ∈ monomialSubgroup TwistTag.E6.tag K ∧ MapsRootLines (dot w) w := fun w hw => by
-    obtain ⟨hd, hdw⟩ := hdot w hw
-    exact ⟨liftGroup_le_rootGenerated hva hd, liftGroup_le_monomialSubgroup v a hd,
-      liftWeylHom_eq_iff.1 hdw⟩
-  have hgen := fun i => hlift (gen i) (gen_mem_weylGroup i)
-  refine ⟨fun i w hw hlen => ?_, fun i w hw hlen => ?_, fun i w hw hlen => ?_,
-    fun i w hw hlen => ?_, simpleLift_mul_uSL, simpleLift_mul_self hva⟩
-  · exact signedCell_mul_left_inc hK i hw (hgen i) (hlift w hw)
-      (hlift _ (mul_mem (gen_mem_weylGroup i) hw)) hlen
-  · exact signedCell_mul_left_dec hva hK i hw (hgen i) (hlift w hw)
-      (hlift _ (mul_mem (gen_mem_weylGroup i) hw)) hlen
-  · exact signedCell_mul_right_inc hK i hw (hgen i) (hlift w hw)
-      (hlift _ (mul_mem hw (gen_mem_weylGroup i))) hlen
-  · exact signedCell_mul_right_dec hva hK i hw (hgen i) (hlift w hw)
-      (hlift _ (mul_mem hw (gen_mem_weylGroup i))) hlen
 
 end CFSG.LieType.Chevalley

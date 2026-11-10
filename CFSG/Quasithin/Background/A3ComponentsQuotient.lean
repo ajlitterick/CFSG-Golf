@@ -314,11 +314,6 @@ theorem mem_cComp_top_iff_isCComponent {L : Subgroup G} :
     exact ⟨h1, h2, A3.subnormal_top_iff.mpr h3, fun K hK hK' hK'' hsub =>
       h4 K hK hK' hK'' (A3.subnormal_top_iff.mp hsub)⟩
 
-theorem cComp_top_eq_isComponentOf [Finite G] (hG : CFSG.solvableRadical G = ⊥) :
-    cComp (⊤ : Subgroup G) = {K | CFSG.Open.IsComponentOf K ⊤} := by
-  rw [cComp_top_eq_components hG]
-  ext K
-  exact A3.isComponentOf_top_iff.symm
 
 @[expose] def oInftyE (G : Type*) [Group G] : Subgroup G :=
   (CFSG.layer (G ⧸ CFSG.solvableRadical G)).comap (QuotientGroup.mk' (CFSG.solvableRadical G))

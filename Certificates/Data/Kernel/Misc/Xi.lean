@@ -104,9 +104,6 @@ where
     allN 1408 fun v => Bool.rec (motive := fun _ => Bool) (notB (bitK (AB v) x)) (bitK (AB v) x)
       (bitK Ax v)
 
-@[expose] noncomputable def pop1408 (S : Nat) : Nat :=
-  letN S fun S => Nat.rec (motive := fun _ => Nat) 0
-    (fun i acc => Nat.add acc (Nat.land (Nat.shiftRight S i) 1)) 1408
 
 @[expose] noncomputable def interK (HS AB PB : Nat → Nat) : Bool :=
   letB (HS 0) fun H0 => letB (AB 0) fun A0 =>

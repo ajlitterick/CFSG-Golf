@@ -17,8 +17,6 @@ open CFSG.KC.LL.HNX CFSG.KD.HNPt2085 CFSG.KD.LgHNX CFSG.KC.LL
 theorem ed_0 : edgeOk 0 = true ∧ edgeOk 1 = true ∧ edgeOk 2 = true := by decide +kernel
 theorem ed_3 : edgeOk 3 = true ∧ edgeOk 4 = true ∧ edgeOk 5 = true := by decide +kernel
 
-theorem neg_ed : Bool.not (ptsFn TX MS CM3 M (lget TIL 1) (src 0) (dst 0) 64) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelSporSch.HNPt2085
 

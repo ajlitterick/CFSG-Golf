@@ -693,22 +693,6 @@ private theorem s16c1b_shiftr_two_mul_one (I : ℕ) : (2 * I + 1) >>> 1 = I := b
   rw [Nat.testBit_shiftRight, Nat.add_comm 1 j]
   exact s16c1b_testBit_two_mul_one_succ I j
 
-private theorem s16c1b_foldl_prodSub_lt (L : List ℕ) (xs : List ℕ) (I acc : ℕ)
-    (hacc : acc < 2 ^ 36) :
-    (L.foldl (fun acc i => if I.testBit i then mul acc (xs.getD i 0) else acc) acc) < 2 ^ 36 := by
-  induction L generalizing acc with
-  | nil => exact hacc
-  | cons i L ih =>
-    rw [List.foldl_cons]
-    by_cases hb : I.testBit i = true
-    · rw [if_pos hb]
-      exact ih (mul acc (xs.getD i 0)) (mul_lt acc _)
-    · rw [if_neg hb]
-      exact ih acc hacc
-
-private theorem s16c1b_prodSub_lt (xs : List ℕ) (I : ℕ) : s16c1b_prodSub xs I < 2 ^ 36 := by
-  unfold s16c1b_prodSub
-  exact s16c1b_foldl_prodSub_lt (List.range xs.length) xs I one one_lt
 
 private theorem s16c1b_foldl_mul_left (L : List ℕ) (b : ℕ → Bool) (e : ℕ → ℕ)
     (he : ∀ j, e j < 2 ^ 36) (x : ℕ) (hx : x < 2 ^ 36) :

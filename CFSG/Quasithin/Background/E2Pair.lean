@@ -47,12 +47,6 @@ theorem exists_two_part_odd_part [Finite G] (c : G) :
         pow_orderOf_eq_one, one_pow]
     exact Odd.of_dvd_nat ht (orderOf_dvd_of_pow_eq_one h1)
 
-theorem mem_of_two_pow_of_odd_pow {N : Subgroup G} {y : G} {k n : ℕ} (hy : y ^ 2 ^ k = 1)
-    (hn : Odd n) (hyn : y ^ n ∈ N) : y ∈ N := by
-  have hcop : Nat.Coprime (orderOf y) n :=
-    Nat.Coprime.coprime_dvd_left (orderOf_dvd_of_pow_eq_one hy)
-      (Nat.Coprime.pow_left k (Nat.coprime_two_left.mpr hn))
-  exact B6.mem_of_pow_mem_of_coprime hyn hcop
 
 theorem eq_one_of_two_pow_of_odd {y : G} {k : ℕ} (hy : y ^ 2 ^ k = 1) (hodd : Odd (orderOf y)) :
     y = 1 := by
@@ -322,26 +316,6 @@ theorem commutator_B_A (h : Pair X T M V g) {b a : G} (hb : b ∈ kerIn M X ⊓ 
       (Subgroup.mem_normalizer_iff.mp (h.P_le_normalizer_A (Subgroup.mem_sup_left hb)) _).mp ha
     exact (conjSub g (kerIn M X ⊓ V)).mul_mem h1 ((conjSub g (kerIn M X ⊓ V)).inv_mem ha)
 
-theorem cubic (h : Pair X T M V g) {v a₁ a₂ a₃ : G} (hv : v ∈ V)
-    (ha₁ : a₁ ∈ conjSub g (kerIn M X ⊓ V)) (ha₂ : a₂ ∈ conjSub g (kerIn M X ⊓ V))
-    (ha₃ : a₃ ∈ conjSub g (kerIn M X ⊓ V)) :
-    let c := fun (a x : G) => a * x * a⁻¹ * x⁻¹
-    c a₃ (c a₂ (c a₁ v)) = 1 := by
-  intro c
-  have h1 : c a₁ v ∈ kerIn M X ⊓ V := by
-    have := h.commutator_mem_B hv (h.A_le_pCoreOf ha₁)
-    have e : c a₁ v = (v * a₁ * v⁻¹ * a₁⁻¹)⁻¹ := by simp only [c]; group
-    rw [e]
-    exact (kerIn M X ⊓ V).inv_mem this
-  have h2 : c a₂ (c a₁ v) ∈ V ⊓ conjSub g V := by
-    have := h.commutator_B_A h1 ha₂
-    have e : c a₂ (c a₁ v) = (c a₁ v * a₂ * (c a₁ v)⁻¹ * a₂⁻¹)⁻¹ := by simp only [c]; group
-    rw [e]
-    exact (V ⊓ conjSub g V).inv_mem this
-  have h3 := h.mem_center h2 (CFSG.LieType.BorelTits.pCoreOf_le 2 X (h.A_le_pCoreOf ha₃))
-  show a₃ * c a₂ (c a₁ v) * a₃⁻¹ * (c a₂ (c a₁ v))⁻¹ = 1
-  rw [← h3]
-  group
 
 theorem le_kerIn_of_isTwoQuotient (h : Pair X T M V g) {D : Subgroup G} (hDX : D ≤ X)
     (hXD : X ≤ Subgroup.normalizer (D : Set G)) (hJD : kerIn M X ≤ D)
@@ -355,28 +329,6 @@ theorem le_kerIn_of_isTwoQuotient (h : Pair X T M V g) {D : Subgroup G} (hDX : D
     exact sup_le kerIn_le (fun t ht => h.normalizer_le ⟨h.sylow.1 ht.1, h.normal_T ht.1⟩)
   exact le_kerIn_of_le_normalizer hDM hXD
 
-omit [Finite G] in
-theorem mem_inf_conj_of_comm (h : Pair X T M V g) {a : G} (ha : a ∈ conjSub g (kerIn M X ⊓ V))
-    (hav : ∀ v ∈ V, a * v = v * a) : a ∈ V ⊓ conjSub g V := by
-  have haV : a ∈ conjSub g V := (conjSub g).monotone inf_le_right ha
-  have hcent : X ≤ Subgroup.centralizer ({a} : Set G) := by
-    rw [h.gen]
-    refine sup_le (fun v hv => ?_) (fun w hw => ?_)
-    · rw [Subgroup.mem_centralizer_iff]
-      intro y hy
-      rw [Set.mem_singleton_iff] at hy
-      subst hy
-      exact hav v hv
-    · rw [Subgroup.mem_centralizer_iff]
-      intro y hy
-      rw [Set.mem_singleton_iff] at hy
-      subst hy
-      exact h.comm_conj haV hw
-  have hga : g * a = a * g := (Subgroup.mem_centralizer_iff.mp (hcent h.mem) a rfl).symm
-  have hB : g⁻¹ * a * g ∈ kerIn M X ⊓ V := mem_conjSub.mp ha
-  have e : g⁻¹ * a * g = a := by rw [mul_assoc, ← hga]; group
-  rw [e] at hB
-  exact ⟨hB.2, haV⟩
 
 theorem B_inf_A (h : Pair X T M V g) :
     (kerIn M X ⊓ V) ⊓ conjSub g (kerIn M X ⊓ V) = V ⊓ conjSub g V :=
@@ -458,16 +410,6 @@ theorem commutator_sq_mem_Z (h : Pair X T M V g) {x y : G}
     rw [this]
     exact hz
 
-theorem quadratic (h : Pair X T M V g) {x v₁ v₂ : G}
-    (hx : x ∈ (kerIn M X ⊓ V) ⊔ conjSub g (kerIn M X ⊓ V)) (hv₁ : v₁ ∈ V) (hv₂ : v₂ ∈ V) :
-    let c := fun (v y : G) => v * y * v⁻¹ * y⁻¹
-    c v₂ (c v₁ x) = 1 := by
-  intro c
-  have h1 : c v₁ x ∈ kerIn M X ⊓ V := h.commutator_mem_B hv₁ (h.P_le_pCoreOf hx)
-  have e := h.comm hv₂ h1.2
-  show v₂ * c v₁ x * v₂⁻¹ * (c v₁ x)⁻¹ = 1
-  rw [e]
-  group
 
 theorem mem_B_of_commutator_mem_Z (h : Pair X T M V g) {x : G}
     (hx : x ∈ (kerIn M X ⊓ V) ⊔ conjSub g (kerIn M X ⊓ V))

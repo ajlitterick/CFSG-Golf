@@ -49,14 +49,5 @@ theorem burnsideJ4KW_twoLocals_of_maxNonParabolic
   · obtain ⟨g, hg⟩ := h X hXmax fun g hg => hs ⟨g, hg⟩
     exact ⟨g, Or.inr (Or.inr (Or.inr (hPX.trans hg)))⟩
 
-theorem burnsideJ4KW_isPGroup_of_sq {A : Subgroup J} (hsq : ∀ x ∈ A, x * x = 1) :
-    IsPGroup 2 ↥A := fun x => ⟨1, Subtype.ext (by
-  have := hsq x x.2
-  simpa [pow_one, pow_two] using this)⟩
-
-theorem burnsideJ4KW_core_of_maxNonParabolic
-    (h : burnsideJ4KW_MaxNonParabolic) : burnsideC31_J4KWCore := by
-  intro A hA _ hsq _ _
-  exact burnsideJ4KW_twoLocals_of_maxNonParabolic h A (burnsideJ4KW_isPGroup_of_sq hsq) hA
 
 end CFSG.ASVolI

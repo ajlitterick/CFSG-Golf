@@ -30,25 +30,6 @@ structure ProjSetting (ρ : U →* Γ) (B : Subgroup Γ) (t : Γ) (Hs M ZM : Sub
 variable {ρ : U →* Γ} {B : Subgroup Γ} {t : Γ} {Hs M ZM : Subgroup U} {F : ι → Subgroup U}
   (S : ProjSetting ρ B t Hs M ZM F)
 
-theorem exists_quotient_equiv (ρ : U →* Γ) (ZM : Subgroup U) :
-    ∃ e : (ZM ⧸ ρ.ker.subgroupOf ZM) ≃* ↥(ZM.map ρ),
-      ∀ z : ZM, ((e (QuotientGroup.mk z) : ↥(ZM.map ρ)) : Γ) = ρ z := by
-  let φ : ZM →* ↥(ZM.map ρ) :=
-    (ρ.comp ZM.subtype).codRestrict (ZM.map ρ) (fun z => ⟨z, z.2, rfl⟩)
-  have hφ : Function.Surjective φ := by
-    rintro ⟨_, z, hz, rfl⟩
-    exact ⟨⟨z, hz⟩, rfl⟩
-  have hker : ρ.ker.subgroupOf ZM = φ.ker := by
-    ext z
-    rw [Subgroup.mem_subgroupOf, MonoidHom.mem_ker, MonoidHom.mem_ker]
-    constructor
-    · intro h
-      exact Subtype.ext h
-    · intro h
-      exact congrArg Subtype.val h
-  refine ⟨(QuotientGroup.quotientMulEquivOfEq hker).trans
-    (QuotientGroup.quotientKerEquivOfSurjective φ hφ), fun z => ?_⟩
-  rfl
 
 namespace ProjSetting
 

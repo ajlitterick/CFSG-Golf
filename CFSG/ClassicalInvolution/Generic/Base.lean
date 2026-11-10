@@ -163,15 +163,6 @@ theorem exists_conj (K : ↥S) : ∃ (i : ι) (g : Subgroup.normalizer (E : Set 
   obtain ⟨g, hg, hgK⟩ := key u hu' (WD.base i) K (by rw [WD.β_base]; exact hu)
   exact ⟨i, g, hg, hgK⟩
 
-theorem span_eq_sSup : WD.span = sSup S := by
-  refine le_antisymm (iSup_le fun i => le_sSup (WD.base i).2) (sSup_le fun K hK => ?_)
-  exact WD.le_span ⟨K, hK⟩
-
-theorem base_commutes (hs : Function.Injective WD.s) {i j : ι} (hij : i ≠ j)
-    (h : WD.s i * WD.s j = WD.s j * WD.s i) :
-    Commutes (WD.base i : Subgroup G) (WD.base j : Subgroup G) := by
-  have hne : WD.base i ≠ WD.base j := fun h' => hij (hs (by rw [← WD.β_base i, ← WD.β_base j, h']))
-  exact (WD.comm_iff _ _ hne).mpr (by rw [WD.β_base, WD.β_base]; exact h)
 
 theorem base_not_commutes {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i) :
     WD.base i ≠ WD.base j ∧ ¬ Commutes (WD.base i : Subgroup G) (WD.base j : Subgroup G) := by
@@ -188,12 +179,6 @@ theorem base_not_commutes {i j : ι} (h : WD.s i * WD.s j ≠ WD.s j * WD.s i) :
 @[expose] noncomputable def baseIn (i : ι) : Subgroup ↥WD.span :=
   (WD.base i : Subgroup G).subgroupOf WD.span
 
-theorem iSup_baseIn : ⨆ i, WD.baseIn i = ⊤ :=
-  iSup_subgroupOf_self (fun i => (WD.base i : Subgroup G))
-
-theorem baseIn_commute {i j : ι} (h : Commutes (WD.base i : Subgroup G) (WD.base j : Subgroup G)) :
-    ∀ a ∈ WD.baseIn i, ∀ b ∈ WD.baseIn j, a * b = b * a :=
-  fun a ha b hb => Subtype.ext (h a.1 ha b.1 hb)
 
 end WeylData
 

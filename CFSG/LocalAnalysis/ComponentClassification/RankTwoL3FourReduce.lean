@@ -58,13 +58,6 @@ theorem center_eq_bot_of_not_prime {S : Type*} [Group S] [IsSimpleGroup S]
       exact (mem_center_iff.mp hb a)⟩⟩
     exact h ((Group.is_simple_iff_prime_card).mp inferInstance)
 
-theorem exists_ne_of_not_prime {S : Type*} [Group S] [IsSimpleGroup S]
-    (h : ¬ (Nat.card S).Prime) : ∃ a b : S, a * b ≠ b * a := by
-  by_contra hc
-  have : IsMulCommutative S := ⟨⟨fun a b => by
-    by_contra hab
-    exact hc ⟨a, b, hab⟩⟩⟩
-  exact h ((Group.is_simple_iff_prime_card).mp inferInstance)
 
 theorem center_Suz_eq_bot : center NativeSporadic.Suz = ⊥ := by
   have := CFSG.Sporadic.Suz.isSimpleGroup_Suz
@@ -208,15 +201,6 @@ theorem l34Conclusion_of_map
 
 end Quotient
 
-theorem l34General_of_oddCoreFree
-    (h : L34OddCoreFree) (hSuz : SuzMultiplierSix) :
-    L34General := by
-  intro G _ _ A hH hL
-  obtain ⟨hH', ⟨e⟩⟩ := rankTwoHyp_map hH
-  exact l34Conclusion_of_map hSuz RankTwoSporadic.odd_card_standardComponentOddCore
-    (RankTwoSporadic.standardComponentOddCore_le_centralizer hH.standard hH.rank)
-    hH.standard.1.1 (h _ _ hH' (statedClassicalModel_of_mulEquiv e.symm hL)
-      RankTwoSporadic.standardComponentOddCore_quotient_eq_bot)
 
 theorem oddCoreFreeConclusion_of_l34Conclusion {G : Type} [Group G] [Finite G] {A : Subgroup G}
     (hO : standardComponentOddCore G = ⊥) (h : L34Conclusion A) : OddCoreFreeConclusion A := by
@@ -239,8 +223,6 @@ theorem oddCoreFreeConclusion_of_l34Conclusion {G : Type} [Group G] [Finite G] {
       (QuotientGroup.quotientMulEquivOfEq hc.symm)).trans e
   · exact Or.inr hHe
 
-theorem l34OddCoreFree_of_general (h : L34General) : L34OddCoreFree :=
-  fun G _ _ A hH hL hO => oddCoreFreeConclusion_of_l34Conclusion hO (h G A hH hL)
 
 theorem l34Step_of_oddCoreFree
     (hSuz : SuzMultiplierSix)
@@ -276,13 +258,5 @@ theorem l34General_of_step
     intro G _ _ A hG hH hL
     exact hstep G A (fun G' _ _ A' hG' => ih G' A' (by omega)) hH hL
 
-theorem l34General_of_below
-    (hSuz : SuzMultiplierSix)
-    (hstep : ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G),
-      L34GeneralBelow (Nat.card G) → RankTwoHypNF G A →
-      Assembly.LowTwoRank.StatedClassicalModel (rankTwoQuot A) .PSL 3 2 2 →
-      standardComponentOddCore G = ⊥ → OddCoreFreeConclusion A) :
-    L34General :=
-  l34General_of_step (l34Step_of_oddCoreFree hSuz hstep)
 
 end CFSG.ComponentClassification.RankTwoL3Four

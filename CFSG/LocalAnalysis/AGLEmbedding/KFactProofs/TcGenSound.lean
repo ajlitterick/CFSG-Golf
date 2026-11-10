@@ -257,26 +257,6 @@ section Split
 
 variable {M V : Type} [Inhabited M] (O : Ops M V) (sA sB : String) (nregs : ℕ) (prog : List Op)
 
-theorem mcertCheck_append (F G : List MFact)
-    (h₁ : mcertCheck O sA sB ⟨nregs, prog, F⟩ = true)
-    (h₂ : mcertCheck O sA sB ⟨nregs, prog, G⟩ = true) :
-    mcertCheck O sA sB ⟨nregs, prog, F ++ G⟩ = true := by
-  simp only [mcertCheck, Bool.and_eq_true, List.all_append] at h₁ h₂ ⊢
-  exact ⟨h₁.1, h₁.2, h₂.2⟩
-
-theorem tcCheck_of_head_tail (D : TSpec) (m : ℕ)
-    (h₁ : tcCheckHead O sA sB nregs prog D m = true)
-    (h₂ : tcCheckTail O sA sB nregs prog D m = true) :
-    tcCheck O sA sB nregs prog D = true := by
-  unfold tcCheckHead at h₁
-  unfold tcCheckTail at h₂
-  simp only [Bool.and_eq_true] at h₁
-  obtain ⟨⟨⟨⟨⟨hm, hrA⟩, hrB⟩, hAeq⟩, hBeq⟩, hwf⟩ := h₁
-  have h := mcertCheck_append O sA sB nregs prog _ _ hm h₂
-  rw [List.take_append_drop] at h
-  unfold tcCheck
-  simp only [Bool.and_eq_true]
-  exact ⟨⟨⟨⟨⟨h, hrA⟩, hrB⟩, hAeq⟩, hBeq⟩, hwf⟩
 
 end Split
 

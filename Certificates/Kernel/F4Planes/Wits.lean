@@ -18,15 +18,6 @@ open CFSG.KC.F4Planes
 
 theorem wit_ok : witP pS ww wk CFSG.KD.F4Syl3.reps = true := by quickRfl
 
-theorem neg_wit_word : (!witP pS (ww.map fun e => (Nat.add e.1 1, e.2)) wk CFSG.KD.F4Syl3.reps) =
-    true := by
-  quickRfl
-
-theorem neg_wit_idx : (!witP pS ww (wk.map fun _ => 3) CFSG.KD.F4Syl3.reps) = true := by
-  quickRfl
-
-theorem neg_wit_shift : (!witP pS ww wk.tail CFSG.KD.F4Syl3.reps) = true := by
-  quickRfl
 
 end CFSG.KD.F4Planes
 

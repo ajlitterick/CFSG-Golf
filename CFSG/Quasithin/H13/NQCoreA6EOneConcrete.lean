@@ -41,12 +41,9 @@ theorem code_commutator (x y : P10) : code ⁅x, y⁆ = commC (code x) (code y) 
 
 noncomputable def el (n : ℕ) : P10 := (exists_dc n).choose
 
-theorem el_mem_autA6 (n : ℕ) : el n ∈ A6Models.autA6 := (exists_dc n).choose_spec.1
 
 theorem code_el (n : ℕ) : code (el n) = dc n := (exists_dc n).choose_spec.2
 
-theorem exists_el_of_mem_codes {L : List ℕ} {c : List ℕ} (hc : c ∈ codes L) :
-    ∃ x : P10, code x = c := codes_realized L c hc
 
 theorem foldl_cmul_code (w : List ℕ) (x₀ : P10) :
     w.foldl (fun acc l => cmul acc (dc l)) (code x₀) = code (x₀ * (w.map el).prod) := by

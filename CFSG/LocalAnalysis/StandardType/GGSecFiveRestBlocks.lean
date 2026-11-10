@@ -54,16 +54,6 @@ end Config
       ∀ i j : Fin n, i.val = 0 → j.val + 1 = n →
         Commute (φ₂ (weylRep n (GaloisField 2 f) j)) (φ₁ (weylRep n (GaloisField 2 f) i))
 
-theorem ggTypeAEndBlockLExInput_of_gen (h : GGTypeAEndBlockLExGenInput) :
-    GGTypeAEndBlockLExInput :=
-  fun G _ _ p B Bs x L D J n f y K hN => h G p B Bs x L D J n f y K hN.toNbrCfg
-
-theorem ggTypeAEndBlockKInput_of_gen (h : GGTypeAEndBlockKGenInput) : GGTypeAEndBlockKInput :=
-  fun G _ _ p B Bs x L D J n f y K hN => h G p B Bs x L D J n f y K hN.toNbrCfg
-
-theorem ggTypeAFarCommuteInput_of_gen (h : GGTypeAFarCommuteGenInput) :
-    GGTypeAFarCommuteInput :=
-  fun G _ _ p B Bs x L D J n f y K hN => h G p B Bs x L D J n f y K hN.toNbrCfg
 
 theorem exists_conj_lowerBlock_of_lift {G : Type} [Group G] {L J : Subgroup G} {n f : ℕ}
     (hn : 2 ≤ n) {φ φ₁ : Matrix.SpecialLinearGroup (Fin (n + 1)) (GaloisField 2 f) →* G}
@@ -163,79 +153,9 @@ theorem ggTypeAJoinEndNodeInput_of_blocks (hA : GGTypeAEndBlockLExGenInput)
     GGTypeANbrCfg p B Bs x L D J n f y K → GGTypeANbr p B Bs x L D J n f y₃ K₃ → p ∣ n + 3 →
     ¬ K₃ ≤ L ⊔ K → ∀ (y' : G) (K' : Subgroup G), GGNbr p B x D J y' K' → K' ≤ L ⊔ K ⊔ K₃
 
-theorem ggTypeACorankTwoInput_of_cross (hE : GGTypeAJoinEndNodeInput)
-    (h3 : GGTypeAThirdNbrInput) (hX : GGTypeACrossInput) (hJ : GGTypeAJoinThreeInput) :
-    GGTypeACorankTwoInput := by
-  intro G _ _ p B Bs x L D J n f y K hcfg hOp hInn hNoTr hN hdiv hout φ₁ hφL hker T₁ hT₁LK hT₁ hKle
-  have hNC : GGTypeANbrCfg p B Bs x L D J n f y K := ⟨hcfg, hOp, hInn, hNoTr, hN⟩
-  obtain ⟨y₃, K₃, hN₃, hK₃⟩ := h3 G p B Bs x L D J n f y K hNC hdiv hout
-  obtain ⟨T₃, hT₃LK, hT₃, hK₃le⟩ :=
-    hE G p B Bs x L D J n f y₃ K₃ hcfg hOp hInn hNoTr hN₃ φ₁ hφL hker
-  obtain ⟨hcube, hcent⟩ := hX G p B Bs x L D J n f y K y₃ K₃ hNC hN₃ hdiv hK₃ φ₁ hφL hker T₁
-    hT₁LK hT₁ hKle T₃ hT₃LK hT₃ hK₃le
-  have h1 : T₁ * T₁ = 1 := hT₁.1
-  have h3' : T₃ * T₃ = 1 := hT₃.1
-  have e3 : T₁ * (T₁ * T₃ * T₁) * T₁ = T₃ := by
-    calc T₁ * (T₁ * T₃ * T₁) * T₁ = (T₁ * T₁) * T₃ * (T₁ * T₁) := by group
-      _ = T₃ := by rw [h1, one_mul, mul_one]
-  refine ⟨T₁ * T₃ * T₁, ?_, ⟨hT₁, ?_, ?_, hcent⟩, ?_⟩
-  · have hT₁G := hN.sup_le_ggG0 hT₁LK
-    have hT₃G := hN₃.sup_le_ggG0 hT₃LK
-    exact mul_mem (mul_mem hT₁G hT₃G) hT₁G
-  · calc T₁ * T₃ * T₁ * (T₁ * T₃ * T₁) = T₁ * (T₃ * (T₁ * T₁) * T₃) * T₁ := by group
-      _ = 1 := by rw [h1, mul_one, h3', mul_one, h1]
-  · have e : T₁ * (T₁ * T₃ * T₁) = T₃ * T₁ := by
-      calc T₁ * (T₁ * T₃ * T₁) = (T₁ * T₁) * T₃ * T₁ := by group
-        _ = T₃ * T₁ := by rw [h1, one_mul]
-    rw [e]
-    exact hcube
-  · intro y' K' hK'
-    have hA : L ⊔ L.map (MulAut.conj T₁).toMonoidHom ≤ L ⊔ L.map (MulAut.conj T₁).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * T₃ * T₁ * T₁)).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * (T₁ * T₃ * T₁) * T₁)).toMonoidHom :=
-      le_sup_left.trans le_sup_left
-    have hLM : L ≤ L ⊔ L.map (MulAut.conj T₁).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * T₃ * T₁ * T₁)).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * (T₁ * T₃ * T₁) * T₁)).toMonoidHom :=
-      le_sup_left.trans hA
-    have hT₃M : L.map (MulAut.conj T₃).toMonoidHom ≤ L ⊔ L.map (MulAut.conj T₁).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * T₃ * T₁ * T₁)).toMonoidHom ⊔
-        L.map (MulAut.conj (T₁ * (T₁ * T₃ * T₁) * T₁)).toMonoidHom := by
-      have e : L.map (MulAut.conj T₃).toMonoidHom =
-          L.map (MulAut.conj (T₁ * (T₁ * T₃ * T₁) * T₁)).toMonoidHom := by rw [e3]
-      rw [e]
-      exact le_sup_right
-    have hKM := hKle.trans hA
-    have hK₃M := hK₃le.trans (sup_le hLM hT₃M)
-    exact (hJ G p B Bs x L D J n f y K y₃ K₃ hNC hN₃ hdiv hK₃ y' K' hK').trans
-      (sup_le (sup_le hLM hKM) hK₃M)
 
 section Assembly
 
-theorem lc_gl_std_of_secFiveBlocks (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (heL : GGTypeAEndBlockLExGenInput) (heK : GGTypeAEndBlockKGenInput)
-    (heF2 : GGTypeAFarCommuteGenInput) (heD : GGTypeAJoinInput) (he3 : GGTypeAThirdNbrInput)
-    (heX : GGTypeACrossInput) (heJ3 : GGTypeAJoinThreeInput) (heH : GGTypeAHalfEndNodesInput)
-    (heNW : GGSecFiveNonWeylInput) (heA : GGSecFiveWeylAInput)
-    (heB : GGSecFiveWeylBInput) (heDn : GGSecFiveWeylDInput) (heEx : GGSecFiveWeylEInput)
-    (heF : GGSecFiveWeylF4Input) (heG : GGSecFiveWeylG2Input)
-    (hf : GGHypSixV2Input) (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput)
-    (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneV2Input)
-    (h2 : GGSixStepTwoV2Input) (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput)
-    (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_secFiveCases hHolt ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd
-    (ggTypeAJoinEndNodeInput_of_blocks heL heK heF2) heD
-    (ggTypeACorankTwoInput_of_cross (ggTypeAJoinEndNodeInput_of_blocks heL heK heF2) he3 heX heJ3)
-    heH heNW heA heB heDn heEx heF heG
-    hf hg₁ hg₂ hR1 hR h1 h2 h3a h3b h3c h3d hKG G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

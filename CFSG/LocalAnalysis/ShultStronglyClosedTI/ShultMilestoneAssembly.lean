@@ -24,17 +24,5 @@ theorem shult_simple_of_theoremTwo (hT : Assembly.TheoremTwo)
   shult_simple_of_no_least_failure (not_minimalLocalFailure_of_theoremTwo hT) G hnonab T U hUT
     hU hUel hclosed hTI
 
-theorem shult_simple_of_solvableLinearCoset
-    (h : ∀ (G : Type) [Group G] [Finite G], SolvableLinearCosetNormalizerTheorem G)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (T : Sylow 2 G) (U : Subgroup G) (hUT : U ≤ (T : Subgroup G)) (hU : U ≠ ⊥)
-    (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G))
-    (hTI : fusionIsTI U) : fusionIsBenderGroup G :=
-  shult_simple_of_theoremTwo
-    (theoremTwo_of_solvable_and_monomial fun G _ _ =>
-      ⟨h G, UnitaryPairIndex.unitaryMonomialTheorem G⟩)
-    G hnonab T U hUT hU hUel hclosed hTI
 
 end CFSG.ShultStronglyClosedTI

@@ -58,15 +58,5 @@ theorem even_central_quotient {G : Type*} [Group G] [Finite G] [Group.IsPerfect 
   rw [htransferKernel, Subgroup.card_top] at hnot
   exact hnot (even_iff_two_dvd.mp heven)
 
-theorem even_image {G H : Type*} [Group G] [Group H] [Finite G] [Finite H]
-    [Group.IsPerfect G] (homomorphism : G →* H)
-    (hsurjective : Function.Surjective homomorphism)
-    (hkernel : homomorphism.ker ≤ Subgroup.center G) (heven : Even (Nat.card G)) :
-    Even (Nat.card H) := by
-  have hquotient : Even (Nat.card (H ⧸ Subgroup.center H)) := by
-    rw [← Nat.card_congr (equivalence homomorphism hsurjective hkernel).toEquiv]
-    exact even_central_quotient heven
-  exact even_iff_two_dvd.mpr ((even_iff_two_dvd.mp hquotient).trans
-    (Subgroup.card_quotient_dvd_card _))
 
 end CFSG.ComponentClassification.PerfectCentralQuotient

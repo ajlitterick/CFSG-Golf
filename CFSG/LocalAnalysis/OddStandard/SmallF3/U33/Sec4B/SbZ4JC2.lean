@@ -143,8 +143,6 @@ private theorem v_pow_eq_one {c d : ℕ} (hc : c < 2) (hd : d < 2)
     exact h.v₁_ne_v₂
       (by rw [eq_inv_of_mul_eq_one_left he, inv_eq_of_mul_eq_one_right (h.Y_sq v₂ h.v₂_mem)])
 
-theorem Y_normal : Y.Normal := by
-  exact ⟨fun x hx g => h.normal_Y g x hx⟩
 
 theorem Y_comm : ∀ a ∈ Y, ∀ b ∈ Y, a * b = b * a := by
   intro a ha b hb

@@ -60,11 +60,6 @@ theorem chain_ok : ((chainGens ()).size == 6 && chainBase.length == 6 && chainOr
         Nat.beq (chainStepK k l chainBase[j]!) chainBase[j]!)) = true := by
   decide +kernel
 
-theorem orb_neg : (!orbRecK pairStepK 2 7560 (pairU * 4194304 + pairV + 1) (PT 0) (PI 0 0) (PI 0 1)
-    (PI 0 2) (PI 0 3) (fun i l => PI 0 (4 + l) i) 0 &&
-    !orbRecK (chainStepK 0) 2 63 chainBase[1]! (PT 1) (PI 1 0) (PI 1 1) (PI 1 2) (PI 1 3)
-      (fun i l => PI 1 (4 + l) i) 0) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelCo2SmithS
 

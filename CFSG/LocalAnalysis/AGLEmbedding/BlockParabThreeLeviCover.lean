@@ -163,9 +163,6 @@ theorem quotCenterOfLeCenter_surjective : Function.Surjective (quotCenterOfLeCen
   obtain ⟨y, rfl⟩ := QuotientGroup.mk_surjective x
   exact ⟨QuotientGroup.mk y, rfl⟩
 
-theorem quotCenterOfLeCenter_comp :
-    (quotCenterOfLeCenter hO).comp (QuotientGroup.mk' O) = QuotientGroup.mk' (Subgroup.center Y) :=
-  MonoidHom.ext fun _ => rfl
 
 theorem mk_mem_ker_quotCenterOfLeCenter (y : Y) :
     (QuotientGroup.mk y : Y ⧸ O) ∈ (quotCenterOfLeCenter hO).ker ↔ y ∈ Subgroup.center Y := by

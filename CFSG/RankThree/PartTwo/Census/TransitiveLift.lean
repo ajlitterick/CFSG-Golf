@@ -243,8 +243,6 @@ include hW
   one_mem' := ⟨by rw [map_one]; exact W.one_mem, one_pow 2⟩
   inv_mem' {y} hy := ⟨by rw [map_inv]; exact W.inv_mem hy.1, by rw [inv_pow, hy.2, inv_one]⟩
 
-theorem mem_involutionLift {y : J} : y ∈ involutionLift hW ↔ φ y ∈ W ∧ y ^ 2 = 1 :=
-  Iff.rfl
 
 theorem isElementaryAbelian_involutionLift :
     CFSG.IsElementaryAbelian 2 (involutionLift hW) where

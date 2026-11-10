@@ -47,21 +47,6 @@ theorem kerAO2_normal {A L : Subgroup G} (hAL : A ≤ Subgroup.normalizer (L : S
     generalizedFitting ↥M = CFSG.pCore 2 ↥M →
       ∃ X ∈ thetaComponentsIn M, Y ≤ X ∧ X ∈ scriptY0 A LB
 
-@[expose] noncomputable def Item153 (A : Subgroup G) (LB : Subgroup G → Subgroup G) : Prop :=
-  ∀ Y ∈ scriptY0Star A LB,
-    CFSG.maximalTwoLocalsContaining ((Y ⊔ A : Subgroup G) : Set G) =
-        {Subgroup.normalizer
-          (oPrimeResidualOf 3 (delta A LB (Subgroup.normalizer (Y : Set G))) : Set G)} ∧
-      (∀ S ∈ scriptQPiStar A LB (Subgroup.normalizer
-          (oPrimeResidualOf 3 (delta A LB (Subgroup.normalizer (Y : Set G))) : Set G)) (piOf 2),
-        S ∈ scriptQPiStar A LB ⊤ (piOf 2) ∧
-          Subgroup.normalizer ((A ⊔ S : Subgroup G) : Set G) ≤
-            Subgroup.normalizer
-              (oPrimeResidualOf 3 (delta A LB (Subgroup.normalizer (Y : Set G))) : Set G)) ∧
-      generalizedFitting ↥Y = CFSG.pCore 2 ↥Y ∧
-      ((Nonempty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃* alternatingGroup (Fin 5)) ∨
-          Sec4.IsTripleCover (↥Y ⧸ CFSG.pCore 2 ↥Y) (alternatingGroup (Fin 6)) ∨
-          Nonempty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃* alternatingGroup (Fin 7))) → ¬ IsShort Y)
 
 @[expose] def Item156 (A : Subgroup G) (LB : Subgroup G → Subgroup G) : Prop :=
   ∀ Y ∈ scriptY0Star A LB,
@@ -73,25 +58,6 @@ theorem kerAO2_normal {A L : Subgroup G} (hAL : A ≤ Subgroup.normalizer (L : S
   ∀ Y ∈ scriptY0Star A LB,
     IsEmpty (↥Y ⧸ CFSG.pCore 2 ↥Y ≃* CFSG.Blueprint.NativeSporadic.M12)
 
-@[expose] noncomputable def Item158 (A : Subgroup G) (LB : Subgroup G → Subgroup G) (c : G)
-    (L : Subgroup G) : Prop :=
-  ∀ (p e : ℕ) [Fact p.Prime], 1 ≤ e →
-    Sec4.IsoLThreePi (↥L ⧸ aschbacherSolvableCore 3 ↥L) p e →
-    ∀ Y ∈ scriptY0Star A LB, MeetsY4 A LB L Y →
-    ∀ P : Subgroup G, A ≤ P →
-      CFSG.ABGLocalTools.IsSylowOf 3 P
-        (Subgroup.normalizer (Subgroup.zpowers c : Set G) ⊓ Subgroup.normalizer (Y : Set G)) →
-      (Nonempty (lBarA c L A ≃* Multiplicative (ZMod 3) × Sec12.lBar c L) ∧
-          A = omegaOneThree P) ∨
-        (Sec14.IsZ3PGLThreeAt ↥(lBarA c L (omegaOneThree P)) p e ∧
-          (Nat.card ↥(omegaOneThree P ⊔ L)).factorization 3 = 4 ∧
-          (Nat.card ↥((omegaOneThree P ⊔ L) ⊓ Subgroup.normalizer (Y : Set G))).factorization 3 =
-            4 ∧
-          ∀ F : Subgroup G,
-            CFSG.ABGLocalTools.IsSylowOf 3 F (Subgroup.zpowers c ⊔ L) →
-              F ∈ partTwoF G ∧
-                omegaA F = orbitIn (Subgroup.normalizer (F : Set G)) (Subgroup.zpowers c) ∧
-                (omegaA F).ncard = 9)
 
 @[expose] noncomputable def Item159 (A : Subgroup G) (c : G) (L : Subgroup G) : Prop :=
   Sec21.IsIrreducibleOn (Sec4.autIn (L ⊓ Subgroup.normalizer (A : Set G)) (A ⊓ L)) →

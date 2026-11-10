@@ -63,13 +63,6 @@ theorem forOK_spec {FD S : ℕ → ℕ} {TG : ℕ → ℕ → ℕ} {n s0 r1 lo :
     obtain ⟨a, b, c, d, ⟨e1, e2⟩, f⟩ := h2.2
     exact Or.inr ⟨a, b, c, d, e1, e2, f⟩
 
-theorem inSOK_spec {FD S : ℕ → ℕ} {m lo : ℕ} (h : inSOK FD S m lo = true) :
-    ∀ t < 4096, lo + t < m → fComp (FD (S (lo + t))) = 2 := by
-  intro t ht hm
-  have h2 := Fi24FixS.allBelow_spec h (by decide) t ht
-  have e : Nat.add lo t = lo + t := rfl
-  simp only [letB_t, e, brec_t, Nat.blt_eq, if_pos hm, Nat.beq_eq] at h2
-  exact h2
 
 theorem vtOK_spec {VT : ℕ → ℕ} {TG : ℕ → ℕ → ℕ} {VW : List ℕ} {n lo : ℕ}
     (h : vtOK VT TG VW n lo = true) : ∀ t < 512, lo + t < n → walk TG VW (lo + t) = VT (lo + t) := by

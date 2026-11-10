@@ -113,10 +113,6 @@ theorem unitaryCover_native_simple (f : ℕ) (hf : 2 ≤ f) : IsSimpleGroup (PSU
   exact (unitaryCoverCanonicalEquiv f hf).isSimpleGroup_congr.mp
     (huppert_II_10_13 J (2 ^ f) hq hcard hfixed)
 
-theorem unitaryCover_exact_simple {K : Type} [Field K] [Finite K]
-    (f : ℕ) (hf : 2 ≤ f) (hcard : Nat.card K = 2 ^ (2 * f)) :
-    IsSimpleGroup (GLAProj (GLASUGroup (Fin 3) K (2 ^ f))) :=
-  (glaSU3EquivNative f hf hcard).isSimpleGroup_congr.mpr (unitaryCover_native_simple f hf)
 
 theorem unitaryCover_psu_admissible (f : ℕ) (hf : 2 ≤ f) :
     CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSU 3 2 f :=
@@ -155,31 +151,5 @@ theorem unitaryCover_native_center_quotient_full
   exact ⟨hker.symm.trans hbot, hsimple, Group.IsPerfect.not_isMulCommutative L,
     ⟨eL⟩, Or.inr (Or.inl ⟨f, hf, ⟨eL⟩⟩)⟩
 
-theorem even_unitary_three_perfect_center_quotient_full
-    {K L : Type} [Field K] [Finite K] [CharP K 2]
-    [Group L] [Finite L] [Group.IsPerfect L]
-    (f : ℕ) (hf : 2 ≤ f) (hcard : Nat.card K = 2 ^ (2 * f))
-    (hp : IsPGroup 2 (Subgroup.center L))
-    (e : L ⧸ Subgroup.center L ≃* GLAProj (GLASUGroup (Fin 3) K (2 ^ f))) :
-    Subgroup.center L = ⊥ ∧ IsSimpleGroup L ∧ ¬ IsMulCommutative L ∧
-      Nonempty (L ≃* GLAProj (GLASUGroup (Fin 3) K (2 ^ f))) ∧
-      CFSG.Blueprint.LieModel L .PSU 3 2 f ∧ ExplicitUnitaryModel L ∧
-      ExplicitRankOneModel L ∧ fusionIsBenderGroup L := by
-  let η := e.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center L))
-  have hsurj : Function.Surjective η :=
-    e.surjective.comp (QuotientGroup.mk'_surjective _)
-  have hker : η.ker = Subgroup.center L := by
-    rw [MonoidHom.ker_comp_of_injective _ _ e.injective, QuotientGroup.ker_mk']
-  obtain ⟨hbot, eL, _heL⟩ := even_unitary_three_perfect_central_two_cover_trivial
-    f hf hcard η hsurj (hker.symm ▸ le_refl (Subgroup.center L)) (hker.symm ▸ hp)
-  have hsimple : IsSimpleGroup L :=
-    eL.isSimpleGroup_congr.mpr (unitaryCover_exact_simple f hf hcard)
-  let : IsSimpleGroup L := hsimple
-  have hunitary : ExplicitUnitaryModel L :=
-    ⟨f, hf, K, inferInstance, inferInstance, hcard, ⟨eL⟩⟩
-  have hrank : ExplicitRankOneModel L := Or.inr (Or.inl hunitary)
-  exact ⟨hker.symm.trans hbot, hsimple, Group.IsPerfect.not_isMulCommutative L,
-    ⟨eL⟩, unitaryCover_equiv_lieModel f hf hcard eL, hunitary, hrank,
-      (explicitRankOneModel_iff_fusionIsBenderGroup L).mp hrank⟩
 
 end CFSG.ShultStronglyClosedTI

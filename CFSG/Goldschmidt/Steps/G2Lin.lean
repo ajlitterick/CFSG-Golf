@@ -46,12 +46,6 @@ theorem apply_mem_comSp {η g : V ≃ₗ[ZMod 2] V} (hg : g * η = η * g) {v : 
   simp only [LinearEquiv.mul_apply] at this
   rw [map_sub, ← this]
 
-theorem apply_mem_fixSp {η g : V ≃ₗ[ZMod 2] V} (hg : g * η = η * g) {v : V}
-    (hv : v ∈ fixSp η) : g v ∈ fixSp η := by
-  rw [mem_fixSp] at hv ⊢
-  have := congrArg (fun f : V ≃ₗ[ZMod 2] V => f v) hg
-  simp only [LinearEquiv.mul_apply] at this
-  rw [← this, hv]
 
 theorem mul_comm_of_mem_zpowers {η g : V ≃ₗ[ZMod 2] V} (hg : g ∈ Subgroup.zpowers η) :
     g * η = η * g := by

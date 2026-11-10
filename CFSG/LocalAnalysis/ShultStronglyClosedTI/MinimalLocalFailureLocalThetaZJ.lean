@@ -20,25 +20,11 @@ universe u
 
 variable {G : Type u} [Group G] [Finite G]
 
-theorem gorenstein_maximum_family_top_eq :
-    CFSG.thompsonAbelianSubgroups (⊤ : Subgroup G) = maxOrderAbelianFamily G :=
-  CFSG.thompsonAbelianSubgroups_top_eq
-
-theorem gorenstein_thompson_top_eq :
-    CFSG.thompsonSubgroup (⊤ : Subgroup G) = orderThompson G :=
-  CFSG.thompsonSubgroup_top_eq
 
 theorem gorenstein_zj_eq (Q : Subgroup G) :
     CFSG.thompsonCenter Q = (orderZJ Q).map Q.subtype :=
   CFSG.thompsonCenter_eq_ambientOrderZJ Q
 
-omit [Finite G] in
-theorem indexed_order_thompson_eq : thompsonOrderSubgroup G = orderThompson G :=
-  thompsonOrderSubgroup_eq_orderThompson G
-
-omit [Finite G] in
-theorem indexed_order_zj_eq : thompsonOrderCenter G = orderZJ G :=
-  thompsonOrderCenter_eq_orderZJ G
 
 omit [Finite G] in
 theorem native_prime_complement_core_eq {p : ℕ} (hp : p.Prime) :
@@ -113,14 +99,5 @@ theorem solvable_abelian_sylow_two_orderZJ_characteristic {p : ℕ} (hp : p.Prim
     have h := thompsonCenterOf_characteristic_of_normal p Q
     rwa [hindexed] at h
 
-theorem solvable_abelian_sylow_two_orderZJ_ne_bot {p : ℕ} (hp : p.Prime)
-    (Q : Sylow p G) (hQ : (Q : Subgroup G) ≠ ⊥) :
-    (orderZJ (Q : Subgroup G)).map (Q : Subgroup G).subtype ≠ ⊥ := by
-  let : Fact p.Prime := ⟨hp⟩
-  let : Nontrivial (Q : Subgroup G) := (Subgroup.nontrivial_iff_ne_bot _).mpr hQ
-  have hne := primeComplementGrowth_order_zj_ne_bot p Q.isPGroup'
-  intro hbot
-  apply hne
-  exact (Subgroup.map_eq_bot_iff_of_injective _ (Q : Subgroup G).subtype_injective).mp hbot
 
 end CFSG.ShultStronglyClosedTI.LocalTheta

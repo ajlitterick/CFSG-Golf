@@ -323,18 +323,6 @@ end Adjoint
 section Catalogue
 
 
-theorem exists_sylowTorus_cat_E6 {q : TauCeti.PrimePower} (hv : (TauCeti.LieTypeIndex.E6 q).Valid)
-    {p : ℕ} (hp : p.Prime) (h7 : 7 ≤ p) (hpq : p ≠ q.p)
-    (hcnt : 3 ≤ degCount Tag.E6 (orderOf ((q.card : ℕ) : ZMod p))) :
-    ∃ m, SylowTorus (Cat ⟨.E6 q, hv⟩) p m := by
-  obtain ⟨K, _, _, hK, -, ⟨e⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.e6 q hv
-  have hpK : ¬ p ∣ Nat.card K := by
-    rw [hK]
-    exact not_dvd_card_of_ne hp hpq
-  rw [← hK] at hcnt
-  obtain ⟨m, hm⟩ := exists_sylowTorus_E6 K hp h7 hpK hcnt
-  exact ⟨m, hm.of_mulEquiv e.symm⟩
-
 theorem exists_sylowTorus_cat_E7 {q : TauCeti.PrimePower} (hv : (TauCeti.LieTypeIndex.E7 q).Valid)
     {p : ℕ} (hp : p.Prime) (h7 : 7 ≤ p) (hpq : p ≠ q.p)
     (hcnt : 3 ≤ degCount Tag.E7 (orderOf ((q.card : ℕ) : ZMod p)))
@@ -361,17 +349,6 @@ theorem exists_sylowTorus_cat_E8 {q : TauCeti.PrimePower} (hv : (TauCeti.LieType
   obtain ⟨m, hm⟩ := exists_sylowTorus_E8 K hp h7 hpK hcnt hsmall
   exact ⟨m, hm.of_mulEquiv e.symm⟩
 
-theorem exists_sylowTorus_cat_twistedE6 {q : TauCeti.PrimePower}
-    (hv : (TauCeti.LieTypeIndex.twistedE6 q).Valid) {p : ℕ} (hp : p.Prime) (h7 : 7 ≤ p)
-    (hpq : p ≠ q.p) (hcnt : 3 ≤ degCountTw (orderOf ((q.card : ℕ) : ZMod p))) :
-    ∃ m, SylowTorus (Cat ⟨.twistedE6 q, hv⟩) p m := by
-  obtain ⟨K, _, σ, hK, hσ, ⟨e⟩⟩ := exists_catEquiv_twistedE6 q hv
-  have hpK : ¬ p ∣ q.p ^ q.exponent := by
-    rw [← TauCeti.PrimePower.card_def]
-    exact not_dvd_card_of_ne hp hpq
-  rw [TauCeti.PrimePower.card_def] at hcnt
-  obtain ⟨m, hm⟩ := exists_sylowTorus_twistedE6 q.prime_p q.exponent_pos K hK σ hσ hp h7 hpK hcnt
-  exact ⟨m, hm.of_mulEquiv e.symm⟩
 
 end Catalogue
 

@@ -263,10 +263,6 @@ namespace SecData
 variable {Φ : Set (Subgroup G)} (h : SecData p f a Φ)
 include h
 
-omit [Finite G] in
-theorem centMembers_eq : centMembers Φ a = Φ := by
-  ext K
-  exact ⟨fun hK => hK.1, fun hK => ⟨hK, h.le K hK⟩⟩
 
 omit [Finite G] in
 theorem normalizes : NormalizesLayer Φ a := by
@@ -536,10 +532,6 @@ theorem le_perfectResidualOf_of_perfect {H P : Subgroup G} (hPH : P ≤ H) (hP :
   have : (⟨x, hPH hx⟩ : ↥H) ∈ P.subgroupOf H := hx
   exact Subgroup.mem_iInf.mpr fun n => hder n this
 
-theorem perfectResidualOf_mono {H H' : Subgroup G} (hHH' : H ≤ H') :
-    perfectResidualOf H ≤ perfectResidualOf H' :=
-  le_perfectResidualOf_of_perfect ((Subgroup.map_subtype_le _).trans hHH')
-    (finite_perfectResidualOf_isPerfect H)
 
 end Residual
 

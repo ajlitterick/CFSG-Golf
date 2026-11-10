@@ -48,14 +48,6 @@ theorem coefficientAlgebra_power {G : Type*} [Group G] [Fintype G]
     MonoidAlgebra (localCoefficientSubring m hm) G :=
   ∑ element : G, MonoidAlgebra.single element ⟨coefficients element, hcoefficients element⟩
 
-theorem localCoefficientAlgebra_coeff {G : Type*} [Group G] [Fintype G]
-    (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) (coefficients : G → ℂ)
-    (hcoefficients : ∀ element, coefficients element ∈ BlocksLocalRing m) (element : G) :
-    (localCoefficientAlgebra m hm coefficients hcoefficients).coeff element =
-      ⟨coefficients element, hcoefficients element⟩ := by
-  classical
-  simp only [localCoefficientAlgebra, MonoidAlgebra.coeff_sum, Finset.sum_apply',
-    MonoidAlgebra.coeff_single, Finsupp.single_apply, Fintype.sum_ite_eq']
 
 theorem localCoefficientAlgebra_complex {G : Type*} [Group G] [Fintype G]
     (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) (coefficients : G → ℂ)

@@ -594,32 +594,6 @@ private theorem iSupIndep_mulSingle (m : ℕ) :
   rw [hxE]
   exact Subgroup.mem_bot.mpr (map_one _)
 
-private theorem nodeTuple_injective (m : ℕ) (hm : 3 ≤ m) (i : Fin (m + 1)) :
-    Function.Injective (nodeTuple (K := K) (f := f) m hm i) := by
-  intro u v h
-  rcases Fin.eq_castSucc_or_eq_last (n := m) i with ⟨k, rfl⟩ | rfl
-  · have hne : (Fin.castSucc k : Fin (m + 1)) ≠ k.succ := by
-      intro h'
-      have := congrArg Fin.val h'
-      simp only [Fin.val_castSucc, Fin.val_succ] at this
-      omega
-    have h1 := congrFun h (Fin.castSucc k)
-    rw [nodeTuple_apply_castSucc, nodeTuple_apply_castSucc] at h1
-    simpa [hne] using h1
-  · have hne : (⟨m - 1, by omega⟩ : Fin (m + 1)) ≠ Fin.last m := by
-      intro h'
-      have := congrArg Fin.val h'
-      simp only [Fin.val_last] at this
-      omega
-    have h1 := congrFun h (⟨m - 1, by omega⟩ : Fin (m + 1))
-    rw [nodeTuple_apply_last, nodeTuple_apply_last] at h1
-    simpa [hne] using h1
-
-theorem stdFamilyV_nodeTor_injective (m : ℕ) (hm : 3 ≤ m) (i : Fin (m + 1)) :
-    Function.Injective ((stdFamilyV E m hm).nodeTor i) := by
-  rw [nodeTor_eq_comp]
-  exact (diagHom_injective (F := F) (σ := unitaryInvolution K 2 f) (m + 1)).comp
-    (nodeTuple_injective m hm i)
 
 private theorem paramMap_surjective (m : ℕ) (hm : 3 ≤ m)
     (hK : Nat.card K = (2 ^ f) ^ 2) :

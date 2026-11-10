@@ -151,32 +151,6 @@ theorem finite_field_automorphism_fixed_field_cardinality
   refine ⟨haut ▸ A.card_subgroup_dvd_card, mem_fixedSubfield_iff F A,
     fixedSubfield_card p n F hcard A, nat_card_eq_fixedSubfield_card_pow F A⟩
 
-theorem finite_field_automorphism_fixed_field_cardinality_int
-    (p : ℕ) (n : ℤ) (hp : p.Prime) (hn : 1 ≤ n) (F : Type u) [Field F]
-    (hcard : Nat.card F = p ^ n.toNat) :
-    ∃ sigma : F ≃+* F,
-      (∀ x : F, sigma x = x ^ p) ∧ (orderOf sigma : ℤ) = n ∧
-      (⊤ : Subgroup (F ≃+* F)) = Subgroup.zpowers sigma ∧
-      (Nat.card (F ≃+* F) : ℤ) = n ∧ IsCyclic (F ≃+* F) ∧
-      ∀ A : Subgroup (F ≃+* F),
-        (Nat.card A : ℤ) ∣ n ∧
-        (∀ x : F, x ∈ FixedPoints.subfield A F ↔ ∀ a : A, (a : F ≃+* F) x = x) ∧
-        Nat.card (FixedPoints.subfield A F) = p ^ (n / (Nat.card A : ℤ)).toNat ∧
-        Nat.card F = Nat.card (FixedPoints.subfield A F) ^ Nat.card A := by
-  have hn0 : 0 ≤ n := by omega
-  have hnN : 1 ≤ n.toNat := by omega
-  obtain ⟨sigma, happly, horder, htop, haut, hcyclic, hfixed⟩ :=
-    finite_field_automorphism_fixed_field_cardinality p n.toNat hp hnN F hcard
-  refine ⟨sigma, happly, ?_, htop, ?_, hcyclic, ?_⟩
-  · rw [horder, Int.toNat_of_nonneg hn0]
-  · rw [haut, Int.toNat_of_nonneg hn0]
-  · intro A
-    obtain ⟨hdvd, hmem, hsize, hpower⟩ := hfixed A
-    refine ⟨?_, hmem, ?_, hpower⟩
-    · rw [← Int.toNat_of_nonneg hn0]
-      exact_mod_cast hdvd
-    · rw [← Int.toNat_of_nonneg hn0, ← Int.natCast_ediv, Int.toNat_natCast]
-      exact hsize
 
 theorem odd_square_mod_eight {q0 : ℕ} (hodd : Odd q0) : q0 ^ 2 % 8 = 1 := by
   have hmod : q0 % 8 % 2 = 1 := by

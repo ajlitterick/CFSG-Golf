@@ -8,13 +8,6 @@ namespace CFSG.RankThreeEvenClassification.Helpers
 
 universe u
 
-theorem thompsonCenterOf_ne_bot_of_pSubgroup {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (subgroup : Subgroup G)
-    (hpgroup : IsPGroup prime subgroup) (hne : subgroup ≠ ⊥) : thompsonCenterOf subgroup ≠ ⊥ := by
-  have : Nontrivial subgroup := (Subgroup.nontrivial_iff_ne_bot subgroup).mpr hne
-  have hcenterNe := thompsonOrderCenter_ne_bot_of_pGroup subgroup prime hprime hpgroup
-  exact fun heq => hcenterNe ((Subgroup.map_eq_bot_iff_of_injective
-    (thompsonOrderCenter subgroup) subgroup.subtype_injective).mp heq)
 
 theorem thompsonCenterOf_internal_ambient {G : Type u} [Group G] [Finite G]
     (overgroup : Subgroup G) (subgroup : Subgroup overgroup) :

@@ -13,18 +13,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certifi
   CFSG.Sporadic.RuSchreier CFSG.Sporadic.Schreier CFSG.Sporadic.Schreier.PairNative
   CFSG.Quasithin.KGC31 CFSG.Quasithin.KGC31.Native
 
-theorem forall₂_refBasis (τ : ℕ) :
-    List.Forall₂ (Rep 4060) (refBasisA τ) (refG τ) := by
-  rcases Nat.lt_or_ge τ 5 with hτ | hτ
-  · interval_cases τ
-    · exact hbE
-    · exact hb64
-    · exact hb3
-    · exact hb16
-    · exact hb32
-  · rw [refBasisA, refG, List.getD_eq_default _ _ (by simpa using hτ),
-      List.getD_eq_default _ _ (by simpa using hτ)]
-    exact .nil
 
 theorem closure_ofFn {k : ℕ} (v : Fin k → Equiv.Perm (Fin 4060)) :
     Subgroup.closure {x | x ∈ List.ofFn v} = refSub v := by
@@ -36,20 +24,6 @@ theorem closure_ofFn {k : ℕ} (v : Fin k → Equiv.Perm (Fin 4060)) :
 theorem closure_refG {τ : ℕ} (hτ : τ < 5) : Subgroup.closure {x | x ∈ refG τ} = refU τ := by
   interval_cases τ <;> exact closure_ofFn _
 
-theorem refU_le_ruP (τ : ℕ) : refU τ ≤ ruP := by
-  rcases Nat.lt_or_ge τ 5 with hτ | hτ
-  · interval_cases τ <;> exact refSub_le_ruP _
-  · rw [refU, List.getD_eq_default _ _ (by simpa using hτ)]
-    exact bot_le
-
-theorem refG_mem (τ : ℕ) : ∀ x ∈ refG τ, x ∈ ruP := by
-  intro x hx
-  rcases Nat.lt_or_ge τ 5 with hτ | hτ
-  · exact refU_le_ruP τ (by rw [← closure_refG hτ]; exact Subgroup.subset_closure hx)
-  · rw [refG, List.getD_eq_default _ _ (by simpa using hτ)] at hx
-    exact absurd hx List.not_mem_nil
-
-theorem candData_letters : ∀ c ∈ candData.flatten, lettersOK 6 c.2 = true := by decide +kernel
 
 theorem candData_lt : ∀ c ∈ candData.flatten, c.1 < 5 := by decide +kernel
 
@@ -61,24 +35,6 @@ theorem mem_flatten_of_getD {i : ℕ} {c : ℕ × List ℤ} (hc : c ∈ candData
   · rw [List.getD_eq_default _ _ hi] at hc
     exact absurd hc List.not_mem_nil
 
-theorem forall₂_cands (i p : ℕ) :
-    List.Forall₂ (List.Forall₂ (RepW 4060)) (candsAt i p) (candsG i p) := by
-  rw [candsAt, candsG, List.forall₂_map_left_iff, List.forall₂_map_right_iff]
-  refine List.forall₂_same.2 fun c hc => ?_
-  have hcd := mem_flatten_of_getD (List.mem_of_mem_filter hc)
-  have hk := rep_wA (candData_letters c hcd)
-  rw [candWords, candElts, List.forall₂_map_left_iff, List.forall₂_map_right_iff]
-  refine (forall₂_refBasis c.1).imp fun {b g} hbg => ?_
-  have := ((RepW.single (rep_ruInv' hk)).append (RepW.single hbg)).append (RepW.single hk)
-  simpa [mul_assoc] using this
-
-theorem candsG_mem (i p : ℕ) : ∀ cg ∈ candsG i p, ∀ x ∈ cg, x ∈ ruP := by
-  intro cg hcg x hx
-  rw [candsG] at hcg
-  obtain ⟨c, -, rfl⟩ := List.mem_map.mp hcg
-  rw [candElts] at hx
-  obtain ⟨b, hb, rfl⟩ := List.mem_map.mp hx
-  exact ruP.mul_mem (ruP.mul_mem (wG_mem _) (refG_mem _ b hb)) (ruP.inv_mem (wG_mem _))
 
 theorem orbSub_conj_of_comm' {c y τ : Equiv.Perm (Fin 4060)} (hc : c * τ = τ * c) :
     (orbSub y τ).map (MulAut.conj c).toMonoidHom = orbSub (c * y * c⁻¹) τ := by
@@ -138,18 +94,9 @@ theorem conj_facts {U : Subgroup (Equiv.Perm (Fin 4060))} {L : List (Equiv.Perm 
     rw [e]
     exact hkU
 
-theorem cosetWords_letters (i : ℕ) : lettersOK 2 (cosetWords.getD i []) = true := by
-  rcases Nat.lt_or_ge i cosetWords.length with hi | hi
-  · rw [List.getD_eq_getElem _ _ hi]
-    have h : cosetWords.all (lettersOK 2) = true := by decide +kernel
-    exact List.all_eq_true.mp h _ (List.getElem_mem hi)
-  · rw [List.getD_eq_default _ _ hi]
-    rfl
 
 section Scans
 
-theorem rep_cosetH (i : ℕ) : Rep 4060 (abA (cosetWords.getD i [])) (cosetH i) :=
-  rep_abA (cosetWords_letters i)
 
 end Scans
 

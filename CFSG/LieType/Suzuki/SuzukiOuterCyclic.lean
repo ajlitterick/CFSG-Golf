@@ -50,10 +50,6 @@ omit [Finite K] in
   map_one' := rfl
   map_mul' _ _ := rfl
 
-omit [Finite K] in
-theorem glToAddAut_apply [Module (ZMod 2) K] (g : LinearMap.GeneralLinearGroup (ZMod 2) K)
-    (x : K) : (glToAddAut g).toAdd x = (g : K →ₗ[ZMod 2] K) x :=
-  rfl
 
 theorem suzukiGroup_outer_isCyclic_card_dvd
     (ha : 1 ≤ a) (hK : Nat.card K = 2 ^ (2 * a + 1)) :

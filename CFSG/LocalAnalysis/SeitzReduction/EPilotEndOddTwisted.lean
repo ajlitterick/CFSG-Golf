@@ -86,6 +86,5 @@ theorem exists_normal_index_two_of_twistedE6_action
 
 end Action
 
-variable {G₀ : Subgroup G}
 
 end CFSG.SeitzReduction.EPilot

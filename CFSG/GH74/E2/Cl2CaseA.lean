@@ -140,8 +140,6 @@ private def caseA_S (h : Cl3 Q a b N) (y : Q) : Subgroup Q where
     rw [commutatorElement_inv_left, h2]
     exact h1
 
-private theorem caseA_mem_S (h : Cl3 Q a b N) (y z : Q) : z ∈ caseA_S h y ↔ ⁅z, y⁆ ∈ N :=
-  Iff.rfl
 
 end Calc
 

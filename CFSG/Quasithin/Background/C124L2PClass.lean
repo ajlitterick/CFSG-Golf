@@ -27,7 +27,6 @@ include s
 theorem P₃_le_normalizer : Y ⊔ baum R ≤ Subgroup.normalizer (Y : Set G) :=
   sup_le Subgroup.le_normalizer s.S_norm
 
-theorem P₃_le_P₁ : Y ⊔ baum R ≤ Y ⊔ R₂ X R Y := sup_le_sup_left s.S_le_R₂ Y
 
 theorem charTwo_P₃ : CharTwo (Y ⊔ baum R) := by
   have hY : CharTwo Y := A4.charTwo_of_normal (le_sup_left : Y ≤ Y ⊔ R₂ X R Y)

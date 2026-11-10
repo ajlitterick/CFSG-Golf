@@ -179,12 +179,5 @@ theorem false_of_outer_three_of_normalForm {ℓ f : ℕ} (hℓ : ℓ.Prime) (hf 
   exact false_of_fixed_pair_sup Nat.prime_three hinj hs hfX hf3 hfout hab ha hb hind
     (hfix a hfa) (hfix b hfb)
 
-theorem outerModelGen_three : OuterModelGen (· = 3) := by
-  intro ℓ f hℓ hℓ2 hf K _ _ hK σ hσ p hp hp2 hpℓ hp3 E hE hcard hout hs
-  subst hp3
-  exfalso
-  obtain ⟨-, hNF, ⟨Θ, hΘ, -, -, -⟩, hcyc, hcardAut, -, hZ, -⟩ :=
-    odd_triality_exact_automorphism_normal_form hℓ hℓ2 hf K hK σ hσ
-  exact false_of_outer_three_of_normalForm hℓ hf hK σ hσ hNF Θ hΘ hcyc hcardAut hZ E hE hout hs
 
 end CFSG.HardMathSupport.Seitz.TrialityOdd.Coordinator

@@ -92,16 +92,6 @@ theorem exists_not_mem_conjSub (h : IsUniqueMaxSub H X L₀) {S : Subgroup G}
 
 end IsUniqueMaxSub
 
-theorem MinParabolic.isUniqueMaxSub [Finite G] {H T M : Subgroup G} (h : MinParabolic H T M) :
-    IsUniqueMaxSub H T M := by
-  refine ⟨h.le, h.maximal.1, fun K hTK hKH => ?_⟩
-  obtain ⟨N, hN, hKN⟩ := exists_isMaxSubgroupIn hKH
-  rw [h.eq_of_maximal hN (hTK.trans hKN)] at hKN
-  exact hKN
-
-theorem pCoreOf_conjSub (H : Subgroup G) (g : G) :
-    pCoreOf 2 (B6.conjSub g H) = B6.conjSub g (pCoreOf 2 H) :=
-  CFSG.LieType.BorelTits.pCoreOf_map_mulEquiv 2 (MulAut.conj g) H
 
 end CFSG.Quasithin.MS09
 

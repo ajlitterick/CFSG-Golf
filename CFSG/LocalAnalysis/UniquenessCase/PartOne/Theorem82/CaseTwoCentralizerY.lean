@@ -138,60 +138,6 @@ theorem exists_conj_mem_AA {x : G} (hxL : x ∈ c.L) (hx3 : x ^ 3 = 1) :
   refine ⟨h⁻¹, c.L.inv_mem hhL, ?_⟩
   simpa using t.d.mem_AA_of_pow_eq_one hmem hcube
 
-theorem exists_conj_eq_y {x : G} (hxM : x ∈ c.S.M) (hx3 : x ^ 3 = 1) (hxL : x ∉ c.L) :
-    ∃ m ∈ c.S.M, m * x * m⁻¹ = t.y ∨ m * x * m⁻¹ = t.y⁻¹ := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hTp : IsPGroup 3 (Subgroup.zpowers x) :=
-    IsPGroup.of_card_dvd_pow (n := 1) (by
-      rw [Nat.card_zpowers, pow_one]
-      exact orderOf_dvd_iff_pow_eq_one.mpr hx3)
-  obtain ⟨Syl, hTSyl⟩ := (hTp.comap_subtype (K := c.S.M)).exists_le_sylow
-  let S' : Subgroup G := (Syl : Subgroup c.S.M).map c.S.M.subtype
-  have hS'syl : CFSG.ABGLocalTools.IsSylowOf 3 S' c.S.M := ⟨Syl, rfl⟩
-  obtain ⟨h, hhM, hh⟩ := t.hP.exists_mem_conj hS'syl
-  set x' : G := h⁻¹ * x * h with hx'def
-  have hxSyl : (⟨x, hxM⟩ : ↥c.S.M) ∈ (Syl : Subgroup ↥c.S.M) :=
-    hTSyl (by change x ∈ Subgroup.zpowers x; exact Subgroup.mem_zpowers x)
-  have hxS' : x ∈ S' := by
-    change x ∈ (Syl : Subgroup ↥c.S.M).map c.S.M.subtype
-    exact Subgroup.mem_map_of_mem _ hxSyl
-  have hx'P : x' ∈ t.P := (hh x).mp hxS'
-  have hx'3 : x' ^ 3 = 1 := by
-    have hconj : x' ^ 3 = h⁻¹ * x ^ 3 * h := by
-      rw [hx'def]
-      simpa using conj_pow (a := h⁻¹) (b := x) (i := 3)
-    rw [hconj, hx3, mul_one, inv_mul_cancel]
-  have hx'L : x' ∉ c.L := by
-    intro hxL'
-    apply hxL
-    have hx_eq : x = h * x' * h⁻¹ := by
-      rw [hx'def]; group
-    rw [hx_eq]
-    exact (Subgroup.mem_normalizer_iff.mp (c.le_normalizer_L hhM) x').mp hxL'
-  have hx'S : x' ∉ t.d.S := by
-    rw [t.hdS]
-    exact fun hx => hx'L hx.2
-  have hx'base : x' ∈ CFSG.GroupTheory.WreathThree.base (t.d.H 0) t.y ⊔
-      Subgroup.zpowers t.y := by
-    rw [t.base_eq, t.hPy]
-    exact hx'P
-  have hxbase : x' ∉ CFSG.GroupTheory.WreathThree.base (t.d.H 0) t.y := by
-    rw [t.base_eq]
-    exact hx'S
-  obtain ⟨s, hs, hconj⟩ :=
-    CFSG.GroupTheory.WreathThree.exists_conj_eq_of_pow_three t.isWreathThree t.hy3
-      hx'base hxbase hx'3
-  have hsS : s ∈ t.d.S := by rwa [t.base_eq] at hs
-  have hsL : s ∈ c.L := by
-    rw [← t.hdL]
-    exact t.d.hS.le hsS
-  have hsM : s ∈ c.S.M := (c.hyp81.1) hsL
-  refine ⟨s * h⁻¹, c.S.M.mul_mem hsM (c.S.M.inv_mem hhM), ?_⟩
-  have hxeq : (s * h⁻¹) * x * (s * h⁻¹)⁻¹ = s * x' * s⁻¹ := by
-    rw [hx'def]
-    group
-  rw [hxeq]
-  exact hconj
 
 theorem isSylowOf_inf_centralizer_y :
     CFSG.ABGLocalTools.IsSylowOf 3 (t.P ⊓ Subgroup.centralizer ({t.y} : Set G))

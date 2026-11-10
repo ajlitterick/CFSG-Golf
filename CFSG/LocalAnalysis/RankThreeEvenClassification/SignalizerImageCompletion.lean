@@ -11,16 +11,6 @@ namespace CFSG.RankThreeEvenClassification.Helpers
 
 universe u v
 
-theorem signalizerSpectrum_mapped_subset {G : Type u} {H : Type v} [Group G] [Group H]
-    (homomorphism : G →* H) (actor : Subgroup G) (signalizer : G → Subgroup G)
-    (hinjective : Set.InjOn homomorphism (actor : Set G)) :
-    signalizerSpectrum (actor.map homomorphism) (mappedSignalizer homomorphism actor signalizer) ⊆
-      signalizerSpectrum actor signalizer := by
-  rintro prime ⟨hprime, element, hmem, hne, hdiv⟩
-  obtain ⟨preimage, hpreimage, rfl⟩ := hmem
-  refine ⟨hprime, preimage, hpreimage, fun heq => hne (heq ▸ map_one homomorphism), ?_⟩
-  rw [mappedSignalizer_apply_eq homomorphism actor signalizer hinjective preimage hpreimage] at hdiv
-  exact hdiv.trans (Subgroup.card_map_dvd _ _)
 
 theorem signalizerGenerated_map_eq {G : Type u} {H : Type v} [Group G] [Group H]
     (homomorphism : G →* H) (actor : Subgroup G) (signalizer : G → Subgroup G)

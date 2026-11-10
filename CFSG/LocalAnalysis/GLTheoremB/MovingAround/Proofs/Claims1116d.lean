@@ -754,33 +754,13 @@ theorem sporDownRow_Ru_three : SporDownRow .Ru 3 := by
 end RowRuThree
 
 
-structure SporDownResidual' : Prop where
-  B_three : SporDownRow .B 3
-  M_three : SporDownRow .M 3
-  Fi23_five : SporDownRow .Fi23 5
-  Fi24Prime_five : SporDownRow .Fi24Prime 5
-  B_five : SporDownRow .B 5
-  M_five : SporDownRow .M 5
-  B_seven : SporDownRow .B 7
-  M_eleven : SporDownRow .M 11
-  M_thirteen : SporDownRow .M 13
-
 section Residual
 
-
-theorem sporDownResidual_of_residual' (h : SporDownResidual') : SporDownResidual :=
-  ⟨sporDownRow_M24_three, sporDownRow_J2_three, sporDownRow_Ru_three, sporDownRow_Co1_three,
-    h.B_three, h.M_three, h.Fi23_five, h.Fi24Prime_five, h.B_five, h.M_five,
-    sporDownRow_Co1_seven, sporDownRow_Fi24_seven, h.B_seven, h.M_eleven, h.M_thirteen⟩
 
 end Residual
 
 section Assembly
 
-
-theorem inputSporDownChev_of_residual'
-    (h : SporDownResidual') : Claims1116b.InputSporDownChev :=
-  inputSporDownChev_of_residual (sporDownResidual_of_residual' h)
 
 end Assembly
 

@@ -34,9 +34,6 @@ variable {K : Type} [Field K] {E : Type*} [Group E] {π : E →* SpecialLinearGr
 
 @[expose] def Uhat (π : E →* SpecialLinearGroup (Fin 3) K) : Subgroup E := (Usl K).comap π
 
-theorem mem_Yhat {y : E} : y ∈ Yhat π ↔ ∃ b : K, π y = uSL 0 b 0 := Iff.rfl
-
-theorem mem_Uhat {g : E} : g ∈ Uhat π ↔ ∃ a b c : K, π g = uSL a b c := Iff.rfl
 
 theorem commute_uSL_Zsl (a b c β : K) : Commute (uSL a b c) (uSL 0 β 0) := by
   change uSL a b c * uSL 0 β 0 = uSL 0 β 0 * uSL a b c

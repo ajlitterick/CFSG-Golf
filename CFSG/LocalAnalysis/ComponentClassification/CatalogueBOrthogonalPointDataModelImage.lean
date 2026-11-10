@@ -35,22 +35,6 @@ theorem coordinate_odd_familyOuter_thirdDerived
   exact pointFamilyOuter_thirdDerived _ hQ ha.1 ha.2.1
     (orthogonal_geometry_model_normalizer_realization H .POmegaOdd (.inl rfl) n p f h K hK e).1
 
-theorem coordinate_odd_family_similarity
-    (h : StatedClassicalModel H .POmegaOdd n p f) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = p ^ f)
-    (e : H ≃* StatedProj (StatedOmega (StatedQuadOdd n K)))
-    (alpha : projectivePointFamilyAut (coordinateQuadOdd n K)) :
-    ∃ g : similarityPairs (coordinateQuadOdd n K),
-      matrixProjectiveConjugationHom (coordinateQuadOdd n K) g = alpha.val :=
-  (SetLike.ext_iff.mp (coordinate_odd_family_eq_matrixImage h K hK e) alpha.val).mp
-    alpha.property
-
-theorem coordinate_odd_familyOuter_solvable
-    (h : StatedClassicalModel H .POmegaOdd n p f) (K : Type) [Field K] [Finite K]
-    (hK : Nat.card K = p ^ f)
-    (e : H ≃* StatedProj (StatedOmega (StatedQuadOdd n K))) :
-    Group.IsSolvable (familyOuter (projectivePointAction (coordinateQuadOdd n K))) :=
-  ⟨⟨3, coordinate_odd_familyOuter_thirdDerived h K hK e⟩⟩
 
 theorem coordinate_minus_family_eq_matrixImage
     (h : StatedClassicalModel H .POmegaMinus n p f) (hn : 1 ≤ n) (K : Type) [Field K]
@@ -74,22 +58,6 @@ theorem coordinate_minus_familyOuter_thirdDerived
     (orthogonal_geometry_model_normalizer_realization H .POmegaMinus (.inr (.inr rfl)) n p f h
       hn K hK b c hirr e).1
 
-theorem coordinate_minus_family_similarity
-    (h : StatedClassicalModel H .POmegaMinus n p f) (hn : 1 ≤ n) (K : Type) [Field K]
-    [Finite K] (hK : Nat.card K = p ^ f) (b c : K) (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : H ≃* StatedProj (StatedOmega (StatedQuadMinus n K b c)))
-    (alpha : projectivePointFamilyAut (coordinateQuadMinus n K hn b c)) :
-    ∃ g : similarityPairs (coordinateQuadMinus n K hn b c),
-      matrixProjectiveConjugationHom (coordinateQuadMinus n K hn b c) g = alpha.val :=
-  (SetLike.ext_iff.mp (coordinate_minus_family_eq_matrixImage h hn K hK b c hirr e)
-    alpha.val).mp alpha.property
-
-theorem coordinate_minus_familyOuter_solvable
-    (h : StatedClassicalModel H .POmegaMinus n p f) (hn : 1 ≤ n) (K : Type) [Field K]
-    [Finite K] (hK : Nat.card K = p ^ f) (b c : K) (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : H ≃* StatedProj (StatedOmega (StatedQuadMinus n K b c))) :
-    Group.IsSolvable (familyOuter (projectivePointAction (coordinateQuadMinus n K hn b c))) :=
-  ⟨⟨3, coordinate_minus_familyOuter_thirdDerived h hn K hK b c hirr e⟩⟩
 
 end Coordinate
 

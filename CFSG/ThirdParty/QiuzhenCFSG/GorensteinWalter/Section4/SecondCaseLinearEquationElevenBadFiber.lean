@@ -575,27 +575,6 @@ private lemma natCard_le_mul_of_fiber_le
     _ ≤ ∑ b : B, q := Finset.sum_le_sum (by intro b hb; exact hf b)
     _ = Nat.card B * q := by simp [Nat.card_eq_fintype_card]
 
-/-- The source's "In particular, Y centralizes at most q conjugates of P
-in P×E" (L870--873): from the per-`Y` structure of
-`D = C_{PE}(Y)` (`X` a Sylow-`p` subgroup, normal complement of order
-dividing `q`), at most `q` conjugates of `P` lying in `PE` centralize
-`Y`. -/
-private lemma centralized_conjugates_le_q
-    {G : Type u} [Group G] [Finite G]
-    (P : Subgroup G) (q p : ℕ) [Fact p.Prime]
-    (hq : 7 ≤ q) (hPcard : Nat.card P = p)
-    (PE : Subgroup G) (X Y : Subgroup G) (hXcard : Nat.card X = p)
-    (hXleD : X ≤ Subgroup.centralizer (Y : Set G) ⊓ PE)
-    (hXidx : ¬ p ∣ (X.subgroupOf (Subgroup.centralizer (Y : Set G) ⊓ PE)).index)
-    (hDcomp : ∃ Q : Subgroup G, IsNormalIn Q (Subgroup.centralizer (Y : Set G) ⊓ PE) ∧
-        Subgroup.centralizer (Y : Set G) ⊓ PE = Q ⊔
-          ((Subgroup.centralizer (Y : Set G) ⊓ PE) ⊓ Subgroup.normalizer (X : Set G)) ∧
-        Q ⊓ ((Subgroup.centralizer (Y : Set G) ⊓ PE) ⊓ Subgroup.normalizer (X : Set G)) = ⊥ ∧
-        Nat.card Q ∣ q) :
-    Nat.card {X' : Subgroup G // (∃ g : G, X' = P.map (MulAut.conj g).toMonoidHom) ∧
-        X' ≤ Subgroup.centralizer (Y : Set G) ∧ X' ≤ PE} ≤ q := by
-  exact orderP_subgroups_of_centralizer_le_q P q p hq hPcard PE X hXcard (Y : Set G)
-    (Subgroup.centralizer (Y : Set G) ⊓ PE) rfl hXleD hXidx hDcomp
 
 /-- The bad-fibre bound for equation (11) (source L859--883): at most
 `((q-1)/p) · q` conjugates `Y` of `P` lying in the region `R x` but not

@@ -219,9 +219,6 @@ end PSL2
   (QuotientGroup.quotientMulEquivOfEq (Subgroup.bot_subgroupOf ⊤)).trans
     (QuotientGroup.quotientBot.trans Subgroup.topEquiv)
 
-theorem topBotEquiv_mk {A : Type*} [Group A] (m : ↥(⊤ : Subgroup A)) :
-    topBotEquiv A (QuotientGroup.mk m) = (m : A) :=
-  rfl
 
 section Card
 

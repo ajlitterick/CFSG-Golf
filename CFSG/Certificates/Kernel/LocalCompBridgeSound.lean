@@ -75,7 +75,6 @@ theorem siftK_eq {n w kS nb BP : Nat} {PS PSI LR TR TRI : Nat → Nat}
     siftA n (rawLevels n S base) base 0 g = siftK n w (mask w) (n * w) (pidn n w) LR TRI BP nb 0 G :=
   CFSG.KS.Raw.siftK_eq hb hp hl hg hG (range_of_canonK hc)
 
-private theorem e8_eq (P i : Nat) : e8 P i = pg 8 (mask 8) P i := rfl
 
 private theorem notB'_eq' (b : Bool) : notB' b = !b := by cases b <;> rfl
 

@@ -36,19 +36,6 @@ theorem ggDvd_two_of_dvd_pow_sub_add {p m : ℕ} (h1 : p ∣ 2 ^ m - 1) (h2 : p 
   have e : 2 ^ m + 1 - (2 ^ m - 1) = 2 := by omega
   rwa [e] at h
 
-theorem three_dvd_two_pow_add_one_of_three_mul {m : ℕ} (h : 3 ∣ 2 ^ (3 * m) + 1) :
-    3 ∣ 2 ^ m + 1 := by
-  have key : ∀ k : ℕ, (2 ^ k + 1) % 3 = if k % 2 = 0 then 2 else 0 := by
-    intro k
-    induction k with
-    | zero => simp
-    | succ k ih =>
-      rw [pow_succ]
-      split_ifs at ih ⊢ with h1 h2 h2 <;> omega
-  have h3 := key (3 * m)
-  have hm := key m
-  rw [Nat.dvd_iff_mod_eq_zero] at h ⊢
-  split_ifs at h3 hm with h4 h5 h5 <;> omega
 
 theorem GGLabelIso.n_cases {a b : LargeEvenLabel} (h : GGLabelIso a b) :
     a.n = b.n ∨ (a.tag = .twD ∧ a.rank = 2) ∨ a.n = 2 * b.n := by

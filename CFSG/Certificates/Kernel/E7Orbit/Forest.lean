@@ -15,31 +15,6 @@ theorem msk_lt (hN : ∀ i < 3159, nodeOK T NT RT i = true) {i : Nat} (hi : i < 
     msk (recAt T i) < 2 ^ 2187 :=
   (nodeOK_sound (hN i hi)).1
 
-theorem forest_orbit (hN : ∀ i < 3159, nodeOK T NT RT i = true)
-    {H : Subgroup (Perm (Fin 2187))} {σ : Nat → Perm (Fin 2187)} (hσ : ∀ l < 6, σ l ∈ H)
-    (hnet : ∀ l < 6, StagesValid 12 (NT l) ∧
-      ∀ p : Fin 2187, benesPerm 12 (NT l) p = ((σ l)⁻¹ p : Nat)) :
-    ∀ i < 3159, ∃ h ∈ H, maskSet (msk (recAt T i)) =
-      h • maskSet (msk (recAt T (RT (blkF (recAt T i))))) := by
-  suffices key : ∀ d, ∀ i < 3159, depF (recAt T i) = d → ∃ h ∈ H, maskSet (msk (recAt T i)) =
-      h • maskSet (msk (recAt T (RT (blkF (recAt T i))))) from
-    fun i hi => key _ i hi rfl
-  intro d
-  induction d with
-  | zero =>
-    intro i hi hd
-    have e := (nodeOK_sound (hN i hi)).2.2.2.1 hd
-    refine ⟨1, H.one_mem, ?_⟩
-    rw [one_smul, ← e]
-  | succ d ih =>
-    intro i hi hd
-    obtain ⟨hp, hl, hdp, hbp, himg⟩ := (nodeOK_sound (hN i hi)).2.2.2.2 (by omega)
-    obtain ⟨h, hH, e⟩ := ih _ hp (by omega)
-    obtain ⟨hv, hb⟩ := hnet _ hl
-    have hs := (img_sound hv hb (msk_lt hN hp)).1
-    rw [himg] at hs
-    refine ⟨σ (letF (recAt T i)) * h, H.mul_mem (hσ _ hl) hH, ?_⟩
-    rw [hs, e, hbp, mul_smul]
 
 theorem msk_strict (hN : ∀ i < 3159, nodeOK T NT RT i = true) {i : Nat} :
     ∀ {j : Nat}, i < j → j < 3159 → msk (recAt T i) < msk (recAt T j)

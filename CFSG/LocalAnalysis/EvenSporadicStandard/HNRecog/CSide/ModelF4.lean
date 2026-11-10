@@ -59,7 +59,6 @@ instance : Field F4 where
 
 def omega : F4 := ⟨0, 1⟩
 
-theorem omega_sq_add : omega * omega + omega + 1 = 0 := by decide
 
 def frob : F4 →+* F4 where
   toFun x := x * x
@@ -68,7 +67,6 @@ def frob : F4 →+* F4 where
   map_zero' := by decide
   map_add' := by decide
 
-def tr (x : F4) : ZMod 2 := x.b
 
 theorem card_eq : Nat.card F4 = 4 := by
   rw [Nat.card_eq_fintype_card, Fintype.card_congr equivProd]

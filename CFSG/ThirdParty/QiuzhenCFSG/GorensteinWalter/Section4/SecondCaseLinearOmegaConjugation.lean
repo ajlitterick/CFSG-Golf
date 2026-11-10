@@ -25,13 +25,6 @@ private theorem K0_le_K : od.K0 ≤ od.K := by
   rw [od.K0_eq]
   exact inf_le_right
 
-private theorem K0_le_M : od.K0 ≤ w.M := by
-  intro x hx
-  have hxK : x ∈ od.K := K0_le_K c w d od hx
-  have hxI : x ∈ invertedElements (c.U ⊓ w.M) (od.s : G) := by
-    rw [← od.K_inverted]
-    exact hxK
-  exact hxI.1.2
 
 private theorem K0_sup_F_comm : ⁅od.K0, od.F⁆ = ⊥ := by
   apply le_bot_iff.mp

@@ -408,22 +408,6 @@ theorem setReplay_proved {n w s kg c bound nS H nB B R : Nat} {G GI X W SO SOI C
   obtain ⟨-, -, h0, hbd, hz, hrec, -, hgd, hdist⟩ := hI
   exact assemble h0 hbd hz hrec hgd hdist hle hor hcl hc0 hcb hT0 htree hinj hclose
 
-theorem setReplay_key_proved {n w s kg c bound nS H nB B R : Nat} {G GI X W SO SOI C : Nat → Nat}
-    {start : List Nat} {gens : Array (Array Nat)}
-    (hg : gens.size = kg ∧ ∀ k < kg, gens[k]! = unpack n w (G k))
-    (h : SetReplayOK n w s kg c bound nS H nB B R G GI X W SO SOI C start) :
-    translatesOK gens start (co3KeySearch gens start bound).1 (co3KeySearch gens start bound).2.1
-        (co3KeySearch gens start bound).2.2 = true ∧
-      keysSortedOK (co3KeySearch gens start bound).1 = true ∧
-      (co3KeySearch gens start bound).1.size = c := by
-  obtain ⟨hc0, hcb, hpA, hgood, hT0, htree, hinj, hclose⟩ := replay_facts hg h
-  have hs : Good n start := hT0 ▸ hgood 0 hc0
-  rw [KeySearch.search_eq]
-  obtain ⟨hI, hle, hor, hcl⟩ := KeySearch.outer_spec (bound := bound) (by omega) hpA hs
-  generalize Id.run (forIn (List.range' 0 bound) (KeySearch.oinit start)
-    (KeySearch.outerBody gens bound)) = st at hI hle hor hcl ⊢
-  obtain ⟨-, -, h0, hbd, hz, hrec, -, hgd, hdist⟩ := hI
-  exact assemble h0 hbd hz hrec hgd hdist hle hor hcl hc0 hcb hT0 htree hinj hclose
 
 end CFSG.KS.SporSch.SRP
 

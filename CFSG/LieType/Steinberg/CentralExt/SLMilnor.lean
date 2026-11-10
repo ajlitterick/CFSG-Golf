@@ -143,11 +143,5 @@ theorem sl_exists_section_of_four_le [Finite F] (hm : 4 ≤ m) {E : Type*} [Grou
     (fun _ _ _ hij hjl hil s t => by rw [one_mul]; exact XM_chain hcen hπ hm hij hjl hil s t)
     (fun _ _ h => map_XM hπ (by omega) h) (by omega)
 
-theorem sl_hopfMultiplier_mulEquiv_ker_of_four_le [Finite F] (hm : 4 ≤ m) {X : Type} [Group X]
-    (q : SpecialLinearGroup (Fin (m + 1)) F →* X) (hq : Function.Surjective q)
-    (hker : q.ker ≤ Subgroup.center (SpecialLinearGroup (Fin (m + 1)) F)) :
-    Nonempty (CFSG.RankThree.PerfectCover.hopfMultiplier X ≃* q.ker) :=
-  sl_hopfMultiplier_mulEquiv_ker_of_split (by omega)
-    (fun _ _ _ hπ hcen => sl_exists_section_of_four_le hm hπ hcen) q hq hker
 
 end CFSG.LieType.Steinberg.CentralExt.SLClosed

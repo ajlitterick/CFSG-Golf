@@ -139,13 +139,6 @@ theorem card_filter_eq_one_of_sum_eq_zero {s : Finset L} {p : L → ℤ}
   rw [h1, h2, hsum] at hs
   omega
 
-theorem sum_mul_ite_eq {R : Type*} [CommRing R] {B : Finset L} (f : L → R) {c : L}
-    (hc : c ∈ B) : ∑ x ∈ B, f x * (if x = c then 1 else 0) = f c := by
-  simp [hc]
-
-theorem sum_ite_eq_mul {R : Type*} [CommRing R] {B : Finset L} (f : L → R) {c : L}
-    (hc : c ∈ B) : ∑ x ∈ B, (if x = c then 1 else 0) * f x = f c := by
-  simp [hc]
 
 structure ShapeA (B : Finset L) (Θ U : L → ℤ) (c₀ c₁ c₂ c₃ c₄ : L) (δ₀ δ₁ δ₂ δ₃ δ₄ : ℤ) :
     Prop where

@@ -55,15 +55,4 @@ theorem mem_commutator_sylow_of_mem_center {p : ℕ} [Fact p.Prime] (P : Sylow p
     exact Nat.Coprime.coprime_dvd_right hord (Nat.Coprime.pow_right k hpi)
   exact Subgroup.zpowers_le_of_mem hmem (A4.mem_zpowers_pow_of_coprime hcop)
 
-theorem eq_one_of_mem_center_of_isMulCommutative_sylow {p : ℕ} [Fact p.Prime] (P : Sylow p X)
-    (hP : IsMulCommutative ↥(P : Subgroup X)) {a : X} (haZ : a ∈ Subgroup.center X)
-    (haX : a ∈ commutator X) {k : ℕ} (hak : a ^ p ^ k = 1) : a = 1 := by
-  have h := mem_commutator_sylow_of_mem_center P haZ haX hak
-  have hbot : commutator ↥(P : Subgroup X) = ⊥ := by
-    rw [eq_bot_iff, commutator_def, Subgroup.commutator_le]
-    intro x _ y _
-    rw [Subgroup.mem_bot, commutatorElement_def, hP.is_comm.comm x y]
-    group
-  rw [hbot, Subgroup.mem_bot] at h
-  exact congrArg Subtype.val h
 end CFSG.Quasithin

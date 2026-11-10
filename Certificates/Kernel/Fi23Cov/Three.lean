@@ -20,7 +20,6 @@ namespace CFSG.KD.Fi23Cov
 
 open CFSG.KC.Fi23Cov
 
-@[expose] noncomputable def gens : Bool := genOK E
 
 @[expose] noncomputable def rep (i : Nat) : Bool := tOK E Th.T i
 

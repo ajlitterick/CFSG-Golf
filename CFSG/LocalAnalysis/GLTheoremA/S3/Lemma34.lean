@@ -224,32 +224,6 @@ private theorem isElemAbelian_sup_zpowers' {p : ℕ} {E : Subgroup G} (hE : IsEl
     rw [(hcomm e he k).mul_pow, hE.2 e he, one_mul, ← zpow_natCast, ← zpow_mul, mul_comm,
       zpow_mul, zpow_natCast, hzp, one_zpow]
 
-theorem isSC_iff_maximal {H : Type} [Group H] {p : ℕ} (hp : p.Prime) {B : Subgroup H} :
-    IsSC p B ↔ IsElemAbelian p B ∧
-      ∀ E : Subgroup H, IsElemAbelian p E → B ≤ E → E = B := by
-  constructor
-  · intro hSC
-    refine ⟨hSC.1, ?_⟩
-    intro E hE hBE
-    refine le_antisymm (fun e he => ?_) hBE
-    rcases (Nat.dvd_prime hp).1 (orderOf_dvd_of_pow_eq_one (hE.2 e he)) with h1 | hpord
-    · rw [orderOf_eq_one_iff.1 h1]
-      exact B.one_mem
-    · exact hSC.2 e (Subgroup.mem_centralizer_iff.2
-        (fun b hb => isElemAbelian_commute hE (hBE hb) he)) hpord
-  · rintro ⟨hB, hmax⟩
-    refine ⟨hB, ?_⟩
-    intro g hg hord
-    have hgp : g ^ p = 1 := hord ▸ pow_orderOf_eq_one g
-    have hz : ∀ e ∈ B, e * g = g * e :=
-      fun e he => Subgroup.mem_centralizer_iff.1 hg e he
-    have hE : IsElemAbelian p (B ⊔ Subgroup.zpowers g) :=
-      IsElemAbelian.sup_of_commute hB (CFSG.Open.isElemAbelian_zpowers hgp) (by
-        intro a ha b hb
-        obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 hb
-        exact ((show Commute a g from hz a ha).zpow_right k).eq)
-    have hEB := hmax (B ⊔ Subgroup.zpowers g) hE le_sup_left
-    exact hEB ▸ Subgroup.mem_sup_right (Subgroup.mem_zpowers g)
 
 theorem i326 {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {B D : Subgroup G} (hB : GLAIsBmax p B)
     (hDB : D ≤ B) (hD : D ≠ ⊥)
@@ -286,10 +260,6 @@ theorem i326 {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {B D : Subgroup G} (hB : G
   have hEB : B = B ⊔ Subgroup.zpowers g := Subgroup.eq_of_le_of_card_ge hBE hle
   exact hgB (hEB ▸ hgE)
 
-theorem i326_holds {G : Type} [Group G] [Finite G] (p : ℕ) :
-    p.Prime → p ≠ 2 → ∀ B D : Subgroup G, GLAIsBmax p B → D ≤ B → D ≠ ⊥ →
-      Even (Nat.card (GLAPPrimeCoreOf p (Subgroup.centralizer (D : Set G)))) → IsSC p B :=
-  fun hp hp2 _ _ hB hDB hD heven => i326 hp hp2 hB hDB hD heven
 
 theorem iSup_eq_of_transitive {𝒞 : Set (Subgroup G)} {D B : Subgroup G} (hDB : D ≤ B)
     (hB : ∀ L ∈ 𝒞, B ≤ Subgroup.normalizer (L : Set G))

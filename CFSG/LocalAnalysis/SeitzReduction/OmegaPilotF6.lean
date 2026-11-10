@@ -35,16 +35,6 @@ theorem exists_two_ne_three (hn : 5 ≤ n) (i j k : Fin n) :
   exact ⟨g, h, hgh, fun e => hg.1 e.symm, fun e => hh.1 e.symm, fun e => hg.2.1 e.symm,
     fun e => hh.2.1 e.symm, fun e => hg.2.2 e.symm, fun e => hh.2.2 e.symm⟩
 
-omit [Finite K] [CharP K 2] in
-theorem pairTorus_le_stabTwoBar {i j k : Fin n} (hik : i ≠ k) (hjk : j ≠ k) :
-    pairTorus k ≤ stabTwoBar K i j := by
-  rintro _ ⟨t, ht, rfl⟩
-  obtain ⟨c, hc⟩ := mem_subgroupOf.mp ht
-  refine ⟨t, mem_subgroupOf.mpr ?_, rfl⟩
-  rw [← hc]
-  refine ⟨⟨torusLin_eq_self_of ?_ ?_ c, torusLin_eq_self_of ?_ ?_ c⟩,
-    torusLin_eq_self_of ?_ ?_ c, torusLin_eq_self_of ?_ ?_ c⟩ <;>
-    simp [hik, hjk]
 
 omit [Finite K] [CharP K 2] in
 theorem pairTorusOf_le_stabPairsBar {d : ℕ} {Q : QuadraticForm K (Fin d → K)}

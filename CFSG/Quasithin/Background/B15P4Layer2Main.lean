@@ -34,13 +34,5 @@ theorem false_of_A2_ne_bot (hV : ∀ v : V, v ^ 2 = 1) {A K : Subgroup (MulAut V
     have htop := top_mem_irrPlus_of_fixed hK hAG hEA hmin hfix
     exact false_of_top_irr hV hA hK ha₀ hn hcomm htop hB
 
-theorem false_of_centSub_ne_bot (hV : ∀ v : V, v ^ 2 = 1) {A K : Subgroup (MulAut V)}
-    (hA : IsFFStarOffender (Kspan A K ⊔ A) A) (hK : IsComponentOf K (Kspan A K ⊔ A))
-    (hex : ∃ a ∈ A, a ∉ Subgroup.normalizer (K : Set (MulAut V)))
-    (hcomm : commV (Kspan A K) = ⊤)
-    (hmin : ∀ W : Subgroup V, W ≠ ⊤ → (∀ a ∈ A, ∀ w ∈ W, a w ∈ W) →
-      (∀ e ∈ Kspan A K, ∀ w ∈ W, e w ∈ W) → commSub W A ≠ ⊥ → ¬ K ≤ centSub W → False)
-    (hB : A ⊓ centSub (commV A) ≠ ⊥) : False :=
-  false_of_A2_ne_bot hV hA hK hex hcomm hmin (by rwa [A2sub_eq_inf_centSub hA.2.2.1.1])
 
 end CFSG.Quasithin.B15P4

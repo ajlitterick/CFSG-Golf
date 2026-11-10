@@ -993,8 +993,6 @@ open CFSG.SectionRank.Native CFSG.Sporadic.Recognition.CoverRecipe
 
 @[expose] def co3Root : Nat := 2231482
 
-@[noinline, expose] def co3Check : Bool :=
-  local3Check (ops2 22) (fun v => v % 2 ^ 22) co3Local3 co3Root
 
 @[expose] def co3Cover : List (List (Fin 3 × Bool)) :=
   cover₃Words co3Local3.rels (fun i => [(i, true)]) (fun i => co3Local3.ords.getD i 0)

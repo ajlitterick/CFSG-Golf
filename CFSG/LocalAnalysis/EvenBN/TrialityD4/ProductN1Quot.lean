@@ -64,14 +64,6 @@ theorem bar_commutator {A X Y : Subgroup G} (hX : X ≤ normalizer (A : Set G))
       inf_of_le_left hXY]
   rw [h1, Subgroup.map_commutator]
 
-theorem bar_le_bar_iff {A X Y : Subgroup G} (hAY : A ≤ Y) (hX : X ≤ normalizer (A : Set G)) :
-    NormalizerQuotient.bar A X ≤ NormalizerQuotient.bar A Y ↔ X ≤ Y := by
-  constructor
-  · intro h x hx
-    have := h (NormalizerQuotient.proj_mem_bar (x := ⟨x, hX hx⟩) hx)
-    exact (NormalizerQuotient.mem_bar_iff hAY ⟨x, hX hx⟩).1 this
-  · intro h
-    exact NormalizerQuotient.bar_mono h
 
 theorem bar_map_conj {A : Subgroup G} {g : G} (hg : g ∈ normalizer (A : Set G)) (X : Subgroup G) :
     NormalizerQuotient.bar A (X.map (MulEquiv.toMonoidHom (MulAut.conj g⁻¹))) =
@@ -194,10 +186,6 @@ theorem bar_sup_self {A X : Subgroup G} (hX : X ≤ normalizer (A : Set G)) :
     NormalizerQuotient.bar A (X ⊔ A) = NormalizerQuotient.bar A X := by
   rw [bar_sup hX Subgroup.le_normalizer, bar_self, sup_bot_eq]
 
-theorem lift_bar_sup {A X : Subgroup G} (hX : X ≤ normalizer (A : Set G)) :
-    NormalizerQuotient.lift (NormalizerQuotient.bar A X) = X ⊔ A := by
-  rw [← bar_sup_self hX]
-  exact NormalizerQuotient.lift_bar le_sup_right (sup_le hX Subgroup.le_normalizer)
 
 theorem lift_inf {A : Subgroup G} (Y Y' : Subgroup (NormalizerQuotient.Bar A)) :
     NormalizerQuotient.lift (Y ⊓ Y') = NormalizerQuotient.lift Y ⊓ NormalizerQuotient.lift Y' := by
@@ -4565,11 +4553,6 @@ section Statements
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {f : ℕ} {t : G}
 
-theorem G0_Q3_le_Q1 (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) (hp : ProductHyp h d)
-    {K K₁ : Subgroup G} (hL : Labelled d t K K₁) :
-    centerMod (yamadaV₁ d t) (qOne d t K₁) = eOne d t K ⊔ yamadaV₁ d t ∧
-      eOne d t K ≤ qOne d t K₁ ∧ qThree d t K ≤ qOne d t K₁ :=
-  ProductN1QuotAux.G0_aux h d hp hL
 
 theorem G1_decomposition_mod_Y2 (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f))
     (hp : ProductHyp h d) {K K₁ : Subgroup G} (hL : Labelled d t K K₁) :

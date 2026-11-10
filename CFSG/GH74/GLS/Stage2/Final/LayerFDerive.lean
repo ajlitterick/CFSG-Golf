@@ -44,23 +44,6 @@ theorem perfect_le_oPrimeResidual {Q : Type*} [Group Q] [Finite Q] {K : Subgroup
 theorem layer_le_oPrimeResidual (Q : Type*) [Group Q] [Finite Q] : layer Q ≤ oPrimeResidual 2 Q :=
   sSup_le fun _ hK => perfect_le_oPrimeResidual hK.1.1
 
-theorem layer_map_subtype_oPrimeResidual (Q : Type*) [Group Q] [Finite Q] :
-    (layer ↥(oPrimeResidual 2 Q)).map (oPrimeResidual 2 Q).subtype = layer Q := by
-  have hN : (oPrimeResidual 2 Q).Normal := CFSG.GH74.GLS.Stage1.Thm6.Prod.oPrimeResidual_normal 2 Q
-  apply le_antisymm
-  · rw [Subgroup.map_le_iff_le_comap]
-    refine sSup_le fun L hL => ?_
-    rw [← Subgroup.map_le_iff_le_comap]
-    refine CFSG.LocalCores.component_le_layer
-      ⟨CFSG.LocalCores.isQuasisimple_of_mulEquiv
-        (L.equivMapOfInjective (oPrimeResidual 2 Q).subtype (oPrimeResidual 2 Q).subtype_injective) hL.1,
-        hL.2.trans' hN.isSubnormal⟩
-  · refine sSup_le fun K hK => ?_
-    have hKY : K ≤ oPrimeResidual 2 Q := perfect_le_oPrimeResidual hK.1.1
-    calc K = (K.subgroupOf (oPrimeResidual 2 Q)).map (oPrimeResidual 2 Q).subtype :=
-          (Subgroup.map_subgroupOf_eq_of_le hKY).symm
-      _ ≤ _ := Subgroup.map_mono (CFSG.LocalCores.component_le_layer
-          (CFSG.LocalCores.component_overgroup hK hKY))
 
 theorem map_layer_le_pPrimeCore (X : Type*) [Group X] [Finite X] :
     (layer X).map (QuotientGroup.mk' (pPrimeCore 2 X)) ≤ layer (X ⧸ pPrimeCore 2 X) := by
@@ -110,70 +93,6 @@ namespace CFSG.GH74.GLS.Stage2.Final
 
 open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.GLS.Stage2.Local
 
-theorem barOf_layerTimesSylow_eq {G Gs : Type} [Group G] [Finite G] [Group Gs] [Finite Gs]
-    {z : G} {S : Subgroup G} {z' : Gs} {S' : Subgroup Gs}
-    (hS : IsPGroup 2 ↥S) (hSC : S ≤ Cen z) (hSC' : S' ≤ Cen z')
-    (hlift : barOf z ((CFSG.layer ↥(Cen z)).map (Cen z).subtype) = CFSG.layer (CentralizerBar z))
-    (hB' : barOf z' (layerTimesSylow z' S') = oPrimeResidual 2 (CentralizerBar z'))
-    (φ : ↥(oPrimeResidual 2 (CentralizerBar z)) ≃* ↥(oPrimeResidual 2 (CentralizerBar z')))
-    (hφ : ∀ y : ↥(oPrimeResidual 2 (CentralizerBar z)),
-      (y : CentralizerBar z) ∈ barOf z S ↔ (φ y : CentralizerBar z') ∈ barOf z' S') :
-    barOf z (layerTimesSylow z S) = oPrimeResidual 2 (CentralizerBar z) := by
-  have hX : barOf z (layerTimesSylow z S) = layer (CentralizerBar z) ⊔ barOf z S := by
-    rw [LayerFD.barOf_layerTimesSylow hSC, hlift]
-  apply le_antisymm
-  · rw [hX]
-    exact sup_le (LayerFD.layer_le_oPrimeResidual _) (barOf_le_oPrimeResidual hS)
-  · intro y hy
-    let y₀ : ↥(oPrimeResidual 2 (CentralizerBar z)) := ⟨y, hy⟩
-    have hφy : (φ y₀ : CentralizerBar z') ∈ barOf z' (layerTimesSylow z' S') := by
-      rw [hB']
-      exact (φ y₀).2
-    rw [LayerFD.barOf_layerTimesSylow hSC'] at hφy
-    have hφy' : (φ y₀ : CentralizerBar z') ∈ layer (CentralizerBar z') ⊔ barOf z' S' :=
-      sup_le_sup_right (LayerFD.barOf_layer_le z') _ hφy
-    have : (layer (CentralizerBar z')).Normal := by
-      have := CFSG.LocalCores.layer_characteristic (G := CentralizerBar z')
-      infer_instance
-    obtain ⟨a, ha', b, hb, hab⟩ := Subgroup.mem_sup_of_normal_left.1 hφy'
-    have haY : a ∈ oPrimeResidual 2 (CentralizerBar z') := LayerFD.layer_le_oPrimeResidual _ ha'
-    have hbY : b ∈ oPrimeResidual 2 (CentralizerBar z') := by
-      have hb' : b = a⁻¹ * (φ y₀ : CentralizerBar z') := by
-        rw [← hab]
-        group
-      rw [hb']
-      exact Subgroup.mul_mem _ (Subgroup.inv_mem _ haY) (φ y₀).2
-    let a₀ : ↥(oPrimeResidual 2 (CentralizerBar z')) := ⟨a, haY⟩
-    let b₀ : ↥(oPrimeResidual 2 (CentralizerBar z')) := ⟨b, hbY⟩
-    have hy₀eq : y₀ = φ.symm a₀ * φ.symm b₀ := by
-      apply φ.injective
-      rw [map_mul, MulEquiv.apply_symm_apply, MulEquiv.apply_symm_apply]
-      exact Subtype.ext hab.symm
-    have ha₀ : a₀ ∈ layer ↥(oPrimeResidual 2 (CentralizerBar z')) := by
-      have h1 : a ∈ (layer ↥(oPrimeResidual 2 (CentralizerBar z'))).map
-          (oPrimeResidual 2 (CentralizerBar z')).subtype := by
-        rw [LayerFD.layer_map_subtype_oPrimeResidual]
-        exact ha'
-      obtain ⟨t, ht, hta⟩ := h1
-      have : t = a₀ := Subtype.ext hta
-      rw [← this]
-      exact ht
-    have hA : (φ.symm a₀ : CentralizerBar z) ∈ layer (CentralizerBar z) := by
-      have h1 : φ.symm a₀ ∈ (layer ↥(oPrimeResidual 2 (CentralizerBar z'))).map φ.symm.toMonoidHom :=
-        Subgroup.mem_map_of_mem φ.symm.toMonoidHom ha₀
-      rw [ModelLT.layer_map_equiv φ.symm] at h1
-      have h2 : ((φ.symm a₀ : ↥(oPrimeResidual 2 (CentralizerBar z))) : CentralizerBar z) ∈
-          (layer ↥(oPrimeResidual 2 (CentralizerBar z))).map
-            (oPrimeResidual 2 (CentralizerBar z)).subtype :=
-        Subgroup.mem_map_of_mem _ h1
-      rwa [LayerFD.layer_map_subtype_oPrimeResidual] at h2
-    have hB : (φ.symm b₀ : CentralizerBar z) ∈ barOf z S := by
-      rw [hφ (φ.symm b₀), MulEquiv.apply_symm_apply]
-      exact hb
-    have hyeq : y = (φ.symm a₀ : CentralizerBar z) * (φ.symm b₀ : CentralizerBar z) :=
-      congrArg Subtype.val hy₀eq
-    rw [hX, hyeq]
-    exact Subgroup.mul_mem_sup hA hB
 
 theorem layer_sup_barOf_eq_of_barOf_eq {G : Type} [Group G] [Finite G] {z : G} {S : Subgroup G}
     (hS : IsPGroup 2 ↥S) (hSC : S ≤ Cen z)

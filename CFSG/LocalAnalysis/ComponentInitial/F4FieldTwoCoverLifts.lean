@@ -176,8 +176,6 @@ variable (η) in
     rintro a ⟨ha, ha'⟩
     exact ⟨by rw [map_inv, ha, inv_one], by rw [← _root_.mul_inv_rev, ha', inv_one]⟩
 
-theorem mem_kerSq {c : E} : c ∈ kerSq η hC ↔ η c = 1 ∧ c * c = 1 :=
-  Iff.rfl
 
 theorem kerSq_le_center : kerSq η hC ≤ center E := fun _ hc => hC hc.1
 

@@ -135,29 +135,6 @@ theorem ItemO.of_model [Finite X] [Finite Y] (e : X ≃* Y)
     ItemO f :=
   ItemO.of_congr e (hY _ (by rw [orderOf_congr, hf]))
 
-theorem Frame.of_model_of_one {ℓ : ℕ} [Finite X] [Finite Y] (e : X ≃* Y)
-    (hbound : ∀ P : Subgroup (MulAut Y), IsPGroup p P → Nat.card P ∣ p)
-    {φ : MulAut Y} (hφ : orderOf φ = p) (h : Frame p ℓ φ) {f : MulAut X} (hf : orderOf f = p) :
-    Frame p ℓ f :=
-  Frame.of_model e (Frame.forall_of_one hbound hφ h) hf
-
-theorem ItemC.of_model_of_one [Finite Y] (hp : p.Prime) (e : X ≃* Y)
-    (hbound : ∀ P : Subgroup (MulAut Y), IsPGroup p P → Nat.card P ∣ p)
-    {φ : MulAut Y} (hφ : orderOf φ = p) (h : ItemC p φ) {f : MulAut X} (hf : orderOf f = p) :
-    ItemC p f :=
-  ItemC.of_model e (ItemC.forall_of_one hp hbound hφ h) hf
-
-theorem ItemG.of_model_of_one [Finite Y] (hp : p.Prime) (e : X ≃* Y)
-    (hbound : ∀ P : Subgroup (MulAut Y), IsPGroup p P → Nat.card P ∣ p)
-    {φ : MulAut Y} (hφ : orderOf φ = p) (h : ItemG p φ) {f : MulAut X} (hf : orderOf f = p) :
-    ItemG p f :=
-  ItemG.of_model e (ItemG.forall_of_one hp hbound hφ h) hf
-
-theorem ItemO.of_model_of_one [Finite X] [Finite Y] (hp : p.Prime) (e : X ≃* Y)
-    (hbound : ∀ P : Subgroup (MulAut Y), IsPGroup p P → Nat.card P ∣ p)
-    {φ : MulAut Y} (hφ : orderOf φ = p) (h : ItemO φ) {f : MulAut X} (hf : orderOf f = p) :
-    ItemO f :=
-  ItemO.of_model e (ItemO.forall_of_one hp hbound hφ h) hf
 
 end OfModel
 

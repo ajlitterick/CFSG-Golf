@@ -33,8 +33,6 @@ private instance (P R : Mat2) : Decidable (Q8rel P R) := by unfold Q8rel; infer_
 private def Sq (P R : Mat2) : Finset Mat2 :=
   Finset.univ.image (fun ij : Fin 4 × Fin 2 => P ^ (ij.1 : ℕ) * R ^ (ij.2 : ℕ))
 
-set_option maxRecDepth 100000 in
-private theorem q8_sq : ∀ P R : Mat2, Q8rel P R → P ^ 2 = -1 ∧ R ^ 2 = -1 := by decide +kernel
 
 set_option maxRecDepth 100000 in
 private theorem q8_neg : ∀ P R : Mat2, Q8rel P R →

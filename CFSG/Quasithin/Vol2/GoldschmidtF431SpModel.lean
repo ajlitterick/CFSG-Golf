@@ -30,9 +30,6 @@ variable {F : Type} [Field F] [CharP F 2]
 theorem rootA_axisOf (j : Fin 2) : rootA F (axisOf j) = Rrad F j := by
   fin_cases j <;> rfl
 
-theorem rootU_axisOf_zero : rootU F (axisOf 0) = rootU₁ F := rfl
-
-theorem rootU_axisOf_one : rootU F (axisOf 1) = rootU₂ F := rfl
 
 theorem firstCol_of_commute {g : antiSp F} {c' : F}
     (h : g * uElt 0 0 1 0 = uElt 0 0 c' 0 * g) : FirstCol g := by

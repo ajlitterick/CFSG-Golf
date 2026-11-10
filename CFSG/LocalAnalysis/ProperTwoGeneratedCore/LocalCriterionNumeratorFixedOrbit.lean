@@ -101,17 +101,5 @@ theorem original_central_sylow_local_hull_full_fixed_set
       using hfixed
   exact horbit.trans (original_centralizer_base_orbit_eq_local_hull h u hu huz hescape)
 
-theorem original_pair_full_fixed_set
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (b : pointRightCosetSpace H) (hb : b ≠ rightCosetMk H 1)
-    (u t : G) (huH : u ∈ H) (hu : orderOf u = 2)
-    (huz : Commute u z) (hut : Commute u t)
-    (hflip : pointRightCosetMul H (rightCosetMk H 1) t = b) :
-    elementFixedSet H u =
-      numeratorRightOrbit H (localInvolutionPointHull z u) (rightCosetMk H 1) :=
-  original_central_sylow_local_hull_full_fixed_set h S hzS hzcenter u huH hu huz
-    (original_pair_centralizer_escapes H b hb u t hut hflip)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

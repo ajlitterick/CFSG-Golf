@@ -190,45 +190,5 @@ theorem exists_forall_height_smul_single_neg
     rw [height_smul_single_of_orbitIndex_eq t hw ((t.mem_orbit_iff).1 hj)]
     exact hi⟩
 
-theorem fixed_Weyl_length_signs
-    (t : TwistTag) :
-    (∀ w : relWeylTwist t,
-      t.orbitLength w = (coxeterSystem t.foldedTag).length (foldedWeylEquiv t w)) ∧
-    (∀ w ∈ relWeylTwist t, ∀ a, ∀ i ∈ t.orbit a, ∀ j ∈ t.orbit a,
-      (0 < height (w • (Pi.single i 1 : Fin t.tag.rank → ℤ)) ↔
-        0 < height (w • (Pi.single j 1 : Fin t.tag.rank → ℤ)))) ∧
-    (∀ w ∈ relWeylTwist t, ∀ a,
-      (∀ i ∈ t.orbit a, 0 < height (w • (Pi.single i 1 : Fin t.tag.rank → ℤ))) →
-        t.orbitLength (w * t.orbitReflection a) = t.orbitLength w + 1 ∧
-        (coxeterSystem t.tag).length (w * t.orbitReflection a) =
-          (coxeterSystem t.tag).length w + (t.orbit a).card) ∧
-    (∀ w ∈ relWeylTwist t, ∀ a,
-      (∀ i ∈ t.orbit a, height (w • (Pi.single i 1 : Fin t.tag.rank → ℤ)) < 0) →
-        t.orbitLength (w * t.orbitReflection a) + 1 = t.orbitLength w ∧
-        (coxeterSystem t.tag).length (w * t.orbitReflection a) + (t.orbit a).card =
-          (coxeterSystem t.tag).length w) ∧
-    (∀ w ∈ relWeylTwist t, ∀ a,
-      (∀ i ∈ t.orbit a, 0 < height (w⁻¹ • (Pi.single i 1 : Fin t.tag.rank → ℤ))) →
-        t.orbitLength (t.orbitReflection a * w) = t.orbitLength w + 1 ∧
-        (coxeterSystem t.tag).length (t.orbitReflection a * w) =
-          (coxeterSystem t.tag).length w + (t.orbit a).card) ∧
-    (∀ w ∈ relWeylTwist t, ∀ a,
-      (∀ i ∈ t.orbit a, height (w⁻¹ • (Pi.single i 1 : Fin t.tag.rank → ℤ)) < 0) →
-        t.orbitLength (t.orbitReflection a * w) + 1 = t.orbitLength w ∧
-        (coxeterSystem t.tag).length (t.orbitReflection a * w) + (t.orbit a).card =
-          (coxeterSystem t.tag).length w) ∧
-    (∀ w ∈ relWeylTwist t, t.orbitLength w⁻¹ = t.orbitLength w) ∧
-    ∀ w ∈ relWeylTwist t, w ≠ 1 →
-      ∃ a, ∀ i ∈ t.orbit a, height (w • (Pi.single i 1 : Fin t.tag.rank → ℤ)) < 0 :=
-  ⟨orbitLength_eq t,
-    fun w hw a i hi j hj => by
-      rw [height_smul_single_of_orbitIndex_eq t hw (((t.mem_orbit_iff).1 hi).trans
-        ((t.mem_orbit_iff).1 hj).symm)],
-    fun _ hw _ hpos => length_mul_orbitReflection_of_pos t hw hpos,
-    fun _ hw _ hneg => length_mul_orbitReflection_of_neg t hw hneg,
-    fun _ hw _ hpos => length_orbitReflection_mul_of_pos t hw hpos,
-    fun _ hw _ hneg => length_orbitReflection_mul_of_neg t hw hneg,
-    fun _ hw => orbitLength_inv t hw,
-    fun _ hw h1 => exists_forall_height_smul_single_neg t hw h1⟩
 
 end CFSG.LieType.Chevalley

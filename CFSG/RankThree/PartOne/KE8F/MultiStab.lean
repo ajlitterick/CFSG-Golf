@@ -136,12 +136,6 @@ theorem iInf_dualWeylStabilizer_le_of_card
     rw [inner_ofLattice_dualVector, Int.cast_eq_zero] at h0
     exact ⟨α, hα, (hr'ker α hα).1 h0, rfl⟩
 
-theorem iInf_dualWeylStabilizer_le
-    (hord : ¬ p ∣ Nat.card (WeylGroup τ)) {ι : Type*} [Finite ι] (z : ι → Fin τ.rank → ZMod p) :
-    (⨅ i, dualWeylStabilizer (z i)) ≤ Subgroup.closure
-      {s | ∃ α, IsRoot τ α ∧ (∀ i, charVal (z i) α = 0) ∧ s = rootReflection α} :=
-  iInf_dualWeylStabilizer_le_of_card z fun h =>
-    hord (h.trans (Subgroup.card_subgroup_dvd_card _))
 
 end Stab
 

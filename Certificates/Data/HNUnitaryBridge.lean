@@ -38,8 +38,6 @@ namespace HNUnitaryBridge
 
 @[expose] def sigmaB : Array Nat := evalWord wordB
 
-@[expose] def evalAB (L : List Bool) : Array Nat :=
-  L.foldr (fun b acc => composeArr (if b then sigmaB else sigmaA) acc) idPerm
 
 @[expose] def wordsAB : List (List Bool) :=
   [[false],
@@ -53,13 +51,11 @@ namespace HNUnitaryBridge
    [true, true, false, true, true, false, true, true, false, false, true, false, true, false, true,
     true, true, false, false, true, false, true]]
 
-@[expose] def wordsOK : Bool := (List.range 6).all fun k => evalAB wordsAB[k]! == smallPerms[k]!
 
 @[expose] def uCode : Array Nat := #[0, 0, 1, 1, 0, 0, 0, 1, 0]
 
 @[expose] def vCode : Array Nat := #[6, 0, 10, 0, 1, 0, 10, 0, 21]
 
-@[expose] def idMat : Array Nat := #[1, 0, 0, 0, 1, 0, 0, 0, 1]
 
 @[expose] def idCode (k : Nat) : Nat := if k = 0 ∨ k = 4 ∨ k = 8 then 1 else 0
 
@@ -79,52 +75,6 @@ structure Table where
   sa : Nat → Nat
   sb : Nat → Nat
 
-@[expose] def Table.ofArrays (perms mats : Array (Array Nat)) (sa sb : Array Nat) : Table where
-  n := perms.size
-  perm := fun i x => (perms[i]!)[x]!
-  mat := fun i k => (mats[i]!)[k]!
-  sa := fun i => sa[i]!
-  sb := fun i => sb[i]!
-
-@[expose] def normMat (P : Array Nat) : Array Nat :=
-  let ci := finv (firstNZ fun k => P[k]!)
-  P.map fun y => fmul ci y
-
-@[expose] def mmulArr (M X : Array Nat) : Array Nat :=
-  (Array.range 9).map fun k => mprod (fun i => M[i]!) (fun i => X[i]!) k
-
-@[expose] def genTable : Table := Id.run do
-  let mut perms : Array (Array Nat) := #[idPerm]
-  let mut mats : Array (Array Nat) := #[idMat]
-  let mut idx : Std.HashMap (Array Nat) Nat := (Std.HashMap.emptyWithCapacity 200000).insert idPerm 0
-  let mut sa : Array Nat := #[]
-  let mut sb : Array Nat := #[]
-  let mut i : Nat := 0
-  while i < perms.size do
-    let p := perms[i]!
-    let X := mats[i]!
-    let qa := p.map fun x => sigmaA[x]!
-    let mut ja : Nat := 0
-    match idx.get? qa with
-    | some j => ja := j
-    | none =>
-      ja := perms.size
-      idx := idx.insert qa ja
-      perms := perms.push qa
-      mats := mats.push (normMat (mmulArr uCode X))
-    sa := sa.push ja
-    let qb := p.map fun x => sigmaB[x]!
-    let mut jb : Nat := 0
-    match idx.get? qb with
-    | some j => jb := j
-    | none =>
-      jb := perms.size
-      idx := idx.insert qb jb
-      perms := perms.push qb
-      mats := mats.push (normMat (mmulArr vCode X))
-    sb := sb.push jb
-    i := i + 1
-  return Table.ofArrays perms mats sa sb
 
 @[expose] def rowsAll (n : Nat) (p : Nat → Bool) : Bool := (List.range n).all p
 

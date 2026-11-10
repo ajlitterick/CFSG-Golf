@@ -33,11 +33,6 @@ theorem orderFourCentralizer_le (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 
     orderFourCentralizer n S e →* centralizerOddCoreQuotient n S e :=
   (centralizerOddCoreMap n S e).comp (Subgroup.inclusion (orderFourCentralizer_le n S e))
 
-theorem orderFourMap_apply (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (c : orderFourCentralizer n S e) :
-    orderFourMap n S e c =
-      centralizerOddCoreMap n S e (Subgroup.inclusion (orderFourCentralizer_le n S e) c) :=
-  rfl
 
 theorem two_pow_not_dvd_one {n : ℕ} (hn : 1 ≤ n) : ¬ ((2 ^ n : ℕ) : ℤ) ∣ 1 := by
   intro h

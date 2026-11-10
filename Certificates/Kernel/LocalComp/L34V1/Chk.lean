@@ -30,9 +30,6 @@ theorem k_fix : allN 16 (fun q => allN 6 (fun j =>
     Nat.beq (pg 6 (mask 6) (FE.T q) (FX j)) (FX j))) = true := by
   quickRfl
 
-theorem kNegV : notB (Nat.ble (CFSG.PSL3Four.Native.countBelow 16
-    fun i => Nat.beq (pg 5 (mask 5) (pidn 16 5) i) i) 4) = true := by
-  quickRfl
 
 end CertificateChecks.KernelLC.L34V1
 

@@ -117,24 +117,6 @@ noncomputable def isoLinearCharOfOneDim
 
 
 /--
-The value of the constructed linear character equals the character of the
-original one-dimensional representation.
--/
-lemma linearCharOfOneDim_spec
-    (σ : FDRep k G)
-    (h_dim : Module.finrank k σ = 1) (g : G) :
-    (linearCharOfOneDim σ h_dim g : k) = σ.character g := by
-  let i : ofLinearChar (linearCharOfOneDim σ h_dim) ≅ σ :=
-    isoLinearCharOfOneDim (k := k) σ h_dim
-  have hchar_g :
-      (ofLinearChar (linearCharOfOneDim σ h_dim)).character g =
-        σ.character g := by
-    exact congrArg
-      (fun χ : ClassFun k G => χ g)
-      (ClassFun.char_eq_of_iso i)
-  simpa only [char_ofLinearChar] using hchar_g
-
-/--
 A one-dimensional representation is isomorphic to a linear-character
 representation.
 -/

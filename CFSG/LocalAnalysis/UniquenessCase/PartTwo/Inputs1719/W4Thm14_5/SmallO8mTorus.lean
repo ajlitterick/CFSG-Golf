@@ -53,44 +53,6 @@ theorem planeRefl_comp_fieldCoord (t : (ShortField b c)ˣ) (x : ShortField b c) 
 
 variable [Finite K] [CharP K 2]
 
-theorem exists_unique_scalar_norm_one_factor (t : (QuadraticAlgebra K (-c) b)ˣ) :
-    ∃! z : Kˣ,
-      ∃ w : (QuadraticAlgebra K (-c) b)ˣ,
-        QuadraticAlgebra.norm (w : QuadraticAlgebra K (-c) b) = 1 ∧
-        t = Units.map (algebraMap K (QuadraticAlgebra K (-c) b)).toMonoidHom z * w := by
-  have hn : QuadraticAlgebra.norm (t : ShortField b c) ≠ 0 :=
-    (QuadraticAlgebra.norm_eq_zero_iff_eq_zero).not.mpr t.ne_zero
-  obtain ⟨r, hr⟩ := isSquare_of_charTwo' (QuadraticAlgebra.norm (t : ShortField b c))
-  have hr0 : r ≠ 0 := by
-    rintro rfl
-    simp at hr
-    exact hn hr
-  let z : Kˣ := Units.mk0 r hr0
-  let zE := Units.map (algebraMap K (ShortField b c)).toMonoidHom z
-  let w : (ShortField b c)ˣ := zE⁻¹ * t
-  have hNw : QuadraticAlgebra.norm (w : ShortField b c) = 1 := by
-    change QuadraticAlgebra.norm
-      (((zE⁻¹ : (ShortField b c)ˣ) : ShortField b c) * (t : ShortField b c)) = 1
-    rw [Units.val_inv_eq_inv_val]
-    change QuadraticAlgebra.norm
-      ((algebraMap K (ShortField b c) r)⁻¹ * (t : ShortField b c)) = 1
-    rw [map_mul, ← map_inv₀ (algebraMap K (ShortField b c)) r,
-      QuadraticAlgebra.norm_algebraMap, inv_pow]
-    rw [show r ^ 2 = QuadraticAlgebra.norm (t : ShortField b c) from (by simpa [pow_two] using hr.symm)]
-    exact inv_mul_cancel₀ hn
-  refine ⟨z, ⟨w, hNw, ?_⟩, ?_⟩
-  · change t = zE * (zE⁻¹ * t)
-    simp
-  · rintro z' ⟨w', hNw', ht⟩
-    have hz' := congrArg (fun u : (ShortField b c)ˣ =>
-      QuadraticAlgebra.norm (u : ShortField b c)) ht
-    change QuadraticAlgebra.norm (t : ShortField b c) =
-      QuadraticAlgebra.norm (algebraMap K (ShortField b c) (z' : K) *
-        (w' : ShortField b c)) at hz'
-    rw [map_mul, QuadraticAlgebra.norm_algebraMap, hNw', mul_one] at hz'
-    apply Units.ext
-    change (z' : K) = r
-    exact CharTwo.sq_inj.mp (hz'.symm.trans (by simpa [pow_two] using hr))
 
 theorem star_shortField_eq_pow {e : ℕ} (_he : 2 ≤ e) (hK : Nat.card K = 2 ^ e)
     (x : ShortField b c) : star x = x ^ (2 ^ e) := by
@@ -201,13 +163,6 @@ theorem shortTorusHom_mul_inv {i j : Fin 3} (hij : i ≠ j)
       rcases x with k | k | s' <;> simp [planeVec, Pi.single_apply]
     rw [hs, hp]
 
-theorem shortTorusHom_eq_of_norm_one {i j : Fin 3} (hij : i ≠ j)
-    (t : (ShortField b c)ˣ) (hN : QuadraticAlgebra.norm (t : ShortField b c) = 1) :
-    shortTorusHom 4 hirrQ i t = shortTorusHom 4 hirrQ j t := by
-  have hNu : Units.map QuadraticAlgebra.norm t = 1 := Units.ext hN
-  have h := shortTorusHom_mul_inv hirrQ hij t
-  rw [hNu, map_one, mul_inv_eq_one] at h
-  exact h
 
 theorem shortTorusHom_mem_H (i : Fin 3) (t : (ShortField b c)ˣ) :
     shortTorusHom 4 hirrQ i t ∈ (SmallO8mCurtis.curtisDatum 4 (by norm_num) hirrQ).H := by

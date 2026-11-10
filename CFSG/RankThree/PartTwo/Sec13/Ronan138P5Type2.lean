@@ -46,6 +46,5 @@ theorem negSwap01_mem_slPi {π : Bool} (hπ : π = false → UnitaryFieldData p 
 
 end Mat
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec13.Ronan138P5

@@ -23,9 +23,6 @@ variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V] {K : Type*} [Group K]
     conv_lhs => rw [← hg.2]
     exact inv_apply_self' g a⟩
 
-theorem mem_stabIn {X : Subgroup (V ≃ₗ[ZMod 2] V)} {a : V} {g : V ≃ₗ[ZMod 2] V} :
-    g ∈ stabIn X a ↔ g ∈ X ∧ g a = a :=
-  Iff.rfl
 
 theorem card_sup_of_normal_of_inf_eq_bot {N U : Subgroup K} [N.Normal] (hNU : N ⊓ U = ⊥) :
     Nat.card ↥(N ⊔ U) = Nat.card N * Nat.card U := by
@@ -111,14 +108,6 @@ theorem le_of_sup_eq_top (hperf : E₀ ≤ ⁅E₀, stabIn X a⁆) {D N : Subgro
     exact Commute.map ((mem_center_iff.mp (h.ker_le_center (hN hn'))) n) _
   rwa [QuotientGroup.ker_mk'] at hle
 
-theorem ker_eq_bot_of_hom_of_le_commutator (hperf : E₀ ≤ ⁅E₀, stabIn X a⁆) {G : Type*}
-    [Group G] (σ : G →* K) (hinj : Function.Injective (π.comp σ))
-    (hX : X ≤ (π.comp σ).range) : π.ker = ⊥ := by
-  have hX' : X ≤ σ.range.map π := by rwa [MonoidHom.map_range]
-  have := h.normal_of_le_map hX'
-  refine h.ker_eq_bot_of_hom σ hinj hX (p := a) ⟨1, by rw [map_one]; rfl⟩ ?_
-  rw [h.Ept_self]
-  exact h.le_of_sup_eq_top hperf le_rfl (h.ker_sup_eq_top_of_le_map hX')
 
 theorem ker_eq_bot_of_hom_of_odd [Finite K] (h2 : IsPGroup 2 E) (hodd : Odd (Nat.card π.ker))
     {G : Type*} [Group G] (σ : G →* K) (hinj : Function.Injective (π.comp σ))
@@ -277,13 +266,6 @@ variable {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
     ext
     simp
 
-theorem ceConj_apply (L : V ≃ₗ[ZMod 2] W) (g : V ≃ₗ[ZMod 2] V) (w : W) :
-    ceConj L g w = L (g (L.symm w)) :=
-  rfl
-
-theorem ceConj_apply_apply (L : V ≃ₗ[ZMod 2] W) (g : V ≃ₗ[ZMod 2] V) (v : V) :
-    ceConj L g (L v) = L (g v) := by
-  rw [ceConj_apply, LinearEquiv.symm_apply_apply]
 
 theorem ker_comp_mulEquiv (π : K →* (V ≃ₗ[ZMod 2] V))
     (Φ : (V ≃ₗ[ZMod 2] V) ≃* (W ≃ₗ[ZMod 2] W)) : (Φ.toMonoidHom.comp π).ker = π.ker := by

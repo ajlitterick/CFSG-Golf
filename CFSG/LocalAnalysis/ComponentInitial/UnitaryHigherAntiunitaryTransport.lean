@@ -66,9 +66,6 @@ theorem conj_mem_gramSU_of_gram {g : GL (Fin n) K} (hg : g ∈ gramSU h C₀) :
       (H * (g : GL (Fin n) K) * H⁻¹) * (H * (g' : GL (Fin n) K) * H⁻¹)
     group)
 
-theorem coe_gramTransportSU (g : gramSU h C₀) :
-    ((gramTransportSU h hH g : gramSU h C) : GL (Fin n) K) = H * g * H⁻¹ :=
-  rfl
 
 theorem coe_gramTransportSU_symm (g : gramSU h C) :
     (((gramTransportSU h hH).symm g : gramSU h C₀) : GL (Fin n) K) = H⁻¹ * g * H⁻¹⁻¹ :=

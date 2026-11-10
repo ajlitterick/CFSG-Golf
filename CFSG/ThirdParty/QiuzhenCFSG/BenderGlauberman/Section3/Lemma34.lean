@@ -680,87 +680,6 @@ private lemma conjChar_conjChar (c : Hyp11 G) (h12 : Hyp12 c)
   simp [conjChar]
   rw [conjMonoidHom_conjMonoidHom c h12 x]
 
-private lemma orbit_mem_eq_on_U (c : Hyp11 G)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν μ : ClassFunction (↥c.H0)}
-    (hμ : μ ∈ orbit c.H0 c.U ν) {x : ↥c.H0} (hx : (x : G) ∈ c.U) :
-    μ x = ν x := by
-  classical
-  rcases (Finset.mem_image.mp hμ) with ⟨l, hl, rfl⟩
-  have hlU : l.1 x = 1 := l.2 x hx
-  simp [LambdaChar, hlU]
-
-private lemma delta_supported_on_T (c : Hyp11 G)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν μ : ClassFunction (↥c.H0)}
-    (hμL : μ ∈ orbit c.H0 c.U ν) :
-    supportedOn (μ - ν) {x : ↥c.H0 | (x : G) ∈ c.T} := by
-  classical
-  unfold supportedOn
-  intro x hx
-  have hxU : (x : G) ∈ c.U := by
-    by_contra hU
-    exact hx ⟨x.2, hU⟩
-  have hEq := orbit_mem_eq_on_U c hμL hxU
-  change μ x - ν x = 0
-  rw [hEq]
-  ring
-
-private lemma isClassFunction_sub_irr {H : Type u} [Group H] [Fintype H]
-    {μ ν : ClassFunction H} (hμ : IsIrreducibleCharacter μ)
-    (hν : IsIrreducibleCharacter ν) : IsClassFunction (μ - ν) := by
-  intro x g
-  have hμx := isCharacter_isClassFunction (isCharacter_of_isIrreducibleCharacter hμ) x g
-  have hνx := isCharacter_isClassFunction (isCharacter_of_isIrreducibleCharacter hν) x g
-  simp [hμx, hνx]
-
-private lemma inducedFromSub_sub (c : Hyp11 G) (h12 : Hyp12 c)
-    (ν μ : ClassFunction (↥c.H0)) :
-    inducedFromSub (h12.H0_normal_in_H).1 (μ - ν) =
-      inducedFromSub (h12.H0_normal_in_H).1 μ -
-        inducedFromSub (h12.H0_normal_in_H).1 ν := by
-  classical
-  unfold inducedFromSub
-  change inducedClassFunction (c.H0.subgroupOf c.H)
-    (fun x : ↥(c.H0.subgroupOf c.H) =>
-      μ ⟨(x : G), Subgroup.mem_subgroupOf.mp x.2⟩ -
-        ν ⟨(x : G), Subgroup.mem_subgroupOf.mp x.2⟩) =
-    inducedClassFunction (c.H0.subgroupOf c.H)
-      (fun x : ↥(c.H0.subgroupOf c.H) =>
-        μ ⟨(x : G), Subgroup.mem_subgroupOf.mp x.2⟩) -
-    inducedClassFunction (c.H0.subgroupOf c.H)
-      (fun x : ↥(c.H0.subgroupOf c.H) =>
-        ν ⟨(x : G), Subgroup.mem_subgroupOf.mp x.2⟩)
-  rw [← inducedClassFunction_sub]
-  rfl
-
-private lemma theta_pointwise (c : Hyp11 G) (h12 : Hyp12 c)
-    (hH0index : (c.H0.subgroupOf c.H).index = 2)
-    {ν : ClassFunction (↥c.H0)} (hν : IsIrreducibleCharacter ν)
-    (x : ↥c.H0) :
-    inducedFromSub (h12.H0_normal_in_H).1 ν
-        ⟨(x : G), (h12.H0_normal_in_H).1 x.2⟩ =
-      ν x + ν ⟨c.s * (x : G) * c.s⁻¹, s_normalizes_H0 c h12 x⟩ := by
-  exact (remark_1_4 (h12.H0_normal_in_H).1 hH0index (S_le_H c c.s_mem_S)
-    (s_not_mem_H0' c h12) hν).1 (x : G) x.2 (s_normalizes_H0 c h12 x)
-
-private lemma scalarProduct_orbit_disjoint (c : Hyp11 G)
-    [Fintype ↥(LambdaHom c.H0 c.U)] {ν₁ ν₂ a b : ClassFunction (↥c.H0)}
-    (hν₁ : IsIrreducibleCharacter ν₁) (hν₂ : IsIrreducibleCharacter ν₂)
-    (ha : a ∈ orbit c.H0 c.U ν₁) (hb : b ∈ orbit c.H0 c.U ν₂)
-    (hne : ν₁ ∉ orbit c.H0 c.U ν₂) : scalarProduct (↥c.H0) a b = 0 := by
-  classical
-  have hirr₁ : IsIrreducibleCharacter a := orbit_mem_isIrreducible c.H0 c.U hν₁ ha
-  have hirr₂ : IsIrreducibleCharacter b := orbit_mem_isIrreducible c.H0 c.U hν₂ hb
-  rw [scalarProduct_irr_ite hirr₁ hirr₂]
-  by_cases h : a = b
-  · exfalso
-    apply hne
-    have ho1 : orbit c.H0 c.U a = orbit c.H0 c.U ν₁ := orbit_eq_of_mem c ha
-    have ho2 : orbit c.H0 c.U a = orbit c.H0 c.U ν₂ := orbit_eq_of_mem c (by rwa [← h] at hb)
-    have hmem : ν₁ ∈ orbit c.H0 c.U ν₂ := by
-      rw [← ho2, ho1]
-      exact orbit_self_mem' c ν₁
-    exact hmem
-  · simp [h]
 
 private lemma scalarProduct_star_comm' {G : Type u} [Group G] [Fintype G]
     (φ ψ : ClassFunction G) :
@@ -2188,39 +2107,6 @@ private lemma chi_congruent_zero_of_half_isIntegral {G : Type u} [Group G] [Fint
   refine ⟨χ g / 2, hhalf, ?_⟩
   ring
 
-private lemma SPrime_card_two (c : Hyp11 G) (hS8 : Nat.card (↥(c.S : Subgroup G)) = 8) :
-    Nat.card (SPrime c : Subgroup G) = 2 := by
-  have hS0 : Nat.card (c.S0 : Subgroup G) = 4 := by
-    have h2 : 2 * Nat.card (c.S0 : Subgroup G) = Nat.card (c.S : Subgroup G) := by
-      rw [c.S_index_two]
-    rw [hS8] at h2
-    omega
-  have hm : c.m = 2 := by
-    have hpow : 2 ^ c.m = 4 := by
-      rw [← S0_nat_card c]
-      exact hS0
-    have h' : 2 ^ c.m = 2 ^ 2 := by
-      rw [hpow]
-      norm_num
-    exact Nat.pow_right_injective (by norm_num : (2 : ℕ) ≤ 2) h'
-  have hSP : Nat.card (SPrime c : Subgroup G) = 2 ^ (c.m - 1) := by
-    dsimp [SPrime]
-    rw [Nat.card_zpowers]
-    have hz2 : orderOf ((c.t1 * c.t2) ^ 2) = 2 ^ (c.m - 1) := by
-      have hz : orderOf (c.t1 * c.t2) = 2 ^ c.m := by
-        have hc : Nat.card (Subgroup.zpowers (c.t1 * c.t2) : Subgroup G) = 2 ^ c.m := by
-          rw [← c.S0_eq_zpowers]
-          exact S0_nat_card c
-        rw [← Nat.card_zpowers]
-        exact hc
-      have h2dvd : 2 ∣ orderOf (c.t1 * c.t2) := by
-        rw [hz, hm]
-        norm_num
-      rw [orderOf_pow_of_dvd (x := c.t1 * c.t2) (n := 2) (by norm_num : (2 : ℕ) ≠ 0) h2dvd, hz, hm]
-      norm_num
-    exact hz2
-  rw [hSP, hm]
-  norm_num
 
 /-- `4 ∤ |G : C_G(u)|` for `u ∈ C_U(t)` with `t ∈ S \ S0` an involution
 (in the `|S| = 8` false-branch situation). -/

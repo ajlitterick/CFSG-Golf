@@ -30,9 +30,6 @@ theorem pow_val_natCast_of_pow_eq_one (hx : x ^ (2 * m) = 1) (k : ℕ) :
     x ^ ((k : ZMod (2 * m))).val = x ^ k := by
   rw [ZMod.val_natCast, ← pow_eq_pow_mod _ hx]
 
-theorem conj_pow_of_conj_eq_inv (hyx : y * x * y⁻¹ = x⁻¹) (k : ℕ) :
-    y * x ^ k * y⁻¹ = (x ^ k)⁻¹ := by
-  rw [← conj_pow, hyx, inv_pow]
 
 @[expose] def normalFormFun (x y : H) : QuaternionGroup m → H
   | a i => x ^ i.val

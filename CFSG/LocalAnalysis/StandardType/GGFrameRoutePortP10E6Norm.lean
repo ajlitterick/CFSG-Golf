@@ -17,12 +17,6 @@ section WeylDual
 
 variable (w w₁ w₂ : WeylGroup TwistTag.E6.tag)
 
-theorem p10i_weylDual_add (y y' : Fin TwistTag.E6.tag.rank → ZMod 3) :
-    TwE6NormThree.weylDual w (y + y') =
-      TwE6NormThree.weylDual w y + TwE6NormThree.weylDual w y' := by
-  funext j
-  simp only [TwE6NormThree.weylDual, TwE6NormThree.dot3, Pi.add_apply, add_mul,
-    Finset.sum_add_distrib]
 
 theorem p10i_weylDual_smul (c : ZMod 3) (y : Fin TwistTag.E6.tag.rank → ZMod 3) :
     TwE6NormThree.weylDual w (c • y) = c • TwE6NormThree.weylDual w y := by
@@ -61,9 +55,6 @@ theorem p10i_weylDual_mul (y : Fin TwistTag.E6.tag.rank → ZMod 3) :
       TwE6NormThree.weylDual w₁⁻¹ (TwE6NormThree.weylDual w₂⁻¹ y)
     rw [mul_inv_rev, p10i_weylDual_mul]
 
-theorem p10iWeylPerm_apply (y : Fin TwistTag.E6.tag.rank → ZMod 3) :
-    p10iWeylPerm w y = TwE6NormThree.weylDual w⁻¹ y :=
-  rfl
 
 end WeylDual
 
@@ -71,9 +62,6 @@ end WeylDual
     (ZMod 3)ˣ →* Equiv.Perm (Fin TwistTag.E6.tag.rank → ZMod 3) :=
   MulAction.toPermHom (ZMod 3)ˣ (Fin TwistTag.E6.tag.rank → ZMod 3)
 
-theorem p10iScalarPerm_apply (u : (ZMod 3)ˣ) (y : Fin TwistTag.E6.tag.rank → ZMod 3) :
-    p10iScalarPerm u y = (u : ZMod 3) • y :=
-  rfl
 
 theorem p10i_commute (u : (ZMod 3)ˣ) (w : WeylGroup TwistTag.E6.tag) :
     Commute (p10iScalarPerm u) (p10iWeylPerm w) := by

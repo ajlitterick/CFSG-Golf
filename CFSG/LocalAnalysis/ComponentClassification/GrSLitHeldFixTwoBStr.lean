@@ -77,10 +77,6 @@ theorem mem_ker_heRho1 {c : heInnerGrp1} (hc : c ∈ heRho1.ker) : c = 1 ∨ c =
   rw [← heq] at hc
   exact mem_zpowers_of_involution hfT1C_sq' hc
 
-theorem hfT1C_central (c : heInnerGrp1) : c * hfT1C = hfT1C * c := by
-  apply Subtype.ext
-  have := (mem_inf.1 (heInnerGrp1_le c.2)).2
-  exact mem_centralizer_singleton_iff.1 this
 
 theorem card_heRho1_range : Nat.card heRho1.range = 10752 := by
   rw [heRho1_range, heX_enumerates.card, Array.length_toList, he2_X.2.1]

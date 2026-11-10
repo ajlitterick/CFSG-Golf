@@ -45,15 +45,6 @@ theorem comm_entries_long_mat {a b' : Fin (n - 1)} (hab : a ≠ b') (t : Bool)
     by_cases hyr : y = minusPos n b' (!t) <;> by_cases hyp : y = minusPos n a false <;>
     simp [hxp, hxr, hyr, hyp, eq_comm] at h ⊢ <;> first | done | linear_combination h
 
-theorem comm_entries_long {a b' : Fin (n - 1)} (hab : a ≠ b') (t : Bool)
-    (k : spinGroup (quadMinus n K b c))
-    (hk : k * (minusFrame n b c).longRoot hab true t (Multiplicative.ofAdd 1) =
-      (minusFrame n b c).longRoot hab true t (Multiplicative.ofAdd 1) * k) (x y : SM n) :
-    mat n k x (minusPos n a true) * (if y = minusPos n b' (!t) then 1 else 0) -
-        mat n k x (minusPos n b' t) * (if y = minusPos n a false then 1 else 0) =
-      (if x = minusPos n a true then 1 else 0) * mat n k (minusPos n b' (!t)) y -
-        (if x = minusPos n b' t then 1 else 0) * mat n k (minusPos n a false) y :=
-  comm_entries_long_mat hab t (mat n k) (by rw [← mat_mul, ← mat_mul, hk]) x y
 
 theorem hm_restr_mat {a b' : Fin (n - 1)} (hab : a ≠ b') (t : Bool) (G : Matrix (SM n) (SM n) K)
     (hG : G * mat n ((minusFrame n b c).longRoot hab true t (Multiplicative.ofAdd 1)) =

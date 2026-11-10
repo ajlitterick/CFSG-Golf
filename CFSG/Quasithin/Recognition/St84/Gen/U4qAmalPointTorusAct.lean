@@ -152,17 +152,6 @@ theorem U4qTorusData.exists_mul_beta (hT : U4qTorusData L1 L2 S H₀ f) {F : Typ
   rw [← hψu, ← hTβ]
   exact CFSG.Quasithin.H13.L14324.eq_mul_of_comm_left T hTcomm _
 
-theorem U4qTorusData.exists_rowwise_beta (hT : U4qTorusData L1 L2 S H₀ f) {F : Type}
-    [Field F] (c₁ : U4qCoordLeft L1 L2 S f F) {h : G} (hh : h ∈ H₀) :
-    ∃ τ : (Fin 2 → F) →+ (Fin 2 → F), ∀ (u : G) (hu : u ∈ pCoreOf 2 L1)
-      (hhu : h * u * h⁻¹ ∈ pCoreOf 2 L1) (i : Fin 2),
-      Multiplicative.toAdd (c₁.β ⟨h * u * h⁻¹, hhu⟩) i =
-        τ (Multiplicative.toAdd (c₁.β ⟨u, hu⟩) i) := by
-  obtain ⟨M, hM⟩ := hT.exists_mul_beta c₁ hh
-  refine ⟨AddMonoidHom.mk' (fun v => v ᵥ* M) (fun v w => Matrix.add_vecMul M v w),
-    fun u hu hhu i => ?_⟩
-  rw [hM u hu hhu]
-  rfl
 
 end Data
 
@@ -718,12 +707,6 @@ theorem U4qCoordLeft.bijective_torusCompl {F : Type} [Field F] (c₁ : U4qCoordL
     ↥(L1 ⊓ Subgroup.centralizer (H₀ : Set G)) ≃* SL(2, F) :=
   MulEquiv.ofBijective _ (c₁.bijective_torusCompl hH hD hS hT hf)
 
-theorem U4qCoordLeft.torusComplEquiv_apply {F : Type} [Field F]
-    (c₁ : U4qCoordLeft L1 L2 S f F) (hH : Hyp111 L1 L2 S) (hD : U4qLocalData L1 L2 S f)
-    (hS : Nat.card S = 2 ^ (6 * f)) (hT : U4qTorusData L1 L2 S H₀ f) (hf : 2 ≤ f)
-    (k : ↥(L1 ⊓ Subgroup.centralizer (H₀ : Set G))) :
-    c₁.torusComplEquiv hH hD hS hT hf k = c₁.α ⟨k, k.2.1⟩ :=
-  rfl
 
 theorem U4qLocalData.inf_inf_centralizer_torus_le (hH : Hyp111 L1 L2 S)
     (hD : U4qLocalData L1 L2 S f) (hS : Nat.card S = 2 ^ (6 * f))

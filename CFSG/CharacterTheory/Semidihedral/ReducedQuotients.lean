@@ -28,9 +28,6 @@ variable {H : Type*} [Group H]
         (congrArg Subtype.val hx)
   exact QuotientGroup.liftEquiv (N.subgroupOf K) ((QuotientGroup.mk' N).subgroupMap_surjective K) hf
 
-theorem quotientSubgroupEquiv_coe (N K : Subgroup H) [N.Normal] (x : K) :
-    (quotientSubgroupEquiv N K (QuotientGroup.mk' (N.subgroupOf K) x) : H ⧸ N) =
-      QuotientGroup.mk' N (x : H) := rfl
 
 variable [Finite H]
 
@@ -148,10 +145,6 @@ theorem pSubgroup_core_sup_subgroupOf (p : ℕ) [Fact p.Prime]
         (MulEquiv.subgroupCongr
           (Sylow.coe_mapSurjective (QuotientGroup.mk'_surjective (pPrimeCore p H ⊔ Z)) P).symm))
 
-theorem coreCentralQuotientSylowEquiv_coe (p : ℕ) [Fact p.Prime]
-    (P : Sylow p H) (Z : Subgroup H) [Z.Normal] (hZ : Z ≤ (P : Subgroup H)) (x : P) :
-    (coreCentralQuotientSylowEquiv p P Z hZ (QuotientGroup.mk' (Z.subgroupOf P) x) :
-      H ⧸ (pPrimeCore p H ⊔ Z)) = QuotientGroup.mk' (pPrimeCore p H ⊔ Z) (x : H) := rfl
 
 @[expose] noncomputable def coreCentralDihedralEquiv (S : Sylow 2 H)
     (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
@@ -163,31 +156,6 @@ theorem coreCentralQuotientSylowEquiv_coe (p : ℕ) [Fact p.Prime]
     (coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
       (CentralQuotients.ambientZ_le_sylow S t htc ht))
 
-theorem coreCentralDihedralEquiv_rotation (S : Sylow 2 H)
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (coreCentralDihedralEquiv S n hn f t htc ht (DihedralGroup.r 1) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) =
-      QuotientGroup.mk' (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc) (f (r n) : H) := by
-  change ((coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
-    (CentralQuotients.ambientZ_le_sylow S t htc ht))
-    (CentralQuotients.suppliedCenterQuotientEquiv S n hn f t htc ht (DihedralGroup.r 1)) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) = _
-  rw [CentralQuotients.suppliedCenterQuotientEquiv_rotation]
-  exact coreCentralQuotientSylowEquiv_coe 2 S _ _ (f (r n))
-
-theorem coreCentralDihedralEquiv_reflection (S : Sylow 2 H)
-    (n : ℕ) (hn : 4 ≤ n) (f : SemidihedralGroup n ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (coreCentralDihedralEquiv S n hn f t htc ht (DihedralGroup.sr 0) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) =
-      QuotientGroup.mk' (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc) (f (s n) : H) := by
-  change ((coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
-    (CentralQuotients.ambientZ_le_sylow S t htc ht))
-    (CentralQuotients.suppliedCenterQuotientEquiv S n hn f t htc ht (DihedralGroup.sr 0)) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) = _
-  rw [CentralQuotients.suppliedCenterQuotientEquiv_reflection]
-  exact coreCentralQuotientSylowEquiv_coe 2 S _ _ (f (s n))
 
 theorem nativeQuaternion_half_order (q : ℕ) [NeZero q] :
     orderOf (QuaternionGroup.a (q : ZMod (2 * q))) = 2 := by
@@ -259,27 +227,6 @@ theorem map_nativeQuaternionZ_to_sylowZ (S : Sylow 2 H)
       (CentralQuotients.sylowZ S t htc) f
         (map_nativeQuaternionZ_to_sylowZ S q hq f t htc ht))
 
-omit [Finite H] in
-theorem suppliedQuaternionCenterQuotientEquiv_rotation (S : Sylow 2 H)
-    (q : ℕ) (hq : 2 ≤ q) (f : QuaternionGroup q ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    suppliedQuaternionCenterQuotientEquiv S q hq f t htc ht (DihedralGroup.r 1) =
-      QuotientGroup.mk' (CentralQuotients.sylowZ S t htc) (f (QuaternionGroup.a 1)) := by
-  let : NeZero q := ⟨by omega⟩
-  rw [suppliedQuaternionCenterQuotientEquiv, MulEquiv.trans_apply,
-    CentralQuotients.nativeQuaternionQuotientEquiv_rotation]
-  rfl
-
-omit [Finite H] in
-theorem suppliedQuaternionCenterQuotientEquiv_reflection (S : Sylow 2 H)
-    (q : ℕ) (hq : 2 ≤ q) (f : QuaternionGroup q ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    suppliedQuaternionCenterQuotientEquiv S q hq f t htc ht (DihedralGroup.sr 0) =
-      QuotientGroup.mk' (CentralQuotients.sylowZ S t htc) (f (QuaternionGroup.xa 0)) := by
-  let : NeZero q := ⟨by omega⟩
-  rw [suppliedQuaternionCenterQuotientEquiv, MulEquiv.trans_apply,
-    CentralQuotients.nativeQuaternionQuotientEquiv_generator]
-  rfl
 
 @[expose] noncomputable def coreCentralQuaternionDihedralEquiv (S : Sylow 2 H)
     (q : ℕ) (hq : 2 ≤ q) (f : QuaternionGroup q ≃* S) (t : H)
@@ -291,33 +238,6 @@ theorem suppliedQuaternionCenterQuotientEquiv_reflection (S : Sylow 2 H)
     (coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
       (CentralQuotients.ambientZ_le_sylow S t htc ht))
 
-theorem coreCentralQuaternionDihedralEquiv_rotation (S : Sylow 2 H)
-    (q : ℕ) (hq : 2 ≤ q) (f : QuaternionGroup q ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (coreCentralQuaternionDihedralEquiv S q hq f t htc ht (DihedralGroup.r 1) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) =
-      QuotientGroup.mk' (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)
-        (f (QuaternionGroup.a 1) : H) := by
-  change ((coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
-    (CentralQuotients.ambientZ_le_sylow S t htc ht))
-    (suppliedQuaternionCenterQuotientEquiv S q hq f t htc ht (DihedralGroup.r 1)) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) = _
-  rw [suppliedQuaternionCenterQuotientEquiv_rotation]
-  exact coreCentralQuotientSylowEquiv_coe 2 S _ _ (f (QuaternionGroup.a 1))
-
-theorem coreCentralQuaternionDihedralEquiv_reflection (S : Sylow 2 H)
-    (q : ℕ) (hq : 2 ≤ q) (f : QuaternionGroup q ≃* S) (t : H)
-    (htc : t ∈ Subgroup.center H) (ht : orderOf t = 2) :
-    (coreCentralQuaternionDihedralEquiv S q hq f t htc ht (DihedralGroup.sr 0) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) =
-      QuotientGroup.mk' (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)
-        (f (QuaternionGroup.xa 0) : H) := by
-  change ((coreCentralQuotientSylowEquiv 2 S (CentralQuotients.ambientZ t htc)
-    (CentralQuotients.ambientZ_le_sylow S t htc ht))
-    (suppliedQuaternionCenterQuotientEquiv S q hq f t htc ht (DihedralGroup.sr 0)) :
-      H ⧸ (pPrimeCore 2 H ⊔ CentralQuotients.ambientZ t htc)) = _
-  rw [suppliedQuaternionCenterQuotientEquiv_reflection]
-  exact coreCentralQuotientSylowEquiv_coe 2 S _ _ (f (QuaternionGroup.xa 0))
 
 variable {G : Type*} [Group G] [Finite G]
 
@@ -358,28 +278,6 @@ theorem centralizerFullKernel_le_residual (n : ℕ) (hn : 4 ≤ n)
     (centralizerCoordinates n hn S f) (centralInvolution n S f)
     (centralInvolution_mem_center n S f) (centralInvolution_order n hn S f)
 
-theorem reducedCentralizerDihedralEquiv_rotation (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    (reducedCentralizerDihedralEquiv n hn S f (DihedralGroup.r 1) :
-      involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-      QuotientGroup.mk' (centralizerFullKernel n S f)
-        (centralizerCoordinates n hn S f (r n) : involutionCentralizer n S f) :=
-  coreCentralDihedralEquiv_rotation _ n hn _ _ _ _
-
-theorem reducedCentralizerDihedralEquiv_reflection (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    (reducedCentralizerDihedralEquiv n hn S f (DihedralGroup.sr 0) :
-      involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-      QuotientGroup.mk' (centralizerFullKernel n S f)
-        (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f) :=
-  coreCentralDihedralEquiv_reflection _ n hn _ _ _ _
-
-theorem reducedCentralizerSylow_card (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    Nat.card (reducedCentralizerSylow n hn S f) = 2 ^ (n - 1) := by
-  rw [← Nat.card_congr (reducedCentralizerDihedralEquiv n hn S f).toEquiv,
-    DihedralGroup.nat_card]
-  exact (modulus_eq_two_mul_half (by omega)).symm
 
 @[expose] def reducedResidual (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) :
@@ -428,22 +326,6 @@ theorem centralizerFullKernel_subgroupOf_residual (n : ℕ) (hn : 4 ≤ n)
     (centralizerCore_le_residual n S f) hz, hcore,
     centralizerZ_subgroupOf_residual n hn S f hG]
 
-theorem reducedResidual_oddCore_eq_bot (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) : pPrimeCore 2 (reducedResidual n S f) = ⊥ := by
-  let K := oddResidual n S f
-  let z := residualInvolution n hn S f hG
-  have hz : z ∈ Subgroup.center K := residualInvolution_mem_center n hn S f hG
-  let : (Subgroup.zpowers z).Normal := Subgroup.normal_of_le_center (Subgroup.zpowers_le.mpr hz)
-  let : (pPrimeCore 2 K ⊔ Subgroup.zpowers z).Normal := Subgroup.sup_normal _ _
-  let e := (QuotientGroup.quotientMulEquivOfEq
-    (centralizerFullKernel_subgroupOf_residual n hn S f hG).symm).trans
-      (quotientSubgroupEquiv (centralizerFullKernel n S f) K)
-  have h := pPrimeCore_map_iso 2 e
-  have hcore : pPrimeCore 2 (K ⧸ (pPrimeCore 2 K ⊔ Subgroup.zpowers z)) = ⊥ :=
-    oddCore_and_central_involution_quotient_core z hz (residualInvolution_order n hn S f hG)
-  rw [hcore, Subgroup.map_bot] at h
-  exact h.symm
 
 @[expose] noncomputable def reducedResidualQuotientEquiv (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) :
@@ -451,13 +333,6 @@ theorem reducedResidual_oddCore_eq_bot (n : ℕ) (hn : 4 ≤ n)
       reducedResidual n S f :=
   quotientSubgroupEquiv _ _
 
-omit [Finite G] in
-theorem reducedResidualQuotientEquiv_coe (n : ℕ) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) (x : oddResidual n S f) :
-    (reducedResidualQuotientEquiv n S f
-      (QuotientGroup.mk' ((centralizerFullKernel n S f).subgroupOf (oddResidual n S f)) x) :
-      involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-    QuotientGroup.mk' (centralizerFullKernel n S f) (x : involutionCentralizer n S f) := rfl
 
 abbrev residualFullKernel (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -487,22 +362,6 @@ theorem residualFullKernel_eq_subgroupOf (n : ℕ) (hn : 4 ≤ n)
     (residualFullKernel_eq_subgroupOf n hn S f hG)).trans
       (reducedResidualQuotientEquiv n S f)
 
-theorem residualCentralQuotientEquiv_coe (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) (x : oddResidual n S f) :
-    (residualCentralQuotientEquiv n hn S f hG
-      (QuotientGroup.mk' (residualFullKernel n hn S f hG) x) :
-      involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-      QuotientGroup.mk' (centralizerFullKernel n S f) (x : involutionCentralizer n S f) := by
-  change ((reducedResidualQuotientEquiv n S f)
-    ((QuotientGroup.quotientMulEquivOfEq
-      (M := residualFullKernel n hn S f hG)
-      (N := (centralizerFullKernel n S f).subgroupOf (oddResidual n S f))
-      (residualFullKernel_eq_subgroupOf n hn S f hG))
-        (QuotientGroup.mk x)) :
-    involutionCentralizer n S f ⧸ centralizerFullKernel n S f) = _
-  rw [QuotientGroup.quotientMulEquivOfEq_mk]
-  exact reducedResidualQuotientEquiv_coe n S f x
 
 @[expose] noncomputable def sylowEquivMap {p : ℕ} [Fact p.Prime]
     {E : Type*} [Group E] [Finite E] {E' : Type*} [Group E']
@@ -511,10 +370,6 @@ theorem residualCentralQuotientEquiv_coe (n : ℕ) (hn : 4 ≤ n)
   (e.subgroupMap (P : Subgroup E)).trans
     (MulEquiv.subgroupCongr (Sylow.coe_mapSurjective (f := e.toMonoidHom) e.surjective P).symm)
 
-theorem sylowEquivMap_coe {p : ℕ} [Fact p.Prime]
-    {E : Type*} [Group E] [Finite E] {E' : Type*} [Group E']
-    (P : Sylow p E) (e : E ≃* E') (x : P) :
-    (sylowEquivMap P e x : E') = e x := rfl
 
 @[expose] noncomputable def reducedResidualSylow (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -538,62 +393,6 @@ theorem residualQuaternionParameter_ge_two (n : ℕ) (hn : 4 ≤ n) : 2 ≤ 2 ^ 
     (residualInvolution_mem_center n hn S f hG) (residualInvolution_order n hn S f hG)).trans
       (sylowEquivMap _ (residualCentralQuotientEquiv n hn S f hG))
 
-theorem reducedResidualDihedralEquiv_rotation (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    ((reducedResidualDihedralEquiv n hn S f hG (DihedralGroup.r 1) :
-      reducedResidual n S f) : involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-      QuotientGroup.mk' (centralizerFullKernel n S f)
-        ((centralizerCoordinates n hn S f (r n) : involutionCentralizer n S f) ^ 2) := by
-  change (residualCentralQuotientEquiv n hn S f hG
-    (coreCentralQuaternionDihedralEquiv (residualSylow n hn S f hG)
-      (2 ^ (n - 3)) (residualQuaternionParameter_ge_two n hn)
-      (residualQuaternionEquiv n hn S f hG) (residualInvolution n hn S f hG)
-      (residualInvolution_mem_center n hn S f hG) (residualInvolution_order n hn S f hG)
-      (DihedralGroup.r 1) : oddResidual n S f ⧸ residualFullKernel n hn S f hG) :
-    involutionCentralizer n S f ⧸ centralizerFullKernel n S f) = _
-  rw [coreCentralQuaternionDihedralEquiv_rotation, residualCentralQuotientEquiv_coe,
-    residualQuaternionEquiv_coe, centralizerQuaternionEquiv_rotation]
-
-theorem reducedResidualDihedralEquiv_reflection (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    ((reducedResidualDihedralEquiv n hn S f hG (DihedralGroup.sr 0) :
-      reducedResidual n S f) : involutionCentralizer n S f ⧸ centralizerFullKernel n S f) =
-      QuotientGroup.mk' (centralizerFullKernel n S f)
-        ((centralizerCoordinates n hn S f (r n) : involutionCentralizer n S f) *
-          (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f)) := by
-  change (residualCentralQuotientEquiv n hn S f hG
-    (coreCentralQuaternionDihedralEquiv (residualSylow n hn S f hG)
-      (2 ^ (n - 3)) (residualQuaternionParameter_ge_two n hn)
-      (residualQuaternionEquiv n hn S f hG) (residualInvolution n hn S f hG)
-      (residualInvolution_mem_center n hn S f hG) (residualInvolution_order n hn S f hG)
-      (DihedralGroup.sr 0) : oddResidual n S f ⧸ residualFullKernel n hn S f hG) :
-    involutionCentralizer n S f ⧸ centralizerFullKernel n S f) = _
-  rw [coreCentralQuaternionDihedralEquiv_reflection, residualCentralQuotientEquiv_coe,
-    residualQuaternionEquiv_coe, centralizerQuaternionEquiv_generator]
-
-theorem reducedResidualSylow_card (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    Nat.card (reducedResidualSylow n hn S f hG) = 2 ^ (n - 2) := by
-  rw [← Nat.card_congr (reducedResidualDihedralEquiv n hn S f hG).toEquiv,
-    DihedralGroup.nat_card, show n - 2 = (n - 3) + 1 by omega, pow_succ]
-  omega
-
-theorem every_reducedCentralizerSylow_dihedral (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (P : Sylow 2 (involutionCentralizer n S f ⧸ centralizerFullKernel n S f)) :
-    Nonempty (P ≃* DihedralGroup (2 ^ (n - 2))) :=
-  ⟨(P.equiv (reducedCentralizerSylow n hn S f)).trans
-    (reducedCentralizerDihedralEquiv n hn S f).symm⟩
-
-theorem every_reducedResidualSylow_dihedral (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) (P : Sylow 2 (reducedResidual n S f)) :
-    Nonempty (P ≃* DihedralGroup (2 ^ (n - 3))) :=
-  ⟨(P.equiv (reducedResidualSylow n hn S f hG)).trans
-    (reducedResidualDihedralEquiv n hn S f hG).symm⟩
 
 omit [Finite G] in
 theorem reducedResidual_hom_eq_one (n : ℕ) (S : Sylow 2 G)
@@ -616,67 +415,5 @@ theorem every_residualCoreQuotientSylow_quaternion (n : ℕ) (hn : 4 ≤ n)
     (QuotientGroup.mk'_surjective (pPrimeCore 2 (oddResidual n S f))))).trans
       (residualCoreQuotientQuaternionEquiv n hn S f hG).symm⟩
 
-@[expose] def OddCoreFreeQuotientData (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) : Prop :=
-  let C := involutionCentralizer n S f
-  let K := oddResidual n S f
-  let N := pPrimeCore 2 C
-  let Z := centralizerZ n S f
-  let Γ := C ⧸ centralizerFullKernel n S f
-  let J := reducedResidual n S f
-  K = Subgroup.closure {x : C | Odd (orderOf x)} ∧
-  K.Characteristic ∧ N ≤ K ∧ N.subgroupOf K = pPrimeCore 2 K ∧
-  Disjoint N Z ∧ centralizerFullKernel n S f = N ⊔ Z ∧
-  (∀ x : K ⧸ pPrimeCore 2 K,
-    orderOf x = 2 ↔ x = QuotientGroup.mk' (pPrimeCore 2 K) (residualInvolution n hn S f hG)) ∧
-  (∀ P : Sylow 2 (K ⧸ pPrimeCore 2 K),
-    Nonempty (P ≃* QuaternionGroup (2 ^ (n - 3)))) ∧
-  Nonempty (K ⧸ (centralizerFullKernel n S f).subgroupOf K ≃* J) ∧
-  J.Normal ∧ pPrimeCore 2 Γ = ⊥ ∧ pPrimeCore 2 J = ⊥ ∧ J.index = 2 ∧
-  (∀ (A : Type*) [Group A] [Finite A], IsPGroup 2 A → ∀ φ : J →* A, φ = 1) ∧
-  (∀ P : Sylow 2 Γ,
-    Nonempty (P ≃* DihedralGroup (2 ^ (n - 2))) ∧ Nat.card P = 2 ^ (n - 1)) ∧
-  (∀ P : Sylow 2 J,
-    Nonempty (P ≃* DihedralGroup (2 ^ (n - 3))) ∧ Nat.card P = 2 ^ (n - 2))
-
-theorem centered_oddCore_free_dihedral_quotients (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) : OddCoreFreeQuotientData n hn S f hG := by
-  refine ⟨oddResidual_eq_odd_order_closure n S f, oddResidual_characteristic n S f,
-    centralizerCore_le_residual n S f, (primeResidual_core_eq_subgroupOf 2).symm,
-    centralizerCore_disjoint_involution n hn S f, rfl,
-    residualCoreQuotient_involution_iff n hn S f hG,
-    every_residualCoreQuotientSylow_quaternion n hn S f hG,
-    ⟨reducedResidualQuotientEquiv n S f⟩, inferInstance,
-    reducedCentralizer_oddCore_eq_bot n hn S f, reducedResidual_oddCore_eq_bot n hn S f hG,
-    reducedResidual_index n hn S f hG, ?_, ?_, ?_⟩
-  · intro A _ _ hA φ
-    exact reducedResidual_hom_eq_one n S f hA φ
-  · intro P
-    exact ⟨every_reducedCentralizerSylow_dihedral n hn S f P,
-      (Nat.card_congr (P.equiv (reducedCentralizerSylow n hn S f)).toEquiv).trans
-        (reducedCentralizerSylow_card n hn S f)⟩
-  · intro P
-    exact ⟨every_reducedResidualSylow_dihedral n hn S f hG P,
-      (Nat.card_congr (P.equiv (reducedResidualSylow n hn S f hG)).toEquiv).trans
-        (reducedResidualSylow_card n hn S f hG)⟩
-
-theorem involution_centralizer_oddCore_free_dihedral_quotients (n : ℕ) (hn : 4 ≤ n)
-    (S₀ : Sylow 2 G) (f₀ : SemidihedralGroup n ≃* S₀)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    ∀ t : G, orderOf t = 2 →
-      (∃ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S), centeredInvolution n S f = t) ∧
-      (∀ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S), centeredInvolution n S f = t →
-        involutionCentralizer n S f = Subgroup.centralizer {t} ∧
-        (centralInvolution n S f : G) = t ∧ OddCoreFreeQuotientData n hn S f hG) := by
-  intro t ht
-  obtain ⟨S, f, hz, _⟩ :=
-    (InvolutionFusion.involution_centered_sylow_existence n hn S₀ f₀ hG t ht).2
-  refine ⟨⟨S, f, hz⟩, ?_⟩
-  intro S f hz
-  refine ⟨?_, hz, centered_oddCore_free_dihedral_quotients n hn S f hG⟩
-  change Subgroup.centralizer {centeredInvolution n S f} = Subgroup.centralizer {t}
-  rw [hz]
 
 end CFSG.Semidihedral.ReducedQuotients

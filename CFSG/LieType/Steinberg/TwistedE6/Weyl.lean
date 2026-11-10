@@ -22,8 +22,6 @@ theorem twReflectHom_one (v : Fin (Tag.rank .E6) → ℤ) :
 theorem twReflectHom_two (v : Fin (Tag.rank .E6) → ℤ) :
     twReflectHom (nf 2) v = reflect .E6 (nd 2) (reflect .E6 (nd 4) v) := rfl
 
-theorem twReflectHom_three (v : Fin (Tag.rank .E6) → ℤ) :
-    twReflectHom (nf 3) v = reflect .E6 (nd 0) (reflect .E6 (nd 5) v) := rfl
 
 theorem isRoot_twReflect (i : Fin (Tag.rank .F4)) {v : Fin (Tag.rank .E6) → ℤ}
     (hv : IsRoot .E6 v) : IsRoot .E6 (twReflectHom i v) := by

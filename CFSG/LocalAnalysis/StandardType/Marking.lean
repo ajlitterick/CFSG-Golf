@@ -312,31 +312,9 @@ theorem largeEvenMarking_markedModel_centerQuot {L : Type} [Group L] {P : LargeE
   obtain ⟨lab, hlab, R, _, I, F, θ, -, -, -, hm⟩ := largeEvenMarking_exists_markedModel h
   exact ⟨lab, hlab, MarkedModel.of_mulEquiv θ.symm hm⟩
 
-theorem largeEvenMarking_catalog_centerQuot {L : Type} [Group L] {P : LargeEvenMarkProp L}
-    (h : LargeEvenMarking L P) : Catalog (L ⧸ Subgroup.center L) := by
-  obtain ⟨lab, -, hm⟩ := largeEvenMarking_markedModel_centerQuot h
-  exact MarkedModel.catalog hm
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem largeEvenStandardType_marking_markedModel {p : ℕ} {B : Subgroup G} {x : G}
-    {L : Subgroup G} (h : LargeEvenStandardType p B x L) :
-    LargeEvenMarking L fun lab R _ I _ θ =>
-      (LargeEvenSplit p lab ∧ B ≤ Subgroup.normalizer (L : Set G) ∧
-        ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ) ∧
-      MarkedModel lab R :=
-  largeEvenMarking_markedModel h.1
-
-theorem largeEvenStandardType_neighbor_markedModel {p : ℕ} {B : Subgroup G} {x : G}
-    {L : Subgroup G} (h : LargeEvenStandardType p B x L) {y : G} {J : Subgroup G}
-    (hJ : LargeEvenIsNeighborOf p B x L y J) :
-    B ≤ Subgroup.normalizer (J : Set G) ∧
-      LargeEvenMarking J fun lab R _ I F θ =>
-        (LargeEvenHalfSplit p lab (Subgroup.center J = ⊥) ∨
-          LargeEvenPrimeField p lab I F
-            (LargeEvenInduces θ fun j j' => (j' : G) = x⁻¹ * j * x)) ∧
-        MarkedModel lab R :=
-  ⟨(h.2.2.1 y J hJ).1, largeEvenMarking_markedModel (h.2.2.1 y J hJ).2⟩
 
 end Main
 
@@ -348,11 +326,6 @@ abbrev largeEvenMarking_markedModel := @CFSG.StandardType.largeEvenMarking_marke
 abbrev largeEvenMarking_exists_markedModel := @CFSG.StandardType.largeEvenMarking_exists_markedModel
 abbrev largeEvenMarking_markedModel_centerQuot :=
   @CFSG.StandardType.largeEvenMarking_markedModel_centerQuot
-abbrev largeEvenMarking_catalog_centerQuot := @CFSG.StandardType.largeEvenMarking_catalog_centerQuot
-abbrev largeEvenStandardType_marking_markedModel :=
-  @CFSG.StandardType.largeEvenStandardType_marking_markedModel
-abbrev largeEvenStandardType_neighbor_markedModel :=
-  @CFSG.StandardType.largeEvenStandardType_neighbor_markedModel
 end Legacy
 
 namespace Canonical
@@ -553,31 +526,7 @@ theorem largeEvenMarking_markedModel_centerQuot {L : Type} [Group L] {P : LargeE
   obtain ⟨lab, hlab, R, _, I, F, θ, -, -, -, hm⟩ := largeEvenMarking_exists_markedModel h
   exact ⟨lab, hlab, MarkedModel.of_mulEquiv θ.symm hm⟩
 
-theorem largeEvenMarking_catalog_centerQuot {L : Type} [Group L] {P : LargeEvenMarkProp L}
-    (h : CFSG.Assembly.LargeEvenMarking L P) : Catalog (L ⧸ Subgroup.center L) := by
-  obtain ⟨lab, -, hm⟩ := largeEvenMarking_markedModel_centerQuot h
-  exact MarkedModel.catalog hm
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem largeEvenStandardType_marking_markedModel {p : ℕ} {B : Subgroup G} {x : G}
-    {L : Subgroup G} (h : CFSG.Assembly.LargeEvenStandardType p B x L) :
-    CFSG.Assembly.LargeEvenMarking L fun lab R _ I _ θ =>
-      (LargeEvenSplit p lab ∧ B ≤ Subgroup.normalizer (L : Set G) ∧
-        ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ) ∧
-      MarkedModel lab R :=
-  largeEvenMarking_markedModel h.1
-
-theorem largeEvenStandardType_neighbor_markedModel {p : ℕ} {B : Subgroup G} {x : G}
-    {L : Subgroup G} (h : CFSG.Assembly.LargeEvenStandardType p B x L) {y : G} {J : Subgroup G}
-    (hJ : LargeEvenIsNeighborOf p B x L y J) :
-    B ≤ Subgroup.normalizer (J : Set G) ∧
-      CFSG.Assembly.LargeEvenMarking J fun lab R _ I F θ =>
-        (LargeEvenHalfSplit p lab (Subgroup.center J = ⊥) ∨
-          LargeEvenPrimeField p lab I F
-            (LargeEvenInduces θ fun j j' => (j' : G) = x⁻¹ * j * x)) ∧
-        MarkedModel lab R :=
-  ⟨(h.2.2.1 y J hJ).1, largeEvenMarking_markedModel (h.2.2.1 y J hJ).2⟩
 end Main
 end Canonical
 

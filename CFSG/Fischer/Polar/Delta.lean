@@ -55,9 +55,6 @@ theorem delta_tvP (p q : Fin 693) : delta (tvP p q) = tvP (delta p) (delta q) :=
 theorem isPolarAut_delta :
     IsPolarAut delta := ⟨perp_delta, delta_tvP⟩
 
-theorem delta_mul_tvP
-    (p : Fin 693) : delta * tvP p * delta⁻¹ = tvP (delta p) :=
-  isPolarAut_delta.mul_tvP_mul_inv p
 
 theorem image_delta_hypRoot (i : Fin 3) : ⇑delta '' hypRoot i = hypRoot (i + 1) := by
   fin_cases i

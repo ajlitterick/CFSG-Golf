@@ -42,7 +42,6 @@ theorem Nx_le_center : Nx x ≤ center (Cx x) := fun _ hc => hc.1
 
 instance Nx_normal : (Nx x).Normal := Subgroup.normal_of_le_center (Nx_le_center x)
 
-variable {x}
 
 end CQuot
 

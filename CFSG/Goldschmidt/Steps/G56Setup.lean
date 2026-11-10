@@ -288,8 +288,6 @@ theorem qCoreOf_props (hWX : S.W ≤ X) {q : ℕ} (hq : q.Prime) (hqπ : q ∉ S
 theorem ne_p_of_not_mem_primes {q : ℕ} (hqπ : q ∉ S.primes) : q ≠ S.p :=
   fun h => hqπ (h ▸ S.p_mem_primes)
 
-theorem ne_two_of_not_mem_primes {q : ℕ} (hqπ : q ∉ S.primes) : q ≠ 2 :=
-  fun h => hqπ (h ▸ S.two_mem_primes)
 
 theorem qCoreOf_le_centralizer (hWX : S.W ≤ X) {q : ℕ} (hq : q.Prime) (hq2 : q ≠ 2)
     (hqπ : q ∈ S.primes) : qCoreOf X q ≤ Subgroup.centralizer ({S.a} : Set G) := by

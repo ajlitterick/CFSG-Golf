@@ -61,23 +61,6 @@ theorem conclusionB2b_of_maximal {a x : X} {J : Subgroup X}
   intro b K hb hbH _ hK S hSH hSsyl hbS hbZ
   exact ((hmax.2 b K hb (mem_inf.mp hbH).1 hK.1).2) S hSH hSsyl hbS hbZ
 
-theorem theoremBInput_of_parts
-    (hB : ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-      Assembly.KProper Blueprint.Catalog X →
-      (∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥) →
-      ¬ OutcomeLocal.UOutcome X →
-      ∀ (a x : X) (J : Subgroup X), GSMaximalUnbalancingTriple a x J → SmallType J →
-        ConclusionB1 J ∨ ConclusionB2a a J)
-    (hC : ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X], (∃ a b : X, a * b ≠ b * a) →
-      Assembly.KProper Blueprint.Catalog X →
-      (∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥) →
-      ¬ OutcomeLocal.UOutcome X → CorollaryCConclusion X) :
-    GSLit.TheoremBInput := by
-  intro X _ _ _ hnonab hK hz hU
-  refine ⟨fun a x J hmax htype => ?_, hC X hnonab hK hz hU⟩
-  rcases hB X hnonab hK hz hU a x J hmax htype with h1 | h2
-  · exact Or.inl h1
-  · exact Or.inr ⟨h2, conclusionB2b_of_maximal hmax⟩
 
 theorem conj_mem_coreActionKernel {J : Subgroup X} {h k : X} (hh : h ∈ normalizer (J : Set X))
     (hk : k ∈ coreActionKernel J) : h⁻¹ * k * h ∈ coreActionKernel J := by

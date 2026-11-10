@@ -48,47 +48,5 @@ theorem card_core
   rw [hsup, hinf1, hcardZ, hcardL1, hcardL2] at hprod
   omega
 
-theorem mem_normalizer_zpowers_iff {Y : Type} [Group Y] (q x : Y) (hq3 : q ^ 3 = 1)
-    (hq1 : q ≠ 1) :
-    x ∈ Subgroup.normalizer (Subgroup.zpowers q : Set Y) ↔
-      x * q * x⁻¹ = q ∨ x * q * x⁻¹ = q⁻¹ := by
-  rw [Subgroup.mem_normalizer_iff_map_conj_eq, MonoidHom.map_zpowers]
-  have hq2 : q ^ 2 = q⁻¹ := by
-    have h : q ^ 2 * q = 1 := by
-      rw [← pow_succ]
-      simpa using hq3
-    exact eq_inv_of_mul_eq_one_left h
-  constructor
-  · intro h
-    have hmem : x * q * x⁻¹ ∈ Subgroup.zpowers q := by
-      rw [← h]
-      exact Subgroup.mem_zpowers _
-    obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hmem
-    have hk' : q ^ (k % 3) = x * q * x⁻¹ := by
-      calc q ^ (k % 3) = q ^ (k % (3 : ℤ)) := by norm_num
-        _ = q ^ k := (zpow_eq_zpow_emod' k hq3).symm
-        _ = x * q * x⁻¹ := hk
-    have h0 : 0 ≤ k % 3 := Int.emod_nonneg k (by norm_num)
-    have hlt : k % 3 < 3 := Int.emod_lt_of_pos k (by norm_num)
-    have hcases : k % 3 = 0 ∨ k % 3 = 1 ∨ k % 3 = 2 := by omega
-    rcases hcases with hc | hc | hc
-    · exfalso
-      rw [hc] at hk'
-      simp only [zpow_zero] at hk'
-      apply hq1
-      calc q = x⁻¹ * (x * q * x⁻¹) * x := by group
-        _ = x⁻¹ * 1 * x := by rw [hk']
-        _ = 1 := by group
-    · left
-      rw [hc] at hk'
-      simpa using hk'.symm
-    · right
-      rw [hc] at hk'
-      simpa [hq2] using hk'.symm
-  · rintro (h | h)
-    · change Subgroup.zpowers (x * q * x⁻¹) = Subgroup.zpowers q
-      rw [h]
-    · change Subgroup.zpowers (x * q * x⁻¹) = Subgroup.zpowers q
-      rw [h, Subgroup.zpowers_inv]
 
 end CFSG.RankThree.GF2n.Parrott

@@ -12,22 +12,6 @@ open CFSG.Open CFSG.ClassicalInvolution CFSG.ClassicalInvolution.Generic
 
 variable {G : Type} [Group G]
 
-theorem IsQuaternionSub.conjSub' {P : Subgroup G} (h : IsQuaternionSub P) (g : G) :
-    IsQuaternionSub (conjSub g P) := by
-  obtain ⟨a, b, ha4, hcard, hb2, hbab, hcl⟩ := h
-  have hord : orderOf (g * a * g⁻¹) = orderOf a := by
-    have := (MulAut.conj g).orderOf_eq a
-    simpa [MulAut.conj_apply] using this
-  refine ⟨g * a * g⁻¹, g * b * g⁻¹, hord ▸ ha4, ?_, ?_, ?_, ?_⟩
-  · rw [hord, ← hcard]
-    exact (Nat.card_congr (Subgroup.equivMapOfInjective P (MulAut.conj g).toMonoidHom
-      (MulAut.conj g).injective).toEquiv).symm
-  · rw [hord, conj_pow, ← hb2]
-    group
-  · calc g * b * g⁻¹ * (g * a * g⁻¹) * (g * b * g⁻¹)⁻¹ = g * (b * a * b⁻¹) * g⁻¹ := by group
-      _ = (g * a * g⁻¹)⁻¹ := by rw [hbab]; group
-  · rw [← hcl, conjSub, MonoidHom.map_closure, Set.image_pair]
-    rfl
 
 theorem pow_four_eq_one_of_not_mem_zpowers {P : Subgroup G} {a b : G}
     (hb2 : b * b = a ^ (orderOf a / 2)) (hbab : b * a * b⁻¹ = a⁻¹)

@@ -845,13 +845,6 @@ open CFSG.Open CFSG.LocalAnalysis.GLTheoremB CFSG.HardMathSupport.Solomon.LocalB
   CFSG.HardMathSupport.Timmesfeld.Coordinator CFSG.HardMathSupport.Timmesfeld.CrossChar
   CFSG.Blueprint CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
 
-@[expose] def Bal209TwoOuter : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (d : TauCeti.ValidLieTypeIndex), Bal209TwoIndex d.1 →
-    Nonempty (S ≃* (TauCeti.CFSGIndex.lie d).Group) →
-    ∀ δ : MulAut S, δ ^ 3 = 1 → δ ∉ innerAut S →
-      ∀ H : Subgroup (MulAut S), innerAut S ≤ H →
-        δ ∈ Subgroup.normalizer (H : Set (MulAut S)) →
-          GLAPPrimeCoreOf 3 (H ⊓ Subgroup.centralizer ({δ} : Set (MulAut S))) = ⊥
 
 set_option linter.unusedSectionVars false
 

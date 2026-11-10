@@ -278,12 +278,6 @@ theorem mem_eGroup_of_normalizes (h : EndHyp Ω) (h9 : Perp9 Ω) {K M : Subgroup
   · rw [hs.eq hzM]
     exact h.mem_eGroup_of_isUniqueInvolution hzK
 
-theorem mem_eGroup_iff_mem_normalizer (h : EndHyp Ω) (h9 : Perp9 Ω) {K : Subgroup G} {z : G}
-    (hK : K ∈ Ω) (hz : IsUniqueInvolution K z) {s : G} (hs : ∃ g : G, s = g * z * g⁻¹) :
-    s ∈ eGroup Ω K ↔ s ∈ Subgroup.normalizer (K : Set G) := by
-  obtain ⟨g, rfl⟩ := hs
-  refine ⟨fun hE => h.eGroup_le_normalizer hK hE, fun hN => ?_⟩
-  exact h.mem_eGroup_of_normalizes h9 hK (h.thmD.hyp.conjInvariant g K hK) (hz.conj g) hN
 
 end EndHyp
 

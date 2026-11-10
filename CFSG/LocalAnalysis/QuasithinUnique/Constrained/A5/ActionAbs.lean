@@ -61,10 +61,6 @@ theorem piFun_spec (x : X) (a : Alt5) :
       piFun L U α hα hker x * a * (piFun L U α hα hker x)⁻¹ :=
   Classical.choose_spec (aut_inner (psiEquiv L U α hα hker x)) a
 
-theorem piFun_one : piFun L U α hα hker 1 = 1 := by
-  apply centerless
-  intro a
-  rw [← piFun_spec, psiHom_one]; simp
 
 theorem piFun_mul (x y : X) :
     piFun L U α hα hker (x * y) = piFun L U α hα hker x * piFun L U α hα hker y := by
@@ -92,7 +88,6 @@ theorem piFun_alt (ℓ : ↥L) : piFun L U α hα hker (ℓ : X) = ((α ℓ : Al
 @[expose] noncomputable def piHom : X →* Perm (Fin 5) :=
   MonoidHom.mk' (piFun L U α hα hker) (piFun_mul L U α hα hker)
 
-theorem piHom_apply (x : X) : piHom L U α hα hker x = piFun L U α hα hker x := rfl
 
 variable (β : ↥U ≃* Multiplicative (evenWeight 5))
   (hβ : ∀ (ℓ : ↥L) (u u' : ↥U), (u' : X) = (ℓ : X) * (u : X) * (ℓ : X)⁻¹ →
@@ -166,39 +161,6 @@ theorem pi_compat (x : X) (u u' : ↥U) (h : (u' : X) = x * u * x⁻¹) :
   rw [hu']
   exact h6
 
-include hβ in
-theorem piHom_eq_of_compat (x : X) {σ : Perm (Fin 5)}
-    (hσ : ∀ u u' : ↥U, (u' : X) = x * u * x⁻¹ →
-      Multiplicative.toAdd (β u') = vact σ (Multiplicative.toAdd (β u))) :
-    σ = piHom L U α hα hker x := by
-  have h : ∀ w : evenWeight 5, vact (σ⁻¹ * piHom L U α hα hker x) w = w := by
-    intro w
-    obtain ⟨u, rfl⟩ : ∃ u : ↥U, Multiplicative.toAdd (β u) = w :=
-      ⟨β.symm (Multiplicative.ofAdd w), by simp⟩
-    have e : ((MulAut.conjNormal x u : ↥U) : X) = x * u * x⁻¹ := MulAut.conjNormal_apply x u
-    have h1 := hσ u _ e
-    have h2 := pi_compat L U α hα hker β hβ x u _ e
-    have h3 : vact σ (Multiplicative.toAdd (β u)) =
-        vact (piHom L U α hα hker x) (Multiplicative.toAdd (β u)) := h1.symm.trans h2
-    rw [vact_mul, ← h3, ← vact_mul, inv_mul_cancel, vact_one]
-  exact inv_mul_eq_one.mp (vact_faithful h)
-
-include hβ in
-theorem piHom_eq_one_iff (x : X) :
-    piHom L U α hα hker x = 1 ↔ ∀ u : ↥U, x * (u : X) * x⁻¹ = (u : X) := by
-  constructor
-  · intro h u
-    have e : ((MulAut.conjNormal x u : ↥U) : X) = x * u * x⁻¹ := MulAut.conjNormal_apply x u
-    have h2 := pi_compat L U α hα hker β hβ x u _ e
-    rw [← piHom_apply, h, vact_one] at h2
-    have := β.injective (Multiplicative.toAdd.injective h2)
-    rw [← e, this]
-  · intro h
-    apply vact_faithful
-    intro w
-    obtain ⟨u, rfl⟩ : ∃ u : ↥U, Multiplicative.toAdd (β u) = w :=
-      ⟨β.symm (Multiplicative.ofAdd w), by simp⟩
-    exact (pi_compat L U α hα hker β hβ x u u (h u).symm).symm
 
 include hα hker hβ in
 theorem exists_pi : ∃ π : X →* Perm (Fin 5),

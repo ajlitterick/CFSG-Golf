@@ -241,12 +241,6 @@ theorem ggSixLayerCXInput_of_pPrime (hP : GGSixLayerCXPPrimeInput) : GGSixLayerC
   have hKc := hctx.le_centralizer_of_isComponentOf_ne hK hKL
   exact hctx.not_dvd_card_of_isComponentOf_le hK hKc (hP G p B Bs x L D J t n f ψ hctx K hK hKc)
 
-theorem ggSixLayerCXPPrimeInput_of_layerCX (hCX : GGSixLayerCXInput) : GGSixLayerCXPPrimeInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx K hK hKc
-  have hKL := hCX G p B Bs x L D J t n f ψ hctx K hK
-  subst hKL
-  exact absurd hKc (CFSG.LocalAnalysis.ComponentInitial.not_le_centralizer_self_of_isQuasisimple
-    hK.2.2)
 
 theorem ggSixLayerCXPPrimeInput_of_split (hKG : GGLayerPDivInput)
     (hNS : GGSixLayerCXNonsplitInput) : GGSixLayerCXPPrimeInput := by

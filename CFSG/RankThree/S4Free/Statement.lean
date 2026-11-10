@@ -16,6 +16,5 @@ theorem isAdmissibleHost_of_not_three_dvd {S : Type*} [Group S] {X : Type*} [Gro
     (hC : centralizer (oTwo X : Set X) ≤ oTwo X) : IsAdmissibleHost ι :=
   ⟨inferInstance, isSym4Free_of_not_three_dvd h3, hinj, hsyl, hC⟩
 
-variable {S : Type u} [Group S]
 
 end CFSG.RankThree.S4Free

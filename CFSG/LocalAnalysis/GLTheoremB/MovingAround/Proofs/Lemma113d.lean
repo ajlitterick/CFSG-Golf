@@ -1605,20 +1605,6 @@ open CFSG.ComponentClassification.CatalogueSchreierLinearTwo (semilinearEquivAut
 theorem finite_ringAut_card : Nat.card (GaloisField 3 3 ≃+* GaloisField 3 3) = 3 :=
   CFSG.RankThree.PartTwo.KFacts.card_ringAut_galoisField_three_three
 
-theorem hom_kills_three_prime {N T : Type} [Group N] [Group T] [Finite T] (hT : Nat.card T = 3)
-    (φ : N →* T) {g : N} (hg : ¬ (3 : ℕ) ∣ orderOf g) : φ g = 1 := by
-  have h1 : orderOf (φ g) ∣ orderOf g := orderOf_map_dvd φ g
-  have h2 : orderOf (φ g) ∣ 3 := by
-    have := orderOf_dvd_natCard (φ g)
-    rwa [hT] at this
-  have h3 : orderOf (φ g) = 1 := by
-    rcases (Nat.dvd_prime Nat.prime_three).1 h2 with h | h
-    · exact h
-    · exfalso
-      apply hg
-      rw [← h]
-      exact h1
-  exact orderOf_eq_one_iff.1 h3
 
 theorem galHom_rho_ne_one {K Q : Subgroup G} {x : G} (e0 : barOf 3 K ≃* PSL2 (GaloisField 3 3))
     (hQp : IsPGroup 3 ↥Q) (hQK : Q ≤ Subgroup.normalizer (K : Set G))
@@ -1645,126 +1631,10 @@ end Clause7b
 
 section Clause7c
 
-@[expose] def Input113dGrun : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (Q : Subgroup G), IsSimpleGroup G → orderOf z = 3 →
-    IsSylowIn 3 (Subgroup.normalizer (Subgroup.zpowers z : Set G)) Q →
-    (∀ q ∈ Q, q * z = z * q) →
-    (∀ g : G, GLBConj g (Subgroup.zpowers z) ≤ Q →
-      GLBConj g (Subgroup.zpowers z) = Subgroup.zpowers z) →
-    Q ≤ Subgroup.closure
-      {g : G | g ∈ Subgroup.normalizer (Subgroup.zpowers z : Set G) ∧ ¬ (3 : ℕ) ∣ orderOf g}
-
-theorem claim113A_clause7 {K Q X A : Subgroup G} {e : G} (hG : Input113dGrun)
-    (hsimple : IsSimpleGroup G) (e0 : barOf 3 K ≃* PSL2 (GaloisField 3 3))
-    (hX : X = Subgroup.centralizer ({e} : Set G))
-    (hQ : IsSylowIn 3 X Q) (hQ1 : Q ≠ ⊥) (hXN : X ≤ Subgroup.normalizer (K : Set G))
-    (hKX : K ≤ X) (hK : IsLTwoTwentySeven (barOf 3 K)) (hcyc : IsCyclic ↥(centBar 3 Q K))
-    (he3 : e ^ 3 = 1) (he1 : e ≠ 1) (heQ : e ∈ Q)
-    (hNK : Subgroup.normalizer (Subgroup.zpowers e : Set G) ≤ Subgroup.normalizer (K : Set G))
-    (hAQ : A ≤ Q) (hAel : IsElemAbelian 3 A) (hAcard : Nat.card ↥A = 27)
-    (hAmax : ∀ F : Subgroup G, F ≤ ⊤ → IsElemAbelian 3 F → A ≤ F → F = A) :
-    ∃ g : G, GLBConj g (Subgroup.zpowers e) ≤ Q ∧
-      GLBConj g (Subgroup.zpowers e) ≠ Subgroup.zpowers e := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  by_contra hcon
-  have hcon' : ∀ g : G, GLBConj g (Subgroup.zpowers e) ≤ Q →
-      GLBConj g (Subgroup.zpowers e) = Subgroup.zpowers e := by
-    intro g hg
-    by_contra hne
-    exact hcon ⟨g, hg, hne⟩
-  have hsylN : IsSylowIn 3 (Subgroup.normalizer (Subgroup.zpowers e : Set G)) Q :=
-    isSylowIn_normalizer_zpowers hX hQ he3 he1
-  have hord : orderOf e = 3 := orderOf_eq_prime he3 he1
-  have hcomm : ∀ q ∈ Q, q * e = e * q := by
-    intro q hq
-    have hqX : q ∈ X := hQ.1 hq
-    rw [hX] at hqX
-    exact (Subgroup.mem_centralizer_iff.1 hqX e (Set.mem_singleton e)).symm
-  have hGr := hG G e Q hsimple hord hsylN hcomm hcon'
-  obtain ⟨x, hxA, hxN⟩ :=
-    exists_mem_not_mem_sup hQ hQ1 hXN hKX hK hcyc
-      (fun k hk => by
-        have hkX : k ∈ X := hKX hk
-        rw [hX] at hkX
-        exact Subgroup.mem_centralizer_iff.1 hkX e (Set.mem_singleton e))
-      he3 he1 heQ hAmax hAel hAcard
-  have hxQ : x ∈ Q := hAQ hxA
-  have hx3 : x ^ 3 = 1 := hAel.2 x hxA
-  have hQK : Q ≤ Subgroup.normalizer (K : Set G) := hQ.1.trans hXN
-  have hU27 : Nat.card ↥(Ubar hQK) = 27 := Ubar_card hQ hQ1 hXN hKX hK
-  have hxN' : x ∈ Subgroup.normalizer (Subgroup.zpowers e : Set G) := hsylN.1 hxQ
-  let N : Subgroup G := Subgroup.normalizer (Subgroup.zpowers e : Set G)
-  let Φ : ↥N →* (GaloisField 3 3 ≃+* GaloisField 3 3) :=
-    (galHom e0).comp ((barAut 3 K).comp (Subgroup.inclusion hNK))
-  have hΦ3 : Nat.card (GaloisField 3 3 ≃+* GaloisField 3 3) = 3 := finite_ringAut_card
-  haveI : Finite (GaloisField 3 3 ≃+* GaloisField 3 3) :=
-    Nat.finite_of_card_ne_zero (by rw [hΦ3]; norm_num)
-  have hΦx : Φ ⟨x, hxN'⟩ ≠ 1 := galHom_rho_ne_one e0 hQ.2.1 hQK hU27 hxQ hx3 hxN
-  have hS : Subgroup.closure {g : G | g ∈ N ∧ ¬ (3 : ℕ) ∣ orderOf g} ≤
-      (MonoidHom.ker Φ).map N.subtype := by
-    refine (Subgroup.closure_le _).2 ?_
-    rintro g ⟨hgN, hg3⟩
-    refine ⟨⟨g, hgN⟩, ?_, rfl⟩
-    rw [SetLike.mem_coe, MonoidHom.mem_ker]
-    apply hom_kills_three_prime hΦ3 Φ
-    rw [Subgroup.orderOf_mk]
-    exact hg3
-  obtain ⟨n, hn, hnx⟩ := Subgroup.mem_map.1 ((hGr.trans hS) hxQ)
-  have hn' : n = ⟨x, hxN'⟩ := Subtype.ext hnx
-  rw [MonoidHom.mem_ker, hn'] at hn
-  exact hΦx hn
 
 end Clause7c
 
 end Lemma113d
 
-open Lemma113d in
-theorem lemma113_ii_pieceA_of_inputs (hC : Input113dCentralizer27) (hG : Input113dGrun) :
-    Lemma113_ii_pieceAStatement := by
-  intro G _ _ m B M E A a e K Q h h0
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hDD : IsDDpStar 3 M E A := h.pair
-  have hEmax : IsSCp 3 ⊤ E := (lemma104_ii_holds h.toSec10Fails hDD).1
-  have hAmax : IsSCp 3 ⊤ A := (lemma104_ii_holds h.toSec10Fails hDD).2
-  obtain ⟨hcl1, hQM, hCeN⟩ := Lemma113c.claim113A_clauses_123 h h0
-  have hKI : IsLTwoTwentySeven (barOf 3 K) := h.hK.2
-  have e0 := Classical.choice hKI
-  have hKc : GLAPComponent 3 (Cg e) K := h.hK.1
-  have hKX : K ≤ Cg e := h.hK.1.1
-  have hQsyl : IsSylowIn 3 (Cg e) Q := h.hQ.1
-  have hAQ : A ≤ Q := le_trans le_sup_right h.hQ.2
-  have hEQ : E ≤ Q := le_trans le_sup_left h.hQ.2
-  have haQ : a ∈ Q := hAQ h.ha.1
-  have hQ1 : Q ≠ ⊥ := by
-    intro hbot
-    rw [hbot] at haQ
-    exact h.ha.2 (Subgroup.mem_bot.1 haQ)
-  have heA : e ∈ A := (Subgroup.mem_inf.1 h.he.1).2
-  have he3 : e ^ 3 = 1 := hAmax.2.1.2 e heA
-  have he1 : e ≠ 1 := h.he.2
-  have heQ : e ∈ Q := hAQ heA
-  have hXe : ∀ x ∈ Cg e, e * x = x * e := fun x hx =>
-    Subgroup.mem_centralizer_iff.1 hx e (Set.mem_singleton e)
-  have hKe : ∀ k ∈ K, e * k = k * e := fun k hk => hXe k (hKX hk)
-  have hEel : IsElemAbelian 3 E := hEmax.2.1
-  have hEcard : Nat.card ↥E = 3 ^ 4 := by
-    rw [l113_card_eq_pow_pRank hEmax.2.1, h.h4]
-  have hAel : IsElemAbelian 3 A := hAmax.2.1
-  have hAcard : Nat.card ↥A = 3 ^ 3 := by
-    rw [l113_card_eq_pow_pRank hAmax.2.1, h.h3]
-  have hAcard27 : Nat.card ↥A = 27 := by rw [hAcard]; norm_num
-  have hNK : Subgroup.normalizer (Subgroup.zpowers e : Set G) ≤
-      Subgroup.normalizer (K : Set G) :=
-    normalizer_zpowers_le_normalizer_K rfl hQsyl hQ1 hCeN hKX hKc hKI he3 he1 hQM haQ h0
-  have hcyc : IsCyclic ↥(centBar 3 Q K) :=
-    claim113A_clause4 hQsyl hQ1 hCeN hKX hKI hQM haQ h0
-  have hcl5 : omegaOne 3 Q = E ⊔ A :=
-    omegaOne_eq_of e0 hC hQsyl hQ1 hCeN hKX hKI hcyc hXe he3 he1 heQ hEQ hEel hEcard hAQ hAel
-      hAcard hAmax.2.2
-  have hcl6 : E = thompsonJ 3 Q :=
-    thompsonJ_eq_E e0 hC hQsyl hQ1 hCeN hKX hKI hcyc hKe he3 he1 heQ hEQ hEel hEcard
-  have hcl7 := claim113A_clause7 hG h.standing.simple e0 rfl hQsyl hQ1 hCeN hKX hKI hcyc he3 he1
-    heQ hNK hAQ hAel hAcard27 hAmax.2.2
-  exact ⟨hcl1, hQM, hCeN, hcyc, hcl5, hcl6, hcl7⟩
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround

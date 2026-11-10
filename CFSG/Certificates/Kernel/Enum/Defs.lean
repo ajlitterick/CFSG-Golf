@@ -142,8 +142,6 @@ namespace CFSG.KC.Enum
 @[expose] noncomputable def wordsOK (n w m X Y Xi Yi : Nat) (ws : List Nat) : Bool :=
   List.rec (motive := fun _ => Bool) true (fun d _ ih => bAnd(wordOrdOK n w m X Y Xi Yi d, ih)) ws
 
-@[expose] noncomputable def patchT (T : Nat → Nat) (L leaf k : Nat) : Nat :=
-  nIf(Nat.beq k L, leaf, T k)
 
 @[expose] noncomputable def rget (T : Nat → Nat) (sh lm rb rm i : Nat) : Nat :=
   strictN (Nat.shiftRight i sh) (fun b => fld(T b, Nat.mul rb (Nat.land i lm), rm))
@@ -224,10 +222,6 @@ namespace CFSG.KC.Enum
         Nat.beq (fpow (wpt w m x y x yi (dW d) (dL d)) (dO d) p) p, ih2)) tp, ih)) ws,
     wordsOK n w m x y x yi ws)
 
-@[expose] noncomputable def scanCnt (T : Nat → Nat) (sh lm rb rm n w m pm y yi : Nat)
-    (ws tp : List Nat) (lo cnt : Nat) : Nat :=
-  foldN cnt (fun j s => nIf(pairOK n w m (rperm T sh lm rb rm pm (Nat.add lo j)) y yi ws tp,
-    Nat.succ s, s)) (nat_lit 0)
 
 end CFSG.KC.Enum
 

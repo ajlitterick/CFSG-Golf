@@ -51,73 +51,16 @@ namespace CFSG.SmithD6
     (ea7Triple t.2.2).contains t.1 &&
     (ea7Triple t.2.1).all fun y => !(ea7Triple t.2.2).contains y || y == t.1
 
-@[expose] def ea7Elim (C : Array Nat) : Array (Nat × Nat) :=
-  (List.range 32).foldl (fun (B : Array (Nat × Nat)) m =>
-    let r := (List.range 32).reverse.foldl (fun (r : Nat × Nat) j =>
-      if r.1.testBit j && (B[j]!).1 != 0 then (r.1 ^^^ (B[j]!).1, r.2 ^^^ (B[j]!).2) else r)
-      (C[m]! ^^^ 2 ^ m, 2 ^ m)
-    if r.1 == 0 then B else B.set! (Nat.log2 r.1) r) (Array.replicate 32 (0, 0))
-
-@[expose] def ea7Solve (B : Array (Nat × Nat)) (x : Nat) : Nat :=
-  let r := (List.range 32).reverse.foldl (fun (r : Nat × Nat) j =>
-    if r.1.testBit j && (B[j]!).1 != 0 then (r.1 ^^^ (B[j]!).1, r.2 ^^^ (B[j]!).2) else r) (x, 0)
-  if r.1 == 0 then r.2 else 2 ^ 32
-
-@[expose] def ea7ChkF3 : Bool :=
-  let A := tvCols 0
-  let B := tvCols 31899
-  let W := (List.range 75735).filter fun i => applyCols A (wt i) == wt i && applyCols B (wt i) == wt i
-  ea7I.all fun p =>
-    let C := tvCols p
-    let E := ea7Elim C
-    W.any fun i =>
-      let c := ea7Solve E (wt i)
-      decide (c < 2 ^ 32) && (applyCols C c ^^^ c == wt i)
 
 @[expose] def ea7InY (bs : List Nat) (q : Nat) : Bool := ea7InX q && bs.all fun b => tvImg q b == b
 
-def ea7Bfs (gens : List Nat) (b : Nat) : Array Nat × Array Nat × Array Nat := Id.run do
-  let mut seen : Array Bool := Array.replicate 365211 false
-  let mut pts : Array Nat := #[b]
-  let mut pr : Array Nat := #[0]
-  let mut gn : Array Nat := #[0]
-  seen := seen.set! b true
-  let mut j := 0
-  while j < pts.size do
-    let a := pts[j]!
-    for g in gens do
-      let v := tvImg g a
-      if v < 365211 && !seen[v]! then
-        seen := seen.set! v true
-        pts := pts.push v
-        pr := pr.push j
-        gn := gn.push g
-    j := j + 1
-  return (pts, pr, gn)
-
-@[expose] def ea7TreeOK (inY : Nat → Bool) (b n : Nat) (t : Array Nat × Array Nat × Array Nat) : Bool :=
-  decide (b < 365211) && decide (0 < n) && t.1.size == n && t.2.1.size == n && t.2.2.size == n &&
-  t.1[0]! == b && (List.range n).all (fun j => decide (t.1[j]! < 365211)) &&
-  (List.range n).all (fun j => j == 0 || (decide (t.2.1[j]! < j) && decide (t.2.2[j]! < 365211) &&
-    inY t.2.2[j]! && tvImg t.2.2[j]! t.1[t.2.1[j]!]! == t.1[j]!)) &&
-  (List.range n).all fun j => (List.range j).all fun j' => t.1[j']! != t.1[j]!
 
 @[expose] def ea7Bases : List Nat := [142115, 8163, 303839, 31, 1083]
 
 @[expose] def ea7Sizes : List Nat := [1575, 864, 128, 3, 2]
 
-@[expose] def ea7Level (i : Nat) : Bool :=
-  ea7TreeOK (ea7InY (ea7Bases.take i)) ea7Bases[i]! ea7Sizes[i]!
-    (ea7Bfs (ea7I.filter (ea7InY (ea7Bases.take i))) ea7Bases[i]!)
-
-@[expose] def ea7ChkChain : Bool := (List.range 5).all ea7Level
 
 @[expose] def ea7IsA (a : Nat) : Bool := a == 31 || a == 557 || a == 1083
 
-@[expose] def ea7ChkOdd : Bool :=
-  ea7I.length == 1578 &&
-  (ea7I.all fun a => ea7I.all fun q => ea7InX (tvImg q a) && ea7IsA (tvImg q a) == ea7IsA a) &&
-  ea7InX 31 && ea7InX 557 && ea7InX 1083 && tvImg 557 31 == 1083 && tvImg 1083 31 == 557 &&
-  ea7InX ea7Bases[0]! && !ea7IsA ea7Bases[0]!
 
 end CFSG.SmithD6

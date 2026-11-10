@@ -15,68 +15,9 @@ section Special
 
 variable {G : Type*} [Group G] {ι : Type*} (M : CoxeterMatrix ι) (Bs : Subgroup G)
 
-@[expose] def GGSpecialInvolutions (A : Subgroup (MulAut ↥Bs)) (f : M.Group ≃* ↥A) (t : ι → G) :
-    Prop :=
-  M.IsLiftable t ∧ ∀ i, t i ∈ Subgroup.normalizer (Bs : Set G) ∧
-    ∀ b : ↥Bs, (((f (M.simple i) : ↥A) : MulAut ↥Bs) b : G) = t i * b * (t i)⁻¹
 
 variable {M Bs} {A : Subgroup (MulAut ↥Bs)} {f : M.Group ≃* ↥A} {t : ι → G}
 
-@[expose] noncomputable def ggSpecialLift (h : GGSpecialInvolutions M Bs A f t) : M.Group →* G :=
-  M.toCoxeterSystem.lift ⟨t, h.1⟩
-
-theorem ggSpecialLift_simple (h : GGSpecialInvolutions M Bs A f t) (i : ι) :
-    ggSpecialLift h (M.simple i) = t i :=
-  M.toCoxeterSystem.lift_apply_simple h.1 i
-
-theorem ggSpecialLift_spec (h : GGSpecialInvolutions M Bs A f t) (w : M.Group) :
-    ggSpecialLift h w ∈ Subgroup.normalizer (Bs : Set G) ∧
-      ∀ b : ↥Bs, (((f w : ↥A) : MulAut ↥Bs) b : G) =
-        ggSpecialLift h w * b * (ggSpecialLift h w)⁻¹ := by
-  induction w using M.toCoxeterSystem.simple_induction_left with
-  | one =>
-    refine ⟨by rw [map_one]; exact one_mem _, fun b => ?_⟩
-    simp only [map_one, OneMemClass.coe_one, MulAut.one_apply, one_mul, inv_one, mul_one]
-  | mul_simple_left w i ih =>
-    obtain ⟨hN, hact⟩ := ih
-    obtain ⟨hNi, hacti⟩ := h.2 i
-    have hs : M.toCoxeterSystem.simple i = M.simple i := rfl
-    rw [hs] at *
-    refine ⟨by rw [map_mul, ggSpecialLift_simple]; exact mul_mem hNi hN, fun b => ?_⟩
-    have hf : ((f (M.simple i * w) : ↥A) : MulAut ↥Bs) =
-        ((f (M.simple i) : ↥A) : MulAut ↥Bs) * ((f w : ↥A) : MulAut ↥Bs) := by
-      rw [map_mul]
-      rfl
-    rw [hf, MulAut.mul_apply, hacti, hact, map_mul, ggSpecialLift_simple]
-    group
-
-theorem ggSpecialLift_injective (h : GGSpecialInvolutions M Bs A f t) :
-    Function.Injective (ggSpecialLift h) := by
-  rw [injective_iff_map_eq_one]
-  intro w hw
-  apply f.injective
-  rw [map_one]
-  apply Subtype.ext
-  refine MulEquiv.ext fun b => Subtype.ext ?_
-  have key := (ggSpecialLift_spec h w).2 b
-  rw [hw, one_mul, inv_one, mul_one] at key
-  rw [key]
-  rfl
-
-theorem ggSpecialLift_range_le (h : GGSpecialInvolutions M Bs A f t) {H : Subgroup G}
-    (hH : ∀ i, t i ∈ H) : (ggSpecialLift h).range ≤ H := by
-  rintro _ ⟨w, rfl⟩
-  induction w using M.toCoxeterSystem.simple_induction_left with
-  | one => rw [map_one]; exact one_mem H
-  | mul_simple_left w i ih =>
-    rw [map_mul]
-    exact mul_mem (by rw [show M.toCoxeterSystem.simple i = M.simple i from rfl,
-      ggSpecialLift_simple]; exact hH i) ih
-
-theorem ggSpecialLift_range_le_normalizer (h : GGSpecialInvolutions M Bs A f t) :
-    (ggSpecialLift h).range ≤ Subgroup.normalizer (Bs : Set G) := by
-  rintro _ ⟨w, rfl⟩
-  exact (ggSpecialLift_spec h w).1
 
 end Special
 
@@ -166,17 +107,6 @@ theorem ggWeylInR_ofInjective (hρ : Function.Injective ρ) (hW : GGWeylInRHom �
   · rw [MonoidHom.ofInjective_apply hρ, hW k v j hj]
   · exact (MonoidHom.ofInjective hρ).symm_apply_apply _
 
-theorem ggExt_comp_eq_of_closure {k : ι} {T : Set (GGWeyl Δ)}
-    (hWk : ∀ v ∈ Subgroup.closure T, ν v ∈ ggSub Δ (S k))
-    (hgen : ∀ t ∈ T, ggExt (φ k) (ν t) = ρ t) :
-    ∀ v ∈ Subgroup.closure T, ggExt (φ k) (ν v) = ρ v := by
-  intro v hv
-  induction hv using Subgroup.closure_induction with
-  | mem t ht => exact hgen t ht
-  | one => rw [map_one, map_one, ggExt_one]
-  | mul a b ha hb iha ihb =>
-    rw [map_mul, map_mul, ggExt_mul (φ k) (hWk a ha) (hWk b hb), iha, ihb]
-  | inv a ha iha => rw [map_inv, map_inv, ggExt_inv (φ k) (hWk a ha), iha]
 
 theorem ggWeylInRHom_of_local (Wk : ι → Subgroup (GGWeyl Δ))
     (hρk : ∀ k, ∀ v ∈ Wk k, ggExt (φ k) (ν v) = ρ v)

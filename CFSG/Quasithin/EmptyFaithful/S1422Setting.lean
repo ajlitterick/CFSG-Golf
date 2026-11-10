@@ -226,18 +226,6 @@ theorem hyp111 (S : Setting1422 T M Y H) : Hyp111 H (Y ⊔ T) T := by
     have hKM : K = M := S.data.unique.2 K ⟨hK, le_sup_right.trans (le_sup_left.trans hG0)⟩
     exact S.not_H_le_M (hKM ▸ (le_sup_left.trans (le_sup_left.trans hG0)))
 
-theorem normal_clause (S : Setting1422 T M Y H) :
-    (T.subgroupOf (T ⊔ borelOf H T)).Normal := by
-  rw [S.borelOf_H hSz, sup_idem, Subgroup.subgroupOf_self]
-  exact Subgroup.normal_top
-
-theorem f112_list (hF : F112LegacyPrintedError) (S : Setting1422 T M Y H) :
-    F112ListBare H (Y ⊔ T) T ∨ F112ListBare (Y ⊔ T) H T := by
-  obtain ⟨L1', L2', hL, -, hList, -⟩ := hF G H (Y ⊔ T) T (S.hyp111 hSz)
-    (isQuasithinSub_of_qtke S.hyp.qtke _) (Or.inl (S.normal_clause hSz))
-  rcases hL with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
-  · exact Or.inl hList
-  · exact Or.inr hList
 
 end Setting1422
 

@@ -36,24 +36,5 @@ namespace CFSG.PSL3Four.Native
         allBelow EE.tabs.size fun l =>
           comp 42 EE.tabs[k]! EE.tabs[l]! == comp 42 EE.tabs[l]! EE.tabs[k]!)
 
-@[expose] def l34RCentCheck (ER : Array Tab) : Bool :=
-  let r4 := r₄T ()
-  let C := centTabs 42 ER r4
-  let c0 := C.map (invTab 42)
-  let D₁ := derivedData 42 C c0
-  let c1 := D₁.1.map (invTab 42)
-  let D₂ := derivedData 42 D₁.1 c1
-  let c2 := D₂.1.map (invTab 42)
-  let D₃ := derivedData 42 D₂.1 c2
-  let c3 := D₃.1.map (invTab 42)
-  let D₄ := derivedData 42 D₃.1 c3
-  let c4 := D₄.1.map (invTab 42)
-  let D₅ := derivedData 42 D₄.1 c4
-  C.size == 864 &&
-    derivedOK 42 C c0 D₁.1 D₁.2 && D₁.1.size == 216 &&
-    derivedOK 42 D₁.1 c1 D₂.1 D₂.2 && D₂.1.size == 72 &&
-    derivedOK 42 D₂.1 c2 D₃.1 D₃.2 && D₃.1.size == 18 &&
-    derivedOK 42 D₃.1 c3 D₄.1 D₄.2 && D₄.1.size == 9 &&
-    derivedOK 42 D₄.1 c4 D₅.1 D₅.2 && D₅.1.size == 1
 
 end CFSG.PSL3Four.Native

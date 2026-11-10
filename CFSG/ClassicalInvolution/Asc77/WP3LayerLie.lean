@@ -29,18 +29,5 @@ theorem lieDecomposition_exactFamily_comp (hp2 : p ≠ 2) (h0 : ModelClauseZero)
     (secData_exactFamily hΩ hcls hc2 hne).lieDecomposition_comp hp2 h0 hA1 hq D
   exact ⟨D', hD'Q, hbig⟩
 
-theorem localLieSystemAt_exactFamily_iff :
-    Nonempty (LocalLieSystemAt p f (exactFamily Ω c) c) ↔ LieSystemMod p f (exactPair Ω c) := by
-  have h : centralizingMembers (exactFamily Ω c) {c} = exactFamily Ω c :=
-    centMembers_exactFamily Ω c
-  constructor
-  · rintro ⟨D⟩
-    unfold LocalLieSystemAt at D
-    rw [h] at D
-    exact ⟨D⟩
-  · intro ⟨D⟩
-    unfold LocalLieSystemAt
-    rw [h]
-    exact ⟨D⟩
 
 end CFSG.ClassicalInvolution.Asc77.ExactLayer

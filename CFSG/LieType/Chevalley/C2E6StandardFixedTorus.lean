@@ -92,12 +92,6 @@ theorem mem_torusGroup_iff
   rw [torusGroup_eq_range]
   exact ⟨fun ⟨c, hc⟩ => ⟨c.toAdd, hc.symm⟩, fun ⟨c, hc⟩ => ⟨Multiplicative.ofAdd c, hc.symm⟩⟩
 
-theorem torusWord6_eq_iff
-    (c d : Fin 6 → ZMod 3) :
-    torusWord i6 c = torusWord i6 d ↔
-      c - d = 0 ∨ c - d = ![1, 0, 2, 0, 1, 2] ∨ c - d = ![2, 0, 1, 0, 2, 1] := by
-  rw [← torusWord6_eq_one_iff, show c = (c - d) + d by abel, torusWord_add, add_sub_cancel_right]
-  exact ⟨fun h => mul_right_cancel (h.trans (one_mul _).symm), fun h => by rw [h, one_mul]⟩
 
 abbrev stdTorus0
     : Subgroup (ModGL Tag.E6 K) := graphFixedTorus TwistTag.E6 K barHom
@@ -287,18 +281,6 @@ theorem fixedTorusGen_mem_torusA
   mul_mem (Subgroup.subset_closure ⟨i6 2, Or.inr (Or.inl rfl), _, rfl⟩)
     (Subgroup.subset_closure ⟨i6 4, Or.inr (Or.inr (Or.inr (Or.inl rfl))), _, rfl⟩)
 
-theorem fixedTorusGen_mem_torusD
-    : fixedTorusGen ∈ torusD :=
-  mul_mem (Subgroup.subset_closure ⟨i6 2, Or.inr (Or.inl rfl), _, rfl⟩)
-    (Subgroup.subset_closure ⟨i6 4, Or.inr (Or.inr (Or.inr rfl)), _, rfl⟩)
-
-theorem stdTorus0_le_groupA_inf_groupD :
-    stdTorus0 ≤ groupA ⊓ groupD := by
-  rw [stdTorus0_eq_zpowers]
-  exact Subgroup.zpowers_le.mpr
-    ⟨subsystemTorus_le_subsystemGroup (τ := Tag.E6) (K := K) (A := setA) fixedTorusGen_mem_torusA,
-      subsystemTorus_le_subsystemGroup (τ := Tag.E6) (K := K) (A := setD)
-        fixedTorusGen_mem_torusD⟩
 
 theorem stdTorus0_le_stdGroup :
     stdTorus0 ≤ stdGroup := by

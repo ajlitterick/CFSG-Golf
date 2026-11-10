@@ -27,7 +27,5 @@ theorem claim1724DeltaNorm_of_up (hU : Claim1724DeltaUp) : Claim1724DeltaNorm :=
   have hTΛ := hU G A c L Y₀ Y₁ S p P w Q h hJ R T hR.prop.1 hR.prop.2.1 hR.prop.2.2 hT hRT.le hTN
   exact absurd (hR.2 ⟨hT, hT1, hTΛ⟩ hRT.le) (not_le_of_gt hRT)
 
-variable {G : Type} [Group G] [Finite G] {A : Subgroup G} {c : G} {L Y₀ Y₁ S : Subgroup G}
-  {p : ℕ} {P : Subgroup G} {w : G} {Q : Subgroup G}
 
 end CFSG.RankThree.PartTwo.Sec17

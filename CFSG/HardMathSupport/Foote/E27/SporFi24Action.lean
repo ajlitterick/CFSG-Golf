@@ -19,11 +19,6 @@ theorem coe_XU : (XU : Matrix (Fin 10) (Fin 10) (ZMod 3)) = rowsMat 3 10 XRows :
 
 theorem coe_YU : (YU : Matrix (Fin 10) (Fin 10) (ZMod 3)) = rowsMat 3 10 YRows := rfl
 
-theorem coe_XU_inv : ((XU⁻¹ : GL (Fin 10) (ZMod 3)) : Matrix (Fin 10) (Fin 10) (ZMod 3)) =
-    rowsMat 3 10 XiRows := rfl
-
-theorem coe_YU_inv : ((YU⁻¹ : GL (Fin 10) (ZMod 3)) : Matrix (Fin 10) (Fin 10) (ZMod 3)) =
-    rowsMat 3 10 YiRows := rfl
 
 theorem ncard_orbit_v :
     (MulAction.orbit K (⟨rowsVec 3 10 base⟩ : RowVD 10)).ncard = 12672 :=

@@ -70,7 +70,6 @@ theorem ggUForm_sum_smul_right {ι : Type*} (s : Finset ι) (c : ι → F) (b : 
   map_add' := ggUForm_add_right σ x
   map_smul' c y := by rw [ggUForm_smul_right, smul_eq_mul, RingHom.id_apply]
 
-theorem ggUFormL_apply (x y : Fin n → F) : ggUFormL σ x y = ggUForm σ x y := rfl
 
 variable {σ}
 

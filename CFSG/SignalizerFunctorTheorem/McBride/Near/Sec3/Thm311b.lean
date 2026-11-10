@@ -36,10 +36,6 @@ theorem sup_dsub_mem_cset (hθ : NearFunctor p A θ) {P : Subgroup G × Subgroup
     (hP : P ∈ pairsY p A θ Y) : P.1 ⊔ dsub A θ ∈ cset p A θ Y :=
   ⟨sup_dsub_mem_mtil hθ hP.1.1, P, hP, le_sup_left⟩
 
-theorem le_thetaMG_of_mem (hθ : NearFunctor p A θ) {P : Subgroup G × Subgroup G}
-    (hP : P ∈ pairsY p A θ Y) : P.1 ≤ thetaMG p A θ Y :=
-  le_iSup₂_of_le (P.1 ⊔ dsub A θ) (sup_dsub_mem_cset hθ hP)
-    (le_iSup₂_of_le P ⟨hP, le_sup_left⟩ le_rfl)
 
 theorem le_thetaLG_of_mem (hθ : NearFunctor p A θ) {P : Subgroup G × Subgroup G}
     (hP : P ∈ pairsY p A θ Y) : P.2 ≤ thetaLG p A θ Y :=

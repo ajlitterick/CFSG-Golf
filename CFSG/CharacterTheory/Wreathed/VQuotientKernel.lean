@@ -245,15 +245,6 @@ theorem original_v_center_quotient_kernel_inner (n : ℕ) (hn : 2 ≤ n)
   rw [hm, Original.V_atQuarter]
   exact v_center_quotient_kernel_inner_atQuarter _ (pow_pos (by decide) _)
 
-theorem original_v_center_quotient_kernel_inner_pointwise (n : ℕ) (hn : 2 ≤ n)
-    (a : MulAut (Original.V (2 ^ n)))
-    (hcenter : ∀ c ∈ Subgroup.center (Original.V (2 ^ n)), a c = c)
-    (hquotient : ∀ g : Original.V (2 ^ n),
-      (QuotientGroup.mk' (Subgroup.center (Original.V (2 ^ n)))) (a g) =
-        (QuotientGroup.mk' (Subgroup.center (Original.V (2 ^ n)))) g) :
-    ∃ v : Original.V (2 ^ n), ∀ g : Original.V (2 ^ n), a g = v * g * v⁻¹ := by
-  obtain ⟨v, hv⟩ := original_v_center_quotient_kernel_inner n hn a hcenter hquotient
-  exact ⟨v, fun g => by rw [hv, MulAut.conj_apply]⟩
 
 theorem mem_centerFixingQuotientAction_ker_iff {G : Type u} [Group G]
     (a : centerFixingAutomorphisms G) :

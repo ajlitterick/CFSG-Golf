@@ -85,9 +85,6 @@ variable {K : Type} [Field K]
 @[expose] noncomputable def endNodeHat (ζ : Kˣ) : hatGroup .E6 K :=
   ⟨rootDiagUnit .E6 (highDiag .E6 ζ), rootDiagUnit_mem_hatGroup _⟩
 
-theorem coe_endNodeHat (ζ : Kˣ) :
-    (endNodeHat ζ : ModGL .E6 K) = rootDiagUnit .E6 (highDiag .E6 ζ) :=
-  rfl
 
 theorem hatAut_endNodeHat (ζ : Kˣ) :
     hatAut .E6 K (endNodeHat ζ) =

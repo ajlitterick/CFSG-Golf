@@ -135,24 +135,5 @@ theorem conj_not_mem_of_forall_mem_closure_odd (hOut : IsPGroup 2 (Outer L)) {t 
     rw [h, ht]
   exact conj_ne_of_mem_closure_odd hOut htC ht htL hCN hK (hodd _ hgL h2) g rfl
 
-theorem not_forall_commute_sylow_of_mem_closure_odd (hOut : IsPGroup 2 (Outer L)) {t : G}
-    (htC : t ∈ centralizer (L : Set G)) (ht : orderOf t = 2) (htL : t ∉ L)
-    (hCN : centralizer ({t} : Set G) ≤ normalizer (L : Set G))
-    (hK : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (hodd : ∀ (U : Sylow 2 L) (z : L), z ≠ 1 → (∀ u ∈ (U : Subgroup L), u * z = z * u) →
-      (z : G) ∈ closure {c : G | c ∈ L ∧ c * z = z * c ∧ Odd (orderOf c)}) :
-    ∀ (U : Sylow 2 L) (g : G), g⁻¹ * t * g ∈ L →
-      ¬ ∀ u ∈ (U : Subgroup L), (u : G) * (g⁻¹ * t * g) = (g⁻¹ * t * g) * u := by
-  intro U g hgL hU
-  have hne : (⟨g⁻¹ * t * g, hgL⟩ : L) ≠ 1 := by
-    intro h1
-    have h1' : g⁻¹ * t * g = 1 := congrArg Subtype.val h1
-    have ht1 : t = 1 := by
-      calc t = g * (g⁻¹ * t * g) * g⁻¹ := by group
-        _ = 1 := by rw [h1']; group
-    rw [ht1, orderOf_one] at ht
-    exact absurd ht (by decide)
-  exact conj_ne_of_mem_closure_odd hOut htC ht htL hCN hK
-    (hodd U ⟨g⁻¹ * t * g, hgL⟩ hne fun u hu => Subtype.ext (hU u hu)) g rfl
 
 end CFSG.SeitzReduction.SeitzQ2

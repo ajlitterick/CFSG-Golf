@@ -64,8 +64,5 @@ open scoped commutatorElement
 
 local notation "LTag" => CFSG.Assembly.LowTwoRank.StatedLieTag
 
-variable {p : ℕ} [Fact p.Prime]
-
-variable {f : ℕ} {X : Type} [Group X] {Φ : Set (Subgroup X)}
 
 end CFSG.ClassicalInvolution.RouteD.TWR

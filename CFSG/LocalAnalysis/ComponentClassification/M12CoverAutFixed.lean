@@ -499,9 +499,6 @@ theorem card_eq_four_iff {H : Subgroup NativeSporadic.M12} (hH : H ≤ fixedD) :
     rw [← conjIndex_mul (mem_fixedD.1 d.2) (mem_fixedD.1 (d⁻¹).2)]
     simp [conjIndex_one]
 
-theorem fivePointPerm_apply (d : fixedD) (i : Fin 5) :
-    fivePointPerm d i = conjIndex (d : Equiv.Perm (Fin 12)) i :=
-  rfl
 
 @[expose] def fivePointHom : fixedD →* Equiv.Perm (Fin 5) where
   toFun := fivePointPerm

@@ -17,8 +17,6 @@ open CFSG.CosetTable
 @[expose] def relsP6 (_ : Unit := ()) : List (List (Fin 18 × Bool)) :=
   relsP ++ farRels
 
-@[expose] def checkIndex2016 (_ : Unit := ()) : Bool :=
-  subsetCheckShortCC (relsP6 ()) chart5 13 2000000 2016
 
 end CFSG.StandardType.QTwo.SixPoint
 

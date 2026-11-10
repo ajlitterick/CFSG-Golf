@@ -36,13 +36,6 @@ theorem mem_centralizer_of_odd_orderOf {X : Type*} [Group X] {B : Subgroup X} [B
     g ∈ centralizer (B : Set X) :=
   mem_centralizer_of_odd_orderOf_of_forall (fun _ hφ => eq_one_of_odd_orderOf_of_isPGroup hB hφ) hg
 
-theorem closure_odd_orderOf_le_centralizer {X : Type*} [Group X] {B : Subgroup X} [B.Normal]
-    (hB : IsPGroup 2 (MulAut B)) : closure {g : X | Odd (orderOf g)} ≤ centralizer (B : Set X) :=
-  (closure_le _).2 fun _ hg => mem_centralizer_of_odd_orderOf hB hg
-
-theorem le_centralizer_closure_odd_orderOf {X : Type*} [Group X] {B : Subgroup X} [B.Normal]
-    (hB : IsPGroup 2 (MulAut B)) : B ≤ centralizer (closure {g : X | Odd (orderOf g)} : Set X) :=
-  le_centralizer_iff.2 (closure_odd_orderOf_le_centralizer hB)
 
 theorem zmodFour_eq_pow (w : Multiplicative (ZMod 4)) :
     w = Multiplicative.ofAdd (1 : ZMod 4) ^ (Multiplicative.toAdd w).val := by

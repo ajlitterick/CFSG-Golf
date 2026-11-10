@@ -128,30 +128,6 @@ theorem ggDepEL_card_dvd {S S' : Set (Module.End (ZMod 3) (GGDepAE 3 6))}
   have hdv := Subgroup.card_dvd_of_le hle
   rwa [hcard', hcard] at hdv
 
-theorem ggDepEL_center_of_card {S S' : Set (Module.End (ZMod 3) (GGDepAE 3 6))}
-    (hsub : S' ⊆ Submonoid.closure S)
-    (hcard : Nat.card ↥(Submonoid.closure S) = Nat.card ↥(Submonoid.closure S'))
-    (a : Module.End (ZMod 3) (GGDepAE 3 6)) (hcomm : ∀ t ∈ S', a * t = t * a) :
-    ∀ g ∈ Submonoid.closure S, a * g = g * a := by
-  let M := Module.End (ZMod 3) (GGDepAE 3 6)
-  haveI : Finite M :=
-    Finite.of_injective (fun f : M => (f : GGDepAE 3 6 → GGDepAE 3 6)) LinearMap.coe_injective
-  have hle : Submonoid.closure S' ≤ Submonoid.closure S := Submonoid.closure_le.mpr hsub
-  have hset : (Submonoid.closure S' : Set M) = (Submonoid.closure S : Set M) :=
-    Set.Finite.eq_of_subset_of_card_le (Set.toFinite (Submonoid.closure S : Set M))
-      (fun x hx => hle hx) (le_of_eq hcard)
-  intro g hg
-  have hg' : g ∈ (Submonoid.closure S' : Set M) := by
-    rw [hset]
-    exact hg
-  refine Submonoid.closure_induction (fun t ht => hcomm t ht) ?_ ?_ hg'
-  · rw [mul_one, one_mul]
-  · intro x y _ _ hx hy
-    calc a * (x * y) = (a * x) * y := (mul_assoc a x y).symm
-      _ = (x * a) * y := by rw [hx]
-      _ = x * (a * y) := mul_assoc x a y
-      _ = x * (y * a) := by rw [hy]
-      _ = (x * y) * a := (mul_assoc x y a).symm
 
 end CFSG.StandardType
 

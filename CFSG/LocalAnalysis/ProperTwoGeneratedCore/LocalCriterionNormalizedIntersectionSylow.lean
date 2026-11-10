@@ -10,12 +10,6 @@ universe u
 
 variable {G : Type u} [Group G] {p : ℕ}
 
-theorem intersection_normal_in_second (X E : Subgroup G)
-    (hEX : E ≤ Subgroup.normalizer (X : Set G)) :
-    ((X ⊓ E).subgroupOf E).Normal := by
-  apply (Subgroup.normal_subgroupOf_iff_le_normalizer inf_le_right).mpr
-  exact (le_inf hEX E.le_normalizer).trans
-    Subgroup.inf_normalizer_le_normalizer_inf
 
 theorem sylow_intersection_extension (X E : Subgroup G)
     (Q : Sylow p (X ⊓ E : Subgroup G)) :

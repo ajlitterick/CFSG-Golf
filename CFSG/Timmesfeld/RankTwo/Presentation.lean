@@ -205,23 +205,6 @@ section RankTwoRecognition
 
 variable {F : Type} [Field F] [Finite F] {p f : ℕ} {G : Type} [Group G]
 
-theorem exists_lieModel_of_coneCompatible_SL3 (hp : p.Prime) (hf : 1 ≤ f)
-    (hF : Nat.card F = p ^ f) (hZ : Subgroup.center G = ⊥)
-    {φ : ∀ γ, (Universal.SpecialLinear.rootDatum 2 F).rootGroup γ → G}
-    (h : ConeCompatible (Steinberg.RootSystem.ofCartan
-      (Universal.SpecialLinear.rootDatum 2 F).isFiniteType
-      (Universal.SpecialLinear.rootDatum 2 F).divisible)
-      (Universal.SpecialLinear.rootDatum 2 F).rootGroup φ)
-    (hgen : Subgroup.closure
-      (⋃ γ ∈ (Universal.SpecialLinear.rootDatum 2 F).roots, Set.range (φ γ)) = ⊤)
-    (hnt : ∃ γ ∈ (Universal.SpecialLinear.rootDatum 2 F).roots, ∃ x, φ γ x ≠ 1) :
-    ∃ ψ : Matrix.SpecialLinearGroup (Fin (2 + 1)) F →* G,
-      (∀ γ ∈ (Universal.SpecialLinear.rootDatum 2 F).roots,
-        ∀ x : (Universal.SpecialLinear.rootDatum 2 F).rootGroup γ, ψ x = φ γ x) ∧
-      Function.Surjective ψ ∧ ψ.ker = Subgroup.center _ ∧ LieModel G .PSL 3 p f :=
-  exists_lieModel_of_coneCompatible (presentationA_SL3 F)
-    (Universal.SpecialLinear.isQuasisimple 2 F le_rfl) (lieModel_SL3_quotient hp hf hF) hZ h
-    hgen hnt
 
 theorem exists_lieModel_of_coneCompatible_G2 (hp : p.Prime) (hf : 1 ≤ f) (hq : 3 ≤ p ^ f)
     (hF : Nat.card F = p ^ f) (hZ : Subgroup.center G = ⊥)
@@ -354,80 +337,6 @@ end Pairs
 
 section CurtisTits
 
-variable {K : Type} [Group K] {D : Universal.UniversalRootDatum K} {t : StatedLieTag}
-  {n p f : ℕ}
-
-theorem lieModel_of_curtisTitsConclusion (hCT : CurtisTits.CurtisTitsConclusion.{w} D t n p f)
-    {G : Type} [Group G] (hZ : Subgroup.center G = ⊥) (φ : ∀ J, D.leviAmalgam J →* G)
-    (hφ : CurtisTits.IsCompatible D.leviAmalgam φ) (hgen : ⨆ J, (φ J).range = ⊤)
-    (hnt : ∃ J, ∃ x, φ J x ≠ 1) :
-    ∃ ψ : K →* G, (∀ J (x : D.leviAmalgam J), ψ x = φ J x) ∧ Function.Surjective ψ ∧
-      ψ.ker = Subgroup.center K ∧ LieModel G t n p f := by
-  obtain ⟨ψ, hψ, hsurj, hker, -, hZK, -, hmodel⟩ := hCT.2.2.1 G φ hφ hgen hnt
-  refine ⟨ψ, hψ, hsurj, le_antisymm hker fun z hz => ?_, lieModel_of_center_eq_bot hZ hmodel⟩
-  have : ψ z ∈ Subgroup.center G := hZK ▸ Subgroup.mem_map_of_mem ψ hz
-  rw [hZ, Subgroup.mem_bot] at this
-  exact this
-
-theorem lieModel_of_curtisTitsConclusion_of_pairs
-    (hCT : CurtisTits.CurtisTitsConclusion.{w} D t n p f) {G : Type} [Group G]
-    (hZ : Subgroup.center G = ⊥) {φ₁ : ∀ i, CurtisTits.rankOne D.rootGroup i →* G}
-    {φ₂ : ∀ i j, CurtisTits.levi D.rootGroup {i, j} →* G} (h : PairCompatible φ₁ φ₂)
-    (hgen : ⨆ i, (φ₁ i).range = ⊤) (hnt : ∃ i, ∃ x, φ₁ i x ≠ 1) :
-    ∃ ψ : K →* G, (∀ i j (x : CurtisTits.levi D.rootGroup {i, j}), ψ x = φ₂ i j x) ∧
-      Function.Surjective ψ ∧ ψ.ker = Subgroup.center K ∧ LieModel G t n p f := by
-  have hsingle : ∀ k, ({k} : Finset (Fin D.rank)).card ≤ 2 := fun k => by simp
-  have hmem : ∀ k, ∀ x ∈ CurtisTits.rankOne D.rootGroup k, x ∈ CurtisTits.levi D.rootGroup {k} :=
-    fun k x hx => by rw [CurtisTits.levi_singleton]; exact hx
-  have hrank : ∀ k (x : CurtisTits.rankOne D.rootGroup k),
-      pairFamily φ₂ ⟨{k}, hsingle k⟩ ⟨x.1, hmem k x.1 x.2⟩ = φ₁ k x :=
-    fun k x => h.pairFamily_singleton k (hsingle k) x.1 (hmem k x.1 x.2) x.2
-  have hgen' : ⨆ J, (pairFamily φ₂ J).range = ⊤ := by
-    rw [eq_top_iff, ← hgen]
-    refine iSup_le fun k => ?_
-    rintro _ ⟨x, rfl⟩
-    exact Subgroup.mem_iSup_of_mem (⟨{k}, hsingle k⟩ : {J : Finset (Fin D.rank) // J.card ≤ 2})
-      ⟨_, hrank k x⟩
-  have hnt' : ∃ J, ∃ x, pairFamily φ₂ J x ≠ 1 := by
-    obtain ⟨k, x, hx⟩ := hnt
-    exact ⟨⟨{k}, hsingle k⟩, _, (hrank k x).trans_ne hx⟩
-  obtain ⟨ψ, hψ, hsurj, hker, hmodel⟩ :=
-    lieModel_of_curtisTitsConclusion hCT hZ (pairFamily φ₂) h.isCompatible hgen' hnt'
-  refine ⟨ψ, fun i j x => ?_, hsurj, hker, hmodel⟩
-  have hJ : ({i, j} : Finset (Fin D.rank)).card ≤ 2 := Finset.card_le_two
-  exact (hψ ⟨{i, j}, hJ⟩ x).trans (h.pairFamily_apply i j hJ x.1 x.2)
-
-theorem exists_surjective_of_curtisTitsConclusion
-    (hCT : CurtisTits.CurtisTitsConclusion.{w} D t n p f) {G : Type} [Group G]
-    (M : {J : Finset (Fin D.rank) // J.card ≤ 2} → Subgroup G) (hMgen : ⨆ J, M J = ⊤)
-    (ψ : ∀ J, D.leviAmalgam J →* M J) (hψ : ∀ J, Function.Surjective (ψ J))
-    (hcomp : ∀ I J, I ≤ J → ∀ (x : D.leviAmalgam I) (y : D.leviAmalgam J), (x : K) = y →
-      (ψ I x : G) = ψ J y)
-    (hnt : ∃ J, M J ≠ ⊥) :
-    ∃ θ : K →* G, (∀ J (x : D.leviAmalgam J), θ x = ψ J x) ∧ Function.Surjective θ ∧
-      θ.ker ≤ Subgroup.center K ∧ IsQuasisimple G ∧
-      LieModel (G ⧸ Subgroup.center G) t n p f := by
-  let φ : ∀ J, D.leviAmalgam J →* G := fun J => (M J).subtype.comp (ψ J)
-  have hrange : ∀ J, (φ J).range = M J := by
-    intro J
-    ext g
-    constructor
-    · rintro ⟨x, rfl⟩
-      exact (ψ J x).2
-    · intro hg
-      obtain ⟨x, hx⟩ := hψ J ⟨g, hg⟩
-      exact ⟨x, by simp [φ, hx]⟩
-  have hnt' : ∃ J, ∃ x, φ J x ≠ 1 := by
-    obtain ⟨J, hJ⟩ := hnt
-    obtain ⟨g, hg1⟩ := (Subgroup.ne_bot_iff_exists_ne_one).mp hJ
-    obtain ⟨x, hx⟩ := hψ J g
-    refine ⟨J, x, fun h => hg1 (Subtype.ext ?_)⟩
-    rw [← hx]
-    exact h
-  obtain ⟨θ, hθ, hsurj, hker, hGq, -, -, hmodel⟩ :=
-    hCT.2.2.1 G φ (fun I J hIJ x y hxy => hcomp I J hIJ x y hxy)
-      (by simpa only [hrange] using hMgen) hnt'
-  exact ⟨θ, hθ, hsurj, hker, hGq, hmodel⟩
 
 end CurtisTits
 

@@ -161,9 +161,6 @@ theorem psiOf_self
 theorem coe_centralizerConjEquiv {d a : G} (g : G) (hg : g * d * g⁻¹ = a)
     (x : Subgroup.centralizer {a}) : (centralizerConjEquiv g hg x : G) = g⁻¹ * x * g := rfl
 
-theorem coe_centralizerConjEquiv_symm {d a : G} (g : G) (hg : g * d * g⁻¹ = a)
-    (y : Subgroup.centralizer {d}) :
-    ((centralizerConjEquiv g hg).symm y : G) = g * y * g⁻¹ := rfl
 
 @[expose] def conjugator {d a : G} (ha : IsConj d a) : G := Classical.choose (isConj_iff.1 ha)
 
@@ -176,10 +173,6 @@ theorem conjugator_spec {d a : G} (ha : IsConj d a) :
     (ha : IsConj d a) : Subgroup.centralizer {a} ≃* vStab cv0 :=
   (centralizerConjEquiv (conjugator ha) (conjugator_spec ha)).trans ψ
 
-theorem psiAt_apply
-    {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) {a : G}
-    (ha : IsConj d a) (x : Subgroup.centralizer {a}) :
-    psiAt ψ ha x = ψ (centralizerConjEquiv (conjugator ha) (conjugator_spec ha) x) := rfl
 
 theorem psiAt_self
     {d : G} (hd : d ≠ 1) (ψ : Subgroup.centralizer {d} ≃* vStab cv0) {a : G}
@@ -188,42 +181,6 @@ theorem psiAt_self
   subst h
   exact isConj_one_left.1 ha
 
-theorem psiAt_eq_conj
-    {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) {a : G}
-    (ha : IsConj d a) (g : G) (hg : g * d * g⁻¹ = a) :
-    ∃ y : vStab cv0, ∀ x : Subgroup.centralizer {a},
-      psiAt ψ ha x = y * ψ (centralizerConjEquiv g hg x) * y⁻¹ := by
-  set g₀ := conjugator ha with hg₀
-  have h₀ : g₀ * d * g₀⁻¹ = a := conjugator_spec ha
-  have hk : g₀⁻¹ * g ∈ Subgroup.centralizer {d} := by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    calc g₀⁻¹ * g * d = g₀⁻¹ * (g * d * g⁻¹) * g := by group
-      _ = g₀⁻¹ * (g₀ * d * g₀⁻¹) * g := by rw [hg, h₀]
-      _ = d * (g₀⁻¹ * g) := by group
-  refine ⟨ψ ⟨_, hk⟩, fun x => ?_⟩
-  rw [psiAt_apply, ← map_inv, ← map_mul, ← map_mul]
-  refine congrArg ψ (Subtype.ext ?_)
-  show g₀⁻¹ * (x : G) * g₀ = g₀⁻¹ * g * (g⁻¹ * x * g) * (g₀⁻¹ * g)⁻¹
-  group
-
-theorem psiAt_conj
-    {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) {a b : G}
-    (ha : IsConj d a) (hb : IsConj d b) (h : G) (hab : h * a * h⁻¹ = b) :
-    ∃ y : vStab cv0, ∀ x : Subgroup.centralizer {a},
-      psiAt ψ hb ((centralizerConjEquiv h hab).symm x) = y * psiAt ψ ha x * y⁻¹ := by
-  have h₀ := conjugator_spec ha
-  have hg : h * conjugator ha * d * (h * conjugator ha)⁻¹ = b :=
-    calc h * conjugator ha * d * (h * conjugator ha)⁻¹ =
-        h * (conjugator ha * d * (conjugator ha)⁻¹) * h⁻¹ := by group
-      _ = b := by rw [h₀, hab]
-  obtain ⟨y, hy⟩ := psiAt_eq_conj ψ hb _ hg
-  refine ⟨y, fun x => ?_⟩
-  rw [hy, psiAt_apply]
-  congr 3
-  refine Subtype.ext ?_
-  show (h * conjugator ha)⁻¹ * (h * (x : G) * h⁻¹) * (h * conjugator ha) =
-    (conjugator ha)⁻¹ * x * conjugator ha
-  group
 
 theorem natCard_centralizer_of_equiv
     {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) :
@@ -252,32 +209,5 @@ theorem natCard_conjugatesOf (d : G) :
 
 abbrev dClass (d : G) : Set G := conjugatesOf d
 
-theorem card_dClass_mul
-    {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) :
-    Nat.card (dClass d) * 306129918735099415756800 = Nat.card G := by
-  rw [natCard_conjugatesOf, ← natCard_centralizer_of_equiv ψ, mul_comm]
-  exact (Subgroup.centralizer {d}).card_mul_index
-
-theorem gside_setup
-    (d₀ : NativeSporadic.B) (hd₀ : orderOf d₀ = 2)
-    (hrank : Matrix.rank (d₀.val.val - 1) = 1860)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (d : G) (hd : orderOf d = 2)
-    (φ : Subgroup.centralizer {d} ≃* Subgroup.centralizer {d₀}) :
-    psiOf hd₀ hrank φ ⟨d, mem_centralizer_singleton_self d⟩ = cV0 ∧
-    (∀ (a : G) (ha : IsConj d a),
-      psiAt (psiOf hd₀ hrank φ) ha ⟨a, mem_centralizer_singleton_self a⟩ = cV0) ∧
-    (∀ (a b : G) (ha : IsConj d a) (hb : IsConj d b) (h : G) (hab : h * a * h⁻¹ = b),
-      ∃ y : vStab cv0, ∀ x : Subgroup.centralizer {a},
-        psiAt (psiOf hd₀ hrank φ) hb ((centralizerConjEquiv h hab).symm x) =
-          y * psiAt (psiOf hd₀ hrank φ) ha x * y⁻¹) ∧
-    Nat.card (Subgroup.centralizer {d}) = 306129918735099415756800 ∧
-    Nat.card (conjugatesOf d) = (Subgroup.centralizer {d}).index := by
-  have hd1 : d ≠ 1 := by
-    rintro rfl
-    rw [orderOf_one] at hd
-    exact absurd hd (by norm_num)
-  exact ⟨psiOf_self hd₀ hrank hd1 φ, fun a ha => psiAt_self hd1 _ ha,
-    fun a b ha hb h hab => psiAt_conj _ ha hb h hab,
-    natCard_centralizer_of_equiv (psiOf hd₀ hrank φ), natCard_conjugatesOf d⟩
 
 end CFSG.Monster.B.GSide

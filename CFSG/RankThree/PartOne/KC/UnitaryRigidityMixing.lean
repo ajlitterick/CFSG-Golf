@@ -246,7 +246,6 @@ open CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher CFSG.ClassicalGroups.Unit
 variable {ℓ f n p : ℕ} {K : Type} [Field K] {h : UnitaryFieldData ℓ f K}
   {Ahat : Subgroup (gramSU h (idGram K n))}
 
-theorem act_planeRep_eq_xlin (t : ↥Ahat) : act (planeRep h n Ahat) t = xlin h n t.1 := rfl
 
 theorem lineSpace_stable (S : PlaneSetup h n p Ahat) (y : ↥Ahat) {L : Subgroup ↥Ahat}
     {s : Fin n → K} (hs : s ∈ lineSpace (planeRep h n Ahat) (idForm h n) L) :

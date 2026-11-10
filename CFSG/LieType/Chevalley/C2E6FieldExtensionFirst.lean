@@ -31,8 +31,6 @@ theorem barSUHom_barSUHom (h : SU6) : barSUHom (barSUHom h) = h := by
     left_inv := barSUHom_barSUHom
     right_inv := barSUHom_barSUHom }
 
-theorem frobSU_apply (h : SU6) : frobSU h = barSU h :=
-  rfl
 
 abbrev ZSU : Subgroup SU6 := (LinearFlag.scalars 6 K).subgroupOf SU6
 
@@ -394,37 +392,9 @@ theorem thetaFirst_surjective
     · rw [thetaFirst_right, betaGroupHom_of_eq_betaG _ rfl]
       exact Subtype.ext hf.symm
 
-theorem forall_smul_eq_iff_first
-    (γ : parStar firstJ) :
-    (∀ x ∈ baseResidue firstJ, γ.1 • x = x) ↔
-      (γ.1.right : MulAut stdGroup) = 1 ∧ (γ.1.left : ModGL Tag.E6 K) ∈ stdRadical firstJ := by
-  rw [forall_smul_eq_iff, ← thetaFirst_eq_one_iff]
-  constructor
-  · intro h
-    refine eq_one_of_forall_smul_SUFrob fun F => ?_
-    obtain ⟨y, rfl⟩ := residueFlag.surjective F
-    rw [← residueFlag_parSmul_first, h y]
-  · intro h y
-    apply residueFlag.injective
-    rw [residueFlag_parSmul_first, h, one_smul]
-
 
 theorem SUFrob_smul_one (h : SU6) (F : IsoFlag6) : (⟨(h : SU6 ⧸ ZSU), 1⟩ : SUFrob) • F = h • F := by
   rw [SUFrob_smul_def, frobAct_of_eq_one rfl, qSmul_mk]
 
-theorem SUFrob_smul_frob (h : SU6) (F : IsoFlag6) :
-    (⟨(h : SU6 ⧸ ZSU), ⟨frobAut, Subgroup.mem_zpowers _⟩⟩ : SUFrob) • F = h • frobFlag F := by
-  rw [SUFrob_smul_def, frobAct_of_eq_frobAut rfl, qSmul_mk]
-
-theorem thetaFirst_right_of_eq_one
-    {γ : parStar firstJ}
-    (h : (γ.1.right : MulAut stdGroup) = 1) : (thetaFirst γ).right = 1 :=
-  betaGroupHom_of_eq_one _ h
-
-theorem thetaFirst_right_of_eq_betaG
-    {γ : parStar firstJ}
-    (h : (γ.1.right : MulAut stdGroup) = betaG) :
-    ((thetaFirst γ).right : MulAut (SU6 ⧸ ZSU)) = frobAut :=
-  congrArg Subtype.val (betaGroupHom_of_eq_betaG _ h)
 
 end CFSG.LieType.Chevalley.C2E6Std.FieldExtension

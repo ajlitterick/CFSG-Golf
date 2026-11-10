@@ -106,10 +106,6 @@ theorem coe_adjEquiv (g : adjointGroup t F) :
     ((adjEquiv σ t g : adjointGroup t K) : ModGL t K) = baseChangeGL σ.toRingHom g :=
   rfl
 
-theorem coe_adjEquiv_symm (g : adjointGroup t K) :
-    (((adjEquiv σ t).symm g : adjointGroup t F) : ModGL t F) =
-      baseChangeGL σ.symm.toRingHom g :=
-  rfl
 
 theorem baseChangeGL_conj_rootDiag (a : Fin t.rank → Fˣ) (g : ModGL t F) :
     baseChangeGL σ.toRingHom (rootDiagUnit t a * g * (rootDiagUnit t a)⁻¹) =

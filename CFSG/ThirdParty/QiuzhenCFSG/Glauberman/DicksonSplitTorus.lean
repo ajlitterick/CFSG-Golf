@@ -567,24 +567,6 @@ public theorem huppert_II_8_3_split_torus_reflection_data
     simpa [splitWeylZ] using
       hsplit_normalizer_eq_candidate R hR hRne
 
-/-- Huppert II.8.3(a,c), in the normalizer-card form used in II.8.22. -/
-public theorem huppert_II_8_3_split_torus_normalizer_card
-    {F : Type u} [Field F] [Finite F] {p f : ℕ} [Fact p.Prime]
-    (hFcard : Nat.card F = p ^ f) :
-    ∃ U : Subgroup (PSL2MatrixGroup F),
-      IsCyclic U ∧
-      Nat.card U =
-        (Nat.card F - 1) / Nat.gcd (Nat.card F - 1) 2 ∧
-      ∀ R : Subgroup (PSL2MatrixGroup F), R ≤ U → R ≠ ⊥ →
-        Nat.card (Subgroup.normalizer (R : Set (PSL2MatrixGroup F))) =
-          2 * Nat.card U := by
-  obtain ⟨U, w, hUcyclic, hUcard, _hwN, _hwU, _hwsq, _hwinv,
-      hcandidate_card, hnormalizer⟩ :=
-    huppert_II_8_3_split_torus_reflection_data hFcard
-  refine ⟨U, hUcyclic, hUcard, ?_⟩
-  intro R hR hRne
-  rw [hnormalizer R hR hRne, hcandidate_card]
-
 
 end Dickson
 end CFSG.Glauberman

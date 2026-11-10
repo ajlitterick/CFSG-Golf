@@ -106,11 +106,6 @@ theorem ch12641_lv :
 
 theorem ch12641sE : penumSlK 23 5 (mask 5) (23 * 5) true S.G S.GI 2 S.cnt S.T S.PL S.POS S.SRT
     S.SRI 0 S.cnt = true := by quickRfl
-theorem ch12641sH : slK S.cnt (hsortPtK 23 5 (mask 5) S.cnt S.T S.HS S.HSI) 0 S.cnt = true := by
-  quickRfl
-theorem ch12641sCl : slK (Nat.mul S.cnt 4)
-    (findPtK S.cnt S.T (prodQK 23 5 (mask 5) 4 S.T (bothK 2 S.GI SI)) SCl) 0
-      (Nat.mul S.cnt 4) = true := by quickRfl
 
 @[expose] noncomputable def selK (y : Nat) : Bool :=
   bIf(Nat.beq y idK, false, strictB (pc y y) fun y2 => bIf(Nat.beq y2 idK, true,

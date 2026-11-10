@@ -10,17 +10,6 @@ open CFSG.Open CFSG.ClassicalInvolution.Generic
 
 variable (p f : ℕ) [Fact p.Prime]
 
-theorem l6_7_of_l6_6 (h : L6_6 p f) : L6_7 p f := by
-  intro hp hq G _ _ Ω hΩ S R hR R' hR' hRS hR'S hne
-  refine h hp hq G Ω hΩ (S : Subgroup G) S.isPGroup' {A | A ∈ RSet Ω ∧ A ≤ (S : Subgroup G)}
-    (fun A hA => hA.2) ?_ (Or.inl fun A hA => hA.1) R ⟨hR, hRS⟩ R' ⟨hR', hR'S⟩ hne
-  intro A hA s hs
-  refine ⟨RSet.conj hΩ.conjInvariant hA.1 s, fun x hx => ?_⟩
-  rw [mem_conjSub_iff] at hx
-  have h1 : s⁻¹ * x * s ∈ (S : Subgroup G) := hA.2 hx
-  have h2 : x = s * (s⁻¹ * x * s) * s⁻¹ := by group
-  rw [h2]
-  exact Subgroup.mul_mem _ (Subgroup.mul_mem _ hs h1) (Subgroup.inv_mem _ hs)
 
 theorem e18_8z_of_e18_7 (h : E18_7 p f) : E18_8z p f := by
   intro G _ _ Ω K S R W H c a hz

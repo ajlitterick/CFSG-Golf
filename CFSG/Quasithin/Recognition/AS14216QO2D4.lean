@@ -272,7 +272,6 @@ theorem pCoreOf_le_pCoreOf_of_d4 {X K1 : Subgroup G} (hKX : K1 ≤ X)
       exact hWQ ▸ (inf_le_right : Q ⊓ K1 ≤ K1)
   exact le_pCoreOf_of_le_normalizer 2 hQK (hKX.trans hXQ) hQ2
 
-variable {T M H K1 : Subgroup G}
 
 end Main
 

@@ -110,7 +110,5 @@ structure CensusLine where
     (j1W ++ j2W ++ tj12W, tj12W ++ tStarW)] ++
   censusLines.map fun e => (lineRepW e ++ lineConjW e, lineConjW e ++ powL e.lam (lineTargetW e))
 
-@[expose] def thirteenADataCheck (_ : Unit := ()) : Bool :=
-  agreeAll thirteenAPairs && movesSome j1W && movesSome j2W && movesSome (j1W ++ j2W)
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.MonsterThirteen

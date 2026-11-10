@@ -63,9 +63,6 @@ structure CertFacts (c : ℕ) : Prop where
   b0 : ap betaT 0 = 2
   tables : TableFacts c
 
-theorem certFacts_of {c : ℕ} (h : thCertificate c = true) : CertFacts c := by
-  obtain ⟨hc, ho, hd, ha, hb, hbi, ha0, hb0, ht⟩ := thCertificate_parts h
-  exact ⟨orbitFacts_of_orbitOK ho, hc, hd, ha, hb, hbi, ha0, hb0, tableChecks_parts ht⟩
 
 theorem rep_letters_inv {G : Type*} [Group G] [MulAction G (Fin nX)] {P₁ P₂ : Table} {g h : G}
     (h₁ : Rep nX P₁ g⁻¹) (h₂ : Rep nX P₂ h⁻¹) (s : ℕ) :

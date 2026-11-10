@@ -51,9 +51,6 @@ theorem qTwoSixGen_nativeSu_swap_matrix {K : Type} [Field K] [Finite K] [CharP K
     fin_cases i <;> decide
   rw [hF, qTwoSixGen_permMatrix_map]
 
-@[expose] def qTwoSixGen_J5 : Finset (Fin 6) := {0, 1, 2, 3, 4}
-
-theorem qTwoSixGen_J5_card : qTwoSixGen_J5.card = 5 := by decide
 
 private theorem qTwoSixGen_fin5_notMem (a : Fin 6) (ha : a ∉ qTwoSixGen_J0123) (h5 : a.val < 5) :
     (⟨a.val, h5⟩ : Fin 5) ∉ ({0, 1, 2, 3} : Finset (Fin 5)) := by

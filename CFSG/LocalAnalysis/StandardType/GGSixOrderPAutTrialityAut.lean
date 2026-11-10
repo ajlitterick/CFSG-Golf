@@ -64,12 +64,6 @@ theorem autHom_injective (hinj : Function.Injective ι) (hrange : ι.range = G�
   rw [hC, Subgroup.mem_bot] at hcen
   exact Subtype.ext hcen
 
-theorem mem_of_autHom_mem_inner (hinj : Function.Injective ι) (hrange : ι.range = G₀)
-    (hC : Subgroup.centralizer (G₀ : Set G) = ⊥) {m : Subgroup.normalizer (G₀ : Set G)}
-    (h : autHom hinj hrange m ∈ Inn Γ) : (m : G) ∈ G₀ := by
-  have h1 := L613KG.mem_range_of_mulAut_mem_inner (by rw [hrange]; exact hC)
-    (autHom_apply hinj hrange m) h
-  rwa [hrange] at h1
 
 theorem autHom_mem_inner_of_mem (hinj : Function.Injective ι) (hrange : ι.range = G₀)
     {m : Subgroup.normalizer (G₀ : Set G)} (h : (m : G) ∈ G₀) :

@@ -24,6 +24,5 @@ variable {G : Type} [Group G]
     (LieModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 3 2 1 →
       CharNormal (baum (pCoreOf 2 (Lp ⊔ T))) (L ⊔ T) ∨ IsLnBlock L 3)
 
-variable [CFSG.GH74.QTGen4.Finite4 G]
 
 end CFSG.Quasithin.H13.U3

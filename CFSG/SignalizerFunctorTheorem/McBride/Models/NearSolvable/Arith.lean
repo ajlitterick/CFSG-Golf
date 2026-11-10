@@ -62,10 +62,6 @@ theorem two_pow_mod_nine {p : ℕ} (hp : p % 6 = 1 ∨ p % 6 = 5) :
   rw [pow_mod_eq_pow_mod_mod (n := 6) (by norm_num)]
   rcases hp with h | h <;> rw [h] <;> norm_num
 
-theorem three_pow_sq_mod_sixteen {p : ℕ} (hp : Odd p) : (3 ^ p) ^ 2 % 16 = 9 := by
-  rw [← pow_mul, mul_comm, pow_mul, pow_mod_eq_pow_mod_mod (n := 2) (by norm_num),
-    Nat.odd_iff.mp hp]
-  norm_num
 
 theorem prime_mod_six {p : ℕ} (hp : p.Prime) (h2 : p ≠ 2) (h3 : p ≠ 3) :
     p % 6 = 1 ∨ p % 6 = 5 := by
@@ -150,12 +146,6 @@ theorem odd_two_pow_sq_sub_one {p : ℕ} (hp : 1 ≤ p) : Odd ((2 ^ p) ^ 2 - 1) 
   rw [Nat.odd_iff]
   omega
 
-theorem not_two_pow_succ_dvd_psl2 {p : ℕ} (hp : 1 ≤ p) :
-    ¬ 2 ^ (p + 1) ∣ 2 ^ p * ((2 ^ p) ^ 2 - 1) := by
-  rw [pow_succ]
-  intro hd
-  have h2 := (Nat.mul_dvd_mul_iff_left (Nat.two_pow_pos p)).mp hd
-  exact (Nat.not_even_iff_odd.mpr (odd_two_pow_sq_sub_one hp)) (even_iff_two_dvd.mpr h2)
 
 theorem not_two_pow_two_mul_succ_dvd_suzuki {p : ℕ} (hp : 1 ≤ p) :
     ¬ 2 ^ (2 * p + 1) ∣ (2 ^ p) ^ 2 * ((2 ^ p) ^ 2 + 1) * (2 ^ p - 1) := by
@@ -171,20 +161,11 @@ theorem not_two_pow_two_mul_succ_dvd_suzuki {p : ℕ} (hp : 1 ≤ p) :
   have hodd2 : Odd (2 ^ p - 1) := Nat.odd_iff.mpr (by omega)
   exact (Nat.not_even_iff_odd.mpr (hodd1.mul hodd2)) (even_iff_two_dvd.mpr h2)
 
-theorem two_pow_succ_dvd_sq {p : ℕ} (hp : 1 ≤ p) : 2 ^ (p + 1) ∣ (2 ^ p) ^ 2 := by
-  rw [← pow_mul]
-  exact pow_dvd_pow 2 (by omega)
 
 theorem two_pow_two_mul_succ_dvd_cube {p : ℕ} (hp : 1 ≤ p) : 2 ^ (2 * p + 1) ∣ (2 ^ p) ^ 3 := by
   rw [← pow_mul]
   exact pow_dvd_pow 2 (by omega)
 
-theorem sq_dvd_suzuki (q : ℕ) : q ^ 2 ∣ q ^ 2 * (q ^ 2 + 1) * (q - 1) :=
-  (dvd_mul_right _ _).mul_right _
-
-theorem eight_dvd_two_pow {p : ℕ} (hp : 3 ≤ p) : 8 ∣ 2 ^ p := pow_dvd_pow 2 hp
-
-theorem nine_dvd_three_pow {p : ℕ} (hp : 2 ≤ p) : 9 ∣ 3 ^ p := pow_dvd_pow 3 hp
 
 theorem twentyseven_dvd_three_pow {p : ℕ} (hp : 3 ≤ p) : 27 ∣ 3 ^ p := pow_dvd_pow 3 hp
 
@@ -208,14 +189,6 @@ theorem three_pow_dvd_psl2_three (p : ℕ) : 3 ^ p ∣ 3 ^ p * ((3 ^ p) ^ 2 - 1)
   rw [Nat.mul_div_assoc _ (two_dvd_three_pow_sq_sub_one p)]
   exact dvd_mul_right _ _
 
-theorem not_eight_dvd_psl2_three {p : ℕ} (hp : Odd p) : ¬ 8 ∣ 3 ^ p * ((3 ^ p) ^ 2 - 1) / 2 := by
-  intro hd
-  have hmod := three_pow_sq_mod_sixteen hp
-  have h1 : 1 ≤ (3 ^ p) ^ 2 := Nat.one_le_pow _ _ (pow_pos (by norm_num) p)
-  rw [Nat.mul_div_assoc _ (two_dvd_three_pow_sq_sub_one p)] at hd
-  have hcop : Nat.Coprime 8 (3 ^ p) := Nat.Coprime.pow_right p (by norm_num)
-  have := hcop.dvd_of_dvd_mul_left hd
-  omega
 
 theorem not_twentyseven_dvd_psu3 {q : ℕ} (h : q % 9 = 2 ∨ q % 9 = 5) :
     ¬ 27 ∣ q ^ 3 * (q ^ 3 + 1) * (q ^ 2 - 1) / 3 := by

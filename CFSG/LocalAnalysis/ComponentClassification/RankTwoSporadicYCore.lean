@@ -104,13 +104,6 @@ theorem commutator_le_inf {A Q T : Subgroup G} (hTQ : T ≤ Q)
   have h2 := Q.mul_mem (hTQ hv) h1
   simpa [mul_assoc] using h2
 
-theorem iSup_inf_centralizer_le {A Q T : Subgroup G}
-    (hQ : ∀ t ∈ T, t ≠ 1 → ∀ c ∈ A, c * t = t * c → c ∈ normalizer (Q : Set G)) :
-    (⨆ t ∈ T, ⨆ (_ : t ≠ 1), A ⊓ centralizer ({t} : Set G)) ≤ A ⊓ normalizer (Q : Set G) := by
-  refine iSup₂_le fun t ht => iSup_le fun ht1 => ?_
-  rintro c ⟨hcA, hct⟩
-  refine ⟨hcA, hQ t ht ht1 c hcA ?_⟩
-  exact (mem_centralizer_iff.mp hct t rfl).symm
 
 theorem inf_normalizer_le_normalizer_inf (A Q : Subgroup G) :
     Q ⊓ normalizer (A : Set G) ≤ normalizer ((A ⊓ Q : Subgroup G) : Set G) := by

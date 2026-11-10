@@ -100,39 +100,6 @@ theorem every_cover_contains_same_perfect_layer {G : Type u} {Q : Type v}
 
 open CFSG.Open CFSG.Semidihedral.ActualSimpleLayerLocalPackage CFSG.Semidihedral.Local
 
-theorem all_local_prime_covers_give_residual_and_containment {G : Type}
-    [Group G] [Finite G] (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (hG : ∀ U : Subgroup G, U.index ≠ 2) (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic U)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (CFSG.generalizedFitting (Gamma t)) .PSL 2 p f)
-    (hcov : ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ∣ Nat.card (N t) → ∃ P : Sylow ℓ (N t),
-      (Subgroup.centralizer (((P : Subgroup (N t)).map (N t).subtype : Subgroup (C t)) :
-        Set (C t)) ⊓ ((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)).map
-          (nu t) = (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)) :
-    let T₀ := (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)
-    let Y := T₀.comap (nu t)
-    let H₀ := Y ⊓ Subgroup.centralizer (N t : Set (C t))
-    let J := (CFSG.perfectResidual H₀).map H₀.subtype
-    J = (CFSG.perfectResidual Y).map Y.subtype ∧
-      ∀ X : Subgroup (C t), X ≤ Y → X.map (nu t) = T₀ →
-        J ≤ X ∧ (CFSG.perfectResidual X).map X.subtype = J := by
-  intro T₀ Y H₀ J
-  obtain ⟨hJperfect, hJnormal, -, hJimage, hJN, hY, -⟩ :=
-    (all_local_prime_centralizer_covers_produce_actual_centralizing_perfect_lift
-      n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel).1 hcov
-  let := hJnormal
-  have hN : Group.IsSolvable (N t) := CFSG.FeitThompson.isSolvable_of_odd_natCard _
-    (Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := C t)))
-  refine ⟨(perfect_residual_of_perfect_solvable_product Y J (N t) hJperfect hN hY).symm, ?_⟩
-  intro X hXY hXimage
-  apply every_cover_contains_same_perfect_layer (nu t) Y J (N t) hJperfect hN hY
-    (QuotientGroup.ker_mk' _) hJN X hXY
-  exact hXimage.trans hJimage.symm
 
 theorem centralizer_zpowers_eq_singleton {G : Type u} [Group G] (t : G) :
     Subgroup.centralizer (Subgroup.zpowers t : Set G) =
@@ -387,64 +354,6 @@ theorem layer_normalizes_from_actual_factorization {G : Type u} {Q : Type v}
     exact (hJX hj).1
   exact ⟨hHB, hCB, hX, hJX, hJB, hJB.trans inf_le_left⟩
 
-theorem actual_local_layer_normalization_of_cover_factorization {G : Type}
-    [Group G] [Finite G] (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (hG : ∀ U : Subgroup G, U.index ≠ 2) (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic U)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (CFSG.generalizedFitting (Gamma t)) .PSL 2 p f)
-    (hcov : ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ∣ Nat.card (N t) → ∃ P : Sylow ℓ (N t),
-      (Subgroup.centralizer (((P : Subgroup (N t)).map (N t).subtype : Subgroup (C t)) :
-        Set (C t)) ⊓ ((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)).map
-          (nu t) = (CFSG.generalizedFitting (Gamma t)).comap (barKappa t))
-    (H : Subgroup G) (htH : t ∈ H)
-    (hJH :
-      let T₀ := (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)
-      let Y := T₀.comap (nu t)
-      let H₀ := Y ⊓ Subgroup.centralizer (N t : Set (C t))
-      ((CFSG.perfectResidual H₀).map H₀.subtype).map (C t).subtype ≤ H)
-    (hfactor : (CFSG.pPrimeCore 2 H) ⊔
-      Subgroup.centralizer ({(⟨t, htH⟩ : H)} : Set H) = ⊤)
-    (hinter : ((CFSG.pPrimeCore 2 H).map H.subtype) ⊓ C t = ((N t).map (C t).subtype) ⊓ H)
-    (ℓ : ℕ) [Fact ℓ.Prime] (W : Sylow ℓ (CFSG.pPrimeCore 2 H))
-    (htW : t ∈ Subgroup.normalizer
-      (((W : Subgroup (CFSG.pPrimeCore 2 H)).map
-        (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)) : Set G)) :
-    let T₀ := (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)
-    let Y := T₀.comap (nu t)
-    let H₀ := Y ⊓ Subgroup.centralizer (N t : Set (C t))
-    let J := (CFSG.perfectResidual H₀).map H₀.subtype
-    let Ra := (CFSG.pPrimeCore 2 H).map H.subtype
-    let Wa := (W : Subgroup (CFSG.pPrimeCore 2 H)).map
-      (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)
-    let A := H ⊓ Subgroup.normalizer (Wa : Set G)
-    let B := A ⊓ C t
-    let X := B.subgroupOf (C t) ⊓ Y
-    J = (CFSG.perfectResidual Y).map Y.subtype ∧
-      (∀ U : Subgroup (C t), U ≤ Y → U.map (nu t) = T₀ → J ≤ U) ∧
-      H = Ra ⊔ B ∧ H ⊓ C t = (Ra ⊓ C t) ⊔ B ∧
-      Ra ⊓ C t = (N t).map (C t).subtype ⊓ H ∧
-      X.map (nu t) = T₀ ∧ J ≤ X ∧ J.map (C t).subtype ≤ B ∧
-      J.map (C t).subtype ≤ A := by
-  intro T₀ Y H₀ J Ra Wa A B X
-  obtain ⟨hres, hcontain⟩ := all_local_prime_covers_give_residual_and_containment
-    n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-  obtain ⟨-, -, -, hJimage, -⟩ :=
-    (all_local_prime_centralizer_covers_produce_actual_centralizing_perfect_lift
-      n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel).1 hcov
-  have hkernel : Ra ⊓ C t ≤ (nu t).ker.map (C t).subtype := by
-    rw [QuotientGroup.ker_mk', hinter]
-    exact inf_le_left
-  have hRodd : Odd (Nat.card (CFSG.pPrimeCore 2 H)) :=
-    Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := H))
-  obtain ⟨hHB, hCB, hX, hJX, hJB, hJA⟩ := layer_normalizes_from_actual_factorization
-    (C t) H (nu t) T₀ J hJH hJimage (fun U hUY hU => (hcontain U hUY hU).1)
-    (CFSG.pPrimeCore 2 H) hRodd t htH ht rfl hfactor hkernel ℓ W htW
-  exact ⟨hres, fun U hUY hU => (hcontain U hUY hU).1, hHB, hCB, hinter, hX, hJX, hJB, hJA⟩
 
 theorem containing_layer_covers_original_preimage {G : Type u} {Q : Type v}
     [Group G] [Group Q] (C H : Subgroup G) (f : C →* Q) (T : Subgroup Q)
@@ -1134,18 +1043,6 @@ theorem isomorphism_transports_original_core_centralizer_factorization
   exact ⟨congrArg (Subgroup.map e.toMonoidHom),
     fun h => Subgroup.map_injective (f := e.toMonoidHom) e.injective h⟩
 
-theorem isomorphism_transports_original_intrinsic_core_centralizer_factorization
-    {G : Type u} {G' : Type v} [Group G] [Group G']
-    (e : G ≃* G') (t : G) (H : Subgroup G) (htH : t ∈ H) :
-    CFSG.pPrimeCore 2 H ⊔
-      Subgroup.centralizer ({(⟨t, htH⟩ : H)} : Set H) = ⊤ ↔
-      CFSG.pPrimeCore 2 (H.map e.toMonoidHom) ⊔ Subgroup.centralizer
-        ({(⟨e t, Subgroup.mem_map_of_mem e.toMonoidHom htH⟩ :
-          H.map e.toMonoidHom)} : Set (H.map e.toMonoidHom)) = ⊤ := by
-  exact (original_core_centralizer_factorization_iff H t htH).trans
-    ((isomorphism_transports_original_core_centralizer_factorization e t H).trans
-      (original_core_centralizer_factorization_iff (H.map e.toMonoidHom) (e t)
-        (Subgroup.mem_map_of_mem e.toMonoidHom htH)).symm)
 
 theorem original_simple_involution_odd_core_eq_bot {G : Type u} [Group G] [Finite G]
     [IsSimpleGroup G] (t : G) (ht : orderOf t = 2) : CFSG.pPrimeCore 2 G = ⊥ := by
@@ -1208,57 +1105,6 @@ theorem isomorphism_maps_original_fourgroup {G : Type u} {G' : Type v}
   rw [MonoidHom.map_closure, Set.image_insert_eq, Set.image_singleton]
   rfl
 
-theorem isomorphism_maps_original_normalizer_and_centralizer
-    {G : Type u} {G' : Type v} [Group G] [Group G']
-    (e : G ≃* G') (t : G) (H W : Subgroup G) :
-    let A := H ⊓ Subgroup.normalizer (W : Set G)
-    let A' := H.map e.toMonoidHom ⊓
-      Subgroup.normalizer (W.map e.toMonoidHom : Set G')
-    A.map e.toMonoidHom = A' ∧ (A ⊓ C t).map e.toMonoidHom = A' ⊓ C (e t) := by
-  intro A A'
-  have hA : A.map e.toMonoidHom = A' := by
-    rw [Subgroup.map_inf _ _ _ e.injective, Subgroup.map_equiv_normalizer_eq]
-  exact ⟨hA, by rw [Subgroup.map_inf _ _ _ e.injective, hA,
-    isomorphism_maps_original_element_centralizer]⟩
-
-theorem isomorphism_transports_original_fourgroup_invariance
-    {G : Type u} {G' : Type v} [Group G] [Group G']
-    (e : G ≃* G') (t s : G) (W : Subgroup G) :
-    Subgroup.closure ({t, s} : Set G) ≤ Subgroup.normalizer (W : Set G) ↔
-      Subgroup.closure ({e t, e s} : Set G') ≤
-        Subgroup.normalizer (W.map e.toMonoidHom : Set G') := by
-  rw [← isomorphism_maps_original_fourgroup e t s,
-    ← Subgroup.map_equiv_normalizer_eq W e]
-  constructor
-  · exact Subgroup.map_mono
-  · intro h x hx
-    have hmem := h (Subgroup.mem_map_of_mem e.toMonoidHom hx)
-    rw [Subgroup.mem_map_equiv] at hmem
-    change e.symm (e x) ∈ Subgroup.normalizer (W : Set G) at hmem
-    simpa only [MulEquiv.symm_apply_apply] using hmem
-
-theorem isomorphism_transports_original_odd_core_sylow
-    {G : Type u} {G' : Type v} [Group G] [Finite G] [Group G']
-    (e : G ≃* G') (H : Subgroup G) (ℓ : ℕ) [Fact ℓ.Prime]
-    (W : Sylow ℓ (CFSG.pPrimeCore 2 H)) :
-    ∃ W' : Sylow ℓ (CFSG.pPrimeCore 2 (H.map e.toMonoidHom)),
-      (W' : Subgroup (CFSG.pPrimeCore 2 (H.map e.toMonoidHom))).map
-        ((H.map e.toMonoidHom).subtype.comp
-          (CFSG.pPrimeCore 2 (H.map e.toMonoidHom)).subtype) =
-        ((W : Subgroup (CFSG.pPrimeCore 2 H)).map
-          (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)).map e.toMonoidHom := by
-  let a := H.equivMapOfInjective e.toMonoidHom e.injective
-  let b : CFSG.pPrimeCore 2 H ≃* CFSG.pPrimeCore 2 (H.map e.toMonoidHom) :=
-    ((CFSG.pPrimeCore 2 H).equivMapOfInjective a.toMonoidHom a.injective).trans
-      (MulEquiv.subgroupCongr (CFSG.pPrimeCore_map_iso 2 a))
-  let W' : Sylow ℓ (CFSG.pPrimeCore 2 (H.map e.toMonoidHom)) :=
-    W.mapSurjective (f := b.toMonoidHom) b.surjective
-  refine ⟨W', ?_⟩
-  have hW : (W' : Subgroup (CFSG.pPrimeCore 2 (H.map e.toMonoidHom))) =
-      (W : Subgroup (CFSG.pPrimeCore 2 H)).map b.toMonoidHom :=
-    Sylow.coe_mapSurjective (f := b.toMonoidHom) b.surjective W
-  rw [hW, Subgroup.map_map, Subgroup.map_map]
-  rfl
 
 theorem odd_subgroup_normalized_by_simple_layer_eq_bot {Q : Type u}
     [Group Q] (L U : Subgroup Q) [L.Normal] [IsSimpleGroup L]
@@ -1498,7 +1344,6 @@ theorem original_layer_cover_factorization_gives_exact_core_intersection {G : Ty
     _ = (N t).map (C t).subtype ⊓ H := inf_comm _ _
 
 
-
 theorem original_layer_normalization_from_core_centralizer_factorization {G : Type u}
     [Group G] [Finite G] (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
     (hG : ∀ U : Subgroup G, U.index ≠ 2) (t : G) (ht : orderOf t = 2)
@@ -1565,128 +1410,6 @@ theorem original_layer_normalization_from_core_centralizer_factorization {G : Ty
   exact original_layer_normalization_of_cover_factorization
     n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
     s H hVH hJH hfactor hinter ℓ W hVW
-
-
-theorem covering_subgroup_central_product_of_same_layer {G : Type u} {Q : Type v}
-    [Group G] [Finite G] [Group Q] (f : G →* Q) (Y J N : Subgroup G) [J.Normal]
-    (hJ : Group.IsPerfect J) (hN : Group.IsSolvable N) (hY : Y = J ⊔ N)
-    (hker : f.ker = N) (hJN : ⁅J, N⁆ = ⊥) (X : Subgroup G) (hXY : X ≤ Y)
-    (himage : X.map f = J.map f) :
-    let K := X ⊓ N
-    J ≤ X ∧ (CFSG.perfectResidual X).map X.subtype = J ∧
-      X = J ⊔ K ∧ ⁅J, K⁆ = ⊥ ∧
-      (X : Set G) = (J : Set G) * (K : Set G) ∧
-      (∀ x ∈ X, ∃ j ∈ J, ∃ k ∈ K, j * k = x) ∧
-      (f.comp X.subtype).ker = N.subgroupOf X ∧ J ⊓ K = J ⊓ N := by
-  intro K
-  obtain ⟨hJX, hres⟩ := every_cover_contains_same_perfect_layer f Y J N hJ hN hY
-    hker hJN X hXY himage
-  have hXjoin : X = J ⊔ K := by
-    apply le_antisymm
-    · intro x hx
-      have hy : x ∈ J ⊔ N := hY ▸ hXY hx
-      obtain ⟨j, hj, k, hk, hjk⟩ := Subgroup.mem_sup_of_normal_left.mp hy
-      have hkX : k ∈ X := by
-        have hmem := X.mul_mem (X.inv_mem (hJX hj)) hx
-        rwa [← hjk, inv_mul_cancel_left] at hmem
-      exact Subgroup.mem_sup_of_normal_left.mpr ⟨j, hj, k, ⟨hkX, hk⟩, hjk⟩
-    · exact sup_le hJX inf_le_left
-  have hcomm : ⁅J, K⁆ = ⊥ := by
-    apply le_antisymm
-    · exact (Subgroup.commutator_mono_right (show K ≤ N from inf_le_right)).trans hJN.le
-    · exact bot_le
-  have hprod : (X : Set G) = (J : Set G) * (K : Set G) := by
-    ext x
-    change x ∈ X ↔ ∃ j ∈ J, ∃ k ∈ K, j * k = x
-    rw [hXjoin]
-    exact Subgroup.mem_sup_of_normal_left
-  have hkernel : (f.comp X.subtype).ker = N.subgroupOf X := by
-    ext x
-    change f (x : G) = 1 ↔ (x : G) ∈ N
-    rw [← hker, MonoidHom.mem_ker]
-  have hoverlap : J ⊓ K = J ⊓ N := by
-    ext x
-    exact ⟨fun h => ⟨h.1, h.2.2⟩, fun h => ⟨h.1, hJX h.1, h.2⟩⟩
-  refine ⟨hJX, hres, hXjoin, hcomm, hprod, ?_, hkernel, hoverlap⟩
-  intro x hx
-  exact Set.mem_mul.mp (hprod ▸ hx)
-
-
-theorem original_all_covers_are_same_layer_central_products {G : Type u}
-    [Group G] [Finite G] (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (hG : ∀ U : Subgroup G, U.index ≠ 2) (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic U)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma t) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F)))
-    (hcov : ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ∣ Nat.card (N t) → ∃ P : Sylow ℓ (N t),
-      (Subgroup.centralizer (((P : Subgroup (N t)).map (N t).subtype : Subgroup (C t)) :
-        Set (C t)) ⊓ ((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)).map
-          (nu t) = (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)) :
-    let T₀ := (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)
-    let Y := T₀.comap (nu t)
-    let H₀ := Y ⊓ Subgroup.centralizer (N t : Set (C t))
-    let J := (CFSG.perfectResidual H₀).map H₀.subtype
-    J = (CFSG.perfectResidual Y).map Y.subtype ∧
-      ∀ X : Subgroup (C t), X ≤ Y → X.map (nu t) = T₀ →
-        let K := X ⊓ N t
-        J ≤ X ∧ (CFSG.perfectResidual X).map X.subtype = J ∧
-          X = J ⊔ K ∧ ⁅J, K⁆ = ⊥ ∧
-          (X : Set (C t)) = (J : Set (C t)) * (K : Set (C t)) ∧
-          (∀ x ∈ X, ∃ j ∈ J, ∃ k ∈ K, j * k = x) ∧
-          ((nu t).comp X.subtype).ker = (N t).subgroupOf X ∧ J ⊓ K = J ⊓ N t ∧
-          (CFSG.pPrimeCore 2 X).map X.subtype = K ∧ Odd (Nat.card K) := by
-  intro T₀ Y H₀ J
-  obtain ⟨hJperfect, hJnormal, -, hJimage, hJN, hY, -⟩ :=
-    original_all_local_prime_covers_give_actual_perfect_layer
-      n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-  let := hJnormal
-  have hN : Group.IsSolvable (N t) := CFSG.FeitThompson.isSolvable_of_odd_natCard _
-    (Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := C t)))
-  refine ⟨(perfect_residual_of_perfect_solvable_product Y J (N t) hJperfect hN hY).symm, ?_⟩
-  intro X hXY hXimage
-  obtain ⟨hJX, hres, hgen, hcomm, hprod, hwitness, hker, hoverlap⟩ :=
-    covering_subgroup_central_product_of_same_layer (nu t) Y J (N t) hJperfect hN hY
-      (QuotientGroup.ker_mk' _) hJN X hXY (hXimage.trans hJimage.symm)
-  have hLX : CFSG.generalizedFitting (Gamma t) ≤ X.map (kappa t) := by
-    intro l hl
-    obtain ⟨q, hq⟩ := barKappa_surjective t l
-    have hqT : q ∈ T₀ := by
-      change barKappa t q ∈ CFSG.generalizedFitting (Gamma t)
-      rw [hq]
-      exact hl
-    rw [← hXimage] at hqT
-    obtain ⟨c, hc, hcq⟩ := hqT
-    refine ⟨c, hc, ?_⟩
-    change barKappa t (nu t c) = l
-    rw [hcq, hq]
-  have hLeven : Even (Nat.card (CFSG.generalizedFitting (Gamma t))) := by
-    obtain ⟨U⟩ := (inferInstance : Nonempty (Sylow 2 (CFSG.generalizedFitting (Gamma t))))
-    have hU1 : Nat.card (U : Subgroup (CFSG.generalizedFitting (Gamma t))) ≠ 1 := by
-      intro h1
-      apply hnc U
-      rw [Subgroup.card_eq_one] at h1
-      rw [h1]
-      exact isCyclic_of_subsingleton
-    obtain ⟨k, hk⟩ := U.isPGroup'.exists_card_eq
-    have hk0 : k ≠ 0 := by
-      rintro rfl
-      exact hU1 (by rw [hk, pow_zero])
-    exact even_iff_two_dvd.mpr ((dvd_pow_self 2 hk0).trans
-      (hk ▸ Subgroup.card_subgroup_dvd_card (U : Subgroup (CFSG.generalizedFitting (Gamma t)))))
-  have htC : orderOf (tInC t) = 2 := by
-    rw [← Subgroup.orderOf_coe]
-    exact ht
-  have hcore := original_layer_cover_odd_core_eq_intersection (tInC t) htC hLeven hcentral X hLX
-  have hKodd : Odd (Nat.card (X ⊓ N t : Subgroup (C t))) :=
-    (Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := C t))).of_dvd_nat
-      (Subgroup.card_dvd_of_le (show X ⊓ N t ≤ N t from inf_le_right))
-  exact ⟨hJX, hres, hgen, hcomm, hprod, hwitness, hker, hoverlap, hcore, hKodd⟩
 
 
 @[expose] def OriginalSmallerSimpleRecognition (G : Type u) : Prop :=
@@ -1784,7 +1507,6 @@ theorem original_layer_cover_full_inputs_transport {G : Type u} {G' : Type}
     hcentral', isomorphism_transports_noncyclic_sylows d 2 hnc,
     original_psl_two_model_transport d p f hmodel, hVH', hR', ?_⟩
   exact isomorphism_transports_original_subgroup_local_cover e t H hcover
-
 
 
 section OriginalFullNormalization
@@ -1939,75 +1661,6 @@ theorem original_full_layer_normalization_for_local_odd_sylow
   exact ⟨hres, hall, hH, hC, hinter, hcover, hJX, hJB, hJA, hW,
     hEker, hEcenter, hEodd, hprod, hCprod, helem, hCelem⟩
 
-theorem centralizing_perfect_layer_is_contained_in_every_cover_and_normalizes_local_odd_sylows
-    {G : Type u}
-    [Group G] [Finite G] [IsSimpleGroup G]
-    (hGnonab : ∃ a b : G, a * b ≠ b * a)
-    (hrecognition : OriginalSmallerSimpleRecognition G) (n : ℕ) (hn : 4 ≤ n)
-    (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (t : G) (ht : orderOf t = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic U)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma t) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F)))
-    (hcov : ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ∣ Nat.card (N t) → ∃ P : Sylow ℓ (N t),
-      (Subgroup.centralizer (((P : Subgroup (N t)).map (N t).subtype : Subgroup (C t)) :
-        Set (C t)) ⊓ ((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)).map
-          (nu t) = (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)) :
-    let T₀ := (CFSG.generalizedFitting (Gamma t)).comap (barKappa t)
-    let Y := T₀.comap (nu t)
-    let H₀ := Y ⊓ Subgroup.centralizer (N t : Set (C t))
-    let J := (CFSG.perfectResidual H₀).map H₀.subtype
-    let E := J ⊓ N t
-    J = (CFSG.perfectResidual Y).map Y.subtype ∧
-      (∀ U : Subgroup (C t), U ≤ Y → U.map (nu t) = T₀ →
-        J ≤ U ∧ (CFSG.perfectResidual U).map U.subtype = J) ∧
-      ((nu t).comp J.subtype).ker = E.subgroupOf J ∧
-      E.subgroupOf J ≤ Subgroup.center J ∧ Odd (Nat.card E) ∧
-      ∀ (s : G), s ∈ C t → orderOf s = 2 → s ≠ t →
-      ∀ (H : Subgroup G), Subgroup.closure ({t, s} : Set G) ≤ H →
-        J.map (C t).subtype ≤ H → CFSG.pPrimeCore 2 H ≠ ⊥ →
-      ∀ (ℓ : ℕ) [Fact ℓ.Prime], ℓ ∣ Nat.card (CFSG.pPrimeCore 2 H) →
-      ∀ W : Sylow ℓ (CFSG.pPrimeCore 2 H),
-        Subgroup.closure ({t, s} : Set G) ≤ Subgroup.normalizer
-          (((W : Subgroup (CFSG.pPrimeCore 2 H)).map
-            (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)) : Set G) →
-        let Ra := (CFSG.pPrimeCore 2 H).map H.subtype
-        let Wa := (W : Subgroup (CFSG.pPrimeCore 2 H)).map
-          (H.subtype.comp (CFSG.pPrimeCore 2 H).subtype)
-        let A := H ⊓ Subgroup.normalizer (Wa : Set G)
-        let B := A ⊓ C t
-        let X := B.subgroupOf (C t) ⊓ Y
-        H = Ra ⊔ B ∧ H ⊓ C t = (Ra ⊓ C t) ⊔ B ∧
-          Ra ⊓ C t = (N t).map (C t).subtype ⊓ H ∧
-          X.map (nu t) = T₀ ∧ J ≤ X ∧ J.map (C t).subtype ≤ B ∧
-          J.map (C t).subtype ≤ A ∧ Wa ≠ ⊥ ∧
-          (H : Set G) = (Ra : Set G) * (B : Set G) ∧
-          ((H ⊓ C t : Subgroup G) : Set G) =
-            ((Ra ⊓ C t : Subgroup G) : Set G) * (B : Set G) ∧
-          (∀ x ∈ H, ∃ r ∈ Ra, ∃ b ∈ B, r * b = x) ∧
-          (∀ x ∈ H ⊓ C t, ∃ r ∈ Ra ⊓ C t, ∃ b ∈ B, r * b = x) := by
-  intro T₀ Y H₀ J E
-  let hG : ∀ U : Subgroup G, U.index ≠ 2 :=
-    nonabelian_simple_has_no_subgroup_index_two hGnonab
-  obtain ⟨hres, hall⟩ := original_all_local_prime_covers_give_residual_and_containment
-    n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-  obtain ⟨-, -, -, -, -, -, hEker, hEcenter, hEodd⟩ :=
-    original_all_local_prime_covers_give_actual_perfect_layer
-      n hn S0 f0 hG t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-  refine ⟨hres, hall, hEker, hEcenter, hEodd, ?_⟩
-  intro s hsC hs hst H hVH hJH hR ℓ hℓ hdiv W hVW
-  obtain ⟨-, -, hH, hC, hinter, hcover, hJX, hJB, hJA, hW,
-    -, -, -, hprod, hCprod, helem, hCelem⟩ :=
-    original_full_layer_normalization_for_local_odd_sylow
-      hGnonab hrecognition n hn S0 f0 t ht hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov
-        s hsC hs hst H hVH hJH hR ℓ hdiv W hVW
-  exact ⟨hH, hC, hinter, hcover, hJX, hJB, hJA, hW, hprod, hCprod, helem, hCelem⟩
 
 end OriginalFullNormalization
 

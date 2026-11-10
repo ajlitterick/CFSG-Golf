@@ -6,8 +6,6 @@ public section
 
 namespace CFSG.ComponentClassification.AssemblyBPredicates
 
-theorem oddCore_eq_open (G : Type*) [Group G] :
-    Assembly.oddCore G = Open.componentClassificationOddCore G := rfl
 
 theorem oddCore_eq_native (G : Type*) [Group G] :
     Assembly.oddCore G = CFSG.oddCore G := rfl
@@ -46,14 +44,5 @@ theorem isComponentOf_top_iff_native {G : Type*} [Group G] (component : Subgroup
     Assembly.IsComponentOf component ⊤ ↔ CFSG.IsComponent component :=
   (isComponentOf_iff_open component ⊤).trans (CFSG.isComponent_iff_open component).symm
 
-theorem isComponentType_iff_open (G : Type*) [Group G] :
-    Assembly.IsComponentType G ↔ Open.componentClassificationComponentType G := by
-  constructor
-  · rintro ⟨involution, hinvolution, component, hcomponent⟩
-    exact ⟨involution, hinvolution, component,
-      (isComponentOf_iff_open component ⊤).mp hcomponent⟩
-  · rintro ⟨involution, hinvolution, component, hcomponent⟩
-    exact ⟨involution, hinvolution, component,
-      (isComponentOf_iff_open component ⊤).mpr hcomponent⟩
 
 end CFSG.ComponentClassification.AssemblyBPredicates

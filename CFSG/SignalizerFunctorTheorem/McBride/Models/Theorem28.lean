@@ -28,16 +28,6 @@ theorem near_aut_sylow_cyclic
   · have := Fact.mk h.prime
     exact isCyclic_of_prime_card h1
 
-omit [Finite X] in
-theorem near_exists_aut
-    (h : NearSimple p X) : ∃ f : MulAut X, orderOf f = p :=
-  exists_aut_of_nearSimple h
-
-omit [Finite X] in
-theorem near_aut_centralizer_pGroup
-    (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
-    IsPGroup p (fixingSubgroup (MulAut X) (signalizerFixedSubgroup f : Set X)) :=
-  itemC_of_nearSimple h hf
 
 theorem near_unique_maximal
     (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
@@ -47,17 +37,6 @@ theorem near_unique_maximal
   obtain ⟨ℓ, hF⟩ := frame_of_nearSimple h hf
   exact hF.unique_maximal
 
-theorem near_unique_maximal_coatom
-    (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
-    signalizerFixedSubgroup f ≤ fixedNormalizer f ∧ IsCoatom (fixedNormalizer f) ∧
-      ∀ H : Subgroup X, IsCoatom H → signalizerFixedSubgroup f ≤ H → H = fixedNormalizer f := by
-  obtain ⟨hCM, hMtop, -, hH⟩ := near_unique_maximal h hf
-  refine ⟨hCM, ⟨hMtop, fun H hMH => ?_⟩, fun H hmax hCH => ?_⟩
-  · by_contra hne
-    exact (not_le_of_gt hMH) (hH H (hCM.trans hMH.le) hne)
-  · have hHM : H ≤ fixedNormalizer f := hH H hCH hmax.1
-    by_contra hne
-    exact hMtop (hmax.2 _ (lt_of_le_of_ne hHM hne))
 
 theorem near_frobenius
     (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
@@ -95,20 +74,6 @@ theorem near_minimal_normal
   obtain ⟨ℓ, hF⟩ := frame_of_nearSimple h hf
   exact hF.minimal_normal
 
-theorem near_invariant_subgroup
-    (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p)
-    (Y : Subgroup X) (hY : Y ≠ ⊤)
-    (hC : signalizerFixedSubgroup f ≤ Subgroup.normalizer (Y : Set X)) :
-    fixedFitting f ≤ Y ∨ Y ≤ autCommutator f (CFSG.fittingSubgroupOf (fixedNormalizer f)) := by
-  obtain ⟨ℓ, hF⟩ := frame_of_nearSimple h hf
-  exact hF.invariant_subgroup Y hY hC
-
-theorem autCommutator_fitting_eq
-    (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
-    autCommutator f (CFSG.fittingSubgroupOf (fixedNormalizer f)) =
-      autCommutator f (fixedNormalizer f) := by
-  obtain ⟨ℓ, hF⟩ := frame_of_nearSimple h hf
-  exact hF.autCommutator_fitting_eq
 
 theorem near_nilpotent_le_fitting
     (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p)
@@ -125,10 +90,6 @@ theorem near_conj_class
   obtain ⟨ℓ, hF⟩ := frame_of_nearSimple h hf
   exact hF.conj_class M' hM'
 
-theorem near_exists_prime_not_dvd
-    (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) :
-    ∃ r : ℕ, r.Prime ∧ r ∣ Nat.card X ∧ ¬ r ∣ Nat.card (fixedNormalizer f) :=
-  (itemO_of_nearSimple h hf).1
 
 theorem near_sylow_abelian
     (h : NearSimple p X) {f : MulAut X} (hf : orderOf f = p) {r : ℕ}

@@ -937,10 +937,6 @@ theorem d4ThreeGraphCubes_of_residuals (hS2 : CFSG.AGLEmbeddingD2.KFactSeitzRank
     (hA : D4GraphA2FixedPlanes) (hG : D4GraphG2SylowPairNonsplit) : D4ThreeGraphCubes :=
   d4ThreeGraphCubes_of hS2 hA (d4GraphG2SylowPair_of_nonsplit hG)
 
-theorem seitzGoodOuterHighD4Three_of_residuals (hS2 : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo)
-    (hA : D4GraphA2FixedPlanes) (hG : D4GraphG2SylowPairNonsplit) :
-    OuterHigh2.SeitzGoodOuterHighD4Three :=
-  seitzGoodOuterHighD4Three_of_graphCubes hS2 (d4ThreeGraphCubes_of_residuals hS2 hA hG)
 
 theorem d4EightGraphCubes_of_residuals (hS2 : CFSG.AGLEmbeddingD2.KFactSeitzRankTwo)
     (hA : D4GraphA2FixedPlanes) (hG : D4GraphG2SylowPairNonsplit) :

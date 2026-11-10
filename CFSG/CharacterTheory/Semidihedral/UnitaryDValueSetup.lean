@@ -126,9 +126,6 @@ section CommPrimary
     rintro a ⟨ha, i, hi⟩
     exact ⟨H.inv_mem ha, i, by rw [orderOf_inv, hi]⟩
 
-theorem mem_commPrimaryPart {H : Subgroup G} {hH : ∀ a ∈ H, ∀ b ∈ H, a * b = b * a} {r : ℕ}
-    [Fact r.Prime] {c : G} :
-    c ∈ commPrimaryPart H hH r ↔ c ∈ H ∧ ∃ k : ℕ, orderOf c = r ^ k := Iff.rfl
 
 theorem commPrimaryPart_le (H : Subgroup G) (hH : ∀ a ∈ H, ∀ b ∈ H, a * b = b * a) (r : ℕ)
     [Fact r.Prime] : commPrimaryPart H hH r ≤ H := fun _ h => h.1
@@ -244,11 +241,6 @@ theorem xz_ne_one : D.x * D.z ≠ 1 := by
   have : D.z = D.x⁻¹ := eq_inv_of_mul_eq_one_right h
   rw [this, D.x_inv]
 
-theorem xz_ne_x : D.x * D.z ≠ D.x := by
-  intro h
-  apply D.z_ne_one
-  calc D.z = D.x⁻¹ * (D.x * D.z) := by group
-    _ = 1 := by rw [h, inv_mul_cancel]
 
 theorem xz_ne_z : D.x * D.z ≠ D.z := by
   intro h
@@ -341,7 +333,6 @@ theorem A_le_C : D.A ≤ D.C := by
     exact (D.A_central a ha D.x hx).symm
   · exact (D.A_central a ha D.z D.z_mem_N).symm
 
-theorem A_comm_N {a g : G} (ha : a ∈ D.A) (hg : g ∈ D.N) : g * a = a * g := D.A_central a ha g hg
 
 theorem y_x : D.y * D.x * D.y⁻¹ = D.x := by
   rw [← D.y_comm, mul_assoc, mul_inv_cancel, mul_one]
@@ -368,9 +359,6 @@ theorem t_inv_xz : D.t⁻¹ * (D.x * D.z) * D.t = D.z := by
   calc D.t⁻¹ * (D.x * D.z) * D.t = D.t⁻¹ * (D.t * D.z * D.t⁻¹) * D.t := by rw [D.t_z]
     _ = D.z := by group
 
-theorem t_inv_x : D.t⁻¹ * D.x * D.t = D.x * D.z := by
-  calc D.t⁻¹ * D.x * D.t = D.t⁻¹ * (D.t * (D.x * D.z) * D.t⁻¹) * D.t := by rw [D.t_xz]
-    _ = D.x * D.z := by group
 
 theorem mem_normalizer_T_of {g : G} (hx : g * D.x * g⁻¹ ∈ D.T) (hz : g * D.z * g⁻¹ ∈ D.T) :
     g ∈ Subgroup.normalizer (D.T : Set G) := by
@@ -567,8 +555,6 @@ theorem conj_eq_of_mem_A {a g : G} (ha : a ∈ D.A) (hga : g * a * g⁻¹ ∈ D.
 
 @[expose] def primaryPart (r : ℕ) [Fact r.Prime] : Subgroup G := commPrimaryPart D.C D.C_comm r
 
-theorem mem_primaryPart {r : ℕ} [Fact r.Prime] {c : G} :
-    c ∈ D.primaryPart r ↔ c ∈ D.C ∧ ∃ k : ℕ, orderOf c = r ^ k := Iff.rfl
 
 theorem primaryPart_le_C (r : ℕ) [Fact r.Prime] : D.primaryPart r ≤ D.C := fun _ h => h.1
 
@@ -619,8 +605,6 @@ theorem z_mem_U : D.z ∈ D.U := ⟨D.z_mem_C, 1, by rw [D.z_order, pow_one]⟩
 theorem orderOf_xz : orderOf (D.x * D.z) = 2 :=
   orderOf_eq_prime (by rw [pow_two]; exact D.xz_mul_self) D.xz_ne_one
 
-theorem xz_mem_U : D.x * D.z ∈ D.U := ⟨D.C.mul_mem D.x_mem_C D.z_mem_C, 1, by
-  rw [D.orderOf_xz, pow_one]⟩
 
 theorem mem_T_of_mem_U {u : G} (hu : u ∈ D.U) (hu2 : u * u = 1) : u ∈ D.T := by
   rw [D.mem_T_iff]

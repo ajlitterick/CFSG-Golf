@@ -88,31 +88,6 @@ theorem unequalResidualRing_outer_relations_nonzero :
       u ^ 2 ≠ 1 ∨ v ^ 2 ≠ 1 ∨ u * v ≠ v * u := by
   decide +kernel
 
-@[expose] def unequalResidueUnitOffHom : (RankTwoBinaryResidue 0)ˣ →* Multiplicative (ZMod 2 × ZMod 2) where
-  toFun j := Multiplicative.ofAdd (j.val.1.2, j.val.2.1)
-  map_one' := rfl
-  map_mul' := by
-    have h : ∀ j k : (RankTwoBinaryResidue 0)ˣ,
-        (((j * k).val.1.2, (j * k).val.2.1) : ZMod 2 × ZMod 2) =
-          (j.val.1.2, j.val.2.1) + (k.val.1.2, k.val.2.1) := by decide
-    intro j k
-    exact congrArg Multiplicative.ofAdd (h j k)
-
-theorem unequalResidueUnitOffHom_bijective : Function.Bijective unequalResidueUnitOffHom := by
-  constructor
-  · have h : ∀ j k : (RankTwoBinaryResidue 0)ˣ,
-        (j.val.1.2, j.val.2.1) = (k.val.1.2, k.val.2.1) → j = k := by decide
-    intro j k hjk
-    exact h j k (congrArg Multiplicative.toAdd hjk)
-  · have h : ∀ z : ZMod 2 × ZMod 2, ∃ j : (RankTwoBinaryResidue 0)ˣ,
-        (j.val.1.2, j.val.2.1) = z := by decide
-    intro z
-    obtain ⟨j, hj⟩ := h z.toAdd
-    exact ⟨j, congrArg Multiplicative.ofAdd hj⟩
-
-@[expose] noncomputable def unequalResidueUnitOffEquiv :
-    (RankTwoBinaryResidue 0)ˣ ≃* Multiplicative (ZMod 2 × ZMod 2) :=
-  MulEquiv.ofBijective unequalResidueUnitOffHom unequalResidueUnitOffHom_bijective
 
 theorem unequalResidue_unit_off_recover :
     ∀ j : (RankTwoBinaryResidue 0)ˣ,
@@ -162,13 +137,6 @@ theorem unequalResidueUnitDifferenceHom_injective : Function.Injective unequalRe
   let f := ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2)
   ((f x.1.1, f x.1.2), (f x.2.1, f x.2.2))
 
-theorem residualBinaryCoordinates_parity {twist : ZMod 4} (x : ResidualRing twist) :
-    residualBinaryCoordinates x =
-      ((((x.1.1.val % 2 : ℕ) : ZMod 2), ((x.1.2.val % 2 : ℕ) : ZMod 2)),
-        (((x.2.1.val % 2 : ℕ) : ZMod 2), ((x.2.2.val % 2 : ℕ) : ZMod 2))) := by
-  have h : ∀ x : ZMod 4,
-      ZMod.castHom (by decide : 2 ∣ 4) (ZMod 2) x = (x.val % 2 : ℕ) := by decide
-  apply Prod.ext <;> apply Prod.ext <;> exact h _
 
 theorem residualBinaryCoordinates_outer_relations_nonzero (twist : ZMod 4) (u v : ResidualRing twist)
     (htwist : twist = 0 ∨ twist = 2)

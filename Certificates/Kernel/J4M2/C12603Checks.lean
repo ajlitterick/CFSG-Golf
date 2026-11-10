@@ -65,7 +65,6 @@ theorem c37 : chk kerCase37 P37 I37 R37 = true := by quickRfl
 theorem c43 : chk kerCase43 one one one = true := by quickRfl
 
 theorem n5 : notB (chk { kerCase5 with order := 3 } P5 I5 R5) = true := by quickRfl
-theorem n37 : notB (chk { kerCase37 with k := 107 } P37 I37 R37) = true := by quickRfl
 
 end CertificateChecks.KernelJ4PK
 

@@ -229,7 +229,6 @@ theorem psiVis_toLin_smul_dec (g : Native.Gen) (hg : g.isVis = true) (v : ℕ) :
   rw [native_actRows]
   exact smul_dec_of_ellCls (psiVis_toLin_smul_ellCls g hg) v
 
-theorem l2Word_nil (v : ℕ) : Native.Cover.l2Word [] v = v := rfl
 
 theorem l2Word_cons (g : Native.Gen) (w : List Native.Gen) (v : ℕ) :
     Native.Cover.l2Word (g :: w) v = Native.Cover.l2Word w (Native.Cover.actRows g.l2Rows v) := rfl

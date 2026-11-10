@@ -354,17 +354,6 @@ end Ree32
           B ⊓ Subgroup.centralizer (K : Set X) = ⊥ ∨ IsD2SeitzException 3 d.1) →
         K ≤ GLBCore 3 2 B
 
-theorem input23_19ExcThree_of_res (h : InputsSeitz5.Input23_19ExcRes) : Input23_19ExcThree := by
-  intro X _ _ hKX hcore B hB hB4 hrk K hK haut hsmall d hd hexc htits hl28 hsix hrest
-  refine h X hKX 3 Nat.prime_three (by norm_num) hcore B hB hB4 hrk K hK haut hsmall d hd hexc htits
-    (fun hs => ?_) hl28 hsix ?_
-  · rw [hs] at hexc
-    have := InputsSeitz5.eq_five_of_excIndex_suzuki hexc
-    omega
-  · rcases hrest with ⟨hZ, -⟩ | hC | hD
-    · exact Or.inl hZ
-    · exact Or.inr (Or.inl hC)
-    · exact Or.inr (Or.inr hD)
 
 theorem dvd_card_of_isPGroup {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {P : Subgroup G}
     (hP : IsPGroup p ↥P) (h1 : P ≠ ⊥) : p ∣ Nat.card P := by
@@ -1055,20 +1044,6 @@ theorem cycSwap_apply_of_ne {x : Perm α} {a b y : α} (h1 : y ≠ a) (h2 : y �
   simp only [cycSwap, Perm.mul_apply]
   rw [swap_apply_of_ne_of_ne h5 h6, swap_apply_of_ne_of_ne h3 h4, swap_apply_of_ne_of_ne h1 h2]
 
-theorem cycSwap_apply_left {x : Perm α} {a b : α} (h : TwoCyc x a b) : cycSwap x a b a = b := by
-  simp only [cycSwap, Perm.mul_apply]
-  rw [swap_apply_of_ne_of_ne h.a2 h.axxb, swap_apply_of_ne_of_ne h.a1 h.axb, swap_apply_left]
-
-theorem cycSwap_apply_one {x : Perm α} {a b : α} (h : TwoCyc x a b) : cycSwap x a b (x a) = x b := by
-  simp only [cycSwap, Perm.mul_apply]
-  rw [swap_apply_of_ne_of_ne h.a3 h.xaxxb, swap_apply_left,
-    swap_apply_of_ne_of_ne (Ne.symm h.axb) (Ne.symm h.b1)]
-
-theorem cycSwap_apply_two {x : Perm α} {a b : α} (h : TwoCyc x a b) :
-    cycSwap x a b (x (x a)) = x (x b) := by
-  simp only [cycSwap, Perm.mul_apply]
-  rw [swap_apply_left, swap_apply_of_ne_of_ne (Ne.symm h.xaxxb) (Ne.symm h.b3),
-    swap_apply_of_ne_of_ne (Ne.symm h.axxb) (Ne.symm h.b2)]
 
 theorem cycSwap_apply_right {x : Perm α} {a b : α} (h : TwoCyc x a b) : cycSwap x a b b = a := by
   simp only [cycSwap, Perm.mul_apply]
@@ -2032,14 +2007,6 @@ theorem rank3CuResExcRes_of_two (hGA : GriessMultipliersAllModels)
     · exact absurd hC (cen_bar_ne_bot hBel huB hu1 Kc)
     · exact Or.inr hD
 
-theorem rank3CuResExcTwo_of_res (h : InputsSeitz5.Rank3CuResExcRes) : Rank3CuResExcTwo := by
-  intro G _ _ m p B M E A D T R L0 d hc h139b U hU u hu hu1 hlt Kc hKc hgood hN haut hcen hpi hbal htype
-  refine h hc h139b hU u hu hu1 hlt Kc hKc hgood hN haut hcen hpi hbal (Or.inr ?_)
-  obtain ⟨i, hi, hi3, hexc, htits, hl28, hsix, hrest⟩ := htype
-  refine ⟨i, hi, hi3, hexc, htits, hl28, hsix, ?_⟩
-  rcases hrest with ⟨hZ, -⟩ | hD
-  · exact Or.inl hZ
-  · exact Or.inr (Or.inr hD)
 
 section Assembled
 

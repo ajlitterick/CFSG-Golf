@@ -583,12 +583,6 @@ theorem multiplicityColumn_cast (basis : FiniteIrreducibleCharacterBasis G) {g :
   push_cast
   rfl
 
-theorem multiplicityColumn_nonneg (basis : FiniteIrreducibleCharacterBasis G) {g : G} {M : ℕ}
-    (hM : 0 < M) (hg : g ^ M = 1) (j : ℤ) (χ : basis.index) :
-    0 ≤ multiplicityColumn basis g M j χ := by
-  obtain ⟨m, -, hcol⟩ := multiplicityColumn_eq_natural basis hM hg j χ
-  rw [hcol]
-  positivity
 
 theorem multiplicityColumn_congr (basis : FiniteIrreducibleCharacterBasis G) (g : G) (M : ℕ)
     {j k : ℤ} (h : j ≡ k [ZMOD M]) :

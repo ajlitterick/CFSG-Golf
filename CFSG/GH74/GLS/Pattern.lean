@@ -108,41 +108,6 @@ end Helpers
 
 @[expose] def IsReeGroup (Gs : Type) [Group Gs] : Prop := ∃ f : ℕ, LieModel Gs .twistedG2 0 3 f
 
-@[expose] def IsTwoTerminalGStarTypeAt (G : Type) [Group G] (Gs : Type) [Group Gs] (z : G) : Prop :=
-  (SameInvolutionFusionPattern G Gs ∨
-      (LieModel Gs .PSU 3 2 2 ∧
-        (∃ n : ℕ, 2 ≤ n ∧ ∃ S : Sylow 2 ↥(centralizer ({z} : Set G)),
-          Nonempty (↥(S : Subgroup ↥(centralizer ({z} : Set G))) ≃*
-            Multiplicative (ZMod (2 ^ n) × ZMod (2 ^ n)))) ∧
-        ∀ u v : G, orderOf u = 2 → orderOf v = 2 → IsConj u v)) ∧
-    ∀ (S : Sylow 2 ↥(centralizer ({z} : Set G))) (z' : Gs)
-      (S' : Sylow 2 ↥(centralizer ({z'} : Set Gs))), IsCentralInvolution z' →
-        Nonempty (↥(S : Subgroup ↥(centralizer ({z} : Set G))) ≃*
-            ↥(S' : Subgroup ↥(centralizer ({z'} : Set Gs)))) →
-          (Nonempty (↥(oPrimeResidual 2 (CentralizerBar z)) ≃*
-              ↥(oPrimeResidual 2 (CentralizerBar z'))) ∨
-            (IsReeGroup Gs ∧ ∃ K : Subgroup (CentralizerBar z),
-              IsInternalDirectProduct (zpowers (zBar z)) K (oPrimeResidual 2 (CentralizerBar z)) ∧
-                ∃ p f : ℕ, p.Prime ∧ (p ^ f % 8 = 3 ∨ p ^ f % 8 = 5) ∧ LieModel ↥K .PSL 2 p f) ∨
-            (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ LieModel Gs .G2 0 p f ∧
-              HasSL2ProductOfIndexTwoStage1 (oPrimeResidual 2 (CentralizerBar z)) (p ^ f)) ∨
-            (NativeSporadic.IsSporadic Gs .McL ∧ IsDoubleCoverOfAlt (CentralizerBar z) 9) ∨
-            (NativeSporadic.IsSporadic Gs .Ly ∧ IsDoubleCoverOfAlt (CentralizerBar z) 10))
-
-@[expose] def IsTwoTerminalGStarType (G : Type) [Group G] (Gs : Type) [Group Gs] : Prop :=
-  ∀ z : G, IsCentralInvolution z → IsTwoTerminalGStarTypeAt G Gs z
-
-@[expose] def IsTwoCentralType (G : Type) [Group G] (Gs : Type) [Group Gs] : Prop :=
-  InTarget2Star Gs ∧ 3 ≤ pRank 2 Gs ∧
-    ∀ z : G, IsCentralInvolution z →
-      (pPrimeCore 2 ↥(centralizer ({z} : Set G)) = ⊥ ∨
-        ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧
-          ((p ^ f % 8 ≠ 1 ∧ LieModel Gs .PSL 4 p f ∧
-              IsCyclic ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∧
-              Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∣ p ^ f - 1) ∨
-            (p ^ f % 8 ≠ 7 ∧ LieModel Gs .PSU 4 p f ∧
-              IsCyclic ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∧
-              Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∣ p ^ f + 1)))
 
 @[expose] def IsTwoCentralG2Type (G : Type) [Group G] (Gs : Type) [Group Gs] : Prop :=
   (IsReeGroup Gs ∨ ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ LieModel Gs .G2 0 p f) ∧
@@ -163,42 +128,10 @@ end Helpers
 @[expose] def layerTimesSylow {X : Type*} [Group X] (z : X) (S : Subgroup X) : Subgroup X :=
   (layer ↥(centralizer ({z} : Set X))).map (centralizer ({z} : Set X)).subtype ⊔ S
 
-@[expose] def IsTwoCentralClassicalType (G : Type) [Group G] (Gs : Type) [Group Gs] : Prop :=
-  (∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 3 < p ^ f ∧
-    (LieModel Gs .PSp 2 p f ∨ LieModel Gs .PSL 4 p f ∨ LieModel Gs .PSU 4 p f)) ∧
-  SameInvolutionFusionPattern G Gs ∧
-  ∀ (S : Sylow 2 G) (z : G) (S' : Sylow 2 Gs) (z' : Gs),
-    (center ↥(S : Subgroup G)).map (S : Subgroup G).subtype = zpowers z →
-    (center ↥(S' : Subgroup Gs)).map (S' : Subgroup Gs).subtype = zpowers z' →
-      Nonempty (↥(layerTimesSylow z (S : Subgroup G)) ≃* ↥(layerTimesSylow z' (S' : Subgroup Gs))) ∧
-      ((∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ LieModel Gs .PSp 2 p f) →
-        pPrimeCore 2 ↥(centralizer ({z} : Set G)) = ⊥) ∧
-      ((∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ (LieModel Gs .PSL 4 p f ∨ LieModel Gs .PSU 4 p f)) →
-        IsCyclic ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∧
-          Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z} : Set G))) ∣
-            Nat.card ↥(pPrimeCore 2 ↥(centralizer ({z'} : Set Gs))))
 
 @[expose] def maximalOverCentralizer {X : Type*} [Group X] (z : X) : Set (Subgroup X) :=
   {M | IsCoatom M ∧ centralizer ({z} : Set X) ≤ M}
 
-@[expose] def IsTwoMaximalModCores (G : Type) [Group G] (Gs : Type) [Group Gs] : Prop :=
-  ∀ z : G, IsCentralInvolution z →
-    ((∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 5 ≤ p ^ f ∧ (LieModel Gs .PSL 3 p f ∨ LieModel Gs .PSU 3 p f) ∧
-        (∀ M ∈ maximalOverCentralizer z, M = centralizer ({z} : Set G)) ∧
-          ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-            Nonempty (↥(layer ↥(centralizer ({z} : Set G))) ≃* StatedSL 2 F)) ∨
-      ((NativeSporadic.IsSporadic Gs .M11 ∨ LieModel Gs .PSU 3 3 1) ∧
-        IsCoatom (centralizer ({z} : Set G)) ∧
-        ∃ Q : Subgroup ↥(centralizer ({z} : Set G)), Q.Normal ∧
-          Nonempty (↥Q ≃* QuaternionGroup 2)) ∨
-      ((HasL2Model Gs (fun q => Odd q ∧ 11 ≤ q) ∨ LieModel Gs .PSU 3 2 2) ∧
-        ∀ M ∈ maximalOverCentralizer z, M = centralizer ({z} : Set G)) ∨
-      ((HasL2Model Gs (fun q => q = 5 ∨ q = 7 ∨ q = 9) ∨
-          Nonempty (Gs ≃* alternatingGroup (Fin 7))) ∧
-        ∀ M ∈ maximalOverCentralizer z, ∃ U : Subgroup G,
-          Nonempty (↥U ≃* Multiplicative (ZMod 2 × ZMod 2)) ∧ M = normalizer (U : Set G) ∧
-          (Nonempty ((↥M ⧸ pPrimeCore 2 ↥M) ≃* alternatingGroup (Fin 4)) ∨
-            Nonempty ((↥M ⧸ pPrimeCore 2 ↥M) ≃* Equiv.Perm (Fin 4)))))
 
 theorem SameInvolutionFusionPattern.refl (G : Type*) [Group G] [Finite G] :
     SameInvolutionFusionPattern G G := by

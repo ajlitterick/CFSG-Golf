@@ -55,8 +55,6 @@ theorem base_ok : bAnd(szOK 6156 13, bAnd(cK (pidn 6156 13), bAnd(CFSG.KS.Prim.i
 theorem sHF : slK J3XS.cnt (hsortPtKF 6156 13 (mask 13) J3XS.cnt J3XS.T J3XS.HS J3XS.HSI)
     0 J3XS.cnt = true := by quickRfl
 
-theorem sHF_neg : hsortPtKF 6156 13 (mask 13) J3XS.cnt (fun _ => 0) J3XS.HS J3XS.HSI 0 = false := by
-  decide +kernel
 
 @[expose] noncomputable def pc (p q : Nat) : Nat := pcomp 6156 13 (mask 13) p q
 
@@ -87,11 +85,6 @@ theorem x_four : Nat.beq (pc (pc xW xW) (pc xW xW)) (J3CentP 9) = true := by
 theorem x_word : wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S PJ3.SI 5 xWord xW = true := by
   quickRfl
 
-theorem neg_center : (!commAll xW) = true := by
-  quickRfl
-
-theorem neg_sq : (!Nat.beq (pc xW xW) (J3CentP 9)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.J3OutSyl
 

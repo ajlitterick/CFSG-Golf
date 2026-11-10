@@ -13,32 +13,6 @@ open scoped commutatorElement
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
-@[expose] def modZ (s : Setting3 G L) (x y : G) : Prop := x⁻¹ * y ∈ s.fr.Z
-
-@[expose] def Case41i (s : Setting3 G L) (d : G) : Prop :=
-  modZ s (s.fr.a₁ * s.fr.b₁) (d * s.fr.a₁ * d⁻¹) ∧ modZ s s.fr.a₂ (d * s.fr.a₂ * d⁻¹) ∧
-    modZ s s.fr.b₁ (d * s.fr.b₁ * d⁻¹) ∧ modZ s s.fr.b₂ (d * s.fr.b₂ * d⁻¹)
-
-@[expose] def Case41ii (s : Setting3 G L) (d : G) : Prop :=
-  modZ s s.fr.a₁ (d * s.fr.a₁ * d⁻¹) ∧ modZ s (s.fr.a₂ * s.fr.b₂) (d * s.fr.a₂ * d⁻¹) ∧
-    modZ s s.fr.b₁ (d * s.fr.b₁ * d⁻¹) ∧ modZ s s.fr.b₂ (d * s.fr.b₂ * d⁻¹)
-
-@[expose] def Case41iii (s : Setting3 G L) (d : G) : Prop :=
-  conjSub d (closure {s.fr.a₁, s.fr.b₁}) = closure {s.fr.a₂, s.fr.b₂} ∧
-    modZ s s.fr.b₂ (d * s.fr.b₁ * d⁻¹)
-
-@[expose] def Sec41 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), HRSetting G L → HRG23 (L ⧸ center L) →
-    ∀ (s : Setting3 G L) (e : Setting3.Ext s), BranchA e →
-      (∃ d : G, d ∈ e.R₁ ∧ d ∉ s.R ∧ orderOf d = 2) ∧
-      (∀ d : G, d ∈ e.R₁ → d ∉ s.R → orderOf d = 2 →
-        Case41i s d ∨ Case41ii s d ∨ Case41iii s d) ∧
-      (s.R ≠ s.T →
-        (∀ d : G, d ∈ e.R₁ → d ∉ s.R → orderOf d = 2 → Case41i s d ∨ Case41ii s d) ∧
-        SecProp e.T₁ (s.fr.A ⊔ zpowers s.t) (fun Y _ _ π =>
-          Nonempty (Y ≃* DihedralGroup 4) ∧
-            {V : Subgroup Y | IsE 2 ↥V} =
-              {(e.R₁.subgroupOf e.T₁).map π, (s.T.subgroupOf e.T₁).map π}))
 
 @[expose] def Sec42 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), HRSetting G L → HRG23 (L ⧸ center L) →

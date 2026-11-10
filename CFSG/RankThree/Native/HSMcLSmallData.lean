@@ -87,9 +87,6 @@ open CFSG.Monster.B.Co2 CFSG.Certificates
 @[expose] def hs100R : Subgroup (Equiv.Perm (Fin 100)) :=
   Subgroup.closure {hs100A, hs100B, hs100U}
 
-@[expose] def hs100PairSeed : ℕ × ℕ := (0, 78)
-
-@[expose] def mcl275Chain : RawSchreierDatum 275 := CFSG.Sporadic.Schreier.mclChain
 
 @[expose] def mcl275A : Equiv.Perm (Fin 275) := CFSG.Sporadic.Schreier.mclGen 0
 

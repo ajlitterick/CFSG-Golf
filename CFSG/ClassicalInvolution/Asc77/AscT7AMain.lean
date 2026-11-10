@@ -129,17 +129,6 @@ theorem sigmaStarNorm_eq_top (hE : ThmEWithSylow p f) (h12 : C21_12 p f) (h13 : 
     exact ⟨x, T7A.mem_sigmaStarNorm_of_conj hΩ.conjInvariant hK (hx ▸ hM), hx⟩
   exact thmE_apply hE h.std.stand h.std.hz h.std.hK' h.std.hne hstd htrans
 
-theorem c21_17_of (hE : ThmEWithSylow p f) (h12 : C21_12 p f) (h13 : C21_13 p f)
-    (h15 : C21_15 p f) (h16 : C21_16 p f) (hWyl : C21_WylTrans p f) (ha : C21_17_cent p f)
-    (hb : C21_E_cent p f) : C21_17 p f := by
-  intro G _ _ _ Ω K K' z u J t W h hD
-  have htop := sigmaStarNorm_eq_top hE h12 h13 h15 h16 hWyl ha hb h
-  have hSig := dComp_eq_dstarComp_of_le h12 hWyl h hD
-  have hsn : sigmaNorm Ω K = ⊤ := by
-    rw [← htop]
-    ext g
-    exact forall_congr' fun M => by rw [hSig]
-  exact h.std.disconnected (dConnected_of_sigmaNorm_eq_top h.std.stand.mem h.std.stand.trans hsn)
 
 namespace T7A
 
@@ -164,54 +153,6 @@ theorem eq_one_of_central {c : G} (hnc : ∃ x y : G, x * y ≠ y * x) (hc : ∀
 
 end T7A
 
-theorem c21_E_of (hE : ThmEWithSylow p f) (h12 : C21_12 p f) (h13 : C21_13 p f)
-    (h15 : C21_15 p f) (h16 : C21_16 p f) (hWyl : C21_WylTrans p f) (ha : C21_17_cent p f)
-    (hb : C21_E_cent p f) : C21_E p f := by
-  intro G _ _ _ Ω K K' z u J t W h hα hD hSigC hmu
-  have hp : p ≠ 2 := h.std.stand.odd
-  have hΩ : HypOmegaMod p f Ω := h.std.stand.hyp
-  have hK : K ∈ Ω := h.std.stand.mem
-  have htop := sigmaStarNorm_eq_top hE h12 h13 h15 h16 hWyl ha hb h
-  obtain ⟨hstar, -⟩ := hb G Ω K K' z u J t W h hα hD hSigC hmu
-  have hall : ∀ M ∈ Ω, M ≤ Subgroup.centralizer ({t * z} : Set G) := by
-    intro M hM
-    obtain ⟨x, hx⟩ := h.std.stand.trans M hM
-    have hxH : x ∈ sigmaStarNorm Ω K := by rw [htop]; exact Subgroup.mem_top x
-    have hMS : M ∈ dstarComp Ω K := by
-      have := (mem_sigmaStarNorm_iff.mp hxH K).mp Relation.ReflTransGen.refl
-      rwa [hx] at this
-    exact ((hstar M).mp hMS).2
-  have hcent : Subgroup.centralizer ({t * z} : Set G) = ⊤ := by
-    rw [eq_top_iff, ← h.std.stand.gen]
-    exact iSup₂_le fun M hM => hall M hM
-  have hcomm : ∀ g : G, g * (t * z) = (t * z) * g := fun g =>
-    Subgroup.mem_centralizer_singleton_iff.mp (hcent ▸ Subgroup.mem_top g)
-  obtain ⟨V, hV, -⟩ := IsSylow2In.exists_ge (isPGroup_two_bot (G := G)) (bot_le : ⊥ ≤ K)
-  have hVR : V ∈ RSet Ω := mem_RSet_of_isSylow2In hK hV
-  obtain ⟨x, -, y, -, hxy⟩ := (hΩ.isQuatSub_of_mem_RSet hp hVR).exists_not_commute
-  have h1 : t * z = 1 := T7A.eq_one_of_central ⟨x, y, hxy⟩ hcomm
-  have h2 : t = z⁻¹ := eq_inv_of_mul_eq_one_left h1
-  have h3 : z⁻¹ = z := inv_eq_of_mul_eq_one_right h.std.hz.sq
-  exact h.twinFrameData.t_ne_z (h2.trans h3)
-
-variable (p f) in
-theorem c21_2_of_hyp51 (hE : ThmEWithSylow p f) (hH51 : TwinFrameHyp51 p f)
-    (h4 : TwinNormAlpha p f) (h12 : C21_12 p f) (h13 : C21_13 p f) (h14 : C21_14 p f)
-    (h15 : C21_15 p f) (hWyl : C21_WylTrans p f) (h17c : C21_17_cent p f)
-    (hEc : C21_E_cent p f) : C21_2 p f := by
-  have h3 : C21_3 p f := c21_3_of p f hH51
-  have h16 : C21_16 p f := c21_16_of p f hE h3 h4 h12 h13 h14 hWyl
-  have h17 : C21_17 p f := c21_17_of hE h12 h13 h15 h16 hWyl h17c hEc
-  have hEnd : C21_E p f := c21_E_of hE h12 h13 h15 h16 hWyl h17c hEc
-  exact c21_2_of_steps (c21_setup p f) (c21_false_of_steps h13 h15 h16 h17 hEnd)
-
-variable (p f) in
-theorem c21_2_of_inputs (hE : ThmEWithSylow p f) (hHz : TwinFrameHyp51z p f)
-    (hHt : TwinFrameHyp51t p f) (hHu : TwinFrameHyp51u p f) (h4 : TwinNormAlpha p f)
-    (h12 : C21_12 p f) (h13 : C21_13 p f) (h14 : C21_14 p f) (h15 : C21_15 p f)
-    (hWyl : C21_WylTrans p f) (h17c : C21_17_cent p f) (hEc : C21_E_cent p f) :
-    C21_2 p f :=
-  c21_2_of_hyp51 p f hE (twinFrameHyp51_of_cases hHz hHt hHu) h4 h12 h13 h14 h15 hWyl h17c hEc
 
 end Frames
 

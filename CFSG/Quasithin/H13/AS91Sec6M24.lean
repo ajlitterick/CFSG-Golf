@@ -202,21 +202,6 @@ noncomputable local instance duadAction : MulAction ↥AutPerm W11 where
 
 theorem duad_smul_def (σ : ↥AutPerm) (w : W11) : σ • w = rho11 AutPerm le_rfl σ w := rfl
 
-theorem duad_isDuadClass_rho_of {σ : S24} (hσ : σ ∈ M24g) {w : W11} (hw : IsDuadClass w) :
-    IsDuadClass (rho11 AutPerm le_rfl ⟨σ, hσ⟩ w) := by
-  obtain ⟨D, hD, rfl⟩ := hw
-  exact ⟨σ • D, by rw [Finset.card_smul_finset, hD], setClass_smul hσ (by rw [hD]; decide)⟩
-
-theorem isDuadClass_rho {σ : S24} (hσ : σ ∈ M24g) {w : W11} :
-    IsDuadClass (rho11 AutPerm le_rfl ⟨σ, hσ⟩ w) ↔ IsDuadClass w := by
-  refine ⟨fun h => ?_, duad_isDuadClass_rho_of hσ⟩
-  have h2 := duad_isDuadClass_rho_of (M24g.inv_mem hσ) h
-  have h1 : (⟨σ⁻¹, (M24g.inv_mem hσ : σ⁻¹ ∈ AutPerm)⟩ : ↥AutPerm) * ⟨σ, hσ⟩ = 1 :=
-    Subtype.ext (inv_mul_cancel σ)
-  have e : rho11 AutPerm le_rfl ⟨σ⁻¹, (M24g.inv_mem hσ : σ⁻¹ ∈ AutPerm)⟩
-      (rho11 AutPerm le_rfl ⟨σ, hσ⟩ w) = w := by
-    rw [← MulAut.mul_apply, ← map_mul, h1, map_one, MulAut.one_apply]
-  rwa [e] at h2
 
 section Trans
 
@@ -1018,10 +1003,6 @@ section F770
 theorem isSextClass_f770 : IsSextClass f770 :=
   duad_isSextClass_of_card_four (by decide)
 
-theorem isSextClass_f770_mul : IsSextClass (f770 * setClass {0, 1}) := by
-  unfold f770
-  rw [duad_setClass_mul]
-  exact duad_isSextClass_of_card_four (by decide)
 
 end F770
 

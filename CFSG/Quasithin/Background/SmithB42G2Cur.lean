@@ -47,21 +47,6 @@ variable (K : Type) [Field K] [Finite K] [CharP K 2]
 
 variable {K}
 
-theorem g2Datum_U
-    : (g2Datum K).U = (posUnipotent .G2 K).subgroupOf (adjointGroup .G2 K) :=
-  rfl
-
-theorem g2Datum_H
-    : (g2Datum K).H = (torusGroup .G2 K).subgroupOf (adjointGroup .G2 K) :=
-  rfl
-
-theorem g2Datum_n
-    (i : Fin Tag.G2.rank) : (g2Datum K).n i = nC .G2 K i := rfl
-
-theorem mem_g2Datum_X
-    {i : Fin Tag.G2.rank} {x : adjointGroup .G2 K} :
-    x ∈ (g2Datum K).X i ↔ ∃ c : K, xC .G2 K i c = x :=
-  mem_X_chevDatum
 
 theorem g2_heckeT_apply
     [Fintype K] {k V : Type*} [Field k] [AddCommGroup V]
@@ -83,22 +68,6 @@ theorem g2_exists_type
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   exact exists_isChevType hρ
 
-theorem g2_type_unique
-    {k V : Type*} [Field k] [Algebra K k] [AddCommGroup V]
-    [Module k V] {ρ : Representation k (adjointGroup .G2 K) V} (hρ : IsSimpleRep ρ) {y y' : V}
-    {χ χ' : adjointGroup .G2 K → k} {J J' : Finset (Fin Tag.G2.rank)} (ht : IsG2Type ρ y χ J)
-    (ht' : IsG2Type ρ y' χ' J') : (∀ h ∈ (g2Datum K).H, χ h = χ' h) ∧ J = J' := by
-  have : CharP k 2 := charP_of_injective_algebraMap (algebraMap K k).injective 2
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact ht.unique hρ ht'
-
-theorem g2_finrank_fixU
-    {k V : Type*} [Field k] [Algebra K k] [AddCommGroup V]
-    [Module k V] {ρ : Representation k (adjointGroup .G2 K) V} (hρ : IsSimpleRep ρ) :
-    Module.finrank k ((g2Datum K).fixU ρ) = 1 := by
-  have : CharP k 2 := charP_of_injective_algebraMap (algebraMap K k).injective 2
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact (g2Datum K).finrank_fixU (splitOver_torus k) hρ
 
 theorem g2_iso_of_type
     {k V V' : Type*} [Field k] [Algebra K k] [AddCommGroup V]
@@ -111,46 +80,6 @@ theorem g2_iso_of_type
   have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
   exact iso_of_isChevType hρ hρ' ht ht'
 
-theorem g2_isSimpleRep_of_fixU
-    {k V : Type*} [Field k] [Algebra K k] [AddCommGroup V]
-    [Module k V] [Nontrivial V] {ρ : Representation k (adjointGroup .G2 K) V} {y : V}
-    (hfix : ∀ x ∈ (g2Datum K).fixU ρ, ∃ c : k, x = c • y) (hgen : orbitSpan ρ y = ⊤) :
-    IsSimpleRep ρ := by
-  have : CharP k 2 := charP_of_injective_algebraMap (algebraMap K k).injective 2
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact (g2Datum K).isSimpleRep_of_fixU ρ hfix hgen
-
-theorem card_units_cast_eq_one {k : Type*} [Field k] [Algebra K k] [Fintype Kˣ] :
-    ((Fintype.card Kˣ : ℕ) : k) = 1 := by
-  have : CharP k 2 := charP_of_injective_algebraMap (algebraMap K k).injective 2
-  have : Fintype K := Fintype.ofFinite K
-  obtain ⟨n, hp, hn⟩ := FiniteField.card K 2
-  have hK : Nat.card K = 2 ^ (n : ℕ) := by rw [Nat.card_eq_fintype_card, hn]
-  rw [Fintype.card_eq_nat_card, Nat.card_units, hK]
-  have h2 : (2 : k) = 0 := CharTwo.two_eq_zero
-  have hpos : 1 ≤ 2 ^ (n : ℕ) := Nat.one_le_two_pow
-  rw [Nat.cast_sub hpos, Nat.cast_pow, Nat.cast_ofNat, h2, zero_pow n.ne_zero, Nat.cast_one,
-    zero_sub, CharTwo.neg_eq]
-
-open Classical in
-theorem g2_heckeT_eq
-    {k V : Type*} [Field k] [Algebra K k] [AddCommGroup V]
-    [Module k V] {ρ : Representation k (adjointGroup .G2 K) V} (hρ : IsSimpleRep ρ) {y : V}
-    {χ : adjointGroup .G2 K → k} {J : Finset (Fin Tag.G2.rank)} (ht : IsG2Type ρ y χ J)
-    (i : Fin Tag.G2.rank) :
-    (g2Datum K).heckeT ρ i y =
-      (if (∀ t : Kˣ, χ (dC .G2 K i t) = 1) ∧ i ∉ J then (1 : k) else 0) • y := by
-  classical
-  have : CharP k 2 := charP_of_injective_algebraMap (algebraMap K k).injective 2
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Fintype Kˣ := Fintype.ofFinite Kˣ
-  obtain ⟨μ, hμ⟩ := ht.exists_mu hρ
-  change (chevDatum .G2 K 2 exists_weyl_neg_G2).heckeT ρ i y = _
-  rw [hμ.2.2.2 i, ht.mu_eq hμ i]
-  split_ifs with h
-  · rw [Finset.sum_congr rfl fun t _ => h.1 t, Finset.sum_const, Finset.card_univ, nsmul_eq_mul,
-      mul_one, card_units_cast_eq_one]
-  · rfl
 
 variable (K) in
 @[expose] def dH

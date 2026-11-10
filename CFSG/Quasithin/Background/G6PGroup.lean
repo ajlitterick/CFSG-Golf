@@ -88,8 +88,6 @@ private def chars (W : Subgroup V) : Subgroup (V →* ℤˣ) where
   mul_mem' := fun {f g} hf hg w hw => by simp [hf w hw, hg w hw]
   inv_mem' := fun {f} hf w hw => by simp [hf w hw]
 
-private theorem mem_chars {W : Subgroup V} {f : V →* ℤˣ} :
-    f ∈ chars W ↔ ∀ w ∈ W, f w = 1 := Iff.rfl
 
 private def charAct (W : Subgroup V) (K : Subgroup (MulAut V))
     (hW : ∀ k ∈ K, ∀ w ∈ W, k w ∈ W) : K →* Equiv.Perm (chars W) where

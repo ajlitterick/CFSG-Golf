@@ -70,50 +70,5 @@ instance orderedDistinctPairsAction : MulAction Gᵐᵒᵖ (orderedDistinctPairs
   one_smul p := Subtype.ext (Prod.ext (one_smul _ _) (one_smul _ _))
   mul_smul g h p := Subtype.ext (Prod.ext (mul_smul _ _ _) (mul_smul _ _ _))
 
-theorem ordered_pair_stabilizer (a b : Ω) (hab : a ≠ b) :
-    (MulAction.stabilizer Gᵐᵒᵖ (⟨(a, b), hab⟩ : orderedDistinctPairs Ω)).unop =
-      rightStabilizer a ⊓ rightStabilizer b := by
-  ext g
-  change (MulOpposite.op g • (⟨(a, b), hab⟩ : orderedDistinctPairs Ω) =
-    (⟨(a, b), hab⟩ : orderedDistinctPairs Ω)) ↔
-    rightAct a g = a ∧ rightAct b g = b
-  constructor
-  · intro hg
-    have hh := congrArg Subtype.val hg
-    exact ⟨congrArg Prod.fst hh, congrArg Prod.snd hh⟩
-  · rintro ⟨ha, hb⟩
-    exact Subtype.ext (Prod.ext ha hb)
-
-theorem doubly_transitive_card [Finite G] [Finite Ω]
-    (hdouble : ∀ a b c d : Ω, a ≠ b → c ≠ d →
-      ∃ g : G, rightAct a g = c ∧ rightAct b g = d)
-    (a b : Ω) (hab : a ≠ b) :
-    Nat.card G = Nat.card Ω * (Nat.card Ω - 1) *
-      Nat.card (rightStabilizer a ⊓ rightStabilizer b : Subgroup G) := by
-  classical
-  let p : orderedDistinctPairs Ω := ⟨(a, b), hab⟩
-  let : MulAction.IsPretransitive Gᵐᵒᵖ (orderedDistinctPairs Ω) := ⟨by
-    intro x y
-    obtain ⟨g, hg1, hg2⟩ := hdouble x.val.1 x.val.2 y.val.1 y.val.2
-      x.property y.property
-    exact ⟨MulOpposite.op g, Subtype.ext (Prod.ext hg1 hg2)⟩⟩
-  let : Finite Gᵐᵒᵖ := Finite.of_equiv G MulOpposite.opEquiv
-  let := Fintype.ofFinite Gᵐᵒᵖ
-  let := Fintype.ofFinite (MulAction.orbit Gᵐᵒᵖ p)
-  let := Fintype.ofFinite (MulAction.stabilizer Gᵐᵒᵖ p)
-  have horbit : MulAction.orbit Gᵐᵒᵖ p = Set.univ := MulAction.orbit_eq_univ Gᵐᵒᵖ p
-  have hcard := MulAction.card_orbit_mul_card_stabilizer_eq_card_group Gᵐᵒᵖ p
-  have hstab : Nat.card (MulAction.stabilizer Gᵐᵒᵖ p) =
-      Nat.card (rightStabilizer a ⊓ rightStabilizer b : Subgroup G) := by
-    rw [← ordered_pair_stabilizer a b hab]
-    exact (Nat.card_congr
-      ((MulAction.stabilizer Gᵐᵒᵖ p).unop.equivOp)).symm
-  have hG : Nat.card Gᵐᵒᵖ = Nat.card G := Nat.card_congr MulOpposite.opEquiv.symm
-  have hO : Nat.card (MulAction.orbit Gᵐᵒᵖ p) = Nat.card (orderedDistinctPairs Ω) := by
-    rw [horbit]
-    exact Nat.card_congr (Equiv.Set.univ _)
-  rw [← Nat.card_eq_fintype_card, ← Nat.card_eq_fintype_card,
-    ← Nat.card_eq_fintype_card, hstab, hG, hO, orderedDistinctPairs_card] at hcard
-  exact hcard.symm
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionInvolutionCount

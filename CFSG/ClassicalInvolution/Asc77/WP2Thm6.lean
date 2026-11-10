@@ -34,20 +34,6 @@ structure Std6 {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subg
 @[expose] def gammaGen {G : Type} [Group G] (Ω : Set (Subgroup G)) (z : G) : Subgroup G :=
   ⨆ A ∈ {A : Subgroup G | (A ∈ USet Ω ∨ A ∈ RSet Ω) ∧ A ≤ Subgroup.centralizer ({z} : Set G)}, A
 
-@[expose] def C19_5 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K : Subgroup G)
-    (S : Sylow 2 G) (R : Subgroup G) (z : G), Std6 p f Ω K S R z →
-      ∀ W ∈ WSet Ω, W ≤ (S : Subgroup G) →
-        ∀ L ∈ Ω, ∀ t : G, IsUniqueInvolution L t → t ≠ z →
-          ∀ V ∈ USet Ω, V ≤ (S : Subgroup G) → t ∈ V →
-            (∃ (n : ℕ) (φ : ↥(gammaGen Ω z) →* DihedralGroup n), Function.Surjective φ ∧
-                2 * n = Nat.card ↥R ∧
-                ∀ x : ↥(gammaGen Ω z), φ x = 1 ↔ (x : G) ∈ centralizerModOdd (gammaGen Ω z) K) ∨
-            (∃ (p' e : ℕ) (_ : Fact p'.Prime), p' ≠ 2 ∧ 0 < e ∧
-              ∃ φ : ↥(gammaGen Ω z) →* Matrix.ProjGenLinGroup (Fin 2)
-                  (GaloisField p' e),
-                Function.Surjective φ ∧
-                  ∀ x : ↥(gammaGen Ω z), φ x = 1 ↔ (x : G) ∈ centralizerModOdd (gammaGen Ω z) K)
 
 @[expose] def C19_main : Prop :=
   ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K : Subgroup G)

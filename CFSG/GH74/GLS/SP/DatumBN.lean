@@ -106,22 +106,6 @@ theorem actsAs_of_mk_eq [_hN : (cartan (borel D H) (weylN n H)).Normal] {m : wey
   rw [weylEquiv_n hct hext i] at h'
   exact h'
 
-theorem conjBy_rootGroup_of_mk_eq [_hN : (cartan (borel D H) (weylN n H)).Normal]
-    {m : weylN n H} {i : Fin D.rank}
-    (h : (m : WeylGroup (borel D H) (weylN n H)) =
-      ((⟨n i, n_mem_weylN i⟩ : weylN n H) : WeylGroup (borel D H) (weylN n H)))
-    {γ : Fin D.rank → ℤ} (hγ : γ ∈ D.roots) :
-    conjBy (m : K) (D.rootGroup γ) = D.rootGroup (weylAction D.isFiniteType
-      ((coxeterMatrix D.isFiniteType).toCoxeterSystem.simple i) γ) := by
-  have hm := (actsAs_of_mk_eq hct hext h).inv
-  rw [CoxeterSystem.inv_simple] at hm
-  exact hm γ hγ
-
-theorem card_weyl_of_datum :
-    Nat.card (WeylGroup (borel D H) (weylN n H)) =
-      Nat.card (coxeterMatrix D.isFiniteType).Group := by
-  have hN := cartan_normal_of_datum hct hext
-  exact Nat.card_congr (weylEquiv hct hext).toEquiv
 
 theorem borel_eq_mul_of_datum :
     (borel D H : Set K) = ((borel D H ⊓ weylN n H : Subgroup K) : Set K) *
@@ -129,9 +113,6 @@ theorem borel_eq_mul_of_datum :
   rw [borel_inf_weylN hct hext]
   exact coe_borel hct
 
-theorem isSplit_of_datum (hnil : Group.IsNilpotent (posUnipotent D)) :
-    IsSplit (borel D H) (weylN n H) (posUnipotent D) :=
-  ⟨hnil, borel_eq_mul_of_datum hct hext⟩
 
 theorem splitBN_of_datum (hnil : Group.IsNilpotent (posUnipotent D)) :
     SplitBN (borel D H) (weylN n H) (posUnipotent D)

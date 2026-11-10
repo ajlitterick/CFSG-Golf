@@ -111,8 +111,6 @@ theorem slMap_mem_msigma {A : SL(4, F)} :
   map_mul' A B := Subtype.ext
     (map_mul (specialLinearFieldEquiv φ (Fin 4)) (A : SL(4, F)) (B : SL(4, F)))
 
-theorem coe_msigmaEquiv (A : msigma F) :
-    (msigmaEquiv φ A : SL(4, K)) = specialLinearFieldEquiv φ (Fin 4) A := rfl
 
 end Field
 

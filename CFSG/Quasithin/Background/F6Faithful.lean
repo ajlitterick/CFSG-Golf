@@ -191,12 +191,6 @@ theorem sup_eq_top_of_twoResidual_le [Finite D] (h : IsGoldschmidtTriple G₁ G�
   rw [← inf_sup_twoResidual_left h]
   exact sup_le (inf_le_right.trans le_sup_right) (hL₁.trans le_sup_left)
 
-theorem normal_sup_pCoreOf (h : IsGoldschmidtTriple G₁ G₂) [hXn : X.Normal]
-    (hL₁ : twoResidual G₁ ≤ X) : (X ⊔ pCoreOf 2 G₂).Normal := by
-  rw [← Subgroup.normalizer_eq_top_iff, ← top_le_iff, ← sup_eq_top_of_twoResidual_le h hL₁]
-  refine sup_le (le_sup_left.trans Subgroup.le_normalizer) fun g hg => ?_
-  exact mem_normalizer_sup ((Subgroup.normalizer_eq_top_iff.mpr hXn).ge (Subgroup.mem_top g))
-    (le_normalizer_pCoreOf 2 G₂ hg)
 
 theorem isSylowTwoOf_pCoreOf_sup (h : IsGoldschmidtTriple G₁ G₂) [hXn : X.Normal]
     (hL₂ : ¬ twoResidual G₂ ≤ X) : IsSylowTwoOf (pCoreOf 2 G₂) (X ⊔ pCoreOf 2 G₂) := by

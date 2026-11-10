@@ -113,8 +113,6 @@ variable (k) in
     refine SL2_ext ?_ ?_ ?_ ?_ <;>
       simp [coe_HSL, SpecialLinearGroup.coe_mul, Matrix.mul_apply, Fin.sum_univ_two]
 
-theorem mem_sl2Torus {B : SL2 k} : B ∈ sl2Torus k ↔ ∃ l : kˣ, HSL l = B :=
-  Iff.rfl
 
 theorem HSL_mul (l l' : kˣ) : HSL l * HSL l' = HSL (l * l') := by
   refine SL2_ext ?_ ?_ ?_ ?_ <;>
@@ -306,8 +304,6 @@ theorem eq_one_of_conj_torus_eq [Finite k] (hk : Nat.card k = 4) {l : kˣ} (hl :
     exact (mul_eq_zero.1 this).resolve_left (sub_ne_zero.2 hl2)
   rw [ha0, hb0, hc0, unipU_zero, map_one]
 
-theorem card_projTorus [Finite k] (hk : Nat.card k = 4) : Nat.card (projTorus k) = 3 := by
-  rw [projTorus, Subgroup.card_map_of_injective (leviProj_injective 0), card_sl2Torus, hk]
 
 theorem eq_zero_or_one_or_of_card [Finite k] (hk : Nat.card k = 4) {t : k} (ht0 : t ≠ 0)
     (ht1 : t ≠ 1) (a : k) : a = 0 ∨ a = 1 ∨ a = t ∨ a = 1 + t := by

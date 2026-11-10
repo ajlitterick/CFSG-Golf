@@ -153,8 +153,6 @@ section Typing
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def LayerLieType6 (Ω : Set (Subgroup G)) (c : G) : Prop :=
-  ∀ D : OmegaLieU 3 1 (liftFam (TwinDisc.secFam Ω c)), TwinPerp23.LieTypeOf D 6 true
 
 @[expose] def LayerAE5 (Ω : Set (Subgroup G)) (c : G) : Prop :=
   ∃ I : TC.Thin.AEIdent (TwinDisc.secFam Ω c) 5, I.φ.ker = ⊥

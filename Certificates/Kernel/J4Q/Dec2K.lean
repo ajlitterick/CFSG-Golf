@@ -73,13 +73,6 @@ theorem anyR_eq (f : Nat → Bool) : ∀ n, anyR n f = (List.range n).any f
     rw [anyR_eq f n, orB_eq'', List.range_succ, List.any_append, List.any_cons, List.any_nil,
       Bool.or_false]
 
-theorem any_range_congr {f g : Nat → Bool} : ∀ {n : Nat}, (∀ i < n, f i = g i) →
-    (List.range n).any f = (List.range n).any g
-  | 0, _ => rfl
-  | n + 1, h => by
-    rw [List.range_succ, List.any_append, List.any_append,
-      any_range_congr fun i hi => h i (Nat.lt_succ_of_lt hi), List.any_cons, List.any_cons,
-      h n (Nat.lt_succ_self n), List.any_nil, List.any_nil]
 
 theorem getN_eq_getD (d : Nat) : ∀ (l : List Nat) (k : Nat), getN d l k = l.getD k d
   | [], _ => rfl

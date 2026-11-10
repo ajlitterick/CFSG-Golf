@@ -71,18 +71,6 @@ theorem treeEval_mem (S : Subgroup K) {x : ℕ → K} (hx : ∀ i, x i ∈ S) (p
       exact S.mul_mem (ih _ h.2) (hx _)
     · exact S.one_mem
 
-theorem treeEval_congr {par lab : Array ℕ} {x x' : ℕ → K} {N k : ℕ}
-    (hlab : ∀ j < N, 0 < j → lab[j]! < k) (hxx : ∀ i < k, x i = x' i) :
-    ∀ j < N, treeEval par lab x j = treeEval par lab x' j := by
-  intro j
-  induction j using Nat.strong_induction_on with
-  | _ j ih =>
-    intro hj
-    rw [treeEval_eq, treeEval_eq par lab x']
-    split
-    · rename_i h
-      rw [ih _ h.2 (by omega), hxx _ (hlab j hj h.1)]
-    · rfl
 
 end Tree
 

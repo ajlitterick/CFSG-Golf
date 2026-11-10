@@ -213,36 +213,6 @@ theorem lemma_3_9_of_ZD (hZD : S_ZD) (hH : H ≠ ⊤) (hz : orderOf z = 2)
   rw [normalClosure_singleton_eq]
   exact ⟨hLF, hLF ▸ hLB, isStronglyEmbeddedOrder_subgroupOf hH hz h1 hPD hconj⟩
 
-theorem lemma_3_9_simple_of_ZD (hZD : S_ZD) [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hH : H ≠ ⊤) (hz : orderOf z = 2) (h1 : ∃! c : G ⧸ H, z • c = c)
-    (h2 : ∀ g : G, g⁻¹ * z * g ≠ z → z * (g⁻¹ * z * g) = g⁻¹ * z * g * z →
-      ∃! c : G ⧸ H, (z * (g⁻¹ * z * g)) • c = c) :
-    BenderSuzuki.IsBenderGroup G ∧ BenderSuzuki.IsStronglyEmbeddedOrder H := by
-  have hPD := isProductDisconnected hH hz h1 h2
-  have hTs : IsSimpleGroup ↥(⊤ : Subgroup G) :=
-    (Subgroup.topEquiv : ↥(⊤ : Subgroup G) ≃* G).isSimpleGroup
-  have hTnab : ∃ x ∈ (⊤ : Subgroup G), ∃ y ∈ (⊤ : Subgroup G), x * y ≠ y * x := by
-    obtain ⟨a, b, h⟩ := hnab
-    exact ⟨a, Subgroup.mem_top a, b, Subgroup.mem_top b, h⟩
-  have hTc : Subgroup.centralizer ((⊤ : Subgroup G) : Set G) = ⊥ := by
-    rw [Subgroup.coe_top, Subgroup.centralizer_univ]
-    rcases Subgroup.Normal.eq_bot_or_eq_top (Subgroup.center G) with h | h
-    · exact h
-    · exfalso
-      obtain ⟨a, b, hab⟩ := hnab
-      have hb : b ∈ Subgroup.center G := by rw [h]; exact Subgroup.mem_top b
-      exact hab (Subgroup.mem_center_iff.1 hb a)
-  obtain ⟨hLT, hLB, hconj⟩ := closure_conjugatesOf_eq_and_isBenderGroup hz hTs hTnab hTc rfl
-    (hZD G (conjugatesOf z) H (isInvariantInvolutionSet hz) hPD)
-  refine ⟨?_, ?_⟩
-  · rw [hLT] at hLB
-    exact isBenderGroup_of_mulEquiv Subgroup.topEquiv.symm hLB
-  · obtain ⟨-, ⟨x, hx, hxH⟩, hb, -⟩ := hPD
-    refine isStronglyEmbeddedOrder_of_involutions hH hxH
-      ((isInvariantInvolutionSet hz).1 x hx) ?_
-    intro t htH ht2 g hg
-    have htz : IsConj z t := hconj t (by rw [hLT]; exact Subgroup.mem_top t) ht2
-    exact (hb t htz htH g).1 hg
 
 end Lemma39
 

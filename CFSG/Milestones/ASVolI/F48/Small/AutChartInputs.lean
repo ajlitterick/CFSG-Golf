@@ -12,40 +12,6 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.Quasithin.H13.F431.U42Aut U42F431
 
-@[expose] def burnsideF48s_autc_letter (c : Char) : Fin 5 × Bool :=
-  (⟨"abpqf".toList.idxOf c.toLower % 5, Nat.mod_lt _ (by norm_num)⟩, c.isLower)
-
-@[expose] def burnsideF48s_autc_word (s : String) : List (Fin 5 × Bool) :=
-  s.toList.map burnsideF48s_autc_letter
-
-@[expose] def burnsideF48s_autc_words (s : String) : List (List (Fin 5 × Bool)) :=
-  (s.splitOn ",").map burnsideF48s_autc_word
-
-@[expose] def burnsideF48s_autc_gl (XY : List (List ℕ)) : List (List ℕ) :=
-  (List.range 5).map fun i => evalAL (XY.getD i [])
-
-@[expose] def burnsideF48s_autc_gli (XY : List (List ℕ)) : List (List ℕ) :=
-  (List.range 5).map fun i => evalAL (invAL (XY.getD i []))
-
-@[expose] def burnsideF48s_autc_letL (gl gli : List (List ℕ)) (l : Fin 5 × Bool) : List ℕ :=
-  cond l.2 (gl.getD l.1 []) (gli.getD l.1 [])
-
-@[expose] def burnsideF48s_autc_evL (gl gli : List (List ℕ)) (w : List (Fin 5 × Bool)) :
-    List ℕ :=
-  w.foldl (fun acc l => compL acc (burnsideF48s_autc_letL gl gli l)) (List.range 45)
-
-@[expose] def burnsideF48s_autc_groupB (gl gli : List (List ℕ)) (idx : List (Fin 5))
-    (W : List (List (Fin 5 × Bool))) (n : ℕ) : Bool :=
-  let L := W.map (burnsideF48s_autc_evL gl gli)
-  decide (W.length = n) && decide ([] ∈ W) && decide L.Nodup &&
-    (W.all fun w => w.all fun l => decide (l.1 ∈ idx)) &&
-    L.all fun x => idx.all fun k => L.contains (compL x (gl.getD k []))
-
-@[expose] def burnsideF48s_autc_u42gl (_ : Unit := ()) : List (List ℕ) :=
-  burnsideF48s_autc_gl burnsideF48s_u42eXY
-
-@[expose] def burnsideF48s_autc_u42gli (_ : Unit := ()) : List (List ℕ) :=
-  burnsideF48s_autc_gli burnsideF48s_u42eXY
 
 @[expose] def burnsideF48s_autc_u42BStr : String :=
   ",a,A,b,f,aa,ab,af,AA,Ab,Af,ba,bA,bf,fb,aaa,aab,aaf,aba,abA,abf,afb,AAb,AAf,Aba,AbA,Abf,\
@@ -80,25 +46,6 @@ open CFSG.Quasithin CFSG.Quasithin.H13.F431.U42Aut U42F431
     aaababAbf,aaabAbabf,aabababAf,aababAbab,aababAbaf,aafbAbabA,ababAbabf,abAbabAbf,\
     AbAbabAbf,aababAbabf"
 
-@[expose] def burnsideF48s_autc_u42BW (_ : Unit := ()) : List (List (Fin 5 × Bool)) :=
-  burnsideF48s_autc_words burnsideF48s_autc_u42BStr
-
-@[expose] def burnsideF48s_autc_u42_checkMem (_ : Unit := ()) : Bool :=
-  let gl := burnsideF48s_autc_u42gl ()
-  ([0, 1, 2, 4].all fun k => (gl.getD k []).getD 0 0 == 0) &&
-    !((gl.getD 3 []).getD 0 0 == 0) &&
-    ([0, 1, 3, 4].all fun k => sameSet (imgSet (gl.getD k []) L0) L0) &&
-    !(sameSet (imgSet (gl.getD 2 []) L0) L0)
-
-@[expose] def burnsideF48s_autc_u42_checkB (_ : Unit := ()) : Bool :=
-  burnsideF48s_autc_groupB (burnsideF48s_autc_u42gl ()) (burnsideF48s_autc_u42gli ()) [0, 1, 4]
-    (burnsideF48s_autc_u42BW ()) 384
-
-@[expose] def burnsideF48s_autc_sp43gl (_ : Unit := ()) : List (List ℕ) :=
-  burnsideF48s_autc_gl burnsideF48s_sp43eXY
-
-@[expose] def burnsideF48s_autc_sp43gli (_ : Unit := ()) : List (List ℕ) :=
-  burnsideF48s_autc_gli burnsideF48s_sp43eXY
 
 @[expose] def burnsideF48s_autc_sp43BStr : String :=
   ",a,A,b,B,f,aa,ab,aB,af,AA,Ab,AB,Af,ba,bA,bf,Ba,BA,Bf,fb,fB,aaa,aab,aaB,aaf,aba,abA,abf,\
@@ -306,40 +253,5 @@ open CFSG.Quasithin CFSG.Quasithin.H13.F431.U42Aut U42F431
     BqqBqq,BqqBQf,BqqBfq,qaBqBQ,qABfbq,qbabab,qbQbqf,qbQbfq,qbQbfQ,qBAABq,qBAfbQ,qqbQbf,\
     QbaabQ,QBABfb,QBqBQf,fQBABA,aabABfB,aabQBfb,abaBAfb,aQBABfb"
 
-@[expose] def burnsideF48s_autc_sp43BW (_ : Unit := ()) : List (List (Fin 5 × Bool)) :=
-  burnsideF48s_autc_words burnsideF48s_autc_sp43BStr
-
-@[expose] def burnsideF48s_autc_sp43P1W (_ : Unit := ()) : List (List (Fin 5 × Bool)) :=
-  burnsideF48s_autc_words burnsideF48s_autc_sp43P1Str
-
-@[expose] def burnsideF48s_autc_sp43P2W (_ : Unit := ()) : List (List (Fin 5 × Bool)) :=
-  burnsideF48s_autc_words burnsideF48s_autc_sp43P2Str
-
-@[expose] def burnsideF48s_autc_sp43RelW : List (List (Fin 5 × Bool)) :=
-  [[(0, false)], [(0, false), (1, false), (0, true)], [(2, true)],
-    [(0, false), (3, false), (0, true)]]
-
-@[expose] def burnsideF48s_autc_sp43_checkRel (_ : Unit := ()) : Bool :=
-  let gl := burnsideF48s_autc_sp43gl ()
-  let gli := burnsideF48s_autc_sp43gli ()
-  ((List.range 4).all fun i => gl.getD i [] == evalW (burnsideF48s_sp43XY.getD i [])) &&
-    compL (gl.getD 4 []) (gl.getD 4 []) == List.range 45 &&
-    (List.range 4).all fun i => compL (compL (gl.getD 4 []) (gl.getD i [])) (gli.getD 4 []) ==
-      burnsideF48s_autc_evL gl gli (burnsideF48s_autc_sp43RelW.getD i [])
-
-@[expose] def burnsideF48s_autc_sp43_checkSub (_ : Unit := ()) : Bool :=
-  let gl := burnsideF48s_autc_sp43gl ()
-  let gli := burnsideF48s_autc_sp43gli ()
-  burnsideF48s_autc_groupB gl gli [0, 1, 4] (burnsideF48s_autc_sp43BW ()) 324 &&
-    burnsideF48s_autc_groupB gl gli [0, 1, 2, 4] (burnsideF48s_autc_sp43P1W ()) 1296 &&
-    burnsideF48s_autc_groupB gl gli [0, 1, 3, 4] (burnsideF48s_autc_sp43P2W ()) 1296
-
-@[expose] def burnsideF48s_autc_sp43_checkInf (_ : Unit := ()) : Bool :=
-  let gl := burnsideF48s_autc_sp43gl ()
-  let gli := burnsideF48s_autc_sp43gli ()
-  let L1 := (burnsideF48s_autc_sp43P1W ()).map (burnsideF48s_autc_evL gl gli)
-  let L2 := (burnsideF48s_autc_sp43P2W ()).map (burnsideF48s_autc_evL gl gli)
-  let LB := (burnsideF48s_autc_sp43BW ()).map (burnsideF48s_autc_evL gl gli)
-  L1.all fun x => !(L2.contains x) || LB.contains x
 
 end CFSG.ASVolI

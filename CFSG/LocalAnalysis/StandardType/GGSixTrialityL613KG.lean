@@ -467,12 +467,6 @@ theorem ggSixTrialityDCentralInput_of_om8 (ha : GGSixTrialityDClassThreeInput)
     ← index_centralizer_eq hinj]
   exact hidx
 
-theorem ggSixTrialityInput_of_om8 (h611 : GGSixLSixElevenInput) (h1 : GGD4OuterSylowInput)
-    (h2 : GGD4SemilinearLayerInput) (h3 : GGD4CentralClassThreeInput)
-    (h4 : GGD4ClassThreeLayerInput) (h5 : GGD4ClassThreeCentralInput)
-    (h6 : GGSixTrialityDClassThreeInput) : GGSixTrialityInput :=
-  ggSixTrialityInput_of_lSixEleven_central h611 (ggD4TrialityCentralInput_of_om8 h1 h2 h3 h4)
-    (ggSixTrialityDCentralInput_of_om8 h6 h5)
 
 end Main
 

@@ -148,14 +148,6 @@ theorem sigmaOf_unique {g : Gamma k} {σ : k ≃+* k}
     exact sigmaOf_unique (g := g * h)
       (σ := sigmaOf g * sigmaOf h) ((isSemilinear_sigmaOf g).mul (isSemilinear_sigmaOf h))
 
-theorem gammaField_apply (g : Gamma k) : gammaField k g = sigmaOf g := rfl
-
-theorem isSemilinear_gammaField (g : Gamma k) :
-    IsSemilinearWith (g : Equiv.Perm (Fin 2 → k)) (gammaField k g) := isSemilinear_sigmaOf g
-
-theorem gammaField_semilinPerm (A : SpecialLinearGroup (Fin 2) k) (σ : k ≃+* k) :
-    gammaField k ⟨semilinPerm A σ, semilinPerm_mem A σ⟩ = σ :=
-  (sigmaOf_unique (g := ⟨semilinPerm A σ, semilinPerm_mem A σ⟩) (semilinPerm_isSemilinear A σ)).symm
 
 @[expose] noncomputable def slGamma (k : Type*) [Field k] : Subgroup (Gamma k) := (gammaField k).ker
 

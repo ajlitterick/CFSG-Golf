@@ -1312,35 +1312,4 @@ theorem strothTypeData_t200_or_t201_of_data
     exact ⟨D', rfl, rfl, rfl, rfl, hc, ha, hb⟩
 
 
-theorem hasStrothType_t300_or_t310_of_data
-    {B C S' : Subgroup S} {m : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t100 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') (hne : C ≠ B) :
-    HasStrothType C (StrothTypeIndex.t300 (m + 1)) ∨
-    HasStrothType C (StrothTypeIndex.t310 (m + 1)
-      (two_le_succ_of_data hB.data hBC hC hrel hL hH hcS hne)) := by
-  obtain ⟨d, hdC, hd2, h⟩ :=
-    strothTypeData_t300_or_t310_of_data hB.data hBC hC hrel hL hH hcS hne
-  rcases h with ⟨D', -⟩ | ⟨D', -⟩
-  · exact Or.inl ⟨D'⟩
-  · exact Or.inr ⟨D'⟩
-
-
-theorem hasStrothType_t200_or_t201_of_data
-    [Finite S] {B C S' : Subgroup S} {m : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t100 m)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B)
-    (hcS : C ≤ S') (hne : C ≠ B) :
-    HasStrothType C (StrothTypeIndex.t200 m) ∨ HasStrothType C (StrothTypeIndex.t201 m) := by
-  obtain ⟨e, f, he, hf, h⟩ :=
-    strothTypeData_t200_or_t201_of_data hB.data hBC hC hrel hL hH hcS hne
-  rcases h with ⟨D', -⟩ | ⟨D', -⟩
-  · exact Or.inl ⟨D'⟩
-  · exact Or.inr ⟨D'⟩
-
-
 end CFSG.CGT.Stroth77

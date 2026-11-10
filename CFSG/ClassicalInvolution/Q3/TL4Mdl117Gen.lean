@@ -10,13 +10,6 @@ namespace CFSG.ClassicalInvolution.Q3.TL4.Mdl117
 open CFSG.ClassicalInvolution.Q3.AE CFSG.ClassicalInvolution.Q3.AE.Wr Certificates.AE117
 open CFSG.ComponentClassification.PresentationLocal
 
-@[expose] def Model117Gen : Prop :=
-  ∀ n : ℕ, 5 ≤ n → n ≠ 8 → ∀ β : MulAut ↥((AE.aeSub n).map (AE.mkQ n)),
-    (∀ (α : Finset (Fin n)) (h : α.card = 4) (b : Bool),
-      ∃ (α' : Finset (Fin n)) (h' : α'.card = 4) (b' : Bool),
-        ((AE.memBar α h b).subgroupOf ((AE.aeSub n).map (AE.mkQ n))).map β.toMonoidHom =
-          (AE.memBar α' h' b').subgroupOf ((AE.aeSub n).map (AE.mkQ n))) →
-      ∃ x : AE.AEQ n, ∀ g : ↥((AE.aeSub n).map (AE.mkQ n)), ((β g : _) : AE.AEQ n) = x * g * x⁻¹
 
 variable {n : ℕ}
 

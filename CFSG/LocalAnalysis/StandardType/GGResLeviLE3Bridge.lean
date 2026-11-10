@@ -334,112 +334,6 @@ theorem ggResLeviDatumCard_reverse_of_witness {G : Type} [Group G] {p : ℕ} [Fa
     rw [show (e2.symm).symm = e2 from rfl]
     rw [h, hmap_e2 o]
 
-theorem ggResTwoNodeDatum_of_exact2_not_exact3_reverse {G : Type} [Group G]
-    {p : ℕ} [Fact p.Prime] {Bs L J K : Subgroup G}
-    (h2 : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (h3 : ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    GGResTwoNodeDatum p Bs L J K ggSelAny ggTypAny := by
-  obtain ⟨Λ, i1, i2, S, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-    hS2, hA1, hA3, hWML, hCLL, hWMK, hCKK, htyp, hlin, hrefl, hpairL, hpairK, hsel,
-    hfLx, hfKx, hclosL, hclosK, hdel, hclosJ⟩ := h2
-  let := i1
-  let := i2
-  let := i3
-  let := i4
-  let := i5
-  let := i6
-  have hrev : GGResLeviDatumCard (Nat.card Λa) p Bs K J L ggSelAny ggTypAny :=
-    ggResLeviDatumCard_reverse_of_witness (S := S) (by omega) (by omega)
-      hWML hCLL hWMK hCKK hlin hrefl hpairL hpairK hfLx hfKx hclosL hclosK hdel hclosJ
-  obtain ⟨fL, hfL⟩ := hfLx
-  obtain ⟨fK, hfK⟩ := hfKx
-  have hAle2 : Nat.card Λa ≤ 2 := by
-    by_contra hle
-    have hAeq3 : Nat.card Λa = 3 := by omega
-    have hrev3 : GGResLeviDatumCard 3 p Bs K J L ggSelAny ggTypAny := by
-      rw [← hAeq3]
-      exact hrev
-    exact h3 (by simpa [GGResLeviDatumExact3] using hrev3)
-  obtain ⟨b₁, b₂, hbne, hS⟩ := Finset.card_eq_two.mp hS2
-  let C2 : Type := {i : Λ // i ≠ b₁ ∧ i ≠ b₂}
-  let eC2 : {i : Λ // i ∉ S} ≃ C2 :=
-    { toFun := fun x => ⟨x.1, by
-        have hx : x.1 ∉ ({b₁, b₂} : Finset Λ) := by simpa [hS] using x.2
-        simpa only [Finset.mem_insert, Finset.mem_singleton, not_or] using hx⟩
-      invFun := fun x => ⟨x.1, by
-        have hx : x.1 ∉ ({b₁, b₂} : Finset Λ) := by
-          simpa only [Finset.mem_insert, Finset.mem_singleton, not_or] using x.2
-        simpa [hS] using hx⟩
-      left_inv := fun x => by apply Subtype.ext; rfl
-      right_inv := fun x => by apply Subtype.ext; rfl }
-  let e2C : ({i : Λ // i ∉ S} ⊕ Λa) ≃ (C2 ⊕ Λa) :=
-    eC2.sumCongr (Equiv.refl Λa)
-  let CK2 : Matrix (C2 ⊕ Λa) (C2 ⊕ Λa) ℤ := fun o o' => CK (e2C.symm o) (e2C.symm o')
-  have hWMK2 : GGIsWeylMatrix (MK.reindex e2C) := l05nBL_weyl_reindex hWMK e2C
-  have hCKK2 : GGIntCartan (MK.reindex e2C) CK2 := l05nBL_intCartan_reindex hCKK e2C.symm
-  have hpairK2 : ∀ o o' : C2 ⊕ Λa,
-      α (o.map Subtype.val id) (h (o'.map Subtype.val id)) = (CK2 o o' : ZMod p) := by
-    intro o o'
-    have hmap : o.map Subtype.val id = (e2C.symm o).map Subtype.val id := by
-      cases o with
-      | inl x => rfl
-      | inr a => rfl
-    have hmap' : o'.map Subtype.val id = (e2C.symm o').map Subtype.val id := by
-      cases o' with
-      | inl x => rfl
-      | inr a => rfl
-    rw [hmap, hmap']
-    exact hpairK (e2C.symm o) (e2C.symm o')
-  have hdel2 : GGDeletedConnected2 ML b₁ b₂ := by
-    intro i j
-    have h := l05nBL_rtg_map
-      (r := fun u v : {i : Λ // i ∉ S} => u ≠ v ∧ ML.M u v ≠ 2)
-      (p := fun u v : C2 => u ≠ v ∧ ML.M u.1 v.1 ≠ 2)
-      (f := fun c : {i : Λ // i ∉ S} => eC2 c)
-      (fun u v huv => by
-        refine ⟨?_, ?_⟩
-        · intro hh; exact huv.1 (eC2.injective hh)
-        · have hu : (eC2 u).1 = u.1 := rfl
-          have hv : (eC2 v).1 = v.1 := rfl
-          simpa only [hu, hv] using huv.2)
-      (hdel (eC2.symm i) (eC2.symm j))
-    simpa using h
-  have hclosK2 : ggAutomizer K Bs = Subgroup.closure
-      (Set.range (fun j : C2 => φ (Sum.inl j)) ∪ Set.range fun a : Λa => φ (Sum.inr a)) := by
-    rw [hclosK]
-    congr 1
-    ext γ
-    constructor
-    · rintro (⟨j, rfl⟩ | ⟨a, rfl⟩)
-      · exact Or.inl ⟨eC2 j, rfl⟩
-      · exact Or.inr ⟨a, rfl⟩
-    · rintro (⟨j, rfl⟩ | ⟨a, rfl⟩)
-      · exact Or.inl ⟨eC2.symm j, rfl⟩
-      · exact Or.inr ⟨a, rfl⟩
-  have hclosJ2 : ggAutomizer J Bs = Subgroup.closure
-      (Set.range fun j : C2 => φ (Sum.inl j)) := by
-    rw [hclosJ]
-    congr 1
-    ext γ
-    constructor
-    · rintro ⟨j, rfl⟩
-      exact ⟨eC2 j, rfl⟩
-    · rintro ⟨j, rfl⟩
-      exact ⟨eC2.symm j, rfl⟩
-  refine ⟨Λ, i1, i2, b₁, b₂, Λa, i3, i4, ML, CL, MK.reindex e2C, CK2,
-    V, i5, i6, ι, φ, h, α, hbne, hA1, hAle2, hWML, hCLL, hWMK2, hCKK2, trivial,
-    hlin, hrefl, hpairL, hpairK2, trivial, ⟨fL, hfL⟩, ?_, hclosL, hclosK2, hdel2, hclosJ2⟩
-  · refine ⟨(MK.reindexGroupEquiv e2C).trans fK, ?_⟩
-    intro o
-    change fK ((MK.reindexGroupEquiv e2C) ((MK.reindex e2C).simple o)) =
-      φ (o.map Subtype.val id)
-    rw [CoxeterMatrix.reindexGroupEquiv_apply_simple]
-    rw [show (o.map Subtype.val id) = (e2C.symm o).map Subtype.val id from by
-      cases o with
-      | inl x => rfl
-      | inr a => rfl]
-    exact hfK (e2C.symm o)
-
 
 theorem ggResLeviDatumCard_reverse {G : Type} [Group G] {p : ℕ} [Fact p.Prime]
     {Bs L J K : Subgroup G} {k : ℕ} (hk1 : 1 ≤ k) (hk3 : k ≤ 3)
@@ -457,35 +351,6 @@ theorem ggResLeviDatumCard_reverse {G : Type} [Group G] {p : ℕ} [Fact p.Prime]
   refine ⟨Nat.card Λa, hA1, hA3, ?_⟩
   exact ggResLeviDatumCard_reverse_of_witness (S := S) (by omega) (by omega)
     hWML hCLL hWMK hCKK hlin hrefl hpairL hpairK hfLx hfKx hclosL hclosK hdel hclosJ
-
-theorem ggResLeviDatumExact2_reverse_card_one_two_three {G : Type} [Group G]
-    {p : ℕ} [Fact p.Prime] {Bs L J K : Subgroup G}
-    (h2 : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny) :
-    GGResLeviDatumCard 1 p Bs K J L ggSelAny ggTypAny ∨
-      GGResLeviDatumCard 2 p Bs K J L ggSelAny ggTypAny ∨
-      GGResLeviDatumCard 3 p Bs K J L ggSelAny ggTypAny := by
-  obtain ⟨j, hj1, hj3, hcard⟩ :=
-    ggResLeviDatumCard_reverse (k := 2) (by norm_num) (by norm_num) h2
-  rcases (by omega : j = 1 ∨ j = 2 ∨ j = 3) with rfl | rfl | rfl
-  · exact Or.inl hcard
-  · exact Or.inr (Or.inl hcard)
-  · exact Or.inr (Or.inr hcard)
-
-theorem ggResLeviDatumExact2_reverse_card_one_two_of_not_exact3 {G : Type} [Group G]
-    {p : ℕ} [Fact p.Prime] {Bs L J K : Subgroup G}
-    (h2 : GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny)
-    (h3 : ¬ GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) :
-    GGResLeviDatumCard 1 p Bs K J L ggSelAny ggTypAny ∨
-      GGResLeviDatumCard 2 p Bs K J L ggSelAny ggTypAny := by
-  obtain ⟨j, hj1, hj3, hcard⟩ :=
-    ggResLeviDatumCard_reverse (k := 2) (by norm_num) (by norm_num) h2
-  have hjne : j ≠ 3 := by
-    rintro rfl
-    exact h3 (by simpa [GGResLeviDatumExact3] using hcard)
-  rcases (by omega : j = 1 ∨ j = 2) with rfl | rfl
-  · exact Or.inl hcard
-  · exact Or.inr hcard
-
 
 
 open CFSG.Monster.B.Geometry
@@ -695,17 +560,6 @@ theorem ggResLeviDatumCard_rank_eq_of_weylTypeData
   obtain ⟨r, hfull, hsurv⟩ := ggResLeviDatumCard_weylTypeData hD hJ
   exact ⟨r, ggWeylTypeData_rank_eq hfull hX, hsurv⟩
 
-theorem ggResLeviDatumCard_card_eq_of_same_base
-    {G : Type} [Group G] [Finite G]
-    {p k k' : ℕ} [Fact p.Prime] {Bs X J Y Y' : Subgroup G}
-    (hD : GGResLeviDatumCard k p Bs X J Y ggSelAny ggTypAny)
-    (hD' : GGResLeviDatumCard k' p Bs X J Y' ggSelAny ggTypAny)
-    (hJ : ggAutomizer J Bs ≠ ⊥) : k = k' := by
-  obtain ⟨r, hfull, hsurv⟩ := ggResLeviDatumCard_weylTypeData hD hJ
-  obtain ⟨r', hfull', hsurv'⟩ := ggResLeviDatumCard_weylTypeData hD' hJ
-  have hfullEq := ggWeylTypeData_rank_eq hfull hfull'
-  have hsurvEq := ggWeylTypeData_rank_eq hsurv hsurv'
-  omega
 
 theorem ggRes_typeA_deletedS_card_automizer
     {G : Type} [Group G] {Bs X J : Subgroup G} {Λ : Type}
@@ -1266,65 +1120,6 @@ theorem exists_A3_reindex_of_e6_three_survivor
       exact (Fintype.card_fin 2).symm.trans ((Fintype.card_congr e2').trans hcardT)
     omega
 
-theorem e6_exact_three_survivor_equiv
-    {Λ H : Type} [Fintype Λ] [DecidableEq Λ] [Group H]
-    {M : CoxeterMatrix Λ} {C : Matrix Λ Λ ℤ}
-    (hM : GGIsWeylMatrix M) (hC : GGIntCartan M C) (hE6 : GGIsTypeE6 M)
-    {S : Finset Λ} (hS : S.card = 3) (hconn : GGDeletedConnectedS M S)
-    {X J : Subgroup H} (f : M.Group ≃* ↥X) (φ : Λ → H)
-    (hf : ∀ i, (f (M.simple i) : H) = φ i)
-    (hJ : J = Subgroup.closure (Set.range fun i : {i : Λ // i ∉ S} => φ i)) :
-    ∃ (e : Fin 3 ≃ {i : Λ // i ∉ S}) (g : (CoxeterMatrix.A 3).Group ≃* ↥J),
-      ∀ i, (g ((CoxeterMatrix.A 3).simple i) : H) = φ (e i) := by
-  classical
-  let T : Set Λ := {i | i ∉ S}
-  have hJ' : J = Subgroup.closure (Set.range fun i : T => φ i) := by
-    exact hJ
-  obtain ⟨a, ha⟩ := exists_A3_reindex_of_e6_three_survivor hM hC hE6 hS hconn
-  have haT : parMatrix M T = (CoxeterMatrix.A 3).reindex a := by
-    simpa [T] using ha
-  let jEquiv : (parMatrix M T).Group ≃* ↥J :=
-    ggParabolic_equiv_of_generator_equiv M T φ f hf hJ'
-  have hjEquiv (i : T) : (jEquiv ((parMatrix M T).simple i) : H) = φ i :=
-    ggParabolic_equiv_of_generator_equiv_simple M f φ hf T hJ' i
-  have hx : ∃ g : (parMatrix M T).Group ≃* ↥J,
-      ∀ i : T, (g ((parMatrix M T).simple i) : H) = φ i := ⟨jEquiv, hjEquiv⟩
-  rw [haT] at hx
-  obtain ⟨g, hg⟩ := hx
-  refine ⟨a, (CoxeterMatrix.reindexGroupEquiv (CoxeterMatrix.A 3) a).symm.trans g, ?_⟩
-  intro i
-  have heq : (CoxeterMatrix.reindexGroupEquiv (CoxeterMatrix.A 3) a).symm
-      ((CoxeterMatrix.A 3).simple i) =
-      ((CoxeterMatrix.A 3).reindex a).simple (a i) := by
-    apply (CoxeterMatrix.reindexGroupEquiv (CoxeterMatrix.A 3) a).injective
-    simp [CoxeterMatrix.reindexGroupEquiv_apply_simple]
-  simpa only [MulEquiv.trans_apply, heq] using hg (a i)
-
-theorem e6_exact_three_survivor_card
-    {Λ H : Type} [Fintype Λ] [DecidableEq Λ] [Group H]
-    {M : CoxeterMatrix Λ} {C : Matrix Λ Λ ℤ}
-    (hM : GGIsWeylMatrix M) (hC : GGIntCartan M C) (hE6 : GGIsTypeE6 M)
-    {S : Finset Λ} (hS : S.card = 3) (hconn : GGDeletedConnectedS M S)
-    {X J : Subgroup H} (f : M.Group ≃* ↥X) (φ : Λ → H)
-    (hf : ∀ i, (f (M.simple i) : H) = φ i)
-    (hJ : J = Subgroup.closure (Set.range fun i : {i : Λ // i ∉ S} => φ i)) :
-    Nat.card ↥J = 24 := by
-  obtain ⟨a, g, hg⟩ := e6_exact_three_survivor_equiv hM hC hE6 hS hconn f φ hf hJ
-  rw [← Nat.card_congr g.toEquiv, l05nK3a_card_coxeterA 3]
-  norm_num
-
-theorem ggResLeviDatumExact3_E6_automizerJ_card
-    {G : Type} [Group G] {p : ℕ} [Fact p.Prime] {Bs X J Y : Subgroup G}
-    (hD : GGResLeviDatumExact3 p Bs X J Y ggSelAny ggTypLE6) :
-    Nat.card ↥(ggAutomizer J Bs) = 24 := by
-  classical
-  rcases hD with ⟨Λ, i1, i2, S, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-    hS, -, -, hML, hCL, -, -, htyp, -, -, -, -, -, ⟨f, hf⟩, -, -, -, hconn, hclosJ⟩
-  let := i1
-  let := i2
-  have hE6 : GGIsTypeE6 ML := htyp
-  exact e6_exact_three_survivor_card hML hCL hE6 hS hconn f
-    (fun i => φ (Sum.inl i)) hf hclosJ
 
 end E6ExactThreeSurvivor
 
@@ -1463,33 +1258,6 @@ theorem e6_exactThree_GGResLineJDatum_A3
     GGResLineJDatum 3 Bs J .A3 :=
   GGResLineJDatum_A3_of_GGResXDatumA (GGResXDatumA_of_exactThree_E6 hD)
 
-theorem ggResExactThree_E6_exists_coroot_subgroup
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G} [Fact (Nat.Prime 3)]
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypLE6 ∨
-      GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypLE6) :
-    ∃ E : Subgroup G, E ≤ Bs ⊓ J ∧ IsElemAbelian 3 E ∧ Nat.card E = 27 ∧
-      E ⊓ Subgroup.centralizer (J : Set G) = ⊥ := by
-  have hLine : GGResLineJDatum 3 Bs J .A3 := by
-    rcases hD with hD | hD
-    · exact e6_exactThree_GGResLineJDatum_A3 hD
-    · exact e6_exactThree_GGResLineJDatum_A3 hD
-  exact hH.exists_coroot_subgroup_of_A3 hLine
-
-theorem ggResExactThree_E6_cube_le_card_gamma_J
-    {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G} [Fact (Nat.Prime 3)]
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLeviDatumExact3 3 Bs L J K ggSelAny ggTypLE6 ∨
-      GGResLeviDatumExact3 3 Bs K J L ggSelAny ggTypLE6) :
-    3 ^ 3 ≤ Nat.card (ggGamma J (GGResHyp.Bs_le_normalizer_J hH)).range := by
-  have hLine : GGResLineJDatum 3 Bs J .A3 := by
-    rcases hD with hD | hD
-    · exact e6_exactThree_GGResLineJDatum_A3 hD
-    · exact e6_exactThree_GGResLineJDatum_A3 hD
-  exact hH.cube_le_card_gamma_of_A3 hLine
-
 
 theorem ggResLevi_dvd_card_J_of_reflection
     {G : Type} [Group G] [Finite G] {p : ℕ} {Bs J : Subgroup G}
@@ -1589,36 +1357,5 @@ theorem ggResLeviDatumCard_survivor_dvd_and_ne
     exact hr
   exact hrne (by simpa using hmem)
 
-
-theorem ggResLeviDatumExact2_reverse_card_one_of_not_exact2_or_exact3
-    {G : Type} [Group G] {p : ℕ} [Fact p.Prime] {Bs X J Y : Subgroup G}
-    (h2 : GGResLeviDatumExact2 p Bs X J Y ggSelAny ggTypAny)
-    (hno : ¬ (GGResLeviDatumExact2 p Bs Y J X ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 p Bs Y J X ggSelAny ggTypAny)) :
-    GGResLeviDatumCard 1 p Bs Y J X ggSelAny ggTypAny := by
-  rcases ggResLeviDatumExact2_reverse_card_one_two_three h2 with h1 | h2' | h3'
-  · exact h1
-  · exact (hno (Or.inl h2')).elim
-  · exact (hno (Or.inr h3')).elim
-
-theorem ggResLeviDatumExact2_rank_gap_of_only_orientation
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {Bs X J Y : Subgroup G}
-    (h2 : GGResLeviDatumExact2 p Bs X J Y ggSelAny ggTypAny)
-    (hno : ¬ (GGResLeviDatumExact2 p Bs Y J X ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 p Bs Y J X ggSelAny ggTypAny))
-    (hJ : ggAutomizer J Bs ≠ ⊥) :
-    ∃ r, GGWeylTypeData (r + 2) (Nat.card ↥(ggAutomizer X Bs))
-        (Nat.card ↥(Subgroup.center ↥(ggAutomizer X Bs))) ∧
-      GGWeylTypeData (r + 1) (Nat.card ↥(ggAutomizer Y Bs))
-        (Nat.card ↥(Subgroup.center ↥(ggAutomizer Y Bs))) ∧
-      GGWeylTypeData r (Nat.card ↥(ggAutomizer J Bs))
-        (Nat.card ↥(Subgroup.center ↥(ggAutomizer J Bs))) := by
-  have h1 := ggResLeviDatumExact2_reverse_card_one_of_not_exact2_or_exact3 h2 hno
-  obtain ⟨r, hX, hJr⟩ := ggResLeviDatumCard_weylTypeData h2 hJ
-  obtain ⟨r', hY, hJr'⟩ := ggResLeviDatumCard_weylTypeData h1 hJ
-  have hr : r = r' := ggWeylTypeData_rank_eq hJr hJr'
-  subst r'
-  exact ⟨r, hX, hY, hJr⟩
 
 end CFSG.StandardType

@@ -112,11 +112,6 @@ theorem h_mem_fixed {i : ι} {c : Kˣ} (hc : (c : K) ∈ fixedField σ) :
   · rw [Pi.mulSingle_eq_of_ne hj, Units.val_one]
     exact (fixedField σ).one_mem
 
-theorem weyl_mem_fixed (i : ι) : R.weyl i ∈ fixedSubgroup F := by
-  refine (fixedSubgroup F).mul_mem ((fixedSubgroup F).mul_mem ?_ ?_) ?_
-  · exact x_mem_fixed hF (fixedField σ).one_mem
-  · exact y_mem_fixed hF ((fixedField σ).neg_mem (fixedField σ).one_mem)
-  · exact x_mem_fixed hF (fixedField σ).one_mem
 
 theorem x_mem_commutator (hdiag : ∀ j, R.CM j j = 2) {μ : Kˣ} (hμ : (μ : K) ∈ fixedField σ)
     (hμ2 : (μ : K) ^ 2 ≠ 1) {i : ι} {u : K} (hu : u ∈ fixedField σ) :

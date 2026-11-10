@@ -198,11 +198,6 @@ theorem pow_pow_eq_self (hK : Nat.card K = ReeTag.F4.prime ^ (2 * a + 1)) (c : K
   have h := FiniteField.pow_card c
   rwa [← Nat.card_eq_fintype_card, hK] at h
 
-omit [CharP K ReeTag.F4.prime] in
-theorem pow_pow_eq_self' (hK : Nat.card K = ReeTag.F4.prime ^ (2 * a + 1)) (c : K) :
-    (c ^ 2 ^ (a + 1)) ^ 2 ^ a = c := by
-  rw [← pow_mul, mul_comm, pow_mul]
-  exact pow_pow_eq_self hK c
 
 omit [Finite K] [CharP K ReeTag.F4.prime] in
 theorem map_sl2Diag_eq_torusElement

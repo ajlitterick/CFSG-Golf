@@ -141,8 +141,6 @@ theorem quE_facts : EnumFacts quA 1024 quE := enumFacts_of (by norm_num) eFacts.
 
 theorem card_locQu : Nat.card locQu = 1024 := quE_facts.card repTuple_qu
 
-theorem quPerm_sq {i : ℕ} (hi : i < 10) : quPerm i * quPerm i = 1 :=
-  eq_of_eqA (rep_compA (rep_quPerm hi) (rep_quPerm hi)) rep_idA (quFacts hi).2.1
 
 theorem quPerm_comm {i j : ℕ} (hi : i < 10) (hj : j < 10) :
     quPerm i * quPerm j = quPerm j * quPerm i :=
@@ -159,19 +157,6 @@ theorem locQu_comm {x y : Equiv.Perm (Fin 2300)} (hx : x ∈ locQu) (hy : y ∈ 
   have hc := Subgroup.isMulCommutative_closure hk
   exact congrArg Subtype.val (hc.is_comm.comm ⟨x, hx⟩ ⟨y, hy⟩)
 
-theorem locQu_sq {x : Equiv.Perm (Fin 2300)} (hx : x ∈ locQu) : x * x = 1 := by
-  induction hx using Subgroup.closure_induction with
-  | mem x hx =>
-    obtain ⟨i, hi, rfl⟩ := mem_quTuple hx
-    exact quPerm_sq hi
-  | one => rw [mul_one]
-  | mul x y hx hy ihx ihy =>
-    calc x * y * (x * y) = x * (y * x) * y := by group
-      _ = x * (x * y) * y := by rw [locQu_comm hy hx]
-      _ = (x * x) * (y * y) := by group
-      _ = 1 := by rw [ihx, ihy, one_mul]
-  | inv x hx ihx =>
-    rw [← mul_inv_rev, ihx, inv_one]
 
 theorem quPerm_eq {i : ℕ} (hi : i < 10) :
     quPerm i = prodList gTuple (quRecipe.getD i ([], 0)).1 ^ (quRecipe.getD i ([], 0)).2 := by

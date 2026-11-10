@@ -46,14 +46,6 @@ theorem rotate_injective : Function.Injective rotate := by
   obtain ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩ := h
   rfl
 
-theorem rotate_rotate_rotate_rotate (r : LyonsRow) : r.rotate.rotate.rotate.rotate = r := by
-  obtain ⟨t, a, b, c, d, e⟩ := r
-  rfl
-
-theorem toVec_rotate (r : LyonsRow) (i : Fin 6) :
-    r.rotate.toVec i = r.toVec (![0, 1, 5, 2, 3, 4] i) := by
-  obtain ⟨t, a, b, c, d, e⟩ := r
-  fin_cases i <;> rfl
 
 end LyonsRow
 

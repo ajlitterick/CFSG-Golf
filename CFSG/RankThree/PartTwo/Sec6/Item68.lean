@@ -379,8 +379,5 @@ theorem rank3II_6_8 (h45 : Sec4.Item4_5) (h66 : Item6_6) (hKf : KFacts.KS6OuterI
   obtain ⟨c, hcE, hc1, hLc⟩ := mem_thetaComponentFamily_iff.mp hLE
   exact le_normalizer_of_mem_fourGroupsPlus h45 h66 hKf hG hA hE hcE hc1 hLc hLs hT
 
-theorem rank3II_6_8_of_inputs (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8) (h49 : Sec4.Item4_9)
-    (hB3 : BThreeProperty) (hKf : KFacts.KS6OuterIndex) : Item6_8 :=
-  rank3II_6_8 h45 (rank3II_6_6_of_inputs h45 h48 h49 hB3) hKf
 
 end CFSG.RankThree.PartTwo.Sec6

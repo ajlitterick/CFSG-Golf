@@ -81,12 +81,6 @@ theorem root_mem_or_mul_mem_partner_hull {H : Subgroup G} {z w₁ w₂ : G} {U R
     rw [this]
     exact hr₂L
 
-theorem relIndex_partner_hull_le_two {H : Subgroup G} {z w₁ w₂ : G} {U R₁ : Subgroup G}
-    {q i : ℕ} [Finite G] (hzU : z ∈ U)
-    (hw : ∀ x : G, Commute x w₁ → Commute x z → Commute x w₂)
-    (h₂ : PointKernelHullData H z w₂ U q i) (hR₁ : PointKernelRootData H z w₁ U R₁ q i) :
-    (localInvolutionPointHull z w₂).relIndex R₁ ≤ 2 :=
-  relIndex_le_two_of_mem_or_mul_mem (root_mem_or_mul_mem_partner_hull hzU hw h₂ hR₁)
 
 theorem kernel_eq_zpowers_of_partner {H : Subgroup G} {z w₁ w₂ : G} {U R₁ : Subgroup G}
     {q i : ℕ} (hzH : Subgroup.centralizer ({z} : Set G) ≤ H) (hzU : z ∈ U)

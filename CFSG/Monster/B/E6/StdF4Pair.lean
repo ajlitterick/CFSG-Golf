@@ -15,8 +15,6 @@ open CFSG.Monster.B.Classical Module
 open CFSG.Monster.B.E6.FixedE6 (V fixedL formL)
 open CFSG.Monster.B.E6.FixedE6Root (rootVecOf a0 a0L)
 
-theorem parLeft_one :
-    parLeft (1 : parStar firstJ) = 1 := Subtype.ext rfl
 
 theorem fibSub_conj_of_eq
     {d : Fin 5} (hd : IsMid d) {k : Fin 3} (hk : fibKd d = k)
@@ -54,12 +52,6 @@ theorem fibSub_conj_conj_one
       (thetaFirst γ' • residueFlag (QuotientGroup.mk (parLeft γ))).sub 2 :=
   fibSub_conj_conj_of_eq (d := 1) (k := 2) (Or.inl rfl) rfl γ γ'
 
-theorem fibSub_two_fibT :
-    fibSub 2 (SemidirectProduct.inl (fibT 2)) = basePoint := by
-  have h := fibSub_conj_two 1
-  rw [OneMemClass.coe_one, one_mul, inv_one, mul_one, parLeft_one] at h
-  rw [h]
-  exact flagSub_one 0
 
 theorem fibSub_mem_isoSubs_two
     {p : GStar} (hp : p ∈ fibOrbit 1) : fibSub 1 p ∈ isoSubs 2 := by
@@ -133,46 +125,5 @@ theorem commute_iff_fibSub_le
     residueFlag_parLeft ⟨γ, hγ⟩]
   exact (SUFrob_smul_sub_le_iff (thetaFirst ⟨γ, hγ⟩) baseFlag _ 0 2).symm
 
-theorem setOf_commute_eq
-    {q : GStar} (hq : q ∈ fibOrbit 2) :
-    {p | p ∈ fibOrbit 1 ∧ Commute p q} =
-      {p | p ∈ fibOrbit 1 ∧ fibSub 1 p ∈ {T | T ∈ isoSubs 2 ∧ fibSub 2 q ≤ T}} := by
-  ext p
-  constructor
-  · rintro ⟨hp, hc⟩
-    exact ⟨hp, fibSub_mem_isoSubs_two hp, (commute_iff_fibSub_le hp hq).1 hc⟩
-  · rintro ⟨hp, -, h⟩
-    exact ⟨hp, (commute_iff_fibSub_le hp hq).2 h⟩
-
-theorem ncard_planes_fibSub
-    {q : GStar} (hq : q ∈ fibOrbit 2) :
-    {T | T ∈ isoSubs 2 ∧ fibSub 2 q ≤ T}.ncard = 27 := by
-  have h := ncard_commute_fibOrbit_one hq
-  rw [setOf_commute_eq hq, ncard_fibSub_preimage fun _ hT => hT.1] at h
-  omega
-
-theorem standard_parabolic_point_plane_commutation_and_root_pairs :
-    (∀ p q : stdGroup, p ∈ rootClass → q ∈ rootClass →
-      (formL (rootVecOf p) (rootVecOf q) = 1 ↔ orderOf (p * q) = 3)) ∧
-    (∀ x ∈ fibOrbit 1, (conjOrbit radStar x).ncard = 2 ∧
-      (fun y : GStar => rootVecOf y.left) '' conjOrbit radStar x =
-        {rootVecOf x.left, rootVecOf x.left + a0L}) ∧
-    (a0L : V) = a0 ∧ a0 = rootVec Tag.E6 K theta ∧
-    (∀ p ∈ fibOrbit 1, ∀ q ∈ fibOrbit 2, Commute p q ↔ fibSub 2 q ≤ fibSub 1 p) ∧
-    (∀ q ∈ fibOrbit 2, fibSub 2 q ∈ isoSubs 0) ∧ (∀ p ∈ fibOrbit 1, fibSub 1 p ∈ isoSubs 2) ∧
-    ∀ q ∈ fibOrbit 2,
-      {p | p ∈ fibOrbit 1 ∧ Commute p q}.ncard = 54 ∧
-      {T | T ∈ isoSubs 2 ∧ fibSub 2 q ≤ T}.ncard = 27 ∧
-      ∀ T ∈ isoSubs 2, fibSub 2 q ≤ T →
-        {p | p ∈ fibOrbit 1 ∧ fibSub 1 p = T}.ncard = 2 ∧
-        ∀ p ∈ fibOrbit 1, fibSub 1 p = T → Commute p q := by
-  refine ⟨fun p q hp hq => formL_rootVecOf_eq_one_iff hp hq, fun x hx =>
-    ⟨ncard_conjOrbit_radStar hx, image_rootVec_conjOrbit hx⟩, rfl, rfl,
-    fun p hp q hq => commute_iff_fibSub_le hp hq, fun q hq => ?_,
-    fun p hp => fibSub_mem_isoSubs_two hp, fun q hq =>
-      ⟨ncard_commute_fibOrbit_one hq, ncard_planes_fibSub hq, fun T hT hqT =>
-        ⟨ncard_fibSub_eq hT, fun p hp hpT => (commute_iff_fibSub_le hp hq).2 (hpT ▸ hqT)⟩⟩⟩
-  have h := Set.mem_image_of_mem (fibSub 2) hq
-  rwa [image_fibSub (Or.inr (Or.inl rfl))] at h
 
 end CFSG.Monster.B.E6.StdF4

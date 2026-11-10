@@ -182,6 +182,5 @@ end S3Outer
 open CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.Generic CFSG.GH74.Generic.BProg CFSG.Blueprint
   CFSG.ABGLocalTools CFSG.Assembly.LowTwoRank Subgroup
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.GH74.Generic.BProg.B3

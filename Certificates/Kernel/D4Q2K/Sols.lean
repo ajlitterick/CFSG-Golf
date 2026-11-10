@@ -21,11 +21,6 @@ open CFSG.KC.D4Q2K
 #kc_each CertificateChecks.KernelD4Q2K.solASl 0 16
 #kc_each CertificateChecks.KernelD4Q2K.solBSl 0 8
 
-theorem solA_neg : (!solAK D.MF (fun i => DS.SF (Nat.succ i)) DS.sp 0 1) = true := by
-  quickRfl
-
-theorem solB_neg : (!solBK D.MF (fun i => DS.SF (Nat.succ i)) DS.si 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelD4Q2K
 

@@ -22,11 +22,6 @@ theorem e_conj_y : e * y * e = z * y := by
   rw [← hs, inv_eq_self_of_sq_eq_one he2] at this
   exact this
 
-theorem e_conj_z : e * z * e = z := by
-  obtain ⟨s₁, hs₁, hs⟩ := hes
-  have := h.conj_z_e hd hs₁
-  rw [← hs, inv_eq_self_of_sq_eq_one he2] at this
-  exact this
 
 theorem t_sq : (e * y) * (e * y) = z := by
   have h1 := h.e_conj_y hd hes he2

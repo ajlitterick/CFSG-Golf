@@ -114,8 +114,6 @@ theorem prodP_cdE (h : Ly0.tabCheck = true) :
         show (-(-2 : ℤ) - 1).toNat = 1 from rfl, Ly0.gens0_one, hdi]
       simp [prodP, baseP_two]
 
-theorem uWords_range' : ∀ k < 4, ∀ l ∈ Ly0.uWords.getD k [], l ≠ 0 ∧ l.natAbs ≤ 2 :=
-  fun _ hk => uWords_range hk
 
 theorem prodP_uE (h : Ly0.tabCheck = true) :
     ∀ w : List Int, (∀ l ∈ w, 0 < l ∧ l ≤ 4) →

@@ -83,27 +83,6 @@ theorem commSpace_cj_eq_bot {A : Subgroup (LGL 2 V)}
     commSpace (cj g A) (commSub (cj g A)) = ⊥ := by
   rw [commSpace_cj, h, Submodule.map_bot]
 
-theorem fixSub_sup (A B : Subgroup (LGL 2 V)) : fixSub (A ⊔ B) = fixSub A ⊓ fixSub B := by
-  refine le_antisymm ?_ ?_
-  · intro v hv
-    exact ⟨fun a ha => hv a (Subgroup.mem_sup_left ha),
-      fun b hb => hv b (Subgroup.mem_sup_right hb)⟩
-  · rintro v ⟨ha, hb⟩ t ht
-    let K : Subgroup (LGL 2 V) :=
-      { carrier := {t | t v = v}
-        one_mem' := rfl
-        mul_mem' := fun {s t} hs ht => by
-          have hs' : s v = v := hs
-          have ht' : t v = v := ht
-          change (s * t) v = v
-          rw [LinearEquiv.mul_apply, ht', hs']
-        inv_mem' := fun {s} hs => by
-          have hs' : s v = v := hs
-          change s⁻¹ v = v
-          conv_lhs => rw [← hs']
-          exact LinearEquiv.symm_apply_apply s v }
-    have hle : A ⊔ B ≤ K := sup_le (fun a ha' => ha a ha') (fun b hb' => hb b hb')
-    exact hle ht
 
 theorem mem_fixSub_sup {A B : Subgroup (LGL 2 V)} {v : V} (hA : v ∈ fixSub A)
     (hB : v ∈ fixSub B) : v ∈ fixSub (A ⊔ B) := by

@@ -125,10 +125,6 @@ theorem fsuUL_conjugate {T L I : Subgroup G} {x : G} (hx : x ∈ T) :
   show ⁅fsuVM T L (CFSG.conjugate I x), L⁆ = _
   rw [fsuVM_conjugate hx]
 
-theorem fsuCVM_conjugate {T L I : Subgroup G} {x : G} (hx : x ∈ T) :
-    fsuCVM T L (CFSG.conjugate I x) = fsuCVM T L I := by
-  show fsuVM T L (CFSG.conjugate I x) ⊓ Subgroup.centralizer (fsuL0 T L : Set G) = _
-  rw [fsuVM_conjugate hx]
 
 theorem card_conjugate (I : Subgroup G) (x : G) :
     Nat.card ↥(CFSG.conjugate I x) = Nat.card ↥I :=

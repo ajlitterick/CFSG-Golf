@@ -586,29 +586,6 @@ theorem mem_B1_of_kFormAct {K F : Type} [Field K] [Field F] [Fintype F] [CharP F
   exact (transport_mem_B1A (ρ := ρ) (μ := kFormAct τ hτ3) (θ := θ.trans s) (β := β)
     hβ').mp hB
 
-theorem finrank_H1_eq_zero_of_kFormAct {K F : Type} [Field K] [Field F] [Fintype F]
-    [CharP F 2] [Algebra K F] {Γ W : Type*} [Group Γ] [AddCommGroup W]
-    [Module (ZMod 2) W] {f : ℕ} (hf : 2 ≤ f) (hF : Fintype.card F = 2 ^ (3 * f))
-    (τ : F →ₐ[K] F) (hτ : ∀ a, τ a = a ^ 2 ^ f) (hτ3 : ∀ a, τ (τ (τ a)) = a)
-    (ρ : Representation (ZMod 2) Γ W) (θ : Γ ≃* SL(2, F)) (σ : F ≃+* F)
-    (β : W ≃+ ↥(kForm τ))
-    (hβ : ∀ γ w, β (ρ γ w) = kFormAct τ hτ3 (D2.slMap σ (θ γ)) (β w)) :
-    Module.finrank (ZMod 2) (H1 ρ) = 0 := by
-  have hZ : Z1 ρ = B1 ρ := by
-    ext φ
-    exact ⟨fun hφ => mem_B1_of_kFormAct hf hF τ hτ hτ3 ρ θ σ β hβ hφ,
-      fun hφ => B1_le_Z1 ρ hφ⟩
-  have : Finite Γ := Finite.of_equiv _ θ.toEquiv.symm
-  have : Finite W := Finite.of_equiv _ β.toEquiv.symm
-  apply finrank_H1_of_card
-  have hcard := card_H1_mul ρ
-  rw [hZ] at hcard
-  have hBpos : 0 < Nat.card (B1 ρ) := Nat.card_pos
-  have hH : Nat.card (H1 ρ) = 1 := by
-    have h' : Nat.card (H1 ρ) * Nat.card (B1 ρ) = 1 * Nat.card (B1 ρ) := by
-      simpa using hcard
-    exact Nat.eq_of_mul_eq_mul_right hBpos h'
-  rw [hH, pow_zero]
 
 end CFSG.Quasithin.F112R.St84
 

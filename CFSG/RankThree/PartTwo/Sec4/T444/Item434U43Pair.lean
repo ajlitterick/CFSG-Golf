@@ -29,7 +29,6 @@ theorem InSub.mul {H : Subgroup SUg} {x y : List ℕ} (hx : InSub H x) (hy : InS
 
 theorem InSub.sq {H : Subgroup SUg} {x : List ℕ} (hx : InSub H x) : InSub H (sq4 x) := hx.mul hx
 
-theorem InSub.canon {H : Subgroup SUg} {x : List ℕ} (hx : InSub H x) : canon4 x = true := hx.1
 
 theorem inSub_uAt_iff (hsyl : uSylCheck = true) {H : Subgroup SUg} {t : ℕ} (ht : t < 729) :
     InSub H (uAt t) ↔ sAt t ∈ H := by

@@ -37,15 +37,6 @@ theorem refl_mul_self (i : Fin 6) : refl i * refl i = 1 := by
 
 @[expose] def Pbar : Subgroup GL5 := Subgroup.closure {genA, genB}
 
-theorem Pbar_le_Wgrp : Pbar ≤ Wgrp := by
-  have h : ∀ i, reflGL i ∈ Wgrp := fun i => Subgroup.subset_closure ⟨i, rfl⟩
-  rw [Pbar, Subgroup.closure_le]
-  rintro x (rfl | rfl)
-  · exact Subgroup.mul_mem _ (h _) (h _)
-  · simp only [genB]
-    exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _
-      (Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ (h _) (h _)) (h _)) (h _))
-      (h _)) (h _)) (h _)) (h _)
 
 theorem genA_val : (genA : M5) = aMat := by decide +kernel
 theorem genB_val : (genB : M5) = bMat := by decide +kernel
@@ -182,8 +173,6 @@ theorem latticeClosedB_true : latticeClosedB = true :=
 theorem lattice_zero : [0] ∈ lattice :=
   Certificates.certificate6040.2.2.2.2.2.2.2.2.1
 
-theorem lattice_length : lattice.length = 50 :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.1
 
 theorem lattice_closed
     (l : List (Fin 81)) (hl : l ∈ lattice) (x : Fin 81) (hx : x ∉ l.toFinset)
@@ -389,40 +378,6 @@ theorem elemAbelian_bound
     exact Subgroup.one_mem _
   simpa [hel, hn0] using h1
 
-def fixedAddOf (A : Set GL5) : AddSubgroup E5 where
-  carrier := fixedVecs A
-  add_mem' := by
-    intro a b ha hb g hg
-    rw [Matrix.mulVec_add, ha g hg, hb g hg]
-  zero_mem' := fun g _ => by simp
-  neg_mem' := by
-    intro a ha g hg
-    rw [Matrix.mulVec_neg, ha g hg]
-
-theorem card_fixedVecs_dvd (A : Set GL5) : Nat.card (fixedVecs A) ∣ 3 ^ 5 := by
-  have h : Nat.card (fixedAddOf A) ∣ Nat.card E5 := AddSubgroup.card_addSubgroup_dvd_card _
-  rw [show Nat.card E5 = 3 ^ 5 by
-    rw [Nat.card_fun, Nat.card_zmod, Nat.card_eq_fintype_card, Fintype.card_fin]] at h
-  exact h
-
-theorem elemAbelian_index_gt
-    (A : Subgroup GL5) (hA : A ≤ Pbar) (h3 : ∀ g ∈ A, g ^ 3 = 1)
-    (hc : ∀ g ∈ A, ∀ h ∈ A, g * h = h * g) (hne : A ≠ ⊥) :
-    Nat.card A < 3 ^ 5 / Nat.card (fixedVecs (A : Set GL5)) := by
-  have hb := elemAbelian_bound A hA h3 hc hne
-  obtain ⟨d, hd⟩ := card_fixedVecs_dvd (A : Set GL5)
-  set c := Nat.card (fixedVecs (A : Set GL5)) with hcdef
-  set a := Nat.card A with hadef
-  have hpos : 0 < c := Nat.pos_of_ne_zero (fun h0 => by rw [h0] at hd; omega)
-  rw [hd, Nat.mul_div_cancel_left _ hpos]
-  have h1 : c * (a * 3) ≤ c * d := by
-    calc c * (a * 3) = a * c * 3 := by ring
-      _ ≤ 81 * 3 := by omega
-      _ = 3 ^ 5 := by norm_num
-      _ = c * d := hd
-  have h2 : a * 3 ≤ d := Nat.le_of_mul_le_mul_left h1 hpos
-  have ha : 0 < a := Nat.card_pos
-  omega
 
 section Extension
 
@@ -538,8 +493,6 @@ def AvecSub (E : Subgroup T) (ι : E ≃* Multiplicative E5) (F : Subgroup T) : 
     rintro _ ⟨a, ha, rfl⟩
     exact ⟨a⁻¹, F.inv_mem ha, IsExt.ivec_inv a⟩
 
-theorem mem_AvecSub {E : Subgroup T} {ι : E ≃* Multiplicative E5} {F : Subgroup T} {v : E5} :
-    v ∈ AvecSub E ι F ↔ ∃ a : E, (a : T) ∈ F ∧ ivec E ι a = v := Iff.rfl
 
 theorem IsExt.closure_eq (h : IsExt P E ι ρ) (F : Subgroup T) (L J : Set T)
     (hL : L ⊆ F) (hJF : J ⊆ F) (hgen : Subgroup.closure (ρ '' L) = F.map ρ)
@@ -937,31 +890,11 @@ theorem pData_Pbar : PData Pbar where
   gen_max := genData_max
   gen_hyp := genData_hyp
 
-theorem not_isCyclic_Pbar : ¬ IsCyclic Pbar := by
-  intro hc
-  have hcomm : genA * genB = genB * genA := by
-    have := IsMulCommutative.is_comm.comm (⟨genA, genA_mem⟩ : ↥Pbar) ⟨genB, genB_mem⟩
-    simpa using congrArg Subtype.val this
-  have : aMat * bMat = bMat * aMat := by
-    have h := congrArg (fun g : GL5 => (g : M5)) hcomm
-    simpa [Units.val_mul, genA_val, genB_val] using h
-  revert this
-  decide +kernel
-
-theorem bil_alpha : ∀ i : Fin 6, bil (alpha i) (alpha i) = 2 := by decide +kernel
 
 theorem refl_apply : ∀ (i : Fin 6) (v : E5),
     (refl i).mulVec v = v - bil v (alpha i) • alpha i :=
   Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem mem_rootVecs {α : E5} : α ∈ rootVecs ↔ bil α α = 2 := by simp [rootVecs]
-
-theorem card_rootVecs : rootVecs.card = 72 :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem rk_cases :
-    ∀ x : E5, x ≠ 0 → rk x = 30 ∨ rk x = 18 ∨ rk x = 24 :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem card_rkFibre_30 : (rkFibre 30).card = 72 :=
   Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
@@ -970,148 +903,10 @@ theorem card_rkFibre_18 : (rkFibre 18).card = 80 :=
 theorem card_rkFibre_24 : (rkFibre 24).card = 90 :=
   Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem refl_isom (i : Fin 6) : (refl i).transpose * gram * refl i = gram := by
-  fin_cases i <;> decide +kernel
-
-theorem bil_refl (i : Fin 6) (u v : E5) :
-    bil ((refl i).mulVec u) ((refl i).mulVec v) = bil u v := by
-  unfold bil
-  rw [Matrix.mulVec_mulVec, Matrix.dotProduct_mulVec, ← Matrix.vecMul_transpose,
-    Matrix.vecMul_vecMul, ← mul_assoc, refl_isom i, ← Matrix.dotProduct_mulVec]
-
-def Isom : Subgroup GL5 where
-  carrier := {g | ∀ u v, bil ((g : M5).mulVec u) ((g : M5).mulVec v) = bil u v}
-  mul_mem' := by
-    intro g h hg hh u v
-    simp only [Units.val_mul, ← Matrix.mulVec_mulVec]
-    rw [hg, hh]
-  one_mem' := by intro u v; simp
-  inv_mem' := by
-    intro g hg u v
-    have h := hg (((g⁻¹ : GL5) : M5).mulVec u) (((g⁻¹ : GL5) : M5).mulVec v)
-    rw [Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, Units.mul_inv, Matrix.one_mulVec,
-      Matrix.one_mulVec] at h
-    exact h.symm
-
-theorem Wgrp_le_Isom : Wgrp ≤ Isom := by
-  rw [Wgrp, Subgroup.closure_le]
-  rintro _ ⟨i, rfl⟩ u v
-  exact bil_refl i u v
-
-theorem rk_isom {g : GL5} (hg : g ∈ Isom) (x : E5) : rk ((g : M5).mulVec x) = rk x := by
-  have hg' : g⁻¹ ∈ Isom := Isom.inv_mem hg
-  have hinv : ∀ u : E5, ((g⁻¹ : GL5) : M5).mulVec ((g : M5).mulVec u) = u := fun u => by
-    rw [Matrix.mulVec_mulVec, Units.inv_mul, Matrix.one_mulVec]
-  have hinv' : ∀ u : E5, (g : M5).mulVec (((g⁻¹ : GL5) : M5).mulVec u) = u := fun u => by
-    rw [Matrix.mulVec_mulVec, Units.mul_inv, Matrix.one_mulVec]
-  unfold rk
-  symm
-  apply Finset.card_nbij' (fun α => (g : M5).mulVec α) (fun β => ((g⁻¹ : GL5) : M5).mulVec β)
-  · intro α hα
-    simp only [Finset.mem_coe, Finset.mem_filter, mem_rootVecs] at hα ⊢
-    rw [hg α α, hg α x]
-    exact hα
-  · intro β hβ
-    simp only [Finset.mem_coe, Finset.mem_filter, mem_rootVecs] at hβ ⊢
-    have h1 := hg' β β
-    have h2 := hg' β ((g : M5).mulVec x)
-    rw [hinv x] at h2
-    rw [h1, h2]
-    exact hβ
-  · intro α _; exact hinv α
-  · intro β _; exact hinv' β
-
-theorem rk_weyl {g : GL5} (hg : g ∈ Wgrp) (x : E5) : rk ((g : M5).mulVec x) = rk x :=
-  rk_isom (Wgrp_le_Isom hg) x
-
-@[expose] def weylOrbit (v : E5) : Set E5 := {w | ∃ g ∈ Wgrp, (g : M5).mulVec v = w}
 
 theorem decV_encV : ∀ x : E5, decV (encV x) = x :=
   Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem orbitFin_sound
-    (n : ℕ) (v : E5) (m : ℕ) (hm : m ∈ orbitFin n v) :
-    decV m ∈ weylOrbit v := by
-  have key : ∀ n : ℕ, ∀ m ∈ vstep^[n] {encV v}, decV m ∈ weylOrbit v := by
-    intro n
-    induction n with
-    | zero =>
-      intro m hm
-      rw [Function.iterate_zero_apply, Finset.mem_singleton] at hm
-      exact ⟨1, Subgroup.one_mem _, by simp [hm, decV_encV]⟩
-    | succ n ih =>
-      intro m hm
-      rw [Function.iterate_succ_apply'] at hm
-      simp only [vstep, Finset.mem_union, Finset.mem_biUnion, Finset.mem_image,
-        Finset.mem_univ, true_and] at hm
-      rcases hm with hm | ⟨u, hu, i, rfl⟩
-      · exact ih m hm
-      · obtain ⟨g, hg, hgv⟩ := ih u hu
-        refine ⟨reflGL i * g, Subgroup.mul_mem _ (Subgroup.subset_closure ⟨i, rfl⟩) hg, ?_⟩
-        rw [decV_encV, Units.val_mul, ← Matrix.mulVec_mulVec, hgv]
-        rfl
-  exact key n m hm
-
-theorem orbitFin_root :
-    orbitFin 12 vRoot = (rkFibre 30).image encV :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-theorem orbitFin_sing :
-    orbitFin 12 vSing = (rkFibre 18).image encV :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-theorem orbitFin_norm :
-    orbitFin 12 vNorm = (rkFibre 24).image encV :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem mulVec_ne_zero {g : GL5} {v : E5} (hv : v ≠ 0) : (g : M5).mulVec v ≠ 0 := by
-  intro h
-  apply hv
-  have := congrArg (fun u => ((g⁻¹ : GL5) : M5).mulVec u) h
-  simpa [Matrix.mulVec_mulVec] using this
-
-theorem weylOrbit_eq (v : E5) (hv : v ≠ 0) (c : ℕ) (hrk : rk v = c)
-    (horb : orbitFin 12 v = (rkFibre c).image encV) :
-    weylOrbit v = ↑(rkFibre c) := by
-  ext w
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    simp only [rkFibre, Finset.coe_filter, Finset.mem_univ, true_and]
-    exact ⟨mulVec_ne_zero hv, by rw [rk_weyl hg, hrk]⟩
-  · intro hw
-    have hw1 : w ∈ rkFibre c := Finset.mem_coe.mp hw
-    have h := orbitFin_sound 12 v (encV w) (by rw [horb]; exact Finset.mem_image_of_mem _ hw1)
-    rwa [decV_encV] at h
-
-theorem weylOrbit_root : weylOrbit vRoot = ↑(rkFibre 30) :=
-  weylOrbit_eq vRoot (by decide) 30
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-    orbitFin_root
-theorem weylOrbit_sing : weylOrbit vSing = ↑(rkFibre 18) :=
-  weylOrbit_eq vSing (by decide) 18
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-    orbitFin_sing
-theorem weylOrbit_norm : weylOrbit vNorm = ↑(rkFibre 24) :=
-  weylOrbit_eq vNorm (by decide) 24
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-    orbitFin_norm
-
-theorem rkFibre_30_eq : rkFibre 30 = rootVecs :=
-  Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
-
-theorem weyl_orbits_on_Esharp :
-    (weylOrbit vRoot).ncard = 72 ∧ rk vRoot = 30 ∧ (weylOrbit vSing).ncard = 80 ∧ rk vSing = 18 ∧
-    (weylOrbit vNorm).ncard = 90 ∧ rk vNorm = 24 ∧
-    ∀ x : E5, x ≠ 0 → x ∈ weylOrbit vRoot ∨ x ∈ weylOrbit vSing ∨ x ∈ weylOrbit vNorm := by
-  refine ⟨?_,
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1, ?_,
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1, ?_,
-    Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1, ?_⟩
-  · rw [weylOrbit_root, Set.ncard_coe_finset, card_rkFibre_30]
-  · rw [weylOrbit_sing, Set.ncard_coe_finset, card_rkFibre_18]
-  · rw [weylOrbit_norm, Set.ncard_coe_finset, card_rkFibre_24]
-  · intro x hx
-    rw [weylOrbit_root, weylOrbit_sing, weylOrbit_norm]
-    simp only [Finset.mem_coe, rkFibre, Finset.mem_filter, Finset.mem_univ, true_and]
-    rcases rk_cases x hx with h | h | h <;> simp [h, hx]
 
 theorem fixed_card_modEq_of_stable (σ : Equiv.Perm E5) (h11 : σ ^ 11 = 1) (B : Finset E5)
     (hB : ∀ x, σ x ∈ B ↔ x ∈ B) : B.card ≡ (B.filter fun x => σ x = x).card [MOD 11] := by
@@ -1175,13 +970,6 @@ theorem fixed_card_ge_of_pow_eleven
   unfold Nat.ModEq at h30 h18 h24
   omega
 
-theorem exists_fixed_of_pow_eleven
-    (σ : Equiv.Perm E5) (h0 : σ 0 = 0) (h11 : σ ^ 11 = 1)
-    (hrk : ∀ x, rk (σ x) = rk x) : ∃ x : E5, x ≠ 0 ∧ σ x = x := by
-  obtain ⟨h30, -, -⟩ := fixed_card_ge_of_pow_eleven σ h0 h11 hrk
-  obtain ⟨x, hx⟩ := Finset.card_pos.mp (by omega : 0 < ((rkFibre 30).filter fun x => σ x = x).card)
-  simp only [Finset.mem_filter, rkFibre, Finset.mem_univ, true_and] at hx
-  exact ⟨x, hx.1.1, hx.2⟩
 
 section PbarExt
 
@@ -1217,12 +1005,6 @@ theorem IsExt.elementary_E (_h : IsExt Pbar E ι ρ) :
       ι.injective (by rw [map_mul, map_mul]; exact mul_comm _ _)
     simpa using congrArg Subtype.val h1
 
-theorem IsExt.pbar_m3 (h : IsExt Pbar E ι ρ) :
-    (∃ A : Subgroup T, Nat.card A = 3 ^ 5 ∧ (∀ a ∈ A, a ^ 3 = 1) ∧
-      ∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧
-    ∀ A : Subgroup T, (∀ a ∈ A, a ^ 3 = 1) → (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) →
-      Nat.card A ≤ 3 ^ 5 :=
-  ⟨⟨E, h.elementary_E⟩, fun A h3 hc => (h.pbar_elemAbelian A h3 hc).1⟩
 
 theorem IsExt.pbar_map_eq
     (h : IsExt Pbar E ι ρ) (α : T ≃* T) : E.map α.toMonoidHom = E := by
@@ -1264,291 +1046,28 @@ theorem card_Wgrp : Nat.card Wgrp = 51840 := by
     Certificates.certificate6040.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2
   exact CFSG.KC.WeylE6.card_closure_of_wOK hT h reflGL fun _ => rfl
 
-@[expose] def PbarW : Subgroup Wgrp := Pbar.subgroupOf Wgrp
-
-theorem card_PbarW : Nat.card PbarW = 81 :=
-  (Nat.card_congr (Subgroup.subgroupOfEquivOfLe Pbar_le_Wgrp).toEquiv).trans card_Pbar
-
-theorem card_factorization_W :
-    (Nat.card Wgrp).factorization 3 = 4 := by
-  rw [card_Wgrp, Nat.factorization_def _ Nat.prime_three]
-  decide +kernel
 
 instance :
     Finite Wgrp := Nat.finite_of_card_ne_zero (by rw [card_Wgrp]; norm_num)
 
-noncomputable def sylowPbar : Sylow 3 Wgrp :=
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  Sylow.ofCard PbarW (by rw [card_PbarW, card_factorization_W]; norm_num)
-
-open scoped Pointwise in
-theorem exists_conj_Pbar
-    (Q : Subgroup GL5) (hQ : Q ≤ Wgrp) (hc : Nat.card Q = 81) :
-    ∃ g ∈ Wgrp, Q = Pbar.map (MulAut.conj g).toMonoidHom := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  set Q' : Subgroup Wgrp := Q.subgroupOf Wgrp with hQ'
-  have hQ'c : Nat.card Q' = 3 ^ (Nat.card Wgrp).factorization 3 := by
-    rw [card_factorization_W, hQ']
-    exact (Nat.card_congr (Subgroup.subgroupOfEquivOfLe hQ).toEquiv).trans (by rw [hc]; norm_num)
-  let S : Sylow 3 Wgrp := Sylow.ofCard Q' hQ'c
-  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq Wgrp sylowPbar S
-  have h1 : (↑(g • sylowPbar) : Subgroup Wgrp) = Q' := by rw [hg]; rfl
-  rw [Sylow.coe_subgroup_smul] at h1
-  refine ⟨g, g.2, ?_⟩
-  ext x
-  constructor
-  · intro hx
-    have hx' : (⟨x, hQ hx⟩ : Wgrp) ∈ Q' := hx
-    rw [← h1, Subgroup.mem_pointwise_smul_iff_inv_smul_mem] at hx'
-    refine ⟨(g : GL5)⁻¹ * x * g, hx', ?_⟩
-    simp [MulAut.conj_apply, mul_assoc]
-  · rintro ⟨p, hp, rfl⟩
-    have hp' : (⟨p, Pbar_le_Wgrp hp⟩ : Wgrp) ∈ PbarW := hp
-    have : (MulAut.conj g • (⟨p, Pbar_le_Wgrp hp⟩ : Wgrp) : Wgrp) ∈
-        (MulAut.conj g • sylowPbar.toSubgroup) :=
-      Subgroup.smul_mem_pointwise_smul _ _ _ hp'
-    rw [h1] at this
-    exact this
 
 section Conj
 
 variable {T : Type*} [Group T] {P : Subgroup GL5} {E : Subgroup T}
   {ι : E ≃* Multiplicative E5} {ρ : T →* GL5}
 
-def linEquiv (g : GL5) : Multiplicative E5 ≃* Multiplicative E5 where
-  toFun x := Multiplicative.ofAdd ((g : M5).mulVec (Multiplicative.toAdd x))
-  invFun x := Multiplicative.ofAdd (((g⁻¹ : GL5) : M5).mulVec (Multiplicative.toAdd x))
-  left_inv x := by
-    simp only [toAdd_ofAdd, Matrix.mulVec_mulVec, Units.inv_mul, Matrix.one_mulVec, ofAdd_toAdd]
-  right_inv x := by
-    simp only [toAdd_ofAdd, Matrix.mulVec_mulVec, Units.mul_inv, Matrix.one_mulVec, ofAdd_toAdd]
-  map_mul' x y := by
-    simp only [toAdd_mul, Matrix.mulVec_add, ofAdd_add]
-
-theorem IsExt.mapConj (h : IsExt P E ι ρ) (g : GL5) :
-    IsExt (P.map (MulAut.conj g).toMonoidHom) E (ι.trans (linEquiv g))
-      ((MulAut.conj g).toMonoidHom.comp ρ) where
-  normal := h.normal
-  conj t e := by
-    show (g : M5).mulVec (ivec E ι ⟨t * e * t⁻¹, _⟩) = _
-    rw [h.conj t e]
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply, ivec,
-      MulEquiv.trans_apply, linEquiv, MulEquiv.coe_mk, Equiv.coe_fn_mk, toAdd_ofAdd,
-      Units.val_mul, Matrix.mulVec_mulVec, mul_assoc, Units.inv_mul, mul_one]
-  ker := by
-    rw [← h.ker]
-    ext x
-    simp [MonoidHom.mem_ker]
-  range := by
-    rw [← h.range]
-    ext x
-    simp [MonoidHom.mem_range, Subgroup.mem_map]
-
-theorem IsExt.exists_pbar {Q : Subgroup GL5} (h : IsExt Q E ι ρ) (g : GL5)
-    (hQ : Q = Pbar.map (MulAut.conj g).toMonoidHom) :
-    ∃ (ι' : E ≃* Multiplicative E5) (ρ' : T →* GL5), IsExt Pbar E ι' ρ' := by
-  refine ⟨ι.trans (linEquiv g⁻¹), (MulAut.conj g⁻¹).toMonoidHom.comp ρ, ?_⟩
-  have := h.mapConj g⁻¹
-  rwa [hQ, Subgroup.map_map, show (MulAut.conj g⁻¹).toMonoidHom.comp (MulAut.conj g).toMonoidHom =
-    MonoidHom.id GL5 by ext x; simp [MulAut.conj_apply, mul_assoc], Subgroup.map_id] at this
 
 end Conj
 
-def actPerm (g : GL5) : Equiv.Perm E5 where
-  toFun v := (g : M5).mulVec v
-  invFun v := ((g⁻¹ : GL5) : M5).mulVec v
-  left_inv v := by simp [Matrix.mulVec_mulVec]
-  right_inv v := by simp [Matrix.mulVec_mulVec]
-
-def actPermHom : GL5 →* Equiv.Perm E5 where
-  toFun := actPerm
-  map_one' := by ext v; simp [actPerm]
-  map_mul' g h := by ext v; simp [actPerm, Matrix.mulVec_mulVec]
-
-theorem actPerm_apply (g : GL5) (v : E5) : actPermHom g v = (g : M5).mulVec v := by
-  show actPerm g v = _
-  rfl
-
-def fixedAdd (g : GL5) : AddSubgroup E5 where
-  carrier := {v | (g : M5).mulVec v = v}
-  add_mem' := by
-    intro a b ha hb
-    simp only [Set.mem_ofPred_eq] at ha hb ⊢
-    rw [Matrix.mulVec_add, ha, hb]
-  zero_mem' := by simp
-  neg_mem' := by
-    intro a ha
-    simp only [Set.mem_ofPred_eq] at ha ⊢
-    rw [Matrix.mulVec_neg, ha]
-
-theorem card_fixedAdd_ge_of_order_eleven (g : GL5) (hg : g ^ 11 = 1)
-    (hrk : ∀ x, rk ((g : M5).mulVec x) = rk x) : 27 ≤ Nat.card (fixedAdd g) := by
-  classical
-  set σ := actPermHom g with hσ
-  have h0 : σ 0 = 0 := by simp [hσ, actPerm_apply]
-  have h11 : σ ^ 11 = 1 := by rw [hσ, ← map_pow, hg, map_one]
-  have hrk' : ∀ x, rk (σ x) = rk x := fun x => hrk x
-  obtain ⟨h30, h18, h24⟩ := fixed_card_ge_of_pow_eleven σ h0 h11 hrk'
-  set F30 := (rkFibre 30).filter fun x => σ x = x with hF30
-  set F18 := (rkFibre 18).filter fun x => σ x = x with hF18
-  set F24 := (rkFibre 24).filter fun x => σ x = x with hF24
-  have hd1 : Disjoint F30 F18 := by
-    rw [Finset.disjoint_left]
-    intro x hx1 hx2
-    simp only [hF30, hF18, rkFibre, Finset.mem_filter, Finset.mem_univ, true_and] at hx1 hx2
-    have : (30 : ℕ) = 18 := hx1.1.2.symm.trans hx2.1.2
-    omega
-  have hd2 : Disjoint (F30 ∪ F18) F24 := by
-    rw [Finset.disjoint_left]
-    intro x hx1 hx2
-    simp only [hF30, hF18, hF24, rkFibre, Finset.mem_union, Finset.mem_filter, Finset.mem_univ,
-      true_and] at hx1 hx2
-    rcases hx1 with hx1 | hx1
-    · have : (30 : ℕ) = 24 := hx1.1.2.symm.trans hx2.1.2
-      omega
-    · have : (18 : ℕ) = 24 := hx1.1.2.symm.trans hx2.1.2
-      omega
-  have hd3 : (0 : E5) ∉ F30 ∪ F18 ∪ F24 := by
-    simp only [hF30, hF18, hF24, rkFibre, Finset.mem_union, Finset.mem_filter, Finset.mem_univ,
-      true_and, ne_eq, not_true_eq_false, false_and, or_self, not_false_eq_true]
-  have hsub : insert (0 : E5) (F30 ∪ F18 ∪ F24) ⊆
-      (Finset.univ : Finset E5).filter fun x => σ x = x := by
-    intro x hx
-    rw [Finset.mem_insert] at hx
-    simp only [Finset.mem_filter, Finset.mem_univ, true_and]
-    rcases hx with rfl | hx
-    · exact h0
-    · simp only [hF30, hF18, hF24, Finset.mem_union, Finset.mem_filter] at hx
-      rcases hx with (hx | hx) | hx <;> exact hx.2
-  have hcard12 : 12 ≤ ((Finset.univ : Finset E5).filter fun x => σ x = x).card := by
-    calc 12 ≤ (insert (0 : E5) (F30 ∪ F18 ∪ F24)).card := by
-          rw [Finset.card_insert_of_notMem hd3, Finset.card_union_of_disjoint hd2,
-            Finset.card_union_of_disjoint hd1]
-          omega
-      _ ≤ _ := Finset.card_le_card hsub
-  have hcardfix : Nat.card (fixedAdd g) =
-      ((Finset.univ : Finset E5).filter fun x => σ x = x).card := by
-    rw [Nat.card_eq_fintype_card, Fintype.card_subtype]
-    congr 1
-    ext x
-    simp [fixedAdd, hσ, actPerm_apply]
-  have hdvd : Nat.card (fixedAdd g) ∣ 3 ^ 5 := card_E5 ▸ AddSubgroup.card_addSubgroup_dvd_card _
-  obtain ⟨k, hk, hkc⟩ := (Nat.dvd_prime_pow Nat.prime_three).mp hdvd
-  rw [hkc]
-  rw [hcardfix] at hkc
-  have h12 : 12 ≤ 3 ^ k := hkc ▸ hcard12
-  interval_cases k <;> simp_all
 
 section SylowExt
 
 variable {T : Type*} [Group T] {Q : Subgroup GL5} {E : Subgroup T}
   {ι : E ≃* Multiplicative E5} {ρ : T →* GL5}
 
-theorem IsExt.exists_pbar_of_le_weyl
-    (h : IsExt Q E ι ρ) (hQW : Q ≤ Wgrp) (hQ : Nat.card Q = 81) :
-    ∃ (ι' : E ≃* Multiplicative E5) (ρ' : T →* GL5), IsExt Pbar E ι' ρ' := by
-  obtain ⟨g, -, hg⟩ := exists_conj_Pbar Q hQW hQ
-  exact h.exists_pbar g hg
-
-theorem IsExt.card_of_le_weyl
-    (h : IsExt Q E ι ρ) (hQW : Q ≤ Wgrp) (hQ : Nat.card Q = 81) :
-    Nat.card T = 3 ^ 9 := by
-  obtain ⟨_, _, h'⟩ := h.exists_pbar_of_le_weyl hQW hQ
-  exact h'.pbar_card
-
-theorem IsExt.elemAbelian_of_le_weyl
-    (h : IsExt Q E ι ρ) (hQW : Q ≤ Wgrp) (hQ : Nat.card Q = 81)
-    (A : Subgroup T) (hA3 : ∀ a ∈ A, a ^ 3 = 1) (hAc : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a) :
-    Nat.card A ≤ 3 ^ 5 ∧ (3 ^ 4 < Nat.card A → A = E) := by
-  obtain ⟨_, _, h'⟩ := h.exists_pbar_of_le_weyl hQW hQ
-  exact h'.pbar_elemAbelian A hA3 hAc
-
-theorem IsExt.rank_top_of_le_weyl
-    (h : IsExt Q E ι ρ) (hQW : Q ≤ Wgrp) (hQ : Nat.card Q = 81) :
-    ∃ S : Finset T, S.card ≤ 3 ∧ Subgroup.closure (S : Set T) = ⊤ := by
-  obtain ⟨_, _, h'⟩ := h.exists_pbar_of_le_weyl hQW hQ
-  exact h'.pbar_rank_top
-
-theorem IsExt.rank_eight_of_le_weyl
-    (h : IsExt Q E ι ρ) (hQW : Q ≤ Wgrp) (hQ : Nat.card Q = 81)
-    (F : Subgroup T) (hF : Nat.card F = 3 ^ 8) :
-    ∃ S : Finset T, S.card ≤ 4 ∧ Subgroup.closure (S : Set T) = F := by
-  obtain ⟨_, _, h'⟩ := h.exists_pbar_of_le_weyl hQW hQ
-  exact h'.pbar_rank_eight F hF
 
 end SylowExt
 
-def splitAct : ↥Pbar →* MulAut (Multiplicative E5) where
-  toFun p := linEquiv p.1
-  map_one' := by
-    ext x
-    simp [linEquiv]
-  map_mul' p q := by
-    ext x
-    simp [linEquiv, Matrix.mulVec_mulVec]
-
-theorem exists_isExt_Pbar :
-    ∃ (T : Type) (_ : Group T) (E : Subgroup T) (ι : E ≃* Multiplicative E5) (ρ : T →* GL5),
-      IsExt Pbar E ι ρ := by
-  let T := SemidirectProduct (Multiplicative E5) ↥Pbar splitAct
-  let E : Subgroup T := SemidirectProduct.inl.range
-  let ι : E ≃* Multiplicative E5 :=
-    (MonoidHom.ofInjective (SemidirectProduct.inl_injective (φ := splitAct))).symm
-  let ρ : T →* GL5 := Pbar.subtype.comp SemidirectProduct.rightHom
-  have hE : E = SemidirectProduct.rightHom.ker := SemidirectProduct.range_inl_eq_ker_rightHom
-  have inj : Function.Injective (SemidirectProduct.inl : Multiplicative E5 →* T) :=
-    SemidirectProduct.inl_injective
-  have hι : ∀ (m : Multiplicative E5) (h : (SemidirectProduct.inl m : T) ∈ E),
-      ι ⟨SemidirectProduct.inl m, h⟩ = m := by
-    intro m h
-    show (MonoidHom.ofInjective inj).symm ⟨SemidirectProduct.inl m, h⟩ = m
-    rw [MulEquiv.symm_apply_eq]
-    exact Subtype.ext (MonoidHom.ofInjective_apply inj).symm
-  have hcomm : ∀ x y : Multiplicative E5,
-      (SemidirectProduct.inl x : T) * SemidirectProduct.inl y * (SemidirectProduct.inl x)⁻¹ =
-        SemidirectProduct.inl y := by
-    intro x y
-    rw [← map_mul, ← map_inv, ← map_mul, mul_comm x y, mul_inv_cancel_right]
-  refine ⟨T, inferInstance, E, ι, ρ, ?_, ?_, ?_, ?_⟩
-  · rw [hE]; infer_instance
-  · intro t e
-    rcases e with ⟨e', he'⟩
-    obtain ⟨m, rfl⟩ := he'
-    have e1 : (SemidirectProduct.inr t.right : T) * SemidirectProduct.inl m *
-        (SemidirectProduct.inr t.right)⁻¹ = SemidirectProduct.inl (splitAct t.right m) := by
-      rw [SemidirectProduct.inl_aut, map_inv]
-    have h1 : t * (SemidirectProduct.inl m : T) * t⁻¹ =
-        SemidirectProduct.inl (splitAct t.right m) := by
-      calc t * (SemidirectProduct.inl m : T) * t⁻¹
-          = (SemidirectProduct.inl t.left * SemidirectProduct.inr t.right) *
-              SemidirectProduct.inl m *
-              (SemidirectProduct.inl t.left * SemidirectProduct.inr t.right)⁻¹ := by
-            rw [SemidirectProduct.inl_left_mul_inr_right]
-        _ = SemidirectProduct.inl t.left * ((SemidirectProduct.inr t.right : T) *
-              SemidirectProduct.inl m * (SemidirectProduct.inr t.right)⁻¹) *
-              (SemidirectProduct.inl t.left)⁻¹ := by group
-        _ = SemidirectProduct.inl t.left * SemidirectProduct.inl (splitAct t.right m) *
-              (SemidirectProduct.inl t.left)⁻¹ := by rw [e1]
-        _ = SemidirectProduct.inl (splitAct t.right m) := hcomm _ _
-    have key : ∀ (x : E), x.1 = SemidirectProduct.inl (splitAct t.right m) →
-        ivec E ι x = Multiplicative.toAdd (splitAct t.right m) := by
-      intro x hx
-      have : x = ⟨SemidirectProduct.inl (splitAct t.right m), ⟨_, rfl⟩⟩ := Subtype.ext hx
-      rw [this]
-      exact congrArg Multiplicative.toAdd (hι _ _)
-    rw [key _ h1]
-    have hm' : ivec E ι ⟨SemidirectProduct.inl m, ⟨m, rfl⟩⟩ = Multiplicative.toAdd m :=
-      congrArg Multiplicative.toAdd (hι m _)
-    rw [hm']
-    rfl
-  · show (Pbar.subtype.comp SemidirectProduct.rightHom).ker = E
-    rw [hE]
-    ext t
-    simp [MonoidHom.mem_ker]
-  · show (Pbar.subtype.comp SemidirectProduct.rightHom).range = Pbar
-    rw [MonoidHom.range_comp,
-      MonoidHom.range_eq_top_of_surjective _ SemidirectProduct.rightHom_surjective,
-      ← MonoidHom.range_eq_map, Subgroup.range_subtype]
 
 section OfAction
 
@@ -1580,47 +1099,6 @@ theorem ConjActs.mul {hE : E.Normal} {t t' : T} {g g' : GL5} (h : ConjActs hE ι
   show t * t' * (e : T) * (t * t')⁻¹ = t * (t' * e * t'⁻¹) * t⁻¹
   group
 
-theorem IsExt.of_conjActs (hE : E.Normal) (P : Subgroup GL5)
-    (hact : ∀ t : T, ∃ g ∈ P, ConjActs hE ι t g)
-    (hsurj : ∀ g ∈ P, ∃ t : T, ConjActs hE ι t g)
-    (hker : ∀ t : T, (∀ e : E, t * e * t⁻¹ = e) → t ∈ E) :
-    ∃ ρ : T →* GL5, IsExt P E ι ρ := by
-  classical
-  choose ρf hρP hρA using hact
-  have hρ1 : ρf 1 = 1 := (hρA 1).unique (ConjActs.one hE)
-  have hρm : ∀ t t', ρf (t * t') = ρf t * ρf t' := fun t t' =>
-    (hρA (t * t')).unique ((hρA t).mul (hρA t'))
-  let ρ : T →* GL5 := ⟨⟨ρf, hρ1⟩, hρm⟩
-  have hρ : ∀ t, ρ t = ρf t := fun _ => rfl
-  have hEcomm : ∀ (t : T) (ht : t ∈ E) (e : E), t * e * t⁻¹ = e := by
-    intro t ht e
-    have h1 : (⟨t, ht⟩ : E) * e * (⟨t, ht⟩ : E)⁻¹ = e := by
-      apply ι.injective
-      rw [map_mul, map_mul, map_inv, mul_comm (ι ⟨t, ht⟩) (ι e), mul_inv_cancel_right]
-    simpa using congrArg Subtype.val h1
-  refine ⟨ρ, ⟨hE, fun t e => by rw [hρ]; exact hρA t e, ?_, ?_⟩⟩
-  · ext t
-    rw [MonoidHom.mem_ker, hρ]
-    constructor
-    · intro h1
-      apply hker
-      intro e
-      have h2 := hρA t e
-      rw [h1] at h2
-      simp only [Units.val_one, Matrix.one_mulVec] at h2
-      exact congrArg Subtype.val (IsExt.ivec_injective (ι := ι) h2)
-    · intro ht
-      refine (hρA t).unique ?_
-      intro e
-      simpa using congrArg (ivec E ι) (Subtype.ext (hEcomm t ht e) : (⟨t * e * t⁻¹, _⟩ : E) = e)
-  · ext g
-    rw [MonoidHom.mem_range]
-    constructor
-    · rintro ⟨t, rfl⟩
-      exact hρP t
-    · intro hg
-      obtain ⟨t, ht⟩ := hsurj g hg
-      exact ⟨t, by rw [hρ]; exact (hρA t).unique ht⟩
 
 end OfAction
 

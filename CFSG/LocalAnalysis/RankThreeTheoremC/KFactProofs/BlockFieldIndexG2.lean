@@ -38,9 +38,6 @@ variable {G : Type*} [Group G]
     calc g⁻¹ * s * g⁻¹⁻¹ = g⁻¹ * (g * (p⁻¹ * s * p) * g⁻¹) * g⁻¹⁻¹ := by rw [h2]
       _ = p⁻¹ * s * p⁻¹⁻¹ := by group
 
-theorem mem_innerActOn {S : Subgroup G} {g : G} :
-    g ∈ innerActOn S ↔ ∃ p ∈ S, ∀ s ∈ S, g * s * g⁻¹ = p * s * p⁻¹ :=
-  Iff.rfl
 
 theorem le_innerActOn (S : Subgroup G) : S ≤ innerActOn S :=
   fun g hg => ⟨g, hg, fun _ _ => rfl⟩

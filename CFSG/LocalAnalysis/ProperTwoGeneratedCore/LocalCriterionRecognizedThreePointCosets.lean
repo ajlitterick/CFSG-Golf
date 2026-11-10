@@ -17,8 +17,6 @@ variable {G Q : Type*} [Group G] [Group Q]
     rw [QuotientGroup.leftRel_apply] at hab ⊢
     simpa only [map_mul, map_inv] using Subgroup.mem_map_of_mem f hab)
 
-theorem cosetProjection_mk (f : G →* Q) (H : Subgroup G) (g : G) :
-    cosetProjection f H (QuotientGroup.mk g) = QuotientGroup.mk (f g) := rfl
 
 theorem cosetProjection_smul (f : G →* Q) (H : Subgroup G)
     (g : G) (omega : G ⧸ H) :

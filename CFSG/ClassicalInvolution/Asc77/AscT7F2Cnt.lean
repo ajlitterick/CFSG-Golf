@@ -165,17 +165,12 @@ theorem P_inf_P' : Psub S R ⊓ Psub S R' ≤ R ⊔ R' := by
   rw [this]
   exact Subgroup.mul_mem_sup (R.mul_mem hρ (hzR hzu)) hρ'
 
-omit h11 in
-theorem R_le_P : R ≤ Psub S R := le_sup_left
 
 omit h11 in
 theorem RR_le_P : R ⊔ R' ≤ Psub S R := sup_le le_sup_left (h.R'_le_C.trans le_sup_right)
 
 omit h11 in
 theorem RR_le_P' : R ⊔ R' ≤ Psub S R' := sup_le (h.R_le_C'.trans le_sup_right) le_sup_left
-
-theorem P_inf_P'_eq : Psub S R ⊓ Psub S R' = R ⊔ R' :=
-  le_antisymm (h.P_inf_P' h11) (le_inf h.RR_le_P h.RR_le_P')
 
 
 theorem R'_inf_C'_le : R' ⊓ Csub S R' ≤ Subgroup.zpowers z := fun _ hx =>

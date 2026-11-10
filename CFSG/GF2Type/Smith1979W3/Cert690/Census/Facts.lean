@@ -22,9 +22,6 @@ structure GrpFacts (minus : Bool) (D : GrpData) : Prop where
 @[expose] def InIdx (D : GrpData) (A : Array ℕ) (x : V₀ ≃ₗ[ZMod 2] V₀) : Prop :=
   ∃ i ∈ A, i < D.O.size ∧ Code.HasCode (x : V₀ →ₗ[ZMod 2] V₀) D.O[i]!
 
-@[expose] noncomputable def idxSub (D : GrpData) (gens : Array ℕ) :
-    Subgroup (V₀ ≃ₗ[ZMod 2] V₀) :=
-  codeSubgroup (gens.toList.map fun i => D.O[i]!)
 
 @[expose] noncomputable def GrpFacts.elt {minus : Bool} {D : GrpData} (hD : GrpFacts minus D) (i : ℕ) :
     V₀ ≃ₗ[ZMod 2] V₀ :=

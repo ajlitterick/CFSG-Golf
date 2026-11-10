@@ -47,11 +47,6 @@ namespace F6
 
 variable {D : Type*} [Group D]
 
-theorem isGoldCaseCat_quotient_pCore (hlist : GoldschmidtS3ListCat.{u}) {D : Type u} [Group D]
-    [Finite D] {G₁ G₂ : Subgroup D} (h : IsGoldschmidtTriple G₁ G₂) :
-    IsGoldCaseCat (G₁.map (QuotientGroup.mk' (Open.pCore 2 D)))
-      (G₂.map (QuotientGroup.mk' (Open.pCore 2 D))) :=
-  hlist _ _ _ h.quotient_pCore
 
 theorem isGoldCaseVICat_of_charTwo [Finite D] {H₁ H₂ : Subgroup D} (h : IsGoldCaseCat H₁ H₂)
     (h₁ : CharTwo H₁) (h₂ : CharTwo H₂) : IsGoldCaseVICat H₁ H₂ ∨ IsGoldCaseVICat H₂ H₁ := by
@@ -96,12 +91,6 @@ theorem isGoldCaseSp42Cat_of_card_omegaOneCenter [Finite D] {H₁ H₂ : Subgrou
       (atMostOneInvolution_of_card_eq_two hZ2)
     omega
 
-theorem remark_f6_15_isGoldCaseCat (hlist : GoldschmidtS3ListCat.{u}) {D : Type u} [Group D]
-    [Finite D] {X : Type*} [Group X] [Finite X] {G₁ G₂ : Subgroup D}
-    (h : IsGoldschmidtTriple G₁ G₂) (e : D ≃* X ⧸ CFSG.pPrimeCore 3 X) :
-    IsGoldschmidtAmalgam G₁ G₂ ∧ IsGoldCaseCat G₁ G₂ := by
-  have hA : IsGoldschmidtAmalgam G₁ G₂ := ⟨h, (remark_f6_15 e).2⟩
-  exact ⟨hA, hlist D G₁ G₂ hA⟩
 
 end F6
 

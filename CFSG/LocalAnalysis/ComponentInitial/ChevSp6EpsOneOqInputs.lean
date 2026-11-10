@@ -6,7 +6,6 @@ public section
 
 namespace CFSG.LocalAnalysis.ComponentInitial.ChevSp6EpsOne
 
-@[expose] def pack6 (l : List ℕ) : ℕ := l.foldr (fun a r => a + 64 * r) 0
 
 @[expose] def unpack6 (P : ℕ) : List ℕ := (List.range 6).map fun i => P / 64 ^ i % 64
 

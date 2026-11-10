@@ -34,10 +34,5 @@ theorem card_sylow_eq_two_of_rowData {G : Type} [Group G] [Finite G] {L : Subgro
     (S : Sylow 2 (centralizer (L : Set G))) : Nat.card S = 2 :=
   card_sylow_eq_two_of_stdHyp h hrow.hypothesisOne hrow.rank h25 S
 
-theorem card_sylow_eq_two_of_stdHyp_of_nodeCriterion {G : Type} [Group G] [Finite G]
-    {L : Subgroup G} (h : StdHyp G L) (hOut : (innAut (L ⧸ center L)).index ∣ 2)
-    (hcrit : NodeCriterion (L ⧸ center L)) (hrank : 3 ≤ CFSG.Open.twoRank (L ⧸ center L))
-    (h25 : Asc76Lemma25) (S : Sylow 2 (centralizer (L : Set G))) : Nat.card S = 2 :=
-  card_sylow_eq_two_of_stdHyp h (hypothesisOne_of_nodeCriterion hOut hcrit) hrank h25 S
 
 end CFSG.EvenSporadicStandard.Finkelstein77

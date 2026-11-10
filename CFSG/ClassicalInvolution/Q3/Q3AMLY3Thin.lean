@@ -47,16 +47,6 @@ theorem natCard_layerQuot_lt [IsSimpleGroup G] {Ω : Set (Subgroup G)} {K J : Su
     (card_centralizingLayer_lt _
       (not_subset_center_of_isUniqueInvolution h.nonabelian h.std.hz))
 
-theorem noTriangleAtEdge_conj {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω) {K J : Subgroup G}
-    (hN : NoTriangleAtEdge Ω K J) (n : G) : NoTriangleAtEdge Ω (conjSub n K) (conjSub n J) := by
-  intro K' hK' hJ'
-  have h1 : conjSub n⁻¹ K' ∈ omegaNbr Ω K := by
-    have h' := omegaNbr_conj hΩ hK' n⁻¹
-    rwa [conjSub_inv_conjSub] at h'
-  have h2 : conjSub n⁻¹ K' ∈ omegaNbr Ω J := by
-    have h' := omegaNbr_conj hΩ hJ' n⁻¹
-    rwa [conjSub_inv_conjSub] at h'
-  exact hN _ h1 h2
 
 theorem exists_uniform_of_layer {ι : Type} {Ω : Set (Subgroup G)} {M : Subgroup G} {a : G}
     (D₃ : LieSystemData3 ι
@@ -313,12 +303,6 @@ theorem layerThinOrS3_proved : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGrou
   · exact Or.inl (thinY_of_layerM11 h hint hN hM11)
   · exact Or.inr hS3
 
-theorem thinY_iff_not_layerS3 [IsSimpleGroup G] {Ω : Set (Subgroup G)} {K J : Subgroup G}
-    {S : Sylow 2 G} {R T W : Subgroup G} {z t : G} (h : BadStd8 Ω K J S R T W z t)
-    (hint : IsIntrinsicU (.sl2 3 1) K z) (hN : NoTriangleAtEdge Ω K J) :
-    ThinY Ω K z ↔ ¬ LayerS3 Ω K z :=
-  ⟨fun hthin hS3 => not_thinY_of_layerS3 h hint hN hS3 hthin, fun hn =>
-    (layerThinOrS3_proved G Ω K J S R T W z t h hint hN).resolve_right hn⟩
 
 theorem layer_shape_of_thinY [IsSimpleGroup G] {Ω : Set (Subgroup G)} {K J : Subgroup G}
     {S : Sylow 2 G} {R T W : Subgroup G} {z t : G} (h : BadStd8 Ω K J S R T W z t)

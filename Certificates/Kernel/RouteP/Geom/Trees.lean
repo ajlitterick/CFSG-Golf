@@ -18,7 +18,6 @@ noncomputable abbrev gS (i : Nat) : Nat := zS NWP KAP KBP zpL i
 
 noncomputable abbrev gA : Nat := closeS NWO KAO KBO [-7, -8, -9] 10 (single 99705)
 
-@[expose] def a1L : List Int := [-7, -8, -9]
 
 theorem gFacts : GeomCoreFacts NWP KAP KBP NWO KAO KBO zpL [-7, -8, -9]
     (sel7 (gS 0) (gS 1) (gS 2) (gS 3) (gS 4) (gS 5) (gS 6)) gA :=

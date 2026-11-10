@@ -483,31 +483,5 @@ theorem standard_cyclic_centralizer_normal {G : Type} [Group G] [Finite G] {L : 
         hP2 hP4
     exact not_hypothesisOne_of_full_conj hL S hS h4 hg' hRC hR hRcard hTg hTN hT hTcard hRT hI
 
-theorem card_sylow_eq_two_of_not_normal {G : Type} [Group G] [Finite G] {L : Subgroup G}
-    (hL : CFSG.Assembly.ComponentType.IsStandardSubgroup L) (hO : CFSG.Assembly.oddCore G = ⊥)
-    (S : Sylow 2 (Subgroup.centralizer (L : Set G))) (hS : IsCyclic S)
-    (hI : HypothesisOne (L ⧸ Subgroup.center L))
-    (hsmall : (∀ g : G, g ∉ Subgroup.normalizer (L : Set G) → ∀ P : Subgroup G,
-        P ≤ (Subgroup.centralizer (L : Set G)).map (MulAut.conj g).toMonoidHom ⊓
-          Subgroup.normalizer (L : Set G) → IsPGroup 2 P → Nat.card P ≤ 2) →
-      ∀ g : G, g ∉ Subgroup.normalizer (L : Set G) →
-        Odd (Nat.card ((Subgroup.centralizer (L : Set G)).map (MulAut.conj g).toMonoidHom ⊓
-          Subgroup.normalizer (L : Set G) : Subgroup G)))
-    (hnot : ¬ L.Normal) : Nat.card S = 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hlt : Nat.card S < 4 := by
-    by_contra h
-    exact hnot (standard_cyclic_centralizer_normal hL hO S hS hI hsmall (by omega))
-  have heven : 2 ∣ Nat.card (Subgroup.centralizer (L : Set G)) := even_iff_two_dvd.mp hL.2.1
-  have hpos : 0 < (Nat.card (Subgroup.centralizer (L : Set G))).factorization 2 :=
-    Nat.Prime.factorization_pos_of_dvd Nat.prime_two Nat.card_pos.ne' heven
-  rw [Sylow.card_eq_multiplicity] at hlt ⊢
-  set e := (Nat.card (Subgroup.centralizer (L : Set G))).factorization 2
-  have he : e < 2 := by
-    by_contra h
-    have : 2 ^ 2 ≤ 2 ^ e := Nat.pow_le_pow_right (by norm_num) (by omega)
-    omega
-  have he1 : e = 1 := by omega
-  rw [he1, pow_one]
 
 end CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977

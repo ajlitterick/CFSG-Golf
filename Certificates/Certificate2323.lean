@@ -9,7 +9,5 @@ public section
 
 namespace Certificates
 
-theorem certificate2323 : CFSG.Sporadic.ThSchreier.planeX.ncard = 143127000 :=
-  CFSG.Sporadic.Th.Kernel.ncard_planeX th_kernel_facts_ok
 
 end Certificates

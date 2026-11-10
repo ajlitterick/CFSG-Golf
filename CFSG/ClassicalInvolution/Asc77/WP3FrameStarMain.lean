@@ -98,36 +98,6 @@ theorem cent [IsSimpleGroup G] (hnab : ∃ x y : G, x * y ≠ y * x) (hp2 : p �
 
 end FuzzyFrameDataStar
 
-theorem exactMembers_and_localOddCentral_of_fuzzyFrameStar [IsSimpleGroup G]
-    (hnab : ∃ x y : G, x * y ≠ y * x) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hIH : LocalLieSystems p f Ω)
-    (hconn : DConnected Ω) {L₀ : Subgroup G} {z₀ : G} {A : Subgroup G} {S : Set (Subgroup G)}
-    {a : G} (h : FuzzyFrameDataStar p f Ω L₀ z₀ A S a) (hbal : RankThreeBalance A) :
-    ExactMembers Ω ∧ ∀ L ∈ Ω, ∀ z : G, IsClassicalMember p f L z → LocalOddCentral Ω {z} :=
-  exactMembers_and_localOddCentral_of_balanced_gen hnab hp2 hq hΩ hsingle hIH hbal h.mem h.cls
-    h.z₀A (h.cent hnab hp2 hq hΩ hconn hbal)
-    (rankTwoSpan_eq_top_of_dConnected_star hp2 hq hΩ h.frame hconn) h.a1 h.aClassical h.cover
-    h.nine
-
-theorem bootNoTripleD_of_frameExistsStar (h52 : Lemma52) (h : FrameExistsStar p f) :
-    BootNoTripleD p f := by
-  intro G _ _ _ hnab hp2 hq K z hz hBelow hconn _ _
-  obtain ⟨L₀, z₀, A, S, a, hfr, hA⟩ := h G hnab hp2 hq K z hz hBelow hconn trivial
-  have hΩ := inClass_conjugates hz
-  have hIH := localLieSystems_of_citBelowU hΩ hBelow
-  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_fuzzyFrameStar hnab hp2 hq hΩ
-    (exists_single_class K) hIH hconn hfr (h52 G A hA)
-  exact ⟨hex, hP1 K (mem_conjClass_self K) z hz⟩
-
-theorem exactP1D_of_frameExistsStar (h52 : Lemma52) (h : FrameExistsStar p f) :
-    ExactP1D p f := by
-  intro G _ _ _ hnab hp2 hq hBelow K z hz _ _ hD
-  obtain ⟨L₀, z₀, A, S, a, hfr, hA⟩ := h G hnab hp2 hq K z hz hBelow hD trivial
-  have hΩ := inClass_conjugates hz
-  have hIH := localLieSystems_of_citBelowU hΩ hBelow
-  obtain ⟨hex, hP1⟩ := exactMembers_and_localOddCentral_of_fuzzyFrameStar hnab hp2 hq hΩ
-    (exists_single_class K) hIH hD hfr (h52 G A hA)
-  exact ⟨hex, hP1 K (mem_conjClass_self K) z hz⟩
 
 theorem FrameExistsOn.mono {P Q : ShapePred}
     (hPQ : ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G) (z : G), Q G K z → P G K z)
@@ -141,12 +111,5 @@ theorem FrameExistsOn.or {P Q : ShapePred} (hP : FrameExistsOn p f P)
   fun G _ _ _ hnab hp2 hq K z hz hB hD hPQ => hPQ.elim (hP G hnab hp2 hq K z hz hB hD)
     (hQ G hnab hp2 hq K z hz hB hD)
 
-theorem frameExistsStar_of_cover {P : ShapePred} (hP : FrameExistsOn p f P)
-    (hcover : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-      ∀ (K : Subgroup G) (z : G), IsClassicalMember p f K z → CITBelowU p f (Nat.card G) →
-        DConnected (CoreAssembly.conjClass K) → P G K z) :
-    FrameExistsStar p f :=
-  fun G _ _ _ hnab hp2 hq K z hz hB hD _ => hP G hnab hp2 hq K z hz hB hD
-    (hcover G hnab K z hz hB hD)
 
 end CFSG.ClassicalInvolution.Asc77

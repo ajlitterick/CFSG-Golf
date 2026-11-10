@@ -331,9 +331,6 @@ section Graph
 
 variable (hσ : IsUnitaryInvolution σ) [Finite K] {q : ℕ} (hK : Nat.card K = q ^ 2)
 
-omit [Finite K] in
-theorem collGraph_adj {W : Submodule K (Fin m → K)} {x y : ↥(nsPts σ W)} :
-    (collGraph σ W).Adj x y ↔ IsCollinear σ x.1 y.1 := Iff.rfl
 
 include hσ hK in
 theorem collGraph_edist_le_two (hq : 3 ≤ q) {W : Submodule K (Fin m → K)} (hW : Nondeg σ W)

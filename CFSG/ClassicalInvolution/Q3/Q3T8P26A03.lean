@@ -25,10 +25,6 @@ open CFSG.ClassicalInvolution.Asc77.T8YY
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
 
-theorem mem_H274_of_conj_zt_mem_sylow (hs : Std8 Ω K J S R T W z t) (hμ : MuIsoWylD4 Ω W)
-    (hne : dComp Ω K ≠ dstarComp Ω K) {g : G} (hg : g⁻¹ * (z * t) * g ∈ (S : Subgroup G)) :
-    g ∈ T8.H274 Ω K z :=
-  Q3CL.Wyl.mem_H274_of_conj_zt_mem_sylow hs.toStd8Core hμ hne hg
 
 theorem fixesUniqueCoset_zt (hs : Std8 Ω K J S R T W z t) (hμ : MuIsoWylD4 Ω W)
     (hne : dComp Ω K ≠ dstarComp Ω K) : FixesUniqueCoset (z * t) (T8.H274 Ω K z) :=

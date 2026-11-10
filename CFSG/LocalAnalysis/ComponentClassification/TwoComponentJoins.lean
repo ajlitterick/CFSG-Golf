@@ -48,25 +48,5 @@ theorem exists_le_of_le_sSup {G : Type*} [Group G] [Finite G]
   let : Nontrivial image := Quasisimple.nontrivial hcomponent.2.1.2.2
   exact (image.nontrivial_iff_ne_bot.mp inferInstance) himageBot
 
-theorem component_sets_eq_of_sSup_eq {G : Type*} [Group G] [Finite G]
-    (first second : Set (Subgroup G))
-    (hfirst : ∀ component ∈ first, TwoComponents.IsTwoComponent component)
-    (hsecond : ∀ component ∈ second, TwoComponents.IsTwoComponent component)
-    (hjoins : sSup first = sSup second) : first = second := by
-  apply Set.Subset.antisymm
-  · intro component hmem
-    have hle : component ≤ sSup second := by rw [← hjoins]; exact le_sSup hmem
-    obtain ⟨containing, hcontaining, hcontained⟩ := exists_le_of_le_sSup component
-      (hfirst component hmem) second (fun subgroup hmember => (hsecond subgroup hmember).1) hle
-    have heq := TwoComponentSubnormal.eq_of_le component containing
-      (hfirst component hmem) (hsecond containing hcontaining) hcontained
-    exact heq ▸ hcontaining
-  · intro component hmem
-    have hle : component ≤ sSup first := by rw [hjoins]; exact le_sSup hmem
-    obtain ⟨containing, hcontaining, hcontained⟩ := exists_le_of_le_sSup component
-      (hsecond component hmem) first (fun subgroup hmember => (hfirst subgroup hmember).1) hle
-    have heq := TwoComponentSubnormal.eq_of_le component containing
-      (hsecond component hmem) (hfirst containing hcontaining) hcontained
-    exact heq ▸ hcontaining
 
 end CFSG.ComponentClassification.TwoComponentJoins

@@ -46,8 +46,6 @@ end Rest
 
 section Exc
 
-theorem ggOrdPGraphAt_all (t : StatedLieTag) : GGOrdPGraphAt t :=
-  ggOrdPGraphAt_of_orthogonal ggOrdPGraphAt_POmegaPlus ggOrdPGraphAt_POmegaMinus t
 
 theorem ggSixLSixElevenKGInput_of_rest6 (h : GGSixLSixElevenKGRest6) :
     GGSixLSixElevenKGInput :=

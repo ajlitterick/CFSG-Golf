@@ -125,10 +125,6 @@ theorem upperUnipotentSp_sub_mem_closure_odd {S : Matrix (Fin r) (Fin r) K} (hS 
     upperUnipotentSp_mul_upperUnipotentSp]
   exact upperUnipotentSp_eq_of_eq _ _ (sub_eq_add_neg _ _)
 
-theorem fromBlocks_one_eq_one_add (Y : Matrix (Fin r) (Fin r) K) :
-    (fromBlocks 1 Y 0 1 : Matrix (Fin r ⊕ Fin r) (Fin r ⊕ Fin r) K) = 1 + fromBlocks 0 Y 0 0 := by
-  rw [← fromBlocks_one, fromBlocks_add]
-  simp
 
 theorem forall_apply_eq_of_commute_upperUnipotentSp {g : StatedSp r K} {φ : K ≃+* K}
     {T₀ : Matrix (Fin r) (Fin r) K} (hT₀ : T₀ᵀ = T₀) (hT₀0 : T₀ ≠ 0)

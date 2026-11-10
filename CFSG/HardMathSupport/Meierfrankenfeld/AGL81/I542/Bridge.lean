@@ -104,8 +104,6 @@ theorem gnConj_eq_one_iff (hV : IsElemAbelian 2 (gnV T)) (g : X) :
     X ⧸ gnC T →* MulAut (IntMod (gnV T) hV) :=
   QuotientGroup.lift (gnC T) (gnConj hV) (fun g hg => (gnConj_eq_one_iff hV g).2 hg)
 
-theorem gnIota_mk (hV : IsElemAbelian 2 (gnV T)) (g : X) :
-    gnIota hV (QuotientGroup.mk g) = gnConj hV g := rfl
 
 theorem gnIota_injective (hV : IsElemAbelian 2 (gnV T)) : Function.Injective (gnIota hV) := by
   rw [injective_iff_map_eq_one]
@@ -134,15 +132,10 @@ variable (hV : IsElemAbelian 2 (gnV T)) [Module (ZMod 2) (Additive (IntMod (gnV 
     Representation (ZMod 2) (X ⧸ gnC T) (Additive (IntMod (gnV T) hV)) :=
   (binRep (IntMod (gnV T) hV)).comp (gnIota hV)
 
-theorem gnRep_apply (q : X ⧸ gnC T) (a : Additive (IntMod (gnV T) hV)) :
-    gnRep hV q a = Additive.ofMul (gnIota hV q (Additive.toMul a)) := rfl
 
 theorem gnRep_injective : Function.Injective (gnRep hV) :=
   (binRep_injective).comp (gnIota_injective hV)
 
-theorem mem_fixSub_gnRep (B : Subgroup (X ⧸ gnC T)) (w : Additive (IntMod (gnV T) hV)) :
-    w ∈ fixSub (gnRep hV) B ↔ Additive.toMul w ∈ fixV (B.map (gnIota hV)) :=
-  mem_fixSub_autRep_comp (gnIota hV) B w
 
 theorem card_fixSub_gnRep (B : Subgroup (X ⧸ gnC T)) :
     Nat.card (fixSub (gnRep hV) B) = Nat.card (fixV (B.map (gnIota hV))) :=

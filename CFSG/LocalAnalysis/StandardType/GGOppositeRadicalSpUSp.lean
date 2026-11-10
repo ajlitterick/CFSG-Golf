@@ -100,13 +100,6 @@ section CharTwo
 
 variable [CharP K 2]
 
-theorem ggOppRadGood_spU {M : ℕ} {ℓ : Fin n ⊕ Fin n → ℕ} (hℓ : IsSpLevel M ℓ)
-    (hQ : GGRadicalTwo ⊤ (spU n K ℓ))
-    (hN : (⊤ : Subgroup (StatedSp n K)) ⊓
-      Subgroup.normalizer (spU n K ℓ : Set (StatedSp n K)) = spP n K ℓ)
-    (hne : spU n K ℓ ≠ ⊥) : GGOppRadGood ⊤ (spU n K ℓ) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact hasGoodOppositePRadicals_spU hℓ hQ hN hne
 
 theorem ggOppRadGood_sp {Q : Subgroup (StatedSp n K)} (hQne : Q ≠ ⊥) (hQ : GGRadicalTwo ⊤ Q) :
     GGOppRadGood ⊤ Q := by
@@ -157,11 +150,6 @@ theorem eq_one_of_mem_center_sp {z : StatedSp n K}
     exact sub_eq_zero.mp ((pow_eq_zero_iff (by norm_num)).mp h4)
   rw [hd, hd1, Matrix.scalar_apply, Subgroup.coe_one, Units.val_one, Matrix.diagonal_one]
 
-theorem ggOppRadGood_of_sp {G : Type*} [Group G] [Finite G] (ψ : StatedSp n K →* G)
-    (hker : ψ.ker ≤ Subgroup.center (StatedSp n K)) {Q : Subgroup G}
-    (hQne : Q ≠ ⊥) (hQ : GGRadicalTwo ψ.range Q) : GGOppRadGood ψ.range Q :=
-  GGOppRadGood.of_lift ψ hker (fun _ hz h2 => eq_one_of_mem_center_sp (hker hz) h2)
-    (fun _ hQne' hQ' => ggOppRadGood_sp hQne' hQ') hQne hQ
 
 end CharTwo
 

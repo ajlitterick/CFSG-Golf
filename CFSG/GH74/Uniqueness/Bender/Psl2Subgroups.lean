@@ -86,60 +86,6 @@ theorem BenderType.exists_psl2_pair_of_mem
   · rw [← hZeq]
     exact hJeq
 
-theorem BenderType.exists_psl2_pair
-    {n e : ℕ} (h : BenderType K n 3 e) {J : Subgroup K}
-    (φ : J ≃* PSL2Model n) :
-    ∃ (Q : Sylow 2 K) (t : K), t * t = 1 ∧ t ∈ J ∧ t ∉ borel (Q : Subgroup K) ∧
-      rootCenter (Q : Subgroup K) ≤ J ∧ rootCenter (Q : Subgroup K) ⊔ zpowers t = J := by
-  obtain ⟨Q, t, -, h1, h2, h3, h4, h5⟩ := h.exists_psl2_pair_of_mem φ J.one_mem (mul_one 1)
-  exact ⟨Q, t, h1, h2, h3, h4, h5⟩
-
-theorem BenderType.psl2_subgroups_conjugate
-    {n e : ℕ} (h : BenderType K n 3 e) {J₁ J₂ : Subgroup K}
-    (φ₁ : J₁ ≃* PSL2Model n) (φ₂ : J₂ ≃* PSL2Model n) :
-    ∃ g : K, J₂ = J₁.map (MulAut.conj g).toMonoidHom := by
-  obtain ⟨Q₁, t₁, ht₁, -, ht₁Q, -, hJ₁⟩ := h.exists_psl2_pair φ₁
-  obtain ⟨Q₂, t₂, ht₂, -, ht₂Q, -, hJ₂⟩ := h.exists_psl2_pair φ₂
-  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq K Q₁ Q₂
-  have hU : (Q₁ : Subgroup K).map (MulAut.conj g).toMonoidHom = (Q₂ : Subgroup K) := by
-    rw [← hg]
-    ext x
-    rw [Subgroup.mem_map_equiv, Sylow.coe_subgroup_smul,
-      Subgroup.mem_pointwise_smul_iff_inv_smul_mem]
-    rfl
-  have hZ : (rootCenter (Q₁ : Subgroup K)).map (MulAut.conj g).toMonoidHom =
-      rootCenter (Q₂ : Subgroup K) := by
-    rw [← hU, rootCenter_map]
-  have ht'sq : (g * t₁ * g⁻¹) * (g * t₁ * g⁻¹) = 1 := by
-    calc (g * t₁ * g⁻¹) * (g * t₁ * g⁻¹) = g * (t₁ * t₁) * g⁻¹ := by group
-      _ = 1 := by rw [ht₁]; group
-  have ht'Q : g * t₁ * g⁻¹ ∉ borel (Q₂ : Subgroup K) := by
-    intro hmem
-    apply ht₁Q
-    rw [← hU, borel_map, Subgroup.mem_map_equiv, MulAut.conj_symm_apply] at hmem
-    have e1 : g⁻¹ * (g * t₁ * g⁻¹) * g = t₁ := by group
-    rwa [e1] at hmem
-  have hc : BenderCore (2 ^ n) 3 e (Q₂ : Subgroup K) t₂ := h.benderCore Q₂ ht₂ ht₂Q
-  obtain ⟨m, hm, hmt⟩ := hc.exists_conj_eq ht'sq ht'Q
-  have ht₂eq : m * (g * t₁ * g⁻¹) * m⁻¹ = t₂ := by
-    rw [hmt]
-    group
-  have hZm : (rootCenter (Q₂ : Subgroup K)).map (MulAut.conj m).toMonoidHom =
-      rootCenter (Q₂ : Subgroup K) := by
-    ext x
-    rw [Subgroup.mem_map_equiv, MulAut.conj_symm_apply]
-    have h1 := (mem_rootCenter_conj_iff ((borel (Q₂ : Subgroup K)).inv_mem hm) x).symm
-    rw [inv_inv] at h1
-    exact h1
-  have hcomp : (MulAut.conj (m * g)).toMonoidHom =
-      (MulAut.conj m).toMonoidHom.comp (MulAut.conj g).toMonoidHom := by
-    ext x
-    simp only [MulEquiv.coe_toMonoidHom, MonoidHom.coe_comp, Function.comp_apply, MulAut.conj_apply]
-    group
-  refine ⟨m * g, ?_⟩
-  rw [← hJ₂, ← hJ₁, hcomp, ← Subgroup.map_map, Subgroup.map_sup, Subgroup.map_sup, hZ, hZm,
-    MonoidHom.map_zpowers, MonoidHom.map_zpowers]
-  simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, ht₂eq]
 
 end Psl2
 

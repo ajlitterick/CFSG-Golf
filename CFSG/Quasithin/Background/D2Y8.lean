@@ -42,10 +42,6 @@ variable {V : Type*} [CommGroup V] [Finite V]
       rw [e]
       exact Subgroup.inv_mem _ h1
 
-omit [Finite V] in
-theorem mem_kerMod {X : Subgroup (MulAut V)} {z g : MulAut V} :
-    g ∈ kerMod X z ↔ g ∈ X ∧ g * z = z * g ∧
-      ∀ r ∈ pCoreOf 3 X, g * r * g⁻¹ * r⁻¹ ∈ Subgroup.zpowers z := Iff.rfl
 
 section Main
 

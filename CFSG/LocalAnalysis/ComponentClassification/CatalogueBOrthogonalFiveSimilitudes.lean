@@ -14,10 +14,6 @@ variable {K : Type u} [Field K]
 
 theorem symplecticGram_entry : symplecticGram K 0 2 = 1 := rfl
 
-theorem symplecticGram_square :
-    symplecticGram K * symplecticGram K = -(1 : Matrix (Fin 4) (Fin 4) K) := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [symplecticGram, Matrix.mul_apply, Fin.sum_univ_four]
 
 theorem symplectic_multiplier_unique (A : GL (Fin 4) K) (a b : Kˣ)
     (ha : A.valᵀ * symplecticGram K * A.val = (a : K) • symplecticGram K)

@@ -361,8 +361,6 @@ theorem mk_X_sub_one_eq (g : K[X]) :
   map_one' := LinearMap.ext fun _ => rfl
   map_mul' _ _ := LinearMap.ext fun _ => rfl
 
-theorem fixedBlockEnd_apply (y : Module.End K V) (f : Module.End K (primaryComponent y (X - 1)))
-    (v : primaryComponent y (X - 1)) : fixedBlockEnd y f v = f v := rfl
 
 @[expose] noncomputable def restrictK (x : LinearMap.GeneralLinearGroup K V) (a : K[X]) :
     gl_centralizer x →* LinearMap.GeneralLinearGroup K (primaryComponent (x : Module.End K V) a)
@@ -385,11 +383,6 @@ theorem fixedBlockEnd_apply (y : Module.End K V) (f : Module.End K (primaryCompo
   map_one' := Units.ext (LinearMap.ext fun _ => rfl)
   map_mul' _ _ := Units.ext (LinearMap.ext fun _ => rfl)
 
-theorem coe_restrictK_apply (x : LinearMap.GeneralLinearGroup K V) (a : K[X])
-    (g : gl_centralizer x) (v : primaryComponent (x : Module.End K V) a) :
-    (((restrictK x a g : LinearMap.GeneralLinearGroup K (primaryComponent (x : Module.End K V) a)) :
-      Module.End K (primaryComponent (x : Module.End K V) a)) v : V) =
-      ((g : LinearMap.GeneralLinearGroup K V) : Module.End K V) v := rfl
 
 namespace AltPrimaryData
 
@@ -496,14 +489,6 @@ theorem fixedHom_bijective (h1 : (X - 1 : K[X]) ∈ primaryFactors (x : Module.E
       sesqUnitaryGroup (B.restrict (primaryComponent (x : Module.End K V) (X - 1))) :=
   MulEquiv.ofBijective fixedHom (H.fixedHom_bijective h1)
 
-theorem fixedEquiv_apply (h1 : (X - 1 : K[X]) ∈ primaryFactors (x : Module.End K V))
-    (g : supportedUnitary B x {X - 1})
-    (v : primaryComponent (x : Module.End K V) (X - 1)) :
-    ((((H.fixedEquiv h1 g : sesqUnitaryGroup
-        (B.restrict (primaryComponent (x : Module.End K V) (X - 1)))) :
-      LinearMap.GeneralLinearGroup K (primaryComponent (x : Module.End K V) (X - 1))) :
-        Module.End K (primaryComponent (x : Module.End K V) (X - 1))) v : V) =
-      ((g : LinearMap.GeneralLinearGroup K V) : Module.End K V) v := rfl
 
 end AltPrimaryData
 

@@ -50,10 +50,5 @@ open CFSG.Open CFSG.Quasithin
           (Subgroup.zpowers s ⊔ thompsonJ S ⊓ Subgroup.centralizer ({s} : Set G)).relIndex
               (T ⊓ Subgroup.centralizer ({s} : Set G)) = 2 ^ (n.factorization 2))
 
-theorem lemma2_4_23_of_main_five (h : Lemma2_4_23_main) (h5 : Lemma2_4_23_five) : Lemma2_4_23 :=
-  fun G _ _ T M H S L D n hcfg s hs hsR hs2 =>
-    ⟨(h G T M H S L D n hcfg s hs hsR hs2).1, (h G T M H S L D n hcfg s hs hsR hs2).2.1,
-      (h G T M H S L D n hcfg s hs hsR hs2).2.2.1, (h G T M H S L D n hcfg s hs hsR hs2).2.2.2,
-      h5 G T M H S L D n hcfg s hs hsR hs2⟩
 
 end CFSG.QuasithinUnique.Lin2

@@ -47,8 +47,6 @@ section TwoCoset
       rw [e]
       exact Z.mul_mem h1 ha2
 
-theorem mem_twoCoset {Z : Subgroup G} {a : G} (ha : a ∈ Subgroup.normalizer (Z : Set G))
-    (ha2 : a ^ 2 ∈ Z) {x : G} : x ∈ twoCoset Z a ha ha2 ↔ x ∈ Z ∨ x * a ∈ Z := Iff.rfl
 
 theorem le_twoCoset {Z : Subgroup G} {a : G} (ha : a ∈ Subgroup.normalizer (Z : Set G))
     (ha2 : a ^ 2 ∈ Z) : Z ≤ twoCoset Z a ha ha2 := fun _ hx => Or.inl hx

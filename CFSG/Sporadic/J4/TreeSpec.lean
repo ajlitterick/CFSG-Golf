@@ -77,17 +77,6 @@ theorem idx_treeElt {L1 L2 L3 : G} (h1 : RepT n ta L1) (h2 : RepT n tb L2) (h3 :
         ih (depOf dep (parOf par j)) (by omega) _ hp rfl f (by omega),
         ← RepT.letter3 h1 h2 h3 (labOf par j) _ hp, hl]
 
-omit [MulAction G (Fin n)] in
-theorem treeElt_of_treeEdge {L1 L2 L3 : G} {l i j : ℕ} (hj : j < n) (h : treeEdge par l i j = true) :
-    treeElt par L1 L2 L3 64 j = letterG L1 L2 L3 l * treeElt par L1 L2 L3 64 i := by
-  simp only [treeEdge, Bool.and_eq_true, bne_iff_ne, ne_eq, beq_iff_eq] at h
-  obtain ⟨⟨hj0, hp⟩, hl⟩ := h
-  obtain ⟨hpn, -, -, -, hdp⟩ := hT.step j hj hj0
-  have hdj := hT.dep_lt j hj
-  rw [treeElt_succ_of_ne 63 hj0, hl, hp]
-  congr 1
-  rw [← hp]
-  exact treeElt_fuel hT _ _ hpn rfl 63 64 (by omega) (by omega)
 
 end Tree
 
@@ -139,7 +128,6 @@ theorem bwd2_spec {par t1 t2 t3 : ByteArray} {pairs : Array ByteArray} {L1 L2 L3
         · have := ih (rdU32 par j &&& 0x3FFFFFFF) (hq.apTab hq0 (hl (rdU32 par j >>> 30)))
           simpa only [mul_assoc] using this
 
-theorem parOf_eq (par : ByteArray) (j : ℕ) : rdU32 par j &&& 0x3FFFFFFF = parOf par j := rfl
 
 theorem labOf_eq (par : ByteArray) (j : ℕ) : rdU32 par j >>> 30 = labOf par j := rfl
 

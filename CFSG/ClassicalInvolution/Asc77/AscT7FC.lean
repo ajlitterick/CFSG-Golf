@@ -156,26 +156,6 @@ theorem le_centralizer_mul_involutions (hnc : ¬ DbarConnected Ω W) (ρ ρ' : R
     calc x * (t * z) = (x * (t * z) * x⁻¹) * x := by group
       _ = (t * z) * x := by rw [show x * (t * z) * x⁻¹ = t * z from h]
 
-theorem MGrp_le_centralizer_mul_involutions (hnc : ¬ DbarConnected Ω W) (ρ ρ' : Rep Ω W)
-    (hnbr : ρ'.K ∈ omegaNbr Ω ρ.K) {z t : G} (hz : IsUniqueInvolution ρ.K z)
-    (ht : IsUniqueInvolution ρ'.K t) :
-    MGrp Ω W ≤ Subgroup.centralizer ({t * z} : Set G) :=
-  iSup₂_le fun R hR => c.le_centralizer_mul_involutions hnc ρ ρ' hnbr hz ht R hR
-
-theorem mul_involutions_mem_MGrp (ρ ρ' : Rep Ω W) {z t : G} (hz : IsUniqueInvolution ρ.K z)
-    (ht : IsUniqueInvolution ρ'.K t) : t * z ∈ MGrp Ω W :=
-  (MGrp Ω W).mul_mem (le_MGrp_of_mem_D ρ'.hR (c.mem_inf_W_of_isUniqueInvolution ρ' ht).1)
-    (le_MGrp_of_mem_D ρ.hR (c.mem_inf_W_of_isUniqueInvolution ρ hz).1)
-
-theorem mul_involutions_mem_centerIn (hnc : ¬ DbarConnected Ω W) (ρ ρ' : Rep Ω W)
-    (hnbr : ρ'.K ∈ omegaNbr Ω ρ.K) {z t : G} (hz : IsUniqueInvolution ρ.K z)
-    (ht : IsUniqueInvolution ρ'.K t) : t * z ∈ centerIn (MGrp Ω W) := by
-  have hle := c.MGrp_le_centralizer_mul_involutions hnc ρ ρ' hnbr hz ht
-  refine ⟨⟨t * z, c.mul_involutions_mem_MGrp ρ ρ' hz ht⟩, ?_, rfl⟩
-  rw [SetLike.mem_coe, Subgroup.mem_center_iff]
-  intro g
-  apply Subtype.ext
-  exact Subgroup.mem_centralizer_singleton_iff.mp (hle g.2)
 
 end Ctx
 
@@ -214,12 +194,6 @@ theorem Hyp21.mGrp_le_rLayer_tz (h : Hyp21 p f Ω K K' z u J t W)
   exact iSup₂_le fun R hR =>
     le_iSup₂_of_le R hR.1 (le_iSup_of_le (hle R hR) le_rfl)
 
-theorem Hyp21.tz_mem_centerIn_mGrp (h : Hyp21 p f Ω K K' z u J t W)
-    (hne : dComp Ω K ≠ dstarComp Ω K) : t * z ∈ centerIn (MGrp Ω W) := by
-  have c : Thompson.Ctx p f Ω W := T7D.ctx_of_stand h.std.stand h.hW
-  obtain ⟨ρ, ρ', hρ, hρ', hnbr⟩ := h.exists_reps
-  exact c.mul_involutions_mem_centerIn (h.not_dbarConnected hne) ρ ρ' hnbr (hρ ▸ h.std.hz)
-    (hρ' ▸ h.ht)
 
 end Frame
 

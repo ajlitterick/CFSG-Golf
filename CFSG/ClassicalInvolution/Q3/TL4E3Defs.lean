@@ -76,23 +76,6 @@ section Cit3
           TightInO2 (QuotientGroup.mk' (classicalInvolutionOddCore ↥(secH R u))
             (⟨⟨t, htu⟩, ht⟩ : secH R u))
 
-@[expose] def TightE3LeafR'' (r n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
-    TightLargeHypR r n Y R S t →
-      Disconnected.DConnected (CoreAssembly.conjClass (tightCore R)) →
-      TC.SepHyp (CoreAssembly.conjClass (tightCore R)) → TightSepAlpha R t →
-      ∀ J : Subgroup Y, MaxAdj (TC.nbrAdj (CoreAssembly.conjClass (tightCore R))) (tightCore R) J →
-      ∀ u : Y, IsUniqueInvolution J u → ∀ (htu : t ∈ Subgroup.centralizer ({u} : Set Y))
-        (ht : (⟨t, htu⟩ : Subgroup.centralizer ({u} : Set Y)) ∈ secH R u)
-        (Sb : Sylow 2 ↥(secR R u)),
-        TightEx (SecQ R u) (secR R u) Sb
-            (QuotientGroup.mk' (classicalInvolutionOddCore ↥(secH R u)) ⟨⟨t, htu⟩, ht⟩) →
-          TightInO2 (QuotientGroup.mk' (classicalInvolutionOddCore ↥(secH R u))
-            (⟨⟨t, htu⟩, ht⟩ : secH R u)) ∨ TightE4 (SecQ R u)
-
-theorem TightE3LeafR'.toR'' {r n : ℕ} (h : TightE3LeafR' r n) : TightE3LeafR'' r n :=
-  fun Y _ _ R S t hL hcn hsp hα J hJ u hu htu ht Sb hex =>
-    Or.inl (h Y R S t hL hcn hsp hα J hJ u hu htu ht Sb hex)
 
 @[expose] def TightE3E4O (n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),

@@ -166,26 +166,6 @@ theorem nonsplitTorus_mul_comm {g g' : CentralExtension F b m hm heven}
         rw [mul_assoc, ← mul_assoc (nonsplitDiag F b m hm heven E basis t),
           ← (hcomm t k').eq, mul_assoc, mul_assoc]
 
-theorem nonsplitTorus_eq_closure :
-    nonsplitTorus F b m hm heven E basis = Subgroup.closure
-      (Set.range (nonsplitDiag F b m hm heven E basis) ∪
-        {nonsplitGenerator F b m hm heven E basis z hz}) := by
-  set S := Set.range (nonsplitDiag F b m hm heven E basis) ∪
-    {nonsplitGenerator F b m hm heven E basis z hz} with hS
-  apply le_antisymm
-  · intro g hg
-    obtain ⟨t, k, rfl⟩ := nonsplitTorus_normalForm z hz g hg
-    have h1 : nonsplitDiag F b m hm heven E basis t ∈ Subgroup.closure S :=
-      Subgroup.subset_closure (Or.inl ⟨t, rfl⟩)
-    have h2 : nonsplitGenerator F b m hm heven E basis z hz ∈ Subgroup.closure S :=
-      Subgroup.subset_closure (Or.inr rfl)
-    exact (Subgroup.closure S).mul_mem h1 ((Subgroup.closure S).pow_mem h2 _)
-  · rw [Subgroup.closure_le]
-    rintro _ (⟨t, rfl⟩ | h)
-    · exact nonsplitDiag_mem t
-    · rw [Set.mem_singleton_iff] at h
-      rw [h]
-      exact nonsplitGenerator_mem z hz
 
 end Torus
 

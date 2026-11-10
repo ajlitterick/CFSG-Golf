@@ -40,6 +40,5 @@ theorem isConj_of_involutions_mcl
   rw [hg, hh]
   group
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end CFSG.EvenSporadicStandard.McLStd

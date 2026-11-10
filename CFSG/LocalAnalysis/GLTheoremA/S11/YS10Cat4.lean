@@ -39,6 +39,5 @@ structure S11Cat4Inputs (G : Type) [Group G] [Finite G] : Prop where
   u6struct : U6StructAt G
   u5case : U5CaseAt G
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.GLTheoremA

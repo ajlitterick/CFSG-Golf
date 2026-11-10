@@ -67,16 +67,6 @@ theorem orbitSpan_stable
 
 omit [IsDomain R] [IsBezout R] [IsLocalRing R] [IsFractionRing R K] [Fintype G]
   [Module.IsTorsionFree R V] [Fintype ι] in
-private theorem action_mem_orbitSpan_iff
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) (x : V) :
-    ρ g x ∈ orbitSpan (R := R) ρ b ↔
-      x ∈ orbitSpan (R := R) ρ b := by
-  constructor
-  · intro hx
-    have hback := orbitSpan_stable (R := R) ρ b g⁻¹ hx
-    rwa [Representation.inv_self_apply] at hback
-  · intro hx
-    exact orbitSpan_stable (R := R) ρ b g hx
 
 @[expose] def orbitSpanEnd
     (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
@@ -243,14 +233,6 @@ private theorem orbitSpanSubtype_isBaseChange
   rw [← heq]
   exact hcomp
 
-private theorem orbitSpanBaseChangeBasis_eq
-    (ρ : Representation K G V) (b : Module.Basis ι K V) :
-    (orbitSpanSubtype_isBaseChange (R := R) ρ b).basis
-        (orbitSpanBasis (R := R) ρ b) =
-      orbitSpanFieldBasis (R := R) ρ b := by
-  ext j
-  rw [IsBaseChange.basis_apply, orbitSpanFieldBasis_apply]
-  rfl
 
 private theorem orbitSpanEnd_baseChange
     (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
@@ -267,86 +249,6 @@ private theorem finrank_orbitSpan_eq
   have h := Module.finrank_eq_card_basis (orbitSpanFieldBasis (R := R) ρ b)
   simpa using h.symm
 
-@[expose] def orbitSpanMatrix
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
-    Matrix (Fin (Module.finrank R (orbitSpan (R := R) ρ b)))
-      (Fin (Module.finrank R (orbitSpan (R := R) ρ b))) R :=
-  LinearMap.toMatrix (orbitSpanBasis (R := R) ρ b)
-    (orbitSpanBasis (R := R) ρ b) (orbitSpanEnd (R := R) ρ b g)
-
-theorem orbitSpanRepresentation_toMatrix
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
-    LinearMap.toMatrix (orbitSpanBasis (R := R) ρ b)
-        (orbitSpanBasis (R := R) ρ b)
-        ((orbitSpanRepresentation (R := R) ρ b) g) =
-      orbitSpanMatrix (R := R) ρ b g :=
-  rfl
-
-theorem orbitSpanMatrix_map_algebraMap
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
-    (orbitSpanMatrix (R := R) ρ b g).map (algebraMap R K) =
-      LinearMap.toMatrix (orbitSpanFieldBasis (R := R) ρ b)
-        (orbitSpanFieldBasis (R := R) ρ b) (ρ g) := by
-  have h := IsBaseChange.endHom_toMatrix K
-    (orbitSpan (R := R) ρ b)
-    (orbitSpanSubtype_isBaseChange (R := R) ρ b)
-    (orbitSpanBasis (R := R) ρ b)
-    (orbitSpanEnd (R := R) ρ b g)
-  rw [orbitSpanBaseChangeBasis_eq, orbitSpanEnd_baseChange] at h
-  exact h.symm
-
-omit [IsFractionRing R K] in
-private theorem orbitSpanMatrix_one
-    (ρ : Representation K G V) (b : Module.Basis ι K V) :
-    orbitSpanMatrix (R := R) ρ b 1 = 1 := by
-  rw [orbitSpanMatrix, orbitSpanEnd_one, LinearMap.toMatrix_one]
-
-omit [IsFractionRing R K] in
-private theorem orbitSpanMatrix_mul
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g h : G) :
-    orbitSpanMatrix (R := R) ρ b (g * h) =
-      orbitSpanMatrix (R := R) ρ b g * orbitSpanMatrix (R := R) ρ b h := by
-  rw [orbitSpanMatrix, orbitSpanEnd_mul, LinearMap.toMatrix_mul]
-  rfl
-
-omit [IsFractionRing R K] in
-theorem orbitSpanMatrix_inv_mul
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
-    orbitSpanMatrix (R := R) ρ b g⁻¹ * orbitSpanMatrix (R := R) ρ b g = 1 := by
-  calc
-    orbitSpanMatrix (R := R) ρ b g⁻¹ * orbitSpanMatrix (R := R) ρ b g =
-        orbitSpanMatrix (R := R) ρ b (g⁻¹ * g) :=
-      (orbitSpanMatrix_mul (R := R) ρ b g⁻¹ g).symm
-    _ = 1 := by simp [orbitSpanMatrix_one]
-
-omit [IsFractionRing R K] in
-theorem orbitSpanMatrix_mul_inv
-    (ρ : Representation K G V) (b : Module.Basis ι K V) (g : G) :
-    orbitSpanMatrix (R := R) ρ b g * orbitSpanMatrix (R := R) ρ b g⁻¹ = 1 := by
-  calc
-    orbitSpanMatrix (R := R) ρ b g * orbitSpanMatrix (R := R) ρ b g⁻¹ =
-        orbitSpanMatrix (R := R) ρ b (g * g⁻¹) :=
-      (orbitSpanMatrix_mul (R := R) ρ b g g⁻¹).symm
-    _ = 1 := by simp [orbitSpanMatrix_one]
-
-omit [IsFractionRing R K] in
-theorem exists_finite_free_invariant_orbit_model
-    (ρ : Representation K G V) (b : Module.Basis ι K V) :
-    ∃ (L : Submodule R V) (r : ℕ)
-      (_β : Module.Basis (Fin r) R L)
-      (M : G → Matrix (Fin r) (Fin r) R),
-      (∀ g x, ρ g x ∈ L ↔ x ∈ L) ∧
-      M 1 = 1 ∧
-      (∀ g h, M (g * h) = M g * M h) ∧
-      Submodule.span K (L : Set V) = ⊤ := by
-  refine ⟨orbitSpan (R := R) ρ b,
-    Module.finrank R (orbitSpan (R := R) ρ b),
-    orbitSpanBasis (R := R) ρ b,
-    orbitSpanMatrix (R := R) ρ b, ?_, ?_, ?_, ?_⟩
-  · exact action_mem_orbitSpan_iff (R := R) ρ b
-  · exact orbitSpanMatrix_one (R := R) ρ b
-  · exact orbitSpanMatrix_mul (R := R) ρ b
-  · exact span_orbitSpan_eq_top (R := R) ρ b
 
 open ZStar.PadicBlockField
 open ZStar.TwoAdicWedderburn
@@ -476,73 +378,6 @@ theorem componentIntegralMatrix_sq_of_sq_one
     componentIntegralMatrix D i w * componentIntegralMatrix D i w = 1 := by
   rw [← componentIntegralMatrix_mul, hw, componentIntegralMatrix_one]
 
-@[expose] def componentBasisChange (D : Decomposition G₀) (i : Fin D.blockCount) :
-    Matrix (Fin (D.blockSize i)) (Fin (D.blockSize i)) TwoAdicComplex :=
-  (componentStandardBasis D i).toMatrix (componentFieldBasis D i)
-
-@[expose] def componentBasisChangeInverse (D : Decomposition G₀)
-    (i : Fin D.blockCount) :
-    Matrix (Fin (D.blockSize i)) (Fin (D.blockSize i)) TwoAdicComplex :=
-  (componentFieldBasis D i).toMatrix (componentStandardBasis D i)
-
-private theorem componentBasisChange_mul_inverse
-    (D : Decomposition G₀) (i : Fin D.blockCount) :
-    componentBasisChange D i * componentBasisChangeInverse D i = 1 := by
-  exact Module.Basis.toMatrix_mul_toMatrix_flip
-    (componentStandardBasis D i) (componentFieldBasis D i)
-
-private theorem componentBasisChange_inverse_mul
-    (D : Decomposition G₀) (i : Fin D.blockCount) :
-    componentBasisChangeInverse D i * componentBasisChange D i = 1 := by
-  exact Module.Basis.toMatrix_mul_toMatrix_flip
-    (componentFieldBasis D i) (componentStandardBasis D i)
-
-private theorem componentIntegralMatrix_intertwines
-    (D : Decomposition G₀) (i : Fin D.blockCount) (g : G₀) :
-    componentBasisChange D i *
-        (componentIntegralMatrix D i g).map (algebraMap O2 TwoAdicComplex) =
-      D.equiv (MonoidAlgebra.single g 1) i * componentBasisChange D i := by
-  rw [componentIntegralMatrix_map_algebraMap]
-  calc
-    componentBasisChange D i *
-        LinearMap.toMatrix (componentFieldBasis D i) (componentFieldBasis D i)
-          (componentRepresentation D i g) =
-        LinearMap.toMatrix (componentFieldBasis D i) (componentStandardBasis D i)
-          (componentRepresentation D i g) := by
-      exact basis_toMatrix_mul_linearMap_toMatrix
-        (componentFieldBasis D i) (componentStandardBasis D i)
-        (componentFieldBasis D i) (componentRepresentation D i g)
-    _ = LinearMap.toMatrix (componentStandardBasis D i)
-          (componentStandardBasis D i) (componentRepresentation D i g) *
-        componentBasisChange D i := by
-      exact (linearMap_toMatrix_mul_basis_toMatrix
-        (componentFieldBasis D i) (componentStandardBasis D i)
-        (componentStandardBasis D i) (componentRepresentation D i g)).symm
-    _ = D.equiv (MonoidAlgebra.single g 1) i * componentBasisChange D i := by
-      congr 1
-      rw [componentRepresentation_apply]
-      exact LinearMap.toMatrix'_toLin' _
-
-theorem componentIntegralMatrix_conjugates
-    (D : Decomposition G₀) (i : Fin D.blockCount) (g : G₀) :
-    componentBasisChange D i *
-          (componentIntegralMatrix D i g).map
-            (algebraMap O2 TwoAdicComplex) *
-        componentBasisChangeInverse D i =
-      D.equiv (MonoidAlgebra.single g 1) i := by
-  rw [componentIntegralMatrix_intertwines, Matrix.mul_assoc,
-    componentBasisChange_mul_inverse, mul_one]
-
-theorem componentIntegralMatrix_eq_inverse_mul_mul
-    (D : Decomposition G₀) (i : Fin D.blockCount) (g : G₀) :
-    (componentIntegralMatrix D i g).map
-        (algebraMap O2 TwoAdicComplex) =
-      componentBasisChangeInverse D i *
-        D.equiv (MonoidAlgebra.single g 1) i * componentBasisChange D i := by
-  have h := congrArg (fun A => componentBasisChangeInverse D i * A)
-    (componentIntegralMatrix_intertwines D i g)
-  simpa only [← Matrix.mul_assoc, componentBasisChange_inverse_mul,
-    one_mul] using h
 
 end Component
 

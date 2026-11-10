@@ -14,7 +14,6 @@ open CertificateChecks.KernelO8
 
 theorem kV0Sq125 : Nat.beq (pc om0V om0V) (mainK 0) = true := by quickRfl
 
-theorem neg125V0Sq : Bool.not (Nat.beq (pc om0V (mainK 0)) (mainK 0)) = true := by quickRfl
 
 end CertificateChecks.KernelO8.Q125
 

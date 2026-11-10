@@ -12,37 +12,6 @@ open scoped commutatorElement
 
 section Abstract
 
-theorem exists_hom_of_push' {G G' D : Type} [Group G] [Group G'] [Group D] (ψ : G →* G')
-    (hψ : Function.Injective ψ) (ρ : D →* G') (hrange : ρ.range ≤ ψ.range) :
-    ∃ φ : D →* G, (∀ d, ψ (φ d) = ρ d) ∧ φ.range = (ρ.range).comap ψ ∧
-      ∀ d, φ d = 1 ↔ ρ d = 1 := by
-  classical
-  have hex : ∀ d, ∃ g, ψ g = ρ d := fun d => hrange ⟨d, rfl⟩
-  choose f hf using hex
-  have hmul : ∀ a b, f (a * b) = f a * f b := fun a b => by
-    apply hψ
-    rw [map_mul, hf, hf, hf, map_mul]
-  have hone : f 1 = 1 := by
-    apply hψ
-    rw [hf, map_one, map_one]
-  refine ⟨⟨⟨f, hone⟩, hmul⟩, hf, ?_, fun d => ?_⟩
-  · ext g
-    constructor
-    · rintro ⟨d, rfl⟩
-      exact ⟨d, (hf d).symm⟩
-    · rintro ⟨d, hd⟩
-      refine ⟨d, ?_⟩
-      apply hψ
-      exact (hf d).trans hd
-  · constructor
-    · intro h
-      have h1 := hf d
-      rw [show f d = 1 from h, map_one] at h1
-      exact h1.symm
-    · intro h
-      apply hψ
-      show ψ (f d) = ψ 1
-      rw [hf, h, map_one]
 
 theorem eq_one_of_central_hom {D : Type} [Group D] (hperf : commutator D = ⊤) (ζ : D →* D)
     (hζ : ∀ d, ζ d ∈ Subgroup.center D) : ∀ d, ζ d = 1 := by
@@ -132,21 +101,6 @@ theorem quotient_center_equiv {G D : Type} [Group G] [Group D] (φ : D →* G)
   exact ⟨(QuotientGroup.quotientMulEquivOfEq hψk.symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective ψ hψs)⟩
 
-theorem layerDatum2_of_model' {p : ℕ} {M : Type} [Group M] (F₀ : M → M) {D : Type} [Group D]
-    (ρ' : D →* M) (τ'' : D → D) (hker : ∀ d, ρ' d = 1 → d ∈ Subgroup.center D)
-    (hcompat : ∀ d, F₀ (ρ' d) = ρ' (τ'' d))
-    (hclaims : ∀ {G : Type} [Group G] (α : MulAut G) (φ : D →* G),
-      (∀ d, φ d = 1 → d ∈ Subgroup.center D) → (∀ d, α (φ d) = φ (τ'' d)) →
-      ∀ Q : Subgroup G, φ.range = Q → LayerClaims2 p α Q) :
-    LayerDatum2 p F₀ ρ'.range := by
-  intro G _ _ ψ hψ hPψ α _ hψα _
-  obtain ⟨φ, hψφ, hφrange, hφker⟩ := exists_hom_of_push' ψ hψ ρ' hPψ
-  have hαφ : ∀ d, α (φ d) = φ (τ'' d) := fun d => by
-    apply hψ
-    rw [hψα, hψφ, hcompat, hψφ]
-  obtain ⟨-, hout, hmodel, hfix⟩ :=
-    hclaims α φ (fun d hd => hker d ((hφker d).1 hd)) hαφ _ hφrange
-  exact ⟨hout, hmodel, hfix⟩
 
 theorem braid_not_central {D : Type} [Group D] (x y : D) (hx : x * x = 1) (hy : y * y = 1)
     (hxy : x ≠ y) (h3 : (x * y) ^ 3 = 1) : ⁅x, y⁆ ∉ Subgroup.center D := by

@@ -368,48 +368,6 @@ theorem singerU_ne_one_neg_one_of_inv_pow {p : ℕ} (hp : p.Prime)
     apply hM2
     rw [← hnp, inv_neg, inv_one, hodd.neg_one_pow]
 
-theorem singerU_exists_norm_eq_good (h : UnitaryFieldData ℓ f K) {p : ℕ} (hp : p.Prime)
-    (hlt : p < ℓ ^ f + 1) {c : K} (hc : h.norm c = 1) {n : K} (hn : h.bar n = n) (hn0 : n ≠ 0) :
-    ∃ ε : K, h.norm ε = n ∧ h.bar ε ^ (p - 1) + c * ε ≠ 0 := by
-  obtain ⟨ε₀, hε₀0, hε₀⟩ := singerU_exists_norm_eq_of_fixed h hn hn0
-  have hbar0 : h.bar ε₀ ≠ 0 := (map_ne_zero h.bar).2 hε₀0
-  have hQeval : ∀ x : K, ((Polynomial.C (c * ε₀) * Polynomial.X ^ p +
-      Polynomial.C ((h.bar ε₀) ^ (p - 1)) : Polynomial K)).eval x =
-      c * ε₀ * x ^ p + (h.bar ε₀) ^ (p - 1) := by
-    intro x
-    simp only [Polynomial.eval_add, Polynomial.eval_mul, Polynomial.eval_C,
-      Polynomial.eval_pow, Polynomial.eval_X]
-  have hQne : (Polynomial.C (c * ε₀) * Polynomial.X ^ p +
-      Polynomial.C ((h.bar ε₀) ^ (p - 1)) : Polynomial K) ≠ 0 := by
-    intro h0
-    have h1 := hQeval 0
-    rw [h0, Polynomial.eval_zero, zero_pow hp.ne_zero, mul_zero, zero_add] at h1
-    exact pow_ne_zero _ hbar0 h1.symm
-  have hdeg : (Polynomial.C (c * ε₀) * Polynomial.X ^ p +
-      Polynomial.C ((h.bar ε₀) ^ (p - 1)) : Polynomial K).natDegree < ℓ ^ f + 1 := by
-    have h1 : (Polynomial.C (c * ε₀) * Polynomial.X ^ p +
-        Polynomial.C ((h.bar ε₀) ^ (p - 1)) : Polynomial K).natDegree ≤ p :=
-      (Polynomial.natDegree_add_le _ _).trans
-        (max_le (Polynomial.natDegree_C_mul_X_pow_le _ _) (by simp))
-    omega
-  obtain ⟨ζ, hζN, hζQ⟩ := singerU_exists_norm_one_eval_ne h hQne hdeg
-  have hζ0 : ζ ≠ 0 := by
-    intro h0
-    rw [h0, UnitaryFieldData.norm, zero_mul] at hζN
-    exact zero_ne_one hζN
-  refine ⟨ε₀ * ζ, ?_, ?_⟩
-  · rw [singerU_norm_mul, hε₀, hζN, mul_one]
-  · intro H
-    rw [map_mul, singerU_bar_eq_inv_of_norm_one h hζN] at H
-    apply hζQ
-    obtain ⟨k, hk⟩ : ∃ k, p - 1 = k := ⟨_, rfl⟩
-    have hpk : k + 1 = p := by have := hp.pos; omega
-    rw [hQeval, hk]
-    rw [hk] at H
-    rw [← hpk]
-    have hk1 : ζ ^ k * ζ⁻¹ ^ k = 1 := by
-      rw [← mul_pow, mul_inv_cancel₀ hζ0, one_pow]
-    linear_combination ζ ^ k * H - (h.bar ε₀) ^ k * hk1
 
 theorem singerU_exists_norm_one_pow_ne_one (h : UnitaryFieldData ℓ f K) {p : ℕ} (hp : p.Prime)
     (hpq : p ∣ ℓ ^ f + 1) (hne : ℓ ^ f + 1 ≠ p) :
@@ -425,38 +383,6 @@ theorem singerU_exists_norm_one_pow_ne_one (h : UnitaryFieldData ℓ f K) {p : �
   refine ⟨κ, hκ, fun h1 => hκp ?_⟩
   simp [h1]
 
-theorem singerU_not_pow_norm_one_iff (h : UnitaryFieldData ℓ f K) {p : ℕ} (hp : p.Prime)
-    (hp5 : 5 ≤ p) (hpq : p ∣ ℓ ^ f + 1) {c : K} (hc : h.norm c = 1) :
-    (¬ ∃ μ : K, h.norm μ = 1 ∧ μ ^ p = c) ↔ ¬ ∃ z : K, z ^ p = c := by
-  constructor
-  · rintro hno ⟨z, hz⟩
-    apply hno
-    refine ⟨z, ?_, hz⟩
-    have hc0 : c ≠ 0 := by
-      intro h0
-      rw [h0, UnitaryFieldData.norm, zero_mul] at hc
-      exact zero_ne_one hc
-    have hz0 : z ≠ 0 := by
-      intro h0
-      apply hc0
-      rw [← hz, h0, zero_pow hp.ne_zero]
-    have hnp : h.norm z ^ p = 1 := by
-      rw [← singerU_norm_pow, hz, hc]
-    exact singerU_fixed_pow_eq_one h hp hp5 hpq (singerU_norm_fixed h z)
-      (singerU_norm_ne_zero h hz0) hnp
-  · rintro hno ⟨μ, -, hμ⟩
-    exact hno ⟨μ, hμ⟩
-
-theorem singerU_ne_one_neg_one_of_not_pow (h : UnitaryFieldData ℓ f K) {p : ℕ} (hp : p.Prime)
-    (hp5 : 5 ≤ p) {c : K} (hnp : ¬ ∃ μ : K, h.norm μ = 1 ∧ μ ^ p = c) : c ≠ 1 ∧ c ≠ -1 := by
-  have hodd : Odd p := hp.odd_of_ne_two (by omega)
-  constructor
-  · rintro rfl
-    exact hnp ⟨1, by simp [UnitaryFieldData.norm], by simp⟩
-  · rintro rfl
-    refine hnp ⟨-1, ?_, ?_⟩
-    · simp [UnitaryFieldData.norm]
-    · exact hodd.neg_one_pow
 
 theorem singerU_mulVec_single_apply {m : ℕ} (M : Matrix (Fin m) (Fin m) K) (k i : Fin m) :
     (M *ᵥ Pi.single k 1) i = M i k := by

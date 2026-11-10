@@ -196,15 +196,5 @@ noncomputable def y443EquivOpen : YGroup 4 4 3 ≃* MonsterY443 :=
     y443EquivOpen.symm (PresentedGroup.of g) = yGen 4 4 3 (y443LetterOfGen g) :=
   Y443.ofOpen_of g
 
-theorem y443EquivOpen_yGen_zero :
-    y443EquivOpen (yGen 4 4 3 0) = PresentedGroup.of (none : MonsterY443Gen) :=
-  y443EquivOpen_yGen (by norm_num)
-
-theorem y443EquivOpen_yGen_node (i : Fin 3) (j : Fin (monsterY443ArmLength i)) :
-    y443EquivOpen (yGen 4 4 3 (1 + y443ArmOffset i + j)) = PresentedGroup.of (some ⟨i, j⟩) := by
-  have h := y443EquivOpen_yGen (c := y443LetterOfGen (some ⟨i, j⟩))
-    (y443LetterOfGen_lt _)
-  rw [y443GenOfLetter_letterOfGen] at h
-  exact h
 
 end CFSG.YGroups

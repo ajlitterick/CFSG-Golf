@@ -61,28 +61,6 @@ theorem involutionCriterion_spInner_of_fixes [Finite K] [CharP K 2] (hr : 3 ≤ 
   obtain ⟨hgg, hφφ⟩ := h g φ hgs hgd
   rw [sq, spInner_mul_fieldAut_mul, hgg, hφφ, map_one, map_one, one_mul]
 
-theorem involutionCriterion_spInner_of_semilinear [Finite K] [CharP K 2] (hr : 3 ≤ r)
-    {s : StatedSp r K} {D : Subgroup (StatedSp r K)}
-    (hD : D ≤ closure {c : StatedSp r K | c ∈ centralizer {s} ∧ Odd (orderOf c)})
-    (h : ∀ (g : StatedSp r K) (φ : K ≃+* K),
-      (∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat s *ᵥ v) =
-        spMat s *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v) →
-      (∀ d ∈ D, ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat d *ᵥ v) =
-        spMat d *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v) →
-      (∀ a, φ a = a) ∧ ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ
-        (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v) = v) :
-    InvolutionCriterion (spInner r K s) := by
-  refine involutionCriterion_spInner_of_fixes hr hD fun g φ hgs hgd => ?_
-  obtain ⟨hφ, hTT⟩ := h g φ (semilinearCoordMap_mulVec_of_mul_eq hgs)
-    fun d hd => semilinearCoordMap_mulVec_of_mul_eq (hgd d hd)
-  obtain rfl : φ = 1 := RingEquiv.ext hφ
-  have hT : ∀ w, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) 1 w = spMat g *ᵥ w :=
-    fun _ => rfl
-  refine ⟨?_, mul_one 1⟩
-  rw [map_one, MulAut.one_apply]
-  refine statedSp_ext fun v => ?_
-  rw [spMat_mul_mulVec, ← hT, ← hT, hTT]
-  exact (one_mulVec v).symm
 
 theorem mul_self_eq_one_of_spMat_mul_self_eq_smul [NeZero r] [CharP K 2] {g : StatedSp r K}
     {a : K} (h : spMat g * spMat g = a • 1) : g * g = 1 := by
@@ -102,72 +80,5 @@ theorem mul_self_eq_one_of_spMat_mul_self_eq_smul [NeZero r] [CharP K 2] {g : St
   rw [hsq, ha, one_smul]
   rfl
 
-theorem semilinearCoordMap_symm_mulVec_of_commute {g s : StatedSp r K} {φ : K ≃+* K}
-    (hT : ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat s *ᵥ v) =
-      spMat s *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v) (v : Fin r ⊕ Fin r → K) :
-    (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).symm (spMat s *ᵥ v) =
-      spMat s *ᵥ (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).symm v := by
-  apply (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).injective
-  rw [AddEquiv.apply_symm_apply, hT, AddEquiv.apply_symm_apply]
-
-theorem semilinearCoordMap_mem_displacement {g s : StatedSp r K} {φ : K ≃+* K}
-    (hT : ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat s *ᵥ v) =
-      spMat s *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v)
-    {w : Fin r ⊕ Fin r → K} (hw : w ∈ displacement s) :
-    semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ w ∈ displacement s := by
-  obtain ⟨v, rfl⟩ := mem_displacement.mp hw
-  exact mem_displacement.mpr ⟨semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v, by
-    rw [map_sub, hT]⟩
-
-theorem semilinearCoordMap_symm_mem_displacement {g s : StatedSp r K} {φ : K ≃+* K}
-    (hT : ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat s *ᵥ v) =
-      spMat s *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v)
-    {w : Fin r ⊕ Fin r → K} (hw : w ∈ displacement s) :
-    (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).symm w ∈ displacement s := by
-  obtain ⟨v, rfl⟩ := mem_displacement.mp hw
-  exact mem_displacement.mpr ⟨(semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).symm v, by
-    rw [map_sub, semilinearCoordMap_symm_mulVec_of_commute hT]⟩
-
-theorem semilinearCoordMap_mem_orthogonal_displacement {g s : StatedSp r K} {φ : K ≃+* K}
-    (hT : ∀ v, semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ (spMat s *ᵥ v) =
-      spMat s *ᵥ semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ v)
-    {l : Fin r ⊕ Fin r → K} (hl : l ∈ (pairedSympForm K r).orthogonal (displacement s)) :
-    semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ l ∈
-      (pairedSympForm K r).orthogonal (displacement s) := by
-  refine LinearMap.BilinForm.mem_orthogonal_iff.mpr fun w hw => ?_
-  have h1 := LinearMap.BilinForm.mem_orthogonal_iff.mp hl _
-    (semilinearCoordMap_symm_mem_displacement hT hw)
-  rw [← (semilinearCoordMap (g : GL (Fin r ⊕ Fin r) K) φ).apply_symm_apply w,
-    pairedSympForm_semilinearCoordMap, h1, map_zero]
-
-theorem displacement_ne_bot_of_ne_one {s : StatedSp r K} (hs1 : s ≠ 1) : displacement s ≠ ⊥ := by
-  intro hbot
-  refine hs1 (statedSp_ext fun v => ?_)
-  have h1 : spMat s *ᵥ v - v ∈ displacement s := mem_displacement.mpr ⟨v, rfl⟩
-  rw [hbot, Submodule.mem_bot, sub_eq_zero] at h1
-  rw [h1]
-  exact (one_mulVec v).symm
-
-theorem exists_pairedSympForm_eq_one_of_ne [CharP K 2] {s : StatedSp r K} (hs : s * s = 1)
-    (hWL : displacement s ≠ (pairedSympForm K r).orthogonal (displacement s)) :
-    ∃ x ∈ (pairedSympForm K r).orthogonal (displacement s),
-      ∃ u ∈ (pairedSympForm K r).orthogonal (displacement s), pairedSympForm K r x u = 1 := by
-  have hWL' : displacement s ≤ (pairedSympForm K r).orthogonal (displacement s) :=
-    fun w hw => LinearMap.BilinForm.mem_orthogonal_iff.mpr fun n hn =>
-      isTotallyIsotropic_displacement hs n hn w hw
-  have hLL : (pairedSympForm K r).orthogonal ((pairedSympForm K r).orthogonal (displacement s)) =
-      displacement s :=
-    LinearMap.BilinForm.orthogonal_orthogonal SymplecticFlag.pairedSympForm_nondegenerate
-      SymplecticFlag.pairedSympForm_isAlt.isRefl _
-  obtain ⟨l, hlL, hlW⟩ : ∃ l ∈ (pairedSympForm K r).orthogonal (displacement s),
-      l ∉ displacement s := by
-    by_contra hcon
-    push Not at hcon
-    exact hWL (le_antisymm hWL' hcon)
-  rw [← hLL, LinearMap.BilinForm.mem_orthogonal_iff] at hlW
-  push Not at hlW
-  obtain ⟨x, hxL, hx⟩ := hlW
-  refine ⟨x, hxL, (pairedSympForm K r x l)⁻¹ • l, Submodule.smul_mem _ _ hlL, ?_⟩
-  rw [map_smul, smul_eq_mul, inv_mul_cancel₀ hx]
 
 end CFSG.SeitzReduction

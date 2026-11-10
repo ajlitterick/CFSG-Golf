@@ -33,8 +33,6 @@ end Induced
     (∀ x : G, orderOf x = 2 → pPrimeCore 2 ↥(centralizer ({x} : Set G)) = ⊥) ∧
     3 ≤ pRank 2 G
 
-@[expose] def IsSmallOddType (G : Type) [Group G] : Prop :=
-  ¬ IsEvenType G ∧ ¬ L2Meets G InG2
 
 @[expose] def IsRestrictedEvenType (G : Type) [Group G] : Prop :=
   IsEvenType G ∧

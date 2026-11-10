@@ -22,11 +22,6 @@ private theorem zpow_eq_pow_toNat {G : Type*} [Group G] {x : G} {q : ℕ} (hq : 
   congr 1
   rw [Int.toNat_of_nonneg (Int.emod_nonneg n (by exact_mod_cast hq.ne'))]
 
-theorem pow_blockEnd_eq_one (hp : p.Prime) (hA : IsElemAbelian p A) (t : Hyperplane A p → ↥A)
-    (D : Hyperplane A p) : ((t D : V ≃ₗ[F] V) ^ p) = 1 := by
-  have h := map_pow A.subtype (t D) p
-  rw [pow_eq_one A hA (t D), map_one] at h
-  exact h.symm
 
 theorem exists_mul_pow_of_mem_sup_zpowers (hp : p.Prime) (hpF : (p : F) ≠ 0)
     (hA : IsElemAbelian p A) (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1)
@@ -114,19 +109,6 @@ theorem blockEndOf_apply_of_mem_block (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA :
   blockEndOf_apply_of_ker A hp hpF hA a D (by
     rw [LinearMap.mem_ker]; exact projBlock_apply_of_mem_block A hp hpF hA hDE hv)
 
-theorem blockEnd_apply_eq (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelian p A)
-    (t : Hyperplane A p → ↥A) (ht : ∀ D, t D ∉ D.1) (D : Hyperplane A p) (v : V) :
-    blockEnd A hp hpF hA t ht D v
-      = v + ((t D : V ≃ₗ[F] V) (projBlock A hp hpF hA D v) - projBlock A hp hpF hA D v) := by
-  obtain ⟨u, r, hcu, rfl⟩ :=
-    exists_coe_add_of_isCompl (isCompl_blockSpace_ker A hp hpF hA D) v
-  have hr : (r : V) ∈ LinearMap.ker (projBlock A hp hpF hA D) := by
-    rw [LinearMap.mem_ker]; exact r.2
-  have h1 : projBlock A hp hpF hA D ((u : V) + (r : V)) = projBlock A hp hpF hA D (u : V) := by
-    rw [map_add, projBlock_apply_of_mem A hp hpF hA D u.2, LinearMap.mem_ker.mp hr, add_zero]
-  rw [map_add, blockEnd_apply_mem A hp hpF hA t ht D u.2,
-    blockEnd_apply_of_ker A hp hpF hA t ht D hr, h1, projBlock_apply_of_mem A hp hpF hA D u.2]
-  abel
 
 theorem blockEndOf_apply_eq (hp : p.Prime) (hpF : (p : F) ≠ 0) (hA : IsElemAbelian p A)
     (a : ↥A) (D : Hyperplane A p) (v : V) :

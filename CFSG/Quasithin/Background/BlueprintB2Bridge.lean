@@ -133,13 +133,6 @@ theorem elemBaumann_map_subtype_eq_baum [Finite G] (S : Subgroup G) :
   rw [BlueprintB2.map_subtype_centralizer,
     ← elemThompsonCenterTorsion_map_subtype_eq_omegaOneCenterOf]
 
-theorem isPrimeReduced_iff_open_pCore {E : Type*} [Group E] (p : ℕ) (V : Subgroup E) :
-    IsPrimeReduced p V ↔
-      ∃ _ : V.Normal, CFSG.IsElementaryAbelian p V ∧
-        CFSG.Open.pCore p (E ⧸ Subgroup.centralizer (V : Set E)) = ⊥ := by
-  unfold IsPrimeReduced
-  refine exists_congr fun hN => and_congr_right fun _ => ?_
-  try with_reducible rfl
 
 namespace BlueprintB2
 
@@ -239,11 +232,5 @@ theorem autOn_eq_map_conjNormal (V L : Subgroup G) [V.Normal] :
         Subgroup.normalizer (V : Set G) = ⊤) ▸ Subgroup.mem_top g⟩,
       Subgroup.mem_subgroupOf.mpr hg, BlueprintB2.conjAct_eq_conjNormal V _⟩
 
-theorem pPrimeGen_two_eq_oTwoUpper (X : Subgroup G) :
-    BlueprintB2.pPrimeGen 2 X = oTwoUpper X := by
-  unfold BlueprintB2.pPrimeGen oTwoUpper
-  congr 1
-  ext x
-  simp [Nat.coprime_two_right]
 
 end CFSG.Quasithin

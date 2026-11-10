@@ -268,21 +268,6 @@ theorem exists_ggBstar_of_card_le {p : ℕ} {B : Subgroup G} (hB : IsElemAbelian
   rw [heq]
   exact Subgroup.mem_sup_right (Subgroup.mem_zpowers g)
 
-theorem ggBstarInput_of_labels (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I) :
-    GGBstarInput := by
-  intro G _ _ p B x L hT
-  have hnc := ha₀ G p B x L hT
-  obtain ⟨-, -, -, -, -, hβ, hS, hst⟩ := hT
-  have hp : p.Prime := hβ.1
-  have hM := largeEvenMarking_and_labelAll (S := fun lab => LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hst.1
-  obtain ⟨hL, lab, -, hraw⟩ := hM
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, hBN, h3⟩, r, hlift, hbound⟩ := largeEvenRawDatum_exists hraw
-  exact exists_ggBstar_of_card_le hS.1.1 fun E hE hBE =>
-    card_le_of_bstarBound hp hS hβ.2.2.2 hnc hL θ hBN h3 hlift hbound hE hBE
 
 end Reduction
 

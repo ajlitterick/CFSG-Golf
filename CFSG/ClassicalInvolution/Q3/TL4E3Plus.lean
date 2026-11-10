@@ -82,9 +82,6 @@ theorem tightE3E4Step_of_F {n : ℕ} (h : TightE3E4F n) : TightE3E4Step n :=
   fun hP Y _ _ R S t hL hcn hsp hα J hJ u hu htu ht Sb hex hedge =>
     h Y R S t J u ⟨hL, hcn, hsp, hα, hJ, hu, hP⟩ htu ht Sb hex hedge
 
-theorem tightE3LeafR'_of_steps {n : ℕ} (hZ2 : TightE3Z2Step n) (hS3 : TightE3S3Step n)
-    (hE4 : TightE3E4Step n) (hP : TightBelowRPlus 3 n) : TightE3LeafR' 3 n :=
-  tightE3LeafR'_of_parts (hZ2 hP) (hS3 hP) (hE4 hP)
 
 end Cit3
 

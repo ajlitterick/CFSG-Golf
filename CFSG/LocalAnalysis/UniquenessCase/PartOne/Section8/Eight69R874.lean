@@ -102,8 +102,5 @@ theorem r874_of_m3 {G : Type} [Group G] [Finite G] (D : Data G)
   rw [hQeq] at hSg
   exact hSg
 
-theorem r874_of_inputs {G : Type} [Group G] [Finite G] (D : Data G)
-    (h63 : UC6.R6_3 D) (h871 : R871 D) (h873 : R873 D) : R874 D :=
-  r874_of_m3 D h63 h871 (r873M3_of_r873 h873)
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

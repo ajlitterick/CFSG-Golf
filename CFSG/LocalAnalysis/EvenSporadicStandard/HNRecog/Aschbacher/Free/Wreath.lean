@@ -17,9 +17,6 @@ private theorem coord_cases (q : Multiplicative (ZMod 2)) :
   · right
     rw [← ofAdd_toAdd q, h]
 
-private theorem ofAdd_one_ne_one :
-    (Multiplicative.ofAdd 1 : Multiplicative (ZMod 2)) ≠ 1 := by
-  decide
 
 private theorem sigmaC2_mul_self :
     (Multiplicative.ofAdd (1 : ZMod 2)) * Multiplicative.ofAdd (1 : ZMod 2) = 1 := by

@@ -72,84 +72,6 @@ theorem epsW_theta_zero (hn : 1 ≤ n) :
 
 variable {σ : K →+* K} {F : (rootData n K).G →* (rootData n K).G}
 
-theorem hasWitness_three_gen (hR : (rootData n K).RootsInCommutator σ F) (h2 : (2 : K) ≠ 0)
-    {p f : ℕ} [CharP K p] (hcard : Nat.card (RootData.fixedField σ) = p ^ f) (hn : 2 ≤ n) :
-    HasWitness (DerivedCentralQuotient (fixedSubgroup F)) p (f * 3) := by
-  have hDx : ∀ i u, u ∈ RootData.fixedField σ →
-      (rootData n K).x i u ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ :=
-    fun i u hu => (hR i u hu).1
-  have hDy : ∀ i u, u ∈ RootData.fixedField σ →
-      (rootData n K).y i u ∈ ⁅fixedSubgroup F, fixedSubgroup F⁆ :=
-    fun i u hu => (hR i u hu).2
-  obtain ⟨Xt, hXt, hXtR⟩ := exists_rootOp_theta (H := fixedSubgroup F) (by omega) h2 hDx
-  obtain ⟨Yt, hYt, hYtR⟩ := exists_rootOp_thetaY (H := fixedSubgroup F) (by omega) h2 hDy
-  set z : Fin (n + 1) := ⟨0, by omega⟩
-  set o : Fin (n + 1) := ⟨1, by omega⟩
-  set t : Fin (n + 1) := ⟨2, by omega⟩
-  have hzo : z ≠ o := fin_ne_of_val (by simp [z, o])
-  have hzt : z ≠ t := fin_ne_of_val (by simp [z, t])
-  have hE0 : IsIntOp n (crB n z * anB n o) (rootIntMatrix n (.inl z)) :=
-    isIntOp_E_lt n z (by simp only [z]; omega)
-  have hF0 : IsIntOp n (crB n o * anB n z) (rootIntMatrix n (.inr z)) :=
-    isIntOp_F_lt n z (by simp only [z]; omega)
-  obtain ⟨c1, c2, c3, c4⟩ := commute_block (K := K) hzo hE0 hF0 hXt hYt
-  obtain ⟨d1, d2, d3, d4⟩ := commute_of_two_le (K := K) t (by simp [t]) (x := z) (y := o)
-    (x' := o) (y' := z) (by simp [z]) (by simp [o]) (by simp [o]) (by simp [z]) hXt hYt
-  have hCMzt : (rootData n K).CM z t = 0 := by
-    rw [rootData_CM, Matrix.transpose_apply, B_apply']
-    simp [z, t]
-  have h := (rootData n K).rootOp_witness_h hR h2 hcard
-    (X := ![(rootData n K).E z, (rootData n K).E t, intMap K Xt])
-    (Y := ![(rootData n K).F z, (rootData n K).F t, intMap K Yt])
-    (w := ![fun j => (rootData n K).CM j z, fun j => (rootData n K).CM j t,
-      fun j => epsW n 0 j + epsW n 1 j])
-    (wY := ![fun j => -(rootData n K).CM j z, fun j => -(rootData n K).CM j t,
-      fun j => -(epsW n 0 j + epsW n 1 j)])
-    (fun a => ?_) (fun a => ?_) (fun a => ?_) (fun a => ?_) (fun a a' haa => ?_)
-    (fun a a' haa => ?_) z (fun a => ?_) o ?_
-  · rwa [Fintype.card_fin] at h
-  · fin_cases a
-    · exact rootOp_E (R := rootData n K) z (hDx _)
-    · exact rootOp_E (R := rootData n K) t (hDx _)
-    · exact hXtR
-  · fin_cases a
-    · exact rootOp_F (R := rootData n K) z (hDy _)
-    · exact rootOp_F (R := rootData n K) t (hDy _)
-    · exact hYtR
-  · fin_cases a
-    · exact (rootData n K).sqZero z
-    · exact (rootData n K).sqZero t
-    · exact pair_sqZeroPair hzo hXt hYt hXtR.sq hYtR.sq
-  · fin_cases a
-    · exact (rootData n K).E_ne_zero z
-    · exact (rootData n K).E_ne_zero t
-    · exact pair_ne_zero (by simp [Fin.lt_def, z, o]) hXt
-  · fin_cases a <;> fin_cases a' <;> simp at haa ⊢
-    · exact (rootData n K).commute_EE z t hCMzt
-    · exact c1.symm
-    · exact ((rootData n K).commute_EE z t hCMzt).symm
-    · exact d1.symm
-    · exact c1
-    · exact d1
-  · fin_cases a <;> fin_cases a' <;> simp at haa ⊢
-    · exact (rootData n K).commute_EF t z hzt.symm
-    · exact c2
-    · exact (rootData n K).commute_EF z t hzt
-    · exact d2
-    · exact c3.symm
-    · exact d3.symm
-  · fin_cases a
-    · show Even ((rootData n K).CM z z)
-      rw [rootData_CM, Matrix.transpose_apply, CartanMatrix.B_diag]
-      exact even_two
-    · show Even ((rootData n K).CM z t)
-      rw [hCMzt]
-      exact ⟨0, rfl⟩
-    · show Even (epsW n 0 ⟨0, by omega⟩ + epsW n 1 ⟨0, by omega⟩)
-      rw [epsW_theta_zero (by omega)]
-      exact ⟨0, rfl⟩
-  · rw [rootData_CM, Matrix.transpose_apply, B_apply']
-    simp [z, o]
 
 theorem hasWitness_four_gen (hR : (rootData n K).RootsInCommutator σ F) (h2 : (2 : K) ≠ 0)
     {p f : ℕ} [CharP K p] (hcard : Nat.card (RootData.fixedField σ) = p ^ f) (hn : 3 ≤ n) :
@@ -287,10 +209,6 @@ end Generic
 
 variable (b : TypeBLieIndex)
 
-theorem hasWitness_theta_three (hodd : b.1.characteristic ≠ 2) (h3 : 3 ≤ b.carrierRank + 1) :
-    HasWitness b.Group b.1.characteristic (b.1.fieldExponent * 3) :=
-  hasWitness_three_gen (rootsInCommutator_odd b hodd h3) (two_ne_zero_closure b hodd)
-    (card_fixedField_frob b) (by omega)
 
 theorem hasWitness_theta_four (hodd : b.1.characteristic ≠ 2) (h4 : 3 ≤ b.carrierRank) :
     HasWitness b.Group b.1.characteristic (b.1.fieldExponent * 4) :=

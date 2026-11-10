@@ -189,8 +189,6 @@ theorem rowMask_testBit {j : ℕ} (hj : j < 25) : rowMask.testBit j = true := by
   rw [rowMask_eq, Nat.testBit_two_pow_sub_one]
   exact decide_eq_true hj
 
-theorem vecmul_lt (x M : ℕ) : vecmul x M < 2 ^ 25 :=
-  Nat.lt_of_le_of_lt Nat.and_le_right (by rw [rowMask_eq]; exact Nat.sub_lt (Nat.two_pow_pos _) Nat.one_pos)
 
 theorem cast_testBit_vecmul (x M : ℕ) {j : ℕ} (hj : j < 25) :
     (((vecmul x M).testBit j).toNat : ZMod 2) =
@@ -227,19 +225,6 @@ theorem land_m625_lt (y : ℕ) : Nat.land y m625 < 2 ^ 625 :=
 theorem land_rowMask_lt (y : ℕ) : Nat.land y rowMask < 2 ^ 25 :=
   Nat.lt_of_le_of_lt Nat.and_le_right (by rw [rowMask_eq]; exact Nat.sub_lt (Nat.two_pow_pos _) Nat.one_pos)
 
-theorem toMat_land_m625 (y : ℕ) : toMat (Nat.land y m625) = toMat y := by
-  ext i j
-  simp only [toMat, Matrix.of_apply]
-  change (((y &&& m625).testBit _).toNat : ZMod 2) = _
-  have hd : decide (25 * (i : ℕ) + j < 625) = true := decide_eq_true (by omega)
-  rw [Nat.testBit_and, m625_eq, Nat.testBit_two_pow_sub_one, hd, Bool.and_true]
-
-theorem toVec_land_rowMask (y : ℕ) : toVec (Nat.land y rowMask) = toVec y := by
-  funext j
-  simp only [toVec]
-  change (((y &&& rowMask).testBit _).toNat : ZMod 2) = _
-  have hd : decide ((j : ℕ) < 25) = true := decide_eq_true j.2
-  rw [Nat.testBit_and, rowMask_eq, Nat.testBit_two_pow_sub_one, hd, Bool.and_true]
 
 theorem eq_of_toMat_eq {A B : ℕ} (hA : A < 2 ^ 625) (hB : B < 2 ^ 625) (h : toMat A = toMat B) :
     A = B := by
@@ -260,21 +245,10 @@ theorem eq_of_toVec_eq {x y : ℕ} (hx : x < 2 ^ 25) (hy : y < 2 ^ 25) (h : toVe
   · rw [Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hx (Nat.pow_le_pow_right (by omega) (by omega))),
       Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hy (Nat.pow_le_pow_right (by omega) (by omega)))]
 
-theorem mul25_assoc (A B C : ℕ) : mul25 (mul25 A B) C = mul25 A (mul25 B C) :=
-  eq_of_toMat_eq (mul25_lt _ _) (mul25_lt _ _) (by simp only [toMat_mul25, Matrix.mul_assoc])
 
 theorem ident_mul25 {A : ℕ} (hA : A < 2 ^ 625) : mul25 ident A = A :=
   eq_of_toMat_eq (mul25_lt _ _) hA (by rw [toMat_mul25, toMat_ident, Matrix.one_mul])
 
-theorem mul25_ident {A : ℕ} (hA : A < 2 ^ 625) : mul25 A ident = A :=
-  eq_of_toMat_eq (mul25_lt _ _) hA (by rw [toMat_mul25, toMat_ident, Matrix.mul_one])
-
-theorem vecmul_mul25 (x A B : ℕ) : vecmul (vecmul x A) B = vecmul x (mul25 A B) :=
-  eq_of_toVec_eq (vecmul_lt _ _) (vecmul_lt _ _)
-    (by rw [toVec_vecmul, toVec_vecmul, toVec_vecmul, toMat_mul25, Matrix.vecMul_vecMul])
-
-theorem vecmul_ident {x : ℕ} (hx : x < 2 ^ 25) : vecmul x ident = x :=
-  eq_of_toVec_eq (vecmul_lt _ _) hx (by rw [toVec_vecmul, toMat_ident, Matrix.vecMul_one])
 
 end CFSG.KC.McL.Mat
 

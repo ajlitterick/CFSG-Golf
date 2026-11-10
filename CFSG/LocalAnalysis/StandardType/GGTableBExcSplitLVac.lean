@@ -63,19 +63,6 @@ open ExcSplitL
   p ≠ 2 ∧ (lab.tag = .E6 ∨ lab.tag = .E7 ∨ lab.tag = .E8 ∨ lab.tag = .F4 ∨ lab.tag = .twE6) ∧
     ¬ p ∣ lab.n
 
-@[expose] def GGExcLSplitVacLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  ((lab.tag = .E6 ∧ p ≠ 3) ∨ lab.tag = .E7 ∨ lab.tag = .E8 ∨ lab.tag = .F4) ∧
-    p ∣ 2 ^ lab.n - 1 ∧ ¬ p ∣ lab.n
-
-theorem GGExcLSplitVacLabel.vac {p : ℕ} {lab : LargeEvenLabel} (hlab : LargeEvenInLambda2 lab)
-    (h : GGExcLSplitVacLabel p lab) : GGExcLVacLabel p lab := by
-  obtain ⟨htag, hpn, hpn'⟩ := h
-  refine ⟨ne_two_of_dvd_two_pow_sub_one hlab.1 hpn, ?_, hpn'⟩
-  rcases htag with ⟨h, -⟩ | h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
 
 section Labels
 
@@ -115,67 +102,6 @@ theorem ggBstarInnerDiagLInputOn_excLVac (T : ℕ → LargeEvenLabel → Prop) :
   ggBstarInnerDiagLInputOn_of_pow ggLNoncyclicInput_holds fun _ _ hp hlab h =>
     largeEvenLabelAll_pow_mem_excLVac hp hlab h.2
 
-theorem ggBstarInnerDiagLInputOn_excLSplitVac : GGBstarInnerDiagLInputOn GGExcLSplitVacLabel :=
-  ggBstarInnerDiagLInputOn_of_pow ggLNoncyclicInput_holds fun _ _ hp hlab h =>
-    largeEvenLabelAll_pow_mem_excLVac hp hlab (h.vac hlab)
-
-theorem ggTableBIrredInputOn_excLSplitVac : GGTableBIrredInputOn GGExcLSplitVacLabel :=
-  (ggTableBIrredInputOn_excSplit.or ggTableBIrredInputOn_F4).mono fun _ _ h => by
-    obtain ⟨htag, hpn, -⟩ := h
-    rcases htag with h6 | h7 | h8 | h4
-    · exact Or.inl ⟨Or.inl h6, hpn⟩
-    · exact Or.inl ⟨Or.inr (Or.inl h7), hpn⟩
-    · exact Or.inl ⟨Or.inr (Or.inr h8), hpn⟩
-    · exact Or.inr ⟨h4, hpn⟩
-
-theorem ggTableBCxInputOn_excLSplitVac : GGTableBCxInputOn GGExcLSplitVacLabel :=
-  ggTableBCxInputOn_of_irred ggBstarInnerDiagLInputOn_excLSplitVac
-    ggTableBIrredInputOn_excLSplitVac
-
-theorem ggTableBModuleInputOn_excLSplitVac : GGTableBModuleInputOn GGExcLSplitVacLabel :=
-  ggTableBModuleInputOn_of_irred ggBstarInnerDiagLInputOn_excLSplitVac
-    ggTableBIrredInputOn_excLSplitVac
-
-theorem ggTableBActionInputOn_excLSplitVac : GGTableBActionInputOn GGExcLSplitVacLabel :=
-  ggTableBActionInputOn_of_irred ggBstarInnerDiagLInputOn_excLSplitVac
-    ggTableBIrredInputOn_excLSplitVac
-
-theorem ggBstarInnerDiagLInputOn_of_not_excLVac {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGBstarInnerDiagLInputOn fun p lab => S p lab ∧ ¬ GGExcLVacLabel p lab) :
-    GGBstarInnerDiagLInputOn S := by
-  have h' := (ggBstarInnerDiagLInputOn_excLVac S).or h
-  intro G _ _ p B Bs x L D J hC hL
-  refine (h' G p B Bs x L D J hC (hL.mono fun p lab hlab => ?_)).mono fun p lab hlab => ?_
-  · by_cases h1 : GGExcLVacLabel p lab
-    · exact Or.inl ⟨hlab, h1⟩
-    · exact Or.inr ⟨hlab, h1⟩
-  · rcases hlab with h1 | h1
-    · exact h1.1
-    · exact h1.1
-
-theorem ggTableBCxInputOn_of_not_excLSplitVac {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGTableBCxInputOn fun p lab => S p lab ∧ ¬ GGExcLSplitVacLabel p lab) :
-    GGTableBCxInputOn S :=
-  (ggTableBCxInputOn_excLSplitVac.or h).mono fun p lab hS => by
-    by_cases h3 : GGExcLSplitVacLabel p lab
-    · exact Or.inl h3
-    · exact Or.inr ⟨hS, h3⟩
-
-theorem ggTableBModuleInputOn_of_not_excLSplitVac {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGTableBModuleInputOn fun p lab => S p lab ∧ ¬ GGExcLSplitVacLabel p lab) :
-    GGTableBModuleInputOn S :=
-  (ggTableBModuleInputOn_excLSplitVac.or h).mono fun p lab hS => by
-    by_cases h3 : GGExcLSplitVacLabel p lab
-    · exact Or.inl h3
-    · exact Or.inr ⟨hS, h3⟩
-
-theorem ggTableBActionInputOn_of_not_excLSplitVac {S : ℕ → LargeEvenLabel → Prop}
-    (h : GGTableBActionInputOn fun p lab => S p lab ∧ ¬ GGExcLSplitVacLabel p lab) :
-    GGTableBActionInputOn S :=
-  (ggTableBActionInputOn_excLSplitVac.or h).mono fun p lab hS => by
-    by_cases h3 : GGExcLSplitVacLabel p lab
-    · exact Or.inl h3
-    · exact Or.inr ⟨hS, h3⟩
 
 end Labels
 

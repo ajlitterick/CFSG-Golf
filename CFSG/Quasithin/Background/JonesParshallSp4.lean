@@ -20,10 +20,6 @@ theorem vec4_eta (v : Ix → F) :
   funext i
   rcases i with i | i <;> fin_cases i <;> rfl
 
-omit [Field F] in
-theorem vec4_inj {a b c d a' b' c' d' : F} (h : vec4 a b c d = vec4 a' b' c' d') :
-    a = a' ∧ b = b' ∧ c = c' ∧ d = d' :=
-  ⟨congrFun h (.inl 0), congrFun h (.inl 1), congrFun h (.inr 0), congrFun h (.inr 1)⟩
 
 theorem vec4_add (a b c d a' b' c' d' : F) :
     vec4 a b c d + vec4 a' b' c' d' = vec4 (a + a') (b + b') (c + c') (d + d') := by
@@ -81,11 +77,6 @@ theorem spJ_mul_spJ : spJ F * spJ F = 1 := by
 @[expose] def spElt (M : Matrix Ix Ix F) (hM : Mᵀ * spJ F * M = spJ F) : ↥(sp4 F) :=
   ⟨spUnit M hM, hM⟩
 
-theorem spElt_coe (M : Matrix Ix Ix F) (hM : Mᵀ * spJ F * M = spJ F) :
-    (((spElt M hM : ↥(sp4 F)) : GL Ix F) : Matrix Ix Ix F) = M := rfl
-
-theorem spElt_smul (M : Matrix Ix Ix F) (hM : Mᵀ * spJ F * M = spJ F) (v : Ix → F) :
-    ((spElt M hM : ↥(sp4 F)) : GL Ix F) • v = M *ᵥ v := rfl
 
 theorem sp_fromBlocks (A B C D : Matrix (Fin 2) (Fin 2) F) :
     (fromBlocks A B C D)ᵀ * spJ F * fromBlocks A B C D =
@@ -255,12 +246,6 @@ theorem diag_mul_inv {c d : F} (hc : c ≠ 0) (hd : d ≠ 0) :
 @[expose] def spH (c d : F) (hc : c ≠ 0) (hd : d ≠ 0) : ↥(sp4 F) :=
   spLevi !![c, 0; 0, d] !![c⁻¹, 0; 0, d⁻¹] (diag_mul_inv hc hd)
 
-omit [CharP F 2] in
-theorem spH_smul {c d : F} (hc : c ≠ 0) (hd : d ≠ 0) (x y z w : F) :
-    (spH c d hc hd : GL Ix F) • vec4 x y z w = vec4 (c * x) (d * y) (c⁻¹ * z) (d⁻¹ * w) := by
-  change leviMat _ _ *ᵥ vec4 x y z w = _
-  rw [leviMat_smul]
-  simp
 
 @[expose] def iotaMat (a b c d : F) : Matrix Ix Ix F :=
   fromBlocks !![1, 0; 0, a] !![0, 0; 0, b] !![0, 0; 0, c] !![1, 0; 0, d]
@@ -351,20 +336,12 @@ theorem bil_e1 (x : Ix → F) : bil x (vec4 1 0 0 0) = x (.inr 0) := by
   rw [vec4_eta x, bil_vec4]
   simp [vec4]
 
-omit [CharP F 2] in
-theorem bil_e2 (x : Ix → F) : bil x (vec4 0 1 0 0) = x (.inr 1) := by
-  rw [vec4_eta x, bil_vec4]
-  simp [vec4]
 
 omit [CharP F 2] in
 theorem bil_f1 (x : Ix → F) : bil x (vec4 0 0 1 0) = x (.inl 0) := by
   rw [vec4_eta x, bil_vec4]
   simp [vec4]
 
-omit [CharP F 2] in
-theorem bil_f2 (x : Ix → F) : bil x (vec4 0 0 0 1) = x (.inl 1) := by
-  rw [vec4_eta x, bil_vec4]
-  simp [vec4]
 
 theorem mem_closure_of_fix {g : GL Ix F} (hg : g ∈ sp4 F)
     (h1 : g • vec4 (1 : F) 0 0 0 = vec4 1 0 0 0) : g ∈ Subgroup.closure (fixGens F) := by

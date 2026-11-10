@@ -83,11 +83,6 @@ theorem gBlk_isom (x y c d : K) (v : Fin 4 ⊕ Fin 4 → K) :
     Matrix.fromBlocks]
   ring
 
-theorem tBlk_isom (v : Fin 4 ⊕ Fin 4 → K) :
-    ∑ i, (tBlk *ᵥ v) (Sum.inl i) * (tBlk *ᵥ v) (Sum.inr i) =
-      ∑ i, v (Sum.inl i) * v (Sum.inr i) := by
-  simp [tBlk, Matrix.mulVec, dotProduct, Fintype.sum_sum_type, Fin.sum_univ_four,
-    Matrix.fromBlocks]
 
 theorem aBlk_isom (v : Fin 4 ⊕ Fin 4 → K) :
     ∑ i, (aBlk *ᵥ v) (Sum.inl i) * (aBlk *ᵥ v) (Sum.inr i) =

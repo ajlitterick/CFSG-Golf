@@ -23,8 +23,6 @@ open scoped commutatorElement
     induction x using QuotientGroup.induction_on with
     | H x => rfl
 
-theorem quotCenterHom_mk {K : Type*} [Group K] (α : MulAut K) (x : K) :
-    quotCenterHom K α (x : K ⧸ center K) = ((α x : K) : K ⧸ center K) := rfl
 
 theorem center_eq_bot_of_simple {Q : Type*} [Group Q] [IsSimpleGroup Q] [Group.IsPerfect Q] :
     center Q = ⊥ := by

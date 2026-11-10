@@ -119,8 +119,6 @@ theorem lamV0_not_mem_edgeL :
 theorem lamW0_not_mem_edgeL :
     lamW0 ∉ edgeL := fun h => h.2.2.2 rfl
 
-theorem edgeL_subset_edgeQ
-    {a : cEdgeFix} (ha : a ∈ edgeL) : cEdgeIncl a ∈ edgeQ := ha.1
 
 @[expose] def toEhat
     {a : cEdgeFix} (h : ((a : Shat) : Dfull) ∈ Ehat) : Ehat := ⟨_, h⟩

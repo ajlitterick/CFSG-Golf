@@ -67,22 +67,6 @@ theorem rotationFusion_twist_noncentral {n : ℕ} (hn : 4 ≤ n) (k : ℤ)
 
 end Presentation
 
-theorem rotationFusion_ncard_image_mul_two {α β : Type*} {X : Set α} (hX : X.Finite)
-    (f : α → β) (hfib : ∀ x ∈ X, (X ∩ {y | f y = f x}).ncard = 2) :
-    (f '' X).ncard * 2 = X.ncard := by
-  classical
-  have hsum := Finset.card_eq_sum_card_image f hX.toFinset
-  have hconst : ∀ b ∈ hX.toFinset.image f,
-      (hX.toFinset.filter (fun a => f a = b)).card = 2 := by
-    intro b hb
-    obtain ⟨x, hx, rfl⟩ := Finset.mem_image.mp hb
-    rw [← hfib x ((Set.Finite.mem_toFinset hX).mp hx), ← Set.ncard_coe_finset]
-    congr 1
-    ext y
-    simp
-  rw [Finset.sum_congr rfl hconst, Finset.sum_const, smul_eq_mul] at hsum
-  rw [Set.ncard_eq_toFinset_card X hX, hsum]
-  conv_lhs => rw [← hX.coe_toFinset, ← Finset.coe_image, Set.ncard_coe_finset]
 
 variable {G : Type*} [Group G] {n : ℕ} {S : Sylow 2 G}
 
@@ -173,16 +157,6 @@ theorem noncentralRotation_sq_ne_one (hn : 3 ≤ n) (e : SemidihedralGroup n ≃
   · exact hi0 h
   · exact hi1 h
 
-theorem suppliedRotation_zpow_not_mem_iff (hn : 3 ≤ n)
-    (e : SemidihedralGroup n ≃* (S : Subgroup G)) (k : ℤ) :
-    (e (r n) : G) ^ k ∉ ({1, (e (r n) : G) ^ (modulus n / 2)} : Set G) ↔
-      ¬ k ≡ 0 [ZMOD modulus n] ∧ ¬ k ≡ (modulus n / 2 : ℕ) [ZMOD modulus n] := by
-  have h1 : (e (r n) : G) ^ k = 1 ↔ k ≡ 0 [ZMOD modulus n] := by
-    rw [← zpow_zero (e (r n) : G), suppliedRotation_zpow_eq_iff hn e]
-  have h2 : (e (r n) : G) ^ k = (e (r n) : G) ^ (modulus n / 2) ↔
-      k ≡ (modulus n / 2 : ℕ) [ZMOD modulus n] := by
-    rw [← zpow_natCast, suppliedRotation_zpow_eq_iff hn e]
-  simp only [Set.mem_insert_iff, Set.mem_singleton_iff, not_or, h1, h2]
 
 theorem suppliedRotation_centralizer_zpowers (e : SemidihedralGroup n ≃* (S : Subgroup G))
     (i : ℤ) :
@@ -263,22 +237,6 @@ theorem noncentralRotation_twoSubgroup_eq (hn : 4 ≤ n)
     rw [← hmap]
     exact (Subgroup.comap_map_eq_self_of_injective (Subgroup.subtype_injective _) Q).symm
 
-theorem noncentralRotationSylow_coe (hn : 4 ≤ n) (e : SemidihedralGroup n ≃* (S : Subgroup G))
-    (i : ℤ) (hi0 : ¬ i ≡ 0 [ZMOD modulus n])
-    (hi1 : ¬ i ≡ (modulus n / 2 : ℕ) [ZMOD modulus n]) :
-    (noncentralRotationSylow hn e i hi0 hi1 :
-        Subgroup (Subgroup.centralizer {(e (r n) : G) ^ i})) =
-      (Subgroup.zpowers (e (r n) : G)).subgroupOf
-        (Subgroup.centralizer {(e (r n) : G) ^ i}) := rfl
-
-theorem noncentralRotation_sylow (hn : 4 ≤ n) (e : SemidihedralGroup n ≃* (S : Subgroup G))
-    (i : ℤ) (hi0 : ¬ i ≡ 0 [ZMOD modulus n])
-    (hi1 : ¬ i ≡ (modulus n / 2 : ℕ) [ZMOD modulus n]) :
-    ∃ P : Sylow 2 (Subgroup.centralizer {(e (r n) : G) ^ i}),
-      (P : Subgroup (Subgroup.centralizer {(e (r n) : G) ^ i})).map
-        (Subgroup.centralizer {(e (r n) : G) ^ i}).subtype = Subgroup.zpowers (e (r n) : G) :=
-  ⟨noncentralRotationSylow hn e i hi0 hi1,
-    Subgroup.map_subgroupOf_eq_of_le (suppliedRotation_le_centralizer e i)⟩
 
 theorem noncentralRotation_normal_odd_complement (hn : 4 ≤ n)
     (e : SemidihedralGroup n ≃* (S : Subgroup G)) (i : ℤ) (hi0 : ¬ i ≡ 0 [ZMOD modulus n])
@@ -302,15 +260,6 @@ theorem noncentralRotation_normal_odd_complement (hn : 4 ≤ n)
       (Subgroup.isCyclic_zpowers _)
   exact cyclicSylowTwo_normal_odd_complement (noncentralRotationSylow hn e i hi0 hi1) hcyc
 
-theorem noncentralRotation_sylow_zpowers (hn : 4 ≤ n)
-    (e : SemidihedralGroup n ≃* (S : Subgroup G)) (i : ℤ) (hi0 : ¬ i ≡ 0 [ZMOD modulus n])
-    (hi1 : ¬ i ≡ (modulus n / 2 : ℕ) [ZMOD modulus n]) :
-    ∃ P : Sylow 2 (Subgroup.centralizer (Subgroup.zpowers ((e (r n) : G) ^ i) : Set G)),
-      (P : Subgroup (Subgroup.centralizer (Subgroup.zpowers ((e (r n) : G) ^ i) : Set G))).map
-        (Subgroup.centralizer (Subgroup.zpowers ((e (r n) : G) ^ i) : Set G)).subtype =
-          Subgroup.zpowers (e (r n) : G) := by
-  rw [suppliedRotation_centralizer_zpowers]
-  exact noncentralRotation_sylow hn e i hi0 hi1
 
 theorem noncentralRotation_normal_odd_complement_zpowers (hn : 4 ≤ n)
     (e : SemidihedralGroup n ≃* (S : Subgroup G)) (i : ℤ) (hi0 : ¬ i ≡ 0 [ZMOD modulus n])
@@ -444,122 +393,5 @@ theorem noncentralRotation_isConj_iff (hn : 4 ≤ n)
       refine isConj_iff.mpr ⟨(e (s n) : G), ?_⟩
       rw [← conj_zpow, suppliedReflection_conj_rotation, ← zpow_natCast, ← zpow_mul]
 
-theorem noncentralRotation_conjClasses (hn : 4 ≤ n)
-    (e : SemidihedralGroup n ≃* (S : Subgroup G)) :
-    {c : ConjClasses G | (c.carrier ∩ ((Subgroup.zpowers (e (r n) : G) : Set G) \
-        {1, (e (r n) : G) ^ (modulus n / 2)})).Nonempty}.ncard = modulus n / 2 - 1 ∧
-      ∀ c : ConjClasses G, (c.carrier ∩ ((Subgroup.zpowers (e (r n) : G) : Set G) \
-        {1, (e (r n) : G) ^ (modulus n / 2)})).Nonempty →
-        (c.carrier ∩ ((Subgroup.zpowers (e (r n) : G) : Set G) \
-          {1, (e (r n) : G) ^ (modulus n / 2)})).ncard = 2 := by
-  set ρ : G := (e (r n) : G) with hρ
-  set X : Set G := (Subgroup.zpowers ρ : Set G) \ {1, ρ ^ (modulus n / 2)} with hX
-  have hmemX : ∀ x, x ∈ X ↔ ∃ k : ℤ, x = ρ ^ k ∧ ¬ k ≡ 0 [ZMOD modulus n] ∧
-      ¬ k ≡ (modulus n / 2 : ℕ) [ZMOD modulus n] := by
-    intro x
-    constructor
-    · rintro ⟨hx, hx'⟩
-      obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hx
-      exact ⟨k, rfl, (suppliedRotation_zpow_not_mem_iff (by omega) e k).mp hx'⟩
-    · rintro ⟨k, rfl, hk⟩
-      exact ⟨Subgroup.zpow_mem_zpowers _ _,
-        (suppliedRotation_zpow_not_mem_iff (by omega) e k).mpr hk⟩
-  have hfib : ∀ x ∈ X, (X ∩ {y | ConjClasses.mk y = ConjClasses.mk x}).ncard = 2 := by
-    intro x hx
-    obtain ⟨k, rfl, hk0, hk1⟩ := (hmemX x).mp hx
-    obtain ⟨ha0, ha1, hak⟩ := rotationFusion_twist_noncentral hn k hk0 hk1
-    have hset : X ∩ {y | ConjClasses.mk y = ConjClasses.mk (ρ ^ k)} =
-        {ρ ^ k, ρ ^ ((((modulus n / 2 : ℕ) : ℤ) - 1) * k)} := by
-      ext y
-      simp only [Set.mem_inter_iff, Set.mem_ofPred_eq, Set.mem_insert_iff,
-        Set.mem_singleton_iff, ConjClasses.mk_eq_mk_iff_isConj]
-      constructor
-      · rintro ⟨hy, hconj⟩
-        obtain ⟨l, rfl, hl0, hl1⟩ := (hmemX y).mp hy
-        rcases (noncentralRotation_isConj_iff hn e k l hl0 hl1).mp hconj.symm with h | h
-        · exact Or.inl ((suppliedRotation_zpow_eq_iff (by omega) e l k).mpr h)
-        · exact Or.inr ((suppliedRotation_zpow_eq_iff (by omega) e _ _).mpr h)
-      · rintro (rfl | rfl)
-        · exact ⟨hx, IsConj.refl _⟩
-        · refine ⟨(hmemX _).mpr ⟨_, rfl, ha0, ha1⟩, ?_⟩
-          exact ((noncentralRotation_isConj_iff hn e k _ ha0 ha1).mpr
-            (Or.inr (Int.ModEq.refl _))).symm
-    rw [hset, Set.ncard_pair]
-    intro h
-    exact hak ((suppliedRotation_zpow_eq_iff (by omega) e _ _).mp h).symm
-  have himage : {c : ConjClasses G | (c.carrier ∩ X).Nonempty} = ConjClasses.mk '' X := by
-    ext c
-    simp only [Set.mem_ofPred_eq, Set.mem_image]
-    constructor
-    · rintro ⟨x, hxc, hxX⟩
-      exact ⟨x, hxX, ConjClasses.mem_carrier_iff_mk_eq.mp hxc⟩
-    · rintro ⟨x, hxX, rfl⟩
-      exact ⟨x, ConjClasses.mem_carrier_mk, hxX⟩
-  have hhalf_pos : 0 < modulus n / 2 := by
-    rw [modulus_div_two n (by omega), half]
-    exact Nat.two_pow_pos _
-  have hmod : modulus n = 2 * (modulus n / 2) := by
-    rw [modulus_div_two n (by omega)]
-    exact modulus_eq_two_mul_half (by omega)
-  have hne : (1 : G) ≠ ρ ^ (modulus n / 2) := by
-    refine (pow_ne_one_of_lt_orderOf hhalf_pos.ne' ?_).symm
-    rw [hρ, suppliedRotation_orderOf (by omega) e]
-    omega
-  have hXcard : X.ncard = modulus n - 2 := by
-    have hsub : ({1, ρ ^ (modulus n / 2)} : Set G) ⊆ (Subgroup.zpowers ρ : Set G) := by
-      intro y hy
-      rcases hy with rfl | hy
-      · exact (Subgroup.zpowers ρ).one_mem
-      · rw [Set.mem_singleton_iff] at hy
-        rw [hy]
-        exact Subgroup.pow_mem _ (Subgroup.mem_zpowers ρ) _
-    have hA : (Subgroup.zpowers ρ : Set G).ncard = modulus n := by
-      rw [← Nat.card_coe_set_eq, SetLike.coe_sort_coe, Nat.card_zpowers, hρ,
-        suppliedRotation_orderOf (by omega) e]
-    rw [hX, Set.ncard_sdiff hsub, Set.ncard_pair hne, hA]
-  have hcount := rotationFusion_ncard_image_mul_two (Set.toFinite X) ConjClasses.mk hfib
-  refine ⟨?_, ?_⟩
-  · rw [himage]
-    omega
-  · rintro c ⟨x, hxc, hxX⟩
-    have hc : c = ConjClasses.mk x := (ConjClasses.mem_carrier_iff_mk_eq.mp hxc).symm
-    have hset : c.carrier ∩ X = X ∩ {y | ConjClasses.mk y = ConjClasses.mk x} := by
-      ext y
-      simp only [Set.mem_inter_iff, Set.mem_ofPred_eq, ConjClasses.mem_carrier_iff_mk_eq, hc]
-      exact and_comm
-    rw [hset, hfib x hxX]
-
-theorem noncentral_rotation_centralizers_and_fusion (hn : 4 ≤ n)
-    (e : SemidihedralGroup n ≃* (S : Subgroup G)) :
-    let r : G := (e (CFSG.Semidihedral.r n) : G)
-    let M : ℕ := modulus n
-    let a : ℤ := ((M / 2 : ℕ) : ℤ) - 1
-    let A : Subgroup G := Subgroup.zpowers r
-    let t : G := r ^ (M / 2)
-    (∀ i : ℤ, ¬ i ≡ 0 [ZMOD M] → ¬ i ≡ (M / 2 : ℕ) [ZMOD M] →
-      (∃ P : Sylow 2 (Subgroup.centralizer {r ^ i}),
-        (P : Subgroup (Subgroup.centralizer {r ^ i})).map
-          (Subgroup.centralizer {r ^ i}).subtype = A) ∧
-      ∃ (R : Subgroup (Subgroup.centralizer {r ^ i})) (_ : R.Normal),
-        (Odd (Nat.card R) ∧ ∃ k : ℕ, R.index = 2 ^ k) ∧
-        (∀ R' : Subgroup (Subgroup.centralizer {r ^ i}), R'.Normal → Odd (Nat.card R') →
-          (∃ k : ℕ, R'.index = 2 ^ k) → R' = R) ∧
-        R.Characteristic ∧ (∀ x, x ∈ R ↔ Odd (orderOf x)) ∧
-        (R : Set (Subgroup.centralizer {r ^ i})) *
-            (A.subgroupOf (Subgroup.centralizer {r ^ i}) : Set _) = Set.univ ∧
-        R ⊓ A.subgroupOf (Subgroup.centralizer {r ^ i}) = ⊥ ∧
-        Function.Bijective ((QuotientGroup.mk' R).comp
-          (A.subgroupOf (Subgroup.centralizer {r ^ i})).subtype)) ∧
-    (∀ i j : ℤ, ¬ i ≡ 0 [ZMOD M] → ¬ i ≡ (M / 2 : ℕ) [ZMOD M] →
-      ¬ j ≡ 0 [ZMOD M] → ¬ j ≡ (M / 2 : ℕ) [ZMOD M] →
-      (IsConj (r ^ i) (r ^ j) ↔ j ≡ i [ZMOD M] ∨ j ≡ a * i [ZMOD M])) ∧
-    {c : ConjClasses G | (c.carrier ∩ ((A : Set G) \ {1, t})).Nonempty}.ncard = M / 2 - 1 ∧
-    ∀ c : ConjClasses G, (c.carrier ∩ ((A : Set G) \ {1, t})).Nonempty →
-      (c.carrier ∩ ((A : Set G) \ {1, t})).ncard = 2 := by
-  intro r M a A t
-  refine ⟨fun i hi0 hi1 => ⟨noncentralRotation_sylow hn e i hi0 hi1,
-      noncentralRotation_normal_odd_complement hn e i hi0 hi1⟩,
-    fun i j _ _ hj0 hj1 => noncentralRotation_isConj_iff hn e i j hj0 hj1,
-    (noncentralRotation_conjClasses hn e).1, (noncentralRotation_conjClasses hn e).2⟩
 
 end CFSG.Semidihedral.Principal

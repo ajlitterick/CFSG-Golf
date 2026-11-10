@@ -265,25 +265,6 @@ theorem exists_nine_permutes_of_model {Y : Type} [Group Y] [Finite Y] {K S : Sub
   rw [← map_pow, map_eq_one_iff _ e.injective] at h2
   simpa using congrArg Subtype.val h2
 
-open CFSG.Quasithin.E2P CFSG.Quasithin.E2P.SporB in
-theorem exists_equiv_pull_normalized {Y : Type} [Group Y] [Finite Y] {K S : Subgroup Y}
-    [hK : K.Normal] {Γ : Type} [Group Γ] [Finite Γ] (e : ↥K ≃* Γ)
-    (hS : CFSG.QuasithinUnique.IsSylowTwoOf S ⊤) {U : Subgroup Γ}
-    (hU : CFSG.QuasithinUnique.IsSylowTwoOf U ⊤) :
-    ∃ e' : ↥K ≃* Γ,
-      (∀ P : Subgroup Γ, U ≤ P → S ⊓ K ≤ (P.map e'.symm.toMonoidHom).map K.subtype) ∧
-      ∀ P : Subgroup Γ, (∀ α : MulAut Γ, U.map α.toMonoidHom = U → P.map α.toMonoidHom = P) →
-        S ≤ Subgroup.normalizer (((P.map e'.symm.toMonoidHom).map K.subtype : Subgroup Y) :
-          Set Y) := by
-  have hSK : CFSG.QuasithinUnique.IsSylowTwoOf (S ⊓ K) K :=
-    CFSG.Quasithin.B6.isSylowTwoOf_inf_normal hS le_top fun x _ => by
-      rw [Subgroup.normalizer_eq_top_iff.mpr hK]; trivial
-  obtain ⟨e', he'⟩ := exists_equiv_sylow e hSK hU
-  refine ⟨e', fun P hUP => (le_pull_iff e' inf_le_right).mpr (he' ▸ hUP), fun P hinv t ht => ?_⟩
-  have hα : U.map (autK e' t).toMonoidHom = U := by
-    rw [← he']
-    exact map_autK_of_mem_normalizer' e' inf_le_right (SporB.le_normalizer_inf hK ht)
-  exact mem_normalizer_pull e' (hinv _ hα)
 
 open CFSG.Quasithin.E2P in
 theorem autK_of_mem {H : Type} [Group H] {K : Subgroup H} [K.Normal] {C : Type} [Group C]

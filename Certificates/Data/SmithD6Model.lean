@@ -93,33 +93,6 @@ def gensArr : Array Nat :=
       [lineOf (eV i) (fV (i + 1)), lineOf (fV i) (eV (i + 1))]).toArray ++
     #[lineOf (eV 4) (eV 5), lineOf (fV 4) (fV 5)]
 
-@[expose] def treeBFS (n : Nat) (gens : Array Nat) (f : Nat → Nat → Nat) (roots : List Nat) :
-    Array Nat × Array Nat × Array Nat := Id.run do
-  let mut par := Array.replicate n n
-  let mut gen := Array.replicate n 0
-  let mut dep := Array.replicate n (n + 1)
-  let mut queue : Array Nat := #[]
-  for r in roots do
-    dep := dep.set! r 0
-    queue := queue.push r
-  let mut head := 0
-  for _ in [0:n] do
-    if head < queue.size then
-      let u := queue[head]!
-      head := head + 1
-      for g in gens do
-        let v := f g u
-        if v < n && n < dep[v]! then
-          dep := dep.set! v (dep[u]! + 1)
-          par := par.set! v u
-          gen := gen.set! v g
-          queue := queue.push v
-  return (par, gen, dep)
-
-@[expose] def treeOK (n m : Nat) (isRoot : Nat → Bool) (edge : Nat → Nat → Nat → Bool)
-    (t : Array Nat × Array Nat × Array Nat) : Bool :=
-  (List.range n).all fun v => isRoot v || (decide (t.1[v]! < n) && decide (t.2.1[v]! < m) &&
-    decide (t.2.2[t.1[v]!]! < t.2.2[v]!) && edge t.2.1[v]! t.1[v]! v)
 
 @[expose] def fBasis : Array Nat := #[64, 128, 256, 512, 1024, 2048]
 
@@ -131,18 +104,6 @@ def gensArr : Array Nat :=
 
 @[expose] def memR (B P : Array Nat) (x : Nat) : Bool := xorComb B (coefOf P x) == x
 
-@[expose] def rrefAdd (st : Array Nat × Array Nat) (v : Nat) : Array Nat × Array Nat :=
-  let v' := (List.range st.1.size).foldl
-    (fun v m => if v.testBit st.2[m]! then v ^^^ st.1[m]! else v) v
-  if v' == 0 then st else
-    let p := v'.log2
-    ((st.1.map fun b => if b.testBit p then b ^^^ v' else b).push v', st.2.push p)
-
-@[expose] def rrefOf (vs : Array Nat) : Array Nat × Array Nat := vs.foldl rrefAdd (#[], #[])
-
-@[expose] def gensCols : Array (Array Nat) := gensArr.map tvCols
-
-@[expose] def gensPair : Array (Nat × Nat) := gensArr.map linePair
 
 @[irreducible] def wtArr : Array Nat := ⟨CFSG.KD.SmithD6.J.wtC.flatten⟩
 

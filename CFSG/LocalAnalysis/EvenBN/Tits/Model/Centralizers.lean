@@ -20,17 +20,6 @@ theorem mul_inv_mem_titsD {x y : Equiv.Perm (Fin 1755)}
     (hx : x ∈ titsA) (hy : y ∈ titsA) (hxD : x ∉ titsD) (hyD : y ∉ titsD) : x * y⁻¹ ∈ titsD :=
   (mul_mem_titsD_iff hx (inv_mem hy)).2 (iff_of_false hxD fun h => hyD (by simpa using inv_mem h))
 
-theorem card_eq_two_mul_inf_titsD
-    {X : Subgroup (Equiv.Perm (Fin 1755))} (hX : X ≤ titsA) {q : Equiv.Perm (Fin 1755)}
-    (hqX : q ∈ X) (hqD : q ∉ titsD) : Nat.card X = 2 * Nat.card (titsD ⊓ X : Subgroup _) := by
-  have h2 : titsD.relIndex X = 2 := by
-    rw [relIndex_eq_two_iff]
-    refine ⟨q, hqX, fun b hb => ?_⟩
-    have hb' := mul_mem_titsD_iff (hX hb) (hX hqX)
-    by_cases hbD : b ∈ titsD
-    · exact Or.inr ⟨hbD, fun h => hqD ((hb'.1 h).1 hbD)⟩
-    · exact Or.inl ⟨hb'.2 (iff_of_false hbD hqD), hbD⟩
-  rw [← relIndex_mul_card titsD X, h2]
 
 theorem mul_self_mem_titsD {x : Equiv.Perm (Fin 1755)}
     (hx : x ∈ titsA) : x * x ∈ titsD :=
@@ -140,37 +129,6 @@ theorem pCore_twoF4H :
       (le_inf CFSG.Quasithin.le_extSub titsJ_le_titsD)
   · rw [card_twoF4H, hP]
 
-theorem mem_titsS_of_mem_normalizer
-    {y : Equiv.Perm (Fin 1755)} (hyD : y ∈ titsD)
-    (hy : y ∈ normalizer (titsS : Set (Equiv.Perm (Fin 1755)))) : y ∈ titsS := by
-  have hN : (⟨y, hyD⟩ : titsD) ∈ normalizer (CFSG.Quasithin.titsSD : Set titsD) := by
-    rw [mem_normalizer_iff]
-    intro h
-    simp only [CFSG.Quasithin.titsSD, mem_subgroupOf, Subgroup.coe_mul, Subgroup.coe_inv]
-    exact mem_normalizer_iff.1 hy h
-  exact CFSG.Quasithin.titsSD_normalizer_le hN
-
-theorem titsA_centralizer_titsS :
-    titsA ⊓ centralizer (titsS : Set (Equiv.Perm (Fin 1755))) = zpowers titsZ := by
-  apply le_antisymm
-  · intro x hx
-    obtain ⟨hxA, hxC⟩ := mem_inf.1 hx
-    have hxN := centralizer_le_normalizer _ hxC
-    by_cases hxD : x ∈ titsD
-    · have hxS := mem_titsS_of_mem_normalizer hxD hxN
-      have hmem : x ∈ ((center titsS).map titsS.subtype : Set (Equiv.Perm (Fin 1755))) := by
-        refine ⟨⟨x, hxS⟩, mem_center_iff.2 fun g => ?_, rfl⟩
-        exact Subtype.ext (mem_centralizer_iff.1 hxC g g.2)
-      rw [titsS_center] at hmem
-      exact (mem_zpowers_of_orderOf_two orderOf_titsZ).2 hmem
-    · exfalso
-      have hyS := mem_titsS_of_mem_normalizer (mul_tπ_inv_mem_titsD hxA hxD)
-        (mul_mem hxN (inv_mem CFSG.Quasithin.tπ_norm_S))
-      have h := CFSG.Quasithin.mul_pi_not_mem_centralizer_S hyS
-      rw [inv_mul_cancel_right] at h
-      exact h hxC
-  · rw [zpowers_le]
-    exact ⟨titsD_le_titsA titsZ_mem_titsD, titsZ_mem_centralizer_S⟩
 
 theorem twoF4S_le_twoF4H :
     twoF4S ≤ twoF4H :=
@@ -268,18 +226,6 @@ theorem ncard_titsA_class_titsZ :
   rw [show ((titsZD : titsD) : Equiv.Perm (Fin 1755)) = titsZ from rfl] at h
   rw [h, Set.ncard_image_of_injective _ Subtype.val_injective, ncard_class_z]
 
-theorem card_centralizer_titsTInv :
-    Nat.card (titsA ⊓ centralizer {titsTInv} : Subgroup (Equiv.Perm (Fin 1755))) = 3072 ∧
-      titsD ⊓ (titsA ⊓ centralizer {titsTInv}) = titsN ⊓ centralizer {titsTInv} ∧
-      ¬ titsA ⊓ centralizer {titsTInv} ≤ titsD := by
-  have hD : titsD ⊓ (titsA ⊓ centralizer {titsTInv}) = titsN ⊓ centralizer {titsTInv} := by
-    rw [← inf_assoc, inf_of_le_left titsD_le_titsA, ← titsD_centralizer_t.1]
-  have haux : CFSG.Quasithin.RuRank3.titsAux ∈ titsA ⊓ centralizer {titsTInv} :=
-    ⟨CFSG.Quasithin.RuRank3.titsAux_mem,
-      mem_centralizer_singleton_iff.2 CFSG.Quasithin.RuRank3.titsAux_comm⟩
-  refine ⟨?_, hD, fun h => CFSG.Quasithin.RuRank3.titsAux_not_mem_D (h haux)⟩
-  rw [card_eq_two_mul_inf_titsD inf_le_left haux CFSG.Quasithin.RuRank3.titsAux_not_mem_D, hD,
-    card_titsCt]
 
 theorem twoF4N_le_titsA :
     twoF4N ≤ titsA :=

@@ -311,63 +311,6 @@ theorem exists_maximal_block [Finite G] {K : Subgroup G} {z : G} (h : RouteDSetu
   intro hKi₀
   exact hiKi₀ (Gaps.eq_of_locImg_le_range hΩ hex D hKz hKmem.2 hKi₀.2)
 
-theorem exists_weak_star_nbr [Finite G] [IsSimpleGroup G] (hnab : ∃ x y : G, x * y ≠ y * x)
-    {K : Subgroup G} {z : G} (h : RouteDSetup p f K z)
-    (D : LieSystemData p f (locQuot (conjClass K) z) (locFamily (conjClass K) z))
-    (hmulti : ∃ i j : Fin D.card, i ≠ j ∧ ¬ IsA1Comp D i ∧ ¬ IsA1Comp D j) :
-    ∃ (i₁ i₂ : Fin D.card) (a₁ a₂ c q : Subgroup G), i₁ ≠ i₂ ∧ ¬ IsA1Comp D i₁ ∧
-      ¬ IsA1Comp D i₂ ∧ a₁ ∈ Gaps.compMembers (conjClass K) z D i₁ ∧
-      c ∈ Gaps.compMembers (conjClass K) z D i₁ ∧
-      a₂ ∈ Gaps.compMembers (conjClass K) z D i₂ ∧ q ∈ conjClass K ∧ Commutes K a₁ ∧
-      Commutes K a₂ ∧ Commutes a₁ a₂ ∧ Commutes K c ∧ Commutes c a₂ ∧ Commutes q c ∧
-      ¬ Commutes q K ∧ ¬ Commutes q a₁ ∧ ¬ Commutes q a₂ := by
-  have hΩ := h.inClass
-  have hconn : ∀ X ∈ conjClass K, ∀ Y ∈ conjClass K, Relation.ReflTransGen
-      (fun A B : Subgroup G => A ∈ conjClass K ∧ B ∈ conjClass K ∧ Commutes A B) X Y := by
-    intro X hX Y hY
-    have hreach := h.conn.preconnected ⟨X, hX⟩ ⟨Y, hY⟩
-    rw [SimpleGraph.reachable_iff_reflTransGen] at hreach
-    have key : ∀ v : conjClass K, Relation.ReflTransGen
-        (CFSG.ClassicalInvolution.Models.commGraph (conjClass K)).Adj ⟨X, hX⟩ v →
-        Relation.ReflTransGen
-          (fun A B : Subgroup G => A ∈ conjClass K ∧ B ∈ conjClass K ∧ Commutes A B) X
-          (v : Subgroup G) := by
-      intro v hv
-      induction hv with
-      | refl => exact Relation.ReflTransGen.refl
-      | @tail b c _ hbc ih =>
-        exact ih.tail ⟨b.2, c.2, (CFSG.ClassicalInvolution.Models.commGraph_adj.mp hbc).2⟩
-    exact key ⟨Y, hY⟩ hreach
-  obtain ⟨A₀, i₀, i', a₂, hA₀, hmax, hblock, hi₀na, hi'na, hi'ne, ha₂, hKV, hKc, hKa₂⟩ :=
-    exists_maximal_block h D hmulti
-  have hne : ∀ L ∈ conjClass K, L ≠ ⊥ := by
-    intro L hL hbot
-    obtain ⟨w, hw⟩ := hΩ.classical L hL
-    have := hw.mem
-    rw [hbot, Subgroup.mem_bot] at this
-    have h2 := hw.orderOf_eq_two
-    rw [this, orderOf_one] at h2
-    omega
-  obtain ⟨q, hqΩ, hqV, ⟨a₁, ha₁V, hqa₁⟩, ⟨c, hcV, hqc⟩, hqK, hqcl⟩ :=
-    exists_not_commuting_nbr_of_max hnab hΩ.conjInvariant hΩ.generated hne (mem_conjClass_self K)
-      h.cls.mem (single_class K) hconn hA₀ hmax (hblock ▸ hKV)
-      (fun B hB => (hKc B (hblock ▸ hB)).1)
-  rw [hblock] at ha₁V hcV hqcl
-  exact ⟨i₀, i', a₁, a₂, c, q, fun e => hi'ne e.symm, hi₀na, hi'na, ha₁V, hcV, ha₂, hqΩ,
-    (hKc a₁ ha₁V).1, hKa₂, Gaps.commutes_symm (hKc a₁ ha₁V).2, (hKc c hcV).1,
-    Gaps.commutes_symm (hKc c hcV).2, hqc, hqK, hqa₁, hqcl a₂ ha₂.1.1 fun B hB => (hKc B hB).2⟩
-
-theorem exists_weak_star [Finite G] [IsSimpleGroup G] (hnab : ∃ x y : G, x * y ≠ y * x)
-    {K : Subgroup G} {z : G} (h : RouteDSetup p f K z)
-    (D : LieSystemData p f (locQuot (conjClass K) z) (locFamily (conjClass K) z))
-    (hmulti : ∃ i j : Fin D.card, i ≠ j ∧ ¬ IsA1Comp D i ∧ ¬ IsA1Comp D j) :
-    ∃ (i₁ i₂ : Fin D.card) (a₁ a₂ q : Subgroup G), i₁ ≠ i₂ ∧ ¬ IsA1Comp D i₁ ∧
-      ¬ IsA1Comp D i₂ ∧ a₁ ∈ Gaps.compMembers (conjClass K) z D i₁ ∧
-      a₂ ∈ Gaps.compMembers (conjClass K) z D i₂ ∧ q ∈ conjClass K ∧ Commutes K a₁ ∧
-      Commutes K a₂ ∧ Commutes a₁ a₂ ∧ ¬ Commutes q K ∧ ¬ Commutes q a₁ ∧ ¬ Commutes q a₂ := by
-  obtain ⟨i₁, i₂, a₁, a₂, c, q, hne, hn₁, hn₂, ha₁, -, ha₂, hq, hKa₁, hKa₂, ha₁a₂, -, -, -, hqK,
-    hqa₁, hqa₂⟩ := exists_weak_star_nbr hnab h D hmulti
-  exact ⟨i₁, i₂, a₁, a₂, q, hne, hn₁, hn₂, ha₁, ha₂, hq, hKa₁, hKa₂, ha₁a₂, hqK, hqa₁, hqa₂⟩
 
 theorem exists_commuting_pair_of_chain {V : Set (Subgroup G)} {q : Subgroup G}
     (hV : ∀ A ∈ V, ∀ B ∈ V,
@@ -390,39 +333,6 @@ theorem exists_commuting_pair_of_chain {V : Set (Subgroup G)} {q : Subgroup G}
   · exact (hqB₀ h).elim
   · exact h
 
-theorem exists_weak_star_common_nbr [Finite G] [IsSimpleGroup G] (hnab : ∃ x y : G, x * y ≠ y * x)
-    {K : Subgroup G} {z : G} (h : RouteDSetup p f K z)
-    (D : LieSystemData p f (locQuot (conjClass K) z) (locFamily (conjClass K) z))
-    (hmulti : ∃ i j : Fin D.card, i ≠ j ∧ ¬ IsA1Comp D i ∧ ¬ IsA1Comp D j)
-    (hconnV : ∀ i : Fin D.card, ¬ IsA1Comp D i → ∀ A ∈ Gaps.compMembers (conjClass K) z D i,
-      ∀ B ∈ Gaps.compMembers (conjClass K) z D i, Relation.ReflTransGen
-        (fun X Y : Subgroup G => X ∈ Gaps.compMembers (conjClass K) z D i ∧
-          Y ∈ Gaps.compMembers (conjClass K) z D i ∧ Commutes X Y) A B) :
-    ∃ (i₁ i₂ : Fin D.card) (a₁ a₂ c q : Subgroup G), i₁ ≠ i₂ ∧ ¬ IsA1Comp D i₁ ∧
-      ¬ IsA1Comp D i₂ ∧ a₁ ∈ Gaps.compMembers (conjClass K) z D i₁ ∧
-      c ∈ Gaps.compMembers (conjClass K) z D i₁ ∧
-      a₂ ∈ Gaps.compMembers (conjClass K) z D i₂ ∧ q ∈ conjClass K ∧ Commutes K a₁ ∧
-      Commutes K a₂ ∧ Commutes a₁ a₂ ∧ Commutes K c ∧ Commutes c a₂ ∧ Commutes c a₁ ∧
-      Commutes q c ∧ ¬ Commutes q K ∧ ¬ Commutes q a₁ ∧ ¬ Commutes q a₂ := by
-  have hΩ := h.inClass
-  have hex := h.exact
-  have hP1 := h.p1
-  obtain ⟨i₁, i₂, a₁, a₂, c, q, hne, hn₁, hn₂, ha₁, hc, ha₂, hq, hKa₁, hKa₂, ha₁a₂, hKc, hca₂,
-    hqc, hqK, hqa₁, hqa₂⟩ := exists_weak_star_nbr hnab h D hmulti
-  obtain ⟨c', hc', a', ha', hca', hqc', hqa'⟩ := exists_commuting_pair_of_chain
-    (hconnV i₁ hn₁) hc hqc ha₁ hqa₁
-  have hcomm : ∀ {B : Subgroup G}, B ∈ Gaps.compMembers (conjClass K) z D i₁ →
-      Commutes K B ∧ Commutes B a₂ := by
-    intro B hB
-    obtain ⟨iK, hKt, hKr, hKimg⟩ := Gaps.locImg_eq_range_of_involution (Gaps.fundNoncentral p) D
-      ⟨mem_conjClass_self K, le_centralizer_of_isClassicalMember h.cls⟩ h.cls
-    have hKmem : K ∈ Gaps.compMembers (conjClass K) z D iK :=
-      ⟨⟨mem_conjClass_self K, le_centralizer_of_isClassicalMember h.cls⟩, hKimg.le⟩
-    have hiK : iK ≠ i₁ := fun e => hn₁ (e ▸ (show IsA1Comp D iK from ⟨hKt, hKr⟩))
-    exact ⟨Gaps.commutes_of_ne_comp hΩ hP1 D hiK hKmem hB,
-      Gaps.commutes_of_ne_comp hΩ hP1 D hne hB ha₂⟩
-  exact ⟨i₁, i₂, a', a₂, c', q, hne, hn₁, hn₂, ha', hc', ha₂, hq, (hcomm ha').1, hKa₂,
-    (hcomm ha').2, (hcomm hc').1, (hcomm hc').2, hca', hqc', hqK, hqa', hqa₂⟩
 
 end WeakStar
 

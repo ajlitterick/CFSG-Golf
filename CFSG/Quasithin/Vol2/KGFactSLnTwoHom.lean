@@ -12,9 +12,6 @@ open Matrix CFSG.LocalAnalysis.ComponentInitial CFSG.LocalAnalysis.ComponentInit
 
 variable {n : ℕ}
 
-theorem additive_single {M : Type*} [AddCommGroup M] (φ : (Fin n → ZMod 2) →+ M) (j : Fin n)
-    (c : ZMod 2) : φ (Pi.single j c) = if c = 1 then φ (Pi.single j 1) else 0 := by
-  rcases zmod_two_cases c with rfl | rfl <;> simp
 
 @[expose] def matOf (φ : (Fin n → ZMod 2) →+ (Fin n → ZMod 2)) :
     Matrix (Fin n) (Fin n) (ZMod 2) :=

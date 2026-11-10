@@ -37,9 +37,6 @@ theorem semiConj_apply (hF : ∀ (c : K) (v : V), F (c • v) = σ c • F v) (g
   map_mul' g h := LinearEquiv.ext fun v => by
     simp only [LinearEquiv.mul_apply, semiConj_apply, AddEquiv.symm_apply_apply]
 
-theorem semiConjHom_apply (hF : ∀ (c : K) (v : V), F (c • v) = σ c • F v) (g : V ≃ₗ[K] V) :
-    semiConjHom hF g = semiConj hF g :=
-  rfl
 
 variable {Q : QuadraticForm K V}
 

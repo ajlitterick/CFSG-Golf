@@ -31,22 +31,6 @@ theorem mem_Psub {g : Equiv.Perm (Fin 28)} :
     g ∈ Psub ↔ g ∈ QP.originalSubgroup ∧ g 0 = 0 ∧ g ^ 3 = 1 := by
   rw [mem_Psub_iff_Bsub, mem_Bsub, and_assoc]
 
-theorem mem_Bl {g : Equiv.Perm (Fin 28)} :
-    g ∈ Bl ↔ g ∈ QP.originalSubgroup ∧ g 0 = 0 := by
-  simp [Bl, mem_elemsT QP QP_ok]
-
-theorem mem_Pl {g : Equiv.Perm (Fin 28)} :
-    g ∈ Pl ↔ g ∈ QP.originalSubgroup ∧ g 0 = 0 ∧ g ^ 3 = 1 := by
-  simp [Pl, mem_Bl, and_assoc]
-
-theorem Bl_norm :
-    ∀ x ∈ Bl, ∀ p ∈ Pl, x * p * x⁻¹ ∈ Pl := by
-  intro x hx p hp
-  have hxB : x ∈ Bsub := mem_Bsub.2 (mem_Bl.1 hx)
-  have hpP : p ∈ Psub := mem_Psub.2 (mem_Pl.1 hp)
-  have hc : x * p * x⁻¹ ∈ Psub := ⟨mul_mem (mul_mem hxB hpP.1) (inv_mem hxB), by
-    rw [conj_pow, hpP.2, mul_one, mul_inv_cancel]⟩
-  exact mem_Pl.2 (mem_Psub.1 hc)
 
 theorem card_Bsub : Nat.card Bsub = 216 :=
   Certificates.certificate14953.1

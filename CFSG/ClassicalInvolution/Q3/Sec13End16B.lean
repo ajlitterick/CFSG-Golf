@@ -56,9 +56,6 @@ private theorem e16b_twin_of_commutes (h : EndHyp Ω) (h9 : Perp9 Ω) (s : TwinS
   rw [hzj]
   exact hj
 
-theorem dSet_mem_centMembers (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) :
-    ∀ R ∈ DSet Ω W, R ∈ centMembers Ω e :=
-  fun _ hR => c.dSet_subset_centMembers h hR
 
 theorem centMembers_oneClass (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) (h9 : Perp9 Ω) :
     ∀ L ∈ centMembers Ω e, ∀ L' ∈ centMembers Ω e,
@@ -131,10 +128,6 @@ theorem centMembers_oneClass (c : Sit16 Ω K K' W z u e g) (h : EndHyp Ω) (h9 :
   refine ⟨b * a⁻¹, Subgroup.mul_mem _ hb (Subgroup.inv_mem _ ha), ?_⟩
   rw [conjSub_mul, ← haL, conjSub_inv_conjSub, hbL]
 
-theorem exists_member_le_centralizer_not_le_normalizer (c : Sit16 Ω K K' W z u e g)
-    (h : EndHyp Ω) (h9 : Perp9 Ω) (h13 : zGroup Ω ≠ eGroup Ω K) :
-    ∃ R ∈ Ω, R ≤ Subgroup.centralizer ({e} : Set G) ∧ ¬ R ≤ Subgroup.normalizer (W : Set G) :=
-  exists_member_centralizer_not_normalizer c h h9 h13
 
 private theorem e16b6_comm_normalizer (c : Sit16 Ω K K' W z u e g) {x : G}
     (hx : x ∈ Subgroup.normalizer (W : Set G)) : x * e = e * x := by

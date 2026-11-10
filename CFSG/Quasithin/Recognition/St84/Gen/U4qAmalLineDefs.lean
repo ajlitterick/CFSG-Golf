@@ -165,27 +165,6 @@ theorem u4Re_smul {c : K} (hc : h.bar c = c) (z : K) : u4Re h (c * z) = c * u4Re
     · simpa using u4Re_add_mul h h2 h3
     · simpa using u4Im_add_mul h h2 h3
 
-theorem u4HermCoord_apply_zero (X : ↥(u4Herm h)) :
-    (u4HermCoord h X 0 : K) = (X : Matrix (Fin 2) (Fin 2) K) 0 0 :=
-  rfl
-
-theorem u4HermCoord_apply_one (X : ↥(u4Herm h)) :
-    (u4HermCoord h X 1 : K) = (X : Matrix (Fin 2) (Fin 2) K) 1 1 :=
-  rfl
-
-theorem u4HermCoord_apply_two (X : ↥(u4Herm h)) :
-    (u4HermCoord h X 2 : K) = u4Re h ((X : Matrix (Fin 2) (Fin 2) K) 0 1) :=
-  rfl
-
-theorem u4HermCoord_apply_three (X : ↥(u4Herm h)) :
-    (u4HermCoord h X 3 : K) = u4Im h ((X : Matrix (Fin 2) (Fin 2) K) 0 1) :=
-  rfl
-
-theorem coe_u4HermCoord_symm (v : Fin 4 → h.fixedField) :
-    (((u4HermCoord h).symm v : ↥(u4Herm h)) : Matrix (Fin 2) (Fin 2) K) =
-      !![(v 0 : K), (v 2 : K) + (v 3 : K) * u4Omega h;
-        (v 2 : K) + (v 3 : K) * h.bar (u4Omega h), (v 1 : K)] :=
-  rfl
 
 @[expose] noncomputable def u4TwistLin (A : Matrix (Fin 2) (Fin 2) K) :
     ↥(u4Herm h) →ₗ[h.fixedField] ↥(u4Herm h) where
@@ -281,19 +260,6 @@ theorem u4TwistHom_mem_u4Gamma2 {A : GL (Fin 2) K} (hA : A ∈ u4DetFixGL h) :
     u4TwistHom h A ∈ u4Gamma2 h :=
   Subgroup.mem_map_of_mem _ hA
 
-theorem mem_u4Gamma2_iff {M : GL (Fin 4) h.fixedField} :
-    M ∈ u4Gamma2 h ↔ ∃ A : GL (Fin 2) K,
-      h.bar (A : Matrix (Fin 2) (Fin 2) K).det = (A : Matrix (Fin 2) (Fin 2) K).det ∧
-        ∀ X : ↥(u4Herm h), (M : Matrix (Fin 4) (Fin 4) h.fixedField) *ᵥ u4HermCoord h X =
-          u4HermCoord h (u4TwistLin h (A : Matrix (Fin 2) (Fin 2) K) X) := by
-  rw [u4Gamma2, Subgroup.mem_map]
-  constructor
-  · rintro ⟨A, hA, rfl⟩
-    exact ⟨A, hA, fun X => u4TwistMat_mulVec h _ X⟩
-  · rintro ⟨A, hA, hM⟩
-    refine ⟨A, hA, Units.ext ?_⟩
-    rw [coe_u4TwistHom]
-    exact eq_of_forall_mulVec_u4HermCoord h fun X => by rw [u4TwistMat_mulVec, hM]
 
 theorem eq_one_of_forall_twist_eq {A : Matrix (Fin 2) (Fin 2) K} (hA : h.bar A.det = A.det)
     (hfix : ∀ X ∈ u4Herm h, A * X * (A.map h.bar)ᵀ = X) : A = 1 := by
@@ -373,13 +339,6 @@ theorem eq_one_of_forall_twist_eq {A : Matrix (Fin 2) (Fin 2) K} (hA : h.bar A.d
   · simp [hc]
   · simp [hd, ha1]
 
-theorem eq_one_of_u4TwistHom_eq_one {A : GL (Fin 2) K} (hA : A ∈ u4DetFixGL h)
-    (h1 : u4TwistHom h A = 1) : A = 1 := by
-  apply Units.ext
-  refine eq_one_of_forall_twist_eq h hA fun X hX => ?_
-  have e := u4TwistMat_mulVec h (A : Matrix (Fin 2) (Fin 2) K) ⟨X, hX⟩
-  rw [← coe_u4TwistHom, h1, Units.val_one, Matrix.one_mulVec] at e
-  exact congrArg Subtype.val ((u4HermCoord h).injective e).symm
 
 end CFSG.Quasithin.F112R.St84
 

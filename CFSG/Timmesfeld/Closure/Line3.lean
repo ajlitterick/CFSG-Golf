@@ -63,40 +63,5 @@ theorem not_orderOf_three_line {d z y : G} (hd : d * d = 1) (hz : z * z = 1) (hy
   rw [hoy] at this
   norm_num at this
 
-theorem commConnected_of_three (h : Hyp G D)
-    (h3 : ∀ x ∈ D, ∀ y ∈ D, ¬ Commute x y → Odd (orderOf (x * y)) → orderOf (x * y) = 3) :
-    CommConnected D := by
-  intro S hSD ⟨x, hx⟩ hclosed y hy
-  by_contra hyS
-  have hD := h.root
-  have hxD := hSD hx
-  obtain ⟨d₀, hd₀, e₀, he₀, h4₀⟩ := h.nondeg
-  obtain ⟨g, rfl⟩ := isConj_iff.mp (h.isConj hd₀ hxD)
-  set e := g * e₀ * g⁻¹ with he
-  have heD : e ∈ D := h.conj_mem g he₀
-  have h4 : orderOf (g * d₀ * g⁻¹ * e) = 4 := by
-    rw [he, show g * d₀ * g⁻¹ * (g * e₀ * g⁻¹) = g * (d₀ * e₀) * g⁻¹ by group, orderOf_conj_eq,
-      h4₀]
-  obtain ⟨hzD, hxz, hez, -⟩ := sq_mem_of_orderOf_eq_four hD hxD heD h4
-  set x' := g * d₀ * g⁻¹
-  set z := (x' * e) ^ 2
-  have hzS : z ∈ S := hclosed x' hx z hzD hxz
-  have hxzD : x' * z ∈ D := mul_sq_mem_of_orderOf_eq_four h.isClass hD hxD heD h4
-  have hxzS : x' * z ∈ S := hclosed x' hx _ hxzD (Commute.mul_right (Commute.refl x') hxz)
-  have hopp : ∀ w ∈ S, ¬ Commute w y ∧ Odd (orderOf (w * y)) := by
-    intro w hw
-    have hwD := hSD hw
-    rcases commute_or_orderOf_mul_eq_four_or_odd hD hwD hy with hc | h4' | hodd
-    · exact absurd (hclosed w hw y hy hc) hyS
-    · exfalso
-      obtain ⟨hfD, hwf, hyf, -⟩ := sq_mem_of_orderOf_eq_four hD hwD hy h4'
-      exact hyS (hclosed _ (hclosed w hw _ hfD hwf) y hy hyf.symm)
-    · exact ⟨hodd.2, hodd.1⟩
-  obtain ⟨n1, o1⟩ := hopp x' hx
-  obtain ⟨n2, o2⟩ := hopp z hzS
-  obtain ⟨n3, o3⟩ := hopp _ hxzS
-  exact not_orderOf_three_line (hD.mul_self_eq_one hxD) (hD.mul_self_eq_one hzD)
-    (hD.mul_self_eq_one hy) hxz (h3 _ hxD y hy n1 o1) (h3 _ hzD y hy n2 o2)
-    (h3 _ hxzD y hy n3 o3)
 
 end CFSG.Timmesfeld.Closure

@@ -203,8 +203,6 @@ theorem p65ClauseBResidue_of_kfactS (hK1 : KFactP65RankThreeS) : P65ClauseBResid
   exact hHM' (CFSG.LocalAnalysis.RankFourTheoremC.PEmpty.p65_le_of_normalizer_le hprime hf hOp'
     hNO hOM hSsyl hNFs)
 
-theorem p65ClauseBResidue_of_kfact (hK1 : KFactP65RankThree) : P65ClauseBResidue :=
-  p65ClauseBResidue_of_kfactS hK1.toS
 
 theorem p65AfterLemma68_of_clauseB (hclB : P65ClauseBResidue) (hS : Setting G)
     (hD1 : TheoremD1 G) (hU0 : FullCoreLocal G) {p : ℕ} (hp7 : 7 ≤ p) {P : Sylow p G}
@@ -243,17 +241,5 @@ theorem p65AfterLemma68_of_clauseB (hclB : P65ClauseBResidue) (hS : Setting G)
       hFsFt hFsp hBF hHM hBFs hFsmax hNFs hRH hR3
   · omega
 
-theorem stepP65OddSevenU0_of_clauseB (hclB : P65ClauseBResidue) (hK1 : KFactP65RankThree)
-    (hK2 : KFactP65RankTwo) (hKA : ∀ p : ℕ, 7 ≤ p → N1.KFactP65SingleAt p)
-    (hβ : ∀ p : ℕ, 7 ≤ p → N1.NoTwoComponentsAt p) : StepP65OddSevenU0 := by
-  intro G _ _ hS hD1 hU0 p hp7 P M hsit x z hx hz F hF1 hFM hcop hodd hBF
-  have hSit : N1.Sit G p P M := ⟨hS, hU0, hsit, by omega⟩
-  exact N1.p65_engine hK1 hK2 (hKA p hp7) (hβ p hp7) hSit hx hz
-    (p65AfterLemma68_of_clauseB hclB hS hD1 hU0 hp7 hsit hx hz) hF1 hFM hcop hodd hBF
-
-theorem stepP65OddSevenU0_of_kfacts (hK1 : KFactP65RankThree) (hK2 : KFactP65RankTwo)
-    (hKA : ∀ p : ℕ, 7 ≤ p → N1.KFactP65SingleAt p)
-    (hβ : ∀ p : ℕ, 7 ≤ p → N1.NoTwoComponentsAt p) : StepP65OddSevenU0 :=
-  stepP65OddSevenU0_of_clauseB (p65ClauseBResidue_of_kfact hK1) hK1 hK2 hKA hβ
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.SmallRankE3

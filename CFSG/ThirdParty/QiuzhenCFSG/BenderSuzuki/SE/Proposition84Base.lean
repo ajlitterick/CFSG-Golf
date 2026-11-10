@@ -812,46 +812,6 @@ public theorem IsStronglyEmbedded.proposition_8_4_base_full_of_corollary713
         { oddCore_map_le_M := by simpa [F] using hcoreM
           quotient_borel := by simpa [F] using hBorelF }
 
-/-- The numbered Proposition 8.4 base step, projected from the strengthened
-proof-support package. -/
-public theorem IsStronglyEmbedded.proposition_8_4_base_of_corollary713
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) {t : X}
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (h82base : Proposition82aAtBase M)
-    (d83 : Lemma83Data M t)
-    (h713 : ∀ (Y : Subgroup X),
-      Y ≤ (M ⊓ rightConjugate M t) ⊓
-        Subgroup.centralizer ({d83.u} : Set X) →
-      Y ≠ ⊥ →
-      HasNontrivialPeterfalviNormalizer
-        (M ⊓ rightConjugate M t) t Y →
-      Corollary713BorelConclusion M
-        (Subgroup.normalizer (Y : Set X))) :
-  Proposition84BaseStep M t d83.u := by
-  intro Y hYV hYne hI
-  exact (hM.proposition_8_4_base_full_of_corollary713
-    ht htM h82base d83 h713 Y hYV hYne hI).1
-
-/-- The support facts retained from the same Proposition 8.4 base proof. -/
-public theorem IsStronglyEmbedded.proposition_8_4_modelSupport_of_corollary713
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) {t : X}
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (h82base : Proposition82aAtBase M)
-    (d83 : Lemma83Data M t)
-    (h713 : ∀ (Y : Subgroup X),
-      Y ≤ (M ⊓ rightConjugate M t) ⊓
-        Subgroup.centralizer ({d83.u} : Set X) →
-      Y ≠ ⊥ →
-      HasNontrivialPeterfalviNormalizer
-        (M ⊓ rightConjugate M t) t Y →
-      Corollary713BorelConclusion M
-        (Subgroup.normalizer (Y : Set X))) :
-  Proposition84ModelSupportStatement M t d83.u := by
-  intro Y hYV hYne hI
-  exact (hM.proposition_8_4_base_full_of_corollary713
-    ht htM h82base d83 h713 Y hYV hYne hI).2
 
 /-- Proposition 8.4's exact base-step interface from the standing simple
 minimal-counterexample context, the proper-subgroup Theorem SE induction
@@ -903,36 +863,5 @@ public theorem IsStronglyEmbedded.proposition_8_4_base_full_of_source_endpoints
       hinduction
       ⟨huN, d83.u_mem_M⟩ d83.u_involution
 
-/-- The source-facing Proposition 8.4 base step. -/
-public theorem IsStronglyEmbedded.proposition_8_4_base_of_source_endpoints
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hXsimple : IsSimpleGroup X) {t : X}
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (h82base : Proposition82aAtBase M)
-    (d83 : Lemma83Data M t)
-    (h4b : Theorem4bAtBase M)
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (N : Subgroup H), IsStronglyEmbedded N →
-        TheoremSEConclusion N) :
-    Proposition84BaseStep M t d83.u := by
-  intro Y hYV hYne hI
-  exact (hM.proposition_8_4_base_full_of_source_endpoints
-    hXsimple ht htM h82base d83 h4b hinduction Y hYV hYne hI).1
-
-/-- The Proposition 8.4 model support retained for Section 11. -/
-public theorem IsStronglyEmbedded.proposition_8_4_modelSupport_of_source_endpoints
-    {X : Type u} [Group X] [Finite X] {M : Subgroup X}
-    (hM : IsStronglyEmbedded M) (hXsimple : IsSimpleGroup X) {t : X}
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (h82base : Proposition82aAtBase M)
-    (d83 : Lemma83Data M t)
-    (h4b : Theorem4bAtBase M)
-    (hinduction : ∀ (H : Subgroup X), H ≠ ⊤ →
-      ∀ (N : Subgroup H), IsStronglyEmbedded N →
-        TheoremSEConclusion N) :
-    Proposition84ModelSupportStatement M t d83.u := by
-  intro Y hYV hYne hI
-  exact (hM.proposition_8_4_base_full_of_source_endpoints
-    hXsimple ht htM h82base d83 h4b hinduction Y hYV hYne hI).2
 
 end CFSG.BenderSuzuki

@@ -27,16 +27,5 @@ open CFSG.Open CFSG.Blueprint
         (lOne L V₁ = K₁ ∨ IsList1293Two (↥K₁ ⧸ CFSG.pCore 2 ↥K₁) ∨
           (n = 4 ∧ IsList1293Three (↥K₁ ⧸ CFSG.pCore 2 ↥K₁)))
 
-theorem lemma12_9_3K1_of (h1293 : Lemma12_9_3) : Lemma12_9_3K1 := by
-  intro G _ _ T L V n hcx V₁ hV₁
-  obtain ⟨K₁, hLK, hK, hK₁n, hcases⟩ := h1293 G T L V n hcx 1 V₁ hV₁
-    (by rcases hcx.n45 with h | h <;> simp [h])
-  have hli : li128 n 1 L V₁ = lOne L V₁ := by simp [li128, lOne]
-  rw [hli] at hLK hcases
-  refine ⟨K₁, hLK, hK, hK₁n, ?_⟩
-  rcases hcases with heq | ⟨-, h2⟩ | ⟨-, hn4, h3⟩
-  · exact Or.inl heq
-  · exact Or.inr (Or.inl h2)
-  · exact Or.inr (Or.inr ⟨hn4, h3⟩)
 
 end CFSG.Quasithin.H13

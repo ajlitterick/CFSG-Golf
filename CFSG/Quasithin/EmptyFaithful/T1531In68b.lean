@@ -395,14 +395,6 @@ theorem G1_eq_conj (r66 : Res15366B T Mc M V₁ V₂ E) (gl : GoldLine153 T V₁
     conjSubgroup_eq_iff_mem_normalizer.2 (T_le_normalizer_TE r66 gl.s_mem.1)
   rw [conjSubgroup_sup', hTEs]
 
-theorem isSylowTwoOf_TE_G1 (c : Ctx153 G T Mc M V₁ V₂ t) (L : LineData153 T M V₁ V₂ E)
-    (r66 : Res15366B T Mc M V₁ V₂ E) (gl : GoldLine153 T V₁ E s) :
-    IsSylowTwoOf (TE153 T E) (G1_153 T Mc M E s) := by
-  have hTEs : conjSubgroup (TE153 T E) s = TE153 T E :=
-    conjSubgroup_eq_iff_mem_normalizer.2 (T_le_normalizer_TE r66 gl.s_mem.1)
-  have h := isSylowTwoOf_conjSubgroup' (isSylowTwoOf_TE_HE c L) s
-  rw [hTEs, ← G1_eq_conj r66 gl] at h
-  exact h
 
 theorem relIndex_TE_G1 (c : Ctx153 G T Mc M V₁ V₂ t) (L : LineData153 T M V₁ V₂ E)
     (r66 : Res15366B T Mc M V₁ V₂ E) (r67 : Res15367 T Mc M V₁ V₂ E) (gl : GoldLine153 T V₁ E s) :
@@ -473,30 +465,5 @@ theorem triple_153 (h113 : StageLemma14113) (c : Ctx153 G T Mc M V₁ V₂ t)
 
 end Stage68b
 
-structure Res15368Rest2 {G : Type} [Group G] (T Mc M E : Subgroup G) (s : G) : Prop where
-  pCore_le_centralizer : pCoreOf 2 (G0_153 T Mc M E s) ≤ Subgroup.centralizer (VZ T M : Set G)
-  pCore_eq : pCoreOf 2 (G0_153 T Mc M E s) =
-    (CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s)).map (G0_153 T Mc M E s).subtype
-
-@[expose] def Stage15368Rest2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t s : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-      Res15350 T M → LineData153 T M V₁ V₂ E → Res15366B T Mc M V₁ V₂ E →
-        Res15367 T Mc M V₁ V₂ E → GoldLine153 T V₁ E s →
-          G0_153 T Mc M E s ≤ Subgroup.normalizer (YE153 Mc M E : Set G) →
-          VZ T M ≤ pCoreOf 2 (G0_153 T Mc M E s) →
-          (∀ M₀ : Subgroup G, InM (G0_153 T Mc M E s) M₀ → IsSylowTwoOf (TE153 T E) M₀) →
-          F6.IsGoldschmidtTripleIn (G0_153 T Mc M E s) (G1_153 T Mc M E s) (G2_153 T E) →
-            Res15368Rest2 T Mc M E s
-
-theorem stage15368B_of_rest2 (h113 : StageLemma14113) (i : Stage15368Rest2) : Stage15368B := by
-  intro G _ _ T Mc M V₁ V₂ E t s c r45 r46 r49 r50 L r66 r67 gl
-  have h1 := G0_le_normalizer_YE c r49 L r67 gl
-  have h2 := V_le_pCoreOf_G0 c r49 L r66 r67 gl
-  have h3 : ∀ M₀ : Subgroup G, InM (G0_153 T Mc M E s) M₀ → IsSylowTwoOf (TE153 T E) M₀ :=
-    fun M₀ hM₀ => sylow_of_inM_153 h113 c r45 L r66 r67 gl hM₀
-  have h4 := triple_153 h113 c r45 r49 L r66 r67 gl
-  have hr := i G T Mc M V₁ V₂ E t s c r45 r46 r49 r50 L r66 r67 gl h1 h2 h3 h4
-  exact ⟨h1, h2, hr.pCore_le_centralizer, h3, h4, hr.pCore_eq⟩
 
 end CFSG.Quasithin

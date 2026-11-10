@@ -62,17 +62,5 @@ theorem twPlaneCyclic_e8Twelve (K : Type) [Field K] [Finite K]
       IsCyclic ↥(Subgroup.centralizer ({g} : Set ↥(TwClass.e8Twelve.X₂ D)))) :=
   PlaneCyclic.planeCyclic_e8Twelve K D hp hp5 hord
 
-theorem twPlaneCyclic (c : TwClass) (K : Type) [Field K] [Finite K] (hK : c.minQ ≤ Nat.card K)
-    (D : LangLevi c.tag K c.w) {p : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p)
-    (hord : orderOf ((Nat.card K : ℕ) : ZMod p) = c.e) :
-    (∀ g : ↥(c.X₁ D), orderOf g = p →
-      IsCyclic ↥(Subgroup.centralizer ({g} : Set ↥(c.X₁ D)))) ∧
-    (∀ g : ↥(c.X₂ D), orderOf g = p →
-      IsCyclic ↥(Subgroup.centralizer ({g} : Set ↥(c.X₂ D)))) := by
-  cases c
-  · exact twPlaneCyclic_f4Six K hK D hp hp5 hord
-  · exact twPlaneCyclic_e6Six K hK D hp hp5 hord
-  · exact twPlaneCyclic_e8Ten K hK D hp hp5 hord
-  · exact twPlaneCyclic_e8Twelve K hK D hp hp5 hord
 
 end CFSG.HardMathSupport.Foote.Coordinator.TwistedFrame

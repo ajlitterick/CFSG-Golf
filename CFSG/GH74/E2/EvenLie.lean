@@ -130,21 +130,5 @@ theorem even_lie_rank_le_four
       exact Or.inr (Or.inr (Or.inr (Or.inl (CFSG.GH74.Filter.lieModel_of_suzuki hsz))))
     · exact absurd hgen (CFSG.GH74.Filter.t_suzuki_large S 2 f (by omega) hsz)
 
-theorem even_lie_rank_le_three
-    {S : Type} [Group S] [Finite S]
-    (hs : IsSimpleGroup S)
-    (hnab : ∃ a b : S, a * b ≠ b * a) (he : EvenLieType S) (h3 : SectionalTwoRankLE S 3) :
-    ShapeA5 S ∨ ShapeL27 S ∨ ShapeL28 S ∨ ShapeSz8 S := by
-  have h4 : SectionalTwoRankLE S 4 := SectionalTwoRankLE.mono (by norm_num) h3
-  rcases even_lie_rank_le_four hs hnab he h4 with h | h | h | h | h | h | h | h | h
-  · exact Or.inl h
-  · exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr (Or.inl h))
-  · exact Or.inr (Or.inr (Or.inr h))
-  · exact absurd h3 (rank3_L2_16 h).not_sectionalTwoRankLE
-  · exact absurd h3 (rank3_L3_4 h).not_sectionalTwoRankLE
-  · exact absurd h3 (rank3_L4_2 h).not_sectionalTwoRankLE
-  · exact absurd h3 (rank3_U3_4 h).not_sectionalTwoRankLE
-  · exact absurd h3 (rank3_U4_2 h).not_sectionalTwoRankLE
 
 end CFSG.GH74.E2

@@ -44,20 +44,6 @@ namespace CFSG.ProperTwoGeneratedCore.LocalCriterionGeometry
 
 universe u v
 
-theorem all_fibers_card_eq_of_card_eq_mul
-    {A : Type u} {B : Type v} [Finite A] [Finite B]
-    (f : A → B) (m : ℕ)
-    (hbound : ∀ b : B, Nat.card {a : A // f a = b} ≤ m)
-    (htotal : Nat.card A = Nat.card B * m) :
-    ∀ b : B, Nat.card {a : A // f a = b} = m := by
-  classical
-  let := Fintype.ofFinite A
-  let := Fintype.ofFinite B
-  have hsum : (∑ b : B, Nat.card {a : A // f a = b}) = ∑ _b : B, m := by
-    rw [← Nat.card_sigma, Nat.card_congr (Equiv.sigmaFiberEquiv f), htotal]
-    simp only [Finset.sum_const, Finset.card_univ, smul_eq_mul, Nat.card_eq_fintype_card]
-  intro b
-  exact (Finset.sum_eq_sum_iff_of_le (fun b _ => hbound b)).mp hsum b (Finset.mem_univ b)
 
 variable {G : Type u} {Ω : Type v} [Group G] [MulAction G Ω]
 

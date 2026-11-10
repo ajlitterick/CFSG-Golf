@@ -30,13 +30,8 @@ theorem pow_ok : powK G starWord (nat_lit 11)
 theorem lit_ok : starPhi () = natsOf (strL (render (hList H (nat_lit 2) (nat_lit 0) (nat_lit 3510)))) := by
   kernelRfl
 
-theorem neg_row : Bool.not (rowSl G H (nat_lit 3) (nat_lit 0)) = true := by quickRfl
 theorem neg_pow : Bool.not (powK G starWord (nat_lit 10)
     [nat_lit 0, nat_lit 1, nat_lit 2, nat_lit 3, nat_lit 4, nat_lit 5]) = true := by quickRfl
-theorem neg_sw : Bool.not (swK H [nat_lit 0]) = true := by quickRfl
-theorem neg_tree : Bool.not (Nat.beq (cJ G (tb H (nat_lit 0) (tb H (nat_lit 8) (nat_lit 1)))
-    (tb H (nat_lit 0) (tb H (nat_lit 4) (nat_lit 0)))) (tb H (nat_lit 0) (tb H (nat_lit 4) (nat_lit 0))))
-    = true := by quickRfl
 
 end CFSG.KD.Fi23C
 

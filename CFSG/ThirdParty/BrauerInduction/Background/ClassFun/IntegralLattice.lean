@@ -180,38 +180,6 @@ noncomputable def mapIntCastLinearEquiv :
       IntegerValued (k := k) (G := G) :=
   mapIntCastRingEquiv.toAddEquiv.toIntLinearEquiv
 
-/--
-If every value of an integer-valued class function is divisible by a nonzero
-integer `n`, then the class function itself is an `n`-fold multiple in the
-integer-valued class-function lattice.
--/
-lemma exists_zsmul_eq_of_intLift_dvd
-    (n : ℤ) (hn : n ≠ 0)
-    (f : IntegerValued (k := k) (G := G))
-    (hf : ∀ g : G, n ∣ intLift f g) :
-    ∃ q : IntegerValued (k := k) (G := G),
-      n • q = f := by
-  let ψ : ClassFun ℤ G :=
-    { toFun := fun g => Classical.choose (hf g)
-      map_conj := by
-        intro x y hxy
-        apply mul_left_cancel₀ hn
-        calc
-          n * Classical.choose (hf x)
-              = intLift f x :=
-                (Classical.choose_spec (hf x)).symm
-          _ = intLift f y :=
-                ClassFun.apply_eq_apply_of_isConj hxy
-          _ = n * Classical.choose (hf y) :=
-                Classical.choose_spec (hf y) }
-
-  refine
-    ⟨mapIntCastRingHom (k := k) (G := G) ψ, ?_⟩
-  rw [← mapIntCast_intLift f, ← map_zsmul]
-  apply congrArg (mapIntCastRingHom (k := k) (G := G))
-  ext g
-  change n * ψ g = intLift f g
-  exact (Classical.choose_spec (hf g)).symm
 
 /--
 The basis of integer-valued class functions indexed by conjugacy classes.

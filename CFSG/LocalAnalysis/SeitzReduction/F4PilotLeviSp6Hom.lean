@@ -163,9 +163,6 @@ theorem coe_c3LeviBaseChange (ι : K →+* M) (g : C3Levi K) :
       baseChangeGL ι ((g : adjointGroup .F4 K) : ModGL .F4 K) :=
   rfl
 
-theorem c3LeviBaseChange_injective (ι : K →+* M) : Function.Injective (c3LeviBaseChange ι) :=
-  fun _ _ hgh => Subtype.ext (Subtype.ext (baseChangeGL_injective ι
-    (congrArg (fun x : C3Levi M => ((x : adjointGroup .F4 M) : ModGL .F4 M)) hgh)))
 
 theorem baseChangeGL_baseChangeGL {τ : Tag} {N : Type} [Field N] (ι : K →+* M) (κ : M →+* N)
     (g : ModGL τ K) : baseChangeGL κ (baseChangeGL ι g) = baseChangeGL (κ.comp ι) g := by
@@ -179,10 +176,6 @@ theorem baseChangeGL_baseChangeGL {τ : Tag} {N : Type} [Field N] (ι : K →+* 
       simp
   exact h.unique (Chevalley.baseChange_baseChangeEnd _ _)
 
-theorem c3LeviBaseChange_comp {N : Type} [Field N] (ι : K →+* M) (κ : M →+* N) (g : C3Levi K) :
-    c3LeviBaseChange κ (c3LeviBaseChange ι g) = c3LeviBaseChange (κ.comp ι) g := by
-  refine Subtype.ext (Subtype.ext ?_)
-  rw [coe_c3LeviBaseChange, coe_c3LeviBaseChange, coe_c3LeviBaseChange, baseChangeGL_baseChangeGL]
 
 end Levi
 

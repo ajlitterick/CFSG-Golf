@@ -46,22 +46,6 @@ section Core5
 @[expose] def actD (σ : Perm (Fin 5)) (x : ↥(G6.coreMod 5)) : ↥(G6.coreMod 5) :=
   ⟨G6.permAct 5 σ (x : G6.PermMod 5), G6.permAct_mem_coreMod σ x.2⟩
 
-theorem actD_coe (σ : Perm (Fin 5)) (x : ↥(G6.coreMod 5)) :
-    ((actD σ x : ↥(G6.coreMod 5)) : G6.PermMod 5) = G6.permAct 5 σ (x : G6.PermMod 5) := rfl
-
-theorem actD_mul (σ τ : Perm (Fin 5)) (x : ↥(G6.coreMod 5)) :
-    actD (σ * τ) x = actD σ (actD τ x) := by
-  apply Subtype.ext
-  show G6.permAct 5 (σ * τ) (x : G6.PermMod 5) = G6.permAct 5 σ (G6.permAct 5 τ (x : G6.PermMod 5))
-  rw [map_mul]
-  rfl
-
-theorem actD_mul_vec (σ : Perm (Fin 5)) (x y : ↥(G6.coreMod 5)) :
-    actD σ (x * y) = actD σ x * actD σ y := by
-  apply Subtype.ext
-  show G6.permAct 5 σ ((x : G6.PermMod 5) * (y : G6.PermMod 5)) =
-    G6.permAct 5 σ (x : G6.PermMod 5) * G6.permAct 5 σ (y : G6.PermMod 5)
-  rw [map_mul]
 
 @[expose] def x01 : ↥(G6.coreMod 5) :=
   ⟨Multiplicative.ofAdd e01, by
@@ -73,9 +57,6 @@ theorem actD_mul_vec (σ : Perm (Fin 5)) (x y : ↥(G6.coreMod 5)) :
     show ∑ i, Multiplicative.toAdd (Multiplicative.ofAdd e23) i = 0
     exact sum_e23⟩
 
-theorem toAdd_actD (σ : Perm (Fin 5)) (x : ↥(G6.coreMod 5)) (i : Fin 5) :
-    Multiplicative.toAdd ((actD σ x : ↥(G6.coreMod 5)) : G6.PermMod 5) i =
-      Multiplicative.toAdd (x : G6.PermMod 5) (σ⁻¹ i) := rfl
 
 theorem eq_of_toAdd {x y : ↥(G6.coreMod 5)}
     (h : Multiplicative.toAdd (x : G6.PermMod 5) = Multiplicative.toAdd (y : G6.PermMod 5)) : x = y :=

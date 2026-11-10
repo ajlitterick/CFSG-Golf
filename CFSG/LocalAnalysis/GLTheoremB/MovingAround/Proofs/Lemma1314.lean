@@ -56,11 +56,6 @@ namespace Lemma1314
   IsTitsGroup (↥K ⧸ Subgroup.center ↥K) ∨ IsReeF4_32Group (↥K ⧸ Subgroup.center ↥K) ∨
     IsSz32Group (↥K ⧸ Subgroup.center ↥K)
 
-@[expose] def Input14_15 : Prop :=
-  ∀ (p : ℕ), p.Prime → 5 ≤ p → ∀ (K : Type) [Group K] [Finite K],
-    CFSG.LocalAnalysis.GLTheoremA.IsKHat K → GLAPPrimeCore p K = ⊥ →
-    (∃ x : MulAut K, PumpupVia p ↥(alternatingGroup (Fin (p + 2))) K x) →
-      (∃ k : ℕ, 2 ≤ k ∧ IsAltType (k * p + 2) K) ∨ (p = 5 ∧ IsSporType .Fi23 K)
 
 @[expose] def Input23_10 : Prop :=
   ∀ (p q : ℕ), p.Prime → 5 ≤ p → q.Prime → q ≠ p →

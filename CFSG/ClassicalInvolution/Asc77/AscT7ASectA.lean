@@ -74,47 +74,6 @@ section Twin
 @[expose] def TwinTriple {X : Type} [Group X] (Φ : Set (Subgroup X)) : Prop :=
   ∃ K ∈ Φ, ∃ K' ∈ twinSet Φ K, K' ≠ K ∧ ∃ J ∈ omegaNbr Φ K, J ∈ omegaNbr Φ K'
 
-variable (p f) in
-@[expose] def DStarConnectedTwin : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] (Φ : Set (Subgroup X)), HypOmegaMod p f Φ →
-    classicalInvolutionOddCore X = ⊥ → (∀ L ∈ Φ, AEmpty Φ L) →
-    (∀ K ∈ Φ, ∀ L ∈ Φ, ∃ g : X, conjSub g K = L) → OmegaLie p f Φ → TwinTriple Φ →
-      T3.DStarConnected Φ
-
-theorem dstarConnected_quot_of_twinTriple (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmegaMod p f Ω) (hA : IsPGroup 2 ↥A) (hY : sectionHull Ω A ≠ ⊤)
-    (hBelow : CITBelowU p f (Nat.card G)) (h3s : T3.Thm3SectBelow p f (Nat.card G))
-    (hMF : DStarConnectedTwin p f)
-    (htt : TwinTriple (quotFamily (restrictFamily (sectionFamily Ω A) (sectionHull Ω A))
-      (classicalInvolutionOddCore ↥(sectionHull Ω A)))) :
-    T3.DStarConnected (quotFamily (restrictFamily (sectionFamily Ω A) (sectionHull Ω A))
-      (classicalInvolutionOddCore ↥(sectionHull Ω A))) := by
-  set Y := sectionHull Ω A with hYdef
-  set Λ : Set (Subgroup ↥Y) := restrictFamily (sectionFamily Ω A) Y with hΛdef
-  set N₀ : Subgroup ↥Y := classicalInvolutionOddCore ↥Y with hN₀def
-  have hN₀odd : Odd (Nat.card N₀) := CFSG.ComponentClassification.OddCore.odd_card ↥Y
-  have hΛ : HypOmegaMod p f Λ := hypOmegaMod_sectionFamily hp hq hΩ hA
-  have hΛ' : HypOmegaMod p f (quotFamily Λ N₀) := oddQuotHyp p f hp hq ↥Y Λ hΛ N₀ hN₀odd
-  have hltY := natCard_lt_of_ne_top hY
-  have hlt : Nat.card (↥Y ⧸ N₀) < Nat.card G := by
-    have h1 : Nat.card (↥Y ⧸ N₀) ≤ Nat.card ↥Y :=
-      Nat.le_of_dvd Nat.card_pos (Subgroup.index_dvd_card N₀)
-    omega
-  have hOq : classicalInvolutionOddCore (↥Y ⧸ N₀) = ⊥ :=
-    CFSG.ComponentClassification.OddCore.quotient_corefree ↥Y
-  by_contra hdis
-  have hΛA : ∀ L ∈ Λ, AEmpty Λ L := h3s hp hq ↥Y hltY Λ hΛ hdis
-  have hAΛ' := aEmpty_quotFamily hp hq hΛ hΛ' hN₀odd hΛA
-  obtain ⟨K₀, hK₀, -⟩ := id htt
-  rcases dichotomy_of_thm4 hp hq (thm4Below_of_citBelow hBelow) hlt hΛ' hOq hAΛ' hK₀ with hc | horb
-  · exact hdis (T3.dstarConnected_of_pivot hK₀ hc)
-  · have htrans : ∀ K ∈ quotFamily Λ N₀, ∀ L ∈ quotFamily Λ N₀, ∃ g : ↥Y ⧸ N₀, conjSub g K = L := by
-      intro K hK L hL
-      obtain ⟨y₁, hy₁⟩ := horb K hK
-      obtain ⟨y₂, hy₂⟩ := horb L hL
-      exact ⟨y₂ * y₁⁻¹, by rw [conjSub_mul, ← hy₁, conjSub_inv_conjSub, hy₂]⟩
-    obtain ⟨D⟩ := ih8_exists_omegaLie hBelow hΛ'.conjInvariant hΛ'.classical ⟨_, hK₀⟩ hOq hlt
-    exact hdis (hMF _ _ hΛ' hOq hAΛ' htrans D htt)
 
 end Twin
 

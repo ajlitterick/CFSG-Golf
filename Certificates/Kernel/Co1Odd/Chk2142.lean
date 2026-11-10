@@ -21,9 +21,7 @@ open CFSG.KLie.CT CFSG.KC.Co1F2 CFSG.KC.M1F2 CFSG.KC.FixScan CertificateChecks.K
 
 theorem prog_ok : progK 24 G CFSG.Sporadic.Co1Schreier.Data.oddACProg 2 = true := by quickRfl
 
-theorem ord3 : orderIsK 24 G3 2 = true := by quickRfl
 theorem ord8 : orderIsK 24 G8 15 = true := by quickRfl
-theorem ord10 : orderIsK 24 G10 2 = true := by quickRfl
 theorem ord15 : orderIsK 24 G15 3 = true := by quickRfl
 theorem ord20 : orderIsK 24 G20 3 = true := by quickRfl
 

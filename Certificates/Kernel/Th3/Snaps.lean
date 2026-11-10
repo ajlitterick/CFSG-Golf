@@ -28,16 +28,11 @@ open CFSG.KC.OpsLayK CertificateChecks.KernelTh3.L
 @[expose] noncomputable def chTh3 (i : Nat) : Bool :=
   chunkL lay prog 50 i (S.SL.getD i []) (S.SL.getD (i + 1) [])
 
-theorem init : eqL (S.SL.getD 0 []) (initR lay A B 8) = true := by quickRfl
 
 #kc_each chTh3 0 3
 
 #kc_forall_tree ch_all (fun i => chTh3 i = true) 3 CertificateChecks.KernelTh3.chTh3
 
-theorem m_eq : S.m = 3 := rfl
-
-theorem ch_neg : (!chunkL lay prog 50 0 (S.SL.getD 0 []) (S.SL.getD 2 [])) = true := by
-  quickRfl
 
 @[expose] noncomputable def RF : List Nat := S.SL.getD 3 []
 

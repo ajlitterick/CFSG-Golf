@@ -44,46 +44,11 @@ section Inputs
         GGPresentsG0 (ggG0 p B x L D J) (ggU t n f).D t n f ψ →
           ¬ GGSecFiveLeviCase p B Bs x L D J → GGSecFiveCompat p B x L D J
 
-theorem ggSecFiveCompatRestInput_of_compatNbrSome (h : GGCompatNbrSomeInput) :
-    GGSecFiveCompatRestInput := by
-  intro G _ _ p B Bs x L D J hcfg hOp hInn _ _ t n f ψ hpres _
-  exact h G p B Bs x L D J hcfg hOp hInn t n f ψ hpres
 
 end Inputs
 
 section Main
 
-theorem ggSecFiveCompat_of_leviCase (hA : GGTypeAEndNodeInput) (hE : GGTypeAJoinEndNodeInput)
-    (hC : GGTypeACorankTwoInput) (hH : GGTypeAHalfEndNodesInput) (hSpL : GGSpLiftInput)
-    (hSpE : GGSpJoinEndNodeInput) (hSpJ : GGSpJoinInput) {G : Type} [Group G] [Finite G]
-    {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J)
-    (hOp : GGOpAutTrivial p Bs) (hInn : GGInnerDiagAll p B Bs x L D J)
-    (hNoTr : GGNoTransvection p Bs) (hlevi : GGSecFiveLeviCase p B Bs x L D J) :
-    GGSecFiveCompat p B x L D J := by
-  rcases hlevi with ⟨n, f, y, K, hN⟩ | ⟨n, y, K, hN⟩ | ⟨n, f, y, K, hN⟩
-  · by_cases hsplit : ∃ n' f' : ℕ, GGTypeASplitConfig p B Bs x L D J n' f'
-    · obtain ⟨n', f', hS⟩ := hsplit
-      exact ggSecFiveCompat_of_endNodeInput hA hcfg hOp hInn hNoTr hS
-    have hdiv : p ∣ n + 3 := by
-      by_contra hp
-      exact hsplit ⟨n, f, hN.splitConfig hp⟩
-    by_cases hjoin : ∀ (y' : G) (K' : Subgroup G), GGNbr p B x D J y' K' → K' ≤ L ⊔ K
-    · exact ggSecFiveCompat_of_join hE hcfg hOp hInn hNoTr hN hjoin
-    · push Not at hjoin
-      exact ggSecFiveCompat_of_corankTwo hE hC hcfg hOp hInn hNoTr hN hdiv hjoin
-  · exact ggSecFiveCompat_of_half hH hcfg hOp hInn hNoTr hN
-  · exact ggSecFiveCompat_of_typeC hSpL hSpE hSpJ hcfg hOp hInn hNoTr hN
-
-theorem ggCompatNbrSomeInput_of_secFive (hc₃ : GGNoTransvectionInput) (hd : GGCoxeterLabelInput)
-    (hA : GGTypeAEndNodeInput) (hE : GGTypeAJoinEndNodeInput) (hC : GGTypeACorankTwoInput)
-    (hH : GGTypeAHalfEndNodesInput) (hSpL : GGSpLiftInput) (hSpE : GGSpJoinEndNodeInput)
-    (hSpJ : GGSpJoinInput) (hrest : GGSecFiveCompatRestInput) : GGCompatNbrSomeInput := by
-  intro G _ _ p B Bs x L D J hcfg hOp hInn t n f ψ hpres
-  have hNoTr := hc₃ G p B Bs x L D J hcfg hOp hInn
-  by_cases hlevi : GGSecFiveLeviCase p B Bs x L D J
-  · exact ggSecFiveCompat_of_leviCase hA hE hC hH hSpL hSpE hSpJ hcfg hOp hInn hNoTr hlevi
-  · exact hrest G p B Bs x L D J hcfg hOp hInn hNoTr (hd G p B Bs x L D J hcfg hOp hInn hNoTr)
-      t n f ψ hpres hlevi
 
 end Main
 

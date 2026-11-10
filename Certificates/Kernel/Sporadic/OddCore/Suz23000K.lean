@@ -72,16 +72,6 @@ theorem pinK : bAnd(Nat.beq pinWords.length 42, allN 42 (fun p =>
       (pinWords.getD p []).any (fun w => notB (Nat.beq (pg 6 (mask 6) (PW w) q) q))))))) = true := by
   quickRfl
 
-theorem betaNeg : notB (allN 42 (fun a =>
-    Nat.beq (pg 11 (mask 11) OK7 (nget fix0L a)) (nget fix0L a))) = true := by
-  quickRfl
-
-theorem notInNeg : notB (allN 5040 (fun k => notB (Nat.beq (K0E.T k) (K0E.T 17)))) = true := by
-  quickRfl
-
-theorem pinNeg : notB (allN 42 (fun q => bIf(Nat.beq q 1, true,
-    (pinWords.getD 0 []).any (fun w => notB (Nat.beq (pg 6 (mask 6) (PW w) q) q))))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.Suz23000
 

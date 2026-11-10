@@ -53,31 +53,6 @@ private theorem mem_Hhat_of_mem_normalizer
   rw [← hN]
   exact hg
 
-/-- A nontrivial subgroup of `F(Ĥ)` whose normalizer lies in `Ĥ^g` forces
-`g ∈ Ĥ`. -/
-public theorem hhat_conjugate_TI_of_normalizer_control
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (X : Subgroup G) (hXne : X ≠ ⊥)
-    (hXleF : X ≤ fittingSubgroupOf c.Hhat)
-    (g : G)
-    (hNX : Subgroup.normalizer (X : Set G) ≤
-      conjugateSubgroup c.Hhat g) :
-    g ∈ c.Hhat := by
-  classical
-  have hcontrol : NormalizerControlledBy c.Hhat
-      (conjugateSubgroup c.Hhat g) :=
-    ⟨X, hXne, hXleF, hNX⟩
-  have hodd : oddCoreOf c.Hhat ≠ ⊥ := by
-    rw [← (theorem_2_6 hmin c).1]
-    exact (lemma_2_2 hmin c).2
-  have hEq : c.Hhat = conjugateSubgroup c.Hhat g :=
-    lemma_2_5 hmin c g hcontrol hodd
-  have hgNorm : g ∈ Subgroup.normalizer (c.Hhat : Set G) := by
-    rw [Subgroup.mem_normalizer_iff_map_conj_eq]
-    exact hEq.symm
-  exact mem_Hhat_of_mem_normalizer hmin c hgNorm
 
 /-- If a nontrivial subgroup of `F(Ĥ)` is normal in both `Ĥ` and `Ĥ^g`,
 then `g ∈ Ĥ`. -/

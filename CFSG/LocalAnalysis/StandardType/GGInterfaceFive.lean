@@ -45,58 +45,6 @@ section Inputs
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem ggInnerDiagOn_of_presents (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput)
-    {G₀ Bs : Subgroup G} {t : StatedLieTag} {n f : ℕ} {ψ : (ggU t n f).K →* G}
-    (hpres : GGPresentsG0 G₀ (ggU t n f).D t n f ψ)
-    (hBsN : Bs ≤ Subgroup.normalizer (G₀ : Set G))
-    (hVI : ∀ b ∈ Bs, GGPsiInnerDiag (ggU t n f).D ψ b) : GGInnerDiagOn Bs G₀ := by
-  obtain ⟨⟨hadm, hrk⟩, ⟨hrange, hker⟩, hperf, hmodel⟩ := hpres
-  have hm1 := hR G t n f ψ hadm hrk hker _ hrange _ (hR1 _ t n f hadm hperf hmodel)
-  exact largeEvenMarking_mono (fun lab R _ I F θ hP => ⟨hBsN, fun b hb =>
-    (hP.2 b (hBsN hb)).mpr (hVI b hb)⟩) hm1
-
-theorem ggPropFiveTwentyOneInput_of_v2 (he : GGPropFiveTwentyOneV2Input)
-    (hR1 : GGLieModelMarkingInput) : GGPropFiveTwentyOneInput := by
-  intro G _ _ p B Bs x L D J hcfg hOp hInn hNoTr hW
-  obtain ⟨t, n, f, ψ, ⟨hadm, -⟩, -, hperf, hmodel⟩ := he G p B Bs x L D J hcfg hOp hInn hNoTr hW
-  exact hR1 _ t n f hadm hperf hmodel
-
-theorem ggHypSixV2Input_of_hypSix (hf : GGHypSixInput) (hR1 : GGLieModelMarkingInput)
-    (hR : GGInnerDiagBridgeInput) : GGHypSixV2Input := by
-  intro G _ _ p B Bs x L D J hcfg hOp hInn t n f ψ hpres hBsN b hb
-  obtain ⟨⟨hadm, hrk⟩, ⟨hrange, hker⟩, hperf, hmodel⟩ := hpres
-  have hm0 := hR1 _ t n f hadm hperf hmodel
-  have hm1 := hR G t n f ψ hadm hrk hker _ hrange _ (hf G p B Bs x L D J hcfg hOp hInn hm0 hBsN)
-  obtain ⟨-, lab, -, hraw⟩ := hm1
-  obtain ⟨R, _, I, F, -, -, θ, hI, hiff⟩ := largeEvenRawDatum_exists hraw
-  exact (hiff b (hBsN hb)).mp (hI b hb)
-
-theorem ggSecOneFiveV2Input_of_inputs (ha : GGBstarInput) (ha₀ : GGLNoncyclicInput)
-    (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput) (hc₁ : GGProp41Input)
-    (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput) (hd : GGCoxeterLabelInput)
-    (he : GGPropFiveTwentyOneV2Input) (hf : GGHypSixV2Input) (hg₁ : GGCorFiveTwentyInput)
-    (hg₂ : GGOmegaOneInput) (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput) :
-    GGSecOneFiveV2Input := by
-  intro G _ _ _ hnonab hK hchar he4 p hp B x L hS hst
-  have hI : GGThmIHyp p B x L := ⟨inferInstance, hnonab, hK, hchar, he4, hp, hS, hst⟩
-  obtain ⟨Bs, hBs⟩ := ha G p B x L hI
-  obtain ⟨D, J, hDJ⟩ := exists_stdSub_of_stdSubPre (hb G p B x L hI)
-  have hcfg : GGConfig p B Bs x L D J := ⟨hI, hBs, hDJ⟩
-  have hOp := hc₁ G p B Bs x L D J hcfg (hc₀ G p B Bs x L D J hcfg)
-  have hInn := hc₂ G p B Bs x L D J hcfg hOp
-  have hNoTr := hc₃ G p B Bs x L D J hcfg hOp hInn
-  have hW := hd G p B Bs x L D J hcfg hOp hInn hNoTr
-  obtain ⟨t, n, f, ψ, hpres⟩ := he G p B Bs x L D J hcfg hOp hInn hNoTr hW
-  have hnc := ha₀ G p B x L hI
-  have hBsN := bstar_le_normalizer_ggG0 hS hnc hDJ.1 hBs
-  have hVI := hf G p B Bs x L D J hcfg hOp hInn t n f ψ hpres hBsN
-  have hNBs := hg₁ G p B Bs x L D J hcfg hOp hInn hNoTr
-    (ggInnerDiagOn_of_presents hR1 hR hpres hBsN hVI)
-  have hCB := centralizer_le_normalizer_ggG0 hS hnc hDJ.1
-  have hNB := normalizer_le_of_frattini hp.1 hBs (hg₂ G p B Bs x L D J hcfg hOp hInn) hCB hNBs
-  obtain ⟨⟨hadm, hrk⟩, ⟨hrange, hker⟩, hperf, hmodel⟩ := hpres
-  exact ⟨Bs, D, J, t, n, f, ψ, hBs, hDJ, ⟨hadm, hrk⟩, ⟨hrange, hker⟩, ⟨hperf, hmodel⟩,
-    ⟨hBsN, hVI⟩, hNB, hNBs⟩
 
 end Inputs
 
@@ -124,45 +72,6 @@ end Presentation
 
 section Assembly
 
-theorem lc_gl_std_of_v2_steps (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (he : GGPropFiveTwentyOneV2Input) (hf : GGHypSixInput)
-    (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput) (ha'₁ : GGBstarSylowUniqueInput)
-    (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneInput)
-    (h2 : GGSixStepTwoInput) (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput)
-    (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  have ha' := ggBstarRankInput_of_sylowUnique ha'₁
-  lc_gl_std_of_v2_inputs hHolt
-    (ggSecOneFiveV2Input_of_inputs ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd he
-      (ggHypSixV2Input_of_hypSix hf hR1 hR) hg₁ hg₂ hR1 hR)
-    (ggSecSixV2Input_of_inputs (ggSixStepOneV2Input_of_input h1 hR1 hR ha')
-      (ggSixStepTwoV2Input_of_input h2 hR1 hR ha') h3a h3b h3c h3d hKG)
-    G hnonab hK hchar he4 p hp B x L hS hst
-
-theorem lc_gl_std_of_v2_steps' (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (he : GGPropFiveTwentyOneV2Input) (hf : GGHypSixV2Input)
-    (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput) (hR1 : GGLieModelMarkingInput)
-    (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneV2Input) (h2 : GGSixStepTwoV2Input)
-    (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput)
-    (h3d : GGSixStepThreeDInput) (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_v2_inputs hHolt
-    (ggSecOneFiveV2Input_of_inputs ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd he hf hg₁ hg₂ hR1 hR)
-    (ggSecSixV2Input_of_inputs h1 h2 h3a h3b h3c h3d hKG)
-    G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

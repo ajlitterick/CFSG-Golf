@@ -74,7 +74,6 @@ theorem valid8_mulS {A : List ℕ} (hA : Valid8 A) (B : List ℕ) : Valid8 (mulS
 @[expose] def matS : H8 →* Matrix ι8 ι8 (ZMod 2) :=
   (Units.coeHom (Matrix ι8 ι8 (ZMod 2))).comp (StatedSp 4 (ZMod 2)).subtype
 
-theorem matS_apply (g : H8) : matS g = ((g : GL ι8 (ZMod 2)) : Matrix ι8 ι8 (ZMod 2)) := rfl
 
 theorem matS_injective : Function.Injective matS := by
   intro g h e
@@ -106,15 +105,12 @@ theorem codeS_mul (g h : H8) : codeS (g * h) = mulS (codeS g) (codeS h) :=
 theorem codeS_one : codeS 1 = one8 :=
   codeS_eq_of_decS valid8_one8 (by rw [decS_one8, map_one])
 
-theorem eq_of_codeS {g h : H8} (e : codeS g = codeS h) : g = h := codeS_injective e
 
 theorem commute_iff_codeS (g h : H8) : g * h = h * g ↔ mulS (codeS g) (codeS h) =
     mulS (codeS h) (codeS g) := by
   rw [← codeS_mul, ← codeS_mul]
   exact ⟨fun e => by rw [e], fun e => codeS_injective e⟩
 
-theorem fin_four_vals : ((0 : Fin 4) : ℕ) = 0 ∧ ((1 : Fin 4) : ℕ) = 1 ∧ ((2 : Fin 4) : ℕ) = 2 ∧
-    ((3 : Fin 4) : ℕ) = 3 := ⟨rfl, rfl, rfl, rfl⟩
 
 theorem neg_zmod2 (x : ZMod 2) : -x = x := by fin_cases x <;> rfl
 

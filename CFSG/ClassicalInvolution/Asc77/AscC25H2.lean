@@ -53,9 +53,6 @@ variable {G : Type} [Group G] {p f : ℕ} [Fact p.Prime] {K : Subgroup G} (hp : 
 
 variable {hp hq e z t' ht2}
 
-theorem mem_triv_iff {y : G} : y ∈ Triv hp hq e z t' ht2 ↔ y ∈ Subgroup.normalizer (K : Set G) ∧
-    y * z = z * y ∧ t' * y * t' ∈ Subgroup.normalizer (K : Set G) ∧ nuG hp hq e y = 1 ∧
-    nuG hp hq e (t' * y * t') = 1 := Iff.rfl
 
 theorem triv_swap (htz : t' * z = z * t') {y : G} (hy : y ∈ Triv hp hq e z t' ht2) :
     t' * y * t' ∈ Triv hp hq e z t' ht2 := by

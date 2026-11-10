@@ -43,7 +43,6 @@ open CFSG.KLie.CT CFSG.KC.Loop CFSG.KC.M1F2 CFSG.KC.Co1F2
   List.rec (motive := fun _ => Nat → Nat) (fun acc => acc)
     (fun l _ ih acc => strictN (mulF 24 acc (getL 0 K l)) ih) w
 
-@[expose] noncomputable def gwF (K : List Nat) (w : List Nat) : Nat := gwFA K w (idF 24)
 
 end CFSG.KC.BfsT
 

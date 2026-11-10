@@ -67,13 +67,6 @@ theorem getG_eq (L : List ℕ) (l : ℕ) : getG L l = (L[l]?).getD oneK := by
     | zero => rfl
     | succ l => exact ih l
 
-theorem getT_eq (L : List ℕ) (l : ℕ) : getT L l = (L[l]?).getD 0 := by
-  induction L generalizing l with
-  | nil => rfl
-  | cons a L ih =>
-    cases l with
-    | zero => rfl
-    | succ l => exact ih l
 
 theorem getD_mem_or {L : List ℕ} {l d : ℕ} : (L[l]?).getD d ∈ L ∨ (L[l]?).getD d = d := by
   cases h : L[l]? with

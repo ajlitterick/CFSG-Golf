@@ -323,9 +323,6 @@ theorem isQGroup_quotient_oddCore_iff :
     IsQGroup (H ⧸ CFSG.oddCore H) ↔ IsQGroup H :=
   isQGroup_iff_of_oddKernel _ (QuotientGroup.mk'_surjective _) odd_card_ker_mk'_oddCore
 
-theorem isDGroup_quotient_oddCore_iff :
-    IsDGroup (H ⧸ CFSG.oddCore H) ↔ IsDGroup H :=
-  isDGroup_iff_of_oddKernel _ (QuotientGroup.mk'_surjective _) odd_card_ker_mk'_oddCore
 
 end OddCore
 

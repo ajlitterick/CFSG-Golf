@@ -33,9 +33,6 @@ structure D1CaseTwoData (p : ℕ) (P : Sylow p G) (M H R : Subgroup G)
 @[expose] def d1LayerX (p : ℕ) (H R : Subgroup G) : Subgroup G :=
   d1LiftX p H R (CFSG.layer (H ⧸ primeComplementCore (G := H) p))
 
-@[expose] def D1CaseTwoClass (p : ℕ) (P : Sylow p G) (M R X H : Subgroup G) : Prop :=
-  ∃ Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p),
-    D1CaseTwoData p P M H R Rbar ∧ d1LayerX p H R = X
 
 abbrev d1X0 (p : ℕ) (M H : Subgroup G) : Subgroup (H ⧸ primeComplementCore (G := H) p) :=
   ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p))
@@ -82,15 +79,6 @@ end Defs
           IsCaseTwoGroup 3 Y ∧ ¬ IsOrthogonalTwo Y ∧
             ¬ ∃ n : ℕ, Nonempty (Y ≃* alternatingGroup (Fin n))
 
-@[expose] def KFactCaseTwoAlphaElim : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], Open.IsQuasisimple K →
-    IsCatalogGroup (K ⧸ Subgroup.center K) → ∀ p : ℕ, (p = 3 ∨ p = 5) →
-    Subgroup.center K ≠ ⊥ → IsPGroup p (Subgroup.center K) → IsCyclic (Subgroup.center K) →
-    ∀ (A : Subgroup K) (L : Type) [Group L], IsCaseTwoGroup p L →
-      ∀ f : A →* L, Function.Surjective f → ∀ T : Sylow p K,
-        (KGenThree p K ∧ (3 ≤ Open.pRank p (⊤ : Subgroup K) ∨ KOutNormalSylow p K)) ∨
-        Open.pRank p (⊤ : Subgroup (MulAut K)) ≤ 2 ∨
-        (GLBWeakCore p (T : Subgroup K) = ⊤ ∧ 3 ≤ Open.pRank p (⊤ : Subgroup K))
 
 @[expose] def KFactCatalogSchreier : Prop :=
   ∀ (K : Type) [Group K] [Finite K], IsSimpleGroup K → (∃ a b : K, a * b ≠ b * a) →
@@ -218,12 +206,6 @@ theorem ReducedNongeneration.exists_not_le_of_caseTwo (h : ReducedNongeneration 
     ∃ L : Subgroup Y, IsComponentOf L ⊤ ∧ ¬ L ≤ Y₀ :=
   h.exists_not_le_of_caseTwo_of_aut (h.cycAutRankLeTwo_of_kFactBeta hX hβ) hcyc hK
 
-theorem ReducedNongeneration.pCore_ne_bot_of_unique (h : ReducedNongeneration p Y Rb Y₀)
-    (hX : CatalogSimpleSections Y) (hβ : KFactBeta)
-    (hcyc : ∀ L : Subgroup Y, IsComponentOf L ⊤ → IsCyclic ((Rb : Subgroup Y) ⊓ L : Subgroup Y))
-    (h3 : Open.pRank p (Rb : Subgroup Y) = 3) {L : Subgroup Y} (hL : IsComponentOf L ⊤)
-    (huniq : ∀ L' : Subgroup Y, IsComponentOf L' ⊤ → L' = L) : CFSG.pCore p Y ≠ ⊥ :=
-  h.pCore_ne_bot_of_unique_of_aut (h.cycAutRankLeTwo_of_kFactBeta hX hβ) hcyc h3 hL huniq
 
 end Reduced
 

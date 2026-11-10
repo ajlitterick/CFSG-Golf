@@ -258,14 +258,5 @@ theorem card_co3CM1_le :
   · intro x y h
     exact Subtype.ext (congrArg (fun z : co3CD0 => ((z : co3M1) : Equiv.Perm (Fin 276))) h)
 
-theorem co3CM1_solvable :
-    Group.IsSolvable co3CM1 :=
-  CFSG.ComponentClassification.CatalogueSchreierAlternating.solvable_of_card_le_four
-    card_co3CM1_le
-
-theorem AT_Co3_two_centralizer_generation :
-    co3M ⊔ co3M1 = co3P ∧ co3D0 ≤ co3M ⊓ co3M1 ∧ Nat.card co3CM1 ≤ 4 ∧
-      Group.IsSolvable co3CM1 :=
-  ⟨co3M_sup_M1, co3D0_le, card_co3CM1_le, co3CM1_solvable⟩
 
 end CFSG.Sporadic.Schreier.Co3

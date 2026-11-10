@@ -115,11 +115,6 @@ open scoped MatrixGroups commutatorElement
 section Range
 
 
-theorem g2RootSL2_coe {L : Type} [Field L] (i : Fin (Tag.rank .G2))
-    (M : Matrix.SpecialLinearGroup (Fin 2) L) :
-    ((g2RootSL2 i L M : adjointGroup Tag.G2 L) : ModGL Tag.G2 L) =
-      simpleRootSL2 Tag.G2 L i M := rfl
-
 theorem range_g2RootSL2_coe {L : Type} [Field L] (i : Fin (Tag.rank .G2)) :
     ((g2RootSL2 i L).range.map (adjointGroup Tag.G2 L).subtype) =
       rootPair Tag.G2 L (Pi.single i 1) := by
@@ -243,12 +238,6 @@ theorem d43X_four_mem_FixedSub {c : K} (hc : σ c = c) :
   exact congrArg Subtype.val
     (entrywise_xOrbit_fixed (γ := CFSG.LieType.Steinberg.TwistedD4.d4Root 5) hc)
 
-theorem r1_conj_root3 :
-    conjBy (nHat σ.toRingHom (ng 1)) (hexGroup (twistedX σ.toRingHom) 3) =
-      hexGroup (twistedX σ.toRingHom) 5 := by
-  let R := d4RGD2 σ.toRingHom hσ
-  exact R.conjBy_r₁ (⟨by norm_num, by norm_num⟩ : IsRoot 6 5)
-    (R.act₁.2.2 3 (by norm_num) (by norm_num)).1
 
 theorem nprime_inv_conj_root3 :
     conjBy (nHat σ.toRingHom (ng 1) * nHat σ.toRingHom (ng 0) *
@@ -910,18 +899,6 @@ theorem fixedSub_le_of_slLong_slShort (hK2 : ringChar K ≠ 2) {q : ℕ} (hq5 : 
   have hzK : (⟨z, hz⟩ : ↥(FixedSub σ)) ∈ Ksub := by rw [hKsub]; trivial
   exact hzK
 
-theorem fixedSub_le_of_root5 (hK2 : ringChar K ≠ 2) {q : ℕ} (hq5 : 5 ≤ q)
-    (hK : Nat.card K = q ^ 3) (hσq : ∀ c, σ c = c ^ q)
-    (H : Subgroup (twistedGroup σ.toRingHom))
-    (hL : longSub 6 (hexGroup (twistedX σ.toRingHom)) ≤ H)
-    {y : twistedGroup σ.toRingHom} (hyH : y ∈ H) (hyJ : y ∈ FixedSub σ)
-    (hy5 : y ∈ hexGroup (twistedX σ.toRingHom) 5) (hy1 : y ≠ 1) :
-    FixedSub σ ≤ H := by
-  refine fixedSub_le_of_slLong_slShort hσ hK2 hq5 hK hσq H ?_ ?_
-  · intro M
-    exact hL (slLong_range_le_longSub hσ ⟨M, rfl⟩)
-  · exact slShort_le_of_root5 (hσ := hσ) (h2 := Ring.two_ne_zero hK2)
-      (H := H) (hL := hL) (hyH := hyH) (hyJ := hyJ) (hy5 := hy5) (hy1 := hy1)
 
 theorem longShortFixedGen_holds (hK2 : ringChar K ≠ 2) : LongShortFixedGen hσ := by
   intro H hL hgen

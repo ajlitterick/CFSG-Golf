@@ -206,35 +206,5 @@ theorem centralizer_Q4_le :
   have := Subgroup.mem_centralizer_iff.1 hx y hyQ
   rw [← hy, ← map_mul, ← map_mul, this]
 
-@[expose] def fixPt4
-    (k : Fin 800) : X := hF4.pt ((finCongr f4_size).symm k)
-
-theorem fixPt4_injective :
-    Function.Injective fixPt4 := fun _ _ h =>
-  (finCongr f4_size).symm.injective (hF4.pt_injective h)
-
-theorem fix_t4_iff
-    (y : X) : jR t4J • y = y ↔ ∃ k : Fin 800, fixPt4 k = y := by
-  rw [fix_t4]
-  constructor
-  · rintro ⟨k, rfl⟩
-    exact ⟨finCongr f4_size k, by rw [fixPt4, Equiv.symm_apply_apply]⟩
-  · rintro ⟨k, rfl⟩
-    exact ⟨_, rfl⟩
-
-theorem ctuc_hn_four_pair_self_centralizing_two_subgroup :
-    Function.Injective fixPt4 ∧ (∀ y : X, jR t4J • y = y ↔ ∃ k : Fin 800, fixPt4 k = y) ∧
-    (∀ (x : C4) (k : Fin 800), fixPt4 (rho4 x k) = (x : RH) • fixPt4 k) ∧
-    rho4.ker = Subgroup.zpowers t4C ∧ Nat.card rho4.range = 3686400 ∧
-    (∀ i < 8, qbar i ∈ rho4.range) ∧ Qbar ≤ rho4.range ∧ (Qbar.subgroupOf rho4.range).Normal ∧
-    (∀ x ∈ Qbar, ∀ y ∈ Qbar, x * y = y * x) ∧ (∀ x ∈ Qbar, x ^ 2 = 1) ∧ Nat.card Qbar = 256 ∧
-    Nat.card (MulAut.conjNormal (G := rho4.range) (H := Qbar.subgroupOf rho4.range)).range =
-      14400 ∧
-    Subgroup.centralizer (Qbar : Set (Perm (Fin 800))) ⊓ rho4.range = Qbar ∧
-    Q4.Normal ∧ Nat.card Q4 = 512 ∧ IsPGroup 2 Q4 ∧ Subgroup.centralizer (Q4 : Set C4) ≤ Q4 :=
-  ⟨fixPt4_injective, fix_t4_iff, pt_rho4, ker_rho4, card_rho4_range,
-    fun _ hi => qbar_mem_range hi, Qbar_le_range, Qbar_normal, fun _ hx _ hy => Qbar_comm hx hy,
-    fun _ hx => Qbar_sq hx, card_Qbar, card_conj_range, centralizer_Qbar, Q4_normal, card_Q4,
-    Q4_isPGroup, centralizer_Q4_le⟩
 
 end CFSG.Sporadic.HNOddCore

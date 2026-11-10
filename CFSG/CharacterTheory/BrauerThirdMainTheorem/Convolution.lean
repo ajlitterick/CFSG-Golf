@@ -19,18 +19,6 @@ theorem coefficientConvolution_apply {G : Type*} [Group G] [Fintype G]
       ∑ factor : G, left factor * right (factor⁻¹ * element) := by
   exact finsum_eq_sum_of_fintype _
 
-theorem coefficientConvolution_local {G : Type*} [Group G] [Finite G]
-    (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) {left right : G → ℂ}
-    (hleft : ∀ element, left element ∈ BlocksLocalRing m)
-    (hright : ∀ element, right element ∈ BlocksLocalRing m) :
-    ∀ element, coefficientConvolution left right element ∈ BlocksLocalRing m := by
-  classical
-  let : Fintype G := Fintype.ofFinite G
-  intro element
-  rw [coefficientConvolution_apply]
-  apply localRing_sum m hm
-  intro factor _
-  exact localRing_mul m hm (hleft factor) (hright (factor⁻¹ * element))
 
 theorem coefficientConvolution_central {G : Type*} [Group G] [Finite G]
     (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) {left right : G → ℂ}

@@ -10,7 +10,6 @@ public section
 
 namespace CFSG.KD.ETA
 
-@[expose] def root : Bool × Nat × Nat × Nat := (true, CFSG.KD.J4Q.one, 0, 0)
 
 @[expose] def us : List Nat :=
   [CFSG.KD.J4Q.U0, CFSG.KD.J4Q.U1, CFSG.KD.J4Q.U2, CFSG.KD.J4Q.U3, CFSG.KD.J4Q.U4, CFSG.KD.J4Q.U5,

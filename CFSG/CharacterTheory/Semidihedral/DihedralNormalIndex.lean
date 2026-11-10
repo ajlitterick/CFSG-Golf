@@ -237,30 +237,6 @@ theorem noncyclic_normal_dihedral_fills_index_two
   rw [hfactorization]
   norm_num
 
-theorem k_eq_two_impossible
-    {G : Type u} [Group G] [Finite G]
-    (S : Sylow 2 G) (eS : S ≃* DihedralGroup 2)
-    (L : Subgroup G) (hLnormal : L.Normal)
-    (J : Subgroup G) (hJindex : J.index = 2) (hLJ : L ≤ J)
-    (T : Sylow 2 L) (hTnc : ¬ IsCyclic T) : False := by
-  have h := noncyclic_normal_dihedral_fills_index_two
-    2 (by norm_num) S eS L hLnormal J hJindex hLJ T hTnc
-  omega
-
-theorem k_eq_three_intersection_isKleinFour
-    {G : Type u} [Group G] [Finite G]
-    (S : Sylow 2 G) (eS : S ≃* DihedralGroup 4)
-    (L : Subgroup G) (hLnormal : L.Normal)
-    (J : Subgroup G) (hJindex : J.index = 2) (hLJ : L ≤ J)
-    (T : Sylow 2 L) (hTnc : ¬ IsCyclic T) :
-    IsKleinFour ↥((S : Subgroup G) ⊓ L) := by
-  obtain ⟨eP⟩ := (noncyclic_normal_dihedral_fills_index_two
-    3 (by norm_num) S eS L hLnormal J hJindex hLJ T hTnc).2.2.2.2.1
-  refine ⟨?_, ?_⟩
-  · rw [Nat.card_congr eP.toEquiv, DihedralGroup.nat_card]
-    norm_num
-  · rw [Monoid.exponent_eq_of_mulEquiv eP, DihedralGroup.exponent]
-    norm_num
 
 end
 

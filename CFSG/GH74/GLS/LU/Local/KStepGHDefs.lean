@@ -18,8 +18,6 @@ open Subgroup CFSG CFSG.GH74 CFSG.GH74.GLS CFSG.GH74.GLS.TwoThin CFSG.GH74.GLS.I
       (∀ S : Sylow 2 ↥(centralizer ((Ez z : Subgroup J) : Set J)), IsCyclic ↥S) →
         ∃ ε : ℤ, (ε = 1 ∨ ε = -1) ∧ IsLnEps 3 J ε q
 
-theorem IVK_9_5At_gh_of {q : ℕ} (h : IVK_9_5At q) : IVK_9_5At_gh q :=
-  fun J _ _ hs hK _ z hz hodd hsl hcyc => h J hs hK z hz hodd hsl hcyc
 
 @[expose] def GHSub (Y : Type) [Group Y] : Prop :=
   ∀ L : Subgroup (barQ Y), IsSimpleGroup ↥L → (∃ a b : ↥L, a * b ≠ b * a) → GHList ↥L
@@ -68,8 +66,6 @@ open CFSG.GH74.GLS.LU.Local
 @[expose] def IVK_9_5At_gh_all : Prop :=
   ∀ q : ℕ, 5 ≤ q → IVK_9_5At_gh q
 
-theorem ivk_9_5At_gh_all_of_all (h : IVK_9_5At_all) : IVK_9_5At_gh_all :=
-  fun q hq => IVK_9_5At_gh_of (h q hq)
 
 theorem ivk_9_5At_gh_five_of_all (h : IVK_9_5At_gh_all) : IVK_9_5At_gh 5 :=
   h 5 le_rfl

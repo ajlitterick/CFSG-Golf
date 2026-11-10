@@ -34,15 +34,6 @@ theorem wedgeForm_ιMulti (α β : Dual (ZMod 2) E) (a b : E) :
   rw [hM]
   exact Matrix.det_fin_two_of _ _ _ _
 
-theorem wedgeForm_comm (x : E →ₗ[ZMod 2] E) (α β : Dual (ZMod 2) E) (a b : E) :
-    wedgeForm α β (exteriorPower.map 2 x (exteriorPower.ιMulti (ZMod 2) 2 ![a, b]) -
-        exteriorPower.ιMulti (ZMod 2) 2 ![a, b]) =
-      (α (x a) * β (x b) - β (x a) * α (x b)) - (α a * β b - β a * α b) := by
-  rw [map_sub, exteriorPower.map_apply_ιMulti, wedgeForm_ιMulti]
-  have : (x ∘ ![a, b]) = ![x a, x b] := by
-    funext i
-    fin_cases i <;> rfl
-  rw [this, wedgeForm_ιMulti]
 
 theorem notMem_span_pair {a b x : E} (h0 : x ≠ 0) (ha : x ≠ a) (hb : x ≠ b) (hab : x ≠ a + b) :
     x ∉ span (ZMod 2) {a, b} := by

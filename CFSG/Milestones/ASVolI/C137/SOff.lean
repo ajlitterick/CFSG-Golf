@@ -99,29 +99,6 @@ theorem burnsideC137_offΓ (H : Subgroup Γ) (h1 : H ≠ ⊥) (hsq : ∀ g ∈ H
     exact hH4
   exact ⟨S, hS, fun h => ⟨hHBS h, hHeq h⟩, fun v => ⟨hCS v, hCeq v⟩⟩
 
-theorem burnsideC137_not_ord3 {g : Γ} (h3 : IsOrd3 g) {k : ℕ} (hk : g ^ 2 ^ k = 1) : False := by
-  have hy3 : g ^ 3 = 1 := by rw [pow_succ, pow_two]; exact h3.1
-  have hd3 : orderOf g ∣ 3 := orderOf_dvd_of_pow_eq_one hy3
-  have hd2 : orderOf g ∣ 2 ^ k := orderOf_dvd_of_pow_eq_one hk
-  have hcop : Nat.Coprime 3 (2 ^ k) := Nat.Coprime.pow_right _ (by norm_num)
-  have : orderOf g ∣ 1 := hcop.gcd_eq_one ▸ Nat.dvd_gcd hd3 hd2
-  exact h3.2 (orderOf_eq_one_iff.mp (Nat.dvd_one.mp this))
-
-theorem burnsideC137_stab_of_norm {S : Finset Vec} (hS : IsPlane S) {h : Γ}
-    (hn : ∀ t ∈ BS S, h * t * h⁻¹ ∈ BS S) : ∀ v ∈ S, act h v ∈ S := by
-  obtain ⟨t, ht, htS⟩ := exists_invol_fixS S hS
-  have htB : t ∈ BS S := burnsideC137_mem_BS.2 fun v hv => by
-    rw [← htS] at hv
-    exact burnsideC137_mem_fixS.1 hv
-  have ht' := hn t htB
-  have ht'1 : h * t * h⁻¹ ≠ 1 := fun h1 => ht.2 (by
-    have : t = h⁻¹ * (h * t * h⁻¹) * h := by group
-    rw [this, h1]; group)
-  have hfix := BS_fixS S hS _ ht' ht'1
-  intro v hv
-  rw [← hfix, burnsideC137_mem_fixS]
-  have hv' : act t v = v := (burnsideC137_mem_BS.1 htB) v hv
-  rw [← act_mul, show h * t * h⁻¹ * h = h * t by group, act_mul, hv']
 
 section Off
 

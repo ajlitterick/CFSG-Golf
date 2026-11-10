@@ -80,9 +80,5 @@ theorem simplyLacedLevis_spinPlus {n : ℕ} (F : Type) [Field F] [Finite F] [Cha
     (fun _ _ h => cartanD_of_edgeD h) (fun _ _ hij h1 h2 => cartanD_of_not_edgeD hij h1 h2)
     (fun _ _ h => edgeD_neighbour hn h)
 
-theorem simplyLacedLevis_spinPlus_four (F : Type) [Field F] [Finite F] [CharP F 2] :
-    SimplyLacedLevis (Spin.plusDatum 4 F (by norm_num)) F (edgeD 4)
-      (Steinberg.SpinPlus.x 4 F (by norm_num)) :=
-  simplyLacedLevis_spinPlus F (by norm_num)
 
 end CFSG.Timmesfeld

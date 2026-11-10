@@ -51,17 +51,6 @@ variable [IsSimpleGroup G]
   QuotientGroup.quotientMulEquivOfEq (center_subgroupOf_eq _ _ hcover
     (original_centralizer_layer_inputs hnonab n hn S e hfour).2.2.2.2)
 
-theorem componentImageAmbientCenterQuotientEquiv_mk
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K)
-    (d : originalImage n S e K) :
-    componentImageAmbientCenterQuotientEquiv hnonab n hn S e hfour K hcover
-        (QuotientGroup.mk' ((Subgroup.center (centralizerOddCoreQuotient n S e)).subgroupOf
-          (originalImage n S e K)) d) =
-      QuotientGroup.mk' (Subgroup.center (originalImage n S e K)) d := rfl
 
 theorem componentImageAmbientCenterInclusion_eq
     (hnonab : ∃ a b : G, a * b ≠ b * a)

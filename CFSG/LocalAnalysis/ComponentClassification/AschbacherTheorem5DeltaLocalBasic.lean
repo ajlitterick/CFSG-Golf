@@ -20,41 +20,6 @@ variable {G : Type} [Group G] [Finite G] {D : Subgroup G} {r : ℕ}
 
 namespace DeltaDatum
 
-theorem exists_of_mem {g : G}
-    (hΔ : rightConjugate (Subgroup.normalizer (D : Set G)) g ∈
-      deltaConjugates (Subgroup.normalizer (D : Set G))) (a : Fin r) :
-    ∃ d : DeltaDatum D Abar a, d.g = g := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set H := Subgroup.normalizer (D : Set G) with hHdef
-  set A := aschbacherThm5Preimage D (Abar a) with hAdef
-  obtain ⟨-, -, hne', U, hU'⟩ := hΔ
-  obtain ⟨T, hT⟩ := exists_isSylowOf 2 (rightConjugate A g ⊓ Subgroup.normalizer (A : Set G))
-  set Hg := rightConjugate H g with hHgdef
-  have hTHg : T ≤ Hg :=
-    hT.le.trans (inf_le_left.trans (AschbacherTheorem3.rightConjugate_le_rightConjugate
-      ((preimage_le D _).trans Subgroup.le_normalizer) g))
-  have hTA : T ≤ Subgroup.normalizer (A : Set G) := hT.le.trans inf_le_right
-  have hTAHg : T ≤ Subgroup.normalizer ((A ⊓ Hg : Subgroup G) : Set G) := fun t ht =>
-    Subgroup.inf_normalizer_le_normalizer_inf ⟨hTA ht, Subgroup.le_normalizer (hTHg ht)⟩
-  obtain ⟨P₁, hP₁, hTP₁⟩ := AschbacherTheorem3.exists_isSylowOf_le hT.isPGroup
-    (le_sup_right : T ≤ (A ⊓ Hg) ⊔ T)
-  have hP₀ : IsSylowOf 2 (P₁ ⊓ (A ⊓ Hg)) (A ⊓ Hg) :=
-    hP₁.inf_of_le_normalizer le_sup_left (sup_le Subgroup.le_normalizer hTAHg)
-  obtain ⟨S₁, hS₁, hP₁S₁⟩ := AschbacherTheorem3.exists_isSylowOf_le hP₁.isPGroup
-    (hP₁.le.trans (sup_le_sup_right inf_le_left T))
-  have hS : IsSylowOf 2 (S₁ ⊓ A) A :=
-    hS₁.inf_of_le_normalizer le_sup_left (sup_le Subgroup.le_normalizer hTA)
-  have hTS : T ≤ Subgroup.normalizer ((S₁ ⊓ A : Subgroup G) : Set G) := fun t ht =>
-    Subgroup.inf_normalizer_le_normalizer_inf
-      ⟨Subgroup.le_normalizer (hP₁S₁ (hTP₁ ht)), hTA ht⟩
-  have hSHg : IsSylowOf 2 (S₁ ⊓ A ⊓ Hg) (A ⊓ Hg) := by
-    have hle : P₁ ⊓ (A ⊓ Hg) ≤ S₁ ⊓ A ⊓ Hg := fun x hx =>
-      ⟨⟨hP₁S₁ hx.1, hx.2.1⟩, hx.2.2⟩
-    have heq := hP₀.eq_of_le hle (inf_le_inf_right Hg inf_le_right)
-      (hS.isPGroup.to_le inf_le_left)
-    rw [heq]
-    exact hP₀
-  exact ⟨⟨g, hne', U, hU', T, hT, S₁ ⊓ A, hS, hTS, hSHg⟩, rfl⟩
 
 end DeltaDatum
 

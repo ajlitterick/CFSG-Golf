@@ -30,22 +30,5 @@ instance sixIsometriesFinite : Finite (SixIsometries delta) := by
   intro X
   exact congrFun heq X
 
-variable [Fact (¬ IsSquare delta)]
-
-theorem sixSpecialUnitary_pComponent_eq_top (h2 : (2 : K) ≠ 0)
-    (p : ℕ) (L : Subgroup (sixSpecialUnitary delta)) (hL : CFSG.IsPComponent p L) :
-    L = ⊤ :=
-  CatalogueBAlternatingIsometry.pComponent_eq_top_of_quasisimple
-    (sixSpecialUnitary_quasisimple delta h2) p L hL
-
-theorem sixSpecialUnitary_pComponent_quasisimple (h2 : (2 : K) ≠ 0)
-    (p : ℕ) (L : Subgroup (sixSpecialUnitary delta)) (hL : CFSG.IsPComponent p L) :
-    CFSG.IsQuasisimple L := by
-  have htop := sixSpecialUnitary_pComponent_eq_top delta h2 p L hL
-  exact CatalogueBAlternating.quasisimple_iff_native.mpr
-    (Components.quasisimple_of_equiv
-      ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv)
-      (CatalogueBAlternating.quasisimple_iff_native.mp
-        (sixSpecialUnitary_quasisimple delta h2)))
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalSix

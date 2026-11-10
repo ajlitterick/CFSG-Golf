@@ -66,7 +66,6 @@ theorem twinSet_four {n : ℕ} {Y : Type} [Group Y] [Finite Y] {R : Subgroup Y} 
     Finset.card_pair_eq_two_iff.2 (Ne.symm hJK₄)] at hcard
   omega
 
-variable {n : ℕ}
 
 end Main
 

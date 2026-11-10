@@ -168,7 +168,6 @@ theorem e29_core : ∀ α ∈ AE.affinePlanes, ∀ β ∈ AE.affinePlanes, ∃ �
 
 theorem card_affinePlane : ∀ γ ∈ AE.affinePlanes, γ.card = 4 := by decide +kernel
 
-theorem affinePlanes_compl : ∀ γ ∈ AE.affinePlanes, γᶜ ∈ AE.affinePlanes := by decide +kernel
 
 theorem e29_comb : ∀ α ∈ AE.e29Sets, ∀ β ∈ AE.e29Sets, ∃ γ ∈ AE.e29Sets, ∃ (hγ : γ.card = 4),
     (∀ δ ∈ AE.e29Sets, ∀ hδ : δ.card = 4, AE.zBar δ hδ = AE.zBar γ hγ →

@@ -17,9 +17,6 @@ section Sums
 
 variable {M : Type*} [AddCommMonoid M]
 
-theorem sum_Icc_one_three (F : ℕ → M) : ∑ k ∈ Finset.Icc 1 3, F k = F 1 + F 2 + F 3 := by
-  rw [show Finset.Icc 1 3 = {1, 2, 3} by decide, Finset.sum_insert (by decide),
-    Finset.sum_insert (by decide), Finset.sum_singleton, add_assoc]
 
 theorem sum_Ico_one_four (F : ℕ → M) : ∑ k ∈ Finset.Ico 1 4, F k = F 1 + F 2 + F 3 := by
   rw [show Finset.Ico 1 4 = {1, 2, 3} by decide, Finset.sum_insert (by decide),

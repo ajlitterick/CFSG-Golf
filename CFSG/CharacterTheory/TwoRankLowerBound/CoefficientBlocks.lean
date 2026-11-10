@@ -283,25 +283,5 @@ theorem coefficientBlock_admissible_subset_empty_or_eq {G : Type*} [Group G] [Fi
     rw [← coefficientBlock_eq_of_mem basis coefficientRing (hsubset hmember)]
     exact coefficientBlock_subset_admissible basis coefficientRing support hadmissible member hmember
 
-theorem admissible_atom_iff_coefficientBlock {G : Type*} [Group G] [Fintype G]
-    (basis : FiniteIrreducibleCharacterBasis G) (coefficientRing : Subring ℂ)
-    (support : Finset basis.index) (hadmissible : characterSubsetAdmissible basis coefficientRing support)
-    (hnonempty : support.Nonempty) :
-    (∀ subset : Finset basis.index, characterSubsetAdmissible basis coefficientRing subset →
-      subset ⊆ support → subset = ∅ ∨ subset = support) ↔
-      ∃ label : basis.index, support = coefficientBlock basis coefficientRing label := by
-  constructor
-  · intro hatom
-    obtain ⟨label, hlabel⟩ := hnonempty
-    rcases hatom (coefficientBlock basis coefficientRing label)
-      (coefficientBlock_admissible basis coefficientRing label)
-      (coefficientBlock_subset_admissible basis coefficientRing support hadmissible label hlabel) with
-      hempty | hequal
-    · have hmember := coefficientBlock_self_mem basis coefficientRing label
-      rw [hempty] at hmember
-      exact False.elim (Finset.notMem_empty _ hmember)
-    · exact ⟨label, hequal.symm⟩
-  · rintro ⟨label, rfl⟩ subset hsubset hle
-    exact coefficientBlock_admissible_subset_empty_or_eq basis coefficientRing label subset hsubset hle
 
 end CFSG.TwoRankLowerBound.Helpers

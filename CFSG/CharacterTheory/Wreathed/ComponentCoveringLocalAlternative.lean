@@ -18,11 +18,6 @@ universe u
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-theorem internalIntersectionSwap_coe {X : Type u} [Group X] (K N : Subgroup X)
-    (b : K.subgroupOf N) : (internalIntersectionSwap K N b).val.val = b.val.val := rfl
-
-theorem internalIntersectionSwap_symm_coe {X : Type u} [Group X] (K N : Subgroup X)
-    (b : N.subgroupOf K) : ((internalIntersectionSwap K N).symm b).val.val = b.val.val := rfl
 
 theorem internalIntersectionSwap_odd_core {X : Type u} [Group X] {K N : Subgroup X}
     {b : K.subgroupOf N} :

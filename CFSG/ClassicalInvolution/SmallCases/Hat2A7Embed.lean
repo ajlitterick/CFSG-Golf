@@ -69,13 +69,6 @@ theorem exists_involution_pow {R : Type*} [Group R] (hR : IsPGroup 2 R) {x : R} 
   rw [h2]
   exact Nat.mul_div_cancel_left 2 (by positivity)
 
-theorem mem_of_ne_bot_of_unique_involution {R : Type*} [Group R] (hR : IsPGroup 2 R) {z : R}
-    (huniq : ∀ x : R, orderOf x = 2 → x = z) {H : Subgroup R} (hH : H ≠ ⊥) : z ∈ H := by
-  obtain ⟨x, hx1⟩ := (Subgroup.ne_bot_iff_exists_ne_one).mp hH
-  obtain ⟨k, hk⟩ := exists_involution_pow hR (x := (x : R)) (by simpa using hx1)
-  have hz : (x : R) ^ k = z := huniq _ hk
-  rw [← hz]
-  exact H.pow_mem x.2 k
 
 theorem card_le_four_of_perm_fin_seven {R : Type*} [Group R] [Finite R] (hR : IsPGroup 2 R)
     {z : R} (huniq : ∀ x : R, orderOf x = 2 → x = z)

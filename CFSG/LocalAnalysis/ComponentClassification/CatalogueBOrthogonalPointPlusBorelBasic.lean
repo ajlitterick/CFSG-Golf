@@ -54,9 +54,6 @@ theorem statedScalars_le_subspaceKernel :
     StatedProj (StatedOmega Q0) →* Equiv.Perm (Submodule K (ι → K)) :=
   QuotientGroup.lift _ (statedDerivedSubspaceAction Q0) (statedScalars_le_subspaceKernel Q0)
 
-theorem statedProjectiveSubspaceAction_mk (g : StatedOmega Q0) :
-    statedProjectiveSubspaceAction Q0 (QuotientGroup.mk' _ g) =
-      statedDerivedSubspaceAction Q0 g := rfl
 
 theorem statedProjectiveSubspaceAction_mk_apply
     (g : StatedOmega Q0) (W : Submodule K (ι → K)) :
@@ -149,11 +146,6 @@ theorem statedActionEquiv_projection :
   ext g
   exact statedActionEquiv_mk hQ hE g
 
-theorem statedProjectiveSubspaceStabilizer_map_elementary (W : Submodule K (ι → K)) :
-    (statedProjectiveSubspaceStabilizer Q0 W).map (statedActionEquiv hQ hE).toMonoidHom =
-      (MulAction.stabilizer (elementaryGroup Q) W).map (QuotientGroup.mk' (scalarKernel Q)) := by
-  rw [← statedDerivedSubspaceStabilizer_map, Subgroup.map_map, statedActionEquiv_projection,
-    ← Subgroup.map_map, statedDerivedSubspaceStabilizer_map_elementary]
 
 theorem statedDerivedFlagStabilizer_map_elementary {k : ℕ}
     (F : Fin k → Submodule K (ι → K)) :

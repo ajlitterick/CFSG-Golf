@@ -64,16 +64,5 @@ theorem exactMembers3_of_deltaCore_eq_bot (hΩ : ConjInvariant Ω) (hLoc : Local
   exactMembers3_of_conjugates
     (classicalInvolutionOddCore_eq_bot_of_deltaCore_eq_bot₃ hΩ hLoc hKΩ hz hKF hnc hΔ) hall
 
-theorem classicalInvolutionOddCore_eq_bot_of_four_centralizer_generated₃ {A : Subgroup G}
-    (hOG : CFSG.Open.componentClassificationOddCore G = ⊥) (hne : ∃ a ∈ A, a ≠ 1)
-    (hS : Bootstrap.CentralizedDelta A) (h2 : TwoBalancedWrt A)
-    (hgen : (⨆ F ∈ signalizerFunctorEk 2 2 A, Subgroup.centralizer (F : Set G)) = ⊤)
-    (hΩ : ConjInvariant Ω) (hLoc : LocalLieSystems3 Ω)
-    {K F : Subgroup G} {z : G} (hKΩ : K ∈ Ω) (hz : IsClassicalMember3 K z)
-    (hF : F ∈ signalizerFunctorEk 2 2 A) (hKF : K ≤ Subgroup.centralizer (F : Set G))
-    (hnc : ∀ f ∈ F, f ≠ 1 → f ∉ Subgroup.center G) :
-    classicalInvolutionOddCore ↥K = ⊥ :=
-  classicalInvolutionOddCore_eq_bot_of_deltaCore_eq_bot₃ hΩ hLoc hKΩ hz hKF hnc
-    (Bootstrap.deltaCore_eq_bot_of_four_centralizer_generated hOG hne hS h2 hgen F hF)
 
 end CFSG.ClassicalInvolution.Q3

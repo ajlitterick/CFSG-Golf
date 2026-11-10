@@ -131,7 +131,6 @@ instance : Inv T.Elem := ⟨fun p => ⟨T.invIdx p.idx, Nat.mod_lt _ (n_pos p)�
 
 theorem idx_mul (p q : T.Elem) : (p * q).idx = T.mulIdx p.idx q.idx := rfl
 
-theorem idx_inv (p : T.Elem) : p⁻¹.idx = T.invIdx p.idx := rfl
 
 variable [hT : Fact (T.check = true)]
 

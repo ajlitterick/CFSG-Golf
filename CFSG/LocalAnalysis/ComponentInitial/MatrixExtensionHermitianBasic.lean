@@ -156,10 +156,6 @@ theorem hermH_zero_right (x : Fin r → K) : hermH x 0 = 0 := by
   rw [hermH, show (fun i => (0 : Fin r → K) i ^ 2) = 0 from funext fun i => by simp,
     vecMulVec_zero, zero_vecMulVec, add_zero]
 
-omit [CharP K 2] in
-theorem hermH_zero_left (y : Fin r → K) : hermH 0 y = 0 := by
-  rw [hermH, show (fun i => (0 : Fin r → K) i ^ 2) = 0 from funext fun i => by simp,
-    vecMulVec_zero, zero_vecMulVec, add_zero]
 
 omit [CharP K 2] in
 theorem vecMulVec_single_single' (i j : Fin r) (a b : K) :
@@ -260,8 +256,6 @@ omit [CharP K 2] in
 theorem hElem_zero (a b : Fin r) : hElem a b (0 : K) = 1 := by
   rw [hElem, single_zero, add_zero]
 
-theorem hElem_mul_self {a b : Fin r} (hab : a ≠ b) (t : K) : hElem a b t * hElem a b t = 1 := by
-  rw [hElem_mul hab, four_add_self, hElem_zero]
 
 theorem hElem_congr_hermO (hK : Nat.card K = 4) (a b : Fin r) (t u : K) {i j : Fin r}
     (hij : i ≠ j) :

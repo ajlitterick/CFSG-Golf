@@ -77,24 +77,4 @@ theorem case1_M24_core_dimensionOnly
       exact hBinv (x : GLV V) x.2 (eT u) (eT v) (eT ((x : GLV V) u)) (eT ((x : GLV V) v)) rfl rfl
 
 
-theorem case1_M24_core
-    {Γ A L : Subgroup (GLV V)} {m : ℕ} (h : G93Hyp Γ A L L m)
-    (hM : Nonempty ((↥L ⧸ Subgroup.center ↥L) ≃* NativeSporadic.Carrier .M24)) :
-    G93Case1 L m := by
-  have partialResult := case1_M24_core_dimensionOnly h hM
-  rcases partialResult with ⟨cases, endField, notSelfDual⟩
-  rcases cases with left | right
-  · rcases left with ⟨group, dimension, lower, upper⟩
-    exact ⟨Or.inl ⟨group, dimension, lower, upper,
-      mathieu22_golay_realization h.H_irr group dimension⟩, endField, notSelfDual⟩
-  · rcases right with ⟨group, dimension, lower, upper⟩
-    exact ⟨Or.inr ⟨group, dimension, lower, upper,
-      mathieu24_golay_realization h.H_irr group dimension⟩, endField, notSelfDual⟩
-
-theorem case1_M24
-    {Γ A L : Subgroup (GLV V)} {m : ℕ} (h : G93Hyp Γ A L L m)
-    (hM : Nonempty ((↥L ⧸ Subgroup.center ↥L) ≃* NativeSporadic.Carrier .M24)) :
-    G93Concl Γ L m :=
-  Or.inr (Or.inl (case1_M24_core h hM))
-
 end CFSG.Quasithin.Background.Harris.IrreducibleModulesAndBounds

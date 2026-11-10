@@ -14,9 +14,6 @@ private noncomputable def linHom (P : Subgroup (GL ι K)) : P →* Module.End K 
   (Matrix.toLinAlgEquiv' : Matrix ι ι K ≃ₐ[K] Module.End K (ι → K)).toRingEquiv.toMonoidHom.comp
     ((Units.coeHom (Matrix ι ι K)).comp P.subtype)
 
-private theorem linHom_apply (P : Subgroup (GL ι K)) (x : P) (v : ι → K) :
-    linHom P x v = ((x : GL ι K) : Matrix ι ι K) *ᵥ v := by
-  simp [linHom, Matrix.toLinAlgEquiv'_apply]
 
 private theorem linHom_injective (P : Subgroup (GL ι K)) : Function.Injective (linHom P) := by
   intro x y h

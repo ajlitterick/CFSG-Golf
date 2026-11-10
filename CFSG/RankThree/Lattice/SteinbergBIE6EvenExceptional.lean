@@ -24,9 +24,6 @@ variable (Ω : Type) [Field Ω] [CharP Ω 2]
 
 variable {Ω}
 
-theorem E6EvenFixedRootDatum.psi_eq_e6Psi [IsAlgClosed Ω] (D : E6EvenFixedRootDatum Ω) :
-    D.psi = e6Psi Ω D.J D.f :=
-  rfl
 
 theorem e6PsiRep_conj_pinnedX (J : Set (Fin Tag.E6.rank)) {γ : Fin Tag.E6.rank → ℤ}
     (hγ : IsRoot Tag.E6 γ) (c : Ω) :

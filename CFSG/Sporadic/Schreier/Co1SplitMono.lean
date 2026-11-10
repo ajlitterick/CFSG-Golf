@@ -247,9 +247,6 @@ theorem a_inv_rep
   refine (a_rep i).inv (split_parts.2.2.2.2 _ ?_).1.1
   exact List.mem_append_left _ (List.mem_map.mpr ⟨i.val, List.mem_range.mpr i.isLt, rfl⟩)
 
-theorem g_eq_lift (i : Fin 3) :
-    ((g i : GL24) : Mat24) = rowsMatrix 24 (Data.liftRows.getD i.val []).toArray := by
-  rw [(g_rep i).val_eq, split_parts.2.2.2.1 i.val i.isLt]
 
 theorem isMS_a
     (i : Fin 6) : IsMS ((a i : GL24) : Mat24) ∧ IsMS (((a i)⁻¹ : GL24) : Mat24) := by

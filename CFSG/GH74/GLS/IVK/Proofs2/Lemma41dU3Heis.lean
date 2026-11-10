@@ -249,18 +249,6 @@ theorem card_le_sq (E : Subgroup (UHeis h)) (hE : ∀ x ∈ E, ∀ y ∈ E, x * 
   have := Nat.card_le_card_of_injective φ hφ
   rwa [Nat.card_prod, h.card_fixedField, h.card_traceZero, ← sq] at this
 
-theorem le_index (E : Subgroup (UHeis h)) (hE : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x) :
-    p ^ f ≤ E.index := by
-  have h1 := card_le_sq E hE
-  have h2 := E.index_mul_card
-  rw [card_eq h] at h2
-  have hq : 0 < p ^ f := pow_pos h.prime.pos f
-  have : (p ^ f) ^ 2 * p ^ f ≤ (p ^ f) ^ 2 * E.index := by
-    calc (p ^ f) ^ 2 * p ^ f = (p ^ f) ^ 3 := by ring
-      _ = E.index * Nat.card E := h2.symm
-      _ ≤ E.index * (p ^ f) ^ 2 := Nat.mul_le_mul_left _ h1
-      _ = (p ^ f) ^ 2 * E.index := by ring
-  exact Nat.le_of_mul_le_mul_left this (by positivity)
 
 end Bound
 
@@ -280,24 +268,5 @@ theorem frattini_eq_commutator_of_exponent {G : Type} [Group G] [Finite G] {p : 
       exact one_mem _
   · exact fun y hy => Subgroup.subset_closure (Or.inl hy)
 
-theorem UHeis.specialP {p f : ℕ} {K : Type} [Field K] (h : UnitaryFieldData p f K) (hp2 : p ≠ 2) :
-    SpecialP p f (UHeis h) := by
-  have : Fact p.Prime := ⟨h.prime⟩
-  have hpg : IsPGroup p (UHeis h) :=
-    IsPGroup.of_card (n := f * 3) (by rw [UHeis.card_eq h, pow_mul])
-  refine ⟨fun E hE => ?_, UHeis.commutator_eq_center.symm, ?_, ?_, ?_⟩
-  · have := hE.toIsMulCommutative
-    have hc : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x := fun x hx y hy =>
-      congrArg Subtype.val (IsMulCommutative.is_comm.comm (⟨x, hx⟩ : E) ⟨y, hy⟩)
-    refine ⟨UHeis.le_index E hc, ?_⟩
-    rw [pow_mul']
-    exact UHeis.card_le_sq E hc
-  · rw [frattini_eq_commutator_of_exponent h.prime hpg (UHeis.pow_prime_eq_one hp2), commutator_def,
-      UHeis.commutator_eq_center]
-  · exact
-      { toIsMulCommutative := inferInstance
-        exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun g =>
-          Subtype.ext (UHeis.pow_prime_eq_one hp2 g.1) }
-  · exact UHeis.card_center h
 
 end CFSG.GH74.GLS.IVK.Proofs2.Lemma41dU3

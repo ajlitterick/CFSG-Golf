@@ -172,53 +172,6 @@ theorem fiveFourier_gram (basis : FiniteIrreducibleCharacterBasis L) {ζ : ℂ}
   · rw [ite_eq_right (fun h => hik (hiff.mp h)), ite_eq_right hik]
     norm_num
 
-theorem fiveFourier_degree (basis : FiniteIrreducibleCharacterBasis L) {ζ : ℂ}
-    {z₀ : L} (hz₀ : z₀ ∈ (Subgroup.center S₀).map S₀.subtype) (hz₀1 : z₀ ≠ 1) (i : ℕ) :
-    ∑ θ, (basis.representation θ).character 1 *
-        fiveFourier (basis.representation θ).character ζ z₀ h i = 0 := by
-  have hz₀S : z₀ ∈ S₀ := (mem_map_center_iff.mp hz₀).1
-  have hcol : ∀ j ∈ Finset.range 5,
-      ∑ θ, (basis.representation θ).character 1 *
-        (basis.representation θ).character (z₀ * h ^ j) = 0 := by
-    intro j hj
-    have hne : z₀ * h ^ j ≠ 1 := by
-      intro h1
-      have hhj : h ^ j ∈ S₀ := by
-        have : h ^ j = z₀⁻¹ := eq_inv_of_mul_eq_one_right h1
-        rw [this]
-        exact S₀.inv_mem hz₀S
-      have hd := (hL.pow_mem_iff j).mp hhj
-      have hj0 : j = 0 := Nat.eq_zero_of_dvd_of_lt hd (Finset.mem_range.mp hj)
-      subst hj0
-      rw [pow_zero, mul_one] at h1
-      exact hz₀1 h1
-    have hcs := complete_complex_character_column_sum basis 1 (z₀ * h ^ j)
-    have hzero : conjugatorCount (1 : L) (z₀ * h ^ j) = 0 := by
-      unfold conjugatorCount
-      refine Finset.sum_eq_zero fun g _ => ?_
-      rw [ite_eq_right]
-      intro hg
-      apply hne
-      rw [← hg]
-      group
-    rw [hzero] at hcs
-    rw [← hcs]
-    refine Finset.sum_congr rfl fun θ _ => ?_
-    rw [mul_comm]
-    congr 1
-    rw [FiniteComplexRepresentation.character, Representation.char_one, Complex.conj_natCast]
-  simp only [fiveFourier, Finset.mul_sum]
-  rw [Finset.sum_comm]
-  refine Finset.sum_eq_zero fun j hj => ?_
-  have := hcol j hj
-  calc ∑ θ, (basis.representation θ).character 1 * ((5 : ℂ)⁻¹ * (ζ ^ (4 * i * j) *
-        (basis.representation θ).character (z₀ * h ^ j)))
-      = (5 : ℂ)⁻¹ * ζ ^ (4 * i * j) * ∑ θ, (basis.representation θ).character 1 *
-        (basis.representation θ).character (z₀ * h ^ j) := by
-        rw [Finset.mul_sum]
-        refine Finset.sum_congr rfl fun θ _ => ?_
-        ring
-    _ = 0 := by rw [this, mul_zero]
 
 end UnitaryFourByFive
 

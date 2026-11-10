@@ -23,7 +23,6 @@ noncomputable abbrev xr (γ : Fin 4 → ℤ) (c : K) : Sp8 K :=
 
 noncomputable abbrev Φ8 (K : Type) [Field K] : RootSystem (Fin 4) := SpinPlus.Φ 4 K three_le_four
 
-theorem Φ8_roots : (Φ8 K).roots = rootsD4 := rfl
 
 theorem xr_add {γ : Fin 4 → ℤ} (c d : K) : xr γ (c + d) = xr γ c * xr γ d :=
   rootElt_add _ _ c d

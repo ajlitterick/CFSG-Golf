@@ -76,14 +76,6 @@ theorem ZDSetup.cor713_exists_mul_eq (S : ZDSetup X Z M) {F : Subgroup X} (hFM :
   refine ⟨f * l⁻¹, Subgroup.mem_inf.mpr ⟨F.mul_mem hf (F.inv_mem hlF), hmM⟩, l, hl, ?_⟩
   group
 
-theorem ZDSetup.cor713_exists_eq_mul (S : ZDSetup X Z M) {F : Subgroup X} (hFM : ¬ F ≤ M)
-    (hne : (Z ∩ ((F ⊓ M : Subgroup X) : Set X)).Nonempty) {f : X} (hf : f ∈ F) :
-    ∃ l ∈ zHull Z F, ∃ m ∈ F ⊓ M, f = l * m := by
-  obtain ⟨m, hm, l, hl, hf'⟩ := S.cor713_exists_mul_eq hFM hne (F.inv_mem hf)
-  refine ⟨l⁻¹, (zHull Z F).inv_mem hl, m⁻¹, (F ⊓ M).inv_mem hm, ?_⟩
-  have : f = (f⁻¹)⁻¹ := (inv_inv f).symm
-  rw [this, hf']
-  group
 
 theorem ZDSetup.cor713_alphaOrbit_eq (S : ZDSetup X Z M) {F : Subgroup X} (hFM : ¬ F ≤ M)
     (hne : (Z ∩ ((F ⊓ M : Subgroup X) : Set X)).Nonempty) :

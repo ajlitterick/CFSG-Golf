@@ -233,40 +233,6 @@ theorem ks18A7M22_facts_of (e : X ≃* Y) (h3 : 3 ∣ Nat.card Y)
   rw [Nat.card_congr (MulAut.congr e).toEquiv, hXY]
   exact hAut
 
-omit [Finite Y] in
-theorem ks18M12_facts_of (e : X ≃* Y) (h3 : 3 ∣ Nat.card Y) (hZ : Subgroup.center Y = ⊥)
-    (hAut : Nat.card (MulAut Y) ≤ 2 * Nat.card Y) [IsSimpleGroup Y] :
-    3 ∣ Nat.card X ∧ Subgroup.center X = ⊥ ∧
-      (∀ σ : MulAut X, (∃ k : ℕ, σ ^ 3 ^ k = 1) → ∃ x : X, σ = MulAut.conj x) ∧
-      ∀ N : Subgroup X, N.Normal → Group.IsSolvable N → N = ⊥ := by
-  have hXY : Nat.card X = Nat.card Y := Nat.card_congr e.toEquiv
-  have hZX := center_eq_bot_of_mulEquiv e hZ
-  refine ⟨hXY ▸ h3, hZX, fun σ hσ => exists_conj_of_card_mulAut_le hZX ?_ σ hσ,
-    fun N hN hsol => ?_⟩
-  · rw [Nat.card_congr (MulAut.congr e).toEquiv, hXY]
-    exact hAut
-  · have hN' : (N.map e.toMonoidHom).Normal := hN.map _ e.surjective
-    rcases IsSimpleGroup.eq_bot_or_eq_top_of_normal (N.map e.toMonoidHom) with hbot | htop
-    · exact (Subgroup.map_eq_bot_iff_of_injective N e.injective).mp hbot
-    · exfalso
-      have hsolY : Group.IsSolvable Y := by
-        have hsolM : Group.IsSolvable (N.map e.toMonoidHom) :=
-          Group.isSolvable_of_surjective
-            (f := (N.equivMapOfInjective e.toMonoidHom e.injective).toMonoidHom)
-            (N.equivMapOfInjective e.toMonoidHom e.injective).surjective
-        have hsolT : Group.IsSolvable (⊤ : Subgroup Y) := htop ▸ hsolM
-        exact Group.isSolvable_of_surjective
-          (f := (Subgroup.topEquiv : (⊤ : Subgroup Y) ≃* Y).toMonoidHom)
-          (Subgroup.topEquiv : (⊤ : Subgroup Y) ≃* Y).surjective
-      have hcomm := IsSimpleGroup.comm_iff_isSolvable.mpr hsolY
-      have htopZ : Subgroup.center Y = ⊤ := by
-        rw [eq_top_iff]
-        intro g _
-        rw [Subgroup.mem_center_iff]
-        exact fun h => hcomm h g
-      rw [hZ] at htopZ
-      have hnt : Nontrivial Y := IsSimpleGroup.toNontrivial
-      exact bot_ne_top htopZ
 
 end Facts
 

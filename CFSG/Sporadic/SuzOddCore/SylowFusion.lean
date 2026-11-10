@@ -179,14 +179,6 @@ theorem tabRep_fusionRep
     {r : ℕ} (hr : r < 21) : TabRep (invFusionRepArr r) (invFusionRep r) :=
   tabRep_of_permOK (fusion_facts hr).2.2.1
 
-theorem fusionRep_mem
-    {r : ℕ} (hr : r < 21) : invFusionRep r ∈ invSylow := by
-  obtain ⟨g, hg, hrep⟩ := sylow_enumerates.sound _ (mem_of_found (fusion_facts hr).2.2.2.2.1)
-  rwa [(tabRep_fusionRep hr).perm_eq hrep]
-
-theorem orderOf_fusionRep
-    {r : ℕ} (hr : r < 21) : orderOf (invFusionRep r) = 2 :=
-  (isInvTab_iff (tabRep_fusionRep hr)).1 (fusion_facts hr).2.2.2.1
 
 theorem fusionCase_lt {r : ℕ} (hr : r < 21) : fusionCase r < 4 :=
   (fusion_facts hr).2.2.2.2.2.2.2.2.1
@@ -204,8 +196,6 @@ theorem fusionConj_conj
   rw [heq] at h
   exact h.perm_eq (tabRep_fusionRep hr)
 
-@[expose] def sClass (x : Equiv.Perm (Fin 1782)) : Set (Equiv.Perm (Fin 1782)) :=
-  {y | ∃ c ∈ invSylow, c * x * c⁻¹ = y}
 
 theorem fusion_orbit {r : ℕ} (hr : r < 21) :
     (∀ t ∈ (fusionEnum r).tabs.toList, ∃ c ∈ invSylow, TabRep t (c * invFusionRep r * c⁻¹)) ∧
@@ -213,25 +203,6 @@ theorem fusion_orbit {r : ℕ} (hr : r < 21) :
       (fusionEnum r).tabs.toList.Nodup :=
   conj_orbit sylow_hA sylow_hgens (tabRep_fusionRep hr) (fusion_facts hr).1
 
-theorem ncard_sClass {r : ℕ} (hr : r < 21) :
-    (sClass (invFusionRep r)).ncard = invFusionSizes.getD r 0 := by
-  obtain ⟨hs, hc, hn⟩ := fusion_orbit hr
-  rw [← Nat.card_coe_set_eq, card_set_of_tabs (L := (fusionEnum r).tabs.toList) ?_ ?_ hn,
-    Array.length_toList, (fusion_facts hr).2.1]
-  · intro t ht
-    obtain ⟨c, hc', hrep⟩ := hs t ht
-    exact ⟨_, ⟨c, hc', rfl⟩, hrep⟩
-  · rintro _ ⟨c, hc', rfl⟩
-    exact hc c hc'
-
-theorem fusion_not_conj
-    {r r' : ℕ} (hr : r < 21) (hr' : r' < 21) (hne : r ≠ r')
-    {c : Equiv.Perm (Fin 1782)} (hc : c ∈ invSylow) :
-    c * invFusionRep r * c⁻¹ ≠ invFusionRep r' := by
-  intro h
-  obtain ⟨t, ht, hrep⟩ := (fusion_orbit hr).2.1 c hc
-  rw [h] at hrep
-  exact notInOK_spec (sylowAll_facts.2.2.2.2.2.1 r hr r' hr' hne) (tabRep_fusionRep hr') t ht hrep
 
 theorem exists_fusion_of_inv
     {g : Equiv.Perm (Fin 1782)} (hg : g ∈ invSylow)
@@ -250,33 +221,6 @@ theorem exists_fusion_of_inv
   obtain ⟨c, hc, hrep'⟩ := (fusion_orbit hi').1 t ht
   exact ⟨i, hi', c, hc, hrep.perm_eq hrep'⟩
 
-theorem ncard_sylowClasses :
-    {C : ConjClasses invSylow | ∃ x : invSylow, ConjClasses.mk x = C ∧ orderOf x = 2}.ncard =
-      21 := by
-  let f : Fin 21 → ConjClasses invSylow := fun r =>
-    ConjClasses.mk ⟨invFusionRep r, fusionRep_mem r.2⟩
-  have hf : Function.Injective f := by
-    intro r r' h
-    rw [ConjClasses.mk_eq_mk_iff_isConj, isConj_iff] at h
-    obtain ⟨c, hc⟩ := h
-    by_contra hne
-    apply fusion_not_conj r.2 r'.2 (fun e => hne (Fin.ext e)) c.2
-    have := congrArg Subtype.val hc
-    simpa using this
-  have hrange : {C : ConjClasses invSylow | ∃ x : invSylow, ConjClasses.mk x = C ∧
-      orderOf x = 2} = Set.range f := by
-    ext C
-    constructor
-    · rintro ⟨x, rfl, hx⟩
-      rw [← Subgroup.orderOf_coe] at hx
-      obtain ⟨r, hr, c, hc, hxe⟩ := exists_fusion_of_inv x.2 hx
-      refine ⟨⟨r, hr⟩, ?_⟩
-      rw [ConjClasses.mk_eq_mk_iff_isConj, isConj_iff]
-      refine ⟨⟨c, hc⟩, Subtype.ext ?_⟩
-      simp [hxe]
-    · rintro ⟨r, rfl⟩
-      exact ⟨_, rfl, by rw [← Subgroup.orderOf_coe]; exact orderOf_fusionRep r.2⟩
-  rw [hrange, Set.ncard_range_of_injective hf, Nat.card_eq_fintype_card, Fintype.card_fin]
 
 theorem invFixedCounts_inj : ∀ i < 4, ∀ j < 4,
     invFixedCounts.getD i 0 = invFixedCounts.getD j 0 → i = j := by decide
@@ -300,34 +244,6 @@ theorem suzInv_conj_of_fusion
     _ = (invFusionConj r)⁻¹ * invFusionRep r * invFusionConj r := by group
     _ = suzInv (fusionCase r) := by rw [← h1]; group
 
-theorem mem_caseTabs {i : ℕ} {t : Tab} :
-    t ∈ caseTabs fusionEnums i ↔ ∃ r < 21, fusionCase r = i ∧ t ∈ (fusionEnum r).tabs.toList := by
-  simp only [caseTabs, List.mem_flatMap, List.mem_filter, List.mem_range, beq_iff_eq]
-  constructor
-  · rintro ⟨r, ⟨hr, hc⟩, ht⟩
-    exact ⟨r, hr, hc, by rwa [fusionEnums_get hr] at ht⟩
-  · rintro ⟨r, hr, hc, ht⟩
-    exact ⟨r, ⟨hr, hc⟩, by rwa [fusionEnums_get hr]⟩
-
-theorem ncard_case
-    {i : ℕ} (hi : i < 4) :
-    {g | g ∈ invSylow ∧ orderOf g = 2 ∧ ∃ c ∈ suzT, c * suzInv i * c⁻¹ = g}.ncard =
-      caseCounts.getD i 0 := by
-  obtain ⟨hnd, hlen⟩ := sylowAll_facts.2.2.2.2.2.2.2 i hi
-  rw [← Nat.card_coe_set_eq, card_set_of_tabs (L := caseTabs fusionEnums i) ?_ ?_ hnd, hlen]
-  · intro t ht
-    obtain ⟨r, hr, hcase, ht⟩ := mem_caseTabs.1 ht
-    obtain ⟨c, hc, hrep⟩ := (fusion_orbit hr).1 t ht
-    refine ⟨_, ⟨invSylow.mul_mem (invSylow.mul_mem hc (fusionRep_mem hr)) (invSylow.inv_mem hc),
-      by rw [orderOf_conj']; exact orderOf_fusionRep hr, c * invFusionConj r,
-      suzT.mul_mem (invSylow_le_suzT hc) (fusionConj_mem hr), ?_⟩, hrep⟩
-    rw [← hcase, ← fusionConj_conj hr]
-    group
-  · rintro g ⟨hg, h2, d, -, hdg⟩
-    obtain ⟨r, hr, c, hc, hgr⟩ := exists_fusion_of_inv hg h2
-    obtain ⟨t, ht, hrep⟩ := (fusion_orbit hr).2.1 c hc
-    refine ⟨t, mem_caseTabs.2 ⟨r, hr, ?_, ht⟩, hgr ▸ hrep⟩
-    exact (suzInv_conj_unique hi (fusionCase_lt hr) (suzInv_conj_of_fusion hr hgr hdg)).symm
 
 theorem suzT_involution_class
     {g : Equiv.Perm (Fin 1782)} (hg : g ∈ suzT) (h2 : orderOf g = 2) :
@@ -362,31 +278,5 @@ theorem suzM_involution_class
   · exact absurd hmem h2'
   · exact absurd hmem h3'
 
-theorem CTUC_Suz_Sylow_two_exhaustive_involution_fusion :
-    invSylow ≤ suzT ∧ Nat.card invSylow = 16384 ∧
-    (∃ P : Sylow 2 suzT, (P : Subgroup suzT) = invSylow.subgroupOf suzT) ∧
-    {g | g ∈ invSylow ∧ orderOf g = 2}.ncard = 911 ∧
-    {C : ConjClasses invSylow | ∃ x : invSylow, ConjClasses.mk x = C ∧ orderOf x = 2}.ncard =
-      21 ∧
-    (∀ r < 21, invFusionRep r ∈ invSylow ∧ orderOf (invFusionRep r) = 2 ∧
-      (sClass (invFusionRep r)).ncard = invFusionSizes.getD r 0 ∧
-      (∀ r' < 21, r' ≠ r → invFusionRep r' ∉ sClass (invFusionRep r)) ∧
-      fusionCase r < 4 ∧ invFusionConj r ∈ suzT ∧
-      invFusionConj r * suzInv (fusionCase r) * (invFusionConj r)⁻¹ = invFusionRep r) ∧
-    (∀ g ∈ invSylow, orderOf g = 2 → ∃ r < 21, g ∈ sClass (invFusionRep r)) ∧
-    (∀ i < 4, {g | g ∈ invSylow ∧ orderOf g = 2 ∧ ∃ c ∈ suzT, c * suzInv i * c⁻¹ = g}.ncard =
-      caseCounts.getD i 0) ∧
-    caseCounts = [528, 95, 192, 96] ∧
-    (∀ g ∈ suzT, orderOf g = 2 → ∃! i, i < 4 ∧ ∃ c ∈ suzT, c * suzInv i * c⁻¹ = g) ∧
-    (∀ g ∈ suzM, orderOf g = 2 →
-      ∃ c ∈ suzT, c * suzInv 0 * c⁻¹ = g ∨ c * suzInv 1 * c⁻¹ = g) := by
-  refine ⟨invSylow_le_suzT, card_invSylow, ⟨suzSylowTwo, suzSylowTwo_coe⟩,
-    ncard_sylowInvolutions, ncard_sylowClasses, fun r hr => ⟨fusionRep_mem hr,
-      orderOf_fusionRep hr, ncard_sClass hr, fun r' hr' hne ⟨c, hc, h⟩ =>
-        fusion_not_conj hr hr' (Ne.symm hne) hc h, fusionCase_lt hr, fusionConj_mem hr,
-      fusionConj_conj hr⟩, fun g hg h2 => ?_, fun i hi => ncard_case hi, rfl,
-    fun g hg h2 => suzT_involution_class hg h2, fun g hg h2 => suzM_involution_class hg h2⟩
-  obtain ⟨r, hr, c, hc, e⟩ := exists_fusion_of_inv hg h2
-  exact ⟨r, hr, c, hc, e.symm⟩
 
 end CFSG.Sporadic.SuzOddCore

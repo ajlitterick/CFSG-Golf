@@ -43,7 +43,6 @@ variable {K : Type} [Group K] (E : Subgroup K) (β : ↥E ≃* Multiplicative �
     have h1 := hσ w v hvw
     rw [h1, ← Delta5.vact_mul, inv_mul_cancel, Delta5.vact_one]
 
-theorem S5Stab_le_normalizer : S5Stab E β ≤ Subgroup.normalizer (E : Set K) := fun _ h => h.1
 
 end Stab
 

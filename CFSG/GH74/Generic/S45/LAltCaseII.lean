@@ -38,8 +38,6 @@ variable {σ : Perm (Fin n)}
       calc f⁻¹ x = σ (σ (f⁻¹ x)) := (sigma_sq_apply hσ _).symm
         _ = σ x := congrArg σ h2.symm
 
-theorem mem_flipGrp {hσ : σ * σ = 1} {f : Perm (Fin n)} :
-    f ∈ flipGrp σ hσ ↔ ∀ x, f x = x ∨ f x = σ x := Iff.rfl
 
 theorem flip_apply_sigma {hσ : σ * σ = 1} {f : Perm (Fin n)} (hf : f ∈ flipGrp σ hσ) (x : Fin n) :
     f (σ x) = σ (f x) := by

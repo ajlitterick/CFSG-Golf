@@ -311,9 +311,6 @@ theorem blkR_mem_K4 {a : GL (Fin 2) F} (ha : a ∈ M.H2) : blkR F a ∈ M.K4 := 
   obtain ⟨h1, h2⟩ := (M.mem_H2 a).1 ha
   exact ⟨M.U2.one_mem, h1, by rw [h2]; simp⟩
 
-theorem yGL_eq_blkL : yGL F = blkL F (-1) := rfl
-
-theorem xyGL_eq_blkR : xyGL F = blkR F (-1) := rfl
 
 theorem exists_diagGL_of_comm (h2 : (2 : F) ≠ 0) {g : GL (Fin 4) F} (hg : g ∈ M.K4)
     (hc : g * yGL F = yGL F * g) :

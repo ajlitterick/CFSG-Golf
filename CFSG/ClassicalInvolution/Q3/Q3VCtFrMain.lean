@@ -179,26 +179,6 @@ section Read
 
 variable {F : Type} [Field F] {X : Type} [Group X] {n : ℕ} {U : Fin n → Subgroup X}
 
-theorem SpFrame.edgeDown_data (fr : SpFrame F n U) {a b : Fin n} (ha : a.val + 1 = n)
-    (hb : b.val + 2 = n) :
-    (∀ k, Function.Injective (fr.ρ k) ∧ (fr.ρ k).range = U k) ∧
-      (∀ i j : Fin n, j.val + 1 = i.val → ¬ (i = a ∧ j = b) →
-        ∃ ψ : SL(3, F) →* X, ψ.comp (blk F 0) = fr.ρ i ∧ ψ.comp (blk F 1) = fr.ρ j) ∧
-      ∃ ψ : StatedSp 2 F →* X, ψ.comp (spBlock F 1) = fr.ρ a ∧ ψ.comp (spBlock F 0) = fr.ρ b := by
-  refine ⟨fun k => ⟨fr.ρ_inj k, fr.ρ_range k⟩, fun i j hij hne => ?_,
-    ⟨fr.ψ4, fr.ψ4_long a ha, fr.ψ4_short b hb⟩⟩
-  have hj : j.val + 2 < n := by
-    have hi := i.2
-    by_contra hcon
-    exact hne ⟨Fin.ext (by omega), Fin.ext (by omega)⟩
-  exact ⟨fr.ψ j hj, fr.ψ_zero j i hj hij.symm, fr.ψ_one j hj⟩
-
-theorem SpFrame.exists_psi_up (fr : SpFrame F n U) (i j : Fin n) (h : i.val + 2 < n)
-    (hij : j.val = i.val + 1) :
-    ∃ ψ : SL(3, F) →* X, ψ.comp (blk F 0) = fr.ρ i ∧ ψ.comp (blk F 1) = fr.ρ j :=
-  ⟨(fr.ψ i h).comp (blockSwapAut (K := F)).toMonoidHom,
-    (comp_blockSwapAut_blk (fr.ψ i h) 0).trans (fr.ψ_one i h),
-    (comp_blockSwapAut_blk (fr.ψ i h) 1).trans (fr.ψ_zero i j h hij)⟩
 
 theorem SpFrame.commute (fr : SpFrame F n U)
     (hcomm : ∀ i j : Fin n, i.val + 1 < j.val → ∀ a ∈ U i, ∀ b ∈ U j, a * b = b * a)

@@ -93,25 +93,6 @@ theorem ggLNoncyclicInput_of_open
     · exact (largeEvenLabelAll_outdiag_triD4 hlab ht).mono fun _ _ _ _ hO _ _ => hO
     · exact h lab hlab (Or.inr ht)
 
-theorem ggLNoncyclicInput_of_twistedDiag' (hE6 : GGTwistedE6DiagInput)
-    (hF4 : GGTwistedF4DiagInput) : GGLNoncyclicInput :=
-  ggLNoncyclicInput_of_open fun _ hlab ht => by
-    rcases ht with ht | ht
-    · exact largeEvenLabelAll_outdiag_twE6 hE6 hlab ht
-    · exact largeEvenLabelAll_outdiag_twF4 hF4 hlab ht
-
-theorem ggTableBInputs_of_open
-    (h₀ : ∀ lab, LargeEvenInLambda2 lab → GGOutdiagOpenLabel lab →
-      LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ => GGOutdiagCyclic R I))
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab → LargeEvenLabelAll lab fun R _ I _ =>
-        ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I) :
-    GGLNoncyclicInput ∧ GGBstarInput ∧ GGStdSubPreInput := by
-  have ha₀ := ggLNoncyclicInput_of_open h₀
-  refine ⟨ha₀, ggBstarInput_of_labels ha₀ fun p lab hp hlab hs => ?_,
-    ggStdSubPreInput_of_labels fun p lab hp hlab hs => ?_⟩
-  · exact (h p lab hp hlab hs).mono fun _ _ _ _ ⟨r, h1, h2, _⟩ => ⟨r, h1, h2⟩
-  · exact (h p lab hp hlab hs).mono fun _ _ _ _ ⟨r, h1, _, h3⟩ => ⟨r, h1, h3⟩
 
 end TriD4
 

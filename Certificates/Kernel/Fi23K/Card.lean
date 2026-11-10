@@ -164,11 +164,6 @@ theorem iter_congr {f g : Nat → Nat} (hf : ∀ y < 31671, f y < 31671) (hfg : 
     rw [Function.iterate_succ_apply, Function.iterate_succ_apply, hfg x hx]
     exact iter_congr hf hfg n _ (by rw [← hfg x hx]; exact hf x hx)
 
-theorem iter_lt {f : Nat → Nat} (hf : ∀ y < 31671, f y < 31671) : ∀ n x, x < 31671 → f^[n] x < 31671
-  | 0, _, hx => hx
-  | n + 1, x, hx => by
-    rw [Function.iterate_succ_apply]
-    exact iter_lt hf n _ (hf x hx)
 
 theorem iter_pows {p q r s : Nat} (hp : p < 91) (hq : q < 91) (hr : r < 91)
     (h2 : ∀ y < 31671, tb G q y = tb G p (tb G p y))

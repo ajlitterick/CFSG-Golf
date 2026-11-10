@@ -214,39 +214,6 @@ theorem quasisimple_kernel_center {Q B : Type} [Group Q] [Finite Q] [Group B] [N
   rw [htriv, Nat.dvd_one] at hdiv
   exact ⟨hcenter, Subgroup.card_eq_one.1 hdiv⟩
 
-noncomputable def s168e3_actualActionHom
-    {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV) {C : Subgroup G} (hC : C ∈ calC D.M)
-    (hbarC : barSub V₀ V hV C = lBar V₀ V hV L) :
-    ↥C →* ↥(lBar V₀ V hV L) :=
-  (MulEquiv.subgroupCongr hbarC).toMonoidHom.comp
-    ((barSubBar2HomOfHyp125 c.setting.hyp151.hyp125 hC).comp
-      (QuotientGroup.mk' (CFSG.pCore 2 ↥C)))
-
-theorem s168e3_actualActionHom_ker
-    {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV) {C : Subgroup G} (hC : C ∈ calC D.M)
-    (hbarC : barSub V₀ V hV C = lBar V₀ V hV L)
-    (hinj : Function.Injective (barSubBar2HomOfHyp125 c.setting.hyp151.hyp125 hC)) :
-    (s168e3_actualActionHom c hC hbarC).ker = CFSG.pCore 2 ↥C := by
-  ext x
-  constructor
-  · intro hx
-    have hx' : (MulEquiv.subgroupCongr hbarC)
-        ((barSubBar2HomOfHyp125 c.setting.hyp151.hyp125 hC)
-          ((QuotientGroup.mk' (CFSG.pCore 2 ↥C)) x)) = 1 := by
-      simpa [s168e3_actualActionHom] using hx
-    have h1 : (barSubBar2HomOfHyp125 c.setting.hyp151.hyp125 hC)
-        ((QuotientGroup.mk' (CFSG.pCore 2 ↥C)) x) = 1 :=
-      (MulEquiv.subgroupCongr hbarC).map_eq_one_iff.mp hx'
-    have h2 : (QuotientGroup.mk' (CFSG.pCore 2 ↥C)) x = 1 :=
-      hinj (by simpa using h1)
-    exact (QuotientGroup.eq_one_iff x).1 h2
-  · intro hx
-    have h2 : (QuotientGroup.mk' (CFSG.pCore 2 ↥C)) x = 1 :=
-      (QuotientGroup.eq_one_iff x).2 hx
-    have h2' : (↑x : Bar2 C) = 1 := h2
-    simp [s168e3_actualActionHom, h2']
 
 theorem s168e3_exists_normal_cover_omegaMinus_six_four
     (D : Data G) {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
@@ -351,21 +318,5 @@ theorem s168e3_exists_normal_cover_omegaMinus_six_four
     (MonoidHom.ker_eq_bot_iff (barSubBar2HomOfHyp125 hH hYc)).1 hker
   exact ⟨Y, hYc, hbarY, hYN, hU4Y, hψYinj⟩
 
-theorem s168e3_exists_normal_cover_omegaMinus_six_four_action
-    (D : Data G) {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV) (hs : s15 D.M V₀ V hV L = 1)
-    (hN : NatOmegaMinus (lBar V₀ V hV L) (wTil V₀ V hV L) ⊥ 6 2) :
-    ∃ (C : Subgroup G) (hC : C ∈ calC D.M)
-      (hbarC : barSub V₀ V hV C = lBar V₀ V hV L)
-      (φ : ↥C →* ↥(lBar V₀ V hV L)),
-      D.M ≤ normalizer (C : Set G) ∧
-      IsU4 (Bar2 C) 2 ∧
-      Function.Injective (barSubBar2HomOfHyp125 c.setting.hyp151.hyp125 hC) ∧
-      φ = s168e3_actualActionHom c hC hbarC ∧
-      φ.ker = CFSG.pCore 2 ↥C := by
-  obtain ⟨C, hC, hbarC, hnorm, hU4, hinj⟩ :=
-    s168e3_exists_normal_cover_omegaMinus_six_four D c hs hN
-  refine ⟨C, hC, hbarC, s168e3_actualActionHom c hC hbarC, hnorm, hU4, hinj, rfl, ?_⟩
-  exact s168e3_actualActionHom_ker c hC hbarC hinj
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

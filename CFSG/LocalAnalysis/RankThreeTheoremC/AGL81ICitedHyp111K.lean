@@ -26,9 +26,6 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def IsSLThreeFour (K : Type) [Group K] : Prop :=
   IsQuasisimple K ∧ Nat.card (Subgroup.center K) = 3 ∧ IsLinThreeFour (K ⧸ Subgroup.center K)
 
-@[expose] noncomputable def hyp111Star (p : ℕ) (H I : Subgroup G) :
-    Subgroup (H ⧸ primeComplementCore (G := H) p) :=
-  (I.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p))
 
 @[expose] def HasNormalIndex (M : Subgroup G) (p : ℕ) : Prop :=
   ∃ N : Subgroup G, N ≤ M ∧ (N.subgroupOf M).Normal ∧ (N.subgroupOf M).index = p
@@ -50,13 +47,6 @@ variable {G : Type} [Group G] [Finite G]
     (∀ a g : G, a ∈ (P : Subgroup G) → g * a * g⁻¹ ∈ (P : Subgroup G) →
       ∃ m ∈ M, m * a * m⁻¹ = g * a * g⁻¹) ∧ ¬ HasNormalIndex M p
 
-@[expose] def AGL81TenElevenOne (G : Type) [Group G] [Finite G] : Prop :=
-  Setting G → ∀ (P : Sylow 3 G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) 3)),
-    AGL81CfgData 3 P M H Q K → ∀ W : Sylow 3 G, (W : Subgroup G) ≤ M →
-      rankThreeGamma 2 3 (W : Subgroup G) ≤ M ∨
-        Nonempty ((M ⧸ primeComplementCore (G := M) 3) ≃* alternatingGroup (Fin 10)) ∨
-        Nonempty ((M ⧸ primeComplementCore (G := M) 3) ≃* Equiv.Perm (Fin 10))
 
 @[expose] def AGL81TenThirteenAt (G : Type) [Group G] [Finite G] : Prop :=
   Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
@@ -111,11 +101,6 @@ structure AGL81ElevenNineData (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
       3 ≤ Open.pRank 5 (Subgroup.centralizer (D : Set G) ⊓ M)) →
     ∀ V : Sylow 5 G, (V : Subgroup G) ≤ M → rankThreeGamma 2 5 (V : Subgroup G) ≤ M
 
-@[expose] def AGL81TenNineOne (G : Type) [Group G] [Finite G] : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    AGL81ElevenData p P M H Q K → ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L →
-      IsEmpty (↥(barM M L) ≃* alternatingGroup (Fin 7))
 
 @[expose] def AGL81TenNineOneCfg (G : Type) [Group G] [Finite G] : Prop :=
   Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)

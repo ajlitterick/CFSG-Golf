@@ -28,8 +28,6 @@ open CertificateChecks.KernelSpor.Fi22CtiX
 theorem bp_lt {t : Nat} (ht : t < 6) : bp t < 3510 := by
   interval_cases t <;> decide
 
-theorem bp_mem {t : Nat} (ht : t < 6) : bp t ∈ ([0, 1, 2, 3, 6, 4] : List Nat) := by
-  interval_cases t <;> decide
 
 theorem sepP
     {X Y : Equiv.Perm (Fin 3510)} (hX : X ∈ fi22P) (hY : Y ∈ fi22P)
@@ -449,7 +447,6 @@ theorem perm_val {P : Nat} {G : Equiv.Perm (Fin 3510)} (h : Rep 3510 (unpack 351
 
 theorem pq_lt {j x : Nat} (hj : j < 21) (hx : x < 3510) : pq j x < 3510 := cn_lt (cnQ hj) x hx
 
-theorem zf_lt {x : Nat} (hx : x < 3510) : zf x < 3510 := cn_lt (cnQ (j := 20) (by norm_num)) x hx
 
 theorem gL_lt {k x : Nat} (hk : k < 9) (hx : x < 3510) : pg 12 (mask 12) (gL k) x < 3510 :=
   cn_lt (g_parts hk).1 x hx

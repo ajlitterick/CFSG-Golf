@@ -85,10 +85,6 @@ theorem conjSub_eq_bot_iff (g : G) {H : Subgroup G} : conjSub g H = ⊥ ↔ H = 
 theorem conjSub_iSup {ι : Sort*} (g : G) (f : ι → Subgroup G) :
     conjSub g (⨆ i, f i) = ⨆ i, conjSub g (f i) := Subgroup.map_iSup _ _
 
-theorem conjSub_iInf {ι : Sort*} (g : G) (f : ι → Subgroup G) :
-    conjSub g (⨅ i, f i) = ⨅ i, conjSub g (f i) := by
-  ext x
-  simp only [mem_conjSub, Subgroup.mem_iInf]
 
 theorem conjSub_closure (g : G) (S : Set G) :
     conjSub g (Subgroup.closure S) = Subgroup.closure ((fun x => g * x * g⁻¹) '' S) := by
@@ -288,25 +284,6 @@ theorem le_coreIn {N K H : Subgroup G} (hNH : N ≤ H) (hN : H ≤ Subgroup.norm
   have := (Subgroup.mem_normalizer_iff.mp (hN (H.inv_mem hh))) x
   simpa using this.mp hx
 
-theorem conjSub_coreIn (g : G) (K H : Subgroup G) :
-    conjSub g (coreIn K H) = coreIn (conjSub g K) (conjSub g H) := by
-  ext x
-  rw [mem_conjSub, mem_coreIn, mem_coreIn]
-  constructor
-  · rintro ⟨hx, hx'⟩
-    refine ⟨mem_conjSub.mpr hx, fun h hh => ?_⟩
-    rw [mem_conjSub] at hh ⊢
-    have := hx' (g⁻¹ * h * g) hh
-    have e : g⁻¹ * (h⁻¹ * x * h) * g = (g⁻¹ * h * g)⁻¹ * (g⁻¹ * x * g) * (g⁻¹ * h * g) := by
-      group
-    rw [e]; exact this
-  · rintro ⟨hx, hx'⟩
-    refine ⟨mem_conjSub.mp hx, fun h hh => ?_⟩
-    have := hx' (g * h * g⁻¹) (mul_mem_conjSub hh)
-    rw [mem_conjSub] at this
-    have e : g⁻¹ * ((g * h * g⁻¹)⁻¹ * x * (g * h * g⁻¹)) * g = h⁻¹ * (g⁻¹ * x * g) * h := by
-      group
-    rw [e] at this; exact this
 
 namespace F7
 

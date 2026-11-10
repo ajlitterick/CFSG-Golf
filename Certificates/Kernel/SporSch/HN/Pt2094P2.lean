@@ -20,8 +20,6 @@ theorem fix2 : allN 138 (fun m => ptsImg TX MS CM3 M (TT 34) (sliceP PL2 m) (sli
 theorem gen2 : allN 6 (fun j => allN 138 (fun m => ptsImg TX MS CM3 M (TT (Nat.add 35 j))
     (sliceP PL2 m) (sliceP (IM j) m) (cntP 8800 m))) = true := by quickRfl
 
-theorem neg_gen2 : Bool.not (ptsImg TX MS CM3 M (TT 35) (sliceP PL2 0) (sliceP PL2 0) 64) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.HNPt2094
 

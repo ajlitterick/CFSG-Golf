@@ -154,12 +154,6 @@ theorem sympTransvectionGL_mem_fischerMatrixGroup (v : ι → ZMod 2) :
       (fischerMatrixGroup fun A => ∀ x y, b (A *ᵥ x) (A *ᵥ y) = b x y) :=
   sympTransvectionGL_mem_fischerMatrixGroup_aux v
 
-theorem fischerTransvections_bilin_subset (halt : ∀ x, b x x = 0) :
-    fischerTransvections (fun x y => b x y) (fun v => v ≠ 0) ⊆
-      (fischerMatrixGroup fun A => ∀ x y, b (A *ᵥ x) (A *ᵥ y) = b x y) := by
-  intro g hg
-  obtain ⟨v, -, rfl⟩ := eq_sympTransvectionGL_of_mem_fischerTransvections halt hg
-  exact sympTransvectionGL_mem_fischerMatrixGroup v
 
 theorem fischerMatrixGroup_bilin_eq_closure (b : LinearMap.BilinForm (ZMod 2) (ι → ZMod 2))
     (halt : ∀ x, b x x = 0) (hnd : ∀ x, (∀ y, b x y = 0) → x = 0) :

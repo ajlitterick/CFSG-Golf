@@ -253,24 +253,6 @@ theorem swapAt_stdE_last :
       simp [stdE, stdF]
     · simp [stdE, stdF, Pi.single_eq_of_ne, hj]
 
-omit [Finite K] [CharP K 2] in
-theorem swapAt_stdF_of_ne {i : Fin (m + 1)} (hi : i ≠ Fin.last m) :
-    swapAt (m + 1) (Fin.last m) (stdF (K := K) (n := m + 1) i) =
-      stdF (K := K) (n := m + 1) i := by
-  ext p
-  cases p with
-  | inl j =>
-    simp only [swapAt_inl]
-    split_ifs with hj
-    · subst hj
-      simp [stdF, Pi.single_eq_of_ne, hi]
-    · rfl
-  | inr j =>
-    simp only [swapAt_inr]
-    split_ifs with hj
-    · subst hj
-      simp [stdF, Pi.single_eq_of_ne, hi]
-    · rfl
 
 omit [Finite K] [CharP K 2] in
 theorem swapAt_stdF_last :

@@ -25,32 +25,6 @@ theorem pieceCore_eq_map_of_notMem [Finite G] [Finite F] (P : FieldNeighbourPara
     (commutator_blockSpecialLinear_eq_of_two_le hI hF) hXI P.Φ P.ker_le P.range_eq
     (fun c _ x => P.N2 c x)
 
-theorem pieceCore_index_eq_range [Finite G] [Finite F] (P : FieldNeighbourParam e t ι σ X N)
-    (hN : 2 ≤ N.card) (hF : 4 ≤ Nat.card F) (hXN : X ≤ modelToG e (blockTorus (K := K) N)) :
-    pieceCore e N = centralizerPerfectCore X := by
-  rw [pieceCore_eq_range_of_conjDiag e ι (commutator_blockSpecialLinear_eq_of_two_le hN hF) hXN
-    P.Φ P.ker_le P.range_eq (fun c _ x => P.N2 c x), P.range_eq]
-
-theorem nonempty_mulEquiv_pieceCore_of_notMem [Finite G] [Finite F]
-    (P : FieldNeighbourParam e t ι σ X N) {I : Finset (Fin n)} (hIN : I ⊆ N) (hne : I ≠ N)
-    (hI : 2 ≤ I.card) {k : Fin n} (hk : k ∉ N) {κ : Kˣ} (hκ : κ ≠ 1) (hF : 4 ≤ Nat.card F)
-    (hXI : X ≤ modelToG e (blockTorus (K := K) I)) :
-    Nonempty (Matrix.SpecialLinearGroup (Fin I.card) F ≃* pieceCore e I) :=
-  nonempty_mulEquiv_pieceCore_of_conjDiag e ι hIN hne
-    (fun _ hi _ hj hij hIJ => exists_mem_blockTorusParam_ne_of_notMem hIN hk hκ hi hj hij hIJ)
-    (commutator_blockSpecialLinear_eq_of_two_le hI hF) hXI P.Φ P.ker_le P.range_eq
-    (fun c _ x => P.N2 c x)
-
-theorem map_eq_map_of_notMem [Finite G] [Finite F] {X' : Subgroup G} {N' : Finset (Fin n)}
-    (P : FieldNeighbourParam e t ι σ X N) (P' : FieldNeighbourParam e t ι σ X' N')
-    {I : Finset (Fin n)} (hIN : I ⊆ N) (hIN' : I ⊆ N') (hI : 2 ≤ I.card) {k k' : Fin n}
-    (hk : k ∉ N) (hk' : k' ∉ N') {κ : Kˣ} (hκ : κ ≠ 1) (hF : 4 ≤ Nat.card F)
-    (hXI : X ≤ modelToG e (blockTorus (K := K) I))
-    (hXI' : X' ≤ modelToG e (blockTorus (K := K) I)) :
-    ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear N)).map P.Φ =
-      ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear N')).map P'.Φ := by
-  rw [← P.pieceCore_eq_map_of_notMem hIN hI hk hκ hF hXI,
-    ← P'.pieceCore_eq_map_of_notMem hIN' hI hk' hκ hF hXI']
 
 theorem pieceCore_le_centralizer_of_notMem [Finite G] [Finite F]
     (P : FieldNeighbourParam e t ι σ X N) {I J : Finset (Fin n)} (hIN : I ⊆ N) (hJN : J ⊆ N)
@@ -64,46 +38,9 @@ theorem pieceCore_le_centralizer_of_notMem [Finite G] [Finite F]
 
 end FieldNeighbourParam
 
-theorem Neighbour.exists_notMem_index (Nb : Neighbour n) : ∃ k, k ∉ Nb.index := by
-  cases Nb with
-  | root a b hab => exact ⟨a, by rw [Neighbour.index_root]; simp⟩
-  | levi a => exact ⟨a, by rw [Neighbour.index_levi]; simp⟩
 
 namespace FieldNeighbourParam
 
-theorem pieceCore_eq_map_neighbour [Finite G] [Finite F] (Nb : Neighbour n)
-    (P : FieldNeighbourParam e t ι σ (modelToG e (Nb.torus K)) Nb.index) {I : Finset (Fin n)}
-    (hI : I ⊆ Nb.index) (hI2 : 2 ≤ I.card) {κ : Kˣ} (hκ : κ ≠ 1) (hF : 4 ≤ Nat.card F) :
-    pieceCore e I =
-      ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear Nb.index)).map P.Φ := by
-  obtain ⟨k, hk⟩ := Nb.exists_notMem_index
-  exact P.pieceCore_eq_map_of_notMem hI hI2 hk hκ hF (modelToG_torus_le_blockTorus e Nb hI)
-
-theorem map_eq_map_neighbour [Finite G] [Finite F] (Nb Nb' : Neighbour n)
-    (P : FieldNeighbourParam e t ι σ (modelToG e (Nb.torus K)) Nb.index)
-    (P' : FieldNeighbourParam e t ι σ (modelToG e (Nb'.torus K)) Nb'.index) {I : Finset (Fin n)}
-    (hI : I ⊆ Nb.index) (hI' : I ⊆ Nb'.index) (hI2 : 2 ≤ I.card) {κ : Kˣ} (hκ : κ ≠ 1)
-    (hF : 4 ≤ Nat.card F) :
-    ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear Nb.index)).map P.Φ =
-      ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear Nb'.index)).map P'.Φ := by
-  rw [← P.pieceCore_eq_map_neighbour Nb hI hI2 hκ hF,
-    ← P'.pieceCore_eq_map_neighbour Nb' hI' hI2 hκ hF]
-
-theorem pieceCore_eq_map_rootTorus [Finite G] [Finite F] {a b : Fin n} (hab : a ≠ b)
-    (P : FieldNeighbourParam e t ι σ (modelToG e (rootTorus (K := K) hab))
-      (({a, b} : Finset (Fin n))ᶜ)) {I : Finset (Fin n)} (hI : I ⊆ ({a, b} : Finset (Fin n))ᶜ)
-    (hI2 : 2 ≤ I.card) {κ : Kˣ} (hκ : κ ≠ 1) (hF : 4 ≤ Nat.card F) :
-    pieceCore e I = ((blockSpecialLinear (K := F) I).subgroupOf
-      (blockSpecialLinear (({a, b} : Finset (Fin n))ᶜ))).map P.Φ :=
-  P.pieceCore_eq_map_neighbour (.root a b hab) hI hI2 hκ hF
-
-theorem pieceCore_eq_map_levTorus [Finite G] [Finite F] (a : Fin n)
-    (P : FieldNeighbourParam e t ι σ (modelToG e (levTorus (K := K) a)) ({a}ᶜ))
-    {I : Finset (Fin n)} (hI : I ⊆ {a}ᶜ) (hI2 : 2 ≤ I.card) {κ : Kˣ} (hκ : κ ≠ 1)
-    (hF : 4 ≤ Nat.card F) :
-    pieceCore e I =
-      ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear {a}ᶜ)).map P.Φ :=
-  P.pieceCore_eq_map_neighbour (.levi a) hI hI2 hκ hF
 
 end FieldNeighbourParam
 
@@ -167,13 +104,5 @@ theorem pieceCore_le_centralizer_of_fieldNeighbourCover [Finite G] [Finite F] {s
     (hX.trans (modelToG_mono e (blockTorus_anti Finset.subset_union_left)))
     (hX.trans (modelToG_mono e (blockTorus_anti Finset.subset_union_right)))
 
-theorem exists_pieceCore_eq_map_of_fieldNeighbourCover [Finite G] [Finite F] {s : ℕ}
-    (hcov : FieldNeighbourCover e t ι σ s) {I : Finset (Fin n)} (hI : 2 ≤ I.card)
-    (hs : I.card ≤ s) {κ : Kˣ} (hκ : κ ≠ 1) (hF : 4 ≤ Nat.card F) :
-    ∃ (X : Subgroup G) (N : Finset (Fin n)) (P : FieldNeighbourParam e t ι σ X N), I ⊆ N ∧
-      pieceCore e I =
-        ((blockSpecialLinear (K := F) I).subgroupOf (blockSpecialLinear N)).map P.Φ := by
-  obtain ⟨X, N, hIN, ⟨k, hk⟩, hX, ⟨P⟩⟩ := hcov I hs
-  exact ⟨X, N, P, hIN, P.pieceCore_eq_map_of_notMem hIN hI hk hκ hF hX⟩
 
 end CFSG.SeitzReduction.LinearPilot

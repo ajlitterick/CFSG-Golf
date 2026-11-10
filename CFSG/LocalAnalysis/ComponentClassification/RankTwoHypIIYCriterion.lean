@@ -219,13 +219,6 @@ theorem hypII_of_forall {X₀ : Type*} [Group X₀] [Finite W] {X : Subgroup W}
     rw [show t = b * (b⁻¹ * t) by group]
     exact mul_mem_sup hb hC
 
-theorem exists_elemAbelian_of_not_hypII {X₀ : Type*} [Group X₀] [Finite W] {X : Subgroup W}
-    (hW : AutModel X₀ W X) {A : Type*} [Group A] (hA : commutator A = ⊤)
-    (e : A ⧸ center A ≃* X₀) (h : ¬ HypII A) :
-    ∃ E : Subgroup W, IsElemAbelian 2 E ∧ 4 ≤ Nat.card E ∧ ¬ E ≤ X ∧ ¬ YWitness X E ∧
-      IsTwoNilpotent (nE X E) := by
-  by_contra hne
-  exact h (hypII_of_forall hW (fun E h1 h2 h3 h4 h5 => hne ⟨E, h1, h2, h3, h4, h5⟩) hA e)
 
 theorem hypII_of_witness {X₀ : Type*} [Group X₀] [Finite W] {X : Subgroup W}
     (hW : AutModel X₀ W X)

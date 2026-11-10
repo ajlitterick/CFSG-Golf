@@ -76,10 +76,6 @@ theorem CommFam.card_centreIn_iSup_le_prod (h : CommFam L) :
   rw [← card_centreIn_iSup_mul_card_ker h]
   exact Nat.le_mul_of_pos_right _ Nat.card_pos
 
-theorem CommFam.card_iSup_le_prod (h : CommFam L) :
-    Nat.card (⨆ i, L i : Subgroup G) ≤ ∏ i, Nat.card (L i) := by
-  rw [← card_iSup_mul_card_ker h]
-  exact Nat.le_mul_of_pos_right _ Nat.card_pos
 
 theorem CommFam.iSupIndep_iff_ker_eq_bot (h : CommFam L) :
     iSupIndep L ↔ (famProd h).ker = ⊥ := by
@@ -134,10 +130,6 @@ theorem CommFam.card_centreIn_iSup_eq_prod_iff (h : CommFam L) :
     rw [hker, Subgroup.card_bot, mul_one] at key
     exact key
 
-theorem CommFam.inf_restSup_eq_bot_of_card_centreIn (h : CommFam L)
-    (hc : Nat.card (centreIn (⨆ i, L i)) = ∏ i, Nat.card (centreIn (L i))) (k : ι) :
-    L k ⊓ restSup L k = ⊥ :=
-  disjoint_iff.1 ((iSupIndep_def.1 ((h.card_centreIn_iSup_eq_prod_iff).1 hc)) k)
 
 theorem CommFam.card_iSup_eq_prod (h : CommFam L) (hind : iSupIndep L) :
     Nat.card (⨆ i, L i : Subgroup G) = ∏ i, Nat.card (L i) := by
@@ -145,10 +137,6 @@ theorem CommFam.card_iSup_eq_prod (h : CommFam L) (hind : iSupIndep L) :
   rw [(h.iSupIndep_iff_ker_eq_bot).1 hind, Subgroup.card_bot, mul_one] at key
   exact key
 
-theorem CommFam.card_iSup_eq_prod_of_card_centreIn (h : CommFam L)
-    (hc : Nat.card (centreIn (⨆ i, L i)) = ∏ i, Nat.card (centreIn (L i))) :
-    Nat.card (⨆ i, L i : Subgroup G) = ∏ i, Nat.card (L i) :=
-  h.card_iSup_eq_prod ((h.card_centreIn_iSup_eq_prod_iff).1 hc)
 
 theorem CommFam.card_iSup_eq_prod_of_le (h : CommFam L) (hind : iSupIndep L)
     (E : ι → Subgroup G) (hE : ∀ i, E i ≤ L i) :

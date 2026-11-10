@@ -50,15 +50,11 @@ theorem hdot_zero_right (a : n → K) : hdot h a 0 = 0 :=
 theorem hdot_zero_left (b : n → K) : hdot h 0 b = 0 := by
   simp [hdot]
 
-theorem hdot_add_right (a b b' : n → K) : hdot h a (b + b') = hdot h a b + hdot h a b' :=
-  dotProduct_add _ _ _
 
 theorem hdot_add_left (a a' b : n → K) : hdot h (a + a') b = hdot h a b + hdot h a' b := by
   simp only [hdot, Pi.add_apply, map_add]
   exact add_dotProduct _ _ _
 
-theorem hdot_sub_right (a b b' : n → K) : hdot h a (b - b') = hdot h a b - hdot h a b' :=
-  dotProduct_sub _ _ _
 
 variable [DecidableEq n]
 

@@ -110,7 +110,6 @@ theorem oddCoreIn_le_of_inO2_gen {G : Type} [Group G] [Finite G] {z u : G}
   exact ⟨⟨n, hNH hn⟩, (QuotientGroup.eq_one_iff _).mp h1, rfl⟩
 
 
-
 end Generic
 
 section Basic
@@ -136,7 +135,6 @@ theorem commute_of_trivialOnQuot {K : Subgroup G} (hK : IsPGroup 2 ↥K) {a : G}
 end Basic
 
 section Odd
-
 
 
 section Lifts
@@ -289,7 +287,6 @@ theorem section_lifts (hPb : TL4.TightBelowRPlus 3 n) (hP : PerpHypS n Y R S t)
 
 end Lifts
 
-variable {n : ℕ}
 
 end Odd
 

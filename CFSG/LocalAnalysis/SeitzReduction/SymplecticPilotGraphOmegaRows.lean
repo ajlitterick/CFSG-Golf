@@ -208,14 +208,6 @@ theorem false_of_spOmegaMinusRow (hrec : SpOmegaRecognitionInput .omegaMinus)
   exact false_of_spOmegaMinusRow_of_global hO hset hn hKc hf e ht hKt hglob
     (huniq G L hset n f K hn hKc hf e t ht hKt hκ hglob)
 
-theorem spGraphRowsInput_of_omegaInputs (hLE : SpLinearEvenRowInput)
-    (hUE : SpUnitaryEvenRowInput) (hLO : SpLinearOddRowInput) (hUO : SpUnitaryOddRowInput)
-    (hrecP : SpOmegaRecognitionInput .omegaPlus) (huniqP : SpOmegaRowUniqueInput .omegaPlus)
-    (hD : OmegaPlusDicksonInput) (hrecM : SpOmegaRecognitionInput .omegaMinus)
-    (huniqM : SpOmegaRowUniqueInput .omegaMinus) (hO : OmegaMinusOutInput) :
-    SpGraphRowsInput :=
-  spGraphRowsInput_of_rows hLE hUE hLO hUO (false_of_spOmegaPlusRow hrecP huniqP hD)
-    (false_of_spOmegaMinusRow hrecM huniqM hO)
 
 end Rows
 

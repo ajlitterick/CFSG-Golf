@@ -56,30 +56,6 @@ theorem exists_quotient_equiv_of_hom_mod {P E A U : Subgroup G} (hUA : (U.subgro
   refine ⟨hN, (QuotientGroup.quotientMulEquivOfEq hkerEq).trans
     (QuotientGroup.quotientKerEquivOfSurjective θ hθs), fun x => rfl⟩
 
-theorem center_quotient_eq {P K X : Subgroup G} (hn : (K.subgroupOf P).Normal) (hKX : K ≤ X)
-    (hPK : ∀ g ∈ P, ∀ k ∈ K, g * k * g⁻¹ ∈ K)
-    (hc : ∀ x ∈ P, (∀ p ∈ P, x * p * x⁻¹ * p⁻¹ ∈ K) ↔ x ∈ X) :
-    center (↥P ⧸ K.subgroupOf P) = (X.subgroupOf P).map (QuotientGroup.mk' (K.subgroupOf P)) := by
-  have hKX' : K.subgroupOf P ≤ X.subgroupOf P := fun x hx => mem_subgroupOf.mpr
-    (hKX (mem_subgroupOf.mp hx))
-  ext q
-  obtain ⟨x, rfl⟩ := QuotientGroup.mk_surjective q
-  rw [mem_map_mk'_iff hKX', mem_subgroupOf, Subgroup.mem_center_iff, ← hc x x.2]
-  constructor
-  · intro hq p hp
-    have h1 := hq (QuotientGroup.mk (⟨p, hp⟩ : P))
-    rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul, QuotientGroup.eq, mem_subgroupOf] at h1
-    simp only [coe_mul, coe_inv] at h1
-    have h2 := hPK _ (mul_mem hp x.2) _ h1
-    rwa [show p * x * ((p * x)⁻¹ * ((x : G) * p)) * (p * x)⁻¹ =
-      (x : G) * p * (x : G)⁻¹ * p⁻¹ by group] at h2
-  · intro hx g
-    obtain ⟨p, rfl⟩ := QuotientGroup.mk_surjective g
-    rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul, QuotientGroup.eq, mem_subgroupOf]
-    simp only [coe_mul, coe_inv]
-    have h2 := hPK _ (inv_mem (mul_mem p.2 x.2)) _ (hx p p.2)
-    rwa [show ((p : G) * x)⁻¹ * ((x : G) * p * (x : G)⁻¹ * (p : G)⁻¹) * ((p : G) * x)⁻¹⁻¹ =
-      ((p : G) * x)⁻¹ * ((x : G) * p) by group] at h2
 
 end General
 
@@ -883,22 +859,6 @@ theorem P₂_inf_N (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓
     exact mem_E_of_mem_transX h i hne hbot hx.1 hx.2
   · exact le_inf (E_le_P₂ h i hne hbot) (map_subtype_le _)
 
-theorem P₂_mul_N (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    (𝐏₂[i.swap] : Set G) * (𝐍[i.swap] : Set G) = (𝐄𝐧[i.swap] : Set G) := by
-  ext g
-  simp only [Set.mem_mul, SetLike.mem_coe]
-  constructor
-  · rintro ⟨x, hx, y, hy, rfl⟩
-    exact mul_mem (P₂_le _ hx) (N_le_En h i.swap hy)
-  · intro hg
-    obtain ⟨z, hz⟩ := (aff₂_translations h i hne hbot).1 ((actHyp₂ h i hbot).aff ⟨g, hg⟩ 0)
-    have hzT : (z : G) ∈ transX h i hbot :=
-      (mem_transX_iff h i hbot z).mpr ⟨_, hz⟩
-    refine ⟨z, (pCore_eq_transX h i hne hbot).symm ▸ hzT, (z : G)⁻¹ * g, ?_, by group⟩
-    have e : (⟨(z : G)⁻¹ * g, mul_mem (inv_mem z.2) hg⟩ : 𝐄𝐧[i.swap]) = z⁻¹ * ⟨g, hg⟩ := rfl
-    refine (aff₂_zero_eq_zero_iff h i hne hbot ⟨_, mul_mem (inv_mem z.2) hg⟩).mp ?_
-    rw [e, map_mul, Equiv.Perm.mul_apply, map_inv, Equiv.Perm.inv_eq_iff_eq, hz, zero_add]
 
 theorem kappa_En_mem_X (h : FCHyp L K n φ t) (i : Axis) (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥)
     {x : G} (hx : x ∈ 𝐄𝐧[i.swap]) : t⁻¹ * (x⁻¹ * t * x) ∈ 𝐗[i.swap] := by
@@ -1063,66 +1023,6 @@ theorem conj_mem_K_of_P₂ (k : Axis) {p : G} (hp : p ∈ 𝐏₂[k]) {x : G} (h
     p * x * p⁻¹ ∈ 𝐊[k] :=
   (mem_normalizer_iff.mp (mem_inf.mp (P₂_le k hp)).2 x).mp hx
 
-theorem exists_P₂_not_comm_t (h : FCHyp L K n φ t) (i : Axis)
-    (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥) (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    ∃ p ∈ 𝐏₂[i.swap], t⁻¹ * (p * t * p⁻¹) ∉ 𝐊[i.swap] := by
-  by_contra hcon
-  simp only [not_exists, not_and, not_not] at hcon
-  have hle : 𝐏₂[i.swap] ≤ 𝐄[i.swap] := fun p hp => by
-    rw [← P₂_inf_N h i hne hbot]
-    exact mem_inf.mpr ⟨hp, mem_N_of_comm_t h i hne hbot (P₂_le _ hp) (hcon p hp)⟩
-  have h1 := Subgroup.card_le_of_le hle
-  rw [card_P₂ h i hne hbot, card_E h i.swap] at h1
-  have h4 := h.four_le_card
-  have h5 : Nat.card K ^ 6 < Nat.card K ^ 8 := Nat.pow_lt_pow_right (by omega) (by norm_num)
-  omega
-
-theorem mem_X_of_comm_P₂ (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) {x : G} (hx : x ∈ 𝐏₂[i.swap])
-    (hc : ∀ p ∈ 𝐏₂[i.swap], x * p * x⁻¹ * p⁻¹ ∈ 𝐊[i.swap]) : x ∈ 𝐗[i.swap] := by
-  have htP := t_mem_P₂ h i hne hbot
-  have hxt : t⁻¹ * (x * t * x⁻¹) ∈ 𝐊[i.swap] := by
-    have := conj_mem_K_of_P₂ _ (inv_mem htP) (hc t htP)
-    rwa [show t⁻¹ * (x * t * x⁻¹ * t⁻¹) * t⁻¹⁻¹ = t⁻¹ * (x * t * x⁻¹) by group] at this
-  have hxE : x ∈ 𝐄[i.swap] := by
-    rw [← P₂_inf_N h i hne hbot]
-    exact mem_inf.mpr ⟨hx, mem_N_of_comm_t h i hne hbot (P₂_le _ hx) hxt⟩
-  have htX : t ∈ normalizer ((𝐗[i.swap] : Subgroup G) : Set G) :=
-    R_le_normalizer_X h i.swap (Qi_le_R h i.swap (mem_sup_left (mem_sup_right (mem_zpowers t))))
-  rw [← (X_sup_t h i.swap).2] at hxE
-  rcases mem_or_mul_mem h.setup.t_mul_t htX hxE with h1 | h1
-  · exact h1
-  · exfalso
-    set y := t * x with hy
-    obtain ⟨p, hp, hpt⟩ := exists_P₂_not_comm_t h i hne hbot
-    apply hpt
-    have hyP := X_le_P₂ h i hne hbot h1
-    have hc1 : x⁻¹ * p * x * p⁻¹ ∈ 𝐊[i.swap] := by
-      have := conj_mem_K_of_P₂ _ (inv_mem hx) (comm_mem_symm (hc p hp))
-      rwa [show x⁻¹ * (p * x * p⁻¹ * x⁻¹) * x⁻¹⁻¹ = x⁻¹ * p * x * p⁻¹ by group] at this
-    have hc2 : y * p * y⁻¹ * p⁻¹ ∈ 𝐊[i.swap] := comm_mem_symm (comm_P₂_X h i hne hbot hp h1)
-    have hc3 : t * p * t⁻¹ * p⁻¹ ∈ 𝐊[i.swap] := by
-      have e : t * p * t⁻¹ * p⁻¹ = (y * (x⁻¹ * p * x * p⁻¹) * y⁻¹) * (y * p * y⁻¹ * p⁻¹) := by
-        rw [hy]
-        group
-      rw [e]
-      exact mul_mem (conj_mem_K_of_P₂ _ hyP hc1) hc2
-    have := conj_mem_K_of_P₂ _ (inv_mem htP) (comm_mem_symm hc3)
-    rwa [show t⁻¹ * (p * t * p⁻¹ * t⁻¹) * t⁻¹⁻¹ = t⁻¹ * (p * t * p⁻¹) by group] at this
-
-theorem center_P₂_quot (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    ∃ _ : ((𝐊[i.swap]).subgroupOf 𝐏₂[i.swap]).Normal,
-      center (↥𝐏₂[i.swap] ⧸ (𝐊[i.swap]).subgroupOf 𝐏₂[i.swap]) =
-        ((𝐗[i.swap]).subgroupOf 𝐏₂[i.swap]).map
-          (QuotientGroup.mk' ((𝐊[i.swap]).subgroupOf 𝐏₂[i.swap])) := by
-  have hn : ((𝐊[i.swap]).subgroupOf 𝐏₂[i.swap]).Normal :=
-    ⟨fun x hx p => mem_subgroupOf.mpr (conj_mem_K_of_P₂ _ p.2 (mem_subgroupOf.mp hx))⟩
-  refine ⟨hn, center_quotient_eq hn (K_le_X h i.swap) (fun _ hg _ hk => conj_mem_K_of_P₂ _ hg hk)
-    fun x hx => ⟨fun hc =>
-    mem_X_of_comm_P₂ h i hne hbot hx hc, fun hxX p hp => ?_⟩⟩
-  have h1 := inv_mem (comm_P₂_X h i hne hbot hp hxX)
-  rwa [show (p * x * p⁻¹ * x⁻¹)⁻¹ = x * p * x⁻¹ * p⁻¹ by group] at h1
 
 theorem sq_P₂_mem_X (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
     (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) {p : G} (hp : p ∈ 𝐏₂[i.swap]) :
@@ -1179,30 +1079,6 @@ theorem sq_P₂_mem_X (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 
     have := mul_mem (mem_sup_left hp'A : t * k ∈ 𝐊[i.swap]) (inv_mem hk)
     rwa [mul_inv_cancel_right] at this
 
-theorem closure_sq_P₂_le (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    closure {x : G | ∃ y ∈ 𝐏₂[i.swap], x = y * y} ≤ 𝐗[i.swap] :=
-  (closure_le _).mpr fun _ ⟨_, hy, he⟩ => he ▸ sq_P₂_mem_X h i hne hbot hy
-
-theorem closure_sq_P₂_sup_K (h : FCHyp L K n φ t) (i : Axis)
-    (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥) (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    closure {x : G | ∃ y ∈ 𝐏₂[i.swap], x = y * y} ⊔ 𝐊[i.swap] = 𝐗[i.swap] := by
-  apply le_antisymm (sup_le (closure_sq_P₂_le h i hne hbot) (K_le_X h i.swap))
-  intro x hx
-  set hA := actHyp₂ h i hbot with hAdef
-  obtain ⟨z, hz⟩ := (aff₂_translations h i hne hbot).1 (psiX φ t i.swap x)
-  have hzP : (z : G) ∈ 𝐏₂[i.swap] :=
-    (pCore_eq_transX h i hne hbot).symm ▸ (mem_transX_iff h i hbot z).mpr ⟨_, hz⟩
-  have hz0 := hA.aff_zero z
-  rw [hz, zero_add] at hz0
-  have hc : t⁻¹ * ((z : G) * t * (z : G)⁻¹) ∈ 𝐗[i.swap] := hA.conj_t z z.2
-  have h1 := (hA.psi_eq_iff hc hx).mp hz0.symm
-  have h2 : t⁻¹ * ((z : G) * t * (z : G)⁻¹) ∈ closure {x : G | ∃ y ∈ 𝐏₂[i.swap], x = y * y} := by
-    have := commutator_mem_closure_sq (t_mem_P₂ h i hne hbot) (inv_mem hzP)
-    rwa [inv_inv] at this
-  rw [show x = (t⁻¹ * ((z : G) * t * (z : G)⁻¹)) * ((t⁻¹ * ((z : G) * t * (z : G)⁻¹))⁻¹ * x) by
-    group]
-  exact mul_mem (mem_sup_left h2) (mem_sup_right h1)
 
 end SecondCore
 

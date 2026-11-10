@@ -16,18 +16,6 @@ variable {G : Type} [Group G] [Finite G]
 @[expose] def KFactL34ThreeRankTwo : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (K : Subgroup Y), IsLinThreeFour K → 2 ≤ Open.pRank 3 K
 
-variable (G) in
-@[expose] def AGL81ElevenElevenOtherCfg : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    p ∈ rankThreeSigmaA G → AGL81CfgData p P M H Q K → ¬ HasPrimeConstraint (G := H) p →
-    (Open.pRank p K ≤ 1 → 3 ≤ Open.pRank p H) → ¬ (p = 3 ∧ IsAltTwoP 3 K) →
-    ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L → (L.subgroupOf M).Normal →
-    ¬ AGL81ElevenFiveOne p H K L →
-      ∃ A : Subgroup G, A ≤ H ∧ IsAGLQ p M A ∧
-        (∃ S : Sylow p K, (S : Subgroup K).map K.subtype =
-          (A.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) ⊓ K) ∧
-        ⁅A, L⁆ ≤ pCoreOf 2 L ∧ (2 ≤ Open.pRank p K → A = d1LiftX p H Q K)
 
 theorem AGL81ElevenData.toCfgAt {p : ℕ} {P : Sylow p G} {M H Q : Subgroup G}
     {K : Subgroup (H ⧸ primeComplementCore (G := H) p)} (hd : AGL81ElevenData p P M H Q K)

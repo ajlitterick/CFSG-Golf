@@ -23,15 +23,6 @@ theorem character_eq_conj_inv (basis : FiniteIrreducibleCharacterBasis G) (χ : 
   change _ = conj ((basis.representation χ).representation.character g⁻¹)
   rw [h, Complex.conj_conj]
 
-theorem sum_principal_character_mul_eq_zero (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] (principal : basis.index) {u z : G}
-    (hu : ¬ Odd (orderOf u)) (hz : Odd (orderOf z)) :
-    ∑ χ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal,
-      (basis.representation χ).character u * (basis.representation χ).character z = 0 := by
-  have hz' : Odd (orderOf z⁻¹) := by rwa [orderOf_inv]
-  rw [← sum_principal_character_mul_conj_eq_zero basis ideal principal hu hz']
-  exact Finset.sum_congr rfl fun χ _ => by rw [character_eq_conj_inv basis χ z]
 
 theorem sum_principal_combination_mul_eq_zero (basis : FiniteIrreducibleCharacterBasis G)
     (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]

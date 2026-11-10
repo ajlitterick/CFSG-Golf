@@ -18,44 +18,6 @@ open scoped commutatorElement
 
 attribute [local instance] CFSG.Sporadic.Fi24.rAction
 
-theorem fi24_rep_unique
-    {T : Table} {g h : R} (hg : Rep 306936 T g) (hh : Rep 306936 T h) :
-    g = h := by
-  have hk : ∀ k : Fin 306936, (h⁻¹ * g) • k = k := by
-    intro k
-    have e : g • k = h • k := Fin.ext (by
-      rw [← idx_of_lt g k.isLt, ← idx_of_lt h k.isLt, ← hg k.val k.isLt, ← hh k.val k.isLt])
-    rw [mul_smul, e, inv_smul_smul]
-  have := Fi24.eq_one_of_smul_eq hk
-  rw [inv_mul_eq_one] at this
-  exact this.symm
-
-theorem card_fixed1_D24
-    {T : Table} {r : R} (hT : Rep 306936 T r) :
-    Nat.card {x : D24 // r * x * r⁻¹ = x} = fi24Fix T := by
-  have h := card_fixed_D24 [(T, r)] (by simpa using hT)
-  have e : {x : D24 // r * x * r⁻¹ = x} ≃
-      {x : D24 // ∀ p ∈ [(T, r)], p.2 * x * p.2⁻¹ = x} :=
-    Equiv.subtypeEquivRight fun x => by simp
-  rw [Nat.card_congr e, h]
-  unfold fi24Fix
-  exact List.countP_congr fun i _ => by simp
-
-theorem card_fixed2_D24
-    {T W : Table} {r w : R} (hT : Rep 306936 T r) (hW : Rep 306936 W w) :
-    Nat.card {x : D24 // r * x * r⁻¹ = x ∧ ∀ _i : Fin 1, w * x * w⁻¹ = x} =
-      (List.range nPts).countP fun i => ap T i == i && ap W i == i := by
-  have h := card_fixed_D24 [(T, r), (W, w)] (by
-    intro p hp
-    simp only [List.mem_cons, List.not_mem_nil, or_false] at hp
-    rcases hp with rfl | rfl
-    · exact hT
-    · exact hW)
-  have e : {x : D24 // r * x * r⁻¹ = x ∧ ∀ _i : Fin 1, w * x * w⁻¹ = x} ≃
-      {x : D24 // ∀ p ∈ [(T, r), (W, w)], p.2 * x * p.2⁻¹ = x} :=
-    Equiv.subtypeEquivRight fun x => by simp
-  rw [Nat.card_congr e, h]
-  exact List.countP_congr fun i _ => by simp
 
 abbrev fi24L : Array Table := Fi24.letters
 
@@ -63,18 +25,6 @@ abbrev fi24TP : Table :=
   tPTable Fi24.orb (wordT nPts (letterJ fi24L) normWords[0]!)
     (wordT nPts (letterJ fi24L) normWords[1]!)
 
-abbrev fi24G23 : ℤ → Table :=
-  fi24GenT fi24M0T (invT nPts fi24M0T) fi24M1T (invT nPts fi24M1T)
-
-abbrev fi24DT : Table := powT nPts 7 (wordT nPts fi24G23 CFSG.Sporadic.Fi23.Native.dLetters)
-
-abbrev fi24WT : Table := wordT nPts fi24G23 fi23WordW
-
-abbrev fi24U2T : Table :=
-  compT nPts fi24DT (compT nPts fi24M0T (compT nPts fi24DT (invT nPts fi24M0T)))
-
-abbrev fi24U3T : Table :=
-  compT nPts fi24U2T (compT nPts fi24WT (compT nPts fi24DT (invT nPts fi24WT)))
 
 abbrev fi24D :
     R := fi23ToR CFSG.Sporadic.Fi23.d
@@ -97,43 +47,6 @@ theorem rep_fi24TP :
   Fi24.rep_tR_of_tPOK Fi24.rep_nA Fi24.rep_nB
     (tPOK_tPTable _ _ _ fun p hp hpn => (Fi24.tree_facts p hpn hp).1)
 
-theorem rep_fi24G23
-    (z : ℤ) : Rep 306936 (fi24G23 z) (fi23ToR (CFSG.Sporadic.Fi23.genG z)) :=
-  rep_fi24GenT rep_fi24M0T (rep_invT24 rep_fi24M0T) rep_fi24M1T (rep_invT24 rep_fi24M1T) z
-
-theorem rep_fi24DT :
-    Rep 306936 fi24DT fi24D := by
-  have h := Rep.powT (n := 306936) (by norm_num)
-    (rep_fi24WordT rep_fi24M0T (rep_invT24 rep_fi24M0T) rep_fi24M1T
-      (rep_invT24 rep_fi24M1T) CFSG.Sporadic.Fi23.Native.dLetters) 7
-  rw [← map_pow, CFSG.Sporadic.Fi23.wordG_dLetters] at h
-  exact h
-
-theorem rep_fi24WT :
-    Rep 306936 fi24WT (fi23ToR (wordG CFSG.Sporadic.Fi23.genG fi23WordW)) :=
-  rep_fi24WordT rep_fi24M0T (rep_invT24 rep_fi24M0T) rep_fi24M1T (rep_invT24 rep_fi24M1T)
-    fi23WordW
-
-theorem rep_fi24U2T :
-    Rep 306936 fi24U2T fi24U2 := by
-  have hAi : Rep 306936 (invT nPts fi24M0T) (fi23ToR (CFSG.Sporadic.Fi23.genG (-1))) := by
-    have := rep_invT24 rep_fi24M0T
-    rwa [← map_inv, show (CFSG.Sporadic.Fi23.a)⁻¹ = CFSG.Sporadic.Fi23.genG (-1) by
-      simp [CFSG.Sporadic.Fi23.genG]] at this
-  have hA : Rep 306936 fi24M0T (fi23ToR (CFSG.Sporadic.Fi23.genG 1)) := by
-    have := rep_fi24M0T
-    rwa [show CFSG.Sporadic.Fi23.a = CFSG.Sporadic.Fi23.genG 1 by
-      simp [CFSG.Sporadic.Fi23.genG]] at this
-  have h := Rep.compT rep_fi24DT (Rep.compT hA (Rep.compT rep_fi24DT hAi))
-  rw [← map_mul, ← map_mul, ← map_mul] at h
-  exact h
-
-theorem rep_fi24U3T :
-    Rep 306936 fi24U3T fi24U3 := by
-  have hWi := rep_invT24 rep_fi24WT
-  have h := Rep.compT rep_fi24U2T (Rep.compT rep_fi24WT (Rep.compT rep_fi24DT hWi))
-  rw [← map_inv, ← map_mul, ← map_mul, ← map_mul] at h
-  exact h
 
 theorem rep7_eq :
     rep7 0 = fi24D ∧ rep7 1 = fi24U2 ∧ rep7 2 = fi24U3 ∧ rep7 3 = tR ∧ rep7 4 = fi24D * tR ∧
@@ -200,104 +113,6 @@ theorem fi24_involution_class
       refine ⟨r * tR, ?_, ((isConj_iff (α := R)).2 ⟨c, e⟩).trans hct⟩
       rcases hr with rfl | rfl | rfl <;> simp
 
-theorem CommTerm.eval_congr {G : Type*} [Group G] {f g : ℕ → G} :
-    ∀ {t : CommTerm}, (∀ i ∈ t.leaves, f i = g i) → t.eval f = t.eval g
-  | .leaf i, h => h i (List.mem_singleton_self i)
-  | .comm a b, h => by
-    simp only [CommTerm.leaves, List.mem_append] at h
-    simp only [CommTerm.eval]
-    rw [CommTerm.eval_congr fun i hi => h i (Or.inl hi),
-      CommTerm.eval_congr fun i hi => h i (Or.inr hi)]
-
-theorem CommTerm.eval_hom {G H : Type*} [Group G] [Group H] (φ : G →* H) (f : ℕ → G) :
-    ∀ t : CommTerm, φ (t.eval f) = t.eval (φ ∘ f)
-  | .leaf i => rfl
-  | .comm a b => by
-    simp only [CommTerm.eval, commutatorElement_def, map_mul, map_inv,
-      CommTerm.eval_hom φ f a, CommTerm.eval_hom φ f b]
-
-theorem CommTerm.rep_evalT_of_leaves {G : Type*} [Group G] {n : ℕ} [MulAction G (Fin n)]
-    {F : ℕ → Table} {f : ℕ → G} :
-    ∀ {t : CommTerm}, (∀ i ∈ t.leaves, Rep n (F i) (f i)) → t.invsOK n F = true →
-      Rep n (t.evalT n F) (t.eval f)
-  | .leaf i, hF, _ => hF i (List.mem_singleton_self i)
-  | .comm a b, hF, h => by
-    simp only [CommTerm.leaves, List.mem_append] at hF
-    unfold CommTerm.invsOK at h
-    simp only [Bool.and_eq_true] at h
-    obtain ⟨⟨ha, hb⟩, -⟩ := h
-    have ra := CommTerm.rep_evalT_of_leaves (fun i hi => hF i (Or.inl hi)) ha
-    have rb := CommTerm.rep_evalT_of_leaves (fun i hi => hF i (Or.inr hi)) hb
-    have h' := Rep.compT ra (Rep.compT rb (Rep.compT
-      (Rep.inv_of_invOK ra (CommTerm.invOK_of_invsOK ha))
-      (Rep.inv_of_invOK rb (CommTerm.invOK_of_invsOK hb))))
-    have e : CommTerm.eval f (.comm a b) =
-        a.eval f * (b.eval f * ((a.eval f)⁻¹ * (b.eval f)⁻¹)) := by
-      simp only [CommTerm.eval, commutatorElement_def, mul_assoc]
-    rw [e]
-    exact h'
-
-@[expose] def fi24Bray
-    (r g : R) (e : ℕ) (odd : Bool) : R :=
-  if odd then g * (r * (g⁻¹ * (r * g))) ^ e else (r * (g⁻¹ * (r * g))) ^ e
-
-theorem rep_fi24BrayT
-    {T G Gi : Table} {r g : R} (hT : Rep 306936 T r)
-    (hG : Rep 306936 G g) (hGi : Rep 306936 Gi g⁻¹) (e : ℕ) (odd : Bool) :
-    Rep 306936 (fi24BrayT T G Gi e odd) (fi24Bray r g e odd) := by
-  have hBB := Rep.powT (n := 306936) (by norm_num)
-    (Rep.compT hT (Rep.compT hGi (Rep.compT hT hG))) e
-  cases odd
-  · simp only [fi24BrayT, fi24Bray, Bool.false_eq_true, ↓reduceIte]
-    exact hBB
-  · simp only [fi24BrayT, fi24Bray, ↓reduceIte]
-    exact Rep.compT hG hBB
-
-theorem fi24LeafWords_letters {j : ℕ} (hj : j < 6) : ∀ z ∈ fi24LeafWords[j]!, z.natAbs ≤ 14 := by
-  interval_cases j <;> decide
-
-@[expose] def fi24Leaf
-    (r : R) (c j : ℕ) : R :=
-  fi24Bray r (wordG Fi24.genR fi24LeafWords[j]!) ((fi24LeafExp[c]!)[j]!).1
-    ((fi24LeafExp[c]!)[j]!).2
-
-theorem fi24_oddCore_hard
-    {T : Table} {r : R} (hT : Rep 306936 T r) (hTP : Rep 306936 fi24TP tR) (hr : orderOf r = 2)
-    {c n m : ℕ} (hcase : fi24CaseOK fi24L fi24TP T c n = true) (hn : n = 2 ^ m)
-    (hleaves : ∀ i ∈ (fi24Term c).leaves, i < 6) (hdepth : 4 ≤ (fi24Term c).depth)
-    (hq : Nat.gcd (Nat.card {x : D24 // r * x * r⁻¹ = x}) 2510411418381323442585600 ∣ 8 * 63 ∨
-      Nat.gcd (Nat.card {x : D24 // r * x * r⁻¹ = x}) 2510411418381323442585600 ∣ 8 * 87) :
-    CFSG.oddCore ↥(Subgroup.centralizer ({r} : Set R)) = ⊥ := by
-  unfold fi24CaseOK at hcase
-  simp only [Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.mem_range] at hcase
-  obtain ⟨⟨hleafs, hinvs⟩, hcount⟩ := hcase
-  have hrep : ∀ j < 6, Rep 306936 (fi24LeafT fi24L fi24TP T c j) (fi24Leaf r c j) := by
-    intro j hj
-    have hG := Fi24.rep_wordT_R hTP (fi24LeafWords_letters hj)
-    exact rep_fi24BrayT hT hG (Rep.inv_of_invOK hG (hleafs j hj).1) _ _
-  have hcomm : ∀ j < 6, fi24Leaf r c j * r = r * fi24Leaf r c j := fun j hj => by
-    have e2 : compT 306936 (fi24LeafT fi24L fi24TP T c j) T =
-        compT 306936 T (fi24LeafT fi24L fi24TP T c j) := (hleafs j hj).2
-    have h2 : Rep 306936 (compT 306936 (fi24LeafT fi24L fi24TP T c j) T) (r * fi24Leaf r c j) := by
-      rw [e2]
-      exact Rep.compT hT (hrep j hj)
-    exact fi24_rep_unique (Rep.compT (hrep j hj) hT) h2
-  set C := Subgroup.centralizer ({r} : Set R)
-  let c' : ℕ → C := fun j => if hj : j < 6 then
-    ⟨fi24Leaf r c j, Subgroup.mem_centralizer_singleton_iff.2 (hcomm j hj)⟩ else 1
-  have hc' : ∀ i ∈ (fi24Term c).leaves, (C.subtype ∘ c') i = fi24Leaf r c i := by
-    intro i hi
-    simp only [Function.comp, c', dite_eq_left (hleaves i hi)]
-    rfl
-  have hval : (↑((fi24Term c).eval c') : R) = (fi24Term c).eval (fi24Leaf r c) := by
-    rw [show (↑((fi24Term c).eval c') : R) = C.subtype ((fi24Term c).eval c') from rfl,
-      CommTerm.eval_hom, CommTerm.eval_congr hc']
-  have hW := CommTerm.rep_evalT_of_leaves (fun i hi => hrep i (hleaves i hi)) hinvs
-  rw [← hval] at hW
-  refine fi24_oddCore_of_wit hr hq (k := 1) (fun _ => (fi24Term c).eval c')
-    (fun _ => CommTerm.derivedSeries_antitone hdepth (CommTerm.eval_mem c' _)) (m := m) ?_
-  rw [card_fixed2_D24 hT hW, ← hn]
-  exact hcount
 
 theorem fi24_oddCore_of_hard
     {r : R} (hr : orderOf r = 2) (hh : HardFacts r)
@@ -345,11 +160,6 @@ theorem fi24_mul_tR_facts
     rw [this]
     exact Subgroup.inv_mem _ hm
 
-theorem fi24_gcd_eight
-    {r : R} {T : Table} (hT : Rep 306936 T r) {n : ℕ} (hn : fi24Fix T = n)
-    (h8 : Nat.gcd n 2510411418381323442585600 ∣ 8) :
-    Nat.gcd (Nat.card {x : D24 // r * x * r⁻¹ = x}) 2510411418381323442585600 ∣ 8 := by
-  rwa [card_fixed1_D24 hT, hn]
 
 theorem fi24_oddCore_reps :
     ∀ r ∈ ({fi24D, fi24U2, fi24U3, tR, fi24D * tR, fi24U2 * tR, fi24U3 * tR} : Set R),

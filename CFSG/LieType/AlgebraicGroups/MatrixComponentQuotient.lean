@@ -113,12 +113,6 @@ theorem connectedComponentIn_zeroLocus_subgroupIdeal_closedIdentityComponent
   have hcomp := connectedComponentIn_zeroLocus_eq hMZ hM hdiff
   simpa only [hZp, hMp, hE] using hcomp
 
-omit [IsAlgClosed k] in
-theorem pointSpec_eq_kernelPoint {A : Type} [CommRing A] [Algebra k A] (y : A →ₐ[k] k) :
-    pointSpec y = TauCeti.AlgHom.kernelPoint y := by
-  apply PrimeSpectrum.ext
-  rw [pointSpec_asIdeal, TauCeti.AlgHom.kernelPoint_asIdeal]
-  rfl
 
 theorem kernelPoint_mem_connectedComponent_augmentation_iff
     (Z : Subgroup (ModGL τ k))
@@ -254,82 +248,5 @@ theorem coordinatePoints_mem_closedIdentityComponent_iff
   rw [TauCeti.FiniteTypeCommHopfAlgCat.mem_identityComponentPointsSubgroup_iff]
   exact ((kernelPoint_mem_connectedComponent_augmentation_iff Z hZ φ).trans hmemψ).symm
 
-theorem map_identityComponentPointsSubgroup_eq
-    (Z : Subgroup (ModGL τ k))
-    (hZ : IsPointClosed k (transportPoints (modGLPoint τ k) (Z : Set (ModGL τ k)))) :
-    @Subgroup.map
-      (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-        (CommAlgCat.of k k)) TauCeti.AlgHom.instGroup
-      Z (inferInstance) (coordinatePointsMulEquiv Z hZ).toMonoidHom
-      (identityComponentPointsSubgroup (τ := τ) (k := k) Z) =
-      (closedIdentityComponent Z).subgroupOf Z := by
-  ext x
-  rw [@Subgroup.mem_map_equiv
-    (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-      (CommAlgCat.of k k)) TauCeti.AlgHom.instGroup
-    Z (inferInstance) (coordinatePointsMulEquiv Z hZ)
-    (identityComponentPointsSubgroup (τ := τ) (k := k) Z) x,
-    Subgroup.mem_subgroupOf]
-  simpa only [MulEquiv.apply_symm_apply] using
-    (coordinatePoints_mem_closedIdentityComponent_iff Z hZ
-      ((coordinatePointsMulEquiv Z hZ).symm x)).symm
-
-noncomputable def componentGroupPointsMulEquivQuotient
-    (Z : Subgroup (ModGL τ k))
-    (hZ : IsPointClosed k (transportPoints (modGLPoint τ k) (Z : Set (ModGL τ k)))) :
-    @MulEquiv (TauCeti.FiniteTypeCommHopfAlgCat.componentGroupPoints
-        (coordinateHopf (τ := τ) (k := k) Z))
-      (Z ⧸ (closedIdentityComponent Z).subgroupOf Z)
-      (TauCeti.FiniteTypeCommHopfAlgCat.componentGroupPoints
-        (coordinateHopf (τ := τ) (k := k) Z)).str.toMul
-      (inferInstance) := by
-  let Q : @Subgroup (TauCeti.HopfAlgebra.points
-      (H := coordinateHopf (τ := τ) (k := k) Z) (CommAlgCat.of k k))
-      TauCeti.AlgHom.instGroup :=
-    TauCeti.CommHopfAlgCat.quotientPointsSubgroup
-      (coordinateHopf (τ := τ) (k := k) Z).obj
-      (TauCeti.HopfAlgebra.identityComponentHopfIdeal (k := k)
-        (H := coordinateHopf (τ := τ) (k := k) Z))
-      (CommAlgCat.of k k)
-  letI : @Subgroup.Normal (TauCeti.HopfAlgebra.points
-      (H := coordinateHopf (τ := τ) (k := k) Z) (CommAlgCat.of k k))
-      TauCeti.AlgHom.instGroup Q :=
-    TauCeti.CommHopfAlgCat.quotientPointsSubgroup_normal
-      (coordinateHopf (τ := τ) (k := k) Z).obj
-      (TauCeti.HopfAlgebra.identityComponentHopfIdeal (k := k)
-        (H := coordinateHopf (τ := τ) (k := k) Z))
-      (TauCeti.FiniteTypeCommHopfAlgCat.isNormal_identityComponentHopfIdeal
-        (coordinateHopf (τ := τ) (k := k) Z))
-      (CommAlgCat.of k k)
-  have hmap : @Subgroup.map
-      (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-        (CommAlgCat.of k k)) TauCeti.AlgHom.instGroup
-      Z (inferInstance) (coordinatePointsMulEquiv Z hZ).toMonoidHom Q =
-      (closedIdentityComponent Z).subgroupOf Z := by
-    change @Subgroup.map
-      (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-        (CommAlgCat.of k k)) TauCeti.AlgHom.instGroup
-      Z (inferInstance) (coordinatePointsMulEquiv Z hZ).toMonoidHom
-      (identityComponentPointsSubgroup (τ := τ) (k := k) Z) =
-      (closedIdentityComponent Z).subgroupOf Z
-    exact map_identityComponentPointsSubgroup_eq Z hZ
-  change (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-      (CommAlgCat.of k k) ⧸ Q) ≃*
-    (Z ⧸ (closedIdentityComponent Z).subgroupOf Z)
-  exact @QuotientGroup.congr
-    (TauCeti.HopfAlgebra.points (H := coordinateHopf (τ := τ) (k := k) Z)
-      (CommAlgCat.of k k)) Z TauCeti.AlgHom.instGroup (inferInstance)
-    Q ((closedIdentityComponent Z).subgroupOf Z) (inferInstance) (inferInstance)
-    (coordinatePointsMulEquiv Z hZ) hmap
-
-theorem isPGroup_componentGroupPoints_iff
-    (p : ℕ) (Z : Subgroup (ModGL τ k))
-    (hZ : IsPointClosed k (transportPoints (modGLPoint τ k) (Z : Set (ModGL τ k)))) :
-    IsPGroup p (TauCeti.FiniteTypeCommHopfAlgCat.componentGroupPoints
-        (coordinateHopf (τ := τ) (k := k) Z)) ↔
-      IsPGroup p (Z ⧸ (closedIdentityComponent Z).subgroupOf Z) := by
-  constructor
-  · exact fun h => IsPGroup.of_equiv h (componentGroupPointsMulEquivQuotient Z hZ)
-  · exact fun h => IsPGroup.of_equiv h (componentGroupPointsMulEquivQuotient Z hZ).symm
 
 end CFSG.LieType.AlgebraicGroups.MatrixComponents

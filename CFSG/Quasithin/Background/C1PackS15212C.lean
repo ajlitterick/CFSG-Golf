@@ -15,16 +15,6 @@ namespace C1Pack12
 
 variable {G : Type} [Group G] [Finite G]
 
-structure Core15212 (T Mc M H : Subgroup G) : Prop where
-  cases : conjClosure (oTwoUpper H) Mc = oTwoUpper H ∨
-    Case15212ii T Mc (conjClosure (oTwoUpper H) Mc) ∨
-    Case15212iii T Mc (conjClosure (oTwoUpper H) Mc) ∨
-    Case15212He T Mc (conjClosure (oTwoUpper H) Mc)
-  eq_oThreePrime : conjClosure (oTwoUpper H) Mc = oPrimeResidualOf 3 Mc
-
-@[expose] def Input15212Core : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M : Subgroup G), Setting152 T Mc M →
-    ∀ H : Subgroup G, IsHStar T M H → Core15212 T Mc M H
 
 theorem le_centralizer_of_cases {T Mc M H : Subgroup G} (hs : Setting152 T Mc M)
     (h1416 : StageLemma1416) (c19 : Lemma1519Concl T Mc M) (hH : IsHStar T M H)
@@ -55,19 +45,6 @@ theorem le_centralizer_of_cases {T Mc M H : Subgroup G} (hs : Setting152 T Mc M)
     exact hMc h4
   · exact hcomp _ h.2.1
 
-theorem stageLemma15212_of_core (h1416 : StageLemma1416) (h1515 : StageLemma1515)
-    (h15201 : StageLemma15201) (h5 : StageLemma15205)
-    (h1519 : StageLemma1519) (h15208 : StageLemma15208) (h15209 : StageNotation15209)
-    (h15211 : StageLemma15211) (core : Input15212Core) : StageLemma15212 := by
-  intro G _ _ T Mc M hs H hH B hB
-  have s := St12.of_stages h5 h1519 h15208 h15209 h15211 hs hH hB
-  have c := core G T Mc M hs H hH
-  have hle := le_centralizer_of_cases hs h1416 s.c19 hH c.cases
-  have hd : S152Y.Data T Mc M :=
-    ⟨hs.qtfe, hs.mf, h1515 G T Mc M hs.qtfe hs.mf, h15201 G T Mc M hs⟩
-  have hsix : ¬ Case1512Six T Mc M := not_case1512Six_of_oThreePrime hd c.eq_oThreePrime hle
-  exact ⟨s.xi, c.cases, s.unique, s.H_le_normalizer, s.normalizer_le, c.eq_oThreePrime, hle,
-    hsix, V154_eq_VZ hsix⟩
 
 end C1Pack12
 

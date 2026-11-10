@@ -35,7 +35,6 @@ structure WitData where
 
 end Decode
 
-@[expose] def decodeWit (n : ℕ) (s : String) : WitData := rdWitData (decodeNats s) n
 
 @[expose] def natTokens (w m D : ℕ) : Array ℕ :=
   ((List.range m).map fun i => D / 2 ^ (w * i) % 2 ^ w).toArray

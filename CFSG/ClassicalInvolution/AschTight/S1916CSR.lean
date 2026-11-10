@@ -20,13 +20,6 @@ theorem mem_centralizer_of_mem_cStar (hd : Sec19Data p f K z S W) {x : G}
   fun _ hr => commute_of_mem_centralizerModOdd hx inf_le_right (S.isPGroup'.to_le inf_le_left)
     (mem_normalizer_inf_of_mem hxS ((sd_normalizer_eq hd).ge (hd.hSz hxS))) hr
 
-theorem mem_cStar_of_mem_centralizer [IsSimpleGroup G] (hd : Sec19Data p f K z S W) {x : G}
-    (hxS : x ∈ (S : Subgroup G)) (hxR : ∀ r ∈ (S : Subgroup G) ⊓ K, x * r = r * x) :
-    x ∈ centralizerModOdd ⊤ K := by
-  have hxN : x ∈ Subgroup.normalizer (K : Set G) := (sd_normalizer_eq hd).ge (hd.hSz hxS)
-  exact ⟨Subgroup.mem_top x, hxN, mem_normalizer_oddCoreOf_of_mem_normalizer hxN,
-    fun k hk => commutator_mem_oddCoreOf_of_centralizes hd.tight (sd_isSylow2In_R hd)
-      (S.isPGroup'.to_le (Subgroup.zpowers_le.mpr hxS)) hxN (fun r hr => (hxR r hr).symm) hk⟩
 
 theorem mem_W_inf_of_mem_centralizer_t [IsSimpleGroup G] (h11b : C19_11bTmp p f)
     (hd : Sec19DataT p f K z S W L t V) {x : G} (hxS : x ∈ (S : Subgroup G))

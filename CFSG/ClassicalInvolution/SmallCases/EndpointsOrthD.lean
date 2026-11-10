@@ -199,20 +199,6 @@ theorem minus10_closure [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
   · exact le_sup_of_le_left le_sup_right
   · exact le_sup_right
 
-theorem minus10_generation [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hb : SU4SpinMinus p f (minusCoeffs_irr p f)) (hg6 : SpinMinus6Generated (minusCoeffs_irr p f))
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) (hconn : DeltaConnected Ω)
-    {K₀ K₁ K₂ Us : Subgroup G} (hK₀ : K₀ ∈ Ω) (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K₀)
-    {z : G} (hz : IsClassicalMember p f K₀ z) (hP1 : LocalOddCentral Ω {z})
-    (hshape : LocalShapeT p f 2 .PSU 4 Ω z) (c02 : Commutes K₀ K₂) (c0s : Commutes K₀ Us)
-    (c1s : Commutes K₁ Us) (p01 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₀ K₁)
-    (p12 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₁ K₂)
-    (hs : ∃ W, TwistedB2BlockPair (minusCoeffs_irr p f) W K₂ Us) :
-    K₀ ⊔ K₁ ⊔ K₂ ⊔ Us = ⊤ := by
-  obtain ⟨Ψ, -, hsurj, hrange, -⟩ := minus10_closure hp2 hq hb hg6 hΩ hconn hK₀ hsingle hz hP1
-    hshape c02 c0s c1s p01 p12 hs
-  rw [← hrange]
-  exact MonoidHom.range_eq_top.mpr hsurj
 
 theorem minus10_lieSystem [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
     (hb : SU4SpinMinus p f (minusCoeffs_irr p f)) (hg6 : SpinMinus6Generated (minusCoeffs_irr p f))
@@ -238,44 +224,5 @@ theorem minus10_lieSystem [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
   exact exists_lieSystemData_of_fundamental (t := .POmegaMinus) trivial hadm Ψ hsurj hker
     ⟨_, rankOne_mem_fund_minus hirr hk0⟩ hΩΨ
 
-theorem smallEndpoint_minus10 [Finite G] (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hb : SU4SpinMinus p f (minusCoeffs_irr p f)) (hg6 : SpinMinus6Generated (minusCoeffs_irr p f))
-    {Ω : Set (Subgroup G)} (hΩ : InClass p f Ω) (hconn : DeltaConnected Ω)
-    {K₀ K₁ K₂ : Subgroup G} (hK₀ : K₀ ∈ Ω) (hK₁ : K₁ ∈ Ω)
-    (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K₀) {z₀ z₁ : G}
-    (hz₀ : IsClassicalMember p f K₀ z₀) (hz₁ : IsClassicalMember p f K₁ z₁)
-    (hP1 : LocalOddCentral Ω {z₀}) (Λ : SuLayer p f 2 Ω z₀) (c02 : Commutes K₀ K₂)
-    (p01 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₀ K₁)
-    (p12 : ∃ W, LinearBlockStandardPair (GaloisField p f) W K₁ K₂)
-    (hpat : ∃ Us : Subgroup G, Λ.IsShortNode (minusCoeffs_irr p f) K₂ Us ∧
-      Us ≤ Subgroup.centralizer ({z₁} : Set G)) :
-    ∃ Ψ : spinGroup (Spin.quadMinus 5 (GaloisField p f) (minusCoeffs p f).1
-        (minusCoeffs p f).2) →* G, Function.Surjective Ψ ∧ Ψ.ker ≤ Subgroup.center _ ∧
-      CFSG.IsQuasisimple G ∧
-        CFSG.Blueprint.LieModel (G ⧸ Subgroup.center G) .POmegaMinus 5 p f := by
-  have hf : 1 ≤ f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simp at hq
-    · exact h
-  have hF : Nat.card (GaloisField p f) = p ^ f := GaloisField.card p f (by omega)
-  have h4 : 4 ≤ Nat.card (GaloisField p f) := by rw [hF]; omega
-  have hadm : StatedLieAdmissible .POmegaMinus 5 p f := ⟨Fact.out, hf, by norm_num⟩
-  have : NeZero f := ⟨by omega⟩
-  have hS3 : Gaps.StandardPairAutAbelian (GaloisField p f) :=
-    Gaps.standardPairAutAbelian_galoisField hp2 hq
-  obtain ⟨Us, ⟨hUsY, hUsperf, hUsrange, hspair, hUsc, -⟩, hUsz₁⟩ := hpat
-  have c0s : Commutes K₀ Us := by
-    obtain ⟨j, hj, hKj⟩ := Λ.exists_other_of_self hp2 hq hK₀ hz₀
-    exact hUsc K₀ ⟨hK₀, le_centralizer_of_isClassicalMember hz₀⟩ j hj hKj
-  have c1s : Commutes K₁ Us :=
-    commutes_partner_of_perfect_conj hp2 hq (Gaps.fundNoncentral p) hS3 hΩ hsingle hz₀
-      ⟨Λ.D, by rw [Λ.card_eq]; norm_num⟩ hP1 hK₁ hz₁ p01 hUsperf hUsz₁
-      (fun u hu => Subgroup.mem_centralizer_iff.mpr fun k hk => c0s k hk u hu)
-  have hshape : LocalShapeT p f 2 .PSU 4 Ω z₀ :=
-    ⟨Λ.D, Λ.card_eq, Λ.i₁, Λ.tag_eq, Λ.rank_eq, Λ.rest⟩
-  have hgen := minus10_generation hp2 hq hb hg6 hΩ hconn hK₀ hsingle hz₀ hP1 hshape c02 c0s c1s
-    p01 p12 hspair
-  exact smallEndpoint_minus10_of_nodes hadm hp2 hF h4 (minusCoeffs_irr p f) hgen c02 c0s c1s p01
-    p12 hspair
 
 end CFSG.ClassicalInvolution.RouteD

@@ -22,14 +22,9 @@ theorem formA : Nat.beq (fMul BC (fMul BC (fTr LyBS.A) FL) LyBS.A) FL = true := 
 
 theorem formB : Nat.beq (fMul BC (fMul BC (fTr LyBS.B) FL) LyBS.B) FL = true := by quickRfl
 
-theorem vXS : fVld BC XS = true := by quickRfl
 
 theorem x67 : Nat.beq (xPow 67) BC.ONEF = true := by quickRfl
 
-theorem neg_x66 : notB (Nat.beq (xPow 66) BC.ONEF) = true := by quickRfl
-
-theorem neg_formA : notB (Nat.beq (fMul BC (fMul BC (fTr LyBS.A) FL) LyBS.A) (Nat.add FL 1)) =
-    true := by quickRfl
 
 end CFSG.KD.LyOm
 

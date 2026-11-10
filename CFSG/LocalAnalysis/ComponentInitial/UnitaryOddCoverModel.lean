@@ -204,14 +204,6 @@ variable (h r) in
       rw [nElt_inv]
       exact nElt_ext _ _ neg_zero.symm rfl⟩
 
-theorem mem_radN {g : hypSU h r 1} :
-    g ∈ radN h r ↔ ∃ (x : Fin r → K) (C : Matrix (Fin r) (Fin r) K) (hC : IsRad h x C),
-      nElt hC = g :=
-  Iff.rfl
-
-theorem mem_radV {g : hypSU h r 1} :
-    g ∈ radV h r ↔ ∃ (B : Matrix (Fin r) (Fin r) K) (hB : IsRad h 0 B), nElt hB = g :=
-  Iff.rfl
 
 theorem radV_le_radN : radV h r ≤ radN h r := by
   rintro _ ⟨B, hB, rfl⟩
@@ -372,9 +364,6 @@ theorem nElt_mem_hypUnitriangular {x : Fin r → K} {C : Matrix (Fin r) (Fin r) 
   obtain ⟨hC', hge⟩ := exists_eq_nElt hgm
   exact hge ▸ hg
 
-theorem radN_le_hypUnitriangular : radN h r ≤ hypUnitriangular h r 1 := by
-  rintro _ ⟨x, C, hC, rfl⟩
-  exact nElt_mem_hypUnitriangular hC
 
 theorem lMat_eq_oddDiag {A : Matrix (Fin r) (Fin r) K} (hA : A.det = 1) :
     lMat h A = oddDiag h A 1 := by
@@ -480,21 +469,6 @@ theorem commMat_eq_hermH (h : UnitaryFieldData 2 1 K) (x y : Fin r → K) :
   ext i j
   exact CharTwo.neg_eq _
 
-omit [CharP K 2] in
-theorem exists_lHom_mul_nElt_two {h : UnitaryFieldData 2 1 K} (A : GL (Fin r) K)
-    {x : Fin r → K} {C : Matrix (Fin r) (Fin r) K} (hC : IsRad h x C) :
-    ∃ hC' : IsRad h (((A : Matrix (Fin r) (Fin r) K).det)⁻¹ • ((A : Matrix (Fin r) (Fin r) K) *ᵥ x))
-        (A * C * hconj (A : Matrix (Fin r) (Fin r) K)),
-      lHom h r A * nElt hC * (lHom h r A)⁻¹ = nElt hC' := by
-  obtain ⟨hC', he⟩ := exists_lHom_mul_nElt A hC
-  have e1 : (dval h (A : Matrix (Fin r) (Fin r) K))⁻¹ • ((A : Matrix (Fin r) (Fin r) K) *ᵥ x) =
-      ((A : Matrix (Fin r) (Fin r) K).det)⁻¹ • ((A : Matrix (Fin r) (Fin r) K) *ᵥ x) := by
-    rw [dval_eq_det]
-  have e2 : (A : Matrix (Fin r) (Fin r) K) * C * ((A : Matrix (Fin r) (Fin r) K).map h.bar)ᵀ =
-      A * C * hconj (A : Matrix (Fin r) (Fin r) K) := by
-    rw [map_bar_transpose]
-  rw [e1, e2] at hC'
-  exact ⟨hC', he.trans (nElt_ext _ _ e1 e2)⟩
 
 end FieldTwo
 

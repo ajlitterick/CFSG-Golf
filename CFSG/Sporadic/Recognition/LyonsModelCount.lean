@@ -44,16 +44,6 @@ namespace CFSG.Sporadic.Recognition.LyonsSims
 
 open Equiv Subgroup
 
-theorem image_inv_mem_of_image_mem {Ω : Type*} [Finite Ω] (𝓕 : Set (Set Ω)) (a : Perm Ω)
-    (h : ∀ S ∈ 𝓕, a '' S ∈ 𝓕) : ∀ S ∈ 𝓕, (a⁻¹ : Perm Ω) '' S ∈ 𝓕 := by
-  have hfin : 𝓕.Finite := Set.toFinite 𝓕
-  have hinj : Set.InjOn (fun S : Set Ω => a '' S) 𝓕 :=
-    ((Equiv.injective a).image_injective).injOn
-  have hbij := (hfin.injOn_iff_bijOn_of_mapsTo (f := fun S : Set Ω => a '' S)
-    (fun S hS => h S hS)).1 hinj
-  intro S hS
-  obtain ⟨T, hT, rfl⟩ := hbij.surjOn hS
-  simpa [Set.image_image] using hT
 
 open scoped Pointwise in
 theorem exists_subgroup_ncard_mul_card_eq {Ω : Type*} (B : Subgroup (Perm Ω))

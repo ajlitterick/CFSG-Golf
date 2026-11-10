@@ -234,95 +234,6 @@ theorem ggResExact2_K_reverse_or_singular {G : Type} [Group G] [Finite G] {p : �
     · exact Or.inl (pack (ggTypLADvd p) ⟨hA, hpd⟩)
     · exact Or.inr ⟨hp3, pack ggTypLE6 hE6⟩
 
-theorem ggResExact2_K_reverse_of_rank
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hTBF : GGTBFixInput) (hH : GGResHyp p B Bs x L D J y K)
-    (hrank : ∀ r c : ℕ, GGWeylTypeData r (Nat.card ↥(ggAutomizer K Bs)) c →
-      p ^ (r + 1) ≤ Nat.card ↥Bs)
-    (hD : GGResLeviDatumExact2 p Bs K J L ggSelAny ggTypAny) :
-    GGResLeviDatumExact2 p Bs L J K ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny := by
-  classical
-  rcases hD with ⟨Λ, i1, i2, S, Λa, i3, i4, ML, CL, MK, CK, V, i5, i6, ι, φ, h, α,
-    hS, hΛa1, hΛa3, hML, hCL, hMK, hCK, _htyp, hlin, hrefl, hpair, hpairK, hsel,
-    ⟨fL, hfL⟩, ⟨fK, hfK⟩, hclosL, hclosK, hconn, hclosJ⟩
-  let := i1
-  let := i2
-  let := i3
-  let := i4
-  let := i5
-  let := i6
-  let : Finite V := Finite.of_equiv (Additive ↥Bs) ι.toEquiv
-  rcases (by omega : 2 ≤ Nat.card Λa ∨ Nat.card Λa = 1) with hΛa2 | hΛa1
-  · have hrev := ggResLeviDatumCard_reverse_of_witness (p := p) (Bs := Bs) (L := K) (J := J)
-      (K := L) (S := S) (Λa := Λa) (ML := ML) (CL := CL) (MK := MK) (CK := CK) (V := V)
-      (ι := ι) (φ := φ) (h := h) (α := α) (by omega) (by omega) hML hCL hMK hCK hlin hrefl
-      hpair hpairK ⟨fL, hfL⟩ ⟨fK, hfK⟩ hclosL hclosK hconn hclosJ
-    have hc : Nat.card Λa = 2 ∨ Nat.card Λa = 3 := by omega
-    rcases hc with hc | hc
-    · exact Or.inl (by rwa [hc] at hrev)
-    · exact Or.inr (by rwa [hc] at hrev)
-  · exfalso
-    have hp2 : p ≠ 2 := hH.1.1.2.2.2.2.2.1.2.1
-    let φ' : ({i : Λ // i ∉ S} ⊕ Λa) → MulAut ↥Bs := fun o => φ (o.map Subtype.val id)
-    let h' : ({i : Λ // i ∉ S} ⊕ Λa) → V := fun o => h (o.map Subtype.val id)
-    let α' : ({i : Λ // i ∉ S} ⊕ Λa) → Module.Dual (ZMod p) V :=
-      fun o => α (o.map Subtype.val id)
-    have hlin' : ∀ o w, ggLin (p := p) ι (φ' o) w = w - α' o w • h' o := fun o w => hlin _ w
-    have hdiag' : ∀ o, α' o (h' o) = 2 := by
-      intro o
-      change α (o.map Subtype.val id) (h (o.map Subtype.val id)) = 2
-      rw [hpairK o o, hCK.1 o]
-      norm_num
-    have hrange : Set.range φ' =
-        Set.range (fun j : {j : Λ // j ∉ S} => φ (Sum.inl j)) ∪
-          Set.range (fun a : Λa => φ (Sum.inr a)) := by
-      ext z
-      constructor
-      · rintro ⟨o, rfl⟩
-        cases o with
-        | inl j => exact Or.inl ⟨j, rfl⟩
-        | inr a => exact Or.inr ⟨a, rfl⟩
-      · rintro (⟨j, rfl⟩ | ⟨a, rfl⟩)
-        · exact ⟨Sum.inl j, rfl⟩
-        · exact ⟨Sum.inr a, rfl⟩
-    have hgen' : ggAutomizer L Bs = Subgroup.closure (Set.range φ') := by
-      rw [hclosK, hrange]
-    have hdim := ggResTBFix_finrank_le_card_add_one hTBF hH ι φ' h' α' hlin' hdiag' hgen'
-    have hcardS : Fintype.card {i : Λ // i ∉ S} = Fintype.card Λ - S.card := by
-      have h := Fintype.card_subtype_compl (α := Λ) (p := fun i => i ∈ S)
-      rw [Fintype.card_coe] at h
-      exact h
-    have hSle : S.card ≤ Fintype.card Λ := by
-      simpa using Finset.card_le_card (Finset.subset_univ S)
-    have hΛa1' : Fintype.card Λa = 1 := by
-      rw [← Nat.card_eq_fintype_card, hΛa1]
-    have hcardι : Fintype.card ({i : Λ // i ∉ S} ⊕ Λa) + 1 = Fintype.card Λ := by
-      rw [Fintype.card_sum, hcardS, hΛa1', hS]
-      omega
-    have hdimΛ : Module.finrank (ZMod p) V ≤ Fintype.card Λ := by omega
-    have hwt := ggWeylTypeData_of_isWeylMatrix hML
-    have hcardML : Nat.card ML.Group = Nat.card ↥(ggAutomizer K Bs) :=
-      Nat.card_congr fL.toEquiv
-    rw [hcardML] at hwt
-    have hleBs := hrank (Fintype.card Λ) (Nat.card ↥(Subgroup.center ML.Group)) hwt
-    have hBsV : Nat.card ↥Bs = Nat.card V := by
-      have h1 : Nat.card ↥Bs = Nat.card (Additive ↥Bs) :=
-        (Nat.card_congr Additive.toMul).symm
-      exact h1.trans (Nat.card_congr ι.toEquiv)
-    have hVpow : Nat.card V = p ^ Module.finrank (ZMod p) V := by
-      let : Module.Finite (ZMod p) V := Module.Finite.of_finite
-      simpa using (Module.natCard_eq_pow_finrank (K := ZMod p) (V := V))
-    have hle : p ^ (Fintype.card Λ + 1) ≤ p ^ Fintype.card Λ := by
-      calc p ^ (Fintype.card Λ + 1) ≤ Nat.card ↥Bs := hleBs
-        _ = Nat.card V := hBsV
-        _ = p ^ Module.finrank (ZMod p) V := hVpow
-        _ ≤ p ^ Fintype.card Λ :=
-            Nat.pow_le_pow_right (Fact.out : p.Prime).pos hdimΛ
-    exact absurd hle (Nat.not_le.mpr
-      (Nat.pow_lt_pow_right (Fact.out : p.Prime).one_lt (Nat.lt_succ_self _)))
-
 
 theorem GGResHyp.card_Bs_six_of_K_only_E6
     {G : Type} [Group G] [Finite G]
@@ -590,23 +501,6 @@ theorem ggResExact3_K_reverse_or_exact2_singular {G : Type} [Group G] [Finite G]
     rcases hsing with ⟨hA, hpd⟩ | ⟨hp3, hE6⟩
     · exact Or.inl (pack (ggTypLADvd p) ⟨hA, by simpa only [Nat.card_eq_fintype_card] using hpd⟩)
     · exact Or.inr ⟨hp3, pack ggTypLE6 hE6⟩
-
-
-
-theorem GGResHyp.not_exactThree_either_of_sideDatum_L_of_tbFix
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hTBF : GGTBFixInput) (hH : GGResHyp p B Bs x L D J y K)
-    (hSide : GGResSideDatum p Bs L J) :
-    ¬ (GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny ∨
-      GGResLeviDatumExact3 p Bs K J L ggSelAny ggTypAny) := by
-  have hNoL3 : ¬ GGResLeviDatumExact3 p Bs L J K ggSelAny ggTypAny :=
-    fun h3 => not_ggResSideDatum_of_ggResLeviDatumCard_of_two_le hSide (by omega : 2 ≤ 3) h3
-  rintro (hL3 | hK3)
-  · exact hNoL3 hL3
-  · rcases ggResExact3_K_reverse_or_exact2_singular hTBF hH hK3 with hL3 | ⟨hL2, _⟩
-    · exact hNoL3 hL3
-    · exact not_ggResSideDatum_of_ggResLeviDatumExact2 hSide hL2
 
 
 end CFSG.StandardType

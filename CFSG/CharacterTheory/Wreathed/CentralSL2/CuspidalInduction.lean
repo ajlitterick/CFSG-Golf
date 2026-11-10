@@ -105,12 +105,6 @@ theorem exists_addChar_ne_one : ∃ ψ : AddChar F ℂ, ψ ≠ 1 := by
   obtain ⟨ψ, hψ⟩ := Fintype.exists_ne_of_one_lt_card hcard 1
   exact ⟨ψ, hψ⟩
 
-omit [Fintype F] in
-theorem addChar_ne_zero (ψ : AddChar F ℂ) (t : F) : ψ t ≠ 0 := by
-  intro h
-  have h1 := AddChar.map_add_eq_mul ψ t (-t)
-  rw [add_neg_cancel, AddChar.map_zero_eq_one, h, zero_mul] at h1
-  exact one_ne_zero h1
 
 end AdditiveCharacters
 

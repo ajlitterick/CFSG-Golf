@@ -283,23 +283,5 @@ theorem s15_T8_transvection (D : Data G) {V₀ V L : Subgroup G} (h : Hyp154 D V
   · exact s15_T7_inducesTransvection (s15_LP_vtil_sq_eq_one (v1Sub D.M ⊥ V hV L) V hV)
       hKle hmK hφstab hφK hmove
 
-theorem s15_T8_caseThree (D : Data G) (h153 : R15_3 D) {V₀ V L : Subgroup G}
-    (h : Hyp154 D V₀ V L) (hs4 : s15 D.M V₀ V h.hyp151.isElemAbelian L = 4)
-    (htr : ∃ φ ∈ Mbar D.M (v1Sub D.M V₀ V h.hyp151.isElemAbelian L) V h.hyp151.isElemAbelian,
-      InducesTransvection φ (wStar D.M V₀ V h.hyp151.isElemAbelian L)) :
-    Case153_3 D V₀ V h.hyp151.isElemAbelian L := by
-  rcases h153 V₀ V L h.hyp151 htr with h1 | h2 | h3
-  · obtain ⟨-, -, -, -, h1s, -⟩ := h1
-    omega
-  · exfalso
-    obtain ⟨K₀, p, -, -, -, -, -, hrs, -⟩ := h2
-    rw [hs4] at hrs
-    have hne : (conjSet (barSub V₀ V h.hyp151.isElemAbelian K₀)
-        (Mbar D.M V₀ V h.hyp151.isElemAbelian ⊓
-          normalizer ((lBar V₀ V h.hyp151.isElemAbelian L : Subgroup _) : Set _))).Nonempty :=
-      ⟨barSub V₀ V h.hyp151.isElemAbelian K₀, 1, Subgroup.one_mem _, by ext x; simp⟩
-    have hpos := (Set.ncard_pos (Set.toFinite _)).2 hne
-    omega
-  · exact h3
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo

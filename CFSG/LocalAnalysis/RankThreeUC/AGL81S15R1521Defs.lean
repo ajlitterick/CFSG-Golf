@@ -105,13 +105,6 @@ theorem AConfig.inf_eq_bot_or_le {T R A : Subgroup X} (hA : AConfig T R A) {K : 
       rw [← htab]
       exact this
 
-structure LiftCtx (X : Type) [Group X] [Finite X] (T T₁ T₂ : Subgroup X)
-    (Ls : Subgroup (X ⧸ gnC T)) (L : Subgroup X) : Prop where
-  gn : GNSetting X T
-  good : GNGood T T₁ T₂
-  rank_odd : ∀ r : ℕ, r.Prime → r ≠ 2 → CFSG.Open.pRank r (⊤ : Subgroup X) ≤ 3
-  comp : GNYComponent T T₁ T₂ Ls
-  lift : LiftOf T L Ls
 
 structure LiftCtxGen (X : Type) [Group X] [Finite X] (T T₁ T₂ : Subgroup X)
     (Ls : Subgroup (X ⧸ gnC T)) (L : Subgroup X) : Prop where
@@ -122,12 +115,6 @@ structure LiftCtxGen (X : Type) [Group X] [Finite X] (T T₁ T₂ : Subgroup X)
   comp : GNYComponent T T₁ T₂ Ls
   lift : LiftOf T L Ls
 
-theorem LiftCtx.toGen {X : Type} [Group X] [Finite X] {T T₁ T₂ : Subgroup X}
-    {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) :
-    LiftCtxGen X T T₁ T₂ Ls L :=
-  ⟨hl.gn, hl.good, hl.rank_odd 3 Nat.prime_three (by norm_num),
-    fun r hr hr2 => (CFSG.SectionRank.pRank_mono hr.one_lt le_top).trans (hl.rank_odd r hr hr2),
-    hl.comp, hl.lift⟩
 
 @[expose] def LiftRankBound (G : Type) [Group G] [Finite G] (M T : Subgroup G)
     (T₁ T₂ : Subgroup ↥M) : Prop :=

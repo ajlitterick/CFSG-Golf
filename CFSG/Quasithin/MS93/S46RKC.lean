@@ -464,12 +464,6 @@ theorem zm_smul_le_qv_of_row21_cfg (h464 : I464) (h465 : I465) (h466a : I466a) (
     rw [embv_zero]
     exact (smul_eq_zero.mp hv.symm).resolve_left hκ))
 
-theorem zm_smul_le_qv_of_row21 (h464 : I464) (h465 : I465) (h466a : I466a) (h467 : I467)
-    (h469 : I469) (d : X3Data c α β γ ψ)
-    (h2 : ∀ k : ↥(stab (puAmalgam c.pu.le) α), toSL3 ψ k ∈ (rootGroup 2 1 : Subgroup (SL3 F)) →
-      ∀ z ∈ ZM (puAmalgam c.pu.le) γ, ⁅z, (k : (puAmalgam c.pu.le).Universal)⁆ ∈ ZM _ α) :
-    ∀ g ∈ stab (puAmalgam c.pu.le) α, ZM (puAmalgam c.pu.le) (g • γ) ≤ Qv _ γ :=
-  zm_smul_le_qv_of_row21_cfg h464 h465 h466a h467 (h469 G M T L F φ) d h2
 
 theorem kc4612Cfg_of_kc2 (hKC : KC4612TwoCfg M T L φ) (h43 : S43) (h463 : I463) (h464 : I464)
     (h465 : I465) (h466a : I466a) (h466b : I466b) (h467 : I467) (h469 : I469Cfg M T L φ) :

@@ -70,11 +70,6 @@ theorem map_conj_opposite (p : ℕ) {G₀ Q V : Subgroup G}
       rw [GGTwoSig.map_conj_inf, GGTwoSig.map_conj_eq hg, GGTwoSig.map_conj_normalizer]
     rw [h1, ← GGTwoSig.map_conj_inf, hVb, Subgroup.map_bot]
 
-theorem map_conj_mem_ggOppositeRadicals {G₀ Q V : Subgroup G}
-    (hV : V ∈ ggOppositeRadicals G₀ Q) {g : G} (hg : g ∈ Subgroup.normalizer (G₀ : Set G)) :
-    V.map (MulAut.conj g).toMonoidHom ∈
-      ggOppositeRadicals G₀ (Q.map (MulAut.conj g).toMonoidHom) :=
-  map_conj_opposite 2 hV.1 hV.2.1 hV.2.2 hg
 
 theorem exists_opposite_map_conj (p : ℕ) {G₀ Q : Subgroup G}
     (h : ∃ V₀ : Subgroup G, pCoreOf p (G₀ ⊓ Subgroup.normalizer (V₀ : Set G)) = V₀ ∧
@@ -199,11 +194,6 @@ theorem le_pCoreOf_comap (p : ℕ) [Fact p.Prime] [Finite G] (hker : ψ.ker ≤ 
   intro y hy
   exact ⟨⟨y, hYX hy⟩, hSle (hS (Subgroup.mem_subgroupOf.mpr hy)), rfl⟩
 
-theorem le_liftTwo [Finite G] (hker : ψ.ker ≤ Subgroup.center H) {X : Subgroup G}
-    (hX : IsPGroup 2 X) {Y : Subgroup H} (hYX : Y ≤ X.comap ψ) (hY : IsPGroup 2 Y) :
-    Y ≤ liftTwo ψ X :=
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  le_pCoreOf_comap ψ 2 hker hX hYX hY
 
 theorem map_pCoreOf_comap (p : ℕ) [Fact p.Prime] [Finite G] (hker : ψ.ker ≤ Subgroup.center H)
     {X : Subgroup G} (hX : IsPGroup p X) (hXr : X ≤ ψ.range) :

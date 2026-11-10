@@ -485,10 +485,6 @@ theorem inf_inf_eq_bot : K ⊓ W ⊓ V = ⊥ := by
     (S.isPGroup'.to_le hd.hWS).to_le (Subgroup.zpowers_le.mpr hx.1.2)
   exact Subgroup.mem_bot.mpr (eq_one_of_isPGroup_of_mem_odd hodd hxKL hx2)
 
-theorem inf_member_eq_bot : V ⊓ K = ⊥ := by
-  rw [eq_bot_iff, ← hd.inf_inf_eq_bot]
-  intro x hx
-  exact ⟨⟨hx.2, hd.leW hx.1⟩, hx.1⟩
 
 theorem card_inf_eq_card : Nat.card ↥(K ⊓ W) = Nat.card V := by
   have hd0 := hd.toTightSylowData

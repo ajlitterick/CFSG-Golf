@@ -35,20 +35,6 @@ theorem centralTwoKernel_le_center (hc : π.ker ≤ center E) :
 instance centralTwoKernel_normal (hc : π.ker ≤ center E) :
     (centralTwoKernel hc).Normal := normal_of_le_center (centralTwoKernel_le_center hc)
 
-theorem centralTwoKernel_isPGroup (hc : π.ker ≤ center E) :
-    IsPGroup 2 (centralTwoKernel hc) := by
-  intro z
-  refine ⟨1, ?_⟩
-  apply Subtype.ext
-  simpa using z.property.2
-
-theorem eq_one_of_cube_eq_one_of_two_quotient_eq_one (hc : π.ker ≤ center E)
-    {z : E} (h3 : z ^ 3 = 1)
-    (hq : QuotientGroup.mk' (centralTwoKernel hc) z = 1) : z = 1 := by
-  have h2 := ((QuotientGroup.eq_one_iff z).mp hq).2
-  calc
-    z = z ^ 3 * (z ^ 2)⁻¹ := by group
-    _ = 1 := by rw [h3, h2]; simp
 
 @[expose] def centralTwoQuotientMap (hc : π.ker ≤ center E) :
     E ⧸ centralTwoKernel hc →* C :=

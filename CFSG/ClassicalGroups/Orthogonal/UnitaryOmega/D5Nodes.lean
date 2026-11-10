@@ -614,11 +614,6 @@ private theorem d5n_hypH1_orth :
         coordPlane (LinearEquiv.refl F ((F × F) × (Fin 4 → K))) 3) :=
   fun h hh u hu => d5n_orth_U01_U23 E h (d5n_hypH1_le E hh) u hu
 
-private theorem d5n_hypH2_orth :
-    CFSG.LieType.SeitzGeneration.OrthBlk.OrthSep (normHypForm E 4) (hypH2 E)
-      (coordPlane (LinearEquiv.refl F ((F × F) × (Fin 4 → K))) 2 ⊔
-        coordPlane (LinearEquiv.refl F ((F × F) × (Fin 4 → K))) 3) :=
-  fun h hh u hu => d5n_orth_U01_U23 E h (d5n_hypH2_le E hh) u hu
 
 private theorem d5n_polar_zeroAnchor (w w' : Fin 4 → K) :
     polar (normHypForm E 4) ((0 : F × F), w) ((0 : F × F), w') =
@@ -746,26 +741,6 @@ theorem nondegenerate_crossAnchor :
     CFSG.LieType.SeitzGeneration.OrthBlk.polarNondegOn_sup hW hH1 hsep
   exact CFSG.LieType.SeitzGeneration.OrthBlk.nondegenerate_of_polarNondegOn hmain
 
-theorem nondegenerate_crossPure :
-    (polarBilin ((normHypForm E 4).comp (crossPure E).subtype)).Nondegenerate := by
-  have : FiniteDimensional F K := finiteDimensional_of_quadExt E
-  have : CharP F 2 := (algebraMap F K).charP (algebraMap F K).injective 2
-  let ψ := LinearEquiv.refl F ((F × F) × (Fin 4 → K))
-  have hψ := normHypForm_apply_coord E 4
-  have hQE := normQuad_polarBilin_nondegenerate E
-  have hH2 : PolarNondegOn (normHypForm E 4) (hypH2 E) := by
-    change PolarNondegOn (normHypForm E 4)
-      (Submodule.span F {(hypPairH2 E).e, (hypPairH2 E).f})
-    exact polarNondegOn_span_pair_of_polar_eq_one (hypPairH2 E).polar_ef
-  have hU23 : PolarNondegOn (normHypForm E 4) (coordPlane ψ 2 ⊔ coordPlane ψ 3) :=
-    CFSG.LieType.SeitzGeneration.OrthBlk.polarNondegOn_sup
-      (coordPlane_polarNondegOn ψ hψ hQE 2)
-      (coordPlane_polarNondegOn ψ hψ hQE 3)
-      (fun x hx y hy => polar_coordPlane_plane ψ hψ (by decide : (2 : Fin 4) ≠ 3) hx hy)
-  have hmain : PolarNondegOn (normHypForm E 4)
-      (hypH2 E ⊔ (coordPlane ψ 2 ⊔ coordPlane ψ 3)) :=
-    CFSG.LieType.SeitzGeneration.OrthBlk.polarNondegOn_sup hH2 hU23 (d5n_hypH2_orth E)
-  exact CFSG.LieType.SeitzGeneration.OrthBlk.nondegenerate_of_polarNondegOn hmain
 
 theorem polar_crossAnchor_crossPure {x y : (F × F) × (Fin 4 → K)} (hx : x ∈ crossAnchor E)
     (hy : y ∈ crossPure E) : polar (normHypForm E 4) x y = 0 := by

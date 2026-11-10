@@ -70,20 +70,6 @@ theorem GGBstarAbelianPreimageJUniS1On.toDeg {S : ℕ → LargeEvenLabel → Pro
   intro G _ _ p B Bs x L D J hcfg hID hN d m hshape hpm hdm E _ hE θ hlab
   exact h G p B Bs x L D J hcfg hID hN d m hshape hpm hdm E hE θ hlab
 
-theorem GGBstarAbelianPreimageJUniS1OnDeg.of_rLevel {S : ℕ → LargeEvenLabel → Prop}
-    {T : ℕ → ℕ → LargeEvenLabel → Prop} (h : Q2URLevel S)
-    (hTS : ∀ p d lab, ((p = 3 ∧ (d = 3 ∨ d = 6)) ∨ (p = 5 ∧ d = 5)) → T p d lab → S p lab) :
-    GGBstarAbelianPreimageJUniS1OnDeg T :=
-  GGBstarAbelianPreimageJUniS1OnDeg.mono hTS (ggBstarAbelianPreimageJUniS1On_of_rLevel h).toDeg
-
-theorem GGBstarAbelianPreimageJUniS1OnDeg.of_rLevelToral
-    {Toral : (R : Type) → [Group R] → Subgroup (MulAut R) → Prop}
-    {S : ℕ → LargeEvenLabel → Prop} {T : ℕ → ℕ → LargeEvenLabel → Prop}
-    (hTor : Q2UConfigToral Toral S) (h : Q2URLevelOn Toral S)
-    (hTS : ∀ p d lab, ((p = 3 ∧ (d = 3 ∨ d = 6)) ∨ (p = 5 ∧ d = 5)) → T p d lab → S p lab) :
-    GGBstarAbelianPreimageJUniS1OnDeg T :=
-  GGBstarAbelianPreimageJUniS1OnDeg.mono hTS
-    (ggBstarAbelianPreimageJUniS1On_of_rLevelToral hTor h).toDeg
 
 private theorem not_ggLabelIso_C_three_twA {n r m : ℕ} :
     ¬ GGLabelIso (⟨.C, 3, n⟩ : LargeEvenLabel) (⟨.twA, r, m⟩ : LargeEvenLabel) := by

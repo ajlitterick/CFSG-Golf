@@ -33,7 +33,6 @@ meta def wi : List Nat :=
 meta def wq : List Nat := wi.map fun i =>
   ((ruDblWits[i]?.map (·.e)).getD []).zipIdx.foldl (fun acc p => acc ||| (p.1 <<< (9 * p.2))) 0
 
-meta def wn : List Nat := [wi.length]
 
 end CertificateChecks.KernelB45.C260394
 

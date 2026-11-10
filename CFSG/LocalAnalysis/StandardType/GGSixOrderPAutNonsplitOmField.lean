@@ -372,27 +372,6 @@ theorem ggOrdPFieldConjPOmegaMinusNonsplit_holds : GGOrdPFieldConjPOmegaMinusNon
   exact OrdPFieldNsOm.exists_conj_mem_centralizer_minus (K := GaloisField 2 f)
     (minusCoeffs_irr 2 f) hn hK hf hS hyM (hyo ▸ pow_orderOf_eq_one y) hyI
 
-theorem ggOrdPFieldConjAt_POmegaMinus : GGOrdPFieldConjAt .POmegaMinus :=
-  ggOrdPFieldConjAt_POmegaMinus_of_nonsplit ggOrdPFieldConjPOmegaMinusNonsplit_holds
-
-theorem ggOrdPFieldConjPOmegaPlus_of_ne : ∀ (G : Type) [Group G] [Finite G] (p : ℕ)
-    (Bs G₀ : Subgroup G) (n f : ℕ) (ψ : (ggU .POmegaPlus n f).K →* G),
-    GGSixFusionSetting p Bs G₀ (ggU .POmegaPlus n f).D .POmegaPlus n f ψ → ¬ (n = 4 ∧ p = 3) →
-    ∀ y ∈ Subgroup.normalizer (G₀ : Set G), orderOf y = p →
-      GGPsiDiagField (ggU .POmegaPlus n f).D ψ y → ¬ GGPsiInnerDiag (ggU .POmegaPlus n f).D ψ y →
-      ∃ m ∈ Subgroup.normalizer (G₀ : Set G), m⁻¹ * y * m ∈ Subgroup.centralizer (Bs : Set G) := by
-  intro G _ _ p Bs G₀ n f
-  by_cases hn : 3 ≤ n
-  · rw [ggU_POmegaPlus_eq hn]
-    intro ψ hS hne y hyM hyo hDF hyI
-    obtain ⟨⟨hadm, -⟩, -, -, -⟩ := hS.presents
-    obtain ⟨-, -, hn4⟩ := hadm
-    exact OrdPFieldNsOm.exists_conj_mem_centralizer_plus (K := GaloisField 2 f) hn4 hn hS
-      (fun β hβp _ => OrdPGraphOmega.exists_conj_mul_fieldAutP_of_pow hn4 hS.prime hS.ne_two hne
-        hβp) hyM (hyo ▸ pow_orderOf_eq_one y) hDF hyI
-  · rw [show ggU .POmegaPlus n f = trivialUniversal from dite_eq_right hn]
-    intro ψ hS
-    exact absurd hS.presents.1.2 (by decide)
 
 theorem ggOrdPFieldConjPOmegaPlusRest_of_fourDiagField (h43 : GGOmegaPlusFourDiagFieldInput) :
     GGOrdPFieldConjPOmegaPlusRest := by
@@ -412,9 +391,6 @@ theorem ggOrdPFieldConjPOmegaPlusRest_of_fourDiagField (h43 : GGOmegaPlusFourDia
     intro ψ hS
     exact absurd hS.presents.1.2 (by decide)
 
-theorem ggOrdPFieldConjAt_POmegaPlus_of_fourDiagField (h43 : GGOmegaPlusFourDiagFieldInput) :
-    GGOrdPFieldConjAt .POmegaPlus :=
-  ggOrdPFieldConjAt_POmegaPlus_of_rest (ggOrdPFieldConjPOmegaPlusRest_of_fourDiagField h43)
 
 end Family
 

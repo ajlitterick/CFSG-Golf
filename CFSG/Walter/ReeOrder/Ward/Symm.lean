@@ -23,21 +23,6 @@ theorem inner_conj_left {L : Type} [Group L] [Fintype L] (f Φ : L → ℂ) :
   refine Finset.sum_congr rfl fun y _ => ?_
   simp
 
-theorem nu_conj {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) : nu (starRingEnd ℂ ∘ χ) = nu χ := by
-  have h1 : fsIndicator (starRingEnd ℂ ∘ χ) = starRingEnd ℂ (fsIndicator χ) := by
-    unfold fsIndicator
-    rw [map_mul, map_inv₀, Complex.conj_natCast, map_sum]
-    rfl
-  have h2 : starRingEnd ℂ (fsIndicator χ) = fsIndicator χ := by
-    rcases (fsIndicator_spec hχ).1 with h | h | h <;> rw [h] <;> simp
-  have h3 := nu_spec (irr_conj hχ)
-  rw [h1, h2, ← nu_spec hχ] at h3
-  exact_mod_cast h3
-
-theorem deg_conj {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) : deg (starRingEnd ℂ ∘ χ) = deg χ := by
-  have h : ((deg (starRingEnd ℂ ∘ χ) : ℤ) : ℂ) = ((deg χ : ℤ) : ℂ) := by
-    rw [deg_eq (irr_conj hχ), deg_eq hχ, Function.comp_apply, conj_one hχ]
-  exact_mod_cast h
 
 theorem nu_pow {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) {k : ℕ} (hk : (Nat.card G).Coprime k) :
     nu (fun g => χ (g ^ k)) = nu χ := by

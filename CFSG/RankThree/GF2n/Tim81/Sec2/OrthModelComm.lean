@@ -211,28 +211,6 @@ theorem doubleCommSub_uMat_one (w : ↥(hermA l F)) (t : F) :
   ext i j
   fin_cases i <;> fin_cases j <;> simp <;> ring
 
-theorem doubleCommSub_le_herm1101 (w : ↥(hermA l F)) :
-    doubleCommSub l hF w ≤ herm1101 l F := by
-  rw [doubleCommSub, AddSubgroup.closure_le]
-  rintro x ⟨a, ha, b, hb, rfl⟩
-  obtain ⟨s, rfl⟩ := mem_upperSylow_iff.mp ha
-  obtain ⟨t, rfl⟩ := mem_upperSylow_iff.mp hb
-  simp only [hermRep_apply, LinearMap.sub_apply, Module.End.one_apply]
-  have hY11 : ((hermAct l (sig_sig hF) (uMat t) w - w : ↥(hermA l F)) :
-      Matrix (Fin 2) (Fin 2) F) 1 1 = 0 := by
-    rw [AddSubgroup.coe_sub, Matrix.sub_apply, hermAct_uMat_11, sub_self]
-  have hZ11 : ((hermAct l (sig_sig hF) (uMat s)
-      (hermAct l (sig_sig hF) (uMat t) w - w) -
-        (hermAct l (sig_sig hF) (uMat t) w - w) : ↥(hermA l F)) :
-      Matrix (Fin 2) (Fin 2) F) 1 1 = 0 := by
-    rw [AddSubgroup.coe_sub, Matrix.sub_apply, hermAct_uMat_11, hY11, sub_self]
-  have hZ01 : ((hermAct l (sig_sig hF) (uMat s)
-      (hermAct l (sig_sig hF) (uMat t) w - w) -
-        (hermAct l (sig_sig hF) (uMat t) w - w) : ↥(hermA l F)) :
-      Matrix (Fin 2) (Fin 2) F) 0 1 = 0 := by
-    rw [AddSubgroup.coe_sub, Matrix.sub_apply, hermAct_uMat_01, hY11, mul_zero, add_zero,
-      sub_self]
-  exact ⟨hZ11, hZ01⟩
 
 theorem herm1101_le_doubleCommSub (w : ↥(hermA l F))
     (hw : (w : Matrix (Fin 2) (Fin 2) F) 1 1 ≠ 0) :
@@ -332,23 +310,6 @@ theorem commSub_upperSylow :
   intro X hX
   exact herm11_le_commSub (hF := hF) hX
 
-theorem fixedSub_eq_span_double (w : ↥(hermA l F))
-    (hw : w ∉ commSub (hermRep l hF) upperSylow) :
-    fixedSub (hermRep l hF) upperSylow =
-      AddSubgroup.toZModSubmodule (n := 2) (doubleCommSub l hF w) := by
-  have hl : 1 ≤ l := one_le_of_card hF
-  have hw11 : (w : Matrix (Fin 2) (Fin 2) F) 1 1 ≠ 0 := by
-    intro h
-    exact hw (by rw [commSub_upperSylow (hF := hF)]; exact h)
-  refine le_antisymm ?_ ?_
-  · intro X hX
-    have hX' : X ∈ AddSubgroup.toZModSubmodule (n := 2) (herm1101 l F) := by
-      rwa [← fixedSub_upperSylow (hF := hF)]
-    exact herm1101_le_doubleCommSub (hF := hF) w hw11 hX'
-  · intro X hX
-    have hX' : X ∈ herm1101 l F := doubleCommSub_le_herm1101 (hF := hF) w hX
-    rw [fixedSub_upperSylow (hF := hF)]
-    exact hX'
 
 @[expose] def commCommSub (l : ℕ) (hF : Fintype.card F = 2 ^ (2 * l)) :
     AddSubgroup ↥(hermA l F) :=

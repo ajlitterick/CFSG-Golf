@@ -21,13 +21,5 @@ open CFSG.LocalAnalysis.GLTheoremA.S10
 open CFSG.HardMathSupport.Solomon.Coordinator
 open CFSG.ComponentClassification.PerfectAutomorphisms
 
-@[expose] def I1416TwoSporS : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] (s : TauCeti.SporadicName),
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic s).Group) →
-    ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ β : MulAut S, β ^ p = 1 → β ≠ 1 → ∀ K : Subgroup S,
-      GLAPComponent p (fixSubgroup β) K → IsChevSimple 2 (PSimple p K) →
-      p ^ 2 ∣ Nat.card (MulAut (PSimple p K)) →
-      ¬ (p = 3 ∧ CFSG.HardMathSupport.Timmesfeld.ComponentBalance.IsL2TwoPowOdd (PSimple p K)) →
-      p = 3 ∧ catalogIs (PSimple 3 K) (fun i => S10.isA6 i ∨ isA8 i ∨ isG2der i ∨ S9.isU4two i)
 
 end CFSG.LocalAnalysis.GLTheoremA

@@ -50,67 +50,12 @@ namespace CFSG.Certificates.KB
   Nat.rec (motive := fun _ => Nat) s (fun q cur => wStep F inv RW RM f own t wd refs q cur)
     (wN wd)
 
-@[expose] noncomputable def walkOk (F : Nat → Nat) (inv RW RM nCos f own s t wd refs : Nat) :
-    Bool :=
-  andB (Nat.ble (Nat.succ s) nCos) (andB (Nat.ble (Nat.succ t) (wN wd))
-    (andB (orB (Nat.beq (wKind wd) (nat_lit 0)) (Nat.beq s (nat_lit 0)))
-      (Nat.beq (walkEnd F inv RW RM f own s t wd refs) s)))
-
-@[expose] noncomputable def factOk (F Wd : Nat → Nat) (inv RW RM nCos f rest : Nat) : Bool :=
-  walkOk F inv RW RM nCos f (F f) (rX rest) (fld rest (nat_lit 28) (nat_lit 255))
-    (Wd (fld rest (nat_lit 36) (nat_lit 65535))) (Nat.shiftRight rest (nat_lit 52))
-
-@[expose] noncomputable def factLen (RW wd : Nat) : Nat :=
-  Nat.add (nat_lit 52) (Nat.mul RW (Nat.sub (wN wd) (nat_lit 1)))
-
-@[expose] noncomputable def factStep (F Wd : Nat → Nat) (inv RW RM nCos : Nat) (st : Nat × Nat) :
-    Nat × Nat :=
-  Prod.rec (motive := fun _ => Nat × Nat) (fun rest f =>
-    Bool.rec (Prod.mk (nat_lit 0) bad)
-      (Prod.mk (Nat.shiftRight rest (factLen RW (Wd (fld rest (nat_lit 36) (nat_lit 65535)))))
-        (Nat.succ f))
-      (factOk F Wd inv RW RM nCos f rest)) st
-
-@[expose] noncomputable def elemRun (F Wd : Nat → Nat) (inv RW RM nCos E f : Nat) : Nat :=
-  Prod.rec (motive := fun _ => Nat) (fun _ f' => f')
-    (Nat.rec (motive := fun _ => Nat × Nat) (Prod.mk (Nat.shiftRight E (nat_lit 8)) f)
-      (fun _ st => factStep F Wd inv RW RM nCos st) (Nat.land E (nat_lit 255)))
-
-@[expose] noncomputable def walkList (F Wd : Nat → Nat) (inv RW RM nCos : Nat) (l : List Nat)
-    (f : Nat) : Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun f => f)
-    (fun E _ ih f => ih (elemRun F Wd inv RW RM nCos E f)) l f
 
 @[expose] noncomputable def covF (e x c N : Nat) : Bool :=
   andB (Nat.beq (rX e) x) (andB (Nat.beq (rC e) c) (Nat.ble (Nat.succ (rY e)) N))
 @[expose] noncomputable def covB (e x ic N : Nat) : Bool :=
   andB (Nat.beq (rY e) x) (andB (Nat.beq (rC e) ic) (Nat.ble (Nat.succ (rX e)) N))
 
-@[expose] noncomputable def covEntry (F : Nat → Nat) (inv N x c r : Nat) : Bool :=
-  Bool.rec (covF (F (Nat.shiftRight r (nat_lit 1))) x c N)
-    (covB (F (Nat.shiftRight r (nat_lit 1))) x (byte inv c) N)
-    (Nat.beq (Nat.land r (nat_lit 1)) (nat_lit 1))
-
-@[expose] noncomputable def covX (F : Nat → Nat) (inv RW RM N L x rec : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun c acc => andB (covEntry F inv N x c (fld rec (Nat.mul RW c) RM)) acc) L
-
-@[expose] noncomputable def covStep (F : Nat → Nat) (inv RW RM N L : Nat) (st : Nat × Nat) :
-    Nat × Nat :=
-  Prod.rec (motive := fun _ => Nat × Nat) (fun rest x =>
-    Bool.rec (Prod.mk (nat_lit 0) bad)
-      (Prod.mk (Nat.shiftRight rest (Nat.mul RW L)) (Nat.succ x))
-      (covX F inv RW RM N L x rest)) st
-
-@[expose] noncomputable def covElem (F : Nat → Nat) (inv RW RM N L E x : Nat) : Nat :=
-  Prod.rec (motive := fun _ => Nat) (fun _ x' => x')
-    (Nat.rec (motive := fun _ => Nat × Nat) (Prod.mk (Nat.shiftRight E (nat_lit 8)) x)
-      (fun _ st => covStep F inv RW RM N L st) (Nat.land E (nat_lit 255)))
-
-@[expose] noncomputable def covList (F : Nat → Nat) (inv RW RM N L : Nat) (l : List Nat)
-    (x : Nat) : Nat :=
-  List.rec (motive := fun _ => Nat → Nat) (fun x => x)
-    (fun E _ ih x => ih (covElem F inv RW RM N L E x)) l x
 
 @[expose] noncomputable def treeOk' (D : Nat → Nat) (L nCos k own : Nat) : Bool :=
   andB (Nat.beq (rY own) k) (andB (Nat.ble (Nat.succ (rC own)) L)
@@ -154,8 +99,6 @@ namespace CFSG.Certificates.KB
 @[expose] noncomputable def wordOk (R S : Nat → Nat) (inv eps wd : Nat) : Bool :=
   wordOk' R S inv wd (strip eps (wLetters wd) (wN wd))
 
-@[expose] noncomputable def wordsOk (Wd R S : Nat → Nat) (inv eps n : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true (fun i acc => andB (wordOk R S inv eps (Wd i)) acc) n
 
 end CFSG.Certificates.KB
 

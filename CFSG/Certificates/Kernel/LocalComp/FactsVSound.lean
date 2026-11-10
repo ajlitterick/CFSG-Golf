@@ -195,7 +195,6 @@ private theorem ksFV_wordRV_cons {c : Lay} {V P : Nat → Nat} {N : Nat} (hV : V
     List.map_nil, List.prod_cons, List.prod_nil, mul_one, mul_assoc]
 
 
-
 private theorem ksFV_wordRV_mat {c : Lay} {V P : Nat → Nat} {N : Nat} (hV : Vals c V P N)
     {n : Nat} {R : Nat → Nat} {Rn : Array (Array FV)} (hR : ksFV_CorrN c V N n R Rn)
     (w : Word) (t : Nat) (hw : wordLt n w = true) (h : wordRV P N R w t = true) :
@@ -275,7 +274,6 @@ private theorem ksFV_wordV_bound {P : Nat → Nat} {N : Nat} {R : Nat → Nat} {
     (h : wordV P N R w t = true) : t < N ∨ t < 3 := by
   change wordRV P N R w.reverse t = true at h
   exact ksFV_wordRV_bound w.reverse t h
-
 
 
 private theorem ksFV_andB {a b : Bool} (h : CFSG.KC.Ord.andB a b = true) :
@@ -653,17 +651,6 @@ private theorem ksFV_eq_of_toMat_eq {p d : Nat} {X Y : Array (Array Nat)}
         exact (hY.2 i hid).2 j hjd
       exact eq_of_cast hbX hbY e
 
-private theorem ksFV_unpackL_inj {c : Lay} {p X Y : Nat} (hc : c.ok = true)
-    (hX : Canon p c.d c.w X) (hY : Canon p c.d c.w Y)
-    (h : CFSG.Sporadic.He.Native.toMat p c.d (unpackL c.d c.w c.S X) =
-      CFSG.Sporadic.He.Native.toMat p c.d (unpackL c.d c.w c.S Y)) : X = Y := by
-  obtain ⟨-, hS, -, -⟩ := cfacts hc
-  apply canon_ext hX hY
-  intro i hi j hj
-  have e := congrFun (congrFun h ⟨i, hi⟩) ⟨j, hj⟩
-  rw [ksFV_toMat_unpackL, ksFV_toMat_unpackL, hS] at e
-  rw [ordMat_apply, ordMat_apply] at e
-  exact eq_of_cast (canon_ent hX hi hj) (canon_ent hY hi hj) e
 
 private structure ksFV_PVals (c : Lay) (V P : Nat → Nat) (N : Nat) : Prop where
   hc : c.ok = true
@@ -919,10 +906,6 @@ private def ksFV_PCorrL (c : Lay) (V : Nat → Nat) (N n : Nat) (Rk : List Nat)
     CFSG.Sporadic.He.Native.toMat c.p c.d (Rn[r]!) =
       ordMat c.p c.d c.w c.S (V (Rk.getD r 0))
 
-private theorem ksFV_pcorr_of_list {c : Lay} {V : Nat → Nat} {N n : Nat}
-    {Rk : List Nat} {Rn : Array (Array (Array Nat))} (h : ksFV_PCorrL c V N n Rk Rn) :
-    ksFV_PCorr c V N n (fun r => Rk.getD r 0) Rn :=
-  ⟨h.2.1, fun r hr => h.2.2 r hr⟩
 
 private theorem ksFV_pcorr_set {c : Lay} {V : Nat → Nat} {N n : Nat} {Rk : List Nat}
     {Rn : Array (Array (Array Nat))} (h : ksFV_PCorrL c V N n Rk Rn) {k t : Nat}

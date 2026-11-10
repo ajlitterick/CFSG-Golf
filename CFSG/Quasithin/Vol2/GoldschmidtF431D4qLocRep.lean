@@ -29,7 +29,6 @@ theorem conjK_injective : Function.Injective (conjK σ Kb hinn) := fun _ _ h =>
 
 @[expose] noncomputable def zK : ↥Kb := conjK σ Kb hinn (zC σ)
 
-variable (hσ : ∀ c, σ (σ (σ c)) = c)
 
 end Inner
 

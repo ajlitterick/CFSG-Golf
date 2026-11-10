@@ -56,8 +56,5 @@ theorem Alt47.toW
   · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
   · exact Or.inr (Or.inr (Or.inr (Or.inr ⟨n, hD4.1.2.1, hD4⟩)))
 
-theorem item4_7W_of_item4_7
-    (h : Item4_7) : Item4_7W :=
-  fun G _ _ hG h3 L hL a ha hout => (h G hG h3 L hL a ha hout).toW
 
 end CFSG.RankThree.PartTwo.Sec4

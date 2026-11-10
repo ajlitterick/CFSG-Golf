@@ -75,15 +75,7 @@ theorem exists_mem_of_mem_etaSet (hΩ : HypOmegaMod Ω) {S : Subgroup G} {η : S
     (hUK : U ≤ K) : ∃ V ∈ η, V ≤ K :=
   CFSG.ClassicalInvolution.T7F25.Asc77.exists_mem_of_mem_etaSet hΩ h hK hU hUK
 
-theorem HypOmegaMod.natCard_eq_of_mem_USet (hΩ : HypOmegaMod Ω) {K U V : Subgroup G}
-    (hK : K ∈ Ω) (hU : U ∈ USet Ω) (hV : V ∈ USet Ω) (hUK : U ≤ K) (hVK : V ≤ K) :
-    Nat.card U = Nat.card V :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.HypOmegaMod.natCard_eq_of_mem_USet hΩ hK hU hV hUK hVK
 
-theorem HypOmegaMod.eq_or_sup_mem_RSet (hΩ : HypOmegaMod Ω) {K U V : Subgroup G} (hK : K ∈ Ω)
-    (hU : U ∈ USet Ω) (hV : V ∈ USet Ω) (hUK : U ≤ K) (hVK : V ≤ K)
-    (hT : IsPGroup 2 ↥(U ⊔ V)) : U = V ∨ (U ⊔ V ∈ RSet Ω ∧ IsSylow2In (U ⊔ V) K) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.HypOmegaMod.eq_or_sup_mem_RSet hΩ hK hU hV hUK hVK hT
 end Finite
 end Asc77
 
@@ -145,38 +137,7 @@ variable {G : Type} [Group G]
 section Mu
 variable {Ω : Set (Subgroup G)}
 
-theorem conjSub_mem_DSet_conj [Finite G] (hΩ : HypOmegaMod Ω) {W R : Subgroup G} (hR : R ∈ DSet Ω W)
-    (g : G) : conjSub g R ∈ DSet Ω (conjSub g W) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.Thompson.conjSub_mem_DSet_conj hΩ hR g
 
-theorem conjSub_MGrp [Finite G] (hΩ : HypOmegaMod Ω) (g : G) (W : Subgroup G) :
-    conjSub g (MGrp Ω W) = MGrp Ω (conjSub g W) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.Thompson.conjSub_MGrp hΩ g W
-
-noncomputable def muGroupConjEquiv [Finite G] (hΩ : HypOmegaMod Ω) (g : G) (W : Subgroup G) :
-    ↥(muGroup Ω W) ≃* ↥(muGroup Ω (conjSub g W)) :=
-  (MulEquiv.subgroupMap (nquotConj g (conjSub_sup_OCW g W)) (muGroup Ω W)).trans
-    (MulEquiv.subgroupCongr (by
-      ext q
-      constructor
-      · rintro ⟨q₀, hq₀, rfl⟩
-        obtain ⟨m, hm, rfl⟩ := mem_muGroup_iff.mp hq₀
-        have hmN : m ∈ Subgroup.normalizer (W : Set G) := MGrp_sup_le_normalizer Ω W hm
-        show nquotConj g (conjSub_sup_OCW g W) (piG W m) ∈ _
-        rw [nquotConj_piG g W hmN]
-        refine piG_mem_muGroup ?_
-        rw [← conjSub_MGrp hΩ, ← conjSub_OCW, ← Asc77.conjSub_sup]
-        exact conj_mem_conjSub hm
-      · intro hq
-        obtain ⟨m', hm', rfl⟩ := mem_muGroup_iff.mp hq
-        rw [← conjSub_MGrp hΩ, ← conjSub_OCW, ← Asc77.conjSub_sup, mem_conjSub_iff] at hm'
-        refine ⟨piG W (g⁻¹ * m' * g), piG_mem_muGroup hm', ?_⟩
-        have hmN : g⁻¹ * m' * g ∈ Subgroup.normalizer (W : Set G) :=
-          MGrp_sup_le_normalizer Ω W hm'
-        show nquotConj g (conjSub_sup_OCW g W) (piG W (g⁻¹ * m' * g)) = _
-        rw [nquotConj_piG g W hmN]
-        congr 1
-        group))
 end Mu
 end Thompson
 end Asc77
@@ -768,31 +729,8 @@ theorem Data.partner [Finite G] (D : Data Ω S η β) {A : Subgroup G} (hA : A �
     (hAS : A ≤ (S : Subgroup G)) : ∃! V : Subgroup G, V ∈ η ∧ (A = V ∨ A ⊔ V ∈ RSet Ω) :=
   l6_8 G Ω D.hΩ S A hA hAS η ⟨S, D.hη, D.hηi⟩ fun _ hV => (D.hη.1 hV).2
 section Local
-variable [Finite G]
 
-theorem Data.local_facts (D : Data Ω S η β) {V U : Subgroup G} (hV : V ∈ η) (hVβ : V ∉ β)
-    (hU : U ∈ β) (hR : V ⊔ U ∈ RSet Ω) :
-    ∃ K ∈ Ω, ∃ z : G, IsUniqueInvolution K z ∧ IsSylow2In (V ⊔ U) K ∧ z ∈ V ⊔ U ∧
-      Nat.card ↥(V ⊔ U) = 8 ∧ Nat.card V = 4 ∧ Nat.card U = 4 ∧ IsCyclic ↥V ∧ IsCyclic ↥U ∧
-      (∀ x ∈ V ⊔ U, (∀ r ∈ V ⊔ U, r * x = x * r) → x = 1 ∨ x = z) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T75.Data.local_facts D.toF hV hVβ hU hR
 
-theorem Data.commutes_local (D : Data Ω S η β) {V U K : Subgroup G} (hV : V ∈ η)
-    (hU : U ∈ β) (hR : V ⊔ U ∈ RSet Ω) (hK : K ∈ Ω) (hRK : IsSylow2In (V ⊔ U) K)
-    {A : Subgroup G} (hA : (A ∈ η ∧ A ≠ V) ∨ (A ∈ β ∧ A ≠ U)) : Commutes (V ⊔ U) A :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T75.Data.commutes_local D.toF hV hU hR hK hRK hA
-
-theorem Data.le_normalizer_local (D : Data Ω S η β) {V U K : Subgroup G} (hV : V ∈ η)
-    (hU : U ∈ β) (hR : V ⊔ U ∈ RSet Ω) (hK : K ∈ Ω) (hRK : IsSylow2In (V ⊔ U) K) {z : G}
-    (hz : IsUniqueInvolution K z) (hzR : z ∈ V ⊔ U) {A : Subgroup G}
-    (hA : (A ∈ η ∧ A ≠ V) ∨ (A ∈ β ∧ A ≠ U)) : A ≤ Subgroup.normalizer (K : Set G) :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T75.Data.le_normalizer_local D.toF hV hU hR hK hRK hz hzR hA
-
-theorem Data.exists_local_conj (D : Data Ω S η β) {V U : Subgroup G} (hV : V ∈ η)
-    (hVβ : V ∉ β) (hU : U ∈ β) (hR : V ⊔ U ∈ RSet Ω) :
-    ∃ y : G, conjSub y V = U ∧ (∀ A ∈ η, A ≠ V → ∀ g ∈ A, y * g = g * y) ∧
-      ∀ A ∈ β, A ≠ U → ∀ g ∈ A, y * g = g * y :=
-  CFSG.ClassicalInvolution.T7F25.Asc77.T75.Data.exists_local_conj D.toF hV hVβ hU hR
 end Local
 end T75
 end Asc77

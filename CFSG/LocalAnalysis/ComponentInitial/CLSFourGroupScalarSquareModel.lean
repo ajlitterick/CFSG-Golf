@@ -77,9 +77,6 @@ theorem toLin_preserves {σ : F →+* F} (h : W →ₛₗ[σ] W →ₗ[F] F) (c 
 @[expose] def involGL (X : Matrix ι ι F) (hX : X * X = 1) : GL ι F :=
   ⟨X, X, hX, hX⟩
 
-theorem coe_involGL (X : Matrix ι ι F) (hX : X * X = 1) :
-    (involGL X hX : Matrix ι ι F) = X :=
-  rfl
 
 theorem basisGL_neg (c : Basis ι F W) (M : GL ι F) : basisGL c (-M) = -basisGL c M := by
   refine Units.ext ?_
@@ -246,10 +243,6 @@ variable {K E : Type*} [Field K] [Field E] [Algebra K E] {V : Type*} [AddCommGro
       map_one' := rfl
       map_mul' := fun _ _ => rfl }
 
-theorem coe_restrictGL (g : LinearMap.GeneralLinearGroup E V) :
-    ((restrictGL g : LinearMap.GeneralLinearGroup K V) : Module.End K V) =
-      (g : Module.End E V).restrictScalars K :=
-  rfl
 
 theorem restrictGL_apply (g : LinearMap.GeneralLinearGroup E V) (v : V) :
     ((restrictGL g : LinearMap.GeneralLinearGroup K V) : Module.End K V) v =

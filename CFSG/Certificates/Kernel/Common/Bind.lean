@@ -39,10 +39,6 @@ open CFSG.KC CFSG.KC.LceS
 @[expose] noncomputable def invMap (Q n : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) allFF (fun x acc => mset acc (mget Q x) x) n
 
-@[expose] noncomputable def compMap (A B n : Nat) : Nat :=
-  Nat.rec (motive := fun _ => Nat) allFF (fun x acc =>
-    Bool.rec (motive := fun _ => Nat) acc (Nat.sub acc (Nat.shiftLeft (Nat.sub (nat_lit 255) (mget A (mget B x))) (Nat.mul (nat_lit 8) x)))
-      (Nat.blt (mget B x) (nat_lit 255))) n
 
 @[expose] noncomputable def sqOK (PRT : Nat → Nat) (G Hq : Nat) : Bool :=
   Nat.rec (motive := fun _ => Bool) true (fun g acc => andB acc

@@ -31,8 +31,6 @@ theorem card_GL_eight_two :
     apply σ.injective
     rw [hσ, Equiv.apply_symm_apply, Equiv.apply_symm_apply, Equiv.apply_symm_apply]
 
-theorem mem_addPerms {M : Type*} [AddCommGroup M] {σ : Equiv.Perm M} :
-    σ ∈ addPerms M ↔ ∀ x y, σ (x + y) = σ x + σ y := Iff.rfl
 
 @[expose] def addPermsEquiv (M : Type*) [AddCommGroup M] [Module (ZMod 2) M] :
     addPerms M ≃ (M ≃ₗ[ZMod 2] M) where

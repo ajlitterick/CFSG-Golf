@@ -153,16 +153,6 @@ theorem neighbour_overgroup_slm_of_pPrimeCore_eq_bot {m f : ℕ} (hm : 3 ≤ m)
     exact ⟨hKt, hcomm,
       ⟨φ.symm.trans ((QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot)⟩⟩
 
-theorem neighbour_overgroup_E6_of_pPrimeCore_eq_bot (hcat : SLmCatalogueClausesAt 6) {Y : Type}
-    [Group Y] [Finite Y] (hO : pPrimeCore 2 Y = ⊥)
-    (hsec : ∀ Kc : Subgroup Y, IsComponent Kc → Catalog (Kc ⧸ center Kc))
-    {s : Y} (hs : orderOf s = 2) {D : Subgroup Y}
-    (hD : CFSG.Open.IsComponentOf D (centralizer ({s} : Set Y)))
-    (hsyl : ∀ U : Subgroup Y, IsPGroup 2 U → U ≤ centralizer (D : Set Y) → Nat.card U ≤ 2)
-    (hstd : CFSG.Open.standardComponentIsStandard D) (hnn : ¬ D.Normal)
-    {f : ℕ} (hD6 : LieModel D .PSL 6 2 f) : NeighbourOvergroupSL s D 6 f :=
-  neighbour_overgroup_slm_of_pPrimeCore_eq_bot (by norm_num) (Or.inl (by norm_num)) hcat hO hsec
-    hs hD hsyl hstd hnn hD6
 
 theorem lieModel_PSL_map_oddCore {G : Type} [Group G] {H D : Subgroup G} (hDH : D ≤ H)
     {m f : ℕ} (hDm : LieModel D .PSL m 2 f)

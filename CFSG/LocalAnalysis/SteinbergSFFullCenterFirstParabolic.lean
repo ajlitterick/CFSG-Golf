@@ -52,8 +52,6 @@ instance : Group (Heis K) where
   mul_one p := by ext <;> simp
   inv_mul_cancel p := by ext <;> simp
 
-theorem mk_mul_mk (x y z x' y' z' : K) :
-    (⟨x, y, z⟩ : Heis K) * ⟨x', y', z'⟩ = ⟨x + x' + z * y', y + y', z + z'⟩ := rfl
 
 @[simp] theorem conj_y (p q : Heis K) : (p * q * p⁻¹).y = q.y := by simp
 
@@ -99,21 +97,6 @@ theorem mem_planeXY {p : Heis K} : p ∈ planeXY K ↔ p.z = 0 := Iff.rfl
 
 theorem mem_planeXZ {p : Heis K} : p ∈ planeXZ K ↔ p.y = 0 := Iff.rfl
 
-theorem card_planeXY : Nat.card (planeXY K) = Nat.card K ^ 2 := by
-  rw [sq, ← Nat.card_prod]
-  exact Nat.card_congr
-    { toFun := fun p => ((p : Heis K).x, (p : Heis K).y)
-      invFun := fun q => ⟨⟨q.1, q.2, 0⟩, rfl⟩
-      left_inv := fun p => Subtype.ext (Heis.ext rfl rfl p.2.symm)
-      right_inv := fun _ => rfl }
-
-theorem card_planeXZ : Nat.card (planeXZ K) = Nat.card K ^ 2 := by
-  rw [sq, ← Nat.card_prod]
-  exact Nat.card_congr
-    { toFun := fun p => ((p : Heis K).x, (p : Heis K).z)
-      invFun := fun q => ⟨⟨q.1, 0, q.2⟩, rfl⟩
-      left_inv := fun p => Subtype.ext (Heis.ext rfl p.2.symm rfl)
-      right_inv := fun _ => rfl }
 
 section CharTwo
 
@@ -133,17 +116,6 @@ theorem mul_self_eq_one_iff (p : Heis K) : p * p = 1 ↔ p.z * p.y = 0 := by
   · intro h
     ext <;> simp [h]
 
-theorem planeXY_comm_sq {p p' : Heis K} (hp : p ∈ planeXY K) (hp' : p' ∈ planeXY K) :
-    p * p' = p' * p ∧ p * p = 1 := by
-  rw [mem_planeXY] at hp hp'
-  refine ⟨?_, (mul_self_eq_one_iff p).mpr (by rw [hp, zero_mul])⟩
-  ext <;> simp [hp, hp'] <;> ring
-
-theorem planeXZ_comm_sq {p p' : Heis K} (hp : p ∈ planeXZ K) (hp' : p' ∈ planeXZ K) :
-    p * p' = p' * p ∧ p * p = 1 := by
-  rw [mem_planeXZ] at hp hp'
-  refine ⟨?_, (mul_self_eq_one_iff p).mpr (by rw [hp, mul_zero])⟩
-  ext <;> simp [hp, hp'] <;> ring
 
 end CharTwo
 
@@ -195,96 +167,9 @@ theorem mem_map_mk'_iff {D S : Subgroup X} [D.Normal] (hDS : D ≤ S) (x : X) :
 
 variable {F : Type*} [Field F] [CharP F 2]
 
-theorem maximal_elementaryAbelian (ι : X ≃* Heis F) {E H : Subgroup X}
-    (hE : ∀ x, x ∈ E ↔ (ι x).z = 0) (hH : ∀ x, x ∈ H ↔ (ι x).y = 0) :
-    (∀ S : Subgroup X, Maximal (fun S : Subgroup X => IsElementaryAbelian 2 S) S ↔
-      S = E ∨ S = H) ∧ Nat.card E = Nat.card F ^ 2 ∧ Nat.card H = Nat.card F ^ 2 := by
-  have hEA : IsElementaryAbelian 2 E := isElementaryAbelian_of
-    (fun x hx y hy => ι.injective (by
-      rw [map_mul, map_mul]
-      exact (Heis.planeXY_comm_sq ((hE x).mp hx) ((hE y).mp hy)).1))
-    (fun x hx => ι.injective (by
-      rw [map_mul, map_one]
-      exact (Heis.planeXY_comm_sq ((hE x).mp hx) ((hE x).mp hx)).2))
-  have hHA : IsElementaryAbelian 2 H := isElementaryAbelian_of
-    (fun x hx y hy => ι.injective (by
-      rw [map_mul, map_mul]
-      exact (Heis.planeXZ_comm_sq ((hH x).mp hx) ((hH y).mp hy)).1))
-    (fun x hx => ι.injective (by
-      rw [map_mul, map_one]
-      exact (Heis.planeXZ_comm_sq ((hH x).mp hx) ((hH x).mp hx)).2))
-  have dich : ∀ S : Subgroup X, IsElementaryAbelian 2 S → S ≤ E ∨ S ≤ H := by
-    intro S hS
-    have h2 : ∀ p ∈ S.map ι.toMonoidHom, p * p = 1 := by
-      rintro _ ⟨x, hx, rfl⟩
-      have h1 : x ^ 2 = 1 := elemPow_eq_one_of_isElementaryAbelian x hx
-      rw [MulEquiv.coe_toMonoidHom, ← map_mul, ← sq, h1, map_one]
-    rcases Heis.le_planeXY_or_le_planeXZ _ h2 with h | h
-    · exact Or.inl fun x hx => (hE x).mpr (h ⟨x, hx, rfl⟩)
-    · exact Or.inr fun x hx => (hH x).mpr (h ⟨x, hx, rfl⟩)
-  have hEH : ¬ E ≤ H := fun hle => by
-    have h1 := (hH _).mp (hle ((hE (ι.symm ⟨0, 1, 0⟩)).mpr (by simp)))
-    simp at h1
-  have hHE : ¬ H ≤ E := fun hle => by
-    have h1 := (hE _).mp (hle ((hH (ι.symm ⟨0, 0, 1⟩)).mpr (by simp)))
-    simp at h1
-  have hcard : ∀ (S : Subgroup X) (P : Subgroup (Heis F)), (∀ x, x ∈ S ↔ ι x ∈ P) →
-      Nat.card S = Nat.card P := fun S P hSP => by
-    have e : S.map ι.toMonoidHom = P := by
-      ext p
-      constructor
-      · rintro ⟨x, hx, rfl⟩
-        exact (hSP x).mp hx
-      · intro hp
-        exact ⟨ι.symm p, (hSP _).mpr (by simpa using hp), by simp⟩
-    rw [← card_map_of_injective (f := ι.toMonoidHom) ι.injective, e]
-  refine ⟨fun S => ⟨fun ⟨hS, hmax⟩ => ?_, ?_⟩, (hcard E _ hE).trans Heis.card_planeXY,
-    (hcard H _ hH).trans Heis.card_planeXZ⟩
-  · rcases dich S hS with h | h
-    · exact Or.inl (le_antisymm h (hmax hEA h))
-    · exact Or.inr (le_antisymm h (hmax hHA h))
-  · rintro (rfl | rfl)
-    · refine ⟨hEA, fun S' hS' hle => ?_⟩
-      rcases dich S' hS' with h | h
-      · exact h
-      · exact absurd (hle.trans h) hEH
-    · refine ⟨hHA, fun S' hS' hle => ?_⟩
-      rcases dich S' hS' with h | h
-      · exact absurd (hle.trans h) hHE
-      · exact h
 
 end Transport
 
-structure ParabolicFacts {G : Type} [Group G] (K : Type) [Field K] (n : ℕ) (t : G)
-    (C Q ZP U A A' D E Qi R H : Subgroup G) : Prop where
-  isPGroup : IsPGroup 2 R
-  card : Nat.card R = 2 * (2 ^ n) ^ 7
-  mul_eq : (Q : Set G) * (E : Set G) = R
-  E_normal : E ≤ R ∧ (E.subgroupOf R).Normal
-  inf_C : R ⊓ C = Q
-  orbit : {x : G | ∃ r ∈ R, x = r⁻¹ * t * r} = {x | ∃ a ∈ A, x = t * a}
-  normalizer_Q : R ⊓ normalizer (Q : Set G) = H
-  normalizer_Qi : R ⊓ normalizer (Qi : Set G) = H
-  normalizer_A : R ⊓ normalizer (A' : Set G) = H
-  H_normal : H ≤ R ∧ (H.subgroupOf R).Normal
-  index_H : H.relIndex R = 2 ^ n
-  quotient : ∃ _ : (D.subgroupOf R).Normal, ∃ ι : (↥R ⧸ D.subgroupOf R) ≃* Heis K,
-    (∀ r : R, ((r : G) ∈ E ↔ (ι r).z = 0) ∧ ((r : G) ∈ Qi ↔ (ι r).x = 0 ∧ (ι r).y = 0) ∧
-      ((r : G) ∈ H ↔ (ι r).y = 0) ∧ ((r : G) ∈ H ⊓ E ↔ (ι r).y = 0 ∧ (ι r).z = 0)) ∧
-    (∀ S : Subgroup (↥R ⧸ D.subgroupOf R),
-      Maximal (fun S : Subgroup (↥R ⧸ D.subgroupOf R) => IsElementaryAbelian 2 S) S ↔
-        S = (E.subgroupOf R).map (QuotientGroup.mk' (D.subgroupOf R)) ∨
-          S = (H.subgroupOf R).map (QuotientGroup.mk' (D.subgroupOf R))) ∧
-    Nat.card ((E.subgroupOf R).map (QuotientGroup.mk' (D.subgroupOf R))) = (2 ^ n) ^ 2 ∧
-    Nat.card ((H.subgroupOf R).map (QuotientGroup.mk' (D.subgroupOf R))) = (2 ^ n) ^ 2
-  quotient_Hi : ∃ _ : (D.subgroupOf (H ⊓ E)).Normal, ∃ _ : (U.subgroupOf ZP).Normal,
-    ∃ θ : (↥(H ⊓ E) ⧸ D.subgroupOf (H ⊓ E)) ≃* (↥ZP ⧸ U.subgroupOf ZP),
-      ∀ x : ↥(H ⊓ E), ∃ z : ZP, (z : G) = t⁻¹ * ((x : G)⁻¹ * t * x) ∧ θ x = z
-  mem_Hi : ∀ e ∈ E, e ∈ H ↔ t⁻¹ * (e⁻¹ * t * e) ∈ ZP
-  card_Hi : Nat.card (H ⊓ E : Subgroup G) = 2 * (2 ^ n) ^ 5
-  sq_E : closure {x : G | ∃ y ∈ E, x = y * y} = A
-  sq_D : closure {x : G | ∃ y ∈ D, x = y * y} = U
-  center_D : (center D).map D.subtype = A
 
 section Overgroup
 
@@ -387,11 +272,6 @@ theorem conj_mem_E (h : FCHyp L K n φ t) (i : Axis) {r : G} (hr : r ∈ 𝐑[i]
     (he : e ∈ 𝐄[i]) : r * e * r⁻¹ ∈ 𝐄[i] :=
   conj_mem_pCore_map (R_le_N h i hr) he
 
-theorem E_normal_R (h : FCHyp L K n φ t) (i : Axis) : ((𝐄[i]).subgroupOf 𝐑[i]).Normal :=
-  ⟨fun _ he r => mem_subgroupOf.mpr (conj_mem_E h i r.2 (mem_subgroupOf.mp he))⟩
-
-theorem D_normal_R (h : FCHyp L K n φ t) (i : Axis) : ((𝐃[i]).subgroupOf 𝐑[i]).Normal :=
-  ⟨fun _ hd r => mem_subgroupOf.mpr (h.conj_mem_D i (R_le_N h i r.2) (mem_subgroupOf.mp hd))⟩
 
 omit [Finite G] in
 theorem sq_pow_pred (h : FCHyp L K n φ t) (x : K) : (x ^ 2) ^ 2 ^ (n - 1) = x := by
@@ -725,9 +605,6 @@ theorem conj_t_mem_A (h : FCHyp L K n φ t) (i : Axis) {r : G} (hr : r ∈ 𝐑[
     · exact rootParam_eq h i (rootAct_mul h i (rootAct_rootParam h i r)
         (rootAct_rootParam h i s) (R_le_N h i s.2))
 
-theorem parabolicHom_apply (h : FCHyp L K n φ t) (i : Axis) (r : 𝐑[i]) :
-    parabolicHom h i r = ⟨psiG φ i (t⁻¹ * ((r : G) * t * (r : G)⁻¹)) 0,
-      psiG φ i (t⁻¹ * ((r : G) * t * (r : G)⁻¹)) 1, rootParam h i r⟩ := rfl
 
 theorem parabolicHom_z_eq_zero_iff (h : FCHyp L K n φ t) (i : Axis) (r : 𝐑[i]) :
     (parabolicHom h i r).z = 0 ↔ (r : G) ∈ 𝐄[i] := by
@@ -866,13 +743,6 @@ theorem parabolicHom_surjective (h : FCHyp L K n φ t) (i : Axis) :
     exact congrFun hψe 1
   · rw [Heis.mul_z, hez, hqz, zero_add]
 
-theorem exists_parabolicEquiv (h : FCHyp L K n φ t) (i : Axis) :
-    ∃ _ : ((𝐃[i]).subgroupOf 𝐑[i]).Normal,
-      ∃ ι : (↥𝐑[i] ⧸ (𝐃[i]).subgroupOf 𝐑[i]) ≃* Heis K, ∀ r : 𝐑[i], ι r = parabolicHom h i r := by
-  have := D_normal_R h i
-  refine ⟨this, (QuotientGroup.quotientMulEquivOfEq (ker_parabolicHom h i).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective _ (parabolicHom_surjective h i)), fun r => ?_⟩
-  rfl
 
 omit [Finite G] [Finite K] in
 theorem D_le_H (i : Axis) : 𝐃[i] ≤ 𝐇 := by
@@ -880,11 +750,6 @@ theorem D_le_H (i : Axis) : 𝐃[i] ≤ 𝐇 := by
   · exact le_sup_right.trans le_sup_left
   · exact le_sup_right.trans le_sup_right
 
-omit [Finite G] [Finite K] in
-theorem Qi_le_H (i : Axis) : 𝐐[i] ≤ 𝐇 := by
-  cases i
-  · exact le_sup_left
-  · exact le_sup_right
 
 theorem conj_mem_H (h : FCHyp L K n φ t) (i : Axis) {r : G} (hr : r ∈ 𝐑[i]) {x : G}
     (hx : x ∈ 𝐇) : r * x * r⁻¹ ∈ 𝐇 := by
@@ -896,8 +761,6 @@ theorem conj_mem_H (h : FCHyp L K n φ t) (i : Axis) {r : G} (hr : r ∈ 𝐑[i]
     exact h1
   exact h2
 
-theorem H_normal_R (h : FCHyp L K n φ t) (i : Axis) : ((𝐇 : Subgroup G).subgroupOf 𝐑[i]).Normal :=
-  ⟨fun _ hx r => mem_subgroupOf.mpr (conj_mem_H h i r.2 (mem_subgroupOf.mp hx))⟩
 
 theorem R_le_normalizer_H (h : FCHyp L K n φ t) (i : Axis) :
     𝐑[i] ≤ normalizer ((𝐇 : Subgroup G) : Set G) := fun _ hr =>
@@ -1211,69 +1074,6 @@ theorem card_Hi (h : FCHyp L K n φ t) (i : Axis) :
   rw [h1, h3]
   ring
 
-theorem quotient_R (h : FCHyp L K n φ t) (i : Axis) :
-    ∃ _ : ((𝐃[i]).subgroupOf 𝐑[i]).Normal,
-      ∃ ι : (↥𝐑[i] ⧸ (𝐃[i]).subgroupOf 𝐑[i]) ≃* Heis K,
-      (∀ r : 𝐑[i], ((r : G) ∈ 𝐄[i] ↔ (ι r).z = 0) ∧
-        ((r : G) ∈ 𝐐[i] ↔ (ι r).x = 0 ∧ (ι r).y = 0) ∧ ((r : G) ∈ 𝐇 ↔ (ι r).y = 0) ∧
-        ((r : G) ∈ 𝐇 ⊓ 𝐄[i] ↔ (ι r).y = 0 ∧ (ι r).z = 0)) ∧
-      (∀ S : Subgroup (↥𝐑[i] ⧸ (𝐃[i]).subgroupOf 𝐑[i]),
-        Maximal (fun S : Subgroup (↥𝐑[i] ⧸ (𝐃[i]).subgroupOf 𝐑[i]) =>
-          IsElementaryAbelian 2 S) S ↔
-          S = ((𝐄[i]).subgroupOf 𝐑[i]).map (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i])) ∨
-            S = ((𝐇 : Subgroup G).subgroupOf 𝐑[i]).map
-              (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i]))) ∧
-      Nat.card (((𝐄[i]).subgroupOf 𝐑[i]).map (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i]))) =
-        Nat.card K ^ 2 ∧
-      Nat.card (((𝐇 : Subgroup G).subgroupOf 𝐑[i]).map
-        (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i]))) = Nat.card K ^ 2 := by
-  obtain ⟨hn, ι, hι⟩ := exists_parabolicEquiv h i
-  have himg : ∀ r : 𝐑[i], ((r : G) ∈ 𝐄[i] ↔ (ι r).z = 0) ∧
-      ((r : G) ∈ 𝐐[i] ↔ (ι r).x = 0 ∧ (ι r).y = 0) ∧ ((r : G) ∈ 𝐇 ↔ (ι r).y = 0) ∧
-      ((r : G) ∈ 𝐇 ⊓ 𝐄[i] ↔ (ι r).y = 0 ∧ (ι r).z = 0) := fun r => by
-    rw [hι r]
-    refine ⟨(parabolicHom_z_eq_zero_iff h i r).symm, mem_Qi_iff h i r, mem_H_iff h i r, ?_⟩
-    rw [mem_inf, mem_H_iff h i r, parabolicHom_z_eq_zero_iff h i r]
-  have hDE : (𝐃[i]).subgroupOf 𝐑[i] ≤ (𝐄[i]).subgroupOf 𝐑[i] := fun _ hx =>
-    mem_subgroupOf.mpr (h.D_le_E i (mem_subgroupOf.mp hx))
-  have hDH : (𝐃[i]).subgroupOf 𝐑[i] ≤ (𝐇 : Subgroup G).subgroupOf 𝐑[i] := fun _ hx =>
-    mem_subgroupOf.mpr (D_le_H i (mem_subgroupOf.mp hx))
-  have hE : ∀ x, x ∈ ((𝐄[i]).subgroupOf 𝐑[i]).map (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i])) ↔
-      (ι x).z = 0 := by
-    intro x
-    obtain ⟨r, rfl⟩ := QuotientGroup.mk_surjective x
-    rw [mem_map_mk'_iff hDE, mem_subgroupOf, (himg r).1]
-  have hH : ∀ x, x ∈ ((𝐇 : Subgroup G).subgroupOf 𝐑[i]).map
-      (QuotientGroup.mk' ((𝐃[i]).subgroupOf 𝐑[i])) ↔ (ι x).y = 0 := by
-    intro x
-    obtain ⟨r, rfl⟩ := QuotientGroup.mk_surjective x
-    rw [mem_map_mk'_iff hDH, mem_subgroupOf, (himg r).2.2.1]
-  obtain ⟨hmax, hcE, hcH⟩ := maximal_elementaryAbelian ι hE hH
-  exact ⟨hn, ι, himg, hmax, hcE, hcH⟩
-
-theorem parabolicFacts (h : FCHyp L K n φ t) (i : Axis) :
-    ParabolicFacts K n t 𝐂 𝐐 𝐙 𝐔[i] 𝐀[i] 𝐀[i.swap] 𝐃[i] 𝐄[i] 𝐐[i] 𝐑[i] 𝐇 := by
-  have hq := h.setup.card_K
-  obtain ⟨hn, ι, himg, hmax, hcE, hcH⟩ := quotient_R h i
-  exact
-    { isPGroup := R_isPGroup h i
-      card := by rw [card_R h i, hq]
-      mul_eq := R_mul h i
-      E_normal := ⟨le_sup_right, E_normal_R h i⟩
-      inf_C := R_inf_C h i
-      orbit := orbit_R h i
-      normalizer_Q := R_inf_normalizer_Q h i
-      normalizer_Qi := R_inf_normalizer_Qi h i
-      normalizer_A := R_inf_normalizer_A h i
-      H_normal := ⟨H_le_R h i, H_normal_R h i⟩
-      index_H := by rw [relIndex_H h i, hq]
-      quotient := ⟨hn, ι, himg, hmax, by rw [hcE, hq], by rw [hcH, hq]⟩
-      quotient_Hi := quotient_Hi h i
-      mem_Hi := fun _ he => mem_H_iff_E h i he
-      card_Hi := by rw [card_Hi h i, hq]
-      sq_E := closure_sq_E h i
-      sq_D := closure_sq_D h i
-      center_D := (coreFacts h i).center_D }
 
 end Overgroup
 
@@ -1284,58 +1084,5 @@ open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique
   CFSG.RankThree.PartOne.KCRootAxis
 open scoped Matrix Pointwise
 
-theorem standard_symplectic_four_full_center_first_parabolic_overgroups
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) (φ : L ≃* antiSp K)
-    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) :
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    let ZP := (center PG).map PG.subtype
-    let C := centralizer ({(t : G)} : Set G)
-    let U : Axis → Subgroup G := fun i => ((rootU K i).comap φ.toMonoidHom).map L.subtype
-    let A : Axis → Subgroup G := fun i => ((rootA K i).comap φ.toMonoidHom).map L.subtype
-    let V : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ U i
-    let B : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ A i
-    let M : Axis → Subgroup G := fun i => normalizer (V i : Set G)
-    let N : Axis → Subgroup G := fun i => normalizer (B i : Set G)
-    let D : Axis → Subgroup G := fun i => (CFSG.pCore 2 (M i)).map (M i).subtype
-    let E : Axis → Subgroup G := fun i => (CFSG.pCore 2 (N i)).map (N i).subtype
-    let Qi : Axis → Subgroup G := fun i => Q ⊔ D i
-    let R : Axis → Subgroup G := fun i => Q ⊔ E i
-    let H := Qi Axis.one ⊔ Qi Axis.two
-    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ ZP, x = t * z} →
-    (∀ i : Axis, ParabolicFacts K n (t : G) C Q ZP (U i) (A i) (A i.swap) (D i) (E i) (Qi i)
-        (R i) H) ∧
-      R Axis.one ⊓ R Axis.two = H ∧
-      ((Qi Axis.one : Set G) * (Qi Axis.two : Set G) = H ∧ IsPGroup 2 H ∧
-        Nat.card H = 2 * (2 ^ n) ^ 6) ∧
-      H ⊓ C = Q ∧ (center H).map H.subtype = ZP ∧
-      closure {x : G | ∃ y ∈ H, x = y * y} = ZP := by
-  intro TG PG Q ZP C U A V B M N D E Qi R H hfull
-  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
-  have hPG : PG = pull φ (antiUnipotent K) := by
-    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
-    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
-  have hZP : ZP = pull φ (antiUnipotentCenter K) := by
-    change (center ↥PG).map PG.subtype = _
-    rw [hPG, center_pull_antiUnipotent]
-  have hfull' : {x : G | ∃ m ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) :
-      Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ pull φ (antiUnipotentCenter K), x = t * z} := by
-    rw [← hPG, ← hZP]
-    exact hfull
-  obtain ⟨hTG₀, hF⟩ := FCHyp.of_setup hS (hO := hO) hLn hfull'
-  have hTG : TG = zpowers (t : G) := hTG₀
-  clear_value ZP PG TG
-  subst hTG hPG hZP
-  obtain ⟨hH1, hH2, hH3⟩ := hF.H_facts
-  exact ⟨fun i => parabolicFacts hF i, R_inf_R hF, ⟨hH1, hH2, hH3.trans (by rw [hK])⟩,
-    hF.H_inf_C, hF.center_H, closure_sq_H hF⟩
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

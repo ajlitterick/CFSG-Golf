@@ -28,10 +28,6 @@ theorem twinSmallInner_of_rows {p : ℕ} [Fact p.Prime] (hsp : TwinSmallInnerSp 
     TwinSmallInner p :=
   ⟨hsp, hsl, hsu, hd4⟩
 
-theorem twinSmallInner_iff_rows {p : ℕ} [Fact p.Prime] :
-    TwinSmallInner p ↔
-      TwinSmallInnerSp p ∧ TwinSmallInnerSL p ∧ TwinSmallInnerSU p ∧ TwinSmallInnerD4 p :=
-  ⟨fun h => ⟨h.psp, h.psl, h.psu, h.d4⟩, fun h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2⟩⟩
 
 @[expose] def TwinSmallOuterSp : Prop :=
   p ≠ 2 → ∀ e, 5 ≤ p ^ e → StatedLieAdmissible .PSp 2 p e → TwinOuterAlpha p e .PSp 2
@@ -51,9 +47,5 @@ theorem twinSmallOuter_of_rows {p : ℕ} [Fact p.Prime] (hsp : TwinSmallOuterSp 
     TwinSmallOuter p :=
   ⟨hsp, hsl, hsu, hd4⟩
 
-theorem twinSmallOuter_iff_rows {p : ℕ} [Fact p.Prime] :
-    TwinSmallOuter p ↔
-      TwinSmallOuterSp p ∧ TwinSmallOuterSL p ∧ TwinSmallOuterSU p ∧ TwinSmallOuterD4 p :=
-  ⟨fun h => ⟨h.psp, h.psl, h.psu, h.d4⟩, fun h => ⟨h.1, h.2.1, h.2.2.1, h.2.2.2⟩⟩
 
 end CFSG.ClassicalInvolution.Asc77

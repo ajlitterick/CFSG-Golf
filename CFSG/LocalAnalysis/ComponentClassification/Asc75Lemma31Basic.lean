@@ -46,10 +46,6 @@ namespace Hyp
 variable {V X : Subgroup G} {y : G} (h : Hyp V X y)
 include h
 
-omit [Finite G] in
-theorem onanHyp (hirr : ∀ M : Subgroup G, M ≤ V → X ≤ normalizer (M : Set G) → M = ⊥ ∨ M = V) :
-    ONanHyp V X y :=
-  ⟨h.elem, h.le, hirr, h.mem, h.odd, h.not_mem, h.ne_bot, h.trans, h.ti⟩
 
 omit [Finite G] in
 theorem comGrp_le : comGrp V y ≤ V := by

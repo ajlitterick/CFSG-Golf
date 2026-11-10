@@ -102,29 +102,5 @@ theorem card_autOn_of_orth [IsMulCommutative ↥(fsuV T I)] {a : ℕ}
   change Nat.card ↥(StatedSL 2 K) = _
   rw [card_statedSL_two, hK']
 
-theorem stmt10_1_0_of (h326 : TmpL6_3_2_6) (hnFF : AS_p696_notFF) :
-    ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), FSU G T L I → L < fsuL0 T L →
-      ∀ _ : IsMulCommutative ↥(fsuV T I),
-        Concl701FF T L I ∨ Concl701J4 T L I ∨ Concl701Orth T L I → Concl326Three T L I := by
-  intro G _ _ T L I hfsu hlt hc hconcl
-  obtain ⟨-, -, hcase⟩ := h326 G T L I hfsu hlt
-  rcases hcase with ⟨_, -, -, hrow⟩ | h3
-  · exfalso
-    rcases hconcl with hFF | hJ4 | ⟨a, ha, hOrth⟩
-    · exact hnFF G T L I hfsu hlt hc hrow hFF
-    · have hV := hJ4.2.2.1
-      rcases hrow with ⟨n, hn⟩ | hw
-      · rw [card_fsuV_of_omegaPlus hn] at hV
-        have := Nat.pow_right_injective (le_refl 2) hV
-        omega
-      · rw [card_fsuV_of_l3Wreath hw] at hV
-        norm_num at hV
-    · have hA := card_autOn_of_orth hOrth
-      rcases hrow with ⟨n, hn⟩ | hw
-      · rw [card_autOn_of_omegaPlus hn] at hA
-        exact omegaPlus_orth_card_ne hn.2.1 (by omega) hA
-      · rw [card_autOn_of_l3Wreath hw] at hA
-        exact l3Wreath_orth_card_ne ha hA
-  · exact h3
 
 end CFSG.Quasithin.Vol2.Ch10.SecA

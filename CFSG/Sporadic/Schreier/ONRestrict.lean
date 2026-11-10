@@ -48,20 +48,6 @@ theorem get_listRestrict (hI : I.Nodup) (h : H) (i : Fin I.length) :
   rw [listEquiv_apply] at e'
   exact e'
 
-theorem listRestrict_eq_iff (hI : I.Nodup) (h : H) (i j : Fin I.length) :
-    listRestrict I H hH hI h i = j ↔ (h : G) • I.get i = I.get j := by
-  rw [← get_listRestrict I H hH hI h i]
-  constructor
-  · rintro rfl
-    rfl
-  · intro e
-    exact (hI.get_inj_iff).1 e
-
-theorem listRestrict_eq_one (hI : I.Nodup) (h : H) (hfix : ∀ p ∈ I, (h : G) • p = p) :
-    listRestrict I H hH hI h = 1 := by
-  refine Equiv.ext fun i => ?_
-  rw [Equiv.Perm.one_apply, listRestrict_eq_iff]
-  exact hfix _ (List.get_mem I i)
 
 end Restrict
 

@@ -79,8 +79,6 @@ theorem fixD_of_mem_F3 (d : Option F) {w : Ix3 → F} (hw : w ∈ stdF F 3) : Fi
 
 theorem fixD_rootW (d : Option F) : FixD d (rootW d) := fun _ hg => rootD_fix d hg
 
-theorem fixD_smul {d : Option F} {w : Ix3 → F} (hw : FixD d w) (c : F) : FixD d (c • w) :=
-  fun g hg => by rw [g2Act_smul, hw g hg]
 
 theorem comm_inLine {d : Option F} {w : Ix3 → F} (hw : FixD d w) {γ : ↥(cayleyGroup F)}
     (hγ : γ ∈ A1 F) : InLine d (g2Act γ w - w) := by

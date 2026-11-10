@@ -193,14 +193,6 @@ theorem mem_lambdaStar_of_le_sup {P Q Y : Subgroup G} (hP : P ∈ lambdaStar R A
   exact (exists_opposite_of_mem_lambdaStar hS.hyp hS.mem hS.sec8.2 hS.opp hF hP hs).1 Y hY
     (hPF ▸ hYle)
 
-theorem not_le_sup_of_mem_lambdaStar {P Q : Subgroup G} (hP : P ∈ lambdaStar R A A₀)
-    (hQ : Q ∈ lambdaStar R A A₀) (hQP : Q ∈ lambdaSet R P) : ¬ A ≤ P ⊔ Q := by
-  intro hle
-  have := hS.hyp.finite
-  have h1 := (mem_lambdaSet_of_le_sup hS.hyp.root hS.hyp.noIsolated hP.1.1.1 hQP hP.1.1.1
-    le_sup_left hS.mem hle hP.1.1.2.1).2
-  have hQle : Q ≤ A ⊔ P := le_sup_right.trans (h1.symm.le.trans (sup_comm P A).le)
-  exact hQP.1.2.1 (hS.eq_of_le_sup_of_mem_lambdaStar' hP hQ hQle)
 
 theorem mem_lambdaSet_of_le_sup' {P Q : Subgroup G} (hP : P ∈ lambdaStar R A A₀)
     (hQ : Q ∈ lambdaStar R A A₀) (hQP : Q ∈ lambdaSet R P) :

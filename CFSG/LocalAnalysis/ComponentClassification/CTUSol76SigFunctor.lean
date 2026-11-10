@@ -288,31 +288,6 @@ theorem theta_inf_le_theta (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G) (hN : IsSol
     (component_dichotomy_of_pump_swap hab hold)
     (theta_inf_centralizer_le h32 hG hN hK hK' hne hV hVK' hbK hb2 hbV)
 
-theorem isSolvableSignalizerFunctor_theta (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N)
-    (hne : K ≠ K') {V B : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B) :
-    CFSG.Open.IsSolvableSignalizerFunctor 2 B (theta V) := by
-  have hBc : ∀ x ∈ B, ∀ y ∈ B, x * y = y * x := fun x hx y hy =>
-    congrArg Subtype.val (hB.1.is_comm.comm (⟨x, hx⟩ : B) ⟨y, hy⟩)
-  have hinv : ∀ a ∈ B, a ≠ 1 → orderOf a = 2 := fun a ha ha1 => orderOf_eq_prime (hB.2 a ha) ha1
-  have hVa : ∀ a ∈ B, V ≤ centralizer ({a} : Set G) := fun a ha w hw =>
-    mem_centralizer_singleton_iff.mpr ((mem_centralizer_iff.mp (hBV ha)) w hw)
-  refine isSolvableSignalizerFunctor_theta_of_balance (B := B) (V := V) hB.1 hBV ?_
-  intro a ha ha1 b hb hb1
-  exact theta_inf_le_theta h32 hG hN hK hK' hne hV hVK' (hBK hb) (hinv b hb hb1) (hBK ha)
-    (hinv a ha ha1) (hBc b hb a ha) (hVa b hb) (hVa a ha)
-
-theorem wGroup_spec (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G) (hN : IsSolomonChoice N)
-    (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N) (hne : K ≠ K')
-    {V B : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B)
-    (h8 : 2 ^ 3 ∣ Nat.card B) :
-    Nat.Coprime 2 (Nat.card (wGroup B V)) ∧ Group.IsSolvable (wGroup B V) ∧
-      ∀ b ∈ B, b ≠ 1 → theta V b = wGroup B V ⊓ centralizer ({b} : Set G) :=
-  CFSG.SignalizerFunctorTheorem.Solvable.glauberman_of_le_three G 2 Nat.prime_two (by norm_num) B
-    hB.1 hB.2 h8 (theta V)
-    (isSolvableSignalizerFunctor_theta h32 hG hN hK hK' hne hV hVK' hBK hBV hB)
 
 end Functor
 

@@ -306,20 +306,6 @@ theorem GGSecFiveBPermUniLFrame.le_of_ggBlockComm_le
   (hF.le_iSup_ggBlockComm hK hf hp hn c₀ d₀).trans <|
     iSup_le fun c => iSup_le fun d => iSup_le fun h => hM c d h.1 h.2
 
-theorem le_of_ggBlockComm_le_of_model [Finite G] (hp : p.Prime) (hp2 : p ≠ 2)
-    (hBs : CFSG.Open.IsElemAbelian p Bs)
-    (hBsC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hC : Nat.card ↥(Bs ⊓ Subgroup.centralizer (X : Set G)) ≤ p) (hn : 4 ≤ n)
-    (hA : (ggAutomizer X Bs).map (MulAut.congr eta).toMonoidHom = aPermutationFull n p)
-    [Finite K] (hf : 2 ≤ f) (hN : Bs ≤ Subgroup.normalizer (X : Set G))
-    (φ : ↥(unitarySU 2 f K n) →* ↥X) (hM : UnitTB.Model φ)
-    (hdiag : ∀ a ∈ (ggGamma X hN).range, ∃ t : Fin n → K, LineU.ActsDiagU φ a t)
-    (c₀ d₀ : Fin n) {M : Subgroup G}
-    (hMle : ∀ c d : Fin n, c ≠ d → ({c, d} : Set (Fin n)) ≠ {c₀, d₀} →
-      ggBlockComm Bs eta {c, d} ≤ M) :
-    X ≤ M := by
-  obtain ⟨σ', χ', hF⟩ := exists_uniLFrame_of_model hp hp2 hBs hBsC hC hn eta hA hN φ hM hdiag 1
-  exact hF.le_of_ggBlockComm_le hM.field hf hp (by omega) c₀ d₀ hMle
 
 private theorem ublk_isBlockOn_mul_apply {K : Type} [Field K] {n : ℕ} {S T : Finset (Fin n)}
     (hST : Disjoint S T) {M N : Matrix (Fin n) (Fin n) K} (hM : TableBUE.IsBlockOn S M)
@@ -519,16 +505,6 @@ theorem GGSecFiveBPermUniLFrame.le_sup_map_conj_of_perm
         (by simpa using τ.symm.injective.ne hτ0.symm)
     · exact le_sup_of_le_left (hM c d hcd hc hd)
 
-theorem GGSecFiveBPermUniLFrame.le_sup_map_conj
-    (hF : GGSecFiveBPermUniLFrame Bs X eta π σ χ) (hK : UnitaryFieldData 2 f K) (hf : 2 ≤ f)
-    (hp : p.Prime) (hn : 3 ≤ n) {i0 j0 : Fin n} (hij : i0 ≠ j0) {g : G}
-    (hg : g ∈ Subgroup.normalizer (Bs : Set G))
-    (hτ : MulAut.congr eta (ggConjAut Bs hg) = SpCoord.permAut (Equiv.swap i0 j0))
-    {M : Subgroup G}
-    (hM : ∀ c d : Fin n, c ≠ d → c ≠ i0 → d ≠ i0 → ggBlockComm Bs eta {c, d} ≤ M) :
-    X ≤ M ⊔ M.map (MulAut.conj g).toMonoidHom :=
-  hF.le_sup_map_conj_of_perm hK hf hp hn (i0 := i0) (τ := Equiv.swap i0 j0)
-    (by rw [Equiv.swap_apply_left]; exact hij.symm) hg hτ hM
 
 theorem GGSecFiveBPermUniLFrame.sup_map_conj_eq_of_perm
     (hF : GGSecFiveBPermUniLFrame Bs X eta π σ χ) (hK : UnitaryFieldData 2 f K) (hf : 2 ≤ f)

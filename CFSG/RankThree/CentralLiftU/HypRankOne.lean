@@ -133,10 +133,6 @@ theorem rho4Mat_isometry (g : SpecialLinearGroup (Fin 2) K) :
   map_mul' g g' := Subtype.ext (Units.ext (by
     rw [Matrix.GeneralLinearGroup.val_mkOfDetNeZero, rho4Mat_mul]; rfl))
 
-theorem coe_rho4 (g : SpecialLinearGroup (Fin 2) K) :
-    ((rho4 h g : GL (Fin 2 ⊕ Fin 2) K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K) =
-      rho4Mat h g :=
-  rfl
 
 @[expose] noncomputable def rhoU {i j : Fin r} (hij : i ≠ j) :
     SpecialLinearGroup (Fin 2) K →* hypSU h r ε :=
@@ -147,15 +143,6 @@ theorem coe_rhoU {i j : Fin r} (hij : i ≠ j) (g : SpecialLinearGroup (Fin 2) K
       blockMat (quadIdx i j) (rho4Mat h g) :=
   rfl
 
-theorem rhoU_injective {i j : Fin r} (hij : i ≠ j) :
-    Function.Injective (rhoU (ε := ε) h hij) := by
-  intro g g' hgg'
-  have h1 := blockHom_injective h (quadIdx_injective (ε := ε) hij) (quadIdx_closed i j)
-    (restrGram_quadIdx hij) hgg'
-  have h2 := congrArg (fun x : gramSU h (quadGram K) =>
-    (((x : GL (Fin 2 ⊕ Fin 2) K) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K)).toBlocks₁₁) h1
-  simp only [coe_rho4, rho4Mat, toBlocks_fromBlocks₁₁] at h2
-  exact Subtype.ext h2
 
 end Rho
 
@@ -196,8 +183,6 @@ theorem coe_kappaU (i : Fin r) (g : gramSU h (gramJ3 K)) :
       blockMat (tripIdx i) ((g : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) :=
   rfl
 
-theorem kappaU_injective (i : Fin r) : Function.Injective (kappaU h (r := r) i) :=
-  blockHom_injective h (tripIdx_injective i) (tripIdx_closed i) (restrGram_tripIdx i)
 
 end Kappa
 

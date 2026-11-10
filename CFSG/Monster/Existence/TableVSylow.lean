@@ -26,11 +26,6 @@ theorem val_mem_Jstar_of_mem_cent2 {y : MGriess} (hy : y ∈ cent2 tGriess xGrie
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem cent2ToCgen_injective : Function.Injective cent2ToCgen := fun _ _ h =>
-  Subtype.ext (Subtype.ext (congrArg (fun g : Cgen => (g : SpaceB ≃ₗ[ℚ] SpaceB)) h))
-
-theorem coe_cent2ToCgen (y : ↥(cent2 tGriess xGriess)) :
-    ((cent2ToCgen y : Cgen) : SpaceB ≃ₗ[ℚ] SpaceB) = ((y : MGriess) : SpaceB ≃ₗ[ℚ] SpaceB) := rfl
 
 @[expose] noncomputable def cent2ToCbar : ↥(cent2 tGriess xGriess) →* Cbar :=
   kappa.comp cent2ToCgen

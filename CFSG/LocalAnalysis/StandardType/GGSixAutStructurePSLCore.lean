@@ -157,10 +157,6 @@ variable {n : ℕ} {K : Type*} [Field K]
     intro c v hv s hs
     rw [Matrix.mulVec_smul, hv s hs]
 
-theorem mem_fixVec {S : Subgroup (SpecialLinearGroup (Fin n) K)} {v : Fin n → K} :
-    v ∈ fixVec S ↔
-      ∀ s ∈ S, ((s : SpecialLinearGroup (Fin n) K) : Matrix (Fin n) (Fin n) K) *ᵥ v = v :=
-  Iff.rfl
 
 theorem mulVec_mem_fixVec {S : Subgroup (SpecialLinearGroup (Fin n) K)}
     {y : SpecialLinearGroup (Fin n) K} (hy : ∀ s ∈ S, y⁻¹ * s * y ∈ S) {v : Fin n → K}

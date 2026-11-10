@@ -21,6 +21,5 @@ theorem conj_mem_of_norm (hyN : y ∈ normalizer (K : Set G)) {k : G} (hk : k �
     y * k * y⁻¹ ∈ K :=
   (mem_normalizer_iff.1 hyN k).1 hk
 
-variable {n : ℕ} {mul : ℕ → ℕ → ℕ} {dec : ℕ → G}
 
 end CFSG.OddStandard.AltStdSmall4.Tower

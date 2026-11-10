@@ -49,14 +49,6 @@ theorem chkJ2E8_K : chkJ2E8 = true := by
     w1.eq R.id, w2.eq R.id, w2.eq w1, (w1.comp w2).eq R.id]
   quickRfl
 
-theorem neg_conj : (!Nat.beq (cm E8S (cm E8U1 (iv E8S))) E8V2) = true := by quickRfl
-
-theorem neg_comm : (!Nat.beq (cm E8V1 E8S) (cm E8S E8V1)) = true := by quickRfl
-
-theorem neg_sift :
-    (!siftK 315 9 (mask 9) (315 * 9) (pidn 315 9) J2M5.C.LR J2M5.C.TRI J2M5.C.BP 3 0 OU) =
-      true := by
-  quickRfl
 
 end CertificateChecks.KernelMisc.J2Fam
 

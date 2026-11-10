@@ -17,21 +17,6 @@ section Points
 variable {G : Type*} [Group G] {L : Subgroup G} {K : Type} [Field K] {n : ℕ}
   (e : L ≃* StatedSp n K)
 
-theorem coe_planeTorusSp (I : Finset (Fin n)) :
-    (planeTorusSp K I : Set (StatedSp n K)) =
-      diagSp K n '' (planeTorusParam K I : Set (Fin n → Kˣ)) :=
-  Subgroup.coe_map _ _
-
-theorem spBlock_le_centralizer_planeTorusSp (I : Finset (Fin n)) :
-    spBlock K I ≤ centralizer (planeTorusSp K I : Set (StatedSp n K)) := by
-  rw [coe_planeTorusSp]
-  refine spBlock_le_centralizer_of_const fun t ht a ha b hb => ?_
-  rw [diagSpEntry_eq_one_of_mem_planeTorusParam ht ha,
-    diagSpEntry_eq_one_of_mem_planeTorusParam ht hb]
-
-theorem modelToG_spBlock_le_planeCore (hK : 4 ≤ Nat.card K) (I : Finset (Fin n)) :
-    modelToG e (spBlock K I) ≤ planeCore e I :=
-  modelToG_le_planeCore e (spBlock_le_centralizer_planeTorusSp I) (commutator_spBlock_eq hK I)
 
 end Points
 
@@ -146,14 +131,6 @@ theorem planeCore_eq_map_of_conjDiagSp_of_four_le (hK : 4 ≤ Nat.card K) {N I :
   exact planeCore_eq_map_of_conjDiagSp e ι hκ hIN
     (commutator_spBlock_eq (le_card_of_ringHom ι hK) I) hXI Φ hker hrange hΦ
 
-theorem planeCore_eq_range_of_conjDiagSp (hK : 4 ≤ Nat.card K) {N : Finset (Fin n)}
-    {X : Subgroup G} (hXN : X ≤ modelToG e (planeTorusSp K N))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦ : TorusEquivariant e ι N (planeTorusParam K N) Φ) :
-    planeCore e N = Φ.range := by
-  rw [planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK subset_rfl hXN Φ hker hrange hΦ,
-    subgroupOf_self, ← MonoidHom.range_eq_map]
 
 omit [Finite G] [Finite F] in
 theorem subset_compl_singleton_of_notMem {k : Fin n} {I : Finset (Fin n)} (hk : k ∉ I) :
@@ -177,68 +154,6 @@ theorem planeCore_eq_map_of_neighbourCore (hK : 4 ≤ Nat.card K) {k : Fin n} {I
   planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK (subset_compl_singleton_of_notMem hk)
     (modelToG_rootTorusSp_le_planeTorusSp e hk) Φ hker hrange hΦ
 
-theorem pieceCore_tail_eq_map_of_neighbourCore (hK : 4 ≤ Nat.card K) {k : Fin n} {a : ℕ}
-    (hka : k.val < a) (Φ : spBlock F ({k}ᶜ : Finset (Fin n)) →* G)
-    (hker : Φ.ker ≤ center (spBlock F ({k}ᶜ : Finset (Fin n))))
-    (hrange : Φ.range = neighbourCore e k)
-    (hΦ : TorusEquivariant e ι {k}ᶜ
-      (planeTorusParam K (Finset.univ.filter fun j : Fin n => a ≤ j.val)) Φ) :
-    pieceCore e (Finset.univ.filter fun j : Fin n => a ≤ j.val) =
-      ((spBlock F (Finset.univ.filter fun j : Fin n => a ≤ j.val)).subgroupOf
-        (spBlock F ({k}ᶜ : Finset (Fin n)))).map Φ := by
-  rw [pieceCore_tail_eq]
-  exact planeCore_eq_map_of_neighbourCore e ι hK (by simp; omega) Φ hker hrange hΦ
-
-theorem map_eq_map_of_conjDiagSp (hK : 4 ≤ Nat.card K) {N N' I : Finset (Fin n)} (hIN : I ⊆ N)
-    (hIN' : I ⊆ N') {X X' : Subgroup G} (hXI : X ≤ modelToG e (planeTorusSp K I))
-    (hXI' : X' ≤ modelToG e (planeTorusSp K I))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦ : TorusEquivariant e ι N (planeTorusParam K I) Φ)
-    (Φ' : spBlock F N' →* G) (hker' : Φ'.ker ≤ center (spBlock F N'))
-    (hrange' : Φ'.range = centralizerPerfectCore X')
-    (hΦ' : TorusEquivariant e ι N' (planeTorusParam K I) Φ') :
-    ((spBlock F I).subgroupOf (spBlock F N)).map Φ =
-      ((spBlock F I).subgroupOf (spBlock F N')).map Φ' := by
-  rw [← planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hIN hXI Φ hker hrange hΦ,
-    ← planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hIN' hXI' Φ' hker' hrange' hΦ']
-
-theorem nonempty_mulEquiv_planeCore_of_conjDiagSp [CharP F 2] (hK : 4 ≤ Nat.card K)
-    {N I : Finset (Fin n)} (hIN : I ⊆ N) {X : Subgroup G}
-    (hXI : X ≤ modelToG e (planeTorusSp K I))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦ : TorusEquivariant e ι N (planeTorusParam K I) Φ) :
-    Nonempty (StatedSp I.card F ≃* planeCore e I) := by
-  set H := (spBlock F I).subgroupOf (spBlock F N)
-  have hinj : Function.Injective Φ := by
-    rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-    exact hker.trans (center_spBlock_eq_bot N).le
-  have hrangeH : (Φ.comp H.subtype).range = planeCore e I := by
-    rw [MonoidHom.range_comp, range_subtype,
-      planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hIN hXI Φ hker hrange hΦ]
-  have e₁ : H ≃* planeCore e I :=
-    (MonoidHom.ofInjective (f := Φ.comp H.subtype) (hinj.comp H.subtype_injective)).trans
-      (MulEquiv.subgroupCongr hrangeH)
-  have e₂ : spBlock F I ≃* H := (Subgroup.subgroupOfEquivOfLe (spBlock_mono hIN)).symm
-  exact ⟨(spBlockEquiv I).trans (e₂.trans e₁)⟩
-
-theorem planeCore_le_centralizer_planeCore_of_disjoint (hK : 4 ≤ Nat.card K)
-    {N I J : Finset (Fin n)} (hIN : I ⊆ N) (hJN : J ⊆ N) (hIJ : Disjoint I J) {X : Subgroup G}
-    (hXI : X ≤ modelToG e (planeTorusSp K I)) (hXJ : X ≤ modelToG e (planeTorusSp K J))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦI : TorusEquivariant e ι N (planeTorusParam K I) Φ)
-    (hΦJ : TorusEquivariant e ι N (planeTorusParam K J) Φ) :
-    planeCore e I ≤ centralizer (planeCore e J : Set G) := by
-  rw [planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hIN hXI Φ hker hrange hΦI,
-    planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hJN hXJ Φ hker hrange hΦJ]
-  rintro _ ⟨x, hx, rfl⟩
-  rw [mem_centralizer_iff]
-  rintro _ ⟨y, hy, rfl⟩
-  have h : y * x = x * y := Subtype.ext
-    (commute_of_mem_spBlock_of_disjoint hIJ (mem_subgroupOf.1 hx) (mem_subgroupOf.1 hy)).eq.symm
-  rw [← map_mul, ← map_mul, h]
 
 end Piece
 

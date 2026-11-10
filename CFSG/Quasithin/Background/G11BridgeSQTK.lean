@@ -67,11 +67,6 @@ theorem IsQuotientOfSQTKTauCeti.of_le {G : Type*} [Group G] {K X : Subgroup G} (
 
 namespace G11
 
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V]
-
-theorem isQuotientOfSQTKTauCeti_toMulSub_iff (K : Subgroup (GLV V)) :
-    IsQuotientOfSQTKTauCeti ↥(toMulSub K) ↔ IsQuotientOfSQTKTauCeti ↥K :=
-  ⟨fun h => h.of_mulEquiv (toMulSubEquiv K).symm, fun h => h.of_mulEquiv (toMulSubEquiv K)⟩
 
 end G11
 

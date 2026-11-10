@@ -86,11 +86,5 @@ theorem m23AutModel_of (hi : OuterAutomorphisms.inner ↥Blueprint.NativeSporadi
     simp only [MulAut.conj_apply, MulAut.congr_apply] at h
     exact h.symm
 
-theorem census_of_m23Check {sc sp : String} (h : m23Check sc sp = true) :
-    YCensus17 (⊤ : Subgroup ↥Blueprint.NativeSporadic.M23) (fun _ => False) := by
-  simp only [m23Check, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨hslp, hc⟩, hgen⟩, hsize⟩ := h
-  exact yCensus17_top_of_check (k := 7) (m := 79695) closure_m23Gens m23PS_lt hslp hc hgen hsize
-    (by rw [card_m23]; norm_num) (by decide)
 
 end CFSG.ComponentClassification.RankTwoSporadic.M23

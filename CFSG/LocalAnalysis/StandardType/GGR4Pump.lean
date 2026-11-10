@@ -68,22 +68,6 @@ theorem ggR4_not_five_dvd_pump (hPump : GGPumpCInput) {G : Type} [Group G] [Fini
     hPump G 3 B Bs x L D J hcfg f hlab hpq z hzD hz1 X hX hJX hJc hmark hEJ hnot
   exact r4p_not_five_of_pump hcard hN3 hNle hNcard
 
-theorem ggR4_not_five_dvd_pump_lab (hPump : GGPumpCInput) (hPumpTw : GGPumpTwInput) {G : Type}
-    [Group G] [Finite G] {p : ℕ} [Fact p.Prime] (hp3 : p = 3) {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J) (hcard : Nat.card Bs = 3 ^ 5)
-    (hlab : GGR4JLabel (J ⧸ Subgroup.center J)) {z : G} (hzD : z ∈ D) (hz1 : z ≠ 1)
-    {X : Subgroup G} (hX : LargeEvenPComponent p (Subgroup.centralizer ({z} : Set G)) X)
-    (hJX : J ≤ X) (hJc : LargeEvenPComponent p (X ⊓ Subgroup.centralizer ({x} : Set G)) J)
-    (hmark : GGInnerDiagOn Bs X) (hEJ : 3 ≤ Nat.log p (Nat.card (Bs ⊓ J : Subgroup G)))
-    (hnot : ¬ (⁅X, Subgroup.zpowers x⁆ : Subgroup G) ≤ LargeEvenPPrimeCoreOf p X) :
-    ¬ 5 ∣ Nat.card (ggAutomizer X Bs) := by
-  obtain ⟨f, hC | hA | hA | hA⟩ := hlab
-  · exact ggR4_not_five_dvd_pump hPump hp3 hcfg hcard hC hzD hz1 hX hJX hJc hmark hEJ hnot
-  all_goals
-    subst hp3
-    obtain ⟨N, hN3, hNle, hNcard⟩ := hPumpTw G 3 B Bs x L D J hcfg rfl f (by tauto) z hzD hz1 X hX
-      hJX hJc hmark hEJ hnot
-    exact r4p_not_five_of_pump hcard hN3 hNle hNcard
 
 private theorem r4p_alpha_eq_zero {G : Type} [Group G] {p : ℕ} [Fact p.Prime]
     {Bs : Subgroup G} {V : Type} [AddCommGroup V] [Module (ZMod p) V] {N : Type}
@@ -222,11 +206,6 @@ private theorem r4p_centre_two (hZ : GGCentreTwoKnown) (hZtw : GGCentreTrivialTw
   · exact htriv (r4p_center_bot ((hZtw f (r4p_one_le_of_hasLabel_A hA)).2.1 h3) hperf hA)
   · exact htriv (r4p_center_bot ((hZtw f (r4p_one_le_of_hasLabel_twD hA)).2.2) hperf hA)
 
-theorem ggR4NotFiveAtLine_of_pump (hPump : GGPumpCInput) (hPumpTw : GGPumpTwInput) :
-    GGR4NotFiveAtLine := by
-  intro G _ _ B Bs x L D J hcfg hcard hlab z hzD hz1 X hX hJX hJc hmark hEJ hnot
-  exact ggR4_not_five_dvd_pump_lab hPump hPumpTw rfl hcfg hcard hlab hzD hz1 hX hJX hJc hmark hEJ
-    hnot
 
 theorem ggR4NotFiveAtLine_of_notFive (hPump : GGPumpCInput) (hPumpTw : GGPumpTwNotFive) :
     GGR4NotFiveAtLine := by

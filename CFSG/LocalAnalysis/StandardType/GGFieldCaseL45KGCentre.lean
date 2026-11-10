@@ -38,17 +38,6 @@ theorem coprime_card_center_of_marking_omegaPlus {H : Type} [Group H] [Finite H]
     exact h1
   exact (Nat.Prime.coprime_iff_not_dvd hp).mpr (hZ H ψ hsurj hker hperf)
 
-theorem ggD4CentreThreeInput_holds : GGD4CentreThreeInput := by
-  intro H _ _ hmk
-  obtain ⟨hperf, lab, hlab, hraw⟩ := hmk
-  exact coprime_card_center_of_marking_omegaPlus Nat.prime_three (by norm_num)
-    ⟨hperf, lab, hlab, largeEvenRawDatum_mono
-      (fun _ _ _ _ ⟨hs, hna, θ, ht, h4⟩ => ⟨hs, hna, θ, ht, h4.ge⟩) hraw⟩
-
-theorem ggL45CyclicD4Input_of_enlarge' (hraw : GGRawInnFieldInput) (hiso : GGRawInndiagIsoInput)
-    (hcent : GGL45CentInput) (hgr : GGNbrGraphInput) (hKG : GGD4FieldEnlargeEInput) :
-    GGL45CyclicD4Input :=
-  ggL45CyclicD4Input_of_enlarge hraw hiso hcent hgr hKG ggD4CentreThreeInput_holds
 
 end Certs
 

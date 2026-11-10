@@ -37,10 +37,6 @@ theorem fold_other (f : Nat → Nat) (p : Nat) :
     have hx := h x List.mem_cons_self
     simp [Array.set!_eq_setIfInBounds, getElem!_def, Array.getElem?_setIfInBounds, hx]
 
-theorem fold_size (f : Nat → Nat) :
-    ∀ (L : List Nat) (t : Array Nat), (L.foldl (fun t i => t.set! (f i) i) t).size = t.size
-  | [], _ => rfl
-  | x :: L, t => by rw [List.foldl_cons, fold_size f L, Array.size_set!]
 
 theorem foldl_set_get (f : Nat → Nat) :
     ∀ (L : List Nat) (t : Array Nat), (L.map f).Nodup → (∀ i ∈ L, f i < t.size) →

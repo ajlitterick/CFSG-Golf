@@ -303,14 +303,6 @@ theorem ggWeylFamQuotSolvInput_G2 :
 section Restrict
 
 
-theorem ggExcAdjLayerCycNonToralInput_of_input {τ : Tag} {n₀ b : ℕ}
-    (h : GGExcAdjLayerCycInput τ n₀) : GGExcAdjLayerCycNonToralInput τ n₀ b :=
-  fun K _ _ n hn hK p hp hp2 hs _ x _ _ => h K n hn hK p hp hp2 hs x
-
-theorem ggE6AdjLayerCycNonToralInput_of_input (h : GGE6AdjLayerCycInput) :
-    GGE6AdjLayerCycNonToralInput :=
-  fun K _ _ n hn hK p hp hp2 hs hp3 _ x _ _ => h K n hn hK p hp hp2 hs hp3 x
-
 end Restrict
 
 section Tags
@@ -388,9 +380,6 @@ end Tags
 
 section Bundle
 
-theorem ggLayerCenterCyclicExcInput_of_modelRest (hlay : GGLayerTagsPilotRestSix)
-    (h : GGLayerCenterCyclicModelRest) : GGLayerCenterCyclicExcInput :=
-  ggLayerCenterCyclicExcInput_of_rest (ggLayerCenterCyclicExcRest_of_modelRest hlay h)
 
 end Bundle
 

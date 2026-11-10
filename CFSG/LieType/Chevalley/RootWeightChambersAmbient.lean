@@ -122,17 +122,6 @@ theorem sum_smul_single_apply
   · intro h
     exact absurd (Finset.mem_univ j) h
 
-theorem linearIndependent_single_top :
-    LinearIndependent ℝ fun i : Fin τ.rank =>
-      (⟨ofLattice (Pi.single i 1), Submodule.mem_top⟩ : (⊤ : Submodule ℝ (RootWeightSpace τ))) := by
-  rw [Fintype.linearIndependent_iff]
-  intro c hc j
-  have hc' : ∑ i, c i • ofLattice (Pi.single i 1 : Fin τ.rank → ℤ) = 0 := by
-    have := congrArg Subtype.val hc
-    simpa using this
-  have := congrArg (fun x : RootWeightSpace τ => x j) hc'
-  simp only [sum_smul_single_apply] at this
-  simpa using this
 
 theorem span_single_top :
     Submodule.span ℝ (Set.range fun i : Fin τ.rank =>
@@ -195,13 +184,6 @@ theorem inner_single_heightVec_pos
   rw [inner_single_heightVec]
   exact one_pos
 
-theorem inner_ofLattice_heightVec
-    (v : Fin τ.rank → ℤ) :
-    ⟪ofLattice v, heightVec τ⟫ = (height v : ℝ) := by
-  rw [inner_ofLattice_left]
-  simp only [inner_single_heightVec, mul_one, height]
-  push_cast
-  rfl
 
 end RootWeightSpace
 

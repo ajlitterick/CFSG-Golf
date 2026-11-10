@@ -82,12 +82,6 @@ theorem fundPerfect_POmegaOdd (hadm : StatedLieAdmissible .POmegaOdd n p e) :
     obtain ⟨δ, -, -, W, hW⟩ := exists_standardPair_partner_POmegaOdd p e n hadm hγ
     exact ⟨δ, W, hW⟩
 
-theorem fundPerfect_POmegaMinus (hp2 : p ≠ 2) (hadm : StatedLieAdmissible .POmegaMinus n p e) :
-    ∀ R ∈ fundamentalSubgroups .POmegaMinus (modelUniv .POmegaMinus n p e hp.out).D,
-      R ≤ ⁅R, R⁆ :=
-  fundPerfect_of_partner .POmegaMinus n p e hadm h4 (by simp) (by simp) fun γ hγ => by
-    obtain ⟨δ, -, -, W, hW⟩ := exists_standardPair_partner_POmegaMinus n p e hp2 hadm hγ
-    exact ⟨δ, W, hW⟩
 
 theorem fundPerfect_E6 (hadm : StatedLieAdmissible .E6 0 p e) :
     ∀ R ∈ fundamentalSubgroups .E6 (modelUniv .E6 0 p e hp.out).D, R ≤ ⁅R, R⁆ :=

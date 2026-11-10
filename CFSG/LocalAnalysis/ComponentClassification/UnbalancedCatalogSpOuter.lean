@@ -21,8 +21,6 @@ theorem uMat_zero : uMat (0 : K) 0 0 0 = 1 := by
   fin_cases i <;> fin_cases j <;> simp [uMat, one_apply]
 
 theorem uMat_apply_zero_one (a b c d : K) : uMat a b c d 0 1 = a := rfl
-theorem uMat_apply_zero_two (a b c d : K) : uMat a b c d 0 2 = b := rfl
-theorem uMat_apply_zero_three (a b c d : K) : uMat a b c d 0 3 = c := rfl
 theorem uMat_apply_one_two (a b c d : K) : uMat a b c d 1 2 = d := rfl
 
 theorem uMat_inj {a b c d a' b' c' d' : K} (h : uMat a b c d = uMat a' b' c' d') :
@@ -215,10 +213,6 @@ instance antiUnipotentCenter_normal :
       obtain ⟨b, c, hbc⟩ := x.2
       exact ⟨Multiplicative.ofAdd (b, c), Subtype.ext hbc.symm⟩⟩
 
-theorem centerEquiv_apply (b c : K) :
-    ((centerEquiv (Multiplicative.ofAdd (b, c)) : antiUnipotentCenter K) : antiSp K) =
-      uElt 0 b c 0 :=
-  rfl
 
 @[expose] def unipotentPair : antiUnipotent K →* Multiplicative (K × K) where
   toFun g := Multiplicative.ofAdd (glMat ((g : antiSp K) : GL (Fin 4) K) 0 1,

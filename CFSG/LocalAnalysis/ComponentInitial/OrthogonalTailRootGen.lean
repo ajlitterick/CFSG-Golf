@@ -60,9 +60,6 @@ variable (r qA) in
   exists_aux i j := ⟨(0, a₀), by rw [quadTail_tail]; exact Ne.isUnit ha₀, fun s =>
     ⟨polar_hypVec_tail _ a₀, polar_hypVec_tail _ a₀⟩⟩
 
-theorem tailFrame_vec {a₀ : A} (ha₀ : qA a₀ ≠ 0) (i : Fin r) (s : Bool) :
-    (tailFrame r qA ha₀).vec i s = hypVec K A (bif s then .inl i else .inr i) :=
-  rfl
 
 theorem fst_eq_zero_of_polar {v : (Fin r ⊕ Fin r → K) × A}
     (hv : ∀ c : Fin r ⊕ Fin r, polar (quadTail r qA) v (hypVec K A c) = 0) : v.1 = 0 := by

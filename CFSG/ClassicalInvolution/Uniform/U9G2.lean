@@ -32,7 +32,6 @@ theorem g2_pairGen3_proved (u v : (modelUniv .G2 0 3 1 Nat.prime_three).K) (hu :
       Subgroup.centralizer ({v} : Set (modelUniv .G2 0 3 1 Nat.prime_three).K) = ⊤ :=
   g2_pairGen3 g2NonToralGenerate3_proved u v hu hv hu1 hv1 huv hcomm
 
-theorem g2D4Gen3_proved : G2D4Gen3 := g2D4Gen3_of_g2NonToral g2NonToralGenerate3_proved
 
 theorem ih8G2D4EdgeU_proved : Ih8G2D4EdgeU := ih8G2D4EdgeU_of_g2NonToral g2NonToralGenerate3_proved
 

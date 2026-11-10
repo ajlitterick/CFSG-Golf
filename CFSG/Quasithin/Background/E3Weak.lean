@@ -170,13 +170,6 @@ theorem e3_15_normalizer {i : ℕ} {H S Y : Subgroup G} (hS : IsSylowIn 2 S H) (
 
 end Sylow
 
-theorem wClos_eq_weakClosure {i : ℕ} (X : Subgroup G) :
-    wClos V i X = E1.weakClosure X (gammaSet V i ⊤) := by
-  unfold wClos E1.weakClosure
-  refine le_antisymm ?_ ?_
-  · exact iSup₂_le fun A hA => le_iSup₂_of_le A ⟨le_top, hA.2⟩ (le_iSup_of_le hA.1 le_rfl)
-  · refine iSup₂_le fun A hA => iSup_le fun hAX => ?_
-    exact le_iSup₂_of_le A ⟨hAX, hA.2⟩ le_rfl
 
 theorem weakClosure_gammaSet {i : ℕ} {S H : Subgroup G} (hSH : S ≤ H) :
     E1.weakClosure S (gammaSet V i H) = wClos V i S := by
@@ -272,12 +265,6 @@ theorem e3_16_one {i : ℕ} {H S Y N : Subgroup G} (hS : IsSylowIn 2 S H) (hYH :
   rw [← hMN]
   exact hle
 
-theorem e3_16_two {i : ℕ} {H S Y N : Subgroup G} (hS : IsSylowIn 2 S H) (hYH : Y ≤ H)
-    (hY : IsPGroup 2 Y) (hW : wClos V i S ≤ Y) (hW1 : wClos V i S ≠ ⊥)
-    (hN : IsUniqueM (Subgroup.normalizer (Y : Set G)) N) :
-    IsUniqueM (Subgroup.normalizer (wClos V i S : Set G)) N := by
-  obtain ⟨h1, h2⟩ := e3_16_one hS hYH hY hW hW1 hN
-  exact ⟨⟨hN.1.1, h2⟩, fun M' hM' => hN.2 M' ⟨hM'.1, h1.trans hM'.2⟩⟩
 
 theorem e3_16_three {i : ℕ} {H S Y N : Subgroup G} (hS : IsSylowIn 2 S H) (hYH : Y ≤ H)
     (hY : IsPGroup 2 Y) (hW : wClos V i S ≤ Y) (hW1 : wClos V i S ≠ ⊥)

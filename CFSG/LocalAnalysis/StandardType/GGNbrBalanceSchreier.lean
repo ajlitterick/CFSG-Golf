@@ -32,10 +32,6 @@ theorem ggNbrSubcomponentInput_of_catalogueSchreier (hS : CatalogueRelativeB.Cat
     (hP : GGStdSubPrimeInput) : GGNbrSubcomponentInput :=
   ggNbrSubcomponentInput_of_lBalance (ggLBalanceInput_of_catalogueSchreier hS) hP
 
-theorem ggNbrSubcomponentInput_of_catalogueSchreier_small
-    (hS : CatalogueRelativeB.CatalogueSchreier) (hB : GGBstarInput) (hs : GGStdSubSmallInput) :
-    GGNbrSubcomponentInput :=
-  ggNbrSubcomponentInput_of_small (ggLBalanceInput_of_catalogueSchreier hS) hB hs
 
 theorem ggFieldNbrCanonicalInput_of_catalogueSchreier
     (hS : CatalogueRelativeB.CatalogueSchreier) (h4 : GGFieldNbrInnerInput)

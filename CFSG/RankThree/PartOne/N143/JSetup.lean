@@ -32,9 +32,6 @@ variable {n : ℕ} {K : Type} [Field K]
 theorem statedSL_eq_det_ker' : StatedSL n K = (GeneralLinearGroup.det : GL (Fin n) K →* Kˣ).ker :=
   CFSG.Open.StatedAPI.statedSL_eq_ker_det n K
 
-theorem mem_statedSL_iff {g : GL (Fin n) K} :
-    g ∈ StatedSL n K ↔ (g : Matrix (Fin n) (Fin n) K).det = 1 :=
-  CFSG.Open.StatedAPI.mem_statedSL_iff
 
 theorem statedSL_normal : (StatedSL n K).Normal := by
   rw [statedSL_eq_det_ker']

@@ -431,7 +431,6 @@ theorem inf_le_a114P_right (V : Subgroup G) (v₁ v₂ : G) :
 
 theorem a114P_comm (V : Subgroup G) (v₁ v₂ : G) : a114P V v₂ v₁ = a114P V v₁ v₂ := sup_comm _ _
 
-theorem a114Y_comm (v₁ v₂ : G) : a114Y v₂ v₁ = a114Y v₁ v₂ := sup_comm _ _
 
 namespace A114Hyp
 
@@ -452,7 +451,6 @@ theorem v_alg₂ (h : A114Hyp V v₁ v₂) : v₂ * (v₁ * v₂) = v₁ := h.sy
 theorem v_alg₃ (h : A114Hyp V v₁ v₂) : v₂ * v₁ * v₁ = v₂ := by
   rw [mul_assoc, h.v₁_mul_self, mul_one]
 
-theorem v_alg₄ (h : A114Hyp V v₁ v₂) : v₁ * v₂ * v₂ = v₁ := h.symm.v_alg₃
 
 theorem mem_centralizer_iff_fixes [Finite G] (h : A114Hyp V v₁ v₂) {u : G} :
     u ∈ Subgroup.centralizer (V : Set G) ↔ u * v₁ * u⁻¹ = v₁ ∧ u * v₂ * u⁻¹ = v₂ := by
@@ -503,12 +501,6 @@ theorem a114P_isPGroup [Finite G] (h : A114Hyp V v₁ v₂) : IsPGroup 2 (a114P 
   (pCoreOf_isPGroup 2 (Subgroup.centralizer (V : Set G))).to_le
     (sup_le h.inf_le_pCoreOf_centralizer h.symm.inf_le_pCoreOf_centralizer)
 
-theorem centralizer_le_normalizer_a114P (h : A114Hyp V v₁ v₂) :
-    Subgroup.centralizer (V : Set G) ≤ Subgroup.normalizer (a114P V v₁ v₂ : Set G) := by
-  intro c hc
-  exact A1b.mem_normalizer_sup'
-    (A1b.mem_normalizer_inf' (h.centralizer_le_normalizer_core hc) (Subgroup.le_normalizer hc))
-    (A1b.mem_normalizer_inf' (h.symm.centralizer_le_normalizer_core hc) (Subgroup.le_normalizer hc))
 
 theorem twoCoreCentralizer_le_normalizer_a114P [Finite G] (h : A114Hyp V v₁ v₂) :
     twoCoreCentralizer v₁ ≤ Subgroup.normalizer (a114P V v₁ v₂ : Set G) := by
@@ -996,79 +988,5 @@ theorem pRank_le_evenRank [Finite G] {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {H
 
 end A1b
 
-theorem a114_four [Finite G] {V : Subgroup G} {v₁ v₂ : G} (h : A114Hyp V v₁ v₂)
-    (hq : evenRank G ≤ 2) : pRank 3 (Subgroup.centralizer (V : Set G)) ≤ 1 := by
-  have h3prime : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  obtain ⟨hYN, hautY, hker, -⟩ := a114_one h
-  obtain ⟨-, -, hNY⟩ := a114_two h
-  have hCN : Subgroup.centralizer (V : Set G) ≤ Subgroup.normalizer (V : Set G) :=
-    Subgroup.centralizer_le_normalizer _
-  obtain ⟨E, hEC, hE, hEcard⟩ :=
-    CFSG.SectionRank.exists_pRank (by norm_num : 1 < 3) (Subgroup.centralizer (V : Set G))
-  have hE3 : IsPGroup 3 E := fun g => ⟨1, Subtype.ext (by simpa using hE.2 g g.2)⟩
-  obtain ⟨S, hS, hES⟩ := exists_isSylowIn_ge 3 (hEC.trans hCN) hE3
-  have hSY : IsSylowIn 3 (S ⊓ a114Y v₁ v₂) (a114Y v₁ v₂) :=
-    hS.inf_normal hYN ((Subgroup.normal_subgroupOf_iff_le_normalizer hYN).2 hNY)
-  have h3Y : 3 ∣ Nat.card (a114Y v₁ v₂) := by
-    have h1 : Nat.card (autOn (a114Y v₁ v₂) V) ∣
-        Nat.card ((a114Y v₁ v₂).subgroupOf (Subgroup.normalizer (V : Set G))) :=
-      Subgroup.card_map_dvd _ (conjAct V)
-    have h2 : Nat.card (autOn (a114Y v₁ v₂) V) = 6 := by
-      rw [hautY, Subgroup.card_top, h.card_mulAut]
-    have h3 : Nat.card ((a114Y v₁ v₂).subgroupOf (Subgroup.normalizer (V : Set G))) =
-        Nat.card (a114Y v₁ v₂) := Nat.card_congr (Subgroup.subgroupOfEquivOfLe hYN).toEquiv
-    rw [h2, h3] at h1
-    exact (by norm_num : 3 ∣ 6).trans h1
-  have h3SY : 3 ∣ Nat.card (S ⊓ a114Y v₁ v₂ : Subgroup G) := by
-    rw [hSY.card_eq]
-    have hpos : 0 < (Nat.card (a114Y v₁ v₂)).factorization 3 :=
-      Nat.Prime.factorization_pos_of_dvd Nat.prime_three Nat.card_pos.ne' h3Y
-    exact dvd_pow_self 3 hpos.ne'
-  obtain ⟨y', hy'⟩ := exists_prime_orderOf_dvd_card' 3 h3SY
-  have hyS : (y' : G) ∈ S := (inf_le_left : S ⊓ a114Y v₁ v₂ ≤ S) y'.2
-  have hyY : (y' : G) ∈ a114Y v₁ v₂ := (inf_le_right : S ⊓ a114Y v₁ v₂ ≤ a114Y v₁ v₂) y'.2
-  have hy3 : orderOf (y' : G) = 3 := by rw [Subgroup.orderOf_coe]; exact hy'
-  have hcomm : ∀ e ∈ E, Commute e (y' : G) := by
-    intro e he
-    have heC : e ∈ Subgroup.centralizer (V : Set G) := hEC he
-    have h1 : (y' : G) * e * (y' : G)⁻¹ * e⁻¹ ∈ pCoreOf 2 (a114Y v₁ v₂) := by
-      rw [← hker]
-      refine Subgroup.mem_inf.2 ⟨?_, ?_⟩
-      · have h1 : e * (y' : G)⁻¹ * e⁻¹ ∈ a114Y v₁ v₂ :=
-          (Subgroup.mem_normalizer_iff.1 (hNY (hCN heC)) _).1 ((a114Y v₁ v₂).inv_mem hyY)
-        have := (a114Y v₁ v₂).mul_mem hyY h1
-        simpa [mul_assoc] using this
-      · exact (Subgroup.centralizer (V : Set G)).mul_mem
-          (A1b.conj_mem_centralizer_of_mem_normalizer (hYN hyY) heC)
-          ((Subgroup.centralizer (V : Set G)).inv_mem heC)
-    have h2 : (y' : G) * e * (y' : G)⁻¹ * e⁻¹ ∈ S :=
-      S.mul_mem (S.mul_mem (S.mul_mem hyS (hES he)) (S.inv_mem hyS)) (S.inv_mem (hES he))
-    have h3 := A1b.eq_one_of_mem_pGroups (by norm_num : (3 : ℕ) ≠ 2) hS.isPGroup
-      (pCoreOf_isPGroup 2 _) h2 h1
-    exact (commutatorElement_eq_one_iff_mul_comm.1 h3).symm
-  have hyE : (y' : G) ∉ E := by
-    intro hyE
-    have h1 : (y' : G) ∈ pCoreOf 2 (a114Y v₁ v₂) := by
-      rw [← hker]
-      exact Subgroup.mem_inf.2 ⟨hyY, hEC hyE⟩
-    have h2 := A1b.eq_one_of_mem_pGroups (by norm_num : (3 : ℕ) ≠ 2) hS.isPGroup
-      (pCoreOf_isPGroup 2 _) hyS h1
-    rw [h2, orderOf_one] at hy3
-    omega
-  obtain ⟨hA, hAcard⟩ := exists_elemAbelian_sup_zpowers hE hy3 hcomm hyE
-  have hAN : E ⊔ Subgroup.zpowers (y' : G) ≤ Subgroup.normalizer (V : Set G) :=
-    sup_le (hEC.trans hCN) ((Subgroup.zpowers_le).2 (hYN hyY))
-  have hrank : pRank 3 (Subgroup.centralizer (V : Set G)) + 1 ≤
-      pRank 3 (Subgroup.normalizer (V : Set G)) :=
-    le_pRank Nat.prime_three hAN hA (by rw [hAcard, hEcard, pow_succ])
-  have hV2 : IsPGroup 2 V := fun g => ⟨1, Subtype.ext (by simpa using h.isElemAbelian.2 g g.2)⟩
-  have hVbot : V ≠ ⊥ := by
-    intro hV
-    have hmem := h.mem₁
-    rw [hV, Subgroup.mem_bot] at hmem
-    exact h.ne_one₁ hmem
-  have hloc : IsTwoLocal (Subgroup.normalizer (V : Set G)) := ⟨V, hVbot, hV2, rfl⟩
-  have hle := A1b.pRank_le_evenRank Nat.prime_three (by norm_num) hloc
-  omega
 
 end CFSG.Quasithin

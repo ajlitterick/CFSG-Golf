@@ -208,12 +208,5 @@ set_option compiler.extract_closed false
 
 @[expose] def st3Arr : Array Nat := imgA (evalW [2, 1]) s0Arr
 
-@[noinline, expose] def orbitsCheck : Bool :=
-  let p0 := orbitPartA orbGens s0Arr 1
-  let p1 := orbitPartA orbGens st1Arr 1575
-  let p2 := orbitPartA orbGens st2Arr 22400
-  let p3 := orbitPartA orbGens st3Arr 37800
-  pointListOK 3510 s0List && imgSorted g1A s0List == s0List && imgSorted g2A s0List == s0List &&
-    p0.1 && p1.1 && p2.1 && p3.1 && distinctNat (p0.2 ++ p1.2 ++ p2.2 ++ p3.2)
 
 end CFSG.AGLEmbedding.KFactProofs.Fi22Five

@@ -49,6 +49,5 @@ theorem oddCoreOf_eq_pPrimeCore [Finite G] (hz : z ^ 2 = 1) (hG : B ⊔ zpowers 
 
 end Index2
 
-variable [Finite G]
 
 end CFSG.Holt.General.OddOrbits

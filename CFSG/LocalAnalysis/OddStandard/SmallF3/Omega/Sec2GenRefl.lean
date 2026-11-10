@@ -48,9 +48,6 @@ theorem mul_reflOf_mul_inv (g : OGroup Q) (u : V) (hu : Q u ≠ 0) :
 @[expose] def reflPairs (Q : QuadraticForm (ZMod 3) V) : Set (OGroup Q) :=
   {g | ∃ (u v : V) (hu : Q u ≠ 0) (hv : Q v ≠ 0), Q u = Q v ∧ g = reflOf Q u hu * reflOf Q v hv}
 
-theorem reflOf_mul_reflOf_mem (u v : V) (hu : Q u ≠ 0) (hv : Q v ≠ 0) (huv : Q u = Q v) :
-    reflOf Q u hu * reflOf Q v hv ∈ reflPairs Q :=
-  ⟨u, v, hu, hv, huv, rfl⟩
 
 theorem normal_closure_reflPairs : (Subgroup.closure (reflPairs Q)).Normal := by
   refine ⟨fun n hn g => ?_⟩

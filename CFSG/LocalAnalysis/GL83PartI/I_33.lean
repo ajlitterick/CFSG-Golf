@@ -12,12 +12,6 @@ namespace GL83
 
 open CFSG.Open CFSG.LocalAnalysis.GLTheoremB
 
-@[expose] def I_33_2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsCharTwoType G → ∀ p : ℕ, p.Prime → p ≠ 2 →
-    ∀ D B : Subgroup G, D ≠ ⊥ → D ≤ B → IsElemAbelian p B →
-      (∃ T : Subgroup G, T ≠ ⊥ ∧ IsPGroup 2 T ∧ B ≤ Subgroup.normalizer (T : Set G)) →
-      ∃ A S : Subgroup G, A ≤ D ∧ (A.subgroupOf D).index = p ∧ S ≤ Subgroup.centralizer (A : Set G) ∧
-        IsPGroup 2 S ∧ S = ⁅S, D⁆ ∧ S = ⁅S, B⁆ ∧ S ≠ ⊥
 
 @[expose] def I_33_3 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], IsCharTwoType G → ∀ p : ℕ, p.Prime → p ≠ 2 →
@@ -48,11 +42,6 @@ theorem eq_one_of_pow_prime_of_pGroup_two {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 
     · have : 2 ∣ p := h ▸ dvd_pow_self 2 hk0.ne'
       exact hp2 ((Nat.prime_dvd_prime_iff_eq Nat.prime_two hp).1 this).symm
 
-theorem inf_eq_bot_of_elemAbelian_of_pGroup_two {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    {B T : Subgroup G} (hB : IsElemAbelian p B) (hT : IsPGroup 2 T) : B ⊓ T = ⊥ := by
-  rw [Subgroup.eq_bot_iff_forall]
-  intro x hx
-  exact eq_one_of_pow_prime_of_pGroup_two hp hp2 hT hx.2 (hB.2 x hx.1)
 
 variable [Finite G]
 
@@ -243,107 +232,6 @@ theorem mul_mul_inv_mem_centralizer_of_commute {A : Subgroup G} {b h : G}
     _ = b * h * (b⁻¹ * a) := by rw [h1.inv_right.eq]
     _ = (b * h * b⁻¹) * a := by simp [mul_assoc]
 
-theorem I_33_2_proved : I_33_2 := by
-  intro G _ _ hchar p hp hp2 D B hDne hDB hB ⟨T₀, hT₀ne, hT₀2, hBT₀⟩
-  classical
-  have : Fact p.Prime := ⟨hp⟩
-  have hBne : B ≠ ⊥ := fun h => hDne (le_bot_iff.1 (h ▸ hDB))
-  let S : Set (Subgroup G) :=
-    {T' | IsPGroup 2 T' ∧ B ≤ Subgroup.normalizer (T' : Set G) ∧ T₀ ≤ T'}
-  obtain ⟨T, hTS, hTmax⟩ := (Set.toFinite S).exists_maximalFor id S ⟨T₀, hT₀2, hBT₀, le_rfl⟩
-  obtain ⟨hT2, hBT, hT₀T⟩ := hTS
-  have hTne : T ≠ ⊥ := fun h => hT₀ne (le_bot_iff.1 (h ▸ hT₀T))
-  have hmax : ∀ T' : Subgroup G, IsPGroup 2 T' → B ≤ Subgroup.normalizer (T' : Set G) →
-      T ≤ T' → T' = T := fun T' h2 hN hle =>
-    le_antisymm (hTmax ⟨h2, hN, hT₀T.trans hle⟩ hle) hle
-  obtain ⟨d, hdD, hd1⟩ : ∃ d ∈ D, d ≠ 1 := by
-    by_contra hcon
-    push Not at hcon
-    exact hDne (Subgroup.eq_bot_iff_forall _ |>.2 hcon)
-  obtain ⟨A₀, hA₀B, hA₀i, hne⟩ :=
-    ((I_33_1_proved G hchar p hp hp2 B T hBne hB hT2 hBT (Or.inl ⟨hTne, hmax⟩)).1 d (hDB hdD) hd1)
-  set X : Subgroup G := T ⊓ Subgroup.centralizer (A₀ : Set G) with hXdef
-  have hBcomm : ∀ b ∈ B, ∀ a ∈ A₀, Commute a b := fun b hb a ha =>
-    elemAbelian_comm hB (hA₀B ha) hb
-  have hdA₀ : d ∉ A₀ := by
-    intro hd
-    apply hne
-    rw [comm_zpowers_eq_bot_iff]
-    intro x hx
-    exact Subgroup.mem_centralizer_iff.2 fun y hy => by
-      rw [Set.mem_singleton_iff.1 hy]
-      exact Subgroup.mem_centralizer_iff.1 hx.2 d hd
-  have hBX : B ≤ Subgroup.normalizer (X : Set G) := by
-    intro b hb
-    rw [Subgroup.mem_normalizer_iff]
-    intro h
-    have hbT := Subgroup.mem_normalizer_iff.1 (hBT hb) h
-    constructor
-    · rintro ⟨hhT, hhC⟩
-      exact ⟨hbT.1 hhT, mul_mul_inv_mem_centralizer_of_commute (hBcomm b hb) hhC⟩
-    · rintro ⟨hhT, hhC⟩
-      refine ⟨hbT.2 hhT, ?_⟩
-      have := mul_mul_inv_mem_centralizer_of_commute (A := A₀) (b := b⁻¹) (h := b * h * b⁻¹)
-        (fun a ha => (hBcomm b hb a ha).inv_right) hhC
-      simpa [mul_assoc] using this
-  have hBd : B ≤ Subgroup.centralizer (Subgroup.zpowers d : Set G) := by
-    intro b hb
-    rw [Subgroup.mem_centralizer_iff]
-    rintro _ ⟨n, rfl⟩
-    have h : Commute d b := elemAbelian_comm hB (hDB hdD) hb
-    exact (Commute.zpow_left h n).eq
-  have hBdn : B ≤ Subgroup.normalizer (Subgroup.zpowers d : Set G) :=
-    hBd.trans (Subgroup.centralizer_le_normalizer _)
-  have hdB : Subgroup.zpowers d ≤ B := Subgroup.zpowers_le.2 (hDB hdD)
-  have hPX : Subgroup.zpowers d ≤ Subgroup.normalizer (X : Set G) := hdB.trans hBX
-  have hX2 : IsPGroup 2 X := hT2.to_le inf_le_left
-  have hDel : IsElemAbelian p D := isElemAbelian_mono hB hDB
-  have hcop : Nat.Coprime (Nat.card (Subgroup.zpowers d)) (Nat.card X) := by
-    rw [Nat.card_zpowers, orderOf_eq_prime (hB.2 d (hDB hdD)) hd1]
-    obtain ⟨k, hk⟩ := hX2.exists_card_eq
-    rw [hk]
-    exact Nat.Coprime.pow_right k ((Nat.coprime_primes hp Nat.prime_two).2 hp2)
-  have hsolv : Group.IsSolvable X := by
-    have := IsPGroup.isNilpotent hX2
-    infer_instance
-  have hdouble : ⁅⁅X, Subgroup.zpowers d⁆, Subgroup.zpowers d⁆ = ⁅X, Subgroup.zpowers d⁆ :=
-    commutator_double_eq_self (Subgroup.zpowers d) X hPX hcop hsolv
-  set Ssub : Subgroup G := ⁅X, Subgroup.zpowers d⁆ with hSdef
-  have hSne : Ssub ≠ ⊥ := by rwa [hSdef, Subgroup.commutator_comm]
-  have hSle : Ssub ≤ X := commutator_le_of_le_normalizer hPX
-  have hBS : B ≤ Subgroup.normalizer (Ssub : Set G) :=
-    CFSG.GorensteinWalter.le_normalizer_commutator_of_le_normalizer B X (Subgroup.zpowers d) hBX hBdn
-  have hcomB : ∀ B' : Subgroup G, Subgroup.zpowers d ≤ B' → B' ≤ B → Ssub = ⁅Ssub, B'⁆ := by
-    intro B' h1 h2
-    apply le_antisymm
-    · calc Ssub = ⁅Ssub, Subgroup.zpowers d⁆ := hdouble.symm
-        _ ≤ ⁅Ssub, B'⁆ := Subgroup.commutator_mono le_rfl h1
-    · exact commutator_le_of_le_normalizer (h2.trans hBS)
-  have hidx : ((A₀ ⊓ D).subgroupOf D).index = p := by
-    have h1 : (A₀ ⊓ D).relIndex D = A₀.relIndex D := Subgroup.inf_relIndex_right _ _
-    change (A₀ ⊓ D).relIndex D = p
-    rw [h1]
-    have hle : A₀.relIndex D ≤ A₀.relIndex B :=
-      Subgroup.relIndex_le_of_le_right hDB (by change (A₀.subgroupOf B).index ≠ 0; rw [hA₀i]; exact hp.ne_zero)
-    have hB' : A₀.relIndex B = p := hA₀i
-    have hle' : A₀.relIndex D ≤ p := hB' ▸ hle
-    have h2 : A₀.relIndex D ≠ 1 := fun h => hdA₀ ((Subgroup.relIndex_eq_one.1 h) hdD)
-    have h3 : A₀.relIndex D ∣ Nat.card D := Subgroup.relIndex_dvd_card _ _
-    obtain ⟨n, hn⟩ := (isPGroup_of_isElemAbelian hDel).exists_card_eq
-    rw [hn] at h3
-    obtain ⟨j, -, hjeq⟩ := (Nat.dvd_prime_pow hp).1 h3
-    rcases j with _ | _ | j
-    · rw [pow_zero] at hjeq; exact absurd hjeq h2
-    · simpa using hjeq
-    · exfalso
-      have : p < p ^ (j + 2) := by
-        calc p = p ^ 1 := (pow_one p).symm
-          _ < p ^ (j + 2) := Nat.pow_lt_pow_right hp.one_lt (by omega)
-      rw [hjeq] at hle'
-      exact absurd hle' (not_le.2 this)
-  refine ⟨A₀ ⊓ D, Ssub, inf_le_right, hidx, ?_, hT2.to_le (hSle.trans inf_le_left),
-    hcomB D (Subgroup.zpowers_le.2 hdD) hDB, hcomB B hdB le_rfl, hSne⟩
-  exact hSle.trans (inf_le_right.trans (Subgroup.centralizer_le (fun x hx => hx.1)))
 
 theorem I_33_3_proved : I_33_3 := by
   intro G _ _ hchar p hp hp2 N B I hN hBne hB hBN hI hnot

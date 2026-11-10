@@ -66,43 +66,5 @@ theorem T9_le_center_Lgrp :
   intro l
   exact Subtype.ext ((Subgroup.mem_centralizer_iff.1 (Lgrp_le_centralizer_T9 l.2)) t ht).symm
 
-theorem Xgrp_inf_centralizer_A8 :
-    Xgrp ⊓ Subgroup.centralizer (A8 : Set Dfull) = Lgrp :=
-  inf_eq_right.2 Lgrp_le_Xgrp
-
-theorem Xgrp_inf_centralizer_T9 :
-    Xgrp ⊓ Subgroup.centralizer (T9 : Set Dfull) = Lgrp := by
-  apply le_antisymm
-  · intro x hx
-    show x ∈ Subgroup.centralizer (A8 : Set Dfull)
-    exact Subgroup.centralizer_le (show (A8 : Set Dfull) ⊆ T9 from fun _ h => A8_le_T9 h) hx.2
-  · exact le_inf Lgrp_le_Xgrp Lgrp_le_centralizer_T9
-
-theorem short_quadratic_coset_action :
-    cQ = iotaD (kappa ⟨rhoEquiv (pauliQ (false, 0, 127)), rhoEquiv_mem_Cgen cP_mem⟩) ∧
-    CFSG.IsElementaryAbelian 2 T9 ∧ Nat.card T9 = 2 ^ 9 ∧
-    (∀ k : Fin 9, (tEquiv (Multiplicative.ofAdd (Pi.single k 1)) : Dfull) = tT k) ∧
-    tT = ![xhat, yhat, dhat 2 3, dhat 2 4, dhat 2 5, dhat 2 6, uhat, ghat8, cQ] ∧
-    Xgrp ≤ Subgroup.normalizer (T9 : Set Dfull) ∧
-    (∀ x ∈ Xgrp, ∀ a ∈ A8, x * a * x⁻¹ ∈ A8) ∧
-    (∀ x ∈ Xgrp, ∀ y : Dfull, cQ * y ∈ A8 → cQ * (x * y * x⁻¹) ∈ A8) ∧
-    (∀ v : Fin 8 → ZMod 2, (aEquiv (Multiplicative.ofAdd v) : Dfull) = Psi v) ∧
-    (∀ x ∈ Xgrp, ∀ v w : Fin 8 → ZMod 2,
-      x * (cQ * Psi v) * x⁻¹ = cQ * Psi w → qPoly w = qPoly v) ∧
-    (∀ v, qForm v = qPoly v) ∧ QuadraticMap.polarBilin qForm = b0 ∧ b0.Nondegenerate ∧
-    QuadraticMap.Equivalent qForm (CFSG.LieType.Universal.Spin.quadMinus 4 (ZMod 2) 1 1) ∧
-    (Finset.univ.filter fun v : Fin 8 → ZMod 2 => qPoly v = 0).card = 120 ∧
-    {y : Dfull | ∃ x ∈ Xgrp, x * cQ * x⁻¹ = y} =
-      (fun v => cQ * Psi v) '' {v : Fin 8 → ZMod 2 | qPoly v = 0} ∧
-    {y : Dfull | ∃ x ∈ Xgrp, x * cQ * x⁻¹ = y}.ncard = 120 ∧
-    T9 ≤ Lgrp ∧ T9.subgroupOf Lgrp ≤ Subgroup.center Lgrp ∧
-    Xgrp ⊓ Subgroup.centralizer (A8 : Set Dfull) = Lgrp ∧
-    Xgrp ⊓ Subgroup.centralizer (T9 : Set Dfull) = Lgrp :=
-  ⟨cQ_eq, isElementaryAbelian_T9, natCard_T9, tEquiv_single, rfl, Xgrp_le_normalizer_T9,
-    fun _ hx _ ha => (Xgrp_le_qPresGrp hx).conj_mem_A8 ha,
-    fun _ hx _ hy => (Xgrp_le_qPresGrp hx).conj_mem_coset hy, fun _ => coe_aEquiv _,
-    fun _ hx _ _ h => qPoly_conj hx h, qForm_apply, polarBilin_qForm, nondegenerate_b0,
-    equivalent_quadMinus, card_qPoly_zero, orbit_cQ, ncard_orbit_cQ, T9_le_Lgrp,
-    T9_le_center_Lgrp, Xgrp_inf_centralizer_A8, Xgrp_inf_centralizer_T9⟩
 
 end CFSG.Monster.B.TwoA.Sp8

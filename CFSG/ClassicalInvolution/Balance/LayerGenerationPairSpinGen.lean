@@ -22,14 +22,6 @@ variable {F V : Type} [Field F] [AddCommGroup V] [Module F V] {Q : QuadraticForm
     (h2 : polar Q w u' = 0) (h3 : polar Q w' u = 0) (h4 : polar Q w' u' = 0) : Frame Q :=
   ⟨⟨w, w', hw, hw', hww'⟩, ⟨u, u', hu, hu', huu'⟩, ⟨h1, h2, h3, h4⟩⟩
 
-theorem La_transvection_frameOfVectors (w w' u u' : V) (hw : Q w = 0) (hw' : Q w' = 0)
-    (hu : Q u = 0) (hu' : Q u' = 0) (hww' : polar Q w w' = 1) (huu' : polar Q u u' = 1)
-    (h1 : polar Q w u = 0) (h2 : polar Q w u' = 0) (h3 : polar Q w' u = 0)
-    (h4 : polar Q w' u' = 0) (c : F) :
-    (frameOfVectors w w' u u' hw hw' hu hu' hww' huu' h1 h2 h3 h4).La
-        (Matrix.SpecialLinearGroup.transvection (show (0 : Fin 2) ≠ 1 by decide) c) =
-      eichler Q u (c • w) :=
-  Frame.La_transvection_zero_one _ c
 
 theorem map_eq_zero_of_polar_self {x : V} (h2 : (2 : F) ≠ 0) (h : polar Q x x = 0) : Q x = 0 := by
   rw [QuadraticMap.polar_self, two_nsmul, ← two_mul] at h

@@ -43,10 +43,6 @@ theorem oPrimeResidualOf_mono1516 (p : ℕ) {X Y : Subgroup G} (h : X ≤ Y) :
     oPrimeResidualOf p X ≤ oPrimeResidualOf p Y :=
   Subgroup.closure_mono fun _ hx => ⟨h hx.1, hx.2⟩
 
-theorem lemma_15_1_19 (h : Lemma15119Input) {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) : Lemma15119Concl T Mc M Z₁ V₂ :=
-  h G T Mc M Z₁ Z₂ V₁ V₂ hC h17 h18
 
 theorem Setting1516.pCore_g1_ne_bot {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G} (hq : quasithinQTFE14Cat G T Mc)
     (hM : IsMf T Mc M) (hS : Setting1516 T Mc M Z₁ Z₂ V₁ V₂) : pCoreOf 2 (g1_1516 Z₁) ≠ ⊥ :=
@@ -75,46 +71,6 @@ theorem lemma_15_1_20_one {T Mc M Z₁ L : Subgroup G}
     hLinf.trans (h156 M _ hM.1.1 h15.reduced)
   exact fun x hx => ⟨hL.mem.1 hx, h15.centralizer_le (hLC hx)⟩
 
-theorem lemma_15_1_20 (h : Lemma15120Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂)
-    (h156 : ∀ M V : Subgroup G, InM T M → IsTwoReducedIn M V →
-      perfectCore M ≤ Subgroup.centralizer (V : Set G))
-    (h15 : Lemma1515Concl T Mc M) (h17 : Lemma15117Concl T M Z₁) (h18 : Lemma15118Concl T Mc M Z₁)
-    (h19 : Lemma15119Concl T Mc M Z₁ V₂) (hL : IsL1520 T Mc Z₁ L) :
-    Lemma15120Concl T Mc M Z₁ L := by
-  obtain ⟨h2, h3⟩ := h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL
-  exact ⟨lemma_15_1_20_sylow h18.four hL, lemma_15_1_20_one h156 hC.mf h15 hL, h2, h3⟩
-
-theorem lemma_15_1_21 (h : Lemma15121Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) (h19 : Lemma15119Concl T Mc M Z₁ V₂) :
-    Lemma15121Concl Mc Z₁ L :=
-  h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19
-
-theorem lemma_15_1_22 (h : Lemma15122Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) (h19 : Lemma15119Concl T Mc M Z₁ V₂)
-    (hL : IsL1519 Mc Z₁ L) (h20 : Lemma15120Concl T Mc M Z₁ L) (h21 : Lemma15121Concl Mc Z₁ L) :
-    Lemma15122Concl T Mc M Z₁ L :=
-  h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h20 h21
-
-theorem lemma_15_1_23 (h : Lemma15123Input) (h110 : StageLemma15110)
-    {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G} (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂)
-    (h17 : Lemma15117Concl T M Z₁) (h18 : Lemma15118Concl T Mc M Z₁)
-    (h19 : Lemma15119Concl T Mc M Z₁ V₂) (hL : IsL1519 Mc Z₁ L)
-    (h22 : Lemma15122Concl T Mc M Z₁ L) : Lemma15123Concl T Mc M := by
-  intro p hp h6
-  have hp3 : p = 3 := h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 p hp h6
-  subst hp3
-  exact ⟨rfl, h110 G T Mc M hC.qtfe hC.mf hC.ce h6⟩
-
-theorem Ce15Small_of_lemma_15_1_23 {T Mc M : Subgroup G} (hce : Ce15 T Mc M)
-    (h23 : Lemma15123Concl T Mc M) : Ce15Small T Mc M := by
-  rcases hce with h | ⟨p, hp, h⟩ | h
-  · exact Or.inl h
-  · rw [(h23 p hp h).1] at h
-    exact Or.inr (Or.inl h)
-  · exact Or.inr (Or.inr h)
 
 theorem lemma_15_1_24_three {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G}
     (hS : Setting1516 T Mc M Z₁ Z₂ V₁ V₂) (h15 : Lemma1515Concl T Mc M)
@@ -197,16 +153,6 @@ theorem lemma_15_1_24_four {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G} (hq : quasi
     exact congrArg (fun a : V154 T Mc M => (a : G)) hcomm
   · exact (Subgroup.mem_centralizer_iff.mp (hYC hy) v hv).symm
 
-theorem lemma_15_1_24 (h : Lemma15124Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) (h19 : Lemma15119Concl T Mc M Z₁ V₂)
-    (hL : IsL1519 Mc Z₁ L) (h22 : Lemma15122Concl T Mc M Z₁ L) (h23 : Lemma15123Concl T Mc M)
-    (h15 : Lemma1515Concl T Mc M) : Lemma15124Concl T Mc M Z₁ V₁ V₂ L := by
-  have hsmall := Ce15Small_of_lemma_15_1_23 hC.setting.ce15 h23
-  obtain ⟨h1, h2⟩ := h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 hsmall
-  have h7 := not_seven_of_four_or_six h1
-  exact ⟨h1, (hC.setting.decomp_other h7).2.1, h2, lemma_15_1_24_three hC.setting h15 hsmall,
-    (hC.setting.y_facts hsmall).1.2.2.1, lemma_15_1_24_four hC.qtfe hC.mf hC.setting hsmall h1⟩
 
 theorem lemma_15_1_25_four {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G}
     (hS : Setting1516 T Mc M Z₁ Z₂ V₁ V₂) (h : Ce15Four T Mc M ∨ Ce15Six T Mc M 3) :
@@ -218,14 +164,6 @@ theorem lemma_15_1_25_six {T Mc M Z₁ Z₂ V₁ V₂ : Subgroup G}
     (s1516 T Z₁).relIndex T = 2 :=
   hS.index_two (ce15Small_of_four_or_six h) (not_seven_of_four_or_six h)
 
-theorem lemma_15_1_25 (h : Lemma15125Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) (h19 : Lemma15119Concl T Mc M Z₁ V₂)
-    (hL : IsL1519 Mc Z₁ L) (h22 : Lemma15122Concl T Mc M Z₁ L)
-    (h24 : Lemma15124Concl T Mc M Z₁ V₁ V₂ L) : Lemma15125Concl T Z₁ V₁ L := by
-  obtain ⟨h1, h2, h3, h5⟩ := h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 h24
-  exact ⟨h1, h2, h3, lemma_15_1_25_four hC.setting h24.one, h5,
-    lemma_15_1_25_six hC.setting h24.one⟩
 
 omit [Finite G] in
 theorem v1_le_centralizer_of_centS {T M Z₁ V₁ L : Subgroup G}
@@ -257,12 +195,5 @@ theorem lemma_15_1_26 {T Mc M Z₁ V₁ V₂ L : Subgroup G} (hL : IsL1519 Mc Z�
   · exact absurd h.1 h25.two
   · exact (key h.2.2.2.2.2.2.2).elim
 
-theorem lemma_15_1_27 (h : Lemma15127Input) {T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G}
-    (hC : Ctx1515 T Mc M Z₁ Z₂ V₁ V₂) (h17 : Lemma15117Concl T M Z₁)
-    (h18 : Lemma15118Concl T Mc M Z₁) (h19 : Lemma15119Concl T Mc M Z₁ V₂)
-    (hL : IsL1519 Mc Z₁ L) (h22 : Lemma15122Concl T Mc M Z₁ L)
-    (h24 : Lemma15124Concl T Mc M Z₁ V₁ V₂ L) (h25 : Lemma15125Concl T Z₁ V₁ L)
-    (h26 : Lemma15126Concl L) : Lemma15127Concl Z₂ L :=
-  h G T Mc M Z₁ Z₂ V₁ V₂ L hC h17 h18 h19 hL h22 h24 h25 h26
 
 end CFSG.Quasithin

@@ -62,9 +62,6 @@ theorem bilin_charVector_self_eq_finrank {X : Type*} [AddCommGroup X] [Module (Z
   show β (b i) (b j) * β (d j) (d i) = β (b j) (b i) * β (d i) (d j)
   rw [hsymm (b i) (b j), hsymm (d j) (d i)]
 
-variable {q : QuadraticForm (ZMod 2) V}
-
-variable [FiniteDimensional (ZMod 2) V] {w : ℕ} {L : Submodule (ZMod 2) V}
 
 end CFSG.LinearAlgebra.SteinbergBQ
 

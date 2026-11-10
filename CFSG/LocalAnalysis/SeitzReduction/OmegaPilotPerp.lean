@@ -202,11 +202,6 @@ theorem IsHypCoord.extendLin_resHom (h : IsHypCoord Q a b) (y : stabDerived Q a 
   conv_rhs => rw [← perpPart_add_planePart (a := a) (b := b) v]
   simp only [map_add, map_smul, hy.1, hy.2]
 
-theorem IsHypCoord.resHom_injective (h : IsHypCoord Q a b) : Function.Injective h.resHom := by
-  intro y y' hyy'
-  have h1 := h.extendLin_resHom y
-  rw [hyy', h.extendLin_resHom y'] at h1
-  exact Subtype.ext (Subtype.ext h1.symm)
 
 end Extend
 
@@ -310,15 +305,6 @@ theorem IsHypCoord.isQuasisimple_pairPerpOf [Finite K] [CharP K 2]
   CFSG.LocalCores.isQuasisimple_of_mulEquiv (h.pairPerpOfEquiv hQ hR hT).symm
     (CFSG.RankThree.PartOne.KCOrthogonal.isQuasisimple_orthDerived hR hT)
 
-theorem IsHypCoord.inSubgroup_layer_centralizer_pairTorusOf [Finite K] [CharP K 2]
-    (h : IsHypCoord Q a b) (hq : 4 ≤ Nat.card K) (hQ : (polarBilin Q).Nondegenerate)
-    (hR : (polarBilin (Q.comp (perpSub K a b).subtype)).Nondegenerate)
-    (hT : ∃ T : Submodule K (perpSub K a b), finrank K T = 3 ∧
-      ∀ x ∈ T, Q.comp (perpSub K a b).subtype x = 0) :
-    inSubgroup layer (centralizer (pairTorusOf Q a b : Set (matrixProjectiveDerived Q))) =
-      pairPerpOf Q a b :=
-  LinearPilot.inSubgroup_layer_eq_of_commutator_mem (h.pairPerpOf_le_centralizer hq)
-    (fun _ hx _ hy => h.commutator_mem_pairPerpOf hq hx hy) (h.isQuasisimple_pairPerpOf hQ hR hT)
 
 end Proj
 

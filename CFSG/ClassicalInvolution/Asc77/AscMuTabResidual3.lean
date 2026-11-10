@@ -21,16 +21,6 @@ theorem muResidualG2D4_proved (p f : ℕ) [Fact p.Prime] : MuResidualG2D4 p f wh
     obtain ⟨e, ⟨M⟩⟩ := exists_datum_of_hasLieType hS hL
     exact td4_omegaStarNbr_nonempty M hS.hyp hp2 hq hne
 
-theorem muResidual_of_d4Star {p f : ℕ} [Fact p.Prime] (hD4 : Ih8D4Star p f) : MuResidual p f where
-  pOmegaOdd3 hp2 hq hπ X _ _ Φ hS hne _ hL := by
-    obtain ⟨e, ⟨M⟩⟩ := exists_datum_of_hasLieType hS hL
-    exact split_pOmegaOdd3_minus M hS.hyp hp2 hq hne (pow_mod_four_of_piSign_false hp2 hπ)
-  pOmegaMinus4 hp2 hq hπ X _ _ Φ hS hne _ hL := by
-    obtain ⟨e, ⟨M⟩⟩ := exists_datum_of_hasLieType hS hL
-    exact split_pOmegaMinus4_minus M hS.hyp hp2 hq hne (pow_mod_four_of_piSign_false hp2 hπ)
-  g2 := (muResidualG2D4_proved p f).g2
-  trialityD4 := (muResidualG2D4_proved p f).trialityD4
-  pOmegaPlus4 := smallShape_pOmegaPlus4_of hD4
 
 end MuTab
 

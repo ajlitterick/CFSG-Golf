@@ -58,14 +58,6 @@ theorem fw_dsw {W S d M : Nat} (hal : Aligned W M) (hv : ValidIn S (W * d) M) (x
   · rw [testBit_dsw (validIn_disj hv), swp_aligned hal f hi]
   · simp [hi]
 
-theorem tauW_tauW {W S d M : Nat} (hW : 0 < W) (hal : Aligned W M) (hv : ValidIn S (W * d) M)
-    (f : Nat) : tauW W d M (tauW W d M f) = f := by
-  have h := swp_swp (validIn_disj hv) (W * f)
-  have e1 := swp_aligned (d := d) hal f (i := 0) hW
-  have e2 := swp_aligned (d := d) hal (tauW W d M f) (i := 0) hW
-  simp only [Nat.add_zero] at e1 e2
-  rw [e1, e2] at h
-  exact Nat.eq_of_mul_eq_mul_left hW h
 
 theorem tauW_lt {W d M S n : Nat} (hS : S = W * n) (hv : ValidIn S (W * d) M) {f : Nat}
     (hf : f < n) : tauW W d M f < n := by

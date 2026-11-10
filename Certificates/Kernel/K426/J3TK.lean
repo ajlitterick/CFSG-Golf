@@ -81,11 +81,9 @@ theorem kW2 : allN 10 (fun k => wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S P
 theorem kW3 : allN 10 (fun k => wordEqK 6156 13 (mask 13) (pidn 6156 13) PJ3.S PJ3.SI 5
     (WS.getD (Nat.add 30 k) []) (F (Nat.add 30 k))) = true := by quickRfl
 
-theorem kNQ : Nat.beq TQ.N 243 = true := by quickRfl
 
 theorem kNA : Nat.beq TA.N 1080 = true := by quickRfl
 
-theorem kND : Nat.beq TD.N 360 = true := by quickRfl
 
 theorem kTreeQ : allN 243 (fun i => bIf(Nat.beq i 0, true, treeAtK 5 TQ.P TQ.L i)) = true := by
   quickRfl

@@ -66,16 +66,6 @@ theorem mem_nsPts_iff {L : Submodule K (Fin m → K)} :
   · rintro ⟨v, hv, hvW, rfl⟩
     exact span_singleton_mem_nsPts hv hvW
 
-theorem mem_isoPts_iff {L : Submodule K (Fin m → K)} :
-    L ∈ isoPts σ W ↔ ∃ v : Fin m → K, v ≠ 0 ∧ herm σ v v = 0 ∧ v ∈ W ∧ L = K ∙ v := by
-  constructor
-  · rintro ⟨hLW, hL, hnd⟩
-    obtain ⟨v, hv, rfl⟩ := exists_eq_span_of_finrank_eq_one hL
-    refine ⟨v, hv, ?_, (Submodule.span_singleton_le_iff_mem _ _).mp hLW, rfl⟩
-    by_contra h
-    exact hnd (nondeg_span_singleton h)
-  · rintro ⟨v, hv, hvv, hvW, rfl⟩
-    exact span_singleton_mem_isoPts hv hvv hvW
 
 theorem pts_eq_union : pts W = nsPts σ W ∪ isoPts σ W := by
   ext L
@@ -102,19 +92,6 @@ section NonSingular
 variable (hσ : IsUnitaryInvolution σ)
 include hσ
 
-theorem exists_aniso_of_rad_le_one {S : Submodule K (Fin m → K)} (h2 : 2 ≤ finrank K S)
-    (hrad : finrank K ↥(rad σ S) ≤ 1) : ∃ v ∈ S, herm σ v v ≠ 0 := by
-  by_contra! hcon
-  have htot : S ≤ perp σ S := fun s hs t ht =>
-    herm_eq_zero_of_forall_isotropic hσ (fun v hv => hcon v hv) hs ht
-  have : rad σ S = S := inf_eq_left.mpr htot
-  rw [this] at hrad
-  omega
-
-theorem nsPts_nonempty_of_rad_le_one {S : Submodule K (Fin m → K)} (h2 : 2 ≤ finrank K S)
-    (hrad : finrank K ↥(rad σ S) ≤ 1) : (nsPts σ S).Nonempty := by
-  obtain ⟨v, hvS, hv⟩ := exists_aniso_of_rad_le_one hσ h2 hrad
-  exact ⟨K ∙ v, span_singleton_mem_nsPts hv hvS⟩
 
 theorem nsPts_nonempty_of_nondeg {S : Submodule K (Fin m → K)} (hS : Nondeg σ S) (hne : S ≠ ⊥) :
     (nsPts σ S).Nonempty := by

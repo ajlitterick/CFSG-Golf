@@ -25,12 +25,6 @@ section AE5Mu
 
 variable {n : ℕ}
 
-@[expose] def V3SecMuS4 (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y)
-    (K K' K₃ : Subgroup Y) (u₁ u₂ u₃ : Y) (K₄ : Subgroup Y),
-    V3ExitIn n R S t K K' K₃ u₁ u₂ u₃ K₄ →
-      ∀ W ∈ WSet (TwinDisc.secFam (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)),
-        MuIsoS4 (TwinDisc.secFam (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)) W
 
 @[expose] def V3SecAE5MuE4 (n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y)

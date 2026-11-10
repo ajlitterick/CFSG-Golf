@@ -128,15 +128,6 @@ open CFSG.KC.Ord
       ((fun C => Nat.beq (mul (nfM mul ONE pw f) C) (mul C (R (nthD 0 wr (nthD 0 f 7)))))
         (R (nthD 0 f 6))))) ih) fus
 
-@[expose] noncomputable def chkJ (mul vec : Nat → Nat → Nat) (A B ONE L LV HV RM L9 H9 : Nat)
-    (prg : List (Nat × Nat)) (wg wr : List Nat) (hw rel fus : List (List Nat)) (bw : Nat)
-    (hwm : List Nat) : Bool :=
-  runP mul ONE prg List.nil [B, A, ONE] 3 fun bl cur n =>
-    mapS (fun w => wordP mul ONE (fun l => lk ONE bl cur n (nthD 0 wg l)) w) hw fun hs =>
-    pows mul ONE hs fun pw =>
-      andB (Nat.beq hs.length 6) (andB (relsOK mul ONE hs pw rel 0 0)
-        (andB (hwmOK L9 H9 hwm) (andB (bwOK L bw) (andB (invOK vec LV HV RM bw hs hwm)
-          (fusOK mul ONE (lk ONE bl cur n) pw wr fus)))))
 
 @[expose] noncomputable def key (keyc : List Nat) (u : Nat) : Nat :=
   List.rec (motive := fun _ => Nat → Nat) (fun acc => acc)

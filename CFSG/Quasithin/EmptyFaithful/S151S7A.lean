@@ -19,8 +19,6 @@ variable {G : Type} [Group G] {Q : Type} [Group Q]
     show z * ((a : G) * (b : G)) * z⁻¹ = (z * (a : G) * z⁻¹) * (z * (b : G) * z⁻¹)
     group)
 
-theorem coe_conjOnL (L : Subgroup G) (z : G) (hz : z ∈ Subgroup.normalizer (L : Set G)) (l : ↥L) :
-    ((conjOnL L z hz l : ↥L) : G) = z * (l : G) * z⁻¹ := rfl
 
 theorem conjOnL_ker_le {L Kg : Subgroup G} (π : ↥L →* Q) (hKg : π.ker = Kg.subgroupOf L)
     (hKgN : Subgroup.normalizer (L : Set G) ≤ Subgroup.normalizer (Kg : Set G)) (z : G)

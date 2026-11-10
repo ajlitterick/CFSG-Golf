@@ -52,11 +52,6 @@ open CFSG CFSG.Assembly CFSG.Open
             (∀ a ∈ A, ∃ φ ∈ I, ∀ l : L', φ (ψ l) = ψ (a l)) → ∀ z ∈ E, ∀ a ∈ A, a z = z) ∧
         GGKacCompBij D L' e ∧ GGKacSigmaClause p I D L' ψ e
 
-theorem ggK0MainBS_of_cont {Gen : LargeEvenLabel → ℕ → Prop}
-    {Valid : LargeEvenLabel → ℕ → GGKacDatum → Prop}
-    (h : ∀ p : ℕ, ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab → Gen lab p →
-      LargeEvenLabelAll lab fun R _ I _ => GGK1Cont Valid p lab R I) : GGK0MainBS Gen Valid :=
-  fun p lab hlab hgen => h p lab hlab hgen
 
 end CFSG.StandardType
 

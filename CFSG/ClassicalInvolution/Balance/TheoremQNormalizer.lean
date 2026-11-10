@@ -291,39 +291,6 @@ theorem le_normalizer_of_isTwoComponent {C K E₀ L₀ : Subgroup G} (hKC : K �
     (hcent e⁻¹ (E₀.inv_mem he)) hh
   simpa [mul_assoc] using this
 
-theorem isQuasisimple_of_isTwoComponent_of_deltaTrivial_of_centralizes {C K E₀ L₀ : Subgroup G}
-    (hKC : K ≤ C) (hK : TwoComponents.IsTwoComponent (K.subgroupOf C)) (hE₀C : E₀ ≤ C)
-    (hE₀ : IsElemAbelian 2 E₀) (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥)
-    (hB : ∀ f ∈ E₀, f ≠ 1 →
-      ⁅oddCoreIn (normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀),
-        normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀⁆ ≤ involutionOddCore f) :
-    CFSG.Open.IsQuasisimple K := by
-  obtain ⟨hKsub, hKperf, hKq⟩ := twoComponent_data hKC hK
-  exact isQuasisimple_of_deltaTrivial_of_normalizes hKsub hKperf hKq
-    (le_normalizer_of_isTwoComponent hKC hK hL₀K hL₀ hL₀ne hE₀C hL₀E) hE₀ hE₀card hL₀K hL₀E hL₀
-    hL₀ne hΔ hB
-
-theorem isQuasisimple_of_deltaTrivial_of_image_of_normalizes {C K E₀ L₀ : Subgroup G}
-    (hKC : IsSubnormal K C) (hKperf : commutator K = ⊤)
-    (hKq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K))
-    (hE₀N : E₀ ≤ Subgroup.normalizer (K : Set G)) (hE₀ : IsElemAbelian 2 E₀)
-    (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥)
-    (hB : ∀ f ∈ E₀, f ≠ 1 → ∃ P : Subgroup G,
-      normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀ ≤ P ∧ P ≤ C ⊓ Subgroup.centralizer {f} ∧
-        componentClassificationOddCore ((P.subgroupOf (Subgroup.centralizer {f})).map
-            (QuotientGroup.mk' (componentClassificationOddCore (Subgroup.centralizer {f})))) ≤
-          Subgroup.center ((P.subgroupOf (Subgroup.centralizer {f})).map
-            (QuotientGroup.mk' (componentClassificationOddCore (Subgroup.centralizer {f}))))) :
-    CFSG.Open.IsQuasisimple K := by
-  refine isQuasisimple_of_deltaTrivial_of_normalizes hKC hKperf hKq hE₀N hE₀ hE₀card hL₀K hL₀E hL₀
-    hL₀ne hΔ fun f hf hf1 => ?_
-  obtain ⟨P, hLP, hPH, hc⟩ := hB f hf hf1
-  exact commutator_oddCoreIn_normalClosureIn_le_of_le hLP hPH
-    (commutator_oddCoreIn_le_of_oddCore_map_le_center (hPH.trans inf_le_right) hc)
 
 end TwoComponent
 
@@ -331,45 +298,6 @@ section Chain
 
 variable {G : Type} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem deltaCore_eq_bot_of_le {A E₀ : Subgroup G}
-    (hE₀A : E₀ ≤ A) (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥) :
-    ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥ :=
-  fun F hF => hΔ F ⟨hF.1.trans hE₀A, hF.2⟩
-
-theorem isQuasisimple_of_twoBalancedWrt_of_normalizes {A C K E₀ L₀ : Subgroup G}
-    (hA : IsElemAbelian 2 A) (h16 : 16 ≤ Nat.card A) (hB2 : TwoBalancedWrt A)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated A)
-    (hKC : IsSubnormal K C) (hKperf : commutator K = ⊤)
-    (hKq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K))
-    (hE₀A : E₀ ≤ A) (hE₀N : E₀ ≤ Subgroup.normalizer (K : Set G))
-    (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hB : ∀ f ∈ E₀, f ≠ 1 →
-      ⁅oddCoreIn (normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀),
-        normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀⁆ ≤ involutionOddCore f) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_deltaTrivial_of_normalizes hKC hKperf hKq hE₀N
-    (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le 2 hA hE₀A) hE₀card hL₀K hL₀E hL₀
-    hL₀ne (deltaCore_eq_bot_of_le hE₀A
-      (fun F hF => deltaCore_eq_bot_of_fusionGenerated hA h16 hB2 hO hGen F hF)) hB
-
-theorem isQuasisimple_of_isTwoComponent_of_twoBalancedWrt_of_centralizes
-    {A C K E₀ L₀ : Subgroup G}
-    (hA : IsElemAbelian 2 A) (h16 : 16 ≤ Nat.card A) (hB2 : TwoBalancedWrt A)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated A)
-    (hKC : K ≤ C) (hK : TwoComponents.IsTwoComponent (K.subgroupOf C))
-    (hE₀A : E₀ ≤ A) (hE₀C : E₀ ≤ C)
-    (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hB : ∀ f ∈ E₀, f ≠ 1 →
-      ⁅oddCoreIn (normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀),
-        normalClosureIn (C ⊓ Subgroup.centralizer {f}) L₀⁆ ≤ involutionOddCore f) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_isTwoComponent_of_deltaTrivial_of_centralizes hKC hK hE₀C
-    (CFSG.SignalizerFunctor.Helpers.elementary_abelian_of_le 2 hA hE₀A) hE₀card hL₀K hL₀E hL₀
-    hL₀ne (deltaCore_eq_bot_of_le hE₀A
-      (fun F hF => deltaCore_eq_bot_of_fusionGenerated hA h16 hB2 hO hGen F hF)) hB
 
 end Chain
 
@@ -397,20 +325,6 @@ theorem isQuasisimple_of_deltaTrivial_of_l2PrimeBalance_of_normalizes (hLB : L2P
   exact commutator_oddCoreIn_normalClosureIn_le_of_l2PrimeBalance hLB hE₀ hf hE₀C
     (le_inf (hL₀K.trans hKC') hL₀E) hL₀sub hL₀ hL₀q (hB f hf hf1)
 
-theorem isQuasisimple_of_deltaTrivial_of_kGroup_of_normalizes (hLB : L2PrimeBalance)
-    {C K E₀ L₀ : Subgroup G} (hKC : IsSubnormal K C) (hKperf : commutator K = ⊤)
-    (hKq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K))
-    (hE₀N : E₀ ≤ Subgroup.normalizer (K : Set G)) (hE₀C : E₀ ≤ C) (hE₀ : IsElemAbelian 2 E₀)
-    (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥)
-    (hL₀sub : IsSubnormal L₀ (C ⊓ Subgroup.centralizer (E₀ : Set G)))
-    (hL₀q : CFSG.Open.IsQuasisimple (L₀ ⧸ componentClassificationOddCore L₀))
-    (hB : ∀ f ∈ E₀, f ≠ 1 → ∀ M : Subgroup ↥(imageModOddCore f (C ⊓ Subgroup.centralizer {f})),
-      TwoComponents.IsTwoComponent M → CFSG.Open.IsQuasisimple M) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_deltaTrivial_of_l2PrimeBalance_of_normalizes hLB hKC hKperf hKq hE₀N hE₀C hE₀
-    hE₀card hL₀K hL₀E hL₀ hL₀ne hΔ hL₀sub hL₀q fun f hf hf1 M hM => Or.inl (hB f hf hf1 M hM)
 
 theorem isQuasisimple_of_deltaTrivial_of_layer_of_normalizes
     {C K E₀ L₀ : Subgroup G} (hKC : IsSubnormal K C) (hKperf : commutator K = ⊤)
@@ -446,42 +360,6 @@ theorem isQuasisimple_of_isTwoComponent_of_layer_of_centralizes
     (le_normalizer_of_isTwoComponent hKC hK hL₀K hL₀ hL₀ne hE₀C hL₀E) hE₀C hE₀ hE₀card hL₀K hL₀E
     hL₀ hL₀ne hΔ hL₀sub hL₀q hB
 
-theorem isQuasisimple_of_deltaTrivial_of_bInclusion_of_normalizes
-    {K E₀ L₀ : Subgroup G} {z₀ : G} (hz₀E : z₀ ∈ E₀) (hz₀ : z₀ ≠ 1)
-    (hKC : IsSubnormal K (Subgroup.centralizer {z₀})) (hKperf : commutator K = ⊤)
-    (hKq : CFSG.Open.IsQuasisimple (K ⧸ componentClassificationOddCore K))
-    (hE₀N : E₀ ≤ Subgroup.normalizer (K : Set G)) (hE₀ : IsElemAbelian 2 E₀)
-    (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥)
-    (hL₀sub : IsSubnormal L₀ (Subgroup.centralizer {z₀} ⊓ Subgroup.centralizer (E₀ : Set G)))
-    (hL₀q : CFSG.Open.IsQuasisimple (L₀ ⧸ componentClassificationOddCore L₀))
-    (hinc : ∀ f ∈ E₀, f ≠ 1 → CentralTwoBInclusion.Property (↥(Subgroup.centralizer {f}) ⧸
-      componentClassificationOddCore ↥(Subgroup.centralizer {f}))) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_deltaTrivial_of_kGroup_of_normalizes l2PrimeBalance hKC hKperf hKq hE₀N
-    (fun _ he => mem_centralizer_singleton_of_isElemAbelian hE₀ hz₀E he) hE₀ hE₀card hL₀K hL₀E hL₀
-    hL₀ne hΔ hL₀sub hL₀q fun f hf hf1 M hM =>
-      isQuasisimple_imageModOddCore_of_bInclusion (mem_centralizer_singleton_of_isElemAbelian hE₀
-        hf hz₀E) (orderOf_eq_prime (hE₀.2 z₀ hz₀E) hz₀) (hinc f hf hf1) M hM
-
-theorem isQuasisimple_of_isTwoComponent_of_bInclusion_of_centralizes
-    {K E₀ L₀ : Subgroup G} {z₀ : G} (hz₀E : z₀ ∈ E₀) (hz₀ : z₀ ≠ 1)
-    (hKC : K ≤ Subgroup.centralizer {z₀})
-    (hK : TwoComponents.IsTwoComponent (K.subgroupOf (Subgroup.centralizer {z₀})))
-    (hE₀ : IsElemAbelian 2 E₀) (hE₀card : Nat.card E₀ = 8) (hL₀K : L₀ ≤ K)
-    (hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G)) (hL₀ : commutator L₀ = ⊤) (hL₀ne : L₀ ≠ ⊥)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 E₀, deltaCore F = ⊥)
-    (hL₀sub : IsSubnormal L₀ (Subgroup.centralizer {z₀} ⊓ Subgroup.centralizer (E₀ : Set G)))
-    (hL₀q : CFSG.Open.IsQuasisimple (L₀ ⧸ componentClassificationOddCore L₀))
-    (hinc : ∀ f ∈ E₀, f ≠ 1 → CentralTwoBInclusion.Property (↥(Subgroup.centralizer {f}) ⧸
-      componentClassificationOddCore ↥(Subgroup.centralizer {f}))) :
-    CFSG.Open.IsQuasisimple K := by
-  obtain ⟨hKsub, hKperf, hKq⟩ := twoComponent_data hKC hK
-  exact isQuasisimple_of_deltaTrivial_of_bInclusion_of_normalizes hz₀E hz₀ hKsub hKperf hKq
-    (le_normalizer_of_isTwoComponent hKC hK hL₀K hL₀ hL₀ne
-      (fun _ he => mem_centralizer_singleton_of_isElemAbelian hE₀ hz₀E he) hL₀E) hE₀ hE₀card hL₀K
-    hL₀E hL₀ hL₀ne hΔ hL₀sub hL₀q hinc
 
 end Layer
 

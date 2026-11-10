@@ -21,6 +21,5 @@ variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V]
   map_one' := by ext; rfl
   map_mul' _ _ := by ext; rfl
 
-variable [Finite V]
 
 end CFSG.LinearAlgebra

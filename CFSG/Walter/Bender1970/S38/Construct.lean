@@ -25,9 +25,6 @@ variable {A Y : Type*} [CommGroup A] [Group Y]
     ext v
     simp [MulAut.mul_apply]
 
-theorem restrictOf_apply {ρ : Y →* MulAut A} {Q : Subgroup A} {S : Subgroup Y}
-    {hSQ : ∀ s ∈ S, ∀ v ∈ Q, ρ s v ∈ Q} (x : S) (v : Q) :
-    ((restrictOf ρ Q S hSQ x v : Q) : A) = ρ x v := rfl
 
 theorem exists_regular_subgroup [Finite A] [Finite Y] {ρ : Y →* MulAut A}
     (hρ : Function.Injective ρ) (hYodd : Odd (Nat.card Y)) {W Q : Subgroup A}

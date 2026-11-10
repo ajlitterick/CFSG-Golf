@@ -42,18 +42,5 @@ theorem local_normalizer_internal_point_embedding [Finite G]
   rw [← hmap]
   exact hA.map_mulEquiv e
 
-@[expose] def localNormalizerInternalFixedEquiv
-    (H Y : Subgroup G) (F : Subgroup Y)
-    (Delta : Set (pointRightCosetSpace H))
-    (hstable : ∀ y ∈ Y, ∀ omega ∈ Delta, pointRightCosetMul H omega y ∈ Delta)
-    (T : Subgroup F) :
-    letI := pointInvariantSetInverseRightAction H Y Delta hstable
-    {omega : Delta // omega ∈ fixedPointsOfSubgroup F Delta T} ≃
-      (Delta ∩ pointFixedSet H (T.map (Y.subtype.comp F.subtype)) :
-        Set (pointRightCosetSpace H)) := by
-  let := pointInvariantSetInverseRightAction H Y Delta hstable
-  have e := (restrictedSubgroupFixedEquiv (Ω := Delta) F T).trans
-    (original_restricted_fixed_equiv H Y Delta hstable (T.map F.subtype))
-  simpa only [Subgroup.map_map] using e
 
 end CFSG.ShultStronglyClosedTI.CentralizerSylow

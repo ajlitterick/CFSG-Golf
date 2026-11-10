@@ -24,8 +24,6 @@ theorem J_ne_one : h.J ≠ 1 := by
   rw [h1, orderOf_one] at this
   omega
 
-theorem J_mem_H : h.J ∈ Subgroup.centralizer ({h.J} : Set L) :=
-  Subgroup.mem_centralizer_singleton_iff.mpr rfl
 
 theorem commute_J_of_mem_K {x : L} (hx : x ∈ h.K) : x * h.J = h.J * x :=
   Subgroup.mem_centralizer_singleton_iff.mp (h.le_centralizer hx)

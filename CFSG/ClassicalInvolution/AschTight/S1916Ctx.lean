@@ -33,45 +33,6 @@ variable {K : Subgroup G} {z : G} {S : Sylow 2 G} {W L : Subgroup G} {t : G}
 
 theorem Ctx12.hd (c : Ctx12 p f K z S W L t) : Sec19Data p f K z S W := c.data.toSec19Data
 
-omit [Finite G] in
-theorem le_sec19X_of_mem_WSet {W : Subgroup G} (hW : W ∈ WSet (CoreAssembly.conjClass K))
-    (hWz : W ≤ Subgroup.centralizer ({z} : Set G)) : W ≤ sec19X K z := by
-  obtain ⟨η, hη, rfl⟩ := hW
-  obtain ⟨S', hη', -⟩ := hη
-  refine iSup₂_le fun U hU => ?_
-  have hUz : U ≤ Subgroup.centralizer ({z} : Set G) :=
-    (le_iSup₂ (f := fun V (_ : V ∈ η) => V) U hU).trans hWz
-  have hmem : U ∈ {A : Subgroup G | (A ∈ USet (CoreAssembly.conjClass K) ∨
-      A ∈ RSet (CoreAssembly.conjClass K)) ∧ A ≤ Subgroup.centralizer ({z} : Set G)} :=
-    ⟨Or.inl (hη'.1 hU).1, hUz⟩
-  exact le_iSup₂ (f := fun B (_ : B ∈ {A : Subgroup G | (A ∈ USet (CoreAssembly.conjClass K) ∨
-      A ∈ RSet (CoreAssembly.conjClass K)) ∧ A ≤ Subgroup.centralizer ({z} : Set G)}) => B) U hmem
-
-theorem Ctx12.W_le_X (c : Ctx12 p f K z S W L t) : W ≤ sec19X K z :=
-  le_sec19X_of_mem_WSet c.hd.hW (c.hd.hWS.trans c.hd.hSz)
-
-theorem Ctx12.isWreathed_Q_sup_W (c : Ctx12 p f K z S W L t) :
-    IsWreathed (W ⊔ ((S : Subgroup G) ⊓ sec19Y K z)) := by
-  have hd := c.hd
-  have hWW : IsSylow2In W W := ⟨le_rfl, S.isPGroup'.to_le hd.hWS, fun V' hV' _ _ => le_antisymm
-    hV' (by assumption)⟩
-  obtain ⟨heq, h1⟩ := inf_sup_eq_and_isSylow2In S hd.hSz (sd_le_centralizer_Y hd)
-    (hd.hWS.trans hd.hSz) (sd_centralizer_le_normalizer_Y hd) hWW hd.hWS
-  have h1' : IsSylow2In ((S : Subgroup G) ⊓ (sec19Y K z ⊔ W)) (W ⊔ sec19Y K z) := by
-    rw [sup_comm W]
-    exact h1
-  have h2 := c.wrY _ h1'
-  rwa [heq, sup_comm] at h2
-
-theorem Ctx12.mem_R_of_centralizes (c : Ctx12 p f K z S W L t) {x : G}
-    (hxX : x ∈ sec19X K z) (hxS : x ∈ (S : Subgroup G))
-    (hxQ : ∀ q ∈ (S : Subgroup G) ⊓ sec19Y K z, x * q = q * x) : x ∈ (S : Subgroup G) ⊓ K := by
-  have hd := c.hd
-  refine mem_of_centralizes_of_isWreathed (M := K ⊔ sec19Y K z) c.rel
-    (fun u hu huM => (sd_inf_sup_R_Q hd) ▸ ⟨hu, huM⟩) (sd_commute_R_Q hd) inf_le_left
-    (inf_le_right.trans (sec19Y_le_sec19X K z)) hd.hWS c.W_le_X c.isWreathed_Q_sup_W c.quat
-    (S.isPGroup'.to_le inf_le_left) (sd_isUniqueInvolution_Q hd c.quat) (sd_mem_R hd)
-    (IsQuaternionSub.noncomm c.quat) hxX hxS hxQ
 
 theorem Ctx12.exists_not_mem (c : Ctx12 p f K z S W L t) :
     ∃ v ∈ L ⊓ W, v ∉ K ⊔ sec19Y K z := by
@@ -128,18 +89,5 @@ theorem Ctx12.isSylow2In_V [IsSimpleGroup G] (c : Ctx12 p f K z S W L t) :
       ⟨c.data.memL, c.L_ne_K, T, mem_RSet_of_isSylow2In c.data.memL hT, hT.1, hTN⟩
     exact ht.edgeless K (CoreAssembly.mem_conjClass_self K) L c.data.memL (Or.inl hedge)
 
-theorem le_sec19X_of_isSylow2In {H U T : Subgroup G} (hU : IsSylow2In U H)
-    (hUX : U ≤ sec19X K z) (hH : H ≤ Subgroup.centralizer ({z} : Set G)) (hT : IsPGroup 2 T)
-    (hTH : T ≤ H) : T ≤ sec19X K z := by
-  obtain ⟨V', hV', hTV'⟩ := IsSylow2In.exists_ge hT hTH
-  obtain ⟨g, hg, hgV⟩ := IsSylow2In.exists_conj hU hV'
-  calc T ≤ V' := hTV'
-    _ = conjSub g U := hgV.symm
-    _ ≤ conjSub g (sec19X K z) := conjSub_mono hUX
-    _ = sec19X K z := conjSub_sec19X K (hH hg)
-
-theorem Ctx12.le_X_of_le_inf [IsSimpleGroup G] (c : Ctx12 p f K z S W L t) {T : Subgroup G}
-    (hT : IsPGroup 2 T) (hTL : T ≤ L ⊓ Subgroup.centralizer ({z} : Set G)) : T ≤ sec19X K z :=
-  le_sec19X_of_isSylow2In c.isSylow2In_V (inf_le_right.trans c.W_le_X) inf_le_right hT hTL
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S1916

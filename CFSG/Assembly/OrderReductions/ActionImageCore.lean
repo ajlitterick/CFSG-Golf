@@ -26,11 +26,6 @@ theorem actionCore_mem_iff_range {actors target : Type*} [Group actors] [Group t
     change QuotientGroup.mk' action.ker actor ∈ primeCore prime (actors ⧸ action.ker)
     exact equal ▸ original_mem
 
-theorem actionCore_eq_range_comap {actors target : Type*} [Group actors] [Group target]
-    (prime : ℕ) (action : actors →* MulAut target) :
-    actionCore prime action = (primeCore prime action.range).comap action.rangeRestrict := by
-  ext actor
-  exact actionCore_mem_iff_range prime action actor
 
 theorem quadratic_range_action {actors target : Type*} [Group actors] [Group target]
     (action : actors →* MulAut target) (actor : actors) :

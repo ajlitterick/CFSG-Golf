@@ -167,13 +167,6 @@ theorem twA5TorusHom_injective (h : UnitaryFieldData 2 n F) {ζu : Fˣ}
   funext i
   exact Subtype.ext (Units.ext (congrFun h1 i))
 
-theorem card_twA5Torus (h : UnitaryFieldData 2 n F) {ζu : Fˣ} (hζ : h.norm (ζu : F) = 1)
-    (hζo : orderOf ζu = q) : Nat.card (twA5Torus h hζ) = q ^ 4 := by
-  have hdom : Nat.card (Fin 4 → Subgroup.zpowers ζu) = q ^ 4 := by
-    rw [Nat.card_pi]
-    simp [Nat.card_zpowers, hζo]
-  rw [twA5Torus, MonoidHom.range_eq_map,
-    Subgroup.card_map_of_injective (twA5TorusHom_injective h hζ), Subgroup.card_top, hdom]
 
 @[expose] noncomputable def twA5B (h : UnitaryFieldData 2 n F) {ζu : Fˣ}
     (hζ : h.norm (ζu : F) = 1) : Subgroup (unitaryPSU h 6) :=
@@ -185,13 +178,6 @@ theorem mem_twA5B {h : UnitaryFieldData 2 n F} {ζu : Fˣ} {hζ : h.norm (ζu : 
       ∃ c : Fin 4 → Subgroup.zpowers ζu, unitaryProj h 6 (twA5TorusHom h hζ c) = x :=
   Iff.rfl
 
-theorem exists_twA5Vec_of_mem_twA5Torus (h : UnitaryFieldData 2 n F) {ζu : Fˣ}
-    (hζ : h.norm (ζu : F) = 1) {A : unitarySU 2 n F 6} (hA : A ∈ twA5Torus h hζ) :
-    ∃ c : Fin 4 → Fˣ, (∀ i, c i ∈ Subgroup.zpowers ζu) ∧
-      (((A : GL (Fin 6) F)) : Matrix (Fin 6) (Fin 6) F) =
-        diagonal (twA5Vec fun i => (c i : F)) := by
-  obtain ⟨c, rfl⟩ := hA
-  exact ⟨fun i => (c i : Fˣ), fun i => (c i).2, coe_twA5Diag h hζ c⟩
 
 theorem unitaryProj_injective_on_twA5Torus (h : UnitaryFieldData 2 n F) {ζu : Fˣ}
     (hζ : h.norm (ζu : F) = 1) (hζo : orderOf ζu = q) (hq : q.Prime) (hq6 : ¬ q ∣ 6) :

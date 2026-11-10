@@ -84,9 +84,6 @@ theorem prefix_succ (i : Fin k) (x : c.subgroups 0) :
 @[expose] def composite : c.subgroups 0 →* c.subgroups (Fin.last k) :=
   c.prefixMap (Fin.last k)
 
-theorem composite_empty (c : DihedralFusionChain S 0) (x : c.subgroups 0) :
-    (c.composite x : G) = x := by
-  exact congrArg Subtype.val (c.prefix_zero x)
 
 theorem prefix_coe_eq
     (prefixes : Fin (k + 1) → G) (actors : Fin k → G)
@@ -105,34 +102,6 @@ theorem prefix_coe_eq
     rw [c.prefix_succ, c.step_coe, ha, ih, hstep]
     group
 
-theorem subgroups_eq_rightConjugate
-    (prefixes : Fin (k + 1) → G) (actors : Fin k → G)
-    (hfirst : prefixes 0 = 1)
-    (hstep : ∀ i, prefixes i.succ = prefixes i.castSucc * actors i)
-    (ha : ∀ i, ∀ x : c.supports i,
-      (c.automorphisms i x : G) = (actors i)⁻¹ * (x : G) * actors i) :
-    ∀ i, c.subgroups i = rightConjugate (c.subgroups 0) (prefixes i) := by
-  intro i
-  refine Fin.induction ?_ (fun j ih => ?_) i
-  · simp only [hfirst, rightConjugate, inv_one, Subgroup.conjBy_one]
-  · rw [← c.image_eq j,
-      support_automorphism_image_eq_rightConjugate (c.domain_le j)
-        (c.automorphisms j) (actors j) (ha j), ih, hstep]
-    simp only [rightConjugate, mul_inv_rev, Subgroup.conjBy_mul]
-
-theorem exists_realizing_element :
-    ∃ g : G, c.subgroups (Fin.last k) = rightConjugate (c.subgroups 0) g ∧
-      ∀ x : c.subgroups 0, (c.composite x : G) = g⁻¹ * (x : G) * g := by
-  classical
-  choose actors _hallowed ha using c.realized
-  let prefixes : Fin (k + 1) → G :=
-    Fin.induction 1 (fun i g => g * actors i)
-  have hfirst : prefixes 0 = 1 := Fin.induction_zero _ _
-  have hstep : ∀ i, prefixes i.succ = prefixes i.castSucc * actors i :=
-    fun i => Fin.induction_succ _ _ i
-  refine ⟨prefixes (Fin.last k),
-    c.subgroups_eq_rightConjugate prefixes actors hfirst hstep ha (Fin.last k), ?_⟩
-  exact c.prefix_coe_eq prefixes actors hfirst hstep ha (Fin.last k)
 
 end DihedralFusionChain
 

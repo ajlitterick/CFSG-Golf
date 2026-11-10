@@ -17,14 +17,6 @@ theorem Tuple25.le_M_of_charTwo (hs : UnconstrainedSetting G T M) (ht : Tuple25 
   IsGamma0.le_of_charTwo_of_forall_not_charTwo hs.setting hs.noCharTwo ht.gamma0 ht.sylow_inf
     hSX hX
 
-theorem Tuple25.maximal_inf (hs : UnconstrainedSetting G T M) (ht : Tuple25 T M H S z) :
-    (H ⊓ M ≤ H ∧ S ≤ H ⊓ M ∧ CharTwo (H ⊓ M)) ∧
-      (∀ X : Subgroup G, X ≤ H → S ≤ X → CharTwo X → X ≤ H ⊓ M) ∧
-      Maximal (fun X : Subgroup G => X ≤ H ∧ S ≤ X ∧ CharTwo X) (H ⊓ M) ∧
-      ∀ X : Subgroup G, Maximal (fun X : Subgroup G => X ≤ H ∧ S ≤ X ∧ CharTwo X) X →
-        X = H ⊓ M :=
-  IsGamma0.maximal_inf_of_forall_not_charTwo hs.setting hs.noCharTwo ht.gamma0 ht.sylow_inf
-    (ht.gamma0.charTwo_inf hs.setting ht.sylow_inf)
 
 theorem Tuple25.le_T (ht : Tuple25 T M H S z) : S ≤ T := ht.lt.le
 

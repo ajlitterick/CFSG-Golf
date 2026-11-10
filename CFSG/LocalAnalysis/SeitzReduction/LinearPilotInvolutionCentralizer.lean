@@ -153,19 +153,6 @@ theorem perfectCore_centralizer_elt [CharP K 2] [Group.IsPerfect (SpecialLinearG
   · rw [← Subgroup.map_commutator]
     exact Subgroup.map_mono P.commutator_centralizer_le_core
 
-theorem perfectCore_centralizer_elt_eq_commutator [CharP K 2]
-    [Group.IsPerfect (SpecialLinearGroup (Fin k) K)] [Group.IsPerfect (SpecialLinearGroup P.free K)]
-    (hJ : 2 ≤ P.free.card) :
-    perfectCore (Subgroup.centralizer {P.elt K}) =
-      ⁅Subgroup.centralizer {P.elt K}, Subgroup.centralizer {P.elt K}⁆ := by
-  refine le_antisymm ?_ ?_
-  · calc perfectCore (Subgroup.centralizer {P.elt K})
-        ≤ CFSG.Quasithin.derivedSeriesOf (Subgroup.centralizer {P.elt K}) 1 :=
-          CFSG.Quasithin.perfectCore_le_derivedSeriesOf _ 1
-      _ = _ := by rw [CFSG.Quasithin.derivedSeriesOf_succ, CFSG.Quasithin.derivedSeriesOf_zero]
-  · rw [P.perfectCore_centralizer_elt hJ, ← map_core_eq, P.centralizer_elt,
-      ← Subgroup.map_commutator]
-    exact Subgroup.map_mono P.commutator_centralizer_le_core
 
 theorem radical_pow_four [CharP K 2] {r : SpecialLinearGroup (Fin n) K} (hr : r ∈ P.radical K) :
     r ^ 4 = 1 := by
@@ -235,10 +222,6 @@ theorem levi_le_normalizer_radicalP :
   exact (Subgroup.map_mono ((P.levi_le_blockDiag.trans P.blockDiag_le_parabolic).trans
     P.parabolic_le_normalizer_radical)).trans (Subgroup.le_normalizer_map _)
 
-theorem commute_leviOneP_blockSL :
-    ∀ x ∈ P.leviOneP K, ∀ y ∈ blockSL (K := K) P.free, Commute x y := by
-  rintro _ ⟨a, ha, rfl⟩ _ ⟨d, hd, rfl⟩
-  exact (P.commute_leviOne_free ha hd).map _
 
 theorem regionPart_mul_radical {r r' : SpecialLinearGroup (Fin n) K} (hr : r ∈ P.radical K)
     (hr' : r' ∈ P.radical K) (α : ℕ) :
@@ -473,17 +456,5 @@ theorem centralizer_inv_perfectCore [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card 
 
 end InvPlacement
 
-theorem centralizer_inv_perfectCore_exists {n k : ℕ} {K : Type*} [Field K] [Finite K]
-    [CharP K 2] (hq : 4 ≤ Nat.card K) (P : InvPlacement n k) (hJ : 2 ≤ n - 2 * k) :
-    ∃ (Q M₁ : Subgroup (LinearFlag.projectiveSL n K)) (J : Finset (Fin n)),
-      J.card = n - 2 * k ∧ IsPGroup 2 Q ∧
-      perfectCore (Subgroup.centralizer {P.elt K}) = Q ⊔ (M₁ ⊔ blockSL J) ∧
-      Disjoint Q (M₁ ⊔ blockSL J) ∧
-      M₁ ⊔ blockSL J ≤ Subgroup.normalizer (Q : Set (LinearFlag.projectiveSL n K)) ∧
-      blockSL J = perfectCore ((M₁ ⊔ blockSL J) ⊓
-        Subgroup.centralizer ((⁅Q, Q⁆ : Subgroup (LinearFlag.projectiveSL n K)) :
-          Set (LinearFlag.projectiveSL n K))) := by
-  obtain ⟨h1, h2, h3, h4, h5⟩ := P.centralizer_inv_perfectCore hq hJ
-  exact ⟨P.radicalP K, P.leviOneP K, P.free, P.card_free, h1, h2, h3, h4, h5⟩
 
 end CFSG.SeitzReduction.LinearPilot

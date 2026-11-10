@@ -138,47 +138,6 @@ end Cover
 
 section P1
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem twinYP1On_of_visible {P : StatedLieTag → ℕ → Prop} (hΩall : HypOmegaModAll p f)
-    (hAall : AEmptyAll p f) (hP4 : Ih8G2D4 p f) (hH : TwinFrameHyp51 p f)
-    (hGenT : TwinYGenTOn p f P) (hVis : TwinYVisibleOn p f P) : TwinYP1On p f P := by
-  intro G _ _ _ hnab K z S tY nY hrow hP hshape T hT clsT e
-  have hcen : Subgroup.center G = ⊥ := CoreAssembly.center_eq_bot hnab
-  have hΩ : HypOmegaMod p f (𝒞 K) := hΩall G hnab S.odd S.five K z S.cls S.below
-  have hA : ∀ M ∈ 𝒞 K, AEmpty (𝒞 K) M := hAall G hnab S.odd S.five K z S.cls S.below
-  have h7 : Thm7TypedBelow p f (Nat.card G) := thm7TypedBelow_of hP4 S.below
-  obtain ⟨hG2, hD4, hnA1⟩ := hrow.tag_facts
-  have rf := LocalShapeT.twinRowFacts hshape S.odd S.five hG2 hD4 hnA1
-  have hKiso : ∀ N ∈ centralizingMembers (𝒞 K) {z}, N ≠ K → Commutes K N :=
-    fun N hN hNK => hT.comm_K N hN hNK
-  have hTiso : ∀ N ∈ centralizingMembers (𝒞 K) {z}, N ≠ T → Commutes T N :=
-    fun N hN hNT => hT.comm_T N hN hNT
-  obtain ⟨J, J', t, hJ, hJK, hJT, hJt, htz, hJ't, hJJ', hJ'u⟩ :=
-    exists_frameMembers hnab S hrow hshape hT clsT e
-  have hKT : Commutes K T := hT.comm_K T hT.mem hT.ne
-  have hJKc : Commutes J K := (hKiso J hJ hJK).symm
-  have hJTc : Commutes J T := (hTiso J hJ hJT).symm
-  have hJu : J ∈ centralizingMembers (𝒞 K) {e.u} := e.mem_centralizingMembers_u hJ.1 hJKc hJTc
-  obtain ⟨hu1, hunc⟩ := twinElt_u_not_central hnab S e hKT
-  have fd : TwinFrameData (𝒞 K) K T z e.u J t :=
-    twinFrameData_of S hΩ e hT.mem.1 hT.ne hKT clsT hJ.1 hJ.2 hJt htz hJKc hJTc
-  have hbal := rankThreeBalance_of hH S hΩ hA h7 fd
-  have hframe := frameSide_of S hcen hΩ hD4 rf hshape e fd hT.mem hT.ne.symm hKiso hTiso clsT hJ
-    hJK hJT hJt (hGenT G hnab K z S tY nY hrow hP hshape T hT clsT e J t hJ hJK hJT hJt)
-  have hgen := rankTwoSpan_eq_top_of S hframe
-  have huB : e.u ∈ Subgroup.closure ({z, e.u, t} : Set G) := Subgroup.subset_closure (by simp)
-  have htB : t ∈ Subgroup.closure ({z, e.u, t} : Set G) := Subgroup.subset_closure (by simp)
-  have hcov := cover_of_visible S.odd S.five hΩ S.inClass S.exact S.ih hunc huB hJu
-    (ConnectedA2.isUniqueInvolution_of_isClassicalMember S.odd S.five hJt)
-    (hVis G hnab K z S tY nY hrow hP hshape T hT clsT e J t hJ hJK hJT hJt)
-  exact (stage2_of_balanced_gen hnab S.odd S.five S.inClass S.ih hbal hJ.1 hJt htB
-    (le_centralizer_frame e hJ.2 hJt hJKc hJTc) hgen).2 e.u hu1 hcov
-
-theorem twinYP1_of_visible (hΩall : HypOmegaModAll p f) (hAall : AEmptyAll p f)
-    (hP4 : Ih8G2D4 p f) (hH : TwinFrameHyp51 p f) (hGenT : TwinYGenT p f)
-    (hVis : TwinYVisibleOn p f fun _ _ => True) : TwinYP1 p f :=
-  (twinYP1On_of_visible hΩall hAall hP4 hH hGenT.on hVis).of_true
 
 end P1
 

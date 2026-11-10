@@ -1466,10 +1466,6 @@ theorem input19_17_2_of (h : Input19_17_2S) : Lemma123.Input19_17_2 := by
   · exact Or.inl fun h2 => h1 (isLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
   · exact Or.inr fun h2 => h1 (isWeaklyLocallyOTwoBalancedWrtP_of_quot hq.1 h2)
 
-@[expose] def Input19_18S : Prop :=
-  ∀ (p : ℕ), p.Prime → 3 < p → ∀ (S : Type) [Group S] [Finite S],
-    ((IsSimpleGroup S ∧ Prop1116Design.IsLieOverField 3 S) ∨ (p = 13 ∧ IsLpType 3 (3 ^ 13) S)) →
-      IsWeaklyLocallyOTwoBalancedWrtP p 1 S
 
 theorem center_quot_eq_bot {Y : Type} [Group Y] (hq : CFSG.Open.IsQuasisimple Y) :
     Subgroup.center (Y ⧸ Subgroup.center Y) = ⊥ := by
@@ -1482,14 +1478,6 @@ theorem center_quot_eq_bot {Y : Type} [Group Y] (hq : CFSG.Open.IsQuasisimple Y)
     have ha : a ∈ Subgroup.center (Y ⧸ Subgroup.center Y) := by rw [h]; exact Subgroup.mem_top a
     exact (Subgroup.mem_center_iff.1 ha b).symm
 
-theorem input19_18_of (h : Input19_18S) : Lemma123.Input19_18 := by
-  intro Y _ _ hq _ hform
-  have hp : Nat.Prime 13 := by norm_num
-  rcases hform with h1 | h1
-  · refine isWeaklyLocallyOTwoBalancedWrtP_of_quot hq.1 (h 13 hp (by norm_num) _ (Or.inl ⟨hq.2, ?_⟩))
-    obtain ⟨idx, ⟨e⟩, hidx⟩ := h1
-    exact ⟨idx, ⟨(Prop1116Design.mulEquivQuotCenterOfEqBot (center_quot_eq_bot hq)).symm.trans e⟩, hidx⟩
-  · exact h 13 hp (by norm_num) Y (Or.inr ⟨rfl, h1⟩)
 
 end Simple
 
@@ -1522,28 +1510,8 @@ theorem input19_17_1c_of (hSchur : Lemma123.InputSchurAlt') :
 theorem input19_17_1c_of_schur (hSchur : Lemma123.InputSchurAlt') : Lemma123.Input19_17_1c :=
   input19_17_1c_of hSchur
 
-theorem input19_17_1c_holds : Lemma123.Input19_17_1c :=
-  input19_17_1c_of_schur SchurFacts.inputSchurAlt'_holds
 
 end Alt
 
-theorem lemma123_of_inputs_i19
-    (h112 : Prop112Statement) (h115 : Prop115Statement)
-    (h117 : Prop117_cex_falseStatement) (h122 : Lemma122_i_iiStatement) (h1116 : Prop1116StrongStatement)
-    (hI185 : Sec12a.Input18_5) (hI191 : Lemma136c.Input19_1_O2)
-    (hI22 : Input22_3_2) (hDiag : Lemma123.InputDiagBalance)
-    (hDefCore : CFSG.HardMathSupport.Timmesfeld.Coordinator.DefCharInnerCoreFree)
-    (hOut : Input19_6_4Outer) (hAmb : Input19_6_4Amb) (hI2317 : Lemma123.Input23_17)
-    (hI234 : Lemma123.Input23_4) (hSchurAlt : Lemma123.InputSchurAlt')
-    (hL27 : Prop1116.InputNotL27Pi)
-    (hI1917s : Input19_17_2S) (hI2324 : Lemma123.Input23_24) (hSchurFi : Lemma123.InputSchurFi22)
-    (hCore : CFSG.LieType.ChevTwo.Chev2CoreCent) (hKD : CFSG.LieType.ChevTwo.Chev2KDOut)
-    (hI1916 : Lemma123.Input19_16_two)
-    (hI7L : Input7_L34)
-    (hI197 : Lemma123.Input19_7_3) (hI1918 : Input19_18S) (hI272 : Lemma123.Input27_2) :
-    Lemma123Statement :=
-  lemma123_of_inputs h112 h115 h117 h122 h1116 hI185 hI191 input19_1_O2_img_holds hI22 hDiag
-    (input19_6_4_of hDefCore hOut hAmb) hI2317 (input19_17_1c_of_schur hSchurAlt) hI234 hSchurAlt hL27
-    (input19_17_2_of hI1917s) hI2324 hSchurFi hCore hKD hI1916 hI7L hI197 (input19_18_of hI1918) hI272
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Inputs123a

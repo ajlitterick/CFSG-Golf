@@ -61,24 +61,6 @@ theorem ffE8Group_card {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε)) :
     decide
   rw [← Nat.card_congr (Equiv.ofBijective F hF), hE]
 
-theorem ffE8Group_elemAb2 {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε)) :
-    IsElemAb2 (ffE8Group fr) 3 := by
-  have hcomm : ∀ a b : ffE8Group fr, a * b = b * a := by
-    intro a b
-    obtain ⟨J, hJ, ha⟩ := (mem_ffE8Group_iff fr).mp a.2
-    obtain ⟨K, hK, hb⟩ := (mem_ffE8Group_iff fr).mp b.2
-    apply Subtype.ext
-    change (a : OGroup Q) * b = (b : OGroup Q) * a
-    rw [ha, hb, fr.signChange_comm]
-  have hsq : ∀ x ∈ ffE8Group fr, x ^ 2 = 1 := by
-    intro x hx
-    obtain ⟨J, hJ, hx'⟩ := (mem_ffE8Group_iff fr).mp hx
-    apply Subtype.ext
-    simp only [Subgroup.coe_pow, Subgroup.coe_one, hx', pow_two,
-      fr.signChange_mul_self]
-  refine ⟨⟨IsMulCommutative.of_comm hcomm, hsq⟩, ?_⟩
-  rw [ffE8Group_card fr]
-  norm_num
 
 theorem PFrame.signChange_mem_omegaGroup_iff (hQ : Q.Nondegenerate) {ι : Type} [Fintype ι]
     [DecidableEq ι] {c : ι → ZMod 3} (fr : PFrame Q ι c) (hc : ∀ i, c i = 1 ∨ c i = -1)
@@ -159,11 +141,6 @@ theorem mem_ffOmegaSim_iff (hQ : Q.Nondegenerate) {x : ProjSim Q} :
     refine ⟨⟨toProj Q g, Subgroup.mem_map.mpr ⟨g, hg, rfl⟩⟩, ?_⟩
     rw [ffOmegaToSim_apply, projOrthToProjSim_toProj, ffOutFFE8Def_ffSim_apply]
 
-theorem ffOmegaSim_eq_map (hQ : Q.Nondegenerate) :
-    ffOmegaSim hQ = (omegaGroup hQ).map (ffSim Q) := by
-  apply Subgroup.ext
-  intro x
-  rw [mem_ffOmegaSim_iff, Subgroup.mem_map]
 
 structure FFE8VData (hQ : Q.Nondegenerate) (E : Subgroup (OGroup Q)) (t ν : OGroup Q) : Prop where
   le_omega : E ≤ omegaGroup hQ
@@ -186,122 +163,5 @@ structure FFE8SData (hQ : Q.Nondegenerate) (Ē : Subgroup (ProjSim Q)) (z ν : P
   nu_norm : ν ∈ Subgroup.normalizer (Ē : Set (ProjSim Q))
   nu_fix : ∀ e ∈ Ē, ν * e = e * ν → e = 1 ∨ e = z
 
-private lemma ffOutFFE8Def_polar_similitude {σ : V ≃ₗ[ZMod 3] V} {μ : (ZMod 3)ˣ}
-    (hσ : IsSimilitude Q σ μ) (x y : V) :
-    QuadraticMap.polar Q (σ x) (σ y) = (μ : ZMod 3) * QuadraticMap.polar Q x y := by
-  rw [QuadraticMap.polar, QuadraticMap.polar, ← map_add, hσ (x + y), hσ x, hσ y]
-  ring
-
-noncomputable def PFrame.ffSimMap {ι : Type} [Fintype ι] [DecidableEq ι] {c : ι → ZMod 3}
-    (fr : PFrame Q ι c) (γ : V ≃ₗ[ZMod 3] V) (μ : (ZMod 3)ˣ) (hγ : IsSimilitude Q γ μ) :
-    PFrame Q ι (fun i => (μ : ZMod 3) * c i) where
-  b := fr.b.map γ
-  norm := by
-    intro i
-    rw [Module.Basis.map_apply, hγ, fr.norm]
-  orth := by
-    intro i j hij
-    rw [Module.Basis.map_apply, Module.Basis.map_apply,
-      ffOutFFE8Def_polar_similitude hγ, fr.orth i j hij, mul_zero]
-
-theorem PFrame.ffSimMap_signChange {ι : Type} [Fintype ι] [DecidableEq ι] {c : ι → ZMod 3}
-    (fr : PFrame Q ι c) (γ : V ≃ₗ[ZMod 3] V) (μ : (ZMod 3)ˣ) (hγ : IsSimilitude Q γ μ)
-    (J : Finset ι) :
-    γ * (fr.signChange J : V ≃ₗ[ZMod 3] V) * γ⁻¹ =
-      ((fr.ffSimMap γ μ hγ).signChange J : V ≃ₗ[ZMod 3] V) := by
-  apply (fr.ffSimMap γ μ hγ).b.ext'
-  intro i
-  rw [(fr.ffSimMap γ μ hγ).signChange_basis J i]
-  rw [show (fr.ffSimMap γ μ hγ).b = fr.b.map γ from rfl, Module.Basis.map_apply]
-  rw [LinearEquiv.mul_apply, LinearEquiv.mul_apply]
-  simp only [LinearEquiv.coe_inv]
-  rw [LinearEquiv.symm_apply_apply, fr.signChange_basis J i]
-  by_cases h : i ∈ J
-  · rw [if_pos h, if_pos h, map_neg]
-  · rw [if_neg h, if_neg h]
-
-private def ffOutFFE8Def_swapIdx : FFE8Idx ≃ FFE8Idx :=
-  Equiv.swap (Sum.inl (0 : Fin 2)) (Sum.inl 1)
-
-private lemma ffOutFFE8Def_swapIdx_symm :
-    ffOutFFE8Def_swapIdx.symm = ffOutFFE8Def_swapIdx :=
-  Equiv.symm_swap _ _
-
-private lemma ffOutFFE8Def_mem_hat_swap (J : Finset (Fin 4)) (i : FFE8Idx) :
-    ffOutFFE8Def_swapIdx i ∈ ffE8Hat J ↔ i ∈ ffE8Hat J := by
-  rcases i with i | i
-  · fin_cases i <;> simp [ffOutFFE8Def_swapIdx, ffE8Hat]
-  · have h : ffOutFFE8Def_swapIdx (Sum.inr i) = Sum.inr i :=
-      Equiv.swap_apply_of_ne_of_ne (by simp) (by simp)
-    rw [h]
-
-noncomputable def PFrame.ffE8Neg {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε))
-    {γ : V ≃ₗ[ZMod 3] V} (hγ : IsSimilitude Q γ (-1)) : PFrame Q FFE8Idx (ffE8Norm (-ε)) where
-  b := (fr.ffSimMap γ (-1) hγ).b.reindex ffOutFFE8Def_swapIdx
-  norm := by
-    intro j
-    rw [Module.Basis.reindex_apply, ffOutFFE8Def_swapIdx_symm,
-      (fr.ffSimMap γ (-1) hγ).norm]
-    rcases j with j | j
-    · fin_cases j <;> simp [ffE8Norm, ffOutFFE8Def_swapIdx]
-    · have hsw : ffOutFFE8Def_swapIdx (Sum.inr j) = Sum.inr j :=
-        Equiv.swap_apply_of_ne_of_ne (by simp) (by simp)
-      rw [hsw]
-      show (-1 : ZMod 3) * ε = -ε
-      rw [neg_one_mul]
-  orth := by
-    intro i j hij
-    simp only [Module.Basis.reindex_apply, ffOutFFE8Def_swapIdx_symm]
-    exact (fr.ffSimMap γ (-1) hγ).orth _ _
-      (fun h => hij (ffOutFFE8Def_swapIdx.injective h))
-
-private lemma ffOutFFE8Def_neg_b {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε))
-    {γ : V ≃ₗ[ZMod 3] V} (hγ : IsSimilitude Q γ (-1)) (i : FFE8Idx) :
-    (fr.ffE8Neg hγ).b i = (fr.ffSimMap γ (-1) hγ).b (ffOutFFE8Def_swapIdx i) := by
-  simp only [PFrame.ffE8Neg, Module.Basis.reindex_apply,
-    ffOutFFE8Def_swapIdx_symm]
-
-private lemma ffOutFFE8Def_neg_signChange {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε))
-    {γ : V ≃ₗ[ZMod 3] V} (hγ : IsSimilitude Q γ (-1)) (J : Finset (Fin 4)) :
-    (fr.ffSimMap γ (-1) hγ).signChange (ffE8Hat J) =
-      (fr.ffE8Neg hγ).signChange (ffE8Hat J) := by
-  apply Subtype.ext
-  apply (fr.ffE8Neg hγ).b.ext'
-  intro i
-  nth_rewrite 1 [ffOutFFE8Def_neg_b fr hγ i]
-  rw [(fr.ffSimMap γ (-1) hγ).signChange_basis (ffE8Hat J) (ffOutFFE8Def_swapIdx i),
-    (fr.ffE8Neg hγ).signChange_basis (ffE8Hat J) i, ffOutFFE8Def_neg_b fr hγ i]
-  have hm : ffOutFFE8Def_swapIdx i ∈ ffE8Hat J ↔ i ∈ ffE8Hat J :=
-    ffOutFFE8Def_mem_hat_swap J i
-  by_cases h : i ∈ ffE8Hat J
-  · rw [if_pos (hm.mpr h), if_pos h]
-  · rw [if_neg (fun hh => h (hm.mp hh)), if_neg h]
-
-private lemma ffOutFFE8Def_simAct_signChange {ε : ZMod 3}
-    (fr : PFrame Q FFE8Idx (ffE8Norm ε)) (γ : simGroup Q)
-    (hγ : IsSimilitude Q (γ : V ≃ₗ[ZMod 3] V) (-1)) (J : Finset (Fin 4)) :
-    simAct Q γ (fr.signChange (ffE8Hat J)) =
-      (fr.ffE8Neg hγ).signChange (ffE8Hat J) := by
-  apply Subtype.ext
-  rw [coe_simAct,
-    PFrame.ffSimMap_signChange fr (γ : V ≃ₗ[ZMod 3] V) (-1) hγ]
-  exact congrArg Subtype.val (ffOutFFE8Def_neg_signChange fr hγ J)
-
-theorem ffE8Group_simAct {ε : ZMod 3} (fr : PFrame Q FFE8Idx (ffE8Norm ε)) (γ : simGroup Q)
-    (hγ : IsSimilitude Q (γ : V ≃ₗ[ZMod 3] V) (-1)) :
-    (ffE8Group fr).map (simAct Q γ).toMonoidHom = ffE8Group (fr.ffE8Neg hγ) := by
-  apply Subgroup.ext
-  intro g
-  constructor
-  · intro hg
-    obtain ⟨a, ha, hag⟩ := Subgroup.mem_map.mp hg
-    obtain ⟨J, hJ, rfl⟩ := (mem_ffE8Group_iff fr).mp ha
-    exact (mem_ffE8Group_iff (fr.ffE8Neg hγ)).mpr
-      ⟨J, hJ, hag.symm.trans (ffOutFFE8Def_simAct_signChange fr γ hγ J)⟩
-  · intro hg
-    obtain ⟨J, hJ, rfl⟩ := (mem_ffE8Group_iff (fr.ffE8Neg hγ)).mp hg
-    exact Subgroup.mem_map.mpr
-      ⟨fr.signChange (ffE8Hat J), (mem_ffE8Group_iff fr).mpr ⟨J, hJ, rfl⟩,
-        ffOutFFE8Def_simAct_signChange fr γ hγ J⟩
 
 end CFSG.OddStandard.SmallF3.Omega

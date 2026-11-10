@@ -69,9 +69,6 @@ abbrev X2 : Subgroup (ModGL Tag.E8 K) := rootSpan Tag.E8 K S2set
 
 abbrev XS : Subgroup (ModGL Tag.E8 K) := rootSpan Tag.E8 K (cosetRoots Tag.E8 4 5)
 
-theorem isRoot_of_mem_S1set {r : Fin Tag.E8.rank → ℤ} (hr : r ∈ S1set) : IsRoot Tag.E8 r := by
-  obtain ⟨m, rfl⟩ := e8_list_roots r (List.mem_append_right _ hr)
-  exact isRoot_e8RootVec m
 
 theorem isRoot_of_mem_S2set {r : Fin Tag.E8.rank → ℤ} (hr : r ∈ S2set) : IsRoot Tag.E8 r := by
   obtain ⟨m, rfl⟩ := e8_list_roots r (List.mem_append_left _ hr)

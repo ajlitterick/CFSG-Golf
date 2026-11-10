@@ -61,10 +61,5 @@ theorem gsWeakMaximalComponent_of_B2 {a : G} {J : Subgroup G} (ha : orderOf a = 
 
 end
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem GSWeakMaximalComponent.footeMaximal {J : Subgroup G} (h : GSWeakMaximalComponent J) :
-    FooteLit.FooteMaximal J :=
-  ⟨h.1, fun M hM => h.2 M (gsWeakReach_of_footeReach hM)⟩
 
 end CFSG.ComponentClassification.GrSLit

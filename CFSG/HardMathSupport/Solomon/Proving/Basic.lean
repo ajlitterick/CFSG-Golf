@@ -33,22 +33,6 @@ theorem normalizer_le_glbCore_three {G : Type*} [Group G] [Finite G] {p : ℕ} {
     (h3 : 3 ≤ pRank p B) : Subgroup.normalizer (B : Set G) ≤ GLBCore p 3 B :=
   le_sSup ⟨B, le_rfl, h3, rfl⟩
 
-theorem exists_glaIsMaxTwoLocal_ge {G : Type*} [Group G] [Finite G] {H : Subgroup G}
-    (hH : IsTwoLocal H) : ∃ M : Subgroup G, GLAIsMaxTwoLocal M ∧ H ≤ M := by
-  obtain ⟨M, hHM, hM⟩ := Finite.exists_le_maximal (p := IsTwoLocal) hH
-  exact ⟨M, ⟨hM.1, fun K hK hMK => le_antisymm (hM.2 hK hMK) hMK⟩, hHM⟩
-
-theorem theoremOne_iff : TheoremOne ↔ ∀ (G : Type) [Group G] [Finite G] (m p : ℕ),
-    GLStanding G m p → ∃ B : Subgroup G, IsBOneMax p B ∧ ∃ M : Subgroup G,
-      IsPreUniquenessTwoLocal p B M := by
-  constructor
-  · intro h G _ _ m p hS
-    obtain ⟨hs, hnab, hK, hC, he, hm, hq, hp, hr, hd⟩ := hS
-    obtain ⟨B, hB, M, hM1, hM2, hM3⟩ := h G hnab hK hC he m hm hq p hp hr hd
-    exact ⟨B, hB, M, hM1, hM2, hM3⟩
-  · intro h G _ _ _ hnab hK hC he m hm hq p hp hr hd
-    obtain ⟨B, hB, M, hM⟩ := h G m p ⟨inferInstance, hnab, hK, hC, he, hm, hq, hp, hr, hd⟩
-    exact ⟨B, hB, M, hM.1, hM.2.1, hM.2.2⟩
 
 theorem exists_isBZeroMax_of_not_glaDeltaZero {G : Type*} [Group G] [Finite G] {p : ℕ}
     (h : ¬ GLADeltaZero G p) : ∃ B : Subgroup G, IsBZeroMax p B := by
@@ -126,12 +110,6 @@ theorem ne_top_of_even_card_glaPPrimeCoreOf {G : Type*} [Group G] [Finite G] [Is
   rw [hM, glaPPrimeCoreOf_top_eq_bot hp hpG, Subgroup.card_bot] at h
   exact Nat.not_even_one h
 
-theorem isTwoLocal_normalizer_pCoreOf_two {G : Type*} [Group G] [Finite G] {M : Subgroup G}
-    (h : pCoreOf 2 M ≠ ⊥) : IsTwoLocal (Subgroup.normalizer (pCoreOf 2 M : Set G)) ∧
-      M ≤ Subgroup.normalizer (pCoreOf 2 M : Set G) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact ⟨⟨pCoreOf 2 M, h, CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 M, rfl⟩,
-    CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 M⟩
 
 end CFSG.HardMathSupport.Solomon.Proving
 

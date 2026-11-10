@@ -67,10 +67,6 @@ theorem oKappaGL_oRhoOneGL (B : SL(2, K)) :
   apply Units.ext
   rw [coe_oKappaGL, coe_oRhoOneGL, coe_oRhoOneGL, oblk_oblk_oeP (oe₂ := oe₂), oblk_one]
 
-theorem oKappaGL_oRhoTwoGL (A : SL(2, K)) :
-    oKappaGL oe (oRhoTwoGL oe' A) = oRhoTwoGL (oeP oe oe' oe₂) A := by
-  apply Units.ext
-  rw [coe_oKappaGL, coe_oRhoTwoGL, coe_oRhoTwoGL, oblk_oblk_oeP (oe₂ := oe₂), oblk_one]
 
 theorem oRhoOneGL_eq_oKappaGL (B : SL(2, K)) :
     oRhoOneGL oe B = oKappaGL (oeP oe oe' oe₂) (oRhoOneGL oe₂ B) := by
@@ -82,10 +78,6 @@ theorem oRhoTwoGL_eq_oKappaGL (A : SL(2, K)) :
   apply Units.ext
   rw [coe_oKappaGL, coe_oRhoTwoGL, coe_oRhoTwoGL, ← oblk_oblk_oeP, oblk_one]
 
-theorem oKappaGL_oKappaGL (Y : GL ι₃ K) :
-    oKappaGL oe (oKappaGL oe' Y) = oKappaGL (oeP oe oe' oe₂) (oKappaGL oe₂ Y) := by
-  apply Units.ext
-  rw [coe_oKappaGL, coe_oKappaGL, coe_oKappaGL, coe_oKappaGL, oblk_oblk_oeP (oe₂ := oe₂)]
 
 end Blocks
 
@@ -129,10 +121,6 @@ theorem oKappa_oRhoOne_eq (B : SL(2, K)) :
     oKappa oe hQ (oRhoOne oe' hQ₂ hSL B) = oRhoOne (oeP oe oe' oe₂) (quad_oeP hQ hQ₂ hQ₂P) hSL B :=
   Subtype.ext (oKappaGL_oRhoOneGL B)
 
-omit [CharP K 2] in
-theorem oKappa_oRhoTwo_eq (A : SL(2, K)) :
-    oKappa oe hQ (oRhoTwo oe' hQ₂ hSL A) = oRhoTwo (oeP oe oe' oe₂) (quad_oeP hQ hQ₂ hQ₂P) hSL A :=
-  Subtype.ext (oKappaGL_oRhoTwoGL A)
 
 theorem oProj_oKappa_oRhoOne_eq (B : SL(2, K)) :
     oProj Q (oKappa oe hQ (oRhoOne oe' hQ₂ hSL B)) =

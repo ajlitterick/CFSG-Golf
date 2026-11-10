@@ -43,11 +43,6 @@ theorem reflectHom_apply (τ : Tag) (i : Fin τ.rank) (v : Fin τ.rank → ℤ) 
     reflectHom τ i v = reflect τ i v :=
   rfl
 
-@[expose] def reflectEquiv (τ : Tag) (i : Fin τ.rank) : (Fin τ.rank → ℤ) ≃+ (Fin τ.rank → ℤ) :=
-  { reflectHom τ i with
-    invFun := reflect τ i
-    left_inv := reflect_reflect τ i
-    right_inv := reflect_reflect τ i }
 
 theorem isRoot_reflect_iff {τ : Tag} (i : Fin τ.rank) {v : Fin τ.rank → ℤ} :
     IsRoot τ (reflect τ i v) ↔ IsRoot τ v :=

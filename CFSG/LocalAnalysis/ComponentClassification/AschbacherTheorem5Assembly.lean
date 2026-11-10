@@ -74,9 +74,6 @@ theorem sectionSevenInputs_of (hbase : SectionSevenBase)
     lemma_7_4_dihedral := h74
     lemma_8_2 := lemma_8_2_holds hbase }
 
-theorem sectionSevenInputs_of_caseD (hbase : SectionSevenBase) (hd : SevenFour.CaseDImpossible) :
-    SectionSevenInputs :=
-  sectionSevenInputs_of hbase (SevenFour.lemma_7_4_dihedral_holds hbase hd)
 
 theorem conclusion_of_sectionSevenInputs (hin : SectionSevenInputs) :
     ∀ (G : Type) [Group G] [Finite G] (D : Subgroup G) (r : ℕ)

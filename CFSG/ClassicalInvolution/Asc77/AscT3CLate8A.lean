@@ -50,40 +50,11 @@ private theorem Std20.late_toG (d : Std20 p f K K' J S R R' W V z t) :
     late_exists_swap := d.late_exists_swap
     late_swap_data := fun hu huK => d.late_swap_data hu huK }
 
-theorem Std20.late_R'_le_cmo (d : Std20 p f K K' J S R R' W V z t) :
-    R' ≤ centralizerModOdd (S : Subgroup G) K := by
-  exact d.late_toG.late_R'_le_cmo
-
-theorem Std20.late_cmo_comm_W (d : Std20 p f K K' J S R R' W V z t) {x : G}
-    (hx : x ∈ centralizerModOdd (S : Subgroup G) K) : ∀ w ∈ W ⊓ K, x * w = w * x := by
-  exact d.late_toG.late_cmo_comm_W hx
-
-theorem Std20.late_isSylow2In_oddK' (d : Std20 p f K K' J S R R' W V z t) :
-    IsSylow2In R' (oddCoreOf K ⊔ K') := by
-  exact d.late_toG.late_isSylow2In_oddK'
-
-theorem Std20.late_kappa (d : Std20 p f K K' J S R R' W V z t) {x : G}
-    (hx : x ∈ centralizerModOdd (S : Subgroup G) K) :
-    x * t * x⁻¹ = t ∨ x * t * x⁻¹ = z * t := by
-  exact d.late_toG.late_kappa hx
-
-theorem Std20.late_r'_t (d : Std20 p f K K' J S R R' W V z t) :
-    ∃ r' ∈ R', r' * t * r'⁻¹ = z * t := by
-  exact d.late_toG.late_r'_t
 
 theorem Std20.late_inv_W (d : Std20 p f K K' J S R R' W V z t) :
     ∀ w ∈ W, w * w = 1 → w = 1 ∨ w = z ∨ w = t ∨ w = z * t := by
   exact d.late_toG.late_inv_W
 
-theorem Std20.late_inv_conj (d : Std20 p f K K' J S R R' W V z t) {g : G}
-    (hgz : g * z * g⁻¹ = z) (hgt : g * t * g⁻¹ = z * t) :
-    g⁻¹ * z * g = z ∧ g⁻¹ * t * g = z * t := by
-  exact d.late_toG.late_inv_conj hgz hgt
-
-theorem Std20.late_exists_y (d : Std20 p f K K' J S R R' W V z t) {x : G}
-    (hx : x ∈ centralizerModOdd (S : Subgroup G) K) :
-    ∃ r' ∈ R', (r'⁻¹ * x) * t * (r'⁻¹ * x)⁻¹ = t := by
-  exact d.late_toG.late_exists_y hx
 
 theorem Std20.late_stepA (d : Std20 p f K K' J S R R' W V z t)
     (hc7 : centralizerModOdd (S : Subgroup G) (K ⊔ K') = Subgroup.zpowers z) {x : G}

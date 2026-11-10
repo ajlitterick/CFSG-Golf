@@ -208,68 +208,6 @@ private theorem good_class {b : Fin n} {k : ℕ} (hk : k ≠ 2) (hb : Nat.card {
     exact ⟨fun hx => s.iseqv.trans (s.iseqv.symm hbh) hx, fun hx => s.iseqv.trans hbh hx⟩
   card := by rw [hb]; exact hn
 
-private theorem eq_one_of_fix {g : Perm (Fin n)} {u v : Fin n} (hs : sign g = 1)
-    (hfix : ∀ w, w ≠ u → w ≠ v → g w = w) : g = 1 := by
-  have hsub : g.support ⊆ {u, v} := fun w hw => by
-    by_contra hcon
-    simp only [Finset.mem_insert, Finset.mem_singleton, not_or] at hcon
-    exact Perm.mem_support.1 hw (hfix w hcon.1 hcon.2)
-  have hc := (Finset.card_le_card hsub).trans Finset.card_le_two
-  rcases (by omega : g.support.card = 0 ∨ g.support.card = 1 ∨ g.support.card = 2) with h | h | h
-  · exact Perm.card_support_eq_zero.1 h
-  · exact absurd h (Perm.card_support_ne_one g)
-  · have := (Perm.card_support_eq_two.1 h).sign_eq
-    rw [hs] at this
-    exact absurd this (by decide)
-
-private theorem eq_one_of_fix3 {u v t : Fin n} {g : Perm (Fin n)} (hs : sign g = 1)
-    (hu : g u = u) (hfix : ∀ w, w ≠ u → w ≠ v → w ≠ t → g w = w) : g = 1 :=
-  eq_one_of_fix (u := v) (v := t) hs fun w hv ht => by
-    by_cases hw : w = u
-    · rw [hw]; exact hu
-    · exact hfix w hw hv ht
-
-private theorem swap_mul_swap_apply {u v t w : Fin n} (h1 : w ≠ u) (h2 : w ≠ v) (h3 : w ≠ t) :
-    (swap u v * swap u t) w = w := by
-  rw [Perm.mul_apply, swap_apply_of_ne_of_ne h1 h3, swap_apply_of_ne_of_ne h1 h2]
-
-private theorem mem_zpowers_of_fix {u v t : Fin n} (huv : u ≠ v) (hut : u ≠ t) (hvt : v ≠ t)
-    {g : Perm (Fin n)} (hs : sign g = 1) (hfix : ∀ w, w ≠ u → w ≠ v → w ≠ t → g w = w) :
-    g ∈ zpowers (swap u v * swap u t) := by
-  set z := swap u v * swap u t with hz
-  have hzs : sign z = 1 := by rw [hz, map_mul, sign_swap huv, sign_swap hut]; decide
-  have hzfix : ∀ w, w ≠ u → w ≠ v → w ≠ t → z w = w := fun w h1 h2 h3 =>
-    swap_mul_swap_apply h1 h2 h3
-  have hzu : z u = t := by
-    rw [hz, Perm.mul_apply, swap_apply_left, swap_apply_of_ne_of_ne hut.symm hvt.symm]
-  have hzv : z v = u := by
-    rw [hz, Perm.mul_apply, swap_apply_of_ne_of_ne huv.symm hvt, swap_apply_right]
-  have hgu : g u = u ∨ g u = v ∨ g u = t := by
-    by_contra hcon
-    simp only [not_or] at hcon
-    exact hcon.1 (g.injective (hfix _ hcon.1 hcon.2.1 hcon.2.2 : g (g u) = g u))
-  rcases hgu with h | h | h
-  · rw [eq_one_of_fix3 hs h hfix]; exact one_mem _
-  · have h1 : z * g = 1 := eq_one_of_fix3 (u := u) (v := v) (t := t)
-      (by rw [map_mul, hs, hzs, mul_one]) (by rw [Perm.mul_apply, h, hzv])
-      fun w a b c => by rw [Perm.mul_apply, hfix w a b c, hzfix w a b c]
-    rw [eq_inv_of_mul_eq_one_right h1]
-    exact inv_mem (mem_zpowers z)
-  · have h1 : z⁻¹ * g = 1 := eq_one_of_fix3 (u := u) (v := v) (t := t)
-      (by rw [map_mul, hs, sign_inv, hzs, mul_one])
-      (by rw [Perm.mul_apply, h, Perm.inv_eq_iff_eq, hzu])
-      fun w a b c => by
-        rw [Perm.mul_apply, hfix w a b c, Perm.inv_eq_iff_eq, hzfix w a b c]
-    rw [← inv_mul_eq_one.1 h1]
-    exact mem_zpowers z
-
-private theorem le_normalizer_inf {G : Type*} [Group G] {C A : Subgroup G}
-    (h : ∀ c ∈ C, ∀ y ∈ A, c * y * c⁻¹ ∈ A) : C ≤ normalizer ((C ⊓ A : Subgroup G) : Set G) := by
-  have key : ∀ c ∈ C, ∀ y ∈ C ⊓ A, c * y * c⁻¹ ∈ C ⊓ A := fun c hc y hy =>
-    ⟨C.mul_mem (C.mul_mem hc hy.1) (C.inv_mem hc), h c hc y hy.2⟩
-  intro c hc
-  refine mem_normalizer_iff.2 fun y => ⟨fun hy => key c hc y hy, fun hy => ?_⟩
-  simpa [mul_assoc] using key c⁻¹ (inv_mem hc) _ hy
 
 theorem charTwo_partStab_inf_pairs (hn : 6 ≤ n) (hs : ∀ x, Nat.card {y // s.r x y} = 2) :
     CharTwo (partStab s ⊓ alternatingGroup (Fin n)) := by

@@ -160,10 +160,6 @@ theorem encard_panel_stdDistance
   rw [← (Set.toFinite _).cast_ncard_eq, ncard_panel_stdDistance]
   split_ifs <;> rfl
 
-theorem isThick_stdDistance
-    : IsThick nativeCoxeterSystem stdDistance := fun i x => by
-  rw [encard_panel_stdDistance]
-  split_ifs <;> decide
 
 @[expose] def stdDistanceF4 :
     stdChamber → stdChamber → WeylGroup TwistTag.E6.foldedTag :=
@@ -226,40 +222,5 @@ theorem ncard_residue_compl_stdDistance :
     fun x => (ncard_residue_stdDistance 2 x).trans (h2 x),
     fun x => (ncard_residue_stdDistance 3 x).trans (h3 x)⟩
 
-theorem standard_native_numbered_F4_building :
-    (∀ (g h : stdGroup) (w : relWeylTwist TwistTag.E6),
-      stdDistance (g : stdChamber) (h : stdChamber) = w ↔
-        (g : ModGL Tag.E6 K)⁻¹ * h ∈ (stdBorel : Set (ModGL Tag.E6 K)) *
-          {canonicalRep (coxeterSystem TwistTag.E6.tag) K w} * stdBorel) ∧
-    (∀ i : Fin 4, (nativeCoxeterSystem.simple i : WeylGroup TwistTag.E6.tag) = nativeRefl i) ∧
-    (∀ i j : Fin 4, orderOf (nativeRefl i * nativeRefl j) = CoxeterMatrix.F₄ i j) ∧
-    (CoxeterMatrix.F₄ 0 1 = 3 ∧ CoxeterMatrix.F₄ 1 2 = 4 ∧ CoxeterMatrix.F₄ 2 3 = 3 ∧
-      CoxeterMatrix.F₄ 0 2 = 2 ∧ CoxeterMatrix.F₄ 0 3 = 2 ∧ CoxeterMatrix.F₄ 1 3 = 2) ∧
-    IsWeylDistanceBuilding nativeCoxeterSystem stdDistance ∧
-    Nat.card (relWeylTwist TwistTag.E6) = 1152 ∧
-    IsThick nativeCoxeterSystem stdDistance ∧
-    (∀ (i : Fin 4) (x : stdChamber),
-      (panel nativeCoxeterSystem stdDistance i x).ncard = if (i : ℕ) < 2 then 3 else 5) ∧
-    (∀ (J : Set (Fin 4)) (g : stdGroup),
-      residue nativeCoxeterSystem stdDistance J (g : stdChamber) =
-        (fun x : stdGroup => (x : stdChamber)) ''
-          (g • ((nativeParabolic J).subgroupOf stdGroup : Set stdGroup))) ∧
-    Nat.card stdChamber = 371231385525 ∧
-    (∀ x : stdChamber,
-      (residue nativeCoxeterSystem stdDistance {i | (i : ℕ) ≠ 0} x).ncard = 93555) ∧
-    (∀ x : stdChamber,
-      (residue nativeCoxeterSystem stdDistance {i | (i : ℕ) ≠ 1} x).ncard = 315) ∧
-    (∀ x : stdChamber,
-      (residue nativeCoxeterSystem stdDistance {i | (i : ℕ) ≠ 2} x).ncard = 105) ∧
-    (∀ x : stdChamber,
-      (residue nativeCoxeterSystem stdDistance {i | (i : ℕ) ≠ 3} x).ncard = 16065) ∧
-    Nat.card stdGroup = 76532479683774853939200 := by
-  obtain ⟨h0, h1, h2, h3⟩ := ncard_residue_compl_stdDistance
-  refine ⟨fun g h w => stdDistance_mk_eq_iff g h w, fun i => ?_, orderOf_nativeRefl_mul,
-    ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩, isWeylDistanceBuilding_stdDistance, card_relWeylTwist_E6,
-    isThick_stdDistance, ncard_panel_stdDistance, residue_stdDistance, card_stdChamber, h0, h1,
-    h2, h3, card_stdGroup⟩
-  rw [nativeCoxeterSystem_simple]
-  exact coe_nativeSimple_eq_nativeRefl i
 
 end CFSG.LieType.Chevalley.C2E6Std

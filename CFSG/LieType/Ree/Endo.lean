@@ -200,14 +200,6 @@ variable (t K) in
 
 variable (hp : (t.prime : K) = 0) (hf : t.ShortFaithful K)
 
-theorem exceptionalEndo_spec (g : adjointGroup t.tag K) :
-    glRep _ (t.exceptionalEndo K hp hf g) * t.lengthMap K = t.lengthMap K * glRep _ g :=
-  twist_spec hp g
-
-theorem exceptionalEndo_eq_iff {g g' : adjointGroup t.tag K} :
-    t.exceptionalEndo K hp hf g = g' ↔
-      glRep _ g' * t.lengthMap K = t.lengthMap K * glRep _ g :=
-  ⟨fun h => h ▸ exceptionalEndo_spec hp hf g, twist_eq_of hp hf⟩
 
 theorem exceptionalEndo_xElement (i : Fin t.tag.rank) (c : K) :
     t.exceptionalEndo K hp hf (xElement i c) = xElement (t.perm i) (c ^ t.exponent i) :=
@@ -300,14 +292,6 @@ theorem reeRelationGroup_eq_graph :
       rw [hxi, map_inv]
       exact inv_mem ihx
 
-theorem reeRelationGroup_inf_prod :
-    reeRelationGroup t.tag K t.perm (fun i => if i ∈ t.longSet then t.prime ^ a
-        else t.prime ^ (a + 1)) ⊓ (adjointGroup t.tag K).prod (adjointGroup t.tag K) =
-      ((adjointGroup t.tag K).subtype.prod
-        ((adjointGroup t.tag K).subtype.comp (t.reeEndo K hf a))).range := by
-  rw [reeRelationGroup_eq_graph hf a, inf_eq_left]
-  rintro _ ⟨x, rfl⟩
-  exact ⟨x.2, (t.reeEndo K hf a x).2⟩
 
 theorem pair_mem_reeRelationGroup_iff {g : ModGL t.tag K} :
     (g, g) ∈ reeRelationGroup t.tag K t.perm (fun i => if i ∈ t.longSet then t.prime ^ a
@@ -340,16 +324,6 @@ theorem reeFixedGroup_eq :
   · rintro ⟨x, hx, rfl⟩
     exact ⟨x.2, x.2, hx⟩
 
-theorem mem_reeFixedGroup_iff {g : ModGL t.tag K} :
-    g ∈ reeFixedGroup t.tag K t.perm (fun i => if i ∈ t.longSet then t.prime ^ a
-        else t.prime ^ (a + 1)) ↔
-      ∃ hg : g ∈ adjointGroup t.tag K, t.reeEndo K hf a ⟨g, hg⟩ = ⟨g, hg⟩ := by
-  rw [reeFixedGroup_eq hf a, Subgroup.mem_map]
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    exact ⟨x.2, hx⟩
-  · rintro ⟨hg, h⟩
-    exact ⟨⟨g, hg⟩, h, rfl⟩
 
 variable (t K) in
 @[expose] def reeAut [Finite K] (a : ℕ) : adjointGroup t.tag K ≃* adjointGroup t.tag K :=
@@ -382,30 +356,5 @@ theorem exceptional_reeFixedGroup_eq (t : ReeTag) (K : Type) [Field K] [Finite K
     reeRelationGroup_eq_graph (shortFaithful (CharP.cast_eq_zero K t.prime)) a,
     reeFixedGroup_eq (shortFaithful (CharP.cast_eq_zero K t.prime)) a⟩
 
-theorem reeFixedGroup_G2_eq (K : Type) [Field K] [Finite K] [CharP K 3] (a : ℕ) :
-    ∃ F : adjointGroup .G2 K ≃* adjointGroup .G2 K,
-      (∀ (i : Fin Tag.G2.rank) (c : K),
-        F (xElement i c) = xElement (reeG2Perm i) (c ^ if i ∈ reeG2Long then 3 ^ a
-          else 3 ^ (a + 1)) ∧
-        F (yElement i c) = yElement (reeG2Perm i) (c ^ if i ∈ reeG2Long then 3 ^ a
-          else 3 ^ (a + 1))) ∧
-      reeFixedGroup .G2 K reeG2Perm (fun i => if i ∈ reeG2Long then 3 ^ a else 3 ^ (a + 1)) =
-        (F.toMonoidHom.eqLocus (MonoidHom.id _)).map (adjointGroup .G2 K).subtype := by
-  have : CharP K ReeTag.G2.prime := ‹CharP K 3›
-  obtain ⟨h1, -, h3⟩ := exceptional_reeFixedGroup_eq .G2 K a
-  exact ⟨ReeTag.G2.reeAut K a, h1, h3⟩
-
-theorem reeFixedGroup_F4_eq (K : Type) [Field K] [Finite K] [CharP K 2] (a : ℕ) :
-    ∃ F : adjointGroup .F4 K ≃* adjointGroup .F4 K,
-      (∀ (i : Fin Tag.F4.rank) (c : K),
-        F (xElement i c) = xElement (reeF4Perm i) (c ^ if i ∈ reeF4Long then 2 ^ a
-          else 2 ^ (a + 1)) ∧
-        F (yElement i c) = yElement (reeF4Perm i) (c ^ if i ∈ reeF4Long then 2 ^ a
-          else 2 ^ (a + 1))) ∧
-      reeFixedGroup .F4 K reeF4Perm (fun i => if i ∈ reeF4Long then 2 ^ a else 2 ^ (a + 1)) =
-        (F.toMonoidHom.eqLocus (MonoidHom.id _)).map (adjointGroup .F4 K).subtype := by
-  have : CharP K ReeTag.F4.prime := ‹CharP K 2›
-  obtain ⟨h1, -, h3⟩ := exceptional_reeFixedGroup_eq .F4 K a
-  exact ⟨ReeTag.F4.reeAut K a, h1, h3⟩
 
 end CFSG.LieType.Ree

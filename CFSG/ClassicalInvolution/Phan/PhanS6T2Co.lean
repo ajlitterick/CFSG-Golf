@@ -104,10 +104,6 @@ theorem bfc_bc :
   co_simp
   ring
 
-theorem bfc_cc :
-    g.bfc (vc α β) (vc α β) = 0 := by
-  co_simp
-  ring
 
 theorem bfc_ap2 :
     g.bfc va (g.vp2 β w u) = 0 := by

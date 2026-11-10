@@ -47,7 +47,6 @@ open Subgroup CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallOddCore.Native CFSG.Spo
       { rep := hsCentTbl 41, prime := 3, classSize := 80, wit := .conj (hsCentTbl 42) 2 }]
   }]
 
-@[expose] def hsSylowOrder : ℕ := 1024
 
 @[expose] noncomputable def hsU : Equiv.Perm (Fin 3850) := tp 3850 hsOuterTbl
 

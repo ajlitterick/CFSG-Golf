@@ -257,15 +257,6 @@ theorem exists_word_of_mem_closure {J : Set ι} {w : W}
     obtain ⟨l, hl, rfl⟩ := hx
     exact ⟨l.reverse, fun i hi => hl i (List.mem_reverse.mp hi), cs.wordProd_reverse l⟩
 
-omit [Group G] hD in
-theorem wordProd_mem_closure {J : Set ι} {l : List ι} (hl : ∀ i ∈ l, i ∈ J) :
-    cs.wordProd l ∈ Subgroup.closure (cs.simple '' J) := by
-  induction l with
-  | nil => exact (Subgroup.closure _).one_mem
-  | cons i l ih =>
-    rw [cs.wordProd_cons]
-    exact (Subgroup.closure _).mul_mem (Subgroup.subset_closure ⟨i, hl i (by simp), rfl⟩)
-      (ih fun j hj => hl j (by simp [hj]))
 
 theorem gallery_of_word {J : Set ι} (l : List ι) (hl : ∀ i ∈ l, i ∈ J) (g x : G)
     (hx : x ∈ D (cs.wordProd l)) :

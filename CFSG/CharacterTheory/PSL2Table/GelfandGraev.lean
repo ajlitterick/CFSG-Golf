@@ -107,8 +107,6 @@ theorem unipHom_apply (t : F) :
       obtain ⟨t, ht⟩ := (mem_unipotent_iff_exists (x : PSL(2, F))).mp x.2
       exact ⟨Multiplicative.ofAdd t, Subtype.ext ht.symm⟩⟩
 
-theorem unipEquiv_apply (hF : ringChar F ≠ 2) (t : F) :
-    ((unipEquiv hF (Multiplicative.ofAdd t) : unipotent F) : PSL(2, F)) = mk (unip t) := rfl
 
 @[expose] noncomputable def unipChar (hF : ringChar F ≠ 2) (ψ : AddChar F ℂ) : unipotent F →* ℂ :=
   ψ.toMonoidHom.comp (unipEquiv hF).symm.toMonoidHom
@@ -120,9 +118,6 @@ theorem unipChar_unipEquiv (hF : ringChar F ≠ 2) (ψ : AddChar F ℂ) (u : Mul
     unipChar hF ψ (unipEquiv hF u) = ψ u.toAdd := by
   simp [unipChar, AddChar.toMonoidHom_apply]
 
-theorem unipChar_apply (hF : ringChar F ≠ 2) (ψ : AddChar F ℂ) (t : F) :
-    unipChar hF ψ (unipEquiv hF (Multiplicative.ofAdd t)) = ψ t := by
-  simp [unipChar, AddChar.toMonoidHom_apply]
 
 theorem sum_unipotent (hF : ringChar F ≠ 2) [Fintype F] [DecidableEq F] (f : PSL(2, F) → ℂ) :
     ∑ x : unipotent F, f x = ∑ t : F, f (mk (unip t)) := by

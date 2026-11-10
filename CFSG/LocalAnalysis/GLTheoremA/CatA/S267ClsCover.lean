@@ -150,9 +150,6 @@ variable {Ω : Type} [Group Ω] {S : Subgroup Ω}
     H ⧸ φ.ker ≃* ↥S :=
   (QuotientGroup.quotientKerEquivRange φ).trans (MulEquiv.subgroupCongr hφS)
 
-theorem coverEquiv_mk {H : Type*} [Group H] (φ : H →* Ω) (hφS : φ.range = S) (h : H) :
-    ((coverEquiv φ hφS (QuotientGroup.mk h) : ↥S) : Ω) = φ h :=
-  rfl
 
 variable [S.Normal]
 
@@ -163,10 +160,6 @@ theorem transAut_spec {X : Type*} [Group X] (e : X ≃* ↥S) (x : Ω) (g : X) :
     ((e (transAut e x g) : ↥S) : Ω) = x * e g * x⁻¹ := by
   simp only [transAut, MulEquiv.trans_apply, MulEquiv.apply_symm_apply, MulAut.conjNormal_apply]
 
-theorem transAut_conj {X : Type*} [Group X] (e : X ≃* ↥S) (x : Ω) (g : X) :
-    x * (S.subtype.comp e.toMonoidHom) g * x⁻¹ =
-      (S.subtype.comp e.toMonoidHom) (transAut e x g) :=
-  (transAut_spec e x g).symm
 
 end Action
 
@@ -189,47 +182,6 @@ theorem coe_conjOn {H : Subgroup (GL ι K)} {y : GL ι K}
     ((conjOn hy h : ↥H) : GL ι K) = y * h * y⁻¹ :=
   rfl
 
-@[expose] noncomputable def quotAut {H : Type*} [Group H] (K₀ : Subgroup H) [K₀.Normal]
-    (β : MulAut H) (hβ : K₀.map β.toMonoidHom = K₀) : MulAut (H ⧸ K₀) :=
-  QuotientGroup.congr K₀ K₀ β hβ
-
-theorem quotAut_mk {H : Type*} [Group H] (K₀ : Subgroup H) [K₀.Normal] (β : MulAut H)
-    (hβ : K₀.map β.toMonoidHom = K₀) (h : H) :
-    quotAut K₀ β hβ (QuotientGroup.mk h) = QuotientGroup.mk (β h) :=
-  rfl
-
-theorem map_conjOn_eq_of_le_scalars {H : Subgroup (GL ι K)} {y : GL ι K}
-    (hy : y ∈ Subgroup.normalizer (H : Set (GL ι K))) {K₀ : Subgroup ↥H}
-    (hK₀ : K₀ ≤ (StatedScalars ι K).subgroupOf H) :
-    K₀.map (conjOn hy).toMonoidHom = K₀ := by
-  have hfix : ∀ k ∈ K₀, conjOn hy k = k := by
-    intro k hk
-    apply Subtype.ext
-    rw [coe_conjOn]
-    have hc : (k : GL ι K) ∈ Subgroup.center (GL ι K) := by
-      have h1 := Subgroup.mem_subgroupOf.1 (hK₀ hk)
-      rwa [StatedScalars, ← Matrix.GeneralLinearGroup.center_eq_range_scalar] at h1
-    rw [Subgroup.mem_center_iff.1 hc y, mul_inv_cancel_right]
-  ext k
-  constructor
-  · rintro ⟨k', hk', rfl⟩
-    rw [MulEquiv.coe_toMonoidHom, hfix k' hk']
-    exact hk'
-  · intro hk
-    exact ⟨k, hk, hfix k hk⟩
-
-theorem transAut_coverEquiv_eq_quotAut {Ω : Type} [Group Ω] {S : Subgroup Ω} [S.Normal]
-    {H : Subgroup (GL ι K)} (φ : ↥H →* Ω) (hφS : φ.range = S)
-    (hφk : φ.ker ≤ (StatedScalars ι K).subgroupOf H) {y : GL ι K}
-    (hy : y ∈ Subgroup.normalizer (H : Set (GL ι K))) {x : Ω}
-    (hxy : ∀ h : ↥H, φ (conjOn hy h) = x * φ h * x⁻¹) :
-    transAut (coverEquiv φ hφS) x =
-      quotAut φ.ker (conjOn hy) (map_conjOn_eq_of_le_scalars hy hφk) := by
-  refine MulEquiv.ext fun g => ?_
-  obtain ⟨h, rfl⟩ := QuotientGroup.mk_surjective g
-  apply (coverEquiv φ hφS).injective
-  apply Subtype.ext
-  rw [transAut_spec, quotAut_mk, coverEquiv_mk, coverEquiv_mk, hxy]
 
 end Matrix
 

@@ -26,9 +26,6 @@ theorem mem_nb_iff {b n : G} :
   · rintro ⟨h, h1⟩
     exact ⟨⟨n, h⟩, (QuotientGroup.eq_one_iff _).1 h1, rfl⟩
 
-theorem nb_le_cb (b : G) :
-    GLAPPrimeCoreOf 3 (Subgroup.centralizer ({b} : Set G)) ≤ Subgroup.centralizer ({b} : Set G) :=
-  Subgroup.map_subtype_le _
 
 theorem bar_mul (b : G) {y z : G} (hy : y ∈ Subgroup.centralizer ({b} : Set G))
     (hz : z ∈ Subgroup.centralizer ({b} : Set G)) :
@@ -59,10 +56,6 @@ theorem mem_barImageAt_iff {b : G} {Y : Subgroup G} {w : CBar 3 b} :
   · rintro ⟨y, hy, hyY, rfl⟩
     exact ⟨⟨y, hy⟩, (Subgroup.mem_subgroupOf).2 hyY, rfl⟩
 
-theorem bar_exists (b : G) (w : CBar 3 b) :
-    ∃ (y : G) (hy : y ∈ Subgroup.centralizer ({b} : Set G)), bar b hy = w := by
-  obtain ⟨c, rfl⟩ := QuotientGroup.mk_surjective w
-  exact ⟨c, c.2, rfl⟩
 
 theorem coprime_orderOf_of_mem_nb {b n : G}
     (hn : n ∈ GLAPPrimeCoreOf 3 (Subgroup.centralizer ({b} : Set G))) :
@@ -1793,9 +1786,5 @@ theorem lemma26plus_of_inputs (h24 : Lemma24) (h25 : Lemma25Strong)
   intro Li hLi
   exact mem_of_zpowers_eq_center hSx.isBOneMax.1.1 hSx.mem hSx.isComp hCx.2.1 hLi hz
 
-theorem lemma26_of_plus (h : Lemma26Plus) : Lemma26 := by
-  intro G _ _ m hS B hB hnot
-  obtain ⟨D, b, L, h1, h2, h3, h4, -⟩ := h G m hS B hB hnot
-  exact ⟨D, b, L, h1, h2, h3, h4⟩
 
 end CFSG.HardMathSupport.Solomon.LocalBalance

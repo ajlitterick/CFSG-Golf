@@ -7,28 +7,6 @@ public section
 
 namespace CFSG.ComponentClassification.CatalogueRelativeB
 
-theorem twoComponent_in_normal_of_solvable_quotient {G : Type*} [Group G] [Finite G]
-    (N : Subgroup G) [N.Normal] [Group.IsSolvable (G ⧸ N)]
-    (L : Subgroup G) (hL : TwoComponents.IsTwoComponent L) :
-    L ≤ N ∧ TwoComponents.IsTwoComponent (L.subgroupOf N) := by
-  have hle : L ≤ N := by
-    have hkernel := BadSolvableQuotients.component_le_kernel (QuotientGroup.mk' N) L hL
-    simpa only [QuotientGroup.ker_mk'] using hkernel
-  exact ⟨hle, TwoComponentTransport.of_overgroup hL hle⟩
-
-theorem twoComponent_normal_iff {G : Type*} [Group G] [Finite G]
-    (N : Subgroup G) [N.Normal] [Group.IsSolvable (G ⧸ N)]
-    (L : Subgroup G) (hle : L ≤ N) :
-    TwoComponents.IsTwoComponent (L.subgroupOf N) ↔ TwoComponents.IsTwoComponent L := by
-  constructor
-  · intro hL
-    have hsubnormal := Components.chain_of_mathlib_subnormal
-      (inferInstance : N.Normal).isSubnormal
-    have hmap := TwoComponentTransport.of_subnormal_subgroup N hsubnormal
-      (L.subgroupOf N) hL
-    simpa only [Subgroup.map_subgroupOf_eq_of_le hle] using hmap
-  · intro hL
-    exact (twoComponent_in_normal_of_solvable_quotient N L hL).2
 
 @[expose] def normalFixedEquivalence {G : Type*} [Group G]
     (N : Subgroup G) (t : G) :
@@ -98,17 +76,5 @@ theorem local_bad_eq_bot_of_normal_fixed_components {G : Type*} [Group G] [Finit
     (Subgroup.normalizer (S : Set G)).subtype_injective] at hmapBot
   exact le_antisymm hmapBot bot_le
 
-theorem B_of_normal_fixed_components {G : Type*} [Group G] [Finite G]
-    (N : Subgroup G) [N.Normal] [Group.IsSolvable (G ⧸ N)]
-    (hoddCenter : Odd (Nat.card (Subgroup.center G)))
-    (hproper : ∀ X : Subgroup G, X ≠ ⊤ → CentralTwoBInclusion.Property X)
-    (hfixed : ∀ t : G, orderOf t = 2 →
-      ∀ L : Subgroup ((Subgroup.centralizer ({t} : Set G)).subgroupOf N),
-        TwoComponents.IsTwoComponent L → CFSG.Open.IsQuasisimple L) :
-    CentralTwoBInclusion.Property G := by
-  intro S hne htwo
-  rw [local_bad_eq_bot_of_normal_fixed_components N hoddCenter hproper hfixed S hne htwo,
-    Subgroup.map_bot]
-  exact bot_le
 
 end CFSG.ComponentClassification.CatalogueRelativeB

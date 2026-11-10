@@ -25,7 +25,6 @@ theorem autW_spec {w : List ℤ} (hw : lettersOK 18 w = true) :
   chain_word_mem (hn := by norm_num) (hk := by rw [autS_size]; norm_num) (hb := by decide)
     autChain_ok.1 w (by rw [autS_size]; exact hw)
 
-theorem sylowT_le_autT' : sylowT ≤ autT := sylowT_le_autT
 
 theorem card_sylowT_subgroupOf
     : Nat.card (sylowT.subgroupOf autT) = 8192 := by
@@ -113,27 +112,6 @@ theorem repPerm_spec {j : ℕ} (hj : j < 38) :
     exact List.getElem_mem _)
   exact h
 
-theorem sylowS_getElem_gens {l : ℕ} (hl : l < 5) : sylowS[l]! = sylowGens[l]! := by
-  rw [sylowS, pushWords_getElem! _ _ (by rw [sylowGens_size]; omega)]
-
-theorem sylowGens_rep {l : ℕ} (hl : l < 5) :
-    Rep 360 sylowGens[l]! (permOfArr 360 sylowGens[l]!) ∧
-      Rep 360 (invCand 360 sylowGens[l]!) (permOfArr 360 sylowGens[l]!)⁻¹ ∧
-      permOfArr 360 sylowGens[l]! ∈ sylowT := by
-  have h := chain_strong_spec (hn := by norm_num) (hk := by rw [sylowS_size]; norm_num)
-    (hb := by decide) sylowChain_ok.1 l (by rw [sylowS_size]; omega)
-  rw [getElem!_rawInvs' (by rw [sylowS_size]; omega), sylowS_getElem_gens hl] at h
-  exact h
-
-theorem sylowGensT_getElem! {l : ℕ} (hl : l < 5) :
-    sylowGensT[l]! = arrTable 360 sylowGens[l]! := by
-  rw [sylowGensT, getElem!_pos _ l (by simpa [sylowGens_size] using hl), Array.getElem_map,
-    getElem!_pos sylowGens l (by rw [sylowGens_size]; exact hl)]
-
-theorem sylowGensInvT_getElem! {l : ℕ} (hl : l < 5) :
-    sylowGensInvT[l]! = arrTable 360 (invCand 360 sylowGens[l]!) := by
-  rw [sylowGensInvT, getElem!_pos _ l (by simpa [sylowGens_size] using hl), Array.getElem_map,
-    getElem!_pos sylowGens l (by rw [sylowGens_size]; exact hl)]
 
 theorem sylowReps_ok :
     (repArrs.all fun r => ordTest 360 2 (arrTable 360 r)) = true := by
@@ -141,10 +119,6 @@ theorem sylowReps_ok :
   simp only [sylowRepsLitCheck, Bool.and_eq_true] at h
   exact h.1
 
-theorem cosetOrderTables_sylowQ (m : ℕ) :
-    cosetOrderTables sylowQ 1 m = filterProducts 360 (ordTest 360 m) sylowTables (idT 360) [] := by
-  rw [cosetOrderTables, sylowQ, ofArrays_levelTables sylowChain_ok.1]
-  rfl
 
 theorem orderOf_repPerm
     {j : ℕ} (hj : j < 38) : orderOf (repPerm j) = 2 := by
@@ -416,10 +390,6 @@ theorem exists_of_forall₂_mem_right {α β : Type*} {R : α → β → Prop} {
     · obtain ⟨a, ha, h⟩ := ih hb
       exact ⟨a, List.mem_cons_of_mem _ ha, h⟩
 
-theorem toArray_map_getElem! {L : List (Array ℕ)} {f : Array ℕ → Table} {l : ℕ}
-    (hl : l < L.length) : ((L.map f).toArray)[l]! = f (L.getD l #[]) := by
-  rw [getElem!_pos _ l (by simpa using hl), List.getElem_toArray, List.getElem_map,
-    List.getD_eq_getElem _ _ hl]
 
 theorem five_conj_rep
     {j : ℕ} (hj : j < 38) {b : Equiv.Perm (Fin 360)} (hb : b ∈ sylowT)

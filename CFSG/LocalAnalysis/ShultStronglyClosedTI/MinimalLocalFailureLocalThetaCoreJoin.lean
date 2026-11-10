@@ -34,16 +34,6 @@ theorem normal_join_prime_part {p : ℕ} (hp : p.Prime)
   rw [← hcard, primePart_mul p _ _ Nat.card_pos.ne' hidxne]
   simp only [primePart, Nat.factorization_eq_zero_of_not_dvd hnot, pow_zero, mul_one]
 
-theorem normal_join_supplied_sylow {p : ℕ} (hp : p.Prime)
-    (T C : Subgroup G) [T.Normal] (hC : Nat.Coprime p (Nat.card C))
-    (Q : Sylow p T) :
-    ∃ S : Sylow p (T ⊔ C : Subgroup G),
-      (S : Subgroup (T ⊔ C : Subgroup G)).map (T ⊔ C : Subgroup G).subtype =
-        (Q : Subgroup T).map T.subtype := by
-  let : Fact p.Prime := ⟨hp⟩
-  apply exists_sylow_image_of_card p ((Q : Subgroup T).map T.subtype) (T ⊔ C)
-    ((Subgroup.map_subtype_le _).trans le_sup_left)
-  rw [sylow_map_card_eq_primePart, normal_join_prime_part hp T C hC]
 
 theorem canonical_theta_join_properties {p : ℕ} (hp : p.Prime)
     (D T : Subgroup G) (hTD : T ≤ D)

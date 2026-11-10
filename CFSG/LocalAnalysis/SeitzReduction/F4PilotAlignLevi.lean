@@ -73,18 +73,6 @@ theorem rootDiagUnit_mem_leviTorusOf {A : Subgroup Kˣ} {J : Finset (Fin (Tag.ra
     rootDiagUnit .F4 b ∈ leviTorusOf K A J :=
   mem_leviTorusOf.2 ⟨b, hb, rfl⟩
 
-theorem leviTorusOf_mono {A A' : Subgroup Kˣ} (hA : A ≤ A') {J J' : Finset (Fin (Tag.rank .F4))}
-    (hJ : J ⊆ J') : leviTorusOf K A J' ≤ leviTorusOf K A' J := by
-  intro g hg
-  obtain ⟨b, ⟨hb1, hbA⟩, rfl⟩ := mem_leviTorusOf.1 hg
-  exact rootDiagUnit_mem_leviTorusOf ⟨fun j hj => hb1 j (hJ hj), fun i => hA (hbA i)⟩
-
-theorem leviTorusOf_le_adjointGroup
-    (A : Subgroup Kˣ) (J : Finset (Fin (Tag.rank .F4))) :
-    leviTorusOf K A J ≤ adjointGroup .F4 K := by
-  intro g hg
-  obtain ⟨b, -, rfl⟩ := mem_leviTorusOf.1 hg
-  exact f4RootDiagUnit_mem_adjointGroup b
 
 theorem mulSingle_mem_leviTupleSet {A : Subgroup Kˣ} {J : Finset (Fin (Tag.rank .F4))}
     {i : Fin (Tag.rank .F4)} (hi : i ∉ J) {c : Kˣ} (hc : c ∈ A) :
@@ -214,9 +202,6 @@ theorem smul_apply_eq_of_mem_rootCharStabilizer_leviTupleSet
   intro v i hi
   exact smul_apply_eq_of_forall_single (hex i hi) v
 
-theorem amalgamRoots_eq_signedSimpleRoots (J : Finset (Fin (Tag.rank .F4))) :
-    amalgamRoots J = signedSimpleRoots (J : Set (Fin (Tag.rank .F4))) :=
-  rfl
 
 section Perfect
 

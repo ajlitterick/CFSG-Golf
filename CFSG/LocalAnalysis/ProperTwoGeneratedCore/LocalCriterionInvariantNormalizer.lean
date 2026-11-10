@@ -135,17 +135,5 @@ theorem involution_point_invariant_subgroup_normalizer_fixed_points [Finite G]
       Subgroup.coe_inv] using hh.symm
   exact ⟨horbit, normalizer_orbit_stabilizer_contains hYH horbit⟩
 
-theorem involution_point_normalizer_fixed_points_subset [Finite G]
-    {H : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    (Y : Subgroup G) (hYH : Y ≤ H) (hYz : rightConjugate Y z = Y) :
-    {gamma : pointRightCosetSpace H | ∃ s ∈ involutionPointClass z ∩
-        (Subgroup.normalizer (Y : Set G) : Set G), pointRightCosetMul H gamma s = gamma} ⊆
-      {gamma : pointRightCosetSpace H | ∀ y ∈ Y, pointRightCosetMul H gamma y = gamma} := by
-  rintro gamma ⟨s, hs, hgamma⟩ y hy
-  apply (mem_point_right_stabilizer_iff H gamma y).mp
-  exact ((involution_point_invariant_subgroup_normalizer_fixed_points
-    h S hzS hzcenter Y hYH hYz hs).2 gamma hgamma).2 hy
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionInvariantNormalizer

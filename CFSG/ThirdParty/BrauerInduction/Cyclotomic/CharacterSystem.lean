@@ -356,13 +356,6 @@ For a subgroup `H ≤ G`, `Q_sys k G H` consists of class functions lying both i
     (H : Subgroup G) : Set (ClassFun k H) :=
   { χ | χ ∈ R_Lambda k G H ∧ χ ∈ C_Z k H }
 
-/--
-The character system `Q` on the top subgroup of the fixed ambient group.
--/
-abbrev Q_top (k : Type u) [Field k]
-    (G : Type u) [Group G] [Finite G] :
-    Set (ClassFun k (⊤ : Subgroup G)) :=
-  Q_sys k G (⊤ : Subgroup G)
 
 /--
 Induction preserves Bernstein's character system `Q = R_Λ ∩ C_Z`.

@@ -249,12 +249,6 @@ theorem reflTransGen_commFourAdj_of_normal_elemAbelian [Finite X] {S A : Subgrou
     Relation.ReflTransGen (CommFourAdj X) E F :=
   reflTransGen_commFourAdj_of_le_normalizer hA2 hA8 hE (hES.trans hSA) hF (hFS.trans hSA)
 
-theorem not_exists_elemAbelian_of_not_reflTransGen [Finite X] {S E F : Subgroup X}
-    (hE : IsKleinFour E) (hES : E ≤ S) (hF : IsKleinFour F) (hFS : F ≤ S)
-    (h : ¬ Relation.ReflTransGen (CommFourAdj X) E F) :
-    ¬ ∃ A : Subgroup X, S ≤ normalizer (A : Set X) ∧ (∀ a ∈ A, a * a = 1) ∧ 8 ≤ Nat.card A :=
-  fun ⟨_, hSA, hA2, hA8⟩ =>
-    h (reflTransGen_commFourAdj_of_normal_elemAbelian hSA hA2 hA8 hE hES hF hFS)
 
 private theorem exists_map_conj_le_aux [Finite X] {E : Subgroup X} (hE : IsPGroup 2 E)
     (S : Sylow 2 X) : ∃ g : X, E.map (MulAut.conj g).toMonoidHom ≤ S := by

@@ -34,18 +34,5 @@ open CFSG.Monster.B.Co2.Native CFSG.Sporadic.FischerOddCore CFSG.Monster.B.Fisch
 
 @[expose] def autHZ : Array ℕ := (fi22OuterStrong3510 1)[0]!
 
-@[expose] def autHPhi (m : ℕ) : Array ℕ :=
-  (List.range 10).foldr
-    (fun i acc => if m.testBit i then compA 3510 autHBasis[i]! acc else acc) (idA 3510)
-
-@[expose] def autHTab : Array (Array ℕ) := Array.ofFn (n := 1024) fun m => autHPhi m.val
-
-@[expose] def autHTheta (m : ℕ) : Array ℕ :=
-  compA 3510 autHTab[m]! (compA 3510 autHZ autHTab[m]!)
-
-@[expose] def autHT (j : ℕ) : Array ℕ := autHTheta autHMasks[j]!
-
-@[expose] def autHEval (W : List ℕ) : Array ℕ :=
-  W.foldr (fun j acc => compA 3510 (autHT j) acc) (idA 3510)
 
 end CFSG.EvenSporadicStandard.TwoFi22.DS81

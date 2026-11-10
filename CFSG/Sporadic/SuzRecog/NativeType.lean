@@ -134,10 +134,5 @@ theorem phi0_eq_one_iff (c : ↥(invE 1)) :
     rw [Subtype.ext_iff, Subtype.ext_iff]
     exact h
 
-theorem nativeType_φ : nativeType.φ = phi0 := rfl
-
-theorem nativeType_z : nativeType.z = t1C := rfl
-
-theorem nativeType_vec (c : ↥(invE 1)) : nativeType.vec c = ψ (c : Equiv.Perm (Fin 1782)) := rfl
 
 end CFSG.Sporadic.SuzRecog

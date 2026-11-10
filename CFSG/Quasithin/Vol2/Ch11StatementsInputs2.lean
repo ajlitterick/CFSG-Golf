@@ -43,21 +43,6 @@ open scoped IsMulCommutative Pointwise
       (LieModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSL 3 2 1 ∧
         ∃ _ : IsMulCommutative ↥VB, FanoCoreModule (V := ↥VB) (autOn L VB) ⊤ ⊥)))
 
-theorem stmt4_4_3_iff : Stmt4_4_3' ↔
-  (∀ (G : Type) [Group G] [Finite G] (T M L B Tp VB : Subgroup G), IsSimpleGroup G →
-      (∃ a b : G, a * b ≠ b * a) → QuasithinUnique.quasithinIsQTKECat G →
-      quasithinIsSylowTwo T → quasithinIsMaxTwoLocal M → T ≤ M →
-      quasithinIsMaximalLocal T L → quasithinIsFaithfulLocal T L → L ≤ M →
-      CFSG.IsQuasisimple (↥L ⧸ CFSG.pCore 2 ↥L) →
-      B ≤ M → B ≠ ⊥ → IsMulCommutative ↥B → Odd (Nat.card B) →
-      ⁅conjClosure L T, B⁆ ≤ pCoreOf 2 (conjClosure L T) →
-      Tp ≤ T → (B : Set G) * (Tp : Set G) = (Tp : Set G) * (B : Set G) →
-      (L : Set G) * (T : Set G) = (L : Set G) * (Tp : Set G) →
-      VB ≤ quasithinOmegaOneCenter (pCoreOf 2 (conjClosure L T ⊔ T)) →
-      conjClosure L T ⊔ T ≤ Subgroup.normalizer (VB : Set G) →
-      VB = ⁅VB, conjClosure L T⁆ → VB ≠ ⊥ → ⁅VB, B⁆ = ⊥ →
-        Concl4_4_3 T M L B VB) :=
-  Iff.rfl
 
 @[expose] def TmpL4_4_2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M L B V : Subgroup G), IsSimpleGroup G →

@@ -36,16 +36,6 @@ open CFSG.KLie.CT CFSG.KC.Loop CFSG.KC.M1F2
   strictB (F r) fun z => bAnd(Nat.beq (packP d (triP d z)) z,
     bAnd(pullK d A1 A1T z (F (CFSG.KC.Enum.pg w m P0 r)), pullK d A2 A2T z (F (CFSG.KC.Enum.pg w m P1 r))))
 
-@[expose] noncomputable def formsK (d w m A1 A1T A2 A2T P0 P1 : Nat) (F : Nat → Nat) (lo n : Nat) :
-    Bool :=
-  CFSG.KC.Enum.allN n fun i => formB d w m A1 A1T A2 A2T P0 P1 F (Nat.add lo i)
-
-@[expose] noncomputable def sortAK (F σ : Nat → Nat) (lo n : Nat) : Bool :=
-  CFSG.KC.Enum.allN n fun i => Nat.blt (F (σ (Nat.add lo i))) (F (σ (Nat.succ (Nat.add lo i))))
-
-@[expose] noncomputable def permAK (N : Nat) (σ τ : Nat → Nat) (lo n : Nat) : Bool :=
-  CFSG.KC.Enum.allN n fun i => strictB (σ (Nat.add lo i)) fun s =>
-    bAnd(Nat.blt s N, Nat.beq (τ s) (Nat.add lo i))
 
 @[expose] noncomputable def strictL (y : Nat) (k : Nat → List (Nat × Nat)) : List (Nat × Nat) :=
   Nat.rec (motive := fun _ => List (Nat × Nat)) (k (nat_lit 0)) (fun n _ => k (Nat.succ n)) y
@@ -104,12 +94,6 @@ open CFSG.KLie.CT CFSG.KC.Loop CFSG.KC.M1F2
 
 @[expose] noncomputable def finK (d X : Nat) (L : List (Nat × Nat)) : Bool := finGo d X L (nat_lit 0)
 
-@[expose] noncomputable def rowsGo (d M : Nat) (L : List Nat) : Nat → Bool :=
-  List.rec (motive := fun _ => Nat → Bool) (fun i => Nat.beq i d)
-    (fun x _ ih i => bAnd(Nat.beq x (rowF d M i), ih (Nat.succ i))) L
-
-@[expose] noncomputable def rowsEqK (d M : Nat) (L : List Nat) : Bool :=
-  bAnd(Nat.blt M (pw2 (Nat.mul d d)), rowsGo d M L (nat_lit 0))
 
 @[expose] noncomputable def mvK (d MT v : Nat) : Nat := vmF d MT v
 
@@ -150,8 +134,6 @@ open CFSG.KLie.CT CFSG.KC.Loop CFSG.KC.M1F2
 @[expose] noncomputable def trB (d A : Nat) : Nat :=
   orN d fun j => Nat.shiftLeft (colB d A j) (Nat.mul d j)
 
-@[expose] noncomputable def polarP (d z : Nat) : Nat :=
-  strictN (triP d z) fun U => Nat.xor U (trB d U)
 
 @[expose] noncomputable def sepK (d nm : Nat) (Ts TTs : List Nat) (terms : List (List Nat))
     (v k K KT PP PS PX : Nat) (tree : List (Nat × Nat)) : Bool :=

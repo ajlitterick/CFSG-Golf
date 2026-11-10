@@ -18,25 +18,6 @@ open CFSG.Sporadic.Schreier CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporad
 open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.FischerOddCore CFSG.Monster.B.Fischer
 open CFSG.LocalAnalysis.ComponentInitial.Finkelstein1977
 
-theorem fourClassesLarge_P
-    {k : ℕ} (hk : k < 6) {capS capC : ℕ}
-    {cg sg : Array Table} {ord : ℕ}
-    (hord : ord = 2 ^ (Nat.card ↥(centralizerIn fi22P (fi22ExtRep k))).factorization 2)
-    (h : sylowFourOK 3510 capS capC (memP (tT k)) cg sg ord = true) :
-    FourClassesLarge ↥(centralizerIn fi22P (fi22ExtRep k)) := by
-  refine fourClassesLarge_of_sylowFourOK (by norm_num) (fun T g hT hm => ?_) hord h
-  rw [memP, Bool.and_eq_true] at hm
-  exact mem_centralizerIn.2 ⟨(siftP_iff hT).1 hm.1, (commTT_iff hT (rep_tT hk)).1 hm.2⟩
-
-theorem fourClassesLarge_R
-    {k : ℕ} (hk : k < 6) {capS capC : ℕ}
-    {cg sg : Array Table} {ord : ℕ}
-    (hord : ord = 2 ^ (Nat.card ↥(centralizerIn fi22R (fi22ExtRep k))).factorization 2)
-    (h : sylowFourOK 3510 capS capC (memR (tT k)) cg sg ord = true) :
-    FourClassesLarge ↥(centralizerIn fi22R (fi22ExtRep k)) := by
-  refine fourClassesLarge_of_sylowFourOK (by norm_num) (fun T g hT hm => ?_) hord h
-  rw [memR, Bool.and_eq_true] at hm
-  exact mem_centralizerIn.2 ⟨(siftR_iff hT).1 hm.1, (commTT_iff hT (rep_tT hk)).1 hm.2⟩
 
 theorem fourClassesLarge_rows :
     (∀ v ∈ fi22P, orderOf v = 2 → FourClassesLarge ↥(centralizerIn fi22P v)) ∧
@@ -83,28 +64,6 @@ theorem fi22ExtRep_mem_R
   have := (CTUC_Fi22_all_extension_involutions_covered.2.1 (k - 3) (by omega)).1
   rwa [show 3 + (k - 3) = k by omega] at this
 
-theorem foursGroupCondition_native :
-    CFSG.EvenSmallLie.FoursGroupCondition NativeSporadic.Fi22 := by
-  have hw := Certificates.certificate25640.2.1
-  obtain ⟨l3, hl3, hl3'⟩ := hw 3 (by norm_num) (by norm_num)
-  obtain ⟨l4, hl4, hl4'⟩ := hw 4 (by norm_num) (by norm_num)
-  obtain ⟨l5, hl5, hl5'⟩ := hw 5 (by norm_num) (by norm_num)
-  have m3 : fi22ExtRep 3 ∈ fi22R := fi22ExtRep_mem_R (by norm_num) (by norm_num)
-  have m4 : fi22ExtRep 4 ∈ fi22R := fi22ExtRep_mem_R (by norm_num) (by norm_num)
-  have m5 : fi22ExtRep 5 ∈ fi22R := fi22ExtRep_mem_R (by norm_num) (by norm_num)
-  refine foursGroupCondition_of_outTwo fi22PermEquiv center_fi22P fi22P_le_R fi22RAut
-    (fun x p => fi22ConjHom_apply x p) [⟨_, m3⟩, ⟨_, m4⟩, ⟨_, m5⟩]
-    (fun τ hτ hτP => ?_) (fun ρ hρ => ?_)
-  · obtain ⟨k, hk3, hk6, g, hg, e⟩ := cover_outer τ.2 hτ hτP
-    interval_cases k
-    · exact ⟨⟨_, m3⟩, List.mem_cons_self, g, hg, e⟩
-    · exact ⟨⟨_, m4⟩, by simp, g, hg, e⟩
-    · exact ⟨⟨_, m5⟩, by simp, g, hg, e⟩
-  · simp only [List.mem_cons, List.not_mem_nil, or_false] at hρ
-    rcases hρ with rfl | rfl | rfl
-    · exact ⟨l3, hl3, hl3'⟩
-    · exact ⟨l4, hl4, hl4'⟩
-    · exact ⟨l5, hl5, hl5'⟩
 
 theorem hypothesisOne_of_isSporadic
     {Y : Type} [Group Y]
@@ -112,10 +71,5 @@ theorem hypothesisOne_of_isSporadic
   obtain ⟨e⟩ := h
   exact CFSG.EvenSmallLie.hypothesisOne_of_mulEquiv e.symm hypothesisOne_native
 
-theorem foursGroupCondition_of_isSporadic
-    {Y : Type}
-    [Group Y] (h : IsSporadic Y .Fi22) : CFSG.EvenSmallLie.FoursGroupCondition Y := by
-  obtain ⟨e⟩ := h
-  exact CFSG.EvenSmallLie.FoursGroupCondition.of_mulEquiv e.symm foursGroupCondition_native
 
 end CFSG.EvenSporadicStandard.HypOne.Fi22

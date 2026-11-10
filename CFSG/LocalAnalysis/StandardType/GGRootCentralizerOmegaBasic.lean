@@ -78,11 +78,6 @@ theorem reflect_apply_mem {W : Submodule K V} {a c : V} (ha : a ∈ W) (hc : c �
   · rw [reflect_apply h]
     exact W.sub_mem ha (W.smul_mem _ hc)
 
-theorem eichler_apply_mem {W : Submodule K V} {u w x : V} (hu : u ∈ W) (hw : w ∈ W)
-    (hx : x ∈ W) : eichler Q u w x ∈ W := by
-  obtain ⟨a, b, h⟩ := eichler_apply_eq_add (Q := Q) u w x
-  rw [h]
-  exact W.add_mem (W.add_mem hx (W.smul_mem _ hw)) (W.smul_mem _ hu)
 
 variable (Q) in
 @[expose] def eichlerSet (W : Submodule K V) : Set (V ≃ₗ[K] V) :=

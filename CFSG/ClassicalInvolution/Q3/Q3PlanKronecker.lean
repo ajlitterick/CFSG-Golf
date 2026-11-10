@@ -58,9 +58,6 @@ theorem commute_algebraMap_evalAt (c : k) (a : Module.End k V) :
     Commute a (algebraMap k (Module.End k V) c) :=
   (Algebra.commutes c a).symm
 
-theorem evalAt_add (c : k) (h h' : Polynomial (Module.End k V)) :
-    evalAt c (h + h') = evalAt c h + evalAt c h' :=
-  Polynomial.eval₂_add _ _
 
 theorem evalAt_sub (c : k) (h h' : Polynomial (Module.End k V)) :
     evalAt c (h - h') = evalAt c h - evalAt c h' :=

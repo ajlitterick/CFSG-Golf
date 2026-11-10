@@ -145,52 +145,5 @@ theorem Dmat_mul_Tmat (δ : Cocode) (a : C) :
   rw [Dmat_eq_qmatR, Tmat_eq_qmatR, qmatR_mul, qmatR_mul, zmat_pow_mul_qmatR]
   exact qmatR_congr (by simp) (by simp) (by simp)
 
-theorem Xmat_eq_zmat_pow_mul (a : C) (s : ZMod 2) :
-    Xmat ⟨a, s⟩ = zmat ^ s.val * Tmat a * Dmat (thetaD a) := by
-  rw [zmat_pow_mul_Tmat_mul_Dmat, Xmat_eq_qmatR]
-
-theorem Xmat_mul_Xmat (e f : Parker) :
-    Xmat e * Xmat f = Xmat (e * f) * Dmat (Acocode e.code f.code) := by
-  rw [Xmat_eq_qmatR, Xmat_eq_qmatR, Xmat_eq_qmatR, Dmat_eq_qmatR, qmatR_mul, qmatR_mul,
-    Parker.mul_code, Parker.mul_sign, pair_thetaD, pair_zero_left, thetaD_add,
-    add_assoc (thetaD e.code + thetaD f.code), add_self_cocode]
-  simp only [add_zero]
-
-theorem Xmat_mul_self (e : Parker) : Xmat e * Xmat e = zmat ^ (P e.code).val := by
-  rw [Xmat_eq_qmatR, qmatR_mul, zmat_pow_eq_qmatR, pair_self_thetaD, add_self_C',
-    add_self_cocode, zmod2_add_self, zero_add]
-
-theorem Xmat_mul_Dmat (e : Parker) (δ : Cocode) :
-    Xmat e * Dmat δ = zmat ^ (pair e.code δ).val * (Dmat δ * Xmat e) := by
-  rw [Xmat_eq_qmatR, Dmat_eq_qmatR, qmatR_mul, qmatR_mul, zmat_pow_mul_qmatR]
-  refine qmatR_congr ?_ (by simp) (add_comm _ _)
-  simp only [pair_zero_left, add_zero, zero_add]
-  linear_combination (-pair e.code δ) * two_eq_zero'
-
-theorem spin_Fourier_Pauli_identities :
-    (∀ (c : C₀) (k : ZMod 2), Fvec ((c : C) + k • ΩC) = E 0 c + sgn k • E 1 c) ∧
-    (∀ u v : C, Fvec u ⬝ᵥ Fvec v = if u = v then 2 else 0) ∧
-    LinearIndependent ℚ Fvec ∧ Submodule.span ℚ (Set.range Fvec) = ⊤ ∧
-    (∀ c : C₀, E 0 c = (1 / 2 : ℚ) • (Fvec (c : C) + Fvec ((c : C) + ΩC)) ∧
-      E 1 c = (1 / 2 : ℚ) • (Fvec (c : C) - Fvec ((c : C) + ΩC))) ∧
-    (∀ (u : C) (e : Parker),
-      Fvec u ᵥ* Xmat e = sgn (e.sign + P e.code + θ e.code u) • Fvec (u + e.code)) ∧
-    (∀ (u : C) (δ : Cocode), Fvec u ᵥ* Dmat δ = sgn (pair u δ) • Fvec u) ∧
-    (∀ u a : C, Fvec u ᵥ* Tmat a = Fvec (u + a)) ∧
-    (∀ a b : C, Tmat a * Tmat b = Tmat (a + b)) ∧
-    (∀ δ ε : Cocode, Dmat δ * Dmat ε = Dmat (δ + ε)) ∧
-    (∀ (δ : Cocode) (a : C), Dmat δ * Tmat a = zmat ^ (pair a δ).val * (Tmat a * Dmat δ)) ∧
-    (∀ (a : C) (s : ZMod 2), Xmat ⟨a, s⟩ = zmat ^ s.val * Tmat a * Dmat (thetaD a)) ∧
-    (∀ e f : Parker, Xmat e * Xmat f = Xmat (e * f) * Dmat (Acocode e.code f.code) ∧
-      ∀ u : C, pair u (Acocode e.code f.code) = A e.code f.code u) ∧
-    (∀ e : Parker, Xmat e * Xmat e = zmat ^ (P e.code).val) ∧
-    (∀ (e : Parker) (δ : Cocode),
-      Xmat e * Dmat δ = zmat ^ (pair e.code δ).val * (Dmat δ * Xmat e)) := by
-  refine ⟨Fvec_add_smul_ΩC, Fvec_dotProduct_Fvec, linearIndependent_Fvec, ?_,
-    fun c => ⟨E_zero_eq c, E_one_eq c⟩, Fvec_vecMul_Xmat, Fvec_vecMul_Dmat, Fvec_vecMul_Tmat,
-    Tmat_mul_Tmat, Dmat_mul_Dmat, Dmat_mul_Tmat, Xmat_eq_zmat_pow_mul,
-    fun e f => ⟨Xmat_mul_Xmat e f, fun u => pair_Acocode _ _ u⟩, Xmat_mul_self, Xmat_mul_Dmat⟩
-  rw [← coe_Fbasis]
-  exact Fbasis.span_eq
 
 end CFSG.Monster.Spin

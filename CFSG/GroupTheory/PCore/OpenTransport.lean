@@ -10,9 +10,6 @@ theorem openPCoreOf_eq_map_pCore (p : ℕ) {G : Type*} [Group G] (H : Subgroup G
     Open.pCoreOf p H = (CFSG.pCore p H).map H.subtype := by
   rw [Open.pCoreOf]
 
-theorem Assembly.pCoreOf_eq_open (p : ℕ) {G : Type*} [Group G] (H : Subgroup G) :
-    Assembly.pCoreOf p H = Open.pCoreOf p H :=
-  rfl
 
 theorem mem_openPCoreOf_iff {p : ℕ} {G : Type*} [Group G] {H : Subgroup G} (x : H) :
     (x : G) ∈ Open.pCoreOf p H ↔ x ∈ CFSG.pCore p H := by

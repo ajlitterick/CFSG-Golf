@@ -26,8 +26,6 @@ variable (K) in
 @[expose] noncomputable def frobAut : MulAut (antiSp K) :=
   MulEquiv.ofBijective (frobHom K) frobHom_bijective
 
-theorem frobAut_apply (g : antiSp K) : frobAut K g = frobHom K g :=
-  rfl
 
 theorem mat_frobAut (g : antiSp K) : mat (frobAut K g) = (mat g).map fun x => x ^ 2 :=
   glMat_frobHom g
@@ -40,12 +38,6 @@ theorem frobAut_minorAut (g : antiSp K) : frobAut K (minorAut K g) = minorAut K 
   rw [frobAut_eq_minorAut_sq]
   exact congrArg (fun α : MulAut (antiSp K) => α g) h.eq
 
-theorem frobAut_pow_minorAut (k : ℕ) (g : antiSp K) :
-    (frobAut K ^ k) (minorAut K g) = minorAut K ((frobAut K ^ k) g) := by
-  induction k generalizing g with
-  | zero => rfl
-  | succ k ih =>
-    rw [pow_succ, MulAut.mul_apply, MulAut.mul_apply, frobAut_minorAut, ih]
 
 theorem frobAut_uElt (a b c d : K) :
     frobAut K (uElt a b c d) = uElt (a ^ 2) (b ^ 2) (c ^ 2) (d ^ 2) := by

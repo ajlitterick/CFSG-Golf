@@ -43,8 +43,5 @@ theorem exists_sylow_standard
   · rintro ⟨p, hpP, hpJ, rfl⟩
     exact (hg _).1 ⟨hqS _, p, hpP, hpJ, rfl⟩
 
-variable {hPJ : P ≤ J}
-
-variable {q : Jhat J →* Equiv.Perm (Fin 42)}
 
 end CFSG.ComponentClassification.GrSLit.L34Facts

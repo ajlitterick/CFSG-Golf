@@ -164,21 +164,6 @@ theorem tblEq_true_iff {S T : Table} {g h : Equiv.Perm (Fin 693)} (hS : Rep 693 
     intro i hi
     rw [hS i hi, hT i hi]
 
-theorem exists_of_forall₂_mem_right {α β : Type*} {R : α → β → Prop} {l₁ : List α}
-    {l₂ : List β} (h : List.Forall₂ R l₁ l₂) {y : β} (hy : y ∈ l₂) : ∃ x ∈ l₁, R x y := by
-  induction h with
-  | nil => simp at hy
-  | @cons a b l₁ l₂ hab _ ih =>
-    rcases List.mem_cons.1 hy with rfl | hy
-    · exact ⟨a, by simp, hab⟩
-    · obtain ⟨x, hx, hxy⟩ := ih hy
-      exact ⟨x, by simp [hx], hxy⟩
-
-theorem exists_table_of_mem (Q : RawSchreierDatum 693) (hQ : ValidSchreier Q)
-    {x : Equiv.Perm (Fin 693)} (hx : x ∈ Q.originalSubgroup) :
-    ∃ T ∈ allTables Q, Rep 693 T x :=
-  exists_of_forall₂_mem_right (forall₂_allTables hn693 Q)
-    (List.mem_reverse.2 ((mem_enumeration_iff Q hQ x).2 hx))
 
 theorem smul_fixed_of_comm {g x : Equiv.Perm (Fin 693)} (h : g * x = x * g) :
     g • {p : Fin 693 | x p = p} = {p | x p = p} := by

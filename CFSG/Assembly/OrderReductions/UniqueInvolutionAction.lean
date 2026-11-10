@@ -88,54 +88,5 @@ theorem stronglyEmbedded_stabilizer_of_unique_fixed {group points : Type*} [Grou
   intro equal_points
   exact not_mem equal_points.symm
 
-theorem perfect_unique_involution_action_card_mod_four {group points : Type*} [Group group]
-    [Group.IsPerfect group] [Finite points] [MulAction group points]
-    (involution : Involution group)
-    (unique_fixed : ∃! point : points, involution.val • point = point) :
-    Nat.card points % 4 = 1 := by
-  classical
-  let _ : Fintype points := Fintype.ofFinite points
-  let permutation := MulAction.toPermHom group points involution.val
-  have permutation_square : permutation ^ 2 = 1 := by
-    change (MulAction.toPermHom group points involution.val) ^ 2 = 1
-    rw [← map_pow]
-    have square_one := pow_orderOf_eq_one involution.val
-    rw [involution.property] at square_one
-    rw [square_one, map_one]
-  have fixed_card : Fintype.card (Function.fixedPoints permutation) = 1 := by
-    obtain ⟨point, fixed, unique⟩ := unique_fixed
-    have : Nonempty (Function.fixedPoints permutation) := ⟨⟨point, fixed⟩⟩
-    have : Subsingleton (Function.fixedPoints permutation) := by
-      constructor
-      intro first second
-      apply Subtype.ext
-      exact (unique first.val first.property).trans (unique second.val second.property).symm
-    rw [← Nat.card_eq_fintype_card]
-    exact Nat.card_unique
-  have sign_one : Equiv.Perm.sign permutation = 1 := by
-    have trivial_sign := CFSG.OrderReductions.Helpers.perfect_hom_to_commutative_eq_one group ℤˣ
-      (Equiv.Perm.sign.comp (MulAction.toPermHom group points))
-    exact congrArg (fun homomorphism : group →* ℤˣ => homomorphism involution.val) trivial_sign
-  have sign_formula := Equiv.Perm.sign_of_pow_two_eq_one permutation_square
-  rw [fixed_card, sign_one] at sign_formula
-  have even_half : Even ((Fintype.card points - 1) / 2) :=
-    (neg_one_pow_eq_one_iff_even (R := ℤˣ) (by decide)).mp sign_formula.symm
-  have two_divides : 2 ∣ Fintype.card points - 1 := by
-    have support_divides := Equiv.Perm.two_dvd_card_support permutation_square
-    have support_card : permutation.support.card = Fintype.card points - 1 := by
-      have support_complement : (permutation.support : Set points) =
-          (Function.fixedPoints permutation)ᶜ := by
-        ext point
-        exact Equiv.Perm.mem_support
-      rw [← Set.ncard_coe_finset, support_complement, Set.ncard_compl,
-        ← Set.ncard_coe, Set.ncard_univ]
-      simp only [Nat.card_eq_fintype_card, fixed_card]
-    rwa [support_card] at support_divides
-  have positive : 0 < Fintype.card points := by
-    obtain ⟨point, _⟩ := unique_fixed.exists
-    exact Fintype.card_pos_iff.mpr ⟨point⟩
-  rw [Nat.card_eq_fintype_card]
-  obtain ⟨half, half_eq⟩ := even_half
-  omega
 
 end CFSG.OrderReductions.UniqueInvolutionAction

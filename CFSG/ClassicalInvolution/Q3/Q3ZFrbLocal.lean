@@ -123,14 +123,6 @@ theorem exists_plane_of_ne {L : Subgroup G} (hL : L ∈ centralizingMembers Ω {
   · exact absurd (c.eq_of_locImg_le_Q₀ hL h) hLK
   · exact h
 
-theorem commutes_K_of_plane {L : Subgroup G} (hL : L ∈ centralizingMembers Ω {z})
-    {P : Submodule (GaloisField 3 1) (Fin 2 ⊕ Fin 2 → GaloisField 3 1)}
-    (hLP : locImg Ω z L = (planeGroup P).map c.d.ψ) : Commutes K L := by
-  refine Q3W.commutes_of_commutes_locImg3 c.hΩ c.hex c.hP1 c.hO3 c.hKz hL ?_
-  intro a ha b hb
-  rw [hLP] at hb
-  obtain ⟨r, -, rfl⟩ := hb
-  exact (c.d.commutes (c.d.ψ r) ⟨r, rfl⟩ a (c.locImg_self_le_Q₀ ha)).symm
 
 end CCore3
 

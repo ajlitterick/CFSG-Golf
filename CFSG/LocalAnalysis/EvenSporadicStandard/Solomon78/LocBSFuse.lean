@@ -66,6 +66,5 @@ theorem eps_facts {u g : G} (hu2 : orderOf u = 2) (hug : g * u * g⁻¹ = u) {ε
   · simp
   · exact ⟨huu, hug⟩
 
-variable [Finite G]
 
 end CFSG.EvenSporadicStandard.Solomon78

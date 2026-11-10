@@ -32,17 +32,6 @@ theorem normalizer_involution_centralizer_factorization
     exact mul_inv_eq_iff_eq_mul.mp heq
   exact ⟨k, k.property, (k : G)⁻¹ * n, ⟨heN, heC⟩, by group⟩
 
-theorem normalizer_sup_involution_centralizer_eq
-    (K : Subgroup G)
-    (hno : ∀ V : Subgroup K, CFSG.Open.IsElemAbelian 2 V → Nat.card V ≠ 4)
-    (u : G) (huK : u ∈ K) (hu : orderOf u = 2) :
-    K ⊔ (Subgroup.normalizer (K : Set G) ⊓ Subgroup.centralizer ({u} : Set G)) =
-      Subgroup.normalizer (K : Set G) := by
-  apply le_antisymm (sup_le Subgroup.le_normalizer inf_le_left)
-  intro n hn
-  obtain ⟨k, hk, e, he, rfl⟩ :=
-    normalizer_involution_centralizer_factorization K hno u huK hu n hn
-  exact Subgroup.mul_mem_sup hk he
 
 theorem normalizer_centralizer_representation_ranges_eq
     (K : Subgroup G)

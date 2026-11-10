@@ -127,12 +127,5 @@ theorem eq_add_of_vec (u : Fin 8 → ZMod 2) :
   rw [Matrix.mulVec_mulVec, Matrix.mulVec_mulVec, ← Matrix.add_mulVec, rightInverse_B,
     Matrix.one_mulVec]
 
-theorem range_sup_range :
-    LinearMap.range (Matrix.mulVecLin (B1 - 1)) ⊔ LinearMap.range (Matrix.mulVecLin (B2 - 1)) =
-      ⊤ := by
-  rw [eq_top_iff]
-  intro u _
-  rw [eq_add_of_vec u]
-  exact Submodule.add_mem_sup ⟨_, rfl⟩ ⟨_, rfl⟩
 
 end CFSG.Sporadic.ThSchreier

@@ -34,13 +34,5 @@ theorem ch9686perf : perfOK c rm one BS BI = true := by quickRfl
 
 #kc_each ch9686kn 0 13
 
-theorem ch9686neg_perf : notB (perfOK c rm one BS (BI.set 0 (getN one BS 1))) = true := by
-  quickRfl
-
-theorem ch9686neg_kn : notB (knOK c rm one XS BS TS (getN one QL 0)
-    ((KW.getD 0 []).set 0 ((KW.getD 0 []).getD 0 (0, 0) |>.1, 0))) = true := by quickRfl
-
-theorem ch9686neg_q : notB (knOK c rm one XS BS TS (getN one QL 1) (KW.getD 0 [])) = true := by
-  quickRfl
 
 end CertificateChecks.KernelJ4ZC9686

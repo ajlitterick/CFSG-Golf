@@ -20,7 +20,6 @@ variable {F : Type} [Field F]
 
 variable [Finite F]
 
-theorem card_V4_eq : Nat.card (V4 F) = Nat.card F ^ 4 := card_V4
 
 theorem one_lt_card_F [CharP F 2] : 1 < Nat.card F := by
   have := MSP.two_dvd_card (F := F)

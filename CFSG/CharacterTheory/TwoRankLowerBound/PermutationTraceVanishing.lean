@@ -27,19 +27,6 @@ namespace CFSG.TwoRankLowerBound.Helpers
   exact congrArg (fun endomorphism : Module.End ring (MonoidAlgebra ring points) => endomorphism (equivalence value))
     (hequivariant element).eq
 
-theorem permutationEquivariantEndomorphism_apply {ring group points : Type*} [CommRing ring]
-    [Group group] [MulAction group points] (operator : Module.End ring (MonoidAlgebra ring points))
-    (hequivariant : ∀ element : group, Commute operator (Representation.ofMulAction ring group points element))
-    (value : (Representation.ofMulAction ring group points).asModule) :
-    permutationEquivariantEndomorphism operator hequivariant value =
-      (Representation.ofMulAction ring group points).asModuleEquiv.symm
-        (operator ((Representation.ofMulAction ring group points).asModuleEquiv value)) := rfl
-
-theorem permutationEquivariantEndomorphism_restrict {ring group points : Type*} [CommRing ring]
-    [Group group] [MulAction group points] (operator : Module.End ring (MonoidAlgebra ring points))
-    (hequivariant : ∀ element : group, Commute operator (Representation.ofMulAction ring group points element)) :
-    (permutationEquivariantEndomorphism operator hequivariant).restrictScalars ring =
-      (LinearEquiv.conjAlgEquiv ring (Representation.ofMulAction ring group points).asModuleEquiv.symm) operator := rfl
 
 theorem finite_p_action_equivariant_summand_trace_zero {ring group points : Type*}
     [CommRing ring] [IsDomain ring] [IsLocalRing ring] [CommGroup group] [Finite group]

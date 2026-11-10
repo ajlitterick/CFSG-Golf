@@ -23,28 +23,6 @@ theorem gmat_automorphisms_inner_unconditional :
       (Sporadic.Co1Schreier.full_automorphisms_inner_of_inputs
           Sporadic.Co2Schreier.CTUC_Co2_full_automorphisms_inner)).2
 
-theorem native_M_visible_centralizer_schreier_unconditional :
-    Group.IsSolvable (Outer Hmat) ∧ (Qmat.subgroupOf Hmat).Characteristic ∧
-      (∀ α : MulAut Hmat, ∃ g : Hmat, ∃ r ∈ quotKerAut (Qmat.subgroupOf Hmat),
-        α = MulAut.conj g * r) ∧
-      ∃ F : Subgroup (quotKerAut (Qmat.subgroupOf Hmat)), ∃ _ : F.Normal, IsPGroup 2 F ∧
-        IsPGroup 3 (quotKerAut (Qmat.subgroupOf Hmat) ⧸ F) :=
-  native_M_visible_centralizer_schreier (Monster.Existence.Hmat_perfect_and_inner_of_Co1_inner
-      (Sporadic.Co1Schreier.full_automorphisms_inner_of_inputs
-          Sporadic.Co2Schreier.CTUC_Co2_full_automorphisms_inner)).2
-
-theorem native_M_rational_group_schreier_unconditional :
-    Group.IsSolvable (Outer Gmat) :=
-  native_M_rational_group_schreier (Monster.Existence.Hmat_perfect_and_inner_of_Co1_inner
-      (Sporadic.Co1Schreier.full_automorphisms_inner_of_inputs
-          Sporadic.Co2Schreier.CTUC_Co2_full_automorphisms_inner)).2
-
-theorem simple_presentation_M_model_schreier_unconditional :
-    ∀ (T : Type*) [Group T] [Finite T] [IsSimpleGroup T], (∃ a b : T, a * b ≠ b * a) →
-      Nonempty (T ≃* CFSG.Blueprint.NativeSporadic.M) → Group.IsSolvable (Outer T) :=
-  simple_presentation_M_model_schreier (Monster.Existence.Hmat_perfect_and_inner_of_Co1_inner
-      (Sporadic.Co1Schreier.full_automorphisms_inner_of_inputs
-          Sporadic.Co2Schreier.CTUC_Co2_full_automorphisms_inner)).2
 
 theorem exact_M_full_original_group_involution_odd_core_unconditional
     :

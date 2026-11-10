@@ -15,26 +15,10 @@ open CFSG.Open
 
 variable (G : Type*) [Group G]
 
-theorem goldschmidtLayer_eq_componentClassification :
-    goldschmidtLayer G = CFSG.ComponentClassification.Layer.subgroup G :=
-  rfl
 
 theorem goldschmidtLayer_eq_foundations : goldschmidtLayer G = CFSG.layer G :=
   (CFSG.layer_eq_componentClassification G).symm
 
-theorem timmesfeldFitting_eq_foundations : timmesfeldFitting G = CFSG.fittingSubgroup G :=
-  rfl
-
-theorem timmesfeldLayer_eq_componentClassification :
-    timmesfeldLayer G = CFSG.ComponentClassification.Layer.subgroup G :=
-  rfl
-
-theorem timmesfeldLayer_eq_foundations : timmesfeldLayer G = CFSG.layer G :=
-  (CFSG.layer_eq_componentClassification G).symm
-
-theorem timmesfeldFStar_eq_componentClassification :
-    timmesfeldFStar G = CFSG.ComponentClassification.GeneralizedFitting.subgroup G :=
-  rfl
 
 theorem timmesfeldFStar_eq_foundations : timmesfeldFStar G = CFSG.generalizedFitting G :=
   (CFSG.generalizedFitting_eq_componentClassification G).symm
@@ -43,17 +27,11 @@ theorem centralizer_timmesfeldFStar_le [Finite G] :
     Subgroup.centralizer (timmesfeldFStar G : Set G) ≤ timmesfeldFStar G :=
   CFSG.ComponentClassification.GeneralizedFitting.centralizer_le G
 
-theorem signalizerGeneralizedFitting_eq_componentClassification :
-    signalizerGeneralizedFitting G = CFSG.ComponentClassification.GeneralizedFitting.subgroup G :=
-  rfl
 
 theorem signalizerGeneralizedFitting_eq_foundations :
     signalizerGeneralizedFitting G = CFSG.generalizedFitting G :=
   (CFSG.generalizedFitting_eq_componentClassification G).symm
 
-theorem centralizer_signalizerGeneralizedFitting_le [Finite G] :
-    Subgroup.centralizer (signalizerGeneralizedFitting G : Set G) ≤ signalizerGeneralizedFitting G :=
-  CFSG.ComponentClassification.GeneralizedFitting.centralizer_le G
 
 theorem centralizer_generalizedFitting_le_fittingSubgroup [Finite G] :
     Subgroup.centralizer (CFSG.generalizedFitting G : Set G) ≤ CFSG.fittingSubgroup G := by

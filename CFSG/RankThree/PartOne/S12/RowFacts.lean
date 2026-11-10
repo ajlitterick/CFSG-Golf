@@ -170,18 +170,11 @@ theorem rowWeylIso_nonabelian (hr1 : 1 ≤ r) (hr12 : r ≤ 12) (hr : RowWeylIso
     ∃ a b : Γ, a * b ≠ b * a :=
   (WeylFacts.of_rowWeylIso hr1 hr12 hr).nonabelian
 
-theorem rowWeylIso_card_dvd (hr1 : 1 ≤ r) (hr12 : r ≤ 12) (hr : RowWeylIso X Γ r) :
-    Nat.card Γ ∣ 2 ^ 4 * 3 * 5 :=
-  (WeylFacts.of_rowWeylIso hr1 hr12 hr).card_dvd
 
 theorem rowWeylIso_pCore_eq_bot (hr1 : 1 ≤ r) (hr12 : r ≤ 12) (hr : RowWeylIso X Γ r) {p : ℕ}
     (hp : p.Prime) (h5 : 5 ≤ p) : CFSG.pCore p ↥Γ = ⊥ :=
   (WeylFacts.of_rowWeylIso hr1 hr12 hr).pCore_eq_bot p hp h5
 
-theorem rowWeylIso_ne_bot (hr1 : 1 ≤ r) (hr12 : r ≤ 12) (hr : RowWeylIso X Γ r) : Γ ≠ ⊥ := by
-  obtain ⟨a, b, hab⟩ := rowWeylIso_nonabelian hr1 hr12 hr
-  rintro rfl
-  exact hab (Subsingleton.elim _ _)
 
 theorem rowWeylIso_perfect_subgroup_of_eleven_or_twelve (h : r = 11 ∨ r = 12)
     (hr : RowWeylIso X Γ r) :
@@ -200,9 +193,6 @@ theorem rowWeylIso_perfect_subgroup_of_eleven_or_twelve (h : r = 11 ∨ r = 12)
   · rw [Subgroup.card_map_of_injective hinj, nat_card_alternatingGroup, Nat.card_fin]
     rfl
 
-theorem rowWeylIso_perfect_subgroup_of_eleven (hr : RowWeylIso X Γ 11) :
-    ∃ Λ : Subgroup (MulAut X), Λ ≤ Γ ∧ Group.IsPerfect ↥Λ ∧ Nat.card Λ = 60 :=
-  rowWeylIso_perfect_subgroup_of_eleven_or_twelve (Or.inl rfl) hr
 
 theorem rowWeylIso_perfect_subgroup_of_twelve (hr : RowWeylIso X Γ 12) :
     ∃ Λ : Subgroup (MulAut X), Λ ≤ Γ ∧ Group.IsPerfect ↥Λ ∧ Nat.card Λ = 60 :=

@@ -112,18 +112,6 @@ private lemma ggQ2x_dot_two_single {n : ℕ} (i j : Fin n) (s t : ZMod 3) (hij :
   revert s t
   decide
 
-private lemma ggQ2x_dot_self_ne_zero_of_wt {n : ℕ} {c : GGBCV n}
-    (h1 : 1 ≤ ggBCWt c) (h2 : ggBCWt c ≤ 2) : c ⬝ᵥ c ≠ 0 := by
-  have hz : ∀ z : ZMod 3, z ≠ 0 → z * z ≠ 0 := by decide
-  rcases (by omega : ggBCWt c = 1 ∨ ggBCWt c = 2) with h | h
-  · obtain ⟨i, s, hs, rfl⟩ := ggQ2x_wt_eq_one_iff.mp h
-    rw [ggQ2x_dot_single_self]
-    exact hz s hs
-  · obtain ⟨i, j, s, t, hij, hs, ht, rfl⟩ := ggQ2x_wt_two h
-    rw [ggQ2x_dot_two_single i j s t hij]
-    rw [ggQ2x_two_ss s t hs ht]
-    decide
-
 
 private lemma ggQ2x_iso_scalar : ∀ r d p q : ZMod 3, d * d = 1 →
     r + d * p * q + d * q * (p + d * p * d) = r := by decide
@@ -329,30 +317,6 @@ private lemma ggQ2x_short_apply_of_ne {n : ℕ} (i j : Fin n) (hij : j ≠ i) :
   rw [ggQ2x_short_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hij),
     zero_smul, add_zero]
 
-private lemma ggQ2x_short_commute {n : ℕ} (i j : Fin n) :
-    Commute (ggQ2x_short i) (ggQ2x_short j) := by
-  by_cases hij : i = j
-  · subst hij; exact Commute.refl _
-  · have hji : j ≠ i := Ne.symm hij
-    apply LinearEquiv.ext; intro v
-    rw [LinearEquiv.mul_apply, LinearEquiv.mul_apply]
-    have hi : (ggQ2x_short j v) i = v i := by
-      rw [ggQ2x_short_apply]
-      simp [Pi.add_apply, Pi.smul_apply,
-        Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hji)]
-    have hj : (ggQ2x_short i v) j = v j := by
-      rw [ggQ2x_short_apply]
-      simp [Pi.add_apply, Pi.smul_apply,
-        Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hij)]
-    calc ggQ2x_short i (ggQ2x_short j v)
-        = ggQ2x_short j v + ((ggQ2x_short j v) i) • Pi.single i (1 : ZMod 3) :=
-          ggQ2x_short_apply i _
-      _ = (v + (v j) • Pi.single j (1 : ZMod 3)) + (v i) • Pi.single i 1 := by
-          rw [hi, ggQ2x_short_apply j v]
-      _ = (v + (v i) • Pi.single i (1 : ZMod 3)) + (v j) • Pi.single j 1 := by abel
-      _ = ggQ2x_short i v + ((ggQ2x_short i v) j) • Pi.single j (1 : ZMod 3) := by
-          rw [hj, ggQ2x_short_apply i v]
-      _ = ggQ2x_short j (ggQ2x_short i v) := (ggQ2x_short_apply j _).symm
 
 private lemma ggQ2x_neg_one_mul : ∀ a : ZMod 3, (-1 : ZMod 3) * a = -a := by decide
 
@@ -432,8 +396,6 @@ private lemma ggQ2x_diag_mem_W {n : ℕ} (S : Finset (Fin n))
   ggQ2x_diag_mem_W_aux S.card S b le_rfl hb
 
 
-
-
 private lemma ggQ2x_sq_eq_one : ∀ e : ZMod 3, e ≠ 0 → e * e = 1 := by decide
 
 private lemma ggQ2x_two_ne_zero : (2 : ZMod 3) ≠ 0 := by decide
@@ -444,10 +406,6 @@ private lemma ggQ2x_one_ne_neg_one : (1 : ZMod 3) ≠ -1 := by decide
 
 private lemma ggQ2x_dad : ∀ d a : ZMod 3, d * d = 1 → (d * a) * d = a := by decide
 
-private lemma ggQ2x_dot_single_ne {n : ℕ} (m : Fin n) (d : ZMod 3) (hd : d ≠ 0) :
-    (Pi.single m d : GGBCV n) ⬝ᵥ Pi.single m d ≠ 0 := by
-  rw [ggQ2x_dot_single_self]
-  exact (by decide : ∀ z : ZMod 3, z ≠ 0 → z * z ≠ 0) d hd
 
 private lemma ggQ2x_refl_single {n : ℕ} {c : GGBCV n} (hc : c ⬝ᵥ c ≠ 0) (k : Fin n) :
     ggBCRefl c hc (Pi.single k (1 : ZMod 3)) =
@@ -603,10 +561,6 @@ private lemma ggQ2x_isometry_one {n : ℕ} :
       ((1 : GGBCV n ≃ₗ[ZMod 3] GGBCV n) y) = x ⬝ᵥ y := by
   intro x y; rfl
 
-private lemma ggQ2x_refl_proof_irrel {n : ℕ} (c : GGBCV n)
-    (h1 h2 : c ⬝ᵥ c ≠ 0) : ggBCRefl c h1 = ggBCRefl c h2 := by
-  ext v
-  rfl
 
 private lemma ggQ2x_add_self : ∀ a : ZMod 3, a + a = -a := by decide
 

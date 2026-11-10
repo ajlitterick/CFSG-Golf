@@ -23,7 +23,5 @@ theorem excLayer_of_twistedE6 (h : TwistedE6Layer p f) : ExcLayer p f := by
   · exact hasQuasisimpleLayer_E8 hp2 hq hadm
   · exact h hp2 hq n hadm
 
-theorem mfTwin_of_twistedE6 (h : TwistedE6Layer p f) : MFTwin p f :=
-  mfTwin_of_layer (excLayer_of_twistedE6 h)
 
 end CFSG.ClassicalInvolution.RouteD.Exotic

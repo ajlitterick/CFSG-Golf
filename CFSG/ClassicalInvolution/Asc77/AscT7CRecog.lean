@@ -91,38 +91,5 @@ theorem oddLieType_of_phanChain3 (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
   exact (weakPhan_simple_native_recognition (GaloisField p (2 * f)) p f hK hp2 hq (n := 3)
     (by norm_num) hnab hV).2
 
-theorem oddLieType_of_symplecticPair (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hnab : ∃ a b : G, a * b ≠ b * a) {W U V : Subgroup G}
-    (h : SymplecticBlockPair (GaloisField p f) W U V) (hgen : U ⊔ V = ⊤) : OddLieType G := by
-  obtain ⟨θ, c, hrange, hker, -, hU, hV⟩ := h
-  have hf : f ≠ 0 := by
-    rintro rfl
-    simp at hq
-  have hF : Nat.card (GaloisField p f) = p ^ f := GaloisField.card p f hf
-  have hUle : U ≤ θ.range := hU ▸ Subgroup.map_le_range θ _
-  have hVle : V ≤ θ.range := hV ▸ Subgroup.map_le_range θ _
-  have hsurj : Function.Surjective θ :=
-    MonoidHom.range_eq_top.mp (eq_top_iff.mpr (hgen ▸ sup_le hUle hVle))
-  have hcen : Subgroup.center G = ⊥ := T7C.center_eq_bot_of_exists_not_commute hnab
-  have hkerc : θ.ker = Subgroup.center (StatedSp 2 (GaloisField p f)) := by
-    refine le_antisymm hker fun x hx => ?_
-    rw [MonoidHom.mem_ker]
-    have : θ x ∈ Subgroup.center G := by
-      rw [Subgroup.mem_center_iff]
-      intro g
-      obtain ⟨y, rfl⟩ := hsurj g
-      rw [← map_mul, ← map_mul, Subgroup.mem_center_iff.mp hx y]
-    rwa [hcen, Subgroup.mem_bot] at this
-  have hadm : StatedLieAdmissible .PSp 2 p f := by
-    refine ⟨Fact.out, by omega, by norm_num, ?_⟩
-    simp [Prod.ext_iff]
-    omega
-  have e : StatedSp 2 (GaloisField p f) ⧸ Subgroup.center (StatedSp 2 (GaloisField p f)) ≃* G :=
-    (QuotientGroup.quotientMulEquivOfEq hkerc.symm).trans
-      (QuotientGroup.quotientKerEquivOfSurjective θ hsurj)
-  have hmodel := statedClassicalModel_of_mulEquiv e
-    (CFSG.LieType.Universal.Symplectic.statedClassicalModel_center_quotient 2 (GaloisField p f)
-      hadm hF)
-  exact ⟨.PSp, 2, p, f, Fact.out, hp2, hadm, Or.inl ⟨by decide, hmodel⟩⟩
 
 end CFSG.ClassicalInvolution.Asc77

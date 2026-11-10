@@ -79,10 +79,6 @@ end Nbhd
         (∀ k : ↥K, ((α k : ↥K) : CentralizerBar x) = barOf hv * k * (barOf hv)⁻¹) →
           IsGraphAut α → ¬ GoodFixedCentral (ThreeModel ↥K) α → False
 
-@[expose] def S1Nbhd : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (x : G) (K : Subgroup (CentralizerBar x)), S1Setup G x K →
-    S1Front G x K → ∀ (u : Fin 4 → G) (hu : ∀ i, u i ∈ centralizer ({x} : Set G)),
-      S1Frame x K u hu → ∃ J : Fin 4 → Subgroup G, IsS1A4 x K J
 
 @[expose] def S1LevelE : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (x : G) (K : Subgroup (CentralizerBar x)), S1Setup G x K →
@@ -97,18 +93,5 @@ theorem catalog_of_isS1A4 {G : Type} [Group G] [Finite G] {x : G}
   · exact lieModel_catalog G .PSU 5 p f
       (lieModel_A4_unitary_of_iSup_eq_top F p f hF hq J hW.1 hW.2 hgen hs)
 
-theorem s1_shapeCase_of_props (hB4 : S1OuterClassification) (hExo : S1ExoticExcluded)
-    (hNbhd : S1Nbhd) (hE : S1LevelE) : S_shapeCaseMaxNT @ShapeS1 := by
-  intro G _ _ hs hn hr hgen hK hnab hL x hx K hKc _ hP
-  obtain ⟨hthin, hmax, hsh⟩ := hP
-  have hset : S1Setup G x K := ⟨hs, hn, hr, hgen, hK, hnab, hL, hx, hKc, hsh, hmax, hthin⟩
-  obtain ⟨hfront, v, hv, hconj, hvx, hv2, hvbK, α, hα, hnotA, hRG⟩ :=
-    s1_front hB4 hs hn hgen hx hKc hsh
-  rcases hRG with hR | hGr
-  · have : K.Normal := normal_of_layer_eq hfront.layer_eq
-    obtain ⟨u, hu, hframe⟩ := s1_frame hx hsh.2 hv hconj hv2 hvbK hα hR
-    obtain ⟨J, hJ⟩ := hNbhd G x K hset hfront u hu hframe
-    exact catalog_of_isS1A4 hJ (hE G x K hset J hJ) hs
-  · exact (hExo G x K hset hfront v hv hconj hvx hv2 hvbK α hα hGr hnotA).elim
 
 end CFSG.GH74.Generic.S1

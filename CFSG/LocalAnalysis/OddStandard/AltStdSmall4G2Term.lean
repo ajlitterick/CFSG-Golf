@@ -162,9 +162,6 @@ theorem termData_DU (c : Config G L Q n θ z) (h : LevelDatum θ c.hn8 z m A)
   ⟨h, ht, DU_le_L θ c.hn8, DU_le_normalizer c h, card_DU θ c.hn8,
     fun _ hd hdE => DU_faith θ c.hn8 hd hdE⟩
 
-theorem exists_termData (c : Config G L Q n θ z) (h : LevelDatum θ c.hn8 z m A)
-    (ht : Terminal θ c.hn8 A) : ∃ D : Subgroup G, TermData θ c.hn8 z m A D :=
-  ⟨_, termData_DU c h ht⟩
 
 end Normalizer
 
@@ -244,7 +241,6 @@ theorem mem_Mm_iff {x : G} : x ∈ Mm A D ↔ ∃ a ∈ A, ∃ d ∈ D, x = a * 
 theorem card_Mm : Nat.card (Mm A D) = 8 * Nat.card A := by
   rw [Mm, card_sup_of_inf_eq_bot h.D_norm (h.inf_eq_bot c), h.D_card, mul_comm]
 
-theorem Mm_le_normalizer : Mm A D ≤ normalizer (A : Set G) := sup_le le_normalizer h.D_norm
 
 theorem z_conj_mem_Mm {x : G} (hx : x ∈ Mm A D) : z * x * z⁻¹ ∈ Mm A D := by
   obtain ⟨a, ha, d, hd, rfl⟩ := (h.mem_Mm_iff c).1 hx

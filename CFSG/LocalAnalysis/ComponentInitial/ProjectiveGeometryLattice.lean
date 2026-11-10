@@ -148,11 +148,6 @@ theorem incidence_symm
       rw [le_hyperplaneImage_iff' hfh ⟨L, hL⟩] at hLW ⊢
       exact hLW.trans hle
 
-theorem latticeExtension_apply
-    (hfh : ∀ (L : Point n K) (H : Hyperplane n K),
-      (L : Submodule K (Fin n → K)) ≤ H ↔ (f L : Submodule K (Fin n → K)) ≤ h H)
-    (W : Submodule K (Fin n → K)) : latticeExtension hfh W = hyperplaneImage h W :=
-  rfl
 
 end Extension
 

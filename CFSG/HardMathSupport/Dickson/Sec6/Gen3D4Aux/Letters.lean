@@ -181,15 +181,12 @@ theorem letterMat_mul_self (k : ℕ) : letterMat k * letterMat k = 1 := by
 @[expose] def letterGL (k : ℕ) : GL (Fin 8) GF64 :=
   ⟨letterMat k, letterMat k, letterMat_mul_self k, letterMat_mul_self k⟩
 
-@[expose] def wordGL (w : List ℕ) : GL (Fin 8) GF64 := (w.map letterGL).prod
 
 @[expose] def letterTable : Array (Array GF64) :=
   Array.ofFn (n := 16) fun k => ofMat (letterMat k.val)
 
 @[expose] def letterArr (k : ℕ) : Array GF64 := letterTable.getD k oneArr
 
-@[expose] def wordArr (w : List ℕ) : Array GF64 :=
-  w.foldr (fun l A => mulArr (letterArr l) A) oneArr
 
 theorem size_letterArr (k : ℕ) : (letterArr k).size = 64 := by
   unfold letterArr
@@ -205,24 +202,5 @@ theorem toMat_letterArr {k : ℕ} (hk : k < 16) : toMat (letterArr k) = letterMa
     simp [letterTable, Array.getD_eq_getD_getElem?, hk]
   rw [letterArr, this, toMat_ofMat]
 
-theorem wordArr_nil : wordArr [] = oneArr := rfl
-
-theorem wordArr_cons (l : ℕ) (w : List ℕ) :
-    wordArr (l :: w) = mulArr (letterArr l) (wordArr w) := rfl
-
-theorem size_wordArr (w : List ℕ) : (wordArr w).size = 64 := by
-  induction w with
-  | nil => rw [wordArr_nil]; exact size_oneArr
-  | cons l w ih => rw [wordArr_cons]; exact size_mulArr _ _
-
-theorem coe_wordGL {w : List ℕ} (hw : ∀ l ∈ w, l < 16) :
-    ((wordGL w : GL (Fin 8) GF64) : Matrix (Fin 8) (Fin 8) GF64) = toMat (wordArr w) := by
-  induction w with
-  | nil => rw [wordArr_nil, oneArr, toMat_ofMat]; rfl
-  | cons l w ih =>
-    have hl : l < 16 := hw l List.mem_cons_self
-    show (letterMat l) * ((wordGL w : GL (Fin 8) GF64) : Matrix (Fin 8) (Fin 8) GF64) = _
-    rw [ih (fun a ha => hw a (List.mem_cons_of_mem l ha)), wordArr_cons, toMat_mulArr,
-      toMat_letterArr hl]
 
 end CFSG.HardMathSupport.Dickson.Sec6.Gen3D4

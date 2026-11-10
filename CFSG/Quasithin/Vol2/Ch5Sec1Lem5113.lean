@@ -9,14 +9,6 @@ namespace CFSG.Quasithin.H13
 
 open CFSG.Open CFSG.Blueprint CFSG.QuasithinUnique CFSG.LieType.BorelTits
 
-@[expose] def Stmt5_1_13_lie : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M L H B D K₁ X Kh₁ : Subgroup G) (n k : ℕ),
-    Hyp5_1_8 G T M L H n → IsNotation5_1_9 T M L H B D → IsFieldParam510 T H k →
-    quasithinIsCComponent K₁ H → oTwoUpper H = conjClosure K₁ T → InH H X →
-    IsHatComp X K₁ Kh₁ → oTwoUpper H < conjClosure Kh₁ T →
-    ((SuzukiModel (O2Q (oTwoUpper H)) 2 k ∧ Is2F4 k (O2Q (conjClosure Kh₁ T))) ∨
-      (LieModel (O2Q (oTwoUpper H)) .PSL 2 2 k ∧ IsRank2LieChar2 (O2Q (conjClosure Kh₁ T)))) →
-      D ⊓ X ≤ Subgroup.normalizer (oTwoUpper H : Set G)
 
 @[expose] def Stmt5_1_13_main : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M L V H B D K₁ X Kh₁ : Subgroup G) (n : ℕ),

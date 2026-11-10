@@ -175,10 +175,6 @@ theorem bigPhi_rep_zero {a p b : G23} {φ : Fin 8 → G23 → ℂ}
   rw [bigPhi_rep hφ]
   rcases hk with rfl | rfl | rfl <;> fin_cases i <;> simp [phiA, phiB]
 
-theorem bigPhi_one {a p b : G23} {φ : Fin 8 → G23 → ℂ}
-    (hφ : ∀ i j, φ i (rep a p b j) = (tableA i j : ℂ) + (tableB i j : ℂ) * omega8)
-    (i : Fin 5) : bigPhi φ i 1 = 0 :=
-  bigPhi_rep_zero hφ i 0 (Or.inl rfl)
 
 theorem span_relations (y : Fin 8 → ℂ)
     (h : ∀ i : Fin 5, ∑ k, ((phiA i k : ℂ) + (phiB i k : ℂ) * omega8) * y k = 0) :

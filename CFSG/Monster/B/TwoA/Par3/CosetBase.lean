@@ -98,28 +98,6 @@ theorem qV_U4 :
   · have e : x = (x + sig) + sig := by rw [add_assoc, two_add_self, add_zero]
     rw [e, qV_add, qV_Uplane _ h, qV_pW, bV_sig_of_mem h, add_zero, add_zero]
 
-theorem Uplane_inf_span_sig :
-    Uplane ⊓ (ZMod 2) ∙ sig = ⊥ := by
-  rw [eq_bot_iff]
-  rintro x ⟨hU, hs⟩
-  obtain ⟨a, rfl⟩ := Submodule.mem_span_singleton.1 hs
-  rcases zmod2_cases a with rfl | rfl
-  · rw [zero_smul]
-    exact Submodule.zero_mem _
-  · rw [one_smul] at hU
-    exact absurd hU sig_not_mem_Uplane
-
-theorem finrank_U4 :
-    Module.finrank (ZMod 2) U4 = 3 := by
-  have h := Submodule.finrank_sup_add_finrank_inf_eq Uplane ((ZMod 2) ∙ sig)
-  rw [Uplane_inf_span_sig, finrank_bot, add_zero, finrank_Uplane,
-    finrank_span_singleton (pW_ne_zero rest2 0)] at h
-  exact h
-
-theorem natCard_U4 :
-    Nat.card U4 = 8 := by
-  rw [natCard_submodule, finrank_U4]
-  rfl
 
 @[expose] def E4 :
     Subgroup Dfull := EU U4
@@ -171,9 +149,6 @@ theorem closure_eq_E4 :
 instance isElementaryAbelian_E4 :
     CFSG.IsElementaryAbelian 2 E4 := isElementaryAbelian_EU qV_U4
 
-theorem natCard_E4 :
-    Nat.card E4 = 16 := by
-  rw [E4, natCard_EU, natCard_U4]
 
 @[expose] def cE3 : Set Dfull := {d | ∃ e ∈ E3, cQ * e = d}
 

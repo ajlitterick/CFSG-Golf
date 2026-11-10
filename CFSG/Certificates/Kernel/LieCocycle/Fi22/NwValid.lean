@@ -14,13 +14,6 @@ namespace CFSG.KLC.Fi22
         (nwMask NW s) (stageDist s)))
       (nat_lit 23))
 
-@[expose] noncomputable def nwsValid (L : List Nat) : Bool :=
-  List.rec (motive := fun _ => Bool) true (fun NW _ ih => andB (nwValid NW) ih) L
-
-@[expose] noncomputable def presOkV (GA NW MB n : Nat) : Bool := andB (nwValid NW) (presOk GA NW MB n)
-
-@[expose] noncomputable def leafOkV (n MB TA NWs NWk ACC : Nat) : Bool :=
-  andB (andB (nwValid NWs) (nwValid NWk)) (leafOk n MB TA NWs NWk ACC)
 
 end CFSG.KLC.Fi22
 

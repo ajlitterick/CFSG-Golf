@@ -9,12 +9,6 @@ namespace CFSG.RankThree.PartTwo.Sec21
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
 open CFSG.Assembly.RankThreeEven (projSL projSU projSp projOmegaMinus localRank)
 
-@[expose] def Item228LThree : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
-    Sec21Pair G A E U c L → Nat.card A = 3 ^ 3 →
-      ∀ φ ∈ dStar A, ∀ ψ ∈ dStar A, φ ≠ ψ → ∀ X ∈ lStar A, kOf A φ ⊔ kOf A ψ ≤ X →
-        ((∃ k : ℕ, Nonempty (X ≃* projSU 4 2 k)) ∨ Nonempty (X ≃* projSU 5 2 2)) →
-        X ∈ lThreeStar A
 
 @[expose] def Item229UnitaryRoots : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),

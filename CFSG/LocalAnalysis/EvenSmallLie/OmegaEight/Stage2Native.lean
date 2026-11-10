@@ -239,23 +239,6 @@ theorem mem_of_centInCheck {gs gs₂ : Array (ℕ × ℕ)} {E E₂ : Enum} {b : 
   · rw [← getD_mem hi] at h1
     exact Enum.mem_of_memK hE₂ h1 hr
 
-@[expose] def invFixCheck (E : Enum) (n : ℕ) : Bool :=
-  E.keys.all fun k => mulK k k != idK || (decide (n ≤ (kerBasis k).length) && fixLB k (kerBasis k))
-
-theorem fix_of_invFixCheck {gs : Array (ℕ × ℕ)} {E : Enum} {n : ℕ} (hE : enumOK gs E = true)
-    (h : invFixCheck E n = true) {y : GL12} (hy : y ∈ grpOf gs) (hy2 : y * y = 1) :
-    2 ^ n ≤ Nat.card (fixM (y : Mat12)) := by
-  obtain ⟨i, hi, hr⟩ := Enum.exists_key hE hy
-  simp only [invFixCheck, Array.all_eq_true, Bool.or_eq_true, bne_iff_ne, ne_eq,
-    Bool.and_eq_true, decide_eq_true_eq] at h
-  have hsq : mulK (E.keys.getD i 0) (E.keys.getD i 0) = idK :=
-    (hr.mul hr).key_unique (by rw [hy2]; exact rep_one) (mulK_lt _ _) idK_lt
-  rcases h i hi with h1 | ⟨h1, h2⟩
-  · rw [← getD_mem hi] at h1
-    exact absurd hsq h1
-  · rw [← getD_mem hi] at h1 h2
-    rw [← fixM_of_rep hr]
-    exact (Nat.pow_le_pow_right (by norm_num) h1).trans (fixLB_sound h2)
 
 @[expose] def no8Check (E : Enum) : Bool :=
   E.keys.all fun k => fpowK k 8 != idK || fpowK k 4 == idK
@@ -278,55 +261,6 @@ theorem card_fixM_one : Nat.card (fixM ((1 : GL12) : Mat12)) = 2 ^ 12 := by
   rw [this, Nat.card_univ]
   simp [Nat.card_eq_fintype_card]
 
-@[expose] def oneClassCheck (E : Enum) (tK : ℕ) : Bool :=
-  E.keys.all fun s => mulK s s != idK || s == idK ||
-    (decide (8 ≤ (kerBasis s).length) && fixLB s (kerBasis s)) ||
-    E.keys.any fun y => mulK y tK == mulK s y
-
-theorem conj_of_oneClassCheck {gs : Array (ℕ × ℕ)} {E : Enum} {tK : ℕ}
-    (hE : enumOK gs E = true) (h : oneClassCheck E tK = true) {tb : GL12} (ht : Rep tK tb)
-    {s : GL12} (hs : s ∈ grpOf gs) (hs2 : s * s = 1)
-    (hfix : Nat.card (fixM (s : Mat12)) ≤ 2 ^ 7) : ∃ y ∈ grpOf gs, s = y * tb * y⁻¹ := by
-  obtain ⟨i, hi, hr⟩ := Enum.exists_key hE hs
-  simp only [oneClassCheck, Array.all_eq_true, Bool.or_eq_true, bne_iff_ne, ne_eq, beq_iff_eq,
-    Bool.and_eq_true, decide_eq_true_eq, Array.any_eq_true] at h
-  rcases h i hi with ((h1 | h1) | ⟨h1, h2⟩) | ⟨j, hj, h1⟩
-  · rw [← getD_mem hi] at h1
-    exact absurd ((hr.mul hr).key_unique (by rw [hs2]; exact rep_one) (mulK_lt _ _) idK_lt) h1
-  · rw [← getD_mem hi] at h1
-    rw [h1] at hr
-    have : s = 1 := hr.unique rep_one
-    rw [this, card_fixM_one] at hfix
-    norm_num at hfix
-  · rw [← getD_mem hi] at h1 h2
-    rw [← fixM_of_rep hr] at hfix
-    have := (Nat.pow_le_pow_right (by norm_num) h1).trans (fixLB_sound h2)
-    omega
-  · rw [← getD_mem hi, ← getD_mem hj] at h1
-    obtain ⟨y, hy, hry⟩ := Enum.exists_mem hE j hj
-    refine ⟨y, hy, ?_⟩
-    have e : y * tb = s * y := by
-      have h3 := hry.mul ht
-      rw [h1] at h3
-      exact h3.unique (hr.mul hry)
-    calc s = s * y * y⁻¹ := by group
-      _ = y * tb * y⁻¹ := by rw [← e]
-
-@[expose] def imgCheck (tK : ℕ) : Bool :=
-  (List.range 4096).all fun v => mulVecK tK v != v ||
-    (List.range 4096).any fun x => (mulVecK tK x ^^^ x) == v
-
-theorem exists_of_imgCheck {tK : ℕ} (h : imgCheck tK = true) {v : Vec12}
-    (hv : toMatK tK *ᵥ v = v) : ∃ x : Vec12, toMatK tK *ᵥ x + x = v := by
-  simp only [imgCheck, List.all_eq_true, List.mem_range, Bool.or_eq_true, bne_iff_ne, ne_eq,
-    List.any_eq_true, beq_iff_eq] at h
-  have hfix : mulVecK tK (vecBits v) = vecBits v := by
-    apply toVec_injOn (mulVecK_lt _ _) (vecBits_lt _)
-    rw [toVec_mulVecK, toVec_vecBits, hv]
-  rcases h _ (vecBits_lt v) with h1 | ⟨x, -, hx⟩
-  · exact absurd hfix h1
-  · refine ⟨toVec 12 x, ?_⟩
-    rw [← toVec_mulVecK, ← toVec_xor, hx, toVec_vecBits]
 
 @[expose] def baseK (gs : Array (ℕ × ℕ)) : Array ℕ := gs.map (·.1)
 
@@ -430,50 +364,5 @@ theorem card_inf_centralizer_le_commCount {gs : Array (ℕ × ℕ)} {E : Enum}
     rw [← e'] at this
     exact Subtype.ext ((hfr x).unique this)
 
-@[expose] def secondCheck (E : Enum) (tK uK n : ℕ) : Bool :=
-  E.keys.all fun s => mulK s s != idK || s == idK ||
-    (decide (8 ≤ (kerBasis s).length) && fixLB s (kerBasis s)) || decide (commCount E s < n) ||
-    (E.keys.any fun y => mulK y tK == mulK s y) || (E.keys.any fun y => mulK y uK == mulK s y)
-
-theorem conj_of_secondCheck {gs : Array (ℕ × ℕ)} {E : Enum} {tK uK n : ℕ}
-    (hE : enumOK gs E = true) (h : secondCheck E tK uK n = true) {tb u : GL12} (ht : Rep tK tb)
-    (hu : Rep uK u) {s : GL12} (hs : s ∈ grpOf gs) (hs2 : s * s = 1) (hs1 : s ≠ 1)
-    (hfix : Nat.card (fixM (s : Mat12)) ≤ 2 ^ 7)
-    (hn : n ≤ Nat.card ↥(grpOf gs ⊓ Subgroup.centralizer ({s} : Set GL12))) :
-    ∃ y ∈ grpOf gs, s = y * tb * y⁻¹ ∨ s = y * u * y⁻¹ := by
-  obtain ⟨i, hi, hr⟩ := Enum.exists_key hE hs
-  simp only [secondCheck, Array.all_eq_true, Bool.or_eq_true, bne_iff_ne, ne_eq, beq_iff_eq,
-    Bool.and_eq_true, decide_eq_true_eq, Array.any_eq_true] at h
-  have hconj : ∀ {vK : ℕ} {v : GL12}, Rep vK v → ∀ j, j < E.keys.size →
-      mulK (E.keys.getD j 0) vK = mulK (E.keys.getD i 0) (E.keys.getD j 0) →
-        ∃ y ∈ grpOf gs, s = y * v * y⁻¹ := by
-    intro vK v hv j hj h1
-    obtain ⟨y, hy, hry⟩ := Enum.exists_mem hE j hj
-    refine ⟨y, hy, ?_⟩
-    have e : y * v = s * y := by
-      have h3 := hry.mul hv
-      rw [h1] at h3
-      exact h3.unique (hr.mul hry)
-    calc s = s * y * y⁻¹ := by group
-      _ = y * v * y⁻¹ := by rw [← e]
-  rcases h i hi with ((((h1 | h1) | ⟨h1, h2⟩) | h1) | ⟨j, hj, h1⟩) | ⟨j, hj, h1⟩
-  · rw [← getD_mem hi] at h1
-    exact absurd ((hr.mul hr).key_unique (by rw [hs2]; exact rep_one) (mulK_lt _ _) idK_lt) h1
-  · rw [← getD_mem hi] at h1
-    rw [h1] at hr
-    exact absurd (hr.unique rep_one) hs1
-  · rw [← getD_mem hi] at h1 h2
-    rw [← fixM_of_rep hr] at hfix
-    have := (Nat.pow_le_pow_right (by norm_num) h1).trans (fixLB_sound h2)
-    omega
-  · rw [← getD_mem hi] at h1
-    have := card_inf_centralizer_le_commCount hE hr
-    omega
-  · rw [← getD_mem hi, ← getD_mem hj] at h1
-    obtain ⟨y, hy, e⟩ := hconj ht j hj h1
-    exact ⟨y, hy, Or.inl e⟩
-  · rw [← getD_mem hi, ← getD_mem hj] at h1
-    obtain ⟨y, hy, e⟩ := hconj hu j hj h1
-    exact ⟨y, hy, Or.inr e⟩
 
 end CFSG.EvenSmallLie.OmegaEight.Stage2

@@ -36,9 +36,6 @@ theorem prep_hA
   rw [hGen_val hi]
   exact prep_onMgens i _
 
-theorem hGens_map_val :
-    hGens.map (fun h => (h : Equiv.Perm (Fin N))) =
-    [(hGen 0 : Equiv.Perm (Fin N)), hGen 1, hGen 2] := rfl
 
 theorem prep_posArr_h
     {w : List ℕ} (hw : ∀ l ∈ w, 1 ≤ l ∧ l ≤ 3) :
@@ -61,22 +58,6 @@ theorem prep_posArr_h
   rw [e1, e2]
   exact prep_hA hl3
 
-theorem posPt_eq {gs : Array (Array ℕ)} {G : List (Equiv.Perm (Fin N))}
-    (hG : ∀ l, 1 ≤ l → l ≤ G.length → PRep N (gs.getD (l - 1) #[]) (G.getD (l - 1) 1) ∧
-      (gs.getD (l - 1) #[]).size = N) :
-    ∀ w : List ℕ, (∀ l ∈ w, 1 ≤ l ∧ l ≤ G.length) → ∀ p : Fin N,
-      posPt gs w p = (evalPos G w p : ℕ)
-  | [], _, p => by simp [posPt, evalPos]
-  | l :: w, hw, p => by
-    obtain ⟨h1, h2⟩ := hw l List.mem_cons_self
-    have ih := posPt_eq hG w (fun i hi => hw i (List.mem_cons_of_mem _ hi)) p
-    have hpw : posPt gs (l :: w) p = (gs.getD (l - 1) #[])[posPt gs w p]?.getD (posPt gs w p) :=
-      rfl
-    rw [hpw, ih, evalPos_cons, Equiv.Perm.mul_apply]
-    obtain ⟨hp, hs⟩ := hG l h1 h2
-    rw [getElem?_pos _ _ (by rw [hs]; exact (evalPos G w p).2), Option.getD_some,
-      ← getElem!_pos _ _ (by rw [hs]; exact (evalPos G w p).2)]
-    exact hp _
 
 theorem cand_facts :
     peq nPts (posArr nPts (wordArrs Data.MWords) liftData.qWord) qArr = true ∧

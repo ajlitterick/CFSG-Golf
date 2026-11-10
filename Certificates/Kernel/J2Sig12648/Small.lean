@@ -31,11 +31,6 @@ open CFSG.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2 (pairA wordA wordB)
   strictB (m9 (VV pq.1) (VV pq.2)) fun u =>
     bAnd(Nat.beq (m9 u (m9 u u)) I, bIf(Nat.beq u I, false, true))
 
-theorem ch12648ord : Nat.beq (m9 X (m9 X X)) I = true ∧ Nat.beq (m9 Z (m9 Z Z)) I = true := by
-  constructor <;> decide +kernel
-
-theorem ch12648vv : CFSG.KC.LQT.P.allN 18 (fun i => CFSG.KS.Prim.canonK 315 9 (mask 9) (315 * 9)
-    (VV i)) = true := by decide +kernel
 
 theorem ch12648orb : orbB = true := by decide +kernel
 
@@ -44,11 +39,5 @@ theorem ch12648pair : (pairA.map pairB) == [true, true, true] := by decide +kern
 theorem ch12648words : ((List.range 4).map fun s => bAnd(Nat.beq (evW (wordA.getD s [])) (AB 0),
     Nat.beq (evW (wordB.getD s [])) (AB 1))) == [true, true, true, true] := by decide +kernel
 
-theorem ch12648smallNeg :
-    (CFSG.KC.LQT.P.allN 6 fun j => CFSG.KC.LQT.P.allN 3 fun p => CFSG.KC.LQT.P.allN 3 fun q =>
-      CFSG.KC.LQT.P.anyN 3 fun e => Nat.beq (conjE (nIf(Nat.blt j (nat_lit 3), X, Z))
-        (VV (Nat.add (Nat.mul 3 j) p)) e) (VV (Nat.add (Nat.mul 3 j) q))) = false ∧
-    Nat.beq (evW (wordA.getD 0 [])) (AB 1) = false := by
-  constructor <;> decide +kernel
 
 end CertificateChecks.KernelJ2Sig

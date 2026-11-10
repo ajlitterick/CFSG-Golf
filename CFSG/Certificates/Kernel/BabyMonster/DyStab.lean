@@ -59,7 +59,6 @@ theorem rowsNe_sound {C : List (List Nat)} {X : Nat} : ∀ {n : Nat}, rowsNe C X
   List.rec (motive := fun _ => Bool) true
     (fun C _ ih => andB (stagesOK (dropN (nat_lit 6) C) dyDs) ih) Cs
 
-theorem stagesOK_neg : stagesOK [2 ^ 32 - 1] [16] = false := by decide +kernel
 
 theorem fld_aligned {M : Nat} {c : Nat} (h : Nat.mul (Nat.land M (rep (nat_lit 1) (nat_lit 16) c))
     (nat_lit 65535) = M) (f : Nat) : fld M f = 0 ∨ fld M f = 65535 := by

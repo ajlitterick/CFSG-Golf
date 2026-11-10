@@ -26,8 +26,6 @@ instance liftedSubgroup_normal (φ : H →* Γ) (T : Subgroup H) (L : Subgroup �
     liftedSubgroup φ T L →* L :=
   (φ.domRestrict (liftedSubgroup φ T L)).codRestrict L (fun x => x.property.2)
 
-theorem restrictedMap_coe (φ : H →* Γ) (T : Subgroup H) (L : Subgroup Γ)
-    (x : liftedSubgroup φ T L) : (restrictedMap φ T L x : Γ) = φ (x : H) := rfl
 
 theorem restrictedMap_surjective (φ : H →* Γ) (T : Subgroup H) (L : Subgroup Γ)
     (hLT : L ≤ T.map φ) : Function.Surjective (restrictedMap φ T L) := by
@@ -279,10 +277,6 @@ theorem restrictedMap_no_section [Finite Γ]
   QuotientGroup.quotientKerEquivOfSurjective (restrictedMap φ T L)
     (restrictedMap_surjective φ T L hLT)
 
-theorem liftedQuotientEquiv_mk (φ : H →* Γ) (T : Subgroup H) (L : Subgroup Γ)
-    (hLT : L ≤ T.map φ) (m : liftedSubgroup φ T L) :
-    liftedQuotientEquiv φ T L hLT ((QuotientGroup.mk' (restrictedMap φ T L).ker) m) =
-      restrictedMap φ T L m := rfl
 
 structure UniqueInvolutionLiftData (φ : H →* Γ) (T : Subgroup H) (L : Subgroup Γ)
     (c : H) : Prop where

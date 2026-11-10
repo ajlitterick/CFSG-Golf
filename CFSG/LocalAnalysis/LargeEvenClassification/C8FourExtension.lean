@@ -269,31 +269,5 @@ theorem c8_four_coordinate_four_generators {S : Type*} [Group S] [Finite S]
   exact c8_four_coordinate_four_generators_of_action_witnesses hpgroup A hcommutative
     hselfCentralizing hnoEight coordinates U hbound hthree hfour
 
-theorem rank_two_c8_four_four_generators {S : Type*} [Group S] [Finite S]
-    (hpgroup : IsPGroup 2 S) (A : Subgroup S) [A.Normal]
-    (hcommutative : IsMulCommutative A)
-    (hselfCentralizing : Subgroup.centralizer (A : Set S) = A)
-    (hnoEight : ∀ E : Subgroup S, E.Normal → CFSG.Open.IsElemAbelian 2 E → Nat.card E ≠ 8)
-    (coordinates : A ≃* Multiplicative (ZMod 8) × Multiplicative (ZMod 4))
-    (U : Subgroup S) :
-    ∃ X : Finset U, Subgroup.closure (X : Set U) = ⊤ ∧ X.card ≤ 4 := by
-  let : CommGroup A := { (inferInstance : Group A) with
-    mul_comm := @mul_comm' _ _ hcommutative }
-  exact c8_four_coordinate_four_generators hpgroup A hcommutative hselfCentralizing hnoEight
-    (rankTwoAddCoordinates (upper := 3) (lower := 2) coordinates) U
-
-theorem rank_two_c8_four_ambient_four_generators {S : Type*} [Group S] [Finite S]
-    (hpgroup : IsPGroup 2 S) (A : Subgroup S) [A.Normal]
-    (hcommutative : IsMulCommutative A)
-    (hselfCentralizing : Subgroup.centralizer (A : Set S) = A)
-    (hnoEight : ∀ E : Subgroup S, E.Normal → CFSG.Open.IsElemAbelian 2 E → Nat.card E ≠ 8)
-    (coordinates : A ≃* Multiplicative (ZMod 8) × Multiplicative (ZMod 4))
-    (U : Subgroup S) : ∃ X : Finset S, X.card ≤ 4 ∧ Subgroup.closure (X : Set S) = U := by
-  classical
-  obtain ⟨X, hX, hcard⟩ := rank_two_c8_four_four_generators hpgroup A hcommutative
-    hselfCentralizing hnoEight coordinates U
-  refine ⟨X.image U.subtype, Finset.card_image_le.trans hcard, ?_⟩
-  rw [Finset.coe_image, ← MonoidHom.map_closure, hX, Subgroup.map_top]
-  exact U.range_subtype
 
 end CFSG.LargeEvenClassification.Helpers

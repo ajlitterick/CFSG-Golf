@@ -62,19 +62,5 @@ open CFSG.Blueprint
   ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
     Sec21Pair G A E U c L → IsList218 L → ¬ IsIrreducibleOn (wStar A)
 
-@[expose] def Item2112Unique : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
-    Sec21Pair G A E U c L → IsList218 L → ∀ d ∈ A, d ≠ 1 → IsCentral218 L d →
-      ∀ Y : Subgroup G, Y ≤ Subgroup.closure ({c, d} : Set G) → Nat.card Y = 3 →
-        (Subgroup.normalizer (Subgroup.closure ({c, d} : Set G) : Set G) ⊓
-            Subgroup.normalizer ((Subgroup.zpowers d : Subgroup G) : Set G) ≤
-            Subgroup.normalizer (Y : Set G) ↔
-          Y = Subgroup.zpowers c ∨ Y = Subgroup.zpowers d)
-
-@[expose] def Item2112ND : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A E U : Subgroup G) (c : G) (L : Subgroup G),
-    Sec21Pair G A E U c L → IsList218 L → ∀ d ∈ A, d ≠ 1 → IsCentral218 L d →
-      Subgroup.normalizer (Subgroup.closure ({c, d} : Set G) : Set G) ≤
-        Subgroup.normalizer ((Subgroup.zpowers c : Subgroup G) : Set G)
 
 end CFSG.RankThree.PartTwo.Sec21

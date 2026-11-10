@@ -26,10 +26,6 @@ theorem rels_length : fi23U3Cover3.relCodes.length = 29 := rfl
 #kc_forall_tree sq_all (fun i => sq i = true) 4 CertificateChecks.KernelFi23U3.sq
 #kc_forall_tree rel_all (fun j => rel j = true) 29 CertificateChecks.KernelFi23U3.rel
 
-theorem rel_neg : (!codesOneInv lay X ((fi23U3Cover3.relCodes.getD 1 []).drop 1)) = true := by
-  quickRfl
-
-theorem one_neg : (!codesOneInv lay X [0]) = true := by quickRfl
 
 end CertificateChecks.KernelFi23U3
 

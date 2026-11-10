@@ -26,10 +26,5 @@ theorem exists_elemAbelian_subgroup_card_pow {p k m : ℕ} (hp : p.Prime) [Finit
   refine ⟨K.map E.subtype, hle, isElemAbelian_of_le hE hle, ?_⟩
   rw [Subgroup.card_map_of_injective Subtype.val_injective, hK]
 
-theorem le_pRank_of_elemAbelian_card_pow {p k m : ℕ} (hp : p.Prime) [Finite G] {H E : Subgroup G}
-    (hEH : E ≤ H) (hE : IsElemAbelian p E) (hcard : Nat.card E = p ^ k) (hm : m ≤ k) :
-    m ≤ pRank p H := by
-  obtain ⟨Q, hQE, hQ, hQcard⟩ := exists_elemAbelian_subgroup_card_pow hp hE hm hcard
-  exact le_pRank_of_elemAbelian_card hp.two_le (hQE.trans hEH) hQ hQcard
 
 end CFSG.HardMathSupport.Timmesfeld.Proving

@@ -460,6 +460,5 @@ theorem enlarge_block [FiniteDimensional (ZMod 2) V]
 
 end LinearBlock
 
-variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V]
 
 end CFSG.LocalAnalysis.SteinbergBX

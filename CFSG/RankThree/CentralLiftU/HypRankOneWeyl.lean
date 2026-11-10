@@ -22,8 +22,6 @@ section Signs
 theorem lineSign_ne_zero (j x : Fin r) : lineSign (K := K) j x ≠ 0 := by
   unfold lineSign; split_ifs <;> simp
 
-theorem lineSign_mul_self (j x : Fin r) : lineSign (K := K) j x * lineSign j x = 1 := by
-  unfold lineSign; split_ifs <;> simp
 
 @[expose] def wSignU (j : Fin r) : HypIndex r ε → K
   | .inl x => lineSign j x

@@ -65,10 +65,6 @@ theorem oddCore_map {G H : Type} [Group G] [Group H] (Φ : G ≃* H) (z : G) :
   QuotientGroup.congr _ _ (centralizerEquiv Φ z)
     (CFSG.pPrimeCore_map_iso 2 (centralizerEquiv Φ z))
 
-theorem barEquiv_mk {G H : Type} [Group G] [Group H] (Φ : G ≃* H) (z : G)
-    (x : ↥(Subgroup.centralizer ({z} : Set G))) :
-    barEquiv Φ z (toBar z x) = toBar (Φ z) (centralizerEquiv Φ z x) :=
-  rfl
 
 theorem subgroupOf_cen_map {G H : Type} [Group G] [Group H] (Φ : G ≃* H) (z : G) (X : Subgroup G) :
     (X.subgroupOf (Cen z)).map (centralizerEquiv Φ z).toMonoidHom =

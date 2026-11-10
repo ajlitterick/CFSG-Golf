@@ -36,12 +36,6 @@ open CFSG.Assembly TableB
         (∀ a' ∈ A, ((∀ j ∈ LargeEvenLayer (ggFix a), a' j = j) ↔ a' ∈ Subgroup.zpowers a)) →
         GGStdSubTwoTorusConcl p A a
 
-theorem ggStdSubTwoTorusNorm_of_twoTorus {p r : ℕ} {R : Type} [Group R] {I : Set (MulAut R)}
-    (h : GGStdSubTwoTorus p r R I) : GGStdSubTwoTorusNorm p r R I ∧ GGStdSubTwoTorusDelta p r R I :=
-  ⟨fun L' _ _ ψ hψ hker hL A hA hAI hr h3 _ a ha ha1 hc hcA =>
-      h L' ψ hψ hker hL A hA hAI hr h3 a ha ha1 hc hcA,
-    fun L' _ _ ψ hψ hker hL A hA hAI hr h3 _ a ha ha1 hc hcA =>
-      h L' ψ hψ hker hL A hA hAI hr h3 a ha ha1 hc hcA⟩
 
 theorem ggStdSubTwoTorusDelta_of_prime {p r : ℕ} {R : Type} [Group R] {I : Set (MulAut R)}
     (hO : GGOutdiagPrime p R I) (hZ : GGCenterPrime p R) : GGStdSubTwoTorusDelta p r R I :=
@@ -178,17 +172,5 @@ theorem ggStdSubInputs_of_twoTorusNorm (ha₀ : GGLNoncyclicInput) {p : ℕ} {B 
 
 end Config
 
-theorem ggStdSubSmallInputOn_of_labels_norm (ha₀ : GGLNoncyclicInput)
-    {S : ℕ → LargeEvenLabel → Prop}
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab → S p lab →
-      LargeEvenSplit p lab → LargeEvenLabelAll lab fun R _ I _ => GGOutdiagOdd p R I ∧
-        ∃ r, GGTorusLift p r R ∧ GGStdSubTwoTorusNorm p r R I ∧ GGStdSubTwoTorusDelta p r R I) :
-    GGStdSubSmallInputOn S := by
-  intro G _ _ p B Bs x L D J hcfg hM _
-  have hp : p.Prime := hcfg.1.2.2.2.2.2.1.1
-  have hM' := largeEvenMarking_and_labelAll (S := fun lab => S p lab ∧ LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs.1 hs.2) (fun _ _ _ _ _ _ hP => ⟨hP.1, hP.2.1⟩) hM
-  exact ggStdSubInputs_of_twoTorusNorm ha₀ hcfg
-    (largeEvenMarking_mono (fun _ _ _ _ _ _ hP => ⟨⟨hP.1.2.2.1, hP.1.2.2.2⟩, hP.2⟩) hM')
 
 end CFSG.StandardType

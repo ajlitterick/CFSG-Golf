@@ -43,7 +43,6 @@ variable [Finite G] {S A₁ A₂ H : Subgroup G}
 
 @[expose] noncomputable def Hyp.sylowG (h : Hyp S A₁ A₂ H) : Sylow 2 G := h.pgroup.toSylow h.odd_index
 
-theorem Hyp.coe_sylowG (h : Hyp S A₁ A₂ H) : (h.sylowG : Subgroup G) = S := rfl
 
 omit [Finite G] in
 theorem isPGroup_conjugate {X : Subgroup G} (hX : IsPGroup 2 X) (g : G) :
@@ -73,9 +72,6 @@ theorem Hyp.fixedOnly (h : Hyp S A₁ A₂ H) {X : Subgroup G} (hX : X ≤ A₁ 
     rw [e]
     exact H.mul_mem hgc hcH
 
-theorem Hyp.normalizer_le_H (h : Hyp S A₁ A₂ H) {X : Subgroup G} (hX : X ≤ A₁ ∨ X ≤ A₂)
-    (h4 : 4 ≤ Nat.card X) : Subgroup.normalizer (X : Set G) ≤ H :=
-  (fixedOnly_iff.1 (h.fixedOnly hX h4)).2.1
 
 end Unique
 

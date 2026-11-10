@@ -25,10 +25,6 @@ variable {G : Type*} [Group G]
           M = ((M ⊓ Subgroup.centralizer (C₁ : Set G)) ⊔
             (M ⊓ Subgroup.normalizer (C₂ : Set G))) ⊔ ⨆ i, L i
 
-theorem gNCampbellC128Solv_of_gNCampbellC128 (h : GNCampbellC128) : GNCampbellC128Solv := by
-  intro G _ _ T hs hq hsyl hT0
-  obtain ⟨C₁, C₂, h1, h2, h3, h4, h5, h6, h7⟩ := h G T hs hq hsyl hT0
-  exact ⟨C₁, C₂, h1, h2, h3, h4, h5, h6, fun M hM _ => h7 M hM⟩
 
 section Reduction
 

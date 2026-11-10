@@ -895,12 +895,5 @@ theorem isTypeC_types (hK : PiField π p f K) (hq : ModThree π (p ^ f))
     rw [e1, e2]
   exact ⟨by rw [h1iff, hdist, hc1, hc2], fun hn1 => htypes.2 hst1 fun hd => hn1 (h1iff.mpr hd)⟩
 
-theorem isTypeC_diagonal (hK : PiField π p f K) (hq : ModThree π (p ^ f))
-    {A : Subgroup (GL (Fin 3) K)} (hA : IsTypeC π (p ^ f) K A) :
-    ∃ g ∈ glPi π 3 (p ^ f) K, ∀ a ∈ A, ∃ d₀ d₁ d₂ : Kˣ, g⁻¹ * a * g = diagUnits d₀ d₁ d₂ := by
-  obtain ⟨g, hgH, hdiag, -⟩ := isTypeC_conj_std hK hq hA
-  refine ⟨g, hgH, fun a ha => ?_⟩
-  obtain ⟨l, s, t, -, -, hl⟩ := hdiag a ha
-  exact ⟨l, l * s, l * t, by rw [hl, scalar_mul_diagUnits_eq]; rfl⟩
 
 end CFSG.RankThree.PartTwo.Sec4

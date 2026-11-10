@@ -12,17 +12,6 @@ open scoped commutatorElement
 
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V] {Q : QuadraticForm K V}
 
-theorem orthogonal_fixed_norm_normal_form [FiniteDimensional K V]
-    (hQ : (polarBilin Q).Nondegenerate) {P₁ P₂ : HypPair Q} (h : P₁.Orth P₂) {x : V}
-    (hx : x ≠ 0) : ∃ g ∈ orthElementaryGroup Q, g x = Q x • P₁.e + P₁.f := by
-  have hy : Q x • P₁.e + P₁.f ≠ 0 := fun h0 => by
-    have h1 := congrArg (polar Q P₁.e) h0
-    rw [polar_add_right, polar_smul_right_eq, P₁.polar_ee, P₁.polar_ef, polar_zero_right] at h1
-    simp at h1
-  have hQy : Q x = Q (Q x • P₁.e + P₁.f) := by
-    rw [QuadraticMap.map_add Q, map_smul_eq_sq, P₁.Q_e, P₁.Q_f, polar_smul_left_eq, P₁.polar_ef]
-    ring
-  exact exists_mem_elementaryGroup_apply_eq hQ h hx hy hQy
 
 theorem exists_orth_hypPairs_of_plane [FiniteDimensional K V] (hQ : (polarBilin Q).Nondegenerate)
     (hT : ∃ T : Submodule K V, finrank K T = 2 ∧ ∀ x ∈ T, Q x = 0) :
@@ -169,76 +158,5 @@ theorem orthogonal_elementary_perfect [FiniteDimensional K V] (hQ : (polarBilin 
 
 end Perfect
 
-theorem orthogonal_elementary_hyperbolic_pair_straightening [FiniteDimensional K V]
-    (hQ : (polarBilin Q).Nondegenerate)
-    (hT : ∃ T : Submodule K V, finrank K T = 2 ∧ ∀ x ∈ T, Q x = 0) {e f : V} (he : Q e = 0)
-    (hef : polar Q e f = 1) {g : V ≃ₗ[K] V}
-    (hg : g ∈ TauCeti.QuadraticMap.orthogonalGroup Q) :
-    ∃ a ∈ orthElementaryGroup Q, (a * g) e = e ∧ (a * g) f = f := by
-  have he0 : e ≠ 0 := fun h0 => by rw [h0, polar_zero_left] at hef; exact zero_ne_one hef
-  have hge0 : g e ≠ 0 := fun h0 => he0 (g.injective (by rw [h0, map_zero]))
-  obtain ⟨b, hb, hbe⟩ := (orthogonal_norm_shell_transitive hQ hT).1 (g e) e hge0 he0
-    (by rw [map_of_mem hg])
-  have hbO := elementaryGroup_le_orthogonalGroup Q hb
-  set f' := b (g f) with hf'
-  have hQf' : Q f' = Q f := by rw [hf', map_of_mem hbO, map_of_mem hg]
-  have hef' : polar Q e f' = 1 := by
-    rw [hf', ← hbe, polar_map_of_mem hbO, polar_map_of_mem hg, hef]
-  obtain ⟨hw, hmap⟩ := orthogonal_elementary_fiber_transitive Q he hQf' hef' hef one_ne_zero
-  refine ⟨eichler Q e ((1 : K)⁻¹ • (f - f')) * b,
-    mul_mem (eichler_mem_elementaryGroup Q _ _) hb, ?_, ?_⟩
-  · rw [LinearEquiv.mul_apply, LinearEquiv.mul_apply, hbe, eichler_apply_self]
-  · rw [LinearEquiv.mul_apply, LinearEquiv.mul_apply, ← hf', eichler_apply he hw]
-    exact hmap
-
-theorem orthogonal_reflections_commute_mod_elementary [FiniteDimensional K V]
-    (hQ : (polarBilin Q).Nondegenerate)
-    (hT : ∃ T : Submodule K V, finrank K T = 2 ∧ ∀ x ∈ T, Q x = 0) (u : V) {v : V}
-    (hv : Q v ≠ 0) :
-    ⁅reflect Q u, reflect Q v⁆ ∈ orthElementaryGroup Q ∧
-      letI : ((orthElementaryGroup Q).subgroupOf
-          (TauCeti.QuadraticMap.orthogonalGroup Q)).Normal :=
-        (orthogonal_elementary_normality Q).2
-      ((⟨reflect Q u, reflect_mem_orthogonalGroup Q u⟩ : TauCeti.QuadraticMap.orthogonalGroup Q) :
-          TauCeti.QuadraticMap.orthogonalGroup Q ⧸
-            (orthElementaryGroup Q).subgroupOf (TauCeti.QuadraticMap.orthogonalGroup Q)) *
-        ((⟨reflect Q v, reflect_mem_orthogonalGroup Q v⟩ :
-          TauCeti.QuadraticMap.orthogonalGroup Q) :
-          TauCeti.QuadraticMap.orthogonalGroup Q ⧸
-            (orthElementaryGroup Q).subgroupOf (TauCeti.QuadraticMap.orthogonalGroup Q)) =
-        ((⟨reflect Q v, reflect_mem_orthogonalGroup Q v⟩ :
-          TauCeti.QuadraticMap.orthogonalGroup Q) :
-          TauCeti.QuadraticMap.orthogonalGroup Q ⧸
-            (orthElementaryGroup Q).subgroupOf (TauCeti.QuadraticMap.orthogonalGroup Q)) *
-        ((⟨reflect Q u, reflect_mem_orthogonalGroup Q u⟩ :
-          TauCeti.QuadraticMap.orthogonalGroup Q) :
-          TauCeti.QuadraticMap.orthogonalGroup Q ⧸
-            (orthElementaryGroup Q).subgroupOf (TauCeti.QuadraticMap.orthogonalGroup Q)) := by
-  have hsuO := reflect_mem_orthogonalGroup Q u
-  have hv0 : v ≠ 0 := fun h0 => hv (by rw [h0, map_zero])
-  have hsv0 : reflect Q u v ≠ 0 := fun h0 => hv0 ((reflect Q u).injective (by rw [h0, map_zero]))
-  obtain ⟨e, he, hev⟩ := (orthogonal_norm_shell_transitive hQ hT).1 v (reflect Q u v) hv0 hsv0
-    (by rw [map_of_mem hsuO])
-  have heO := elementaryGroup_le_orthogonalGroup Q he
-  have h1 : reflect Q u * reflect Q v * (reflect Q u)⁻¹ = e * reflect Q v * e⁻¹ := by
-    rw [reflect_conj hsuO, ← hev, reflect_conj heO]
-  have hmem : ⁅reflect Q u, reflect Q v⁆ ∈ orthElementaryGroup Q := by
-    have hc : ⁅reflect Q u, reflect Q v⁆ = e * (reflect Q v * e⁻¹ * (reflect Q v)⁻¹) := by
-      rw [commutatorElement_def, h1]
-      group
-    rw [hc]
-    refine mul_mem he ?_
-    have hN := (orthogonal_elementary_normality Q).2
-    exact hN.conj_mem ⟨e⁻¹, inv_mem heO⟩ (inv_mem he)
-      ⟨reflect Q v, reflect_mem_orthogonalGroup Q v⟩
-  refine ⟨hmem, ?_⟩
-  rw [← QuotientGroup.mk_mul, ← QuotientGroup.mk_mul, QuotientGroup.eq]
-  change (reflect Q u * reflect Q v)⁻¹ * (reflect Q v * reflect Q u) ∈ orthElementaryGroup Q
-  have hc : (reflect Q u * reflect Q v)⁻¹ * (reflect Q v * reflect Q u) =
-      ⁅(reflect Q v)⁻¹, (reflect Q u)⁻¹⁆ := by
-    rw [commutatorElement_def]
-    group
-  rw [hc, reflect_inv, reflect_inv, ← commutatorElement_inv]
-  exact inv_mem hmem
 
 end CFSG.LocalAnalysis.ComponentInitial

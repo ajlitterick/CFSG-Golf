@@ -43,6 +43,5 @@ theorem five_le_of_mulEquiv_alternatingGroup {Y : Type*} [Group Y] [IsSimpleGrou
     · rw [h, Subgroup.card_top, nat_card_alternatingGroup, h4] at hcard
       exact absurd hcard (by decide)
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.ComponentClassification.UnbalancedCorr

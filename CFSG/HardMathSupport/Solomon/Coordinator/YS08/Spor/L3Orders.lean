@@ -160,7 +160,5 @@ theorem noL3Eq_of_check {N B : ℕ} (hB : 12 * N < (B + 4) ^ 8) (h : L3Check N B
   rw [hr] at h3
   exact of_decide_eq_true h3 heq
 
-theorem noL3Eq_175560 : NoL3Eq 175560 := noL3Eq_of_check (B := 40) (by norm_num) (by decide +kernel)
-theorem noL3Eq_7920 : NoL3Eq 7920 := noL3Eq_of_check (B := 40) (by norm_num) (by decide +kernel)
 
 end CFSG.HardMathSupport.Solomon.Coordinator.YS08

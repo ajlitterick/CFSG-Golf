@@ -17,38 +17,6 @@ open CFSG.ComponentClassification.UnbalancedCatalog.EvenCatalog
 
 attribute [local instance] CFSG.Sporadic.Fi24.rAction
 
-theorem fi24_table_fix_iff
-    {T : Table} {r : R} (hT : Rep 306936 T r) (k : Fin 306936) :
-    ap T k.val = k.val ↔ r * cls k * r⁻¹ = cls k := by
-  rw [hT k.val k.isLt, idx_of_lt r k.isLt, ← Fi24.cls_smul_R]
-  constructor
-  · intro h
-    congr 1
-    exact Fin.ext h
-  · intro h
-    exact congrArg Fin.val (Fi24.cls_injective h)
-
-theorem card_fixed_D24
-    (l : List (Table × R)) (hl : ∀ p ∈ l, Rep 306936 p.1 p.2) :
-    Nat.card {x : D24 // ∀ p ∈ l, p.2 * x * p.2⁻¹ = x} =
-      (List.range 306936).countP fun i => l.all fun p => ap p.1 i == i := by
-  classical
-  have e1 : {k : Fin 306936 // ∀ p ∈ l, ap p.1 k.val = k.val} ≃
-      {x : D24 // ∀ p ∈ l, p.2 * x * p.2⁻¹ = x} :=
-    Equiv.subtypeEquiv Fi24.clsEquiv fun k => by
-      simp only [Fi24.clsEquiv_apply]
-      exact forall₂_congr fun p hp => fi24_table_fix_iff (hl p hp) k
-  have e2 : {k : Fin 306936 // ∀ p ∈ l, ap p.1 k.val = k.val} ≃
-      ((Finset.range 306936).filter fun i => ∀ p ∈ l, ap p.1 i = i) :=
-    { toFun := fun k => ⟨k.1.1, Finset.mem_filter.2 ⟨Finset.mem_range.2 k.1.2, k.2⟩⟩
-      invFun := fun i => ⟨⟨i.1, Finset.mem_range.1 (Finset.mem_filter.1 i.2).1⟩,
-        (Finset.mem_filter.1 i.2).2⟩
-      left_inv := fun _ => rfl
-      right_inv := fun _ => rfl }
-  rw [← Nat.card_congr e1, Nat.card_congr e2, Nat.card_eq_finsetCard,
-    ← Nat.count_eq_card_filter_range]
-  unfold Nat.count
-  exact List.countP_congr fun i _ => by simp [List.all_eq_true]
 
 @[expose] def fi23ToR :
     CFSG.Sporadic.Fi23.J →* R :=
@@ -83,62 +51,6 @@ theorem fi23ToR_b :
     fi23ToR CFSG.Sporadic.Fi23.b = jR (Fi24.mGen1 : J) := by
   rw [fi23ToR_apply, ← Fi24.fi23EquivM_mGen1, MulEquiv.symm_apply_apply]
 
-abbrev fi24M0T : Table :=
-  wordT Fi24.Native.nPts (Fi24.Native.letterJ Fi24.letters) Fi24.Native.localWords[0]!
-
-abbrev fi24M1T : Table :=
-  wordT Fi24.Native.nPts (Fi24.Native.letterJ Fi24.letters) Fi24.Native.localWords[1]!
-
-theorem rep_fi24M0T :
-    Rep 306936 fi24M0T (fi23ToR CFSG.Sporadic.Fi23.a) := by
-  rw [fi23ToR_a]
-  exact Fi24.rep_jR (Rep.wordT (n := 306936) (by norm_num) _ fun z hz =>
-    Fi24.rep_letterJ (Fi24.localWords_letters (by norm_num) z hz).2)
-
-theorem rep_fi24M1T :
-    Rep 306936 fi24M1T (fi23ToR CFSG.Sporadic.Fi23.b) := by
-  rw [fi23ToR_b]
-  exact Fi24.rep_jR (Rep.wordT (n := 306936) (by norm_num) _ fun z hz =>
-    Fi24.rep_letterJ (Fi24.localWords_letters (by norm_num) z hz).2)
-
-theorem rep_fi24GenT
-    {A Ai B Bi : Table}
-    (hA : Rep 306936 A (fi23ToR CFSG.Sporadic.Fi23.a))
-    (hAi : Rep 306936 Ai (fi23ToR CFSG.Sporadic.Fi23.a)⁻¹)
-    (hB : Rep 306936 B (fi23ToR CFSG.Sporadic.Fi23.b))
-    (hBi : Rep 306936 Bi (fi23ToR CFSG.Sporadic.Fi23.b)⁻¹) (z : ℤ) :
-    Rep 306936 (fi24GenT A Ai B Bi z) (fi23ToR (CFSG.Sporadic.Fi23.genG z)) := by
-  unfold fi24GenT CFSG.Sporadic.Fi23.genG
-  by_cases h1 : z = 1
-  · rw [ite_eq_left h1, ite_eq_left h1]
-    exact hA
-  by_cases h2 : z = -1
-  · rw [ite_eq_right h1, ite_eq_left h2, ite_eq_right h1, ite_eq_left h2, map_inv]
-    exact hAi
-  by_cases h3 : z = 2
-  · rw [ite_eq_right h1, ite_eq_right h2, ite_eq_left h3, ite_eq_right h1, ite_eq_right h2,
-      ite_eq_left h3]
-    exact hB
-  · rw [ite_eq_right h1, ite_eq_right h2, ite_eq_right h3, ite_eq_right h1, ite_eq_right h2,
-      ite_eq_right h3, map_inv]
-    exact hBi
-
-theorem rep_fi24WordT
-    {A Ai B Bi : Table}
-    (hA : Rep 306936 A (fi23ToR CFSG.Sporadic.Fi23.a))
-    (hAi : Rep 306936 Ai (fi23ToR CFSG.Sporadic.Fi23.a)⁻¹)
-    (hB : Rep 306936 B (fi23ToR CFSG.Sporadic.Fi23.b))
-    (hBi : Rep 306936 Bi (fi23ToR CFSG.Sporadic.Fi23.b)⁻¹) (w : List ℤ) :
-    Rep 306936 (wordT Fi24.Native.nPts (fi24GenT A Ai B Bi) w)
-      (fi23ToR (wordG CFSG.Sporadic.Fi23.genG w)) := by
-  have h := Rep.wordT (n := 306936) (G := R) (by norm_num)
-    (gensG := fi23ToR ∘ CFSG.Sporadic.Fi23.genG)
-    w fun z _ => rep_fi24GenT hA hAi hB hBi z
-  have e : wordG (fi23ToR ∘ CFSG.Sporadic.Fi23.genG) w =
-      fi23ToR (wordG CFSG.Sporadic.Fi23.genG w) := by
-    unfold wordG
-    rw [map_list_prod, List.map_map]
-  rwa [e] at h
 
 theorem oddCore_eq_bot_of_normal_le {G : Type*} [Group G] [Finite G] {K L : Subgroup G}
     (hKL : K ≤ L) (hK : (K.subgroupOf L).Normal) (hL : CFSG.oddCore ↥L = ⊥) :

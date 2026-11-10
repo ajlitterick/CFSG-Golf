@@ -34,10 +34,6 @@ end Tangent
 @[expose] def g2ArtifactRoot (b : Fin 12) : Fin Tag.G2.rank → ℤ :=
   decodeVec (Tag.G2.witnesses.roots.getD b 0)
 
-theorem g2ArtifactRoot_eq : g2ArtifactRoot = ![![-2, -3], ![-1, -3], ![-1, -2], ![-1, -1],
-    ![-1, 0], ![0, -1], ![0, 1], ![1, 0], ![1, 1], ![1, 2], ![1, 3], ![2, 3]] := by
-  funext b j
-  fin_cases b <;> fin_cases j <;> rfl
 
 theorem g2Witnesses_length : Tag.G2.witnesses.roots.length = 12 :=
   rfl
@@ -71,31 +67,6 @@ theorem g2FixedBasis_bijective
   obtain ⟨l, rfl⟩ := hsurj p hp
   exact ⟨l, rfl⟩
 
-theorem weight_g2FixedBasis
-    (l : Fin 14) :
-    (g2FixedBasis l).weight = if g2FixedPos l < Tag.G2.rank then 0
-      else height (Tag.G2.rootCertificate.root (g2FixedPos l - Tag.G2.rank)) := by
-  unfold g2FixedBasis posLabel
-  by_cases h : g2FixedPos l < Tag.G2.rank
-  · rw [dif_pos h, if_pos h]
-    rfl
-  · rw [dif_neg h, if_neg h]
-    rfl
-
-theorem g2FixedBasis_precedes
-    (l : Fin 13) :
-    (g2FixedBasis l.castSucc).Precedes (g2FixedBasis l.succ) := by
-  fin_cases l
-  all_goals try exact Or.inl (by rw [weight_g2FixedBasis, weight_g2FixedBasis]; decide)
-  · refine Or.inr ⟨by rw [weight_g2FixedBasis, weight_g2FixedBasis]; decide, ?_⟩
-    show Pi.Lex (· < ·) (· < ·) (Tag.G2.rootCertificate.root 1) (Tag.G2.rootCertificate.root 0)
-    exact ⟨⟨0, by decide⟩, fun j hj => absurd (Fin.lt_def.1 hj) (Nat.not_lt_zero _), by decide⟩
-  · refine Or.inr ⟨by rw [weight_g2FixedBasis, weight_g2FixedBasis]; decide, ?_⟩
-    show (⟨0, by decide⟩ : Fin Tag.G2.rank) < ⟨1, by decide⟩
-    decide
-  · refine Or.inr ⟨by rw [weight_g2FixedBasis, weight_g2FixedBasis]; decide, ?_⟩
-    show Pi.Lex (· < ·) (· < ·) (Tag.G2.rootCertificate.root 2) (Tag.G2.rootCertificate.root 5)
-    exact ⟨⟨0, by decide⟩, fun j hj => absurd (Fin.lt_def.1 hj) (Nat.not_lt_zero _), by decide⟩
 
 variable (R : Type) [CommRing R]
 
@@ -347,38 +318,5 @@ variable (F : Type) [CommRing F]
 
 end Dual
 
-theorem exceptional_Lang_G2_tangent_rank_arithmetic
-    (k : Type) [Field k] (hk : ringChar k = 3) :
-    (∀ i j : Fin Tag.G2.rank, tangentH Tag.G2 k i (hVec Tag.G2 k j) = 0) ∧
-    (∀ (i : Fin Tag.G2.rank) (α : Fin Tag.G2.rank → ℤ), IsRoot Tag.G2 α →
-      tangentH Tag.G2 k i (rootVec Tag.G2 k α) =
-        ((∑ j, Tag.G2.cartan i j * α j : ℤ) : k) • rootVec Tag.G2 k α) ∧
-    LinearIndependent k (Sum.elim (fun α : {α // IsRoot Tag.G2 α} => pinnedE Tag.G2 k α.1)
-      (tangentH Tag.G2 k)) ∧
-    g2ArtifactRoot = ![![-2, -3], ![-1, -3], ![-1, -2], ![-1, -1], ![-1, 0], ![0, -1], ![0, 1],
-      ![1, 0], ![1, 1], ![1, 2], ![1, 3], ![2, 3]] ∧
-    Function.Bijective g2FixedBasis ∧
-    (∀ l : Fin 13, (g2FixedBasis l.castSucc).Precedes (g2FixedBasis l.succ)) ∧
-    (∀ l : Fin 14, g2MinorPos l = (![(6, 0), (5, 0), (3, 0), (2, 0), (1, 0), (2, 1), (2, 3),
-      (0, 1), (2, 4), (2, 7), (0, 5), (0, 6), (0, 0), (2, 2)] : Fin 14 → Fin 14 × Fin 14) l) ∧
-    (g2TangentMinor (ZMod 3)).det = 2 ∧
-    (∀ α : Fin Tag.G2.rank → ℤ,
-      (pinnedX Tag.G2 (DualNumber k) α DualNumber.eps :
-          Module.End (DualNumber k) (RootModule Tag.G2 (DualNumber k))) =
-        (1 : Module.End (DualNumber k) (RootModule Tag.G2 (DualNumber k))) +
-          (DualNumber.eps : DualNumber k) • pinnedE Tag.G2 (DualNumber k) α) ∧
-    ∀ i : Fin Tag.G2.rank,
-      (torusElt Tag.G2 (DualNumber k) i (dualOneAddEps k) :
-          Module.End (DualNumber k) (RootModule Tag.G2 (DualNumber k))) =
-        (1 : Module.End (DualNumber k) (RootModule Tag.G2 (DualNumber k))) +
-          (DualNumber.eps : DualNumber k) • tangentH Tag.G2 (DualNumber k) i := by
-  have : CharP k 3 := ringChar.of_eq hk
-  refine ⟨tangentH_hVec, fun i α hα => tangentH_rootVec i hα,
-    linearIndependent_pinnedE_tangentH k, g2ArtifactRoot_eq, g2FixedBasis_bijective,
-    g2FixedBasis_precedes, fun l => rfl, ?_,
-    fun α => pinnedX_of_mul_self_eq_zero α DualNumber.eps_mul_eps,
-    fun i => torusElt_of_eq_one_add i rfl DualNumber.eps_mul_eps⟩
-  rw [det_g2TangentMinor]
-  decide
 
 end CFSG.LieType.Chevalley

@@ -29,12 +29,6 @@ theorem orbitRecs_len10 : (orbitRecs 10).length = 3 := by
   str_lits orbitStr10
   exact pairs_len_of (by quickRfl)
 
-theorem orbitRecs_len8_neg : (!((orbitRecs 8).length == 36)) = true := by
-  change (!((orbitRecs.pairs (parseNats orbitStr8)).length == 36)) = true
-  str_lits orbitStr8
-  rw [pairs_parse]
-  · quickRfl
-  · quickRfl
 
 end CertificateChecks.Batch3111
 

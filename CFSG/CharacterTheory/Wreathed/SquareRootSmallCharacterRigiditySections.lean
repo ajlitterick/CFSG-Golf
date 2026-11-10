@@ -74,20 +74,6 @@ theorem mem_squareRootSection_iff_primary_conjugate {y : G} {a : ℕ}
     rw [map_mul]
     exact congrArg (fun z => z * v) hc
 
-theorem squareRootSection_primary_characterization [Finite G] {y g : G} {a : ℕ}
-    (hy : orderOf y = 2 ^ a) :
-    g ∈ squareRootSection y ↔
-      ∃ u w : G, ∃ e : ℕ, Commute u w ∧ u * w = g ∧
-        orderOf u ∣ 2 ^ e ∧ Odd (orderOf w) ∧ ∃ h : ℤ, Odd h ∧ IsConj u (y ^ h) := by
-  constructor
-  · intro hg
-    obtain ⟨u, w, e, -, -, huw, hproduct, hu, hw⟩ :=
-      finite_prime_primary_factorization g 2 Nat.prime_two
-    have hwodd := Nat.coprime_two_left.mp hw
-    exact ⟨u, w, e, huw, hproduct, hu, hwodd,
-      (mem_squareRootSection_iff_primary_conjugate hy huw hproduct hu hwodd).mp hg⟩
-  · rintro ⟨u, w, e, huw, hproduct, hu, hw, hh⟩
-    exact (mem_squareRootSection_iff_primary_conjugate hy huw hproduct hu hw).mpr hh
 
 theorem not_isConj_odd_power_of_not_mem_section {y g : G} {a : ℕ}
     (hy : orderOf y = 2 ^ a) (hg : g ∉ squareRootSection y)

@@ -16,9 +16,6 @@ variable {F : Type} [Field F]
     Subgroup (SpecialLinearGroup (Fin 2) F) :=
   W ⊓ (SpecialLinearGroup.map τ.toRingHom).eqLocus (MonoidHom.id _)
 
-theorem mem_fixedW {W : Subgroup (SpecialLinearGroup (Fin 2) F)} {τ : F ≃+* F}
-    {g : SpecialLinearGroup (Fin 2) F} : g ∈ fixedW W τ ↔ g ∈ W ∧ fieldSL F τ g = g :=
-  Iff.rfl
 
 theorem card_fixedW (W : Subgroup (SpecialLinearGroup (Fin 2) F)) (τ : F ≃+* F) :
     Nat.card (fixedW W τ) =

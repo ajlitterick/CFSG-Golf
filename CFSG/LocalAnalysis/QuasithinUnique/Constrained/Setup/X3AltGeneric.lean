@@ -60,25 +60,6 @@ theorem hasTwoGen_of_odd_index [Finite G] {D X Y R : Subgroup G} (hXD : X < D) (
     exact (Subgroup.map_lt_map_iff_of_injective hinj).mpr hYD
   · rw [← Subgroup.map_sup, hgen, hD]
 
-theorem exists_two_maximal [Finite G] {D X Y R : Subgroup G} (hRX : R ≤ X) (hRY : R ≤ Y)
-    (hXD : X < D) (hYD : Y < D) (hgen : X ⊔ Y = D) :
-    ∃ M₁ M₂ : Subgroup G, R ≤ M₁ ∧ R ≤ M₂ ∧ M₁ < D ∧ M₂ < D ∧ M₁ ≠ M₂ ∧
-      (∀ Z : Subgroup G, M₁ ≤ Z → Z < D → Z = M₁) ∧ (∀ Z : Subgroup G, M₂ ≤ Z → Z < D → Z = M₂) := by
-  classical
-  have hmax : ∀ W : Subgroup G, W < D → ∃ M : Subgroup G, W ≤ M ∧ M < D ∧
-      ∀ Z : Subgroup G, M ≤ Z → Z < D → Z = M := by
-    intro W hW
-    have hfin : {Z : Subgroup G | W ≤ Z ∧ Z < D}.Finite := Set.toFinite _
-    obtain ⟨M, ⟨hWM, hMD⟩, hMmax⟩ := Set.Finite.exists_maximalFor id _ hfin ⟨W, le_rfl, hW⟩
-    exact ⟨M, hWM, hMD, fun Z hMZ hZD => le_antisymm (hMmax ⟨hWM.trans hMZ, hZD⟩ hMZ) hMZ⟩
-  obtain ⟨M₁, hXM₁, hM₁D, hM₁⟩ := hmax X hXD
-  obtain ⟨M₂, hYM₂, hM₂D, hM₂⟩ := hmax Y hYD
-  refine ⟨M₁, M₂, hRX.trans hXM₁, hRY.trans hYM₂, hM₁D, hM₂D, ?_, hM₁, hM₂⟩
-  intro heq
-  have : D ≤ M₁ := by
-    rw [← hgen]
-    exact sup_le hXM₁ (heq ▸ hYM₂)
-  exact absurd hM₁D (not_lt_of_ge this)
 
 end Generic
 

@@ -18,11 +18,6 @@ theorem card_mulAut_dvd (T : Type*) [Group T] :
   rw [Subgroup.card_eq_card_quotient_mul_card_subgroup (inner T)]
   exact mul_dvd_mul_left _ (Subgroup.card_range_dvd _)
 
-theorem eq_bot_of_isPGroup_of_not_dvd {G : Type*} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    (hp : ¬ p ∣ Nat.card G) {P : Subgroup G} (hP : IsPGroup p P) : P = ⊥ := by
-  rcases hP.card_eq_or_dvd with h | h
-  · exact Subgroup.card_eq_one.1 h
-  · exact absurd (h.trans (Subgroup.card_subgroup_dvd_card P)) hp
 
 theorem small_Ree_small_rank_core {X : Type*} [Group X] [Finite X] {T : Type} [Group T]
     (Y : Subgroup X) (ℓ f : ℕ) (h : ReeTitsModel T .twistedG2 ℓ f)
@@ -85,39 +80,5 @@ theorem small_Ree_actual_central_cover_small_rank_no_five_automorphism {J : Type
   rw [← hα]
   exact orderOf_dvd_natCard α
 
-theorem small_Ree_actual_central_cover_small_rank_no_seven_automorphism_plane {X : Type*}
-    [Group X] [Finite X] {T : Type} [Group T] (Y : Subgroup X) (ℓ f : ℕ)
-    (h : ReeTitsModel T .twistedG2 ℓ f) (hX : CFSG.twoLocalOddRank X ≤ 3) (φ : Y →* T)
-    (hφ : Function.Surjective φ) (hker : φ.ker ≤ Subgroup.center Y) :
-    ℓ = 3 ∧ f = 3 ∧ ¬ 49 ∣ Nat.card (MulAut T) ∧
-      (∀ P : Subgroup (MulAut T), IsPGroup 7 P → IsCyclic P ∧ Nat.card P ≤ 7) ∧
-      ∀ E : Subgroup (MulAut T), CFSG.IsElementaryAbelian 7 E → Nat.card E ≠ 49 := by
-  obtain ⟨hfin, -⟩ := small_Ree_model_Schreier T ℓ f h
-  obtain ⟨hℓ, hf, k, hk⟩ := small_Ree_small_rank_core Y ℓ f h hX φ hφ hker
-  have h49 : ¬ 49 ∣ Nat.card (MulAut T) := fun h49 => by
-    have h1 := h49.trans hk
-    have hcop : Nat.Coprime 49 (3 ^ k) :=
-      Nat.Coprime.pow_right _ (by norm_num : Nat.Coprime 49 3)
-    have h2 := hcop.dvd_of_dvd_mul_left h1
-    norm_num at h2
-  have : Finite (MulAut T) := inferInstance
-  have hP : ∀ P : Subgroup (MulAut T), IsPGroup 7 P → IsCyclic P ∧ Nat.card P ≤ 7 := by
-    intro P hP
-    have : Fact (Nat.Prime 7) := ⟨by norm_num⟩
-    obtain ⟨m, hm⟩ := (IsPGroup.iff_card).1 hP
-    have hm1 : m ≤ 1 := by
-      by_contra hm2
-      apply h49
-      have : 7 ^ 2 ∣ Nat.card P := hm ▸ pow_dvd_pow 7 (by omega)
-      exact this.trans (Subgroup.card_subgroup_dvd_card P)
-    rcases (by omega : m = 0 ∨ m = 1) with rfl | rfl
-    · rw [pow_zero] at hm
-      have : Subsingleton P := (Nat.card_eq_one_iff_unique.1 hm).1
-      exact ⟨isCyclic_of_subsingleton, by omega⟩
-    · rw [pow_one] at hm
-      exact ⟨isCyclic_of_prime_card hm, by omega⟩
-  refine ⟨hℓ, hf, h49, hP, fun E _ hE => h49 ?_⟩
-  rw [← hE]
-  exact Subgroup.card_subgroup_dvd_card E
 
 end CFSG.RankThree.ReeTitsAut

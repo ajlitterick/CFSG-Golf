@@ -16,13 +16,6 @@ def normal_complement_semidirect_equiv
       (Subgroup.inclusion (Q.normalizer_eq_top ▸ le_top))] H ≃* F :=
   SemidirectProduct.mulEquivSubgroup hcompl
 
-theorem normal_complement_semidirect_equiv_apply
-    {F : Type u} [Group F] (Q H : Subgroup F) [Q.Normal]
-    (hcompl : Q.IsComplement' H)
-    (x : Q ⋊[(Q.normalizerMonoidHom).comp
-      (Subgroup.inclusion (Q.normalizer_eq_top ▸ le_top))] H) :
-    normal_complement_semidirect_equiv Q H hcompl x = (x.left : F) * x.right :=
-  SemidirectProduct.mulEquivSubgroup_apply hcompl x
 
 theorem regular_elementary_degree
     {F : Type u} [Group F] [Finite F]
@@ -44,14 +37,5 @@ theorem regular_elementary_degree
     omega
   exact ⟨n, hnpos, hcard, hcard.trans hn⟩
 
-theorem regular_elementary_degree_is_prime_power
-    {F : Type u} [Group F] [Finite F]
-    {Λ : Type v} [MulAction F Λ] [Finite Λ]
-    (ℓ : ℕ) (hℓ : ℓ.Prime) (Q : Subgroup F) [IsElementaryAbelian ℓ Q]
-    (hregular : ∀ x y : Λ, ∃! q : Q, q • x = y)
-    (a : Λ) (hdegree : 2 ≤ Nat.card Λ) :
-    IsPrimePow (Nat.card Λ) := by
-  obtain ⟨n, hn, _, hcard⟩ := regular_elementary_degree ℓ hℓ Q hregular a hdegree
-  exact (isPrimePow_nat_iff _).mpr ⟨ℓ, n, hℓ, hn, hcard.symm⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionAffineRankOne

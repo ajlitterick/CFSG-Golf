@@ -18,15 +18,6 @@ variable {G : Type} [Group G]
 
 abbrev cStar (K : Subgroup G) : Type := ↥K ⧸ (pCoreOf 2 K).subgroupOf K
 
-@[expose] def IsSLnSection (n : ℕ) (K X Y : Subgroup G) : Prop :=
-  K ≤ Subgroup.normalizer (X : Set G) ∧
-    ∃ (π : K →* Matrix.SpecialLinearGroup (Fin n) (ZMod 2))
-      (β : X →* Multiplicative (Fin n → ZMod 2)),
-      Function.Surjective π ∧ π.ker = (pCoreOf 2 K).subgroupOf K ∧
-      Function.Surjective β ∧ β.ker = Y.subgroupOf X ∧
-      ∀ (k : K) (x x' : X), (x' : G) = k * x * (k : G)⁻¹ →
-        β x' = Multiplicative.ofAdd (((π k : Matrix.SpecialLinearGroup (Fin n) (ZMod 2)) :
-          Matrix (Fin n) (Fin n) (ZMod 2)).mulVec (Multiplicative.toAdd (β x)))
 
 @[expose] def IsS7NaturalSection (H X Y : Subgroup G) : Prop :=
   H ≤ Subgroup.normalizer (X : Set G) ∧

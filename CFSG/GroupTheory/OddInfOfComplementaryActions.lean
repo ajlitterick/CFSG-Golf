@@ -110,29 +110,6 @@ private theorem proj₂_one (hEF : ∀ q ∈ Q, ∃ e ∈ E, ∃ f ∈ F, q = e 
     (by simp : (1 : G) = 1 * 1)
   exact h.symm
 
-private theorem proj₁_mul (hQcomm : ∀ x ∈ Q, ∀ y ∈ Q, x * y = y * x)
-    (hEF : ∀ q ∈ Q, ∃ e ∈ E, ∃ f ∈ F, q = e * f) (hbot : E ⊓ F = ⊥)
-    (hEQ : E ≤ Q) (hFQ : F ≤ Q)
-    {q q' : G} (hq : q ∈ Q) (hq' : q' ∈ Q) :
-    proj₁ hEF (q * q') = proj₁ hEF q * proj₁ hEF q' := by
-  classical
-  have h₁ : proj₁ hEF q ∈ E := proj₁_mem hEF hq
-  have h₁' : proj₁ hEF q' ∈ E := proj₁_mem hEF hq'
-  have h₂ : proj₂ hEF q ∈ F := proj₂_mem hEF hq
-  have h₂' : proj₂ hEF q' ∈ F := proj₂_mem hEF hq'
-  have hcomm : proj₂ hEF q * proj₁ hEF q' = proj₁ hEF q' * proj₂ hEF q :=
-    hQcomm _ (hFQ h₂) _ (hEQ h₁')
-  have hdec : q * q' = (proj₁ hEF q * proj₁ hEF q') *
-      (proj₂ hEF q * proj₂ hEF q') := by
-    calc q * q' = (proj₁ hEF q * proj₂ hEF q) *
-          (proj₁ hEF q' * proj₂ hEF q') := by
-            rw [proj₁_mul_proj₂ hEF hq, proj₁_mul_proj₂ hEF hq']
-      _ = proj₁ hEF q * (proj₂ hEF q * proj₁ hEF q') * proj₂ hEF q' := by group
-      _ = proj₁ hEF q * (proj₁ hEF q' * proj₂ hEF q) * proj₂ hEF q' := by rw [hcomm]
-      _ = (proj₁ hEF q * proj₁ hEF q') *
-          (proj₂ hEF q * proj₂ hEF q') := by group
-  exact (proj₁_eq_of_decomp hEF hbot (Q.mul_mem hq hq')
-    (E.mul_mem h₁ h₁') (F.mul_mem h₂ h₂') hdec).symm
 
 private theorem proj₂_mul (hQcomm : ∀ x ∈ Q, ∀ y ∈ Q, x * y = y * x)
     (hEF : ∀ q ∈ Q, ∃ e ∈ E, ∃ f ∈ F, q = e * f) (hbot : E ⊓ F = ⊥)

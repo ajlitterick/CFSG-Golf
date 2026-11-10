@@ -217,7 +217,6 @@ theorem Tj_size_1 :
 theorem Tj_size_2 :
     (Tj 2).pts.size = 486 := actionChecks_parts.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem lvl_one_eq : lettersGroup lv1 (pairG gs) = lvl 1 := rfl
 
 @[expose] def InTree (T : Tree) (p : ℕ) : Prop :=
   ap T.pos p < T.pts.size ∧ ap T.pts (ap T.pos p) = p

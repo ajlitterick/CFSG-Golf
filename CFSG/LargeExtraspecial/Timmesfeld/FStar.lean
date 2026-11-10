@@ -30,49 +30,19 @@ variable {G : Type} [Group G]
 
 @[expose] def L0 (z a : G) : Subgroup G := Qa a ⊓ M z
 
-structure Section3.Context (G : Type) [Group G] [Finite G] (z : G) (n : ℕ) : Prop where
-  simple : IsSimpleGroup G
-  nonab : ∃ a b : G, a * b ≠ b * a
-  involution : z ≠ 1 ∧ z ^ 2 = 1
-  extraspecial : IsExtraspecial2 (fStar (M z))
-  width : HasWidth (fStar (M z)) n
-
-@[expose] def IsSpecial (z a : G) : Prop :=
-  (∃ g : G, a = g * z * g⁻¹) ∧ a ∈ fStar (M z) ∧ a ∉ Subgroup.zpowers z
-
-@[expose] def IsA2Involution (z t : G) : Prop :=
-  t ∈ M z ∧
-  (∃ x ∈ fStar (M z), ⁅x, t⁆ ∉ Subgroup.zpowers z) ∧
-  (∀ x ∈ fStar (M z), ⁅x, t ^ 2⁆ ∈ Subgroup.zpowers z) ∧
-  Nat.card (Subgroup.closure {y : G | ∃ x ∈ fStar (M z), y = ⁅x, t⁆} ⊔ Subgroup.zpowers z :
-    Subgroup G) = 2 ^ 3 ∧
-  (∀ x ∈ fStar (M z), ⁅x, t * x * t⁻¹⁆ = 1)
 
 namespace Section4
 
-structure Context (G : Type) [Group G] [Finite G] (z a : G) (n : ℕ) : Prop where
-  section3 : Section3.Context G z n
-  special : IsSpecial z a
-  centralizer_eq : ∀ x ∈ fStar (M z),
-    (∀ l ∈ L z a, ⁅x, l⁆ ∈ Subgroup.zpowers z) ↔ x ∈ Subgroup.zpowers z ⊔ Subgroup.zpowers a
-  width_gt : 2 < n
 
 end Section4
 
 namespace Section5
 
-structure Context (G : Type) [Group G] [Finite G] (z a : G) (n : ℕ) : Prop where
-  section4 : Section4.Context G z a n
-  no_a2 : ∀ t ∈ L z a, t ∉ fStar (M z) → ¬ IsA2Involution z t
 
 end Section5
 
 namespace Section12
 
-structure Context (G : Type) [Group G] [Finite G] (z a : G) (n : ℕ) : Prop where
-  section3 : Section3.Context G z n
-  special : IsSpecial z a
-  exists_a2 : ∃ t ∈ L z a, t ∉ fStar (M z) ∧ IsA2Involution z t
 
 end Section12
 

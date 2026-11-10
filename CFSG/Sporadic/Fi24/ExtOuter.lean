@@ -86,16 +86,5 @@ theorem conjJ_injective :
     have haM : a ∈ M := (commute_tR_iff a).1 h
     exact p1_ne_root haM
 
-theorem conjJ_tR_ne
-    (g : J) : conjJ tR ≠ MulAut.conj g := by
-  intro h
-  rw [← conjJ_jR] at h
-  apply tR_not_mem_JR
-  rw [conjJ_injective h]
-  exact jR_mem_JR g
-
-theorem conjJ_tR_mul_self :
-    conjJ tR * conjJ tR = 1 := by
-  rw [← map_mul, tR_mul_tR, map_one]
 
 end CFSG.Sporadic.Fi24

@@ -54,18 +54,6 @@ theorem suzZ_zero :
     suzZ 0 = 0 :=
   Fin.ext ((rep_zArr 0).symm.trans zChecks_facts.2.2.1)
 
-theorem fix_suzZ :
-    {x : Fin 22880 | suzZ x = x} = insert 0 suzDeltaΩ := by
-  ext x
-  simp only [Set.mem_ofPred_eq, Set.mem_insert_iff]
-  constructor
-  · intro h
-    by_cases hx : x = 0
-    · exact Or.inl hx
-    · exact Or.inr ⟨h, hx⟩
-  · rintro (rfl | h)
-    · exact suzZ_zero
-    · exact h.1
 
 theorem mem_suzDeltaΩ_iff
     (x : Fin 22880) : x ∈ suzDeltaΩ ↔ (x : ℕ) ∈ localDomain := by
@@ -93,19 +81,6 @@ theorem localDomain_points : PointsList 22880 280 localDomain where
     rw [← zChecks_facts.2.2.2.2, deltaOf]
     exact List.nodup_range.filter _
 
-theorem ncard_suzDeltaΩ :
-    suzDeltaΩ.ncard = 280 := by
-  have e : suzDeltaΩ = Set.range localDomain_points.pt := by
-    ext x
-    rw [mem_suzDeltaΩ_iff]
-    constructor
-    · intro hx
-      obtain ⟨i, hi⟩ := localDomain_points.exists_pt hx
-      exact ⟨i, hi⟩
-    · rintro ⟨i, rfl⟩
-      exact localDomain_points.pt_mem i
-  rw [e, Set.ncard_range_of_injective localDomain_points.pt_injective, Nat.card_eq_fintype_card,
-    Fintype.card_fin]
 
 theorem suzS_mem_suzP
     {j : ℕ} (hj : j < 10) : suzS j ∈ suzP := by

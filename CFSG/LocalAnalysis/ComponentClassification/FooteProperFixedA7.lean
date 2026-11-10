@@ -9,8 +9,6 @@ namespace CFSG.ComponentClassification.FooteLit
 open CFSG Subgroup Equiv
 open CFSG.ComponentClassification.AutL2Facts
 
-abbrev fixedSubgroup {X : Type*} [Group X] (a : MulAut X) : Subgroup X :=
-  CFSG.ComponentClassification.FixedCommutingProduct.fixedSubgroup a
 
 abbrev innAut (X : Type*) [Group X] : Subgroup (MulAut X) :=
   (MulAut.conj : X →* MulAut X).range

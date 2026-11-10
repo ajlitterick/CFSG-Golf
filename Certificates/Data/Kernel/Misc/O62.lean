@@ -23,10 +23,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P CFSG.KC.Misc
     (Nat.shiftLeft c₃ (nat_lit 18)))) (Nat.lor (Nat.shiftLeft c₄ (nat_lit 24))
     (Nat.shiftLeft c₅ (nat_lit 30)))
 
-@[expose] noncomputable def mulCols (a₀ a₁ a₂ a₃ a₄ a₅ b : Nat) : Nat :=
-  packK (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 0))) (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 1)))
-    (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 2))) (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 3)))
-    (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 4))) (actK a₀ a₁ a₂ a₃ a₄ a₅ (colK b (nat_lit 5)))
 
 @[expose] noncomputable def tab3 (c₀ c₁ c₂ : Nat) : Nat :=
   letN (Nat.xor c₀ c₁) fun c₀₁ =>

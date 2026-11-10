@@ -191,13 +191,6 @@ section Series
 
 variable {Y K : Subgroup G} {x : G} {n : ℕ} {F : Type} [Field F] {α₀ : ↥K →* ↥(StatedSL n F)}
 
-theorem isLabSeries_nil {C D : Subgroup G} :
-    IsLabSeries Y K x α₀ C ([] : List (Subgroup G × Option F)) D ↔ C = D := Iff.rfl
-
-theorem isLabSeries_cons {C D : Subgroup G} {p : Subgroup G × Option F}
-    {l : List (Subgroup G × Option F)} :
-    IsLabSeries Y K x α₀ C (p :: l) D ↔
-      IsLabFactor Y K x α₀ C p.1 p.2 ∧ IsLabSeries Y K x α₀ p.1 l D := Iff.rfl
 
 theorem isLabSeries_singleton {C S : Subgroup G} {e : Option F}
     (h : IsLabFactor Y K x α₀ C S e) : IsLabSeries Y K x α₀ C [(S, e)] S :=

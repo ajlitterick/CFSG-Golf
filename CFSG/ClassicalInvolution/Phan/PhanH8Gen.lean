@@ -78,8 +78,6 @@ theorem quad_pA : quadOdd 3 F pA = 0 := by
 theorem quad_pB : quadOdd 3 F pB = 0 := by
   rw [pB, quad_mk7]; ring
 
-theorem quad_vOne : quadOdd 3 F vOne = 0 := by
-  rw [vOne, quad_mk7]; ring
 
 theorem polar_vOne_pA : polar (quadOdd 3 F) vOne pA = 0 := by
   rw [vOne, pA, polar_mk7]; ring

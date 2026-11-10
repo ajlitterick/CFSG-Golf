@@ -191,42 +191,6 @@ theorem exists_generator {G : Type*} [Group G] {D : Subgroup G} (hD : IsCyclic D
   · rw [Subgroup.orderOf_coe]
     exact orderOf_eq_card_of_forall_mem_zpowers hg
 
-theorem le_innDiagSub_of_cyclic (h : IsStd e W) (h2 : (2 : F) ≠ 0) {D : Subgroup (MulAut K)}
-    (hD : D ≤ MulAction.stabilizer (MulAut K) W) (hcyc : IsCyclic D)
-    (hDcard : Nat.card D = Nat.card F - 1) : D ≤ innDiagSub e := by
-  obtain ⟨α, hαD, hDα, hord⟩ := exists_generator hcyc
-  have hαstab := hD hαD
-  obtain ⟨a, b, σ, hα⟩ := exists_bor_decomp h hαstab
-  by_cases hσ : σ = 1
-  · have : α ∈ innDiagSub e := by
-      rw [hα, hσ, map_one, mul_one]
-      exact ⟨_, rfl⟩
-    rw [hDα]
-    exact (Subgroup.zpowers_le).2 this
-  · exfalso
-    obtain ⟨m, hm0, hmlt, hmid⟩ := exists_iterate_eq_id σ hσ a.ne_zero
-    have htriv : ∀ t, (α ^ m) (wt e t) = wt e t := fun t => by
-      rw [hα, pow_action_wt, hmid]
-    have hstab : α ^ m ∈ MulAction.stabilizer (MulAut K) W := pow_mem hαstab m
-    obtain ⟨b', hb'⟩ := trivial_action h h2 hstab htriv
-    have h1 : orderOf (α ^ m) ∣ Nat.card F := by
-      rw [hb']
-      exact (orderOf_map_dvd (MulAut.conj : K →* MulAut K) _).trans (orderOf_wt_dvd e h2 b')
-    have h3 : orderOf (α ^ m) ∣ Nat.card F - 1 := by
-      rw [← hDcard]
-      exact Subgroup.orderOf_dvd_natCard D (pow_mem hαD m)
-    have h4 : orderOf (α ^ m) ∣ Nat.gcd (Nat.card F) (Nat.card F - 1) := Nat.dvd_gcd h1 h3
-    have h5 : Nat.gcd (Nat.card F) (Nat.card F - 1) = 1 := by
-      obtain ⟨r, hr⟩ : ∃ r, Nat.card F = r + 1 := ⟨Nat.card F - 1, by
-        have := Nat.card_pos (α := F)
-        omega⟩
-      rw [hr]
-      simp
-    rw [h5] at h4
-    have h6 : α ^ m = 1 := orderOf_eq_one_iff.1 (Nat.dvd_one.1 h4)
-    have h7 := orderOf_dvd_of_pow_eq_one h6
-    rw [hord, hDcard] at h7
-    exact absurd (Nat.le_of_dvd hm0 h7) (by omega)
 
 end Std
 

@@ -25,7 +25,6 @@ namespace CFSG.KC.BM.Dy.Stab
 
 open CFSG.KC.BM CFSG.KC.BM.Dy CFSG.KC.BM.Dyadic CFSG.KC.BM.FixedLine
 
-theorem neNeg : (rowsNeB C0.rows (CFSG.KC.BM.Lat.recOf C0.rows 70) 1).not = true := by quickRfl
 
 theorem al0 : allAligned M0.b0 = true := by quickRfl
 theorem v0 : netV M0.b0 (nthN G0.b0 0) = true := by quickRfl

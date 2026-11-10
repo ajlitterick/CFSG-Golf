@@ -335,17 +335,6 @@ public theorem swap_t1_eq {G : Type u} [Group G] [Finite G]
     (swapFirstCaseBGData c d).bg.t1 = d.bg.t2 := by
   rfl
 
-/-- Swapping the two reflections swaps `t₁` and `t₂`. -/
-public theorem swap_t2_eq {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    (swapFirstCaseBGData c d).bg.t2 = d.bg.t1 := by
-  rfl
-
-/-- Swapping the two reflections swaps the inverted Hall subgroups. -/
-public theorem swap_I1_eq {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    (swapFirstCaseBGData c d).I1 = d.I2 := by
-  rfl
 
 /-- Swapping the two reflections swaps the inverted Hall subgroups. -/
 public theorem swap_I2_eq {G : Type u} [Group G] [Finite G]
@@ -353,25 +342,6 @@ public theorem swap_I2_eq {G : Type u} [Group G] [Finite G]
     (swapFirstCaseBGData c d).I2 = d.I1 := by
   rfl
 
-/-- Swapping the two reflections preserves the odd core `U`. -/
-public theorem swap_U_eq {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    (swapFirstCaseBGData c d).bg.U = d.bg.U := by
-  rfl
-
-/-- Swapping the two reflections preserves the common centralizer `B`. -/
-public theorem swap_B_eq {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    (swapFirstCaseBGData c d).bg.B = d.bg.B := by
-  unfold BenderGlauberman.Hyp11.B
-  unfold BenderGlauberman.Hyp11.B1 BenderGlauberman.Hyp11.B2
-  simp [swap_U_eq, swap_t1_eq, swap_t2_eq, inf_comm]
-
-/-- Swapping the two reflections preserves the Sylow `2`-subgroup `S`. -/
-public theorem swap_S_eq {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (d : FirstCaseBGData c) :
-    (swapFirstCaseBGData c d).bg.S = d.bg.S := by
-  rfl
 
 private theorem firstCase_S0_centralizes_primeCore_of_both_centralize
     {G : Type u} [Group G] [Finite G]

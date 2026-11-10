@@ -35,6 +35,5 @@ theorem exists_rootGrp_eq_map_sylow {Y : Type*} [Group Y] [Finite Y] {k : Type*}
   rw [← Sylow.coe_mapSurjective hρ S]
   exact exists_point_eq_rootGrp Nat.prime_two hk hsyl
 
-variable {G : Type*} [Group G]
 
 end CFSG.Quasithin.SteinbergBS

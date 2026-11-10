@@ -135,14 +135,6 @@ theorem projective_ne_one_of_innerDiagonalAction_ne_one
   apply hA
   rw [innerDiagonalAction_eq_pglAction, h, map_one]
 
-theorem not_scalar_of_innerDiagonalAction_ne_one
-    (n : ℕ) (K : Type u) [Field K]
-    (A : Matrix.GeneralLinearGroup (Fin n) K)
-    (hA : innerDiagonalAction n K A ≠ 1) :
-    ∀ c : Kˣ, Matrix.GeneralLinearGroup.scalar (Fin n) c ≠ A := by
-  intro c hc
-  apply hA
-  rw [← hc, innerDiagonalAction_scalar]
 
 end
 

@@ -13,7 +13,6 @@ def Full : Nat → BT → Prop
   | d + 1, .nd l r => Full d l ∧ Full d r
   | _, _ => False
 
-theorem getB_lf (v i : Nat) : getB (.lf v) i = v := rfl
 
 theorem getB_nd (l r : BT) (i : Nat) :
     getB (.nd l r) i = if i % 2 = 1 then getB r (i / 2) else getB l (i / 2) := by
@@ -26,7 +25,6 @@ theorem getB_nd (l r : BT) (i : Nat) :
   rw [h1, h2]
   rcases Nat.mod_two_eq_zero_or_one i with h | h <;> rw [h] <;> rfl
 
-theorem setB_lf (w i v : Nat) : setB (.lf w) i v = .lf v := rfl
 
 theorem setB_nd (l r : BT) (i v : Nat) :
     setB (.nd l r) i v = if i % 2 = 1 then .nd l (setB r (i / 2) v) else .nd (setB l (i / 2) v) r := by

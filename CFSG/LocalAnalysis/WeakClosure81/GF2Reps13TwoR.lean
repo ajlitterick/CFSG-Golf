@@ -124,8 +124,6 @@ private theorem w16g_fixV_stable_of_commute {X : Subgroup (MulAut W)} {c : MulAu
     _ = c (x u) := by rw [MulAut.mul_apply]
     _ = c u := by rw [hu x hx]
 
-private def w16g_Faith (G : Subgroup (MulAut W)) (U : Subgroup W) : Prop :=
-  ∀ y ∈ G, (∀ u ∈ U, y u = u) → y = 1
 
 private theorem w16g_mem_map_subtype {V₀ : Subgroup W} {U : Subgroup ↥V₀} {u : ↥V₀} :
     (u : W) ∈ U.map V₀.subtype ↔ u ∈ U :=
@@ -149,32 +147,6 @@ private theorem w16g_stableUnder_range {G : Subgroup (MulAut W)} {V₀ : Subgrou
     rw [← hσ xg u] at hmem
     exact w16g_mem_map_subtype.mp hmem
 
-private theorem w16g_faith_range {G : Subgroup (MulAut W)} {V₀ : Subgroup W}
-    (σ : G →* MulAut ↥V₀)
-    (hσ : ∀ (x : G) (u : ↥V₀), ((σ x) u : W) = (x : MulAut W) (u : W))
-    (hσinj : Function.Injective σ)
-    (U : Subgroup ↥V₀) :
-    w16g_Faith σ.range U ↔ w16g_Faith G (U.map V₀.subtype) := by
-  constructor
-  · intro h x hx hfix
-    have hσ1 : σ ⟨x, hx⟩ = 1 := by
-      refine h _ (MonoidHom.mem_range.mpr ⟨⟨x, hx⟩, rfl⟩) ?_
-      intro u hu
-      apply Subtype.ext
-      rw [hσ]
-      simpa using hfix (u : W) (Subgroup.mem_map.mpr ⟨u, hu, rfl⟩)
-    have hG : (⟨x, hx⟩ : G) = 1 := hσinj (by rw [hσ1, map_one])
-    exact congrArg Subtype.val hG
-  · intro h y hy hfix
-    obtain ⟨xg, rfl⟩ := MonoidHom.mem_range.mp hy
-    have hxg1 : (xg : MulAut W) = 1 := by
-      refine h xg xg.2 ?_
-      intro w hw
-      obtain ⟨u, hu, rfl⟩ := Subgroup.mem_map.mp hw
-      have := congrArg Subtype.val (hfix u hu)
-      rw [hσ] at this
-      exact this
-    rw [show xg = 1 from Subtype.ext hxg1, map_one]
 
 private theorem w16g_map_commSub_le {G : Subgroup (MulAut W)} {V₀ : Subgroup W}
     (σ : G →* MulAut ↥V₀)
@@ -342,23 +314,6 @@ private theorem w16g_map_commSub_subgroup {G : Subgroup (MulAut W)} {U : Subgrou
     · show (((σ g) ⟨w, hw⟩ * ⟨w, hw⟩⁻¹ : ↥U) : W) = p w * w⁻¹
       rw [Subgroup.coe_mul, Subgroup.coe_inv, hσ]
 
-private theorem w16g_stableUnder_sup {A : Subgroup (MulAut W)} {X Y : Subgroup W}
-    (hX : StableUnder A X) (hY : StableUnder A Y) : StableUnder A (X ⊔ Y) := by
-  intro φ hφ u hu
-  rw [Subgroup.sup_eq_closure] at hu ⊢
-  refine Subgroup.closure_induction
-    (p := fun z _ => φ z ∈ Subgroup.closure ((X : Set W) ∪ (Y : Set W))) ?_ ?_ ?_ ?_ hu
-  · rintro z (hz | hz)
-    · exact Subgroup.subset_closure (Or.inl (hX φ hφ z hz))
-    · exact Subgroup.subset_closure (Or.inr (hY φ hφ z hz))
-  · rw [map_one]
-    exact Subgroup.one_mem _
-  · intro x y _ _ hx hy
-    rw [map_mul]
-    exact mul_mem hx hy
-  · intro x _ hx
-    rw [map_inv]
-    exact inv_mem hx
 
 private theorem w16g_le_stabSub_of_stableUnder {A : Subgroup (MulAut W)} {M : Subgroup W}
     (hA : StableUnder A M) : A ≤ stabSub M := by

@@ -19,13 +19,6 @@ open Subgroup CFSG CFSG.Assembly CFSG.Blueprint CFSG.RankThree CFSG.RankThree.Lo
   CFSG.RankThree.GroupTheory
 open CFSG.Assembly.RankThreeEven (localRank)
 
-@[expose] def PlaneNoInnerPart : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (p : ℕ) (J A : Subgroup H) (c : H),
-    p.Prime → 5 ≤ p → localRank p H ≤ 3 → CFSG.IsQuasisimple ↥J →
-    Catalog (↥J ⧸ Subgroup.center ↥J) →
-    A ≤ Subgroup.normalizer (J : Set H) → IsElementaryAbelian p A → Nat.card A = p ^ 3 →
-    c ∈ A → c ≠ 1 → c ∈ Subgroup.centralizer (J : Set H) →
-    (∀ x ∈ A, x ∈ J ⊔ Subgroup.centralizer (J : Set H) → x ∈ Subgroup.zpowers c) → False
 
 @[expose] def PlaneNoInnerPartWith
     (P : ∀ (H : Type) [Group H] [Finite H], ℕ → Subgroup H → Prop) : Prop :=

@@ -29,9 +29,6 @@ theorem orbit45 (c : ℕ) (hc : c < 64) (h : (gm6.map fun B => B.app c).toFinset
   rw [gm6_eq] at h ⊢
   exact (orb_of_orbChk _ orbChk_ok).2 c hc h
 
-theorem orbitSize_gm6 (c : ℕ) :
-    Certificates.Data.S1277MLine.orbitSize gm6 c = (gm6.map fun B => B.app c).toFinset.card :=
-  orbitSize_eq_card gm6 c
 
 end CFSG.KP.S1277Gm
 

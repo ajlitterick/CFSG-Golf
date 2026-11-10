@@ -33,14 +33,6 @@ theorem piNum_prime_pow {p : ℕ} (hp : p.Prime) (n : ℕ) : PiNum p (p ^ n) := 
   intro q hq hdvd
   exact Or.inr ((Nat.prime_dvd_prime_iff_eq hq hp).mp (hq.dvd_of_dvd_pow hdvd))
 
-theorem piNum_card_of_isPGroup {p q : ℕ} {H : Type*} [Group H] [Finite H] (hq : q.Prime)
-    (hp : IsPGroup q H) (hpq : q = 2 ∨ q = p) : PiNum p (Nat.card H) := by
-  have : Fact q.Prime := ⟨hq⟩
-  obtain ⟨n, hn⟩ := IsPGroup.iff_card.mp hp
-  rw [hn]
-  rcases hpq with rfl | rfl
-  · exact piNum_two_pow _ _
-  · exact piNum_prime_pow hq _
 
 theorem exists_relIndex_eq_prime_pow [Finite G] {p : ℕ} [Fact p.Prime] {N H : Subgroup G}
     (hHN : H ≤ Subgroup.normalizer (N : Set G)) (hq : ∀ x ∈ H, ∃ k : ℕ, x ^ p ^ k ∈ N) :

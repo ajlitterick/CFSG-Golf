@@ -21,10 +21,6 @@ namespace F07
         ⁅⁅X, X⁆, X⁆ = ⊥ → 3 < CFSG.Open.pRank p (D.M ⊓ normalizer (X : Set G)) →
           rankThreeGamma 1 r X ≤ D.M
 
-theorem R77E4_of_R77 (D : Data G) (h : R77 D) : R77E4 D := by
-  intro _ p hp hp2 hsp r hr hr2 hrσ X hXM hXp hnc hexp hcl h3
-  exact h p (D.sig_prime p hp).1 hp2 hsp r hr hr2 hrσ X hXM hXp hnc hexp hcl (by omega)
-    (Or.inr (Or.inr (Or.inl h3)))
 
 end F07
 

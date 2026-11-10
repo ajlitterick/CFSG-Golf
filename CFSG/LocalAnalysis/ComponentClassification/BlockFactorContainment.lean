@@ -18,26 +18,6 @@ namespace CFSG.ComponentClassification.BlockFactorContainment
     ∀ factor ∈ UniversalOrbitBlock.block component,
       UniversalOrbitBlock.conjugate factor ((MulAut.conj actor) member) = factor
 
-theorem external_control_of_local_solvability {G : Type*} [Group G] [Finite G]
-    (component : Subgroup G) (heven : Even (Nat.card component))
-    (huniversal : UniversalComponentBlock.Universal component)
-    (hquasisimple : IsQuasisimple component)
-    (hcard : 3 ≤ Nat.card ↥(UniversalOrbitBlock.block component)) (hB : LocalB.LocalBProperty G)
-    (hcore : ∀ element : G, orderOf element = 2 →
-      Group.IsSolvable (componentClassificationOddCore (Subgroup.centralizer {element})))
-    (houter : ∀ element : G, orderOf element = 2 →
-      ∀ factor : Subgroup ((Subgroup.centralizer {element}) ⧸
-        componentClassificationOddCore (Subgroup.centralizer {element})),
-        IsComponentOf factor ⊤ → factor ≠ ⊤ →
-          Group.IsSolvable (OuterAutomorphisms.Outer (factor ⧸ Subgroup.center factor))) :
-    ExternalControl component := by
-  intro member hmember actor hactor himage
-  have horder : orderOf ((MulAut.conj actor) member) = 2 :=
-    (orderOf_injective (MulAut.conj actor).toMonoidHom (MulAut.conj actor).injective member).trans hmember.1
-  let : Group.IsSolvable (componentClassificationOddCore (Subgroup.centralizer {(MulAut.conj actor) member})) :=
-    hcore _ horder
-  exact BlockExternalInvolution.fixes_factors component heven huniversal hquasisimple hcard hB
-    member hmember actor hactor himage (houter _ horder)
 
 theorem reverse_normalizes {G : Type*} [Group G] [Finite G]
     (component : Subgroup G) (hcontrol : ExternalControl component)
@@ -362,24 +342,5 @@ theorem transporter {G : Type*} [Group G] [Finite G]
     factor hfactor actor (by change image ∈ UniversalOrbitBlock.block component; rwa [heq])
   exact hactor hnormalizes
 
-theorem transporter_of_local_solvability {G : Type*} [Group G] [Finite G]
-    (component : Subgroup G) (heven : Even (Nat.card component))
-    (huniversal : UniversalComponentBlock.Universal component)
-    (hquasisimple : IsQuasisimple component)
-    (hcard : 3 ≤ Nat.card ↥(UniversalOrbitBlock.block component)) (hB : LocalB.LocalBProperty G)
-    (hcore : ∀ element : G, orderOf element = 2 →
-      Group.IsSolvable (componentClassificationOddCore (Subgroup.centralizer {element})))
-    (houter : ∀ element : G, orderOf element = 2 →
-      ∀ factor : Subgroup ((Subgroup.centralizer {element}) ⧸
-        componentClassificationOddCore (Subgroup.centralizer {element})),
-        IsComponentOf factor ⊤ → factor ≠ ⊤ →
-          Group.IsSolvable (OuterAutomorphisms.Outer (factor ⧸ Subgroup.center factor)))
-    (factor : Subgroup G) (hfactor : factor ∈ UniversalOrbitBlock.block component)
-    (actor : G)
-    (himageLe : UniversalOrbitBlock.conjugate factor actor ≤ UniversalOrbitBlock.normalizer component) :
-    actor ∈ UniversalOrbitBlock.normalizer component :=
-  transporter component heven huniversal hquasisimple hcard
-    (external_control_of_local_solvability component heven huniversal hquasisimple hcard hB hcore houter)
-    factor hfactor actor himageLe
 
 end CFSG.ComponentClassification.BlockFactorContainment

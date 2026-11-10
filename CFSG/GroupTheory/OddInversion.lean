@@ -27,9 +27,6 @@ theorem conj_conj_of_orderOf_eq_two {t : G} (ht : orderOf t = 2) (x : G) :
   calc t * (t * x * t⁻¹) * t⁻¹ = (t * t) * x * (t * t)⁻¹ := by group
     _ = x := by rw [htt, inv_one, one_mul, mul_one]
 
-theorem mem_invertedSet_iff_of_orderOf_eq_two {D : Subgroup G} {t d : G} (ht : orderOf t = 2) :
-    d ∈ invertedSet D t ↔ d ∈ D ∧ t⁻¹ * d * t = d⁻¹ := by
-  rw [mem_invertedSet, inv_eq_self_of_orderOf_eq_two ht]
 
 theorem invertedSet_pow {D : Subgroup G} {t d : G} (hd : d ∈ invertedSet D t) (k : ℕ) :
     d ^ k ∈ invertedSet D t :=
@@ -43,10 +40,6 @@ theorem invertedSet_mono {D E : Subgroup G} (h : D ≤ E) {t : G} :
     invertedSet D t ⊆ invertedSet E t :=
   fun _ hd => ⟨h hd.1, hd.2⟩
 
-theorem invertedSet_inf {D E : Subgroup G} {t : G} :
-    invertedSet (D ⊓ E) t = (D : Set G) ∩ invertedSet E t := by
-  ext d
-  simp only [mem_invertedSet, Subgroup.mem_inf, Set.mem_inter_iff, SetLike.mem_coe, and_assoc]
 
 theorem finite_of_odd_card {D : Subgroup G} (hD : Odd (Nat.card D)) : Finite D :=
   Nat.finite_of_card_ne_zero (fun h => by rw [h] at hD; exact Nat.not_odd_zero hD)

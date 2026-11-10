@@ -17,17 +17,6 @@ open CFSG.Open
 
 namespace CFSG.ComponentClassification.QuasisimpleTwoGeneration
 
-theorem residual_eq_bot_of_odd_card {G : Type*} [Group G] [Finite G]
-    (hodd : Odd (Nat.card G)) : TwoResidual.subgroup G = ⊥ := by
-  apply le_antisymm _ bot_le
-  apply sSup_le
-  intro twoSubgroup htwo
-  obtain ⟨exponent, hcard⟩ := htwo.exists_card_eq
-  have hcardOne : Nat.card twoSubgroup = 1 := by
-    apply Nat.eq_one_of_dvd_coprimes (hodd.coprime_two_left.pow_left exponent)
-    · rw [hcard]
-    · exact Subgroup.card_subgroup_dvd_card _
-  exact (Subgroup.card_eq_one.mp hcardOne).le
 
 theorem residual_eq_top_of_corefree {G : Type*} [Group G] [Finite G]
     (hquasisimple : IsQuasisimple G) (hcorefree : componentClassificationOddCore G = ⊥) :
@@ -64,21 +53,5 @@ theorem residual_eq_top_of_corefree {G : Type*} [Group G] [Finite G]
     exact (not_le_of_gt (bot_lt_top : (⊥ : Subgroup G) < ⊤) hcoreTop).elim
   · exact htop
 
-theorem even_card_central_quotient {G : Type*} [Group G] [Finite G]
-    (hquasisimple : IsQuasisimple G) (hcorefree : componentClassificationOddCore G = ⊥) :
-    Even (Nat.card (G ⧸ Subgroup.center G)) := by
-  by_contra hnotEven
-  have hnotTwo : ¬ 2 ∣ Nat.card (G ⧸ Subgroup.center G) :=
-    fun hdiv => hnotEven (even_iff_two_dvd.mpr hdiv)
-  have hodd : Odd (Nat.card (G ⧸ Subgroup.center G)) := Nat.coprime_two_left.mp
-    (Nat.prime_two.coprime_iff_not_dvd.mpr hnotTwo)
-  have hmap := TwoResidual.image_of_surjective (QuotientGroup.mk' (Subgroup.center G))
-    (QuotientGroup.mk'_surjective _)
-  rw [residual_eq_top_of_corefree hquasisimple hcorefree,
-    Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _),
-    residual_eq_bot_of_odd_card hodd] at hmap
-  let : IsSimpleGroup (G ⧸ Subgroup.center G) := hquasisimple.2
-  exact (not_le_of_gt (bot_lt_top : (⊥ : Subgroup (G ⧸ Subgroup.center G)) < ⊤)
-    hmap.le).elim
 
 end CFSG.ComponentClassification.QuasisimpleTwoGeneration

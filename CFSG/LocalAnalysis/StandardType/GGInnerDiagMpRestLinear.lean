@@ -134,11 +134,6 @@ theorem apply_mem_center_iff {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) {x
     simp
   map_mul' u v := map_mul _ u v
 
-theorem coe_slMapEquiv {K : Type} [Field K] (σ : F ≃+* K) {d : ℕ}
-    (u : Matrix.SpecialLinearGroup (Fin d) F) :
-    ((slMapEquiv σ d u : Matrix.SpecialLinearGroup (Fin d) K) : Matrix (Fin d) (Fin d) K) =
-      (u : Matrix (Fin d) (Fin d) F).map σ :=
-  rfl
 
 theorem ker_projMk_slEquiv (K : Type) [Field K] :
     ((LargeEvenProjMk (LargeEvenSLGroup (Fin (m + 1)) K)).comp (slEquiv m K).toMonoidHom).ker =
@@ -190,10 +185,6 @@ theorem diagGL_mem {d : Fin (m + 1) → Fˣ} (hd : ∏ k, d k = 1) :
     diagGL d ∈ LargeEvenSLGroup (Fin (m + 1)) F := by
   rw [LargeEvenSLGroup, MonoidHom.mem_ker, det_diagGL, hd]
 
-theorem diagGL_inv (d : Fin (m + 1) → Fˣ) : (diagGL d)⁻¹ = diagGL d⁻¹ := by
-  apply Units.ext
-  rw [coe_diagGL_inv, coe_diagGL]
-  rfl
 
 @[expose] noncomputable def diagSL {d : Fin (m + 1) → Fˣ} (hd : ∏ k, d k = 1) :
     Matrix.SpecialLinearGroup (Fin (m + 1)) F :=

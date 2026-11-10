@@ -129,16 +129,5 @@ theorem isPGroup_ruJ :
 theorem isPGroup_ruK :
     IsPGroup 2 ruK := IsPGroup.of_card (n := 11) (by rw [card_ruK]; norm_num)
 
-theorem AT_Ru_intrinsic_local_pair :
-    (∃ T : Sylow 2 ruP, (T : Subgroup ruP) = ruS.subgroupOf ruP) ∧
-    ruC = ruP ⊓ Subgroup.centralizer ((Subgroup.center ruS).map ruS.subtype : Set _) ∧
-    ruN = ruP ⊓ Subgroup.normalizer (ruK : Set (Equiv.Perm (Fin 4060))) ∧ ruC ⊔ ruN = ruP ∧
-    IsPGroup 2 ruJ ∧ IsPGroup 2 ruK ∧ ruJ ≤ ruC ∧ ruK ≤ ruN ∧ (ruJ.subgroupOf ruC).Normal ∧
-    (ruK.subgroupOf ruN).Normal ∧ ruJ ≤ ruS ∧ ruK ≤ ruS ∧
-    ruC ⊓ Subgroup.centralizer (ruJ : Set (Equiv.Perm (Fin 4060))) ≤ ruJ ∧
-    ruN ⊓ Subgroup.centralizer (ruK : Set (Equiv.Perm (Fin 4060))) ≤ ruK :=
-  ⟨⟨ruSylow, rfl⟩, ruC_eq_centralizer_center, ruN_eq_normalizer, ruP_eq_sup.symm, isPGroup_ruJ,
-    isPGroup_ruK, ruJ_leC, ruK_leN, ruJ_normal, ruK_normal, ruJ_leS, ruK_leS, ruCentralizer_J,
-    ruCentralizer_K⟩
 
 end CFSG.Sporadic.RuSchreier

@@ -96,10 +96,6 @@ theorem res_inv (β : D.E →* ℂˣ) : D.res β⁻¹ = (D.res β)⁻¹ := by
   ext ρ
   rfl
 
-theorem res_χ₀ : D.res D.χ₀ = 1 := by
-  ext ρ
-  rw [res_apply, D.χ₀_So ρ.2]
-  rfl
 
 theorem sq_eq_one_of_res {β : D.E →* ℂˣ} (h : D.res β = 1) : β ^ 2 = 1 := by
   ext ⟨x, hx⟩

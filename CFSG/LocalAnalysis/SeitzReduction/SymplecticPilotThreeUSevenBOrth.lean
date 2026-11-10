@@ -30,9 +30,6 @@ variable {K F : Type} [Field K] [Field F] [CharP K 2] {σ : F ≃+* F} {ι' : K 
 
 theorem usb_coord_e1 : (ctuCoord 2 1 (Sum.inl (Sum.inl 1)) : Fin (2 * 2 + 1)) = 1 := Fin.ext rfl
 
-theorem usb_coord_v : (ctuCoord 2 1 (Sum.inr 0) : Fin (2 * 2 + 1)) = 2 := Fin.ext rfl
-
-theorem usb_coord_f1 : (ctuCoord 2 1 (Sum.inl (Sum.inr 1)) : Fin (2 * 2 + 1)) = 3 := Fin.ext rfl
 
 theorem usb_ctuBlockIdx (a : Fin (2 * 1 + 1)) :
     (ctuBlockIdx 1 1 (0 : Fin (1 + 1)) a : ℕ) = a.val + 1 := by

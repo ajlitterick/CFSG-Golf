@@ -153,25 +153,6 @@ theorem prop41_of_steps (h46 : L34Lemma46) (h47 : L34Lemma47) (hEnd : L34Prop41E
     (_ : IsPComponent 2 (K₁.subgroupOf (centralizer ({u} : Set G))))
     (_ : ¬ ⁅K₁, oddIn L ⊓ centralizer ({u} : Set G)⁆ ≤ oddIn K₁), K₁
 
-@[expose] def L34Lemma55 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (t : G) (S T : Subgroup G),
-    L34Sec5Setting G L t S T →
-    (∀ z ∈ S ⊓ coreActionKernel L, orderOf z = 2 →
-      ∀ K : Subgroup G, K ≤ centralizer ({z} : Set G) →
-        IsPComponent 2 (K.subgroupOf (centralizer ({z} : Set G))) →
-        ((∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧
-            Blueprint.LieModel (K ⧸ pPrimeCore 2 K) .PSL 2 p f) ∨
-          IsL34Type (K ⧸ Open.fusionZStar K)) →
-        K = (⨆ (g : G) (_ : g ∈ centralizer ({z} : Set G)), conjugate (gsFixedLayer L z) g) ∧
-          IsL34Type (K ⧸ Open.fusionZStar K)) ∧
-    (∀ z ∈ S ⊓ coreActionKernel L, orderOf z = 2 → z ≠ t →
-      ∀ y ∈ oddIn L, z * y * z⁻¹ = y⁻¹) ∧
-    (∀ u ∈ L34UnbalancingSet L t S, ∀ K₁ : Subgroup G, K₁ ≤ l34K L u →
-      IsPComponent 2 (K₁.subgroupOf (l34K L u)) →
-      omegaOne (S ⊓ coreActionKernel L) ≤ normalizer (K₁ : Set G) ∧
-        S ⊓ coreActionKernel L ⊓ coreActionKernel K₁ = ⊥) ∧
-    IsElemTwo (omegaOne (S ⊓ coreActionKernel L)) ∧
-      Nat.card ↥(omegaOne (S ⊓ coreActionKernel L)) ≤ 4
 
 @[expose] def L34Lemma56 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (t : G) (S T : Subgroup G),

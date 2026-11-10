@@ -63,10 +63,6 @@ theorem qA5 : Nat.beq (CFSG.KC.McL.Sub.bindRun CFSG.KC.McL.Rels.XT CFSG.KC.McL.R
     (nat_lit 1)) (nat_lit 0x7ffd73df8140000001) = true := by
   quickRfl
 
-theorem qAll : Nat.beq (Nat.lor (Nat.lor (Nat.lor (Nat.lor (nat_lit 0x7c000000000000001ff)
-    (nat_lit 0x38000000000000000000)) (nat_lit 268434944)) (nat_lit 91778706518835200))
-    (nat_lit 0x3ffeb9efc0a0000000)) (nat_lit 0x3fffffffffffffffffff) = true := by
-  quickRfl
 
 theorem gAI : Nat.beq (CFSG.KC.McL.Sub.bindRun CFSG.KC.McL.Rels.XD CFSG.KC.McL.Rels.GR
     CFSG.KD.McL.AI.TW CFSG.KD.McL.AI.TL (nat_lit 34) CFSG.KD.McL.AI.nT (CFSG.KC.McL.pid
@@ -101,9 +97,6 @@ theorem g0 : CFSG.KC.McL.Sub.conjRelOK CFSG.KC.McL.TC.sel (nat_lit 15) (nat_lit 
     (nat_lit 0)))) = true := by
   quickRfl
 
-theorem gAll : Nat.beq (Nat.lor (Nat.lor (Nat.lor (Nat.lor (nat_lit 1) (nat_lit 1606402048))
-    (nat_lit 15569271038)) (nat_lit 4194304)) (nat_lit 1792)) (nat_lit 17179869183) = true := by
-  quickRfl
 
 theorem k1 : CFSG.KC.McL.Sub.k1Run CFSG.KC.McL.Rels.XT CFSG.KC.McL.Rels.MG CFSG.KD.McL.BR.TW
     CFSG.KD.McL.BR.TL CFSG.KC.McL.Rels.KS CFSG.KC.McL.Rels.KQ CFSG.KC.McL.Rels.KH (nat_lit 44)
@@ -116,24 +109,18 @@ theorem sBM : CFSG.KC.McL.Sub.subsOK CFSG.KC.McL.Rels.XT CFSG.KC.McL.Rels.MG CFS
     (nat_lit 44) CFSG.KD.McL.AM.nT (CFSG.KC.McL.pid CFSG.KD.McL.AM.d) CFSG.KD.McL.BM.K = true := by
   quickRfl
 
-theorem dBM : Nat.beq CFSG.KD.McL.BM.d (nat_lit 44) = true := by
-  quickRfl
 
 theorem sBI : CFSG.KC.McL.Sub.subsOK CFSG.KC.McL.Rels.XT CFSG.KC.McL.Rels.MG CFSG.KD.McL.BI.ST
     CFSG.KD.McL.BI.SL CFSG.KD.McL.BI.SN CFSG.KD.McL.BI.SH CFSG.KD.McL.AM.TW CFSG.KD.McL.AM.TL
     (nat_lit 44) CFSG.KD.McL.AM.nT (CFSG.KC.McL.pid CFSG.KD.McL.AM.d) CFSG.KD.McL.BI.K = true := by
   quickRfl
 
-theorem dBI : Nat.beq CFSG.KD.McL.BI.d (nat_lit 44) = true := by
-  quickRfl
 
 theorem sBR : CFSG.KC.McL.Sub.subsOK CFSG.KC.McL.Rels.XT CFSG.KC.McL.Rels.MG CFSG.KD.McL.BR.ST
     CFSG.KD.McL.BR.SL CFSG.KD.McL.BR.SN CFSG.KD.McL.BR.SH CFSG.KD.McL.AM.TW CFSG.KD.McL.AM.TL
     (nat_lit 44) CFSG.KD.McL.AM.nT (CFSG.KC.McL.pid CFSG.KD.McL.AM.d) CFSG.KD.McL.BR.K = true := by
   quickRfl
 
-theorem dBR : Nat.beq CFSG.KD.McL.BR.d (nat_lit 44) = true := by
-  quickRfl
 
 theorem mGens : CFSG.KC.McL.Sub.gensOK CFSG.KC.McL.Rels.MG (nat_lit 44) (nat_lit 3) = true := by
   quickRfl
@@ -157,23 +144,6 @@ theorem p5 : Nat.beq (CFSG.KC.McL.Rels.QR (nat_lit 3)) CFSG.KC.McL.Rels.P5 = tru
 theorem p5n : Nat.beq (CFSG.KC.McL.Rels.NR1 (nat_lit 3)) CFSG.KC.McL.Rels.P5 = true := by
   quickRfl
 
-theorem mOrd : Nat.beq (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (Nat.mul (nat_lit 1)
-    (CFSG.KC.McL.Model.orbCount (CFSG.KC.McL.Model.orbitRun CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED
-    CFSG.KD.McL.M.BP (nat_lit 0) (nat_lit 13) CFSG.KD.McL.M.OJ0))) (CFSG.KC.McL.Model.orbCount
-    (CFSG.KC.McL.Model.orbitRun CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED CFSG.KD.McL.M.BP (nat_lit 1)
-    (nat_lit 5) CFSG.KD.McL.M.OJ1))) (CFSG.KC.McL.Model.orbCount (CFSG.KC.McL.Model.orbitRun
-    CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED CFSG.KD.McL.M.BP (nat_lit 2) (nat_lit 4) CFSG.KD.McL.M.OJ2)))
-    (CFSG.KC.McL.Model.orbCount (CFSG.KC.McL.Model.orbitRun CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED
-    CFSG.KD.McL.M.BP (nat_lit 3) (nat_lit 3) CFSG.KD.McL.M.OJ3))) (CFSG.KC.McL.Model.orbCount
-    (CFSG.KC.McL.Model.orbitRun CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED CFSG.KD.McL.M.BP (nat_lit 4)
-    (nat_lit 2) CFSG.KD.McL.M.OJ4))) (CFSG.KC.McL.Model.orbCount (CFSG.KC.McL.Model.orbitRun
-    CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED CFSG.KD.McL.M.BP (nat_lit 5) (nat_lit 1) CFSG.KD.McL.M.OJ5)))
-    (CFSG.KC.McL.Model.orbCount (CFSG.KC.McL.Model.orbitRun CFSG.KD.McL.M.EP CFSG.KD.McL.M.ED
-    CFSG.KD.McL.M.BP (nat_lit 6) (nat_lit 15) CFSG.KD.McL.M.OJ6))) (nat_lit 161280) = true := by
-  quickRfl
-
-theorem mLev : Nat.beq CFSG.KD.McL.M.nLev (nat_lit 7) = true := by
-  quickRfl
 
 theorem cQ : Nat.beq (Nat.mul (nat_lit 5) CFSG.KD.McL.CQ.nAlive) (nat_lit 161280) = true := by
   quickRfl
@@ -185,12 +155,6 @@ theorem fin : Nat.beq (Nat.div (Nat.mul CFSG.KD.McL.D.NORD CFSG.KD.McL.D.SUM) (n
     (nat_lit 898128000) = true := by
   quickRfl
 
-theorem fin2 : Nat.beq (Nat.mod (Nat.mul CFSG.KD.McL.D.NORD CFSG.KD.McL.D.SUM) (nat_lit 2))
-    (nat_lit 0) = true := by
-  quickRfl
-
-theorem trw0 : CFSG.KC.McL.Dce.membWordOK CFSG.KD.McL.D.TRW0 (nat_lit 1) = true := by
-  quickRfl
 
 theorem trw1 : CFSG.KC.McL.Dce.membWordOK CFSG.KD.McL.D.TRW1 (nat_lit 2) = true := by
   quickRfl

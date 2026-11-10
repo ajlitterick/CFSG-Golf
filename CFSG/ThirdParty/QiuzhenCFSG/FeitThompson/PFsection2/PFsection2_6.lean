@@ -774,44 +774,6 @@ private theorem dadeInclusionExclusionSum_isVirtualCharacter
   exact isVirtualCharacter_zsmul (-1) hsum
 
 
-private theorem internalDirectProduct_mul_unique
-    {G : Type u} [Group G] {C H K : Subgroup G}
-    (h : IsInternalDirectProduct C H K)
-    {h₁ h₂ k₁ k₂ : G}
-    (hh₁ : h₁ ∈ H) (hh₂ : h₂ ∈ H)
-    (hk₁ : k₁ ∈ K) (hk₂ : k₂ ∈ K)
-    (hmul : h₁ * k₁ = h₂ * k₂) :
-    h₁ = h₂ ∧ k₁ = k₂ := by
-  have hleft_eq_right : h₂⁻¹ * h₁ = k₂ * k₁⁻¹ := by
-    calc
-      h₂⁻¹ * h₁ = h₂⁻¹ * (h₁ * k₁) * k₁⁻¹ := by
-        simp [mul_assoc]
-      _ = h₂⁻¹ * (h₂ * k₂) * k₁⁻¹ := by
-        rw [hmul]
-      _ = k₂ * k₁⁻¹ := by
-        simp
-  have hmemH : h₂⁻¹ * h₁ ∈ H :=
-    H.mul_mem (H.inv_mem hh₂) hh₁
-  have hmemK : h₂⁻¹ * h₁ ∈ K := by
-    rw [hleft_eq_right]
-    exact K.mul_mem hk₂ (K.inv_mem hk₁)
-  have hbot : h₂⁻¹ * h₁ ∈ (⊥ : Subgroup G) := by
-    have hinf : h₂⁻¹ * h₁ ∈ H ⊓ K :=
-      Subgroup.mem_inf.mpr ⟨hmemH, hmemK⟩
-    simpa [h.inf_eq_bot] using hinf
-  have hh_eq_one : h₂⁻¹ * h₁ = 1 := by
-    simpa using hbot
-  have hh : h₁ = h₂ := by
-    calc
-      h₁ = h₂ * (h₂⁻¹ * h₁) := by
-        simp
-      _ = h₂ := by
-        simp [hh_eq_one]
-  have hk : k₁ = k₂ := by
-    have hmul' := congrArg (fun z : G => h₂⁻¹ * z) hmul
-    simpa [hh, mul_assoc] using hmul'
-  exact ⟨hh, hk⟩
-
 private theorem internalSemidirectProduct_mem_left_of_order_coprime_right
     {G : Type u} [Group G] [Finite G] {C H K : Subgroup G}
     (h : IsInternalSemidirectProduct C H K) {x : G}

@@ -284,11 +284,6 @@ theorem ggNbrLangTorusAxisOn_typeASplit (hframe : GGTypeASplitFrameInput) :
   · exact largeEvenRawDatum_mono
       (fun R _ I F ⟨hs, hna, θ, hθ⟩ => ⟨hs, hna, θ, hθ, fun h => absurd h hS⟩) hraw
 
-theorem ggNbrLangTorusAxisInput_of_typeASplit (hframe : GGTypeASplitFrameInput)
-    (hrest : GGNbrLangTorusAxisOn fun p lab => ¬ GGTypeASplitCoprimeLabel p lab) :
-    GGNbrLangTorusAxisInput :=
-  ggNbrLangTorusAxisInput_of_on
-    (ggNbrLangTorusAxisOn_true_of (ggNbrLangTorusAxisOn_typeASplit hframe) hrest)
 
 end CFSG.StandardType
 

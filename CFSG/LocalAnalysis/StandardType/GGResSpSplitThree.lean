@@ -94,18 +94,6 @@ theorem GGResHyp.spSplit_three_model
   exact ⟨n, F, inferInstance, inferInstance, inferInstance, hN,
     e.toMonoidHom.comp (ggQuotHom θ), hn2, hF, hpq, hZ, hTB'⟩
 
-theorem GGResHyp.bstar_eq_of_spSplit_three_L
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K)
-    (hL : GGInnerDiagOnLabel (fun p lab =>
-      (lab.tag = .B ∨ lab.tag = .C) ∧ lab.rank = 3 ∧ p ∣ 2 ^ lab.n - 1) p Bs L) :
-    B = Bs := by
-  obtain ⟨_, _, _, _, _, hN, ψ, _, _, hpq, _, hTB⟩ := hH.spSplit_three_model hL
-  have hcfg : GGConfig p B Bs x L D J := hH.1
-  have hp : p.Prime := Fact.out
-  have hp2 : p ≠ 2 := hcfg.1.2.2.2.2.2.1.2.1
-  exact (ggTBJ_sp_bstar_eq hp hp2 hcfg L hN hpq ψ hTB).symm
 
 theorem GGResHyp.false_of_exact2_L_spSplit_three
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]

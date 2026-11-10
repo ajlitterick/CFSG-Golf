@@ -76,44 +76,6 @@ theorem UCtx.commutes_or_stdpair_end (c : UCtx p f 5 Ω K z) (nd : UNodes c)
     have := typeU_standardPair_conjSub hW g
     rwa [conjSub_conjSub_inv, conjSub_conjSub_inv] at this
 
-omit [Finite G] in
-theorem UCtx.chain_U7 (c : UCtx p f 5 Ω K z) (nd : UNodes c) {β : Subgroup G}
-    (hβ : IsPartnerU c nd β) (h3 : Commutes β (nd.j 3)) :
-    ∃ U : Fin 7 → Subgroup G, (∀ i, U i ∈ Ω) ∧
-      (∀ i j : Fin 7, (i : ℕ) + 1 < j → Commutes (U i) (U j)) ∧
-      (∀ i j : Fin 7, (j : ℕ) = i + 1 →
-        ∃ W : Subgroup G, UnitaryBlockStandardPair (GaloisField p (2 * f)) p f W (U i) (U j)) := by
-  refine ⟨![K, β, nd.j 0, nd.j 1, nd.j 2, nd.j 3, nd.j 4], ?_, ?_, ?_⟩
-  · intro i
-    fin_cases i
-    · exact c.hK
-    · exact hβ.mem
-    all_goals exact (nd.mem _ (by norm_num)).1
-  · intro i j hij
-    fin_cases i <;> fin_cases j <;> simp at hij ⊢
-    · exact nd.commK 0 (by norm_num)
-    · exact nd.commK 1 (by norm_num)
-    · exact nd.commK 2 (by norm_num)
-    · exact nd.commK 3 (by norm_num)
-    · exact nd.commK 4 (by norm_num)
-    · exact hβ.mid 1 le_rfl (by norm_num)
-    · exact hβ.mid 2 (by norm_num) le_rfl
-    · exact h3
-    · exact hβ.last
-    · exact nd.far 0 (by norm_num) 2 (by norm_num) (by norm_num)
-    · exact nd.far 0 (by norm_num) 3 (by norm_num) (by norm_num)
-    · exact nd.far 0 (by norm_num) 4 (by norm_num) (by norm_num)
-    · exact nd.far 1 (by norm_num) 3 (by norm_num) (by norm_num)
-    · exact nd.far 1 (by norm_num) 4 (by norm_num) (by norm_num)
-    · exact nd.far 2 (by norm_num) 4 (by norm_num) (by norm_num)
-  · intro i j hij
-    fin_cases i <;> fin_cases j <;> simp at hij ⊢
-    · exact hβ.pK
-    · exact hβ.p0
-    · exact nd.pair 0 (by norm_num)
-    · exact nd.pair 1 (by norm_num)
-    · exact nd.pair 2 (by norm_num)
-    · exact nd.pair 3 (by norm_num)
 
 omit [Finite G] in
 theorem UCtx.chain_E6 (c : UCtx p f 5 Ω K z) (nd : UNodes c) {β : Subgroup G}

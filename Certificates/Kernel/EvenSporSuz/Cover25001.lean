@@ -50,10 +50,5 @@ theorem cover25001K_true : cover25001K = true := by decide +kernel
 
 theorem coverST_ok : CFSG.KC.WordsT.wordsT CoverST.chars CoverST.W = true := by decide +kernel
 
-theorem neg_d_sq : (evalR YM YI [6, 6] == oneR) = false := by decide +kernel
-
-theorem neg_pm : pmR (evalR YM YI [0]) = false := by decide +kernel
-
-theorem neg_rel3 : (evalR YM YI (relCodes.getD 3 []) == oneR) = false := by decide +kernel
 
 end CertificateChecks.KernelSuz

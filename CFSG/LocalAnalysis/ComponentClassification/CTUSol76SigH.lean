@@ -277,30 +277,6 @@ theorem le_normalizer_wGroup_of_odd_of_local_data
   refine iSup₂_le fun v hv => iSup_le fun hv1 => ?_
   exact hYleH b hb hb1 v hv hv1
 
-theorem le_normalizer_wGroup_oddCoreIn_centralizer
-    {E F : Subgroup G} {s : G}
-    (hE : IsKleinFour E) (hF : IsKleinFour F)
-    (hEF : E ≤ centralizer (F : Set G))
-    (hEs : E ≤ centralizer ({s} : Set G))
-    (hFs : F ≤ centralizer ({s} : Set G))
-    (hEFfix : ∀ b ∈ E, b ≠ 1 → ∀ v ∈ F, v ≠ 1 →
-      theta F b ⊓ centralizer ({v} : Set G) ≤
-        oddCoreIn (centralizer ({v} : Set G)))
-    (hFEfix : ∀ v ∈ F, v ≠ 1 → ∀ b ∈ E, b ≠ 1 →
-      theta E v ⊓ centralizer ({b} : Set G) ≤
-        oddCoreIn (centralizer ({b} : Set G)))
-    (hlocal : ∀ b ∈ E, b ≠ 1 →
-      let C := centralizer ({b} : Set G)
-      let π := QuotientGroup.mk' (pPrimeCore 2 ↥C)
-      ∃ S : Subgroup (↥C ⧸ pPrimeCore 2 ↥C),
-        CFSG.IsComponent S ∧ IsSimpleGroup ↥S ∧
-        (F.subgroupOf C).map π ≤ S ∧
-        (E.subgroupOf C).map π ≤ centralizer (S : Set _)) :
-    oddCoreIn (centralizer ({s} : Set G)) ≤ normalizer (wGroup E F : Set G) :=
-  le_normalizer_wGroup_of_odd_of_local_data hE hF hEF hEFfix hFEfix hlocal
-    (coprime_card_oddCoreIn (centralizer ({s} : Set G)))
-    (hEs.trans (le_normalizer_oddCoreIn _))
-    (hFs.trans (le_normalizer_oddCoreIn _))
 
 end SameWOddLocalData
 
@@ -311,75 +287,5 @@ theorem le_centralizer_singleton_of_mem {B V : Subgroup G} (hBV : B ≤ centrali
     {b : G} (hb : b ∈ B) : V ≤ centralizer ({b} : Set G) := fun w hw =>
   mem_centralizer_singleton_iff.mpr ((mem_centralizer_iff.mp (hBV hb)) w hw)
 
-theorem wGroup_eq_of_le (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G) (hN : IsSolomonChoice N)
-    (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N) (hne : K ≠ K')
-    {V B E : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B) (hE : IsKleinFour E)
-    (hEB : E ≤ B) : wGroup E V = wGroup B V := by
-  have hBc : ∀ x ∈ B, ∀ y ∈ B, x * y = y * x := fun x hx y hy =>
-    congrArg Subtype.val (hB.1.is_comm.comm (⟨x, hx⟩ : B) ⟨y, hy⟩)
-  have hbalance : ∀ b ∈ B, b ≠ 1 → ∀ e ∈ E, e ≠ 1 →
-      theta V b ⊓ centralizer ({e} : Set G) ≤ theta V e := by
-    intro b hb hb1 e he he1
-    have hb2 : orderOf b = 2 := orderOf_eq_prime (hB.2 b hb) hb1
-    have he2 : orderOf e = 2 := orderOf_eq_prime (hB.2 e (hEB he)) he1
-    have hbe : e * b = b * e := (hBc b hb e (hEB he)).symm
-    exact theta_inf_le_theta h32 hG hN hK hK' hne hV hVK' (hBK (hEB he)) he2 (hBK hb) hb2
-      hbe (le_centralizer_singleton_of_mem hBV (hEB he)) (le_centralizer_singleton_of_mem hBV hb)
-  exact (wGroup_eq_of_cross_balance hE hEB hBc hBV hbalance).symm
-
-theorem le_normalizer_wGroup_of_mem (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N)
-    (hne : K ≠ K') {V B E : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B) (hE : IsKleinFour E)
-    (hEB : E ≤ B) {v : G} (hv : v ∈ V) (hv1 : v ≠ 1) {g : G}
-    (hgE : g ∈ normalizer (E : Set G)) (hgv : g ∈ centralizer ({v} : Set G)) :
-    g ∈ normalizer (wGroup B V : Set G) := by
-  rw [← wGroup_eq_of_le h32 hG hN hK hK' hne hV hVK' hBK hBV hB hE hEB,
-    wGroup_eq_wGroup_zpowers h32 hG hN hK hK' hne hV hVK' hE (hEB.trans hBK) (hEB.trans hBV)
-      hv hv1]
-  refine le_normalizer_wGroup hgE ?_
-  rw [← centralizer_zpowers_eq] at hgv
-  exact Subgroup.centralizer_le_normalizer ((zpowers v : Subgroup G) : Set G) hgv
-
-theorem le_normalizer_wGroup_of_odd (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N)
-    (hne : K ≠ K') {V B X : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B)
-    (hB8 : Nat.card B = 8) (hXodd : Nat.Coprime 2 (Nat.card X))
-    (hBX : B ≤ normalizer (X : Set G)) (hVX : V ≤ normalizer (X : Set G)) :
-    X ≤ normalizer (wGroup B V : Set G) := by
-  have hgen := CFSG.SignalizerFunctor.Helpers.elementary_abelian_centralizer_generation 2 2
-    Nat.prime_two B X hB (by rw [hB8]; norm_num) hBX hXodd
-  refine hgen.symm.le.trans (iSup₂_le fun S hS => ?_)
-  obtain ⟨hSB, hScard⟩ := hS
-  have hSK : IsKleinFour S :=
-    isKleinFour_of_card_eq_four (by rw [hScard]; norm_num) fun x hx => hB.2 x (hSB hx)
-  set Y := X ⊓ centralizer (S : Set G) with hY
-  have hVS : V ≤ centralizer (S : Set G) := fun v hv => mem_centralizer_iff.mpr fun s hs =>
-    ((mem_centralizer_iff.mp (hBV (hSB hs))) v hv).symm
-  have hVY : V ≤ normalizer (Y : Set G) := by
-    intro v hv
-    rw [mem_normalizer_iff]
-    intro y
-    rw [hY, mem_inf, mem_inf, mem_normalizer_iff.mp (hVX hv),
-      mem_normalizer_iff.mp (le_normalizer (hVS hv))]
-  have hYodd : Nat.Coprime 2 (Nat.card Y) :=
-    Nat.Coprime.coprime_dvd_right (Subgroup.card_dvd_of_le inf_le_left) hXodd
-  have hgen2 := CFSG.SignalizerFunctor.Helpers.elementary_abelian_centralizer_generation 2 1
-    Nat.prime_two V Y (isElemAbelian_of_isKleinFour hV) (by rw [hV.card_four]; norm_num) hVY
-    hYodd
-  refine hgen2.symm.le.trans (iSup₂_le fun T hT => ?_)
-  obtain ⟨hTV, hTcard⟩ := hT
-  have : Nontrivial T := Finite.one_lt_card_iff_nontrivial.mp (by rw [hTcard]; norm_num)
-  obtain ⟨t, ht⟩ := exists_ne (1 : ↥T)
-  have ht1 : (t : G) ≠ 1 := fun h => ht (Subtype.ext h)
-  intro y hy
-  have hyS : y ∈ normalizer (S : Set G) :=
-    Subgroup.centralizer_le_normalizer (S : Set G) hy.1.2
-  have hyt : y ∈ centralizer ({(t : G)} : Set G) :=
-    centralizer_le (Set.singleton_subset_iff.mpr t.2) hy.2
-  exact le_normalizer_wGroup_of_mem h32 hG hN hK hK' hne hV hVK' hBK hBV hB hSK hSB (hTV t.2)
-    ht1 hyS hyt
 
 end CFSG.ComponentClassification.Sol76.Sig

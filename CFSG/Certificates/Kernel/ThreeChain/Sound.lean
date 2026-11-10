@@ -199,7 +199,6 @@ theorem conj_cover_of_sylow {M : Type*} [Group M] [Finite M] {p : ℕ} [Fact p.P
   calc t = y * (y⁻¹ * t * y) * y⁻¹ := by group
     _ = y * g * x * (y * g)⁻¹ := by rw [hsg]; group
 
-variable {n : ℕ}
 
 end CFSG.KC.ThreeChain
 

@@ -37,11 +37,6 @@ theorem map_subtype_cartan {A L : Subgroup G} {P : Subgroup L}
     (Bender.cartan P ⟨t, ht⟩).map L.subtype = A ⊓ conjugate A t ⊓ L := by
   rw [cartan_eq_subgroupOf hB ht, subgroupOf_map_subtype]
 
-theorem map_subtype_borel {A L : Subgroup G} {P : Subgroup L}
-    (hB : (A ⊓ L).subgroupOf L = normalizer (P : Set L)) :
-    (Bender.borel P).map L.subtype = A ⊓ L := by
-  change (normalizer (P : Set L)).map L.subtype = A ⊓ L
-  rw [← hB, subgroupOf_map_subtype, inf_assoc, inf_idem]
 
 theorem map_subtype_commutator_cartan {A L : Subgroup G} {P : Subgroup L}
     (hB : (A ⊓ L).subgroupOf L = normalizer (P : Set L)) {t : G} (ht : t ∈ L) :
@@ -148,12 +143,6 @@ abbrev zL : ↥c.L := ⟨c.z, c.z_mem_L⟩
 theorem tL_mul_self (hZ : IsInvariantInvolutionSet Z) : c.tL * c.tL = 1 :=
   Subtype.ext (hZ.mul_self_eq_one c.ht)
 
-theorem zL_ne_one (hZ : IsInvariantInvolutionSet Z) : c.zL ≠ 1 := by
-  intro h1
-  have h2 : c.z = 1 := congrArg Subtype.val h1
-  have h3 := hZ.1 c.z c.hz
-  rw [h2, orderOf_one] at h3
-  exact absurd h3 (by norm_num)
 
 variable {c}
 
@@ -217,16 +206,6 @@ theorem map_subtype_rootCenter
   refine (eq_of_le_of_card_ge hle ?_).symm
   rw [card_map_of_injective c.L.subtype_injective, hc.card_center, h.m_card]
 
-theorem zL_mem_rootCenter
-    (hZ : IsInvariantInvolutionSet Z) (h : LData c n i)
-    {Q : Sylow 2 c.L}
-    (hQ : (M ⊓ c.L).subgroupOf c.L = normalizer ((Q : Subgroup c.L) : Set c.L)) :
-    c.zL ∈ Bender.rootCenter (Q : Subgroup c.L) := by
-  have hz : c.z ∈ zHull Z M := subset_closure ⟨c.hz, c.hzM⟩
-  rw [← h.map_subtype_rootCenter hZ hQ] at hz
-  obtain ⟨y, hy, hyz⟩ := hz
-  have hy' : y = c.zL := Subtype.ext hyz
-  rwa [← hy']
 
 theorem map_subtype_commutator_cartan
     (hZ : IsInvariantInvolutionSet Z) (h : LData c n i)
@@ -235,11 +214,6 @@ theorem map_subtype_commutator_cartan
     (⁅Bender.cartan (Q : Subgroup c.L) c.tL, zpowers c.tL⁆).map c.L.subtype = kGrp M c.t := by
   rw [← (h.benderCore hZ hQ).cartan_eq_commutator rfl, Ctx12.map_subtype_cartan hQ, h.k_eq']
 
-theorem fixCartan_eq_bot
-    (hZ : IsInvariantInvolutionSet Z) (h : LData c n i) {Q : Sylow 2 c.L}
-    (hQ : (M ⊓ c.L).subgroupOf c.L = normalizer ((Q : Subgroup c.L) : Set c.L)) :
-    Bender.fixCartan (Q : Subgroup c.L) c.tL = ⊥ :=
-  (h.benderCore hZ hQ).fixCartan_eq_bot
 
 theorem nM_eq_sylow (h : LData c n i) {Q : Sylow 2 c.L}
     (hQ : (M ⊓ c.L).subgroupOf c.L = normalizer ((Q : Subgroup c.L) : Set c.L)) :

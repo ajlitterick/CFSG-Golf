@@ -220,12 +220,6 @@ theorem ggAutomizer_map_mk'_of_coprime
         _ = QuotientGroup.mk' N g * (e b) * (QuotientGroup.mk' N g)⁻¹ := by
             rw [coe_coprimeQuotientSubgroupEquiv]
 
-theorem card_ggAutomizer_map_mk'_of_coprime
-    (hpN : ¬ p ∣ Nat.card N) (hBs : IsPGroup p Bs) (hNH : N ≤ H) :
-    Nat.card (ggAutomizer (H.map (QuotientGroup.mk' N))
-        (Bs.map (QuotientGroup.mk' N))) = Nat.card (ggAutomizer H Bs) := by
-  rw [ggAutomizer_map_mk'_of_coprime hpN hBs hNH]
-  exact Subgroup.card_map_of_injective (MulAut.congr _).injective
 
 theorem noTransvection_map_mk'_of_coprime
     (hpN : ¬ p ∣ Nat.card N) {Bs : Subgroup G} (hBs : IsPGroup p Bs)
@@ -335,114 +329,13 @@ theorem GGIsPseudoReflection.conj {p : ℕ} {Bs : Subgroup G} {φ : MulAut ↥Bs
   · intro hb
     rw [hb, MulAut.apply_inv_self]
 
-theorem le_normalizer_of_pseudoReflection {p : ℕ} {Bs : Subgroup G}
-    {A W : Subgroup (MulAut ↥Bs)} (hWA : W ≤ A)
-    (hgen : W = Subgroup.closure {φ | φ ∈ W ∧ GGIsPseudoReflection p φ})
-    (hR : ∀ φ ∈ A, GGIsPseudoReflection p φ → φ ∈ W) :
-    A ≤ Subgroup.normalizer (W : Set (MulAut ↥Bs)) := by
-  have hS : {φ | φ ∈ W ∧ GGIsPseudoReflection p φ} =
-      {φ | φ ∈ A ∧ GGIsPseudoReflection p φ} := by
-    ext φ
-    exact ⟨fun h => ⟨hWA h.1, h.2⟩, fun h => ⟨hR φ h.1 h.2, h.2⟩⟩
-  rw [hS] at hgen
-  refine le_normalizer_of_map_conj_le fun a ha => ?_
-  rw [hgen, MonoidHom.map_closure]
-  refine Subgroup.closure_mono ?_
-  rintro _ ⟨φ, ⟨hφA, hφ⟩, rfl⟩
-  exact ⟨A.mul_mem (A.mul_mem ha hφA) (A.inv_mem ha), hφ.conj a⟩
 
 end PseudoReflection
 
 section Scalar
 
-@[expose] def GGIsScalar {Bs : Subgroup G} (φ : MulAut ↥Bs) : Prop :=
-  ∃ k : ℕ, ∀ b : ↥Bs, φ b = b ^ k
-
-variable [Finite G]
-
-theorem mem_normalizer_of_ggIsScalar {Bs H : Subgroup G} (hH : H ≤ Bs) {g : G}
-    (hg : g ∈ Subgroup.normalizer (Bs : Set G)) (hs : GGIsScalar (ggConjAut Bs hg)) :
-    g ∈ Subgroup.normalizer (H : Set G) := by
-  obtain ⟨k, hk⟩ := hs
-  have hle : H.map (MulAut.conj g).toMonoidHom ≤ H := by
-    rintro _ ⟨h, hh, rfl⟩
-    have h1 : ((ggConjAut Bs hg ⟨h, hH hh⟩ : ↥Bs) : G) = h ^ k := by
-      rw [hk]
-      rfl
-    rw [ggConjAut_apply] at h1
-    show g * h * g⁻¹ ∈ H
-    rw [h1]
-    exact H.pow_mem hh k
-  have hcard : Nat.card (H.map (MulAut.conj g).toMonoidHom) = Nat.card H :=
-    Subgroup.card_map_of_injective (MulAut.conj g).injective
-  exact mem_normalizer_iff_map_conj.mpr (Subgroup.eq_of_le_of_card_ge hle hcard.ge)
-
-omit [Finite G] in
-theorem ggConjAut_inv_mul_apply {Bs : Subgroup G} {g h : G}
-    (hg : g ∈ Subgroup.normalizer (Bs : Set G)) (hh : h ∈ Subgroup.normalizer (Bs : Set G))
-    {w : MulAut ↥Bs} (hw : ∀ b : ↥Bs, ((w b : ↥Bs) : G) = h * b * h⁻¹) (b : ↥Bs) :
-    ggConjAut Bs (Subgroup.mul_mem _ (Subgroup.inv_mem _ hh) hg) b = (w⁻¹ * ggConjAut Bs hg) b := by
-  apply Subtype.ext
-  rw [MulAut.mul_apply, inv_apply_of_forall hw, ggConjAut_apply, ggConjAut_apply]
-  group
 
 end Scalar
-
-theorem normalizer_orderOf_eq_of_coordinate {C : Type*} [Group C] {G : Type} [Group G]
-    {E : Subgroup G} {τ : C →* G}
-    (hτinj : Function.Injective τ) (hτrange : τ.range = E)
-    (w : G) (wcoord : MulAut C)
-    (hact : ∀ f, w * τ f * w⁻¹ = τ (wcoord f)) :
-    ∃ (n : G) (hn : n ∈ Subgroup.normalizer (E : Set G)),
-      orderOf (E.normalizerMonoidHom ⟨n, hn⟩) = orderOf wcoord := by
-  classical
-  have hmem : ∀ f, τ f ∈ E := by
-    intro f
-    rw [← hτrange]
-    exact ⟨f, rfl⟩
-  let eτ : C ≃* E :=
-    MulEquiv.ofBijective (τ.codRestrict E hmem)
-      ⟨fun f g h => hτinj (Subtype.ext_iff.mp h), fun e => by
-        have he : (e : G) ∈ τ.range := by
-          rw [hτrange]
-          exact e.2
-        obtain ⟨f, hf⟩ := he
-        exact ⟨f, Subtype.ext hf⟩⟩
-  have hmap : E.map (MulAut.conj w).toMonoidHom = E := by
-    apply le_antisymm
-    · rintro _ ⟨e, he, rfl⟩
-      have he' : e ∈ τ.range := by rwa [hτrange]
-      obtain ⟨f, rfl⟩ := he'
-      change (MulAut.conj w) (τ f) ∈ E
-      rw [MulAut.conj_apply, hact f]
-      exact hmem (wcoord f)
-    · intro e he
-      have he' : e ∈ τ.range := by rwa [hτrange]
-      obtain ⟨f, rfl⟩ := he'
-      refine ⟨τ (wcoord.symm f), hmem _, ?_⟩
-      change (MulAut.conj w) (τ (wcoord.symm f)) = τ f
-      rw [MulAut.conj_apply, hact (wcoord.symm f)]
-      simp
-  have hnorm : w ∈ Subgroup.normalizer (E : Set G) :=
-    Subgroup.mem_normalizer_iff_map_conj_eq.mpr hmap
-  let c : MulAut E := E.normalizerMonoidHom ⟨w, hnorm⟩
-  have hc : c = MulAut.congr eτ wcoord := by
-    apply MulEquiv.ext
-    intro e
-    obtain ⟨f, rfl⟩ := eτ.surjective e
-    apply Subtype.ext
-    rw [Subgroup.normalizerMonoidHom_apply_apply_coe]
-    change w * τ f * w⁻¹ =
-      ((MulAut.congr eτ wcoord) (eτ f) : ↥E)
-    have heτ_apply : ∀ f, (eτ f : G) = τ f := by
-      intro f
-      dsimp only [eτ]
-      rfl
-    rw [hact f, MulAut.congr_apply]
-    simp [MulEquiv.trans_apply, heτ_apply]
-  refine ⟨w, hnorm, ?_⟩
-  change orderOf c = orderOf wcoord
-  rw [hc, MulEquiv.orderOf_eq]
 
 
 end CFSG.StandardType

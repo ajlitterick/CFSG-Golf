@@ -245,12 +245,5 @@ theorem ks131AlphaInvolutionCentral_of_census (h46 : Sec4.Item4_6) (hK : KS131Ce
     KS131AlphaInvolutionCentral :=
   ks131AlphaInvolutionCentral_of_noPair (ks131AlphaCentralNoPair_of_census h46 hK)
 
-theorem ks131AlphaCentralNoPair_of_kfacts (h46 : Sec4.Item4_6) (h1 : KS131ThreeFreeNoE9)
-    (h2 : KS131CenterList46) (h3 : KS131CenterOuterE9) : KS131AlphaCentralNoPair :=
-  ks131AlphaCentralNoPair_of_census h46 (ks131CentralCensus_of h1 h2 h3)
-
-theorem ks131AlphaInvolutionCentral_of_kfacts (h46 : Sec4.Item4_6) (h1 : KS131ThreeFreeNoE9)
-    (h2 : KS131CenterList46) (h3 : KS131CenterOuterE9) : KS131AlphaInvolutionCentral :=
-  ks131AlphaInvolutionCentral_of_census h46 (ks131CentralCensus_of h1 h2 h3)
 
 end CFSG.RankThree.PartTwo.Sec13

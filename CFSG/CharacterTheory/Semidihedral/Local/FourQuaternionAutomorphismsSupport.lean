@@ -278,9 +278,6 @@ theorem map_map_symm (φ : MulAut Q) (H : Subgroup Q) :
     ext H x
     simp [MulAut.mul_def]
 
-theorem cyclicFourAction_apply (φ : MulAut Q)
-    (H : {H : Subgroup Q // IsCyclic H ∧ Nat.card H = 4}) :
-    (cyclicFourAction Q φ H : Subgroup Q) = H.1.map φ.toMonoidHom := rfl
 
 variable (e : Q ≃* QuaternionGroup 2)
 

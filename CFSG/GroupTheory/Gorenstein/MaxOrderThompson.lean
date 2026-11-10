@@ -30,11 +30,6 @@ section FiniteSubgroup
 
 variable {G : Type*} [Group G]
 
-theorem centerIn_le_thompsonSubgroup_of_finite (S : Subgroup G) [Finite S] :
-    centerIn S ≤ thompsonSubgroup S := by
-  rw [thompsonSubgroup_eq_map_maxCardThompson, maxCardThompson_eq_orderThompson,
-    centerIn_eq_map_center]
-  exact Subgroup.map_mono center_le_orderThompson
 
 theorem thompsonSubgroup_ne_bot_of_finite {S : Subgroup G} [Finite S] (hS : S ≠ ⊥) :
     thompsonSubgroup S ≠ ⊥ := by
@@ -50,12 +45,6 @@ theorem thompsonSubgroup_ne_bot_of_finite {S : Subgroup G} [Finite S] (hS : S �
   rw [hAbot, Subgroup.card_bot] at hcard
   exact hs (Subgroup.zpowers_eq_bot.mp ((Subgroup.card_le_one_iff_eq_bot _).mp hcard))
 
-theorem thompsonCenter_ne_bot_of_isPGroup {S : Subgroup G} [Finite S] {p : ℕ} (hp : p.Prime)
-    (hSp : IsPGroup p S) (hS : S ≠ ⊥) : thompsonCenter S ≠ ⊥ := by
-  have : Nontrivial S := (Subgroup.nontrivial_iff_ne_bot S).mpr hS
-  rw [thompsonCenter_eq_map_maxCardZJ, maxCardZJ_eq_orderZJ, Ne,
-    Subgroup.map_eq_bot_iff_of_injective _ S.subtype_injective]
-  exact orderZJ_ne_bot_of_isPGroup hp hSp
 
 theorem Open.thompsonSubgroup_ne_bot_of_finite {S : Subgroup G} [Finite S] (hS : S ≠ ⊥) :
     Open.thompsonSubgroup S ≠ ⊥ := by
@@ -66,9 +55,6 @@ end FiniteSubgroup
 
 variable {G : Type*} [Group G] [Finite G]
 
-theorem thompsonAbelianSubgroups_top_eq :
-    thompsonAbelianSubgroups (⊤ : Subgroup G) = maxOrderAbelianFamily G := by
-  rw [thompsonAbelianSubgroups_top_eq_setOf_isMaxCardAbelian, setOf_isMaxCardAbelian_eq]
 
 theorem image_maxOrderAbelianFamily_eq_thompsonAbelianSubgroups (S : Subgroup G) :
     (fun A : Subgroup S => A.map S.subtype) '' maxOrderAbelianFamily S =
@@ -88,8 +74,6 @@ theorem image_maxOrderAbelianFamily_eq_thompsonAbelianSubgroups (S : Subgroup G)
       ← Subgroup.card_map_of_injective S.subtype_injective]
     exact hmax _ (Subgroup.map_subtype_le A) inferInstance
 
-theorem thompsonSubgroup_top_eq : thompsonSubgroup (⊤ : Subgroup G) = orderThompson G := by
-  rw [thompsonSubgroup_top_eq_maxCardThompson, maxCardThompson_eq_orderThompson]
 
 theorem thompsonSubgroup_eq_ambientOrderThompson (S : Subgroup G) :
     thompsonSubgroup S = ambientOrderThompson S := by
@@ -105,10 +89,5 @@ theorem Open.thompsonSubgroup_eq_ambientOrderThompson (S : Subgroup G) :
     Open.thompsonSubgroup S = ambientOrderThompson S :=
   (Adapters.leanEval_thompsonSubgroup_eq S).trans (CFSG.thompsonSubgroup_eq_ambientOrderThompson S)
 
-theorem Open.map_center_thompsonSubgroup_eq_ambientOrderZJ (S : Subgroup G) :
-    (Subgroup.center (Open.thompsonSubgroup S)).map (Open.thompsonSubgroup S).subtype =
-      ambientOrderZJ S := by
-  rw [Adapters.leanEval_thompsonSubgroup_eq, ← centerIn_eq_map_center]
-  exact CFSG.thompsonCenter_eq_ambientOrderZJ S
 
 end CFSG

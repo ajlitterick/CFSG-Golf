@@ -55,8 +55,6 @@ theorem wit_C :
     witOK [true, true, true, false] rowsSA rowsSC 12 = true :=
   Certificates.certificate10070.2.2.2.2.2.2.2.2.2.2.1
 
-theorem q0_code4 : q0N (transposeRows 24 qRows) code4 = false :=
-  Certificates.certificate10070.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem code4_word :
     vecMulN 24 (transposeRows 24 (wordRows code4Word)) 1 = code4 :=

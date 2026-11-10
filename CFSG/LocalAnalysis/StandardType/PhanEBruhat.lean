@@ -55,14 +55,6 @@ private theorem q2nPE_borel_mul_cell (w : W) :
   · intro g hg
     exact Set.mem_mul.2 ⟨1, one_mem _, g, hg, one_mul g⟩
 
-private theorem q2nPE_cell_mul_borel (w : W) :
-    bruhatCell hct w * (borel D H : Set K) = bruhatCell hct w := by
-  apply le_antisymm
-  · intro g hg
-    obtain ⟨x, hx, b, hb, rfl⟩ := Set.mem_mul.1 hg
-    exact mul_mem_bruhatCell_right hct hx hb
-  · intro g hg
-    exact Set.mem_mul.2 ⟨g, hg, 1, one_mem _, mul_one g⟩
 
 private theorem q2nPE_borel_sub_simple_cell_mul_self (i : Fin D.rank) :
     (borel D H : Set K) ⊆

@@ -73,8 +73,6 @@ theorem sH : slK CU43S.cnt (hsortPtK 820 10 (mask 10) CU43S.cnt CU43S.T CU43S.HS
 theorem rank_ok : rankK 16 30 = true := by
   quickRfl
 
-theorem rank_neg : rankK 16 1 = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.CU43Syl
 

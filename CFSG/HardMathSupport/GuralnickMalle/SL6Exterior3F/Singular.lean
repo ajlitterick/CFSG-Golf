@@ -110,14 +110,6 @@ theorem card_singular_le_pow (K : Type) [Field K] [Finite K] :
     nlinarith [mul_nonneg h1 h2]
   exact_mod_cast hZ
 
-theorem card_singular_matrices_le (K : Type) [Field K] [Finite K] :
-    Nat.card {M : Matrix (Fin 3) (Fin 3) K // ¬ IsUnit M.det} ≤
-      (Nat.card K ^ 2 + Nat.card K + 1) * Nat.card K ^ 6 := by
-  refine le_trans (card_singular_le_pow K) ?_
-  have h : (Nat.card K ^ 2 + Nat.card K + 1) * Nat.card K ^ 6 =
-      Nat.card K ^ 8 + Nat.card K ^ 7 + Nat.card K ^ 6 := by ring
-  rw [h]
-  omega
 
 theorem card_singular_matrices_lt (K : Type) [Field K] [Finite K]
     (hq : 2 ≤ Nat.card K) :

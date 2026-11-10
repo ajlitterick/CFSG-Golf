@@ -47,12 +47,6 @@ theorem ggOrb_eq_of_mem {ω v : V} (h : v ∈ ggOrb E ω) : ggOrb E v = ggOrb E 
   ext w
   exact ⟨fun hw => ggOrb_trans h hw, fun hw => ggOrb_trans (ggOrb_symm h) hw⟩
 
-theorem ggOrb_eq_or_disjoint (ω v : V) : ggOrb E ω = ggOrb E v ∨ Disjoint (ggOrb E ω) (ggOrb E v) := by
-  by_cases h : ∃ w, w ∈ ggOrb E ω ∧ w ∈ ggOrb E v
-  · obtain ⟨w, h1, h2⟩ := h
-    exact Or.inl ((ggOrb_eq_of_mem h1).symm.trans (ggOrb_eq_of_mem h2))
-  · push Not at h
-    exact Or.inr (Finset.disjoint_left.mpr h)
 
 theorem ggFix_orb_of_mem_stab (hEab : ∀ x ∈ E, ∀ y ∈ E, x * y = y * x) {ω : V} {x : Perm V}
     (hx : x ∈ ggStab E ω) {v : V} (hv : v ∈ ggOrb E ω) : x v = v := by

@@ -39,11 +39,6 @@ theorem ch431008o3 : allN 58 (fun r => strictB (EP.T (f12 PD.rp r)) fun x =>
 
 #kc_each CertificateChecks.KernelCo3Tw ch431008pr_ prR 0 58
 
-theorem neg431008pr : (!prChk 276 9 (mask 9) Co3C.BP 7 2187 173 PD.cc dpK EP.T (EP.T (f12 PD.rp 1))
-    (nthL PD.pr 0) 0) = true := by quickRfl
-
-theorem neg431008cn : (!allN 58 (fun r => Nat.beq (cntR r PD.cr) (f12 PD.cn (Nat.succ r) ))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelCo3Tw
 

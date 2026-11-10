@@ -17,6 +17,5 @@ theorem sylowCountSL2_holds : SylowCountSL2 :=
 theorem noSU4Abelian_holds : NoSU4Abelian :=
   fun hf Φ hs hk => su4_exists_big_abelian hf Φ hs hk
 
-variable {G : Type} [Group G] [Finite G] {Z : Subgroup G} {e : ℕ}
 
 end CFSG.CGT.PushingUpLit.A78

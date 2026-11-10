@@ -81,13 +81,6 @@ theorem oddProjection_bijective {H : Type u} {Q : Type v} [Group H] [Group Q]
   MulEquiv.ofBijective (oddProjection pi C hB)
     (oddProjection_bijective pi hpi hcentral hK C hd hB)
 
-theorem oddProjectionEquiv_coe {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (C : Subgroup Q) [Finite C] (hd : Odd (Nat.card C))
-    (hB : IsMulCommutative (C.comap pi))
-    (e : oddRoots (C.comap pi) (Nat.card C) hB) :
-    (oddProjectionEquiv pi hpi hcentral hK C hd hB e : Q) = pi e := rfl
 
 theorem oddRoots_card {H : Type u} {Q : Type v} [Group H] [Group Q]
     (pi : H →* Q) (hpi : Function.Surjective pi)
@@ -242,32 +235,6 @@ theorem centralizer_eq_comap_image_centralizer
   exact toSubgroups.trans (internalDirectEquiv (pi.ker.subgroupOf B) (E.subgroupOf B)
     hcenter (oddRoots_isComplement pi hpi hcentral hK C hd hB))
 
-theorem preimageDirectEquiv_coe {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (C : Subgroup Q) [Finite C] (hd : Odd (Nat.card C))
-    (hB : IsMulCommutative (C.comap pi))
-    (x : pi.ker × oddRoots (C.comap pi) (Nat.card C) hB) :
-    (preimageDirectEquiv pi hpi hcentral hK C hd hB x : H) = (x.1 : H) * x.2 := rfl
-
-@[expose] def preimageSemidirectEquiv {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (N C : Subgroup Q) [N.Normal] [Finite C] (hd : Odd (Nat.card C))
-    (hB : IsMulCommutative (C.comap pi)) (hcomp : N.IsComplement' C) :
-    N.comap pi ⋊[internalAction (N.comap pi) (oddRoots (C.comap pi) (Nat.card C) hB)]
-      oddRoots (C.comap pi) (Nat.card C) hB ≃* H :=
-  internalSemidirectEquiv _ _ (preimage_isComplement pi hpi hcentral hK N C hd hB hcomp)
-
-theorem preimageSemidirectEquiv_apply {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (N C : Subgroup Q) [N.Normal] [Finite C] (hd : Odd (Nat.card C))
-    (hB : IsMulCommutative (C.comap pi)) (hcomp : N.IsComplement' C)
-    (x : N.comap pi ⋊[internalAction (N.comap pi) (oddRoots (C.comap pi) (Nat.card C) hB)]
-      oddRoots (C.comap pi) (Nat.card C) hB) :
-    preimageSemidirectEquiv pi hpi hcentral hK N C hd hB hcomp x = x.left * x.right :=
-  internalSemidirectEquiv_apply _ _ _ x
 
 theorem B_isMulCommutative {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
@@ -572,32 +539,6 @@ theorem linear_inter_centralizer_eq {H : Type v} [Group H]
         Subgroup.centralizer (gammaField F Sigma : Set (Gamma F Sigma))).comap pi := by
   rw [E_centralizer_eq F Sigma pi hpi hcentral hK hd, Subgroup.comap_inf]
 
-@[expose] def ECentralizerDirectEquiv {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (hd : Odd (Nat.card Sigma)) :
-    ↥((gammaLinear F Sigma ⊓
-      Subgroup.centralizer (gammaField F Sigma : Set (Gamma F Sigma))).comap pi) ×
-      E F Sigma pi hcentral ≃* Subgroup.centralizer (E F Sigma pi hcentral : Set H) :=
-  ((MulEquiv.subgroupCongr (linear_inter_centralizer_eq F Sigma pi hpi hcentral hK hd).symm).prodCongr
-    (MulEquiv.refl (E F Sigma pi hcentral))).trans
-    (complementCentralizerDirectEquiv (M F Sigma pi) (E F Sigma pi hcentral)
-      (H_isComplement F Sigma pi hpi hcentral hK hd) (E_isMulCommutative F Sigma pi hcentral))
-
-theorem ECentralizerDirectEquiv_coe {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (hd : Odd (Nat.card Sigma))
-    (x : ↥((gammaLinear F Sigma ⊓
-      Subgroup.centralizer (gammaField F Sigma : Set (Gamma F Sigma))).comap pi) ×
-      E F Sigma pi hcentral) :
-    (ECentralizerDirectEquiv F Sigma pi hpi hcentral hK hd x : H) = (x.1 : H) * x.2 :=
-  complementCentralizerDirectEquiv_coe (M F Sigma pi) (E F Sigma pi hcentral)
-    (H_isComplement F Sigma pi hpi hcentral hK hd) (E_isMulCommutative F Sigma pi hcentral)
-    ((MulEquiv.subgroupCongr
-      (linear_inter_centralizer_eq F Sigma pi hpi hcentral hK hd).symm x.1), x.2)
 
 @[expose] def oddLinearIndex (q0 d : ℕ) : ℕ :=
   q0 ^ (d - 1) * ∑ i ∈ Finset.range d, (q0 ^ 2) ^ i
@@ -635,18 +576,6 @@ theorem odd_index_of_projective_card {D : Type u} [Group D] [Finite D]
     exact (oddLinearIndex_mul hq0 hd).symm
   exact ⟨heq, heq ▸ oddLinearIndex_odd hqodd hd⟩
 
-theorem quotient_preimage_odd_index {H : Type u} {Q : Type v} [Group H] [Group Q]
-    (pi : H →* Q) (hpi : Function.Surjective pi) (Q0 : Subgroup Q) (hodd : Odd Q0.index) :
-    Odd (Q0.comap pi).index := (Q0.index_comap_of_surjective hpi).symm ▸ hodd
-
-theorem quotient_preimage_sylow_two {H : Type u} {Q : Type v} [Group H] [Group Q] [Finite H]
-    (pi : H →* Q) (hpi : Function.Surjective pi) (Q0 : Subgroup Q)
-    (hodd : Odd Q0.index) (E : Subgroup H)
-    (hcentralizer : Q0.comap pi ≤ Subgroup.centralizer (E : Set H)) :
-    ∃ S : Sylow 2 H, (S : Subgroup H) ≤ Q0.comap pi ∧
-      (S : Subgroup H) ≤ Subgroup.centralizer (E : Set H) :=
-  exists_sylow_two_le_centralizer_of_odd_index (Q0.comap pi) E
-    (quotient_preimage_odd_index pi hpi Q0 hodd) hcentralizer
 
 @[expose] def gammaLinearEquiv (F : Type u) [Field F] [Finite F]
     (Sigma : Subgroup (F ≃+* F)) : gammaLinear F Sigma ≃* coordinateD F :=
@@ -679,11 +608,6 @@ theorem Gamma_card (F : Type u) [Field F] [Finite F]
 abbrev H1 {H : Type v} [Group H] (F : Type u) [Field F] [Finite F]
     (Sigma : Subgroup (F ≃+* F)) (pi : H →* Gamma F Sigma) := M F Sigma pi
 
-theorem H1_card {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi) :
-    Nat.card (H1 F Sigma pi) = Nat.card pi.ker * (Nat.card F * (Nat.card F ^ 2 - 1)) := by
-  rw [preimage_card pi hpi (gammaLinear F Sigma), gammaLinear_card]
 
 theorem H_card {H : Type v} [Group H]
     (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
@@ -960,23 +884,6 @@ theorem H0_contains_sylow_two {H : Type v} [Group H] [Finite H]
     (H0_index p f hp hpodd hf F hcard Sigma hd pi hpi).2
     (H0_le_centralizer F Sigma pi hpi hcentral hK hd)
 
-@[expose] def fixedCoordinateDEquivGamma (F : Type u) [Field F] [Finite F]
-    (Sigma : Subgroup (F ≃+* F)) : coordinateD (FixedPoints.subfield Sigma F) ≃* D0Gamma F Sigma :=
-  (FixedFieldCentralizer.coordinateDEquivD0 F Sigma).trans
-    (gammaCoordinateSubgroupEquiv F Sigma (FixedFieldCentralizer.D0InD F Sigma))
-
-theorem fixedCoordinateDEquivGamma_matrix (F : Type u) [Field F] [Finite F]
-    (Sigma : Subgroup (F ≃+* F))
-    (U : Matrix.GeneralLinearGroup (Fin 2) (FixedPoints.subfield Sigma F)) :
-    ((((fixedCoordinateDEquivGamma F Sigma
-      (pglEquivCoordinateD (FixedPoints.subfield Sigma F) (Matrix.ProjGenLinGroup.mk U)) : D0Gamma F Sigma) :
-      Gamma F Sigma) : coordinateE F) : Equiv.Perm (Omega F)) = FixedFieldCentralizer.fixedGLAction F Sigma U := by
-  change (((coordinateDToGamma F Sigma
-    (FixedFieldCentralizer.coordinateDEquivD0 F Sigma
-      (pglEquivCoordinateD (FixedPoints.subfield Sigma F) (Matrix.ProjGenLinGroup.mk U))) :
-      Gamma F Sigma) : coordinateE F) : Equiv.Perm (Omega F)) = _
-  rw [coordinateDToGamma_coe]
-  exact FixedFieldCentralizer.coordinateDEquivD0_matrix F Sigma U
 
 theorem D0Gamma_mem_iff (F : Type u) [Field F] [Finite F]
     (Sigma : Subgroup (F ≃+* F)) (g : Gamma F Sigma) :
@@ -1018,45 +925,6 @@ theorem fixedCoordinateDEquiv_matrix (F : Type u) [Field F] [Finite F]
       Equiv.Perm (Omega F)) = FixedFieldCentralizer.fixedGLAction F Sigma U :=
   FixedFieldCentralizer.coordinateDEquivD0_matrix F Sigma U
 
-theorem D_centralizer_image (F : Type u) [Field F] [Finite F]
-    (Sigma : Subgroup (F ≃+* F)) :
-    ((Subgroup.centralizer (ambientLiftedField F Sigma : Set (Equiv.Perm (Omega F)))).comap
-      (coordinateD F).subtype).map (coordinateD F).subtype = FixedFieldCentralizer.D0 F Sigma := by
-  rw [FixedFieldCentralizer.fixed_field_projective_centralizer,
-    FixedFieldCentralizer.D0InD_map_subtype]
-
-theorem B_isComplement {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (hd : Odd (Nat.card Sigma)) :
-    (pi.ker.subgroupOf (B F Sigma pi)).IsComplement'
-      ((E F Sigma pi hcentral).subgroupOf (B F Sigma pi)) := by
-  have h := oddRoots_isComplement pi hpi hcentral hK (gammaField F Sigma)
-    ((gammaField_card F Sigma).symm ▸ hd) (B_isMulCommutative F Sigma pi hcentral)
-  unfold E
-  rwa [gammaField_card] at h
-
-theorem HCentralizer_isComplement {H : Type v} [Group H]
-    (F : Type u) [Field F] [Finite F] (Sigma : Subgroup (F ≃+* F))
-    (pi : H →* Gamma F Sigma) (hpi : Function.Surjective pi)
-    (hcentral : pi.ker ≤ Subgroup.center H) (hK : IsPGroup 2 pi.ker)
-    (hd : Odd (Nat.card Sigma)) :
-    ((H0 F Sigma pi).subgroupOf (Subgroup.centralizer (E F Sigma pi hcentral : Set H))).IsComplement'
-      ((E F Sigma pi hcentral).subgroupOf (Subgroup.centralizer (E F Sigma pi hcentral : Set H))) := by
-  have h0le := H0_le_centralizer F Sigma pi hpi hcentral hK hd
-  have hEle : E F Sigma pi hcentral ≤ Subgroup.centralizer (E F Sigma pi hcentral : Set H) :=
-    Subgroup.le_centralizer_iff_isMulCommutative.mpr (E_isMulCommutative F Sigma pi hcentral)
-  apply factorization_isComplement _ _ _ h0le hEle
-  · exact (H_isComplement F Sigma pi hpi hcentral hK hd).disjoint.mono_left
-      ((Subgroup.comap_mono (D0Gamma_le_linear F Sigma)))
-  · intro x
-    let p := (HCentralizerDirectEquiv F Sigma pi hpi hcentral hK hd).symm x
-    refine ⟨p.1, p.2, ?_⟩
-    have h := congrArg Subtype.val
-      ((HCentralizerDirectEquiv F Sigma pi hpi hcentral hK hd).apply_symm_apply x)
-    rw [HCentralizerDirectEquiv_coe] at h
-    exact h.symm
 
 theorem central_two_kernel_odd_field_complement_and_fixed_centralizer_of_finite
     {H : Type v} [Group H] [Finite H]

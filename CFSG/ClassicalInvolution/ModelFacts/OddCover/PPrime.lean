@@ -42,9 +42,6 @@ variable {E : Type*} [Group E]
     rintro a ⟨ha, ha'⟩
     exact ⟨C.inv_mem ha, by rwa [orderOf_inv]⟩
 
-theorem mem_pPrimePart {p : ℕ} {hp : p.Prime} {C : Subgroup E} {hC : C ≤ Subgroup.center E}
-    {c : E} : c ∈ pPrimePart hp C hC ↔ c ∈ C ∧ ¬ p ∣ orderOf c :=
-  Iff.rfl
 
 instance pPrimePart_normal {p : ℕ} (hp : p.Prime) (C : Subgroup E) (hC : C ≤ Subgroup.center E) :
     (pPrimePart hp C hC).Normal :=

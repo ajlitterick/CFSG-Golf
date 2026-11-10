@@ -84,10 +84,6 @@ variable (K a) in
   (MonoidHom.ofInjective largeReeA1Hom_injective).trans
     (MulEquiv.subgroupCongr (rankOneGroupOne_eq_range hK).symm)
 
-theorem coe_rankOneEquivSL
-    (hK : Nat.card K = 2 ^ (2 * a + 1)) (g : SL2 K) :
-    (rankOneEquivSL K a hK g : ModGL F4.tag K) = largeReeA1Hom K a g :=
-  rfl
 
 theorem card_rankOneGroupOne
     (hK : Nat.card K = 2 ^ (2 * a + 1)) :

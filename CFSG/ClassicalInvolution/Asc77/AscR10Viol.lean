@@ -22,52 +22,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G]
   {K K' J : Subgroup G} {S : Sylow 2 G} {R R' W V : Subgroup G} {z t : G}
 
 
-
-theorem Std20.r_swap_ne (d : Std20 p f K K' J S R R' W V z t) {a : G} {e₀ : ℕ}
-    (hzA : z ∈ Subgroup.centralizer ({a} : Set G))
-    (hL : IsClassicalMember p e₀ (perfectCoreIn K a) ⟨z, hzA⟩) {c : G}
-    (hcA : c ∈ Subgroup.centralizer ({a} : Set G)) (hcK : conjSub c K = K') :
-    conjSub (⟨c, hcA⟩ : ↥(Subgroup.centralizer ({a} : Set G))) (perfectCoreIn K a) ≠
-      perfectCoreIn K a := by
-  intro h
-  have hΩ₀ := d.x_hypOmegaMod_conjFamily hzA hL
-  have hM₁ : perfectCoreIn K a ∈ conjFamily (perfectCoreIn K a) := ⟨1, conjSub_one _⟩
-  have hKaK : perfectResidualOf (K ⊓ Subgroup.centralizer ({a} : Set G)) ≤ K :=
-    (perfectResidualOf_le _).trans inf_le_left
-  have hmap1 : (perfectCoreIn K a).map (Subgroup.centralizer ({a} : Set G)).subtype =
-      perfectResidualOf (K ⊓ Subgroup.centralizer ({a} : Set G)) := by
-    have := map_conjSub_perfectCore (K := K) (a := a) 1
-    simpa [conjSub_one] using this
-  have hmap2 : (conjSub (⟨c, hcA⟩ : ↥(Subgroup.centralizer ({a} : Set G)))
-      (perfectCoreIn K a)).map (Subgroup.centralizer ({a} : Set G)).subtype =
-      conjSub c (perfectResidualOf (K ⊓ Subgroup.centralizer ({a} : Set G))) :=
-    map_conjSub_perfectCore ⟨c, hcA⟩
-  obtain ⟨P, hP, hP1, -⟩ := exists_mem_RSet_ge hM₁
-    (isPGroup_two_bot' (G := ↥(Subgroup.centralizer ({a} : Set G)))) bot_le
-  have h8 := hΩ₀.eight_le_of_mem_RSet d.branch.odd hP
-  have hP2 : IsPGroup 2 P := hP1.2.1
-  have hA2 : IsPGroup 2 (P.map (Subgroup.centralizer ({a} : Set G)).subtype) := hP2.map _
-  have hcard : Nat.card ↥(P.map (Subgroup.centralizer ({a} : Set G)).subtype) = Nat.card P :=
-    (Nat.card_congr (Subgroup.equivMapOfInjective P _
-      (Subgroup.centralizer ({a} : Set G)).subtype_injective).toEquiv).symm
-  have hPle : P ≤ perfectCoreIn K a := hP1.1
-  have hAK : P.map (Subgroup.centralizer ({a} : Set G)).subtype ≤ K := by
-    rw [← hmap1] at hKaK
-    exact (Subgroup.map_mono hPle).trans hKaK
-  have hAK' : P.map (Subgroup.centralizer ({a} : Set G)).subtype ≤ K' := by
-    have h1 : (perfectCoreIn K a).map (Subgroup.centralizer ({a} : Set G)).subtype ≤
-        conjSub c K := by
-      calc (perfectCoreIn K a).map (Subgroup.centralizer ({a} : Set G)).subtype
-          = (conjSub (⟨c, hcA⟩ : ↥(Subgroup.centralizer ({a} : Set G)))
-              (perfectCoreIn K a)).map (Subgroup.centralizer ({a} : Set G)).subtype := by
-            rw [h]
-        _ = conjSub c (perfectResidualOf (K ⊓ Subgroup.centralizer ({a} : Set G))) := hmap2
-        _ ≤ conjSub c K := Subgroup.map_mono hKaK
-    rw [hcK] at h1
-    exact (Subgroup.map_mono hPle).trans h1
-  exact d.ne (Sec6Gen.eq_of_le_of_le d.late_hΩ d.late_mem_K d.late_mem_K' hA2
-    (by omega) hAK hAK').symm
-
 theorem Std20.r_aViol [IsSimpleGroup G] (d : Std20 p f K K' J S R R' W V z t)
     (c7 : Concl20_7 S K K' z) (c9 : Concl20_9 S K K' R R' z) (h8 : 8 < Nat.card R)
     (h9 : p ^ f ≠ 9) {b : G} (hb : FieldInv20 S K K' W z t b) {u : G} {k : ℕ} (hk : 2 ≤ k)
@@ -247,35 +201,6 @@ theorem Std20.r_aViol [IsSimpleGroup G] (d : Std20 p f K K' J S R R' W V z t)
     exact d.viol.no_conj (g : G) hg2 hK1
   exact ⟨hstar, hnotnbr, hu₁, hu₂, hnoconj⟩
 
-
-theorem Std20.r_false_of_plus [IsSimpleGroup G] (hp3 : p ≠ 3)
-    (d : Std20 p f K K' J S R R' W V z t) (c7 : Concl20_7 S K K' z)
-    (c9 : Concl20_9 S K K' R R' z) (h8 : 8 < Nat.card R) {b : G}
-    (hb : FieldInv20 S K K' W z t b) {u : G} {k : ℕ} (hk : 2 ≤ k)
-    (hu : Subgroup.zpowers u = K ⊓ W) (huo : orderOf u = 2 ^ (k + 1))
-    (hact : ∀ x ∈ K ⊓ W, b * x * b⁻¹ = x ^ ((2 : ℤ) ^ k + 1)) : False := by
-  have h9 : p ^ f ≠ 9 := by
-    intro h
-    have hf : f ≠ 0 := by
-      rintro rfl
-      have := d.branch.five
-      simp at this
-    have hdvd : p ∣ 3 ^ 2 := by
-      have : p ∣ p ^ f := dvd_pow_self p hf
-      rw [h] at this
-      simpa using this
-    exact hp3 ((Nat.prime_dvd_prime_iff_eq Fact.out Nat.prime_three).mp
-      (Nat.Prime.dvd_of_dvd_pow Fact.out hdvd))
-  obtain ⟨e₀, hfe, h5, hzA, htA, hmem, hlt, hIH, J_b, hv⟩ :=
-    d.r_aViol c7 c9 h8 h9 hb hk hu huo hact
-  obtain ⟨s, hsS, hsK, hsb⟩ := d.z_exists_swap c7 c9 h8 hb
-  have hsC : s ∈ Subgroup.centralizer ({b} : Set G) :=
-    Subgroup.mem_centralizer_singleton_iff.mpr hsb
-  have hsz : s * z = z * s := Subgroup.mem_centralizer_singleton_iff.mp (d.hSz hsS)
-  have hΩ₀ := d.x_hypOmegaMod_conjFamily hzA hmem
-  have hne := d.r_swap_ne hzA hmem hsC hsK
-  exact R10.false_of_violation_and_swap d.branch.odd hp3 h5 hIH hlt hΩ₀ ⟨1, conjSub_one _⟩ hv
-    (s := ⟨s, hsC⟩) (Subtype.ext hsz) hne
 
 end Std
 

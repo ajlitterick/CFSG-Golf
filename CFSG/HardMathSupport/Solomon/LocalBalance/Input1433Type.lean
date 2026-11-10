@@ -47,21 +47,6 @@ private theorem normal_eq_top_or_le_center {Q : Type*} [Group Q] (hQ : CFSG.Open
     rw [hp] at hcomm
     exact eq_top_iff.mpr hcomm
 
-private theorem glaPPrimeCore_eq_bot_of_card_center_dvd {J : Type} [Group J] [Finite J]
-    (hq : CFSG.Open.IsQuasisimple J) (h3 : 3 ∣ Nat.card J)
-    (hc : Nat.card (Subgroup.center J) ∣ 27) : GLAPPrimeCore 3 J = ⊥ := by
-  refine eq_bot_iff.mpr (sSup_le fun N hN => ?_)
-  obtain ⟨hNn, hNc⟩ := hN
-  rcases normal_eq_top_or_le_center hq hNn with h | h
-  · exfalso
-    subst h
-    rw [Subgroup.card_top] at hNc
-    exact absurd (Nat.Coprime.eq_one_of_dvd hNc h3) (by norm_num)
-  · have hd : Nat.card N ∣ 27 := (Subgroup.card_dvd_of_le h).trans hc
-    have h1 : Nat.card N = 1 :=
-      Nat.Coprime.eq_one_of_dvd
-        (Nat.Coprime.pow_right 3 hNc.symm : Nat.Coprime (Nat.card N) (3 ^ 3)) (by simpa using hd)
-    exact le_of_eq (Subgroup.eq_bot_of_card_eq N h1)
 
 private theorem isSL3EpsOver_of_mulEquiv {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y')
     {q : ℕ} (h : IsSL3EpsOver Y q) : IsSL3EpsOver Y' q := by
@@ -137,33 +122,6 @@ private theorem isD4Type_of_isD4Over {Y : Type} [Group Y] {q : ℕ} (h : IsD4Ove
   rw [← hc, hn, h3']
   exact dvd_pow_self 3 n.ne_zero
 
-theorem input14_33LiteralSameField_of_type (h : Input14_33TypeSameField) :
-    Input14_33LiteralSameField := by
-  intro X _ _ K Q₁ Q J t q hS hJ hSL hZ hf3
-  have h3J : 3 ∣ Nat.card J := Nat.dvd_of_factorization_pos (by rw [hf3]; norm_num)
-  have hcJ : Nat.card (Subgroup.center ↥J) ∣ 27 := by
-    have h1 : Nat.card ((Subgroup.center ↥J).map J.subtype) = Nat.card (Subgroup.center ↥J) :=
-      Subgroup.card_map_of_injective J.subtype_injective
-    have h2 : Nat.card ((Subgroup.center ↥Q).map Q.subtype) = Nat.card (Subgroup.center ↥Q) :=
-      Subgroup.card_map_of_injective Q.subtype_injective
-    rw [← h1, ← hZ, h2]
-    exact (Subgroup.card_subgroup_dvd_card _).trans (hS.orderQ ▸ dvd_refl _)
-  have hbot : GLAPPrimeCore 3 ↥J = ⊥ := glaPPrimeCore_eq_bot_of_card_center_dvd hJ.2.2 h3J hcJ
-  have hbij : Function.Bijective (QuotientGroup.mk' (GLAPPrimeCore 3 ↥J)) := by
-    refine ⟨?_, QuotientGroup.mk'_surjective _⟩
-    rw [← MonoidHom.ker_eq_bot_iff, QuotientGroup.ker_mk', hbot]
-  let e : ↥J ≃* (↥J ⧸ GLAPPrimeCore 3 ↥J) := MulEquiv.ofBijective _ hbij
-  refine h X K Q₁ Q J t q hS hJ ?_ (isSL3EpsOver_of_mulEquiv e hSL) ?_ hf3
-  · rw [hZ]
-    exact Subgroup.map_subtype_le _
-  · have h1 : ((Subgroup.center ↥Q).map Q.subtype).subgroupOf J = Subgroup.center ↥J := by
-      rw [hZ]
-      exact Subgroup.comap_map_eq_self_of_injective J.subtype_injective _
-    rw [h1]
-    exact Subgroup.map_center_eq e
-
-theorem input14_33SameField_of_type (h : Input14_33TypeSameField) : Input14_33SameField :=
-  input14_33LiteralSameField_of_type h
 
 theorem input14_33_of_type (h : Input14_33TypeSameField) : Input14_33 := by
   intro X _ _ K Q₁ Q t hgen hnorm hqs hKg hcore hrank hloc h3 h2 hnorm' hinv hQ hQn hcard hnab
@@ -176,13 +134,5 @@ theorem input14_33_of_type (h : Input14_33TypeSameField) : Input14_33 := by
   exact isD4Type_of_isD4Over (h X K Q₁ Q J t q hS hJc hZJ hq hZc hf3)
     (not_three_dvd_of_isSL3EpsOver hq)
 
-theorem lemma27_of_type_inputs (h24 : Lemma24) (h25 : Lemma25Strong)
-    (i112 : Input11_2Full) (i112f : Input11_2Four) (i112t : Input11_2Two)
-    (iB0 : InputB0T) (i302 : Input30_2)
-    (i183 : CFSG.HardMathSupport.Solomon.UniquenessMaximal.Input18_3_4)
-    (i145 : Input14_5) (i253 : Input25_3) (i1433 : Input14_33TypeSameField)
-    (iD4 : InputD4) : Lemma27 :=
-  lemma27_of_inputs h24 h25 i112 i112f i112t iB0 i302 i183 i145 i253 (input14_33_of_type i1433)
-    iD4
 
 end CFSG.HardMathSupport.Solomon.LocalBalance.Lemma27Ns

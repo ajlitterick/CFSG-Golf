@@ -159,53 +159,6 @@ theorem centralizer_center_eq :
     intro z hz
     exact antiUnipotentCenter_comm hz hu
 
-theorem normalizer_center_eq :
-    Subgroup.normalizer (antiUnipotentCenter K : Set (antiSp K)) =
-      Subgroup.normalizer (antiUnipotent K : Set (antiSp K)) := by
-  apply le_antisymm
-  · intro g hg
-    rw [Subgroup.mem_normalizer_iff] at hg ⊢
-    intro h
-    rw [← centralizer_center_eq, Subgroup.mem_centralizer_iff, Subgroup.mem_centralizer_iff]
-    constructor
-    · intro hh y hy
-      have hy' : g⁻¹ * y * g ∈ antiUnipotentCenter K :=
-        (hg _).mpr (by rwa [show g * (g⁻¹ * y * g) * g⁻¹ = y by group])
-      have h1 := hh _ hy'
-      calc y * (g * h * g⁻¹) = g * ((g⁻¹ * y * g) * h) * g⁻¹ := by group
-        _ = g * (h * (g⁻¹ * y * g)) * g⁻¹ := by rw [h1]
-        _ = g * h * g⁻¹ * y := by group
-    · intro hh y hy
-      have h1 := hh _ ((hg y).mp hy)
-      calc y * h = g⁻¹ * ((g * y * g⁻¹) * (g * h * g⁻¹)) * g := by group
-        _ = g⁻¹ * ((g * h * g⁻¹) * (g * y * g⁻¹)) * g := by rw [h1]
-        _ = h * y := by group
-  · intro g hg
-    rw [Subgroup.mem_normalizer_iff] at hg ⊢
-    have hconj : ∀ g' : antiSp K, (∀ h, h ∈ antiUnipotent K ↔ g' * h * g'⁻¹ ∈ antiUnipotent K) →
-        ∀ z ∈ antiUnipotentCenter K, g' * z * g'⁻¹ ∈ antiUnipotentCenter K := by
-      intro g' hg' z hz
-      rw [mem_antiUnipotentCenter_iff_central] at hz ⊢
-      refine ⟨(hg' z).mp hz.1, fun u hu => ?_⟩
-      have hu' : g'⁻¹ * u * g' ∈ antiUnipotent K :=
-        (hg' _).mpr (by rwa [show g' * (g'⁻¹ * u * g') * g'⁻¹ = u by group])
-      have h1 := hz.2 _ hu'
-      calc g' * z * g'⁻¹ * u = g' * (z * (g'⁻¹ * u * g')) * g'⁻¹ := by group
-        _ = g' * ((g'⁻¹ * u * g') * z) * g'⁻¹ := by rw [h1]
-        _ = u * (g' * z * g'⁻¹) := by group
-    have hginv : ∀ h, h ∈ antiUnipotent K ↔ g⁻¹ * h * g⁻¹⁻¹ ∈ antiUnipotent K := by
-      intro h
-      constructor
-      · intro hh
-        apply (hg _).mpr
-        rwa [show g * (g⁻¹ * h * g⁻¹⁻¹) * g⁻¹ = h by group]
-      · intro hh
-        have := (hg _).mp hh
-        rwa [show g * (g⁻¹ * h * g⁻¹⁻¹) * g⁻¹ = h by group] at this
-    intro z
-    refine ⟨hconj g hg z, fun hz => ?_⟩
-    have := hconj g⁻¹ hginv _ hz
-    rwa [show g⁻¹ * (g * z * g⁻¹) * g⁻¹⁻¹ = z by group] at this
 
 theorem exists_conj_mem_center [Finite K] {x : antiSp K} (hx : x * x = 1) :
     ∃ g : antiSp K, g * x * g⁻¹ ∈ antiUnipotentCenter K := by
@@ -232,16 +185,5 @@ end CharTwo
 
 end SymplecticFourFusion
 
-open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique.Setup.X7b in
-theorem even_symplectic_four_Sylow_center_normalizer_and_fusion {K : Type} [Field K] [CharP K 2]
-    [Finite K] :
-    (∀ g : antiSp K, g ∈ antiUnipotentCenter K ↔
-      g ∈ antiUnipotent K ∧ ∀ h ∈ antiUnipotent K, g * h = h * g) ∧
-      Subgroup.normalizer (antiUnipotentCenter K : Set (antiSp K)) =
-        Subgroup.normalizer (antiUnipotent K : Set (antiSp K)) ∧
-      ∀ x : antiSp K, orderOf x = 2 → ∃ g : antiSp K, g * x * g⁻¹ ∈ antiUnipotentCenter K :=
-  ⟨mem_antiUnipotentCenter_iff_central, SymplecticFourFusion.normalizer_center_eq,
-    fun _ hx => SymplecticFourFusion.exists_conj_mem_center
-      (by rw [← sq, ← hx, pow_orderOf_eq_one])⟩
 
 end CFSG.LocalAnalysis

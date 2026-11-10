@@ -52,15 +52,6 @@ theorem elt_positiveLong_eq_upperUnipotentSp (i : Fin m) (c : K) :
   rcases x with x | x <;> rcases y with y | y <;>
     simp [E, Matrix.single_apply, Matrix.one_apply]
 
-theorem elt_positiveSum_eq_upperUnipotentSp {i j : Fin m} (hij : i < j) (c : K) :
-    elt (.positiveSum i j hij) c =
-      upperUnipotentSp m K (C := single i j c + single j i c)
-        (by rw [transpose_add, transpose_single, transpose_single, add_comm]) := by
-  apply mat_injective
-  rw [mat_elt, mat_upperUnipotentSp]
-  ext x y
-  rcases x with x | x <;> rcases y with y | y <;>
-    simp [E, Matrix.single_apply, Matrix.one_apply]
 
 theorem elt_positiveLong_mem_unipotent (i : Fin m) (c : K) :
     elt (.positiveLong i) c ∈ unipotent m K := by
@@ -115,12 +106,6 @@ theorem twoCentralElt_mem_unipotent (i j : Fin m) (a b : K) :
     twoCentralElt m i j a b ∈ unipotent m K :=
   upperUnipotentSp_mem_unipotent _
 
-theorem twoCentralElt_eq_elt_mul_elt {i j : Fin m} (hij : i < j) (a b : K) :
-    twoCentralElt m i j a b = elt (.positiveLong i) a * elt (.positiveSum i j hij) b := by
-  rw [elt_positiveLong_eq_upperUnipotentSp, elt_positiveSum_eq_upperUnipotentSp,
-    upperUnipotentSp_mul]
-  apply mat_injective
-  rw [mat_twoCentralElt, mat_upperUnipotentSp, twoCentralMat, add_assoc]
 
 theorem twoCentralElt_eq_one_iff {i j : Fin m} (hij : i ≠ j) {a b : K} :
     twoCentralElt m i j a b = 1 ↔ a = 0 ∧ b = 0 := by
@@ -214,9 +199,6 @@ theorem unitriangular_mul_twoCentralMat_mul_transpose {B : Matrix (Fin (m + 2)) 
       · simp [hx0, hx1, Ne.symm hx0, Ne.symm hx1]
     · simp [hx0, hy0, Ne.symm hx0, Ne.symm hy0]
 
-omit [CharP K 2] in
-theorem mem_spHighRootCenter {g : StatedSp (m + 2) K} :
-    g ∈ spHighRootCenter m K ↔ ∃ a b : K, twoCentralElt (m + 2) 0 1 a b = g := Iff.rfl
 
 theorem spHighRootCenter_le_centralizer_unipotent :
     spHighRootCenter m K ≤ centralizer (unipotent (m + 2) K : Set (StatedSp (m + 2) K)) := by
@@ -382,17 +364,6 @@ theorem spHighRootCenter_le_unipotent : spHighRootCenter m K ≤ unipotent (m + 
   rintro _ ⟨a, b, rfl⟩
   exact twoCentralElt_mem_unipotent 0 1 a b
 
-theorem map_center_unipotent :
-    (center (unipotent (m + 2) K)).map (unipotent (m + 2) K).subtype = spHighRootCenter m K := by
-  apply le_antisymm
-  · rintro _ ⟨z, hz, rfl⟩
-    rw [← centralizer_unipotent, mem_centralizer_iff]
-    intro u hu
-    exact congrArg Subtype.val (mem_center_iff.1 hz ⟨u, hu⟩)
-  · intro z hz
-    refine ⟨⟨z, spHighRootCenter_le_unipotent hz⟩, mem_center_iff.2 fun u => ?_, rfl⟩
-    rw [← centralizer_unipotent, mem_centralizer_iff] at hz
-    exact Subtype.ext (hz u u.2)
 
 end Center
 
@@ -475,14 +446,6 @@ variable (m) in
 @[expose] noncomputable def twoCentralRep (i j : Fin m) (κ : SpTwoCentral) : StatedSp m K :=
   twoCentralElt m i j (κ.params K).1 (κ.params K).2
 
-theorem twoCentralRep_eq_elt {i j : Fin m} (hij : i < j) :
-    twoCentralRep (K := K) m i j .b1 = elt (.positiveLong i) 1 ∧
-      twoCentralRep (K := K) m i j .a2 = elt (.positiveSum i j hij) 1 ∧
-      twoCentralRep (K := K) m i j .c2 =
-        elt (.positiveLong i) 1 * elt (.positiveSum i j hij) 1 := by
-  refine ⟨?_, ?_, ?_⟩ <;>
-    rw [twoCentralRep, twoCentralElt_eq_elt_mul_elt hij] <;>
-    simp [SpTwoCentral.params, CFSG.LieType.Universal.Symplectic.SpExtras.elt_zero]
 
 theorem SpTwoCentral.params_ne (κ : SpTwoCentral) :
     ¬((κ.params K).1 = 0 ∧ (κ.params K).2 = 0) := by

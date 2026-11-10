@@ -9,11 +9,6 @@ namespace CFSG.KS.MaxD2
 open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KS.Raw CFSG.KS.PEnum CFSG.KS.Row CFSG.PSL3Four.Native
 open Certificates.MaxD2Perm
 
-theorem ite_true_or {c b : Bool} (h : (if c = true then true else b) = true) :
-    c = true ∨ b = true := by
-  cases c
-  · exact Or.inr h
-  · exact Or.inl rfl
 
 theorem keyT_succ (w np : Nat) (g : Nat → Nat) :
     keyT w (np + 1) g = Nat.lor (keyT w np g) (Nat.shiftLeft (g np) (Nat.mul w np)) := rfl

@@ -62,41 +62,6 @@ namespace TCtx
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {z : G} {K : Subgroup G}
 
-theorem exists_nodes_odd {m : ℕ} (hm : 3 ≤ m) (h2 : (2 : GaloisField p f) ≠ 0)
-    (c : TCtx p f .POmegaOdd m Ω K z) :
-    ∃ j : Fin (m - 1) → Subgroup G, (∀ a, j a ∈ centralizingMembers Ω {z} ∧ j a ≠ K ∧
-        ¬ locImg Ω z (j a) ≤ c.d.Q₁) ∧
-      (∀ a b : Fin (m - 1), a.val + 1 < b.val → Commutes (j a) (j b)) ∧
-      (∀ a b : Fin (m - 1), a.val + 1 = b.val → ∃ W : Subgroup G,
-        LinearBlockStandardPair (GaloisField p f) W (j a) (j b)) ∧
-      (∀ a, Commutes K (j a)) := by
-  obtain ⟨R, hR, hcomm, hstd⟩ : ∃ R : Fin (m - 1) → Subgroup (modelUniv .POmegaOdd m p f
-        Fact.out).K,
-      (∀ a, R a ∈ fundamentalSubgroups .POmegaOdd (modelUniv .POmegaOdd m p f Fact.out).D) ∧
-      (∀ a b : Fin (m - 1), a ≠ b → ¬ (a.val + 1 = b.val) → ¬ (b.val + 1 = a.val) →
-        Commutes (R a) (R b)) ∧
-      (∀ a b : Fin (m - 1), a.val + 1 = b.val → ∃ W,
-        LinearBlockStandardPair (GaloisField p f) W (R a) (R b)) := by
-    refine ⟨fun a => rankOne (oddDatum m (GaloisField p f)).rootGroup
-      (⟨a.val, by have := a.isLt; show a.val < m; omega⟩ : Fin (oddDatum m (GaloisField p f)).rank),
-      fun a => rankOne_mem_fundamentalSubgroups_oddDatum hm
-        (by show a.val + 1 < m; have := a.isLt; omega), ?_, ?_⟩
-    · intro a b hab h1 h2'
-      refine commutes_rankOne_oddDatum hm h2 ?_
-      refine cartanB_eq_zero_of_far ?_
-      have : a.val ≠ b.val := fun e => hab (Fin.ext e)
-      simp only
-      omega
-    · intro a b hab
-      have hbl := b.isLt
-      exact standardPair_oddDatum_edge' (F := GaloisField p f) hm
-        (i := (⟨a.val, by show a.val < m; omega⟩ : Fin m))
-        (j := (⟨b.val, by show b.val < m; omega⟩ : Fin m)) hab (by show b.val + 1 < m; omega)
-  obtain ⟨j, hj, hjc, hjp, hjK⟩ := c.exists_nodes R hR (fun a b => a.val + 1 = b.val) hcomm hstd
-  refine ⟨j, fun a => ⟨(hj a).1, (hj a).2.1, (hj a).2.2.1⟩, fun a b hab => ?_, hjp, hjK⟩
-  refine hjc a b (fun e => ?_) (by omega) (by omega)
-  have := congrArg Fin.val e
-  omega
 
 theorem exists_partner_odd {m : ℕ} (hm : 3 ≤ m) (hadm : StatedLieAdmissible .POmegaOdd m p f)
     (c : TCtx p f .POmegaOdd m Ω K z) (hsingle : ∀ L ∈ Ω, ∃ g : G, L = conjSub g K)

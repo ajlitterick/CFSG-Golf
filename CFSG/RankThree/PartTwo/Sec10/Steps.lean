@@ -31,41 +31,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
         U ≤ inSubgroup (aschbacherSolvableCore 3)
           (Subgroup.centralizer ((Subgroup.closure {a', d} : Subgroup G) : Set G))
 
-@[expose] def Cond1013 {G : Type} [Group G] [Finite G] (c a : G) (X : Subgroup G) : Prop :=
-  ((Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* alternatingGroup (Fin 7)) ∨
-        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.M12) ∨
-        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.J2) ∨
-        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* CFSG.Blueprint.NativeSporadic.M22) ∨
-        ∃ (p e : ℕ) (_ : Fact p.Prime), 3 < p ∧ 1 ≤ e ∧ e ≤ 2 ∧
-          (Sec4.IsoLThreePi (X ⧸ aschbacherSolvableCore 3 X) p e ∨
-            Sec4.IsSLThreePiAt (X ⧸ aschbacherSolvableCore 3 X) (p ^ e))) ∧
-      a ∈ X ⊔ Sec4.thetaQuotCentralizer X ∨
-    Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSL 2 (GaloisField 3 3)) ∧
-      KFacts.InducesStdKind X a .field) ∧
-  ∃ U ∈ invariantPiSubgroups X (Subgroup.zpowers c) (piOf 2), U ≠ ⊥
-
-@[expose] def Item1013 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R : Subgroup G), Sec10Std G A c L a R → ∀ d : G, A ⊓ L = Subgroup.zpowers d →
-      (∃ U ∈ fourGroupsMinus A, U ≤ inSubgroup (aschbacherSolvableCore 3)
-        (Subgroup.centralizer ((Subgroup.closure {a, d} : Subgroup G) : Set G))) →
-      ∃ X ∈ thetaComponentsAt 3 d, Cond1013 c a X
-
-@[expose] def Item1014 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R : Subgroup G), Sec10Std G A c L a R → ∀ d : G, A ⊓ L = Subgroup.zpowers d →
-      (∃ U ∈ fourGroupsMinus A, U ≤ inSubgroup (aschbacherSolvableCore 3)
-        (Subgroup.centralizer ((Subgroup.closure {a, d} : Subgroup G) : Set G))) →
-      ∀ X ∈ thetaComponentsAt 3 d, Cond1013 c a X →
-        ¬ Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSL 2 (GaloisField 3 3))
-
-@[expose] def Item1015 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) (a : G)
-    (R : Subgroup G), Sec10Std G A c L a R → ∀ d : G, A ⊓ L = Subgroup.zpowers d →
-      (∃ U ∈ fourGroupsMinus A, U ≤ inSubgroup (aschbacherSolvableCore 3)
-        (Subgroup.centralizer ((Subgroup.closure {a, d} : Subgroup G) : Set G))) →
-      ∀ X ∈ thetaComponentsAt 3 d, Cond1013 c a X →
-        Nonempty (X ⧸ aschbacherSolvableCore 3 X ≃* projSL 2 (GaloisField 3 3))
 
 theorem exists_inf_eq_zpowers (h97 : Sec9.Item97) {G : Type} [Group G] [Finite G] {A : Subgroup G}
     {c : G} {L : Subgroup G} {a : G} {R : Subgroup G} (h : Sec9.Hyp91 G A c L a R) :
@@ -84,12 +49,5 @@ theorem exists_inf_eq_zpowers (h97 : Sec9.Item97) {G : Type} [Group G] [Finite G
     exact Subgroup.zpow_mem_zpowers d n
   exact ⟨d, hdL, by rw [← Nat.card_zpowers, ← hdL, h3], hcl d hdL⟩
 
-theorem sec10Never_of (h97 : Sec9.Item97) (h1012 : Item1012) (h1013 : Item1013)
-    (h1014 : Item1014) (h1015 : Item1015) : Sec10Never := by
-  intro G _ _ A c L a R h
-  obtain ⟨d, hdL, -, -⟩ := exists_inf_eq_zpowers h97 h.toHyp91
-  obtain ⟨a', h', hU⟩ := h1012 G A c L a R h d hdL
-  obtain ⟨X, hX, hcond⟩ := h1013 G A c L a' R h' d hdL hU
-  exact h1014 G A c L a' R h' d hdL hU X hX hcond (h1015 G A c L a' R h' d hdL hU X hX hcond)
 
 end CFSG.RankThree.PartTwo.Sec10

@@ -52,38 +52,5 @@ theorem characteristic_quotient_ker_eq_bot [Finite G]
   have hax := congrArg (fun b : MulAut (G ⧸ N) => b (QuotientGroup.mk' N x)) ha
   simpa only [quotient_apply_mk, MulAut.one_apply] using hax
 
-@[expose] def normalQuotientConjugation (L : Subgroup G) [L.Normal]
-    (N : Subgroup L) [N.Characteristic] : G →* MulAut (L ⧸ N) :=
-  (quotient N).comp MulAut.conjNormal
-
-theorem normal_conjugation_ker (L : Subgroup G) [L.Normal] :
-    (MulAut.conjNormal (H := L)).ker = Subgroup.centralizer (L : Set G) := by
-  ext g
-  constructor
-  · intro hg
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro x hx
-    have heq := congrArg (fun a : MulAut L => (a ⟨x, hx⟩ : G)) hg
-    have hconj : g * x * g⁻¹ = x := by
-      simpa only [MulAut.conjNormal_apply, MulAut.one_apply] using heq
-    have heqmul := congrArg (fun y : G => y * g) hconj
-    simpa only [mul_assoc, inv_mul_cancel, mul_one] using heqmul.symm
-  · intro hg
-    apply MulEquiv.ext
-    intro x
-    apply Subtype.ext
-    rw [MulAut.conjNormal_apply]
-    have hcomm := Subgroup.mem_centralizer_iff.mp hg x x.property
-    change g * (x : G) * g⁻¹ = x
-    rw [← hcomm, mul_assoc, mul_inv_cancel, mul_one]
-
-theorem normal_quotient_conjugation_ker [Finite G]
-    (L : Subgroup G) [L.Normal] (N : Subgroup L) [N.Characteristic]
-    (hodd : Odd (Nat.card N)) (hcentral : N ≤ Subgroup.center L)
-    (hgen : Subgroup.closure {x : L | IsInvolution x} = ⊤) :
-    (normalQuotientConjugation L N).ker = Subgroup.centralizer (L : Set G) := by
-  rw [normalQuotientConjugation, ← MonoidHom.comap_ker,
-    characteristic_quotient_ker_eq_bot N hodd hcentral hgen,
-    MonoidHom.comap_bot, normal_conjugation_ker]
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCentralizerHull

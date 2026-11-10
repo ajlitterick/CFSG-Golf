@@ -318,8 +318,6 @@ theorem isSimpleGroup_commutator_U2 (hm : 4 ≤ m) : IsSimpleGroup (commutator (
   exact (((MulEquiv.subgroupCongr (commutator_U2 hm)).trans Subgroup.topEquiv).trans
     (u2Equiv m)).isSimpleGroup
 
-theorem hyp_U2 (hm : 4 ≤ m) : Hyp (U2 m) (DU m) :=
-  ⟨pair_DU hm, center_U2 hm, isSimpleGroup_commutator_U2 hm⟩
 
 theorem fischerCentralQuotientModel_iff_U2 {G : Type*} [Group G] {D : Set G} :
     fischerCentralQuotientModel D (SUm m) (TU m) ↔ ∃ φ : G ≃* U2 m, φ '' D = DU m := by

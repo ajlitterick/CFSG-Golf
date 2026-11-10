@@ -161,18 +161,5 @@ theorem co1_orbit_ncard_v₄ :
   rw [range_co1Act]
   exact orbit_ncard_v₄
 
-theorem co1_orbit_trichotomy
-    {v : Vec24} (hv : v ≠ 0) :
-    (v ∈ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₂) ∧
-      v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₃) ∧
-      v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₄)) ∨
-    (v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₂) ∧
-      v ∈ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₃) ∧
-      v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₄)) ∨
-    (v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₂) ∧
-      v ∉ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₃) ∧
-      v ∈ Set.range (fun g : NativeSporadic.Co1 => co1Act g v₄)) := by
-  simp only [range_co1Act]
-  exact orbit_trichotomy hv
 
 end CFSG.Sporadic.Co1.Module

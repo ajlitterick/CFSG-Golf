@@ -62,8 +62,6 @@ private noncomputable def eA (i : C →* A) (hi : Injective i) : C × Coset i �
         (b := cosetRep i r) ⟨c⁻¹, by simp⟩
   right_inv a := cosetCoeff_spec i a
 
-private lemma eA_symm_apply (i : C →* A) (hi : Injective i) (a : A) :
-    (eA i hi).symm a = (cosetCoeff i a, mkCoset i a) := rfl
 
 private lemma eA_symm_mul_left (i : C →* A) (hi : Injective i) (c₀ : C) (a : A) :
     (eA i hi).symm (i c₀ * a) = (c₀ * ((eA i hi).symm a).1, ((eA i hi).symm a).2) := by

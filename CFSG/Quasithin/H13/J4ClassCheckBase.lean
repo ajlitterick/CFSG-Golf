@@ -17,8 +17,5 @@ public import CFSG.Quasithin.H13.J4ClassCheckInputs
 
 namespace CFSG.Quasithin.H13.J4
 
-open CFSG.Sporadic.J4Schreier (Pair mulP invP powP oneP wordP An Bn Xn Yn Zn etaP O xColumns
-  yColumns xInvColumns yInvColumns powCols wordCols app11)
-open CFSG.Quasithin.H13.J4.Native (imCols colsBounded)
 
 end CFSG.Quasithin.H13.J4

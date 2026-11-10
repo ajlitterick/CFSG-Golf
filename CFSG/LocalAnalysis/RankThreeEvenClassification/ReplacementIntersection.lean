@@ -65,13 +65,6 @@ theorem ReplacementDatum.intersection_central {G : Type u} [Group G]
   abelian_inf_le_centralizer_sup abelian (replacementConjugate abelian element) datum.maximum.1
     (replacementConjugate_commutative abelian element datum.maximum.1)
 
-theorem ReplacementDatum.join_classTwo {G : Type u} [Group G]
-    {prime : ℕ} {normal abelian : Subgroup G} {element : G}
-    (datum : ReplacementDatum prime normal abelian element) :
-    commutator (replacementJoin abelian element) ≤ Subgroup.center (replacementJoin abelian element) :=
-  mutually_normalizing_abelian_sup_classTwo abelian (replacementConjugate abelian element) datum.maximum.1
-    (replacementConjugate_commutative abelian element datum.maximum.1)
-    datum.mutually_normalizing.1 datum.mutually_normalizing.2
 
 theorem ReplacementDatum.derived_le_abelian {G : Type u} [Group G] [Finite G]
     {prime : ℕ} {normal abelian : Subgroup G} {element : G}

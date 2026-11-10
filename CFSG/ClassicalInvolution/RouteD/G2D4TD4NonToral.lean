@@ -67,15 +67,6 @@ theorem involutionCentralizersGenerate_td4_proved (hp2 : p ≠ 2) {e : ℕ}
   rw [eq_top_iff, ← h]
   exact le_sup_left
 
-theorem td4NonToralGenerate_proved : TD4NonToralGenerate p := by
-  intro e hadm hp2 u v hu hv hu1 hv1 huv hcomm _
-  have h := sup_centralizer_eq_top_model_td4 hp2 hadm hu hv hu1 hv1 huv hcomm
-  rw [eq_top_iff, ← h]
-  exact le_sup_left
-
-theorem d4ThreeCentralizerFacts_of_oddCore [Fact (Nat.Prime 3)] (hB : TD4ThreeOddCore) :
-    D4ThreeCentralizerFacts :=
-  d4ThreeCentralizerFacts_of_nonToral td4NonToralGenerate_proved hB
 
 end Model
 

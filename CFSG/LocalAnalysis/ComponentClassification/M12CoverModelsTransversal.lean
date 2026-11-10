@@ -22,8 +22,6 @@ theorem cosetCheck_spec {i : ℕ} (hi : i < 1485) :
     List.all_eq_true, List.mem_range, and_assoc] at h
   exact h
 
-theorem tpar_lt {i : ℕ} (hi : i < 1485) (h0 : i ≠ 0) : tpar i < i :=
-  ((cosetCheck_spec hi).1.resolve_left h0).1
 
 @[expose] def r0Aux : ℕ → ℕ → Equiv.Perm (Fin 12)
   | 0, _ => 1
@@ -78,26 +76,11 @@ theorem isFCode_r0βAux : ∀ n i, IsFCode (r0βCodeAux n i) (r0βAux n i)
       simp only [r0βCodeAux, r0βAux, hi, ↓reduceIte]
       exact h p
 
-theorem r0Aux_stable : ∀ i, i < 1485 → ∀ n m, i < n → i < m → r0Aux n i = r0Aux m i := by
-  intro i
-  induction i using Nat.strong_induction_on with
-  | _ i ih =>
-    intro hi n m hn hm
-    obtain ⟨n, rfl⟩ : ∃ n', n = n' + 1 := ⟨n - 1, by omega⟩
-    obtain ⟨m, rfl⟩ : ∃ m', m = m' + 1 := ⟨m - 1, by omega⟩
-    by_cases h0 : i = 0
-    · simp [r0Aux, h0]
-    · have hp := tpar_lt hi h0
-      simp only [r0Aux, h0, ↓reduceIte]
-      rw [ih _ hp (by omega) n m (by omega) (by omega)]
 
 @[expose] def r0 (i : Fin 1485) : NativeSporadic.M12 := ⟨r0Aux 1485 i, r0Aux_mem _ _⟩
 
 @[expose] def letterM (l : ℕ) : NativeSporadic.M12 := ⟨letter l, letter_mem l⟩
 
-@[expose] def parF (i : Fin 1485) : Fin 1485 := ⟨tpar i % 1485, Nat.mod_lt _ (by norm_num)⟩
-
-@[expose] def letF (i : Fin 1485) : ℕ := tlet i
 
 theorem r0Aux_1485 (i : ℕ) :
     r0Aux 1485 i = if i = 0 then 1 else r0Aux 1484 (tpar i) * letter (tlet i) :=
@@ -109,16 +92,6 @@ theorem r0_zero : r0 0 = 1 := by
   rw [r0Aux_1485]
   rfl
 
-theorem r0_rec (i : Fin 1485) (hi : i ≠ 0) :
-    r0 i = r0 (parF i) * letterM (letF i) ∧ parF i < i ∧ (letF i = 1 ∨ letF i = 2) := by
-  have h0 : (i : ℕ) ≠ 0 := fun h => hi (Fin.ext h)
-  have hspec := ((cosetCheck_spec i.2).1.resolve_left h0)
-  have hp : (parF i : ℕ) = tpar i := Nat.mod_eq_of_lt (by omega)
-  refine ⟨Subtype.ext ?_, by rw [Fin.lt_def, hp]; exact hspec.1, hspec.2⟩
-  rw [Subgroup.coe_mul]
-  show r0Aux 1485 i = r0Aux 1485 (parF i) * letter (tlet i)
-  rw [r0Aux_1485, hp, r0Aux_stable _ (by omega) 1484 1485 (by omega) (by omega)]
-  simp only [h0, ↓reduceIte]
 
 @[expose] def actF (l : ℕ) (i : Fin 1485) : Fin 1485 :=
   ⟨tact l i % 1485, Nat.mod_lt _ (by norm_num)⟩
@@ -198,56 +171,6 @@ theorem bijective_elt_mul_r0 :
   · rw [Nat.card_prod, Nat.card_eq_fintype_card, Nat.card_eq_fintype_card, Fintype.card_fin,
       Fintype.card_fin, card_M12]
 
-theorem eltM_injective : Function.Injective fun k : Fin 64 => eltM k := by
-  intro x y h
-  have h' : eltM x = eltM y := h
-  have h'' := congrArg (fun z : NativeSporadic.M12 => (z : Equiv.Perm (Fin 12))) h'
-  exact Fin.ext (SylowTable.elt_injective x.2 y.2 (Subtype.ext h''))
-
-theorem r0_coset_injective {i j : Fin 1485} {s : NativeSporadic.M12}
-    (hs : (s : Equiv.Perm (Fin 12)) ∈ M12Cover.S) (h : r0 i = s * r0 j) : i = j := by
-  obtain ⟨k, hk, hks⟩ := SylowTable.exists_elt hs
-  have := bijective_elt_mul_r0.1 (a₁ := (0, i)) (a₂ := (⟨k, hk⟩, j)) (by
-    simp only
-    rw [show eltM ((0 : Fin 64) : ℕ) = 1 from Subtype.ext (by simp [eltM, SylowTable.elt_zero]),
-      one_mul, h]
-    congr 1
-    exact Subtype.ext hks.symm)
-  exact (Prod.ext_iff.1 this).2
-
-theorem qtfe_m12_sylow_coset_actions :
-    (∃ P : Sylow 2 NativeSporadic.M12,
-      (P : Subgroup NativeSporadic.M12) = M12Cover.S.subgroupOf NativeSporadic.M12) ∧
-    Nat.card M12Cover.S = 64 ∧
-    Function.Bijective (fun k : Fin 64 => SylowTable.elt k) ∧ SylowTable.elt 0 = 1 ∧
-    r0 0 = 1 ∧
-    (∀ i : Fin 1485, i ≠ 0 →
-      r0 i = r0 (parF i) * letterM (letF i) ∧ parF i < i ∧ (letF i = 1 ∨ letF i = 2)) ∧
-    (∀ i : Fin 1485, ∀ l : ℕ, (l = 1 ∨ l = 2) →
-      r0 i * letterM l = eltM (witF l i) * r0 (actF l i)) ∧
-    Function.Bijective (fun x : Fin 64 × Fin 1485 => eltM x.1 * r0 x.2) ∧
-    (∀ l : ℕ, (l = 1 ∨ l = 2) → Function.Bijective (actF l)) ∧
-    Nat.card NativeSporadic.M12 = 95040 := by
-  refine ⟨M12Cover.exists_sylow_eq_S, M12Cover.card_S,
-    ⟨fun x y h => Fin.ext (SylowTable.elt_injective x.2 y.2 h),
-    fun s => ?_⟩, SylowTable.elt_zero, r0_zero, r0_rec, fun i l hl => r0_mul_letter i hl,
-    bijective_elt_mul_r0, fun l hl => ?_, card_M12⟩
-  · obtain ⟨k, hk, h⟩ := SylowTable.elt_surjective s
-    exact ⟨⟨k, hk⟩, h⟩
-  · refine Finite.injective_iff_bijective.1 fun i j hij => ?_
-    have hi := r0_mul_letter i hl
-    have hj := r0_mul_letter j hl
-    rw [hij] at hi
-    have : r0 i = (eltM (witF l i) * (eltM (witF l j))⁻¹) * r0 j := by
-      have h1 : r0 i = eltM (witF l i) * r0 (actF l j) * (letterM l)⁻¹ := by
-        rw [← hi, mul_inv_cancel_right]
-      have h2 : r0 (actF l j) = (eltM (witF l j))⁻¹ * (r0 j * letterM l) := by
-        rw [hj, inv_mul_cancel_left]
-      rw [h1, h2]
-      group
-    refine r0_coset_injective ?_ this
-    simp only [Subgroup.coe_mul, Subgroup.coe_inv, eltM]
-    exact mul_mem (SylowTable.elt _).2 (inv_mem (SylowTable.elt _).2)
 
 @[expose] def r (i : Fin 1485) : NativeSporadic.M12 := g * r0 i * g⁻¹
 
@@ -347,14 +270,6 @@ theorem r_mul (i : Fin 1485) (h : S) :
   rw [← val_iS i j, rCodeArr_get (iS i (d j)).2 hp] at h1
   exact h1
 
-theorem pS_iS_unique (i : Fin 1485) (h : S) (s : S) (k : Fin 1485)
-    (hs : r i * (h : NativeSporadic.M12) = (s : NativeSporadic.M12) * r k) :
-    s = pS i h ∧ k = iS i h := by
-  obtain ⟨y, -, hy⟩ := existsUnique_mul_r (r i * h)
-  have h1 := hy (s, k) hs.symm
-  have h2 := hy (pS i h, iS i h) (r_mul i h).symm
-  rw [← h2] at h1
-  exact ⟨congrArg Prod.fst h1, congrArg Prod.snd h1⟩
 
 theorem betaCheck_spec : ((List.range 1485).map tsig).Nodup ∧ ∀ i < 1485,
     taIdx i < 64 ∧ tsig i < 1485 ∧
@@ -383,13 +298,6 @@ theorem isFCode_aS (i : Fin 1485) :
   rw [← d_idx (aS i)]
   exact isFCode_d_of_val (idx_aS i)
 
-theorem σI_bijective : Function.Bijective σI := by
-  refine Finite.injective_iff_bijective.1 fun i j h => ?_
-  have h' : tsig i = tsig j := by rw [← val_σI, ← val_σI, h]
-  have hn := betaCheck_spec.1
-  rw [List.nodup_iff_injective_get] at hn
-  have := @hn ⟨i, by simp⟩ ⟨j, by simp⟩ (by simpa using h')
-  exact Fin.ext (by simpa using this)
 
 theorem gβ_pair : ((g : Equiv.Perm (Fin 12)), evalWordβ gWord) ∈ m12Pairs := word_pair_mem gWord
 
@@ -416,26 +324,5 @@ theorem pair_mem_r (i : Fin 1485) :
   rw [← val_σI, rCodeArr_get (σI i).2 hp] at h1
   exact h1
 
-theorem quotCheck_spec {i h : ℕ} (hi : i < 1485) (hh : h < 64) :
-    mIdx (mIdx (invIdx (taIdx i)) (bIdx (tp i h))) (taIdx (tih i h)) = tp (tsig i) (bIdx h) :=
-  Nat.eq_of_beq_eq_true (all_range (all_range quotCheck_eq hi) hh)
-
-theorem idx_βS (s : S) : (idx (βS s) : ℕ) = bIdx (idx s) := by
-  rw [← d_idx s, βS_d, idx_d, idx_d]
-  rfl
-
-theorem quotient_eq (i : Fin 1485) (h : S) :
-    (aS i)⁻¹ * βS (pS i h) * aS (iS i h) = pS (σI i) (βS h) := by
-  obtain ⟨j, rfl⟩ := d_surjective h
-  rw [← d_idx (aS i), ← d_idx (aS (iS i (d j))), ← d_idx (βS (pS i (d j))), d_inv, ← d_mul,
-    ← d_mul, ← d_idx (pS (σI i) (βS (d j)))]
-  congr 1
-  apply Fin.ext
-  change mIdx (mIdx (invIdx (idx (aS i))) (idx (βS (pS i (d j))))) (idx (aS (iS i (d j)))) = _
-  rw [idx_aS, idx_aS, idx_βS, idx_pS, val_iS]
-  rw [show (idx (pS (σI i) (βS (d j))) : ℕ) = tp (tsig i) (bIdx j) by
-    rw [βS_d, idx_pS, val_σI]
-    rfl]
-  exact quotCheck_spec i.2 j.2
 
 end CFSG.ComponentClassification.M12Cover.InternalSylow

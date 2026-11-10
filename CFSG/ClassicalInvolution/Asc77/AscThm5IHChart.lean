@@ -218,13 +218,6 @@ section Diag
 
 variable {F : Type} [Field F] [Finite F]
 
-theorem thm5IH_diagGL_eq_one (hodd : Odd (Nat.card F)) {s : Fˣ}
-    (h : ∀ M, glConjSL (diagGL s) M = M) : s = 1 := by
-  obtain ⟨μ, hμ⟩ := thm5IH_scalar_of_glConjSL hodd h
-  have h00 := congrFun (congrFun hμ 0) 0
-  have h11 := congrFun (congrFun hμ 1) 1
-  simp [diagGL] at h00 h11
-  exact Units.ext (by rw [h00, ← h11]; rfl)
 
 omit [Finite F] in
 theorem thm5IH_odd_card_of_two_ne_zero [Finite F] (h : (2 : F) ≠ 0) : Odd (Nat.card F) := by
@@ -237,19 +230,6 @@ theorem thm5IH_odd_card_of_two_ne_zero [Finite F] (h : (2 : F) ≠ 0) : Odd (Nat
   exact_mod_cast CharP.cast_eq_zero F 2
 
 end Diag
-
-theorem thm5IH_le_normalizer_of_conj_mem {G : Type*} [Group G] {X Q : Subgroup G}
-    (h : ∀ x ∈ X, ∀ y ∈ Q, x * y * x⁻¹ ∈ Q) : X ≤ Subgroup.normalizer (Q : Set G) := by
-  intro x hx
-  rw [Subgroup.mem_normalizer_iff]
-  intro y
-  refine ⟨fun hy => h x hx y hy, fun hy => ?_⟩
-  have := h x⁻¹ (X.inv_mem hx) _ hy
-  simpa [mul_assoc] using this
-
-theorem thm5IH_sl2_neg_one_comm {F : Type} [Field F] (A : SL2 F) : A * (-1) = (-1) * A := by
-  apply Subtype.ext
-  simp
 
 
 end CFSG.ClassicalInvolution.Asc77

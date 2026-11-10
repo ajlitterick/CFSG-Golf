@@ -37,8 +37,6 @@ variable {M : Type*} [Group M]
         (H.inv_mem h3)), ?_⟩
       group
 
-theorem mem_cosetExt {H : Subgroup M} {α : M} {h2 : ∀ d ∈ H, α⁻¹ * d * α ∈ H}
-    {h3 : α * α ∈ H} {x : M} : x ∈ cosetExt H α h2 h3 ↔ x ∈ H ∨ ∃ d ∈ H, x = α * d := Iff.rfl
 
 theorem le_cosetExt {H : Subgroup M} {α : M} {h2 : ∀ d ∈ H, α⁻¹ * d * α ∈ H}
     {h3 : α * α ∈ H} : H ≤ cosetExt H α h2 h3 := fun _ hx => Or.inl hx

@@ -160,7 +160,5 @@ theorem card_vfix (σ : Perm (Fin 5)) :
 theorem card_vfix_t1 : Nat.card {w : evenWeight 5 // vact (swap 0 1) w = w} = 8 := by
   rw [card_vfix]; decide +kernel
 
-theorem card_vfix_t2 : Nat.card {w : evenWeight 5 // vact (swap 2 3) w = w} = 8 := by
-  rw [card_vfix]; decide +kernel
 
 end CFSG.QuasithinUnique.AppC

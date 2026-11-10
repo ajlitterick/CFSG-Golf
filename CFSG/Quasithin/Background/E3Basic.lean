@@ -655,13 +655,6 @@ theorem e3_10_two (hV : IsElemAbelian 2 V) {g : G}
       rw [hC, ← hCB] at this
       exact (Subgroup.mem_inf.1 this).2
 
-theorem e3_10_three (hV : IsElemAbelian 2 V) {g : G}
-    (hb : mQuot (conjSubgroup V g) (conjSubgroup V g ⊓ Subgroup.normalizer (V : Set G)) <
-      sParam hV) (hnc : ⁅V, conjSubgroup V g⁆ ≠ ⊥) :
-    sParam hV - aParam (autI hV ⊤) ≤
-      mQuot (conjSubgroup V g) (conjSubgroup V g ⊓ Subgroup.normalizer (V : Set G)) := by
-  have h := le_aParam_of_mem_aSet (by omega) (e3_10_two hV hb hnc)
-  omega
 
 end Lemmas
 

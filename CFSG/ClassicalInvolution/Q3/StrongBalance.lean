@@ -44,35 +44,6 @@ theorem stronglyBalanced_of_weakBalanced {A : Subgroup G} (hA : IsElemAbelian 2 
   rw [hΔ F hF, Subgroup.mem_bot, commutatorElement_eq_one_iff_mul_comm] at hcomm
   exact hcomm.symm
 
-theorem involutionOddCore_le_oddCoreIn_centralizer {A : Subgroup G} (hSB : StronglyBalanced A)
-    {a : G} (ha : a ∈ A) (ha1 : a ≠ 1) :
-    involutionOddCore a ≤ oddCoreIn (Subgroup.centralizer (A : Set G)) := by
-  refine le_oddCoreIn_of_normalizes (hSB a ha ha1) (fun g hg => ?_)
-    (odd_card_oddCoreIn (Subgroup.centralizer ({a} : Set G)))
-  exact normalizer_oddCoreIn (Subgroup.centralizer ({a} : Set G))
-    (Subgroup.centralizer_le (Set.singleton_subset_iff.mpr ha) hg)
-
-@[expose] def ClassicalBalanced (A : Subgroup G) : Prop :=
-  ∀ a ∈ A, a ≠ 1 → ∀ b ∈ A, b ≠ 1 →
-    involutionOddCore a ⊓ Subgroup.centralizer ({b} : Set G) ≤ involutionOddCore b
-
-theorem involutionOddCore_eq_bot_of_classicalBalanced {A : Subgroup G} (hA : IsElemAbelian 2 A)
-    (h8 : 8 ≤ Nat.card A) (hCB : ClassicalBalanced A)
-    (hΔ : ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥) {x : G} (hx : x ∈ A) (hx1 : x ≠ 1) :
-    involutionOddCore x = ⊥ := by
-  have hgen := CFSG.SignalizerFunctor.Helpers.elementary_abelian_centralizer_generation 2 2
-    Nat.prime_two A (involutionOddCore x) hA (by simpa using h8)
-    (le_normalizer_involutionOddCore hA hx)
-    (Nat.coprime_two_left.mpr (odd_card_oddCoreIn (Subgroup.centralizer ({x} : Set G))))
-  rw [eq_bot_iff, ← hgen]
-  refine iSup₂_le fun F hF => ?_
-  have hle : involutionOddCore x ⊓ Subgroup.centralizer (F : Set G) ≤ deltaCore F := by
-    refine le_deltaCore fun d hd hd1 y hy => ?_
-    have hyd : y ∈ involutionOddCore x ⊓ Subgroup.centralizer ({d} : Set G) :=
-      ⟨hy.1, Subgroup.centralizer_le (Set.singleton_subset_iff.mpr hd) hy.2⟩
-    exact hCB x hx hx1 d (hF.1 hd) hd1 hyd
-  rw [hΔ F hF] at hle
-  exact hle
 
 theorem localOddCentral3_of_members_centralize {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω)
     {x : G}

@@ -31,9 +31,6 @@ theorem mem_matrixDerived_of_mem_elementaryGroup
   rw [h, hE]
   exact hM
 
-variable (v : Fin d → K)
-
-variable {Q v}
 
 end Matrix
 

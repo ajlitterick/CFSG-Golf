@@ -19,6 +19,5 @@ theorem gomi_card_eqLocus_congr {A B : Type*} [Group A] [Group B] (φ : A ≃* B
   rw [← CFSG.LocalAnalysis.SteinbergBM.map_eqLocus_mulAut_congr φ α]
   exact Subgroup.card_map_of_injective φ.injective
 
-variable {X : Type} [Group X] [Finite X] {J D E : Subgroup X} {a : X}
 
 end CFSG.LocalAnalysis.EvenBN.UnitaryFiveTwo

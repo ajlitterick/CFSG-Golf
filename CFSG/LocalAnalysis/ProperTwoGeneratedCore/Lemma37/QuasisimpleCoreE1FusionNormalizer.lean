@@ -63,20 +63,6 @@ theorem map_le_normalizer_e1EBar : (S : Subgroup J).map (QuotientGroup.mk' (Subg
     Subgroup.normalizer (e1EBar (Subgroup.center J) u m y x : Set (J ⧸ Subgroup.center J)) :=
   fun _ hs => mem_normalizer_of_forall_conj_mem fun _ ht => d.caseC3BCD.conj_mem_e1EBar hs ht
 
-theorem e1EBar_facts : Nat.card (e1EBar (Subgroup.center J) u m y x) = 8 ∧
-    (∀ s ∈ e1EBar (Subgroup.center J) u m y x, s * s = 1) ∧
-    (∀ s ∈ e1EBar (Subgroup.center J) u m y x, ∀ t ∈ e1EBar (Subgroup.center J) u m y x,
-      s * t = t * s) ∧
-    ∀ s ∈ e1EBar (Subgroup.center J) u m y x, CaseC3.Genuine (Subgroup.center J) s ↔
-      s = 1 ∨ s = caseC3Word (Subgroup.center J) u m y x 40 := by
-  have hb := d.caseC3BCD
-  refine ⟨hb.card_e1EBar, fun s hs => hb.mul_self_of_mem_e1EBar hs,
-    fun s hs t ht => hb.commute_of_mem_e1EBar hs ht, fun s hs => ⟨fun hg => ?_, ?_⟩⟩
-  · by_contra h
-    push Not at h
-    exact (hb.not_genuine_of_mem_e1EBar hs h.1 h.2).1 hg
-  · rintro (rfl | rfl)
-    exacts [⟨1, QuotientGroup.mk_one _, mul_one 1⟩, hb.genuine_forty]
 
 theorem conj_mod_forty_of_mem_e1RBar {r c : J ⧸ Subgroup.center J}
     (hr : r ∈ e1RBar (Subgroup.center J) u m y x)

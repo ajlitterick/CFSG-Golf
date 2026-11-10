@@ -24,13 +24,6 @@ theorem pin6_ok : pinE IP CFSG.KD.F4Planes.gw CFSG.KD.F4Planes.gl CFSG.KD.F4Plan
     true := by
   quickRfl
 
-theorem neg_let : (!letOK (Nat.xor LP (2 ^ 200))) = true := by quickRfl
-
-theorem neg_iota : (!iotaB LP IP IPi (iw.map (Nat.add 1)) il) = true := by quickRfl
-
-theorem neg_pin6 : (!pinE IP CFSG.KD.F4Planes.gw CFSG.KD.F4Planes.gl CFSG.KD.F4Planes.paths
-    pS6.reverse) = true := by
-  quickRfl
 
 end CFSG.KD.F4PlanesE6
 

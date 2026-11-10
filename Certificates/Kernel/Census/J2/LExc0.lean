@@ -21,8 +21,6 @@ namespace CertificateChecks.KernelCensus.J2K
 
 set_option maxRecDepth 1000000
 
-theorem kExcL0 : blkExcL 0 58 = true := by quickRfl
-theorem kExcL58 : blkExcL 58 58 = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J2K
 

@@ -111,12 +111,6 @@ theorem a39_part1_of_schreier
   exact a39_part1_of_outSolvable h37 h38 fun K hK =>
     hS ↥K hK.1 (list_of_component_quotient hG hK)
 
-theorem a39_part1_of_schreierCat (hS : SchreierFactCat) {G : Type} [Group G] (hG : SQTKHypCat G)
-    (h37 : A37Statement G) (h38 : A38Part3 G) :
-    cCompSpan (⊤ : Subgroup G) = perfectCore (⊤ : Subgroup G) := by
-  have := hG.finite
-  have hqK : IsKGroupCat (G ⧸ CFSG.solvableRadical G) := hG.kgroup.quotient _
-  exact a39_part1_of_outSolvable h37 h38 fun K hK => hS ↥K hK.1 (hqK.subgroup K)
 
 theorem a39_part2_cat {G : Type} [Group G] (hG : SQTKHypCat G) (h36 : A36CoreStatementCat G) :
     CFSG.layer (↥(cCompSpan (⊤ : Subgroup G)) ⧸ CFSG.oddCore ↥(cCompSpan (⊤ : Subgroup G))) =
@@ -129,8 +123,5 @@ theorem a39ForSQTKCat_of_facts
     (h37 : A37ForSQTKCat) (h38 : A38ForSQTKCat) : A39ForSQTKCat := fun Q _ hQ =>
   ⟨a39_part1_of_schreier hS hQ (h37 Q hQ) (h38 Q hQ), a39_part2_cat hQ (h36 Q hQ)⟩
 
-theorem a39ForSQTKCat_of_schreierCat (hS : SchreierFactCat) (h36 : A36CoreForSQTKCat)
-    (h37 : A37ForSQTKCat) (h38 : A38ForSQTKCat) : A39ForSQTKCat := fun Q _ hQ =>
-  ⟨a39_part1_of_schreierCat hS hQ (h37 Q hQ) (h38 Q hQ), a39_part2_cat hQ (h36 Q hQ)⟩
 
 end CFSG.QuasithinUnique.Vol2Native

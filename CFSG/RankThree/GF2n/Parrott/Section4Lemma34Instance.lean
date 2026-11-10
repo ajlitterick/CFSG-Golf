@@ -510,7 +510,6 @@ theorem hB6_of_lemma34 (h : Tim79a.ParrottHyp z) (hZ : centerIn (J z) = centerIn
     (odd_relIndex_of_isParrottE D h hZ hE) hfus
   exact ⟨K, hEK, hKi, hKM, hKq⟩
 
-omit D
 
 end Certified
 

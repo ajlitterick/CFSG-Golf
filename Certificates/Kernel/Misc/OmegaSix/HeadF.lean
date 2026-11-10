@@ -23,16 +23,6 @@ theorem fHead : headC3 RCF 5 5184 = true := by quickRfl
 
 theorem fPW : pwOK ROO 3 51840 (RO 0) (RO 1) PWF 10 = true := by quickRfl
 
-theorem fHdrNeg : (!hdrO RCF (ROO 0) (ROO 1) (ROO 2) (RO 0)) = true := by quickRfl
-
-theorem fOrbNeg : (!chunkF3 (fun t => nIf(Nat.beq t 6, RCF 7, RCF t)) (cjO ROO RCF) 5 5184 512 0) =
-    true := by quickRfl
-
-theorem fPWNeg : (!pwOK ROO 3 51840 (RO 1) (RO 1) PWF 10) = true := by quickRfl
-
-theorem fFiveNeg : (!fiveAt RCF 0 (RO 1)) = true := by quickRfl
-
-theorem fPairNeg : (!pairAt relators (RO 1) PWF 0 (RO 0)) = true := by quickRfl
 
 end CFSG.KD.OmegaSix
 

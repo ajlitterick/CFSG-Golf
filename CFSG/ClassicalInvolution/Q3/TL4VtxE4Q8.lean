@@ -99,11 +99,6 @@ theorem conjSub_le_normalizer {J K : Subgroup G} (h : J ≤ Subgroup.normalizer 
         group
     _ = conjSub g K := by rw [h1]
 
-theorem conj_mem_normalizer_conjSub {K : Subgroup G} {u : G}
-    (h : u ∈ Subgroup.normalizer (K : Set G)) (g : G) :
-    g * u * g⁻¹ ∈ Subgroup.normalizer ((conjSub g K : Subgroup G) : Set G) := by
-  have h2 := conjSub_le_normalizer (Subgroup.zpowers_le.mpr h) g
-  exact h2 (conj_mem_conjSub (Subgroup.mem_zpowers u))
 
 end Conj
 

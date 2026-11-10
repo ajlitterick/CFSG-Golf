@@ -18,9 +18,6 @@ variable {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]
   MulEquiv.ofBijective rho.rangeRestrict
     ⟨fun _ _ h => hrho (congrArg Subtype.val h), rho.rangeRestrict_surjective⟩
 
-theorem rangeEquiv_coe {D : Type u} [Group D] {F : Type v} [Field F]
-    (rho : D →* coordinateE F) (hrho : Function.Injective rho) (x : D) :
-    (rangeEquiv rho hrho x : coordinateE F) = rho x := rfl
 
 @[expose] def actualField {F : Type v} [Field F] [Finite F]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -137,14 +134,6 @@ theorem actual_model_linear_extension
     centralizerOddCoreQuotient n S e →* rho.range :=
   rho.rangeRestrict.comp (centralizerFullQuotientMap n hn S e)
 
-omit [IsSimpleGroup G] in
-theorem actualRangePhi_coe
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {F : Type v} [Field F]
-    (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-    (h : centralizerOddCoreQuotient n S e) :
-    (actualRangePhi n hn S e rho h : coordinateE F) =
-      rho (centralizerFullQuotientMap n hn S e h) := rfl
 
 omit [IsSimpleGroup G] in
 theorem actualRangePhi_surjective
@@ -206,21 +195,6 @@ theorem actualPhi_ker
     (MulEquiv.subgroupCongr hlinear.1.2.2.1).injective]
   exact actualRangePhi_ker n hn S e rho hrho
 
-omit [IsSimpleGroup G] in
-theorem actualPhi_actual_layer_action
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    {F : Type v} [Field F] [Finite F]
-    (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-    (hlinear : LinearExtension F rho.range (actualField n hn S e rho))
-    (eta : CFSG.layer (centralizerOddCoreQuotient n S e) ≃*
-      Matrix.SpecialLinearGroup (Fin 2) F)
-    (hvalues : ∀ v : CFSG.layer (centralizerOddCoreQuotient n S e),
-      coordinatePSLAction F (CFSG.Semidihedral.ProjectiveSL2Cover.nativeQuotient F (eta v)) =
-        (rho (centralizerFullQuotientMap n hn S e v)).val)
-    (v : CFSG.layer (centralizerOddCoreQuotient n S e)) :
-    coordinatePSLAction F (CFSG.Semidihedral.ProjectiveSL2Cover.nativeQuotient F (eta v)) =
-      (((actualPhi n hn S e rho hlinear v : CFSG.Semidihedral.OddFieldLift.Gamma F
-        (actualField n hn S e rho)) : coordinateE F) : Equiv.Perm (Omega F)) := hvalues v
 
 omit [Finite G] [IsSimpleGroup G] in
 theorem actual_layer_card_sl2
@@ -289,17 +263,6 @@ theorem actual_layer_normal
   exact (centralizerLiftedLayerSylow hnonab n hn S e hfour).mapSurjective
     (f := t.toMonoidHom) ht
 
-theorem actualLayerSylow_card
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))) :
-    Nat.card (actualLayerSylow hnonab n hn S e hfour) = 2 * 2 ^ n := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  rw [Sylow.card_eq_multiplicity,
-    (wreathed_centralizer_unique_component_data hnonab n hn S e hfour).layer]
-  change 2 ^ (Nat.card (centralizerLiftedLayer n hn S e)).factorization 2 = _
-  rw [← Sylow.card_eq_multiplicity (centralizerLiftedLayerSylow hnonab n hn S e hfour)]
-  exact centralizerLiftedLayerSylow_card hnonab n hn S e hfour
 
 theorem actualLayerSylow_image
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -368,13 +331,6 @@ theorem actual_quotient_involution_value
       centralizerOddCoreMap n S e (centralInvolution n S e) := by
   rw [actual_quotient_wreath_value, centralizerModelHom_x]
 
-omit [IsSimpleGroup G] in
-theorem actual_quotient_generator_order
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    orderOf (wreathModelHom (centralizerOddCoreSylow n hn S e)
-      (centralizerOddCoreCoordinates n hn S e) (Original.a (2 ^ n))) = 2 ^ n := by
-  rw [orderOf_injective _ (wreathModelHom_injective _ _)]
-  exact Original.orderOf_a _
 
 omit [IsSimpleGroup G] in
 theorem actualPhi_kernel_center_data
@@ -550,31 +506,5 @@ theorem actual_stated_projective_model_cover_inputs
   actual_projective_model_cover_inputs hnonab n hn S e hfour p f hp hpodd hf
     ((pslTwoClassicalModel_iff_stated _ p f).mpr hmodel)
 
-theorem actual_original_phi_data
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    {F : Type v} [Field F] [Finite F]
-    (p f : ℕ) (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (hcard : Nat.card F = p ^ f)
-    (theta : centralizerSimpleLayer n hn S e ≃*
-      Matrix.ProjectiveSpecialLinearGroup (Fin 2) F)
-    (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-    (hrho : Function.Injective rho)
-    (hextends : ∀ l : centralizerSimpleLayer n hn S e,
-      (rho l.val).val = ((pslEquivCoordinateG F) (theta l)).val) :
-    ∃ phi : centralizerOddCoreQuotient n S e →*
-        CFSG.Semidihedral.OddFieldLift.Gamma F (actualField n hn S e rho),
-      Function.Surjective phi ∧
-      (∀ h, (phi h : coordinateE F) = rho (centralizerFullQuotientMap n hn S e h)) ∧
-      phi.ker = modelCenter (centralizerOddCoreSylow n hn S e) (centralizerOddCoreCoordinates n hn S e) ∧
-      phi.ker = Subgroup.zpowers (wreathModelHom (centralizerOddCoreSylow n hn S e)
-        (centralizerOddCoreCoordinates n hn S e) (Original.a (2 ^ n))) ∧
-      Subgroup.center (centralizerOddCoreQuotient n S e) = phi.ker ∧
-      IsCyclic phi.ker ∧ Nat.card phi.ker = 2 ^ n := by
-  have hlinear := (actual_model_linear_extension hnonab n hn S e hfour
-    p f hp hpodd hf hcard theta rho hrho hextends).2.2
-  exact ⟨actualPhi n hn S e rho hlinear, actualPhi_surjective n hn S e rho hlinear,
-    actualPhi_coe n hn S e rho hlinear, actualPhi_kernel_center_data n hn S e rho hrho hlinear⟩
 
 end CFSG.Wreathed.ActualCentralizerSemilinear

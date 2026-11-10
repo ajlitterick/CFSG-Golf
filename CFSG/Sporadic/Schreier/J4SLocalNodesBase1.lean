@@ -17,22 +17,6 @@ namespace CFSG.Sporadic.J4Schreier
 open CFSG.Sporadic.J4 CFSG.Sporadic.GLQ CFSG.Sporadic.SmallF2 CFSG.Sporadic.SmallF2.Native
 open scoped Matrix
 
-theorem fam_J4_local_elementary_abelian_subgroup :
-    (∀ j, u j ^ 2 = 1 ∧ u j ≠ 1) ∧ (∀ i j, u i * u j = u j * u i) ∧
-      (∀ i k, η (i ^^^ k) = η i * η k) ∧ Set.BijOn η (Set.Iio 2048) N ∧
-      (∃ e : Multiplicative (Fin 11 → ZMod 2) ≃* N,
-        ∀ i, (e (Multiplicative.ofAdd (toVecD 11 i)) : J) = η i) ∧
-      Nat.card N = 2048 ∧ x ∈ Subgroup.normalizer (N : Set J) ∧
-      y ∈ Subgroup.normalizer (N : Set J) ∧
-      (∀ j, ∃ w : List ℤ, u j = (signedWord x y w)⁻¹ * z * signedWord x y w) ∧
-      N ≤ H ∧ (N.subgroupOf H).Normal := by
-  refine ⟨fun j => ⟨u_sq j, u_ne_one j⟩, fun i j => u_comm i j, η_xor,
-    ⟨fun i _ => η_mem_N i, fun i hi k hk h => η_injOn hi hk h, fun n hn => ?_⟩,
-    ⟨eN, fun i => by rw [eN_apply, toAdd_ofAdd, etaV_toVecD]⟩, by rw [card_N]; norm_num,
-    x_mem_normalizer, y_mem_normalizer, fun j => ⟨normalConjugators j, rfl⟩, N_le_H,
-    N_normal_in_H⟩
-  obtain ⟨i, hi, rfl⟩ := exists_η_eq hn
-  exact ⟨i, hi, rfl⟩
 
 theorem conj_mem_enum
     {pts : Array ℕ} {n : ℕ} (hc : closedOK xyInvGens pts n = true) :

@@ -24,11 +24,5 @@ theorem arrays_check :
     smallArr 0 = b0Arr ∧ smallArr 1 = b1Arr :=
   Certificates.certificate2289.1
 
-theorem decoders_check :
-    b0Arr = mtxArr suzP1782M1Text ∧ b1Arr = mtxArr suzP1782M2Text ∧
-    vArr = mtxArr suzd2P1782M1Text ∧
-    (∀ k < 12, certArr k = hexTable 4 22880 (22880 * k) certChainText) ∧
-    (∀ k < 14, smallArr k = hexTable 3 1782 (1782 * k) smallChainText) :=
-  Certificates.certificate2289.2
 
 end CFSG.Sporadic.SuzOddCore

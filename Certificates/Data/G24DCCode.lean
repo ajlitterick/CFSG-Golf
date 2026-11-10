@@ -14,14 +14,6 @@ open CFSG.Quasithin.St84.G24DC.Native
 
 @[expose] def decCode (c : Nat) : F4 := ⟨c % 4, Nat.mod_lt _ (by decide)⟩
 
-theorem decCode_eq_of_lt {c : Nat} (h : c < 4) : decCode c = ⟨c, h⟩ := by
-  simp [decCode, Nat.mod_eq_of_lt h]
-
-theorem decCode_inj {a b : Nat} (ha : a < 4) (hb : b < 4) (h : decCode a = decCode b) :
-    a = b := by
-  have h' := congrArg F4.code h
-  rw [decCode_eq_of_lt ha, decCode_eq_of_lt hb] at h'
-  exact congrArg Fin.val h'
 
 theorem xor_lt {a b : Nat} (ha : a < 4) (hb : b < 4) : a ^^^ b < 4 := by
   interval_cases a <;> interval_cases b <;> decide
@@ -40,12 +32,6 @@ theorem rowVal_lt (r : Row) (j : Nat) : rowVal r j < 4 := by
   have h2 : (r.2.testBit j).toNat ≤ 1 := by cases r.2.testBit j <;> simp
   omega
 
-theorem bits_of_rowVal_eq {r s : Row} {j : Nat} (h : rowVal r j = rowVal s j) :
-    r.1.testBit j = s.1.testBit j ∧ r.2.testBit j = s.2.testBit j := by
-  unfold rowVal at h
-  revert h
-  cases r.1.testBit j <;> cases r.2.testBit j <;>
-    cases s.1.testBit j <;> cases s.2.testBit j <;> simp
 
 theorem mask14_testBit {j : Nat} (hj : j < 14) : mask14.testBit j = true := by
   have hm : mask14 = 2 ^ 14 - 1 := by norm_num [mask14]
@@ -85,8 +71,6 @@ theorem rowVal_scale {a u v : Nat} {j : Nat} (hj : j < 14) :
         simp [scale, scalarMul, rowVal_omega hj]
       · simp [scale, scalarMul, h0, h1, h2, rowVal_omega2 hj]
 
-def BoundedMat (A : Mat) : Prop :=
-  ∀ i, (A.getD i zeroRow).1 < 2 ^ 14 ∧ (A.getD i zeroRow).2 < 2 ^ 14
 
 @[expose] def decRow (r : Row) : Array F4 :=
   ((List.finRange 14).map fun j => decCode (rowVal r j.val)).toArray
@@ -224,59 +208,5 @@ theorem decode_oneM : decode oneM = 1 := by
   · have hji : j.val ≠ i.val := fun hv => h (Fin.ext hv.symm)
     rw [if_neg hji, if_neg h, decCode_zero]
 
-theorem decode_eq_of_matEq {A B : Mat} (h : matEq A B = true) : decode A = decode B := by
-  have hAB : A = B := beq_iff_eq.mp (by simpa [matEq] using h)
-  rw [hAB]
-
-theorem matEq_of_decode_eq {A B : Mat} (hA : A.size = 14) (hB : B.size = 14)
-    (hbA : BoundedMat A) (hbB : BoundedMat B) (h : decode A = decode B) :
-    matEq A B = true := by
-  have hrow : ∀ i < 14, A.getD i zeroRow = B.getD i zeroRow := by
-    intro i hi
-    have hdec : ∀ j < 14, decCode (rowVal (A.getD i zeroRow) j) =
-        decCode (rowVal (B.getD i zeroRow) j) := by
-      intro j hj
-      have := congrArg (fun M : Matrix (Fin 14) (Fin 14) F4 => M ⟨i, hi⟩ ⟨j, hj⟩) h
-      simpa [decode, Matrix.of_apply] using this
-    apply Prod.ext
-    · apply Nat.eq_of_testBit_eq
-      intro j
-      by_cases hj : j < 14
-      · have := decCode_inj (rowVal_lt (A.getD i zeroRow) j)
-          (rowVal_lt (B.getD i zeroRow) j) (hdec j hj)
-        exact (bits_of_rowVal_eq this).1
-      · have h1 : (A.getD i zeroRow).1 < 2 ^ j := by
-          have := (hbA i).1
-          have hp : 2 ^ 14 ≤ 2 ^ j := Nat.pow_le_pow_right (by decide) (by omega)
-          omega
-        have h2 : (B.getD i zeroRow).1 < 2 ^ j := by
-          have := (hbB i).1
-          have hp : 2 ^ 14 ≤ 2 ^ j := Nat.pow_le_pow_right (by decide) (by omega)
-          omega
-        rw [Nat.testBit_lt_two_pow h1, Nat.testBit_lt_two_pow h2]
-    · apply Nat.eq_of_testBit_eq
-      intro j
-      by_cases hj : j < 14
-      · have := decCode_inj (rowVal_lt (A.getD i zeroRow) j)
-          (rowVal_lt (B.getD i zeroRow) j) (hdec j hj)
-        exact (bits_of_rowVal_eq this).2
-      · have h1 : (A.getD i zeroRow).2 < 2 ^ j := by
-          have := (hbA i).2
-          have hp : 2 ^ 14 ≤ 2 ^ j := Nat.pow_le_pow_right (by decide) (by omega)
-          omega
-        have h2 : (B.getD i zeroRow).2 < 2 ^ j := by
-          have := (hbB i).2
-          have hp : 2 ^ 14 ≤ 2 ^ j := Nat.pow_le_pow_right (by decide) (by omega)
-          omega
-        rw [Nat.testBit_lt_two_pow h1, Nat.testBit_lt_two_pow h2]
-  have hAB : A = B := by
-    apply Array.ext_getElem?
-    intro i
-    by_cases hi : i < 14
-    · rw [Array.getElem?_eq_getElem (by omega), Array.getElem?_eq_getElem (by omega)]
-      congr 1
-      rw [Array.getElem_eq_getD, Array.getElem_eq_getD, hrow i hi]
-    · rw [Array.getElem?_eq_none (by omega), Array.getElem?_eq_none (by omega)]
-  simp [matEq, hAB]
 
 end CFSG.Quasithin.St84.G24DC.Code

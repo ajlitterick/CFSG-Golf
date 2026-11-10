@@ -70,11 +70,6 @@ private theorem stdFrame_symm_inl_val {n s r : ℕ}
   change (stdFrameAux ε (Sum.inl (a, j))).val = 2 * j.val + a.val
   rfl
 
-private theorem stdFrame_symm_inr_val {n s r : ℕ}
-    (ε : Fin (n + 1) ≃ (Fin 2 × Fin s) ⊕ Fin r) (i : Fin r) :
-    (((stdFrame ε).symm (Sum.inr i) : Fin (n + 1))).val = 2 * s + i.val := by
-  change (stdFrameAux ε (Sum.inr i)).val = 2 * s + i.val
-  rfl
 
 private noncomputable def pairIdx {n s r : ℕ}
     (ε : Fin (n + 1) ≃ (Fin 2 × Fin s) ⊕ Fin r) (j : Fin s) : Fin n :=

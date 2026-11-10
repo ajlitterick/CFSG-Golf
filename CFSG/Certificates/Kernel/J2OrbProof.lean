@@ -243,14 +243,6 @@ theorem bfsCnt_succ (h ALP BEP : Nat) : bfsCnt (h + 1) ALP BEP =
   · simp only [Nat.blt_eq.mp hb, ↓reduceIte]
     exact CFSG.KS.PackFld.strictN_eqP _ _
 
-theorem bfsCnt_zero_up {ALP BEP : Nat} : ∀ h, bfsCnt h ALP BEP = 0 →
-    ∀ k, bfsCnt (h + k) ALP BEP = 0 := by
-  intro h hh k
-  induction k with
-  | zero => exact hh
-  | succ k ih =>
-    rw [← Nat.add_assoc, bfsCnt_succ, ih]
-    simp
 
 theorem bfsCnt_mono {ALP BEP N : Nat} (hN : bfsCnt N ALP BEP ≠ 0) :
     ∀ h ≤ N, bfsCnt h ALP BEP ≠ 0 ∧ bfsCnt h ALP BEP ≤ bfsCnt N ALP BEP := by

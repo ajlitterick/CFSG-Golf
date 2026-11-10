@@ -10,10 +10,6 @@ namespace CFSG.HardMathSupport.Foote.E27
 open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native
   CFSG.Sporadic.SmallOddCore.Native
 
-@[expose] def sylowCentOK (n cap m : Nat) (gs : List Table) : Bool :=
-  let E := (mulClosureH n gs.toArray cap).1.toList
-  gs.all (fun g => permOK n g) && enumOK n cap m gs &&
-    E.all fun s => !(selOK n [3] s) || (E.countP fun y => commTT n y s) % 81 == 0
 
 structure Wit235 where
   x : Table

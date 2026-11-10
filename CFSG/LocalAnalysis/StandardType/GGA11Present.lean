@@ -94,10 +94,6 @@ private theorem a11pGen_permSL_mem :
     permSL 8 (Equiv.swap (7 : Fin 9) (8 : Fin 9)) ∈ a11pGen :=
   Subgroup.subset_closure (Or.inr rfl)
 
-private theorem a11pGen_weylRep_mem :
-    weylRep 8 F2 (⟨7, by omega⟩ : Fin 8) ∈ a11pGen := by
-  rw [← test_permSL_swap_adj 8 (⟨7, by omega⟩ : Fin 8)]
-  exact a11pGen_permSL_mem
 
 private theorem a11pGen_coe_signedPerm :
     ((permSL 8 (Equiv.swap (7 : Fin 9) (8 : Fin 9)) : SL 9) :

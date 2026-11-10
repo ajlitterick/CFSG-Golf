@@ -130,14 +130,6 @@ theorem not_uniqueInvNormal_of_card_eq_two_mul (H : Subgroup M) (r : M) (hr : r 
   have hsq' : (c : M) * (c : M) ∈ N₀ := by simpa [Subgroup.mem_subgroupOf] using hsq
   rwa [← Subgroup.coe_mul, hct] at hsq'
 
-theorem not_uniqueInvNormal_of_no_orderOf_eq_four (H : Subgroup M) (r : M) (hr : r ∈ H)
-    (hK : ∀ x ∈ centralizerIn H r, orderOf x ≠ 4) (N : Subgroup H) :
-    ¬ UniqueInvNormal (⟨r, hr⟩ : H) N := by
-  intro h
-  obtain ⟨s, hsN, hs4⟩ := h.exists_orderOf_eq_four
-  refine hK (s : M) (mem_centralizerIn_of_mem_centralizer (h.le_centralizer hsN)) ?_
-  rw [← hs4]
-  exact Subgroup.orderOf_coe s
 
 theorem noUniqueInvNormal_of_reps [DecidableEq M] (H : Subgroup M) (reps : List M)
     (hreps : ∀ r ∈ reps, r ∈ H)

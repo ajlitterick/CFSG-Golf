@@ -43,19 +43,6 @@ theorem c2_coord_inj_c [Finite k] {I : Subgroup (antiSp k)} (htr : ∀ x ∈ I, 
   · linear_combination h1 - b' * h2
   · exact absurd rfl h1
 
-theorem c2_coord_inj_b [Finite k] {I : Subgroup (antiSp k)} (htr : ∀ x ∈ I, ¬ IsTransvection x)
-    (htr' : ∀ x ∈ I, ¬ IsTransvection (minorAut k x)) {b c c' : k} (h : uElt 0 b c 0 ∈ I)
-    (h' : uElt 0 b c' 0 ∈ I) : c = c' := by
-  have h2 : (2 : k) = 0 := CharTwo.two_eq_zero
-  have hm : uElt 0 0 (c + c') 0 ∈ I := by
-    have e : uElt 0 b c 0 * (uElt 0 b c' 0)⁻¹ = uElt 0 0 (c + c') 0 := by
-      rw [uElt_inv, uElt_mul]
-      congr 1 <;> first | ring1 | linear_combination b * h2
-    rw [← e]
-    exact I.mul_mem h (I.inv_mem h')
-  rcases c2_coords htr htr' hm with ⟨-, h1⟩ | ⟨h1, -⟩
-  · linear_combination h1 - c' * h2
-  · exact absurd rfl h1
 
 theorem eq_one_of_sq_eq_one' {x : k} (h : x ^ 2 = 1) : x = 1 := by
   have h2 : (2 : k) = 0 := CharTwo.two_eq_zero

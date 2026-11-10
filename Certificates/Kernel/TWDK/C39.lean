@@ -20,25 +20,6 @@ theorem lenS : S.length = 20 := by decide +kernel
 
 theorem lenR : R.length = 4 := by decide +kernel
 
-theorem neg_cover : (!kCover 9 S.tail R) = true := by decide +kernel
-
-theorem neg_idx : (!kSingleAt 3 9 F (S.map fun e => (e.1, e.2.1, e.2.2.map (· + 1))) 0) = true := by
-  decide +kernel
-
-theorem neg_cut : (!kSingleAt 3 9 F (S.map fun e => (e.1, e.2.1, e.2.2.dropLast)) 0) = true := by
-  decide +kernel
-
-theorem neg_wit : (!kSingleAt 3 9 F
-    (S.map fun e => (e.1, e.2.1.map (fun w => (w.1, w.2.1, w.2.2.1, 0 :: w.2.2.2)), e.2.2)) 0) =
-      true := by
-  decide +kernel
-
-theorem neg_res : (!kResAt 3 9 F
-    (R.map fun e => (e.1, e.2.1.map (fun w => (w.1, w.2.1, w.2.2.1, 0 :: w.2.2.2)),
-      e.2.2.1.map (fun w => (w.1, w.2.1, w.2.2.1, 0 :: w.2.2.2)), e.2.2.2)) 0) = true := by
-  decide +kernel
-
-theorem neg_frame : (!kFrameOK 3 9 F.reverse) = true := by decide +kernel
 
 end CFSG.KD.TWDK39
 

@@ -381,12 +381,6 @@ end Tags
 section Assembly
 
 
-theorem ggNonsplitRound8_of_excCoreSix (hF4 : GGExcNonsplitCoreInput .F4)
-    (hE6 : GGE6NonsplitCoreInput) (hE7 : GGExcNonsplitCoreInput .E7)
-    (hE8 : GGExcNonsplitCoreInput .E8) (hTwE6 : GGNonsplitTag .twistedE6) :
-    GGNonsplitCompLiftRound8 ∧ GGNonsplitNbrMarkingRound8 :=
-  ggNonsplitRound8_of_excCore hF4 hE7 hE8 (ggNonsplitTag_E6_of_core hE6) hTwE6
-
 theorem ggSixLayerCXNonsplitInput_of_excCoreSix (hF4 : GGExcNonsplitCoreInput .F4)
     (hE6 : GGE6NonsplitCoreInput) (hE7 : GGExcNonsplitCoreInput .E7)
     (hE8 : GGExcNonsplitCoreInput .E8) (hTwE6 : GGNonsplitTag .twistedE6) :

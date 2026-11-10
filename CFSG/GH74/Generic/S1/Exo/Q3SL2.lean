@@ -25,11 +25,6 @@ theorem sl2_equiv_zmod3 {F₀ : Type} [Field F₀] [Finite F₀] (h : Nat.card F
     rw [Fintype.card_eq_nat_card, h, ZMod.card]
   exact ⟨sl2MapEquiv (FiniteField.ringEquivOfCardEq hc)⟩
 
-theorem natCard_sl2_three {F₀ : Type} [Field F₀] [Finite F₀] (h : Nat.card F₀ = 3) :
-    Nat.card SL(2, F₀) = 24 := by
-  obtain ⟨e⟩ := sl2_equiv_zmod3 h
-  rw [Nat.card_congr e.toEquiv, Matrix.card_SL_field (𝔽 := ZMod 3) 2, ZMod.card, Fin.prod_univ_two]
-  norm_num
 
 private def w₁ : SL(2, ZMod 3) := ⟨!![0, 1; -1, 0], by simp [Matrix.det_fin_two]⟩
 

@@ -13,36 +13,6 @@ open scoped MatrixGroups
 
 open TauCeti
 
-theorem inCatalog_of_mulEquiv_psl_zmod {X : Type} [Group X] {r p : ℕ} (hp : p.Prime)
-    (hv : (LieTypeIndex.A r ⟨p, 1, hp, Nat.one_pos⟩).Valid) (e : X ≃* PSL(r + 1, ZMod p)) :
-    CFSG.Assembly.InCatalog X := by
-  have : Fact p.Prime := ⟨hp⟩
-  let q : PrimePower := ⟨p, 1, hp, Nat.one_pos⟩
-  let eF : ZMod p ≃+* GaloisField p 1 :=
-    CFSG.ClassicalModels.finiteFieldEquivGaloisField (ZMod p) p 1 Nat.one_pos
-      (by rw [Nat.card_zmod, pow_one])
-  exact ⟨.lie ⟨_, hv⟩,
-    ⟨(e.trans (CFSG.ClassicalModels.projectiveSpecialLinearFieldEquiv eF (Fin (r + 1)))).trans
-      (CFSG.ClassicalModels.linearCatalogCandidateEquivPSL r q hv).symm⟩⟩
-
-theorem inCatalog_of_mulEquiv_psl_two_zmod {X : Type} [Group X] {p : ℕ} (hp : p.Prime)
-    (hp7 : 7 < p) (e : X ≃* PSL(2, ZMod p)) : CFSG.Assembly.InCatalog X := by
-  have hp9 : p ≠ 9 := by
-    rintro rfl
-    norm_num at hp
-  refine inCatalog_of_mulEquiv_psl_zmod (r := 1) hp ?_ e
-  rw [LieTypeIndex.valid_iff, LieTypeIndex.inStandardRange_iff,
-    LieTypeIndex.isDuplicateRepresentative_iff]
-  simp only [PrimePower.card_def, pow_one]
-  omega
-
-theorem inCatalog_of_mulEquiv_psl_three_zmod_three {X : Type} [Group X]
-    (e : X ≃* PSL(3, ZMod 3)) : CFSG.Assembly.InCatalog X := by
-  refine inCatalog_of_mulEquiv_psl_zmod (r := 2) Nat.prime_three ?_ e
-  rw [LieTypeIndex.valid_iff, LieTypeIndex.inStandardRange_iff,
-    LieTypeIndex.isDuplicateRepresentative_iff]
-  simp only [PrimePower.card_def, pow_one]
-  omega
 
 theorem nonempty_mulEquiv_alternatingGroup_five_of_card_sixty {G : Type*} [Group G] [Finite G]
     [IsSimpleGroup G] (hG : Nat.card G = 60) : Nonempty (G ≃* alternatingGroup (Fin 5)) := by

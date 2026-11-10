@@ -203,10 +203,6 @@ include hT
 theorem isAtom_smul (t : T) {N : Submodule R M} : IsAtom (t • N) ↔ IsAtom N :=
   (hT.orderIso t).isAtom_iff N
 
-theorem isSimple_smul (t : T) {N : Submodule R M} :
-    IsSimpleModule R ↥(t • N) ↔ IsSimpleModule R ↥N := by
-  rw [isSimpleModule_iff_isAtom, isSimpleModule_iff_isAtom]
-  exact hT.isAtom_smul t
 
 theorem smul_iSup (t : T) {ι : Sort*} (N : ι → Submodule R M) :
     t • ⨆ i, N i = ⨆ i, t • N i :=

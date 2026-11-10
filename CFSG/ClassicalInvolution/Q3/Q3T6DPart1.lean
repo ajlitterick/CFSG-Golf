@@ -24,8 +24,6 @@ section Part1
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
   {W R K T J : Subgroup G} {u r z v t j : G}
 
-theorem etaExists_of_gen (hΩ : HypOmegaGen Ω) : Sec7.EtaExists Ω :=
-  fun S => Sec6Gen.exists_invariant_mem_etaSet hΩ S
 
 theorem etaAbelian_of_gen (hΩ : HypOmegaGen Ω) : Sec7.EtaAbelian Ω :=
   fun _ ⟨_, hS, hinv⟩ => (Sec6Gen.eta_abelian_of_cyc66 hΩ (Sec6Gen.cyc66 hΩ) hS hinv).1

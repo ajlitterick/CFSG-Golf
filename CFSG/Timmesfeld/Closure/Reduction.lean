@@ -201,23 +201,6 @@ theorem trichotomy [Finite G] (hclass : ∃ d₀ : G, D = {g | IsConj d₀ g})
     rw [← orderOf_mul_comm_eq] at hae hbe
     exact hab (eq_of_commute_mul_of_odd ha2 hb2 (hD.mul_self_eq_one heD) hae hbe heu)
 
-theorem rootClosure_of_rankOneOpposite (h : Hyp G D) (hA : RankOneOpposite D)
-    (hNI : NoCommonCentral D) : RootClosure D := by
-  have := h.finite
-  intro d hd a ha b hb hab
-  by_contra hnot
-  have hfix : FixesOpposite D d (a * b) := by
-    refine ⟨(rootGroup D d).mul_mem (rootSet_subset_rootGroup D d ha)
-      (rootSet_subset_rootGroup D d hb), fun c hc hdc hodd => ?_⟩
-    rcases trichotomy h.isClass h.root hA hd ha hb hab hc hdc hodd with h1 | h2 | ⟨z, hz, hz1, hzc⟩
-    · exact absurd h1 hnot
-    · exact h2
-    · exact absurd (hNI d hd c hc hdc hodd z hz hzc) hz1
-  have h1 := h.eq_one_of_fixesOpposite hd hfix
-  apply hab
-  have hbinv : b⁻¹ = b := h.root.inv_eq hb.1
-  rw [← hbinv]
-  exact eq_inv_of_mul_eq_one_left h1
 
 theorem noCommonCentral_of_gen (h : Hyp G D)
     (hgen : ∀ d ∈ D, ∀ c ∈ D, ¬ Commute d c → Odd (orderOf (d * c)) →
@@ -245,80 +228,5 @@ theorem noCommonCentral_of_gen (h : Hyp G D)
 @[expose] def CommConnected (D : Set G) : Prop :=
   ∀ S ⊆ D, S.Nonempty → (∀ x ∈ S, ∀ y ∈ D, Commute x y → y ∈ S) → D ⊆ S
 
-@[expose] def OppInOrbit (D : Set G) : Prop :=
-  ∀ d ∈ D, ∀ c ∈ D, ¬ Commute d c → Odd (orderOf (d * c)) →
-    ∀ y ∈ D, Commute d y → y ∉ rootSet D d →
-      ∃ k ∈ Subgroup.closure {f | f ∈ D ∧ Commute d f},
-        ¬ Commute y (k * c * k⁻¹) ∧ Odd (orderOf (y * (k * c * k⁻¹)))
-
-theorem gen_of_connected (h : Hyp G D) (hconn : CommConnected D) (hOIO : OppInOrbit D)
-    {d c : G} (hd : d ∈ D) (hc : c ∈ D) (hdc : ¬ Commute d c) (hodd : Odd (orderOf (d * c))) :
-    Subgroup.closure (insert c {f | f ∈ D ∧ Commute d f}) = ⊤ := by
-  have hD := h.root
-  have hclass := h.isClass
-  set L := Subgroup.closure (insert c {f | f ∈ D ∧ Commute d f}) with hL
-  have hKL : Subgroup.closure {f | f ∈ D ∧ Commute d f} ≤ L :=
-    Subgroup.closure_mono (Set.subset_insert _ _)
-  have hcL : c ∈ L := Subgroup.subset_closure (Set.mem_insert _ _)
-  have hCL : ∀ f ∈ D, Commute d f → f ∈ L := fun f hf hdf =>
-    Subgroup.subset_closure (Set.mem_insert_of_mem _ ⟨hf, hdf⟩)
-  have hdL : d ∈ L := hCL d hd (Commute.refl d)
-  have hd2 := hD.mul_self_eq_one hd
-  have hc2 := hD.mul_self_eq_one hc
-  set S : Set G := {x | ∃ l ∈ L, x = l * d * l⁻¹} with hS
-  have hSD : S ⊆ D := by
-    rintro x ⟨l, -, rfl⟩
-    exact conj_mem_of_isClass hclass l hd
-  have hSL : ∀ x ∈ S, x ∈ L := by
-    rintro x ⟨l, hl, rfl⟩
-    exact L.mul_mem (L.mul_mem hl hdL) (L.inv_mem hl)
-  have hopp : ∀ x ∈ S, ∀ y ∈ D, y ∈ L → Odd (orderOf (x * y)) → y ∈ S := by
-    rintro x ⟨l, hl, rfl⟩ y hy hyL hxy
-    have hx2 : (l * d * l⁻¹) * (l * d * l⁻¹) = 1 := by
-      rw [show (l * d * l⁻¹) * (l * d * l⁻¹) = l * (d * d) * l⁻¹ by group, hd2, mul_one,
-        mul_inv_cancel]
-    obtain ⟨g, hg, hgx⟩ := exists_conj_of_odd_orderOf_mul hx2 (hD.mul_self_eq_one hy) hxy
-    have hgL : g ∈ L := by
-      refine (Subgroup.closure_le L).2 ?_ hg
-      rintro z (rfl | rfl)
-      · exact L.mul_mem (L.mul_mem hl hdL) (L.inv_mem hl)
-      · exact hyL
-    exact ⟨g * l, L.mul_mem hgL hl, by rw [← hgx]; group⟩
-  have hcS : c ∈ S := by
-    refine ⟨dihedralSwap d c, L.mul_mem hdL (L.pow_mem (L.mul_mem hdL hcL) _), ?_⟩
-    exact (dihedralSwap_conj hd2 hc2 hodd).symm
-  have hclosed : ∀ x ∈ S, ∀ y ∈ D, Commute x y → y ∈ S := by
-    rintro x ⟨l, hl, rfl⟩ y hy hxy
-    set y' := l⁻¹ * y * l with hy'
-    have hy'D : y' ∈ D := by simpa using conj_mem_of_isClass hclass l⁻¹ hy
-    have hdy' : Commute d y' := by
-      have := (Commute.conj_iff l⁻¹).2 hxy
-      simpa [hy', mul_assoc] using this
-    suffices hy'S : y' ∈ S by
-      obtain ⟨l', hl', he⟩ := hy'S
-      refine ⟨l * l', L.mul_mem hl hl', ?_⟩
-      have : y = l * y' * l⁻¹ := by rw [hy']; group
-      rw [this, he]; group
-    have hy'L : y' ∈ L := hCL y' hy'D hdy'
-    by_cases hT : y' ∈ rootSet D d
-    ·
-      have hoc := (odd_orderOf_mul_iff_of_mem_rootSet hD hd hT hc hdc).2 hodd
-      refine hopp c hcS y' hy'D hy'L ?_
-      rw [orderOf_mul_comm_eq]; exact hoc
-    · obtain ⟨k, hk, hnc, hok⟩ := hOIO d hd c hc hdc hodd y' hy'D hdy' hT
-      have hkL : k ∈ L := hKL hk
-      have hkcS : k * c * k⁻¹ ∈ S := by
-        obtain ⟨l0, hl0, he0⟩ := hcS
-        exact ⟨k * l0, L.mul_mem hkL hl0, by rw [he0]; group⟩
-      refine hopp _ hkcS y' hy'D hy'L ?_
-      rw [orderOf_mul_comm_eq]; exact hok
-  have hall : D ⊆ S := hconn S hSD ⟨d, 1, L.one_mem, by group⟩ hclosed
-  rw [eq_top_iff, ← h.gen, Subgroup.closure_le]
-  exact fun x hx => hSL x (hall hx)
-
-theorem rootClosure_of_connected (h : Hyp G D) (hA : RankOneOpposite D) (hOIO : OppInOrbit D)
-    (hconn : CommConnected D) : RootClosure D :=
-  rootClosure_of_rankOneOpposite h hA (noCommonCentral_of_gen h fun _ hd _ hc hdc hodd =>
-    gen_of_connected h hconn hOIO hd hc hdc hodd)
 
 end CFSG.Timmesfeld.Closure

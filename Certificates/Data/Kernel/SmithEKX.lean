@@ -56,18 +56,6 @@ open CFSG.KC.Misc.O73
       Nat.beq (ixF e) (ixFix CP (ixS e)) && Nat.ble (cntK 65 (ixF e)) 64 &&
         ixRow (Nat.add a k) e D)) n
 
-@[expose] noncomputable def ixSs (D : List Nat) : List Nat :=
-  List.rec (motive := fun _ => List Nat) [] (fun e _ ih => ixS e :: ih) D
-
-@[expose] noncomputable def ixFlat (R : List (List Nat)) : List Nat :=
-  List.rec (motive := fun _ => List Nat) [] (fun r _ ih => r ++ ih) R
-
-@[expose] noncomputable def ixEq : List Nat → List Nat → Bool :=
-  fun L => List.rec (motive := fun _ => List Nat → Bool) (fun M => List.rec true (fun _ _ _ => false) M)
-    (fun x _ ih M => List.rec (motive := fun _ => Bool) false (fun y M' _ => Nat.beq x y && ih M') M) L
-
-@[expose] noncomputable def ixPin (R : List (List Nat)) (D : List Nat) : Bool :=
-  ixEq (ixSs D) (ixFlat R)
 
 @[expose] noncomputable def ixAll (n : Nat) (p : Nat → Bool) : Bool :=
   Nat.rec (motive := fun _ => Bool) true (fun k acc => acc && p k) n

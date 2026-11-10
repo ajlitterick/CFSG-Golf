@@ -35,45 +35,6 @@ theorem mem_e6WGamma_iff {w : WeylGroup Tag.E6} :
     refine ext_single fun i => ?_
     rw [e6WeylTwist_smul, h, permLattice_e6Rho_e6Rho]
 
-theorem e6WGamma_eq_closure :
-    e6WGamma = Subgroup.closure {simple Tag.E6 0 * simple Tag.E6 5,
-      simple Tag.E6 2 * simple Tag.E6 4, simple Tag.E6 3, simple Tag.E6 1} := by
-  have h : e6WGamma = Subgroup.closure (Set.range TwistTag.E6.orbitReflection) :=
-    relWeylTwist_eq_closure TwistTag.E6
-  rw [h]
-  congr 1
-  have h0 : TwistTag.E6.orbitWord 0 = ([0, 5] : List (Fin TwistTag.E6.tag.rank)) := by decide
-  have h1 : TwistTag.E6.orbitWord 1 = ([2, 4] : List (Fin TwistTag.E6.tag.rank)) := by decide
-  have h2 : TwistTag.E6.orbitWord 2 = ([3] : List (Fin TwistTag.E6.tag.rank)) := by decide
-  have h3 : TwistTag.E6.orbitWord 3 = ([1] : List (Fin TwistTag.E6.tag.rank)) := by decide
-  have e0 : TwistTag.E6.orbitReflection 0 = simple Tag.E6 0 * simple Tag.E6 5 := by
-    rw [TwistTag.orbitReflection, h0, CoxeterSystem.wordProd_cons,
-      CoxeterSystem.wordProd_singleton]
-    rfl
-  have e1 : TwistTag.E6.orbitReflection 1 = simple Tag.E6 2 * simple Tag.E6 4 := by
-    rw [TwistTag.orbitReflection, h1, CoxeterSystem.wordProd_cons,
-      CoxeterSystem.wordProd_singleton]
-    rfl
-  have e2 : TwistTag.E6.orbitReflection 2 = simple Tag.E6 3 := by
-    rw [TwistTag.orbitReflection, h2, CoxeterSystem.wordProd_singleton]
-    rfl
-  have e3 : TwistTag.E6.orbitReflection 3 = simple Tag.E6 1 := by
-    rw [TwistTag.orbitReflection, h3, CoxeterSystem.wordProd_singleton]
-    rfl
-  ext g
-  simp only [Set.mem_range]
-  constructor
-  · rintro ⟨a, rfl⟩
-    fin_cases a
-    · exact Or.inl e0
-    · exact Or.inr (Or.inl e1)
-    · exact Or.inr (Or.inr (Or.inl e2))
-    · exact Or.inr (Or.inr (Or.inr e3))
-  · rintro (rfl | rfl | rfl | rfl)
-    · exact ⟨0, e0⟩
-    · exact ⟨1, e1⟩
-    · exact ⟨2, e2⟩
-    · exact ⟨3, e3⟩
 
 theorem iform_permLattice_e6Rho' (x y : Fin Tag.E6.rank → ℤ) :
     iform (permLattice e6Rho x) (permLattice e6Rho y) = iform x y := by
@@ -89,8 +50,6 @@ theorem iform_permLattice_e6Rho' (x y : Fin Tag.E6.rank → ℤ) :
     Tag.E6.symmetrizedCartan (e6Rho i) j * y (e6Rho.symm j))]
   simp [hB]
 
-theorem permLattice_e6Rho_injective : Function.Injective (permLattice e6Rho) := fun x y h => by
-  rw [← permLattice_e6Rho_e6Rho x, h, permLattice_e6Rho_e6Rho]
 
 theorem isRoot_permLattice_e6Rho {α : Fin Tag.E6.rank → ℤ} (hα : IsRoot Tag.E6 α) :
     IsRoot Tag.E6 (permLattice e6Rho α) :=

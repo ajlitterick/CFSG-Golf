@@ -200,13 +200,6 @@ theorem realExt_mul
   rw [Module.End.mul_apply, toRootSpace_realExt, toRootSpace_realExt, toRootSpace_realExt,
     realExtend_mul, Module.End.mul_apply]
 
-theorem realExt_apply
-    (f : Module.End ℤ (Fin τ.rank → ℤ)) (x : RootWeightSpace τ) :
-    realExt f x = ∑ k, x k • ofLattice (f (Pi.single k 1)) := by
-  apply (toRootSpace τ).injective
-  rw [toRootSpace_realExt, realExtend_apply, map_sum]
-  simp only [map_smul, toRootSpace_ofLattice]
-  rfl
 
 theorem realExt_apply_apply
     (f : Module.End ℤ (Fin τ.rank → ℤ)) (x : RootWeightSpace τ)

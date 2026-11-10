@@ -112,28 +112,6 @@ theorem conj_LB_eq_of_le_sup_Fhat (h34 : Stroth34Statement) (hc : Ctx M Q Z B) {
   (stroth_3_5 h34 hc hs.width hs.n_gt hs.noA2 hs.gen).1 g hgM fun x hx =>
     sup_Fhat_le_normalizer h34 hc hs hh (hle hx)
 
-theorem torus_transitive_of_inf_transitive
-    {hc : Ctx M Q Z B} {n : ℕ} {t r : G} {Z0 : Subgroup G} {h : G}
-    (cfg : Cfg93c hc n t r Z0 h)
-    (hTI : ∀ x ∈ LB M Q B, x ∉ LB M Q B ⊓ conjSubgroup h (LB M Q B) →
-      ∀ y ∈ LB M Q B, y ∉ LB M Q B ⊓ conjSubgroup h (LB M Q B) →
-        ∃ g ∈ Xhat M Q B h, conjSubgroup g (LB M Q B) = LB M Q B ∧
-          g * x * g⁻¹ * y⁻¹ ∈ LB M Q B ⊓ conjSubgroup h (LB M Q B)) :
-    ∀ x ∈ LB M Q B, x ∉ Fhat M Q B h →
-      ∀ y ∈ LB M Q B, y ∉ Fhat M Q B h →
-        ∃ g ∈ M, conjSubgroup g (LB M Q B) = LB M Q B ∧
-          g * x * g⁻¹ * y⁻¹ ∈ Fhat M Q B h := by
-  intro x hxL hxF y hyL hyF
-  have hHF : LB M Q B ⊓ conjSubgroup h (LB M Q B) ≤ Fhat M Q B h :=
-    step93L2Second_H_le_pCore hc cfg.hh
-  have hxH : x ∉ LB M Q B ⊓ conjSubgroup h (LB M Q B) := fun hxH => hxF (hHF hxH)
-  have hyH : y ∉ LB M Q B ⊓ conjSubgroup h (LB M Q B) := fun hyH => hyF (hHF hyH)
-  obtain ⟨g, hgX, hgL, hgy⟩ := hTI x hxL hxH y hyL hyH
-  have hc' : Ctx M Q Z (conjSubgroup h B) := hc.conj_of_mem cfg.hh
-  have hLconj : LB M Q (conjSubgroup h B) = conjSubgroup h (LB M Q B) := hc.LB_conj cfg.hh
-  have hXH : Xhat M Q B h ≤ H0 M Z :=
-    sup_le hc.LB_le_H0 (hLconj ▸ hc'.LB_le_H0)
-  exact ⟨g, (hXH hgX).1, hgL, hHF hgy⟩
 
 theorem torus_transitive_of_relIndex_eq
     (h34 : Stroth34Statement) {hc : Ctx M Q Z B} {n : ℕ} {t r : G} {Z0 : Subgroup G} {h : G}
@@ -357,59 +335,6 @@ theorem torus_transitive_of_relIndex_eq
   exact Subgroup.mem_subgroupOf.mp
     ((QuotientGroup.eq_one_iff (N := Fx)
       (x := (⟨(gX : G) * x * (gX : G)⁻¹ * y⁻¹, hzX⟩ : ↥(Xhat M Q B h)))).mp hπz)
-theorem torus_transitive_of_hcase
-    (h34 : Stroth34Statement) (h311a : Stroth311aStatement) (h311bComm : Stroth311bCommStatement)
-    {hc : Ctx M Q Z B} {n : ℕ} {t r : G} {Z0 : Subgroup G} {h : G}
-    (cfg : Cfg93c hc n t r Z0 h)
-    (hq : QuotSat (Xhat M Q B h) (Fhat M Q B h) (IsSLModel 2 (Nat.card Z)))
-    (hcase : Z0 ⊓ Fhat M Q B h ≤ Q) :
-    ∀ x ∈ LB M Q B, x ∉ Fhat M Q B h →
-      ∀ y ∈ LB M Q B, y ∉ Fhat M Q B h →
-        ∃ g ∈ M, conjSubgroup g (LB M Q B) = LB M Q B ∧
-          g * x * g⁻¹ * y⁻¹ ∈ Fhat M Q B h := by
-  classical
-  have hs := cfg.hs
-  have hZ0L : Z0 ≤ LB M Q B := by
-    have hNC : Sec9NCommStatement := sec9NComm_of_311b h34 h311bComm
-    obtain ⟨hprod, hcomm, -⟩ := sec9_N51 h34 h311a hNC cfg.hs cfg.hr
-    rw [isCentrePre_eq_inf91 cfg.hs cfg.hr hprod hcomm cfg.hZ0]
-    exact inf_le_left
-  have hQZ0 : Q ≤ Z0 := hc.Q_le_centre hs.mem cfg.hZ0
-  have hc' : Ctx M Q Z (conjSubgroup h B) := hc.conj_of_mem cfg.hh
-  have hLconj : LB M Q (conjSubgroup h B) = conjSubgroup h (LB M Q B) := hc.LB_conj cfg.hh
-  have hXH : Xhat M Q B h ≤ H0 M Z :=
-    sup_le hc.LB_le_H0 (hLconj ▸ hc'.LB_le_H0)
-  have hXM : Xhat M Q B h ≤ M := fun x hx => (hXH hx).1
-  have hQF : Q ≤ Fhat M Q B h :=
-    Q_le_pCoreIn hc (sec39_Q_le_LB.trans le_sup_left) hXM
-  have hZF : Z0 ⊓ Fhat M Q B h = Q := le_antisymm hcase (le_inf hQZ0 hQF)
-  have hZ0norm : Z0 ≤ Subgroup.normalizer (Fhat M Q B h : Set G) :=
-    hZ0L.trans ((le_sup_left : LB M Q B ≤ LB M Q B ⊔ conjSubgroup h (LB M Q B)).trans
-      (le_normalizer_pCoreIn (Xhat M Q B h)))
-  have hprodZ := card_sup_mul_card_inf_of_le_normalizer (A := Z0) (F := Fhat M Q B h) hZ0norm
-  rw [hZF] at hprodZ
-  have hlow : Nat.card Q * Nat.card Z ≤ Nat.card Z0 :=
-    centre95CardLower_holds91 h34 h311a h311bComm G M Q Z B hc n t hs Z0 cfg.hZ0
-  have hQpos : 0 < Nat.card Q := Nat.card_pos
-  have hge : Nat.card ↥(Fhat M Q B h) * Nat.card Z ≤ Nat.card ↥(Z0 ⊔ Fhat M Q B h) := by
-    refine Nat.le_of_mul_le_mul_right ?_ hQpos
-    calc Nat.card ↥(Fhat M Q B h) * Nat.card Z * Nat.card Q
-        = Nat.card Q * (Nat.card Z * Nat.card ↥(Fhat M Q B h)) := by ring
-      _ ≤ Nat.card Z0 * Nat.card ↥(Fhat M Q B h) := by
-        simpa [mul_assoc] using Nat.mul_le_mul_right (Nat.card ↥(Fhat M Q B h)) hlow
-      _ = Nat.card ↥(Z0 ⊔ Fhat M Q B h) * Nat.card Q := hprodZ.symm
-  have hdvd : Nat.card ↥(LB M Q B ⊔ Fhat M Q B h) ∣
-      Nat.card ↥(Fhat M Q B h) * Nat.card Z := card_LB_sup_Fhat_dvd hc hq
-  have hLFle : Nat.card ↥(LB M Q B ⊔ Fhat M Q B h) ≤
-      Nat.card ↥(Fhat M Q B h) * Nat.card Z :=
-    Nat.le_of_dvd (Nat.mul_pos Nat.card_pos Nat.card_pos) hdvd
-  have hle : Z0 ⊔ Fhat M Q B h ≤ LB M Q B ⊔ Fhat M Q B h := sup_le_sup_right hZ0L _
-  have hZ0Fle : Nat.card ↥(Z0 ⊔ Fhat M Q B h) ≤
-      Nat.card ↥(LB M Q B ⊔ Fhat M Q B h) := Subgroup.card_le_of_le hle
-  have hsyl : Nat.card ↥(LB M Q B ⊔ Fhat M Q B h) =
-      Nat.card ↥(Fhat M Q B h) * Nat.card Z :=
-    le_antisymm hLFle (hge.trans hZ0Fle)
-  exact torus_transitive_of_relIndex_eq h34 cfg hq hsyl
 
 end HS9
 

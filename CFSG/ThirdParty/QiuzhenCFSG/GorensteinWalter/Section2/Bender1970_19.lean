@@ -248,38 +248,6 @@ public theorem generalizedFittingSubgroupOf_subgroup_top_eq
       _ = fittingSubgroupOf H := by rfl
   · exact componentLayerOf_subgroup_top_eq H
 
-private theorem generalizedFittingSubgroupOf_map_of_equiv_subgroup
-    {G H : Type u} [Group G] [Group H] [Finite G] [Finite H]
-    (e : G ≃* H) (K : Subgroup G) :
-    (generalizedFittingSubgroupOf K).map e.toMonoidHom =
-      generalizedFittingSubgroupOf (K.map e.toMonoidHom) := by
-  let K' : Subgroup H := K.map e.toMonoidHom
-  let eK : ↥K ≃* ↥K' := Subgroup.equivMapOfInjective K e.toMonoidHom e.injective
-  have hTop : (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map eK.toMonoidHom =
-      generalizedFittingSubgroupOf (⊤ : Subgroup (↥K')) :=
-    generalizedFittingSubgroupOf_top_map_of_mulEquiv eK
-  have hKmap : (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map K.subtype =
-      generalizedFittingSubgroupOf K :=
-    generalizedFittingSubgroupOf_subgroup_top_eq K
-  have hK'map : (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K'))).map K'.subtype =
-      generalizedFittingSubgroupOf K' :=
-    generalizedFittingSubgroupOf_subgroup_top_eq K'
-  have hcomp : e.toMonoidHom.comp K.subtype = K'.subtype.comp eK.toMonoidHom := by
-    apply MonoidHom.ext
-    intro x
-    rfl
-  calc
-    (generalizedFittingSubgroupOf K).map e.toMonoidHom
-        = ((generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map K.subtype).map e.toMonoidHom := by
-          rw [hKmap]
-    _ = (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map
-          (e.toMonoidHom.comp K.subtype) := by rw [Subgroup.map_map]
-    _ = (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map
-          (K'.subtype.comp eK.toMonoidHom) := by rw [hcomp]
-    _ = ((generalizedFittingSubgroupOf (⊤ : Subgroup (↥K))).map eK.toMonoidHom).map K'.subtype := by
-          rw [Subgroup.map_map]
-    _ = (generalizedFittingSubgroupOf (⊤ : Subgroup (↥K'))).map K'.subtype := by rw [hTop]
-    _ = generalizedFittingSubgroupOf K' := by rw [hK'map]
 
 private theorem isPGroup_of_normal_nilpotent_of_extension
     {G : Type u} [Group G] [Finite G]

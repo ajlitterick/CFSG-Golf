@@ -28,14 +28,6 @@ private lemma htau2_of (h44 : tau ^ 2 = 1) : tau * tau = 1 := by
 private lemma tau_inv_eq (h44 : tau ^ 2 = 1) : tau⁻¹ = tau :=
   inv_eq_of_mul_eq_one_right (htau2_of h44)
 
-private lemma twoCore_eq_one_or_eq_t (h : Ctx t L S x₁ x₂ lam rho tau)
-    (h43 : twoCore t = zpowers t) {a : G} (ha : a ∈ twoCore t) : a = 1 ∨ a = t := by
-  have ha' : a ∈ zpowers t := h43 ▸ ha
-  have hdvd : orderOf a ∣ orderOf t := orderOf_dvd_of_mem_zpowers ha'
-  have ha2 : a ^ 2 = 1 := by
-    have h2 : orderOf a ∣ 2 := by rw [← h.hyp.ord_t]; exact hdvd
-    exact orderOf_dvd_iff_pow_eq_one.mp h2
-  exact h.hyp.eq_one_or_eq a ha ha2
 
 private lemma conj_eq_of_mem_twoCore (h : Ctx t L S x₁ x₂ lam rho tau)
     (h43 : twoCore t = zpowers t) {a x : G} (ha : a ∈ twoCore t)
@@ -49,33 +41,6 @@ private lemma conj_eq_of_mem_twoCore (h : Ctx t L S x₁ x₂ lam rho tau)
   · rw [ha1, one_mul, inv_one, mul_one]
   · rw [ha1, (mem_invCent_iff.mp hx).symm, mul_assoc, mul_inv_cancel, mul_one]
 
-private lemma mem_PL_or_mul_tau_mem (h : Ctx t L S x₁ x₂ lam rho tau) {g : G}
-    (hg : g ∈ invCent t) : g ∈ twoCore t ⊔ L ∨ g * tau ∈ twoCore t ⊔ L := by
-  have hPLH : twoCore t ⊔ L ≤ invCent t :=
-    sup_le (twoCore_le_invCent t) (L_le_invCent h.hyp)
-  have htauH : tau ∈ invCent t := h.le_invCent h.tau_mem
-  rcases mem_or_mem_or_mul_mem_of_relIndex_two (S := invCent t) (K := twoCore t ⊔ L)
-      hPLH h.relIndex_two hg htauH with h1 | h1 | h1
-  · exact Or.inl h1
-  · exact absurd h1 h.tau_not_mem
-  · exact Or.inr h1
-
-private lemma mem_sup_iff_mem_L_or (h : Ctx t L S x₁ x₂ lam rho tau)
-    (h43 : twoCore t = zpowers t) {x : G} :
-    x ∈ twoCore t ⊔ L ↔ x ∈ L ∨ t * x ∈ L := by
-  constructor
-  · intro hx
-    obtain ⟨a, ha, b, hb, rfl⟩ := (mem_sup_iff_of_commute (twoCore_commute h.hyp)).mp hx
-    rcases twoCore_eq_one_or_eq_t h h43 ha with ha1 | ha1
-    · rw [ha1, one_mul]; exact Or.inl hb
-    · rw [ha1]
-      exact Or.inr (by rw [← mul_assoc, ht_mul_self h, one_mul]; exact hb)
-  · rintro (hx | hx)
-    · exact Subgroup.mem_sup_right hx
-    · have hx' : x = t * (t * x) := by rw [← mul_assoc, ht_mul_self h, one_mul]
-      rw [hx']
-      exact Subgroup.mul_mem _ (Subgroup.mem_sup_left h.hyp.mem_twoCore)
-        (Subgroup.mem_sup_right hx)
 
 private lemma conj_t_mul (h : Ctx t L S x₁ x₂ lam rho tau) {k : G}
     (hk : k ∈ invCent t) (x : G) : t * (k * x * k⁻¹) = k * (t * x) * k⁻¹ := by

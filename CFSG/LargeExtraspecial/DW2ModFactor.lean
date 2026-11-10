@@ -91,6 +91,5 @@ theorem OneFactorOn.dichotomy {A B : Submodule (ZMod 2) V} (h : OneFactorOn Y A 
       (sup_le (iterComm_le_of_isInv hW _) ?_))
     exact hk₀.trans hAW
 
-variable [FiniteDimensional (ZMod 2) V]
 
 end CFSG.LargeExtraspecial.DW

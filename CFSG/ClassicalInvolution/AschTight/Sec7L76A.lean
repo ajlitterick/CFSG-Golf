@@ -69,49 +69,5 @@ theorem conjSub_le_normalizer {A K : Subgroup G} (h : A ≤ Subgroup.normalizer 
   rw [mem_normalizer_conjSub_iff]
   exact h hx
 
-theorem control_DSet_of_weaklyClosed (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (habel : EtaAbelian Ω) (h611 : EtaMeets Ω) {W : Subgroup G} (hW : W ∈ WSet Ω)
-    {S : Sylow 2 G} (hWC : WeaklyClosedIn W S) {R T : Subgroup G} (hR : R ∈ DSet Ω W)
-    (hT : T ∈ DSet Ω W) {g : G} (hg : conjSub g R = T) :
-    ∃ n ∈ Subgroup.normalizer (W : Set G), conjSub n R = T := by
-  have hW2 := isPGroup_of_mem_WSet hW
-  obtain ⟨K, hK, hRK⟩ := exists_isSylow2In_of_mem_RSet hR.1
-  obtain ⟨J, hJ, hTJ⟩ := exists_isSylow2In_of_mem_RSet hT.1
-  have hT2 := hTJ.2.1
-  have h8 := hΩ.eight_le_of_mem_RSet hp hT.1
-  have hgK : conjSub g K = J := by
-    refine hΩ.eq_of_le_of_le (hΩ.conjInvariant g K hK) hJ hT2 (by omega) ?_ hTJ.1
-    rw [← hg]
-    exact conjSub_mono hRK.1
-  have hWK := le_normalizer_of_mem_DSet hp hq hΩ habel h611 hW hR hK hRK.1
-  have hWJ := le_normalizer_of_mem_DSet hp hq hΩ habel h611 hW hT hJ hTJ.1
-  have hgWJ : conjSub g W ≤ Subgroup.normalizer (J : Set G) := by
-    rw [← hgK]
-    exact conjSub_le_normalizer hWK g
-  have hTgW : T ≤ Subgroup.normalizer ((conjSub g W : Subgroup G) : Set G) := by
-    rw [← hg]
-    exact conjSub_le_normalizer hR.2 g
-  have h1 : IsPGroup 2 ↥(W ⊔ T) := IsPGroup.to_sup_of_normal_left' hW2 hT2 hT.2
-  have h2 : IsPGroup 2 ↥(conjSub g W ⊔ T) :=
-    IsPGroup.to_sup_of_normal_left' (isPGroup_conjSub g hW2) hT2 hTgW
-  have hTN : T ≤ Subgroup.normalizer (J : Set G) := hTJ.1.trans Subgroup.le_normalizer
-  obtain ⟨P, hP, hWTP⟩ := IsSylow2In.exists_ge h1 (sup_le hWJ hTN)
-  obtain ⟨c, hc, hcP⟩ := exists_conj_le_of_isSylow2In hP h2 (sup_le hgWJ hTN)
-  have hPJ : P ⊓ J = T :=
-    hTJ.eq_of_le (hP.2.1.to_le inf_le_left) inf_le_right (le_inf (le_sup_right.trans hWTP) hTJ.1)
-  have hcJ : conjSub c J = J := mem_normalizer_iff_conjSub_eq.mp hc
-  have hTc : T ≤ conjSub c T := by
-    have h3 : T ≤ conjSub c (P ⊓ J) := by
-      rw [conjSub_inf, hcJ]
-      exact le_inf (le_sup_right.trans hcP) hTJ.1
-    rwa [hPJ] at h3
-  have hcT : conjSub c T = T := conjSub_eq_of_le_self' hTc
-  have hcW : conjSub (c⁻¹ * g) W = W := by
-    refine hWC.eq_of_le_of_isPGroup hP.2.1 (le_sup_left.trans hWTP) ?_
-    rw [conjSub_mul, conjSub_le_iff, inv_inv]
-    exact le_sup_left.trans hcP
-  refine ⟨c⁻¹ * g, mem_normalizer_iff_conjSub_eq.mpr hcW, ?_⟩
-  rw [conjSub_mul, hg]
-  exact conjSub_inv_eq hcT
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Sec7

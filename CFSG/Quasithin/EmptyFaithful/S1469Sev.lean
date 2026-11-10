@@ -74,11 +74,6 @@ theorem Setting146.lemma115Hyp_of_isIStar (S : Setting146 G T M) {H : Subgroup G
       subst hxz
       exact Subgroup.mem_centralizer_iff.mp hg x rfl
 
-theorem Setting146.charTwo_inf_mcOf (S : Setting146 G T M) {H : Subgroup G}
-    (hH : IsHTM T M H) {u : G} (hu : IsInvU T M H u) {I : Subgroup G} (hI : IsIStar T M u I)
-    (hsyl : IsSylowTwoOf (T ⊓ I) I) {z : G} (hz : z ∈ quasithinOmegaOneCenter T) (hz1 : z ≠ 1) :
-    CharTwo (I ⊓ mcOf T) :=
-  (S.lemma115Hyp_of_isIStar hH hu hI hsyl hz hz1).charTwo_inf
 
 theorem Setting146.oddCoreIn_eq_bot (S : Setting146 G T M) {H : Subgroup G}
     (hH : IsHTM T M H) {u : G} (hu : IsInvU T M H u) {I : Subgroup G} (hI : IsIStar T M u I)
@@ -183,25 +178,6 @@ theorem Setting146.oddCoreIn_eq_bot (S : Setting146 G T M) {H : Subgroup G}
   rw [eq_bot_iff, ← hO]
   exact le_inf le_rfl (le_inf (oddCoreIn_le I) hOle)
 
-theorem le_centralizer_of_isPerfect_card_four {K V : Subgroup G} [Group.IsPerfect K]
-    (hV : Nat.card V = 4) (hKV : K ≤ Subgroup.normalizer (V : Set G)) :
-    K ≤ Subgroup.centralizer (V : Set G) := by
-  let ψ : K →* MulAut V := (conjAct V).comp (Subgroup.inclusion hKV)
-  have hsolv : Group.IsSolvable (MulAut V) := by
-    have : Group.IsSolvable (Equiv.Perm V) := Equiv.Perm.isSolvable (by rw [hV])
-    exact Group.isSolvable_of_isSolvable_injective (f := MulAut.toPerm V) (by
-      intro a b h; exact MulEquiv.ext fun x => congrArg (fun p : Equiv.Perm V => p x) h)
-  have hrange : ψ.range = ⊥ := by
-    by_contra hne
-    have : Nontrivial ψ.range := (Subgroup.nontrivial_iff_ne_bot _).mpr hne
-    have : Group.IsPerfect ψ.range := Group.IsPerfect.range ψ
-    exact Group.IsPerfect.not_isSolvable ψ.range inferInstance
-  intro k hk
-  have hk1 : ψ ⟨k, hk⟩ = 1 := by
-    have : ψ ⟨k, hk⟩ ∈ ψ.range := ⟨⟨k, hk⟩, rfl⟩
-    rw [hrange] at this
-    exact Subgroup.mem_bot.mp this
-  exact A1b.conjAct_eq_one_iff.mp hk1
 
 omit [Finite G] in
 theorem isPerfect_of_isComponentIn {K I : Subgroup G} (hK : IsComponentIn K I) :
@@ -210,39 +186,5 @@ theorem isPerfect_of_isComponentIn {K I : Subgroup G} (hK : IsComponentIn K I) :
   exact Group.IsPerfect.ofSurjective (f := (Subgroup.subgroupOfEquivOfLe hK.1).toMonoidHom)
     (Subgroup.subgroupOfEquivOfLe hK.1).surjective
 
-theorem Setting146.not_le_M_of_isComponentIn (S : Setting146 G T M) {H : Subgroup G}
-    (hH : IsHTM T M H) {u : G} (hu : IsInvU T M H u) {I : Subgroup G} (hI : IsIStar T M u I)
-    (hsyl : IsSylowTwoOf (T ⊓ I) I) {z : G} (hz : z ∈ quasithinOmegaOneCenter T) (hz1 : z ≠ 1)
-    {K : Subgroup G} (hK : IsComponentIn K I) : ¬ K ≤ M := by
-  intro hKM
-  have h115 := S.lemma115Hyp_of_isIStar hH hu hI hsyl hz hz1
-  have hnot := (h115.lemma115.2.2 K hK).2
-  have hper := isPerfect_of_isComponentIn hK
-  have hMV : M ≤ Subgroup.normalizer (VZ T M : Set G) := le_normalizer_conjClosure _ _
-  have hV4 : Nat.card (VZ T M) = 4 := S.hyp.rank_two
-  have hKC := le_centralizer_of_isPerfect_card_four hV4 (hKM.trans hMV)
-  exact hnot (hKC.trans (Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr
-    (le_conjClosure _ _ : quasithinOmegaOneCenter T ≤ VZ T M))))
-
-theorem Setting146.lemma_14_6_7_four (S : Setting146 G T M) {H : Subgroup G}
-    (hH : IsHTM T M H) {u : G} (hu : IsInvU T M H u) {I : Subgroup G} (hI : IsIStar T M u I)
-    (hsyl : IsSylowTwoOf (T ⊓ I) I) {z : G} (hz : z ∈ quasithinOmegaOneCenter T) (hz1 : z ≠ 1)
-    {K : Subgroup G} (hK : IsComponentIn K I) :
-    ¬ K ≤ I ⊓ mcOf T ∧ IsIStar T M u (K ⊔ (T ⊓ I)) := by
-  have h115 := S.lemma115Hyp_of_isIStar hH hu hI hsyl hz hz1
-  have hnotG : ¬ K ≤ mcOf T := (h115.lemma115.2.2 K hK).2
-  have hnotM : ¬ K ≤ M := S.not_le_M_of_isComponentIn hH hu hI hsyl hz hz1 hK
-  refine ⟨fun h => hnotG (h.trans inf_le_right), ?_⟩
-  have hKI : K ≤ I := hK.1
-  have hJI : K ⊔ (T ⊓ I) ≤ I := sup_le hKI inf_le_right
-  have hQJ : pCoreOf 2 I ≤ K ⊔ (T ⊓ I) :=
-    (pCoreOf_two_le_of_isSylowTwoOf hsyl).trans le_sup_right
-  have hQJ' : pCoreOf 2 I ≤ pCoreOf 2 (K ⊔ (T ⊓ I)) :=
-    le_pCoreOf_of_le_normalizer hQJ (hJI.trans (le_normalizer_pCoreOf 2 I)) (pCoreOf_isPGroup 2 I)
-  have hTu : tU T u ≤ T ⊓ I := le_inf inf_le_left hI.1.1.1
-  have hJ : IsI T M u (K ⊔ (T ⊓ I)) :=
-    ⟨⟨hTu.trans le_sup_right, fun hbot => hI.1.1.2 (le_bot_iff.mp (hQJ'.trans hbot.le))⟩,
-      fun h => hnotG (le_sup_left.trans h), fun h => hnotM (le_sup_left.trans h)⟩
-  exact (hI.of_le_inf hJ le_sup_right).1
 
 end CFSG.Quasithin

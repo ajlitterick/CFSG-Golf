@@ -173,7 +173,6 @@ theorem uG_injective : Function.Injective uG := fun p q h => uM_injective (congr
     rintro _ ⟨p, rfl⟩
     exact ⟨uinv p, (uG_inv p).symm⟩
 
-theorem mem_U0 {g : GL V₄ (ZMod 3)} : g ∈ U0 ↔ ∃ p, uG p = g := Iff.rfl
 
 theorem card_U0 : Nat.card U0 = 81 := by
   have e : U0 ≃ Par := (Equiv.ofInjective uG uG_injective).symm
@@ -306,9 +305,6 @@ theorem uG_combo (i j : ℕ) (p q : Par) : uG p ^ i * uG q ^ j = uG (combo i j p
     rintro _ ⟨p, hp, rfl⟩
     exact ⟨uinv p, E9par_uinv k p hp, (uG_inv p).symm⟩
 
-theorem Estd_le_U0 (k : Fin 3) : Estd k ≤ U0 := by
-  rintro _ ⟨p, -, rfl⟩
-  exact ⟨p, rfl⟩
 
 theorem card_Estd (k : Fin 3) : Nat.card (Estd k) = 9 := by
   classical
@@ -529,9 +525,6 @@ theorem tG_mem : tG ∈ StatedSp 2 (ZMod 3) := by
 
 theorem tM_fix : ∀ v : V₄ → ZMod 3, tM *ᵥ v = v → v = 0 := by decide +kernel
 
-theorem card_V4 : Nat.card (V₄ → ZMod 3) = 81 := by
-  rw [Nat.card_eq_fintype_card]
-  rfl
 
 theorem eq_bot_or_top_of_tM {W : Submodule (ZMod 3) (V₄ → ZMod 3)}
     (hW : ∀ w ∈ W, tM *ᵥ w ∈ W) : W = ⊥ ∨ W = ⊤ := by
@@ -823,7 +816,6 @@ theorem eq_statedSp_of_spTrans_mem_sq {K : Type} [Field K] {G : Subgroup (GL V�
   exact hall v d
 
 
-
 theorem eq_statedSp_of_tG_mem {G : Subgroup (GL V₄ (ZMod 3))} (hGS : G ≤ StatedSp 2 (ZMod 3))
     (ht : tG ∈ G) {a : V₄ → ZMod 3} (ha : a ≠ 0) {c : ZMod 3} (hc : c ≠ 0)
     (hT : spTrans a c ∈ G) : G = StatedSp 2 (ZMod 3) :=
@@ -1008,7 +1000,6 @@ theorem Jm_sq : Jm * Jm = -1 := by decide +kernel
           simp only [Matrix.mul_assoc, Matrix.neg_mul]
       _ = 1 := by rw [h, Jm_sq, neg_neg]
 
-theorem coe_spUnit (M : M4) (h : Mᵀ * Jm * M = Jm) : ((spUnit M h : GL V₄ (ZMod 3)) : M4) = M := rfl
 
 theorem spUnit_mem (M : M4) (h : Mᵀ * Jm * M = Jm) : spUnit M h ∈ StatedSp 2 (ZMod 3) := by
   rw [CFSG.Open.StatedAPI.mem_statedSp_iff]
@@ -1969,15 +1960,6 @@ theorem sp_le_or_equiv_CA0 {H : Subgroup (GL V₄ (ZMod 3))} (hHg : H ≤ gsp 2 
     exact ⟨eK.trans ((K.equivMapOfInjective (MulAut.conj g).toMonoidHom
       (MulAut.conj g).injective).trans (MulEquiv.subgroupCongr hK₂eq))⟩
 
-theorem sp_le_or_isSL2Nine {H : Subgroup (GL V₄ (ZMod 3))} (hHg : H ≤ gsp 2 (ZMod 3))
-    (hns : ¬ Group.IsSolvable H) {E : Subgroup (GL V₄ (ZMod 3))} (hEH : E ≤ H)
-    (hE : CFSG.Open.IsElemAbelian 3 E) (hE9 : Nat.card E = 9) :
-    StatedSp 2 (ZMod 3) ≤ H ∨ Lemma1211.IsSL2Nine ↥(oPrimeResidual 3 ↥H) := by
-  rcases sp_le_or_equiv_CA0 hHg hns hEH hE hE9 with h | he
-  · exact Or.inl h
-  · obtain ⟨e⟩ := he
-    obtain ⟨F, hF, hFin, hF9, ⟨e'⟩⟩ := isSL2Nine_CA0
-    exact Or.inr ⟨F, hF, hFin, hF9, ⟨e.trans e'⟩⟩
 
 end Classification
 

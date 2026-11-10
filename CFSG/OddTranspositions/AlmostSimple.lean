@@ -13,6 +13,5 @@ open CFSG.Timmesfeld.Bridge.Asc72
 
 attribute [local instance] CFSG.LocalCores.layer_characteristic
 
-variable {G : Type} [Group G] [Finite G] {D : Set G}
 
 end CFSG.OddTranspositions

@@ -85,12 +85,6 @@ theorem eq_signDiagE6_of_orderOf_eq_two (hK : ringChar K ≠ 2) {β : Fin (Tag.r
   · rw [hA]
     exact rootSL2_HSL_eq_thetaDiag_E6 hβ (-1)
 
-theorem signDiagE6_mem_stdRankOne {β : Fin (Tag.rank .E6) → ℤ} (hβ : IsRoot .E6 β) :
-    (⟨signDiagE6 K β, by
-        rw [signDiagE6, ← rootSL2_HSL_eq_thetaDiag_E6 hβ (-1)]
-        exact rootSL2_mem_adjointGroup _ _⟩ : ↥(adjointGroup .E6 K)) ∈
-      stdRankOne (e6AdjDatum K) β :=
-  (mem_stdRankOne_e6_iff' hβ _).2 ⟨HSL (-1), (rootSL2_HSL_eq_thetaDiag_E6 hβ (-1)).symm⟩
 
 theorem conj_mem_stdRankOne_of_mem_h1E6 {g : ↥(adjointGroup .E6 K)}
     (hg : (g : ModGL .E6 K) ∈ h1E6 K) {x : ↥(adjointGroup .E6 K)}

@@ -57,11 +57,6 @@ theorem pglOddQuotient_quotHom (A : GL (Fin 2) F) :
     pglOddQuotient φ hZ hZodd h2 hq3 (quotHom φ A) = ProjGenLinGroup.mk A :=
   pglCentralizer_centralizerHom φ hZ A
 
-omit [Finite G] in
-theorem centralizerFullCenter_generator_coe :
-    ((wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-      (Original.a (2 ^ n)) : involutionCentralizer n S e) : G) =
-        wreathModelHom S e (Original.a (2 ^ n)) := rfl
 
 variable {α₀ : Fˣ}
   (hα₀ : linearCentralizerHom φ (GeneralLinearGroup.scalar (Fin 2) α₀) =

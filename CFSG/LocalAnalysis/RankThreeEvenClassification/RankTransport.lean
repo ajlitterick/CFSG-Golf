@@ -99,10 +99,5 @@ theorem pRank_eq_sylow {G : Type u} [Group G] [Finite G]
   exact hrank.trans (le_of_eq (pRank_eq_of_subgroup_equiv prime hprime
     (otherSylow : Subgroup G) (sylow : Subgroup G) (otherSylow.equiv sylow)))
 
-theorem pRank_le_sylow {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (sylow : Sylow prime G)
-    (subgroup : Subgroup G) : pRank prime subgroup ≤ pRank prime (sylow : Subgroup G) := by
-  rw [pRank_eq_sylow prime hprime sylow]
-  exact pRank_mono prime hprime le_top
 
 end CFSG.RankThreeEvenClassification.Helpers

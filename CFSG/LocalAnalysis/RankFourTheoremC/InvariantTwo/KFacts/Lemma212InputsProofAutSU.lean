@@ -514,39 +514,6 @@ theorem l212in_conj_scalar_su {n r f : ℕ} [Fact r.Prime] (hn : 5 ≤ n) {K : T
   rw [AutSU.conjTr_unitaryInvolution hU] at hB
   exact AutSU.scalar_of_unitary_conj_trivial hU (by omega) hε B hB h
 
-theorem l212in_conj_trivial_su {n r f : ℕ} [Fact r.Prime] (hn : 5 ≤ n) {K : Type} [Field K]
-    [Finite K] [CharP K r] (hK : Nat.card K = (r ^ f) ^ 2) (σ : K ≃+* K) (B : GL (Fin n) K)
-    (hB : conjTr (unitaryInvolution K r f) (B : Matrix (Fin n) (Fin n) K) *
-      (B : Matrix (Fin n) (Fin n) K) = 1)
-    (h : ∀ g : CFSG.Open.StatedSU n (r ^ f) K,
-      ∃ hg : B * (glAut σ) (g : GL (Fin n) K) * B⁻¹ ∈ CFSG.Open.StatedSU n (r ^ f) K,
-        (QuotientGroup.mk ⟨_, hg⟩ : CFSG.Open.StatedProj (CFSG.Open.StatedSU n (r ^ f) K)) =
-          QuotientGroup.mk g) :
-    σ = RingEquiv.refl K ∧ ∃ z : Kˣ, B = Matrix.GeneralLinearGroup.scalar (Fin n) z := by
-  have hU := AutSU.unitaryFieldData_of_card hK
-  obtain ⟨m, ε, hε, rfl⟩ : ∃ m ε, ε ≤ 1 ∧ n = 2 * m + ε := ⟨n / 2, n % 2, by omega, by omega⟩
-  rw [AutSU.conjTr_unitaryInvolution hU] at hB
-  exact AutSU.eq_refl_and_scalar_of_conj_trivial hU (by omega) hε σ B hB h
-
-theorem l212in_aut_su_unique {n r f : ℕ} [Fact r.Prime] (hn : 5 ≤ n) {K : Type} [Field K]
-    [Finite K] [CharP K r] (hK : Nat.card K = (r ^ f) ^ 2)
-    (γ : MulAut (CFSG.Open.StatedProj (CFSG.Open.StatedSU n (r ^ f) K)))
-    (σ₁ σ₂ : K ≃+* K) (B₁ B₂ : GL (Fin n) K)
-    (hB₁ : conjTr (unitaryInvolution K r f) (B₁ : Matrix (Fin n) (Fin n) K) *
-      (B₁ : Matrix (Fin n) (Fin n) K) = 1)
-    (hB₂ : conjTr (unitaryInvolution K r f) (B₂ : Matrix (Fin n) (Fin n) K) *
-      (B₂ : Matrix (Fin n) (Fin n) K) = 1)
-    (h₁ : ∀ g : CFSG.Open.StatedSU n (r ^ f) K,
-      ∃ hg : B₁ * (glAut σ₁) (g : GL (Fin n) K) * B₁⁻¹ ∈ CFSG.Open.StatedSU n (r ^ f) K,
-        γ (QuotientGroup.mk g) = QuotientGroup.mk ⟨_, hg⟩)
-    (h₂ : ∀ g : CFSG.Open.StatedSU n (r ^ f) K,
-      ∃ hg : B₂ * (glAut σ₂) (g : GL (Fin n) K) * B₂⁻¹ ∈ CFSG.Open.StatedSU n (r ^ f) K,
-        γ (QuotientGroup.mk g) = QuotientGroup.mk ⟨_, hg⟩) :
-    σ₁ = σ₂ ∧ ∃ z : Kˣ, B₁ = B₂ * Matrix.GeneralLinearGroup.scalar (Fin n) z := by
-  have hU := AutSU.unitaryFieldData_of_card hK
-  obtain ⟨m, ε, hε, rfl⟩ : ∃ m ε, ε ≤ 1 ∧ n = 2 * m + ε := ⟨n / 2, n % 2, by omega, by omega⟩
-  rw [AutSU.conjTr_unitaryInvolution hU] at hB₁ hB₂
-  exact AutSU.eq_and_scalar_of_represents hU (by omega) hε γ σ₁ σ₂ B₁ B₂ hB₁ hB₂ h₁ h₂
 
 theorem l212in_aut_su_hom {n r f : ℕ} [Fact r.Prime] (hn : 5 ≤ n) {K : Type} [Field K] [Finite K]
     [CharP K r] (hK : Nat.card K = (r ^ f) ^ 2) :

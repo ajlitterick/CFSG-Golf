@@ -100,7 +100,6 @@ theorem mem_range_emb {x : F ≃ₗ[ZMod 3] F} : x ∈ h.emb.range ↔ ∃ q : Q
   · rintro ⟨q, rfl⟩
     exact ⟨h.quat.some q, by simp [emb]⟩
 
-theorem finite_F : Finite F := inferInstance
 
 theorem exists_ne_zero (h : PlaneQ Q F) : ∃ f ∈ F, f ≠ 0 := by
   by_contra hcon
@@ -115,8 +114,6 @@ theorem exists_ne_zero (h : PlaneQ Q F) : ∃ f ∈ F, f ≠ 0 := by
 theorem resHom_inj (h : PlaneQ Q F) : Function.Injective (resHom F Q h.mem) :=
   resHom_injective_of_faith (F := F) Q h.mem h.faith
 
-theorem resHom_apply' (h : PlaneQ Q F) (q : Q) (f : F) :
-    ((resHom F Q h.mem q f : F) : V) = (q : V ≃ₗ[ZMod 3] V) f := rfl
 
 theorem exists_t (h : PlaneQ Q F) : ∃ t ∈ Q, t ≠ 1 ∧ (∀ f ∈ F, t f = -f) ∧
     ∀ q ∈ Q, q * q = 1 → q = 1 ∨ q = t := by
@@ -203,31 +200,6 @@ theorem odd_normalized (h : PlaneQ Q F) (Z : Subgroup (V ≃ₗ[ZMod 3] V))
   have := hinj (this.trans (map_one _).symm)
   exact congrArg Subtype.val this
 
-theorem normal_of_faithful (h : PlaneQ Q F) (S : Subgroup (V ≃ₗ[ZMod 3] V)) (hQS : Q ≤ S)
-    (hS : ∀ s ∈ S, ∀ f ∈ F, s f ∈ F) (hSf : ∀ s ∈ S, (∀ f ∈ F, s f = f) → s = 1) :
-    ∀ s ∈ S, ∀ q ∈ Q, s * q * s⁻¹ ∈ Q := by
-  intro s hs q hq
-  have hinjS : Function.Injective (resHom F S hS) := resHom_injective_of_faith S hS hSf
-  set σ : F ≃ₗ[ZMod 3] F := resHom F S hS ⟨s, hs⟩ with hσ
-  let emb' : QuaternionGroup 2 →* (F ≃ₗ[ZMod 3] F) :=
-    (MulAut.conj σ).toMonoidHom.comp h.emb
-  have hinj' : Function.Injective emb' := (MulAut.conj σ).injective.comp h.emb_injective
-  have hr := plane_q8_unique h.card_F h.emb h.emb_injective emb' hinj'
-  have hx : σ * resHom F Q h.mem ⟨q, hq⟩ * σ⁻¹ ∈ emb'.range := by
-    obtain ⟨g, hg⟩ := (h.mem_range_emb).2 ⟨⟨q, hq⟩, rfl⟩
-    exact ⟨g, by simp [emb', hg]⟩
-  rw [hr] at hx
-  obtain ⟨q', hq'⟩ := (h.mem_range_emb).1 hx
-  have hqq : q'.1 = s * q * s⁻¹ := by
-    have h1 : resHom F S hS ⟨q'.1, hQS q'.2⟩ = resHom F S hS ⟨s * q * s⁻¹, S.mul_mem (S.mul_mem hs (hQS hq)) (S.inv_mem hs)⟩ := by
-      rw [← resHom_congr (F := F) Q S h.mem hS q' ⟨q'.1, hQS q'.2⟩ rfl] 
-      rw [hq']
-      ext f
-      simp [hσ]
-    have := hinjS h1
-    exact congrArg Subtype.val this
-  rw [← hqq]
-  exact q'.2
 
 end PlaneQ
 end PlaneQ
@@ -314,8 +286,6 @@ theorem t_comm_preserves {g : V ≃ₗ[ZMod 3] V} (hg : g * D.t = D.t * g) :
   · intro f hf
     exact D.mem_F_of_t_neg (by rw [← key, D.t_neg_F f hf, map_neg])
 
-theorem fixed_Q_mem_A {v : V} (h : ∀ q ∈ D.Q, q v = v) : v ∈ D.A :=
-  D.mem_A_of_t_fix (h _ D.t_mem)
 
 theorem split_of_t_closed (Y : AddSubgroup V) (hY : ∀ y ∈ Y, D.t y ∈ Y) {y : V} (hy : y ∈ Y) :
     ∃ a ∈ Y, a ∈ D.A ∧ ∃ f ∈ Y, f ∈ D.F ∧ y = a + f := by

@@ -122,8 +122,6 @@ theorem conj_conj_eq_of_inverts {t g c a d : G} (htc : t * c = c * t) (hta : t *
 
 end Group
 
-variable {G : Type} [Group G] [Finite G] {A : Subgroup G} {c : G} {L : Subgroup G} {a : G}
-  {R Y : Subgroup G} {d x s r g : G}
 
 end Item1118StepsProof
 

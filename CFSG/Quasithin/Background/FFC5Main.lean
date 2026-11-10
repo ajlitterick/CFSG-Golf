@@ -19,10 +19,6 @@ namespace B511Split
 
 variable {G G₁ G₂ : Subgroup (MulAut V)} (h : B511Split G G₁ G₂)
 
-include h in
-theorem false_of_threeRank2 (hq : IsQuotientOfSQTKTauCeti ↥G) (hs3 : S3Elems ↥G₁)
-    (hX : ThreeRank2 ↥G₂) : False :=
-  ProdSplit.false_of_threeRank2 h.G₁_le h.G₂_le h.comm hq hs3 hX
 
 include h in
 theorem good

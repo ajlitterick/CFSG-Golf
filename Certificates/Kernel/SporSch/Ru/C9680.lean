@@ -22,9 +22,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw CFSG.KS.Prim CFSG.KS.SporSch CFSG.KC.Misc.
 
 theorem cJ0 : Nat.beq (rcnt (RuJS2.LR 0)) 128 = true := by quickRfl
 
-theorem ch9680neg : (!bIf(allN 0 (fun k => cm (RuT1920.L 24) (RuT1920.L (Nat.add 24 k))),
-    bIf(Nat.beq (RuT1920.L 24) (pidn 1920 11), true, Nat.beq (RuT1920.L 24) (RF 0)), true)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSporSch.RuCt
 

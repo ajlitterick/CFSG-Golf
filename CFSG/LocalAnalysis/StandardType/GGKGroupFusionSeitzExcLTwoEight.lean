@@ -78,11 +78,5 @@ theorem ggCard_lTwoEight {K : Type} [Group K] (d : TauCeti.ValidLieTypeIndex)
     CFSG.Timmesfeld.ClassicalOrders.card_statedProj_statedSL (by norm_num), hF]
   decide
 
-theorem ggKGroupFusionAt_lTwoEight
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog) :
-    GGKGroupFusionAt GGKFSeitzLTwoEight :=
-  ggKGroupFusionAt_of_solvable hSch fun _ _ ⟨hp, d, q, hi, hq2, hq3, hd⟩ K _ _ _ ⟨e⟩ _ hX h3 => by
-    subst hp hi
-    exact ggIsSolvable_of_not_dvd_index_of_card_eq_504 (ggCard_lTwoEight d q hq2 hq3 hd e) hX h3
 
 end CFSG.StandardType

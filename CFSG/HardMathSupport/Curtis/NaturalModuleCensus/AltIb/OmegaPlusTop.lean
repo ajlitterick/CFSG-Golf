@@ -117,10 +117,6 @@ section TopO
 
 variable [CharP F 2]
 
-@[expose] noncomputable def topO (hS : ∀ i ∈ S, 1 ≤ i ∧ i ≤ n) :
-    ↥(JO n F S) →* ↥(orthGroup (StatedQuadPlus (topN n S) F)) :=
-  ((topHomGL hS).comp (jToJfl S)).codRestrict _
-    (fun g => Subgroup.subset_closure (fun v => topHom_preserves hS g v))
 
 end TopO
 

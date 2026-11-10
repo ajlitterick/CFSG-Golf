@@ -85,15 +85,6 @@ theorem Ind3.smul {x y z : Fin 3 → F4} (h : Ind3 x y z) {u v w : F4} (hu : u �
   exact ⟨(mul_eq_zero.mp h1).resolve_right hu, (mul_eq_zero.mp h2).resolve_right hv,
     (mul_eq_zero.mp h3).resolve_right hw⟩
 
-theorem Ind3.swap12 {x y z : Fin 3 → F4} (h : Ind3 x y z) : Ind3 y x z := by
-  intro a b c habc
-  obtain ⟨h1, h2, h3⟩ := h b a c (by rw [← habc]; abel)
-  exact ⟨h2, h1, h3⟩
-
-theorem Ind3.swap23 {x y z : Fin 3 → F4} (h : Ind3 x y z) : Ind3 x z y := by
-  intro a b c habc
-  obtain ⟨h1, h2, h3⟩ := h a c b (by rw [← habc]; abel)
-  exact ⟨h1, h3, h2⟩
 
 theorem Ind3.exists_comb {x y z : Fin 3 → F4} (h : Ind3 x y z) (w : Fin 3 → F4) :
     ∃ a b c : F4, w = a • x + b • y + c • z := by
@@ -156,8 +147,6 @@ theorem eq_smul_of_ptc_eq {x y : Fin 3 → F4} (hx : x ≠ 0) (hy : y ≠ 0) (h 
 theorem ptc_decV {p : ℕ} (hp : p < 64) (hpn : pn p = p) : ptc (decV p) = p := by
   rw [ptc, encV_decV hp, hpn]
 
-theorem ptc_ptc (x : Fin 3 → F4) : ptc (decV (ptc x)) = ptc x :=
-  ptc_decV (ptc_lt x) (pn_pn _ (encV_lt x))
 
 theorem decV_ptc_ne_zero {x : Fin 3 → F4} (hx : x ≠ 0) : decV (ptc x) ≠ 0 :=
   decV_ne_zero (ptc_lt x) (pn_ne_zero _ (encV_lt x) (encV_ne_zero hx))

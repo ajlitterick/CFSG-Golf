@@ -152,9 +152,6 @@ theorem isConj_stdRep_repX [CharP K 2] (σ : K →+* K) (κ : Fin 2) :
     ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ, g * stdRep K κ * g⁻¹ = repX K κ :=
   ⟨_, twistedE6RelWeyl_mem σ _, conj_repWordX κ⟩
 
-theorem isConj_stdRep_repY [CharP K 2] (σ : K →+* K) (κ : Fin 2) :
-    ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ, g * stdRep K κ * g⁻¹ = repY K κ :=
-  ⟨_, twistedE6RelWeyl_mem σ _, conj_repWordY κ⟩
 
 theorem isConj_repX_repY [CharP K 2] (σ : K →+* K) (κ : Fin 2) :
     ∃ g ∈ graphFixedRootGroup TwistTag.E6 K σ, g * repX K κ * g⁻¹ = repY K κ := by

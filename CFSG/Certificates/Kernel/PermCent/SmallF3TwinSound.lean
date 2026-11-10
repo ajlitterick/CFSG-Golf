@@ -35,17 +35,6 @@ theorem fourGenCheck_C (LA LP : List (CV n)) :
   simp only [List.filter_map, List.all_map, List.any_map, List.length_map, Function.comp_def,
     ev_pow', ev_mul', one_eq_ev, decide_ev_eq, pow_fast, comm_fast, ne_eq, decide_not]
 
-theorem allFin_cube {m : Nat} (σ : Equiv.Perm (Fin m)) :
-    (List.finRange m).all (fun i => σ (σ (σ i)) == i) = decide (σ * σ * σ = 1) :=
-  allFin_id (σ * σ * σ)
-
-theorem cent3OddAll_C (LA LP : List (CV 28)) :
-    cent3OddAll (LA.map ev) (LP.map ev) = cent3OddAllC LA LP := by
-  unfold cent3OddAll cent3OddB order3B cubeOneB isOneB sqOneB
-    CFSG.OddStandard.SmallF3.HarrisU33.S4B.centList commB cent3OddAllC
-  simp only [List.filter_map, List.all_map, List.length_map, Function.comp_def, allFin_cube,
-    allFin_sq, allFin_comm, allFin_id, ev_mul', one_eq_ev, decide_ev_eq, sift_ev, sq_fast,
-    comm_fast]
 
 end CFSG.Certificates.Kernel.PkCV.SmallF3T
 

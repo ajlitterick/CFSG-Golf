@@ -23,14 +23,5 @@ theorem TightThm6SylowBelow.mono {IH IH' : ℕ → Prop} (h : ∀ n, IH' n → I
     (hI : TightThm6SylowBelow IH) : TightThm6SylowBelow IH' :=
   fun G _ _ hb => hI G (h _ hb)
 
-theorem tightThm6Sylow_of_core {IH : ℕ → Prop} (hB3 : GoldschmidtB3Tmp)
-    (h11b : TightC19_11b IH) : TightThm6SylowBelow IH := by
-  intro G _ _ hbelow R S t hd hF hq T hT hTG he
-  by_contra hn
-  obtain ⟨T', -, h⟩ := TightSylowStd.exists_of_sylowCase hd hq he hn hT hTG
-  obtain ⟨W, hW, -⟩ := h.exists_w69
-  have hS3 := h.muIsoS3' hF hB3 hW
-  have hmu := h.not_allTypeTwo_of_muIsoS3 hW hS3
-  exact hn (h.twoSubgroupsFourGenerated_of_e2Prime (h.tightE2Prime_of_core hF h11b hbelow hmu))
 
 end CFSG.ClassicalInvolution.Q3

@@ -297,8 +297,6 @@ theorem step_eq (hT : T.Good x) (hxt : ∀ i, X.φ (xt i) = x i) {v : ℕ} (hv :
     rw [← hk]
     group
 
-theorem step_lt_of (hT : T.Good x) {v : ℕ} (hv : v < T.nV) (l : Letter) : T.step v l < T.nV :=
-  hT.step_lt hv l
 
 theorem telescope (hT : T.Good x) (hxt : ∀ i, X.φ (xt i) = x i) {v : ℕ} (hv : v < T.nV)
     (w : List Letter) :

@@ -48,11 +48,6 @@ variable {G : Type} [Group G] [Finite G] {z : G}
     rw [Subgroup.orderOf_mk, hg5, (frame0 e hz).card_H] at hdvd
     omega
 
-variable (e : ↥(Cz z) ≃* L52.Hc) (hF6 : L52.F6Model) (S : Setting G z e)
-    (h1 : normalizer (tr e L52.U1 : Set G) = Cz z) (h2 : normalizer (tr e L52.U2 : Set G) = Cz z)
-    {a x : G} (ha : a ∈ tr e L52.A1 ⊓ tr e L52.A2) (ham : HeJ.mG e a = 1)
-    (hxN : x ∈ normalizer ((tr e L52.A1 ⊔ tr e L52.A2 : Subgroup G) : Set G))
-    (hxa : x ∈ centralizer ({a} : Set G)) (hx3 : orderOf x = 3)
 
 end HeSetup
 

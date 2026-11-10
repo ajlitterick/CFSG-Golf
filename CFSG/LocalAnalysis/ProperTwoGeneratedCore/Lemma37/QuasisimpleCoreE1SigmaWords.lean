@@ -47,11 +47,6 @@ include hb
 theorem commute_u_conj : x * u * x⁻¹ * u = u * (x * u * x⁻¹) :=
   hb.partC.commute _ (hb.swap_right u hb.partC.self_mem) u hb.partC.self_mem
 
-theorem lift_forty_mul_self : u * (x * u * x⁻¹) * (u * (x * u * x⁻¹)) = 1 := by
-  have hc := hb.partC
-  rw [show u * (x * u * x⁻¹) * (u * (x * u * x⁻¹)) = u * ((x * u * x⁻¹) * u) * (x * u * x⁻¹) by
-    group, hb.commute_u_conj, show u * (u * (x * u * x⁻¹)) * (x * u * x⁻¹) =
-      u * u * (x * (u * u) * x⁻¹) by group, hc.sq, hc.conj_centralElt, hc.centralElt_mul_self]
 
 theorem m_not_mem : m ≠ 1 ∧ m ≠ e ∧ m ≠ u ∧ m ≠ u * e := by
   have hc := hb.partC
@@ -185,15 +180,6 @@ theorem caseC3Word_mem_centralizer (v : Fin 64) :
     caseC3Word Z u m y x v ∈ Subgroup.centralizer {((u * (x * u * x⁻¹) : G) : G ⧸ Z)} :=
   hb.map_top_le_centralizer (hb.caseC3Word_mem v)
 
-theorem e1Sigma_caseC3Word (v : Fin 64) :
-    e1Sigma Z (u * (x * u * x⁻¹)) hb.partC.center hb.mem_iff
-        ⟨caseC3Word Z u m y x v, hb.caseC3Word_mem_centralizer v⟩ =
-      (-1) ^ (v.val / 16 % 2 + v.val / 4 % 2) := by
-  have key := hb.caseC3Word_mem_e1M0_iff (v := v)
-  unfold e1R at key
-  rw [e1Sigma_apply, Subgroup.coe_mk]
-  rcases Nat.mod_two_eq_zero_or_one (v.val / 16) with hj | hj <;>
-    rcases Nat.mod_two_eq_zero_or_one (v.val / 4) with hl | hl <;> simp [key, hj, hl]
 
 theorem e1M0_inf_map_top :
     e1M0 Z (u * (x * u * x⁻¹)) ⊓ S.map (QuotientGroup.mk' Z) = e1RBar Z u m y x := by
@@ -249,10 +235,6 @@ theorem not_two_dvd_relIndex (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S) :
   IsPGroup.toSylow (P := (e1RBar Z u m y x).subgroupOf (e1M0 Z (u * (x * u * x⁻¹))))
     hb.isPGroup_e1RBar.comap_subtype (hb.not_two_dvd_relIndex S' hS')
 
-theorem coe_e1RSylow (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S) :
-    (hb.e1RSylow S' hS' : Subgroup (e1M0 Z (u * (x * u * x⁻¹)))) =
-      (e1RBar Z u m y x).subgroupOf (e1M0 Z (u * (x * u * x⁻¹))) :=
-  rfl
 
 theorem mem_e1RBar_of_pow_eq_one (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S) {g : G ⧸ Z}
     (hgM : g ∈ e1M0 Z (u * (x * u * x⁻¹)))

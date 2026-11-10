@@ -34,8 +34,6 @@ theorem fsuL0_le_sup (T L : Subgroup G) : fsuL0 T L ≤ L ⊔ T :=
 theorem sup_le_fsuM (T L : Subgroup G) : L ⊔ T ≤ fsuM T L :=
   sup_le ((le_fsuL0 T L).trans (fsuL0_le_fsuM T L)) (le_fsuM T L)
 
-theorem fsuL0_sup_eq (T L : Subgroup G) : fsuL0 T L ⊔ T = L ⊔ T :=
-  le_antisymm (sup_le (fsuL0_le_sup T L) le_sup_right) (sup_le_sup_right (le_fsuL0 T L) T)
 
 theorem fsuL0_normal (T L : Subgroup G) : ((fsuL0 T L).subgroupOf (fsuM T L)).Normal :=
   Subgroup.normal_in_normalizer

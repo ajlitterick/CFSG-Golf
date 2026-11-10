@@ -118,65 +118,6 @@ theorem card_fix_le_of_uuH [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^
           exact hBW ▸ hWq
       _ = (2 ^ a) ^ 4 := by ring
 
-theorem caseH [Fintype F] (ha : 1 < a) (hF : Fintype.card F = 2 ^ (2 * a)) {θ₀ : F}
-    (hθ₀ : sig a θ₀ ≠ θ₀) {A : Subgroup (MulAut (VH a F))} (hAN : A ≤ NH hσ) (hA1 : A ≠ ⊥)
-    (hA : IsElemAbelian2 A) (hB : A ⊓ LH hσ ≤ UH hσ) :
-    Nat.card A * Nat.card (fixV A) * 2 ^ a ≤ 2 * (2 ^ a) ^ 4 ∧
-    (Nat.card A * Nat.card (fixV A) * 4 ≤ (2 ^ a) ^ 4 ∨
-      (a = 2 ∧ ∃ t ∈ A, Nat.card (fixV (Subgroup.zpowers t)) * 2 ^ a = (2 ^ a) ^ 4)) ∧
-    (A ≤ LH hσ → Nat.card A * Nat.card (fixV A) * 2 ^ a ≤ (2 ^ a) ^ 4) := by
-  have ha1 : 1 ≤ a := ha.le
-  have h4 : 4 ≤ 2 ^ a := by
-    calc 4 = 2 ^ 2 := by norm_num
-      _ ≤ 2 ^ a := Nat.pow_le_pow_right (by norm_num) ha
-  have hsq : ∀ x ∈ A, x * x = 1 := fun x hx => by rw [← sq]; exact hA.2 x hx
-  by_cases hAL : A ≤ LH hσ
-  · have hBA : A ⊓ LH hσ = A := inf_eq_left.mpr hAL
-    rw [hBA] at hB
-    obtain ⟨hb1, -⟩ := card_fix_le_of_uuH hσ ha1 hF hB hA1
-    refine ⟨hb1.trans (Nat.le_mul_of_pos_left _ (by norm_num)), Or.inl ?_, fun _ => hb1⟩
-    calc Nat.card A * Nat.card (fixV A) * 4 ≤ Nat.card A * Nat.card (fixV A) * 2 ^ a :=
-          Nat.mul_le_mul_left _ h4
-      _ ≤ (2 ^ a) ^ 4 := hb1
-  · obtain ⟨f, hfA, hfL⟩ := Set.not_subset.mp hAL
-    have hform : ∀ x ∈ A, x ∉ LH hσ → ∃ M, FormS x M := fun x hx hxL =>
-      (mem_LH_or_formS hσ ha1 hF hθ₀ (hAN hx) (hsq x hx)).resolve_left hxL
-    obtain ⟨Mf, hMf⟩ := hform f hfA hfL
-    set B := A ⊓ LH hσ with hBdef
-    have hfB : f ∉ B := fun h => hfL h.2
-    have hout : ∀ g ∈ A, g ∉ B → f * g ∈ B := by
-      intro g hg hgB
-      obtain ⟨Mg, hMg⟩ := hform g hg (fun h => hgB ⟨hg, h⟩)
-      exact ⟨A.mul_mem hfA hg, mul_mem_LH_of_formS hσ hMf hMg⟩
-    have hcard : Nat.card A = 2 * Nat.card B :=
-      H11P.card_eq_two_mul inf_le_left hfA hfB (fun g hg => hA.1 f hfA g hg) hout
-    have hft : Nat.card (fixV (Subgroup.zpowers f)) = (2 ^ a) ^ 3 :=
-      card_fix_formS hσ ha1 hF hθ₀ hMf
-    have hCf : Nat.card (fixV A) ≤ (2 ^ a) ^ 3 := by
-      rw [← hft]
-      exact Subgroup.card_le_of_le (fixV_anti (Subgroup.zpowers_le.mpr hfA))
-    have key : Nat.card B * Nat.card (fixV A) * 2 ^ a ≤ (2 ^ a) ^ 4 := by
-      by_cases hB1 : B = ⊥
-      · rw [hB1, Subgroup.card_bot, one_mul]
-        calc Nat.card (fixV A) * 2 ^ a ≤ (2 ^ a) ^ 3 * 2 ^ a := Nat.mul_le_mul_right _ hCf
-          _ = (2 ^ a) ^ 4 := by ring
-      · obtain ⟨hb1, -⟩ := card_fix_le_of_uuH hσ ha1 hF hB hB1
-        have hle : Nat.card (fixV A) ≤ Nat.card (fixV B) :=
-          Subgroup.card_le_of_le (fixV_anti inf_le_left)
-        calc Nat.card B * Nat.card (fixV A) * 2 ^ a ≤
-            Nat.card B * Nat.card (fixV B) * 2 ^ a := by gcongr
-          _ ≤ (2 ^ a) ^ 4 := hb1
-    rw [hcard]
-    refine ⟨by linarith, ?_, fun h => (hAL h).elim⟩
-    by_cases ha2 : a = 2
-    · exact Or.inr ⟨ha2, f, hfA, by rw [hft]; ring⟩
-    · left
-      have h8 : 8 ≤ 2 ^ a := by
-        calc 8 = 2 ^ 3 := by norm_num
-          _ ≤ 2 ^ a := Nat.pow_le_pow_right (by norm_num) (by omega)
-      have h1 : Nat.card B * Nat.card (fixV A) * 8 ≤ Nat.card B * Nat.card (fixV A) * 2 ^ a :=
-        Nat.mul_le_mul_left _ h8
-      linarith
 
 theorem exists_conj_stdH [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^ (2 * a))
     {A : Subgroup (MulAut (VH a F))} (hA : IsElemAbelian2 A) :
@@ -204,39 +145,6 @@ theorem exists_conj_stdH [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^ (
   simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
   rw [map_mul, map_mul, map_inv]
 
-theorem h11_cardH [Fintype F] (ha : 1 < a) (hF : Fintype.card F = 2 ^ (2 * a)) {θ₀ : F}
-    (hθ₀ : sig a θ₀ ≠ θ₀) {A : Subgroup (MulAut (VH a F))} (hAN : A ≤ NH hσ) (hA1 : A ≠ ⊥)
-    (hA : IsElemAbelian2 A) :
-    Nat.card A * Nat.card (fixV A) * 2 ^ a ≤ 2 * (2 ^ a) ^ 4 ∧
-    (Nat.card A * Nat.card (fixV A) * 4 ≤ (2 ^ a) ^ 4 ∨
-      (a = 2 ∧ ∃ t ∈ A, Nat.card (fixV (Subgroup.zpowers t)) * 2 ^ a = (2 ^ a) ^ 4)) ∧
-    (A ≤ LH hσ → Nat.card A * Nat.card (fixV A) * 2 ^ a ≤ (2 ^ a) ^ 4) := by
-  obtain ⟨g, hgL, hstd⟩ := exists_conj_stdH hσ ha.le hF hA
-  have hgN : g ∈ NH hσ := Subgroup.le_normalizer hgL
-  have hA'N : conjSub g A ≤ NH hσ := by
-    rintro _ ⟨x, hx, rfl⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    exact (NH hσ).mul_mem ((NH hσ).mul_mem hgN (hAN hx)) ((NH hσ).inv_mem hgN)
-  have hA'1 : conjSub g A ≠ ⊥ := fun h =>
-    hA1 ((Subgroup.map_eq_bot_iff_of_injective _ (MulAut.conj g).injective).mp h)
-  have hA'e : IsElemAbelian2 (conjSub g A) := by
-    refine ⟨?_, ?_⟩
-    · rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩
-      rw [← map_mul, ← map_mul, hA.1 x hx y hy]
-    · rintro _ ⟨x, hx, rfl⟩
-      rw [← map_pow, hA.2 x hx, map_one]
-  obtain ⟨c1, c2, c3⟩ := caseH hσ ha hF hθ₀ hA'N hA'1 hA'e hstd
-  rw [card_conjSub, card_fixV_conjSub] at c1 c2 c3
-  refine ⟨c1, ?_, fun hAL => c3 ?_⟩
-  · rcases c2 with c2 | ⟨ha2, t, ht, htc⟩
-    · exact Or.inl c2
-    · obtain ⟨x, hx, rfl⟩ := ht
-      refine Or.inr ⟨ha2, x, hx, ?_⟩
-      rw [← card_fixV_conjSub g (Subgroup.zpowers x), conjSub, MonoidHom.map_zpowers]
-      exact htc
-  · rintro _ ⟨x, hx, rfl⟩
-    simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    exact (LH hσ).mul_mem ((LH hσ).mul_mem hgL (hAL hx)) ((LH hσ).inv_mem hgL)
 
 theorem exists_sig_ne [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^ (2 * a)) :
     ∃ θ : F, sig a θ ≠ θ := by
@@ -248,61 +156,6 @@ theorem exists_sig_ne [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^ (2 *
   have := Nat.pow_right_injective (le_refl 2) h1
   omega
 
-theorem card_VH [Fintype F] (ha : 1 ≤ a) (hF : Fintype.card F = 2 ^ (2 * a)) :
-    Nat.card (VH a F) = 2 ^ (4 * a) := by
-  rw [← CFSG.Quasithin.B45L2.card_hermA ha hF]
-  exact Nat.card_congr (Additive.ofMul.trans (JonesParshall.hermEquiv a F).toEquiv)
-
-theorem h11_modelH [Fintype F] (ha : 1 < a) (hF : Fintype.card F = 2 ^ (2 * a))
-    {A : Subgroup (MulAut (VH a F))} (hAN : A ≤ NH hσ) (hA1 : A ≠ ⊥) (hA : IsElemAbelian2 A) :
-    rk A + a ≤ rkIdx (fixV A) + 1 ∧
-      (rk A + 2 ≤ rkIdx (fixV A) ∨ (a = 2 ∧ ∃ t ∈ A, rkIdx (fixV (Subgroup.zpowers t)) = a)) ∧
-      (A ≤ LH hσ → rk A + a ≤ rkIdx (fixV A)) := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨θ₀, hθ₀⟩ := exists_sig_ne (a := a) (F := F) ha.le hF
-  obtain ⟨c1, c2, c3⟩ := h11_cardH hσ ha hF hθ₀ hAN hA1 hA
-  have hV : Nat.card (VH a F) = 2 ^ (4 * a) := card_VH ha.le hF
-  have hVp : IsPGroup 2 (VH a F) := IsPGroup.of_card hV
-  have hAp : IsPGroup 2 A := by
-    rintro ⟨x, hx⟩
-    exact ⟨1, Subtype.ext (by simpa using hA.2 x hx)⟩
-  obtain ⟨r, hr⟩ := hAp.exists_card_eq
-  obtain ⟨k, hk⟩ := (hVp.to_subgroup (fixV A)).exists_card_eq
-  rw [H11P.rk_eq_of_card hr, H11P.rkIdx_eq_of_card hk hV]
-  rw [hr, hk] at c1 c2 c3
-  have hkV : k ≤ 4 * a := by
-    have h1 := Subgroup.card_le_card_group (fixV A)
-    rw [hk, hV] at h1
-    exact (Nat.pow_le_pow_iff_right (by norm_num)).mp h1
-  have hpow : ∀ x y : ℕ, 2 ^ x ≤ 2 ^ y → x ≤ y := fun x y h =>
-    (Nat.pow_le_pow_iff_right (by norm_num)).mp h
-  refine ⟨?_, ?_, fun hAL => ?_⟩
-  · have := hpow (r + k + a) (1 + 4 * a) (by
-      calc 2 ^ (r + k + a) = 2 ^ r * 2 ^ k * 2 ^ a := by rw [pow_add, pow_add]
-        _ ≤ 2 * (2 ^ a) ^ 4 := c1
-        _ = 2 ^ (1 + 4 * a) := by rw [pow_add, pow_one, ← pow_mul, mul_comm a 4])
-    omega
-  · rcases c2 with c2 | ⟨ha2, t, ht, htc⟩
-    · left
-      have := hpow (r + k + 2) (4 * a) (by
-        calc 2 ^ (r + k + 2) = 2 ^ r * 2 ^ k * 4 := by rw [pow_add, pow_add]; norm_num
-          _ ≤ (2 ^ a) ^ 4 := c2
-          _ = 2 ^ (4 * a) := by rw [← pow_mul, mul_comm a 4])
-      omega
-    · right
-      refine ⟨ha2, t, ht, ?_⟩
-      obtain ⟨j, hj⟩ := (hVp.to_subgroup (fixV (Subgroup.zpowers t))).exists_card_eq
-      rw [H11P.rkIdx_eq_of_card hj hV]
-      rw [hj] at htc
-      have h1 : 2 ^ (j + a) = 2 ^ (4 * a) := by
-        rw [pow_add, htc, ← pow_mul, mul_comm a 4]
-      have h2 := Nat.pow_right_injective (le_refl 2) h1
-      omega
-  · have := hpow (r + k + a) (4 * a) (by
-      calc 2 ^ (r + k + a) = 2 ^ r * 2 ^ k * 2 ^ a := by rw [pow_add, pow_add]
-        _ ≤ (2 ^ a) ^ 4 := c3 hAL
-        _ = 2 ^ (4 * a) := by rw [← pow_mul, mul_comm a 4])
-    omega
 
 end CFSG.Quasithin.H13.H11M
 

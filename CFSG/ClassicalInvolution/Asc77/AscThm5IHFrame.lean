@@ -140,29 +140,6 @@ theorem thm5IH_commutator_eq_bot_of_prod {R₀ : Subgroup Y} (hR₀ : R₀.Norma
   rw [Subgroup.mem_bot, commutatorElement_def, hdb]
   group
 
-theorem thm5IH_alphaOf_eq_bot_of_prod {R₀ : Subgroup Y} (hR₀ : R₀.Normal)
-    (hcent : ∀ y : Y, (∀ r ∈ R₀, y * r = r * y) → y = 1) {F : Subgroup Y}
-    (hF2 : ∀ f ∈ F, f * f = 1) (hFR : F ≤ R₀)
-    (hprod : ∀ f ∈ F, f ≠ 1 → ∃ A B : Subgroup Y, CentralizerProd R₀ f A B)
-    (hgen : R₀ ≤ ⨆ f ∈ F, ⨆ (_ : f ≠ 1), R₀ ⊓ Subgroup.centralizer ({f} : Set Y)) :
-    alphaOf F = ⊥ := by
-  rw [alphaOf_eq_bot_iff]
-  refine ⟨thm5IH_commutator_eq_bot_of_prod hR₀ hF2 hFR hprod, ?_⟩
-  change deltaCore F = ⊥
-  rw [eq_bot_iff]
-  intro d hd
-  rw [Subgroup.mem_bot]
-  refine hcent d fun r hr => ?_
-  have hle : (⨆ f ∈ F, ⨆ (_ : f ≠ 1), R₀ ⊓ Subgroup.centralizer ({f} : Set Y)) ≤
-      Subgroup.centralizer ({d} : Set Y) := by
-    refine iSup₂_le fun f hf => iSup_le fun hf1 => ?_
-    intro g hg
-    obtain ⟨A, B, h⟩ := hprod f hf hf1
-    have hdf : d ∈ involutionOddCore f := mem_deltaCore_iff.mp hd f hf hf1
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (thm5IH_oddCore_centralizes_of_prod hR₀ h hdf hg).symm
-  have h1 := Subgroup.mem_centralizer_singleton_iff.mp (hle (hgen hr))
-  exact h1.symm
 
 theorem thm5IH_alphaOf_eq_bot_of_prod_layers {R₀ : Subgroup Y} (hR₀ : R₀.Normal)
     (hcent : ∀ y : Y, (∀ r ∈ R₀, y * r = r * y) → y = 1) {F : Subgroup Y}

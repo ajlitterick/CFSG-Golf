@@ -71,11 +71,6 @@ theorem cn_B : Cn (CFSG.KD.BrFi24.RB 24) := hs.vld_q _ vldB
 
 theorem cn_Rt : Cn CFSG.KD.Fi24Fix.R := hs.vld_q _ vldRt
 
-theorem reg_A : REG 0 = CFSG.KD.BrFi24.RB 23 := rfl
-
-theorem reg_B : REG 1 = CFSG.KD.BrFi24.RB 24 := rfl
-
-theorem reg_B2 : REG 2 = B2 := rfl
 
 theorem reg_G {j : ℕ} (hj : j < 13) : REG (3 + j) = G j := by
   interval_cases j <;> rfl

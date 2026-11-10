@@ -25,26 +25,6 @@ theorem rc_conj_eq_iff_comm {H : Type} [Group H] (a b v : H) :
     have e : b * v * b⁻¹ = a * ((a⁻¹ * b) * v * (a⁻¹ * b)⁻¹) * a⁻¹ := by group
     rw [e, h, mul_inv_cancel_right]
 
-theorem rc_transitive {K V P : Subgroup G} (hVP : V ≤ P)
-    (htr : ∀ p ∈ P, ∀ q ∈ P, p ≠ 1 → q ≠ 1 → ∃ k ∈ K, k⁻¹ * p * k = q)
-    (hTI : ∀ g ∈ K, g ∉ Subgroup.normalizer (V : Set G) → V ⊓ conjSubgroup V g = ⊥)
-    {v w : G} (hv : v ∈ V) (hv1 : v ≠ 1) (hw : w ∈ V) (hw1 : w ≠ 1) :
-    ∃ n ∈ K ⊓ Subgroup.normalizer (V : Set G), n⁻¹ * v * n = w := by
-  obtain ⟨k, hkK, hk⟩ := htr v (hVP hv) w (hVP hw) hv1 hw1
-  have hkV : k * w * k⁻¹ = v := by
-    rw [← hk]
-    group
-  have hkN : k ∈ Subgroup.normalizer (V : Set G) := by
-    by_contra hn
-    have hbot := hTI k hkK hn
-    have hkVmem : k * w * k⁻¹ ∈ V := by
-      rw [hkV]
-      exact hv
-    have hmem : w ∈ V ⊓ conjSubgroup V k :=
-      Subgroup.mem_inf.2 ⟨hw, mem_conjSubgroup_iff.2 hkVmem⟩
-    rw [hbot, Subgroup.mem_bot] at hmem
-    exact hw1 hmem
-  exact ⟨k, Subgroup.mem_inf.2 ⟨hkK, hkN⟩, hk⟩
 
 theorem rc_card_sub_one_dvd {N V : Subgroup G} {v₀ : G} (hv₀V : v₀ ∈ V) (hv₀1 : v₀ ≠ 1)
     (htrN : ∀ w ∈ V, w ≠ 1 → ∃ n ∈ N, n⁻¹ * v₀ * n = w)
@@ -99,47 +79,6 @@ theorem rc_card_sub_one_dvd {N V : Subgroup G} {v₀ : G} (hv₀V : v₀ ∈ V) 
   rw [← hcardS, ← hcardq, Subgroup.card_eq_card_quotient_mul_card_subgroup Cn]
   exact dvd_mul_right _ _
 
-theorem rc_exists_cyclic {N : Subgroup G} [IsCyclic N] {d : ℕ} (hd : d ∣ Nat.card N) :
-    ∃ Y : Subgroup G, Y ≤ N ∧ IsCyclic Y ∧ Nat.card Y = d := by
-  haveI : Nonempty N := ⟨1⟩
-  obtain ⟨g, hg⟩ := IsCyclic.exists_ofOrder_eq_natCard (α := ↥N)
-  have hn0 : Nat.card N ≠ 0 := (Nat.card_pos (α := ↥N)).ne'
-  have hm0 : Nat.card N / d ≠ 0 := by
-    intro h0
-    have h1 : d * (Nat.card N / d) = Nat.card N := Nat.mul_div_cancel' hd
-    rw [h0, mul_zero] at h1
-    exact hn0 h1.symm
-  have hmdvd : Nat.card N / d ∣ orderOf g := by
-    rw [hg]
-    exact Nat.div_dvd_of_dvd hd
-  have horder : orderOf (g ^ (Nat.card N / d)) = d := by
-    rw [orderOf_pow_of_dvd hm0 hmdvd, hg, Nat.div_div_self hd hn0]
-  refine ⟨Subgroup.zpowers ((g ^ (Nat.card N / d) : N) : G),
-    Subgroup.zpowers_le.2 (g ^ (Nat.card N / d)).2, inferInstance, ?_⟩
-  rw [Nat.card_zpowers, Subgroup.orderOf_coe, horder]
-
-set_option linter.unusedVariables false in
-theorem ti_counting {P K V : Subgroup G} (hP : IsElemAbelian 2 P) (hVP : V ≤ P) (hV : V ≠ ⊥)
-    (hKP : K ≤ Subgroup.normalizer (P : Set G)) (hKc : IsCyclic K)
-    (htr : ∀ p ∈ P, ∀ q ∈ P, p ≠ 1 → q ≠ 1 → ∃ k ∈ K, k⁻¹ * p * k = q)
-    (hTI : ∀ g ∈ K, g ∉ Subgroup.normalizer (V : Set G) → V ⊓ conjSubgroup V g = ⊥) :
-    ∃ Y : Subgroup G, Y ≤ K ⊓ Subgroup.normalizer (V : Set G) ∧ IsCyclic Y ∧
-      Nat.card Y = Nat.card V - 1 := by
-  obtain ⟨v₀, hv₀V, hv₀1⟩ : ∃ v₀ ∈ V, v₀ ≠ 1 := by
-    by_contra hcon
-    apply hV
-    rw [eq_bot_iff]
-    intro x hx
-    by_contra hx1
-    exact hcon ⟨x, hx, fun h => hx1 (Subgroup.mem_bot.2 h)⟩
-  have htrN : ∀ w ∈ V, w ≠ 1 → ∃ n ∈ K ⊓ Subgroup.normalizer (V : Set G), n⁻¹ * v₀ * n = w :=
-    fun w hw hw1 => rc_transitive hVP htr hTI hv₀V hv₀1 hw hw1
-  have hdvd : Nat.card V - 1 ∣ Nat.card ↥(K ⊓ Subgroup.normalizer (V : Set G)) :=
-    rc_card_sub_one_dvd hv₀V hv₀1 htrN inf_le_right
-  haveI : IsCyclic ↥(K ⊓ Subgroup.normalizer (V : Set G)) :=
-    Subgroup.isCyclic_of_le inf_le_left
-  obtain ⟨Y, hYN, hYc, hYcard⟩ := rc_exists_cyclic hdvd
-  exact ⟨Y, hYN, hYc, hYcard⟩
 
 end CFSG.Quasithin.RonanE628
 

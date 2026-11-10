@@ -295,26 +295,6 @@ theorem not_isCharTwoType_of_normal_subgroup [Finite H] {L K : Subgroup H}
   rw [eq_bot_iff, ← hN]
   exact le_inf le_rfl (hKC.trans (hchar L hL))
 
-theorem not_isCharTwoType_of_perfect_normal_subgroup [Finite H] {L K : Subgroup H}
-    (hL : IsTwoLocal L) (hKL : K ≤ L) (hKn : ∀ g ∈ L, ∀ k ∈ K, g * k * g⁻¹ ∈ K) (hperf : ⁅K, K⁆ = K)
-    (hK2 : ∀ N : Subgroup H, N ≤ K → (∀ g ∈ K, ∀ n ∈ N, g * n * g⁻¹ ∈ N) → IsPGroup 2 N →
-      N ≤ Subgroup.centralizer (K : Set H))
-    (hK : ¬ IsPGroup 2 K) : ¬ IsCharTwoType H := by
-  intro hchar
-  set Q := pCoreOf 2 L
-  have hNc : K ⊓ Q ≤ Subgroup.centralizer (K : Set H) :=
-    hK2 _ inf_le_left (fun g hg n hn => conj_mem_inf_pCoreOf hKL hg hn)
-      ((isPGroup_pCoreOf L).to_le inf_le_right)
-  have hKQ : ⁅K, Q⁆ ≤ K ⊓ Q :=
-    Subgroup.commutator_le.mpr fun k hk x hx => commutatorElement_mem_inf_pCoreOf hKL hKn hk hx
-  have h1 : ⁅⁅K, Q⁆, K⁆ = ⊥ :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mpr (hKQ.trans hNc)
-  have h2 : ⁅⁅Q, K⁆, K⁆ = ⊥ := by rwa [Subgroup.commutator_comm Q K]
-  have h3 : ⁅⁅K, K⁆, Q⁆ = ⊥ := Subgroup.commutator_commutator_eq_bot_of_rotate h1 h2
-  rw [hperf] at h3
-  have hKC : K ≤ L ⊓ Subgroup.centralizer (Q : Set H) :=
-    le_inf hKL (Subgroup.commutator_eq_bot_iff_le_centralizer.mp h3)
-  exact hK ((isPGroup_pCoreOf L).to_le (hKC.trans (hchar L hL)))
 
 theorem not_isCharTwoType_of_perfect_subnormal_subgroup [Finite H] {L K J : Subgroup H}
     (hL : IsTwoLocal L) (hKL : K ≤ L) (hKn : ∀ g ∈ L, ∀ k ∈ K, g * k * g⁻¹ ∈ K) (hJK : J ≤ K)

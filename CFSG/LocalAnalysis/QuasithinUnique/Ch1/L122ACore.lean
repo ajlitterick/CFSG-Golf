@@ -54,7 +54,6 @@ variable {X : Type*} [Group X]
 
 variable {N₁ N₂ : Subgroup X} {hc : ∀ a ∈ N₁, ∀ b ∈ N₂, a * b = b * a}
 
-theorem mem_prodSub {x : X} : x ∈ prodSub N₁ N₂ hc ↔ ∃ a ∈ N₁, ∃ b ∈ N₂, x = a * b := Iff.rfl
 
 theorem conj_mem_prodSub {x y : X} (h₁ : x ∈ Subgroup.normalizer (N₁ : Set X))
     (h₂ : x ∈ Subgroup.normalizer (N₂ : Set X)) (hy : y ∈ prodSub N₁ N₂ hc) :

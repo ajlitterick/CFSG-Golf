@@ -45,17 +45,12 @@ theorem apply_mem_subOf {I : Submodule (ZMod 2) W} {x : MulAut V}
   right_inv v := Subtype.ext (by simp)
   map_mul' a b := Subtype.ext (by simp)
 
-theorem restrictAut_coe (I : Subgroup V) (x : MulAut V) (h : ∀ v ∈ I, x v ∈ I)
-    (h' : ∀ v ∈ I, x⁻¹ v ∈ I) (v : ↥I) : ((restrictAut I x h h' v : ↥I) : V) = x (v : V) := rfl
 
 @[expose] def embSup (L A : Subgroup (MulAut V)) :
     ↥(L ⊔ A) →* ↥(L.map (binPsi θ).toMonoidHom ⊔ A.map (binPsi θ).toMonoidHom) :=
   (Subgroup.inclusion (le_of_eq (Subgroup.map_sup L A (binPsi θ).toMonoidHom))).comp
     ((binPsi θ).toMonoidHom.subgroupMap (L ⊔ A))
 
-theorem embSup_coe (L A : Subgroup (MulAut V)) (x : ↥(L ⊔ A)) :
-    ((embSup θ L A x : ↥(L.map (binPsi θ).toMonoidHom ⊔ A.map (binPsi θ).toMonoidHom)) :
-      W ≃ₗ[ZMod 2] W) = binPsi θ (x : MulAut V) := rfl
 
 end Defs
 

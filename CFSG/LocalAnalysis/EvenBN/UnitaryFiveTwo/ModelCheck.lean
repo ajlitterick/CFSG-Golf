@@ -257,15 +257,6 @@ theorem orb5SU_zero : orb5SU 0 = x₄SU 0 1 zero_one_rel :=
 theorem orb10SU_zero : orb10SU 0 = x₃SU 1 :=
   ext_mat (by rw [mat_orb10SU]; exact fMat_x₃)
 
-theorem orb5SU_mem (k : Fin 5) : orb5SU k ∈ Fsub := mem_Fsub_of_isFShape (by
-  rw [mat_orb5SU]
-  revert k
-  decide)
-
-theorem orb10SU_mem (k : Fin 10) : orb10SU k ∈ Fsub := mem_Fsub_of_isFShape (by
-  rw [mat_orb10SU]
-  revert k
-  decide)
 
 theorem orbL_facts : (∀ k l : Fin 5, orb5L k = orb5L l → k = l) ∧
     (∀ k l : Fin 10, orb10L k = orb10L l → k = l) ∧
@@ -278,8 +269,6 @@ theorem orb5SU_injective : Function.Injective orb5SU := fun _ _ h =>
 theorem orb10SU_injective : Function.Injective orb10SU := fun _ _ h =>
   orbL_facts.2.1 _ _ (fMat_injective (congrArg mat h))
 
-theorem orb5SU_ne_orb10SU (k : Fin 5) (l : Fin 10) : orb5SU k ≠ orb10SU l := fun h =>
-  orbL_facts.2.2.1 k l (fMat_injective (congrArg mat h))
 
 theorem orb5SU_ne_one (k : Fin 5) : orb5SU k ≠ 1 := fun h =>
   orbL_facts.2.2.2.1 k (fMat_injective (by rw [← mat_orb5SU, h, mat_one, fMat_zero]))

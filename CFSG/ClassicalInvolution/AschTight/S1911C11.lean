@@ -69,32 +69,6 @@ theorem inf_le_sec19X (hd : Sec19Data p f K z S W) : (S : Subgroup G) ⊓ K ≤ 
     B ∈ RSet (CoreAssembly.conjClass K)) ∧ B ≤ Subgroup.centralizer ({z} : Set G)) => B) _
     ⟨Or.inr (inf_mem_rSet hd), inf_le_left.trans hd.hSz⟩
 
-omit [IsSimpleGroup G] in
-theorem mem_centralizer_of_mem_centralizerModOdd {H : Subgroup G} {a : G}
-    (haS : a ∈ (S : Subgroup G)) (ha : a ∈ centralizerModOdd ⊤ H) {x : G}
-    (hxS : x ∈ (S : Subgroup G)) (hxH : x ∈ H) : x * a = a * x := by
-  obtain ⟨-, -, -, hc⟩ := ha
-  have h1 : ⁅a, x⁆ = 1 := eq_one_of_isPGroup_of_mem_odd (oddCoreOf_odd_natCard H) (hc x hxH)
-    (S.isPGroup'.to_le (Subgroup.zpowers_le.mpr (by
-      rw [commutatorElement_def]
-      exact (S : Subgroup G).mul_mem ((S : Subgroup G).mul_mem ((S : Subgroup G).mul_mem haS hxS)
-        ((S : Subgroup G).inv_mem haS)) ((S : Subgroup G).inv_mem hxS))))
-  rw [commutatorElement_def] at h1
-  calc x * a = (a * x * a⁻¹ * x⁻¹)⁻¹ * (a * x) := by group
-    _ = a * x := by rw [h1, inv_one, one_mul]
-
-theorem inf_centralizerModOdd_le_of_c19_11b (h11b : C19_11bTmp p f)
-    (hd : Sec19DataT p f K z S W L t V) :
-    (S : Subgroup G) ⊓ centralizerModOdd ⊤ (sec19X K z) ≤ W := by
-  have hd0 := hd.toSec19Data
-  rintro a ⟨haS, ha⟩
-  refine mem_W_of_c19_11b h11b hd haS ?_ ?_
-  · rw [Subgroup.mem_centralizer_iff]
-    intro r hr
-    exact mem_centralizer_of_mem_centralizerModOdd haS ha hr.1 (inf_le_sec19X hd0 hr)
-  · rw [Subgroup.mem_centralizer_iff]
-    intro w hw
-    exact mem_centralizer_of_mem_centralizerModOdd haS ha (hd.hWS hw) (le_sec19X hd0 hw)
 
 theorem inf_sec19Y_inf_le_of_c19_11b (h11b : C19_11bTmp p f)
     (hd : Sec19DataT p f K z S W L t V) :
@@ -103,11 +77,6 @@ theorem inf_sec19Y_inf_le_of_c19_11b (h11b : C19_11bTmp p f)
   exact mem_W_of_c19_11b h11b hd haS
     (mem_centralizer_of_mem_inf_sec19Y hd.toSec19Data haS haY) haW
 
-variable (p f) in
-theorem c19_11_of (h11b : C19_11bTmp p f) : C19_11Tmp p f := by
-  intro G _ _ _ K z S W hd
-  obtain ⟨L, t, V, hdT⟩ := exists_sec19DataT hd
-  exact inf_centralizerModOdd_le_of_c19_11b h11b hdT
 
 variable (p f) in
 theorem c19_11a_of (h11b : C19_11bTmp p f) : C19_11aTmp p f := by

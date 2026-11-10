@@ -257,36 +257,6 @@ open Main148
           (∃ _ : Fact (Nat.Prime 7), Nonempty (↥K ⧸ aschbacherSolvableCore 3 ↥K ≃*
             projSL 3 (GaloisField 7 1)))
 
-theorem step148KType_of_theta
-    (hθ : Step148KTheta) (hΩ : Step148KThetaOmega)
-    (hON : Step148KThetaON) : Step148KType := by
-  refine step148KType_of ?_ ?_
-  · intro G _ _ A c L h Y hY hs hYB B Q e K Le hP he hLe
-    let := ker148_normal hY.2
-    have hKM : K ≤ Y ⊔ A :=
-      ((le_of_mem_thetaComponentsIn hP.2.2.2.2.2.1).trans inf_le_left).trans le_sup_left
-    have hθK := hθ G A c L h Y hY hs hYB B Q e K Le hP
-    rcases hΩ G A c L h Y hY hs hYB B Q e K Le hP he hLe with ⟨⟨φ⟩⟩ | ⟨hL, ⟨φ⟩⟩ |
-        ⟨p, f, e', hp, hf, he', hiso, hL3⟩
-    · exact Or.inl (img148_equiv_of_theta hKM hθK (isSimpleGroup_of_mem_lA148 h he hLe)
-        (three_dvd_card_of_types136 (h.chosen136.2 e he Le hLe).1) φ)
-    · exact Or.inr (Or.inl ⟨hL, img148_equiv_of_theta hKM hθK isSimpleGroup_a7_148.1
-        isSimpleGroup_a7_148.2 φ⟩)
-    · have hs' := isSimpleGroup_of_isLThreeEpsAt148 hf hL3
-      have h3 := three_dvd_card_of_isLThreeEpsAt148 hf hL3
-      obtain ⟨ψ⟩ := img148_equiv_of_theta hKM hθK hs' h3 (MulEquiv.refl _)
-      exact Or.inr (Or.inr ⟨p, f, e', hp, hf, he', hiso, isLThreeEpsAt_congr148 ψ.symm hL3⟩)
-  · intro G _ _ A c L h Y hY hs hYB B Q e K Le hP c' L' hc' hc'B hL' hJ2 hd hON3
-    let := ker148_normal hY.2
-    have hKM : K ≤ Y ⊔ A :=
-      ((le_of_mem_thetaComponentsIn hP.2.2.2.2.2.1).trans inf_le_left).trans le_sup_left
-    have hθK := hθ G A c L h Y hY hs hYB B Q e K Le hP
-    rcases hON G A c L h Y hY hs hYB B Q e K Le hP c' L' hc' hc'B hL' hJ2 hd hON3 with
-      ⟨⟨φ⟩⟩ | ⟨h7, ⟨φ⟩⟩
-    · exact Or.inl (img148_equiv_of_theta hKM hθK isSimpleGroup_a7_148.1
-        isSimpleGroup_a7_148.2 φ)
-    · exact Or.inr ⟨h7, img148_equiv_of_theta hKM hθK (isSimpleGroup_l37_148 h7).1
-        (isSimpleGroup_l37_148 h7).2 φ⟩
 
 theorem isSimpleGroup_img148_of_kType148
     {A L : Subgroup G} {c : G}
@@ -304,52 +274,5 @@ theorem isSimpleGroup_img148_of_kType148
   · have := (isSimpleGroup_l37_148 h7).1
     exact MulEquiv.isSimpleGroup φ
 
-theorem step148KTheta_of_step148KType
-    (hKT : Step148KType) :
-    Step148KTheta := by
-  intro G _ _ A c L h Y hY hs hYB B Q e K Le hP
-  let := ker148_normal hY.2
-  have hK := hP.2.2.2.2.2.1
-  have hKM : K ≤ Y ⊔ A := ((le_of_mem_thetaComponentsIn hK).trans inf_le_left).trans le_sup_left
-  have hkt := hKT G A c L h Y hY hs hYB B Q e K Le hP
-  have hKp : Group.IsPerfect ↥K := isPerfect_of_mem_thetaComponentsIn hK
-  exact (theta_equiv_of_img148 hKM hKp (Sec6.isQuasisimple_of_mem_thetaComponentsIn hK)
-    (isSimpleGroup_img148_of_kType148 h hkt) (MulEquiv.refl _)).1
-
-theorem step148KThetaOmega_of_step148KType
-    (hKT : Step148KType) :
-    Step148KThetaOmega := by
-  intro G _ _ A c L h Y hY hs hYB B Q e K Le hP he hLe
-  let := ker148_normal hY.2
-  have hK := hP.2.2.2.2.2.1
-  have hKM : K ≤ Y ⊔ A := ((le_of_mem_thetaComponentsIn hK).trans inf_le_left).trans le_sup_left
-  have hkt := hKT G A c L h Y hY hs hYB B Q e K Le hP
-  have hKp : Group.IsPerfect ↥K := isPerfect_of_mem_thetaComponentsIn hK
-  have hKq := Sec6.isQuasisimple_of_mem_thetaComponentsIn hK
-  obtain ⟨-, ⟨ψ⟩⟩ := theta_equiv_of_img148 hKM hKp hKq (isSimpleGroup_img148_of_kType148 h hkt)
-    (MulEquiv.refl _)
-  rcases hkt.2 with ⟨-, -, ⟨⟨φ⟩⟩ | ⟨hL, ⟨φ⟩⟩ | ⟨p, f, e', hp, hf, he', hiso, hL3⟩⟩ |
-      ⟨hON3, -⟩
-  · exact Or.inl ⟨ψ.trans φ⟩
-  · exact Or.inr (Or.inl ⟨hL, ⟨ψ.trans φ⟩⟩)
-  · exact Or.inr (Or.inr ⟨p, f, e', hp, hf, he', hiso, isLThreeEpsAt_congr148 ψ.symm hL3⟩)
-  · exact absurd hON3 (not_isTripleCover_of_mem_lA148 h he hLe)
-
-theorem step148KThetaON_of_step148KType
-    (hKT : Step148KType) :
-    Step148KThetaON := by
-  intro G _ _ A c L h Y hY hs hYB B Q e K Le hP _ _ _ _ _ _ _ hON3
-  let := ker148_normal hY.2
-  have hK := hP.2.2.2.2.2.1
-  have hKM : K ≤ Y ⊔ A := ((le_of_mem_thetaComponentsIn hK).trans inf_le_left).trans le_sup_left
-  have hkt := hKT G A c L h Y hY hs hYB B Q e K Le hP
-  have hKp : Group.IsPerfect ↥K := isPerfect_of_mem_thetaComponentsIn hK
-  have hKq := Sec6.isQuasisimple_of_mem_thetaComponentsIn hK
-  obtain ⟨-, ⟨ψ⟩⟩ := theta_equiv_of_img148 hKM hKp hKq (isSimpleGroup_img148_of_kType148 h hkt)
-    (MulEquiv.refl _)
-  rcases hkt.2 with ⟨he, hLe, -⟩ | ⟨-, ⟨⟨φ⟩⟩ | ⟨h7, ⟨φ⟩⟩⟩
-  · exact absurd hON3 (not_isTripleCover_of_mem_lA148 h he hLe)
-  · exact Or.inl ⟨ψ.trans φ⟩
-  · exact Or.inr ⟨h7, ⟨ψ.trans φ⟩⟩
 
 end CFSG.RankThree.PartTwo.Sec14

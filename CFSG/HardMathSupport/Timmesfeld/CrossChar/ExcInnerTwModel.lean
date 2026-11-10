@@ -87,65 +87,6 @@ theorem finite_twModelF4 {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
   have : Finite (ModGL Tag.F4 K) := finite_modGL
   exact Finite.of_equiv _ (twModelEquivF4 K L hFr hg0C hg0).toEquiv
 
-theorem card_twModelF4 {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
-    {g0 : ModGL Tag.F4 L} (hg0C : g0 ∈ adjointGroup Tag.F4 L)
-    (hg0 : Units.map (entrywiseHom Fr) g0 =
-      g0 * canonicalRep (coxeterSystem Tag.F4) L f4Neg) :
-    Nat.card (twModel (canonicalRep (coxeterSystem Tag.F4) L f4Neg) Fr) =
-      ordF4 (Nat.card K) := by
-  rw [← Nat.card_congr (twModelEquivF4 K L hFr hg0C hg0).toEquiv, card_adjointGroup_F4]
-
-theorem exists_conj_into_twistedTorus_F4 {Fr : L →+* L} (hFr : ∀ c, Fr c = c ^ Nat.card K)
-    {g0 : ModGL Tag.F4 L} (hg0C : g0 ∈ adjointGroup Tag.F4 L)
-    (hg0 : Units.map (entrywiseHom Fr) g0 =
-      g0 * canonicalRep (coxeterSystem Tag.F4) L f4Neg)
-    {p : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p) (hpq : p ∣ Nat.card K + 1)
-    {A : Subgroup (ModGL Tag.F4 L)}
-    (hA : A ≤ twModel (canonicalRep (coxeterSystem Tag.F4) L f4Neg) Fr)
-    (hpow : ∀ x ∈ A, x ^ p = 1) :
-    ∃ g ∈ twModel (canonicalRep (coxeterSystem Tag.F4) L f4Neg) Fr,
-      A.map (MulAut.conj g).toMonoidHom ≤
-        twistedTorus (canonicalRep (coxeterSystem Tag.F4) L f4Neg) Fr := by
-  classical
-  have : Fact p.Prime := ⟨hp⟩
-  have : IsAlgClosed L := IsAlgClosure.isAlgClosed K
-  set n := canonicalRep (coxeterSystem Tag.F4) L f4Neg with hn
-  set M := twModel n Fr with hM
-  have := finite_twModelF4 K L hFr hg0C hg0
-  have hq2 : 2 ≤ Nat.card K := Finite.one_lt_card
-  have hK0 : ((Nat.card K : ℕ) : L) = 0 := by
-    have : Fintype K := Fintype.ofFinite K
-    rw [← map_natCast (algebraMap K L), Nat.card_eq_fintype_card, FiniteField.cast_card_eq_zero K,
-      map_zero]
-  have : NeZero (((Nat.card K + 1 : ℕ)) : L) := ⟨by
-    rw [Nat.cast_add, hK0, zero_add, Nat.cast_one]
-    exact one_ne_zero⟩
-  obtain ⟨ζ, hζ⟩ := HasEnoughRootsOfUnity.exists_primitiveRoot L (Nat.card K + 1)
-  set ζu : Lˣ := (hζ.isUnit (by omega)).unit with hζu
-  have hζu' : IsPrimitiveRoot ζu (Nat.card K + 1) :=
-    IsPrimitiveRoot.coe_units_iff.1 (by simpa [hζu] using hζ)
-  have hord : orderOf ζu = Nat.card K + 1 := hζu'.eq_orderOf.symm
-  have hζpow : ζu ^ (Nat.card K + 1) = 1 := hζu'.pow_eq_one
-  obtain ⟨H₀, hH₀T, hH₀card⟩ := exists_le_twistedTorus_card (L := L)
-    (rootDiagUnit_mem_torusGroup_of_unimodular exists_mul_cartan_F4.choose_spec) f4Neg_smul hFr
-    hζpow
-  have hH₀M : H₀ ≤ M := hH₀T.trans (twistedTorus_le_twModel n Fr)
-  have hfac : (Nat.card (⊤ : Subgroup M)).factorization p =
-      (Nat.card (H₀.subgroupOf M)).factorization p := by
-    rw [Subgroup.card_top, card_twModelF4 K L hFr hg0C hg0,
-      Nat.card_congr (Subgroup.subgroupOfEquivOfLe hH₀M).toEquiv, hH₀card, hord,
-      factorization_ordF4_of_dvd_add_one hp hp5 hq2 hpq, Nat.factorization_pow,
-      Finsupp.smul_apply, smul_eq_mul]
-    rfl
-  obtain ⟨g, -, hg⟩ := CFSG.RankThree.PartOne.K133H.exists_conj_le_of_sylow (p := p) (Y := ⊤)
-    (H := H₀.subgroupOf M)
-    (A := A.subgroupOf M) le_top le_top (fun x hx => by
-      apply Subtype.ext
-      simpa using hpow x.1 (Subgroup.mem_subgroupOf.1 hx)) hfac
-  refine ⟨g, g.2, ?_⟩
-  rintro _ ⟨x, hx, rfl⟩
-  have h1 := hg ⟨⟨x, hA hx⟩, Subgroup.mem_subgroupOf.2 hx, rfl⟩
-  exact hH₀T (Subgroup.mem_subgroupOf.1 h1)
 
 end Model
 

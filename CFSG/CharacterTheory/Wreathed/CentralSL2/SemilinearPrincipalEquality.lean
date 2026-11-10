@@ -244,31 +244,6 @@ theorem principalInduced_eq_iff (hb : ¬ IsSquare b) (hd : Odd (Nat.card Sigma))
   · rintro ⟨horbit, hρ⟩
     exact principalInduced_orbit hSigma hb hP horbit ρ ρ' hρ
 
-theorem principalInduced_x (hb : ¬ IsSquare b) (hd : Odd (Nat.card Sigma))
-    {P : PrincipalSeriesParameter F b m} (hP : P.1.1 ≠ 1)
-    (ρ : parameterStabilizer hSigma P →* ℂˣ) :
-    principalInduced (hm := hm) (heven := heven) hSigma P ρ
-        (SemidirectProduct.inl (cyclicGenerator F b m hm heven ^ m)) =
-      ((parameterStabilizer hSigma P).index : ℂ) * ((Nat.card F : ℂ) + 1) * (P.1.1 (-1) : ℂ) := by
-  obtain ⟨-, -, -, hrest, -⟩ := principal_clifford (hm := hm) (heven := heven) hSigma hb hd hP
-  obtain ⟨C, hC⟩ := CFSG.Wreathed.exists_leftCoset_reps (parameterStabilizer hSigma P)
-  obtain ⟨hsum, -, -⟩ := hrest C hC
-  have h1 := congrFun (hsum ρ) (cyclicGenerator F b m hm heven ^ m)
-  rw [h1, Finset.sum_apply]
-  have h2 : ∀ σ : Sigma, principalSeries F b m hm heven
-      (torusCharacter F b m hm heven (fieldParameter hSigma σ P))
-        (cyclicGenerator F b m hm heven ^ m) = ((Nat.card F : ℂ) + 1) * (P.1.1 (-1) : ℂ) := by
-    intro σ
-    rw [principalSeries_x]
-    change ((Nat.card F : ℂ) + 1) * (P.1.1 (unitsField ((σ⁻¹ : Sigma) : F ≃+* F) (-1)) : ℂ) = _
-    have h3 : unitsField ((σ⁻¹ : Sigma) : F ≃+* F) (-1) = -1 := by
-      apply Units.ext
-      rw [unitsField_apply]
-      simp
-    rw [h3]
-  rw [Finset.sum_congr rfl fun σ _ => h2 σ, Finset.sum_const, nsmul_eq_mul,
-    card_coset_reps _ C hC]
-  ring
 
 end Equality
 

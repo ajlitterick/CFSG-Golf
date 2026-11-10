@@ -127,25 +127,6 @@ theorem exists_pieceCore_map_conj (ρ : Equiv.Perm (Fin n)) :
     fun a b hab => neighbourCore_eq_map_conj e hab _ (map_conj_unitaryRootTorus h ρ hab)⟩
   rw [← modelToG_map_conj, map_conj_blockSU_of_mul_eq h _ (blockComplProj_mul_permSU h ρ I)]
 
-theorem exists_conjugate_pieceCore (ρ : Equiv.Perm (Fin n)) :
-    ∃ w ∈ L, ∀ I : Finset (Fin n),
-      conjugate (pieceCore e I) w = pieceCore e (I.map ρ.toEmbedding) := by
-  obtain ⟨w, hw, hI, -⟩ := exists_pieceCore_map_conj h e ρ
-  refine ⟨w⁻¹, L.inv_mem hw, fun I => ?_⟩
-  rw [conjugate, inv_inv, (hI I).1]
-
-theorem exists_neighbourCore_eq_map_conj {a b c d : Fin n} (hab : a ≠ b) (hcd : c ≠ d) :
-    ∃ w ∈ L, neighbourCore e hcd = (neighbourCore e hab).map (MulAut.conj w).toMonoidHom := by
-  obtain ⟨ρ, hρa, hρb⟩ := LinearPilot.exists_perm_apply_eq_apply_eq hab hcd
-  obtain ⟨w, hw, -, hN⟩ := exists_pieceCore_map_conj h e ρ
-  refine ⟨w, hw, ?_⟩
-  have h1 := hN a b hab
-  have e1 : neighbourCore e (ρ.injective.ne hab) = neighbourCore e hcd := by
-    rw [neighbourCore_def, neighbourCore_def]
-    congr 2
-    subst hρa hρb
-    rfl
-  rw [← e1, h1]
 
 end Transport
 

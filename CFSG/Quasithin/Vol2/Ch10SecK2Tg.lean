@@ -55,13 +55,6 @@ theorem isPGroup_ker_leviHom2 [CharP K 2] : IsPGroup 2 (leviHom2 K).ker := by
   rw [hB, uSL_mul]
   simp only [zero_mul, CharTwo.add_self_eq_zero, uSL_zero]
 
-theorem uSL_mem_stabRow2 (b c : K) : uSL 0 b c ∈ stabRow2 K :=
-  mem_stabRow2.mpr ⟨by simp [coe_uSL, uMat], by simp [coe_uSL, uMat], by simp [coe_uSL, uMat]⟩
-
-theorem lev2_uSL (b c : K) : lev2 ((uSL 0 b c : SpecialLinearGroup (Fin 3) K) :
-    Matrix (Fin 3) (Fin 3) K) = 1 := by
-  ext i j
-  fin_cases i <;> fin_cases j <;> simp [lev2, coe_uSL, uMat]
 
 @[expose] noncomputable def dLine (c : Kˣ) : SpecialLinearGroup (Fin 3) K := tSL (c, c)
 

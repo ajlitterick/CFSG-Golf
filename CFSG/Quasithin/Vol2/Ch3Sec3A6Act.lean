@@ -76,8 +76,6 @@ theorem act_zero (σ : Equiv.Perm (Fin 6)) : act σ 0 = 0 := by
   map_zero' := act_zero σ
   map_add' := act_add σ
 
-theorem act_neg (σ : Equiv.Perm (Fin 6)) (v : Vec4) : act σ (-v) = -act σ v :=
-  map_neg (actHom σ) v
 
 theorem act_sub (σ : Equiv.Perm (Fin 6)) (u v : Vec4) : act σ (u - v) = act σ u - act σ v :=
   map_sub (actHom σ) u v

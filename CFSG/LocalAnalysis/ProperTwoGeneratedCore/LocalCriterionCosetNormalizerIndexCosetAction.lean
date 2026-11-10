@@ -63,35 +63,12 @@ theorem cosetNormalizerPerm_ker_eq_entire_centralizer (Delta : Set G) :
     rw [← Subgroup.mem_centralizer_iff.mp hn (x : G) x.property]
     exact mul_inv_cancel_right (x : G) (n : G)
 
-theorem cosetNormalizerPerm_ker_eq_closure_conjugation_ker (Delta : Set G) :
-    (cosetNormalizerPerm Delta).ker = (cosetClosureConjugation Delta).ker := by
-  rw [cosetNormalizerPerm_ker_eq_entire_centralizer,
-    cosetClosureConjugation_ker_eq_entire_centralizer]
-
-theorem cosetNormalizerPerm_ker_map_eq_entire_centralizer (Delta : Set G) :
-    (cosetNormalizerPerm Delta).ker.map (Subgroup.normalizer Delta).subtype =
-      Subgroup.centralizer Delta := by
-  rw [cosetNormalizerPerm_ker_eq_entire_centralizer]
-  exact Subgroup.map_subgroupOf_eq_of_le (Subgroup.centralizer_le_normalizer Delta)
 
 @[expose] instance cosetNormalizerCentralizerNormal (Delta : Set G) :
     ((Subgroup.centralizer Delta).subgroupOf (Subgroup.normalizer Delta)).Normal := by
   rw [← cosetNormalizerPerm_ker_eq_entire_centralizer]
   infer_instance
 
-@[expose] def cosetNormalizerQuotientEquivPermRange (Delta : Set G) :
-    Subgroup.normalizer Delta ⧸
-        (Subgroup.centralizer Delta).subgroupOf (Subgroup.normalizer Delta) ≃*
-      (cosetNormalizerPerm Delta).range :=
-  (QuotientGroup.quotientMulEquivOfEq
-    (cosetNormalizerPerm_ker_eq_entire_centralizer Delta).symm).trans
-      (QuotientGroup.quotientKerEquivRange (cosetNormalizerPerm Delta))
-
-theorem cosetNormalizer_centralizer_index_eq_perm_range_card (Delta : Set G) :
-    (Subgroup.centralizer Delta).relIndex (Subgroup.normalizer Delta) =
-      Nat.card (cosetNormalizerPerm Delta).range := by
-  change ((Subgroup.centralizer Delta).subgroupOf (Subgroup.normalizer Delta)).index = _
-  rw [← cosetNormalizerPerm_ker_eq_entire_centralizer, Subgroup.index_ker]
 
 theorem cosetNormalizerAction_stabilizer (Delta : Set G) (x : Delta) :
     letI := cosetNormalizerAction Delta

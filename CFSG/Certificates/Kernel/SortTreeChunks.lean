@@ -24,9 +24,6 @@ theorem tree_sound_chunks {B C : ℕ} (hcov : n ≤ C * B)
     (0 < n → ∃ j < n, valF wv (rec j) = root) :=
   tree_sound (treeOK_of_chunks hcov hc)
 
-theorem forall_lt_one {P : ℕ → Prop} (h : P 0) : ∀ c < 1, P c := fun c hc => by
-  rw [Nat.lt_one_iff.1 hc]
-  exact h
 
 theorem forall_lt_succ {P : ℕ → Prop} {m : ℕ} (h : ∀ c < m, P c) (hm : P m) :
     ∀ c < m + 1, P c := fun c hc => by

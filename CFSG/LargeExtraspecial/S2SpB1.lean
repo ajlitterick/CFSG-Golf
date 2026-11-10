@@ -78,48 +78,6 @@ theorem sp_eq_of_spRadFix_eq (hf : f.IsAlt) (hnd : f.Nondegenerate) {F : Submodu
   · exact absurd h0 hp'0
   · exact h1.symm
 
-theorem mem_normalizer_spRadFix_iff (hf : f.IsAlt) (hnd : f.Nondegenerate)
-    {F : Submodule (ZMod 2) V} (hF : F ⊓ spPerp f F = ⊥) {p : V} (hpF : p ∈ spPerp f F)
-    (hp0 : p ≠ 0) {g : V ≃ₗ[ZMod 2] V} (hg : g ∈ spFix f F) :
-    g ∈ Subgroup.normalizer (spRadFix f F p : Set (V ≃ₗ[ZMod 2] V)) ↔ g p = p := by
-  constructor
-  · intro hN
-    have hgpF : g p ∈ spPerp f F := apply_mem_spPerp hg.1 hg.2 hpF
-    have hgp0 : g p ≠ 0 := fun h => hp0 (g.map_eq_zero_iff.mp h)
-    refine sp_eq_of_spRadFix_eq hf hnd hF hgpF hpF hgp0 hp0 ?_
-    ext x
-    rw [map_conj_spRadFix hf hnd hp0 hpF hg.1 hg.2 x]
-    rw [Subgroup.mem_normalizer_iff''] at hN
-    exact (hN x).symm
-  · intro hgp
-    rw [Subgroup.mem_normalizer_iff'']
-    intro x
-    have := map_conj_spRadFix hf hnd hp0 hpF hg.1 hg.2 x
-    rw [hgp] at this
-    exact this
-
-theorem sp_timmesfeld_2_1_b1 (hf : f.IsAlt) (hnd : f.Nondegenerate) {F : Submodule (ZMod 2) V}
-    (hF : F ⊓ spPerp f F = ⊥) {p p₁ : V} (hpF : p ∈ spPerp f F) (hp₁F : p₁ ∈ spPerp f F)
-    (hpp₁ : f p p₁ = 1) :
-    (∀ g, g ∈ spFix f (F ⊔ Submodule.span (ZMod 2) {p, p₁}) ↔
-      g ∈ spFix f F ∧ g ∈ Subgroup.normalizer (spRadFix f F p : Set (V ≃ₗ[ZMod 2] V)) ∧
-        g ∈ Subgroup.normalizer (spRadFix f F p₁ : Set (V ≃ₗ[ZMod 2] V))) ∧
-    (∀ g ∈ spFix f F, g ∈ Subgroup.normalizer (spRadFix f F p : Set (V ≃ₗ[ZMod 2] V)) →
-      ∃ t ∈ spRadFix f F p, ∃ y ∈ spFix f (F ⊔ Submodule.span (ZMod 2) {p, p₁}), g = t * y) ∧
-    spRadFix f F p ⊓ spFix f (F ⊔ Submodule.span (ZMod 2) {p, p₁}) = ⊥ := by
-  obtain ⟨hp0, hp₁0, -⟩ := linearIndependent_pair_iff.mp (linearIndependent_of_apply_eq_one hf hpp₁)
-  refine ⟨fun g => ?_, fun g hg hN => ?_, spRadFix_inf_spFix_eq_bot hpp₁⟩
-  · rw [mem_spFix_sup_span_pair]
-    constructor
-    · rintro ⟨hg, hgp, hgp₁⟩
-      exact ⟨hg, (mem_normalizer_spRadFix_iff hf hnd hF hpF hp0 hg).mpr hgp,
-        (mem_normalizer_spRadFix_iff hf hnd hF hp₁F hp₁0 hg).mpr hgp₁⟩
-    · rintro ⟨hg, hN, hN₁⟩
-      exact ⟨hg, (mem_normalizer_spRadFix_iff hf hnd hF hpF hp0 hg).mp hN,
-        (mem_normalizer_spRadFix_iff hf hnd hF hp₁F hp₁0 hg).mp hN₁⟩
-  · have hgp := (mem_normalizer_spRadFix_iff hf hnd hF hpF hp0 hg).mp hN
-    obtain ⟨t, ht, hty⟩ := exists_mem_spRadFix_inv_mul_mem hf hpF hp₁F hpp₁ hg hgp
-    exact ⟨t, ht, t⁻¹ * g, hty, by group⟩
 
 theorem spRadFix_inf_eq_bot_iff (hf : f.IsAlt) (hnd : f.Nondegenerate)
     {F : Submodule (ZMod 2) V} {p p' : V} (hpF : p ∈ spPerp f F) (hp'F : p' ∈ spPerp f F)
@@ -149,16 +107,6 @@ theorem spRadFix_inf_eq_bot_iff (hf : f.IsAlt) (hnd : f.Nondegenerate)
     rw [eq_bot_iff] at this
     exact this ⟨ht.1, ht'.1⟩
 
-theorem sp_normalizer_inf_spRadFix_eq_bot (hf : f.IsAlt) (hnd : f.Nondegenerate)
-    {F : Submodule (ZMod 2) V} (hF : F ⊓ spPerp f F = ⊥) {p p₁ : V} (hp₁F : p₁ ∈ spPerp f F)
-    (hpp₁ : f p p₁ = 1) :
-    spRadFix f F p ⊓ Subgroup.normalizer (spRadFix f F p₁ : Set (V ≃ₗ[ZMod 2] V)) = ⊥ := by
-  obtain ⟨-, hp₁0, -⟩ := linearIndependent_pair_iff.mp (linearIndependent_of_apply_eq_one hf hpp₁)
-  rw [eq_bot_iff]
-  rintro t ⟨ht, hN⟩
-  have htp₁ := (mem_normalizer_spRadFix_iff hf hnd hF hp₁F hp₁0
-    (spRadFix_le_spFix F p ht)).mp hN
-  exact (Subgroup.mem_bot).mpr (eq_one_of_mem_spPointRadical_of_apply_eq hpp₁ ht.1 htp₁)
 
 theorem exists_mem_spRadGen_apply_eq_orth (hf : f.IsAlt) (hnd : f.Nondegenerate)
     {F : Submodule (ZMod 2) V} (hF : F ⊓ spPerp f F = ⊥) {p p₂ p' p₂' : V}
@@ -228,32 +176,6 @@ theorem exists_mem_spRadGen_apply_eq_orth (hf : f.IsAlt) (hnd : f.Nondegenerate)
         zero_mul, add_zero, one_smul, hc1, add_smul, one_smul]
       abel
 
-theorem sp_timmesfeld_2_4 (hf : f.IsAlt) (hnd : f.Nondegenerate) {F : Submodule (ZMod 2) V}
-    (hF : F ⊓ spPerp f F = ⊥) {φ : V →ₗ[ZMod 2] V} (hφ : ∀ x ∈ spPerp f F, φ x ∈ spPerp f F)
-    (hcomm : ∀ g ∈ spFix f F, ∀ x ∈ spPerp f F, φ (g x) = g (φ x)) :
-    ∃ c : ZMod 2, ∀ x ∈ spPerp f F, φ x = c • x := by
-  by_cases hne : spPerp f F = ⊥
-  · exact ⟨0, fun x hx => by
-      rw [hne, Submodule.mem_bot] at hx
-      rw [hx, map_zero, smul_zero]⟩
-  obtain ⟨p₀, hp₀F, hp₀0⟩ := Submodule.exists_mem_ne_zero_of_ne_bot hne
-  have hfix : φ p₀ ∈ (ZMod 2) ∙ p₀ := by
-    refine sp_fixed_mem_span_of_spRadFix hf hnd hF hp₀F hp₀0 (hφ p₀ hp₀F) fun t ht => ?_
-    rw [← hcomm t (spRadFix_le_spFix F p₀ ht) p₀ hp₀F, ht.1.2.1]
-  obtain ⟨c, hc⟩ := Submodule.mem_span_singleton.mp hfix
-  refine ⟨c, fun x hx => ?_⟩
-  by_cases hx0 : x = 0
-  · rw [hx0, map_zero, smul_zero]
-  obtain ⟨g, hg, hgx⟩ := exists_mem_spRadGen_apply_eq hf hnd hF hp₀F hx hp₀0 hx0
-  rw [← hgx, hcomm g (spRadGen_le_spFix F hg) p₀ hp₀F, ← hc, map_smul]
-
-theorem sp_timmesfeld_2_4_sp (hf : f.IsAlt) (hnd : f.Nondegenerate) {φ : V →ₗ[ZMod 2] V}
-    (hcomm : ∀ g ∈ TauCeti.BilinForm.isometryGroup f, ∀ x, φ (g x) = g (φ x)) :
-    ∃ c : ZMod 2, φ = c • LinearMap.id := by
-  obtain ⟨c, hc⟩ := sp_timmesfeld_2_4 hf hnd (bot_inf_eq _)
-    (fun x _ => by rw [spPerp_bot]; exact Submodule.mem_top)
-    (fun g hg x _ => hcomm g (by rw [spFix_bot] at hg; exact hg) x)
-  exact ⟨c, LinearMap.ext fun x => by rw [hc x (by rw [spPerp_bot]; exact Submodule.mem_top)]; rfl⟩
 
 end S2
 

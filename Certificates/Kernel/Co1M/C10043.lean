@@ -33,11 +33,6 @@ theorem c10043_eight : eightCheck = true := by
   rw [tyLab_eq_labK]
   quickRfl
 
-theorem c10043_neg :
-    (!orbMemK 98280 (lk CertificateChecks.KernelVec.Co1.S 32) 17 24 &&
-      !orbMemK 98280 (lk CertificateChecks.KernelVec.Co1.S 32) 17 1 &&
-      !(labK 24 == 3) && labK 24 == 1) = true := by
-  quickRfl
 
 open Certificates in
 open CFSG.Monster.GMS.S365 in

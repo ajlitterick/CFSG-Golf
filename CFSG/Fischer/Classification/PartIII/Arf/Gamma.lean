@@ -203,20 +203,5 @@ theorem gamma_transvection (hu : quadMinusSix u = 1) (hv : quadMinusSix v = 1) :
 
 end Arf
 
-@[expose] noncomputable def minusSixEquiv : {v // quadMinusSix v = 1} ≃ D3 formMinusFive :=
-  reflEquivOfVec isF3Form_formMinusFive (by norm_num) (fun v => gamma v) (fun v => gamma_norm v)
-    (fun v w h => Subtype.ext (gamma_injective v.2 w.2 h)) fun _ hx =>
-      let ⟨v, hv, h⟩ := exists_gamma_eq hx
-      ⟨⟨v, hv⟩, h⟩
-
-theorem coe_minusSixEquiv (v : {v // quadMinusSix v = 1}) :
-    (minusSixEquiv v : R3 formMinusFive) = reflBar formMinusFive (gamma v) :=
-  rfl
-
-theorem minusSixEquiv_transvection (u v : {v // quadMinusSix v = 1})
-    (h : quadMinusSix (v + polar quadMinusSix v u • u) = 1) :
-    (minusSixEquiv ⟨_, h⟩ : R3 formMinusFive) =
-      minusSixEquiv u * minusSixEquiv v * minusSixEquiv u :=
-  reflBar_eq_conj_of_eq_or isF3Form_formMinusFive (gamma_transvection u.2 v.2)
 
 end CFSG.Fischer.Classification

@@ -53,17 +53,6 @@ theorem sup_aux2 {V T A E C : Subgroup G} (h1 : V ⊔ (T ⊔ A ⊔ E) = C) :
   exact ⟨le_sup_of_le_right (le_sup_of_le_left le_sup_left),
     sup_le (le_sup_of_le_right (le_sup_of_le_left le_sup_right)) (le_sup_of_le_right le_sup_right)⟩
 
-omit [Finite G] in
-theorem sup_aux3 {V T A E C : Subgroup G} (h1 : V ⊔ (T ⊔ A ⊔ E) = C) :
-    C = V ⊔ A ⊔ E ⊔ T := by
-  subst h1
-  apply le_antisymm
-  · exact sup_le (le_sup_of_le_left (le_sup_of_le_left le_sup_left))
-      (sup_le (sup_le le_sup_right (le_sup_of_le_left (le_sup_of_le_left le_sup_right)))
-        (le_sup_of_le_left le_sup_right))
-  · exact sup_le (sup_le (sup_le le_sup_left
-      (le_sup_of_le_right (le_sup_of_le_left le_sup_right))) (le_sup_of_le_right le_sup_right))
-      (le_sup_of_le_right (le_sup_of_le_left le_sup_left))
 
 theorem mem_normalizer_of_normal_sylow {p : ℕ} [Fact p.Prime] {C V : Subgroup G} (hVC : V ≤ C)
     (hV : (V.subgroupOf C).Normal) (hVp : IsPGroup p V)
@@ -90,32 +79,6 @@ theorem mem_normalizer_of_normal_sylow {p : ℕ} [Fact p.Prime] {C V : Subgroup 
     exact h2
   exact JT.mem_normalizer_of_conj_mem fun x hx => hWV ⟨x, hx, rfl⟩
 
-theorem prime_dvd_index_of_mem {C N : Subgroup G} (hCN : C ≤ N) {y : G} (hyN : y ∈ N)
-    (hyC : y ∉ C) (hy : y ∈ Subgroup.normalizer (C : Set G)) {r : ℕ} (hr : r.Prime)
-    (hyr : y ^ r = 1) : r ∣ (C.subgroupOf N).index := by
-  have : Fact r.Prime := ⟨hr⟩
-  have hy1 : y ≠ 1 := fun h1 => hyC (h1 ▸ C.one_mem)
-  have hyo : orderOf y = r := orderOf_eq_prime hyr hy1
-  have hZ : Nat.card (Subgroup.zpowers y) = r := by rw [Nat.card_zpowers, hyo]
-  have hZN : Subgroup.zpowers y ≤ Subgroup.normalizer (C : Set G) := Subgroup.zpowers_le.mpr hy
-  have hc := card_sup_mul_card_inf_of_le_normalizer hZN
-  have hinf : Nat.card (C ⊓ Subgroup.zpowers y : Subgroup G) = 1 := by
-    have hdvd : Nat.card (C ⊓ Subgroup.zpowers y : Subgroup G) ∣ r :=
-      hZ ▸ Subgroup.card_dvd_of_le inf_le_right
-    rcases (Nat.dvd_prime hr).mp hdvd with h | h
-    · exact h
-    · exfalso
-      have heq : C ⊓ Subgroup.zpowers y = Subgroup.zpowers y :=
-        Subgroup.eq_of_le_of_card_ge inf_le_right (by rw [h, hZ])
-      have hy' : y ∈ C ⊓ Subgroup.zpowers y := by rw [heq]; exact Subgroup.mem_zpowers y
-      exact hyC hy'.1
-  rw [hinf, mul_one, hZ] at hc
-  have hle : C ⊔ Subgroup.zpowers y ≤ N := sup_le hCN (Subgroup.zpowers_le.mpr hyN)
-  have h1 := Subgroup.card_dvd_of_le hle
-  have h2 := Subgroup.relIndex_mul_card (H := C) (K := N)
-  rw [inf_eq_left.mpr hCN] at h2
-  rw [hc, ← h2, mul_comm (Nat.card C)] at h1
-  exact Nat.dvd_of_mul_dvd_mul_right Nat.card_pos h1
 
 namespace Std
 
@@ -408,14 +371,6 @@ theorem normalizer_eq_of
   rw [hfac, s.fr.card_V hT₂ h2]
   norm_num
 
-theorem V_A_E_le_centralizer
-    (hp : s.p = 3) (hT₂ : T₂ ∈ s.fr.T) (h2 : orderOf T₂ = 2)
-    {Aα : Subgroup G} (hAα : Aα ≤ s.fr.A₀ T₂) :
-    s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E ≤ Subgroup.centralizer (Aα : Set G) := by
-  have hAα' : Aα ≤ s.fr.A T₂ := hAα.trans inf_le_left
-  refine sup_le (sup_le ?_ (s.A_le_centralizer_of_le hp hT₂ h2 hAα')) ?_
-  · exact Subgroup.le_centralizer_iff.mpr (hAα'.trans (s.A_le_centralizer_V T₂))
-  · exact Subgroup.le_centralizer_iff.mpr (hAα.trans inf_le_right)
 
 theorem exists_mem_S_not_mem_V (hT₂ : T₂ ∈ s.fr.T) (h2 : orderOf T₂ = 2) :
     ∃ τ ∈ (s.fr.S : Subgroup G), τ ∉ s.fr.V T₂ := by
@@ -425,112 +380,6 @@ theorem exists_mem_S_not_mem_V (hT₂ : T₂ ∈ s.fr.T) (h2 : orderOf T₂ = 2)
   rw [s.fr.card_S, s.fr.card_V hT₂ h2] at this
   omega
 
-theorem card_normalizer_V
-    (hp : s.p = 3) (hT₂ : T₂ ∈ s.fr.T) (h2 : orderOf T₂ = 2)
-    {Aα : Subgroup G} (hAα : Aα ≤ s.fr.A₀ T₂) (hne : Aα ≠ ⊥) :
-    Nat.card (Subgroup.normalizer (s.fr.V T₂ : Set G)) =
-      6 * Nat.card (s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E : Subgroup G) := by
-  have hAα' : Aα ≤ s.fr.A T₂ := hAα.trans inf_le_left
-  obtain ⟨U, hU3, hNV, -, hUV, hT₁2, hC, -, hS⟩ := prop_4_3_ab G s.toHyp s.fr hp s.hidx hT₂ h2
-  generalize hT₁ : (s.fr.S : Subgroup G) ⊓ Subgroup.centralizer (U : Set G) = T₁ at hT₁2 hC hS
-  have hT₁S : T₁ ≤ (s.fr.S : Subgroup G) := hT₁ ▸ inf_le_left
-  have hXC := s.V_A_E_le_centralizer hp hT₂ h2 hAα
-  generalize hX : s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E = X at hXC ⊢
-  have hCV : Subgroup.centralizer (s.fr.V T₂ : Set G) = X ⊔ T₁ := hX ▸ sup_aux3 hC.1
-  have hSN : (s.fr.S : Subgroup G) ≤ Subgroup.normalizer (X : Set G) := fun y hy => by
-    rw [← hX]
-    refine mem_normalizer_sup (mem_normalizer_sup ?_ ?_) ?_
-    · refine JT.mem_normalizer_of_conj_mem fun v hv => ?_
-      rw [s.fr.comm_of_mem_S hy (s.fr.V_le_S hT₂ hv), mul_inv_cancel_right]
-      exact hv
-    · exact JT.mem_normalizer_of_conj_mem fun x hx => s.fr.S_conj_mem_A hy hx hT₂
-    · refine JT.mem_normalizer_of_conj_mem fun e he => ?_
-      rw [Subgroup.mem_centralizer_iff.mp (s.fr.E_le_CS he) y hy, mul_inv_cancel_right]
-      exact he
-  have hXT : X ⊓ T₁ = ⊥ := by
-    rw [eq_bot_iff]
-    rintro x ⟨hxX, hxT⟩
-    by_contra hx1
-    have hxV : x ∈ s.fr.V T₂ := by
-      by_contra hxV
-      exact s.not_le_centralizer hT₂ h2 hAα' hne (hT₁S hxT) hxV (hXC hxX)
-    have : x ∈ s.fr.V T₂ ⊓ T₁ := ⟨hxV, hxT⟩
-    rw [disjoint_iff.mp hS.2.1] at this
-    exact hx1 this
-  have hc1 := card_sup_mul_card_inf_of_le_normalizer (hT₁S.trans hSN)
-  rw [hXT, Subgroup.card_bot, mul_one, hT₁2, ← hCV] at hc1
-  have hUNV : U ≤ Subgroup.normalizer (s.fr.V T₂ : Set G) := by rw [hNV]; exact le_sup_left
-  have hUN := hUNV.trans (normalizer_le_normalizer_centralizer _)
-  have hc2 := card_sup_mul_card_inf_of_le_normalizer hUN
-  have hinf : Nat.card (Subgroup.centralizer (s.fr.V T₂ : Set G) ⊓ U : Subgroup G) = 1 := by
-    have hdvd : Nat.card (Subgroup.centralizer (s.fr.V T₂ : Set G) ⊓ U : Subgroup G) ∣ 3 :=
-      hU3 ▸ Subgroup.card_dvd_of_le inf_le_right
-    rcases (Nat.dvd_prime Nat.prime_three).mp hdvd with h | h
-    · exact h
-    · exfalso
-      have heq : Subgroup.centralizer (s.fr.V T₂ : Set G) ⊓ U = U :=
-        Subgroup.eq_of_le_of_card_ge inf_le_right (by rw [h, hU3])
-      have hUC : U ≤ Subgroup.centralizer (s.fr.V T₂ : Set G) := by
-        rw [← heq]
-        exact inf_le_left
-      have hbot : ⁅U, s.fr.V T₂⁆ = ⊥ := Subgroup.commutator_eq_bot_iff_le_centralizer.mpr hUC
-      rw [hUV] at hbot
-      have hc := s.fr.card_V hT₂ h2
-      rw [hbot, Subgroup.card_bot] at hc
-      omega
-  rw [hinf, mul_one, hU3, sup_comm, ← hNV, hc1] at hc2
-  rw [hc2]
-  ring
-
-theorem centralizer_eq_and_index
-    (h42 : S_lemma_4_2) (hp : s.p = 3) (hT₂ : T₂ ∈ s.fr.T)
-    (h2 : orderOf T₂ = 2) {Aα : Subgroup G} (hAα : Aα ≤ s.fr.A₀ T₂) (hne : Aα ≠ ⊥)
-    (h3 : ∃ y ∈ Subgroup.normalizer (Aα : Set G), y ∉ Subgroup.centralizer (Aα : Set G) ∧
-      y ^ 3 = 1) :
-    Subgroup.centralizer (Aα : Set G) = s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E ∧
-      ((Subgroup.centralizer (Aα : Set G)).subgroupOf
-        (Subgroup.normalizer (Aα : Set G))).index = 6 := by
-  have hAα' : Aα ≤ s.fr.A T₂ := hAα.trans inf_le_left
-  have hN := s.normalizer_eq_of h42 hp hT₂ h2 hAα' hne
-  have hcard := s.card_normalizer_V hp hT₂ h2 hAα hne
-  have hXC := s.V_A_E_le_centralizer hp hT₂ h2 hAα
-  have hCN : Subgroup.centralizer (Aα : Set G) ≤ Subgroup.normalizer (Aα : Set G) :=
-    Subgroup.centralizer_le_normalizer _
-  have hCnorm : Subgroup.normalizer (Aα : Set G) ≤
-      Subgroup.normalizer (Subgroup.centralizer (Aα : Set G) : Set G) :=
-    normalizer_le_normalizer_centralizer _
-  obtain ⟨τ, hτS, hτV⟩ := s.exists_mem_S_not_mem_V hT₂ h2
-  have hτN : τ ∈ Subgroup.normalizer (Aα : Set G) := by
-    rw [hN]
-    exact Subgroup.centralizer_le_normalizer _ (Subgroup.mem_centralizer_iff.mpr fun v hv =>
-      s.fr.comm_of_mem_S (s.fr.V_le_S hT₂ hv) hτS)
-  have h2i := prime_dvd_index_of_mem hCN hτN (s.not_le_centralizer hT₂ h2 hAα' hne hτS hτV)
-    (hCnorm hτN) Nat.prime_two (by rw [pow_two]; exact s.fr.mul_self_of_mem_S hτS)
-  obtain ⟨y, hyN, hyC, hy3⟩ := h3
-  have h3i := prime_dvd_index_of_mem hCN hyN hyC (hCnorm hyN) Nat.prime_three hy3
-  have h6 : 6 ∣ ((Subgroup.centralizer (Aα : Set G)).subgroupOf
-      (Subgroup.normalizer (Aα : Set G))).index :=
-    Nat.Coprime.mul_dvd_of_dvd_of_dvd (by norm_num) h2i h3i
-  have hi := Subgroup.relIndex_mul_card (H := Subgroup.centralizer (Aα : Set G))
-    (K := Subgroup.normalizer (Aα : Set G))
-  rw [inf_eq_left.mpr hCN] at hi
-  have hNcard : Nat.card (Subgroup.normalizer (Aα : Set G)) =
-      6 * Nat.card (s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E : Subgroup G) := by rw [hN]; exact hcard
-  obtain ⟨k, hk⟩ := Subgroup.card_dvd_of_le hXC
-  obtain ⟨j, hj⟩ := h6
-  change ((Subgroup.centralizer (Aα : Set G)).subgroupOf _).index * _ = _ at hi
-  rw [hNcard, hk, hj] at hi
-  have hXpos : 0 < Nat.card (s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E : Subgroup G) := Nat.card_pos
-  have hjk : j * k = 1 := by
-    have : 6 * (j * k) * Nat.card (s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E : Subgroup G) =
-        6 * 1 * Nat.card (s.fr.V T₂ ⊔ s.fr.A T₂ ⊔ s.fr.E : Subgroup G) := by
-      rw [← hi]; ring
-    have := Nat.eq_of_mul_eq_mul_right hXpos this
-    omega
-  have hk1 : k = 1 := Nat.dvd_one.mp (Dvd.intro_left j hjk)
-  have hj1 : j = 1 := Nat.dvd_one.mp (Dvd.intro k hjk)
-  refine ⟨(Subgroup.eq_of_le_of_card_ge hXC (by rw [hk, hk1, mul_one])).symm, ?_⟩
-  rw [hj, hj1]
 
 end Std
 

@@ -46,8 +46,6 @@ local instance twistedE6PilotRootsNeZeroFolded : NeZero TwistTag.E6.foldedTag.ra
 
 local notation "ρ" => permLattice TwistTag.E6.perm
 
-@[expose] def relSet (J : Finset (Fin TwistTag.E6.tag.rank)) : Finset (Fin Tag.F4.rank) :=
-  J.image e6IndexToF4
 
 theorem mem_orbit_f4FoldedIndex_iff (i : Fin TwistTag.E6.tag.rank) (a : Fin Tag.F4.rank) :
     i ∈ TwistTag.E6.orbit (f4FoldedIndex a) ↔ e6IndexToF4 i = a := by
@@ -66,38 +64,16 @@ theorem e6ToF4_apply_eq_sum (γ : Fin TwistTag.E6.tag.rank → ℤ) (a : Fin Tag
   · change γ 0 + γ 5 = ∑ i ∈ ({0, 5} : Finset (Fin TwistTag.E6.tag.rank)), γ i
     rw [Finset.sum_pair (by decide)]
 
-theorem mem_relSet_iff {J : Finset (Fin TwistTag.E6.tag.rank)} {a : Fin Tag.F4.rank} :
-    a ∈ relSet J ↔ ∃ i ∈ J, e6IndexToF4 i = a :=
-  Finset.mem_image
-
-theorem card_relSet_le (J : Finset (Fin TwistTag.E6.tag.rank)) : (relSet J).card ≤ J.card :=
-  Finset.card_image_le
-
-theorem e6ToF4_eq_zero_of_not_mem_relSet {J : Finset (Fin TwistTag.E6.tag.rank)}
-    {δ : Fin TwistTag.E6.tag.rank → ℤ} (hδ : ∀ i ∉ J, δ i = 0) {a : Fin Tag.F4.rank}
-    (ha : a ∉ relSet J) : e6ToF4 δ a = 0 := by
-  rw [e6ToF4_apply_eq_sum]
-  exact Finset.sum_eq_zero fun i hi => hδ i fun hiJ =>
-    ha (mem_relSet_iff.2 ⟨i, hiJ, (mem_orbit_f4FoldedIndex_iff i a).1 hi⟩)
 
 theorem e6ToF4_check : ∀ γ ∈ rootFinset TwistTag.E6.tag,
     (ρ γ = γ ↔ iform (e6ToF4 γ) (e6ToF4 γ) = 4) ∧ (ρ γ ≠ γ → iform γ (ρ γ) = 0) := by
   decide +kernel
 
-theorem card_fixed_check :
-    ((rootFinset TwistTag.E6.tag).filter fun γ => ρ γ = γ).card = 24 ∧
-      ((rootFinset TwistTag.E6.tag).filter fun γ => ρ γ ≠ γ).card = 48 ∧
-      ((rootFinset .F4).filter fun b => iform b b = 4).card = 24 ∧
-      ((rootFinset .F4).filter fun b => iform b b = 2).card = 24 := by
-  decide +kernel
 
 section RelativeRoots
 
 variable {γ : Fin TwistTag.E6.tag.rank → ℤ}
 
-theorem permLattice_eq_self_iff (hγ : IsRoot TwistTag.E6.tag γ) :
-    ρ γ = γ ↔ iform (e6ToF4 γ) (e6ToF4 γ) = 4 :=
-  (e6ToF4_check γ (mem_rootFinset.2 hγ)).1
 
 theorem iform_permLattice_eq_zero (hγ : IsRoot TwistTag.E6.tag γ) (h : ρ γ ≠ γ) :
     iform γ (ρ γ) = 0 :=
@@ -105,56 +81,6 @@ theorem iform_permLattice_eq_zero (hγ : IsRoot TwistTag.E6.tag γ) (h : ρ γ �
 
 end RelativeRoots
 
-theorem e6ToF4_distinguished :
-    e6ToF4 e6HighestRoot = F4Pilot.rootR ∧ e6ToF4 twistedE6ClassRootU = F4Pilot.rootS ∧
-      e6ToF4 twistedE6ClassRootU' = F4Pilot.rootS ∧
-      e6ToF4 twistedE6ClassRootB = F4Pilot.root1242 := by
-  decide +kernel
-
-theorem iform_e6HighestRoot
-    (v : Fin TwistTag.E6.tag.rank → ℤ) :
-    iform v e6HighestRoot = v 1 := by
-  rw [iform_comm]
-  exact EPilot.iform_highRoot (τ := .E6) (Or.inl rfl) v
-
-theorem highRootPerp_check :
-    (∀ δ ∈ rootFinset TwistTag.E6.tag, (iform δ e6HighestRoot = 0 ↔ δ 1 = 0)) ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ => δ 1 = 0).card = 30 := by
-  decide +kernel
-
-theorem shortWeight_check :
-    iform twistedE6ClassRootU twistedE6ClassRootU' = 0 ∧
-      (∀ δ ∈ rootFinset TwistTag.E6.tag,
-        -2 ≤ iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' ∧
-          iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' ≤ 2) ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = 2).card = 8 ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = 1).card = 16 ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = 0).card = 24 ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = -1).card = 16 ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = -2).card = 8 := by
-  decide +kernel
-
-theorem shortKernel_check : ∀ δ ∈ rootFinset TwistTag.E6.tag,
-    (iform δ twistedE6ClassRootU + iform δ twistedE6ClassRootU' = 0 ↔ δ 0 = 0 ∧ δ 5 = 0) := by
-  decide +kernel
-
-theorem shortKernel_iff {δ : Fin TwistTag.E6.tag.rank → ℤ}
-    (hδ : IsRoot TwistTag.E6.tag δ) :
-    iform δ twistedE6ClassRootU + iform δ (ρ twistedE6ClassRootU) = 0 ↔ δ 0 = 0 ∧ δ 5 = 0 := by
-  rw [permLattice_twistedE6ClassRootU]
-  exact shortKernel_check δ (mem_rootFinset.2 hδ)
-
-theorem shortPerp_check :
-    (∀ δ ∈ rootFinset TwistTag.E6.tag, iform δ twistedE6ClassRootU = 0 →
-      iform δ twistedE6ClassRootU' = 0 → ρ δ = δ) ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootU = 0 ∧ iform δ twistedE6ClassRootU' = 0).card = 12 := by
-  decide +kernel
 
 theorem d4Perp_check :
     (∀ δ ∈ rootFinset TwistTag.E6.tag, ¬ (iform δ (Pi.single 1 1) = 0 ∧
@@ -163,32 +89,6 @@ theorem d4Perp_check :
       ((rootFinset TwistTag.E6.tag).filter fun δ => δ 0 = 0 ∧ δ 5 = 0).card = 24 := by
   decide +kernel
 
-theorem rootB_check :
-    ρ twistedE6ClassRootB = twistedE6ClassRootB ∧
-      (∀ i : Fin TwistTag.E6.tag.rank,
-        iform (Pi.single i 1) twistedE6ClassRootB = 0 ↔ i = 0 ∨ i = 1 ∨ i = 5) ∧
-      ((rootFinset TwistTag.E6.tag).filter fun δ =>
-        iform δ twistedE6ClassRootB = 0).card = 30 := by
-  decide +kernel
-
-theorem placement_check {J : Finset (Fin TwistTag.E6.tag.rank)} (hJ : J.card ≤ 2)
-    {δ : Fin TwistTag.E6.tag.rank → ℤ} (hδ : ∀ i ∉ J, δ i = 0) {a : Fin Tag.F4.rank}
-    (ha : a ∉ (F4Pilot.amalgamPlacement (relSet J)).nodes) : e6ToF4 δ a = 0 :=
-  e6ToF4_eq_zero_of_not_mem_relSet hδ fun h =>
-    ha (F4Pilot.subset_nodes_amalgamPlacement ((card_relSet_le J).trans hJ) h)
-
-theorem placement_table : ∀ J : Finset (Fin TwistTag.E6.tag.rank), J.card ≤ 2 →
-    (F4Pilot.amalgamPlacement (relSet J) = .X' ↔ J = {0, 1} ∨ J = {1, 5}) ∧
-      (F4Pilot.amalgamPlacement (relSet J) = .Y ↔ J = {1} ∨ J = {1, 2} ∨ J = {1, 3} ∨
-        J = {1, 4}) := by
-  decide +kernel
-
-theorem nodes_inter_check :
-    F4Pilot.AmalgamNeighbour.X.nodes ∩ F4Pilot.AmalgamNeighbour.Y.nodes = {1, 2} ∧
-      F4Pilot.AmalgamNeighbour.X.nodes ∩ F4Pilot.AmalgamNeighbour.X'.nodes = {3} ∧
-      F4Pilot.AmalgamNeighbour.Y.nodes ∩ F4Pilot.AmalgamNeighbour.X'.nodes = {0} ∧
-      TwistTag.E6.orbit (f4FoldedIndex 1) ∪ TwistTag.E6.orbit (f4FoldedIndex 2) = {2, 3, 4} := by
-  decide +kernel
 
 @[expose] def rootE15 : Fin TwistTag.E6.tag.rank → ℤ := ![1, 0, 1, 1, 1, 0]
 
@@ -274,12 +174,6 @@ theorem conj_relWordUY_twistedE6ClassU :
     twistedE6RelWeyl_conj_pinnedX relWordUY isRoot_twistedE6ClassRoots.2.1,
     relWords_check.2.2.2.2.1, relWords_check.2.2.2.2.2.1]
 
-theorem conj_relWordXPrime_pinnedX_highRoot (c : K) :
-    twistedE6RelWeyl K relWordXPrime * pinnedX TwistTag.E6.tag K e6HighestRoot c *
-        (twistedE6RelWeyl K relWordXPrime)⁻¹ =
-      pinnedX TwistTag.E6.tag K twistedE6ClassRootB c := by
-  rw [twistedE6RelWeyl_conj_pinnedX relWordXPrime isRoot_e6HighestRoot c,
-    relWords_check.2.2.2.2.2.2]
 
 end Transport
 

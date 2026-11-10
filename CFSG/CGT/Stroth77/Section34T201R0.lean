@@ -36,10 +36,6 @@ theorem compat_uvK (m : ℕ) : Compat (StrothTypeIndex.t201 m).k (Type201.uvM m)
   Type201.compat_uv m
 theorem compat_tK (m : ℕ) : Compat (StrothTypeIndex.t201 m).k (Type201.tM m) :=
   Type201.compat_t m
-theorem compat_uK (m : ℕ) : Compat (StrothTypeIndex.t201 m).k (Type201.uM m) :=
-  Type201.compat_u m
-theorem compat_ρK (m : ℕ) : Compat (StrothTypeIndex.t201 m).k (Type201.ρM m) :=
-  Type201.compat_rho m
 
 theorem compat_ρ200K (m : ℕ) : Compat (StrothTypeIndex.t201 m).k Type200.ρM :=
   Type201.compat_rho m
@@ -81,10 +77,6 @@ theorem matAct_one_apply (v : Torus (StrothTypeIndex.t201 m).k) :
     matAct (StrothTypeIndex.t201 m).k 1 Compat.one v = v := by
   rw [matAct_one]; rfl
 
-theorem thetaT_ρ_inv_eq (v : Torus (StrothTypeIndex.t201 m).k) :
-    dD.thetaT (inv_mem dD.ρ_mem) v = matAct (StrothTypeIndex.t201 m).k
-      (Type201.ρM m * Type201.ρM m) ((compat_ρK m).mul (compat_ρK m)) v := by
-  rw [dD.thetaT_ρ_inv, matAct_mul_apply]; rfl
 
 theorem thetaT_uv_eq (v : Torus (StrothTypeIndex.t201 m).k) :
     dD.thetaT dD.uv_mem v =
@@ -96,20 +88,6 @@ theorem thetaT_t_eq (v : Torus (StrothTypeIndex.t201 m).k) :
       matAct (StrothTypeIndex.t201 m).k (Type201.tM m) (compat_tK m) v :=
   dD.thetaT_t v
 
-theorem thetaT_u_eq (v : Torus (StrothTypeIndex.t201 m).k) :
-    dD.thetaT dD.u_mem v =
-      matAct (StrothTypeIndex.t201 m).k (Type201.uM m) (compat_uK m) v :=
-  dD.thetaT_u v
-
-theorem thetaT_u_inv_eq (v : Torus (StrothTypeIndex.t201 m).k) :
-    dD.thetaT (inv_mem dD.u_mem) v =
-      matAct (StrothTypeIndex.t201 m).k (Type201.uM m) (compat_uK m) v :=
-  t201_thetaT_u_inv v
-
-theorem thetaT_ρ_eq (v : Torus (StrothTypeIndex.t201 m).k) :
-    dD.thetaT dD.ρ_mem v =
-      matAct (StrothTypeIndex.t201 m).k (Type201.ρM m) (compat_ρK m) v :=
-  dD.thetaT_ρ v
 
 theorem compat_omegaMat (m : ℕ) :
     Compat (StrothTypeIndex.t201 m).k (omegaMat (StrothTypeIndex.t201 m).k) := by
@@ -207,10 +185,6 @@ variable (h : F.IsD D dD) (hS : Local.Setting (F.S : Subgroup G) D) {e : G}
   (h₂ : dD.Twist dD.t_mem (hS.R_le_normalizer hfR) (1 + 2 ^ (m + 1)))
 include h hS heR he hR1 h₁ h₂
 
-theorem matAct_matOf_thetaT (v : Torus (StrothTypeIndex.t201 m).k) :
-    matAct _ (matOf (dD.thetaT (hS.R_le_normalizer hfR))) (compat_matOf _) v =
-      dD.thetaT (hS.R_le_normalizer hfR) v := by
-  rw [matAct_matOf]
 
 omit h heR he hR1 h₂ in
 theorem matOf_comm_uv :

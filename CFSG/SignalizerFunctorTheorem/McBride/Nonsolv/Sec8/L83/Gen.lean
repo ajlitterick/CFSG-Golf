@@ -41,9 +41,6 @@ theorem inf_centralizer_le_zOf (S E : Subgroup G) :
     zOf S ⊓ Subgroup.centralizer (E : Set G) ≤ zOf (S ⊓ Subgroup.centralizer (E : Set G)) :=
   fun _ hx => mem_zOf_iff.mpr ⟨⟨zOf_le S hx.1, hx.2⟩, fun w hw => (mem_zOf_iff.mp hx.1).2 w hw.1⟩
 
-theorem le_iSup_vK {Ω : Set (Subgroup G)} {V K X : Subgroup G} (hK : K ∈ Ω) (hX : X ≤ vK Ω V K) :
-    X ≤ ⨆ K' ∈ Ω, vK Ω V K' :=
-  hX.trans (le_iSup₂_of_le K hK le_rfl)
 
 end L83
 

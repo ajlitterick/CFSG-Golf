@@ -104,47 +104,6 @@ structure PositiveLieQuotientCocharacter {k : Type u} [Field k]
   acts_on_basis : ∀ (s : kˣ) (i : Fin rank),
     quotientCocharacterLieEnd I cocharacter s (basis i) = ((s : k) ^ weight i) • basis i
 
-theorem exists_quotientPoint_range_twistDifferential_eq_top_of_positiveCocharacter
-    {k : Type u} [Field k] [Infinite k]
-    {H : Type v} [CommRing H] [HopfAlgebra k H]
-    (I : HopfIdeal k H) (τ : H →ₐc[k] H) (hτ : ∀ a ∈ I, τ a ∈ I)
-    (P : PositiveLieQuotientCocharacter I) :
-    ∃ b : WithConv (H →ₐ[k] k),
-      b ∈ CommHopfAlgCat.quotientPointsSubgroup (_root_.CommHopfAlgCat.of k H) I (CommAlgCat.of k k) ∧
-      LinearMap.range (LinearMap.id - (derivationCompLieHom (B := k)
-        (τ.comp (TauCeti.HopfAlgebra.pointConjugationBialgEquiv b).toBialgHom)).toLinearMap) ⊔
-          (I.lieSubalgebra (B := k)).toSubmodule = ⊤ := by
-  let N := (I.lieSubalgebra (B := k)).toSubmodule
-  let F := (derivationCompLieHom (B := k) τ).toLinearMap
-  let D (s : kˣ) := (derivationCompLieHom (B := k)
-    (TauCeti.HopfAlgebra.pointConjugationBialgEquiv
-      (quotientCocharacterPoints I P.cocharacter s)).toBialgHom).toLinearMap
-  have hD (s : kˣ) : N ≤ N.comap (D s) :=
-    pointConjugation_preserves_lieSubalgebra I _
-      (quotientCocharacterPoints_mem I P.cocharacter s)
-  have hF : N ≤ N.comap F := by
-    intro d hd
-    change (derivationCompLieHom (B := k) τ).toLinearMap d ∈ I.lieSubalgebra (B := k)
-    rw [LieHom.coe_toLinearMap, derivationCompLieHom_apply]
-    exact derivationComp_mem_lieSubalgebra_of_stable τ I hτ d hd
-  have hweights : ∀ (s : kˣ) (i : Fin P.rank),
-      N.mapQ N (D s) (hD s) (P.basis i) = ((s : k) ^ P.weight i) • P.basis i :=
-    P.acts_on_basis
-  obtain ⟨s, hs⟩ := CFSG.LinearAlgebra.exists_range_one_sub_comp_sup_eq_top_of_positive_quotient_weights
-    N P.basis P.weight P.weight_pos D hD hweights F hF
-  refine ⟨quotientCocharacterPoints I P.cocharacter s,
-    quotientCocharacterPoints_mem I P.cocharacter s, ?_⟩
-  have heq : (derivationCompLieHom (B := k)
-      (τ.comp (TauCeti.HopfAlgebra.pointConjugationBialgEquiv
-        (quotientCocharacterPoints I P.cocharacter s)).toBialgHom)).toLinearMap = (D s).comp F := by
-    apply LinearMap.ext
-    intro d
-    simpa only [D, F, LieHom.coe_toLinearMap, derivationCompLieHom_apply,
-      LinearMap.comp_apply] using DFunLike.congr_fun (derivationComp_comp (B := k) τ
-      (TauCeti.HopfAlgebra.pointConjugationBialgEquiv
-        (quotientCocharacterPoints I P.cocharacter s)).toBialgHom) d
-  rw [heq]
-  exact hs
 
 end CFSG.LieType.AlgebraicGroups
 

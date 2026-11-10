@@ -17,49 +17,6 @@ namespace CFSG.GorensteinWalter
 
 universe u
 
-/-- A proper subgroup of a simple group is self-normalizing. -/
-private theorem normalizer_eq_self_of_isCoatom_of_simple
-    {G : Type u} [Group G] [Finite G]
-    (H : Subgroup G) (hHcoatom : IsCoatom H) (hHne : H ≠ ⊥)
-    (hsimple : IsSimpleGroup G) :
-    Subgroup.normalizer (H : Set G) = H := by
-  apply le_antisymm
-  · intro g hg
-    by_contra hgnot
-    have hlt : H < Subgroup.normalizer (H : Set G) :=
-      lt_of_le_of_ne (@Subgroup.le_normalizer G _ H) (by
-        intro hEq
-        apply hgnot
-        rw [hEq]
-        exact hg)
-    have htop : Subgroup.normalizer (H : Set G) = ⊤ :=
-      hHcoatom.2 (Subgroup.normalizer (H : Set G)) hlt
-    have hnorm : H.Normal := by
-      rw [← Subgroup.normalizer_eq_top_iff]
-      exact htop
-    rcases @IsSimpleGroup.eq_bot_or_eq_top_of_normal _ _ hsimple H hnorm with hHbot | hHtop
-    · exact hHne hHbot
-    · exact hHcoatom.1 hHtop
-  · exact @Subgroup.le_normalizer G _ H
-
-/-- `H = C_G(t)` is self-normalizing in the cyclic branch. -/
-private theorem firstCase_normalizer_H_eq_H
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (hHhat : c.Hhat = c.H) :
-    Subgroup.normalizer (od.d.bg.H : Set G) = od.d.bg.H := by
-  have hcoatom : IsCoatom od.d.bg.H := by
-    simpa [od.d.H_eq, hHhat] using c.Hhat_maximal
-  have hHne : od.d.bg.H ≠ ⊥ := by
-    have htH : od.d.bg.t ∈ od.d.bg.H := by
-      rw [od.d.bg.H_eq_centralizer]
-      exact (Subgroup.mem_centralizer_singleton_iff).mpr rfl
-    intro hbot
-    exact od.d.bg.t_involution.1 (by simpa [hbot] using htH)
-  exact normalizer_eq_self_of_isCoatom_of_simple od.d.bg.H hcoatom hHne
-    (minimalCounterexample_isSimple hmin)
 
 /-- A Klein-four subgroup containing a nontrivial element `t` has an element
 different from both `1` and `t`. -/
@@ -87,36 +44,6 @@ public theorem kleinFour_exists_mem_ne_one_ne_t
     exact hcard_le.trans (le_of_eq h2)
   omega
 
-/-- There is `g ∈ N_G(V₁)` outside `H`. -/
-private theorem firstCase_exists_g_outside_H
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (fd : FirstCaseFourData c od.d) :
-    ∃ g : G, g ∈ Subgroup.normalizer (fd.V1 : Set G) ∧ g ∉ od.d.bg.H := by
-  have hVtrans :=
-    normalizer_transitive_on_kleinFour_pontset hmin c fd.V1_le_S fd.V1_klein
-  obtain ⟨y, hyV, hy1, hyt⟩ := kleinFour_exists_mem_ne_one_ne_t fd.V1_klein
-    (by simpa [od.d.t_eq] using fd.t_mem_V1) od.d.bg.t_involution.1
-  obtain ⟨n, hnN, hn⟩ :=
-    hVtrans od.d.bg.t y (by simpa [od.d.t_eq] using fd.t_mem_V1)
-      hyV od.d.bg.t_involution.1 hy1
-  refine ⟨n, hnN, ?_⟩
-  intro hnH
-  have hnCent : n ∈ Subgroup.centralizer ({od.d.bg.t} : Set G) := by
-    rwa [← od.d.bg.H_eq_centralizer]
-  have hnfix : n * od.d.bg.t * n⁻¹ = od.d.bg.t := by
-    have hcomm : od.d.bg.t * n = n * od.d.bg.t :=
-      (Subgroup.mem_centralizer_singleton_iff.mp hnCent).symm
-    calc
-      n * od.d.bg.t * n⁻¹ = (od.d.bg.t * n) * n⁻¹ := by rw [hcomm]
-      _ = od.d.bg.t := by group
-  have hyeq : y = od.d.bg.t := by
-    calc
-      y = n * od.d.bg.t * n⁻¹ := hn.symm
-      _ = od.d.bg.t := hnfix
-  exact hyt hyeq
 
 /-- `P = O_p(U)` is normal in `H`. -/
 public theorem firstCase_P_normal_in_H
@@ -181,116 +108,6 @@ public theorem firstCase_H_le_normalizer_primeCore
     have hEq : h⁻¹ * (h * x * h⁻¹) * h = x := by group
     simpa [hEq] using hback
 
-/-- Since `H = C_G(t)`, the centralizer of the distinguished involution
-normalizes the selected odd prime core `P = O_p(U)`. -/
-public theorem firstCase_centralizer_t_le_normalizer_primeCore
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c) :
-    Subgroup.centralizer ({od.d.bg.t} : Set G) ≤
-      Subgroup.normalizer (qCoreOf od.d.bg.U od.p : Set G) := by
-  intro x hx
-  have hxH : x ∈ od.d.bg.H := by
-    rw [od.d.bg.H_eq_centralizer]
-    exact hx
-  exact firstCase_H_le_normalizer_primeCore c od hxH
-
-/-- If `g` conjugates the distinguished involution `t` to `t₂`, then
-`C_G(t₂)` normalizes the conjugate `O_p(U)^g`. -/
-public theorem firstCase_centralizer_t2_le_normalizer_conjugate_primeCore
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c)
-    (g : G) (hg : g * od.d.bg.t * g⁻¹ = od.d.bg.t2) :
-    Subgroup.centralizer ({od.d.bg.t2} : Set G) ≤
-      Subgroup.normalizer
-        ((qCoreOf od.d.bg.U od.p).map (MulAut.conj g).toMonoidHom : Set G) := by
-  let P : Subgroup G := qCoreOf od.d.bg.U od.p
-  let Pg : Subgroup G := P.map (MulAut.conj g).toMonoidHom
-  have hNP : Subgroup.centralizer ({od.d.bg.t} : Set G) ≤
-      Subgroup.normalizer (P : Set G) :=
-    firstCase_centralizer_t_le_normalizer_primeCore c od
-  intro z hz
-  have hzcomm : z * od.d.bg.t2 = od.d.bg.t2 * z :=
-    Subgroup.mem_centralizer_singleton_iff.mp hz
-  have ht_eq : od.d.bg.t = g⁻¹ * od.d.bg.t2 * g := by
-    calc
-      od.d.bg.t = g⁻¹ * (g * od.d.bg.t * g⁻¹) * g := by group
-      _ = g⁻¹ * od.d.bg.t2 * g := by rw [hg]
-  have hforward : ∀ w : G, w ∈ Subgroup.centralizer ({od.d.bg.t2} : Set G) →
-      ∀ y : G, y ∈ Pg → w * y * w⁻¹ ∈ Pg := by
-    intro w hw y hy
-    rcases Subgroup.mem_map.mp hy with ⟨p, hp, rfl⟩
-    have hwcomm : w * od.d.bg.t2 = od.d.bg.t2 * w :=
-      Subgroup.mem_centralizer_singleton_iff.mp hw
-    let a : G := g⁻¹ * w * g
-    have haCent : a ∈ Subgroup.centralizer ({od.d.bg.t} : Set G) := by
-      rw [Subgroup.mem_centralizer_singleton_iff]
-      calc
-        a * od.d.bg.t = (g⁻¹ * w * g) * (g⁻¹ * od.d.bg.t2 * g) := by rw [ht_eq]
-        _ = g⁻¹ * (w * od.d.bg.t2) * g := by group
-        _ = g⁻¹ * (od.d.bg.t2 * w) * g := by rw [hwcomm]
-        _ = (g⁻¹ * od.d.bg.t2 * g) * (g⁻¹ * w * g) := by group
-        _ = od.d.bg.t * a := by rw [← ht_eq]
-    have haN : a ∈ Subgroup.normalizer (P : Set G) := hNP haCent
-    have haP : a * (p : G) * a⁻¹ ∈ P :=
-      ((Subgroup.mem_normalizer_iff.mp haN) (p : G)).1 hp
-    have hw_eq : w = g * a * g⁻¹ := by
-      dsimp [a]
-      group
-    have htarget : w * (g * (p : G) * g⁻¹) * w⁻¹ =
-        g * (a * (p : G) * a⁻¹) * g⁻¹ := by
-      calc
-        w * (g * (p : G) * g⁻¹) * w⁻¹ =
-            (g * a * g⁻¹) * (g * (p : G) * g⁻¹) * (g * a * g⁻¹)⁻¹ := by
-          rw [hw_eq]
-        _ = g * (a * (p : G) * a⁻¹) * g⁻¹ := by group
-    refine Subgroup.mem_map.mpr ⟨a * (p : G) * a⁻¹, haP, ?_⟩
-    change g * (a * (p : G) * a⁻¹) * g⁻¹ =
-      w * (g * (p : G) * g⁻¹) * w⁻¹
-    exact htarget.symm
-  apply Subgroup.mem_normalizer_iff.mpr
-  intro x
-  constructor
-  · intro hx
-    exact hforward z hz x hx
-  · intro hx
-    have hz_inv_comm : z⁻¹ * od.d.bg.t2 = od.d.bg.t2 * z⁻¹ := by
-      have h := congrArg Inv.inv hzcomm
-      have ht2inv : od.d.bg.t2⁻¹ = od.d.bg.t2 :=
-        inv_eq_of_mul_eq_one_right (by simpa [pow_two] using od.d.bg.t2_involution.2)
-      simpa [mul_inv_rev, ht2inv] using h.symm
-    have hz_inv : z⁻¹ ∈ Subgroup.centralizer ({od.d.bg.t2} : Set G) := by
-      rw [Subgroup.mem_centralizer_singleton_iff]
-      exact hz_inv_comm
-    have hy := hforward z⁻¹ hz_inv (z * x * z⁻¹) hx
-    have hEq : z⁻¹ * (z * x * z⁻¹) * z = x := by group
-    simpa [Pg, hEq] using hy
-
-/-- `P^g = O_p(U)^g` is normal in `H^g`. -/
-public theorem firstCase_Pg_normal_in_Hg
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G)
-    (od : FirstCaseOrientedPrimeData c) (g : G) :
-    IsNormalIn ((qCoreOf od.d.bg.U od.p).map (MulAut.conj g).toMonoidHom)
-      (od.d.bg.H.map (MulAut.conj g).toMonoidHom) := by
-  let P : Subgroup G := qCoreOf od.d.bg.U od.p
-  let Pg : Subgroup G := P.map (MulAut.conj g).toMonoidHom
-  let Hg : Subgroup G := od.d.bg.H.map (MulAut.conj g).toMonoidHom
-  have hPN : IsNormalIn P od.d.bg.H := firstCase_P_normal_in_H c od
-  have hPleH : P ≤ od.d.bg.H := hPN.1
-  refine ⟨?_, ?_⟩
-  · intro x hx
-    rcases (Subgroup.mem_map).1 hx with ⟨y, hy, rfl⟩
-    exact Subgroup.mem_map.mpr ⟨y, hPleH hy, rfl⟩
-  · intro hg hhg xg hxg
-    rcases (Subgroup.mem_map).1 hhg with ⟨h, hh, rfl⟩
-    rcases (Subgroup.mem_map).1 hxg with ⟨x, hx, rfl⟩
-    have hconj : h * x * h⁻¹ ∈ P := hPN.2 h hh x hx
-    exact Subgroup.mem_map.mpr ⟨h * x * h⁻¹, hconj, by
-      change g * (h * x * h⁻¹) * g⁻¹ =
-        (g * h * g⁻¹) * (g * x * g⁻¹) * (g * h * g⁻¹)⁻¹
-      group⟩
 
 /-- Intersection of two normal-in-`K` subgroups is normal in `K`. -/
 public theorem isNormalIn_inf

@@ -107,10 +107,6 @@ theorem exists_mem_le_axis (hΔ : IsWeakTI R Δ) {P E : Subgroup G} (hP : P ∈ 
     (special_of_not_commuting hR hiso hnd hΩ hΔ hP hE hEΔ hD hDE).1 hxD hx1 he
     ((mem_axis.1 hx).2 e he))
 
-omit [Finite G] hR hiso hnd hΩ in
-theorem le_axis_self {P E : Subgroup G} (hP : P ∈ Δ) (hE : E ∈ lambdaSet R P) :
-    P ≤ axis Δ E :=
-  (le_axis_iff hP).2 hE.1.2.2
 
 theorem not_gen_le_axis (hΔ : IsWeakTI R Δ) {P E : Subgroup G} (hP : P ∈ Δ)
     (hE : E ∈ lambdaSet R P) (hEΔ : E ∉ Δ) : ¬ gen Δ ≤ axis Δ E := fun h => by

@@ -12,19 +12,12 @@ open CFSG.ClassicalInvolution.Asc77
 open CFSG.RankThree.PartTwo.KFacts
 open scoped MatrixGroups commutatorElement
 
-theorem z2_cases (g : Multiplicative (ZMod 2)) : g = 1 ∨ g ≠ 1 ∧ g * g = 1 := by
-  revert g
-  decide
 
 theorem z2_mul_of_ne_one {g h : Multiplicative (ZMod 2)} (hg : g ≠ 1) (hh : h ≠ 1) :
     g * h = 1 := by
   revert g h
   decide
 
-theorem z2_mul_ne_one {g h : Multiplicative (ZMod 2)} (hg : g ≠ 1) (hh : h = 1) :
-    g * h ≠ 1 := by
-  rw [hh, mul_one]
-  exact hg
 
 section Psi
 
@@ -58,11 +51,6 @@ theorem epsG_inv {x : G} (hx : x ∈ Subgroup.normalizer (L : Set G)) :
   rw [phiG_inv hx]
   exact map_inv _ _
 
-theorem rhoG_inv {x : G} (hx : x ∈ Subgroup.normalizer (L : Set G)) :
-    rhoG L e x⁻¹ = (rhoG L e x)⁻¹ := by
-  unfold rhoG
-  rw [phiG_inv hx]
-  exact map_inv _ _
 
 theorem epsG_one : epsG hK L e 1 = 1 := by
   simp [epsG, phiG_one]

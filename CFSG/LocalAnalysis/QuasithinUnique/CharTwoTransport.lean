@@ -13,9 +13,6 @@ theorem QuasithinUnique.charTwo_iff_isCharacteristicP {G : Type*} [Group G] {K :
     QuasithinUnique.CharTwo K ↔ IsCharacteristicP 2 K := by
   rw [QuasithinUnique.charTwo_iff_internal, IsCharacteristicP]
 
-theorem Assembly.isTwoLocal_iff_isPLocal {G : Type*} [Group G] {H : Subgroup G} :
-    Assembly.IsTwoLocal H ↔ IsPLocal 2 H :=
-  Iff.rfl
 
 theorem Assembly.isCharTwoType_iff_isCharacteristicPType {G : Type*} [Group G] :
     Assembly.IsCharTwoType G ↔ IsCharacteristicPType G 2 :=

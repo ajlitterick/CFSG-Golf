@@ -85,11 +85,6 @@ namespace D1ComponentConfig3
 variable {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
   {Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p)}
 
-theorem exists_isComponentOf (h : D1ComponentConfig3 p P M H R Rbar) :
-    ∃ K : Subgroup (H ⧸ primeComplementCore (G := H) p), IsComponentOf K ⊤ := by
-  obtain ⟨-, -, -, -, K, hK, -⟩ :=
-    exists_reducedNongeneration_of_not_hasPrimeConstraint3 h.glob.kProper h.ext h.notCon
-  exact ⟨K, hK⟩
 
 theorem pRank_eq_three (h : D1ComponentConfig3 p P M H R Rbar) :
     Open.pRank p (P : Subgroup G) = 3 :=

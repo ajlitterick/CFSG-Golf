@@ -16,7 +16,6 @@ theorem weyl_coe :
     ((weyl F : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) = !![0, -1; 1, 0] :=
   rfl
 
-theorem weyl_eq_J₀ : weyl F = J₀ F := rfl
 
 theorem weyl_apply_00 : ((weyl F : SpecialLinearGroup (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) 0 0 =
     0 := by simp [weyl]
@@ -129,10 +128,6 @@ theorem det_rMat {X : SpecialLinearGroup (Fin 2) F}
     (hX : X * weyl F * X⁻¹ = minusIdentity F * weyl F) : GL (Fin 2) F :=
   GeneralLinearGroup.mkOfDetNeZero (rMat X) (by rw [det_rMat hX]; exact h2)
 
-theorem rGL_coe (X : SpecialLinearGroup (Fin 2) F) (h2 : (2 : F) ≠ 0)
-    (hX : X * weyl F * X⁻¹ = minusIdentity F * weyl F) :
-    ((rGL X h2 hX : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F) = rMat X :=
-  rfl
 
 theorem weyl_mul_rGL (X : SpecialLinearGroup (Fin 2) F) (h2 : (2 : F) ≠ 0)
     (hX : X * weyl F * X⁻¹ = minusIdentity F * weyl F) :

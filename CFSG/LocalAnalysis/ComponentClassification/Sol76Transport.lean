@@ -193,24 +193,5 @@ theorem conjugate_solomonKStarOf (H : Subgroup G) (g : G) :
     conjugate (solomonKStarOf H) g = solomonKStarOf (conjugate H g) :=
   map_solomonKStarOf (MulAut.conj g⁻¹) H
 
-omit φ [Group G'] [Finite G] in
-theorem isPerfect_solomonKStarOf (H : Subgroup G) : Group.IsPerfect (solomonKStarOf H) := by
-  rw [Subgroup.isPerfect_iff]
-  refine le_antisymm (Subgroup.commutator_le_self _) ?_
-  unfold solomonKStarOf
-  refine iSup₂_le fun K hK => ?_
-  have hKK : ⁅K, K⁆ = K := hK.2.1.1.1
-  rw [← hKK]
-  exact commutator_mono (le_iSup₂_of_le K hK le_rfl) (le_iSup₂_of_le K hK le_rfl)
-
-omit φ [Group G'] in
-theorem normalizer_le_normalizer_solomonKStarOf (H : Subgroup G) :
-    normalizer (H : Set G) ≤ normalizer (solomonKStarOf H : Set G) := by
-  intro g hg
-  apply mem_normalizer_iff_map_conj_eq.mpr
-  change (solomonKStarOf H).map (MulAut.conj g).toMonoidHom = solomonKStarOf H
-  rw [map_solomonKStarOf (MulAut.conj g)]
-  have hH : H.map (MulAut.conj g).toMonoidHom = H := mem_normalizer_iff_map_conj_eq.mp hg
-  rw [hH]
 
 end CFSG.ComponentClassification.Sol76

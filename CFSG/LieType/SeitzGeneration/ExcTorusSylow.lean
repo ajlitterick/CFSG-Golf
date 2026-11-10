@@ -61,14 +61,6 @@ theorem exists_elemAbelian (h : SylowTorus G p m) :
 theorem rankLE2 (h : SylowTorus G p m) (hp : p.Prime) (hm : m ≤ 2) : RankLE2 p G := fun _ hF =>
   (h.rank_le hp hF).trans (Nat.pow_le_pow_right hp.pos hm)
 
-theorem not_rankLE2 (h : SylowTorus G p m) (hp : p.Prime) (hm : 3 ≤ m) : ¬ RankLE2 p G := by
-  intro hr
-  obtain ⟨E, hE, hcard⟩ := h.exists_elemAbelian
-  have h1 := hr E hE
-  rw [hcard] at h1
-  have h2 : p ^ 3 ≤ p ^ m := Nat.pow_le_pow_right hp.pos hm
-  have h3 : p ^ 2 < p ^ 3 := Nat.pow_lt_pow_right hp.one_lt (by norm_num)
-  omega
 
 theorem of_mulEquiv {H : Type*} [Group H] (h : SylowTorus G p m) (e : G ≃* H) :
     SylowTorus H p m := by

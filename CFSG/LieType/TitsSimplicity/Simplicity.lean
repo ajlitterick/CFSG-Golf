@@ -79,10 +79,6 @@ local notation "cs" => (coxeterMatrix D.isFiniteType).toCoxeterSystem
 set_option hygiene false in
 local notation "ρ" => weylAction D.isFiniteType
 
-theorem isIndecomposable_cartan_iff_connected [NeZero D.rank] :
-    IsIndecomposable D.cartan ↔ (dynkinGraph D.cartan).Connected :=
-  ⟨connected_of_isIndecomposable fun _ _ h => D.isFiniteType.apply_eq_zero_iff.1 h,
-    isIndecomposable_of_connected⟩
 
 variable (hct : IsCTGroupDatum cs ρ D.roots D.rootGroup n H) (hext : SteinbergExtras D n H)
 

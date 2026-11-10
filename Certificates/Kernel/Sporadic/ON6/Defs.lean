@@ -36,9 +36,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.CB CFSG.KS.CH CFSG.KS.ON
   allN (Nat.mul 2 (LEN i)) fun j => schG n nb (fun i => stepX F FI (IDX i) (LEN i))
     (fun i => invX F FI (IDX i) (LEN i)) PTS POS PAR LAB Mr B i h j
 
-@[expose] noncomputable def schK' (n nb : Nat) (F FI : Nat → Nat → Nat) (B LEN Mr : Nat → Nat)
-    (IDX : Nat → Nat → Nat) (PTS POS PAR LAB : Nat → Nat → Nat) : Bool :=
-  allN nb fun i => allN (Mr i) (schAll n nb F FI B LEN Mr IDX PTS POS PAR LAB i)
 
 @[expose] noncomputable def schSl (n nb g c : Nat) (F FI : Nat → Nat → Nat) (B LEN Mr : Nat → Nat)
     (IDX : Nat → Nat → Nat) (PTS POS PAR LAB : Nat → Nat → Nat) (s : Nat) : Bool :=

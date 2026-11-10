@@ -21,10 +21,6 @@ section Cit3
         ∀ c ∈ Subgroup.center Y, c ≠ 1 → (∃ y : Y, y * t * y⁻¹ = t * c) → ¬ TightE4 Y →
           GoodThreeElement R t
 
-theorem tightCentTwinLift_of_lift (h : ∀ n, TightLargeLift n) : ∀ n, TightCentTwinLift n := by
-  intro n hA hb Y _ _ hn R S t hd hc hE2 hQ hsmall c hcZ hc1 hy _
-  obtain ⟨y, hy⟩ := hy
-  exact h n hA hb Y hn R S t hd hc hE2 hQ hsmall (hd.not_edgeless_of_twin hcZ hc1 hy)
 
 theorem tightStep_of_parts₅ (htw : ∀ n, TightTwistAllTwin n) (h1 : TightSmallBase)
     (h2 : ∀ n, TightLargeEdgeS n) (h3 : ∀ n, TightLargeLiftS n)

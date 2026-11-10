@@ -56,8 +56,6 @@ theorem elt_misc :
     f1.1 = 1 ∧ f2.1 = 1 ∧ (f1 * f2).1 = 1 :=
   Certificates.certificate5091.2.2.2.2.2.2.2.1
 
-theorem elt_misc' : e1.2 = 1 ∧ e2.2 = 1 ∧ (e1 * e2).2 = 1 :=
-  Certificates.certificate5091.2.2.2.2.2.2.2.2.1
 
 theorem conj_e1_e2 :
     (((swap (1 : Fin 5) 2, swap (0 : Fin 4) 1) : Amb 5).2 * x4 =

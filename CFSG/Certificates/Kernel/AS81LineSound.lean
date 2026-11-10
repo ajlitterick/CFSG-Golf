@@ -83,12 +83,6 @@ theorem foldl_innerL {n : Nat} {G : Array (Array Nat)} {u v : Nat} :
 @[expose] def proj (T : Array Nat × Array Nat × Array (Nat × Nat) × Array (Nat × Nat × Nat) × Nat) :
     St := (T.1, T.2.1, T.2.2.1, T.2.2.2.1)
 
-theorem step_size {n : Nat} {G : Array (Array Nat)} {st : St} (hs : st.1.size = n) (h : Nat) :
-    (mergeSearchStep n G st h).1.size = n := by
-  rw [step_eq]
-  split_ifs
-  · exact (foldl_innerL (G := G) _ st hs).2
-  · exact hs
 
 theorem innerA_qsize {n : Nat} {G : Array (Array Nat)} {u v : Nat} (s : St) (i : Nat) :
     s.2.2.1.size ≤ (innerA n G u v s i).2.2.1.size := by

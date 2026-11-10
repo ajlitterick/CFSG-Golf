@@ -15,9 +15,6 @@ section Bridge
 
 variable {G : Type*} [Group G]
 
-theorem open_isSubnormal_top_of_mathlib {H : Subgroup G} (h : H.IsSubnormal) :
-    CFSG.Open.IsSubnormal H ⊤ :=
-  CFSG.Open.IsSubnormal.of_mathlib h
 
 theorem mathlib_isSubnormal_of_open_top {H : Subgroup G} (h : CFSG.Open.IsSubnormal H ⊤) :
     H.IsSubnormal :=

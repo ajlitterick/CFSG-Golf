@@ -25,16 +25,6 @@ theorem inf_centralizer_generalizedFitting_le [Finite G] (X : Subgroup G) :
     exact Subtype.ext this
   exact ⟨⟨x, hxX⟩, CFSG.centralizer_generalizedFitting_le ↥X hc, rfl⟩
 
-theorem map_kOf_eq_layer [Finite G] (X : Subgroup G) :
-    ((kOf X).subgroupOf X).map (QuotientGroup.mk' (CFSG.solvableRadical ↥X)) =
-      CFSG.layer (↥X ⧸ CFSG.solvableRadical ↥X) := by
-  rw [subgroupOf_kOf, oStar_eq_comap_layer]
-  exact Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective _) _
-
-theorem layer_quotient_eq_generalizedFitting [Finite G] (X : Subgroup G) :
-    CFSG.layer (↥X ⧸ CFSG.solvableRadical ↥X) =
-      CFSG.generalizedFitting (↥X ⧸ CFSG.solvableRadical ↥X) :=
-  (generalizedFitting_eq_layer_of_solvableRadical_eq_bot solvableRadical_quotient).symm
 
 theorem isSemisimple_layer_quotient [Finite G] (X : Subgroup G) :
     IsSemisimple (CFSG.layer (↥X ⧸ CFSG.solvableRadical ↥X)) :=
@@ -218,8 +208,6 @@ theorem isKSubgroup_iff_kOf_eq_self [Finite G] (X : Subgroup G) : IsKSubgroup X 
     have := isSemisimple_layer_quotient X
     rwa [h] at this
 
-theorem kOf_isKSubgroup [Finite G] (X : Subgroup G) : IsKSubgroup (kOf X) :=
-  (isKSubgroup_iff_kOf_eq_self _).mpr (kOf_kOf X)
 
 theorem le_kOf_of_isKSubgroup [Finite G] {X N : Subgroup G} (hNX : N ≤ X)
     (hN : (N.subgroupOf X).Normal) (hK : IsKSubgroup N) : N ≤ kOf X := by

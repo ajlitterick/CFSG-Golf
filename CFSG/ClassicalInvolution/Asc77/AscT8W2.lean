@@ -69,59 +69,6 @@ theorem s26XEdgeless_E4 [IsSimpleGroup G] (hs : Std8 p f Ω K J S R T W z t)
   exact s26_dEdgeless_of_muIsoZ2 (l7_5_2_proved p f) hs.stand.odd hs.stand.five hGen.hyp
     hGen.aEmpty hW' hZ2
 
-theorem c26_3_E4 [IsSimpleGroup G] (hs : Std8 p f Ω K J S R T W z t) (hdisc : ¬ DConnected Ω)
-    (hE : MuIsoE4 Ω W) :
-    (SectionLieType p f Ω (omegaNbrGen Ω K) .PSL 3 ∧ p ^ f % 4 = 3) ∨
-    (SectionLieType p f Ω (omegaNbrGen Ω K) .PSU 3 ∧ p ^ f % 4 = 1) := by
-  have hp : p ≠ 2 := hs.stand.odd
-  have hq : 5 ≤ p ^ f := hs.stand.five
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  have hA : ∀ L ∈ Ω, AEmpty Ω L := hs.stand.aEmpty
-  have hn : CITBelowU p f (Nat.card G) := hs.stand.below f hq
-  set X : Subgroup G := omegaNbrGen Ω K with hXdef
-  have hXp : X ≠ ⊤ := s26XProper_E4 hs hdisc
-  have hDE : DEdgeless (oddQuotientFamily (restrictFamily Ω X)) := s26XEdgeless_E4 hs hdisc hE
-  have htop : (⊤ : Subgroup (↥X ⧸ classicalInvolutionOddCore ↥X)) ∉
-      oddQuotientFamily (restrictFamily Ω X) := s26_top_notMem_of_c26_1 (T8R.c26_1 p f) hs hdisc
-  obtain ⟨W', hW', hZ2⟩ := s26XMuZ2_E4_of_data hs hE hXp
-  have hlt : Nat.card (↥X ⧸ classicalInvolutionOddCore ↥X) < Nat.card G := by
-    have h1 : Nat.card ↥X < Nat.card G :=
-      lt_of_le_of_ne (Subgroup.card_le_card_group X)
-        (fun h => hXp (Subgroup.eq_top_of_card_eq X h))
-    exact lt_of_le_of_lt (Nat.card_le_card_of_surjective _ QuotientGroup.mk_surjective) h1
-  have hL : layerHull Ω X = X := s26_layerHull_omegaNbrGen Ω K
-  have hGen : GenSection p f (oddQuotientFamily (restrictFamily Ω X)) := by
-    have := genSection_layerHull hp hq hΩ hA X
-    rwa [hL] at this
-  have hJX : J ≤ X := le_iSup₂ (f := fun N (_ : N ∈ omegaNbr Ω K) => N) J hs.hJ
-  have hne : (oddQuotientFamily (restrictFamily Ω X)).Nonempty :=
-    ⟨_, ⟨J.subgroupOf X, ⟨J, hs.hJ.1, hJX, rfl⟩, rfl⟩⟩
-  have hTrans : TransSection p f (oddQuotientFamily (restrictFamily Ω X)) := by
-    rcases transSection_or_dConnected hp hq (thm4Below_of_citBelow hn) hlt hGen with hc | ht
-    · exfalso
-      obtain ⟨K₀, hK₀⟩ := hne
-      apply htop
-      have hall : omegaGen (oddQuotientFamily (restrictFamily Ω X)) = K₀ := by
-        refine le_antisymm (iSup₂_le fun L hL => ?_) (le_omegaGen hK₀)
-        rw [eq_of_dConnected_of_dEdgeless hc hDE hL hK₀]
-      rw [← hGen.gen, hall]
-      exact hK₀
-    · exact ht
-  have hrows := ih8MuTableSect_proved (p := p) (f := f) (Nat.card G) hn hp hq
-    (↥X ⧸ classicalInvolutionOddCore ↥X) hlt _ hTrans hne htop W' hW'
-  have hlie := hrows.1.mp hZ2
-  by_cases hpi : p ^ f % 4 = 1
-  · right
-    refine ⟨?_, hpi⟩
-    have hpi' : piSign p f = true := by simp [piSign, hpi]
-    rw [hpi'] at hlie
-    exact sectionLieType_of_hasLieType hGen.gen (by simpa using hlie)
-  · left
-    have hp2 : p ^ f % 2 = 1 := Nat.odd_iff.mp (((Fact.out : p.Prime).odd_of_ne_two hp).pow)
-    refine ⟨?_, by omega⟩
-    have hpi' : piSign p f = false := by simp [piSign, hpi]
-    rw [hpi'] at hlie
-    exact sectionLieType_of_hasLieType hGen.gen (by simpa using hlie)
 
 end Sec
 

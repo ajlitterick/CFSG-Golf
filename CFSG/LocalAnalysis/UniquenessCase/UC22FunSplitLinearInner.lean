@@ -52,17 +52,6 @@ theorem odd_normalizer_inner_longRootSL2 {F : Type} [Field F] [Finite F]
   obtain ⟨y, rfl⟩ := hxrange
   exact hr y
 
-theorem odd_normalizer_inner_fundamental_psl {F : Type} [Field F] [Finite F]
-    (hodd : Odd (Nat.card F)) (h3 : 3 < Nat.card F) {m : ℕ} (hm : 1 ≤ m)
-    {R : Subgroup SL(m + 1, F)}
-    (hR : R ∈ CFSG.ClassicalInvolution.Generic.fundamentalSubgroups .PSL
-      (CFSG.LieType.Universal.SpecialLinear.rootDatum m F))
-    {g : SL(m + 1, F)} (hg : g ∈ normalizer (R : Set SL(m + 1, F)))
-    (hgo : Odd (orderOf g)) :
-    ∃ r ∈ R, ∀ x ∈ R, g * x * g⁻¹ = r * x * r⁻¹ := by
-  obtain ⟨z, hz⟩ := CFSG.ClassicalInvolution.RouteD.fundamentalSubgroups_psl_subset
-    (by omega) hR
-  exact odd_normalizer_inner_longRootSL2 hodd h3 (by omega) hz hg hgo
 
 theorem odd_normalizer_inner_longRootSL2_all {F : Type} [Field F] [Finite F]
     (hodd : Odd (Nat.card F)) {n : ℕ} (hn : 2 ≤ n)

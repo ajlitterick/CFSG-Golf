@@ -33,9 +33,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Raw
         s))))) (nat_lit 0),
     nat_lit 0))
 
-@[expose] noncomputable def srchAR (w kS NR NL : Nat) (LT PT QT LR : Nat → Nat) (bs : List Nat)
-    (b0 : Nat) (X Y : Nat → Nat) (lo len : Nat) : Nat :=
-  sumN len (fun j => srchAAt w kS NR NL LT PT QT LR bs b0 X Y (Nat.add lo j))
 
 @[expose] noncomputable def twK (w NR NL : Nat) (LT PT : Nat → Nat) (bs : List Nat) (U : Nat → Nat)
     (F : Nat) : Bool :=

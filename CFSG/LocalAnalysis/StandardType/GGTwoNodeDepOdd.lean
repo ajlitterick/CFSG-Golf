@@ -691,48 +691,5 @@ theorem ggTwoNodeOdd_kside (hFixK : GGTBFixNbrInput) (hOrb : GGResCentBoundInput
     l05nOB2_nt hH hx e hφ hAL htm,
     l05nOB2_card hOrb hp2 hH hx hN e hφ hAL F htm hform⟩
 
-theorem ggTwoNodeOdd_oneK_false (hKG : GGReflClassLargeInput') (hOrb : GGResCentBoundInput)
-    (hFix : GGTBFixInput) (hFixK : GGTBFixNbrInput) {G : Type} [Group G] [Finite G] {p : ℕ}
-    [Fact p.Prime] (hp2 : p ≠ 2) {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G}
-    {K : Subgroup G} (hH : GGResHyp p B Bs x L D J y K) (hx : x ∈ Bs) (hxL : x ∉ L) {N : ℕ}
-    (hN : 11 ≤ N) (hpN : p ∣ N) {Λ : Type} [Fintype Λ] [DecidableEq Λ] {ML : CoxeterMatrix Λ}
-    {CL : Matrix Λ Λ ℤ} (e : Fin (N - 1) ≃ Λ) (hML : ML = (CoxeterMatrix.A (N - 1)).reindex e)
-    (hCL : GGIntCartan ML CL) {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {ι : Additive ↥Bs ≃+ V} {φ : Λ → MulAut ↥Bs} {h : Λ → V}
-    {α : Λ → Module.Dual (ZMod p) V}
-    (hφ : ∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i)
-    (hpair : ∀ i j, α i (h j) = (CL i j : ZMod p))
-    (hAL : ggAutomizer L Bs = Subgroup.closure (Set.range φ))
-    (hK : GGResSideDatum p Bs K J) : False := by
-  have hN5 : 5 ≤ N := by omega
-  haveI : Fintype ↥Bs := Fintype.ofFinite ↥Bs
-  haveI : Finite V := Finite.of_equiv (Additive ↥Bs) ι.toEquiv
-  haveI : Module.Finite (ZMod p) V := Module.Finite.of_finite
-  have hdep : ¬ LinearIndependent (ZMod p) h :=
-    ggXDatumA_dep hFix hp2 hH hx hxL hN5 hpN e hML hCL hφ hpair hAL
-  let F : GGDepAFrame p N (fun i => h (e i)) (fun i => α (e i))
-      (ι (Additive.ofMul ⟨x, hx⟩)) :=
-    ggXDatumA_frame hFix hp2 hH hx hN5 hpN e hML hCL hφ hpair hAL hdep
-  obtain ⟨t, ha, αa, htK, htlin, hαaha, hαax, hjoin, hnt, hcard⟩ :=
-    ggTwoNodeOdd_kside hFixK hOrb hp2 hH hx hN e hφ hAL F hK
-  let r : Fin (N - 1) → (V ≃ₗ[ZMod p] V) := fun i => ggLin (p := p) ι (φ (e i))
-  let ra : V ≃ₗ[ZMod p] V := ggLin (p := p) ι t
-  have hr : ∀ i v, r i v = v - α (e i) v • h (e i) := by
-    intro i v
-    exact hφ (e i) v
-  have hra : ∀ v, ra v = v - αa v • ha := by
-    intro v
-    exact htlin v
-  have hnt' : ∀ g ∈ Subgroup.closure (Set.range r ∪ {ra}),
-      ¬ (Module.finrank (ZMod p) (ggLinMove g) = 1 ∧ ∀ w, g (g w - w) = g w - w) := by
-    simpa only [r, ra] using hnt
-  have hcard' : Nat.card ↥(Subgroup.closure (Set.range r ∪ {ra})) ≤
-      p ^ N * (6 * (p - 1) * Nat.factorial N) := by
-    simpa only [r, ra] using hcard
-  by_cases hHa : ha ∈ Submodule.span (ZMod p) (Set.range (fun i : Fin (N - 1) => h (e i)))
-  · exact ggDepAOdd_caseII_false hKG hp2 hN F r hr ra ha αa hra hαaha hαax hnt' hcard' hHa
-  · refine ggDepAOdd_caseI_false hKG hp2 hN F r hr ra ha αa hra hαaha ?_ hαax hnt' hcard' hHa
-    obtain ⟨c, hc⟩ := hjoin
-    exact ⟨c, hc⟩
 
 end CFSG.StandardType

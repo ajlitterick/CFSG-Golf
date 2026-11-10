@@ -150,23 +150,5 @@ variable {V}
 
 end Normal
 
-theorem dempwolff_gln_two_natural_module_splitting {G : Type*} [Group G] [Finite G] {n : ℕ}
-    (hn : 6 ≤ n) (V : Subgroup G) [V.Normal] [IsElementaryAbelian 2 V] (hV : Nat.card V = 2 ^ n)
-    (hC : Subgroup.centralizer (V : Set G) ≤ V) (hGV : Nonempty (G ⧸ V ≃* GL (Fin n) (ZMod 2))) :
-    ∃ K : Subgroup G, V ⊔ K = ⊤ ∧ V ⊓ K = ⊥ := by
-  have : Finite (Additive V) := inferInstanceAs (Finite V)
-  have : FiniteDimensional (ZMod 2) (Additive V) := Module.Finite.of_finite
-  have hfin : finrank (ZMod 2) (Additive V) = n := by
-    have h1 := Module.natCard_eq_pow_finrank (K := ZMod 2) (V := Additive V)
-    rw [Nat.card_zmod, show Nat.card (Additive V) = Nat.card V from rfl, hV] at h1
-    exact (Nat.pow_right_injective le_rfl h1).symm
-  obtain ⟨e⟩ := hGV
-  let X := natExtOfNormal hC (Nat.card_congr e.toEquiv) hfin
-  have hXV : X.V = V := by
-    ext g
-    exact ⟨fun ⟨e, he⟩ => he ▸ (Additive.toMul e).2, fun hg => ⟨Additive.ofMul ⟨g, hg⟩, rfl⟩⟩
-  obtain ⟨K, hK, hK'⟩ := X.exists_complement (by omega)
-  rw [hXV] at hK hK'
-  exact ⟨K, hK', hK⟩
 
 end CFSG.GroupTheory.GLnTwoSplitting

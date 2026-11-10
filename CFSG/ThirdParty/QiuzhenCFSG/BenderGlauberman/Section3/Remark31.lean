@@ -60,20 +60,6 @@ public lemma restrictU_orbit_mem (c : Hyp11 G) (h12 : Hyp12 c)
   rcases (Finset.mem_image.mp hμ) with ⟨l, hl, rfl⟩
   exact restrictU_lambda_mul c h12 l ν
 
-/-- The sum over an orbit of the restrictions equals the orbit size times the
-common restriction. -/
-public lemma restrictU_orbit_sum (c : Hyp11 G) (h12 : Hyp12 c)
-    [Fintype ↥(LambdaHom c.H0 c.U)] (ν : ClassFunction (↥c.H0)) :
-    (∑ μ ∈ orbit c.H0 c.U ν, restrictU c h12 μ) =
-      (orbit c.H0 c.U ν).card • restrictU c h12 ν := by
-  calc
-    (∑ μ ∈ orbit c.H0 c.U ν, restrictU c h12 μ)
-        = (∑ μ ∈ orbit c.H0 c.U ν, restrictU c h12 ν) := by
-            refine Finset.sum_congr rfl ?_
-            intro μ hμ
-            exact restrictU_orbit_mem c h12 hμ
-    _ = (orbit c.H0 c.U ν).card • restrictU c h12 ν := by
-            rw [Finset.sum_const]
 
 /-- Since `S'` centralizes `U`, every element of `S'` fixes every character of
 `U` under conjugation. -/

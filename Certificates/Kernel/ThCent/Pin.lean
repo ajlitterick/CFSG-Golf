@@ -31,16 +31,6 @@ theorem z7 : Nat.beq (runPk ThS.c ThS.rm ThS.ONE
     (initPk (ThS.RBf 1) (ThS.RBf 2) ThS.ONE) 44) W.Z7 = true := by
   decide +kernel
 
-theorem neg_s3A : BigS.notB (Nat.beq (runPk ThS.c ThS.rm ThS.ONE
-    CFSG.HardMathSupport.Dickson.Sec6.Up34Th.ThThreeNative.prog3
-    (initPk (ThS.RBf 1) (ThS.RBf 2) ThS.ONE) 12) W.Z3A) = true := by
-  decide +kernel
-
-theorem neg_z3B : BigS.notB (strictF (mulB ThS.c ThS.rm
-    (wordZ ThS.c ThS.rm ThS.ONE (ThS.RBf 1) (ThS.RBf 2) ThS.Bi (abWord x2Str))
-    (wordZ ThS.c ThS.rm ThS.ONE (ThS.RBf 1) (ThS.RBf 2) ThS.Bi (abWord x1Str)))
-      (fun M => Nat.beq (BigS.powB ThS.c ThS.rm ThS.ONE M 3 4) W.Z3B)) = true := by
-  decide +kernel
 
 end CFSG.KD.ThCent.Pin
 

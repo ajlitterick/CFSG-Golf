@@ -58,11 +58,6 @@ theorem thetaHom_su_mem (ab : AdaptedBasis Q g m) (h2 : (2 : F) ≠ 0) (hm : 3 �
   ((thetaHom ab).comp (SUid (gaussSigma (F := F)) m).subtype).codRestrict (elementaryGroup Q)
     (thetaHom_su_mem ab h2 hm hOE)
 
-theorem coe_thetaSU (ab : AdaptedBasis Q g m) (h2 : (2 : F) ≠ 0) (hm : 3 ≤ m)
-    (hOE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ ≤
-      elementaryGroup Q) (X : SUid (gaussSigma (F := F)) m) :
-    ((thetaSU ab h2 hm hOE X : ↥(elementaryGroup Q)) : V ≃ₗ[F] V) =
-      thetaHom ab (X : GL (Fin m) (GaussField F)) := rfl
 
 theorem thetaSU_injective (ab : AdaptedBasis Q g m) (h2 : (2 : F) ≠ 0) (hm : 3 ≤ m)
     (hOE : ⁅TauCeti.QuadraticMap.orthogonalGroup Q, TauCeti.QuadraticMap.orthogonalGroup Q⁆ ≤

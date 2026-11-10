@@ -61,10 +61,6 @@ namespace CFSG.Certificates.KB
   Nat.rec (motive := fun _ => Bool) true
     (fun q acc => Bool.rec false acc (Nat.ble (letter wd q) eps)) (wN wd)
 
-@[expose] noncomputable def wordsOk3 (Wd R S : Nat → Nat) (inv eps n : Nat) : Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun i acc => Bool.rec false
-      (Bool.rec false acc (lettersLe eps (Wd i))) (wordOk R S inv eps (Wd i))) n
 
 @[expose] noncomputable def sCode (amap : Nat) (x : Nat × Bool) : Nat :=
   Prod.rec (motive := fun _ => Nat) (fun g b =>
@@ -111,10 +107,6 @@ namespace CFSG.Certificates.KB
     (fun r _ ih => Prod.rec (motive := fun _ => Bool) (fun e' ok =>
       Bool.rec ih (Bool.rec ih true (Nat.beq e' e)) ok) (sEnc amap r)) rels
 
-@[expose] noncomputable def relsIn (R : Nat → Nat) (nR amap : Nat) (rels : List (List (Nat × Bool))) :
-    Bool :=
-  Nat.rec (motive := fun _ => Bool) true
-    (fun j acc => Bool.rec false acc (hasRel amap (R j) rels)) nR
 
 end CFSG.Certificates.KB
 

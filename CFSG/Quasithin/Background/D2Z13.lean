@@ -29,35 +29,6 @@ theorem rk_commSub_Nt_A (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) {t u : M
   rw [hsum, hbot, bot_sup_eq]
   omega
 
-theorem centR_le_commutator (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) {s u : MulAut V}
-    (k : KleinData A s u) : centR X s ≤ ⁅pCoreOf 3 X, A⁆ := by
-  intro y hy
-  have hyP := centR_le_pCoreOf X s hy
-  have hinv := inverts_centR hV h k y hy
-  have hy3 := centR_pow_three hV h k hy
-  have hc : ⁅y, u⁆ = y * y := by
-    simp only [commutatorElement_def]
-    calc y * u * y⁻¹ * u⁻¹ = y * (u * y * u⁻¹)⁻¹ := by group
-      _ = y * (y⁻¹)⁻¹ := by rw [hinv]
-      _ = y * y := by rw [inv_inv]
-  have hmem : y * y ∈ ⁅pCoreOf 3 X, A⁆ := hc ▸ Subgroup.commutator_mem_commutator hyP k.hb
-  have : y = (y * y) * (y * y) := by
-    calc y = y ^ 3 * y := by rw [hy3, one_mul]
-      _ = (y * y) * (y * y) := by rw [pow_three']; group
-  rw [this]
-  exact Subgroup.mul_mem _ hmem hmem
-
-theorem commutator_pCoreOf_eq (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) :
-    ⁅pCoreOf 3 X, A⁆ = pCoreOf 3 X := by
-  apply le_antisymm
-  · refine Subgroup.commutator_le.mpr fun g₁ hg₁ g₂ hg₂ => ?_
-    have : ⁅g₁, g₂⁆ = g₁ * (g₂ * g₁⁻¹ * g₂⁻¹) := by
-      simp only [commutatorElement_def]; group
-    rw [this]
-    exact (pCoreOf 3 X).mul_mem hg₁ (h.conj_mem hg₂ ((pCoreOf 3 X).inv_mem hg₁))
-  · obtain ⟨a, b, k⟩ := h.exists_klein hV
-    exact (pCoreOf_eq_sup_centR hV h k).le.trans (sup_le (sup_le (centR_le_commutator hV h k)
-      (centR_le_commutator hV h k.symm)) (centR_le_commutator hV h k.third.symm))
 
 @[expose] def Case7i (X A : Subgroup (MulAut V)) (Pi : Fin 2 → Subgroup (MulAut V)) : Prop :=
   (∃ t u : MulAut V, KleinData A t u ∧ conjBy t (Pi 0) = Pi 1 ∧ conjBy t (Pi 1) = Pi 0 ∧
@@ -112,32 +83,6 @@ theorem D214_classify (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) :
     exact ⟨hr, Or.inr ⟨_, pdecomp_three hV h kt.toTriple h1 h2 h3',
       case7ii_of_three hV h kt.toTriple h1 h2 h3'⟩⟩
 
-theorem exists_pdecomp (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) :
-    ∃ s : ℕ, (s = 2 ∨ s = 3) ∧ ∃ Pi : Fin s → Subgroup (MulAut V),
-      PDecomp X Pi ∧ Set.range Pi = Pfam X := by
-  obtain ⟨-, h1 | h1⟩ := D214_classify hV h
-  · obtain ⟨Pi, hd, -⟩ := h1
-    exact ⟨2, Or.inl rfl, Pi, hd, hd.range_eq hV (pCoreOf_comm hV h)⟩
-  · obtain ⟨Pi, hd, -⟩ := h1
-    exact ⟨3, Or.inr rfl, Pi, hd, hd.range_eq hV (pCoreOf_comm hV h)⟩
-
-theorem D2_14_2 (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) :
-    ∃ s : ℕ, (s = 2 ∨ s = 3) ∧ ∃ Pi : Fin s → Subgroup (MulAut V),
-      (∀ i, Pi i ≤ pCoreOf 3 X ∧ Nat.card (Pi i) = 3) ∧ iSupIndep Pi ∧
-        ⨆ i, Pi i = pCoreOf 3 X ∧ Set.range Pi = Pfam X ∧ ⁅pCoreOf 3 X, A⁆ = pCoreOf 3 X := by
-  obtain ⟨s, hs, Pi, hd, hr⟩ := exists_pdecomp hV h
-  exact ⟨s, hs, Pi, fun i => ⟨hd.le_P i, hd.card_eq i⟩, hd.indep, hd.sup_eq, hr,
-    commutator_pCoreOf_eq hV h⟩
-
-theorem D2_14_3 (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) :
-    ∃ s : ℕ, (s = 2 ∨ s = 3) ∧ ∃ Pi : Fin s → Subgroup (MulAut V),
-      ((∀ i, Pi i ≤ pCoreOf 3 X ∧ Nat.card (Pi i) = 3) ∧ iSupIndep Pi ∧
-        ⨆ i, Pi i = pCoreOf 3 X ∧ Set.range Pi = Pfam X) ∧
-      commV (pCoreOf 3 X) = ⨆ i, commV (Pi i) ∧ iSupIndep (fun i => commV (Pi i)) ∧
-        ∀ i, rk (commV (Pi i)) = 2 := by
-  obtain ⟨s, hs, Pi, hd, hr⟩ := exists_pdecomp hV h
-  exact ⟨s, hs, Pi, ⟨fun i => ⟨hd.le_P i, hd.card_eq i⟩, hd.indep, hd.sup_eq, hr⟩,
-    hd.vsup.symm, hd.vindep, hd.rk_eq⟩
 
 theorem D2_14_6 (hV : ∀ v : V, v ^ 2 = 1) (h : D214Hyp X A r) : r = 3 / 2 :=
   (D214_classify hV h).1

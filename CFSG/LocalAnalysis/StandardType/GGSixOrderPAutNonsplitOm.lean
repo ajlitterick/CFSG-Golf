@@ -124,11 +124,6 @@ theorem ggOrdPInnerConjPOmegaMinusNonsplit_holds : GGOrdPInnerConjPOmegaMinusNon
   exact OrdPNsOm.exists_conj_mem_centralizer_minus (K := GaloisField 2 f)
     (minusCoeffs_irr 2 f) hn hS (hyo ▸ pow_orderOf_eq_one y) hy
 
-theorem ggOrdPInnerConjAt_POmegaPlus : GGOrdPInnerConjAt .POmegaPlus :=
-  ggOrdPInnerConjAt_POmegaPlus_of_nonsplit ggOrdPInnerConjPOmegaPlusNonsplit_holds
-
-theorem ggOrdPInnerConjAt_POmegaMinus : GGOrdPInnerConjAt .POmegaMinus :=
-  ggOrdPInnerConjAt_POmegaMinus_of_nonsplit ggOrdPInnerConjPOmegaMinusNonsplit_holds
 
 end Family
 

@@ -20,48 +20,11 @@ variable {G : Type*} [Group G]
     (g⁻¹ * z * g) * (h⁻¹ * z * h) = (h⁻¹ * z * h) * (g⁻¹ * z * g) ∧
     ¬ Commutes (J.map (MulAut.conj g⁻¹).toMonoidHom) (J.map (MulAut.conj h⁻¹).toMonoidHom)
 
-theorem case_partition' (z : G) (J : Subgroup G) :
-    Group.IsSolvable J ∨ (¬ Group.IsSolvable J ∧ HasEFrameRank4 J) ∨
-      (¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ ¬ DeltaConnected J) ∨
-      (¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ DeltaConnected J ∧ A2Configuration z J) ∨
-      (¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ DeltaConnected J ∧ ¬ A2Configuration z J) := by
-  by_cases hs : Group.IsSolvable J
-  · exact Or.inl hs
-  by_cases hf : HasEFrameRank4 J
-  · exact Or.inr (Or.inl ⟨hs, hf⟩)
-  by_cases hc : DeltaConnected J
-  · by_cases ha : A2Configuration z J
-    · exact Or.inr (Or.inr (Or.inr (Or.inl ⟨hs, hf, hc, ha⟩)))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr ⟨hs, hf, hc, ha⟩)))
-  · exact Or.inr (Or.inr (Or.inl ⟨hs, hf, hc⟩))
 
 end Configuration
 
 section PartOne
 
-abbrev PartOneFrameRank4 : Prop :=
-  PartOneUnder fun _ J => ¬ Group.IsSolvable J ∧ HasEFrameRank4 J
-
-abbrev PartOneSmallDisconnected : Prop :=
-  PartOneUnder fun _ J => ¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ ¬ DeltaConnected J
-
-abbrev PartOneSmallA2 : Prop :=
-  PartOneUnder fun z J =>
-    ¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ DeltaConnected J ∧ A2Configuration z J
-
-abbrev PartOneSmallTypeC : Prop :=
-  PartOneUnder fun z J =>
-    ¬ Group.IsSolvable J ∧ ¬ HasEFrameRank4 J ∧ DeltaConnected J ∧ ¬ A2Configuration z J
-
-theorem partOne_of_cases' (hs : PartOneSolvable) (hf : PartOneFrameRank4)
-    (hd : PartOneSmallDisconnected) (ha : PartOneSmallA2) (hc : PartOneSmallTypeC) : PartOne := by
-  intro G _ _ _ hnab z hz J hzJ hJ S hS hw _
-  rcases case_partition' z J with h | h | h | h | h
-  · exact hs G hnab z hz J hzJ hJ S hS hw h
-  · exact hf G hnab z hz J hzJ hJ S hS hw h
-  · exact hd G hnab z hz J hzJ hJ S hS hw h
-  · exact ha G hnab z hz J hzJ hJ S hS hw h
-  · exact hc G hnab z hz J hzJ hJ S hS hw h
 
 end PartOne
 
@@ -138,17 +101,6 @@ theorem citSimplePerfect_of_cases (hF : CITFrameRankFour) (h0 : CITRankTwo)
     · exact h3 F hnab z hz K hzK hK hw hns ⟨hsmall, hsl, hc⟩
   · exact h2 F hnab z hz K hzK hK hw hns ⟨hsmall, ha7⟩
 
-theorem citSimplePerfectUnder_of_citSimplePerfect (h : CITSimplePerfect)
-    (P : ∀ {F : Type} [Group F] [Finite F], F → Subgroup F → Prop) : CITSimplePerfectUnder P :=
-  fun F _ _ _ hnab z hz K hzK hK hw hns _ => h F hnab z hz K hzK hK hw hns
-
-theorem citSimplePerfect_iff_cases :
-    CITSimplePerfect ↔ CITFrameRankFour ∧ CITRankTwo ∧ CITSectionalFour ∧ CIT2A7 ∧
-      CITDisconnected ∧ CITConnectedA2 ∧ CITTypeC :=
-  ⟨fun h => by
-    have h' := citSimplePerfectUnder_of_citSimplePerfect h
-    exact ⟨h' _, h' _, h' _, h' _, h' _, h' _, h' _⟩,
-    fun ⟨hF, h0, h1, h2, h3, h4, h5⟩ => citSimplePerfect_of_cases hF h0 h1 h2 h3 h4 h5⟩
 
 end Simple
 

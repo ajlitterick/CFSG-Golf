@@ -15,8 +15,6 @@ theorem co1LocalComponentsInput_holds : Co1LocalComponentsInput := fun _ _ e _ h
 theorem hnLocalComponentsInput_holds : HNLocalComponentsInput := fun _ _ e a ha B hB =>
   Sporadic.HNOddCore.cti_hn_involution_local_components_simple_quotient_order e a ha B hB
 
-theorem sporadicCase_Co1 : SporadicCase .Co1 :=
-  sporadicCase_Co1_of_inputs co1LocalComponentsInput_holds
 
 theorem almostSimpleRestricted_sporadicUnrestricted_of_remaining (hFour : FourExactOuterInput)
     (hLy : LyOuterTrivialInput) (hFi22 : Fi22OuterComponentsInput)

@@ -51,14 +51,6 @@ open scoped commutatorElement
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a x : G),
     Ctr5 G z S K₁ K₂ a x → L52 S K₁ K₂ → L53 z S K₁ K₂ a
 
-@[expose] def IVK_1_3a_52 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G), Cfg5 G z S K₁ K₂ →
-    ∀ u ∈ K₁ ⊔ K₂, u * u = 1 → u ≠ 1 → u ≠ z → Group.IsSolvable ↥(centralizer ({z, u} : Set G))
-
-@[expose] def IA_nonsolv_52 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (a : G) (q₀ : ℕ), Odd q₀ → 3 < q₀ →
-    (JClassical4 a q₀ ∨ JG2 a q₀) → ∀ y ∈ centralizer ({a} : Set G), y * y = 1 →
-      ¬ Group.IsSolvable ↥(Jof a ⊓ centralizer ({y} : Set G))
 
 @[expose] def IVK_3_2a_strong : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (S K₁ K₂ : Subgroup G) (a : G), Cfg5 G z S K₁ K₂ →

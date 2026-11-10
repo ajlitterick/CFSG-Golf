@@ -616,15 +616,6 @@ theorem centralizer_longSub {q : ℕ} (hq : 5 ≤ q)
     exact (Subgroup.mem_centralizer_iff.1 hz l hl).symm
   exact eq_slShort_of_mem_iSup_hHat_centralizer hσ hzH hzL
 
-include hσ in
-theorem centralizer_longSub_le_range {q : ℕ} (hq : 5 ≤ q)
-    (hK : Nat.card K = q ^ 3) (hσq : ∀ c, σ c = c ^ q) :
-    Subgroup.centralizer (longSub 6 (hexGroup (twistedX σ)) : Set (twistedGroup σ)) ≤
-      (slShort σ hσ).range := by
-  intro z hz
-  obtain ⟨t, -, rfl⟩ := centralizer_longSub hσ hq hK hσq z hz
-  exact ⟨HSL t, rfl⟩
-
 
 end FiniteField
 

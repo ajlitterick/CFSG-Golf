@@ -187,12 +187,5 @@ theorem liftS8_swap_zero_one : liftS8 (swap (0 : Fin 8) 1) = swap (0 : Fin 10) 1
   rw [liftS8_swap]
   congr 1 <;> exact Fin.ext rfl
 
-theorem liftS8_apply_zero {ρ : Perm (Fin 8)} (h0 : ρ 0 = 0) : liftS8 ρ 0 = 0 := by
-  have h : (0 : Fin 10) = Fin.castLE (by norm_num : 8 ≤ 10) (0 : Fin 8) := Fin.ext rfl
-  rw [h, u_liftS8_apply_castLE, h0]
-
-theorem liftS8_apply_one {ρ : Perm (Fin 8)} (h1 : ρ 1 = 1) : liftS8 ρ 1 = 1 := by
-  have h : (1 : Fin 10) = Fin.castLE (by norm_num : 8 ≤ 10) (1 : Fin 8) := Fin.ext rfl
-  rw [h, u_liftS8_apply_castLE, h1]
 
 end CFSG.OddStandard.AltStdSec.SwapPartner

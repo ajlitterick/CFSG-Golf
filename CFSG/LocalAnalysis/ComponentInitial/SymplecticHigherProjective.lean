@@ -23,9 +23,6 @@ theorem symplecticOfJ_inl {n : ℕ} (b : Basis (Fin n ⊕ Fin n) K V) (i : Fin n
     symplecticOfJ b (Sum.inl i) = b (Sum.inl i) := by
   simp [symplecticOfJ, Basis.unitsSMul_apply]
 
-theorem symplecticOfJ_inr {n : ℕ} (b : Basis (Fin n ⊕ Fin n) K V) (i : Fin n) :
-    symplecticOfJ b (Sum.inr i) = -b (Sum.inr i) := by
-  simp [symplecticOfJ, Basis.unitsSMul_apply, Units.smul_def]
 
 theorem isSymplecticBasis_symplecticOfJ {n : ℕ} {B : BilinForm K V}
     (b : Basis (Fin n ⊕ Fin n) K V) (hb : ∀ x y, B (b x) (b y) = Matrix.J (Fin n) K x y) :
@@ -358,125 +355,6 @@ open scoped Pointwise
 
 variable {r : ℕ} {K : Type} [Field K]
 
-theorem exists_pairing_ne_zero {u z : Fin r ⊕ Fin r → K} (hu : u ≠ 0) (hz : z ≠ 0) :
-    ∃ y, pairedSympForm K r u y ≠ 0 ∧ pairedSympForm K r z y ≠ 0 := by
-  have hex : ∀ {x : Fin r ⊕ Fin r → K}, x ≠ 0 → ∃ y, pairedSympForm K r x y ≠ 0 := by
-    intro x hx
-    by_contra! h
-    exact hx (SymplecticFlag.pairedSympForm_nondegenerate.1 x h)
-  obtain ⟨y₁, hy₁⟩ := hex hu
-  obtain ⟨y₂, hy₂⟩ := hex hz
-  by_cases h₁ : pairedSympForm K r z y₁ = 0
-  · by_cases h₂ : pairedSympForm K r u y₂ = 0
-    · refine ⟨y₁ + y₂, ?_, ?_⟩
-      · rwa [map_add, h₂, add_zero]
-      · rwa [map_add, h₁, zero_add]
-    · exact ⟨y₂, h₂, hy₂⟩
-  · exact ⟨y₁, hy₁, h₁⟩
-
-theorem mem_of_isBlock {B : Set (SpPoint r K)} (hB : MulAction.IsBlock (StatedSp r K) B)
-    {X Y Z : SpPoint r K} (hX : X ∈ B) (hY : Y ∈ B) (hXY : X ≠ Y) (hZX : Z ≠ X)
-    (hZ : SpOrth X Z ↔ SpOrth X Y) : Z ∈ B := by
-  obtain ⟨g, hgX, hgY⟩ := (exists_smul_pair_iff hXY (Ne.symm hZX)).mpr hZ.symm
-  have hgB : g • B = B := hB.smul_eq_of_mem hX (by rw [hgX]; exact hX)
-  rw [← hgY, ← hgB]
-  exact Set.smul_mem_smul_set hY
-
-theorem eq_univ_of_isBlock_of_not_spOrth {B : Set (SpPoint r K)}
-    (hB : MulAction.IsBlock (StatedSp r K) B) {X Y : SpPoint r K} (hX : X ∈ B) (hY : Y ∈ B)
-    (hXY : X ≠ Y) (hn : ¬SpOrth X Y) : B = Set.univ := by
-  refine Set.eq_univ_of_forall fun Z => ?_
-  by_cases hZX : Z = X
-  · rw [hZX]
-    exact hX
-  by_cases hZ : SpOrth X Z
-  · obtain ⟨u, hu, rfl⟩ := X.exists_ofVec
-    obtain ⟨z, hz, rfl⟩ := Z.exists_ofVec
-    obtain ⟨y, hyu, hyz⟩ := exists_pairing_ne_zero hu hz
-    have hy : y ≠ 0 := fun h => hyu (by rw [h, map_zero])
-    set N := SpPoint.ofVec y hy
-    have hNX : N ≠ SpPoint.ofVec u hu := fun h => hyu (by
-      have := spOrth_self (SpPoint.ofVec u hu)
-      rw [← h, spOrth_ofVec_iff] at this
-      have h2 : pairedSympForm K r u y = 0 := by
-        rw [← spOrth_ofVec_iff hu hy]
-        exact h ▸ (spOrth_self (SpPoint.ofVec u hu))
-      exact h2)
-    have hN : N ∈ B := mem_of_isBlock hB hX hY hXY hNX
-      ⟨fun h => absurd ((spOrth_ofVec_iff hu hy).mp h) hyu, fun h => absurd h hn⟩
-    refine mem_of_isBlock hB hN hX hNX (fun h => ?_) ⟨fun _ => ?_, fun h => ?_⟩
-    · rw [h] at hZ
-      exact hyu ((spOrth_ofVec_iff hu hy).mp hZ)
-    · exact absurd ((spOrth_ofVec_iff hy hz).mp ‹_›) (by
-        rw [← pairedSympForm_isAlt.neg_eq, neg_eq_zero]
-        exact hyz)
-    · exact absurd ((spOrth_ofVec_iff hy hu).mp h) (by
-        rw [← pairedSympForm_isAlt.neg_eq, neg_eq_zero]
-        exact hyu)
-  · exact mem_of_isBlock hB hX hY hXY hZX ⟨fun h => absurd h hZ, fun h => absurd h hn⟩
-
-theorem symplectic_projective_primitivity (hr : 1 ≤ r) :
-    Nonempty (SpPoint r K) ∧ MulAction.IsPreprimitive (StatedSp r K) (SpPoint r K) := by
-  refine ⟨⟨SpPoint.ofVec _ (single_ne_zero (K := K) (Sum.inl ⟨0, hr⟩))⟩, ?_⟩
-  have : MulAction.IsPretransitive (StatedSp r K) (SpPoint r K) :=
-    (symplectic_projective_orbits (r := r) (K := K)).1
-  refine ⟨fun {B} hB => ?_⟩
-  by_cases hsub : B.Subsingleton
-  · exact Or.inl hsub
-  right
-  obtain ⟨L, hL, M, hM, hLM⟩ := Set.not_subsingleton_iff.mp hsub
-  by_cases hn : SpOrth L M
-  ·
-    have hr2 : 2 ≤ r := by
-      by_contra h
-      exact not_spOrth_of_ne_of_rank_one (by omega) hLM hn
-    obtain ⟨u, hu, rfl⟩ := L.exists_ofVec
-    obtain ⟨v, huv⟩ : ∃ v, pairedSympForm K r u v = 1 := by
-      obtain ⟨v₀, hv₀⟩ : ∃ v, pairedSympForm K r u v ≠ 0 := by
-        by_contra! h
-        exact hu (SymplecticFlag.pairedSympForm_nondegenerate.1 u h)
-      exact ⟨(pairedSympForm K r u v₀)⁻¹ • v₀, by rw [map_smul, smul_eq_mul, inv_mul_cancel₀ hv₀]⟩
-    have hv : v ≠ 0 := fun h => by rw [h, map_zero] at huv; exact zero_ne_one huv
-    have hfe : pairedSympForm K r (-v) u = 1 := by
-      rw [map_neg, LinearMap.neg_apply, pairedSympForm_isAlt.neg_eq, huv]
-    have hZ : finrank K ((pairedSympForm K r).orthogonal (span K {u, -v})) + 2 = 2 * r := by
-      rw [← finrank_standard (r := r) (K := K)]
-      exact pairedSympForm_isAlt.finrank_orthogonal_span_pair_add_two
-        SymplecticFlag.pairedSympForm_nondegenerate hfe
-    obtain ⟨n, hnZ, hn0⟩ : ∃ n ∈ (pairedSympForm K r).orthogonal (span K {u, -v}), n ≠ 0 :=
-      Submodule.exists_mem_ne_zero_of_ne_bot (fun h => by
-        rw [h, finrank_bot] at hZ
-        omega)
-    obtain ⟨hun, hvn⟩ := (BilinForm.mem_orthogonal_span_pair_iff (pairedSympForm K r)).mp hnZ
-    have hvn' : pairedSympForm K r v n = 0 := by
-      rw [map_neg, LinearMap.neg_apply, neg_eq_zero] at hvn
-      exact hvn
-    have hnv : pairedSympForm K r n v = 0 := by
-      rw [← pairedSympForm_isAlt.neg_eq, hvn', neg_zero]
-    set N := SpPoint.ofVec n hn0
-    set Pt := SpPoint.ofVec v hv
-    have hLN : SpOrth (SpPoint.ofVec u hu) N := (spOrth_ofVec_iff hu hn0).mpr hun
-    have hNL : N ≠ SpPoint.ofVec u hu := by
-      intro h
-      have hmem : n ∈ span K {u} := by
-        have := congrArg SpPoint.line h
-        rw [line_ofVec, line_ofVec] at this
-        rw [← this]
-        exact mem_span_singleton_self n
-      obtain ⟨c, rfl⟩ := mem_span_singleton.mp hmem
-      rw [map_smul, LinearMap.smul_apply, huv, smul_eq_mul, mul_one] at hnv
-      exact hn0 (by rw [hnv, zero_smul])
-    have hN : N ∈ B := mem_of_isBlock hB hL hM hLM hNL ⟨fun _ => hn, fun _ => hLN⟩
-    have hNP : SpOrth N Pt := (spOrth_ofVec_iff hn0 hv).mpr hnv
-    have hLP : ¬SpOrth (SpPoint.ofVec u hu) Pt := by
-      rw [spOrth_ofVec_iff, huv]
-      exact one_ne_zero
-    have hPN : Pt ≠ N := fun h => hLP (h ▸ hLN)
-    have hP : Pt ∈ B := mem_of_isBlock hB hN hL hNL hPN
-      ⟨fun _ => spOrth_comm.mp hLN, fun _ => hNP⟩
-    exact eq_univ_of_isBlock_of_not_spOrth hB hL hP
-      (fun h => hLP (h ▸ spOrth_self _)) hLP
-  · exact eq_univ_of_isBlock_of_not_spOrth hB hL hM hLM hn
 
 end Primitive
 
@@ -563,16 +441,6 @@ instance : FaithfulSMul (StatedProj (StatedSp r K)) (SpPoint r K) where
       rw [mul_smul, ← proj_smul_spPoint g₂, ← h L, proj_smul_spPoint, inv_smul_smul]
     exact (QuotientGroup.eq).mpr hker
 
-theorem symplectic_projective_kernel (hr : 1 ≤ r) :
-    (MulAction.toPermHom (StatedSp r K) (SpPoint r K)).ker = spScalars r K ∧
-    FaithfulSMul (StatedProj (StatedSp r K)) (SpPoint r K) ∧
-    MulAction.IsPreprimitive (StatedProj (StatedSp r K)) (SpPoint r K) ∧
-    Nonempty (SpPoint r K) ∧
-    ∀ (g : StatedSp r K) (L : SpPoint r K), proj r K g • L = g • L := by
-  obtain ⟨hne, hprim⟩ := symplectic_projective_primitivity (K := K) hr
-  refine ⟨ker_toPermHom_spPoint, inferInstance, ?_, hne, proj_smul_spPoint⟩
-  let f : SpPoint r K →ₑ[proj r K] SpPoint r K := ⟨id, fun _ _ => rfl⟩
-  exact (MulAction.isPreprimitive_congr (f := f) proj_surjective Function.bijective_id).mp hprim
 
 end Kernel
 

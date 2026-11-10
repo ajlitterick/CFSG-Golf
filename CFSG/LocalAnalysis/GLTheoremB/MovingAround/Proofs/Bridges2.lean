@@ -33,11 +33,6 @@ theorem lemma114_of_inputs' (hI : Input185.Input7_10_1) : Lemma114Statement :=
 
 section Layer183
 
-theorem lemma136_of_inputs' (hP95 : Prop95) (h111 : Prop111Statement)
-    (h121 : Prop121_of_cexStatement) (hcomp : Sec13_compStatement) (hP1 : Lemma136.P1BarInput)
-    (hO2 : Cex134_O2Statement) (h121c : Prop121_corStatement) (hII : Lemma136.IIHardInput) :
-    Lemma136Statement :=
-  lemma136_of_inputs hP95 h111 h121 hcomp input22_3_2_holds hP1 hO2 h121c hII
 
 end Layer183
 

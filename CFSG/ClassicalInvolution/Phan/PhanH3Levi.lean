@@ -133,24 +133,6 @@ theorem closure_spGens : Subgroup.closure (spGens F) = ⊤ := by
   exact ⟨range_spBlock_le 0, range_spBlock_le 1⟩
 
 
-theorem exists_levi [Finite F] (hF : 4 ≤ Nat.card F) (h2 : (2 : F) ≠ 0) :
-    ∃ φ : StatedSp 2 F →* spinGroup (quadOdd 2 F), Function.Injective φ ∧
-      ∀ c : F, φ (spBlock F 0 (tv 0 1 c)) =
-          Steinberg.SpinOdd.x 2 F (Pi.single (1 : Fin 2) (1 : ℤ)) c ∧
-        φ (spBlock F 0 (tv 1 0 c)) =
-          Steinberg.SpinOdd.x 2 F (-Pi.single (1 : Fin 2) (1 : ℤ)) c ∧
-        φ (spBlock F 1 (tv 0 1 c)) = Steinberg.SpinOdd.x 2 F (Pi.single (0 : Fin 2) (1 : ℤ)) c ∧
-        φ (spBlock F 1 (tv 1 0 c)) =
-          Steinberg.SpinOdd.x 2 F (-Pi.single (0 : Fin 2) (1 : ℤ)) c := by
-  obtain ⟨O⟩ := Steinberg.nonempty_commOrder_ofCartan (Spin.oddDatum 2 F).isFiniteType
-    (Dv := (Spin.oddDatum 2 F).divisible) rfl
-  have hE := Steinberg.SpinOdd.chevalleyExtras (by omega : 2 ≤ 2) O Steinberg.SpinOdd.commC
-    (Steinberg.SpinOdd.commutatorFormula O)
-  obtain ⟨φ, hinj, -, hv⟩ := exists_sp4Levi (i := (1 : Fin 2)) (j := (0 : Fin 2)) hF h2 hE
-    rfl (by show Spin.cartanB 2 1 0 = -2; decide) (by show Spin.cartanB 2 0 1 = -1; decide)
-  exact ⟨φ, hinj, hv⟩
-
-
 theorem mat_gen_Lu (c : F) : mat 2 F (spBlock F 1 (tv 0 1 c)) =
     blockMat (Sum.inl (1 : Fin 2)) (Sum.inr (1 : Fin 2)) !![1, c; 0, 1] := by
   rw [spBlock_one_eq_longBlock, CFSG.ClassicalInvolution.Models.SymplecticPairs.mat_longBlock,

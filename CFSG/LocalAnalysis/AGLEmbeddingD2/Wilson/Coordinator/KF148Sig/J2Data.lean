@@ -318,14 +318,6 @@ open CFSG.ComponentClassification.J2Cover CFSG.Certificates.Native CFSG.Monster.
 
 @[expose] def twoSets : List (List ℕ) := [[0, 1], [0, 2], [1, 2], [0, 1, 3], [1, 2, 4], [0, 2, 5]]
 
-@[expose] def wA (k : ℕ) : Array ℕ := compA 315 (powArr 315 zArr k) xArr
-
-@[expose] def wAs (_ : Unit := ()) : Array (Array ℕ) := #[wA 0, wA 1, wA 2]
-
-@[expose] def actA (j : ℕ) : Array ℕ := if j < 3 then zArr else xArr
-
-@[expose] def inV (j : ℕ) (t : Array ℕ) : Bool :=
-  eqA 315 t vA[3 * j]! || eqA 315 t vA[3 * j + 1]! || eqA 315 t vA[3 * j + 2]!
 
 @[expose] def evalA (L : Array (Array ℕ)) (w : List ℕ) : Array ℕ :=
   w.foldl (fun acc i => compA 315 acc L[i]!) (idA 315)
@@ -344,44 +336,5 @@ open CFSG.ComponentClassification.J2Cover CFSG.Certificates.Native CFSG.Monster.
   witWords.any fun w => eqA 315 (powArr 315 (evalA (witL t) w) 3) (idA 315) &&
     !(eqA 315 (evalA (witL t) w) (idA 315))
 
-@[expose] def twoGens (s : ℕ) : Array (Array ℕ) :=
-  ((twoSets.getD s []).flatMap fun j => [vA[3 * j]!, vA[3 * j + 1]!, vA[3 * j + 2]!]).toArray
-
-@[expose] def twoCert (s : ℕ) : ArrCert := enumBfs 315 (twoGens s) keyPts 100
-
-@[expose] def eltsOK (_ : Unit := ()) : Bool :=
-  (vA.size == 18) && vA.all okA && validA 315 (compA 315 xArr xArr)
-
-@[expose] def orbOK (_ : Unit := ()) : Bool :=
-  allLt 6 fun j => allLt 3 fun p => allLt 3 fun q => (List.range 3).any fun e =>
-    validA 315 (powArr 315 (actA j) e) &&
-      eqA 315 (conjA 315 (powArr 315 (actA j) e) vA[3 * j + p]!) vA[3 * j + q]!
-
-@[expose] def pairOK (_ : Unit := ()) : Bool :=
-  pairA.all fun pq => eqA 315 (powArr 315 (compA 315 vA[pq.1]! vA[pq.2]!) 3) (idA 315) &&
-    !(eqA 315 (compA 315 vA[pq.1]! vA[pq.2]!) (idA 315))
-
-@[expose] def wordsOK (_ : Unit := ()) : Bool :=
-  allLt 4 fun s => (wordA.getD s []).all (fun i => (genSets.getD s []).contains (i / 3)) &&
-    (wordB.getD s []).all (fun i => (genSets.getD s []).contains (i / 3)) &&
-    eqA 315 (evalA vA (wordA.getD s [])) autStrong[0]! &&
-    eqA 315 (evalA vA (wordB.getD s [])) autStrong[1]!
-
-@[expose] def twoOK (_ : Unit := ()) : Bool :=
-  allLt 6 fun s => enumOK 315 (twoGens s) keyPts (twoCert s) && (twoCert s).pts.size == 64
-
-@[expose] def brutePr (ws : Array (Array ℕ)) (t : Array ℕ) : Bool :=
-  allLt 3 (fun k => !(commA t ws[k]!) || (eqA 315 (powArr 315 t 6) (idA 315) &&
-      (!(eqA 315 (powArr 315 t 2) (idA 315)) || eqA 315 t (idA 315) || inV k t))) &&
-    (!(commA t zArr) || (eqA 315 (powArr 315 t 60) (idA 315) &&
-      (!(eqA 315 (powArr 315 t 20) (idA 315)) || eqA 315 t (idA 315) || inV 3 t || inV 4 t ||
-        inV 5 t || wit t)))
-
-@[expose] def bruteOK (ws : Array (Array ℕ)) : Bool :=
-  allLt 315 fun a => allLt 160 fun b => allLt 12 fun c => brutePr ws (prod3 315 autLevels a b c)
-
-set_option compiler.extract_closed false in
-@[noinline, expose] def j2SigOK (_ : Unit := ()) : Bool :=
-  eltsOK () && orbOK () && pairOK () && wordsOK () && twoOK () && bruteOK (wAs ())
 
 end CFSG.AGLEmbeddingD2.Wilson.Coordinator.KF148Sig.J2

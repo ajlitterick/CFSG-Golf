@@ -108,9 +108,6 @@ theorem pow_three_eq_one_of_isFlagUnipotent {F₁ F₂ : Submodule (ZMod 3) V}
     rw [hinv]
     exact isFlagUnipotent_mul hF hx hx
 
-theorem mem_flagUnipotentSubgroup {F₁ F₂ : Submodule (ZMod 3) V} {hF : F₁ ≤ F₂}
-    {x : V ≃ₗ[ZMod 3] V} : x ∈ flagUnipotentSubgroup F₁ F₂ hF ↔ IsFlagUnipotent F₁ F₂ x :=
-  Iff.rfl
 
 theorem isPGroup_flagUnipotentSubgroup (F₁ F₂ : Submodule (ZMod 3) V) (hF : F₁ ≤ F₂) :
     IsPGroup 3 (flagUnipotentSubgroup F₁ F₂ hF) := fun x =>
@@ -507,21 +504,6 @@ theorem det_restrict_pair {x : V ≃ₗ[ZMod 3] V}
     rw [map_mul, iha, one_mul, map_one] at this
     exact this
 
-omit [FiniteDimensional (ZMod 3) V] in
-include hfw hgv in
-theorem mem_pair_of {y : V ≃ₗ[ZMod 3] V}
-    (hyP : ∀ p ∈ Submodule.span (ZMod 3) {v, w}, y p ∈ Submodule.span (ZMod 3) {v, w})
-    (hdet : LinearMap.det ((y : V →ₗ[ZMod 3] V).restrict hyP) = 1)
-    (hyL : ∀ l ∈ LinearMap.ker f ⊓ LinearMap.ker g, y l = l) :
-    y ∈ Subgroup.closure ({t₁, t₂} : Set (V ≃ₗ[ZMod 3] V)) := by
-  obtain ⟨x, hx, hxP, hxL⟩ := exists_mem_of_det_eq_one
-    (H := Subgroup.closure ({t₁, t₂} : Set (V ≃ₗ[ZMod 3] V))) h₁ h₂
-    (Subgroup.subset_closure (by simp)) (Subgroup.subset_closure (by simp)) hfw hgv
-    ((y : V →ₗ[ZMod 3] V).restrict hyP) hdet
-  have hxy : x = y :=
-    eq_of_eqOn_isCompl (isCompl_span_pair_ker_inf_ker h₁.2.2.1 h₂.2.2.1 hfw hgv)
-      (fun p hp => hxP ⟨p, hp⟩) (fun l hl => (hxL l hl).trans (hyL l hl).symm)
-  exact hxy ▸ hx
 
 include hfw hgv in
 theorem nonempty_pair_mulEquiv :

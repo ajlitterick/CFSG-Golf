@@ -384,12 +384,6 @@ private theorem omegaUnit_pow_three {ω : K} (hω : unitaryInvolution K 2 1 ω *
   rw [Subgroup.coe_pow, Units.val_pow_eq_pow_val, coe_omegaUnit, hω3]
   simp
 
-private theorem omegaUnit_ne_one {ω : K} (hω : unitaryInvolution K 2 1 ω * ω = 1)
-    (hω1 : ω ≠ 1) : omegaUnit hω ≠ 1 := by
-  intro h
-  apply hω1
-  have := congrArg (fun u : normOne (unitaryInvolution K 2 1) => ((u : Kˣ) : K)) h
-  simpa [coe_omegaUnit] using this
 
 private noncomputable def cDiag {ω : K} (hω : unitaryInvolution K 2 1 ω * ω = 1) :
     Fin 3 → normOne (unitaryInvolution K 2 1) :=
@@ -1582,11 +1576,6 @@ private theorem d4Elt_smul_zero {ω : K} (hω : unitaryInvolution K 2 1 ω * ω 
       ω • (Pi.single (0 : Fin 4) (1 : K) : Fin 4 → K) := by
   rw [d4Elt_smul, d4Diag_zero, coe_omegaUnit]
 
-private theorem d4Elt_smul_one {ω : K} (hω : unitaryInvolution K 2 1 ω * ω = 1) :
-    d4Elt hω • (Pi.single (1 : Fin 4) (1 : K) : Fin 4 → K) =
-      ω ^ 2 • (Pi.single (1 : Fin 4) (1 : K) : Fin 4 → K) := by
-  rw [d4Elt_smul, d4Diag_one]
-  simp [coe_omegaUnit]
 
 private theorem d4Elt_smul_two {ω : K} (hω : unitaryInvolution K 2 1 ω * ω = 1) :
     d4Elt hω • (Pi.single (2 : Fin 4) (1 : K) : Fin 4 → K) =
@@ -1626,12 +1615,6 @@ private theorem p4Elt_smul_zero :
   funext i
   fin_cases i <;> simp [Equiv.swap_apply_def]
 
-private theorem p4Elt_smul_one :
-    (p4Elt (K := K)) • (Pi.single (1 : Fin 4) (1 : K) : Fin 4 → K) =
-      (Pi.single (0 : Fin 4) (1 : K) : Fin 4 → K) := by
-  rw [p4Elt, mkSU_smul, Matrix.permMatrix_mulVec]
-  funext i
-  fin_cases i <;> simp [Equiv.swap_apply_def]
 
 private theorem p4Elt_smul_two :
     (p4Elt (K := K)) • (Pi.single (2 : Fin 4) (1 : K) : Fin 4 → K) =
@@ -1690,41 +1673,6 @@ private theorem d4Elt_line_zero {ω : K} (hω : unitaryInvolution K 2 1 ω * ω 
   · change (((d4Diag hω 3 : normOne (unitaryInvolution K 2 1)) : Kˣ).val) ≠ ω
     rw [d4Diag_three]; exact fun h => hω1 h.symm
 
-private theorem d4Elt_line_one {ω : K} (hω : unitaryInvolution K 2 1 ω * ω = 1)
-    (hω1 : ω ≠ 1) {y : Fin 4 → K} (hy : d4Elt hω • y = ω ^ 2 • y) :
-    y = y 1 • (Pi.single (1 : Fin 4) (1 : K) : Fin 4 → K) := by
-  have hω3 : ω ^ 3 = 1 := omega_pow_three hω
-  have hω0 : ω ≠ 0 := by
-    intro h0
-    rw [h0] at hω3
-    norm_num at hω3
-  have hω2ne : ω ^ 2 ≠ ω := by
-    intro h
-    have h2 : ω ^ 2 = ω * ω := by rw [pow_two]
-    rw [h2] at h
-    have : ω * ω = ω * 1 := by rw [h, mul_one]
-    exact hω1 (mul_left_cancel₀ hω0 this)
-  have hω2ne1 : ω ^ 2 ≠ 1 := by
-    intro h
-    apply hω1
-    calc ω = ω ^ 3 * (ω ^ 2)⁻¹ := by
-          field_simp [hω0]
-      _ = 1 * 1⁻¹ := by rw [hω3, h]
-      _ = 1 := by norm_num
-  change diagSU (unitaryInvolution K 2 1) (d4Diag hω) (d4Diag_mem_detKer hω) • y = ω ^ 2 • y at hy
-  refine eq_smul_single_of_diagSU_smul (d4Diag_mem_detKer hω) (1 : Fin 4) ?_ hy
-  intro i hi
-  fin_cases i
-  · change (((d4Diag hω 0 : normOne (unitaryInvolution K 2 1)) : Kˣ).val) ≠ ω ^ 2
-    rw [d4Diag_zero, coe_omegaUnit]
-    exact fun h => hω2ne h.symm
-  · exact absurd rfl hi
-  · change (((d4Diag hω 2 : normOne (unitaryInvolution K 2 1)) : Kˣ).val) ≠ ω ^ 2
-    rw [d4Diag_two]
-    exact fun h => hω2ne1 h.symm
-  · change (((d4Diag hω 3 : normOne (unitaryInvolution K 2 1)) : Kˣ).val) ≠ ω ^ 2
-    rw [d4Diag_three]
-    exact fun h => hω2ne1 h.symm
 
 private theorem exists_smul_single_zero_of_commute {ω : K}
     (hω : unitaryInvolution K 2 1 ω * ω = 1) (hω1 : ω ≠ 1)

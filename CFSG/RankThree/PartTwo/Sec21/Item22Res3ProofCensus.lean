@@ -31,6 +31,5 @@ open CFSG.Assembly.LowTwoRank (StatedClassicalModel)
 
 open Item228ResProof
 
-variable {G : Type} [Group G]
 
 end CFSG.RankThree.PartTwo.Sec21

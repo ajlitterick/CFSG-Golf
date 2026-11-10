@@ -35,21 +35,6 @@ theorem theta_mem : theta ∈ rootFinset .E8 := by
   rw [rootFinset_E8_eq]
   decide +kernel
 
-theorem card_mRoots : mRoots.card = 50 := by
-  simp only [mRoots, rootFinset_E8_eq]
-  decide +kernel
-
-theorem card_sRoots1 : sRoots1.card = 6 := by
-  simp only [sRoots1, rootFinset_E8_eq]
-  decide +kernel
-
-theorem card_deg1Roots : deg1Roots.card = 56 := by
-  simp only [deg1Roots, rootFinset_E8_eq]
-  decide +kernel
-
-theorem card_pureNegDirs : pureNegDirs.card = 6 := by
-  simp only [pureNegDirs, rootFinset_E8_eq]
-  decide +kernel
 
 theorem deg_bounds : ∀ β ∈ rootFinset .E8, -2 ≤ β 7 ∧ β 7 ≤ 2 := by
   rw [rootFinset_E8_eq]
@@ -63,10 +48,6 @@ theorem deg_eq_neg_two : ∀ β ∈ rootFinset .E8, β 7 = -2 → β = -theta :=
   rw [rootFinset_E8_eq]
   decide +kernel
 
-theorem deg_eq_pairing : ∀ β ∈ rootFinset .E8,
-    2 * iform β theta = iform theta theta * β 7 := by
-  rw [rootFinset_E8_eq]
-  decide +kernel
 
 theorem commCandidates_theta_data : ∀ β ∈ rootFinset .E8, (β 7 = 0 ∨ β 7 = 1) →
     ∀ p ∈ commCandidates, p.1 • theta + p.2 • β ∉ rootFinset .E8 := by

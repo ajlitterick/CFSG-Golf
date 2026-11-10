@@ -165,25 +165,6 @@ theorem isElemAbelian_two_map {A : Subgroup G} (hA : IsElemAbelian 2 A) (g : G) 
     group
 
 
-theorem weakBalanced_map (h : WeakBalanced A) (g : G) :
-    WeakBalanced (A.map (MulAut.conj g).toMonoidHom) := by
-  intro a' ha' ha'1 b' hb' hb'1
-  obtain ⟨a, ha, rfl⟩ := Subgroup.mem_map.mp ha'
-  obtain ⟨b, hb, rfl⟩ := Subgroup.mem_map.mp hb'
-  have ha1 : a ≠ 1 := fun h1 => ha'1 (by simp [h1])
-  have hb1 : b ≠ 1 := fun h1 => hb'1 (by simp [h1])
-  have h2 := Subgroup.map_mono (f := (MulAut.conj g).toMonoidHom) (h a ha ha1 b hb hb1)
-  rw [Subgroup.map_commutator, Subgroup.map_inf _ _ (f := (MulAut.conj g).toMonoidHom)
-    (MulAut.conj g).injective, involutionOddCore_map, involutionOddCore_map,
-    centralizer_singleton_map] at h2
-  simpa using h2
-
-theorem rankThreeBalance_map (h : RankThreeBalance A) (g : G) :
-    RankThreeBalance (A.map (MulAut.conj g).toMonoidHom) :=
-  ⟨isElemAbelian_two_map h.elem g, by
-    rw [Subgroup.card_map_of_injective (MulAut.conj g).injective]
-    exact h.card, weakBalanced_map h.weak g, twoBalancedWrt_map h.two g⟩
-
 end Conjugates
 
 section Propagation
@@ -274,22 +255,6 @@ theorem rankTwoSpan_le_normalizer_alphaFrame (h : RankThreeBalance A) :
   rw [alphaFrame_eq_alphaCore h hF]
   exact centralizer_le_normalizer_alphaCore F
 
-theorem centralizingLayer_le_normalizer_alphaFrame {Ω : Set (Subgroup G)} (hΩ : ConjInvariant Ω)
-    (h : RankThreeBalance A) {a : G} (ha : a ∈ A) (hgen : CentralizerGenerationModOTwo Ω A a) :
-    centralizingLayer Ω {a} ≤ Subgroup.normalizer (alphaFrame A : Set G) :=
-  (centralizingLayer_le_rankTwoSpan hΩ h.elem (by rw [h.card]) ha hgen).trans
-    (rankTwoSpan_le_normalizer_alphaFrame h)
-
-omit [Finite G] in
-theorem alphaFrame_map_of_mem_normalizer {y : G}
-    (hy : y ∈ Subgroup.normalizer (alphaFrame A : Set G)) :
-    alphaFrame (A.map (MulAut.conj y).toMonoidHom) = alphaFrame A := by
-  rw [← alphaFrame_map]
-  ext x
-  rw [Subgroup.mem_map_equiv, MulAut.conj_symm_apply]
-  have := Subgroup.mem_normalizer_iff.mp hy (y⁻¹ * x * y)
-  have e : y * (y⁻¹ * x * y) * y⁻¹ = x := by group
-  rwa [e] at this
 
 omit [Finite G] in
 theorem shareFour_map_of_mem_centralizer {F : Subgroup G} (hF : F ∈ signalizerFunctorEk 2 2 A)
@@ -374,42 +339,6 @@ theorem reflTransGen_shareFour_map_of_mem_rankTwoSpan {𝒯 : Set (Subgroup G)}
     exact .single ⟨hA, hinv A hA y, shareFour_map_of_mem_centralizer hF hy⟩
   exact hle hx
 
-omit [Finite G] in
-@[expose] def frameConjugates (A : Subgroup G) : Set (Subgroup G) :=
-  {X | ∃ g : G, X = A.map (MulAut.conj g).toMonoidHom}
-
-omit [Finite G] in
-theorem frameConjugates_inv (A : Subgroup G) :
-    ∀ X ∈ frameConjugates A, ∀ g : G, X.map (MulAut.conj g).toMonoidHom ∈ frameConjugates A := by
-  rintro X ⟨h, rfl⟩ g
-  refine ⟨g * h, ?_⟩
-  rw [Subgroup.map_map]
-  congr 1
-  ext y
-  simp [mul_assoc]
-
-omit [Finite G] in
-theorem rankThreeBalance_of_mem_frameConjugates {A : Subgroup G} (h : RankThreeBalance A) :
-    ∀ X ∈ frameConjugates A, RankThreeBalance X := by
-  rintro X ⟨g, rfl⟩
-  exact rankThreeBalance_map h g
-
-omit [Finite G] in
-theorem connected_conjClass_of_rankTwoSpan_eq_top {A : Subgroup G} (htop : rankTwoSpan A = ⊤) :
-    ∀ B ∈ frameConjugates A, ∀ B' ∈ frameConjugates A,
-      Relation.ReflTransGen
-        (fun X Y => X ∈ frameConjugates A ∧ Y ∈ frameConjugates A ∧ ShareFour X Y) B B' := by
-  have hinv := frameConjugates_inv A
-  have hA : A ∈ frameConjugates A := ⟨1, by ext y; simp⟩
-  have hsymm : ∀ X Y, (X ∈ frameConjugates A ∧ Y ∈ frameConjugates A ∧ ShareFour X Y) →
-      (Y ∈ frameConjugates A ∧ X ∈ frameConjugates A ∧ ShareFour Y X) :=
-    fun X Y h => ⟨h.2.1, h.1, h.2.2.symm⟩
-  have hreach : ∀ B ∈ frameConjugates A, Relation.ReflTransGen
-      (fun X Y => X ∈ frameConjugates A ∧ Y ∈ frameConjugates A ∧ ShareFour X Y) A B := by
-    rintro B ⟨g, rfl⟩
-    exact reflTransGen_shareFour_map_of_mem_rankTwoSpan hinv hA (htop ▸ Subgroup.mem_top g)
-  intro B hB B' hB'
-  exact (reflTransGen_symm_of_symm hsymm (hreach B hB)).trans (hreach B' hB')
 
 end Vertex
 

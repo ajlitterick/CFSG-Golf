@@ -21,17 +21,6 @@ attribute [local irreducible] burnsideF48t_g23LArr burnsideF48t_g23Tau burnsideF
 
 section Chains
 
-theorem burnsideF48t_g23_card_X : Nat.card ↥burnsideF48t_g23X = 4245696 :=
-  Certificates.certificate7761.1
-
-theorem burnsideF48t_g23_card_B' : Nat.card ↥burnsideF48t_g23B' = 2916 :=
-  Certificates.certificate7761.2.2.2.1
-
-theorem burnsideF48t_g23_card_S0' : Nat.card ↥burnsideF48t_g23S0' = 729 :=
-  Certificates.certificate7761.2.2.2.2.1
-
-theorem burnsideF48t_g23_card_K' : Nat.card ↥burnsideF48t_g23K' = 4 :=
-  Certificates.certificate7761.2.2.2.2.2
 
 end Chains
 

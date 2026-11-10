@@ -34,11 +34,6 @@ theorem isTwoLocal_map (φ : G ≃* H) {M : Subgroup G} (h : IsTwoLocal M) :
       (show Function.Injective φ.toMonoidHom from φ.injective)).1 hbot
   · exact Subgroup.map_equiv_normalizer_eq P φ
 
-theorem isTwoLocal_map_iff (φ : G ≃* H) {M : Subgroup G} :
-    IsTwoLocal (M.map φ.toMonoidHom) ↔ IsTwoLocal M := by
-  refine ⟨fun h => ?_, isTwoLocal_map φ⟩
-  have := isTwoLocal_map φ.symm h
-  rwa [map_symm_map] at this
 
 theorem isMaximalTwoLocal_map (φ : G ≃* H) {M : Subgroup G} (h : IsMaximalTwoLocal M) :
     IsMaximalTwoLocal (M.map φ.toMonoidHom) := by

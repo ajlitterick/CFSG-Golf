@@ -25,9 +25,6 @@ theorem ggLayerTagsRound5_of_pilotRest (h : GGLayerTagsPilotRest) : GGLayerTagsR
     ggExcAdjCoreRestInput_of_nonToral h.2.2.1.1 (ggExcAdjCoreNonToralInput_of_rest_E8 h.2.2.1.2),
     h.2.2.2.1, h.2.2.2.2⟩
 
-theorem ggLayerInputs_of_pilotRest (h : GGLayerTagsPilotRest) :
-    GGLayerCentreOddInput ∧ GGLayerPerfectInput :=
-  ggLayerInputs_of_round5 (ggLayerTagsRound5_of_pilotRest h)
 
 end Layer
 

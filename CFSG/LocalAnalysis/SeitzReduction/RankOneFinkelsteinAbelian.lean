@@ -24,8 +24,6 @@ theorem psi_mul_of_comm (hc : ∀ a b : U, a * b = b * a) (u v : U) :
   map_one' := psi_eq_one_iff.mpr (one_mem _)
   map_mul' := psi_mul_of_comm hc
 
-variable [Finite U] (h : Finkelstein.Hyp U n t y)
-include h
 
 end Finkelstein.Hyp
 

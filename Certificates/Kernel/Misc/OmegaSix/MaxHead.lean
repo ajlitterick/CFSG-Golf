@@ -48,9 +48,6 @@ theorem mPos2 : posAt RO 10 25920 (RMH 6) (RMH 0) = true := by quickRfl
 
 theorem mPos3 : posAt RO 10 25920 (RMH 7) (RMH 1) = true := by quickRfl
 
-theorem mcLt : ∀ j < 2, RMC j < 2 ^ 36 := by decide +kernel
-
-theorem mhLt : ∀ j < 4, RMH j < 2 ^ 36 := by decide +kernel
 
 end CFSG.KD.OmegaSix
 

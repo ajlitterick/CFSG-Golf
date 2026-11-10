@@ -10,27 +10,6 @@ open CFSG.Open CFSG.Blueprint CFSG.QuasithinUnique CFSG.LieType.BorelTits
 
 variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G}
 
-theorem pCoreOf_hz_le_dK : pCoreOf 2 (hz T V) ≤ dK T V := by
-  intro q hq
-  have hqH : q ∈ hz T V := pCoreOf_le 2 _ hq
-  refine ⟨le_normalizer_oTwoUpper _ hqH, fun k hk => ?_⟩
-  have hkH : k ∈ hz T V := oTwoUpper_le _ hk
-  have hle : kz T V ⊓ pCoreOf 2 (hz T V) ≤ pCoreOf 2 (kz T V) := by
-    refine le_pCoreOf_of_le_normalizer 2 inf_le_left (fun x hx => ?_)
-      ((pCoreOf_isPGroup 2 _).to_le inf_le_right)
-    exact mem_normalizer_inf_of_mem (Subgroup.le_normalizer hx)
-      (le_normalizer_pCoreOf 2 _ (oTwoUpper_le _ hx))
-  refine hle (Subgroup.mem_inf.mpr ⟨?_, ?_⟩)
-  · rw [show q * k * q⁻¹ * k⁻¹ = (q * k * q⁻¹) * k⁻¹ by group]
-    exact mul_mem ((Subgroup.mem_normalizer_iff.mp (le_normalizer_oTwoUpper _ hqH) k).mp hk)
-      (inv_mem hk)
-  · rw [show q * k * q⁻¹ * k⁻¹ = q * (k * q⁻¹ * k⁻¹) by group]
-    exact mul_mem hq ((Subgroup.mem_normalizer_iff.mp (le_normalizer_pCoreOf 2 _ hkH) _).mp
-      (inv_mem hq))
-
-theorem inf_dK_eq (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63) :
-    hz T V ⊓ dK T V = pCoreOf 2 (hz T V) :=
-  le_antisymm (inf_dK_le h hMod h63) (le_inf (pCoreOf_le 2 _) pCoreOf_hz_le_dK)
 
 theorem pCoreOf_hz_le_R1_of (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63) :
     pCoreOf 2 (hz T V) ≤ pCoreOf 2 (L₁Of L (fsuV1 T V) ⊔ T) := by

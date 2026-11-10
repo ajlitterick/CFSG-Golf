@@ -33,9 +33,6 @@ variable {W : Type} [CommGroup W] {L : Subgroup (MulAut W)}
   map_mul' a b := by
     simp only [toAdd_mul, Matrix.mulVec_add, ofAdd_add]
 
-theorem toAdd_glMul (g : GL (Fin 12) (ZMod 2)) (m : Multiplicative (Fin 12 → ZMod 2)) :
-    Multiplicative.toAdd (glMul g m) =
-      (g : Matrix (Fin 12) (Fin 12) (ZMod 2)).mulVec (Multiplicative.toAdd m) := rfl
 
 theorem isModelPair_conj {ψ : ↥G ≃* ↥L} {θ : W ≃* Multiplicative (Fin 12 → ZMod 2)}
     (h : IsModelPair ψ θ) (g : ↥G) :

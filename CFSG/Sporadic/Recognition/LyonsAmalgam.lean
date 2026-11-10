@@ -327,13 +327,6 @@ theorem LyData.exists_swapY0 (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
     (fun y => (I.K_iff y).trans Subgroup.mem_subgroupOf.symm) (D.card_normalizer_EE' S)
   exact ⟨k, hk.toY0⟩
 
-theorem LyData.exists_mulEquiv_mulAut_Y0 (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
-    (hY : Ly1080.YOK) (I : SmallModelIso (x₁ : G) (x₂ : G) (x₃ : G)) :
-    ∃ Φ : ↥(EN (x₁ : G) (x₂ : G)) ≃* MulAut ↥(NN (x₁ : G) (x₂ : G)),
-      ∀ (e : ↥(EN (x₁ : G) (x₂ : G))) (y : ↥(NN (x₁ : G) (x₂ : G))),
-        ((Φ e y : ↥(NN (x₁ : G) (x₂ : G))) : G) = (e : G) * (y : G) * (e : G)⁻¹ :=
-  D.exists_mulEquiv_mulAut S (stage2ModelY0 hY (D.card_Y0_le S I)) I.φY
-    (D.card_normalizer_EE' S)
 
 end Stage2
 
@@ -482,50 +475,9 @@ theorem LyData.lift_eq_one_of_tr (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x�
   rw [e] at h3
   exact h1.1 (h2.2 (h3.2 hr))
 
-theorem LyData.wordG_eq_one_of_tr (D : LyData G t ρ) (S : LyStd ρ x₁ x₂ x₃)
-    (hY : Ly1080.YOK) (hT : Ly243.trCheck = true) (hτ : Tau.tauOK = true)
-    (I : SmallModelIso (x₁ : G) (x₂ : G) (x₃ : G)) {k : G}
-    (hk : IsSwapY0 (x₁ : G) (x₂ : G) (x₃ : G) I.φY k) (g : ℕ → G)
-    (hg : ∀ i, i < 4 → ∃ h : g i ∈ TxN (x₁ : G) (x₂ : G) (x₃ : G),
-      (I.φT ⟨g i, h⟩ : Perm (Fin Ly243.deg)) = Ly243.gg i)
-    (hk4 : g 4 = k) {w : List ℤ} (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 5)
-    (hmodel : wordG Ly243.trLetG w = 1) : wordG (wordLetter g) w = 1 := by
-  obtain ⟨ψ, hψ1, hψ2⟩ := D.exists_mulEquiv_Tr0 S hY hT hτ I hk
-  let φ : ↥(TrN (x₁ : G) (x₂ : G) (x₃ : G)) →* Perm (Fin Ly243.deg) :=
-    Ly243.Tr0.subtype.comp ψ.toMonoidHom
-  have hu : ∀ i, i < 5 → ∃ h : g i ∈ TrN (x₁ : G) (x₂ : G) (x₃ : G),
-      φ ⟨g i, h⟩ = Ly243.gg i := by
-    intro i hi
-    by_cases hi4 : i < 4
-    · obtain ⟨h, hφ⟩ := hg i hi4
-      exact ⟨h.1, (hψ1 ⟨g i, h⟩).trans hφ⟩
-    · have hi' : i = 4 := by omega
-      subst hi'
-      refine ⟨hk4 ▸ hk.mem_TrN, ?_⟩
-      have e : (⟨g 4, hk4 ▸ hk.mem_TrN⟩ : ↥(TrN (x₁ : G) (x₂ : G) (x₃ : G))) =
-          ⟨k, hk.mem_TrN⟩ := Subtype.ext hk4
-      show (ψ ⟨g 4, hk4 ▸ hk.mem_TrN⟩ : Perm (Fin Ly243.deg)) = Ly243.gg 4
-      rw [e, hψ2]
-      rfl
-  obtain ⟨h, hφ⟩ := wordG_hom (TrN (x₁ : G) (x₂ : G) (x₃ : G)) φ (wordLetter g)
-    (wordLetter Ly243.gg) w fun l hl => wordLetter_hom _ φ g Ly243.gg hu (hw l hl)
-  have h1 : ψ ⟨wordG (wordLetter g) w, h⟩ = 1 :=
-    Subtype.ext (hφ.trans hmodel)
-  have h2 : (⟨wordG (wordLetter g) w, h⟩ : ↥(TrN (x₁ : G) (x₂ : G) (x₃ : G))) = 1 :=
-    ψ.injective (h1.trans (map_one ψ).symm)
-  exact congrArg Subtype.val h2
 
 end Stage3
 
-open CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier CFSG.Sporadic.Schreier.Native in
-theorem Ly243.wordG_trLetG_eq_one_of_powFixW (h : Ly243.trCheck = true) {w : List ℤ}
-    (hw : ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 5)
-    (hp : powFixW Ly243.deg (w.map Ly243.trLet) 1 = true) : wordG Ly243.trLetG w = 1 := by
-  have hF : List.Forall₂ (Rep Ly243.deg) (w.map Ly243.trLet) (w.map Ly243.trLetG) := by
-    rw [List.forall₂_map_left_iff, List.forall₂_map_right_iff]
-    exact List.forall₂_same.2 fun l hl => Ly243.rep_trLet h (hw l hl)
-  have := (powFixW_iff perm_faithful hF 1).1 hp
-  simpa [wordG] using this
 
 section Stage23
 

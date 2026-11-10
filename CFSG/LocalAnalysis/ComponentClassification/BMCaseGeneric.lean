@@ -27,48 +27,6 @@ theorem isSolvable_outer_of_inner (h : ∀ α : MulAut G, ∃ g : G, α = MulAut
   have := subsingleton_outer_of_inner h
   infer_instance
 
-@[expose] def quotKerAut {J : Type*} [Group J] (E : Subgroup J) : Subgroup (MulAut J) where
-  carrier := {α | ∀ j : J, (QuotientGroup.mk (α j) : J ⧸ E) = QuotientGroup.mk j}
-  mul_mem' {α β} hα hβ j := (hα (β j)).trans (hβ j)
-  one_mem' _ := rfl
-  inv_mem' {α} hα j := by
-    have h := hα (α⁻¹ j)
-    rw [MulAut.apply_inv_self] at h
-    exact h.symm
-
-theorem quotKerAut_of_inner {J : Type*} [Group J] {E : Subgroup J} [E.Normal]
-    (hE : IsPGroup 2 E) (hZ : Subgroup.center (J ⧸ E) = ⊥)
-    (h : ∀ α : MulAut J, ∃ g : J, α = MulAut.conj g) :
-    (∀ α : MulAut J, ∃ g : J, ∃ r ∈ quotKerAut E, α = MulAut.conj g * r) ∧
-      ∃ F : Subgroup (quotKerAut E), ∃ _ : F.Normal, IsPGroup 2 F ∧
-        IsPGroup 3 (quotKerAut E ⧸ F) := by
-  refine ⟨fun α => ?_, ⊤, inferInstance, ?_, ?_⟩
-  · obtain ⟨g, rfl⟩ := h α
-    exact ⟨g, 1, Subgroup.one_mem _, (mul_one _).symm⟩
-  ·
-    rintro ⟨⟨r, hr⟩, -⟩
-    obtain ⟨g, rfl⟩ := h r
-    have hgZ : (QuotientGroup.mk g : J ⧸ E) ∈ Subgroup.center (J ⧸ E) := by
-      rw [Subgroup.mem_center_iff]
-      intro c
-      induction c using QuotientGroup.induction_on with
-      | H j =>
-        have h1 := hr j
-        rw [MulAut.conj_apply] at h1
-        have h2 : (QuotientGroup.mk g : J ⧸ E) * QuotientGroup.mk j * (QuotientGroup.mk g)⁻¹ =
-            QuotientGroup.mk j := h1
-        calc (QuotientGroup.mk j : J ⧸ E) * QuotientGroup.mk g
-            = QuotientGroup.mk g * QuotientGroup.mk j * (QuotientGroup.mk g)⁻¹ *
-              QuotientGroup.mk g := by rw [h2]
-          _ = QuotientGroup.mk g * QuotientGroup.mk j := by group
-    rw [hZ, Subgroup.mem_bot, QuotientGroup.eq_one_iff] at hgZ
-    obtain ⟨k, hk⟩ := hE ⟨g, hgZ⟩
-    refine ⟨k, Subtype.ext (Subtype.ext ?_)⟩
-    have hk' : g ^ 2 ^ k = 1 := by simpa using congrArg Subtype.val hk
-    simp only [SubgroupClass.coe_pow, Subgroup.coe_one, ← map_pow, hk', map_one]
-  · exact IsPGroup.of_card (n := 0) (by
-      rw [pow_zero, Nat.card_eq_one_iff_unique]
-      exact ⟨QuotientGroup.subsingleton_quotient_top, inferInstance⟩)
 
 theorem inner_of_equiv {T S : Type*} [Group T] [Group S] (e : T ≃* S)
     (h : ∀ α : MulAut S, ∃ g : S, α = MulAut.conj g) :

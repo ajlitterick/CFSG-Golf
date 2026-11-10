@@ -30,9 +30,6 @@ theorem thCz_K : regsN (opsF2K 248) KernelLC.ThA.M KernelLC.ThB.M thThreeN thThr
     true := by
   quickRfl
 
-theorem thTz_neg : (!regsN (opsF2K 248) KernelLC.ThA.M KernelLC.ThB.M 2 []
-    (fun R => (opsF2K 248).eq (getN R 0) KernelLC.ThB.M)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

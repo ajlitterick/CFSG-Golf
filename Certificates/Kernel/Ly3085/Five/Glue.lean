@@ -90,13 +90,9 @@ theorem bfacts : CFSG.KC.LyOm.bConstsOK CFSG.KD.LyOm.BC = true := hBC
 
 theorem and' {a b : Bool} (h : (a && b) = true) : a = true ∧ b = true := Bool.and_eq_true _ _ ▸ h
 
-theorem lt_len : CFSG.KD.LyFive.LT.length = 27 := by decide
 
 theorem ab_len : CFSG.KD.LyFive.AB.length = 4 := by decide
 
-theorem ug_lt {l : ℕ} (hl : l < 27) : CFSG.KD.LyFive.UG l = CFSG.KD.LyFive.LT.getD l 0 := by
-  unfold CFSG.KD.LyFive.UG
-  rw [CFSG.KS.LyFive.nIf_eq, if_pos (Nat.blt_eq.mpr hl)]
 
 theorem ug_af {l : ℕ} (h1 : 27 ≤ l) (h2 : l < 34) :
     CFSG.KD.LyFive.UG l = LySv.AF (l - 27) := by
@@ -112,11 +108,6 @@ theorem ug_ai {l : ℕ} (h1 : 34 ≤ l) :
     CFSG.KS.LyFive.nIf_eq, if_neg (fun e => by have h3 : l < 34 := Nat.blt_eq.mp e; omega)]
   rfl
 
-theorem vld_lt {l : ℕ} (hl : l < 27) : LCanon 12 111 111 (CFSG.KD.LyFive.UG l) := by
-  rw [ug_lt hl]
-  refine fvld_canon (allL_mem CFSG.KD.LyFive.vld _ (List.mem_append_left _ ?_))
-  rw [List.getD_eq_getElem _ _ (by rw [lt_len]; exact hl)]
-  exact List.getElem_mem _
 
 theorem vld_ab {l : ℕ} (hl : l < 4) : LCanon 12 111 111 (CFSG.KD.LyFive.GA l) := by
   unfold CFSG.KD.LyFive.GA

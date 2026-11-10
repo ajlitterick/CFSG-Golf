@@ -756,17 +756,6 @@ theorem centMod_of_le (hp : p.Prime) {K₁ K : Subgroup G} (hK₁K : K₁ ≤ K)
     simpa [commutatorElement_def, mul_assoc] using this
   exact inf_glaPPrimeCoreOf_le hp hK₁K ⟨h1, (centMod_iff.1 hbK).2 l (hK₁K hl)⟩
 
-theorem centMod_of_le_centralizer {K₁ : Subgroup G} {a : G}
-    (h : K₁ ≤ Subgroup.centralizer ({a} : Set G)) : CentMod p K₁ a :=
-  centMod_of_mem_centralizer (Subgroup.mem_centralizer_iff.2 fun k hk =>
-    Subgroup.mem_centralizer_singleton_iff.1 (h hk))
-
-theorem inf_centModSubgroup_le (hp : p.Prime) {K K₁ A : Subgroup G} {a : G}
-    (hK₁ : K₁ ≤ K ⊓ Subgroup.centralizer ({a} : Set G))
-    (hA : A ≤ Subgroup.normalizer (K₁ : Set G)) :
-    A ⊓ centModSubgroup p K ≤ A ⊓ centModSubgroup p K₁ := fun b hb =>
-  ⟨hb.1, centMod_iff.1 (centMod_of_le hp (hK₁.trans inf_le_left) (hA hb.1)
-    (centMod_iff.2 hb.2))⟩
 
 end Chain
 

@@ -64,7 +64,6 @@ theorem W1_cases : ∀ y : P6, y ∈ G6.coreMod 6 → InW1 y →
     have key : ∀ a : P6, InW1 a → InW1 a⁻¹ := by decide +kernel
     exact key _ ha)
 
-theorem mem_W1sub {y : ↥(G6.coreMod 6)} : y ∈ W1sub ↔ InW1 (y : P6) := Iff.rfl
 
 theorem card_W1sub : Nat.card ↥W1sub = 4 := by
   have : Fintype.card {y : ↥(G6.coreMod 6) // InW1 (y : P6)} = 4 := by decide +kernel

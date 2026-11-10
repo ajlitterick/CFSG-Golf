@@ -64,7 +64,6 @@ open CFSG.QuasithinUnique.K1.SporadicPerm
 @[expose] def heLatC : LatData (List Nat) :=
   buildLat ptAct 8330 heTaC heTbC heDelta heSTabsC 400
 
-@[expose] def heOtC : Array (OmegaData (List (List Nat))) := buildO2 ptAct heLatC
 
 @[expose] def heIncl : List (List Nat) :=
   [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 3, 4, 9], [2, 3, 4], [3], [4], [3, 5],

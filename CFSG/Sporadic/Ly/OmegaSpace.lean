@@ -292,25 +292,6 @@ theorem card_le_orbit_of_inj [Finite X] [Finite Z] (Y : X → Z)
     _ = (((Finset.range n).image sp : Finset Z) : Set Z).ncard := (Set.ncard_coe_finset _).symm
     _ ≤ (orbit G (Y p)).ncard := Set.ncard_le_ncard hsub (Set.toFinite _)
 
-theorem fiber_set (S : Subgroup G) (Y : X → Z) (hY : ∀ (g : G) (x : X), Y (g • x) = g • Y x)
-    (p : X) (n : ℕ) (sp : ℕ → Z) (hmem : ∀ i < n, sp i ∈ orbit S (Y p))
-    (hinj : ∀ i < n, ∀ j < n, sp i = sp j → i = j) :
-    ∃ B : Set X, B ⊆ orbit S p ∧ B.ncard = n := by
-  classical
-  have : ∀ i : Fin n, ∃ s : S, s • Y p = sp i := fun i => hmem i i.2
-  choose s hs using this
-  refine ⟨Set.range fun i : Fin n => (s i : G) • p, ?_, ?_⟩
-  · rintro _ ⟨i, rfl⟩
-    exact ⟨s i, rfl⟩
-  · rw [Set.ncard_range_of_injective, Nat.card_eq_fintype_card, Fintype.card_fin]
-    intro i j e
-    have e1 := congrArg Y e
-    simp only at e1
-    rw [hY, hY] at e1
-    have e2 : sp i = sp j := by
-      rw [← hs i, ← hs j]
-      exact e1
-    exact Fin.ext (hinj i i.2 j j.2 e2)
 
 end Orbit
 

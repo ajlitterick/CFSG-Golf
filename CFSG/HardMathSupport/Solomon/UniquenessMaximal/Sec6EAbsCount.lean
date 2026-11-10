@@ -119,11 +119,6 @@ theorem count_x_F {f : V} (hf : f ∈ D.F) : x f ∈ D.A := by
   obtain ⟨a, ha, rfl⟩ := mem_img.1 this
   rw [count_apply_inv]; exact ha
 
-theorem count_xinv_A {a : V} (ha : a ∈ D.A) : x⁻¹ a ∈ D.F := by
-  rw [← hAF.1]; exact mem_img.2 ⟨a, ha, rfl⟩
-
-theorem count_xinv_F {f : V} (hf : f ∈ D.F) : x⁻¹ f ∈ D.A := by
-  rw [← hAF.2]; exact mem_img.2 ⟨f, hf, rfl⟩
 
 theorem count_x_perm : D.PermutesAF x :=
   Or.inr ⟨count_img_eq_of_le x D.A D.F (fun _ ha => D.count_x_A x hAF ha)
@@ -137,10 +132,6 @@ theorem count_conj_F {y : V ≃ₗ[ZMod 3] V} (hy : y ∈ conjSub x D.Q) : ∀ f
   show x⁻¹ (q (x f)) = f
   rw [D.Q_fix_A q hq _ (D.count_x_F x hAF hf), count_inv_apply]
 
-theorem count_conj_A {y : V ≃ₗ[ZMod 3] V} (hy : y ∈ conjSub x D.Q) : ∀ a ∈ D.A, y a ∈ D.A := by
-  obtain ⟨q, hq, rfl⟩ := count_mem_conjSub.1 hy
-  intro a ha
-  exact D.count_xinv_F x hAF (D.planeQ.mem q hq _ (D.count_x_A x hAF ha))
 
 theorem count_conj_trans {a a' : V} (ha : a ∈ D.A) (ha' : a' ∈ D.A) (ha0 : a ≠ 0) (ha0' : a' ≠ 0) :
     ∃ y ∈ conjSub x D.Q, y a = a' := by

@@ -45,25 +45,6 @@ theorem mem_of_proj_rho_of_kill (h : F.IsD D dD) (hτ : VFacts τ) (hK : KillFac
   have := mul_mem key (inv_mem hdG)
   simpa using this
 
-theorem stroth_form_ii (h : F.IsD D dD) (hτ : VFacts τ) (hK : KillFact τ)
-    (hns : IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-      ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G))) :
-    (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-        Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D ∨
-      ∃ X : Subgroup G, IsMulCommutative X ∧ F.A ≤ X ∧ X ≤ (F.S : Subgroup G) ∧
-        F.dA.L ≤ Subgroup.normalizer
-          ((X ⊔ Subgroup.centralizer (D : Set G) : Subgroup G) : Set G) ∧
-        Nat.card D < Nat.card X := by
-  have hS := h.setting hns
-  have hDR : D ≤ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-      Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) := hS.D_le_R
-  by_cases hRD : (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-      Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D
-  · exact Or.inl hRD
-  · refine Or.inr (h.exists_X_of_vcase hτ hns (fun e he huv ht hc => ?_)
-      (lt_of_le_of_ne hDR (Ne.symm hRD)))
-    obtain ⟨d₀, hd₀, hp⟩ := exists_proj_rho_eq hS he hc
-    exact h.mem_of_proj_rho_of_kill hτ hK hS he huv ht hd₀ hp
 
 end StrothFrame.IsD
 

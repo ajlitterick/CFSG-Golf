@@ -47,16 +47,6 @@ private theorem q8_check_transitive : ∀ u v : QuaternionGroup 2, Q8AP u v →
         (q8E u v (q8E u v g) = h ∨ q8E u v (q8E u v g) = h⁻¹) := by
   decide +kernel
 
-private theorem q8_check_three : ∀ u₁ v₁ : QuaternionGroup 2, Q8AP u₁ v₁ →
-    ∀ u₂ v₂ : QuaternionGroup 2, Q8AP u₂ v₂ →
-    (q8E u₁ v₁ (a 1) = xa 0 ∨ q8E u₁ v₁ (a 1) = (xa 0)⁻¹) →
-    (q8E u₂ v₂ (a 1) = xa 1 ∨ q8E u₂ v₂ (a 1) = (xa 1)⁻¹) →
-    ((∃ x, q8E u₁ v₁ x ≠ x) ∧ ∀ x, q8E u₁ v₁ (q8E u₁ v₁ (q8E u₁ v₁ x)) = x) ∨
-    ((∃ x, q8E u₂ v₂ x ≠ x) ∧ ∀ x, q8E u₂ v₂ (q8E u₂ v₂ (q8E u₂ v₂ x)) = x) ∨
-    ((∃ x, q8E u₁ v₁ (q8E u₂ v₂ x) ≠ x) ∧
-      ∀ x, q8E u₁ v₁ (q8E u₂ v₂ (q8E u₁ v₁ (q8E u₂ v₂
-        (q8E u₁ v₁ (q8E u₂ v₂ x))))) = x) := by
-  decide +kernel
 
 private theorem q8E_apply (φ : MulAut (QuaternionGroup 2)) (x : QuaternionGroup 2) :
     q8E (φ (a 1)) (φ (xa 0)) x = φ x :=
@@ -82,23 +72,5 @@ theorem q8_aut_transitive {φ : MulAut (QuaternionGroup 2)} (h3 : φ ^ 3 = 1) (h
   · exact ⟨1, by norm_num, by simpa using h0⟩
   · exact ⟨2, by norm_num, by simpa [pow_two, MulAut.mul_apply] using h0⟩
 
-theorem q8_aut_three {φ₁ φ₂ : MulAut (QuaternionGroup 2)}
-    (h₁ : φ₁ (a 1) = xa 0 ∨ φ₁ (a 1) = (xa 0)⁻¹)
-    (h₂ : φ₂ (a 1) = xa 1 ∨ φ₂ (a 1) = (xa 1)⁻¹) :
-    (φ₁ ≠ 1 ∧ φ₁ ^ 3 = 1) ∨ (φ₂ ≠ 1 ∧ φ₂ ^ 3 = 1) ∨ (φ₁ * φ₂ ≠ 1 ∧ (φ₁ * φ₂) ^ 3 = 1) := by
-  have conv : ∀ ψ : MulAut (QuaternionGroup 2), (∃ x, ψ x ≠ x) → (∀ x, ψ (ψ (ψ x)) = x) →
-      ψ ≠ 1 ∧ ψ ^ 3 = 1 := by
-    rintro ψ ⟨x, hx⟩ hc
-    refine ⟨fun h => hx (by simp [h]), MulEquiv.ext fun y => ?_⟩
-    simpa [pow_succ, MulAut.mul_apply] using hc y
-  have key := q8_check_three (φ₁ (a 1)) (φ₁ (xa 0)) (q8AP_of_mulAut φ₁) (φ₂ (a 1)) (φ₂ (xa 0))
-    (q8AP_of_mulAut φ₂) (by simpa only [q8E_apply] using h₁)
-    (by simpa only [q8E_apply] using h₂)
-  simp only [q8E_apply] at key
-  rcases key with ⟨hn, hc⟩ | ⟨hn, hc⟩ | ⟨hn, hc⟩
-  · exact Or.inl (conv φ₁ hn hc)
-  · exact Or.inr (Or.inl (conv φ₂ hn hc))
-  · exact Or.inr (Or.inr (conv (φ₁ * φ₂) (by simpa [MulAut.mul_apply] using hn)
-      (fun x => by simpa [MulAut.mul_apply] using hc x)))
 
 end CFSG.ClassicalInvolution

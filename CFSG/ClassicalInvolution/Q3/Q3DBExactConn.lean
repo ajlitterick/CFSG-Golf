@@ -144,22 +144,5 @@ theorem oddCentralizerFree_of_dConnected_sat_of_not_a2 {G : Type} [Group G] [Fin
       (oddCoreIn_le_satU (MemberType.isSolvableType_sl2.mpr (by norm_num)))
       ((citBelowT_three_iff (p := 3) (f := 1) (by norm_num) _).mp hBelowT) hA2 hD)
 
-@[expose] def OddCoreFreeA2D3 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMemberU (.sl2 3 1) K z →
-      CITBelowT (.sl2 3 1) (Nat.card G) → 3 ≤ CFSG.Open.twoRank G →
-      ¬ TwoSubgroupsFourGenerated G →
-      DConnected (CoreAssembly.conjClass (satU (.sl2 3 1) K z)) →
-      A2Configuration z (satU (.sl2 3 1) K z) →
-      Balance.oddCoreIn (Subgroup.centralizer ({z} : Set G)) = ⊥
-
-theorem oddCoreFreeD3_of_oddCoreFreeA2D3 (h : OddCoreFreeA2D3) : OddCoreFreeD3 :=
-  fun G _ _ _ hnab K z hz hBelow hr hlarge hD => by
-    by_cases hA2 : A2Configuration z (satU (.sl2 3 1) K z)
-    · exact h G hnab K z hz hBelow hr hlarge hD hA2
-    · exact oddCentralizerFree_of_dConnected_sat_of_not_a2 hnab hz hBelow hA2 hD
-
-theorem dBridgeU_three_of_oddCoreFreeA2D3 (h : OddCoreFreeA2D3) : DBridgeU 3 1 :=
-  dBridgeU_three_of_oddCoreFreeD3 (oddCoreFreeD3_of_oddCoreFreeA2D3 h)
 
 end CFSG.ClassicalInvolution.Q3.Q3DB

@@ -40,11 +40,6 @@ theorem lab_lt_of_mem {g : Equiv.Perm (Fin n)} (hg : g ∈ blockStab n m lab) (j
 @[expose] def blockFun (g : blockStab n m lab) (j : Fin m) : Fin m :=
   ⟨lab (g.1 (rep j)), lab_lt_of_mem hrep g.2 j⟩
 
-theorem lab_rep_lab {x : Fin n} (hx : lab x < m) : lab (rep ⟨lab x, hx⟩) = lab x := hrep _
-
-theorem lab_apply (g : blockStab n m lab) {x : Fin n} (hx : lab x < m) :
-    lab (g.1 x) = blockFun hrep g ⟨lab x, hx⟩ :=
-  lab_eq_of_lab_eq g.2 hx (lab_rep_lab hrep hx).symm
 
 theorem blockFun_mul (g h : blockStab n m lab) (j : Fin m) :
     blockFun hrep (g * h) j = blockFun hrep g (blockFun hrep h j) := by

@@ -375,8 +375,6 @@ theorem pair810Center : Pair810Center := by
     h.toTheoremFourHyp.localRank_three.le h.mem_partTwoF.1 h.card_eq h.mem_pairOmega.1
     h.mem_pairOmega.2.1 h.mem_pairOmega.2.2.1 hX hxA hxout
 
-theorem item810_of' (h87 : Item87) (h89 : Item89) : Item810 :=
-  item810_of h87 h89 pair810Center
 
 end Final
 

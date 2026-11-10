@@ -106,25 +106,6 @@ theorem n6Act_val (σ : Equiv.Perm (Fin 6)) (a : N6) (i : Fin 6) :
     Multiplicative.toAdd (n6Act σ a).1 i =
       Multiplicative.toAdd a.1 (σ⁻¹ i) + Multiplicative.toAdd a.1 (σ⁻¹ 5) := rfl
 
-theorem n6Act_eq_iff (σ : Equiv.Perm (Fin 6)) (a b : N6) :
-    n6Act σ a = b ↔ ∃ c : ZMod 2, ∀ i : Fin 6,
-      Multiplicative.toAdd b.1 i = Multiplicative.toAdd a.1 (σ⁻¹ i) + c := by
-  constructor
-  · rintro rfl
-    exact ⟨_, n6Act_val σ a⟩
-  · rintro ⟨c, hc⟩
-    apply Subtype.ext
-    apply Multiplicative.toAdd.injective
-    funext i
-    have h5 : Multiplicative.toAdd a.1 (σ⁻¹ 5) = c := by
-      have h := hc 5
-      rw [(mem_n6Sub_iff.1 b.2).2] at h
-      calc Multiplicative.toAdd a.1 (σ⁻¹ 5)
-          = Multiplicative.toAdd a.1 (σ⁻¹ 5) + (Multiplicative.toAdd a.1 (σ⁻¹ 5) + c) := by
-            rw [← h, add_zero]
-        _ = c := by
-            rw [← add_assoc, zmod_two_add_self, zero_add]
-    rw [hc i, n6Act_val, h5]
 
 theorem n6_card : Nat.card N6 = 16 := by
   rw [Nat.card_eq_fintype_card]

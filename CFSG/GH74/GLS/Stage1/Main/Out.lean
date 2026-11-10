@@ -105,13 +105,6 @@ theorem G2Term.of_G2Concl {G : Type} [Group G] [Finite G] {z : G} {S K : Subgrou
             (centralizer ({z'} : Set Gs)).subtype →
           Nonempty (↥(Stage1.Thm3.Sec8.layerSBar z S) ≃* ↥(Stage1.Thm3.Sec8.layerSBar z' (S'' : Subgroup Gs)))
 
-theorem L4U4TermTypeE.toTermType {ε : Bool} {G : Type} [Group G] [Finite G] {z : G} {S : Subgroup G}
-    (h : L4U4TermTypeE ε G z S) : L4U4TermType G z S := by
-  obtain ⟨hone, Gs, _, _, p, f, hp, hp2, hm, hS, hC⟩ := h
-  refine ⟨hone, Gs, ‹_›, ‹_›, p, f, hp, hp2, ?_, hS, hC⟩
-  rcases hm with ⟨_, h8, hL⟩ | ⟨_, h8, h3, hL⟩
-  · exact Or.inl ⟨h8, hL⟩
-  · exact Or.inr ⟨h8, h3, hL⟩
 
 theorem L4U4TermType.exists_eps {G : Type} [Group G] [Finite G] {z : G} {S : Subgroup G}
     (h : L4U4TermType G z S) : ∃ ε : Bool, L4U4TermTypeE ε G z S := by

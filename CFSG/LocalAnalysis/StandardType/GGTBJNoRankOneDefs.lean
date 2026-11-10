@@ -12,11 +12,6 @@ open CFSG.Assembly
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-@[expose] def GGTBJNoRankOne : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J : Subgroup G) (n : ℕ),
-    GGConfig p B Bs x L D J → 2 ≤ n →
-      ¬ GGHasLabel (⟨.A, 1, n⟩ : LargeEvenLabel) (↥J ⧸ Subgroup.center ↥J)
 
 @[expose] def GGRankOneSetup {R : Type} [Group R] (I : Set (MulAut R)) {L' : Type} [Group L']
     (ψ : L' →* R) (p : ℕ) (e : MulAut L') (J : Subgroup L') (n : ℕ) (a : MulAut L') : Prop :=

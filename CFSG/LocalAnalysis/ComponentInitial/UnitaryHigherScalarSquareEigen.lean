@@ -97,13 +97,6 @@ section Restrict
   map_one' := Units.ext (LinearMap.ext fun _ => rfl)
   map_mul' _ _ := Units.ext (LinearMap.ext fun _ => rfl)
 
-theorem coe_subgroupRestrictHom_apply {C : Subgroup (LinearMap.GeneralLinearGroup K V)}
-    (W : Submodule K V)
-    (hW : ∀ g ∈ C, ∀ v ∈ W, ((g : LinearMap.GeneralLinearGroup K V) : Module.End K V) v ∈ W)
-    (g : C) (v : W) :
-    ((((subgroupRestrictHom W hW g : LinearMap.GeneralLinearGroup K W) : Module.End K W) v : W) :
-      V) = ((g : LinearMap.GeneralLinearGroup K V) : Module.End K V) v :=
-  rfl
 
 abbrev similitudeCentralizer (B : LinearMap.BilinForm K V) (A : LinearMap.GeneralLinearGroup K V) :
     Subgroup (LinearMap.GeneralLinearGroup K V) :=

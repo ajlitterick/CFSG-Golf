@@ -119,8 +119,6 @@ structure OrbitFacts (us hs : List (List Native.Gen)) (lams sizes : List ℕ) : 
   total : (⋃ r ∈ Set.Iio lams.length,
     MulAction.orbit (Subgroup.closure (ggen us '' Set.Iio us.length)) (dec lams[r]!)).ncard = 46575
 
-theorem toArray_getElem!_eq (l : List ℕ) {r : ℕ} (hr : r < l.length) : l.toArray[r]! = l[r]! := by
-  simp [getElem!_pos, hr]
 
 theorem map_wordRows_getElem! (us : List (List Native.Gen)) {j : ℕ} (hj : j < us.length) :
     ((us.map Native.Cover.wordRows).toArray)[j]! = Native.Cover.wordRows us[j]! := by

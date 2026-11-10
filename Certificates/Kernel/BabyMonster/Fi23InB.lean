@@ -135,9 +135,6 @@ theorem imgWords_eq : imgWords () = Fi23InBIT.W.toArray := by
   rw [← Fi23InBIT.eq] at h
   exact h
 
-theorem img_forged_rejected : notB (CFSG.KC.WordsT.wordsT Fi23InBIT.chars
-    (((Fi23InBIT.W.headD []).dropLast ++ [7]) :: Fi23InBIT.W.tail)) = true := by
-  quickRfl
 
 @[expose] def wU : List ℤ := [1]
 

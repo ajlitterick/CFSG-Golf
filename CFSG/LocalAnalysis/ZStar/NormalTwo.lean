@@ -210,33 +210,6 @@ private theorem zStar_lift_of_central_normal_two {t : G}
   change c ∈ LX
   exact ⟨ck, hckL, rfl⟩
 
-theorem zStar_lift_of_odd_normal {t : G}
-    (M : Subgroup G) [M.Normal] (hModd : Odd (Nat.card M))
-    (hquot :
-      ∃ Obar : Subgroup (G ⧸ M), Obar.Normal ∧ Odd (Nat.card Obar) ∧
-        ∀ qg : G ⧸ M,
-          qg * QuotientGroup.mk' M t * qg⁻¹ * (QuotientGroup.mk' M t)⁻¹ ∈ Obar) :
-    ∃ O : Subgroup G, O.Normal ∧ Odd (Nat.card O) ∧
-      ∀ g : G, g * t * g⁻¹ * t⁻¹ ∈ O := by
-  let q : G →* G ⧸ M := QuotientGroup.mk' M
-  obtain ⟨Obar, hObarNormal, hObarOdd, hObarComm⟩ := hquot
-  let _ : Obar.Normal := hObarNormal
-  let O : Subgroup G := Subgroup.comap q Obar
-  have hOodd : Odd (Nat.card O) := by
-    have hcard : Nat.card O = Nat.card M * Nat.card Obar := by
-      calc
-        Nat.card O = (O : Set G).ncard := Nat.card_coe_set_eq (O : Set G)
-        _ = Nat.card M * Nat.card Obar := by
-          simpa [O, q] using
-            (QuotientGroup.card_preimage_mk M (Obar : Set (G ⧸ M)))
-    rw [hcard]
-    exact hModd.mul hObarOdd
-  refine ⟨O, inferInstance, hOodd, ?_⟩
-  intro g
-  change q (g * t * g⁻¹ * t⁻¹) ∈ Obar
-  have hg := hObarComm (q g)
-  change q g * q t * (q g)⁻¹ * (q t)⁻¹ ∈ Obar at hg
-  simpa [map_mul, map_inv] using hg
 
 theorem card_quotient_lt_of_ne_bot (M : Subgroup G) [M.Normal]
     (hMne : M ≠ ⊥) : Nat.card (G ⧸ M) < Nat.card G := by

@@ -73,45 +73,5 @@ theorem sectionAction_mk_eq_iff (hAK : A ≤ Subgroup.normalizer (K : Set G))
   rw [sectionAction_mk, eq_comm, QuotientGroup.eq, Subgroup.mem_subgroupOf, Subgroup.coe_mul,
     Subgroup.coe_inv, coe_sectionConjAut]
 
-theorem exists_fixed_mk [Finite G] {p : ℕ} (hp : p.Prime) (hLK : L ≤ K)
-    (hAK : A ≤ Subgroup.normalizer (K : Set G)) (hAL : A ≤ Subgroup.normalizer (L : Set G))
-    {a : A} (ha : (a : G) ^ p = 1) (hcop : Nat.Coprime p (Nat.card L))
-    {v : K ⧸ L.subgroupOf K} (hv : sectionAction hAK hAL a v = v) :
-    ∃ y : K, (a : G) * y * (a : G)⁻¹ = y ∧ QuotientGroup.mk y = v := by
-  induction v using QuotientGroup.induction_on with
-  | H k =>
-    rw [sectionAction_mk_eq_iff] at hv
-    have hKH : K ≤ Subgroup.normalizer (L : Set G) :=
-      (Subgroup.normal_subgroupOf_iff_le_normalizer hLK).mp inferInstance
-    have hLH : L ≤ Subgroup.normalizer (L : Set G) := Subgroup.le_normalizer
-    let a' : Subgroup.normalizer (L : Set G) := ⟨a, hAL a.2⟩
-    let w : Subgroup.normalizer (L : Set G) := ⟨k, hKH k.2⟩
-    have ha' : a' ^ p = 1 := Subtype.ext (by simpa [a'] using ha)
-    have hcop' : Nat.Coprime p (Nat.card (L.subgroupOf (Subgroup.normalizer (L : Set G)))) := by
-      rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hLH).toEquiv]
-      exact hcop
-    have hw : a' * w * a'⁻¹ * w⁻¹ ∈ L.subgroupOf (Subgroup.normalizer (L : Set G)) := by
-      rw [Subgroup.mem_subgroupOf]
-      have h1 := (Subgroup.mem_normalizer_iff.mp (hKH k.2) _).mp hv
-      have h2 : (a : G) * k * (a : G)⁻¹ * (k : G)⁻¹ =
-          k * ((k : G)⁻¹ * (a * k * (a : G)⁻¹)) * (k : G)⁻¹ := by group
-      simpa [a', w, h2] using h1
-    obtain ⟨y, hy1, hy2⟩ := exists_fixed_of_coprime hp ha' _ hcop' hw
-    have hyL : (y : G) * (k : G)⁻¹ ∈ L := by
-      have := Subgroup.mem_subgroupOf.mp hy1
-      simpa [w] using this
-    have hyK : (y : G) ∈ K := by
-      have : (y : G) = ((y : G) * (k : G)⁻¹) * k := by group
-      rw [this]
-      exact mul_mem (hLK hyL) k.2
-    refine ⟨⟨y, hyK⟩, ?_, ?_⟩
-    · have := congrArg Subtype.val hy2
-      simpa [a'] using this
-    · rw [QuotientGroup.eq, Subgroup.mem_subgroupOf]
-      have h3 : y⁻¹ * w ∈ L.subgroupOf (Subgroup.normalizer (L : Set G)) := by
-        have h4 := Subgroup.Normal.conj_mem Subgroup.normal_in_normalizer _ (inv_mem hy1) y⁻¹
-        have h5 : y⁻¹ * (y * w⁻¹)⁻¹ * y⁻¹⁻¹ = y⁻¹ * w := by group
-        rwa [h5] at h4
-      simpa [w] using Subgroup.mem_subgroupOf.mp h3
 
 end CFSG.SignalizerFunctorTheorem

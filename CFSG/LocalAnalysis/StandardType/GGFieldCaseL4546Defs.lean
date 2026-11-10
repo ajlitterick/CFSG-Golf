@@ -38,67 +38,6 @@ end Defs
   ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →
     LargeEvenLabelAll lab (LargeEvenSimpleGuard GGRawInndiagIso)
 
-@[expose] def GGL45CentInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ →
-      Bs ⊓ Subgroup.centralizer (X : Set G) ⊓ Subgroup.centralizer (K : Set G) ≤
-        Subgroup.zpowers d
-
-@[expose] def GGL45OmegaInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ →
-      ∀ u ∈ U, u ^ p ∈ U ⊓ Subgroup.centralizer (K : Set G) →
-        u ∈ Bs ⊔ (U ⊓ Subgroup.centralizer (K : Set G))
-
-@[expose] def GGL45RankInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ →
-      ∀ w ∈ U, w ∉ U₁ → ∃ a₁ ∈ U₁, ∃ a₂ ∈ U₁,
-        (a₁ * w * a₁⁻¹ * w⁻¹) ^ p ∈ U ⊓ Subgroup.centralizer (K : Set G) ∧
-        (a₂ * w * a₂⁻¹ * w⁻¹) ^ p ∈ U ⊓ Subgroup.centralizer (K : Set G) ∧
-        ∀ i j : ℕ, (a₁ * w * a₁⁻¹ * w⁻¹) ^ i * (a₂ * w * a₂⁻¹ * w⁻¹) ^ j ∈
-          U ⊓ Subgroup.centralizer (K : Set G) → p ∣ i ∧ p ∣ j
-
-@[expose] def GGL45TorusInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ →
-      ∃ s : ℕ, 2 ≤ s ∧
-        (∀ a ∈ U₁, ∀ b ∈ U₁, a * b * a⁻¹ * b⁻¹ ∈ U ⊓ Subgroup.centralizer (K : Set G)) ∧
-        (∀ u ∈ U₁, u ^ p ^ s ∈ U ⊓ Subgroup.centralizer (K : Set G)) ∧
-        (∃ u ∈ U₁, u ^ p ^ (s - 1) ∉ U ⊓ Subgroup.centralizer (K : Set G)) ∧
-        ∃ x' : G, Subgroup.zpowers x' = Subgroup.zpowers x ∧
-          ∀ u ∈ U₁, (u ^ (1 + p ^ (s - 1)))⁻¹ * (x'⁻¹ * u * x') ∈
-            U ⊓ Subgroup.centralizer (K : Set G)
-
-@[expose] def GGL46CoverInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ →
-      ∀ g ∈ X, ∃ u ∈ U₁, u⁻¹ * g ∈ Subgroup.centralizer (Bs : Set G)
-
-@[expose] def GGL45FiveInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGL45Config p B Bs x L D J X B₂ d y K U U₁ →
-    Subgroup.normalizer (U : Set G) ⊓ Subgroup.normalizer (K : Set G) ≤
-      Subgroup.normalizer (U₁ : Set G) →
-    (∀ r ∈ Subgroup.normalizer (U : Set G) ⊓
-        Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G),
-      r ∉ Subgroup.normalizer (Subgroup.zpowers d : Set G) →
-        ∀ v ∈ U ⊓ Subgroup.centralizer (K : Set G),
-          r * v * r⁻¹ ∈ U ⊓ Subgroup.centralizer (K : Set G) → v = 1) →
-    (∀ v ∈ U ⊓ Subgroup.centralizer (K : Set G), v ^ p = 1 → v ∈ Subgroup.zpowers d) →
-    (∀ n ∈ Subgroup.normalizer (U : Set G) ⊓
-        Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G),
-      ∀ v ∈ U ⊓ Subgroup.centralizer (K : Set G), n * v * n⁻¹ ∈ U₁) →
-    ∀ r ∈ Subgroup.normalizer (U : Set G) ⊓
-        Subgroup.normalizer ((Bs ⊓ Subgroup.centralizer (X : Set G) : Subgroup G) : Set G),
-      r ∉ Subgroup.normalizer (Subgroup.zpowers d : Set G) →
-        r ∈ Subgroup.normalizer (U₁ : Set G)
 
 section Facts
 

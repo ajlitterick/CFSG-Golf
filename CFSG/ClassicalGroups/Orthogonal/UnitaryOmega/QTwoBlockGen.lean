@@ -41,15 +41,6 @@ private theorem castRestr_qTwoFill (h : k ≤ m) (v : (F × F) × (Fin k → K))
   refine Prod.ext rfl (funext fun i => ?_)
   simp [castRestr, qTwoFill]
 
-omit [Field F] [Algebra F K] [Finite K] [CharP K 2] in
-private theorem qTwoFill_castRestr (h : k ≤ m) (v : (F × F) × (Fin m → K))
-    (hv : ∀ j : Fin m, k ≤ (j : ℕ) → v.2 j = 0) :
-    qTwoFill h (castRestr h v) = v := by
-  refine Prod.ext rfl (funext fun j => ?_)
-  by_cases hj : (j : ℕ) < k
-  · simp [castRestr, qTwoFill, hj]
-  · have hjk : k ≤ (j : ℕ) := by omega
-    simp [castRestr, qTwoFill, hj, hv j hjk]
 
 private theorem normHypForm_qTwoFill (h : k ≤ m) (v : (F × F) × (Fin k → K)) :
     normHypForm E m (qTwoFill h v) = normHypForm E k v := by
@@ -226,9 +217,6 @@ private theorem qTwoPerm_zero : qTwoPerm 0 = 3 := by decide
 
 private theorem qTwoPerm_one : qTwoPerm 1 = 2 := by decide
 
-private theorem qTwoPerm_two : qTwoPerm 2 = 1 := by decide
-
-private theorem qTwoPerm_three : qTwoPerm 3 = 0 := by decide
 
 private theorem qTwoPermOmega_apply (v : (F × F) × (Fin 4 → K)) :
     ((qTwoPermOmega E : normOmega E 4) :

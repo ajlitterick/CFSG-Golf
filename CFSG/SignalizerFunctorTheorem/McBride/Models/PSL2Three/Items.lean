@@ -34,22 +34,6 @@ theorem fixedNormalizer_eq_fixed (hp : p.Prime)
   (isA4_fixed hp hcop f hf).fixedNormalizer_eq (isSimpleGroup_of_prime hp)
     (eq_fixed_of_overgroup hp hcop f hf)
 
-theorem itemC_of_transvecs (hp : p.Prime) {f : MulAut PSL(2, GaloisField 3 p)}
-    (h1 : f (QuotientGroup.mk (transvecUp (GaloisField 3 p))) =
-      QuotientGroup.mk (transvecUp (GaloisField 3 p)))
-    (h2 : f (QuotientGroup.mk (transvecLow (GaloisField 3 p))) =
-      QuotientGroup.mk (transvecLow (GaloisField 3 p))) : ItemC p f := by
-  refine isPGroup_of_forall_coprime_orderOf_eq_one hp fun g hgcop => ?_
-  have hfix : ∀ y ∈ signalizerFixedSubgroup f, (g : MulAut PSL(2, GaloisField 3 p)) y = y :=
-    fun y hy => (mem_fixingSubgroup_iff _).mp g.2 y hy
-  have hgcop' : Nat.Coprime p (orderOf (g : MulAut PSL(2, GaloisField 3 p))) := by
-    rwa [Subgroup.orderOf_coe]
-  obtain ⟨y, hy⟩ := exists_pglAction_of_coprime_orderOf hp _ hgcop'
-  have hy1 : y = 1 := eq_one_of_pglAction_fixes
-    (by rw [← hy]; exact hfix _ h1) (by rw [← hy]; exact hfix _ h2)
-  apply Subtype.ext
-  rw [hy, hy1, map_one]
-  rfl
 
 theorem itemG_of_transvecs (hp : p.Prime) {f : MulAut PSL(2, GaloisField 3 p)}
     (h : IsA4Subgroup (signalizerFixedSubgroup f))

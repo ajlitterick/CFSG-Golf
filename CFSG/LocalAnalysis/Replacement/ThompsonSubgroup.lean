@@ -35,9 +35,6 @@ theorem mem_maxOrderAbelianSubgroups :
 theorem thompsonCenter_le (hA : A ∈ maxOrderAbelianSubgroups S) : thompsonCenter S ≤ A :=
   CFSG.orderZJ_le_of_mem_maxOrderAbelianFamily hA
 
-theorem thompsonCenter_eq_iInf :
-    thompsonCenter S = ⨅ A ∈ maxOrderAbelianSubgroups S, A :=
-  CFSG.orderZJ_eq_iInf
 
 end GlaubermanReplacement
 

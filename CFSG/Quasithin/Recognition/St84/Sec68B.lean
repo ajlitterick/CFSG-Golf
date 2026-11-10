@@ -894,22 +894,6 @@ private theorem Ki_four_inf_Ki_two (h : Ctx X s) {m : ℕ}
   rw [← h2, ← h4, inf_comm] at h'
   exact h'
 
-private theorem K_inf_Q_eq_bot (h : Ctx X s) (i : ℤ) :
-    X.K ⊓ X.Q i = ⊥ := by
-  rw [Subgroup.eq_bot_iff_forall]
-  intro k hk
-  obtain ⟨hkK, hkQ⟩ := Subgroup.mem_inf.mp hk
-  obtain ⟨n, hn⟩ := (pCoreOf_isPGroup' (X.Gi i)) ⟨k, hkQ⟩
-  have hk2 : k ^ (2 ^ n) = 1 := by
-    have h := congrArg Subtype.val hn
-    simpa using h
-  have hodd : Odd (orderOf k) :=
-    X.odd_card_K.of_dvd_nat (by
-      have hh := orderOf_dvd_natCard (⟨k, hkK⟩ : ↥X.K)
-      rwa [Subgroup.orderOf_mk] at hh)
-  have hcop : Nat.Coprime (orderOf k) (2 ^ n) := hodd.coprime_two_right.pow_right n
-  exact orderOf_eq_one_iff.mp
-    (Nat.eq_one_of_dvd_coprimes hcop (dvd_refl _) (orderOf_dvd_of_pow_eq_one hk2))
 
 private theorem fixedPointFree_of_le_Gi_inf {i : ℤ} (hni : 2 ≤ X.n i) {Z : Subgroup G}
     (hZ2 : IsPGroup 2 Z) (hZG : Z ≤ X.Gi (i - 1) ⊓ X.Gi i) (hZQ : Z ⊓ X.Q i = ⊥)

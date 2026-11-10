@@ -88,10 +88,5 @@ theorem exists_mul_of_mem_H
   refine ⟨h * (k : J)⁻¹, hker, k, k.2, ?_⟩
   rw [inv_mul_cancel_right]
 
-theorem N_sup_K :
-    N ⊔ K = H := by
-  refine le_antisymm (sup_le N_le_H K_le_H) fun h hh => ?_
-  obtain ⟨n, hn, k, hk, rfl⟩ := exists_mul_of_mem_H hh
-  exact Subgroup.mul_mem _ (Subgroup.mem_sup_left hn) (Subgroup.mem_sup_right hk)
 
 end CFSG.Sporadic.J4Schreier

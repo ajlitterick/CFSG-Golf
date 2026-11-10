@@ -66,51 +66,6 @@ section Plane
 
 variable {Q : QuadraticForm F V} {e f : V}
 
-theorem map_add_comb (he : Q e = 0) (hf : Q f = 0) (hef : polar Q e f = 1) (s t : F) :
-    Q (s • e + t • f) = s * t := by
-  rw [QuadraticMap.map_add Q, QuadraticMap.map_smul, QuadraticMap.map_smul, he, hf, polar_smul_left,
-    polar_smul_right, hef]
-  simp
-
-theorem polar_comb (he : Q e = 0) (hf : Q f = 0) (hef : polar Q e f = 1) (s₁ t₁ s₂ t₂ : F) :
-    polar Q (s₁ • e + t₁ • f) (s₂ • e + t₂ • f) = s₁ * t₂ + t₁ * s₂ := by
-  have hee : polar Q e e = 0 := by rw [QuadraticMap.polar_self, he]; simp
-  have hff : polar Q f f = 0 := by rw [QuadraticMap.polar_self, hf]; simp
-  have hfe : polar Q f e = 1 := by rw [polar_comm, hef]
-  simp only [polar_add_left, polar_add_right, polar_smul_left, polar_smul_right, hee, hff, hef,
-    hfe, smul_eq_mul]
-  ring
-
-theorem exists_diag_or_antidiag (he : Q e = 0) (hf : Q f = 0) (hef : polar Q e f = 1)
-    (h : V ≃ₗ[F] V) (hh : ∀ x, Q (h x) = Q x)
-    (hP : ∀ x ∈ Submodule.span F {e, f}, h x ∈ Submodule.span F {e, f}) :
-    ∃ a : F, a ≠ 0 ∧ ((h e = a • e ∧ h f = a⁻¹ • f) ∨ (h e = a • f ∧ h f = a⁻¹ • e)) := by
-  obtain ⟨s₁, t₁, h1⟩ := Submodule.mem_span_pair.mp (hP e (Submodule.subset_span (by simp)))
-  obtain ⟨s₂, t₂, h2⟩ := Submodule.mem_span_pair.mp (hP f (Submodule.subset_span (by simp)))
-  have q1 : s₁ * t₁ = 0 := by rw [← map_add_comb he hf hef, h1, hh, he]
-  have q2 : s₂ * t₂ = 0 := by rw [← map_add_comb he hf hef, h2, hh, hf]
-  have p12 : s₁ * t₂ + t₁ * s₂ = 1 := by
-    rw [← polar_comb he hf hef, h1, h2]
-    have : polar Q (h e) (h f) = polar Q e f := by
-      simp only [QuadraticMap.polar, ← map_add, hh]
-    rw [this, hef]
-  rcases mul_eq_zero.mp q1 with hs₁ | ht₁
-  ·
-    have hp : t₁ * s₂ = 1 := by rw [hs₁] at p12; simpa using p12
-    have ht₁ : t₁ ≠ 0 := left_ne_zero_of_mul_eq_one hp
-    have hs₂ : s₂ ≠ 0 := right_ne_zero_of_mul_eq_one hp
-    have ht₂ : t₂ = 0 := (mul_eq_zero.mp q2).resolve_left hs₂
-    refine ⟨t₁, ht₁, Or.inr ⟨?_, ?_⟩⟩
-    · rw [← h1, hs₁]; simp
-    · rw [← h2, ht₂, eq_inv_of_mul_eq_one_left hp]; simp
-  ·
-    have hp : s₁ * t₂ = 1 := by rw [ht₁] at p12; simpa using p12
-    have hs₁ : s₁ ≠ 0 := left_ne_zero_of_mul_eq_one hp
-    have ht₂ : t₂ ≠ 0 := right_ne_zero_of_mul_eq_one hp
-    have hs₂ : s₂ = 0 := (mul_eq_zero.mp q2).resolve_right ht₂
-    refine ⟨s₁, hs₁, Or.inl ⟨?_, ?_⟩⟩
-    · rw [← h1, ht₁]; simp
-    · rw [← h2, hs₂, eq_inv_of_mul_eq_one_right hp]; simp
 
 end Plane
 

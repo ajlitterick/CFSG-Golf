@@ -77,11 +77,6 @@ theorem two_mul_finrank_le [FiniteDimensional K V] (hQ : (polarBilin Q).Nondegen
   have h2 := Submodule.finrank_mono hle
   omega
 
-theorem four_lt_finrank_of_totallySingular [FiniteDimensional K V]
-    (hQ : (polarBilin Q).Nondegenerate) {T : Submodule K V} (hT : 3 ≤ Module.finrank K T)
-    (hTQ : ∀ x ∈ T, Q x = 0) : 4 < Module.finrank K V := by
-  have := two_mul_finrank_le hQ hTQ
-  omega
 
 theorem eq_one_or_eq_neg_of_mem_center [Nontrivial V] (hZ : CenterScalar Q)
     {z : ↥(elementaryGroup Q)} (hz : z ∈ Subgroup.center (elementaryGroup Q)) (hz2 : z * z = 1) :
@@ -99,9 +94,6 @@ theorem mem_elementaryGroup_of_isFundamental {L : Subgroup (V ≃ₗ[K] V)} {i :
     ↥(elementaryGroup Q) :=
   ⟨i, mem_elementaryGroup_of_isFundamental h⟩
 
-theorem coe_fundElt {L : Subgroup (V ≃ₗ[K] V)} {i : V ≃ₗ[K] V} (h : IsFundamental Q L i) :
-    (fundElt h : V ≃ₗ[K] V) = i :=
-  rfl
 
 theorem fundElt_mul_self {L : Subgroup (V ≃ₗ[K] V)} {i : V ≃ₗ[K] V} (h : IsFundamental Q L i) :
     fundElt h * fundElt h = 1 :=

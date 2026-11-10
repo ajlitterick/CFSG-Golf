@@ -176,25 +176,6 @@ theorem flipHerm_stdE_stdE (i j : Fin n) :
   · intro hi
     exact absurd (Finset.mem_univ i) hi
 
-theorem flipHerm_stdF_stdF (i j : Fin n) :
-    flipHerm σ (stdF (K := K) i) (stdF (K := K) j) = if i = j then 1 else 0 := by
-  rw [flipHerm_apply]
-  rw [Finset.sum_eq_single i]
-  · simp
-  · intro k _ hk
-    simp [stdF, hk]
-  · intro hi
-    exact absurd (Finset.mem_univ i) hi
-
-theorem flipHerm_stdE_stdF (i j : Fin n) :
-    flipHerm σ (stdE (K := K) i) (stdF (K := K) j) = 0 := by
-  rw [flipHerm_apply]
-  simp [stdE, stdF]
-
-theorem flipHerm_stdF_stdE (i j : Fin n) :
-    flipHerm σ (stdF (K := K) i) (stdE (K := K) j) = 0 := by
-  rw [flipHerm_apply]
-  simp [stdE, stdF]
 
 theorem flipHerm_stdE_right (u : Fin n ⊕ Fin n → K) (i : Fin n) :
     flipHerm σ u (stdE (K := K) i) = u (.inl i) := by
@@ -206,43 +187,11 @@ theorem flipHerm_stdE_right (u : Fin n ⊕ Fin n → K) (i : Fin n) :
   · intro hi
     exact absurd (Finset.mem_univ i) hi
 
-theorem flipHerm_stdF_right (u : Fin n ⊕ Fin n → K) (i : Fin n) :
-    flipHerm σ u (stdF (K := K) i) = u (.inr i) := by
-  rw [flipHerm_apply]
-  rw [Finset.sum_eq_single i]
-  · simp
-  · intro k _ hk
-    simp [stdF, hk]
-  · intro hi
-    exact absurd (Finset.mem_univ i) hi
-
-theorem eq_zero_of_flipHerm {u : Fin n ⊕ Fin n → K} (h : ∀ v, flipHerm σ u v = 0) : u = 0 := by
-  funext x
-  cases x with
-  | inl i =>
-    have := h (stdE (K := K) i)
-    rwa [flipHerm_stdE_right] at this
-  | inr i =>
-    have := h (stdF (K := K) i)
-    rwa [flipHerm_stdF_right] at this
 
 theorem quadPlus_stdE (i : Fin n) : quadPlus n K (stdE (K := K) i) = 0 := by
   rw [quadPlus_apply]
   simp [stdE]
 
-theorem quadPlus_stdF (i : Fin n) : quadPlus n K (stdF (K := K) i) = 0 := by
-  rw [quadPlus_apply]
-  simp [stdF]
-
-theorem polar_stdE_stdF (i j : Fin n) :
-    polar (quadPlus n K) (stdE (K := K) i) (stdF (K := K) j) = if i = j then 1 else 0 := by
-  rw [polar_quadPlus]
-  rw [Finset.sum_eq_single j]
-  · simp [eq_comm]
-  · intro k _ hk
-    simp [stdE, stdF, hk]
-  · intro hj
-    exact absurd (Finset.mem_univ j) hj
 
 @[expose] def flipOrth (σ : K ≃+* K) (U : Submodule K (Fin n ⊕ Fin n → K)) :
     Submodule K (Fin n ⊕ Fin n → K) where
@@ -462,19 +411,6 @@ theorem stdE_inr_eq_zero_of_mem_span {u : Fin n ⊕ Fin n → K}
   | add u v hu hv ihu ihv => simp [ihu, ihv]
   | smul a u hu ihu => simp [ihu]
 
-theorem isFlipflopSub_span_stdE :
-    IsFlipflopSub σ (Submodule.span K (Set.range (stdE (K := K) (n := n)))) where
-  total u hu := by
-    rw [quadPlus_apply]
-    refine Finset.sum_eq_zero fun i _ => ?_
-    rw [stdE_inr_eq_zero_of_mem_span hu i, mul_zero]
-  nondeg u hu hper := by
-    funext x
-    cases x with
-    | inl i =>
-      have h := hper (stdE (K := K) i) (Submodule.subset_span ⟨i, rfl⟩)
-      rwa [flipHerm_stdE_right] at h
-    | inr i => exact stdE_inr_eq_zero_of_mem_span hu i
 
 @[expose] def stdAlt (i : Fin n) : Fin n ⊕ Fin n → K :=
   if (i : ℕ) + 1 < n then stdE (K := K) i else stdF (K := K) i
@@ -485,43 +421,6 @@ theorem stdAlt_of_lt {i : Fin n} (h : (i : ℕ) + 1 < n) : stdAlt (K := K) i = s
 theorem stdAlt_of_not_lt {i : Fin n} (h : ¬ (i : ℕ) + 1 < n) : stdAlt (K := K) i = stdF i := by
   rw [stdAlt, if_neg h]
 
-theorem stdAlt_inr_eq_zero_of_mem_span {u : Fin n ⊕ Fin n → K}
-    (hu : u ∈ Submodule.span K (Set.range (stdAlt (K := K) (n := n)))) {i : Fin n}
-    (hi : (i : ℕ) + 1 < n) : u (.inr i) = 0 := by
-  induction hu using Submodule.span_induction with
-  | mem v hv =>
-    obtain ⟨j, rfl⟩ := hv
-    by_cases hj : (j : ℕ) + 1 < n
-    · rw [stdAlt_of_lt hj]
-      simp [stdE]
-    · rw [stdAlt_of_not_lt hj]
-      have hij : i ≠ j := by
-        intro h
-        subst h
-        omega
-      simp [stdF, hij]
-  | zero => simp
-  | add u v hu hv ihu ihv => simp [ihu, ihv]
-  | smul a u hu ihu => simp [ihu]
-
-theorem stdAlt_inl_eq_zero_of_mem_span {u : Fin n ⊕ Fin n → K}
-    (hu : u ∈ Submodule.span K (Set.range (stdAlt (K := K) (n := n)))) {i : Fin n}
-    (hi : ¬ (i : ℕ) + 1 < n) : u (.inl i) = 0 := by
-  induction hu using Submodule.span_induction with
-  | mem v hv =>
-    obtain ⟨j, rfl⟩ := hv
-    by_cases hj : (j : ℕ) + 1 < n
-    · rw [stdAlt_of_lt hj]
-      have hij : i ≠ j := by
-        intro h
-        subst h
-        omega
-      simp [stdE, hij]
-    · rw [stdAlt_of_not_lt hj]
-      simp [stdF]
-  | zero => simp
-  | add u v hu hv ihu ihv => simp [ihu, ihv]
-  | smul a u hu ihu => simp [ihu]
 
 theorem last_eq_of_not_lt {i : Fin n} (hn : 1 ≤ n) (hi : ¬ (i : ℕ) + 1 < n) :
     i = ⟨n - 1, by omega⟩ := by
@@ -529,37 +428,6 @@ theorem last_eq_of_not_lt {i : Fin n} (hn : 1 ≤ n) (hi : ¬ (i : ℕ) + 1 < n)
   simp only
   omega
 
-theorem isFlipflopSub_span_stdAlt (hn : 1 ≤ n) :
-    IsFlipflopSub σ (Submodule.span K (Set.range (stdAlt (K := K) (n := n)))) where
-  total u hu := by
-    rw [quadPlus_apply]
-    refine Finset.sum_eq_zero fun i _ => ?_
-    by_cases hi : (i : ℕ) + 1 < n
-    · rw [stdAlt_inr_eq_zero_of_mem_span hu hi, mul_zero]
-    · rw [stdAlt_inl_eq_zero_of_mem_span hu hi, zero_mul]
-  nondeg u hu hper := by
-    funext x
-    cases x with
-    | inl i =>
-      by_cases hi : (i : ℕ) + 1 < n
-      · have hmem : stdE (K := K) i ∈
-            Submodule.span K (Set.range (stdAlt (K := K) (n := n))) := by
-          rw [← stdAlt_of_lt hi]
-          exact Submodule.subset_span ⟨i, rfl⟩
-        have h := hper (stdE (K := K) i) hmem
-        rwa [flipHerm_stdE_right] at h
-      · rw [last_eq_of_not_lt hn hi]
-        exact stdAlt_inl_eq_zero_of_mem_span hu (i := ⟨n - 1, by omega⟩) (by simp; omega)
-    | inr i =>
-      by_cases hi : (i : ℕ) + 1 < n
-      · exact stdAlt_inr_eq_zero_of_mem_span hu hi
-      · rw [last_eq_of_not_lt hn hi]
-        have hmem : stdF (K := K) ⟨n - 1, by omega⟩ ∈
-            Submodule.span K (Set.range (stdAlt (K := K) (n := n))) := by
-          rw [← stdAlt_of_not_lt (i := ⟨n - 1, by omega⟩) (by simp; omega)]
-          exact Submodule.subset_span ⟨_, rfl⟩
-        have h := hper (stdF (K := K) ⟨n - 1, by omega⟩) hmem
-        rwa [flipHerm_stdF_right] at h
 
 theorem range_stdAlt (hn : 1 ≤ n) :
     Set.range (stdAlt (K := K) (n := n)) =
@@ -580,12 +448,6 @@ theorem range_stdAlt (hn : 1 ≤ n) :
       subst hv
       exact ⟨⟨n - 1, by omega⟩, stdAlt_of_not_lt (by simp; omega)⟩
 
-theorem isFlipflopSub_span_stdE_union_stdF_last (hn : 1 ≤ n) :
-    IsFlipflopSub σ (Submodule.span K
-      (stdE (K := K) '' {i : Fin n | (i : ℕ) + 1 < n} ∪
-        {stdF (K := K) ⟨n - 1, by omega⟩})) := by
-  rw [← range_stdAlt (K := K) (n := n) hn]
-  exact isFlipflopSub_span_stdAlt hn
 
 @[expose] noncomputable def flipHermSesq (σ : K ≃+* K) :
     (Fin n ⊕ Fin n → K) →ₛₗ[(σ : K →+* K)] (Fin n ⊕ Fin n → K) →ₗ[K] K :=
@@ -602,12 +464,6 @@ theorem flipHermSesq_isSymm (hσ : ∀ x, σ (σ x) = x) : (flipHermSesq (n := n
     rw [flipHermSesq_apply, flipHermSesq_apply]
     exact flipHerm_conj hσ v u
 
-theorem flipHermSesq_separatingLeft (hσ : ∀ x, σ (σ x) = x) :
-    (flipHermSesq (n := n) σ).SeparatingLeft := by
-  intro u hu
-  change ∀ y, flipHerm σ y u = 0 at hu
-  refine eq_zero_of_flipHerm (σ := σ) (n := n) fun v => ?_
-  exact (flipHerm_eq_zero_iff hσ).mpr (hu v)
 
 theorem exists_orthonormal_basis (hσ : ∀ x, σ (σ x) = x) (hne : ∃ c, σ c ≠ c)
     (hN : ∀ a, σ a = a → a ≠ 0 → ∃ x, x * σ x = a)
@@ -639,32 +495,6 @@ section Unitary
 
 open CFSG.LieType.BorelTits
 
-variable {K : Type} [Field K] [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p]
-
-theorem exists_mul_unitaryInvolution_eq_of_fixed (hK : Nat.card K = (p ^ f) ^ 2) {d : K}
-    (hd : unitaryInvolution K p f d = d) (hd0 : d ≠ 0) :
-    ∃ x : K, x * unitaryInvolution K p f x = d := by
-  obtain ⟨x, hx⟩ := CFSG.ClassicalGroups.Unitary.exists_norm_eq_of_fixed hK hd hd0
-  exact ⟨x, by simpa [mul_comm] using hx⟩
-
-theorem exists_orthonormal_basis_unitaryInvolution (hK : Nat.card K = (p ^ f) ^ 2)
-    {U : Submodule K (Fin n ⊕ Fin n → K)} (hU : IsFlipflopSub (unitaryInvolution K p f) U) :
-    ∃ b : Module.Basis (Fin (Module.finrank K U)) K U,
-      ∀ i j, flipHerm (unitaryInvolution K p f) ((b i : U) : Fin n ⊕ Fin n → K)
-        ((b j : U) : Fin n ⊕ Fin n → K) = if i = j then 1 else 0 := by
-  have hσ := (CFSG.ClassicalGroups.Unitary.isUnitaryInvolution_unitaryInvolution
-    (p := p) (f := f) hK).invol
-  exact exists_orthonormal_basis (σ := unitaryInvolution K p f) hσ
-    (CFSG.ClassicalGroups.Unitary.isUnitaryInvolution_unitaryInvolution
-      (p := p) (f := f) hK).exists_ne
-    (fun a ha ha0 => exists_mul_unitaryInvolution_eq_of_fixed hK ha ha0) hU
-
-theorem sup_flipOrth_eq_top_unitaryInvolution (hK : Nat.card K = (p ^ f) ^ 2)
-    {U : Submodule K (Fin n ⊕ Fin n → K)} (hU : IsFlipflopSub (unitaryInvolution K p f) U) :
-    U ⊔ flipOrth (unitaryInvolution K p f) U = ⊤ := by
-  have h := CFSG.ClassicalGroups.Unitary.isUnitaryInvolution_unitaryInvolution
-    (p := p) (f := f) hK
-  exact sup_flipOrth_eq_top h.invol h.exists_ne hU
 
 end Unitary
 

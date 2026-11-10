@@ -138,14 +138,6 @@ theorem similitudeMultiplier_spec (n : ℕ) (K : Type u) [Field K]
       R * Matrix.GeneralLinearGroup.scalar (Fin n) (similitudeMultiplier n K R g) :=
   g.property.choose_spec
 
-theorem similitudeMultiplier_matrix (n : ℕ) (K : Type u) [Field K]
-    (R : Matrix.GeneralLinearGroup (Fin n) K) (g : similitudeGroup n K R) :
-    g.val.val.transpose * R.val * g.val.val =
-      (similitudeMultiplier n K R g).val • R.val := by
-  have h := congrArg Units.val (similitudeMultiplier_spec n K R g)
-  rw [Units.val_mul, Units.val_mul, glTranspose_matrix,
-    ← Matrix.GeneralLinearGroup.scalar_commute, Units.val_mul, scalar_mul_matrix] at h
-  exact h
 
 theorem similitudeMultiplier_unique (n : ℕ) (K : Type u) [Field K] [Nonempty (Fin n)]
     (R : Matrix.GeneralLinearGroup (Fin n) K) (g : similitudeGroup n K R) (mu : Kˣ)
@@ -221,9 +213,6 @@ instance similitudeQuotientSolvable (n : ℕ) (K : Type u) [Field K] [Nonempty (
     isometryInSimilitude n K R ≃* isometryGroup n K R :=
   Subgroup.subgroupOfEquivOfLe (isometry_le_similitude n K R)
 
-theorem isometryInSimilitudeEquiv_val (n : ℕ) (K : Type u) [Field K]
-    (R : Matrix.GeneralLinearGroup (Fin n) K) (g : isometryInSimilitude n K R) :
-    (isometryInSimilitudeEquiv n K R g).val = g.val.val := rfl
 
 end
 

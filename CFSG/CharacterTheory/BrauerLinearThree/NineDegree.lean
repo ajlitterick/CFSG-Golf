@@ -16,9 +16,6 @@ variable {F : Type} [Field F] [Finite F] {Z : Subgroup (GL (Fin 2) F)}
 omit [Finite F] in
 @[expose] def squareUnits : Subgroup Fˣ := (powMonoidHom 2 : Fˣ →* Fˣ).range
 
-omit [Finite F] in
-theorem mem_squareUnits {a : Fˣ} : a ∈ squareUnits (F := F) ↔ ∃ c : Fˣ, c ^ 2 = a :=
-  Iff.rfl
 
 omit [Finite F] in
 include h2 in

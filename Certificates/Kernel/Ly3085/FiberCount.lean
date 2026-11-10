@@ -131,25 +131,6 @@ theorem card_of_fiber_pair
   rw [hAc, hBc] at this
   exact this
 
-theorem card_of_fiber
-    [LySeed] (p : LyOperator) (F : Form7) (hF : beta p = F) {nA nB : ℕ}
-    (fA : ℕ → Form7) (hA : ∀ i < nA, fA i ∈ orbit lyH F)
-    (hAi : ∀ i < nA, ∀ j < nA, fA i = fA j → i = j) (sp : ℕ → LySp)
-    (hB : ∀ i < nB, sp i ∈ orbit (stabilizer lyH F) (imOp p))
-    (hBi : ∀ i < nB, ∀ j < nB, sp i = sp j → i = j) :
-    nA * nB ≤ Nat.card (orbit lyH p) := by
-  subst hF
-  obtain ⟨B, hBs, hBc⟩ := fiber_set (G := lyH) (stabilizer lyH (beta p)) imOp (imOp_smulS lyH) p nB
-    sp hB hBi
-  have hAs : Set.range (fun i : Fin nA => fA i) ⊆ orbit lyH (beta p) := by
-    rintro _ ⟨i, rfl⟩
-    exact hA i i.2
-  have hAc : (Set.range (fun i : Fin nA => fA i)).ncard = nA := by
-    rw [Set.ncard_range_of_injective (fun i j e => Fin.ext (hAi i i.2 j j.2 e)),
-      Nat.card_eq_fintype_card, Fintype.card_fin]
-  have := mul_card_le_card_orbit (H := lyH) beta beta_smulH p _ hAs B hBs
-  rw [hAc, hBc] at this
-  exact this
 
 end CertificateChecks.KernelLy.Omega
 

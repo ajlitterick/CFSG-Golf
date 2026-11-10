@@ -60,17 +60,6 @@ open scoped IsMulCommutative
     G →* H ⧸ conjugatePairFocal H :=
   MonoidHom.transfer (QuotientGroup.mk' (conjugatePairFocal H))
 
-private theorem transfer_eq_pow_of_eq_focal (H : Subgroup G) [H.FiniteIndex]
-    (F : Subgroup H) [F.Normal] [IsMulCommutative (H ⧸ F)]
-    (hF : F = H.focalSubgroupOf) (s : H) :
-    (QuotientGroup.mk' F).transfer (s : G) = (QuotientGroup.mk' F s) ^ H.index := by
-  subst F
-  exact H.transferFocal_eq_pow s
-
-theorem focalTransfer_eq_pow (H : Subgroup G) [H.FiniteIndex] (s : H) :
-    focalTransfer H s = (QuotientGroup.mk' (conjugatePairFocal H) s) ^ H.index :=
-  transfer_eq_pow_of_eq_focal H (conjugatePairFocal H)
-    (conjugatePairFocal_eq_focalSubgroupOf H) s
 
 section Sylow
 
@@ -83,10 +72,6 @@ theorem conjugatePairFocal_eq_derived_subgroupOf :
   ext s
   simp [Subgroup.mem_subgroupOf]
 
-theorem focalQuotient_pow_index_bijective :
-    Bijective fun q : S ⧸ conjugatePairFocal (S : Subgroup G) => q ^ S.index :=
-  ((S.isPGroup'.to_quotient (conjugatePairFocal (S : Subgroup G))).powEquiv'
-    S.not_dvd_index).bijective
 
 private theorem transfer_properties_of_eq_focal (F : Subgroup S) [F.Normal]
     [IsMulCommutative (S ⧸ F)] (hF : F = (S : Subgroup G).focalSubgroupOf) :
@@ -103,11 +88,6 @@ theorem focalTransfer_surjective : Surjective (focalTransfer (S : Subgroup G)) :
   (transfer_properties_of_eq_focal S (conjugatePairFocal (S : Subgroup G))
     (conjugatePairFocal_eq_focalSubgroupOf (S : Subgroup G))).1
 
-theorem ker_restrict_focalTransfer :
-    ((focalTransfer (S : Subgroup G)).domRestrict S).ker =
-      conjugatePairFocal (S : Subgroup G) :=
-  (transfer_properties_of_eq_focal S (conjugatePairFocal (S : Subgroup G))
-    (conjugatePairFocal_eq_focalSubgroupOf (S : Subgroup G))).2.1
 
 theorem ker_focalTransfer_inf :
     (focalTransfer (S : Subgroup G)).ker ⊓ S =
@@ -115,72 +95,6 @@ theorem ker_focalTransfer_inf :
   (transfer_properties_of_eq_focal S (conjugatePairFocal (S : Subgroup G))
     (conjugatePairFocal_eq_focalSubgroupOf (S : Subgroup G))).2.2
 
-@[expose] def abelianizationSylow : Sylow p (Abelianization G) :=
-  S.mapSurjective (show Surjective (Abelianization.of : G →* Abelianization G) from
-    QuotientGroup.mk'_surjective (commutator G))
-
-theorem abelianizationSylow_eq_map :
-    (abelianizationSylow S : Subgroup (Abelianization G)) =
-      (S : Subgroup G).map Abelianization.of := rfl
-
-@[expose] def abelianizationToSylow : S →* abelianizationSylow S where
-  toFun s := ⟨Abelianization.of (s : G), by
-    change Abelianization.of (s : G) ∈ (S : Subgroup G).map Abelianization.of
-    exact ⟨s, s.property, rfl⟩⟩
-  map_one' := Subtype.ext (map_one Abelianization.of)
-  map_mul' s t := Subtype.ext (map_mul Abelianization.of (s : G) (t : G))
-
-theorem abelianizationToSylow_surjective : Surjective (abelianizationToSylow S) := by
-  rintro ⟨a, ha⟩
-  obtain ⟨g, hg, rfl⟩ := ha
-  exact ⟨⟨g, hg⟩, rfl⟩
-
-theorem ker_abelianizationToSylow :
-    (abelianizationToSylow S).ker = conjugatePairFocal (S : Subgroup G) := by
-  rw [conjugatePairFocal_eq_derived_subgroupOf]
-  ext s
-  change abelianizationToSylow S s = 1 ↔ (s : G) ∈ commutator G
-  rw [Subtype.ext_iff]
-  change Abelianization.of (s : G) = 1 ↔ (s : G) ∈ commutator G
-  rw [← Abelianization.ker_of G]
-  rfl
-
-@[expose] noncomputable def focalQuotientEquivAbelianizationSylow :
-    S ⧸ conjugatePairFocal (S : Subgroup G) ≃* abelianizationSylow S :=
-  (QuotientGroup.quotientMulEquivOfEq (ker_abelianizationToSylow S).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective (abelianizationToSylow S)
-      (abelianizationToSylow_surjective S))
-
-theorem focalQuotientEquivAbelianizationSylow_mk (s : S) :
-    (focalQuotientEquivAbelianizationSylow S
-      (QuotientGroup.mk' (conjugatePairFocal (S : Subgroup G)) s) : Abelianization G) =
-      Abelianization.of (s : G) := by
-  change ((QuotientGroup.quotientKerEquivOfSurjective (abelianizationToSylow S)
-    (abelianizationToSylow_surjective S)) (QuotientGroup.mk s) : Abelianization G) = _
-  rfl
-
-theorem sylow_focal_subgroup_via_transfer :
-    (conjugatePairFocal (S : Subgroup G)).Normal ∧
-    commutator S ≤ conjugatePairFocal (S : Subgroup G) ∧
-    conjugatePairFocal (S : Subgroup G) = (commutator G).subgroupOf S ∧
-    (∀ s : S, focalTransfer (S : Subgroup G) s =
-      (QuotientGroup.mk' (conjugatePairFocal (S : Subgroup G)) s) ^ S.index) ∧
-    Surjective (focalTransfer (S : Subgroup G)) ∧
-    ((focalTransfer (S : Subgroup G)).domRestrict S).ker =
-      conjugatePairFocal (S : Subgroup G) ∧
-    (focalTransfer (S : Subgroup G)).ker ⊓ S =
-      (conjugatePairFocal (S : Subgroup G)).map (S : Subgroup G).subtype ∧
-    (abelianizationSylow S : Subgroup (Abelianization G)) =
-      (S : Subgroup G).map Abelianization.of ∧
-    ∃ e : S ⧸ conjugatePairFocal (S : Subgroup G) ≃* abelianizationSylow S,
-      ∀ s : S, (e (QuotientGroup.mk' (conjugatePairFocal (S : Subgroup G)) s) :
-        Abelianization G) = Abelianization.of (s : G) := by
-  exact ⟨inferInstance, commutator_le_conjugatePairFocal (S : Subgroup G),
-    conjugatePairFocal_eq_derived_subgroupOf S,
-    (fun s => focalTransfer_eq_pow (S : Subgroup G) s),
-    focalTransfer_surjective S, ker_restrict_focalTransfer S, ker_focalTransfer_inf S,
-    abelianizationSylow_eq_map S, focalQuotientEquivAbelianizationSylow S,
-    focalQuotientEquivAbelianizationSylow_mk S⟩
 
 end Sylow
 

@@ -74,9 +74,6 @@ theorem mem_UwMinus_iff {m : D.N} {x : X} :
   rw [D.mem_Vm_iff]
   rfl
 
-theorem UwMinus_le_U {m : D.N} {x : X} (hx : x ∈ D.UwMinus m) : x ∈ D.U := hx.1
-
-theorem UwPlus_le_U {m : D.N} {x : X} (hx : x ∈ D.UwPlus m) : x ∈ D.U := hx.1
 
 theorem eq_one_of_mem_U_Vm {z : X} (hzB : z ∈ D.B) (hz : z ∈ D.Vm) : z = 1 :=
   D.roots.meet_one z hzB ((D.mem_Vm_iff).1 hz)

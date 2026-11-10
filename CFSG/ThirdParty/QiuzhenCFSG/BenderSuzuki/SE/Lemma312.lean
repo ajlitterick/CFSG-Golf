@@ -720,15 +720,6 @@ private theorem lemma312_quotient_stronglyEmbedded_of_odd_kernel
     exact this
   exact hY.2.2 hgY hwY hwRight hwInv
 
-/-- A normal subgroup contained in a strongly embedded subgroup has odd
-cardinality.  This is the reusable strong-embedding form of the local lemma
-used in the quotient branch of Lemma 3.12. -/
-public theorem IsStronglyEmbedded.normal_le_card_odd
-    {H : Type u} [Group H] [Finite H]
-    {Y N : Subgroup H} (hY : IsStronglyEmbedded Y)
-    [N.Normal] (hNY : N ≤ Y) :
-    Odd (Nat.card N) :=
-  lemma312_normal_le_stronglyEmbedded_card_odd hY inferInstance hNY
 
 /-- An involution remains an involution after quotienting by a normal
 odd-order subgroup. -/

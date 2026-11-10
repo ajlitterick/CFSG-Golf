@@ -133,9 +133,5 @@ theorem pLayer_relative_normal_mono [Finite G] (p : ℕ) [Fact p.Prime]
   rw [Subgroup.subgroupOf_self] at htop
   rwa [pLayer_nested_map p Y H hYH, htop] at h
 
-theorem pLayer_centralizer_le_normalizer [Finite G] (p : ℕ) [Fact p.Prime] (P : Subgroup G) :
-    lBalancePLayer p (Subgroup.centralizer (P : Set G)) ≤
-      lBalancePLayer p (Subgroup.normalizer (P : Set G)) :=
-  pLayer_relative_normal_mono p _ _ (Subgroup.centralizer_le_normalizer _)
 
 end CFSG.ComponentClassification.LBalance

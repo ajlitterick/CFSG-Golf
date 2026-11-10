@@ -38,7 +38,6 @@ namespace CFSG.Monster.B.Fischer
 
 @[expose] def fi22OuterT256GenCount : Nat := 9
 
-@[expose] def fi22OuterT256Base : List Nat := [0, 1, 2, 3]
 
 @[expose] def fi22OuterT256Derivations : List (List Int) :=
   [[3, 8], [9, 7, 2], [3, -4, 5, 3], [12, 10, 12], [10, 12, 11, 12, 10, 11], [-6, 3, 6],
@@ -62,7 +61,6 @@ namespace CFSG.Monster.B.Fischer
 
 @[expose] def fi22OuterMComm693GenCount : Nat := 3
 
-@[expose] def fi22OuterMComm693Base : List Nat := [0, 9, 1, 3, 45]
 
 @[expose] def fi22OuterMComm693Derivations : List (List Int) :=
   [[-2, 1, 1], [-3, 2, 3], [-4, -4, -5, -4, -4, 5, 4, 4, 5, 4], [-1, -2, -3, 1, 3, 2, 1],
@@ -71,7 +69,6 @@ namespace CFSG.Monster.B.Fischer
 
 @[expose] def fi22OuterD693GenCount : Nat := 3
 
-@[expose] def fi22OuterD693Base : List Nat := [0, 1, 2, 4]
 
 @[expose] def fi22OuterD693Derivations : List (List Int) :=
   [[-2, 3, 3, 2], [3, 3, 3], [5, -4, 5, 4, 5, 4, 4], [-3, -2, -3, 2, 2, 2, 1], [-7, 5, 7],
@@ -111,7 +108,6 @@ namespace CFSG.Monster.B.Fischer
   A25A4AA58A5AA73A75A7FA81A87A9EAB2AC9ACDAF8B07B08B18B34B38B6BB83B92BA1BA2BA3BA6BB3BBEBC8BF5BFAC0D\
   C15C28C3CC3FC41C46C63C6AC71C77C7CC87C96CA1CA9CC5CE0CECD29D2CD2DD39D3DD3ED46D51D53D82D87D95DA0DA5"
 
-@[expose] def fi22OuterWitnessPoints : List Nat := [0, 9, 270]
 
 @[expose] def fi22OuterWitnessOrbitSizes : List Nat := [512, 180, 1]
 
@@ -139,11 +135,6 @@ namespace CFSG.Monster.B.Fischer
   2541CC1252791081020AF2AE02D1A420418A0FC14401B2990471111780730BB25609A06C11814F1232AC03728417D0EB\
   0C328E19E0950C915B29129A10B02824509F2771562062111041B70B61FB10E"
 
-@[expose] def fi22OuterMCommPairs : List (Nat × Nat) := [(1, 2), (1, 3), (2, 3)]
-
-@[expose] def fi22OuterCentralWord : List Int := [1, 2]
-
-@[expose] def fi22OuterFixedBounds : List Nat := [3511, 3511, 3510]
 
 @[expose] def fi22OuterUnitaryPoints : String :=
   "000011000012000013000101000102000103000110000120000130001001001002001003001010001020001030001100\
@@ -196,9 +187,5 @@ namespace CFSG.Monster.B.Fischer
   001200001300010001010002010003010010010020010030010100010200010300011000012000013000100001100002\
   100003100010100020100030100100100200100300101000102000103000110000120000130000111100"
 
-@[expose] def fi22OuterSourceArtifact : String × String × String :=
-  ("blueprint/data/sporadic/fi22-simplicity-certificate.json.gz",
-    "f1fe012bdfafe82807a5c76a7a4decfb86f2b269c34ddbb42662493ddb62918d",
-    "906e38055bc5d0f5f08be82a4d98fe15cda1695ea088b70201daf5ba3e919dfe")
 
 end CFSG.Monster.B.Fischer

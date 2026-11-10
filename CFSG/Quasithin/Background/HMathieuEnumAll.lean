@@ -29,15 +29,5 @@ theorem forallGreedyAll_le {posF : P → ℕ} {Rinv : List P} {pred : List P →
     · rw [forallGreedyP, List.all_eq_true]
       exact fun x hx => forallGreedyAll_le k (x :: l) (h.2 x hx) j (by omega)
 
-theorem forallGreedyAll_succ_nil {posF : P → ℕ} {Rinv : List P} {pred : List P → Bool}
-    {k : ℕ} (h0 : pred [] = true)
-    (h : ∀ x ∈ Rinv, forallGreedyAll posF Rinv pred k [x] = true) :
-    forallGreedyAll posF Rinv pred (k + 1) [] = true := by
-  rw [forallGreedyAll, Bool.and_eq_true, List.all_eq_true]
-  refine ⟨h0, fun x hx => h x ?_⟩
-  have : x ∈ Rinv.drop 0 := by
-    simp only [greedyExtP, List.mem_filter] at hx
-    exact hx.1
-  simpa using this
 
 end CFSG.Quasithin.H.Mathieu

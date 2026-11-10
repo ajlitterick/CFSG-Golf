@@ -133,7 +133,6 @@ section Kernel
 
 variable {F : Nat → Nat → Nat} {P PAR LAB W : Nat → Nat} {ng : Nat}
 
-private theorem co1Bfs_bfsRowK_zero (h l c : Nat) : bfsRowK F P PAR LAB W ng h 0 l c = c := rfl
 
 private theorem co1Bfs_bfsRowK_succ (h k l c : Nat) :
     bfsRowK F P PAR LAB W ng h (k + 1) l c =

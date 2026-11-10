@@ -397,14 +397,6 @@ theorem xOf_of_comm_pair (h : F.IsD D dD) (hτ : VFacts τ)
   rw [hcardD]
   omega
 
-theorem eq_xOf_of_comm_pair (h : F.IsD D dD) (hτ : VFacts τ)
-    (hS : Local.Setting (F.S : Subgroup G) D) {e f : G} (he : e ∈ hS.R) (hf : f ∈ hS.R)
-    {w : Torus τ.k} (hw : InW w) (hw0 : w ≠ 0) (hPw : τ.action.φρ w ≠ w) (hef : e * f = f * e)
-    (hθe : ∀ x, dD.thetaT (hS.R_le_normalizer he) x = nuMap w x)
-    (hθf : ∀ x, dD.thetaT (hS.R_le_normalizer hf) x = nuMap (τ.action.φρ w) x)
-    {Y : Subgroup G} (hY : Y ≤ xOf D e f ⊔ D) (hYc : IsMulCommutative Y)
-    (hcard : Nat.card Y = Nat.card (xOf D e f)) : Y = xOf D e f :=
-  (h.xOf_of_comm_pair hτ hS he hf hw hw0 hPw hef hθe hθf).2.2.2.2.2.1 Y hY hYc hcard
 
 theorem exists_X_of_vcase_plus (h : F.IsD D dD) (hτ : VFacts τ)
     (hns : IsSylowIn 2 (Subgroup.normalizer (D : Set G))

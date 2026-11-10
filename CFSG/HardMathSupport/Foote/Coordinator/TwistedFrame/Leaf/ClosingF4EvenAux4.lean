@@ -214,11 +214,6 @@ theorem pcl_Pset (AD : ActData L) (E : Elts Fr H) : PCl Fr (Pset Fr H) where
     rw [crd_act_a3 AD h4, crd_act_a4 AD h5, crd_act_g5 AD hsu]
     rfl
 
-theorem pset_S (E : Elts Fr H) (hsurj : ∀ n : L, ∃ z, z + Fr z = n) {l : L} (hl : InE Fr l) :
-    (⟨l, 0, 0, 0, 0, 0, 0⟩ : T7 L) ∈ Pset Fr H := by
-  obtain ⟨z, hz⟩ := hsurj (l * Fr l)
-  obtain ⟨hq, hc⟩ := heisCoord_r (Fr := Fr) l z
-  refine ⟨fv Fr rS l, ⟨_, E.er l z hl hz, hq, sig_r hl hz, hc⟩, crd_fv_rS l⟩
 
 end PsetSec
 

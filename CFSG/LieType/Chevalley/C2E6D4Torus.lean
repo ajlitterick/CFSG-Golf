@@ -133,11 +133,5 @@ theorem eq_one_of_mem_torusD
   rw [hc]
   exact (fix_moduleD_iff c).mp hfix
 
-theorem psiD_injOn_torusD
-    : Set.InjOn psiD (torusD.subgroupOf groupD) := by
-  intro x hx y hy hxy
-  have h1 : psiD (x⁻¹ * y) = 1 := by rw [map_mul, map_inv, hxy, inv_mul_cancel]
-  have h2 := eq_one_of_mem_torusD (mul_mem (inv_mem hx) hy) h1
-  rwa [inv_mul_eq_one] at h2
 
 end CFSG.LieType.Chevalley.C2E6Std

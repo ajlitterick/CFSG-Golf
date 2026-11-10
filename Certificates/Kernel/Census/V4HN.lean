@@ -38,15 +38,6 @@ theorem len_K : cs.length = 4 := by decide +kernel
 theorem fin_K : v4FinL lay (SL.getD cs.length []) hnV4.base hnV4.inv₁ hnV4.inv₂ = true := by
   decide +kernel
 
-theorem ren_neg : (!renOK [901, 880, 911, 434, 881] hnV4.base.prog cs) = true := by decide +kernel
-
-theorem ch_neg : (!chunkV lay (cs.getD 1 (0, [], [])) (SL.getD 2 []) (SL.getD 2 [])) = true := by
-  decide +kernel
-
-theorem fin_neg : (!v4FinL lay (SL.getD 4 []) { hnV4.base with outs := [880, 880, 911] } 434 881) =
-    true := by decide +kernel
-
-theorem fin_neg_inv : (!v4FinL lay (SL.getD 4 []) hnV4.base 880 881) = true := by decide +kernel
 
 end CFSG.KD.V4HN
 

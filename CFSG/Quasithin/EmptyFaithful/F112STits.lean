@@ -78,12 +78,6 @@ theorem invs_rep (h : TitsRankCheck) {i : ℕ} (hi : i < numInvs) :
     Rep 1755 invs[i]! (invPerm i) :=
   (rep_permOfArr (invs_ok h hi).1).1
 
-theorem invPerm_sq (h : TitsRankCheck) {i : ℕ} (hi : i < numInvs) :
-    invPerm i * invPerm i = 1 := by
-  have hr := invs_rep h hi
-  have h2 := (invs_ok h hi).2
-  simp only [isInv, Bool.and_eq_true, Bool.not_eq_true'] at h2
-  exact eq_of_eqA (rep_compA hr hr) rep_idA h2.1
 
 theorem invPerm_ne_one (h : TitsRankCheck) {i : ℕ} (hi : i < numInvs) : invPerm i ≠ 1 := by
   have hr := invs_rep h hi

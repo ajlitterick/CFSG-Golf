@@ -110,12 +110,6 @@ theorem jG_incl_frame1 (ε : F) (hε : ε ≠ 0) (h4 : (4 : F) ≠ 0) (X : Matri
     simp [jG, Frame.incl_apply, frame1, frameOfVectors, Frame.e₁, Frame.f₁, Frame.e₂, Frame.f₂,
       vecXY, Jm, Matrix.mul_apply, Fin.sum_univ_two] <;> field_simp <;> ring
 
-theorem jG_incl_frame3 (ε : F) (X : Matrix (Fin 2) (Fin 2) F) :
-    jG ε ((frame2 (F := F)).swap.incl X) = (frame2 (F := F)).swap.incl (Pm ε * X) := by
-  ext i
-  rcases i with i | i <;> fin_cases i <;>
-    simp [jG, Frame.incl_apply, Frame.swap, frame2, frameOfVectors, Frame.e₁, Frame.f₁, Frame.e₂,
-      Frame.f₂, vecXY, Pm, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
 
 theorem jH_incl_frame0 (ε : F) (X : Matrix (Fin 2) (Fin 2) F) :
     jH ε ((frame0 (F := F)).incl X) = (frame0 (F := F)).incl (X * Jm ε) := by
@@ -138,12 +132,6 @@ theorem jH_incl_frame3 (ε : F) (X : Matrix (Fin 2) (Fin 2) F) :
     simp [jH, Frame.incl_apply, Frame.swap, frame2, frameOfVectors, Frame.e₁, Frame.f₁, Frame.e₂,
       Frame.f₂, vecXY, Pm, Matrix.mul_apply, Fin.sum_univ_two] <;> ring
 
-theorem jH_incl_frame2 (ε : F) (X : Matrix (Fin 2) (Fin 2) F) :
-    jH ε ((frame2 (F := F)).incl X) = (frame2 (F := F)).incl (Jm ε * X) := by
-  ext i
-  rcases i with i | i <;> fin_cases i <;>
-    simp [jH, Frame.incl_apply, frame2, frameOfVectors, Frame.e₁, Frame.f₁, Frame.e₂, Frame.f₂,
-      vecXY, Jm, Matrix.vecMul, dotProduct, Fin.sum_univ_two]
 
 end Frames
 
@@ -199,13 +187,6 @@ theorem surj_mulRight_Jm {ε : F} (hε : ε ≠ 0) :
     smul_smul]
   rw [inv_mul_cancel₀ (neg_ne_zero.2 hε), one_smul]
 
-theorem surj_mulLeft_Jm {ε : F} (hε : ε ≠ 0) :
-    Function.Surjective (fun X : Matrix (Fin 2) (Fin 2) F => Jm ε * X) := by
-  intro Y
-  refine ⟨(-ε)⁻¹ • (Jm ε * Y), ?_⟩
-  simp only [Matrix.mul_smul, ← Matrix.mul_assoc, Jm_mul_Jm, Matrix.smul_mul, Matrix.one_mul,
-    smul_smul]
-  rw [inv_mul_cancel₀ (neg_ne_zero.2 hε), one_smul]
 
 theorem surj_mulRight_Pm {ε : F} (hε : ε ≠ 0) :
     Function.Surjective (fun X : Matrix (Fin 2) (Fin 2) F => X * Pm ε) := by
@@ -215,13 +196,6 @@ theorem surj_mulRight_Pm {ε : F} (hε : ε ≠ 0) :
     smul_smul]
   rw [inv_mul_cancel₀ (neg_ne_zero.2 hε), one_smul]
 
-theorem surj_mulLeft_Pm {ε : F} (hε : ε ≠ 0) :
-    Function.Surjective (fun X : Matrix (Fin 2) (Fin 2) F => Pm ε * X) := by
-  intro Y
-  refine ⟨(-ε)⁻¹ • (Pm ε * Y), ?_⟩
-  simp only [Matrix.mul_smul, ← Matrix.mul_assoc, Pm_mul_Pm, Matrix.smul_mul, Matrix.one_mul,
-    smul_smul]
-  rw [inv_mul_cancel₀ (neg_ne_zero.2 hε), one_smul]
 
 theorem La_eq_embLin (fr : Frame (quadPlus 4 F)) (M : SL(2, F)) (v : V8 F) :
     fr.La M v = fr.embLin (LinearMap.mulLeft F (M : Matrix (Fin 2) (Fin 2) F)) v := by
@@ -252,41 +226,6 @@ theorem jH_La_comm_of_incl_Pm {ε : F} (hε : ε ≠ 0) (fr : Frame (quadPlus 4 
     (LinearMap.mulLeft F (M : Matrix (Fin 2) (Fin 2) F))
     (fun X => by simp [Matrix.mul_assoc]) v
 
-theorem jG_La3_comm_iff {ε : F} (hε : ε ≠ 0) (M : SL(2, F)) :
-    (∀ v : V8 F, jG ε ((frame2 (F := F)).swap.La M v) = (frame2 (F := F)).swap.La M (jG ε v)) ↔
-      (M : Matrix (Fin 2) (Fin 2) F) * Pm ε = Pm ε * (M : Matrix (Fin 2) (Fin 2) F) := by
-  constructor
-  · intro h
-    have h1 := h ((frame2 (F := F)).swap.incl 1)
-    rw [Frame.La_apply_incl, jG_incl_frame3, jG_incl_frame3, Frame.La_apply_incl] at h1
-    have h2 := congrArg (frame2 (F := F)).swap.coords h1
-    rw [Frame.coords_incl, Frame.coords_incl] at h2
-    simpa using h2.symm
-  · intro hMP v
-    rw [La_eq_embLin, La_eq_embLin]
-    exact comm_embLin (frame2 (F := F)).swap (jSim ε hε) (fun X => Pm ε * X)
-      (jG_incl_frame3 ε) (surj_mulLeft_Pm hε) (LinearMap.mulLeft F (M : Matrix (Fin 2) (Fin 2) F))
-      (fun X => by
-        simp only [LinearMap.mulLeft_apply]
-        rw [← Matrix.mul_assoc, ← hMP, Matrix.mul_assoc]) v
-
-theorem jH_La2_comm_iff {ε : F} (hε : ε ≠ 0) (M : SL(2, F)) :
-    (∀ v : V8 F, jH ε ((frame2 (F := F)).La M v) = (frame2 (F := F)).La M (jH ε v)) ↔
-      (M : Matrix (Fin 2) (Fin 2) F) * Jm ε = Jm ε * (M : Matrix (Fin 2) (Fin 2) F) := by
-  constructor
-  · intro h
-    have h1 := h ((frame2 (F := F)).incl 1)
-    rw [Frame.La_apply_incl, jH_incl_frame2, jH_incl_frame2, Frame.La_apply_incl] at h1
-    have h2 := congrArg (frame2 (F := F)).coords h1
-    rw [Frame.coords_incl, Frame.coords_incl] at h2
-    simpa using h2.symm
-  · intro hMP v
-    rw [La_eq_embLin, La_eq_embLin]
-    exact comm_embLin (frame2 (F := F)) (hSim ε hε) (fun X => Jm ε * X)
-      (jH_incl_frame2 ε) (surj_mulLeft_Jm hε) (LinearMap.mulLeft F (M : Matrix (Fin 2) (Fin 2) F))
-      (fun X => by
-        simp only [LinearMap.mulLeft_apply]
-        rw [← Matrix.mul_assoc, ← hMP, Matrix.mul_assoc]) v
 
 end Sim
 

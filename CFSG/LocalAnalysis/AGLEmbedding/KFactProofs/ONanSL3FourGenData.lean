@@ -28,30 +28,10 @@ open CFSG.PSL3Four.Native
 
 @[expose] def memT (T : Array Tab) (x : Tab) : Bool := anyBelow T.size fun k => T[k]! == x
 
-@[expose] def commT (x y : Tab) : Bool := comp 42 x y == comp 42 y x
-
-@[expose] def mEnum (k : Nat) : Enum := enumBFS 42 mGens[k]! 9
-
-@[expose] def fixTabs (ES T : Array Tab) : Array Tab :=
-  ES.filter fun s => anyBelow T.size fun m => !(T[m]! == idTab 42) && commT s T[m]!
-
-@[expose] def fixGens (ES : Array Tab) (k : Nat) : Array Tab := fixTabs ES (mEnum k).tabs
 
 @[expose] def genCheck (G : Array Tab) : Bool :=
   let E := enumBFS 42 G 20160
   enumOK 42 G E && E.tabs.size == 20160
 
-@[expose] def sl3GenCheck (ES ER : Array Tab) : Bool :=
-  let EH := enumBFS 42 hGens 27
-  let H := EH.tabs
-  let idxH := indexOf H
-  memT ER tA && memT ER tB && enumOK 42 hGens EH && H.size == 27 &&
-    (allBelow 4 fun k => allBelow (mGens[k]!).size fun j => found idxH H (mGens[k]!)[j]!) &&
-    (allBelow 4 fun k => enumOK 42 mGens[k]! (mEnum k) && (mEnum k).tabs.size == 9) &&
-    (allBelow H.size fun i => allBelow H.size fun j => !commT H[i]! H[j]! ||
-      anyBelow 4 fun k => found (indexOf (mEnum k).tabs) (mEnum k).tabs H[i]! &&
-        found (indexOf (mEnum k).tabs) (mEnum k).tabs H[j]!) &&
-    memT ES tZ && memT ES tA &&
-    (allBelow 3 fun k => genCheck (fixGens ES (k + 1)))
 
 end CFSG.AGLEmbedding.KFactProofs.CoverThree.SL3FourGen

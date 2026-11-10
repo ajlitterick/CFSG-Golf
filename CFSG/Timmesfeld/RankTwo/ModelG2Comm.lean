@@ -91,8 +91,6 @@ theorem g2X_eq (i : Fin 6) (c : K) :
 theorem g2X_add (i : Fin 6) (c d : K) : g2X i (c + d) = g2X i c * g2X i d :=
   xPar_add _ c d
 
-theorem g2X_zero (i : Fin 6) : g2X i (0 : K) = 1 :=
-  xPar_zero _
 
 theorem commutator_g2X {i j : Fin 6} {fs : List Factor} (h : (g2Pos i, g2Pos j, fs) ∈ g2HexReps)
     (s t : K) :
@@ -113,11 +111,6 @@ theorem cast_odd_eq_one {C : ℤ} (hC : Odd C) : (C : K) = 1 := by
   push_cast
   rw [h2, zero_mul, zero_add]
 
-theorem cast_even_eq_zero {C : ℤ} (hC : Even C) : (C : K) = 0 := by
-  obtain ⟨k, rfl⟩ := hC
-  have h2 : (2 : K) = 0 := CharTwo.two_eq_zero
-  push_cast
-  rw [← two_mul, h2, zero_mul]
 
 theorem xPar_inv_eq {τ : Tag} (γ : Fin τ.rank → ℤ) (c : K) :
     (xPar (rootOperatorFamily τ) γ c)⁻¹ = xPar (rootOperatorFamily τ) γ c := by

@@ -59,12 +59,5 @@ theorem exists_mulEquiv_graphFixedRootGroup_of_lieModel {X : Type} [Group X] {f 
   · simp [reeTitsTags] at hrt
   · cases hsz
 
-theorem exists_mulEquiv_graphFixedRootGroup_of_highExceptional {X : Type} [Group X]
-    (h : HighExceptional .twistedE6 X) :
-    ∃ f : ℕ, 1 ≤ f ∧ ∃ (K : Type) (_ : Field K) (_ : Finite K) (σ : K →+* K),
-      Nat.card K = (2 ^ f) ^ 2 ∧ (∀ c, σ c = c ^ 2 ^ f) ∧
-        Nonempty (X ≃* graphFixedRootGroup TwistTag.E6 K σ) := by
-  obtain ⟨f, hf⟩ := h
-  exact ⟨f, exists_mulEquiv_graphFixedRootGroup_of_lieModel hf⟩
 
 end CFSG.SeitzReduction.TwistedE6Pilot

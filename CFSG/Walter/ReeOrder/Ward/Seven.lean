@@ -92,10 +92,6 @@ theorem const_entry_zero (d : (G → ℂ) → ℤ) (c : ℤ)
   have h6 := card_ge (S := S)
   exact eq_zero_of_mul_sq_le (hle.trans hnorm) (by omega) (by omega)
 
-theorem nonR_one : (1 : L → ℂ) ∉ S.W.RFam := S.W.one_not_R
-theorem nonR_θ2 : S.W.θ2 ∉ S.W.RFam := S.W.θ2_not_R
-theorem nonR_θ3 : S.W.θ3 ∉ S.W.RFam := S.W.θ3_not_R
-theorem nonR_θ4 : S.W.θ4 ∉ S.W.RFam := S.W.θ4_not_R
 
 theorem η_d (i : S.W.RFam) :
     S.d1 (D.η i) = 0 ∧ S.d2 (D.η i) = 0 ∧ S.d3 (D.η i) = 0 ∧

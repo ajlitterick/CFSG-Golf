@@ -128,10 +128,6 @@ theorem exists_orderOf_eq_three (hK : Nat.card K = 3) :
     Finite.of_equiv _ (hopfMultiplierEquivGriess _).symm.toEquiv
   exact ⟨inferInstance, exists_prime_orderOf_dvd_card' 3 (three_dvd_card_griessHopfMultiplier hK)⟩
 
-theorem nontrivial_griessHopfMultiplier (hK : Nat.card K = 3) :
-    Nontrivial (griessHopfMultiplier (adjointGroup .G2 K)) := by
-  obtain ⟨-, z, hz⟩ := exists_orderOf_eq_three hK
-  exact ⟨⟨z, 1, fun h => by rw [h, orderOf_one] at hz; omega⟩⟩
 
 theorem three_dvd_card_griessHopfMultiplier_of_mulEquiv (hK : Nat.card K = 3) {X : Type}
     [Group X] (e : X ≃* adjointGroup .G2 K) : 3 ∣ Nat.card (griessHopfMultiplier X) := by

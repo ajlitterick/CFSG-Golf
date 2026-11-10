@@ -274,23 +274,6 @@ theorem range_level : Set.range (fun α : Λ => form θ α.1) = {2, 1, 0, -1, -2
     · exact ⟨ι 1, by rw [form_θ_ι]; decide⟩
     · exact ⟨ι 0, by rw [form_θ_ι]; decide⟩
 
-theorem ncard_level (d : ℤ) : {α : Λ | form θ α.1 = d}.ncard =
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = d).card := by
-  have h : {α : Λ | form θ α.1 = d} =
-      ι '' ↑(Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = d) := by
-    ext α
-    obtain ⟨a, rfl⟩ := ι.surjective α
-    simp only [Set.mem_ofPred_eq, form_θ_ι, Set.mem_image, Finset.coe_filter, Finset.mem_univ,
-      true_and, ι.injective.eq_iff, exists_eq_right]
-  rw [h, Set.ncard_image_of_injective _ ι.injective, Set.ncard_coe_finset]
-
-theorem card_level :
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = 2).card = 1 ∧
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = 1).card = 8 ∧
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = 0).card = 6 ∧
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = -1).card = 8 ∧
-    (Finset.univ.filter fun a : Fin 24 => levList.getD a 0 = -2).card = 1 := by
-  decide +kernel
 
 theorem orbitK_eq : orbitK = ι '' {a : Fin 24 | (a : ℕ) ∈ sIdx} := by
   ext α
@@ -309,118 +292,9 @@ theorem orbitK_eq : orbitK = ι '' {a : Fin 24 | (a : ℕ) ∈ sIdx} := by
 
 theorem sIdx_lt : ∀ y ∈ sIdx, y < 24 := by decide
 
-theorem ncard_orbitK : orbitK.ncard = 6 := by
-  have h : {a : Fin 24 | (a : ℕ) ∈ sIdx} = ↑(Finset.univ.filter fun a : Fin 24 => (a : ℕ) ∈ sIdx) :=
-    by simp
-  rw [orbitK_eq, Set.ncard_image_of_injective _ ι.injective, h, Set.ncard_coe_finset]
-  decide +kernel
 
 @[expose] def xSet (i : ℕ) : Set Λ := ι '' {a : Fin 24 | (a : ℕ) ∈ xList.getD i []}
 
-theorem mem_xSet (i : ℕ) (a : Fin 24) : ι a ∈ xSet i ↔ (a : ℕ) ∈ xList.getD i [] := by
-  simp [xSet]
-
-theorem image_ι (w : Equiv.Perm Λ) (A : Set (Fin 24)) :
-    ⇑w '' (ι '' A) = ι '' {b | ∃ a ∈ A, (code w).getD a 0 = b} := by
-  ext β
-  obtain ⟨b, rfl⟩ := ι.surjective β
-  simp only [Set.mem_image, ι.injective.eq_iff, exists_eq_right, Set.mem_ofPred_eq]
-  constructor
-  · rintro ⟨_, ⟨a, ha, rfl⟩, h⟩
-    exact ⟨a, ha, (apply_ι_eq_iff w a b).1 h⟩
-  · rintro ⟨a, ha, h⟩
-    exact ⟨ι a, ⟨a, ha, rfl⟩, (apply_ι_eq_iff w a b).2 h⟩
-
-theorem gen_image_xSet (k : Fin 4) {i : ℕ} (hi : i < 24) :
-    ∃ m < 24, ⇑(gen k) '' xSet i = xSet m := by
-  obtain ⟨m, hm, h⟩ := xList_closed i hi k
-  refine ⟨m, hm, ?_⟩
-  rw [xSet, image_ι, xSet, code_gen]
-  congr 1
-  ext b
-  simp only [Set.mem_ofPred_eq]
-  rw [h b b.2]
-  constructor
-  · rintro ⟨a, ha, hab⟩
-    exact ⟨a, ha, hab⟩
-  · rintro ⟨y, hy, hyb⟩
-    exact ⟨⟨y, xList_lt i hi y hy⟩, hy, hyb⟩
-
-theorem image_orbitK_eq_xSet {w : Equiv.Perm Λ} (hw : w ∈ W) : ∃ i < 24, ⇑w '' orbitK = xSet i := by
-  have hstep : ∀ (k : Fin 4) (y : Equiv.Perm Λ), (∃ i < 24, ⇑y '' orbitK = xSet i) →
-      ∃ i < 24, ⇑(gen k * y) '' orbitK = xSet i := by
-    rintro k y ⟨i, hi, h⟩
-    obtain ⟨m, hm, h'⟩ := gen_image_xSet k hi
-    exact ⟨m, hm, by rw [Equiv.Perm.coe_mul, Set.image_comp, h, h']⟩
-  induction hw using Subgroup.closure_induction_left with
-  | one =>
-    refine ⟨0, by norm_num, ?_⟩
-    rw [Equiv.Perm.coe_one, Set.image_id, orbitK_eq, xSet, xList_zero]
-  | mul_left x hx y _ ih =>
-    obtain ⟨k, rfl⟩ := hx
-    exact hstep k y ih
-  | inv_mul_cancel x hx y _ ih =>
-    obtain ⟨k, rfl⟩ := hx
-    rw [gen_inv]
-    exact hstep k y ih
-
-theorem xSet_eq_image {i : ℕ} (hi : i < 24) :
-    xSet i = ⇑(wordProd (xWords.getD i [])) '' orbitK := by
-  rw [orbitK_eq, image_ι, xSet, code_wordProd]
-  congr 1
-  ext b
-  simp only [Set.mem_ofPred_eq]
-  rw [xWords_image i hi b b.2]
-  constructor
-  · rintro ⟨y, hy, hyb⟩
-    exact ⟨⟨y, sIdx_lt y hy⟩, hy, hyb⟩
-  · rintro ⟨a, ha, hab⟩
-    exact ⟨a, ha, hab⟩
-
-theorem translates_eq :
-    {X : Set Λ | ∃ w ∈ W, X = ⇑w '' orbitK} = xSet '' {i | i < 24} := by
-  ext X
-  simp only [Set.mem_ofPred_eq, Set.mem_image]
-  constructor
-  · rintro ⟨w, hw, rfl⟩
-    obtain ⟨i, hi, h⟩ := image_orbitK_eq_xSet hw
-    exact ⟨i, hi, h.symm⟩
-  · rintro ⟨i, hi, rfl⟩
-    exact ⟨_, wordProd_mem_W _, xSet_eq_image hi⟩
-
-theorem xSet_injOn : Set.InjOn xSet {i | i < 24} := by
-  intro i hi m hm h
-  rcases xList_distinct i hi m hm with h' | ⟨a, ha, hne⟩
-  · exact h'
-  · exfalso
-    apply hne
-    rw [← mem_xSet i ⟨a, ha⟩, ← mem_xSet m ⟨a, ha⟩, h]
-
-theorem ncard_translates : {X : Set Λ | ∃ w ∈ W, X = ⇑w '' orbitK}.ncard = 24 := by
-  rw [translates_eq, xSet_injOn.ncard_image]
-  have : {i : ℕ | i < 24} = ↑(Finset.range 24) := by ext; simp
-  rw [this, Set.ncard_coe_finset, Finset.card_range]
-
-theorem exists_translate_iff {α β : Λ} (hne : α ≠ β) :
-    (∃ w ∈ W, α ∈ ⇑w '' orbitK ∧ β ∈ ⇑w '' orbitK) ↔ form α.1 β.1 = 1 ∨ form α.1 β.1 = 0 := by
-  obtain ⟨a, rfl⟩ := ι.surjective α
-  obtain ⟨b, rfl⟩ := ι.surjective β
-  have hab : (a : ℕ) ≠ b := fun h => hne (congrArg ι (Fin.ext h))
-  rw [ι_apply, ι_apply]
-  rcases xList_pair a a.2 b b.2 with h | h
-  · exact absurd h hab
-  rw [← h]
-  constructor
-  · rintro ⟨w, hw, ha, hb⟩
-    obtain ⟨i, hi, hX⟩ := image_orbitK_eq_xSet hw
-    rw [hX, mem_xSet] at ha hb
-    exact ⟨i, hi, ha, hb⟩
-  · rintro ⟨i, hi, ha, hb⟩
-    refine ⟨wordProd (xWords.getD i []), wordProd_mem_W _, ?_, ?_⟩
-    · rw [← xSet_eq_image hi, mem_xSet]
-      exact ha
-    · rw [← xSet_eq_image hi, mem_xSet]
-      exact hb
 
 theorem level_apply_of_mem_WJ {v : Equiv.Perm Λ} (hv : v ∈ WJ) (α : Λ) :
     form θ (v α).1 = form θ α.1 := by
@@ -462,40 +336,5 @@ theorem double_coset_eq :
       exact hxθ
     exact ⟨jElt i, jElt_mem hi, b, hb, _, hc, by rw [mul_inv_cancel_left]⟩
 
-theorem e6_highest_root_folded_point_orbits :
-    Nat.card Λ = 24 ∧ Nat.card W = 1152 ∧ Nat.card WJ = 48 ∧ Nat.card WK = 48 ∧
-    (∀ w : Equiv.Perm Λ, w ∈ WJ ↔ w ∈ W ∧ w θΛ = θΛ) ∧
-    (∀ α : Λ, MulAction.orbit WJ α = {β | form θ β.1 = form θ α.1}) ∧
-    Set.range (fun α : Λ => form θ α.1) = {2, 1, 0, -1, -2} ∧
-    {α : Λ | form θ α.1 = 2}.ncard = 1 ∧ {α : Λ | form θ α.1 = 1}.ncard = 8 ∧
-    {α : Λ | form θ α.1 = 0}.ncard = 6 ∧ {α : Λ | form θ α.1 = -1}.ncard = 8 ∧
-    {α : Λ | form θ α.1 = -2}.ncard = 1 ∧
-    (∀ (w : Equiv.Perm Λ) (l l' : List (Fin 4)), IsReducedWord w l → IsReducedWord w l' →
-      wordWeight l = wordWeight l') ∧
-    (∀ w ∈ W, ∃ l, IsReducedWord w l) ∧
-    (∀ (w : Equiv.Perm Λ) (l : List (Fin 4)), IsReducedWord w l → qWeight w = wordWeight l) ∧
-    ∑ᶠ w ∈ (WJ : Set (Equiv.Perm Λ)), qWeight w = 93555 ∧
-    ∑ᶠ w ∈ {w : Equiv.Perm Λ | w ∈ W ∧ form θ (w θΛ).1 = 2}, qWeight w = 93555 * 1 ∧
-    ∑ᶠ w ∈ {w : Equiv.Perm Λ | w ∈ W ∧ form θ (w θΛ).1 = 1}, qWeight w = 93555 * 1782 ∧
-    ∑ᶠ w ∈ {w : Equiv.Perm Λ | w ∈ W ∧ form θ (w θΛ).1 = 0}, qWeight w = 93555 * 44352 ∧
-    ∑ᶠ w ∈ {w : Equiv.Perm Λ | w ∈ W ∧ form θ (w θΛ).1 = -1}, qWeight w = 93555 * 1824768 ∧
-    ∑ᶠ w ∈ {w : Equiv.Perm Λ | w ∈ W ∧ form θ (w θΛ).1 = -2}, qWeight w = 93555 * 2097152 ∧
-    1 + 1782 + 44352 + 1824768 + 2097152 = 3968055 ∧
-    orbitK.ncard = 6 ∧
-    {X : Set Λ | ∃ w ∈ W, X = ⇑w '' orbitK}.ncard = 24 ∧
-    (∀ α β : Λ, α ≠ β →
-      ((∃ w ∈ W, α ∈ ⇑w '' orbitK ∧ β ∈ ⇑w '' orbitK) ↔ form α.1 β.1 = 1 ∨ form α.1 β.1 = 0)) ∧
-    {x : Equiv.Perm Λ | ∃ a ∈ WJ, ∃ b ∈ WK, ∃ c ∈ WJ, x = a * b * c} =
-      {w | w ∈ W ∧ (form θ (w θΛ).1 = 2 ∨ form θ (w θΛ).1 = 1 ∨ form θ (w θΛ).1 = 0)} := by
-  obtain ⟨c2, c1, c0, cm1, cm2⟩ := card_level
-  refine ⟨card_Λ, card_W, card_WJ, card_WK, mem_WJ_iff_stabilizer, orbit_WJ, range_level,
-    by rw [ncard_level, c2], by rw [ncard_level, c1], by rw [ncard_level, c0],
-    by rw [ncard_level, cm1], by rw [ncard_level, cm2],
-    fun w l l' => wordWeight_eq_of_isReducedWord, fun w hw => exists_isReducedWord hw,
-    fun w l => qWeight_eq_of_isReducedWord, finsum_qWeight_WJ,
-    by rw [finsum_level, sum_levelPairs_two], by rw [finsum_level, sum_levelPairs_one],
-    by rw [finsum_level, sum_levelPairs_zero], by rw [finsum_level, sum_levelPairs_neg_one],
-    by rw [finsum_level, sum_levelPairs_neg_two], by norm_num, ncard_orbitK, ncard_translates,
-    fun α β => exists_translate_iff, double_coset_eq⟩
 
 end CFSG.Monster.B.Classical.E6Folded

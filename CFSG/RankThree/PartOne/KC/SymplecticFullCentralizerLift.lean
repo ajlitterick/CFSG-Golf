@@ -152,23 +152,5 @@ theorem exists_unique_spPlaneLift [Finite K] (hr : 1 ≤ r) {p : ℕ} (hp : p.Pr
   have hmm : E₁.map (spInnerLift r K) = E₀.map (spInnerLift r K) := by rw [hmap₁, hmap]
   exact le_antisymm (hle E₁ E₀ hE₁ hE₀ hmm) (hle E₀ E₁ hE₀ hE₁ hmm.symm)
 
-theorem spPlaneLift_unique_lift [Finite K] (hr : 1 ≤ r) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
-    (hinj : Function.Injective (MulAut.conj : StatedProj (StatedSp r K) →*
-      MulAut (StatedProj (StatedSp r K))))
-    {A : Subgroup (MulAut (StatedProj (StatedSp r K)))} {Ahat : Subgroup (StatedSp r K)}
-    (hlift : IsSpPlaneLift r K p A Ahat) {a : MulAut (StatedProj (StatedSp r K))} (haA : a ∈ A)
-    (ha1 : a ≠ 1) :
-    ∃ x ∈ Ahat, spInnerLift r K x = a ∧ orderOf x = p ∧
-      ∀ y : StatedSp r K, spInnerLift r K y = a → y ^ p = 1 → y = x := by
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨hE, -, hmap, -⟩ := hlift
-  have : a ∈ Ahat.map (spInnerLift r K) := hmap ▸ haA
-  obtain ⟨x, hx, rfl⟩ := Subgroup.mem_map.mp this
-  have hxp : x ^ p = 1 := by
-    have := hE
-    exact elemPow_eq_one_of_isElementaryAbelian x hx
-  have hx1 : x ≠ 1 := fun h1 => ha1 (by rw [h1, map_one])
-  refine ⟨x, hx, rfl, orderOf_eq_prime hxp hx1, fun y hy hyp => ?_⟩
-  exact eq_of_spInnerLift_eq hr hp hp2 hinj hyp hxp hy
 
 end CFSG.RankThree.PartOne.KCSpFull

@@ -82,10 +82,6 @@ theorem quaternionEmbedding_injective (h : ℕ) : Function.Injective (quaternion
 @[expose] def quaternionRangeEquiv (h : ℕ) : QuaternionGroup h ≃* quaternionSubgroup h :=
   MonoidHom.ofInjective (quaternionEmbedding_injective h)
 
-theorem card_quaternionSubgroup (h : ℕ) (hh : 0 < h) : Nat.card (quaternionSubgroup h) = 4 * h := by
-  let : NeZero h := ⟨by omega⟩
-  rw [← Nat.card_congr (quaternionRangeEquiv h).toEquiv,
-    Nat.card_eq_fintype_card, QuaternionGroup.card]
 
 theorem quaternion_range_eq_generated (h : ℕ) :
     quaternionSubgroup h = Subgroup.closure

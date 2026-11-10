@@ -138,8 +138,5 @@ theorem burnsideJ4KW_maxNonParabolic_of_core
   obtain ⟨g, hg⟩ := h R hR2 hRne hmaxR hRmax hcent (fun g hg => hnp g (hg.trans hNR.le))
   exact ⟨g, hNR.ge.trans hg⟩
 
-theorem burnsideJ4KW_core_of_maxNonParabolicCore
-    (h : burnsideJ4KW_MaxNonParabolicCore) : burnsideC31_J4KWCore :=
-  burnsideJ4KW_core_of_maxNonParabolic (burnsideJ4KW_maxNonParabolic_of_core h)
 
 end CFSG.ASVolI

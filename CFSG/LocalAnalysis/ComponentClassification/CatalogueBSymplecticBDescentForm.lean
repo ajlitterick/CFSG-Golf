@@ -79,10 +79,6 @@ theorem symplecticCentralizerFixedEquiv_apply (B : LinearMap.BilinForm K V)
     (g : semilinearSymplecticCentralizer B T) (x : fixedSubspace sigma T hsemi) :
     (symplecticCentralizerFixedEquiv sigma T hsemi B g x : V) = g.val.val (x : V) := rfl
 
-theorem symplecticCentralizerFixedEquiv_symm_apply (B : LinearMap.BilinForm K V)
-    (g : semilinearSymplecticCentralizer B T) (x : fixedSubspace sigma T hsemi) :
-    ((symplecticCentralizerFixedEquiv sigma T hsemi B g).symm x : V) =
-      g.val.val.symm (x : V) := rfl
 
 variable (B : LinearMap.BilinForm K V) (c : Kˣ)
 variable (hform : ∀ x y, (c : K) * B (T x) (T y) = sigma ((c : K) * B x y))
@@ -100,15 +96,6 @@ variable (hform : ∀ x y, (c : K) * B (T x) (T y) = sigma ((c : K) * B x y))
   map_one' := by ext x; rfl
   map_mul' _ _ := by ext x; rfl
 
-theorem symplecticFixedRestriction_apply (g : semilinearSymplecticCentralizer B T)
-    (x : fixedSubspace sigma T hsemi) :
-    ((symplecticFixedRestriction sigma T hsemi B c hform g).val x : V) = g.val.val (x : V) :=
-  rfl
-
-theorem symplecticFixedRestriction_symm_apply (g : semilinearSymplecticCentralizer B T)
-    (x : fixedSubspace sigma T hsemi) :
-    (((symplecticFixedRestriction sigma T hsemi B c hform g).val).symm x : V) =
-      g.val.val.symm (x : V) := rfl
 
 variable [Module.Finite K V]
 variable (hsigma : sigma ^ 2 = 1) (hne : sigma ≠ 1) (h2 : (2 : K) ≠ 0)
@@ -197,17 +184,6 @@ theorem symplecticFixedExtension_restriction (g : semilinearSymplecticCentralize
   right_inv := symplecticFixedRestriction_extension sigma T hsemi B c hform hsigma hne h2 hT
   map_mul' := (symplecticFixedRestriction sigma T hsemi B c hform).map_mul
 
-theorem symplecticFixedCentralizerEquiv_apply (g : semilinearSymplecticCentralizer B T)
-    (w : fixedSubspace sigma T hsemi) :
-    ((symplecticFixedCentralizerEquiv sigma T hsemi B c hform hsigma hne h2 hT g).val w : V) =
-      g.val.val (w : V) := rfl
-
-theorem symplecticFixedCentralizerEquiv_symm_smul
-    (f : isometryGroup (descendedBilinear sigma T hsemi B c hform))
-    (a : K) (w : fixedSubspace sigma T hsemi) :
-    ((symplecticFixedCentralizerEquiv sigma T hsemi B c hform hsigma hne h2 hT).symm f).val.val
-      (a • (w : V)) = a • (f.val w : V) :=
-  symplecticFixedExtension_smul sigma T hsemi B c hform hsigma hne h2 hT f a w
 
 end Centralizer
 

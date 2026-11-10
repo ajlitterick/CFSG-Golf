@@ -76,11 +76,6 @@ include c
 theorem zj_comm : z * j = j * z :=
   Subgroup.mem_centralizer_singleton_iff.mp (c.U_le_centralizer c.z_mem_U)
 
-theorem zj_sq : (z * j) * (z * j) = 1 := by
-  calc (z * j) * (z * j) = z * (j * z) * j := by group
-    _ = z * (z * j) * j := by rw [c.zj_comm]
-    _ = (z * z) * (j * j) := by group
-    _ = 1 := by rw [c.hz.sq, c.hj.sq, one_mul]
 
 omit [Finite G] in
 theorem zj_ne_z : z * j ≠ z := fun h => c.hj.ne_one (by simpa using h)

@@ -66,8 +66,6 @@ theorem le_gen (hB : B ∈ Δ) : B ≤ gen Δ :=
 theorem gen_le (h : ∀ B ∈ Δ, B ≤ H) : gen Δ ≤ H :=
   iSup₂_le h
 
-theorem gen_le_iff : gen Δ ≤ H ↔ ∀ B ∈ Δ, B ≤ H :=
-  ⟨fun h _ hB => (le_gen hB).trans h, gen_le⟩
 
 theorem gen_mono (h : Δ ⊆ Δ') : gen Δ ≤ gen Δ' :=
   gen_le fun _ hB => le_gen (h hB)

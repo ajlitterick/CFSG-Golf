@@ -175,13 +175,6 @@ theorem rhoMinus_mem_orthogonalGroup
   apply (algebraMap (ZMod 2) K).injective
   rw [← quadPlus_embed, ← quadPlus_embed, embed_rhoMinus, map_of_mem (psiL_mem_orthogonalGroup l)]
 
-theorem rhoMinus_betaGL
-    (l : stdLevi fourthJ) :
-    rhoMinus ⟨betaGL l, betaGL_mem_stdLevi l.2⟩ = sMinus * rhoMinus l * sMinus := by
-  refine LinearEquiv.ext fun v => embed_injective ?_
-  rw [embed_rhoMinus, LinearEquiv.mul_apply, LinearEquiv.mul_apply, ← frob8_embed, embed_rhoMinus,
-    ← frob8_embed]
-  exact psiD_betaD_apply ⟨l, stdLevi_fourthJ_le_groupD l.2⟩ (embed v)
 
 theorem map_eq_of_forall_mem {g : V0 ≃ₗ[ZMod 2] V0} {W : Submodule (ZMod 2) V0}
     (h1 : ∀ v ∈ W, g v ∈ W) (h2 : ∀ v ∈ W, g.symm v ∈ W) :

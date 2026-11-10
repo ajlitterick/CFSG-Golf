@@ -124,8 +124,6 @@ private theorem ws_not_digit {c : Char} (h : c.isDigit = true) : c.isWhitespace 
       bIf(wsB c, bIf(Nat.beq dg 1, bAnd(tok k v, ih (Nat.succ k) 0 0), ih k 0 0), false)))
     cs
 
-theorem mtxRun_eq (n w P : Nat) (cs : List Char) : mtxRun n w P cs = runT n (tokOK w P) cs :=
-  rfl
 
 private def toksOf (l : List (List Char)) : List (List Char) := l.filter fun p => !p.isEmpty
 

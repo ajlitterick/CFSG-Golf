@@ -332,55 +332,6 @@ theorem card_inf_centralizer_fourGroup (h : SectionFiveHyp A S)
   · norm_num
   · norm_num at hne
 
-theorem exists_conj_eq_of_fourGroup (h : SectionFiveHyp A S)
-    (hU : IsNormalFourGroup A S U) {v w : G} (hv : v ∈ U) (hv1 : v ≠ 1) (hw : w ∈ U)
-    (hw1 : w ≠ 1) : ∃ a ∈ A, a * v * a⁻¹ = w := by
-  have hB := card_inf_centralizer_fourGroup h hU
-  obtain ⟨a, ha, haU⟩ : ∃ a ∈ A, a ∉ Subgroup.centralizer (U : Set G) := by
-    by_contra! hno
-    rw [inf_eq_left.mpr (fun a ha => hno a ha), h.card_eq] at hB
-    norm_num at hB
-  have ha3 : a ^ 3 = 1 := h.elemAbelian.2 a ha
-  have haN := hU.le_normalizer_right ha
-  have hav : a * v ≠ v * a := fun hc =>
-    haU (mem_centralizer_of_fourGroup hU.elemAbelian hU.card_eq haN ha3 hv hv1 hc)
-  have hx₁U : a * v * a⁻¹ ∈ U := (Subgroup.mem_normalizer_iff.mp haN v).mp hv
-  have hx₂U : a⁻¹ * v * a ∈ U := by
-    have := (Subgroup.mem_normalizer_iff.mp (Subgroup.inv_mem _ haN) v).mp hv
-    rwa [inv_inv] at this
-  have hx₁1 : a * v * a⁻¹ ≠ 1 := fun h' => hv1 (by simpa using h')
-  have hx₂1 : a⁻¹ * v * a ≠ 1 := fun h' => hv1 (by
-    have e : v = a * (a⁻¹ * v * a) * a⁻¹ := by group
-    rw [e, h']
-    group)
-  have hx₁v : a * v * a⁻¹ ≠ v := fun h' => hav (by
-    calc a * v = a * v * a⁻¹ * a := by group
-      _ = v * a := by rw [h'])
-  have hx₂v : a⁻¹ * v * a ≠ v := fun h' => hav (by
-    calc a * v = a * (a⁻¹ * v * a) := by rw [h']
-      _ = v * a := by group)
-  have hx₁₂ : a⁻¹ * v * a ≠ a * v * a⁻¹ := by
-    intro h'
-    apply hx₂v
-    have ha2 : a * a = a⁻¹ := by
-      rw [eq_inv_iff_mul_eq_one, ← pow_three']
-      exact ha3
-    have e1 : v = a * a * v * (a * a)⁻¹ := by
-      calc v = a * (a⁻¹ * v * a) * a⁻¹ := by group
-        _ = a * (a * v * a⁻¹) * a⁻¹ := by rw [h']
-        _ = a * a * v * (a * a)⁻¹ := by group
-    rw [ha2, inv_inv] at e1
-    exact e1.symm
-  by_cases hwv : w = v
-  · exact ⟨1, Subgroup.one_mem _, by rw [hwv]; group⟩
-  by_cases hwx₁ : w = a * v * a⁻¹
-  · exact ⟨a, ha, hwx₁.symm⟩
-  refine ⟨a⁻¹, Subgroup.inv_mem _ ha, ?_⟩
-  have e1 := eq_mul_of_fourGroup hU.elemAbelian hU.card_eq hv hx₁U hw hv1 hx₁1 (Ne.symm hx₁v)
-    hw1 hwv hwx₁
-  have e2 := eq_mul_of_fourGroup hU.elemAbelian hU.card_eq hv hx₁U hx₂U hv1 hx₁1
-    (Ne.symm hx₁v) hx₂1 hx₂v hx₁₂
-  rw [inv_inv, e1, ← e2]
 
 theorem le_centralizer_fourGroup (h : SectionFiveHyp A S)
     (hU : IsNormalFourGroup A S U) : U ≤ Subgroup.centralizer (S : Set G) := by

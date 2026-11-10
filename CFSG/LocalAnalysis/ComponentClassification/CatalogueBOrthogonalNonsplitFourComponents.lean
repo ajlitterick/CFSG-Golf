@@ -82,14 +82,5 @@ theorem orthogonal_four_nonsplit_pComponent_quasisimple (hodd : Odd (Nat.card K)
     (Components.quasisimple_of_equiv (L.equivMapOfInjective e.toMonoidHom e.injective)
       (CatalogueBAlternating.quasisimple_iff_native.mp hquasi))
 
-theorem orthogonal_four_nonsplit_actual_p_component_verification (hodd : Odd (Nat.card K))
-    (Q : QuadraticForm K V) (hQ : Q.polarBilin.Nondegenerate)
-    (hdim : Module.finrank K V = 4)
-    (hno : ¬ ∃ S : Submodule K V, Module.finrank K S = 2 ∧ ∀ x ∈ S, Q x = 0) :
-    ∀ (p : ℕ), p.Prime → ∀ L : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q),
-      CFSG.IsPComponent p L → CFSG.IsQuasisimple L := by
-  intro p hp L hL
-  let : Fact p.Prime := ⟨hp⟩
-  exact orthogonal_four_nonsplit_pComponent_quasisimple hodd Q hQ hdim hno p L hL
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalNonsplitFourComponents

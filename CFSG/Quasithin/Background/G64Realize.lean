@@ -183,10 +183,6 @@ theorem symCore_faithful {n : ℕ} (hn : 3 ≤ n) : (symCoreModel n).Faithful :=
   sec := G6.coreMod n
   ker := Z
 
-theorem symDn_eq_permModel (n : ℕ) :
-    FFModel.symDn n = permModel n (Subgroup.zpowers (G6.allOnes n) ⊓ G6.coreMod n) := rfl
-
-theorem symCoreModel_eq_permModel (n : ℕ) : symCoreModel n = permModel n ⊥ := rfl
 
 theorem isSwap_of_realization {n : ℕ} (hn : 5 ≤ n) {Z : Subgroup (G6.PermMod n)}
     (hZ : Z ≤ Subgroup.zpowers (G6.allOnes n) ⊓ G6.coreMod n) {H : Subgroup (MulAut V)}

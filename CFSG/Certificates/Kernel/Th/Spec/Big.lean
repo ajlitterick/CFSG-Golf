@@ -480,21 +480,6 @@ private theorem pkMat_trB_rep (A : ℕ) :
   have e3 : (256 * i.val + j.val) / 256 = i.val := by omega
   rw [if_pos e1, e2, e3]
 
-private theorem inLayout_trB_rep {A : ℕ} (hA : InLayout A) :
-    InLayout (trB (tmask 0) (tmask 1) (tmask 2) (tmask 3) (tmask 4) (tmask 5) (tmask 6) (tmask 7)
-      A) := by
-  intro b hb
-  rw [trB_bit] at hb
-  by_cases h : b / 256 < 256
-  · rw [if_pos h] at hb
-    have := hA _ hb
-    have hr : b % 256 < 256 := Nat.mod_lt _ (by omega)
-    generalize b % 256 = r at *
-    generalize b / 256 = q at *
-    omega
-  · rw [if_neg h] at hb
-    have := hA _ hb
-    omega
 
 private theorem pkMat_dg : pkMat (rep 1 257 248) = 1 := by
   ext i j
@@ -746,7 +731,6 @@ private theorem pkVec_vecB_rep (v M : ℕ) :
 private theorem beq_eq_decide (x k : ℕ) : Nat.beq x k = decide (x = k) := by
   rw [Bool.eq_iff_iff, Nat.beq_eq, decide_eq_true_iff]
 
-theorem wordAB_zero (c rm ONE A B Bi w : ℕ) : wordAB c rm ONE A B Bi w 0 = ONE := rfl
 
 theorem wordAB_succ (c rm ONE A B Bi w n : ℕ) :
     wordAB c rm ONE A B Bi w (n + 1) =
@@ -813,11 +797,6 @@ theorem pkMat_trB (h : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE =
   subst h0 h1 h2 h3 h4 h5 h6 h7
   exact pkMat_trB_rep A
 
-theorem inLayout_trB (h : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE = true)
-    {A : ℕ} (hA : InLayout A) : InLayout (trB tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 A) := by
-  obtain ⟨-, -, h0, h1, h2, h3, h4, h5, h6, h7, -⟩ := consts_spec h
-  subst h0 h1 h2 h3 h4 h5 h6 h7
-  exact inLayout_trB_rep hA
 
 theorem pkMat_one (h : constsOK c rm tm0 tm1 tm2 tm3 tm4 tm5 tm6 tm7 up dg ONE = true) :
     pkMat ONE = 1 := by

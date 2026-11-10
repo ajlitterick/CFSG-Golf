@@ -261,14 +261,6 @@ theorem isXSectionIso₂_of_iso_tilde [IsMulCommutative ↥A]
   rw [← h1, hjk, hψ₂, hψ₂]
   rfl
 
-theorem mem_map_smul_iff (t : ↥(Subgroup.normalizer (A : Set G))) (W : Subgroup ↥A) {g : G} :
-    g ∈ (t • W).map A.subtype ↔ ∃ w ∈ W, (t : G) * (w : G) * (t : G)⁻¹ = g := by
-  constructor
-  · rintro ⟨v, hv, rfl⟩
-    obtain ⟨w, hw, rfl⟩ := (Subgroup.mem_smul_pointwise_iff_exists v t W).1 hv
-    exact ⟨w, hw, rfl⟩
-  · rintro ⟨w, hw, rfl⟩
-    exact ⟨t • w, Subgroup.smul_mem_pointwise_smul w t W hw, rfl⟩
 
 theorem map_biSup_smul {T : Subgroup G} (hT : T ≤ Subgroup.normalizer (A : Set G))
     (W : Subgroup ↥A) :

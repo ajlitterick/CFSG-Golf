@@ -948,16 +948,6 @@ private lemma se_VS_free (c : Hyp11 G) (G1 : Subgroup G) (e : SEContext c G1) :
     simpa [Subgroup.mem_bot] using hmem
   exact hs1 hs1'
 
-/-- `φ(S)` acts transitively on the four non-base cosets. -/
-private lemma se_VS_transitive_compl (c : Hyp11 G) (G1 : Subgroup G) (e : SEContext c G1) :
-    ∀ {x y : G ⧸ G1}, x ≠ QuotientGroup.mk (1 : G) → y ≠ QuotientGroup.mk (1 : G) →
-      ∃ v : seVS c G1, v • x = y := by
-  intro x y hx hy
-  rcases se_S_transitive_compl c G1 e hx hy with ⟨u, hu⟩
-  refine ⟨⟨seφ G1 (u : G), ?_⟩, ?_⟩
-  · exact Subgroup.mem_map.mpr ⟨(u : G), u.2, rfl⟩
-  · change (u : G) • x = y
-    exact hu
 
 /-- The image of `S` lies inside the permutation image of `G`. -/
 private lemma se_VS_le_range (c : Hyp11 G) (G1 : Subgroup G) (e : SEContext c G1) :

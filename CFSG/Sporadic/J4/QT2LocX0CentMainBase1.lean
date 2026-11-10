@@ -138,22 +138,6 @@ theorem KSub_le
   rintro _ ⟨i, hi, rfl⟩
   exact ⟨kGen_mem_Hj hi, kGen_smul_q1 hM hi⟩
 
-theorem card_Estab_rep
-    (hM : MatFacts) {ℓ : ℕ} (hℓ : ℓ < 7) :
-    Nat.card ↥(Estab (rep ℓ)) = [2048, 2, 1, 1, 16, 512, 128].getD ℓ 0 := by
-  rw [rep_toVec hM hℓ, card_Estab_toRow hM]
-  have h := chkEStab_true
-  unfold chkEStab at h
-  simp only [Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.mem_range] at h
-  exact h.2 ℓ hℓ
-
-theorem card_Estab_q1
-    (hM : MatFacts) : Nat.card ↥(Estab q1Row) = 2 := by
-  rw [q1Row, card_Estab_toRow hM]
-  have h := chkEStab_true
-  unfold chkEStab at h
-  simp only [Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.mem_range] at h
-  exact h.1
 
 theorem q1_mem_pts : q1Row ∈ x0PtSet := by
   obtain ⟨-, -, -, -, -, hq, -⟩ := k_facts
@@ -165,15 +149,5 @@ theorem q1_ne_w₀ : q1Row ≠ w₀ := by
   obtain ⟨-, -, -, -, -, -, hd⟩ := k_facts
   exact differs_toVec hd
 
-private theorem kOrb_facts :
-    kOrb.mats.size = 15360 ∧ 0 < 15360 ∧ kOrb.mats[0]! = idRows ∧
-      ∀ q < 15360, oOrbAt (fun M g => mulRows M (kAllRows[g]!)) 12 kOrb q = true :=
-  enum_facts kOrb_ok
-
-private theorem kComm_len : (kOrb.mats.toList.filter fun M =>
-    eqRows (mulRows M (x0GenRows[0]!)) (mulRows (x0GenRows[0]!) M)).length = 40 := by
-  have h := chkKComm_true
-  unfold chkKComm at h
-  simpa using h
 
 end CFSG.Sporadic.J4.QT2

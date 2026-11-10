@@ -225,24 +225,6 @@ theorem restrict_t220_t120 (h : 3 ≤ s + 3) (hs : 1 ≤ s) :
 
 end Target
 
-theorem hasStrothType_t120_or_t130_of_data {s : ℕ} {hs : 1 ≤ s}
-    (D : StrothTypeData B (StrothTypeIndex.t220 s hs)) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') :
-    HasStrothType C (StrothTypeIndex.t120 (s + 3) (by omega)) ∨
-      HasStrothType C (StrothTypeIndex.t130 (s + 3) (by omega)) := by
-  have h : 3 ≤ s + 3 := by omega
-  obtain ⟨cV, cW, cU, cR⟩ := restrict_t220_t120 s h hs
-  rcases hasStrothType_or_of_index_two_of_data D hBC hC hrel hL hH hcS
-      (fun v _ _ _ hρ => sec_t220 hs v hρ) (StrothTypeIndex.t120 (s + 3) h) rfl rfl rfl
-      (forall_fin_three (P := fun j => 1 ≤ (StrothTypeIndex.t120 (s + 3) h).k j)
-        (by change 1 ≤ s + 3; omega) (by change 1 ≤ s + 3 + 1; omega)
-        (by change 1 ≤ s + 3 + 1; omega))
-      (by change 2 ≤ s + 3; omega)
-      (StrothTypeIndex.t130 (s + 3) h).action (profile2_t120 s h) (twist2_t120 s h)
-      cV cW cU cR with h1 | ⟨E, φ, h2⟩
-  · exact Or.inl h1
-  · exact Or.inr (hasStrothType_of_basisChange D hL (StrothTypeIndex.t130 (s + 3) h) E φ h2)
 
 theorem hasStrothTypeOver_t120_or_t130_of_data {s : ℕ} {hs : 1 ≤ s}
     (D : StrothTypeData B (StrothTypeIndex.t220 s hs)) (hBC : B ≤ C)

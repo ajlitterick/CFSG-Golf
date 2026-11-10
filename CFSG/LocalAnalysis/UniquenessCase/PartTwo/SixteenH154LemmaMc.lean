@@ -44,10 +44,6 @@ private theorem s16h_map_conj_mul {A : Type*} [Group A] (H : Subgroup A) (a b : 
   ext t
   simp [MulAut.conj_apply, mul_assoc]
 
-private theorem s16h_mem_preTil_inf_iff {V : Subgroup G} (hV : IsElemAbelian 2 V)
-    {S T : Subgroup (Vtil ⊥ V hV)} {v : G} (hv : v ∈ V) :
-    v ∈ preTil ⊥ V hV (S ⊓ T) ↔ v ∈ preTil ⊥ V hV S ∧ v ∈ preTil ⊥ V hV T := by
-  simp only [mem_preTil_iff_of_mem ⊥ V hV _ hv, Subgroup.mem_inf]
 
 private theorem s16h_wSub_inf_centralizer_eq_preTil_of_le {V : Subgroup G}
     (hV : IsElemAbelian 2 V) {L' : Subgroup G} (hL' : L' ≤ stabTil ⊥ V) :

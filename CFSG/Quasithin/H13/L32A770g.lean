@@ -251,29 +251,6 @@ theorem commutator_zα_eq (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Th
       _ = w * q := by rw [h1, inv_one, one_mul]
   · exact he
 
-theorem le_normalizer_E (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63)
-    (hF : HypF98 T V L (fsuV1 T V) V (hz T V)) (h1222 : Stmt12_2_2) (h1332 : Stmt13_3_2)
-    (h1334 : A6.Stmt13_3_4)
-    (h2 : (pCoreOf 2 (hz T V)).relIndex (conjSub (k : G) (F8.Uγ V (hz T V) (g : G)) ⊔
-      pCoreOf 2 (hz T V)) = 2) :
-    pCoreOf 2 (L₁Of L (fsuV1 T V) ⊔ T) ≤
-      Subgroup.normalizer ((fsuV1 T V ⊔ conjSub ((k : G) * g) (fsuV1 T V) : Subgroup G) :
-        Set G) := by
-  obtain ⟨s, hsW, hsQ, -⟩ := N.exists_mem_not_mem h hMod hF h2
-  have hZVU : conjSub ((k : G) * g) (fsuV1 T V) ≤ V ⊔ u0 T V := by
-    rw [← N.sup_u0 h hMod h63 hF h1222 h1332 h1334 hsW hsQ]
-    exact (N.zα_le h hMod h63 hF h1222 h1332 h1334 h2).trans le_sup_left
-  intro r hr
-  have hrH : r ∈ hz T V := (pCoreOf_le_of_le h le_sup_right).trans hF.T_le_H hr
-  rw [← conjSub_eq_self_iff]
-  refine conjSub_eq_of_le ?_
-  rw [conjSub_sup, conjSub_eq_self_iff.mpr (hF.H_normalizes_V₁ hrH)]
-  refine sup_le le_sup_left ?_
-  rintro _ ⟨w, hw, rfl⟩
-  have h1 := comm_mem_of_R1_sup h hMod h63 hF h1222 h1332 h1334 hr (hZVU hw)
-  show r * w * r⁻¹ ∈ _
-  rw [show r * w * r⁻¹ = (r * w * r⁻¹ * w⁻¹) * w by group]
-  exact mul_mem (Subgroup.mem_sup_left h1) (Subgroup.mem_sup_right hw)
 
 theorem isPGroup_cE (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63)
     (hF : HypF98 T V L (fsuV1 T V) V (hz T V)) (h1222 : Stmt12_2_2) (h1332 : Stmt13_3_2)

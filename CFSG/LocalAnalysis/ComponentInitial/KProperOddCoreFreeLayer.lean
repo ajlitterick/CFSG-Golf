@@ -62,14 +62,5 @@ theorem kProper_odd_core_free_involution_component_enters_layer {C : CFSG.Assemb
     have hKE : K ≤ CFSG.layer H := le_sSup hKc
     exact kProper_component_outer_solvable hS hK hKc fun h => hE (eq_top_iff.2 (h ▸ hKE))
 
-theorem kProper_odd_core_free_involution_isComponentOf_le_layer {C : CFSG.Assembly.GroupProp}
-    (hS : SchreierFor C) {H : Type} [Group H] [Finite H] (hK : CFSG.Assembly.KProper C H)
-    (hcore : CFSG.pPrimeCore 2 H = ⊥) {t : H} (ht : orderOf t = 2) {J : Subgroup H}
-    (hJ : CFSG.Assembly.IsComponentOf J (centralizer ({t} : Set H))) :
-    J ≤ CFSG.layer H := by
-  have h := kProper_odd_core_free_involution_component_enters_layer hS hK hcore ht
-    (J.subgroupOf (centralizer ({t} : Set H)))
-    ((isComponentOf_iff_isComponent_subgroupOf hJ.1).1 hJ)
-  rwa [Subgroup.subgroupOf_map_subtype, inf_eq_left.2 hJ.1] at h
 
 end CFSG.LocalAnalysis.ComponentInitial

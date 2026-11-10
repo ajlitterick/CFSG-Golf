@@ -37,36 +37,6 @@ theorem wordG_mem (w : List ℤ) : wordG letG w ∈ NativeSporadic.M24 := by
 theorem rep_wT (w : List ℤ) : Rep 24 (wT w) (wordG letG w) :=
   Rep.wordT (by norm_num) w fun l _ => rep_toTable (by norm_num) (letG l)
 
-theorem m24_groupData : GroupDataSound 24 NativeSporadic.M24 m24Pg gg m24Sift where
-  lt := by norm_num
-  rep := by
-    intro l hl
-    have hl2 : l < 2 := by simpa [m24Pg] using hl
-    interval_cases l
-    · exact rep_toTable (by norm_num) m24gA
-    · exact rep_toTable (by norm_num) m24gB
-  gen := by
-    show closure {m24gA, m24gB} = _
-    congr 1
-    ext g
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, Set.mem_image, Set.mem_ofPred_eq]
-    have hsz : m24Pg.size = 2 := rfl
-    rw [hsz]
-    constructor
-    · rintro (rfl | rfl)
-      · exact ⟨0, by norm_num, rfl⟩
-      · exact ⟨1, by norm_num, rfl⟩
-    · rintro ⟨l, hl, rfl⟩
-      interval_cases l
-      · exact Or.inl rfl
-      · exact Or.inr rfl
-  sift := by
-    intro T g hT h
-    unfold m24Sift at h
-    rw [List.any_eq_true] at h
-    obtain ⟨w, -, hw⟩ := h
-    rw [rep_unique hT (rep_of_tblEq (rep_wT w) hw)]
-    exact wordG_mem w
 
 theorem tp_wT (w : List ℤ) : tp 24 (wT w) = wordG letG w := by
   have h := co2Rep_natArr_iff.2 (rep_wT w)
@@ -111,33 +81,6 @@ theorem theta_of_words (K : Subgroup (Equiv.Perm (Fin 24))) (ps : List (List ℤ
     obtain ⟨hh, h3⟩ := hwit p hp
     exact ⟨_, N.mul_mem hxN (hN _ hh _ hxN), h3⟩
 
-theorem m24_primes : ∀ r ∈ [m24Row3A, m24Row3B], ∀ q : ℕ, q.Prime → q ∣ r.centOrder → q ≠ 3 →
-    q ∈ r.oddPrimes := by
-  intro r hr q hq hdvd hq3
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at hr
-  rcases hr with rfl | rfl
-  · change q ∣ 1080 at hdvd
-    change q ∈ [2, 5]
-    rw [show (1080 : ℕ) = 2 ^ 3 * 3 ^ 3 * 5 by norm_num] at hdvd
-    rcases (Nat.Prime.dvd_mul hq).1 hdvd with h | h5
-    · rcases (Nat.Prime.dvd_mul hq).1 h with h2 | h3
-      · have := (Nat.prime_dvd_prime_iff_eq hq Nat.prime_two).1 (hq.dvd_of_dvd_pow h2)
-        simp [this]
-      · exact absurd ((Nat.prime_dvd_prime_iff_eq hq Nat.prime_three).1
-          (hq.dvd_of_dvd_pow h3)) hq3
-    · have := (Nat.prime_dvd_prime_iff_eq hq (by norm_num : Nat.Prime 5)).1 h5
-      simp [this]
-  · change q ∣ 504 at hdvd
-    change q ∈ [2, 7]
-    rw [show (504 : ℕ) = 2 ^ 3 * 3 ^ 2 * 7 by norm_num] at hdvd
-    rcases (Nat.Prime.dvd_mul hq).1 hdvd with h | h7
-    · rcases (Nat.Prime.dvd_mul hq).1 h with h2 | h3
-      · have := (Nat.prime_dvd_prime_iff_eq hq Nat.prime_two).1 (hq.dvd_of_dvd_pow h2)
-        simp [this]
-      · exact absurd ((Nat.prime_dvd_prime_iff_eq hq Nat.prime_three).1
-          (hq.dvd_of_dvd_pow h3)) hq3
-    · have := (Nat.prime_dvd_prime_iff_eq hq (by norm_num : Nat.Prime 7)).1 h7
-      simp [this]
 
 theorem m24_sylow : (27 : ℕ) = 3 ^ (244823040 : ℕ).factorization 3 := by
   rw [show (244823040 : ℕ) = 3 ^ 3 * 9067520 by norm_num,

@@ -158,30 +158,6 @@ theorem exists_overGamma_of_ggTorusReflGenW {p r : ℕ} {B Bs : Subgroup G} {x :
     (hT K (ggQuotHom θ) (ggGamma K hN).range
       (ggTorusTBGroup_of_nbr hcfg hnb hK θ hN hBsI hlift))
 
-theorem existsUnique_overGamma_of_ggTorusReflGenW {p r : ℕ} {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J) (hNoTr : GGNoTransvection p Bs)
-    {y : G} {K : Subgroup G} (hnb : GGNbr p B x D J y K) (hK : commutator K = ⊤)
-    {R : Type} [Group R] (θ : K ⧸ Subgroup.center K ≃* R) {I : Set (MulAut R)}
-    (hN : Bs ≤ Subgroup.normalizer (K : Set G))
-    (hBsI : ∀ (b : G) (hb : b ∈ Bs), ggLAut K θ ⟨b, hN hb⟩ ∈ I)
-    (hlift : GGTorusLift p r R) (hT : GGTorusReflGenW p r R I)
-    (hZ : Nat.card ↥(Bs ⊓ K ⊓ Subgroup.centralizer (K : Set G)) ≤ p) :
-    ∀ a ∈ ggAutomizer (MulAut.conj : ↥K →* MulAut ↥K).range (ggGamma K hN).range,
-      ∃! c : MulAut ↥Bs, c ∈ ggAutomizer K Bs ∧ GGOverGamma hN c a := by
-  intro a ha
-  obtain ⟨hp, hBs, -, -, -⟩ := hcfg.tableB_facts
-  obtain ⟨c, hcl, hover⟩ :=
-    exists_overGamma_of_ggTorusReflGenW hcfg hnb hK θ hN hBsI hlift hT a ha
-  have hCle : Subgroup.closure {φ : MulAut ↥Bs | φ ∈ ggAutomizer K Bs ∧ GGIsReflection p φ} ≤
-      ggAutomizer K Bs := (Subgroup.closure_le _).mpr (fun φ hφ => hφ.1)
-  refine ⟨c, ⟨hCle hcl, hover⟩, ?_⟩
-  rintro d ⟨hd, hdover⟩
-  have h1 : GGOverGamma hN (c⁻¹ * d) 1 := by
-    have h := hover.inv.mul hdover
-    rwa [inv_mul_cancel] at h
-  have hκ : c⁻¹ * d ∈ ggAutomizer K Bs :=
-    Subgroup.mul_mem _ (Subgroup.inv_mem _ (hCle hcl)) hd
-  exact (inv_mul_eq_one.mp (eq_one_of_ggOverGamma_one hp hBs hNoTr hN hZ hκ h1)).symm
 
 theorem ggReflGenerated_of_ggTorusReflGenW {p r : ℕ} {B Bs : Subgroup G} {x : G}
     {L D J : Subgroup G} (hcfg : GGConfig p B Bs x L D J) (hNoTr : GGNoTransvection p Bs)
@@ -247,19 +223,6 @@ theorem ggAutomizerGammaHom_overGamma {Bs X : Subgroup G}
         MulAut ↥(ggGamma X hN).range)) :=
   ggAutomizerGammaChoice_overGamma hN c
 
-theorem ggAutomizerGammaHom_ker_isPGroup {p : ℕ} {Bs X : Subgroup G}
-    (hBs : IsElemAbelian p Bs) (hN : Bs ≤ Subgroup.normalizer (X : Set G)) :
-    IsPGroup p (ggAutomizerGammaHom hN).ker := by
-  intro a
-  refine ⟨1, ?_⟩
-  simp only [pow_one]
-  apply Subtype.ext
-  apply Subtype.ext
-  apply pow_eq_one_of_ggOverGamma_one hBs hN a.1.2
-  have hov := ggAutomizerGammaHom_overGamma hN a.1
-  have h0 : ((ggAutomizerGammaHom hN a.1) : MulAut (ggGamma X hN).range) = 1 :=
-    congrArg Subtype.val a.2
-  rwa [h0] at hov
 
 theorem ggAutomizerGammaHom_injective {p : ℕ} (hp : p.Prime) {Bs X : Subgroup G}
     (hBs : IsElemAbelian p Bs) (hNoTr : GGNoTransvection p Bs)

@@ -39,19 +39,6 @@ theorem noCover_odd_sl3 (hK : Nat.card K = p ^ f) (h5 : 5 ≤ p ^ f) :
   NoCover.of_mulEquiv (specialLinearGroupEquivStatedSL 3 K).symm
     (statedSL_three_noCover_odd hK (by rwa [hK]))
 
-theorem lifting_lemma_sl3 (hK : Nat.card K = p ^ f) (h5 : 5 ≤ p ^ f) {X : Type v} [Group X]
-    (e : X ≃* Matrix.SpecialLinearGroup (Fin 3) K) {W : Type w} [Group W] [Group.IsPerfect W]
-    {Z : Subgroup W} [Z.Normal] (hZc : Z ≤ Subgroup.center W) (hZ : Odd (Nat.card Z))
-    (θbar : X →* W ⧸ Z) (hθbar : Function.Surjective θbar) (hker : θbar.ker ≤ Subgroup.center X) :
-    ∃ θ : X →* W, Function.Surjective θ ∧ θ.ker ≤ Subgroup.center X ∧
-      ∀ x, (θ x : W ⧸ Z) = θbar x := by
-  have : Finite X := Finite.of_equiv _ e.symm.toEquiv
-  have : Group.IsPerfect (Matrix.SpecialLinearGroup (Fin 3) K) :=
-    CFSG.LinearGroups.special_linear_dimension_at_least_three_perfect le_rfl
-  have : Group.IsPerfect X :=
-    Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective
-  exact lifting_of_noCover (NoCover.of_mulEquiv e.symm (noCover_odd_sl3 hK h5)) hZc hZ θbar
-    hθbar hker
 
 end SL3
 
@@ -63,20 +50,6 @@ theorem noCover_odd_su3 (hp2 : p ≠ 2) (hK : Nat.card K = (p ^ f) ^ 2) (h5 : 5 
     NoCover.{u} Odd (SU (unitaryInvolution K p f) 3) :=
   NoCover.of_mulEquiv (equivStatedSU hK 3).symm (statedSU_three_noCover_odd hp2 hK h5)
 
-theorem lifting_lemma_su3 (hp2 : p ≠ 2) (hK : Nat.card K = (p ^ f) ^ 2) (h5 : 5 ≤ p ^ f)
-    {X : Type v} [Group X] (e : X ≃* SU (unitaryInvolution K p f) 3) {W : Type w} [Group W]
-    [Group.IsPerfect W] {Z : Subgroup W} [Z.Normal] (hZc : Z ≤ Subgroup.center W)
-    (hZ : Odd (Nat.card Z)) (θbar : X →* W ⧸ Z) (hθbar : Function.Surjective θbar)
-    (hker : θbar.ker ≤ Subgroup.center X) :
-    ∃ θ : X →* W, Function.Surjective θ ∧ θ.ker ≤ Subgroup.center X ∧
-      ∀ x, (θ x : W ⧸ Z) = θbar x := by
-  have : Finite X := Finite.of_equiv _ e.symm.toEquiv
-  have : Group.IsPerfect (SU (unitaryInvolution K p f) 3) :=
-    CFSG.LieType.Steinberg.isPerfect_SU_three hK hp2
-  have : Group.IsPerfect X :=
-    Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective
-  exact lifting_of_noCover (NoCover.of_mulEquiv e.symm (noCover_odd_su3 hp2 hK h5)) hZc hZ θbar
-    hθbar hker
 
 end SU3
 

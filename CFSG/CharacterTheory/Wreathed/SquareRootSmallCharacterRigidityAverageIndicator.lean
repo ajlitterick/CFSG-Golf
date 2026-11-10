@@ -97,55 +97,5 @@ theorem actual_root_principal_average_indicator
   · exact actual_root_odd_power_column_support n hn S e basis ideal principal hprincipal
       root hroot g hg
 
-theorem actual_root_principal_average_eq_of_ideals
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (ideal₁ ideal₂ : Ideal ComplexAlgebraicIntegers)
-    [ideal₁.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal₁) 2]
-    [ideal₂.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal₂) 2] :
-    rootPrincipalAverageColumn n ideal₁ (actualRoot S e) =
-      rootPrincipalAverageColumn n ideal₂ (actualRoot S e) := by
-  ext g
-  rw [actual_root_principal_average_indicator n hn S e ideal₁,
-    actual_root_principal_average_indicator n hn S e ideal₂]
-
-theorem actual_root_integral_section_indicator
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] :
-    (fun g : G => if g ∈ squareRootSection (actualRoot S e) then (4 : ℂ) else 0) ∈
-      BlocksVChar G := by
-  have heq : (fun g : G => if g ∈ squareRootSection (actualRoot S e) then (4 : ℂ) else 0) =
-      rootPrincipalAverageColumn n ideal (actualRoot S e) := by
-    ext g
-    exact (actual_root_principal_average_indicator n hn S e ideal g).symm
-  rw [heq]
-  exact (actual_root_intrinsic_integral_column n hn S e ideal).1
-
-theorem actual_root_section_cardinality
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2] :
-    4 * Nat.card {g : G // g ∈ squareRootSection (actualRoot S e)} = Nat.card G := by
-  have hpair := (actual_root_intrinsic_integral_column n hn S e ideal).2.2.2.1
-  unfold BlocksInnerProduct at hpair
-  simp only [Pi.one_apply, one_mul, actual_root_principal_average_indicator n hn S e ideal]
-    at hpair
-  have hconj (g : G) :
-      (starRingEnd ℂ) (if g ∈ squareRootSection (actualRoot S e) then (4 : ℂ) else 0) =
-        if g ∈ squareRootSection (actualRoot S e) then (4 : ℂ) else 0 := by
-    by_cases hg : g ∈ squareRootSection (actualRoot S e)
-    · rw [ite_eq_left hg]
-      exact map_natCast (starRingEnd ℂ) 4
-    · rw [ite_eq_right hg, map_zero]
-  simp only [hconj] at hpair
-  have hsum : (∑ g : G, if g ∈ squareRootSection (actualRoot S e) then (4 : ℂ) else 0) =
-      4 * (Nat.card {g : G // g ∈ squareRootSection (actualRoot S e)} : ℂ) := by
-    simp [← Finset.sum_filter, Nat.card_eq_fintype_card, Fintype.card_subtype, nsmul_eq_mul,
-      mul_comm]
-  rw [hsum] at hpair
-  have hcard : (Nat.card G : ℂ) ≠ 0 := Nat.cast_ne_zero.mpr Nat.card_pos.ne'
-  have h := congrArg (fun z : ℂ => (Nat.card G : ℂ) * z) hpair
-  rw [← mul_assoc, mul_inv_cancel₀ hcard, one_mul, mul_one] at h
-  exact_mod_cast h
 
 end CFSG.Wreathed.SquareRootSmallCharacterRigidity

@@ -283,20 +283,5 @@ theorem apply_self_of_mem_pointRadical (hB : B.IsAlt) {v : V} {g : LinearMap.Gen
   rw [siegel_apply hB hw, hB.self_eq_zero, hw]
   simp
 
-theorem exists_mem_pointRadical_mul_eq (hB : B.IsAlt) {u v : V} (huv : B u v ≠ 0)
-    {g : LinearMap.GeneralLinearGroup K V} (hg : g ∈ bilinIsometryGroup B)
-    (hgv : (g : V →ₗ[K] V) v = v) :
-    ∃ s ∈ pointRadical B hB v, ∃ h ∈ bilinIsometryGroup B, (h : V →ₗ[K] V) u = u ∧
-      (h : V →ₗ[K] V) v = v ∧ g = s * h := by
-  have hg' := mem_bilinIsometryGroup.mp hg
-  have hgu : B u v = B ((g : V →ₗ[K] V) u) v := by rw [← hg' u v, hgv]
-  obtain ⟨s, hs, hsu⟩ := exists_mem_pointRadical_apply_eq hB hgu huv
-  have hsO := pointRadical_le_bilinIsometryGroup hB v hs
-  have hsv := apply_self_of_mem_pointRadical hB hs
-  refine ⟨s, hs, s⁻¹ * g, mul_mem (inv_mem hsO) hg, ?_, ?_, by group⟩
-  · rw [Units.val_mul, Module.End.mul_apply, ← hsu, gl_inv_apply_apply']
-  · rw [Units.val_mul, Module.End.mul_apply, hgv]
-    conv_lhs => rw [← hsv]
-    rw [gl_inv_apply_apply']
 
 end CFSG.ClassicalGroups.Alternating

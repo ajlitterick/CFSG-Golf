@@ -10,11 +10,6 @@ open CFSG.Open CFSG.LocalAnalysis.RankThreeUC Subgroup
 open CFSG.Blueprint (LieModel)
 open scoped Pointwise
 
-@[expose] def KQ35NormSylow : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X] (t : StatedLieTag) (n p : ℕ),
-    (p = 3 ∨ p = 5) → StatedLieAdmissible t n p 1 → FunTwoType t n → LieModel X t n p 1 →
-    ∀ (P : Sylow 2 X) (x : X), x ∈ normalizer ((P : Subgroup X) : Set X) →
-      Odd (orderOf x) → orderOf x ∣ 3
 
 @[expose] def KQ35NormSylowAlpha : Prop :=
   ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X] (t : StatedLieTag) (n p : ℕ),

@@ -143,15 +143,6 @@ theorem facts_of_equiv_S {X : Type*} [Group X] (θ : X ≃* S) :
   exact absurd h3 (by decide)
 
 
-theorem excludes_alternating_models (X : Type) [Group X]
-    (hX : Assembly.ComponentType.ClassicalModel X .PSL 3 2 2) :
-    Nat.card X = 20160 ∧
-      (∀ t : X, orderOf t = 2 → Nat.card (Subgroup.centralizer ({t} : Set X)) = 64) ∧
-      ∀ (Ω : Type u) [Fintype Ω] [DecidableEq Ω], 5 ≤ Fintype.card Ω →
-        IsEmpty (X ≃* alternatingGroup Ω) := by
-  obtain ⟨θ⟩ := exact_model.2.2.2.2.2 X hX
-  exact facts_of_equiv_S θ
-
 theorem excludes_alternating_models_stated (X : Type) [Group X]
     (hX : StatedClassicalModel X .PSL 3 2 2) :
     Nat.card X = 20160 ∧

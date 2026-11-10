@@ -26,6 +26,5 @@ open CFSG.CosetTable CFSG.Sporadic.Presentation.Fi24Prime
 
 @[expose] def zetaWord (k : ℕ) : List (Fin nG × Bool) := [(zeta k, true)]
 
-@[expose] def qWords : List (List (Fin nG × Bool) × ℕ) := [(zetaWord 10, 3)]
 
 end CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Coordinator

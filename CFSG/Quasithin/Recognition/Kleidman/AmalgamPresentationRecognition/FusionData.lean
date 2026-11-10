@@ -18,21 +18,5 @@ open CFSG.CosetTable CFSG.Sporadic.J3.Native CFSG.Sporadic.Th.Native
 
 @[expose] def invWordZ (w : List ℤ) : List ℤ := (w.map fun l => -l).reverse
 
-@[expose] def fusionCheck : Bool :=
-  let n := j3Data.n
-  let tA := j3Data.tA
-  let tB := j3Data.tB
-  let Tu : Array Table := (Array.range 7).map (uTab n tA tB)
-  let Tui : Array Table := Tu.map (invT n)
-  let tab : List ℤ → Table := fun w => wordT n (letTab Tu Tui) w
-  let words : List (List ℤ) := fusPaths.map pathWord
-  let tabs : List Table := words.map tab
-  (List.range 3).all (fun j => tab (fusGl.getD (j + 3) []) == tab (invWordZ (fusGl.getD j []))) &&
-  fusPaths.length == 128 &&
-  tabs.all (fun T => (tabs.filter (fun T' => T' == T)).length == 1) &&
-  tabs.contains (idT n) &&
-  words.all (fun w => (List.range 6).all fun j => tabs.contains (tab (w ++ fusGl.getD j []))) &&
-  words.all (fun w => (tab (w ++ w) != idT n || tab w == idT n) ||
-    fusConj.any fun c => tab (c ++ [4]) == tab (w ++ c))
 
 end CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition

@@ -663,12 +663,6 @@ theorem ggFieldFiveNbrTag_PSp : GGFieldFiveNbrTag .PSp := by
     (fun d hd => LayerPDiv.exists_mem_ggConjPairs_sp (F := GaloisField 2 1) hrk ψ hker
       (hDdiag d hd)) hxD hL hLmark hJ
 
-theorem ggSixFieldFiveInput_of_genuine_PSL_PSp (hPSU : GGFieldFiveNbrTag .PSU)
-    (hPlus : GGFieldFiveNbrTag .POmegaPlus) (hMinus : GGFieldFiveNbrTag .POmegaMinus)
-    (hF4 : GGFieldFiveNbrTag .F4) (hE6 : GGFieldFiveNbrTag .E6) (hE7 : GGFieldFiveNbrTag .E7)
-    (hE8 : GGFieldFiveNbrTag .E8) (hTwE6 : GGFieldFiveNbrTag .twistedE6) : GGSixFieldFiveInput :=
-  ggSixFieldFiveInput_of_genuine ggFieldFiveNbrTag_PSL hPSU ggFieldFiveNbrTag_PSp hPlus hMinus hF4
-    hE6 hE7 hE8 hTwE6
 
 theorem ggSixFieldFiveInput_of_rest (hPSU : GGFieldFiveNbrTag .PSU)
     (hPlus : GGFieldFiveNbrTag .POmegaPlus) (hMinus : GGFieldFiveNbrTag .POmegaMinus)

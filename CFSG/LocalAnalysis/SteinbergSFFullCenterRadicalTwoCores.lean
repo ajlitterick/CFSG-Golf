@@ -567,48 +567,5 @@ open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique
   CFSG.RankThree.PartOne.KCRootAxis
 open scoped Matrix Pointwise
 
-theorem standard_symplectic_four_full_center_radical_two_cores
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] [CharP K 2] (hK : Nat.card K = 2 ^ n)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) (φ : L ≃* antiSp K)
-    (hφP : (P : Subgroup L).map φ.toMonoidHom = antiUnipotent K) :
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    let ZP := (center PG).map PG.subtype
-    let C := centralizer ({(t : G)} : Set G)
-    let U : Axis → Subgroup G := fun i => ((rootU K i).comap φ.toMonoidHom).map L.subtype
-    let A : Axis → Subgroup G := fun i => ((rootA K i).comap φ.toMonoidHom).map L.subtype
-    let V : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ U i
-    let B : Axis → Subgroup G := fun i => zpowers (t : G) ⊔ A i
-    let M : Axis → Subgroup G := fun i => normalizer (V i : Set G)
-    let N : Axis → Subgroup G := fun i => normalizer (B i : Set G)
-    let D : Axis → Subgroup G := fun i => (CFSG.pCore 2 (M i)).map (M i).subtype
-    let E : Axis → Subgroup G := fun i => (CFSG.pCore 2 (N i)).map (N i).subtype
-    let ψ : Axis → G → Fin 2 → K := fun i => psiG φ i
-    {x : G | ∃ m ∈ normalizer (Q : Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ ZP, x = t * z} →
-    (∀ i : Axis, CoreFacts n (t : G) C (U i) (A i) (B i) (M i) (N i) (D i) (E i) (ψ i)) ∧
-      ((∀ a b c : K, ψ Axis.two ((φ.symm (uElt a b c 0) : L) : G) = ![b, a]) ∧
-        ∀ b c d : K,
-          ψ Axis.one ((φ.symm (uElt 0 b c d) : L) : G) = ![c ^ 2 ^ (n - 1), d ^ 2 ^ (n - 1)]) := by
-  intro TG PG Q ZP C U A V B M N D E ψ hfull
-  have hS := setup_of_standard hL hn hK φ T hT htT ht hcore
-  have hPG : PG = pull φ (antiUnipotent K) := by
-    change (P : Subgroup L).map L.subtype = ((antiUnipotent K).comap φ.toMonoidHom).map L.subtype
-    rw [← hφP, comap_map_eq_self_of_injective φ.injective]
-  have hZP : ZP = pull φ (antiUnipotentCenter K) := by
-    change (center ↥PG).map PG.subtype = _
-    rw [hPG, center_pull_antiUnipotent]
-  have hfull' : {x : G | ∃ m ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) :
-      Set G), x = m⁻¹ * t * m} = {x | ∃ z ∈ pull φ (antiUnipotentCenter K), x = t * z} := by
-    rw [← hPG, ← hZP]
-    exact hfull
-  obtain ⟨-, hF⟩ := FCHyp.of_setup hS (hO := hO) hLn hfull'
-  exact ⟨fun i => coreFacts hF i, psiG_two_uElt φ, psiG_one_uElt hK (by omega) φ⟩
 
 end CFSG.LocalAnalysis.SymplecticFourStandard

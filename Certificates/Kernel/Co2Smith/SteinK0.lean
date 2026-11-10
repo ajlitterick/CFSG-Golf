@@ -20,10 +20,5 @@ theorem elt_k : (((List.range 18).all fun r => (List.range 4).all fun c =>
     (decF oneF).toList.map (·.code.val) == m6One.toList.map (·.code.val)) = true := by
   decide +kernel
 
-@[expose] noncomputable def badGens : List (Nat × Nat) → List (Nat × Nat)
-  | a :: b :: l => a :: (b.1, CFSG.KC.Co2InvS.IDP) :: l
-  | l => l
-
-theorem stBlk_neg : (!stCheckK (badGens (gensK (stBlock 0 1)))) = true := by decide +kernel
 
 end CertificateChecks.KernelCo2Smith

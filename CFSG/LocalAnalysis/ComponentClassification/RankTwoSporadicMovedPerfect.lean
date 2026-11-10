@@ -32,9 +32,6 @@ theorem eq_one_or_eq_of_mem_zpowers {G : Type*} [Group G] {x w : G} (hx : x ^ 2 
   · right
     rw [← Int.mul_ediv_add_emod k 2, h, zpow_add, zpow_mul, hx2, one_zpow, one_mul, zpow_one]
 
-theorem zpow_mul_comm_of_mul_comm {G : Type*} [Group G] {a m : G} (h : a * m = m * a)
-    (k : ℤ) : a ^ k * m = m * a ^ k :=
-  ((Commute.zpow_left h k)).eq
 
 theorem exists_zpow_mul_of_mem_sup {G : Type*} [Group G] {a : G} {M : Subgroup G}
     (ha : ∀ m ∈ M, a * m = m * a) {g : G} (hg : g ∈ zpowers a ⊔ M) :

@@ -110,7 +110,6 @@ theorem conj_mem_GB {g x : G} (hg : g ∈ M.GP) (hx : x ∈ M.GB) : g * x * g⁻
   map_one' := Subtype.ext (by simp)
   map_mul' x y := Subtype.ext (by simp only [Subgroup.coe_mul]; group)
 
-noncomputable abbrev NXG : Subgroup G := M.NX.map M.GB.subtype
 
 end RuDataM
 

@@ -74,21 +74,5 @@ theorem point_hull_perfect_of_commuting_involutions (Q : Subgroup G)
   exact point_hull_hom_to_commutative_trivial Q hodd hnormal z w hzQ hwQ hz hw hne hcomm
     Abelianization.of x
 
-theorem point_hull_commutative_factor_subsingleton (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (hnormal : ¬ Q.Normal)
-    (z w : G) (hzQ : z ∈ Q) (hwQ : w ∈ Q)
-    (hz : orderOf z = 2) (hw : orderOf w = 2)
-    (hne : z ≠ w) (hcomm : Commute z w)
-    {A B : Type*} [Group A] [IsMulCommutative A] [Group B]
-    (e : involutionPointHull z ≃* A × B) : Subsingleton A := by
-  let f : involutionPointHull z →* A := (MonoidHom.fst A B).comp e.toMonoidHom
-  have hf := point_hull_hom_to_commutative_trivial Q hodd hnormal z w hzQ hwQ hz hw hne hcomm f
-  have haone : ∀ a : A, a = 1 := by
-    intro a
-    have h := hf (e.symm (a, 1))
-    change (e (e.symm (a, 1))).1 = 1 at h
-    rw [e.apply_symm_apply] at h
-    exact h
-  exact ⟨fun a b => (haone a).trans (haone b).symm⟩
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

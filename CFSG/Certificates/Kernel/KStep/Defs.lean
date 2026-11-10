@@ -163,23 +163,6 @@ structure PLaw (np : ℕ) (O : POps) : Prop where
       (Nat.land (O.half SA (nat_lit 1) (O.add SA Xp Xq)) (O.rep SA upA)))
     (O.rep SX lo16) (O.compact (nat_lit 114688) X) (O.compact (nat_lit 115712) X)
 
-theorem rhoStep_eq (F : Fix) (s a d X A W : Nat) : rhoStep F s a d X A W = rhoG ops15 F s a d X A W :=
-  rfl
-
-theorem rhoStepN_eq (n lg : ℕ) (F : Fix) (s a d X A W : Nat) :
-    rhoStepN n F s a d X A W = rhoG (opsN n lg) F s a d X A W :=
-  rfl
-
-theorem xiStep_eq (F : Fix) (X A W : Nat) : xiStep F X A W = xiG ops15 F X A W := rfl
-
-theorem xiStepN_eq (n lg : ℕ) (F : Fix) (X A W : Nat) : xiStepN n lg F X A W = xiG (opsN n lg) F X A W :=
-  rfl
-
-theorem tauStep_eq (F : Fix) (X A W : Nat) : tauStep F X A W = tauG ops15 F X A W := rfl
-
-theorem tauStepN_eq (n lg : ℕ) (F : Fix) (X A W : Nat) :
-    tauStepN n lg F X A W = tauG (opsN n lg) F X A W :=
-  rfl
 
 end CFSG.KC.KStep
 

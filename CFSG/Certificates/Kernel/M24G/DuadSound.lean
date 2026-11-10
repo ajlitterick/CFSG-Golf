@@ -300,10 +300,6 @@ theorem duadGrpCheck_of {n : Nat} (hg : duadGensOK gens = true)
     rw [Array.any_toList] at hany
     exact hany
 
-theorem duad_length_filter_comp {β : Type} (I : List Nat) (get : Nat → β) (q : β → Bool) :
-    (I.filter fun i => q (get i)).length = ((I.map get).filter q).length := by
-  rw [List.filter_map, List.length_map]
-  rfl
 
 theorem duad_map_get (M : List (Array Nat)) :
     (List.range M.length).map (fun i => M.toArray[i]!) = M := by

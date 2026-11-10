@@ -168,15 +168,6 @@ theorem fieldAutData_E_of_maximalAt (τ : Tag) (hτ : τ = .E6 ∨ τ = .E7 ∨ 
   fieldAutData_E_of_maximalAt_odd τ hτ hp (by omega) (not_dvd_det_cartan_E hτ hp (by omega))
     (fun σ hσ => hΓJ K σ p hp (by omega) hσ) hmax
 
-theorem fieldAutData_E_of_maximal (τ : Tag) (hτ : τ = .E6 ∨ τ = .E7 ∨ τ = .E8)
-    (hΓJ : ∀ (K : Type) [Field K] [Finite K] (σ : K ≃+* K) (p : ℕ), p.Prime → 3 < p →
-      σ ^ p = 1 → entrywiseFixedGroup τ σ = fixedFieldImage τ σ)
-    (h : SubfieldMaximalLeOne τ) {K : Type} [Field K] [Finite K] {p : ℕ} (hp : p.Prime)
-    (hp5 : 5 ≤ p) (hpK : p ≠ ringChar K)
-    (hle : CFSG.LieType.SeitzGeneration.degCount τ (orderOf ((Nat.card K : ℕ) : ZMod p)) ≤ 1) :
-    FieldAutData (adjointGroup τ K) p :=
-  fieldAutData_E_of_maximalAt (K := K) τ hτ hΓJ hp hp5
-    (fun σ hσ hdvd M hRM => h K σ p hp hp5 hpK hσ hle hdvd M hRM)
 
 theorem fieldAutData_F4_of_maximalAt_odd {K : Type} [Field K] [Finite K] {p : ℕ} (hp : p.Prime)
     (hp2 : p ≠ 2)
@@ -310,22 +301,5 @@ theorem fieldAutData_E8_of_subfieldMaximalAllOdd (h : SubfieldMaximalAllOdd .E8)
     FieldAutData (adjointGroup Tag.E8 K) p :=
   fieldAutData_E8_of_maximalAt_odd (K := K) hp hp2 (fun σ hσ _ M hRM => h K σ p hp hp2 hpK hσ M hRM)
 
-theorem fieldAutData_F4_of_subfieldMaximalAllThree (h : SubfieldMaximalAllThree .F4) {K : Type}
-    [Field K] [Finite K] {p : ℕ} (hp : p = 3) (hpK : p ≠ ringChar K) :
-    FieldAutData (adjointGroup Tag.F4 K) p :=
-  fieldAutData_F4_of_maximalAt_odd (K := K) (by rw [hp]; exact Nat.prime_three) (by omega)
-    (fun σ hσ _ M hRM => h K σ p hp hpK hσ M hRM)
-
-theorem fieldAutData_E7_of_subfieldMaximalAllThree (h : SubfieldMaximalAllThree .E7) {K : Type}
-    [Field K] [Finite K] {p : ℕ} (hp : p = 3) (hpK : p ≠ ringChar K) :
-    FieldAutData (adjointGroup Tag.E7 K) p :=
-  fieldAutData_E7_of_maximalAt_odd (K := K) (by rw [hp]; exact Nat.prime_three) (by omega)
-    (fun σ hσ _ M hRM => h K σ p hp hpK hσ M hRM)
-
-theorem fieldAutData_E8_of_subfieldMaximalAllThree (h : SubfieldMaximalAllThree .E8) {K : Type}
-    [Field K] [Finite K] {p : ℕ} (hp : p = 3) (hpK : p ≠ ringChar K) :
-    FieldAutData (adjointGroup Tag.E8 K) p :=
-  fieldAutData_E8_of_maximalAt_odd (K := K) (by rw [hp]; exact Nat.prime_three) (by omega)
-    (fun σ hσ _ M hRM => h K σ p hp hpK hσ M hRM)
 
 end CFSG.LieType.SeitzGeneration.ExcOuterLeOne

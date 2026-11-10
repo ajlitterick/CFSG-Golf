@@ -32,35 +32,6 @@ structure ListedGroupFacts : Prop where
 
 section Survivor
 
-variable {G : Type} [Group G]
-
-@[expose] def F112SurvivorLegacyBare (K1 L2 S : Subgroup G) : Prop :=
-  let α := RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S)
-  (IsAmalgamOfGroup α (IsLieOverTwo .trialityD4 0 1) ∧ IsL2Quot 3 (OTwoQuot K1) ∧
-      IsSpecialPow 2 2 4 ↥(pCoreOf 2 K1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-      Nat.card (pCoreOf 2 L2) = 2 ^ 11) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* quasithinJ2)) ∧
-      IsL2Quot 2 (OTwoQuot K1) ∧ IsQ8D8 ↥(pCoreOf 2 K1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-      Nat.card (pCoreOf 2 L2) = 2 ^ 6) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* MulAut quasithinJ2)) ∧
-      Nonempty (OTwoQuot (K1 ⊔ S) ≃* Equiv.Perm (Fin 5)) ∧ IsQ8D8 ↥(pCoreOf 2 K1) ∧
-      Nonempty (OTwoQuot L2 ≃* Equiv.Perm (Fin 3)) ∧ Nat.card (pCoreOf 2 L2) = 2 ^ 6)
-
-@[expose] def F112Survivor (K1 L2 S : Subgroup G) : Prop :=
-  let P1 := K1 ⊔ bigB K1 L2 S
-  let P2 := L2 ⊔ bigB K1 L2 S
-  let α := RankTwoAmalgam.ofSubgroups P1 P2
-  (IsAmalgamOfGroup α (IsLieOverTwo .trialityD4 0 1) ∧ IsL2Quot 3 (OTwoQuot K1) ∧
-      IsSpecialPow 2 2 4 ↥(pCoreOf 2 P1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-      Nat.card (pCoreOf 2 P2) = 2 ^ 11) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* quasithinJ2)) ∧
-      IsL2Quot 2 (OTwoQuot K1) ∧ IsQ8D8 ↥(pCoreOf 2 P1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-      Nat.card (pCoreOf 2 P2) = 2 ^ 6) ∨
-  (IsParabolicAmalgamOfGroup α (fun Y _ => Nonempty (Y ≃* MulAut quasithinJ2)) ∧
-      Nonempty (OTwoQuot (K1 ⊔ S) ≃* Equiv.Perm (Fin 5)) ∧ IsQ8D8 ↥(pCoreOf 2 P1) ∧
-      Nonempty (OTwoQuot L2 ≃* Equiv.Perm (Fin 3)) ∧ Nat.card (pCoreOf 2 P2) = 2 ^ 6)
-
-abbrev F112SurvivorVertex (K1 L2 S : Subgroup G) : Prop := F112Survivor K1 L2 S
 
 end Survivor
 

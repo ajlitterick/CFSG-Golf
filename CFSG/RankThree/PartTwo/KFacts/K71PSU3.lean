@@ -238,13 +238,6 @@ theorem coe_glIncl (A : GL (Fin 3) (fixedField σ)) :
   ext i j
   rw [GeneralLinearGroup.map_apply, Matrix.map_apply]
 
-theorem glIncl_injective : Function.Injective (glIncl σ) := by
-  intro A B hAB
-  apply GeneralLinearGroup.ext
-  intro i j
-  apply Subtype.ext
-  have := congrArg (fun X : GL (Fin 3) K => (X : Matrix (Fin 3) (Fin 3) K) i j) hAB
-  simpa [GeneralLinearGroup.map_apply] using this
 
 theorem exists_glIncl_eq {X : GL (Fin 3) K} (hX : glAut σ X = X) :
     ∃ A : GL (Fin 3) (fixedField σ), glIncl σ A = X := by

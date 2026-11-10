@@ -114,8 +114,6 @@ theorem eSq : allN 7 (fun i => Nat.beq (pc (EA i) (EA i)) (pidn 4060 12)) = true
 theorem eConj : allN 7 (fun i => allN 2 (fun g =>
     anyK 7 (fun j => Nat.beq (CFSG.KS.SporSch.conjP (gen2 Ns0 Ns1 g) (gen2 Ns0I Ns1I g) (EA i)) (EA j)))) = true := by
   quickRfl
-theorem eLens : bAnd(Nat.beq (lenNL (ebfsK Ns0 Ns1 Ns0I Ns1I Z).2.1) 7,
-    Nat.beq (lenNL (ebfsK Ns0 Ns1 Ns0I Ns1I Z).2.2) 7) = true := by quickRfl
 theorem eTree : allN 7 (fun i => Nat.beq i 0 ||
     (strictB ((ebfsK Ns0 Ns1 Ns0I Ns1I Z).2.1.getD i 0) (fun p =>
       strictB ((ebfsK Ns0 Ns1 Ns0I Ns1I Z).2.2.getD i 0) (fun g =>

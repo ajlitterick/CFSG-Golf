@@ -40,9 +40,6 @@ theorem g2VertexExcl_proved : G2VertexExcl p f :=
 theorem g2d4VertexExcl_proved : G2D4VertexExcl p f :=
   g2d4VertexExcl_of_g2 g2VertexExcl_proved
 
-theorem g2VertexExclFuzzy_proved : G2VertexExclFuzzy p f :=
-  fun hp hq G _ _ Ω hΩ hA c hc2 _ D j hG2 M M' b hM hM' hMb hM'b hne hMj hM'j =>
-    g2VertexExcl_proved hp hq G Ω hΩ hA c hc2 D j hG2 M M' b hM hM' hMb hM'b hne hMj hM'j
 
 end Sec
 

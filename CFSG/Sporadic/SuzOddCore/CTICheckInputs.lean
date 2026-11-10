@@ -47,9 +47,5 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.PSL3Four.Native
 @[expose] def classOrbits : Array Enum :=
   Array.ofFn (n := 10) fun l => orbitBFS 42 dGens dInvs (classRep l.val) 5000
 
-@[expose] def centInOK (m : Nat) (T gs Q : Array Tab) : Bool :=
-  let idx := indexOf Q
-  allBelow T.size fun k =>
-    !(allBelow gs.size fun i => comp m T[k]! gs[i]! == comp m gs[i]! T[k]!) || found idx Q T[k]!
 
 end CFSG.Sporadic.SuzOddCore

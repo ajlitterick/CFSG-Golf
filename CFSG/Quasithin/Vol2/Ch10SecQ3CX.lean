@@ -44,7 +44,6 @@ theorem e23Data_of_concl {Γ : Type} [Group Γ] [Finite Γ] {H T V : Subgroup Γ
   obtain ⟨h0, I, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩ := h
   exact ⟨h0, I, ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩⟩
 
-variable {G : Type} [Group G] [Finite G] {T L I : Subgroup G}
 
 end C11AmS
 

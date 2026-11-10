@@ -124,8 +124,6 @@ section cQV
 variable {X Q V : Subgroup G} (hV : X ≤ Subgroup.normalizer (V : Set G))
   (hQ : X ≤ Subgroup.normalizer (Q : Set G))
 
-omit [Finite G] in
-theorem mem_cQV {x : G} : x ∈ cQV X Q V hV hQ ↔ x ∈ X ∧ ∀ q ∈ Q, ⁅x, q⁆ ∈ V := Iff.rfl
 
 omit [Finite G] in
 theorem cQV_le : cQV X Q V hV hQ ≤ X := fun _ hx => hx.1

@@ -116,10 +116,6 @@ theorem dConnected_layerFam3 {K₀ : Subgroup G} (hs : AscStand3 Ω K₀)
   · intro i j hij
     exact layerImg3_omegaNbr (hMt i) (hMt j) (hMS j) (hPcen j) (hPN i j hij) (himg i j hij)
 
-omit [Finite G] in
-theorem le_centralizer_singleton_of_forall {R : Subgroup G} {x : G}
-    (h : ∀ r ∈ R, x * r = r * x) : R ≤ Subgroup.centralizer ({x} : Set G) := fun r hr =>
-  Subgroup.mem_centralizer_singleton_iff.mpr (h r hr).symm
 
 theorem oddCoreOf_exactLayer3_le_H274 {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G}
     {z t : G} (hs : Std8 Ω K J S R T W z t) {x : G} (hx : x * x = 1) (hKX : XMem Ω x K)

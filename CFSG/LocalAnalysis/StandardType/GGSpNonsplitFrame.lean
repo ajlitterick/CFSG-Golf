@@ -239,8 +239,6 @@ theorem ggSpNonsplitFrameInput_holds : GGSpNonsplitFrameInput := by
 theorem ggSixBstarNoOffenderOn_PSpNonsplit : GGSixBstarNoOffenderOn GGPSpNonsplit :=
   ggSixBstarNoOffenderOn_PSpNonsplit_of_frame ggSpNonsplitFrameInput_holds
 
-theorem ggSixBstarNoOffenderAt_PSp_holds : GGSixBstarNoOffenderAt .PSp :=
-  ggSixBstarNoOffenderAt_PSp_of_nonsplit ggSixBstarNoOffenderOn_PSpNonsplit
 
 end Family
 

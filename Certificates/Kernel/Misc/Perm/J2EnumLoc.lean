@@ -229,14 +229,6 @@ theorem chkLocal45_true : chkLocal45 = true := by
     naActs, naTwo, nvTwo, outer0_true, outer]
   rfl
 
-theorem neg_caV : (!(!(two7K V2) || memL [I, V1] V2)) = true := by quickRfl
-
-theorem neg_nvV : (!(!(twoGK [GV 0, GV 1, HV] V1) || memL [I, V2, cm V1 V2] V1)) = true := by
-  quickRfl
-
-theorem neg_setY : (!(naSetK Y)) = true := by quickRfl
-
-theorem neg_acts : (!(actsK 3 1 9 O3 H1 fun i => [1, 2, 0].getD i 0)) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.J2En
 

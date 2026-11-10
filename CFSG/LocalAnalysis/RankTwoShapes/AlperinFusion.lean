@@ -104,23 +104,6 @@ theorem exists_moving_step {P : Subgroup G} {c x : G} (h : AlperinDecomposition 
 
 end AlperinDecomposition
 
-theorem isAlperinSubgroup_sylow [Finite G] {p : ℕ} [Fact p.Prime] (S : Sylow p G) :
-    IsAlperinSubgroup p (S : Subgroup G) S := by
-  have hSidx : Nat.Coprime p (S : Subgroup G).index :=
-    (Nat.Prime.coprime_iff_not_dvd Fact.out).2 S.not_dvd_index
-  refine ⟨le_rfl, ?_, inf_le_right, ?_⟩
-  · rw [inf_eq_left.mpr Subgroup.le_normalizer]
-    exact hSidx.coprime_dvd_right (Subgroup.relIndex_dvd_index_of_le Subgroup.le_normalizer)
-  · rintro R hSR - - ⟨k, hk⟩
-    have hdvd : ((S : Subgroup G) ⊔ Subgroup.centralizer ((S : Subgroup G) : Set G)).relIndex R ∣
-        (S : Subgroup G).index :=
-      (Subgroup.relIndex_dvd_of_le_left R le_sup_left).trans
-        (Subgroup.relIndex_dvd_index_of_le (le_sup_left.trans hSR))
-    have hone : ((S : Subgroup G) ⊔ Subgroup.centralizer ((S : Subgroup G) : Set G)).relIndex R
-        = 1 :=
-      Nat.Coprime.eq_one_of_dvd
-        (Nat.Coprime.pow_left k (hSidx.coprime_dvd_right hdvd)).symm (hk ▸ dvd_rfl)
-    exact le_antisymm (Subgroup.relIndex_eq_one.mp hone) hSR
 
 private def Factored (p : ℕ) (S A : Subgroup G) (g : G) : Prop :=
   ∃ c : G, AlperinDecomposition p S A c ∧ ∀ x ∈ A, c⁻¹ * x * c = g⁻¹ * x * g

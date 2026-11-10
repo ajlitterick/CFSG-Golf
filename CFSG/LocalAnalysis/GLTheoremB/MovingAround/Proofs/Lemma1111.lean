@@ -372,8 +372,6 @@ theorem card_sup_mul_card_inf (H K : Subgroup G) (hc : ∀ h ∈ H, ∀ k ∈ K,
 end Product
 
 
-
-
 section Extraspecial
 
 variable {G : Type} [Group G] [Finite G]
@@ -815,10 +813,6 @@ variable {G : Type} [Group G] [Finite G]
 theorem isPGroup_of_exponent3 {K : Subgroup G} (hK : ∀ x ∈ K, x ^ 3 = 1) : IsPGroup 3 ↥K :=
   fun g => ⟨1, Subtype.ext (by simpa using hK g.1 g.2)⟩
 
-theorem le_centralizer_of_comm {H K : Subgroup G} (h : ∀ x ∈ H, ∀ y ∈ K, x * y = y * x) :
-    H ≤ Subgroup.centralizer (K : Set G) := by
-  intro x hx
-  exact Subgroup.mem_centralizer_iff.2 (fun y hy => (h x hx y hy).symm)
 
 theorem comm_of_le_centralizer {H K : Subgroup G} (h : H ≤ Subgroup.centralizer (K : Set G)) :
     ∀ x ∈ H, ∀ y ∈ K, x * y = y * x := by
@@ -993,254 +987,6 @@ section Piece3
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem piece3_contra {m : ℕ} {B M E A : Subgroup G} {a : G} (h : Sec10Fails G m 3 B M)
-    (hEA : IsDDpStar 3 M E A) (hA3 : CFSG.Open.pRank 3 A = 3)
-    (hnot : ∀ A1 : Subgroup G, inD 3 M A1 → a ∉ A1) (ha : a ∈ A) (ha1 : a ≠ 1)
-    {F : Subgroup G} (hAF : A ≤ F) (hF : IsExtraspecialFive F a)
-    (hP2 : ∀ R : Subgroup G, IsSylowIn 3 M R → E ⊔ A ≤ R →
-      ∀ e ∈ omegaOne 3 (centerOf R), e ≠ 1 → Cg e ≤ M)
-    (hI31 : Input31_3) : False := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hF' := hF
-  obtain ⟨hcardF, hexpF, -, hcenF, hderF⟩ := hF'
-  have ha3 : a ^ 3 = 1 := hexpF a (hAF ha)
-  have hED : inD 3 M E := hEA.1.1
-  have hEM : E ≤ M := hED.1.1.1
-  have hAM : A ≤ M := hEA.1.2.1.1.1.1
-  have hEAM : E ⊔ A ≤ M := sup_le hEM hAM
-  have hEel : CFSG.Open.IsElemAbelian 3 E := hED.1.1.2.1
-  have hAel : CFSG.Open.IsElemAbelian 3 A := hEA.1.2.1.1.1.2.1
-  have haE : a ∉ E := hnot E hED
-  have hSC := lemma104_ii_holds h hEA
-  have hpEA : IsPGroup 3 ↥(E ⊔ A) := lemma104_i_holds h hEA
-  obtain ⟨R0, hR0, hEAR0⟩ := Lemma113b.exists_sylowIn_above' hEAM hpEA
-  have hER0 : E ≤ R0 := le_trans le_sup_left hEAR0
-  have hAR0 : A ≤ R0 := le_trans le_sup_right hEAR0
-  haveI : Nontrivial ↥R0 := ⟨⟨⟨a, hAR0 ha⟩, 1, fun h' => ha1 (congrArg Subtype.val h')⟩⟩
-  haveI hcen : Nontrivial (Subgroup.center ↥R0) := IsPGroup.center_nontrivial hR0.2.1
-  obtain ⟨⟨zR, hzc⟩, hz1⟩ := exists_ne (1 : Subgroup.center ↥R0)
-  have hzG : zR.1 ∈ centerOf R0 := by
-    refine (mem_centerOf_iff R0 zR.1).2 ⟨zR.2, fun h' hh => ?_⟩
-    have := congrArg Subtype.val ((Subgroup.mem_center_iff.1 hzc) ⟨h', hh⟩)
-    exact this
-  have hzne : zR.1 ≠ 1 := fun h' => hz1 (Subtype.ext (Subtype.ext h'))
-  obtain ⟨e, hewz, he1, he3⟩ := exists_order_three_in hR0.2.1 zR.2 hzne
-  have heC : e ∈ centerOf R0 := Subgroup.zpowers_le.2 hzG hewz
-  have heE : e ∈ E := by
-    have hsup := isElemAbelian_sup hEel (isElemAbelian_zpowers he3)
-      (fun h' hh k hk => by
-        obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.1 hk
-        exact (show Commute h' e from ((mem_centerOf_iff R0 e).1 heC).2 h' (hER0 hh)).zpow_right n)
-    have hEsup : E ⊔ Subgroup.zpowers e = E :=
-      hSC.1.2.2 (E ⊔ Subgroup.zpowers e) le_top hsup le_sup_left
-    have : e ∈ E ⊔ Subgroup.zpowers e := Subgroup.mem_sup_right (Subgroup.mem_zpowers e)
-    rwa [hEsup] at this
-  have heA : e ∈ A := by
-    have hsup := isElemAbelian_sup hAel (isElemAbelian_zpowers he3)
-      (fun h' hh k hk => by
-        obtain ⟨n, rfl⟩ := Subgroup.mem_zpowers_iff.1 hk
-        exact (show Commute h' e from ((mem_centerOf_iff R0 e).1 heC).2 h' (hAR0 hh)).zpow_right n)
-    have hAsup : A ⊔ Subgroup.zpowers e = A :=
-      hSC.2.2.2 (A ⊔ Subgroup.zpowers e) le_top hsup le_sup_left
-    have : e ∈ A ⊔ Subgroup.zpowers e := Subgroup.mem_sup_right (Subgroup.mem_zpowers e)
-    rwa [hAsup] at this
-  have he' : e ∉ Subgroup.zpowers a := by
-    intro hea
-    have heq := zpowers_eq_of_mem ha3 ha1 hea he1
-    apply haE
-    have : a ∈ Subgroup.zpowers e := by
-      rw [heq]
-      exact Subgroup.mem_zpowers a
-    exact (Subgroup.zpowers_le.2 heE) this
-  have heF : e ∈ F := hAF heA
-  have hCeM : Cg e ≤ M := hP2 R0 hR0 hEAR0 e (by
-    unfold omegaOne
-    exact Subgroup.subset_closure ⟨heC, he3⟩) he1
-  set Fe : Subgroup G := F ⊓ Subgroup.centralizer ({e} : Set G) with hFe
-  have heFe : e ∈ Fe := Subgroup.mem_inf.2 ⟨heF, Subgroup.mem_centralizer_iff.2
-    (fun h' hh => by rw [Set.mem_singleton_iff] at hh; subst hh; rfl)⟩
-  have hFeC : Fe ≤ Cg e := inf_le_right
-  have hFep : IsPGroup 3 ↥Fe :=
-    isPGroup_of_exponent3 (fun x hx => hexpF x (Subgroup.mem_inf.1 hx).1)
-  have hFe81 : Nat.card ↥Fe = 81 := card_centralizer_inf hF heF he'
-  obtain ⟨R', hR'M, hFeR', heR'⟩ := exists_sylow_centralizing hR0 heC hCeM hFeC hFep heFe
-  obtain ⟨B', hB'D, hB'R', hB'card⟩ := exists_conj_le_sylow h hEA hR'M
-  have hB'el : CFSG.Open.IsElemAbelian 3 B' := hB'D.1.1.2.1
-  have hBcard : Nat.card ↥B = 3 ^ m := h.standing.card_eq h.bOne
-  have hm4 : 4 ≤ m := h.standing.four_le
-  have hrank : m ≤ CFSG.Open.pRank 3 R' :=
-    CFSG.SectionRank.le_pRank (by norm_num) hB'R' hB'el (k := m) (by rw [hB'card, hBcard])
-  obtain ⟨U, hUI, hUn⟩ := hI31 G 3 Nat.prime_three (by norm_num) R' hR'M.2.1 2 (by norm_num)
-    (by omega)
-  have hU9 : Nat.card ↥U = 9 := by rw [hUI.2.2]; norm_num
-  have hUR' : U ≤ R' := hUI.1
-  have hUel : CFSG.Open.IsElemAbelian 3 U := hUI.2.1
-  have hR'nor : R' ≤ Subgroup.normalizer (U : Set G) := le_normalizer_of_normal hUR' hUn
-  have hFenor : Fe ≤ Subgroup.normalizer (U : Set G) := le_trans hFeR' hR'nor
-  have hlinesFe := lines_card_le Fe U hFep hU9 hFenor
-  have hK1 : 27 ≤ Nat.card ↥(Fe ⊓ Subgroup.centralizer (U : Set G)) := by omega
-  have haK1 : a ∈ Fe ⊓ Subgroup.centralizer (U : Set G) :=
-    lines_comm Fe U hFep hU9 hFenor (a_mem_commutator_inf hF heF he')
-  have heK1 : e ∈ Fe ⊓ Subgroup.centralizer (U : Set G) := Subgroup.mem_inf.2 ⟨heFe,
-    Subgroup.mem_centralizer_iff.2 (fun u hu => ((mem_centerOf_iff R' e).1 heR').2 u (hUR' hu))⟩
-  obtain ⟨x, hxK1, hxsup⟩ : ∃ x ∈ Fe ⊓ Subgroup.centralizer (U : Set G),
-      x ∉ Subgroup.zpowers e ⊔ Subgroup.zpowers a := by
-    by_contra hall
-    push Not at hall
-    have hle := Subgroup.card_le_of_le (show Fe ⊓ Subgroup.centralizer (U : Set G) ≤
-      Subgroup.zpowers e ⊔ Subgroup.zpowers a from fun y hy => hall y hy)
-    have h9 := zpowers_sup_card_le hF heF he'
-    omega
-  have hxFe : x ∈ Fe := (Subgroup.mem_inf.1 hxK1).1
-  have hxC : x ∈ Subgroup.centralizer (U : Set G) := (Subgroup.mem_inf.1 hxK1).2
-  have hxF : x ∈ F := (Subgroup.mem_inf.1 hxFe).1
-  have hxe : e * x = x * e := Subgroup.mem_centralizer_iff.1 (Subgroup.mem_inf.1 hxFe).2 e
-    (Set.mem_singleton e)
-  have hxa : x * a = a * x := central_of_mem hF (Subgroup.mem_zpowers a) hxF
-  have hx3 : x ^ 3 = 1 := hexpF x hxF
-  have hx1 : x ≠ 1 := fun h' => hxsup (h' ▸ Subgroup.one_mem _)
-  have heC_U : e ∈ Subgroup.centralizer (U : Set G) := (Subgroup.mem_inf.1 heK1).2
-  have haC_U : a ∈ Subgroup.centralizer (U : Set G) := (Subgroup.mem_inf.1 haK1).2
-  have haFe : a ∈ Fe := (Subgroup.mem_inf.1 haK1).1
-  have hcomm_ea : ∀ h' ∈ Subgroup.zpowers e, ∀ k ∈ Subgroup.zpowers a, h' * k = k * h' :=
-    comm_of_le_centralizer (H := Subgroup.zpowers e) (K := Subgroup.zpowers a)
-      (Subgroup.zpowers_le.2 (mem_centralizer_zpowers (central_of_mem hF (Subgroup.mem_zpowers a) heF).symm))
-  have hUFe : U ≤ Fe := by
-    by_contra hnotU
-    obtain ⟨u, huU, huFe⟩ : ∃ u ∈ U, u ∉ Fe := by
-      by_contra hall
-      push Not at hall
-      exact hnotU (fun u hu => hall u hu)
-    have hu3 : u ^ 3 = 1 := hUel.2 u huU
-    have hu1 : u ≠ 1 := fun h' => huFe (h' ▸ Subgroup.one_mem _)
-    have hV1el := isElemAbelian_sup (isElemAbelian_zpowers he3) (isElemAbelian_zpowers ha3) hcomm_ea
-    have hVc : Subgroup.zpowers e ⊔ Subgroup.zpowers a ≤
-        Subgroup.centralizer (Subgroup.zpowers x : Set G) :=
-      sup_le (Subgroup.zpowers_le.2 (mem_centralizer_zpowers hxe.symm))
-        (Subgroup.zpowers_le.2 (mem_centralizer_zpowers hxa))
-    have hVel := isElemAbelian_sup hV1el (isElemAbelian_zpowers hx3)
-      (comm_of_le_centralizer hVc)
-    have hVU : Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x ≤
-        Subgroup.centralizer (U : Set G) :=
-      sup_le (sup_le (Subgroup.zpowers_le.2 heC_U) (Subgroup.zpowers_le.2 haC_U))
-        (Subgroup.zpowers_le.2 hxC)
-    have hVFe : Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x ≤ Fe :=
-      sup_le (sup_le (Subgroup.zpowers_le.2 heFe) (Subgroup.zpowers_le.2 haFe))
-        (Subgroup.zpowers_le.2 hxFe)
-    have hVuc : Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x ≤
-        Subgroup.centralizer (Subgroup.zpowers u : Set G) := by
-      intro v hv
-      exact mem_centralizer_zpowers (Subgroup.mem_centralizer_iff.1 (hVU hv) u huU)
-    have hWel := isElemAbelian_sup hVel (isElemAbelian_zpowers hu3) (comm_of_le_centralizer hVuc)
-    have hV1card : Nat.card ↥(Subgroup.zpowers e ⊔ Subgroup.zpowers a) = 9 := by
-      have hp := card_sup_mul_card_inf (Subgroup.zpowers e) (Subgroup.zpowers a) hcomm_ea
-      rw [card_zpowers_of_ne_one he3 (Subgroup.mem_zpowers e) he1,
-        card_zpowers_three ha1 ha3] at hp
-      have hi : Nat.card ↥(Subgroup.zpowers e ⊓ Subgroup.zpowers a) = 1 := by
-        rw [inf_comm]
-        exact inf_zpowers_trivial he3 he1 he'
-      rw [hi] at hp
-      omega
-    have hVcard : Nat.card ↥(Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x) = 27 := by
-      have hp := card_sup_mul_card_inf (Subgroup.zpowers e ⊔ Subgroup.zpowers a) (Subgroup.zpowers x)
-        (comm_of_le_centralizer hVc)
-      have hi : Nat.card ↥((Subgroup.zpowers e ⊔ Subgroup.zpowers a) ⊓ Subgroup.zpowers x) = 1 :=
-        inf_zpowers_trivial hx3 hx1 hxsup
-      rw [hi, hV1card, card_zpowers_of_ne_one hx3 (Subgroup.mem_zpowers x) hx1] at hp
-      omega
-    have huV : u ∉ Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x :=
-      fun hu => huFe (hVFe hu)
-    have hWcard : Nat.card ↥((Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x) ⊔
-        Subgroup.zpowers u) = 81 := by
-      have hp := card_sup_mul_card_inf (Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x)
-        (Subgroup.zpowers u) (comm_of_le_centralizer hVuc)
-      have hi : Nat.card ↥((Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x) ⊓
-          Subgroup.zpowers u) = 1 := inf_zpowers_trivial hu3 hu1 huV
-      rw [hi, hVcard, card_zpowers_of_ne_one hu3 (Subgroup.mem_zpowers u) hu1] at hp
-      omega
-    have hFeM : Fe ≤ M := hFeC.trans hCeM
-    have hVM : Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x ≤ M := hVFe.trans hFeM
-    have hWM : (Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x) ⊔
-        Subgroup.zpowers u ≤ M :=
-      sup_le hVM (Subgroup.zpowers_le.2 (hUR'.trans hR'M.1 huU))
-    have haW : a ∈ (Subgroup.zpowers e ⊔ Subgroup.zpowers a ⊔ Subgroup.zpowers x) ⊔
-        Subgroup.zpowers u :=
-      Subgroup.mem_sup_left (Subgroup.mem_sup_left (Subgroup.mem_sup_right (Subgroup.mem_zpowers a)))
-    exact no_E4_contains h hEA (Or.inr hA3) hnot ha1 hWM
-      (isElemAbelian_sup hVel (isElemAbelian_zpowers hu3) (comm_of_le_centralizer hVuc))
-      haW (le_of_eq hWcard.symm)
-  have haU : a ∈ U := by
-    by_contra haU
-    have hcomm : ∀ u ∈ U, ∀ f ∈ Fe, u * f = f * u := by
-      intro u hu f hf
-      have hfR' : f ∈ R' := hFeR' hf
-      have hfF : f ∈ F := (Subgroup.mem_inf.1 hf).1
-      have huF : u ∈ F := (Subgroup.mem_inf.1 (hUFe hu)).1
-      have hc1 : u⁻¹ * f⁻¹ * u * f ∈ Subgroup.zpowers a := comm_mem hF huF hfF
-      have hc2 : u⁻¹ * f⁻¹ * u * f ∈ U := by
-        have h1 := conj_mem_of_normal hUR' hUn (R'.inv_mem hfR') hu
-        have h2 := U.mul_mem (U.inv_mem hu) h1
-        have e2 : u⁻¹ * (f⁻¹ * u * f⁻¹⁻¹) = u⁻¹ * f⁻¹ * u * f := by group
-        rwa [e2] at h2
-      by_cases hc : u⁻¹ * f⁻¹ * u * f = 1
-      · exact mul_comm_of_comm_eq_one hc
-      · exfalso
-        have heq := zpowers_eq_of_mem ha3 ha1 hc1 hc
-        apply haU
-        have hamem : a ∈ Subgroup.zpowers (u⁻¹ * f⁻¹ * u * f) := by
-          rw [heq]
-          exact Subgroup.mem_zpowers a
-        exact (Subgroup.zpowers_le.2 hc2) hamem
-    have hUle : U ≤ Subgroup.zpowers e ⊔ Subgroup.zpowers a := fun u hu =>
-      center_le_sup hF heF he' (hUFe hu) (fun f hf => (hcomm u hu f hf).symm)
-    have heq : U = Subgroup.zpowers e ⊔ Subgroup.zpowers a :=
-      Subgroup.eq_of_le_of_card_ge hUle (by rw [hU9]; exact zpowers_sup_card_le hF heF he')
-    apply haU
-    rw [heq]
-    exact Subgroup.mem_sup_right (Subgroup.mem_zpowers a)
-  by_cases hUB : U ≤ B'
-  · exact hnot B' hB'D (hUB haU)
-  · have hB'pg : IsPGroup 3 ↥B' := isPGroup_of_elemAbelian hB'el
-    have hB'nor : B' ≤ Subgroup.normalizer (U : Set G) := le_trans hB'R' hR'nor
-    have hlinesB := lines_card_le B' U hB'pg hU9 hB'nor
-    have hBcard81 : 81 ≤ Nat.card ↥B' := by
-      rw [hB'card, hBcard, show (81 : ℕ) = 3 ^ 4 by norm_num]
-      exact Nat.pow_le_pow_right (by norm_num) hm4
-    have hK2 : 27 ≤ Nat.card ↥(B' ⊓ Subgroup.centralizer (U : Set G)) := by omega
-    have hUB'card : Nat.card ↥(U ⊓ B') ≤ 3 := by
-      have hdvd : Nat.card ↥(U ⊓ B') ∣ 9 := by
-        have := Subgroup.card_subgroup_dvd_card ((U ⊓ B').subgroupOf U)
-        rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_left).toEquiv, hU9] at this
-        exact this
-      have hne : Nat.card ↥(U ⊓ B') ≠ 9 := by
-        intro h9
-        apply hUB
-        have heq : U ⊓ B' = U := Subgroup.eq_of_le_of_card_ge inf_le_left (by rw [h9, hU9])
-        intro u hu
-        have hmem : u ∈ U ⊓ B' := by
-          rw [heq]
-          exact hu
-        exact (Subgroup.mem_inf.1 hmem).2
-      have hmem := Nat.mem_divisors.2 ⟨hdvd, by norm_num⟩
-      rw [show Nat.divisors 9 = {1, 3, 9} from by decide] at hmem
-      simp only [Finset.mem_insert, Finset.mem_singleton] at hmem
-      rcases hmem with h1 | h1 | h1
-      · omega
-      · omega
-      · exact absurd h1 hne
-    have hUK2 : Nat.card ↥(U ⊓ (B' ⊓ Subgroup.centralizer (U : Set G))) ≤ 3 :=
-      le_trans (Subgroup.card_le_of_le (inf_le_inf_left _ inf_le_left)) hUB'card
-    have hcommK2 : ∀ x ∈ U, ∀ y ∈ B' ⊓ Subgroup.centralizer (U : Set G), x * y = y * x :=
-      fun x hx y hy => Subgroup.mem_centralizer_iff.1 (Subgroup.mem_inf.1 hy).2 x hx
-    have hK2el := isElemAbelian_of_le hB'el (inf_le_left : B' ⊓ Subgroup.centralizer (U : Set G) ≤ B')
-    have hW'el := isElemAbelian_sup hUel hK2el hcommK2
-    have hprod := card_sup_mul_card_inf U (B' ⊓ Subgroup.centralizer (U : Set G)) hcommK2
-    rw [hU9] at hprod
-    have hW'card : 81 ≤ Nat.card ↥(U ⊔ (B' ⊓ Subgroup.centralizer (U : Set G))) := by
-      nlinarith
-    have hW'M : U ⊔ (B' ⊓ Subgroup.centralizer (U : Set G)) ≤ M :=
-      sup_le (hUR'.trans hR'M.1) ((inf_le_left).trans (hB'R'.trans hR'M.1))
-    exact no_E4_contains h hEA (Or.inr hA3) hnot ha1 hW'M hW'el (Subgroup.mem_sup_left haU) hW'card
 
 end Piece3
 
@@ -1257,15 +1003,6 @@ section Glue
       ∀ R : Subgroup G, IsSylowIn 3 M R → E ⊔ A ≤ R →
         ∀ e ∈ omegaOne 3 (centerOf R), e ≠ 1 → Cg e ≤ M
 
-theorem lemma1111_piece3_of_cex {G : Type} [Group G] [Finite G] {m : ℕ} {B M E A : Subgroup G}
-    {a : G} {K : Subgroup G} (h : Cex117 G m 3 B M E A a K) (hA3 : CFSG.Open.pRank 3 A = 3)
-    {F : Subgroup G} (hAF : A ≤ F) (hF : IsExtraspecialFive F a)
-    (hP2 : ∀ R : Subgroup G, IsSylowIn 3 M R → E ⊔ A ≤ R →
-      ∀ e ∈ omegaOne 3 (centerOf R), e ≠ 1 → Cg e ≤ M)
-    (hI31 : Input31_3) : False :=
-  piece3_contra (B := B) h.toCex117Base.toSec11.toSec10Fails h.toCex117Base.toSec11.pair hA3
-    (fun A1 hA1 haA1 => h.toCex117Base.notD ⟨A1, hA1, haA1⟩) h.toCex117Base.ha.1
-    h.toCex117Base.ha.2 hAF hF hP2 hI31
 
 theorem barOf_L34_or_SL34 {G : Type} [Group G] [Finite G] {X K : Subgroup G}
     (hcov : CFSG.HardMathSupport.Solomon.UniquenessMaximal.InputL34Cover)
@@ -1287,21 +1024,6 @@ theorem barOf_L34_or_SL34 {G : Type} [Group G] [Finite G] {X K : Subgroup G}
         (CFSG.HardMathSupport.Solomon.LocalBalance.Lemma510iiNs.pCore_barOf_eq_center hK).symm) hL
   exact hcov (barOf 3 K) hq hcov'
 
-theorem lemma1111_of_inputs
-    (hcov : CFSG.HardMathSupport.Solomon.UniquenessMaximal.InputL34Cover)
-    (hI31 : Input31_3) (h1110 : Lemma1110Statement)
-    (hP1 : Lemma1111P1Claim) (hP2 : Lemma1111P2Claim) : Lemma1111Statement := by
-  intro G _ _ m p B M E A a K h
-  have hT := h1110 h
-  unfold Type117c at hT
-  obtain ⟨hp3, hA3, hL⟩ := hT
-  subst hp3
-  refine ⟨rfl, hA3, ?_⟩
-  rcases barOf_L34_or_SL34 hcov h.toCex117Base.hK hL with hL3 | hSL
-  · exact hL3
-  · exfalso
-    obtain ⟨F, hAF, hF⟩ := hP1 G m B M E A a K h hSL
-    exact lemma1111_piece3_of_cex h hA3 hAF hF (hP2 G m B M E A a K h hSL) hI31
 
 end Glue
 

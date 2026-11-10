@@ -20,17 +20,6 @@ open CFSG.QuasithinUnique.Fin257.Sp4
    wS_not_mem_normalizer_radA2 wT_not_mem_normalizer_radA1 normalizer_U_le_normalizer_radA1
    normalizer_U_le_normalizer_radA2 glMat_wS_conj glMat_wT_conj glMat_mul glMat_wS glMat_wT)
 
-theorem w183finSp44rg_radA1_map_minorAut :
-    (radA1 GF4).map (minorAut GF4).toMonoidHom = radA2 GF4 := by
-  ext y
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    exact (CFSG.RankThree.PartOne.KCRootAxis.minorAut_mem_radA2_iff (K := GF4) x).mpr hx
-  · intro hy
-    refine ⟨(minorAut GF4)⁻¹ y, ?_, ?_⟩
-    · exact (CFSG.RankThree.PartOne.KCRootAxis.minorAut_mem_radA2_iff
-        (K := GF4) ((minorAut GF4)⁻¹ y)).mp (by simpa using hy)
-    · simp
 
 theorem w183finSp44rg_autConj_mul (A : Subgroup (MulAut S4)) (h k : MulAut S4) :
     autConj (h * k) A = autConj h (autConj k A) := by
@@ -49,18 +38,6 @@ theorem w183finSp44rg_conj_conj (τ : MulAut S4) :
   ext x
   simp [MulAut.conj_apply]
 
-theorem w183finSp44rg_autConj_minorAut_Q1 :
-    autConj (minorAut GF4) Q1sub = Q2sub := by
-  rw [autConj, Q1sub, Q2sub, Subgroup.map_map]
-  have hcomp : (MulAut.conj (minorAut GF4)).toMonoidHom.comp (MulAut.conj : S4 →* MulAut S4) =
-      (MulAut.conj : S4 →* MulAut S4).comp (minorAut GF4).toMonoidHom := by
-    apply MonoidHom.ext
-    intro a
-    apply MulEquiv.ext
-    intro b
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply,
-      MulAut.mul_apply, map_mul, map_inv, MulAut.apply_inv_self]
-  rw [hcomp, ← Subgroup.map_map, w183finSp44rg_radA1_map_minorAut]
 
 theorem w183finSp44rg_mem_autStab_of_map {G : Type*} [Group G] {H : Subgroup G} {α : MulAut G}
     (h : H.map α.toMonoidHom = H) :
@@ -82,18 +59,6 @@ theorem w183finSp44rg_autConj_Q2_of_map (τ : MulAut S4)
   rw [autConj, Q2sub, Q1sub, Subgroup.map_map, w183finSp44rg_conj_conj τ,
     ← Subgroup.map_map, h]
 
-theorem w183finSp44rg_autConj_minorAut_Q2 :
-    autConj (minorAut GF4) Q2sub = Q1sub := by
-  rw [autConj, Q2sub, Q1sub, Subgroup.map_map]
-  have hcomp : (MulAut.conj (minorAut GF4)).toMonoidHom.comp (MulAut.conj : S4 →* MulAut S4) =
-      (MulAut.conj : S4 →* MulAut S4).comp (minorAut GF4).toMonoidHom := by
-    apply MonoidHom.ext
-    intro a
-    apply MulEquiv.ext
-    intro b
-    simp only [MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, MulAut.conj_apply,
-      MulAut.mul_apply, map_mul, map_inv, MulAut.apply_inv_self]
-  rw [hcomp, ← Subgroup.map_map, ← CFSG.RankThree.PartOne.KCRootAxis.radA1_eq_map]
 
 theorem w183finSp44rg_autConj_normalizer (H : Subgroup (MulAut S4)) (p : MulAut S4)
     (hp : p ∈ Subgroup.normalizer (H : Set (MulAut S4))) : autConj p H = H := by

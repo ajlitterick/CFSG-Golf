@@ -34,21 +34,6 @@ private theorem s168e3_cyc_fixV_zpowers_mem {a b : MulAut W}
     _ = (a ^ n) ((b ^ m) w) := MulAut.mul_apply ..
     _ = (a ^ n) w := by rw [hw (b ^ m) (Subgroup.mem_zpowers_iff.mpr ⟨m, rfl⟩)]
 
-private theorem s168e3_cyc_commSub_zpowers_mem {a b : MulAut W}
-    (hcomm : a * b = b * a) (n : ℤ) {u : W} (hu : u ∈ commSub ⊤ (Subgroup.zpowers b)) :
-    (a ^ n) u ∈ commSub ⊤ (Subgroup.zpowers b) := by
-  have hc : Commute a b := hcomm
-  have hcn : MulAut.conj (a ^ n) b = b := by
-    rw [MulAut.conj_apply, (hc.zpow_left n).eq, mul_assoc, mul_inv_cancel, mul_one]
-  have hmap : (Subgroup.zpowers b).map (MulAut.conj (a ^ n)).toMonoidHom = Subgroup.zpowers b := by
-    rw [MonoidHom.map_zpowers]
-    exact congrArg Subgroup.zpowers hcn
-  have hEq : (commSub ⊤ (Subgroup.zpowers b)).map (a ^ n).toMonoidHom =
-      commSub ⊤ (Subgroup.zpowers b) := by
-    rw [← CFSG.Quasithin.Asc81c.commSub_map_conj, hmap]
-  have hmem : (a ^ n) u ∈ (commSub ⊤ (Subgroup.zpowers b)).map (a ^ n).toMonoidHom :=
-    ⟨u, hu, rfl⟩
-  rwa [hEq] at hmem
 
 private lemma s168e3_cyc3_x_stable_fixV {x y : MulAut W} (hxy : x * y = y * x) :
     ∀ z ∈ fixV (Subgroup.zpowers y), x z ∈ fixV (Subgroup.zpowers y) := by
@@ -63,19 +48,6 @@ private lemma s168e3_cyc3_x_stable_fixV {x y : MulAut W} (hxy : x * y = y * x) :
     _ = x (m z) := by rw [MulAut.mul_apply]
     _ = x z := by rw [hz m hm]
 
-private lemma s168e3_cyc3_x_stable_commSub {x y : MulAut W} (hxy : x * y = y * x) :
-    ∀ z ∈ commSub ⊤ (Subgroup.zpowers y), x z ∈ commSub ⊤ (Subgroup.zpowers y) := by
-  have hmapY : (Subgroup.zpowers y).map (MulAut.conj x).toMonoidHom = Subgroup.zpowers y := by
-    rw [MonoidHom.map_zpowers]
-    congr 1
-    change (MulAut.conj x) y = y
-    rw [MulAut.conj_apply, hxy]
-    group
-  have h := CFSG.Quasithin.Asc81c.commSub_map_conj (Subgroup.zpowers y) x
-  rw [hmapY] at h
-  intro z hz
-  rw [h]
-  exact Subgroup.mem_map.mpr ⟨z, hz, rfl⟩
 
 private lemma s168e3_cyc3_block_sub [Finite W] {x : MulAut W} {Z U : Subgroup W}
     (hUZ : U ≤ Z) (hxU : ∀ z ∈ U, x z ∈ U) (hfpf : ∀ w : W, x w = w → w = 1)

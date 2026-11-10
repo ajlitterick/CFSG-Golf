@@ -97,9 +97,6 @@ theorem pCore_le_ker_rho
     (↥(H714 T L V z) ⧸ CFSG.pCore 2 ↥(H714 T L V z)) →* MulAut ↥(Ut T L V z) :=
   QuotientGroup.lift _ (s.rho h1222) (s.pCore_le_ker_rho h1222)
 
-theorem rhoBar_mk
-    (h1222 : Stmt12_2_2) (h : ↥(H714 T L V z)) :
-    s.rhoBar h1222 (QuotientGroup.mk' _ h) = s.rho h1222 h := rfl
 
 omit s in
 theorem lift3_pair {W : Type} [CommGroup W] [Finite W] {Y : Fin 2 → MulAut W}

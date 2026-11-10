@@ -32,20 +32,6 @@ theorem invertedHull_normal_supplement_reverse (K X C : Subgroup G)
   · rintro ⟨c, hc, x, hx, rfl⟩
     exact K.mul_mem (hCK hc) (hXK hx)
 
-theorem invertedHull_right_commutator_subgroup_eq_native (U W : Subgroup G) :
-    Subgroup.closure {c : G | ∃ a ∈ U, ∃ b ∈ W, c = a⁻¹ * b⁻¹ * a * b} = ⁅U, W⁆ := by
-  apply le_antisymm
-  · apply (Subgroup.closure_le _).mpr
-    rintro c ⟨a, ha, b, hb, rfl⟩
-    have hmem := (Subgroup.commutator_le.mp (le_rfl : ⁅U, W⁆ ≤ ⁅U, W⁆))
-      a⁻¹ (U.inv_mem ha) b⁻¹ (W.inv_mem hb)
-    change a⁻¹ * b⁻¹ * a * b ∈ ⁅U, W⁆
-    simpa only [commutatorElement_def, inv_inv] using hmem
-  · apply Subgroup.commutator_le.mpr
-    intro a ha b hb
-    apply Subgroup.subset_closure
-    exact ⟨a⁻¹, U.inv_mem ha, b⁻¹, W.inv_mem hb, by
-      simp only [commutatorElement_def, inv_inv]⟩
 
 theorem invertedHull_right_commutator_mem (z : G) (S X C : Subgroup G)
     (hzX : z ∈ Subgroup.normalizer (X : Set G))

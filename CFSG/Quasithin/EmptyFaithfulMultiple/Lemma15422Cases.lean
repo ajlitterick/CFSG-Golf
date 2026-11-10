@@ -637,11 +637,6 @@ theorem Config15422.caseEight_of_oriented (h : Config15422 H₁ H₂ Z')
   · obtain ⟨-, -, hx, -⟩ := h13
     exact (h.false_of_quaternion hD12 dihedral_six_commutator dihedral_six_cube_powers hx).elim
 
-theorem Config15422.caseEight (h : Config15422 H₁ H₂ Z') (hF : F618Conclusion H₁ H₂) :
-    IsCaseEight15422 D := by
-  rcases hF with hc | hc
-  · exact h.caseEight_of_oriented hc
-  · exact h.symm.caseEight_of_oriented hc
 
 end Main
 

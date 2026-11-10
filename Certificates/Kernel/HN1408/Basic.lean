@@ -42,14 +42,6 @@ theorem twoHSBasicOK_of : twoHSBasicOK = true := by
     hi.2.2.2]
   simp [hs.1, hs.2]
 
-theorem gensInvoOK_of : CFSG.EvenSporadicStandard.HNRecog.HaradaModel.gensInvoOK = true := by
-  unfold CFSG.EvenSporadicStandard.HNRecog.HaradaModel.gensInvoOK
-  rw [List.all_eq_true]
-  intro j hj
-  have hj' : j < 7 := List.mem_range.1 hj
-  have e := tabW_eq (wd := [j + 1]) (by simp [lettersOK]; omega)
-  rw [e.1, invoOK_eq e.2]
-  exact allN_spec gensInvo j hj'
 
 end CFSG.KD.HN1408
 

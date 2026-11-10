@@ -76,11 +76,6 @@ theorem presentationB [Finite K] : PresentationB (Φ := Φ n K hn) (x n K hn) :=
     (bijective_stPi_of (D := plusDatum n K hn) (isCTGroupDatum hn)
       (plusDatum_steinbergExtras hn)).2
 
-theorem redundantR2 [Finite K] : RedundantR2 (Φ n K hn) (plusDatum n K hn).rootGroup :=
-  redundantR2_of rfl (fun O => ⟨commC, commutatorFormula hn O⟩)
-    (fun O C hC => chevalleyExtras hn O C hC)
-    (bijective_stPi_of (D := plusDatum n K hn) (isCTGroupDatum hn)
-      (plusDatum_steinbergExtras hn)).2
 
 theorem conclusionB [Finite K] : ConclusionB (plusDatum n K hn) K (x n K hn) :=
   conclusionB_of (D := plusDatum n K hn) rfl (isCTGroupDatum hn) (plusDatum_steinbergExtras hn)

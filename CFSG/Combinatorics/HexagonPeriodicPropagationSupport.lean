@@ -159,14 +159,6 @@ theorem no_square {a b d e : {v : V // col v = false}} (ha : (pointGraph G col).
     ((hD w e 3).mp he) ((hA a b).mp hab) ((hA b d).mp hbd) ((hA d e).mp hde) ((hA e a).mp hea)
     (fun h => had (Subtype.ext h)) (fun h => hbe (Subtype.ext h))
 
-theorem count_hex {x : Fin 6 → {v : V // col v = false}} (hx : IsHex G col w x) (i : Fin 3) :
-    (if c (x 0) (x 1) = i then 1 else 0) + (if c (x 1) (x 2) = i then 1 else 0) +
-      (if c (x 2) (x 3) = i then 1 else 0) + (if c (x 3) (x 4) = i then 1 else 0) +
-      (if c (x 4) (x 5) = i then 1 else 0) + (if c (x 5) (x 0) = i then 1 else 0) = 2 := by
-  have h := six_cycle_colours F.moore col F.inj F.root F.line F.ne F.label F.data hx.1 hx.2.1
-    hx.2.2 i
-  rw [Finset.card_filter, Fin.sum_univ_six] at h
-  exact h
 
 theorem complete {i j k : Fin 3} (hij : i ≠ j) (hjk : j ≠ k) (hik : i ≠ k)
     {v₀ v₁ v₂ v₃ v₄ : {v : V // col v = false}} (h₀ : (pointGraph G col).dist w v₀ = 3)

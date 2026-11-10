@@ -68,22 +68,6 @@ theorem le_of_isSignalizer_of_isTwoRadicalIn {H R S : Subgroup G} (hR : IsTwoRad
     exact hxR (hQ ⟨hxP, hPH hxP, hxN⟩)
   exact le_sup_left.trans hPR
 
-theorem isSignalizer_of_isTwoRadicalIn {H R : Subgroup G} (hR : IsTwoRadicalIn H R) :
-    IsSignalizer H (H ⊓ Subgroup.normalizer (R : Set G)) R :=
-  ⟨hR.1, hR.isPGroup, inf_le_right⟩
-
-theorem c2_1_signalizers {H R : Subgroup G} (hR : IsTwoRadicalIn H R) :
-    {S : Subgroup G | IsMaxSignalizer H (H ⊓ Subgroup.normalizer (R : Set G)) S} = {R} := by
-  ext S
-  constructor
-  · intro hS
-    have hSR : S ≤ R := le_of_isSignalizer_of_isTwoRadicalIn hR hS.1
-    exact le_antisymm hSR (hS.2 (isSignalizer_of_isTwoRadicalIn hR) hSR)
-  · intro hS
-    have hSR : S = R := hS
-    subst hSR
-    exact ⟨isSignalizer_of_isTwoRadicalIn hR, fun T hT _ =>
-      le_of_isSignalizer_of_isTwoRadicalIn hR hT⟩
 
 theorem c2_1_pCore_le {H R : Subgroup G} (hR : IsTwoRadicalIn H R) : pCoreOf 2 H ≤ R :=
   le_of_isSignalizer_of_isTwoRadicalIn hR

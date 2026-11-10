@@ -110,21 +110,6 @@ theorem ggLemmaThreeThirteenInput_of_p (h : GGLemmaThreeThirteenPInput) :
 
 section Inputs
 
-theorem ggSixStepTwoV2Input_of_coprime (hfus : GGStepTwoBstarFusionInput)
-    (hA : GGStepTwoLinearFusionInput) (h313 : GGLemmaThreeThirteenPInput)
-    (h314 : GGLemmaThreeFourteenPInput) (hKF : GGKGroupFusionLegacyUnrestrictedInput)
-    (hR : GGStepTwoAutKRestInput) (h615 : GGStepTwoCentralizerInput) : GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_autK hfus hA (ggLemmaThreeThirteenInput_of_p h313)
-    (ggLemmaThreeFourteenInput_of_p h314) hKF hR h615
-
-theorem ggSixStepTwoV2Input_of_coprime' (h613 : GGStepTwoLemmaSixThirteenInput)
-    (hA : GGStepTwoLinearFusionInput) (h313 : GGLemmaThreeThirteenPInput)
-    (h314 : GGLemmaThreeFourteenPInput) (hKF : GGKGroupFusionLegacyUnrestrictedInput)
-    (hR : GGStepTwoAutKRestInput) (h615 : GGStepTwoCentralizerInput) : GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_inputs h613 hA
-    (ggStepTwoSubnormalInput_of_split (ggLemmaThreeFourteenInput_of_p h314)
-      (ggStepTwoComponentInput_of_kgroup hKF
-        (ggStepTwoAutKInput_of_rest (ggLemmaThreeThirteenInput_of_p h313) hR))) h615
 
 end Inputs
 

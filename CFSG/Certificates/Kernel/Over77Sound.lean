@@ -16,7 +16,6 @@ open CFSG.KC.Enum CFSG.KS CFSG.KS.Prim CFSG.KS.PF CFSG.KC.Over77
 @[expose] noncomputable def dec (a : Nat) (x : Fin 77) : Fin 77 :=
   ⟨pg 7 (mask 7) a x.val % 77, Nat.mod_lt _ (by decide)⟩
 
-theorem cp_eq (a b : Nat) : cp a b = pcomp 77 7 (mask 7) a b := rfl
 
 theorem fr_cp {a b : Nat} {f g : Fin 77 → Fin 77} (ha : FR a f) (hb : FR b g) :
     FR (cp a b) (f ∘ g) := fun x => by

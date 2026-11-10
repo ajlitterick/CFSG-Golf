@@ -35,11 +35,6 @@ theorem classicalOrSuzukiTag_of_admissible {t : StatedLieTag} {n p f : ℕ}
     LieModel X .PSp 3 2 f → StatedLieAdmissible t n 2 f' → LieModel X t n 2 f' →
       t = .PSp ∧ n = 3 ∧ f' = f
 
-theorem sp6EvenTypeDet_of_forall
-    (h : ∀ (X : Type) [Group X] (f : ℕ) (t : StatedLieTag) (n f' : ℕ),
-      LieModel X .PSp 3 2 f → StatedLieAdmissible t n 2 f' → LieModel X t n 2 f' →
-        t = .PSp ∧ n = 3 ∧ f' = f) : Sp6EvenTypeDet :=
-  fun X _ f t n f' _ h1 h2 h3 => h X f t n f' h1 h2 h3
 
 @[expose] def NotSp6Components (X : Type) [Group X] : Prop :=
   ∀ P : Subgroup X, IsPComponent 2 P →

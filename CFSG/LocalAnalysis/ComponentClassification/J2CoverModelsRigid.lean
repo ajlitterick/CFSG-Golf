@@ -52,10 +52,6 @@ theorem tauPow_one_elt (e : ZMod 2) : tauPow D e 1 = 1 := by
   · rw [tauPow_zero]
   · rw [tauPow_one, map_one]
 
-theorem tauPow_inv (e : ZMod 2) (a : R) : tauPow D e a⁻¹ = (tauPow D e a)⁻¹ := by
-  rcases zmod_two_cases e with rfl | rfl
-  · simp only [tauPow_zero]
-  · simp only [tauPow_one, map_inv]
 
 theorem tauPow_add (e d : ZMod 2) (y : R) : tauPow D (e + d) y = tauPow D e (tauPow D d y) := by
   rcases zmod_two_cases e with rfl | rfl <;> rcases zmod_two_cases d with rfl | rfl

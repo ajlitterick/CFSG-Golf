@@ -21,9 +21,6 @@ open scoped Matrix
     induction x using QuotientGroup.induction_on with
     | H x => rfl
 
-theorem abelAut_of (G : Type*) [Group G] (σ : MulAut G) (x : G) :
-    abelAut G σ (Abelianization.of x) = Abelianization.of (σ x) :=
-  rfl
 
 @[expose] noncomputable def mulAutToEnd (A : Type*) [CommGroup A] [Module (ZMod 3) (Additive A)] :
     MulAut A →* Module.End (ZMod 3) (Additive A) where
@@ -127,13 +124,6 @@ theorem exists_pow_eq_one_of_mem_frattiniKer [Finite X] [hq : Fact (Nat.Prime 3)
     dvd_rfl h1
   exact ⟨a, orderOf_eq_one_iff.mp h2⟩
 
-omit [Module (ZMod 3) (Additive (Abelianization D))] in
-theorem frattiniKer_le_pCore [Finite X] [hq : Fact (Nat.Prime 3)] (h : CriticalAt 3 D)
-    (hC : Subgroup.centralizer (pCore 3 X : Set X) ≤ pCore 3 X) : h.frattiniKer ≤ pCore 3 X := by
-  have : h.frattiniKer.Normal := h.frattiniKer_normal
-  refine le_sSup ⟨this, fun y => ?_⟩
-  obtain ⟨k, hk⟩ := exists_pow_eq_one_of_mem_frattiniKer h hC y.2
-  exact ⟨k, Subtype.ext (by rw [Subgroup.coe_pow, hk, Subgroup.coe_one])⟩
 
 @[expose] noncomputable def abMat (h : CriticalAt 3 D) {ι : Type*} [Fintype ι] [DecidableEq ι]
     (b : Module.Basis ι (ZMod 3) (Additive (Abelianization D))) : X →* GL ι (ZMod 3) :=

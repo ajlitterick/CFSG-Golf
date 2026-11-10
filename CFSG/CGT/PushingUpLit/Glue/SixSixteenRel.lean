@@ -32,7 +32,6 @@ theorem isSylowOf_subgroupOf_iff' {S X K : Subgroup G} (hS : S ≤ K) (hX : X �
   rw [← Sec9B.isSylowOf_map_iff (f := K.subtype) K.subtype_injective,
     Subgroup.map_subgroupOf_eq_of_le hS, Subgroup.map_subgroupOf_eq_of_le hX]
 
-open CFSG.Assembly (KProper InCatalog)
 
 end Subgroup
 

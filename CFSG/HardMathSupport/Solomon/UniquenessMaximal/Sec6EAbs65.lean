@@ -150,11 +150,6 @@ theorem mem_img_inv {x : V ≃ₗ[ZMod 3] V} {S : Submodule (ZMod 3) V} {v : V} 
     refine ⟨x v, h, ?_⟩
     simp
 
-theorem img_le_of_forall {g : V ≃ₗ[ZMod 3] V} {S T : Submodule (ZMod 3) V}
-    (h : ∀ s ∈ S, g s ∈ T) : img g S ≤ T := by
-  rintro v hv
-  obtain ⟨s, hs, rfl⟩ := mem_img.1 hv
-  exact h s hs
 
 @[expose] noncomputable def tp (x : V ≃ₗ[ZMod 3] V) : V ≃ₗ[ZMod 3] V := x⁻¹ * D.t * x
 
@@ -220,8 +215,6 @@ theorem tp_ne_one (x : V ≃ₗ[ZMod 3] V) : D.tp x ≠ 1 := by
 theorem card_img_A (x : V ≃ₗ[ZMod 3] V) : Nat.card (img x⁻¹ D.A) = 9 := by
   rw [card_img, D.card_A]
 
-theorem card_img_F (x : V ≃ₗ[ZMod 3] V) : Nat.card (img x⁻¹ D.F) = 9 := by
-  rw [card_img, D.card_F]
 
 theorem A_inter_conj_eq_zero (hN1 : ∀ a ∈ D.A, a ≠ 0 → ∀ w ∈ D.W, (w a = a ∨ w a = -a) →
       ∀ q ∈ D.Q, w * q * w⁻¹ ∈ D.Q)

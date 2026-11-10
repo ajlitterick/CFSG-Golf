@@ -24,17 +24,6 @@ open CFSG CFSG.Assembly TableB
           (∀ φ ∈ Y, ∃ k : ℕ, ∀ a ∈ A, φ ^ p ^ k * a = a * φ ^ p ^ k) →
           ∀ φ ∈ Y, ∀ a ∈ A, φ * a = a * φ
 
-theorem ggTorusNbr_of_mulEquiv {p r : ℕ} {R R' : Type} [Group R] [Group R'] (e : R ≃* R')
-    {I : Set (MulAut R)} {I' : Set (MulAut R')} (hI : ∀ φ ∈ I, MulAut.congr e φ ∈ I')
-    (h : GGTorusNbr p r R' I') : GGTorusNbr p r R I := by
-  intro L' _ _ ψ hψ hker hperf A hA hAI hr h3
-  refine h L' (e.toMonoidHom.comp ψ) (e.surjective.comp hψ) ?_ hperf A hA ?_ hr h3
-  · intro l hl
-    exact hker (by simpa [MonoidHom.mem_ker] using hl)
-  · intro a ha
-    obtain ⟨φ, hφ, hφa⟩ := hAI a ha
-    refine ⟨MulAut.congr e φ, hI φ hφ, fun l => ?_⟩
-    simp [MulAut.congr_apply, hφa l]
 
 theorem exists_ne_one_forall_comm_of_pGroup {M : Type*} [Group M] [Finite M] {p : ℕ}
     [Fact p.Prime] {A Y : Subgroup M} (hAp : IsPGroup p A) (hA1 : Nat.card A ≠ 1)

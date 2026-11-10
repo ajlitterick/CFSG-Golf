@@ -24,16 +24,12 @@ theorem xor_four (a p b : ℕ) : a ^^^ p ^^^ b ^^^ p = a ^^^ b := by
 
 theorem eq_zero_or_one {e : ℕ} (he : e < 2) : e = 0 ∨ e = 1 := by omega
 
-theorem bvec4_eq_zero : ∀ l < 16, bvec 4 l = 0 → l = 0 := by decide +kernel
 
 theorem natCard_vec : Nat.card (Multiplicative ((Fin 4 → ZMod 2) × (Fin 4 → ZMod 2))) = 256 := by
   rw [Nat.card_congr Multiplicative.toAdd, Nat.card_prod, Nat.card_fun, Nat.card_fin,
     Nat.card_zmod]
   norm_num
 
-theorem bvec_dotProduct_par4 : ∀ l < 16, ∀ t < 16,
-    bvec 4 l ⬝ᵥ bvec 4 t = ((par4 (l &&& t) : ℕ) : ZMod 2) := by
-  decide +kernel
 
 @[expose] def AQ : Subgroup Qgrp := Agrp.subgroupOf Qgrp
 

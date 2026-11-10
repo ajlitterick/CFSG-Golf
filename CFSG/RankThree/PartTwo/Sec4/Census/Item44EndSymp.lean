@@ -102,9 +102,6 @@ theorem exists_basis_antidiag [Finite Q] (hcard : Nat.card Q = 16) (b : Q → Q 
   map_one' := LinearMap.ext fun _ => rfl
   map_mul' _ _ := LinearMap.ext fun _ => rfl
 
-theorem autToEnd2_apply (σ : MulAut Q) (x : Q) :
-    autToEnd2 σ (Additive.ofMul x) = Additive.ofMul (σ x) :=
-  rfl
 
 @[expose] noncomputable def sympRepGL (bs : Module.Basis (Fin 4) (ZMod 2) (Additive Q))
     {Γ : Type*} [Group Γ] (φ : Γ →* MulAut Q) : Γ →* GL (Fin 4) (ZMod 2) :=

@@ -65,17 +65,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
                 Sec4.IsExtOf (J ⧸ CFSG.pCore 2 J) CFSG.Blueprint.NativeSporadic.M22
                   (Multiplicative (ZMod 3)))))
 
-@[expose] def Item183 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M : Subgroup G), Sec18Std G A M →
-    ∀ c ∈ A, c ≠ 1 → ∀ K ∈ thetaComponentsAt 3 c,
-      Nonempty (K ⧸ CFSG.pCore 2 K ≃* Matrix.SpecialLinearGroup (Fin 3) (GaloisField 2 2)) →
-      (∀ a ∈ A, InducesInnerMod a K (CFSG.Open.pCoreOf 2 K)) →
-      (∃ E : Subgroup G, IsE27 E ∧ E ≤ (A ⊔ K) ⊓ Subgroup.normalizer (A : Set G) ∧
-          (¬ ∃ x : G, ((E ⊓ K : Subgroup G) : Set G) ⊆ (Subgroup.zpowers x : Set G)) ∧
-          (¬ ∃ x : G, sectionCentralizer E K (CFSG.Open.pCoreOf 2 K) ⊆
-            (Subgroup.zpowers x : Set G)) ∧
-          gamma 2 E ≤ M) ∧
-        scriptH A M = ∅
 
 @[expose] def Item184_1 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A M : Subgroup G), Sec18Std G A M →
@@ -126,15 +115,6 @@ open CFSG.Assembly.RankThreeEven (projSL)
   ∀ (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (c : G), Sec18H G A M H c →
     A ⊓ inSubgroup perfectResidual H ≤ (Sec4.oTwoP 3 M).map M.subtype
 
-@[expose] def Item186 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (c : G), Sec18H G A M H c →
-    H ∈ scriptHStar A M → CFSG.Open.pCoreOf 2 H ≠ ⊥ →
-      CFSG.generalizedFitting H = CFSG.pCore 2 H ∧
-      (CFSG.Open.pCoreOf 2 (H ⊓ M) ∈ maxInvariantPiSubgroups ⊤ A (piOf 2) ∧
-        Subgroup.normalizer (CFSG.Open.pCoreOf 2 (H ⊓ M) : Set G) ≤
-          Subgroup.normalizer (inSubgroup perfectResidual H : Set G)) ∧
-      scriptN (H : Set G) = {Subgroup.normalizer (inSubgroup perfectResidual H : Set G)} ∧
-        IsMaximalTwoLocal (Subgroup.normalizer (inSubgroup perfectResidual H : Set G))
 
 @[expose] def Hyp187 {G : Type} [Group G] [Finite G] (A M H : Subgroup G) (c : G) : Prop :=
   H ∈ scriptHStar A M ∧ CFSG.Open.pCoreOf 2 H ≠ ⊥ ∧
@@ -172,10 +152,5 @@ open CFSG.Assembly.RankThreeEven (projSL)
           Nonempty (K ⧸ CFSG.pCore 2 K ≃* projSL 2 (GaloisField 2 n)) ∧
           ¬ 4 ∣ (M ⊓ N).relIndex M))
 
-@[expose] def Item1810 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A M H : Subgroup G) (c : G), Sec18H G A M H c →
-    (∃ H' ∈ scriptHStar A M, CFSG.Open.pCoreOf 2 H' ≠ ⊥) →
-      ∀ P : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 3 P (Subgroup.normalizer (A : Set G)) →
-        conjugatesIn (Subgroup.zpowers c) P = {Subgroup.zpowers c}
 
 end CFSG.RankThree.PartTwo.Sec18

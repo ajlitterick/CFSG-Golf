@@ -43,12 +43,6 @@ theorem fr_neg_arg (i : ZMod m) (x : K) : fr m i (-x) = -fr m i x := by
 theorem fr_sub_arg (i : ZMod m) (x y : K) : fr m i (x - y) = fr m i x - fr m i y := by
   rw [sub_eq_add_neg, fr_add_arg, fr_neg_arg, ← sub_eq_add_neg]
 
-theorem fr_sum_arg {ι : Type*} (s : Finset ι) (i : ZMod m) (g : ι → K) :
-    fr m i (∑ k ∈ s, g k) = ∑ k ∈ s, fr m i (g k) := by
-  classical
-  induction s using Finset.induction_on with
-  | empty => simp [fr_zero_arg]
-  | insert a s ha ih => rw [sum_insert ha, sum_insert ha, fr_add_arg, ih]
 
 end CharThree
 
@@ -77,8 +71,6 @@ variable [CharP K 3] in
   map_mul' := fr_mul_arg i
   map_add' := fr_add_arg i
 
-variable [CharP K 3] in
-theorem frE_apply [NeZero m] (i : ZMod m) (x : K) : frE hK i x = fr m i x := rfl
 
 theorem lin_unique [NeZero m] {c : ZMod m → K} (h : ∀ x : K, ∑ i, c i * fr m i x = 0) :
     c = 0 := by

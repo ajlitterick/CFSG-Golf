@@ -55,8 +55,6 @@ theorem blockSwapFun_involutive (n d : ℕ) : Function.Involutive (blockSwapFun 
 
 theorem blockSwap_apply (n d : ℕ) (j : Fin n) : blockSwap n d j = blockSwapFun n d j := rfl
 
-theorem blockSwap_mul_self (n d : ℕ) : blockSwap n d * blockSwap n d = 1 :=
-  Equiv.ext fun j => blockSwapFun_involutive n d j
 
 theorem image_blockCoords_zero {d : ℕ} (h2d : 2 * d ≤ n) :
     Sum.map (blockSwap n d) (blockSwap n d) '' blockCoords n d 0 ⊆ blockCoords n d 1 := by
@@ -119,80 +117,6 @@ theorem commute_blockSwap {d : ℕ} (h2d : 2 * d ≤ n) {X₀ w : StatedSp n K}
   have := hXP.mul_right (commute_suppGroup_compl hsupp hw)
   rwa [mul_inv_cancel_left] at this
 
-theorem mem_blockCoords_one_zero {m : ℕ} (a : Fin (m + 1) ⊕ Fin (m + 1)) :
-    a ∈ blockCoords (m + 1) 1 0 ↔ a ∈ coords (0 : Fin (m + 1)) := by
-  have key : ∀ j : Fin (m + 1), (0 * 1 ≤ (j : ℕ) ∧ (j : ℕ) < (0 + 1) * 1) ↔ j = 0 := by
-    intro j
-    rw [Fin.ext_iff, Fin.val_zero]
-    omega
-  rw [mem_coords]
-  rcases a with j | j
-  · exact (key j).trans ⟨fun h => Or.inl (by rw [h]), fun h => by
-      rcases h with h | h
-      · exact Sum.inl_injective h
-      · exact absurd h Sum.inl_ne_inr⟩
-  · exact (key j).trans ⟨fun h => Or.inr (by rw [h]), fun h => by
-      rcases h with h | h
-      · exact absurd h Sum.inr_ne_inl
-      · exact Sum.inr_injective h⟩
-
-theorem mem_blockCoords_one_one {m : ℕ} (a : Fin (m + 1 + 1) ⊕ Fin (m + 1 + 1)) :
-    a ∈ blockCoords (m + 1 + 1) 1 1 ↔ a ∈ coords (1 : Fin (m + 1 + 1)) := by
-  have key : ∀ j : Fin (m + 1 + 1), (1 * 1 ≤ (j : ℕ) ∧ (j : ℕ) < (1 + 1) * 1) ↔ j = 1 := by
-    intro j
-    rw [Fin.ext_iff, Fin.val_one]
-    omega
-  rw [mem_coords]
-  rcases a with j | j
-  · exact (key j).trans ⟨fun h => Or.inl (by rw [h]), fun h => by
-      rcases h with h | h
-      · exact Sum.inl_injective h
-      · exact absurd h Sum.inl_ne_inr⟩
-  · exact (key j).trans ⟨fun h => Or.inr (by rw [h]), fun h => by
-      rcases h with h | h
-      · exact absurd h Sum.inr_ne_inl
-      · exact Sum.inr_injective h⟩
-
-theorem blockSwap_one_zero {m : ℕ} : blockSwap (m + 1 + 1) 1 0 = 1 := by
-  rw [blockSwap_apply, blockSwapFun, dite_eq_left (by simp)]
-  rfl
-
-theorem blockSwap_one_one {m : ℕ} : blockSwap (m + 1 + 1) 1 1 = 0 := by
-  rw [blockSwap_apply, blockSwapFun, dite_eq_right (by simp), dite_eq_left (by simp)]
-  rfl
-
-theorem spBlockFixOrSwap_one [Finite K] [CharP K 2] {m : ℕ} (v : StatedSp (m + 1 + 1 + 1) K)
-    (hv : v * v = 1) : ∃ g : StatedSp (m + 1 + 1 + 1) K,
-      g * v * g⁻¹ ∈ suppGroup (blockCoords (m + 1 + 1 + 1) 1 0)ᶜ ∨
-        (permSp K (blockSwap (m + 1 + 1 + 1) 1))⁻¹ * (g * v * g⁻¹) ∈
-          suppGroup (blockCoords (m + 1 + 1 + 1) 1 0 ∪ blockCoords (m + 1 + 1 + 1) 1 1)ᶜ := by
-  have h0 : blockCoords (m + 1 + 1 + 1) 1 0 = coords 0 := Set.ext mem_blockCoords_one_zero
-  have h1 : blockCoords (m + 1 + 1 + 1) 1 1 = coords 1 := Set.ext mem_blockCoords_one_one
-  obtain ⟨g, ⟨hc₁, hc₂⟩ | ⟨hc₁, hc₂, hc₃, hc₄⟩⟩ := WitClSp.exists_conj_fix_or_swap v hv
-  · exact ⟨g, Or.inl (by rw [h0]; exact WitClSp.mem_suppGroup_compl_of_fix hc₁ hc₂)⟩
-  refine ⟨g, Or.inr ?_⟩
-  rw [h0, h1, permSp_blockSwap_inv, mem_suppGroup_iff (WitClSp.parClosed_coords_union 0 1).compl]
-  have hcol : ∀ x, mat _ K (permSp K (blockSwap (m + 1 + 1 + 1) 1)) *ᵥ Pi.single x 1 =
-      Pi.single (Sum.map (blockSwap _ 1) (blockSwap _ 1) x) 1 :=
-    WitClSp.mat_permSp_mulVec_single _
-  have hfix : ∀ x, x ∈ coords (0 : Fin (m + 1 + 1 + 1)) ∪ coords 1 →
-      mat _ K (permSp K (blockSwap (m + 1 + 1 + 1) 1) * (g * v * g⁻¹)) *ᵥ Pi.single x 1 =
-        Pi.single x 1 := by
-    intro x hx
-    simp only [Set.mem_union, mem_coords] at hx
-    rw [map_mul, ← Matrix.mulVec_mulVec]
-    rcases hx with (rfl | rfl) | (rfl | rfl)
-    · rw [hc₁, hcol]
-      simp [blockSwap_one_one]
-    · rw [hc₂, hcol]
-      simp [blockSwap_one_one]
-    · rw [hc₃, hcol]
-      simp [blockSwap_one_zero]
-    · rw [hc₄, hcol]
-      simp [blockSwap_one_zero]
-  intro t ht r
-  rw [Set.mem_compl_iff, not_not] at ht
-  rw [WitClSp.mat_apply_eq_mulVec, hfix t ht, Pi.single_apply, Matrix.one_apply]
 
 end WitSpNs
 
@@ -265,27 +189,6 @@ theorem ggSixRootFusionWitnessOn_PSp_of_blockWitness {P : ℕ → ℕ → ℕ �
     rw [hconj, hψS]
     exact h₂.fusionWitness
 
-open WitSpNs in
-theorem ggSpBlockWitnessInputOn_of_plane {P : ℕ → ℕ → ℕ → Prop}
-    (h : GGSpPlaneWitnessInputOn P) : GGSpBlockWitnessInputOn P := by
-  intro G _ _ p B Bs x L D J n f ψ hP hctx s1
-  obtain ⟨hn3, A₀, T, h₁, h₂⟩ := h G p B Bs x L D J n f ψ hP hctx s1
-  obtain ⟨m, rfl⟩ : ∃ m, n = m + 1 + 1 + 1 := ⟨n - 3, by omega⟩
-  have h0 : blockCoords (m + 1 + 1 + 1) 1 0 = coords 0 := Set.ext mem_blockCoords_one_zero
-  have hconj : permSp (GaloisField 2 f) (blockSwap (m + 1 + 1 + 1) 1) *
-      longBlock (GaloisField 2 f) (m + 1 + 1 + 1) 0 T *
-        (permSp (GaloisField 2 f) (blockSwap (m + 1 + 1 + 1) 1))⁻¹ =
-      longBlock (GaloisField 2 f) (m + 1 + 1 + 1) 1 T := by
-    rw [conj_permSp_longBlock, blockSwap_one_zero]
-  refine ⟨1, le_rfl, by omega, A₀, longBlock (GaloisField 2 f) _ 0 T, ?_, h₁ 0, ?_⟩
-  · rw [h0]
-    exact WitClSp.longBlock_mem_suppGroup 0 T
-  · rw [hconj]
-    exact h₂ 0 1 (by simp)
-
-theorem ggSpBlockWitnessInputOn_nonsplit :
-    GGSpBlockWitnessInputOn fun _ f p => p ∣ 2 ^ f + 1 :=
-  ggSpBlockWitnessInputOn_of_plane ggSpPlaneWitnessInputOn_nonsplit
 
 @[expose] def GGSixRootFusionWitClRest2 : Prop :=
   GGSpBlockWitnessInputOn (fun _ f p => ¬ p ∣ 2 ^ f - 1 ∧ ¬ p ∣ 2 ^ f + 1) ∧

@@ -48,28 +48,6 @@ theorem ggTypeAFarCommuteGenInput_of_compatFarExGen (h : GGTypeACompatFarExGenIn
   exact slCompat_far_of_far h2 hn hk₁ hk₂ hl₁ hl₂ (hφL.trans hψL.symm) (hφK.trans hψK.symm) hc hc'
     (hψJ.trans hφJ.symm) (hfar _ _ rfl (by simp only; omega))
 
-theorem ggTypeACompatFarExGenInput_of_blocks (hA : GGTypeAEndBlockLExGenInput)
-    (hB : GGTypeAEndBlockKGenInput) (hC : GGTypeAFarCommuteGenInput) :
-    GGTypeACompatFarExGenInput := by
-  intro G _ _ p B Bs x L D J n f y K hN
-  obtain ⟨-, -, -, -, -, -, hn, -⟩ := id hN
-  obtain ⟨φ₁, hφL, hk₁, hJ₁⟩ := hA G p B Bs x L D J n f y K hN
-  obtain ⟨φ₂₀, hφK, hk₂, hJ₂⟩ := hB G p B Bs x L D J n f y K hN
-  obtain ⟨φ₂, hφK', hk₂', hc⟩ := exists_slCompat_lift hn hk₁ hk₂ (hJ₁.trans hJ₂.symm)
-  rw [hφK] at hφK'
-  exact ⟨φ₁, φ₂, hφL, hk₁, hφK', hk₂', hJ₁, hc,
-    hC G p B Bs x L D J n f y K hN φ₁ φ₂ hφL hk₁ hφK' hk₂' hJ₁ hc⟩
-
-theorem ggTypeACompatFarExGenInput_iff_blocks :
-    GGTypeACompatFarExGenInput ↔
-      GGTypeAEndBlockLExGenInput ∧ GGTypeAEndBlockKGenInput ∧ GGTypeAFarCommuteGenInput :=
-  ⟨fun h => ⟨ggTypeAEndBlockLExGenInput_of_compatFarExGen h,
-      ggTypeAEndBlockKGenInput_of_compatFarExGen h, ggTypeAFarCommuteGenInput_of_compatFarExGen h⟩,
-    fun h => ggTypeACompatFarExGenInput_of_blocks h.1 h.2.1 h.2.2⟩
-
-theorem ggTypeACompatFarExInput_of_gen (h : GGTypeACompatFarExGenInput) :
-    GGTypeACompatFarExInput :=
-  fun G _ _ p B Bs x L D J n f y K hN => h G p B Bs x L D J n f y K hN.toNbrCfg
 
 theorem ggTypeAJoinEndNodeInput_of_compatFarExGen (h : GGTypeACompatFarExGenInput) :
     GGTypeAJoinEndNodeInput :=

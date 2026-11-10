@@ -33,9 +33,6 @@ instance : Inv Heis := ⟨fun a => ⟨a.x, a.y, a.w + a.x ⬝ᵥ a.y⟩⟩
 
 theorem zmod2_add_self (t : ZMod 2) : t + t = 0 := CharTwo.add_self_eq_zero t
 
-theorem fn_add_self (f : Fin 3 → ZMod 2) : f + f = 0 := by
-  ext i
-  exact zmod2_add_self _
 
 instance : Group Heis where
   mul_assoc a b c := by

@@ -45,7 +45,6 @@ open Certificates.S7TwinO8
 @[expose] noncomputable def badY (P : Nat) : Bool :=
   bAnd(ordIs 120 7 (mask 7) (pidn 120 7) P (4 - 1), !pairsY 120 7 sp0K repsK candsK P)
 
-theorem kGP : Nat.beq GP.length 8 = true := by decide +kernel
 
 theorem kGPp : allN 8 (fun j => bAnd(permOK 120 7 (mask 7) (120 * 7) (GPf j) (GPf j),
     canonK 120 7 (mask 7) (120 * 7) (GPf j))) = true := by

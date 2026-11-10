@@ -558,33 +558,6 @@ theorem gms_linear_local_normal_closure_of_fieldBound
       exact hexcl k inferInstance inferInstance k₂ inferInstance inferInstance hk₂ ψ₁
         (e'.trans ψ)
 
-theorem ctt_bn_gms_linear_local_normal_closure_of_fieldBound
-    (h : MiyamotoPrimaryLinearApplication A t U V D n) (hF : LocalFieldBound A t n) :
-    let R := CFSG.Open.standardComponentOddCore H
-    let π : H →* H ⧸ R := QuotientGroup.mk' R
-    let X := normalClosure (A : Set H)
-    Set.InjOn π (A : Set H) ∧ Set.InjOn π (V : Set H) ∧ Set.InjOn π (zpowers t : Set H) ∧
-      CFSG.Open.standardComponentIsStandard (A.map π) ∧ ¬ (A.map π).Normal ∧
-      centralizer (X : Set H) = R ∧ Group.IsPerfect X ∧
-      (center X).map X.subtype = X ⊓ R ∧
-      (CFSG.Open.standardComponentOddCore X).map X.subtype = X ⊓ R ∧
-      Xor
-        (∃ (k : Type) (_ : Field k) (_ : Fintype k), Fintype.card k = 2 ^ n ∧
-          ∃ (ψ : X ⧸ center X ≃* SL(2, k) × SL(2, k)) (α : A ≃* SL(2, k)),
-            (∀ (a : A) (x : X), (x : H) = a → ψ (x : X ⧸ center X) = (α a, α a)) ∧
-            ∀ (x y : X) (y₁ y₂ : SL(2, k)), (y : H) = t⁻¹ * x * t →
-              ψ (x : X ⧸ center X) = (y₁, y₂) → ψ (y : X ⧸ center X) = (y₂, y₁))
-        (∃ (k₂ : Type) (_ : Field k₂) (_ : Fintype k₂), Fintype.card k₂ = (2 ^ n) ^ 2 ∧
-          ∃ ψ : X ⧸ center X ≃* SL(2, k₂),
-            (∀ x y : X, (y : H) = t⁻¹ * x * t →
-              ((ψ (y : X ⧸ center X) : SL(2, k₂)) : Matrix (Fin 2) (Fin 2) k₂) =
-                (ψ (x : X ⧸ center X) : Matrix (Fin 2) (Fin 2) k₂).map (fun c => c ^ 2 ^ n)) ∧
-            ∀ g : SL(2, k₂),
-              g ∈ ((A.subgroupOf X).map (QuotientGroup.mk' (center X))).map ψ.toMonoidHom ↔
-                ∀ i j, (g : Matrix (Fin 2) (Fin 2) k₂) i j ^ 2 ^ n =
-                  (g : Matrix (Fin 2) (Fin 2) k₂) i j) ∧
-      ∃ e : X ⧸ center X ≃* X.map π, ∀ x : X, (e (x : X ⧸ center X) : H ⧸ R) = π x :=
-  gms_linear_local_normal_closure_of_fieldBound h.1 hF
 
 end Main
 

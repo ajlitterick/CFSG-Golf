@@ -126,25 +126,6 @@ theorem eichler_commute_of_fix {h : V ≃ₗ[K] V} (hh : h ∈ TauCeti.Quadratic
   calc h * eichler Q u w = h * eichler Q u w * h⁻¹ * h := by group
     _ = eichler Q u w * h := by rw [h1]
 
-omit [Finite K] [CharP K 2] [FiniteDimensional K V] in
-theorem eichler_ne_one (hQ : (polarBilin Q).Nondegenerate) {u w : V} (hu : Q u = 0)
-    (huw : polar Q u w = 0) (hi : LinearIndependent K ![w, u]) (hw : Q w = 0) :
-    eichler Q u w ≠ 1 := by
-  intro h1
-  have hu0 : u ≠ 0 := by
-    have := hi.ne_zero 1
-    simpa using this
-  apply hu0
-  refine eq_zero_of_polar_eq_zero hQ fun x => ?_
-  have h2 := LinearEquiv.congr_fun h1 x
-  rw [eichler_apply hu huw, hw, zero_mul, add_zero, LinearEquiv.coe_one, id_eq] at h2
-  have h3 : polar Q x u • w + (-polar Q x w) • u = 0 := by
-    rw [neg_smul, ← sub_eq_add_neg]
-    rw [add_sub_assoc] at h2
-    exact add_eq_left.mp h2
-  have h4 := (LinearIndependent.pair_iff.mp hi) _ _ h3
-  rw [QuadraticMap.polar_comm]
-  exact h4.1
 
 section Component
 

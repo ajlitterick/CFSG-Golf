@@ -116,12 +116,6 @@ theorem exists_natCast_restrict {H : Type} [Group H] [Fintype H] (φ : H →* G)
   rw [h]
   rfl
 
-theorem blocksInnerProduct_comm_of_real {f g : G → ℂ} (hf : ∀ x, starRingEnd ℂ (f x) = f x)
-    (hg : ∀ x, starRingEnd ℂ (g x) = g x) : BlocksInnerProduct f g = BlocksInnerProduct g f := by
-  unfold BlocksInnerProduct
-  congr 1
-  refine Finset.sum_congr rfl fun x _ => ?_
-  rw [hf, hg, mul_comm]
 
 theorem blocksInnerProduct_add_left (f g h : G → ℂ) :
     BlocksInnerProduct (f + g) h = BlocksInnerProduct f h + BlocksInnerProduct g h := by
@@ -175,9 +169,6 @@ theorem blocksInnerProduct_zero_left (h : G → ℂ) : BlocksInnerProduct (0 : G
   unfold BlocksInnerProduct
   simp
 
-theorem blocksInnerProduct_zero_right (f : G → ℂ) : BlocksInnerProduct f (0 : G → ℂ) = 0 := by
-  unfold BlocksInnerProduct
-  simp
 
 theorem blocksInnerProduct_irr {χ ψ : G → ℂ} (hχ : χ ∈ BlocksIrr G) (hψ : ψ ∈ BlocksIrr G) :
     BlocksInnerProduct χ ψ = if χ = ψ then 1 else 0 := by

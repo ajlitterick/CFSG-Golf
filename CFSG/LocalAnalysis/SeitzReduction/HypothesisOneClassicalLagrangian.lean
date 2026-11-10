@@ -14,41 +14,6 @@ section Module
 
 variable {R V : Type*} [CommRing R] [AddCommGroup V] [Module R V]
 
-theorem apply_eq_smul_of_mem {A N : Module.End R V} {W : Submodule R V} {c : R}
-    (hWN : W ≤ LinearMap.range N) (hNW : W ≤ LinearMap.ker N) (hAN : A * N = N * A)
-    (hA : ∀ v, A v - c • v ∈ W) {w : V} (hw : w ∈ W) : A w = c • w := by
-  obtain ⟨v, rfl⟩ := hWN hw
-  have h1 : A (N v) = N (A v) := LinearMap.congr_fun hAN v
-  have h2 : N (A v - c • v) = 0 := hNW (hA v)
-  rw [map_sub, map_smul, sub_eq_zero] at h2
-  rw [h1, h2]
-
-theorem sub_smul_mul_self_eq_zero {A N : Module.End R V} {W : Submodule R V} {c : R}
-    (hWN : W ≤ LinearMap.range N) (hNW : W ≤ LinearMap.ker N) (hAN : A * N = N * A)
-    (hA : ∀ v, A v - c • v ∈ W) : (A - c • 1) * (A - c • 1) = 0 := by
-  ext v
-  have h := apply_eq_smul_of_mem hWN hNW hAN hA (hA v)
-  simp only [Module.End.mul_apply, LinearMap.sub_apply, LinearMap.smul_apply, Module.End.one_apply,
-    LinearMap.zero_apply]
-  rw [h, sub_self]
-
-theorem mul_self_eq_smul_one [CharP R 2] {A N : Module.End R V} {W : Submodule R V} {c : R}
-    (hWN : W ≤ LinearMap.range N) (hNW : W ≤ LinearMap.ker N) (hAN : A * N = N * A)
-    (hA : ∀ v, A v - c • v ∈ W) : A * A = (c * c) • 1 := by
-  have h := sub_smul_mul_self_eq_zero hWN hNW hAN hA
-  have h2 : ∀ x : V, x + x = 0 := fun x => by
-    rw [← two_smul R x, CharTwo.two_eq_zero, zero_smul]
-  ext v
-  have hv := LinearMap.congr_fun h v
-  simp only [Module.End.mul_apply, LinearMap.sub_apply, LinearMap.smul_apply, Module.End.one_apply,
-    LinearMap.zero_apply] at hv
-  simp only [Module.End.mul_apply, LinearMap.smul_apply, Module.End.one_apply]
-  rw [← sub_eq_zero]
-  have e : A (A v) - (c * c) • v = (A (A v - c • v) - c • (A v - c • v)) + (c • A v + c • A v) -
-      ((c * c) • v + (c * c) • v) := by
-    rw [map_sub, map_smul, smul_sub, smul_smul]
-    abel
-  rw [e, hv, h2 (c • A v), h2 ((c * c) • v), add_zero, sub_zero]
 
 end Module
 
@@ -136,28 +101,6 @@ theorem commute_fromBlocks_radical_iff (a b a' T : Matrix m m R) :
   · intro h
     rw [h, add_comm]
 
-theorem commute_of_commute_fromBlocks_diagonal {a b a' P Q : Matrix m m R}
-    (h : fromBlocks a b 0 a' * fromBlocks P 0 0 Q = fromBlocks P 0 0 Q * fromBlocks a b 0 a') :
-    a' * Q = Q * a' := by
-  rw [fromBlocks_multiply, fromBlocks_multiply, fromBlocks_inj] at h
-  simpa using h.2.2.2
-
-theorem commute_inv_mul_iff {S : Matrix m m R} (hS : IsUnit S) {a a' : Matrix m m R}
-    (haS : a * S = S * a') (T : Matrix m m R) :
-    a * T = T * a' ↔ a' * (S⁻¹ * T) = (S⁻¹ * T) * a' := by
-  have hdet : IsUnit S.det := (Matrix.isUnit_iff_isUnit_det S).mp hS
-  have h1 : S * S⁻¹ = 1 := Matrix.mul_nonsing_inv S hdet
-  have h2 : S⁻¹ * S = 1 := Matrix.nonsing_inv_mul S hdet
-  have ha : a = S * a' * S⁻¹ := by
-    rw [← haS, Matrix.mul_assoc, h1, Matrix.mul_one]
-  constructor
-  · intro h
-    calc a' * (S⁻¹ * T) = S⁻¹ * (S * a' * S⁻¹) * T := by
-          simp only [← Matrix.mul_assoc, h2, Matrix.one_mul]
-      _ = S⁻¹ * T * a' := by rw [← ha, Matrix.mul_assoc, h, ← Matrix.mul_assoc]
-  · intro h
-    calc a * T = S * (a' * (S⁻¹ * T)) := by rw [ha]; simp only [Matrix.mul_assoc]
-      _ = T * a' := by rw [h, ← Matrix.mul_assoc, ← Matrix.mul_assoc, h1, Matrix.one_mul]
 
 theorem fromBlocks_sub_smul_mul_self_eq_zero {S : Matrix m m R} (hS : IsUnit S)
     {a b a' : Matrix m m R} (haS : a * S = S * a') {c : R} (ha' : a' = c • 1) :

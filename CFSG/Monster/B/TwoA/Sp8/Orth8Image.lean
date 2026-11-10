@@ -18,8 +18,6 @@ open CFSG.Monster CFSG.Monster.Code CFSG.Monster.B CFSG.Monster.B.TwoA
     MulAction Xgrp Dfull :=
   MulAction.compHom Dfull ((MulAut.conj (G := Dfull)).comp Xgrp.subtype)
 
-theorem P4_le_Xgrp' :
-    P4 ≤ Xgrp := P4_le_Xgrp
 
 theorem Psi_rhoX
     (x : Xgrp) (v : V8) : Psi (rhoX x v) = x * Psi v * (x : Dfull)⁻¹ := by
@@ -97,9 +95,6 @@ theorem Lgrp_le_P4 :
   (rhoX.comp (Subgroup.inclusion P4_le_Xgrp)).codRestrict _
     fun x => (mem_P4_iff (Subgroup.inclusion P4_le_Xgrp x)).1 x.2
 
-theorem coe_p4Proj
-    (x : P4) :
-    (p4Proj x : V8 ≃ₗ[ZMod 2] V8) = rhoX (Subgroup.inclusion P4_le_Xgrp x) := rfl
 
 theorem p4Proj_surjective :
     Function.Surjective p4Proj := by
@@ -123,11 +118,6 @@ instance Lgrp_subgroupOf_P4_normal :
     (Lgrp.subgroupOf P4).Normal :=
   ker_p4Proj ▸ p4Proj.normal_ker
 
-@[expose] def p4QuotEquiv :
-
-    P4 ⧸ Lgrp.subgroupOf P4 ≃* TauCeti.QuadraticMap.orthogonalGroup qForm :=
-  (QuotientGroup.quotientMulEquivOfEq ker_p4Proj.symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective p4Proj p4Proj_surjective)
 
 theorem index_P4 :
     (P4.subgroupOf Xgrp).index = 120 := by
@@ -155,17 +145,5 @@ theorem natCard_P4 :
     at h
   omega
 
-theorem natCard_orthogonalGroup_qForm :
-    Nat.card (TauCeti.QuadraticMap.orthogonalGroup qForm) = 394813440 := by
-  rw [← Nat.card_congr p4QuotEquiv.toEquiv]
-  have h := Subgroup.card_eq_card_quotient_mul_card_subgroup (Lgrp.subgroupOf P4)
-  rw [natCard_P4, Nat.card_congr (Subgroup.subgroupOfEquivOfLe Lgrp_le_P4).toEquiv,
-    natCard_Lgrp] at h
-  omega
-
-theorem natCard_orthMinus :
-    Nat.card (TauCeti.QuadraticMap.orthogonalGroup
-    (CFSG.LieType.Universal.Spin.quadMinus 4 (ZMod 2) 1 1)) = 394813440 := by
-  rw [← Nat.card_congr orthMinusEquiv.toEquiv, natCard_orthogonalGroup_qForm]
 
 end CFSG.Monster.B.TwoA.Sp8

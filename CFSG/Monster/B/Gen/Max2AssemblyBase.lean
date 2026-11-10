@@ -351,10 +351,5 @@ theorem hom_eq_sum_of_eq_prod {G A : Type*} [Group G] [AddCommGroup A] [Module (
   rw [Function.comp_apply, map_pow, toAdd_pow, ← Nat.cast_smul_eq_nsmul (ZMod 2),
     ZMod.natCast_zmod_val]
 
-theorem psiBar_eq_sum_of_eq_prod {e : Fin 22 → Cbar} (he : ∀ i, e i ∈ Ebar) {y : Cbar}
-    (hy : y ∈ Ebar) (c : Fin 22 → ZMod 2) (ε : ℕ)
-    (h : y = ((List.finRange 22).map fun j => e j ^ (c j).val).prod * xbar ^ ε) :
-    psiBar ⟨y, hy⟩ = Multiplicative.ofAdd (∑ j, c j • Multiplicative.toAdd (psiBar ⟨e j, he j⟩)) :=
-  hom_eq_sum_of_eq_prod psiBar e he xbar_mem_Ebar ((psiBar_eq_one_iff _).2 (Or.inr rfl)) hy c ε h
 
 end CFSG.Monster.B

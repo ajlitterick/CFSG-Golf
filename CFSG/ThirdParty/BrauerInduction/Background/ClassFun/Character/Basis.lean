@@ -364,82 +364,6 @@ lemma IrrepCharBasis.isCompleteSetOfSimples
       _ = B.b j := (B.b_eq j).symm
 
 
-lemma span_characters_eq_top_of_complete
-    {k : Type u} [Field k] [CharZero k] [IsAlgClosed k]
-    {G : Type u} [Group G] [Finite G]
-    {ι : Type*}
-    (S : ι → FDRep k G)
-    (hS : FDRep.IsCompleteSetOfSimples S) :
-    Submodule.span k (Set.range (fun i => ClassFun.character (S i))) = ⊤ := by
-  rw [← irreducibleCharacterSpan_eq_top (k := k) (G := G)]
-  apply le_antisymm
-  · apply Submodule.span_le.mpr
-    rintro χ ⟨i, rfl⟩
-    apply Submodule.subset_span
-    exact ⟨S i, hS.is_simple i, rfl⟩
-  · apply Submodule.span_le.mpr
-    rintro χ ⟨T, hT, rfl⟩
-    rcases hS.is_exhaustive T hT with ⟨i, ⟨e⟩⟩
-    rw [ClassFun.char_eq_of_iso e]
-    exact Submodule.subset_span ⟨i, rfl⟩
-
-/--
-The dimension of the class-function space equals the number of representations
-in any complete set of simple representations.
--/
-lemma finrank_classFun_eq_card_of_complete
-    {k : Type u} [Field k] [CharZero k] [IsAlgClosed k]
-    {G : Type u} [Group G] [Finite G]
-    {ι : Type*} [Fintype ι]
-    (S : ι → FDRep k G)
-    (hS : FDRep.IsCompleteSetOfSimples (k := k) (G := G) S) :
-    Module.finrank k (ClassFun k G) = Fintype.card ι := by
-  let χ : ι → ClassFun k G := fun i => ClassFun.character (S i)
-  letI : ∀ i, Simple (S i) := hS.is_simple
-  have hLI : LinearIndependent k χ := by
-    exact
-      ClassFun.irreducible_characters_linearIndependent
-        (k := k) (G := G)
-        (V := S)
-        (hNonIso := fun i j hij => hS.isEmpty_iso_of_ne hij)
-  have hspan :
-      Submodule.span k (Set.range χ) = ⊤ :=
-    span_characters_eq_top_of_complete
-      (k := k) (G := G) S hS
-  have hdim :
-      Module.finrank k (Submodule.span k (Set.range χ)) = Fintype.card ι := by
-    exact finrank_span_eq_card hLI
-  rw [← hdim]
-  rw [hspan]
-  simp
-
-open Classical in
-/--
-A noncanonical equivalence between the index type of a finite complete set of
-simple representations and the conjugacy classes of `G`.
--/
-noncomputable def completeSetEquivConjClasses
-    {k : Type u} [Field k] {G : Type u} [Group G] {κ : Type z} [Fintype κ]
-    [Finite G] [CharZero k] [IsAlgClosed k]
-    (S : κ → FDRep k G)
-    (hS : FDRep.IsCompleteSetOfSimples S) :
-    κ ≃ ConjClasses G := by
-  letI : Fintype G := Fintype.ofFinite G
-  letI : Fintype (ConjClasses G) := Quotient.fintype (IsConj.setoid G)
-  have h_card_eq : Fintype.card κ = Fintype.card (ConjClasses G) := by
-    have h1 :
-        Module.finrank k (ClassFun k G) =
-          Fintype.card (ConjClasses G) := by
-      rw [LinearEquiv.finrank_eq (linearEquivConjClasses (k := k) (G := G))]
-      exact Module.finrank_pi k
-    have h2 :
-        Module.finrank k (ClassFun k G) = Fintype.card κ := by
-      simpa [Nat.card_eq_fintype_card] using
-        ClassFun.finrank_classFun_eq_card_of_complete
-          (k := k) (G := G) S hS
-    rw [← h2, h1]
-  exact Fintype.equivOfCardEq h_card_eq
-
 /--
 A chosen basis of the class-function space consisting of characters of simple
 representations.
@@ -528,23 +452,5 @@ end CFSG.ClassFun
 
 namespace FDRep
 
-/--
-There exists a finite complete set of simple finite-dimensional representations,
-and the number of such representatives equals the dimension of the space of
-class functions.
--/
-theorem finrank_classFun_eq_num_irreps
-    (G : Type u) [Group G] [Finite G]
-    (k : Type u) [Field k] [CharZero k] [IsAlgClosed k] :
-    ∃ (κ : Type u) (_ : Fintype κ)
-      (S : κ → FDRep k G),
-        FDRep.IsCompleteSetOfSimples (k := k) (G := G) S ∧
-        Module.finrank k (ClassFun k G) = Fintype.card κ := by
-  let B : ClassFun.IrrepCharBasis k G := ClassFun.irrepCharBasis (k := k) (G := G)
-  letI : Fintype B.ι := B.fintype
-  refine ⟨B.ι, inferInstance, B.V, ?_, ?_⟩
-  · exact ClassFun.IrrepCharBasis.isCompleteSetOfSimples (k:= k) (G := G) B
-  · exact ClassFun.finrank_classFun_eq_card_of_complete B.V
-      (ClassFun.IrrepCharBasis.isCompleteSetOfSimples (k:= k) (G := G) B)
 
 end FDRep

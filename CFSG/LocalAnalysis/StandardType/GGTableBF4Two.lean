@@ -31,10 +31,6 @@ theorem largeEvenLabelAll_tableB_F4Two {lab : LargeEvenLabel} (htag : lab.tag = 
   exact ⟨K, inferInstance, inferInstance, hK, hQ', 3, TableBF4Two.ggTorusLift_F4Two,
     TableBF4Two.ggBstarBound_F4Two hK2 3 _⟩
 
-theorem ggBstarInputOn_F4Two : GGBstarInputOn GGTableBF4TwoLabel :=
-  TableBF4.ggBstarInputOn_of_labelAll fun _ _ _ _ h => by
-    obtain ⟨htag, hn, rfl⟩ := h
-    exact largeEvenLabelAll_tableB_F4Two htag hn
 
 theorem ggBstarInputOn_F4_all : GGBstarInputOn GGTableBF4AllLabel :=
   TableBF4.ggBstarInputOn_of_labelAll fun p lab hp hlab h => by
@@ -60,11 +56,6 @@ theorem largeEvenLabelAll_endNodeAdm_F4Two (hE : GGF4TwoEndNodeAdmInput) {lab : 
   have hK2 : Nat.card K = 2 := by rw [hK]; norm_num
   exact ⟨K, inferInstance, inferInstance, hK, hQ', 3, TableBF4Two.ggTorusLift_F4Two, hE K hK2⟩
 
-theorem ggStdSubPreInputOn_F4Two (hE : GGF4TwoEndNodeAdmInput) :
-    GGStdSubPreInputOn GGTableBF4TwoLabel :=
-  ggStdSubPreInputOn_of_labels_adm ggLNoncyclicInput_holds fun _ _ _ _ h => by
-    obtain ⟨htag, hn, rfl⟩ := h
-    exact largeEvenLabelAll_endNodeAdm_F4Two hE htag hn
 
 theorem ggStdSubPreInputOn_F4_all (hE : GGF4TwoEndNodeAdmInput) :
     GGStdSubPreInputOn GGTableBF4AllLabel :=

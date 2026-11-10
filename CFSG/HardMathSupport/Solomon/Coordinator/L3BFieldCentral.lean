@@ -351,7 +351,6 @@ variable {P : Type*} [Group P]
     rw [map_inv]
     exact congrArg (·⁻¹) ha
 
-theorem mem_l3bFix {φ : MulAut P} {x : P} : x ∈ l3bFix φ ↔ φ x = x := Iff.rfl
 
 structure L3BFixData (φ : MulAut P) : Prop where
   simple : IsSimpleGroup ↥⁅l3bFix φ, l3bFix φ⁆

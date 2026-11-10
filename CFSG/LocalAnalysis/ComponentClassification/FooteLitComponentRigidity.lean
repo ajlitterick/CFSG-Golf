@@ -50,22 +50,6 @@ theorem mem_normalizer_of_not_le_coreActionKernel {e g : G} {K T : Subgroup G}
   have h1 := conj_mem_conjugate (hTK ((mem_normalizer_iff.mp hgT t).mp ht)) g
   rwa [show g⁻¹ * (g * t * g⁻¹) * g = t by group] at h1
 
-theorem inf_centralizer_le_normalizer_of_mem {e v : G} {K : Subgroup G}
-    (hK : IsTwoComponentAt e K) (hZ : center (K ⧸ pPrimeCore 2 K) = ⊥) (hvK : v ∈ K)
-    (hv : orderOf v = 2) :
-    centralizer ({e} : Set G) ⊓ centralizer ({v} : Set G) ≤ normalizer (K : Set G) := by
-  intro g hg
-  obtain ⟨hge, hgv⟩ := mem_inf.mp hg
-  obtain ⟨-, hKC, hKc⟩ := hK
-  by_contra hgK
-  have hle : conjugate K g ≤ coreActionKernel K :=
-    GSThmB.B5a.le_coreActionKernel_of_ne hKC (conjugate_le_of_mem hKC hge) hKc
-      (isPComponent_conjugate_subgroupOf hge hKc)
-      (fun h => hgK (mem_normalizer_of_conjugate_eq h.symm))
-  have h1 := conj_mem_conjugate hvK g
-  rw [show g⁻¹ * v * g = v by
-    rw [mul_assoc, ← mem_centralizer_singleton_iff.mp hgv, inv_mul_cancel_left]] at h1
-  exact center_ne_bot_of_mem_coreActionKernel hvK hv (hle h1) hZ
 
 theorem inf_centralizer_le_normalizer_of_odd {e : G} {K X : Subgroup G}
     (hK : IsTwoComponentAt e K) (hXodd : Odd (Nat.card X)) (hKX : K ≤ normalizer (X : Set G)) :

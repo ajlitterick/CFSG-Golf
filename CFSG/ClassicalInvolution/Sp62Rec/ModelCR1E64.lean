@@ -302,9 +302,6 @@ theorem nonempty_e64Sub_mulEquiv_N0 : Nonempty (↥CFSG.ClassicalInvolution.Q3.A
     hψ.bijective_of_nat_card_le (card_e64Sub_le.trans card_N0.ge)
   exact ⟨(MulEquiv.ofBijective ψ hbij).symm⟩
 
-theorem card_e64Sub : Nat.card ↥CFSG.ClassicalInvolution.Q3.AE.e64Sub = 10752 := by
-  obtain ⟨e⟩ := nonempty_e64Sub_mulEquiv_N0
-  rw [Nat.card_congr e.toEquiv, card_N0]
 
 end Hom
 

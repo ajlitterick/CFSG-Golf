@@ -67,17 +67,6 @@ theorem blkDiag_apply (n : ℕ) (W₀ : Matrix (Fin 2) (Fin 2) K) (i k : Fin n) 
   rw [blkDiag, blkEquiv_apply, diagonal_apply]
   split_ifs <;> rfl
 
-theorem blkDiag_diagonal (n : ℕ) (v : Fin 2 → K) :
-    blkDiag n (diagonal v) = diagonal fun p => v ((pairEquiv n).symm p).2 := by
-  ext p q
-  obtain ⟨⟨i, j⟩, rfl⟩ := (pairEquiv n).surjective p
-  obtain ⟨⟨k, l⟩, rfl⟩ := (pairEquiv n).surjective q
-  rw [blkDiag_apply, diagonal_apply, diagonal_apply, Equiv.symm_apply_apply]
-  simp only [EmbeddingLike.apply_eq_iff_eq, Prod.mk.injEq]
-  by_cases hik : i = k
-  · subst hik
-    simp
-  · simp [hik]
 
 theorem resMat_diagonal {R : Type*} [Semiring R] (φ : R →+* Matrix (Fin 2) (Fin 2) K) (n : ℕ)
     (r : R) : resMat φ n (diagonal fun _ => r) = blkDiag n (φ r) := by

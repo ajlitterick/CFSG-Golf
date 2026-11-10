@@ -67,8 +67,6 @@ theorem eichler_f_a_e :
   rw [eichler_f_a_apply P ha, P.polar_ef, polar_e_a P ha, mul_zero, zero_add]
   match_scalars <;> field_simp
 
-omit ha hd in
-theorem eichler_f_a_f : eichler Q P.f ((Q a)⁻¹ • a) P.f = P.f := eichler_apply_self _ _
 
 theorem eichler_f_a_a : eichler Q P.f ((Q a)⁻¹ • a) a = a - (2 : K) • P.f := by
   rw [eichler_f_a_apply P ha, polar_comm, polar_f_a P ha, polar_self_eq_two_mul]
@@ -117,15 +115,5 @@ theorem shortWeyl_mul_self : shortWeyl P a * shortWeyl P a = 1 := by
 
 end Apply
 
-
-theorem orthogonal_geometry_tail_short_root_Weyl_element (P : HypPair Q) {a : V}
-    (ha : a ∈ P.perp) (hd : Q a ≠ 0) :
-    shortWeyl P a = eichler Q P.e a * eichler Q P.f ((Q a)⁻¹ • a) * eichler Q P.e a ∧
-      shortWeyl P a ∈ orthElementaryGroup Q ∧
-      shortWeyl P a P.e = -(Q a)⁻¹ • P.f ∧ shortWeyl P a P.f = -(Q a) • P.e ∧
-      (∀ z ∈ P.perp, shortWeyl P a z = z - (polar Q z a * (Q a)⁻¹) • a) ∧
-      shortWeyl P a * shortWeyl P a = 1 :=
-  ⟨rfl, shortWeyl_mem P a, shortWeyl_e P ha hd, shortWeyl_f P ha hd,
-    fun _ hz => shortWeyl_perp P ha hd hz, shortWeyl_mul_self P ha hd⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

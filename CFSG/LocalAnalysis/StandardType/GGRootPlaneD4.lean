@@ -62,23 +62,12 @@ theorem ggRootPlaneD4Input_holds : GGRootPlaneD4Input := by
     rw [hX]
     exact ⟨_, ⟨_, ⟨.ofAdd 1, rfl⟩, rfl⟩, rfl⟩
 
-theorem ggRootPlaneAt_POmegaPlus : GGRootPlaneAt .POmegaPlus :=
-  ggRootPlaneAt_POmegaPlus_of_d4 ggRootPlaneD4Input_holds
 
 theorem ggRootPlaneRestD4Exc_of_exc (hF4 : GGRootPlaneAt .F4) (hE6 : GGRootPlaneAt .E6)
     (hE7 : GGRootPlaneAt .E7) (hE8 : GGRootPlaneAt .E8) (hTwE6 : GGRootPlaneAt .twistedE6) :
     GGRootPlaneRestD4Exc :=
   ⟨ggRootPlaneD4Input_holds, hF4, hE6, hE7, hE8, hTwE6⟩
 
-theorem ggRootPlaneRestOmegaExc_of_exc (hF4 : GGRootPlaneAt .F4) (hE6 : GGRootPlaneAt .E6)
-    (hE7 : GGRootPlaneAt .E7) (hE8 : GGRootPlaneAt .E8) (hTwE6 : GGRootPlaneAt .twistedE6) :
-    GGRootPlaneRestOmegaExc :=
-  ggRootPlaneRestOmegaExc_of_d4Exc (ggRootPlaneRestD4Exc_of_exc hF4 hE6 hE7 hE8 hTwE6)
-
-theorem ggRootPlaneInput_of_exc (hF4 : GGRootPlaneAt .F4) (hE6 : GGRootPlaneAt .E6)
-    (hE7 : GGRootPlaneAt .E7) (hE8 : GGRootPlaneAt .E8) (hTwE6 : GGRootPlaneAt .twistedE6) :
-    GGRootPlaneInput :=
-  ggRootPlaneInput_of_d4Exc (ggRootPlaneRestD4Exc_of_exc hF4 hE6 hE7 hE8 hTwE6)
 
 end D4
 

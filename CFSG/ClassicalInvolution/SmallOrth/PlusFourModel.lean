@@ -86,8 +86,6 @@ theorem coord_E22 : coord P P' (!![0, 0; 0, 1] : Matrix (Fin 2) (Fin 2) K) = P.f
 theorem coord_E12 : coord P P' (!![0, 1; 0, 0] : Matrix (Fin 2) (Fin 2) K) = P'.e := by
   simp [coord_apply]
 
-theorem coord_E21 : coord P P' (!![0, 0; 1, 0] : Matrix (Fin 2) (Fin 2) K) = -P'.f := by
-  simp [coord_apply]
 
 end Coord
 

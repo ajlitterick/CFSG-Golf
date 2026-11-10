@@ -99,10 +99,6 @@ theorem blockEmb2_torusTwo_mem_torus (k : Fin n) (u : normOne (unitaryInvolution
     Fin 2 → normOne (unitaryInvolution K p f) :=
   fun x => if (j : ℕ) + x = k then u else if (j : ℕ) + x = k + 1 then u⁻¹ else 1
 
-theorem blockTuple_self (k : Fin n) (u : normOne (unitaryInvolution K p f)) :
-    blockTuple k k u = ![u, u⁻¹] := by
-  funext x
-  fin_cases x <;> simp [blockTuple]
 
 theorem blockTuple_succ {k j : Fin n} (h : (j : ℕ) = k + 1)
     (u : normOne (unitaryInvolution K p f)) : blockTuple k j u = ![u⁻¹, 1] := by

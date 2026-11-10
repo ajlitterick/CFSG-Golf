@@ -71,9 +71,6 @@ variable (h : Hyp52 H)
 @[expose] def upperP (i : ℕ) : Subgroup H :=
   h.upperS i ⊓ h.P
 
-theorem upperS_le_S (i : ℕ) : h.upperS i ≤ h.S := by
-  rintro _ ⟨y, -, rfl⟩
-  exact y.2
 
 theorem upperS_zero : h.upperS 0 = ⊥ := by
   rw [upperS, Subgroup.upperCentralSeries_zero, Subgroup.map_bot]

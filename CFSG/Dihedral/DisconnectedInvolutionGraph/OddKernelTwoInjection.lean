@@ -41,15 +41,6 @@ namespace CFSG.DisconnectedInvolutionGraph.Helpers
 
 variable {G K : Type*} [Group G] [Group K]
 
-theorem two_pgroup_odd_kernel_injective (hpgroup : IsPGroup 2 G)
-    (hom : G →* K) (hodd : Odd (Nat.card hom.ker)) : Function.Injective hom := by
-  let _ : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  apply hom.ker_eq_bot_iff.mp
-  apply hom.ker.eq_bot_iff_forall.mpr
-  intro element hmem
-  by_contra hne
-  have hdiv := (hpgroup.dvd_orderOf hne).trans (hom.ker.orderOf_dvd_natCard hmem)
-  exact hodd.not_two_dvd_nat hdiv
 
 theorem odd_kernel_two_subgroup_injective (hom : G →* K)
     (hodd : Odd (Nat.card hom.ker)) (subgroup : Subgroup G)

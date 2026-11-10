@@ -68,15 +68,6 @@ theorem torus_sup_rootSpan_le_map_famCentralizer (F : Set (Fin τ.rank → Kˣ))
   change rootDiagUnit τ l * x * (rootDiagUnit τ l)⁻¹ = x
   rw [← hc, mul_inv_cancel_right]
 
-theorem map_famWeylReps_le_map_famCentralizer (F : Set (Fin τ.rank → Kˣ)) :
-    (famWeylReps F).map (monomialSubgroup τ K).subtype ≤
-      (famCentralizer F).map (adjointGroup τ K).subtype := by
-  rw [famWeylReps, MonoidHom.map_closure, Subgroup.closure_le]
-  rintro _ ⟨n, ⟨w, hw, hn⟩, rfl⟩
-  change (n : ModGL τ K) ∈ _
-  rw [hn]
-  exact ⟨⟨_, canonicalRep_mem_adjointGroup _ K w⟩,
-    fun l hl => (conj_canonicalRep_eq_iff l w).2 (hw l hl), rfl⟩
 
 theorem map_famCentralizer_le_sup (F : Set (Fin τ.rank → Kˣ)) :
     (famCentralizer F).map (adjointGroup τ K).subtype ≤

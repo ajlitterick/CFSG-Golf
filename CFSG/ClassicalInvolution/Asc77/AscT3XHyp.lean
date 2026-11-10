@@ -98,17 +98,6 @@ theorem Std20.x_hypOmegaMod_conjFamily (d : Std20 p f K K' J S R R' W V z t) {a 
   omega4 := d.x_omega4_conjFamily a
   omega5 := d.x_omega5_conjFamily a
 
-theorem Std20.x_lieSystemMod [IsSimpleGroup G] (d : Std20 p f K K' J S R R' W V z t)
-    (c9 : Concl20_9 S K K' R R' z) (h8 : 8 < Nat.card R) (h9 : p ^ f ≠ 9) {b : G}
-    (hb : FieldInv20 S K K' W z t b) :
-    ∃ e₀ : ℕ, f = 2 * e₀ ∧ 5 ≤ p ^ e₀ ∧ ∃ hzA : z ∈ Subgroup.centralizer ({b} : Set G),
-      IsClassicalMember p e₀ (perfectCoreIn K b) ⟨z, hzA⟩ ∧
-      HypOmegaMod p e₀ (conjFamily (perfectCoreIn K b)) ∧
-      LieSystemMod p e₀ (restrictFamily (conjFamily (perfectCoreIn K b))
-        (conjGen (perfectCoreIn K b))) := by
-  obtain ⟨e₀, hfe, h5, hzA, hmem, hlt, hIH⟩ := d.x_sectionData c9 h8 h9 hb
-  exact ⟨e₀, hfe, h5, hzA, hmem, d.x_hypOmegaMod_conjFamily hzA hmem,
-    lieSystemMod_restrict_conjugates hmem hlt hIH⟩
 
 end Std
 

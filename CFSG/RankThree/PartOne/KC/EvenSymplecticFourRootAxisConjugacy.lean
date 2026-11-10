@@ -67,9 +67,6 @@ theorem not_conj_radA2_le_radA1 (g : antiSp K)
   rw [hg10] at a11
   simp at a11
 
-theorem radA2_not_conj_radA1 (g : antiSp K) :
-    ¬ ∀ z : antiSp K, z ∈ radA2 K ↔ g * z * g⁻¹ ∈ radA1 K := fun h =>
-  not_conj_radA2_le_radA1 g fun y hy => (h y).mp hy
 
 end KCRootAxis
 

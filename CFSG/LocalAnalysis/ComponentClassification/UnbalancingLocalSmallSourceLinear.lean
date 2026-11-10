@@ -84,16 +84,5 @@ theorem small_standard_source_projective_linear_two_field_parameters_stated {X :
     · exact cubeSub_ne_of_between (a := 34) (N := 40320) (by norm_num) (by norm_num)
         (by norm_num) (Nat.card K) (by rw [← hXr, hX3])
 
-theorem small_standard_source_projective_linear_two_field_parameters {X : Type} [Group X]
-    {l g : ℕ} [Fact l.Prime] (hX : Assembly.ComponentType.ClassicalModel X .PSL 2 l g) :
-    (∀ (p f : ℕ) [Fact p.Prime], p ≠ 2 → Assembly.ComponentType.ClassicalModel X .PSL 2 p f →
-      Xor (Odd l ∧ l = p ∧ g = f) (l = 2 ∧ g = 2 ∧ p = 5 ∧ f = 1)) ∧
-      IsEmpty (X ≃* alternatingGroup (Fin 7)) ∧
-      ¬ Assembly.ComponentType.ClassicalModel X .PSL 3 2 2 := by
-  obtain ⟨h1, h2, h3⟩ := small_standard_source_projective_linear_two_field_parameters_stated
-    (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 l g hX)
-  exact ⟨fun p f _ hp2 hY => h1 p f hp2
-      (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 2 p f hY), h2,
-    fun hZ => h3 (ClassicalModelStatedBridge.statedClassicalModel_of_classicalModel .PSL 3 2 2 hZ)⟩
 
 end CFSG.ComponentClassification.UnbalancingLocal

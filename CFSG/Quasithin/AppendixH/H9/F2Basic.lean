@@ -41,23 +41,9 @@ open scoped Matrix
 
 namespace CFSG.ASVolI.ChH
 
-theorem zmod_two_cases (c : ZMod 2) : c = 0 ∨ c = 1 := by
-  revert c
-  decide
 
 theorem vec_add_self {n : ℕ} (x : Fin n → ZMod 2) : x + x = 0 :=
   funext fun i => CharTwo.add_self_eq_zero (x i)
 
-theorem GL_mulVec_eq_zero_iff {n : ℕ} (A : GL (Fin n) (ZMod 2)) (v : Fin n → ZMod 2) :
-    (A : Matrix (Fin n) (Fin n) (ZMod 2)) *ᵥ v = 0 ↔ v = 0 := by
-  constructor
-  · intro h
-    calc v = ((A⁻¹ : GL (Fin n) (ZMod 2)) : Matrix (Fin n) (Fin n) (ZMod 2)) *ᵥ
-          ((A : Matrix (Fin n) (Fin n) (ZMod 2)) *ᵥ v) := by
-          rw [Matrix.mulVec_mulVec, ← Units.val_mul, inv_mul_cancel, Units.val_one,
-            Matrix.one_mulVec]
-      _ = 0 := by rw [h, Matrix.mulVec_zero]
-  · rintro rfl
-    exact Matrix.mulVec_zero _
 
 end CFSG.ASVolI.ChH

@@ -247,21 +247,6 @@ theorem exists_xU_eq (hP : PtHyp R Ψ) (h : Hyp G R) (hS : Skel R Ψ) {u : G}
     exact one_ne_zero (congrFun this 0)
   rw [mul_div_cancel_right₀ _ hq, sqrtF_sq']
 
-omit h hS in
-theorem xU_injective (hP : PtHyp R Ψ) (h : Hyp G R) (hS : Skel R Ψ) :
-    Function.Injective (xU R Ψ ι) := by
-  intro s t e
-  have := congrArg (Qc R Ψ) e
-  rwa [Qc_xU h hS hι hP, Qc_xU h hS hι hP] at this
-
-omit h hS in
-theorem blk02_conj_xU (c : Fˣ) (t : F) :
-    blk Ψ ne02 (NaturalModule.diagElt c) * xU R Ψ ι t *
-      (blk Ψ ne02 (NaturalModule.diagElt c))⁻¹ = xU R Ψ ι ((c : F) ^ 2 * t) := by
-  rw [xU, hι.smul, xU]
-  congr 1
-  funext _
-  rw [Pi.smul_apply, smul_eq_mul, mul_div_assoc, sqrtF_mul, sqrtF_sq']
 
 theorem commutator_xs13_xU (hP : PtHyp R Ψ) (s t : F) :
     ⁅xs Ψ ne13 s, xU R Ψ ι t⁆ = xs Ψ ne02 (s * t) * Lc R Ψ (xU R Ψ ι (s ^ 2 * t)) := by

@@ -215,14 +215,6 @@ section Map
 
 variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem triangleAxis_map (g z₁ z₂ z₃ : G) :
-    (triangleAxis z₁ z₂ z₃).map (MulAut.conj g).toMonoidHom =
-      triangleAxis (g * z₁ * g⁻¹) (g * z₂ * g⁻¹) (g * z₃ * g⁻¹) := by
-  unfold triangleAxis
-  rw [MonoidHom.map_closure]
-  congr 1
-  simp [Set.image_insert_eq]
 
 theorem AxisTriangle.map {J₁ J₂ J₃ : Subgroup G} {z₁ z₂ z₃ : G}
     (hT : AxisTriangle p f J₁ J₂ J₃ z₁ z₂ z₃) (g : G) :

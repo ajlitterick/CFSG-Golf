@@ -35,9 +35,6 @@ theorem sublineL_le_centralizer_torusL (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0,
   fun x hx => Subgroup.mem_centralizer_iff.mpr fun y hy =>
     (sublineL_commute_torusL hJ x hx y hy).symm
 
-theorem torusL_le_centralizer_sublineL (hJ : J.form = !![0, 0, 1; 0, 1, 0; 1, 0, 0]) :
-    torusL J C hJ ≤ Subgroup.centralizer (sublineL J C hJ : Set (J.specialSubgroup ⧸ C)) :=
-  fun y hy => Subgroup.mem_centralizer_iff.mpr fun x hx => sublineL_commute_torusL hJ x hx y hy
 
 theorem pow_three_eq_one_of_pow_six {x : K} (hx : x ^ 6 = 1) : x ^ 3 = 1 := by
   have h2 : (2 : K) = 0 := CharTwo.two_eq_zero

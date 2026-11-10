@@ -94,13 +94,6 @@ theorem gS_mem_MS : GL62.gS ∈ GL62.MS := mem_sup_right (mem_zpowers _)
 
 theorem z0_mem_wrS : GL62.z₀ ∈ wrS := subset_closure (by simp)
 
-theorem dg_e12_mem_wrS : GL62.dg e12 ∈ wrS := subset_closure (by simp)
-
-theorem dg_e23_mem_wrS : GL62.dg e23 ∈ wrS := subset_closure (by simp)
-
-theorem wrH₁_mem_wrS : wrH₁ ∈ wrS := subset_closure (by simp)
-
-theorem wrH₂_mem_wrS : wrH₂ ∈ wrS := subset_closure (by simp)
 
 theorem wrH₁_mem_MW : wrH₁ ∈ GL62.MW := by
   unfold wrH₁
@@ -135,13 +128,6 @@ theorem wrS_le_MW : wrS ≤ GL62.MW := by
 
 theorem z0_mem_slS : GL62.z₀ ∈ slS := subset_closure (by simp)
 
-theorem dg_e12_mem_slS : GL62.dg e12 ∈ slS := subset_closure (by simp)
-
-theorem dg_e23_mem_slS : GL62.dg e23 ∈ slS := subset_closure (by simp)
-
-theorem slH₁_mem_slS : slH₁ ∈ slS := subset_closure (by simp)
-
-theorem slH₂_mem_slS : slH₂ ∈ slS := subset_closure (by simp)
 
 theorem slH₁_mem_MS : slH₁ ∈ GL62.MS := by
   unfold slH₁

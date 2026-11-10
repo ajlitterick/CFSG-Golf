@@ -162,9 +162,6 @@ theorem exists_combC_of_adWord : ∀ v : Fin Tag.E6.rank → ZMod 3,
     adWord .E6 3 wordE6C v = v → ∃ x : Fin 3 → ZMod 3, v = combC x := by
   decide +kernel
 
-theorem combC_add (x x' : Fin 3 → ZMod 3) : combC (x + x') = combC x + combC x' := by
-  funext j
-  simp only [combC, Pi.add_apply, add_mul, Finset.sum_add_distrib]
 
 theorem exists_planeKey (H : AddSubgroup (Fin Tag.E6.rank → ZMod 3)) {y : Fin 3 → ZMod 3}
     (hu : combC y ∉ H)
@@ -327,53 +324,6 @@ theorem sigmaTest_fixed : ∀ α ∈ rootFinset .E6,
 theorem cAct_fixedA2E6 : ∀ α ∈ fixedA2E6, cAct α = α := by
   decide +kernel
 
-set_option maxRecDepth 100000 in
-theorem sigmaTest_rotatingA2Two : ∀ α ∈ rootFinset .E6,
-    (sigmaTest ![1, 2, 1] α ↔ α + cAct α + cAct (cAct α) = 0) ∧
-    (sigmaTest ![2, 1, 2] α ↔ α + cAct α + cAct (cAct α) = 0) := by
-  have H : ∀ n < 72,
-      (sigmaTest ![1, 2, 1] (K.rootE6 n) ↔
-        K.rootE6 n + K.rootE6 (K.sg n) + K.rootE6 (K.sg (K.sg n)) = 0) ∧
-      (sigmaTest ![2, 1, 2] (K.rootE6 n) ↔
-        K.rootE6 n + K.rootE6 (K.sg n) + K.rootE6 (K.sg (K.sg n)) = 0) := by
-    decide +kernel
-  exact K.forall_root_c (fun α a b => (sigmaTest ![1, 2, 1] α ↔ α + a + b = 0) ∧
-    (sigmaTest ![2, 1, 2] α ↔ α + a + b = 0)) H
-
-set_option maxRecDepth 100000 in
-theorem planeTypes_c_all (k : Fin 3 → ZMod 3) (hk : k ≠ 0) :
-    (∀ α ∈ rootFinset .E6, ¬ sigmaTest k α) ∨
-    (∃ β ∈ (rootFinset .E6).filter (sigmaTest k),
-      (∀ α ∈ rootFinset .E6, sigmaTest k α ↔ (α = β ∨ α = -β ∨ α = cAct β ∨ α = -cAct β ∨
-        α = cAct (cAct β) ∨ α = -cAct (cAct β))) ∧
-      iform β (cAct β) = 0 ∧ iform β (cAct (cAct β)) = 0 ∧ iform (cAct β) (cAct (cAct β)) = 0 ∧
-      ∃ ℓ ∈ rootFinset .E6, ∑ i, ℓ i * (corootPair β (Pi.single i 1) +
-        corootPair (cAct β) (Pi.single i 1) + corootPair (cAct (cAct β)) (Pi.single i 1)) = 1) ∨
-    (k = ![1, 0, 0] ∨ k = ![2, 0, 0]) ∨
-    ((k = ![1, 2, 1] ∨ k = ![2, 1, 2]) ∧
-      ∀ α ∈ rootFinset .E6, sigmaTest k α ↔ α + cAct α + cAct (cAct α) = 0) := by
-  by_cases he : k = ![1, 2, 1] ∨ k = ![2, 1, 2]
-  · refine Or.inr (Or.inr (Or.inr ⟨he, ?_⟩))
-    rcases he with rfl | rfl
-    · exact fun α hα => (sigmaTest_rotatingA2Two α hα).1
-    · exact fun α hα => (sigmaTest_rotatingA2Two α hα).2
-  · have hguard : ∀ k : Fin 3 → ZMod 3, k ≠ 0 →
-        ¬ (k = ![1, 2, 1] ∨ k = ![2, 1, 2]) →
-        ∃ y : Fin 3 → ZMod 3,
-          (∀ α ∈ rootFinset .E6, α + cAct α + cAct (cAct α) = 0 →
-            dotZ3 α (combC y) = 0) ∧ ∑ i, k i * y i = 1 := by
-      have H : ∀ k : Fin 3 → ZMod 3, k ≠ 0 → ¬ (k = ![1, 2, 1] ∨ k = ![2, 1, 2]) →
-          ∃ y : Fin 3 → ZMod 3,
-            (∀ n < 72, K.rootE6 n + K.rootE6 (K.sg n) + K.rootE6 (K.sg (K.sg n)) = 0 →
-              dotZ3 (K.rootE6 n) (combC y) = 0) ∧ ∑ i, k i * y i = 1 := by
-        decide +kernel
-      intro k hk he
-      obtain ⟨y, h1, h2⟩ := H k hk he
-      exact ⟨y, K.forall_root_c (fun α a b => α + a + b = 0 → dotZ3 α (combC y) = 0) h1, h2⟩
-    rcases planeTypes_c k (hguard k hk he) with h | h | h
-    · exact Or.inl h
-    · exact Or.inr (Or.inl h)
-    · exact Or.inr (Or.inr (Or.inl h))
 
 end CFSG.StandardType.TwE6HyperplaneTypes
 

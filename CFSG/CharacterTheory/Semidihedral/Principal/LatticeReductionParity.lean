@@ -267,13 +267,6 @@ variable {R K G V : Type*} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
   [Algebra R K] [IsFractionRing R K] [Group G] [AddCommGroup V] [Module K V] [Module R V]
   [IsScalarTower R K V]
 
-omit [IsDomain R] [IsDiscreteValuationRing R] [IsFractionRing R K] in
-noncomputable def baseChangeSelfEquiv {k W : Type*} [CommRing k] [AddCommGroup W] [Module k W]
-    (σ : Representation k G W) : (baseChangeRepresentation k σ).Equiv σ :=
-  Representation.Equiv.mk (TensorProduct.lid k W) fun g => by
-    apply TensorProduct.ext'
-    intro a w
-    simp
 
 omit [IsDomain R] [IsDiscreteValuationRing R] [IsFractionRing R K] [Group G] in
 theorem finite_of_le [IsNoetherianRing R] {A B : Submodule R V} (h : A ≤ B)
@@ -470,19 +463,6 @@ theorem repMultiplicity_baseChange_latticeReduction_eq {π : R} (hπ : Irreducib
   rw [repMultiplicity_baseChange_reduction_of_le hπ ρ ha hb hL₁ hN K' σ,
     repMultiplicity_baseChange_reduction_of_le hπ ρ hNL₂ (le_refl _) hL₂ hN K' σ]
 
-theorem repMultiplicity_latticeReduction_eq {π : R} (hπ : Irreducible π)
-    (ρ : Representation K G V) {L₁ L₂ : Submodule R V} (hL₁ : ∀ g, ∀ x ∈ L₁, ρ g x ∈ L₁)
-    (hL₂ : ∀ g, ∀ x ∈ L₂, ρ g x ∈ L₂) [Module.Finite R L₁] [Module.Finite R L₂]
-    (hsp₁ : Submodule.span K (L₁ : Set V) = ⊤) (hsp₂ : Submodule.span K (L₂ : Set V) = ⊤)
-    {W : Type*} [AddCommGroup W] [Module (R ⧸ Ideal.span {π}) W]
-    (σ : Representation (R ⧸ Ideal.span {π}) G W) :
-    repMultiplicity (latticeReduction π ρ L₁ hL₁) σ =
-      repMultiplicity (latticeReduction π ρ L₂ hL₂) σ := by
-  have : (Ideal.span {π}).IsMaximal := PrincipalIdealRing.isMaximal_of_irreducible hπ
-  let : Field (R ⧸ Ideal.span {π}) := Ideal.Quotient.field _
-  rw [← repMultiplicity_congr_left (baseChangeSelfEquiv (latticeReduction π ρ L₁ hL₁)) σ,
-    ← repMultiplicity_congr_left (baseChangeSelfEquiv (latticeReduction π ρ L₂ hL₂)) σ]
-  exact repMultiplicity_baseChange_latticeReduction_eq hπ ρ hL₁ hL₂ hsp₁ hsp₂ _ σ
 
 end Commensurable
 
@@ -782,47 +762,6 @@ theorem trivial_multiplicity_odd_of_selfDual {π : R} (hπ : Irreducible π)
   exact (self_dual_characteristic_two_composition_parity_forces_trivial_factor.{_, _, _, 0} _
     hself).2.1 (hdim ▸ hodd)
 
-theorem DVR_lattice_reduction_independence_and_self_dual_odd_parity [FiniteDimensional K V]
-    {π : R} (hπ : Irreducible π) (ρ : Representation K G V) :
-    (∀ (L₁ L₂ : Submodule R V) (hL₁ : ∀ g, ∀ x ∈ L₁, ρ g x ∈ L₁)
-        (hL₂ : ∀ g, ∀ x ∈ L₂, ρ g x ∈ L₂),
-        Module.Free R L₁ → Module.Finite R L₁ → Submodule.span K (L₁ : Set V) = ⊤ →
-        Module.Free R L₂ → Module.Finite R L₂ → Submodule.span K (L₂ : Set V) = ⊤ →
-        (∀ (W : Type w) [AddCommGroup W] [Module (R ⧸ Ideal.span {π}) W]
-          (σ : Representation (R ⧸ Ideal.span {π}) G W),
-          repMultiplicity (latticeReduction π ρ L₁ hL₁) σ =
-            repMultiplicity (latticeReduction π ρ L₂ hL₂) σ) ∧
-        ∀ (k' : Type w') [Field k'] [Algebra (R ⧸ Ideal.span {π}) k'] (W : Type w)
-          [AddCommGroup W] [Module k' W] (σ : Representation k' G W),
-          repMultiplicity (baseChangeRepresentation k' (latticeReduction π ρ L₁ hL₁)) σ =
-            repMultiplicity (baseChangeRepresentation k' (latticeReduction π ρ L₂ hL₂)) σ) ∧
-    (CharP (R ⧸ Ideal.span {π}) 2 → Odd (Module.finrank K V) →
-      ∀ φ : V ≃ₗ[K] Module.Dual K V, (∀ g v, φ (ρ g v) = ρ.dual g (φ v)) →
-      ∀ (L : Submodule R V) (hL : ∀ g, ∀ x ∈ L, ρ g x ∈ L), Module.Free R L →
-        Module.Finite R L → Submodule.span K (L : Set V) = ⊤ →
-        ∀ (kbar : Type w'') [Field kbar] [IsAlgClosed kbar] [Algebra (R ⧸ Ideal.span {π}) kbar],
-          0 < repMultiplicity (baseChangeRepresentation kbar (latticeReduction π ρ L hL))
-              (Representation.trivial kbar G kbar) ∧
-            Odd (repMultiplicity (baseChangeRepresentation kbar (latticeReduction π ρ L hL))
-              (Representation.trivial kbar G kbar))) := by
-  refine ⟨fun L₁ L₂ hL₁ hL₂ _ hfin₁ hsp₁ _ hfin₂ hsp₂ => ⟨fun W _ _ σ => ?_,
-    fun k' _ _ W _ _ σ => ?_⟩, fun h2 hodd φ hφ L hL _ _ hsp kbar _ _ _ =>
-      trivial_multiplicity_odd_of_selfDual hπ ρ hodd φ hφ L hL hsp kbar⟩
-  · exact repMultiplicity_latticeReduction_eq hπ ρ hL₁ hL₂ hsp₁ hsp₂ σ
-  · exact repMultiplicity_baseChange_latticeReduction_eq hπ ρ hL₁ hL₂ hsp₁ hsp₂ k' σ
-
-theorem exists_fixed_mod_invariant_of_selfDual {π : R} (hπ : Irreducible π)
-    (ρ : Representation K G V) [CharP (R ⧸ Ideal.span {π}) 2] (hodd : Odd (Module.finrank K V))
-    (φ : V ≃ₗ[K] Module.Dual K V) (hφ : ∀ g v, φ (ρ g v) = ρ.dual g (φ v))
-    (L : Submodule R V) (hL : ∀ g, ∀ x ∈ L, ρ g x ∈ L) [Module.Free R L] [Module.Finite R L]
-    (hsp : Submodule.span K (L : Set V) = ⊤) (kbar : Type*) [Field kbar] [IsAlgClosed kbar]
-    [Algebra (R ⧸ Ideal.span {π}) kbar] :
-    ∃ N : Submodule kbar
-        (kbar ⊗[R ⧸ Ideal.span {π}] (L ⧸ (Ideal.span {π} • ⊤ : Submodule R L))),
-      (∀ g, ∀ x ∈ N, baseChangeRepresentation kbar (latticeReduction π ρ L hL) g x ∈ N) ∧
-      ∃ v ∉ N, ∀ g, baseChangeRepresentation kbar (latticeReduction π ρ L hL) g v - v ∈ N :=
-  exists_invariant_fixed_mod_of_repMultiplicity_trivial_pos
-    (trivial_multiplicity_odd_of_selfDual hπ ρ hodd φ hφ L hL hsp kbar).1
 
 theorem latticeReduction_trivial_multiplicity_pos {G : Type*} [Group G] (R : Type*) [CommRing R]
     [IsDomain R] [IsDiscreteValuationRing R] (π : R) (hπ : Irreducible π) (E : Type*) [Field E]

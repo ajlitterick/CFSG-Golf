@@ -13,7 +13,6 @@ open CFSG.Open CFSG.Yardstones.Md0ec50421ce4 CFSG.LocalAnalysis.GLTheoremB
   CFSG.LocalAnalysis.GLTheoremA CFSG.LocalAnalysis.GLTheoremA.I1416Rows
 
 
-
 theorem qtypeOK_three_of_card_dvd_2520
     (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge) {T : Type} [Group T]
     [Finite T] [IsSimpleGroup T] (hnab : ∃ a b : T, a * b ≠ b * a) (hd : Nat.card T ∣ 2520) :
@@ -80,37 +79,6 @@ theorem qcompOK_three_of_card_dvd_7560
   exact qtypeOK_three_of_card_dvd_2520 hb hnab
     (Nat.dvd_of_mul_dvd_mul_left (by norm_num : 0 < 3) (h3.trans (by norm_num)))
 
-
-
-theorem qrow_three_of_check_7560 {s : TauCeti.SporadicName}
-    (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge)
-    (D : CFSG.HardMathSupport.Solomon.Coordinator.B3S3.Data) (n' : ℕ) (hn : D.n = n')
-    (hD : CFSG.HardMathSupport.Solomon.Coordinator.B3S3.check D = true)
-    {A B : Equiv.Perm (Fin n')}
-    (hA : CFSG.Monster.B.Co2.Rep n' D.A A) (hB : CFSG.Monster.B.Co2.Rep n' D.B B)
-    (P : Subgroup (Equiv.Perm (Fin n'))) (hP : P = Subgroup.closure {A, B})
-    (b : ↥P ≃* (TauCeti.CFSGIndex.sporadic s).Group)
-    (hs : IsSimpleGroup ↥P) (hpr : ¬ D.ord.Prime)
-    (hsmall : ∀ c < D.cases.size, D.cases[c]!.card ∣ 7560) : I1416QRow s 3 := by
-  subst hn
-  subst hP
-  obtain ⟨hcardP, hcls⟩ :=
-    CFSG.HardMathSupport.Solomon.Coordinator.B3S3.check_card_order_sound D hA hB hD
-  refine qrow_of_model hOut b
-    (CFSG.LocalAnalysis.GLTheoremA.S8.HNRows.exists_noncomm_of_simple (by rw [hcardP]; exact hpr))
-    fun x hx => ?_
-  have hx3 : orderOf (x : Equiv.Perm (Fin D.n)) = 3 := by rw [Subgroup.orderOf_coe]; exact hx
-  obtain ⟨c, hc, hcc⟩ := hcls x x.2 hx3
-  refine qcompOK_three_of_card_dvd_7560 hb hx ?_
-  have hmapc := CFSG.HardMathSupport.Solomon.Coordinator.map_centralizer_subtype
-    (Subgroup.closure {A, B}) x
-  have hcc' : Nat.card (Subgroup.centralizer ({x} : Set ↥(Subgroup.closure {A, B}))) =
-      Nat.card ↥(Subgroup.centralizer ({(x : Equiv.Perm (Fin D.n))} : Set (Equiv.Perm (Fin D.n))) ⊓
-        Subgroup.closure {A, B}) := by
-    rw [← hmapc, Subgroup.card_map_of_injective (Subgroup.closure {A, B}).subtype_injective]
-  rw [hcc', hcc]
-  exact hsmall c hc
 
 open CFSG.HardMathSupport.Solomon.Coordinator CFSG.HardMathSupport.Solomon.Coordinator.B3S3 in
 theorem qrow_He_three

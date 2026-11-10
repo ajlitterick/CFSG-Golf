@@ -32,9 +32,6 @@ theorem dstarConnected_of_generators (hΩ : ConjInvariant Ω)
   have h1 := (mem_sigmaStarNorm_iff.mp hgN K).mp Relation.ReflTransGen.refl
   rwa [hg] at h1
 
-theorem le_iSup_dstarComp {K : Subgroup G} {S : Set (Subgroup G)} (hS : S ⊆ dstarComp Ω K) :
-    (⨆ M ∈ S, M) ≤ ⨆ M ∈ dstarComp Ω K, M :=
-  iSup₂_le fun M hM => le_iSup₂_of_le M (hS hM) le_rfl
 
 section Edge
 

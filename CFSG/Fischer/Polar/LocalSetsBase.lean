@@ -52,9 +52,6 @@ theorem hypCtx_lamIdx {a : ℕ} (ha : a < 693) :
   unfold mkCtx
   rw [getElem!_pos _ a (by simpa using ha), Array.getElem_ofFn]
 
-theorem hypCtx_gI {x : ℕ} (hx : x < 693) : (CT).gI[x]! = invT 693 (tvWordTab WS[x]!) := by
-  unfold mkCtx wordInvs
-  rw [getElem!_pos _ x (by simpa using hx), Array.getElem_ofFn]
 
 @[expose] noncomputable def gx (x : Fin 693) : Equiv.Perm (Fin 693) := wordP WS[x.val]!
 

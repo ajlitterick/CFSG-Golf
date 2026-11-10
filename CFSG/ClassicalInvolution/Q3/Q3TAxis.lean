@@ -198,10 +198,6 @@ theorem card_axis [Finite G] : Nat.card (axisOf z₁ z₂ t₁ t₂ t₃) = 8 :=
   have hEq := Subgroup.eq_of_le_of_card_ge hBA (by omega)
   exact h.s_not_mem_pair (hEq ▸ s_mem_axis z₁ z₂ t₁ t₂ t₃)
 
-theorem pair_mem_axis [Finite G] :
-    Subgroup.closure ({z₁, z₂} : Set G) ∈
-      signalizerFunctorEk 2 2 (axisOf z₁ z₂ t₁ t₂ t₃) :=
-  ⟨pair_le_axis z₁ z₂ t₁ t₂ t₃, by rw [h.tri.edge.card_pair]; norm_num⟩
 
 end AxisData3
 
@@ -274,10 +270,6 @@ theorem weakBalanced_of_classical_of_outside {A B : Subgroup G}
   · exact hcl a ha ha1 b hbB hb1
   · exact hout a ha ha1 b hb hbB
 
-structure AxisRest3 (A B : Subgroup G) : Prop where
-  weakOutside : WeakBalancedOutside A B
-  two : TwoBalancedWrt A
-  generation : rankTwoSpan A = ⊤
 
 end Rest
 
@@ -289,29 +281,5 @@ end Rest
       ∀ (K₁ K₂ : Subgroup G) (z₁ z₂ : G), IsEdge3 (conjClass3 K) K₁ K₂ z₁ z₂ →
         ∃ K₃ : Subgroup G, IsTriangle3 (conjClass3 K) K₁ K₂ K₃ z₁ z₂
 
-@[expose] def TypeC3AxisRest : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    ∀ (K : Subgroup G) (z : G), IsClassicalMember3 K z → CIT3Below (Nat.card G) →
-      3 ≤ twoRank G → ¬ TwoSubgroupsFourGenerated G → DeltaConnected K →
-      ¬ BootData3 (conjClass3 K) → ¬ A2Configuration z K →
-      ∀ (K₁ K₂ K₃ : Subgroup G) (z₁ z₂ t₁ t₂ t₃ : G),
-        AxisData3 (conjClass3 K) K₁ K₂ K₃ z₁ z₂ t₁ t₂ t₃ →
-          AxisRest3 (axisOf z₁ z₂ t₁ t₂ t₃) (Subgroup.closure ({z₁, z₂} : Set G))
-
-theorem typeC3Axes_of_triangle_rest (h1 : TypeC3Triangle) (h2 : TypeC3AxisRest) :
-    TypeC3Axes := by
-  intro G _ _ _ hnab K z hz hBelow h3 h4 hΔ hB hA2 K₁ K₂ z₁ z₂ he
-  obtain ⟨K₃, htri⟩ := h1 G hnab K z hz hBelow h3 h4 hΔ hB hA2 K₁ K₂ z₁ z₂ he
-  obtain ⟨t₁, t₂, t₃, hd⟩ := exists_axisData3 htri
-  have hΩ : InClass3 (conjClass3 K) := inClass3_conjugates hz
-  have hIH : LocalLieSystems3 (conjClass3 K) := localLieSystems3_of_cit3Below hΩ hBelow
-  have hO : LocalOddCentralizer3 (conjClass3 K) :=
-    localOddCentralizer3_of_lieSystem lieSystemOddCentralizer3_proved hIH
-  have hnc : ∀ b : G, b ≠ 1 → b ∉ Subgroup.center G := fun b hb1 hbc =>
-    not_subset_center_of_ne_one hnab hb1 (Set.singleton_subset_iff.mpr hbc)
-  have hrest := h2 G hnab K z hz hBelow h3 h4 hΔ hB hA2 K₁ K₂ K₃ z₁ z₂ t₁ t₂ t₃ hd
-  refine ⟨axisOf z₁ z₂ t₁ t₂ t₃, pair_le_axis z₁ z₂ t₁ t₂ t₃, ⟨hd.isElemAbelian_axis, hd.card_axis,
-    weakBalanced_of_classical_of_outside (hd.weakBalanced_classical hΩ.conjInvariant hO hnc)
-      hrest.weakOutside, hrest.two⟩, hrest.generation⟩
 
 end CFSG.ClassicalInvolution.Q3

@@ -105,8 +105,6 @@ theorem field_mul_comm : R.val.right * S.val.right = S.val.right * R.val.right :
   map_mul' a b := Subtype.ext (map_mul R.val.right (a : K) b)
   map_add' a b := Subtype.ext (map_add R.val.right (a : K) b)
 
-theorem coe_restrictDescentField (a : descentField S.val.right) :
-    (restrictDescentField hRS a : K) = R.val.right a := rfl
 
 theorem coordinateSemilinearMap_mem_pairFix {w : Fin d → K} (hw : w ∈ pairFix S) :
     coordinateSemilinearMap R.val w ∈ pairFix S := by

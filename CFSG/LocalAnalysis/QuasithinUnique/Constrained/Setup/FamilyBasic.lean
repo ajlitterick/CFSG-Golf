@@ -19,13 +19,6 @@ structure FFHyp (V : Type) [CommGroup V] [Finite V] (H T M E : Subgroup (MulAut 
   offender : E ≤ H ∧ E ≠ ⊥ ∧ (∀ a ∈ E, ∀ b ∈ E, a * b = b * a) ∧ (∀ a ∈ E, a ^ 2 = 1) ∧
     Nat.card V ≤ Nat.card E * Nat.card (fixV E)
 
-theorem _root_.CFSG.QuasithinUnique.Setup.FFActor.toFFHyp {V : Type} [CommGroup V] [Finite V]
-    {H T M E : Subgroup (MulAut V)} (h : FFActor V H T M E) : FFHyp V H T M E :=
-  ⟨h.elementary, h.o2_trivial, h.sylow, h.not_normal, h.max, h.offender⟩
-
-theorem FFHyp.toFFActor {V : Type} [CommGroup V] [Finite V] {H T M E : Subgroup (MulAut V)}
-    (h : FFHyp V H T M E) (hsqt : CFSG.IsStronglyQuasithin H) : FFActor V H T M E :=
-  ⟨h.elementary, h.o2_trivial, h.sylow, h.not_normal, h.max, hsqt, h.offender⟩
 
 section Offenders
 

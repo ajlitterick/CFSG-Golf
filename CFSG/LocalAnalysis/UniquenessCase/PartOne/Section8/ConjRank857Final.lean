@@ -358,16 +358,6 @@ theorem center_three_imp_of_list857 {G : Type} [Group G] [Finite G]
     IsA6Z3 (Bar2 L) ∨ IsA7Z3 (Bar2 L) ∨ IsM22Z3 (Bar2 L) :=
   (center_card_le_three_and_center_three_imp_of_list857 hL hlist).2 h3
 
-theorem four_le_pRank_three_of_three_conj_list857 {G : Type} [Group G] [Finite G]
-    {M L L1 L2 L3 : Subgroup G}
-    (hL : L ∈ calC M)
-    (h1 : L1 ∈ conjSetOf M L) (h2 : L2 ∈ conjSetOf M L) (h3 : L3 ∈ conjSetOf M L)
-    (h12 : L1 ≠ L2) (h13 : L1 ≠ L3) (h23 : L2 ≠ L3)
-    (hr : CFSG.Open.pRank 3 L = 2)
-    (hlist : List857 (Bar2 L)) :
-    4 ≤ CFSG.Open.pRank 3 M :=
-  four_le_pRank_three_of_three_conj_list857_of_center hL h1 h2 h3 h12 h13 h23 hr hlist
-    (center_card_le_three_of_list857 hL hlist)
 
 theorem ncard_conjSetOf_le_two_of_list857 {G : Type} [Group G] [Finite G]
     {M L : Subgroup G} (hL : L ∈ calC M)

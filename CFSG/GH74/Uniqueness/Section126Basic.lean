@@ -173,14 +173,6 @@ theorem sec126_centralizes_conj (h : LData c n i) {u m : X} (hm : m ∈ M)
 
 end LData
 
-omit [Finite X] in
-theorem sec126_mem_deltaSet_iff_of_le {u x : X} (ha : zHull Z M ≤ centralizer ({u} : Set X)) :
-    x ∈ deltaSet Z M u ↔ ∃ y ∈ zHull Z M, x = y * u := by
-  constructor
-  · rintro ⟨y, hy, rfl⟩
-    exact ⟨y, (Subgroup.mem_inf.mp hy).2, rfl⟩
-  · rintro ⟨y, hy, rfl⟩
-    exact ⟨y, Subgroup.mem_inf.mpr ⟨ha hy, hy⟩, rfl⟩
 
 theorem Shears.sec126_all_conj (h124 : Lemma124Stmt Z M) (h : LData c n i) {u : X} (hu : u ∈ c.D)
     (hu2 : orderOf u = 2) (hsh : Shears Z M u) :

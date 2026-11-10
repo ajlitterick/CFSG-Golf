@@ -38,17 +38,6 @@ theorem InducesTwoCentralInner.of_mem {z : G} {L P : Subgroup G} (hz : z ∈ L)
   rw [commutatorElement_eq_one_iff_mul_comm.mpr hcomm]
   exact Subgroup.one_mem _
 
-theorem InducesPermAction.of_alternatingGroup {n : ℕ} (hn : 4 ≤ n) (σ : Equiv.Perm (Fin n)) :
-    ∃ φ : (alternatingGroup (Fin n) ⧸ Subgroup.center (alternatingGroup (Fin n))) ≃*
-        alternatingGroup (Fin n),
-      InducesPermAction σ (alternatingGroup (Fin n) : Subgroup (Equiv.Perm (Fin n))) φ σ := by
-  have hc : Subgroup.center (alternatingGroup (Fin n)) = ⊥ :=
-    alternatingGroup.center_eq_bot (by simpa using hn)
-  refine ⟨(QuotientGroup.quotientMulEquivOfEq hc).trans QuotientGroup.quotientBot, ?_, ?_⟩
-  · intro x hx
-    simpa using (inferInstance : (alternatingGroup (Fin n)).Normal).conj_mem x hx σ⁻¹
-  · intro x y hxy
-    exact hxy
 
 end Action
 
@@ -138,29 +127,5 @@ theorem Lemma115_3_List.component_cases (hlist : Lemma115_3_List) {G : Type} [Gr
   let hc := h.component_action hL
   ⟨hc.1, hc.2.1, hc.2.2.1, hlist G hsimple hnonab hqtke H S M z h L hL⟩
 
-theorem lemma115CaseC_symmetric_six :
-    Lemma115CaseC (alternatingGroup (Fin 6) : Subgroup (Equiv.Perm (Fin 6))) (Equiv.swap 0 1) := by
-  obtain ⟨φ, hφ⟩ := InducesPermAction.of_alternatingGroup (n := 6) (by norm_num) (Equiv.swap 0 1)
-  refine ⟨φ, Equiv.swap 0 1, Or.inl ?_, ⟨0, 1, by decide, rfl⟩, hφ⟩
-  rw [alternatingGroup.center_eq_bot (by simp)]
-  simp
-
-private theorem cycleType_three_swaps :
-    (Equiv.swap (0 : Fin 7) 1 * Equiv.swap 2 3 * Equiv.swap 4 5).cycleType = {2, 2, 2} := by
-  have hd : Equiv.Perm.Disjoint (Equiv.swap (0 : Fin 7) 1 * Equiv.swap 2 3) (Equiv.swap 4 5) :=
-    Equiv.Perm.Disjoint.mul_left (Equiv.Perm.disjoint_swap_swap (by decide))
-      (Equiv.Perm.disjoint_swap_swap (by decide))
-  rw [hd.cycleType_mul, Equiv.Perm.cycleType_swap_mul_swap_of_nodup (by decide),
-    Equiv.Perm.isSwap_iff_cycleType.mp (Equiv.Perm.swap_isSwap_iff.mpr (by decide))]
-  rfl
-
-theorem lemma115CaseD_symmetric_seven :
-    Lemma115CaseD (alternatingGroup (Fin 7) : Subgroup (Equiv.Perm (Fin 7)))
-      (Equiv.swap 0 1 * Equiv.swap 2 3 * Equiv.swap 4 5) := by
-  obtain ⟨φ, hφ⟩ := InducesPermAction.of_alternatingGroup (n := 7) (by norm_num)
-    (Equiv.swap 0 1 * Equiv.swap 2 3 * Equiv.swap 4 5)
-  refine ⟨φ, Equiv.swap 0 1 * Equiv.swap 2 3 * Equiv.swap 4 5, Or.inl ?_, cycleType_three_swaps, hφ⟩
-  rw [alternatingGroup.center_eq_bot (by simp)]
-  simp
 
 end CFSG.QuasithinUnique

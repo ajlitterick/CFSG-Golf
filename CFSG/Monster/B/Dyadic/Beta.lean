@@ -83,18 +83,6 @@ theorem modTwoMap_mul {M : Type*} [AddCommGroup M] (φ ψ : Module.End ℤ M) :
     Basis (Fin 4371) (ZMod 2) (ModN (Lam R) 2) :=
   ModN.basis (ellZBasis R)
 
-theorem modRep_basis_of
-    {s : G} {sh : ℕ} {M : Array (Array (ℕ × UInt32))} {num : ℕ → ℕ → ℤ}
-    (h : ReducesOn R (ρ s : V →ₗ[ℚ] V) sh M num) (k : Fin 4371) :
-    modRep R ρ hΛ s (bb R k) = ∑ l, parMat sh M k l • bb R l :=
-  modTwo_ell_of h (hΛ s) k
-
-theorem modRep_gen_toMatrix
-    (gens : Fin 26 → G)
-    (hact : ∀ g t, (ρ (gens g) : V →ₗ[ℚ] V) (R t) =
-      ∑ u : Fin 4371, ((numer g t u : ℚ) / 8) • R u) (g : Fin 26) :
-    (LinearMap.toMatrix (bb R) (bb R) (modRep R ρ hΛ (gens g))).transpose = Cmat g :=
-  toMatrix_modTwo R g _ (hact g) (hΛ (gens g))
 
 theorem modRep_gen_basis
     (gens : Fin 26 → G)
@@ -103,30 +91,6 @@ theorem modRep_gen_basis
     modRep R ρ hΛ (gens g) (bb R k) = ∑ l, Cmat g k l • bb R l :=
   modTwo_ell R g _ (hact g) (hΛ (gens g)) k
 
-include hΛ in
-theorem Cmat_isUnit
-    (gens : Fin 26 → G)
-    (hact : ∀ g t, (ρ (gens g) : V →ₗ[ℚ] V) (R t) =
-      ∑ u : Fin 4371, ((numer g t u : ℚ) / 8) • R u) (g : Fin 26) : IsUnit (Cmat g) := by
-  have hu : IsUnit (LinearMap.toMatrix (bb R) (bb R) (modRep R ρ hΛ (gens g))) := by
-    have h := ((Group.isUnit (gens g)).map (modRep R ρ hΛ)).map
-      (LinearMap.toMatrixAlgEquiv (bb R))
-    convert h using 1
-    ext i j
-    rw [LinearMap.toMatrix_apply, LinearMap.toMatrixAlgEquiv_apply]
-  rw [← modRep_gen_toMatrix R ρ hΛ gens hact g, Matrix.isUnit_iff_isUnit_det,
-    Matrix.det_transpose, ← Matrix.isUnit_iff_isUnit_det]
-  exact hu
-
-theorem modRep_mrange [Finite G] (gens : Fin 26 → G)
-    (hgen : Subgroup.closure (Set.range gens) = ⊤) :
-    MonoidHom.mrange (modRep R ρ hΛ) =
-      Submonoid.closure (Set.range fun g => modRep R ρ hΛ (gens g)) := by
-  have hm : Submonoid.closure (Set.range gens) = ⊤ := by
-    rw [← Subgroup.closure_toSubmonoid_of_finite, hgen]
-    rfl
-  rw [MonoidHom.mrange_eq_map, ← hm, MonoidHom.map_mclosure, ← Set.range_comp]
-  rfl
 
 @[expose] noncomputable def fbar :
     ModN (Lam R) 2 := (bb R).equivFun.symm fvec
@@ -311,35 +275,6 @@ theorem beta_of_basis
   change coordQ R (quotEnd R ρ hΛ hf s (Submodule.Quotient.mk (bb R (pIdx.succAbove j)))) i = _
   rw [quotEnd_mk, coordQ_mk, Phi_apply, h, equivFun_sum]
 
-theorem beta_of_reducesOn
-    (hf : ∀ s, modRep R ρ hΛ s (fbar R) = fbar R) {s : G} {sh : ℕ}
-    {M : Array (Array (ℕ × UInt32))} {num : ℕ → ℕ → ℤ}
-    (h : ReducesOn R (ρ s : V →ₗ[ℚ] V) sh M num) :
-    ((beta R ρ hΛ hf s : GL (Fin 4370) (ZMod 2)) : Matrix (Fin 4370) (Fin 4370) (ZMod 2)) =
-      (Matrix.of fun j t => Pmap (fun l => parMat sh M (pIdx.succAbove j) l) t).transpose :=
-  beta_of_basis R ρ hΛ hf (modRep_basis_of R ρ hΛ h)
-
-theorem Pmap_parMat (sh : ℕ) (M : Array (Array (ℕ × UInt32))) (k : Fin 4371) (t : Fin 4370) :
-    Pmap (fun l => parMat sh M k l) t =
-      if rowBit (qRowBytes (bytesOfNat fixedVector) (binRow sh basisRowsK diagExpK M k)) t then 1
-      else 0 := by
-  unfold parMat
-  rw [rowBit_qRowBytes _ _ t.2, Pmap_apply, srcIdx_eq t,
-    rowBit_bytesOfNat _ (by have := (pIdx.succAbove t).2; omega)]
-  exact (xor_ite_zmod2 _ _ _).symm
-
-theorem beta_packet
-    (hf : ∀ s, modRep R ρ hΛ s (fbar R) = fbar R) {s : G} (j : ℕ)
-    (hN : ∀ t, (ρ s : V →ₗ[ℚ] V) (R t) = ∑ u : Fin 4371, ((numerAt j t u : ℚ) / 8) • R u)
-    (hok : ∀ i < 4371, (reduceRow 3 basisRowsK diagExpK (packetMat j) i).isSome) :
-    ((beta R ρ hΛ hf s : GL (Fin 4370) (ZMod 2)) : Matrix (Fin 4370) (Fin 4370) (ZMod 2)) =
-      (Matrix.of fun (i t : Fin 4370) => (if rowBit (qRowBytes (bytesOfNat fixedVector)
-        (binRow 3 basisRowsK diagExpK (packetMat j) (pIdx.succAbove i))) t then 1
-          else 0 : ZMod 2)).transpose := by
-  rw [beta_of_reducesOn R ρ hΛ hf (reducesOn_packet R j _ hN hok)]
-  ext a b
-  rw [Matrix.transpose_apply, Matrix.transpose_apply, Matrix.of_apply, Matrix.of_apply,
-    Pmap_parMat]
 
 theorem beta_gen
     (gens : Fin 26 → G)

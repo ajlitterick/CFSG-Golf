@@ -140,17 +140,6 @@ theorem leviAutOfAut_eq_iff (hQM : Disjoint Q M) (hMN : M ≤ normalizer (Q : Se
     rw [disjoint_iff.1 hQM, mem_bot, inv_mul_eq_one] at h2
     exact Subtype.ext h2.symm
 
-theorem leviAutOfAut_conj_eq (hQM : Disjoint Q M) (hMN : M ≤ normalizer (Q : Set C))
-    (hβ : (Q.subgroupOf (Q ⊔ M)).map β.toMonoidHom = Q.subgroupOf (Q ⊔ M))
-    (hQ : ∀ a ∈ Q, ∀ b ∈ Q, a * b = b * a) (m : M) (q : (Q ⊔ M : Subgroup C))
-    (hq : (q : C) ∈ Q) :
-    (leviAutOfAut Q M hQM hMN β hβ m : C) * (β q : C) *
-        (leviAutOfAut Q M hQM hMN β hβ m : C)⁻¹ =
-      (β (inclusion le_sup_right m * q * (inclusion le_sup_right m)⁻¹) : C) := by
-  rw [map_mul, map_mul, map_inv]
-  simp only [coe_mul, coe_inv]
-  exact conj_eq_conj_of_inv_mul_mem hQ (inv_mul_leviAutOfAut_mem hQM hMN hβ m)
-    ((coe_mem_iff_of_map_eq hβ q).2 hq)
 
 theorem leviAutOfAut_commutatorElement_eq (hQM : Disjoint Q M)
     (hMN : M ≤ normalizer (Q : Set C))
@@ -329,45 +318,6 @@ theorem exists_le_centralizer_mulEquiv_of_coords_aut (hset : StandardSetting G L
   refine ⟨P, le_inf (hP.trans inf_le_right) ?_, ⟨eP.trans eD⟩⟩
   exact (hP.trans inf_le_left).trans (hφ'r ▸ conjugate_le_centralizer_conj htC g)
 
-theorem exists_conj_le_centralizer_mulEquiv_of_fusion_aut (hset : StandardSetting G L)
-    (hOut : Group.IsSolvable (Outer L)) {C : Type*} [Group C] (e : L ≃* C) {t : G}
-    (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {g : G} {κ : Type*} (rep : κ → C) {k : κ}
-    (hg : g⁻¹ * t * g = (e.symm (rep k) : G) ∨ g⁻¹ * t * g = t * (e.symm (rep k) : G))
-    (hne : g⁻¹ * t * g ≠ t)
-    (hinner : ∃ w' ∈ CFSG.conjugate L g, ∀ l ∈ CFSG.conjugate L g,
-      t * l * t⁻¹ = w' * l * w'⁻¹)
-    (hF1 : ∀ x : C, orderOf x = 2 → ∃ (k' : κ) (c : C), c * x * c⁻¹ = rep k')
-    (Q M : κ → Subgroup C)
-    (hF3 : ∀ k, perfectCore (centralizer ({rep k} : Set C)) = Q k ⊔ M k)
-    (hQ : ∀ k, IsPGroup 2 (Q k)) (hMN : ∀ k, M k ≤ normalizer (Q k : Set C))
-    (hQM : ∀ k, Disjoint (Q k) (M k))
-    (hM : ∀ k, ∀ N : Subgroup (M k), N.Normal → IsPGroup 2 N → N = ⊥)
-    {J : Subgroup C} (hJ : ∀ k, J ≤ M k)
-    (hsame : ∀ k₁ k₂, Nonempty ((Q k₁ ⊔ M k₁ : Subgroup C) ≃* (Q k₂ ⊔ M k₂ : Subgroup C)) →
-      k₁ = k₂)
-    {D : Type*} [Group D]
-    (hF5 : ∀ k (β : (Q k ⊔ M k : Subgroup C) ≃* (Q k ⊔ M k : Subgroup C))
-      (hβ : ((Q k).subgroupOf (Q k ⊔ M k)).map β.toMonoidHom = (Q k).subgroupOf (Q k ⊔ M k)),
-      Nonempty (centralizer ((((J.subgroupOf (M k)).map
-        (leviAutOfAut (Q k) (M k) (hQM k) (hMN k) β hβ).toMonoidHom).map (M k).subtype :
-          Subgroup C) : Set C) ≃* D))
-    {X : Subgroup G} (hXodd : Odd (Nat.card X))
-    (hXJ : X ≤ (J.map e.symm.toMonoidHom).map L.subtype) :
-    ∃ P : Subgroup G, P ≤ centralizer (X : Set G) ⊓ centralizer ({g⁻¹ * t * g} : Set G) ∧
-      Nonempty (P ≃* D) := by
-  have htC := mem_centralizer_of_inf_centralizer_eq_zpowers hKt
-  obtain ⟨w', hw'L, hact⟩ := hinner
-  have hw'2 : orderOf w' = 2 :=
-    orderOf_eq_two_of_inner ht hKt (e.symm (rep k)).2 hg hne hw'L hact
-  obtain ⟨x', hx'⟩ := exists_eq_conj_of_mem_conjugate e hw'L
-  have hx'2 : orderOf x' = 2 := by rw [← orderOf_conj_symm e g x', hx', hw'2]
-  obtain ⟨k', c', hc'⟩ := hF1 x' hx'2
-  obtain ⟨φ', hφ', hφ'r, hφ'rep⟩ := exists_coords_conjugate e g hc'
-  rw [hx'] at hφ'rep
-  exact exists_le_centralizer_mulEquiv_of_coords_aut hset hOut e ht htC rep hg hφ' hφ'r
-    (by rw [hφ'rep]; exact hact) Q M hF3 hQ hMN hQM hM hJ hsame hF5 hXodd hXJ
 
 theorem exists_conj_le_centralizer_mulEquiv_of_conj_mem_aut (hset : StandardSetting G L)
     (hOut : IsCyclic (Outer L)) (hZ : center L = ⊥) {C : Type*} [Group C] (e : L ≃* C)

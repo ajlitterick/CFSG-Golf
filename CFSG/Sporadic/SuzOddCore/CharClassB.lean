@@ -112,14 +112,6 @@ theorem suzTheta3_injective :
 theorem suzTheta3_mem
     (i : Fin 22880) : suzTheta3 i ∈ suzClassQ := ⟨gOf i, rfl⟩
 
-theorem range_suzTheta3 :
-    Set.range suzTheta3 = suzClassQ := by
-  ext H
-  constructor
-  · rintro ⟨i, rfl⟩
-    exact suzTheta3_mem i
-  · rintro ⟨g, rfl⟩
-    exact ⟨_, (autMap_conj_eq g).symm⟩
 
 theorem suzTheta3_unique
     (θ' : Fin 22880 → Subgroup suzP) (h0 : θ' 0 = suzQP)

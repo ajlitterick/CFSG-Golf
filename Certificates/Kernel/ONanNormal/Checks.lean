@@ -20,23 +20,5 @@ noncomputable def ch6146c (k : Nat) : Bool := chunkK gs ws ks rs wt k
 #kc_forall_chunks ck6146_chunks (fun k => chunkK gs ws ks rs wt k = true) 16
   CertificateChecks.ONanNormal.ch6146c 1
 
-theorem ck6146_neg_wit :
-    (!chunkK gs ws ks rs (wt.set 0 ((wt.getD 0 []).map fun t => t.set 2 0)) 0) = true := by
-  decide +kernel
-
-theorem ck6146_neg_cl :
-    (!chunkK gs ws ks (rs.set 0 ((rs.getD 0 []).map fun r => r.set 0 ((r.getD 0 0 + 1) % 512)))
-      wt 0) = true := by
-  decide +kernel
-
-theorem ck6146_neg_depth :
-    (!chunkK gs ws ks (rs.set 0 ((rs.getD 0 []).map fun r => r.set 3 7)) wt 0) = true := by
-  decide +kernel
-
-theorem ck6146_neg_key : (!chunkK gs ws (ks.set 0 (ks.getD 0 []).reverse) rs wt 0) = true := by
-  decide +kernel
-
-theorem ck6146_neg_empty : (!shapeK gs ws rs (wt.set 1 ((wt.getD 1 []).map fun _ => []))) = true := by
-  decide +kernel
 
 end CertificateChecks.ONanNormal

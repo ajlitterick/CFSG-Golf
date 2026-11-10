@@ -127,11 +127,6 @@ private lemma lambdaTwo_val_tH0_eq_neg_one (h12 : Hyp12 c) (hSC : Section3Hyp c)
     ((lambdaTwo c h12).1 (tH0 c) : ℂ) = -1 :=
   congrArg (fun u : ℂˣ => (u : ℂ)) (lambdaTwo_at_tH0_eq_neg_one c h12 hSC hS4)
 
-/-- A `Λ`-character is trivial on `U`. -/
-private lemma lambda_trivial_on_U (l : LambdaHom c.H0 c.U) {u : ↥c.H0}
-    (hu : (u : G) ∈ c.U) : (l.1 u : ℂ) = 1 := by
-  have hl : l.1 ∈ {l : ↥c.H0 →* ℂˣ | ∀ u : ↥c.H0, (u : G) ∈ c.U → l u = 1} := l.2
-  exact congrArg (fun u : ℂˣ => (u : ℂ)) (hl u hu)
 
 /-- `λ₂` is fixed by `s` (Lemma 2.1 / `lambda_fixed_by_s_iff`). -/
 private lemma lambdaTwo_fixed_by_s (h12 : Hyp12 c)

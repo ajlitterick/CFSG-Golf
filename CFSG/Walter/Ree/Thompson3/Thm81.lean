@@ -227,15 +227,6 @@ theorem thm81'
   have := (R.pres_unique hpres).2
   rw [← ppv_coords hm1, this, ppv_coords hm2]
 
-theorem thm81 [Finite k] :
-    ∀ (z y u : k) (hz : z ≠ 0) (hy : y ≠ 0), u ≠ 0 → (z, y, u) ∈ hopkinsE σ →
-      ∀ (ν ν' p p' : ThompsonN k σ), p ∈ ThompsonN.P σ → p' ∈ ThompsonN.P σ →
-        R.K * R.ι (pp σ 0 u 1) * R.K = R.ι ν * R.K * R.ι p →
-        R.K * R.ι (pp σ 0 (-u) 1) * R.K = R.ι ν' * R.K * R.ι p' →
-        (ThompsonN.torus σ (Units.mk0 z hz))⁻¹ * p * ThompsonN.torus σ (Units.mk0 z hz) =
-          (ThompsonN.torus σ (Units.mk0 y hy))⁻¹ * p' * ThompsonN.torus σ (Units.mk0 y hy) *
-            tY σ d ^ 7 :=
-  fun _ _ _ hz hy _ hE _ _ _ _ hp hp' h1 h2 => R.thm81' hz hy hE hp hp' h1 h2
 
 theorem components_thm81
     [Finite k] {S : k → k × k × k} (hS : IsS R S) {z y u : k}

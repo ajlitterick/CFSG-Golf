@@ -60,10 +60,6 @@ theorem Cmt.rel' (h : Cmt z v₁ v₂ v₃) : (v₂ * v₃) * (v₃ * v₁) = z 
   calc (v₂ * v₃) * (v₃ * v₁) = z * (v₂ * v₁) := this
     _ = z * (v₁ * v₂) := by rw [h.c₁₂]
 
-theorem Cmt.sq_z (h : Cmt z v₁ v₂ v₃) : z⁻¹ = z := inv_eq_of_mul_eq_one_right h.z2
-
-theorem Cmt.inv_v₁ (h : Cmt z v₁ v₂ v₃) : v₁⁻¹ = v₁ * z :=
-  inv_eq_of_mul_eq_one_right (by rw [← mul_assoc, h.s₁, h.z2])
 
 theorem Cmt.zc₁₃ (h : Cmt z v₁ v₂ v₃) : z * (v₁ * v₃) = (v₁ * v₃) * z := by
   calc z * (v₁ * v₃) = (z * v₁) * v₃ := by rw [mul_assoc]

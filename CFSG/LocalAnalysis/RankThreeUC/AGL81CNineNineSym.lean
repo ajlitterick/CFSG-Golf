@@ -244,35 +244,5 @@ theorem exists_nineSettingGen_of_not_mem_uniqueSet {M : Subgroup G}
     · simpa using hΓ
   · exact mem_H2Fam_iff.mpr ⟨hHtop, hQMg, hHM, hC.cstar.charTwo _ hHtwo⟩
 
-theorem exists_nineSetting_of_not_mem_uniqueSet {M : Subgroup G} (hC : CStarSetting G M) {p : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) {E : Subgroup G} (hEM : E ≤ M) (hE : IsElemAbelian p E)
-    (hEc : Nat.card E = p ^ 2) (hΓ : rankThreeGamma 1 p E ≤ M) (hU : E ∉ uniqueSet M) :
-    ∃ (g : G) (Q : Subgroup G),
-      NineSetting G M p Q (M.map (MulAut.conj g).toMonoidHom) E 2 ∧
-      M.map (MulAut.conj g).toMonoidHom ∈ H2Fam M Q ∧
-      pCoreOf 2 (M.map (MulAut.conj g).toMonoidHom) ≠
-        pCoreOf 2 (M.map (MulAut.conj g).toMonoidHom ⊓ M) := by
-  haveI := hC.standing.simple
-  have hM := hC.maxLocal
-  have hEp : IsPGroup p E := elementary_isPGroup p E hE
-  obtain ⟨g₁, Q₁, hne₁, hQp₁, hEQ₁, hEgQ₁, hQ₁M, hQ₁Mg⟩ :=
-    exists_symmetric_conj_of_not_mem_uniqueSet hM hp hEM hEp hU
-  obtain ⟨g, Q, hne, hQp, hEQ, hQM, hQMg, hcore⟩ :=
-    exists_symmetric_conj_ne_pCore hM hne₁ hQp₁ hEQ₁ hEgQ₁ hQ₁M hQ₁Mg
-  have hHmax : rankThreeIsMaxTwoLocal (M.map (MulAut.conj g).toMonoidHom) :=
-    CFSG.LocalAnalysis.RankThreeTheoremC.rankThreeIsMaxTwoLocal_map hM (MulAut.conj g)
-  have hHtwo : IsTwoLocal (M.map (MulAut.conj g).toMonoidHom) := hHmax.1
-  have hHtop : M.map (MulAut.conj g).toMonoidHom ≠ ⊤ :=
-    twoLocal_ne_top hC.standing.nonab _ hHtwo
-  have hHM : ¬ M.map (MulAut.conj g).toMonoidHom ≤ M := by
-    intro hle
-    exact hne (hHmax.2 M hM.1 hle).symm
-  refine ⟨g, Q, ?_, ?_, hcore⟩
-  · refine ⟨hC, mem_QSet_iff.mpr ⟨hp, hp2, hQM, hQp, Or.inr ⟨E, hEQ, hE, hEc, ?_⟩⟩,
-      mem_HFam_iff.mpr ⟨hHtop, hQMg, hHM⟩, ⟨Or.inl rfl, hEQ, hE, hEc, ?_⟩⟩
-    · simpa using hΓ
-    · simpa using hΓ
-  · exact mem_H2Fam_iff.mpr ⟨hHtop, hQMg, hHM, hC.standing.charTwo _ hHtwo⟩
-
 
 end CFSG.LocalAnalysis.RankThreeUC.AGL81C

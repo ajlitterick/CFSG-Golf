@@ -26,7 +26,6 @@ theorem codeV_decodeV {n : ℕ} (hn : n < 16) : codeV (decodeV n) = n := by
 theorem codeV_add (u w : Fin 4 → ZMod 2) : codeV (u + w) = codeV u ^^^ codeV w := by
   revert u w; decide
 
-theorem codeV_zero : codeV 0 = 0 := by decide
 
 variable {G : Type*} [Group G]
 
@@ -81,8 +80,6 @@ theorem coord_tOf {n : ℕ} (hn : n < 16) : c.coord (tOf c n) = n := by
   simp only [tOf, hn, dite_true]
   exact Classical.choose_spec (c.surj n hn)
 
-theorem tOf_coord (t : T) : tOf c (c.coord t) = t :=
-  c.inj _ _ (coord_tOf c (c.lt t))
 
 theorem coord_one : c.coord (1 : T) = 0 := by
   have h := c.mul 1 1

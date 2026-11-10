@@ -67,8 +67,6 @@ theorem orderOf_eq_four_iff {M : Type*} [Group M] (m : M) :
   one_mem' := h1
   inv_mem' := fun {a} ha => hi a ha
 
-theorem mem_subOfPred {P : G → Prop} {h1 : P 1} {hm : ∀ s t, P s → P t → P (s * t)}
-    {hi : ∀ s, P s → P s⁻¹} {s : G} : s ∈ subOfPred P h1 hm hi ↔ P s := Iff.rfl
 
 theorem card_subOfPred [Fintype G] (P : G → Prop) [DecidablePred P] {h1 : P 1}
     {hm : ∀ s t, P s → P t → P (s * t)} {hi : ∀ s, P s → P s⁻¹} :
@@ -220,9 +218,6 @@ theorem isE_map {f : M →* G} (hf : Function.Injective f) {X : Subgroup M} {n :
   unfold IsE
   rw [isElemAbelian_map_iff hf, Subgroup.card_map_of_injective hf]
 
-theorem isE_comap {f : M →* G} (hf : Function.Injective f) {E : Subgroup G} (hE : E ≤ f.range)
-    {n : ℕ} (h : IsE n E) : IsE n (E.comap f) := by
-  rw [← isE_map hf, Subgroup.map_comap_eq_self hE]; exact h
 
 theorem Zc_map {f : M →* G} (hf : Function.Injective f) (X : Subgroup M) :
     Zc (X.map f) = (Zc X).map f := by

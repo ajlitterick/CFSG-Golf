@@ -132,45 +132,6 @@ theorem orderOf_ne_four_of_mem_inn3 {x : MulAut SL(2, ZMod 3)} (hx : x ∈ inn3)
   rw [Aut.mem_center_sl2Three_iff] at h1' h2'
   exact h2' (order_aux g h1')
 
-private noncomputable def autSinger : GL (Fin 2) (ZMod 3) :=
-  Matrix.GeneralLinearGroup.mk'' !![0, 1; 1, 1] (IsUnit.of_mul_eq_one (2 : ZMod 3) (by decide))
-
-private theorem autSinger_pow_four : autSinger ^ 4 = -1 := by
-  apply Units.ext
-  rw [Units.val_pow_eq_pow_val, Units.val_neg, Units.val_one]
-  show (!![0, 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 4 = -1
-  decide +kernel
-
-private theorem autSinger_pow_two_ne : autSinger ^ 2 ≠ 1 ∧ autSinger ^ 2 ≠ -1 := by
-  have h : ∀ a b : GL (Fin 2) (ZMod 3), (a : Matrix (Fin 2) (Fin 2) (ZMod 3)) ≠ b → a ≠ b :=
-    fun a b h hab => h (by rw [hab])
-  constructor
-  · refine h _ _ ?_
-    rw [Units.val_pow_eq_pow_val, Units.val_one]
-    show (!![0, 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 ≠ 1
-    decide +kernel
-  · refine h _ _ ?_
-    rw [Units.val_pow_eq_pow_val, Units.val_neg, Units.val_one]
-    show (!![0, 1; 1, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) ^ 2 ≠ -1
-    decide +kernel
-
-theorem exists_orderOf_four_mulAut : ∃ x : MulAut SL(2, ZMod 3), orderOf x = 4 := by
-  have hker : ∀ g : GL (Fin 2) (ZMod 3), g ∈ Subgroup.center (GL (Fin 2) (ZMod 3)) ↔
-      conjAut g = 1 := fun g => by
-    rw [← conjAut3_ker, MonoidHom.mem_ker]
-  refine ⟨conjAut autSinger, ?_⟩
-  have e1 : (conjAut autSinger) ^ 2 ^ 1 ≠ 1 := by
-    intro h
-    rw [pow_one, ← map_pow, ← hker, Aut.mem_center_gl3_iff] at h
-    exact h.elim autSinger_pow_two_ne.1 autSinger_pow_two_ne.2
-  have e2 : (conjAut autSinger) ^ 2 ^ (1 + 1) = 1 := by
-    rw [show 2 ^ (1 + 1) = 4 by norm_num, ← map_pow, ← hker, Aut.mem_center_gl3_iff]
-    exact Or.inr autSinger_pow_four
-  have := orderOf_eq_prime_pow e1 e2
-  rwa [show 2 ^ (1 + 1) = 4 by norm_num] at this
-
-theorem not_mem_inn3_of_orderOf_four {x : MulAut SL(2, ZMod 3)} (hx : orderOf x = 4) :
-    x ∉ inn3 := fun h => orderOf_ne_four_of_mem_inn3 h hx
 
 end Orders
 
@@ -264,18 +225,6 @@ theorem sl2Three_mulAut_eq_one_of_fixes_sylow (P : Sylow 2 SL(2, ZMod 3))
   · exact Or.inl (Units.ext h)
   · exact Or.inr (Units.ext (by rw [Units.val_neg, Units.val_one]; exact h))
 
-theorem sl2Three_mulAut_involution_structure (β : MulAut SL(2, ZMod 3)) (_hβ : β * β = 1) :
-    ∃ g : GL (Fin 2) (ZMod 3), ∀ b, β b = conjSL g b := by
-  obtain ⟨g, hg⟩ := sl2Three_aut_eq_conj β
-  exact ⟨g, fun b => Subtype.ext (by rw [coe_conjSL]; exact hg b)⟩
-
-theorem sl2Three_mulAut_involution_eq_one (β : MulAut SL(2, ZMod 3)) (_hβ : β * β = 1)
-    (P : Sylow 2 SL(2, ZMod 3)) (hfix : ∀ x ∈ P, β x = x) : β = 1 :=
-  sl2Three_mulAut_eq_one_of_fixes_sylow P β hfix
-
-theorem sl2Three_mulAut_eq_one_of_pow_two_pow_eq_one (P : Sylow 2 SL(2, ZMod 3)) (n : ℕ) :
-    ∀ β : MulAut SL(2, ZMod 3), β ^ 2 ^ n = 1 → (∀ x ∈ P, β x = x) → β = 1 :=
-  fun β _ hfix => sl2Three_mulAut_eq_one_of_fixes_sylow P β hfix
 
 end M3
 

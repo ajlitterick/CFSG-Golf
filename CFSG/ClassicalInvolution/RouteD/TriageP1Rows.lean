@@ -51,11 +51,6 @@ structure ProductOfTwoP1Rows (p f : ℕ) [Fact p.Prime] : Prop where
   sp2 : P1RowSp2 p f
   su4 : P1RowSU4 p f
 
-theorem ProductOfTwoP1Rows.of_productOfTwoP1 (h : ProductOfTwoP1 p f) :
-    ProductOfTwoP1Rows p f := by
-  refine ⟨?_, ?_, ?_, ?_, ?_⟩ <;>
-  · intro G _ _ _ hnab K z S _ M hM w hw hKM hzw
-    exact h G hnab K z S M hM w hw hKM hzw
 
 namespace ProductOfTwoP1Rows
 

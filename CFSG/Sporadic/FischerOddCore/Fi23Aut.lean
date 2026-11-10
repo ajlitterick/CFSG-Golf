@@ -46,10 +46,6 @@ theorem isSolvable_outer_of {G : Type*} [Group G] (h : Nat.card (Outer G) = 1) :
   map_one' := Equiv.ext fun _ => Subtype.ext rfl
   map_mul' _ _ := Equiv.ext fun _ => Subtype.ext rfl
 
-theorem autSetPerm_apply {G : Type*} [Group G] (E : Set G)
-    (hE : ∀ φ : MulAut G, ∀ x, φ x ∈ E ↔ x ∈ E) (φ : MulAut G) (x : E) :
-    (autSetPerm E hE φ x : G) = φ x :=
-  rfl
 
 theorem mem_class_iff_of_inner {G : Type*} [Group G]
     (h : ∀ φ : MulAut G, ∃ g : G, φ = MulAut.conj g)

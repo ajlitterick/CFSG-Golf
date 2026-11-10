@@ -158,9 +158,6 @@ theorem LocalFrame.exists_mem_of_plane (S : CSetup p f m Ω K z) (LF : LocalFram
     exact commutes_map_planeGroup_of_orth S.two_le LF.d.ψ hP.1 (isHyperbolicPlane_stdPlane c)
       (fun x hx y hy => orth_stdPlane_of_mem_sup hab hca hcb (hP.2 hx) y hy)
 
-omit [Finite G] in
-theorem locImg_mono {x : G} {A B : Subgroup G} (h : A ≤ B) : locImg Ω x A ≤ locImg Ω x B :=
-  Subgroup.map_mono fun _ hy => h hy
 
 omit [Finite G] in
 theorem locImg_iSup {x : G} {ι : Type*} (A : ι → Subgroup G) (hA : ∀ i, A i ≤ locLayer Ω x) :
@@ -445,7 +442,6 @@ theorem LocalFrame.isAdaptedShortIn_iff (S : CSetup p f m Ω K z) (LF : LocalFra
       exact hTs
 
 end Local
-
 
 
 end CFSG.ClassicalInvolution.RouteD

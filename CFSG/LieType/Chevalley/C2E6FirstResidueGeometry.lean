@@ -205,49 +205,11 @@ theorem mem_nativeParabolic_singleton_iff
     relWeylTwist TwistTag.E6 :=
   (nativeSimple 1 * nativeSimple 2 * nativeSimple 3) ^ 3
 
-abbrev wJword : List (Fin TwistTag.E6.tag.rank) :=
-  (TwistTag.E6.orbitWord (foldedIndex 1) ++ TwistTag.E6.orbitWord (foldedIndex 2) ++
-    TwistTag.E6.orbitWord (foldedIndex 3)) ++
-  (TwistTag.E6.orbitWord (foldedIndex 1) ++ TwistTag.E6.orbitWord (foldedIndex 2) ++
-    TwistTag.E6.orbitWord (foldedIndex 3)) ++
-  (TwistTag.E6.orbitWord (foldedIndex 1) ++ TwistTag.E6.orbitWord (foldedIndex 2) ++
-    TwistTag.E6.orbitWord (foldedIndex 3))
-
-theorem coe_wJ :
-    (wJ : WeylGroup TwistTag.E6.tag) = (coxeterSystem TwistTag.E6.tag).wordProd wJword := by
-  simp only [wJ, wJword, Subgroup.coe_mul, coe_nativeSimple, TwistTag.orbitReflection,
-    CoxeterSystem.wordProd_append, pow_succ, pow_zero, one_mul, mul_assoc]
-
-theorem height_wJ_inv_smul : ∀ i : Fin 4, (i = 1 ∨ i = 2 ∨ i = 3) →
-    ∀ j ∈ TwistTag.E6.orbit (foldedIndex i), height (wJword.reverse.foldr
-      (reflect TwistTag.E6.tag) (Pi.single j 1 : Fin TwistTag.E6.tag.rank → ℤ)) < 0 := by
-  decide
 
 instance :
     Finite (relWeylTwist TwistTag.E6) :=
   Nat.finite_of_card_ne_zero (by rw [card_relWeylTwist_E6]; norm_num)
 
-theorem isLongest_wJ
-    : CFSG.Monster.B.Geometry.IsLongest nativeCoxeterSystem firstJ wJ := by
-  refine CFSG.Monster.B.Geometry.isLongest_of_forall_isLeftDescent ?_ fun i hi => ?_
-  · have hs : ∀ i ∈ firstJ, nativeSimple i ∈ nativeCoxeterSystem.parabolic firstJ := fun i hi => by
-      rw [← nativeCoxeterSystem_simple]
-      exact nativeCoxeterSystem.simple_mem_parabolic hi
-    exact pow_mem (mul_mem (mul_mem (hs 1 (by simp [firstJ])) (hs 2 (by simp [firstJ])))
-      (hs 3 (by simp [firstJ]))) 3
-  · have hneg : ∀ j ∈ TwistTag.E6.orbit (foldedIndex i),
-        height ((wJ : WeylGroup TwistTag.E6.tag)⁻¹ •
-          (Pi.single j 1 : Fin TwistTag.E6.tag.rank → ℤ)) < 0 := fun j hj => by
-      rw [coe_wJ, ← CoxeterSystem.wordProd_reverse, wordProd_smul]
-      exact height_wJ_inv_smul i hi j hj
-    have h := (length_orbitReflection_mul_of_neg TwistTag.E6 wJ.2 hneg).1
-    rw [CoxeterSystem.IsLeftDescent, nativeCoxeterSystem_simple, nativeCoxeterSystem_length,
-      nativeCoxeterSystem_length, Subgroup.coe_mul, coe_nativeSimple]
-    omega
-
-theorem longest_eq_wJ
-    : CFSG.Monster.B.Geometry.longest nativeCoxeterSystem firstJ = wJ :=
-  isLongest_wJ.eq_longest.symm
 
 @[expose] def canonicalRepHom
     : WeylGroup Tag.E6 →* ModGL Tag.E6 K where
@@ -255,80 +217,6 @@ theorem longest_eq_wJ
   map_one' := canonicalRep_one _ _
   map_mul' := canonicalRep_mul_charTwo
 
-theorem canonicalRep_nativeRefl_cube
-    : canonicalRep (coxeterSystem Tag.E6) K
-    ((nativeRefl 1 * nativeRefl 2 * nativeRefl 3) ^ 3) =
-      (nativeRep 1 * nativeRep 2 * nativeRep 3) ^ 3 := by
-  change canonicalRepHom _ = _
-  rw [map_pow, map_mul, map_mul]
-  rfl
-
-theorem coe_wJ_eq_nativeRefl :
-    (wJ : WeylGroup TwistTag.E6.tag) =
-    (nativeRefl 1 * nativeRefl 2 * nativeRefl 3) ^ 3 := by
-  change ((nativeSimple 1 * nativeSimple 2 * nativeSimple 3 : relWeylTwist TwistTag.E6) :
-    WeylGroup TwistTag.E6.tag) ^ 3 = _
-  rw [Subgroup.coe_mul, Subgroup.coe_mul, coe_nativeSimple_eq_nativeRefl,
-    coe_nativeSimple_eq_nativeRefl, coe_nativeSimple_eq_nativeRefl]
-  rfl
-
-abbrev weylCube : SU6 := (weylSU 2 * weylSU 1 * weylSU 0) ^ 3
-
-theorem suLin_weylSU_uVec (d : Fin 3) (j : Fin 6) :
-    suLin (weylSU d) (uVec j) = uVec (weylPerm d j) :=
-  weylMat_mulVec_uVec d j
-
-theorem weylPerm_cube : ∀ j : Fin 6, weylPerm 2 (weylPerm 1 (weylPerm 0 (weylPerm 2
-    (weylPerm 1 (weylPerm 0 (weylPerm 2 (weylPerm 1 (weylPerm 0 j)))))))) = Fin.rev j := by
-  decide
-
-theorem suLin_weylCube_uVec (j : Fin 6) : suLin weylCube (uVec j) = uVec (Fin.rev j) := by
-  simp only [weylCube, pow_succ, pow_zero, one_mul, suLin_mul_apply, suLin_weylSU_uVec,
-    weylPerm_cube]
-
-theorem weylCube_eq_revSU : weylCube = revSU := by
-  refine Subtype.ext (Subtype.ext ?_)
-  ext i j
-  have h := congrFun (suLin_weylCube_uVec j) i
-  rw [suLin_apply, mulVec_uVec] at h
-  rw [h, ← suLin_revSU_uVec, suLin_apply, mulVec_uVec]
-
-theorem liftSU_weylCube :
-    ((liftSU weylCube : stdLevi firstJ) : ModGL Tag.E6 K) =
-      (nativeRep 1 * nativeRep 2 * nativeRep 3) ^ 3 := by
-  have h1 : liftSU (weylSU 2) = ⟨nativeRep 1, nativeRep_mem_stdLevi (by simp [firstJ])⟩ :=
-    liftSU_weylSU (i := 1) (by simp [firstJ])
-  have h2 : liftSU (weylSU 1) = ⟨nativeRep 2, nativeRep_mem_stdLevi (by simp [firstJ])⟩ :=
-    liftSU_weylSU (i := 2) (by simp [firstJ])
-  have h3 : liftSU (weylSU 0) = ⟨nativeRep 3, nativeRep_mem_stdLevi (by simp [firstJ])⟩ :=
-    liftSU_weylSU (i := 3) (by simp [firstJ])
-  rw [weylCube, map_pow, map_mul, map_mul, h1, h2, h3]
-  rfl
-
-abbrev wJLongest :
-    WeylGroup TwistTag.E6.tag :=
-  ((CFSG.Monster.B.Geometry.longest nativeCoxeterSystem firstJ : relWeylTwist TwistTag.E6) :
-    WeylGroup TwistTag.E6.tag)
-
-theorem canonicalRep_longest :
-    canonicalRep (coxeterSystem TwistTag.E6.tag) K wJLongest =
-      ((liftSU revSU : stdLevi firstJ) : ModGL Tag.E6 K) := by
-  rw [wJLongest, longest_eq_wJ, coe_wJ_eq_nativeRefl, ← weylCube_eq_revSU, liftSU_weylCube]
-  exact canonicalRep_nativeRefl_cube
-
-theorem canonicalRep_longest_mem :
-    canonicalRep (coxeterSystem TwistTag.E6.tag) K wJLongest ∈ nativeParabolic firstJ := by
-  rw [canonicalRep_longest]
-  exact stdLevi_le_nativeParabolic two_mem_firstJ (liftSU revSU).2
-
-theorem residueFlag_longest :
-    residueFlag (QuotientGroup.mk ⟨_, canonicalRep_longest_mem⟩) = oppFlag := by
-  rw [residueFlag_mk]
-  have e : (⟨_, canonicalRep_longest_mem⟩ : nativeParabolic firstJ) =
-      ⟨_, stdLevi_le_nativeParabolic two_mem_firstJ (liftSU revSU).2⟩ :=
-    Subtype.ext canonicalRep_longest
-  rw [e, leviProj_of_mem two_mem_firstJ (liftSU revSU).2]
-  exact leviFlag_liftSU revSU
 
 theorem liftSU_barSU
     (l : stdLevi firstJ) :
@@ -349,7 +237,6 @@ theorem residueFlag_betaGL
 
 @[expose] def nativeBaseIdx : Fin 3 → Finset (Fin 6) := ![{2}, {1, 2}, {0, 1, 2}]
 
-@[expose] def nativeOppIdx : Fin 3 → Finset (Fin 6) := ![{5}, {4, 5}, {3, 4, 5}]
 
 theorem map_nativeCoord_span (S : Set (Fin 6)) :
     (Submodule.span K (uVec '' S)).map (nativeCoord : (Fin 6 → K) →ₗ[K] (Fin 6 → K)) =
@@ -362,9 +249,6 @@ theorem swap_image_base : ∀ k : Fin 3, ∀ x : Fin 6,
     ((Equiv.swap (0 : Fin 6) 2).symm x : ℕ) < k + 1 ↔ x ∈ nativeBaseIdx k := by
   decide
 
-theorem swap_image_opp : ∀ k : Fin 3, ∀ x : Fin 6,
-    5 - (k : ℕ) ≤ ((Equiv.swap (0 : Fin 6) 2).symm x : ℕ) ↔ x ∈ nativeOppIdx k := by
-  decide
 
 theorem nativeCoord_baseFlag (k : Fin 3) :
     (baseFlag.sub k).map (nativeCoord : (Fin 6 → K) →ₗ[K] (Fin 6 → K)) =
@@ -375,25 +259,6 @@ theorem nativeCoord_baseFlag (k : Fin 3) :
   rw [Set.mem_image_equiv, Set.mem_ofPred_eq, Finset.mem_coe]
   exact swap_image_base k x
 
-theorem nativeCoord_oppFlag (k : Fin 3) :
-    (oppFlag.sub k).map (nativeCoord : (Fin 6 → K) →ₗ[K] (Fin 6 → K)) =
-      Submodule.span K (uVec '' (nativeOppIdx k : Set (Fin 6))) := by
-  rw [oppFlag_sub, map_nativeCoord_span]
-  congr 2
-  ext x
-  rw [Set.mem_image_equiv, Set.mem_ofPred_eq, Finset.mem_coe]
-  exact swap_image_opp k x
-
-theorem nativeCoord_frob6 (v : Fin 6 → K) : nativeCoord (frob6 v) = frob6 (nativeCoord v) :=
-  rfl
-
-theorem baseFlag_sub_eq_span (k : Fin 3) :
-    baseFlag.sub k = Submodule.span K (uVec '' {j | (j : ℕ) ≤ k}) := by
-  rw [baseFlag_sub, preSpan_eq_span]
-  congr 2
-  ext j
-  simp only [Set.mem_ofPred_eq]
-  omega
 
 theorem nativeParabolic_le_stdGroup
     (J : Set (Fin 4)) : nativeParabolic J ≤ stdGroup := by

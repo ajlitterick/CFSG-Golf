@@ -78,23 +78,6 @@ private theorem q8AutPair_of_mulEquiv (β : QuaternionGroup 2 ≃* QuaternionGro
   · rw [← e, ← e, ← e, map_mul]
   · rw [e x, e y]; exact h
 
-private theorem q8_w_aux : ∀ u v : QuaternionGroup 2, Q8AutPair u v →
-    (∀ x, q8Eval u v (q8Eval u v x) = x) → (∃ x, q8Eval u v x ≠ x) →
-    ∃ w, q8Eval u v w = w * a 2 := by
-  decide +kernel
-
-theorem q8_w_lemma (β : QuaternionGroup 2 ≃* QuaternionGroup 2) (h2 : β * β = 1) (h1 : β ≠ 1) :
-    ∃ w : QuaternionGroup 2, β w = w * a 2 := by
-  have e : ∀ x, β x = q8Eval (β (a 1)) (β (xa 0)) x := fun x => q8Eval_eq β.toMonoidHom x
-  have hinv : ∀ x, β (β x) = x := fun x => by
-    simpa using congrArg (fun γ : QuaternionGroup 2 ≃* QuaternionGroup 2 => γ x) h2
-  obtain ⟨w, hw⟩ := q8_w_aux _ _ (q8AutPair_of_mulEquiv β)
-    (fun x => by rw [← e, ← e]; exact hinv x)
-    (by
-      by_contra hcon
-      push Not at hcon
-      exact h1 (MulEquiv.ext fun x => by rw [e]; exact hcon x))
-  exact ⟨w, by rw [e]; exact hw⟩
 
 private theorem q8_aut_aux : ∀ u₁ u₂ : QuaternionGroup 2, Q8AutPair u₁ u₂ →
     ∀ v₁ v₂ : QuaternionGroup 2, Q8AutPair v₁ v₂ →
@@ -168,86 +151,6 @@ theorem q8_center_mem_ker {M : Type*} [Group M] (f : QuaternionGroup 2 →* M)
   · rw [← h]; exact hg
   · rw [← h, map_pow, hg, one_pow]
 
-theorem q8_normalizing_centralizes {G : Type*} [Group G] (A B : Subgroup G)
-    (eA : QuaternionGroup 2 ≃* A) (eB : QuaternionGroup 2 ≃* B)
-    (hAB : A ≤ Subgroup.normalizer (B : Set G)) :
-    ∀ b ∈ B, (eA (a 2) : G) * b = b * (eA (a 2) : G) := by
-  let φ : QuaternionGroup 2 →* MulAut B :=
-    (Subgroup.normalizerMonoidHom B).comp ((Subgroup.inclusion hAB).comp eA.toMonoidHom)
-  let ψ : QuaternionGroup 2 →* (QuaternionGroup 2 ≃* QuaternionGroup 2) :=
-    ((MulAut.congr eB.symm).toMonoidHom).comp φ
-  have h1 : ψ (a 2) = 1 := q8_center_mem_ker ψ (q8_not_faithful_on_aut ψ)
-  have h2 : φ (a 2) = 1 := by
-    have : (MulAut.congr eB.symm) (φ (a 2)) = 1 := h1
-    exact (MulAut.congr eB.symm).injective (this.trans (map_one _).symm)
-  intro b hb
-  have h3 := congrArg (fun m : MulAut B => ((m ⟨b, hb⟩ : B) : G)) h2
-  have h4 : (eA (a 2) : G) * b * (eA (a 2) : G)⁻¹ = b := h3
-  calc (eA (a 2) : G) * b
-      = ((eA (a 2) : G) * b * (eA (a 2) : G)⁻¹) * (eA (a 2) : G) := by group
-    _ = b * (eA (a 2) : G) := by rw [h4]
-
-theorem q8_tight_pair_commute {G : Type*} [Group G] (A B : Subgroup G)
-    (eA : QuaternionGroup 2 ≃* A) (eB : QuaternionGroup 2 ≃* B)
-    (hA : ∀ g : G, g * (eA (a 2) : G) = (eA (a 2) : G) * g →
-      g ∈ Subgroup.normalizer (A : Set G))
-    (hAB : A ≤ Subgroup.normalizer (B : Set G)) (hinter : A ⊓ B = ⊥) :
-    ∀ x ∈ A, ∀ y ∈ B, x * y = y * x := by
-  intro x hx y hy
-  have hbN : y ∈ Subgroup.normalizer (A : Set G) :=
-    hA y (q8_normalizing_centralizes A B eA eB hAB y hy).symm
-  have h1 : x * y * x⁻¹ * y⁻¹ ∈ B :=
-    B.mul_mem ((Subgroup.mem_normalizer_iff.mp (hAB hx) y).mp hy) (B.inv_mem hy)
-  have h2 : x * y * x⁻¹ * y⁻¹ ∈ A := by
-    have h := (Subgroup.mem_normalizer_iff.mp hbN x⁻¹).mp (A.inv_mem hx)
-    have e : x * y * x⁻¹ * y⁻¹ = x * (y * x⁻¹ * y⁻¹) := by group
-    rw [e]
-    exact A.mul_mem hx h
-  have h3 : x * y * x⁻¹ * y⁻¹ ∈ A ⊓ B := ⟨h2, h1⟩
-  rw [hinter, Subgroup.mem_bot] at h3
-  calc x * y = (x * y * x⁻¹ * y⁻¹) * (y * x) := by group
-    _ = y * x := by rw [h3, one_mul]
-
-theorem q8_line {G : Type*} [Group G] (A : Subgroup G) (eA : QuaternionGroup 2 ≃* A) (d : G)
-    (hd2 : d * d = 1) (hdN : d ∈ Subgroup.normalizer (A : Set G))
-    (hdC : ¬ ∀ x ∈ A, d * x = x * d) :
-    ∃ w ∈ A, w⁻¹ * d * w = (eA (a 2) : G) * d := by
-  let n : Subgroup.normalizer (A : Set G) := ⟨d, hdN⟩
-  have hn2 : n * n = 1 := Subtype.ext hd2
-  let m : MulAut A := Subgroup.normalizerMonoidHom A n
-  let β : QuaternionGroup 2 ≃* QuaternionGroup 2 := (MulAut.congr eA.symm) m
-  have hdinv : d⁻¹ = d := inv_eq_of_mul_eq_one_right hd2
-  have hβ2 : β * β = 1 := by
-    have : m * m = 1 := by rw [← map_mul, hn2, map_one]
-    show (MulAut.congr eA.symm) m * (MulAut.congr eA.symm) m = 1
-    rw [← map_mul, this, map_one]
-  have hβ1 : β ≠ 1 := by
-    intro h
-    have hm : m = 1 := by
-      have : (MulAut.congr eA.symm) m = (MulAut.congr eA.symm) 1 := by rw [map_one]; exact h
-      exact (MulAut.congr eA.symm).injective this
-    apply hdC
-    intro x hx
-    have h3 := congrArg (fun m' : MulAut A => ((m' ⟨x, hx⟩ : A) : G)) hm
-    have h4 : d * x * d⁻¹ = x := h3
-    rw [hdinv] at h4
-    calc d * x = d * x * (d * d) := by rw [hd2, mul_one]
-      _ = (d * x * d) * d := by rw [mul_assoc (d * x) d d]
-      _ = x * d := by rw [h4]
-  obtain ⟨w', hw'⟩ := q8_w_lemma β hβ2 hβ1
-  refine ⟨(eA w' : G), (eA w').2, ?_⟩
-  have h6 : eA (β w') = m (eA w') := by simp [β, MulAut.congr_apply]
-  have h7 : (m (eA w') : G) = d * (eA w' : G) * d⁻¹ := rfl
-  have h8 : d * (eA w' : G) * d⁻¹ = (eA w' : G) * (eA (a 2) : G) := by
-    rw [← h7, ← h6, hw', map_mul]; rfl
-  rw [hdinv] at h8
-  have h9 : d * (eA w' : G) = (eA w' : G) * (eA (a 2) : G) * d := by
-    calc d * (eA w' : G) = d * (eA w' : G) * (d * d) := by rw [hd2, mul_one]
-      _ = (d * (eA w' : G) * d) * d := by rw [mul_assoc (d * (eA w' : G)) d d]
-      _ = (eA w' : G) * (eA (a 2) : G) * d := by rw [h8]
-  calc (eA w' : G)⁻¹ * d * (eA w' : G) = (eA w' : G)⁻¹ * (d * (eA w' : G)) := by rw [mul_assoc]
-    _ = (eA w' : G)⁻¹ * ((eA w' : G) * (eA (a 2) : G) * d) := by rw [h9]
-    _ = (eA (a 2) : G) * d := by group
 
 theorem q8_not_faithful_perm {n : ℕ} (hn : n < 8) (f : QuaternionGroup 2 →* Equiv.Perm (Fin n)) :
     ¬ Function.Injective f := by

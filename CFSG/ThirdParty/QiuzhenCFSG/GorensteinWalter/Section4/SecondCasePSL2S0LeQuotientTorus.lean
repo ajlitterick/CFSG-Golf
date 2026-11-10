@@ -65,56 +65,9 @@ private theorem cyclic_unique_involution {A : Type u} [Group A] [Finite A]
     simpa [S, h1x, h1y, hx1, hy1, hxy] using hcard
   omega
 
-/-- A power (natural exponent) of an involution is trivial or the
-involution itself. -/
-private theorem pow_of_involution {G : Type u} [Group G] {s : G}
-    (hs2 : s ^ 2 = 1) (k : ℕ) : s ^ k = 1 ∨ s ^ k = s := by
-  rcases Nat.even_or_odd k with ⟨j, hk⟩ | ⟨j, hk⟩
-  · left
-    rw [hk, ← two_mul j, pow_mul, hs2, one_pow]
-  · right
-    rw [hk, pow_succ, pow_mul, hs2]
-    simp
-
-/-- A power (integer exponent) of an involution is trivial or the
-involution itself. -/
-private theorem zpow_of_involution {G : Type u} [Group G] {s : G}
-    (hsI : IsInvolution s) (n : ℤ) : s ^ n = 1 ∨ s ^ n = s := by
-  have hs2 : s ^ 2 = 1 := hsI.2
-  have hss : s⁻¹ = s :=
-    inv_eq_of_mul_eq_one_right (by simpa [pow_two] using hs2)
-  rcases n with n | n
-  · rcases pow_of_involution hs2 n with h | h
-    · left
-      simpa [zpow_natCast] using h
-    · right
-      simpa [zpow_natCast] using h
-  · rcases pow_of_involution hs2 (n + 1) with h | h
-    · left
-      rw [zpow_negSucc, h]
-      simp
-    · right
-      rw [zpow_negSucc, h]
-      rw [hss]
 
 /-! ## The cyclic containment lemma for a reflected dihedral pair -/
 
-/-- A cyclic subgroup of `C(t)` containing the involution `t` lies in the
-rotation torus. -/
-private theorem cyclic_subgroup_containing_involution_le_torus
-    {G : Type u} [Group G] [Finite G]
-    {t : G} (ht : IsInvolution t)
-    (T : Subgroup G) (s : G)
-    (hTcyc : IsCyclic T) (htT : t ∈ T)
-    (hsI : IsInvolution s) (hs_not_T : s ∉ T)
-    (hinvT : ∀ x : G, x ∈ T → s * x * s⁻¹ = x⁻¹)
-    (hC : Subgroup.centralizer ({t} : Set G) = T ⊔ Subgroup.zpowers s)
-    {X : Subgroup G} (hXcyc : IsCyclic X)
-    (hXcent : X ≤ Subgroup.centralizer ({t} : Set G))
-    (htX : t ∈ X) :
-    X ≤ T := by
-  exact cyclic_subgroup_containing_involution_le_reflected_torus
-    ht T s hTcyc htT hsI hs_not_T hinvT hC hXcyc hXcent htX
 
 /-- The join of the torus and a reflection has twice the torus order. -/
 private theorem join_card_of_inverting_reflection {G : Type u} [Group G] [Finite G]

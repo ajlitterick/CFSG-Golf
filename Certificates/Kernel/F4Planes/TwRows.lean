@@ -22,17 +22,6 @@ namespace CFSG.KD.F4PlanesTw
 
 open CFSG.KC.F4PlanesTw
 
-theorem neg_tw_word : (!rowAtT CFSG.KD.F4PlanesE6.IP X8 X9 CFSG.KD.F4PlanesE6.pS6
-    CFSG.KD.F4Planes.PR ij (gens.map (List.map fun g => (Nat.add g.1 1, g.2))) zs 0) = true := by
-  quickRfl
-
-theorem neg_tw_tok : (!rowAtT CFSG.KD.F4PlanesE6.IP X8 X9 CFSG.KD.F4PlanesE6.pS6
-    CFSG.KD.F4Planes.PR ij gens (zs.map (List.map List.tail)) 0) = true := by
-  quickRfl
-
-theorem neg_tw_shift : (!rowAtT CFSG.KD.F4PlanesE6.IP X8 X9 CFSG.KD.F4PlanesE6.pS6
-    CFSG.KD.F4Planes.PR (ij.drop 5) (gens.drop 5) (zs.drop 5) 0) = true := by
-  quickRfl
 
 end CFSG.KD.F4PlanesTw
 

@@ -117,11 +117,6 @@ theorem compat_commonFixed (h : Setting p A θ) :
   exact Group.isSolvable_of_isSolvable_injective
     (Subgroup.inclusion_injective (commonFixed_le_value hS))
 
-omit [Finite G] in
-theorem compat_conj {X : Subgroup G} (hX : solvableSignalizerCompatible p 1 A θ X) {c : G}
-    (hc : c ∈ signalizerCommonFixed p 1 A θ) :
-    solvableSignalizerCompatible p 1 A θ (conjugateSubgroup c X) :=
-  solvable_signalizer_compatible_conjugate p 1 A X θ hX ⟨c, hc⟩
 
 omit [Finite G] in
 theorem commonFixed_le_normalizer_value {S : Subgroup G} (hS : S ∈ signalizerFunctorEk p 1 A) :
@@ -258,10 +253,6 @@ theorem thetaCentralizer_le_centralizer (P : Subgroup G) :
     thetaCentralizer p A θ P ≤ Subgroup.centralizer (P : Set G) :=
   inf_le_right
 
-omit [Finite G] in
-theorem thetaCentralizer_le_normalizerCompletion (P : Subgroup G) :
-    thetaCentralizer p A θ P ≤ signalizerNormalizerCompletion p 1 A θ P :=
-  inf_le_left
 
 theorem compat_thetaCentralizer (h : Setting p A θ) {P : Subgroup G} (hP0 : P ≠ ⊥)
     (hP : solvableSignalizerCompatible p 1 A θ P) :

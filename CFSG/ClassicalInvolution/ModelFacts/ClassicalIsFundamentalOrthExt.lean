@@ -16,7 +16,6 @@ section Ext
 @[expose] noncomputable def projMW (i : V ≃ₗ[F] V) (hii : i * i = 1) : V →ₗ[F] minusSp i :=
   LinearMap.codRestrict (minusSp i) (projM i) (projM_mem hii)
 
-theorem projMW_apply (hii : i * i = 1) (x : V) : (projMW i hii x : V) = projM i x := rfl
 
 @[expose] noncomputable def extLin (hii : i * i = 1) (g : minusSp i ≃ₗ[F] minusSp i) :
     V →ₗ[F] V :=
@@ -59,8 +58,6 @@ theorem extLin_one (h2 : (2 : F) ≠ 0) (hii : i * i = 1) (x : V) : extLin hii 1
   map_one' := LinearEquiv.ext fun x => extLin_one h2 hii x
   map_mul' g g' := LinearEquiv.ext fun x => extLin_mul h2 hii g g' x
 
-theorem extGrp_apply (h2 : (2 : F) ≠ 0) (hii : i * i = 1) (g : minusSp i ≃ₗ[F] minusSp i)
-    (x : V) : extGrp h2 hii g x = extLin hii g x := rfl
 
 theorem extGrp_apply_add (h2 : (2 : F) ≠ 0) (hii : i * i = 1) (g : minusSp i ≃ₗ[F] minusSp i)
     {u v : V} (hu : u ∈ plusSp i) (hv : v ∈ minusSp i) :

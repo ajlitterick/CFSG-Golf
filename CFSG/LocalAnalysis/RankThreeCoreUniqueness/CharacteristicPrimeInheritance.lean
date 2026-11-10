@@ -120,30 +120,6 @@ theorem normal_subgroupOf_self_centralizing_pCore
     (normal_subgroup_self_centralizing_pCore prime hprime hcentralizer
       (subgroup.subgroupOf overgroup) hnormal)
 
-theorem cfsg_subnormal_self_centralizing_pCore
-    {G : Type*} [Group G] [Finite G] (prime : ℕ) (hprime : prime.Prime)
-    {subgroup overgroup : Subgroup G} (hsubnormal : IsSubnormal subgroup overgroup)
-    (hcentralizer : Subgroup.centralizer (pCore prime overgroup : Set overgroup) ≤
-      pCore prime overgroup) :
-    Subgroup.centralizer (pCore prime subgroup : Set subgroup) ≤ pCore prime subgroup := by
-  induction hsubnormal with
-  | refl subgroup => exact hcentralizer
-  | @step subgroup intermediate overgroup hbound hnormal _hchain inductionHypothesis =>
-    exact normal_subgroupOf_self_centralizing_pCore prime hprime subgroup intermediate
-      hbound hnormal (inductionHypothesis hcentralizer)
-
-theorem self_centralizing_pCore_nontrivial
-    {G : Type*} [Group G] [Nontrivial G] (prime : ℕ)
-    (hcentralizer : Subgroup.centralizer (pCore prime G : Set G) ≤ pCore prime G) :
-    pCore prime G ≠ ⊥ := by
-  intro hbottom
-  have htop : (⊤ : Subgroup G) ≤ Subgroup.centralizer (pCore prime G : Set G) := by
-    intro element _helement
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro other hother
-    have hotherOne : other = 1 := Subgroup.mem_bot.mp (hbottom ▸ hother)
-    simp only [hotherOne, one_mul, mul_one]
-  exact top_ne_bot (le_bot_iff.mp (hbottom ▸ htop.trans hcentralizer))
 
 theorem charTwo_twoLocal_internal_self_centralizing_core
     {G : Type*} [Group G] [Finite G] (hchar : IsCharTwoType G)
@@ -158,35 +134,5 @@ theorem charTwo_twoLocal_internal_self_centralizing_core
   have hinternal : element ∈ (pCoreOf 2 localGroup).subgroupOf localGroup := hcore
   rwa [pCoreOf_subgroupOf] at hinternal
 
-theorem quasisimple_center_prime_group_other_core_eq_bot
-    {G : Type*} [Group G] [Finite G] (hquasisimple : IsQuasisimple G)
-    (prime otherPrime : ℕ) (hprime : prime.Prime) (hotherPrime : otherPrime.Prime)
-    (hdistinct : otherPrime ≠ prime) (hcenter : IsPGroup prime (Subgroup.center G)) :
-    pCore otherPrime G = ⊥ := by
-  let : IsSimpleGroup (G ⧸ Subgroup.center G) := hquasisimple.2
-  let : Fact prime.Prime := ⟨hprime⟩
-  let : Fact otherPrime.Prime := ⟨hotherPrime⟩
-  let quotientMap := QuotientGroup.mk' (Subgroup.center G)
-  let imageCore := Subgroup.map quotientMap (pCore otherPrime G)
-  have himageNormal : imageCore.Normal :=
-    (pCore_normal otherPrime).map quotientMap (QuotientGroup.mk'_surjective _)
-  have himageGroup : IsPGroup otherPrime imageCore := (pCore_isPGroup otherPrime).map quotientMap
-  have himageBottom : imageCore = ⊥ := by
-    rcases CFSG.eq_bot_or_eq_top_of_normal imageCore himageNormal with hbottom | htop
-    · exact hbottom
-    · let : Group.IsPerfect G := Group.isPerfect_def.mpr hquasisimple.1
-      have hquotientGroup : IsPGroup otherPrime (G ⧸ Subgroup.center G) :=
-        himageGroup.of_equiv ((MulEquiv.subgroupCongr htop).trans Subgroup.topEquiv)
-      exact False.elim (Group.IsPerfect.not_isNilpotent (G ⧸ Subgroup.center G)
-        hquotientGroup.isNilpotent)
-  have hcoreCenter : pCore otherPrime G ≤ Subgroup.center G := by
-    intro element helement
-    have hkernel : element ∈ quotientMap.ker :=
-      Subgroup.mem_bot.mp (himageBottom ▸ Subgroup.mem_map_of_mem quotientMap helement)
-    rwa [QuotientGroup.ker_mk'] at hkernel
-  have hdisjoint := IsPGroup.disjoint_of_ne otherPrime prime hdistinct
-    (pCore otherPrime G) (Subgroup.center G) (pCore_isPGroup otherPrime) hcenter
-  apply le_bot_iff.mp
-  exact (le_inf le_rfl hcoreCenter).trans (disjoint_iff.mp hdisjoint).le
 
 end CFSG.RankThreeCoreUniqueness.Helpers

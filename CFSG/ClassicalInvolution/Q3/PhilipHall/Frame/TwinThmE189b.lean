@@ -68,7 +68,6 @@ theorem q8_restrict
   exact ⟨P.subgroupOf Y, hP.subgroupOf hLY,
     ⟨(Subgroup.subgroupOfEquivOfLe (hP.1.trans hLY)).trans e⟩⟩
 
-variable {K : Subgroup G} {S : Sylow 2 G} {R W H : Subgroup G}
 
 end B
 

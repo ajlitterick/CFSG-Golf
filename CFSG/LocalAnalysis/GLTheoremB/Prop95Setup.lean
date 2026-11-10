@@ -21,17 +21,6 @@ theorem sigmaOf_le {p : ℕ} {M D : Subgroup G} (h : Prop95Hyp p M D) : sigmaOf 
 theorem gammaD_le {p : ℕ} {M D : Subgroup G} (h : Prop95Hyp p M D) : gammaD D ≤ M :=
   (gammaD_le_sigmaStar D).trans (sigmaStar_le h)
 
-theorem normalizer_le_normalizer_sigmaStar (D : Subgroup G) :
-    Subgroup.normalizer (D : Set G) ≤ Subgroup.normalizer (sigmaStar D : Set G) := by
-  intro n hn
-  rw [mem_normalizer_iff_gLBConj_eq] at hn ⊢
-  rw [← sigmaStar_gLBConj, hn]
-
-theorem normalizer_le_normalizer_sigmaOf (D : Subgroup G) :
-    Subgroup.normalizer (D : Set G) ≤ Subgroup.normalizer (sigmaOf D : Set G) := by
-  intro n hn
-  rw [mem_normalizer_iff_gLBConj_eq] at hn ⊢
-  rw [← sigmaOf_gLBConj, hn]
 
 end Setting
 

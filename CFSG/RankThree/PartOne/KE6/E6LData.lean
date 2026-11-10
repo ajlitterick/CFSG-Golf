@@ -27,7 +27,6 @@ open CFSG.RankThree.PartOne.KD4T (E6Sub e6Idx)
 
 @[expose] def e6wt (a j : ℕ) : ℤ := ((e6Data.weights.getD a 0 / 4 ^ j % 4 : ℕ) : ℤ) - 1
 
-theorem e6wt_eq (a : ℕ) (j : Fin Tag.E6.rank) : e6wt a j = e6Data.wt a j := rfl
 
 section Checks
 
@@ -50,19 +49,6 @@ theorem m27_isRoot (hτ : τ = .E7 ∨ τ = .E8) (a : Fin e6Data.d) : IsRoot τ 
   · exact m27_isRoot_E7 a
   · exact m27_isRoot_E8 a
 
-theorem m27_pairing_E7 : ∀ a : Fin e6Data.d, ∀ j : Fin Tag.E6.rank,
-    (∑ i, Tag.E7.cartan (e6Idx j) i * m27Root Tag.E7 a i) = e6wt a j.val := by
-  decide +kernel
-
-theorem m27_pairing_E8 : ∀ a : Fin e6Data.d, ∀ j : Fin Tag.E6.rank,
-    (∑ i, Tag.E8.cartan (e6Idx j) i * m27Root Tag.E8 a i) = e6wt a j.val := by
-  decide +kernel
-
-theorem m27_pairing (hτ : τ = .E7 ∨ τ = .E8) [E6Sub τ] (a : Fin e6Data.d) (j : Fin Tag.E6.rank) :
-    (∑ i, τ.cartan (e6Idx j) i * m27Root τ a i) = e6wt a j.val := by
-  rcases hτ with rfl | rfl
-  · exact m27_pairing_E7 a j
-  · exact m27_pairing_E8 a j
 
 theorem e6Data_weyl_lt : ∀ a : Fin e6Data.d, ∀ j : Fin Tag.E6.rank, e6Data.weyl a j < 27 := by
   decide +kernel

@@ -37,8 +37,6 @@ structure BlkData where
 @[expose, noinline] def sqInOK (L V : Array Table) : Bool :=
   L.all fun s => memT 1408 V (compT 1408 s s)
 
-@[expose, noinline] def trivInjOK (b : Array ℕ) (idt : Table) (L : Array Table) : Bool :=
-  L.all fun s => !blkTrivOK b s || tblEq 1408 s idt
 
 @[expose, noinline] def sqOneOK (idt : Table) (L : Array Table) : Bool :=
   L.all fun s => tblEq 1408 (compT 1408 s s) idt

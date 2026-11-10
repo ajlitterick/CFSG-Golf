@@ -52,8 +52,6 @@ theorem card_modEq_one_of_noFixed [Finite G] {p : ℕ} [Fact p.Prime] {P A : Sub
       _ = a⁻¹ * (a * h) * a⁻¹ := by rw [this]
       _ = h * a⁻¹ := by group
 
-theorem mem_omegaCenterPow {r : ℕ} {S : Subgroup G} {g : G} :
-    g ∈ omegaCenterPow r S ↔ g ∈ S ∧ (∀ h ∈ S, g * h = h * g) ∧ g ^ r = 1 := Iff.rfl
 
 theorem omegaCenterPow_le (r : ℕ) (S : Subgroup G) : omegaCenterPow r S ≤ S := fun _ hg => hg.1
 

@@ -18,7 +18,6 @@ open scoped MatrixGroups commutatorElement
 set_option linter.unusedSectionVars false
 
 
-
 section Natural
 
 variable {M L : Type} [Field M] [Field L] (ι : M →+* L)
@@ -126,10 +125,6 @@ theorem hom_eq_of_perfect_prod {A T : Type*} [Group A] [Group T] (hA : Group.IsP
     ((MulAut.conj b).toMonoidHom.comp ((Matrix.SpecialLinearGroup.map Fr).comp
       (MonoidHom.fst SL(3, L) SL(3, L))))
 
-theorem sigmaL_apply {L : Type} [Field L] (Fr : L →+* L) (a b : SL(3, L))
-    (s : SL(3, L) × SL(3, L)) :
-    sigmaL Fr a b s = (a * Matrix.SpecialLinearGroup.map Fr s.2 * a⁻¹,
-      b * Matrix.SpecialLinearGroup.map Fr s.1 * b⁻¹) := rfl
 
 @[expose] def baseS {M L : Type} [Field M] [Field L] (ι : M →+* L) :
     SL(3, M) × SL(3, M) →* SL(3, L) × SL(3, L) :=

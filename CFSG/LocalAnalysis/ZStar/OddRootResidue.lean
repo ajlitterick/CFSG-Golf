@@ -92,18 +92,6 @@ theorem padicIntToO2_coe (x : ℤ_[2]) :
     ((padicIntToO2 x : O2) : TwoAdicComplex) = padicIntToComplex x :=
   rfl
 
-theorem algebraMap_comp_padicIntToO2 :
-    (algebraMap O2 TwoAdicComplex).comp padicIntToO2 =
-      padicIntToComplex := by
-  ext x
-  rfl
-
-theorem norm_padicIntToO2 (x : ℤ_[2]) :
-    ‖((padicIntToO2 x : O2) : TwoAdicComplex)‖ = ‖x‖ := by
-  change ‖((algebraMap ℚ_[2] (PadicAlgCl 2)) (x : ℚ_[2]) :
-    TwoAdicComplex)‖ = ‖x‖
-  rw [PadicComplex.norm_extends']
-  rfl
 
 private theorem valuation_padicIntToO2 (x : ℤ_[2]) :
     Valued.v (((padicIntToO2 x : O2) : TwoAdicComplex)) = ‖x‖₊ := by
@@ -150,11 +138,6 @@ theorem residue_padicIntToO2 (x : ℤ_[2]) :
   rw [ZMod.castHom_apply, ZMod.cast_eq_val, ZMod.cast_eq_val]
   simp
 
-theorem residue_comp_padicIntToO2 :
-    (IsLocalRing.residue O2).comp padicIntToO2 =
-      zmod2ToResidue.comp PadicInt.toZMod := by
-  ext x
-  exact residue_padicIntToO2 x
 
 theorem toZModPow_one_eq_toZMod :
     (PadicInt.toZModPow 1 : ℤ_[2] →+* ZMod 2) = PadicInt.toZMod := by

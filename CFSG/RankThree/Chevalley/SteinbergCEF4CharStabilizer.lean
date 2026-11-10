@@ -96,24 +96,6 @@ theorem invTranspose_weylToAut_eq (w : WeylGroup .F4) :
   rw [invTranspose, Matrix.transpose_apply, Matrix.transpose_apply, LinearMap.toMatrix'_apply,
     weylMatrix_apply, ← map_inv, weylToAut_apply]
 
-theorem mem_charStabilizer_iff {v : Fin Tag.F4.rank → R} {w : WeylGroup .F4} :
-    w ∈ charStabilizer v ↔
-      ((invTranspose (weylToAut .F4 w)).map (Int.castRingHom R)).mulVec v = v := by
-  have e : (invTranspose (weylToAut .F4 w)).map (Int.castRingHom R) = dualMatrix R w⁻¹ := by
-    rw [invTranspose_weylToAut_eq, dualMatrix, Matrix.transpose_map]
-    rfl
-  rw [e]
-  constructor
-  · intro hw
-    refine eq_of_charVal_single fun j => ?_
-    rw [charVal_dualMatrix]
-    have h := hw (w⁻¹ • Pi.single j 1)
-    rw [smul_inv_smul] at h
-    exact h.symm
-  · intro h x
-    have h' := charVal_dualMatrix v w⁻¹ (w • x)
-    rw [h, inv_smul_smul] at h'
-    exact h'
 
 theorem rootReflection_mem_charStabilizer {v : Fin Tag.F4.rank → R}
     {α : Fin Tag.F4.rank → ℤ} (hα : α ∈ charRootKernel v) :
@@ -282,62 +264,10 @@ theorem exists_smul_charRootKernel_eq_parabolicRoots (hp3 : 3 < p)
 
 end Kernel
 
-theorem coe_closure_singleton_of_mul_self {G : Type*} [Group G] {g : G} (hg : g * g = 1) :
-    (Subgroup.closure {g} : Set G) = {1, g} := by
-  ext x
-  rw [SetLike.mem_coe, Subgroup.mem_closure_singleton]
-  constructor
-  · rintro ⟨n, rfl⟩
-    have h2 : g ^ (2 : ℤ) = 1 := by rw [zpow_two, hg]
-    rw [← Int.mul_ediv_add_emod n 2, zpow_add, zpow_mul, h2, one_zpow, one_mul]
-    rcases Int.emod_two_eq_zero_or_one n with h | h
-    · rw [h, zpow_zero]
-      exact Set.mem_insert _ _
-    · rw [h, zpow_one]
-      exact Set.mem_insert_of_mem _ rfl
-  · rintro (h | h)
-    · exact ⟨0, by rw [zpow_zero, h]⟩
-    · exact ⟨1, by rw [zpow_one, Set.mem_singleton_iff.1 h]⟩
 
 end F4Weyl
 
 open F4Weyl
 
-theorem F4_prime_character_Weyl_stabilizer_parabolic_root_kernel {p : ℕ} (hp : p.Prime)
-    (hp3 : 3 < p) {v : Fin Tag.F4.rank → ZMod p} (hv : v ≠ 0) :
-    (∀ w : WeylGroup .F4,
-      ((invTranspose (weylToAut .F4 w)).map (Int.castRingHom (ZMod p))).mulVec v = v ↔
-        w ∈ Subgroup.closure {s | ∃ α ∈ charRootKernel v, s = rootReflection α}) ∧
-    (∃ (u : WeylGroup .F4) (J : Set (Fin Tag.F4.rank)), J ≠ Set.univ ∧
-      (fun α => u • α) '' charRootKernel v = parabolicRoots .F4 J) ∧
-    ∀ α : Fin Tag.F4.rank → ℤ, charRootKernel v = {α, -α} →
-      {w : WeylGroup .F4 |
-          ((invTranspose (weylToAut .F4 w)).map (Int.castRingHom (ZMod p))).mulVec v = v} =
-        {1, rootReflection α} := by
-  have : Fact p.Prime := ⟨hp⟩
-  have hW := charStabilizer_eq_closure hp3 v
-  refine ⟨fun w => by rw [← mem_charStabilizer_iff, hW],
-    exists_smul_charRootKernel_eq_parabolicRoots hp3 hv, fun α hpair => ?_⟩
-  have hα : IsRoot .F4 α := by
-    have h : α ∈ charRootKernel v := by
-      rw [hpair]
-      exact Set.mem_insert _ _
-    exact h.1
-  have hset : {s | ∃ β ∈ charRootKernel v, s = rootReflection β} = {rootReflection α} := by
-    rw [hpair]
-    ext s
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, Set.mem_ofPred_eq]
-    constructor
-    · rintro ⟨β, rfl | rfl, rfl⟩
-      · rfl
-      · exact rootReflection_neg hα
-    · rintro rfl
-      exact ⟨α, Or.inl rfl, rfl⟩
-  have e : {w : WeylGroup .F4 |
-      ((invTranspose (weylToAut .F4 w)).map (Int.castRingHom (ZMod p))).mulVec v = v} =
-        (charStabilizer v : Set (WeylGroup .F4)) := by
-    ext w
-    exact mem_charStabilizer_iff.symm
-  rw [e, hW, hset, coe_closure_singleton_of_mul_self (rootReflection_mul_self hα)]
 
 end CFSG.RankThree.Chevalley

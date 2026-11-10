@@ -135,9 +135,6 @@ theorem mem_ggInndiagPre_iff {g : G} : g ∈ ggInndiagPre K θ I ↔
   · rintro ⟨hg, h⟩
     exact ⟨⟨g, hg⟩, h, rfl⟩
 
-theorem ggInndiagPre_le_normalizer :
-    ggInndiagPre K θ I ≤ Subgroup.normalizer (K : Set G) := fun _ hg =>
-  (mem_ggInndiagPre_iff.mp hg).1
 
 variable (K θ I) in
 theorem sup_centralizer_le_ggInndiagPre :

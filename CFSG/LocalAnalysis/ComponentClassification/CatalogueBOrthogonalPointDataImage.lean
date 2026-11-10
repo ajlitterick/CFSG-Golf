@@ -41,12 +41,6 @@ theorem pointFamily_eq_matrixImage_of_normalizer (Q : QuadraticForm K (Fin d →
     projectivePointFamilyAut Q ≃* matrixProjectiveImage Q :=
   MulEquiv.subgroupCongr (pointFamily_eq_matrixImage_of_normalizer Q hρ hs hN)
 
-theorem pointFamilyMatrixImageEquiv_val (Q : QuadraticForm K (Fin d → K))
-    (hρ : Function.Injective (projectivePointAction Q))
-    (hs : Function.Injective (projectivePointStabilizer Q))
-    (hN : projectivePointNormalizer Q = similarityPointImage Q)
-    (α : projectivePointFamilyAut Q) :
-    (pointFamilyMatrixImageEquiv Q hρ hs hN α).val = α.val := rfl
 
 theorem pointFamilyMatrixImageEquiv_inner (Q : QuadraticForm K (Fin d → K))
     (hρ : Function.Injective (projectivePointAction Q))
@@ -73,20 +67,6 @@ theorem pointFamilyMatrixImageEquiv_inner (Q : QuadraticForm K (Fin d → K))
   exact QuotientGroup.congr _ _ (pointFamilyMatrixImageEquiv Q hρ hs hN)
     (pointFamilyMatrixImageEquiv_inner Q hρ hs hN)
 
-theorem pointFamilyMatrixOuterEquiv_mk (Q : QuadraticForm K (Fin d → K))
-    (hρ : Function.Injective (projectivePointAction Q))
-    (hs : Function.Injective (projectivePointStabilizer Q))
-    (hN : projectivePointNormalizer Q = similarityPointImage Q)
-    (α : projectivePointFamilyAut Q) :
-    pointFamilyMatrixOuterEquiv Q hρ hs hN
-        ((QuotientGroup.mk' (familyInner (projectivePointAction Q))) α) =
-      matrixImageInnerProjection Q (pointFamilyMatrixImageEquiv Q hρ hs hN α) :=
-  by
-    let : (familyInner (projectivePointAction Q)).Normal :=
-      familyInnerNormal (projectivePointAction Q)
-    exact QuotientGroup.congr_mk' (familyInner (projectivePointAction Q))
-      (matrixImageInner Q) (pointFamilyMatrixImageEquiv Q hρ hs hN)
-      (pointFamilyMatrixImageEquiv_inner Q hρ hs hN) α
 
 theorem pointFamilyOuter_thirdDerived [Finite K] (Q : QuadraticForm K (Fin d → K))
     (hQ : Q ≠ 0) (hρ : Function.Injective (projectivePointAction Q))
@@ -97,11 +77,5 @@ theorem pointFamilyOuter_thirdDerived [Finite K] (Q : QuadraticForm K (Fin d →
   rw [matrixImageInnerQuotient_thirdDerived Q hQ, Subgroup.map_bot] at h
   exact h.symm
 
-theorem pointFamilyOuter_solvable [Finite K] (Q : QuadraticForm K (Fin d → K))
-    (hQ : Q ≠ 0) (hρ : Function.Injective (projectivePointAction Q))
-    (hs : Function.Injective (projectivePointStabilizer Q))
-    (hN : projectivePointNormalizer Q = similarityPointImage Q) :
-    Group.IsSolvable (familyOuter (projectivePointAction Q)) :=
-  ⟨⟨3, pointFamilyOuter_thirdDerived Q hQ hρ hs hN⟩⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalPointData

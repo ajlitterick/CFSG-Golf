@@ -41,10 +41,5 @@ open CFSG.Monster CFSG.Monster.AxisCount CFSG.AGLEmbedding.Norton.MON5_7
 
 @[expose] def relW (r : List (Fin 2 × Bool)) : List Native.Gen := (r.reverse.map letterW).flatten
 
-@[expose] def l33Pairs : List (List Native.Gen × List Native.Gen) :=
-  [(yW ++ yIW, []), (thirteenX ++ yW, yW ++ thirteenX), (thirteenX ++ j1W, j1W ++ thirteenX)] ++
-    l33Rels.map fun r => (relW r, [])
-
-@[expose] def l33Check (_ : Unit := ()) : Bool := agreeAll l33Pairs && movesSome j1W
 
 end CFSG.HardMathSupport.Dickson.BMRows.M13L33

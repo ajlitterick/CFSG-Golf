@@ -54,35 +54,5 @@ theorem normal_closure_le_sup_of_normalizer_factorization (Q R : Subgroup G) [R.
   let : (Q ⊔ R).Normal := hnormal
   exact Subgroup.normalClosure_le_normal (le_sup_left : Q ≤ Q ⊔ R)
 
-theorem normal_hull_index_odd_of_rank_one_point_hull (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2)
-    (hrank : twoRank (involutionPointHull z) ≤ 1) :
-    Odd (Q.subgroupOf (Subgroup.normalClosure (Q : Set G))).index := by
-  have hisolated := CFSG.ProperTwoGeneratedCore.involution_hull_rank_le_one_isolated hz hrank
-  obtain ⟨_, hfactor⟩ := native_zStar_of_isolated_involution hz hisolated
-  let R := CFSG.oddCore G
-  have hL : Subgroup.normalClosure (Q : Set G) ≤ Q ⊔ R :=
-    normal_closure_le_sup_of_normalizer_factorization Q R (by
-      intro g
-      obtain ⟨c, hc, r, hr, hcr⟩ := hfactor g
-      exact ⟨c, involution_centralizer_le_normalizer Q hodd z hzQ hz hc, r, hr, hcr⟩)
-  have hindex : Odd (Q.subgroupOf (Q ⊔ R)).index :=
-    (CFSG.ComponentClassification.OddCore.odd_card G).of_dvd_nat
-      (relative_index_sup_normal_dvd_card Q R)
-  have hdiv : Q.relIndex (Subgroup.normalClosure (Q : Set G)) ∣ Q.relIndex (Q ⊔ R) :=
-    ⟨(Subgroup.normalClosure (Q : Set G)).relIndex (Q ⊔ R),
-      (Subgroup.relIndex_mul_relIndex Q _ _ Subgroup.le_normalClosure hL).symm⟩
-  exact hindex.of_dvd_nat hdiv
-
-theorem theorem_2_part_two_of_rank_one_point_hull (Q : Subgroup G)
-    (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q)
-    (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2)
-    (hrank : twoRank (involutionPointHull z) ≤ 1) :
-    Q.Normal ∨ fusionStronglyEmbedded
-      ((Subgroup.normalizer (Q : Set G)).subgroupOf (Subgroup.normalClosure (Q : Set G))) := by
-  by_cases hnormal : Q.Normal
-  · exact Or.inl hnormal
-  · exact Or.inr (normal_hull_strong_embedding_of_odd_relative_index Q htight hodd hnormal
-      (normal_hull_index_odd_of_rank_one_point_hull Q hodd z hzQ hz hrank))
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

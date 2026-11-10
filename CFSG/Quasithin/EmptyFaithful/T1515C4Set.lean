@@ -51,9 +51,6 @@ theorem Z₁_le_V : d.Z₁ ≤ V := by
   rintro _ ⟨z, -, rfl⟩
   exact z.2
 
-theorem Z₂_le_V : d.Z₂ ≤ V := by
-  rintro _ ⟨z, -, rfl⟩
-  exact z.2
 
 theorem V₁_le_V : d.V₁ ≤ V := by
   rintro _ ⟨z, -, rfl⟩
@@ -124,7 +121,6 @@ theorem Z₂_le_V₂ [Finite G] : d.Z₂ ≤ d.V₂ := by
   let _ : CommGroup ↥V := commGroupOfElemAbelian hVe
   exact Subgroup.map_mono inf_le_right
 
-theorem Z₁_eq : d.Z₁ = d.Z₁'.map V.subtype := rfl
 
 theorem inf_centralizer_Z₁_eq [Finite G] :
     M ⊓ Subgroup.centralizer (d.Z₁ : Set G) = preOn M V (fixingV (d.Z₁' : Set V)) :=

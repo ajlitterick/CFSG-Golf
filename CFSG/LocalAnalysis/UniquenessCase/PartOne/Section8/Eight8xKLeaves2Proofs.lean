@@ -2411,22 +2411,6 @@ private theorem l2cr_su5t_card_map_mul_card_inf_ker {G H : Type*} [Group G] [Gro
   rw [h1, h2, Subgroup.ker_subgroupMap, hsub]
   exact (Subgroup.card_eq_card_quotient_mul_card_subgroup ((f.ker).subgroupOf E)).symm
 
-private theorem l2cr_su5t_coord_fst_eq_snd_of_mem_scalars {m : ℕ} {K : Type} [Field K]
-    (h : UnitaryFieldData 2 m K) {s : ↥(hypTorus h 2 1)}
-    (hs : (s : hypSU h 2 1) ∈ hypScalars h 2 1) :
-    (l2cr_su5t_coord h s).1 = (l2cr_su5t_coord h s).2 := by
-  obtain ⟨c, -, -, hc⟩ := mem_normOneScalars.1 hs
-  have h1 : (((s : hypSU h 2 1) : GL (HypIndex 2 1) K) :
-      Matrix (HypIndex 2 1) (HypIndex 2 1) K) (.inl 0) (.inl 0) = (c : K) := by
-    rw [hc]
-    simp [GeneralLinearGroup.coe_scalar]
-  have h2 : (((s : hypSU h 2 1) : GL (HypIndex 2 1) K) :
-      Matrix (HypIndex 2 1) (HypIndex 2 1) K) (.inl 1) (.inl 1) = (c : K) := by
-    rw [hc]
-    simp [GeneralLinearGroup.coe_scalar]
-  apply Units.ext
-  rw [show (l2cr_su5t_coord h s).1 = tcoord h 0 s from rfl,
-    show (l2cr_su5t_coord h s).2 = tcoord h 1 s from rfl, coe_tcoord, coe_tcoord, h1, h2]
 
 private theorem l2cr_su5t_scalars_le_torus {m : ℕ} {K : Type} [Field K]
     (h : UnitaryFieldData 2 m K) : hypScalars h 2 1 ≤ hypTorus h 2 1 := by

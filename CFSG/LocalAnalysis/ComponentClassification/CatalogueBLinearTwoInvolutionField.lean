@@ -92,24 +92,6 @@ theorem quadratic_card_three_iff (p f : ℕ) (hf : 1 ≤ f) (heven : Even f) :
   · rintro ⟨rfl, rfl⟩
     rfl
 
-theorem quadratic_card_ge_five (p f : ℕ) (hp : p.Prime) (hodd : Odd p)
-    (hf : 1 ≤ f) (heven : Even f) (hexception : ¬ (p = 3 ∧ f = 2)) :
-    5 ≤ p ^ (f / 2) := by
-  have hpge : 3 ≤ p := by
-    have hp2 := hp.two_le
-    obtain ⟨n, hn⟩ := hodd
-    omega
-  have hhalf : 1 ≤ f / 2 := by
-    obtain ⟨n, hn⟩ := heven
-    omega
-  have hbound : 3 ≤ p ^ (f / 2) := hpge.trans (by
-    simpa only [pow_one] using Nat.pow_le_pow_right (by omega : 0 < p) hhalf)
-  have hne3 : p ^ (f / 2) ≠ 3 := by
-    intro h
-    exact hexception ((quadratic_card_three_iff p f hf heven).mp h)
-  have hpowodd : Odd (p ^ (f / 2)) := hodd.pow
-  obtain ⟨n, hn⟩ := hpowodd
-  omega
 
 end
 

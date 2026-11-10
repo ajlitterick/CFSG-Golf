@@ -108,10 +108,6 @@ theorem secMember_zpowers_eq_exactCore (hΩ : HypOmegaMod p f Ω)
   rw [hPbot, Subgroup.mem_bot, hρ, QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff] at h1
   exact Subgroup.mem_subgroupOf.mp h1
 
-theorem exactCore_eq_iSup_fixedSylows (hΩ : HypOmegaMod p f Ω)
-    (hc2 : IsPGroup 2 (Subgroup.zpowers c)) (hK : K ∈ Ω) (hcK : c ∈ trivialOnQuot K) :
-    exactCore c K = ⨆ T ∈ AscE184Sect.fixedSylows (Subgroup.zpowers c) K, T :=
-  (secMember_zpowers_eq_exactCore hΩ hc2 hK hcK).symm
 
 theorem isSylow2In_exactCore_iff (hΩ : HypOmegaMod p f Ω) (hc2 : IsPGroup 2 (Subgroup.zpowers c))
     (hK : K ∈ Ω) (hcK : c ∈ trivialOnQuot K) {V : Subgroup G} :

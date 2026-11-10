@@ -22,18 +22,6 @@ open CFSG.LocalAnalysis.UniquenessCase.UC22
       IsSpor (X ⧸ Subgroup.center X) .M22 →
         ¬ IsSpor X .J2 ∧ (Subgroup.center X = ⊥ ∨ Nat.card (Subgroup.center X) = 3)
 
-@[expose] def K_SporadicThreePermuting : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (K S : Subgroup Y) (s : TauCeti.SporadicName),
-    K.Normal →
-    CFSG.Open.IsQuasisimple ↥K →
-    Odd (Nat.card (Subgroup.center ↥K)) →
-    IsSpor (↥K ⧸ Subgroup.center ↥K) s →
-    Subgroup.centralizer (K : Set Y) = (Subgroup.center ↥K).map K.subtype →
-    (∃ n : ℕ, K.index = 2 ^ n) →
-    CFSG.Quasithin.IsSylowIn 2 S ⊤ →
-    2 < CFSG.Open.pRank 3 (⊤ : Subgroup ↥K) → s ≠ .ONan →
-      ∃ E : Subgroup Y, E ≤ K ∧ E ≠ ⊥ ∧ IsPGroup 3 ↥E ∧ (∀ x ∈ E, x ^ 3 = 1) ∧
-        ¬ IsCyclic ↥E ∧ CFSG.LocalAnalysis.UniquenessCase.UC22.Permutes E S
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.Inputs1719
 

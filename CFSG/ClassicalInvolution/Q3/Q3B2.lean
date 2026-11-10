@@ -59,32 +59,10 @@ end Comp
 section Equiv
 
 
-theorem solvableMemberInnerTightConn_of_qs3Comp (h : QuasisimpleConnected3Comp) :
-    SolvableMemberInnerTightConn := by
-  intro Y _ _ hBelow hO z L hz T hT hTL hgen hconn hTz
-  have hΛ : InClass3 (conjClass L) := inClass3_conjClass hz hgen
-  have hns : ¬ Group.IsSolvable Y := fun hs =>
-    not_isSolvable_of_isComponentOf hT (inferInstance : Group.IsSolvable (T : Subgroup Y))
-  obtain ⟨hTC, hTnle⟩ := isComponentOf_le_centralizer_pCore_not_le hT
-  have hC : ¬ Subgroup.centralizer ((pCore 2 Y : Subgroup Y) : Set Y) ≤ pCore 2 Y :=
-    fun hle => hTnle (hTC.trans hle)
-  have hqs := h Y hBelow hO (conjClass L) hΛ hconn hns hC
-  have hT' : T = ⊤ := eq_top_of_isComponentOf_of_isQuasisimple hT hqs
-  rw [hT']
-  exact le_sup_of_le_left le_top
-
-theorem solvableMemberInnerTight_of_qs3Comp (h : QuasisimpleConnected3Comp) :
-    SolvableMemberInnerTight :=
-  solvableMemberInnerTight_of_conn (solvableMemberInnerTightConn_of_qs3Comp h)
-
 end Equiv
 
 section Iff
 
-
-theorem solvableMemberInnerTight_iff (hM : M11Facts) :
-    SolvableMemberInnerTight ↔ QuasisimpleConnected3Comp :=
-  ⟨quasisimpleConnected3Comp_of_tight hM, solvableMemberInnerTight_of_qs3Comp⟩
 
 end Iff
 

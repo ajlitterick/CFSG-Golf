@@ -41,16 +41,6 @@ theorem ZDSetup.theorem4
     (S : ZDSetup X Z M) : Theorem4Stmt Z M :=
   S.theorem4_of_prop71 S.cor57 S.prop71
 
-theorem ZDSetup.corollary3
-    (S : ZDSetup X Z M) : Cor3Stmt Z M :=
-  S.cor3 S.cor57 (S.prop63 S.theorem2)
-
-theorem ZDSetup.lemma61b (S : ZDSetup X Z M) : Lemma61bStmt Z M :=
-  lemma61b_of_lemma61a S.lemma61a
-
-theorem ZDSetup.corollary5
-    (S : ZDSetup X Z M) : Cor5Stmt Z M :=
-  S.cor5 S.theorem4 S.lemma61a
 
 theorem ZDSetup.corollary712
     (S : ZDSetup X Z M) :

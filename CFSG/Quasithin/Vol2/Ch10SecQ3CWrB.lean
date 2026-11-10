@@ -52,9 +52,6 @@ theorem exists_coordU_mul (x : AFive) : ∃ a b : AFive, coordU φ a * coordU' �
   obtain ⟨⟨a, b⟩, h⟩ := φ.surjective (x, 1)
   exact ⟨a, b, by simpa [apply_prod] using congrArg Prod.fst h⟩
 
-theorem exists_coordV_mul (x : AFive) : ∃ a b : AFive, coordV φ a * coordV' φ b = x := by
-  obtain ⟨⟨a, b⟩, h⟩ := φ.surjective (1, x)
-  exact ⟨a, b, by simpa [apply_prod] using congrArg Prod.snd h⟩
 
 theorem coordU'_eq_one (h : Function.Injective (coordU φ)) : coordU' φ = 1 := by
   refine MonoidHom.ext fun b => ?_
@@ -72,13 +69,6 @@ theorem coordV'_eq_one (h : Function.Injective (coordV φ)) : coordV' φ = 1 := 
   obtain ⟨a, rfl⟩ := Finite.surjective_of_injective h x
   exact (commute_V φ a b).symm
 
-theorem coordU_eq_one (h : Function.Injective (coordU' φ)) : coordU φ = 1 := by
-  refine MonoidHom.ext fun a => ?_
-  rw [MonoidHom.one_apply]
-  apply eq_one_of_forall_commute_aFive
-  intro x
-  obtain ⟨b, rfl⟩ := Finite.surjective_of_injective h x
-  exact commute_U φ a b
 
 theorem coordV_eq_one (h : Function.Injective (coordV' φ)) : coordV φ = 1 := by
   refine MonoidHom.ext fun a => ?_

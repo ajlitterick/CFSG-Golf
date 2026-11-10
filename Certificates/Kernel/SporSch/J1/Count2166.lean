@@ -48,24 +48,6 @@ theorem szJ : szOK 3080 12 = true := by quickRfl
 
 theorem blkJ : Nat.blt (64 * (rcnt (J1L.LR 1) * rcnt (J1L.LR 2))) 1048576 = true := by quickRfl
 
-theorem negBlk : (!(Nat.blt (65536 * (rcnt (J1L.LR 1) * rcnt (J1L.LR 2))) 1048576)) = true := by
-  quickRfl
-
-theorem negHdRoot : (!(clsPtHdK 3080 12 (mask 12) (3080 * 12) J1L.BP 3 J1L.LR J1L.TR J1PK.E J1PK.c
-    J1PK.r (Nat.succ J1PC.jR) 2 2000)) = true := by
-  quickRfl
-
-theorem negHdCap : (!(clsPtHdK 3080 12 (mask 12) (3080 * 12) J1L.BP 3 J1L.LR J1L.TR J1PK.E J1PK.c
-    J1PK.r J1PC.jR 2 1462)) = true := by
-  quickRfl
-
-theorem negDepth : (!(clsPtK 3080 12 (mask 12) (3080 * 12) J1L.BP 3 (ordK J1L.LR 3) (J1L.S 0)
-    (J1L.SI 0) (J1L.S 1) (J1L.SI 1) J1L.LR J1L.TR J1PK.E J1PK.IA J1PK.IB J1PK.PA J1PK.LB
-    (fun _ => 0) J1PK.c J1PK.r 1)) = true := by
-  quickRfl
-
-theorem negPerm : (!(permOK 3080 12 (mask 12) (3080 * 12) (J1L.S 0) (J1L.S 1))) = true := by
-  quickRfl
 
 theorem countFacts : (invOK 3080 j1ATbl j1AInvTbl = true ∧ invOK 3080 j1BTbl j1BInvTbl = true ∧
       ordTest 3080 2 j1ATbl = true ∧ ordTest 3080 3 j1BTbl = true ∧

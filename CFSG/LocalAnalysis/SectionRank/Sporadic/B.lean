@@ -14,9 +14,6 @@ namespace CFSG.SectionRank
 
 open CFSG.Open CFSG.SectionRank.Native
 
-theorem b_check :
-    ∃ E : Subgroup CFSG.Blueprint.NativeSporadic.B, IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 4 :=
-  Certificates.certificate8010
 
 theorem B_elementary_three_rank_four :
     ∃ E : Subgroup CFSG.Blueprint.NativeSporadic.B, IsElemAbelian 3 E ∧ Nat.card E = 3 ^ 4 :=

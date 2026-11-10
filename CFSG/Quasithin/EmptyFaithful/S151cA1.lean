@@ -14,11 +14,6 @@ namespace CFSG.Quasithin
 
 open CFSG.Open CFSG.QuasithinUnique
 
-theorem stageLemma1519_of_ce (h14 : StageLemma1414) (h17 : StageLemma1417)
-    (h317 : Theorem317Statement) (h15 : StageLemma1515CE) (h16 : StageLemma1516CE) :
-    StageLemma1519 := by
-  intro G _ _ T Mc M h hM hCE
-  exact lemma_15_1_9 h14 h17 h317 h hM hCE (h15 G T Mc M h hM hCE) (h16 G T Mc M h hM hCE)
 
 theorem notDualFF1512_of_ce (h1416 : StageLemma1416) (h1515 : StageLemma1515CE)
     (h158 : StageLemma1518) (h159 : StageLemma1519) : NotDualFF1512 := by
@@ -82,23 +77,5 @@ theorem stageLemma15114_of_ce (hStep : Step1514Gen) (h157 : StageLemma1517)
     (h159 G T Mc M h hM hCE) (h16 G T Mc M h hM hCE)
     (fun H hH => (h1512 G T Mc M h hM hCE H hH).2)
 
-theorem stage151_of_inputs_ce (h316 : Theorem316Statement) (h317 : Theorem317Statement)
-    (h319 : Lemma319Statement) (h1414 : StageLemma1414) (h1416 : StageLemma1416)
-    (h1417 : StageLemma1417) (hD : Description1512CE) (hN : Nilpotency1512CE)
-    (hStep : Step1514Gen) (h157 : StageLemma1517) (h158 : StageLemma1518)
-    (h1511one : StageLemma15111One) (h1512four : StageLemma15112Four) :
-    StageLemma1511 ∧ StageLemma1515CE ∧ StageLemma1516CE ∧ StageLemma1519 ∧ StageLemma15112 ∧
-      StageLemma15113 ∧ StageLemma15114 := by
-  have h15 : StageLemma1515CE := stageLemma1515CE_of_description hD
-  have h16 : StageLemma1516CE := stageLemma1516CE_of hN
-  have h159 : StageLemma1519 := stageLemma1519_of_ce h1414 h1417 h317 h15 h16
-  have h15110 : StageLemma15110 := stageLemma15110_of_ce h1416 h15
-  have h15111 : StageLemma15111 := stageLemma15111_of_one h158 h159 h1511one
-  have h1512 : StageLemma15112 :=
-    stageLemma15112_of_ce h319 h1416 h15 h158 h159 h16 h15111 h1512four
-  have h3 : StageLemma15113Three := stageLemma15113Three_of_ce h157 h158 h159 h15 h15110
-  have h4 : StageLemma15113Four := stageLemma15113Four_of_ce h157 h158 h159 h15 h15110 h1512four
-  exact ⟨stageLemma1511_of_theorem316 h316, h15, h16, h159, h1512,
-    stageLemma15113_of h157 h159 h1512 h3 h4, stageLemma15114_of_ce hStep h157 h15 h159 h16 h1512⟩
 
 end CFSG.Quasithin

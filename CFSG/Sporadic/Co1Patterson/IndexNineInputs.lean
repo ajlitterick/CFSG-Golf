@@ -10,11 +10,6 @@ namespace CFSG.Sporadic.Co1Patterson.IndexNine
 open CFSG.Sporadic.Co1Patterson.Native CFSG.Sporadic.Co1Patterson.TwistNative
 open CFSG.Sporadic.Co1Block CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.SmallF2.Native
 
-@[expose] def findCol (h : Rows) (k : Nat) : Nat :=
-  let x := mul (mul h (yRow k)) (inv h)
-  ((List.range 256).find? fun c => x == yprodRow c || x == mul (yprodRow c) iotaARows).getD 0
-
-@[expose] def findCols (h : Rows) : List Nat := (List.range 8).map fun k => findCol h k
 
 @[expose] def co1XWord : List (Nat × Nat) :=
   [(6, 1), (0, 1), (7, 1), (1, 5), (2, 8), (0, 13), (7, 11), (1, 4), (3, 1), (4, 1),
@@ -54,8 +49,6 @@ open CFSG.Sporadic.Co1Block CFSG.Sporadic.Co1Schreier.Native CFSG.Sporadic.Small
 
 @[expose] def co1BaseFlag : Nat × Nat := (8, 4)
 
-@[expose] def co1MatsC (_ : Unit := ()) : List (List Nat) :=
-  (List.range 8).map fun l => findCols (brayArr[l]!)
 
 @[expose] def co1PowCols (m : List Nat) : Nat → List Nat
   | 0 => idCols
@@ -93,9 +86,6 @@ theorem co1RowsKeyC_injOn {m n : List Nat} (hm : m.length = 8) (hn : n.length = 
     co1FlagStepC x co1BaseFlag == co1BaseFlag &&
     co1FlagStepC y co1BaseFlag == co1BaseFlag
 
-@[expose] def co1EvalColsR (gens : List (List Nat)) : List Nat → List Nat
-  | [] => idCols
-  | i :: w => colsMul (gens.getD i idCols) (co1EvalColsR gens w)
 
 theorem co1XYCheckC_spec {x y : List Nat} (h : co1XYCheckC x y = true) :
     colsMul x x |> fun x2 => colsMul x2 x = idCols ∧

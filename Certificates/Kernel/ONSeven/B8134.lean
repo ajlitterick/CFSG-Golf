@@ -51,7 +51,6 @@ theorem let_tw {r : Nat} (hr : r < 5) : LetM 7 (tw r) := by
   simp only [Bool.and_eq_true] at h
   exact letM_of (lets_all h.1.2 (getD_mem _ (by have : onSevenConjWords.size = 5 := rfl; omega)))
 
-theorem let_xw {r : Nat} (hr : r < 5) : LetM 7 (xw r) := let_line (repIdx_lt hr)
 
 theorem let_uw {r i : Nat} (hr : r < 5) (hi : i < (bd r).length) : LetM 7 (uw r i) := by
   have h := lets_ok
@@ -62,23 +61,6 @@ theorem let_uw {r i : Nat} (hr : r < 5) (hi : i < (bd r).length) : LetM 7 (uw r 
     exact List.getElem_mem hi
   exact letM_of (lets_all (lets_all h.2 (getD_mem #[] hs)) hm)
 
-theorem let_cw {r : Nat} (hr : r < 5) : LetM 7 (cw r) := by
-  intro l hl
-  unfold cw at hl
-  rcases List.mem_append.1 hl with h | h
-  · rcases List.mem_append.1 h with h | h
-    · exact let_tw hr l h
-    · exact let_xw hr l h
-  · exact letM_invW (let_tw hr) l h
-
-theorem let_bw {r i : Nat} (hr : r < 5) (hi : i < (bd r).length) : LetM 7 (bw r i) := by
-  intro l hl
-  unfold bw at hl
-  rcases List.mem_append.1 hl with h | h
-  · rcases List.mem_append.1 h with h | h
-    · exact letM_invW (let_uw hr hi) l h
-    · exact let_cw hr l h
-  · exact let_uw hr hi l h
 
 theorem tw_eq {r : Nat} (hr : r < 5) : onSevenConjWords[r]! = tw r :=
   (getD_eq _ _ (by have : onSevenConjWords.size = 5 := rfl; omega)).symm

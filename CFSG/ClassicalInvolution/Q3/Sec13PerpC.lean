@@ -380,10 +380,6 @@ private theorem pc_P₁_mem_dComp (T : TCSetup Ω P₁ P₂ K g) {L : Subgroup G
   rw [T.hdc]
   exact Or.inl hL
 
-private theorem pc_P₂_mem_dComp (T : TCSetup Ω P₁ P₂ K g) {N : Subgroup G} (hN : N ∈ P₂) :
-    N ∈ dComp Ω K := by
-  rw [T.hdc]
-  exact Or.inr hN
 
 private theorem pc_P₁_Ω (T : TCSetup Ω P₁ P₂ K g) {L : Subgroup G} (hL : L ∈ P₁) : L ∈ Ω :=
   pc_dComp_subset T.hKΩ (pc_P₁_mem_dComp T hL)

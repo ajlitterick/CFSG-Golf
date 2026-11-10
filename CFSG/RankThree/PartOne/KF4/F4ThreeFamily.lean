@@ -122,9 +122,6 @@ variable {L : Type} [Field L] [IsAlgClosed L] {ℓ f : ℕ} {k : Type} [Field k]
 
 omit
   [IsAlgClosed L] in
-theorem conj_blockSL_aux (c r h : ModGL Tag.F4 L) (Ψ : ModGL Tag.F4 L) :
-    (c * r * (h * Ψ * h⁻¹) * (c * r)⁻¹) = c * (r * (h * Ψ * h⁻¹) * r⁻¹) * c⁻¹ := by
-  group
 
 omit [IsAlgClosed L] in
 theorem f4rhoLong_mem_adjointGroup (X : SL(3, L)) : f4rhoLong L X ∈ adjointGroup Tag.F4 L := by

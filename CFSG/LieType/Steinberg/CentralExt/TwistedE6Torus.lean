@@ -43,9 +43,6 @@ theorem orbitMap_rhoPerm (a : Fin (Tag.rank .E6)) : orbitMap (rhoPerm a) = orbit
   revert a
   decide
 
-theorem orbitMap_rhoPerm_symm (a : Fin (Tag.rank .E6)) :
-    orbitMap (rhoPerm.symm a) = orbitMap a := by
-  rw [← orbitMap_rhoPerm (rhoPerm.symm a), Equiv.apply_symm_apply]
 
 theorem cartanCoord_rho (α : Fin (Tag.rank .E6) → ℤ) (a : Fin (Tag.rank .E6)) :
     cartanCoord (rho α) (rhoPerm a) = cartanCoord α a := by
@@ -211,9 +208,6 @@ theorem torS_mul (s s' : Fin (Tag.rank .F4) → (fixedSubfield θ)ˣ) :
   rw [← map_mul]
   rfl
 
-theorem torS_commute (s s' : Fin (Tag.rank .F4) → (fixedSubfield θ)ˣ) :
-    torS θ s * torS θ s' = torS θ s' * torS θ s := by
-  rw [← torS_mul, ← torS_mul, mul_comm]
 
 theorem torS_conj_xFixed (s : Fin (Tag.rank .F4) → (fixedSubfield θ)ˣ)
     {α : Fin (Tag.rank .E6) → ℤ} (hα : IsRoot .E6 α) (hfix : rho α = α) (c : k) (hc : θ c = c) :

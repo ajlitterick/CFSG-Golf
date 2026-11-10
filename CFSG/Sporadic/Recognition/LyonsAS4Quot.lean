@@ -172,21 +172,5 @@ theorem exists_lyData_of_oneClassDoubleCover {G : Type} [Group G]
   obtain ⟨ρ, hρ⟩ := exists_isCover11 hz2 hzc hcov
   exact ⟨z, ρ, ⟨hz.1, hρ, hone⟩⟩
 
-theorem exists_centQuot_mcl_of_oneClassDoubleCover
-    {G : Type} [Group G] [Finite G] (hG : OneClassDoubleCover G 11) :
-    ∃ x : G, orderOf x = 3 ∧ Nonempty (CentQuot x ≃* Blueprint.NativeSporadic.McL) := by
-  obtain ⟨t, ρ, D⟩ := exists_lyData_of_oneClassDoubleCover hG
-  obtain ⟨x, hx3, hx⟩ := D.exists_lift_x1p
-  refine ⟨(x : G), ?_, D.centQuot_mcl hx3 hx⟩
-  have hxG3 : (x : G) ^ 3 = 1 := by
-    have := congrArg Subtype.val hx3
-    simpa using this
-  have hx1 : (x : G) ≠ 1 := by
-    intro h
-    have : x = 1 := Subtype.ext h
-    rw [this, map_one] at hx
-    exact (by decide : (1 : Perm (Fin 11)) ≠ x1p) hx
-  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  exact orderOf_eq_prime hxG3 hx1
 
 end CFSG.Sporadic.Recognition.LyonsSims

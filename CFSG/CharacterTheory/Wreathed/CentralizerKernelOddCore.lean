@@ -23,23 +23,6 @@ theorem centralizerOddCore_le_transferKernel [Finite G]
   exact (weakClosure_oddCore_card (involutionCentralizer n S e)).of_dvd_nat
     ((centralizerOddCore n S e).orderOf_dvd_natCard hg)
 
-theorem centralizerTransferKernel_oddCore_map [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (CFSG.oddCore (centralizerTransferKernel n hn S e)).map
-      (centralizerTransferKernel n hn S e).subtype = centralizerOddCore n S e := by
-  change (CFSG.Open.componentClassificationOddCore (centralizerTransferKernel n hn S e)).map
-    (centralizerTransferKernel n hn S e).subtype =
-      CFSG.Open.componentClassificationOddCore (involutionCentralizer n S e)
-  rw [CFSG.ComponentClassification.OddCore.normal_intersection]
-  exact inf_eq_right.mpr (centralizerOddCore_le_transferKernel n hn S e)
-
-theorem centralizerTransferKernel_oddCore_eq_subgroupOf [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    CFSG.oddCore (centralizerTransferKernel n hn S e) =
-      (centralizerOddCore n S e).subgroupOf (centralizerTransferKernel n hn S e) := by
-  apply Subgroup.map_subtype_inj.mp
-  rw [centralizerTransferKernel_oddCore_map,
-    Subgroup.map_subgroupOf_eq_of_le (centralizerOddCore_le_transferKernel n hn S e)]
 
 @[expose] def centralizerResidualImage [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -56,59 +39,12 @@ instance centralizerResidualImage_normal [Finite G]
     centralizerTransferKernel n hn S e →* centralizerResidualImage n hn S e :=
   (centralizerOddCoreMap n S e).subgroupMap (centralizerTransferKernel n hn S e)
 
-theorem centralizerResidualMap_coe [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (k : centralizerTransferKernel n hn S e) :
-    (centralizerResidualMap n hn S e k : centralizerOddCoreQuotient n S e) =
-      centralizerOddCoreMap n S e (k : involutionCentralizer n S e) := rfl
 
 theorem centralizerResidualMap_surjective [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
     Function.Surjective (centralizerResidualMap n hn S e) :=
   (centralizerOddCoreMap n S e).subgroupMap_surjective _
 
-theorem centralizerResidualMap_ker [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centralizerResidualMap n hn S e).ker = CFSG.oddCore (centralizerTransferKernel n hn S e) := by
-  rw [centralizerTransferKernel_oddCore_eq_subgroupOf]
-  ext k
-  change centralizerResidualMap n hn S e k = 1 ↔
-    (k : involutionCentralizer n S e) ∈ centralizerOddCore n S e
-  rw [Subtype.ext_iff]
-  exact QuotientGroup.eq_one_iff _
-
-@[expose] def centralizerResidualQuotientEquiv [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    centralizerTransferKernel n hn S e ⧸ CFSG.oddCore (centralizerTransferKernel n hn S e) ≃*
-      centralizerResidualImage n hn S e :=
-  QuotientGroup.liftEquiv (CFSG.oddCore (centralizerTransferKernel n hn S e))
-    (centralizerResidualMap_surjective n hn S e) (centralizerResidualMap_ker n hn S e).symm
-
-theorem centralizerResidualQuotientEquiv_mk [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (k : centralizerTransferKernel n hn S e) :
-    centralizerResidualQuotientEquiv n hn S e
-      ((QuotientGroup.mk' (CFSG.oddCore (centralizerTransferKernel n hn S e))) k) =
-        centralizerResidualMap n hn S e k := rfl
-
-theorem centralizerResidualQuotientEquiv_coe [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (k : centralizerTransferKernel n hn S e) :
-    (centralizerResidualQuotientEquiv n hn S e
-      ((QuotientGroup.mk' (CFSG.oddCore (centralizerTransferKernel n hn S e))) k) :
-        centralizerOddCoreQuotient n S e) = centralizerOddCoreMap n S e k := rfl
-
-theorem centralizerResidualImage_oddCore_eq_bot [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    CFSG.oddCore (centralizerResidualImage n hn S e) = ⊥ := by
-  have h := CFSG.ComponentClassification.OddCore.equiv_invariant
-    (centralizerResidualQuotientEquiv n hn S e)
-  change (CFSG.oddCore (centralizerTransferKernel n hn S e ⧸
-    CFSG.oddCore (centralizerTransferKernel n hn S e))).map
-      (centralizerResidualQuotientEquiv n hn S e).toMonoidHom =
-        CFSG.oddCore (centralizerResidualImage n hn S e) at h
-  rw [weakClosure_oddCore_quotient_eq_bot, Subgroup.map_bot] at h
-  exact h.symm
 
 theorem centralizerResidualImage_index [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -220,14 +156,6 @@ theorem centralizerResidualSylowEquiv_coe [Finite G] [IsSimpleGroup G]
       ((Subgroup.subgroupOfEquivOfLe (centralizerQuaternion_le_transferKernel hnonab n hn S e)).symm.trans
         (MulEquiv.subgroupCongr (centralizerKernelSylow_eq hnonab n hn S e).symm))
 
-theorem centralizerKernelQuaternionCoordinates_coe [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (q : QuaternionGroup (2 ^ n / 2)) :
-    ((centralizerKernelQuaternionCoordinates hnonab n hn S e q :
-      centralizerTransferKernel n hn S e) : involutionCentralizer n S e) =
-        wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-          (originalYQuaternionEquiv n hn q) := rfl
 
 @[expose] def centralizerResidualQuaternionEquiv [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -235,16 +163,6 @@ theorem centralizerKernelQuaternionCoordinates_coe [Finite G] [IsSimpleGroup G]
     QuaternionGroup (2 ^ n / 2) ≃* centralizerResidualSylow hnonab n hn S e :=
   (centralizerKernelQuaternionCoordinates hnonab n hn S e).trans
     (centralizerResidualSylowEquiv hnonab n hn S e)
-
-theorem centralizerResidualQuaternionEquiv_coe [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (q : QuaternionGroup (2 ^ n / 2)) :
-    ((centralizerResidualQuaternionEquiv hnonab n hn S e q :
-      centralizerResidualImage n hn S e) : centralizerOddCoreQuotient n S e) =
-        centralizerOddCoreMap n S e
-          (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-            (originalYQuaternionEquiv n hn q)) := rfl
 
 
 theorem centralizerResidualSylow_card [Finite G] [IsSimpleGroup G]
@@ -358,44 +276,6 @@ theorem centralizerResidualImage_unique_involution [Finite G] [IsSimpleGroup G]
   exact hys.eq_of_right_mem_center (centralizerResidualInvolution_mem_center hnonab n hn S e)
 
 
-theorem centralizerResidualQuaternionEquiv_rotation [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ((centralizerResidualQuaternionEquiv hnonab n hn S e (QuaternionGroup.a 1) :
-      centralizerResidualImage n hn S e) : centralizerOddCoreQuotient n S e) =
-        centralizerOddCoreMap n S e
-          (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-            (Original.r (2 ^ n))) := by
-  rw [centralizerResidualQuaternionEquiv_coe]
-  exact congrArg (fun w : Wreath (2 ^ n) => centralizerOddCoreMap n S e
-    (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e) w))
-      (originalYQuaternionEquiv_rotation n hn)
-
-theorem centralizerResidualQuaternionEquiv_generator [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ((centralizerResidualQuaternionEquiv hnonab n hn S e (QuaternionGroup.xa 0) :
-      centralizerResidualImage n hn S e) : centralizerOddCoreQuotient n S e) =
-        centralizerOddCoreMap n S e
-          (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-            (Original.d (2 ^ n))) := by
-  rw [centralizerResidualQuaternionEquiv_coe]
-  exact congrArg (fun w : Wreath (2 ^ n) => centralizerOddCoreMap n S e
-    (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e) w))
-      (originalYQuaternionEquiv_generator n hn)
-
-theorem centralizerResidualQuaternionEquiv_involution [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centralizerResidualQuaternionEquiv hnonab n hn S e
-      (QuaternionGroup.a ((2 ^ n / 2 : ℕ) : ZMod (2 * (2 ^ n / 2)))) :
-        centralizerResidualImage n hn S e) = centralizerResidualInvolution hnonab n hn S e := by
-  apply Subtype.ext
-  rw [centralizerResidualQuaternionEquiv_coe, centralizerResidualInvolution_coe]
-  exact congrArg (fun w : Wreath (2 ^ n) => centralizerOddCoreMap n S e
-    (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e) w))
-      (originalYQuaternionEquiv_involution n hn)
-
 theorem centralizerQuaternionImage_card [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -413,23 +293,6 @@ theorem centralizerResidualImage_unique_involution_ambient [Finite G] [IsSimpleG
   exact congrArg Subtype.val h
 
 
-theorem centralizerQuaternionImage_le_residualImage [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e) ≤
-      centralizerResidualImage n hn S e :=
-  Subgroup.map_mono (centralizerQuaternion_le_transferKernel hnonab n hn S e)
-
-theorem centralizerResidualSylow_eq_subgroupOf_image [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    (centralizerResidualSylow hnonab n hn S e : Subgroup (centralizerResidualImage n hn S e)) =
-      ((centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e)).subgroupOf
-        (centralizerResidualImage n hn S e) := by
-  apply Subgroup.map_subtype_inj.mp
-  rw [centralizerResidualSylow_image,
-    Subgroup.map_subgroupOf_eq_of_le (centralizerQuaternionImage_le_residualImage hnonab n hn S e)]
-
 @[expose] def centralizerQuaternionImageEquiv [Finite G] [IsSimpleGroup G]
     (hnonab : ∃ a b : G, a * b ≠ b * a)
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -441,24 +304,6 @@ theorem centralizerResidualSylow_eq_subgroupOf_image [Finite G] [IsSimpleGroup G
         (centralizerResidualImage n hn S e).subtype Subtype.coe_injective).trans
       (MulEquiv.subgroupCongr (centralizerResidualSylow_image hnonab n hn S e)))
 
-theorem centralizerQuaternionImageEquiv_coe [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (q : QuaternionGroup (2 ^ n / 2)) :
-    (centralizerQuaternionImageEquiv hnonab n hn S e q : centralizerOddCoreQuotient n S e) =
-      centralizerOddCoreMap n S e
-        (wreathModelHom (centralizerSylow n hn S e) (centralizerCoordinates n hn S e)
-          (originalYQuaternionEquiv n hn q)) := rfl
-
-theorem centralizerOddCoreMap_quaternion_injective [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    Function.Injective ((centralizerOddCoreMap n S e).domRestrict (centralizerQuaternion n hn S e)) := by
-  intro a b hab
-  let aS : centralizerSylow n hn S e := ⟨a, centralizerQuaternion_le_sylow n hn S e a.property⟩
-  let bS : centralizerSylow n hn S e := ⟨b, centralizerQuaternion_le_sylow n hn S e b.property⟩
-  have h : aS = bS := centralizerOddCoreMap_sylow_injective n hn S e hab
-  exact Subtype.ext (congrArg (fun x : centralizerSylow n hn S e =>
-    (x : involutionCentralizer n S e)) h)
 
 theorem centralizerQuaternionImage_eq_modelY [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -467,55 +312,5 @@ theorem centralizerQuaternionImage_eq_modelY [Finite G]
   rw [centralizerQuaternion, modelY, Subgroup.map_map, ← centralizerOddCoreModelHom_comp]
   rfl
 
-structure WreathedCentralizerKernelOddCoreData [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) : Prop where
-  ambient_odd_core_le_kernel : centralizerOddCore n S e ≤ centralizerTransferKernel n hn S e
-  kernel_odd_core_image : (CFSG.oddCore (centralizerTransferKernel n hn S e)).map
-    (centralizerTransferKernel n hn S e).subtype = centralizerOddCore n S e
-  kernel_odd_core : CFSG.oddCore (centralizerTransferKernel n hn S e) =
-    (centralizerOddCore n S e).subgroupOf (centralizerTransferKernel n hn S e)
-  residual_normal : (centralizerResidualImage n hn S e).Normal
-  residual_index : (centralizerResidualImage n hn S e).index = 2 ^ n
-  actual_surjection : Function.Surjective (centralizerResidualMap n hn S e)
-  actual_kernel : (centralizerResidualMap n hn S e).ker =
-    CFSG.oddCore (centralizerTransferKernel n hn S e)
-  actual_quotient : Nonempty (centralizerTransferKernel n hn S e ⧸
-    CFSG.oddCore (centralizerTransferKernel n hn S e) ≃* centralizerResidualImage n hn S e)
-  residual_corefree : CFSG.oddCore (centralizerResidualImage n hn S e) = ⊥
-  quaternion_sylow : ∃ P : Sylow 2 (centralizerResidualImage n hn S e),
-    (P : Subgroup (centralizerResidualImage n hn S e)).map
-      (centralizerResidualImage n hn S e).subtype =
-        (centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e)
-  quaternion_image : Nonempty (QuaternionGroup (2 ^ n / 2) ≃*
-    (centralizerQuaternion n hn S e).map (centralizerOddCoreMap n S e))
-  quaternion_image_order : Nat.card ((centralizerQuaternion n hn S e).map
-    (centralizerOddCoreMap n S e)) = 2 * 2 ^ n
-  involution_mem : centralizerOddCoreMap n S e (centralInvolution n S e) ∈
-    centralizerResidualImage n hn S e
-  involution_central : centralizerOddCoreMap n S e (centralInvolution n S e) ∈
-    Subgroup.center (centralizerOddCoreQuotient n S e)
-  involution_order : orderOf (centralizerOddCoreMap n S e (centralInvolution n S e)) = 2
-  unique_involution : ∀ y : centralizerOddCoreQuotient n S e,
-    y ∈ centralizerResidualImage n hn S e → orderOf y = 2 →
-      y = centralizerOddCoreMap n S e (centralInvolution n S e)
-
-theorem wreathed_centralizer_kernel_odd_core_data [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    WreathedCentralizerKernelOddCoreData n hn S e := by
-  refine ⟨centralizerOddCore_le_transferKernel n hn S e,
-    centralizerTransferKernel_oddCore_map n hn S e,
-    centralizerTransferKernel_oddCore_eq_subgroupOf n hn S e, inferInstance,
-    centralizerResidualImage_index hnonab n hn S e,
-    centralizerResidualMap_surjective n hn S e, centralizerResidualMap_ker n hn S e,
-    ⟨centralizerResidualQuotientEquiv n hn S e⟩, centralizerResidualImage_oddCore_eq_bot n hn S e,
-    ⟨centralizerResidualSylow hnonab n hn S e, centralizerResidualSylow_image hnonab n hn S e⟩,
-    ⟨centralizerQuaternionImageEquiv hnonab n hn S e⟩,
-    centralizerQuaternionImage_card hnonab n hn S e, ?_, ?_, ?_,
-    centralizerResidualImage_unique_involution_ambient hnonab n hn S e⟩
-  · exact (centralizerResidualInvolution hnonab n hn S e).property
-  · exact centralizerResidualInvolution_mem_ambient_center hnonab n hn S e
-  · exact (Subgroup.orderOf_coe (centralizerResidualInvolution hnonab n hn S e)).trans
-      (centralizerResidualInvolution_order hnonab n hn S e)
 
 end CFSG.Wreathed

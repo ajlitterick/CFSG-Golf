@@ -184,9 +184,6 @@ variable (Q : QuadraticForm (ZMod 2) W) (v : W)
 
 variable {Q v}
 
-theorem mem_stabO {g : W ≃ₗ[ZMod 2] W} :
-    g ∈ stabO Q v ↔ g ∈ TauCeti.QuadraticMap.orthogonalGroup Q ∧ g v = v :=
-  Iff.rfl
 
 theorem mem_stabS {g : W ≃ₗ[ZMod 2] W} :
     g ∈ stabS Q v ↔
@@ -260,20 +257,11 @@ variable (Q v) in
 @[expose] def kappa : stabO Q v →* TauCeti.BilinForm.isometryGroup (barB Q v) :=
   (kappaGL Q v).codRestrict _ kappaGL_mem
 
-theorem coe_kappa_mk (g : stabO Q v) (x : vPerp Q v) :
-    ((kappa Q v g : BarW Q v ≃ₗ[ZMod 2] BarW Q v) (Submodule.Quotient.mk x)) =
-      Submodule.Quotient.mk ⟨(g : W ≃ₗ[ZMod 2] W) x, apply_mem_vPerp g.2 x.2⟩ :=
-  rfl
 
 variable (Q v) in
 @[expose] def kappaS : stabS Q v →* TauCeti.BilinForm.isometryGroup (barB Q v) :=
   (kappa Q v).comp (Subgroup.inclusion stabS_le_stabO)
 
-theorem coe_kappaS_mk (g : stabS Q v) (x : vPerp Q v) :
-    ((kappaS Q v g : BarW Q v ≃ₗ[ZMod 2] BarW Q v) (Submodule.Quotient.mk x)) =
-      Submodule.Quotient.mk
-        ⟨(g : W ≃ₗ[ZMod 2] W) x, apply_mem_vPerp (stabS_le_stabO g.2) x.2⟩ :=
-  rfl
 
 end Stabilizer
 

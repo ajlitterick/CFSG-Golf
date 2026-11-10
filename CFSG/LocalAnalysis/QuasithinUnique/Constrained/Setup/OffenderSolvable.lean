@@ -42,11 +42,6 @@ open scoped Pointwise
 
 namespace CFSG.QuasithinUnique.Setup.Offender
 
-theorem solvable_normal_product {G : Type*} [Group G] (N M : Subgroup G) [N.Normal] [M.Normal]
-    [Group.IsSolvable N] [Group.IsSolvable M] :
-    ((N ⊔ M : Subgroup G) : Set G) = (N : Set G) * (M : Set G) ∧ (N ⊔ M).Normal ∧
-      Group.IsSolvable (N ⊔ M : Subgroup G) :=
-  ⟨Subgroup.normal_mul N M, inferInstance, CFSG.ABGLocalTools.isSolvable_sup_of_normal N M⟩
 
 theorem solvableRadical_characterization (G : Type*) [Group G] [Finite G] :
     (CFSG.solvableRadical G).Characteristic ∧ Group.IsSolvable (CFSG.solvableRadical G) ∧

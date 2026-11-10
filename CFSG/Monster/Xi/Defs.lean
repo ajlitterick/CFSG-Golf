@@ -72,36 +72,5 @@ theorem XiG_mem_dyadic (i j : SpinIdx) : XiG i j ∈ dyadic :=
 theorem Ximat_mem_dyadic (i j : SpinIdx) : Ximat i j ∈ dyadic :=
   mul_mem_dyadic XiGamma_mem_dyadic XiG_mem_dyadic i j
 
-theorem C4_mem_dyadic (r r' : Fin 4) : C4 r r' ∈ dyadic := by
-  have h2 : (1 / 2 : ℚ) ∈ dyadic := ⟨1, by norm_num⟩
-  have h : C4 r r' = 1 / 2 ∨ C4 r r' = -(1 / 2) := by
-    rw [C4_eq]
-    fin_cases r <;> fin_cases r' <;> simp <;> norm_num
-  rcases h with h | h <;> rw [h]
-  · exact h2
-  · exact dyadic.neg_mem h2
-
-theorem gXi_mem_dyadic (i i' : Fin 24) : gXi i i' ∈ dyadic := by
-  rw [gXi_apply]
-  split_ifs
-  · exact C4_mem_dyadic _ _
-  · exact dyadic.zero_mem
-
-theorem xi_explicit_matrix_data :
-    Fintype.card (Fin 6 → ZMod 2) = 64 ∧
-    XiGamma = (1 / 8 : ℚ) • ∑ μ : Fin 6 → ZMod 2, sgn (qG μ) • Dmat (gammaD μ) ∧
-    XiG = (1 / 8 : ℚ) • ∑ μ : Fin 6 → ZMod 2, sgn (qG μ) • Tmat (greyC μ) ∧
-    Ximat = XiGamma * XiG ∧
-    (∀ i j : SpinIdx, XiGamma i j ∈ dyadic ∧ XiG i j ∈ dyadic ∧ Ximat i j ∈ dyadic) ∧
-    J4 = Matrix.of (fun _ _ => 1) ∧
-    C4 = (1 - (1 / 2 : ℚ) • J4) * Matrix.diagonal ![-1, 1, 1, 1] ∧
-    C4 = !![-1 / 2, -1 / 2, -1 / 2, -1 / 2; 1 / 2, 1 / 2, -1 / 2, -1 / 2;
-      1 / 2, -1 / 2, 1 / 2, -1 / 2; 1 / 2, -1 / 2, -1 / 2, 1 / 2] ∧
-    (∀ (r : Fin 4) (j : Fin 6) (r' : Fin 4) (j' : Fin 6),
-      gXi (coord r j) (coord r' j') = if j = j' then C4 r r' else 0) ∧
-    (∀ i i' : Fin 24, gXi i i' ∈ dyadic) :=
-  ⟨by simp, rfl, rfl, rfl,
-    fun i j => ⟨XiGamma_mem_dyadic i j, XiG_mem_dyadic i j, Ximat_mem_dyadic i j⟩, rfl, rfl, C4_eq,
-    gXi_coord, gXi_mem_dyadic⟩
 
 end CFSG.Monster.Xi

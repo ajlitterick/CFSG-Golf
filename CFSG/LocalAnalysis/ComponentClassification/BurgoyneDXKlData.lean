@@ -39,11 +39,6 @@ theorem K2Data.transport {R R' : GL (Fin d) K} {M : Subgroup (GL (Fin d) K)}
     · exact Or.inl (by rw [h1, map_one])
     · exact Or.inr (by rw [h1, hφneg])
 
-theorem neg_one_ne_one_GL (h2 : (2 : K) ≠ 0) (hd : 0 < d) : (-1 : GL (Fin d) K) ≠ 1 := by
-  intro h
-  have e := congrArg (fun B : GL (Fin d) K => (B : Matrix (Fin d) (Fin d) K) ⟨0, hd⟩ ⟨0, hd⟩) h
-  simp only [Units.val_neg, Units.val_one, Matrix.neg_apply, Matrix.one_apply_eq] at e
-  exact h2 (by linear_combination -e)
 
 theorem false_of_k2_sign [Finite K] (hK : ringChar K ≠ 2) {w : Fin d → K} (hw : ∀ i, w i ≠ 0)
     {M : Subgroup (GL (Fin d) K)} (hd : K2Data (diagGL hw) M) {J : Finset (Fin d)}

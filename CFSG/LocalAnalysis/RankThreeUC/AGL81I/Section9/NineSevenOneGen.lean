@@ -148,13 +148,5 @@ theorem five_le_pRank_three_of_fi22 (hFi : KFactFi22ThreeRank) {L : Subgroup (St
     (Subgroup.map_subtype_le ((⊤ : Subgroup ↥P).map P.subtype))
   omega
 
-theorem nineSevenOne_of_kFacts (hB5 : KFactThreeSevenTwoGe5) (hFi : KFactFi22ThreeRank)
-    (h5c : KFactCenterRankFive) (h2c : KFactCenterRankTwo) : NineSevenOne := by
-  intro G _ _ M Q H E p h hH2 hp h5
-  by_contra hne
-  obtain ⟨-, L, -, -, hL⟩ := h.toGen.fi22_of_pCoreOf_ne hB5 h5c h2c hH2 hp h5 hne
-  have h3 : CFSG.Open.pRank 3 H ≤ 3 := (h.pRank_le_of_mem_H2Fam hH2 hp).2.2
-  have h5' := five_le_pRank_three_of_fi22 hFi hL
-  omega
 
 end CFSG.LocalAnalysis.RankThreeUC.AGL81C

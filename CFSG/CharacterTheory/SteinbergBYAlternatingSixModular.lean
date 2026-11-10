@@ -303,22 +303,6 @@ theorem isIrreducible_a6BinaryRep : ∀ i, (a6BinaryRep i).IsIrreducible := by
   · exact isIrreducible_rep4b _
   · exact isIrreducible_of_equiv (transportRepEquiv realEquiv _) isIrreducible_restrictFour_rep8a
 
-theorem isEmpty_equiv_a6BinaryRep (i j : Fin 4) (hij : i ≠ j) :
-    IsEmpty ((a6BinaryRep i).Equiv (a6BinaryRep j)) := by
-  have h1 : LinearMap.trace (ZMod 2) _ (a6BinaryRep 1 threeCycle) = 1 :=
-    (trace_matrixBaseChange (RingHom.id _) rep4a threeCycle).trans
-      (by rw [trace_rep4a_threeCycle]; rfl)
-  have h2 : LinearMap.trace (ZMod 2) _ (a6BinaryRep 2 threeCycle) = 0 :=
-    (trace_matrixBaseChange (RingHom.id _) rep4b threeCycle).trans
-      (by rw [trace_rep4b_threeCycle]; rfl)
-  by_cases hd : (![1, 4, 4, 16] : Fin 4 → ℕ) i = ![1, 4, 4, 16] j
-  · have hcases : (i = 1 ∧ j = 2) ∨ (i = 2 ∧ j = 1) := by
-      revert i j
-      decide
-    rcases hcases with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
-    · exact isEmpty_equiv_of_trace_ne threeCycle (by rw [h1, h2]; exact one_ne_zero)
-    · exact isEmpty_equiv_of_trace_ne threeCycle (by rw [h1, h2]; exact zero_ne_one)
-  · exact isEmpty_equiv_of_finrank_ne (by rwa [Module.finrank_fin_fun, Module.finrank_fin_fun])
 
 @[expose] noncomputable def realPartMap {m n : ℕ} (T : Matrix (Fin m) (Fin n) FieldFour) :
     (Fin n → FieldFour) →ₗ[ZMod 2] (Fin m → ZMod 2) where

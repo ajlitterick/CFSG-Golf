@@ -46,31 +46,6 @@ theorem InComponentOfCentralizer.le_centralizerLayer {Y : Type} [Group Y]
 
 section Provider
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
-  {E : Subgroup G}
-
-theorem LayerGenerationLie.of_toralSimpleRoots_components (hp2 : p ≠ 2) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hq : 5 ≤ p ^ f) (hΩ : InClass p f Ω)
-    (hIH : LocalLieSystems p f Ω) (hE2 : ∀ x ∈ E, x * x = 1) {a : G} (ha : a ∈ E)
-    (hnc : ¬ ({a} : Set G) ⊆ Subgroup.center G)
-    (htor : ∀ (D : LocalLieSystemAt p f Ω a) (j : Fin D.card) (F₀ : Subgroup G),
-      CFSG.IsComponent (componentHom hΩ D j).range →
-      IsFaithfulFourGroupAt E a (componentHom hΩ D j).range F₀ →
-        ∃ g : (compModel D j).K,
-          (∀ i : Fin (compModel D j).D.rank, IndexTwoCentralizes (modOdd a F₀)
-            (rankOneImage (compModel D j).D (componentHom hΩ D j) g (Pi.single i 1))) ∧
-          ∀ i : Fin (compModel D j).D.rank, ¬ IsInvolutionMember
-              (rankOneImage (compModel D j).D (componentHom hΩ D j) g (Pi.single i 1)) →
-            ∃ f ∈ modOdd a F₀, f ≠ 1 ∧
-              InComponentOfCentralizer (componentHom hΩ D j).range
-                (rankOneImage (compModel D j).D (componentHom hΩ D j) g (Pi.single i 1)) f) :
-    LayerGenerationLie Ω E a := by
-  refine LayerGenerationLie.of_toralSimpleRoots hp2 h0 hA1 hq hΩ hIH hE2 ha hnc ?_
-  intro D j F₀ hL hF
-  obtain ⟨g, hT, hS⟩ := htor D j F₀ hL hF
-  refine ⟨g, hT, fun i hnm => ?_⟩
-  obtain ⟨f, hf, hf1, hcomp⟩ := hS i hnm
-  exact ⟨f, hf, hf1, hcomp.le_centralizerLayer ((CFSG.isComponent_iff_open _).mp hL).2.1⟩
 
 end Provider
 

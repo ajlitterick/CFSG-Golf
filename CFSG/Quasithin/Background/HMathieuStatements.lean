@@ -59,22 +59,11 @@ abbrev cocode22 (x y : Fin 24) : FFModel :=
 abbrev code24 : FFModel :=
   FFModel.golaySec CFSG.Monster.Code.AutPerm golayC (Subgroup.zpowers (G6.allOnes 24))
 
-abbrev code23 (x : Fin 24) : FFModel :=
-  FFModel.golaySec (CFSG.Monster.Code.AutPerm ⊓ stab x) golayC
-    (Subgroup.zpowers (G6.allOnes 24))
 
 abbrev code22 (x y : Fin 24) : FFModel :=
   FFModel.golaySec (CFSG.Monster.Code.AutPerm ⊓ stab x ⊓ stab y) (golayC ⊓ pairKer x y)
     (Subgroup.zpowers (G6.allOnes 24))
 
-theorem mathieuCocode24_iff (H : Subgroup (MulAut V)) (U Z : Subgroup V) :
-    MathieuCocode24 H U Z ↔ cocode24.Realizes H U Z := Iff.rfl
-
-theorem mathieuCocode23_iff (H : Subgroup (MulAut V)) (U Z : Subgroup V) :
-    MathieuCocode23 H U Z ↔ ∃ x, (cocode23 x).Realizes H U Z := Iff.rfl
-
-theorem mathieuCocode22_iff (H : Subgroup (MulAut V)) (U Z : Subgroup V) :
-    MathieuCocode22 H U Z ↔ ∃ x y, x ≠ y ∧ (cocode22 x y).Realizes H U Z := Iff.rfl
 
 theorem pairVec_mem_coreMod (i j : Fin 24) : pairVec i j ∈ G6.coreMod 24 := by
   change ∑ k, Multiplicative.toAdd (pairVec i j) k = 0

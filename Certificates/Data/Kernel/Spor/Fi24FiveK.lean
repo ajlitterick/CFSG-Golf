@@ -41,8 +41,6 @@ open CFSG.KC.Fi24PumpK CFSG.KC.Fi24Kn
     E (repW (nthW M 0) 5) [] && E (repW (nthW M 2) 5) [] && !E (nthW M 0) [] &&
     commB E (nthW M 0) (nthW M 2) && E (nthW M 0 ++ H) (H ++ nthW M 2) && commB E [0] (nthW M 2)
 
-@[expose] noncomputable def bOK (E : List Nat → List Nat → Bool) (R : List (List Nat)) : Bool :=
-  E (catW R) [2]
 
 end CFSG.KC.Fi24FiveK
 

@@ -31,9 +31,6 @@ theorem s_restrictedEvenThin_of_leaves (hCl2 : Cl2Statement) (h5 : NoOddRankFive
     (hI : NoCaseI) (hII : NoCaseIIComp) : S_restrictedEvenThin :=
   s_restrictedEvenThin_of_cases h5 hI (noCaseII_of hCl2 hII)
 
-theorem s_restrictedEvenThin_of_leaves' (hCl2 : Cl2Statement) (hComp : ComponentList)
-    (hD : K0Data) (hI : NoCaseI) (hII : NoCaseIIComp) : S_restrictedEvenThin :=
-  s_restrictedEvenThin_of_leaves hCl2 (noOddRankFive_of hComp hD) hI hII
 
 theorem s_restrictedEvenThin_of_data (hCl2 : Cl2Statement) (hComp : ComponentList)
     (hD : K0Data) (hD3 : K0Data3) (hQ8 : Q8Lemma) (hI : NoCaseIQ8) (hII : NoCaseIIComp) :

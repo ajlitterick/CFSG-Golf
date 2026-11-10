@@ -148,13 +148,6 @@ theorem false_of_pSquared_of_rank {G : Type} [Group G] [Finite G]
   have h4 := hrank p hp hp2
   omega
 
-theorem isQuasithin_of_rank {G : Type} [Group G] [Finite G]
-    (hrank : ∀ q : ℕ, q.Prime → q ≠ 2 → CFSG.Open.pRank q (⊤ : Subgroup G) ≤ 2) :
-    IsQuasithin G := by
-  unfold IsQuasithin evenRank
-  refine csSup_le' ?_
-  rintro k ⟨p, H, hp, hp2, -, rfl⟩
-  exact (pRank_mono hp.one_lt (le_top : H ≤ ⊤)).trans (hrank p hp hp2)
 
 theorem part12_strong_of_a134 (hmult2 : Mult2Fact) {H : Type} [Group H] [Finite H]
     (ha134 : A134For H) {K : Subgroup H} (hKc : CFSG.IsComponent K) (hO2 : CFSG.pCore 2 ↥K = ⊥)

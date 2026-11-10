@@ -88,8 +88,5 @@ theorem centralizer_mulEquiv_pi_generalLinearGroup {K : Type} [Field K] [Finite 
     centralizer_mulEquiv_pi_generalLinearGroup_overField A hA
   exact ⟨n, D, hField, hFinite, d, hchar, hd, he⟩
 
-variable {ι : Type*} [Fintype ι] [DecidableEq ι]
-
-variable {C : Type*} [Group C] {H : ι → Type*} [∀ i, Group (H i)]
 
 end CFSG.LieType.SemisimpleCentralizers

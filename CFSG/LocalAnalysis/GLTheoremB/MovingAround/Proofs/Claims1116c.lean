@@ -101,14 +101,6 @@ theorem iSup_gLBConj_eq {A K : Subgroup Y} (hA : A ≤ Subgroup.normalizer (K : 
   · exact iSup₂_le fun g hg => (gLBConj_eq_of_mem_normalizer (hA hg)).le
   · exact le_iSup₂_of_le (f := fun g (_ : g ∈ A) => GLBConj g K) 1 (one_mem _) (gLBConj_one K).ge
 
-theorem isGMinusOne_of_faithful (hp : p.Prime) {K A : Subgroup Y} (hA : IsElemAbelian p A)
-    (hAN : A ≤ Subgroup.normalizer (K : Set Y))
-    (hcard : p * Nat.card ↥(A ⊓ Subgroup.centralizer (K : Set Y)) < Nat.card A)
-    (hres : ∀ B₁ : Subgroup Y, IsElemAbelian p B₁ → B₁ ≤ Subgroup.normalizer (K : Set Y) →
-      B₁ ⊓ Subgroup.centralizer (K : Set Y) = ⊥ → p < Nat.card B₁ → Lemma1314.IsGMinusOne p B₁ K) :
-    Lemma1314.IsGMinusOne p A K :=
-  InputsSeitz.isGMinusOne_of_faithful_le hp hA hAN hcard fun B₁ hB₁ hB₁N hfaith hB₁card _ =>
-    hres B₁ hB₁ hB₁N hfaith hB₁card
 
 theorem exc5_of_i2310Exc5 {K : Subgroup Y} (h : Lemma1314.I2310Exc5 K) :
     Claims1116.Exc5 (↥K ⧸ Subgroup.center ↥K) := by
@@ -372,12 +364,6 @@ theorem card_alt (n : ℕ) (hn : 2 ≤ n) : Nat.card (alternatingGroup (Fin n)) 
       ∀ q : ℕ, q.Prime → q ≠ 2 → q ≠ p → IsChevSimple q (PSimple p I) →
         SporDownCase s p (PSimple p I)
 
-
-@[expose] def SporDownResidual : Prop :=
-  SporDownRow .M24 3 ∧ SporDownRow .J2 3 ∧ SporDownRow .Ru 3 ∧ SporDownRow .Co1 3 ∧
-    SporDownRow .B 3 ∧ SporDownRow .M 3 ∧ SporDownRow .Fi23 5 ∧ SporDownRow .Fi24Prime 5 ∧
-    SporDownRow .B 5 ∧ SporDownRow .M 5 ∧ SporDownRow .Co1 7 ∧ SporDownRow .Fi24Prime 7 ∧
-    SporDownRow .B 7 ∧ SporDownRow .M 11 ∧ SporDownRow .M 13
 
 end Spor
 
@@ -866,7 +852,6 @@ end Records
 section Main
 
 
-
 theorem not_isChevSimple_of_isSporType
     {X : Type} [Group X] {s : TauCeti.SporadicName}
     (hs : IsSporType s X) {q : ℕ} (hq : q.Prime) (hq2 : q ≠ 2) : ¬ IsChevSimple q X := by
@@ -945,35 +930,6 @@ theorem not_isChevSimple_of_isSporType
     | cyclic _ _ => exact hi.elim
     | sporadic _ => exact hi.elim
 
-theorem inputSporDownChev_of_rows
-    (hrow : ∀ (s : TauCeti.SporadicName) (p : ℕ), p.Prime → p ≠ 2 →
-      p ^ 2 ∣ CFSG.HardMathSupport.Solomon.Coordinator.sporOrd s → SporDownRow s p) :
-    Claims1116b.InputSporDownChev := by
-  intro S _ _ hS hnc p hp hp2 s hs α hα I hI q hq hq2 hqp hchev
-  haveI := hS
-  haveI : Fact p.Prime := ⟨hp⟩
-  have hα1 : α ≠ 1 := by
-    rintro rfl
-    rw [Claims1116b.fixSubgroup_one_eq_top] at hI
-    obtain ⟨f⟩ := CFSG.LocalAnalysis.GLTheoremA.chevQ_pSimple_top_equiv hp hnc hI
-    exact not_isChevSimple_of_isSporType (Claims1116.isSporType_congr f.symm hs) hq hq2 hchev
-  refine ⟨hα1, ?_⟩
-  obtain ⟨x, rfl, hxp⟩ := CFSG.HardMathSupport.Solomon.Coordinator.exists_conj_of_pow hp hp2
-    (Claims1116b.center_eq_bot_of_simple hnc)
-    (CFSG.HardMathSupport.Timmesfeld.Proving.sporadicOuterLeTwo_holds S hS hnc s hs) α hα
-  have hx1 : x ≠ 1 := by
-    rintro rfl
-    exact hα1 (map_one _)
-  have hxo : orderOf x = p := orderOf_eq_prime hxp hx1
-  rw [CFSG.HardMathSupport.Solomon.Coordinator.fixSubgroup_conj] at hI
-  have hcard : Nat.card S = CFSG.HardMathSupport.Solomon.Coordinator.sporOrd s :=
-    (Nat.card_congr hs.some.toEquiv).trans
-      (CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds s)
-  by_cases h2 : p ^ 2 ∣ CFSG.HardMathSupport.Solomon.Coordinator.sporOrd s
-  · exact hrow s p hp hp2 h2 S hS hs x hxo I hI q hq hq2 hqp hchev
-  · exact (CFSG.HardMathSupport.Solomon.Coordinator.no_glaPComponent_of_exact hp hxo
-      (by rw [hcard]; exact h2) hI).elim
-
 
 theorem sporDownRow_of_leafShape
     {s : TauCeti.SporadicName} {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)
@@ -1016,7 +972,6 @@ theorem sporDownRow_HN_three
     : SporDownRow .HN 3 :=
   sporDownRow_of_leafShape Nat.prime_three (by norm_num)
     CFSG.HardMathSupport.Dickson.I271.leafShape_HN
-
 
 
 open CFSG.LocalAnalysis.GLTheoremA.KDSpor (false_of_glaPComponent_of_solvable
@@ -1233,7 +1188,6 @@ theorem sporDownRow_Th_seven
   exact hrow downCompOK_seven_ThJ
 
 
-
 theorem sporDownRow_J3_three
     : SporDownRow .J3 3 := by
   obtain ⟨b⟩ := CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group .J3
@@ -1333,7 +1287,6 @@ theorem sporDownRow_Fi22_five
   obtain ⟨fA⟩ := CFSG.LargeExtraspecial.S12Tri.nonempty_mulEquiv_alternatingGroup_five_of_card_sixty
     (CFSG.LocalAnalysis.GLTheoremA.KDSpor.card_eq_sixty_of_dvd_3000 hnab hd)
   exact downTypeOK_of_chevP (by norm_num) (isChevSimple_five_of_A5 fA)
-
 
 
 theorem downTypeOK_of_goodSpor
@@ -2001,48 +1954,6 @@ theorem sporDownRow_HS_five
 
 end RowHS
 
-
-theorem inputSporDownChev_of_residual
-    (h : SporDownResidual) : Claims1116b.InputSporDownChev := by
-  obtain ⟨hM24_3, hJ2_3, hRu_3, hCo1_3, hB_3, hM_3, hFi23_5, hFi24_5, hB_5, hM_5, hCo1_7, hFi24_7,
-    hB_7, hM_11, hM_13⟩ := h
-  refine inputSporDownChev_of_rows fun s p hp hp2 hdvd => ?_
-  have hdvd' : p ^ 2 ∣ Nat.card (TauCeti.CFSGIndex.sporadic s).Group := by
-    rw [CFSG.HardMathSupport.Solomon.Coordinator.sporadicOrdersTable_holds s]
-    exact hdvd
-  rcases CFSG.HardMathSupport.Solomon.Coordinator.sporadicP2Table_holds s p hp hp2 hdvd' with
-    h1 | h1
-  · rcases h1 with ⟨rfl, hs⟩ | ⟨rfl, hs⟩ | ⟨rfl, rfl⟩
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl |
-        rfl | rfl
-      exacts [sporDownRow_J3_three, sporDownRow_McL_three, sporDownRow_Suz_three,
-        sporDownRow_ON_three, sporDownRow_Co3_three, sporDownRow_Co2_three, hCo1_3,
-        sporDownRow_Fi22_three, sporDownRow_Fi23_three, sporDownRow_Fi24Prime_three,
-        sporDownRow_HN_three, sporDownRow_Ly_three, sporDownRow_Th_three, hB_3, hM_3]
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl | rfl | rfl | rfl
-      exacts [sporDownRow_Co1_five, sporDownRow_HN_five, sporDownRow_Ly_five, hB_5, hM_5]
-    · exact sporDownRow_M_seven
-  · rcases h1 with ⟨rfl, hs⟩ | ⟨rfl, hs⟩ | ⟨rfl, hs⟩ | ⟨rfl, hs⟩ | ⟨rfl, rfl⟩
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-      exacts [sporDownRow_M11_three, sporDownRow_M12_three, sporDownRow_M22_three,
-        sporDownRow_M23_three, hM24_3, hJ2_3, sporDownRow_J4_three, sporDownRow_HS_three, hRu_3,
-        sporDownRow_He_three]
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-      exacts [sporDownRow_J2_five, sporDownRow_HS_five, sporDownRow_McL_five, sporDownRow_Suz_five,
-        sporDownRow_He_five, sporDownRow_Ru_five, sporDownRow_Co2_five, sporDownRow_Co3_five,
-        sporDownRow_Fi22_five, hFi23_5, hFi24_5, sporDownRow_Th_five]
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl | rfl | rfl | rfl | rfl
-      exacts [sporDownRow_He_seven, sporDownRow_ON_seven, hCo1_7, hFi24_7, sporDownRow_Th_seven,
-        hB_7]
-    · simp only [Finset.mem_insert, Finset.mem_singleton] at hs
-      rcases hs with rfl | rfl
-      exacts [sporDownRow_J4_eleven, hM_11]
-    · exact hM_13
 
 end Main
 

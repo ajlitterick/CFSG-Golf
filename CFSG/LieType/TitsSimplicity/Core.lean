@@ -145,9 +145,5 @@ theorem center_eq_normalCore_borel (hBU : BruhatExtras D H) :
   le_antisymm (Subgroup.normal_le_normalCore.2 (center_le_borel hct hext))
     (normalCore_borel_le_center hct hBU)
 
-include hct hext in
-theorem center_eq_iInf_map_conj_borel (hBU : BruhatExtras D H) :
-    Subgroup.center K = ⨅ g : K, (borel D H).map (MulAut.conj g) := by
-  rw [center_eq_normalCore_borel hct hext hBU, Subgroup.normalCore_eq_iInf_map_conj]
 
 end CFSG.LieType.TitsSimplicity

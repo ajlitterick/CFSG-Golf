@@ -136,54 +136,5 @@ theorem commuting_regular_orbit_product_fixed_point_count [Finite Ω]
   · rw [hC]
     exact hΓcount γ₀ hγ₀ d hd' hjd
 
-theorem commuting_regular_orbit_product_fixed_point_count_smul [MulAction G Ω] [Finite Ω]
-    {K J : Subgroup G} {Δ Γ : Set Ω} (hΔΓ : IsCompl Δ Γ)
-    (hKΓ : ∀ k ∈ K, ∀ γ ∈ Γ, k • γ ∈ Γ)
-    (htrans : ∀ γ ∈ Γ, ∀ γ' ∈ Γ, ∃ k ∈ K, k • γ = γ')
-    (hfree : ∀ γ ∈ Γ, ∀ k ∈ K, k • γ = γ → k = 1)
-    (hJK : J ≤ Subgroup.centralizer K) (hJΔ : ∀ j ∈ J, ∀ δ ∈ Δ, j • δ = δ)
-    {x j : G} (hx : x ∈ K) (hj : j ∈ J) :
-    Nat.card {ω : Ω | (j * x) • ω = ω} =
-        Nat.card {δ | δ ∈ Δ ∧ x • δ = δ} + Nat.card {γ | γ ∈ Γ ∧ (j * x) • γ = γ} ∧
-    (Nat.card {ω : Ω | (j * x) • ω = ω} = Nat.card {δ | δ ∈ Δ ∧ x • δ = δ} ∨
-      Nat.card {ω : Ω | (j * x) • ω = ω} =
-        Nat.card {δ | δ ∈ Δ ∧ x • δ = δ} +
-          Nat.card (K ⊓ Subgroup.centralizer {x} : Subgroup G)) ∧
-    ∀ γ₀ ∈ Γ, (∃! d, d ∈ K ∧ j • γ₀ = d • γ₀) ∧
-      ∀ d ∈ K, j • γ₀ = d • γ₀ →
-        ((∃ k ∈ K, k * x * k⁻¹ = d⁻¹) →
-          Nat.card {γ | γ ∈ Γ ∧ (j * x) • γ = γ} =
-            Nat.card (K ⊓ Subgroup.centralizer {x} : Subgroup G)) ∧
-        ((¬ ∃ k ∈ K, k * x * k⁻¹ = d⁻¹) →
-          Nat.card {γ | γ ∈ Γ ∧ (j * x) • γ = γ} = 0) := by
-  have hfix : ∀ g : G, ∀ ω : Ω, g⁻¹ • ω = ω ↔ g • ω = ω := fun g ω => by
-    rw [inv_smul_eq_iff, eq_comm]
-  have hjd : ∀ d ∈ K, ∀ γ : Ω, j⁻¹ • γ = d⁻¹ • γ ↔ j • γ = d • γ := by
-    intro d hd γ
-    have hdj : d * j = j * d := Subgroup.mem_centralizer_iff.mp (hJK hj) d hd
-    constructor
-    · intro h
-      have hγ : (d * j⁻¹) • γ = γ := by rw [mul_smul, h, smul_inv_smul]
-      calc j • γ = j • (d * j⁻¹) • γ := by rw [hγ]
-        _ = d • γ := by rw [smul_smul, ← mul_assoc, ← hdj, mul_inv_cancel_right]
-    · intro h
-      have hγ : (d⁻¹ * j) • γ = γ := by rw [mul_smul, h, inv_smul_smul]
-      calc j⁻¹ • γ = j⁻¹ • (d⁻¹ * j) • γ := by rw [hγ]
-        _ = d⁻¹ • γ := by
-          rw [smul_smul, ← mul_assoc, ← mul_inv_rev, hdj, mul_inv_rev, inv_mul_cancel_right]
-  obtain ⟨h1, h2, h3⟩ := commuting_regular_orbit_product_fixed_point_count (fun ω g => g⁻¹ • ω)
-    (fun ω => by rw [inv_one, one_smul])
-    (fun ω g h => by rw [mul_inv_rev, mul_smul])
-    hΔΓ (fun k hk γ hγ => hKΓ k⁻¹ (K.inv_mem hk) γ hγ)
-    (fun γ hγ γ' hγ' => by
-      obtain ⟨k, hk, rfl⟩ := htrans γ hγ γ' hγ'
-      exact ⟨k⁻¹, K.inv_mem hk, by rw [inv_inv]⟩)
-    (fun γ hγ k hk hkγ => hfree γ hγ k hk ((hfix k γ).mp hkγ))
-    hJK (fun j hj δ hδ => (hfix j δ).mpr (hJΔ j hj δ hδ)) hx hj
-  simp only [hfix] at h1 h2 h3
-  refine ⟨h1, h2, fun γ₀ hγ₀ => ⟨?_, fun d hd hd₀ => h3 γ₀ hγ₀ |>.2 d hd ((hjd d hd γ₀).mpr hd₀)⟩⟩
-  obtain ⟨d, ⟨hd, hd₀⟩, huniq⟩ := (h3 γ₀ hγ₀).1
-  exact ⟨d, ⟨hd, (hjd d hd γ₀).mp hd₀⟩,
-    fun d' hd' => huniq d' ⟨hd'.1, (hjd d' hd'.1 γ₀).mpr hd'.2⟩⟩
 
 end CFSG.ShultStronglyClosedTI.MiscAlgebra

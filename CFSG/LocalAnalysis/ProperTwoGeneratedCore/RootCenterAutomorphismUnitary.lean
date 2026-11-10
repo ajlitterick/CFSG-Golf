@@ -117,11 +117,5 @@ theorem unitaryRootCenterAutomorphisms [Finite K] (J : HermitianForm 3 K) (f : �
       conj_isElementaryAbelian := hcU
       card_conj := hcUcard }
 
-theorem even_unitary_root_center_automorphisms_and_large_root_centralizers {f : ℕ}
-    (h : UnitaryFieldData 2 f K) (hf : 2 ≤ f) :
-    UnitaryRootCenterAutomorphisms (fieldDataHermitianForm h) rfl (2 ^ f) :=
-  have := h.finite
-  unitaryRootCenterAutomorphisms (fieldDataHermitianForm h) f hf h.card_eq_sq
-    (card_fixed_fieldDataHermitianForm h) rfl
 
 end CFSG.ProperTwoGeneratedCore.RootCenter

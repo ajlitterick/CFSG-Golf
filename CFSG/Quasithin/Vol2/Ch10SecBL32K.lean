@@ -38,14 +38,8 @@ theorem kb_gen : ∀ k : Γ, IsKb k → ∃ a : Γ, IsKb a ∧ a * a * a = 1 ∧
   unfold IsKb IsPb ent; decide +kernel
 theorem u_ka : ∀ g : Γ, IsU g → IsKa g → IsEa g := by
   unfold IsEa IsKa IsPa IsU ent; decide +kernel
-theorem u_kb : ∀ g : Γ, IsU g → IsKb g → IsEb g := by
-  unfold IsEb IsKb IsPb IsU ent; decide +kernel
 theorem pa_pb : ∀ g : Γ, IsPa g → IsPb g → IsU g := by
   unfold IsPa IsPb IsU ent; decide +kernel
-theorem ka_mul_u : ∀ g : Γ, IsPa g → ∃ u ∈ uList, IsKa (g * u) := by
-  unfold uList IsKa IsPa ent; decide +kernel
-theorem kb_mul_u : ∀ g : Γ, IsPb g → ∃ u ∈ uList, IsKb (g * u) := by
-  unfold uList IsKb IsPb ent; decide +kernel
 
 theorem ka_inv : ∃ d ∈ uList, ∀ k : Γ, IsKa k → IsEa (d * k * d⁻¹ * k) := by
   unfold uList IsEa IsKa IsPa ent; decide +kernel
@@ -71,8 +65,5 @@ theorem u_not_normal_a : ∃ g : Γ, IsPa g ∧ ∃ u ∈ uList, ¬ IsU (g * u *
 theorem u_not_normal_b : ∃ g : Γ, IsPb g ∧ ∃ u ∈ uList, ¬ IsU (g * u * g⁻¹) := by
   unfold uList IsPb IsU ent; decide +kernel
 
-theorem graph_swap_a : ∀ A : Γ, (∀ u ∈ uList, IsU (A * (u⁻¹).transpose * A⁻¹)) →
-    ∀ p : Γ, IsPa p → IsPb (A * (p⁻¹).transpose * A⁻¹) := by
-  unfold uList IsPa IsPb IsU ent; decide +kernel
 
 end CFSG.Quasithin.Vol2.Ch10.SecB.L32

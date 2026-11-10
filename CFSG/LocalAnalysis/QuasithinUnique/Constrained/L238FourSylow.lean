@@ -264,14 +264,6 @@ theorem le_normalizer_of_commutator_le_alt3 {X L K J : Subgroup G} (hX : CharTwo
     rw [h7]
     exact Subgroup.one_mem _
 
-theorem le_normalizer_of_commutator_le_isChiBlock {X T L K J : Subgroup G} (hX : CharTwo X)
-    (h38 : A38Part3 (↥X ⧸ CFSG.pCore 2 ↥X)) (hT : IsSylowTwoOf T X) (hL : IsChiBlock X L)
-    (hKL : K ≤ L) (hK2 : ¬ IsPGroup 2 K) (hJT : J ≤ T) (hKJ : ⁅K, J⁆ ≤ L) :
-    J ≤ Subgroup.normalizer (L : Set G) := by
-  by_cases h3 : IsAltType L 3
-  · have hK0 : K ≠ ⊥ := fun h => hK2 (by rw [h]; exact isPGroup_two_bot)
-    exact le_normalizer_of_commutator_le_alt3 hX hL.1 h3 hKL hK0 (hJT.trans hT.1) hKJ
-  · exact le_normalizer_of_commutator_le h38 hT (mem_cComp_of_isChiBlock hL h3) hKL hK2 hJT hKJ
 
 end Normalizing
 

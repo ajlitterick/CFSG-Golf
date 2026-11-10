@@ -319,9 +319,6 @@ theorem one_add_mul_self {N : Matrix (Fin 6) (Fin 6) F4} (hN : N * N = 0) :
       1 + N :=
   rfl
 
-theorem invOf_sq (N : Matrix (Fin 6) (Fin 6) F4) (hsa : IsSelfAdj N) (hN : N * N = 0) :
-    invOf N hsa hN ^ 2 = 1 :=
-  SU_ext (by rw [coe_SU_sq, coe_invOf, one_add_mul_self hN, coe_SU_one])
 
 @[expose] noncomputable def mkInv (A : Matrix (Fin 6) (Fin 6) F4) (hA : A * A = 1)
     (hAi : IsIsometry A) : SU frobeniusF4 6 :=
@@ -625,50 +622,5 @@ theorem conj_transvec (g : SU frobeniusF4 6) (v : V) (hv : herm v v = 0) :
   rw [coe_SU_mul, coe_SU_mul, coe_transvec, coe_transvec, mul_transvecMat (isIsometry_of_mem g),
     mul_assoc, coe_SU_mul_inv, mul_one]
 
-theorem isConj_transvec_single {v : V} (hv0 : v ≠ 0) (hv : herm v v = 0) :
-    IsConj (transvec (Pi.single 0 1) (herm_single_self 0)) (transvec v hv) := by
-  obtain ⟨e, he, he0⟩ := exists_frame_of_isotropic hv0 hv
-  obtain ⟨d, hd0, g, hg⟩ := exists_SU_of_frame he
-  refine isConj_iff.mpr ⟨g, SU_ext ?_⟩
-  have hgu : ((g : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) *ᵥ Pi.single 0 1 = d • v := by
-    rw [hg, ← mulVec_mulVec, diagCorr_mulVec_single, mulVec_smul, frameMat_mulVec_single, he0]
-    rfl
-  rw [coe_SU_mul, coe_SU_mul, coe_transvec, coe_transvec, mul_transvecMat (isIsometry_of_mem g),
-    hgu, transvecMat_smul hd0, mul_assoc, coe_SU_mul_inv, mul_one]
-
-theorem isConj_transvec {v w : V} (hv0 : v ≠ 0) (hw0 : w ≠ 0) (hv : herm v v = 0)
-    (hw : herm w w = 0) : IsConj (transvec v hv) (transvec w hw) :=
-  (isConj_transvec_single hv0 hv).symm.trans (isConj_transvec_single hw0 hw)
-
-theorem unitary_six_involution_rank_normal_forms :
-    (∀ x : ProjSU, x ^ 2 = 1 → x ≠ 1 →
-      ∃! A : SU frobeniusF4 6, (A : ProjSU) = x ∧ A ^ 2 = 1) ∧
-    (∀ A : SU frobeniusF4 6, A ^ 2 = 1 → A ≠ 1 →
-      invRank A = 1 ∨ invRank A = 2 ∨ invRank A = 3) ∧
-    (∀ A B : SU frobeniusF4 6, A ^ 2 = 1 → A ≠ 1 → B ^ 2 = 1 → B ≠ 1 →
-      (IsConj A B ↔ invRank A = invRank B)) ∧
-    ((((rep₁ : SU frobeniusF4 6) : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) =
-        1 + single 2 3 1 ∧ rep₁ ^ 2 = 1 ∧ invRank rep₁ = 1) ∧
-    ((((rep₂ : SU frobeniusF4 6) : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) =
-        1 + single 0 1 1 + single 4 5 1 ∧ rep₂ ^ 2 = 1 ∧ invRank rep₂ = 2) ∧
-    ((((rep₃ : SU frobeniusF4 6) : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) =
-        1 + single 0 1 1 + single 2 3 1 + single 4 5 1 ∧ rep₃ ^ 2 = 1 ∧ invRank rep₃ = 3) ∧
-    (∀ A : SU frobeniusF4 6, A ^ 2 = 1 → A ≠ 1 → IsConj A (involutionRep (invRank A))) ∧
-    (∀ A : SU frobeniusF4 6, A ^ 2 = 1 →
-      (invRank A = 1 ↔ ∃ (v : V) (hv : herm v v = 0), v ≠ 0 ∧ A = transvec v hv)) ∧
-    (∀ (v : V) (hv : herm v v = 0), transvec v hv ^ 2 = 1) ∧
-    (∀ (v w : V) (hv : herm v v = 0) (hw : herm w w = 0), v ≠ 0 → w ≠ 0 →
-      (transvec v hv = transvec w hw ↔ (F4 ∙ v) = (F4 ∙ w))) ∧
-    (∀ (v w : V) (hv : herm v v = 0) (hw : herm w w = 0), v ≠ 0 → w ≠ 0 →
-      IsConj (transvec v hv) (transvec w hw)) ∧
-    (∀ (g : SU frobeniusF4 6) (v : V) (hv : herm v v = 0),
-      ∃ hv' : herm (((g : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) *ᵥ v)
-        (((g : GL (Fin 6) F4) : Matrix (Fin 6) (Fin 6) F4) *ᵥ v) = 0,
-        g * transvec v hv * g⁻¹ = transvec _ hv') :=
-  ⟨exists_unique_involution_lift, invRank_eq_one_or_two_or_three, isConj_iff_invRank_eq,
-    ⟨coe_rep₁, rep₁_sq, invRank_rep₁⟩, ⟨coe_rep₂, rep₂_sq, invRank_rep₂⟩,
-    ⟨coe_rep₃, rep₃_sq, invRank_rep₃⟩, isConj_involutionRep, invRank_eq_one_iff, transvec_sq,
-    fun _ _ hv hw _ hw0 => transvec_eq_transvec_iff hv hw hw0,
-    fun _ _ hv hw hv0 hw0 => isConj_transvec hv0 hw0 hv hw, conj_transvec⟩
 
 end CFSG.Monster.B.Classical.UnitarySix

@@ -13,20 +13,6 @@ namespace CFSG
 @[expose] def IsKProper (X : Type) [Group X] : Prop :=
   ∀ H : Subgroup X, H ≠ ⊤ → IsKGroup H
 
-@[expose] def IsSQTK (H : Type) [Group H] : Prop :=
-  IsStronglyQuasithin H ∧ IsKGroup H
-
-theorem isKGroup_iff_kGroupAllSimple {X : Type} [Group X] :
-    IsKGroup X ↔ KCore.KGroupAllSimple Assembly.InCatalog X :=
-  Iff.rfl
-
-theorem isKProper_iff_kProperAllSimple {X : Type} [Group X] :
-    IsKProper X ↔ KCore.KProperAllSimple Assembly.InCatalog X :=
-  Iff.rfl
-
-theorem isSQTK_iff_sQTKOver {H : Type} [Group H] :
-    IsSQTK H ↔ KCore.SQTKOver Assembly.InCatalog IsStronglyQuasithin H :=
-  Iff.rfl
 
 theorem IsKGroup.subgroup {X : Type} [Group X] (hX : IsKGroup X) (H : Subgroup X) :
     IsKGroup H :=
@@ -53,7 +39,5 @@ theorem IsKGroup.inCatalog_of_surjective {X : Type} [Group X] (hX : IsKGroup X) 
     Assembly.InCatalog S :=
   KCore.KGroupAllSimple.catalogue_of_surjective Assembly.inCatalog_isoInvariant hX K φ hφ
 
-@[expose] def IsQTKE (G : Type) [Group G] : Prop :=
-  IsKProper G ∧ IsEvenCharacteristic G ∧ twoLocalOddRank G ≤ 2
 
 end CFSG

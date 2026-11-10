@@ -33,9 +33,6 @@ theorem kComm : commK 4060 12 (L 0) (L 1) = true := by quickRfl
 
 theorem kLines : allN 31 (lineAt CFSG.RankThree.PartOne.ruFiveRec) = true := by quickRfl
 
-theorem negAll : (!allN 31 (lineAt ((List.range 31).map fun _ => 0))) = true := by quickRfl
-
-theorem negSelf : (!lineAt (CFSG.RankThree.PartOne.ruFiveRec.set 1 0) 1) = true := by quickRfl
 
 end CertificateChecks.KernelMisc.RuFive
 

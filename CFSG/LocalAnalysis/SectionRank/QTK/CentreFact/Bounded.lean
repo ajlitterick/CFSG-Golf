@@ -44,66 +44,6 @@ public section
 namespace CFSG.SectionRank.QTK.CentreFact
 
 open Subgroup CFSG.Open CFSG.Blueprint
-open CFSG.Assembly.RankThreeEven (localRank)
 
-theorem oddBound_three_of_g2_three
-    {S : Type} [Group S] [Finite S] (h : ChevalleyExceptionalModel S .G2 3 1) : OddBound 3 S := by
-  obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := h
-  let q : TauCeti.PrimePower := ⟨3, 1, Nat.prime_three, one_pos⟩
-  have hq : q.card = 3 := by rw [TauCeti.PrimePower.card_def]; rfl
-  have hv : (TauCeti.LieTypeIndex.G2 q).Valid := by
-    refine (TauCeti.LieTypeIndex.valid_iff _).2 ⟨?_, ?_⟩
-    · rw [TauCeti.LieTypeIndex.inStandardRange_iff]
-      exact hq.symm.le
-    · simp [TauCeti.LieTypeIndex.isDuplicateRepresentative_iff]
-  obtain ⟨b₁⟩ := CFSG.TauCetiBridge.untwistedBridge_G2 q hv (by decide) K (by rw [hq, hK]; rfl)
-  obtain ⟨b₂⟩ := CFSG.TauCetiBridge.untwistedBridge_G2 q hv (by decide) (ZMod 3)
-    (by rw [hq, Nat.card_zmod])
-  exact small_oddBound_of_mulEquiv (by norm_num) (e.trans (b₁.trans b₂.symm))
-    (small_oddBound_of_localRank (by norm_num)
-      CFSG.RankThree.PartTwo.Census.Carrier.G2Three.localRank_three_adjointQuotient)
-
-theorem oddBound_three_of_u4_three {S : Type} [Group S] [Finite S]
-    (h : StatedClassicalModel S .PSU 4 3 1) : OddBound 3 S := by
-  obtain ⟨-, K, _, _, hK, ⟨e⟩⟩ := h
-  have hK9 : Nat.card K = 9 := by rw [hK]; norm_num
-  exact small_oddBound_of_mulEquiv (by norm_num) e
-    (small_oddBound_of_localRank (by norm_num)
-      (CFSG.RankThree.PartTwo.Census.localRankThreeU43 K hK9))
-
-open CFSG.Sporadic.Schreier in
-theorem localRank_three_j3P_le_two :
-    localRank 3 j3P ≤ 2 :=
-  CFSG.RankThree.PartTwo.Census.localRank_three_le_two_of_centralizer fun t ht h9 => by
-    rw [CFSG.RankThree.PartTwo.Census.card_centralizer_j3P ht] at h9
-    exact absurd h9 (by norm_num)
-
-theorem oddBound_three_of_J3
-    {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .J3) : OddBound 3 S :=
-  small_oddBound_of_mulEquiv (by norm_num) (e.trans CFSG.Sporadic.Schreier.j3PermEquiv)
-    (small_oddBound_of_localRank (by norm_num) localRank_three_j3P_le_two)
-
-theorem oddBound_of_J3_of_ne_three {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .J3) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) (hr3 : r ≠ 3) :
-    OddBound r S := by
-  refine small_oddBound_of_not_dvd hr ?_
-  rw [Nat.card_congr e.toEquiv, show Nat.card (NativeSporadic.Carrier .J3) = 50232960 from
-    CFSG.Sporadic.J3.card_J3]
-  intro hd
-  have h2 : r ^ 2 ∣ 2 ^ 7 * 3 ^ 5 * 1615 := by
-    rw [show 2 ^ 7 * 3 ^ 5 * 1615 = 50232960 by norm_num]
-    exact (pow_dvd_pow r (by norm_num : 2 ≤ 3)).trans hd
-  exact CFSG.SectionRank.not_sq_dvd_of_not_sq_dvd_cofactor hr hr2 hr3
-    (CFSG.SectionRank.not_sq_dvd_of_bound (B := 41) (by norm_num) (by norm_num) (by decide) hr hr2
-      hr3) h2
-
-theorem oddBound_of_J3
-    {S : Type} [Group S] [Finite S]
-    (e : S ≃* NativeSporadic.Carrier .J3) {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) : OddBound r S := by
-  by_cases hr3 : r = 3
-  · subst hr3
-    exact oddBound_three_of_J3 e
-  · exact oddBound_of_J3_of_ne_three e hr hr2 hr3
 
 end CFSG.SectionRank.QTK.CentreFact

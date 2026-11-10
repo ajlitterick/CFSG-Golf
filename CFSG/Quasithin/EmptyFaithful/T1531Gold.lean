@@ -29,9 +29,6 @@ abbrev QE153 (E : Subgroup G) : Subgroup G := pCoreOf 2 (Subgroup.normalizer (E 
 
 abbrev XE153 (E : Subgroup G) : Subgroup G := oTwoUpper (Subgroup.centralizer (E : Set G))
 
-noncomputable abbrev Omega4Plus153 (T M V₁ V₂ : Subgroup G) : Subgroup (MulAut ↥(VZ T M)) :=
-  autOn (M ⊓ Subgroup.centralizer (V₂ : Set G)) (VZ T M) ⊔
-    autOn (M ⊓ Subgroup.centralizer (V₁ : Set G)) (VZ T M)
 
 @[expose] def IsKleinFour153 {X : Type*} [Group X] (A : Subgroup X) : Prop :=
   Nat.card A = 4 ∧ (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧ ∀ a ∈ A, a ^ 2 = 1
@@ -53,26 +50,6 @@ abbrev G0_153 (T Mc M E : Subgroup G) (s : G) : Subgroup G :=
 
 end Vocabulary
 
-structure Res15366 {G : Type} [Group G] (T Mc M V₁ V₂ E : Subgroup G) : Prop where
-  barTE_eq : autOn (TE153 T E) (VZ T M) = autOn T (VZ T M) ⊓ Omega4Plus153 T M V₁ V₂
-  relIndex_two : (TE153 T E).relIndex T = 2
-  barTE_klein : IsKleinFour153 (autOn (TE153 T E) (VZ T M)) ∧
-    autOn (TE153 T E) (VZ T M) ≠ autOn (Sgp153 T V₁) (VZ T M)
-  Z_le_E : quasithinOmegaOneCenter T ≤ E
-  quot_S3 : Nonempty (OTwoQuot (YE153 Mc M E ⊔ TE153 T E) ≃* Equiv.Perm (Fin 3))
-  V_comm : ⁅VZ T M, YE153 Mc M E⁆ = VZ T M
-  QE_le : QE153 E ≤ Subgroup.centralizer (E : Set G)
-  pCore_YETE : pCoreOf 2 (YE153 Mc M E ⊔ TE153 T E) =
-    (YE153 Mc M E ⊔ TE153 T E) ⊓ Subgroup.centralizer (E : Set G)
-  induces_GL : autOn (YE153 Mc M E ⊔ TE153 T E) E = ⊤
-  GE_eq : Subgroup.normalizer (E : Set G) =
-    (YE153 Mc M E ⊔ TE153 T E) ⊔ Subgroup.centralizer (E : Set G)
-  centralizer_le_mc : Subgroup.centralizer (E : Set G) ≤ Mc
-
-@[expose] def Stage15366 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ →
-      LineData153 T M V₁ V₂ E → Res15366 T Mc M V₁ V₂ E
 
 structure Res15367 {G : Type} [Group G] (T Mc M V₁ V₂ E : Subgroup G) : Prop where
   R_eq : T ⊓ Subgroup.centralizer (VZ T M : Set G) = Subgroup.centralizer (VZ T M : Set G)
@@ -90,10 +67,6 @@ structure Res15367 {G : Type} [Group G] (T Mc M V₁ V₂ E : Subgroup G) : Prop
     Equiv.Perm (Fin 3) × Equiv.Perm (Fin 3))
   XE_comm : XE153 E = ⁅XE153 E, thompsonJ (T ⊓ Subgroup.centralizer (VZ T M : Set G))⁆
 
-@[expose] def Stage15367 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-      Res15350 T M → LineData153 T M V₁ V₂ E → Res15366 T Mc M V₁ V₂ E → Res15367 T Mc M V₁ V₂ E
 
 structure Res15368 {G : Type} [Group G] (T Mc M E : Subgroup G) (s : G) : Prop where
   le_normalizer : G0_153 T Mc M E s ≤ Subgroup.normalizer (YE153 Mc M E : Set G)
@@ -104,10 +77,5 @@ structure Res15368 {G : Type} [Group G] (T Mc M E : Subgroup G) (s : G) : Prop w
   pCore_eq : pCoreOf 2 (G0_153 T Mc M E s) =
     (CFSG.pPrimeCore 3 ↥(G0_153 T Mc M E s)).map (G0_153 T Mc M E s).subtype
 
-@[expose] def Stage15368 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T Mc M V₁ V₂ E : Subgroup G) (t s : G),
-    Ctx153 G T Mc M V₁ V₂ t → Res15345 T Mc M V₁ V₂ → Res15346 T M V₁ V₂ → Res15349 T Mc M V₁ →
-      Res15350 T M → LineData153 T M V₁ V₂ E → Res15366 T Mc M V₁ V₂ E →
-        Res15367 T Mc M V₁ V₂ E → GoldLine153 T V₁ E s → Res15368 T Mc M E s
 
 end CFSG.Quasithin

@@ -83,10 +83,6 @@ omit [Finite G] in
     rw [e]
     exact (Subgroup.mem_normalizer_iff.mp (Subgroup.inv_mem _ hy) _).mp (V.inv_mem (h₁ x hx))
 
-omit [Finite G] in
-theorem mem_commCentralizer {Y : Subgroup G} {y : G} :
-    y ∈ commCentralizer Y V ↔
-      y ∈ Subgroup.normalizer (V : Set G) ∧ ∀ x ∈ Y, x * y * x⁻¹ * y⁻¹ ∈ V := Iff.rfl
 
 omit [Finite G] in
 theorem conj_mem_commCentralizer {Y : Subgroup G} {h y : G}

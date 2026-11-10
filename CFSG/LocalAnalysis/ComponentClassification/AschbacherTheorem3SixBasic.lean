@@ -199,16 +199,6 @@ theorem omegaOne_ne_bot (c : Conf46 G T S Q H g) : omegaOne T ≠ ⊥ := by
   rw [hz, orderOf_one] at hz2
   omega
 
-theorem normalizer_omegaOne_le (c : Conf46 G T S Q H g) :
-    (G ⊔ T) ⊓ Subgroup.normalizer (omegaOne T : Set X) ≤ H := by
-  rintro x ⟨hx, hxN⟩
-  apply c.hyp43.mem_of_inf_ne_bot_sup c.frame hx
-  intro hbot
-  apply c.omegaOne_ne_bot
-  rw [eq_bot_iff, ← hbot]
-  refine le_inf (omegaOne_le T) ?_
-  have h := rightConjugate_le_rightConjugate (omegaOne_le T) x
-  rwa [(rightConjugate_eq_self_iff _ x).mpr hxN] at h
 
 theorem conj_omegaOne_eq (c : Conf46 G T S Q H g) {m : X} (hm : m ∈ G)
     (hmN : m ∈ Subgroup.normalizer (omegaOne T : Set X))

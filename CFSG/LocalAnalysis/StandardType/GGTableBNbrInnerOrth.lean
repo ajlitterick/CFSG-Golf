@@ -463,21 +463,6 @@ theorem ggTableBNbrInnerInputOn_orthogonal :
   ggTableBNbrInnerInputOn_of_labels fun _ _ hp hlab h =>
     largeEvenLabelAll_torusNbr_orthogonal h.1 hlab h.2.1 hp h.2.2
 
-theorem ggTableBNbrInnerInput_of_rest_orthogonal
-    (h : GGTableBNbrInnerInputOn fun p lab => GGCorFourTwoRestLabel p lab ∧
-      ¬ ((lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1) ∧
-      ¬ ((lab.tag = .D ∨ lab.tag = .twD) ∧ 4 ≤ lab.rank ∧ p ∣ 2 ^ lab.n - 1)) :
-    GGTableBNbrInnerInput :=
-  (((ggTableBNbrInnerInputOn_typeA.or ggTableBNbrInnerInputOn_symplectic).or
-      ggTableBNbrInnerInputOn_orthogonal).or h).of_cover
-    fun p lab _ _ => by
-      by_cases h1 : GGTypeALabel p lab
-      · exact Or.inl (Or.inl (Or.inl h1))
-      · by_cases h2 : (lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1
-        · exact Or.inl (Or.inl (Or.inr h2))
-        · by_cases h3 : (lab.tag = .D ∨ lab.tag = .twD) ∧ 4 ≤ lab.rank ∧ p ∣ 2 ^ lab.n - 1
-          · exact Or.inl (Or.inr h3)
-          · exact Or.inr ⟨h1, h2, h3⟩
 
 end CFSG.StandardType
 

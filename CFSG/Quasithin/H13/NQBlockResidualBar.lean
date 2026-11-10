@@ -40,8 +40,6 @@ variable {B : Type*} [Group B] (L : Subgroup B) [L.Normal]
   ((QuotientGroup.mk' ((CFSG.pCore 2 L).map L.subtype)).comp L.subtype).codRestrict _
     fun l => mem_map_of_mem _ l.2
 
-theorem barRestrict_apply (l : L) :
-    (barRestrict L l : B ⧸ (CFSG.pCore 2 L).map L.subtype) = ((l : B) : B ⧸ _) := rfl
 
 theorem barRestrict_surjective : Function.Surjective (barRestrict L) := by
   rintro ⟨_, l, hl, rfl⟩

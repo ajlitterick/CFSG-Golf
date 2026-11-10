@@ -621,13 +621,6 @@ theorem ggFieldFiveNbrTag_PSL : GGFieldFiveNbrTag .PSL := by
   exact FieldFiveSL.fieldFive_sl hF hker hDel hDcard (fun d hd => hpair d (hDdiag d hd)) hxD hL
     hLmark hJ
 
-theorem ggSixFieldFiveInput_of_genuine_PSL (hPSU : GGFieldFiveNbrTag .PSU)
-    (hPSp : GGFieldFiveNbrTag .PSp) (hPlus : GGFieldFiveNbrTag .POmegaPlus)
-    (hMinus : GGFieldFiveNbrTag .POmegaMinus) (hF4 : GGFieldFiveNbrTag .F4)
-    (hE6 : GGFieldFiveNbrTag .E6) (hE7 : GGFieldFiveNbrTag .E7) (hE8 : GGFieldFiveNbrTag .E8)
-    (hTwE6 : GGFieldFiveNbrTag .twistedE6) : GGSixFieldFiveInput :=
-  ggSixFieldFiveInput_of_genuine ggFieldFiveNbrTag_PSL hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8
-    hTwE6
 
 end Tag
 

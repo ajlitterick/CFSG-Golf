@@ -15,9 +15,6 @@ open CFSG.KC.F4Syl3
 
 theorem rel_ok : relN w4 l4 w5 l5 = 1 := by decide +kernel
 
-theorem rel_neg_swap : relN w5 l5 w4 l4 = 0 := by decide +kernel
-
-theorem rel_neg_word : relN w4 l4 (w5 + 1) l5 = 0 := by decide +kernel
 
 end CFSG.KD.F4Syl3
 

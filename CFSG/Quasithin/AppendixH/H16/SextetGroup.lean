@@ -92,10 +92,6 @@ theorem MY_stdSextet_eq :
   · rw [card_sxGen]
     exact card_MY_stdSextet_le
 
-theorem perfectCore_sxGen :
-    perfectCore sxGen = sxP0 := by
-  rw [sxGen_eq_stabUSP]
-  exact (perfectCore_stabUSP (card_stabUSP.trans_le card_stab_US_le) (card_sxP0.ge)).1
 
 theorem card_imgCd_sxKS :
     Nat.card ↥(imgCd sxKS) = 64 := by

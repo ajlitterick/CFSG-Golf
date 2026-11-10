@@ -56,23 +56,10 @@ theorem d4Root_one_eq : d4Root 1 = Pi.single (nd 1) 1 := by
 theorem d4Root_two_eq : d4Root 2 = Pi.single (nd 2) 1 := by
   funext k; fin_cases k <;> decide
 
-theorem d4Root_three_eq : d4Root 3 = Pi.single (nd 3) 1 := by
-  funext k; fin_cases k <;> decide
-
-theorem rho_d4Root_3' : rho (d4Root 3) = d4Root 0 := by
-  funext k; fin_cases k <;> decide
-
-theorem rho_d4Root_9' : rho (d4Root 9) = d4Root 5 := by
-  funext k; fin_cases k <;> decide
-
-theorem rho_d4Root_12' : rho (d4Root 12) = d4Root 15 := by
-  funext k; fin_cases k <;> decide
 
 theorem rho_d4Root_2' : rho (d4Root 2) = d4Root 2 := by
   funext k; fin_cases k <;> decide
 
-theorem rho_d4Root_19' : rho (d4Root 19) = d4Root 19 := by
-  funext k; fin_cases k <;> decide
 
 theorem rho_d4Root_22' : rho (d4Root 22) = d4Root 22 := by
   funext k; fin_cases k <;> decide
@@ -89,9 +76,6 @@ theorem twistSign_R2 :
     twistSign σ (d4Root 2) = 1 := by
   rw [d4Root_two_eq]; exact twistSign_single σ _
 
-theorem twistSign_R3 :
-    twistSign σ (d4Root 3) = 1 := by
-  rw [d4Root_three_eq]; exact twistSign_single σ _
 
 theorem twistSign_R5 :
     twistSign σ (d4Root 5) = 1 := by
@@ -109,13 +93,6 @@ theorem twistSign_R7 :
   rw [twistSign_R1, twistSign_R2] at h
   linear_combination h
 
-theorem twistSign_R9 :
-    twistSign σ (d4Root 9) = -1 := by
-  have h := twistSign_rel σ (K := K) (a := 3) (b := 2) (g := 9) (a' := 0) (b' := 2) (g' := 5)
-    (C := 1) (C' := -1) (by decide) (by decide) rho_d4Root_3' rho_d4Root_2' rho_d4Root_9'
-    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
-  rw [twistSign_R3, twistSign_R2] at h
-  linear_combination -h
 
 variable (hσ : ∀ c, σ (σ (σ c)) = c)
 
@@ -141,15 +118,6 @@ theorem twistSign_R13 :
     (by norm_num) (by norm_num) (by norm_num) (by norm_num)
   rw [twistSign_R7, twistSign_R22 σ hσ] at h
   linear_combination h
-
-include hσ in
-theorem twistSign_R12 :
-    twistSign σ (d4Root 12) = 1 := by
-  have h := twistSign_rel σ (K := K) (a := 9) (b := 12) (g := 22) (a' := 5) (b' := 15) (g' := 22)
-    (C := -1) (C' := 1) (by decide) (by decide) rho_d4Root_9' rho_d4Root_12' rho_d4Root_22'
-    (by norm_num) (by norm_num) (by norm_num) (by norm_num)
-  rw [twistSign_R9, twistSign_R22 σ hσ] at h
-  linear_combination -h
 
 
 theorem xOrbit_R0

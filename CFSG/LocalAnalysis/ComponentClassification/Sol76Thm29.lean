@@ -260,38 +260,6 @@ theorem sup_oddCoreIn_eq_of_fusionZStar {J M CJ CM : Subgroup G} (hJ : IsTwoComp
   rw [hmeq]
   exact mul_mem (mem_sup_left j.2) (mem_sup_right ⟨_, ho, rfl⟩)
 
-theorem eq_of_isQuasisimple_solomonLStarOf {N K₁ K₂ : Subgroup G}
-    (hq : IsQuasisimple (solomonLStarOf N ⧸ pPrimeCore 2 (solomonLStarOf N)))
-    (h₁ : IsTwoComponentIn K₁ N ∧ IsSolomonMaximal K₁)
-    (h₂ : IsTwoComponentIn K₂ N ∧ IsSolomonMaximal K₂) : K₁ = K₂ := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set D := solomonLStarOf N with hD
-  have hDN : D ≤ N := iSup₂_le fun K hK => hK.1.1
-  have hK₁D : K₁ ≤ D := le_iSup₂_of_le K₁ h₁ le_rfl
-  have hK₂D : K₂ ≤ D := le_iSup₂_of_le K₂ h₂ le_rfl
-  have hc₁ := isTwoComponentIn_of_le h₁.1 hK₁D hDN
-  have hc₂ := isTwoComponentIn_of_le h₂.1 hK₂D hDN
-  set π := QuotientGroup.mk' (pPrimeCore 2 ↥D) with hπ
-  have himage : ∀ {K : Subgroup G}, IsTwoComponentIn K D → (K.subgroupOf D).map π = ⊤ := by
-    intro K hK
-    have hsub : ((K.subgroupOf D).map π).IsSubnormal := by
-      obtain ⟨h, -, -⟩ := (CatalogueBPrimeJoin.pComponent_subgroupOf_iff 2 K D hK.1).mp hK.2
-      exact h.map (QuotientGroup.mk'_surjective _)
-    have hKq := isQuasisimple_image hK (pPrimeCore 2 ↥D) rfl
-    rcases LocalAnalysis.ComponentInitial.quasisimple_subnormal_subgroups hq hsub with h | h
-    · exact h
-    · exfalso
-      have hcen : ∀ y : ↥((K.subgroupOf D).map π), y ∈ center ↥((K.subgroupOf D).map π) :=
-        fun y => mem_center_iff.mpr fun x => Subtype.ext ((mem_center_iff.mp (h y.2)) x)
-      obtain ⟨a, b, hab⟩ := hKq.2.1.exists_pair_ne
-      apply hab
-      obtain ⟨a, rfl⟩ := QuotientGroup.mk_surjective a
-      obtain ⟨b, rfl⟩ := QuotientGroup.mk_surjective b
-      exact QuotientGroup.eq.mpr (hcen _)
-  have heq : K₁.subgroupOf D = K₂.subgroupOf D :=
-    UnbalancedLayer.pComponent_eq_of_map_eq hc₁.2 hc₂.2 (by rw [himage hc₁, himage hc₂])
-  have h := Subgroup.subgroupOf_inj.mp heq
-  rwa [inf_eq_left.mpr hK₁D, inf_eq_left.mpr hK₂D] at h
 
 omit [Finite G] in
 theorem isSolomonMaximal_of_solomonEquiv {L K : Subgroup G} (hL : IsSolomonMaximal L)
@@ -387,13 +355,6 @@ theorem exists_not_le_coreActionKernel {N J CJ : Subgroup G} (hJ : IsTwoComponen
   rw [Subgroup.orderOf_mk, hb2] at h1
   exact absurd (Nat.Coprime.eq_one_of_dvd (coprime_card_oddCoreIn N) h1) (by norm_num)
 
-omit [Finite G] in
-theorem nonempty_fusionZStar_equiv_statedProj {K : Type*} [Group K] {F : Type} [Field F]
-    (e : K ⧸ pPrimeCore 2 K ≃* Assembly.LowTwoRank.StatedSp 2 F) :
-    Nonempty (K ⧸ Open.fusionZStar K ≃*
-      Assembly.LowTwoRank.StatedProj (Assembly.LowTwoRank.StatedSp 2 F)) :=
-  ⟨((Sol78.coreQuotientCenterEquiv K).symm.trans (Sol78.centerQuotCongr e)).trans
-    (QuotientGroup.quotientMulEquivOfEq (CFSG.LieType.Universal.Symplectic.center_eq 2 F))⟩
 
 omit [Finite G] in
 theorem not_le_coreActionKernel_of_le [Finite G] {J M : Subgroup G} (hJM : J ≤ M)
@@ -409,142 +370,5 @@ theorem not_le_coreActionKernel_of_le [Finite G] {J M : Subgroup G} (hJM : J ≤
   rw [Subgroup.orderOf_mk, hb2] at h1
   exact absurd (Nat.Coprime.eq_one_of_dvd (coprime_card_oddCoreIn M) h1) (by norm_num)
 
-@[expose] def SolomonThm13FStar : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup (GeneralizedFitting.subgroup G) →
-    (∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a) →
-    Assembly.KProper Blueprint.Catalog G →
-    ∀ N : Subgroup G, IsKBalanced N → solomonKStarOf N ≤ solomonKStarOf (⊤ : Subgroup G)
-
-theorem solomonThm13FStar_of_thm13 (h : SolomonThm13Input) : SolomonThm13FStar :=
-  fun G _ _ _ _ _ N hN => h G N hN
-
-theorem maximalTwoComponent_of_thm12 (h12 : Thm12Input) (hA : AschbacherRankOneInput)
-    (hGS : GSLStarSolomonStep) (h212 : Lemma212Input) (h13 : SolomonThm13FStar) :
-    GrSLit.MaximalTwoComponentInput := by
-  intro G _ _ _ hsF hnF hoF hK J hJgs h2 hpsp _ t ht hJt
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hJmax : IsSolomonMaximal J := hGS G hsF hnF hoF hK J hJgs h2 hpsp
-  have hJs : J ∈ solomonKStar G := mem_solomonKStar_of_aschbacher hA hsF hnF hoF hJmax
-  obtain ⟨⟨a, -, hJa, hJap⟩, -⟩ := hJgs
-  have hJtc : IsTwoComponentIn J (centralizer ({a} : Set G)) := ⟨hJa, hJap⟩
-  have hperf : ⁅J, J⁆ = J := UnbalancedCorr.commutator_eq_of_isPComponent hJa hJap
-  have hJinv : ∃ b ∈ J, orderOf b = 2 := by
-    have h2' := h2
-    rw [SectionRank.pRank_eq_open_pRank_top, ← SectionRank.pRank_eq_pRank_top_subgroup] at h2'
-    exact exists_orderOf_eq_two_of_pRank (by omega)
-  have hJne : J ≠ ⊥ := by
-    obtain ⟨b, hbJ, hb2⟩ := hJinv
-    intro h
-    rw [h, mem_bot] at hbJ
-    rw [hbJ, orderOf_one] at hb2
-    norm_num at hb2
-  refine ⟨?_, fun h3 g hc => ?_⟩
-  ·
-    set C := centralizer ({t} : Set G) with hC
-    set T := zpowers t with hT
-    have hCT : centralizer ((T : Subgroup G) : Set G) = C := by
-      rw [hT, zpowers_eq_closure, centralizer_closure]
-    have hT2 : IsPGroup 2 T := IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, ht, pow_one])
-    have hTne : T ≠ ⊥ := by
-      intro h
-      rw [hT, zpowers_eq_bot] at h
-      rw [h, orderOf_one] at ht
-      norm_num at ht
-    have hCloc : IsPLocal 2 C := Sol78.isPLocal_centralizer_of_orderOf_eq_two ht
-    have hconj : ∀ g : G, conjugate J g ≤ C →
-        IsTwoComponentIn (conjugate J g) (conjugate (centralizer ({a} : Set G)) g) ∧
-          IsSolomonMaximal (conjugate J g) ∧ (∃ b ∈ conjugate J g, orderOf b = 2) ∧
-          conjugate J g ≤ solomonKStarOf C := by
-      intro g hg
-      have hJgs : conjugate J g ∈ solomonKStar G := conjugate_mem_solomonKStar hJs g
-      have hJgtc : IsTwoComponentIn (conjugate J g) (conjugate (centralizer ({a} : Set G)) g) :=
-        isTwoComponentIn_map (MulAut.conj g⁻¹) hJtc
-      refine ⟨hJgtc, hJgs.1, ?_, ?_⟩
-      · obtain ⟨b, hbJ, hb2⟩ := hJinv
-        refine ⟨(MulAut.conj g⁻¹) b, ⟨b, hbJ, rfl⟩, ?_⟩
-        rw [MulEquiv.orderOf_eq, hb2]
-      · have hTJg : T ≤ coreActionKernel (conjugate J g) := by
-          rw [hT, zpowers_le]
-          exact Sol78.mem_coreActionKernel_of_commute fun j hj =>
-            mem_centralizer_singleton_iff.mp (hg hj)
-        have h := h212 G (conjugate J g) T hJgs hTne hT2 hTJg
-        rwa [hCT, inf_eq_left.mpr hg, twoLayerIn_eq_self_of_isTwoComponentIn hJgtc] at h
-    have hJ1 : conjugate J 1 = J := by
-      ext x
-      rw [SolAltLit.mem_conjugate_iff_conj, one_mul, inv_one, mul_one]
-    have hJK : J ≤ solomonKStarOf C := by
-      have h := (hconj 1 (by rw [hJ1]; exact hJt)).2.2.2
-      rwa [hJ1] at h
-    have hKL : solomonKStarOf C ≤ solomonLStarOf C :=
-      iSup₂_le fun K hK => le_iSup₂_of_le K ⟨hK.1, hK.2.1⟩ le_rfl
-    have hKTL : solomonKStarOf C ≤ twoLayerIn C :=
-      iSup₂_le fun K hK => le_twoLayerIn_of_isTwoComponentIn hK.1
-    have hLne : solomonLStarOf C ≠ ⊥ := fun h => hJne (le_bot_iff.mp (h ▸ hJK.trans hKL))
-    rcases h12 G hsF hnF C hCloc hLne with hq | hLie | ⟨-, hSp⟩
-    ·
-      obtain ⟨M, hMS⟩ : ∃ M : Subgroup G, IsTwoComponentIn M C ∧ IsSolomonMaximal M := by
-        by_contra hnone
-        push Not at hnone
-        apply hLne
-        exact le_bot_iff.mp (iSup₂_le fun K hK => absurd hK.2 (hnone K hK.1))
-      have hLM : solomonLStarOf C = M :=
-        le_antisymm (iSup₂_le fun K hK => (eq_of_isQuasisimple_solomonLStarOf hq hK hMS).le)
-          (le_iSup₂_of_le M hMS le_rfl)
-      have hMJ : ∀ {L CL : Subgroup G}, IsTwoComponentIn L CL → IsSolomonMaximal L →
-          (∃ b ∈ L, orderOf b = 2) → L ≤ C → L ≤ solomonKStarOf C → L ⊔ oddCoreIn M = M := by
-        intro L CL hL hLmax hLinv hLC hLK
-        have hLperf : ⁅L, L⁆ = L := UnbalancedCorr.commutator_eq_of_isPComponent hL.1 hL.2
-        have hLM' : L ≤ M := hLM ▸ hLK.trans hKL
-        have hequiv := solomonEquiv_of_not_le_coreActionKernel ht hL hLmax hLC (hLK.trans hKTL)
-          hMS.1 (not_le_coreActionKernel_of_le hLM' hLperf hLinv)
-        obtain ⟨e⟩ := nonempty_fusionZStar_equiv_of_reflTransGen hequiv.2
-        exact sup_oddCoreIn_eq_of_fusionZStar hL hMS.1 hLM' hLinv e.symm
-      have hJM := hMJ hJtc hJmax hJinv hJt hJK
-      refine iSup₂_le fun g hg => ?_
-      obtain ⟨hJgtc, hJgmax, hJginv, hJgK⟩ := hconj g hg
-      have hJgM := hMJ hJgtc hJgmax hJginv hg hJgK
-      calc conjugate J g ≤ M := hJgM ▸ le_sup_left
-        _ = J ⊔ oddCoreIn M := hJM.symm
-        _ ≤ oddCoreIn C ⊔ J :=
-          sup_le le_sup_right ((oddCoreIn_le_of_isTwoComponentIn hMS.1).trans le_sup_left)
-    · exact absurd hLie hoF
-    ·
-      exfalso
-      obtain ⟨M, ⟨hMC, -⟩, hJM⟩ := exists_not_le_coreActionKernel hJtc hJK hJinv
-      have hequiv := solomonEquiv_of_not_le_coreActionKernel ht hJtc hJmax hJt (hJK.trans hKTL)
-        hMC hJM
-      obtain ⟨F, _, _, hF, ⟨eM⟩⟩ := hSp M hMC
-      obtain ⟨eM'⟩ := nonempty_fusionZStar_equiv_statedProj eM
-      obtain ⟨e⟩ := nonempty_fusionZStar_equiv_of_reflTransGen hequiv.2
-      exact hpsp ⟨F, inferInstance, inferInstance, hF, ⟨e.trans eM'⟩⟩
-  ·
-    have hle := sup_conjugate_le_solomonKStarOf_top (h13 G hsF hnF hK) hJtc hJs h3 g hc
-    rw [solomonKStarOf_top_eq_bot_of_fStar hsF hnF] at hle
-    exact hJne (le_bot_iff.mp (le_sup_left.trans hle))
-
-theorem solomon76TwoLocal_of_thm12 (h12 : Thm12Input) :
-    ∀ (G : Type) [Group G] [Finite G], IsSimpleGroup (GeneralizedFitting.subgroup G) →
-      (∃ a b : GeneralizedFitting.subgroup G, a * b ≠ b * a) →
-      ¬ Blueprint.OddLieType (GeneralizedFitting.subgroup G) →
-      ∀ N : Subgroup G, IsPLocal 2 N →
-        (∀ K : Subgroup G, GH74.GLS.IsPCompIn 2 N K → ¬ ∃ (F : Type) (_ : Field F) (_ : Finite F),
-          Odd (Nat.card F) ∧ Nonempty (K ⧸ pPrimeCore 2 K ≃* Assembly.LowTwoRank.StatedSp 2 F)) →
-        sSup {K | GH74.GLS.IsPCompIn 2 N K ∧ IsSolomonMaximal K} ≠ ⊥ →
-        IsQuasisimple (↥(sSup {K | GH74.GLS.IsPCompIn 2 N K ∧ IsSolomonMaximal K}) ⧸
-          pPrimeCore 2 ↥(sSup {K | GH74.GLS.IsPCompIn 2 N K ∧ IsSolomonMaximal K})) := by
-  intro G _ _ hsF hnF hoF N hN hSp hne
-  have heq : sSup {K | GH74.GLS.IsPCompIn 2 N K ∧ IsSolomonMaximal K} = solomonLStarOf N := by
-    rw [sSup_eq_iSup]
-    rfl
-  rw [heq] at hne ⊢
-  rcases h12 G hsF hnF N hN hne with h | h | ⟨-, h⟩
-  · exact h
-  · exact absurd h hoF
-  · exfalso
-    obtain ⟨K, hK⟩ : ∃ K : Subgroup G, IsTwoComponentIn K N ∧ IsSolomonMaximal K := by
-      by_contra hnone
-      push Not at hnone
-      exact hne (le_bot_iff.mp (iSup₂_le fun K hK => absurd hK.2 (hnone K hK.1)))
-    exact hSp K hK.1 (h K hK.1)
 
 end CFSG.ComponentClassification.Sol76

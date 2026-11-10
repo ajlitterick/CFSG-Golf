@@ -389,90 +389,6 @@ structure K0Keyed where
 @[expose] def GGKacValid (lab : LargeEvenLabel) (p : ℕ) (D : GGKacDatum) : Prop :=
   ∃ T tw, ggKacTypeOfLabel lab = some (T, tw) ∧ D ∈ ggKacTable T tw p lab.n
 
-@[expose] def GGTCJKacExc : Prop := GGTCJKac GGKacGeneric GGKacValid
-
-theorem GGTCJKacExc.toTCJGeneric (h : GGTCJKacExc) : GGTCJKnownGeneric :=
-  GGK0Main.toTCJGeneric h.1
-
-example : ggKacTable .F4 false 3 1 =
-  [⟨[⟨⟨.twA, 2, 1⟩, false⟩, ⟨⟨.twA, 2, 1⟩, false⟩], 0, 1⟩,
-  ⟨[⟨⟨.C, 3, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.C, 3, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.F4, 0, 1⟩, true⟩], 0, 1⟩] := by decide
-
-example : ggKacTable .F4 false 5 2 =
-  [⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.C, 2, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.C, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.C, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.C, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.C, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.F4, 0, 2⟩, true⟩], 0, 1⟩] := by decide
-
-example : ggKacTable .E6 false 3 1 =
-  [⟨[⟨⟨.A, 2, 2⟩, true⟩, ⟨⟨.twA, 2, 1⟩, false⟩], 0, 3⟩,
-  ⟨[⟨⟨.A, 5, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twD, 4, 1⟩, true⟩], 1, 3⟩,
-  ⟨[⟨⟨.E6, 0, 1⟩, true⟩], 0, 1⟩] := by decide
-
-example : ggKacTable .E6 true 3 1 =
-  [⟨[⟨⟨.A, 1, 1⟩, false⟩, ⟨⟨.twA, 4, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 1⟩, false⟩, ⟨⟨.twA, 4, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 2, 1⟩, false⟩, ⟨⟨.twA, 2, 1⟩, false⟩, ⟨⟨.twA, 2, 1⟩, false⟩], 0, 3⟩,
-  ⟨[⟨⟨.twA, 2, 3⟩, true⟩], 0, 3⟩,
-  ⟨[⟨⟨.twA, 2, 3⟩, true⟩], 0, 3⟩,
-  ⟨[⟨⟨.twA, 5, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.D, 4, 1⟩, true⟩], 2, 3⟩,
-  ⟨[⟨⟨.twD, 5, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twD, 5, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twE6, 0, 1⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.triD4, 0, 1⟩, true⟩], 0, 3⟩,
-  ⟨[⟨⟨.triD4, 0, 1⟩, true⟩], 0, 3⟩] := by decide
-
-example : ggKacTable .E7 false 3 1 =
-  [⟨[⟨⟨.A, 1, 1⟩, false⟩, ⟨⟨.twD, 5, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 2, 1⟩, false⟩, ⟨⟨.twA, 5, 1⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.twA, 6, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.D, 6, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.E7, 0, 1⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.twE6, 0, 1⟩, true⟩], 1, 1⟩] := by decide
-
-example : ggKacTable .E7 false 5 2 =
-  [⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩, ⟨⟨.twA, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 2, 2⟩, true⟩, ⟨⟨.twA, 3, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 4, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 4, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 5, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twA, 5, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.D, 4, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twD, 5, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.A, 1, 2⟩, true⟩, ⟨⟨.twD, 5, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 2, 2⟩, true⟩, ⟨⟨.twA, 4, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 2, 2⟩, true⟩, ⟨⟨.twA, 4, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 5, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.twA, 5, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.twA, 6, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twA, 6, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.D, 6, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.D, 6, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twD, 5, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.twD, 5, 2⟩, true⟩], 2, 1⟩,
-  ⟨[⟨⟨.E7, 0, 2⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.twE6, 0, 2⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.twE6, 0, 2⟩, true⟩], 1, 1⟩] := by decide
-
-example : ggKacTable .E8 false 3 1 =
-  [⟨[⟨⟨.twA, 2, 1⟩, false⟩, ⟨⟨.twE6, 0, 1⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.twA, 8, 1⟩, true⟩], 0, 1⟩,
-  ⟨[⟨⟨.twD, 7, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.E7, 0, 1⟩, true⟩], 1, 1⟩,
-  ⟨[⟨⟨.E8, 0, 1⟩, true⟩], 0, 1⟩] := by decide
-
-example : (ggKacTable .E6 false 7 3).length = 77 := by decide
-example : ggKacTypeOfLabel ⟨.twE6, 0, 1⟩ = some (.E6, true) := by decide
 
 @[expose] def ggKacShapeLabel (n : ℕ) (lab : LargeEvenLabel) : LargeEvenLieTag × ℕ × ℕ :=
   match lab.tag with
@@ -808,13 +724,6 @@ theorem ggKacTable_qs_of_two_le (T : GGKacType) (tw : Bool) (p : ℕ) {n : ℕ} 
     · rw [k0shape_table_branch0 T tw p n h1 h2] at hD
       simp at hD
 
-example : (↑((ggKacTable .E6 false 3 2).map (GGKacDatum.shape 2)) :
-    Multiset (Multiset (LargeEvenLieTag × ℕ × ℕ) × ℕ × ℕ)) =
-    ↑((ggKacTable .E6 false 3 4).map (GGKacDatum.shape 4)) := by decide
-
-example : (↑((ggKacTable .E6 false 3 1).map (GGKacDatum.shape 1)) :
-    Multiset (Multiset (LargeEvenLieTag × ℕ × ℕ) × ℕ × ℕ)) =
-    ↑((ggKacTable .E6 false 3 3).map (GGKacDatum.shape 3)) := by decide
 
 end CFSG.StandardType
 

@@ -64,13 +64,6 @@ end Lab
       ∀ E : Subgroup G, E ≤ Bs → x ∈ E → Nat.card E = p ^ 2 →
         ¬ Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (E : Set G)
 
-theorem ggLTransvectionCenterInputOn_of (h : GGLTransvectionCenterInput)
-    (S : ℕ → LargeEvenLabel → Prop) : GGLTransvectionCenterInputOn S :=
-  fun G _ _ p B Bs x L D J hC hL => h G p B Bs x L D J hC hL.innerDiagOn
-
-theorem ggLNoInvariantLineInputOn_of (h : GGLNoInvariantLineInput)
-    (S : ℕ → LargeEvenLabel → Prop) : GGLNoInvariantLineInputOn S :=
-  fun G _ _ p B Bs x L D J hC hL => h G p B Bs x L D J hC hL.innerDiagOn
 
 section Or
 

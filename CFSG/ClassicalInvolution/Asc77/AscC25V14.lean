@@ -114,25 +114,6 @@ theorem fs_sectionData [IsSimpleGroup G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (h9 :
   exact ⟨e₀, hfe, h5, fs_isClassicalMember hI hKz hconj hp hzb hiso,
     fs_card_centralizer_lt hnc hb1, hbelow e₀ h5⟩
 
-theorem fs_lieSystemMod [IsSimpleGroup G] (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (h9 : p ^ f ≠ 9)
-    (hΩ : HypOmegaMod p f Ω) (hK : K ∈ Ω)
-    {e : K ⧸ classicalInvolutionOddCore K ≃* SL(2, GaloisField p f)} {b : G}
-    (hbN : b ∈ Subgroup.normalizer (K : Set G)) (hb2 : b * b = 1) (hb1 : b ≠ 1)
-    (hσ1 : fieldChar hp hq e ⟨b, hbN⟩ ≠ 1) (hI : IsUniqueInvolution K z)
-    (hKz : K ≤ Subgroup.centralizer ({z} : Set G))
-    (hconj : ∀ y x : G, y ∈ Subgroup.centralizer ({z} : Set G) →
-      x ∈ Subgroup.centralizer ({z} : Set G) → conjSub x K = K → conjSub (y * x * y⁻¹) K = K)
-    (hnc : ∃ x y : G, x * y ≠ y * x) (hzb : z ∈ Subgroup.centralizer ({b} : Set G))
-    (hbelow : CITBelowAll p (Nat.card G)) :
-    ∃ e₀ : ℕ, f = 2 * e₀ ∧ 5 ≤ p ^ e₀ ∧
-      IsClassicalMember p e₀ (perfectCoreIn K b) ⟨z, hzb⟩ ∧
-      HypOmegaMod p e₀ (conjFamily (perfectCoreIn K b)) ∧
-      LieSystemMod p e₀ (restrictFamily (conjFamily (perfectCoreIn K b))
-        (conjGen (perfectCoreIn K b))) := by
-  obtain ⟨e₀, hfe, h5, hmem, hlt, hIH⟩ :=
-    fs_sectionData hp hq h9 hbN hb2 hb1 hσ1 hI hKz hconj hnc hzb hbelow
-  exact ⟨e₀, hfe, h5, hmem, fs_hypOmegaMod_conjFamily hΩ hK hI hzb hmem,
-    lieSystemMod_restrict_conjugates hmem hlt hIH⟩
 
 end Hyp
 

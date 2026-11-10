@@ -70,16 +70,5 @@ theorem exists_maximal_unbalancing_triple_bounded (hTB : ThompsonBurgoyneInput)
     (fun c v K hK' _ heq hrk => ((hparts c v K hK').2 heq).2 hrk),
     fun c v K hK' => (hparts c v K hK').1⟩
 
-theorem exists_maximal_unbalancing_triple (hTB : ThompsonBurgoyneInput)
-    (hSA : SolAltLit.SolomonAlternatingOddInput) (hGF : GloballyFirstRankTwoInput)
-    (hnonab : ∃ a b : X, a * b ≠ b * a)
-    (hK : Assembly.KProper Blueprint.Catalog X)
-    (hz : ∃ z : X, orderOf z = 2 ∧ oddCore (centralizer ({z} : Set X)) ≠ ⊥)
-    (hU : ¬ OutcomeLocal.UOutcome X)
-    (htriple : ∃ (a x : X) (J : Subgroup X), GSUnbalancingTriple a x J) :
-    ∃ (a x : X) (J : Subgroup X), GSMaximalUnbalancingTriple a x J := by
-  obtain ⟨a, x, J, hJ, -⟩ :=
-    exists_maximal_unbalancing_triple_bounded hTB hSA hGF hnonab hK hz hU htriple
-  exact ⟨a, x, J, hJ⟩
 
 end CFSG.ComponentClassification.GSLit

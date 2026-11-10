@@ -217,16 +217,6 @@ end Core
 
 section Inputs
 
-theorem ggSixLSixTwelveInput_of_kg (hRk : GGSixLinearRankInput)
-    (hTM : GGSixLinearTorusModelInput) : GGSixLSixTwelveInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx hC hU b hb hCb g hg hgM hlin
-  have hS := hctx.fusionSetting hC hU
-  have hb1 : b ≠ 1 := ne_one_of_centralizer_le hCb hgM
-  have hcard : Nat.card Bs = p ^ (p - 1) :=
-    hRk G p Bs _ t n f ψ hS hlin (g⁻¹ * b * g) hg (hS.orderOf_conj hb hb1 g)
-      (hS.not_conj_mem hb hCb hgM)
-  obtain ⟨hQ, hv⟩ := hTM G p Bs _ t n f ψ hS hlin hcard
-  exact ⟨hcard, fun K hK hKA => hS.not_typeAk_of_conj hQ hv hb hCb hg hgM ⟨K, hK, hKA⟩⟩
 
 end Inputs
 

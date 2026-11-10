@@ -238,15 +238,6 @@ theorem eq_bot_of_commute_glThree_of_pow_three_eq_smul {F : Type}
     · rwa [Subgroup.card_map_of_injective hinj]
   exact (Subgroup.map_eq_bot_iff_of_injective Y hinj).mp hY'
 
-private theorem coprime_card_of_perfect_subgroup_of_complement_derived
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime]
-    (hNPC : CFSG.HasNormalPComplement p ↥(_root_.commutator G))
-    (Y : Subgroup G) [Group.IsPerfect Y] : Nat.Coprime p (Nat.card Y) := by
-  have hYle : Y ≤ _root_.commutator G := by
-    rw [← Subgroup.commutator_eq_self (H := Y), _root_.commutator_def]
-    exact Subgroup.commutator_mono le_top le_top
-  exact CFSG.LocalAnalysis.RankThreeTheoremC.RankOneCent.coprime_card_of_perfect
-    (CFSG.hasNormalPComplement_of_le p hYle hNPC)
 
 theorem lift_card_and_perfect {X Q : Type*} [Group X] [Group Q] {π : X →* Q} {Y : Subgroup Q}
     {Y' : Subgroup X} (hmap : Y'.map π = Y) (hdisj : Disjoint Y' π.ker) :
@@ -327,42 +318,6 @@ theorem eq_bot_of_fix_conjAut_of_pow_three_eq_smul
     (Subgroup.map_eq_bot_iff_of_injective Y' SpecialLinearGroup.toGL_injective).mp hY''bot
   rw [← hY'map, hY'bot, Subgroup.map_bot]
 
-theorem isSolvable_of_projective_cube_scalar_centralizer_and_complement
-    {G : Type} [Group G] [Finite G] {F : Type} [Field F] [Finite F]
-    (h3 : (3 : F) ≠ 0) (ρ : G →* projectiveSL 3 F)
-    (hker : ρ.ker ≤ Subgroup.center G) {A : GL (Fin 3) F} {c : F}
-    (hA3 : (A : Matrix (Fin 3) (Fin 3) F) ^ 3 = c • 1)
-    (hns : ∀ a : F, (A : Matrix (Fin 3) (Fin 3) F) ≠ a • 1)
-    (hfix : ∀ g : G, conjAut 3 F A (ρ g) = ρ g)
-    (hNPC : CFSG.HasNormalPComplement 3 ↥(_root_.commutator G)) :
-    Group.IsSolvable G := by
-  classical
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have : WellFoundedLT (Subgroup G) := Finite.to_wellFoundedLT
-  rw [Group.isSolvable_iff_commutator_lt]
-  intro Y hY
-  refine lt_of_le_of_ne (Subgroup.commutator_le.2 ?_) ?_
-  · intro a ha b hb
-    rw [_root_.commutatorElement_def]
-    exact Y.mul_mem (Y.mul_mem (Y.mul_mem ha hb) (Y.inv_mem ha)) (Y.inv_mem hb)
-  · intro hperf
-    have : Group.IsPerfect Y := Subgroup.isPerfect_iff.mpr hperf
-    have hY3 : ¬ 3 ∣ Nat.card Y := Nat.prime_three.coprime_iff_not_dvd.mp
-      (coprime_card_of_perfect_subgroup_of_complement_derived hNPC Y)
-    let Z := Y.map ρ
-    have : Group.IsPerfect Z := Group.IsPerfect.map ρ
-    have hZ3 : ¬ 3 ∣ Nat.card Z := fun hd => hY3 (hd.trans (Subgroup.card_map_dvd Y ρ))
-    have hZeq : Z = ⊥ :=
-      eq_bot_of_fix_conjAut_of_pow_three_eq_smul
-        h3 hA3 hns Z inferInstance hZ3
-        (by rintro _ ⟨g, _, rfl⟩; exact hfix g)
-    have hYs : Group.IsSolvable Y := Group.isSolvable_of_comm fun x y => by
-      have hx : ρ (x : G) = 1 := by
-        have hm : ρ (x : G) ∈ Z := ⟨x, x.2, rfl⟩
-        rwa [hZeq, Subgroup.mem_bot] at hm
-      exact Subtype.ext ((Subgroup.mem_center_iff.mp (hker hx)) (y : G)).symm
-    exact hY (eq_bot_of_isPerfect_of_isSolvable
-      inferInstance hYs)
 
 theorem threePrimeB3_projectiveSL_three_all (h3 : (3 : K) ≠ 0) :
     ThreePrimeB3 (projectiveSL 3 K) := by

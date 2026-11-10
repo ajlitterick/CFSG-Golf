@@ -109,9 +109,6 @@ private theorem sq_coord_of_conj_eq {t t' : Fin N → Fˣ}
   exact h'
 
 
-
-
-
 variable {F : Type} [Field F] {N : ℕ}
 
 private theorem diagSp_comm_mul (t t' : Fin N → Fˣ) :
@@ -289,8 +286,6 @@ private theorem commutator_mem_suppGroup_union_of_commute {i j : Fin N} {a : Fˣ
   exact commutator_column_one ha1 ha2 (h1 m hmi hmj) (h2 m hmi hmj) htm r
 
 
-
-
 private theorem diagVal_inl_eq_one {t : Fin N → Fˣ} {m : Fin N} (h : t m = 1) :
     diagVal t (Sum.inl m) = 1 := by
   rw [diagVal_inl, h, Units.val_one]
@@ -411,15 +406,6 @@ private theorem diagSp_eq_shortBlock {i j : Fin N} (hij : i ≠ j) (a : Fˣ) :
       by_cases h1 : x = i <;> by_cases h2 : x = j <;> simp [h1, h2]
     · simp [hxy, Ne.symm hxy]
 
-private theorem isSupp_union_coords {i j : Fin N} : ParClosed (coords i ∪ coords j) := by
-  intro x hx
-  rcases hx with hx | hx
-  · rcases mem_coords.1 hx with rfl | rfl
-    · exact Set.mem_union_left _ (inr_mem_coords i)
-    · exact Set.mem_union_left _ (inl_mem_coords i)
-  · rcases mem_coords.1 hx with rfl | rfl
-    · exact Set.mem_union_right _ (inr_mem_coords j)
-    · exact Set.mem_union_right _ (inl_mem_coords j)
 
 private theorem commute_diagSp_shortBlock {t : Fin N → Fˣ} {i j : Fin N} (hij : i ≠ j)
     (ht : t i = t j) (A : SL(2, F)) :
@@ -524,9 +510,6 @@ private theorem eta_eq_one_of_centralizes' (hF : GGSecFiveBPermSpKFrame Bs K eta
     rw [this]
     group) a
 
-private theorem mem_ggBsCoordEq_of_eta_one {b : ↥Bs} (h : ∀ m, eta b m = 1) (i j : Fin n) :
-    (b : G) ∈ ggBsCoordEq Bs eta i j :=
-  coe_mem_ggBsCoordEq.2 (by rw [h i, h j])
 
 private theorem kappa_diagSp_mem_Bs (hF : GGSecFiveBPermSpKFrame Bs K eta π κ χ)
     (hBs : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)

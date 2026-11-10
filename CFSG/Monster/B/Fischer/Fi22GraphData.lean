@@ -4,9 +4,6 @@ public section
 
 namespace CFSG.Monster.B.Fischer
 
-@[expose] def fi22GraphSchemaVersion : Nat := 1
-
-@[expose] def fi22GraphDegree : Nat := 3510
 
 @[expose] def fi22GraphOuterHex : String :=
   "3B7142D2379F8EF71DA0B95436AC1A2B8479B341B62EB7A6013CF804F010A0E47761ED3393DC6B6036BB70C680511D62\
@@ -124,6 +121,5 @@ namespace CFSG.Monster.B.Fischer
 
 @[expose] def fi22GraphOrbitBounds : List Nat := [3510, 2816, 567, 720, 16, 2]
 
-@[expose] def fi22GraphCellCounts : List Nat := [3, 8, 24, 281, 2102, 3510]
 
 end CFSG.Monster.B.Fischer

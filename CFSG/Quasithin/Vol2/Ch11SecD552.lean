@@ -17,6 +17,5 @@ theorem mem_normalizer_zpowers_of_mem_centralizer {z g : G}
     by rw [Subgroup.zpowers_eq_closure, Subgroup.centralizer_closure]
   exact Subgroup.centralizer_le_normalizer _ (h ▸ hg)
 
-variable [Finite G]
 
 end CFSG.Quasithin.Vol2.Ch11.SecD

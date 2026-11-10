@@ -219,7 +219,6 @@ theorem presentation_finite_card_bijective :
 
 instance presentation_finite : Finite P := presentation_finite_card_bijective.1
 
-theorem presentation_card : Nat.card P = 48 := presentation_finite_card_bijective.2.1
 
 @[expose] noncomputable def presentationEquivMatrices :
     P ≃* GeneralLinearGroup (Fin 2) (ZMod 3) :=

@@ -28,16 +28,6 @@ open scoped commutatorElement
 theorem mem_fixedSubgroup {L : Type} [Group L] {σ : L ≃* L} {l : L} :
     l ∈ fixedSubgroup σ ↔ σ l = l := Iff.rfl
 
-@[expose] def TwoThinKGroupVertical' : Prop :=
-  ∀ (L : Type) [Group L] [Finite L] (σ : L ≃* L) (I : Subgroup L) (K₀ : Type) [Group K₀],
-    CFSG.IsQuasisimple L → (InC2 L ∨ InT2 L) → (∀ l, σ (σ l) = l) →
-    IsPCompIn 2 (fixedSubgroup σ) I → InB2 K₀ →
-    (∃ φ : ↥I →* K₀, Function.Surjective φ ∧ Odd (Nat.card φ.ker)) → InB2 L
-
-@[expose] def TwoThinCentralCover : Prop :=
-  ∀ (L L₁ K₀ : Type) [Group L] [Finite L] [Group L₁] [Group K₀] (δ : L →* L₁) (φ : L₁ →* K₀),
-    CFSG.IsQuasisimple L → (InC2 L ∨ InT2 L) → Function.Surjective δ → δ.ker ≤ center L →
-    Function.Surjective φ → Odd (Nat.card φ.ker) → InB2 K₀ → InB2 L
 
 @[expose] def TwoThinC2Vertical : Prop :=
   ∀ (L : Type) [Group L] [Finite L] (σ : L ≃* L) (I : Subgroup L) (K₀ : Type) [Group K₀],
@@ -90,14 +80,6 @@ theorem mem_fixedSubgroup {L : Type} [Group L] {σ : L ≃* L} {l : L} :
 @[expose] def TwoThinKGroupCoreP (P : GroupPred) : Prop :=
   TwoThinC2VerticalP P ∧ TwoThinT2VerticalP P ∧ TwoThinC2CoverP P
 
-theorem TwoThinKGroupCore.toP (h : TwoThinKGroupCore) (P : GroupPred) : TwoThinKGroupCoreP P := by
-  refine ⟨?_, ?_, ?_⟩
-  · intro L _ _ σ I K₀ _ _ hq hC hσ hI hK₀ hφ
-    exact h.1 L σ I K₀ hq hC hσ hI hK₀ hφ
-  · intro L _ _ σ I K₀ _ _ hq hT hz hσ hI hK₀ hφ
-    exact h.2.1 L σ I K₀ hq hT hz hσ hI hK₀ hφ
-  · intro L L₁ K₀ _ _ _ _ δ φ _ hq hC hδs hδk hφs hφo hK₀
-    exact h.2.2 L L₁ K₀ δ φ hq hC hδs hδk hφs hφo hK₀
 
 theorem TwoThinKGroupCoreP.toCore (h : TwoThinKGroupCoreP GroupPred.trivial) :
     TwoThinKGroupCore := by
@@ -118,17 +100,6 @@ theorem twoThinKGroupVertical'P_of {P : GroupPred} (hC : TwoThinC2VerticalP P)
     · exact (hT L σ I K₀ hP hq h hz hσ hI hK₀ hφ).elim
     · exact ⟨h, hz⟩
 
-theorem twoThinKGroupVertical'_of (hC : TwoThinC2Vertical) (hT : TwoThinT2Vertical) :
-    TwoThinKGroupVertical' := by
-  intro L _ _ σ I K₀ _ hq hLC hσ hI hK₀ hφ
-  exact twoThinKGroupVertical'P_of (P := GroupPred.trivial)
-    (by
-      intro L _ _ σ I K₀ _ _ hq hC' hσ hI hK₀ hφ
-      exact hC L σ I K₀ hq hC' hσ hI hK₀ hφ)
-    (by
-      intro L _ _ σ I K₀ _ _ hq hT' hz hσ hI hK₀ hφ
-      exact hT L σ I K₀ hq hT' hz hσ hI hK₀ hφ)
-    L σ I K₀ trivial hq hLC hσ hI hK₀ hφ
 
 theorem twoThinCentralCoverP_of {P : GroupPred} (h : TwoThinC2CoverP P) :
     TwoThinCentralCoverP P := by
@@ -166,13 +137,6 @@ theorem twoThinCentralCoverP_of {P : GroupPred} (h : TwoThinC2CoverP P) :
         exact hK₀.2 hK₀z
     · exact ⟨hT, hz⟩
 
-theorem twoThinCentralCover_of (h : TwoThinC2Cover) : TwoThinCentralCover := by
-  intro L L₁ K₀ _ _ _ _ δ φ hq hLC hδs hδk hφs hφo hK₀
-  exact twoThinCentralCoverP_of (P := GroupPred.trivial)
-    (by
-      intro L L₁ K₀ _ _ _ _ δ φ _ hq hC hδs hδk hφs hφo hK₀
-      exact h L L₁ K₀ δ φ hq hC hδs hδk hφs hφo hK₀)
-    L L₁ K₀ δ φ trivial hq hLC hδs hδk hφs hφo hK₀
 
 theorem eq_top_or_le_center_of_subnormal {Q : Type*} [Group Q] (hQ : CFSG.IsQuasisimple Q)
     {U : Subgroup Q} (hU : U.IsSubnormal) : U = ⊤ ∨ U ≤ center Q := by
@@ -228,14 +192,6 @@ theorem twoThinKGroupVerticalQ_of {Q P : GroupPred}
   rw [h1]
   exact hφo.of_dvd_nat (Subgroup.card_comap_dvd_of_injective _ _ e.injective)
 
-theorem twoThinKGroupVertical_of (h : TwoThinKGroupVertical') : TwoThinKGroupVertical := by
-  intro H _ _ s L I K₀ _ hs hL hLC hLs hI hIL hK₀ hφ
-  exact twoThinKGroupVerticalQ_of (Q := GroupPred.trivial) (P := GroupPred.trivial)
-    (fun _ _ _ _ L => trivial)
-    (by
-      intro L _ _ σ I K₀ _ _ hq hLC hσ hI hK₀ hφ
-      exact h L σ I K₀ hq hLC hσ hI hK₀ hφ)
-    H trivial s L I K₀ hs hL hLC hLs hI hIL hK₀ hφ
 
 theorem twoThinKGroupDiagonalQ_of {Q P : GroupPred}
     (hQP : ∀ (H : Type) [Group H] [Finite H], Q H → ∀ L : Subgroup H, P ↥L)
@@ -292,14 +248,6 @@ theorem twoThinKGroupDiagonalQ_of {Q P : GroupPred}
     exact ker_swapDiag_le_center hAB
   exact h ↥L ↥I K₀ δ' φ (hQP H hQH L) hL.1 hLC hδs hδk hφs hφo hK₀
 
-theorem twoThinKGroupDiagonal_of (h : TwoThinCentralCover) : TwoThinKGroupDiagonal := by
-  intro H _ _ s L I K₀ _ hAB hs hL hLC hLs hI hID hK₀ hφ
-  exact twoThinKGroupDiagonalQ_of (Q := GroupPred.trivial) (P := GroupPred.trivial)
-    (fun _ _ _ _ L => trivial)
-    (by
-      intro L L₁ K₀ _ _ _ _ δ φ _ hq hLC hδs hδk hφs hφo hK₀
-      exact h L L₁ K₀ δ φ hq hLC hδs hδk hφs hφo hK₀)
-    H trivial s L I K₀ hAB hs hL hLC hLs hI hID hK₀ hφ
 
 theorem twoThinKGroupFactQ_of_coreP {Q P : GroupPred}
     (hQP : ∀ (H : Type) [Group H] [Finite H], Q H → ∀ L : Subgroup H, P ↥L)
@@ -307,8 +255,5 @@ theorem twoThinKGroupFactQ_of_coreP {Q P : GroupPred}
   ⟨twoThinKGroupVerticalQ_of hQP (twoThinKGroupVertical'P_of h.1 h.2.1),
     twoThinKGroupDiagonalQ_of hQP (twoThinCentralCoverP_of h.2.2)⟩
 
-theorem twoThinKGroupFact_of_core (h : TwoThinKGroupCore) : TwoThinKGroupFact :=
-  ⟨twoThinKGroupVertical_of (twoThinKGroupVertical'_of h.1 h.2.1),
-    twoThinKGroupDiagonal_of (twoThinCentralCover_of h.2.2)⟩
 
 end CFSG.GH74.GLS.TwoThin

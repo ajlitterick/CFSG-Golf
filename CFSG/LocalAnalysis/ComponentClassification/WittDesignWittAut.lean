@@ -317,29 +317,5 @@ theorem card_hexadAut : Nat.card hexadAut = 887040 ∧ M22.relIndex hexadAut = 2
 
 universe u v
 
-theorem eq_hexads_of_orbit {𝓑 : Finset (Finset (Fin 22))} {X : Finset (Fin 22)} (hX : X.card = 6)
-    (h𝓑 : (𝓑 : Set (Finset (Fin 22))) = orbit M22 X) (hS : IsSteinerTriple 𝓑) : 𝓑 = hexads := by
-  have h77 : Nat.card (orbit M22 X) = 77 := by
-    rw [← h𝓑, Nat.card_coe_set_eq, Set.ncard_coe_finset, hS.card_blocks]
-  obtain ⟨g, rfl⟩ := mem_hexads_iff.1 (mem_hexads_of_card_orbit hX h77)
-  rw [orbit_smul, orbit_hexad0] at h𝓑
-  exact Finset.coe_injective h𝓑
-
-theorem witt_S3622_uniqueness_and_automorphism_group :
-    (∀ {Ω : Type u} {Ω' : Type v} [Fintype Ω] [DecidableEq Ω] [Fintype Ω'] [DecidableEq Ω']
-      (𝓑 : Finset (Finset Ω)) (𝓑' : Finset (Finset Ω')), IsSteinerTriple 𝓑 →
-        IsSteinerTriple 𝓑' → ∃ e : Ω ≃ Ω', ∀ B : Finset Ω, B ∈ 𝓑 ↔ B.map e.toEmbedding ∈ 𝓑') ∧
-    (∃ 𝓑 : Finset (Finset (Fin 22)), (∃ X : Finset (Fin 22), X.card = 6 ∧
-      (𝓑 : Set (Finset (Fin 22))) = MulAction.orbit M22 X) ∧ IsSteinerTriple 𝓑) ∧
-    ∀ 𝓑 : Finset (Finset (Fin 22)), (∃ X : Finset (Fin 22), X.card = 6 ∧
-      (𝓑 : Set (Finset (Fin 22))) = MulAction.orbit M22 X) → IsSteinerTriple 𝓑 →
-        Nat.card (blockAut 𝓑) = 887040 ∧ (887040 : ℕ) = 2 * 443520 ∧ M22 ≤ blockAut 𝓑 ∧
-          M22.relIndex (blockAut 𝓑) = 2 ∧ (M22.subgroupOf (blockAut 𝓑)).Normal := by
-  refine ⟨fun 𝓑 𝓑' h h' => steinerTriple_iso h h', ⟨hexads, ⟨hexad0, Certificates.certificate2039.2.2.2,
-    orbit_hexad0.symm⟩, isSteinerTriple_hexads⟩, ?_⟩
-  rintro 𝓑 ⟨X, hX, h𝓑⟩ hS
-  obtain rfl := eq_hexads_of_orbit hX h𝓑 hS
-  obtain ⟨hcard, hidx⟩ := card_hexadAut
-  exact ⟨hcard, by norm_num, M22_le_hexadAut, hidx, Subgroup.normal_of_index_eq_two hidx⟩
 
 end CFSG.ComponentClassification.WittDesign

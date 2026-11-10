@@ -35,9 +35,6 @@ theorem operatorCentralizer_preserves_eigenspace (T : Module.End K V) (b : K)
   map_add' x y := Subtype.ext (map_add B.val x.val y.val)
   map_smul' c x := Subtype.ext (map_smul B.val c x.val)
 
-theorem operatorCentralizerRestriction_apply (T : Module.End K V) (b : K)
-    (B : operatorCentralizer T) (x : T.eigenspace b) :
-    (operatorCentralizerRestriction T b B x).val = B.val x.val := rfl
 
 @[expose] def splitCentralizerRestriction (T : Module.End K V) (b : K) :
     operatorCentralizer T →*

@@ -41,7 +41,6 @@ theorem recC_eq (M C r : Nat) : recC M C r = C >>> (400 * r) &&& M := rfl
 
 theorem recX_eq (XC : Nat → Nat) (M k : Nat) : recX XC M k = recC M (XC (k / 133)) (k % 133) := rfl
 
-theorem childF_eq (h t : Nat) : childF h t = h >>> (30 + 9 * t) &&& 511 := rfl
 
 theorem rowL_eq (RM Y r : Nat) : rowL RM Y r = Y >>> (1729 * r) &&& RM := rfl
 

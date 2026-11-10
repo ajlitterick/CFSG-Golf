@@ -143,40 +143,5 @@ theorem factorization_five_card_adjointGroup_E8 (K : Type) [Field K] [Finite K]
   rw [h]
   ring
 
-theorem factorization_five_card_adjointGroup_E8_of_dvd_add_one (K : Type) [Field K] [Finite K]
-    (h5 : 5 ∣ Nat.card K + 1) :
-    (Nat.card (adjointGroup Tag.E8 K)).factorization 5 =
-      8 * (Nat.card K + 1).factorization 5 + 2 := by
-  have h := ordProj_card_adjointGroup_E (τ := Tag.E8) (K := K) (by simp) Nat.prime_five
-    (by norm_num) (not_five_dvd_of_dvd_add_one h5)
-  simp only [degreesE, List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one] at h
-  have h10 : 5 ^ (10 : ℕ).factorization 5 = 5 := by
-    rw [show (10 : ℕ) = 2 * 5 by norm_num, Nat.factorization_mul (by norm_num) (by norm_num),
-      Finsupp.add_apply, Nat.Prime.factorization_self Nat.prime_five,
-      Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 5 ∣ 2)]
-    norm_num
-  have h15 : 5 ^ (15 : ℕ).factorization 5 = 5 := by
-    rw [show (15 : ℕ) = 3 * 5 by norm_num, Nat.factorization_mul (by norm_num) (by norm_num),
-      Finsupp.add_apply, Nat.Prime.factorization_self Nat.prime_five,
-      Nat.factorization_eq_zero_of_not_dvd (by norm_num : ¬ 5 ∣ 3)]
-    norm_num
-  rw [ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 2) (k := 1) rfl one_ne_zero,
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 8) (k := 4) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 12) (k := 6) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 14) (k := 7) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 18) (k := 9) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 20) (k := 10) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 24) (k := 12) rfl (by norm_num),
-    ordProj_five_pow_sub_one_of_dvd_add_one h5 (d := 30) (k := 15) rfl (by norm_num),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 1),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 4),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 6),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 7),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 9),
-    ordProj_eq_one_of_not_dvd' (by norm_num : ¬ 5 ∣ 12), h10, h15] at h
-  refine Nat.pow_right_injective (by norm_num : 2 ≤ 5) ?_
-  change 5 ^ _ = 5 ^ _
-  rw [h]
-  ring
 
 end CFSG.HardMathSupport.Timmesfeld.Proving

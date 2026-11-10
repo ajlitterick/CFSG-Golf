@@ -192,7 +192,5 @@ theorem isTriality_rhoT : IsTriality (rhoT F) := by
 theorem exists_triality_spin : ∃ ρ : Sp8 F ≃* Sp8 F, IsTriality ρ :=
   ⟨rhoT F, isTriality_rhoT F⟩
 
-theorem d4TrialityThreeInput_holds : D4TrialityThreeInput :=
-  exists_triality_spin (GaloisField 3 1)
 
 end CFSG.ComponentClassification.Burgoyne.DX.Tri

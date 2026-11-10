@@ -75,30 +75,5 @@ theorem unit_class_scalar_force_exact_block_defect (basis : FiniteIrreducibleCha
 
 end Basis
 
-theorem unit_class_scalar_force_exact_block_defect_shared (p : ℕ) (hp : p.Prime)
-    (m : Ideal BlocksAlgInt) (hm : m.IsMaximal) [CharP (BlocksAlgInt ⧸ m) p] {G : Type}
-    [Group G] [Fintype G] {χ : G → ℂ} (hχ : χ ∈ BlocksIrr G) (g u v : G) (hg : g = u * v)
-    (huv : Commute u v) (hu : ∃ k : ℕ, orderOf u = p ^ k) (hv : Nat.Coprime p (orderOf v))
-    (hsylow : ∃ S : Sylow p (Subgroup.centralizer ({g} : Set G)),
-      (S : Subgroup (Subgroup.centralizer ({g} : Set G))).map
-        (Subgroup.centralizer ({g} : Set G)).subtype = Subgroup.zpowers u)
-    (hunit : ∃ y : (CFSG.BrauerThirdMainTheorem.Helpers.localCoefficientSubring m hm)ˣ,
-      ((y : CFSG.BrauerThirdMainTheorem.Helpers.localCoefficientSubring m hm) : ℂ) =
-        ((Subgroup.centralizer ({g} : Set G)).index : ℂ) * χ g / χ 1) :
-    ∀ ψ ∈ BlocksBlockOf m G χ,
-      CFSG.BrauerThirdMainTheorem.Helpers.blockDefect p m ψ (Subgroup.zpowers u) := by
-  have : Fact p.Prime := ⟨hp⟩
-  obtain ⟨basis⟩ := finiteIrreducibleCharacterBasis_exists (G := G)
-  obtain ⟨l, rfl⟩ := CFSG.BlockBasics.exists_label_of_mem_irr basis hχ
-  obtain ⟨y, hy⟩ := hunit
-  have hle : CFSG.BrauerThirdMainTheorem.Helpers.localCoefficientSubring m hm ≤
-      localizedComplexIntegerRing m :=
-    (CFSG.BlockBasics.localCoefficientSubring_eq_localized m).le
-  have hmain := unit_class_scalar_force_exact_block_defect basis m p l g u v hg huv hu hv hsylow
-    ⟨Units.map (Subring.inclusion hle).toMonoidHom y, hy⟩
-  have hirr := CFSG.BlockBasics.basis_character_mem_irr basis l
-  exact (CFSG.BlockBasics.forall_blockDefect_iff p m hm ⟨_, hirr, rfl⟩
-    (CFSG.BrauerThirdMainTheorem.Helpers.mem_blockOf_self m hirr) _).mpr
-    ((CFSG.BlockBasics.coefficientBlockDefect_iff basis m p l _).mp hmain)
 
 end CFSG.Semidihedral.Principal

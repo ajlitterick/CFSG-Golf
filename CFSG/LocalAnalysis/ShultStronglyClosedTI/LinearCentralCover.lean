@@ -40,11 +40,6 @@ variable {K : Type u} [Field K] {E : Type v} [Group E]
   (linearCoverRootSylow f hcard).comapOfKerIsPGroup η hp
     (by rw [η.range_eq_top_of_surjective hsurj]; exact le_top)
 
-theorem linearCoverPreimageSylow_coe [Finite K] [CharP K 2]
-    (f : ℕ) (hcard : Nat.card K = 2 ^ f) (η : E →* SpecialLinearGroup (Fin 2) K)
-    (hsurj : Function.Surjective η) (hp : IsPGroup 2 η.ker) :
-    (linearCoverPreimageSylow f hcard η hsurj hp : Subgroup E) =
-      (linearCoverRootSubgroup K).comap η := rfl
 
 theorem linearCover_root_commutator_mem_kernel [CharP K 2]
     (η : E →* SpecialLinearGroup (Fin 2) K) {x y : E}

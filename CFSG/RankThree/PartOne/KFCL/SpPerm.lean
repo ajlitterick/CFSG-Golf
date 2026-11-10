@@ -100,15 +100,6 @@ theorem mat_cj_apply {τ : Equiv.Perm (Fin n ⊕ Fin n)} (hτ : τ ∈ Hp n) (x 
   rw [permSp_inv, map_mul, map_mul, mat_permSp, mat_permSp]
   exact permMat_conj_apply' τ _ a b
 
-theorem cj_mul {τ : Equiv.Perm (Fin n ⊕ Fin n)} (hτ : τ ∈ Hp n) (x y : StatedSp n K) :
-    cj hτ (x * y) = cj hτ x * cj hτ y := by
-  unfold cj
-  group
-
-theorem cj_inv {τ : Equiv.Perm (Fin n ⊕ Fin n)} (hτ : τ ∈ Hp n) (x : StatedSp n K) :
-    cj hτ x⁻¹ = (cj hτ x)⁻¹ := by
-  unfold cj
-  group
 
 theorem cj_cj {τ : Equiv.Perm (Fin n ⊕ Fin n)} (hτ : τ ∈ Hp n) (x : StatedSp n K) :
     cj ((Hp n).inv_mem hτ) (cj hτ x) = x := by

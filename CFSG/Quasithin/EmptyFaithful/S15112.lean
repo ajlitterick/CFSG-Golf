@@ -39,13 +39,5 @@ theorem lemma_15_1_12_concl319 (h319 : Lemma319Statement) {T Mc M : Subgroup G}
     (h319 G T h.simple h.nonabelian h.qtke h.sylow M _ H _ hM.1.1 hbase hII hq h159.five hVH hdual)
     h16
 
-theorem stageLemma15112_of (h319 : Lemma319Statement) (h1416 : StageLemma1416)
-    (h1515 : StageLemma1515) (h158 : StageLemma1518) (h159 : StageLemma1519)
-    (h16 : StageLemma1516) (h1511 : StageLemma15111) (h4 : StageLemma15112Four) :
-    StageLemma15112 := by
-  intro G _ _ T Mc M h hM hCE H hH
-  exact ⟨lemma_15_1_12_concl319 h319 h hM (h158 G T Mc M h hM hCE) (h159 G T Mc M h hM hCE)
-    (h16 G T Mc M h hM) (notDualFF1512_of h1416 h1515 h158 h159 G T Mc M h hM hCE) hH
-    (h1511 G T Mc M h hM hCE H hH).1, h4 G T Mc M h hM hCE H hH⟩
 
 end CFSG.Quasithin

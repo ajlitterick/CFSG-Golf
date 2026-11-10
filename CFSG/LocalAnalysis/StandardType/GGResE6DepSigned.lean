@@ -90,18 +90,6 @@ theorem GGResHyp.not_lowNonsplitClassical_of_gamma_ge_five
   norm_num at hle4 h5'
   omega
 
-theorem GGResE6DepShape.not_lowNonsplitClassical
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) :
-    ¬ GGInnerDiagOnLabel (fun p lab => lab.rank ≤ 4 ∧
-      ((lab.tag = .A ∧ p ∣ 2 ^ lab.n + 1) ∨
-        (lab.tag = .twA ∧ p ∣ 2 ^ lab.n - 1))) p Bs X := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  have h5 := hS.five_le_card_range hX
-  exact hH.not_lowNonsplitClassical_of_gamma_ge_five hX h5
 
 theorem GGResHyp.not_nonsplitClassical_of_card_automizer_E6_upto_seven
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
@@ -184,19 +172,5 @@ theorem GGResHyp.not_nonsplitClassical_of_card_automizer_E6
   exact GGResHyp.not_nonsplitClassical_of_card_automizer_E6_upto_seven
     hH hX (by rw [hcardBs]; norm_num) hcard hMark
 
-theorem GGResE6DepShape.not_nonsplitClassical
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) :
-    ¬ GGInnerDiagOnLabel (fun p lab => 5 ≤ lab.rank ∧
-      ((lab.tag = .A ∧ p ∣ 2 ^ lab.n + 1) ∨ (lab.tag = .twA ∧ p ∣ 2 ^ lab.n - 1))) p Bs X := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  have hcard : Nat.card (ggAutomizer X Bs) = 51840 := by
-    rcases hX with hX | hX
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).1
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).2
-  exact hH.not_nonsplitClassical_of_card_automizer_E6 hX hS.2.1 hcard
 
 end CFSG.StandardType

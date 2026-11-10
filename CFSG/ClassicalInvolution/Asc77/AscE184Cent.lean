@@ -47,71 +47,11 @@ section Hull
 
 variable {X : Subgroup G}
 
-@[expose] def memberHull (Ω : Set (Subgroup G)) (X : Subgroup G) : Subgroup G :=
-  ⨆ J ∈ {J | J ∈ Ω ∧ J ≤ X}, J
-
-omit [Finite G] in
-theorem le_memberHull {J : Subgroup G} (hJ : J ∈ Ω) (hJX : J ≤ X) : J ≤ memberHull Ω X :=
-  le_iSup₂_of_le J ⟨hJ, hJX⟩ le_rfl
-
-omit [Finite G] in
-theorem memberHull_le : memberHull Ω X ≤ X :=
-  iSup₂_le fun _ hJ => hJ.2
-
-omit [Finite G] in
-theorem conjSub_memberHull_le (hΩ : ConjInvariant Ω) {x : G} (hx : x ∈ X) :
-    conjSub x (memberHull Ω X) ≤ memberHull Ω X := by
-  unfold memberHull conjSub
-  rw [Subgroup.map_iSup]
-  refine iSup_le fun L => ?_
-  rw [Subgroup.map_iSup]
-  refine iSup_le fun hL => ?_
-  refine le_memberHull (hΩ x L hL.1) ?_
-  have := conjSub_mono (n := x) hL.2
-  rwa [conjSub_eq_self_of_mem hx] at this
-
-omit [Finite G] in
-theorem le_normalizer_memberHull (hΩ : ConjInvariant Ω) :
-    X ≤ Subgroup.normalizer (memberHull Ω X : Set G) := by
-  intro x hx
-  refine mem_normalizer_iff_conjSub_eq.mpr (le_antisymm (conjSub_memberHull_le hΩ hx) ?_)
-  have := conjSub_mono (n := x) (conjSub_memberHull_le hΩ (X.inv_mem hx))
-  rwa [conjSub_conjSub_inv] at this
 
 end Hull
 
 variable (p f)
 
-@[expose] def E18_4M : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex p f Ω K S R W H →
-      ∀ K' ∈ twinSet Ω K, K' ≠ K → ∀ R' ∈ RSet Ω, R' ≤ K' → R' ≤ (S : Subgroup G) →
-        ∀ X : Subgroup G, K ≤ X → K' ≤ X → X ≠ ⊤ → IsSylow2In ((S : Subgroup G) ⊓ X) X → X ≤ H
-
-theorem e18_4M (h3 : E18_3 p f) (h69 : L6_9 p f) (h611 : L6_11 p f) : E18_4M p f := by
-  intro G _ _ Ω K S R W H c K' hK'tw hK'ne R' hR' hR'K' hR'S X hKX hK'X hX hS
-  have hp : p ≠ 2 := c.stand.odd
-  have hq : 5 ≤ p ^ f := c.stand.five
-  have hΩ : HypOmegaMod p f Ω := c.stand.hyp
-  have hK : K ∈ Ω := c.stand.mem
-  have hEA : EtaAbelian Ω := EtaAbelian.of_l6_9 h69 hp hq hΩ
-  have hEM : EtaMeet Ω := EtaMeet.of_l6_11 h611 hp hq hΩ
-  obtain ⟨hRR, hRK, hRS⟩ := c.stand.hR
-  set Y : Subgroup G := memberHull Ω X with hYdef
-  have hYX : Y ≤ X := memberHull_le
-  have hKY : K ≤ Y := le_memberHull hK hKX
-  have hK'Y : K' ≤ Y := le_memberHull hK'tw.1 hK'X
-  have hYtop : Y ≠ ⊤ := fun h => hX (top_le_iff.mp (h ▸ hYX))
-  have hgen : Y ≤ ⨆ J ∈ {J | J ∈ Ω ∧ J ≤ Y}, J :=
-    iSup₂_le fun L hL => le_iSup₂_of_le L ⟨hL.1, le_memberHull hL.1 hL.2⟩ le_rfl
-  have hnorm : X ≤ Subgroup.normalizer (Y : Set G) := le_normalizer_memberHull hΩ.conjInvariant
-  have hSY : IsSylow2In ((S : Subgroup G) ⊓ Y) Y := by
-    have := isSylow2In_inf_of_le_normalizer hS hYX hnorm
-    rwa [inf_assoc, inf_eq_right.mpr hYX] at this
-  have hYH : Y ≤ H :=
-    c.layer_le_H hEA hEM (h3 G Ω K S R W H c) hK'tw hK'ne hR' hR'K' hR'S hYtop
-      hKY hK'Y hgen hSY
-  exact fun x hx => c.normalizer_le_of_le hEA hEM (hRK.trans hKY) hYH (hnorm hx)
 
 @[expose] def E18_4C : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
@@ -135,20 +75,6 @@ private theorem centralizer_zpowers_eq_singleton (x : G) :
     obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.mp hg
     exact (Commute.zpow_left (show Commute x y from h) k).eq
 
-theorem e18_4C_element (h : E18_4C p f) {Ω : Set (Subgroup G)} {K : Subgroup G} {S : Sylow 2 G}
-    {R W H : Subgroup G} (c : MinCex p f Ω K S R W H) {K' : Subgroup G} (hK' : K' ∈ twinSet Ω K)
-    (hK'ne : K' ≠ K) {R' : Subgroup G} (hR' : R' ∈ RSet Ω) (hR'K' : R' ≤ K')
-    (hR'S : R' ≤ (S : Subgroup G)) {x : G} (hx : ∃ n : ℕ, orderOf x = 2 ^ n)
-    (hRx : R ⊔ R' ≤ Subgroup.centralizer ({x} : Set G))
-    (hX : Subgroup.centralizer ({x} : Set G) ≠ ⊤)
-    (hS : IsSylow2In ((S : Subgroup G) ⊓ Subgroup.centralizer ({x} : Set G))
-      (Subgroup.centralizer ({x} : Set G))) : Subgroup.centralizer ({x} : Set G) ≤ H := by
-  obtain ⟨n, hn⟩ := hx
-  have hA : IsPGroup 2 ↥(Subgroup.zpowers x) :=
-    IsPGroup.of_card (n := n) (by rw [Nat.card_zpowers, hn])
-  have key := h G Ω K S R W H c K' hK' hK'ne R' hR' hR'K' hR'S (Subgroup.zpowers x) hA
-  rw [centralizer_zpowers_eq_singleton] at key
-  exact key hRx hX hS
 
 theorem e18_5_of_layer (h3 : E18_3 p f) (h69 : L6_9 p f) (h611 : L6_11 p f) : E18_5 p f := by
   intro G _ _ Ω K S R W H c

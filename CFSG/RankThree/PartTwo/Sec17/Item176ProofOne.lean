@@ -15,10 +15,6 @@ open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo
   CFSG.RankThree.PartTwo.Late
 open CFSG.ABGLocalTools (IsSylowOf)
 
-@[expose] noncomputable def Step176SecFour : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),
-    Sec17Std G A c L Y₀ → omegaA A = {Subgroup.zpowers c} →
-    ∀ K : Subgroup G, K ≠ ⊤ → c ∈ K → SectionFourHyp (↥K ⧸ CFSG.pPrimeCore 3 ↥K)
 
 @[expose] noncomputable def Step176Excl : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),

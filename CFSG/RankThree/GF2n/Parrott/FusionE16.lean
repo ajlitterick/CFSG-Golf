@@ -275,9 +275,6 @@ private theorem exists_gamma (h : IsConj (cfg.u 0) (cfg.u 1)) :
   exact ⟨γ, hγx, hγS⟩
 
 
-private theorem ev_comm (m n : ℕ) : cfg.ev m * cfg.ev n = cfg.ev n * cfg.ev m := by
-  rw [← cfg.ev_xor, ← cfg.ev_xor, Nat.xor_comm]
-
 private theorem conj_ev_of_mem {g : X} (hg : g ∈ Subgroup.closure (Set.range cfg.u)) (v : ℕ) :
     g * cfg.ev v * g⁻¹ = cfg.ev v := by
   have := (cfg.isElemAbelian_S).1.comm hg (cfg.ev_mem v)

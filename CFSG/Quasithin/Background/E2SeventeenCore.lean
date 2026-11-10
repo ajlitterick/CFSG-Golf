@@ -371,11 +371,6 @@ theorem e217Concl_of_isSolvable {Γ : Type} [Group Γ] [Finite Γ] {H T M V : Su
   rw [hY]
   exact Or.inl ⟨dpP H V U z, d.PR.trans inf_le_left, hIP, hext, φ, hφs, hφk⟩
 
-theorem e217Statement_of_nonsolvable (hns : E217Nonsolvable) : E217Statement := by
-  intro Γ _ _ H T M V h hchar hTI hq hres hV16
-  by_cases hsolv : Group.IsSolvable H
-  · exact e217Concl_of_isSolvable h hchar hq hres hV16 hsolv
-  · exact hns Γ H T M V h hchar hTI hq hres hV16 hsolv
 
 end E2
 

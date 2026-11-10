@@ -584,12 +584,6 @@ theorem item2126Loc_holds (h211 : Item211) (h2115 : Item2115) (h2116 : Item2116)
   Hering2119.item2126Loc_of_torus h211 h2115 h2116 h218 h2118 h45 h48 h66 hStar
     (Hering2119.item2126LocTorus_of h211 h2115 h2116 h218 h2118 h45 h48 h66 hStar h213 hGA)
 
-theorem item2126_holds (h211 : Item211) (h2115 : Item2115) (h2116 : Item2116)
-    (h218 : Item218) (h2118 : Item2118) (h45 : Sec4.Item4_5) (h48 : Sec4.Item4_8)
-    (h66 : Sec6.Item6_6) (hStar : Item2125Star) (h213 : Item213)
-    (hGA : CFSG.ComponentClassification.TBLit.GriessMultipliersAllModels) : Item2126 :=
-  item2126_of (item2126Torus_of h211 h2116 h45 h66
-    (item2126P_of_loc (item2126Loc_holds h211 h2115 h2116 h218 h2118 h45 h48 h66 hStar h213 hGA)))
 
 end Holds
 

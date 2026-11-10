@@ -287,9 +287,6 @@ theorem isQuasisimple_of_mulEquiv_open {A B : Type*} [Group A] [Group B] (e : A 
       obtain ⟨g, hg⟩ := elementaryGroup_le_range_resHom hx
       exact ⟨g, Subtype.ext hg⟩⟩
 
-theorem coe_resEquiv [FiniteDimensional F V] (hS : (polarBilin (Q.restrict S)).Nondegenerate)
-    (g : elemOn Q S) : ((resEquiv hS g : elementaryGroup (Q.restrict S)) : S ≃ₗ[F] S) =
-      resHom Q S g := rfl
 
 theorem layerGenOn_of_generatedBy [FiniteDimensional F V]
     (hS : (polarBilin (Q.restrict S)).Nondegenerate) (h : GeneratedByQuasisimple (Q.restrict S)) :

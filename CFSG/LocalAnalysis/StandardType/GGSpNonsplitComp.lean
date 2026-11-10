@@ -212,17 +212,9 @@ theorem ggSpNonsplitCompInput_holds : GGSpNonsplitCompInput := by
       (fun z hz hc => eq_one_of_mem_of_mulEquiv (L := spFixedFactor x) (φ.trans eS)
         AutPSp.center_eq_bot hz hc) hy hyL i hi
 
-theorem ggSpNonsplitPlaneInput_holds : GGSpNonsplitPlaneInput :=
-  ggSpNonsplitPlaneInput_of_comp ggSpNonsplitCompInput_holds
 
 section Inputs
 
-theorem ggRootPlaneInputOn_PSpNonsplit_of_spFrame (hF : GGSpNonsplitFrameInput) :
-    GGRootPlaneInputOn GGPSpNonsplit :=
-  ggRootPlaneInputOn_PSpNonsplit_of_frame hF ggSpNonsplitPlaneInput_holds
-
-theorem ggRootPlaneAt_PSp_of_spFrame (hF : GGSpNonsplitFrameInput) : GGRootPlaneAt .PSp :=
-  ggRootPlaneAt_PSp_of_frame_plane hF ggSpNonsplitPlaneInput_holds
 
 end Inputs
 

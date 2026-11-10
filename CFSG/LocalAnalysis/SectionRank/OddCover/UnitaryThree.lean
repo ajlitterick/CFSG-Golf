@@ -276,11 +276,6 @@ theorem SU_ext {g g' : SU σ 3}
     g = g' :=
   Subtype.ext (Units.ext h)
 
-theorem heisSU_mul (a b a' b' : K) (hab : b + σ b + σ a * a = 0)
-    (hab' : b' + σ b' + σ a' * a' = 0)
-    (h'' : b + b' - a * σ a' + σ (b + b' - a * σ a') + σ (a + a') * (a + a') = 0) :
-    heisSU hσ a b hab * heisSU hσ a' b' hab' = heisSU hσ (a + a') (b + b' - a * σ a') h'' :=
-  SU_ext (heis_mul a b a' b')
 
 theorem heisSU_inv_eq (a b : K) (hab : b + σ b + σ a * a = 0) (hb : σ b = b)
     (hab' : b + σ b + σ (-a) * -a = 0) : (heisSU hσ a b hab)⁻¹ = heisSU hσ (-a) b hab' := by

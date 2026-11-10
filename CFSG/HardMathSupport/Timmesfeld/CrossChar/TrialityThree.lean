@@ -36,21 +36,6 @@ section Residuals
           ![1, 1, d, 1]) ∨
     ((ℓ ^ f) % 3 = 2 ∧ CFSG.GH74.GLS.Stage2.Bender.Thm1.D4MinusToral ℓ f hℓ K σ s)
 
-@[expose] def TrialityCocycleNF : Prop :=
-  ∀ (ℓ f : ℕ) (hℓ : ℓ.Prime), ℓ ≠ 3 → 1 ≤ f →
-    ∀ (K : Type) [Field K] [Finite K], Nat.card K = (ℓ ^ f) ^ 3 →
-    ∀ σ : K ≃+* K, (∀ c, σ c = c ^ (ℓ ^ f)) →
-    ∀ φ : MulAut (graphFixedRootGroup TwistTag.D4 K σ.toRingHom), φ ^ 3 = 1 →
-      φ ∉ (MulAut.conj : graphFixedRootGroup TwistTag.D4 K σ.toRingHom →*
-        MulAut (graphFixedRootGroup TwistTag.D4 K σ.toRingHom)).range →
-      (∃ y : graphFixedRootGroup TwistTag.D4 K σ.toRingHom,
-        MulAut.conj y * φ * (MulAut.conj y)⁻¹ = fieldActor (t := TwistTag.D4) σ σ ∨
-        MulAut.conj y * φ * (MulAut.conj y)⁻¹ = (fieldActor (t := TwistTag.D4) σ σ)⁻¹) ∨
-      ∃ y s : graphFixedRootGroup TwistTag.D4 K σ.toRingHom, TrialityA2Rep ℓ f hℓ K σ s ∧
-        (MulAut.conj y * φ * (MulAut.conj y)⁻¹ =
-            MulAut.conj s * fieldActor (t := TwistTag.D4) σ σ ∨
-          MulAut.conj y * φ * (MulAut.conj y)⁻¹ =
-            (MulAut.conj s * fieldActor (t := TwistTag.D4) σ σ)⁻¹)
 
 @[expose] def TrialityA2CoreFree : Prop :=
   ∀ (ℓ f : ℕ) (hℓ : ℓ.Prime), ℓ ≠ 3 → 1 ≤ f →
@@ -59,15 +44,6 @@ section Residuals
     ∀ s : graphFixedRootGroup TwistTag.D4 K σ.toRingHom, TrialityA2Rep ℓ f hℓ K σ s →
       CoreFreeAt 3 (MulAut.conj s * fieldActor (t := TwistTag.D4) σ σ)
 
-theorem trialityTwoG2Core_holds :
-    ∀ (K : Type) [Field K] [Finite K], Nat.card K = 8 → ∀ σ : K ≃+* K, (∀ c, σ c = c ^ 2) →
-      ∀ N : Subgroup (graphFixedRootGroup TwistTag.D4 K σ.toRingHom),
-        N ≤ fixSub (fieldActor (t := TwistTag.D4) σ σ) →
-        (∀ g ∈ fixSub (fieldActor (t := TwistTag.D4) σ σ), ∀ n ∈ N, g * n * g⁻¹ ∈ N) →
-        Nat.Coprime 3 (Nat.card N) → N = ⊥ := by
-  intro K _ _ hK σ hσ N hNT hNn hcop
-  exact fixSub_fieldActor_self_normal_eq_bot Nat.prime_two (by norm_num) le_rfl
-    (by rw [hK]; norm_num) σ (fun c => by rw [hσ c]; norm_num) N hNT hNn hcop
 
 end Residuals
 
@@ -178,15 +154,6 @@ theorem exists_eq_conj_mul_fieldActor_self_of_pow_three {ℓ f : ℕ} (hℓ : �
     simp only [MulAut.mul_apply, MulAut.conj_apply, map_mul]
     simp only [map_inv]
 
-theorem trialityThreeRest_of_cocycleNF (hnf : TrialityCocycleNF) (hA2 : TrialityA2CoreFree) :
-    TrialityThreeRest := by
-  intro ℓ f hℓ hℓ3 hf K _ _ hK σ hσ φ hφ3 hφo hnot
-  rcases hnf ℓ f hℓ hℓ3 hf K hK σ hσ φ hφ3 hφo with hG2 | ⟨y, s, hs, hy | hy⟩
-  · exact (hnot hG2).elim
-  · rw [← coreFreeAt_conj_iff φ (MulAut.conj y), hy]
-    exact hA2 ℓ f hℓ hℓ3 hf K hK σ hσ s hs
-  · rw [← coreFreeAt_conj_iff φ (MulAut.conj y), hy]
-    exact (hA2 ℓ f hℓ hℓ3 hf K hK σ hσ s hs).inv
 
 theorem coreFreeAt_three_graphFixedRootGroup_D4 (hR : TrialityThreeRest) {ℓ f : ℕ}
     (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) (hf : 1 ≤ f)
@@ -207,46 +174,6 @@ end Model
 
 section Family
 
-
-variable {K : Type} [Field K] [Finite K]
-
-theorem isLocallyBalancedAbs_three_graphFixedRootGroup_D4 (hR : TrialityThreeRest) {ℓ f : ℕ}
-    (hℓ : ℓ.Prime) (hℓ3 : ℓ ≠ 3) (hf : 1 ≤ f)
-    (hK : Nat.card K = (ℓ ^ f) ^ 3) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ (ℓ ^ f)) :
-    IsLocallyBalancedAbs 3 3 (graphFixedRootGroup TwistTag.D4 K σ.toRingHom) := by
-  have := finite_modGL (τ := TwistTag.D4.tag) (K := K)
-  have hinj := mulAut_conj_injective_of_center_eq_bot
-    (exceptional_fixed_center_trivial TwistTag.D4 K σ)
-  have hr : RankLE2 3 (graphFixedRootGroup TwistTag.D4 K σ.toRingHom) := fun F hF =>
-    (card_le_nine_of_graphFixedRootGroup_ne_three hℓ hℓ3 hf hK (σ := σ.toRingHom) hσ F
-      ⟨hF.1, hF.2⟩).trans (by norm_num)
-  exact isLocallyBalancedAbs_of_coreFree Nat.prime_three hinj
-    (fun D hD hcard hin => false_of_inner_cube_of_rankLE2 Nat.prime_three hinj hr hD hcard hin)
-    (fun x hx3 hxo => coreFreeAt_three_graphFixedRootGroup_D4 hR hℓ hℓ3 hf hK σ hσ x hx3 hxo)
-
-
-theorem crossCharFamAt_trialityD4_three_of_rest (hR : TrialityThreeRest) :
-    CrossCharFamAt .trialityD4 fun _ p => p = 3 := by
-  rintro ⟨d, hv⟩ ⟨q, hd⟩ p - - hc rfl
-  change d = _ at hd
-  subst hd
-  have hq3 : q.p ≠ 3 := fun h => hc (by simp [h])
-  obtain ⟨K, _, _, σ, hK, hσ, -, ⟨e⟩⟩ := exists_catEquiv_trialityD4 q hv
-  exact IsLocallyBalancedAbs.of_mulEquiv e
-    (isLocallyBalancedAbs_three_graphFixedRootGroup_D4 hR q.prime_p hq3 q.exponent_pos hK σ hσ)
-
-theorem crossCharFamAt_trialityD4_three_of_cocycleNF (hnf : TrialityCocycleNF)
-    (hA2 : TrialityA2CoreFree) : CrossCharFamAt .trialityD4 fun _ p => p = 3 :=
-  crossCharFamAt_trialityD4_three_of_rest (trialityThreeRest_of_cocycleNF hnf hA2)
-
-theorem crossCharFamAt_trialityD4_open_of_rest (hR : TrialityThreeRest) :
-    CrossCharFamAt .trialityD4 fun idx p => ¬ regimeTrialityD4Vac idx p :=
-  crossCharFamAt_trialityD4_open_of_three (crossCharFamAt_trialityD4_three_of_rest hR)
-
-theorem crossCharFamAt_trialityD4_open_of_cocycleNF (hnf : TrialityCocycleNF)
-    (hA2 : TrialityA2CoreFree) :
-    CrossCharFamAt .trialityD4 fun idx p => ¬ regimeTrialityD4Vac idx p :=
-  crossCharFamAt_trialityD4_open_of_rest (trialityThreeRest_of_cocycleNF hnf hA2)
 
 end Family
 

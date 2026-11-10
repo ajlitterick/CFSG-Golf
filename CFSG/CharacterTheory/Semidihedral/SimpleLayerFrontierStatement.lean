@@ -87,12 +87,6 @@ theorem smaller_simple_recognition_of_frontier_below
   intro A _ _ _ hnonab hcard k hk S hS
   exact smaller_simple_model_of_frontierAt hnonab k hk S hS (hbelow A hcard)
 
-theorem original_smaller_simple_recognition_of_frontier_below
-    (G : Type) [Group G] [Finite G]
-    (hbelow : ∀ (A : Type) [Group A] [Finite A], Nat.card A < Nat.card G → FrontierAt A) :
-    PerfectLayerNormalization.OriginalSmallerSimpleRecognition G := by
-  intro A _ _ _ hnonab hcard k hk S hS
-  exact smaller_simple_model_of_frontierAt hnonab k hk S hS (hbelow A hcard)
 
 theorem frontier_of_inductive_step
     (hstep : ∀ (G : Type) [Group G] [Finite G],

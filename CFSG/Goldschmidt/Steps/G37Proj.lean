@@ -135,10 +135,6 @@ theorem le_centralizer_of_proj_eq_bot {L Z : Subgroup G}
   have h1 := le_proj_sup_centralizer hZ
   rwa [h, bot_sup_eq] at h1
 
-theorem proj_eq_bot_of_le_centralizer {L Z : Subgroup G}
-    (hLC : L ⊓ Subgroup.centralizer (L : Set G) = ⊥)
-    (h : Z ≤ Subgroup.centralizer (L : Set G)) : proj L Z = ⊥ := by
-  rw [proj, sup_eq_right.mpr h, inf_comm, hLC]
 
 theorem exists_zpowers_of_isCyclic_proj {L Z : Subgroup G}
     (hZL : Z ≤ Subgroup.normalizer (L : Set G)) (hZ : Z ≤ L ⊔ Subgroup.centralizer (L : Set G))

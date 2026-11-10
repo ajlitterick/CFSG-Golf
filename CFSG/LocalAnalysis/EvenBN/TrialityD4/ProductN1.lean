@@ -1009,8 +1009,6 @@ theorem A_inf_At : (P ⊓ K) ⊓ (P ⊓ K)ᵍ[t] = D := by
     exact mem_inf.2 ⟨(mem_inf.1 hxA).2, (mem_inf.1 hxAt).2⟩
   · exact le_inf c.D_le_A (le_inf c.D_le_P c.D_le_Kt)
 
-theorem A_comm_At : ⁅P ⊓ K, (P ⊓ K)ᵍ[t]⁆ ≤ D :=
-  le_trans (commutator_mono inf_le_right (conjg_mono inf_le_right t)) c.comm_le
 
 theorem P_le_normalizer_A : P ≤ normalizer ((P ⊓ K : Subgroup 𝔊) : Set 𝔊) := fun g hg =>
   Common.mem_normalizer_inf (le_normalizer hg) (c.N_le_normalizer_K (c.P_le_N hg))
@@ -3160,7 +3158,6 @@ theorem N_le_normalizer_Kt' :
 
 theorem zc_Kt_le_K : zc (Kᵍ[t]) ≤ K := c.zc_Kt_le_D.trans c.D_le_K
 
-theorem zc_K_le_Kt : zc K ≤ Kᵍ[t] := c.zc_K_le_D.trans c.D_le_Kt
 
 theorem B_le_K : ⁅K, K⁆ ⊔ zc (Kᵍ[t]) ≤ K := sup_le c.K'_le_K c.zc_Kt_le_K
 
@@ -3509,7 +3506,6 @@ theorem B_eq_K' : ⁅K, K⁆ ⊔ zc (Kᵍ[t]) = ⁅K, K⁆ := by
   calc ⁅K, K⁆ ⊔ zc (Kᵍ[t]) = ⁅⁅K, K⁆ ⊔ zc (Kᵍ[t]), ⁅K, K⁆ ⊔ zc (Kᵍ[t])⁆ := c.B_perfect.symm
     _ ≤ ⁅K, K⁆ := c.B_comm_le_K'
 
-theorem zc_Kt_le_K' : zc (Kᵍ[t]) ≤ ⁅K, K⁆ := le_sup_right.trans c.B_eq_K'.le
 
 theorem K'_inf_D : ⁅K, K⁆ ⊓ D = zc (Kᵍ[t]) := by
   have := c.B_inf_D
@@ -3865,7 +3861,6 @@ theorem uG_not_mem_normalizer_P (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f
 end GlueData
 
 
-
 section BarSeries
 
 variable {G : Type*} [Group G] {A P Z Z' : Subgroup G}
@@ -4183,38 +4178,6 @@ section LiftGlue
 
 variable {G : Type*} [Group G] [Finite G] {A : Subgroup G}
 
-open CFSG.LocalAnalysis.EvenBN.Common.NormalizerQuotient in
-theorem lift_sup' (Y₁ Y₂ : Subgroup (Bar A)) : lift (Y₁ ⊔ Y₂) = lift Y₁ ⊔ lift Y₂ := by
-  apply eq_of_bar_eq (le_lift _) (lift_le_normalizer _) (le_sup_of_le_left (le_lift _))
-    (sup_le (lift_le_normalizer _) (lift_le_normalizer _))
-  rw [bar_lift, bar_sup (lift_le_normalizer _) (lift_le_normalizer _), bar_lift, bar_lift]
-
-open CFSG.LocalAnalysis.EvenBN.Common.NormalizerQuotient in
-theorem lift_inf' (Y₁ Y₂ : Subgroup (Bar A)) : lift (Y₁ ⊓ Y₂) = lift Y₁ ⊓ lift Y₂ := by
-  apply eq_of_bar_eq (le_lift _) (lift_le_normalizer _) (le_inf (le_lift _) (le_lift _))
-    (inf_le_left.trans (lift_le_normalizer _))
-  rw [bar_lift, ProductN1HatAux.bar_inf (le_lift _) (le_lift _), bar_lift, bar_lift]
-
-open CFSG.LocalAnalysis.EvenBN.Common.NormalizerQuotient in
-theorem lift_conjg' (Y : Subgroup (Bar A)) {g : G} (hg : g ∈ normalizer (A : Set G)) :
-    lift (Yᵍ[proj A ⟨g, hg⟩]) = (lift Y)ᵍ[g] := by
-  have hA : A ≤ (lift Y)ᵍ[g] := by
-    calc A = Aᵍ[g] := (conjg_eq_of_mem_normalizer hg).symm
-      _ ≤ (lift Y)ᵍ[g] := conjg_mono (le_lift Y) g
-  apply eq_of_bar_eq (le_lift _) (lift_le_normalizer _) hA
-    (conjg_le_normalizer hg (lift_le_normalizer Y))
-  rw [bar_lift, bar_conjg hg, bar_lift]
-
-open CFSG.LocalAnalysis.EvenBN.Common.NormalizerQuotient in
-theorem lift_bot' : lift (⊥ : Subgroup (Bar A)) = A := by
-  ext g
-  rw [mem_lift_iff]
-  constructor
-  · rintro ⟨hg, h1⟩
-    rw [Subgroup.mem_bot] at h1
-    exact proj_eq_one_iff.1 h1
-  · intro hg
-    exact ⟨le_normalizer hg, by rw [Subgroup.mem_bot]; exact proj_eq_one_iff.2 hg⟩
 
 noncomputable def barHom {X : Subgroup G} (hXN : X ≤ normalizer (A : Set G)) :
     ↥X →* ↥(NormalizerQuotient.bar A X) :=

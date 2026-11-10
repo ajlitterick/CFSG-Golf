@@ -33,7 +33,6 @@ namespace CFSG.KD.LyA
 
 open CFSG.KC.LyA.DceS
 
-theorem es3n : Nat.beq (sortedCount (ES3_0.acc 1)) (bits MD 60 20) = true := by quickRfl
 
 end CFSG.KD.LyA
 

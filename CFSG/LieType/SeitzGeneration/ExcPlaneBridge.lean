@@ -60,14 +60,6 @@ theorem rankLE2_of_noPowThree {G : Type*} [Group G] {p : ℕ} (hp : p.Prime)
   obtain ⟨-, E, hE, hc⟩ := exists_isElemAbelian_card_of_not_rankLE2 hp hr
   exact h E hE.2 hc
 
-theorem rankLE2_of_injective {K L : Type*} [Group K] [Group L] (f : K →* L)
-    (hf : Function.Injective f) {p : ℕ} (hp : p.Prime)
-    (h : ∀ E : Subgroup L, (∀ x ∈ E, x ^ p = 1) → Nat.card E = p ^ 3 → False) :
-    RankLE2 p K := by
-  refine rankLE2_of_noPowThree hp fun E hE hc => h (E.map f) ?_ ?_
-  · rintro _ ⟨x, hx, rfl⟩
-    rw [← map_pow, hE x hx, map_one]
-  · rw [Subgroup.card_map_of_injective hf, hc]
 
 theorem RankLE2.of_injective {K L : Type*} [Group K] [Group L] {p : ℕ} (f : K →* L)
     (hf : Function.Injective f) (h : RankLE2 p L) : RankLE2 p K := fun F hF => by

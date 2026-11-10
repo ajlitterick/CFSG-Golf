@@ -55,8 +55,6 @@ variable {V : Type}
     regsN O A B D.base.nregs D.base.prog fun R =>
       liftG O (fun X e => powN O (e + 1) X e) D (getN R)
 
-@[expose] noncomputable def v4N (O : Ops Nat V) (A B : Nat) (D : Data) (inv₁ inv₂ : Nat) : Bool :=
-  liftN O A B (v4Lift D inv₁ inv₂)
 
 @[expose] noncomputable def opsL (c : Lay) : Ops Nat Nat where
   decode _ := 0

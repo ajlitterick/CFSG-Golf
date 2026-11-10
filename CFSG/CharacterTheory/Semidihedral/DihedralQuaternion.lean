@@ -374,18 +374,5 @@ theorem quaternionSubgroup_card (n : ℕ) (hn : 4 ≤ n) :
     QuaternionGroup.card, modulus_eq_four_mul_parameter n (by omega)]
   ring
 
-theorem distinguished_dihedral_quaternion (n : ℕ) (hn : 4 ≤ n) :
-    ∃ (d : DihedralGroup (half n) ≃* dihedralSubgroup n)
-      (q : QuaternionGroup (2 ^ (n - 3)) ≃* quaternionSubgroup n),
-      (d (DihedralGroup.r 1) : SemidihedralGroup n) = r n ^ 2 ∧
-      (d (DihedralGroup.sr 0) : SemidihedralGroup n) = s n ∧
-      (q (QuaternionGroup.a 1) : SemidihedralGroup n) = r n ^ 2 ∧
-      (q (QuaternionGroup.xa 0) : SemidihedralGroup n) = r n * s n ∧
-      Nat.card (dihedralSubgroup n) = modulus n ∧
-      Nat.card (quaternionSubgroup n) = modulus n := by
-  exact ⟨dihedralEquiv n hn, quaternionEquiv n hn, dihedralEquiv_rotation n hn,
-    dihedralEquiv_reflection n hn, quaternionEquiv_rotation n hn,
-    quaternionEquiv_generator n hn, dihedralSubgroup_card n hn,
-    quaternionSubgroup_card n hn⟩
 
 end CFSG.Semidihedral

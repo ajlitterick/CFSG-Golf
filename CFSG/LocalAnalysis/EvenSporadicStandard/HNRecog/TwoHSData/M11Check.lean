@@ -38,31 +38,11 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native
     (if l.1 = 0 then (if l.2 then ta else tai) else if l.1 = 1 then (if l.2 then tb else tbi)
       else idT 1408)) (idT 1408)
 
-@[expose] def m11GroupOK (L0 : Array Table) : Bool :=
-  let idt := idT 1408
-  let ty := tabW y0Word
-  let tv := tabW vWord
-  let tyi := invT 1408 ty
-  let tvi := invT 1408 tv
-  enumW invCap 7920 [y0Word, vWord] && primeOrderOK 11 ty && primeOrderOK 11 tv &&
-    !commTT 1408 ty tv && invOK 1408 ty tyi && invOK 1408 tv tvi &&
-    m11Relators.all (fun w => tblEq 1408 (relTab ty tv tyi tvi w) idt) && ordAllOK idt L0 &&
-    wordOK i0Word && primeOrderOK 2 (tabW i0Word) && wordsInOK L0 [i0Word] &&
-    enumW invCap 7920 [y0Word, i0Word]
 
 @[expose, noinline] def powsT (ty : Table) : Array Table :=
   #[powT 1408 0 ty, powT 1408 1 ty, powT 1408 2 ty, powT 1408 3 ty, powT 1408 4 ty,
     powT 1408 5 ty]
 
-@[expose] def m11ClassesOK (L0 : Array Table) : Bool :=
-  let idt := idT 1408
-  let ty := tabW y0Word
-  let n1 := tabW n1Word
-  let n1i := invT 1408 n1
-  let ys : Array Table := powsT ty
-  conjEqOK n1Word ty (powT 1408 7 ty) &&
-    m11ClassOK idt n1 n1i ys L0 (classList invCap classz.rep) &&
-    m11ClassOK idt n1 n1i ys L0 (classList invCap classaz.rep)
 
 @[expose] def m11FiveOK (L0 : Array Table) : Bool :=
   let tr := tabW rho0Word
@@ -70,8 +50,5 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native
     conjEqOK ck2Word tr (powT 1408 2 tr) && conjEqOK ck3Word tr (powT 1408 3 tr) &&
     conjEqOK ck4Word tr (powT 1408 4 tr) && conjEqOK cBWord tr (tabW fix5B.rep)
 
-@[expose] def m11OK : Bool :=
-  let L0 := subgroupList invCap [y0Word, vWord]
-  m11GroupOK L0 && m11ClassesOK L0 && m11FiveOK L0
 
 end CFSG.EvenSporadicStandard.HNRecog

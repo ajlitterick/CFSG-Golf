@@ -72,25 +72,6 @@ theorem exists_aff (hQ : finrank k Q = 1) (h : ¬ Q ≤ kerLine 0 0 1) :
   ext i
   fin_cases i <;> simp [h2, mul_div_cancel₀]
 
-theorem exists_inf (hQ : finrank k Q = 1) (h : Q ≤ kerLine 0 0 1)
-    (h' : Q ≠ k ∙ ![0, 1, 0]) : ∃ m : k, Q = k ∙ ![1, m, 0] := by
-  obtain ⟨v, hv0, rfl⟩ := exists_eq_span hQ
-  rw [span_le_kerLine] at h
-  have h2 : v 2 = 0 := by simpa using h
-  by_cases h0 : v 0 = 0
-  · exfalso
-    apply h'
-    have h1 : v 1 ≠ 0 := by
-      intro h1
-      apply hv0
-      ext i
-      fin_cases i <;> simp [h0, h1, h2]
-    refine span_eq_span_of_eq_smul h1 ?_
-    ext i
-    fin_cases i <;> simp [h0, h2]
-  · refine ⟨v 1 / v 0, span_eq_span_of_eq_smul h0 ?_⟩
-    ext i
-    fin_cases i <;> simp [h0, h2, mul_div_cancel₀]
 
 noncomputable def coordX (g : Equiv.Perm (PlaneFlag k)) (x : k) : k :=
   Classical.epsilon fun s => ptMap g (k ∙ ![x, 0, 1]) = k ∙ ![s, 0, 1]

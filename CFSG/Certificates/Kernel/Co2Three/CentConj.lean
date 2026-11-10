@@ -32,12 +32,6 @@ theorem card_centralizer_conj_inf {G : Type*} [Group G] {P : Subgroup G} {q : G}
       rw [← e]
       exact P.mul_mem (P.mul_mem hq h2) (P.inv_mem hq)
 
-theorem card_centralizer_map_conj_inf {G : Type*} [Group G] {P : Subgroup G} {q : G}
-    (hq : q ∈ P) (B : Subgroup G) :
-    Nat.card ↥(Subgroup.centralizer ((B.map (MulAut.conj q).toMonoidHom : Subgroup G) : Set G) ⊓
-      P) = Nat.card ↥(Subgroup.centralizer (B : Set G) ⊓ P) := by
-  rw [Subgroup.coe_map]
-  exact card_centralizer_conj_inf hq _
 
 end CFSG.KC.Co2Three
 

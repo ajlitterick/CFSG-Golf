@@ -22,19 +22,5 @@ open CFSG.GH74.KGroups CFSG.GH74.KGroups.TwoM12 CFSG.Sporadic.Schreier
 
 namespace Certificates
 
-set_option compiler.extract_closed false in
-open CFSG in
-open CFSG.GH74 in
-open CFSG.GH74.KGroups in
-open CFSG.GH74.KGroups.TwoM12 in
-open CFSG.Certificates CFSG.Sporadic.Schreier CFSG.Sporadic.Mathieu in
-open CFSG.ComponentClassification.M12Cover CFSG.Blueprint Subgroup in
-open scoped commutatorElement in
-theorem certificate5131 : commCheckOn fixedDQ.orbitTables (elemsT m12CentQ2) = true := by
-  have e : ∀ L, commCheckOn fixedDQ.orbitTables L = L.all fun a => L.all fun b =>
-      fixedDQ.sift (gzPerm * (a * b * a⁻¹ * b⁻¹) * gzPerm⁻¹) 0 := fun _ => rfl
-  rw [e, elemsT_eq_elemsC, eq_ev_cOf gzPerm]
-  simp only [List.all_map, Function.comp_def, ev_mul', ev_inv', sift_ev]
-  exact K5131.k5131
 
 end Certificates

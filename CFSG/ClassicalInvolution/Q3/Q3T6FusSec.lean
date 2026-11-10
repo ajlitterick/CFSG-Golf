@@ -131,14 +131,6 @@ end FusSec3
 
 namespace FusSec3
 
-theorem of_cStar {K : Subgroup G} {z : G} (hK : Q3.IsClassicalMember3 K z)
-    (hΩ : HypOmegaModU (.sl2 3 1) (CoreAssembly.conjClass K))
-    (hDE : DEdgeless (CoreAssembly.conjClass K))
-    (hN : Subgroup.centralizer ({z} : Set G) ≤ Subgroup.normalizer (K : Set G))
-    {B : Subgroup G} (hB2 : IsPGroup 2 B) (hBK : B ≤ centralizerModOdd ⊤ K)
-    (hzB : z ∈ Subgroup.centralizer (B : Set G)) :
-    FusSec3 K z (Subgroup.centralizer (B : Set G)) :=
-  ⟨hK, hΩ, hDE, hN, hzB, isClassicalMember3_inf_centralizer_of_cStar hK hB2 hBK rfl hzB⟩
 
 theorem of_cStar_element {K : Subgroup G} {z : G} (hK : Q3.IsClassicalMember3 K z)
     (hΩ : HypOmegaModU (.sl2 3 1) (CoreAssembly.conjClass K))

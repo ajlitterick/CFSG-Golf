@@ -27,13 +27,5 @@ theorem eichler_shear [CharP K 2] {Q : QuadraticForm K V} {W L : Submodule K V}
         -((polar Q v u + Q u * polar Q v w) • w) by abel]
     exact W.neg_mem (W.smul_mem _ hw)
 
-theorem exists_shear_of_commute_eichler [CharP K 2] {Q : QuadraticForm K V}
-    {W L : Submodule K V} (hL : ∀ v, v ∈ L ↔ ∀ w ∈ W, polar Q w v = 0) {w u : V} (hw : w ∈ W)
-    (hQw : Q w = 0) (hu : u ∈ L) {F : Type*} [FunLike F V V] {T : F}
-    (hc : ∀ v, T (eichler Q w u v) = eichler Q w u (T v)) :
-    ∃ g : V →+ V, (∀ v, T (g v) = g (T v)) ∧ (∀ v ∈ L, g v = v + polar Q v u • w) ∧
-      ∀ v, g v - v - polar Q v w • u ∈ W :=
-  ⟨(eichler Q w u).toLinearMap.toAddMonoidHom, hc, (eichler_shear hL hw hQw hu).1,
-    (eichler_shear hL hw hQw hu).2⟩
 
 end CFSG.SeitzReduction

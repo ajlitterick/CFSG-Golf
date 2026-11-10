@@ -62,9 +62,6 @@ theorem centralizerFixedEquiv_apply (Q : QuadraticForm K V)
     (g : semilinearOrthogonalCentralizer Q T) (x : fixedSubspace sigma T hsemi) :
     (centralizerFixedEquiv sigma T hsemi Q g x : V) = g.val.val (x : V) := rfl
 
-theorem centralizerFixedEquiv_symm_apply (Q : QuadraticForm K V)
-    (g : semilinearOrthogonalCentralizer Q T) (x : fixedSubspace sigma T hsemi) :
-    ((centralizerFixedEquiv sigma T hsemi Q g).symm x : V) = g.val.val.symm (x : V) := rfl
 
 variable (B : LinearMap.BilinForm K V) (hsym : B.IsSymm) (h2 : (2 : K) ≠ 0)
 variable (c : Kˣ)
@@ -83,11 +80,6 @@ variable (hform : ∀ x y, (c : K) * B (T x) (T y) = sigma ((c : K) * B x y))
   map_one' := by ext x; rfl
   map_mul' _ _ := by ext x; rfl
 
-theorem orthogonalFixedRestriction_apply
-    (g : semilinearOrthogonalCentralizer (originalQuadratic B) T)
-    (x : fixedSubspace sigma T hsemi) :
-    ((orthogonalFixedRestriction sigma T hsemi B hsym h2 c hform g).val x : V) =
-      g.val.val (x : V) := rfl
 
 theorem orthogonalFixedRestriction_symm_apply
     (g : semilinearOrthogonalCentralizer (originalQuadratic B) T)

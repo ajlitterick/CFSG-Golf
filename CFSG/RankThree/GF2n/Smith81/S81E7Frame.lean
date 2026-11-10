@@ -203,139 +203,11 @@ theorem Jgrp_eq_range [CharP K 2] : Jgrp K = (jHom (K := K)).range := by
     rw [map_mul, map_mul, map_mul]
     exact mul_mem (mul_mem (mul_mem h1 h2) h3) h4
 
-theorem Jgrp_le_E : Jgrp K ≤ EGrp K := by
-  rw [Jgrp, Subgroup.closure_le]
-  rintro g ⟨c, rfl | rfl⟩
-  · exact e7Data_valid.xu_mem K theta c
-  · exact e7Data_valid.xu_mem K (-theta) c
-
-theorem J_fixes_V0 [CharP K 2] {j : (Module.End K (V K))ˣ} (hj : j ∈ Jgrp K) {v : V K}
-    (hv : v ∈ V0 K) : (j : Module.End K (V K)) v = v := by
-  rw [Jgrp_eq_range] at hj
-  obtain ⟨m, rfl⟩ := MonoidHom.mem_range.mp hj
-  rw [mem_V0] at hv
-  have hvb : ∀ b, pr b theta ≠ 0 → v b = 0 := fun b hb => hv b (fun h => hb (mem_idx0.1 h))
-  rw [jHom_val]
-  ext b
-  rw [jOp_apply]
-  unfold jFun
-  rcases pr_mem isRoot_theta b with h | h | h
-  · have h0 : pr b theta ≠ 0 := by rw [h]; norm_num
-    have hs : pr (shift theta b) theta ≠ 0 := by rw [pr_shift_self isRoot_theta h]; norm_num
-    rw [if_neg h0, if_pos h, hvb b h0, hvb (shift theta b) hs]
-    ring
-  · rw [if_pos h]
-  · have h0 : pr b theta ≠ 0 := by rw [h]; norm_num
-    have h1 : ¬ pr b theta = -1 := by rw [h]; norm_num
-    have hs : pr (shift (-theta) b) theta ≠ 0 := by rw [pr_shift_neg isRoot_theta h]; norm_num
-    rw [if_neg h0, if_neg h1, hvb b h0, hvb (shift (-theta) b) hs]
-    ring
-
-theorem fixed_eq_V0 [CharP K 2] {j : (Module.End K (V K))ˣ} (hj : j ∈ Jgrp K) (h1 : j ≠ 1)
-    (ho : Odd (orderOf j)) :
-    {v : V K | (j : Module.End K (V K)) v = v} = (V0 K : Set (V K)) := by
-  have hj' := hj
-  rw [Jgrp_eq_range] at hj'
-  obtain ⟨m, hm⟩ := MonoidHom.mem_range.mp hj'
-  obtain ⟨M, hMdef⟩ : ∃ M : Matrix (Fin 2) (Fin 2) K, (m : Matrix (Fin 2) (Fin 2) K) = M :=
-    ⟨_, rfl⟩
-  have hjM : ∀ v : V K, (j : Module.End K (V K)) v = jOp M v := by
-    intro v
-    rw [← hm, jHom_val, hMdef]
-  have hdet : M.det = 1 := by
-    rw [← hMdef]
-    exact Matrix.SpecialLinearGroup.det_coe m
-  rw [Matrix.det_fin_two] at hdet
-  have h2 : (2 : K) = 0 := CharTwo.two_eq_zero
-  have htne : M 0 0 + M 1 1 ≠ 0 := by
-    intro ht
-    apply h1
-    have e00 : M 0 0 * M 0 0 + M 0 1 * M 1 0 = 1 := by
-      linear_combination (-1 : K) * hdet + M 0 0 * ht - h2
-    have e01 : M 0 0 * M 0 1 + M 0 1 * M 1 1 = 0 := by
-      linear_combination M 0 1 * ht
-    have e10 : M 1 0 * M 0 0 + M 1 1 * M 1 0 = 0 := by
-      linear_combination M 1 0 * ht
-    have e11 : M 1 0 * M 0 1 + M 1 1 * M 1 1 = 1 := by
-      linear_combination (-1 : K) * hdet + M 1 1 * ht - h2
-    have hMM : M * M = 1 := by
-      ext i k
-      fin_cases i <;> fin_cases k
-      · simpa [Matrix.mul_apply, Fin.sum_univ_two] using e00
-      · simpa [Matrix.mul_apply, Fin.sum_univ_two] using e01
-      · simpa [Matrix.mul_apply, Fin.sum_univ_two] using e10
-      · simpa [Matrix.mul_apply, Fin.sum_univ_two] using e11
-    have hsq : j * j = 1 := by
-      apply Units.ext
-      rw [Units.val_mul, Units.val_one, ← hm, jHom_val, hMdef, ← jOp_mul, hMM, jOp_one]
-    have hpow : j ^ 2 = 1 := by rw [sq]; exact hsq
-    have hdvd : orderOf j ∣ 2 := orderOf_dvd_of_pow_eq_one hpow
-    have hle : orderOf j ≤ 2 := Nat.le_of_dvd (by norm_num) hdvd
-    have ho1 : orderOf j = 1 := by
-      obtain ⟨k, hk⟩ := ho
-      omega
-    exact orderOf_eq_one_iff.mp ho1
-  ext v
-  constructor
-  · intro hv
-    have hv' : (j : Module.End K (V K)) v = v := hv
-    rw [SetLike.mem_coe, mem_V0]
-    have hJv : jOp M v = v := (hjM v).symm.trans hv'
-    have hfix : ∀ b, jFun M ⇑v b = v b := by
-      intro b
-      rw [← jOp_apply, hJv]
-    have hkey : ∀ b, pr b theta = -1 → v b = 0 ∧ v (shift theta b) = 0 := by
-      intro b hb
-      have hsh : pr (shift theta b) theta = 1 := pr_shift_self isRoot_theta hb
-      have hsh' : shift (-theta) (shift theta b) = b := shift_neg_shift isRoot_theta hb
-      have hb0 : pr b theta ≠ 0 := by rw [hb]; norm_num
-      have hc0 : pr (shift theta b) theta ≠ 0 := by rw [hsh]; norm_num
-      have hc1 : ¬ pr (shift theta b) theta = -1 := by rw [hsh]; norm_num
-      have eq1 : M 0 0 * v b + M 0 1 * v (shift theta b) = v b := by
-        have h := hfix b
-        unfold jFun at h
-        rw [if_neg hb0, if_pos hb] at h
-        exact h
-      have eq2 : M 1 0 * v b + M 1 1 * v (shift theta b) = v (shift theta b) := by
-        have h := hfix (shift theta b)
-        unfold jFun at h
-        rw [if_neg hc0, if_neg hc1, hsh'] at h
-        exact h
-      have hD : (M 0 0 - 1) * (M 1 1 - 1) - M 0 1 * M 1 0 = -(M 0 0 + M 1 1) := by
-        linear_combination hdet + h2
-      have hDne : (M 0 0 - 1) * (M 1 1 - 1) - M 0 1 * M 1 0 ≠ 0 := by
-        rw [hD]
-        exact neg_ne_zero.mpr htne
-      have hx : ((M 0 0 - 1) * (M 1 1 - 1) - M 0 1 * M 1 0) * v b = 0 := by
-        linear_combination (M 1 1 - 1) * eq1 - M 0 1 * eq2
-      have hy : ((M 0 0 - 1) * (M 1 1 - 1) - M 0 1 * M 1 0) * v (shift theta b) = 0 := by
-        linear_combination (M 0 0 - 1) * eq2 - M 1 0 * eq1
-      exact ⟨(mul_eq_zero.mp hx).resolve_left hDne, (mul_eq_zero.mp hy).resolve_left hDne⟩
-    intro b hb
-    rcases pr_mem isRoot_theta b with h | h | h
-    · exact (hkey b h).1
-    · exact absurd (mem_idx0.2 h) hb
-    · have ha : pr (shift (-theta) b) theta = -1 := pr_shift_neg isRoot_theta h
-      have h3 := (hkey (shift (-theta) b) ha).2
-      rwa [shift_shift_neg isRoot_theta h] at h3
-  · intro hv
-    exact J_fixes_V0 hj (SetLike.mem_coe.mp hv)
 
 @[expose] def IsRootElt (g : (Module.End K (V K))ˣ) : Prop :=
   ∃ h ∈ EGrp K, ∃ (γ : Fin (Tag.rank .E7) → ℤ) (c : K), IsRoot .E7 γ ∧ c ≠ 0 ∧
     g = h * e7Data_valid.xu K γ c * h⁻¹
 
-theorem IsRootElt.sub_one_conj {g : (Module.End K (V K))ˣ} (hg : IsRootElt g) :
-    ∃ (u u' : Module.End K (V K)) (γ : Fin (Tag.rank .E7) → ℤ) (c : K), IsRoot .E7 γ ∧ c ≠ 0 ∧
-      u * u' = 1 ∧ u' * u = 1 ∧
-      (g : Module.End K (V K)) - 1 = u * (c • e7Data.rootOp K γ) * u' := by
-  obtain ⟨h, -, γ, c, hγ, hc, rfl⟩ := hg
-  refine ⟨(h : Module.End K (V K)), ((h⁻¹ : (Module.End K (V K))ˣ) : Module.End K (V K)), γ, c,
-    hγ, hc, Units.mul_inv h, Units.inv_mul h, ?_⟩
-  rw [Units.val_mul, Units.val_mul, e7Data_valid.xu_val]
-  simp only [mul_add, mul_one, add_mul]
-  rw [Units.mul_inv h]
-  abel
 
 theorem rootOp_range_eq_supported [CharP K 2] {γ : Fin (Tag.rank .E7) → ℤ} (hγ : IsRoot .E7 γ) :
     LinearMap.range (e7Data.rootOp K γ) =
@@ -363,17 +235,5 @@ theorem rootOp_range_eq_supported [CharP K 2] {γ : Fin (Tag.rank .E7) → ℤ} 
         fun h => hb (Finset.mem_filter.1 (Finset.mem_coe.1 h)).2
       exact (hw b hb'').symm
 
-theorem IsRootElt.sub_one_sq [CharP K 2] {g : (Module.End K (V K))ˣ} (hg : IsRootElt g) :
-    ((g : Module.End K (V K)) - 1) * ((g : Module.End K (V K)) - 1) = 0 := by
-  obtain ⟨u, u', γ, c, -, -, hu, hu', he⟩ := IsRootElt.sub_one_conj hg
-  have hXX : (c • e7Data.rootOp K γ) * (c • e7Data.rootOp K γ) = 0 := by
-    rw [smul_mul_smul_comm, e7Data_valid.rootOp_mul_self, smul_zero]
-  rw [he]
-  calc u * (c • e7Data.rootOp K γ) * u' * (u * (c • e7Data.rootOp K γ) * u')
-      = u * ((c • e7Data.rootOp K γ) * (u' * u) * (c • e7Data.rootOp K γ)) * u' := by
-        simp only [mul_assoc]
-    _ = u * ((c • e7Data.rootOp K γ) * (c • e7Data.rootOp K γ)) * u' := by
-        rw [hu', mul_one]
-    _ = 0 := by rw [hXX, mul_zero, zero_mul]
 
 end CFSG.RankThree.GF2n.Smith81.E7Model

@@ -37,33 +37,6 @@ variable {G : Type*} [Group G]
   right_inv y := by ext; simp
   map_mul' y z := by ext; simp
 
-theorem inverter_normalizes_element_centralizer (x t : G) (ht : orderOf t = 2)
-    (hinv : rightConjugateElem x t = x⁻¹) :
-    t ∈ Subgroup.normalizer ((Subgroup.centralizer ({x} : Set G) : Subgroup G) : Set G) := by
-  have htinv : t⁻¹ = t := inv_eq_self_of_orderOf_eq_two ht
-  have htt : t * t = 1 := by simpa only [ht, pow_two] using pow_orderOf_eq_one t
-  have hxinv : t * x * t⁻¹ = x⁻¹ := by
-    simpa only [rightConjugateElem, htinv] using hinv
-  have forward : ∀ c ∈ Subgroup.centralizer ({x} : Set G),
-      t * c * t⁻¹ ∈ Subgroup.centralizer ({x} : Set G) := by
-    intro c hc
-    have hcx : Commute c x := Subgroup.mem_centralizer_singleton_iff.mp hc
-    have h : Commute (t * c * t⁻¹) (t * x * t⁻¹) := by
-      exact (hcx.map (MulAut.conj t).toMonoidHom)
-    rw [hxinv] at h
-    exact Subgroup.mem_centralizer_singleton_iff.mpr (by simpa only [inv_inv] using h.inv_right.eq)
-  apply Subgroup.mem_normalizer_iff.mpr
-  intro c
-  constructor
-  · exact forward c
-  · intro hc
-    have h := forward (t * c * t⁻¹) hc
-    have hback : t * (t * c * t⁻¹) * t⁻¹ = c := by
-      rw [htinv]
-      calc
-        t * (t * c * t) * t = (t * t) * c * (t * t) := by group
-        _ = c := by rw [htt, one_mul, mul_one]
-    rwa [hback] at h
 
 variable [Finite G]
 
@@ -115,35 +88,5 @@ theorem pair_full_centralizer_eq (H : Subgroup G)
     exact congrArg Subtype.val ((@IsMulCommutative.is_comm W _ hcomm).comm
       (⟨c, hc⟩ : W) (⟨x, hxW⟩ : W))
 
-theorem odd_inverted_pair_full_centralizer_eq (H : Subgroup G)
-    (a b : pointRightCosetSpace H) (hab : a ≠ b)
-    (hthree : ThreePointCentralization H
-      (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b))
-    (L : Subgroup G) (t : G) (ht : orderOf t = 2)
-    (hWodd : Odd (Nat.card (L ⊓
-      (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b) : Subgroup G)))
-    (hcomm : IsMulCommutative (L ⊓
-      (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b) : Subgroup G))
-    (hinv : ∀ x ∈ L ⊓ (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b),
-      rightConjugateElem x t = x⁻¹)
-    (hCtwo : ∀ s : L, orderOf s = 2 → IsPGroup 2 (Subgroup.centralizer ({s} : Set L)))
-    (x : G) (hxW : x ∈ L ⊓ (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b))
-    (hx : x ≠ 1) :
-    elementFixedSet H x = {a, b} ∧
-      L ⊓ Subgroup.centralizer ({x} : Set G) =
-        L ⊓ (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b) := by
-  let W := L ⊓ (rightCosetStabilizer H a ⊓ rightCosetStabilizer H b)
-  have hxodd : Odd (orderOf x) := by
-    have h := hWodd.of_dvd_nat (orderOf_dvd_natCard (⟨x, hxW⟩ : W))
-    exact (Subgroup.orderOf_coe (⟨x, hxW⟩ : W)) ▸ h
-  have hfix := pair_inverted_element_full_fixed_set H a b hab hthree t ht x hx hxW.2 hxodd
-    (hinv x hxW)
-  let y : L := ⟨x, hxW.1⟩
-  have hyne : y ≠ 1 := by intro hy; exact hx (congrArg Subtype.val hy)
-  have hyodd : Odd (orderOf y) := (Subgroup.orderOf_coe y).symm ▸ hxodd
-  have hCodd : Odd (Nat.card (L ⊓ Subgroup.centralizer ({x} : Set G) : Subgroup G)) :=
-    (Nat.card_congr (internalCentralizerEquiv L x hxW.1).toEquiv).symm ▸
-      odd_element_full_centralizer_odd y hyne hyodd hCtwo
-  exact ⟨hfix, pair_full_centralizer_eq H a b hab L hcomm x hxW hfix hCodd⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionDenominator

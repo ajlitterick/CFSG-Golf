@@ -51,7 +51,6 @@ private lemma ggQ2xQD_zmod3_sq_eq_one {x : ZMod 3} (hx : x ≠ 0) : x * x = 1 :=
 private lemma ggQ2xQD_zmod3_cases_of_sq {x : ZMod 3} (hx : x * x = 1) : x = 1 ∨ x = -1 := by
   revert hx; revert x; decide
 
-private lemma ggQ2xQD_add_self (a : ZMod 3) : a + a = -a := by revert a; decide
 
 private lemma ggQ2xQD_eq_smul_of_smul_eq {n : ℕ} {a b : ZMod 3} {c c' : GGBCV n}
     (ha : a * a = 1) (h : a • c' = b • c) : c' = (a * b) • c := by
@@ -500,26 +499,6 @@ private lemma ggQ2xQD_refl_wt_two {n : ℕ} {a c : GGBCV n}
     exact hnorm
   exact ggQ2xQD_nat_eq_two_of_le_four hbound hwmod
 
-private lemma ggQ2xQD_conj_reflection {K V : Type*} [CommRing K] [AddCommGroup V] [Module K V]
-    (a : V ≃ₗ[K] V) {ψ : Dual K V} {cc : V} (h : ψ cc = 2) :
-    a * Module.reflection h * a.symm =
-      Module.reflection (show (ψ.comp (a.symm : V →ₗ[K] V)) (a cc) = 2 by
-        simp only [LinearMap.comp_apply, LinearEquiv.coe_coe, LinearEquiv.symm_apply_apply]
-        exact h) := by
-  ext w
-  rw [LinearEquiv.mul_apply, LinearEquiv.mul_apply,
-    Module.reflection_apply (a.symm w) h, Module.reflection_apply w]
-  simp only [LinearMap.comp_apply, LinearEquiv.coe_coe]
-  rw [map_sub, map_smul, LinearEquiv.apply_symm_apply]
-
-private lemma ggQ2xQD_isReflLin_conj {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (a t : V ≃ₗ[ZMod 3] V) (ht : IsReflLin t) : IsReflLin (a * t * a⁻¹) := by
-  obtain ⟨cc, ψ, hψ, rfl⟩ := ht
-  refine ⟨a cc, ψ.comp (a.symm : V →ₗ[ZMod 3] V), ?_, ?_⟩
-  · simp only [LinearMap.comp_apply, LinearEquiv.coe_coe, LinearEquiv.symm_apply_apply]
-    exact hψ
-  · rw [show a⁻¹ = a.symm from rfl]
-    exact ggQ2xQD_conj_reflection a hψ
 
 private lemma ggQ2xQD_conj_refl {n : ℕ} (g : GGBCV n ≃ₗ[ZMod 3] GGBCV n)
     (hg : ∀ x y : GGBCV n, (g x) ⬝ᵥ (g y) = x ⬝ᵥ y)
@@ -536,12 +515,6 @@ private lemma ggQ2xQD_conj_refl {n : ℕ} (g : GGBCV n ≃ₗ[ZMod 3] GGBCV n)
     rwa [hsym] at h
   rw [hv, hg c c]
 
-private lemma ggQ2xQD_ref_mem_W {n : ℕ} (i j : Fin n) (e : ZMod 3)
-    (hij : i ≠ j) (he : e ≠ 0) : ggQ2xQD_ref i j e hij he ∈ ggBCW n := by
-  rw [ggQ2xQD_ref]
-  refine Subgroup.subset_closure ⟨ggQ2xQD_vec i j e, ?_, ggQ2xQD_vec_norm_ne hij he, rfl⟩
-  simp only [ggBCRoots, Set.mem_setOf_eq, ggQ2xQD_vec_wt hij he]
-  omega
 
 private lemma ggQ2xQD_conj_mem {n : ℕ} {s t : GGBCV n ≃ₗ[ZMod 3] GGBCV n}
     (hs : s ∈ ggDReflSet n) (ht : t ∈ ggDReflSet n) :
@@ -1557,7 +1530,6 @@ private lemma ggQ2xQD_diag_isometry {n : ℕ} (θ : Fin n → ZMod 3) (hθ : ∀
   rw [show (θ j * x j) * (θ j * y j) = (θ j * θ j) * (x j * y j) by ring,
     ggQ2x_mul_self_eq_one (θ j) (hθ j), one_mul]
 
-private lemma ggQ2xQD_neg_one_mul : ∀ a : ZMod 3, (-1 : ZMod 3) * a = -a := by decide
 
 private lemma ggQ2xQD_neg_one_mul_neg : ∀ a : ZMod 3, (-1 : ZMod 3) * (-a) = a := by decide
 
@@ -1588,11 +1560,6 @@ private lemma ggQ2xQD_short_apply_of_ne {n : ℕ} (i j : Fin n) (hij : j ≠ i) 
   rw [ggQ2xQD_short_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hij),
     zero_smul, add_zero]
 
-private lemma ggQ2xQD_neg_one_smul {n : ℕ} (x : GGBCV n) :
-    (-1 : ZMod 3) • x = -x := by
-  ext i
-  rw [Pi.smul_apply, Pi.neg_apply, smul_eq_mul]
-  exact ggQ2xQD_neg_one_mul (x i)
 
 private lemma ggQ2xQD_neg_one_smul_neg {n : ℕ} (x : GGBCV n) :
     (-1 : ZMod 3) • (-x) = x := by

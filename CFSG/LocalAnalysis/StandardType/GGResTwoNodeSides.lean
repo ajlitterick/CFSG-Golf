@@ -1028,16 +1028,6 @@ private theorem l05nTn_datum {G : Type} [Group G] [Finite G] {k : ℕ} {p : ℕ}
     hlin, hrefl, hpairLL, hpairCK, ⟨D.fL, fun i => D.hfL i⟩,
     ⟨D.fK, hfK'⟩, D.hclosL, hclosK, hdel, D.hclosJL⟩
 
-theorem ggResTwoNodeDatum_of_sides (hConj : GGWeylSimpleSystemsConjInput) {G : Type} [Group G]
-    [Finite G] {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) {Bs L J K : Subgroup G}
-    (hL : GGResTwoNodeSideDatum p Bs L J)
-    (hK : GGResSideDatum p Bs K J ∨ GGResTwoNodeSideDatum p Bs K J) :
-    GGResTwoNodeDatum p Bs L J K ggSelAny ggTypAny := by
-  rcases hK with hK | hK
-  · obtain ⟨D⟩ := l05nTn_align hConj hp2 hL (l05nTn_sum_of_one hK)
-    exact l05nTn_DatumK.toDatum (l05nTn_datum D) (Or.inl rfl)
-  · obtain ⟨D⟩ := l05nTn_align hConj hp2 hL (l05nTn_sum_of_two hK)
-    exact l05nTn_DatumK.toDatum (l05nTn_datum D) (Or.inr rfl)
 
 theorem ggResTwoNodeDatum_of_sides_card_one (hConj : GGWeylSimpleSystemsConjInput)
     {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) {Bs L J K : Subgroup G}

@@ -70,9 +70,6 @@ theorem tangentMap_comp (φ : B →ₐ[k] A) (ψ : C →ₐ[k] B) {x : A →ₐ[
       (tangentMap ψ h').comp (tangentMap φ h) :=
   rfl
 
-theorem tangentMap_id {x : A →ₐ[k] k} :
-    tangentMap (AlgHom.id k A) (x := x) (AlgHom.comp_id x) = LinearMap.id :=
-  rfl
 
 theorem tangentMap_pow (φ : A →ₐ[k] A) {x : A →ₐ[k] k} (h : x.comp φ = x) (n : ℕ) :
     ∃ hn : x.comp (φ ^ n) = x, tangentMap φ h ^ n = tangentMap (φ ^ n) hn := by

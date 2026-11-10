@@ -228,12 +228,6 @@ theorem repM_mem (hinj : IdxInj φ n C F) {S : SetM} {H : Std.HashSet R} (h : Re
     rwa [hinj r y (hlt r hr) e] at hr
   · exact fun hy => ⟨y, hy, rfl⟩
 
-omit [Mul R] [One R] in
-theorem repM_bit {S : SetM} {H : Std.HashSet R} (h : RepM φ n C F S H) (x : ℕ) :
-    memM n C F S x = true ↔ ∃ r ∈ H, idxM n C F (φ r) = idxM n C F x := by
-  obtain ⟨E, -, hmem, -, -, hbit, -⟩ := h
-  rw [memM_eq, hbit]
-  simp only [hmem]
 
 omit [Mul R] [One R] in
 theorem repM_size {S : SetM} {H : Std.HashSet R} (h : RepM φ n C F S H) : S.size = H.size := by

@@ -300,8 +300,6 @@ theorem omega_conj_mem (h : TwoConj M X m) {k : G} (hk : k ∈ M) (Z : Omega X m
     show conjSub ((a * b : ↥M) : G) Z.1 = conjSub (a : G) (conjSub (b : G) Z.1)
     rw [conjSub_conjSub, Subgroup.coe_mul])
 
-theorem omegaHom_apply (h : TwoConj M X m) (k : ↥M) (Z : Omega X m) :
-    (omegaHom h k Z).1 = conjSub (k : G) Z.1 := rfl
 
 variable [Finite G]
 

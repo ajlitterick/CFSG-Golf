@@ -73,25 +73,6 @@ theorem strong_embedding_of_normal_odd_index_factorization
   exact (hM.2.2 lL hloutside).not_two_dvd_nat
     (horder ▸ Subgroup.orderOf_dvd_natCard (M ⊓ rightConjugate M lL) hwI)
 
-theorem normalizer_index_odd (Q : Subgroup G)
-    (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q) :
-    Odd (Subgroup.normalizer (Q : Set G)).index := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨P, _z, _hzQ, _hz, hPH, _hcenter, _hNP⟩ :=
-    exists_central_sylow_involution_in_Q Q htight hodd
-  have hPindex : Odd (P : Subgroup G).index :=
-    Nat.not_even_iff_odd.mp (fun hEven => P.not_dvd_index hEven.two_dvd)
-  exact hPindex.of_dvd_nat (Subgroup.index_dvd_of_le hPH)
-
-theorem normal_hull_normalizer_index_odd (Q : Subgroup G)
-    (htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q) :
-    Odd ((Subgroup.normalizer (Q : Set G)).subgroupOf
-      (Subgroup.normalClosure (Q : Set G))).index := by
-  rw [← normal_hull_Q_normalizer Q htight hodd]
-  exact normalizer_index_odd
-    (Q.subgroupOf (Subgroup.normalClosure (Q : Set G)))
-    (normal_hull_Q_tightly_embedded Q htight hodd)
-    (normal_hull_Q_odd_normalizer_overlaps Q htight hodd)
 
 theorem normal_hull_strong_embedding_of_point_hull_odd_index
     (Q : Subgroup G) (_htight : TightlyEmbedded Q) (hodd : OddNormalizerOverlaps Q)

@@ -145,8 +145,5 @@ theorem L34Squeeze.eq_of_factorizations {H N M S Q : Subgroup G}
   have hL := hH.2 _ hloc (hHV.trans hVO)
   exact (hN.2 H hH.1 (hL ▸ hNV.trans hVO)).symm
 
-variable {p : ℕ} {P : Sylow p G} {M H R : Subgroup G}
-  {Rbar : Sylow p (H ⧸ primeComplementCore (G := H) p)}
-  {K : Subgroup (H ⧸ primeComplementCore (G := H) p)}
 
 end CFSG.AGLEmbedding

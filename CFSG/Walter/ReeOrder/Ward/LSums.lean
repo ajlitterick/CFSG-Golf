@@ -18,10 +18,6 @@ variable {L : Type} [Group L] [Fintype L] {q : ℕ} {e : ℤ} (W : WardL L q e)
 theorem conj_apply_R {θ : L → ℂ} (hθ : θ ∈ W.RFam) (y : L) : starRingEnd ℂ (θ y) = θ y :=
   congrFun (W.conj_R θ hθ) y
 
-theorem conj_apply_S {θ : L → ℂ} (hθ : θ ∈ W.SFam) (y : L) : starRingEnd ℂ (θ y) = θ y :=
-  congrFun (W.conj_S θ hθ) y
-
-theorem conj_apply_θ4 (y : L) : starRingEnd ℂ (W.θ4 y) = W.θ4 y := congrFun W.conj_θ4 y
 
 theorem sum_R_Ro {r : L} (hr : r ∈ W.Ro) (hr1 : r ≠ 1) : ∑ θ ∈ W.RFam, θ r = e := by
   have h := sum_irr_mul_conj r W.unip

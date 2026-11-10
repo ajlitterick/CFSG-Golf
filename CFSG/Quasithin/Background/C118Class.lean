@@ -70,8 +70,6 @@ theorem partnerData :
   rw [X.map_top, X.map_Qh, X.map_Fh, X.map_Vh, X.map_Zh]
   exact PartnerData.ofSeed X.seed
 
-theorem card_Fh : Nat.card X.Fh = Nat.card (Fcore X.G) := by
-  rw [← Subgroup.card_map_of_injective X.f_injective (K := X.Fh), X.map_Fh]
 
 theorem equiv_injective (β : T ≃* T) : Function.Injective β.toMonoidHom :=
   fun _ _ hab => β.injective (by simpa using hab)

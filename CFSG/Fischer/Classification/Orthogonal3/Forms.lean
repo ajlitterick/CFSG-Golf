@@ -65,8 +65,6 @@ theorem three_eq_zero : (3 : ZMod 3) = 0 := by decide
 theorem mul_self_of_ne_zero {a : ZMod 3} (h : a ≠ 0) : a * a = 1 := by
   revert a; decide
 
-theorem mul_self_eq_zero_or_one (a : ZMod 3) : a * a = 0 ∨ a * a = 1 := by
-  revert a; decide
 
 theorem eq_zero_of_eq_neg {x : Fin m → ZMod 3} (h : x = -x) : x = 0 := by
   have h2 : (2 : ZMod 3) • x = 0 := by

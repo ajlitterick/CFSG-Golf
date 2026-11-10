@@ -117,24 +117,6 @@ theorem exists_stdSubPre_of_endNode {p : ℕ} (hp : p.Prime) {B : Subgroup G} {x
       exact Subgroup.mul_mem _ (Subgroup.mem_sup_left hker)
         (Subgroup.mem_sup_right (Subgroup.zpow_mem_zpowers _ _))
 
-theorem ggStdSubPreInput_of_labels_adm (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGEndNodeAdm p r R I) :
-    GGStdSubPreInput := by
-  intro G _ _ p B x L hT
-  have hnc := ha₀ G p B x L hT
-  obtain ⟨-, -, -, -, -, hβ, hS, hst⟩ := hT
-  have hp : p.Prime := hβ.1
-  have hM := largeEvenMarking_and_labelAll (S := fun lab => LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hst.1
-  obtain ⟨hL, lab, -, hraw⟩ := hM
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, hBN, h3⟩, r, hlift, hend⟩ := largeEvenRawDatum_exists hraw
-  obtain ⟨hA, hAI, hr, h3'⟩ := ggGamma_range_props hp hS hβ.2.2.2 hL θ hBN h3 hlift
-  have hadm := ggAdmissible_of_clauseFour hp hS hnc hBN hst.2.1
-  obtain ⟨a, haA, ha1, hcomp, hcent⟩ := hend L (ggQuotHom θ) (ggQuotHom_surjective θ)
-    (by rw [ker_ggQuotHom]) hL _ hA hAI hr h3' hadm
-  exact exists_stdSubPre_of_endNode hp hS hBN haA ha1 hcomp hcent
 
 theorem card_range_ggGamma_mul_of {p : ℕ} (hp : p.Prime) {E : Subgroup G} {x : G}
     {L : Subgroup G} (hE : IsElemAbelian p E) (hxE : x ∈ E) (hx1 : x ≠ 1)
@@ -241,22 +223,6 @@ theorem card_le_of_bstarBoundInn {p r : ℕ} (hp : p.Prime) {B : Subgroup G} {x 
   rw [← hS.1.2.1] at hcard
   exact hBlt (Subgroup.eq_of_le_of_card_ge hBE₂ hcard)
 
-theorem ggBstarInput_of_labels_inn (ha₀ : GGLNoncyclicInput) (hinn : GGInnLocalInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGBstarBoundInn p r R I) :
-    GGBstarInput := by
-  intro G _ _ p B x L hT
-  have hnc := ha₀ G p B x L hT
-  have hU := hinn G p B x L hT
-  obtain ⟨-, -, -, -, -, hβ, hS, hst⟩ := hT
-  have hp : p.Prime := hβ.1
-  have hM := largeEvenMarking_and_labelAll (S := fun lab => LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hst.1
-  obtain ⟨hL, lab, -, hraw⟩ := hM
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, hBN, h3⟩, r, hlift, hbound⟩ := largeEvenRawDatum_exists hraw
-  exact exists_ggBstar_of_card_le hS.1.1 fun E hE hBE =>
-    card_le_of_bstarBoundInn hp hS hβ.2.2.2 hnc hL θ hBN h3 hU hlift hbound hE hBE
 
 end Reduction
 

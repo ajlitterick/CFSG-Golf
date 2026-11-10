@@ -33,14 +33,6 @@ section Fixed
 
 variable {X : Type} [Group X] [Finite X]
 
-theorem autOddFreeOn_of_fixed (P : MulAut X → Prop) (hZ : Subgroup.center X = ⊥)
-    (hodd : ∀ α : MulAut X, Odd (orderOf α) → α ∈ innSubgroup X)
-    (hfix : ∀ σ : MulAut X, P σ → σ * σ = 1 → oddCoreIn (fixedSubgroup σ) = ⊥) :
-    AutOddFreeOn X P := by
-  intro 𝒳 hinn f hP hf
-  have hf2 := mul_self_eq_one_of_orderOf_eq_two' hf
-  exact involutionOddCore_eq_bot_of_fixed hZ hodd 𝒳 hinn f hf2
-    (hfix _ hP (congrArg Subtype.val hf2))
 
 end Fixed
 
@@ -274,32 +266,6 @@ theorem autOddFreeOn_of_lifts [Group.IsPerfect K] (ψ : K →* X) (hψ : Functio
     rfl
   exact oddCoreIn_fixed_eq_bot_of_lift ψ hψ hker hlift (hfix σ hPσ hσ1 hσ2)
 
-theorem autOddFreeOn_of_quotientIso [Group.IsPerfect X] {S : Type} [Group S]
-    (ε : X ⧸ Subgroup.center X ≃* S) (P : MulAut S → Prop)
-    (hodd : ∀ α : MulAut (X ⧸ Subgroup.center X), Odd (orderOf α) →
-      α ∈ innSubgroup (X ⧸ Subgroup.center X))
-    (hfix : ∀ ρ : MulAut S, P ρ → ρ ≠ 1 → ρ * ρ = 1 → oddCoreIn (fixedSubgroup ρ) = ⊥) :
-    AutOddFreeOn X (fun τ => P (MulAut.congr ε (autToCentralQuotient X τ))) := by
-  refine autOddFreeOn_of_fixed_quotient _ hodd ?_
-  intro τ hP hτ1 hτ2
-  have hρ1 : MulAut.congr ε (autToCentralQuotient X τ) ≠ 1 := by
-    intro h
-    apply hτ1
-    apply autToCentralQuotient_injective (X := X)
-    rw [map_one]
-    exact (MulAut.congr ε).injective (h.trans (map_one _).symm)
-  have hρ2 : MulAut.congr ε (autToCentralQuotient X τ) *
-      MulAut.congr ε (autToCentralQuotient X τ) = 1 := by
-    rw [← map_mul, ← map_mul, hτ2, map_one, map_one]
-  have h := hfix _ hP hρ1 hρ2
-  have hτ' : autToCentralQuotient X τ = MulAut.congr ε.symm (MulAut.congr ε
-      (autToCentralQuotient X τ)) := by
-    refine MulEquiv.ext fun y => ?_
-    show _ = ε.symm (ε (autToCentralQuotient X τ (ε.symm (ε y))))
-    simp
-  rw [hτ']
-  have h2 := oddCoreIn_fixed_congr_eq_bot' ε.symm _ h
-  exact h2
 
 end Lifts
 

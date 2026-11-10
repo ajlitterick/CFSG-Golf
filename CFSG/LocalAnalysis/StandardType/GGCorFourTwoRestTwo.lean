@@ -158,10 +158,6 @@ theorem ggBstarInnerDiagLInputOn_restSp_of_restLID
     · exact h1.corFourTwoRestSp
     · exact h1.1
 
-theorem ggBstarInnerDiagLInputOn_rest_of_restLID
-    (h : GGBstarInnerDiagLInputOn GGCorFourTwoRestLIDLabel) :
-    GGBstarInnerDiagLInputOn GGCorFourTwoRestLabel :=
-  ggBstarInnerDiagLInputOn_rest_of_restSp (ggBstarInnerDiagLInputOn_restSp_of_restLID h)
 
 theorem ggCor42Input_of_restLID
     (hK : GGKantorReductionInput)

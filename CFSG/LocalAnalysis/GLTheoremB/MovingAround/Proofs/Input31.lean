@@ -388,55 +388,6 @@ theorem input31_two_connected {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) {R : Subg
   · exact (input31_le_centralizer_of_elemAbelian (input31_isEkIn_iff.1 hB).2.1 hDBB |>
       input31_le_centralizer_symm)
 
-theorem input31_three_connected (hI3 : Input31_3) (hG3 : Input31_GL3Rank) {p : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) {R : Subgroup G} (hR : IsPGroup p R) {A B : Subgroup G}
-    (hA : IsEkIn p 5 R A) (hB : IsEkIn p 5 R B) : IsKConnectedIn p 3 R A B := by
-  haveI : Fact p.Prime := ⟨hp⟩
-  have h3 : 3 ≤ CFSG.Open.pRank p R := by
-    have := CFSG.SectionRank.le_pRank hp.one_lt (input31_isEkIn_iff.1 hA).1
-      (input31_isEkIn_iff.1 hA).2.1 (input31_isEkIn_iff.1 hA).2.2
-    omega
-  obtain ⟨N, hNk, hNn⟩ := hI3 G p hp hp2 R hR 3 (by norm_num) h3
-  obtain ⟨hNR, hNe, hNc⟩ := input31_isEkIn_iff.1 hNk
-  have hNnorm : R ≤ Subgroup.normalizer (N : Set G) :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hNR).1 hNn
-  have hDfor : ∀ {E : Subgroup G}, IsEkIn p 5 R E →
-      ∃ D : Subgroup G, IsEkIn p 3 R D ∧ D ≤ E ∧ D ≤ Subgroup.centralizer (N : Set G) := by
-    intro E hE
-    obtain ⟨hER, hEe, hEk⟩ := input31_isEkIn_iff.1 hE
-    have hGA := hG3 G p hp E N hEe hNe hNc (hER.trans hNnorm)
-    rw [hEk] at hGA
-    have h5 : p ^ 5 = p ^ 2 * p ^ 3 := by ring
-    have h6 : p ^ 2 * p ^ 3 ≤ p ^ 2 * Nat.card (E ⊓ Subgroup.centralizer (N : Set G) : Subgroup G) := by
-      rw [← h5]
-      exact hGA
-    have h7 : p ^ 3 ≤ Nat.card (E ⊓ Subgroup.centralizer (N : Set G) : Subgroup G) :=
-      Nat.le_of_mul_le_mul_left h6 (pow_pos hp.pos 2)
-    obtain ⟨D, hDF, hDe, hDc⟩ := input31_sub_of_card_le hEe (inf_le_left :
-      E ⊓ Subgroup.centralizer (N : Set G) ≤ E) h7
-    exact ⟨D, input31_isEkIn_iff.2 ⟨hDF.trans (inf_le_left.trans hER), hDe, hDc⟩,
-      hDF.trans inf_le_left, hDF.trans inf_le_right⟩
-  obtain ⟨DA, hDA, hDAA, hDAN⟩ := hDfor hA
-  obtain ⟨DB, hDB, hDBB, hDBN⟩ := hDfor hB
-  have hNk' : IsEkIn p 3 R N := hNk
-  refine input31_kconnected_iff.2 ⟨(input31_isEkIn_iff.1 hA).1,
-    (input31_isEkIn_iff.1 hA).2.1, ?_, (input31_isEkIn_iff.1 hB).1,
-    (input31_isEkIn_iff.1 hB).2.1, ?_, Or.inr ⟨DA, DB, hDA, hDB,
-      input31_le_centralizer_of_elemAbelian (input31_isEkIn_iff.1 hA).2.1 hDAA, ?_, ?_⟩⟩
-  · rw [(input31_isEkIn_iff.1 hA).2.2]
-    exact Nat.pow_le_pow_right hp.pos (by norm_num)
-  · rw [(input31_isEkIn_iff.1 hB).2.2]
-    exact Nat.pow_le_pow_right hp.pos (by norm_num)
-  · exact Relation.ReflTransGen.tail
-      (Relation.ReflTransGen.single (input31_kconnStep_iff.2 ⟨hDA, hNk', hDAN⟩))
-      (input31_kconnStep_iff.2 ⟨hNk', hDB, input31_le_centralizer_symm hDBN⟩)
-  · exact (input31_le_centralizer_of_elemAbelian (input31_isEkIn_iff.1 hB).2.1 hDBB |>
-      input31_le_centralizer_symm)
-
-theorem input31_6_of (hI3 : Input31_3) (hG3 : Input31_GL3Rank) : Input31_6 := by
-  intro G _ _ p hp hp2 R hR
-  exact ⟨fun A B hA hB => input31_three_connected hI3 hG3 hp hp2 hR hA hB,
-    fun A B hA hB => input31_two_connected hp hp2 hR hA hB⟩
 
 end Input31_6
 

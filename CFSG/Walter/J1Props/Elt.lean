@@ -43,8 +43,6 @@ theorem elt_nil : elt [] = 1 := Subtype.ext (ev_nil unit)
 theorem elt_pow (w : Word 5) (j : ℕ) : elt (Word.pow w j) = elt w ^ j :=
   Subtype.ext (by rw [Subgroup.coe_pow]; exact ev_pow unit w j)
 
-theorem elt_conj (x y : Word 5) : elt (Word.conj x y) = (elt y)⁻¹ * elt x * elt y := by
-  rw [Word.conj, elt_append, elt_append, elt_inv]
 
 theorem mat_elt_inv (w : Word 5) : mat (elt w)⁻¹ = matWord (Word.inv w) := by
   rw [← elt_inv, mat_elt]
@@ -61,25 +59,16 @@ noncomputable abbrev uJ : walterJ1 := elt wu
 
 theorem mat_tJ : mat tJ = matT := by rw [mat_elt]; decide +kernel
 
-theorem mat_nJ : mat nJ = matN := by rw [mat_elt]; decide +kernel
-
-theorem mat_mJ : mat mJ = matM := by rw [mat_elt]; decide +kernel
 
 theorem mat_sJ : mat sJ = matL := by rw [mat_elt]; decide +kernel
 
 theorem mat_uJ : mat uJ = matU := by rw [mat_elt]; decide +kernel
 
-theorem mat_nJ_inv : mat nJ⁻¹ = matNi := by rw [mat_elt_inv]; decide +kernel
-
-theorem mat_mJ_inv : mat mJ⁻¹ = matMi := by rw [mat_elt_inv]; decide +kernel
 
 theorem tJ_inv : tJ⁻¹ = tJ := by
   rw [← mat_inj, mat_elt_inv, mat_tJ]
   decide +kernel
 
-theorem sJ_inv : sJ⁻¹ = sJ := by
-  rw [← mat_inj, mat_elt_inv, mat_sJ]
-  decide +kernel
 
 theorem uJ_inv : uJ⁻¹ = uJ := by
   rw [← mat_inj, mat_elt_inv, mat_uJ]

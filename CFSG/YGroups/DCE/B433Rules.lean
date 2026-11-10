@@ -87,23 +87,6 @@ theorem tB_psi_c_cube : (tB * psi (yGen 4 3 2 9)) ^ 3 = 1 := by
     Y443.pow_eq_one_of_swap (yGen_mul_self _ _ _ _) (yGen_mul_self _ _ _ _) h1
   rw [psi_yGen (by norm_num), tB, ← map_mul, ← map_pow, h2, map_one]
 
-@[expose] noncomputable def gRel : YGroup 4 3 2 :=
-  yGen 4 3 2 1 * yGen 4 3 2 2 * yGen 4 3 2 5 * yGen 4 3 2 0 * yGen 4 3 2 8 * yGen 4 3 2 9
-
-theorem tB_psi_gRel_pow_nine : (tB * psi gRel) ^ 9 = 1 := by
-  have hF : qB (F433 3 1 2) = (qB (yGen 4 3 3 0 * yGen 4 3 3 8 * yGen 4 3 3 9) * tB *
-      (qB (yGen 4 3 3 1 * yGen 4 3 3 2 * yGen 4 3 3 5))) ^ 9 := by
-    simp only [F433, tB, map_pow, map_mul, U433.A, U433.B, U433.C, U433.D, U433.armStart,
-      mul_assoc]
-  have h1 := Relabel.pow_eq_one_rotate (n := 9) (by rw [← hF]; exact qB_F433_312)
-  have h3 : tB * psi gRel = tB * qB (yGen 4 3 3 1 * yGen 4 3 3 2 * yGen 4 3 3 5) *
-      qB (yGen 4 3 3 0 * yGen 4 3 3 8 * yGen 4 3 3 9) := by
-    simp only [gRel, map_mul, psi_yGen (show 0 < 10 by norm_num),
-      psi_yGen (show 1 < 10 by norm_num), psi_yGen (show 2 < 10 by norm_num),
-      psi_yGen (show 5 < 10 by norm_num), psi_yGen (show 8 < 10 by norm_num),
-      psi_yGen (show 9 < 10 by norm_num), mul_assoc]
-  rw [h3]
-  exact h1
 
 theorem psiU_F432 : psiU F432 = F433 2 3 1 := by
   have hy : ∀ l < 10, psiU (yGen 4 3 2 l) = yGen 4 3 3 l := fun l hl => psiU_yGen hl
@@ -127,47 +110,11 @@ theorem card_range_psi_le :
   rw [Subgroup.index_ker, Subgroup.index_ker, card_range_rho432F] at h1
   exact Nat.le_of_dvd (by norm_num) h1
 
-theorem conj_ker_mem
-    (g : B433) {e : YGroup 4 3 2} (he : e ∈ rho432F.ker) :
-    g * psi e * g⁻¹ ∈ rho432F.ker.map psi := by
-  set N := rho432F.ker.map psi with hN
-  have hgenN : ∀ u ∈ (psi.range : Set B433) ∪ {tB}, ∀ n ∈ N, u * n * u⁻¹ ∈ N := by
-    intro u hu n hn
-    obtain ⟨k, hk, rfl⟩ := hn
-    rcases hu with ⟨y, rfl⟩ | rfl
-    · rw [← map_inv, ← map_mul, ← map_mul]
-      exact ⟨y * k * y⁻¹, (inferInstance : rho432F.ker.Normal).conj_mem k hk y, rfl⟩
-    · have := psi_commute_t (ker_rho432F_le_ctil hk)
-      rw [← this, mul_assoc, mul_inv_cancel, mul_one]
-      exact ⟨k, hk, rfl⟩
-  have hnorm : ∀ g : B433, ∀ n ∈ N, g * n * g⁻¹ ∈ N := by
-    intro g
-    have hg : g ∈ Subgroup.closure ((psi.range : Set B433) ∪ {tB}) := by
-      rw [closure_psi_t]
-      exact Subgroup.mem_top g
-    induction hg using Subgroup.closure_induction'' with
-    | mem x hx => exact hgenN x hx
-    | inv_mem x hx =>
-      intro n hn
-      rcases hx with ⟨y, rfl⟩ | rfl
-      · have := hgenN (psi y⁻¹) (Or.inl ⟨y⁻¹, rfl⟩) n hn
-        rwa [map_inv] at this
-      · have := hgenN tB (Or.inr rfl) n hn
-        have hti : tB⁻¹ = tB := inv_eq_of_mul_eq_one_right tB_mul_self
-        rwa [hti]
-    | one => intro n hn; simpa using hn
-    | mul x y _ _ ihx ihy =>
-      intro n hn
-      have := ihx _ (ihy n hn)
-      rwa [show x * y * n * (x * y)⁻¹ = x * (y * n * y⁻¹) * x⁻¹ by group]
-  exact hnorm g _ ⟨e, he, rfl⟩
 
 noncomputable instance finsetAction432 :
     MulAction (YGroup 4 3 2) (Finset (Fin 31671)) :=
   MulAction.compHom _ rho432F
 
-theorem smul_finset432
-    (e : YGroup 4 3 2) (s : Finset (Fin 31671)) : e • s = rho432F e • s := rfl
 
 theorem orbit_eq
     (s : Finset (Fin 31671)) :
@@ -300,24 +247,11 @@ theorem tProd_succ (η : ℕ → YGroup 4 3 2) (m : ℕ) :
   simp only [tProd, List.range_succ, List.map_append, List.prod_append, List.map_cons,
     List.map_nil, List.prod_cons, List.prod_nil, mul_one]
 
-theorem tProd_pow (g : YGroup 4 3 2) (m : ℕ) :
-    tProd (fun s => g ^ s) m = (tB * psi g) ^ m * ((psi g) ^ m)⁻¹ := by
-  induction m with
-  | zero => simp [tProd_zero]
-  | succ m ih =>
-    rw [tProd_succ, ih, map_pow, pow_succ (tB * psi g), pow_succ (psi g), mul_inv_rev]
-    group
 
 @[expose] def RelOK (hs : Array ByteArray) (π : ByteArray) : Prop :=
   ∃ (η : ℕ → YGroup 4 3 2) (ρ : YGroup 4 3 2), (∀ s < hs.size, RepB 31671 hs[s]! (rho432F (η s))) ∧
     RepB 31671 π (rho432F ρ) ∧ tProd η hs.size = psi ρ
 
-theorem relOK_gRel
-    {hs : Array ByteArray} {π : ByteArray} (hsz : hs.size = 9)
-    (hhs : ∀ s < 9, RepB 31671 hs[s]! (rho432F (gRel ^ s)))
-    (hπ : RepB 31671 π (rho432F (gRel⁻¹ ^ 9))) : RelOK hs π := by
-  refine ⟨fun s => gRel ^ s, gRel⁻¹ ^ 9, fun s hs' => hhs s (hsz ▸ hs'), hπ, ?_⟩
-  rw [hsz, tProd_pow, tB_psi_gRel_pow_nine, one_mul, map_pow, map_inv, inv_pow]
 
 structure CtxGood (C : B.CtxB) : Prop where
   n_eq : C.n = 31671
@@ -328,17 +262,6 @@ structure CtxGood (C : B.CtxB) : Prop where
   one_rep : RepB 31671 C.one 1
   rels_ok : ∀ r < C.rels.size, RelOK C.rels[r]!.1 C.rels[r]!.2
 
-theorem rels_ok_single
-    {C : B.CtxB} {hs : Array ByteArray} {π : ByteArray}
-    (hC : C.rels = #[(hs, π)]) (hsz : hs.size = 9)
-    (hhs : ∀ s < 9, RepB 31671 hs[s]! (rho432F (gRel ^ s)))
-    (hπ : RepB 31671 π (rho432F (gRel⁻¹ ^ 9))) :
-    ∀ r < C.rels.size, RelOK C.rels[r]!.1 C.rels[r]!.2 := by
-  intro r hr
-  have hsz1 : C.rels.size = 1 := by rw [hC]; rfl
-  obtain rfl : r = 0 := by omega
-  rw [hC]
-  exact relOK_gRel hsz hhs hπ
 
 @[expose] def ActSpec
     (C : B.CtxB) (pt : ℕ → Pts X0) : Prop :=
@@ -773,72 +696,6 @@ theorem rules
   r7 := fun _ _ _ _ _ _ _ _ _ ha hb hainv hc => rule_r7 hG hC pt ha hb hainv hc
   r8 := fun _ _ _ _ _ _ _ ha hb hainv hcoinv hs => rule_r8 hG hC pt ha hb hainv hcoinv hs
 
-@[expose] def env
-    (hG : Good X0) (hC : CtxGood C) (pt : ℕ → Pts X0)
-    (hpt0 : pt 0 = basePt X0) (hact : ActSpec C pt) (hnodes : NodesOK C) : B.EnvB where
-  C := C
-  PE := PE
-  W := W hG pt C.nodes
-  V := V hG pt C.nodes C.N
-  rules := rules hG hC pt hpt0 hact hnodes
-
-theorem index_psi_le_of_finalOK
-    (hG : Good X0) (hC : CtxGood C) (pt : ℕ → Pts X0)
-    (hpt0 : pt 0 = basePt X0) (hact : ActSpec C pt) (hnodes : NodesOK C)
-    (hactAll : ∀ (σ : ByteArray) (e : YGroup 4 3 2), RepB 31671 σ (rho432F e) → ∀ p < C.N,
-      B.u32get (C.actAll σ) p < C.N ∧ pt (B.u32get (C.actAll σ) p) = e • pt p)
-    (hpt : ∀ ω : Pts X0, ∃ p < C.N, pt p = ω) (bound : ℕ) (prog : Array B.Ins)
-    (fins : Array (ℕ × B.NodeFin))
-    (h : (env hG hC pt hpt0 hact hnodes).finalOK prog fins 4089470473293004800 bound = true) :
-    psi.range.FiniteIndex ∧ psi.range.index ≤ bound := by
-  have := finite_y432
-  exact index_le_of_finalOK (env hG hC pt hpt0 hact hnodes) (setup hG) (n := 31671) hC.n_eq
-    (by norm_num) rho432F pt (xNode hG pt C.nodes)
-    (fun j a hW => hW)
-    (fun i p k a hV => ⟨hV.1, by obtain ⟨e, -, he⟩ := hV.2; exact ⟨e, he⟩⟩)
-    hactAll hpt (by rw [xNode_zero]; exact Subgroup.one_mem _)
-    (fun j e he => Subgroup.map_le_range psi rho432F.ker
-      (conj_ker_mem (xNode hG pt C.nodes j) (MonoidHom.mem_ker.2 he)))
-    4089470473293004800 bound card_range_rho432F closure_psi_t prog fins h
-
-theorem card_B433_le_of_finalOK
-    (hG : Good X0) (hC : CtxGood C) (pt : ℕ → Pts X0)
-    (hpt0 : pt 0 = basePt X0) (hact : ActSpec C pt) (hnodes : NodesOK C)
-    (hactAll : ∀ (σ : ByteArray) (e : YGroup 4 3 2), RepB 31671 σ (rho432F e) → ∀ p < C.N,
-      B.u32get (C.actAll σ) p < C.N ∧ pt (B.u32get (C.actAll σ) p) = e • pt p)
-    (hpt : ∀ ω : Pts X0, ∃ p < C.N, pt p = ω) (bound : ℕ) (prog : Array B.Ins)
-    (fins : Array (ℕ × B.NodeFin))
-    (h : (env hG hC pt hpt0 hact hnodes).finalOK prog fins 4089470473293004800 bound = true) :
-    Finite B433 ∧ Nat.card B433 ≤ bound * 4089470473293004800 := by
-  have := finite_y432
-  obtain ⟨hfi, hle⟩ := index_psi_le_of_finalOK hG hC pt hpt0 hact hnodes hactAll hpt bound prog
-    fins h
-  have : Finite psi.range := Finite.of_surjective _ psi.rangeRestrict_surjective
-  have hcard := Subgroup.card_mul_index psi.range
-  have hHpos : 0 < Nat.card psi.range := Nat.card_pos
-  have hipos : 0 < psi.range.index := Nat.pos_of_ne_zero hfi.index_ne_zero
-  refine ⟨Nat.finite_of_card_ne_zero (by rw [← hcard]; positivity), ?_⟩
-  rw [← hcard, Nat.mul_comm bound]
-  exact Nat.mul_le_mul card_range_psi_le hle
-
-theorem Q343N_half : Q343N / 2 = 1015970529280000 * 4089470473293004800 := by
-  unfold Q343N
-  norm_num
-
-theorem Q343_bound_of_finalOK
-    (hG : Good X0) (hC : CtxGood C) (pt : ℕ → Pts X0)
-    (hpt0 : pt 0 = basePt X0) (hact : ActSpec C pt) (hnodes : NodesOK C)
-    (hactAll : ∀ (σ : ByteArray) (e : YGroup 4 3 2), RepB 31671 σ (rho432F e) → ∀ p < C.N,
-      B.u32get (C.actAll σ) p < C.N ∧ pt (B.u32get (C.actAll σ) p) = e • pt p)
-    (hpt : ∀ ω : Pts X0, ∃ p < C.N, pt p = ω) (bound : ℕ) (hbound : bound ≤ 1015970529280000)
-    (prog : Array B.Ins) (fins : Array (ℕ × B.NodeFin))
-    (h : (env hG hC pt hpt0 hact hnodes).finalOK prog fins 4089470473293004800 bound = true) :
-    Finite Q343 ∧ Nat.card Q343 ≤ Q343N := by
-  obtain ⟨hfin, hle⟩ := card_B433_le_of_finalOK hG hC pt hpt0 hact hnodes hactAll hpt bound prog
-    fins h
-  refine Q343_bound_of_B433 ⟨hfin, hle.trans ?_⟩
-  rw [Q343N_half]
-  exact Nat.mul_le_mul_right _ hbound
 
 end Main
 

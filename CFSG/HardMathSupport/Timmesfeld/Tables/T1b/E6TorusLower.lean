@@ -27,10 +27,6 @@ theorem torusGroup_le_adjointGroup' : torusGroup Tag.E6 K ≤ adjointGroup Tag.E
   map_one' := Subtype.ext (by simp)
   map_mul' c d := Subtype.ext (by simp)
 
-theorem coe_torusCoordAdj (c : Fin Tag.E6.rank → Kˣ) :
-    ((torusCoordAdj (K := K) c : adjointGroup Tag.E6 K) :
-      (Module.End K (RootModule Tag.E6 K))ˣ) =
-      (torusCoordHom Tag.E6 K c : (Module.End K (RootModule Tag.E6 K))ˣ) := rfl
 
 theorem torusCoordAdj_eq_one_iff (c : Fin Tag.E6.rank → Kˣ) :
     torusCoordAdj (K := K) c = 1 ↔ zpowMatrix Tag.E6.cartan c = 1 := by

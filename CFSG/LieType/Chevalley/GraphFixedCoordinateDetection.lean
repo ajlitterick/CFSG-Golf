@@ -264,33 +264,5 @@ theorem subset_of_rootSpan_inf_le
     (by rw [Fin.append_right, hj]; exact t.self_mem_diagramOrbit α)
   exact hne (by rw [Fin.append_right, Pi.zero_apply])
 
-theorem diagram_fixed_positive_root_coordinate_detection
-    (t : TwistTag) (K : Type) [Field K]
-    (σ : K →+* K) :
-    (∀ O ∈ t.diagramRootOrbits, (∀ α ∈ O, 0 < height α) →
-      ∃ z ∈ rootSpan t.tag K (O : Set (Fin t.tag.rank → ℤ)) ⊓ twistedFixedGroup t K σ,
-        ∀ {m : ℕ} (β : Fin m → Fin t.tag.rank → ℤ), Function.Injective β →
-          Set.range β = {α | IsRoot t.tag α ∧ 0 < height α} →
-          (∃ c : Fin m → K, z = (List.ofFn fun i => pinnedX t.tag K (β i) (c i)).prod) ∧
-          ∀ c : Fin m → K, z = (List.ofFn fun i => pinnedX t.tag K (β i) (c i)).prod →
-            ∀ i, (c i ≠ 0 ↔ β i ∈ O)) ∧
-    ∀ S T : Set (Fin t.tag.rank → ℤ),
-      (∀ α ∈ S, IsRoot t.tag α ∧ 0 < height α) → (∀ α ∈ S, permLattice t.perm α ∈ S) →
-      (∀ α ∈ S, ∀ β ∈ S, ∀ a b : ℕ, 1 ≤ a → 1 ≤ b → IsRoot t.tag (a • α + b • β) →
-        a • α + b • β ∈ S) →
-      (∀ α ∈ T, IsRoot t.tag α ∧ 0 < height α) → (∀ α ∈ T, permLattice t.perm α ∈ T) →
-      (∀ α ∈ T, ∀ β ∈ T, ∀ a b : ℕ, 1 ≤ a → 1 ≤ b → IsRoot t.tag (a • α + b • β) →
-        a • α + b • β ∈ T) →
-      (rootSpan t.tag K S ⊓ twistedFixedGroup t K σ ≤
-          rootSpan t.tag K T ⊓ twistedFixedGroup t K σ ↔ S ⊆ T) ∧
-      (rootSpan t.tag K S ⊓ twistedFixedGroup t K σ =
-          rootSpan t.tag K T ⊓ twistedFixedGroup t K σ ↔ S = T) := by
-  refine ⟨fun O hO hpos => exists_orbit_coordinate_element σ hO hpos,
-    fun S T hS hSρ hSc hT hTρ hTc => ?_⟩
-  have key : rootSpan t.tag K S ⊓ twistedFixedGroup t K σ ≤
-      rootSpan t.tag K T ⊓ twistedFixedGroup t K σ ↔ S ⊆ T :=
-    ⟨subset_of_rootSpan_inf_le σ hS hSρ hT hTc, fun h => inf_le_inf_right _ (rootSpan_mono h)⟩
-  refine ⟨key, ⟨fun h => Set.Subset.antisymm (key.1 h.le)
-    (subset_of_rootSpan_inf_le σ hT hTρ hS hSc h.ge), fun h => by rw [h]⟩⟩
 
 end CFSG.LieType.Chevalley

@@ -11,7 +11,6 @@ public section
 
 namespace CertificateChecks.KernelD4
 
-meta def lcPH : List Nat := [CFSG.KS.RawGen.pack 12 (CFSG.StandardType.TriD4TwoRow.phiArr ())]
 
 end CertificateChecks.KernelD4
 

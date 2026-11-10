@@ -108,13 +108,6 @@ theorem incomplete_hall_product_normalized_complement_trivial (target : Subgroup
     target datum.complement_le datum.factor_le target_le datum.complement_coprime datum.factor_pgroup datum.whole
     (incomplete_hall_product_corefree datum) target_coprime normalized
 
-theorem incomplete_hall_product_fitting_le_factor (target : Subgroup GroupType)
-    (datum : IncompleteSignalizerHallProduct prime rank groupPrime actor parent complement factor values)
-    (target_le : target ≤ parent) (factor_target : factor ≤ target) :
-    (fittingSubgroup (GroupType := target)).map target.subtype ≤ factor :=
-  parent_corefree_hall_product_fitting_le_factor groupPrime datum.groupPrime_prime parent complement factor target
-    datum.complement_le datum.factor_le target_le datum.complement_coprime datum.factor_pgroup datum.whole
-    (incomplete_hall_product_corefree datum) factor_target
 
 theorem incomplete_abelian_hall_product_fitting_eq_factor (target : Subgroup GroupType)
     (datum : IncompleteSignalizerHallProduct prime rank groupPrime actor parent complement factor values)

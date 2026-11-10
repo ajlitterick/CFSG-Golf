@@ -159,11 +159,6 @@ structure EnumK where
   | [] => true
   | x :: xs => xs.all (fun y => y != x) && allNe xs
 
-@[expose] def optL (f : Nat → Option Nat) : List Nat → Option (List Nat)
-  | [] => some []
-  | k :: ks => match f k with
-    | some v => (optL f ks).map (v :: ·)
-    | none => none
 
 structure DcK where
   n : Nat

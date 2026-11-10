@@ -32,7 +32,6 @@ theorem getD_frobArr (A : Array GF8) (t : ℕ) : (frobArr A).getD t 0 = frobF (A
   simp only [frobArr, Array.getD_eq_getD_getElem?, Array.getElem?_map]
   cases A[t]? <;> simp
 
-theorem size_frobArr (A : Array GF8) : (frobArr A).size = A.size := by simp [frobArr]
 
 theorem toMat_frobArr (A : Array GF8) : toMat (frobArr A) = (toMat A).map frobF := by
   ext i j
@@ -45,10 +44,6 @@ theorem toMat_frobPow (n : ℕ) (A : Array GF8) :
   | zero => rfl
   | succ n ih => rw [frobPow, toMat_frobArr, ih, Function.iterate_succ_apply']
 
-theorem size_frobPow (n : ℕ) (A : Array GF8) : (frobPow n A).size = A.size := by
-  induction n with
-  | zero => rfl
-  | succ n ih => rw [frobPow, size_frobArr, ih]
 
 theorem coe_phiT_pow (n : ℕ) (g : lineGroup) :
     ((((phiT ^ n) g : lineGroup) : GL (Fin 8) GF8) : Matrix (Fin 8) (Fin 8) GF8) =

@@ -82,23 +82,6 @@ theorem zm_le_nclStab (h : PUHyp M T L) (γ : Vtx (puAmalgam h.le)) :
   have := zm_smul_le_nclStab h (one_mem _) γ
   rwa [one_smul] at this
 
-@[expose] def Lem56 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M T L : Subgroup G) (h : PUHyp M T L),
-    PUMin M T L → critDist (puAmalgam h.le) = 4 →
-    ∀ (k : ℕ) (F : Type) (_ : Field F) (_ : Fintype F) (a : ↥M →* ↥(StatedSp 2 F)),
-      S5.IsSp4Data M T L k F a →
-      ∀ α' : Vtx (puAmalgam h.le), IsCritical _ (baseA _) α' → geo _ (baseA _) α' 1 = baseB _ →
-      ∀ l : Submodule F (MSP.V4 F),
-        S5.Case56 h (2 ^ k) a (geo _ (baseA (puAmalgam h.le)) α' 2) l →
-        2 ^ k < (Subgroup.centralizer (Qv _ (baseA (puAmalgam h.le)) :
-          Set (puAmalgam h.le).Universal)).relIndex
-            (S5.uSub h.le L (geo _ (baseA (puAmalgam h.le)) α' 2)) →
-        ∀ R : Subgroup (puAmalgam h.le).Universal,
-          R ≤ ⁅S5.nclStab _ (baseA (puAmalgam h.le))
-              (ZM _ (geo _ (baseA (puAmalgam h.le)) α' 2)),
-            S5.nclStab _ (baseA (puAmalgam h.le))
-              (ZM _ (geo _ (baseA (puAmalgam h.le)) α' 2))⁆ →
-          R ≤ stabCenter _ (baseA (puAmalgam h.le)) → Nat.card R ≤ 2 ^ k
 
 @[expose] def Three56ResA : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (M T L : Subgroup G) (h : PUHyp M T L),

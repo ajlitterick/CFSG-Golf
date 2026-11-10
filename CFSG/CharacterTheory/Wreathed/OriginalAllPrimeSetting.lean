@@ -25,10 +25,6 @@ variable {G : Type} [Group G] [Finite G]
   L₀ := ((CFSG.layer (centralizerOddCoreQuotient n S e)).comap
     (centralizerOddCoreMap n S e)).map (involutionCentralizer n S e).subtype
 
-omit [Finite G] in
-theorem wreathedSetting_N (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (p f : ℕ) :
-    (wreathedSetting n S e p f).N = involutionCentralizer n S e :=
-  rfl
 
 omit [Finite G] in
 theorem wreathedSetting_ON (n : ℕ) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) (p f : ℕ) :

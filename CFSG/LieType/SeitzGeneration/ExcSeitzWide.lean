@@ -340,13 +340,6 @@ theorem seitzExcHighFive_of_top (h : SeitzExcHighForAt IsTopIndex PrimeRange.geF
     have h5 : p ≠ 5 := fun h => hex (Or.inr ⟨h, Or.inl rfl⟩)
     exact (no_plane_tits hv hp hp2 h3 h5 hc).elim
 
-theorem seitzExcHighFive_of_families
-    (hF4 : SeitzExcHighForAt IsF4Index PrimeRange.geFive)
-    (hE6 : SeitzExcHighForAt IsE6Index PrimeRange.geFive)
-    (hE7 : SeitzExcHighForAt IsE7Index PrimeRange.geFive)
-    (hE8 : SeitzExcHighForAt IsE8Index PrimeRange.geFive)
-    (hTw : SeitzExcHighForAt IsTwistedE6Index PrimeRange.geFive) : SeitzExcHighFive :=
-  seitzExcHighFive_of_top (SeitzExcHighForAt.top_of_families hF4 hE6 hE7 hE8 hTw)
 
 end
 
@@ -383,13 +376,6 @@ theorem seitzExcHighThree_of_top (h : SeitzExcHighForAt IsTopIndex PrimeRange.th
   · subst hd
     exact (hex (Or.inl ⟨rfl, Or.inr (Or.inr (Or.inr (Or.inr rfl)))⟩)).elim
 
-theorem seitzExcHighThree_of_families
-    (hF4 : SeitzExcHighForAt IsF4Index PrimeRange.three)
-    (hE6 : SeitzExcHighForAt IsE6Index PrimeRange.three)
-    (hE7 : SeitzExcHighForAt IsE7Index PrimeRange.three)
-    (hE8 : SeitzExcHighForAt IsE8Index PrimeRange.three)
-    (hTw : SeitzExcHighForAt IsTwistedE6Index PrimeRange.three) : SeitzExcHighThree :=
-  seitzExcHighThree_of_top (SeitzExcHighForAt.top_of_families hF4 hE6 hE7 hE8 hTw)
 
 end
 

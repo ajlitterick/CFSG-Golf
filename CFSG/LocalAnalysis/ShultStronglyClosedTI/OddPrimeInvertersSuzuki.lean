@@ -85,13 +85,5 @@ theorem suzukiMatrixGroup_oddPrimeInvertersAndSplitFusion
   rw [inv_inv]
   exact hinv t ht
 
-theorem suzukiGroup_oddPrimeInvertersAndSplitFusion
-    {a : ℕ} (ha : 1 ≤ a) {k : Type} [Field k]
-    [Finite k] (hk : Nat.card k = 2 ^ (2 * a + 1)) :
-    OddPrimeInvertersAndSplitFusion (CFSG.Blueprint.suzukiGroup a k) (Nat.card k) := by
-  rw [hk]
-  exact (suzukiMatrixGroup_oddPrimeInvertersAndSplitFusion a ha).of_mulEquiv
-    ((MulEquiv.subgroupCongr (CFSG.LieType.BorelTits.suzukiGroup_eq_glaSzGroup a k)).trans
-      ((glaSzEquivNative a ha hk).trans (suzukiCoverNativeEquiv a)))
 
 end CFSG.ShultStronglyClosedTI.OddPrimeInverters

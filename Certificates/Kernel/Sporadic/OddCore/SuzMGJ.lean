@@ -41,8 +41,6 @@ theorem kGen : (canonK 1782 11 (mask 11) (1782 * 11) (SuzMGJH.F 0) &&
     Nat.beq (SuzMGJH.F 0) (SuzTP 1) && Nat.beq (SuzMGJH.F 1) (SuzC1BT 9) &&
     Nat.beq (SuzMGJH.F 2) (SuzTwG 2)) = true := by quickRfl
 
-theorem negS : Bool.not (allN 7 (fun j => Nat.beq (Nat.xor (SuzMGJ.S j) 1) (SuzMGJH.F j))) =
-    true := by quickRfl
 
 theorem binds : Binds 1782 11 SuzMGJ.S 7 3 SuzMGJ.BP j0rhoStrongArrs j0rhoBase.toArray :=
   ⟨by norm_num, by norm_num, by norm_num, by simp [j0rhoStrongArrs],

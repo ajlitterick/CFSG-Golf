@@ -17,16 +17,11 @@ set_option compiler.extract_closed false
   (List.range cols.length).foldr
     (fun k y => if κ.testBit k then colsAct (cols.getD k []) y else y) x
 
-@[expose] def par (x : Nat) : Bool :=
-  if h : x = 0 then false else (x % 2 == 1) ^^ par (x / 2)
-termination_by x
-decreasing_by exact Nat.div_lt_self (Nat.pos_of_ne_zero h) (by decide)
 
 @[expose] def maskT : List Nat → Nat → Nat
   | [], _ => 0
   | c :: cs, k => (if c.testBit k then 1 else 0) + 2 * maskT cs k
 
-@[expose] def maskOf (l : List Nat) : Nat := l.foldl (fun m x => m ||| 2 ^ x) 0
 
 structure Data where
   beta : List (List Nat)
@@ -53,41 +48,11 @@ structure Data where
         swalk cands upd visit fuel (node ++ node.map (v ^^^ ·)) (Nat.log2 v + 1) (upd a v)
       else true
 
-@[expose] def swalkL {α β : Type} (cands : α → List Nat) (upd : α → Nat → α)
-    (visit : List Nat → α → List β) : Nat → List Nat → Nat → α → List β
-  | 0, _, _, _ => []
-  | fuel + 1, node, top, a =>
-    visit node a ++ (cands a).flatMap fun v =>
-      if 2 ^ top ≤ v && node.all (fun x => v ≤ v ^^^ x) then
-        swalkL cands upd visit fuel (node ++ node.map (v ^^^ ·)) (Nat.log2 v + 1) (upd a v)
-      else []
 
 @[expose] def embCols : List Nat := [8, 32, 64, 128, 256]
 
 @[expose] def emb (z : Nat) : Nat := colsAct embCols z
 
-@[expose] def lamList (_ : Unit := ()) : List Nat := (List.range 16).map (colsAct [1, 2, 12, 48])
-
-@[expose] def ylist (_ : Unit := ()) : List (List Nat) :=
-  swalkL (fun _ : Unit => List.range 32) (fun _ _ => ()) (fun node _ => [node]) 6 [0] 0 ()
-
-@[expose] def ycover (yl : List (List Nat)) : Bool :=
-  swalk (fun _ : Unit => List.range 32) (fun _ _ => ())
-    (fun node _ => let m := maskOf node; yl.any fun e => maskOf e == m) 6 [0] 0 ()
-
-@[expose] def lamOK (dat : Data) : Bool :=
-  let lam := lamList ()
-  ((List.range 1024).all fun κ => lam.all fun l => actK dat.uConjT κ l == l) &&
-  (List.range 512).all fun τ =>
-    lam.any fun l => (List.range 32).any fun z => l ^^^ emb z == τ
-
-@[expose] def inCU (dat : Data) (e : List Nat) (κ : Nat) : Bool :=
-  e.all fun z => actK dat.uConjT κ (emb z) == emb z
-
-@[expose] def yTab (dat : Data) (yl : List (List Nat)) : List (List Nat × Array Bool × Nat) :=
-  yl.map fun e =>
-    let cu := (List.range 1024).map (inCU dat e)
-    (e, cu.toArray, cu.count true)
 
 inductive Fact where
   | sq (κ s t : Nat)
@@ -196,38 +161,6 @@ inductive Fact where
   (a * M'.length ≤ 2 ^ 15 && farkasCase dat F node M') ||
     (a * M'.length ≤ 2 ^ 16 && wwalk dat F node M' a)
 
-@[expose] def aMat (dat : Data) : Array (List Nat) :=
-  ((List.range 1024).map fun κ => colsOf 16 (actK dat.aCols κ)).toArray
-
-@[expose] def bRows (dat : Data) : Array (List Nat) :=
-  ((List.range 65536).map fun v =>
-    if qN dat.beta v = 0 then colsOf 16 (betaN dat.beta v) else []).toArray
-
-@[expose] def singList (dat : Data) : List Nat :=
-  (List.range 65536).filter fun w => w != 0 && qN dat.beta w == 0
-
-@[expose] def dUpd (am br : Array (List Nat)) (s : List Nat × List Nat) (v : Nat) :
-    List Nat × List Nat :=
-  let p := 2 ^ (Nat.log2 v + 1)
-  let r := br[v]!
-  (s.1.filter (fun w => p ≤ w && colsAct r w == 0), s.2.filter fun κ => colsAct am[κ]! v == v)
-
-@[expose] def dVisit (dat : Data) (F : List Fact) (yt : List (List Nat × Array Bool × Nat))
-    (node : List Nat) (s : List Nat × List Nat) : Bool :=
-  let M := s.2
-  yt.all fun y =>
-    let a := node.length * 16 * y.1.length
-    a * M.length ≤ 2 ^ 14 || a * y.2.2 ≤ 2 ^ 14 ||
-      (let M' := M.filter fun κ => y.2.1[κ]!
-       a * M'.length ≤ 2 ^ 14 || candOK dat F node M' a)
-
-@[expose] def p0Check (dat : Data) (F : List Fact) : Bool :=
-  let yl := ylist ()
-  let yt := yTab dat yl
-  let am := aMat dat
-  let br := bRows dat
-  ycover yl && lamOK dat &&
-    swalk (·.1) (dUpd am br) (dVisit dat F yt) 17 [0] 0 (singList dat, List.range 1024)
 
 @[expose] def gam (beta : List (List Nat)) (s s' : Nat) : Nat :=
   (List.range 16).foldl (fun acc j =>
@@ -270,67 +203,5 @@ inductive Fact where
   ((List.range 10).filter h.2.testBit).foldl (rmulU dat)
     (lmul dat.beta g.1 (conjkap dat g.2 h.1), g.2)
 
-@[expose] def colFacts (dat : Data) (ds ks : List Nat) : List Fact :=
-  let u := fun κ : Nat => ((0, 0), κ)
-  (ks.map fun κ => let g := pmul dat (u κ) (u κ); Fact.sq κ g.1.1 g.1.2) ++
-  (ks.flatMap fun κ => ks.map fun κ' =>
-    let g := pmul dat (u κ) (u κ')
-    let h := pmul dat (u κ') (u κ)
-    let x := lmul dat.beta g.1 (linv dat.beta h.1)
-    Fact.comm κ κ' x.1 x.2) ++
-  (ks.flatMap fun κ => ds.map fun δ => Fact.conj κ δ (conjkap dat κ (δ, 0)).2)
-
-@[expose] def keyFact (dat : Data) (ds ks : List Nat) (key : Nat × Nat × Nat) : Fact :=
-  let u := fun κ : Nat => ((0, 0), κ)
-  match key with
-  | (0, j, _) =>
-    let κ := ks.getD j 0
-    let g := pmul dat (u κ) (u κ)
-    Fact.sq κ g.1.1 g.1.2
-  | (1, j, k) =>
-    let κ := ks.getD j 0
-    let κ' := ks.getD k 0
-    let x := lmul dat.beta (pmul dat (u κ) (u κ')).1 (linv dat.beta (pmul dat (u κ') (u κ)).1)
-    Fact.comm κ κ' x.1 x.2
-  | (_, i, j) =>
-    let κ := ks.getD j 0
-    let δ := ds.getD i 0
-    Fact.conj κ δ (conjkap dat κ (δ, 0)).2
-
-@[expose] def selKeys : List ((Nat × Nat × Nat) × List (List (Nat × Nat) × Bool)) → List Bool →
-    List (Nat × Nat × Nat)
-  | [], _ => []
-  | b :: bl, sel =>
-    let n := b.2.length
-    (if (sel.take n).any id then [b.1] else []) ++ selKeys bl (sel.drop n)
-
-@[expose] def supportFacts (dat : Data) (node ks : List Nat) : List Fact :=
-  let ds := basisIn node
-  let kb := basisIn ks
-  let bl := sysBlocks dat (colFacts dat ds kb) ds kb
-  match gaussSel (kb.length + ds.length) (bl.flatMap (·.2)) with
-  | none => []
-  | some sel => (selKeys bl sel).map (keyFact dat ds kb)
-
-@[expose] def dConfigs (yt : List (List Nat × Array Bool × Nat)) (node : List Nat)
-    (s : List Nat × List Nat) : List (List Nat × List Nat) :=
-  let M := s.2
-  yt.flatMap fun y =>
-    let a := node.length * 16 * y.1.length
-    if a * M.length ≤ 2 ^ 14 || a * y.2.2 ≤ 2 ^ 14 then [] else
-      let M' := M.filter fun κ => y.2.1[κ]!
-      if a * M'.length ≤ 2 ^ 14 then []
-      else if a * M'.length ≤ 2 ^ 15 then [(node, M')]
-      else if a * M'.length ≤ 2 ^ 16 then
-        swalkL (fun c : List Nat => c) (fun c v => let p := 2 ^ (Nat.log2 v + 1); c.filter (p ≤ ·))
-          (fun V _ => if a * V.length ≤ 2 ^ 14 then [] else [(node, V)]) 11 [0] 0 M'
-      else []
-
-@[expose] def p0Facts (dat : Data) : List Fact :=
-  let yt := yTab dat (ylist ())
-  let am := aMat dat
-  let br := bRows dat
-  let cfgs := swalkL (·.1) (dUpd am br) (dConfigs yt) 17 [0] 0 (singList dat, List.range 1024)
-  (cfgs.flatMap fun c => supportFacts dat c.1 c.2).eraseDups
 
 end MonsterB.P0Rank

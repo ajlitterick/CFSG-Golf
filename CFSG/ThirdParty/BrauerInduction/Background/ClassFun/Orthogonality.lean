@@ -333,17 +333,6 @@ lemma characterPairingLeft_surjective
       (f := characterPairingLeft (k := k) (G := G))
       Subspace.dual_finrank_eq.symm).mp hinj
 
-/--
-The unnormalised character pairing as a linear equivalence from class functions
-to their linear dual.
--/
-@[expose] noncomputable def characterPairingLinearEquiv
-    [Fintype G] [CharZero k] :
-    ClassFun k G ≃ₗ[k] Module.Dual k (ClassFun k G) :=
-  LinearEquiv.ofBijective
-    (characterPairingLeft (k := k) (G := G))
-    ⟨characterPairingLeft_injective,
-      characterPairingLeft_surjective⟩
 
 open Classical in
 /--

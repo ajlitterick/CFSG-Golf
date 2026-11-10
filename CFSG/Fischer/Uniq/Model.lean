@@ -177,10 +177,6 @@ omit hP hd
   comm f g := by rw [Equiv.trans_apply, Equiv.trans_apply, hperp]; exact L.comm f g
   tau f g h := by rw [Equiv.trans_apply, Equiv.trans_apply, Equiv.trans_apply, L.tau f g h, htv]
 
-theorem relabel_χ (σ : P ≃ P) (hperp : ∀ p q, M.perp (σ p) (σ q) ↔ M.perp p q)
-    (htv : ∀ p q, σ (M.tv p q) = M.tv (σ p) (σ q)) (f : LocalClass E d) :
-    (L.relabel σ hperp htv).χ f = σ (L.χ f) :=
-  rfl
 
 theorem muImg_relabel (σ : P ≃ P) (hperp : ∀ p q, M.perp (σ p) (σ q) ↔ M.perp p q)
     (htv : ∀ p q, σ (M.tv p q) = M.tv (σ p) (σ q)) (c : X) :

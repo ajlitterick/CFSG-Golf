@@ -54,10 +54,6 @@ theorem commutator_le_of_gens {H N : Subgroup G} {X : Set G} (hHX : H = Subgroup
 
 end GroupTheory
 
-theorem titsR_chainArrays :
-    ChainArrays titsQR (titsRArrs.extract 0 3) titsRArrs (baseArr 1755 titsRBase)
-      (wordsArr 3 8 titsRDerivations) :=
-  chainArrays_ofArrays' titsLocalData_check.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem mem_titsS_iff_sift
     {a : Array ℕ} {g : Equiv.Perm (Fin 1755)} (ha : Rep 1755 a g) :
@@ -352,25 +348,10 @@ theorem titsAbelMap_bijective :
     Multiplicative (ZMod 4) × Multiplicative (ZMod 2) ≃* TitsSR :=
   MulEquiv.ofBijective titsAbelMap titsAbelMap_bijective
 
-theorem titsAbelEquiv_apply
-    (i j : ℕ) :
-    titsAbelEquiv (Multiplicative.ofAdd (i : ZMod 4), Multiplicative.ofAdd (j : ZMod 2)) =
-      QuotientGroup.mk ((⟨titsX, titsX_mem_titsS⟩ : titsS) ^ i * ⟨titsY, titsY_mem_titsS⟩ ^ j) := by
-  show titsAbelMap _ = _
-  rw [titsAbelMap_apply, toAdd_ofAdd, toAdd_ofAdd, ZMod.val_natCast, ZMod.val_natCast,
-    pow_mod_eq titsXbar_pow_four, pow_mod_eq titsYbar_sq, titsXbar_pow]
 
 @[expose] def titsAbelianizationEquiv :
     Abelianization titsS ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 2) :=
   (QuotientGroup.quotientMulEquivOfEq titsR_eq_commutator.symm).trans titsAbelEquiv.symm
 
-theorem AT_Tits_Sylow_abelianization :
-    titsR.subgroupOf titsS = commutator titsS ∧
-    (∃ e : Multiplicative (ZMod 4) × Multiplicative (ZMod 2) ≃* titsS ⧸ titsR.subgroupOf titsS,
-      ∀ i j : ℕ, e (Multiplicative.ofAdd (i : ZMod 4), Multiplicative.ofAdd (j : ZMod 2)) =
-        QuotientGroup.mk ((⟨titsX, titsX_mem_titsS⟩ : titsS) ^ i *
-          ⟨titsY, titsY_mem_titsS⟩ ^ j)) ∧
-    Nonempty (Abelianization titsS ≃* Multiplicative (ZMod 4) × Multiplicative (ZMod 2)) :=
-  ⟨titsR_eq_commutator, ⟨titsAbelEquiv, titsAbelEquiv_apply⟩, ⟨titsAbelianizationEquiv⟩⟩
 
 end CFSG.Sporadic.Schreier.Tits

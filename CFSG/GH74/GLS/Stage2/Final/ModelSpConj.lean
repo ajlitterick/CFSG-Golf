@@ -19,34 +19,18 @@ theorem bm_mul (P Q R S P' Q' R' S' : Matrix (Fin 2) (Fin 2) F) :
       bm (P * P' + Q * R') (P * Q' + Q * S') (R * P' + S * R') (R * Q' + S * S') := by
   rw [bm, bm, bm, ← map_mul, Matrix.fromBlocks_multiply]
 
-theorem bm_add (P Q R S P' Q' R' S' : Matrix (Fin 2) (Fin 2) F) :
-    bm P Q R S + bm P' Q' R' S' = bm (P + P') (Q + Q') (R + R') (S + S') := by
-  rw [bm, bm, bm, ← map_add, Matrix.fromBlocks_add]
 
 theorem bm_transpose (P Q R S : Matrix (Fin 2) (Fin 2) F) :
     (bm P Q R S)ᵀ = bm Pᵀ Rᵀ Qᵀ Sᵀ := by
   simp only [bm, Matrix.coe_reindexAlgEquiv]
   rw [Matrix.transpose_reindex, Matrix.fromBlocks_transpose]
 
-theorem bm_inj {P Q R S P' Q' R' S' : Matrix (Fin 2) (Fin 2) F}
-    (h : bm P Q R S = bm P' Q' R' S') : P = P' ∧ Q = Q' ∧ R = R' ∧ S = S' := by
-  have h' := (Matrix.reindexAlgEquiv F F e4).injective h
-  exact Matrix.fromBlocks_inj.1 h'
-
-theorem bm_one : (1 : Matrix (Fin 4) (Fin 4) F) = bm 1 0 0 1 := by
-  rw [bm, Matrix.fromBlocks_one, map_one]
 
 theorem blk4_eq_bm (X Y : Matrix (Fin 2) (Fin 2) F) : blk4 X Y = bm X 0 0 Y :=
   blk4_eq_reindex X Y
 
 theorem wMat_eq_bm : (wMat : Matrix (Fin 4) (Fin 4) F) = bm 0 1 1 0 := rfl
 
-theorem bm_neg (P Q R S : Matrix (Fin 2) (Fin 2) F) : -bm P Q R S = bm (-P) (-Q) (-R) (-S) := by
-  rw [bm, bm, ← map_neg, Matrix.fromBlocks_neg]
-
-theorem bm_smul (c : F) (P Q R S : Matrix (Fin 2) (Fin 2) F) :
-    c • bm P Q R S = bm (c • P) (c • Q) (c • R) (c • S) := by
-  rw [bm, bm, ← map_smul, Matrix.fromBlocks_smul]
 
 theorem kw_symp (a : Matrix (Fin 2) (Fin 2) F) (hT : aᵀ * J2m F * a = (2⁻¹ : F) • J2m F) (h2 : (2 : F) ≠ 0) :
     (bm a a (-a) a)ᵀ * blk4 (J2m F) (J2m F) * bm a a (-a) a = blk4 (J2m F) (J2m F) := by

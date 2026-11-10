@@ -319,8 +319,6 @@ theorem ggOrdPInnerConjPSUNonsplit_holds : GGOrdPInnerConjPSUNonsplit := by
     (F := GaloisField 2 (2 * (f + 1))) (card_galoisField_two_mul 2 (f + 1) (by omega)) (by omega)
     hS hpq hyp hy
 
-theorem ggOrdPInnerConjAt_PSU : GGOrdPInnerConjAt .PSU :=
-  ggOrdPInnerConjAt_PSU_of_nonsplit ggOrdPInnerConjPSUNonsplit_holds
 
 end Family
 

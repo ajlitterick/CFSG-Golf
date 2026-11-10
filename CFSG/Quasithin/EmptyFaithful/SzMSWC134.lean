@@ -42,6 +42,5 @@ theorem IsC134CaseCorrW.corr {i : ℕ} {G₀ R L : Subgroup G} (h : IsC134CaseCo
 
 end Statement
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.Quasithin.SzMSW

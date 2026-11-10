@@ -62,69 +62,12 @@ theorem zb_sporadicSix_congr {X Y : Type} [Group X] [Group Y] (e : X ≃* Y) (h 
     Ctx15122 T Mc M Z₁ Z₂ V₁ V₂ L → IsComponentOf L (g1_1516 Z₁) → Case15120ThreeD T Mc Z₁ L →
     IsSporadic .M11 (↥L ⧸ CFSG.pCore 2 ↥L) → Case15122Six T Mc Z₁ L
 
-@[expose] def Input15122ThreeDLocal : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L S : Subgroup G), SporadicSix (↥L ⧸ CFSG.pCore 2 ↥L) →
-    IsPGroup 2 ↥S → S ≤ Subgroup.normalizer (L : Set G) → IsSylowTwoOf (S ⊓ L) L →
-      L ⊓ Subgroup.normalizer ((S ⊓ L : Subgroup G) : Set G) ≤ S ⊓ L ∧
-      ∃ P : Subgroup G, SMin L S P ∧ ¬ P ≤ L ⊓ Subgroup.centralizer (centerOf (S ⊓ L) : Set G) ∧
-        CharTwo P ∧ ¬ C126Third (P ⊔ S) S ∧ oPrimeResidualOf 3 P ⊔ (S ⊓ L) = P
 
 @[expose] def Input15122ThreeDZL2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T Mc M Z₁ Z₂ V₁ V₂ L : Subgroup G),
     Ctx15122 T Mc M Z₁ Z₂ V₁ V₂ L → IsComponentOf L (g1_1516 Z₁) → Case15120ThreeD T Mc Z₁ L →
     SporadicSix (↥L ⧸ CFSG.pCore 2 ↥L) → ZL2 (s1516 T Z₁) L
 
-theorem input15122ThreeD_of (h118 : TheoremC118) (h126 : TheoremC126) (h37 : A37ForSQTK)
-    (h38 : A38ForSQTK) (kN : SporadicSixNotA38) (hHS : Input15122ThreeDHSRu)
-    (hM11 : Input15122ThreeDM11) (hloc : Input15122ThreeDLocal) (hzl : Input15122ThreeDZL2) :
-    Input15122ThreeD' := by
-  intro G _ _ T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp h3D hx
-  have h3D' := h3D
-  obtain ⟨htype, hMLeq⟩ := h3D
-  by_cases h11 : IsSporadic .M11 (↥L ⧸ CFSG.pCore 2 ↥L)
-  · exact Or.inr (hM11 G T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp h3D' h11)
-  have hnoHR := hHS G T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp h3D' hx
-  have hsix : SporadicSix (↥L ⧸ CFSG.pCore 2 ↥L) := by
-    rcases htype with h | h | h | h | h | h | h | h | h
-    · exact absurd h h11
-    · exact Or.inr (Or.inr (Or.inl h))
-    · exact Or.inr (Or.inr (Or.inr (Or.inl h)))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inl h))))
-    · exact Or.inr (Or.inr (Or.inr (Or.inr (Or.inr h))))
-    · exact Or.inl h
-    · exact absurd (Or.inl h) hnoHR
-    · exact Or.inr (Or.inl h)
-    · exact absurd (Or.inr h) hnoHR
-  left
-  have hq := hc.ctx.qtfe
-  have hMf := hc.ctx.mf
-  have hSet := hc.ctx.setting
-  set S := s1516 T Z₁ with hSdef
-  have hLG : L ≤ g1_1516 Z₁ := le_of_mem_cComp hc.hL.comp
-  have hS2 : IsPGroup 2 ↥S := hc.h18.four.2.1
-  have hsyl : IsSylowTwoOf (S ⊓ L) L := hc.h20.sylow
-  have hSN : S ≤ Subgroup.normalizer (L : Set G) := by
-    rcases lemma_1_2_1_three hq.qtke hq.simple hq.nonabelian h37 h38
-        (hSet.pCore_g1_ne_bot hq hMf) hc.hL.comp with hn | ⟨-, h2⟩
-    · exact (s1516_le_g1 T Z₁).trans ((Subgroup.normal_subgroupOf_iff_le_normalizer hLG).mp hn)
-    · exact absurd h2 (kN G L hsix)
-  obtain ⟨hselfN, P, hP, hPnotML, hchP, hno, hoP⟩ := hloc G L S hsix hS2 hSN hsyl
-  have hSMZ : S ≤ mZ1516 Mc Z₁ := fun x hx => ⟨s1516_le_g1 T Z₁ hx, hq.t_le_mc (s1516_le T Z₁ hx)⟩
-  have hPnot : ¬ P ≤ mZ1516 Mc Z₁ := by
-    intro hPM
-    apply hPnotML
-    rw [← hMLeq]
-    exact le_inf hPM hP.le
-  have hchH : CharTwo (P ⊔ S) := zb_charTwo_sup hP.sP hS2 hchP
-  have hmin : IsMinParabolicOf (P ⊔ S) (P ⊔ S) := hP.isMinParabolic hS2 hsyl hselfN
-  have hPM : P ≤ M := (bang_of_good h118 h126 hc hP.le hchH hmin hno).resolve_right hPnot
-  have hCent : CentS15122 T M Z₁ L :=
-    centS15122_of hc hSN (hzl G T Mc M Z₁ Z₂ V₁ V₂ L hc hcomp h3D' hsix) (le_inf hPM hP.le) hPnot hoP
-  have hZ : IsPGroup 2 ↥(Subgroup.center ↥L) := (hc.h20.three hcomp).1
-  have hZeq : Subgroup.center ↥L = CFSG.pCore 2 ↥L := zb_center_eq_pCore hcomp.2.2 hZ
-  have e : ↥L ⧸ CFSG.pCore 2 ↥L ≃* ↥L ⧸ Subgroup.center ↥L :=
-    QuotientGroup.quotientMulEquivOfEq hZeq.symm
-  exact ⟨zb_sporadicSix_congr e hsix, hMLeq, hCent⟩
 
 theorem lemma15122InputU_of_corrected_inputs (nDich : Input15122Dichotomy) (nNoB : Input15122NoBorel)
     (nA7 : Input15122A7) (nR2 : Input15122Rank2Block) (nL45 : Input15122L45Block')

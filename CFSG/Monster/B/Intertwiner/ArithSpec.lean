@@ -60,10 +60,6 @@ open Matrix Finset
 theorem cmat_apply (n : ℕ) (X : Mat) (i j : Fin n) : cmat n X i j = rowVec n (X.getD i #[]) j :=
   rfl
 
-theorem rowVec_ext {n : ℕ} {r s : Row} (h : ∀ j < n, bitOf r j = bitOf s j) :
-    rowVec n r = rowVec n s := by
-  funext j
-  simp only [rowVec, h j j.2]
 
 theorem bitOf_def (r : Row) (j : ℕ) : bitOf r j = (r.getD (j / 56) 0).testBit (j % 56) := rfl
 
@@ -404,10 +400,6 @@ theorem cmat_mulP (n : ℕ) (X Y : Mat) (hY : Y.size ≤ n) :
     rw [hrow]
     rfl
 
-theorem mulP_row_size (n : ℕ) (X Y : Mat) (hY : Y.size ≤ n) {i : ℕ} (hi : i < (mulP n X Y).size) :
-    (mulP n X Y)[i].size = nch n := by
-  simp only [mulP_eq, Array.getElem_map]
-  exact (rowVec_applyRow n Y hY _).1
 
 theorem getD_unitRow (n i c : ℕ) :
     (unitRow n i).getD c 0 = if c = i / 56 ∧ i / 56 < nch n then 2 ^ (i % 56) else 0 := by
@@ -427,8 +419,6 @@ theorem bitOf_unitRow {n i : ℕ} (hi : i < n) (j : ℕ) : bitOf (unitRow n i) j
     have : j ≠ i := fun h => hj (h ▸ rfl)
     simp [this]
 
-theorem unitRow_size (n i : ℕ) : (unitRow n i).size = nch n := by
-  simp [unitRow, zeros_size]
 
 theorem idMat_size (n : ℕ) : (idMat n).size = n := by simp [idMat]
 
@@ -480,205 +470,10 @@ theorem cmat_powM {n : ℕ} {X : Mat} (hX : X.size ≤ n) (e : ℕ) :
 theorem powM_size {n : ℕ} {X : Mat} (hX : X.size ≤ n) (e : ℕ) : (powM n X e).size ≤ n :=
   (powM_spec e hX).1
 
-theorem vecGo_spec (n : ℕ) (v : Row) (Y : Mat) :
-    ∀ d i (acc : Row), n - i = d → acc.size = nch n →
-      (vecGo n (nch n) v Y i acc).size = nch n ∧
-      rowVec n (vecGo n (nch n) v Y i acc) =
-        rowVec n acc + ∑ j ∈ Finset.Ico i n, if bitOf v j then yv n Y j else 0 := by
-  intro d
-  induction d with
-  | zero =>
-    intro i acc hd hacc
-    rw [vecGo, ite_eq_right (by omega), Finset.Ico_eq_empty (by omega), Finset.sum_empty, add_zero]
-    exact ⟨hacc, rfl⟩
-  | succ d ih =>
-    intro i acc hd hacc
-    have hi : i < n := by omega
-    rw [vecGo, ite_eq_left hi]
-    have hnext : (if bitOf v i then xorRow (nch n) acc (Y.getD i #[]) else acc).size = nch n ∧
-        rowVec n (if bitOf v i then xorRow (nch n) acc (Y.getD i #[]) else acc) =
-          rowVec n acc + if bitOf v i then yv n Y i else 0 := by
-      split_ifs with hb
-      · exact ⟨by rw [xorRow_size]; exact hacc, by rw [rowVec_xorRow hacc]; rfl⟩
-      · exact ⟨hacc, by rw [add_zero]⟩
-    obtain ⟨h1, h2⟩ := ih (i + 1) _ (by omega) hnext.1
-    refine ⟨h1, ?_⟩
-    rw [h2, hnext.2, add_assoc, Finset.sum_eq_sum_Ico_succ_bot hi]
-
-theorem rowVec_vecMulC (n : ℕ) (v : Row) (Y : Mat) :
-    rowVec n (vecMulC n v Y) = rowVec n v ᵥ* cmat n Y := by
-  obtain ⟨-, h⟩ := vecGo_spec n v Y _ 0 (zeros (nch n)) rfl (zeros_size _)
-  unfold vecMulC
-  rw [h, rowVec_zeros, zero_add, ← Finset.range_eq_Ico]
-  funext l
-  rw [Finset.sum_apply, vecMul, dotProduct, ← Fin.sum_univ_eq_sum_range
-    (fun j => (if bitOf v j then yv n Y j else 0) l)]
-  refine Finset.sum_congr rfl fun j _ => ?_
-  unfold yv
-  rw [cmat_apply]
-  by_cases hb : bitOf v j <;> simp [rowVec, hb]
-
-theorem vecMulC_size (n : ℕ) (v : Row) (Y : Mat) : (vecMulC n v Y).size = nch n :=
-  (vecGo_spec n v Y _ 0 (zeros (nch n)) rfl (zeros_size _)).1
-
-theorem cmat_addM {n : ℕ} {X : Mat} (hX : X.size = n) (hXr : ∀ r ∈ X, r.size = nch n) (Y : Mat) :
-    cmat n (addM n X Y) = cmat n X + cmat n Y := by
-  ext i j
-  rw [Matrix.add_apply, cmat_apply, cmat_apply, cmat_apply]
-  have hi : (i : ℕ) < X.size := hX ▸ i.2
-  have e1 : (addM n X Y).getD i #[] = xorRow (nch n) X[(i : ℕ)] (Y.getD i #[]) := by
-    simp [addM, Array.getD_eq_getD_getElem?, hi]
-  have e2 : X.getD i #[] = X[(i : ℕ)] := by
-    simp [Array.getD_eq_getD_getElem?, Array.getElem?_eq_getElem hi]
-  rw [e1, e2, rowVec_xorRow (hXr _ (Array.getElem_mem hi))]
-  rfl
-
-theorem diagM_getD {n r i : ℕ} (hi : i < n) :
-    (diagM n r).getD i #[] = if i < r then unitRow n i else zeros (nch n) := by
-  simp [diagM, Array.getD_eq_getD_getElem?, hi]
-
-theorem cmat_diagM (n r : ℕ) :
-    cmat n (diagM n r) = Matrix.diagonal fun i : Fin n => if (i : ℕ) < r then 1 else 0 := by
-  ext i j
-  rw [cmat_apply, diagM_getD i.2, Matrix.diagonal_apply]
-  by_cases hr : (i : ℕ) < r
-  · rw [ite_eq_left hr, ite_eq_left hr, rowVec, bitOf_unitRow i.2]
-    by_cases h : i = j
-    · subst h; simp
-    · have h' : (j : ℕ) ≠ i := fun e => h (Fin.ext e).symm
-      simp [h', h]
-  · rw [ite_eq_right hr, ite_eq_right hr, rowVec_zeros]
-    simp
 
 theorem cmat_eq_of_beq {n : ℕ} {X Y : Mat} (h : (X == Y) = true) : cmat n X = cmat n Y := by
   rw [eq_of_beq h]
 
-theorem testBit_orFold (byte : ℕ → ℕ) (hb : ∀ t, byte t < 256) :
-    ∀ (t₀ p : ℕ), ((List.range t₀).foldl (fun acc t => acc ||| (byte t <<< (8 * t))) 0).testBit p =
-      (decide (p / 8 < t₀) && (byte (p / 8)).testBit (p % 8))
-  | 0, p => by simp
-  | t₀ + 1, p => by
-    rw [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil, Nat.testBit_or,
-      testBit_orFold byte hb t₀ p, Nat.testBit_shiftLeft]
-    by_cases h1 : p / 8 < t₀
-    · have : ¬ (8 * t₀ ≤ p) := by omega
-      simp [h1, show p / 8 < t₀ + 1 by omega, this]
-    · by_cases h2 : p / 8 = t₀
-      · have e : p - 8 * t₀ = p % 8 := by omega
-        simp [h2, e, show 8 * t₀ ≤ p by omega]
-      · have h3 : 8 ≤ p - 8 * t₀ := by omega
-        have : (byte t₀).testBit (p - 8 * t₀) = false :=
-          Nat.testBit_lt_two_pow (lt_of_lt_of_le (hb t₀)
-            (by calc 256 = 2 ^ 8 := by norm_num
-              _ ≤ 2 ^ (p - 8 * t₀) := Nat.pow_le_pow_right (by norm_num) h3))
-        simp [h1, show ¬ p / 8 < t₀ + 1 by omega, this]
-
-theorem byte_toNat_lt (b : UInt8) : b.toNat < 256 := b.toNat_lt
-
-theorem bitOf_rowOfBytes {n : ℕ} (hn : n ≤ 4416) (b : ByteArray) (o : ℕ) {j : ℕ} (hj : j < n) :
-    bitOf (rowOfBytes n b o) j = (b.get! (o + j / 8)).toNat.testBit (j % 8) := by
-  rw [bitOf_def]
-  have hw := nch_spec hj
-  have e1 : (rowOfBytes n b o).getD (j / 56) 0 = chunkOfBytes n b o (j / 56) := by
-    simp [rowOfBytes, Array.getD_eq_getD_getElem?, hw]
-  rw [e1, chunkOfBytes, Nat.testBit_mod_two_pow]
-  have hlt : j % 56 < min 56 (n - 56 * (j / 56)) := by omega
-  rw [decide_eq_true hlt, Bool.true_and]
-  rw [testBit_orFold (fun t => if 7 * (j / 56) + t < 552 then (b.get! (o + 7 * (j / 56) + t)).toNat
-      else 0) (fun t => by split_ifs <;> [exact byte_toNat_lt _; norm_num]) 7 (j % 56)]
-  have h7 : j % 56 / 8 < 7 := by omega
-  have e2 : 7 * (j / 56) + j % 56 / 8 = j / 8 := by omega
-  have e3 : j % 56 % 8 = j % 8 := by omega
-  have h552 : j / 8 < 552 := by omega
-  simp only [h7, decide_true, Bool.true_and, e2, e3, h552, ite_true]
-  rw [Nat.add_assoc, e2]
-
-theorem cmat_matOfPayload {n : ℕ} (hn : n ≤ 4416) (P : ByteArray) (idx : ℕ) (i j : Fin n) :
-    cmat n (matOfPayload n P idx) i j =
-      if (P.get! (16 + 552 * (n * idx + i) + j / 8)).toNat.testBit (j % 8) then 1 else 0 := by
-  rw [cmat_apply]
-  have e : (matOfPayload n P idx).getD i #[] = rowOfBytes n P (16 + 552 * (n * idx + i)) := by
-    simp [matOfPayload, Array.getD_eq_getD_getElem?, i.2]
-  rw [e, rowVec, bitOf_rowOfBytes hn _ _ j.2]
-
-theorem matOfPayload_size (n : ℕ) (P : ByteArray) (idx : ℕ) : (matOfPayload n P idx).size = n := by
-  simp [matOfPayload]
-
-theorem matOfPayload_row_size (n : ℕ) (P : ByteArray) (idx : ℕ) :
-    ∀ r ∈ matOfPayload n P idx, r.size = nch n := by
-  intro r hr
-  simp only [matOfPayload, Array.mem_ofFn] at hr
-  obtain ⟨k, rfl⟩ := hr
-  simp [rowOfBytes]
-
-theorem testBit_byteOfRow (x : Row) (j : ℕ) :
-    (byteOfRow x (j / 8)).toNat.testBit (j % 8) = bitOf x j := by
-  unfold byteOfRow
-  rw [UInt8.toNat_ofNat_of_lt' (lt_of_lt_of_le (byteOf_lt x _) (by decide)),
-    testBit_byteOf x _ (Nat.mod_lt _ (by norm_num))]
-  congr 1
-  omega
-
-theorem get!_mk_ofFn {N : ℕ} (f : Fin N → UInt8) {i : ℕ} (hi : i < N) :
-    (ByteArray.mk (Array.ofFn f)).get! i = f ⟨i, hi⟩ := by
-  show (Array.ofFn f)[i]! = f ⟨i, hi⟩
-  rw [getElem!_pos (Array.ofFn f) i (by simpa using hi), Array.getElem_ofFn]
-
-theorem payload_bit (n : ℕ) (Ms : Array Mat) {g k j : ℕ} (hg : g < Ms.size) (hk : k < n)
-    (hj : j < 4416) :
-    ((payload n Ms).get! (16 + 552 * (n * g + k) + j / 8)).toNat.testBit (j % 8) =
-      bitOf ((Ms.getD g #[]).getD k #[]) j := by
-  have hpos : 16 + 552 * (n * g + k) + j / 8 < 16 + Ms.size * n * 552 := by
-    have h1 : n * g + k < n * Ms.size := by
-      calc n * g + k < n * g + n := by omega
-        _ = n * (g + 1) := by ring
-        _ ≤ n * Ms.size := Nat.mul_le_mul_left _ hg
-    have h2 : j / 8 < 552 := by omega
-    have h3 : 552 * (n * g + k + 1) ≤ 552 * (n * Ms.size) := Nat.mul_le_mul_left _ h1
-    have h4 : Ms.size * n * 552 = 552 * (n * Ms.size) := by ring
-    omega
-  have hget : (payload n Ms).get! (16 + 552 * (n * g + k) + j / 8) =
-      byteOfRow ((Ms.getD g #[]).getD k #[]) (j / 8) := by
-    unfold payload
-    rw [get!_mk_ofFn _ hpos]
-    simp only
-    rw [ite_eq_right (by omega)]
-    have e1 : (16 + 552 * (n * g + k) + j / 8 - 16) / 552 = n * g + k := by omega
-    have e2 : (16 + 552 * (n * g + k) + j / 8 - 16) % 552 = j / 8 := by omega
-    have hn : 0 < n := by omega
-    have e3 : (n * g + k) / n = g := by
-      rw [Nat.add_comm, Nat.add_mul_div_left _ _ hn, Nat.div_eq_of_lt hk, Nat.zero_add]
-    have e4 : (n * g + k) % n = k := by
-      rw [Nat.add_comm, Nat.add_mul_mod_self_left, Nat.mod_eq_of_lt hk]
-    rw [e1, e2, e3, e4]
-  rw [hget, testBit_byteOfRow]
-
-theorem bitOf_chunksOfNat {n : ℕ} (x : ℕ) {j : ℕ} (hj : j < n) :
-    bitOf (chunksOfNat (nch n) x) j = x.testBit j := by
-  rw [bitOf_def]
-  have hw := nch_spec hj
-  have e : (chunksOfNat (nch n) x).getD (j / 56) 0 = (x >>> (56 * (j / 56))) % 2 ^ 56 := by
-    simp [chunksOfNat, Array.getD_eq_getD_getElem?, hw]
-  rw [e, Nat.testBit_mod_two_pow, Nat.testBit_shiftRight]
-  have : 56 * (j / 56) + j % 56 = j := by omega
-  simp [Nat.mod_lt j (by norm_num : 56 > 0), this]
-
-theorem cmat_matOfRows (n : ℕ) (X : Array ℕ) (i j : Fin n) :
-    cmat n (matOfRows n X) i j = if (X[(i : ℕ)]?.getD 0).testBit j then 1 else 0 := by
-  rw [cmat_apply]
-  simp only [matOfRows, Array.getD_eq_getD_getElem?, Array.getElem?_map]
-  cases X[(i : ℕ)]? with
-  | none => simp [rowVec_empty]
-  | some x => simp [rowVec, bitOf_chunksOfNat x j.2]
-
-theorem matOfRows_size (n : ℕ) (X : Array ℕ) : (matOfRows n X).size = X.size := by
-  simp [matOfRows]
-
-theorem matOfRows_row_size (n : ℕ) (X : Array ℕ) : ∀ r ∈ matOfRows n X, r.size = nch n := by
-  intro r hr
-  simp only [matOfRows, Array.mem_map] at hr
-  obtain ⟨x, -, rfl⟩ := hr
-  simp [chunksOfNat]
 
 theorem cmat_ne_of_neM {n : ℕ} {X Y : Mat} (h : neM n X Y = true) : cmat n X ≠ cmat n Y := by
   unfold neM at h

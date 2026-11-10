@@ -229,41 +229,6 @@ theorem testBit_sumOne (m : ℕ) {w : ℕ} (hw : w < 256) (v : ℕ) :
     simp [hv]
   · simp [hv]
 
-theorem mem_of_bfind (a : Array ℕ) (x : ℕ) :
-    ∀ (fuel lo hi : ℕ), hi ≤ a.size → bfind a x fuel lo hi = true → x ∈ a.toList := by
-  intro fuel
-  induction fuel with
-  | zero => intro lo hi _ h; simp [bfind] at h
-  | succ fuel ih =>
-    intro lo hi hhi h
-    unfold bfind at h
-    by_cases hlt : lo < hi
-    · simp only [hlt, ↓reduceIte] at h
-      have hmid : (lo + hi) / 2 < a.size := by omega
-      by_cases heq : (a.getD ((lo + hi) / 2) 0 == x) = true
-      · have h1 : a.getD ((lo + hi) / 2) 0 = x := by simpa using heq
-        rw [Array.getD_eq_getD_getElem?, Array.getElem?_eq_getElem hmid, Option.getD_some] at h1
-        rw [← h1]
-        exact Array.getElem_mem_toList hmid
-      · simp only [heq, Bool.false_eq_true, ↓reduceIte] at h
-        by_cases hlt2 : a.getD ((lo + hi) / 2) 0 < x
-        · simp only [hlt2, ↓reduceIte] at h
-          exact ih _ _ hhi h
-        · simp only [hlt2, ↓reduceIte] at h
-          exact ih _ _ (by omega) h
-    · simp only [hlt, ↓reduceIte] at h
-      exact absurd h (by simp)
-
-theorem mem_of_memS {a : Array ℕ} {x : ℕ} (h : memS a x = true) : x ∈ a.toList :=
-  mem_of_bfind a x 20 0 a.size le_rfl h
-
-theorem mem_capL_of_memS {x : ℕ} (h : memS capA x = true) : x ∈ capL := by
-  have := mem_of_memS h
-  simpa [capA] using this
-
-theorem mem_plusL_of_memS {x : ℕ} (h : memS plusA x = true) : x ∈ plusL := by
-  have := mem_of_memS h
-  simpa [plusA] using this
 
 abbrev VM4 : Type := Multiplicative M2
 
@@ -274,9 +239,6 @@ theorem add_self_m2 (X : M2) : X + X = 0 := by
   ext i j
   exact CharTwo.add_self_eq_zero (X i j)
 
-theorem neg_m2 (X : M2) : -X = X := by
-  ext i j
-  rfl
 
 theorem act_eq_of_realizes {g : MulAut VM4} {p : Par} (hg : Realizes g p) {v : ℕ} :
     act p v = code (Multiplicative.toAdd (g (Multiplicative.ofAdd (decode v)))) := by
@@ -393,13 +355,6 @@ theorem exists_of_testBit_comM {g : MulAut VM4} {p : Par} (hg : Realizes g p) {w
   apply Multiplicative.toAdd.injective
   rw [decode_code, toAdd_comm hg, toAdd_ofAdd, toAdd_ofAdd]
 
-theorem realizes_injective {g g' : MulAut VM4} {p : Par} (hg : Realizes g p)
-    (hg' : Realizes g' p) : g = g' := by
-  refine MulEquiv.ext fun x => ?_
-  have h1 := hg (Multiplicative.toAdd x)
-  have h2 := hg' (Multiplicative.toAdd x)
-  rw [ofAdd_toAdd] at h1 h2
-  exact Multiplicative.toAdd.injective (h1.trans h2.symm)
 
 instance : Finite (MulAut VM4) :=
   Finite.of_injective (fun e : MulAut VM4 => (e : VM4 → VM4)) fun _ _ h => MulEquiv.ext (congrFun h)
@@ -433,62 +388,6 @@ theorem elat_of {g : MulAut VM4} {p : Par} (hg : Realizes g p) {W : Set VM4}
   rw [e3, e1, e2, beq_self_eq_true, beq_self_eq_true]
   rfl
 
-theorem card_le_count {E : Subgroup (MulAut VM4)}
-    (hE : ∀ g ∈ E, ∃ p ∈ params, Realizes g p) (hel : IsElemAbelian2 E) {W : Set VM4}
-    (h1 : ∀ g ∈ E, ∀ x ∈ W, g x = x) (h2 : ∀ g ∈ E, ∀ x, g x * x⁻¹ ∈ W) :
-    Nat.card E ≤ count (mset W) := by
-  classical
-  have hfin : (E : Set (MulAut VM4)).Finite := Set.toFinite _
-  set EF := hfin.toFinset with hEF
-  have hcard : Nat.card E = EF.card := Nat.card_eq_card_finite_toFinset hfin
-  set P : Par → Bool := fun p => elat (mset W) (dataOf p) with hP
-  set PS := (invPars.filter P).toFinset with hPS
-  have hcount : count (mset W) = (invPars.filter P).length := by
-    unfold count invData
-    rw [List.countP_map, List.countP_eq_length_filter]
-    rfl
-  let f : MulAut VM4 → Par := fun g =>
-    if h : ∃ p ∈ params, Realizes g p then h.choose else ⟨1, 1, false, false⟩
-  have hf : ∀ g ∈ E, f g ∈ params ∧ Realizes g (f g) := by
-    intro g hg
-    have h := hE g hg
-    simp only [f, h, ↓reduceDIte]
-    exact h.choose_spec
-  have hmaps : ∀ g ∈ EF, f g ∈ PS := by
-    intro g hg
-    have hgE : g ∈ E := hfin.mem_toFinset.mp hg
-    obtain ⟨hp, hr⟩ := hf g hgE
-    have h2' : g * g = 1 := by rw [← pow_two]; exact hel.2 g hgE
-    rw [hPS, List.mem_toFinset, List.mem_filter]
-    exact ⟨List.mem_filter.mpr ⟨hp, isInvAct_of_realizes hr h2'⟩,
-      elat_of hr (h1 g hgE) (h2 g hgE)⟩
-  have hinj : Set.InjOn f EF := by
-    intro g hg g' hg' hgg
-    have hgE : g ∈ E := hfin.mem_toFinset.mp hg
-    have hgE' : g' ∈ E := hfin.mem_toFinset.mp hg'
-    have hr := (hf g hgE).2
-    have hr' := (hf g' hgE').2
-    rw [hgg] at hr
-    exact realizes_injective hr hr'
-  rw [hcard, hcount]
-  exact (Finset.card_le_card_of_injOn f hmaps hinj).trans (List.toFinset_card_le _)
-
-theorem mem_invPars {p : Par} (hp : p ∈ params) (h : isInvAct p = true) : p ∈ invPars := by
-  unfold invPars
-  exact List.mem_filter.mpr ⟨hp, h⟩
-
-theorem mem_invData {p : Par} (hp : p ∈ invPars) : dataOf p ∈ invData := by
-  unfold invData
-  exact List.mem_map_of_mem hp
-
-theorem dataOf_fix (p : Par) : (dataOf p).fix = fixM p := by
-  simp only [dataOf]
-
-theorem dataOf_com (p : Par) : (dataOf p).com = comM p := by
-  simp only [dataOf]
-
-theorem dataOf_bas (p : Par) : (dataOf p).bas = basisOf (comM p) := by
-  simp only [dataOf]
 
 theorem testBit_mset' (S : Set VM4) (v : ℕ) :
     (mset S).testBit v = (decide (v < 256) &&
@@ -497,93 +396,6 @@ theorem testBit_mset' (S : Set VM4) (v : ℕ) :
   unfold mset
   rw [testBit_maskOf]
 
-def fixSet (S : Finset (MulAut VM4)) : Set VM4 := {x | ∀ g ∈ S, g x = x}
-
-theorem mset_fixSet_empty : mset (fixSet ∅) = FULL := by
-  classical
-  apply Nat.eq_of_testBit_eq
-  intro v
-  rw [testBit_mset', testBit_FULL]
-  simp [fixSet]
-
-theorem mset_fixSet_insert {g : MulAut VM4} {p : Par} (hg : Realizes g p)
-    (S : Finset (MulAut VM4)) : mset (fixSet (insert g S)) = mset (fixSet S) &&& fixM p := by
-  classical
-  apply Nat.eq_of_testBit_eq
-  intro v
-  rw [Nat.testBit_land, testBit_mset', testBit_mset']
-  unfold fixM
-  rw [testBit_maskOf]
-  by_cases hv : v < 256
-  · have h := act_eq_self_iff hg hv
-    by_cases hgv : g (Multiplicative.ofAdd (decode v)) = Multiplicative.ofAdd (decode v)
-    · have h' : (act p v == v) = true := beq_iff_eq.mpr (h.mpr hgv)
-      simp only [hv, decide_true, Bool.true_and, h', Bool.and_true]
-      congr 1
-      simp only [fixSet, Set.mem_ofPred_eq, Finset.mem_insert, forall_eq_or_imp, hgv, true_and]
-    · have h' : (act p v == v) = false := by
-        rw [beq_eq_false_iff_ne]
-        exact fun h2 => hgv (h.mp h2)
-      simp only [hv, decide_true, Bool.true_and, h', Bool.and_false]
-      simp only [fixSet, Set.mem_ofPred_eq, Finset.mem_insert, forall_eq_or_imp, hgv, false_and,
-        decide_false]
-  · simp [hv]
-
-theorem fixSet_eq_fixV {E : Subgroup (MulAut VM4)} {S : Finset (MulAut VM4)}
-    (hS : ∀ g, g ∈ S ↔ g ∈ E) : fixSet S = (fixV E : Set VM4) := by
-  ext x
-  simp only [fixSet, Set.mem_ofPred_eq, SetLike.mem_coe, mem_fixV, hS]
-
-theorem mset_fixV_mem (hcap : capOK = true) {E : Subgroup (MulAut VM4)}
-    (hE : ∀ g ∈ E, ∃ p ∈ params, Realizes g p) (hel : IsElemAbelian2 E) :
-    mset (fixV E : Set VM4) ∈ capL := by
-  classical
-  unfold capOK at hcap
-  simp only [Bool.and_eq_true, List.all_eq_true] at hcap
-  obtain ⟨⟨h0, hcl⟩, -⟩ := hcap
-  have hfin : (E : Set (MulAut VM4)).Finite := Set.toFinite _
-  have key : ∀ S : Finset (MulAut VM4), (∀ g ∈ S, g ∈ E) → mset (fixSet S) ∈ capL := by
-    intro S
-    induction S using Finset.induction_on with
-    | empty =>
-      intro _
-      rw [mset_fixSet_empty]
-      exact mem_capL_of_memS h0
-    | insert g S hgS ih =>
-      intro hS
-      have hgE : g ∈ E := hS g (Finset.mem_insert_self g S)
-      have ih' := ih fun g' hg' => hS g' (Finset.mem_insert_of_mem hg')
-      obtain ⟨p, hp, hr⟩ := hE g hgE
-      have h2 : g * g = 1 := by rw [← pow_two]; exact hel.2 g hgE
-      have hpi : p ∈ invPars := mem_invPars hp (isInvAct_of_realizes hr h2)
-      have hd : dataOf p ∈ invData := mem_invData hpi
-      have h3 := hcl _ ih' _ hd
-      rw [dataOf_fix] at h3
-      rw [mset_fixSet_insert hr]
-      exact mem_capL_of_memS h3
-  have := key hfin.toFinset fun g hg => hfin.mem_toFinset.mp hg
-  rwa [fixSet_eq_fixV fun g => hfin.mem_toFinset] at this
-
-theorem card_pow_four_le (hchk : qCheck = true) {E : Subgroup (MulAut VM4)}
-    (hE : ∀ g ∈ E, ∃ p ∈ params, Realizes g p) (hel : IsElemAbelian2 E) (hq : IsQuadratic E) :
-    Nat.card E ^ 4 * Nat.card (fixV E) ^ 3 ≤ 2 ^ 24 := by
-  classical
-  have hcap : capOK = true := by
-    unfold qCheck at hchk
-    simp only [Bool.and_eq_true] at hchk
-    exact hchk.1.1
-  have hW := mset_fixV_mem hcap hE hel
-  unfold capOK at hcap
-  simp only [Bool.and_eq_true, List.all_eq_true, decide_eq_true_eq] at hcap
-  have hbd := hcap.2 _ hW
-  have hc := card_le_count hE hel (W := (fixV E : Set VM4))
-    (fun g hg x hx => (mem_fixV.mp hx) g hg)
-    (fun g hg x => hq (Subgroup.subset_closure ⟨g, hg, x, rfl⟩))
-  rw [popcount_mset] at hbd
-  calc Nat.card E ^ 4 * Nat.card (fixV E) ^ 3
-      ≤ count (mset (fixV E : Set VM4)) ^ 4 * Nat.card (fixV E : Set VM4) ^ 3 :=
-        Nat.mul_le_mul_right _ (Nat.pow_le_pow_left hc 4)
-    _ ≤ 2 ^ 24 := hbd
 
 theorem decode_zero : decode 0 = 0 := by
   ext i j
@@ -674,177 +486,5 @@ theorem sumOne_mset (U : Subgroup VM4) {b : ℕ} (hb : b < 256) :
     · simp [h1]
   · simp [hv]
 
-def spanOf (bs : List ℕ) : Subgroup VM4 :=
-  Subgroup.closure {y | ∃ b ∈ bs, Multiplicative.ofAdd (decode b) = y}
-
-theorem foldl_sumOne_mset (bs : List ℕ) (hbs : ∀ b ∈ bs, b < 256) (U : Subgroup VM4) :
-    bs.foldl sumOne (mset (U : Set VM4)) = mset ((U ⊔ spanOf bs : Subgroup VM4) : Set VM4) := by
-  induction bs generalizing U with
-  | nil =>
-    have : spanOf [] = ⊥ := by
-      unfold spanOf
-      simp
-    simp [this]
-  | cons b bs ih =>
-    rw [List.foldl_cons, sumOne_mset U (hbs b (List.mem_cons_self ..)),
-      ih (fun b' hb' => hbs b' (List.mem_cons_of_mem _ hb'))]
-    congr 2
-    have e : spanOf (b :: bs) = Subgroup.closure {Multiplicative.ofAdd (decode b)} ⊔ spanOf bs := by
-      unfold spanOf
-      rw [← Subgroup.closure_union]
-      congr 1
-      ext y
-      simp [eq_comm]
-    rw [e, sup_assoc]
-
-theorem basisOf_lt (m : ℕ) : ∀ b ∈ basisOf m, b < 256 := by
-  unfold basisOf
-  have key : ∀ (l : List ℕ) (acc : List ℕ × ℕ), (∀ b ∈ acc.1, b < 256) → (∀ v ∈ l, v < 256) →
-      ∀ b ∈ (l.foldl (fun (acc : List ℕ × ℕ) v =>
-        if m.testBit v && !acc.2.testBit v then (v :: acc.1, sumOne acc.2 v) else acc) acc).1,
-        b < 256 := by
-    intro l
-    induction l with
-    | nil => intro acc h _; exact h
-    | cons v l ih =>
-      intro acc h hl
-      rw [List.foldl_cons]
-      apply ih _ _ (fun v' hv' => hl v' (List.mem_cons_of_mem _ hv'))
-      split_ifs
-      · intro b hb
-        rcases List.mem_cons.mp hb with rfl | hb
-        · exact hl b (List.mem_cons_self ..)
-        · exact h b hb
-      · exact h
-  exact key _ _ (by simp) (fun v hv => List.mem_range.mp hv)
-
-def cmSet (S : Finset (MulAut VM4)) : Subgroup VM4 :=
-  Subgroup.closure {y | ∃ g ∈ S, ∃ x, g x * x⁻¹ = y}
-
-theorem cmSet_insert (g : MulAut VM4) (S : Finset (MulAut VM4)) :
-    cmSet (insert g S) = cmSet S ⊔ Subgroup.closure {y | ∃ x, g x * x⁻¹ = y} := by
-  unfold cmSet
-  rw [← Subgroup.closure_union]
-  congr 1
-  ext y
-  simp only [Finset.mem_insert, Set.mem_ofPred_eq, Set.mem_union]
-  constructor
-  · rintro ⟨g', hg' | hg', x, rfl⟩
-    · subst hg'; exact Or.inr ⟨x, rfl⟩
-    · exact Or.inl ⟨g', hg', x, rfl⟩
-  · rintro (⟨g', hg', x, rfl⟩ | ⟨x, rfl⟩)
-    · exact ⟨g', Or.inr hg', x, rfl⟩
-    · exact ⟨g, Or.inl rfl, x, rfl⟩
-
-theorem closure_comm_eq_spanOf (hbas : basOK = true) {g : MulAut VM4} {p : Par}
-    (hg : Realizes g p) (hp : p ∈ invPars) :
-    Subgroup.closure {y | ∃ x, g x * x⁻¹ = y} = spanOf (basisOf (comM p)) := by
-  classical
-  let Cg : Subgroup VM4 :=
-    { carrier := {y | ∃ x, g x * x⁻¹ = y}
-      one_mem' := ⟨1, by simp⟩
-      mul_mem' := by
-        rintro _ _ ⟨a, rfl⟩ ⟨b, rfl⟩
-        refine ⟨a * b, ?_⟩
-        rw [map_mul, inv_vm4, inv_vm4, inv_vm4]
-        rw [mul_mul_mul_comm]
-      inv_mem' := by
-        rintro _ ⟨a, rfl⟩
-        exact ⟨a, by rw [inv_vm4 (g a * a⁻¹)]⟩ }
-  have hCg : Subgroup.closure {y | ∃ x, g x * x⁻¹ = y} = Cg :=
-    le_antisymm ((Subgroup.closure_le Cg).mpr fun y hy => hy) Subgroup.subset_closure
-  rw [hCg]
-  unfold basOK at hbas
-  rw [List.all_eq_true] at hbas
-  have h1 := hbas _ (mem_invData hp)
-  rw [dataOf_bas, dataOf_com, beq_iff_eq] at h1
-  have h2 := foldl_sumOne_mset (basisOf (comM p)) (basisOf_lt _) ⊥
-  rw [mset_bot, bot_sup_eq] at h2
-  rw [h1] at h2
-  have h3 : comM p = mset (Cg : Set VM4) := by
-    apply Nat.eq_of_testBit_eq
-    intro w
-    apply Bool.eq_iff_iff.mpr
-    rw [testBit_mset]
-    constructor
-    · intro hw
-      obtain ⟨hw1, x, hx⟩ := exists_of_testBit_comM hg hw
-      exact ⟨hw1, ⟨x, hx.symm⟩⟩
-    · rintro ⟨hw1, x, hx⟩
-      have := testBit_comM_of hg x
-      rwa [hx, toAdd_ofAdd, code_decode hw1] at this
-  exact SetLike.coe_injective (mset_injective (h3.symm.trans h2))
-
-theorem cmSet_empty : cmSet ∅ = ⊥ := by
-  unfold cmSet
-  simp
-
-theorem cmSet_eq_commV {E : Subgroup (MulAut VM4)} {S : Finset (MulAut VM4)}
-    (hS : ∀ g, g ∈ S ↔ g ∈ E) : cmSet S = commV E := by
-  unfold cmSet commV
-  congr 1
-  ext y
-  simp only [Set.mem_ofPred_eq, hS]
-
-theorem mset_commV_mem (hplus : plusOK = true) (hbas : basOK = true)
-    {E : Subgroup (MulAut VM4)} (hE : ∀ g ∈ E, ∃ p ∈ params, Realizes g p)
-    (hel : IsElemAbelian2 E) : mset (commV E : Set VM4) ∈ plusL := by
-  classical
-  unfold plusOK at hplus
-  simp only [Bool.and_eq_true, List.all_eq_true] at hplus
-  obtain ⟨⟨h0, hcl⟩, -⟩ := hplus
-  have hfin : (E : Set (MulAut VM4)).Finite := Set.toFinite _
-  have key : ∀ S : Finset (MulAut VM4), (∀ g ∈ S, g ∈ E) → mset (cmSet S : Set VM4) ∈ plusL := by
-    intro S
-    induction S using Finset.induction_on with
-    | empty =>
-      intro _
-      rw [cmSet_empty, mset_bot]
-      exact mem_plusL_of_memS h0
-    | insert g S hgS ih =>
-      intro hS
-      have hgE : g ∈ E := hS g (Finset.mem_insert_self g S)
-      have ih' := ih fun g' hg' => hS g' (Finset.mem_insert_of_mem hg')
-      obtain ⟨p, hp, hr⟩ := hE g hgE
-      have h2 : g * g = 1 := by rw [← pow_two]; exact hel.2 g hgE
-      have hpi : p ∈ invPars := mem_invPars hp (isInvAct_of_realizes hr h2)
-      have hd : dataOf p ∈ invData := mem_invData hpi
-      have h3 := hcl _ ih' _ hd
-      rw [dataOf_bas, foldl_sumOne_mset _ (basisOf_lt _)] at h3
-      rw [cmSet_insert, closure_comm_eq_spanOf hbas hr hpi]
-      exact mem_plusL_of_memS h3
-  have := key hfin.toFinset fun g hg => hfin.mem_toFinset.mp hg
-  rwa [cmSet_eq_commV fun g => hfin.mem_toFinset] at this
-
-theorem card_lt_card_commV (hchk : qCheck = true) {E : Subgroup (MulAut VM4)}
-    (hE : ∀ g ∈ E, ∃ p ∈ params, Realizes g p) (hel : IsElemAbelian2 E) (hq : IsQuadratic E)
-    (hne : E ≠ ⊥) : Nat.card E < Nat.card (commV E) := by
-  classical
-  unfold qCheck at hchk
-  simp only [Bool.and_eq_true] at hchk
-  obtain ⟨⟨-, hplus⟩, hbas⟩ := hchk
-  have hU := mset_commV_mem hplus hbas hE hel
-  unfold plusOK at hplus
-  simp only [Bool.and_eq_true, List.all_eq_true] at hplus
-  have hbd := hplus.2 _ hU
-  have hc := card_le_count hE hel (W := (commV E : Set VM4))
-    (fun g hg x hx => (mem_fixV.mp (hq hx)) g hg)
-    (fun g hg x => Subgroup.subset_closure ⟨g, hg, x, rfl⟩)
-  by_cases h1 : mset (commV E : Set VM4) = 1
-  · exfalso
-    apply hne
-    have hU0 : commV E = ⊥ := by
-      rw [← mset_bot] at h1
-      exact SetLike.coe_injective (mset_injective h1)
-    rw [eq_bot_iff]
-    intro g hg
-    rw [Subgroup.mem_bot]
-    refine MulEquiv.ext fun x => ?_
-    have hx : g x * x⁻¹ ∈ commV E := Subgroup.subset_closure ⟨g, hg, x, rfl⟩
-    rw [hU0, Subgroup.mem_bot, mul_inv_eq_one] at hx
-    exact hx
-  · have h1' : (mset (commV E : Set VM4) == 1) = false := beq_eq_false_iff_ne.mpr h1
-    rw [h1', Bool.false_or, decide_eq_true_eq, popcount_mset] at hbd
-    exact lt_of_le_of_lt hc hbd
 
 end CFSG.Quasithin.H13.Ch9.L34Q

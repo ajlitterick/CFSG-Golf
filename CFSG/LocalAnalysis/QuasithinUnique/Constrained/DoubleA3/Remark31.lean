@@ -418,9 +418,6 @@ theorem A3A3x.L_le_cent₂ : L ≤ centralizerElem z₂ := fun l hl =>
   Subgroup.mem_centralizer_singleton_iff.mpr
     (hA.comm_elem l hl z₂ (hA.isA4s.le hA.z₂_mem.1))
 
-theorem A3A3x.Ls_le_cent₁ : conjR L s ≤ centralizerElem z₁ := fun l hl =>
-  Subgroup.mem_centralizer_singleton_iff.mpr
-    (hA.comm_elem z₁ (hA.isA4.le hA.z₁_mem.1) l hl).symm
 
 theorem A3A3x.not_Ls_le : ¬ conjR L s ≤ M := by
   intro h
@@ -448,19 +445,5 @@ theorem remark31_G₂ (hD : AppC.C56DoubleA3) (h27_1 : Lemma2_4_27_1A3)
   exact isGamma2_centralizer hcs hB hA.z₂_ne hA.sq₂ hpair hA.L_le_cent₂ hA.baum_le_cent₂
     hA.sOne_le_T hA.baum_lt_sOne hA.sOne_le_cent₂
 
-theorem remark31_G₁ (hD : AppC.C56DoubleA3) (h27_1 : Lemma2_4_27_1A3)
-    (hA : A3A3x T M H S L s x z₁ z₂) :
-    IsGamma2 M (centralizerElem z₁) ∧ IsSylowTwoOf (sOne S x) (centralizerElem z₁) ∧
-      IsSylowTwoOf (sOne S x) (centralizerElem z₁ ⊓ M) := by
-  have hcs := hA.cs
-  have hB := basic31 hD h27_1 hA.toA3A3
-  obtain ⟨w₁, w₂, -, -, -, -, -, R2⟩ := rank1_blocks hD hA.toA3A3
-  obtain ⟨hBL, -⟩ := (C56.baumann_A3_cs hcs hA.a3).2
-  have hsB : s ∈ normalizer (baum S : Set G) := mem_normalizer_baum hA.s_mem
-  have hBLs : baum S ≤ normalizer (conjR L s : Set G) := C5.le_normalizer_conj hsB hBL
-  have hβ := (isConfining_baum hcs hB).2
-  have hpair := isWitnessPair_baum_sup hβ (isPGroup_baum hcs) hA.isA4s R2 hBLs hA.not_Ls_le
-  exact isGamma2_centralizer hcs hB hA.z₁_ne hA.sq₁ hpair hA.Ls_le_cent₁ hA.baum_le_cent₁
-    hA.sOne_le_T hA.baum_lt_sOne hA.sOne_le_cent₁
 
 end CFSG.QuasithinUnique.DoubleA3

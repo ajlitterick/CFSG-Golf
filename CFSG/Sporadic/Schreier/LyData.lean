@@ -12,7 +12,6 @@ open CFSG.Sporadic.Ly CFSG.Sporadic.LySchreier.Native CFSG.Sporadic.He.Native Ma
 
 @[expose] def seedFam [LySeed] (k : ℕ) : J := if k = 0 then a else b
 
-abbrev LyG [LySeed] : Type := J
 
 @[expose] def lyz [LySeed] : J := a
 
@@ -69,31 +68,10 @@ theorem sylowList_def [LySeed] :
 
 @[expose] def lyE : Matrix (Fin 111) (Fin 111) (ZMod 5) := lyU * lySmall * lyUᵀ * lyF
 
-abbrev lyNpts : ℕ := 8835156
-
-@[expose, irreducible] def lyOps : List (Matrix (Fin 111) (Fin 111) (ZMod 5)) :=
-  bfsList [fun M => mA * M * mA, fun M => mB * M * mB ^ 4] lyE lyNpts
-
-theorem lyOps_def :
-    lyOps = bfsList [fun M => mA * M * mA, fun M => mB * M * mB ^ 4] lyE lyNpts := by
-  unfold lyOps; rfl
-
-@[expose] def lyOp (i : ℕ) : Matrix (Fin 111) (Fin 111) (ZMod 5) := lyOps.getD i 0
 
 @[expose] def restr7 [LySeed] (g : J) : Matrix (Fin 7) (Fin 7) (ZMod 5) :=
   Matrix.of fun r c => (mat g * lyU) ⟨r.val, by omega⟩ c
 
-@[expose] def hGen7 [LySeed]
-    (j : ℕ) : Matrix (Fin 7) (Fin 7) (ZMod 5) := restr7 (aStar (j + 2))
-
-@[expose] def dagStep [LySeed]
-    (vals : List (Matrix (Fin 7) (Fin 7) (ZMod 5))) (e : ℕ × ℕ × ℕ) :
-    Matrix (Fin 7) (Fin 7) (ZMod 5) :=
-  if e.1 = 0 then hGen7 e.2.1 else if e.1 = 1 then (vals.getD e.2.1 1)⁻¹
-    else vals.getD e.2.1 1 * vals.getD e.2.2 1
-
-@[expose] def dagVals [LySeed] : List (Matrix (Fin 7) (Fin 7) (ZMod 5)) :=
-  hDag.toList.foldl (fun vals e => vals ++ [dagStep vals e]) []
 
 @[expose] def lyt [LySeed] : J := lyv⁻¹ * lyz * lyv
 

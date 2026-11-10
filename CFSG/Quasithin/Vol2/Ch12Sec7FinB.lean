@@ -37,12 +37,6 @@ theorem nonabelian_of_isPSL {X : Type} [Group X] (h : IsPSL 2 2 2 X) :
   rw [h60] at hp
   exact absurd hp (by norm_num)
 
-theorem not_isSolvable_of_simple {X : Type} [Group X] (hs : IsSimpleGroup X)
-    (hnc : ∃ a b : X, a * b ≠ b * a) : ¬ Group.IsSolvable X := by
-  intro hsol
-  obtain ⟨a, b, hab⟩ := hnc
-  have hc := IsSimpleGroup.comm_iff_isSolvable.2 hsol
-  exact hab (hc a b)
 
 variable [Finite Y]
 

@@ -48,10 +48,6 @@ theorem eq_mk6 {c : Nat} (hc : c < 4096) :
   norm_num
   omega
 
-theorem co_eq_of_lt {i : Nat} (hi : i < 6) {c : Nat} :
-    co c i = if i = 0 then co c 0 else if i = 1 then co c 1 else if i = 2 then co c 2
-      else if i = 3 then co c 3 else if i = 4 then co c 4 else co c 5 := by
-  interval_cases i <;> rfl
 
 theorem fi22F4_mod (a : Nat) : fi22F4 (a % 4) = fi22F4 a := by
   simp [fi22F4, Nat.mod_mod]

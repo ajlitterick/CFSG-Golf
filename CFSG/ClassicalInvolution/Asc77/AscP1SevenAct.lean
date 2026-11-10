@@ -116,16 +116,6 @@ theorem not_comm_of_not_mem_omegaNbr (h62 : L6_2 p f) (hp : p ≠ 2) (hq : 5 ≤
       _ = piG W t := by rw [h1, one_mul, hbi]
   exact hKJ (eq_of_piG_eq h62 hp hq hΩ hW hK hJ hR hT hRK hTJ hr ht htW this)
 
-theorem mem_omegaNbr_of_comm (h62 : L6_2 p f) (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmegaMod p f Ω) (hW : W ∈ WSet Ω)
-    (hkey : ∀ R ∈ DSet Ω W, ∀ T ∈ DSet Ω W, ∀ J ∈ Ω, R ≤ J → T ≤ J → T ≤ R ⊔ W ⊔ OCW W)
-    {K J R T : Subgroup G} (hAK : AEmpty Ω K) (hK : K ∈ Ω) (hJ : J ∈ Ω) (hKJ : K ≠ J)
-    (hR : R ∈ DSet Ω W) (hT : T ∈ DSet Ω W) (hRK : IsSylow2In R K) (hTJ : IsSylow2In T J)
-    {r t : G} (hr : r ∈ R) (ht : t ∈ T) (hrW : r ∉ W) (htW : t ∉ W)
-    (hcomm : piG W r * piG W t = piG W t * piG W r) : J ∈ omegaNbr Ω K := by
-  by_contra hnot
-  exact not_comm_of_not_mem_omegaNbr h62 hp hq hΩ hW hkey hAK hK hJ hKJ hR hT hRK hTJ hnot hr ht
-    hrW htW hcomm
 
 end Thompson
 

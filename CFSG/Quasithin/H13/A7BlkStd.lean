@@ -58,9 +58,6 @@ variable {G : Type} [Group G] {K : Subgroup G}
         (permWeight 7 π (Multiplicative.toAdd (D.β u)))
     rw [h, ← permWeight_mul, ← permWeight_mul, inv_mul_cancel_right]
 
-theorem AltData.conj_α (D : AltData K) (π : alternatingGroup (Fin 7)) (k : ↥K) :
-    ((D.conj π).α k : Perm (Fin 7)) =
-      (π : Perm (Fin 7)) * (D.α k : Perm (Fin 7)) * (π : Perm (Fin 7))⁻¹ := rfl
 
 theorem card_alternatingGroup_pstd :
     Nat.card ↥(pstd.subgroupOf (alternatingGroup (Fin 7))) = 8 := by

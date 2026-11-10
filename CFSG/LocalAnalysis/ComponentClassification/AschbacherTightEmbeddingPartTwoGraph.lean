@@ -53,25 +53,6 @@ theorem involution_mem_conjugateQInvolutions (Q : Subgroup G)
 
 variable [Finite G]
 
-theorem conjugates_eq_of_common_involution (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (a b x : G)
-    (hxa : x ∈ rightConjugate Q a) (hxb : x ∈ rightConjugate Q b)
-    (hx : orderOf x = 2) :
-    rightConjugate Q a = rightConjugate Q b := by
-  let z := (MulAut.conj a) x
-  have hzQ : z ∈ Q := (mem_rightConjugate_iff Q a x).mp hxa
-  have hz : orderOf z = 2 := ((MulAut.conj a).orderOf_eq x).trans hx
-  have hconjQ : (a * b⁻¹)⁻¹ * z * (a * b⁻¹) ∈ Q := by
-    have heq : (a * b⁻¹)⁻¹ * z * (a * b⁻¹) = b * x * b⁻¹ := by
-      dsimp only [z, MulAut.conj_apply]
-      group
-    rw [heq]
-    exact (mem_rightConjugate_iff Q b x).mp hxb
-  have hab : a * b⁻¹ ∈ Subgroup.normalizer (Q : Set G) :=
-    (involution_conjugate_mem_Q_iff Q hodd z hzQ hz (a * b⁻¹)).mp hconjQ
-  have heq := (rightConjugate_eq_self_iff Q (a * b⁻¹)).mpr hab
-  have hmap := congrArg (fun R : Subgroup G => rightConjugate R b) heq
-  simpa only [rightConjugate_mul, inv_mul_cancel_right] using hmap
 
 theorem conjugates_eq_of_commuting_involutions (Q : Subgroup G)
     (hodd : OddNormalizerOverlaps Q) (a b x y : G)

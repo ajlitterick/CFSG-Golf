@@ -505,12 +505,6 @@ theorem hasInvPair_of_lat (C : LatCtx Γ n Lab) (hS : IsSylowTwoOf C.S ⊤) {L :
   hasInvPair_of_list hS (lat_all C hL) (fun j hj => C.S_le_Y j) (lat_card C hL)
     (by rw [C.hΓ, hN]) hok
 
-theorem hasInvPair_of_lat_meet (C : LatCtx Γ n Lab) (hS : IsSylowTwoOf C.S ⊤) {L : Array ℕ}
-    {N : ℕ} (hL : C.D.Om.map (fun o => o.lbl.size) = L) (hN : C.D.O.lbl.size = N)
-    {a c d m : ℕ} (hok : LatMeetOK L N a c d) (hmc : C.Y m ≤ C.Y c) (hmd : C.Y m ≤ C.Y d)
-    (hma : ¬ C.Y m ≤ C.Y a) : HasInvPair Γ :=
-  hasInvPair_of_list_meet hS (lat_all C hL) (fun j hj => C.S_le_Y j) (lat_card C hL)
-    (by rw [C.hΓ, hN]) hok hmc hmd hma
 
 end Ctx
 

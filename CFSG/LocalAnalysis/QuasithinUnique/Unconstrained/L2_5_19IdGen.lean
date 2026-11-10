@@ -534,22 +534,6 @@ theorem le_perfectResidualOf {P X : Subgroup G} (hP : ⁅P, P⁆ = P) (hPX : P �
   calc P = Q.map X.subtype := hQmap.symm
     _ ≤ (perfectResidual ↥X).map X.subtype := Subgroup.map_mono hle
 
-open CFSG.RankThreeCoreUniqueness.Helpers in
-theorem perfectResidualOf_conjugate (X : Subgroup G) (g : G) :
-    perfectResidualOf (CFSG.conjugate X g) = CFSG.conjugate (perfectResidualOf X) g := by
-  apply le_antisymm
-  · have hperf : ⁅CFSG.conjugate (perfectResidualOf (CFSG.conjugate X g)) g⁻¹,
-        CFSG.conjugate (perfectResidualOf (CFSG.conjugate X g)) g⁻¹⁆ =
-        CFSG.conjugate (perfectResidualOf (CFSG.conjugate X g)) g⁻¹ := by
-      rw [conjugate_commutator, perfectResidualOf_perfect]
-    have hle : CFSG.conjugate (perfectResidualOf (CFSG.conjugate X g)) g⁻¹ ≤ X := by
-      have := BenderBranch.conjugate_mono (perfectResidualOf_le (CFSG.conjugate X g)) g⁻¹
-      rwa [BenderBranch.conjugate_conjugate, mul_inv_cancel, BenderBranch.conjugate_one] at this
-    have hQ := le_perfectResidualOf hperf hle
-    have := BenderBranch.conjugate_mono hQ g
-    rwa [BenderBranch.conjugate_conjugate, inv_mul_cancel, BenderBranch.conjugate_one] at this
-  · refine le_perfectResidualOf ?_ (BenderBranch.conjugate_mono (perfectResidualOf_le X) g)
-    rw [conjugate_commutator, perfectResidualOf_perfect]
 
 end PerfectResidual
 

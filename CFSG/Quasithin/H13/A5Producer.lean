@@ -22,7 +22,6 @@ open scoped Pointwise
     have key : ∀ a : Equiv.Perm (Fin 5), InD a → InD a⁻¹ := by decide +kernel
     exact key a ha)
 
-theorem mem_Dsub {σ : Equiv.Perm (Fin 5)} : σ ∈ Dsub ↔ InD σ := Iff.rfl
 
 theorem card_Dsub : Nat.card Dsub = 8 := by
   have : Fintype.card {σ : Equiv.Perm (Fin 5) // InD σ} = 8 := by decide +kernel

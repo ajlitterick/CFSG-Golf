@@ -50,25 +50,11 @@ theorem ggTorusRootGen_of_mulEquiv {p r : ℕ} {R R' : Type} [Group R] [Group R'
     obtain ⟨φ, hφ, hφa⟩ := hAI a ha
     exact ⟨MulAut.congr e φ, hI φ hφ, fun l => by simp [MulAut.congr_apply, hφa]⟩
 
-@[expose] def GGRootGenLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  2 ≤ lab.n ∧ p ∣ 4 ^ lab.n - 1
-
-@[expose] def GGRootGenNbrLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  GGLabNbrOk p lab ∧ p ∣ 4 ^ lab.n - 1
-
-@[expose] def GGRootGenResLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  p = 3 ∧ (lab.tag = .twE6 ∨ (lab.tag = .E6 ∧ 3 ∣ 2 ^ lab.n + 1))
 
 @[expose] def GGRootGenKGOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
   ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → p ≠ 2 → LargeEvenInLambda2 lab → S p lab →
     LargeEvenLabelAll lab fun R _ I _ => ∃ r, GGTorusLift p r R ∧ GGTorusRootGen p r R I
 
-@[expose] def GGRootGenSplitLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  p ∣ 2 ^ lab.n - 1 ∧ lab.tag ≠ .A ∧ ¬ (lab.tag = .D ∧ lab.rank = 3) ∧
-    ¬ (lab.tag = .twD ∧ lab.rank = 2) ∧ ¬ GGRootGenResLabel p lab
-
-@[expose] def GGRootGenUnitaryLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  p ∣ 2 ^ lab.n + 1 ∧ 2 ≤ lab.n ∧ (lab.tag = .twA ∨ (lab.tag = .twD ∧ lab.rank = 3))
 
 @[expose] def GGRootGenSympLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   p ∣ 2 ^ lab.n + 1 ∧ 2 ≤ lab.n ∧ (lab.tag = .B ∨ lab.tag = .C)
@@ -79,16 +65,10 @@ theorem ggTorusRootGen_of_mulEquiv {p r : ℕ} {R R' : Type} [Group R] [Group R'
 @[expose] def GGRootGenLinPhiTwoLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   p ∣ 2 ^ lab.n + 1 ∧ 2 ≤ lab.n ∧ (lab.tag = .A ∨ (lab.tag = .D ∧ lab.rank = 3))
 
-@[expose] def GGRootGenExcPhiTwoLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  p ∣ 2 ^ lab.n + 1 ∧ 2 ≤ lab.n ∧
-    (lab.tag = .E6 ∨ lab.tag = .E7 ∨ lab.tag = .E8 ∨ lab.tag = .F4 ∨ lab.tag = .twE6 ∨
-      lab.tag = .triD4 ∨ lab.tag = .G2 ∨ lab.tag = .twB2 ∨ lab.tag = .twF4) ∧
-    ¬ GGRootGenResLabel p lab
 
 @[expose] def GGRootGenRowNineLabel (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   lab.tag = .A ∧ lab.n = 1 ∧ p = 3 ∧ 5 ≤ lab.rank
 
-@[expose] def GGRootGenKGSplitInput : Prop := GGRootGenKGOn GGRootGenSplitLabel
 
 @[expose] def GGRootGenLInputOn (S : ℕ → LargeEvenLabel → Prop) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),

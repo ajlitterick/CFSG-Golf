@@ -16,9 +16,6 @@ variable {G : Type*} [Group G]
     (hEL : E ≤ Subgroup.normalizer (L : Set G)) : E →* MulAut L :=
   L.normalizerMonoidHom.comp (Subgroup.inclusion hEL)
 
-theorem hullConjugationHom_apply (L E : Subgroup G)
-    (hEL : E ≤ Subgroup.normalizer (L : Set G)) (e : E) (l : L) :
-    (hullConjugationHom L E hEL e l : G) = e * l * (e : G)⁻¹ := rfl
 
 theorem hullConjugationHom_ker (L E : Subgroup G)
     (hEL : E ≤ Subgroup.normalizer (L : Set G)) :

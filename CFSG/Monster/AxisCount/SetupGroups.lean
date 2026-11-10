@@ -24,20 +24,6 @@ open CFSG.Monster.B.TwoA (hE0 e0Cls)
 
 theorem wFrame_eq_zB : wFrame = zB := rhoEquiv_wQ
 
-theorem wFrame_eq_xmatTau2 : wFrame = xmatTau2 := by
-  rw [wFrame_eq_zB, xmatTau2_eq]
-
-theorem wFrame_eq_conj : wFrame = tauB⁻¹ * xB * tauB := by
-  have h := conj_tauB_zB
-  rw [wFrame_eq_zB]
-  calc zB = tauB⁻¹ * (tauB * zB * tauB⁻¹) * tauB := by group
-    _ = tauB⁻¹ * xB * tauB := by rw [h]
-
-theorem wFrame_mem_Gvis : wFrame ∈ Gvis := rhoEquiv_mem_Gvis wQ
-
-theorem wFrame_mul_self : wFrame * wFrame = 1 := by
-  rw [wFrame_eq_zB]
-  exact zB_mul_self
 
 theorem mem_Nfr'_iff {g : SpaceB ≃ₗ[ℚ] SpaceB} :
     g ∈ Nfr' ↔ g ∈ Gvis ∧ g * wFrame * g⁻¹ = wFrame := by
@@ -116,7 +102,6 @@ theorem rhoEquiv_mem_Nfr (r : Q) : rhoEquiv r ∈ Nfr := by
   rw [modTwoEnd_one]
   rfl
 
-theorem hE0_eq_hCocode : hE0 = hCocode e0Cls := rfl
 
 theorem hE0_mem_Gvis : hE0 ∈ Gvis := rhoEquiv_mem_Gvis _
 
@@ -201,7 +186,6 @@ private theorem inv_conj_eq_of_conj_eq' {G : Type*} [Group G] {c a b : G} (h : c
 
 theorem tauB_inv_conj_yB : tauB⁻¹ * yB * tauB = xB := inv_conj_eq_of_conj_eq' conj_tauB_xB
 
-theorem tauB_inv_conj_zB : tauB⁻¹ * zB * tauB = yB := inv_conj_eq_of_conj_eq' conj_tauB_yB
 
 theorem tauB_inv_conj_xB : tauB⁻¹ * xB * tauB = zB := inv_conj_eq_of_conj_eq' conj_tauB_zB
 
@@ -231,28 +215,6 @@ theorem mem_Nfr'_iff_commute {n : SpaceB ≃ₗ[ℚ] SpaceB} :
     refine mem_Nfr'_iff.2 ⟨hG', ?_⟩
     rw [wFrame_eq_zB, hz, mul_inv_cancel_right]
 
-theorem Nfr'_eq_Gmat_inf_centralizer_Vmat :
-    Nfr' = Gmat ⊓ Subgroup.centralizer (Vmat : Set (SpaceB ≃ₗ[ℚ] SpaceB)) := by
-  ext n
-  rw [Subgroup.mem_inf, Subgroup.mem_centralizer_iff]
-  constructor
-  · intro hn
-    obtain ⟨hx, hy, hz⟩ := commute_of_mem_Nfr' hn
-    refine ⟨Hmat_le_Gmat (mem_Nfr'_iff.1 hn).1, fun v hv => ?_⟩
-    rcases mem_Vmat.1 hv with rfl | rfl | rfl | rfl
-    · rw [one_mul, mul_one]
-    · rw [xmat_eq_xB]
-      exact hx.symm
-    · rw [xmatTau_eq]
-      exact hy.symm
-    · rw [xmatTau2_eq]
-      exact hz.symm
-  · rintro ⟨hG, hc⟩
-    have hx := hc xmat (mem_Vmat.2 (.inr (.inl rfl)))
-    have hz := hc xmatTau2 (mem_Vmat.2 (.inr (.inr (.inr rfl))))
-    rw [xmat_eq_xB] at hx
-    rw [xmatTau2_eq] at hz
-    exact mem_Nfr'_iff_commute.2 ⟨hG, hx.symm, hz.symm⟩
 
 theorem tauB_conj_mem_Nfr' {n : SpaceB ≃ₗ[ℚ] SpaceB} (hn : n ∈ Nfr') :
     tauB * n * tauB⁻¹ ∈ Nfr' := by

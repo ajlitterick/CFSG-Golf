@@ -27,12 +27,6 @@ namespace FrameData
 
 end FrameData
 
-theorem mul_self_of_commute {x y : G} (hx : x * x = 1) (hy : y * y = 1) (h : x * y = y * x) :
-    x * y * (x * y) = 1 := by
-  calc x * y * (x * y) = x * (y * x) * y := by group
-    _ = x * (x * y) * y := by rw [← h]
-    _ = (x * x) * (y * y) := by group
-    _ = 1 := by rw [hx, hy, one_mul]
 
 theorem centralizer_le_normalizer_alpha_of_frattini [IsSimpleGroup G]
     (hs : Std8 p f Ω K J S R T W z t) (F : FrameData Ω W K J z t)

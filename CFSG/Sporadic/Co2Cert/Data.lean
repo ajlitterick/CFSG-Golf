@@ -41,9 +41,6 @@ open CFSG.Monster.B.Mathieu
       stabilizerOrbits := ← j.getObjValAs? (List (List ℕ)) "stabilizer_orbits"
       merges := ms }
 
-@[expose] def co2CertKeys : Except String (List String) := do
-  let o ← (← Json.parse co2CertText).getObj?
-  pure (o.toArray.map (·.1)).toList
 
 @[expose] def co2CertFile : Except String Co2CertFile := do
   Co2CertFile.ofJson (← Json.parse co2CertText)

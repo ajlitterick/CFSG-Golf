@@ -23,64 +23,6 @@ end Defs
 
 section Unsat
 
-noncomputable def invHom {W : Type} [CommGroup W] (τ : MulAut W) (h : τ * τ = 1) :
-    Multiplicative (ZMod 2) →* MulAut W :=
-  let f : ℤ →+ Additive (MulAut W) := zmultiplesHom _ (Additive.ofMul τ)
-  AddMonoidHom.toMultiplicativeLeft (ZMod.lift 2 ⟨f, by
-    have h2 : (2 : ℤ) • Additive.ofMul τ = Additive.ofMul (τ ^ (2 : ℤ)) := (ofMul_zpow 2 τ).symm
-    have h3 : τ ^ (2 : ℤ) = 1 := by rw [zpow_two, h]
-    show (2 : ℤ) • Additive.ofMul τ = 0
-    rw [h2, h3]
-    rfl⟩)
-
-theorem invHom_ofAdd_one {W : Type} [CommGroup W] (τ : MulAut W) (h : τ * τ = 1) :
-    invHom τ h (Multiplicative.ofAdd 1) = τ := by
-  show Additive.toMul ((ZMod.lift 2 _) ((1 : ℤ) : ZMod 2)) = τ
-  rw [ZMod.lift_coe]
-  show Additive.toMul ((1 : ℤ) • Additive.ofMul τ) = τ
-  rw [one_smul]
-  rfl
-
-theorem not_hasNoFFModulesMod_of_module {G : Type} [Group G] {X C : Subgroup G}
-    (χ : ↥X →* Multiplicative (ZMod 2)) (hχ : Function.Surjective χ)
-    (hC : ∀ x : ↥X, (x : G) ∈ C → χ x = 1) {W : Type} [CommGroup W] [Finite W]
-    (hsq : ∀ w : W, w ^ 2 = 1) (hW : Nat.card W ≤ 4) (τ : MulAut W) (hτ2 : τ * τ = 1) (hτ1 : τ ≠ 1)
-    (v : W) (hv1 : v ≠ 1) (hv : τ v = v) : ¬ HasNoFFModulesMod X C := by
-  intro hNo
-  let ρ : ↥X →* MulAut W := (invHom τ hτ2).comp χ
-  have hker : ∀ x : ↥X, (x : G) ∈ C → ρ x = 1 := fun x hx => by
-    show invHom τ hτ2 (χ x) = 1
-    rw [hC x hx, map_one]
-  refine hNo W hsq ρ hker ?_
-  have hrange : ∀ a ∈ ρ.range, a = 1 ∨ a = τ := by
-    rintro _ ⟨x, rfl⟩
-    show invHom τ hτ2 (χ x) = 1 ∨ invHom τ hτ2 (χ x) = τ
-    have : ∀ z : Multiplicative (ZMod 2), z = 1 ∨ z = Multiplicative.ofAdd 1 := by decide
-    rcases this (χ x) with h | h
-    · left; rw [h, map_one]
-    · right; rw [h, invHom_ofAdd_one]
-  have hτ : τ ∈ ρ.range := by
-    obtain ⟨x, hx⟩ := hχ (Multiplicative.ofAdd 1)
-    exact ⟨x, by show invHom τ hτ2 (χ x) = τ; rw [hx, invHom_ofAdd_one]⟩
-  refine ⟨ρ.range, le_rfl, fun h => hτ1 (Subgroup.mem_bot.1 (h ▸ hτ)), ⟨?_, ?_⟩, ?_⟩
-  · intro a ha b hb
-    rcases hrange a ha with rfl | rfl <;> rcases hrange b hb with rfl | rfl <;> simp
-  · intro a ha
-    rcases hrange a ha with rfl | rfl
-    · simp
-    · rw [pow_two, hτ2]
-  · have hA : 1 < Nat.card ↥ρ.range :=
-      Finite.one_lt_card_iff_nontrivial.2 ⟨⟨⟨1, one_mem _⟩, ⟨τ, hτ⟩, fun h => hτ1 (by
-        have := congrArg Subtype.val h
-        exact this.symm)⟩⟩
-    have hF : 1 < Nat.card ↥(fixV ρ.range) := by
-      refine Finite.one_lt_card_iff_nontrivial.2
-        ⟨⟨⟨1, one_mem _⟩, ⟨v, fun a ha => ?_⟩, fun h => ?_⟩⟩
-      · rcases hrange a ha with rfl | rfl
-        · simp
-        · exact hv
-      · exact hv1 (congrArg Subtype.val h).symm
-    nlinarith
 
 @[expose] def tauAdd : (ZMod 2 × ZMod 2) ≃+ (ZMod 2 × ZMod 2) where
   toFun v := (v.1 + v.2, v.2)
@@ -103,28 +45,6 @@ theorem not_hasNoFFModulesMod_of_module {G : Type} [Group G] {X C : Subgroup G}
 
 @[expose] def tauV : MulAut (Multiplicative (ZMod 2 × ZMod 2)) := AddEquiv.toMultiplicative tauAdd
 
-theorem tauV_mul_self : tauV * tauV = 1 := by
-  have : ∀ b : ZMod 2, b + b = 0 := by decide
-  refine MulEquiv.ext fun w => ?_
-  rw [MulAut.mul_apply, MulAut.one_apply]
-  apply Multiplicative.toAdd.injective
-  show tauAdd (tauAdd (Multiplicative.toAdd w)) = Multiplicative.toAdd w
-  ext
-  · simp [tauAdd, add_assoc, this]
-  · rfl
-
-theorem tauV_ne_one : tauV ≠ 1 := by
-  intro h
-  have := congrArg (fun f : MulAut (Multiplicative (ZMod 2 × ZMod 2)) =>
-    Multiplicative.toAdd (f (Multiplicative.ofAdd ((0, 1) : ZMod 2 × ZMod 2)))) h
-  simp [tauV, tauAdd] at this
-
-theorem not_hasNoFFModulesMod_of_quotient {G : Type} [Group G] {X C : Subgroup G}
-    (χ : ↥X →* Multiplicative (ZMod 2)) (hχ : Function.Surjective χ)
-    (hC : ∀ x : ↥X, (x : G) ∈ C → χ x = 1) : ¬ HasNoFFModulesMod X C :=
-  not_hasNoFFModulesMod_of_module (W := Multiplicative (ZMod 2 × ZMod 2)) χ hχ hC (by decide)
-    (by rw [Nat.card_eq_fintype_card]; decide) tauV tauV_mul_self tauV_ne_one
-    (Multiplicative.ofAdd ((1, 0) : ZMod 2 × ZMod 2)) (by decide) (by decide)
 
 end Unsat
 

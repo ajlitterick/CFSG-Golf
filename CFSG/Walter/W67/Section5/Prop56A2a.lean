@@ -46,8 +46,6 @@ theorem J_le : s.J ∈ Subgroup.normalizer (R : Set G) :=
 variable (hRc : ∀ a ∈ R, ∀ b ∈ R, a * b = b * a)
 include hRc
 
-omit hR in
-theorem mem_P₂ {y : G} : y ∈ Sec56.invSub s.J R hRc ↔ y ∈ R ∧ s.J * y * s.J⁻¹ = y⁻¹ := Iff.rfl
 
 omit hR in
 theorem P₂_le : Sec56.invSub s.J R hRc ≤ R := fun _ hy => hy.1

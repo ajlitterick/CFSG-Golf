@@ -46,12 +46,6 @@ theorem card_pCoreOf_titsH
     : Nat.card (pCoreOf 2 titsH) = 512 := by
   rw [pCoreOf_titsH, titsQJ_facts.2.2.2]
 
-theorem titsHD_inf_titsND
-    : titsHD ⊓ titsND = titsSD := by
-  ext x
-  rw [Subgroup.mem_inf]
-  change (↑x ∈ titsH ∧ ↑x ∈ titsN) ↔ ↑x ∈ titsS
-  rw [← Subgroup.mem_inf, titsH_inf_titsN]
 
 @[expose] def amalgamIsoφ1 {G Y : Type u} [Group G] [Group Y] {H L2 : Subgroup G}
     {M₁ M₂ : Subgroup Y}

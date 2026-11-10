@@ -104,7 +104,5 @@ theorem exists_unitary_hom_of_fix {g : ℕ} {K₂ : Type} [Field K₂] [Finite K
       rw [hψ, hts, hB, hYtdef]
       group
 
-variable {K₀ K : Type} [Field K₀] [Finite K₀] [Field K] [Finite K] [Algebra K₀ L]
-  [IsAlgClosure K₀ L] [Algebra K L] [IsAlgClosure K L] [CharP L 2]
 
 end CFSG.RankThree.PartOne.TCX.F4

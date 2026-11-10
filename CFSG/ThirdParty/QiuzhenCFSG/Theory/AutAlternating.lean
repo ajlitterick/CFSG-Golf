@@ -1357,18 +1357,6 @@ private theorem genPerm_ne {n : ℕ} [NeZero n] (hn : 3 ≤ n) {i j : Fin n}
   · exact (hi1 hi1').elim
   · exact (hij hij').elim
 
-/-- A generator is not the inverse of another: `(0 1 i) ≠ (0 1 j)⁻¹` for `i ≠ j`. -/
-private theorem genPerm_ne_inv {n : ℕ} [NeZero n] (hn : 3 ≤ n) {i j : Fin n}
-    (hi0 : i ≠ 0) (hi1 : i ≠ 1) (hj0 : j ≠ 0) (hj1 : j ≠ 1) (hij : i ≠ j) :
-    genPerm n i ≠ (genPerm n j)⁻¹ := by
-  intro h
-  have h1 : genPerm n i * genPerm n j = 1 := by
-    rw [h]
-    simp
-  have hord : orderOf (genPerm n i * genPerm n j) = 2 :=
-    gen_mul_order2 (by omega) hi0 hi1 hj0 hj1 hij
-  rw [h1] at hord
-  norm_num at hord
 
 /- The main theorem -/
 

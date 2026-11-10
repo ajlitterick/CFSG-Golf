@@ -189,32 +189,5 @@ theorem exists_hermitian_similarity_and_orthogonal_equiv [Finite K] {V : Type v}
   · exact CatalogueBOrthogonalThreeSimilarity.similarityOrthogonalEquiv_symm_apply
       Q (hermitianForm (delta : K)) d psi hpsi
 
-theorem nonsplit_four_hermitian_determinant_similarity [Finite K] {V : Type v}
-    [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-    (hodd : Odd (Nat.card K)) (Q : QuadraticForm K V)
-    (hQ : Q.polarBilin.Nondegenerate) (hdim : Module.finrank K V = 4)
-    (hno : ¬ ∃ S : Submodule K V, Module.finrank K S = 2 ∧ ∀ x ∈ S, Q x = 0) :
-    ∃ (delta : Kˣ), ¬ IsSquare (delta : K) ∧
-      ∃ (d : Kˣ) (psi : V ≃ₗ[K] hermitianSubmodule (delta : K))
-        (e : TauCeti.QuadraticMap.orthogonalGroup Q ≃*
-          TauCeti.QuadraticMap.orthogonalGroup (hermitianForm (delta : K))),
-        (∀ v, algebraMap K (extension (delta : K)) (Q v) =
-          algebraMap K (extension (delta : K)) (d : K) * (psi v).val.det) ∧
-        Nat.card (extension (delta : K)) = Nat.card K ^ 2 ∧
-        (conjugation (delta : K)).toRingEquiv ≠ 1 ∧
-        (∀ z : extension (delta : K), conjugation (delta : K) z = z ↔
-          z ∈ Set.range (algebraMap K (extension (delta : K)))) ∧
-        (∀ (g : TauCeti.QuadraticMap.orthogonalGroup Q)
-          (X : hermitianSubmodule (delta : K)),
-          (e g).val X = psi (g.val (psi.symm X))) ∧
-        (∀ (g : TauCeti.QuadraticMap.orthogonalGroup (hermitianForm (delta : K)))
-          (v : V), (e.symm g).val v = psi.symm (g.val (psi v))) := by
-  have h2 := CatalogueBOddQuadratic.two_ne_zero_of_odd_card hodd
-  obtain ⟨delta, hns, d, psi, e, hpsi, he, he'⟩ :=
-    exists_hermitian_similarity_and_orthogonal_equiv hodd Q hQ hdim hno
-  refine ⟨delta, hns, d, psi, e, ?_, extension_card _,
-    conjugation_ne_one _ h2, conjugation_fixed_range _ h2, he, he'⟩
-  intro v
-  rw [hpsi, map_mul, hermitianForm_det _ h2]
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalFourNonsplit

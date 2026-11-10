@@ -17,7 +17,6 @@ set_option exponentiation.threshold 1024
 
 theorem xor_eq (a b : ℕ) : Nat.xor a b = a ^^^ b := rfl
 theorem land_eq (a b : ℕ) : Nat.land a b = a &&& b := rfl
-theorem lor_eq (a b : ℕ) : Nat.lor a b = a ||| b := rfl
 theorem shr_eq (a b : ℕ) : Nat.shiftRight a b = a >>> b := rfl
 theorem shl_eq (a b : ℕ) : Nat.shiftLeft a b = a <<< b := rfl
 
@@ -105,9 +104,6 @@ theorem testBit_wsum {c : ℕ → ℕ} {k : ℕ} (hc : ∀ m, c m < 2 ^ k) {r : 
         have hm' : ¬ m < n + 1 := by omega
         simp [hm']
 
-theorem testBit_wsum_ge {c : ℕ → ℕ} {k : ℕ} (hc : ∀ m, c m < 2 ^ k) {n p : ℕ}
-    (hp : k * n ≤ p) : (wsum c k n).testBit p = false :=
-  Nat.testBit_eq_false_of_lt (lt_of_lt_of_le (wsum_lt hc n) (Nat.pow_le_pow_right (by decide) hp))
 
 theorem testBit_wsum' {c : ℕ → ℕ} {k : ℕ} (hk : 0 < k) (hc : ∀ m, c m < 2 ^ k) (n p : ℕ) :
     (wsum c k n).testBit p = (decide (p / k < n) && (c (p / k)).testBit (p % k)) := by

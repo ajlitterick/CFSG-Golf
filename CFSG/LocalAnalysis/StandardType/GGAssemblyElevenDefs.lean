@@ -32,30 +32,6 @@ open CFSG.Assembly CFSG.Blueprint CFSG.LieType.Universal CFSG.LieType.RootSystem
 @[expose] def GGCorFourTwoOpenLineRound11Label (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   GGCorFourTwoOpenLineRest3Label p lab ∧ ¬ GGOrthNsLabel p lab
 
-theorem ggTableBNbrInnerInputOn_round11Ns_of_round11
-    (h : GGTableBNbrInnerInputOn GGTableBNbrInnerRound11Label) :
-    GGTableBNbrInnerInputOn GGTableBNbrInnerRound11NsLabel :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBCxInputOn_round11_of_rest3
-    (h : GGTableBCxInputOn GGCorFourTwoOpenTableBVacRest3Label) :
-    GGTableBCxInputOn GGCorFourTwoOpenTableBRound11Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBModuleInputOn_round11_of_rest3
-    (h : GGTableBModuleInputOn GGCorFourTwoOpenTableBVacRest3Label) :
-    GGTableBModuleInputOn GGCorFourTwoOpenTableBRound11Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggTableBActionInputOn_round11_of_rest3
-    (h : GGTableBActionInputOn GGCorFourTwoOpenTableBVacRest3Label) :
-    GGTableBActionInputOn GGCorFourTwoOpenTableBRound11Label :=
-  h.mono fun _ _ h => h.1
-
-theorem ggLNoInvariantLineInputOn_round11_of_rest3
-    (h : GGLNoInvariantLineInputOn GGCorFourTwoOpenLineRest3Label) :
-    GGLNoInvariantLineInputOn GGCorFourTwoOpenLineRound11Label :=
-  CorFourTwoVacMore.lNoInvariantLineInputOn_mono (fun _ _ h => h.1) h
 
 section LabelDropIns
 
@@ -104,21 +80,10 @@ theorem ggStepTwoToralRound8_of_round11 (h : GGStepTwoToralRound11) : GGStepTwoT
   GGRootPlaneAt .F4 ∧ GGRootPlaneAt .E6 ∧ GGRootPlaneAt .E7 ∧ GGRootPlaneAt .E8 ∧
     GGRootPlaneAt .twistedE6
 
-theorem ggRootPlaneExcRound11_of_d4Exc (h : GGRootPlaneRestD4Exc) : GGRootPlaneExcRound11 :=
-  h.2
 
 theorem ggRootPlaneRestD4Exc_of_round11 (h : GGRootPlaneExcRound11) : GGRootPlaneRestD4Exc :=
   ggRootPlaneRestD4Exc_of_exc h.1 h.2.1 h.2.2.1 h.2.2.2.1 h.2.2.2.2
 
-@[expose] def GGRootCentSummandStructRound11 : Prop :=
-  GGRootCentDerivedTag .PSU ∧ GGRootCentLayerTag .PSp ∧ GGRootCentLayerTag .POmegaPlus ∧
-    GGRootCentLayerTag .POmegaMinus ∧ GGRootCentDerivedTag .F4 ∧ GGRootCentDerivedTag .E6 ∧
-    GGRootCentDerivedTag .E7 ∧ GGRootCentDerivedTag .E8 ∧ GGRootCentDerivedTag .twistedE6
-
-theorem ggRootCentSummandStructInput_of_round11 (h : GGRootCentSummandStructRound11) :
-    GGRootCentSummandStructInput := by
-  obtain ⟨hPSU, hPSp, hPlus, hMinus, hF4, hE6, hE7, hE8, hTwE6⟩ := h
-  exact ggRootCentSummandStructInput_of_nineTags hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
 
 end Lie
 

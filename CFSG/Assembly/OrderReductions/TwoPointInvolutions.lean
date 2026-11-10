@@ -87,15 +87,6 @@ theorem transporters_card_eq {group : Type*} [Group group] [Finite group]
         ← componentVertices_card_eq ((commutingGraph group).connectedComponentMk vertex) second]
       exact Nat.card_congr (componentVerticesEquiv _)
 
-theorem transporters_self_card_eq {group : Type*} [Group group] [Finite group]
-    (component : Component group) :
-    Nat.card (Transporters component component) = Nat.card (Involution (componentStabilizer component)) := by
-  have equal_predicates : (fun involution : Involution group => involution.val • component = component) =
-      (fun involution => involution.val ∈ componentStabilizer component) := rfl
-  rw [show Transporters component component =
-    {involution : Involution group // involution.val ∈ componentStabilizer component} from
-      congrArg Subtype equal_predicates]
-  exact Nat.card_congr (involutionsInEquiv _)
 
 @[expose] def pairSubgroup {group : Type*} [Group group] (first second : Component group) :
     Subgroup group := componentStabilizer first ⊓ componentStabilizer second
@@ -344,17 +335,6 @@ theorem flip_fixed_index_eq_involution_card {group : Type*} [Group group] [Finit
     (distinct_componentStabilizers_odd_intersection first second distinct)]
   exact inverted_flip_card_eq first second distinct flip first_moves second_moves
 
-theorem pair_card_ge_three_of_commuting {group : Type*} [Group group] [Finite group]
-    (first second : Component group) (distinct : first ≠ second)
-    (first_involution second_involution : Involution (componentStabilizer first))
-    (distinct_involutions : first_involution ≠ second_involution)
-    (commuting : Commute first_involution.val second_involution.val) :
-    3 ≤ Nat.card (pairSubgroup first second) := by
-  have involution_bound := CFSG.OrderReductions.InvolutionFusion.involution_card_ge_three_of_commuting
-    first_involution second_involution distinct_involutions commuting
-  have divides := involution_card_dvd_pair_card first second distinct
-  have positive : 0 < Nat.card (pairSubgroup first second) := Nat.card_pos
-  exact involution_bound.trans (Nat.le_of_dvd positive divides)
 
 theorem exists_odd_prime_dvd_pair_of_commuting {group : Type*} [Group group] [Finite group]
     (first second : Component group) (distinct : first ≠ second)

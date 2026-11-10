@@ -421,13 +421,6 @@ theorem IsFrameInv.central {X : Subgroup G} {x : G} (h : IsFrameInv Ω X x) {y :
   calc x * y = (y * x * y⁻¹) * y := by rw [h1]
     _ = y * x := by group
 
-theorem IsFrameInv.isConj {K : Subgroup G} {z : G} (hs : AscStand p f Ω K)
-    (hz : IsUniqueInvolution K z) {X : Subgroup G} {x : G} (h : IsFrameInv Ω X x) :
-    IsConj z x := by
-  obtain ⟨M, hM, -, hx⟩ := h
-  obtain ⟨c, hc⟩ := hs.trans M hM
-  have h1 : IsUniqueInvolution M (c * z * c⁻¹) := hc ▸ hz.conj c
-  exact isConj_iff.2 ⟨c, (hx.eq h1).symm⟩
 
 theorem IsFrameInv.ne {K J : Subgroup G} {S : Sylow 2 G} {R T W : Subgroup G} {z t : G}
     (hs : Std8 p f Ω K J S R T W z t) {X Y : Subgroup G} {x y : G} (hx : IsFrameInv Ω X x)
@@ -543,7 +536,5 @@ theorem c27_4a_of_min (h2 : C27_2 p f) (hmin : C27_4M p f) : C27_4a p f := by
   refine CFSG.StronglyEmbedded.UniqueCoset.existsUnique_fixed_of_mem hzt (fun g hg => ?_)
   exact T8.mem_H274_of_min hs hcomp hmin' hg
 
-theorem c27_4b_of_min (h2 : C27_2 p f) (hmin : C27_4M p f) : C27_4b p f :=
-  c27_4b_of_c27_4a (c27_4a_of_min h2 hmin)
 
 end CFSG.ClassicalInvolution.Asc77

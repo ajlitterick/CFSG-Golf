@@ -303,16 +303,6 @@ theorem evec_apply_same (i : Fin 3) (u : Qext K) : evec i u i = u := by simp [ev
 theorem evec_apply_ne {i j : Fin 3} (h : j ≠ i) (u : Qext K) : evec i u j = 0 := by
   simp [evec, Pi.single_eq_of_ne h]
 
-theorem evec_add (i : Fin 3) (u v : Qext K) : evec i (u + v) = evec i u + evec i v := by
-  funext k
-  by_cases h : k = i
-  · subst h
-    simp [evec]
-  · simp [evec_apply_ne h]
-
-theorem evec_zero (i : Fin 3) : evec i (0 : Qext K) = 0 := by
-  funext k
-  simp [evec]
 
 theorem Bf_evec_evec_ne {i j : Fin 3} (h : i ≠ j) (u v : Qext K) :
     Bf (evec i u) (evec j v) = 0 := by
@@ -333,7 +323,6 @@ theorem hI (w : Qext K) : Bf (evec 0 (1 : Qext K)) (evec 1 w) = 0 :=
 
 @[expose] noncomputable def gI (w : Qext K) : ↥(M10 K) := ⟨eAut (hI w), eAut_mem_M10 (hI w)⟩
 
-theorem coe_gI (w : Qext K) : (gI w : QV K (Fin 3) ≃ₗ[K] QV K (Fin 3)) = eAut (hI w) := rfl
 
 theorem gI_mul_self (w : Qext K) : gI w * gI w = 1 :=
   Subtype.ext (eAut_mul_self (hI w))

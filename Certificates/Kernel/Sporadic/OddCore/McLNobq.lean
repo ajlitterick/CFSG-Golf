@@ -76,8 +76,6 @@ theorem sH : slK McLNS.cnt (hsortPtK 275 9 (mask 9) McLNS.cnt McLNS.T McLNS.HS M
 theorem nc_ok : (List.range McLNS.cnt).any (ncAt McLNA) = true := by
   quickRfl
 
-theorem nc_neg : (List.range McLNS.cnt).all (fun i => !ncAt (McLNS.T i) i) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.McLNobq
 

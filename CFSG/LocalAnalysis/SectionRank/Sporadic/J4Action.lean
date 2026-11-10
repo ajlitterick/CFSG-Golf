@@ -84,17 +84,6 @@ theorem ν_a_inv : ν a⁻¹ = mA := by
 theorem ν_b_inv : ν b⁻¹ = mB ^ 3 := by
   rw [valHom_inv_of_pow S four_ne_zero b_pow_four, ν_b]
 
-theorem ν_a_eq :
-    ν a = rowsMatrix 112 (rowsOfPayload 112 NativeSporadic.J4Seed1) := by
-  rw [ν_a, rowsMatrix_rowsOfPayload]
-
-theorem ν_b_eq :
-    ν b = rowsMatrix 112 (rowsOfPayload 112 NativeSporadic.J4Seed2) := by
-  rw [ν_b, rowsMatrix_rowsOfPayload]
-
-theorem ν_inv_a : ν a⁻¹ = ν a := by rw [ν_a_inv, ν_a]
-
-theorem ν_inv_b : ν b⁻¹ = ν b ^ 3 := by rw [ν_b_inv, ν_b]
 
 theorem closure_ab : Subgroup.closure ({a, b} : Set G) = ⊤ := by
   rw [eq_top_iff]
@@ -118,22 +107,6 @@ theorem closure_ab : Subgroup.closure ({a, b} : Set G) = ⊤ := by
 
 @[simp] theorem letter_two : letter 2 = b⁻¹ := rfl
 
-theorem letter_mem
-    (k : ℕ) : letter k ∈ Subgroup.closure ({a, b} : Set G) := by
-  rw [closure_ab]; exact Subgroup.mem_top _
-
-@[expose] def letterRows : ℕ → Array ℕ
-  | 0 => rowsA
-  | 1 => powRows 112 rowsB 3
-  | _ => rowsB
-
-theorem letterRows_zero : letterRows 0 = rowsA := rfl
-
-theorem letterRows_one : letterRows 1 = powRows 112 rowsB 3 := rfl
-
-theorem letterRows_add_two (k : ℕ) : letterRows (k + 2) = rowsB := rfl
-
-theorem letter_add_two (k : ℕ) : letter (k + 2) = b⁻¹ := rfl
 
 @[ext] structure Vec where
   val : Fin 112 → ZMod 2
@@ -154,32 +127,14 @@ noncomputable instance vecAction : MulAction G Vec where
     show w.val ᵥ* ν (g * h)⁻¹ = (w.val ᵥ* ν h⁻¹) ᵥ* ν g⁻¹
     rw [mul_inv_rev, map_mul, Matrix.vecMul_vecMul]
 
-theorem smul_val (g : G) (w : Vec) : (g • w).val = w.val ᵥ* ν g⁻¹ := rfl
 
 @[expose] def vec (x : ℕ) : Vec := ⟨toVecD 112 x⟩
 
-theorem vec_val (x : ℕ) : (vec x).val = toVecD 112 x := rfl
 
 theorem vec_injective {x y : ℕ} (hx : x < 2 ^ 112) (hy : y < 2 ^ 112) (h : vec x = vec y) :
     x = y :=
   toVecD_injective hx hy (congrArg Vec.val h)
 
-theorem smul_vec (g : G) (x : ℕ) {R : Array ℕ} (hR : rowsMatrix 112 R = ν g⁻¹) :
-    g • vec x = vec (vecMulN 112 R x) := by
-  ext1
-  rw [smul_val, vec_val, vec_val, ← hR]
-  exact (toVecD_vecMulN 112 R x).symm
-
-theorem rowsMatrix_letterRows
-    (k : ℕ) : rowsMatrix 112 (letterRows k) = ν (letter k)⁻¹ := by
-  match k with
-  | 0 => rw [letterRows_zero, letter_zero, rowsMatrix_rowsA, ν_a_inv]
-  | 1 => rw [letterRows_one, letter_one, rowsMatrix_powRows, rowsMatrix_rowsB, ν_b_inv]
-  | k + 2 => rw [letterRows_add_two, letter_add_two, inv_inv, rowsMatrix_rowsB, ν_b]
-
-theorem letter_smul_vec
-    (k x : ℕ) : letter k • vec x = vec (vecMulN 112 (letterRows k) x) :=
-  smul_vec _ x (rowsMatrix_letterRows k)
 
 @[expose] def baseBits : ℕ := 0x443b193d248ccde2bb47c46a7f7d
 

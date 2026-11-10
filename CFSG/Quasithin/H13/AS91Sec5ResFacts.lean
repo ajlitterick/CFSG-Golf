@@ -734,8 +734,6 @@ noncomputable local instance spAction : MulAction ↥M24g (Subgroup W11) where
 
 theorem smul_W11_def (σ : ↥M24g) (w : W11) : σ • w = rho11 AutPerm le_rfl σ w := rfl
 
-theorem smul_sp_def (σ : ↥M24g) (H : Subgroup W11) :
-    σ • H = H.map (rho11 AutPerm le_rfl σ).toMonoidHom := rfl
 
 @[expose] def sylS0G : Subgroup ↥M24g := sylS0.subgroupOf M24g
 

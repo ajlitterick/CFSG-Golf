@@ -322,8 +322,6 @@ private theorem odd_card_pCoreIn (hσ : σ.IsValid) : Odd (Nat.card (pCoreIn σ.
 private theorem pCoreIn_le_ON (hσ : σ.IsValid) : pCoreIn σ.p σ.N ≤ σ.ON :=
   Subgroup.map_mono (le_oddCore_of_normal CFSG.pCore_normal (σ.odd_card_pCore hσ))
 
-omit [Finite G] in
-private theorem pCoreIn_le_N : pCoreIn σ.p σ.N ≤ σ.N := Subgroup.map_subtype_le _
 
 omit [Finite G] in
 private theorem pCore_Nb_eq_bot : CFSG.pCore σ.p σ.Nb = ⊥ := pCore_quotient_pCore_eq_bot

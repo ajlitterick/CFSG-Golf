@@ -589,10 +589,6 @@ theorem ggNoOffender_of_orthFrameOn {P : StatedLieTag → ℕ → ℕ → ℕ �
   exact NoOffOm.noOffender_of_orthAct hctx.1.2.2.2.2.2.1.1 hctx.1.2.2.2.2.2.1.2.1 hinj hrange
     horth
 
-theorem ggSixBstarNoOffenderAt_POmegaPlus_of_orthFrame
-    (hM : GGSixBstarMonoFrameOn GGPOmegaPlusNotD4Three)
-    (hD4 : GGSixBstarOrthFrameOn GGPOmegaPlusD4Three) : GGSixBstarNoOffenderAt .POmegaPlus :=
-  ggSixBstarNoOffenderAt_POmegaPlus_of_frame hM (ggNoOffender_of_orthFrameOn hD4)
 
 end Inputs
 

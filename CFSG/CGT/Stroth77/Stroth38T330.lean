@@ -217,17 +217,5 @@ theorem killFact (m : ℕ) (hm : 3 ≤ m) : KillFact (StrothTypeIndex.t330 m hm)
 
 end Type330
 
-theorem StrothFrame.IsD.stroth_3_8 {G : Type} [Group G] [Finite G] {F : StrothFrame G}
-    {D : Subgroup G} {m : ℕ} {hm : 3 ≤ m} {dD : StrothWeakTypeData D (StrothTypeIndex.t330 m hm)}
-    (h : F.IsD D dD)
-    (hns : IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-      ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G))) :
-    (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-        Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D ∨
-      ∃ X : Subgroup G, IsMulCommutative X ∧ F.A ≤ X ∧ X ≤ (F.S : Subgroup G) ∧
-        F.dA.L ≤ Subgroup.normalizer
-          ((X ⊔ Subgroup.centralizer (D : Set G) : Subgroup G) : Set G) ∧
-        Nat.card D < Nat.card X :=
-  h.stroth_form_ii (Type330.vFacts m hm) (Type330.killFact m hm) hns
 
 end CFSG.CGT.Stroth77

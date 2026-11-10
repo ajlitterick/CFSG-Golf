@@ -30,8 +30,6 @@ variable [CharP K 2]
     · linear_combination b * h2
     · linear_combination (c + a * b) * h2
 
-theorem coe_utmUnit (a b c : K) :
-    ((utmUnit a b c : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = utm a b c := rfl
 
 theorem card_utSub [Finite K] : Nat.card (utSub K) = Nat.card K ^ 3 := by
   set f : K × K × K → GL (Fin 3) K := fun x => utmUnit x.1 x.2.1 x.2.2 with hf

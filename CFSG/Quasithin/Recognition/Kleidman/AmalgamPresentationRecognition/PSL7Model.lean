@@ -220,15 +220,6 @@ theorem mem_Z7_iff_center (x : SL7) : x ∈ Z7 ↔ mulEquiv x ∈ Subgroup.cente
     · exact Or.inl (mulEquiv.injective (by rw [h, map_one]))
     · exact Or.inr (mulEquiv.injective (by rw [h, mulEquiv_negOne]))
 
-theorem map_Z7 : Z7.map mulEquiv.toMonoidHom = Subgroup.center SL(2, ZMod 7) := by
-  ext A
-  rw [Subgroup.mem_map]
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    exact (mem_Z7_iff_center x).mp hx
-  · intro hA
-    obtain ⟨x, rfl⟩ := mulEquiv.surjective A
-    exact ⟨x, (mem_Z7_iff_center x).mpr hA, rfl⟩
 
 instance : Z7.Normal where
   conj_mem n hn g := by
@@ -241,9 +232,5 @@ instance : DecidablePred (· ∈ Z7) := fun x => decidable_of_iff _ (mem_Z7 x).s
 
 end SL7
 
-abbrev PSL7 : Type := SL7 ⧸ SL7.Z7
-
-noncomputable def PSL7.mulEquiv : PSL7 ≃* PSL(2, ZMod 7) :=
-  QuotientGroup.congr SL7.Z7 (Subgroup.center SL(2, ZMod 7)) SL7.mulEquiv SL7.map_Z7
 
 end CFSG.Quasithin.Recognition.Kleidman.AmalgamPresentationRecognition

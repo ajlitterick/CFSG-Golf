@@ -78,13 +78,6 @@ variable {n : ℕ}
     (∀ J ∈ CoreAssembly.conjClass (tightCore R), IsPGroup 2 ↥J) ∧
     ¬ SecNoExitAt (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂)
 
-@[expose] def V3ExitDeg (n : ℕ) : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y)
-    (K K' K₃ : Subgroup Y) (u₁ u₂ u₃ : Y) (K₄ : Subgroup Y),
-    V3ExitIn n R S t K K' K₃ u₁ u₂ u₃ K₄ →
-      (¬ ∃ x : LSec (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂),
-        conjSub x (secImg (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂) K₃) =
-          secImg (CoreAssembly.conjClass (tightCore R)) (u₁ * u₂) K₄) → False
 
 @[expose] def V3ExitWO2 (n : ℕ) : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y)

@@ -50,7 +50,6 @@ theorem le_normalizer_map_subtype {L S₀ : Subgroup G} (hS : S₀ ≤ Subgroup.
     group
 
 
-
 theorem charTwo_map_subtype_of_normal_pGroup {L : Subgroup G} {K' V' : Subgroup L}
     (hVK : V' ≤ K') (hn : K' ≤ Subgroup.normalizer (V' : Set L)) (hV : IsPGroup 2 V')
     (hC : ∀ x ∈ K', (∀ v ∈ V', x * v = v * x) → x ∈ V') : CharTwo (K'.map L.subtype) := by
@@ -97,9 +96,6 @@ variable {X : Type*} [Group X]
       _ = a⁻¹ * (a * (y * w * y⁻¹ * w⁻¹)) * a⁻¹ := by rw [h]
       _ = (y * w * y⁻¹ * w⁻¹) * a⁻¹ := by group
 
-theorem mem_commCentralizer {P : Subgroup X} {x : X} :
-    x ∈ commCentralizer P ↔
-      x ∈ P ∧ ∀ y ∈ P, ∀ w ∈ P, x * (y * w * y⁻¹ * w⁻¹) = (y * w * y⁻¹ * w⁻¹) * x := Iff.rfl
 
 theorem commCentralizer_le (P : Subgroup X) : commCentralizer P ≤ P := fun _ hx => hx.1
 

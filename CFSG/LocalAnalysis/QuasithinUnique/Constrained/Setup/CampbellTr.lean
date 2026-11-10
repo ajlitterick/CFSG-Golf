@@ -17,7 +17,6 @@ variable {G : Type*} [Group G]
 
 variable {S : Subgroup G} {α : S ≃* S} {g : G} {Y Y' : Subgroup G}
 
-theorem tr_le : tr S α g Y ≤ cj S g := cj_mono aimg_le
 
 theorem tr_mono (h : Y ≤ Y') : tr S α g Y ≤ tr S α g Y' := cj_mono (aimg_mono h)
 
@@ -25,9 +24,6 @@ theorem tr_sup (hY : Y ≤ S) (hY' : Y' ≤ S) :
     tr S α g (Y ⊔ Y') = tr S α g Y ⊔ tr S α g Y' := by
   unfold tr; rw [aimg_sup hY hY', cj_sup]
 
-theorem tr_inf (hY : Y ≤ S) (hY' : Y' ≤ S) :
-    tr S α g (Y ⊓ Y') = tr S α g Y ⊓ tr S α g Y' := by
-  unfold tr; rw [aimg_inf hY hY', cj_inf]
 
 theorem tr_commutator (hY : Y ≤ S) (hY' : Y' ≤ S) :
     tr S α g ⁅Y, Y'⁆ = ⁅tr S α g Y, tr S α g Y'⁆ := by
@@ -95,9 +91,6 @@ theorem mem_tr {x : G} :
     x ∈ tr S α g Y ↔ ∃ y : S, (y : G) ∈ Y ∧ ((α y : S) : G) = g * x * g⁻¹ :=
   mem_cj.trans mem_aimg
 
-theorem mem_tr_of_mem {y : S} (hy : (y : G) ∈ Y) : g⁻¹ * ((α y : S) : G) * g ∈ tr S α g Y := by
-  rw [mem_tr]
-  exact ⟨y, hy, by group⟩
 
 end Tr
 

@@ -20,21 +20,6 @@ theorem rowFN_lt (W L : ℕ) : ∀ a < 65536, rowFN mulK sNfRow W L a < 65536 :=
   simp only [cen_nIf, cen_strictN]
   split <;> exact mulK_lt _ _
 
-@[expose] noncomputable def conjU (k m z a : ℕ) : Bool :=
-  strictB (wLit.getD (16 * k + m - 16) 0) fun W => strictB (lLit.getD k 0) fun L =>
-    conjB mulK (rowFN mulK sNfRow W L) z a 8192
-
-theorem conjOK_of_U {k m z a : ℕ} (h : conjU k m z a = true) : conjOK k m z a 8192 = true := by
-  unfold conjU at h
-  simp only [cen_strictB] at h
-  have hc := conjB_sound h
-  unfold conjOK
-  rw [List.all_eq_true]
-  intro y hy
-  rw [List.mem_range'_1] at hy
-  have := hc (y - a) (by omega)
-  rw [Nat.add_sub_cancel' hy.1, FK_eqN, FK_eqN] at this
-  exact beq_iff_eq.2 this
 
 @[expose] def CenBU (k m z : ℕ) (Q B : List ℕ) : Prop :=
   (∀ s < 8, (strictB (wLit.getD (16 * k + m - 16) 0) fun W => strictB (lLit.getD k 0) fun L =>

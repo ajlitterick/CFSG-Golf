@@ -26,10 +26,5 @@ open CFSG.GorensteinWalter
 
 namespace Certificates
 
-open CFSG.GorensteinWalter in
-theorem certificate7 :
-      ∀ p : Equiv.Perm CompactOrderNineFour, p ^ 3 = 1 →
-        ∀ i : Fin 3, compactOrderNineSmallT * p * compactOrderNineSmallT⁻¹ = p ^ (i : ℕ) → p = 1 := by
-  decide +kernel
 
 end Certificates

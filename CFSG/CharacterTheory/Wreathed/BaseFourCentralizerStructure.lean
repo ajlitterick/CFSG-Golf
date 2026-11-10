@@ -121,9 +121,6 @@ theorem sylowCenter_le_centralizer (S : Sylow 2 G) :
   intro q hq
   exact hPZ (Subgroup.mem_map_of_mem C.subtype hq)
 
-theorem sylowCentralizerCenter_coe (S : Sylow 2 G) :
-    (sylowCentralizerCenter S : Subgroup (Subgroup.centralizer (S : Set G))) =
-      (sylowCenter S).subgroupOf (Subgroup.centralizer (S : Set G)) := rfl
 
 theorem sylowCentralizerCenter_le_center (S : Sylow 2 G) :
     (sylowCentralizerCenter S : Subgroup (Subgroup.centralizer (S : Set G))) ≤

@@ -62,9 +62,6 @@ variable {V : Type w} [AddCommGroup V] [Module K V]
     apply Subtype.ext
     exact (LinearMap.GeneralLinearGroup.generalLinearEquiv K V).symm.map_mul g.val.val h.val.val
 
-theorem centralizerSimilitudeEquiv_apply (B : BilinForm K V)
-    (A : LinearMap.GeneralLinearGroup K V) (g : symplecticOperatorCentralizer B A) (x : V) :
-    ((centralizerSimilitudeEquiv B A g).val : Module.End K V) x = g.val.val x := rfl
 
 theorem two_le_finrank_of_ne_bot [FiniteDimensional K V] {U : Submodule K V} (hU : U ≠ ⊥)
     (B : BilinForm K U) (hB : B.IsAlt) (hnd : B.Nondegenerate) :
@@ -82,12 +79,6 @@ theorem generalLinearGroup_pComponent_quasisimple [FiniteDimensional K W]
   pComponent_quasisimple_of_equiv p (LinearMap.GeneralLinearGroup.generalLinearEquiv K W)
     (CatalogueBOrthogonalLinearFixed.original_generalLinear_pComponent_quasisimple hn p) L hL
 
-theorem sesqUnitary_pComponent_quasisimple [FiniteDimensional K W]
-    (hodd : Odd (Nat.card K)) (B : BilinForm K W) (hB : B.IsAlt) (hnd : B.Nondegenerate)
-    (hdim : 2 ≤ Module.finrank K W) (p : ℕ) (L : Subgroup (sesqUnitaryGroup B))
-    (hL : CFSG.IsPComponent p L) : CFSG.IsQuasisimple L :=
-  pComponent_quasisimple_of_equiv p (sesqUnitaryIsometryEquiv B)
-    (isometry_pComponent_quasisimple B hB hnd hdim hodd p) L hL
 
 end General
 

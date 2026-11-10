@@ -479,67 +479,11 @@ theorem e6_center_weight_check : ∀ γ ∈ rootFinset .E6,
       2 * MinData.toWeight γ (e6n 5) + MinData.toWeight γ (e6n 4) := by
   decide +kernel
 
-theorem hm_prod_mem_center
-    {u : 𝔽ˣ} (hu : u ^ 3 = 1) :
-    e6Data_valid.hm 𝔽 (e6n 0) u * e6Data_valid.hm 𝔽 (e6n 2) (u ^ 2) *
-        (e6Data_valid.hm 𝔽 (e6n 5) (u ^ 2) * e6Data_valid.hm 𝔽 (e6n 4) u) ∈
-      center (e6Data_valid.minGroup 𝔽) := by
-  set z := e6Data_valid.hm 𝔽 (e6n 0) u * e6Data_valid.hm 𝔽 (e6n 2) (u ^ 2) *
-    (e6Data_valid.hm 𝔽 (e6n 5) (u ^ 2) * e6Data_valid.hm 𝔽 (e6n 4) u) with hz
-  have key : ∀ γ, IsRoot .E6 γ → ∀ c,
-      z * e6Data_valid.xm 𝔽 γ c * z⁻¹ = e6Data_valid.xm 𝔽 γ c := by
-    intro γ hγ c
-    obtain ⟨m, hm⟩ := e6_center_weight_check γ (mem_rootFinset.2 hγ)
-    have e : z * e6Data_valid.xm 𝔽 γ c * z⁻¹ =
-        e6Data_valid.hm 𝔽 (e6n 0) u * (e6Data_valid.hm 𝔽 (e6n 2) (u ^ 2) *
-          (e6Data_valid.hm 𝔽 (e6n 5) (u ^ 2) * (e6Data_valid.hm 𝔽 (e6n 4) u *
-            e6Data_valid.xm 𝔽 γ c * (e6Data_valid.hm 𝔽 (e6n 4) u)⁻¹) *
-              (e6Data_valid.hm 𝔽 (e6n 5) (u ^ 2))⁻¹) *
-                (e6Data_valid.hm 𝔽 (e6n 2) (u ^ 2))⁻¹) * (e6Data_valid.hm 𝔽 (e6n 0) u)⁻¹ := by
-      rw [hz]; group
-    rw [e, MinData.Valid.hm_conj_xm _ _ hγ, MinData.Valid.hm_conj_xm _ _ hγ,
-      MinData.Valid.hm_conj_xm _ _ hγ, MinData.Valid.hm_conj_xm _ _ hγ, ← mul_assoc, ← mul_assoc,
-      ← mul_assoc, ← Units.val_mul, ← Units.val_mul, ← Units.val_mul, ← zpow_natCast,
-      ← zpow_mul, ← zpow_mul, ← zpow_add, ← zpow_add, ← zpow_add]
-    have hexp : MinData.toWeight γ (e6n 0) + (2 : ℕ) * MinData.toWeight γ (e6n 2) +
-        (2 : ℕ) * MinData.toWeight γ (e6n 5) + MinData.toWeight γ (e6n 4) = 3 * m := by
-      push_cast; linarith
-    rw [hexp, zpow_mul, show ((3 : ℤ)) = ((3 : ℕ) : ℤ) from rfl, zpow_natCast, hu, one_zpow,
-      Units.val_one, one_mul]
-  have hle : (⊤ : Subgroup (e6Data_valid.minGroup 𝔽)) ≤ centralizer {z} := by
-    rw [← e6Data_valid.iSup_rootGroup]
-    refine iSup₂_le fun γ hγ x hx => ?_
-    obtain ⟨c, rfl⟩ := (e6Data_valid.mem_rootGroup 𝔽).1 hx
-    rw [mem_centralizer_singleton_iff]
-    have := key γ hγ c
-    rw [mul_inv_eq_iff_eq_mul] at this
-    exact this.symm
-  exact mem_center_iff.2 fun g => mem_centralizer_singleton_iff.1 (hle (mem_top g))
 
 theorem units_map_frobQ
     (u : 𝔽ˣ) : Units.map (frobQ 2 1 : 𝔽 →* 𝔽) u = u ^ 2 :=
   Units.ext (by
     rw [Units.coe_map, MonoidHom.coe_ofClass, frobQ_apply, pow_one, Units.val_pow_eq_pow_val])
 
-theorem levi34Hom₀_mem_center
-    {A : Matrix.SpecialLinearGroup (Fin 3) 𝔽}
-    (hA : A ∈ center (Matrix.SpecialLinearGroup (Fin 3) 𝔽)) :
-    levi34Hom₀ A ∈ center (e6Data_valid.minGroup 𝔽) := by
-  obtain ⟨t, ht0, ht3, rfl, -⟩ := LevisExtras.exists_eq_of_mem_center hA
-  set u : 𝔽ˣ := Units.mk0 t ht0
-  have hu3 : u ^ 3 = 1 := Units.ext (by
-    rw [Units.val_pow_eq_pow_val, Units.val_mk0, ht3, Units.val_one])
-  have hu2 : Units.mk0 (t ^ 2) (pow_ne_zero 2 ht0) = u ^ 2 :=
-    Units.ext (by rw [Units.val_mk0, Units.val_pow_eq_pow_val, Units.val_mk0])
-  have hu4 : (u ^ 2) ^ 2 = u := by
-    rw [← pow_mul, show 2 * 2 = 3 + 1 by rfl, pow_succ, hu3, one_mul]
-  rw [levi34Hom₀_hElt ht0, hu2, units_map_frobQ, units_map_frobQ, hu4]
-  exact hm_prod_mem_center hu3
-
-theorem levi34Hom_mem_center
-    {A : Matrix.SpecialLinearGroup (Fin 3) 𝔽}
-    (hA : A ∈ center (Matrix.SpecialLinearGroup (Fin 3) 𝔽)) :
-    levi34Hom A ∈ center (twistedE6Group 2 1) :=
-  mem_center_iff.2 fun g => Subtype.ext ((mem_center_iff.1 (levi34Hom₀_mem_center hA)) g)
 
 end CFSG.EvenSmallLie.TwoE6

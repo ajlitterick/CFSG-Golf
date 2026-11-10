@@ -13,7 +13,6 @@ open scoped Matrix
 
 @[expose] def e8T12WW : List (Fin Tag.E8.rank) := e8T12Word ++ e8T12Word
 
-theorem e8wl_e8T12WW : e8wl e8T12WW = e8T12VList := by decide +kernel
 
 @[expose] def e8T12TwoA2Certs : List TwoA2Cert := [
   { cls := 2, w₁ := [1, 2, 0, 3, 2, 4, 3, 1, 5, 4, 3, 2, 0, 6, 5, 4, 3, 1, 2, 3, 7, 6, 3, 4, 5, 2, 3, 4, 0, 2, 3], w₂ := [0, 3, 2, 4, 5, 6, 7, 1, 3, 4, 5, 6, 3, 1, 2, 3, 4, 5, 0, 2, 3, 1, 4, 3],

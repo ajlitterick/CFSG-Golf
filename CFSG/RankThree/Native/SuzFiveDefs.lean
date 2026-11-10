@@ -26,8 +26,6 @@ open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native
 
 @[expose] def suzFiveD (i : Fin 6) : Subgroup (Equiv.Perm (Fin 1782)) := ⁅suzFiveC i, suzFiveC i⁆
 
-@[expose] def suzFiveGen (i : Fin 6) (j : Nat) : Equiv.Perm (Fin 1782) :=
-  permOfArr 1782 (suzFiveCArrs i)[j]!
 
 @[expose] def suzFiveMults (i : Nat) : Array (Array Nat) :=
   (suzFiveCArrs i ++ (suzFiveCArrs i).map (invCand 1782)).foldl
@@ -59,15 +57,10 @@ abbrev SuzFiveBfsState := Array (Array Nat) × Std.HashMap Nat (List Nat)
 @[expose] def suzFiveBfs (i : Nat) : Array (Array Nat) :=
   (suzFiveBfsLoop (suzFiveMults i) (Nat.factorial 1782) 0 (suzFiveAdd (#[], ∅) (idA 1782))).1
 
-@[expose] def suzFiveEnum (i : Fin 6) (k : Nat) : Equiv.Perm (Fin 1782) :=
-  permOfArr 1782 (suzFiveBfs i)[k]!
 
 @[expose] def suzFiveDArrs (i : Nat) : Array (Array Nat) :=
   let E := suzFiveBfs i
   suzFiveDerivedPairs[i]!.map fun p => commutatorA 1782 (suzFiveCArrs i)[p.1]! E[p.2]!
 
-@[expose] def suzFiveDerivedGen (i : Fin 6) (l : Nat) : Equiv.Perm (Fin 1782) :=
-  let p := (suzFiveDerivedPairs[i.val]!)[l]!
-  suzFiveGen i p.1 * suzFiveEnum i p.2 * (suzFiveGen i p.1)⁻¹ * (suzFiveEnum i p.2)⁻¹
 
 end CFSG.RankThree.Native

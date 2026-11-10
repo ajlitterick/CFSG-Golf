@@ -48,6 +48,5 @@ theorem commute_of_perfect {X : Subgroup G} (hX : ⁅X, X⁆ = X) {n : G}
   rw [Subgroup.mem_centralizer_singleton_iff] at this
   exact this
 
-variable {K : Type*} [Field K]
 
 end CFSG.Timmesfeld.Bridge

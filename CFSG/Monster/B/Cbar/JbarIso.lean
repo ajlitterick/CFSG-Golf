@@ -37,7 +37,6 @@ theorem range_jHom : jHom.range = Jbar := by
     have hg' : (g : SpaceB ≃ₗ[ℚ] SpaceB) ∈ Jmat rStar := Jstar_eq_Jmat ▸ hg
     exact ⟨⟨g, hg'⟩, rfl⟩
 
-theorem tJ_eq : ((tJ rStar : Jmat rStar) : SpaceB ≃ₗ[ℚ] SpaceB) = tStar := rfl
 
 theorem mem_zpowers_tJ_iff (g : Jmat rStar) :
     g ∈ Subgroup.zpowers (tJ rStar) ↔
@@ -61,26 +60,14 @@ theorem ker_jHom : jHom.ker = Subgroup.zpowers (tJ rStar) := by
   (QuotientGroup.quotientMulEquivOfEq ker_jHom.symm).trans
     ((QuotientGroup.quotientKerEquivRange jHom).trans (MulEquiv.subgroupCongr range_jHom))
 
-theorem coe_jEquiv_mk (g : Jmat rStar) :
-    ((jEquiv (QuotientGroup.mk g) : Jbar) : Cbar) = kappa ⟨g, Jmat_le_Cgen g.2⟩ := rfl
 
 @[expose] noncomputable def jEmb : Jmat rStar ⧸ Subgroup.zpowers (tJ rStar) →* Cbar :=
   Jbar.subtype.comp jEquiv.toMonoidHom
 
-theorem jEmb_mk (g : Jmat rStar) : jEmb (QuotientGroup.mk g) = kappa ⟨g, Jmat_le_Cgen g.2⟩ := rfl
 
 theorem jEmb_injective : Function.Injective jEmb :=
   Subtype.coe_injective.comp jEquiv.injective
 
-theorem range_jEmb : jEmb.range = Jbar := by
-  ext c
-  constructor
-  · rintro ⟨y, rfl⟩
-    exact (jEquiv y).2
-  · intro hc
-    exact ⟨jEquiv.symm ⟨c, hc⟩, by rw [jEmb, MonoidHom.comp_apply]; simp⟩
-
-theorem jEmb_mk_xJ : jEmb (QuotientGroup.mk (xJ rStar)) = xbar := rfl
 
 theorem rhoCent_eq_rhoCQ : rhoCent rStar = rhoCQ := by
   ext f
@@ -112,6 +99,5 @@ theorem map_Equot_eq_Ebar : (Equot rStar).map jEmb = Ebar := by
   (Subgroup.equivMapOfInjective (Equot rStar) jEmb jEmb_injective).trans
     (MulEquiv.subgroupCongr map_Equot_eq_Ebar)
 
-theorem coe_eEquiv (y : Equot rStar) : ((eEquiv y : Ebar) : Cbar) = jEmb y := rfl
 
 end CFSG.Monster.B

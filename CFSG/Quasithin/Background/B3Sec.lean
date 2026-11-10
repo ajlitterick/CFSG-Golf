@@ -106,8 +106,6 @@ def secFix (ρ : G →* MulAut K) (W N : Subgroup K) (B : Subgroup G) : Subgroup
     rw [e]
     exact h
 
-theorem mem_secFix {ρ : G →* MulAut K} {W N : Subgroup K} {B : Subgroup G} {w : ↥W} :
-    w ∈ secFix ρ W N B ↔ ∀ b ∈ B, ρ b (w : K) * (w : K)⁻¹ ∈ N := Iff.rfl
 
 theorem le_secFix (ρ : G →* MulAut K) {W N : Subgroup K} (hN : IsInv ρ N) (B : Subgroup G) :
     N.subgroupOf W ≤ secFix ρ W N B := by

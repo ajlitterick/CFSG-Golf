@@ -197,9 +197,6 @@ theorem rootFinset_E8_eq : rootFinset .E8 = e8Finset := by
     have := ofCoords_mem _ h
     rwa [ofCoords_coords] at this
 
-theorem mem_rootFinset_E8 (v : Fin Tag.E8.rank → ℤ) :
-    v ∈ rootFinset .E8 ↔ coords v ∈ e8Tuples := by
-  rw [rootFinset_E8_eq, mem_e8Finset]
 
 instance (priority := high) fastMemE8 (v : Fin Tag.E8.rank → ℤ) : Decidable (v ∈ e8Finset) :=
   decidable_of_iff (coords v ∈ e8Tuples) (mem_e8Finset v).symm

@@ -90,10 +90,6 @@ private noncomputable def permGL {d : ℕ} {F : Type} [Field F]
 @[simp] private theorem coe_permGL_inv {d : ℕ} {F : Type} [Field F] (σ : Equiv.Perm (Fin d)) :
     (((permGL σ)⁻¹ : GL (Fin d) F) : Matrix (Fin d) (Fin d) F) = (σ⁻¹).permMatrix F := rfl
 
-private theorem permMatrix_apply' {d : ℕ} {F : Type} [Field F] (σ : Equiv.Perm (Fin d))
-    (i j : Fin d) : σ.permMatrix F i j = if σ i = j then 1 else 0 := by
-  rw [Equiv.Perm.permMatrix, PEquiv.toMatrix_apply]
-  simp only [Equiv.toPEquiv_apply, Option.mem_def, Option.some.injEq]
 
 private theorem permGL_mem_SL {d : ℕ} {F : Type} [Field F] [CharP F 2]
     (σ : Equiv.Perm (Fin d)) : permGL σ ∈ LargeEvenSLGroup (Fin d) F := by

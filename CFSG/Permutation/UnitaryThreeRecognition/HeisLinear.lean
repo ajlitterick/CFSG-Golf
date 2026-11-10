@@ -127,9 +127,6 @@ noncomputable instance instModule : Module (SchurField R hirr hV) V :=
 
 theorem smul_def (a : SchurField R hirr hV) (v : V) : a • v = toEnd hirr hV a v := rfl
 
-theorem smul_smul_scalar (a : SchurField R hirr hV) (c : K) (v : V) :
-    a • c • v = c • a • v :=
-  map_smul (toEnd hirr hV a) c v
 
 end SchurField
 

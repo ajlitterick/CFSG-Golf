@@ -29,18 +29,5 @@ theorem twenty_five_sporadic_central_prime_to_six_kernel_restriction (π : E →
         7 < p → IsPGroup p π.ker → π.ker = ⊥ :=
   twenty_five_sporadic_central_prime_to_six_kernel_restriction_of_card_B card_B_eq π hπ hC h6
 
-theorem perfect_central_large_prime_extension_sporadic_ker_eq_bot (π : E →* S)
-    (hπ : Function.Surjective π) (hC : π.ker ≤ Subgroup.center E) {p : ℕ} (hp : p.Prime)
-    (hp7 : 7 < p) (hpk : IsPGroup p π.ker) {s : TauCeti.SporadicName} (hs : s ≠ .M)
-    (hS : NativeSporadic.IsSporadic S s) : π.ker = ⊥ := by
-  have : Fact p.Prime := ⟨hp⟩
-  have h6 : Nat.Coprime (Nat.card π.ker) 6 := by
-    obtain ⟨k, hk⟩ := hpk.exists_card_eq
-    rw [hk]
-    refine Nat.Coprime.pow_left _ ((Nat.Prime.coprime_iff_not_dvd hp).mpr fun h => ?_)
-    have := Nat.le_of_dvd (by norm_num) h
-    omega
-  exact (twenty_five_sporadic_central_prime_to_six_kernel_restriction π hπ hC h6).2.2.2.2 s hs hS
-    p hp hp7 hpk
 
 end CFSG.RankThree.OddKernel

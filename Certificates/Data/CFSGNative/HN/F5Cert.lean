@@ -89,35 +89,5 @@ end F5Data
     invOK D.n O.alpha (invT D.n O.alpha) && invOK D.n O.beta (invT D.n O.beta) &&
     decide (D.d ≤ D.Q.size) && D.Q.all (· < D.n) && basisCheck D O
 
-@[expose] def chainChecks (D : F5Data) (L : Array Table) (T : Array Tree) (chunks : Nat) : Bool :=
-  slpOK D.words && nestOK D.words D.starts && D.starts.size == D.base.size + 1 &&
-    decide (2 ≤ D.base.size) && D.base[0]! == 0 &&
-    levelChainOK D.n L D.starts D.ords D.base D.Q D.qb T chunks && T[0]!.pts.size == D.n &&
-    orbitSizes T == D.orbSizes
-
-@[expose] def subChecks (D : F5Data) (L : Array Table) (lv : Array Nat) (S : Array Tree) :
-    Bool :=
-  let k := D.subReps.size
-  let labs := labelsOf D.n S
-  decide (0 < k) && D.subReps[0]! == 0 && S.size == k &&
-    (S.toList.map fun T => T.pts.size) == D.subSizes &&
-    allIn 0 k (fun j => treeOK D.n D.subReps[j]! S[j]! L lv) &&
-    allIn 0 D.n (fun p => decide (labs[p]! < k) && inTreeB S[labs[p]!]! p) &&
-    allIn 0 k (fun j => allIn 0 S[j]!.pts.size fun t => labs[ap S[j]!.pts t]! == j) &&
-    divOK D.n D.subSizes
-
-@[expose] def ordChecks (D : F5Data) (O : VOrbit) : Bool :=
-  ordOK D.n D.Q O.alpha D.ordA && ordOK D.n D.Q O.beta D.ordB &&
-    ordOK D.n D.Q (wordT D.n (genT D.n O) (cWordOf D.gWord)) D.ordC
-
-@[expose] def f5Cert (D : F5Data) (chunks : Nat) : Bool :=
-  matrixChecks D && (
-    let O := D.orbit ()
-    orbitChecks D O chunks && (
-      let L := slpLetters D.n (genT D.n O) D.words
-      let T := levelTrees D.n L D.starts D.base
-      let lv := levelLv D.starts 1
-      let S := D.subReps.map fun r => treeBFS D.n r L lv
-      chainChecks D L T chunks && subChecks D L lv S && ordChecks D O))
 
 end CFSG.Sporadic.F5.Native

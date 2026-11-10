@@ -161,11 +161,6 @@ theorem ggForkIndefExclRest_of_five (ha₀ : GGLNoncyclicInput) (hPU : GGPumpupI
       · exact ggFork_false_of_indefCell_five_line ha₀ h5 hcfg hNT hM hCM hF hlin hlina hind hAL hAK
           (Or.inr ⟨hu1, hcell⟩)
 
-theorem ggForkIndefExclRest_of_inputs (ha₀ : GGLNoncyclicInput) (hPU : GGPumpupInput)
-    (hSpan : GGTBSpanInput) (hPump : GGPumpCInput) (hPumpTw : GGPumpTwInput)
-    (hZ : GGCentreTwoKnown) (hZtw : GGCentreTrivialTwKnown) (hJleaf : GGR4JInput) :
-    GGForkIndefExclRest :=
-  ggForkIndefExclRest_of_five ha₀ hPU hSpan (ggR4NotFiveAtLine_of_pump hPump hPumpTw) hZ hZtw hJleaf
 
 theorem ggForkIndefExclRest_of_notFive (ha₀ : GGLNoncyclicInput) (hPU : GGPumpupInput)
     (hSpan : GGTBSpanInput) (hPump : GGPumpCInput) (hPumpTw : GGPumpTwNotFive)

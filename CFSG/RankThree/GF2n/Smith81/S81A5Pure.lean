@@ -59,8 +59,6 @@ theorem exists_triple (I : Set.powersetCard (Fin 6) 3) :
   obtain ⟨i, j, k, hij, hik, hjk, h⟩ := Finset.card_eq_three.mp (Set.powersetCard.card_eq I)
   exact ⟨i, j, k, hij, hik, hjk, h⟩
 
-@[expose] def J2 : Set.powersetCard (Fin 6) 3 :=
-  tripleSet 3 4 5 (by decide) (by decide) (by decide)
 
 theorem enum_tripleSet {i j k : Fin 6} (hij : i < j) (hjk : j < k) (s : Fin 3) :
     enum (tripleSet i j k hij.ne (hij.trans hjk).ne hjk.ne) s = ![i, j, k] s := by

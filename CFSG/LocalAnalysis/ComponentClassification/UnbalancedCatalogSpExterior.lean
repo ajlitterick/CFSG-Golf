@@ -86,10 +86,6 @@ theorem coe_antiToStd (g : GL (Fin 4) K) :
       (glMat g).submatrix antiIdx antiIdx :=
   rfl
 
-theorem coe_antiToStd_symm (g : GL (Fin 2 ⊕ Fin 2) K) :
-    glMat (antiToStd.symm g) =
-      (g : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K).submatrix antiIdx.symm antiIdx.symm :=
-  rfl
 
 theorem mem_antiSp_iff_antiToStd [CharP K 2] (g : GL (Fin 4) K) :
     g ∈ antiSp K ↔ antiToStd g ∈ StatedSp 2 K := by

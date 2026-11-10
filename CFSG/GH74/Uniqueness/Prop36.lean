@@ -37,13 +37,6 @@ section ThreeH
 
 variable {X : Type*} [Group X] {Z : Set X}
 
-theorem mem_set_mul_singleton_iff {A : Set X} {t s : X} : s ∈ A * {t} ↔ s * t⁻¹ ∈ A := by
-  rw [Set.mul_singleton, Set.mem_image]
-  constructor
-  · rintro ⟨a, ha, rfl⟩
-    simpa using ha
-  · intro hs
-    exact ⟨s * t⁻¹, hs, by simp⟩
 
 theorem mem_zCoset_iff_mem_invertedSet (hZ : IsInvariantInvolutionSet Z) {K : Subgroup X} {s : X}
     (hs : s ∈ Z) (hK : Odd (Nat.card K)) (hsK : s ∈ normalizer (K : Set X)) {v : X} :
@@ -151,29 +144,6 @@ theorem mem_zCoset_of_mem_invertedSet (hZ : IsInvariantInvolutionSet Z)
   have := (mem_zCoset_iff_mem_invertedSet hZ ht hK htK (v := x * t)).mpr ⟨x, hx, rfl⟩
   exact this.1
 
-theorem IsProductDisconnected.prop36a (hZ : IsInvariantInvolutionSet Z)
-    (h : IsProductDisconnected Z M) {t : X} (ht : t ∈ Z) (htM : t ∉ M) :
-    Z ∩ ((M : Set X) * {t}) = Z ∩ (((M ⊓ conjugate M t : Subgroup X) : Set X) * {t}) ∧
-      Z ∩ (((M ⊓ conjugate M t : Subgroup X) : Set X) * {t}) =
-        CFSG.OddInversion.invertedSet (pPrimeCoreIn (M ⊓ conjugate M t)) t * {t} := by
-  have hti : t⁻¹ = t := inv_eq_of_mul_eq_one_right (hZ.mul_self_eq_one ht)
-  refine ⟨?_, ?_⟩
-  · ext s
-    simp only [Set.mem_inter_iff, mem_set_mul_singleton_iff, SetLike.mem_coe]
-    constructor
-    · rintro ⟨hsZ, hsM⟩
-      exact ⟨hsZ, pPrimeCoreIn_le _ (h.mem_invertedSet_of_mem_zCoset hZ ht htM hsZ hsM).1⟩
-    · rintro ⟨hsZ, hsD⟩
-      exact ⟨hsZ, (Subgroup.mem_inf.mp hsD).1⟩
-  · ext s
-    simp only [Set.mem_inter_iff, mem_set_mul_singleton_iff, SetLike.mem_coe]
-    constructor
-    · rintro ⟨hsZ, hsD⟩
-      exact h.mem_invertedSet_of_mem_zCoset hZ ht htM hsZ (Subgroup.mem_inf.mp hsD).1
-    · intro hsI
-      obtain ⟨hsZ, hsD⟩ := mem_zCoset_of_mem_invertedSet hZ ht hsI
-      rw [inv_mul_cancel_right] at hsZ
-      exact ⟨hsZ, hsD⟩
 
 theorem IsProductDisconnected.exists_centralizer_mul_invertedSet (hZ : IsInvariantInvolutionSet Z)
     (h : IsProductDisconnected Z M) {t z : X} (ht : t ∈ Z) (htM : t ∉ M) (hz : z ∈ Z)

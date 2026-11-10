@@ -14,9 +14,6 @@ namespace Counterexample
 
 variable {p : ℕ} {G : Type u} [Group G] [Finite G] {A : Subgroup G} {θ : G → Subgroup G}
 
-theorem thm612
-    (h : Counterexample p A θ) : IsMulCommutative (sOne p A θ) :=
-  Sec6S32.isMulCommutative_sOne h
 
 theorem lemma613
     (h : Counterexample p A θ) {B : Subgroup G} (hB : B ∈ rSet p A θ) :

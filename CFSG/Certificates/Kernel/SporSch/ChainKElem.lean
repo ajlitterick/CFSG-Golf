@@ -27,8 +27,6 @@ open CFSG.Sporadic.Schreier CFSG.Monster.B.Co2.Native CFSG.Monster.B.Co2 CFSG.Mo
     List (List (Equiv.Perm (Fin n))) :=
   (List.range d).map fun i => (List.range (rcnt (LR i))).map (trP n w LR TR i)
 
-theorem elemR_zero (n w m nw : Nat) (LR TR : Nat → Nat) (j acc : Nat) :
-    elemR n w m nw LR TR 0 j acc = acc := rfl
 
 theorem elemR_succ (n w m nw : Nat) (LR TR : Nat → Nat) (d j acc : Nat) :
     elemR n w m nw LR TR (d + 1) j acc = elemR n w m nw LR TR d (j / rcnt (LR d))

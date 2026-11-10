@@ -150,52 +150,6 @@ section ConjAction
 variable {P : Type*} [Group P] [Finite P] {U L : Subgroup P} [U.Normal]
   [IsMulCommutative ↥U] {K : Type*} [Field K] [Module K (Additive U)]
 
-def fixSubGenEquivCUGen (ρ : Representation K L (Additive U))
-    (hρ : ∀ (l : L) (u : U),
-      (((ρ l) (Additive.ofMul u)).toMul : P) = (l : P) * (u : P) * (l : P)⁻¹)
-    (A : Subgroup L) : fixSubGen ρ A ≃ CUGen U (A.map L.subtype) where
-  toFun x :=
-    ⟨(x.1.toMul : U), by
-      refine (mem_CUGen).mpr ⟨(x.1.toMul).2, ?_⟩
-      rw [Subgroup.mem_centralizer_iff]
-      intro y hy
-      rcases Subgroup.mem_map.mp hy with ⟨l, hl, rfl⟩
-      have hx : (ρ l) x.1 = x.1 := x.2 l hl
-      have hconj : (l : P) * ((x.1.toMul : U) : P) * (l : P)⁻¹ = ((x.1.toMul : U) : P) := by
-        rw [← hρ l x.1.toMul]
-        have hx' : (ρ l) (Additive.ofMul x.1.toMul) = Additive.ofMul x.1.toMul := by
-          simpa using hx
-        rw [hx']
-        rfl
-      calc (l : P) * ((x.1.toMul : U) : P)
-          = (l : P) * ((x.1.toMul : U) : P) * (l : P)⁻¹ * (l : P) := by group
-        _ = ((x.1.toMul : U) : P) * (l : P) := by rw [hconj]
-    ⟩
-  invFun y :=
-    ⟨Additive.ofMul (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U), by
-      rw [mem_fixSubGen]
-      intro l hl
-      have hcent := (mem_CUGen.mp y.2).2
-      have hcomm : (l : P) * y.1 = y.1 * (l : P) :=
-        (Subgroup.mem_centralizer_iff.mp hcent) (l : P) (Subgroup.mem_map_of_mem L.subtype hl)
-      have hU : ((ρ l) (Additive.ofMul (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U))).toMul =
-          (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U) := by
-        apply Subtype.ext
-        have hρu := hρ l (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U)
-        rw [hρu]
-        change (l : P) * y.1 * (l : P)⁻¹ = y.1
-        rw [hcomm]
-        group
-      change ((ρ l) (Additive.ofMul (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U))).toMul =
-        (⟨y.1, (mem_CUGen.mp y.2).1⟩ : U)
-      exact hU
-    ⟩
-  left_inv x := by
-    apply Subtype.ext
-    rfl
-  right_inv y := by
-    apply Subtype.ext
-    rfl
 
 end ConjAction
 

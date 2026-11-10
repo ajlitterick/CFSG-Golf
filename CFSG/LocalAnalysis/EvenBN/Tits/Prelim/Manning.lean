@@ -34,28 +34,6 @@ theorem manning_mem_orbit_iff (α : Ω) (ψ : Ψ) (g g' : G) :
     · change (g' * h * g⁻¹) • g • α = g' • α
       rw [mul_smul, mul_smul, inv_smul_smul, hh']
 
-noncomputable def manningStabEquiv (α : Ω) (ψ : Ψ) (g : G) :
-    stabilizer (stabilizer G ψ) (g • α) ≃ stabilizer (stabilizer G α) (g⁻¹ • ψ) where
-  toFun k := ⟨⟨g⁻¹ * k.1.1 * g, by
-      have h1 : k.1.1 • g • α = g • α := k.2
-      rw [mem_stabilizer_iff, mul_smul, mul_smul, h1, inv_smul_smul]⟩, by
-      have h2 : k.1.1 • ψ = ψ := k.1.2
-      change (g⁻¹ * k.1.1 * g) • g⁻¹ • ψ = g⁻¹ • ψ
-      rw [mul_smul, mul_smul, smul_inv_smul, h2]⟩
-  invFun h := ⟨⟨g * h.1.1 * g⁻¹, by
-      have h2 : h.1.1 • g⁻¹ • ψ = g⁻¹ • ψ := h.2
-      rw [mem_stabilizer_iff, mul_smul, mul_smul, h2, smul_inv_smul]⟩, by
-      have h1 : h.1.1 • α = α := h.1.2
-      change (g * h.1.1 * g⁻¹) • g • α = g • α
-      rw [mul_smul, mul_smul, inv_smul_smul, h1]⟩
-  left_inv k := by
-    apply Subtype.ext; apply Subtype.ext
-    change g * (g⁻¹ * k.1.1 * g) * g⁻¹ = k.1.1
-    group
-  right_inv h := by
-    apply Subtype.ext; apply Subtype.ext
-    change g⁻¹ * (g * h.1.1 * g⁻¹) * g = h.1.1
-    group
 
 theorem manning_card_orbit_mul_card_stabilizer {M β : Type*} [Group M] [MulAction M β] [Finite M]
     (b : β) : Nat.card (orbit M b) * Nat.card (stabilizer M b) = Nat.card M := by

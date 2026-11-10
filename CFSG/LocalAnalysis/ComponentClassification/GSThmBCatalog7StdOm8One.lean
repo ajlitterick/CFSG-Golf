@@ -18,10 +18,6 @@ open CFSG.ComponentClassification.CatalogueBOrthogonalLinearFixed (scalarSigns)
   right_inv _ := rfl
   map_mul' _ _ := rfl
 
-@[expose] def equivOfMapEq {A X Y : Type*} [Group A] [Group X] [Group Y] (ψ : A ≃* X × Y)
-    {N : Subgroup A} {L : Subgroup X} (h : N.map ψ.toMonoidHom = L.prod ⊥) : N ≃* L :=
-  ((N.equivMapOfInjective ψ.toMonoidHom ψ.injective).trans (MulEquiv.subgroupCongr h)).trans
-    (prodBotEquiv L)
 
 @[expose] def centerQuotientCongr {A B : Type*} [Group A] [Group B] (e : A ≃* B) :
     A ⧸ center A ≃* B ⧸ center B :=
@@ -41,11 +37,6 @@ theorem ext_left (h) (x : W) : (ψ.symm h).val.val x.val = (h.1.val x).val := by
   have := hψ h x 0
   simpa using this
 
-omit [Finite K] [FiniteDimensional K V] in
-include hψ in
-theorem ext_right (h) (y : W') : (ψ.symm h).val.val y.val = (h.2.val y).val := by
-  have := hψ h 0 y
-  simpa using this
 
 omit [Finite K] [FiniteDimensional K V] in
 theorem polar_comp_subtype (x y : W) :

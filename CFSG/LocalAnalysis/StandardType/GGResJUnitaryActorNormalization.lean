@@ -241,49 +241,6 @@ theorem norm_one_of_scalar_isometry (Y : GL (Fin n) K)
   have hi := congrFun hdiag ⟨0, hn⟩
   simpa [UnitaryFieldData.norm, mul_comm] using hi
 
-omit [Finite K] [CharP K 2] in
-theorem eq_one_of_scalar_cube_of_mem_unitarySU (h : UnitaryFieldData 2 f K)
-    {z : ↥(unitarySU 2 f K n)}
-    (hpq : ¬ 3 ∣ 2 ^ f + 1) (hn : 1 ≤ n) (hz3 : z ^ 3 = 1)
-    (hzscalar : ∃ a : K, (((z : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K) = a • 1) :
-    z = 1 := by
-  classical
-  obtain ⟨a, ha⟩ := hzscalar
-  have hiso : ∀ x y, stdHermForm h n
-      (((z : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *ᵥ x)
-      (((z : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) *ᵥ y) = stdHermForm h n x y :=
-    ((mem_unitarySU_iff_isometry h).mp z.2).2
-  have hnorm : h.norm a = 1 := norm_one_of_scalar_isometry h (z : GL (Fin n) K) hiso hn ha
-  have hzGL3 : ((z : GL (Fin n) K)) ^ 3 = 1 := by
-    rw [← Subgroup.coe_pow, hz3, Subgroup.coe_one]
-  have hzmat3 : ((((z : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K)) ^ 3 = 1 := by
-    rw [← Units.val_pow_eq_pow_val, hzGL3, Units.val_one]
-  have hscalar : (((z : GL (Fin n) K)) : Matrix (Fin n) (Fin n) K) =
-      Matrix.scalar (Fin n) a := by
-    simpa [Matrix.scalar_apply, Matrix.smul_one_eq_diagonal] using ha
-  have hscalar3 : Matrix.scalar (Fin n) (a ^ 3) = 1 := by
-    rw [map_pow, ← hscalar]
-    exact hzmat3
-  have : Nonempty (Fin n) := ⟨⟨0, hn⟩⟩
-  have ha3 : a ^ 3 = 1 := by
-    have h : Matrix.scalar (Fin n) (a ^ 3) = Matrix.scalar (Fin n) (1 : K) := by
-      simpa using hscalar3
-    exact Matrix.scalar_inj.mp h
-  have ha_q1 : a ^ (2 ^ f + 1) = 1 := by
-    have h := hnorm
-    rw [UnitaryFieldData.norm, UnitaryFieldData.bar_apply] at h
-    rw [mul_comm] at h
-    simpa [pow_succ] using h
-  have hcop : Nat.Coprime 3 (2 ^ f + 1) :=
-    Nat.prime_three.coprime_iff_not_dvd.mpr hpq
-  have ha1 : a = 1 := by
-    have h1 : a ^ Nat.gcd 3 (2 ^ f + 1) = 1 :=
-      pow_gcd_eq_one.mpr ⟨ha3, ha_q1⟩
-    simpa [hcop] using h1
-  apply Subtype.ext
-  apply Units.ext
-  rw [ha, ha1]
-  simp
 
 structure NormalizedLift (Y : GL (Fin n) K) where
   U : ↥(unitarySU 2 f K n)

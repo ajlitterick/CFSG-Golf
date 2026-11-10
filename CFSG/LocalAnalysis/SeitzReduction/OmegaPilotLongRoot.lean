@@ -241,52 +241,6 @@ theorem isLongRoot_of_commute_sylow_minus {n : ℕ} (hn : 4 ≤ n) {b c : K}
   exact isLongRoot_of_commute_sylow (regular_coordinateQuadMinus n K b c hn hirr).1 h₁₂ h₁₃ h₂₃ U
     hz1 hz
 
-omit [CharP K 2] in
-theorem exists_isLongRoot_mem_pairPerpOf {d : ℕ} {Q : QuadraticForm K (Fin d → K)}
-    (hQ : (polarBilin Q).Nondegenerate) {a b a₂ b₂ a₃ b₃ : Fin d} (h : IsHypCoord Q a b)
-    (h₂ : IsHypCoord Q a₂ b₂) (h₃ : IsHypCoord Q a₃ b₃) (d₂ : PairDisjoint a b a₂ b₂)
-    (d₃ : PairDisjoint a b a₃ b₃) (d₂₃ : PairDisjoint a₂ b₂ a₃ b₃) :
-    ∃ z ∈ pairPerpOf Q a b, IsLongRoot Q z := by
-  have hT := exists_threeSingular_of_isHypCoord h h₂ h₃ d₂ d₃ d₂₃
-  have hu : (Pi.single a₂ 1 : Fin d → K) ∈ perpSub K a b := (h₂.hypPair_mem_perpSub d₂).1
-  have hw : (Pi.single a₃ 1 : Fin d → K) ∈ perpSub K a b := (h₃.hypPair_mem_perpSub d₃).1
-  set E : orthDerived Q := ⟨eichler Q (Pi.single a₂ 1) (Pi.single a₃ 1),
-    eichler_mem_orthDerived hQ hT _ _⟩ with hE
-  refine ⟨projHom Q E, ⟨E, h.eichler_mem_stabSub hu hw, rfl⟩, Pi.single a₂ 1, Pi.single a₃ 1,
-    h₂.map_left, h₃.map_left, ?_, ?_, E, rfl, rfl⟩
-  · rw [h₂.polar_left, Pi.single_eq_of_ne d₂₃.left_ne_right.symm]
-  · rw [LinearIndependent.pair_iff]
-    intro s t hst
-    have h1 := congrFun hst a₂
-    have h2 := congrFun hst a₃
-    simp [d₂₃.left_ne_left, d₂₃.left_ne_left.symm] at h1 h2
-    exact ⟨h1, h2⟩
-
-omit [CharP K 2] in
-theorem exists_isLongRoot_mem_pairPerp {n : ℕ} (hn : 3 ≤ n) (k : Fin n) :
-    ∃ z ∈ pairPerp (K := K) k, IsLongRoot (coordinateQuadPlus n K) z := by
-  obtain ⟨i, j, hik, hjk, hij⟩ := exists_two_ne hn k
-  exact exists_isLongRoot_mem_pairPerpOf (regular_coordinateQuadPlus n K hn).1
-    (isHypCoord_coordinateQuadPlus k) (isHypCoord_coordinateQuadPlus i)
-    (isHypCoord_coordinateQuadPlus j) (pairDisjoint_plus hik.symm) (pairDisjoint_plus hjk.symm)
-    (pairDisjoint_plus hij)
-
-omit [CharP K 2] in
-theorem exists_isLongRoot_mem_minusPairPerp {n : ℕ} (hn : 4 ≤ n) {b c : K}
-    (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) (k : Fin (n - 1)) :
-    ∃ z ∈ minusPairPerp (K := K) (one_le_of_four_le hn) b c k,
-      IsLongRoot (coordinateQuadMinus n K (one_le_of_four_le hn) b c) z := by
-  obtain ⟨i, j, hik, hjk, hij⟩ := exists_two_ne (by omega : 3 ≤ n - 1) k
-  exact exists_isLongRoot_mem_pairPerpOf (regular_coordinateQuadMinus n K b c hn hirr).1
-    (isHypCoord_coordinateQuadMinus _ b c k) (isHypCoord_coordinateQuadMinus _ b c i)
-    (isHypCoord_coordinateQuadMinus _ b c j) (pairDisjoint_minus _ hik.symm)
-    (pairDisjoint_minus _ hjk.symm) (pairDisjoint_minus _ hij)
-
-theorem isConj_of_isConj_map {X Y : Type*} [Group X] [Group Y] (e : X ≃* Y) {z z' : X}
-    (h : IsConj (e z) (e z')) : IsConj z z' := by
-  obtain ⟨c, hc⟩ := isConj_iff.mp h
-  refine isConj_iff.mpr ⟨e.symm c, e.injective ?_⟩
-  rw [map_mul, map_mul, map_inv, MulEquiv.apply_symm_apply, hc]
 
 theorem exists_sylow_commute_map {X Y : Type*} [Group X] [Group Y] [Finite Y] (e : X ≃* Y)
     (U : Sylow 2 X) {z : X} (hz : ∀ u ∈ (U : Subgroup X), u * z = z * u) :
@@ -314,18 +268,6 @@ theorem isLongRoot_of_commute_sylow_minus_of_mulEquiv {X : Type*} [Group X] {n :
   exact isLongRoot_of_commute_sylow_minus hn hirr U'
     (fun h0 => hz1 (e.injective (h0.trans (map_one e).symm))) hU'
 
-omit [CharP K 2] in
-theorem isConj_of_isLongRoot_plus_of_mulEquiv {X : Type*} [Group X] {n : ℕ}
-    (e : X ≃* matrixProjectiveDerived (coordinateQuadPlus n K)) (hn : 3 ≤ n) {z z' : X}
-    (hz : IsLongRoot _ (e z)) (hz' : IsLongRoot _ (e z')) : IsConj z z' :=
-  isConj_of_isConj_map e (isConj_of_isLongRoot_plus hn hz hz')
-
-omit [CharP K 2] in
-theorem isConj_of_isLongRoot_minus_of_mulEquiv {X : Type*} [Group X] {n : ℕ} (hn : 4 ≤ n)
-    {b c : K} (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0)
-    (e : X ≃* matrixProjectiveDerived (coordinateQuadMinus n K (by omega) b c)) {z z' : X}
-    (hz : IsLongRoot _ (e z)) (hz' : IsLongRoot _ (e z')) : IsConj z z' :=
-  isConj_of_isConj_map e (isConj_of_isLongRoot_minus hn hirr hz hz')
 
 end Coordinates
 

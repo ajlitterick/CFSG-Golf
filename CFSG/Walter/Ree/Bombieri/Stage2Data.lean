@@ -8,11 +8,9 @@ namespace CFSG.Walter.Ree.Bombieri
 
 namespace Spec
 
-@[expose] def mod7 : F3P := ⟨132, 1⟩
 
 @[expose] def mod8 : F3P := ⟨260, 1⟩
 
-@[expose] def mod9 : F3P := ⟨528, 1⟩
 
 @[expose] def batch9_1 : List Entry := [
   ⟨0, 1, false, [19044]⟩,

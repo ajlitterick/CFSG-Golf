@@ -266,36 +266,9 @@ section Cases
 
 variable [Finite G]
 
-@[expose] def burnsideC135_caseCount : ℕ → ℕ
-  | 1 => 1
-  | 2 => 2
-  | 3 => 3
-  | 4 => 6
-  | _ => 1
 
 variable {X R L : Subgroup G}
 
-theorem burnsideC135_isNormalIn_c134Q (hLX : L ≤ X)
-    (hXL : X ≤ Subgroup.normalizer (L : Set G)) :
-    IsNormalIn L (pCoreOf 2 L) (c134Q X L) :=
-  F112W.isNormalIn_of_le_normalizer (MS93.commutator_le_pCoreOf hLX hXL)
-    (hLX.trans (CFSG.Quasithin.H13.Ch4.le_normalizer_c134Q hXL))
-
-theorem burnsideC135_isChiefSeriesFrom_pCoreOf (hLX : L ≤ X)
-    (hXL : X ≤ Subgroup.normalizer (L : Set G)) (hperf : ⁅L, L⁆ = L) {m : ℕ}
-    (h : IsChiefSeriesFrom L (pCoreOf 2 L) (c134Q X L) m) :
-    IsChiefSeriesFrom L (pCoreOf 2 L) (pCoreOf 2 L) m := by
-  have hQU : c134Q X L ≤ pCoreOf 2 L := MS93.commutator_le_pCoreOf hLX hXL
-  have h0 : F112W.IsChiefSeriesBetween L (pCoreOf 2 L) (c134Q X L) (pCoreOf 2 L) 0 := by
-    refine (F112W.isChiefSeriesBetween_zero_iff (CFSG.LieType.BorelTits.pCoreOf_le 2 L) le_rfl
-      (burnsideC135_isNormalIn_c134Q hLX hXL)
-      (F112W.isNormalIn_of_le_normalizer le_rfl
-        (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 L)) hQU).mpr ?_
-    calc ⁅pCoreOf 2 L, oTwoUpper L⁆ ≤ ⁅pCoreOf 2 L, L⁆ :=
-          Subgroup.commutator_mono le_rfl (oTwoUpper_le L)
-      _ = c134Q X L := (MS93.commutator_eq_blockU hLX hXL hperf).symm
-  have := h0.append h
-  rwa [zero_add] at this
 
 theorem burnsideC135_chief_case4 (hLX : L ≤ X) (hXL : X ≤ Subgroup.normalizer (L : Set G))
     {U : Subgroup G} (hQU' : c134Q X L ≤ U) (hUL : U ≤ L) (hUO : U ≤ pCoreOf 2 L)
@@ -348,54 +321,6 @@ theorem burnsideC135_chief_case4 (hLX : L ≤ X) (hXL : X ≤ Subgroup.normalize
   have e3 := (burnsideC135_isChiefSeriesBetween_of_sum hα.1 h3 (hCQ.trans hQU)).append e2
   exact (burnsideC135_isChiefSeriesBetween_of_sum hα.1 h4 hQU).append e3
 
-theorem burnsideC135_chief_of_case (hLX : L ≤ X) (hXL : X ≤ Subgroup.normalizer (L : Set G))
-    (hperf : ⁅L, L⁆ = L) {i : ℕ} (hi : MS93.IsC134CaseCorr i X R L) :
-    IsChiefSeriesFrom L (pCoreOf 2 L) (pCoreOf 2 L) (burnsideC135_caseCount i) := by
-  refine burnsideC135_isChiefSeriesFrom_pCoreOf hLX hXL hperf ?_
-  have hQU : c134Q X L ≤ pCoreOf 2 L := MS93.commutator_le_pCoreOf hLX hXL
-  have hLQ : L ≤ Subgroup.normalizer (c134Q X L : Set G) :=
-    hLX.trans (CFSG.Quasithin.H13.Ch4.le_normalizer_c134Q hXL)
-  match i, hi with
-  | 1, hi =>
-    obtain ⟨-, n, F, _, _, -, hnat⟩ := hi
-    obtain ⟨α, hα, -, hN⟩ := (isNaturalSection_iff_isSumOfNaturalModules_one _ _ bot_le).mp hnat
-    exact F112W.isChiefSeriesFrom_of_between_bot
-      (burnsideC135_isChiefSeriesBetween_of_sum hα hN hQU)
-  | 2, hi =>
-    obtain ⟨⟨n, F, _, _, α, -, hα, hN⟩, -⟩ := hi
-    exact F112W.isChiefSeriesFrom_of_between_bot
-      (burnsideC135_isChiefSeriesBetween_of_sum hα.1 hN hQU)
-  | 3, hi =>
-    obtain ⟨⟨n, F, _, _, α, -, hα, h1, h2⟩, -⟩ := hi
-    have hZQ : centerOf (c134Q X L) ≤ c134Q X L := h2.2.1
-    have hZ := F112W.isChiefSeriesFrom_of_between_bot
-      (burnsideC135_isChiefSeriesBetween_of_sum hα.1 h1 (hZQ.trans hQU))
-    exact (burnsideC135_isChiefSeriesBetween_of_sum hα.1 h2 hQU).append hZ
-  | 4, hi =>
-    exact burnsideC135_chief_case4 hLX hXL hQU (CFSG.LieType.BorelTits.pCoreOf_le 2 L) le_rfl hi
-  | 5, hi =>
-    obtain ⟨⟨α, hα, -, hN⟩, -⟩ := hi
-    have hCQ : c134CQ X L ≤ c134Q X L := hN.2.1
-    have hCn : IsNormalIn L (pCoreOf 2 L) (c134CQ X L) := by
-      refine ⟨hCQ.trans hQU, fun g hg x hx => ?_⟩
-      have hxg : x * g = g * x := Subgroup.mem_centralizer_iff.mp hx.2 g hg |>.symm
-      have : g * x * g⁻¹ = x := by
-        calc g * x * g⁻¹ = x * g * g⁻¹ := by rw [hxg]
-          _ = x := by group
-      rw [this]
-      exact hx
-    have h0 : IsChiefSeriesFrom L (pCoreOf 2 L) (c134CQ X L) 0 := by
-      refine (F112W.isChiefSeriesFrom_zero_iff (CFSG.LieType.BorelTits.pCoreOf_le 2 L) le_rfl
-        hCn).mpr ?_
-      rw [eq_bot_iff, Subgroup.commutator_le]
-      intro x hx g hg
-      have hgL : g ∈ L := oTwoUpper_le L hg
-      have hxg : x * g = g * x := (Subgroup.mem_centralizer_iff.mp hx.2 g hgL).symm
-      rw [Subgroup.mem_bot, commutatorElement_def, hxg]
-      group
-    exact (burnsideC135_isChiefSeriesBetween_of_sum hα.1 hN hQU).append h0
-  | 0, hi => exact hi.elim
-  | (j + 6), hi => exact hi.elim
 
 end Cases
 
@@ -414,24 +339,6 @@ variable [Finite G]
     C134NotCentralizerCore G₀ R ∧
     IsChiefSeriesFrom L (c134Q G₀ L) (c134Q G₀ L) 6
 
-@[expose] def burnsideC135_C134W : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (G₀ R L : Subgroup G), IsMSPair G₀ R → L ∈ cComp G₀ →
-    (G₀ : Set G) = (L : Set G) * (R : Set G) →
-    (∃ (n : ℕ) (F : Type) (_ : Field F) (_ : Fintype F) (α : ↥L →* ↥(StatedSL 3 F)),
-      Fintype.card F = 2 ^ n ∧ IsModO2Surj L α) →
-      ∃ i : ℕ, (i ≠ 4 ∧ MS93.IsC134CaseCorr i G₀ R L) ∨ (i = 4 ∧ burnsideC135_Case4W G₀ R L)
-
-theorem burnsideC135_isChiefSeriesFrom_mono {L Q P N : Subgroup G} {m : ℕ} (hQP : Q ≤ P)
-    (h : IsChiefSeriesFrom L Q N m) : IsChiefSeriesFrom L P N m := by
-  have hstep : ∀ {L' N' : Subgroup G}, IsChiefStep L Q L' N' → IsChiefStep L P L' N' := by
-    intro L' N' hs
-    obtain ⟨hN, hL', hlt, hmax⟩ := hs
-    exact ⟨⟨hN.1.trans hQP, hN.2⟩, ⟨hL'.1.trans hQP, hL'.2⟩, hlt,
-      fun K hK hLK hKN => hmax K ⟨hKN.trans hN.1, hK.2⟩ hLK hKN⟩
-  induction h with
-  | bot => exact .bot
-  | central hs hc _ ih => exact .central (hstep hs) hc ih
-  | noncentral hs hc _ ih => exact .noncentral (hstep hs) hc ih
 
 theorem burnsideC135_case4_weak {X R L : Subgroup G} (hLX : L ≤ X)
     (hXL : X ≤ Subgroup.normalizer (L : Set G)) (h : MS93.IsC134Case4Corr X R L) :
@@ -442,24 +349,6 @@ theorem burnsideC135_case4_weak {X R L : Subgroup G} (hLX : L ≤ X)
   obtain ⟨⟨n, F, i₁, i₂, α, hF, hα, -, hZ, hD, h1, -, -, -⟩, hN⟩ := h
   exact ⟨⟨n, F, i₁, i₂, α, hF, hα, hZ, hD, h1⟩, hN, hQ⟩
 
-theorem burnsideC135_c134W_of_corr (h : MS93.AS_C_1_34_corr) : burnsideC135_C134W := by
-  intro G _ _ G₀ R L hMS hL hG hsl3
-  obtain ⟨i, hi⟩ := h G G₀ R L hMS hL hG hsl3
-  by_cases hi4 : i = 4
-  · subst hi4
-    have hLX : L ≤ G₀ := MS93.le_of_coe_eq_mul_left hG
-    have hXL : G₀ ≤ Subgroup.normalizer (L : Set G) := by
-      have h' := MS93.le_normalizer_oddGen G₀
-      rwa [← MS93.isMSPair_eq_oddGen hMS hL hG] at h'
-    exact ⟨4, Or.inr ⟨rfl, burnsideC135_case4_weak hLX hXL hi⟩⟩
-  · exact ⟨i, Or.inl ⟨hi4, hi⟩⟩
-
-theorem burnsideC135_chief_of_case4W {X R L : Subgroup G} (hLX : L ≤ X)
-    (hXL : X ≤ Subgroup.normalizer (L : Set G)) (hperf : ⁅L, L⁆ = L)
-    (h : burnsideC135_Case4W X R L) :
-    IsChiefSeriesFrom L (pCoreOf 2 L) (pCoreOf 2 L) 6 :=
-  burnsideC135_isChiefSeriesFrom_pCoreOf hLX hXL hperf
-    (burnsideC135_isChiefSeriesFrom_mono (MS93.commutator_le_pCoreOf hLX hXL) h.2.2)
 
 end Weak
 

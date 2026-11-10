@@ -298,17 +298,6 @@ theorem mat_conjF (hK : Nat.card K = (2 ^ 2) ^ 2) (hω : ω ^ 4 + ω ^ 3 + ω ^ 
     (g : SUid σ₄ 5) :
     mat σ₄ (conjF hK hω g) = valMat ω Fg * mat σ₄ g * valMat ω Finvg := rfl
 
-theorem conjF_mul (hK : Nat.card K = (2 ^ 2) ^ 2) (hω : ω ^ 4 + ω ^ 3 + ω ^ 2 + ω + 1 = 0)
-    (g h : SUid σ₄ 5) : conjF hK hω (g * h) = conjF hK hω g * conjF hK hω h := by
-  apply Subtype.ext
-  apply Units.ext
-  show valMat ω Fg * mat σ₄ (g * h) * valMat ω Finvg =
-    (valMat ω Fg * mat σ₄ g * valMat ω Finvg) * (valMat ω Fg * mat σ₄ h * valMat ω Finvg)
-  rw [mat_mul]
-  calc valMat ω Fg * (mat σ₄ g * mat σ₄ h) * valMat ω Finvg
-      = valMat ω Fg * mat σ₄ g * (valMat ω Finvg * valMat ω Fg) * mat σ₄ h * valMat ω Finvg := by
-        rw [hFF' hω, Matrix.mul_one]; simp only [Matrix.mul_assoc]
-    _ = _ := by simp only [Matrix.mul_assoc]
 
 section Letters
 

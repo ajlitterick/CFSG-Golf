@@ -45,9 +45,6 @@ theorem embed8_injective : Function.Injective embed8 :=
 theorem embed8_shift3 (σ : Perm (Fin 8)) (i : Fin 8) : embed8 σ (shift3 i) = shift3 (σ i) :=
   extendDomain_apply_image σ (ofInjective shift3 shift3.injective) i
 
-theorem embed8_apply (σ : Perm (Fin 8)) (i : Fin 8) :
-    embed8 σ ⟨i.val + 3, by omega⟩ = ⟨(σ i).val + 3, by omega⟩ :=
-  embed8_shift3 σ i
 
 theorem embed8_apply_of_lt (σ : Perm (Fin 8)) (j : Fin 11) (hj : j.val < 3) : embed8 σ j = j :=
   extendDomain_apply_not_subtype σ (ofInjective shift3 shift3.injective)
@@ -111,10 +108,6 @@ theorem exists_embed8_eq {τ : Perm (Fin 11)} (h : τ ∈ fix012) :
     rw [embed8_shift3]
     exact hdown _ (hτ i)
 
-theorem existsUnique_embed8_eq {τ : Perm (Fin 11)} (h : τ ∈ fix012) :
-    ∃! σ : Perm (Fin 8), embed8 σ = τ := by
-  obtain ⟨σ, hσ⟩ := exists_embed8_eq h
-  exact ⟨σ, hσ, fun σ' hσ' => embed8_injective (hσ'.trans hσ.symm)⟩
 
 theorem range_embed8 : embed8.range = fix012 := by
   ext τ
@@ -139,9 +132,5 @@ theorem map_embed8_alternatingGroup :
 theorem embed8_fix012Equiv (τ : ↥fix012) : embed8 (fix012Equiv τ) = (τ : Perm (Fin 11)) := by
   simp [fix012Equiv]
 
-theorem fix012Equiv_symm_apply (σ : Perm (Fin 8)) :
-    fix012Equiv.symm σ = ⟨embed8 σ, embed8_mem_fix012 σ⟩ :=
-  fix012Equiv.symm_apply_eq.2
-    (embed8_injective (embed8_fix012Equiv ⟨embed8 σ, embed8_mem_fix012 σ⟩)).symm
 
 end CFSG.Sporadic.Recognition.LyonsSims

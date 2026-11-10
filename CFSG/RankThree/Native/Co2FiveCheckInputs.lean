@@ -20,9 +20,6 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.Co2Cert
 
 @[expose] def co2FiveQCert : ArrCert := enumBfs 2300 co2FiveQGenArrs co2FiveKeyPts 130
 
-@[expose] def co2FiveC1Cert : ArrCert := enumBfs 2300 co2FiveC1GenArrs co2FiveKeyPts 700
-
-@[expose] def co2FiveDCert : ArrCert := enumBfs 2300 co2FiveDGenArrs co2FiveKeyPts 70
 
 @[expose] def co2FiveSiftArrs : List (Array Nat) :=
   [co2FiveX0Arr, co2FiveX1Arr, co2FiveTArr] ++ co2FiveC0GenArrs.toList ++
@@ -76,18 +73,5 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.Co2Cert
 @[expose] def co2BWordH (gs : Array (Array Nat)) : Array Nat :=
   compA 2300 gs[1]! (compA 2300 gs[2]! (compA 2300 gs[1]! gs[2]!))
 
-@[expose] def co2FiveC1Check (gs ds : Array (Array Nat)) (cC1 cD : ArrCert) : Bool :=
-  enumOK 2300 gs co2FiveKeyPts cC1 && cC1.pts.size == 600 &&
-    enumOK 2300 ds co2FiveKeyPts cD && cD.pts.size == 60 &&
-    allLt 3 (fun k => commA 2300 gs[k]! co2FiveX1Arr) &&
-    eqA 2300 (compA 2300 (co2BWordG gs) (co2BWordH gs))
-      (compA 2300 gs[2]! (compA 2300 (co2BWordH gs) (co2BWordG gs))) &&
-    allLt 3 (fun k => allLt 2 fun l => cD.pts.toList.any (eqA 2300 (conjA 2300 gs[k]! ds[l]!))) &&
-    allLt 3 (fun k => allLt 3 fun l =>
-      cD.pts.toList.any (eqA 2300 (commutatorA 2300 gs[k]! gs[l]!))) &&
-    !(commA 2300 ds[0]! ds[1]!) && conjSimpleOK 2300 co2FiveKeyPts cD &&
-    allLt 600 (fun k => !(commA 2300 cC1.pts[k]! ds[0]! && commA 2300 cC1.pts[k]! ds[1]!) ||
-      (List.range 5).any fun e => eqA 2300 cC1.pts[k]! (powArr 2300 co2FiveX1Arr e)) &&
-    validA 2300 co2FiveTArr
 
 end CFSG.RankThree.Native

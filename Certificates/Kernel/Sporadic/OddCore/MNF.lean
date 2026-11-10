@@ -175,9 +175,6 @@ theorem itabs_range (a k : Nat) (hk : a + k ≤ 30) :
       (((List.range k).map fun j => mclCentTbl (a + j)).toArray.map (invT 275)) :=
   TabsOK_inv (tabs_range a k hk) (invs_range a k hk)
 
-theorem eq_of {G G' : Nat → Nat} {k : Nat} (h : allN k (fun j => Nat.beq (G' j) (G j)) = true) :
-    ∀ j < k, G' j = G j := fun j hj => Nat.eq_of_beq_eq_true (allN_spec h j hj)
-
 
 theorem cover {L N : Nat} {P : Nat → Prop} (hL : 0 < L)
     (h : ∀ s < N, ∀ i, L * s ≤ i → i < L * s + L → P i) : ∀ i < L * N, P i := by
@@ -591,7 +588,6 @@ theorem orB {a b : Bool} (h : bIf(a, true, b) = true) : (a || b) = true := by
   · simpa using h
   · rfl
 
-theorem succ_eq (a j : Nat) : Nat.add a j = a + j := rfl
 
 theorem sy_tabs' : TabsOK 275 9 3 (fun j => F (Nat.succ j)) (cgL 1 3).toArray :=
   TabsOK_congr (fun j _ => by
@@ -659,8 +655,6 @@ theorem syl_ok : CFSG.Sporadic.SmallOddCore.sylowOK 275 120000 mclPGTbls mclPGIn
       (TabsOK_both sy_tabs' sy_invs) sy_cl
   · rw [hRec_size, sizes.2.2.1]
     rfl
-
-
 
 
 theorem kodd : oddK 7 3 4 = true ∧ oddK 9 7 4 = true ∧ oddK 11 7 4 = true ∧ oddK 13 5 4 = true ∧
@@ -774,7 +768,6 @@ theorem canonR {cnt k : Nat} {G GI T PL POS SRT SRI : Nat → Nat}
     (h : ∀ i < cnt, penumPtK 275 9 (mask 9) (275 * 9) true G GI k cnt T PL POS SRT SRI i = true) :
     ∀ i < cnt, canonK 275 9 (mask 9) (275 * 9) (T i) = true :=
   fun i hi => penumPt_canon (h i hi)
-
 
 
 theorem pwS (e Y : Nat) : pw (e + 1) Y = pc Y (pw e Y) := (pows Y).2 e

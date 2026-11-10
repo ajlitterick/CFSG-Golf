@@ -31,10 +31,6 @@ namespace B58Split
 
 variable {G A G₁ G₂ F : Subgroup (MulAut V)} (h : B58Split G A G₁ G₂ F)
 
-include h in
-theorem res_compat (g : ↥G₂) (w : ↥(fixV G₁)) :
-    (fixV G₁).subtype (((resEquiv h.stab h.faithful g : ↥(autSub G₂ (fixV G₁))) :
-      MulAut ↥(fixV G₁)) w) = (g : MulAut V) ((fixV G₁).subtype w) := rfl
 
 theorem map_top_eq : (⊤ : Subgroup ↥(fixV G₁)).map (fixV G₁).subtype = fixV G₁ :=
   SplitTransport.map_top_eq
@@ -54,10 +50,6 @@ theorem map_commV_eq :
   rw [commV_eq_commSub, map_commSub_autSub h.stab, map_top_eq,
     commSub_eq_commV h.dec_sup h.triv₁]
 
-include h in
-theorem map_modComm_eq :
-    (modComm (autSub G₂ (fixV G₁)) ⊤).map (fixV G₁).subtype = modComm G₂ (fixV G₁) :=
-  SplitTransport.map_modComm_eq h.stab
 
 include h in
 theorem realizes_transport {D : FFModel} {U Z : Subgroup ↥(fixV G₁)}

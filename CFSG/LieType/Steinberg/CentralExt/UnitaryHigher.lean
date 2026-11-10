@@ -70,42 +70,5 @@ theorem su_central_two_extension_splitting (hF : Nat.card F = (p ^ f) ^ 2) (hp2 
 
 end Split
 
-theorem nonempty_SU_mulEquiv_SUgram_blockJ {p f : ℕ} {K : Type} [Field K]
-    (hK : UnitaryFieldData p f K) [Finite K] [Fact p.Prime] [CharP K p] {r ε : ℕ} (hε : ε ≤ 1) :
-    Nonempty (SU (unitaryInvolution K p f) (2 * r + ε) ≃* SUgram hK.bar (blockJ K r ε)) := by
-  have h1 : SUgram hK.bar (blockJ K r ε) =
-      SUgram (unitaryInvolution K p f).toRingHom
-        ((antidiag (2 * r + ε)).submatrix (blockPerm r ε) (blockPerm r ε)) := by
-    rw [unitaryFieldData_bar_eq hK, antidiag_submatrix_blockPerm K hε]
-  exact ⟨((MulEquiv.subgroupCongr (SUgram_antidiag _)).symm.trans
-    (gramReindexEquiv (blockPerm r ε) _)).trans (MulEquiv.subgroupCongr h1.symm)⟩
-
-theorem odd_unitary_higher_central_two_extension_splitting {p f : ℕ} {K : Type} [Field K]
-    (hK : UnitaryFieldData p f K) (hp2 : p ≠ 2) {r ε : ℕ} (hr : 2 ≤ r) (hε : ε ≤ 1)
-    {R : Type*} [Group R] [Finite R] {π : R →* SUgram hK.bar (blockJ K r ε)}
-    (hπ : Function.Surjective π) (hcen : π.ker ≤ Subgroup.center R) (h2 : IsPGroup 2 π.ker) :
-    ∃ s : SUgram hK.bar (blockJ K r ε) →* R, (∀ x, π (s x) = x) ∧
-      (∀ t : SUgram hK.bar (blockJ K r ε) →* R, (∀ x, π (t x) = x) → t = s) ∧
-      ∃ e : π.ker × s.range ≃* R, ∀ a, e a = (a.1 : R) * a.2 := by
-  have := hK.finite
-  have : Fact p.Prime := ⟨hK.prime⟩
-  have := hK.charP
-  obtain ⟨Φ⟩ := nonempty_SU_mulEquiv_SUgram_blockJ hK (r := r) hε
-  have hker : (Φ.symm.toMonoidHom.comp π).ker = π.ker := by
-    ext x
-    rw [MonoidHom.mem_ker, MonoidHom.mem_ker, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom,
-      map_eq_one_iff _ Φ.symm.injective]
-  obtain ⟨s, hs, huniq, -⟩ := su_central_two_extension_splitting
-    (card_eq_sq_of_unitaryFieldData hK) hp2 (n := 2 * r + ε) (by omega)
-    (π := Φ.symm.toMonoidHom.comp π) (Φ.symm.surjective.comp hπ) (hker ▸ hcen) (hker ▸ h2)
-  have hs' : ∀ x, π (s.comp Φ.symm.toMonoidHom x) = x := fun x => Φ.symm.injective (hs (Φ.symm x))
-  refine exists_section_mulEquiv_of_existsUnique hcen ⟨s.comp Φ.symm.toMonoidHom, hs',
-    fun t ht => ?_⟩
-  have h := huniq (t.comp Φ.toMonoidHom) (fun x => by
-    change Φ.symm (π (t (Φ x))) = x
-    rw [ht, MulEquiv.symm_apply_apply])
-  ext x
-  have := DFunLike.congr_fun h (Φ.symm x)
-  simpa using this
 
 end CFSG.LieType.Steinberg

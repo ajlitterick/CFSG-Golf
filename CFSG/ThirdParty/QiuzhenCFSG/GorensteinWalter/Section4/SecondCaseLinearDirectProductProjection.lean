@@ -78,59 +78,6 @@ public theorem subgroup_sup_exists_prod_equiv_of_commute_of_disjoint
     change (x : G) = (1 : G) * (x : G)
     simp
 
-/-- If `D ≤ P ⊔ E` contains `X` but not the whole join `P ⊔ X`, then
-projection along the prime-order factor `P` is injective on `D`. -/
-public theorem exists_injective_second_projection_of_not_sup_le
-    {G : Type u} [Group G] [Finite G]
-    (P E X D : Subgroup G) {p : ℕ} (hp : p.Prime)
-    (hPcard : Nat.card P = p)
-    (hPE : P ⊓ E = ⊥)
-    (hcomm : ∀ a b, a ∈ P → b ∈ E → Commute a b)
-    (hDle : D ≤ P ⊔ E) (hXleD : X ≤ D)
-    (hnot : ¬ P ⊔ X ≤ D) :
-    ∃ φ : D →* E, Function.Injective φ := by
-  classical
-  obtain ⟨e, heP, _heE⟩ :=
-    subgroup_sup_exists_prod_equiv_of_commute_of_disjoint P E hPE hcomm
-  let inc : D →* (P ⊔ E : Subgroup G) := Subgroup.inclusion hDle
-  let φ : D →* E := (MonoidHom.snd P E).comp (e.toMonoidHom.comp inc)
-  have hDP : D ⊓ P = ⊥ := by
-    by_contra hne
-    have hcardDiv : Nat.card (↥(D ⊓ P)) ∣ p := by
-      rw [← hPcard]
-      exact Subgroup.card_dvd_of_le inf_le_right
-    have hcardEq : Nat.card (↥(D ⊓ P)) = p := by
-      rcases (Nat.dvd_prime hp).mp hcardDiv with hone | hp'
-      · exact False.elim (hne (Subgroup.card_eq_one.mp hone))
-      · exact hp'
-    have hEq : D ⊓ P = P :=
-      Subgroup.eq_of_le_of_card_ge inf_le_right (by rw [hPcard, hcardEq])
-    have hP_le_D : P ≤ D := by
-      rw [← hEq]
-      exact inf_le_left
-    exact hnot (sup_le hP_le_D hXleD)
-  refine ⟨φ, (MonoidHom.ker_eq_bot_iff φ).mp ?_⟩
-  apply le_bot_iff.mp
-  intro d hd
-  have hsnd : (e (inc d)).2 = 1 := by simpa [φ] using hd
-  let a : P := (e (inc d)).1
-  have heq : e (inc d) = (a, 1) := by
-    apply Prod.ext
-    · rfl
-    · exact hsnd
-  have hpa : e ⟨(a : G), Subgroup.mem_sup_left a.2⟩ = (a, 1) := heP a
-  have hincEq : inc d = ⟨(a : G), Subgroup.mem_sup_left a.2⟩ :=
-    e.injective (heq.trans hpa.symm)
-  have hdP : (d : G) ∈ P := by
-    have hv := congrArg Subtype.val hincEq
-    change (d : G) = (a : G) at hv
-    rw [hv]
-    exact a.2
-  have hdInf : (d : G) ∈ D ⊓ P := ⟨d.2, hdP⟩
-  have hdOne : (d : G) = 1 := by
-    rw [hDP] at hdInf
-    exact Subgroup.mem_bot.mp hdInf
-  exact Subtype.ext hdOne
 
 /-- A subgroup of the internal product whose order divides a prime-power
 field order has trivial projection to the prime-order factor, when the two

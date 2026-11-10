@@ -481,43 +481,6 @@ theorem actual_exact_automizer_of_boundary_frame
         (hgd := hgd) (hframeA := hframeA) (hs3 := hs3)
     exact ⟨s, r, ε, A₀, hs2, hframeA, hr1, Θ, hsp, hsgn, hperm, hcard⟩
 
-theorem actual_exact_automizer_of_boundary
-    (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (hBs : IsElemAbelian 3 Bs)
-    (hSC : ∀ x ∈ Subgroup.centralizer (Bs : Set G), x ^ 3 = 1 → x ∈ Bs)
-    (hNoTr : GGNoTransvection 3 Bs)
-    (hZ : Nat.card ↥(Bs ⊓ J ⊓ Subgroup.centralizer (J : Set G)) ≤ 3)
-    (φ : Matrix.SpecialLinearGroup (Fin n) K →* ↥J)
-    (hφ : Function.Surjective φ)
-    (hker : φ.ker ≤ Subgroup.center (Matrix.SpecialLinearGroup (Fin n) K))
-    (hn3 : 3 ≤ n) (hpK : ¬ 3 ∣ Nat.card K - 1)
-    (hJperf : commutator ↥J = ⊤)
-    {g : K[X]} [Fact (Irreducible g)]
-    (hC : (CoordSL.rootMat g).det = 1) (hCp : CoordSL.rootMat g ^ 3 = 1)
-    (hgd : g ∣ cyclotomic 3 K)
-    (hCardA : 9 ≤ Nat.card (ggGamma J hN).range)
-    (hY : ∀ a ∈ (ggGamma J hN).range, ∃ Y : Matrix.GeneralLinearGroup (Fin n) K,
-      ∀ x : Matrix.SpecialLinearGroup (Fin n) K,
-        a (φ x) = φ (CatalogueBHigherLinearAction.slConjugation n K Y x)) :
-    ∃ (s : ℕ) (Θ : (Fin s → Multiplicative (ZMod 3)) ≃* ↥(ggGamma J hN).range),
-      (∀ (m : ↥J) (hm : MulAut.conj m ∈
-          Subgroup.normalizer ((ggGamma J hN).range : Set (MulAut ↥J))),
-        SpCoord.IsSignedPerm ⇑((MulAut.congr Θ).symm
-          (ggConjAut (ggGamma J hN).range hm))) ∧
-      (∀ i : Fin s, ∃ (m : ↥J) (hm : MulAut.conj m ∈
-          Subgroup.normalizer ((ggGamma J hN).range : Set (MulAut ↥J))),
-        ggConjAut (ggGamma J hN).range hm = MulAut.congr Θ (sgnAut i)) ∧
-      (∀ σ : Equiv.Perm (Fin s), ∃ (m : ↥J) (hm : MulAut.conj m ∈
-          Subgroup.normalizer ((ggGamma J hN).range : Set (MulAut ↥J))),
-        ggConjAut (ggGamma J hN).range hm = MulAut.congr Θ (permAut σ)) ∧
-      Nat.card (ggAutomizer J Bs) = 2 ^ s * s.factorial := by
-  obtain ⟨s, r, ε, A₀, hs2, hframeA, hr1, Θ, hsp, hsgn, hperm, hcard⟩ :=
-    actual_exact_automizer_of_boundary_frame (hN := hN) (hBs := hBs) (hSC := hSC)
-      (hNoTr := hNoTr) (hZ := hZ) (φ := φ) (hφ := hφ) (hker := hker)
-      (hn3 := hn3) (hpK := hpK) (hJperf := hJperf) (hC := hC) (hCp := hCp)
-      (hgd := hgd) (hCardA := hCardA) (hY := hY)
-  exact ⟨s, Θ, hsp, hsgn, hperm, hcard⟩
-
 
 end RankTwo
 

@@ -69,12 +69,6 @@ theorem maximal_order_centralizer_eq_zpowers (k : ℕ) (y : Wreath (2 ^ (k + 1))
   apply (Subgroup.eq_of_le_of_card_ge hle ?_).symm
   rw [Nat.card_zpowers, hy, ← heq, he, outside_centralizer_card]
 
-theorem original_root_centralizer (n : ℕ) (hn : 2 ≤ n) :
-    Subgroup.centralizer ({originalRoot (2 ^ n)} : Set (Wreath (2 ^ n))) =
-      Subgroup.zpowers (originalRoot (2 ^ n)) := by
-  obtain ⟨k, hk⟩ := Nat.exists_eq_succ_of_ne_zero (by omega : n ≠ 0)
-  subst n
-  exact maximal_order_centralizer_eq_zpowers k _ (originalRoot_orderOf _ hn)
 
 theorem exists_cyclic_centralizer_sylow {G : Type} [Group G] [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))

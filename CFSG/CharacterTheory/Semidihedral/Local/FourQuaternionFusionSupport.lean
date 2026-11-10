@@ -174,9 +174,6 @@ theorem prefix_succ (i : Fin k) (x : c.subgroups 0) :
 @[expose] def composite : c.subgroups 0 →* c.subgroups (Fin.last k) :=
   c.prefixMap (Fin.last k)
 
-theorem composite_zero (c : SemidihedralFusionChain S 0) (x : c.subgroups 0) :
-    (c.composite x : G) = x :=
-  congrArg Subtype.val (c.prefix_zero x)
 
 theorem prefix_coe_eq (prefixes : Fin (k + 1) → G) (actors : Fin k → G)
     (hfirst : prefixes 0 = 1)

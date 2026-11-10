@@ -124,15 +124,6 @@ theorem commute_pow_three_of_odd_typeD (S' : Sylow 2 G) (hS' : (S' : Subgroup G)
   exact hb.commute_of_odd (k := k) hk (by rw [← pow_mul, mul_comm, pow_mul, hgk, one_pow])
     (pow_conj_mem_of_conj_mem hgR 3) hR hrr hr1 hrz (hK _ hR)
 
-theorem conj_sing_of_odd_typeD (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S)
-    {g : G ⧸ Z} {k : ℕ} (hk : Odd k) (hgk : g ^ k = 1)
-    (hgR : ∀ s ∈ e1RBar Z u m y x, g * s * g⁻¹ ∈ e1RBar Z u m y x)
-    (hgc : ¬ ∀ s ∈ e1RBar Z u m y x, g * s = s * g) {r : G ⧸ Z} (hr : r ∈ e1RBar Z u m y x)
-    (hr1 : r ≠ 1) (hrz : r ≠ caseC3Word Z u m y x 40) :
-    (g * r * g⁻¹ ≠ r ∧ g * r * g⁻¹ ≠ r * caseC3Word Z u m y x 40) ∧
-      g ^ 3 * r * (g ^ 3)⁻¹ = r :=
-  ⟨hb.conj_ne_of_odd_typeD htype hk hgk hgR hgc hr hr1 hrz, by
-    rw [hb.commute_pow_three_of_odd_typeD htype S' hS' hk hgk hgR r hr, mul_inv_cancel_right]⟩
 
 end CaseC3BCD
 

@@ -63,8 +63,6 @@ variable {Y : Type} [Group Y] [Finite Y] {s : Y} {K : Subgroup Y}
     · rintro ⟨a, ha, rfl⟩; exact ⟨⟨a, ha⟩, rfl⟩
   exact (MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange)
 
-theorem KComp.equivMap_apply (h : KComp Y s K) (a : ↥K) :
-    ((h.equivMap a : ↥(K.map (barMk Y))) : barQ Y) = barMk Y (a : Y) := rfl
 
 theorem KComp.isQuasisimple_map (h : KComp Y s K) : IsQuasisimple (K.map (barMk Y)) :=
   CFSG.LocalCores.isQuasisimple_of_mulEquiv h.equivMap h.quasi
@@ -460,67 +458,6 @@ theorem eq_of_barMk_eq {s s' : Y} (hs : orderOf s = 2) (hs' : orderOf s' = 2)
   rw [this]
   exact (inv_eq_of_mul_eq_one_right hss).symm
 
-@[expose] def IVK_9_5At (q : ℕ) : Prop :=
-  ∀ (J : Type) [Group J] [Finite J], IsSimpleGroup J → IsKGroupNative J →
-    ∀ z : J, orderOf z = 2 → Odd q →
-      HasSL2Model ↥(Ez z) (fun r => r = q) →
-      (∀ S : Sylow 2 ↥(centralizer ((Ez z : Subgroup J) : Set J)), IsCyclic ↥S) →
-        ∃ ε : ℤ, (ε = 1 ∨ ε = -1) ∧ IsLnEps 3 J ε q
-
-theorem IVK_9_5At_of (h : IVK_9_5) {q : ℕ} (hq : 5 < q) : IVK_9_5At q :=
-  fun J _ _ hJ hK z hz hodd hsl hcyc => h J hJ hK z hz q hodd hq hsl hcyc
-
-theorem kstep_main {p n : ℕ} (h95 : IVK_9_5At (p ^ n)) (h44a : IVK_4_4a)
-    (hY : IsKGroupNative Y) (hp : p.Prime) (hp2 : p ≠ 2) (hq5 : 5 ≤ p ^ n)
-    {s s' : Y} {K K' : Subgroup Y} (h : KPair Y s s' K K')
-    (hsl : HasSL2Model ↥K (fun r => r = p ^ n))
-    (hcyc : ∀ T : Sylow 2 ↥(centralizer (K : Set Y)), IsCyclic ↥T) :
-    ∃ L : Subgroup (barQ Y), CFSG.IsComponent L ∧ K.map (barMk Y) ≤ L ∧ K'.map (barMk Y) ≤ L ∧
-      Subgroup.center ↥L = ⊥ ∧ K.map (barMk Y) ⊔ K'.map (barMk Y) = L ∧
-      ∃ δ : ℤ, (δ = 1 ∨ δ = -1) ∧ IsLnEps 3 ↥L δ (p ^ n) := by
-  obtain ⟨L, hL, hKL, hK'L, hsL⟩ := h.exists_component
-  have hs'L : barMk Y s' ∈ L := hK'L (Subgroup.mem_map_of_mem _ h.K2.mem)
-  have hc := h.center_bot hcyc hL hKL hK'L
-  have hsimple := isSimpleGroup_of_center_bot hL.1 hc
-  have hKg : IsKGroupNative ↥L := by
-    have h1 : SectionRank.IsKGroupCat (barQ Y) := SectionRank.IsKGroupCat.quotient hY _
-    exact SectionRank.IsKGroupCat.subgroup h1 L
-  set zJ : ↥L := ⟨barMk Y s, hsL⟩ with hzJ
-  set uJ : ↥L := ⟨barMk Y s', hs'L⟩ with huJ
-  have hz2 : orderOf zJ = 2 := by
-    rw [← Subgroup.orderOf_coe]; exact orderOf_barMk h.K1.ord
-  have hu2 : orderOf uJ = 2 := by
-    rw [← Subgroup.orderOf_coe]; exact orderOf_barMk h.K2.ord
-  have hEz : Ez zJ = (K.map (barMk Y)).subgroupOf L := h.K1.Ez_eq hL hKL hsL
-  have hEu : Ez uJ = (K'.map (barMk Y)).subgroupOf L := h.K2.Ez_eq hL hK'L hs'L
-  have hsl' : HasSL2Model ↥(Ez zJ) (fun r => r = p ^ n) := by
-    obtain ⟨F, hF, hFin, hcard, ⟨e⟩⟩ := hsl
-    refine ⟨F, hF, hFin, hcard, ⟨?_⟩⟩
-    rw [hEz]
-    exact ((Subgroup.subgroupOfEquivOfLe hKL).trans h.K1.equivMap.symm).trans e
-  have hcycJ : ∀ S : Sylow 2 ↥(centralizer ((Ez zJ : Subgroup ↥L) : Set ↥L)), IsCyclic ↥S := by
-    rw [hEz]
-    exact h.K1.cyclic_sylow_J hcyc hKL
-  have hodd : Odd (p ^ n) := (hp.eq_two_or_odd'.resolve_left hp2).pow
-  obtain ⟨δ, hδ, hLn⟩ := h95 ↥L hsimple hKg zJ hz2 hodd hsl' hcycJ
-  have hne : zJ ≠ uJ := by
-    intro heq
-    have h1 : barMk Y s = barMk Y s' := congrArg Subtype.val heq
-    exact h.ne (eq_of_barMk_eq h.K1.ord h.K2.ord h.comm h1)
-  have hcomm : zJ * uJ = uJ * zJ := Subtype.ext (by
-    show barMk Y s * barMk Y s' = barMk Y s' * barMk Y s
-    rw [← map_mul, ← map_mul, h.comm])
-  have hU := isFourSubgroup_zpowers_sup hz2 hu2 hne hcomm
-  have h4 := (h44a ↥L δ p n hp hp2 hLn _ hU zJ (Subgroup.mem_sup_left (mem_zpowers zJ)) uJ
-    (Subgroup.mem_sup_right (mem_zpowers uJ)) hz2 hu2 hne).1 (by omega)
-  rw [hEz, hEu, Subgroup.closure_union, Subgroup.closure_eq, Subgroup.closure_eq] at h4
-  have hgen : K.map (barMk Y) ⊔ K'.map (barMk Y) = L := by
-    have h5 := congrArg (Subgroup.map L.subtype) h4
-    rw [Subgroup.map_sup, Subgroup.map_subgroupOf_eq_of_le hKL,
-      Subgroup.map_subgroupOf_eq_of_le hK'L, ← MonoidHom.range_eq_map, Subgroup.range_subtype] at h5
-    exact h5
-  exact ⟨L, hL, hKL, hK'L, hc, hgen, δ, hδ, hLn⟩
-
 
 omit [Finite Y] in
 theorem mem_zpowers_sup_iff {s s' : Y} (hs : orderOf s = 2) (hs' : orderOf s' = 2)
@@ -720,48 +657,5 @@ theorem KPair.central_extension {K' : Subgroup Y}
     apply Subtype.ext
     exact (hcen _ h2 k k.2).symm
 
-
-open scoped MatrixGroups in
-theorem kstep_final {p n : ℕ} (h95 : IVK_9_5At (p ^ n)) (h44a : IVK_4_4a) (hM3 : L3InvTorus)
-    (hCov : L3Cover) (hY : IsKGroupNative Y) (hp : p.Prime) (hp2 : p ≠ 2) (hq5 : 5 ≤ p ^ n)
-    {s s' : Y} {K K' : Subgroup Y} (h : KPair Y s s' K K')
-    (hsl : HasSL2Model ↥K (fun r => r = p ^ n))
-    (hcyc : ∀ T : Sylow 2 ↥(centralizer (K : Set Y)), IsCyclic ↥T)
-    (hD1 : ∀ d ∈ pPrimeCore 2 Y, d ∈ centralizer ({s} : Set Y) → s' * d = d * s')
-    (hD2 : ∀ d ∈ pPrimeCore 2 Y, d ∈ centralizer ({s'} : Set Y) → s * d = d * s)
-    (hg : ∃ g : Y, g * s * g⁻¹ = s * s') {ε : ℤ}
-    (hcard : (Nat.card ↥(K ⊓ centralizer ({s'} : Set Y)) : ℤ) = ((p ^ n : ℕ) : ℤ) - ε) :
-    (ε = 1 → ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ n ∧
-      ∃ α : SL(3, F) →* ↥(K ⊔ K'), Function.Surjective α) ∧
-    (ε = -1 → ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = (p ^ n) ^ 2 ∧
-      ∃ α : ↥(StatedSU 3 (p ^ n) F) →* ↥(K ⊔ K'), Function.Surjective α) := by
-  obtain ⟨L, hL, hKL, hK'L, hc, hgen, δ, hδ, hLn⟩ := kstep_main h95 h44a hY hp hp2 hq5 h hsl hcyc
-  have hs'L : barMk Y s' ∈ L := hK'L (Subgroup.mem_map_of_mem _ h.K2.mem)
-  have hsL : barMk Y s ∈ L := hKL (Subgroup.mem_map_of_mem _ h.K1.mem)
-  set zJ : ↥L := ⟨barMk Y s, hsL⟩ with hzJ
-  set uJ : ↥L := ⟨barMk Y s', hs'L⟩ with huJ
-  have hz2 : orderOf zJ = 2 := by
-    rw [← Subgroup.orderOf_coe]; exact orderOf_barMk h.K1.ord
-  have hu2 : orderOf uJ = 2 := by
-    rw [← Subgroup.orderOf_coe]; exact orderOf_barMk h.K2.ord
-  have hne : zJ ≠ uJ := by
-    intro heq
-    have h1 : barMk Y s = barMk Y s' := congrArg Subtype.val heq
-    exact h.ne (eq_of_barMk_eq h.K1.ord h.K2.ord h.comm h1)
-  have hcomm : zJ * uJ = uJ * zJ := Subtype.ext (by
-    show barMk Y s * barMk Y s' = barMk Y s' * barMk Y s
-    rw [← map_mul, ← map_mul, h.comm])
-  have hodd : Odd (p ^ n) := (hp.eq_two_or_odd'.resolve_left hp2).pow
-  have hEz : Ez zJ = (K.map (barMk Y)).subgroupOf L := h.K1.Ez_eq hL hKL hsL
-  have hM := hM3 ↥L δ (p ^ n) hδ hodd (by omega) hLn zJ uJ hz2 hu2 hne hcomm
-  rw [hEz, ← h.card_centralizer_bar hKL hs'L, hcard] at hM
-  have hδε : δ = ε := by omega
-  have hcen := h.pPrimeCore_centralizes hD1 hD2 hg
-  obtain ⟨φ, hφs, hφk⟩ := KPair.central_extension hcen hgen
-  have hperf := h.perfect_sup
-  have hcov := hCov ↥L δ p n hp hp2 hδ (by omega) hLn ↥(K ⊔ K') hperf φ hφs hφk
-  refine ⟨fun he => ?_, fun he => ?_⟩
-  · exact hcov.1 (hδε ▸ he)
-  · exact hcov.2 (hδε ▸ he)
 
 end CFSG.GH74.GLS.LU.Local

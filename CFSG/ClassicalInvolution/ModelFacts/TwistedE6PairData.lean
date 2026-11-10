@@ -52,7 +52,6 @@ section E6
 
 @[expose] def thetaE6 : Fin (Tag.rank .E6) → ℤ := (![1, 2, 2, 3, 2, 1] : Fin 6 → ℤ)
 
-theorem thetaE6_eq_e6Theta : thetaE6 = e6Theta := rfl
 
 theorem isRoot_thetaE6 : IsRoot .E6 thetaE6 := isRoot_e6Theta
 
@@ -163,10 +162,6 @@ theorem exists_eq_two_smul_of_even_iform_single_E6_aux (x : Fin Tag.E6.rank → 
   have := h4 i
   linarith
 
-theorem exists_eq_two_smul_of_even_iform_single_E6 (x : Fin (Tag.rank .E6) → ℤ)
-    (hx : ∀ j, Even (iform x (Pi.single j 1))) :
-    ∃ y : Fin (Tag.rank .E6) → ℤ, x = 2 • y :=
-  exists_eq_two_smul_of_even_iform_single_E6_aux x hx
 
 end E6
 

@@ -497,11 +497,6 @@ instance normal_V_subgroupOf_Y (d : TrialityD4Data L q) :
   have : IsMulCommutative (d.Y.map L.subtype : Subgroup G) := hY.toIsMulCommutative
   exact Subgroup.normal_of_isMulCommutative _
 
-omit [Finite G] in
-theorem crossed_mul_general {t z z' : G} (ht : t * t = 1) :
-    (z * z')⁻¹ * t * (z * z') * t = z'⁻¹ * (z⁻¹ * t * z * t) * z' * (z'⁻¹ * t * z' * t) := by
-  calc (z * z')⁻¹ * t * (z * z') * t = z'⁻¹ * z⁻¹ * t * z * (t * t) * z' * t := by rw [ht]; group
-    _ = _ := by group
 
 theorem yamadaR₂_le_normalizer_tY (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) :
     yamadaR₂ d t ≤ normalizer ((d.Y.map L.subtype ⊔ zpowers t : Subgroup G) : Set G) :=
@@ -511,69 +506,6 @@ theorem crossed_mem_Y_of_mem_yamadaR₂ (h : Setup G L f t) (d : TrialityD4Data 
     {z : G} (hz : z ∈ yamadaR₂ d t) : z⁻¹ * t * z * t ∈ d.Y.map L.subtype :=
   (h.cosetData_tY d).crossed_mem z (h.yamadaR₂_le_normalizer_tY d hz)
 
-theorem t_crossed_eq (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) {z : G}
-    (hz : z ∈ yamadaR₂ d t) : t * z⁻¹ * t * z = z⁻¹ * t * z * t := by
-  have hY := h.crossed_mem_Y_of_mem_yamadaR₂ d hz
-  have htY : t * (z⁻¹ * t * z * t) = (z⁻¹ * t * z * t) * t := (h.cosetData_tY d).comm_of_mem hY
-  calc t * z⁻¹ * t * z = t * (z⁻¹ * t * z * t) * t := by
-        rw [show t * (z⁻¹ * t * z * t) * t = t * z⁻¹ * t * z * (t * t) by group, h.t_mul_t,
-          mul_one]
-    _ = (z⁻¹ * t * z * t) * (t * t) := by rw [htY, mul_assoc]
-    _ = z⁻¹ * t * z * t := by rw [h.t_mul_t, mul_one]
-
-theorem t_crossed_mem_Y (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) {z : G}
-    (hz : z ∈ yamadaR₂ d t) : t * z⁻¹ * t * z ∈ d.Y.map L.subtype := by
-  rw [h.t_crossed_eq d hz]
-  exact h.crossed_mem_Y_of_mem_yamadaR₂ d hz
-
-theorem conj_mem_Y_mod_V (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) {z : G}
-    (hz : z ∈ yamadaR₂ d t) {y : G} (hy : y ∈ d.Y.map L.subtype) :
-    z⁻¹ * y * z * y⁻¹ ∈ d.V.map L.subtype := by
-  have hz' : z ∈ ((yamadaR₂ d t : Subgroup G) : Set G) := hz
-  rw [h.coe_yamadaR₂ d] at hz'
-  obtain ⟨l, hl, s, hs, rfl⟩ := hz'
-  have hly : l⁻¹ * y * l = y := by
-    rw [mul_assoc, mem_centralizer_iff.1 ((h.two_core_L₂ d).1 hl) y hy, inv_mul_cancel_left]
-  rw [show (l * s)⁻¹ * y * (l * s) * y⁻¹ = s⁻¹ * (l⁻¹ * y * l) * s * y⁻¹ by group, hly]
-  obtain ⟨s₀, hs₀, rfl⟩ := hs
-  obtain ⟨y₀, hy₀, rfl⟩ := hy
-  refine ⟨s₀⁻¹ * y₀ * s₀ * y₀⁻¹, ?_, by simp⟩
-  have := d.commutator_S_Y (commutator_mem_commutator (inv_mem hs₀) hy₀)
-  rwa [commutatorElement_def, inv_inv] at this
-
-@[expose] noncomputable def psiR₂ (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) :
-    yamadaR₂ d t →* (d.Y.map L.subtype : Subgroup G) ⧸
-      (d.V.map L.subtype).subgroupOf (d.Y.map L.subtype) where
-  toFun z := QuotientGroup.mk ⟨t * (z : G)⁻¹ * t * z, h.t_crossed_mem_Y d z.2⟩
-  map_one' := by
-    refine (QuotientGroup.eq_one_iff _).2 (mem_subgroupOf.2 ?_)
-    change t * (1 : G)⁻¹ * t * 1 ∈ d.V.map L.subtype
-    rw [inv_one, mul_one, mul_one, h.t_mul_t]
-    exact one_mem _
-  map_mul' a b := by
-    rw [← QuotientGroup.mk_mul, QuotientGroup.eq, mem_subgroupOf]
-    simp only [Subgroup.coe_inv, MulMemClass.coe_mul]
-    rw [h.t_crossed_eq d a.2, h.t_crossed_eq d b.2, h.t_crossed_eq d (mul_mem a.2 b.2),
-      crossed_mul_general h.t_mul_t]
-    have h1 := h.conj_mem_Y_mod_V d b.2 (h.crossed_mem_Y_of_mem_yamadaR₂ d a.2)
-    have hYc := isElementaryAbelian_Y_map (G := G) d
-    have hcomm : ∀ x ∈ d.Y.map L.subtype, ∀ y ∈ d.Y.map L.subtype, x * y = y * x := fun x hx y hy =>
-      congrArg Subtype.val (hYc.toIsMulCommutative.is_comm.comm ⟨x, hx⟩ ⟨y, hy⟩)
-    set A := (a : G)⁻¹ * t * a * t
-    set B := (b : G)⁻¹ * t * b * t
-    have hA : A ∈ d.Y.map L.subtype := h.crossed_mem_Y_of_mem_yamadaR₂ d a.2
-    have hB : B ∈ d.Y.map L.subtype := h.crossed_mem_Y_of_mem_yamadaR₂ d b.2
-    have hbA : (b : G)⁻¹ * A * b ∈ d.Y.map L.subtype := by
-      have := mul_mem (map_mono d.V_le_Y h1) hA
-      rwa [inv_mul_cancel_right] at this
-    have key : ((b : G)⁻¹ * A * b * B)⁻¹ * (A * B) = ((b : G)⁻¹ * A * b * A⁻¹)⁻¹ := by
-      have e1 : ((b : G)⁻¹ * A * b * B)⁻¹ * (A * B) = B⁻¹ * (((b : G)⁻¹ * A * b)⁻¹ * A) * B := by
-        group
-      rw [e1, mul_assoc, hcomm _ (mul_mem (inv_mem hbA) hA) _ hB, inv_mul_cancel_left,
-        hcomm _ (inv_mem hbA) _ hA]
-      group
-    rw [key]
-    exact inv_mem h1
 
 theorem centralizer_inf_normalizer_S_le (h : Setup G L f t) (d : TrialityD4Data L (2 ^ f)) :
     centralizer ({t} : Set G) ⊓ normalizer ((d.S.map L.subtype : Subgroup G) : Set G) ≤

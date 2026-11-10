@@ -155,14 +155,5 @@ theorem solvable_normal_centralizes_of_perfect {D : Type*} [Group D] (P : Subgro
       _ = x * v := by rw [h3]
   exact hVc
 
-theorem isCyclic_of_solvable_normal_of_quasisimple {D : Type*} [Group D] (P Z : Subgroup D)
-    [P.Normal] (hperf : ⁅P, P⁆ = P)
-    (hsol : ∀ N : Subgroup D, N ≤ P → (∀ x ∈ P, ∀ n ∈ N, x * n * x⁻¹ ∈ N) →
-      Group.IsSolvable N → ∀ n ∈ N, ∀ x ∈ P, n * x = x * n)
-    [hZ : IsCyclic Z] (hcent : ∀ y : D, (∀ x ∈ P, y * x = x * y) → y ∈ Z)
-    (V : Subgroup D) [hVn : V.Normal] [hV : Group.IsSolvable V] : IsCyclic V := by
-  have hVc := solvable_normal_centralizes_of_perfect P hperf hsol V
-  have hVZ : V ≤ Z := fun v hv => hcent v (hVc v hv)
-  exact isCyclic_of_injective (Subgroup.inclusion hVZ) (Subgroup.inclusion_injective hVZ)
 
 end CFSG.RankThree.PartOne.KE

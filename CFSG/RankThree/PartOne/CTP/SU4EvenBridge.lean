@@ -163,18 +163,6 @@ include hF hirr in
         exact Subgroup.mem_top g
       exact hg⟩
 
-include hF hirr in
-theorem phiSUEven_apply (s : spinGroup (quadMinus 3 F b c)) :
-    D.phiSUEven hF hirr s = D.PhiSUEven hirr s :=
-  rfl
-
-include hF hirr in
-theorem map_minusLongBlock_phiSUEven :
-    (minusLongBlock b c).range.map (D.phiSUEven hF hirr).toMonoidHom =
-      rootGroup (unitaryInvolution K 2 f) (unitaryInvolution_involutive hF) 4 (Pi.single 1 1) ⊔
-        rootGroup (unitaryInvolution K 2 f) (unitaryInvolution_involutive hF) 4
-          (-Pi.single 1 1) :=
-  D.map_minusLongBlock_eq hF hirr
 
 end KleinDataEven
 

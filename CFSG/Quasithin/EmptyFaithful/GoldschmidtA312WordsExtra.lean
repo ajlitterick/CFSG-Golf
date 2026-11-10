@@ -63,8 +63,6 @@ def czSub (z : V) (hzc : ∀ y : V, y * z = z * y) (hzz : z * z = 1) (x : V) : S
         _ = (z * a⁻¹) * (x * a) * a⁻¹ := by rw [hzc a⁻¹]
         _ = z * (a⁻¹ * x) := by group
 
-theorem mem_czSub {z : V} {hzc : ∀ y : V, y * z = z * y} {hzz : z * z = 1} {x y : V} :
-    y ∈ czSub z hzc hzz x ↔ x * y = y * x ∨ x * y = z * (y * x) := Iff.rfl
 
 theorem ext_of_gens (G : Set V) (hG : Subgroup.closure G = ⊤) (z : V) (hzz : z * z = 1)
     (hzc : ∀ g ∈ G, g * z = z * g) (hsq : ∀ g ∈ G, g * g = 1 ∨ g * g = z)

@@ -56,29 +56,6 @@ section SumMod
 
 variable {W : Type} [CommGroup W]
 
-theorem isSumMod_top_of_isIntDirect {Mp : Subgroup (MulAut W)} {A B : Subgroup W}
-    (hA : ∀ x ∈ Mp, ∀ a ∈ A, x a ∈ A) (hB : ∀ x ∈ Mp, ∀ b ∈ B, x b ∈ B)
-    (h : IsIntDirect A B ⊤) : IsSumMod (fixV Mp) A B ⊤ := by
-  refine ⟨?_, ?_⟩
-  · rw [h.1]
-    exact (top_sup_eq _).symm
-  · intro w ⟨hw1, hw2⟩
-    obtain ⟨a, ha, c₁, hc₁, rfl⟩ := Subgroup.mem_sup.mp hw1
-    obtain ⟨b, hb, c₂, hc₂, hab⟩ := Subgroup.mem_sup.mp hw2
-    have hab' : a * c₁ = b * c₂ := hab.symm
-    have hfix : ∀ x ∈ Mp, x a = a := by
-      intro x hx
-      have e1 : x a * c₁ = x b * c₂ := by
-        have := congrArg x hab'
-        rwa [map_mul, map_mul, hc₁ x hx, hc₂ x hx] at this
-      have h2 : x a / a = x b / b := by
-        have : (x a * c₁) / (a * c₁) = (x b * c₂) / (b * c₂) := by rw [e1, hab']
-        rwa [mul_div_mul_right_eq_div, mul_div_mul_right_eq_div] at this
-      have h3 : x a / a ∈ A ⊓ B :=
-        ⟨A.div_mem (hA x hx a ha) ha, h2 ▸ B.div_mem (hB x hx b hb) hb⟩
-      rw [h.2, Subgroup.mem_bot, div_eq_one] at h3
-      exact h3
-    exact (fixV Mp).mul_mem (fun x hx => hfix x hx) hc₁
 
 end SumMod
 

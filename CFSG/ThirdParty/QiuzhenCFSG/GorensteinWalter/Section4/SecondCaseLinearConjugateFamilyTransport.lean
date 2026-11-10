@@ -34,14 +34,6 @@ private lemma conj_conj_cf
   ext x
   simp [MulAut.conj_apply, mul_assoc]
 
-private lemma conj_sup_cf
-    {G : Type u} [Group G] (H K : Subgroup G) (g : G) :
-    conjugateSubgroup (H ⊔ K) g =
-      conjugateSubgroup H g ⊔ conjugateSubgroup K g := by
-  change (H ⊔ K).map (MulAut.conj g).toMonoidHom =
-    H.map (MulAut.conj g).toMonoidHom ⊔
-      K.map (MulAut.conj g).toMonoidHom
-  exact Subgroup.map_sup H K (MulAut.conj g).toMonoidHom
 
 private lemma conj_one_cf
     {G : Type u} [Group G] {H : Subgroup G} :

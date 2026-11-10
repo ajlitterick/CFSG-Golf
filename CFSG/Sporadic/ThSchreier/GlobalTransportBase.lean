@@ -31,15 +31,11 @@ open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 Pointwise
 
 section Facts
 
-variable (hF : OrbitFacts)
-include hF
 
 end Facts
 
 section Cert
 
-variable {c : ℕ} (hC : CertFacts c)
-include hC
 
 end Cert
 

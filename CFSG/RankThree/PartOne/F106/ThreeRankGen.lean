@@ -198,14 +198,6 @@ theorem no_elemAbelian_five_of_sylow (S : Subgroup T) (hS : Nat.card S = 3 ^ 6)
     rw [← ha₁, ← map_pow, hcube a₀ ha₀, map_one]
   exact no_index_three_elemAbelian Zl hW E hcomm' hcube' hEidx (by rw [hEcard]; exact hZl)
 
-theorem no_elemAbelian_five_of_sylow_isElementaryAbelian (S : Subgroup T)
-    (hS : Nat.card S = 3 ^ 6) (hT : ¬ 3 ^ 7 ∣ Nat.card T) (Zl : Finset S)
-    (hZl : Zl.card < 3 ^ 5) (hW : ∀ e : S, e ∈ Zl ∨ ThreeWitness e) (D : Subgroup T)
-    (hD : CFSG.IsElementaryAbelian 3 D) (hcard : Nat.card D = 3 ^ 5) : False :=
-  no_elemAbelian_five_of_sylow S hS hT Zl hZl hW D
-    (fun a ha b hb => congrArg Subtype.val
-      (hD.toIsMulCommutative.is_comm.comm ⟨a, ha⟩ ⟨b, hb⟩))
-    (fun a ha => CFSG.elemPow_eq_one_of_isElementaryAbelian (p := 3) a ha) hcard
 
 end Interface
 

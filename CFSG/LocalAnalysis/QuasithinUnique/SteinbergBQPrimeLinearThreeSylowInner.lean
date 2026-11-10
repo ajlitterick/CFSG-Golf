@@ -52,6 +52,5 @@ end SteinbergBQ.PrimeLinearThree
 
 open SteinbergBQ.PrimeLinearThree
 
-variable {K : Type*} [Field K]
 
 end CFSG.QuasithinUnique

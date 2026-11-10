@@ -39,37 +39,6 @@ theorem octFix_le_octStab (O : Finset (Fin 24)) : octFix O ≤ octStab O := by
       simpa using (congrArg g.symm h1).symm
     rwa [h2]
 
-theorem octFix_smul {σ : S24} (hσ : σ ∈ M24g) (O : Finset (Fin 24)) :
-    octFix (σ • O) = (octFix O).map (MulAut.conj σ).toMonoidHom := by
-  ext g
-  rw [Subgroup.mem_map]
-  constructor
-  · intro hg
-    obtain ⟨hgM, hgfix⟩ := mem_octFix_iff.1 hg
-    refine ⟨σ⁻¹ * g * σ, ?_, ?_⟩
-    · rw [mem_octFix_iff]
-      refine ⟨M24g.mul_mem (M24g.mul_mem (M24g.inv_mem hσ) hgM) hσ, ?_⟩
-      intro i hi
-      have hσi : σ i ∈ σ • O := by
-        rw [smul_finset_eq_map, Finset.mem_map_equiv]
-        simpa using hi
-      rw [Equiv.Perm.mul_apply, Equiv.Perm.mul_apply, hgfix (σ i) hσi, Equiv.Perm.inv_def]
-      exact Equiv.symm_apply_apply σ i
-    · rw [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-      group
-  · rintro ⟨h, hh, hgh⟩
-    obtain ⟨hhM, hhfix⟩ := mem_octFix_iff.1 hh
-    rw [← hgh, mem_octFix_iff]
-    refine ⟨?_, ?_⟩
-    · rw [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-      exact M24g.mul_mem (M24g.mul_mem hσ hhM) (M24g.inv_mem hσ)
-    · intro i hi
-      have hiO : σ.symm i ∈ O := by
-        rw [smul_finset_eq_map, Finset.mem_map_equiv] at hi
-        exact hi
-      rw [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, Equiv.Perm.mul_apply, Equiv.Perm.mul_apply,
-        Equiv.Perm.inv_def, hhfix (σ.symm i) hiO]
-      exact Equiv.apply_symm_apply σ i
 
 theorem normal_octFix (O : Finset (Fin 24)) : ((octFix O).subgroupOf (octStab O)).Normal := by
   refine ⟨fun n hn g => ?_⟩

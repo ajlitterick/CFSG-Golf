@@ -464,39 +464,5 @@ theorem prop134_odd_case_dich (h36 : A36CoreForSQTKCat) (h37 : A37ForSQTKCat)
       normal_conjClosure_of_subgroup hS hL (h37 _ hyp) (h38 _ hyp)
     exact ⟨L, hL, hq, hXK _ hHcl (hPLLt.trans hLLtS)⟩
 
-theorem prop134Dich_of (hE9 : EmptyFaithfulMultiple.Prop134E9He)
-    (h3x : Prop134ThreeExtraspecial) (h36 : A36CoreForSQTKCat) (h37 : A37ForSQTKCat)
-    (h38 : A38ForSQTKCat) (hOC : OutCyclicFact) (hOA : OutAbelianFact) : Prop134Dich := by
-  intro G _ _ H S X P p hp hH hR hS hXH hX hp2 _ hPX hPp hPcard
-  have hp3 : p = 3 ∨ 5 ≤ p := by
-    have h2 := hp.out.two_le
-    rcases Nat.lt_or_ge p 5 with h | h
-    · left
-      interval_cases p
-      · exact absurd rfl hp2
-      · rfl
-      · exact absurd hp.out (by decide)
-    · exact Or.inr h
-  rcases hp3 with rfl | hp5
-  ·
-    obtain ⟨hpX, -⟩ := sylow_of_card_eq_relIndex hX hp2 hPX hPp hPcard
-    obtain ⟨k, hk2, hk3, hk⟩ := hX.relIndex_eq hp.out hp2 hpX
-    interval_cases k
-    ·
-      have h9 : (pCoreOf 2 X).relIndex X = 9 := by rw [hk]; norm_num
-      rcases hE9 G H S X P hH hR hS hXH hX h9 hPX hPp (hPcard.trans h9) with
-        hn | ⟨L, hL, hq, hXL, -⟩
-      · exact Or.inl hn
-      · exact Or.inr ⟨L, hL, hq, hXL⟩
-    ·
-      have h27 : (pCoreOf 2 X).relIndex X = 27 := by rw [hk]; norm_num
-      exact Or.inl (h3x G H S X P hH hR hS hXH hX h27 hPX hPp (hPcard.trans h27))
-  · exact prop134_odd_case_dich h36 h37 h38 hOC hOA hp5 hH hS hXH hX hPX hPp hPcard
-
-theorem input137_of_dich (hE9 : EmptyFaithfulMultiple.Prop134E9He)
-    (h3x : Prop134ThreeExtraspecial) (h36 : A36CoreForSQTKCat) (h37 : A37ForSQTKCat)
-    (h38 : A38ForSQTKCat) (hOC : OutCyclicFact) (hOA : OutAbelianFact) :
-    EmptyFaithfulMultiple.Input137 :=
-  Thm137.input137_of_prop134Dich (prop134Dich_of hE9 h3x h36 h37 h38 hOC hOA)
 
 end CFSG.Quasithin.H13.NQCore

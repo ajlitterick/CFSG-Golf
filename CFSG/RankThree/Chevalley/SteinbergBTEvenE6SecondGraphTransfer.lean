@@ -198,39 +198,5 @@ theorem even_twisted_E6_second_graph_transfer_from_F4 {f : ℕ} (hf : 1 ≤ f) (
     (secondGraphFullCentralizer_graphFixedRootGroup hf k K hk hK σ hσ) diagramMap_E6_mul_self hZJ
     ξ hξ hF4 H hIH
 
-theorem even_E6_second_graph_centralizer_transfer_from_F4 (f : ℕ) (hf : 1 ≤ f) (k K : Type)
-    [Field k] [Field K] [Algebra k K] (hk : Nat.card k = 2 ^ f) (hK : Nat.card K = (2 ^ f) ^ 2)
-    (σ : K →+* K) (hσ : ∀ c, σ c = c ^ 2 ^ f) :
-    (∀ ξ : MulAut (adjointGroup TwistTag.E6.tag k),
-      (∀ g, (ξ g : ModGL TwistTag.E6.tag k) = pinnedX TwistTag.E6.tag k e6HighestRoot 1 *
-        (diagramMap TwistTag.E6 k * g * (diagramMap TwistTag.E6 k)⁻¹) *
-          (pinnedX TwistTag.E6.tag k e6HighestRoot 1)⁻¹) →
-      (∀ τJ : MulAut ((twistedFixedGroup TwistTag.E6 k (RingHom.id k)).map
-          (baseChangeGL (RingHom.id k))),
-        (∀ x, (τJ x : ModGL TwistTag.E6.tag k) = pinnedX TwistTag.E6.tag k e6HighestRoot 1 * x *
-          (pinnedX TwistTag.E6.tag k e6HighestRoot 1)⁻¹) →
-        ∀ L, OuterAutomorphisms.inner _ ≤ L → CFSG.oddCore ↥(L ⊓ Subgroup.centralizer {τJ}) = ⊥) →
-      ∀ H : Subgroup (MulAut (adjointGroup TwistTag.E6.tag k)),
-        OuterAutomorphisms.inner (adjointGroup TwistTag.E6.tag k) ≤ H →
-        CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {ξ}) = ⊥ ∧
-          ∀ α ∈ H, (∃ φ : MulAut (adjointGroup TwistTag.E6.tag k), φ * α * φ⁻¹ = ξ) →
-            CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {α}) = ⊥) ∧
-    (∀ ξ : MulAut (graphFixedRootGroup TwistTag.E6 K σ),
-      (∀ g, (ξ g : ModGL TwistTag.E6.tag K) = pinnedX TwistTag.E6.tag K e6HighestRoot 1 *
-        (diagramMap TwistTag.E6 K * g * (diagramMap TwistTag.E6 K)⁻¹) *
-          (pinnedX TwistTag.E6.tag K e6HighestRoot 1)⁻¹) →
-      (∀ τJ : MulAut ((twistedFixedGroup TwistTag.E6 k (RingHom.id k)).map
-          (baseChangeGL (algebraMap k K))),
-        (∀ x, (τJ x : ModGL TwistTag.E6.tag K) = pinnedX TwistTag.E6.tag K e6HighestRoot 1 * x *
-          (pinnedX TwistTag.E6.tag K e6HighestRoot 1)⁻¹) →
-        ∀ L, OuterAutomorphisms.inner _ ≤ L → CFSG.oddCore ↥(L ⊓ Subgroup.centralizer {τJ}) = ⊥) →
-      ∀ H : Subgroup (MulAut (graphFixedRootGroup TwistTag.E6 K σ)),
-        OuterAutomorphisms.inner (graphFixedRootGroup TwistTag.E6 K σ) ≤ H →
-        CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {ξ}) = ⊥ ∧
-          ∀ α ∈ H, (∃ φ : MulAut (graphFixedRootGroup TwistTag.E6 K σ), φ * α * φ⁻¹ = ξ) →
-            CFSG.oddCore ↥(H ⊓ Subgroup.centralizer {α}) = ⊥) :=
-  ⟨fun ξ hξ hF4 H hIH => even_E6_second_graph_transfer_from_F4 hf k hk ξ hξ hF4 H hIH,
-    fun ξ hξ hF4 H hIH =>
-      even_twisted_E6_second_graph_transfer_from_F4 hf k K hk hK σ hσ ξ hξ hF4 H hIH⟩
 
 end CFSG.RankThree.Chevalley

@@ -33,12 +33,5 @@ theorem cyclic_two_sylow_oddCore_complement (sylow : Sylow 2 G)
   rw [le_antisymm hcoreLe hkerLe]
   exact hcomplement
 
-theorem cyclic_two_sylow_oddCore_quotient (sylow : Sylow 2 G)
-    (hcyclic : IsCyclic (sylow : Subgroup G)) (heven : Even (Nat.card G)) :
-    let _ := oddCore_normal (G := G)
-    IsPGroup 2 (G ⧸ oddCore G) := by
-  let _ := oddCore_normal (G := G)
-  let equivalence := (cyclic_two_sylow_oddCore_complement sylow hcyclic heven).symm.QuotientMulEquiv
-  exact sylow.isPGroup'.of_equiv equivalence.symm
 
 end CFSG.DisconnectedInvolutionGraph.Helpers

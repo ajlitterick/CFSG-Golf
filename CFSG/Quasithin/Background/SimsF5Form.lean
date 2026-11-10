@@ -81,12 +81,6 @@ theorem commutator_QV :
   commutator_orthogonalGroup_eq_elementaryGroup_of_two_ne_zero (by decide) QV_nondeg
     hp1_orth_hp2 hp1_orth_hp3 hp2_orth_hp3
 
-@[expose] def mdotEquivE : ↥MDot ≃* ↥(elementaryGroup QV) :=
-  statedOmegaEquiv coe_QV commutator_QV
-
-theorem mdotEquivE_apply (g : ↥MDot) :
-    ((mdotEquivE g : _) : V6 ≃ₗ[ZMod 3] V6) = toLinEquiv (Fin 6) (ZMod 3) g :=
-  rfl
 
 theorem OVq_eq_comap :
     OVq = (TauCeti.QuadraticMap.orthogonalGroup QV).comap
@@ -106,21 +100,6 @@ theorem mem_MDot_iff (g : GL6) :
   rw [this]
   rfl
 
-theorem card_OVq_eq : Nat.card ↥OVq = 4 * Nat.card ↥MDot := by
-  have h4 := (CFSG.ClassicalInvolution.orthogonalGroup_index_four QV_nondeg hp1_orth_hp2
-    hp1_orth_hp3 hp2_orth_hp3).1
-  have hO : Nat.card ↥OVq = Nat.card ↥(TauCeti.QuadraticMap.orthogonalGroup QV) := by
-    have key : (TauCeti.QuadraticMap.orthogonalGroup QV).comap
-        (toLinEquiv (Fin 6) (ZMod 3)).toMonoidHom =
-        (TauCeti.QuadraticMap.orthogonalGroup QV).map
-          (toLinEquiv (Fin 6) (ZMod 3)).symm.toMonoidHom :=
-      Subgroup.comap_equiv_eq_map_symm (toLinEquiv (Fin 6) (ZMod 3)) _
-    rw [OVq_eq_comap, key]
-    exact (Nat.card_congr ((toLinEquiv (Fin 6) (ZMod 3)).symm.subgroupMap _).toEquiv).symm
-  rw [hO, h4, Nat.card_congr mdotEquivE.toEquiv]
-
-theorem qV_add (u v : V6) : qV (u + v) = qV u + qV v + bil u v := by
-  unfold bil; ring
 
 theorem bil_coord (u v : V6) : bil u v =
     2 * (u 0 * v 0 + u 1 * v 1 + u 2 * v 2 + u 3 * v 3 + u 4 * v 4) - 2 * (u 5 * v 5) := by
@@ -133,25 +112,6 @@ theorem bil_comm (u v : V6) : bil u v = bil v u := by
 theorem bil_self (a : V6) : bil a a = 2 * qV a := by
   rw [bil_coord]; simp only [qV]; ring
 
-theorem qV_sub (u v : V6) : qV (u - v) = qV u + qV v - bil u v := by
-  rw [bil_coord]
-  simp only [qV, Pi.sub_apply]
-  ring
-
-theorem qV_zero : qV 0 = 0 := by simp [qV]
-
-theorem bil_add_right (u v w : V6) : bil u (v + w) = bil u v + bil u w := by
-  simp only [bil_coord, Pi.add_apply]; ring
-
-theorem bil_sub_right (u v w : V6) : bil u (v - w) = bil u v - bil u w := by
-  simp only [bil_coord, Pi.sub_apply]; ring
-
-theorem bil_smul_left (c : ZMod 3) (u v : V6) : bil (c • u) v = c * bil u v := by
-  simp only [bil_coord, Pi.smul_apply, smul_eq_mul]
-  ring
-
-theorem bil_smul_right (c : ZMod 3) (u v : V6) : bil u (c • v) = c * bil u v := by
-  rw [bil_comm, bil_smul_left, bil_comm]
 
 theorem qV_sub_smul (x z : V6) (c : ZMod 3) :
     qV (x - c • z) = qV x - c * bil x z + c ^ 2 * qV z := by
@@ -163,16 +123,6 @@ theorem qV_mulVec_of_mem_OVq {g : GL6} (hg : g ∈ OVq) (v : V6) :
     qV ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ v) = qV v :=
   qV_smul_of_mem_isometryCore hg v
 
-theorem mem_OVq_iff_forall {g : GL6} :
-    g ∈ OVq ↔ ∀ v : V6, qV ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ v) = qV v :=
-  ⟨fun hg => qV_mulVec_of_mem_OVq hg, fun h => Subgroup.subset_closure h⟩
-
-theorem bil_mulVec_of_mem_OVq {g : GL6} (hg : g ∈ OVq) (u v : V6) :
-    bil ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ u) ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ v)
-      = bil u v := by
-  unfold bil
-  rw [← Matrix.mulVec_add, qV_mulVec_of_mem_OVq hg, qV_mulVec_of_mem_OVq hg,
-    qV_mulVec_of_mem_OVq hg]
 
 @[expose] def wv (z : V6) : V6 := ![2 * z 0, 2 * z 1, 2 * z 2, 2 * z 3, 2 * z 4, 0 - 2 * z 5]
 
@@ -210,8 +160,6 @@ theorem qV_reflM (z x : V6) (hz : qV z ≠ 0) : qV (reflM z *ᵥ x) = qV x := by
 @[expose] def refl6 (z : V6) (hz : qV z ≠ 0) : GL6 :=
   ⟨reflM z, reflM z, reflM_mul_self z hz, reflM_mul_self z hz⟩
 
-theorem refl6_val (z : V6) (hz : qV z ≠ 0) :
-    ((refl6 z hz : GL6) : Matrix (Fin 6) (Fin 6) (ZMod 3)) = reflM z := rfl
 
 theorem refl6_mulVec (z x : V6) (hz : qV z ≠ 0) :
     (refl6 z hz : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ x = x - ((qV z)⁻¹ * bil x z) • z :=
@@ -220,78 +168,11 @@ theorem refl6_mulVec (z x : V6) (hz : qV z ≠ 0) :
 theorem refl6_mem_OVq (z : V6) (hz : qV z ≠ 0) : refl6 z hz ∈ OVq :=
   Subgroup.subset_closure fun v => qV_reflM z v hz
 
-theorem refl6_mul_self (z : V6) (hz : qV z ≠ 0) : refl6 z hz * refl6 z hz = 1 := by
-  apply Units.ext
-  rw [Units.val_mul, refl6_val, Units.val_one, reflM_mul_self z hz]
-
-theorem det_reflM (z : V6) (hz : qV z ≠ 0) : (reflM z).det = -1 := by
-  have h : reflM z = 1 +
-      Matrix.replicateCol Unit z * Matrix.replicateRow Unit (-((qV z)⁻¹ • wv z)) := by
-    rw [← Matrix.vecMulVec_eq Unit, Matrix.vecMulVec_neg, Matrix.vecMulVec_smul]
-    unfold reflM
-    rw [sub_eq_add_neg]
-  rw [h, Matrix.det_one_add_replicateCol_mul_replicateRow, neg_dotProduct, smul_dotProduct,
-    dot_wv_self]
-  have hμ : (qV z)⁻¹ * qV z = 1 := inv_mul_cancel₀ hz
-  simp only [smul_eq_mul]
-  linear_combination (-2) * hμ
-
-theorem det_refl6 (z : V6) (hz : qV z ≠ 0) :
-    (refl6 z hz : Matrix (Fin 6) (Fin 6) (ZMod 3)).det = -1 :=
-  det_reflM z hz
-
-theorem refl6_mulVec_self (z : V6) (hz : qV z ≠ 0) :
-    (refl6 z hz : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ z = -z := by
-  rw [refl6_mulVec, bil_self]
-  have hμ : (qV z)⁻¹ * qV z = 1 := inv_mul_cancel₀ hz
-  have : (qV z)⁻¹ * (2 * qV z) = 2 := by linear_combination 2 * hμ
-  rw [this]
-  have h3 : ∀ a : ZMod 3, a - 2 * a = -a := by decide
-  ext i
-  simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.neg_apply]
-  exact h3 (z i)
-
-theorem refl6_mulVec_of_bil_eq_zero (z : V6) (hz : qV z ≠ 0) {f : V6} (hf : bil f z = 0) :
-    (refl6 z hz : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ f = f := by
-  rw [refl6_mulVec, hf, mul_zero, zero_smul, sub_zero]
 
 theorem mat_eq_of_mulVec_eq {A B : Matrix (Fin 6) (Fin 6) (ZMod 3)}
     (h : ∀ x : V6, A *ᵥ x = B *ᵥ x) : A = B :=
   Matrix.toLin'.injective (LinearMap.ext fun x => h x)
 
-theorem conj_refl6 {g : GL6} (hg : g ∈ OVq) (z : V6) (hz : qV z ≠ 0) :
-    g * refl6 z hz * g⁻¹ = refl6 ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ z)
-      (by rw [qV_mulVec_of_mem_OVq hg]; exact hz) := by
-  apply Units.ext
-  rw [Units.val_mul, Units.val_mul, refl6_val, refl6_val]
-  apply mat_eq_of_mulVec_eq
-  intro x
-  rw [← Matrix.mulVec_mulVec, ← Matrix.mulVec_mulVec]
-  have hGGi : (g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *
-      ((g⁻¹ : GL6) : Matrix (Fin 6) (Fin 6) (ZMod 3)) = 1 := by
-    rw [← Units.val_mul, mul_inv_cancel, Units.val_one]
-  have hy : (g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ
-      (((g⁻¹ : GL6) : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ x) = x := by
-    rw [Matrix.mulVec_mulVec, hGGi, Matrix.one_mulVec]
-  have hb : bil (((g⁻¹ : GL6) : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ x) z = bil x
-      ((g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ z) := by
-    rw [← bil_mulVec_of_mem_OVq hg (((g⁻¹ : GL6) : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ x) z, hy]
-  rw [reflM_mulVec, reflM_mulVec, Matrix.mulVec_sub, Matrix.mulVec_smul, hy, hb,
-    qV_mulVec_of_mem_OVq hg z]
-
-theorem det_of_mem_MDot {g : GL6} (hg : g ∈ MDot) :
-    (g : Matrix (Fin 6) (Fin 6) (ZMod 3)).det = 1 := by
-  have h : MDot ≤ (Matrix.GeneralLinearGroup.det : GL6 →* (ZMod 3)ˣ).ker := by
-    show ⁅OVq, OVq⁆ ≤ _
-    rw [Subgroup.commutator_le]
-    intro a _ b _
-    rw [MonoidHom.mem_ker, map_commutatorElement]
-    exact commutatorElement_eq_one_iff_mul_comm.2 (mul_comm _ _)
-  have h1 := h hg
-  rw [MonoidHom.mem_ker] at h1
-  have h2 := congrArg Units.val h1
-  rw [Matrix.GeneralLinearGroup.val_det_apply] at h2
-  simpa using h2
 
 abbrev ReflVec : Type := {v : V6 // qV v ≠ 0}
 
@@ -395,25 +276,6 @@ theorem prod_refl_mem_MDot_iff (l : List ReflVec) :
   rw [← hprod, mem_MDot_iff_Φ', Φ'_prod, Prod.mk_eq_one, epsU_prod,
     neg_one_pow_eq_one_iff_even (by decide), squareClassHom_neg_one_pow]
 
-theorem refl6_mul_refl6_mem_MDot (z w : V6) (hz : qV z ≠ 0) (hw : qV w ≠ 0) (h : qV z = qV w) :
-    refl6 z hz * refl6 w hw ∈ MDot := by
-  have key := (prod_refl_mem_MDot_iff [⟨z, hz⟩, ⟨w, hw⟩]).mpr ⟨⟨1, rfl⟩, ?_⟩
-  · simpa [reflOf] using key
-  · by_cases h' : qV z = -1
-    · have h'' : qV w = -1 := h ▸ h'
-      simp [List.countP_cons, h', h'']
-    · have h'' : qV w ≠ -1 := h ▸ h'
-      simp [List.countP_cons, h', h'']
-
-theorem exists_mem_MDot_mulVec_eq {a b : V6} (ha : a ≠ 0) (hb : b ≠ 0) (hab : qV a = qV b) :
-    ∃ g ∈ MDot, (g : Matrix (Fin 6) (Fin 6) (ZMod 3)) *ᵥ a = b := by
-  obtain ⟨g, hg, hga⟩ := exists_mem_elementaryGroup_apply_eq QV_nondeg hp1_orth_hp2 ha hb
-    (by rw [QV_apply, QV_apply]; exact hab)
-  refine ⟨(mdotEquivE.symm ⟨g, hg⟩ : ↥MDot), (mdotEquivE.symm ⟨g, hg⟩).2, ?_⟩
-  have h1 : toLinEquiv (Fin 6) (ZMod 3) ((mdotEquivE.symm ⟨g, hg⟩ : ↥MDot) : GL6) = g := by
-    rw [← mdotEquivE_apply, MulEquiv.apply_symm_apply]
-  have h2 := congrArg (fun f : V6 ≃ₗ[ZMod 3] V6 => f a) h1
-  simpa [hga] using h2
 
 theorem qV_xvec_ne_zero (i : Fin 6) : qV (xvec i) ≠ 0 := by
   fin_cases i <;> decide
@@ -425,26 +287,6 @@ theorem refl6_xvec_mulVec (i : Fin 6) (x : V6) :
   fin_cases i <;> ext j <;> fin_cases j <;>
     simp [xvec, qV, bil_coord, Function.update_apply, Pi.single_apply] <;> ring
 
-private def coordRefl : List ReflVec :=
-  [⟨xvec 0, qV_xvec_ne_zero 0⟩, ⟨xvec 1, qV_xvec_ne_zero 1⟩, ⟨xvec 2, qV_xvec_ne_zero 2⟩,
-    ⟨xvec 3, qV_xvec_ne_zero 3⟩, ⟨xvec 4, qV_xvec_ne_zero 4⟩, ⟨xvec 5, qV_xvec_ne_zero 5⟩]
-
-private theorem prod_coordRefl : (coordRefl.map reflOf).prod = -1 := by
-  apply Units.ext
-  apply mat_eq_of_mulVec_eq
-  intro x
-  simp only [coordRefl, List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one,
-    Units.val_mul, ← Matrix.mulVec_mulVec, reflOf, refl6_xvec_mulVec, Units.val_neg,
-    Units.val_one, Matrix.neg_mulVec, Matrix.one_mulVec]
-  funext j
-  fin_cases j <;> simp [Function.update_apply]
-
-theorem neg_one_not_mem_MDot : (-1 : GL6) ∉ MDot := by
-  intro h
-  rw [← prod_coordRefl, prod_refl_mem_MDot_iff] at h
-  have hc : coordRefl.countP (fun v => qV v.1 = -1) = 1 := by decide
-  rw [hc] at h
-  exact absurd h.2 (by decide)
 
 end
 

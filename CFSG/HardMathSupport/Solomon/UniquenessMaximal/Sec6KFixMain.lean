@@ -104,11 +104,6 @@ theorem inputL3fixCore_holds (hiso : InputL3iso) : InputL3fixCore := by
   ∀ (Y : Type) [Group Y] [Finite Y], CFSG.Open.IsQuasisimple Y →
     ∀ α : MulAut Y, IsFieldAutThree α → α ∈ V.innDiag Y → α = 1
 
-theorem inndiagFieldTrivial_of_le {V : InndiagVocab}
-    (h : ∀ (Y : Type) [Group Y] [Finite Y], CFSG.Open.IsQuasisimple Y →
-      ∀ α : MulAut Y, IsFieldAutThree α → α ∈ V.innDiag Y →
-        Lemma54Ns.IsInnDiagThree α) : InndiagFieldTrivial V :=
-  fun Y _ _ hY α hα hmem => input7_fieldInnDiag_holds Y hY α hα (h Y hY α hα hmem)
 
 theorem inputL3fix_of_core {V : InndiagVocab} (hc : InputL3fixCore)
     (hV : InndiagFieldTrivial V) : InputL3fix V := by
@@ -122,7 +117,6 @@ theorem inputL3fix_holds {V : InndiagVocab} (hiso : InputL3iso) (hV : InndiagFie
     InputL3fix V :=
   inputL3fix_of_core (inputL3fixCore_holds hiso) hV
 
-theorem inputL3fixCore_unconditional : InputL3fixCore := inputL3fixCore_holds inputL3iso_holds
 
 theorem inputL3fix_of_inndiagFieldTrivial {V : InndiagVocab} (hV : InndiagFieldTrivial V) :
     InputL3fix V :=

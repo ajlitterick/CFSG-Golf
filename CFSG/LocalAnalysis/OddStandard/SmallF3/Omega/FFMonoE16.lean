@@ -18,13 +18,6 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 3) V] [FiniteDimensional (ZMo
     (∀ u ∈ U, u * u = 1 ∨ u * u = piOrth Q) ∧
     ∀ u ∈ U, ∀ v ∈ U, u * v = v * u ∨ u * v = piOrth Q * (v * u)
 
-theorem ffB0_isLiftE16 (hQ : Q.Nondegenerate) (fr : NFrame Q (Fin 6) c) :
-    IsLiftE16 hQ fr (ffB0 fr) := by
-  refine ⟨ffB0_le_ffP0 hQ fr, piOrth_mem_ffB0 fr, ffB0_card fr, ?_, ?_⟩
-  · intro u hu
-    exact Or.inl (ffB0_mul_self fr hu)
-  · intro u hu v hv
-    exact Or.inl (ffB0_comm fr hu hv)
 
 theorem ff_liftE16_subset (hQ : Q.Nondegenerate) (fr : NFrame Q (Fin 6) c)
     {U : Subgroup (OGroup Q)} (hU : IsLiftE16 hQ fr U) (hne : U ≠ ffB0 fr) {u : OGroup Q}

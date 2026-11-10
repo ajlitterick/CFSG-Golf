@@ -23,14 +23,6 @@ theorem mem_titsGraphAut {σ : Equiv.Perm (Fin 1755)} :
     σ ∈ titsGraphAut ↔ ∀ x y, titsPointGraph.Adj (σ x) (σ y) ↔ titsPointGraph.Adj x y :=
   Iff.rfl
 
-theorem mem_titsGraphAut_iff (σ : Equiv.Perm (Fin 1755)) :
-    σ ∈ titsGraphAut ↔
-      ∃ e : SimpleGraph.Iso titsPointGraph titsPointGraph, e.toEquiv = σ := by
-  constructor
-  · intro h
-    exact ⟨⟨σ, fun {a b} => h a b⟩, rfl⟩
-  · rintro ⟨e, rfl⟩ x y
-    exact e.map_adj_iff
 
 theorem mem_titsLine {v : Fin 2925} {x : Fin 1755} :
     x ∈ titsLine v ↔ ∃ j, titsKappa j = v ∧ titsBeta j = x := by
@@ -410,26 +402,5 @@ theorem neighborSet_zero :
     exact this
   exact (Set.eq_of_subset_of_ncard_le hsub (by rw [horb, ncard_neighborSet]) (Set.toFinite _)).symm
 
-theorem CTUC_Tits_point_graph_full_automorphism_group :
-    (∀ x, (titsPointGraph.neighborSet x).ncard = 10) ∧
-    (∀ σ : Equiv.Perm (Fin 1755),
-      σ ∈ titsA ↔ ∃ e : SimpleGraph.Iso titsPointGraph titsPointGraph, e.toEquiv = σ) ∧
-    titsGraphAut = titsA ∧ Nat.card titsGraphAut = 35942400 ∧
-    (∀ i < 7, numCells (refineStep (stableColor i)) = numCells (stableColor i) ∧
-      numCells (stableColor i) = titsCellCounts[i]!) ∧
-    (∀ i < 6, cellSize (stableColor i) titsIndiv[i]! = titsCellSizes[i]! ∧
-      (MulAction.orbit (titsAutStab i) (titsIndivPt i)).ncard ≤ titsCellSizes[i]!) ∧
-    numCells (stableColor 6) = 1755 ∧
-    (∀ x y : Fin 1755, (stableColor 6)[(x : ℕ)]! = (stableColor 6)[(y : ℕ)]! → x = y) ∧
-    titsAutStab 6 = ⊥ ∧
-    titsPointGraph.neighborSet 0 = MulAction.orbit titsH0 (1 : Fin 1755) ∧
-    (MulAction.orbit titsH0 (1 : Fin 1755)).ncard = 10 := by
-  refine ⟨ncard_neighborSet, fun σ => by rw [← mem_titsGraphAut_iff, titsGraphAut_eq],
-    titsGraphAut_eq, by rw [titsGraphAut_eq, card_titsA],
-    fun i hi => ⟨(refineOK_facts hi).2.2.1, (refineOK_facts hi).2.1⟩,
-    fun i hi => ⟨(refineOK_facts (by omega)).2.2.2 hi, orbit_titsAutStab_le hi⟩,
-    (refineOK_facts (by norm_num : 6 < 7)).2.1, fun _ _ h => stableColor6_injective h,
-    titsAutStab_six, neighborSet_zero, ?_⟩
-  rw [← neighborSet_zero, ncard_neighborSet]
 
 end CFSG.Sporadic.Schreier.Tits

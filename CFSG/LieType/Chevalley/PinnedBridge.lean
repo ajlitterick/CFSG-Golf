@@ -143,33 +143,5 @@ theorem subgroupOf_rootSubgroup_eq
 
 end RootOperatorFamily
 
-variable (τ) in
-@[expose] def pinnedRootSubgroups
-    (K : Type) [Field K] : RootSubgroups τ K where
-  X α := (CFSG.Blueprint.Chevalley.rootSubgroup τ K α.1).subgroupOf (adjointGroup τ K)
-  mem_simple i g := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact (rootOperatorFamily τ).mem_rootSubgroup_simple i g
-  mem_neg_simple i g := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact (rootOperatorFamily τ).mem_rootSubgroup_neg_simple i g
-  weight_shift α := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact (rootOperatorFamily τ).rootSubgroup_weight_shift α
-  conj_weyl i α := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact (rootOperatorFamily τ).map_conj_weylElement i α
-  conj_torus i t α := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact (rootOperatorFamily τ).map_conj_torusElement i t α
-  comm i β hβ hne := by
-    simp only [(rootOperatorFamily τ).subgroupOf_rootSubgroup_eq]
-    exact commContained_simpleRoot τ K i β hβ hne
-
-theorem pinnedRootSubgroups_X
-    (K : Type) [Field K] (α : Root τ) :
-    (pinnedRootSubgroups τ K).X α =
-      (CFSG.Blueprint.Chevalley.rootSubgroup τ K α.1).subgroupOf (adjointGroup τ K) :=
-  rfl
 
 end CFSG.LieType.Chevalley

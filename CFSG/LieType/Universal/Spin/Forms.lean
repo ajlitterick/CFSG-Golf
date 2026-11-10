@@ -239,31 +239,6 @@ theorem nondegenerate_polarBilin_quadMinus {b c : K} (hbc : b ^ 2 - 4 * c ≠ 0)
     · exact hu
     · exact hw
 
-theorem nondegenerate_polarBilin_quadMinus_iff {b c : K} :
-    (polarBilin (quadMinus n K b c)).Nondegenerate ↔ b ^ 2 - 4 * c ≠ 0 := by
-  refine ⟨fun h hbc => ?_, nondegenerate_polarBilin_quadMinus n K⟩
-  obtain ⟨v, hv0, hv⟩ : ∃ v : Fin (n - 1) ⊕ Fin (n - 1) ⊕ Fin 2 → K,
-      v ≠ 0 ∧ ∀ w, polar (quadMinus n K b c) v w = 0 := by
-    by_cases h2 : b = 0 ∧ (2 : K) = 0
-    · refine ⟨Pi.single (.inr (.inr 0)) 1, fun h0 => ?_, fun w => ?_⟩
-      · simpa using congrFun h0 (.inr (.inr 0))
-      · rw [polar_comm, polar_quadMinus_single_inr_inr_zero, h2.1, h2.2, zero_mul, zero_mul,
-          add_zero]
-    · refine ⟨Pi.single (.inr (.inr 0)) b - Pi.single (.inr (.inr 1)) 2, fun h0 => h2 ?_,
-        fun w => ?_⟩
-      · have e0 := congrFun h0 (.inr (.inr 0))
-        have e1 := congrFun h0 (.inr (.inr 1))
-        simp only [Pi.sub_apply, Pi.single_apply, Pi.zero_apply] at e0 e1
-        simp only [Sum.inr.injEq, Fin.zero_eq_one_iff, Fin.one_eq_zero_iff, ite_true] at e0 e1
-        norm_num at e0 e1
-        exact ⟨e0, e1⟩
-      · rw [polar_quadMinus]
-        simp only [Pi.sub_apply, Pi.single_apply, Sum.inr.injEq, reduceCtorEq, ite_false,
-          sub_zero, zero_mul, mul_zero, add_zero, Finset.sum_const_zero, zero_add]
-        simp only [Fin.zero_eq_one_iff, Fin.one_eq_zero_iff, ite_true]
-        norm_num
-        linear_combination w (.inr (.inr 1)) * hbc
-  exact hv0 (h.1 v fun w => by simpa using hv w)
 
 theorem nondegenerate_quadMinus {b c : K} (hbc : b ^ 2 - 4 * c ≠ 0) :
     (quadMinus n K b c).Nondegenerate :=
@@ -306,8 +281,5 @@ theorem nondegenerate_quadMinus_of_finite [Finite K] {b c : K}
     (h : ∀ s : K, s ^ 2 + b * s + c ≠ 0) : (quadMinus n K b c).Nondegenerate :=
   nondegenerate_quadMinus n K (discr_ne_zero_of_finite h)
 
-theorem nondegenerate_polarBilin_quadMinus_of_two_ne_zero (h2 : (2 : K) ≠ 0) {b c : K}
-    (h : ∀ s : K, s ^ 2 + b * s + c ≠ 0) : (polarBilin (quadMinus n K b c)).Nondegenerate :=
-  nondegenerate_polarBilin_quadMinus n K (discr_ne_zero_of_two_ne_zero h2 h)
 
 end CFSG.LieType.Universal.Spin

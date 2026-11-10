@@ -17,6 +17,5 @@ theorem mem_innerSub_of_isAltType_five {J : Subgroup G} (h5 : IsAltType J 5) {k 
   obtain ⟨α, hα, hker, -⟩ := h5
   exact mem_innerSub_of_out5 hα hker (out5Inner_alternating (by norm_num)) hk hk5
 
-variable [Finite G]
 
 end CFSG.Quasithin.S146zV

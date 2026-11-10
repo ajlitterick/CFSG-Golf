@@ -368,18 +368,8 @@ theorem ivk_1_2i_c_of (hF1 : FInvNotCentPt) : IVK_1_2i_c := by
     rw [this]
     exact hsq
 
-theorem ivk_1_2h_a : IVK_1_2h_a := by
-  intro F _ _ hF K _ _ e N f hf hf2
-  refine ⟨?_, fun x hx => N.R_cent f hf hf2 x hx⟩
-  rw [eq_bot_iff]
-  intro x hx
-  have h1 : x ∈ innDiagSub e ⊓ fieldAutSub e :=
-    ⟨innAut_le_innDiagSub e hx.1.2, (Subgroup.zpowers_le).2 hf.2 hx.2⟩
-  rw [innDiagSub_inf_fieldAutSub e] at h1
-  exact h1
 
 end Key
-
 
 
 end CFSG.GH74.GLS.IVK

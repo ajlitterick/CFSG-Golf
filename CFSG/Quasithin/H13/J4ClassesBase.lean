@@ -18,10 +18,5 @@ public import CFSG.Quasithin.H13.J4ClassCheck
 
 namespace CFSG.Quasithin.H13.J4Classes
 
-open CFSG.Quasithin.H13.J4 (xyPairs m2Cols ClsFacts e2Word imOK cls2_ok cls3_ok im2_ok im3_ok
-  ker3_ok bounded_xy card_eq_card_image_mul uP vP dP tP e2P e3P cnjP conjEqP fusionChecks
-  fusionChecks_eq lettersOK letters_uv)
-open CFSG.Quasithin.H13.J4.Native (conjCols cmp11 colsBounded
-  imCols uLetters vLetters)
 
 end CFSG.Quasithin.H13.J4Classes

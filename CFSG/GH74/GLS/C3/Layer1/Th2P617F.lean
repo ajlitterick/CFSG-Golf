@@ -200,41 +200,6 @@ theorem isCentralInvolution_x_of_eq (hs : Th2Std x y K T S) (hTS : T = S) :
   exact isCentralInvolution_of_card hs.orderOf_x hs.x_mem_T
     (fun s hs' => mem_centralizer_singleton_iff.1 (hs.T_le_C hs')) hcard
 
-theorem isMaximalClassTwoGroup_of_dihedral_four {Q : Type} [Group Q] [Finite Q]
-    (hQ8 : Q ≃* DihedralGroup 4) : C3.Layer1.P34.IsMaximalClassTwoGroup Q := by
-  have h := CFSG.GH74.GLS.Bg.Pu5.isNonabelianMaximalClass_dihedral (m := 2) (by norm_num)
-  obtain ⟨hp, -, hnil, hcard⟩ := h
-  have hD : C3.Layer1.P34.IsMaximalClassTwoGroup (DihedralGroup 4) := ⟨hp, hnil, hcard.symm⟩
-  exact C3.Layer1.Thm1.isMaximalClassTwoGroup_of_equiv hQ8.symm hD
-
-theorem mem_R_of_involution_local
-    (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
-    (e : kBar K ≃* alternatingGroup (Fin 7))
-    (hTN : T ≤ normalizer (K : Set G))
-    (hKn : ∀ c ∈ centralizer ({x} : Set G), ∀ k ∈ K, c * k * c⁻¹ ∈ K)
-    (hSimple : IsSimpleGroup G) (hNonab : ∃ a b : G, a * b ≠ b * a)
-    (hxCentral : IsCentralInvolution x)
-    (hQ8 : Nonempty (↥(T ⊓ CxK x K) ≃* DihedralGroup 4))
-    (hTS : T = S) {s : G} (hsT : s ∈ T) (hs2 : orderOf s = 2) :
-    s ∈ (T ⊓ K) ⊔ (T ⊓ CxK x K) := by
-  by_contra hR
-  have hcen := centerlessBar_of_A7 h7
-  have hcd := hs.commDisj hcen
-  have hodd : a7Act K e ⟨s, hTN hsT⟩ ∉ alternatingGroup (Fin 7) := fun hev =>
-    hR (mem_R_of_actOn_even hs hcd h7 e hTN hsT hev)
-  have hind := inducesFAut_of_odd e (hTN hsT) hodd
-  obtain ⟨e8⟩ := hQ8
-  have hQmax : C3.Layer1.P34.IsMaximalClassTwoGroup ↥(T ⊓ CxK x K) :=
-    isMaximalClassTwoGroup_of_dihedral_four e8
-  have hyp : C3.Layer1.Bk.Prop34HypN G x K :=
-    { simple := hSimple
-      nonab := hNonab
-      central := hxCentral
-      comp := hs.comp
-      normal := hKn
-      shape := Or.inr h7
-      sylowQ := ⟨T ⊓ CxK x K, hs.sylow_Q, Or.inr hQmax⟩ }
-  exact C3.Layer1.Bk.prop34N_false hyp (hs.T_le_C hsT) hs2 hind
 
 theorem T_le_normalizer_of_KN (hs : Th2Std x y K T S)
     (hKn : ∀ c ∈ centralizer ({x} : Set G), ∀ k ∈ K, c * k * c⁻¹ ∈ K) :
@@ -268,13 +233,6 @@ theorem mem_R_of_involution_of_KN
       sylowQ := ⟨T ⊓ CxK x K, hs.sylow_Q,
         isCyclic_or_isMaximalClass_of_card_le_four hs.sylow_Q.isPGroup hQ4⟩ }
   exact C3.Layer1.Bk.prop34N_false hyp (hs.T_le_C hsT) hs2 hind
-
-theorem mem_R_of_involution
-    (hG : C3Hyp G) (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
-    (e : kBar K ≃* alternatingGroup (Fin 7)) (hQ4 : Nat.card ↥(T ⊓ CxK x K) ≤ 4) (hTS : T = S)
-    {s : G} (hsT : s ∈ T) (hs2 : orderOf s = 2) : s ∈ (T ⊓ K) ⊔ (T ⊓ CxK x K) :=
-  mem_R_of_involution_of_KN hs h7 e (hs.K_normal_A7 hG h7)
-    hG.kproper.1 hG.kproper.2.1 (isCentralInvolution_x_of_eq hs hTS) hQ4 hTS hsT hs2
 
 
 omit [Finite G] in
@@ -577,13 +535,6 @@ theorem central_decomposition_of_smallQ
           _ = p * (q * t) := by group
 
 
-theorem central_decomposition
-    (hG : C3Hyp G) (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
-    (e : kBar K ≃* alternatingGroup (Fin 7)) (hTS : T = S)
-    (hQ4 : Nat.card ↥(T ⊓ CxK x K) = 4) (hQel : CFSG.IsElementaryAbelian 2 ↥(T ⊓ CxK x K)) :
-    ∀ s ∈ T, ∃ π ∈ T ⊓ K, ∃ c ∈ T, (∀ g ∈ T, g * c = c * g) ∧ s = π * c :=
-  central_decomposition_of_smallQ hs h7 e hTS hG.kproper.1 hG.kproper.2.1 hQ4 hQel
-
 theorem exists_d8Central_of_smallQ
     (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
     (e : kBar K ≃* alternatingGroup (Fin 7)) (hTS : T = S)
@@ -595,12 +546,6 @@ theorem exists_d8Central_of_smallQ
   exact ⟨z, ⟨hD8.card_eq, inf_le_left, hzP, hz1, hzz, hzc, hzu,
     central_decomposition_of_smallQ hs h7 e hTS hSimple hNonab hQ4 hQel⟩⟩
 
-theorem exists_d8Central
-    (hG : C3Hyp G) (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
-    (e : kBar K ≃* alternatingGroup (Fin 7)) (hTS : T = S)
-    (hQ4 : Nat.card ↥(T ⊓ CxK x K) = 4) (hQel : CFSG.IsElementaryAbelian 2 ↥(T ⊓ CxK x K)) :
-    ∃ z : G, D8Central T (T ⊓ K) z :=
-  exists_d8Central_of_smallQ hs h7 e hTS hG.kproper.1 hG.kproper.2.1 hQ4 hQel
 
 theorem false_of_Q4_TS_of_smallQ
     (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
@@ -738,11 +683,5 @@ theorem false_of_Q4_TS_of_smallQ
     have hvA : v ∈ T ⊓ centralizer ({b} : Set G) := by rw [← hA, hAT₁eq]; exact hv
     exact huv (hcomm u huA v hvA)
 
-theorem false_of_Q4_TS
-    (hG : C3Hyp G) (hs : Th2Std x y K T S) (h7 : Nonempty (kBar K ≃* alternatingGroup (Fin 7)))
-    (hQ4 : Nat.card ↥(T ⊓ CxK x K) = 4) (hTS : T = S) {B : Subgroup G}
-    (hB : IsSn 4 ((T ⊓ K) ⊔ (T ⊓ CxK x K)) B) {b : G} {J : Subgroup G}
-    (hobs : Obstr52 B b J) : False :=
-  false_of_Q4_TS_of_smallQ hs h7 hQ4 hTS hB hobs hG.kproper.1 hG.kproper.2.1
 
 end CFSG.GH74.GLS.Th2.Obs

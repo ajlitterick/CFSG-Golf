@@ -38,11 +38,6 @@ variable (S) in
 @[expose] def higherElemThompsonOmega (j : ℕ) : Subgroup S :=
   omegaOneCenter (higherElemThompson S j)
 
-theorem omegaOneCenter_bot : omegaOneCenter (⊥ : Subgroup S) = ⊥ := by
-  rw [eq_bot_iff]
-  rintro _ ⟨⟨a, -, rfl⟩, -⟩
-  rw [mem_bot]
-  exact mem_bot.mp a.2
 
 theorem pRank_eq_of_card_eq_pow {A : Type*} [Group A] [Finite A] {p k : ℕ} (hp : 1 < p)
     [IsElementaryAbelian p A] (hk : Nat.card A = p ^ k) : pRank p A = k := by
@@ -83,25 +78,5 @@ theorem higherElemThompson_zero [Finite S] : higherElemThompson S 0 = elemThomps
   rw [mem_higherElemThompsonFamily_iff, Nat.sub_zero]
   rfl
 
-theorem higherElemThompsonFamily_pRank [Finite S] :
-    higherElemThompsonFamily S (pRank 2 S) = {⊥} := by
-  ext A
-  rw [mem_higherElemThompsonFamily_iff, Nat.sub_self, pow_zero, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨-, h⟩
-    exact Subgroup.card_eq_one.mp h
-  · rintro rfl
-    refine ⟨{ toIsMulCommutative := ⟨⟨fun a b => Subtype.ext (by
-                rw [Subgroup.coe_mul, Subgroup.coe_mul, mem_bot.mp a.2, mem_bot.mp b.2])⟩⟩
-              exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun x =>
-                Subtype.ext (by rw [Subgroup.coe_pow, mem_bot.mp x.2, one_pow,
-                  Subgroup.coe_one]) }, Subgroup.card_bot⟩
-
-theorem higherElemThompson_pRank [Finite S] : higherElemThompson S (pRank 2 S) = ⊥ := by
-  rw [higherElemThompson, higherElemThompsonFamily_pRank, sSup_singleton]
-
-theorem higherElemThompsonOmega_pRank [Finite S] :
-    higherElemThompsonOmega S (pRank 2 S) = ⊥ := by
-  rw [higherElemThompsonOmega, higherElemThompson_pRank, omegaOneCenter_bot]
 
 end CFSG

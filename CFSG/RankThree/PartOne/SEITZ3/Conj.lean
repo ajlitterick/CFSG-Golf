@@ -48,10 +48,6 @@ theorem le_normalizer_of_commute {A B : Subgroup G}
     rw [h3]
     exact hy
 
-theorem commuting_conj {A B : Subgroup G} (h : Commuting A B) (g : G) :
-    Commuting (conjSub A g) (conjSub B g) := by
-  rintro _ ⟨a, ha, rfl⟩ _ ⟨b, hb, rfl⟩
-  exact (h a ha b hb).map (MulAut.conj g).toMonoidHom
 
 theorem opposite_conj {A B : Subgroup G} (h : Opposite A B) (g : G) :
     Opposite (conjSub A g) (conjSub B g) := by
@@ -77,14 +73,6 @@ theorem opposite_conj {A B : Subgroup G} (h : Opposite A B) (g : G) :
         rw [← conjSub_mul]; congr 1; simp [MulAut.conj_apply]
       rw [e1, e2, conjSub_mul, hab, ← conjSub_mul]
 
-theorem special_conj {R : Set (Subgroup G)} (hR : ∀ A ∈ R, ∀ g : G, conjSub A g ∈ R)
-    {A B : Subgroup G} (h : Special R A B) (g : G) :
-    Special R (conjSub A g) (conjSub B g) := by
-  have hc : conjSub ⁅A, B⁆ g = ⁅conjSub A g, conjSub B g⁆ := Subgroup.map_commutator _ _ _
-  refine ⟨?_, ?_, ?_⟩
-  · rw [← hc]; exact hR _ h.1 g
-  · rw [← hc]; exact commuting_conj h.2.1 g
-  · rw [← hc]; exact commuting_conj h.2.2 g
 
 end ConjInv
 

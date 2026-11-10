@@ -69,52 +69,6 @@ theorem ggResQTwoKSide_mem {n : ℕ} {ib : Fin n} {i : Fin (n + 1)} :
   unfold ggResQTwoKSide
   simp only [List.mem_filter, List.mem_finRange, true_and, decide_eq_true_eq]
 
-@[expose] noncomputable def ggResQTwoKSideEquiv (n : ℕ) (ib : Fin n) :
-    Option {j : Fin n // j ≠ ib} ≃ {i : Fin (n + 1) // i ∈ ggResQTwoKSide n ib} :=
-  Equiv.ofBijective
-    (fun o =>
-      match o with
-      | none => ⟨Fin.last n, by
-          rw [ggResQTwoKSide_mem]
-          exact (Fin.castSucc_lt_last ib).ne'⟩
-      | some j => ⟨j.1.castSucc, by
-          rw [ggResQTwoKSide_mem]
-          exact fun h => j.2 (Fin.castSucc_injective n h)⟩)
-    ⟨by
-      intro o o' h
-      cases o with
-      | none =>
-          cases o' with
-          | none => rfl
-          | some j =>
-              exfalso
-              have hv : (Fin.last n : Fin (n + 1)) = j.1.castSucc := congrArg Subtype.val h
-              exact (Fin.castSucc_lt_last j.1).ne' hv
-      | some j =>
-          cases o' with
-          | none =>
-              exfalso
-              have hv : j.1.castSucc = (Fin.last n : Fin (n + 1)) := congrArg Subtype.val h
-              exact (Fin.castSucc_lt_last j.1).ne hv
-          | some j' =>
-              have hv : j.1.castSucc = j'.1.castSucc := congrArg Subtype.val h
-              have hjj : j = j' := Subtype.ext (Fin.castSucc_injective n hv)
-              subst hjj
-              rfl,
-      by
-        intro i
-        rcases Fin.eq_castSucc_or_eq_last i.1 with ⟨j, hj⟩ | hj
-        · by_cases h : j = ib
-          · exfalso
-            have hi : i.1 ∈ ggResQTwoKSide n ib := i.2
-            rw [hj, h] at hi
-            exact (ggResQTwoKSide_mem.mp hi) rfl
-          · refine ⟨some ⟨j, h⟩, ?_⟩
-            apply Subtype.ext
-            simp [hj]
-        · refine ⟨none, ?_⟩
-          apply Subtype.ext
-          simp [hj]⟩
 
 @[expose] def ggResQTwoKFullFun {Λ : Type} {n : ℕ} (e : Fin n ≃ Λ) {b : Λ}
     {ib : Fin n} (hib : e ib = b) :
@@ -406,21 +360,6 @@ theorem ggResQTwoCell_exit {n : ℕ} {C : Matrix (Fin n) (Fin n) ℤ} {ib ic : F
   GGResQTwoResidualCellTag .B3b0c2 b CL CK u v ∨
     GGResQTwoResidualCellTag .C3b0c2 b CL CK u v
 
-theorem GGResQTwoResidualCellTag.toCell {Λ : Type} {tag : GGResQTwoResidual} {b : Λ}
-    {CL : Matrix Λ Λ ℤ}
-    {CK : Matrix (Option {i : Λ // i ≠ b}) (Option {i : Λ // i ≠ b}) ℤ} {u v : ZMod 3}
-    (h : GGResQTwoResidualCellTag tag b CL CK u v) :
-    GGResQTwoResidualCell b CL CK u v := by
-  obtain ⟨n, C, ib, ic, e₁, e₂, e, hCe, hib, hrow, hcol, hCKaa, hshape⟩ := h
-  exact ⟨n, C, ib, ic, e₁, e₂, e, tag, hCe, hib, hrow, hcol, hCKaa, hshape⟩
-
-theorem GGResQTwoResidualCellB2.toCell {Λ : Type} {b : Λ} {CL : Matrix Λ Λ ℤ}
-    {CK : Matrix (Option {i : Λ // i ≠ b}) (Option {i : Λ // i ≠ b}) ℤ} {u v : ZMod 3}
-    (h : GGResQTwoResidualCellB2 b CL CK u v) :
-    GGResQTwoResidualCell b CL CK u v := by
-  rcases h with h | h
-  · exact h.toCell
-  · exact h.toCell
 
 @[expose] noncomputable def ggResQTwoG {G : Type} [Group G] {Bs : Subgroup G} {Λ : Type} {V : Type}
     [AddCommGroup V] [Module (ZMod 3) V] {n : ℕ} (ι : Additive ↥Bs ≃+ V)

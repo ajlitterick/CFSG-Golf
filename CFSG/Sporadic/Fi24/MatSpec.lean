@@ -415,10 +415,6 @@ theorem matW_idW {d : ℕ} (hd : d ≤ 832) : matW d d (idW d) = 1 := by
   · have h' : j.val ≠ i.val := fun e => h (Fin.ext e.symm)
     simp [h, h']
 
-theorem powW_size (d : ℕ) (M : Array W) (e : ℕ) : (powW d M e).size = d := by
-  induction e with
-  | zero => exact idW_size d
-  | succ e ih => rw [powW, mulW_size, ih]
 
 theorem RowsWF.powW {d : ℕ} (hd : d ≤ 832) {M : Array W} (hM : RowsWF M) (e : ℕ) :
     RowsWF (powW d M e) := by

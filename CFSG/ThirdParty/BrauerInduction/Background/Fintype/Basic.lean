@@ -13,30 +13,6 @@ open CFSG
 
 namespace Fintype
 
-/--
-Rewrite a finite sum with an `if` condition as a sum over the subtype where the
-condition holds
--/
-lemma sum_dite_eq_sum_subtype
-    {α : Type*} [Fintype α]
-    {β : Type*} [AddCommMonoid β]
-    (P : α → Prop) [DecidablePred P]
-    (f : (a : α) → P a → β) :
-    (∑ a : α, if h : P a then f a h else 0)
-      =
-    ∑ a : {a : α // P a}, f a.1 a.2 := by
-  symm
-  refine Finset.sum_bij_ne_zero (fun a _ _ ↦ a.val) ?_ ?_ ?_ ?_
-  · intro a _ _
-    exact Finset.mem_univ _
-  · intro a₁ _ _ a₂ _ _ h
-    exact Subtype.ext h
-  · intro b _ hb
-    split_ifs at hb with h
-    · exact ⟨⟨b, h⟩, Finset.mem_univ _, hb, rfl⟩
-    · exact False.elim (hb rfl)
-  · intro a _ _
-    exact (dif_pos a.prop).symm
 
 end Fintype
 

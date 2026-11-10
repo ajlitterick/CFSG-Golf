@@ -46,12 +46,6 @@ theorem units_map_entrywiseHom_trialityOpposition (f : K →+* K) :
     Units.map (entrywiseHom f) (trialityOpposition K) = trialityOpposition K := by
   rw [units_map_entrywiseHom_eq_baseChangeGL, baseChangeGL_trialityOpposition]
 
-theorem trialityOpposition_apply_mem_bot (b b' : Label TwistTag.D4.tag) :
-    ((trialityOpposition K : Module.End K (RootModule TwistTag.D4.tag K))
-      (Finsupp.single b 1)) b' ∈ (⊥ : Subfield K) := by
-  rw [← baseChangeGL_trialityOpposition (⊥ : Subfield K).subtype, baseChangeGL_apply_single,
-    Finsupp.mapRange_apply]
-  exact Subtype.mem _
 
 theorem trialityOuterRep_mem_graphFixedRootGroup (σ : K →+* K) :
     trialityOuterRep K ∈ graphFixedRootGroup TwistTag.D4 K σ := by
@@ -184,14 +178,6 @@ theorem weylQuotientHom_trialityOpposition_smul (v : Fin TwistTag.D4.tag.rank �
   rw [weylQuotientHom_eq mapsRootLines_trialityOpposition]
   exact trialityOppositionWeyl_smul v
 
-theorem trialityOpposition_ne_one : trialityOpposition K ≠ 1 := fun h => by
-  have h₁ := (mapsRootLines_trialityOpposition (K := K)).unique (w' := 1) (by
-    rw [h]
-    exact mapsRootLines_one)
-  have h₂ := trialityOppositionWeyl_smul (Pi.single ⟨0, by decide⟩ 1)
-  rw [h₁, one_smul] at h₂
-  have h₃ := congrFun h₂ ⟨0, by decide⟩
-  simp at h₃
 
 theorem trialityOpposition_conj_torus {h : ModGL TwistTag.D4.tag K}
     (hh : h ∈ torusGroup TwistTag.D4.tag K) :
@@ -200,43 +186,5 @@ theorem trialityOpposition_conj_torus {h : ModGL TwistTag.D4.tag K}
   rw [conj_rootDiagUnit_of_smul_eq_neg trialityOpposition_mem_monomialSubgroup
     weylQuotientHom_trialityOpposition_smul, rootDiagUnit_inv]
 
-theorem map_conj_trialityOpposition_rootSubgroup {α : Fin TwistTag.D4.tag.rank → ℤ}
-    (hα : IsRoot TwistTag.D4.tag α) :
-    (rootSubgroup TwistTag.D4.tag K α).map (MulAut.conj (trialityOpposition K)).toMonoidHom =
-      rootSubgroup TwistTag.D4.tag K (-α) := by
-  obtain ⟨μ, hμ⟩ := conj_pinnedX_of_smul_eq_neg (trialityOpposition_mem_monomialSubgroup (K := K))
-    weylQuotientHom_trialityOpposition_smul hα
-  rw [rootSubgroup, rootSubgroup, MonoidHom.map_closure]
-  congr 1
-  ext g
-  constructor
-  · rintro ⟨_, ⟨c, rfl⟩, rfl⟩
-    exact ⟨μ * c, (hμ c).symm⟩
-  · rintro ⟨c, rfl⟩
-    refine ⟨_, ⟨((μ⁻¹ : Kˣ) : K) * c, rfl⟩, ?_⟩
-    rw [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, hμ, Units.mul_inv_cancel_left]
-
-theorem triality_prime_field_opposition_involution (K : Type) [Field K] (σ : K ≃+* K) :
-    trialityOpposition K ∈ graphFixedRootGroup TwistTag.D4 K σ.toRingHom ∧
-    trialityOpposition K ^ 2 = 1 ∧ trialityOpposition K ≠ 1 ∧
-    orderOf (trialityOpposition K) = 2 ∧
-    (∀ b b' : Label TwistTag.D4.tag,
-      ((trialityOpposition K : Module.End K (RootModule TwistTag.D4.tag K))
-        (Finsupp.single b 1)) b' ∈ (⊥ : Subfield K)) ∧
-    (∃ hz : trialityOpposition K ∈ monomialSubgroup TwistTag.D4.tag K,
-      ∀ v : Fin TwistTag.D4.tag.rank → ℤ, weylQuotientHom TwistTag.D4.tag K ⟨_, hz⟩ • v = -v) ∧
-    (∀ h ∈ torusGroup TwistTag.D4.tag K,
-      trialityOpposition K * h * (trialityOpposition K)⁻¹ = h⁻¹) ∧
-    (∀ α : Fin TwistTag.D4.tag.rank → ℤ, IsRoot TwistTag.D4.tag α →
-      (rootSubgroup TwistTag.D4.tag K α).map (MulAut.conj (trialityOpposition K)).toMonoidHom =
-        rootSubgroup TwistTag.D4.tag K (-α)) ∧
-    (∀ f : K →+* K, Units.map (entrywiseHom f) (trialityOpposition K) = trialityOpposition K) ∧
-    ∀ σ' : K →+* K, trialityOpposition K ∈ graphFixedRootGroup TwistTag.D4 K σ' :=
-  ⟨trialityOpposition_mem_graphFixedRootGroup _, trialityOpposition_sq,
-    trialityOpposition_ne_one, orderOf_eq_prime trialityOpposition_sq trialityOpposition_ne_one,
-    trialityOpposition_apply_mem_bot, ⟨_, weylQuotientHom_trialityOpposition_smul⟩,
-    fun _ hh => trialityOpposition_conj_torus hh,
-    fun _ hα => map_conj_trialityOpposition_rootSubgroup hα,
-    units_map_entrywiseHom_trialityOpposition, trialityOpposition_mem_graphFixedRootGroup⟩
 
 end CFSG.RankThree.Chevalley

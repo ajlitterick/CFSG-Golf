@@ -144,57 +144,6 @@ theorem uc22s206r_cases_congr {X Y : Type} [Group X] [Group Y] (e : X ≃* Y)
   · obtain ⟨f⟩ : Nonempty (X ≃* CFSG.Blueprint.NativeSporadic.Carrier .J4) := h
     exact Or.inr (Or.inr (Or.inr ⟨e.symm.trans f⟩))
 
-theorem uc22s206r_list880_of {X : Type} [Group X]
-    (h : IsAlt X 8 ∨ LieModel X .PSL 5 2 1 ∨ IsSpor X .M24 ∨ IsSpor X .J4) : F08.List880 X := by
-  unfold F08.List880 F08.IsMathieu
-  rcases h with h | h | h | h
-  · iterate 10 right
-    exact Or.inl h
-  · iterate 11 right
-    exact Or.inl h
-  · exact Or.inl (Or.inr (Or.inr (Or.inr (Or.inr h))))
-  · iterate 4 right
-    exact Or.inl h
-
-theorem uc22s206r_list880
-    [Finite G] (D : Data G)
-    (hK331 : InS3.K331) (hN : uc22p20rNativeGriess) (h82 : F08.R82 D) (hk : D.k = 2)
-    {L : Subgroup G} (α : ↥L →* alternatingGroup (Fin 9)) (hα : Function.Surjective α)
-    (hker : α.ker = CFSG.pCore 2 ↥L) {i : Fin 9} {C : Subgroup (Bar2 D.M)}
-    (hC : IsComponentOf C ⊤) (ψ : ↥(ptCore α i) →* ↥C ⧸ Subgroup.center ↥C) (hψ : ψ.range ≠ ⊥)
-    {TS : Subgroup (↥C ⧸ Subgroup.center ↥C)} (hTS : CFSG.ABGLocalTools.IsSylowOf 2 TS ⊤)
-    (hTSn : TS ≤ normalizer (ψ.range : Set (↥C ⧸ Subgroup.center ↥C))) :
-    ∃ A ∈ calC D.M, F08.List880 (Bar2 A) := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  haveI : IsSimpleGroup (↥C ⧸ Subgroup.center ↥C) := hC.2.2.2
-  obtain ⟨A, hA, ⟨e₁⟩⟩ := uc22s206r_calC D hC
-  have h3 : CFSG.Open.pRank 3 (⊤ : Subgroup ↥C) ≤ 2 := by
-    rw [← CFSG.SectionRank.pRank_top_eq_of_mulEquiv (by norm_num) e₁]
-    exact uc22s206r_pRank_le D h82 hk hA
-  obtain ⟨e₈⟩ := uc22s206l_nonempty_range α hα hker ψ hψ
-  have hcase : IsAlt (↥C ⧸ Subgroup.center ↥C) 8 ∨
-      LieModel (↥C ⧸ Subgroup.center ↥C) .PSL 5 2 1 ∨ IsSpor (↥C ⧸ Subgroup.center ↥C) .M24 ∨
-      IsSpor (↥C ⧸ Subgroup.center ↥C) .J4 := by
-    rcases hK331 (↥C ⧸ Subgroup.center ↥C) hC.2.2.2 (uc22s206r_isCatalogGroup D hC)
-      (uc22s206q_pRank α hα hker ψ hψ h3) TS hTS ψ.range ⟨e₈⟩ hTSn with hR | h | h | h
-    · obtain ⟨-, -, -, ha1, -⟩ := uc22s206p_rel
-      haveI : Nontrivial (alternatingGroup (Fin 8)) := ⟨⟨uc22s206pA0, 1, ha1⟩⟩
-      exact Or.inl (uc22s206r_mulEquiv_of_top hR e₈)
-    · exact Or.inr (Or.inl h)
-    · exact Or.inr (Or.inr (Or.inl h))
-    · exact Or.inr (Or.inr (Or.inr h))
-  have hodd : Odd (Nat.card (Subgroup.center ↥C)) := by
-    rw [← Nat.card_congr (Subgroup.centerCongr e₁).toEquiv]
-    exact uc22p20p_odd_center_bar2 ↥A
-  have hZ : Subgroup.center ↥C = ⊥ := by
-    rcases hcase with h | h | h | h
-    · exact uc22s206r_center_alt8 hC.2.2.1 hodd h
-    · exact uc22s206r_center_psl52 hN hC.2.2.1 h
-    · exact uc22s206r_center_m24 hC.2.2.1 hodd h
-    · exact uc22s206r_center_j4 hC.2.2.1 hodd h
-  let eC : ↥C ⧸ Subgroup.center ↥C ≃* ↥C :=
-    (QuotientGroup.quotientMulEquivOfEq hZ).trans QuotientGroup.quotientBot
-  exact ⟨A, hA, uc22s206r_list880_of (uc22s206r_cases_congr (e₁.trans eC.symm).symm hcase)⟩
 
 end CFSG.LocalAnalysis.UniquenessCase.UC22
 

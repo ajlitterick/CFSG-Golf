@@ -35,21 +35,6 @@ theorem commute_iff_action_linear (T : Module.End K V) (lambda : K)
     change L (T v) = T (L v)
     simpa only [actionModule_root_smul] using hL (AdjoinRoot.root (quadraticPolynomial lambda)) v
 
-@[expose] def commutingLinearMap (T : Module.End K V) (lambda : K)
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda)
-    (L : Module.End K V) (hLT : Commute L T) :
-    letI := actionModule T lambda hsq
-    Module.End (extension lambda) V := by
-  letI := actionModule T lambda hsq
-  exact {
-    toFun := L
-    map_add' := L.map_add
-    map_smul' := (commute_iff_action_linear T lambda hsq L).mp hLT }
-
-theorem commutingLinearMap_apply (T : Module.End K V) (lambda : K)
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda)
-    (L : Module.End K V) (hLT : Commute L T) (v : V) :
-    commutingLinearMap T lambda hsq L hLT v = L v := rfl
 
 theorem actionCompatibleSMul (T : Module.End K V) (lambda : K)
     (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) :
@@ -60,18 +45,6 @@ theorem actionCompatibleSMul (T : Module.End K V) (lambda : K)
   rw [← actionModule_algebraMap_smul T lambda hsq c v, L.map_smul,
     actionModule_algebraMap_smul]
 
-theorem extensionLinearMap_commutes (T : Module.End K V) (lambda : K)
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) :
-    letI := actionModule T lambda hsq
-    letI := actionCompatibleSMul T lambda hsq
-    ∀ L : Module.End (extension lambda) V, Commute (L.restrictScalars K) T := by
-  let := actionModule T lambda hsq
-  let := actionCompatibleSMul T lambda hsq
-  intro L
-  apply LinearMap.ext
-  intro v
-  change L (T v) = T (L v)
-  rw [← actionModule_root_smul T lambda hsq v, L.map_smul, actionModule_root_smul]
 
 @[expose] def commutingLinearEquiv (T : Module.End K V) (lambda : K)
     (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda)
@@ -114,13 +87,6 @@ theorem quadraticCentralizerEquiv_apply (T : Module.End K V) (lambda : K)
     (B : operatorCentralizer T) (v : V) :
     quadraticCentralizerEquiv T lambda hsq B v = B.val v := rfl
 
-theorem quadraticCentralizerEquiv_symm_apply (T : Module.End K V) (lambda : K)
-    (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) :
-    letI := actionModule T lambda hsq
-    ∀ (B : V ≃ₗ[extension lambda] V) (v : V),
-      ((quadraticCentralizerEquiv T lambda hsq).symm B).val v = B v := by
-  intros
-  rfl
 
 theorem quadraticCentralizerEquiv_scalar (T : Module.End K V) (lambda : K)
     (hsq : T ^ 2 = algebraMap K (Module.End K V) lambda) (c : Kˣ) :

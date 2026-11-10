@@ -228,11 +228,5 @@ theorem hyperovals_eq : hyperovals = O 0 ∪ O 1 ∪ O 2 := by
     have := listed_isHyperoval _ hm
     rwa [ofMask_mask] at this
 
-theorem card_hyperovals : hyperovals.card = 168 := by
-  rw [hyperovals_eq, Finset.card_union_of_disjoint, Finset.card_union_of_disjoint, card_O, card_O,
-    card_O]
-  · exact disjoint_O (by decide)
-  · rw [Finset.disjoint_union_left]
-    exact ⟨disjoint_O (by decide), disjoint_O (by decide)⟩
 
 end CFSG.Monster.B.Classical.Plane

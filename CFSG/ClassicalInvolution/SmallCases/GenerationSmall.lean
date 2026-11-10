@@ -98,31 +98,6 @@ end Closure
 
 section Layers
 
-variable (p f) in
-@[expose] def frameLayerSpan (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup G)) :
-    Subgroup G :=
-  ⨆ a ∈ A, ⨆ (_ : IsFrameInvolution p f S a), centralizingLayer Ω {a}
-
-theorem centralizingLayer_le_frameLayerSpan {a : G} (ha : a ∈ A) (hfa : IsFrameInvolution p f S a) :
-    centralizingLayer Ω {a} ≤ frameLayerSpan p f Ω A S :=
-  le_iSup₂_of_le a ha (le_iSup (fun _ : IsFrameInvolution p f S a => centralizingLayer Ω {a}) hfa)
-
-theorem frameLayerSpan_eq_top (hΩ : InClass p f Ω) (hS : S ⊆ Ω) (hne : S.Nonempty)
-    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
-    (hlink : ∀ a ∈ A, IsFrameInvolution p f S a → InvolutionLink p f Ω A S a)
-    (hconn : OmegaConnected Ω) : frameLayerSpan p f Ω A S = ⊤ :=
-  eq_top_of_layer_le hΩ hS hne hinv (fun _ ha hfa => centralizingLayer_le_frameLayerSpan ha hfa)
-    hlink hconn
-
-theorem frameCentralizerSpan_eq_top (hΩ : InClass p f Ω) (hS : S ⊆ Ω) (hne : S.Nonempty)
-    (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
-    (hlink : ∀ a ∈ A, IsFrameInvolution p f S a → InvolutionLink p f Ω A S a)
-    (hconn : OmegaConnected Ω) :
-    (⨆ a ∈ A, ⨆ (_ : IsFrameInvolution p f S a), Subgroup.centralizer ({a} : Set G)) = ⊤ :=
-  top_unique ((frameLayerSpan_eq_top hΩ hS hne hinv hlink hconn).symm.le.trans
-    (iSup₂_le fun a ha => iSup_le fun hfa => (centralizingLayer_le_centralizer Ω {a}).trans
-      (le_iSup₂_of_le a ha (le_iSup (fun _ : IsFrameInvolution p f S a =>
-        Subgroup.centralizer ({a} : Set G)) hfa))))
 
 end Layers
 
@@ -232,11 +207,6 @@ theorem centralizingLayer_le_frameSpan_of_localOddCentral (hΩ : InClass p f Ω)
     centralizingLayer Ω {a} ≤ frameSpan S :=
   (centralizingLayer_le_of_localOddCentral hΩ hS hP1 hgen).trans (iSup_centralizing_le_frameSpan a)
 
-omit [Fact p.Prime] in
-theorem centralizingLayer_le_frameSpan_of_oddCoreIn_le {a : G}
-    (hodd : oddCoreIn (centralizingLayer Ω {a}) ≤ frameSpan S)
-    (hgen : FrameGenerationModO Ω S a) : centralizingLayer Ω {a} ≤ frameSpan S :=
-  hgen.trans (sup_le hodd (iSup_centralizing_le_frameSpan a))
 
 theorem frameSpan_eq_top (hΩ : InClass p f Ω) (hS : S ⊆ Ω) (hne : S.Nonempty)
     (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
@@ -263,15 +233,6 @@ end FrameSpan
 
 section Lie
 
-theorem frameLayerSpan_eq_top_of_lie [Finite G] (hL : LocalHypotheses p f Ω A) (hS : S ⊆ Ω)
-    (hne : S.Nonempty) (hinv : ∀ K ∈ S, ∃ z ∈ A, IsClassicalMember p f K z)
-    (hcover : ∀ a ∈ A, IsFrameInvolution p f S a → FrameCoversModO Ω S a)
-    (hconn : OmegaConnected Ω) : frameLayerSpan p f Ω A S = ⊤ :=
-  frameLayerSpan_eq_top hL.inClass hS hne hinv
-    (fun a ha hfa => by
-      obtain ⟨K, hKS, hK⟩ := hfa
-      exact involutionLink_of_lie hL ha hK.ne_one hS hinv (hcover a ha ⟨K, hKS, hK⟩))
-    hconn
 
 end Lie
 

@@ -20,9 +20,6 @@ abbrev localCentralizer (u : G) : Subgroup G := Subgroup.centralizer ({u} : Set 
 @[expose] def localInvolutions (U : Subgroup G) (u : G) : Set (localCentralizer u) :=
   (localCentralizer u).subtype ⁻¹' conjugateInvolutions U
 
-theorem localSubgroup_image (U : Subgroup G) (u : G) :
-    (localSubgroup U u).map (localCentralizer u).subtype = U ⊓ localCentralizer u :=
-  Subgroup.subgroupOf_map_subtype U (localCentralizer u)
 
 theorem localSubgroup_elementary (U : Subgroup G) (hUel : IsElemAbelian 2 U) (u : G) :
     IsElemAbelian 2 (localSubgroup U u) := by
@@ -297,23 +294,6 @@ theorem localInvolutions_eq_ambient_class_preimage (T : Sylow 2 G) (U : Subgroup
     rw [← hg]
     exact conjugateInvolutions_conj_mem U hzD g
 
-theorem localSubgroup_exists_central_sylow (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G)) (hTI : fusionIsTI U)
-    {u z : G} (hzU : z ∈ U) (hzne : z ≠ 1) (hcomm : Commute z u)
-    (hX : ¬ localCentralizer u ≤ Subgroup.normalizer (U : Set G))
-    {w : localCentralizer u} (hw : w ∈ localSubgroup U u) (hwne : w ≠ 1) :
-    ∃ Q : Sylow 2 (localCentralizer u), ∃ hwQ : w ∈ (Q : Subgroup _),
-      (⟨w, hwQ⟩ : (Q : Subgroup _)) ∈ Subgroup.center (Q : Subgroup _) := by
-  have hwD : w ∈ localInvolutions U u := Group.subset_conjugatesOfSet
-    ⟨hw, by
-      intro hone
-      exact hwne (Subtype.ext (Set.mem_singleton_iff.mp hone))⟩
-  exact NormalGraph.exists_central_sylow (localInvolutions U u)
-    (fun _ hx => localInvolutions_order_two U hUel u hx)
-    (fun _ hx g => localInvolutions_conj_mem U u hx g)
-    (fun _ hx _ hy hne hc => localInvolutions_mul_mem T U hUT hUel hclosed hTI u hx hy hne hc)
-    (localInvolutions_not_preconnected T U hUT hUel hclosed hTI hzU hzne hcomm hX) ⟨w, hwD⟩
 
 omit [Finite G] in
 theorem closure_conjugateInvolutions_eq_normalClosure (U : Subgroup G) :
@@ -347,46 +327,5 @@ theorem localHull_eq_normalClosure (T : Sylow 2 G) (U : Subgroup G)
     localInvolutions_eq_local_conjugateInvolutions T U hUT hUel hclosed hTI hzU hzne hcomm hX]
   exact closure_conjugateInvolutions_eq_normalClosure _
 
-theorem localHull_normal (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G)) (hTI : fusionIsTI U)
-    {u z : G} (hzU : z ∈ U) (hzne : z ≠ 1) (hcomm : Commute z u)
-    (hX : ¬ localCentralizer u ≤ Subgroup.normalizer (U : Set G)) :
-    (localHull u z).Normal := by
-  rw [localHull_eq_normalClosure T U hUT hUel hclosed hTI hzU hzne hcomm hX]
-  infer_instance
-
-theorem local_componentSet_eq (T : Sylow 2 G) (U : Subgroup G)
-    (hUT : U ≤ (T : Subgroup G)) (hUel : IsElemAbelian 2 U)
-    (hclosed : fusionStronglyClosed (U : Set G) (T : Subgroup G)) (hTI : fusionIsTI U)
-    (u : G) (z : localInvolutions U u) (hzW : (z : localCentralizer u) ∈ localSubgroup U u) :
-    NormalGraph.componentSet (localInvolutions U u)
-      (fun _ hx => localInvolutions_order_two U hUel u hx) z =
-        (localSubgroup U u : Set (localCentralizer u)) \ {1} := by
-  have hzGne : ((z : localCentralizer u) : G) ≠ 1 :=
-    ((mem_conjugateInvolutions_iff U).mp z.property).choose_spec.2
-  ext x
-  constructor
-  · rintro ⟨hxD, hzx⟩
-    have hreach := hzx.map (localGraphHom U hUel u)
-    obtain ⟨a, hza, hxa⟩ :=
-      (conjugateCommutingGraph_reachable_iff T U hUT hUel hclosed hTI _ _).mp hreach
-    have hz1 : ((z : localCentralizer u) : G) ∈ U.map (MulAut.conj (1 : G)).toMonoidHom :=
-      (map_conj_one U).symm ▸ hzW
-    have haU : U.map (MulAut.conj a).toMonoidHom = U := by
-      simpa only [map_conj_one] using
-        conjugates_eq_of_common_nonidentity U hTI a 1 hzGne hza hz1
-    have hxW : x ∈ localSubgroup U u := haU ▸ hxa
-    have hxneG := ((mem_conjugateInvolutions_iff U).mp hxD).choose_spec.2
-    exact ⟨hxW, fun h => hxneG (congrArg Subtype.val (Set.mem_singleton_iff.mp h))⟩
-  · rintro ⟨hxW, hxne⟩
-    have hxD : x ∈ localInvolutions U u := Group.subset_conjugatesOfSet
-      ⟨hxW, by
-        intro hone
-        apply hxne
-        exact Set.mem_singleton_iff.mpr (Subtype.ext (Set.mem_singleton_iff.mp hone))⟩
-    refine ⟨hxD, NormalGraph.reachable_of_commute _ _ z ⟨x, hxD⟩ ?_⟩
-    exact congrArg (fun w : localSubgroup U u => (w : localCentralizer u))
-      (isMulCommutative_iff.mp (localSubgroup_elementary U hUel u).1 ⟨z, hzW⟩ ⟨x, hxW⟩)
 
 end CFSG.ShultStronglyClosedTI

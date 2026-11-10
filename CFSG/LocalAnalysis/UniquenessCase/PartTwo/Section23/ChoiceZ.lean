@@ -176,8 +176,6 @@ theorem etaSet_injective : Function.Injective etaSet := by
           B' ⊓ centralizer (D.Z : Set G) = ⊥) →
       B0 ⊓ centralizer (D.Z : Set G) = ⊥)
 
-theorem choiceZ_le {D : Data G} {L0 B0 : Subgroup G} (h : ChoiceZ D L0 B0) :
-    Choice214U D L0 B0 := h.1
 
 theorem choiceExists2011_choiceZ {D : Data G} (h : ChoiceExists2011 D (Choice214U D)) :
     ChoiceExists2011 D (ChoiceZ D) := by

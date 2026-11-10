@@ -18,9 +18,6 @@ variable {ι : Type} [Fintype ι] [DecidableEq ι] {bm : Matrix ι ι ℤ} {qd :
   map_one' := Units.ext rho_one
   map_mul' g h := Units.ext (rho_mul g.2 h.2)
 
-theorem coe_vecHom (g : F.normGroup A) :
-    ((F.vecHom A g : GL ι A) : Matrix ι ι A) = F.rho A g :=
-  rfl
 
 end CFSG.RankThree.PartTwo.Census.Carrier.SpinFrame.Frame
 

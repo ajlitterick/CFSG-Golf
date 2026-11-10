@@ -42,23 +42,6 @@ theorem projective_fixed_iff_similitude (n : ℕ) (K : Type u) [Field K]
         A⁻¹ * Matrix.GeneralLinearGroup.scalar (Fin n) mu
   exact exists_congr (graph_scalar_equation_iff n K A g)
 
-theorem projective_fixed_iff_matrix_similitude (n : ℕ) (K : Type u) [Field K]
-    (A g : Matrix.GeneralLinearGroup (Fin n) K) :
-    Matrix.ProjGenLinGroup.mk g ∈ fixedPGL n K A ↔
-      ∃ mu : Kˣ, g.val.transpose * (A⁻¹).val * g.val = mu.val • (A⁻¹).val :=
-  (projective_fixed_iff_similitude n K A g).trans (mem_similitudeGroup n K A⁻¹ g)
-
-theorem fixedPGL_eq_similitude_image (n : ℕ) (K : Type u) [Field K]
-    (A : Matrix.GeneralLinearGroup (Fin n) K) :
-    fixedPGL n K A = (similitudeGroup n K A⁻¹).map Matrix.ProjGenLinGroup.mk := by
-  ext x
-  obtain ⟨g, rfl⟩ := Matrix.ProjGenLinGroup.mk_surjective x
-  constructor
-  · intro h
-    exact ⟨g, (projective_fixed_iff_similitude n K A g).mp h, rfl⟩
-  · rintro ⟨h, hh, heq⟩
-    rw [← heq]
-    exact (projective_fixed_iff_similitude n K A h).mpr hh
 
 @[expose] def similitudeProjection (n : ℕ) (K : Type u) [Field K]
     (A : Matrix.GeneralLinearGroup (Fin n) K) :
@@ -66,9 +49,6 @@ theorem fixedPGL_eq_similitude_image (n : ℕ) (K : Type u) [Field K]
   (Matrix.ProjGenLinGroup.mk.comp (similitudeGroup n K A⁻¹).subtype).codRestrict _
     (fun g => (projective_fixed_iff_similitude n K A g.val).mpr g.property)
 
-theorem similitudeProjection_val (n : ℕ) (K : Type u) [Field K]
-    (A : Matrix.GeneralLinearGroup (Fin n) K) (g : similitudeGroup n K A⁻¹) :
-    (similitudeProjection n K A g).val = Matrix.ProjGenLinGroup.mk g.val := rfl
 
 theorem similitudeProjection_surjective (n : ℕ) (K : Type u) [Field K]
     (A : Matrix.GeneralLinearGroup (Fin n) K) : Function.Surjective (similitudeProjection n K A) := by

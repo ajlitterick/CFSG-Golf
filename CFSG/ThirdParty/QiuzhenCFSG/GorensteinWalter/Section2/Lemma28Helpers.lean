@@ -27,19 +27,6 @@ namespace CFSG.GorensteinWalter
 
 universe u
 
-/-- If `S₀` centralizes `U`, then it normalizes every subgroup of `U`. -/
-public theorem centralizerSetup_S0_le_normalizer_of_commutator_eq_bot
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) {X : Subgroup G}
-    (hcomm : ⁅c.S0, c.U⁆ = ⊥) (hX : X ≤ c.U) :
-    c.S0 ≤ Subgroup.normalizer (X : Set G) := by
-  have hcentU : c.S0 ≤ Subgroup.centralizer (c.U : Set G) :=
-    (Subgroup.commutator_eq_bot_iff_le_centralizer).mp hcomm
-  have hcentX : c.S0 ≤ Subgroup.centralizer (X : Set G) :=
-    hcentU.trans (Subgroup.centralizer_le (by
-      intro x hx
-      exact hX hx))
-  exact hcentX.trans (Subgroup.centralizer_le_normalizer (X : Set G))
 
 /-- A reflection-inverted subgroup is abelian, normal in `U`, and contained in
 `F(U)`.  This is Fact 1.5(iii) specialized to the fixed centralizer setup. -/

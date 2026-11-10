@@ -25,7 +25,6 @@ section U8
     (u e g : Y), P23Cfg n Y R S t K' W u e g → ¬ SecNoExit R e →
       (∃ V : Subgroup (SecQ R e), WSet (TwinDisc.secFam (Om R) e) = {V}) → ECase1 R W e
 
-variable {n : ℕ}
 
 end U8
 

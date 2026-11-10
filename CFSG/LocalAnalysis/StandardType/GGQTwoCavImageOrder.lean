@@ -60,21 +60,6 @@ theorem exists_overGamma_of_setting (hS : GGQTwoSetting p B Bs x L D J)
   rw [hjact] at hconj
   exact hconj.symm
 
-theorem card_automizer_image_dvd_of_setting (hS : GGQTwoSetting p B Bs x L D J)
-    (hp : p.Prime) (hp2 : p ≠ 2) (hJL : J ≤ L) :
-    Nat.card (ggAutomizer (ggGamma L (hJL.trans Subgroup.le_normalizer)).range
-      (ggGamma L hN).range) ∣ Nat.card (ggAutomizer J Bs) :=
-  card_automizer_image_dvd hN (fun _ ha =>
-    exists_overGamma_of_setting hN hS hp hp2 hJL ha)
-
-theorem card_automizer_inner_image_dvd_of_setting (hS : GGQTwoSetting p B Bs x L D J)
-    (hp : p.Prime) (hp2 : p ≠ 2) :
-    Nat.card (ggAutomizer
-      ((J.subgroupOf L).map (MulAut.conj : L →* MulAut L))
-      (ggGamma L hN).range) ∣ Nat.card (ggAutomizer J Bs) := by
-  have hJL : J ≤ L := hS.1.1.2.2.1.2.2.2.2.2.1.1.trans inf_le_left
-  rw [← gamma_j_range hJL]
-  exact card_automizer_image_dvd_of_setting hN hS hp hp2 hJL
 
 theorem eq_one_of_overGamma_one_of_setting
     (hS : GGQTwoSetting p B Bs x L D J) (hp : p.Prime)

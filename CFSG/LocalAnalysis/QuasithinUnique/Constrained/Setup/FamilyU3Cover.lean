@@ -34,7 +34,6 @@ theorem statedSU_eq_SUI : StatedSU 3 (p ^ 1) K = SUI h := unitarySU_eq_gramSU h 
 @[expose] def eSU : ↥(StatedSU 3 (p ^ 1) K) ≃* ↥(SUI h) :=
   MulEquiv.subgroupCongr (statedSU_eq_SUI h)
 
-theorem coe_eSU (g : ↥(StatedSU 3 (p ^ 1) K)) : ((eSU h g : ↥(SUI h)) : GL (Fin 3) K) = g := rfl
 
 theorem map_normOneScalars_subgroupCongr {H₁ H₂ : Subgroup (GL (Fin 3) K)} (heq : H₁ = H₂)
     (m : ℕ) :

@@ -329,21 +329,11 @@ theorem kIdx_facts : kIdx.size = 50 ∧ ∀ i < 50, kIdx[i]! < 112 := by
   rw [getElem!_pos kIdx i (by omega)]
   exact of_decide_eq_true this
 
-theorem compV_size : compV.size = 12 := by
-  have h := chkMod_true
-  unfold chkMod at h
-  simp only [Bool.and_eq_true] at h
-  obtain ⟨⟨⟨⟨⟨⟨-, hs⟩, -⟩, -⟩, -⟩, -⟩, -⟩ := h
-  exact beq_iff_eq.1 hs
 
 theorem Bm_row_mid {i : Fin 112} (h1 : 50 ≤ i.val) (h2 : i.val < 62) (j : Fin 112) :
     rowsMatrix (bRows ()) i j = (compV[i.val - 50]!).toVec j := by
   rw [rowsMatrix_apply, bRows, getD_ofFn, ite_eq_right (by omega), ite_eq_left h2]
 
-theorem row_mem_Wz (k : Fin 112) : phiM k ∈ Wz := by
-  refine mem_Wz.2 ⟨Pi.single k 1, ?_⟩
-  funext j
-  simp [Matrix.vecMul, dotProduct, Pi.single_apply]
 
 theorem inWB_iff (x : V2) :
     inWB x = true ↔ ∀ j : Fin 112, 50 ≤ j.val → (x.toVec ᵥ* rowsMatrix pRows) j = 0 := by

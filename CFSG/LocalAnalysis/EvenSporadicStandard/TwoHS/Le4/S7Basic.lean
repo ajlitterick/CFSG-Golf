@@ -44,6 +44,5 @@ theorem not_two_dvd_index_of_normalizer_le {G : Type*} [Group G] [Finite G] {T :
   subst hEq
   exact P.not_dvd_index
 
-variable {G : Type*} [Group G]
 
 end CFSG.EvenSporadicStandard.TwoHS

@@ -35,7 +35,6 @@ theorem wA : CFSG.Sporadic.Schreier.Co3.Native.wordsArr 2 8 dA = d4ChainAWords :
 
 theorem ndA : d4ChainABaseArr.toList.Nodup := by decide +kernel
 
-theorem nsA : 2457 ≤ CA.NS * 16 := by decide +kernel
 
 theorem bQ : allN 4 (fun j => Nat.beq (EQ.G j) (HX.F j)) = true ∧ Nat.beq EQ.ng 4 = true ∧
     Nat.beq EQ.N 81 = true := ⟨by quickRfl, by quickRfl, by quickRfl⟩

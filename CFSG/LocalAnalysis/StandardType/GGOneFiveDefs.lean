@@ -98,10 +98,6 @@ variable {G : Type} [Group G] [Finite G]
           Subgroup.normalizer (Subgroup.zpowers d : Set G) ≤
         Subgroup.normalizer (K : Set G)
 
-@[expose] def GGSixHypPre (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G) : Prop :=
-  GGBstar p B Bs ∧ LargeEvenStdSub p B x L D J ∧ GGInnerDiagOn Bs (ggG0 p B x L D J) ∧
-    Subgroup.normalizer (B : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G) ∧
-    Subgroup.normalizer (Bs : Set G) ≤ Subgroup.normalizer (ggG0 p B x L D J : Set G)
 
 end Defs2
 

@@ -19,9 +19,6 @@ abbrev Mat25 : Type := Matrix (Fin 25) (Fin 25) (ZMod 2)
 theorem andB_iff (a b : Bool) : Th.andB a b = true ↔ a = true ∧ b = true := by
   cases a <;> cases b <;> decide
 
-theorem brec_true {α : Sort*} (a b : α) : Bool.rec (motive := fun _ => α) a b true = b := rfl
-
-theorem brec_false {α : Sort*} (a b : α) : Bool.rec (motive := fun _ => α) a b false = a := rfl
 
 theorem notB_iff (b : Bool) : McL.Dce.notB b = true ↔ b = false := by
   cases b <;> decide
@@ -83,7 +80,6 @@ theorem sPi_mkSt {D : ℕ} (hD : D < 256) (p : ℕ) : McL.Dce.sPi (McL.Dce.mkSt 
     Nat.testBit_lt_two_pow (Nat.lt_of_lt_of_le hD' (Nat.pow_le_pow_right (by omega) (by omega)))
   simp [this]
 
-theorem sD_bad : McL.Dce.sD McL.Dce.bad = 255 := rfl
 
 theorem sPi_bad : McL.Dce.sPi McL.Dce.bad = 0 := rfl
 
@@ -221,10 +217,6 @@ theorem Lf_sq (c : ℕ) : Lf LT TL NL c * Lf LT TL NL c = 1 := by
 theorem Lf_inv (c : ℕ) : (Lf LT TL NL c)⁻¹ = Lf LT TL NL c :=
   inv_eq_of_mul_eq_one_right (Lf_sq c)
 
-theorem Lf_of_not {c : ℕ} (hc : ¬(c < NL ∧ c ≠ TL)) : Lf LT TL NL c = 1 := by
-  unfold Lf
-  rw [dite_eq_right]
-  exact fun h => hc (isN_iff.1 h.1)
 
 theorem Lf_val (hlet : McL.Dce.lettersOK LT LI TL NL = true) {c : ℕ} (hc : c < NL ∧ c ≠ TL) :
     ((Lf LT TL NL c : Mat25ˣ) : Mat25) = toMat (McL.Dce.let25 LT c) := by
@@ -249,29 +241,6 @@ theorem prod_Lf_mem {w : List ℕ} (hw : ∀ c ∈ w, c < 3) : (w.map (Lf LT TL 
   obtain ⟨c, hc, rfl⟩ := List.mem_map.1 hg
   exact Lf_mem (hw c hc)
 
-theorem Mg_word {y : Mat25ˣ} (hy : y ∈ Mg LT TL NL) :
-    ∃ w : List ℕ, (∀ c ∈ w, c < 3) ∧ (w.map (Lf LT TL NL)).prod = y := by
-  have gen1 : ∀ c, c < 3 → ∃ w : List ℕ, (∀ c ∈ w, c < 3) ∧
-      (w.map (Lf LT TL NL)).prod = Lf LT TL NL c := fun c hc => by
-    refine ⟨[c], by simpa using hc, ?_⟩
-    rw [List.map_cons, List.map_nil, List.prod_cons, List.prod_nil, mul_one]
-  rw [Mg] at hy
-  induction hy using Subgroup.closure_induction'' with
-  | mem g hg =>
-    obtain ⟨c, hc, rfl⟩ := hg
-    exact gen1 c hc
-  | inv_mem g hg =>
-    obtain ⟨c, hc, rfl⟩ := hg
-    rw [Lf_inv]
-    exact gen1 c hc
-  | one => exact ⟨[], by simp, rfl⟩
-  | mul g g' _ _ ih ih' =>
-    obtain ⟨w, hw, e⟩ := ih
-    obtain ⟨w', hw', e'⟩ := ih'
-    refine ⟨w ++ w', fun c hc => ?_, by rw [List.map_append, List.prod_append, e, e']⟩
-    rcases List.mem_append.1 hc with h | h
-    · exact hw c h
-    · exact hw' c h
 
 theorem bval_map {H K : Type*} [Group H] [Group K] (f : H →* K) (z : ℕ → H) (W n : ℕ) :
     f (bval z W n) = bval (fun i => f (z i)) W n := by
@@ -605,13 +574,6 @@ theorem faithful {w : List ℕ} (hw : ∀ c ∈ w, c < 3) (h : wc LT w = ident) 
     (w.map gen).prod = 1 := by
   rw [← rc_wc φ hφ hTL hNL hlet hw, h, rc_ident]
 
-omit hφ in
-theorem rc_surj (hNφ : ∀ n ∈ Nsub gen, ∃ m, φ m = n) {g : G} (hg : g ∈ Nsub gen) :
-    ∃ w : List ℕ, (∀ c ∈ w, c < 3) ∧ InM LT TL NL (wc LT w) ∧ rc φ (wc LT w) = g := by
-  obtain ⟨m, rfl⟩ := hNφ g hg
-  obtain ⟨w, hw, e⟩ := Mg_word m.2
-  refine ⟨w, hw, InM_wc hTL hNL hlet hw, ?_⟩
-  rw [rc_eq φ m (by rw [← e]; exact val_prod_Lf hlet fun c hc => lt3 hTL hNL (hw c hc))]
 
 end Letters
 

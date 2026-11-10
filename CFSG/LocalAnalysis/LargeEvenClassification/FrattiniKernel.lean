@@ -211,20 +211,5 @@ theorem frattiniAutAction_odd_injective {Core Acting : Type groupUniverse} [Grou
   rw [map_one]
   apply Subgroup.disjoint_def.mp hdisjoint ⟨element, rfl⟩ helement
 
-theorem charTwo_odd_core_frattini_action_injective {Ambient : Type groupUniverse}
-    [Group Ambient] [Finite Ambient] {prime : ℕ} (hprime : prime.Prime) (hodd : prime ≠ 2)
-    (hchar : CFSG.Open.IsCharTwoType Ambient)
-    (OddSubgroup Local : Subgroup Ambient) (hle : OddSubgroup ≤ Local)
-    (hpgroup : IsPGroup prime OddSubgroup)
-    (hlocal : CFSG.Open.IsTwoLocal Local) :
-    ∃ action : OddSubgroup →* MulAut
-        (((CFSG.Open.pCoreOf 2 Local).subgroupOf Local) ⧸
-          frattini ((CFSG.Open.pCoreOf 2 Local).subgroupOf Local)),
-      Function.Injective action := by
-  obtain ⟨action, hinjective⟩ := charTwo_odd_core_action_injective hprime hodd hchar
-    OddSubgroup Local hle hpgroup hlocal
-  have hcore := (pCoreOf_isPGroup 2 Local).comap_subtype (K := Local)
-  refine ⟨(frattiniAutAction _).comp action, ?_⟩
-  exact frattiniAutAction_odd_injective Nat.prime_two hprime hodd hcore hpgroup action hinjective
 
 end CFSG.LargeEvenClassification.Helpers

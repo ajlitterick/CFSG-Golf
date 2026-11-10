@@ -97,18 +97,5 @@ theorem BenderType.fixed_of_commute_unitary
 
 end Unitary
 
-theorem bender_outer_involution_sup
-    {K : Type} [Group K] [Finite K]
-    (hK : CFSG.BenderSuzuki.IsBenderGroup K) (α : MulAut K) (hα : α * α = 1)
-    (hout : ¬ ∃ g : K, ∀ x : K, α x = g * x * g⁻¹) (S : Sylow 2 K) :
-    (S : Subgroup K) ⊔ autFixed α = ⊤ := by
-  obtain ⟨-, hS⟩ := bender_outer_involution hK α hα hout
-  obtain ⟨x, hx, hxS⟩ := hS S
-  obtain ⟨n, i, e, hT⟩ := isBenderGroup_iff_exists_benderType.mp hK
-  obtain ⟨t, hc⟩ := hT.exists_benderCore S
-  have : IsSimpleGroup K := hT.isSimple
-  have h1 := hc.sup_zpowers_eq_top hxS
-  rw [eq_top_iff, ← h1]
-  exact sup_le_sup_left (Subgroup.zpowers_le.mpr hx) _
 
 end CFSG.GH74.Uniqueness.Bender

@@ -103,11 +103,6 @@ section Gram
 
 variable (ρ : D →+* D)
 
-theorem IsInvol.map_smul_of_rho (hT : IsInvol T)
-    (hρ : ∀ c, T (Matrix.scalar (Fin d) c) = Matrix.scalar (Fin d) (ρ c)) (c : D)
-    (x : Matrix (Fin d) (Fin d) D) : T (c • x) = ρ c • T x := by
-  rw [show c • x = Matrix.scalar (Fin d) c * x by rw [Matrix.scalar_apply, smul_eq_diagonal_mul],
-    hT.map_mul, hρ, Matrix.scalar_apply, smul_eq_mul_diagonal]
 
 @[expose] noncomputable def phiOf (hT : IsInvol T)
     (hρ : ∀ c, T (Matrix.scalar (Fin d) c) = Matrix.scalar (Fin d) (ρ c))

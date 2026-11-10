@@ -64,9 +64,6 @@ theorem isBlock_rootBlock {E : Set X} (hE : ∀ g : X, ∀ x ∈ E, g * x * g⁻
     rfl
   rw [h2, image_conj_rootBlock hE g s, h1]
 
-theorem commute_of_mem_rootBlock {E : Set X} {s t t' : X} (hs : s ∈ E) (ht : t ∈ rootBlock E s)
-    (ht' : t' ∈ rootBlock E s) : Commute t t' :=
-  ((ht.2 t' ht'.1).mpr ((ht'.2 s hs).mpr (Commute.refl s)).symm).symm
 
 theorem exists_not_commute_of_rootBlock_ne {E : Set X} (hcls : ∃ d₀ : X, E = {g | IsConj d₀ g})
     {s : X} (hs : s ∈ E) (hne : rootBlock E s ≠ E) : ∀ x ∈ E, ∃ y ∈ E, ¬ Commute x y := by

@@ -98,53 +98,6 @@ section Component
 
 variable {X : Type} [Group X] [Finite X]
 
-omit [Finite X] in
-theorem radical_normal : (CFSG.solvableRadical X).Normal :=
-  Subgroup.sSup_normal _ fun _ hN => hN.1
-
-omit [Finite X] in
-theorem layer_sup_radical_normal :
-    (Layer.subgroup X ⊔ CFSG.solvableRadical X).Normal := by
-  have : (CFSG.solvableRadical X).Normal := radical_normal
-  have : (Layer.subgroup X).Normal := Layer.normal X
-  infer_instance
-
-theorem radical_le_centralizer {T : Subgroup X} (hT : IsComponentOf T ⊤) :
-    CFSG.solvableRadical X ≤ Subgroup.centralizer (T : Set X) := by
-  have : (CFSG.solvableRadical X).Normal := radical_normal
-  have : Group.IsSolvable (CFSG.solvableRadical X) :=
-    CFSG.SignalizerFunctorTheorem.Nonsolvable.isSolvable_solvableRadical
-  have hsub : IsSubnormal (CFSG.solvableRadical X) ⊤ :=
-    isSubnormal_of_normal_subgroupOf le_top inferInstance
-  have hcomm := Layer.commutes_with_solvable_subnormal (CFSG.solvableRadical X) hsub
-  have hle : Layer.subgroup X ≤
-      Subgroup.centralizer ((CFSG.solvableRadical X : Subgroup X) : Set X) :=
-    Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcomm
-  intro r hr
-  rw [Subgroup.mem_centralizer_iff]
-  intro t ht
-  exact (Subgroup.mem_centralizer_iff.mp (hle (Layer.component_le hT ht)) r hr).symm
-
-theorem layer_sup_radical_le_normalizer {T : Subgroup X} (hT : IsComponentOf T ⊤) :
-    Layer.subgroup X ⊔ CFSG.solvableRadical X ≤ Subgroup.normalizer (T : Set X) := by
-  refine sup_le ?_ ((radical_le_centralizer hT).trans
-    (Subgroup.centralizer_le_normalizer (T : Set X)))
-  exact (Subgroup.normal_subgroupOf_iff_le_normalizer (Layer.component_le hT)).mp
-    (Layer.normal_component hT)
-
-theorem le_sup_centralizer_inf {T : Subgroup X} (hT : IsComponentOf T ⊤) :
-    Layer.subgroup X ⊔ CFSG.solvableRadical X ≤
-      T ⊔ (Subgroup.centralizer (T : Set X) ⊓ (Layer.subgroup X ⊔ CFSG.solvableRadical X)) := by
-  refine sup_le ?_ ?_
-  · show sSup {c : Subgroup X | IsComponentOf c ⊤} ≤ _
-    refine sSup_le fun S hS => ?_
-    by_cases hST : S = T
-    · exact hST ▸ le_sup_left
-    · have hcomm := LocalComponents.commute_of_ne S T hS hT hST
-      have hSle : S ≤ Subgroup.centralizer (T : Set X) :=
-        Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcomm
-      exact (le_inf hSle ((Layer.component_le hS).trans le_sup_left)).trans le_sup_right
-  · exact (le_inf (radical_le_centralizer hT) le_sup_right).trans le_sup_right
 
 theorem central_two_group (hO : classicalInvolutionOddCore X = ⊥) {N T D : Subgroup X}
     (hN : IsSubnormal N ⊤) (hTN : T ≤ N) (hcomm : ∀ t ∈ T, ∀ d ∈ D, t * d = d * t)

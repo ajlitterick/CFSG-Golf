@@ -54,36 +54,6 @@ theorem exists_lift_involution [Finite X] {M : Subgroup X}
   rw [hj0, pow_zero, orderOf_eq_one_iff] at hj
   exact ⟨x₂, hx₂M, hx₂C, hj, hρx₂⟩
 
-@[expose] def SignalizerNineTwoPointCentralizerInput : Prop :=
-  ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X] (t : X) (J : Subgroup X)
-    (e : J ⧸ pPrimeCore 2 J ≃* alternatingGroup (Fin 9)) (E : Subgroup X) (D : Finset (Fin 9)),
-    Sig36 X t J 9 e E D → Sol78.signalizerCompletion E E ≠ ⊥ →
-    ∀ M : Subgroup X, M ≤ normalizer (Sol78.signalizerCompletion E E : Set X) →
-      IsPComponent 2 (M.subgroupOf (normalizer (Sol78.signalizerCompletion E E : Set X))) →
-      J ≤ M → normalizer (Sol78.signalizerCompletion E E : Set X) ≤ normalizer (M : Set X) →
-      J ⊔ FooteLit.oddCoreIn M = M →
-    ∀ (θ : ↥M ⧸ pPrimeCore 2 ↥M ≃* alternatingGroup (Fin 9))
-      (ρ : ↥(normalizer (M : Set X)) →* Perm (Fin 9)), IsPermAction θ ρ →
-      (∀ (x : X) (hx : x ∈ M), x * x = 1 → (ρ ⟨x, le_normalizer hx⟩).support.card = 4 →
-        ∀ K : Subgroup X, K ≤ centralizer ({x} : Set X) →
-          IsPComponent 2 (K.subgroupOf (centralizer ({x} : Set X))) →
-          IsEmpty (↥K ⧸ pPrimeCore 2 ↥K ≃* alternatingGroup (Fin 9))) →
-    ∀ Q S : Subgroup X,
-      Q ≤ normalizer (Sol78.signalizerCompletion E E : Set X) ⊓
-        UnbalancedLayer.coreActionKernel M → IsPGroup 2 Q →
-      Nat.card Q = 2 ^ (Nat.card ↥(normalizer (Sol78.signalizerCompletion E E : Set X) ⊓
-        UnbalancedLayer.coreActionKernel M)).factorization 2 → t ∈ Q → Q ≤ S →
-      S ≤ normalizer (Sol78.signalizerCompletion E E : Set X) → IsPGroup 2 S →
-      Nat.card S =
-        2 ^ (Nat.card ↥(normalizer (Sol78.signalizerCompletion E E : Set X))).factorization 2 →
-      (∀ y ∈ S, y * t = t * y) →
-      (∀ y ∈ Q, orderOf y = 2 →
-        centralizer ({y} : Set X) ≤ normalizer (Sol78.signalizerCompletion E E : Set X)) →
-      (∀ x y : X, y ∈ S → y ∉ Q → y ∈ Q.map (MulAut.conj x).toMonoidHom →
-        Q ⊓ Q.map (MulAut.conj x).toMonoidHom = ⊥) →
-    ∀ f ∈ normalizer (Sol78.signalizerCompletion E E : Set X), f * f = 1 → f * t = t * f →
-      ∀ hfN : f ∈ normalizer (M : Set X), (ρ ⟨f, hfN⟩).support.card = 2 →
-        centralizer ({f} : Set X) ≤ normalizer (Sol78.signalizerCompletion E E : Set X)
 
 @[expose] def SignalizerNineFusionCountEightInput : Prop :=
   ∀ (X : Type) [Group X] [Finite X] [IsSimpleGroup X] (t : X) (J : Subgroup X)

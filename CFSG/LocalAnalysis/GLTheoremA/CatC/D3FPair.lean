@@ -22,16 +22,7 @@ open scoped commutatorElement
 @[expose] def d4Pairs (h k : ℤ) (β : D4Vec) : Finset (D4Vec × D4Vec) :=
   ((d4RootsAt h) ×ˢ (d4RootsAt k)).filter fun p => p.1 + p.2 = β
 
-theorem d4Pairs_11_B0 : d4Pairs 1 1 (rB 0) = {(rA 0, rA 2), (rA 2, rA 0)} := by decide +kernel
-theorem d4Pairs_11_B1 : d4Pairs 1 1 (rB 1) = {(rA 1, rA 2), (rA 2, rA 1)} := by decide +kernel
-theorem d4Pairs_11_B3 : d4Pairs 1 1 (rB 3) = {(rA 3, rA 2), (rA 2, rA 3)} := by decide +kernel
 
-theorem d4Pairs_12_C01 : d4Pairs 1 2 (rC 0 1) = {(rA 0, rB 1), (rA 1, rB 0)} := by decide +kernel
-theorem d4Pairs_12_C03 : d4Pairs 1 2 (rC 0 3) = {(rA 0, rB 3), (rA 3, rB 0)} := by decide +kernel
-theorem d4Pairs_12_C13 : d4Pairs 1 2 (rC 1 3) = {(rA 1, rB 3), (rA 3, rB 1)} := by decide +kernel
-theorem d4Pairs_21_C01 : d4Pairs 2 1 (rC 0 1) = {(rB 1, rA 0), (rB 0, rA 1)} := by decide +kernel
-theorem d4Pairs_21_C03 : d4Pairs 2 1 (rC 0 3) = {(rB 3, rA 0), (rB 0, rA 3)} := by decide +kernel
-theorem d4Pairs_21_C13 : d4Pairs 2 1 (rC 1 3) = {(rB 3, rA 1), (rB 1, rA 3)} := by decide +kernel
 theorem d4Pairs_14_T5 : d4Pairs 1 4 rT5 = {(rA 2, rT4)} := by decide +kernel
 
 section Evals
@@ -133,10 +124,6 @@ theorem cc_ne_zero {γ δ : D4Vec} (hγ : IsRoot Tag.D4 γ ∧ 0 < height γ)
   · exact one_ne_zero
   · exact neg_ne_zero.2 one_ne_zero
 
-theorem cc_mul_self {γ δ : D4Vec} (hγ : IsRoot Tag.D4 γ ∧ 0 < height γ)
-    (hδ : IsRoot Tag.D4 δ ∧ 0 < height δ) (hne : γ ≠ δ) (hr : IsRoot Tag.D4 (γ + δ)) :
-    cc (K := K) γ δ * cc γ δ = 1 := by
-  rcases cc_eq_one_or_neg_one (K := K) hγ hδ hne hr with h | h <;> rw [h] <;> ring
 
 theorem rootCoord_commutator_pairs [Finite K] {h k : ℤ} (hh : 0 < h) (hk : 0 < k)
     {z w : ModGL Tag.D4 K} (hz : z ∈ heightSeries Tag.D4 K h) (hw : w ∈ heightSeries Tag.D4 K k)

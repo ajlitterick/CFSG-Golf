@@ -26,13 +26,6 @@ variable {Ω : Set (Subgroup G)} {K₁ K₂ : Subgroup G} {z₁ z₂ : G}
 theorem comm_involutions (h : IsEdge3 Ω K₁ K₂ z₁ z₂) : z₁ * z₂ = z₂ * z₁ :=
   h.comm z₁ h.cls₁.mem z₂ h.cls₂.mem
 
-theorem le_centralizer_right (h : IsEdge3 Ω K₁ K₂ z₁ z₂) :
-    K₁ ≤ Subgroup.centralizer ({z₂} : Set G) := fun k hk =>
-  Subgroup.mem_centralizer_singleton_iff.mpr (h.comm k hk z₂ h.cls₂.mem)
-
-theorem le_centralizer_left (h : IsEdge3 Ω K₁ K₂ z₁ z₂) :
-    K₂ ≤ Subgroup.centralizer ({z₁} : Set G) := fun k hk =>
-  Subgroup.mem_centralizer_singleton_iff.mpr (h.comm z₁ h.cls₁.mem k hk).symm
 
 theorem le_centralizer_pair (h : IsEdge3 Ω K₁ K₂ z₁ z₂) :
     K₁ ≤ Subgroup.centralizer (Subgroup.closure ({z₁, z₂} : Set G) : Set G) := by
@@ -92,49 +85,6 @@ theorem commutes_of_not_a2Configuration3 (hz : IsClassicalMember3 K z)
   · simpa using hc
   · simpa [conjSub] using hn
 
-theorem exists_edge3 [IsSimpleGroup G] (hnab : ∃ a b : G, a * b ≠ b * a)
-    (hz : IsClassicalMember3 K z) (hΔ : DeltaConnected K) :
-    ∃ (K₁ K₂ : Subgroup G) (z₁ z₂ : G), IsEdge3 (conjClass3 K) K₁ K₂ z₁ z₂ := by
-  by_contra hcon
-  push Not at hcon
-  have key : ∀ B : Subgroup G, Relation.ReflTransGen (commutingAdj K) K B →
-      ∀ y : G, IsClassicalMember3 B y → y = z := by
-    intro B hB
-    induction hB with
-    | refl => exact fun y hy => involution_unique3 hy hz
-    | @tail B C _ hBC ih =>
-      intro y hy
-      obtain ⟨hBmem, hCmem, hne, hcomm⟩ := hBC
-      obtain ⟨g, hg⟩ := hBmem
-      obtain ⟨h, hh⟩ := hCmem
-      have hBcls : IsClassicalMember3 B (g⁻¹ * z * g⁻¹⁻¹) := by
-        rw [hg]
-        simpa [conjSub] using hz.conj g⁻¹
-      have hCcls : IsClassicalMember3 C (h⁻¹ * z * h⁻¹⁻¹) := by
-        rw [hh]
-        simpa [conjSub] using hz.conj h⁻¹
-      have hBz := ih _ hBcls
-      by_contra hyz
-      have hCy : y = h⁻¹ * z * h⁻¹⁻¹ := involution_unique3 hy hCcls
-      have hne' : g⁻¹ * z * g⁻¹⁻¹ ≠ y := by
-        intro e
-        apply hyz
-        rw [← e, hBz]
-      refine hcon B C (g⁻¹ * z * g⁻¹⁻¹) y ⟨?_, ?_, hBcls, hy, hcomm, hne'⟩
-      · exact ⟨g⁻¹, by rw [hg]; rfl⟩
-      · exact ⟨h⁻¹, by rw [hh]; rfl⟩
-  have hall : ∀ g : G, g * z * g⁻¹ = z := by
-    intro g
-    have hmem : conjSub g K ∈ conjugateSet K := ⟨g⁻¹, by simp [conjSub]⟩
-    have hK : K ∈ conjugateSet K := ⟨1, by rw [inv_one]; exact (conjSub_one K).symm⟩
-    exact (key _ (hΔ K hK _ hmem) _ (hz.conj g))
-  have hcen : z ∈ Subgroup.center G := by
-    rw [Subgroup.mem_center_iff]
-    intro g
-    have := hall g
-    calc g * z = g * z * g⁻¹ * g := by group
-      _ = z * g := by rw [this]
-  exact Balance.not_subset_center_of_ne_one hnab hz.ne_one (Set.singleton_subset_iff.mpr hcen)
 
 end Class
 

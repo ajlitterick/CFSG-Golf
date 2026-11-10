@@ -1882,44 +1882,6 @@ private theorem ON_inf_le_oddCoreIn_inf_N (H : Subgroup G) :
 
 end UV
 
-variable (σ) in
-theorem lemmaIV910 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr : σ.HypIV7 r)
-    (d : σ.IV7Data r) (e : IV9UV d)
-    (h92 : (∃ X : Subgroup G, IsSylowOf r X (oddCoreIn e.H₁) ∧
-        σ.T ≤ Subgroup.normalizer (X : Set G) ∧ ¬ σ.T ≤ Subgroup.centralizer (X : Set G)) →
-      PConstrainedWithin r e.H₁ (CFSG.oddCore e.H₁))
-    (h97 : (∀ u ∈ e.U, u ^ r = 1) ∧ ⁅⁅e.U, e.U⁆, e.U⁆ = ⊥ ∧ d.P ⊓ e.U = σ.C ⊓ e.U ∧
-      σ.C ⊓ e.V = ⊥ ∧ d.P ⊓ e.U ≠ ⊥)
-    (h98 : σ.D ≤ e.H₁ ∧ IsDGroupWrt (σ.T.subgroupOf e.H₁))
-    (h_II54 : ∀ H : Subgroup G, σ.D ≤ H → IsDGroupWrt (σ.T.subgroupOf H) →
-      ∀ F : Subgroup G, F ≤ H → Odd (Nat.card F) → σ.T ≤ Subgroup.normalizer (F : Set G) →
-        ⁅F, σ.T⁆ = F → ∃ g ∈ F, ∀ f ∈ F, ∃ k : ℤ, f⁻¹ * g ^ k ∈ oddCoreIn H)
-    (h_II415 : ∀ X Y : Subgroup G, X ≤ Subgroup.normalizer (d.R : Set G) →
-      Y ≤ Subgroup.normalizer (d.R : Set G) →
-      Subgroup.normalizer (d.R : Set G) ≤ Subgroup.normalizer (X : Set G) →
-      Subgroup.normalizer (d.R : Set G) ≤ Subgroup.normalizer (Y : Set G) →
-      ¬ X ≤ solvRadIn (Subgroup.normalizer (d.R : Set G)) →
-      ¬ Y ≤ solvRadIn (Subgroup.normalizer (d.R : Set G)) →
-      ¬ ⁅X, Y⁆ ≤ solvRadIn (Subgroup.normalizer (d.R : Set G)))
-    (h1 : ¬ PConstrainedWithin r e.H₁ (CFSG.oddCore e.H₁)) :
-    ((∀ a ∈ e.U, ∀ b ∈ e.U, a * b = b * a) ∧ (∀ u ∈ e.U, u ^ r = 1) ∧ e.V = ⊥ ∧
-        (d.P ⊓ e.U).relIndex e.U = r) ∨
-      (⁅e.U, e.U⁆ = e.V ∧ e.V = centerOf e.U ∧ Nat.card e.V = r ∧ (∀ u ∈ e.U, u ^ r = 1) ∧
-        (∀ a ∈ d.P ⊓ e.U, ∀ b ∈ d.P ⊓ e.U, a * b = b * a) ∧
-        e.U ⊓ Subgroup.normalizer ((d.P ⊓ e.U : Subgroup G) : Set G) = (d.P ⊓ e.U) ⊔ e.V) := by
-  obtain ⟨hexp, hcl, hPU, hCV, -⟩ := h97
-  obtain ⟨hDH₁, hH₁w⟩ := h98
-  have hcen : ∀ Y : Subgroup G, Y ≤ oddCoreIn e.H₁ → IsPGroup r Y →
-      σ.T ≤ Subgroup.normalizer (Y : Set G) → σ.T ≤ Subgroup.centralizer (Y : Set G) :=
-    fun Y hYO hY hTY => T_le_centralizer_of_not_constrained' hσ hr.prime (T_le_H₁ d e hσ) h92 h1
-      hYO hY hTY
-  have hcardV := card_V d e hσ hr hCV hexp hDH₁ hH₁w h_II54 hcen
-  by_cases hab : ∀ a ∈ e.U, ∀ b ∈ e.U, a * b = b * a
-  · obtain ⟨hidx, hV⟩ := iv910_abelian d e hσ hII hr hexp hPU hCV hDH₁ hH₁w h_II54
-      hcen hcardV hab
-    exact Or.inl ⟨hab, hexp, hV h_II415, hidx⟩
-  · obtain ⟨h₁, h₂, h₃, h₄, h₅⟩ := iv910_nonabelian d e hσ hr hcl hPU hCV hcardV hab
-    exact Or.inr ⟨h₁, h₂, h₃, hexp, h₄, h₅⟩
 
 variable (σ) in
 theorem lemmaIV911 (hσ : σ.IsValid) {r : ℕ} (hr : σ.HypIV7 r) (d : σ.IV7Data r) (e : IV9UV d)
@@ -2391,7 +2353,6 @@ private theorem exists_lift (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (hr : �
       _ = u₂ * w * u₂⁻¹ := by group
   calc v * w * v⁻¹ = c'⁻¹ * (u₂ * (i⁻¹ * w * i) * u₂⁻¹) * c' := by rw [hveq]; group
     _ = (u * u) * w * (u * u)⁻¹ := by rw [h1, h2, hu₂]
-
 
 
 private theorem iv913_false_of_lift (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) (hr : σ.HypIV7 r)

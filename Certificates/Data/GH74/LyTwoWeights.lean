@@ -71,19 +71,5 @@ open CFSG.Sporadic.Th.Native CFSG.Sporadic.Fi23.Native CFSG.Sporadic.Ly.Native
   ([13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14, 13, 14], [])
 ]
 
-@[expose] def twTables (alpha beta betaI : Table) (z : Int) : Table :=
-  if z = 1 ∨ z = -1 then alpha else if z = 2 then beta else betaI
-
-@[expose] def twCheck (alpha beta : Table) : Bool :=
-  let gens := twTables alpha beta (invT nPts beta)
-  let L := slpLetters nPts gens twWords
-  slpOK twWords && twWords.size == 12 && L.size == 24 &&
-    allIn 0 twWords.size (fun j => invOK nPts L[2 * j]! L[2 * j + 1]!) &&
-    twRels.all fun r =>
-      wordT nPts (slpLetterT gens L) r.1 == wordT nPts (slpLetterT gens L) r.2
-
-@[expose] def twCertificate (_ : Unit) : Bool :=
-  let O := orbitData ()
-  twCheck O.alpha O.beta
 
 end CFSG.Sporadic.Ly.TwoWeights

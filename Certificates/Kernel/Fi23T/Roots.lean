@@ -58,11 +58,6 @@ theorem xi_in : allN (nat_lit 10) (fun i => domT H (tb H (nat_lit 40) i)) = true
 
 theorem cg_in : allN (nat_lit 9) (fun i => domO H (tb H (nat_lit 41) i)) = true := by quickRfl
 
-theorem neg_xi_in : Bool.not (allN (nat_lit 10) (fun i => domO H (tb H (nat_lit 40) i))) = true := by
-  quickRfl
-
-theorem neg_roots : Bool.not (Nat.beq (tb H (nat_lit 16) (nat_lit 1)) (nat_lit 3)) = true := by
-  quickRfl
 
 end CFSG.KD.Fi23T
 

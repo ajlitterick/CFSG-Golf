@@ -83,17 +83,9 @@ theorem hs100K1_val (x : Fin 3850) : (hs100K1 x : ℕ) = hs100Kappa1[(x : ℕ)]!
 theorem hs100K2_val (x : Fin 3850) : (hs100K2 x : ℕ) = hs100Kappa2[(x : ℕ)]! :=
   Nat.mod_eq_of_lt (hs100Kappa_lt x).2
 
-theorem hs100K1_lt_K2 (x : Fin 3850) : hs100K1 x < hs100K2 x := by
-  rw [Fin.lt_def, hs100K1_val, hs100K2_val]
-  exact (hs100Kappa_lt x).1
 
 theorem card_hs100Kappa (x : Fin 3850) : (hs100Kappa x).card = 2 := hs100Kappa_facts.2.1 x
 
-theorem hs100Kappa_zero : hs100Kappa 0 = {0, 78} := hs100Kappa_facts.2.2.1
-
-theorem mem_hs100Kappa {x : Fin 3850} {i : Fin 100} :
-    i ∈ hs100Kappa x ↔ i = hs100K1 x ∨ i = hs100K2 x := by
-  simp [hs100Kappa]
 
 theorem hs100Kappa_injective : Function.Injective hs100Kappa := hs100Kappa_facts.1
 
@@ -137,40 +129,6 @@ theorem hs100Kappa_gen1 (x : Fin 3850) :
   have hc : hs100KappaEquiv hsStrongArrs[1]! (hs100Arr 1) = true := hs100_kappa_check.2.2
   exact hs100Kappa_equiv hA rep_hs100B hc x
 
-theorem hs100Kappa_unique (κ' : Fin 3850 → Finset (Fin 100)) (h0 : κ' 0 = {0, 78})
-    (h1 : ∀ x, κ' (hsGen 0 x) = (κ' x).image hs100A)
-    (h2 : ∀ x, κ' (hsGen 1 x) = (κ' x).image hs100B) : κ' = hs100Kappa := by
-  classical
-  have inv_eq : ∀ {k : Fin 3850 → Finset (Fin 100)} {A : Equiv.Perm (Fin 3850)}
-      {G : Equiv.Perm (Fin 100)}, (∀ x, k (A x) = (k x).image G) →
-      ∀ x, k ((A⁻¹ : Equiv.Perm (Fin 3850)) x) = (k x).image ⇑(G⁻¹ : Equiv.Perm (Fin 100)) := by
-    intro k A G hk x
-    have h := hk ((A⁻¹ : Equiv.Perm (Fin 3850)) x)
-    have hx : A ((A⁻¹ : Equiv.Perm (Fin 3850)) x) = x := by simp
-    rw [hx] at h
-    rw [h, Finset.image_image]
-    have hid : (⇑(G⁻¹ : Equiv.Perm (Fin 100)) ∘ ⇑G) = id := by
-      funext y
-      simp
-    rw [hid, Finset.image_id]
-  have hpres : ∀ g ∈ hsP, ∀ x, κ' x = hs100Kappa x → κ' (g x) = hs100Kappa (g x) := by
-    intro g hg
-    refine Subgroup.closure_induction'' (p := fun g _ => ∀ x, κ' x = hs100Kappa x →
-      κ' (g x) = hs100Kappa (g x)) ?_ ?_ ?_ ?_ hg
-    · rintro _ (rfl | rfl) x hx
-      · rw [h1, hs100Kappa_gen0, hx]
-      · rw [h2, hs100Kappa_gen1, hx]
-    · rintro _ (rfl | rfl) x hx
-      · rw [inv_eq h1, inv_eq hs100Kappa_gen0, hx]
-      · rw [inv_eq h2, inv_eq hs100Kappa_gen1, hx]
-    · intro x hx
-      exact hx
-    · intro g g' _ _ hg hg' x hx
-      exact hg _ (hg' x hx)
-  funext x
-  obtain ⟨g, hg⟩ := hsP_transitive.exists_smul_eq (0 : Fin 3850) x
-  rw [← hg]
-  exact hpres g g.2 0 (h0.trans hs100Kappa_zero.symm)
 
 @[expose] def hs100Star (i : Fin 100) : Set (Fin 3850) := {x | i ∈ hs100Kappa x}
 
@@ -284,64 +242,14 @@ theorem hsP_smul_mem : ∀ g : hsP, ∀ i, g • hs100Star i ∈ Set.range hs100
   (familyPermEquiv hs100Star_injective hsP_smul_mem closure_hsPGens hsPGens_smul hsP_fix).trans
     (MulEquiv.subgroupCongr closure_hs100Gens)
 
-theorem hsPStarEquiv_gen (k : Fin 2) :
-    (hsPStarEquiv (hsPGens k) : Equiv.Perm (Fin 100)) = hs100Gens k := by
-  rw [hsPStarEquiv, MulEquiv.trans_apply, MulEquiv.subgroupCongr_apply, familyPermEquiv_apply]
-  exact familyPerm_gen hs100Star_injective hsP_smul_mem hsPGens_smul k
 
 @[expose] noncomputable def hs100Equiv : Blueprint.NativeSporadic.HS ≃* hs100P :=
   hsPermEquiv.trans hsPStarEquiv
 
-theorem hs100Equiv_seedA : (hs100Equiv hsSeedA : Equiv.Perm (Fin 100)) = hs100A := by
-  have e : hsPermEquiv hsSeedA = hsPGens 0 := by
-    rw [hsPGens_zero]
-    exact Subtype.ext hsPermEquiv_seedA
-  rw [hs100Equiv, MulEquiv.trans_apply, e, hsPStarEquiv_gen, hs100Gens_zero]
-
-theorem hs100Equiv_seedB : (hs100Equiv hsSeedB : Equiv.Perm (Fin 100)) = hs100B := by
-  have e : hsPermEquiv hsSeedB = hsPGens 1 := by
-    rw [hsPGens_one]
-    exact Subtype.ext hsPermEquiv_seedB
-  rw [hs100Equiv, MulEquiv.trans_apply, e, hsPStarEquiv_gen, hs100Gens_one]
 
 theorem mcl275P_eq : mcl275P = mclP := rfl
 
 @[expose] noncomputable def mcl275Equiv : Blueprint.NativeSporadic.McL ≃* mcl275P := mclPermEquiv
 
-theorem mcl275Equiv_seedA : (mcl275Equiv mclSeedA : Equiv.Perm (Fin 275)) = mcl275A :=
-  mclPermEquiv_seedA
-
-theorem mcl275Equiv_seedB : (mcl275Equiv mclSeedB : Equiv.Perm (Fin 275)) = mcl275B :=
-  mclPermEquiv_seedB
-
-theorem CTUC_HS_McL_faithful_small_permutation_actions :
-    (ValidSchreier hs100Chain ∧
-      (List.finRange hs100Chain.baseCount).map hs100Chain.orbitSize = [100, 77, 60, 12, 8] ∧
-      Nat.card hs100P = 44352000) ∧
-    (ValidSchreier mcl275Chain ∧
-      (List.finRange mcl275Chain.baseCount).map mcl275Chain.orbitSize = [275, 112, 81, 45, 8] ∧
-      Nat.card mcl275P = 898128000) ∧
-    (∃ e : Blueprint.NativeSporadic.HS ≃* hs100P,
-      (e hsSeedA : Equiv.Perm (Fin 100)) = hs100A ∧ (e hsSeedB : Equiv.Perm (Fin 100)) = hs100B) ∧
-    (∃ e : Blueprint.NativeSporadic.McL ≃* mcl275P,
-      (e mclSeedA : Equiv.Perm (Fin 275)) = mcl275A ∧
-        (e mclSeedB : Equiv.Perm (Fin 275)) = mcl275B) ∧
-    (∀ κ : Fin 3850 → Finset (Fin 100),
-      ((∀ x, (κ x).card = 2) ∧ κ 0 = {0, 78} ∧
-        (∀ x, κ (hsGen 0 x) = (κ x).image hs100A) ∧ (∀ x, κ (hsGen 1 x) = (κ x).image hs100B)) ↔
-        κ = hs100Kappa) ∧
-    Function.Injective hs100Kappa ∧ (Finset.univ.image hs100Kappa).card = 3850 ∧
-    (∀ i : Fin 100, (Finset.univ.filter fun x => i ∈ hs100Kappa x).card = 77) ∧
-    mcl275A = mclGen 0 ∧ mcl275B = mclGen 1 := by
-  refine ⟨⟨hs100Chain_valid, hs100Chain_orbitSizes, card_hs100P⟩,
-    ⟨mclChain_valid.1, mclChain_orbitSizes, card_mclP⟩,
-    ⟨hs100Equiv, hs100Equiv_seedA, hs100Equiv_seedB⟩,
-    ⟨mcl275Equiv, mcl275Equiv_seedA, mcl275Equiv_seedB⟩, fun κ => ⟨?_, ?_⟩,
-    hs100Kappa_injective, ?_, hs100Kappa_degree, rfl, rfl⟩
-  · rintro ⟨-, h0, h1, h2⟩
-    exact hs100Kappa_unique κ h0 h1 h2
-  · rintro rfl
-    exact ⟨card_hs100Kappa, hs100Kappa_zero, hs100Kappa_gen0, hs100Kappa_gen1⟩
-  · rw [Finset.card_image_of_injective _ hs100Kappa_injective, Finset.card_univ, Fintype.card_fin]
 
 end CFSG.RankThree.Native

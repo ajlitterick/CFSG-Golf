@@ -484,17 +484,6 @@ theorem commute_oddCore_centralizer_of_pow_eq_one [Finite K] [CharP K 2] (hK : 4
   rw [hcen] at hzX ⊢
   exact commute_oddCore_centralizer_singleton hK hXodd hzX hz
 
-theorem commute_oddCore_centralizer [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
-    {X : Subgroup (projectiveSL n K)} (hXc : IsCyclic X) (hXodd : Odd (Nat.card X))
-    {z : projectiveSL n K} (hzX : z ∈ centralizer (X : Set (projectiveSL n K)))
-    (hz : IsPGroup 2 (zpowers z)) :
-    ∀ w ∈ CFSG.oddCore (centralizer (X : Set (projectiveSL n K))),
-      Commute (w : projectiveSL n K) z := by
-  obtain ⟨e, he⟩ := hz ⟨z, mem_zpowers z⟩
-  have hze : z ^ 2 ^ e = 1 := by
-    have h1 := congrArg Subtype.val he
-    rwa [Subgroup.coe_pow, Subgroup.coe_one] at h1
-  exact commute_oddCore_centralizer_of_pow_eq_one hK hXc hXodd hzX hze
 
 theorem commute_oddCore_centralizer_of_mulEquiv [Finite K] [CharP K 2] (hK : 4 ≤ Nat.card K)
     {L : Type*} [Group L] (φ : L ≃* projectiveSL n K) {X : Subgroup L} (hXc : IsCyclic X)

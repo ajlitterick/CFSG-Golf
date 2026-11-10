@@ -147,9 +147,6 @@ variable (F f) in
     rintro x ⟨hx, hxp⟩
     exact ⟨inv_mem hx, by rw [inv_pow, hxp, inv_one]⟩
 
-theorem mem_diagP {p : ℕ} {x : SU (unitaryInvolution F 2 f) 6} :
-    x ∈ diagP F f p ↔ x ∈ diagSubgroup (unitaryInvolution F 2 f) 6 ∧ x ^ p = 1 :=
-  Iff.rfl
 
 theorem diagP_entries {p : ℕ} (hpq : p ∣ 2 ^ f - 1) {x : SU (unitaryInvolution F 2 f) 6}
     (hx : x ∈ diagP F f p) {d : Fin 6 → F} (hd : mat _ 6 x = diagonal d) (s : Fin 6) :

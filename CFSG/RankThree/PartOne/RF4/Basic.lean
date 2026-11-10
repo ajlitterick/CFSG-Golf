@@ -47,9 +47,6 @@ theorem IsReeExceptional.comm_frobenius [CharP L t.prime] {Φ : MulAut (adjointG
     rw [frobeniusTwist_yElement, (hΦ i _).2, (hΦ i c).2, frobeniusTwist_yElement,
       iterateFrobenius_def, iterateFrobenius_def, ← pow_mul, ← pow_mul, mul_comm]
 
-theorem isReeExceptional_finiteExceptionalAut {K : Type} [Field K] [Finite K] [CharP K t.prime] :
-    IsReeExceptional t K (t.finiteExceptionalAut K) := fun i c =>
-  ⟨ReeTag.finiteExceptionalAut_xElement i c, ReeTag.finiteExceptionalAut_yElement i c⟩
 
 end Formulas
 

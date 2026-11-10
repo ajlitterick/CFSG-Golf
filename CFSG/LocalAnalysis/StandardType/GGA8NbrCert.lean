@@ -22,20 +22,6 @@ theorem ggA8Nbr_exists_transv_of_case {c : Case} (hc : c ∈ allCases) (hx : c �
   obtain ⟨k, -, rfl⟩ := List.mem_map.mp hg
   exact hgen k
 
-theorem ggA8Nbr_eq_genL_of_spec {c : Case} (hc : c ∈ allCases) (i : Fin 3) {g : M4} {M : M3}
-    (hM : M * psi c = psi c * wgen c.1 i) (hg : bas c * g = blk M * bas c) : g = genL c i := by
-  obtain ⟨-, hinv, -⟩ := ggA8Nbr_claim
-  obtain ⟨-, h2, h3, -⟩ := hinv c hc
-  have hM' : M = psi c * wgen c.1 i * psiInv c := by
-    rw [← hM, mul_assoc, h3, mul_one]
-  rw [genL, ← hM', mul_assoc, ← hg, ← mul_assoc, h2, one_mul]
-
-theorem ggA8Nbr_exists_monomial_of_exc {c : Case} (hc : c ∈ excCases) :
-    ∃ S Sinv : M4, S * Sinv = 1 ∧ ∀ k : Fin 6, IsMonCube (S * gens c k * Sinv) := by
-  obtain ⟨-, -, -, -, hmd, -, hM⟩ := ggA8Nbr_claim
-  rw [← hmd] at hc
-  obtain ⟨e, he, rfl⟩ := List.mem_map.mp hc
-  exact ⟨_, _, (hM e he).1, (hM e he).2⟩
 
 end Cert
 

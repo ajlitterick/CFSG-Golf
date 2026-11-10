@@ -138,10 +138,6 @@ theorem chainPairingCenter_chainBoundary₃ (f : S × S → E) (hf : ∀ x, f x 
         n • A - n • B + n • C - n • D = n • (A + C) - n • (D + B) from fun A B C D => by
           simp only [smul_add]; abel, key, sub_self]
 
-theorem chainPairing_chainBoundary₃ (f : S × S → E) (hf : ∀ x, f x ∈ center E)
-    (hcoc : ∀ g h k : S, f (h, k) * f (g, h * k) = f (g, h) * f (g * h, k))
-    (y : S × S × S →₀ ℤ) : chainPairing f hf (chainBoundary₃ y) = 1 := by
-  simp [chainPairing, chainPairingCenter_chainBoundary₃ f hf hcoc y]
 
 @[expose] def chainPairingCenter₁ (φ : S → E) (hφ : ∀ s, φ s ∈ center E) :
     (S →₀ ℤ) →+ Additive (center E) :=

@@ -20,10 +20,6 @@ theorem eq_bot_of_pPrimeCore_eq_bot {G : Type*} [Group G] (hG : CFSG.pPrimeCore 
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem glauberman_sylowFixingAut_sylow_comm (hG : CFSG.pPrimeCore 2 G = ⊥) (S : Sylow 2 G)
-    (P : Sylow 2 (sylowFixingAut (S : Subgroup G))) : ∀ x y : P, x * y = y * x :=
-  GlaubermanAut.sylow_comm (fun N hN hodd => @eq_bot_of_pPrimeCore_eq_bot G _ hG N hN hodd)
-    S.isPGroup' (Sylow.not_dvd_index S) P
 
 theorem glauberman_sylowFixingAut_normal_complement (hG : CFSG.pPrimeCore 2 G = ⊥) (S : Sylow 2 G) :
     ∃ N : Subgroup (sylowFixingAut (S : Subgroup G)), ∃ _ : N.Normal, Odd (Nat.card N) ∧

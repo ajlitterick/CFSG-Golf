@@ -80,31 +80,5 @@ theorem step148KThetaOmega_of (hHJ : Step148KThetaHJ) (hL3 : Step148KThetaL3)
   · exact hM22 G A c L h Y hY hs hYB B Q e K Le hP he hLe hM
   · exact hM12 G A c L h Y hY hs hYB B Q e K Le hP he hLe hM'
 
-theorem step148KType_of_theta_types
-    (hθ : Step148KTheta)
-    (hHJ : Step148KThetaHJ) (hL3 : Step148KThetaL3) (hA7 : Step148KThetaA7)
-    (hM22 : Step148KThetaM22) (hM12 : Step148KThetaM12) (hON : Step148KThetaON) :
-    Step148KType :=
-  step148KType_of_theta hθ (step148KThetaOmega_of hHJ hL3 hA7 hM22 hM12) hON
-
-theorem step148KThetaHJ_of_omega (h : Step148KThetaOmega) : Step148KThetaHJ :=
-  fun G _ _ A c L hS Y hY hs hYB B Q e K Le hP he hLe _ =>
-    h G A c L hS Y hY hs hYB B Q e K Le hP he hLe
-
-theorem step148KThetaL3_of_omega (h : Step148KThetaOmega) : Step148KThetaL3 :=
-  fun G _ _ A c L hS Y hY hs hYB B Q e K Le hP he hLe _ =>
-    h G A c L hS Y hY hs hYB B Q e K Le hP he hLe
-
-theorem step148KThetaA7_of_omega (h : Step148KThetaOmega) : Step148KThetaA7 :=
-  fun G _ _ A c L hS Y hY hs hYB B Q e K Le hP he hLe _ =>
-    h G A c L hS Y hY hs hYB B Q e K Le hP he hLe
-
-theorem step148KThetaM22_of_omega (h : Step148KThetaOmega) : Step148KThetaM22 :=
-  fun G _ _ A c L hS Y hY hs hYB B Q e K Le hP he hLe _ =>
-    h G A c L hS Y hY hs hYB B Q e K Le hP he hLe
-
-theorem step148KThetaM12_of_omega (h : Step148KThetaOmega) : Step148KThetaM12 :=
-  fun G _ _ A c L hS Y hY hs hYB B Q e K Le hP he hLe _ =>
-    h G A c L hS Y hY hs hYB B Q e K Le hP he hLe
 
 end CFSG.RankThree.PartTwo.Sec14

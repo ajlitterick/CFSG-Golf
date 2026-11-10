@@ -9,8 +9,6 @@ namespace CFSG.StandardType.FrameRoute
 
 open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.OddStandard.SmallF3.Omega.E7RootSet
 
-@[expose] def D6Root (v : Fin 6 → ℤ) : Prop :=
-  (∑ i, |v i| = 2) ∧ ∀ i, |v i| ≤ 1
 
 theorem p13a2_E7_redV_ne_zero (α : Fin Tag.E7.rank → ℤ) (hα : IsRoot Tag.E7 α) :
     redV α ≠ 0 := by

@@ -654,7 +654,6 @@ section Certified
 theorem uc22p20g_excFacts : UC22P20gExcFacts :=
   ⟨uc22p20g_excG2, uc22p20g_exc3D4, uc22p20g_exc2F4⟩
 
-variable {G : Type} [Group G] [Finite G]
 
 end Certified
 

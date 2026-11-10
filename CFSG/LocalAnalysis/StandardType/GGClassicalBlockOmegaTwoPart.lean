@@ -591,26 +591,6 @@ private lemma ggOmW2_finrank_range_formAdj {ι K : Type} [Fintype ι] [Decidable
     Matrix.rank_mul_eq_right_of_isUnit_det _ _ (ggOmW2_isUnit_det_inv hG),
     Matrix.rank_transpose]
 
-private noncomputable def ggOmW2_formAdjLin {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
-    (G : Matrix ι ι K) : Matrix ι ι K →ₗ[K] Matrix ι ι K where
-  toFun := formAdj (RingHom.id K) G
-  map_add' := fun a b => CFSG.StandardType.ClassicalPosition.Geo.formAdj_add _ _ _ _
-  map_smul' := fun c a => by
-    rw [CFSG.StandardType.ClassicalPosition.Geo.formAdj_smul]
-
-private noncomputable def ggOmW2_formAdjEquiv {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
-    {G : Matrix ι ι K} (hG : IsUnit G.det)
-    (hgsym : Matrix.transpose (G.map (RingHom.id K)) = G) :
-    Matrix ι ι K ≃ₗ[K] Matrix ι ι K :=
-  LinearEquiv.ofBijective (ggOmW2_formAdjLin G) (by
-    constructor
-    · intro a b hab
-      have h := congrArg (formAdj (RingHom.id K) G) hab
-      rw [show ggOmW2_formAdjLin G a = formAdj (RingHom.id K) G a from rfl,
-        show ggOmW2_formAdjLin G b = formAdj (RingHom.id K) G b from rfl] at h
-      rwa [ggOmW2_formAdj_invol hG hgsym a, ggOmW2_formAdj_invol hG hgsym b] at h
-    · intro a
-      exact ⟨formAdj (RingHom.id K) G a, ggOmW2_formAdj_invol hG hgsym a⟩)
 
 private lemma ggOmW2_blockDegree_formAdj {ι K : Type} [Fintype ι] [DecidableEq ι] [Field K]
     [Finite K] {G : Matrix ι ι K} (hG : IsUnit G.det)

@@ -41,22 +41,5 @@ open scoped Pointwise
       InClassX ↥X → (∃ n : ℕ, 1 ≤ n ∧ IsNaturalAltModule ↥X n) →
         maximalTwoLocalsContaining (X : Set G) = {M} → CFSG.GH74.SectionalTwoRankLE G 4
 
-@[expose] def AschbacherLocalPushingUp : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (K T T₁ T₂ : Subgroup G),
-    pCore 2 ↥K ≠ ⊥ → IsCharacteristicP 2 ↥K → IsSylowOf 2 T K →
-    T₁ ≤ pushingUpS T → (T₁.subgroupOf (pushingUpS T)).Characteristic →
-    T₂ ≤ omegaOneCenterIn T → PushingUpWhenever (pushingUpS T) T₁ T₂ →
-    (Subgroup.centralizer (T₂ : Set G) ⊓ K) ⊔ (Subgroup.normalizer (T₁ : Set G) ⊓ K) ≠ K →
-      ∃ (n : ℕ) (L : Fin n → Subgroup G), (∀ i, IsBlockOfInX K (L i)) ∧
-        blockProduct ((Subgroup.centralizer (T₂ : Set G) ⊓ K) ⊔
-          (Subgroup.normalizer (T₁ : Set G) ⊓ K)) L = (K : Set G)
-
-@[expose] def AschbacherLocalBlockExists : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (K T T₁ T₂ : Subgroup G),
-    pCore 2 ↥K ≠ ⊥ → IsCharacteristicP 2 ↥K → IsSylowOf 2 T K →
-    T₁ ≤ pushingUpS T → (T₁.subgroupOf (pushingUpS T)).Characteristic →
-    T₂ ≤ omegaOneCenterIn T → PushingUpWhenever (pushingUpS T) T₁ T₂ →
-    (Subgroup.centralizer (T₂ : Set G) ⊓ K) ⊔ (Subgroup.normalizer (T₁ : Set G) ⊓ K) ≠ K →
-      ∃ L : Subgroup G, IsBlockOfInX K L
 
 end CFSG.CGT.PushingUp

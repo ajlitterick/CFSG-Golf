@@ -67,10 +67,6 @@ theorem TBJOmData.simpleSub_le_sup {Q : QuadraticForm K V} {p : ℕ} {A : Subgro
           (Subgroup.mem_sup_right hx)))
 
 
-private theorem q2cO5g_conj_eq_self_of_commute {G : Type*} [Group G] {w x : G}
-    (h : x * w = w * x) : MulAut.conj w x = x := by
-  rw [MulAut.conj_apply, ← h, mul_assoc, mul_inv_cancel, mul_one]
-
 private theorem q2cO5g_simpleSub_fixes_outside {Q : QuadraticForm K V} {p : ℕ} [Fact p.Prime]
     {A : Subgroup (V ≃ₗ[K] V)} {r : ℕ} (Δ : TBJOmData Q p A r)
     (hfix : ∀ v : V, (∀ a ∈ A, a v = v) → v = 0) (hr : 3 ≤ r) (h2 : Δ.RankOneModel)
@@ -221,41 +217,6 @@ theorem TBJOmData.pair_rankOne_rankOnePos {Q : QuadraticForm K V} {p : ℕ} [Fac
   rw [hU, hV] at hpair
   exact ⟨W.map (MulAut.conj w).toMonoidHom, hpair⟩
 
-theorem TBJOmData.pair_rankOnePos_rankOnePos {Q : QuadraticForm K V} {p : ℕ} [Fact p.Prime]
-    {A : Subgroup (V ≃ₗ[K] V)} {r : ℕ} (Δ : TBJOmData Q p A r) {f : ℕ} {K' : Type}
-    [Field K'] [Finite K'] [CharP K' 2] (h4 : Δ.PairModel f K')
-    {a b c : Fin r} (hab : a ≠ b) (hbc : b ≠ c) (hac : a ≠ c) :
-    ∃ W : Subgroup (V ≃ₗ[K] V),
-      UnitaryBlockStandardPair K' 2 f W (Δ.rankOnePos a b) (Δ.rankOnePos b c) := by
-  obtain ⟨W, hW⟩ := h4 a b c hab hbc hac
-  obtain ⟨w, hwΩ, -, hwconj⟩ := Δ.dinvMove a c hac
-  have hU := Δ.rankOne_map_dinv (i := b) (j := a) (k := c) hab.symm hac hbc w hwΩ hwconj
-  rw [Δ.rankOne_comm_index b a, Δ.rankOnePos_comm_index b a] at hU
-  have hwconj' : ∀ g, w * Δ.τ g * w⁻¹ = Δ.τ (NbrOrth.dinv c a g) := by
-    intro g
-    rw [hwconj]
-    congr 1
-    funext l
-    simp only [OrthNs.dinv_apply_eq, if_neg hac, if_neg hac.symm, or_comm]
-  have hV := Δ.rankOne_map_dinv (i := b) (j := c) (k := a) hbc hac.symm hab.symm w hwΩ hwconj'
-  have hpair := q2cO5g_pair_map_conj hW w
-  rw [hU, hV] at hpair
-  exact ⟨W.map (MulAut.conj w).toMonoidHom, hpair⟩
-
-theorem TBJOmData.pair_signed {Q : QuadraticForm K V} {p : ℕ} [Fact p.Prime]
-    {A : Subgroup (V ≃ₗ[K] V)} {r : ℕ} (Δ : TBJOmData Q p A r) {f : ℕ} {K' : Type}
-    [Field K'] [Finite K'] [CharP K' 2] (h4 : Δ.PairModel f K')
-    {a b c : Fin r} (hab : a ≠ b) (hbc : b ≠ c) (hac : a ≠ c) (s t : Bool) :
-    ∃ W : Subgroup (V ≃ₗ[K] V), UnitaryBlockStandardPair K' 2 f W
-      (if s then Δ.rankOnePos a b else Δ.rankOne a b)
-      (if t then Δ.rankOnePos b c else Δ.rankOne b c) := by
-  cases s <;> cases t
-  · exact h4 a b c hab hbc hac
-  · exact Δ.pair_rankOne_rankOnePos h4 hab hbc hac
-  · obtain ⟨W, hW⟩ := Δ.pair_rankOne_rankOnePos h4 hbc.symm hab.symm hac.symm
-    rw [Δ.rankOne_comm_index c b, Δ.rankOnePos_comm_index b a] at hW
-    exact ⟨W, q2cO5g_pair_swap hW⟩
-  · exact Δ.pair_rankOnePos_rankOnePos h4 hab hbc hac
 
 theorem TBJOmData.simpleSub_pair {Q : QuadraticForm K V} {p : ℕ} [Fact p.Prime]
     {A : Subgroup (V ≃ₗ[K] V)} {r : ℕ} (Δ : TBJOmData Q p A r)

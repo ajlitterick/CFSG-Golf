@@ -42,8 +42,6 @@ theorem flagSet_imgFlags_gen {l : ℕ} (hl : l < 2) (F : Flags) :
     flagSet (imgFlags (hypGensInv ())[l]! F) = ⇑(hypGen l) '' flagSet F :=
   flagSet_imgFlags (rep_hypGensInv hl) F
 
-theorem hypList_length (i : Fin 3) : (hypList i).length = 1408 := by
-  rw [hypList, List.length_map, Array.length_toList, (hypOrbitFacts i).size]
 
 theorem mem_hypList {i : Fin 3} {O : Set (Fin 693)} :
     O ∈ hypList i ↔ ∃ k < 1408, O = hypSet i k := by
@@ -246,21 +244,6 @@ theorem hypSet_eq_iff {i j : Fin 3} {k k' : ℕ} (hk : k < 1408) (hk' : k' < 140
   · rintro ⟨rfl, rfl⟩
     rfl
 
-theorem hypList_nodup (i : Fin 3) : (hypList i).Nodup := by
-  rw [List.nodup_iff_getElem?_ne_getElem?]
-  intro a b hab hb
-  rw [hypList_length] at hb
-  have ha : a < 1408 := by omega
-  rw [hypList, List.getElem?_map, List.getElem?_map, Array.getElem?_toList,
-    Array.getElem?_toList, Array.getElem?_eq_getElem (by rw [(hypOrbitFacts i).size]; exact ha),
-    Array.getElem?_eq_getElem (by rw [(hypOrbitFacts i).size]; exact hb)]
-  simp only [Option.map_some, ne_eq, Option.some.injEq]
-  intro h
-  have := (hypSet_eq_iff ha hb (i := i) (j := i)).1 (by
-    rw [hypSet, hypSet, getElem!_pos _ a (by rw [(hypOrbitFacts i).size]; exact ha),
-      getElem!_pos _ b (by rw [(hypOrbitFacts i).size]; exact hb)]
-    exact h)
-  omega
 
 theorem hypOrbit_eq_image
     (i : Fin 3) : hypOrbit i = hypSet i '' Set.Iio 1408 := by

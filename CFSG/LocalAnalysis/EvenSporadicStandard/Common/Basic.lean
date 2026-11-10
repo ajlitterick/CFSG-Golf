@@ -134,10 +134,6 @@ theorem mulAut_inner_of_inner_centerQuotient {L : Type*} [Group L] (hL : commuta
   exact ⟨l, CFSG.ComponentClassification.PerfectAutomorphisms.centerQuotientHom_injective L
     (hq.trans (CFSG.ComponentClassification.PerfectAutomorphisms.centerQuotientHom_conj l).symm)⟩
 
-theorem normalizer_le_sup_centralizer_of_inner {L : Subgroup G} (hL : commutator L = ⊤)
-    (hinner : ∀ α : MulAut (L ⧸ center L), ∃ q, α = MulAut.conj q) :
-    normalizer (L : Set G) ≤ L ⊔ centralizer (L : Set G) :=
-  normalizer_le_sup_centralizer_of_mulAut_inner (mulAut_inner_of_inner_centerQuotient hL hinner)
 
 noncomputable def normalizerAction (L : Subgroup G) :
     normalizer (L : Set G) →* MulAut (L ⧸ center L) :=

@@ -141,10 +141,6 @@ theorem subfieldCoordinateImage_eq_G_centralizer (K : Type u) [Field K] [Finite 
         (fun a : subfieldCoordinateImage K S => (a : Equiv.Perm (Omega K))) h,
       ((coordinateD K).subtype.comp (subfieldCoordinateMap K S)).rangeRestrict_surjective⟩
 
-theorem subfieldCoordinateEquivImage_coe (K : Type u) [Field K] [Finite K]
-    (S : Subfield K) (g : coordinateD S) :
-    ((subfieldCoordinateEquivImage K S g : subfieldCoordinateImage K S) :
-      Equiv.Perm (Omega K)) = (subfieldCoordinateMap K S g : Equiv.Perm (Omega K)) := rfl
 
 @[expose] def subfieldCoordinateEquivDCentralizer (K : Type u) [Field K] [Finite K]
     (sigma : K ≃+* K) (hsigma : orderOf sigma = 2) :
@@ -160,37 +156,6 @@ theorem subfieldCoordinateEquivImage_coe (K : Type u) [Field K] [Finite K]
   (subfieldCoordinateEquivImage K (fixedField K sigma)).trans
     (MulEquiv.subgroupCongr (subfieldCoordinateImage_eq_G_centralizer K hodd sigma hsigma))
 
-theorem subfieldCoordinateEquivGCentralizer_coe (K : Type u) [Field K] [Finite K]
-    (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2)
-    (g : coordinateD (fixedField K sigma)) :
-    ((subfieldCoordinateEquivGCentralizer K hodd sigma hsigma g :
-      ↥(coordinateG K ⊓ Subgroup.centralizer {fieldExtension K sigma})) :
-      Equiv.Perm (Omega K)) =
-        (subfieldCoordinateMap K (fixedField K sigma) g : Equiv.Perm (Omega K)) := rfl
-
-theorem quadratic_field_fixed_projective_group (K : Type u) [Field K] [Finite K]
-    (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2) :
-    Nat.card K = Nat.card (fixedField K sigma) ^ 2 ∧
-      Function.Injective (subfieldCoordinateMap K (fixedField K sigma)) ∧
-      (∀ A : GL (Fin 2) (fixedField K sigma),
-        ((subfieldCoordinateMap K (fixedField K sigma)
-          (pglEquivCoordinateD (fixedField K sigma) (Matrix.ProjGenLinGroup.mk A)) :
-          coordinateD K) : Equiv.Perm (Omega K)) =
-          coordinateGLAction K (Matrix.GeneralLinearGroup.map (fixedField K sigma).subtype A)) ∧
-      subfieldCoordinateImage K (fixedField K sigma) =
-        coordinateD K ⊓ Subgroup.centralizer {fieldExtension K sigma} ∧
-      subfieldCoordinateImage K (fixedField K sigma) =
-        coordinateG K ⊓ Subgroup.centralizer {fieldExtension K sigma} ∧
-      subfieldCoordinateImage K (fixedField K sigma) ≤ coordinateG K ∧
-      Nonempty (coordinateD (fixedField K sigma) ≃*
-        ↥(coordinateG K ⊓ Subgroup.centralizer {fieldExtension K sigma})) := by
-  exact ⟨card_eq_fixedField_card_sq K sigma hsigma,
-    subfieldCoordinateMap_injective K (fixedField K sigma),
-    subfieldCoordinateMap_GL K (fixedField K sigma),
-    subfieldCoordinateImage_eq_D_centralizer K sigma hsigma,
-    subfieldCoordinateImage_eq_G_centralizer K hodd sigma hsigma,
-    subfieldCoordinateImage_le_G K hodd sigma hsigma,
-    ⟨subfieldCoordinateEquivGCentralizer K hodd sigma hsigma⟩⟩
 
 end
 

@@ -101,11 +101,6 @@ theorem exists_normal_index_two_of_not_fused_of_sylow_le {Y : Subgroup G} {t : G
   exact exists_normal_index_two_of_not_fused ht htN htY
     (fun h => T.not_dvd_index (h.trans (index_dvd_of_le hT))) hfus
 
-theorem false_of_simple_of_not_fused [IsSimpleGroup G] (hG : 2 < Nat.card G) {Y : Subgroup G}
-    {t : G} (ht : orderOf t = 2) (htN : t ∈ Subgroup.normalizer (Y : Set G)) (htY : t ∉ Y)
-    (hsyl : ¬ 2 ∣ (Y ⊔ Subgroup.zpowers t).index) (hfus : ∀ g : G, g⁻¹ * t * g ∉ Y) : False :=
-  not_exists_normal_index_two_of_simple hG
-    (exists_normal_index_two_of_not_fused ht htN htY hsyl hfus)
 
 theorem false_of_simple_of_not_fused_of_sylow_le [IsSimpleGroup G] (hG : 2 < Nat.card G)
     {Y : Subgroup G} {t : G} (ht : orderOf t = 2) (htN : t ∈ Subgroup.normalizer (Y : Set G))

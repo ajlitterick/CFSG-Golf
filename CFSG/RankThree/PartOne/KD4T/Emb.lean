@@ -76,7 +76,6 @@ variable {τ : Tag} [hτ : E6Sub τ]
 theorem e6Idx_injective : Function.Injective (e6Idx (τ := τ)) :=
   Fin.castLE_injective hτ.rank_ge
 
-theorem e6Idx_val (k : Fin Tag.E6.rank) : (e6Idx (τ := τ) k).val = k.val := rfl
 
 theorem e6Lat_apply_e6Idx (β : Fin Tag.E6.rank → ℤ) (k : Fin Tag.E6.rank) :
     e6Lat τ β (e6Idx k) = β k := by

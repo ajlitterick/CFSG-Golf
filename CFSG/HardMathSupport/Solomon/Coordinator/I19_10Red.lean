@@ -126,16 +126,10 @@ theorem i1910_isExtremalType_of_lpEpsIndex {S : Type} [Group S] (idx : TauCeti.V
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
     Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic name).Group) → IsLocallyBalancedAbs 5 2 S
 
-@[expose] def SporadicOneBalanceFive (name : TauCeti.SporadicName) : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
-    Nonempty (S ≃* (TauCeti.CFSGIndex.sporadic name).Group) → IsLocallyBalancedAbs 5 1 S
 
 @[expose] def LocalTwoBalanceSporadicFive : Prop :=
   ∀ name : TauCeti.SporadicName, name ≠ TauCeti.SporadicName.Fi22 → SporadicTwoBalanceFive name
 
-theorem SporadicTwoBalanceFive.of_one {name : TauCeti.SporadicName}
-    (h : SporadicOneBalanceFive name) : SporadicTwoBalanceFive name :=
-  fun S _ _ hS hnab he => i196_two_of_one Nat.prime_five (h S hS hnab he)
 
 @[expose] def LocalTwoBalanceSimpleFive : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →

@@ -83,9 +83,5 @@ theorem l6_6ii_of_core66
       HypOmegaMod p f Ω → Core66 Ω) : L6_6ii p f :=
   fun hp hq G _ _ Ω hΩ => cyc66_of_core66 hΩ (hcore hp hq G Ω hΩ)
 
-theorem l6_6iiAEmpty_of_core66
-    (hcore : p ≠ 2 → 5 ≤ p ^ f → ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)),
-      HypOmegaMod p f Ω → (∀ K ∈ Ω, AEmpty Ω K) → Core66 Ω) : L6_6iiAEmpty p f :=
-  fun hp hq G _ _ Ω hΩ hA => cyc66_of_core66 hΩ (hcore hp hq G Ω hΩ hA)
 
 end CFSG.ClassicalInvolution.Asc77

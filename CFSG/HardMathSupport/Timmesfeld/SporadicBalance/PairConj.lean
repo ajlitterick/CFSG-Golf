@@ -110,54 +110,5 @@ theorem oPrimeCoreTrivialAt_of_cube [Finite G] {p : ℕ} [hp : Fact p.Prime] {x 
   calc u = (m * g⁻¹)⁻¹ * ((m * g⁻¹) * u * (m * g⁻¹)⁻¹) * (m * g⁻¹) := by group
     _ = 1 := by rw [hu']; group
 
-theorem oPrimeCoreTrivialAt_of_cube_reps [Finite G] {p : ℕ} [hp : Fact p.Prime] {x y c : G}
-    (hx : x ^ p = 1) (hy : y ^ p = 1) (hc : c = x * y * x ^ (p - 1) * y ^ (p - 1))
-    (hcx : c * x = x * c) (hcy : c * y = y * c)
-    (hinj : ∀ i j k i' j' k' : ℕ, i < p → j < p → k < p → i' < p → j' < p → k' < p →
-      x ^ i * y ^ j * c ^ k = x ^ i' * y ^ j' * c ^ k' → i = i' ∧ j = j' ∧ k = k')
-    (hfac : (Nat.card G).factorization p = 3) (reps : List G)
-    (hconj : ∀ i j k : ℕ, i < p → j < p → k < p → i + j + k ≠ 0 →
-      ∃ m : G, ∃ r ∈ reps, m * (x ^ i * y ^ j * c ^ k) = r * m)
-    (hcore : ∀ r ∈ reps, GLAPPrimeCoreOf p (Subgroup.centralizer ({r} : Set G)) = ⊥) :
-    OPrimeCoreTrivialAt p G := by
-  have hp0 : 0 < p := hp.out.pos
-  have hxy : ⁅x, y⁆ = c := by rw [hc, commutatorElement_eq_of_pow hp0 hx hy]
-  have hzx : Commute ⁅x, y⁆ x := by rw [hxy]; exact hcx
-  have hzy : Commute ⁅x, y⁆ y := by rw [hxy]; exact hcy
-  have hQ : Nat.card (Subgroup.closure ({x, y} : Set G)) = p ^ 3 := by
-    refine CFSG.SectionRank.LocalWitness.card_closure_eq_cube hp0 hx hy hzx hzy ?_
-    rintro ⟨i, j, k⟩ ⟨i', j', k'⟩ h
-    simp only [hxy] at h
-    obtain ⟨h1, h2, h3⟩ := hinj i j k i' j' k' i.2 j.2 k.2 i'.2 j'.2 k'.2 h
-    exact Prod.ext (Fin.ext h1) (Prod.ext (Fin.ext h2) (Fin.ext h3))
-  have hQfull : Nat.card (Subgroup.closure ({x, y} : Set G)) =
-      p ^ (Nat.card (⊤ : Subgroup G)).factorization p := by
-    rw [hQ, Subgroup.card_top, hfac]
-  intro s hs
-  obtain ⟨g, -, hgQ⟩ := Co3T.exists_conj_mem_of_full le_top hQfull (Subgroup.mem_top s) hs
-  obtain ⟨i, j, k, hi, hj, hk, hw⟩ :=
-    CFSG.SectionRank.LocalWitness.mem_closure_normalForm hp0 hx hy hzx hzy hgQ
-  rw [hxy] at hw
-  have hwo : orderOf (g⁻¹ * s * g) = p := by rw [orderOf_inv_mul_mul, hs]
-  have hijk : i + j + k ≠ 0 := by
-    intro h0
-    have hi0 : i = 0 := by omega
-    have hj0 : j = 0 := by omega
-    have hk0 : k = 0 := by omega
-    rw [hi0, hj0, hk0, pow_zero, pow_zero, pow_zero, mul_one, mul_one] at hw
-    rw [hw, orderOf_one] at hwo
-    exact hp.out.one_lt.ne hwo
-  obtain ⟨m, r, hr, hm⟩ := hconj i j k hi hj hk hijk
-  have hconjs : (m * g⁻¹) * s * (m * g⁻¹)⁻¹ = r := by
-    rw [← hw] at hm
-    calc (m * g⁻¹) * s * (m * g⁻¹)⁻¹ = (m * (g⁻¹ * s * g)) * m⁻¹ := by group
-      _ = r := by rw [hm]; group
-  rw [eq_bot_iff]
-  intro u hu
-  rw [Subgroup.mem_bot]
-  have hu' := conj_mem_gLAPPrimeCoreOf_centralizer (m * g⁻¹) s u hu
-  rw [hconjs, hcore r hr, Subgroup.mem_bot] at hu'
-  calc u = (m * g⁻¹)⁻¹ * ((m * g⁻¹) * u * (m * g⁻¹)⁻¹) * (m * g⁻¹) := by group
-    _ = 1 := by rw [hu']; group
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance.CommutingPair

@@ -71,12 +71,6 @@ theorem coe_sl2Diag (t : Kˣ) :
       !![(t : K), 0; 0, ((t⁻¹ : Kˣ) : K)] :=
   rfl
 
-theorem sl2Weyl_conj_sl2Diag (t : Kˣ) :
-    sl2Weyl * sl2Diag t * sl2Weyl⁻¹ = (sl2Diag t)⁻¹ := by
-  refine Matrix.SpecialLinearGroup.ext _ _ fun i j => ?_
-  simp only [Matrix.SpecialLinearGroup.coe_mul, Matrix.SpecialLinearGroup.coe_inv, coe_sl2Weyl,
-    coe_sl2Diag]
-  fin_cases i <;> fin_cases j <;> simp [Matrix.mul_apply, Fin.sum_univ_two, Matrix.adjugate_fin_two]
 
 variable [CharP K 2]
 

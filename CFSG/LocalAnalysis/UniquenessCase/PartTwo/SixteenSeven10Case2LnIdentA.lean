@@ -163,13 +163,6 @@ variable {W : Type*} [CommGroup W] [Module (ZMod 2) (Additive W)] {K L : Subgrou
 theorem s16c1610_mem_toSub {K : Subgroup W} {x : Additive W} :
     x ∈ CFSG.Quasithin.H13.Mult.toSub K ↔ x.toMul ∈ K := Iff.rfl
 
-@[expose] noncomputable def s16c1610_subAddEquiv (K : Subgroup W) :
-    CFSG.Quasithin.H13.Mult.toSub K ≃+ Additive ↥K where
-  toFun y := Additive.ofMul ⟨(y : Additive W).toMul, s16c1610_mem_toSub.1 y.2⟩
-  invFun x := ⟨Additive.ofMul (x.toMul : W), s16c1610_mem_toSub.2 x.toMul.2⟩
-  left_inv y := by ext; rfl
-  right_inv x := by ext; rfl
-  map_add' y z := rfl
 
 private theorem s16c1610_zmod_two_eq_zero_or_one (c : ZMod 2) : c = 0 ∨ c = 1 := by
   revert c

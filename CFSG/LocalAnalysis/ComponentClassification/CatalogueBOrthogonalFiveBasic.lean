@@ -33,9 +33,6 @@ universe u
 
 variable {K : Type u} [Field K]
 
-theorem selfAdjoint_mem_iff (X : Matrix (Fin 4) (Fin 4) K) :
-    X ∈ selfAdjointSubmodule K ↔
-      Xᵀ * symplecticGram K = symplecticGram K * X ∧ X.trace = 0 := Iff.rfl
 
 theorem selfAdjoint_entries (h2 : (2 : K) ≠ 0) (X : selfAdjointSubmodule K) :
     X.val = !![X.val 0 0, X.val 0 1, 0, X.val 0 3;

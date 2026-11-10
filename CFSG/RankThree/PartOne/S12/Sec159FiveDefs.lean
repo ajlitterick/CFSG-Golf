@@ -16,12 +16,6 @@ open CFSG CFSG.Assembly CFSG.Assembly.RankThreeEven CFSG.RankThree CFSG.RankThre
     ∀ X ∈ thetaCompE p E, X ∉ thetaCompZeroE p E →
       ¬ p ∣ Nat.card ↥(Subgroup.center (↥X ⧸ aschbacherSolvableCore p ↥X))
 
-@[expose] def KF159RankFive : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),
-    Sec15Hyp G p A c L E → Sec12Facts G p A c L E → Outcome152Five p E A (lieGenerated p E) →
-    ∀ X ∈ thetaCompE p E,
-      CFSG.twoLocalOddRank ((↥X ⧸ aschbacherSolvableCore p ↥X) ⧸
-        Subgroup.center (↥X ⧸ aschbacherSolvableCore p ↥X)) ≤ 3
 
 @[expose] def KF159Sz : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c : G) (L E : Subgroup G),

@@ -119,16 +119,6 @@ theorem collinear_iff {p q : {g : G // orderOf g = 2}} (hpq : p ≠ q) :
     exact ⟨lineOf p.2 q.2 hpq' hc, left_mem_lineOf p.2 q.2 hpq' hc,
       right_mem_lineOf p.2 q.2 hpq' hc⟩
 
-theorem involutionGraph_eq_collinearityGraph :
-    involutionGraph G = collinearityGraph (invInc G) := by
-  ext p q
-  rw [adj_iff_ne_and_commute, collinearityGraph, SimpleGraph.fromRel_adj]
-  constructor
-  · rintro ⟨hpq, hc⟩
-    exact ⟨hpq, Or.inl ((collinear_iff hpq).mpr hc)⟩
-  · rintro ⟨hpq, h | h⟩
-    · exact ⟨hpq, (collinear_iff hpq).mp h⟩
-    · exact ⟨hpq, ((collinear_iff (Ne.symm hpq)).mp h).symm⟩
 
 theorem adj_iff_collinear {p q : {g : G // orderOf g = 2}} :
     (involutionGraph G).Adj p q ↔ p ≠ q ∧ Collinear (invInc G) p q := by

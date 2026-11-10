@@ -144,19 +144,6 @@ theorem normalForm_spec {a : C} {γ : List (ι × C)} (hγ : X.IsGallery a γ) :
     rw [normalForm_concat, galleryEnd_concat]
     exact nfStep_spec hres ih1 (ih2 ▸ h2)
 
-theorem foldl_nfStep_spec {a : C} {ρ : List (ι × C)} (hρ : X.IsReducedOrdinary cs a ρ)
-    {η : List (ι × C)} (hη : X.IsGallery (galleryEnd a ρ) η) :
-    X.IsReducedOrdinary cs a (η.foldl (fun ρ p => X.nfStep cs a ρ p.1 p.2) ρ) ∧
-      galleryEnd a (η.foldl (fun ρ p => X.nfStep cs a ρ p.1 p.2) ρ) =
-        galleryEnd (galleryEnd a ρ) η := by
-  induction η generalizing ρ with
-  | nil => exact ⟨hρ, rfl⟩
-  | cons p η ih =>
-    obtain ⟨h1, h2⟩ := hη
-    obtain ⟨h3, h4⟩ := nfStep_spec hres hρ h1
-    rw [List.foldl_cons, galleryEnd_cons]
-    have := ih h3 (by rw [h4]; exact h2)
-    rwa [h4] at this
 
 variable {a : C}
   (hrig : ∀ γ γ' : List (ι × C), X.IsReducedOrdinary cs a γ → X.StrictHomotopic cs a γ γ' →
@@ -477,19 +464,6 @@ theorem strictHomotopic_of_twoHomotopic [Nontrivial ι] {ρ ρ' : List (ι × C)
 
 omit hres hrig
 
-variable (X cs) in
-@[expose] def strictSetoid (a : C) : Setoid {γ : List (ι × C) // X.IsReducedOrdinary cs a γ} where
-  r γ γ' := X.StrictHomotopic cs a γ.1 γ'.1
-  iseqv := ⟨fun γ => .refl γ.1, fun h => h.symm, fun h h' => h.trans h'⟩
-
-variable (X cs) in
-@[expose] noncomputable def strictClassToCover (a : C) :
-    Quotient (X.strictSetoid cs a) → X.Cover a :=
-  Quotient.lift (fun γ => X.cls a γ.1) fun _ _ h => cls_congr (StrictHomotopic.twoHomotopic h)
-
-theorem strictClassToCover_mk (a : C) (γ : {γ : List (ι × C) // X.IsReducedOrdinary cs a γ}) :
-    X.strictClassToCover cs a (Quotient.mk _ γ) = X.cls a γ.1 :=
-  rfl
 
 theorem exists_twoHomotopic_isReducedOrdinary (hres : ∀ s t : ι, s ≠ t → ∀ y : C,
       X.IsResidueBuilding cs {s, t} y) {γ : List (ι × C)} (hγ : X.IsGallery a γ) :
@@ -500,47 +474,10 @@ theorem exists_twoHomotopic_isReducedOrdinary (hres : ∀ s t : ι, s ≠ t → 
     (Relation.ReflTransGen.mono (fun _ _ h => ConstantDeletion.elemMove h) _ _ h3)).trans
     (reflTransGen_reductionStep_twoHomotopic h5)⟩
 
-theorem bijective_strictClassToCover [Nontrivial ι]
-    (hres : ∀ s t : ι, s ≠ t → ∀ y : C, X.IsResidueBuilding cs {s, t} y)
-    (hrig : ∀ γ γ' : List (ι × C), X.IsReducedOrdinary cs a γ → X.StrictHomotopic cs a γ γ' →
-      galleryType γ = galleryType γ' → γ = γ') :
-    Function.Bijective (X.strictClassToCover cs a) := by
-  refine ⟨fun A B hAB => ?_, fun A => ?_⟩
-  · induction A using Quotient.inductionOn with
-    | h ρ =>
-    induction B using Quotient.inductionOn with
-    | h ρ' =>
-    rw [strictClassToCover_mk, strictClassToCover_mk,
-      cls_eq_iff ρ.2.1.isGallery ρ'.2.1.isGallery] at hAB
-    exact Quotient.sound (strictHomotopic_of_twoHomotopic hres hrig ρ.2 ρ'.2 hAB)
-  · obtain ⟨γ, hγ, rfl⟩ := exists_eq_cls A
-    obtain ⟨ρ, hρ, h⟩ := exists_twoHomotopic_isReducedOrdinary hres hγ
-    exact ⟨Quotient.mk _ ⟨ρ, hρ⟩, (cls_congr h).symm⟩
 
 end ChamberSystem
 
 open CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley ChamberSystem
 
-theorem F4_strict_gallery_normal_form_cover
-    {C : Type*} (X : ChamberSystem (Fin Tag.F4.rank) C)
-    (hres : ∀ J : Set (Fin Tag.F4.rank), J.ncard = 2 → ∀ x,
-      X.IsResidueBuilding (coxeterSystem .F4) J x) (a : C)
-    (hrig : ∀ γ γ' : List (Fin Tag.F4.rank × C), X.IsReducedOrdinary (coxeterSystem .F4) a γ →
-      X.IsReducedOrdinary (coxeterSystem .F4) a γ' →
-      X.StrictHomotopic (coxeterSystem .F4) a γ γ' → galleryType γ = galleryType γ' → γ = γ') :
-    (∀ ρ ρ' : List (Fin Tag.F4.rank × C), X.IsReducedOrdinary (coxeterSystem .F4) a ρ →
-      X.IsReducedOrdinary (coxeterSystem .F4) a ρ' → X.TwoHomotopic a ρ ρ' →
-        X.StrictHomotopic (coxeterSystem .F4) a ρ ρ') ∧
-    Function.Bijective (X.strictClassToCover (coxeterSystem .F4) a) := by
-  have : Nontrivial (Fin Tag.F4.rank) := Fin.nontrivial_iff_two_le.mpr (by decide)
-  have hres' : ∀ s t : Fin Tag.F4.rank, s ≠ t → ∀ y : C,
-      X.IsResidueBuilding (coxeterSystem .F4) {s, t} y := fun s t hst y =>
-    hres {s, t} (Set.ncard_pair hst) y
-  have hrig' : ∀ γ γ' : List (Fin Tag.F4.rank × C),
-      X.IsReducedOrdinary (coxeterSystem .F4) a γ →
-      X.StrictHomotopic (coxeterSystem .F4) a γ γ' → galleryType γ = galleryType γ' → γ = γ' :=
-    fun γ γ' hγ h ht => hrig γ γ' hγ (h.isReducedOrdinary_iff.mp hγ) h ht
-  exact ⟨fun ρ ρ' hρ hρ' h => strictHomotopic_of_twoHomotopic hres' hrig' hρ hρ' h,
-    bijective_strictClassToCover hres' hrig'⟩
 
 end CFSG.Monster.B.Geometry

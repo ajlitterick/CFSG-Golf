@@ -230,14 +230,6 @@ end Res7Sig
     Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.J2) →
     Nonempty (↥K ⧸ aschbacherSolvableCore 3 ↥K ≃* CFSG.Blueprint.NativeSporadic.J2)
 
-@[expose] def KF148SigL3 : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (A L K : Subgroup Γ) (e : Γ), Sig148 A L K e →
-    Late.sectionCentralizer A L ((aschbacherSolvableCore 3 L).map L.subtype) =
-      (Subgroup.zpowers e : Set Γ) →
-    IsLThreePi (↥L ⧸ aschbacherSolvableCore 3 ↥L) →
-    (∃ (X' : Type) (_ : Group X') (_ : Finite X'), Sec4.IsList46 X' ∧
-      Nonempty (X' ≃* ↥L ⧸ aschbacherSolvableCore 3 ↥L)) →
-    KThetaC148 K L
 
 @[expose] def KF148SigA7 : Prop :=
   ∀ (Γ : Type) [Group Γ] [Finite Γ] (A L K : Subgroup Γ) (e : Γ), Sig148 A L K e →
@@ -261,12 +253,6 @@ end Res7Sig
     Nonempty (↥L ⧸ aschbacherSolvableCore 3 ↥L ≃* CFSG.Blueprint.NativeSporadic.M12) →
     Nonempty (↥K ⧸ aschbacherSolvableCore 3 ↥K ≃* CFSG.Blueprint.NativeSporadic.M12)
 
-@[expose] def KF148SigON : Prop :=
-  ∀ (Γ : Type) [Group Γ] [Finite Γ] (A L K : Subgroup Γ) (e : Γ), Sig148 A L K e →
-    Sec4.IsTripleCover (↥L ⧸ aschbacherSolvableCore 3 ↥L) CFSG.Blueprint.NativeSporadic.ON →
-    Sec4.IsTripleCover (↥K ⧸ aschbacherSolvableCore 3 ↥K) (alternatingGroup (Fin 7)) ∨
-      (∃ _ : Fact (Nat.Prime 7), Nonempty (↥K ⧸ aschbacherSolvableCore 3 ↥K ≃*
-        CFSG.Assembly.RankThreeEven.projSL 3 (GaloisField 7 1)))
 
 @[expose] def Step148KThetaONCover : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
@@ -288,11 +274,6 @@ theorem step148KThetaHJ_of_sig (hKF : KF148SigHJ) : Step148KThetaHJ := by
   obtain ⟨ψ⟩ := hJ2
   exact Or.inl ⟨φ.trans ψ.symm⟩
 
-theorem step148KThetaL3_of_sig (h46 : Sec4.Item4_6) (hKF : KF148SigL3) : Step148KThetaL3 := by
-  intro G _ _ A c L h Y hY hs hYB B Q e K Le hP he hLe hL3
-  have hD : Sec13Data G A e Le := { h.toSec13Data with zpowers_mem_omegaA := he, mem_lA := hLe }
-  exact hKF G A Le K e (Res7Sig.sig148_of_isPoint148 h hYB hP) hLe.2.2.1 hL3
-    (Sec13.Res4Proof.exists_isList46 h46 hD)
 
 theorem step148KThetaA7_of_sig (hKF : KF148SigA7) : Step148KThetaA7 := by
   intro G _ _ A c L h Y hY hs hYB B Q e K Le hP he hLe hA7
@@ -314,16 +295,5 @@ theorem step148KThetaM12_of_sig (hKF : KF148SigM12) : Step148KThetaM12 := by
   obtain ⟨ψ⟩ := hM12
   exact Or.inl ⟨φ.trans ψ.symm⟩
 
-theorem step148KThetaONCover_of_sig (hKF : KF148SigON) : Step148KThetaONCover := by
-  intro G _ _ A c L h Y hY hs hYB B Q e K Le hP c' L' hc' hc'B hL' hJ2 hd hON3
-  exact hKF G A Le K e (Res7Sig.sig148_of_isPoint148 h hYB hP) hON3
-
-theorem step148KType_of_sig
-    (hθ : Step148KTheta) (h46 : Sec4.Item4_6)
-    (hHJ : KF148SigHJ) (hL3 : KF148SigL3) (hA7 : KF148SigA7) (hM22 : KF148SigM22)
-    (hM12 : KF148SigM12) (hON : Step148KThetaON) : Step148KType :=
-  step148KType_of_theta_types hθ (step148KThetaHJ_of_sig hHJ) (step148KThetaL3_of_sig h46 hL3)
-    (step148KThetaA7_of_sig hA7) (step148KThetaM22_of_sig hM22) (step148KThetaM12_of_sig hM12)
-    hON
 
 end CFSG.RankThree.PartTwo.Sec14

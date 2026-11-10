@@ -287,11 +287,6 @@ theorem t5BaseAt_nt_psu {k e : ℕ} : T5BaseAt p f .PSU k e Not :=
   t5BaseAt_nt_of_strong (Qn := fun _ _ _ => True) (by decide) (by decide) trivial
     StrongBalance.Unitary.strongLocalTwoBalanceToralPowOn_PSU_two
 
-theorem t5BaseAt_nt_psp_two {e : ℕ} : T5BaseAt p f .PSp 2 e Not :=
-  t5BaseAt_nt_of_strong (Qn := fun n _ _ => n = 2) (by decide) (by decide) rfl
-    (StrongLocalTwoBalanceToralPowOn.mono_order (show 2 ∣ 4 by norm_num)
-      (strongLocalTwoBalanceToralPowOn_four_iff.mpr
-        StrongBalance.Sp.strongLocalTwoBalanceToralFourOn_PSp_two))
 
 end Instances
 

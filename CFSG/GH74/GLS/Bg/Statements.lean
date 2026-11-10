@@ -19,15 +19,6 @@ open scoped commutatorElement
       (x ∈ normalizer (J : Set G) → ∀ a ∈ J, IsPGroup 2 (zpowers a) → a ∉ zpowers y →
         Commute a x → a ∈ normalizer (L : Set G))
 
-@[expose] def B_pu5 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → 3 ≤ pRank 2 G → ∀ z : G,
-    orderOf z = 2 → z ∈ rigidProduct z → IsStronglyClassicalInvolution G z
-
-@[expose] def B_iii2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], IsKProperSimple G → 3 ≤ pRank 2 G →
-    ∀ (x : G) (K : Subgroup G), IsTwoTerminal x K → pRank 2 ↥K = 1 →
-      ∃ (x' : G) (K' : Subgroup G), IsPRigid 2 x' K' ∧ pRank 2 ↥K' = 1 ∧ x' ∈ rigidProduct x' ∧
-        ∃ t ∈ centralizer ({x'} : Set G), IsConj x' t ∧ t ∉ zStar (rigidProduct x')
 
 section Bender
 

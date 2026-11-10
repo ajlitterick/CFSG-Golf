@@ -172,10 +172,6 @@ noncomputable def f4RootSubgroups
     (f4RootSubgroups K).X = (rootOperatorFamily .F4).rootSubgroup K :=
   (rootOperatorFamily .F4).toRootSubgroups_X K _
 
-noncomputable def f4RootGroupData
-    (K : Type) [Field K] [Finite K] :
-    RootGroupData (rootCombinatorics .F4) ↥(adjointGroup .F4 K) :=
-  (f4RootSubgroups K).toRootGroupData
 
 end CFSG.StandardType.F4ExplicitPos.B3Exact
 

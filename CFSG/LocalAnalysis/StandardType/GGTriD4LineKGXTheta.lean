@@ -63,10 +63,6 @@ private lemma thetaTuple_apply_zero {K : Type} [Field K] (σ : K →+* K) (a B :
 private lemma thetaTuple_apply_one {K : Type} [Field K] (σ : K →+* K) (a B : Kˣ) :
     thetaTuple σ a B 1 = (Units.map σ.toMonoidHom a) ^ 2 * B⁻¹ := rfl
 
-private lemma thetaTuple_apply_two {K : Type} [Field K] (σ : K →+* K) (a B : Kˣ) :
-    thetaTuple σ a B 2 =
-      (a * Units.map σ.toMonoidHom a * Units.map σ.toMonoidHom (Units.map σ.toMonoidHom a))⁻¹
-        * B ^ 2 := rfl
 
 private lemma thetaTuple_apply_three {K : Type} [Field K] (σ : K →+* K) (a B : Kˣ) :
     thetaTuple σ a B 3 = (Units.map σ.toMonoidHom (Units.map σ.toMonoidHom a)) ^ 2 * B⁻¹ := rfl

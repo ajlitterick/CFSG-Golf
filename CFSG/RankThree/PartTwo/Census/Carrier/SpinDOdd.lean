@@ -212,8 +212,5 @@ theorem catalogBridgeFor_D (r : ℕ) (q : PrimePower) (hv : (LieTypeIndex.D r q)
   intro G _ _ _ ⟨e⟩
   exact Or.inr (Or.inr (Or.inl ⟨_, _, _, _, statedClassicalModel_typeD r q hv e⟩))
 
-theorem catalogBridgeFor_D_odd (r : ℕ) (q : PrimePower) (hv : (LieTypeIndex.D r q).Valid)
-    (_hp : q.p ≠ 2) : CFSG.QuasithinUnique.B1.CatalogBridgeFor (.lie ⟨.D r q, hv⟩) :=
-  catalogBridgeFor_D r q hv
 
 end CFSG.RankThree.PartTwo.Census

@@ -212,15 +212,6 @@ theorem fo24Cls_spec (k : Fin 306936) (q : Array ℕ) (hq : ∀ j < q.size, q[j]
     CFSG.Sporadic.Fi24.idx_jR, CFSG.Sporadic.Fi24.idx_jR]
   rfl
 
-theorem rep_fo24Cls (k : Fin 306936) :
-    ∀ x < 306936, (fo24Cls k (Array.range nPts))[x]! = idx 306936 (cls k) x := by
-  intro x hx
-  have hq : ∀ j < (Array.range nPts).size, (Array.range nPts)[j]! < 306936 := fun j hj => by
-    rw [getElem!_pos (Array.range nPts) j hj, Array.getElem_range]
-    rw [Array.size_range] at hj
-    exact hj
-  have hxs : x < (Array.range nPts).size := by rw [Array.size_range]; exact hx
-  rw [(fo24Cls_spec k _ hq).2 x hxs, getElem!_pos _ x hxs, Array.getElem_range]
 
 theorem cls_smul_eq_iff (k l : Fin 306936) :
     cls k • l = l ↔ cls k * cls l = cls l * cls k := by
@@ -290,97 +281,6 @@ theorem mem_triCent {a b c : R} {g : J} :
   right_inv g := Subtype.ext (by simp only; group)
   map_mul' g g' := Subtype.ext (by simp only [Subgroup.coe_mul]; group)
 
-theorem fo24Triple_facts {Rt : Table} {r : R} (hR : Rep 306936 Rt r) {u : Array ℕ}
-    (h : fo24TripleOK CFSG.Sporadic.Fi24.orb fo24BInv fo24PL fi24TP Rt u = true)
-    (hu : u[0]! ≠ u[1]! ∧ u[0]! ≠ u[2]! ∧ u[1]! ≠ u[2]!) :
-    ∃ k₁ k₂ k₃ : Fin 306936, (k₁ ≠ k₂ ∧ k₁ ≠ k₃ ∧ k₂ ≠ k₃) ∧ r = cls k₁ * cls k₂ * cls k₃ ∧
-      (∀ k ∈ ({k₁, k₂, k₃} : Set (Fin 306936)), r • k = k) ∧
-      (∀ k ∈ ({k₁, k₂, k₃} : Set (Fin 306936)), ∀ l : Fin 306936, r • l = l →
-        cls k * cls l = cls l * cls k) ∧
-      (∀ k : Fin 306936, r • k = k → (∀ l : Fin 306936, r • l = l →
-        cls k * cls l = cls l * cls k) → k ∈ ({k₁, k₂, k₃} : Set (Fin 306936))) := by
-  unfold fo24TripleOK fo24TripleAt fo24CommOK fo24ProdOK at h
-  simp only [Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨-, -⟩, hu3⟩, hcomm⟩, hprod⟩ := h
-  have hu' : ∀ i < 3, u[i]! < 306936 ∧ ap Rt u[i]! = u[i]! := fun i hi => by
-    have := allIn_eq_true.1 hu3 i (Nat.zero_le _) hi
-    simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at this
-    exact this
-  set F := (Array.range nPts).filter fun i => ap Rt i == i with hFdef
-  have hsmul : ∀ x : Fin 306936, (r • x).val = ap Rt x.val := fun x => by
-    rw [hR x.val x.2, idx_of_lt r x.2]
-  have hFmem : ∀ x : ℕ, x ∈ F ↔ x < nPts ∧ ap Rt x = x := fun x => by
-    simp only [hFdef, Array.mem_filter, Array.mem_range, beq_iff_eq]
-  have hFget : ∀ j (hj : j < F.size), F[j] < 306936 ∧ ap Rt F[j] = F[j] := fun j hj =>
-    (hFmem F[j]).1 (Array.getElem_mem hj)
-  have hFlt : ∀ j < F.size, F[j]! < 306936 := fun j hj => by
-    rw [getElem!_pos F j hj]
-    exact (hFget j hj).1
-  have hFfull : ∀ l : Fin 306936, r • l = l → ∃ j < F.size, F[j]! = l.val := fun l hl => by
-    have hm : l.val ∈ F := (hFmem l.val).2 ⟨l.2, by rw [← hsmul l, hl]⟩
-    obtain ⟨j, hj, hjl⟩ := Array.mem_iff_getElem.1 hm
-    exact ⟨j, hj, by rw [getElem!_pos F j hj]; exact hjl⟩
-  have hrow : ∀ (k : Fin 306936), (fo24Cls k F = F ↔
-      ∀ l : Fin 306936, r • l = l → cls k * cls l = cls l * cls k) := by
-    intro k
-    obtain ⟨hs, he⟩ := fo24Cls_spec k F hFlt
-    constructor
-    · intro h l hl
-      obtain ⟨j, hj, hjl⟩ := hFfull l hl
-      rw [← cls_smul_eq_iff]
-      apply Fin.ext
-      have := he j hj
-      rw [h, hjl, idx_of_lt _ l.2] at this
-      exact this.symm
-    · intro h
-      apply Array.ext hs
-      intro j h1 h2
-      have := he j h2
-      rw [getElem!_pos _ j h1, getElem!_pos F j h2] at this
-      rw [this]
-      have hfx : r • (⟨F[j], (hFget j h2).1⟩ : Fin 306936) = ⟨F[j], (hFget j h2).1⟩ := by
-        apply Fin.ext
-        rw [hsmul]
-        exact (hFget j h2).2
-      have hc := (cls_smul_eq_iff k _).2 (h _ hfx)
-      rw [idx_of_lt _ (hFget j h2).1, hc]
-  obtain ⟨k₁, hk₁⟩ : ∃ k : Fin 306936, k.val = u[0]! := ⟨⟨u[0]!, (hu' 0 (by norm_num)).1⟩, rfl⟩
-  obtain ⟨k₂, hk₂⟩ : ∃ k : Fin 306936, k.val = u[1]! := ⟨⟨u[1]!, (hu' 1 (by norm_num)).1⟩, rfl⟩
-  obtain ⟨k₃, hk₃⟩ : ∃ k : Fin 306936, k.val = u[2]! := ⟨⟨u[2]!, (hu' 2 (by norm_num)).1⟩, rfl⟩
-  have hmemK : ∀ k : Fin 306936, k ∈ ({k₁, k₂, k₃} : Set (Fin 306936)) ↔
-      (k.val = u[0]! ∨ k.val = u[1]!) ∨ k.val = u[2]! := fun k => by
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff, Fin.ext_iff, hk₁, hk₂, hk₃, or_assoc]
-  have hfixk : ∀ k ∈ ({k₁, k₂, k₃} : Set (Fin 306936)), r • k = k := by
-    intro k hk
-    apply Fin.ext
-    rw [hsmul]
-    rcases (hmemK k).1 hk with (h | h) | h <;> rw [h]
-    · exact (hu' 0 (by norm_num)).2
-    · exact (hu' 1 (by norm_num)).2
-    · exact (hu' 2 (by norm_num)).2
-  have htest : ∀ k : Fin 306936, r • k = k → (fo24Cls k F = F ↔
-      k ∈ ({k₁, k₂, k₃} : Set (Fin 306936))) := by
-    intro k hk
-    obtain ⟨j, hj, hjk⟩ := hFfull k hk
-    have h1 : (fo24Cls k F == F) = (k.val == u[0]! || k.val == u[1]! || k.val == u[2]!) := by
-      have := allIn_eq_true.1 hcomm j (Nat.zero_le _) hj
-      rw [beq_iff_eq, hjk] at this
-      exact this
-    rw [hmemK]
-    refine beq_iff_eq.symm.trans ?_
-    rw [h1]
-    simp only [Bool.or_eq_true, beq_iff_eq]
-  refine ⟨k₁, k₂, k₃, ⟨fun e => hu.1 (by rw [← hk₁, ← hk₂, e]),
-      fun e => hu.2.1 (by rw [← hk₁, ← hk₃, e]), fun e => hu.2.2 (by rw [← hk₂, ← hk₃, e])⟩,
-    ?_, hfixk, fun k hk l hl => (hrow k).1 ((htest k (hfixk k hk)).2 hk) l hl,
-    fun k hk hc => (htest k hk).1 ((hrow k).2 hc)⟩
-  refine fi24_rep_unique hR fun x hx => ?_
-  have := allIn_eq_true.1 hprod x (Nat.zero_le _) hx
-  simp only [beq_iff_eq] at this
-  rw [← hk₁, ← hk₂, ← hk₃] at this
-  rw [rep_fo24Cls k₃ x hx, rep_fo24Cls k₂ _ (idx_lt (cls k₃) hx),
-    rep_fo24Cls k₁ _ (idx_lt (cls k₂) (idx_lt (cls k₃) hx))] at this
-  rw [this, idx_mul, idx_mul]
 
 theorem fo24_triple_perm {r : R} {K : Set (Fin 306936)}
     (hfix : ∀ k ∈ K, r • k = k)

@@ -243,14 +243,6 @@ theorem F914_1_V_of_lt (h : HypF98 T V L V₁ Vp H) (hb : 3 < F8.b T V L H) :
   rw [e1, e2] at hcomm
   exact Subgroup.commutator_eq_bot_iff_le_centralizer.mp hcomm
 
-theorem F914_1_V_of_eq (h : HypF98 T V L V₁ Vp H) (hb : F8.b T V L H = 3) :
-    ¬ ∀ x ∈ conjClosure (conjClosure V H) L, ∀ y ∈ conjClosure (conjClosure V H) L,
-      x * y = y * x := by
-  intro hab
-  obtain ⟨l, hl, v, hv, u, hu, hne⟩ := h.exists_noncomm_of_b_eq_three hb
-  refine hne (hab v (le_conjClosure _ L hv) u ?_)
-  exact HypF91.conjSub_le_conjClosure hl
-    (conjSub_mono l (conjClosure_mono h.Vp_le_V le_rfl) hu)
 
 theorem F914_1_of_lt (h : HypF98 T V L V₁ Vp H) (hb : 3 < F8.b T V L H) :
     IsElemAbelian 2 (conjClosure (conjClosure Vp H) L) :=

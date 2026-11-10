@@ -107,10 +107,6 @@ theorem mem_unitriangularGL {A : GL (Fin n) K} :
     A ∈ unitriangularGL n K ↔ IsUnitriangular (A : Matrix (Fin n) (Fin n) K) :=
   Iff.rfl
 
-theorem leviSp_mem_unipotent {A : GL (Fin n) K} (hA : A ∈ unitriangularGL n K) :
-    leviSp A ∈ unipotent n K := by
-  refine ⟨A, 0, hA, transpose_zero, ?_⟩
-  rw [coe_leviSp, blockMat, Matrix.mul_zero, coe_units_inv]
 
 theorem tauSym_mem_unipotent (B : Multiplicative (binarySymMatrices n)) :
     tauSym n B ∈ unipotent n (ZMod 2) := by

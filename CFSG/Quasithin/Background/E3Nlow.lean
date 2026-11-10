@@ -135,19 +135,6 @@ theorem e3_35_one_solvable (hV : IsElemAbelian 2 V) (hV1 : V ≠ ⊥) (hT : HypE
     (h1 : 1 < min (wParam T V) (rParam V)) : H ≤ M :=
   e3_35_one hV hV1 hT hM hS hCH hQS (lt_of_le_of_lt (E1.solvable_nParam_le_one hH) h1)
 
-theorem e3_35_two (hV : IsElemAbelian 2 V) (hV1 : V ≠ ⊥) (hT : HypE322 T V) {M H S : Subgroup G}
-    (hM : IsUniqueM
-      (Subgroup.normalizer ((T ⊓ Subgroup.centralizer (V : Set G) : Subgroup G) : Set G)) M)
-    (hS : IsSylowIn 2 S H) (hCH : H ⊓ Subgroup.centralizer (V : Set G) ≤ M)
-    (hQS : T ⊓ Subgroup.centralizer (V : Set G) ≤ S) (has : aParam (autI hV ⊤) < sParam hV)
-    (hrw : wParam T V ≤ rParam V) (hHM : ¬ H ≤ M) :
-    wParam T V ≤ E1.nParam H ∧
-      ((sParam hV - aParam (autI hV ⊤) : ℕ) : ℕ∞) ≤ wParam T V ∧
-      0 < sParam hV - aParam (autI hV ⊤) := by
-  have h1 : ¬ E1.nParam H < min (wParam T V) (rParam V) := fun h =>
-    hHM (e3_35_one hV hV1 hT hM hS hCH hQS h)
-  rw [min_eq_left hrw] at h1
-  exact ⟨not_lt.1 h1, e3_34_one hV hT has⟩
 
 end Nlow
 

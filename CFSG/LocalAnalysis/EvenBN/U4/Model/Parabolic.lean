@@ -37,10 +37,6 @@ theorem miyamotoN1Hom_injective : Function.Injective (miyamotoN1Hom h) := by
 @[expose] def miyamotoN1Equiv : SpecialLinearGroup (Fin 2) K ≃* miyamotoN1 h :=
   MonoidHom.ofInjective (miyamotoN1Hom_injective h)
 
-theorem coe_miyamotoN1Equiv (m : SpecialLinearGroup (Fin 2) K) :
-    ((miyamotoN1Equiv h m : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) =
-      miyamotoN1Mat h (m : Matrix (Fin 2) (Fin 2) K) :=
-  rfl
 
 @[expose] def miyamotoN2Hom : SpecialLinearGroup (Fin 2) h.fixedField →* GL (Fin 4) K :=
   (Units.map (miyamotoN2Mat K)).comp (SpecialLinearGroup.toGL.comp
@@ -103,35 +99,6 @@ theorem miyamotoI2_commute_N2 {x y : GL (Fin 4) K} (hx : x ∈ miyamotoI2 h)
 
 variable [CharP K 2]
 
-theorem miyamotoI1_inf_N1 : miyamotoI1 h ⊓ miyamotoN1 h = ⊥ := by
-  refine (eq_bot_iff_forall _).2 fun x ⟨hx, hy⟩ => ?_
-  obtain ⟨t, ht, rfl⟩ := (mem_miyamotoI1 h).1 hx
-  obtain ⟨m, hm, e⟩ := (mem_miyamotoN1 h).1 hy
-  rw [coe_miyamotoIHom] at e
-  have e00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M 0 0) e
-  have e01 := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M 0 1) e
-  have e10 := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M 1 0) e
-  have e11 := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M 1 1) e
-  simp [miyamotoN1Mat] at e00 e01 e10 e11
-  rw [Matrix.det_fin_two, ← e00, ← e01, ← e10, ← e11, mul_zero, sub_zero] at hm
-  have ht1 : (t : K) = 1 := eq_one_of_sq_eq_one (by rw [sq]; exact hm)
-  have : t = 1 := Units.ext ht1
-  rw [this]
-  exact map_one _
-
-theorem miyamotoI2_inf_N2 : miyamotoI2 h ⊓ miyamotoN2 h = ⊥ := by
-  refine (eq_bot_iff_forall _).2 fun x ⟨hx, hy⟩ => ?_
-  obtain ⟨a, rfl⟩ := (mem_miyamotoI2 h).1 hx
-  obtain ⟨m, -, -, e⟩ := (mem_miyamotoN2 h).1 hy
-  rw [coe_miyamotoIHom] at e
-  have e00 := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M 0 0) e
-  simp only [miyamotoN2Mat, MonoidHom.coe_mk, OneHom.coe_mk, Matrix.of_apply, Matrix.cons_val',
-    Matrix.cons_val_zero, Matrix.cons_val_fin_one, Matrix.diagonal_apply_eq,
-    Units.val_pow_eq_pow_val] at e00
-  have ha1 : (a : K) = 1 := eq_one_of_sq_eq_one e00
-  have : a = 1 := Units.ext ha1
-  rw [this, one_pow, one_pow]
-  exact map_one _
 
 end LeviFactors
 
@@ -247,13 +214,6 @@ end LeviNormalizes
 
 section Normalizers
 
-theorem entry_eq_zero_of_commute_diagonal {g x : GL (Fin 4) K} {v : Fin 4 → K}
-    (hx : (x : Matrix (Fin 4) (Fin 4) K) = diagonal v) (hc : g * x = x * g) {i j : Fin 4}
-    (hij : v i ≠ v j) : (g : Matrix (Fin 4) (Fin 4) K) i j = 0 := by
-  have e := congrArg (fun M : Matrix (Fin 4) (Fin 4) K => M i j) (congrArg Units.val hc)
-  simp only [Units.val_mul, hx, Matrix.mul_diagonal, Matrix.diagonal_mul] at e
-  have : (g : Matrix (Fin 4) (Fin 4) K) i j * (v j - v i) = 0 := by linear_combination e
-  exact (mul_eq_zero.1 this).resolve_right (sub_ne_zero.2 (Ne.symm hij))
 
 variable [CharP K 2]
 
@@ -273,83 +233,6 @@ theorem miyamotoI2_sup_N2_le :
     (le_inf (miyamotoN2_le_gramSU h) fun _ hx => mem_centralizer_iff.2 fun _ hy =>
       miyamotoI2_commute_N2 h hy hx)
 
-theorem centralizer_miyamotoI1 (hf : 2 ≤ f) :
-    gramSU h (miyamotoJ4 K) ⊓ centralizer (miyamotoI1 h : Set (GL (Fin 4) K)) =
-      miyamotoI1 h ⊔ miyamotoN1 h := by
-  refine le_antisymm (fun g hg => ?_) (miyamotoI1_sup_N1_le h)
-  obtain ⟨hgS, hgC⟩ := mem_inf.1 hg
-  obtain ⟨t, ht, ht2⟩ := exists_fixed_unit_sq_ne_one h hf
-  have hD : miyamotoIHom h (t, t) ∈ miyamotoI1 h := (mem_miyamotoI1 h).2 ⟨t, ht, rfl⟩
-  have hc : g * miyamotoIHom h (t, t) = miyamotoIHom h (t, t) * g :=
-    (mem_centralizer_iff.1 hgC _ hD).symm
-  have ht0 : (t : K) ≠ 0 := t.ne_zero
-  have hne : (t : K) ≠ (h.bar (t : K))⁻¹ := by
-    rw [ht]
-    intro e
-    exact ht2 (by rw [sq]; exact (mul_eq_one_iff_eq_inv₀ ht0).2 e)
-  have hcoe := coe_miyamotoIHom h (t, t)
-  have z : ∀ {i j : Fin 4}, i.val < 2 → 2 ≤ j.val → (g : Matrix (Fin 4) (Fin 4) K) i j = 0 := by
-    intro i j hi hj
-    refine entry_eq_zero_of_commute_diagonal hcoe hc ?_
-    fin_cases i <;> fin_cases j <;> simp_all
-  obtain ⟨a, ha, i, hi, n, hn, rfl⟩ := exists_mul_of_shapeOne h hgS (z (by decide) (by decide))
-    (z (by decide) (by decide)) (z (by decide) (by decide)) (z (by decide) (by decide))
-  have hin : i * n ∈ centralizer (miyamotoI1 h : Set (GL (Fin 4) K)) :=
-    ((miyamotoI1_sup_N1_le h) (mul_mem (mem_sup_left hi) (mem_sup_right hn))).2
-  have haC : a ∈ centralizer (miyamotoI1 h : Set (GL (Fin 4) K)) := by
-    have := mul_mem hgC (inv_mem hin)
-    rwa [show a * i * n * (i * n)⁻¹ = a by group] at this
-  have ha1 : a ∈ miyamotoA1 h ⊓ miyamotoRootA h := by
-    refine ⟨ha, ?_⟩
-    rw [← miyamotoP_inf_centralizer_I1 h hf]
-    exact ⟨miyamotoA1_le_P h ha, haC⟩
-  rw [miyamotoA1_inf_rootA, mem_bot] at ha1
-  rw [ha1, one_mul]
-  exact mul_mem (mem_sup_left hi) (mem_sup_right hn)
-
-theorem centralizer_miyamotoI2 (hf : 2 ≤ f) :
-    gramSU h (miyamotoJ4 K) ⊓ centralizer (miyamotoI2 h : Set (GL (Fin 4) K)) =
-      miyamotoI2 h ⊔ miyamotoN2 h := by
-  refine le_antisymm (fun g hg => ?_) (miyamotoI2_sup_N2_le h)
-  obtain ⟨hgS, hgC⟩ := mem_inf.1 hg
-  obtain ⟨t, ht, ht2⟩ := exists_fixed_unit_sq_ne_one h hf
-  have hD := miyamotoIHom_sq_one_mem_I2 h ht
-  have hc : g * miyamotoIHom h (t ^ 2, 1) = miyamotoIHom h (t ^ 2, 1) * g :=
-    (mem_centralizer_iff.1 hgC _ hD).symm
-  have ht0 : (t : K) ≠ 0 := t.ne_zero
-  have ht4 : ((t : K) ^ 2) ^ 2 ≠ 1 := fun e => ht2 (eq_one_of_sq_eq_one e)
-  have hcoe : ((miyamotoIHom h (t ^ 2, 1) : GL (Fin 4) K) : Matrix (Fin 4) (Fin 4) K) =
-      diagonal ![(t : K) ^ 2, 1, 1, ((t : K) ^ 2)⁻¹] := by
-    rw [coe_miyamotoIHom]
-    simp [map_pow, ht]
-  have hn0 : (t : K) ^ 2 ≠ ((t : K) ^ 2)⁻¹ := by
-    intro e
-    apply ht4
-    field_simp at e
-    linear_combination e
-  have hn1 : (1 : K) ≠ ((t : K) ^ 2)⁻¹ := fun e => ht2 (inv_eq_one.1 e.symm)
-  have z : ∀ {i : Fin 4}, i.val < 3 → (g : Matrix (Fin 4) (Fin 4) K) i 3 = 0 := by
-    intro i hi
-    refine entry_eq_zero_of_commute_diagonal hcoe hc ?_
-    fin_cases i
-    · exact hn0
-    · exact hn1
-    · exact hn1
-    · exact absurd hi (by decide)
-  obtain ⟨a, ha, i, hi, n, hn, rfl⟩ := exists_mul_of_shapeTwo h hgS (z (by decide))
-    (z (by decide)) (z (by decide))
-  have hin : i * n ∈ centralizer (miyamotoI2 h : Set (GL (Fin 4) K)) :=
-    ((miyamotoI2_sup_N2_le h) (mul_mem (mem_sup_left hi) (mem_sup_right hn))).2
-  have haC : a ∈ centralizer (miyamotoI2 h : Set (GL (Fin 4) K)) := by
-    have := mul_mem hgC (inv_mem hin)
-    rwa [show a * i * n * (i * n)⁻¹ = a by group] at this
-  have ha1 : a ∈ miyamotoA2 h ⊓ miyamotoRootB h := by
-    refine ⟨ha, ?_⟩
-    rw [← miyamotoP_inf_centralizer_I2 h hf]
-    exact ⟨miyamotoA2_le_P h ha, haC⟩
-  rw [miyamotoA2_inf_rootB, mem_bot] at ha1
-  rw [ha1, one_mul]
-  exact mul_mem (mem_sup_left hi) (mem_sup_right hn)
 
 theorem normalizer_miyamotoA1 :
     gramSU h (miyamotoJ4 K) ⊓ normalizer (miyamotoA1 h : Set (GL (Fin 4) K)) =
@@ -423,13 +306,6 @@ section CentralizerZ
 @[expose] def miyamotoI2pow : Subgroup (GL (Fin 4) K) :=
   ((miyamotoI2Hom h).comp (powMonoidHom (2 ^ f - 1))).range
 
-theorem mem_miyamotoI2pow_iff {g : GL (Fin 4) K} :
-    g ∈ miyamotoI2pow h ↔ ∃ x ∈ miyamotoI2 h, g = x ^ (2 ^ f - 1) := by
-  constructor
-  · rintro ⟨b, rfl⟩
-    exact ⟨_, ⟨b, rfl⟩, by simp [map_pow]⟩
-  · rintro ⟨_, ⟨b, rfl⟩, rfl⟩
-    exact ⟨b, by simp [map_pow]⟩
 
 theorem miyamotoI2pow_le_I2 : miyamotoI2pow h ≤ miyamotoI2 h := by
   rintro _ ⟨b, rfl⟩

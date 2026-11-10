@@ -118,66 +118,6 @@ end Bounds
 
 section CaseA
 
-theorem exists_psl2_three_of_alt47 (hin : Inputs413) {H : Type} [Group H] [Finite H]
-    {L : Subgroup H} {a : H} (hq : CFSG.IsQuasisimple (L ⧸ aschbacherSolvableCore 3 L))
-    (h : Alt47 L a) {B : Subgroup (MulAut (L ⧸ aschbacherSolvableCore 3 L))}
-    (hB : CFSG.Assembly.IsElemAbelian 3 B) {k : ℕ} (hk : Nat.card B = 3 ^ k) (hk4 : 4 ≤ k) :
-    ∃ e : ℕ, 1 ≤ e ∧ Nonempty (L ⧸ aschbacherSolvableCore 3 L ≃* projSL 2 (GaloisField 3 e)) := by
-  have h2 : 2 ^ 2 = 4 := by norm_num
-  rcases h with ⟨p, e, _, -, he, ⟨e₁⟩, -⟩ | ⟨p, e, _, hp3, he1, -, hX, -⟩ | ⟨hX, -⟩ |
-      ⟨n, hn, hX, -⟩ | ⟨n, hn, hD4, -, -⟩
-  ·
-    by_cases hp3 : p = 3
-    · subst hp3
-      exact ⟨3 * e, by omega, ⟨e₁⟩⟩
-    · exact (false_of_rankAut e₁ hB hk hk4 (hin.rankAutL2 p (3 * e) hp3 (by omega))).elim
-  ·
-    exfalso
-    have hq2 : 2 < p ^ e := lt_of_lt_of_le (by omega) (Nat.le_self_pow (by omega) p)
-    rcases hX with ⟨K, _, _, ⟨hK, -, ⟨e₁⟩⟩ | ⟨hK, -, ⟨e₁⟩⟩⟩ | ⟨-, ⟨e₁⟩⟩ | ⟨-, ⟨e₁⟩⟩
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSL3 p e K (by omega) hK)
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSU3 p e K (by omega) hK hq2)
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutL3 p e (by omega) he1)
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutU3 p e (by omega) he1 hq2)
-  ·
-    exfalso
-    rcases hX with ⟨m, hm, ⟨⟨e₁⟩⟩ | ⟨K, _, _, hK, ⟨e₁⟩⟩ | ⟨⟨e₁⟩⟩ | ⟨K, _, _, hK, ⟨e₁⟩⟩⟩ |
-        ⟨n, hn, hSz | ⟨⟨e₁⟩⟩ | ⟨⟨e₁⟩⟩ | hG2 | hF4⟩
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutL2 2 m (by norm_num) hm)
-    · rcases Nat.lt_or_ge m 2 with hm1 | hm2
-      · obtain rfl : m = 1 := by omega
-        exact false_of_mulEquiv_statedSU_three_two hq hK e₁
-      · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSU3 2 m K (by norm_num) hK
-          (lt_of_lt_of_le (by norm_num) (Nat.pow_le_pow_right (by norm_num) hm2)))
-    · rcases Nat.lt_or_ge m 2 with hm1 | hm2
-      · obtain rfl : m = 1 := by omega
-        exact false_of_mulEquiv_projSU_three_two hq e₁
-      · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutU3 2 m (by norm_num) hm
-          (lt_of_lt_of_le (by norm_num) (Nat.pow_le_pow_right (by norm_num) hm2)))
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSL3 2 (2 * m) K (by norm_num) hK)
-    · have := CFSG.RankThree.PartTwo.KFacts.KP7.pRank_three_mulAut_le_one hSz
-      exact false_of_rankAut (MulEquiv.refl _) hB hk hk4 (this.trans (by norm_num))
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutL3 2 n (by norm_num) hn.pos)
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSp4 n hn.pos)
-    · exact false_of_rankAut (MulEquiv.refl _) hB hk hk4 (hin.rankAutG2 _ n hG2)
-    · exact false_of_rankAut (MulEquiv.refl _) hB hk hk4 (hin.rankAutF4 _ n hF4)
-  ·
-    exfalso
-    rcases hX with ⟨K, _, _, ⟨hK, -, ⟨e₁⟩⟩ | ⟨hK, -, ⟨e₁⟩⟩⟩ | ⟨-, ⟨e₁⟩⟩ | ⟨-, ⟨e₁⟩⟩
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSL3 2 n K (by norm_num) hK)
-    · rcases Nat.lt_or_ge n 2 with hn1 | hn2
-      · obtain rfl : n = 1 := by omega
-        exact false_of_mulEquiv_statedSU_three_two hq hK e₁
-      · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutSU3 2 n K (by norm_num) hK
-          (lt_of_lt_of_le (by norm_num) (Nat.pow_le_pow_right (by norm_num) hn2)))
-    · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutL3 2 n (by norm_num) hn)
-    · rcases Nat.lt_or_ge n 2 with hn1 | hn2
-      · obtain rfl : n = 1 := by omega
-        exact false_of_mulEquiv_projSU_three_two hq e₁
-      · exact false_of_rankAut e₁ hB hk hk4 (hin.rankAutU3 2 n (by norm_num) hn
-          (lt_of_lt_of_le (by norm_num) (Nat.pow_le_pow_right (by norm_num) hn2)))
-  ·
-    exact (false_of_rankAut (MulEquiv.refl _) hB hk hk4 (hin.rankAutD4 _ n hD4)).elim
 
 end CaseA
 

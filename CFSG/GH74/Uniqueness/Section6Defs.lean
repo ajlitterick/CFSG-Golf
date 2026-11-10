@@ -49,12 +49,6 @@ structure T4Max (Z : Set X) (M : Subgroup X) (z : X) (p : ℕ) (W : Subgroup X) 
 @[expose] def Theorem4Stmt (Z : Set X) (M : Subgroup X) : Prop :=
   DoublyTransitive M ∧ Theorem4bStmt Z M
 
-@[expose] def Cor5bStmt (Z : Set X) (M : Subgroup X) : Prop :=
-  ∀ γ δ s, STriple Z M γ δ s →
-    γ ⊓ δ ⊓ conjugate δ s = (γ ⊓ δ) ⊓ centralizer ({s} : Set X)
-
-@[expose] def Cor5Stmt (Z : Set X) (M : Subgroup X) : Prop :=
-  TransitiveOnS Z M ∧ Cor5bStmt Z M
 
 @[expose] def Lemma61aStmt (Z : Set X) (M : Subgroup X) : Prop :=
   DoublyTransitive M → TransitiveOnS Z M

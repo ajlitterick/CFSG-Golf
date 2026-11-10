@@ -392,12 +392,6 @@ theorem weylElement_mem_rankOne'
     (a : Fin d4.rank) : Chevalley.weylElement d4 K a ∈ 𝕃 a :=
   weylElement_mem_rankOne a
 
-theorem mem_twistedRootGroup_of_mem
-    {β : Fin (Tag.rank .G2) → ℤ} (hβ : IsRoot .G2 β)
-    {g : adjointGroup d4 K} (hg : g ∈ twistedRootSubgroupD4 σ β) :
-    (⟨g, twistedRootSubgroupD4_le_twistedGroup σ hβ hg⟩ : twistedGroup σ) ∈
-      twistedRootGroup σ β :=
-  hg
 
 theorem isRoot_smul_single_G2 {s : ℤ} (hs : s = 1 ∨ s = -1) (i : Fin (Tag.rank .G2)) :
     IsRoot .G2 (s • Pi.single i 1) := by

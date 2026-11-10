@@ -85,14 +85,6 @@ theorem exists_η_eq
   obtain ⟨a, rfl⟩ := hn
   exact ⟨binOf (Multiplicative.toAdd a), binOf_lt _, by rw [η_binOf]; rfl⟩
 
-theorem image_η : η '' Set.Iio (2 ^ 11) = N := by
-  ext n
-  constructor
-  · rintro ⟨i, -, rfl⟩
-    exact η_mem_N i
-  · intro hn
-    obtain ⟨i, hi, rfl⟩ := exists_η_eq hn
-    exact ⟨i, hi, rfl⟩
 
 theorem x_conj_u
     (j : Fin 11) : x * u j * x⁻¹ = η xColumns[j.val]! := by

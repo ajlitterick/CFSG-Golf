@@ -204,13 +204,6 @@ theorem map_J24_eq_Hvis :
   refine Subgroup.eq_of_le_of_card_ge (map_J24_eq_closure ▸ closure_le_Hvis) ?_
   rw [natCard_Hvis, Subgroup.card_map_of_injective conjHom_injective, natCard_J24]
 
-theorem closure_eq_Hvis :
-    Subgroup.closure {u1, u2} = Hvis :=
-  map_J24_eq_closure ▸ map_J24_eq_Hvis
-
-theorem Kvis_eq_Hvis :
-    Kvis = Hvis :=
-  le_antisymm Kvis_le_Hvis (closure_eq_Hvis ▸ closure_le_Kvis)
 
 noncomputable def jEquivHvis :
     J24 ≃* Hvis :=
@@ -224,12 +217,5 @@ noncomputable def visQuotEquivCo1 :
     Gvis ⧸ rhoQ.subgroupOf Gvis ≃* Blueprint.NativeSporadic.Co1 :=
   visQuotEquivHvis.trans co1EquivHvis.symm
 
-theorem full_lattice_quotient_catalog_Co1_isomorphism :
-    Subgroup.closure {u1, u2} = Hvis ∧ Kvis = Hvis ∧
-      conjHom gA24 = u1 ∧ conjHom gB24 = u2 ∧ J24.map conjHom = Hvis ∧
-      Nonempty (Blueprint.NativeSporadic.Co1 ≃* Hvis) ∧
-      Nonempty (Gvis ⧸ rhoQ.subgroupOf Gvis ≃* Blueprint.NativeSporadic.Co1) :=
-  ⟨closure_eq_Hvis, Kvis_eq_Hvis, conjHom_gA24, conjHom_gB24, map_J24_eq_Hvis,
-    ⟨co1EquivHvis⟩, ⟨visQuotEquivCo1⟩⟩
 
 end CFSG.Monster.Existence.Co1Bridge

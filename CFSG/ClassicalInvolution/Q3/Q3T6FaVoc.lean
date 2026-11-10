@@ -38,8 +38,6 @@ theorem ne_one (h : IsSectionMemberU t Y K z) : z ≠ 1 := by
   rw [hz, orderOf_one] at h2
   exact absurd h2 (by norm_num)
 
-theorem central (h : IsSectionMemberU t Y K z) {k : G} (hk : k ∈ K) : k * z = z * k :=
-  Subgroup.mem_centralizer_singleton_iff.mp (isSubnormal_le h.subnormal hk).1
 
 theorem restrict (h : IsSectionMemberU t Y K z) {H : Subgroup G} (hHY : H ≤ Y) (hKH : K ≤ H) :
     IsSectionMemberU t H K z :=
@@ -98,38 +96,9 @@ theorem toIn (h : IsSectionMemberU t Y K z) : ∃ hz : z ∈ Y, IsClassicalMembe
         have := h.perfect hns
         exact Group.IsPerfect.ofSurjective (f := e.symm.toMonoidHom) e.symm.surjective }
 
-theorem toClassical (h : IsSectionMemberU t ⊤ K z) : IsClassicalMemberU t K z where
-  admissible := h.admissible
-  orderOf_eq_two := h.orderOf_eq_two
-  mem := h.mem
-  subnormal := by simpa using h.subnormal
-  witness := h.witness
-  perfect := h.perfect
 
 end IsSectionMemberU
 
-theorem isSectionMemberU_of_isClassicalMemberU {t : MemberType} {K : Subgroup G} {z : G}
-    (h : IsClassicalMemberU t K z) {Y : Subgroup G} (hKY : K ≤ Y) : IsSectionMemberU t Y K z where
-  admissible := h.admissible
-  le := hKY
-  orderOf_eq_two := h.orderOf_eq_two
-  mem := h.mem
-  subnormal := by
-    have := isSubnormal_inf h.subnormal Y
-    rwa [inf_eq_left.mpr hKY] at this
-  witness := h.witness
-  perfect := h.perfect
-
-theorem isSectionMemberU_self {t : MemberType} {J : Subgroup G} {v : G}
-    (h : IsClassicalMemberU t J v) :
-    IsSectionMemberU t (Subgroup.centralizer ({v} : Set G)) J v where
-  admissible := h.admissible
-  le := isSubnormal_le h.subnormal
-  orderOf_eq_two := h.orderOf_eq_two
-  mem := h.mem
-  subnormal := by rw [inf_idem]; exact h.subnormal
-  witness := h.witness
-  perfect := h.perfect
 
 end SectionMember
 
@@ -158,81 +127,16 @@ theorem exists_noncomm_of_sl2 (h : IsClassicalMemberU (.sl2 p f) L z) :
   rw [map_mul, map_mul, ← ha', ← hb', ← map_mul, ← map_mul]
   exact congrArg _ (Subtype.ext (hcon a' a'.2 b' b'.2))
 
-theorem not_le_center_of_sl2 (h : IsClassicalMemberU (.sl2 p f) L z) :
-    ¬ L ≤ Subgroup.center Y := by
-  intro hle
-  obtain ⟨x, hx, y, hy, hxy⟩ := exists_noncomm_of_sl2 h
-  exact hxy (Subgroup.mem_center_iff.mp (hle hx) y).symm
 
 end Noncomm
 
 section Transport
 
-theorem Fa.map_centralizer_singleton {Y Y' : Type} [Group Y] [Group Y'] (e : Y ≃* Y') (z : Y) :
-    (Subgroup.centralizer ({z} : Set Y)).map e.toMonoidHom =
-      Subgroup.centralizer ({e z} : Set Y') := by
-  ext x'
-  obtain ⟨x, rfl⟩ := e.surjective x'
-  rw [Subgroup.mem_map_equiv, MulEquiv.symm_apply_apply, Subgroup.mem_centralizer_iff,
-    Subgroup.mem_centralizer_iff]
-  simp only [Set.mem_singleton_iff, forall_eq]
-  rw [← map_mul, ← map_mul, e.injective.eq_iff]
-
-theorem isClassicalMemberU_map_mulEquiv {t : MemberType} {Y Y' : Type} [Group Y] [Group Y']
-    (e : Y ≃* Y') {L : Subgroup Y} {z : Y} (h : IsClassicalMemberU t L z) :
-    IsClassicalMemberU t (L.map e.toMonoidHom) (e z) where
-  admissible := h.admissible
-  orderOf_eq_two := by rw [MulEquiv.orderOf_eq]; exact h.orderOf_eq_two
-  mem := Subgroup.mem_map_of_mem _ h.mem
-  subnormal := by
-    rw [← Fa.map_centralizer_singleton e z]
-    exact isSubnormal_map_mulEquiv e h.subnormal
-  witness := by
-    let eL : L ≃* L.map e.toMonoidHom := L.equivMapOfInjective e.toMonoidHom e.injective
-    exact MemberType.Witness.of_mulEquiv eL h.witness
-  perfect hns := by
-    have := h.perfect hns
-    let eL : L ≃* L.map e.toMonoidHom := L.equivMapOfInjective e.toMonoidHom e.injective
-    exact Group.IsPerfect.ofSurjective (f := eL.toMonoidHom) eL.surjective
 
 end Transport
 
 section Perfect
 
-theorem Fa.false_of_perfect_quotient {F : Type} [Field F] (hF : Nat.card F = 3) {L : Type}
-    [Group L] [Group.IsPerfect L] (N : Subgroup L) [N.Normal] (e : L ⧸ N ≃* SL(2, F)) :
-    False := by
-  have hQ : Group.IsPerfect (L ⧸ N) :=
-    Group.IsPerfect.ofSurjective (f := QuotientGroup.mk' N) (QuotientGroup.mk'_surjective N)
-  have hS : Group.IsPerfect SL(2, F) :=
-    Group.IsPerfect.ofSurjective (f := e.toMonoidHom) e.surjective
-  exact commutator_ne_top_of_equiv_sl2_of_card_three hF (MulEquiv.refl _) hS.commutator_eq_top
-
-variable {p f : ℕ} {Y : Type} [Group Y] {L : Subgroup Y} {z : Y}
-
-theorem not_isPerfect_of_isClassicalMemberU_three (h : IsClassicalMemberU (.sl2 p f) L z)
-    (h3 : p ^ f = 3) : ¬ Group.IsPerfect L := by
-  intro hperf
-  obtain ⟨hp, ⟨e⟩⟩ := h.witness
-  have := hp
-  exact Fa.false_of_perfect_quotient
-    (by rw [natCard_galoisField_eq (p := p) (f := f) h.admissible.2.2]; exact h3)
-    (classicalInvolutionOddCore L) e
-
-theorem Fa.false_of_isClassicalMember [Fact p.Prime] (h3 : p ^ f = 3)
-    (h : IsClassicalMember p f L z) : False := by
-  have hf : 0 < f := Nat.pos_of_ne_zero (by rintro rfl; simp at h3)
-  have := h.perfect
-  obtain ⟨e⟩ := h.nonempty_equiv
-  exact Fa.false_of_perfect_quotient
-    (by rw [natCard_galoisField_eq (p := p) (f := f) hf]; exact h3)
-    (classicalInvolutionOddCore L) e
-
-theorem Fa.eq_empty_of_forall_isClassicalMember [Fact p.Prime] (h3 : p ^ f = 3)
-    {Ω : Set (Subgroup Y)} (hcl : ∀ K ∈ Ω, ∃ w : Y, IsClassicalMember p f K w) : Ω = ∅ := by
-  refine Set.eq_empty_of_forall_notMem fun K hK => ?_
-  obtain ⟨w, hw⟩ := hcl K hK
-  exact Fa.false_of_isClassicalMember h3 hw
 
 end Perfect
 

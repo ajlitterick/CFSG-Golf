@@ -134,31 +134,6 @@ theorem torusEquivariant_top_of_normalized {k : Fin n}
   calc Et * Φ x * Et⁻¹ = Eu * (Et * Φ x * Et⁻¹) * Eu⁻¹ := by rw [hcz, mul_inv_cancel_right]
     _ = Eu * Et * Φ x * (Eu * Et)⁻¹ := by group
 
-theorem planeCore_eq_map_of_normalized [Finite G] [Finite F] (hK : 4 ≤ Nat.card K) {k : Fin n}
-    {I : Finset (Fin n)} (hk : k ∉ I) (Φ : spBlock F ({k}ᶜ : Finset (Fin n)) →* G)
-    (hker : Φ.ker ≤ center (spBlock F ({k}ᶜ : Finset (Fin n))))
-    (hrange : Φ.range = neighbourCore e k)
-    (hN1 : ∀ (x : StatedSp n K) (hx : x ∈ spBlock K ({k}ᶜ : Finset (Fin n))),
-      Φ ⟨spFieldMap n ι x, spFieldMap_mem_spBlock ι hx⟩ = ((e.symm x : L) : G)) :
-    planeCore e I = ((spBlock F I).subgroupOf (spBlock F ({k}ᶜ : Finset (Fin n)))).map Φ :=
-  planeCore_eq_map_of_neighbourCore e ι hK hk Φ hker hrange
-    ((torusEquivariant_top_of_normalized e ι Φ hN1 (hrange ▸
-      CFSG.SeitzReduction.F4Pilot.centralizerPerfectCore_le_centralizer _)).of_top e ι _)
-
-theorem pieceCore_string_eq_map_of_normalized [Finite G] [Finite F] (hK : 4 ≤ Nat.card K)
-    {a b : ℕ} (hab : a < b) (hb : b < n) {k : Fin n}
-    (hk : k ∉ Finset.univ.filter fun j : Fin n => a ≤ j.val ∧ j.val ≤ b)
-    (Φ : spBlock F ({k}ᶜ : Finset (Fin n)) →* G)
-    (hker : Φ.ker ≤ center (spBlock F ({k}ᶜ : Finset (Fin n))))
-    (hrange : Φ.range = neighbourCore e k)
-    (hN1 : ∀ (x : StatedSp n K) (hx : x ∈ spBlock K ({k}ᶜ : Finset (Fin n))),
-      Φ ⟨spFieldMap n ι x, spFieldMap_mem_spBlock ι hx⟩ = ((e.symm x : L) : G)) :
-    pieceCore e (Finset.univ.filter fun j : Fin n => a ≤ j.val ∧ j.val < b) =
-      ((siegelBlock F (Finset.univ.filter fun j : Fin n => a ≤ j.val ∧ j.val ≤ b)).subgroupOf
-        (spBlock F ({k}ᶜ : Finset (Fin n)))).map Φ :=
-  pieceCore_string_eq_map_of_neighbourCore e ι hK hab hb hk Φ hker hrange
-    ((torusEquivariant_top_of_normalized e ι Φ hN1 (hrange ▸
-      CFSG.SeitzReduction.F4Pilot.centralizerPerfectCore_le_centralizer _)).of_top e ι _)
 
 end Normalized
 
@@ -203,20 +178,6 @@ theorem torusEquivariantProd_top_of_normalized {k : Fin n}
   calc Et * Ψ x * Et⁻¹ = Eu * (Et * Ψ x * Et⁻¹) * Eu⁻¹ := by rw [hcz, mul_inv_cancel_right]
     _ = Eu * Et * Ψ x * (Eu * Et)⁻¹ := by group
 
-theorem planeCore_eq_map_of_normalized_prod [Finite G] [Finite F] (hK : 4 ≤ Nat.card K)
-    {k : Fin n} {I : Finset (Fin n)} (hk : k ∉ I)
-    (Ψ : spBlock F ({k}ᶜ : Finset (Fin n)) × spBlock F ({k}ᶜ : Finset (Fin n)) →* G)
-    (hker : Ψ.ker ≤ center (spBlock F ({k}ᶜ : Finset (Fin n)) ×
-      spBlock F ({k}ᶜ : Finset (Fin n))))
-    (hrange : Ψ.range = neighbourCore e k)
-    (hN1 : ∀ (x : StatedSp n K) (hx : x ∈ spBlock K ({k}ᶜ : Finset (Fin n))),
-      Ψ (⟨spFieldMap n ι x, spFieldMap_mem_spBlock ι hx⟩,
-        ⟨spFieldMap n ι x, spFieldMap_mem_spBlock ι hx⟩) = ((e.symm x : L) : G)) :
-    planeCore e I = (((spBlock F I).subgroupOf (spBlock F ({k}ᶜ : Finset (Fin n)))).prod
-      ((spBlock F I).subgroupOf (spBlock F ({k}ᶜ : Finset (Fin n))))).map Ψ :=
-  planeCore_eq_map_of_neighbourCore_prod e ι hK hk Ψ hker hrange
-    ((torusEquivariantProd_top_of_normalized e ι Ψ hN1 (hrange ▸
-      CFSG.SeitzReduction.F4Pilot.centralizerPerfectCore_le_centralizer _)).mono e ι le_top)
 
 end NormalizedProd
 

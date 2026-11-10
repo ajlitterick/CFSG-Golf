@@ -111,16 +111,6 @@ theorem single_mem_jTilde {J : Subgroup Γ} (hJ : J ∈ lcal H) {a : ↥(thetaOf
   intro J' hJ' hne
   exact mulSingle_eq_one_of_ne a (fun h' => hne (congrArg Subtype.val h'))
 
-open Classical in
-theorem single_acts {J : Subgroup Γ} (hJ : J ∈ lcal H) {a : ↥(thetaOf θ B)} {y : ↥H}
-    (hy : autH H y = S.thetaAut (Pi.mulSingle ⟨J, hJ⟩ a)) :
-    ∀ j ∈ J, (y : Γ) * j * (y : Γ)⁻¹ = (a : Γ) * j * (a : Γ)⁻¹ := by
-  intro j hj
-  have h1 := S.actsOn_thetaAut (Pi.mulSingle ⟨J, hJ⟩ a) hJ
-  rw [← hy] at h1
-  have h2 := h1 ⟨j, S.hK.le hJ hj⟩ hj
-  rw [Pi.mulSingle_eq_same] at h2
-  exact h2
 
 theorem sSup_Y_diff_le_centralizer {J : Subgroup Γ} (hJ : J ∈ lcal H) :
     sSup ({Y | ∃ J ∈ lcal H, Y = thetaSup B θ ⊓ jTilde H J} \

@@ -71,18 +71,6 @@ theorem comm_of_mem_S_inf (hC : Counterexample G D r Abar) {a : Fin r} (d : Delt
   calc s * u = u * s * (s⁻¹ * u⁻¹ * s * u) := by group
     _ = u * s := by rw [hc, mul_one]
 
-theorem S_inf_centralizer_eq (hC : Counterexample G D r Abar) {a : Fin r}
-    (d : DeltaDatum D Abar a)
-    (hUZ : AschbacherTheorem3.omegaOne d.T ≤ rightConjugate (zStar D Abar) d.g) {u : G}
-    (hu : u ∈ AschbacherTheorem3.omegaOne d.T) (hu1 : u ≠ 1) :
-    d.S ⊓ Subgroup.centralizer {u} =
-      d.S ⊓ rightConjugate (Subgroup.normalizer (D : Set G)) d.g := by
-  apply le_antisymm
-  · exact inf_le_inf_left _ (centralizer_le_of_mem_zStar_conj hC d.g (hUZ hu)
-      (twoElt_of_mem (d.sylowT.isPGroup.to_le EndHyp.U_le_T) hu) hu1)
-  · intro s hs
-    exact ⟨hs.1, Subgroup.mem_centralizer_singleton_iff.mpr
-      (comm_of_mem_S_inf hC d hUZ hs hu)⟩
 
 theorem normalizer_U_le (hC : Counterexample G D r Abar) {a : Fin r} (d : DeltaDatum D Abar a)
     (hUZ : AschbacherTheorem3.omegaOne d.T ≤ rightConjugate (zStar D Abar) d.g)

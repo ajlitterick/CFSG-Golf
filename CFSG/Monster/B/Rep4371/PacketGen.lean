@@ -68,7 +68,6 @@ theorem hElt_mem_Cgen (i : Fin 24) : hElt i ∈ Cgen := Jstar_le_Cgen (hElt_mem_
 
 @[expose] noncomputable def packetElt (k : Fin 48) : Cbar := kappa (packetGen k)
 
-theorem packetElt_eq (k : Fin 48) : packetElt k = kappa (packetGen k) := rfl
 
 theorem coe_packetGen_of_lt {k : Fin 48} (h : (k : ℕ) < 23) :
     (packetGen k : SpaceB ≃ₗ[ℚ] SpaceB) = rhoEquiv (qElt ⟨k, h⟩) := by
@@ -100,10 +99,6 @@ theorem packetGen_h (i : Fin 24) :
 
 theorem packetGen_tau : packetGen 47 = tauC := Subtype.ext coe_packetGen_tau
 
-theorem packetElt_of_lt {k : Fin 48} (h : (k : ℕ) < 23) :
-    packetElt k = kappa ⟨rhoEquiv (pauliQ (Model.qPauli k)), qElt_eq ⟨k, h⟩ ▸
-      rhoEquiv_qElt_mem_Cgen ⟨k, h⟩⟩ :=
-  congrArg kappa (Subtype.ext (coe_packetGen_pauli h))
 
 theorem packetElt_h (i : Fin 24) :
     packetElt ⟨23 + i, by omega⟩ = kappa ⟨hElt i, hElt_mem_Cgen i⟩ :=

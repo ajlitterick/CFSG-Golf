@@ -28,39 +28,6 @@ theorem aboveFamily_finite (Pf : Set (CentralExtension F b m hm heven → ℂ)) 
     (aboveFamily hSigma Pf).Finite :=
   (CFSG.BlockSectionOrthogonality.Helpers.irreducibles_finite _).subset fun _ h => h.1
 
-omit [Fintype F] in
-theorem blocksInnerProduct_comp_mulEquiv [Finite F] (α : CentralExtension F b m hm heven ≃*
-    CentralExtension F b m hm heven) (f g : CentralExtension F b m hm heven → ℂ) :
-    BlocksInnerProduct (f ∘ α) (g ∘ α) = BlocksInnerProduct f g := by
-  have : Fintype F := Fintype.ofFinite F
-  unfold BlocksInnerProduct
-  congr 1
-  exact Fintype.sum_equiv α.toEquiv _ _ fun x => rfl
-
-theorem liesAbove_fieldTwist {ξ : SemilinearExtension F b m hm heven Sigma hSigma → ℂ}
-    (hξ : ξ ∈ BlocksIrr (SemilinearExtension F b m hm heven Sigma hSigma))
-    (θ : CentralExtension F b m hm heven → ℂ) (σ : Sigma) :
-    liesAbove hSigma ξ (fieldTwist hSigma σ θ) ↔ liesAbove hSigma ξ θ := by
-  have hclass := classFunction_of_blocksIrr hξ
-  have hinv : (fun g => ξ (SemidirectProduct.inl g)) ∘
-      (fieldAction F b m hm heven Sigma hSigma σ⁻¹) = fun g => ξ (SemidirectProduct.inl g) := by
-    funext g
-    simp only [Function.comp_apply]
-    have h1 := inr_conj hSigma σ⁻¹ (SemidirectProduct.inl g)
-    rw [SemidirectProduct.left_inl, SemidirectProduct.right_inl] at h1
-    have h2 : (SemidirectProduct.inl (fieldAction F b m hm heven Sigma hSigma σ⁻¹ g) :
-        SemilinearExtension F b m hm heven Sigma hSigma) =
-        SemidirectProduct.inr σ⁻¹ * SemidirectProduct.inl g * (SemidirectProduct.inr σ⁻¹)⁻¹ := by
-      rw [h1]
-      rfl
-    rw [h2, hclass]
-  unfold liesAbove
-  have h3 := blocksInnerProduct_comp_mulEquiv (fieldAction F b m hm heven Sigma hSigma σ⁻¹)
-    (fun g => ξ (SemidirectProduct.inl g)) θ
-  rw [hinv] at h3
-  change 0 < BlocksInnerProduct (fun g => ξ (SemidirectProduct.inl g))
-    (θ ∘ (fieldAction F b m hm heven Sigma hSigma σ⁻¹)) ↔ _
-  rw [h3]
 
 theorem degree_eq_card_above_twist (Pf : Finset (CentralExtension F b m hm heven → ℂ))
     (hirr : ∀ θ ∈ Pf, θ ∈ BlocksIrr (CentralExtension F b m hm heven))
@@ -208,81 +175,6 @@ theorem not_liesAbove_of_degree_ne {Pf : Set (CentralExtension F b m hm heven �
   obtain ⟨σ, rfl⟩ := exists_fieldTwist_of_liesAbove hSigma (hirr θ hθ) hθ' hξirr habove habove'
   exact hne (by rw [fieldTwist_apply_one, hdegPf θ hθ])
 
-theorem repFamily_eq_aboveFamily {Pf R : Set (CentralExtension F b m hm heven → ℂ)}
-    (hirr : ∀ θ ∈ Pf, θ ∈ BlocksIrr (CentralExtension F b m hm heven)) (hRsub : R ⊆ Pf)
-    (hR : ∀ θ ∈ Pf, ∃ θ' ∈ R, ∃ σ : Sigma, θ = fieldTwist hSigma σ θ')
-    (ext : (θ : CentralExtension F b m hm heven → ℂ) →
-      semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma)
-        (twistStabilizer hSigma θ) → ℂ)
-    (hext : ∀ θ ∈ R, ext θ ∈ BlocksIrr (semilinearInertia (hm := hm) (heven := heven)
-        (hSigma := hSigma) (twistStabilizer hSigma θ)) ∧
-      ∀ (g : CentralExtension F b m hm heven)
-        (hg : (SemidirectProduct.inl g : SemilinearExtension F b m hm heven Sigma hSigma) ∈
-          semilinearInertia (twistStabilizer hSigma θ)),
-        ext θ ⟨SemidirectProduct.inl g, hg⟩ = θ g) :
-    {ξ | ∃ θ ∈ R, ∃ ρ, ξ = twistInduced hSigma θ (ext θ) ρ} = aboveFamily hSigma Pf := by
-  ext ξ
-  constructor
-  · rintro ⟨θ, hθR, ρ, rfl⟩
-    have hθ := hirr θ (hRsub hθR)
-    obtain ⟨hdeg, -, hiff, -, -⟩ := twist_clifford hSigma hθ (hext θ hθR).1 (hext θ hθR).2
-    exact ⟨(hdeg ρ).1, θ, hRsub hθR, (hiff _ (hdeg ρ).1).mpr ⟨ρ, rfl⟩⟩
-  · rintro ⟨hξ, θ₀, hθ₀, habove⟩
-    obtain ⟨θ, hθR, σ, rfl⟩ := hR θ₀ hθ₀
-    have habove' := (liesAbove_fieldTwist hSigma hξ θ σ).mp habove
-    have hθ := hirr θ (hRsub hθR)
-    obtain ⟨-, -, hiff, -, -⟩ := twist_clifford hSigma hθ (hext θ hθR).1 (hext θ hθR).2
-    obtain ⟨ρ, rfl⟩ := (hiff ξ hξ).mp habove'
-    exact ⟨θ, hθR, ρ, rfl⟩
-
-theorem repFamily_rep_eq {Pf R : Set (CentralExtension F b m hm heven → ℂ)}
-    (hirr : ∀ θ ∈ Pf, θ ∈ BlocksIrr (CentralExtension F b m hm heven)) (hRsub : R ⊆ Pf)
-    (hR : ∀ θ ∈ Pf, ∃! θ', θ' ∈ R ∧ ∃ σ : Sigma, θ = fieldTwist hSigma σ θ')
-    (ext : (θ : CentralExtension F b m hm heven → ℂ) →
-      semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma)
-        (twistStabilizer hSigma θ) → ℂ)
-    (hext : ∀ θ ∈ R, ext θ ∈ BlocksIrr (semilinearInertia (hm := hm) (heven := heven)
-        (hSigma := hSigma) (twistStabilizer hSigma θ)) ∧
-      ∀ (g : CentralExtension F b m hm heven)
-        (hg : (SemidirectProduct.inl g : SemilinearExtension F b m hm heven Sigma hSigma) ∈
-          semilinearInertia (twistStabilizer hSigma θ)), ext θ ⟨SemidirectProduct.inl g, hg⟩ = θ g)
-    {θ θ' : CentralExtension F b m hm heven → ℂ} (hθR : θ ∈ R) (hθR' : θ' ∈ R)
-    (ρ : twistStabilizer hSigma θ →* ℂˣ) (ρ' : twistStabilizer hSigma θ' →* ℂˣ)
-    (h : twistInduced hSigma θ (ext θ) ρ = twistInduced hSigma θ' (ext θ') ρ') : θ = θ' := by
-  have hθ := hirr θ (hRsub hθR)
-  have hθ' := hirr θ' (hRsub hθR')
-  obtain ⟨hdeg, -, hiff, -, -⟩ := twist_clifford hSigma hθ (hext θ hθR).1 (hext θ hθR).2
-  obtain ⟨hdeg', -, hiff', -, -⟩ := twist_clifford hSigma hθ' (hext θ' hθR').1 (hext θ' hθR').2
-  have h1 : liesAbove hSigma (twistInduced hSigma θ (ext θ) ρ) θ :=
-    (hiff _ (hdeg ρ).1).mpr ⟨ρ, rfl⟩
-  have h2 : liesAbove hSigma (twistInduced hSigma θ (ext θ) ρ) θ' := by
-    rw [h]
-    exact (hiff' _ (hdeg' ρ').1).mpr ⟨ρ', rfl⟩
-  obtain ⟨σ, hσ⟩ := exists_fieldTwist_of_liesAbove hSigma hθ hθ' (hdeg ρ).1 h1 h2
-  obtain ⟨θ₀, -, huniq⟩ := hR θ' (hRsub hθR')
-  have e1 := huniq θ' ⟨hθR', 1, (fieldTwist_one hSigma θ').symm⟩
-  have e2 := huniq θ ⟨hθR, σ, hσ⟩
-  exact e2.trans e1.symm
-
-theorem twistInduced_x {θ : CentralExtension F b m hm heven → ℂ}
-    (hθ : θ ∈ BlocksIrr (CentralExtension F b m hm heven))
-    {χ : semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma)
-      (twistStabilizer hSigma θ) → ℂ}
-    (hχ : χ ∈ BlocksIrr (semilinearInertia (hm := hm) (heven := heven) (hSigma := hSigma)
-      (twistStabilizer hSigma θ)))
-    (hres : ∀ (g : CentralExtension F b m hm heven)
-      (hg : (SemidirectProduct.inl g : SemilinearExtension F b m hm heven Sigma hSigma) ∈
-        semilinearInertia (twistStabilizer hSigma θ)), χ ⟨SemidirectProduct.inl g, hg⟩ = θ g)
-    (ρ : twistStabilizer hSigma θ →* ℂˣ) :
-    twistInduced hSigma θ χ ρ (SemidirectProduct.inl (cyclicGenerator F b m hm heven ^ m)) =
-      ((twistStabilizer hSigma θ).index : ℂ) * θ (cyclicGenerator F b m hm heven ^ m) := by
-  obtain ⟨-, -, -, hrest, -⟩ := twist_clifford hSigma hθ hχ hres
-  obtain ⟨C, hC⟩ := CFSG.Wreathed.exists_leftCoset_reps (twistStabilizer hSigma θ)
-  obtain ⟨hsum, -, -⟩ := hrest C hC
-  have h := congrFun (hsum ρ) (cyclicGenerator F b m hm heven ^ m)
-  rw [h, Finset.sum_apply, Finset.sum_congr rfl fun σ _ => by
-    rw [fieldTwist_apply, fieldAction_cyclicGenerator_pow_m], Finset.sum_const,
-    card_coset_reps _ C hC, nsmul_eq_mul]
 
 end Above
 

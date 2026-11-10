@@ -55,10 +55,6 @@ theorem nv_mul_self (hB : B.IsAlt) (v : M) : nv B v * nv B v = 0 := by
   rw [Module.End.mul_apply, nv_apply, nv_apply, map_smul, hB.self_eq_zero, smul_zero, zero_smul,
     LinearMap.zero_apply]
 
-theorem nv_skew (hB : B.IsAlt) (v z z' : M) : B z (nv B v z') + B (nv B v z) z' = 0 := by
-  simp only [nv_apply, map_smul, LinearMap.smul_apply, smul_eq_mul]
-  rw [← hB.neg v z]
-  ring
 
 @[expose] def tv (hB : B.IsAlt) (c : K) (v : M) : LinearMap.GeneralLinearGroup K M where
   val := 1 + c • nv B v
@@ -280,8 +276,6 @@ theorem diagMap_comp (hij : i ≠ j) {l : E} (hl : l ≠ 0) :
     have h := diagMap_comp b hij (inv_ne_zero hl)
     rwa [inv_inv] at h
 
-theorem diagUnit_val (hij : i ≠ j) {l : E} (hl : l ≠ 0) :
-    ((diagUnit b hij hl : LinearMap.GeneralLinearGroup E M) : M →ₗ[E] M) = diagMap b i j l := rfl
 
 theorem diagMap_mul_nb (hij : i ≠ j) {l : E} (hl : l ≠ 0) :
     diagMap b i j l * nb b i j = (l ^ 2) • (nb b i j * diagMap b i j l) := by

@@ -53,10 +53,6 @@ variable (σ) in
     rw [← hu]
     group
 
-theorem mem_ggSUInducedPairs {ψ : SU σ n →* G} {y : G} {A : GL (Fin n) F} :
-    (y, A) ∈ ggSUInducedPairs σ ψ ↔ IsJUnitary σ A ∧
-      ∀ u v : SU σ n, (v : GL (Fin n) F) = A * u * A⁻¹ → y * ψ u * y⁻¹ = ψ v :=
-  Iff.rfl
 
 theorem mem_ggSUInducedPairs_of_conjSU {ψ : SU σ n →* G} {y : G} {A : GL (Fin n) F}
     (hA : IsJUnitary σ A) (h : ∀ u, y * ψ u * y⁻¹ = ψ (conjSU A hA u)) :

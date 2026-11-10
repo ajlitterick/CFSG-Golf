@@ -49,7 +49,6 @@ theorem ten_dvd_of_card_eq {Γ L : Subgroup (GLV V)} (hL : L ≤ Γ)
   rw [hH] at hdvd
   exact Dvd.dvd.trans (by norm_num) hdvd
 
-variable [Finite V]
 
 end G117
 

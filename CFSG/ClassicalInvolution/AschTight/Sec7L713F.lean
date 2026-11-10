@@ -94,30 +94,5 @@ theorem isSylow2In_inf_of_normal {V X Y : Subgroup G} (hV : IsSylow2In V X)
     exact Subgroup.card_le_of_le hTV
   exact (Subgroup.eq_of_le_of_card_ge hle hcard).symm
 
-theorem exists_invariant_DSet (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmegaMod p f Ω)
-    (habel : EtaAbelian Ω) (h611 : EtaMeets Ω) {W : Subgroup G} (hW : W ∈ WSet Ω)
-    {T L : Subgroup G} (hT : T ∈ DSet Ω W) (hL : L ∈ Ω) (hTL : T ≤ L) {a : G}
-    (ha2 : IsPGroup 2 (Subgroup.zpowers a)) (haW : a ∈ Subgroup.normalizer (W : Set G))
-    (haL : a ∈ Subgroup.normalizer (L : Set G)) :
-    ∃ T' ∈ DSet Ω W, T' ≤ L ∧ IsSylow2In T' L ∧ conjSub a T' = T' ∧ T' ≤ T ⊔ OCW W := by
-  set H := L ⊓ Subgroup.normalizer (W : Set G) with hH
-  have haH : a ∈ Subgroup.normalizer (H : Set G) :=
-    mem_normalizer_inf haL (Subgroup.le_normalizer haW)
-  have hXN : Subgroup.zpowers a ⊔ H ≤ Subgroup.normalizer (H : Set G) :=
-    sup_le (Subgroup.zpowers_le.mpr haH) Subgroup.le_normalizer
-  obtain ⟨P, hP, haP⟩ := IsSylow2In.exists_ge ha2 (le_sup_left : Subgroup.zpowers a ≤ _ ⊔ H)
-  have hT'H := isSylow2In_inf_of_normal hP le_sup_right hXN
-  have hTsyl := isSylow2In_of_mem_RSet_of_le hp hΩ hT.1 hL hTL
-  have hTH : IsSylow2In T H := ⟨le_inf hTL hT.2, hTsyl.2.1, fun V' hV'H hV'2 hTV' =>
-    hTsyl.2.2 V' (hV'H.trans inf_le_left) hV'2 hTV'⟩
-  have hT'L : IsSylow2In (P ⊓ H) L := by
-    refine IsSylow2In.of_natCard_le hTsyl hT'H.2.1 (inf_le_right.trans inf_le_left) ?_
-    rw [hTH.natCard_eq hT'H]
-  have hT'D : P ⊓ H ∈ DSet Ω W :=
-    ⟨mem_RSet_of_isSylow2In hL hT'L, inf_le_right.trans inf_le_right⟩
-  refine ⟨P ⊓ H, hT'D, hT'L.1, hT'L, ?_, keyOn_strong hp hq hΩ habel h611 hW hT hT'D hL hTL
-    hT'L.1⟩
-  rw [conjSub_inf, conjSub_eq_self_of_mem (haP (Subgroup.mem_zpowers a)),
-    mem_normalizer_iff_conjSub_eq.mp haH]
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Sec7

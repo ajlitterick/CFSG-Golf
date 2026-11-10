@@ -94,33 +94,12 @@ theorem betaFour_globalRank {p : ℕ} (hp : p ∈ GLBBetaFour G) :
     4 ≤ pRank p (⊤ : Subgroup G) := by
   exact hp.2.2.2.trans (twoLocalRank_le_globalRank p hp.1)
 
-theorem exclusion_iff_not_preuniqueness :
-    (∃ p ∈ GLBBetaFour G, ¬ GLBWeakCoreLocal G p) ↔ ¬ GLBPreuniqueness G := by
-  classical
-  simp only [GLBPreuniqueness, not_forall]
-  simp
 
 theorem weakCoreLocal_iff_of_betaFour {p : ℕ} (hp : p ∈ GLBBetaFour G) :
     GLBWeakCoreLocal G p ↔ ∀ P : Sylow p G, ∃ H : Subgroup G,
       IsTwoLocal H ∧ GLBWeakCore p (P : Subgroup G) ≤ H := by
   exact and_iff_right (by have := betaFour_globalRank hp; omega)
 
-theorem exclusion_iff_nonlocal_core :
-    (∃ p ∈ GLBBetaFour G, ¬ GLBWeakCoreLocal G p) ↔
-      ∃ p ∈ GLBBetaFour G, ∃ P : Sylow p G,
-        ∀ H : Subgroup G, IsTwoLocal H → ¬ GLBWeakCore p (P : Subgroup G) ≤ H := by
-  classical
-  constructor
-  · rintro ⟨p, hp, hnonlocal⟩
-    rw [weakCoreLocal_iff_of_betaFour hp] at hnonlocal
-    push Not at hnonlocal
-    exact ⟨p, hp, hnonlocal⟩
-  · rintro ⟨p, hp, P, hnonlocal⟩
-    refine ⟨p, hp, ?_⟩
-    rw [weakCoreLocal_iff_of_betaFour hp]
-    intro hlocal
-    obtain ⟨H, hH, hcore⟩ := hlocal P
-    exact hnonlocal H hH hcore
 
 theorem normalizer_le_weakCore (p : ℕ) {P Q : Subgroup G} (hQP : Q ≤ P)
     (hrank : 2 ≤ pRank p Q)
@@ -166,32 +145,6 @@ theorem fullCore_le_iff (p rank : ℕ) (P M : Subgroup G) :
     rintro N ⟨Q, hQP, hrank, rfl⟩
     exact hnormalizers Q hQP hrank
 
-theorem fullCore_escape_of_weakCore_local (p : ℕ) (hp : p.Prime)
-    (P M : Subgroup G) (hweak : GLBWeakCore p P ≤ M)
-    (hfull : ¬ GLBCore p 2 P ≤ M) :
-    ∃ Q : Subgroup G, Q ≤ P ∧ pRank p Q = 2 ∧
-      pRank p (Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G))) = 2 ∧
-      pRank p (P ⊓ Subgroup.centralizer (Q : Set G)) ≤ 2 ∧
-      ¬ Subgroup.normalizer (Q : Set G) ≤ M := by
-  classical
-  rw [fullCore_le_iff] at hfull
-  push Not at hfull
-  obtain ⟨Q, hQP, hQrank, hescape⟩ := hfull
-  have hQupper : pRank p Q < 3 := by
-    by_contra hlarge
-    apply hescape
-    exact (normalizer_le_weakCore p hQP hQrank
-      ((Nat.le_of_not_gt hlarge).trans (pRank_mono p hp le_sup_left))).trans hweak
-  have hjoinupper : pRank p (Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G))) < 3 := by
-    by_contra hlarge
-    exact hescape ((normalizer_le_weakCore p hQP hQrank
-      (Nat.le_of_not_gt hlarge)).trans hweak)
-  have hjoinlower : 2 ≤ pRank p (Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G))) :=
-    hQrank.trans (pRank_mono p hp le_sup_left)
-  have hcentral := pRank_mono p hp
-    (show P ⊓ Subgroup.centralizer (Q : Set G) ≤
-      Q ⊔ (P ⊓ Subgroup.centralizer (Q : Set G)) from le_sup_right)
-  exact ⟨Q, hQP, by omega, by omega, by omega, hescape⟩
 
 theorem rankThreeCore_le_weakCore (p : ℕ) (hp : p.Prime) (P : Subgroup G) :
     GLBCore p 3 P ≤ GLBWeakCore p P := by
@@ -235,13 +188,6 @@ theorem weakCore_eq_fullCore_of_commutative (p : ℕ) (hp : p.Prime) (P : Subgro
   rintro N ⟨Q, hQP, hQrank, rfl⟩
   exact normalizer_le_weakCore_of_commutative_overgroup p hp le_rfl hQP hcomm hQrank hrank
 
-theorem betaFour_has_large_sylow {p : ℕ} (hp : p ∈ GLBBetaFour G) :
-    ∃ P : Sylow p G, 4 ≤ pRank p (P : Subgroup G) := by
-  obtain ⟨E, _, helem, hcard⟩ := pRank_attained p hp.1 (⊤ : Subgroup G)
-  obtain ⟨P, hEP⟩ := (IsPGroup.of_card hcard).exists_le_sylow
-  refine ⟨P, (betaFour_globalRank hp).trans ?_⟩
-  exact le_csSup (pRank_bddAbove p hp.1 (P : Subgroup G))
-    ⟨E, hEP, helem, hcard⟩
 
 theorem pGroup_commutative_of_simple [IsSimpleGroup G] (p : ℕ) (hp : p.Prime)
     (hgroup : IsPGroup p G) : ∀ a b : G, a * b = b * a := by
@@ -270,16 +216,6 @@ theorem twoLocal_ne_top [IsSimpleGroup G]
     obtain ⟨a, b, hab⟩ := hnonab
     exact hab (pGroup_commutative_of_simple 2 (by norm_num) hG a b)
 
-theorem exclusion_of_weakCore_eq_top [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) {p : ℕ} (hp : p ∈ GLBBetaFour G)
-    (P : Sylow p G) (hcore : GLBWeakCore p (P : Subgroup G) = ⊤) :
-    ∃ q ∈ GLBBetaFour G, ¬ GLBWeakCoreLocal G q := by
-  apply exclusion_iff_nonlocal_core.mpr
-  refine ⟨p, hp, P, ?_⟩
-  intro H hlocal hcontained
-  apply twoLocal_ne_top hnonab hlocal
-  apply top_le_iff.mp
-  exact hcore ▸ hcontained
 
 theorem exists_maximal_twoLocal {H : Subgroup G} (hlocal : IsTwoLocal H) :
     ∃ M : Subgroup G, H ≤ M ∧ GLBIsMaxTwoLocal M := by
@@ -322,21 +258,6 @@ theorem bmax_has_large_sylow {p : ℕ} (hp : p ∈ GLBBetaFour G) {B : Subgroup 
   refine ⟨P, hBP, hp.2.2.2.trans ?_⟩
   exact (bmax_rank_lowerBound hp.1 hB).trans (pRank_mono p hp.1 hBP)
 
-theorem preuniqueness_has_maximal_local {p : ℕ} (hp : p ∈ GLBBetaFour G)
-    (hpre : GLBPreuniqueness G) :
-    ∃ (B : Subgroup G) (P : Sylow p G) (M : Subgroup G),
-      GLBIsBmax p B ∧ B ≤ (P : Subgroup G) ∧ 4 ≤ pRank p (P : Subgroup G) ∧
-      GLBIsMaxTwoLocal M ∧ p ∈ GLBSigma M ∧
-      GLBWeakCore p (P : Subgroup G) ≤ M ∧ (P : Subgroup G) ≤ M := by
-  obtain ⟨B, hB⟩ := betaFour_has_bmax hp
-  obtain ⟨P, hBP, hPrank⟩ := bmax_has_large_sylow hp hB
-  obtain ⟨H, hHlocal, hcore⟩ := (hpre p hp).2 P
-  obtain ⟨M, hHM, hMmax⟩ := exists_maximal_twoLocal hHlocal
-  have hcoreM : GLBWeakCore p (P : Subgroup G) ≤ M := hcore.trans hHM
-  have hPM : (P : Subgroup G) ≤ M :=
-    (subgroup_le_weakCore_of_rank p hp.1 (P : Subgroup G) (by omega)).trans hcoreM
-  exact ⟨B, P, M, hB, hBP, hPrank, hMmax, ⟨hp, B, hB, hBP.trans hPM⟩,
-    hcoreM, hPM⟩
 
 omit [Finite G] in
 theorem pCore_normal (p : ℕ) : (pCore p G).Normal := by
@@ -438,30 +359,6 @@ theorem twoLocal_pCoreOf_ne_bot {H : Subgroup G} (hlocal : IsTwoLocal H) :
   apply hnontrivial
   exact bot_unique (hbot ▸ hcore)
 
-omit [Finite G] in
-theorem maximal_twoLocal_eq_core_normalizer {M : Subgroup G}
-    (hmax : GLBIsMaxTwoLocal M) :
-    Subgroup.normalizer (pCoreOf 2 M : Set G) = M := by
-  apply hmax.2
-  · exact ⟨pCoreOf 2 M, twoLocal_pCoreOf_ne_bot hmax.1,
-      pCoreOf_isPGroup 2 M, rfl⟩
-  · exact subgroup_normalizes_pCoreOf 2 M
-
-omit [Finite G] in
-theorem maximal_twoLocal_self_normalizing {M : Subgroup G}
-    (hmax : GLBIsMaxTwoLocal M) : Subgroup.normalizer (M : Set G) = M := by
-  apply le_antisymm _ Subgroup.le_normalizer
-  have hcore : Subgroup.normalizer (M : Set G) ≤
-      Subgroup.normalizer (pCoreOf 2 M : Set G) :=
-    normalizer_le_normalizer_characteristic (pCore 2 M) (pCore_characteristic 2)
-  rw [maximal_twoLocal_eq_core_normalizer hmax] at hcore
-  exact hcore
-
-omit [Finite G] in
-theorem charTwoType_pCoreOf_selfCentralizing (hchar : IsCharTwoType G)
-    {H : Subgroup G} (hlocal : IsTwoLocal H) :
-    H ⊓ Subgroup.centralizer (pCoreOf 2 H : Set G) ≤ pCoreOf 2 H := by
-  exact hchar H hlocal
 
 theorem odd_pSubgroup_inf_twoCore_eq_bot (p : ℕ) (hp : p.Prime) (hodd : p ≠ 2)
     (R M : Subgroup G) (hR : IsPGroup p R) : R ⊓ pCoreOf 2 M = ⊥ := by

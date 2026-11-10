@@ -98,10 +98,5 @@ theorem mem_spanW_of_basis {g h : Matrix (Fin 7) (Fin 7) A}
     simp only [Set.mem_ofPred_eq, inv_inv] at hg ⊢
     exact ⟨(hg t).2, (hg t).1⟩
 
-theorem conj_mem_spanW {g : Matrix.GeneralLinearGroup (Fin 7) A} (hg : g ∈ normGroup A)
-    {Y : Matrix (Fin 7) (Fin 7) A} (hY : Y ∈ spanW A) :
-    (g : Matrix (Fin 7) (Fin 7) A) * Y *
-      ((g⁻¹ : Matrix.GeneralLinearGroup (Fin 7) A) : Matrix (Fin 7) (Fin 7) A) ∈ spanW A :=
-  mem_spanW_of_basis (fun t => (hg t).1) hY
 
 end CFSG.TauCetiBridge.Ree

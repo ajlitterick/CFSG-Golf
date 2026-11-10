@@ -17,14 +17,6 @@ open CFSG.KC.YModel
 
 #kc_select CFSG.KD.YMY322H Nf N 8
 
-@[expose] noncomputable def T0_0 : Nat := N0
-@[expose] noncomputable def T0_1 : Nat := N1
-@[expose] noncomputable def T0_2 : Nat := N2
-@[expose] noncomputable def T0_3 : Nat := N3
-@[expose] noncomputable def T0_4 : Nat := N4
-@[expose] noncomputable def T0_5 : Nat := N5
-@[expose] noncomputable def T0_6 : Nat := N6
-@[expose] noncomputable def T0_7 : Nat := N7
 #kc_select CFSG.KD.YMY322H T0 T0_ 8
 #kc_select CFSG.KD.YMY322H M0 M0_ 7
 #kc_select CFSG.KD.YMY322H R0 R0_ 7

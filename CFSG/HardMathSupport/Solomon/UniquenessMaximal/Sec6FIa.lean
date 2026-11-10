@@ -166,9 +166,6 @@ private theorem ia_centralizerQuot_eq {B K : Subgroup G}
     rw [h1]
     exact inv_mem (hb2 k hk)
 
-private theorem ia_isLThreeFour_of_mulEquiv {X Y : Type} [Group X] [Group Y] (e : X ≃* Y)
-    (h : IsLThreeFour X) : IsLThreeFour Y :=
-  IsLThreeFour.of_mulEquiv e h
 
 theorem ia_isLThreeFour_conj {X I : Subgroup G} (hI : GLAPComponent 3 X I) {g : G} (hg : g ∈ X)
     (h : IsLThreeFour (barOf 3 I)) : IsLThreeFour (barOf 3 (GLBConj g I)) := by

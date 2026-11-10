@@ -21,8 +21,6 @@ variable {B S : Type} [Group B] [Group S] [MulDistribMulAction B S]
   MulDistribMulAction.compHom X
     (PlaneSemidirect.restrictHom (MulDistribMulAction.toMulAut B S) X hX)
 
-theorem invAction_smul_coe (X : Subgroup S) (hX : IsActionInvariant B X) (b : B) (x : X) :
-    (((invAction X hX).smul b x : X) : S) = b • (x : S) := rfl
 
 structure SpecialData (X Z : Subgroup S) (n : ℕ) : Prop where
   le : Z ≤ X

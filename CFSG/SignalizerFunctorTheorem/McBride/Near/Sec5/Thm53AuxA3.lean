@@ -54,10 +54,6 @@ theorem crd_of_mem (hdp : IsDirectProduct S K) {J : Subgroup Γ} (hJ : J ∈ S) 
   rw [crd_eq hdp hJ (hdp.le hJ hx)]
   exact hdp.coord_of_mem hJ hx
 
-theorem crd_of_mem_ne (hdp : IsDirectProduct S K) {J J' : Subgroup Γ} (hJ : J ∈ S)
-    (hJ' : J' ∈ S) (hne : J' ≠ J) {x : Γ} (hx : x ∈ J') : crd hdp J x = 1 := by
-  rw [crd_eq hdp hJ (hdp.le hJ' hx)]
-  exact congrArg Subtype.val (hdp.coord_of_mem_ne hJ hJ' hne hx)
 
 theorem crd_eq_one_iff (hdp : IsDirectProduct S K) {J : Subgroup Γ} (hJ : J ∈ S) {u : Γ}
     (hu : u ∈ K) : crd hdp J u = 1 ↔ u ∈ sSup (S \ {J}) := by

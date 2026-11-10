@@ -44,8 +44,6 @@ open CFSG.SeitzReduction.F4Pilot (centerQuotientAut FixedCentralizerTwoFree)
       LieModel (D ⧸ center D) .PSL m 2 f → FixedCentralizerTwoFree σ D →
         LieModel S .PSL m 2 (2 * f)
 
-@[expose] def CatSLmEvenOuter : Prop :=
-  ∀ m : ℕ, 3 ≤ m → CatSLmEvenOuterAt m
 
 @[expose] def CatSLmOddLieAt (m : ℕ) : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -53,8 +51,6 @@ open CFSG.SeitzReduction.F4Pilot (centerQuotientAut FixedCentralizerTwoFree)
     ∀ (f : ℕ) (D : Subgroup (fixedSubgroup σ)), IsComponent D →
       LieModel (D ⧸ center D) .PSL m 2 f → m = 3 ∧ f = 1
 
-@[expose] def CatSLmOddLie : Prop :=
-  ∀ m : ℕ, 3 ≤ m → CatSLmOddLieAt m
 
 @[expose] def CatSLmSporadicAt (m : ℕ) : Prop :=
   ∀ (S : Type) [Group S] [Finite S], IsSimpleGroup S → (∃ a b : S, a * b ≠ b * a) →
@@ -85,19 +81,6 @@ open CFSG.SeitzReduction.F4Pilot (centerQuotientAut FixedCentralizerTwoFree)
   CatSLmAlternating ∧ CatSLmEvenInner ∧ CatSLmEvenOuterAt m ∧ CatSLmOddLieAt m ∧
     CatSLmSporadicAt m ∧ CatSLmCovers
 
-@[expose] def SLmCatalogueClauses : Prop :=
-  CatSLmAlternating ∧ CatSLmEvenInner ∧ CatSLmEvenOuter ∧ CatSLmOddLie ∧ CatSLmSporadic ∧
-    CatSLmCovers
-
-theorem slmCatalogueClausesAt_of_clauses (h : SLmCatalogueClauses) {m : ℕ} (hm : 3 ≤ m) :
-    SLmCatalogueClausesAt m :=
-  ⟨h.1, h.2.1, h.2.2.1 m hm, h.2.2.2.1 m hm, h.2.2.2.2.1 m hm, h.2.2.2.2.2⟩
-
-@[expose] def SLmOvergroupCatalogue : Prop :=
-  ∀ (K : Type) [Group K] [Finite K], IsQuasisimple K → Catalog (K ⧸ center K) →
-    ∀ τ : MulAut K, orderOf τ = 2 → ∀ (m f : ℕ) (D : Subgroup (fixedSubgroup τ)), 3 ≤ m →
-      IsComponent D → LieModel (D ⧸ center D) .PSL m 2 f → FixedCentralizerTwoFree τ D →
-        SLmOvergroup K τ m f
 
 theorem not_mem_range_conj_of_twoFree {S : Type} [Group S] [IsSimpleGroup S]
     (hna : ∃ a b : S, a * b ≠ b * a) {σ : MulAut S} (hσ : orderOf σ = 2)
@@ -166,14 +149,6 @@ theorem slm_inner_small_of_clauses {m : ℕ} (h : SLmCatalogueClausesAt m) {K : 
   obtain ⟨-, hs'⟩ := hsmall' hin hsmall
   exact (slm_simple_of_clauses h hK.2.1 hK.2.2 hcat hτ' hm hD' hD'm).1 (hinn hin) hs'
 
-theorem slm_not_inner_of_clauses {m : ℕ} (h : SLmCatalogueClausesAt m) {K : Type} [Group K]
-    [Finite K] (hK : IsQuasisimple K) (hcat : Catalog (K ⧸ center K)) (τ : MulAut K)
-    (hτ : orderOf τ = 2) {f : ℕ} (hm : 3 ≤ m) (hf : 2 ≤ f) (D : Subgroup (fixedSubgroup τ))
-    (hD : IsComponent D)
-    (hDm : LieModel (D ⧸ center D) .PSL m 2 f) (hsmall : FixedCentralizerTwoSmall τ D) :
-    τ ∉ (MulAut.conj : K →* MulAut K).range := fun hin => by
-  have h1 := (slm_inner_small_of_clauses h hK hcat τ hτ hm D hD hDm hin hsmall).1
-  omega
 
 theorem slm_overgroup_catalogue {m : ℕ} (h : SLmCatalogueClausesAt m) {K : Type} [Group K]
     [Finite K] (hK : IsQuasisimple K) (hcat : Catalog (K ⧸ center K)) (τ : MulAut K)
@@ -185,9 +160,5 @@ theorem slm_overgroup_catalogue {m : ℕ} (h : SLmCatalogueClausesAt m) {K : Typ
   obtain ⟨hout, hlist⟩ := (slm_simple_of_clauses h hK.2.1 hK.2.2 hcat hτ' hm hD' hD'm).2 hodd2
   exact ⟨fun hin => hout (hinn hin), hZ, hlist⟩
 
-theorem slmOvergroupCatalogue_of_clauses (h : SLmCatalogueClauses) : SLmOvergroupCatalogue :=
-  fun _ _ _ hK hcat τ hτ _ _ D hm hD hDm hodd =>
-    slm_overgroup_catalogue (slmCatalogueClausesAt_of_clauses h hm) hK hcat τ hτ hm D hD hDm
-      hodd
 
 end CFSG.SeitzReduction.LinearPilot

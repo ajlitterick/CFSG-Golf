@@ -74,10 +74,5 @@ theorem sylow_le_pCore_of_le_mulAut' (hA : Nat.card A ≤ p ^ 3) (hp5 : 5 ≤ p)
   calc (x : MulAut A) * y = ((x : MulAut A) * y * (x : MulAut A)⁻¹) * x := by group
     _ = y * x := by rw [this]
 
-theorem sylow_le_pCore_of_le_mulAut (hA : Nat.card A ≤ p ^ 3) (hp5 : 5 ≤ p)
-    {X : Subgroup (MulAut A)} (hX : Group.IsSolvable X)
-    (h23 : ∀ R : Subgroup X, (IsPGroup 2 R ∨ IsPGroup 3 R) → ∀ a ∈ R, ∀ b ∈ R, a * b = b * a)
-    (P : Sylow p X) : (P : Subgroup X) ≤ CFSG.pCore p X :=
-  sylow_le_pCore_of_le_mulAut' hA hp5 hX (fun R hR _ => h23 R hR) P
 
 end CFSG.Walter.JT

@@ -207,11 +207,6 @@ theorem exists_conj_mem_DSet (hΩ : Uniform.HypOmegaModU (.sl2 3 1) Ω)
   exists_conj_mem_DSet_gen (Uniform.hypOmegaGenU_of_modU (Uniform.MemberType.cert_sl2 3 1) hΩ)
     hW S
 
-theorem exists_member_of_D_same (hΩ : Uniform.HypOmegaModU (.sl2 3 1) Ω)
-    (hW : W ∈ WSet Ω) {R T : Subgroup G} (hR : R ∈ DSet Ω W) (hT : T ∈ DSet Ω W)
-    (hTR : T ≤ R ⊔ W ⊔ OCW W) : ∃ K ∈ Ω, R ≤ K ∧ T ≤ K :=
-  exists_member_of_D_same_gen (Uniform.hypOmegaGenU_of_modU (Uniform.MemberType.cert_sl2 3 1) hΩ)
-    hW hR hT hTR
 
 end Thompson
 

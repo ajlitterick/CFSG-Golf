@@ -364,9 +364,6 @@ theorem existsUnique_mem_bruhatCell (hext : SteinbergExtras D n H) (g : K) :
   obtain ⟨w, hw⟩ := exists_mem_bruhatCell hct hext g
   exact ⟨w, hw, fun w' hw' => eq_of_mem_bruhatCell hct hext hw' hw⟩
 
-theorem pairwise_disjoint_bruhatCell (hext : SteinbergExtras D n H) :
-    Pairwise fun w w' : W => Disjoint (bruhatCell hct w) (bruhatCell hct w') :=
-  fun _ _ hne => Set.disjoint_left.2 fun _ h h' => hne (eq_of_mem_bruhatCell hct hext h h')
 
 theorem bruhatCell_injective (hext : SteinbergExtras D n H) :
     Function.Injective (bruhatCell hct) := fun _ _ h =>
@@ -447,15 +444,6 @@ theorem eq_of_mul_nrep_mul_eq (hBU : BruhatExtras D H) {w : W} {b b' u u' : K}
   obtain rfl : b' = b := inv_mul_eq_one.1 hmem
   exact ⟨rfl, mul_left_cancel h⟩
 
-theorem existsUnique_mul_nrep_mul (hext : SteinbergExtras D n H) (hBU : BruhatExtras D H)
-    {g : K} {w : W} (hg : g ∈ bruhatCell hct w) :
-    ∃! p : K × K, (p.1 ∈ borel D H ∧ p.2 ∈ inversionUnipotent D w) ∧
-      g = p.1 * nrep hct w * p.2 := by
-  obtain ⟨b, hb, u, hu, rfl⟩ := exists_eq_mul_nrep_mul hct hext hg
-  refine ⟨(b, u), ⟨⟨hb, hu⟩, rfl⟩, fun p hp => ?_⟩
-  obtain ⟨⟨hb', hu'⟩, he⟩ := hp
-  obtain ⟨h1, h2⟩ := eq_of_mul_nrep_mul_eq hct hBU hb' hb hu' hu he.symm
-  exact Prod.ext h1 h2
 
 theorem injOn_bruhat_normalForm (hext : SteinbergExtras D n H) (hBU : BruhatExtras D H) :
     Set.InjOn (fun q : W × K × K => q.2.1 * nrep hct q.1 * q.2.2)

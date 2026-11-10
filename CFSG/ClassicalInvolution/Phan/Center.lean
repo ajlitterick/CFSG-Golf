@@ -52,13 +52,6 @@ theorem eq_one_of_blockEmb_mem_center (hK : Nat.card K = (p ^ f) ^ 2) {m k i : �
   rw [map_one]
   exact Subtype.ext (Units.ext h2)
 
-theorem center_inf_range_blockEmb (hK : Nat.card K = (p ^ f) ^ 2) {m k i : ℕ} (h : i + k ≤ m)
-    (hk : k < m) (hm : 3 ≤ m) :
-    Subgroup.center (Su K p f m) ⊓ (blockEmb K p f m k i h).range = ⊥ := by
-  rw [eq_bot_iff]
-  rintro _ ⟨hz, g, rfl⟩
-  rw [Subgroup.mem_bot]
-  rw [eq_one_of_blockEmb_mem_center hK h hk hm hz, map_one]
 
 theorem comp_blockEmb_injective (hK : Nat.card K = (p ^ f) ^ 2) {X : Type*} [Group X] {m k i : ℕ}
     {θ : Su K p f m →* X} (hθ : θ.ker ≤ Subgroup.center (Su K p f m)) (h : i + k ≤ m) (hk : k < m)

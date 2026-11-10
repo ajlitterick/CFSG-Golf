@@ -187,11 +187,6 @@ theorem s15_Eleven_not_le_of_wClos (M V : Subgroup G)
         _ = g * (v * a) * g⁻¹ := by group
     exact mul_left_cancel (mul_right_cancel h2)
 
-theorem s15_Eleven_not_le (D : Data G) (h159 : R15_9 D) {V₀ V L : Subgroup G}
-    (h : Hyp154 D V₀ V L) (hV : IsElemAbelian 2 V) (hL : barSub V₀ V hV L ≠ ⊥) {i : ℕ} {g : G}
-    {A B : Subgroup G} {v : G} (hcfg : Cfg11 V D.M i g A B v) :
-    ¬ conjSubgroup V g ≤ D.M ∧ ¬ V ≤ conjSubgroup D.M g :=
-  s15_Eleven_not_le_of_wClos D.M V (h159 V₀ V L h hL) hcfg
 
 theorem s15_Eleven_not_centralizer_le_of_wClos (D : Data G) {V₀ V L : Subgroup G}
     (h : Hyp154 D V₀ V L) (hV : IsElemAbelian 2 V)

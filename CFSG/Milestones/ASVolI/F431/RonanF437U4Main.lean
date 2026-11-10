@@ -10,9 +10,6 @@ namespace CFSG.ASVolI
 section Main
 
 
-theorem f437FourIIU4 : F437FourIIU4 :=
-  f437FourIIU4_of_lie lieOfAutCtx
-
 end Main
 
 end CFSG.ASVolI

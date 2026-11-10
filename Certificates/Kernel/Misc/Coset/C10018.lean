@@ -26,12 +26,6 @@ open CFSG.CosetTable CFSG.KC.MiscCoset CFSG.LieType.Multipliers CFSG.LieType.Mul
 
 set_option maxRecDepth 100000
 
-theorem t81 : sylowRels.map encW = CFSG.KBRoute.XU62S81.rels := by decide +kernel
-
-theorem sylow_card_le : Finite (PG 2 sylowRels) ∧ Nat.card (PG 2 sylowRels) ≤ 81 := by
-  have h := XU62S81.t1
-  unfold CFSG.KBRoute.XU62S81.T1.ok at h
-  exact card_le_of_tableOk sylowRels t81 h (by norm_num) CFSG.KBRoute.XU62S81.top rfl
 
 theorem tSR : coverAB.map encW = CFSG.KBRoute.XU62SR.rels := by decide +kernel
 

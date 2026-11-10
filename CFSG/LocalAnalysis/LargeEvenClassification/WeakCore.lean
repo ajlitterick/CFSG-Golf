@@ -32,16 +32,6 @@ theorem eligible_normalizer_le_weak_core {Ambient : Type groupUniverse} [Group A
     Subgroup.normalizer (Candidate : Set Ambient) ≤ weakTwoGeneratedPCore prime Parent :=
   le_iSup_of_le ⟨Candidate, heligible⟩ le_rfl
 
-theorem weak_core_le_iff {Ambient : Type groupUniverse} [Group Ambient] [Finite Ambient]
-    {prime : ℕ} (Parent Target : Subgroup Ambient) :
-    weakTwoGeneratedPCore prime Parent ≤ Target ↔
-      ∀ Candidate : Subgroup Ambient, weakPCoreEligible prime Parent Candidate →
-        Subgroup.normalizer (Candidate : Set Ambient) ≤ Target := by
-  constructor
-  · intro hle Candidate heligible
-    exact (eligible_normalizer_le_weak_core Parent Candidate heligible).trans hle
-  · intro hnormalizers
-    exact iSup_le fun Candidate => hnormalizers Candidate.val Candidate.property
 
 theorem parent_le_weak_core {Ambient : Type groupUniverse} [Group Ambient] [Finite Ambient]
     {prime : ℕ} (hprime : 1 < prime) (Parent : Subgroup Ambient) (hrank : 3 ≤ pRank prime Parent) :
@@ -50,22 +40,6 @@ theorem parent_le_weak_core {Ambient : Type groupUniverse} [Group Ambient] [Fini
     ⟨le_rfl, by omega, hrank.trans (pRank_mono hprime le_sup_left)⟩
   exact Subgroup.le_normalizer.trans (eligible_normalizer_le_weak_core Parent Parent heligible)
 
-theorem elementary_normalizer_le_weak_core {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] {prime : ℕ} (hprime : 1 < prime) (Parent Elementary Candidate : Subgroup Ambient)
-    (helementary : IsElemAbelian prime Elementary) (hcandidateLe : Candidate ≤ Elementary)
-    (helementaryLe : Elementary ≤ Parent) (hcandidateRank : 2 ≤ pRank prime Candidate)
-    (helementaryRank : 3 ≤ pRank prime Elementary) :
-    Subgroup.normalizer (Candidate : Set Ambient) ≤ weakTwoGeneratedPCore prime Parent := by
-  apply eligible_normalizer_le_weak_core Parent Candidate
-  refine ⟨hcandidateLe.trans helementaryLe, hcandidateRank, ?_⟩
-  have hcentralizer : Elementary ≤ Subgroup.centralizer (Candidate : Set Ambient) := by
-    intro element helement
-    apply Subgroup.mem_centralizer_iff.mpr
-    intro other hother
-    exact congrArg (fun entry : Elementary => entry.val)
-      (@mul_comm' Elementary _ helementary.1 ⟨other, hcandidateLe hother⟩ ⟨element, helement⟩)
-  exact helementaryRank.trans (pRank_mono hprime
-    ((le_inf helementaryLe hcentralizer).trans le_sup_right))
 
 theorem weakPCoreEligible_map {Ambient : Type groupUniverse} [Group Ambient] [Finite Ambient]
     {Target : Type targetUniverse} [Group Target] [Finite Target] {prime : ℕ}

@@ -171,9 +171,6 @@ variable (r k) in
     simp only [Pi.inv_apply, Finset.prod_inv_distrib]
     exact ha.inv
 
-theorem mem_sqTorus {g : (Fin r ⊕ Fin r → k) ≃ₗ[k] (Fin r ⊕ Fin r → k)} :
-    g ∈ sqTorus r k ↔ ∃ a : Fin r → kˣ, torusElt r k a = g ∧ IsSquare (∏ i, a i) :=
-  Iff.rfl
 
 section Image
 
@@ -346,77 +343,8 @@ theorem liftTorus_inf_ker (hr : 3 ≤ r) :
   · rw [Subgroup.zpowers_le]
     exact ⟨mul_mem (hSimple_mem _ _) (hSimple_mem _ _), epsilon_mem_ker hS hr⟩
 
-theorem card_liftTorus_inf_ker_le_two (hr : 3 ≤ r) :
-    Nat.card (liftTorus π ⊓ π.ker : Subgroup E) ≤ 2 := by
-  rw [liftTorus_inf_ker hS hr, Nat.card_zpowers]
-  exact orderOf_le_of_pow_eq_one (by norm_num) (epsilon_sq hS hr)
 
 end Kernel
 
-theorem odd_split_orthogonal_rank_one_lifted_torus_kernel_bound {k : Type} [Field k] [Finite k]
-    (hk : ringChar k ≠ 2) {r : ℕ} (hr : 3 ≤ r) {E : Type*} [Group E] [Finite E]
-    {π : E →* orthElementaryGroup (quadPlus r k)} (hπ : Function.Surjective π)
-    (hcen : π.ker ≤ Subgroup.center E) (h2 : IsPGroup 2 π.ker) :
-    (∀ (i j : Fin r) (hij : i ≠ j) (A : SpecialLinearGroup (Fin 2) k),
-      ((etaPlus i j hij A : orthElementaryGroup (quadPlus r k)) :
-        (Fin r ⊕ Fin r → k) ≃ₗ[k] (Fin r ⊕ Fin r → k)) =
-        cSwap j * (etaMinus i j hij A : (Fin r ⊕ Fin r → k) ≃ₗ[k] (Fin r ⊕ Fin r → k)) *
-          cSwap j) ∧
-    (∀ (i j : Fin r) (hij : i ≠ j), Function.Injective (etaMinus (k := k) i j hij) ∧
-      Function.Injective (etaPlus (k := k) i j hij)) ∧
-    (∀ (i j : Fin r) (hij : i ≠ j),
-      (∃! β : SpecialLinearGroup (Fin 2) k →* E, π.comp β = etaMinus i j hij) ∧
-      (∃! β : SpecialLinearGroup (Fin 2) k →* E, π.comp β = etaPlus i j hij) ∧
-      π.comp (etaMinusLift π i j hij) = etaMinus i j hij ∧
-      π.comp (etaPlusLift π i j hij) = etaPlus i j hij) ∧
-    (∀ (i j : Fin r) (hij : i ≠ j) (g g' : SpecialLinearGroup (Fin 2) k),
-      Commute (etaMinusLift π i j hij g) (etaPlusLift π i j hij g')) ∧
-    (∀ x ∈ hGens π, ∀ y ∈ hGens π, Commute x y) ∧
-    (∀ (i j l : Fin r) (hij : i ≠ j) (hjl : j ≠ l) (hil : i ≠ l) (a : kˣ),
-      hMinus π i l hil a = hMinus π i j hij a * hMinus π j l hjl a ∧
-        hPlus π i j hij a = hPlus π i l hil a * hMinus π j l hjl a) ∧
-    (∀ (i j : Fin r) (hij : i ≠ j) (a : kˣ),
-      hMinus π j i hij.symm a = hMinus π i j hij a⁻¹ ∧
-        hPlus π j i hij.symm a = hPlus π i j hij a) ∧
-    (∀ (i : Fin r) (h : i.val + 1 < r) (a : kˣ),
-      hSimple π i a = hMinus π i ⟨i.val + 1, h⟩ (ne_succ_of_lt h) a) ∧
-    (∀ a : kˣ, hSimple π ⟨r - 1, by omega⟩ a =
-      hPlus π ⟨r - 2, by omega⟩ ⟨r - 1, by omega⟩ (Fin.ne_of_val_ne (by simp; omega)) a) ∧
-    (∃ Θ : (Fin r → kˣ) →* E,
-      (∀ u, Θ u = (List.ofFn fun i => hSimple π i (u i)).prod) ∧
-      Θ.range = liftTorus π ∧
-      (∀ u : Fin r → kˣ, ∃ a : Fin r → kˣ,
-        ((π (Θ u) : orthElementaryGroup (quadPlus r k)) :
-          (Fin r ⊕ Fin r → k) ≃ₗ[k] (Fin r ⊕ Fin r → k)) = torusElt r k a ∧
-        a ⟨0, by omega⟩ = u ⟨0, by omega⟩ ∧
-        (∀ (j : Fin r) (_ : 1 ≤ j.val), j.val + 3 ≤ r →
-          a j = (u ⟨j.val - 1, by omega⟩)⁻¹ * u j) ∧
-        a ⟨r - 2, by omega⟩ =
-          (u ⟨r - 3, by omega⟩)⁻¹ * u ⟨r - 2, by omega⟩ * u ⟨r - 1, by omega⟩ ∧
-        a ⟨r - 1, by omega⟩ = (u ⟨r - 2, by omega⟩)⁻¹ * u ⟨r - 1, by omega⟩) ∧
-      ((orthElementaryGroup (quadPlus r k)).subtype.comp (π.comp Θ)).range = sqTorus r k) ∧
-    liftTorus π ⊓ π.ker =
-      Subgroup.zpowers (hSimple π ⟨r - 2, by omega⟩ (-1) * hSimple π ⟨r - 1, by omega⟩ (-1)) ∧
-    (hSimple π ⟨r - 2, by omega⟩ (-1) * hSimple π ⟨r - 1, by omega⟩ (-1)) ^ 2 = 1 ∧
-    Nat.card (liftTorus π ⊓ π.ker : Subgroup E) ≤ 2 := by
-  have hS : LiftHyp π := ⟨hk, hπ, hcen, h2⟩
-  refine ⟨fun i j hij A => coe_etaPlus hij A,
-    fun i j hij => ⟨etaMinus_injective hij, etaPlus_injective hij⟩,
-    fun i j hij => ⟨existsUnique_lift hk hπ hcen h2 _, existsUnique_lift hk hπ hcen h2 _,
-      comp_sl2Lift hk hπ hcen h2 _, comp_sl2Lift hk hπ hcen h2 _⟩,
-    fun i j hij g g' => commute_etaMinusLift_etaPlusLift hS hij g g',
-    fun x hx y hy => commute_of_mem_hGens hS hx hy,
-    fun i j l hij hjl hil a => ⟨hMinus_trans hS hij hjl hil a, hPlus_trans hS hij hjl hil a⟩,
-    fun i j hij a => ⟨hMinus_symm hS hij a, hPlus_symm hS hij a⟩,
-    fun i h a => hSimple_of_lt h a, fun a => ?_,
-    ⟨thetaHom hS, thetaHom_apply hS, range_thetaHom hS (by omega), fun u => ?_,
-      range_pi_thetaHom hS (by omega)⟩,
-    liftTorus_inf_ker hS hr, epsilon_sq hS hr, card_liftTorus_inf_ker_le_two hS hr⟩
-  · rw [hSimple_of_not_lt (by simp; omega) (by simp; omega)]
-    exact hPlus_congr_left (Fin.ext (by simp; omega)) _ _ a
-  · exact ⟨_, coe_pi_thetaHom hS u, prod_simpleDiag_zero hr u _ rfl,
-      fun j _ hj' => prod_simpleDiag_mid u j _ (by simp; omega) hj',
-      prod_simpleDiag_pen u _ _ _ (by simp; omega) (by simp; omega) (by simp; omega),
-      prod_simpleDiag_last u _ _ (by simp; omega) (by simp; omega)⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalSplit

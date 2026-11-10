@@ -33,12 +33,6 @@ theorem false_of_noTwoCover (h : Config G p w v L K)
   exact h.false_of_center_eq_bot (hN _ h.quasisimple_quot
     (N36.center_isPGroup (pPrimeCore_quotient_pPrimeCore_eq_bot 2)) ⟨eZ.symm⟩)
 
-theorem false_of_odd_hopfMultiplier (h : Config G p w v L K) {X : Type} [Group X]
-    (e : ↥K ⧸ Open.fusionZStar ↥K ≃* X)
-    (hX : Odd (Nat.card (RankThree.PerfectCover.hopfMultiplier X))) : False := by
-  obtain ⟨eZ⟩ := h.nonempty_bar_equiv
-  have hd := GH74.Generic.card_center_dvd_hopfMultiplier h.quasisimple_quot (eZ.symm.trans e)
-  exact (Nat.not_even_iff_odd.mpr (Odd.of_dvd_nat hX hd)) h.even_card_center
 
 theorem exists_comp (h : Config G p w v L K) {s : TauCeti.SporadicName}
     (hodd : CatalogueU.SporadicOddCoreFree s)

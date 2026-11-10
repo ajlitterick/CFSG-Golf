@@ -257,9 +257,5 @@ namespace CFSG.LieType.Chevalley
 
 open CFSG.Blueprint.Chevalley E6SignedGraph
 
-theorem E6_signed_graph_root_generated_perfect
-    (K : Type) [Field K] (hK : ringChar K ≠ 2) :
-    rootGenerated K ≠ ⊥ ∧ ⁅rootGenerated K, rootGenerated K⁆ = rootGenerated K :=
-  ⟨rootGenerated_ne_bot, commutator_rootGenerated hK⟩
 
 end CFSG.LieType.Chevalley

@@ -106,57 +106,6 @@ end HypOne
 
 section Inputs
 
-@[expose] def GGStepTwoAutKRestInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-    ¬ GGStepTwoLinearType p t f →
-      ∀ (b : G) (L₁ : Subgroup G), GGStepTwoPair p B Bs x L D J b L₁ →
-      ∀ K : Subgroup G, IsComponentOf K (Subgroup.centralizer {b}) → L₁ ≤ K →
-        ¬ K ≤ ggM p B x L D J →
-        ∃ m ∈ ggM p B x L D J,
-          D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer {b} ∧
-          ∃ (W' : Type) (_ : Group W') (_ : Finite W') (π : ↥(ggAutKW D K m) →* W'),
-            Function.Surjective π ∧
-            π.ker ≤ (ggAutKH D K (ggM p B x L D J) m ⊓
-              Subgroup.centralizer (K : Set G)).subgroupOf (ggAutKW D K m) ∧
-            GGHypThreeSixteenRest p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π) ∧
-            ¬ GGFusionException p
-              (((ggAutKH D K (ggM p B x L D J) m).subgroupOf (ggAutKW D K m)).map π)
-              (((D.map (MulAut.conj m⁻¹).toMonoidHom).subgroupOf (ggAutKW D K m)).map π)
-
-theorem ggStepTwoAutKInput_of_rest (h313 : GGLemmaThreeThirteenInput)
-    (hR : GGStepTwoAutKRestInput) : GGStepTwoAutKInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM
-  obtain ⟨m, hm, hEC, W', _, _, π, hπ, hker, hrest, hexc⟩ :=
-    hR G p B Bs x L D J t n f ψ hctx s1 hlin b L₁ hpair K hK hLK hKM
-  have : IsSimpleGroup G := hctx.1.1
-  have hp : p.Prime := hctx.1.2.2.2.2.2.1.1
-  have hp2 : p ≠ 2 := hctx.1.2.2.2.2.2.1.2.1
-  obtain ⟨-, ⟨⟨-, hDel, hDcard, -⟩, -⟩, -⟩ := hctx.2
-  have hfusE : GGControlsStrongFusion (ggM p B x L D J) (D.map (MulAut.conj m⁻¹).toMonoidHom) := by
-    refine s1.2.1.of_map_conj_le ((ggM p B x L D J).inv_mem hm) ?_
-    rintro _ ⟨_, ⟨d, hd, rfl⟩, rfl⟩
-    simpa [MulAut.conj_apply, mul_assoc] using hd
-  have hE0el : IsElemAbelian p (D.map (MulAut.conj m⁻¹).toMonoidHom) :=
-    isElemAbelian_map_hom hDel _
-  have hE0card : Nat.card (D.map (MulAut.conj m⁻¹).toMonoidHom) = p ^ 2 := by
-    rw [Subgroup.card_map_of_injective (MulAut.conj m⁻¹).injective, hDcard]
-  have hnorm : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.normalizer (K : Set G) :=
-    h313 G p hp hp2 (Subgroup.centralizer {b}) (ggM p B x L D J ⊓ Subgroup.centralizer {b}) _
-      (ggStepTwo_kGroup_of_ne_top hctx.1.2.2.1 (ggStepTwo_centralizer_ne_top hctx.1.2.1 hpair.2.1))
-      hE0el hE0card (hfusE.inf_in hEC) K hK (fun h => hKM (h.trans inf_le_left))
-  refine ⟨m, hm, hEC, W', inferInstance, inferInstance, π, hπ, fun w hw =>
-    Subgroup.mem_subgroupOf.mpr (Subgroup.mem_inf.mp (Subgroup.mem_subgroupOf.mp (hker hw))).1,
-    ⟨ggAutK_hypOne hp hp2 hfusE hE0el hE0card hnorm hKM π hπ hker, hrest⟩, hexc⟩
-
-theorem ggSixStepTwoV2Input_of_autK (hfus : GGStepTwoBstarFusionInput)
-    (hA : GGStepTwoLinearFusionInput) (h313 : GGLemmaThreeThirteenInput)
-    (h314 : GGLemmaThreeFourteenInput) (hKF : GGKGroupFusionLegacyUnrestrictedInput)
-    (hR : GGStepTwoAutKRestInput) (h615 : GGStepTwoCentralizerInput) : GGSixStepTwoV2Input :=
-  ggSixStepTwoV2Input_of_kgroup hfus hA h314 hKF (ggStepTwoAutKInput_of_rest h313 hR) h615
 
 end Inputs
 

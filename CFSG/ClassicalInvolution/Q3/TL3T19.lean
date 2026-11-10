@@ -48,13 +48,6 @@ open CFSG.ClassicalInvolution.Q3.TC.Graph
       (∃ n : ℕ, 5 ≤ n ∧ Nonempty (AEIdent P n)) ∨
       Nonempty (AEIdentOn P 8 AE.e29Sets AE.e29Sub)
 
-theorem tightThmD3_of_below (h : ∀ n, TightThmD3Below n) : TightThmD3 := by
-  intro G _ _ Ω hΩ h2 h8 htight hA hnt P hPΩ
-  exact h (Nat.card ↥(pSpan P) + 1) G Ω hΩ h2 h8 htight hA hnt P hPΩ (Nat.lt_succ_self _)
-
-theorem thmDGen_of_below {r : ℕ} (h : ∀ n, ThmDGenBelow r n) : ThmDGen r := by
-  intro G _ _ Ω hΩ h2 h8 hA P hPΩ
-  exact h (Nat.card ↥(pSpan P) + 1) G Ω hΩ h2 h8 hA P hPΩ (Nat.lt_succ_self _)
 
 theorem tightThmD3Below_of_genBelow {n : ℕ} (hD : ThmDGenBelow 3 n) : TightThmD3Below n := by
   intro G _ _ Ω hΩ h2 h8 _ hA hnt P hPΩ hcard htrans hinv hodd hE2 hthin

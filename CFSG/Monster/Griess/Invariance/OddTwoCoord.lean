@@ -34,8 +34,6 @@ noncomputable abbrev pairVec (p : LtPair) (h : Fin 3) : SpaceB := tbasis (.inr (
 @[expose] noncomputable def oddTwoEntry (d : Fin 3) (c : C₀) (i j : Fin 24) (p : LtPair) : ℚ :=
   ![oddTwoF c i j p, oddTwoG i j p, oddTwoS c p * oddTwoG i j p] d
 
-theorem pairVec_mem_pairSpan (p : LtPair) (h : Fin 3) : pairVec p h ∈ pairSpan :=
-  Submodule.subset_span ⟨(p, h), rfl⟩
 
 theorem pairVec_zero (p : LtPair) : pairVec p 0 = inA (basisA s(p.1.1, p.1.2)) :=
   tbasis_pair_zero p

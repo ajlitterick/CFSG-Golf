@@ -363,17 +363,5 @@ theorem mem_B1A_herm {a : ℕ} (hF : Fintype.card F = 2 ^ (2 * a)) (ha : 0 < a)
   have := add_mem hB₁ (⟨XB, rfl⟩ : coboundaryA μ XB ∈ B1A μ)
   rwa [hf₁, sub_add_cancel] at this
 
-variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
-
-theorem finrank_H1_orthogonalFour {ρ : Representation (ZMod 2) Γ W} {a : ℕ}
-    (hF : Fintype.card F = 2 ^ (2 * a)) (ha : 0 < a) (h : Explicit.BinaryOrthogonalFour ρ F a) :
-    Module.finrank (ZMod 2) (H1 ρ) = 0 := by
-  obtain ⟨θ, β, hβ⟩ := BinaryOrthogonalFour.intertwiner (sig_sig hF) h
-  have : Finite Γ := Finite.of_equiv _ θ.toEquiv.symm
-  have : Finite W := Finite.of_equiv _ β.toEquiv.symm
-  have hZ : Z1A (hermAct a (sig_sig hF)) = B1A (hermAct a (sig_sig hF)) :=
-    le_antisymm (fun f hf => mem_B1A_herm hF ha hf) (B1A_le_Z1A _)
-  apply finrank_H1_of_card
-  rw [card_H1_eq_of_card ρ hβ (k := 1) (by rw [hZ, one_mul]), pow_zero]
 
 end CFSG.Quasithin.JonesParshall

@@ -68,11 +68,6 @@ theorem wPerm_mem {ps : List (Equiv.Perm (Fin 24))} {K : Subgroup (Equiv.Perm (F
     · rw [List.getD_eq_default _ _ (by omega)]
       exact K.one_mem
 
-theorem map_wPerm {G : Type*} [Group G] (f : Equiv.Perm (Fin 24) →* G)
-    (ps : List (Equiv.Perm (Fin 24))) : ∀ w,
-    f (wPerm ps w) = (w.map fun i => f (ps.getD i 1)).prod
-  | [] => map_one f
-  | i :: w => by rw [wPerm, map_mul, map_wPerm f ps w, List.map_cons, List.prod_cons]
 
 @[expose] def nodupB : List ℕ → ℕ → Bool
   | [], _ => true

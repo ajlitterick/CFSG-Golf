@@ -57,9 +57,6 @@ theorem mem_centreIn {H : Subgroup G} {x : G} :
 
 theorem centreIn_le (H : Subgroup G) : centreIn H ≤ H := inf_le_left
 
-theorem centreIn_comm {H : Subgroup G} {a b : G} (ha : a ∈ centreIn H) (hb : b ∈ centreIn H) :
-    a * b = b * a :=
-  (mem_centreIn.1 hb).2 a (centreIn_le H ha)
 
 theorem map_subtype_center (H : Subgroup G) :
     (Subgroup.center H).map H.subtype = centreIn H := by
@@ -86,9 +83,6 @@ abbrev restSup (k : ι) : Subgroup G := ⨆ (j) (_ : j ≠ k), L j
 
 variable {L}
 
-theorem CommFam.of_mul_comm
-    (h : ∀ i j, i ≠ j → ∀ a ∈ L i, ∀ b ∈ L j, a * b = b * a) : CommFam L :=
-  fun i j hij x y hx hy => h i j hij x hx y hy
 
 theorem mem_restSup_of_mem {k j : ι} (hjk : j ≠ k) {x : G} (hx : x ∈ L j) : x ∈ restSup L k :=
   (le_iSup₂ (f := fun (j : ι) (_ : j ≠ k) => L j) j hjk) hx
@@ -104,14 +98,6 @@ theorem CommFam.restSup_le_centralizer (h : CommFam L) (k : ι) :
     restSup L k ≤ Subgroup.centralizer (L k : Set G) :=
   iSup₂_le fun _ hj => h.le_centralizer hj
 
-theorem CommFam.le_centralizer_restSup (h : CommFam L) (k : ι) :
-    L k ≤ Subgroup.centralizer (restSup L k : Set G) := by
-  intro x hx
-  rw [Subgroup.mem_centralizer_iff]
-  intro g hg
-  have := h.restSup_le_centralizer k hg
-  rw [Subgroup.mem_centralizer_iff] at this
-  exact (this x hx).symm
 
 theorem CommFam.mem_centreIn_of_eq_mul (h : CommFam L) {k : ι} {e y c : G} (he : e ∈ L k)
     (hy : y ∈ restSup L k) (hc : ∀ g ∈ L k, g * c = c * g) (hec : e = y * c) :
@@ -123,12 +109,6 @@ theorem CommFam.mem_centreIn_of_eq_mul (h : CommFam L) {k : ι} {e y c : G} (he 
   intro g hg
   rw [← mul_assoc, hy' g hg, mul_assoc, hc g hg, ← mul_assoc]
 
-theorem CommFam.mem_centreIn_of_eq_mul_of_mem_centralizer (h : CommFam L) {k : ι} {e y c : G}
-    (he : e ∈ L k) (hy : y ∈ restSup L k)
-    (hc : c ∈ Subgroup.centralizer ((⨆ i, L i : Subgroup G) : Set G)) (hec : e = y * c) :
-    e ∈ centreIn (L k) :=
-  h.mem_centreIn_of_eq_mul he hy
-    (fun g hg => Subgroup.mem_centralizer_iff.1 hc g (le_iSup L k hg)) hec
 
 theorem CommFam.centreIn_le_centralizer_iSup (h : CommFam L) (k : ι) :
     centreIn (L k) ≤ Subgroup.centralizer ((⨆ i, L i : Subgroup G) : Set G) := by
@@ -158,17 +138,6 @@ theorem CommFam.centreIn_iSup_inf_eq (h : CommFam L) (k : ι) :
   obtain ⟨hxJ, hxk⟩ := Subgroup.mem_inf.1 hx
   exact mem_centreIn.2 ⟨hxk, fun g hg => (mem_centreIn.1 hxJ).2 g (le_iSup L k hg)⟩
 
-theorem CommFam.inf_restSup_le_centreIn (h : CommFam L) (k : ι) :
-    L k ⊓ restSup L k ≤ centreIn (L k) ⊓ centreIn (⨆ i, L i) := by
-  intro x hx
-  obtain ⟨hxk, hxr⟩ := Subgroup.mem_inf.1 hx
-  have hZk : x ∈ centreIn (L k) :=
-    h.mem_centreIn_of_eq_mul hxk hxr (c := 1) (fun g _ => by simp) (by simp)
-  exact Subgroup.mem_inf.2 ⟨hZk, h.centreIn_le_centreIn_iSup k hZk⟩
-
-theorem CommFam.inf_restSup_le_centreIn_left (h : CommFam L) (k : ι) :
-    L k ⊓ restSup L k ≤ centreIn (L k) :=
-  (h.inf_restSup_le_centreIn k).trans inf_le_left
 
 section Product
 

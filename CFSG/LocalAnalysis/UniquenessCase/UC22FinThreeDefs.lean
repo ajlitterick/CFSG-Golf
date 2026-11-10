@@ -12,16 +12,6 @@ open CFSG.Blueprint (LieModel)
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def S20_14C (D : Data G) : Prop :=
-  H1930 D → ∀ p : ℕ, p.Prime → p ≠ 2 → CFSG.RankThree.PartOne.IsStronglyPEmbedded p D.M →
-    ∀ H ∈ hSet D.T D.M, p ∣ Nat.card ↥(H ⊓ D.M) →
-      Opp p H ∈ calLStar D.T D.M ∧
-      ∃ m n : ℕ, 2 < m ∧ m ≤ 4 ∧ 2 < n ∧
-        CFSG.Open.IsQuasisimple (Bar2 (Opp p H)) ∧
-        LieModel (Bar2 (Opp p H) ⧸ Subgroup.center (Bar2 (Opp p H))) .PSL m 2 n ∧
-        2 ^ (n * (m - 1)) ≡ 1 [MOD p] ∧ ¬ 2 ^ n ≡ 1 [MOD p] ∧
-        Nonempty (↥(Opp p (⊤ : Subgroup (Bar2 (H ⊓ D.M)))) ≃*
-          CFSG.Open.StatedSL (m - 1) (GaloisField 2 n))
 
 @[expose] def S22FinA (D : Data G) (Ch : Choice2011 G) : Prop :=
   H1930 D → ∀ c : Ctx22b D Ch, ∀ p ∈ D.sig, ∀ H ∈ hSet D.T D.M,

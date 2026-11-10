@@ -80,13 +80,6 @@ noncomputable abbrev hypPi : ↥(hypSU h 2 0) →* MulAut (HypV (K := K)) :=
 noncomputable abbrev hypH : Subgroup (MulAut (HypV (K := K))) :=
   (hypSU h 2 0).map CFSG.Quasithin.H.matHom
 
-theorem hypH_eq_top_map : hypH h = (⊤ : Subgroup ↥(hypSU h 2 0)).map (hypPi h) := by
-  ext x
-  constructor
-  · rintro ⟨g, hg, rfl⟩
-    exact ⟨⟨g, hg⟩, trivial, rfl⟩
-  · rintro ⟨g, -, rfl⟩
-    exact ⟨(g : GL (HypIndex 2 0) K), g.2, rfl⟩
 
 noncomputable abbrev hypEH :
     ↥(hypSU h 2 0) ≃* ↥(hypH h) :=
@@ -120,21 +113,6 @@ noncomputable abbrev hypP : Subgroup (MulAut (HypV (K := K))) :=
 noncomputable abbrev hypP2 : Subgroup (MulAut (HypV (K := K))) :=
   (parP2 h).map (hypPi h)
 
-theorem hypU_eq_map_subtype : hypU h = ((hypUnitriangular h 2 0).map
-    (hypSU h 2 0).subtype).map CFSG.Quasithin.H.matHom := by
-  rw [hypU, Subgroup.map_map]
-
-theorem hypB_eq_map_subtype : hypB h = ((hypBorel h 2 0).map
-    (hypSU h 2 0).subtype).map CFSG.Quasithin.H.matHom := by
-  rw [hypB, Subgroup.map_map]
-
-theorem hypP_eq_map_subtype : hypP h = ((parP h).map
-    (hypSU h 2 0).subtype).map CFSG.Quasithin.H.matHom := by
-  rw [hypP, Subgroup.map_map]
-
-theorem hypP2_eq_map_subtype : hypP2 h = ((parP2 h).map
-    (hypSU h 2 0).subtype).map CFSG.Quasithin.H.matHom := by
-  rw [hypP2, Subgroup.map_map]
 
 theorem fixV_hypU : fixV (hypU h) = subMul (hypFlag h 2 0 1) := by
   ext x

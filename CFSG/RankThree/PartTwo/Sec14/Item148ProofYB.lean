@@ -84,13 +84,5 @@ theorem step148YB_of_shape (hS : Step148YBShape) : Step148YB := by
   obtain ⟨YB, hYB, htype, hle, hYBle⟩ := hS G A c L h Y hY hs B hB hnot b d Lb hconf
   exact ⟨YB, hYB, htype, hle, b, d, Lb, hconf, hYBle⟩
 
-theorem rank3II_14_8_of_steps_of_lB_eq_bot
-    (hN : Step148Normal) (hCore : Step148Core) (hPoint : Step148Point) (hKT : Step148KType)
-    (hLift : Step148Lift) (hD4 : Step148D4) (hOne : Step148One) (hRank : Step148Rank)
-    (hPGL : Step148PGL) {A : Subgroup G} {c : G} {L : Subgroup G} (h : Sec14Std G A c L)
-    (hLB : ∀ B : Subgroup G, IsHyperplane A B → lB A B = ⊥) : Item148 A (lB A) :=
-  rank3II_14_8_of_cases hN h fun _ hY hs ih =>
-    item148Cases_of_steps_of_yBOne hCore hPoint hKT hLift hD4 hOne hRank hPGL h hY hs ih
-      fun B hB => yBOne_of_lB_eq_bot h.isElemAbelian.1 hB (hLB B hB)
 
 end CFSG.RankThree.PartTwo.Sec14

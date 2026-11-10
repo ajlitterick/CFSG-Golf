@@ -35,8 +35,6 @@ theorem sameB_iff {i j k l : ℕ} : sameB i j k l = true ↔
 @[expose] noncomputable def pullB (c G : ℕ) : Bool :=
   allLtK (fun x => allLtK (fun y => sameB (rd c x) (rd c y) (rd c (rd G x)) (rd c (rd G y))) 8) 8
 
-theorem rd_enc8 (w : Perm (Fin 8)) {i : ℕ} (hi : i < 8) : rd (enc w) i = (w ⟨i, hi⟩ : ℕ) :=
-  rd_enc h16 w ⟨i, hi⟩
 
 theorem allLt8_iff {f : ℕ → ℕ → Bool} :
     allLtK (fun i => allLtK (fun j => f i j) 8) 8 = true ↔

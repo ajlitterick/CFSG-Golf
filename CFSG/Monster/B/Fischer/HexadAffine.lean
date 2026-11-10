@@ -352,9 +352,6 @@ theorem repr_qv (m : ℕ) (t : Fin 5) : bQ.repr (qv m) t = if m.testBit t then 1
     ((LinearMap.proj (R := ZMod 2) (φ := fun _ : KB => Q₀) (gKB (freeGen s))).comp
       (cocycles₁ (Rep.of rhoQ)).subtype)
 
-theorem freeCoords_apply
-    (c : cocycles₁ (Rep.of rhoQ)) (s : Fin 6) :
-    freeCoords c s = bQ.repr ((c : KB → Q₀) (gKB (freeGen s))) (freeBit s) := rfl
 
 theorem testBit_false_of_repr {m : ℕ} {t : Fin 5} (h : bQ.repr (qv m) t = 0) :
     m.testBit t = false := by
@@ -451,12 +448,6 @@ theorem affine_classification
     refine ⟨x, (isTranslationIso_iff_d₀₁ isAffineAction_affA hA x).2 ?_⟩
     rw [← hby, one_smul, add_sub_cancel_right]
 
-theorem not_isTranslationIso_affLin_affA
-    (t : Q₀) : ¬IsTranslationIso affLin affA t := by
-  intro h
-  rw [isTranslationIso_iff_d₀₁ isAffineAction_affLin isAffineAction_affA, transl_affLin,
-    sub_zero] at h
-  exact transl_affA_not_mem ⟨t, h.symm⟩
 
 theorem isTranslationIso_unique
     (hA : IsAffineAction A) (hA' : IsAffineAction A') {t t' : Q₀}
@@ -562,76 +553,5 @@ theorem affOrbits_affLin :
   exact ⟨(ncard_affOrbit false (by simp)).trans h0, (ncard_affOrbit false (by simp)).trans h3,
     (ncard_affOrbit false (by simp)).trans h1, affOrbit_cover false⟩
 
-theorem affOrbits_affA :
-    (affOrbit affA (qv 0)).ncard = 6 ∧ (affOrbit affA (qv 3)).ncard = 10 ∧
-      (affOrbit affA (qv 1)).ncard = 16 ∧
-      ∀ q, q ∈ affOrbit affA (qv 0) ∨ q ∈ affOrbit affA (qv 3) ∨ q ∈ affOrbit affA (qv 1) := by
-  obtain ⟨-, -, -, h0, h3, h1⟩ := orbCert_size
-  exact ⟨(ncard_affOrbit true (by simp)).trans h0, (ncard_affOrbit true (by simp)).trans h3,
-    (ncard_affOrbit true (by simp)).trans h1, affOrbit_cover true⟩
-
-theorem qv_nine : qv 9 = bQ 0 + bQ 3 := by
-  rw [qv_eq_sum_bQ, Fin.sum_univ_five]
-  have h : ∀ t : Fin 5, (9 : ℕ).testBit t = decide (t = 0 ∨ t = 3) := by decide
-  simp only [h]
-  simp
-
-theorem range_gKB :
-    (Set.range fun i : Fin 3 => (gKB i : CFSG.Blueprint.NativeSporadic.M22)) = {g₁, g₂, g₃} := by
-  ext g
-  simp only [Set.mem_range, Set.mem_insert_iff, Set.mem_singleton_iff]
-  constructor
-  · rintro ⟨i, rfl⟩
-    match i with
-    | 0 => exact Or.inl rfl
-    | 1 => exact Or.inr (Or.inl rfl)
-    | 2 => exact Or.inr (Or.inr rfl)
-  · rintro (rfl | rfl | rfl)
-    · exact ⟨0, rfl⟩
-    · exact ⟨1, rfl⟩
-    · exact ⟨2, rfl⟩
-
-theorem pinned_M22_hexad_affine_cocycle_classification :
-    B₀ ∈ ℬ₀ ∧ Nat.card KB = 5760 ∧ Module.finrank (ZMod 2) U₀ = 5 ∧
-    (∀ t, bQ t = U₀.mkQ (K₀.mkQ (e ⟨basisCoord t, basisCoord_mem t⟩))) ∧
-    g₁ = wordM22 [-1, 2, 2, 1] ∧ g₂ = wordM22 [-2, -1, -2, -1, -2, 1, 2, 1, 2, 1, 2] ∧
-    g₃ = wordM22 [-2, -1, -2, -1, 2, 2, 1, 2, 1, 2] ∧
-    g₁ = m22a⁻¹ * m22b ^ 2 * m22a ∧ g₂ = (m22b⁻¹ * m22a⁻¹) ^ 2 * m22b⁻¹ * (m22a * m22b) ^ 3 ∧
-    g₃ = (m22b⁻¹ * m22a⁻¹) ^ 2 * m22b ^ 2 * (m22a * m22b) ^ 2 ∧
-    Subgroup.closure {g₁, g₂, g₃} = KB ∧
-    (∀ t : Fin 5, rhoQ (gKB 0) (bQ t) =
-      ∑ s : Fin 5, if ([11, 8, 7, 2, 16].getD t 0).testBit s then bQ s else 0) ∧
-    (∀ t : Fin 5, rhoQ (gKB 1) (bQ t) =
-      ∑ s : Fin 5, if ([7, 4, 2, 8, 21].getD t 0).testBit s then bQ s else 0) ∧
-    (∀ t : Fin 5, rhoQ (gKB 2) (bQ t) =
-      ∑ s : Fin 5, if ([8, 2, 25, 1, 13].getD t 0).testBit s then bQ s else 0) ∧
-    rhoQ.invariants = ⊥ ∧
-    Module.finrank (ZMod 2) (cocycles₁ (Rep.of rhoQ)) = 6 ∧
-    Module.finrank (ZMod 2) (coboundaries₁ (Rep.of rhoQ)) = 5 ∧
-    IsAffineAction affLin ∧ IsAffineAction affA ∧
-    (∀ q, affA (gKB 0) q = rhoQ (gKB 0) q + (bQ 0 + bQ 3)) ∧
-    (∀ q, affA (gKB 1) q = rhoQ (gKB 1) q) ∧ (∀ q, affA (gKB 2) q = rhoQ (gKB 2) q) ∧
-    (∀ A, IsAffineAction A →
-      (∃ t, IsTranslationIso affLin A t) ∨ (∃ t, IsTranslationIso affA A t)) ∧
-    (∀ t, ¬IsTranslationIso affLin affA t) ∧
-    (∀ A A', IsAffineAction A → IsAffineAction A' → ∀ t t',
-      IsTranslationIso A A' t → IsTranslationIso A A' t' → t = t') ∧
-    ((affOrbit affLin (qv 0)).ncard = 1 ∧ (affOrbit affLin (qv 3)).ncard = 15 ∧
-      (affOrbit affLin (qv 1)).ncard = 16 ∧
-      ∀ q, q ∈ affOrbit affLin (qv 0) ∨ q ∈ affOrbit affLin (qv 3) ∨
-        q ∈ affOrbit affLin (qv 1)) ∧
-    ((affOrbit affA (qv 0)).ncard = 6 ∧ (affOrbit affA (qv 3)).ncard = 10 ∧
-      (affOrbit affA (qv 1)).ncard = 16 ∧
-      ∀ q, q ∈ affOrbit affA (qv 0) ∨ q ∈ affOrbit affA (qv 3) ∨ q ∈ affOrbit affA (qv 1)) := by
-  refine ⟨B₀_mem_ℬ₀, natCard_KB, finrank_U₀, bQ_apply, rfl, rfl, rfl, g₁_eq, g₂_eq, g₃_eq,
-    range_gKB ▸ closure_gKB, rhoQ_bQ 0, rhoQ_bQ 1, rhoQ_bQ 2, invariants_rhoQ, finrank_cocycles₁,
-    finrank_coboundaries₁, isAffineAction_affLin, isAffineAction_affA, fun q => ?_, fun q => ?_,
-    fun q => ?_, fun _ hA => affine_classification hA, not_isTranslationIso_affLin_affA,
-    fun _ _ hA hA' _ _ ht ht' => isTranslationIso_unique hA hA' ht ht', affOrbits_affLin,
-    affOrbits_affA⟩
-  · rw [affA_gKB, ← qv_nine]
-    rfl
-  · rw [affA_gKB, show cval ((1 : Fin 3) : ℕ) = 0 from rfl, qv_zero, add_zero]
-  · rw [affA_gKB, show cval ((2 : Fin 3) : ℕ) = 0 from rfl, qv_zero, add_zero]
 
 end CFSG.Monster.B.Fischer

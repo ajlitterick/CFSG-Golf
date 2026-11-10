@@ -68,9 +68,6 @@ private lemma ggQ2xS_swap_last_castSucc {m : ℕ} (i k : Fin m) :
   · rw [if_pos (by rw [h]), if_pos h]
   · rw [if_neg (fun hc => h (ggQ2xS_castSucc_inj hc)), if_neg h]
 
-private lemma ggQ2xS_swap_last_last {m : ℕ} (i : Fin m) :
-    (Equiv.swap (Fin.last m) (Fin.castSucc i)) (Fin.last m) = Fin.castSucc i :=
-  Equiv.swap_apply_left _ _
 
 private lemma ggQ2xS_swap_eq_iff {α : Type*} [DecidableEq α] {a b c d : α} (hab : a ≠ b)
     (hcd : c ≠ d) :
@@ -332,21 +329,6 @@ private lemma ggQ2xS_dot_type1_sub_left {m : ℕ} (i l : Fin m) (hil : i ≠ l) 
     Pi.single_eq_of_ne (M := fun _ => ZMod 3) hil]
   decide
 
-private lemma ggQ2xS_dot_type1_sub_right {m : ℕ} (i k : Fin m) (hik : i ≠ k) :
-    (1 + Pi.single i (1 : ZMod 3) : GGBCV m) ⬝ᵥ
-      (Pi.single k (1 : ZMod 3) - Pi.single i (1 : ZMod 3) : GGBCV m) = -1 := by
-  rw [ggQ2xS_dot_type1_sub, Pi.sub_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) hik,
-    Pi.single_eq_same]
-  decide
-
-private lemma ggQ2xS_dot_type1_sub_other {m : ℕ} (i k l : Fin m) (hik : i ≠ k)
-    (hil : i ≠ l) :
-    (1 + Pi.single i (1 : ZMod 3) : GGBCV m) ⬝ᵥ
-      (Pi.single k (1 : ZMod 3) - Pi.single l (1 : ZMod 3) : GGBCV m) = 0 := by
-  rw [ggQ2xS_dot_type1_sub, Pi.sub_apply,
-    Pi.single_eq_of_ne (M := fun _ => ZMod 3) hik,
-    Pi.single_eq_of_ne (M := fun _ => ZMod 3) hil]
-  decide
 
 private lemma ggQ2xS_refl_type1_sub_left {m : ℕ} (hm : m % 3 = 2) (i l : Fin m)
     (hil : i ≠ l) :
@@ -371,13 +353,6 @@ private lemma ggQ2xS_refl_type1_sub_left {m : ℕ} (hm : m % 3 = 2) (i l : Fin m
         Pi.single_eq_of_ne (M := fun _ => ZMod 3) hjl]
       decide
 
-private lemma ggQ2xS_refl_t1v_sub_left {m : ℕ} (hm3 : m % 3 = 2) (i l : Fin m)
-    (hil : i ≠ l) :
-    ggBCRefl (ggQ2xS_t1v m i) (ggQ2xS_t1v_norm_ne hm3 i)
-        (Pi.single i (1 : ZMod 3) - Pi.single l (1 : ZMod 3) : GGBCV m)
-      = (-(ggQ2xS_t1v m l)) := by
-  unfold ggQ2xS_t1v
-  exact ggQ2xS_refl_type1_sub_left hm3 i l hil
 
 private lemma ggQ2xS_refl_t1v_rv {m : ℕ} (hm3 : m % 3 = 2) (i l : Fin m) (hil : i ≠ l) :
     ggBCRefl (ggQ2xS_t1v m i) (ggQ2xS_t1v_norm_ne hm3 i) (ggQ2xS_rv m i l)
@@ -385,35 +360,6 @@ private lemma ggQ2xS_refl_t1v_rv {m : ℕ} (hm3 : m % 3 = 2) (i l : Fin m) (hil 
   unfold ggQ2xS_t1v ggQ2xS_rv
   exact ggQ2xS_refl_type1_sub_left hm3 i l hil
 
-private lemma ggQ2xS_refl_type1_sub_right {m : ℕ} (hm : m % 3 = 2) (i k : Fin m)
-    (hik : i ≠ k) :
-    ggBCRefl (1 + Pi.single i (1 : ZMod 3) : GGBCV m)
-        (ggQ2xS_one_add_single_norm_ne hm i)
-        (Pi.single k (1 : ZMod 3) - Pi.single i (1 : ZMod 3) : GGBCV m)
-      = (1 + Pi.single k (1 : ZMod 3) : GGBCV m) := by
-  rw [ggQ2xS_refl_type1_apply hm i, ggQ2xS_dot_type1_sub_right i k hik]
-  funext j
-  rcases eq_or_ne j k with rfl | hjk
-  · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.add_apply, Pi.one_apply,
-      Pi.single_eq_same, Pi.single_eq_of_ne (M := fun _ => ZMod 3) (Ne.symm hik)]
-    decide
-  · rcases eq_or_ne j i with rfl | hji
-    · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.add_apply, Pi.one_apply,
-        Pi.single_eq_of_ne (M := fun _ => ZMod 3) hik, Pi.single_eq_same]
-      decide
-    · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.add_apply, Pi.one_apply,
-        Pi.single_eq_of_ne (M := fun _ => ZMod 3) hjk,
-        Pi.single_eq_of_ne (M := fun _ => ZMod 3) hji]
-      decide
-
-private lemma ggQ2xS_refl_type1_sub_other {m : ℕ} (hm : m % 3 = 2) (i k l : Fin m)
-    (hik : i ≠ k) (hil : i ≠ l) :
-    ggBCRefl (1 + Pi.single i (1 : ZMod 3) : GGBCV m)
-        (ggQ2xS_one_add_single_norm_ne hm i)
-        (Pi.single k (1 : ZMod 3) - Pi.single l (1 : ZMod 3) : GGBCV m)
-      = (Pi.single k (1 : ZMod 3) - Pi.single l (1 : ZMod 3) : GGBCV m) := by
-  rw [ggQ2xS_refl_type1_apply hm i, ggQ2xS_dot_type1_sub_other i k l hik hil, zero_smul]
-  exact sub_zero _
 
 private lemma ggQ2xS_refl_type1_type1 {m : ℕ} (hm : m % 3 = 2) (i k : Fin m)
     (hik : i ≠ k) :
@@ -437,20 +383,6 @@ private lemma ggQ2xS_refl_type1_type1 {m : ℕ} (hm : m % 3 = 2) (i k : Fin m)
         Pi.single_eq_of_ne (M := fun _ => ZMod 3) hji]
       decide
 
-private lemma ggQ2xS_refl_type1_self {m : ℕ} (hm : m % 3 = 2) (i : Fin m) :
-    ggBCRefl (1 + Pi.single i (1 : ZMod 3) : GGBCV m)
-        (ggQ2xS_one_add_single_norm_ne hm i)
-        (1 + Pi.single i (1 : ZMod 3) : GGBCV m)
-      = (-(1 + Pi.single i (1 : ZMod 3) : GGBCV m)) := by
-  rw [ggQ2xS_refl_type1_apply hm i, ggQ2xS_dot_one_add_single_eq hm]
-  funext j
-  rcases eq_or_ne j i with rfl | hji
-  · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.neg_apply, Pi.add_apply,
-      Pi.one_apply, Pi.single_eq_same]
-    decide
-  · simp only [Pi.sub_apply, Pi.smul_apply, smul_eq_mul, Pi.neg_apply, Pi.add_apply,
-      Pi.one_apply, Pi.single_eq_of_ne (M := fun _ => ZMod 3) hji]
-    decide
 
 private lemma ggQ2xS_refl_t1v_type1 {m : ℕ} (hm3 : m % 3 = 2) (i k : Fin m)
     (hik : i ≠ k) :
@@ -459,11 +391,6 @@ private lemma ggQ2xS_refl_t1v_type1 {m : ℕ} (hm3 : m % 3 = 2) (i k : Fin m)
   unfold ggQ2xS_t1v ggQ2xS_rv
   exact ggQ2xS_refl_type1_type1 hm3 i k hik
 
-private lemma ggQ2xS_refl_t1v_self {m : ℕ} (hm3 : m % 3 = 2) (i : Fin m) :
-    ggBCRefl (ggQ2xS_t1v m i) (ggQ2xS_t1v_norm_ne hm3 i) (ggQ2xS_t1v m i)
-      = (-(ggQ2xS_t1v m i)) := by
-  unfold ggQ2xS_t1v
-  exact ggQ2xS_refl_type1_self hm3 i
 
 private lemma ggQ2xS_perm_one (m : ℕ) (σ : Equiv.Perm (Fin m)) :
     ggPermHom m σ (1 : GGBCV m) = 1 := by
@@ -527,11 +454,6 @@ private lemma ggQ2xS_perm_t1v_comm {m : ℕ} (hm3 : m % 3 = 2) {i k l : Fin m}
     ggQ2xS_GL m :=
   ggBCRefl (ggQ2xS_t1v m i) (ggQ2xS_t1v_norm_ne hm i)
 
-private lemma ggQ2xS_type1_eq_t1v (m : ℕ) (hm : m % 3 = 2) (i : Fin m) :
-    ggQ2xS_type1 m hm i
-      = ggBCRefl (ggQ2xS_t1v m i) (ggQ2xS_t1v_norm_ne hm i) := by
-  unfold ggQ2xS_type1
-  rfl
 
 private noncomputable def ggQ2xS_phiP (m : ℕ) (hm : m % 3 = 2) (i j : Fin (m + 1)) :
     ggQ2xS_GL m :=

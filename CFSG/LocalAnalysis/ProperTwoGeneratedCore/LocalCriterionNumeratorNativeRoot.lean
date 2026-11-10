@@ -84,16 +84,5 @@ theorem native_borel_whole_elementary_root_at_exponent
       Nat.pow_le_pow_right (n := 2) (by omega) ha
   exact ⟨i, hi, helem, hUB, hset, hcard, hfour, hindex⟩
 
-theorem native_borel_whole_elementary_root
-    (hmodel : IsSimpleBenderGroup F) (B : Subgroup F) (hB : IsBorelSubgroup B) :
-    let U := Subgroup.closure {x : F | x ∈ B ∧ IsInvolution x}
-    ∃ a i : ℕ, 2 ≤ a ∧ i ∈ ({1, 2, 3} : Set ℕ) ∧
-      IsElementaryAbelian 2 U ∧ U ≤ B ∧
-      (U : Set F) = {1} ∪ {x : F | x ∈ B ∧ IsInvolution x} ∧
-      Nat.card U = 2 ^ a ∧ 4 ≤ Nat.card U ∧ B.index = (2 ^ a) ^ i + 1 := by
-  obtain ⟨a, ha, hmodelAt⟩ := hmodel.exists_exponent
-  obtain ⟨i, hi, helem, hUB, hset, hcard, hfour, hindex⟩ :=
-    native_borel_whole_elementary_root_at_exponent a ha hmodelAt hmodel B hB
-  exact ⟨a, i, ha, hi, helem, hUB, hset, hcard, hfour, hindex⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionNumerator

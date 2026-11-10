@@ -100,20 +100,6 @@ theorem exists_subspaces_of_involution (hodd : Odd (Nat.card F))
     obtain ⟨u, hu, a, ha, rfl⟩ := Submodule.mem_sup.mp hx
     rw [map_add, hg' u (hU₁W u hu) ((hU₁ u).mp hu), hg'A a ha]
 
-theorem elementaryGroup_le_sup_of_involution (hodd : Odd (Nat.card F))
-    (hQ : (polarBilin Q).Nondegenerate) {A W : Submodule F V} (hA : PolarNondegOn Q A)
-    (h3 : 3 ≤ Module.finrank F A) (hWA : IsCompl W A) (horth : ∀ x ∈ W, ∀ a ∈ A, polar Q x a = 0)
-    {g g' : V ≃ₗ[F] V} (hgO : g ∈ TauCeti.QuadraticMap.orthogonalGroup Q)
-    (hg'O : g' ∈ TauCeti.QuadraticMap.orthogonalGroup Q) (hg2 : ∀ x, g (g x) = x)
-    (hgA : ∀ x ∈ A, g x = x) (hgW : ∀ x ∈ W, g x ∈ W) (hg'A : ∀ x ∈ A, g' x = x)
-    (hg' : ∀ x ∈ W, g x = -x → g' x = x) :
-    elementaryGroup Q ≤ (elementaryGroup Q ⊓ Subgroup.centralizer ({g} : Set (V ≃ₗ[F] V))) ⊔
-      (elementaryGroup Q ⊓ Subgroup.centralizer ({g'} : Set (V ≃ₗ[F] V))) := by
-  obtain ⟨S₂, S₁, hle, h₂, h₁⟩ := exists_subspaces_of_involution hodd hQ hA h3 hWA horth hg2 hgA
-    hgW hg'A hg'
-  refine hle.trans (sup_le_sup ?_ ?_)
-  · exact le_inf elemOn_le_elementaryGroup (elemOn_le_centralizer_of_fix hgO h₂)
-  · exact le_inf elemOn_le_elementaryGroup (elemOn_le_centralizer_of_fix hg'O h₁)
 
 end Core
 

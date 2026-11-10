@@ -168,8 +168,6 @@ end LineData
     rintro _ ⟨σ, hσ⟩
     exact ⟨σ⁻¹, hd.linePerm_inv hσ⟩
 
-theorem mem_permutingLines {a : Fin 3 → X} (hd : LineData a) {n : X} :
-    n ∈ permutingLines a hd ↔ ∃ σ, LinePerm a n σ := Iff.rfl
 
 @[expose] noncomputable def choosePerm (a : Fin 3 → X) (hd : LineData a)
     (n : ↥(permutingLines a hd)) : Perm (Fin 3) := Classical.choose n.2

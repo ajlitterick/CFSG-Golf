@@ -95,8 +95,5 @@ theorem t1bLieHardAt_PSU (hGA : CFSG.Open.GriessAllModelsStatement) : T1bLieHard
   obtain ⟨hn, -, hpg⟩ := psu_facts_of_lieModel_of_not_easy hm hE
   exact t1bLieHardAt_lin_aux hGA (Or.inr rfl) hLC hq hp hp2 hcond hm hn hpg
 
-theorem t1bLieHardAt_psl_psu (hGA : CFSG.Open.GriessAllModelsStatement) :
-    T1bLieHardAt .PSL ∧ T1bLieHardAt .PSU :=
-  ⟨t1bLieHardAt_PSL hGA, t1bLieHardAt_PSU hGA⟩
 
 end CFSG.HardMathSupport.Timmesfeld.Tables.T1b

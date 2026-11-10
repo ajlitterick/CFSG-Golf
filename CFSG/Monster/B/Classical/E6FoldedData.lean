@@ -273,7 +273,6 @@ theorem codeWord_kWords : ∀ i < 48, codeWord (kWords.getD i []) = kCodes.getD 
 
 theorem kWords_letters : ∀ l ∈ kWords, ∀ k ∈ l, k ≠ 3 := by decide +kernel
 
-theorem kCodes_nodup : kCodes.Nodup := by decide +kernel
 
 theorem kWords_zero : kWords.getD 0 [] = [] := by decide +kernel
 
@@ -306,26 +305,6 @@ theorem jCodes_orbit : ∀ a < 24, ∀ b < 24,
 
 theorem levList_mem : ∀ a < 24, levList.getD a 0 ∈ [2, 1, 0, -1, -2] := by decide +kernel
 
-theorem xList_zero : xList.getD 0 [] = sIdx := by decide +kernel
-
-theorem xList_lt : ∀ i < 24, ∀ a ∈ xList.getD i [], a < 24 := by decide +kernel
-
-theorem xWords_image : ∀ i < 24, ∀ a < 24,
-    a ∈ xList.getD i [] ↔ ∃ y ∈ sIdx, (codeWord (xWords.getD i [])).getD y 0 = a := by
-  decide +kernel
-
-theorem xList_closed : ∀ i < 24, ∀ k : Fin 4, ∃ m < 24, ∀ a < 24,
-    a ∈ xList.getD m [] ↔ ∃ y ∈ xList.getD i [], gidx k y = a := by
-  decide +kernel
-
-theorem xList_distinct : ∀ i < 24, ∀ m < 24, i = m ∨
-    ∃ a < 24, ¬(a ∈ xList.getD i [] ↔ a ∈ xList.getD m []) := by
-  decide +kernel
-
-theorem xList_pair : ∀ a < 24, ∀ b < 24, a = b ∨
-    ((∃ i < 24, a ∈ xList.getD i [] ∧ b ∈ xList.getD i []) ↔
-      (form (pv a) (pv b) = 1 ∨ form (pv a) (pv b) = 0)) := by
-  decide +kernel
 
 theorem jCodes_sIdx : ∀ x < 24,
     (levList.getD x 0 = 2 ∨ levList.getD x 0 = 1 ∨ levList.getD x 0 = 0) →

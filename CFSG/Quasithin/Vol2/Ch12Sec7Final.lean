@@ -121,10 +121,6 @@ theorem le_pCoreOf_centralizer_conj {V : Subgroup G} {l z z₀ : G}
 
 end S127
 
-theorem lemma12_7_4_one_of (h4 : Lemma12_7_4) : Lemma12_7_4_one := by
-  intro G _ _ T L V hH
-  obtain ⟨⟨z, hz, -, -, t, ht, -, h45, h18, horb⟩, -⟩ := h4 G T L V hH
-  exact ⟨z, (Subgroup.mem_inf.1 hz).1, t, ht, h45, h18, horb⟩
 
 theorem final1271_of_lemmas (h4 : Lemma12_7_4) (hdisp : Display12_7_22) (h23 : Lemma12_7_23)
     (h24 : Lemma12_7_24) (hfin : Final1271Para) : Final1271 := by
@@ -148,10 +144,5 @@ theorem final1271_of_lemmas (h4 : Lemma12_7_4) (hdisp : Display12_7_22) (h23 : L
     rw [h18] at hz45
     exact absurd hz45 (by decide)
 
-theorem stmt12_7_1_of_decomp (h4 : Lemma12_7_4) (h1277 : Theorem12_7_7)
-    (h12714 : Theorem12_7_14) (hdisp : Display12_7_22) (h23 : Lemma12_7_23) (h24 : Lemma12_7_24)
-    (hfin : Final1271Para) : Stmt12_7_1 :=
-  stmt12_7_1_of_lemmas (lemma12_7_4_one_of h4) h1277 h12714
-    (final1271_of_lemmas h4 hdisp h23 h24 hfin)
 
 end CFSG.Quasithin.H13

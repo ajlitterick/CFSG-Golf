@@ -110,19 +110,5 @@ open CFSG.Assembly
       ∀ (L' : Type) [Group L'] [Finite L'] (ψ : L' →* R), Function.Surjective ψ →
         ψ.ker ≤ Subgroup.center L' → commutator L' = ⊤ → Subgroup.center L' = ⊥)
 
-@[expose] def GGPumpTwInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGConfig p B Bs x L D J → p = 3 → ∀ f : ℕ,
-    ((3 ∣ 2 ^ f - 1 ∧ GGHasLabel ⟨.twA, 5, f⟩ (J ⧸ Subgroup.center J)) ∨
-      (3 ∣ 2 ^ f + 1 ∧ GGHasLabel ⟨.A, 5, f⟩ (J ⧸ Subgroup.center J)) ∨
-      GGHasLabel ⟨.twD, 4, f⟩ (J ⧸ Subgroup.center J)) →
-    ∀ z ∈ D, z ≠ 1 → ∀ X : Subgroup G,
-      LargeEvenPComponent p (Subgroup.centralizer ({z} : Set G)) X → J ≤ X →
-      LargeEvenPComponent p (X ⊓ Subgroup.centralizer ({x} : Set G)) J → GGInnerDiagOn Bs X →
-      3 ≤ Nat.log p (Nat.card (Bs ⊓ J : Subgroup G)) →
-      ¬ (⁅X, Subgroup.zpowers x⁆ : Subgroup G) ≤ LargeEvenPPrimeCoreOf p X →
-      ∃ N : ℕ, 3 ≤ N ∧ p ^ (N + 1) ≤ Nat.card Bs ∧
-        (Nat.card (ggAutomizer X Bs) = 2 ^ N * N.factorial ∨
-          (N = 4 ∧ Nat.card (ggAutomizer X Bs) = 1152))
 
 end CFSG.StandardType

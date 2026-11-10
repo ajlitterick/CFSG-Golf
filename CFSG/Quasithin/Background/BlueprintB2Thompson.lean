@@ -149,10 +149,6 @@ theorem elemThompsonCenterTorsion_eq_sInf (R : Type*) [Group R] [Finite R] (p : 
     rw [Subgroup.mem_sInf]
     exact mem_elemThompsonCenterTorsion_iff_forall
 
-theorem coe_elemThompsonCenterTorsion (R : Type*) [Group R] [Finite R] (p : ℕ) [Fact p.Prime] :
-    (elemThompsonCenterTorsion R p : Set R) =
-      {x | x ∈ Subgroup.centralizer (elemThompson R p : Set R) ∧ x ^ p = 1} :=
-  Set.ext fun _ => mem_elemThompsonCenterTorsion_iff_centralizer
 
 theorem elemThompson_characteristic (R : Type*) [Group R] [Finite R] (p : ℕ) [Fact p.Prime] :
     (elemThompson R p).Characteristic := by
@@ -209,52 +205,11 @@ theorem elemThompson_map_subtype {Y : Subgroup R} (hY : elemThompson R p ≤ Y) 
     refine Subgroup.map_mono (le_sSup ⟨isElementaryAbelian_subgroupOf hA.1, ?_⟩)
     rw [card_subgroupOf_eq hAY, hA.2, hrk]
 
-theorem elemThompsonCenterTorsion_map_subtype {Y : Subgroup R} (hY : elemThompson R p ≤ Y) :
-    (elemThompsonCenterTorsion Y p).map Y.subtype = elemThompsonCenterTorsion R p := by
-  have hJ := elemThompson_map_subtype (p := p) hY
-  ext z
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    obtain ⟨hc, hp⟩ := mem_elemThompsonCenterTorsion_iff_centralizer.mp hx
-    refine mem_elemThompsonCenterTorsion_iff_centralizer.mpr ⟨?_, ?_⟩
-    · rw [Subgroup.mem_centralizer_iff]
-      intro j hj
-      rw [← hJ] at hj
-      obtain ⟨j', hj', rfl⟩ := hj
-      have := Subgroup.mem_centralizer_iff.mp hc j' hj'
-      exact congrArg Subtype.val this
-    · simpa using congrArg Subtype.val hp
-  · intro hz
-    obtain ⟨hc, hp⟩ := mem_elemThompsonCenterTorsion_iff_centralizer.mp hz
-    have hzJ : z ∈ elemThompson R p := (mem_centerTorsion_iff.mp hz).1
-    have hzY : z ∈ Y := hY hzJ
-    refine ⟨⟨z, hzY⟩, ?_, rfl⟩
-    refine mem_elemThompsonCenterTorsion_iff_centralizer.mpr ⟨?_, ?_⟩
-    · rw [Subgroup.mem_centralizer_iff]
-      intro j hj
-      have hjR : (j : R) ∈ elemThompson R p := by
-        rw [← hJ]
-        exact ⟨j, hj, rfl⟩
-      exact Subtype.ext (Subgroup.mem_centralizer_iff.mp hc _ hjR)
-    · exact Subtype.ext (by simpa using hp)
 
 end Finite
 
 end BlueprintB2
 
-theorem qt_nq_thompson_center_maximal_elementary_intersection {R : Type*} [Group R] [Finite R]
-    (p : ℕ) [Fact p.Prime] (_hR : IsPGroup p R) :
-    elemThompsonCenterTorsion R p = sInf (elemThompsonFamily R p) ∧
-      (elemThompsonCenterTorsion R p : Set R) =
-        {x | x ∈ Subgroup.centralizer (elemThompson R p : Set R) ∧ x ^ p = 1} ∧
-      (elemThompson R p).Characteristic ∧ (elemThompsonCenterTorsion R p).Characteristic ∧
-      ∀ Y : Subgroup R, elemThompson R p ≤ Y →
-        (elemThompson Y p).map Y.subtype = elemThompson R p ∧
-          (elemThompsonCenterTorsion Y p).map Y.subtype = elemThompsonCenterTorsion R p :=
-  ⟨BlueprintB2.elemThompsonCenterTorsion_eq_sInf R p, BlueprintB2.coe_elemThompsonCenterTorsion R p,
-    BlueprintB2.elemThompson_characteristic R p,
-    BlueprintB2.elemThompsonCenterTorsion_characteristic R p, fun _ hY =>
-    ⟨BlueprintB2.elemThompson_map_subtype hY, BlueprintB2.elemThompsonCenterTorsion_map_subtype hY⟩⟩
 
 namespace BlueprintB2
 

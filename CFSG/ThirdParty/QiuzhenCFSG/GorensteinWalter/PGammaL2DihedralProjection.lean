@@ -220,32 +220,5 @@ public theorem pGammaL2_even_field_projection_linearKernel_eq_psl
   · exact Subgroup.relIndex_eq_one.mp hrelOne
   · exact hHL
 
-/-- For a faithful embedding of a group with dihedral Sylow `2`-subgroups
-into `PΓL₂(K)` whose range contains the canonical PSL₂ layer, either the
-field image is odd or the linear kernel is exactly PSL₂. -/
-public theorem pGammaL2_embedding_field_projection_odd_or_linearKernel_eq_psl
-    {R : Type u} [Group R] [Finite R]
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) (hcard : 3 < Nat.card K)
-    (hSylow : HasDihedralSylowTwo R)
-    (f : R →* PGammaL2 K) (hf : Function.Injective f)
-    (hPSL : pGammaL2PSLRange K ≤ f.range) :
-    Odd (Nat.card (pGammaL2FieldProjection K f.range).range) ∨
-      pGammaL2LinearKernel K f.range =
-        (pGammaL2PSLRange K).subgroupOf f.range := by
-  let eR : R ≃* f.range :=
-    MulEquiv.ofBijective f.rangeRestrict
-      ⟨fun a b hab => hf (congrArg Subtype.val hab),
-        f.rangeRestrict_surjective⟩
-  let : Finite f.range := Finite.of_surjective eR eR.surjective
-  have hRange : HasDihedralSylowTwo f.range :=
-    hasDihedralSylowTwo_of_mulEquiv eR.symm hSylow
-  rcases Nat.even_or_odd
-      (Nat.card (pGammaL2FieldProjection K f.range).range) with
-    heven | hodd
-  · right
-    exact pGammaL2_even_field_projection_linearKernel_eq_psl
-      K hK hcard f.range hPSL hRange heven.two_dvd
-  · exact Or.inl hodd
 
 end CFSG.GorensteinWalter

@@ -12,8 +12,6 @@ open CFSG.Assembly.LowTwoRank CFSG.LieType.Universal CFSG.ClassicalInvolution.Mo
 
 variable {p : ℕ} [hp : Fact p.Prime]
 
-theorem modelUniv_PSp_K (m f : ℕ) :
-    (modelUniv .PSp m p f hp.out).K = StatedSp m (GaloisField p f) := rfl
 
 theorem mem_fundamentalSubgroups_PSp_iff {m f : ℕ}
     (hadm : StatedLieAdmissible .PSp m p f) (R : Subgroup (StatedSp m (GaloisField p f))) :

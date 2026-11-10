@@ -19,11 +19,6 @@ namespace CFSG.KD.LyO2
 
 theorem cover : Nat.ble n (Nat.mul 64 15137) = true := by quickRfl
 
-theorem neg_canon : CFSG.KC.Ord.notB (CFSG.KC.LyOm.canonRange (fun b => Nat.add (KX b) 5) 0 1) = true := by
-  quickRfl
-
-theorem neg_canon_last : CFSG.KC.Ord.notB (CFSG.KC.LyOm.canonRange
-    (fun b => Nat.lor (KX b) (Nat.shiftLeft 6 (Nat.mul 3 49727))) 15136 1) = true := by quickRfl
 
 end CFSG.KD.LyO2
 

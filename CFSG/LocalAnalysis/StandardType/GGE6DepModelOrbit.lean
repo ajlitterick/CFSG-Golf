@@ -33,7 +33,6 @@ private lemma exists_word_of_mem_map_fst {n : ℕ} (g : Fin n → Mat6) (s : Vec
   have hvec : evalVec g s q.2 = q.1 := of_decide_eq_true (hchk q hq)
   exact (evalWord_mulVec g s q.2).trans (hvec.trans hfq)
 
-private def t1w2Chunk0 : List (Vec6 × List (Fin 7)) :=
 [(![0, 0, 0, 0, 0, 1], []),
  (![2, 1, 0, 0, 0, 2], [6]),
  (![2, 1, 1, 0, 0, 2], [2, 6]),

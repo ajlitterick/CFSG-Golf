@@ -175,26 +175,6 @@ theorem ggSixStepThreeBInput_of_inputs (hcyc : GGRootCentralizerCyclicInput)
   fun _ _ _ _ _ _ _ _ _ _ _ _ _ _ hctx s1 s2 _ _ hch =>
     centralizer_le_ggM_of_inputs hcyc hsub hctx s1 s2 hch
 
-theorem ggSecSixV2Input_of_rootCentralizer (h1 : GGSixStepOneV2Input)
-    (h2 : GGSixStepTwoV2Input) (h3a : GGRootPlaneInput) (hcyc : GGRootCentralizerCyclicInput)
-    (hsub : GGSixRootCentralizerSubnormalInput) (h3c : GGSixStepThreeCInput)
-    (h3d : GGSixStepThreeDInput) (hKG : GGRootInvolutionCentralInput) : GGSecSixV2Input :=
-  ggSecSixV2Input_of_inputs h1 h2 (ggSixStepThreeAInput_of_input h3a)
-    (ggSixStepThreeBInput_of_inputs hcyc hsub) h3c h3d hKG
-
-theorem ggSixRootCentralizerQuotientInput_of_subnormal (h : GGSixRootCentralizerSubnormalInput) :
-    GGSixRootCentralizerQuotientInput := by
-  intro G _ _ p B Bs x L D J t n f ψ hctx s1 s2 E r hch
-  obtain ⟨X, hXM, hXN, hX⟩ := h G p B Bs x L D J t n f ψ hctx s1 s2 E r hch
-  set N := Subgroup.centralizer ({r} : Set G)
-  have hsub : IsSubnormal (X.subgroupOf N) ⊤ := by
-    have : IsSubnormal (X.subgroupOf N) (N.subgroupOf N) := ggIsSubnormal_comap N.subtype hXN
-    rwa [Subgroup.subgroupOf_self] at this
-  have hmap := ggIsSubnormal_map (QuotientGroup.mk' (CFSG.Assembly.pCore 2 ↥N)) hsub
-  rw [Subgroup.map_top_of_surjective _ (QuotientGroup.mk'_surjective _)] at hmap
-  refine ⟨_, Subgroup.map_mono fun y hy => Subgroup.mem_subgroupOf.mpr
-    (hXM (Subgroup.mem_subgroupOf.mp hy)), hmap, fun y hy hyp =>
-      Subgroup.mem_map_of_mem _ (Subgroup.mem_subgroupOf.mpr (hX y hy hyp))⟩
 
 theorem ggSixStepThreeBInput_of_quotient (hcyc : GGRootCentralizerCyclicInput)
     (hq : GGSixRootCentralizerQuotientInput) : GGSixStepThreeBInput :=

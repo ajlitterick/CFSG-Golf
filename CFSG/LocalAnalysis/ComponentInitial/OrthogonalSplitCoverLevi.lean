@@ -83,11 +83,6 @@ theorem levi_injective : Function.Injective (levi r K) := by
   simp only [toMatrix'_levi, blockDiagInv] at h'
   exact Units.ext (Matrix.fromBlocks_inj.1 h').1
 
-theorem levi_mem_posUnip {A : GL (Fin r) K}
-    (hA : (A : Matrix (Fin r) (Fin r) K).IsUpperTriangular)
-    (h1 : ∀ i, (A : Matrix (Fin r) (Fin r) K) i i = 1) : levi r K A ∈ posUnip r K :=
-  mem_posUnip_iff.2 ⟨A, 0, hA, h1, by rw [transpose_zero, neg_zero], fun _ => rfl,
-    toMatrix'_levi_eq A⟩
 
 theorem levi_toGL_mem_orthElementaryGroup [CharP K 2] (hr : 3 ≤ r)
     (A : SpecialLinearGroup (Fin r) K) :

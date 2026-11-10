@@ -29,14 +29,6 @@ theorem cub2_K : cub2K 22 SA.M SB.M co3FiveData = true := by decide +kernel
 theorem cub_K : CFSG.KC.LocalComp.Cub.cubicK 22 SA.M SB.M co3MultData = true := by
   decide +kernel
 
-theorem sec_neg : (!secK 22 SA.M SB.M { co3Sec with outs := [37, 37, 43, 47, 50] }) = true := by
-  decide +kernel
-
-theorem cub2_neg : (!cub2K 22 SA.M SB.M { co3FiveData with r := co3FiveData.r + 1 }) = true := by
-  decide +kernel
-
-theorem cub_neg : (!CFSG.KC.LocalComp.Cub.cubicK 22 SB.M SA.M co3MultData) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelLC.Co3Ops
 

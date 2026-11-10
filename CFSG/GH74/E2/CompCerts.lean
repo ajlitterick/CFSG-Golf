@@ -37,17 +37,11 @@ theorem rank3_L4_2 (h : LieModel S .PSL 4 2 1) : RankCertified S 3 := by
   obtain ⟨-, -, F, _, _, hF, ⟨e⟩⟩ := lieModel_psl_data h
   exact (rankCertified_psl_even hF (by norm_num) (by norm_num)).of_mulEquiv e.symm
 
-theorem rank3_A8 (e : S ≃* alternatingGroup (Fin 8)) : RankCertified S 3 :=
-  rankCertified_alternating_eight.of_mulEquiv e.symm
 
 theorem rank3_U4_2 (h : LieModel S .PSU 4 2 1) : RankCertified S 3 := by
   obtain ⟨-, -, F, _, _, hF, ⟨e⟩⟩ := lieModel_psu_data h
   exact (rankCertified_SU4_two (q := 2 ^ 1) (by norm_num) hF).of_mulEquiv e.symm
 
-theorem rank3_PSp4_3 (h : LieModel S .PSp 2 3 1) : RankCertified S 3 := by
-  obtain ⟨-, -, F, _, _, hF, ⟨e⟩⟩ := lieModel_psp_data h
-  exact (rankCertified_PSp4
-    (ringChar_ne_two_of_card_eq Nat.prime_three (by norm_num) hF)).of_mulEquiv e.symm
 
 theorem rank3_L4_3 (h : LieModel S .PSL 4 3 1) : RankCertified S 3 := by
   obtain ⟨-, -, F, _, _, hF, ⟨e⟩⟩ := lieModel_psl_data h

@@ -24,7 +24,5 @@ end Quotient36
 theorem minimalTwoActionSmallFaithfulQuotient : MinimalTwoActionSmallFaithfulQuotient :=
   minimalTwoActionSmallFaithfulQuotient_of Quotient36.extraspecialThirtyTwoFiveRecognition
 
-theorem smallExtraspecialOddActionRecognition : Quotient36.SmallExtraspecialOddActionRecognition :=
-  smallExtraspecialOddActionRecognition_of Quotient36.extraspecialThirtyTwoFiveRecognition
 
 end CFSG.RankThree.PartOne

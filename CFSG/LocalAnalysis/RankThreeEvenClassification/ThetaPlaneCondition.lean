@@ -154,23 +154,5 @@ theorem ThetaPlaneCondition.mixed_balance
       (hcondition plane hplaneLe hplaneCard second (Subgroup.mem_sup_left
         (Subgroup.mem_zpowers second)) hsecondNe)
 
-theorem ThetaPlaneCondition.solvable_signalizer
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (hab : IsElemAbelian prime actor)
-    (hcondition : ThetaPlaneCondition prime actor) :
-    IsSolvableSignalizerFunctor prime actor (thetaActorSignalizer prime actor) := by
-  apply thetaActorSignalizer_isSolvableSignalizerFunctor prime hprime actor hab.1
-    (isElemAbelian_isPGroup prime actor hab)
-  intro first hfirst hfirstNe second hsecond hsecondNe
-  exact ThetaPlaneCondition.mixed_balance prime hprime actor hab hcondition first second
-    hfirst hsecond hfirstNe hsecondNe
-
-theorem CentralLineThetaCriterion.plane_condition
-    {G : Type u} [Group G] [Finite G]
-    (prime : ℕ) (hprime : prime.Prime) (actor : Subgroup G) (hab : IsElemAbelian prime actor)
-    (hactorCard : Nat.card actor = prime ^ 3) (hcriterion : CentralLineThetaCriterion prime actor) :
-    ThetaPlaneCondition prime actor := by
-  exact thetaPlaneCondition_of_rank_three_local_planes prime hprime actor hab hactorCard
-    (CentralLineThetaCriterion.raw_plane_containment prime hprime actor hab hactorCard hcriterion)
 
 end CFSG.RankThreeEvenClassification.Helpers

@@ -60,22 +60,6 @@ theorem mem_ker_chamberLeft_iff
     rw [← chamberMul_mul, inv_mul_cancel, chamberMul_one] at h1
     exact h1.symm
 
-theorem ker_chamberLeft :
-    chamberLeft.ker = (Bam.subgroupOf Eam).normalCore := by
-  ext g
-  rw [mem_ker_chamberLeft_iff]
-  change _ ↔ ∀ x : Eam, x * g * x⁻¹ ∈ Bam.subgroupOf Eam
-  constructor
-  · intro h x
-    have h1 := h (chamberOf x)
-    rw [chamberMul_chamberOf, chamberOf_eq_iff] at h1
-    rw [Subgroup.mem_subgroupOf]
-    simpa [mul_assoc] using Bam.inv_mem h1
-  · intro h c
-    obtain ⟨x, rfl⟩ := chamberOf_surjective c
-    rw [chamberMul_chamberOf, chamberOf_eq_iff]
-    have h1 := Subgroup.mem_subgroupOf.mp (h x)
-    simpa [mul_assoc] using Bam.inv_mem h1
 
 theorem chamberLeft_chamberOf_one_eq_iff
     (g : Eam) :
@@ -88,9 +72,6 @@ instance :
 
 @[expose] def typesOff (i : Fin 4) : Set (Fin Tag.F4.rank) := {j | (j : ℕ) ≠ (i : ℕ)}
 
-theorem parJ_mono
-    {J K : Set (Fin Tag.F4.rank)} (h : J ⊆ K) : parJ J ≤ parJ K :=
-  sup_le (Bam_le_parJ K) (iSup₂_le fun _ hj => Qam_le_parJ (h hj))
 
 theorem parJ_empty : parJ ∅ = Bam :=
   sup_eq_left.mpr (iSup₂_le fun _ hj => absurd hj (Set.notMem_empty _))
@@ -116,9 +97,6 @@ theorem Bam_le_resGroup
     (J : Set (Fin Tag.F4.rank)) : Bam.subgroupOf Eam ≤ resGroup J :=
   Subgroup.subgroupOf_mono Eam (Bam_le_parJ J)
 
-theorem resGroup_mono
-    {J K : Set (Fin Tag.F4.rank)} (h : J ⊆ K) : resGroup J ≤ resGroup K :=
-  Subgroup.subgroupOf_mono Eam (parJ_mono h)
 
 theorem natCard_resGroup
     (J : Set (Fin Tag.F4.rank)) :

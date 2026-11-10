@@ -81,21 +81,6 @@ theorem neighbour_cartan_E7 (j : Fin (Tag.rank .E7)) : ∃ l, Tag.cartan .E7 j l
   (by decide : ∀ j : Fin (Tag.rank .E7), ∃ l : Fin (Tag.rank .E7),
     (Tag.cartan .E7).transpose l j = -1) j
 
-theorem fieldOrder_ne_two_iff (q : PrimePower) :
-    q.card ≠ 2 ↔ ¬ (q.p = 2 ∧ q.exponent = 1) := by
-  rw [PrimePower.card_def]
-  constructor
-  · rintro h ⟨h1, h2⟩
-    exact h (by rw [h1, h2, pow_one])
-  · rintro h hc
-    have hp2 : q.p = 2 := by
-      rcases Nat.prime_two.eq_one_or_self_of_dvd q.p
-        (hc ▸ dvd_pow_self q.p q.exponent_pos.ne') with h1 | h1
-      · exact absurd h1 q.prime_p.one_lt.ne'
-      · exact h1
-    refine h ⟨hp2, ?_⟩
-    rw [hp2] at hc
-    exact Nat.pow_right_injective (le_refl 2) (hc.trans (pow_one 2).symm)
 
 theorem four_le_twoLocalOddRank_e6Index (d : TypeE6LieIndex) (hq : d.1.fieldOrder ≠ 2)
     [Finite (FixedPointCandidate d.steinberg)] :

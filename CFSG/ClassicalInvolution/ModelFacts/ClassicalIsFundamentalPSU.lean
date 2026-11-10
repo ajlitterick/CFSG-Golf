@@ -82,9 +82,6 @@ variable (σ n) in
           rw [hg c hc b]
       _ = (1 : Matrix (Fin n) (Fin n) F) a c := h1
 
-theorem mem_fixCols {e : Fin r → Fin n} {g : SU σ n} :
-    g ∈ fixCols σ n e ↔
-      ∀ c, c ∉ Set.range e → ∀ a, mat σ n g a c = (1 : Matrix (Fin n) (Fin n) F) a c := Iff.rfl
 
 theorem isBlkOn_of_mem_fixCols {e : Fin r → Fin n} (hrev : ∀ i, e (Fin.rev i) = Fin.rev (e i))
     {g : SU σ n} (hg : g ∈ fixCols σ n e) : IsBlkOn e (mat σ n g) := by

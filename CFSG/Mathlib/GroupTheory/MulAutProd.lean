@@ -25,10 +25,6 @@ variable {G : Type u} {H : Type v} [Group G] [Group H]
 @[simp] theorem prodLeftHom_apply (φ : MulAut G) (p : G × H) :
     prodLeftHom φ p = (φ p.1, p.2) := rfl
 
-theorem prodLeftHom_injective : Function.Injective (prodLeftHom (G := G) (H := H)) := by
-  intro φ ψ h
-  ext g : 1
-  exact congrArg (fun f : MulAut (G × H) => (f (g, 1)).1) h
 
 @[expose] def prodRightHom : MulAut H →* MulAut (G × H) where
   toFun φ := (MulEquiv.refl G).prodCongr φ

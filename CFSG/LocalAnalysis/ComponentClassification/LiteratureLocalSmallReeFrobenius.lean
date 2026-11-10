@@ -104,10 +104,6 @@ theorem entrywiseGL_frobenius_mem_reeGamma {g : ModGL ReeTag.G2.tag K}
     (ReeTag.G2.reeGamma K a).subtype).codRestrict (ReeTag.G2.reeGamma K a)
       fun g => entrywiseGL_frobenius_mem_reeGamma g.2
 
-theorem coe_frobeniusHomΓ (g : ReeTag.G2.reeGamma K a) :
-    ((frobeniusHomΓ g : ReeTag.G2.reeGamma K a) : ModGL ReeTag.G2.tag K) =
-      entrywiseGL ReeTag.G2.tag K (frobenius K ReeTag.G2.prime) g :=
-  rfl
 
 theorem frobeniusHomΓ_injective :
     Function.Injective (frobeniusHomΓ : ReeTag.G2.reeGamma K a →* ReeTag.G2.reeGamma K a) :=

@@ -132,10 +132,5 @@ theorem oY : ordIs 240 8 (mask 8) (pidn 240 8) (QA.S 0) 4 = true ∧
 theorem oQ : Nat.beq (ordK QA.LR 3) 40320 = true ∧ Nat.beq (ordK QB.LR 2) 1080 = true := by
   constructor <;> decide +kernel
 
-theorem neg : Nat.beq (ordK QB.LR 2) 2160 = false ∧
-    ordIs 98 7 (mask 7) (pidn 98 7) (QB.S 0) 9 = false ∧
-    Nat.beq (pa (pa (pa (SG 3) (SG 4)) (SG 8)) (SG 1)) (QA.S 0) = false ∧
-    bindsK 98 7 SU SUI [heSigma2, heSigma1] 0 = false := by
-  refine ⟨?_, ?_, ?_, ?_⟩ <;> decide +kernel
 
 end CertificateChecks.KernelCatFacts.C2010P

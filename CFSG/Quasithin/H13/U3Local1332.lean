@@ -104,17 +104,5 @@ theorem u3_selected_local_normalizer_and_TI_of_1332 (h1332 : Stmt13_3_2) [Finite
     rw [h1] at hx'
     exact hx'.2
 
-theorem u3_local_uniqueness_and_escape_producer_of_1332 (h1332 : Stmt13_3_2)
-    (hconf : U3ConfinedCentralizerOvergroup) (hexcl : ExcludedMinimalOvergroupTwoRankBound) :
-    U3LocalUniquenessEscapeProducer := by
-  intro G _ _ T L V z hH hU3 hF
-  obtain ⟨hMtop, hVM, hTI, -, -⟩ := u3_selected_local_normalizer_and_TI_of_1332 h1332 hH hF
-  refine ⟨hMtop, hVM, fun m hm => hTI m hm, fun hz => ?_⟩
-  obtain ⟨-, -, -, -, -, -, hZM, -, ⟨H, ⟨hTH, hR, hHM⟩, hleast⟩, hmin⟩ :=
-    hconf G T L V z hH hU3 hF hz
-  obtain ⟨-, hns, -, -, hTn, huniq, h6⟩ := hmin H hTH hR hHM hleast
-  have h4 := hexcl G T _ H hH.simple hH.nonabelian hH.qtke hH.sylow hH.not_excluded hZM hTH hns
-    hR hTn hHM huniq
-  omega
 
 end CFSG.Quasithin.H13.U3

@@ -35,11 +35,6 @@ theorem isSubnormal_subnormalClosure [Finite G] (K : Subgroup G) :
     exact isSubnormal_trans this hB
   exact (hclosed.sInf_mem (Set.toFinite _) ⟨le_top, IsSubnormal.refl ⊤⟩ subset_rfl).2
 
-theorem isSubnormal_subnormalClosure_iff [Finite G] (K : Subgroup G) :
-    IsSubnormal K (subnormalClosure K) ↔ IsSubnormal K ⊤ :=
-  ⟨fun h => isSubnormal_trans h (isSubnormal_subnormalClosure K), fun h => by
-    rw [← le_antisymm (le_subnormalClosure K) (subnormalClosure_le le_rfl h)]
-    exact IsSubnormal.refl K⟩
 
 theorem isSubnormal_top_map_subtype {H : Subgroup G} (hH : IsSubnormal H ⊤) {L : Subgroup H}
     (hL : IsSubnormal L ⊤) : IsSubnormal (L.map H.subtype) ⊤ := by

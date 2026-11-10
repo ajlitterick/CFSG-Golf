@@ -132,6 +132,5 @@ open CFSG.Monster.B CFSG.Monster.B.TwoA.Sp8 CFSG.Monster.B.TwoA.Sp8.WordRel
   relT T ((pauliWords.getD i []).map .lift)
     (lWord (paDecN.getD i (0, 0)).1 ++ tWord (paDecN.getD i (0, 0)).2)
 
-@[expose] def lengthsOK : Bool := Nat.beq coGens.length 9 && Nat.beq pauliWords.length 15
 
 end CFSG.KC.WordRelK

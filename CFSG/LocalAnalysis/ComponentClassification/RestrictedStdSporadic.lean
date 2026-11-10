@@ -73,19 +73,5 @@ theorem exists_isComponent_centralizer_of_mem {A : Type*} [Group A] {W L : Subgr
     (LocalAnalysis.ComponentInitial.isComponentOf_iff_isComponent_subgroupOf h1.1).1 h1, ⟨?_⟩⟩
   exact (subgroupOfEquivOfLe h1.1).trans (subgroupOfEquivOfLe hLW)
 
-theorem sporadicCase_of_forall_inner_of_noSmallComponent {s : TauCeti.SporadicName}
-    (hinner : ∀ (G : Type) [Group G], Nonempty (G ≃* NativeSporadic.Carrier s) →
-      ∀ α : MulAut G, ∃ g : G, α = MulAut.conj g)
-    (hcomp : ∀ (G : Type) [Group G] [Finite G], Nonempty (G ≃* NativeSporadic.Carrier s) →
-      ∀ t : G, orderOf t = 2 → ∀ B : Subgroup (centralizer ({t} : Set G)), IsComponent B →
-        ¬ SmallCentralQuotient B) :
-    SporadicCase s := by
-  intro A _ _ W _ hWs hWnab hCW hcat hsW a ha L hLW hne hL hstd hs
-  exfalso
-  have haW : a ∈ W := mem_of_forall_inner hCW (hinner W hsW) a
-  obtain ⟨B, hB, ⟨eB⟩⟩ := exists_isComponent_centralizer_of_mem haW hLW hL
-  have ha' : orderOf (⟨a, haW⟩ : W) = 2 := by rw [Subgroup.orderOf_mk, ha]
-  exact hcomp W hsW _ ha' B hB
-    (smallCentralQuotient_of_mulEquiv eB (smallCentralQuotient_of_smallSource hs))
 
 end CFSG.ComponentClassification.RestrictedStd

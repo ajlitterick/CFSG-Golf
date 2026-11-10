@@ -431,62 +431,6 @@ theorem qInt_tilde_le_two_of_mem (h : HypF91 T V L V₁ Vp H) {A : Subgroup (Mul
     qInt (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H)) h.isElemAbelian_tilde ≤ 2 :=
   @qOf_le_two_of_mem_Qset _ (commGroupOfElemAbelian h.isElemAbelian_tilde) inferInstance _ _ hA
 
-theorem mem_Qset_autOn_tilde_conj (h : HypF91 T V L V₁ Vp H) {B : Subgroup G} (hBH : B ≤ H)
-    (hBel : IsElemAbelian 2 B) (hnt : ¬ B ≤ pCoreOf 2 H)
-    (hquad : ∀ b₁ ∈ B, ∀ b₂ ∈ B, ∀ u ∈ conjClosure Vp H,
-      b₂ * (b₁ * u * b₁⁻¹ * u⁻¹) * b₂⁻¹ * (b₁ * u * b₁⁻¹ * u⁻¹)⁻¹ ∈ V₁)
-    (hr : (centralizerMod V₁ (conjClosure Vp H) B).relIndex (conjClosure Vp H) ≤
-      ((B ⊓ pCoreOf 2 H).relIndex B) ^ 2) {k : G} (hk : k ∈ H) :
-    autOn (tildeOf V₁ (conjSub k B)) (tildeOf V₁ (conjClosure Vp H)) ∈
-      @Qset ↥(tildeOf V₁ (conjClosure Vp H)) (commGroupOfElemAbelian h.isElemAbelian_tilde)
-        (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H))) := by
-  have hkU : conjSub k (conjClosure Vp H) = conjClosure Vp H :=
-    F7.conjSub_eq_of_mem_normalizer (le_normalizer_conjClosure Vp H hk)
-  have hkU' : conjSub k⁻¹ (conjClosure Vp H) = conjClosure Vp H :=
-    F7.conjSub_eq_of_mem_normalizer (le_normalizer_conjClosure Vp H (H.inv_mem hk))
-  have hkQ : conjSub k (pCoreOf 2 H) = pCoreOf 2 H :=
-    F7.conjSub_eq_of_mem_normalizer (le_normalizer_pCoreOf 2 H hk)
-  have hkQ' : conjSub k⁻¹ (pCoreOf 2 H) = pCoreOf 2 H :=
-    F7.conjSub_eq_of_mem_normalizer (le_normalizer_pCoreOf 2 H (H.inv_mem hk))
-  have hkV : conjSub k V₁ = V₁ :=
-    F7.conjSub_eq_of_mem_normalizer (h.H_normalizes_V₁ hk)
-  refine h.mem_Qset_autOn_tilde (B := conjSub k B) ?_ (isElemAbelian_conjSub hBel) ?_ ?_ ?_
-  · intro x hx
-    have := hBH (mem_conjSub.mp hx)
-    have e : x = k * (k⁻¹ * x * k) * k⁻¹ := by group
-    rw [e]
-    exact H.mul_mem (H.mul_mem hk this) (H.inv_mem hk)
-  · intro hle
-    apply hnt
-    have := (conjSub_le_iff k).mp hle
-    rwa [hkQ'] at this
-  · intro b₁ hb₁ b₂ hb₂ u hu
-    have hb₁' := mem_conjSub.mp hb₁
-    have hb₂' := mem_conjSub.mp hb₂
-    have hu' : k⁻¹ * u * k ∈ conjClosure Vp H := by
-      simpa using (Subgroup.mem_normalizer_iff.mp
-        (le_normalizer_conjClosure Vp H (H.inv_mem hk)) u).mp hu
-    have e1 := hquad _ hb₁' _ hb₂' _ hu'
-    have hkm := (Subgroup.mem_normalizer_iff.mp (h.H_normalizes_V₁ hk) _).mp e1
-    have eq : b₂ * (b₁ * u * b₁⁻¹ * u⁻¹) * b₂⁻¹ * (b₁ * u * b₁⁻¹ * u⁻¹)⁻¹ =
-        k * ((k⁻¹ * b₂ * k) * ((k⁻¹ * b₁ * k) * (k⁻¹ * u * k) * (k⁻¹ * b₁ * k)⁻¹ *
-          (k⁻¹ * u * k)⁻¹) * (k⁻¹ * b₂ * k)⁻¹ * ((k⁻¹ * b₁ * k) * (k⁻¹ * u * k) *
-          (k⁻¹ * b₁ * k)⁻¹ * (k⁻¹ * u * k)⁻¹)⁻¹) * k⁻¹ := by group
-    rw [eq]
-    exact hkm
-  · have hrel : ∀ (X Y : Subgroup G), (conjSub k X).relIndex (conjSub k Y) = X.relIndex Y :=
-      fun X Y => Subgroup.relIndex_map_map_of_injective X Y (MulAut.conj k).injective
-    have e2 : centralizerMod V₁ (conjClosure Vp H) (conjSub k B) =
-        conjSub k (centralizerMod V₁ (conjClosure Vp H) B) := by
-      rw [conjSub_centralizerMod, hkV, hkU]
-    have e3 : conjSub k B ⊓ pCoreOf 2 H = conjSub k (B ⊓ pCoreOf 2 H) := by
-      rw [conjSub_inf, hkQ]
-    calc (centralizerMod V₁ (conjClosure Vp H) (conjSub k B)).relIndex (conjClosure Vp H)
-        = (conjSub k (centralizerMod V₁ (conjClosure Vp H) B)).relIndex
-            (conjSub k (conjClosure Vp H)) := by rw [e2, hkU]
-      _ = (centralizerMod V₁ (conjClosure Vp H) B).relIndex (conjClosure Vp H) := hrel _ _
-      _ ≤ ((B ⊓ pCoreOf 2 H).relIndex B) ^ 2 := hr
-      _ = ((conjSub k B ⊓ pCoreOf 2 H).relIndex (conjSub k B)) ^ 2 := by rw [e3, hrel]
 
 omit [Finite G] in
 theorem qcrit_conj (h : HypF91 T V L V₁ Vp H) {B : Subgroup G} (hB : QCrit V₁ Vp H B) {k : G}
@@ -546,12 +490,6 @@ theorem mem_Qset_of_qcrit (h : HypF91 T V L V₁ Vp H) {B : Subgroup G} (hB : QC
         (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H))) :=
   h.mem_Qset_autOn_tilde hB.1 hB.2.1 hB.2.2.1 hB.2.2.2.1 hB.2.2.2.2
 
-theorem mem_Qset_of_qcrit_conj (h : HypF91 T V L V₁ Vp H) {B : Subgroup G}
-    (hB : QCrit V₁ Vp H B) {k : G} (hk : k ∈ H) :
-    autOn (tildeOf V₁ (conjSub k B)) (tildeOf V₁ (conjClosure Vp H)) ∈
-      @Qset ↥(tildeOf V₁ (conjClosure Vp H)) (commGroupOfElemAbelian h.isElemAbelian_tilde)
-        (autOn (tildeOf V₁ H) (tildeOf V₁ (conjClosure Vp H))) :=
-  h.mem_Qset_autOn_tilde_conj hB.1 hB.2.1 hB.2.2.1 hB.2.2.2.1 hB.2.2.2.2 hk
 
 end HypF91
 

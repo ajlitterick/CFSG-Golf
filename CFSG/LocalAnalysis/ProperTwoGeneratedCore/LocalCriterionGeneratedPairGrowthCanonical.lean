@@ -42,12 +42,6 @@ theorem generatedPairGrowth_literal_core_eq_canonical
   · exact fun hr => hr.2
   · exact fun hr => ⟨r.property, hr⟩
 
-theorem generatedPairGrowth_canonical_core_eq_pPrimeCore_oddCore
-    (G : Type*) [Group G] [Finite G] {p : ℕ} (hp : p.Prime) :
-    piCore (generatedPairGrowthCanonicalPrimes p) G =
-      (pPrimeCore p (CFSG.oddCore G)).map (CFSG.oddCore G).subtype := by
-  rw [← generatedPairGrowth_literal_core_eq_canonical]
-  exact generatedPairGrowth_prime_set_core_eq_pPrimeCore_oddCore G hp
 
 theorem generatedPairGrowth_ambient_canonical_core_eq
     {G : Type*} [Group G] [Finite G] (X : Subgroup G) {p : ℕ} (hp : p.Prime) :

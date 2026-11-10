@@ -57,22 +57,6 @@ theorem expandList_sublist (gens : List G) (s : G) (vis : List G) :
     · exact hv
     · exact List.mem_append_left _ hv
 
-theorem expandList_length (gens : List G) (s : G) (vis : List G) :
-    vis.length ≤ (expandList gens s vis).length := by
-  unfold expandList
-  suffices h : ∀ (l : List G) (acc : List G),
-      acc.length ≤ (l.foldl (fun acc g => if s * g ∈ acc then acc else acc ++ [s * g]) acc).length
-    from h gens vis
-  intro l
-  induction l with
-  | nil => intro acc; simp
-  | cons g l ih =>
-    intro acc
-    simp only [List.foldl_cons]
-    refine le_trans ?_ (ih _)
-    split_ifs with h
-    · exact le_rfl
-    · simp
 
 theorem closeList_subset (gens : List G) {S : Set G} (hg : ∀ g ∈ gens, g ∈ S)
     (hS : ∀ a ∈ S, ∀ b ∈ S, a * b ∈ S) :

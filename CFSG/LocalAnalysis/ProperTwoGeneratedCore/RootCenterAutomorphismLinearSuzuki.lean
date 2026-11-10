@@ -74,25 +74,6 @@ theorem suzuki_rootCenterAutomorphisms_of_mulEquiv
   rw [← hε, Subgroup.card_map_of_injective ε.injective]
   exact (suzuki_unipotent_structure hK).2.1
 
-theorem linear_Suzuki_root_center_automorphisms_and_large_root_centralizers :
-    (∀ (K : Type u) [Field K] [Finite K] (f : ℕ), 2 ≤ f → Nat.card K = 2 ^ f →
-      ∀ R : Sylow 2 (PSL2MatrixGroup K),
-        (R : Subgroup (PSL2MatrixGroup K)) =
-            (CFSG.omega₁ (G := (R : Subgroup (PSL2MatrixGroup K))) (p := 2)).map
-              (R : Subgroup (PSL2MatrixGroup K)).subtype ∧
-          Nat.card R = 2 ^ f ∧
-          RootCenterAutomorphisms (R : Subgroup (PSL2MatrixGroup K))
-            ((CFSG.omega₁ (G := (R : Subgroup (PSL2MatrixGroup K))) (p := 2)).map
-              (R : Subgroup (PSL2MatrixGroup K)).subtype) (2 ^ f)) ∧
-    ∀ (a : ℕ) (K : Type) [Field K] [Finite K], 1 ≤ a → Nat.card K = 2 ^ (2 * a + 1) →
-      ∀ R : Sylow 2 (suzukiGroup a K),
-        Nat.card R = (2 ^ (2 * a + 1)) ^ 2 ∧
-          RootCenterAutomorphisms (R : Subgroup (suzukiGroup a K))
-            ((CFSG.omega₁ (G := (R : Subgroup (suzukiGroup a K))) (p := 2)).map
-              (R : Subgroup (suzukiGroup a K)).subtype) (2 ^ (2 * a + 1)) :=
-  ⟨fun _ _ _ _ hf hcard R => linear_rootCenterAutomorphisms_of_mulEquiv hf hcard
-      (MulEquiv.refl _) R,
-    fun _ _ _ _ ha hK R => suzuki_rootCenterAutomorphisms_of_mulEquiv ha hK (MulEquiv.refl _) R⟩
 
 theorem linear_rootCenterAutomorphisms_of_mulEquiv_psl2Binary {G : Type*} [Group G] {f : ℕ}
     (hf : 2 ≤ f) (e : G ≃* PSL2BinaryMatrixGroup f) (R : Sylow 2 G) :

@@ -50,10 +50,5 @@ theorem thm3Comm_of_violation (hgen : G2CentralizersGenerate p) (hD4 : D4Normali
   rw [commutatorElement_eq_one_iff_mul_comm.mpr (hc x hx y hy)]
   exact one_mem _
 
-theorem thm3CommBelowExact_of_citBelowU (hgen : G2CentralizersGenerate p)
-    (hD4 : D4NormalizerMax p) {n : ℕ} (hn : CITBelowU p f n) : Thm3CommBelowExact p f n := by
-  intro hp hq G _ _ hlt hO Ω hΩ K hK hnA
-  obtain ⟨D⟩ := ih8_exists_omegaLie hn hΩ.conjInvariant hΩ.classical ⟨K, hK⟩ hO hlt
-  exact thm3Comm_of_violation hgen hD4 hp hq hΩ D hK hnA
 
 end CFSG.ClassicalInvolution.Asc77.T3Typed

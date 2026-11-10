@@ -39,22 +39,5 @@ theorem centered_structural_alternatives
   intro P _ _ hP φ
   exact reducedResidual_hom_eq_one n S f hP φ
 
-theorem involution_centralizer_structural_alternatives
-    (n : ℕ) (hn : 4 ≤ n)
-    (S₀ : Sylow 2 G) (f₀ : SemidihedralGroup n ≃* S₀)
-    (hG : ∀ L : Subgroup G, L.index ≠ 2) :
-    ∀ t : G, orderOf t = 2 →
-      (∃ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S), centeredInvolution n S f = t) ∧
-      (∀ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S), centeredInvolution n S f = t →
-        involutionCentralizer n S f = Subgroup.centralizer {t} ∧
-        (centralInvolution n S f : G) = t ∧ StructuralAlternatives n S f) := by
-  intro t ht
-  obtain ⟨S, f, hz, _⟩ :=
-    (InvolutionFusion.involution_centered_sylow_existence n hn S₀ f₀ hG t ht).2
-  refine ⟨⟨S, f, hz⟩, ?_⟩
-  intro S f hz
-  refine ⟨?_, hz, centered_structural_alternatives n hn S f hG⟩
-  change Subgroup.centralizer {centeredInvolution n S f} = Subgroup.centralizer {t}
-  rw [hz]
 
 end CFSG.Semidihedral.CentralizerStructure

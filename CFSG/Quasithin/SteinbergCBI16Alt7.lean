@@ -78,10 +78,5 @@ theorem Z1A_le_B1A_7 : Z1A coords7.actA ≤ B1A coords7.actA := by
   · exact h
   · rwa [sub_zero] at h
 
-variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W]
-
-theorem finrank_H1_alternatingNatural_seven {ρ : Representation (ZMod 2) Γ W}
-    (h : Explicit.AlternatingNatural ρ 7 .alternating) : Module.finrank (ZMod 2) (H1 ρ) = 0 :=
-  coords7.finrank_H1_eq_zero h Z1A_le_B1A_7
 
 end CFSG.Quasithin.SteinbergCB.I16

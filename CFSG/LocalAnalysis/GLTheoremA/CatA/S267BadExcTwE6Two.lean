@@ -26,8 +26,6 @@ variable {L : Type} [Field L] {n : ℕ}
   one_mem' i := by rw [Pi.one_apply, one_pow]
   inv_mem' {a} ha i := by rw [Pi.inv_apply, inv_pow, ha i, inv_one]
 
-theorem mem_twoTorsionTuples {a : Fin n → Lˣ} : a ∈ twoTorsionTuples L n ↔ ∀ i, a i ^ 2 = 1 :=
-  Iff.rfl
 
 theorem card_twoTorsionTuples (h2 : (2 : L) ≠ 0) : Nat.card (twoTorsionTuples L n) = 2 ^ n := by
   classical

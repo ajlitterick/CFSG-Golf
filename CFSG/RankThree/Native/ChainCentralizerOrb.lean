@@ -141,20 +141,5 @@ theorem ptailOK_of_orbits_rel (hA : ChainArrays Q O S base W)
     exact hKE _ hgK
   rw [hrestK, Bool.or_true]
 
-theorem ptailOK_of_orbits (hA : ChainArrays Q O S base W)
-    (hF : ChainCheckFacts n O S base W chunks) (hQ : ValidSchreier Q) {x : Array ℕ}
-    {X : Equiv.Perm (Fin n)} (hx : Rep n x X) {xs : Array (Array ℕ)}
-    (hxs : ∀ e < xs.size, Rep n xs[e]! (X ^ e)) {rels : List (ℕ × ℕ × ℕ)}
-    (hrels : ∀ r ∈ rels, r.2.2 < xs.size ∧ r.1 < base.size ∧ r.2.1 < base.size ∧
-      (xs[r.2.2]!)[base[r.1]!]! = base[r.2.1]!) {E : List (Array ℕ)}
-    {K : Subgroup (Equiv.Perm (Fin n))} (hK : K ≤ Subgroup.centralizer {X} ⊓ Q.originalSubgroup)
-    (hKE : ∀ g ∈ K, ∃ e ∈ E, Rep n e g) (hEK : ∀ e ∈ E, ∃ g ∈ K, Rep n e g)
-    (h0 : 0 < Q.baseCount)
-    (horb : ∀ k < (lev n S base 0).pts.size, ∃ r < (lev n S base 0).pts.size, ∃ c ∈ K,
-      c (levPts Q S base 0 r) = levPts Q S base 0 k ∧
-      ptailOK n (rawLevels n S base) base x xs rels E (Q.baseCount - 1) 1
-        (compA n (idA n) ((rawLevels n S base)[0]!).tr[r]!) = true) :
-    ptailOK n (rawLevels n S base) base x xs rels E Q.baseCount 0 (idA n) = true :=
-  ptailOK_of_orbits_rel hA hF hQ hx hxs hrels hK hKE hEK h0 fun k hk => Or.inr (horb k hk)
 
 end CFSG.RankThree.Native

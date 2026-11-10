@@ -65,16 +65,6 @@ theorem commute_lw_elt_positiveLong_two {k : Fin 3} (hk : k ≠ 2) (c : K) :
     _ = elt (.positiveLong 2) c * lw k := by
         rw [lw_conj_elt_positiveLong_of_ne (Ne.symm hk) c]
 
-theorem commute_sw_elt_positiveLong_two (c : K) :
-    Commute (sw (show (0 : Fin 3) ≠ 1 by decide)) (elt (.positiveLong 2) c) := by
-  rw [commute_iff_eq]
-  calc sw (show (0 : Fin 3) ≠ 1 by decide) * elt (.positiveLong 2) c
-      = (sw (show (0 : Fin 3) ≠ 1 by decide) * elt (.positiveLong 2) c *
-          (sw (show (0 : Fin 3) ≠ 1 by decide))⁻¹) *
-          sw (show (0 : Fin 3) ≠ 1 by decide) := by group
-    _ = elt (.positiveLong 2) c * sw (show (0 : Fin 3) ≠ 1 by decide) := by
-        rw [sw_conj_elt_positiveLong (show (0 : Fin 3) ≠ 1 by decide) 2 c,
-          show (Equiv.swap (0 : Fin 3) 1) 2 = 2 from by decide]
 
 theorem not_commute_elt_difference_positiveLong :
     ¬ Commute (elt (n := 3) (F := K) (.difference 0 2 (by decide)) (1 : K))

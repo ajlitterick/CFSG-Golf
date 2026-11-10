@@ -231,31 +231,6 @@ theorem eq_mul_of_mem_omegaNbr (hK : IsClassicalMember3 K z) (hint : IsIntrinsic
     norm_num
   exact exactCore3_cover hu hc2 (mem_tqMembers3_of_mem_omegaNbr hK hint hN ha).2
 
-theorem oddCoreIn_le_oddCoreIn_centralizer_iff (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hK : IsClassicalMember3 K z) (hint : IsIntrinsicU (.sl2 3 1) K z)
-    (hBelow : CIT3Below (Nat.card G)) {M N : Subgroup G}
-    (hN : N ∈ omegaNbr (CoreAssembly.conjClass K) M) {a u : G} (ha : IsClassicalMember3 M a)
-    (hu : IsClassicalMember3 N u) :
-    oddCoreIn N ≤ oddCoreIn (Subgroup.centralizer ({a} : Set G)) ↔
-      ∀ x ∈ oddCoreIn N, a * x = x * a := by
-  constructor
-  · intro h x hx
-    exact (Subgroup.mem_centralizer_singleton_iff.mp (oddCoreIn_le _ (h hx))).symm
-  · intro h x hx
-    exact centralizer_inf_oddCoreIn_le_of_mem_omegaNbr hnab hK hint hBelow hN ha hu
-      (Subgroup.mem_inf.mpr ⟨Subgroup.mem_centralizer_singleton_iff.mpr (h x hx).symm, hx⟩)
-
-theorem oddCoreIn_le_oddCoreIn_iff (hnab : ∃ x y : G, x * y ≠ y * x)
-    (hK : IsClassicalMember3 K z) (hint : IsIntrinsicU (.sl2 3 1) K z)
-    (hBelow : CIT3Below (Nat.card G)) {M N : Subgroup G} (hM : M ∈ CoreAssembly.conjClass K)
-    (hN : N ∈ omegaNbr (CoreAssembly.conjClass K) M) {a u : G} (ha : IsClassicalMember3 M a)
-    (hu : IsClassicalMember3 N u) :
-    oddCoreIn N ≤ oddCoreIn M ↔ ∀ x ∈ oddCoreIn N, a * x = x * a := by
-  have hint' : oddCoreIn (Subgroup.centralizer ({z} : Set G)) ≤ K :=
-    hint (MemberType.isSolvableType_sl2.mpr (by norm_num))
-  have hintM := oddCoreIn_centralizer_le_of_mem_conjClass hK hint' hM ha
-  rw [oddCoreIn_eq_of_intrinsic3 ha hintM]
-  exact oddCoreIn_le_oddCoreIn_centralizer_iff hnab hK hint hBelow hN ha hu
 
 end Edge
 

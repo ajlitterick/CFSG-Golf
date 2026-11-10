@@ -33,9 +33,6 @@ theorem exists_a5Root_eq_of_mem_a5LeviRoots {γ : Fin (Tag.rank .E6) → ℤ}
     (hγ : γ ∈ a5LeviRoots) : ∃ i j : Fin 6, i ≠ j ∧ a5Root i j = γ :=
   a5LeviRoots_check γ (mem_rootFinset.2 hγ.1) hγ.2
 
-theorem a5LeviRoots_eq : a5LeviRoots = {γ | ∃ i j : Fin 6, i ≠ j ∧ a5Root i j = γ} := by
-  ext γ
-  exact ⟨exists_a5Root_eq_of_mem_a5LeviRoots, fun ⟨i, j, hij, h⟩ => h ▸ a5Root_mem_a5LeviRoots hij⟩
 
 variable (K : Type) [Field K]
 

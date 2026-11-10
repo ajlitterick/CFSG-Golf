@@ -199,31 +199,6 @@ theorem EngineHyp.normal (h : EngineHyp tab hT M gens gm L) :
   rw [hfinal]
   exact tab64Perm_mem_tab64Sub hT (linAct_lt st m)
 
-theorem EngineHyp.action (h : EngineHyp tab hT M gens gm L) :
-    ∀ x ∈ M, ∃ st ∈ L.map Prod.fst,
-      ∀ n < 64, x * tab64Perm tab n * x⁻¹ = tab64Perm tab (linAct st n) := by
-  intro x hx
-  obtain ⟨st, hstL, g₀, -, e₀, he₀, hxeq, -, hact⟩ := h.decomp x hx
-  refine ⟨st, hstL, fun n hn => ?_⟩
-  rw [hxeq]
-  have hconj : e₀ * tab64Perm tab n * e₀⁻¹ = tab64Perm tab n := by
-    obtain ⟨l, hl, rfl⟩ := (mem_tab64Sub hT).mp he₀
-    rw [tab64Perm_comm hT hl hn]
-    group
-  calc (g₀ * e₀) * tab64Perm tab n * (g₀ * e₀)⁻¹
-      = g₀ * (e₀ * tab64Perm tab n * e₀⁻¹) * g₀⁻¹ := by group
-    _ = g₀ * tab64Perm tab n * g₀⁻¹ := by rw [hconj]
-    _ = tab64Perm tab (linAct st n) := hact n hn
-
-theorem EngineHyp.realize (h : EngineHyp tab hT M gens gm L) :
-    ∀ st ∈ L.map Prod.fst, ∃ x ∈ M,
-      ∀ n < 64, x * tab64Perm tab n * x⁻¹ = tab64Perm tab (linAct st n) := by
-  intro st hst
-  obtain ⟨e, he, he1⟩ := List.mem_map.mp hst
-  have hreach : StReach gm st := by
-    rw [← he1]
-    exact (sbfsOK_sound h.bfs).2.2 e he
-  exact h.rep hreach
 
 theorem EngineHyp.selfCentralizing (h : EngineHyp tab hT M gens gm L) :
     ∀ g ∈ M, (∀ k ∈ tab64Sub tab hT, g * k = k * g) → g ∈ tab64Sub tab hT := by

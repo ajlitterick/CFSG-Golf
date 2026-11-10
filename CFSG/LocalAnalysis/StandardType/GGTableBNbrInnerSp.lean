@@ -312,17 +312,6 @@ theorem ggTableBNbrInnerInputOn_symplectic :
   ggTableBNbrInnerInputOn_of_labels fun _ _ hp hlab h =>
     largeEvenLabelAll_torusNbr_symplectic h.1 hlab hp h.2
 
-theorem ggTableBNbrInnerInput_of_rest_symplectic
-    (h : GGTableBNbrInnerInputOn fun p lab => GGCorFourTwoRestLabel p lab ∧
-      ¬ ((lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1)) :
-    GGTableBNbrInnerInput :=
-  ((ggTableBNbrInnerInputOn_typeA.or ggTableBNbrInnerInputOn_symplectic).or h).of_cover
-    fun p lab _ _ => by
-      by_cases h1 : GGTypeALabel p lab
-      · exact Or.inl (Or.inl h1)
-      · by_cases h2 : (lab.tag = .B ∨ lab.tag = .C) ∧ p ∣ 2 ^ lab.n - 1
-        · exact Or.inl (Or.inr h2)
-        · exact Or.inr ⟨h1, h2⟩
 
 end CFSG.StandardType
 

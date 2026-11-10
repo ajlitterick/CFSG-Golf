@@ -46,11 +46,5 @@ theorem sExplicit_holds
     exact ⟨Alg.sFormula σ a d, fun G _ _ R => R.isS_sFormula ha haσ⟩
   · exact ⟨fun _ => 0, fun G _ _ R => absurd ⟨G, inferInstance, inferInstance, ⟨R⟩⟩ h⟩
 
-theorem thompson2_of_base
-    (hbase : BaseExists) : Thompson2 where
-  base := hbase
-  thompsonIdentity _ _ _ _ _ _ _ _ _ R := R.thompsonIdentity_holds
-  sExplicit _ _ _ _ σ _ d := sExplicit_holds σ d
-  eq211 _ _ _ _ σ _ a ha haσ _ := ⟨Alg.c211 σ a, fun _ _ _ _ R => R.eq211_holds ha haσ⟩
 
 end CFSG.Walter.Ree.T2

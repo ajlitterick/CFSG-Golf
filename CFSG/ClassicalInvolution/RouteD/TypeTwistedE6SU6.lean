@@ -776,8 +776,6 @@ end Long2
 section Short4
 variable {E : Type} [Field E] {θ : E →+* E} (hθ : ∀ c, θ (θ c) = c) {μ : E} (hμ0 : μ ≠ 0)
 
-include hμ0 in
-theorem Dinv_mul_Dm : Dinv μ * Dm μ = 1 := mul_eq_one_comm.mp (Dm_mul_Dinv hμ0)
 
 include hθ in
 theorem coe_iota4SL_usbSL_upper (c : E) :
@@ -1055,77 +1053,6 @@ end Center
 
 section Final
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem nonempty_su6Frame (hf : 1 ≤ f) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f) :
-    Nonempty (SU6Frame p f hf) := by
-  classical
-  have : NeZero (2 * f) := ⟨by omega⟩
-  have hF : Nat.card (GaloisField p (2 * f)) = (p ^ f) ^ 2 :=
-    CFSG.LieType.Universal.card_galoisField_two_mul p f hf
-  have hσ := unitaryInvolution_involutive (K := GaloisField p (2 * f)) (p := p) (f := f) hF
-  obtain ⟨μ, hμ0, hμ⟩ := exists_unitaryInvolution_eq_neg (K := GaloisField p (2 * f)) (p := p)
-    (f := f) hF
-  have hσθ : ∀ c, unitaryInvolution (GaloisField p (2 * f)) p f c = frobQ p f c := fun c => by
-    rw [unitaryInvolution_apply, frobQ_apply]
-  have hθ := frobQ_frobQ p f hf
-  obtain ⟨P, hP⟩ := exists_wittMatrix hF 6
-  let φ := conjEquiv P hP
-  obtain ⟨i₀, hi₀⟩ : ∃ i, IsLongRootSU2 (GaloisField p (2 * f)) p f (by norm_num : 2 ≤ 6)
-      ((nodeSU hσ 2).map φ.toMonoidHom) i :=
-    CFSG.ClassicalInvolution.ModelFacts.exists_isLongRootSU2_map_rankOne hF hp2 (by norm_num)
-      (k := ⟨2, by norm_num⟩) (γ := Pi.single 2 1) (by decide +kernel) (by decide +kernel) P hP
-  have hB23 : nodeSU hσ 1 = (WeakCT.B23 (GaloisField p (2 * f))).map (iota3 hσ) :=
-    le_antisymm (iota3_B23_ge hσ) (iota3_B23_le hσ)
-  have hB12 : nodeSU hσ 0 = (WeakCT.B12 (GaloisField p (2 * f))).map (iota3 hσ) :=
-    le_antisymm (iota3_B12_ge hσ) (iota3_B12_le hσ)
-  have hlb : nodeSU hσ 2 = ((ulb (frobQ p f) hθ).range).map (iota4 hθ hμ0 hμ hσθ) :=
-    le_antisymm (iota4_ulb_ge hσ hθ hμ0 hμ hσθ) (iota4_ulb_le hσ hθ hμ0 hμ hσθ)
-  have hker : (QuotientGroup.mk' (Subgroup.center (Su (GaloisField p (2 * f)) p f 6))).ker ≤
-      Subgroup.center (Su (GaloisField p (2 * f)) p f 6) := by
-    rw [QuotientGroup.ker_mk']
-  refine ⟨{
-    R₁ := (nodeSU hσ 2).map φ.toMonoidHom
-    S₂ := (nodeSU hσ 1).map φ.toMonoidHom
-    S₃ := (nodeSU hσ 0).map φ.toMonoidHom
-    R₁_mem := ⟨i₀, hi₀⟩
-    commutes_R₁_S₃ := ?_
-    gen := ?_
-    ι₄ := φ.toMonoidHom.comp (iota4 hθ hμ0 hμ hσθ)
-    ι₄_injective := φ.injective.comp (iota4_injective hθ hμ0 hμ hσθ)
-    ι₄_long := ?_
-    ι₄_short := ?_
-    ι₃ := φ.toMonoidHom.comp (iota3 hσ)
-    ι₃_injective := φ.injective.comp (iota3_injective hσ)
-    ι₃_B23 := ?_
-    ι₃_B12 := ?_
-    R₁_center := ?_
-    S₂_center := ?_ }⟩
-  · rintro _ ⟨x, hx, rfl⟩ _ ⟨y, hy, rfl⟩
-    show φ x * φ y = φ y * φ x
-    rw [← map_mul, ← map_mul, commutes_node2_node0 hσ hθ hμ0 hμ hσθ x hx y hy]
-  · rw [← Subgroup.map_sup, ← Subgroup.map_sup, nodes_generate hF]
-    exact Subgroup.map_top_of_surjective _ φ.surjective
-  · rw [← Subgroup.map_map]
-    exact congrArg (Subgroup.map φ.toMonoidHom) hlb.symm
-  · rw [← Subgroup.map_map]
-    exact congrArg (Subgroup.map φ.toMonoidHom)
-      ((iota4_usb_range hσ hθ hμ0 hμ hσθ).trans hB23.symm)
-  · rw [← Subgroup.map_map, ← hB23]
-  · rw [← Subgroup.map_map, ← hB12]
-  · exact fun r hr hc => CFSG.ClassicalInvolution.Models.Transfer.eq_one_of_mem_ker_of_isLongRootSU2
-      hF hp2 hq (by norm_num) hi₀ hker r hr (by rw [QuotientGroup.ker_mk']; exact hc)
-  · rintro _ ⟨x, hx, rfl⟩ hc
-    rw [hB23] at hx
-    obtain ⟨b, hb, rfl⟩ := hx
-    have hcx : ∀ y : SU (unitaryInvolution (GaloisField p (2 * f)) p f) 6,
-        iota3 hσ b * y = y * iota3 hσ b := fun y =>
-      φ.injective (by rw [map_mul, map_mul]; exact ((Subgroup.mem_center_iff.mp hc) (φ y)).symm)
-    have hb1 : b = 1 := by
-      refine eq_one_of_mem_B23_commute_B12 hb (fun c => ?_) (fun c => ?_)
-      · exact iota3_injective hσ (by rw [map_mul, map_mul]; exact hcx _)
-      · exact iota3_injective hσ (by rw [map_mul, map_mul]; exact hcx _)
-    rw [hb1, map_one, map_one]
 
 end Final
 

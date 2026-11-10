@@ -268,10 +268,6 @@ theorem sigmaX_equivariant
   @sigmaHom_equivariant J (Subgroup.toGroup J) XOrb _ _ xBase selfNormalizing_xBase
     exists_stabConj α h x
 
-theorem sigmaX_conj
-    (g : J) (x : XOrb) :
-    sigmaX (@MulAut.conj J (Subgroup.toGroup J) g) x = g • x :=
-  @sigmaHom_conj J (Subgroup.toGroup J) XOrb _ _ xBase selfNormalizing_xBase exists_stabConj g x
 
 theorem perm_apply_inv_self {Y : Type*} (f : Equiv.Perm Y) (y : Y) : f (f⁻¹ y) = y :=
   f.apply_symm_apply y
@@ -422,9 +418,6 @@ theorem isoHom_inv_apply
     (α : MulAut J) (x : XOrb) : (isoHom α)⁻¹ x = (sigmaX α)⁻¹ x := by
   rw [← map_inv, isoHom_apply, map_inv]
 
-theorem isoHom_conj
-    (g : J) : isoHom (@MulAut.conj J (Subgroup.toGroup J) g) = rowLin g :=
-  linearEquiv_ext_X fun x => by rw [isoHom_apply, sigmaX_conj, coe_smul_xOrb]
 
 theorem rowLin_aut
     (α : MulAut J) (h : J) :
@@ -489,11 +482,6 @@ theorem vecMul_toGL_inv (L : (Fin m → R) ≃ₗ[R] (Fin m → R)) (w : Fin m �
     rw [vecMul_toGL, Units.val_mul, ← Matrix.vecMul_vecMul, vecMul_toGL, vecMul_toGL]
     rfl)
 
-theorem toGLHom_rowAct (g : GL (Fin m) R) : toGLHom (rowAct (MonoidHom.id _) g) = g :=
-  Units.ext (matrix_ext_vecMul fun w => by
-    rw [show toGLHom (rowAct (MonoidHom.id _) g) = toGL (rowAct (MonoidHom.id _) g) from rfl,
-      vecMul_toGL]
-    rfl)
 
 theorem rowAct_toGLHom (L : (Fin m → R) ≃ₗ[R] (Fin m → R)) :
     rowAct (MonoidHom.id _) (toGLHom L) = L :=
@@ -506,46 +494,14 @@ theorem toGLHom_injective : Function.Injective (toGLHom (R := R) (m := m)) :=
 
 end RowMat
 
-theorem rowLin_eq_rowAct (g : J) :
-    rowLin g = rowAct (MonoidHom.id (GL (Fin 112) (ZMod 2))) (g : GL (Fin 112) (ZMod 2)) :=
-  LinearEquiv.ext fun w => by rw [rowLin_apply, rowAct_apply, MonoidHom.id_apply]
 
 @[expose] def autRep :
        MulAut J →* GL (Fin 112) (ZMod 2) := toGLHom.comp isoHom
 
-theorem autRep_conj
-    (g : J) :
-    autRep (@MulAut.conj J (Subgroup.toGroup J) g) = (g : GL (Fin 112) (ZMod 2)) := by
-  rw [autRep, MonoidHom.comp_apply, isoHom_conj, rowLin_eq_rowAct, toGLHom_rowAct]
-
-theorem autRep_aut
-    (α : MulAut J) (h : J) :
-    ((α h : J) : GL (Fin 112) (ZMod 2)) = autRep α * h * (autRep α)⁻¹ := by
-  have e := congrArg toGLHom (rowLin_aut α h)
-  rw [rowLin_eq_rowAct, toGLHom_rowAct, map_mul, map_mul, map_inv, rowLin_eq_rowAct,
-    toGLHom_rowAct] at e
-  exact e
 
 theorem autRep_injective :
        Function.Injective autRep :=
   toGLHom_injective.comp isoHom_injective
 
-theorem jq_vecMul_autRep
-    (α : MulAut J) (v : Fin 112 → ZMod 2) :
-    jq (v ᵥ* ((autRep α : GL (Fin 112) (ZMod 2)) : Matrix (Fin 112) (Fin 112) (ZMod 2))) =
-      jq v := by
-  rw [autRep, MonoidHom.comp_apply, show toGLHom (isoHom α) = toGL (isoHom α) from rfl,
-    vecMul_toGL]
-  exact TauCeti.QuadraticMap.mem_orthogonalGroup_iff.1
-    ((TauCeti.QuadraticMap.orthogonalGroup jq).inv_mem (isoHom_mem α)) v
-
-theorem R3E_J4_all_automorphisms_realized_by_binary_isometries :
-    ∃ ρ : MulAut J →* GL (Fin 112) (ZMod 2), Function.Injective ρ ∧
-      (∀ α : MulAut J, ∀ v : Fin 112 → ZMod 2,
-        jq (v ᵥ* ((ρ α : GL (Fin 112) (ZMod 2)) : Matrix (Fin 112) (Fin 112) (ZMod 2))) =
-          jq v) ∧
-      (∀ g : J, ρ (@MulAut.conj J (Subgroup.toGroup J) g) = (g : GL (Fin 112) (ZMod 2))) ∧
-      ∀ (α : MulAut J) (h : J), ((α h : J) : GL (Fin 112) (ZMod 2)) = ρ α * h * (ρ α)⁻¹ :=
-  ⟨autRep, autRep_injective, jq_vecMul_autRep, autRep_conj, autRep_aut⟩
 
 end CFSG.Sporadic.J4Schreier

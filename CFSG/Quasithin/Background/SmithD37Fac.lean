@@ -287,20 +287,6 @@ theorem conj_mem_natSub_of_mem_range (D : FacStep Y' Y) {P : Subgroup (MulAut U)
   rintro _ ⟨a, rfl⟩ _ ⟨l, rfl⟩
   exact ⟨⟨_, hPN _ a.2 _ l.2⟩, (facAct_conj Mm D hP hP' a l _).symm⟩
 
-theorem range_facAct_le_normalizer (D : FacStep Y' Y) {P : Subgroup (MulAut U)}
-    (hP : P ≤ stabSub (rowSub Mm Y)) (hP' : P ≤ stabSub (rowSub Mm Y'))
-    (hPN : ∀ a ∈ P, ∀ l ∈ L₁, a * l * a⁻¹ ∈ L₁) :
-    (facAct Mm D hP hP').range ≤
-      Subgroup.normalizer (natSub Mm : Set (MulAut (natMod F d))) := by
-  rintro _ ⟨a, rfl⟩
-  rw [Subgroup.mem_normalizer_iff]
-  intro g
-  refine ⟨conj_mem_natSub_of_mem_range Mm D hP hP' hPN _ ⟨a, rfl⟩ g, ?_⟩
-  rintro ⟨l, hl⟩
-  have h := hPN _ (P.inv_mem a.2) _ l.2
-  refine ⟨⟨_, h⟩, (facAct_conj Mm D hP hP' a⁻¹ l h).symm.trans ?_⟩
-  rw [map_inv, hl]
-  group
 
 private theorem fac_glAut_injective :
     Function.Injective (glAut : Matrix.GeneralLinearGroup (Fin d) F →* MulAut (natMod F d)) := by

@@ -223,38 +223,6 @@ structure Q3FrameB (G : Type) [Group G] [Finite G] (F : Type) [Field F] where
   cent : ∀ e, centralizer ((D e).K : Set (CentralizerBar (X e))) = Subgroup.zpowers (xbar (X e))
   xK : ∀ e, xbar (X e) ∈ (D e).K
 
-omit [Finite F] in
-theorem exists_q3FrameB (hExact : S1LiftExactProp) {x : G} {K : Subgroup (CentralizerBar x)}
-    (hset : S1Setup G x K) {u : Fin 4 → G} {hu : ∀ i, u i ∈ centralizer ({x} : Set G)}
-    (hf : S1Frame x K u hu) (hlin : S1SymFrameLin x u F) :
-    ∃ Fr : Q3FrameB G F, Fr.X = symX x u := by
-  obtain ⟨hconj, hsq, hXc, hprod, hinj⟩ := symX_facts hset.shape.2 hset.inv hf
-  have hw : ∀ e j, symX x u (e.succAbove j) ∈ centralizer ({symX x u e} : Set G) := fun e j =>
-    mem_centralizer_singleton_iff.2 (hXc _ _)
-  have hloc : ∀ e : Fin 5, ∃ (K' : Subgroup (CentralizerBar (symX x u e)))
-      (hw' : ∀ j, symX x u (e.succAbove j) ∈ centralizer ({symX x u e} : Set G)),
-        S1Setup G (symX x u e) K' ∧ S1Front G (symX x u e) K' ∧
-        ∃ e' : ↥K' ≃* ↥(StatedSL 4 F), ∀ j, ActsAsReflOn e' (barOf (hw' j)) (reflDiag F j) := by
-    intro e
-    obtain ⟨K', hw', hset', hfront', -, e', he'⟩ := hlin e
-    exact ⟨K', hw', hset', hfront', e', he'⟩
-  choose D hDK hDact using sym_layerData hExact x u hw hloc
-  refine ⟨⟨symX x u, D, hsq, ?_, hinj, hXc, hprod, fun e j => hDact e j, ?_, ?_⟩, rfl⟩
-  · intro e h
-    have h1 := hconj e
-    rw [h] at h1
-    have : x = 1 := isConj_one_right.1 h1.symm
-    have := hset.inv
-    rw [‹x = 1›, orderOf_one] at this
-    exact absurd this (by norm_num)
-  · intro e
-    obtain ⟨K', hw', hset', hfront', -⟩ := hlin e
-    rw [(hDK e).trans hfront'.layer_eq]
-    exact hfront'.cent_eq
-  · intro e
-    obtain ⟨K', hw', hset', hfront', -⟩ := hlin e
-    rw [(hDK e).trans hfront'.layer_eq]
-    exact hset'.shape.2
 
 namespace Q3FrameB
 

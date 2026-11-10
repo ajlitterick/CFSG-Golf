@@ -67,10 +67,6 @@ theorem mem_starSub
       (x.1 : stdGroup) * ((x.2 : betaGroup) : MulAut stdGroup) (y.1 : stdGroup)
     rw [apply_of_mem_betaGroup hH x.2 y.1.2]
 
-theorem coe_prodStar
-    (hH : ∀ h ∈ H, betaG h = h) (x : H × betaGroup) :
-    (prodStar hH x : GStar) = SemidirectProduct.inl (x.1 : stdGroup) * SemidirectProduct.inr x.2 :=
-  SemidirectProduct.ext (by simp [prodStar]) (by simp [prodStar])
 
 theorem card_starSub
     (hH : ∀ h ∈ H, betaG h = h) :

@@ -581,11 +581,6 @@ theorem IsTypeJR.sylow_two_of_nonabelian (hG : IsTypeJR G) (hnonab : ∃ a b : G
     IsElementaryAbelian 2 (S : Subgroup G) ∧ Nat.card (S : Subgroup G) = 8 :=
   hG.sylow_two (hG.two_dvd_card hnonab) S
 
-theorem IsTypeJR.normalizer_sylow_two_transitive_of_nonabelian (hG : IsTypeJR G)
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (S : Sylow 2 G) :
-    ∀ x ∈ (S : Subgroup G), x ≠ 1 → ∀ y ∈ (S : Subgroup G), y ≠ 1 →
-      ∃ n ∈ Subgroup.normalizer ((S : Subgroup G) : Set G), n * x * n⁻¹ = y :=
-  hG.normalizer_sylow_two_transitive (hG.two_dvd_card hnonab) S
 
 theorem IsTypeJR.exists_normalizer_sylow_two_transitive_of_nonabelian (hG : IsTypeJR G)
     (hnonab : ∃ a b : G, a * b ≠ b * a) (S : Sylow 2 G) :

@@ -66,45 +66,6 @@ theorem translated_coset_normalizer_le_point [Finite G]
     (huniq _ hsother).trans (huniq _ hsbase).symm
   exact H.inv_mem_iff.mp ((point_right_base_fixed_iff H x⁻¹).mp hxfixed)
 
-theorem normalizer_translate_inter_centralizer (U : Set G) (u : G) :
-    Subgroup.normalizer ((fun v : G => u * v) '' U) ⊓
-      Subgroup.centralizer ({u} : Set G) =
-    Subgroup.normalizer U ⊓ Subgroup.centralizer ({u} : Set G) := by
-  let V : Set G := (fun v : G => u * v) '' U
-  have hmem (v : G) : v ∈ U ↔ u * v ∈ V := by
-    constructor
-    · exact fun hv => ⟨v, hv, rfl⟩
-    · rintro ⟨w, hw, heq⟩
-      exact mul_left_cancel heq ▸ hw
-  have hmul (x : G) (hx : x ∈ Subgroup.centralizer ({u} : Set G)) (v : G) :
-      x * (u * v) * x⁻¹ = u * (x * v * x⁻¹) := by
-    have hc := Subgroup.mem_centralizer_singleton_iff.mp hx
-    calc
-      _ = ((x * u) * v) * x⁻¹ := by simp only [mul_assoc]
-      _ = ((u * x) * v) * x⁻¹ := by rw [hc]
-      _ = _ := by simp only [mul_assoc]
-  ext x
-  constructor
-  · rintro ⟨hxV, hxC⟩
-    refine ⟨?_, hxC⟩
-    change ∀ v, v ∈ U ↔ x * v * x⁻¹ ∈ U
-    intro v
-    calc
-      _ ↔ u * v ∈ V := hmem v
-      _ ↔ x * (u * v) * x⁻¹ ∈ V := hxV (u * v)
-      _ ↔ u * (x * v * x⁻¹) ∈ V := by rw [hmul x hxC]
-      _ ↔ _ := (hmem _).symm
-  · rintro ⟨hxU, hxC⟩
-    refine ⟨?_, hxC⟩
-    change ∀ s, s ∈ V ↔ x * s * x⁻¹ ∈ V
-    intro s
-    let v := u⁻¹ * s
-    have hs : u * v = s := by simp only [v, mul_inv_cancel_left]
-    rw [← hs, hmul x hxC]
-    calc
-      _ ↔ v ∈ U := (hmem v).symm
-      _ ↔ x * v * x⁻¹ ∈ U := hxU v
-      _ ↔ _ := hmem _
 
 theorem translated_normalizer_centralizer_eq_point_centralizer [Finite G]
     {H : Subgroup G} {z u : G} (h : InvolutionPointLocalEmbedding H z)
@@ -116,15 +77,5 @@ theorem translated_normalizer_centralizer_eq_point_centralizer [Finite G]
   · exact fun _ hx => ⟨hx.2, translated_coset_normalizer_le_point h huH hzu hx.1⟩
   · exact fun _ hx => ⟨point_centralizer_le_translated_normalizer H z u hx, hx.1⟩
 
-theorem unit_normalizer_in_point_centralizer_eq [Finite G]
-    {H : Subgroup G} {z u : G} (h : InvolutionPointLocalEmbedding H z)
-    (huH : u ∈ H) (hzu : Commute z u) :
-    (Subgroup.normalizer (cosetUnitSet H z u)).subgroupOf
-        (Subgroup.centralizer ({u} : Set G)) =
-      H.subgroupOf (Subgroup.centralizer ({u} : Set G)) := by
-  apply Subgroup.subgroupOf_inj.mpr
-  rw [← normalizer_translate_inter_centralizer]
-  exact (translated_normalizer_centralizer_eq_point_centralizer h huH hzu).trans
-    (inf_comm _ _)
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

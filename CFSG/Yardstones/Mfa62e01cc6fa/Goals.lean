@@ -49,14 +49,10 @@ theorem ys08_griessSolomonInput
     ys09_footeMaximalUnbalancedInput
 
 
-
 theorem ys11_gs82CentXA10TransferInput :
     GSThmB.GS82CentXA10TransferStatementK :=
   CFSG.ComponentClassification.GSThmB.A10T.gs82CentXA10TransferStatementK_holds
 
-theorem ys12_gs82Step2FuseInput :
-    GSThmB.GS82Step2FuseStatementK :=
-  CFSG.ComponentClassification.GSThmB.gs82Step2FuseStatementK_holds
 
 theorem ys13_lemma39TwoDiscK2Hub :
     Lemma39TwoDiscK2Hub :=

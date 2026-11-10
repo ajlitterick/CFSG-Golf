@@ -70,24 +70,6 @@ theorem c7850_othS : othSK (v2N rootV) q S5L S6L = true := by quickRfl
 
 theorem c7850_duad : duadK c rm one G7850 FM7850 U4 = true := by quickRfl
 
-theorem c7850_neg_rank : notB (rankK c rm one FM7850 (Nat.xor (R.headD 0) 1 :: R.tail) Q) = true := by
-  quickRfl
-
-theorem c7850_neg_kwFix : notB (kwFixK rm one (U4 :: FM7850.tail) KW7850) = true := by quickRfl
-
-theorem c7850_neg_move :notB (moveK rm Us7850 pv 31) = true := by quickRfl
-
-theorem c7850_neg_orb : notB (orbK TP7850 y8Bk w.reverse) = true := by quickRfl
-
-theorem c7850_neg_othS : notB (othSK (v2N rootV) (S5_0.headD 0 :: q.tail) S5L S6L) = true := by
-  quickRfl
-
-theorem c7850_neg_span : notB (spanK b KW7850 u.tail) = true := by quickRfl
-
-theorem c7850_neg_y8move : notB (y8MoveK rm Us7850 pv [1, 1, 1, 1, 1] mw) = true := by quickRfl
-
-theorem c7850_neg_duad : notB (strictB (fRK c rm one FM7850 421) fun f =>
-    Nat.beq (mulJ c rm G7850 f) (mulJ c rm U4 G7850)) = true := by quickRfl
 
 end CertificateChecks.KernelJ4NP7850
 

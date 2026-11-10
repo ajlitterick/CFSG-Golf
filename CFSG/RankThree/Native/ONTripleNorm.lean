@@ -39,8 +39,6 @@ theorem eN_lt (k : ℕ) (hk : k < 2) (i : ℕ) (hi : i < 4) (j : ℕ) (hj : j < 
 theorem cN_lt (k : ℕ) (hk : k < 2) (i : ℕ) (hi : i < 4) : cN k i < 3 := by
   interval_cases k <;> interval_cases i <;> decide
 
-theorem eN_length (k : ℕ) (hk : k < 2) (i : ℕ) (hi : i < 4) : (eN k i).length = 4 := by
-  interval_cases k <;> interval_cases i <;> rfl
 
 theorem conj_xM (k : ℕ) (hk : k < 2) (i : Fin 4) :
     (eM (if k = 0 then rN1 else rN2))⁻¹ * xM i * eM (if k = 0 then rN1 else rN2) =

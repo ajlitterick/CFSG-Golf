@@ -72,45 +72,6 @@ theorem mulS_div (A B : ℕ) : mulS A B / 2 ^ 192 = mul (A / 2 ^ 192) (B / 2 ^ 1
   rw [h, saltOf_div, e, Nat.shiftRight_eq_div_pow, Nat.add_comm,
     Nat.add_mul_div_left _ _ (by norm_num), Nat.div_eq_of_lt hJ, Nat.zero_add, mul]
 
-theorem col_mod (A : ℕ) {q : ℕ} (hq : q < 78) : col (A % 2 ^ 6084) q = col A q := by
-  apply Nat.eq_of_testBit_eq
-  intro p
-  by_cases hp : p < 78
-  · rw [testBit_col _ _ hp, testBit_col _ _ hp, Nat.testBit_mod_two_pow,
-      decide_eq_true (by omega), Bool.true_and]
-  · rw [Nat.testBit_lt_two_pow (lt_of_lt_of_le (col_lt _ _) (Nat.pow_le_pow_right (by norm_num)
-      (by omega))), Nat.testBit_lt_two_pow (lt_of_lt_of_le (col_lt _ _)
-      (Nat.pow_le_pow_right (by norm_num) (by omega)))]
-
-theorem spread_mod (B : ℕ) {n : ℕ} (hn : n < 78) :
-    (B % 2 ^ 6084 / 2 ^ n &&& slots 78) = (B / 2 ^ n &&& slots 78) := by
-  apply Nat.eq_of_testBit_eq
-  intro k
-  rw [testBit_spread, testBit_spread, Nat.testBit_mod_two_pow]
-  by_cases hk : k < 78 * 78 ∧ k % 78 = 0
-  · rw [decide_eq_true (by omega : k + n < 6084), Bool.true_and]
-  · rcases not_and_or.1 hk with hk | hk
-    · simp [hk]
-    · simp [hk]
-
-theorem mulAux_mod_left (A B : ℕ) : ∀ n, n ≤ 78 → mulAux (A % 2 ^ 6084) B n = mulAux A B n
-  | 0, _ => rfl
-  | n + 1, hn => by
-    rw [mulAux, mulAux, col_mod A (by omega), mulAux_mod_left A B n (by omega)]
-
-theorem mulAux_mod_right (A B : ℕ) : ∀ n, n ≤ 78 → mulAux A (B % 2 ^ 6084) n = mulAux A B n
-  | 0, _ => rfl
-  | n + 1, hn => by
-    rw [mulAux, mulAux, spread_mod B (by omega), mulAux_mod_right A B n (by omega)]
-
-theorem mul_mod_left (A B : ℕ) : mul (A % 2 ^ 6084) B = mul A B :=
-  mulAux_mod_left A B 78 le_rfl
-
-theorem mul_mod_right (A B : ℕ) : mul A (B % 2 ^ 6084) = mul A B :=
-  mulAux_mod_right A B 78 le_rfl
-
-theorem mulS_data (A B : ℕ) : dataS (mulS A B) = mul (dataS A) (dataS B) % 2 ^ 6084 := by
-  rw [dataS, mulS_div, dataS, dataS, mul_mod_left, mul_mod_right]
 
 set_option exponentiation.threshold 6084 in
 theorem eqS_iff (A B : ℕ) : eqS A B = true ↔ dataS A = dataS B := by
@@ -176,10 +137,6 @@ theorem hasBitsS_one : HasBitsS K 1 oneS := by
   rw [HasBitsS, oneS_div]
   exact hasBits_one
 
-theorem hasBitsS_saltOf {g : adjointGroup Tag.E6 K} {r : ℕ} (h : HasBits K g r) :
-    HasBitsS K g (saltOf r) := by
-  rw [HasBitsS, saltOf_div]
-  exact h
 
 theorem HasBitsS.pow [CharP K 2] {g : adjointGroup Tag.E6 K} {A : ℕ} (hg : HasBitsS K g A) :
     ∀ n, HasBitsS K (g ^ n) (powS A n)

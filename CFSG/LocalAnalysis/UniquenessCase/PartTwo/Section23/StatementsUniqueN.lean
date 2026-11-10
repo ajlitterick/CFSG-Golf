@@ -17,8 +17,6 @@ open scoped Pointwise commutatorElement
 
 variable {G : Type} [Group G] [Finite G]
 
-@[expose] def centFitting (M : Subgroup G) : Subgroup G :=
-  barPreimage M (Subgroup.centralizer (CFSG.fittingSubgroup (Bar2 M) : Set (Bar2 M)))
 
 @[expose] def IsInnerCartanOnL (A K L T : Subgroup G) (m : ℕ) : Prop :=
   A ≤ K ⊓ Subgroup.normalizer (T : Set G) ∧ IsCyclic ↥A ∧ Nat.card A = 2 ^ m - 1 ∧

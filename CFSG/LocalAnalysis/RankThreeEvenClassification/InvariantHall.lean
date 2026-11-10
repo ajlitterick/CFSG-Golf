@@ -83,19 +83,5 @@ theorem exists_invariant_hall {actor : Type u} {acted : Type v}
     (by intro member; exact Subgroup.map_bot _)
   exact ⟨hall, hhall, hinvariant⟩
 
-theorem exists_fixed_conjugator_of_invariant_halls {actor : Type u} {acted : Type v}
-    [Group actor] [Group acted] [Finite acted] [Group.IsSolvable acted]
-    [MulDistribMulAction actor acted]
-    (prime : ℕ) (hprime : prime.Prime) (hpgroup : IsPGroup prime actor)
-    (hcomplement : ¬prime ∣ Nat.card acted) (primes : Set ℕ)
-    (first second : Subgroup acted) (hfirst : HallFor primes first) (hsecond : HallFor primes second)
-    (hfirstInvariant : ∀ member : actor,
-      first.map (MulDistribMulAction.toMonoidHom acted member) = first)
-    (hsecondInvariant : ∀ member : actor,
-      second.map (MulDistribMulAction.toMonoidHom acted member) = second) :
-    ∃ conjugator : acted, (∀ member : actor, member • conjugator = conjugator) ∧
-      first.map (MulAut.conj conjugator).toMonoidHom = second :=
-  exists_fixed_conjugator_of_pGroup_prime_complement_action prime hprime hpgroup hcomplement
-    first second hfirstInvariant hsecondInvariant (hall_conjugacy_of_solvable primes first second hfirst hsecond)
 
 end CFSG.RankThreeEvenClassification.Helpers

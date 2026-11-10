@@ -16,18 +16,6 @@ theorem IsA8Type.of_equiv {P P' : Type*} [Group P] [Group P'] (e : P ≃* P') (h
 
 variable {G : Type*} [Group G]
 
-theorem IsZGen.normal_zpowers {S : Subgroup G} {z : G} (hz : IsZGen S z) :
-    ((zpowers z).subgroupOf S).Normal := by
-  have hc : ∀ s ∈ S, z * s = s * z := (hz.2.2 z hz.1).2 (Or.inr rfl)
-  refine ⟨fun n hn g => ?_⟩
-  obtain ⟨k, hk⟩ := Subgroup.mem_subgroupOf.1 hn
-  have hcomm : Commute (z ^ k) (g : G) := Commute.zpow_left (hc g g.2) k
-  have h2 : g * n * g⁻¹ = n := by
-    apply Subtype.ext
-    show (g : G) * (n : G) * (g : G)⁻¹ = n
-    rw [← hk, ← hcomm.eq, mul_inv_cancel_right]
-  rw [h2]
-  exact hn
 
 namespace J2Emb
 

@@ -72,7 +72,6 @@ namespace CFSG.ComponentClassification.AS81.HePres.Native
 
 @[expose] def hePiRelsF : List (List (Fin 8 × Bool)) := hePiRelsFCodes.map ofCodes
 
-@[expose] def hePiRels23 : List (List (Fin 8 × Bool)) := hePiRels23Codes.map ofCodes
 
 @[expose] def hePiCArrs0 : Array (Array Nat) :=
   #[#[0, 1, 3, 2, 4, 5, 7, 6, 12, 13, 15, 14, 8, 9, 11, 10, 24, 25, 27, 26, 28, 29, 31, 30, 20, 21,

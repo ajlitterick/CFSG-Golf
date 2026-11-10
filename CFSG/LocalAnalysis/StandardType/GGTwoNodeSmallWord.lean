@@ -141,8 +141,5 @@ theorem Pt.applyWord_spec (P : Pt) [Fact P.p.Prime] (hwf : P.WF) (w : Word)
         simp only [Pt.applyWord, List.foldr_cons, List.getElem?_eq_getElem hw'.1]
       rw [hword]
 
-theorem Pt.exists_genSet_of_wf (P : Pt) [Fact P.p.Prime] (hwf : P.WF) (r : Refl) (hr : r ∈ P.gens) :
-    ∃ e ∈ P.genSet, ∀ v : Vec, e (P.vec v) = P.vec (P.applyRefl r v) :=
-  tnw_exists_genSet_of_wf P hwf r hr
 
 end CFSG.TwoNodeSmall

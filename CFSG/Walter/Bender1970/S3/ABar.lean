@@ -469,23 +469,5 @@ theorem bender1970_3_1_iii
   hG.mem_benderABar_of_noncyclic ht (isCoatom_of_mem_benderM hH)
     (centralizer_le_of_mem_benderM hH) hV1 hVF hV hVt hUC hUcomm hUcyc hUodd hUA
 
-theorem bender1970_3_1
-    (hG : BenderCounterexample G) {t : G} (ht : orderOf t = 2)
-    {H : Subgroup G} (hH : H ∈ benderM t) {V : Subgroup G} (hV1 : V ≠ ⊥)
-    (hVF : V ≤ generalizedFittingSubgroupOf H)
-    (hV : (V.subgroupOf (generalizedFittingSubgroupOf H)).IsSubnormal)
-    (hVt : t ∈ Subgroup.normalizer (V : Set G)) :
-    (Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (V : Set G) →
-        V ∈ benderABar H) ∧
-      (∀ U ∈ benderABar H, U ≤ Subgroup.centralizer (V : Set G) →
-        ⁅U, Subgroup.zpowers t⁆ = U → V ∈ benderABar H) ∧
-      (∀ U : Subgroup G,
-        U ≤ Subgroup.centralizer ({t} : Set G) ⊓ Subgroup.centralizer (V : Set G) →
-        IsMulCommutative U → ¬ IsCyclic U → Odd (Nat.card U) →
-        (∀ u ∈ U, u ≠ 1 → Subgroup.zpowers u ∈ benderABar H) → V ∈ benderABar H) :=
-  ⟨bender1970_3_1_i hG ht hH hV1 hVF hV,
-    fun _ hUA hUV hUt => bender1970_3_1_ii hG ht hH hV1 hVF hV hVt hUA hUV hUt,
-    fun _ hUC hUcomm hUcyc hUodd hUA =>
-      bender1970_3_1_iii hG ht hH hV1 hVF hV hVt hUC hUcomm hUcyc hUodd hUA⟩
 
 end CFSG.Walter

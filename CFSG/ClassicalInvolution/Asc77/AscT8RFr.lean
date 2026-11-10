@@ -25,12 +25,6 @@ theorem eq_of_mul_mem_odd {P N : Subgroup G} (hP : IsPGroup 2 ↥P) {u v : G} (h
   calc u = u * (u⁻¹ * v) := by rw [h2, mul_one]
     _ = v := by group
 
-theorem eq_of_conj_mem_oddCoreOf {P : Subgroup G} (hP : IsPGroup 2 ↥P) {u v : G} (hu : u ∈ P)
-    (hv : v ∈ P) (Y : Subgroup G) (g : G) (h : g * (u⁻¹ * v) * g⁻¹ ∈ oddCoreOf Y) : u = v := by
-  refine eq_of_mul_mem_odd hP hu hv (oddCoreOf_odd_natCard (conjSub g⁻¹ Y)) ?_
-  rw [oddCoreOf_conjSub_eq]
-  have := conj_mem_conjSub (n := g⁻¹) h
-  simpa [mul_assoc] using this
 
 end Odd
 

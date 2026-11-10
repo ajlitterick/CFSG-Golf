@@ -159,10 +159,6 @@ theorem mono_mem_ffMonoP (fr : PFrame Q (Option (Fin 5)) ffC) (σ : Equiv.Perm (
     (K : Finset (Option (Fin 5))) : fr.pOrth σ * fr.signChange K ∈ ffMonoP fr :=
   ⟨σ, K, rfl⟩
 
-theorem ffB0p_le_ffMonoP (fr : PFrame Q (Option (Fin 5)) ffC) : ffB0p fr ≤ ffMonoP fr := by
-  intro g hg
-  obtain ⟨J, -, -, rfl⟩ := (mem_ffB0p_iff fr).mp hg
-  exact ⟨1, J, by rw [fr.pOrth_one, one_mul]⟩
 
 private theorem ffMonoP_choose_eq (fr : PFrame Q (Option (Fin 5)) ffC) {g : OGroup Q}
     (hg : g ∈ ffMonoP fr) {σ : Equiv.Perm (Fin 5)} {K : Finset (Option (Fin 5))}

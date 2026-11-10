@@ -89,8 +89,5 @@ theorem lemma_15_1_6 {T Mc M : Subgroup G} (h : quasithinQTFE14Cat G T Mc) (hM :
     exact hk
   exact key ⟨hyC, hyP⟩
 
-theorem stageLemma1516_of (hnil : Nilpotency1512) : StageLemma1516 := by
-  intro G _ _ T Mc M h hM
-  exact lemma_15_1_6 h hM (hnil G T Mc M h hM)
 
 end CFSG.Quasithin

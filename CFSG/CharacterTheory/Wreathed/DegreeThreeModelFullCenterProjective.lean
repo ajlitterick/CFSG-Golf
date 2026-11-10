@@ -65,15 +65,6 @@ theorem projectiveSpecialHom_ker (i : F →+* E) (b : GeneralLinearGroup (Fin 2)
     (projectiveSpecialHom i b B hSB).rangeRestrict_surjective (by
       rw [MonoidHom.ker_rangeRestrict, projectiveSpecialHom_ker])
 
-theorem projectiveSpecialEquiv_mk (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    (x : SpecialLinearGroup (Fin 2) F) :
-    (projectiveSpecialEquiv i b B hSB
-      (QuotientGroup.mk' (Subgroup.center (SpecialLinearGroup (Fin 2) F)) x) :
-        B ⧸ scalarSubgroup B) =
-          QuotientGroup.mk' (scalarSubgroup B) (specialInclusion i b B hSB x) := by
-  unfold projectiveSpecialEquiv
-  exact congrArg Subtype.val (QuotientGroup.liftEquiv_mk _ _ _ x)
 
 theorem card_projectiveSpecialHom_range [Finite F] (i : F →+* E)
     (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))

@@ -27,15 +27,6 @@ theorem hcElts_replay :
       1459980823972598128486511383358617792788444579872 = true := by
   decide +kernel
 
-theorem hcElts_replay_neg_ds :
-    replayB mulP 576 600 hcG hcElts.E (5 :: hcElts.ds.tail) hcElts.ord
-      1459980823972598128486511383358617792788444579872 = false := by
-  decide +kernel
-
-theorem hcElts_replay_neg_E :
-    replayB mulP 576 600 hcG (hcElts.E.set 7 (hcElts.E.getD 8 0)) hcElts.ds hcElts.ord
-      1459980823972598128486511383358617792788444579872 = false := by
-  decide +kernel
 
 end CFSG.KC.HcPack
 

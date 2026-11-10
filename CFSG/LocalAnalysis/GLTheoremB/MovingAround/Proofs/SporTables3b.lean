@@ -17,9 +17,6 @@ open Finset
 
 @[expose] def nM : ℕ := 66807960617346814440552399319272375000000
 
-theorem nM_eq : nM = 2 ^ 6 * 3 ^ 20 * 5 ^ 9 * 7 ^ 6 * 11 * 13 ^ 3 * 17 * 19 * 23 * 29 * 31 * 41 * 47 * 59 *
-    71 := by
-  norm_num [nM]
 
 @[expose] def primesM : List ℕ := [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 41, 47, 59, 71]
 
@@ -520,97 +517,41 @@ end S_mElevenDown_of_noL223
 
 section Connectors
 
-open CFSG.AGLEmbedding.Norton.MON5_7 (gw)
-open CFSG.AGLEmbedding.Norton.Gen11 (gen11W0)
-open CFSG.Monster.Generated (Gmat)
-
-theorem mElevenNoL223_of_shapeRkAt {Good Rk : ∀ (T : Type) [Group T], Prop}
-    (h : CFSG.HardMathSupport.Dickson.I271.ShapeRkAt 11 Good Rk (gw gen11W0))
-    (hG : ∀ (T : Type) [Group T], Good T → Nat.card T ≠ 6072) : MElevenNoL223 := by
-  haveI : Finite Gmat := CFSG.Monster.Generated.finite_Gmat
-  intro I hI
-  rcases h with hc | ⟨J, -, hu, hg, -⟩
-  · exact (CFSG.HardMathSupport.Dickson.I271.no_glaPComponent_of_pConstrainedShape (by norm_num) hc
-      hI).elim
-  · rw [hu I hI]
-    exact hG _ hg
-
-theorem mElevenNoL223_of_card (h : ∀ I : Subgroup Gmat, GLAPComponent 11 (Subgroup.centralizer
-      ({gw gen11W0} : Set Gmat)) I → Nat.card (PSimple 11 I) = 95040) : MElevenNoL223 :=
-  fun I hI h6 => by
-    rw [h I hI] at h6
-    norm_num at h6
 
 end Connectors
 
 section Structure4
 
 
-structure SporDownResidual4 : Prop where
-  B_three : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp
-  M_three : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp
-  B_five : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp
-  M_five : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)
-  M_eleven : MElevenNoL223
-
 end Structure4
 
 section S_sporDownResidual3_of_residual4
 
-
-theorem sporDownResidual3_of_residual4 (h : SporDownResidual4) : SporDownResidual3 where
-  B_three := h.B_three
-  M_three := h.M_three
-  B_five := h.B_five
-  M_five := h.M_five
-  M_eleven := mElevenDown_of_noL223 h.M_eleven
 
 end S_sporDownResidual3_of_residual4
 
 section S_sporDownResidualPP_of_residual4
 
 
-theorem sporDownResidual''_of_residual4
-    (h : SporDownResidual4) : SporTables2.SporDownResidual'' :=
-  sporDownResidual''_of_residual3 (sporDownResidual3_of_residual4 h)
-
 end S_sporDownResidualPP_of_residual4
 
 section S_sporDownResidualP_of_residual4
 
-
-theorem sporDownResidual'_of_residual4
-    (h : SporDownResidual4) : Claims1116d.SporDownResidual' :=
-  sporDownResidual'_of_residual3 (sporDownResidual3_of_residual4 h)
 
 end S_sporDownResidualP_of_residual4
 
 section S_inputSporDownChev_of_residual4
 
 
-theorem inputSporDownChev_of_residual4
-    (h : SporDownResidual4) : Claims1116b.InputSporDownChev :=
-  inputSporDownChev_of_residual3 (sporDownResidual3_of_residual4 h)
-
 end S_inputSporDownChev_of_residual4
 
 section S_sporDownResidualK_of_noL223
 
 
-theorem sporDownResidualK_of_noL223
-    (h : MElevenNoL223) : SporTables2.SporDownResidualK :=
-  sporDownResidualK_of_mElevenDown (mElevenDown_of_noL223 h)
-
 end S_sporDownResidualK_of_noL223
 
 section S_sporDownResidualP_of_noL223_kGroup
 
-
-theorem sporDownResidual'_of_noL223_kGroup
-    (hB : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .B).Group)
-    (hM : CFSG.Open.IsKGroup (TauCeti.CFSGIndex.sporadic .M).Group) (h : MElevenNoL223) :
-    Claims1116d.SporDownResidual' :=
-  sporDownResidual'_of_mElevenDown_kGroup hB hM (mElevenDown_of_noL223 h)
 
 end S_sporDownResidualP_of_noL223_kGroup
 

@@ -1545,23 +1545,5 @@ theorem lemma1211_of_subclaims (h129 : Lemma129PrintedStatement) (h1210 : Lemma1
   lemma1211_of_inputs'' h129 h1210 (claim1211_alpha_of_inputs h129 hβ) (claim1211_R3_of_rank4 h4)
     claim1211_m3_holds (claim1211_TI_of_L29 hL) claim1211_OM_holds
 
-theorem lemma1211_of_subclaims' (h129 : Lemma129PrintedStatement) (h1210 : Lemma1210Statement)
-    (hI : Input24_5) (hb : Claim1211_A0bar) (h4 : ∀ {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E
-        A N D : Subgroup G} (h : Cex127 G m p B M E A N D) {K : Subgroup G} (hK : AlphaData1211 p M
-        E A N K) {z : G} (hz : z ∈ A ∧ z ≠ 1) (hz1 : IsPCentralIn p M z) (hz2 : ¬ Cg z ≤ M),
-        CFSG.ABGLocalTools.IsPConstrained 3 (↥(Cg z) ⧸ GLAPPrimeCore 3 ↥(Cg z)) → ∀ {R : Subgroup G}
-        (hR : IsSylowIn 3 (Cg z) R) (hAR : A ≤ R) (hRM : R ≤ M) (C : Subgroup ↥(R ⊓ pPrimePCore 3
-        (Cg z))), CFSG.SectionRank.Ccomm.IsThompsonCritical C → 3 ^ 4 * Nat.card ↥⁅omegaOne 3 (C.map
-        (R ⊓ pPrimePCore 3 (Cg z)).subtype), omegaOne 3 (C.map (R ⊓ pPrimePCore 3 (Cg z)).subtype)⁆
-        ≤ Nat.card ↥(omegaOne 3 (C.map (R ⊓ pPrimePCore 3 (Cg z)).subtype))) (hL : ∀ {G : Type} [Group G]
-        [Finite G] {m p : ℕ} {B M E A N D : Subgroup G} (h : Cex127 G m p B M E A N D) {K : Subgroup
-        G} (hK : AlphaData1211 p M E A N K) {z : G} (hz : z ∈ A ∧ z ≠ 1) (hz1 : IsPCentralIn p M z)
-        (hz2 : ¬ Cg z ≤ M), CFSG.ABGLocalTools.IsPConstrained 3 (↥(Cg z) ⧸ GLAPPrimeCore 3 ↥(Cg z))
-        → IsLpType 2 9 ↥(CFSG.GH74.GLS.oPrimeResidual 3 (↥(Cg z) ⧸ CFSG.GH74.GLS.pPrimePCore 3 ↥(Cg
-        z))) ∨ IsSL2Nine ↥(CFSG.GH74.GLS.oPrimeResidual 3 (↥(Cg z) ⧸ CFSG.GH74.GLS.pPrimePCore 3
-        ↥(Cg z))))
-    (hβ : Claim1211_noBeta) : Lemma1211Statement :=
-  lemma1211_of_subclaims h129 h1210 (claim1211_rank4_of_inputs hI hb h4)
-    (claim1211_L29_of_inputs hI hb hL) hβ
 
 end CFSG.LocalAnalysis.GLTheoremB.MovingAround.Claims1211

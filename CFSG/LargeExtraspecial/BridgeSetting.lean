@@ -82,23 +82,6 @@ theorem card_subgroup_Mbar_lt (K : Subgroup S.Mbar) : Nat.card K < Nat.card G :=
   have := finite_Mbar S
   exact card_lt_of_card_le_Mbar S (Subgroup.card_le_card_group K)
 
-theorem card_quotient_lt (K : Subgroup S.Mbar) (N : Subgroup K) :
-    Nat.card (K ⧸ N) < Nat.card G := by
-  have := finite_Mbar S
-  refine lt_of_le_of_lt ?_ (card_subgroup_Mbar_lt S K)
-  rw [N.card_eq_card_quotient_mul_card_subgroup (α := K)]
-  exact Nat.le_mul_of_pos_right _ Nat.card_pos
-
-theorem TimmesfeldAlt8.of_setting {Mbar : Type*} [Group Mbar] [Finite Mbar] {w : ℕ}
-    (hs : IsSimpleGroup Mbar) (T : Setting Mbar)
-    (h : (w = 16 ∧ T.width = 8 ∧
-        Nonempty (T.Mbar ≃* Equiv.Perm (Fin 3) × timmesfeldOmegaPlus 4)) ∨
-      (w = 28 ∧ T.width = 16 ∧ Nonempty (T.Mbar ≃* timmesfeldOmegaPlus 6))) :
-    TimmesfeldAlt8 w Mbar := by
-  refine ⟨hs, T.z, T.orderOf_z, timmesfeldIsExtraspecial_fstar T, ?_⟩
-  rcases h with ⟨h16, hT, ⟨f⟩⟩ | ⟨h28, hT, ⟨f⟩⟩
-  · exact Or.inl ⟨h16, by rw [card_fstar T, hT], quotientIso_congr_right (quotientIso_Mbar T) f⟩
-  · exact Or.inr ⟨h28, by rw [card_fstar T, hT], quotientIso_congr_right (quotientIso_Mbar T) f⟩
 
 end Setting
 
@@ -147,11 +130,6 @@ theorem orderMainFor_iff (G : Type) [Group G] [Finite G] :
     obtain ⟨e⟩ := nonempty_mulEquiv_Mbar S hMbar
     exact hS.of_mulEquiv_quotient e
 
-theorem mainStatement_of_setting
-    (h : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-      ∀ S : Setting G, TimmesfeldConclusion G S.width S.Mbar) :
-    MainStatement :=
-  fun G _ _ _ => (mainFor_iff G).mpr (h G)
 
 theorem mainStatement_of_step
     (step : ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G],
@@ -186,11 +164,6 @@ theorem ih_subgroup {P : ∀ (H : Type) [Group H], Prop}
   have := finite_Mbar S
   exact ih K (card_subgroup_Mbar_lt S K)
 
-theorem ih_quotient {P : ∀ (H : Type) [Group H], Prop}
-    (ih : ∀ (H : Type) [Group H] [Finite H] [IsSimpleGroup H], Nat.card H < Nat.card G → P H)
-    (K : Subgroup S.Mbar) (N : Subgroup K) [N.Normal] [IsSimpleGroup (K ⧸ N)] : P (K ⧸ N) := by
-  have := finite_Mbar S
-  exact ih (K ⧸ N) (card_quotient_lt S K N)
 
 end Sections
 

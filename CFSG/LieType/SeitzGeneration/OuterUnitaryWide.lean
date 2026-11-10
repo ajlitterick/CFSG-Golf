@@ -218,13 +218,6 @@ end Diag
 
 end OuterUnitaryWide
 
-theorem unitaryHeisTensorPlanes_of_gu :
-    UnitaryHeisTensorPlanes := by
-  have hGU := unitaryHeisTensorPlanesGU_holds
-  intro ℓ f n K _ h hq3 hn6 hn3 x y hx hy ω hω hxy hα hβ
-  have hsu : ∀ g : GL (Fin n) K, g ∈ unitarySU ℓ f K n → g ∈ primeFormUnitary h (idGram K n) :=
-    fun g hg => ((le_of_eq (unitarySU_eq_gramSU h n)) hg).1
-  exact hGU ℓ f n K h hq3 hn6 hn3 x y (hsu x hx) (hsu y hy) ω hω hxy hα hβ
 
 theorem unitaryOuterHeisThree_of_gu : UnitaryOuterHeisThree := by
   have hGU := unitaryHeisTensorPlanesGU_holds
@@ -326,7 +319,6 @@ theorem unitaryOuterHeisThree_of_gu : UnitaryOuterHeisThree := by
 section Leaf
 
 
-
 theorem unitaryOuterHeisThree : UnitaryOuterHeisThree :=
   unitaryOuterHeisThree_of_gu
 
@@ -388,10 +380,6 @@ theorem seitzOuterUnitaryWide_of (h8 : UnitaryOuterEightPlanes) (hH3 : UnitaryOu
     hl.2 (isElemAbelian_map_congr θ hE) ((card_map_congr θ E).trans hc)
     (not_le_range_conj_map_congr θ hout)
 
-theorem seitzOuterUnitaryWide_of_gu (h8 : UnitaryOuterEightPlanes)
-    (hH5 : UnitaryOuterHeisFive) (hA2 : UnitaryOuterAbTwo) (hA5 : UnitaryOuterAbFive) :
-    SeitzOuterUnitaryWide :=
-  seitzOuterUnitaryWide_of h8 unitaryOuterHeisThree_of_gu hH5 hA2 hA5
 
 end Leaf
 

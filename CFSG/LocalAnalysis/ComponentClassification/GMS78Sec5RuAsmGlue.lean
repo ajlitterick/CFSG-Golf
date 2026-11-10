@@ -75,6 +75,5 @@ theorem pi7Word_eq_one {r : List (Fin 7 × Bool)} (hr : r ∈ pi7Rels) : pi7Word
 
 end Letters
 
-variable {K : Type*} [Group K]
 
 end CFSG.ComponentClassification.GMS78.RuAsm

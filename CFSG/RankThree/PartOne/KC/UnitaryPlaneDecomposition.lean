@@ -224,8 +224,6 @@ theorem separatingLeft_lineSpace (hP : IsPlane p P) (hpK : (p : K) ≠ 0)
     have := act_inv_apply ρ a⁻¹ v
     rwa [inv_inv] at this
 
-omit [Fintype P] in
-theorem mem_stabSubgroup {v : V} {y : P} : y ∈ stabSubgroup ρ v ↔ act ρ y v = v := Iff.rfl
 
 theorem fixedSpace_of_apply_eq (hP : IsPlane p P) {L : Subgroup P} (hL : Nat.card L = p) {x : P}
     (hxL : x ∈ L) (hx1 : x ≠ 1) {v : V} (hv : act ρ x v = v) : v ∈ fixedSpace ρ L := by

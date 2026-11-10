@@ -59,10 +59,6 @@ theorem similarityConjugation_val (Q : QuadraticForm K V)
     (g : TauCeti.QuadraticMap.orthogonalGroup Q) :
     (similarityConjugation Q A μ hsim g).val = A * g.val * A⁻¹ := rfl
 
-theorem similarityConjugation_symm_val (Q : QuadraticForm K V)
-    (A : V ≃ₗ[K] V) (μ : Kˣ) (hsim : ∀ x : V, Q (A x) = (μ : K) * Q x)
-    (g : TauCeti.QuadraticMap.orthogonalGroup Q) :
-    ((similarityConjugation Q A μ hsim).symm g).val = A⁻¹ * g.val * A := rfl
 
 theorem fixed_similarityConjugation_eq (Q : QuadraticForm K V)
     (A : V ≃ₗ[K] V) (μ : Kˣ) (hsim : ∀ x : V, Q (A x) = (μ : K) * Q x) :

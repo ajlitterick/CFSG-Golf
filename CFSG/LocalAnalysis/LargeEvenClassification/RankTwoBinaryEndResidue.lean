@@ -383,76 +383,9 @@ theorem cyclicPairEndBinaryResidueHom_zero (f : AddMonoid.End (CyclicPair scale 
     have hzero : ∀ (t : ZMod 2) (x : RankTwoBinaryResidue t), 2 • x = 0 := by decide
     exact hzero _ _
 
-theorem cyclicPairEndBinaryResidueHom_surjective :
-    Function.Surjective (cyclicPairEndBinaryResidueHom scale modulus htwo) := by
-  intro c
-  obtain ⟨a, ha⟩ := ZMod.castHom_surjective (htwo.trans (dvd_mul_left modulus scale)) c.1.1
-  obtain ⟨b, hb⟩ := ZMod.castHom_surjective htwo c.1.2
-  obtain ⟨d, hd⟩ := ZMod.castHom_surjective htwo c.2.1
-  obtain ⟨e, he⟩ := ZMod.castHom_surjective htwo c.2.2
-  refine ⟨cyclicPairEndFromCoefficients scale modulus ((a, b), (d, e)), ?_⟩
-  change cyclicPairBinaryCoefficientResidue scale modulus htwo
-    (cyclicPairEndCoefficients scale modulus (cyclicPairEndFromCoefficients scale modulus _)) = c
-  rw [cyclicPairEndCoefficients_from]
-  apply Prod.ext <;> apply Prod.ext
-  · exact ha
-  · exact hb
-  · exact hd
-  · exact he
-
-noncomputable def cyclicPairEndBinaryResidueEquiv :
-    (AddMonoid.End (CyclicPair scale modulus) ⧸
-      ringMultipleIdeal (AddMonoid.End (CyclicPair scale modulus)) 2) ≃+*
-        RankTwoBinaryResidue (scale : ZMod 2) :=
-  RingEquiv.ofBijective
-    (Ideal.Quotient.lift _ (cyclicPairEndBinaryResidueHom scale modulus htwo)
-      (fun f hf => (cyclicPairEndBinaryResidueHom_zero scale modulus htwo f).mpr hf))
-    ⟨(Ideal.injective_lift_iff _).mpr (by
-      ext f
-      exact cyclicPairEndBinaryResidueHom_zero scale modulus htwo f), by
-      intro c
-      obtain ⟨f, hf⟩ := cyclicPairEndBinaryResidueHom_surjective scale modulus htwo c
-      exact ⟨Ideal.Quotient.mk _ f, hf⟩⟩
 
 end BinaryCoordinates
 
-@[expose] noncomputable def ringEquivBinaryLinearEquiv {R S : Type*} [Ring R] [Ring S]
-    [Module (ZMod 2) R] [Module (ZMod 2) S] (f : R ≃+* S) : R ≃ₗ[ZMod 2] S :=
-  LinearEquiv.ofBijective (f.toAddMonoidHom.toZModLinearMap 2) f.bijective
-
-theorem ringEquivBinaryLinearEquiv_apply {R S : Type*} [Ring R] [Ring S]
-    [Module (ZMod 2) R] [Module (ZMod 2) S] (f : R ≃+* S) (x : R) :
-    ringEquivBinaryLinearEquiv f x = f x := rfl
-
-theorem residueSquareCommutatorSpan_map_le {R S : Type*} [Ring R] [Ring S]
-    [Module (ZMod 2) R] [Module (ZMod 2) S] (f : R ≃+* S) (W : Submodule (ZMod 2) R) :
-    residueSquareCommutatorSpan (W.map (ringEquivBinaryLinearEquiv f).toLinearMap) ≤
-      (residueSquareCommutatorSpan W).map (ringEquivBinaryLinearEquiv f).toLinearMap := by
-  apply Submodule.span_le.mpr
-  intro z hz
-  rcases hz with ⟨x, hx, rfl⟩ | ⟨x, hx, y, hy, rfl⟩
-  · obtain ⟨r, hr, rfl⟩ := Submodule.mem_map.mp hx
-    apply Submodule.mem_map.mpr
-    refine ⟨r + r * r, residue_square_mem_span W hr, ?_⟩
-    change f (r + r * r) = f r + f r * f r
-    rw [map_add, map_mul]
-  · obtain ⟨r, hr, rfl⟩ := Submodule.mem_map.mp hx
-    obtain ⟨s, hs, rfl⟩ := Submodule.mem_map.mp hy
-    apply Submodule.mem_map.mpr
-    refine ⟨r * s - s * r, residue_commutator_mem_span W hr hs, ?_⟩
-    change f (r * s - s * r) = f r * f s - f s * f r
-    rw [map_sub, map_mul, map_mul]
-
-theorem residue_square_commutator_bound_of_rank_two_equiv {R : Type*} [Ring R]
-    [Module (ZMod 2) R] {twist : ZMod 2} (f : R ≃+* RankTwoBinaryResidue twist)
-    (W : Submodule (ZMod 2) R) :
-    Module.finrank (ZMod 2) W ≤ Module.finrank (ZMod 2) (residueSquareCommutatorSpan W) + 2 := by
-  let e := ringEquivBinaryLinearEquiv f
-  have hmodel := rankTwoBinaryResidue_square_commutator_bound twist (W.map e.toLinearMap)
-  have hle := Submodule.finrank_mono (residueSquareCommutatorSpan_map_le f W)
-  rw [e.finrank_map_eq] at hmodel
-  rw [e.finrank_map_eq] at hle
-  exact hmodel.trans (Nat.add_le_add_right hle 2)
 
 section NativeEndomorphisms
 
@@ -479,50 +412,8 @@ theorem abelianEndBinaryResidueHom_zero (f : AddMonoid.End Abelian) :
   · rintro ⟨r, rfl⟩
     exact ⟨e r, map_nsmul e 2 r⟩
 
-theorem abelianEndBinaryResidueHom_surjective :
-    Function.Surjective (abelianEndBinaryResidueHom scale modulus htwo coordinates) :=
-  (cyclicPairEndBinaryResidueHom_surjective scale modulus htwo).comp
-    (addEndCoordinateTransport coordinates).surjective
-
-noncomputable def abelianEndBinaryResidueEquiv :
-    (AddMonoid.End Abelian ⧸ ringMultipleIdeal (AddMonoid.End Abelian) 2) ≃+*
-      RankTwoBinaryResidue (scale : ZMod 2) :=
-  RingEquiv.ofBijective
-    (Ideal.Quotient.lift _ (abelianEndBinaryResidueHom scale modulus htwo coordinates)
-      (fun f hf => (abelianEndBinaryResidueHom_zero scale modulus htwo coordinates f).mpr hf))
-    ⟨(Ideal.injective_lift_iff _).mpr (by
-      ext f
-      exact abelianEndBinaryResidueHom_zero scale modulus htwo coordinates f), by
-      intro c
-      obtain ⟨f, hf⟩ := abelianEndBinaryResidueHom_surjective scale modulus htwo coordinates c
-      exact ⟨Ideal.Quotient.mk _ f, hf⟩⟩
-
-include htwo coordinates in
-theorem abelian_endomorphism_residue_square_commutator_bound
-    (W : Submodule (ZMod 2)
-      (AddMonoid.End Abelian ⧸ ringMultipleIdeal (AddMonoid.End Abelian) 2)) :
-    Module.finrank (ZMod 2) W ≤ Module.finrank (ZMod 2) (residueSquareCommutatorSpan W) + 2 :=
-  residue_square_commutator_bound_of_rank_two_equiv
-    (abelianEndBinaryResidueEquiv scale modulus htwo coordinates) W
 
 end NativeEndomorphisms
 
-theorem rank_two_endomorphism_residue_square_commutator_bound
-    {Abelian : Type*} [AddCommGroup Abelian] (upper lower : ℕ)
-    (hle : lower ≤ upper) (hlower : 1 ≤ lower)
-    (coordinates : Abelian ≃+ (ZMod (2 ^ upper) × ZMod (2 ^ lower)))
-    (W : Submodule (ZMod 2)
-      (AddMonoid.End Abelian ⧸ ringMultipleIdeal (AddMonoid.End Abelian) 2)) :
-    Module.finrank (ZMod 2) (residueSquareCommutatorSpan W) ≥ Module.finrank (ZMod 2) W - 2 := by
-  have hperiod : 2 ^ (upper - lower) * 2 ^ lower = 2 ^ upper := by
-    rw [← pow_add, Nat.sub_add_cancel hle]
-  let coordinates' : Abelian ≃+ CyclicPair (2 ^ (upper - lower)) (2 ^ lower) := by
-    change Abelian ≃+ (ZMod (2 ^ (upper - lower) * 2 ^ lower) × ZMod (2 ^ lower))
-    rw [hperiod]
-    exact coordinates
-  have htwo : 2 ∣ 2 ^ lower := dvd_pow_self 2 (by omega : lower ≠ 0)
-  have hbound := abelian_endomorphism_residue_square_commutator_bound
-    (2 ^ (upper - lower)) (2 ^ lower) htwo coordinates' W
-  omega
 
 end CFSG.LargeEvenClassification.Helpers

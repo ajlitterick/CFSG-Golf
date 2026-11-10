@@ -58,49 +58,6 @@ theorem comm_vec_embed {m : ℕ} (U : AE.Wr m) (hU1 : U.perm = 1) (ι : Fin 4 �
     rw [h2, add_comm]
   · rw [AE.Wr.mul_perm, AE.Wr.mul_perm, hU1, one_mul, mul_one]
 
-theorem exists_even_perm_map {m : ℕ} (α γ : Finset (Fin m)) (h : α.card = γ.card) (h2 : 2 ≤ α.card) :
-    ∃ σ : Equiv.Perm (Fin m), Equiv.Perm.sign σ = 1 ∧ ∀ y, y ∈ γ ↔ σ.symm y ∈ α := by
-  classical
-  let e : {x // x ∈ α} ≃ {x // x ∈ γ} := Finset.equivOfCardEq h
-  set σ₀ : Equiv.Perm (Fin m) := e.extendSubtype with hσ₀
-  have hmap : α.map σ₀.toEmbedding = γ := by
-    apply Finset.eq_of_subset_of_card_le
-    · intro y hy
-      obtain ⟨x, hx, rfl⟩ := Finset.mem_map.mp hy
-      exact Equiv.extendSubtype_mem e x hx
-    · rw [Finset.card_map, h]
-  have hiff : ∀ σ : Equiv.Perm (Fin m), α.map σ.toEmbedding = γ → ∀ y, y ∈ γ ↔ σ.symm y ∈ α := by
-    intro σ hσ y
-    rw [← hσ]
-    simp only [Finset.mem_map, Equiv.coe_toEmbedding]
-    constructor
-    · rintro ⟨x, hx, rfl⟩
-      simpa using hx
-    · intro hy
-      exact ⟨σ.symm y, hy, by simp⟩
-  by_cases hs : Equiv.Perm.sign σ₀ = 1
-  · exact ⟨σ₀, hs, hiff σ₀ hmap⟩
-  · obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp (by omega : 1 < α.card)
-    refine ⟨σ₀ * Equiv.swap a b, ?_, hiff _ ?_⟩
-    · rw [Equiv.Perm.sign_mul, Equiv.Perm.sign_swap hab]
-      have : Equiv.Perm.sign σ₀ = -1 := by
-        rcases Int.units_eq_one_or (Equiv.Perm.sign σ₀) with h | h
-        · exact absurd h hs
-        · exact h
-      rw [this]; decide
-    · rw [← hmap]
-      ext y
-      simp only [Finset.mem_map, Equiv.coe_toEmbedding, Equiv.Perm.mul_apply]
-      constructor
-      · rintro ⟨x, hx, rfl⟩
-        refine ⟨Equiv.swap a b x, ?_, rfl⟩
-        rw [Equiv.swap_apply_def]
-        split_ifs <;> assumption
-      · rintro ⟨x, hx, rfl⟩
-        refine ⟨Equiv.swap a b x, ?_, ?_⟩
-        · rw [Equiv.swap_apply_def]
-          split_ifs <;> assumption
-        · simp
 
 theorem ofPerm_mem_aeSub {m : ℕ} {σ : Equiv.Perm (Fin m)} (h : Equiv.Perm.sign σ = 1) :
     AE.Wr.ofPerm σ ∈ AE.aeSub m := by
@@ -229,30 +186,6 @@ theorem e189_ae_core' {Y : Type} [Group Y] [Finite Y] {Δ : Set (Subgroup Y)}
       · exact Subgroup.mem_centralizer_singleton_iff.mpr (hc2 w hw).symm
     exact Subgroup.mem_centralizer_singleton_iff.mp (hle hw)
 
-open AeM CFSG.ClassicalInvolution.Q3.AE in
-theorem e189_ae_core {Y : Type} [Group Y] [Finite Y] {Δ : Set (Subgroup Y)}
-    (hΩ : HypOmegaGen Δ) (htwo : ∀ L ∈ Δ, IsPGroup 2 L) {n : ℕ} (hn8 : n ≠ 8)
-    (ψ : Y →* AE.AEQ n) (𝒜 : Set (Finset (Fin n))) (P : Equiv.Perm (Fin n) → Prop)
-    (hlab : ∀ L ∈ Δ, ∃ α ∈ 𝒜, ∃ h : α.card = 4, ∃ b : Bool, L.map ψ = AE.memBar α h b)
-    (hinj : ∀ L ∈ Δ, ∀ M ∈ Δ, L.map ψ = M.map ψ → L = M)
-    (hinjOn : ∀ M ∈ Δ, Set.InjOn ψ (M : Set Y))
-    (zimg : ∀ L ∈ Δ, ∀ (α : Finset (Fin n)) (h : α.card = 4) (b : Bool),
-      L.map ψ = AE.memBar α h b → ∀ u : Y, IsUniqueInvolution L u → ψ u = AE.zBar α h)
-    (hlift : ∀ σ : Equiv.Perm (Fin n), P σ → ∃ x : Y, ψ x = AE.mkQ n (AE.Wr.ofPerm σ))
-    (hcomb : ∀ α ∈ 𝒜, ∀ β ∈ 𝒜, ∃ γ ∈ 𝒜, ∃ (_ : γ.card = 4) (c : ZMod 2),
-      (∀ i ∈ γ, ind α i + ind β i = c) ∧ ∃ σ : Equiv.Perm (Fin n), P σ ∧ ∀ y, y ∈ γ ↔ σ.symm y ∈ α)
-    {K J : Subgroup Y} (hK : K ∈ Δ) (hJ : J ∈ Δ) {z t : Y} (hz : IsUniqueInvolution K z)
-    (ht : IsUniqueInvolution J t) (hzt : z * t = t * z) (hne : conjSub t K ≠ K) :
-    ∃ x : Y, ∃ M' ∈ twinSet Δ (conjSub x K), M' ≠ conjSub x K ∧ ∃ R₁ R₂ : Subgroup Y,
-      IsSylow2In R₁ (conjSub x K) ∧ IsSylow2In R₂ M' ∧ Commutes R₁ R₂ ∧
-        ∀ w ∈ R₁ ⊔ R₂, w * (z * t) = (z * t) * w := by
-  refine e189_ae_core' hΩ htwo ψ 𝒜 P hlab hinj hinjOn zimg hlift ?_ hK hJ hz ht hzt hne
-  intro α hα β hβ
-  obtain ⟨γ, hγ𝒜, hγ, c, hc, σ, hP, hσ⟩ := hcomb α hα β hβ
-  refine ⟨γ, hγ𝒜, hγ, fun δ _ hδ he => ?_, σ, hP, hσ⟩
-  have := AE.eq_of_zBar_eq hn8 he
-  subst this
-  exact ⟨c, hc⟩
 
 end Main
 
@@ -266,65 +199,6 @@ theorem sum_ind {n : ℕ} (s : Finset (Fin n)) : ∑ i, ind s i = (s.card : ZMod
   rw [Finset.sum_ite_mem Finset.univ s (fun _ => (1 : ZMod 2))]
   simp
 
-open AeM CFSG.ClassicalInvolution.Q3.AE in
-theorem e189_aeM_alt2 {Y : Type} [Group Y] [Finite Y] {Δ : Set (Subgroup Y)}
-    (F : TwinDisc.ExitO2.Q8Fam Y Δ) {m : ℕ} (hm : 6 ≤ m) (hm8 : m ≠ 8) (I : AEIdent Δ m)
-    {K J : Subgroup Y} (hK : K ∈ Δ) (hJ : J ∈ Δ) {z t : Y} (hz : IsUniqueInvolution K z)
-    (ht : IsUniqueInvolution J t) (hzt : z * t = t * z) (hne : conjSub t K ≠ K) :
-    ∃ x : Y, ∃ M' ∈ twinSet Δ (conjSub x K), M' ≠ conjSub x K ∧ ∃ R₁ R₂ : Subgroup Y,
-      IsSylow2In R₁ (conjSub x K) ∧ IsSylow2In R₂ M' ∧ Commutes R₁ R₂ ∧
-        ∀ w ∈ R₁ ⊔ R₂, w * (z * t) = (z * t) * w := by
-  have hΩ := F.hyp
-  have hm5 : 5 ≤ m := by omega
-  have hX : ∀ y : Y, y ∈ pSpan Δ := fun y => F.gen ▸ Subgroup.mem_top y
-  let ψ : Y →* AE.AEQ m :=
-    { toFun := fun y => I.φ ⟨y, hX y⟩
-      map_one' := by
-        rw [show (⟨1, hX 1⟩ : ↥(pSpan Δ)) = 1 from rfl, map_one]
-      map_mul' := fun a b => by
-        rw [show (⟨a * b, hX (a * b)⟩ : ↥(pSpan Δ)) = ⟨a, hX a⟩ * ⟨b, hX b⟩ from rfl, map_mul] }
-  have map_psi : ∀ L : Subgroup Y, L.map ψ = (L.subgroupOf (pSpan Δ)).map I.φ := by
-    intro L
-    ext x
-    constructor
-    · rintro ⟨y, hy, rfl⟩
-      exact ⟨⟨y, hX y⟩, Subgroup.mem_subgroupOf.mpr hy, rfl⟩
-    · rintro ⟨⟨y, hy'⟩, hy, rfl⟩
-      exact ⟨y, Subgroup.mem_subgroupOf.mp hy, rfl⟩
-  refine e189_ae_core hΩ F.two hm8 ψ {α | α.card = 4} (fun σ => Equiv.Perm.sign σ = 1) ?_ ?_ ?_ ?_ ?_ ?_
-    hK hJ hz ht hzt hne
-  · intro L hL
-    obtain ⟨α, h, b, hl⟩ := I.label L hL
-    exact ⟨α, h, h, b, by rw [map_psi]; exact hl⟩
-  · intro L hL M hM hLM
-    obtain ⟨a, haL, ha2⟩ := F.exists_mul_self_ne_one L hL
-    refine TwinDisc.ExitO2.fam_eq_of_phi_mem I.φ F hm5 I.ker_le I.label hL hM haL ha2 ?_
-    have := I.mem_map hL haL
-    rw [← map_psi, hLM, map_psi] at this
-    exact this
-  · intro M hM l₁ hl₁ l₂ hl₂ he
-    obtain ⟨α, h, b, hl⟩ := I.label M hM
-    exact I.injOn hm5 hM ((F.card M hM).trans (by norm_num)) hl hl₁ hl₂ he
-  · intro L hL α h b hl u hu
-    have h8 : Nat.card ↥L = 8 := (F.card L hL).trans (by norm_num)
-    exact I.map_eq_zBar hm5 hL h8 (by rw [← map_psi]; exact hl) hu
-  · intro σ hσ
-    have hxr : AE.mkQ m (AE.Wr.ofPerm σ) ∈ I.φ.range := by
-      rw [I.range_eq]
-      exact Subgroup.mem_map_of_mem _ (ofPerm_mem_aeSub hσ)
-    obtain ⟨x', hx'⟩ := hxr
-    exact ⟨(x' : Y), hx'⟩
-  · intro α hα β hβ
-    have hsum : ∑ i, (ind α i + ind β i) = 0 := by
-      rw [Finset.sum_add_distrib, sum_ind, sum_ind]
-      have h1 : α.card = 4 := hα
-      have h2 : β.card = 4 := hβ
-      rw [h1, h2]
-      decide
-    obtain ⟨γ, hγ, c, hc⟩ := exists_const_four_set hm (fun i => ind α i + ind β i) hsum
-    obtain ⟨σ, hs, hσ⟩ := exists_even_perm_map α γ (by rw [(hα : α.card = 4), hγ]) (by
-      rw [(hα : α.card = 4)]; omega)
-    exact ⟨γ, hγ, hγ, c, hc, σ, hs, hσ⟩
 
 end Inst
 

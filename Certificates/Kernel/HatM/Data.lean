@@ -76,8 +76,6 @@ theorem nP1 : p1Gens.size = 10 := by decide +kernel
 
 theorem nP2 : p2Gens.size = 10 := by decide +kernel
 
-theorem nums : ES1.ng = 9 ∧ EP1.ng = 10 ∧ EP2.ng = 10 ∧ ES1.N = 512 ∧ EP1.N = 1024 ∧
-    EP2.N = 1024 := ⟨rfl, rfl, rfl, rfl, rfl, rfl⟩
 
 theorem bR1 : arrBind r1Arr 24 5 (RA 0) = true := by quickRfl
 

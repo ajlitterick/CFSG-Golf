@@ -3586,9 +3586,6 @@ open CFSG.Certificates CFSG.Monster.B.Co2.Native
 @[expose] def heSevenCase0Base : List (Fin 8330) :=
   [1, 657, 6384, 3776, 242, 2979, 3916, 0, 5043, 6144, 71, 1510, 1297, 2842]
 
-@[expose] def heSevenCase0Chain : RawSchreierDatum 8330 :=
-  RawSchreierDatum.ofArrays 8330 (by decide) heSevenCase0Arrs 3 (by simp [heSevenCase0Arrs])
-    heSevenCase0Base (by decide) heSevenCase0Words
 
 @[expose] def heSevenCase0Rels : List (ℕ × ℕ × ℕ) :=
     [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (0, 5, 5), (0, 6, 6), (1, 2, 1), (1, 3, 2),
@@ -7539,9 +7536,6 @@ open CFSG.Certificates CFSG.Monster.B.Co2.Native
 @[expose] def heSevenCase1Base : List (Fin 8330) :=
   [355, 769, 3574, 0, 5938, 7892, 7168, 1259, 2087, 4203]
 
-@[expose] def heSevenCase1Chain : RawSchreierDatum 8330 :=
-  RawSchreierDatum.ofArrays 8330 (by decide) heSevenCase1Arrs 3 (by simp [heSevenCase1Arrs])
-    heSevenCase1Base (by decide) heSevenCase1Words
 
 @[expose] def heSevenCase1Rels : List (ℕ × ℕ × ℕ) :=
     [(0, 0, 1), (0, 0, 2), (0, 0, 3), (0, 0, 4), (0, 0, 5), (0, 0, 6), (1, 1, 1), (1, 1, 2),
@@ -11130,9 +11124,6 @@ open CFSG.Certificates CFSG.Monster.B.Co2.Native
 @[expose] def heSevenCase2Base : List (Fin 8330) :=
   [1, 2315, 1239, 610, 7852, 6726, 5234]
 
-@[expose] def heSevenCase2Chain : RawSchreierDatum 8330 :=
-  RawSchreierDatum.ofArrays 8330 (by decide) heSevenCase2Arrs 3 (by simp [heSevenCase2Arrs])
-    heSevenCase2Base (by decide) heSevenCase2Words
 
 @[expose] def heSevenCase2Rels : List (ℕ × ℕ × ℕ) :=
     [(0, 1, 1), (0, 2, 2), (0, 3, 3), (0, 4, 4), (0, 5, 5), (0, 6, 6), (1, 2, 1), (1, 3, 2),

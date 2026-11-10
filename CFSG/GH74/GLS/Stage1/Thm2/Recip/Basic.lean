@@ -30,8 +30,6 @@ theorem orderOf_conj_eq (g a : G) : orderOf (g * a * g⁻¹) = orderOf a := by
   have := (MulAut.conj g).orderOf_eq a
   simpa [MulAut.conj_apply] using this
 
-theorem inv_eq_self_of_mul_self_eq_one {a : G} (h : a * a = 1) : a⁻¹ = a :=
-  inv_eq_of_mul_eq_one_right h
 
 end Involutions
 
@@ -202,10 +200,6 @@ theorem normalizer_le_centralizer (h : IsIntrinsic t K) (ht : orderOf t = 2) :
   calc n * t = n * t * n⁻¹ * n := by group
     _ = t * n := by rw [h3]
 
-theorem mem_sylow (h : IsIntrinsic t K) (ht : orderOf t = 2) {S : Subgroup G}
-    (hS : IsSylow2In S K) : t ∈ S :=
-  mem_of_isSylow2In_of_central hS h.2.2 (fun _ hk => (h.comm_of_mem hk).symm)
-    (mul_self_eq_one_of_orderOf_eq_two ht)
 
 end IsIntrinsic
 

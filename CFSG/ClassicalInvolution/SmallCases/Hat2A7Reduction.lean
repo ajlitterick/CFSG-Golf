@@ -40,8 +40,5 @@ theorem stepReduction2A7 : StepReduction2A7 := fun hcore n => citStep2A7_of_core
 theorem citInductive2A7_of_coreStep (hcore : CoreStep2A7) : CITInductive2A7 :=
   citInductive2A7_of_step (citStep2A7_of_coreStep hcore)
 
-theorem cit2A7_of_remaining_inputs (h : GoldschmidtMilestone) (TW : TwinExclusion)
-    (LOC : LocalOddCentralStep2A7) : CIT2A7 :=
-  cit2A7_of_milestone h TW LOC stepReduction2A7
 
 end CFSG.ClassicalInvolution.Hat2A7

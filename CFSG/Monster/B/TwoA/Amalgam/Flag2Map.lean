@@ -51,30 +51,11 @@ theorem piTwo_surjective :
   exact (Equiv.permCongrHom vsharpEquiv).injective ((bigPhi_fst h).symm.trans
     (congrArg Prod.fst hh))
 
-theorem piTwo_eq_one_iff
-    (h : Par2.H2) : piTwo h = 1 ↔ Par2.bigPhi h = 1 := by
-  constructor
-  · intro e
-    refine Prod.ext ((bigPhi_fst h).trans ?_) ((bigPhi_snd h).trans (congrArg Prod.snd e))
-    rw [show (piTwo h).1 = 1 from congrArg Prod.fst e, map_one]
-    rfl
-  · intro e
-    refine Prod.ext ?_ ((bigPhi_snd h).symm.trans (congrArg Prod.snd e))
-    exact (MulEquiv.map_eq_one_iff _).1 ((bigPhi_fst h).symm.trans (congrArg Prod.fst e))
-
-theorem ker_piTwo :
-    piTwo.ker = CFSG.pCore 2 (Pc 1) := by
-  ext h
-  exact MonoidHom.mem_ker.trans ((piTwo_eq_one_iff h).trans
-    (MonoidHom.mem_ker.symm.trans (SetLike.ext_iff.1 Par2.ker_bigPhi_eq_pCore h)))
 
 theorem pCore_eq_subgroupOf :
     CFSG.pCore 2 (Pc 1) = (Nc 1).subgroupOf (Pc 1) :=
   (Subgroup.comap_map_eq_self_of_injective Subtype.val_injective _).symm
 
-theorem ker_piTwo' :
-
-    piTwo.ker = (Nc 1).subgroupOf (Pc 1) := ker_piTwo.trans pCore_eq_subgroupOf
 
 theorem piTwo_snd_smul_j
     (h : Pc 1) (i : NativeCoord) :
@@ -85,15 +66,6 @@ theorem coe_restP_psiH
     ((restP (Par2.psiH h) i : NativeCoord) : Fin 24) =
       (((Par2.blockP (Par2.inclH h) : Ppair) : AutPerm) : Equiv.Perm (Fin 24)) i := rfl
 
-theorem image_conj_block
-    (h : Pc 1) (i : NativeCoord) :
-    (fun d => (h : Dfull) * d * (h : Dfull)⁻¹) '' {d | ∃ v ∈ Vhat, dhat 0 i * v = d} =
-      {d | ∃ v ∈ Vhat,
-        dhat 0 (Unitary.LinThree.jEquiv.symm ((piTwo h).2 • j i) : Fin 24) * v = d} := by
-  have e : Unitary.LinThree.jEquiv.symm ((piTwo h).2 • j i) = restP (Par2.psiH h) i := by
-    rw [piTwo_snd_smul_j, ← Unitary.LinThree.jEquiv_apply, Equiv.symm_apply_apply]
-  rw [e]
-  exact Par2.image_conj_blk (Par2.inclH h) (Par2.nativeRest i)
 
 theorem mem_Pc_zero_iff
     (h : Pc 1) : (h : Dfull) ∈ Pc 0 ↔ (piTwo h).1 vX = vX := by

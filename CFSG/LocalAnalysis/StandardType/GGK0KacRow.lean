@@ -14,10 +14,6 @@ open CFSG.Assembly CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley CFSG.LieType.
   CFSG.StandardType.GGFinModel
 
 
-
-
-
-
 theorem k0_getD_lt_of_perm {l : List ℕ} {n i : ℕ} (hl : l.Perm (List.range n))
     (hi : i < n) : l.getD i 0 < n := by
   have hi' : i < l.length := by rw [hl.length_eq, List.length_range]; exact hi
@@ -64,17 +60,6 @@ private theorem k0NodeEquiv_apply (T : GGKacType)
     (i : Fin (k0DiagOf T).marks.length) :
     k0NodeEquiv T i = idxNode (r := (absTag T).rank) i.val := rfl
 
-private theorem k0NodeEquiv_symm_apply (T : GGKacType)
-    (x : Option (Fin (absTag T).rank)) :
-    (k0NodeEquiv T).symm x =
-      ⟨nodeIdx x, by rw [k0Kac_marks_length T]; exact nodeIdx_lt x⟩ := by
-  apply (k0NodeEquiv T).injective
-  rw [Equiv.apply_symm_apply, k0NodeEquiv_apply, idxNode_nodeIdx]
-
-private theorem k0NodeEquiv_symm_apply_idxNode (T : GGKacType)
-    (i : Fin (k0DiagOf T).marks.length) :
-    (k0NodeEquiv T).symm (idxNode (r := (absTag T).rank) i.val) = i := by
-  rw [← k0NodeEquiv_apply T i, Equiv.symm_apply_apply]
 
 private noncomputable def k0FinPermOfList {n : ℕ} (l : List ℕ)
     (hl : l.Perm (List.range n)) : Equiv.Perm (Fin n) :=
@@ -200,22 +185,6 @@ private theorem k0PermOfList_listOfPerm (T : GGKacType)
   rw [k0ListOfPerm_getD T σ hx, idxNode_nodeIdx]
   exact congrArg σ (idxNode_nodeIdx x)
 
-private theorem k0ListOfPerm_trans (T : GGKacType)
-    (σ τ : Equiv.Perm (Option (Fin (absTag T).rank))) :
-    k0ListOfPerm T (σ.trans τ) =
-      k0pMul (k0ListOfPerm T τ) (k0ListOfPerm T σ) := by
-  apply k0_list_ext_getD
-  · simp only [k0pMul, List.length_map]; rw [k0ListOfPerm_length, k0ListOfPerm_length]
-  · intro i hi
-    rw [k0ListOfPerm_length] at hi
-    rw [k0ListOfPerm_getD T _ hi,
-      k0pMul_getD (k0ListOfPerm T τ) (k0ListOfPerm T σ)
-        (by rw [k0ListOfPerm_length]; exact hi)]
-    rw [k0ListOfPerm_getD T σ hi]
-    rw [k0ListOfPerm_getD T τ (by
-      rw [k0Kac_marks_length T]
-      exact nodeIdx_lt (σ (idxNode i))), idxNode_nodeIdx]
-    rfl
 
 private theorem k0ListOfPerm_symm (T : GGKacType)
     (σ : Equiv.Perm (Option (Fin (absTag T).rank))) :
@@ -299,23 +268,6 @@ theorem k0pMul_assoc_perm (T : GGKacType) {a b c : List ℕ}
   rw [hb.length_eq, List.length_range]
   exact h
 
-private theorem k0pMul_inv_right {n : ℕ} {a : List ℕ} (ha : a.Perm (List.range n)) :
-    k0pMul a (k0pInv a) = k0pId n := by
-  apply k0_list_ext_getD
-  · rw [k0pMul, k0pId, List.length_map, (k0pInv_perm ha).length_eq, List.length_range]
-  · intro i hi
-    have hin : i < n := by
-      rw [k0pMul, List.length_map, (k0pInv_perm ha).length_eq, List.length_range] at hi
-      exact hi
-    have hi' : i < (k0pInv a).length := by
-      rw [(k0pInv_perm ha).length_eq, List.length_range]; exact hin
-    rw [k0pMul_getD a (k0pInv a) hi']
-    obtain ⟨j, hj, hja⟩ := k0_exists_getD_of_perm ha hin
-    have hinv : (k0pInv a).getD i 0 = j := by
-      have h := k0pInv_getD_of_perm (ha := ha) (hi := hj)
-      rwa [hja] at h
-    rw [hinv, hja, k0pId,
-      List.getD_eq_getElem _ _ (by rw [List.length_range]; exact hin), List.getElem_range]
 
 private theorem k0pMul_inv_left {n : ℕ} {a : List ℕ} (ha : a.Perm (List.range n)) :
     k0pMul (k0pInv a) a = k0pId n := by
@@ -345,8 +297,6 @@ private theorem k0pAct_eq_self_of_getD (T : GGKacType) {a s : List ℕ}
       rw [← hia]
       exact k0pAct_getD_of_perm ha hs hi
     rw [h1, ← hia, h i hi]
-
-
 
 
 private theorem k0_marks_zero (T : GGKacType) :
@@ -412,7 +362,6 @@ private theorem k0_alcove_sum
     unfold dotProduct
     ring
   exact_mod_cast hsum_int
-
 
 
 private theorem k0_theta_idxNode
@@ -540,8 +489,6 @@ private theorem k0_eps_cases {lab : LargeEvenLabel} {p : ℕ} :
       (if p ∣ 2 ^ lab.n - 1 then (1 : ℤ) else -1) = -1 := by
   split_ifs <;> norm_num
 
-private theorem k0_d_eq {lab : LargeEvenLabel} {p : ℕ} :
-    (if p ∣ 2 ^ lab.n - 1 then 1 else 2) = if p ∣ 2 ^ lab.n - 1 then 1 else 2 := rfl
 
 private theorem k0_hτ_absTag (T : GGKacType) :
     absTag T = .F4 ∨ absTag T = .E6 ∨ absTag T = .E7 ∨ absTag T = .E8 := by

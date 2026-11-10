@@ -110,12 +110,6 @@ theorem componentLength_one
     : componentLength Ψ (1 : WeylGroup τ) = 0 :=
   Nat.eq_zero_of_le_zero (componentLength_le (l := []) fun _ h => absurd h List.not_mem_nil)
 
-theorem eq_one_of_componentLength_eq_zero
-    {w : WeylGroup τ} (hw : w ∈ componentWeylGroup Ψ)
-    (h : componentLength Ψ w = 0) : w = 1 := by
-  obtain ⟨l, -, hlen, e⟩ := exists_reduced_word hw
-  rw [h, List.length_eq_zero_iff] at hlen
-  rw [← e, hlen, reflectionWordProd_nil]
 
 theorem componentLength_inv
     {w : WeylGroup τ} (hw : w ∈ componentWeylGroup Ψ) :

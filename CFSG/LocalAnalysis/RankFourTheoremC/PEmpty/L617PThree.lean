@@ -592,10 +592,5 @@ theorem stepL617PrimeTop_of_three (h313 : GL83NormalElementaryRankFour)
       exact Odd.pow (by decide)
     exact hFY M hY2M (h65 G p P M x z hS hx hz hAB F hFne hFM hcop hodd hBF)
 
-theorem stepL617_of_three
-    (h313 : GL83NormalElementaryRankFour) (h1 : KFactSingleComponentThreeRank)
-    (h65 : StepP65OddAB) : StepL617 :=
-  stepL617_of_kfact' kFactBlocksInSylowCentralizerQS_holds
-    (stepL617PrimeTop_of_three h313 h1 h65)
 
 end CFSG.LocalAnalysis.RankFourTheoremC.PEmpty

@@ -116,9 +116,6 @@ open CFSG.Quasithin.G6 in
   (QuotientGroup.quotientMulEquivOfEq (ker_altHeartHom n hn).symm).trans
     (QuotientGroup.quotientKerEquivOfSurjective (altHeartHom n) (altHeartHom_surjective n))
 
-open CFSG.Quasithin.G6 in
-theorem altQuotEquiv_mk (n : ℕ) (hn : 0 < n) (m : ↥(coreMod n)) :
-    altQuotEquiv n hn (QuotientGroup.mk m) = altHeartHom n m := rfl
 
 end Alt
 

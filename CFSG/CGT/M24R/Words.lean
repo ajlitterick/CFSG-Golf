@@ -42,9 +42,6 @@ namespace CFSG.CGT.M24R
 
 abbrev M24Word : Type := List (Fin 11 × Bool)
 
-@[expose] def letX (i : Fin 6) : Fin 11 := ⟨i.val, by omega⟩
-
-@[expose] def letT (j : Fin 4) : Fin 11 := ⟨6 + j.val, by omega⟩
 
 @[expose] def letG : Fin 11 := 10
 
@@ -105,7 +102,6 @@ end Eval
     [(6, true), (8, true), (9, true), (2, true), (1, true), (4, true), (2, false)],
     [(0, true), (1, true), (3, true), (4, false), (3, true)]]
 
-@[expose] def uWord : M24Word := [(0, true), (2, true), (3, false), (2, true)]
 
 @[expose] def nWord : M24Word :=
   [(0, true), (4, false), (3, true), (2, false), (0, true), (5, false)]

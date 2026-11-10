@@ -65,11 +65,6 @@ theorem exists_q8q8_swap_lin (hF : ringChar F ≠ 2) :
     rw [quatHom_a_two h]
     simp
 
-theorem exists_q8q8_lin (hF : ringChar F ≠ 2) :
-    ∃ φ : Q8 × Q8 →* GL (Fin 4) F, (∀ g, φ g ∈ (ModelData.lin F).K4) ∧ Function.Injective φ ∧
-      φ (QuaternionGroup.a 2, QuaternionGroup.a 2) = xGL F := by
-  obtain ⟨φ, h1, h2, h3, -⟩ := exists_q8q8_swap_lin hF
-  exact ⟨φ, h1, h2, h3⟩
 
 theorem units_pow_four_eq_one_iff (hF : Nat.card F % 4 = 3) (c : Fˣ) :
     c ^ 4 = 1 ↔ c = 1 ∨ c = -1 := by
@@ -163,11 +158,6 @@ theorem exists_q8q8_swap_uni (hF : Nat.card F = (p ^ f) ^ 2) (hp2 : p ≠ 2) :
     rw [quatHom_a_two hab]
     simp
 
-theorem exists_q8q8_uni (hF : Nat.card F = (p ^ f) ^ 2) (hp2 : p ≠ 2) :
-    ∃ φ : Q8 × Q8 →* GL (Fin 4) F, (∀ g, φ g ∈ (ModelData.uni hF).K4) ∧ Function.Injective φ ∧
-      φ (QuaternionGroup.a 2, QuaternionGroup.a 2) = xGL F := by
-  obtain ⟨φ, h1, h2, h3, -⟩ := exists_q8q8_swap_uni hF hp2
-  exact ⟨φ, h1, h2, h3⟩
 
 omit [Finite F] [Fact (Nat.Prime p)] [CharP F p] in
 theorem units_eq_one_or_neg_one_of_unitary (hq : p ^ f % 4 = 1) (c : Fˣ) (h4 : c ^ 4 = 1)
@@ -285,18 +275,6 @@ theorem exists_q8_frame_of_model {K : Type*} [Group K] (M : ModelData F)
     congr 1
     exact Subtype.ext (hsw g h)
 
-theorem exists_center_q8q8_of_model {K : Type*} [Group K] (M : ModelData F)
-    (e : K ≃* ↥M.K4) (h2 : (2 : F) ≠ 0)
-    (hcenter : ∀ g : ↥M.K4, g ∈ Subgroup.center ↥M.K4 ↔
-      (g : GL (Fin 4) F) = 1 ∨ (g : GL (Fin 4) F) = xGL F)
-    (hq : ∃ φ : Q8 × Q8 →* GL (Fin 4) F, (∀ g, φ g ∈ M.K4) ∧ Function.Injective φ ∧
-      φ (QuaternionGroup.a 2, QuaternionGroup.a 2) = xGL F ∧
-      ∀ g h : Q8, swapGL F * φ (g, h) * (swapGL F)⁻¹ = φ (h, g)) :
-    ∃ (z : K) (φ : Q8 × Q8 →* K), orderOf z = 2 ∧
-      (∀ g : K, g ∈ Subgroup.center K ↔ g = 1 ∨ g = z) ∧ Function.Injective φ ∧
-      φ (QuaternionGroup.a 2, QuaternionGroup.a 2) = z := by
-  obtain ⟨z, φ, -, h1, h2, h3, h4, -⟩ := exists_q8_frame_of_model M e h2 hcenter hq
-  exact ⟨z, φ, h1, h2, h3, h4⟩
 
 end Abstract
 
@@ -362,33 +340,6 @@ end IsModel
 
 section Rank
 
-theorem not_sectionalTwoRankLE_q8q8 : ¬ SectionalTwoRankLE (Q8 × Q8) 3 := by
-  intro h
-  have h' : SectionalTwoRankLE (V4 × V4) 3 :=
-    SectionalTwoRankLE.of_surjective (q8Frattini.prodMap q8Frattini)
-      (q8Frattini_surjective.prodMap q8Frattini_surjective) h
-  have hV4 : ∀ a : V4, a ^ 2 = 1 := by decide
-  have hE : CFSG.Open.IsElemAbelian 2 (⊤ : Subgroup (V4 × V4)) :=
-    ⟨⟨⟨fun a b => Subtype.ext (mul_comm a.1 b.1)⟩⟩,
-      fun x _ => Prod.ext (hV4 x.1) (hV4 x.2)⟩
-  have := SectionalTwoRankLE.card_le_of_elementary h' ⊤ hE
-  rw [Subgroup.card_top, Nat.card_prod, card_V4] at this
-  omega
-
-variable {K : Type*} [Group K]
-
-theorem not_sectionalTwoRankLE_three_of_q8q8 (φ : Q8 × Q8 →* K) (hφ : Function.Injective φ) :
-    ¬ SectionalTwoRankLE K 3 :=
-  fun h => not_sectionalTwoRankLE_q8q8 (SectionalTwoRankLE.of_injective φ hφ h)
-
-theorem IsSL4Model.not_sectionalTwoRankLE_three (h : IsSL4Model K) : ¬ SectionalTwoRankLE K 3 := by
-  obtain ⟨z, φ, -, -, hφ, -⟩ := h.exists_center_q8q8
-  exact not_sectionalTwoRankLE_three_of_q8q8 φ hφ
-
-theorem IsSL4Model.four_le_sectionalTwoRank (h : IsSL4Model K) : 4 ≤ sectionalTwoRank K := by
-  have := h.finite
-  by_contra hlt
-  exact h.not_sectionalTwoRankLE_three (sectionalTwoRank_le_iff.1 (by omega))
 
 end Rank
 

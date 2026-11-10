@@ -239,44 +239,6 @@ theorem split_of_relIndex_two {S T : Subgroup G} (hTS : T ≤ S) (h2 : T.relInde
     have := hnorm.conj_mem ⟨t, hTS ht⟩ (Subgroup.mem_subgroupOf.2 ht) ⟨g, hg⟩
     simpa [Subgroup.mem_subgroupOf, hN] using this
 
-theorem pRank_mulAut_kBar_le_three_of_L2_nine {K : Subgroup G}
-    (hL2 : HasL2Model (kBar K) (fun q => q = 9)) :
-    pRank 2 (MulAut (kBar K)) ≤ 3 := by
-  have hodd : HasL2Model (kBar K) Odd := by
-    obtain ⟨p, f, hp, hf, hq, hL⟩ := hL2
-    exact ⟨p, f, hp, hf, by rw [hq]; decide, hL⟩
-  obtain ⟨F, _, _, hF, ⟨e⟩⟩ := exists_l2_model_of_hasL2Model hodd
-  have h := @CFSG.GH74.GLS.IVK.ivk_1_2k_a F _ _ hF (kBar K) _ _ e
-  omega
-
-theorem pRank_centralizer_le_four_of_rank_one {u : G} {K : Subgroup G}
-    (hL2 : HasL2Model (kBar K) (fun q => q = 9))
-    (hKN : ∀ c ∈ centralizer ({u} : Set G), ∀ k ∈ K, c * k * c⁻¹ ∈ K)
-    (hCx1 : pRank 2 ↥(CxK u K) = 1) :
-    pRank 2 ↥(centralizer ({u} : Set G)) ≤ 4 := by
-  classical
-  let C : Subgroup G := centralizer ({u} : Set G)
-  let ψ : ↥C →* MulAut (kBar K) := Back.actHom hKN
-  have hkerψ : ψ.ker = (CxK u K).subgroupOf C := by
-    simpa [ψ, C, CxK, CMK] using Back.actHom_ker hKN
-  have hkerMap : ψ.ker.map C.subtype = CxK u K := by
-    rw [hkerψ]
-    exact Subgroup.map_subgroupOf_eq_of_le (by exact inf_le_left)
-  have hmain := CFSG.LocalAnalysis.UniquenessCase.PartTwo.s16k_pRank_le_add_of_hom
-    (φ := ψ) (p := 2) Nat.prime_two
-  rw [hkerMap] at hmain
-  have hCxOpen : CFSG.Open.pRank 2 (CxK u K) = 1 := by
-    rw [← CFSG.SectionRank.pRank_coe_eq_openPRank 2 (CxK u K)]
-    exact hCx1
-  have hrangeRoot : pRank 2 ↥ψ.range ≤ 3 :=
-    (Back.pRank_le_top ψ.range).trans (pRank_mulAut_kBar_le_three_of_L2_nine hL2)
-  have hrange : CFSG.Open.pRank 2 ψ.range ≤ 3 := by
-    rw [← CFSG.SectionRank.pRank_coe_eq_openPRank 2 ψ.range]
-    exact hrangeRoot
-  have h4 : CFSG.Open.pRank 2 C ≤ 4 := by omega
-  change CFSG.pRank 2 ↥C ≤ 4
-  rw [CFSG.SectionRank.pRank_coe_eq_openPRank 2 C]
-  exact h4
 
 theorem b_prop89_realize_core
     (hAL : B_prop89_autlevel)
@@ -389,53 +351,6 @@ theorem b_prop89_realize_of_autlevel
   exact b_prop89_realize_core hAL hG.kproper.1 hG.kproper.2.1 hG.pRank_eq_four
     T5 hc hK hQ
 
-theorem b_st1_prop89_of_autlevel_general
-    {G : Type} [Group G] [Finite G]
-    (hsimple : IsSimpleGroup G) (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hrank3 : 3 ≤ pRank 2 G) (T5 : St1Thm5 G)
-    {y : G} {S U : Subgroup G} {u : G} {K W : Subgroup G}
-    (hc : Config8 y S U u K W)
-    (hK : HasL2Model (kBar K) (fun q => q = 9))
-    (hQ : pRank 2 ↥(W ⊓ CxK u K) = 1) : False := by
-  haveI : IsSimpleGroup G := hsimple
-  have hxstar : ¬ IsStar2 y := fun h => hc.oddCore (T5 y h)
-  have hKN : ∀ c ∈ centralizer ({u} : Set G), ∀ k ∈ K, c * k * c⁻¹ ∈ K :=
-    K_normal_of_rank_one hc.unbal.1.2 hK hc.sylow_W hQ
-  have hCx1 : pRank 2 ↥(CxK u K) = 1 := pRank_CxK_eq_one hc.sylow_W hQ
-  have hCu4 : pRank 2 ↥(centralizer ({u} : Set G)) ≤ 4 :=
-    pRank_centralizer_le_four_of_rank_one hK hKN hCx1
-  have hU : IsNormalFourOf S U := ⟨hc.four, hc.U_le, hc.U_normal⟩
-  have hstarU : IsStar2 u := isStar2_of_mem_normalFour hc.sylow_S hU hc.u_mem.1 hc.u_mem.2
-  have hGle4 : pRank 2 G ≤ 4 := by
-    rw [← hstarU.2]
-    exact hCu4
-  have hCy3 : 3 ≤ pRank 2 ↥(centralizer ({y} : Set G)) := by
-    have hnoncomm : ¬ IsMulCommutative G := by
-      intro hcomm
-      obtain ⟨a, b, hab⟩ := hnonab
-      exact hab (hcomm.is_comm.comm a b)
-    letI : Group.IsPerfect G :=
-      TauCeti.IsSimpleGroup.isPerfect_of_not_isMulCommutative hnoncomm
-    have hG3 : 3 ≤ CFSG.Open.twoRank G := by
-      simpa only [CFSG.Open.twoRank, CFSG.SectionRank.pRank_eq_open_pRank_top] using hrank3
-    have hC := CFSG.ProperTwoGeneratedCore.perfect_involution_centralizer_rank_three
-      hG3 y hc.ord_x
-    simpa only [CFSG.Open.twoRank, CFSG.SectionRank.pRank_eq_open_pRank_top] using hC
-  have hCyle : pRank 2 ↥(centralizer ({y} : Set G)) ≤ pRank 2 G :=
-    Back.pRank_le_top (centralizer ({y} : Set G))
-  have hCy4 : 4 ≤ pRank 2 G := by
-    have hlt : pRank 2 ↥(centralizer ({y} : Set G)) < pRank 2 G :=
-      lt_of_le_of_ne hCyle (by
-        intro heq
-        exact hxstar ⟨hc.ord_x, heq⟩)
-    omega
-  have hrank4 : pRank 2 G = 4 := le_antisymm hGle4 hCy4
-  obtain ⟨T, P, Q, z, f, r, s, a, -, -, c, sc, hsmall⟩ :=
-    b_prop89_realize_core b_prop89_autlevel_proved hsimple hnonab hrank4 T5 hc hK hQ
-  refine c.false_of_cfg89 sc ?_
-  intro hQsmall
-  obtain ⟨n1, n2, -, -, h1, h2, h3, h4, h5, h6, h7, h8⟩ := hsmall hQsmall
-  exact ⟨n1, n2, h1, h2, h3, h4, h5, h6, h7, h8⟩
 
 end Final
 

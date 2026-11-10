@@ -1017,20 +1017,6 @@ private theorem r5oalt_congr_apply {G H : Type} [Group G] [Group H]
     (ϕ : G ≃* H) (f : MulAut G) (x : H) :
     MulAut.congr ϕ f x = ϕ (f (ϕ.symm x)) := rfl
 
-private theorem r5oalt_psi_coe {G : Type} [Group G] {X L : Subgroup G}
-    (hXN : X ≤ Subgroup.normalizer (L : Set G))
-    (e : ↥L ≃* alternatingGroup (Fin 11))
-    (hbij : Function.Bijective (MulAut.conjNormal (H := alternatingGroup (Fin 11)) :
-      Equiv.Perm (Fin 11) →* MulAut (alternatingGroup (Fin 11))))
-    (x : ↥X) (y : ↥L) :
-    ((e (r5oalt_conjHom X L hXN x y) : alternatingGroup (Fin 11)) : Equiv.Perm (Fin 11)) =
-      r5oalt_psi hXN e hbij x * (e y : Equiv.Perm (Fin 11)) *
-        (r5oalt_psi hXN e hbij x)⁻¹ := by
-  have h := congrArg (fun f : MulAut (alternatingGroup (Fin 11)) =>
-      ((f (e y) : alternatingGroup (Fin 11)) : Equiv.Perm (Fin 11)))
-    (r5oalt_psi_spec hXN e hbij x)
-  rw [MulAut.conjNormal_apply, r5oalt_congr_apply, MulEquiv.symm_apply_apply] at h
-  exact h.symm
 
 private theorem r5oalt_conjNormal_swap {G : Type} [Group G] {L : Subgroup G} {t : G}
     (ht : t ∈ Subgroup.normalizer (L : Set G))

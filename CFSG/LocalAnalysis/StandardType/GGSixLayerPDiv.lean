@@ -93,13 +93,6 @@ theorem ggLayerPDivInput_of_remaining (hPSU : GGLayerPDivTag .PSU) (hPSp : GGLay
   | Tits =>
     exact ggLayerPDivTag_of_placeholder _ (Or.inr (Or.inr (Or.inr (Or.inr (Or.inr rfl)))))
 
-theorem ggSixLayerCXInput_of_pDivTags (hPSU : GGLayerPDivTag .PSU) (hPSp : GGLayerPDivTag .PSp)
-    (hPlus : GGLayerPDivTag .POmegaPlus) (hMinus : GGLayerPDivTag .POmegaMinus)
-    (hF4 : GGLayerPDivTag .F4) (hE6 : GGLayerPDivTag .E6) (hE7 : GGLayerPDivTag .E7)
-    (hE8 : GGLayerPDivTag .E8) (hTwE6 : GGLayerPDivTag .twistedE6)
-    (hNS : GGSixLayerCXNonsplitInput) : GGSixLayerCXInput :=
-  ggSixLayerCXInput_of_split
-    (ggLayerPDivInput_of_remaining hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6) hNS
 
 end Tags
 

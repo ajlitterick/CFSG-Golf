@@ -157,9 +157,6 @@ theorem largeReeCheck_2_3 :
 @[expose] def largeReeCommPairs : List (Fin 4 × Fin 4) :=
   [(0, 2), (0, 3), (1, 2), (1, 3), (2, 3)]
 
-theorem mem_largeReeCommPairs : ∀ i j : Fin 4, i < j → (i, j) ≠ (0, 1) →
-    (i, j) ∈ largeReeCommPairs := by
-  decide
 
 theorem largeReeCheck_comm
     : ∀ p ∈ largeReeCommPairs,
@@ -349,21 +346,5 @@ theorem bijOn_largeReeP
 
 end Bijection
 
-theorem large_Ree_B2_characteristic_two_commutators
-    (R : Type*) [CommRing R] (h2 : (2 : R) = 0) :
-    (∀ a b : R,
-      ⁅largeReeX R 1 b, largeReeX R 0 a⁆ = largeReeX R 2 (b * a) * largeReeX R 3 (b * a ^ 2)) ∧
-    (∀ i j : Fin 4, i < j → (i, j) ≠ (0, 1) →
-      ∀ x ∈ rootSubgroup Tag.F4 R (largeReeRoot i), ∀ y ∈ rootSubgroup Tag.F4 R (largeReeRoot j),
-        Commute x y) ∧
-    (∀ A B C D a b c d : R, largeReeP R A B C D * largeReeP R a b c d =
-      largeReeP R (A + a) (B + b) (C + c + B * a) (D + d + B * a ^ 2)) ∧
-    Set.BijOn (fun v : Fin 4 → R => largeReeP R (v 0) (v 1) (v 2) (v 3)) Set.univ
-      (rootSpan Tag.F4 R (parabolicPosRoots Tag.F4 largeReeBlock)) := by
-  refine ⟨largeRee_commutator h2, fun i j hij hne x hx y hy => ?_, largeReeP_mul h2,
-    bijOn_largeReeP h2⟩
-  obtain ⟨c, rfl⟩ := mem_rootSubgroup.1 hx
-  obtain ⟨d, rfl⟩ := mem_rootSubgroup.1 hy
-  exact largeRee_commute_of_mem h2 (mem_largeReeCommPairs i j hij hne) c d
 
 end CFSG.LieType.Ree

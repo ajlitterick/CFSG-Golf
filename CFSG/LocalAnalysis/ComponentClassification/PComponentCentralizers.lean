@@ -80,15 +80,5 @@ theorem p_component_core_centrality_criterion {L : Subgroup G} (hL : IsPComponen
 @[expose] def badTwoComponentSubgroup (X : Type*) [Group X] : Subgroup X :=
   sSup {L : Subgroup X | IsPComponent 2 L ∧ ¬ IsQuasisimple L}
 
-theorem badTwoComponentSubgroup_eq_closure (X : Type*) [Group X] :
-    badTwoComponentSubgroup X = Subgroup.closure
-      (⋃ L ∈ {L : Subgroup X | IsPComponent 2 L ∧ ¬ IsQuasisimple L}, (L : Set X)) := by
-  apply le_antisymm
-  · refine sSup_le fun L hL x hx => Subgroup.subset_closure ?_
-    exact Set.mem_biUnion hL hx
-  · rw [Subgroup.closure_le]
-    intro x hx
-    obtain ⟨L, hL, hxL⟩ := Set.mem_iUnion₂.1 hx
-    exact le_sSup (s := {L : Subgroup X | IsPComponent 2 L ∧ ¬ IsQuasisimple L}) hL hxL
 
 end CFSG.ComponentClassification.CatalogueBPrimeJoin

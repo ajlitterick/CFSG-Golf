@@ -26,13 +26,6 @@ private theorem zmod2_cases : ∀ c : ZMod 2, c = 0 ∨ c = 1 := by decide
 
 private theorem two_eq_zero' : (2 : ZMod 2) = 0 := rfl
 
-theorem conjQ_signLiftPair (e : Parker) (r : Q) : conjQ (signLiftPair e) r = conjYQ e r :=
-  Subtype.ext rfl
-
-theorem mat_signLiftPair (e : Parker) : mat (signLiftPair e).1.2 = gmat e.code := rfl
-
-theorem coe_signLiftPair_fst (e : Parker) :
-    (((signLiftPair e).1.1 : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) = Ymat e := rfl
 
 theorem mul_s_zero (k : ZMod 2) (x : SpinCoord) :
     (⟨k, 0, 0⟩ : SpinCoord) * x = ⟨k + x.s, x.a, x.δ⟩ := by

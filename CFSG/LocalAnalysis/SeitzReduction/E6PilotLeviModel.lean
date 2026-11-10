@@ -16,14 +16,6 @@ section Iso
 
 variable {K : Type} [Field K] [Finite K] [CharP K 2]
 
-theorem exists_slToAdjointE6 :
-    ∃ φ : Matrix.SpecialLinearGroup (Fin 6) K →* adjointGroup .E6 K,
-      (∀ (i j : Fin 6) (hij : i ≠ j) (c : K),
-        (φ (Matrix.SpecialLinearGroup.transvection hij c) : ModGL .E6 K) =
-          pinnedX .E6 K (a5Root i j) c) ∧
-      φ.ker = center (Matrix.SpecialLinearGroup (Fin 6) K) ∧ φ.range = a5Levi K :=
-  ⟨slToAdjointE6 K, fun _ _ hij c => coe_slToAdjointE6_transvection hij c, ker_slToAdjointE6,
-    range_slToAdjointE6⟩
 
 variable (K) in
 @[expose] noncomputable def a5LeviEquiv :
@@ -36,10 +28,6 @@ theorem coe_a5LeviEquiv_mk (A : Matrix.SpecialLinearGroup (Fin 6) K) :
     ((a5LeviEquiv K (QuotientGroup.mk A) : a5Levi K) : adjointGroup .E6 K) = slToAdjointE6 K A :=
   rfl
 
-theorem coe_a5LeviEquiv_mk_transvection {i j : Fin 6} (hij : i ≠ j) (c : K) :
-    (((a5LeviEquiv K (QuotientGroup.mk (Matrix.SpecialLinearGroup.transvection hij c)) :
-        a5Levi K) : adjointGroup .E6 K) : ModGL .E6 K) = pinnedX .E6 K (a5Root i j) c :=
-  coe_slToAdjointE6_transvection hij c
 
 theorem map_slToAdjointE6_transvectionHom_range {i j : Fin 6} (hij : i ≠ j) :
     (Matrix.SpecialLinearGroup.transvectionHom (A := K) hij).range.map (slToAdjointE6 K) =

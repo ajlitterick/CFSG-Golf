@@ -106,11 +106,6 @@ section Product
 
 variable {W : Type*} [CommGroup W] {X L₁ L₂ : Subgroup (MulAut W)} {t : MulAut W}
 
-theorem fixV_mul_eq (hS : OfourStruct X L₁ L₂ t) {m₁ m₂ : MulAut W} (hm₁ : m₁ ∈ L₁)
-    (hm₂ : m₂ ∈ L₂) :
-    fixV (Subgroup.zpowers (m₁ * m₂)) =
-      (commV L₁ ⊓ fixV (Subgroup.zpowers m₁)) ⊔ (commV L₂ ⊓ fixV (Subgroup.zpowers m₂)) :=
-  CFSG.Quasithin.T1531O4.fixV_mul_eq hS hm₁ hm₂
 
 theorem rk_fixV_mul [Finite W] (hS : OfourStruct X L₁ L₂ t) {m₁ m₂ : MulAut W} (hm₁ : m₁ ∈ L₁)
     (hm₂ : m₂ ∈ L₂) :

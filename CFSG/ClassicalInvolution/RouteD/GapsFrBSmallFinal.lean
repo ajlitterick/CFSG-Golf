@@ -238,32 +238,6 @@ end CFSG.ClassicalInvolution.RouteD.Gaps
 namespace CFSG.ClassicalInvolution.RouteD
 
 open CFSG.Assembly.LowTwoRank CFSG.ClassicalInvolution.Generic
-open CFSG.ClassicalInvolution.Generic.CoreAssembly (conjClass single_class)
-open CFSG.ClassicalInvolution.WeakCT (LinearBlockStandardPair)
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem twinBPattern_of_parts_last (hMFZ : Gaps.FundNoncentral p) (hR : TwinBSmallRest p f) :
-    ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ x y : G, x * y ≠ y * x) →
-      ∀ (K : Subgroup G) (z : G), CoreAssembly.RouteDSetup p f K z → ∀ m : ℕ, 3 ≤ m →
-        LocalShapeT p f 2 .POmegaOdd m (conjClass K) z → ∀ β ∈ conjClass K, ∀ t : G,
-          IsClassicalMember p f β t →
-          (∃ W, LinearBlockStandardPair (GaloisField p f) W K β) →
-          HasFixedMember (conjClass K) K β z → PartnerPatternBPair p f m (conjClass K) K β t := by
-  intro G _ _ _ hnab K z S m hm hshape β hβ t ht hKβ hfix
-  by_cases hsmall : m = 3 ∨ m = 4 ∨ m = 6
-  · exact hR G hnab K z S m hsmall hshape β hβ t ht hKβ hfix
-  obtain ⟨c⟩ := TCtx.nonempty_odd hm S.odd S.five S.inClass S.exact
-    (CoreAssembly.mem_conjClass_self K) S.cls S.p1 hshape
-  by_cases h5 : m = 5
-  · subst h5
-    exact Gaps.PartnerPatternBPair.of_fixed_member_five_last hMFZ c (single_class K) hshape hβ ht
-      hKβ hfix
-  by_cases h7 : m = 7
-  · subst h7
-    exact Gaps.PartnerPatternBPair.of_fixed_member_seven_last hMFZ c (single_class K) hshape hβ ht
-      hKβ hfix
-  · exact Gaps.PartnerPatternBPair.of_fixed_member_last (by omega) hMFZ c (single_class K) hshape
-      hβ ht hKβ hfix
 
 end CFSG.ClassicalInvolution.RouteD

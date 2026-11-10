@@ -217,31 +217,6 @@ theorem nonempty_altIsometry_mulEquiv_statedSp {K : Type} [Field K] {V : Type*}
   obtain ⟨φ⟩ := nonempty_isometryGroup_mulEquiv_of_isometryEquiv e
   exact ⟨φ.trans CatalogueBSymplecticB.statedSpIsometryEquiv.symm⟩
 
-theorem map_matrixIsometryGroup_ringEquiv {k k' : Type*} [Field k] [Field k'] (ε : k ≃+* k')
-    {ι : Type*} [Fintype ι] [DecidableEq ι] (C : Matrix ι ι k) :
-    (matrixIsometryGroup C).map
-        ((Units.mapEquiv ε.mapMatrix.toMulEquiv : GL ι k ≃* GL ι k') : GL ι k →* GL ι k') =
-      matrixIsometryGroup (ε.mapMatrix C) := by
-  ext g
-  rw [← MulEquiv.toMonoidHom_eq_coe, mem_map_equiv, mem_matrixIsometryGroup,
-    mem_matrixIsometryGroup]
-  set M : Matrix ι ι k' := (g : Matrix ι ι k') with hM
-  have hval : (((Units.mapEquiv ε.mapMatrix.toMulEquiv).symm g : GL ι k) : Matrix ι ι k) =
-      ε.symm.mapMatrix M := rfl
-  have hback : ε.mapMatrix (ε.symm.mapMatrix M) = M := by
-    ext i j
-    simp
-  have htr : ∀ X : Matrix ι ι k, ε.mapMatrix Xᵀ = (ε.mapMatrix X)ᵀ := fun X => by
-    ext i j
-    simp
-  rw [hval]
-  constructor
-  · intro h
-    have h2 := congrArg ε.mapMatrix h
-    rwa [map_mul, map_mul, htr, hback] at h2
-  · intro h
-    apply ε.mapMatrix.injective
-    rw [map_mul, map_mul, htr, hback, h]
 
 theorem map_matrixIsometryGroup_sympFour {k : Type} [Field k] (ε : ZMod 2 ≃+* k) :
     (matrixIsometryGroup (ε.mapMatrix PresentationLocal.antidiagGram)).map
@@ -297,13 +272,6 @@ theorem nonempty_altIsometry_mulEquiv_sympFour {k : Type} [Field k] [Finite k]
       (MulEquiv.subgroupCongr (map_matrixIsometryGroup_sympFour ε))
   exact ⟨φ₁.trans (e₂.trans e₃)⟩
 
-theorem nonempty_altIsometry_mulEquiv_perm_six {k : Type} [Field k] [Finite k]
-    (hk : Nat.card k = 2) {V : Type*} [AddCommGroup V] [Module k V] [FiniteDimensional k V]
-    (B : BilinForm k V) (hB : B.IsAlt) (hnd : B.Nondegenerate) (hdim : Module.finrank k V = 4) :
-    Nonempty (isometryGroup B ≃* Equiv.Perm (Fin 6)) := by
-  obtain ⟨φ⟩ := nonempty_altIsometry_mulEquiv_sympFour hk B hB hnd hdim
-  exact ⟨φ.trans (MulEquiv.ofBijective PresentationLocal.omegaPerm
-    ⟨PresentationLocal.omegaPerm_injective, PresentationLocal.omegaPerm_surjective⟩)⟩
 
 end Alternating
 

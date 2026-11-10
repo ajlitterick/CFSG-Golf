@@ -203,12 +203,6 @@ theorem charOfMask_tZ
     (a : Fin 7 → ZMod 2) : charOfMask a tZ = -1 ↔ a 0 = 1 := by
   rw [char_tZ_eq_neg_one_iff, maskOfChar_charOfMask]
 
-theorem card_negChars :
-    Nat.card {χ : radicalZ →* ℂˣ // χ tZ = -1} = 64 := by
-  have e : {χ : radicalZ →* ℂˣ // χ tZ = -1} ≃ {a : Fin 7 → ZMod 2 // a 0 = 1} :=
-    charEquiv.subtypeEquiv fun χ => char_tZ_eq_neg_one_iff χ
-  rw [Nat.card_congr e, Nat.card_eq_fintype_card]
-  decide +kernel
 
 abbrev NZ :
     Type := Subgroup.normalizer (radicalZ : Set (ModGL Tag.E6 K))

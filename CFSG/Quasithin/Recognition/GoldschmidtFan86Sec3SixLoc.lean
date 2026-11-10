@@ -76,13 +76,6 @@ theorem relIndex_le_two {v a : V} (hva : Γ.Adj v a) (hv : pval Γ v = 3) {S : S
   have := F.relIndex_le_cidx hva hS
   rwa [F.relIndex_nbrStab_eq_two hva hv] at this
 
-theorem relIndex_le_four {v a : V} (hva : Γ.Adj v a) {S : Subgroup G}
-    (hS : S ≤ MulAction.stabilizer G v ⊓ MulAction.stabilizer G a) :
-    (nbrStab Γ G v).relIndex S ≤ 4 := by
-  have := F.relIndex_le_cidx hva hS
-  have h := F.relIndex_nbrStab_mem_two_four hva
-  simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at h
-  omega
 
 theorem relIndex_nbrStab_smul (g : G) (v a : V) :
     (nbrStab Γ G (g • v)).relIndex (MulAction.stabilizer G (g • v) ⊓ MulAction.stabilizer G (g • a))

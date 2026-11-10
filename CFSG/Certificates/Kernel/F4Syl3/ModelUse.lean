@@ -58,9 +58,6 @@ theorem mem_P {x : G} (hx : x ∈ Subgroup.closure (gensP s g4 g5)) :
   rw [← SetLike.mem_coe, coe_P hp] at hx
   exact hx
 
-theorem phi_mem_P {m : ℕ} (hm : m < 729) : phi s g4 g5 m ∈ Subgroup.closure (gensP s g4 g5) := by
-  rw [← SetLike.mem_coe, coe_P hp]
-  exact ⟨m, hm, rfl⟩
 
 theorem mem_T {x : G} (hx : x ∈ Subgroup.closure (Set.range s)) :
     ∃ a, a < 81 ∧ fS s a = x := by

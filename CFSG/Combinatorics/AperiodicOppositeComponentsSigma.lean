@@ -120,13 +120,6 @@ theorem adj_sigmaMap_iff {x y : {v : V // col v = false}} (hx : x ∈ oppSet G c
   have := adj_sigmaMap_of_adj F hr haper (sigmaMap_mem F hr haper hx) (sigmaMap_mem F hr haper hy) h
   rwa [sigmaMap_sigmaMap F hr haper hx, sigmaMap_sigmaMap F hr haper hy] at this
 
-include F hr haper in
-theorem colour_sigmaMap {x y : {v : V // col v = false}} (hx : x ∈ oppSet G col w)
-    (hy : y ∈ oppSet G col w) (hxy : (pointGraph G col).Adj x y) :
-    c (sigmaMap G col w x) (sigmaMap G col w y) = c x y := by
-  obtain ⟨i, hi⟩ : ∃ i, c x y = i := ⟨_, rfl⟩
-  rw [hi, ← F.r_eq hr hx hy hxy hi, sigmaMap_r F hr haper hx]
-  exact (hr i _ (sigmaMap_mem F hr haper hx)).2.2
 
 include F hr haper in
 theorem card_components : Nat.card (oppGraph G col w).ConnectedComponent = 2 := by

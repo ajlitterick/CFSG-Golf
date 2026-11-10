@@ -46,7 +46,5 @@ theorem mem_NSU_of_map_conj_eq {g : GL (Fin 4) K}
       exact mul_left_cancel (mul_right_cancel h1)
     rwa [← this]
 
-@[expose] def antiDiag4 (K : Type) [Field K] : Matrix (Fin 4) (Fin 4) K :=
-  fun row column => if row.val + column.val + 1 = 4 then 1 else 0
 
 end CFSG.Quasithin.RonanF57

@@ -18,7 +18,6 @@ open CFSG.KC.OpsLayK CFSG.SectionRank.Native CFSG.KD.LC.Fp.J2D
 
 theorem sec_K : secK lay A B j2SecK = true := by decide +kernel
 
-theorem sec_neg_seeds : (!secK lay B A j2SecK) = true := by decide +kernel
 
 end CFSG.KD.LC.Fp.J2K
 

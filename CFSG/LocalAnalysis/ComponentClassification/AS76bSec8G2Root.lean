@@ -238,57 +238,6 @@ theorem actsIn_of_perfect
   refine hU _ (coe_mem_inf_centralizer hDC h) ?_
   rw [← Subgroup.coe_pow, sq_eq_one_of_psi_eq_conj hZ hc h32 hu huN hy, OneMemClass.coe_one]
 
-theorem g2_exists_sec3_root
-    [CharP K 2] (h4 : Asc75Theorem4) (h32 : Lemma32)
-    (h184 : G2Centr184) (h184s : G2Centr184s) (hc : Sec3 A R T g)
-    (hOut : Odd (Nat.card (commutator (outerAutomorphismGroup ↥A)))) (hK4 : 4 ≤ Nat.card K)
-    (hψ : IsActionHom A
-      (MulAut.conj : ↥(adjointGroup .G2 K) →* MulAut ↥(adjointGroup .G2 K)).range ψ) :
-    ∃ (T' : Subgroup G) (g' : G), Sec3 A R T' g' ∧
-      (ActsIn ψ T' (rootSubgroup .G2 K g2c) ∨ ActsIn ψ T' (rootSubgroup .G2 K g2v)) := by
-  have hZ := LieType.Chevalley.center_adjointGroup_eq_bot (τ := .G2) (K := K)
-  have h34 : Asc08Lemma34 := asc08Lemma34
-  obtain ⟨⟨t₀, ht₀⟩, ht₀1⟩ := (Subgroup.ne_bot_iff_exists_ne_one).1 hc.T_ne_bot
-  have ht₀1' : t₀ ≠ 1 := fun h => ht₀1 (Subtype.ext h)
-  have ht₀N := hc.le_normalizer ht₀
-  obtain ⟨x₀, hx₀⟩ := exists_psi_eq_conj hc h32 h4 h34 hψ ht₀ ht₀N
-  have hx₀1 := ne_one_of_psi_eq_conj hc h32 hψ ht₀ ht₀1' ht₀N hx₀
-  have hx₀2 := sq_eq_one_of_psi_eq_conj hZ hc h32 ht₀ ht₀N hx₀
-  have hord : orderOf x₀ = 2 := orderOf_eq_prime hx₀2 hx₀1
-  have hchar : ringChar K = 2 := ringChar.eq K 2
-  have key : ∀ z : ↥(adjointGroup .G2 K), IsConj x₀ z → ∃ (T' : Subgroup G) (g' : G),
-      Sec3 A R T' g' ∧ ∃ t' ∈ T', t' ≠ 1 ∧ ∃ ht'N : t' ∈ normalizer (A : Set G),
-        ψ ⟨t', ht'N⟩ = MulAut.conj z := by
-    intro z hz
-    obtain ⟨h, hh⟩ := isConj_iff.1 hz
-    obtain ⟨a, ha, hψa⟩ := hψ.exists_eq (MulAut.conj h⁻¹) ⟨h⁻¹, rfl⟩
-    have haN := le_normalizer ha
-    refine ⟨rightConjugate T a, g * a, sec3_conj hc ha, a⁻¹ * t₀ * a, ?_, ?_, ?_, ?_⟩
-    · rw [mem_rightConjugate_iff]
-      simpa [mul_assoc] using ht₀
-    · intro h1
-      apply ht₀1'
-      calc t₀ = a * (a⁻¹ * t₀ * a) * a⁻¹ := by group
-        _ = 1 := by rw [h1, mul_one, mul_inv_cancel]
-    · exact mul_mem (mul_mem (inv_mem haN) ht₀N) haN
-    · rw [psi_mul (mul_mem (inv_mem haN) ht₀N) haN, psi_mul (inv_mem haN) ht₀N, psi_inv haN,
-        hψa, hx₀, ← hh, ← map_inv, ← map_mul, ← map_mul, inv_inv]
-  rcases UnbalancedCatalog.even_G2_involutions_conjugate_to_root_elements K hchar x₀ hord with
-    hlong | hshort
-  · obtain ⟨T', g', hc', t', ht', ht'1, ht'N, hψt'⟩ := key _ hlong
-    obtain ⟨hperf, hcent⟩ := h184 K hK4
-    refine ⟨T', g', hc', Or.inl ?_⟩
-    refine actsIn_of_perfect h4 h32 h34 hc' hOut hψ ht' ht'1 ht'N hψt' inf_le_left hperf ?_
-      fun y hy _ => hcent ▸ hy
-    exact inf_le_right
-  · obtain ⟨T', g', hc', t', ht', ht'1, ht'N, hψt'⟩ := key _ hshort
-    obtain ⟨hperf, -, hcent⟩ := h184s K hK4
-    refine ⟨T', g', hc', Or.inr ?_⟩
-    refine actsIn_of_perfect h4 h32 h34 hc' hOut hψ ht' ht'1 ht'N hψt'
-      (((commutator_le).2 fun a ha b hb => RankTwoL3Even.commutatorElement_mem' ha hb).trans
-        inf_le_left) hperf ?_ hcent
-    exact ((commutator_le).2 fun a ha b hb => RankTwoL3Even.commutatorElement_mem' ha hb).trans
-      inf_le_right
 
 theorem g2_inf_eq_bot_of_long
     [CharP K 2] (h4 : Asc75Theorem4) (h32 : Lemma32)

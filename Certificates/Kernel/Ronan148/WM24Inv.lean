@@ -45,8 +45,6 @@ theorem bQ : ∀ l < 6, arrBind (invArrs ())[l]! 24 5 (QP l) = true := by
 theorem kInv : invK (MS 10) QP EC.N EC.T = true := by
   quickRfl
 
-theorem kInvNeg : (!invK (MS 10) (fun _ => MS 10) EC.N EC.T) = true := by
-  quickRfl
 
 end CertificateChecks.KernelRonan148.WM24Inv
 

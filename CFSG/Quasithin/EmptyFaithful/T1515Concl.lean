@@ -204,9 +204,6 @@ structure Lemma15120Concl (T Mc M Z₁ L : Subgroup G) : Prop where
     Case15122Four T M Mc Z₁ L ∨ Case15122Five T M Mc Z₁ L ∨ Case15122Six T Mc Z₁ L ∨
     Case15122Seven T M Mc Z₁ L
 
-@[expose] def Lemma15123Concl (T Mc M : Subgroup G) : Prop :=
-  ∀ p : ℕ, (p = 3 ∨ p = 5) → Ce15Six T Mc M p →
-    p = 3 ∧ Nonempty (↥(autOn M (V154 T Mc M)) ≃* Equiv.Perm (Fin 3) ≀ᵣ Multiplicative (ZMod 2))
 
 structure Lemma15124Concl (T Mc M Z₁ V₁ V₂ L : Subgroup G) : Prop where
   one : Ce15Four T Mc M ∨ Ce15Six T Mc M 3

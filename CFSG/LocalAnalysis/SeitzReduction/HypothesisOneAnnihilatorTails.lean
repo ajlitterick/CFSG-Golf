@@ -128,45 +128,6 @@ theorem annListCheck_E7_seven :
 theorem le_height_annihS_E7_seven : ∀ δ ∈ annihS_E7_seven, (7 : ℤ) ≤ height δ := by
   decide +kernel
 
-@[expose] def annihS_E7_nine : List (Fin Tag.E7.rank → ℤ) :=
-  [![0, 1, 1, 2, 2, 2, 1],
-    ![1, 1, 1, 2, 2, 1, 1],
-    ![1, 1, 2, 2, 1, 1, 1],
-    ![1, 1, 2, 2, 2, 1, 0],
-    ![1, 1, 1, 2, 2, 2, 1],
-    ![1, 1, 2, 2, 2, 1, 1],
-    ![1, 1, 2, 3, 2, 1, 0],
-    ![1, 1, 2, 3, 2, 1, 1],
-    ![1, 2, 2, 3, 2, 1, 0],
-    ![1, 2, 2, 3, 2, 1, 1]]
-
-@[expose] def annihL_E7_nine : List (Fin Tag.E7.rank → ℤ) :=
-  [![0, 1, 1, 2, 2, 1, 1],
-    ![0, 1, 1, 2, 2, 2, 1],
-    ![1, 1, 1, 2, 2, 1, 1],
-    ![1, 1, 2, 2, 1, 1, 1],
-    ![1, 1, 2, 2, 2, 1, 0],
-    ![1, 1, 1, 2, 2, 2, 1],
-    ![1, 1, 2, 2, 2, 1, 1],
-    ![1, 1, 2, 3, 2, 1, 0],
-    ![1, 1, 2, 2, 2, 2, 1],
-    ![1, 1, 2, 3, 2, 1, 1],
-    ![1, 2, 2, 3, 2, 1, 0],
-    ![1, 1, 2, 3, 2, 2, 1],
-    ![1, 2, 2, 3, 2, 1, 1],
-    ![1, 1, 2, 3, 3, 2, 1],
-    ![1, 2, 2, 3, 2, 2, 1],
-    ![1, 2, 2, 3, 3, 2, 1],
-    ![1, 2, 2, 4, 3, 2, 1],
-    ![1, 2, 3, 4, 3, 2, 1],
-    ![2, 2, 3, 4, 3, 2, 1]]
-
-theorem annListCheck_E7_nine :
-    annListCheck .E7 17 annihS_E7_nine annihL_E7_nine = true := by
-  decide +kernel
-
-theorem le_height_annihS_E7_nine : ∀ δ ∈ annihS_E7_nine, (9 : ℤ) ≤ height δ := by
-  decide +kernel
 
 @[expose] def annihS_E8_seven : List (Fin Tag.E8.rank → ℤ) :=
   [![0, 1, 1, 1, 1, 1, 1, 1],
@@ -320,11 +281,6 @@ theorem sq_eq_one_of_commute_heightSeries_E7_seven [CharP K 2] {u : ModGL .E7 K}
   sq_eq_one_of_commute_heightSeries_of_annListCheck (Or.inr (Or.inr (Or.inl rfl)))
     annListCheck_E7_seven le_height_annihS_E7_seven hu hc
 
-theorem sq_eq_one_of_commute_heightSeries_E7_nine [CharP K 2] {u : ModGL .E7 K}
-    (hu : u ∈ posUnipotent .E7 K) (hc : ∀ x ∈ heightSeries .E7 K 9, u * x = x * u) :
-    u ^ 2 = 1 :=
-  sq_eq_one_of_commute_heightSeries_of_annListCheck (Or.inr (Or.inr (Or.inl rfl)))
-    annListCheck_E7_nine le_height_annihS_E7_nine hu hc
 
 theorem sq_eq_one_of_commute_heightSeries_E8_seven [CharP K 2] {u : ModGL .E8 K}
     (hu : u ∈ posUnipotent .E8 K) (hc : ∀ x ∈ heightSeries .E8 K 7, u * x = x * u) :

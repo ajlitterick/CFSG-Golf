@@ -67,11 +67,6 @@ variable {ι₁ ι₂ : Type} [Fintype ι₁] [DecidableEq ι₁] [Fintype ι₂
       WithConv (GLCoord k ι₁ ⊗[k] GLCoord k ι₂ →ₐ[k] k) :=
   (glPointEquiv.prodCongr glPointEquiv).trans tensorPointMulEquiv.symm
 
-theorem glPairPointEquiv_apply
-    (p : Matrix.GeneralLinearGroup ι₁ k × Matrix.GeneralLinearGroup ι₂ k) :
-    (glPairPointEquiv p).ofConv =
-      tensorPointEquiv ((glPointEquiv p.1).ofConv, (glPointEquiv p.2).ofConv) :=
-  rfl
 
 abbrev glPairPoints (S : Set (Matrix.GeneralLinearGroup ι₁ k × Matrix.GeneralLinearGroup ι₂ k)) :
     Set (GLCoord k ι₁ ⊗[k] GLCoord k ι₂ →ₐ[k] k) :=
@@ -82,10 +77,6 @@ abbrev glPairPointSubgroup
     Subgroup (WithConv (GLCoord k ι₁ ⊗[k] GLCoord k ι₂ →ₐ[k] k)) :=
   H.map glPairPointEquiv.toMonoidHom
 
-theorem glPairPoints_eq
-    (S : Set (Matrix.GeneralLinearGroup ι₁ k × Matrix.GeneralLinearGroup ι₂ k)) :
-    glPairPoints S = transportPoints glPairPointEquiv S :=
-  rfl
 
 end Pair
 
@@ -141,12 +132,6 @@ variable (k) in
       ((glPointEquiv.prodCongr (glProdPointEquiv r fun i => ι i.succ)).trans
         tensorPointMulEquiv.symm)
 
-theorem glProdPointEquiv_succ_apply (r : ℕ) (ι : Fin (r + 1) → Type) [∀ i, Fintype (ι i)]
-    [∀ i, DecidableEq (ι i)] (g : ∀ i, Matrix.GeneralLinearGroup (ι i) k) :
-    (glProdPointEquiv k (r + 1) ι g).ofConv =
-      tensorPointEquiv ((glPointEquiv (g 0)).ofConv,
-        (glProdPointEquiv k r (fun i => ι i.succ) (Fin.tail g)).ofConv) :=
-  rfl
 
 end Product
 

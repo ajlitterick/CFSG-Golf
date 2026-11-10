@@ -175,15 +175,6 @@ theorem mem_posSpace_iff' {i : V ≃ₗ[K] V} {x : V} : x ∈ posSpace i ↔ i x
   rw [posSpace, Module.End.mem_eigenspace_iff]
   rfl
 
-theorem jointSub_neg_neg (t₁ t₂ : V ≃ₗ[K] V) :
-    jointSub t₁ t₂ (-1) (-1) = negSpace t₁ ⊓ negSpace t₂ := by
-  ext x
-  rw [Submodule.mem_inf, mem_negSpace_iff', mem_negSpace_iff', mem_jointSub]
-
-theorem jointSub_one_neg (t₁ t₂ : V ≃ₗ[K] V) :
-    jointSub t₁ t₂ 1 (-1) = posSpace t₁ ⊓ negSpace t₂ := by
-  ext x
-  rw [Submodule.mem_inf, mem_posSpace_iff', mem_negSpace_iff', mem_jointSub]
 
 variable [FiniteDimensional K V]
 

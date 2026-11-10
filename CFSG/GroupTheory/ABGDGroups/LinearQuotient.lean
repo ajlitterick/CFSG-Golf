@@ -272,16 +272,6 @@ theorem oddCore_eq_bot (hd : IsLinearDecomposition ι L E S) : CFSG.oddCore H = 
       omega
     exact Subgroup.card_eq_one.mp hO1
 
-omit [Finite H] in
-theorem commutator_eq_linearCore (hd : IsLinearDecomposition ι L E S) (h3 : 3 < Nat.card F) :
-    commutator H = linearCore ι := by
-  apply le_antisymm hd.commutator_le_linearCore
-  obtain ⟨eL₀⟩ := hd.nonempty_linearCore_mulEquiv
-  have := CFSG.GorensteinWalter.psl2_isPerfect_of_card_gt_three F h3
-  have : Group.IsPerfect (linearCore ι) :=
-    Group.IsPerfect.ofSurjective (f := eL₀.symm.toMonoidHom) eL₀.symm.surjective
-  rw [← Subgroup.commutator_eq_self (H := linearCore ι), commutator_def]
-  exact Subgroup.commutator_mono le_top le_top
 
 end IsLinearDecomposition
 

@@ -231,14 +231,6 @@ theorem oddFitting_le_sup_commutator (hX : IsAStar X) {t : X} (T : Sylow 2 X)
   calc ⁅U, (T : Subgroup X)⁆ ≤ ⁅⊤, oStar X⁆ := Subgroup.commutator_mono le_top hTO
     _ ≤ oStar X := Subgroup.commutator_le_right _ _
 
-theorem bender1970_2_5_i (hX : IsAStar X) {t : X} (T : Sylow 2 X) (htT : t ∈ (T : Subgroup X))
-    {E : Subgroup X} (hE : IsComponentOf E ⊤) :
-    oddCoreOf (CFSG.fittingSubgroupOf (Subgroup.centralizer ({t} : Set X))) ≤
-      Subgroup.normalizer (E : Set X) := by
-  obtain ⟨-, hdec, hcomm⟩ := oddFitting_le_sup_commutator hX T htT
-  refine hdec.trans (sup_le ?_ ?_)
-  · exact inf_le_right.trans (centralizer_sylow_le_normalizer hX.1 T hE)
-  · exact hcomm.trans (oStar_le_normalizer hX hE)
 
 theorem le_oStar_of_inf_centralizer_le (hX : IsAStar X) {t : X} (T : Sylow 2 X)
     (htT : t ∈ (T : Subgroup X))

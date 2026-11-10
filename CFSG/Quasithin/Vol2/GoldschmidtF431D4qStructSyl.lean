@@ -124,31 +124,6 @@ theorem isSylowTwoOf_Tsub {Kb : Subgroup (MulAut (Cm σ))}
     · exact hUodd' h
     · exact hSodd h
 
-theorem Tsub_bot : Tsub σ ⊥ = (Ust σ).map (MulAut.conj : Cm σ →* MulAut (Cm σ)) := by
-  ext α
-  constructor
-  · rintro ⟨u, hu, δ, hδ, rfl⟩
-    rw [Subgroup.mem_bot.1 hδ, fieldActor_one, mul_one]
-    exact ⟨u, hu, rfl⟩
-  · rintro ⟨u, hu, rfl⟩
-    exact ⟨u, hu, 1, Subgroup.one_mem _, by rw [fieldActor_one, mul_one]⟩
-
-include hf hK hσ in
-theorem isSylowTwoOf_conj_Ust {Kb : Subgroup (MulAut (Cm σ))}
-    (hinn : (MulAut.conj : Cm σ →* MulAut (Cm σ)).range ≤ Kb)
-    (hodd : Odd (Nat.card Kb / Nat.card (Cm σ))) (hU : IsSylowTwoOf (Ust σ) ⊤) :
-    IsSylowTwoOf ((Ust σ).map (MulAut.conj : Cm σ →* MulAut (Cm σ))) Kb := by
-  have : Finite (ModGL TwistTag.D4.tag K) := finite_modGL
-  have : Finite (K ≃+* K) := Finite.of_injective (fun δ : K ≃+* K => (δ : K → K))
-    fun _ _ h => RingEquiv.ext (congrFun h)
-  have hc := card_eq_of_inn_le σ hf hK hσ hinn
-  have hpos : 0 < Nat.card (Cm σ) := Nat.card_pos
-  have hdiv : Nat.card Kb / Nat.card (Cm σ) = Nat.card (Kb.map (theta σ hf hK hσ)) := by
-    rw [hc, Nat.mul_div_cancel_left _ hpos]
-  rw [hdiv] at hodd
-  have hS := isSylowTwoOf_bot_of_odd (Kb.map (theta σ hf hK hσ)) hodd
-  have := isSylowTwoOf_Tsub σ hf hK hσ hinn hS hU
-  rwa [Tsub_bot] at this
 
 end Order
 

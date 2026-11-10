@@ -118,7 +118,6 @@ theorem ind_unique {x : G} {ρ ρ' : Perm α} (h : F.Ind x ρ) (h' : F.Ind x ρ'
   one_mem' := ⟨1, ind_one⟩
   inv_mem' := fun ⟨x, hx⟩ => ⟨x⁻¹, ind_inv hx⟩
 
-theorem mem_indSub {ρ : Perm α} : ρ ∈ F.indSub ↔ ∃ x, F.Ind x ρ := Iff.rfl
 
 theorem conj_perm_eq {Y Y' z z' : G} {π π' σ : Perm α} (hY : F.Ind Y π) (hY' : F.Ind Y' π')
     (hz : F.Ind z σ) (hz' : F.Ind z' σ) (e : Y * z * Y⁻¹ = Y' * z' * Y'⁻¹) :

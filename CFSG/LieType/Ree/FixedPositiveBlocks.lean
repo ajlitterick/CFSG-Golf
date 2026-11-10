@@ -245,20 +245,6 @@ theorem f4_fixedBlock_one
   · have h := pinnedX_mul_pinnedX_ne_one K r1 r2 p1 p2 hne
     rwa [pinnedX_single, pinnedX_single] at h
 
-theorem ree_nontrivial_fixed_positive_blocks :
-    (∀ (K : Type) [Field K] [Finite K] [CharP K G2.prime] (a : ℕ),
-      pinnedX G2.tag K ![1, 1] 1 * pinnedX G2.tag K ![1, 3] 1 ∈
-          G2.reeFixedOrbitUnipotent K a (0 : Fin 1) ∧
-        pinnedX G2.tag K ![1, 1] 1 * pinnedX G2.tag K ![1, 3] 1 ≠ 1) ∧
-    ∀ (K : Type) [Field K] [Finite K] [CharP K F4.prime] (a : ℕ),
-      (xUnit F4.tag K (0 : Fin 4) 1 * xUnit F4.tag K (3 : Fin 4) 1 ∈
-          F4.reeFixedOrbitUnipotent K a (0 : Fin 2) ∧
-        xUnit F4.tag K (0 : Fin 4) 1 * xUnit F4.tag K (3 : Fin 4) 1 ≠ 1) ∧
-      pinnedX F4.tag K ![0, 1, 1, 0] 1 * pinnedX F4.tag K ![0, 1, 2, 0] 1 ∈
-          F4.reeFixedOrbitUnipotent K a (1 : Fin 2) ∧
-        pinnedX F4.tag K ![0, 1, 1, 0] 1 * pinnedX F4.tag K ![0, 1, 2, 0] 1 ≠ 1 :=
-  ⟨fun K _ _ _ a => g2_fixedBlock K a,
-    fun K _ _ _ a => ⟨f4_fixedBlock_one K a, f4_fixedBlock_two K a⟩⟩
 
 end ReeTag
 

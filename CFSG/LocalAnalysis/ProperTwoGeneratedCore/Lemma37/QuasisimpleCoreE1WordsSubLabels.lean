@@ -21,37 +21,6 @@ theorem sing_iff {v : Fin 64} :
     hb.caseC3Word_eq_one_iff, Ne, hb.caseC3Word_inj]
   rfl
 
-theorem card_involution_e1RBar :
-    Nat.card {s : G ⧸ Z // s ∈ e1RBar Z u m y x ∧ s * s = 1 ∧ s ≠ 1} = 19 :=
-  (hb.card_subtype_eq (fun _ hs => hb.e1RBar_le hs.1) fun _ => by
-    rw [hb.caseC3Word_mem_e1RBar_iff, hb.caseC3Word_mul_self_eq_one_iff, Ne,
-      hb.caseC3Word_eq_one_iff]).trans card_e1R_involution
-
-theorem card_sing : Nat.card {s : G ⧸ Z // s ∈ e1RBar Z u m y x ∧ s * s = 1 ∧ s ≠ 1 ∧
-    s ≠ caseC3Word Z u m y x 40} = 18 :=
-  (hb.card_subtype_eq (fun _ hs => hb.e1RBar_le hs.1) fun _ => hb.sing_iff).trans card_e1Sing
-
-theorem sing_mul_forty {s : G ⧸ Z} (hs : s ∈ e1RBar Z u m y x) (hss : s * s = 1) (hs1 : s ≠ 1)
-    (hsz : s ≠ caseC3Word Z u m y x 40) :
-    (s * caseC3Word Z u m y x 40 ∈ e1RBar Z u m y x ∧
-      s * caseC3Word Z u m y x 40 * (s * caseC3Word Z u m y x 40) = 1 ∧
-      s * caseC3Word Z u m y x 40 ≠ 1 ∧
-      s * caseC3Word Z u m y x 40 ≠ caseC3Word Z u m y x 40) ∧
-    s * caseC3Word Z u m y x 40 ≠ s ∧
-    (CaseC3.Genuine Z (s * caseC3Word Z u m y x 40) ↔ CaseC3.Genuine Z s) := by
-  obtain ⟨v, -, rfl⟩ := hb.mem_e1RBar_iff.mp hs
-  have hv := hb.sing_iff.mp ⟨hs, hss, hs1, hsz⟩
-  obtain ⟨gf, gef, -, -, hlab⟩ := hb.exists_e1Gen
-  rw [hb.caseC3Word_mul, hb.sing_iff, Ne, hb.caseC3Word_inj, hlab, hlab,
-    e1Gen_mul_forty gf gef v hv]
-  exact ⟨(e1Sing_mul_forty v hv).1, (e1Sing_mul_forty v hv).2, Iff.rfl⟩
-
-theorem card_sing_genuine {gf gef : Bool}
-    (hlab : ∀ v, CaseC3.Genuine Z (caseC3Word Z u m y x v) ↔ e1Gen gf gef v = true) :
-    Nat.card {s : G ⧸ Z // (s ∈ e1RBar Z u m y x ∧ s * s = 1 ∧ s ≠ 1 ∧
-      s ≠ caseC3Word Z u m y x 40) ∧ CaseC3.Genuine Z s} = 4 + 4 * (gf.toNat + gef.toNat) :=
-  (hb.card_subtype_eq (fun _ hs => hb.e1RBar_le hs.1.1)
-    fun v => and_congr hb.sing_iff (hlab v)).trans (card_e1Sing_e1Gen gf gef)
 
 theorem not_genuine_of_mem_e1EBar {s : G ⧸ Z} (hs : s ∈ e1EBar Z u m y x) (hs1 : s ≠ 1)
     (hsz : s ≠ caseC3Word Z u m y x 40) :
@@ -104,39 +73,6 @@ theorem eq_e1EBar_of_typeD (htype : ∀ s ∈ S.map (QuotientGroup.mk' Z),
   · rw [show s = s * caseC3Word Z u m y x 40 * caseC3Word Z u m y x 40 by
       rw [mul_assoc, hzz, mul_one], h, hzz]
 
-theorem conj_e1EBar_of_outer {s t : G ⧸ Z} (hs : s ∈ S.map (QuotientGroup.mk' Z))
-    (hsT : s ∉ T.map (QuotientGroup.mk' Z)) (hss : s * s = 1) (ht : t ∈ e1EBar Z u m y x) :
-    s * t * s⁻¹ = t ∨ s * t * s⁻¹ = t * caseC3Word Z u m y x 40 := by
-  obtain ⟨v, rfl⟩ := hb.exists_caseC3Word hs
-  obtain ⟨w, hw, rfl⟩ := hb.mem_e1EBar_iff.mp ht
-  rw [hb.caseC3Word_mem_bot_iff] at hsT
-  rw [hb.caseC3Word_conj, hb.caseC3Word_mul, hb.caseC3Word_inj, hb.caseC3Word_inj]
-  exact e1E_conj_outer v w (by omega) (hb.caseC3Word_mul_self_eq_one_iff.mp hss) hw
-
-omit hb [Finite G] in
-theorem caseC3Word_twenty : caseC3Word Z u m y x 20 = ((m * (x * m * x⁻¹) : G) : G ⧸ Z) := by
-  simp [caseC3Word, c3Word]
-
-theorem conj_transvection {v : Fin 64} (hv : v.val % 2 = 0) (hj : v.val / 16 % 2 = 1)
-    (hl : v.val / 4 % 2 = 1) :
-    (caseC3Word Z u m y x v * (u : G ⧸ Z) * (caseC3Word Z u m y x v)⁻¹ = (u : G ⧸ Z) ∧
-      caseC3Word Z u m y x v * ((x * u * x⁻¹ : G) : G ⧸ Z) * (caseC3Word Z u m y x v)⁻¹ =
-        ((x * u * x⁻¹ : G) : G ⧸ Z) ∧
-      caseC3Word Z u m y x v * (y : G ⧸ Z) * (caseC3Word Z u m y x v)⁻¹ =
-        (y : G ⧸ Z) * caseC3Word Z u m y x 40) ∧
-    ∀ t ∈ e1EBar Z u m y x, caseC3Word Z u m y x v * t * (caseC3Word Z u m y x v)⁻¹ = t ∨
-      caseC3Word Z u m y x v * t * (caseC3Word Z u m y x v)⁻¹ = t * caseC3Word Z u m y x 40 := by
-  obtain ⟨h32, h8, h2⟩ := (e1_transvection_iff v hv).mpr ⟨hj, hl⟩
-  refine ⟨⟨?_, ?_, ?_⟩, fun t ht => ?_⟩
-  · rw [← caseC3Word_thirtytwo (Z := Z) (m := m) (y := y) (x := x), hb.caseC3Word_conj, h32]
-  · rw [← caseC3Word_eight (Z := Z) (m := m) (y := y), hb.caseC3Word_conj, h8]
-  · rw [← caseC3Word_two (Z := Z) (u := u) (m := m) (x := x), hb.caseC3Word_conj, h2,
-      hb.caseC3Word_mul]
-    rfl
-  · obtain ⟨w, hw, rfl⟩ := hb.mem_e1EBar_iff.mp ht
-    rw [hb.caseC3Word_conj, e1_transvection_conj v w hv hj hl hw, hb.caseC3Word_mul]
-    split_ifs
-    exacts [Or.inl rfl, Or.inr rfl]
 
 theorem pow_four_eq_one {s : G ⧸ Z} (hs : s ∈ S.map (QuotientGroup.mk' Z)) : s ^ 4 = 1 := by
   obtain ⟨v, rfl⟩ := hb.exists_caseC3Word hs
@@ -166,11 +102,6 @@ theorem mem_bot_of_mul_self {s : G ⧸ Z} (hs : s ∈ S.map (QuotientGroup.mk' Z
   rw [hb.caseC3Word_mem_bot_iff, hb.caseC3Word_mem_sup_iff]
   omega
 
-theorem card_mul_self_PQ : Nat.card {s : G ⧸ Z // s ∈ S.map (QuotientGroup.mk' Z) ∧
-    (s * s ∈ (Q ⊔ P₁).map (QuotientGroup.mk' Z) ∧ s * s ≠ 1 ∧ ¬ CaseC3.Genuine Z (s * s))} = 8 :=
-  (hb.card_subtype_eq (fun _ hs => hs.1)
-    fun _ => (and_iff_right (hb.caseC3Word_mem _)).trans hb.mul_self_PQ_iff).trans
-    card_e1PQ_mul_self.1
 
 end CaseC3BCD
 

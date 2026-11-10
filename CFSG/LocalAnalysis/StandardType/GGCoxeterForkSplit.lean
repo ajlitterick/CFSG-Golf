@@ -155,23 +155,6 @@ theorem ggCoxeterForkLabelInput_of_cross_ext (hX : GGForkCrossInput)
   · exact Or.inl ⟨hu, h0 hu⟩
   · exact Or.inr ⟨hu, h1 hu⟩
 
-theorem ggForkCrossInput_of_forkLabelInput (hd : GGCoxeterForkLabelInput) :
-    GGForkCrossInput := by
-  intro G _ _ p B Bs x L D J hC hO hI hNT y K hN hR hPm _ Λ _ _ M C V _ _ ι φ φa h α ha αa b c hM
-    hCM hF hlin hlina hind hL hK
-  rcases hd G p B Bs x L D J hC hO hI hNT y K hN hR hPm Λ M C V ι φ φa h α ha αa b c hM hCM hF
-    hlin hlina hind hL hK with ⟨hu, -⟩ | ⟨hu, -⟩
-  · exact Or.inl hu
-  · exact Or.inr hu
-
-theorem ggForkWeylExtInput_of_forkLabelInput (hd : GGCoxeterForkLabelInput) :
-    GGForkWeylExtInput := by
-  intro G _ _ p B Bs x L D J hC hO hI hNT y K hN hR hPm _ Λ _ _ M C V _ _ ι φ φa h α ha αa b c hM
-    hCM hF hlin hlina hind hL hK
-  rcases hd G p B Bs x L D J hC hO hI hNT y K hN hR hPm Λ M C V ι φ φa h α ha αa b c hM hCM hF
-    hlin hlina hind hL hK with ⟨hu, hW⟩ | ⟨hu, hW⟩
-  · exact ⟨fun _ => hW, fun h1 => absurd (hu.symm.trans h1) zero_ne_one⟩
-  · exact ⟨fun h0 => absurd (h0.symm.trans hu) zero_ne_one, fun _ => hW⟩
 
 theorem ggForkWeylExtInput_of_shapes (hS : GGTBSpanInput) (hR : GGForkWeylExtRestInput) :
     GGForkWeylExtInput := by

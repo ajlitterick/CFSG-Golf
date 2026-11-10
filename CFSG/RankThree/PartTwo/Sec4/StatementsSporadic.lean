@@ -79,19 +79,5 @@ open scoped Pointwise
               (inSubgroup (CFSG.pCore 2) (Subgroup.centralizer {a}) : Set G) *
               (inSubgroup (CFSG.pCore 2) (Subgroup.centralizer {b}) : Set G) = S
 
-@[expose] def Item4_16 : Prop :=
-  ∀ (H : Type) [Group H] [Finite H] (G : Subgroup H), G.Normal → IsQuasisimple G →
-    IsExtOf G Blueprint.NativeSporadic.ON (Multiplicative (ZMod 3)) →
-    ∀ σ : H, σ ^ 2 = 1 → InducesOuter σ G → G ⊔ Subgroup.zpowers σ = ⊤ →
-    ∀ A : Subgroup H, A ≤ G → Late.IsE27 A →
-    ∀ a ∈ A, a ∉ (Subgroup.center G).map G.subtype →
-    ∀ S ∈ maxInvariantPiSubgroups ⊤ A (piOf 2),
-      (∃ P : Sylow 3 G, A ≤ (P : Subgroup G).map G.subtype ∧
-        (A.subgroupOf ((P : Subgroup G).map G.subtype)).Normal ∧
-        IsExtraspecialPGroup 3 (P : Subgroup G) ∧ Nat.card (P : Subgroup G) = 3 ^ 5 ∧
-        Monoid.exponent (P : Subgroup G) = 3) ∧
-      ∃ K : Subgroup H, IsExtOf K (alternatingGroup (Fin 6)) (Multiplicative (ZMod 3)) ∧
-        G ⊓ Subgroup.centralizer {a} = Subgroup.zpowers a ⊔ K ∧ Subgroup.zpowers a ⊓ K = ⊥ ∧
-        IsKleinFour S ∧ S ≤ G ∧ (a ∈ Subgroup.centralizer (S : Set H) → S ≤ K)
 
 end CFSG.RankThree.PartTwo.Sec4

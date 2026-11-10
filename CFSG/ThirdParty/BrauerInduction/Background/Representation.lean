@@ -107,23 +107,6 @@ variable {G k : Type*} [Monoid G] [Field k]
 
 variable {V W : Type*} [AddCommGroup V] [Module k V] [AddCommGroup W] [Module k W]
 
-lemma character_def (ρ : Representation k G V) (g : G) :
-  character ρ g = LinearMap.trace k V (ρ g) := rfl
-
-/-- Equivalent representations have the same character. -/
-lemma char_equiv
-    {ρ : Representation k G V} {σ : Representation k G W}
-     (h : Representation.Equiv ρ σ) (g : G) :
-    ρ.character g = σ.character g := by
-  simp only [character]
-  have h_conj : h.toLinearEquiv.conj (ρ g) = σ g := by
-    ext v
-    change h (ρ g (h.symm v)) = σ g v
-    have h' := LinearMap.congr_fun (h.isIntertwining' g) (h.symm v)
-    simpa using h'
-  rw [← h_conj]
-  exact Eq.symm (LinearMap.trace_conj' (ρ g) h.toLinearEquiv)
-
 
 /-- The character of a product representation is the sum of the characters of
   the two factors. It is named `char_prod_eq_add` because TauCeti's
@@ -161,33 +144,6 @@ section numOfFixedPoints
 
 variable {k G : Type*} [Monoid G] [CommRing k]
 
-open Classical in
-/-- For the permutation representation on `MonoidAlgebra k X`,
-    the trace of the linear map attached to `g : G` is the number of fixed points of `g`. -/
-lemma ofMulAction_trace
-    {X : Type*} [Finite X] [MulAction G X] (g : G) :
-    LinearMap.trace k (MonoidAlgebra k X)
-        (Representation.ofMulAction k G X g)
-      =
-    (Nat.card {x : X // g • x = x} : k) := by
-  letI : Fintype X := Fintype.ofFinite X
-  let b : Module.Basis X k (MonoidAlgebra k X) :=
-    (Finsupp.basisSingleOne (R := k) (ι := X)).map
-      (MonoidAlgebra.coeffLinearEquiv k).symm
-  rw [LinearMap.trace_eq_matrix_trace k b]
-  rw [Matrix.trace]
-  trans ∑ x : X, if g • x = x then (1 : k) else 0
-  · apply Finset.sum_congr rfl
-    intro x _
-    change
-      (LinearMap.toMatrix b b
-        (Representation.ofMulAction k G X g)) x x
-        =
-      if g • x = x then 1 else 0
-    rw [LinearMap.toMatrix_apply]
-    dsimp [b]
-    simp [Finsupp.single_apply]
-  · rw [Nat.card_eq_fintype_card, Fintype.card_subtype, Finset.sum_boole]
 
 end numOfFixedPoints
 

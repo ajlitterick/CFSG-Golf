@@ -150,37 +150,5 @@ public theorem psl2UpperUnipotent_normalizer_eq_borel
         (psl2UpperUnipotent_le_borel (K := K))).mp
         (psl2UpperUnipotent_normal_in_borel (K := K))
 
-public theorem psl2UpperUnipotentSubgroup_card_odd
-    (K : Type u) [Field K] [Finite K] (hodd : Odd (Nat.card K)) :
-    Odd (Nat.card (psl2UpperUnipotentSubgroup K)) := by
-  rw [psl2UpperUnipotentSubgroup_card]
-  exact hodd
-
-public theorem no_involution_of_psl2UpperUnipotentSubgroup
-    (K : Type u) [Field K] [Finite K] (hodd : Odd (Nat.card K))
-    (v : PSL2 K) (hv : IsInvolution v) :
-    v ∉ psl2UpperUnipotentSubgroup K := by
-  intro hvmem
-  have hord_dvd : orderOf v ∣ Nat.card (psl2UpperUnipotentSubgroup K) :=
-    by
-      have hzle : Subgroup.zpowers v ≤ psl2UpperUnipotentSubgroup K :=
-        Subgroup.zpowers_le.mpr hvmem
-      have hcard : Nat.card (Subgroup.zpowers v) ∣
-          Nat.card (psl2UpperUnipotentSubgroup K) :=
-        Subgroup.card_dvd_of_le hzle
-      rw [show orderOf v = Nat.card (Subgroup.zpowers v) by
-        exact (Nat.card_zpowers v).symm]
-      exact hcard
-  have hodd_card : Odd (Nat.card (psl2UpperUnipotentSubgroup K)) :=
-    psl2UpperUnipotentSubgroup_card_odd K hodd
-  have hord_odd : Odd (orderOf v) := Odd.of_dvd_nat hodd_card hord_dvd
-  have hord2 : orderOf v ∣ 2 :=
-    orderOf_dvd_of_pow_eq_one (by simpa [pow_two] using hv.2)
-  have hord1 : orderOf v = 1 := by
-    rcases (Nat.dvd_prime Nat.prime_two).mp hord2 with h | h
-    · exact h
-    · exfalso
-      exact hord_odd.not_two_dvd_nat (by rw [h])
-  exact hv.1 (orderOf_eq_one_iff.mp hord1)
 
 end CFSG.GorensteinWalter

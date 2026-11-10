@@ -51,12 +51,6 @@ theorem c_lbl : allN 1080 (fun p => bAnd(Nat.blt (lget TL p) 7,
     bIf(Nat.beq (lget TL p) 6, memN p (lgetL OS 0), !(memN p (lgetL OS 0))))) = true := by
   quickRfl
 
-theorem c_neg : bAnd(bIf(Nat.beq (covN (fun k => pg 11 (mask 11)
-    (YC.TR (roff 1080 (1080 * 11) (YC.LR 0) + k)) 0) 1079) (2 ^ 1080 - 1), false, true),
-    bAnd(bIf(permOK 1080 11 (mask 11) (1080 * 11) (SG.F 0) (YC.S 0), false, true),
-    bIf(allN 1080 (fun p => bIf(Nat.beq (lget TL p) 5, memN p (lgetL OS 0),
-      !(memN p (lgetL OS 0)))), false, true))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelLyY
 

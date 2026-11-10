@@ -12,12 +12,6 @@ open CFSG.Open CFSG.Blueprint CFSG.Quasithin.H13 CFSG.QuasithinUnique
 
 variable {G : Type} [Group G] [Finite G] {T L I : Subgroup G}
 
-theorem inH_of_le_of_sylow (hT : quasithinIsSylowTwo T) {Y H : Subgroup G} (hTY : T ≤ Y)
-    (hYH : Y ≤ H) (hH : InH T H) : InH T Y := by
-  refine ⟨hTY, fun hbot => hH.2 (le_bot_iff.mp ?_)⟩
-  rw [← hbot]
-  have hS := isSylowTwoOf_of_quasithinIsSylowTwo hT (hTY.trans hYH)
-  exact pCoreOf_le_pCoreOf_of_sylow hYH hT.1 hTY hS.2.2
 
 theorem exists_isHStar_le {M Y : Subgroup G} (hY : InH T Y)
     (hYM : ¬ Y ≤ M) : ∃ H : Subgroup G, IsHStar T M H ∧ H ≤ Y := by
@@ -34,16 +28,6 @@ theorem exists_isHStar_le {M Y : Subgroup G} (hY : InH T Y)
       obtain ⟨H, hH, hHY'⟩ := ih _ hlt hY' hY'M rfl
       exact ⟨H, hH, hHY'.trans hY'Y⟩
 
-theorem le_fsuM_of_isSolvable (h10213 : Stmt10_2_13) (h : Hyp10 G T L I) {Y : Subgroup G}
-    (hY : InH T Y) (hYs : Group.IsSolvable ↥Y) : Y ≤ fsuM T L := by
-  by_contra hYM
-  obtain ⟨H, hH, hHY⟩ := exists_isHStar_le hY hYM
-  have hHs : Group.IsSolvable ↥H := by
-    have := hYs
-    exact Group.isSolvable_of_isSolvable_injective (Subgroup.inclusion_injective hHY)
-  have h1 := E1.solvable_nParam_le_one hHs
-  rw [(h10213 G T L I h).2.2 H hH] at h1
-  exact absurd h1 (by norm_num)
 
 omit [Finite G] in
 theorem le_centralizer_of_mem_omegaOneCenter {z : G} (hz : z ∈ quasithinOmegaOneCenter T) :

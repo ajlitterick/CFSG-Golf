@@ -266,12 +266,6 @@ local instance :
     NeZero (twistedE6Datum 2 1).rank :=
   ⟨by show (4 : ℕ) ≠ 0; decide⟩
 
-theorem cartan_twistedE6Datum
-    : (twistedE6Datum 2 1).cartan =
-    !![2, -1, 0, 0; -1, 2, -1, 0; 0, -2, 2, -1; 0, 0, -1, 2] := by
-  show (Tag.cartan .F4 : Matrix (Fin 4) (Fin 4) ℤ) = _
-  ext i j
-  fin_cases i <;> fin_cases j <;> rfl
 
 @[expose] noncomputable def levi34
     : Finset (Fin (twistedE6Datum 2 1).rank) := {2, 3}
@@ -684,14 +678,6 @@ theorem sq_eq_one_of_mem_ker
   obtain ⟨k, hk⟩ := h2 ⟨c ^ 2, pow_mem hc 2⟩
   exact eq_one_of_odd_orderOf hsq.2 (by simpa using congrArg Subtype.val hk)
 
-theorem isElementaryAbelian_ker
-    {E : Type*} [Group E] [Finite E] [Group.IsPerfect E]
-    (η : E →* twistedE6Group 2 1) (hη : Function.Surjective η) (hC : η.ker ≤ center E)
-    (h2 : IsPGroup 2 η.ker) : CFSG.IsElementaryAbelian 2 η.ker :=
-  { is_comm := ⟨fun u v => Subtype.ext (mem_center_iff.1 (hC v.2) u)⟩
-    exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun x => Subtype.ext (by
-      rw [SubgroupClass.coe_pow, OneMemClass.coe_one]
-      exact sq_eq_one_of_mem_ker η hη hC h2 x.2) }
 
 theorem levi_singleton_twistedE6
     (i : Fin (twistedE6Datum 2 1).rank) :

@@ -118,24 +118,6 @@ public theorem dihedralIndexTwoSubgroup_index_dvd_two
     norm_num
   · exact False.elim (hIne4 (by simpa using hIa))
 
-/-- A normal subgroup of `DihedralGroup (2 ^ m)` is either a rotation subgroup
-or has index dividing two.  This is the index form of the concrete
-normal-subgroup classification and is convenient for quotient arguments. -/
-public theorem normal_subgroup_dihedral_two_pow_is_rotation_or_index_dvd_two
-    {m : ℕ} (hm : 1 ≤ m)
-    (D : Subgroup (DihedralGroup (2 ^ m)))
-    (hDnormal : D.Normal) :
-    (∃ k : ℕ, k ≤ m ∧ D = dihedralRotationSubgroup m k) ∨ D.index ∣ 2 := by
-  rcases normal_subgroup_dihedral_two_pow hm D hDnormal with
-      ⟨k, hk, hD⟩ | hDtop | ⟨j, hDj⟩
-  · left
-    exact ⟨k, hk, hD⟩
-  · right
-    rw [hDtop, Subgroup.index_top]
-    norm_num
-  · right
-    rw [hDj]
-    exact dihedralIndexTwoSubgroup_index_dvd_two hm j
 
 /-- A normal non-cyclic subgroup of `DihedralGroup (2 ^ m)` has index at most
 two. -/

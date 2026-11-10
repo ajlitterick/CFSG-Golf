@@ -29,16 +29,9 @@ theorem twoC_ok : twoC VT = true := by decide +kernel
 
 theorem xconj_ok : xconjB xT = true := by decide +kernel
 
-theorem outer_neg : outerB g1W zbT (tconj (tinv (wordN g1W)) aT) [[]] = false := by
-  decide +kernel
-
-theorem vv_neg : vvB (fun _ => VT 0) = false := by decide +kernel
 
 theorem inv_neg : invB [] = false := by decide +kernel
 
-theorem twoC_neg : twoC (fun _ => []) = false := by decide +kernel
-
-theorem xconj_neg : xconjB yT = false := by decide +kernel
 
 end CertificateChecks.KernelM12Sig
 

@@ -72,24 +72,6 @@ theorem card_mulAut :
   obtain ⟨M, hP, hA⟩ := autModel e
   rw [M.card_mulAut, hA, card_group QA QA_ok, QA_valid.2]
 
-theorem autRank_ge5
-    (p : ℕ) (hp : p.Prime) (h5 : 5 ≤ p) (B : Subgroup (MulAut K))
-    (hB : ElemAb p B) : Nat.card B ≤ p := by
-  have : Fact p.Prime := ⟨hp⟩
-  have := finite_mulAut e
-  have := elemAb_card_le (G := MulAut K) p B hB 1 (by
-    rw [card_mulAut e]
-    intro hdvd
-    have hle : p ^ 2 ≤ 241920 := Nat.le_of_dvd (by norm_num) hdvd
-    have : p ≤ 491 := by nlinarith
-    interval_cases p <;> first | omega | (exfalso; revert hp; norm_num))
-  simpa using this
-
-theorem autRank3_le_three
-    (R : Subgroup (MulAut K)) (hR : ElemAb 3 R) : Nat.card R ≤ 27 := by
-  have := finite_mulAut e
-  have := elemAb_card_le (G := MulAut K) 3 R hR 3 (by rw [card_mulAut e]; norm_num)
-  simpa using this
 
 end Consequences
 

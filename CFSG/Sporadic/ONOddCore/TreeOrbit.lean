@@ -17,8 +17,6 @@ theorem getD_mem_list {α : Type*} {l : List α} {j : ℕ} (hj : j < l.length) (
   rw [List.getD_eq_getElem _ _ hj]
   exact List.getElem_mem hj
 
-theorem smul_perm_subgroup (K : Subgroup (Equiv.Perm (Fin n))) (g : K) (x : Fin n) :
-    g • x = (g : Equiv.Perm (Fin n)) x := rfl
 
 theorem tree_mem_orbit (hL : CLevelFacts n root steps L)
     (hS : ∀ j < steps.size, PRep n steps[j]! (gens.getD j 1)) (hlen : steps.size = gens.length)
@@ -84,32 +82,5 @@ theorem mem_orbit_iff_tree (hL : CLevelFacts n root steps L)
     show ((g ⟨root, hr⟩ : Fin n) : ℕ) = z
     rw [hgr, hL.pts_pos z z.isLt hz]
 
-theorem card_orbit_tree (hL : CLevelFacts n root steps L)
-    (hS : ∀ j < steps.size, PRep n steps[j]! (gens.getD j 1)) (hlen : steps.size = gens.length)
-    (hr : root < n) :
-    Nat.card (MulAction.orbit (Subgroup.closure {g | g ∈ gens}) (⟨root, hr⟩ : Fin n)) =
-      L.pts.size := by
-  have hset : MulAction.orbit (Subgroup.closure {g | g ∈ gens}) (⟨root, hr⟩ : Fin n) =
-      {y : Fin n | L.pos[(y : ℕ)]! < L.pts.size} :=
-    Set.ext fun z => mem_orbit_iff_tree hL hS hlen hr z
-  rw [hset]
-  have e : Fin L.pts.size ≃ {y : Fin n | L.pos[(y : ℕ)]! < L.pts.size} :=
-    { toFun := fun k => ⟨⟨L.pts[(k : ℕ)]!, hL.pts_lt k k.isLt⟩, by
-        show L.pos[L.pts[(k : ℕ)]!]! < L.pts.size
-        rw [hL.pos_pts k k.isLt]
-        exact k.isLt⟩
-      invFun := fun z => ⟨L.pos[((z : Fin n) : ℕ)]!, z.2⟩
-      left_inv := fun k => Fin.ext (hL.pos_pts k k.isLt)
-      right_inv := fun z => Subtype.ext (Fin.ext (hL.pts_pos _ (z : Fin n).isLt z.2)) }
-  rw [← Nat.card_congr e, Nat.card_fin]
-
-theorem le_of_mem_orbit_tree (hL : CLevelFacts n root steps L)
-    (hS : ∀ j < steps.size, PRep n steps[j]! (gens.getD j 1)) (hlen : steps.size = gens.length)
-    (hr : root < n) (hmin : ∀ k < L.pts.size, root ≤ L.pts[k]!) {y : Fin n}
-    (hy : y ∈ MulAction.orbit (Subgroup.closure {g | g ∈ gens}) (⟨root, hr⟩ : Fin n)) :
-    root ≤ y := by
-  have h := (mem_orbit_iff_tree hL hS hlen hr y).1 hy
-  have := hmin _ h
-  rwa [hL.pts_pos y y.isLt h] at this
 
 end CFSG.Sporadic.ONOddCore

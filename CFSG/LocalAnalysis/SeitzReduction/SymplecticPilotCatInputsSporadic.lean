@@ -53,19 +53,6 @@ theorem not_sp2mSporadicResidual {m f : ℕ} {s : TauCeti.SporadicName}
         FixedCentralizerTwoFree σ D) →
       sp2mSporadicResidual m f s → False
 
-theorem catSp2mSporadicResidual_of_seven_le {m : ℕ} (hm : 7 ≤ m) : CatSp2mSporadicResidual m :=
-  fun _ _ _ _ _ _ _ _ _ _ _ _ _ _ hr => not_sp2mSporadicResidual (.inl hm) hr
-
-theorem catSp2mSporadicResidual_three_of_catSp6SporadicResidual
-    (h : F4Pilot.CatSp6SporadicResidual) : CatSp2mSporadicResidual 3 := by
-  intro S _ _ hS hna s hs σ hσ f D hD hD6 hcase hr
-  exact h S hS hna s hs σ hσ f D hD hD6 (hcase.imp And.left id)
-    (sp2mSporadicResidual_three_iff.mp hr)
-
-theorem catSp2mSporadic_three_of_catSp6Sporadic (h : F4Pilot.CatSp6Sporadic) :
-    CatSp2mSporadic 3 :=
-  fun S _ _ hS hna hsp σ hσ f D hD hD6 hcase =>
-    h S hS hna hsp σ hσ f D hD hD6 (hcase.imp And.left id)
 
 theorem card_of_lieModel_PSp_eq_two_pow_mul_odd {D : Type} [Group D] {m f : ℕ}
     (h : LieModel D .PSp m 2 f) : ∃ A : ℕ, Odd A ∧ Nat.card D = 2 ^ (f * (m * m)) * A := by
@@ -199,9 +186,6 @@ theorem catSp2mSporadic_of_residual (hMinn : MonsterInnerInput)
   exact hres S hS hna s ⟨e⟩ σ hσ f D hD hDm hcase
     (sp2mSporadicResidual_of_dvd hm hf h21 hsM hdvd)
 
-theorem catSp2mSporadic_of_seven_le (hMinn : MonsterInnerInput)
-    (hMcomp : MonsterLocalComponentsInput) {m : ℕ} (hm : 7 ≤ m) : CatSp2mSporadic m :=
-  catSp2mSporadic_of_residual hMinn hMcomp (catSp2mSporadicResidual_of_seven_le hm)
 
 end Orders
 

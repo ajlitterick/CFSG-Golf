@@ -329,15 +329,6 @@ theorem exists_pair_SU3_pow (h : UnitaryFieldData 2 p K) (hp : Odd p) :
         = O * (O⁻¹ * (g : GL (Fin 3) K) ^ (2 ^ p + 1) * O) * O⁻¹ := by group
       _ = 1 := by rw [h1]; group
 
-theorem exists_pair_SU3 (h : UnitaryFieldData 2 p K) (hp : Odd p) :
-    ∃ a b ζ : gramSU h (antidiagGram K), IsHeisPair a b ζ ∧
-      (∀ g : gramSU h (antidiagGram K),
-        (g : GL (Fin 3) K) ∈ Subgroup.center (GL (Fin 3) K) ↔ g ∈ Subgroup.zpowers ζ) ∧
-      (∀ g : gramSU h (antidiagGram K), Commute g a → Commute g b → g ∈ Subgroup.zpowers ζ) ∧
-      (∀ x y : gramSU h (antidiagGram K), Commute x a → Commute y b → Commute x y →
-        x ∈ Subgroup.zpowers ζ ∨ y ∈ Subgroup.zpowers ζ) := by
-  obtain ⟨a, b, ζ, hpair, hcent, hCP, hMU, -⟩ := exists_pair_SU3_pow h hp
-  exact ⟨a, b, ζ, hpair, hcent, hCP, hMU⟩
 
 end Pair
 

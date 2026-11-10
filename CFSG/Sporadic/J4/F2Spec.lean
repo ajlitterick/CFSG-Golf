@@ -404,8 +404,6 @@ private theorem natCast_zmod_two (n : ℕ) :
 theorem rowsOf_size (s : String) : (rowsOf s).size = 112 := by
   unfold rowsOf; exact Array.size_ofFn
 
-theorem rowsOf_wf (s : String) : ∀ x ∈ rowsOf s, x.wf = true := by
-  unfold rowsOf; exact ofFn_wf_of_forall fun _ => V2.ofFn_wf _
 
 theorem rowsMatrix_rowsOf (s : String) :
     rowsMatrix (rowsOf s) = CFSG.Blueprint.NativeSporadic.decode 2 112 1 s := by

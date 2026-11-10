@@ -138,33 +138,5 @@ theorem crossCharFamAt_A_three_two :
   exact IsLocallyBalancedAbs.of_mulEquiv e
     (isLocallyBalancedAbs_psl_three_two (n := m + 1) hm3 (by rw [hcardF, hq]) hinjP)
 
-@[expose] def regimeANondiag (idx : TauCeti.ValidLieTypeIndex) (p : ℕ) : Prop :=
-  ∃ (m : ℕ) (q : TauCeti.PrimePower), idx.1 = .A m q ∧ ¬ (p ∣ q.card - 1 ∧ p ∣ m + 1)
-
-theorem crossCharFamAt_A_nondiag : CrossCharFamAt .A regimeANondiag := by
-  rintro idx hk p hp hp2 hc ⟨m, q, hd, hnd⟩
-  by_cases h32 : p = 3 ∧ q.card = 2
-  · exact crossCharFamAt_A_three_two idx hk p hp hp2 hc ⟨m, q, hd, h32.1, h32.2⟩
-  · exact crossCharFamAt_A idx hk p hp hp2 hc ⟨m, q, hd, hnd, h32⟩
-
-theorem not_regimeANondiag_iff {idx : TauCeti.ValidLieTypeIndex} {p : ℕ}
-    (hk : DefChar.LieFamily.A.Matches idx.1) :
-    ¬ regimeANondiag idx p ↔ ∃ (m : ℕ) (q : TauCeti.PrimePower), idx.1 = .A m q ∧
-      p ∣ q.card - 1 ∧ p ∣ m + 1 := by
-  obtain ⟨m, q, hmq⟩ := hk
-  constructor
-  · intro h
-    by_contra h'
-    exact h ⟨m, q, hmq, fun hc => h' ⟨m, q, hmq, hc⟩⟩
-  · rintro ⟨m', q', hmq', hc⟩ ⟨m'', q'', hmq'', h1⟩
-    rw [hmq'] at hmq''
-    obtain ⟨rfl, rfl⟩ : m' = m'' ∧ q' = q'' := by
-      injection hmq'' with h3 h4
-      exact ⟨h3, h4⟩
-    exact h1 hc
-
-theorem crossCharFamCat_A_of_diag
-    (h : CrossCharFamAt .A fun idx p => ¬ regimeANondiag idx p) : CrossCharFamCat .A :=
-  crossCharFamCat_of_at regimeANondiag crossCharFamAt_A_nondiag h
 
 end CFSG.HardMathSupport.Timmesfeld.CrossChar

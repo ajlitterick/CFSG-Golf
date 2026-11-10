@@ -51,17 +51,6 @@ public meta def monoImg (Ms : Array Nat) (NM i b : Nat) : Nat :=
   let w := v &&& NM
   v - w + (((NM &&& rep 256 16 4371) - w) &&& rep 255 16 4371)
 
-public meta def colorImg (Cs : Array (Array Nat)) (x : Nat) : Option Nat := Id.run do
-  let one := rep 1 16 4371
-  let mut acc := 0
-  for C in Cs do
-    let y := 2 * (x &&& C[0]!) + 4 * (x &&& C[1]!) + 8 * (x &&& C[2]!) +
-      ((2048 * (C[3]! &&& one) - 2 * (x &&& C[3]!)) + (2048 * (C[4]! &&& one) - 4 * (x &&& C[4]!)) +
-        (2048 * (C[5]! &&& one) - 8 * (x &&& C[5]!)))
-    acc := acc + benes (C.extract 6 C.size) y
-  let w := acc &&& rep 2047 16 4371
-  if w &&& rep 7 16 4371 != 0 then return none
-  return some (w >>> 3)
 
 public meta def nats (what : String) (v : Val) : Except String (Array Nat) := do
   let .list xs := v | throw s!"{what}: not a list"
@@ -118,18 +107,6 @@ public meta def dyMono (args : Array Val) : Except String (Array (Lean.Name × V
     R := R.push r
   outRows size hash (quot p f R)
 
-public meta def dyColor (args : Array Val) : Except String (Array (Lean.Name × Val)) := do
-  let some (Val.nat size) := args[0]? | throw "dyColor: no pin"
-  let some (Val.nat hash) := args[1]? | throw "dyColor: no pin"
-  let some bs := args[2]? | throw "dyColor: no basis"
-  let B ← flat "Bs" bs
-  let Cs ← (args.extract 3 args.size).mapM (firstBlock "C")
-  let mut R := Array.mkEmpty B.size
-  for i in [0:B.size] do
-    let some x := colorImg Cs (B[i]! <<< (16 * i)) | throw s!"row {i}: colour image fails"
-    let some r := dyElim 256 B x | throw s!"row {i}: elimination fails"
-    R := R.push r
-  outRows size hash R
 
 public meta def quotRows (args : Array Val) : Except String (Array (Lean.Name × Val)) := do
   let #[Val.nat p, Val.nat f, Val.nat size, Val.nat hash, c] := args | throw "quotRows: arguments"

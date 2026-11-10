@@ -235,18 +235,6 @@ theorem exists_mem_cascadeConjGroup_conj_eq_cascade_prod [CharP K 2]
   exact ⟨g, hg, S, hSnd, fun σ hσ => ⟨(hS σ hσ).1, (hS σ hσ).2.2.1, (hS σ hσ).2.2.2⟩, hSo, c,
     hc, he⟩
 
-theorem exists_mem_cascadeConjGroup_conj_eq_cascade_sublist_prod [CharP K 2]
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {ℓ : ModGL τ K}
-    (hℓ : ℓ ∈ posUnipotent τ K) (h2 : ℓ ^ 2 = 1) :
-    ∃ g ∈ cascadeConjGroup τ K Set.univ, ∃ S : List (Fin τ.rank → ℤ),
-      S.Sublist (cascadeRoots τ) ∧ ∃ c : (Fin τ.rank → ℤ) → K, (∀ σ ∈ S, c σ ≠ 0) ∧
-        g * ℓ * g⁻¹ = (S.map fun σ => pinnedX τ K σ (c σ)).prod := by
-  obtain ⟨g, hg, S, hSnd, hS, hSo, c, hc, he⟩ :=
-    exists_mem_cascadeConjGroup_conj_eq_cascade_prod hτ hℓ h2
-  refine ⟨g, hg, (cascadeRoots τ).filter fun σ => decide (σ ∈ S), List.filter_sublist, c,
-    fun σ hσ => hc σ (by simpa using (List.mem_filter.1 hσ).2), ?_⟩
-  rw [he]
-  exact cascade_list_prod_eq_filter hτ hSnd hS hSo c
 
 theorem exists_conj_eq_cascade_prod_of_pairwise [Finite K] [CharP K 2]
     (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {t : adjointGroup τ K} (ht : t ^ 2 = 1) :
@@ -278,22 +266,5 @@ theorem exists_conj_eq_cascade_prod [Finite K] [CharP K 2]
   rw [he]
   exact cascade_list_prod_eq_filter hτ hSnd hS hSo c
 
-theorem exists_conj_eq_prod_cascadeRoots [Finite K] [CharP K 2]
-    (hτ : τ = .D4 ∨ τ = .E6 ∨ τ = .E7 ∨ τ = .E8) {t : adjointGroup τ K} (ht : t ^ 2 = 1) :
-    ∃ g : adjointGroup τ K, ∃ c : (Fin τ.rank → ℤ) → K,
-      ((g * t * g⁻¹ : adjointGroup τ K) : ModGL τ K) =
-        ((cascadeRoots τ).map fun σ => pinnedX τ K σ (c σ)).prod := by
-  classical
-  obtain ⟨g, S, hSnd, hS, hSo, c, -, he⟩ := exists_conj_eq_cascade_prod_of_pairwise hτ ht
-  set c' : (Fin τ.rank → ℤ) → K := fun σ => if σ ∈ S then c σ else 0 with hc'
-  refine ⟨g, c', ?_⟩
-  rw [he, cascade_list_prod_eq_filter hτ hSnd hS hSo c,
-    ← classDescent_prod_map_filter (cascadeRoots τ) (fun σ => decide (σ ∈ S))
-      (fun σ => pinnedX τ K σ (c' σ)) fun σ _ h => ?_]
-  · refine congrArg List.prod (List.map_congr_left fun σ hσ => ?_)
-    have h : σ ∈ S := by simpa using (List.mem_filter.1 hσ).2
-    simp [hc', h]
-  · have h' : σ ∉ S := by simpa using h
-    simp [hc', h', pinnedX_zero]
 
 end CFSG.SeitzReduction

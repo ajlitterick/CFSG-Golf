@@ -345,42 +345,6 @@ theorem conj_injective_projectiveSL {n : ℕ} (hn : 3 ≤ n) :
   calc z * x = x * z * x⁻¹ * x := by rw [this]
     _ = x * z := by group
 
-theorem mem_conj_map_iff {n : ℕ} (hn : 3 ≤ n) (J : Subgroup (projectiveSL n k))
-    (x : projectiveSL n k) :
-    MulAut.conj x ∈ J.map MulAut.conj ↔ x ∈ J := by
-  constructor
-  · rintro ⟨y, hy, hxy⟩
-    rwa [← conj_injective_projectiveSL hn hxy]
-  · intro hx
-    exact ⟨x, hx, rfl⟩
-
-theorem not_isStandardSubgroup_conj_map {n : ℕ} (hn : 3 ≤ n) (J : Subgroup (projectiveSL n k))
-    {t g : projectiveSL n k} (ht : orderOf t = 2) (htJ : ∀ x ∈ J, x * t = t * x)
-    (hgt : g * t = t * g) (hg : g ∉ normalizer (J : Set (projectiveSL n k)))
-    (A : Subgroup (MulAut (projectiveSL n k)))
-    (hA : OuterAutomorphisms.inner (projectiveSL n k) ≤ A) :
-    ¬ IsStandardSubgroup ((J.map MulAut.conj).subgroupOf A) := by
-  have hinj := conj_injective_projectiveSL (k := k) hn
-  have hmem : ∀ x : projectiveSL n k, MulAut.conj x ∈ A := fun x => hA ⟨x, rfl⟩
-  set t' : A := ⟨MulAut.conj t, hmem t⟩
-  set g' : A := ⟨MulAut.conj g, hmem g⟩
-  refine not_isStandardSubgroup_of_witness (t := t') (g := g') ?_ ?_ ?_ ?_
-  · have h1 : orderOf t' = orderOf (MulAut.conj t) :=
-      (orderOf_injective A.subtype A.subtype_injective t').symm
-    rw [h1, orderOf_injective _ hinj t, ht]
-  · intro x hx
-    obtain ⟨y, hy, hyx⟩ := mem_subgroupOf.mp hx
-    apply Subtype.ext
-    simp only [Subgroup.coe_mul, t', ← hyx, ← map_mul, htJ y hy]
-  · exact Subtype.ext (by simp only [t', g', Subgroup.coe_mul, ← map_mul, hgt])
-  · intro hN
-    apply hg
-    rw [mem_normalizer_iff] at hN ⊢
-    intro x
-    have h1 := hN ⟨MulAut.conj x, hmem x⟩
-    simp only [mem_subgroupOf, Subgroup.coe_mul, Subgroup.coe_inv, g', ← map_inv,
-      ← map_mul, mem_conj_map_iff hn] at h1
-    exact h1
 
 variable (ψ : (Fin 4 → k) ≃ₗ[k] Matrix (Fin 2) (Fin 2) k)
 
@@ -389,13 +353,6 @@ variable (ψ : (Fin 4 → k) ≃ₗ[k] Matrix (Fin 2) (Fin 2) k)
   ⟨((linearConjGL ψ (splitShear Z) : GL (Fin 4) k) : Matrix (Fin 4) (Fin 4) k),
     det_eq_one_of_pow_char (ℓ := ℓ) (by rw [← map_pow, splitShear_pow_char, map_one])⟩
 
-omit [Finite k] in
-theorem splitShearSL_mulVec (Z : Matrix (Fin 2) (Fin 2) k) {ℓ : ℕ} [Fact ℓ.Prime] [CharP k ℓ]
-    (v : Fin 4 → k) :
-    ((splitShearSL ψ Z (ℓ := ℓ) : SpecialLinearGroup (Fin 4) k) : Matrix (Fin 4) (Fin 4) k) *ᵥ v =
-      ψ.symm (splitShear Z (ψ v)) := by
-  change ((linearConjGL ψ (splitShear Z) : GL (Fin 4) k) : Matrix (Fin 4) (Fin 4) k) *ᵥ v = _
-  rw [linearConjGL_mulVec]
 
 theorem not_isStandardSubgroup_of_conj_witness {n : ℕ} (hn : 3 ≤ n)
     (J : Subgroup (projectiveSL n k)) {t g : projectiveSL n k} (ht : orderOf t = 2)
@@ -728,84 +685,6 @@ theorem splitShearTSL_commute (hq : 5 ≤ Nat.card k) {ℓ : ℕ} [Fact ℓ.Prim
   rw [splitShearT_apply, splitShearT_apply, transpose_mul, splitShear_mul_right rfl,
     transpose_mul, transpose_transpose]
 
-theorem odd_split_four_graph_component_not_standard (hodd : Odd (Nat.card k))
-    (hq : 5 ≤ Nat.card k) (ψ : (Fin 4 → k) ≃ₗ[k] Matrix (Fin 2) (Fin 2) k) :
-    ∃ J₁ J₂ : Subgroup (projectiveSL 4 k),
-      (∀ x, x ∈ J₁ ↔ ∃ (U : SpecialLinearGroup (Fin 2) k) (g : SpecialLinearGroup (Fin 4) k),
-        (∀ v, (g : Matrix (Fin 4) (Fin 4) k) *ᵥ v =
-          ψ.symm ((U : Matrix (Fin 2) (Fin 2) k) * ψ v)) ∧ x = proj 4 k g) ∧
-      (∀ x, x ∈ J₂ ↔ ∃ (W : SpecialLinearGroup (Fin 2) k) (g : SpecialLinearGroup (Fin 4) k),
-        (∀ v, (g : Matrix (Fin 4) (Fin 4) k) *ᵥ v =
-          ψ.symm (ψ v * ((W⁻¹ : SpecialLinearGroup (Fin 2) k) : Matrix (Fin 2) (Fin 2) k))) ∧
-        x = proj 4 k g) ∧
-      (∀ x ∈ J₁, ∀ y ∈ J₂, x * y = y * x) ∧
-      Nonempty (J₁ ≃* projectiveSL 2 k) ∧ Nonempty (J₂ ≃* projectiveSL 2 k) ∧
-      (∃ t ∈ J₂, orderOf t = 2 ∧ ∃ g : projectiveSL 4 k, g * t = t * g ∧
-        g ∉ normalizer (J₁ : Set (projectiveSL 4 k))) ∧
-      (∃ t ∈ J₁, orderOf t = 2 ∧ ∃ g : projectiveSL 4 k, g * t = t * g ∧
-        g ∉ normalizer (J₂ : Set (projectiveSL 4 k))) ∧
-      ∀ A : Subgroup (MulAut (projectiveSL 4 k)),
-        OuterAutomorphisms.inner (projectiveSL 4 k) ≤ A →
-          ¬ IsStandardSubgroup ((J₁.map MulAut.conj).subgroupOf A) ∧
-          ¬ IsStandardSubgroup ((J₂.map MulAut.conj).subgroupOf A) := by
-  classical
-  obtain ⟨ℓ, hchar⟩ := CharP.exists k
-  have : Fact ℓ.Prime := ⟨CharP.char_is_prime k ℓ⟩
-  have h2 : (2 : k) ≠ 0 := CatalogueBOddQuadratic.two_ne_zero_of_odd_card hodd
-  set J₁ := (splitLeftP ψ hq).range with hJ₁
-  set J₂ := (splitRightP ψ hq).range with hJ₂
-  have hcomm : ∀ x ∈ J₁, ∀ y ∈ J₂, x * y = y * x := by
-    rintro _ ⟨U, rfl⟩ _ ⟨W, rfl⟩
-    simp only [splitLeftP, splitRightP, MonoidHom.comp_apply, ← map_mul]
-    congr 1
-    apply SpecialLinearGroup.toGL_injective
-    rw [map_mul, map_mul, toGL_splitLeftSL, toGL_splitRightSL, splitLeftHom_commute]
-  set t₂ := splitRightP ψ hq splitQuatI with ht₂
-  set t₁ := splitLeftP ψ hq splitQuatI with ht₁
-  set g₁ := proj 4 k (splitShearSL ψ (QuaternionMatrices.quatI k) (ℓ := ℓ)) with hg₁
-  set g₂ := proj 4 k (splitShearTSL ψ (QuaternionMatrices.quatI k) (ℓ := ℓ)) with hg₂
-  have ht₂o : orderOf t₂ = 2 := orderOf_splitRightP_quatI ψ hq h2
-  have ht₁o : orderOf t₁ = 2 := orderOf_splitLeftP_quatI ψ hq h2
-  have hg₁t : g₁ * t₂ = t₂ * g₁ := by
-    rw [hg₁, ht₂, splitRightP, MonoidHom.comp_apply, ← map_mul, ← map_mul,
-      splitShearSL_commute ψ hq]
-  have hg₂t : g₂ * t₁ = t₁ * g₂ := by
-    rw [hg₂, ht₁, splitLeftP, MonoidHom.comp_apply, ← map_mul, ← map_mul,
-      splitShearTSL_commute ψ hq]
-  have hg₁N : g₁ ∉ normalizer (J₁ : Set (projectiveSL 4 k)) :=
-    proj_splitShearSL_not_mem_normalizer ψ hq h2
-  have hg₂N : g₂ ∉ normalizer (J₂ : Set (projectiveSL 4 k)) :=
-    proj_splitShearTSL_not_mem_normalizer ψ hq h2
-  refine ⟨J₁, J₂, fun x => ?_, fun x => ?_, hcomm, ?_, ?_, ⟨t₂, ⟨_, rfl⟩, ht₂o, g₁, hg₁t, hg₁N⟩,
-    ⟨t₁, ⟨_, rfl⟩, ht₁o, g₂, hg₂t, hg₂N⟩, fun A hA => ⟨?_, ?_⟩⟩
-  · constructor
-    · rintro ⟨U, rfl⟩
-      exact ⟨U, splitLeftSL ψ hq U, fun v => splitLeftHom_mulVec ψ U v, rfl⟩
-    · rintro ⟨U, g, hg, rfl⟩
-      refine ⟨U, ?_⟩
-      change proj 4 k (splitLeftSL ψ hq U) = _
-      congr 1
-      apply SpecialLinearGroup.toGL_injective
-      rw [toGL_splitLeftSL]
-      exact eq_of_mulVec_eq fun v => by rw [splitLeftHom_mulVec]; exact (hg v).symm
-  · constructor
-    · rintro ⟨W, rfl⟩
-      exact ⟨W, splitRightSL ψ hq W, fun v => splitRightHom_mulVec ψ W v, rfl⟩
-    · rintro ⟨W, g, hg, rfl⟩
-      refine ⟨W, ?_⟩
-      change proj 4 k (splitRightSL ψ hq W) = _
-      congr 1
-      apply SpecialLinearGroup.toGL_injective
-      rw [toGL_splitRightSL]
-      exact eq_of_mulVec_eq fun v => by rw [splitRightHom_mulVec]; exact (hg v).symm
-  · exact ⟨(QuotientGroup.quotientMulEquivOfEq (splitLeftP_ker ψ hq).symm).trans
-      (QuotientGroup.quotientKerEquivRange (splitLeftP ψ hq)) |>.symm⟩
-  · exact ⟨(QuotientGroup.quotientMulEquivOfEq (splitRightP_ker ψ hq).symm).trans
-      (QuotientGroup.quotientKerEquivRange (splitRightP ψ hq)) |>.symm⟩
-  · exact not_isStandardSubgroup_conj_map (by norm_num) J₁ ht₂o
-      (fun x hx => (hcomm x hx t₂ ⟨_, rfl⟩)) hg₁t hg₁N A hA
-  · exact not_isStandardSubgroup_conj_map (by norm_num) J₂ ht₁o
-      (fun x hx => (hcomm t₁ ⟨_, rfl⟩ x hx).symm) hg₂t hg₂N A hA
 
 theorem map_conjAut_range_splitLeftHom (hq : 5 ≤ Nat.card k) :
     (splitLeftHom ψ).range.map (conjAut 4 k) = (splitLeftP ψ hq).range.map MulAut.conj := by

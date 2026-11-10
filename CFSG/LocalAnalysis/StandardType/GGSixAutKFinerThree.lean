@@ -41,20 +41,6 @@ theorem ggAKF_map_conj_le_centralizer {p : ℕ} {Bs D : Subgroup G} (hBs : IsEle
   simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply, inv_inv]
   exact congrArg Subtype.val (mul_comm' (⟨m⁻¹ * d * m, hmem⟩ : Bs) ⟨b, hb⟩)
 
-theorem ggStepTwoChoiceThree_of_le_centralizer [Finite G] {p : ℕ} {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {b : G} {L₁ : Subgroup G}
-    (hpair : GGStepTwoPair p B Bs x L D J b L₁) (hp : p.Prime) {m : G}
-    (hm : m ∈ ggG0 p B x L D J ⊓ Subgroup.normalizer (Bs : Set G))
-    (hmL : D.map (MulAut.conj m⁻¹).toMonoidHom ≤ Subgroup.centralizer (L₁ : Set G)) :
-    ∃ m ∈ ggG0 p B x L D J ⊓ Subgroup.normalizer (Bs : Set G),
-      ∃ g ∈ L₁, (∃ l ∈ L₁, g * l ≠ l * g) ∧
-        g ∈ Subgroup.centralizer (D.map (MulAut.conj m⁻¹).toMonoidHom : Set G) ∧
-        Nat.Coprime (orderOf g) p := by
-  obtain ⟨g, hgL, hgZ, hgp⟩ := ggAKF_exists_noncentral_coprime_mem hpair.2.2.1.2.2 hp
-  refine ⟨m, hm, g, hgL, hgZ, ?_, hgp⟩
-  rw [Subgroup.mem_centralizer_iff]
-  intro e he
-  exact (Subgroup.mem_centralizer_iff.mp (hmL he) g hgL).symm
 
 end Steps
 

@@ -141,9 +141,6 @@ abbrev mK (T V : Subgroup G) : Subgroup G := Subgroup.normalizer (kz T V : Set G
     rwa [show (a * (a⁻¹ * k * a) * a⁻¹ * (a⁻¹ * k * a)⁻¹)⁻¹ = a⁻¹ * k * a⁻¹⁻¹ * k⁻¹ by group]
       at h1
 
-omit [Finite G] in
-theorem mem_dK {T V : Subgroup G} {g : G} :
-    g ∈ dK T V ↔ g ∈ mK T V ∧ ∀ k ∈ kz T V, g * k * g⁻¹ * k⁻¹ ∈ pCoreOf 2 (kz T V) := Iff.rfl
 
 omit [Finite G] in
 theorem mK_le_normalizer_dK : mK T V ≤ Subgroup.normalizer (dK T V : Set G) := by
@@ -288,16 +285,5 @@ theorem exists_odd_mem_dK (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Th
   rw [show g = x * (x⁻¹ * g) by group]
   exact mul_mem hx (hTH (hDT hxg))
 
-theorem not_mem_hz_of_mem_dK (h : Hyp147 G T L V) (hMod : StmtL32NModule) (h63 : Thm14_7_63)
-    {d : G} (hd : d ∈ dK T V) (hd1 : d ≠ 1) (hodd : Odd (orderOf d)) : d ∉ hz T V := by
-  intro hdH
-  have hdQ := inf_dK_le h hMod h63 (Subgroup.mem_inf.mpr ⟨hdH, hd⟩)
-  obtain ⟨n, hn⟩ := (pCoreOf_isPGroup 2 (hz T V)) ⟨d, hdQ⟩
-  have hd2 : d ^ 2 ^ n = 1 := by simpa using congrArg Subtype.val hn
-  have hdvd : orderOf d ∣ 2 ^ n := orderOf_dvd_of_pow_eq_one hd2
-  have hcop : Nat.Coprime (orderOf d) (2 ^ n) :=
-    Nat.Coprime.pow_right _ (Nat.coprime_two_right.mpr hodd)
-  have h1 : orderOf d = 1 := Nat.Coprime.eq_one_of_dvd hcop hdvd
-  exact hd1 (orderOf_eq_one_iff.mp h1)
 
 end CFSG.Quasithin.H13.L32A

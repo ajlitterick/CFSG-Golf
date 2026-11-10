@@ -280,8 +280,6 @@ variable {G : Type*} [Group G]
     ↥X ≃* ↥X :=
   ((MulAut.conj b).subgroupMap X).trans (MulEquiv.subgroupCongr hb)
 
-theorem coe_conjAutOfSubgroup (X : Subgroup G) (b : G) (hb : conjSubgroup b X = X) (x : ↥X) :
-    ((conjAutOfSubgroup X b hb x : ↥X) : G) = b * x * b⁻¹ := rfl
 
 theorem mem_iff_conj_of_conjSubgroup_eq {X : Subgroup G} {b : G} (hb : conjSubgroup b X = X)
     (z : G) : z ∈ X ↔ b⁻¹ * z * b ∈ X := by

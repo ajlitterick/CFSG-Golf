@@ -43,21 +43,6 @@ theorem conjClassesPow_bijective (hk : (Nat.card G).Coprime k) :
   obtain ⟨y, hy⟩ := (powCoprime hk).surjective c
   exact ⟨ConjClasses.mk y, by rw [conjClassesPow_mk, ← hy, powCoprime_apply]⟩
 
-theorem mem_carrier_conjClassesPow_iff (hk : (Nat.card G).Coprime k) (C : ConjClasses G)
-    (g : G) : g ^ k ∈ (conjClassesPow k C).carrier ↔ g ∈ C.carrier := by
-  rw [ConjClasses.mem_carrier_iff_mk_eq, ConjClasses.mem_carrier_iff_mk_eq, ← conjClassesPow_mk]
-  exact (conjClassesPow_injective hk).eq_iff
-
-theorem carrier_conjClassesPow (hk : (Nat.card G).Coprime k) (C : ConjClasses G) :
-    (conjClassesPow k C).carrier = (fun g => g ^ k) '' C.carrier ∧
-      Nat.card (conjClassesPow k C).carrier = Nat.card C.carrier := by
-  have himage : (conjClassesPow k C).carrier = (powCoprime hk) '' C.carrier := by
-    ext y
-    obtain ⟨x, rfl⟩ := (powCoprime hk).surjective y
-    rw [(powCoprime hk).injective.mem_set_image, powCoprime_apply,
-      mem_carrier_conjClassesPow_iff hk]
-  refine ⟨himage, ?_⟩
-  rw [himage, Nat.card_image_of_injective (powCoprime hk).injective]
 
 end Powers
 
@@ -76,33 +61,6 @@ theorem centralCharacterScalar_eq_sum (z : MonoidAlgebra ℂ G) (a : basis.index
   congr 1
   exact Equiv.sum_comp (Equiv.inv G) (fun x => z.coeff x * (basis.representation a).character x)
 
-open scoped Classical in
-theorem centralCharacterScalar_conjugacyClassSum_eq (C : ConjClasses G) {c : G}
-    (hc : ConjClasses.mk c = C) (a : basis.index) :
-    centralCharacterScalar basis (conjugacyClassSum C) a =
-      Nat.card C.carrier * (basis.representation a).character c /
-        (basis.representation a).character 1 := by
-  rw [centralCharacterScalar_eq_sum]
-  congr 1
-  have hconst : ∀ x : G, (conjugacyClassSum C : MonoidAlgebra ℂ G).coeff x *
-      (basis.representation a).character x =
-        if x ∈ C.carrier then (basis.representation a).character c else 0 := by
-    intro x
-    rw [conjugacyClassSum_coeff, ConjClasses.mem_carrier_iff_mk_eq]
-    split_ifs with hx
-    · rw [one_mul]
-      rw [← hc, ConjClasses.mk_eq_mk_iff_isConj, isConj_iff] at hx
-      obtain ⟨g, rfl⟩ := hx
-      exact (Representation.char_conj (basis.representation a).representation x g).symm
-    · rw [zero_mul]
-  simp only [hconst]
-  rw [Finset.sum_ite, Finset.sum_const_zero, add_zero, Finset.sum_const, nsmul_eq_mul]
-  have hcard : (Finset.univ.filter fun x => x ∈ C.carrier).card = Nat.card C.carrier := by
-    rw [Nat.card_eq_card_toFinset]
-    congr 1
-    ext x
-    simp
-  rw [hcard]
 
 variable {π : Equiv.Perm basis.index}
 

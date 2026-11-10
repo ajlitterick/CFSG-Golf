@@ -92,8 +92,6 @@ theorem le_normalizer_of_commutator_le_oddCoreOf {K J : Subgroup G} (h : ⁅J, K
     rw [e]
     exact h1
 
-theorem mem_centModOddCore_iff [Finite G] {K : Subgroup G} {g : G} :
-    g ∈ centModOddCore K ↔ ∀ k ∈ K, ⁅g, k⁆ ∈ oddCoreOf K := Iff.rfl
 
 theorem exists_isPGroup_zpowers_lift {H H' : Type*} [Group H] [Group H'] [Finite H]
     (φ : H →* H') (hφ : Function.Surjective φ) {b : H'} (hb : IsPGroup 2 (Subgroup.zpowers b)) :

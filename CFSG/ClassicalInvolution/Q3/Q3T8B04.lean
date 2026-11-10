@@ -113,16 +113,6 @@ theorem BadStd8.false_of_linkConst [IsSimpleGroup G] (h : BadStd8 Ω K J S R T W
     rw [h', Subgroup.card_top] at hodd
     exact (Nat.not_even_iff_odd.mpr hodd) (even_iff_two_dvd.mpr hdvd)
 
-theorem BadStd8.false_of_edgeAxis [IsSimpleGroup G] (h : BadStd8 Ω K J S R T W z t)
-    {B : Subgroup G} (hB : EdgeAxis3 t z B) : False := by
-  have hF : Subgroup.closure ({t, z} : Set G) ∈ signalizerFunctorEk 2 2 B :=
-    ⟨hB.pair_le, by simpa using h.isElemAbelian2_pair.1⟩
-  exact h.bad (alphaOf_eq_bot_of_alphaCore_eq_bot (hB.alphaCore_eq_bot h.nonabelian hF))
-
-theorem BadStd8.false_of_hyp51Axis [IsSimpleGroup G] (h : BadStd8 Ω K J S R T W z t)
-    {B : Subgroup G} (hB : Hyp51 B) (hzt : Subgroup.closure ({t, z} : Set G) ≤ B)
-    (hgen : rankTwoSpan B = ⊤) : False :=
-  h.false_of_edgeAxis ⟨hzt, lemma52 G B hB, hgen⟩
 
 end Close
 

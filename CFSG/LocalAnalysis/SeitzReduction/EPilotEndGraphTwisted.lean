@@ -69,6 +69,5 @@ theorem twistedE6_fieldActor_complement (hfe : Even f) :
 
 end Structure
 
-variable {G : Type*} [Group G] [Finite G] {G₀ : Subgroup G}
 
 end CFSG.SeitzReduction.EPilot

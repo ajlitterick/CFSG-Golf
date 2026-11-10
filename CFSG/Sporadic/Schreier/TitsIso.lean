@@ -65,9 +65,6 @@ theorem titsD_commutator : ⁅titsD, titsD⁆ = titsD := by
   rw [← hE]
   exact hE ▸ titsE_le_commutator
 
-theorem CERT_Tits_derived_perfect :
-    ⁅titsA, titsA⁆ = titsD ∧ (titsD.subgroupOf titsA).index = 2 ∧ ⁅titsD, titsD⁆ = titsD :=
-  ⟨titsA_commutator, titsD_index, titsD_commutator⟩
 
 attribute [local instance] CFSG.SectionRank.TitsOrder.idxAction
 
@@ -170,15 +167,6 @@ theorem titsVecHom_range
     [Fact (Nat.card K = 2)] : reeFixed ReeTag.F4 K 0 ≃* titsA :=
   (MonoidHom.ofInjective titsVecHom_injective).trans (MulEquiv.subgroupCongr titsVecHom_range)
 
-theorem titsIso_apply
-    [Fact (Nat.card K = 2)] (g : reeFixed ReeTag.F4 K 0) :
-    (titsIso g : Equiv.Perm (Fin 1755)) = titsVecHom g :=
-  rfl
-
-theorem titsIso_gen
-    [Fact (Nat.card K = 2)] {s : ℕ} (hs : s < 4) :
-    (titsIso (genG K s) : Equiv.Perm (Fin 1755)) = titsGen s := by
-  rw [titsIso_apply, titsVecHom_gen hs]
 
 end Vec
 

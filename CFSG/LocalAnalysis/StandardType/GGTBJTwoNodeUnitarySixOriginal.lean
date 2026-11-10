@@ -190,39 +190,6 @@ theorem ggResTwoNodeSideDatum_unitary_six_side_all
     exact ggResTwoNodeSideDatum_unitary_six_two_side hRig hLB hH hside hLab hΛ hJLab
   · exact ggResTwoNodeSideDatum_unitary_six_side hRig hLB hH hside hf hpq hLab hΛ hJLab
 
-theorem GGResHyp.exists_twA3_label_of_unitary_six_L_ne_one
-    {G : Type} [Group G] [Finite G]
-    {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLineJDatum 3 Bs J .A3)
-    {f : ℕ} (hf : f ≠ 1) (hpq : 3 ∣ 2 ^ f + 1)
-    (hLab : GGHasLabel ⟨.twA, 5, f⟩ (L ⧸ Subgroup.center L))
-    (hΛ : LargeEvenInLambda2 ⟨.twA, 5, f⟩) :
-    ∃ lab : LargeEvenLabel, LargeEvenInLambda2 lab ∧ ggResLineJLabel .A3 lab ∧
-      GGHasLabel lab (J ⧸ Subgroup.center J) := by
-  have hRig : GGLabelRigidInput := ggLabelRigidInput_holds
-  obtain ⟨F, hField, hFinite, hChar, hN, φ, hF, hM, hdiag⟩ :=
-    exists_diagonal_cover_of_unitary_six_L hRig hH hf hpq hLab hΛ
-  let : Field F := hField
-  let : Finite F := hFinite
-  let : CharP F 2 := hChar
-  exact hH.exists_twA3_label_of_unitaryModel_L hD hpq hΛ hM hdiag
-
-private theorem ggResLineJLabel_A3_of_iso_twA31 {lab : LargeEvenLabel}
-    (h : GGLabelIso ⟨.twA, 3, 1⟩ lab) (hpq : 3 ∣ 2 ^ 1 + 1) :
-    ggResLineJLabel .A3 lab := by
-  unfold ggResLineJLabel
-  rcases h with rfl | hBC | hDA | hAD | hD3A3 | hA3D3 | hD2A1 | hA1D2
-  · exact Or.inr ⟨Or.inl rfl, rfl, hpq⟩
-  · simp_all
-  · simp_all
-  · simp_all
-  · simp_all
-  · obtain ⟨-, h2⟩ := hA3D3
-    rw [h2]
-    exact Or.inr ⟨Or.inr rfl, rfl, by simpa using hpq⟩
-  · simp_all
-  · simp_all
 
 theorem GGResHyp.hasLabel_twA3_of_unitary_six_two_L
   {G : Type} [Group G] [Finite G]
@@ -333,42 +300,6 @@ theorem GGResHyp.hasLabel_twA3_of_unitary_six_two_L
       hΛJ hΛtwA hJbarLabJ hJbarLabTwA
   exact largeEvenRawDatum_of_ggLabelIso hIso hHasJ
 
-theorem GGResHyp.exists_twA3_label_of_unitary_six_L_allfields
-  {G : Type} [Group G] [Finite G]
-  {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-  (hH : GGResHyp 3 B Bs x L D J y K)
-  (hD : GGResLineJDatum 3 Bs J .A3)
-  {f : ℕ} (hpq : 3 ∣ 2 ^ f + 1)
-  (hLab : GGHasLabel ⟨.twA, 5, f⟩ (L ⧸ Subgroup.center L))
-  (hΛ : LargeEvenInLambda2 ⟨.twA, 5, f⟩) :
-  ∃ lab : LargeEvenLabel, LargeEvenInLambda2 lab ∧ ggResLineJLabel .A3 lab ∧
-    GGHasLabel lab (J ⧸ Subgroup.center J) := by
-  classical
-  by_cases hf : f = 1
-  · subst f
-    have hJLab := hH.hasLabel_twA3_of_unitary_six_two_L hD hLab hΛ
-    have hΛtwA : LargeEvenInLambda2 ⟨.twA, 3, 1⟩ := by
-      unfold LargeEvenInLambda2
-      norm_num
-    exact ⟨⟨.twA, 3, 1⟩, hΛtwA,
-      ggResLineJLabel_A3_of_iso_twA31 (Or.inl rfl) hpq, hJLab⟩
-  · exact GGResHyp.exists_twA3_label_of_unitary_six_L_ne_one hH hD hf hpq hLab hΛ
-
-theorem GGResHyp.exists_twA3_label_of_large_unitary_L_allfields
-  {G : Type} [Group G] [Finite G]
-  {B Bs : Subgroup G} {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-  (hH : GGResHyp 3 B Bs x L D J y K)
-  (hD : GGResLineJDatum 3 Bs J .A3)
-  {r f : ℕ} (hr : 4 ≤ r)
-  (hpq : 3 ∣ 2 ^ f + 1)
-  (hLab : GGHasLabel ⟨.twA, r, f⟩ (L ⧸ Subgroup.center L))
-  (hΛ : LargeEvenInLambda2 ⟨.twA, r, f⟩) :
-  ∃ lab : LargeEvenLabel, LargeEvenInLambda2 lab ∧ ggResLineJLabel .A3 lab ∧
-    GGHasLabel lab (J ⧸ Subgroup.center J) := by
-  by_cases hr5 : r = 5
-  · subst r
-    exact GGResHyp.exists_twA3_label_of_unitary_six_L_allfields hH hD hpq hLab hΛ
-  · exact GGResHyp.exists_twA3_label_of_large_unitary_L hH hD hr hr5 hpq hLab hΛ
 
 theorem GGResHyp.unitary_six_two_L_facts
     {G : Type} [Group G] [Finite G]

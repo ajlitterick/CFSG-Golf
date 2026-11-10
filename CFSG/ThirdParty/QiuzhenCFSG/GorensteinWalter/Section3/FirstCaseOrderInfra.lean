@@ -60,18 +60,6 @@ private theorem oddCore_normal
       ⟨(⟨h, hh⟩ : ↥H) * y * (⟨h, hh⟩ : ↥H)⁻¹, ?_, by simp⟩
     exact (pPrimeCore_normal (p := 2) (G := ↥H)).conj_mem y hy (⟨h, hh⟩ : ↥H)
 
-private theorem twoCore_normal
-    {G : Type u} [Group G] (H : Subgroup G) :
-    IsNormalIn (twoCoreOf H) H := by
-  refine ⟨?_, ?_⟩
-  · intro x hx
-    rcases (Subgroup.mem_map).1 hx with ⟨y, _hy, rfl⟩
-    exact y.2
-  · intro h hh x hx
-    rcases (Subgroup.mem_map).1 hx with ⟨y, hy, rfl⟩
-    refine Subgroup.mem_map.mpr
-      ⟨(⟨h, hh⟩ : ↥H) * y * (⟨h, hh⟩ : ↥H)⁻¹, ?_, by simp⟩
-    exact (pCore_normal (p := 2) (G := ↥H)).conj_mem y hy (⟨h, hh⟩ : ↥H)
 
 private theorem oddCore_card_eq_pPrimeCore
     {G : Type u} [Group G] [Finite G] (H : Subgroup G) :

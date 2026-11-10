@@ -49,13 +49,6 @@ theorem Setup.of (h37 : A37ForSQTK) (h38 : A38ForSQTK) (h39 : A39ForSQTK)
   · exact hVVM
   · exact (hyp.notThree ⟨hrow.1, h3⟩).elim
 
-theorem Setup.of_hyp702 (h37 : A37ForSQTK) (h38 : A38ForSQTK) (h39 : A39ForSQTK)
-    (h3228 : Stmt3_2_2_eight) (h326 : Stmt3_2_6Lt) (hyp : Hyp7_0_2 G T L I)
-    [IsMulCommutative ↥(fsuV T I)] (hrow : Row711OmegaPlus T L I n) : Setup T L I n := by
-  refine Setup.of_fsuV_eq_fsuVM h37 h38 h39 h3228 hyp.toA hrow ?_
-  rcases h326 G T L I hyp.fsu hrow.1 with ⟨_, -, hVVM, -⟩ | h3
-  · exact hVVM
-  · exact (hyp.notThree ⟨hrow.1, h3⟩).elim
 
 namespace Setup
 
@@ -105,8 +98,6 @@ theorem fsuV_ne_bot : fsuV T I ≠ ⊥ := CFSG.Quasithin.H13.fsuV_ne_bot S.hyp.f
 
 theorem isPGroup_fsuV : IsPGroup 2 (fsuV T I) := isPGroup_of_isElemAbelian_two S.hV
 
-theorem centralizer_le_fsuM : Subgroup.centralizer (fsuV T I : Set G) ≤ fsuM T L :=
-  (Subgroup.centralizer_le_normalizer _).trans S.hNM
 
 theorem L0_le_normalizer_V : fsuL0 T L ≤ Subgroup.normalizer (fsuV T I : Set G) :=
   le_sup_left.trans S.hN

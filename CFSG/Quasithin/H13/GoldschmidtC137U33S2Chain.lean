@@ -54,10 +54,6 @@ theorem orbit_of_chain (H : Subgroup Gam) (gl : List Gam) (hgl : ∀ x ∈ gl, x
     ∀ c ∈ acc, ∃ h ∈ H, act h 8 = c :=
   chainReach_sound H gl hgl steps [8] acc (chain_start H) h
 
-theorem act_gprod (gl : List Gam) (w : List ℕ) (hw : ∀ j ∈ w, j < gl.length) (c : ℕ) :
-    act (gprod gl w) c = mact (gcode (gl.map fun x => matCode x.1) w) c := by
-  unfold act
-  rw [matCode_gprod gl w hw]
 
 @[expose] def chainCovers (cl : List (List ℕ)) (steps : List (ℕ × ℕ × ℕ)) (target : List ℕ) :
     Bool :=

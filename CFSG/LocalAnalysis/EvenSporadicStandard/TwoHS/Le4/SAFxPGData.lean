@@ -313,8 +313,6 @@ theorem pgR0_so : IsSO5 pgR0 := by decide
 set_option maxRecDepth 100000 in
 theorem pgSf0_so : IsSO5 pgSf0 := by decide
 
-set_option maxRecDepth 100000 in
-theorem pg_r_so : ∀ k : ZMod 4, IsSO5 (pgR0 ^ k.val) := by decide
 
 set_option maxRecDepth 100000 in
 theorem pg_sr_so : ∀ k : ZMod 4, IsSO5 (pgSf0 * pgR0 ^ k.val) := by decide

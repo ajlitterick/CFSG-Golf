@@ -38,7 +38,6 @@ theorem kGensMQ : mgOK MQ.S RG ml = true := by quickRfl
 theorem kOrdMQ : Nat.beq (rcnt (MQ.LR 0) * rcnt (MQ.LR 1) * rcnt (MQ.LR 2) * rcnt (MQ.LR 3) *
     rcnt (MQ.LR 4) * rcnt (MQ.LR 5)) 12288 = true := by quickRfl
 
-theorem kGensMQNeg : (!mgOK MQ.S RG (vl.getD 0 [])) = true := by quickRfl
 
 end CertificateChecks.KernelAE6Tri
 

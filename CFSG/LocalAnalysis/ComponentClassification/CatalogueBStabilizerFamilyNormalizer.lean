@@ -13,8 +13,6 @@ variable {G : Type u} [Group G] {X : Type v}
 @[expose] def imageNormalizer (rho : G →* Equiv.Perm X) : Subgroup (Equiv.Perm X) :=
   Subgroup.normalizer (rho.range : Set (Equiv.Perm X))
 
-theorem range_le_imageNormalizer (rho : G →* Equiv.Perm X) :
-    rho.range ≤ imageNormalizer rho := Subgroup.le_normalizer
 
 theorem pointPerm_mem_imageNormalizer (rho : G →* Equiv.Perm X)
     (hs : Function.Injective (pointStabilizer rho)) (alpha : familyAut rho) :
@@ -81,32 +79,5 @@ theorem normalizerHom_surjective (rho : G →* Equiv.Perm X)
   MulEquiv.ofBijective (normalizerHom rho hs)
     ⟨normalizerHom_injective rho hrho hs, normalizerHom_surjective rho hrho hs⟩
 
-theorem normalizerEquiv_apply (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (alpha : familyAut rho) :
-    (normalizerEquiv rho hrho hs alpha).val = pointPerm rho hs alpha := rfl
-
-theorem normalizerEquiv_symm_apply (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (phi : imageNormalizer rho) :
-    (normalizerEquiv rho hrho hs).symm phi = normalizerAut rho hrho phi := by
-  apply (normalizerEquiv rho hrho hs).injective
-  rw [MulEquiv.apply_symm_apply]
-  apply Subtype.ext
-  exact (pointPerm_normalizerAut rho hrho hs phi).symm
-
-theorem normalizerEquiv_stabilizer (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (alpha : familyAut rho) (x : X) :
-    (pointStabilizer rho x).map alpha.val.toMonoidHom =
-      pointStabilizer rho ((normalizerEquiv rho hrho hs alpha).val x) :=
-  pointPerm_stabilizer rho hs alpha x
-
-theorem normalizerEquiv_covariance (rho : G →* Equiv.Perm X)
-    (hrho : Function.Injective rho) (hs : Function.Injective (pointStabilizer rho))
-    (alpha : familyAut rho) (g : G) :
-    (normalizerEquiv rho hrho hs alpha).val * rho g *
-        (normalizerEquiv rho hrho hs alpha).val⁻¹ = rho (alpha.val g) :=
-  pointPerm_covariance rho hs alpha g
 
 end CFSG.ComponentClassification.CatalogueBStabilizerFamily

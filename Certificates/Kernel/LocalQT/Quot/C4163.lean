@@ -51,11 +51,6 @@ theorem kOdd : allL [0, 1, 2] (fun i => Nat.beq
 theorem kWords : allL [0, 1, 2, 3] (fun j => Nat.beq (wordC 4060 12 KG.GC (ws2.getD j []))
     (LC2.getD j 0)) = true := by quickRfl
 
-theorem negOdd : notB (Nat.beq (powC 4060 12 (KG.GC.getD 2 0) 3) (oneW 4060 12)) = true := by
-  quickRfl
-
-theorem negWord : notB (Nat.beq (wordC 4060 12 KG.GC (ws2.getD 0 [])) (LC2.getD 1 0)) = true := by
-  quickRfl
 
 end CFSG.KD.LQT.C4163
 

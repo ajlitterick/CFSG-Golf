@@ -178,27 +178,6 @@ theorem UnitAct.ggAutomizer_blockSU_ambient_eq_four
         Subgroup.mem_map.mpr ⟨LineU.permSU hM.field σ, hperm, rfl⟩, rfl⟩,
       hN σ, hρ σ⟩
 
-theorem UnitAct.ggAutomizer_blockSU_ambient_eq
-    {K : Type} [Field K] [Finite K] [CharP K 2]
-    {n d p : ℕ} {G : Type} [Group G] [Finite G] {X Bs : Subgroup G}
-    {ψ : ↥(unitarySU 2 n K d) →* X} (hM : UnitTB.Model ψ)
-    (hK : Nat.card K = (2 ^ n) ^ 2) (hp : p.Prime) (hp2 : p ≠ 2)
-    (hpq : p ∣ 2 ^ n + 1) (hd : 5 ≤ d)
-    (hBsN : Bs ≤ Subgroup.normalizer (X : Set G))
-    (hBs : IsElemAbelian p Bs)
-    (hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ p = 1 → g ∈ Bs)
-    (hdiag : ∀ a ∈ (ggGamma X hBsN).range, ∃ t : Fin d → K, LineU.ActsDiagU ψ a t)
-    (hN : ∀ σ : Equiv.Perm (Fin d),
-      ((ψ (LineU.permSU hM.field σ) : X) : G) ∈ Subgroup.normalizer (Bs : Set G))
-    (ρ : Equiv.Perm (Fin d) →* MulAut ↥Bs)
-    (hρ : ∀ σ (b : ↥Bs),
-      ((ρ σ b : ↥Bs) : G) = ((ψ (LineU.permSU hM.field σ) : X) : G) * (b : G) *
-        (((ψ (LineU.permSU hM.field σ) : X) : G))⁻¹)
-    (S : Finset (Fin d)) :
-    ggAutomizer ((blockSU S).map (X.subtype.comp ψ)) Bs =
-      (fixingSubgroup (Equiv.Perm (Fin d)) ((S : Set (Fin d))ᶜ)).map ρ :=
-  UnitAct.ggAutomizer_blockSU_ambient_eq_four hM hK hp hp2 hpq (by omega) hBsN hBs hSC hdiag hN
-    ρ hρ S
 
 end CFSG.StandardType
 

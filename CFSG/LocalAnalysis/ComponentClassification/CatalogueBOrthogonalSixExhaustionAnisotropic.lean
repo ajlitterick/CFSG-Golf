@@ -55,9 +55,6 @@ theorem six_barXH_XH (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0)
     rw [Matrix.smul_mul, six_barXH_XH delta h2, smul_smul]
     simp [inv_mul_cancel₀ hX]
 
-theorem sixAnisotropicGL_val (delta : K) [Fact (¬ IsSquare delta)]
-    (h2 : (2 : K) ≠ 0) (X : sixSubmodule delta) (hX : sixForm delta X ≠ 0) :
-    (sixAnisotropicGL delta h2 X hX).val = X.val * sixGram (extension delta) := rfl
 
 theorem six_XH_hermitian (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0)
     (X : sixSubmodule delta) :

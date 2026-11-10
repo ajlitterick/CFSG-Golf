@@ -44,8 +44,6 @@ theorem bucket_ok : ∀ a < 4096, bucketOK a = true := by
   have := (bucketsOK_iff _ _).1 (h (a / 512) (by omega)) (a % 512) (Nat.mod_lt _ (by norm_num))
   rwa [Nat.div_add_mod] at this
 
-theorem memK_iff {x : ℕ} (hx : x < 2 ^ 24) : memK x = true ↔ vecX x ∈ shortSet :=
-  memK_iff_of_checks bucket_ok count_ok hx
 
 theorem memK_eq_isShortX {x : ℕ} (hx : x < 2 ^ 24) :
     memK x = isShortX x :=

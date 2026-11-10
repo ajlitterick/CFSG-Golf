@@ -228,20 +228,5 @@ theorem exists_mem_dGrp24_of_gt [IsSimpleGroup G] {K K' : Subgroup G} {S : Sylow
 
 end T7E
 
-variable (p f : ℕ) [Fact p.Prime]
-
-theorem c24_7_of_c24_9 (h9 : C24_9 p f) : C24_7 p f := by
-  intro G _ _ _ Ω K K' W S R R' z u hyp g hg heq
-  obtain ⟨y, hyD, hy4⟩ := T7E.exists_mem_dGrp24_of_gt hyp hg (h9 G Ω K K' W S R R' z u hyp)
-  have hyz : y ∈ Subgroup.zpowers z := heq ▸ hyD
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hyz
-  have hz : IsUniqueInvolution K z := hyp.std.setting.hz
-  have hz2 : z ^ (2 : ℤ) = 1 := by rw [zpow_two]; exact hz.sq
-  have hyy : y ^ 2 = 1 := by
-    calc y ^ 2 = (z ^ k) ^ 2 := by rw [hk]
-      _ = z ^ (k * 2) := by rw [← zpow_natCast, ← zpow_mul]; rfl
-      _ = 1 := by rw [mul_comm, zpow_mul, hz2, one_zpow]
-  have := Nat.le_of_dvd (by norm_num) (orderOf_dvd_of_pow_eq_one hyy)
-  omega
 
 end CFSG.ClassicalInvolution.Asc77

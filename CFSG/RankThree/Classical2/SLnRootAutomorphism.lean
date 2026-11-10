@@ -138,12 +138,6 @@ theorem diagHom_mul_one_add_single_mul (d : Fin n → Kˣ) (hij : i ≠ j) (s : 
       rfl
     · simp
 
-theorem conj_diagHom_transvection (d : Fin n → Kˣ) (hij : i ≠ j) (t : K) :
-    conjSLn (diagHom n d) (SpecialLinearGroup.transvection hij t) =
-      SpecialLinearGroup.transvection hij ((d i : K) * t * ((d j)⁻¹ : Kˣ)) := by
-  apply Subtype.ext
-  rw [coe_conjSLn]
-  exact diagHom_mul_one_add_single_mul d hij t
 
 theorem weyl_mul_transvection (hij : i ≠ j) :
     SpecialLinearGroup.transvection hij (1 : K) * SpecialLinearGroup.transvection hij.symm (-1) *

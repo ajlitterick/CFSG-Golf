@@ -31,7 +31,6 @@ theorem commutator_sup_eq_bot_of_components {H : Type*} [Group H] [Finite H] {C 
   rw [commutator_eq_bot_iff_le_centralizer] at h3 h4 ⊢
   exact sup_le h3 h4
 
-variable {X : Type} [Group X] [Finite X] {h : Hyp52 X} {y : X}
 
 end Seven
 

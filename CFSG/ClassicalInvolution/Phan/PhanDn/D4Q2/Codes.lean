@@ -56,17 +56,6 @@ private lemma d4c_omega_add_one_ne_zero (hω : ω * ω = ω + 1) : ω + 1 ≠ 0 
       _ = 1 := zero_add 1
   exact d4c_omega_ne_one hω h1
 
-omit [CharP K 2] in
-private lemma d4c_omega_add_one_ne_one (hω : ω * ω = ω + 1) : ω + 1 ≠ 1 := by
-  intro h
-  have h1 : ω + 1 = 0 + 1 := by rw [h, zero_add]
-  exact d4c_omega_ne_zero hω (add_right_cancel h1)
-
-omit [CharP K 2] in
-private lemma d4c_omega_ne_add_one : ω ≠ ω + 1 := by
-  intro h
-  have h1 : ω + 0 = ω + 1 := by rw [add_zero]; exact h
-  exact one_ne_zero (add_left_cancel h1).symm
 
 private lemma d4c_three_eq_one : (3 : K) = 1 := by
   rw [show (3 : K) = Nat.cast 3 from rfl, CharTwo.natCast_eq_mod]

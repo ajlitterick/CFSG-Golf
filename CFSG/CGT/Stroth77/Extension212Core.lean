@@ -72,13 +72,6 @@ theorem tw_add (x y z x' y' z' : ℤ) :
 theorem zsmul_tw (n x y z : ℤ) : n • tw K x y z = tw K (n * x) (n * y) (n * z) := by
   simp only [tw, smul_add, smul_smul]
 
-theorem neg_tw (x y z : ℤ) : -tw K x y z = tw K (-x) (-y) (-z) := by
-  simp only [tw, neg_add, neg_zsmul]
-
-theorem tw_sub (x y z x' y' z' : ℤ) :
-    tw K x y z - tw K x' y' z' = tw K (x - x') (y - y') (z - z') := by
-  rw [sub_eq_add_neg, neg_tw, tw_add]
-  ring_nf
 
 theorem two_zsmul_tw (hK : ∀ j, 1 ≤ K j) (x y z : ℤ) : (2 : ℤ) • tw K x y z = 0 := by
   simp only [tw, smul_add, smul_comm (2 : ℤ) x, smul_comm (2 : ℤ) y, smul_comm (2 : ℤ) z,
@@ -93,20 +86,6 @@ theorem exists_tw (hK : ∀ j, 1 ≤ K j) {w : Torus K} (hw : (2 : ℤ) • w = 
   funext i
   fin_cases i <;> rfl
 
-theorem tw_mul_odd (hK : ∀ j, 1 ≤ K j) {n : ℤ} (hn : Odd n) (x y z : ℤ) :
-    tw K (n * x) (n * y) (n * z) = tw K x y z := by
-  obtain ⟨w, rfl⟩ := hn
-  exact tw_congr hK ⟨-(w * x), by ring⟩ ⟨-(w * y), by ring⟩ ⟨-(w * z), by ring⟩
-
-theorem tw_mul_even (hK : ∀ j, 1 ≤ K j) {n : ℤ} (hn : Even n) (x y z : ℤ) :
-    tw K (n * x) (n * y) (n * z) = 0 := by
-  obtain ⟨w, rfl⟩ := hn
-  rw [← tw_zero]
-  exact tw_congr hK ⟨-(w * x), by ring⟩ ⟨-(w * y), by ring⟩ ⟨-(w * z), by ring⟩
-
-theorem eq_tw_of_two_zsmul (hK : ∀ j, 1 ≤ K j) {w : Torus K} (hw : (2 : ℤ) • w = 0) :
-    ∃ x y z : ℤ, w = tw K x y z :=
-  exists_tw hK hw
 
 end TwoTorsion
 
@@ -133,8 +112,6 @@ theorem kill_comp2_dev (h : IsSmallDev δ) (h' : IsSmallDev δ') (f g : A →+ A
     δ (f (g (δ' x))) = 0 :=
   h.kill _ (by rw [← map_zsmul, ← map_zsmul, h'.two_zsmul, map_zero, map_zero])
 
-theorem two_zsmul_comp (h : IsSmallDev δ) (f : A →+ A) (x : A) : (2 : ℤ) • f (δ x) = 0 := by
-  rw [← map_zsmul, h.two_zsmul, map_zero]
 
 end IsSmallDev
 
@@ -160,9 +137,6 @@ theorem expand2 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (x : A) :
   simp only [AddMonoidHom.add_apply, map_add, h₁.kill_dev h₂, add_zero]
   abel
 
-theorem two_zsmul_expand2 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (x : A) :
-    (2 : ℤ) • (a₁ (d₂ x) + d₁ (a₂ x)) = 0 := by
-  rw [smul_add, h₂.two_zsmul_comp, h₁.two_zsmul, add_zero]
 
 theorem expand3 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (h₃ : IsSmallDev d₃) (x : A) :
     (a₁ + d₁) ((a₂ + d₂) ((a₃ + d₃) x)) =
@@ -171,10 +145,6 @@ theorem expand3 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (h₃ : IsSmal
     h₁.kill_dev h₂, map_zero, add_zero]
   abel
 
-theorem two_zsmul_expand3 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (h₃ : IsSmallDev d₃)
-    (x : A) : (2 : ℤ) • (a₁ (a₂ (d₃ x)) + a₁ (d₂ (a₃ x)) + d₁ (a₂ (a₃ x))) = 0 := by
-  rw [smul_add, smul_add, ← map_zsmul a₁, ← map_zsmul a₂, h₃.two_zsmul, map_zero, map_zero,
-    h₂.two_zsmul_comp, h₁.two_zsmul, add_zero, add_zero]
 
 theorem expand4 (h₁ : IsSmallDev d₁) (h₂ : IsSmallDev d₂) (h₃ : IsSmallDev d₃)
     (h₄ : IsSmallDev d₄) (x : A) :
@@ -265,11 +235,6 @@ theorem basisChange_basisChange {ε : A →+ A} (hε : IsSmallDev ε) (x : A) :
   right_inv := basisChange_basisChange hε
   map_add' := map_add _
 
-theorem basisChangeEquiv_apply {ε : A →+ A} (hε : IsSmallDev ε) (x : A) :
-    basisChangeEquiv hε x = x + ε x := rfl
-
-theorem basisChangeEquiv_symm_apply {ε : A →+ A} (hε : IsSmallDev ε) (x : A) :
-    (basisChangeEquiv hε).symm x = x + ε x := rfl
 
 theorem basisChange_conj {ε δ : A →+ A} (hε : IsSmallDev ε) (hδ : IsSmallDev δ) (a : A →+ A)
     (x : A) :
@@ -278,15 +243,6 @@ theorem basisChange_conj {ε δ : A →+ A} (hε : IsSmallDev ε) (hδ : IsSmall
     hε.kill_comp_dev hε, hε.kill_dev hδ, add_zero]
   abel
 
-theorem IsSmallDev.basisChange_dev {ε δ : A →+ A} (hε : IsSmallDev ε) (hδ : IsSmallDev δ)
-    (a : A →+ A) : IsSmallDev (δ + ε.comp a + a.comp ε) where
-  two_zsmul x := by
-    simp only [AddMonoidHom.add_apply, AddMonoidHom.comp_apply, smul_add, hδ.two_zsmul,
-      hε.two_zsmul, hε.two_zsmul_comp, add_zero]
-  kill x hx := by
-    simp only [AddMonoidHom.add_apply, AddMonoidHom.comp_apply, hδ.kill x hx, hε.kill x hx,
-      map_zero, add_zero, zero_add]
-    exact hε.kill _ (by rw [← map_zsmul, hx, map_zero])
 
 end SmallDev
 
@@ -401,15 +357,6 @@ theorem isSmallDev_eps2 (hK : ∀ j, 1 ≤ K j) (hK0 : 2 ≤ K 0) (p₀ p₁ p�
     (map_invGen_eq_zero_of_gen (eps2_gen1 hK _ _ _))
     (map_invGen_eq_zero_of_gen (eps2_gen2 hK _ _ _))
 
-theorem dev_zsmul_gens_idx4 {δ : Torus K →+ Torus K} (h0 : δ (gen K 0) = 0) (x y z : ℤ) :
-    δ (x • gen K 0 + y • gen K 1 + z • gen K 2) = y • δ (gen K 1) + z • δ (gen K 2) := by
-  rw [map_add, map_add, map_zsmul, map_zsmul, map_zsmul, h0, smul_zero, zero_add]
-
-theorem dev_zsmul_gens_idx2 {δ : Torus K →+ Torus K} (h1 : δ (gen K 1) = 0)
-    (h2 : δ (gen K 2) = 0) (x y z : ℤ) :
-    δ (x • gen K 0 + y • gen K 1 + z • gen K 2) = x • δ (gen K 0) := by
-  rw [map_add, map_add, map_zsmul, map_zsmul, map_zsmul, h1, h2, smul_zero, smul_zero, add_zero,
-    add_zero]
 
 end TorusDev
 

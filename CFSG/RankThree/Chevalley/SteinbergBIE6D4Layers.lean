@@ -249,11 +249,6 @@ theorem commute_classes_of_outer {e : ℕ} {F : Finset Ω} (hFc : F.card = 7)
 
 end Small
 
-theorem natCast_d4Idx_val (k : Fin Tag.D4.rank) : d4Idx k = ⟨(k : ℕ) + 1, by
-    have h := k.2
-    change (k : ℕ) < 4 at h
-    change (k : ℕ) + 1 < 6
-    omega⟩ := rfl
 
 theorem e6Commutant_d4Layer [IsAlgClosed Ω] {ℓ d : ℕ} (hℓ : ℓ.Prime) (hd : 1 ≤ d) [CharP Ω ℓ]
     {Fr : Ω →+* Ω} (hFr : ∀ c, Fr c = c ^ (ℓ ^ d)) {e : ℕ} (he : e = 1 ∨ e = 2) :

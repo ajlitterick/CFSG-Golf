@@ -31,15 +31,6 @@ theorem ggSixRootFusionWitnessInputFor_otherClassical_of_rest (h : GGSixRootFusi
   exact ggSixRootFusionWitnessInputFor_otherClassical_of_on
     (ggSixRootFusionWitnessOn_PSp_of_rest hpl hrest) hPlus hMinus
 
-theorem ggSixRootFusionWitClRest_parts_of_input
-    (h : GGSixRootFusionWitnessInputFor GGOtherClassicalTag) :
-    GGSixRootFusionWitnessOn (fun t _ f p => t = .PSp ∧ ¬ p ∣ 2 ^ f - 1 ∧ ¬ p ∣ 2 ^ f + 1) ∧
-      GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaPlus) ∧
-      GGSixRootFusionWitnessOn (fun t _ _ _ => t = .POmegaMinus) := by
-  have h' := h.on
-  exact ⟨h'.mono fun t _ _ _ ht => Or.inl ht.1,
-    h'.mono fun t _ _ _ ht => Or.inr (Or.inr (Or.inl ht)),
-    h'.mono fun t _ _ _ ht => Or.inr (Or.inr (Or.inr ht))⟩
 
 end Inputs
 

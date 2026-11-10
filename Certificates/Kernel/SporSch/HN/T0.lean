@@ -168,9 +168,6 @@ theorem prod_letR : ∀ w : List ℤ, (∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 10)
       letR_lJ (hw l List.mem_cons_self),
       prod_letR w fun z hz => hw z (List.mem_cons_of_mem l hz)]
 
-theorem t0_codes : t0Words.map (List.map gcode) =
-    [[20, 3, 9, 9, 7, 20], [18, 20, 4], [20, 4, 9, 9, 6, 20], [5]] := by
-  decide +kernel
 
 theorem t0_letters : ∀ w ∈ t0Words, ∀ l ∈ w, l ≠ 0 ∧ l.natAbs ≤ 10 := by
   decide +kernel

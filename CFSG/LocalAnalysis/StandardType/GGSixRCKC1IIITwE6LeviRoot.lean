@@ -190,13 +190,6 @@ theorem relRoot0121_mem_roots {K : Type} [Field K] (θ : K →+* K) :
   rw [twistedDatum_roots]
   exact (mem_rootFinset (τ := Tag.F4) (v := CFSG.SeitzReduction.TwistedE6Pilot.relRoot0121)).1 (by decide +kernel)
 
-theorem relRoot0121_two_smul_not_mem_roots {K : Type} [Field K] (θ : K →+* K) :
-    (2 : ℕ) • relRoot0121 ∉ (twistedDatum K θ).roots := by
-  rw [twistedDatum_roots]
-  intro h
-  exact (by decide +kernel :
-    (2 : ℕ) • CFSG.SeitzReduction.TwistedE6Pilot.relRoot0121 ∉
-      rootFinset Tag.F4) ((mem_rootFinset (τ := Tag.F4) (v := (2 : ℕ) • CFSG.SeitzReduction.TwistedE6Pilot.relRoot0121)).2 h)
 
 end RootMembership
 

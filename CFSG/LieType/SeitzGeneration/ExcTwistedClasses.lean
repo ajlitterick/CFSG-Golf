@@ -85,12 +85,5 @@ theorem seitzExcAnisotropicTwistedE6_of_classes (h3 : SeitzExcAnisotropicTwisted
 
 end Assembly
 
-theorem seitzExcAnisotropicTwistedE6Class_of_twistedE6 (h : SeitzExcAnisotropicTwistedE6)
-    (e : ℕ) : SeitzExcAnisotropicTwistedE6Class e :=
-  SeitzExcAnisotropicFor.toAt h _
-
-theorem seitzExcAnisotropicTwistedE6Three_of_twistedE6 (h : SeitzExcAnisotropicTwistedE6) :
-    SeitzExcAnisotropicTwistedE6Three :=
-  SeitzExcAnisotropicFor.toAt h _
 
 end CFSG.LieType.SeitzGeneration

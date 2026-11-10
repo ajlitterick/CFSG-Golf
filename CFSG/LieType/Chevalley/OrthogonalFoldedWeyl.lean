@@ -719,9 +719,6 @@ variable
     {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k p₀] [IsAlgClosed k]
   (D : OrthogonalSemilinearFixedRootDatum τ p₀ k)
 
-@[expose] def posOrbits :
-    Set (Set (Fin τ.rank → ℤ)) :=
-  {P | ∃ α ∈ D.posRootsJ, P = thetaOrbit D.θ α}
 
 theorem nonempty_of_mem_orbits
     {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) : O.Nonempty := by
@@ -812,41 +809,12 @@ theorem fixedWeyl_eq_closure
     rintro _ ⟨O, hO, rfl⟩
     exact D.setReflection_mem_fixedWeyl hO))
 
-theorem eq_one_of_forall_image_thetaOrbit
-    {w : WeylGroup τ} (hw : w ∈ D.fixedWeyl)
-    (h : ∀ α ∈ D.roots, (fun γ => w • γ) '' thetaOrbit D.θ α = thetaOrbit D.θ α) : w = 1 := by
-  by_contra hne
-  obtain ⟨O, hO, hneg⟩ := D.exists_orbits_image_subset_negRoots hw hne
-  obtain ⟨β, hβ⟩ := D.nonempty_of_mem_orbits hO
-  have h1 : w • β ∈ thetaOrbit D.θ β := by
-    rw [← h β (D.mem_roots_of_mem_orbits hO hβ)]
-    exact ⟨β, self_mem_thetaOrbit _ _, rfl⟩
-  exact not_mem_negRoots_of_mem_posRoots_unionRoots
-    (D.thetaOrbit_subset_posRootsJ (D.mem_posRootsJ_of_mem_orbits hO hβ) h1) (hneg ⟨β, hβ, rfl⟩)
 
 theorem image_setReflection_self
     {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
     (fun γ => setReflection O • γ) '' O = (fun γ => -γ) '' O :=
   Set.image_congr fun _ hβ => D.setReflection_smul_of_mem hO hβ
 
-theorem bijOn_image_setReflection
-    {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) :
-    Set.BijOn (fun P => (fun γ => setReflection O • γ) '' P) (D.posOrbits \ {O})
-      (D.posOrbits \ {O}) := by
-  have hrO := D.setReflection_mem_fixedWeyl hO
-  have hmaps : Set.MapsTo (fun P => (fun γ => setReflection O • γ) '' P) (D.posOrbits \ {O})
-      (D.posOrbits \ {O}) := by
-    rintro P ⟨⟨α, hα, rfl⟩, hPO⟩
-    have hαO : α ∉ O := fun h =>
-      hPO (Set.mem_singleton_iff.2 (D.eq_thetaOrbit_of_mem_orbits hO h).symm)
-    obtain ⟨h1, h2⟩ := D.setReflection_smul_mem_posRootsJ hO hα hαO
-    refine ⟨⟨_, h1, D.image_smul_thetaOrbit hrO hα.1⟩, fun h => h2 ?_⟩
-    have h' : (fun γ => setReflection O • γ) '' thetaOrbit D.θ α = O := h
-    have h3 : setReflection O • α ∈ (fun γ => setReflection O • γ) '' thetaOrbit D.θ α :=
-      ⟨α, self_mem_thetaOrbit _ _, rfl⟩
-    rwa [h'] at h3
-  refine Set.InvOn.bijOn ⟨fun P _ => ?_, fun P _ => ?_⟩ hmaps hmaps <;>
-    simp only [Set.image_image, smul_smul, D.setReflection_mul_self hO, one_smul, Set.image_id']
 
 end OrthogonalSemilinearFixedRootDatum
 
@@ -879,11 +847,6 @@ theorem orbitWordProd_prefix_succ
   rw [List.take_succ_eq_append_getElem hj, orbitWordProd_append]
   simp [orbitWordProd]
 
-theorem list_reverse_eraseIdx_reverse {α : Type*} (l : List α) {j : ℕ} (hj : j < l.length) :
-    (l.reverse.eraseIdx j).reverse = l.eraseIdx (l.length - 1 - j) := by
-  rw [List.eraseIdx_eq_take_drop_succ, List.eraseIdx_eq_take_drop_succ, List.reverse_append,
-    List.take_reverse, List.drop_reverse, List.reverse_reverse, List.reverse_reverse]
-  congr 2 <;> omega
 
 end OrbitWords
 
@@ -1134,21 +1097,6 @@ theorem foldedLength_mul_setReflection
   rw [e]
   exact h
 
-theorem exists_eraseIdx_mul_setReflection
-    {l : List (Set (Fin τ.rank → ℤ))}
-    (hl : D.IsOrbitWord l) {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits)
-    {β : Fin τ.rank → ℤ} (hβ : β ∈ O) (hneg : orbitWordProd l • β ∈ negRoots D.roots) :
-    ∃ j < l.length, orbitWordProd l * setReflection O = orbitWordProd (l.eraseIdx j) := by
-  have hl' := hl.reverse
-  have hneg' : (orbitWordProd l.reverse)⁻¹ • β ∈ negRoots D.roots := by
-    rw [← D.orbitWordProd_inv hl, inv_inv]
-    exact hneg
-  obtain ⟨j, hj, e⟩ := D.exists_eraseIdx_of_smul_mem_negRoots hl' hO hβ hneg'
-  rw [List.length_reverse] at hj
-  have e2 : orbitWordProd l * setReflection O = orbitWordProd (l.reverse.eraseIdx j).reverse := by
-    rw [← D.orbitWordProd_inv (hl'.sublist (List.eraseIdx_sublist _ _)), ← e, mul_inv_rev,
-      D.setReflection_inv hO, D.orbitWordProd_inv hl', List.reverse_reverse]
-  exact ⟨l.length - 1 - j, by omega, by rw [e2, list_reverse_eraseIdx_reverse l hj]⟩
 
 end OrthogonalSemilinearFixedRootDatum
 
@@ -1332,55 +1280,5 @@ theorem foldedLength_braid
 
 end OrthogonalSemilinearFixedRootDatum
 
-theorem orthogonal_folded_Weyl_descent
-    {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k]
-    [CharP k p₀] [IsAlgClosed k] (D : OrthogonalSemilinearFixedRootDatum τ p₀ k) :
-    D.fixedWeyl = Subgroup.closure (setReflection '' D.orbits) ∧
-    (∀ w ∈ D.fixedWeyl, ∀ α ∈ D.roots, w • α ∈ D.roots ∧
-      (fun γ => w • γ) '' thetaOrbit D.θ α = thetaOrbit D.θ (w • α)) ∧
-    (∀ w ∈ D.fixedWeyl,
-      (∀ α ∈ D.roots, (fun γ => w • γ) '' thetaOrbit D.θ α = thetaOrbit D.θ α) → w = 1) ∧
-    (∀ O ∈ D.orbits, (fun γ => setReflection O • γ) '' O = (fun γ => -γ) '' O ∧
-      Set.BijOn (fun P => (fun γ => setReflection O • γ) '' P) (D.posOrbits \ {O})
-        (D.posOrbits \ {O})) ∧
-    (∀ w ∈ D.fixedWeyl, ∀ O ∈ D.orbits,
-      (D.foldedLength (setReflection O * w) = D.foldedLength w - 1 ↔
-        (fun γ => w⁻¹ • γ) '' O ⊆ negRoots D.roots) ∧
-      (¬(fun γ => w⁻¹ • γ) '' O ⊆ negRoots D.roots →
-        D.foldedLength (setReflection O * w) = D.foldedLength w + 1)) ∧
-    (∀ w ∈ D.fixedWeyl, ∀ O ∈ D.orbits,
-      (D.foldedLength (w * setReflection O) = D.foldedLength w - 1 ↔
-        (fun γ => w • γ) '' O ⊆ negRoots D.roots) ∧
-      (¬(fun γ => w • γ) '' O ⊆ negRoots D.roots →
-        D.foldedLength (w * setReflection O) = D.foldedLength w + 1)) ∧
-    (∀ w ∈ D.fixedWeyl, ∀ O ∈ D.orbits, (fun γ => w⁻¹ • γ) '' O ⊆ negRoots D.roots →
-      ∀ l, D.IsOrbitWord l → l.length = D.foldedLength w → orbitWordProd l = w →
-        ∃ j < l.length, setReflection O * w = orbitWordProd (l.eraseIdx j)) ∧
-    (∀ w ∈ D.fixedWeyl, ∀ O ∈ D.orbits, (fun γ => w • γ) '' O ⊆ negRoots D.roots →
-      ∀ l, D.IsOrbitWord l → l.length = D.foldedLength w → orbitWordProd l = w →
-        ∃ j < l.length, w * setReflection O = orbitWordProd (l.eraseIdx j)) ∧
-    (∀ w ∈ D.fixedWeyl, w ≠ 1 → ∃ O ∈ D.orbits, (fun γ => w • γ) '' O ⊆ negRoots D.roots) ∧
-    (∃ w₀ ∈ D.fixedWeyl, (fun α => w₀ • α) '' D.posRootsJ = negRoots D.roots) ∧
-    (∀ O ∈ D.orbits, ∀ P ∈ D.orbits, Relation.ReflTransGen (fun O P => O ∈ D.orbits ∧
-      P ∈ D.orbits ∧ O ≠ P ∧ ∃ β ∈ O, ∃ γ ∈ P, iform β γ ≠ 0) O P) ∧
-    (∀ O ∈ D.orbits, ∀ P ∈ D.orbits, O ≠ P → (∃ β ∈ O, ∃ γ ∈ P, iform β γ ≠ 0) →
-      D.foldedLength (setReflection P * setReflection O * setReflection P) = 3) := by
-  refine ⟨D.fixedWeyl_eq_closure,
-    fun w hw α hα => ⟨smul_mem_unionRoots (D.mem_unionWeylGroup_of_mem_fixedWeyl hw) hα,
-      D.image_smul_thetaOrbit hw hα⟩,
-    fun w hw h => D.eq_one_of_forall_image_thetaOrbit hw h,
-    fun O hO => ⟨D.image_setReflection_self hO, D.bijOn_image_setReflection hO⟩,
-    fun w hw O hO => D.foldedLength_setReflection_mul hO hw,
-    fun w hw O hO => D.foldedLength_mul_setReflection hO hw,
-    fun w _ O hO hneg l hl _ e => ?_, fun w _ O hO hneg l hl _ e => ?_,
-    fun w hw hne => D.exists_orbits_image_subset_negRoots hw hne, D.exists_longest,
-    fun O hO P hP => D.orbits_connected hO hP,
-    fun O hO P hP hne hadj => D.foldedLength_braid hO hP hne hadj⟩
-  · obtain ⟨β, hβ⟩ := D.nonempty_of_mem_orbits hO
-    subst e
-    exact D.exists_eraseIdx_of_smul_mem_negRoots hl hO hβ (hneg ⟨β, hβ, rfl⟩)
-  · obtain ⟨β, hβ⟩ := D.nonempty_of_mem_orbits hO
-    subst e
-    exact D.exists_eraseIdx_mul_setReflection hl hO hβ (hneg ⟨β, hβ, rfl⟩)
 
 end CFSG.LieType.Chevalley

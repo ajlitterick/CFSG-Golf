@@ -26,7 +26,6 @@ theorem act_add (σ : Equiv.Perm (Fin 6)) (u v : Vec5) : act σ (u + v) = act σ
   right_inv v := by rw [← act_mul, mul_inv_cancel, act_one]
   map_add' := act_add σ
 
-theorem actAdd_apply (σ : Equiv.Perm (Fin 6)) (v : Vec5) : actAdd σ v = act σ v := rfl
 
 theorem fix_ab : ∀ v : Vec5, act A6Coc.aP v = v → act A6Coc.bP v = v → v = 0 := by
   decide +kernel
@@ -78,9 +77,6 @@ theorem j45_add (u v : Vec4) : j45 (u + v) = j45 u + j45 v := by
   rw [j45, sec_add, P5.crd_add]
   rfl
 
-theorem j45_zero : j45 0 = 0 := by
-  rw [j45, sec_zero]
-  exact Matrix.mulVec_zero _
 
 theorem j45_sub (u v : Vec4) : j45 (u - v) = j45 u - j45 v := by
   have h := j45_add (u - v) v

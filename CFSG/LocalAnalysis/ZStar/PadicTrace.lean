@@ -99,31 +99,6 @@ theorem trace_eq_zero_of_mul_add_mul_eq
       _ = 0 := ZMod.natCast_self (2 ^ n)
   rw [hpow, zero_mul]
 
-theorem trace_symmetricBlock_mul_swap_eq_zero
-    (P Q : Matrix ι ι ℤ_[2])
-    (hidem :
-      Matrix.fromBlocks P Q Q P * Matrix.fromBlocks P Q Q P =
-        Matrix.fromBlocks P Q Q P) :
-    Matrix.trace
-      (Matrix.fromBlocks P Q Q P *
-        Matrix.fromBlocks (0 : Matrix ι ι ℤ_[2]) 1 1 0) = 0 := by
-  have hidem' := hidem
-  rw [Matrix.fromBlocks_multiply] at hidem'
-  have hoff : P * Q + Q * P = Q := by
-    refine Matrix.ext fun i j => ?_
-    have h := congrArg
-      (fun M : Matrix (ι ⊕ ι) (ι ⊕ ι) ℤ_[2] => M (Sum.inl i) (Sum.inr j))
-      hidem'
-    simpa using h
-  have htraceQ : Matrix.trace Q = 0 :=
-    trace_eq_zero_of_mul_add_mul_eq P Q hoff
-  rw [Matrix.fromBlocks_multiply]
-  simp only [mul_zero, mul_one, zero_add, add_zero]
-  change (∑ i : ι ⊕ ι, Matrix.fromBlocks Q P P Q i i) = 0
-  rw [Fintype.sum_sum_type]
-  simp only [Matrix.fromBlocks_apply₁₁, Matrix.fromBlocks_apply₂₂]
-  change Matrix.trace Q + Matrix.trace Q = 0
-  rw [htraceQ, zero_add]
 
 end ZStar.PadicTrace
 

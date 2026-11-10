@@ -253,14 +253,6 @@ theorem c21_YSigma_of_sections (h3s : ∀ n, CITBelowU p f n → T3.Thm3SectBelo
   have hcn : c ∈ sigmaStarNorm Ω J₀ := T7A.mem_sigmaStarNorm_of_conj hΩ.conjInvariant hJ₀Ω hJJ
   rwa [sigmaStarNorm_congr (T7A.dstarComp_eq_of_mem hK hJ₀d)] at hcn
 
-variable (p f) in
-theorem c21_2_final_sections (hE : ThmEWithSylow p f) (hHz : TwinFrameHyp51z p f)
-    (hHt : TwinFrameHyp51t p f) (hHu : TwinFrameHyp51u p f) (hMF : DStarConnectedTwin p f)
-    (h3s : ∀ n, CITBelowU p f n → T3.Thm3SectBelow p f n) (h13N : C21_13_N p f)
-    (h14N : C21_14_N p f) (h14a : C21_14_alt p f) (h15 : C21_15 p f)
-    (hWyl : C21_WylTrans' p f) : C21_2 p f :=
-  c21_2_final_proved p f hE hHz hHt hHu hMF h3s h13N h14N h14a h15 hWyl
-    (c21_YSigma_of_sections p f h3s)
 
 end Main
 

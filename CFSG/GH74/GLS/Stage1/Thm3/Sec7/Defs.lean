@@ -152,9 +152,5 @@ structure Dat410 {Gs : Type} [Group Gs] (q : ℕ) (z' : Gs) (S' : Subgroup Gs) (
       (∀ s : ↥X, (s : G) = t → (ψ (QuotientGroup.mk s) : Gs) = t') ∧
       (∀ s : ↥X, (s : G) = w → (ψ (QuotientGroup.mk s) : Gs) = w')
 
-@[expose] def NormIso7 {X : Type} [Group X] (A : Subgroup X) (Y : Type) [Group Y] : Prop :=
-  ∃ _ : ((centralizer (A : Set X)).subgroupOf (normalizer (A : Set X))).Normal,
-    Nonempty ((↥(normalizer (A : Set X)) ⧸
-      (centralizer (A : Set X)).subgroupOf (normalizer (A : Set X))) ≃* Y)
 
 end CFSG.GH74.GLS.Stage1.Thm3.Sec7

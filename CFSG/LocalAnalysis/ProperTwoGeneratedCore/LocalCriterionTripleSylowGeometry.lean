@@ -70,13 +70,6 @@ theorem triple_stabilizer_normalized_by_distinguished {H : Subgroup G} {z : G}
       _ = x := by rw [hzz, one_mul, mul_one]
   simpa only [hinvol] using hconj _ hx
 
-theorem triple_stabilizer_right_conjugate_eq {H : Subgroup G} {z : G}
-    (h : InvolutionPointLocalEmbedding H z) (beta : rightCosetSpace H) :
-    rightConjugate (triplePointStabilizer H z beta) z =
-      triplePointStabilizer H z beta := by
-  have hzN := (Subgroup.normalizer (triplePointStabilizer H z beta : Set G)).inv_mem
-    (triple_stabilizer_normalized_by_distinguished h beta)
-  exact Subgroup.mem_normalizer_iff_map_conj_eq.mp hzN
 
 theorem triple_stabilizer_normal_in_generated {H : Subgroup G} {z : G}
     (h : InvolutionPointLocalEmbedding H z) (beta : rightCosetSpace H) :

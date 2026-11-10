@@ -109,12 +109,6 @@ theorem G1_mem_Hz (h1336 : Input1336) : S.G1 ∈ S.Hz := by
     rw [this] at hc
     simp at hc
 
-theorem V3_lt_conjClosure (h1323 : Input1323Two) {H : Subgroup G} (hH : H ∈ S.Hz) :
-    S.V3 < conjClosure S.V3 H := by
-  refine lt_of_le_of_ne (le_conjClosure _ _) fun h => hH.2.2 ?_
-  have hN : H ≤ Subgroup.normalizer (S.V3 : Set G) := by
-    rw [h]; exact le_normalizer_conjClosure _ _
-  exact (hN.trans (h1323 G T L V S)).trans S.NV_le_M
 
 theorem centralizer_V3_inf (H : Subgroup G) :
     (H ⊓ Subgroup.centralizer (S.V3 : Set G)) ⊓ (H ⊓ Subgroup.normalizer (V : Set G)) =

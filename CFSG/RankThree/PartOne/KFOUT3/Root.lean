@@ -34,11 +34,6 @@ theorem rt_apply_self {i j : Fin 3} (h : i ≠ j) (s : K) :
   rw [rt_apply]
   simp [h]
 
-theorem rt_apply_of_ne {i j : Fin 3} (h : i ≠ j) (s : K) {a b : Fin 3} (hab : a ≠ b)
-    (hij : ¬ (i = a ∧ j = b)) :
-    ((rt h s : SL3 K) : Matrix (Fin 3) (Fin 3) K) a b = 0 := by
-  rw [rt_apply]
-  simp [hab, hij]
 
 theorem rt_add {i j : Fin 3} (h : i ≠ j) (s s' : K) : rt h (s + s') = rt h s * rt h s' :=
   Matrix.SpecialLinearGroup.transvection_add h s s'
@@ -49,8 +44,6 @@ theorem rt_zero {i j : Fin 3} (h : i ≠ j) : (rt h (0 : K) : SL3 K) = 1 :=
 theorem rt_mul_self [CharP K 2] {i j : Fin 3} (h : i ≠ j) (s : K) : rt h s * rt h s = 1 := by
   rw [← rt_add, CharTwo.add_self_eq_zero, rt_zero]
 
-theorem rt_inv [CharP K 2] {i j : Fin 3} (h : i ≠ j) (s : K) : (rt h s)⁻¹ = rt h s :=
-  inv_eq_of_mul_eq_one_right (rt_mul_self h s)
 
 theorem commute_rt {i j k l : Fin 3} (hij : i ≠ j) (hkl : k ≠ l) (hjk : j ≠ k) (hli : l ≠ i)
     (s s' : K) : Commute (rt hij s) (rt hkl s') :=

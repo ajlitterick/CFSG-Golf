@@ -303,17 +303,5 @@ theorem _root_.CFSG.Milestones.ctu_kproper_simple_unbalanced_recognition
   exact ComponentClassification.CTUSimple.ctu_kproper_simple_unbalanced_recognition_of_inputs
     CFSG.Milestones.ctu_relativeU_catalog G hnonab hK z hz hunbal
 
-theorem _root_.CFSG.Milestones.ctu_kproper_simple_unbalanced_recognition_models
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (hK : CFSG.Assembly.KProper CFSG.Blueprint.Catalog G)
-    (z : G) (hz : orderOf z = 2)
-    (hunbal : CFSG.oddCore (Subgroup.centralizer ({z} : Set G)) ≠ ⊥) :
-    (CFSG.Blueprint.OddLieType G ∨
-      ∃ n : ℕ, 7 ≤ n ∧ n % 4 = 3 ∧ Nonempty (G ≃* alternatingGroup (Fin n))) ∧
-      CFSG.Blueprint.Catalog G := by
-  exact
-    ComponentClassification.CTUSimple.ctu_kproper_simple_unbalanced_recognition_models_of_inputs
-      CFSG.Milestones.ctu_relativeU_catalog G hnonab hK z hz hunbal
 
 end CFSG.Open

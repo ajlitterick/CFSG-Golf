@@ -69,23 +69,6 @@ theorem matrixDerivedInclusion_injective (Q : QuadraticForm K (Fin d → K)) :
 @[expose] def matrixDerivedPairs (Q : QuadraticForm K (Fin d → K)) :
     Subgroup (similarityPairs Q) := (matrixDerivedInclusion Q).range
 
-theorem mem_matrixDerivedPairs_iff (Q : QuadraticForm K (Fin d → K))
-    (g : similarityPairs Q) :
-    g ∈ matrixDerivedPairs Q ↔ g.val.left ∈ matrixDerived Q ∧ g.val.right = 1 := by
-  constructor
-  · rintro ⟨A, rfl⟩
-    exact ⟨A.property, rfl⟩
-  · rintro ⟨hA, hfield⟩
-    refine ⟨⟨g.val.left, hA⟩, ?_⟩
-    apply Subtype.ext
-    exact SemidirectProduct.ext rfl hfield.symm
-
-theorem matrixDerivedPairs_le_isometryPairs (Q : QuadraticForm K (Fin d → K)) :
-    matrixDerivedPairs Q ≤ matrixIsometryPairs Q := by
-  intro g hg
-  rw [mem_matrixDerivedPairs_iff] at hg
-  exact (mem_matrixIsometryPairs_iff Q g).mpr
-    ⟨matrixDerived_le_isometries Q hg.1, hg.2⟩
 
 theorem matrixIsometryPairs_map (Q : QuadraticForm K (Fin d → K)) :
     (matrixIsometryPairs Q).map (similarityPairs Q).subtype =

@@ -127,34 +127,5 @@ theorem relG_conj (g : GM) :
     ThreeQRel (MulAut.conj g zG) (fun i => MulAut.conj g (xG i)) omegaZ :=
   relG.map (MulAut.conj g).toMonoidHom (MulAut.conj g).injective
 
-theorem isExtraspecial_of_eq {G : Type*} [Group G] {P Q : Subgroup G} (h : P = Q)
-    (hQ : CFSG.IsExtraspecialPGroup 3 Q) : CFSG.IsExtraspecialPGroup 3 P := by
-  subst h; exact hQ
-
-theorem part_one_M (A : Subgroup GM) (hA : IsPGroup 3 A) (hab : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a)
-    (h27 : Nat.card A = 27) :
-    ∃ P : Sylow 3 GM, A ≤ P ∧ (A.subgroupOf P).Normal ∧
-      CFSG.IsExtraspecialPGroup 3 (P : Subgroup GM) ∧ Nat.card (P : Subgroup GM) = 3 ^ 5 ∧
-      Monoid.exponent (P : Subgroup GM) = 3 := by
-  obtain ⟨P, hAP⟩ := hA.exists_le_sylow
-  obtain ⟨g, hg⟩ := sylow_eq_threeQ P
-  have hr := relG_conj g
-  set Q := threeQ (MulAut.conj g zG) (fun i => MulAut.conj g (xG i)) with hQ
-  refine ⟨P, hAP, ?_, ?_, ?_, ?_⟩
-  ·
-    have hAQ : A ≤ Q := hg ▸ hAP
-    set B : Subgroup Q := A.subgroupOf Q with hB
-    have hBab : ∀ a ∈ B, ∀ b ∈ B, a * b = b * a := fun a ha b hb =>
-      Subtype.ext (hab _ ha _ hb)
-    have hB27 : Nat.card B = 27 := by
-      rw [hB, Nat.card_congr (subgroupOfEquivOfLe hAQ).toEquiv, h27]
-    have hZ := hr.center_le_of_abelian B hBab hB27
-    have hcomm : commutator Q ≤ B := by rw [hr.commutator_eq_center]; exact hZ
-    have hnQ : B.Normal := Subgroup.Normal.of_commutator_le (G := Q) hcomm
-    rw [hg]
-    exact hnQ
-  · rw [hg]; exact hr.isExtraspecial
-  · rw [hg, hr.card_threeQ]; norm_num
-  · rw [hg]; exact hr.exponent_threeQ
 
 end CFSG.RankThree.Native.ONTriple

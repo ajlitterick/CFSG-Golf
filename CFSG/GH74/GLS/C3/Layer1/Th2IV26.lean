@@ -129,12 +129,6 @@ theorem isComponent_of_B2 (hB2 : B_B2) (hg : Gen4 X) (hX : IsKGroupNative X)
   have := h2.2
   rwa [hKJ] at this
 
-theorem lBalanceIsKGroup_of_isKGroupNative
-    (hbridge : CFSG.Assembly.CatalogImp CFSG.Blueprint.Catalog CFSG.Assembly.InCatalog)
-    {X : Type} [Group X] [Finite X] (hX : CFSG.GH74.GLS.IsKGroupNative X) :
-    CFSG.Open.lBalanceIsKGroup X :=
-  CFSG.KCore.KGroupNonab.mono_of_finite hbridge
-    (CFSG.KCore.KGroupAllSimple.kGroupNonab hX)
 
 theorem gen4_Mb {G : Type} [Group G] [Finite G] (hg : Gen4 G) (M : Subgroup G) : Gen4 (Mb M) :=
   Gen4.quotient (pPrimeCore 2 ↥M) (Gen4.subgroup M hg)

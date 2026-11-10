@@ -32,8 +32,6 @@ theorem ToralActionPow.mono {k k' : ℕ} (hk : k ∣ k') {ψ : K →* X} {F : Su
   obtain ⟨c, rfl⟩ := hk
   exact ⟨x, hxP, by rw [pow_mul, hxk, one_pow], hxa⟩
 
-theorem toralActionPow_four_iff {ψ : K →* X} {F : Subgroup X} :
-    ToralActionPow 4 ψ F ↔ ToralActionFour ψ F := Iff.rfl
 
 end Statement
 
@@ -52,69 +50,6 @@ theorem StrongLocalTwoBalanceToralPowOn.mono {k : ℕ} {t : StatedLieTag}
     (hQ : ∀ n p e, Q' n p e → Q n p e) :
     StrongLocalTwoBalanceToralPowOn k t Q' := fun n p e hp hq => h n p e hp (hQ n p e hq)
 
-theorem StrongLocalTwoBalanceToralPowOn.mono_order {k k' : ℕ} (hk : k ∣ k') {t : StatedLieTag}
-    {Q : ℕ → ℕ → ℕ → Prop} (h : StrongLocalTwoBalanceToralPowOn k' t Q) :
-    StrongLocalTwoBalanceToralPowOn k t Q :=
-  fun n p e hp hq hfund hadm hp2 h5 X _ _ ψ hker hnorm F hcard hF2 hfaith htoral =>
-    h n p e hp hq hfund hadm hp2 h5 X ψ hker hnorm F hcard hF2 hfaith (htoral.mono hk)
-
-theorem strongLocalTwoBalanceToralPowOn_four_iff {t : StatedLieTag} {Q : ℕ → ℕ → ℕ → Prop} :
-    StrongLocalTwoBalanceToralPowOn 4 t Q ↔ StrongLocalTwoBalanceToralFourOn t Q := Iff.rfl
-
-theorem commute_of_strongLocalTwoBalanceToralPow {k : ℕ} {t : StatedLieTag}
-    {Q : ℕ → ℕ → ℕ → Prop} (hSB : StrongLocalTwoBalanceToralPowOn k t Q) {n p e : ℕ}
-    (hp : p.Prime) (hq : Q n p e) (hfund : IsFundTag t) (hadm : StatedLieAdmissible t n p e)
-    (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) {X : Type} [Group X] [Finite X]
-    (ψ : (modelUniv t n p e hp).K →* X)
-    (hker : ψ.ker ≤ Subgroup.center (modelUniv t n p e hp).K) {F : Subgroup X}
-    (hcard : Nat.card F = 4) (hF2 : ∀ f ∈ F, f * f = 1)
-    (hfaith : ∀ f ∈ F, f ≠ 1 → ¬ ∀ x ∈ ψ.range, f * x = x * f)
-    (hFN : F ≤ Subgroup.normalizer (ψ.range : Set X)) (htoral : ToralActionPow k ψ F) :
-    ∀ d ∈ deltaCore F, d ∈ Subgroup.normalizer (ψ.range : Set X) →
-      ∀ x ∈ ψ.range, d * x = x * d := by
-  set N : Subgroup X := Subgroup.normalizer (ψ.range : Set X) with hN
-  have hrN : ψ.range ≤ N := Subgroup.le_normalizer
-  set ψ' : (modelUniv t n p e hp).K →* ↥N := ψ.codRestrict N fun k => hrN ⟨k, rfl⟩ with hψ'
-  have hker' : ψ'.ker ≤ Subgroup.center (modelUniv t n p e hp).K := fun y hy =>
-    hker (MonoidHom.mem_ker.mpr (congrArg Subtype.val (MonoidHom.mem_ker.mp hy)))
-  have hrange : ψ'.range = ψ.range.subgroupOf N := by
-    ext y
-    constructor
-    · rintro ⟨x, rfl⟩
-      exact ⟨x, rfl⟩
-    · rintro ⟨x, hx⟩
-      exact ⟨x, Subtype.ext hx⟩
-  have hnorm' : ψ'.range.Normal := by
-    rw [hrange, Subgroup.normal_subgroupOf_iff_le_normalizer hrN]
-  set F' : Subgroup ↥N := F.subgroupOf N with hF'
-  have hF'4 : Nat.card F' = 4 := by
-    rw [← hcard]
-    exact Nat.card_congr (Subgroup.subgroupOfEquivOfLe hFN).toEquiv
-  have hF'2 : ∀ f ∈ F', f * f = 1 := fun f hf => Subtype.ext (hF2 f.1 hf)
-  have hfaith' : ∀ f ∈ F', f ≠ 1 → ¬ ∀ x ∈ ψ'.range, f * x = x * f := by
-    intro f hf hf1 hc
-    refine hfaith f.1 hf (fun h => hf1 (Subtype.ext h)) fun x hx => ?_
-    have hx' : (⟨x, hrN hx⟩ : ↥N) ∈ ψ'.range := by
-      rw [hrange]
-      exact hx
-    exact congrArg Subtype.val (hc _ hx')
-  have htoral' : ToralActionPow k ψ' F' := by
-    obtain ⟨P, hP, hact⟩ := htoral
-    refine ⟨P, hP, fun f hf => ?_⟩
-    obtain ⟨x, hxP, hxk, hxa⟩ := hact f.1 hf
-    exact ⟨x, hxP, hxk, fun y => Subtype.ext (hxa y)⟩
-  have hSC := hSB n p e hp hq hfund hadm hp2 h5 ↥N ψ' hker' hnorm' F' hF'4 hF'2 hfaith' htoral'
-  have hxmem : ∀ x (hx : x ∈ ψ.range), (⟨x, hrN hx⟩ : ↥N) ∈ ψ'.range := fun x hx => by
-    rw [hrange]
-    exact hx
-  intro d hd hdN x hx
-  have hd' : (⟨d, hdN⟩ : ↥N) ∈ deltaCore F' := by
-    rw [mem_deltaCore_iff]
-    intro f' hf' hf'1
-    have hf1 : (f' : X) ≠ 1 := fun h => hf'1 (Subtype.ext h)
-    exact subgroupOf_involutionOddCore_le f' (Subgroup.mem_subgroupOf.mpr
-      (mem_deltaCore_iff.mp hd (f' : X) hf' hf1))
-  exact congrArg Subtype.val (hSC.1 _ hd' _ (hxmem x hx))
 
 namespace Linear
 

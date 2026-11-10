@@ -110,8 +110,6 @@ instance finite_orbit_subgeom :
 
 attribute [local instance] k3SetAction
 
-theorem k3_smul_set
-    (k : K3) (C' : Set ParGeom) : k • C' = (k3S k • ·) '' C' := rfl
 
 theorem k3_smul_subgeom
     (k : K3) : k • subgeom = subgeomConj (k3S k) := rfl
@@ -196,28 +194,5 @@ theorem surjective_toPermHom_fiveConj :
     rw [natCard_ker_sigma3]
     norm_num)
 
-theorem short_symplectic_subgeometry_five_conjugates :
-    fiveConj = {C' | (∃ s : Shat, C' = subgeomConj s) ∧
-      stdObj 3 (by norm_num) (by norm_num) ∈ C'} ∧
-    fiveConj.ncard = 5 ∧ subgeom ∈ fiveConj ∧
-    fiveConj = orbit K3 subgeom ∧
-    (∀ k : K3, k • subgeom = subgeomConj (k3S k)) ∧
-    (∀ C' ∈ fiveConj, ∀ C'' ∈ fiveConj, ∃ k : K3, k • C' = C'') ∧
-    Function.Surjective (toPermHom K3 (orbit K3 subgeom)) ∧
-    Nonempty (Equiv.Perm (orbit K3 subgeom) ≃* Equiv.Perm (Fin 5)) ∧
-    (∀ k : K3, k • subgeom = subgeom ↔ (k : Dfull) ∈ Xgrp) ∧
-    stabilizer K3 subgeom = Xgrp.subgroupOf K3 ∧
-    Nat.card ↥(Xgrp ⊓ K3) = 138538465099776 ∧ (Xgrp.subgroupOf K3).index = 5 := by
-  refine ⟨rfl, ncard_fiveConj, ?_, fiveConj_eq_orbit, k3_smul_subgeom, ?_,
-    surjective_toPermHom_fiveConj,
-    ⟨Equiv.permCongrHom (Finite.equivFinOfCardEq natCard_orbit_subgeom)⟩,
-    k3_smul_subgeom_eq_iff, stabilizer_K3_subgeom, natCard_X_inf_K3, index_X_subgroupOf_K3⟩
-  · rw [fiveConj_eq_orbit]
-    exact ⟨1, one_smul _ _⟩
-  · intro C' hC' C'' hC''
-    rw [fiveConj_eq_orbit] at hC' hC''
-    obtain ⟨k₁, rfl⟩ := hC'
-    obtain ⟨k₂, rfl⟩ := hC''
-    exact ⟨k₂ * k₁⁻¹, by rw [mul_smul, inv_smul_smul]⟩
 
 end CFSG.Monster.B.TwoA.Sp8

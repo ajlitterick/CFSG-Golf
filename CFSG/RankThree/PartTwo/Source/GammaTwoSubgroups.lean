@@ -16,10 +16,6 @@ open CFSG.Assembly.RankThreeEven
 
 variable {G : Type*} [Group G] [Finite G]
 
-omit [Finite G] in
-theorem assembly_pCoreOf_eq_open (p : ℕ) (H : Subgroup G) :
-    CFSG.Assembly.pCoreOf p H = CFSG.Open.pCoreOf p H :=
-  rfl
 
 theorem inf_eq_bot_of_isPGroup {p q : ℕ} [Fact p.Prime] [Fact q.Prime] (hpq : p ≠ q)
     {H K : Subgroup G} (hH : IsPGroup p H) (hK : IsPGroup q K) : H ⊓ K = ⊥ := by

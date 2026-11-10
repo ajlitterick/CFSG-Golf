@@ -111,21 +111,6 @@ theorem twin_ne_K {j₀ e : Fin C.D.card} (hj₀ : C.D.tag j₀ = .PSL ∧ C.D.r
   obtain ⟨b', rfl⟩ := hb
   exact C.psi_commute (Ne.symm hee) a' b'
 
-theorem localShape (hno : ∀ A : Subgroup G, ¬ Theorem5.FuzzyFrameOn p f Ω A) :
-    (∀ i : Fin C.D.card, C.D.tag i = .PSL ∧ C.D.rank i = 2) ∨
-      ∃ b : Fin C.D.card, ¬ (C.D.tag b = .PSL ∧ C.D.rank b = 2) ∧
-        ((C.D.tag b = .G2 ∨ C.D.tag b = .trialityD4) ∨
-          (((C.D.tag b = .PSL ∨ C.D.tag b = .PSU) ∧ C.D.rank b = 3) ∨
-            ListedTwin (C.D.tag b) (C.D.rank b))) ∧
-        ∀ j : Fin C.D.card, j ≠ b → (C.D.tag j = .PSL ∧ C.D.rank j = 2) ∧
-          ∀ m : CompMem C j, m.nbar = zbar z := by
-  by_cases hall : ∀ i : Fin C.D.card, C.D.tag i = .PSL ∧ C.D.rank i = 2
-  · exact Or.inl hall
-  · right
-    obtain ⟨b, hb⟩ : ∃ b : Fin C.D.card, ¬ (C.D.tag b = .PSL ∧ C.D.rank b = 2) := by
-      by_contra h
-      exact hall fun i => by_contra fun hi => h ⟨i, hi⟩
-    exact ⟨b, hb, tag_cases_of_noFrame C hno b hb, fun j hj => nbar_eq_of_A1 C hno hb hj⟩
 
 end Components
 

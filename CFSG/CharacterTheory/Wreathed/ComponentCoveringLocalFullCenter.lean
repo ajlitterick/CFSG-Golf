@@ -48,16 +48,6 @@ theorem component_image_full_center
   fullCenterInclusion _ _ hcover
     (original_centralizer_layer_inputs hnonab n hn S e hfour).2.2.2.2
 
-theorem componentImageFullCenterInclusion_mk
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K)
-    (d : originalImage n S e K) :
-    componentImageFullCenterInclusion hnonab n hn S e hfour K hcover
-        (QuotientGroup.mk' (Subgroup.center (originalImage n S e K)) d) =
-      QuotientGroup.mk' (Subgroup.center (centralizerOddCoreQuotient n S e)) (d : _) := rfl
 
 theorem component_image_full_center_layer_map
     (hnonab : ∃ a b : G, a * b ≠ b * a)
@@ -101,43 +91,5 @@ theorem componentImageFullLayerEquiv_coe
           Subgroup.center (centralizerOddCoreQuotient n S e)) =
       componentImageFullCenterInclusion hnonab n hn S e hfour K hcover (a : _) := rfl
 
-theorem componentImageFullLayerEquiv_symm_coe
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K)
-    (a : CFSG.generalizedFitting (centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e))) :
-    componentImageFullCenterInclusion hnonab n hn S e hfour K hcover
-        ((componentImageFullLayerEquiv hnonab n hn S e hfour K hcover).symm a : _) =
-      (a : _) := by
-  rw [← componentImageFullLayerEquiv_coe, MulEquiv.apply_symm_apply]
-
-@[expose] def componentImageStatedLayerEquiv
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K) :
-    originalImageFullLayer n S e K ≃* centralizerSimpleLayer n hn S e :=
-  (componentImageFullLayerEquiv hnonab n hn S e hfour K hcover).trans
-    (originalFullCenterLayerEquiv hnonab n hn S e hfour)
-
-theorem componentImageStatedLayerEquiv_coe
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (K : Subgroup G)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K)
-    (a : originalImageFullLayer n S e K) :
-    (componentImageStatedLayerEquiv hnonab n hn S e hfour K hcover a :
-        centralizerFullQuotient n hn S e) =
-      originalFullCenterQuotientEquiv n hn S e
-        (componentImageFullCenterInclusion hnonab n hn S e hfour K hcover (a : _)) := by
-  change (originalFullCenterLayerEquiv hnonab n hn S e hfour
-    (componentImageFullLayerEquiv hnonab n hn S e hfour K hcover a) :
-      centralizerFullQuotient n hn S e) = _
-  rw [originalFullCenterLayerEquiv_coe, componentImageFullLayerEquiv_coe]
 
 end CFSG.Wreathed.ComponentCoveringLocal

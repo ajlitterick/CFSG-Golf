@@ -38,20 +38,14 @@ theorem a37_of_core {G : Type} [Group G] [Finite G] (h36 : A36CoreStatementCat G
   · exact A37.commutator_eq_bot_of_extra hL₂N hc (A37.fitting_ne_top hcom₁)
       (hextra (Or.inr h4))
 
-theorem a37_of_a36Cat {G : Type} [Group G] [Finite G] (h36 : A36StatementCat G) :
-    A37Statement G :=
-  a37_of_core fun L hL => (h36 L hL).core
 
 theorem a37ForSQTKCat_of_core (h36 : A36CoreForSQTKCat) : A37ForSQTKCat := fun Q _ hQ => by
   have := hQ.finite
   exact a37_of_core (h36 Q hQ)
 
-theorem a37ForSQTKCat_of_a36 (h36 : A36ForSQTKCat) : A37ForSQTKCat :=
-  a37ForSQTKCat_of_core h36.core
 
 section Ambient
 
-variable {G : Type} [Group G] [Finite G]
 
 end Ambient
 

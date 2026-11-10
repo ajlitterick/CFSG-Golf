@@ -547,9 +547,6 @@ theorem isPGroup_vInK : IsPGroup 2 (vInK V t) := (isPGroup_two hV).comap_subtype
 include hV in
 theorem isPGroup_vInC : IsPGroup 2 (vInC V t) := (isPGroup_two hV).comap_subtype
 
-include hV htV in
-theorem isKleinFour_vInC : IsKleinFour (vInC V t) :=
-  KleinFourFiber.isKleinFour_subgroupOf hV (le_cT hV htV)
 
 include hV hED htV in
 theorem eInC_le_dInC : E.subgroupOf (cT t) ≤ dInC V t := fun x hx =>
@@ -622,13 +619,6 @@ theorem affordsInflation_iff_of_labelTransport {X Y : Type*} [Group X] [Fintype 
     rw [← h x]
     exact hn' (f x) v e hv ((hι x).trans hx)
 
-theorem character_one_of_labelTransport {X Y : Type*} [Group X] [Fintype X] [Group Y]
-    [Fintype Y] {bX : FiniteIrreducibleCharacterBasis X} {bY : FiniteIrreducibleCharacterBasis Y}
-    {f : X ≃* Y} {n : bX.index} {n' : bY.index}
-    (h : CFSG.Wreathed.BlockOrbits.LabelTransport bX bY f n n') :
-    (bY.representation n').character 1 = (bX.representation n).character 1 := by
-  rw [← map_one f]
-  exact h 1
 
 theorem exists_label_of_hom {X : Type*} [Group X] [Fintype X]
     (basis : FiniteIrreducibleCharacterBasis X) (χ : X →* ℂˣ) :

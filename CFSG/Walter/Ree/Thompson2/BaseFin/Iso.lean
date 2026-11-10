@@ -207,23 +207,6 @@ theorem liftHat_w : liftHat h hatW = u' := by
   simp only [liftHat, MonoidHom.comp_apply, MulEquiv.coe_toMonoidHom, isoHat_symm_w, lift_of]
   rfl
 
-theorem liftHat_k : liftHat h PGammaL28.k = c' * J' * c'⁻¹ := by
-  rw [k_eq, map_mul, map_mul, map_inv, liftHat_c, liftHat_j]
-
-theorem liftHat_y : liftHat h PGammaL28.y = c' * J' * c' * T' * u' * J' * c' * T'⁻¹ := by
-  simp only [y_eq, map_mul, map_inv, liftHat_c, liftHat_j, liftHat_t, liftHat_w]
-
-theorem range_liftHat : (liftHat h).range = Subgroup.closure {J', c', T', u'} := by
-  have htop : isoHat.symm.toMonoidHom.range = ⊤ :=
-    MonoidHom.range_eq_top.mpr isoHat.symm.surjective
-  rw [liftHat, MonoidHom.range_comp, htop, ← MonoidHom.range_eq_map, range_lift]
-  congr 1
-  ext x
-  constructor
-  · rintro ⟨i, rfl⟩
-    fin_cases i <;> simp
-  · rintro (rfl | rfl | rfl | rfl)
-    exacts [⟨0, rfl⟩, ⟨1, rfl⟩, ⟨2, rfl⟩, ⟨3, rfl⟩]
 
 theorem liftHat_injective (hJ : J' ≠ 1) : Function.Injective (liftHat h) := by
   rw [injective_iff_map_eq_one]

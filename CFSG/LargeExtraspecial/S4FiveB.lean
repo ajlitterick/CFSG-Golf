@@ -58,12 +58,6 @@ theorem q_eq_zero_of_mem_Vt (H : Hyp4 S g) {t : S.O} (ht1 : t ≠ 1) {v : S.Qt}
       add_zero]
   | smul c u hu ihu => rw [QuadraticMap.map_smul, ihu hu, smul_zero]
 
-theorem isElementaryAbelian_V (H : Hyp4 S g) {t : S.O} (ht1 : t ≠ 1) :
-    CFSG.IsElementaryAbelian 2 (V S g t) where
-  is_comm := ⟨fun x y => Subtype.ext ((S.polar_cl_eq_zero_iff x.2.1 y.2.1).mp
-    (polar_eq_zero_of_mem_Vt H ht1 x.2.2 y.2.2))⟩
-  exponent_dvd_p := Monoid.exponent_dvd_of_forall_pow_eq_one fun x =>
-    Subtype.ext (by simpa using (S.q_cl_eq_zero_iff x.2.1).mp (q_eq_zero_of_mem_Vt H ht1 x.2.2))
 
 theorem V_le_QG {t : S.O} : V S g t ≤ S.QG := S.clPre_le_QG _
 

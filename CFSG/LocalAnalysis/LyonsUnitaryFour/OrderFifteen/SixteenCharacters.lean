@@ -15,7 +15,6 @@ abbrev SixteenVector : Type := Fin 4 → ZMod 2
 noncomputable instance sixteenVector_addChar_fintype : Fintype (AddChar SixteenVector ℂ) :=
   AddChar.instFintype _ _
 
-theorem card_sixteenVector : Fintype.card SixteenVector = 16 := rfl
 
 theorem card_addChar_sixteenVector : Fintype.card (AddChar SixteenVector ℂ) = 16 := by
   convert AddChar.card_eq (α := SixteenVector) <;> rfl
@@ -26,9 +25,6 @@ variable {H : Type*} [Group H] {P : Subgroup H} (e : P ≃* Multiplicative Sixte
 
 @[expose] def sixteenCoord (x : P) : SixteenVector := Multiplicative.toAdd (e x)
 
-theorem sixteenCoord_mul (x y : P) :
-    sixteenCoord e (x * y) = sixteenCoord e x + sixteenCoord e y := by
-  simp [sixteenCoord]
 
 theorem sixteenCoord_one : sixteenCoord e 1 = 0 := by simp [sixteenCoord]
 
@@ -47,11 +43,6 @@ theorem sixteenCoord_eq_zero_iff (x : P) : sixteenCoord e x = 0 ↔ x = 1 := by
 @[simp] theorem sixteenPoint_coord (x : P) : sixteenPoint e (sixteenCoord e x) = x := by
   simp [sixteenCoord, sixteenPoint]
 
-@[expose] def sixteenEquiv : SixteenVector ≃ P where
-  toFun := sixteenPoint e
-  invFun := sixteenCoord e
-  left_inv := sixteenCoord_point e
-  right_inv := sixteenPoint_coord e
 
 @[expose] noncomputable def sixteenCharHom (ψ : AddChar SixteenVector ℂ) : P →* ℂ :=
   (AddChar.toMonoidHom ψ).comp e.toMonoidHom
@@ -188,9 +179,6 @@ theorem sum_sixteenChar (x : P) :
 
 variable [Fintype H]
 
-theorem sum_P_eq_sum_vector (f : P → ℂ) :
-    ∑ x : P, f x = ∑ w : SixteenVector, f (sixteenPoint e w) :=
-  (Equiv.sum_comp (sixteenEquiv e) f).symm
 
 theorem sum_monoidHom_eq (ν : P →* ℂ) :
     ∑ x : P, ν x = if ν = 1 then (Nat.card P : ℂ) else 0 := by

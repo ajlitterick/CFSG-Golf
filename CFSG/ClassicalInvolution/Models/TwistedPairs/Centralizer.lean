@@ -41,10 +41,5 @@ theorem TwistedB2Model.centralizer_long (hν : ∃ t, P.nu t ≠ 1) {θ : G →*
   have hA : diagConj2 (P.nu t₀) 1 A = A := (hlb h2).symm
   exact ⟨A, mem_diagTorus2_of_diagConj2_eq ht₀ hA, rfl⟩
 
-theorem TwistedB2Model.centralizer_short (hμ : ∃ s, P.mu s ≠ 1) {θ : G →* X}
-    (hf : Function.Injective (θ.comp P.sb)) {m : X} (hm : m ∈ (θ.comp P.sb).range)
-    (hc : ∀ a ∈ (diagTorus2 F).map (θ.comp P.lb), a * m = m * a) :
-    m ∈ (diagTorus2 E).map (θ.comp P.sb) :=
-  P.swap.centralizer_long hμ hf hm hc
 
 end CFSG.ClassicalInvolution.Models.TwistedPairs

@@ -53,8 +53,6 @@ variable {N ι : Type*} [Group N]
   mul_mem' := fun {a b} ha hb k' hk' => by simp [ha k' hk', hb k' hk']
   inv_mem' := fun {a} ha k' hk' => by simp [ha k' hk']
 
-theorem mem_coordSub {k : ι} {y : ι → N} : y ∈ coordSub N ι k ↔ ∀ k', k' ≠ k → y k' = 1 :=
-  Iff.rfl
 
 instance (k : ι) : (coordSub N ι k).Normal :=
   ⟨fun y hy g k' hk' => by simp [hy k' hk']⟩

@@ -79,9 +79,6 @@ theorem oTwoUpper_le_of_subnormal_mul {H K R : Subgroup G} (h : IsSubnormal H K)
     obtain ⟨x, hx, r, hr, hmxr⟩ := hKR m (hMK' hm)
     exact exists_pow_mem_of_mul hHM hR hm hx hr hmxr hle
 
-theorem a4_2_1 {R : Subgroup G} (hRM : R ≤ M) (hR : IsPGroup 2 R) :
-    IsSignalizer M X R ↔ ⁅X, R⁆ ≤ R :=
-  isSignalizer_iff_commutator_le hRM hR
 
 theorem a4_2_2 (hX : X = oTwoUpper X) (hXM : IsSubnormal X M) {R : Subgroup G} (hRM : R ≤ M)
     (hR : IsPGroup 2 R) (hRX : (R : Set G) * X = X * R) :
@@ -342,17 +339,6 @@ theorem a4_2_7 (hX : X = oTwoUpper X) (hXM : X ≤ M) (hXN : (X.subgroupOf M).No
         (normalizer_le_normalizer_pCoreOf 2 X hmX) (hRsylM.1 hr)
     exact isSylowTwoOf_mono hRsylM (le_conjClosure R M) hle
 
-theorem pCoreOf_le_of_isMaxSignalizer {Y B : Subgroup G} (hYM : Y ≤ M)
-    (hB : IsMaxSignalizer M Y B) : pCoreOf 2 Y ≤ B := by
-  have hP : IsSignalizer M Y (pCoreOf 2 Y ⊔ B) :=
-    ⟨sup_le ((pCoreOf_le 2 Y).trans hYM) hB.1.1,
-      IsPGroup.to_sup_of_normal_right' (pCoreOf_isPGroup 2 Y) hB.1.2.1
-        ((pCoreOf_le 2 Y).trans hB.1.2.2),
-      fun y hy => Subgroup.inf_normalizer_le_normalizer_sup _ _
-        ⟨le_normalizer_pCoreOf 2 Y hy, hB.1.2.2 hy⟩⟩
-  have := hB.eq_of_le hP le_sup_right
-  rw [← this]
-  exact le_sup_left
 
 theorem a4_3_1 (hX : X = oTwoUpper X) (hXM : IsSubnormal X M) {Y : Subgroup G} (hYM : Y ≤ M)
     (hY : (Y : Set G) = ((X ⊓ Y : Subgroup G) : Set G) * (pCoreOf 2 Y : Set G))
@@ -389,40 +375,6 @@ theorem a4_3_1 (hX : X = oTwoUpper X) (hXM : IsSubnormal X M) {Y : Subgroup G} (
   obtain ⟨a, ha, w, hw, rfl⟩ := hy'
   exact Subgroup.mul_mem _ (Subgroup.le_normalizer ha.1) (hnorm hw)
 
-theorem a4_3_2 (hX : X = oTwoUpper X) (hXM : IsSubnormal X M) {Y : Subgroup G} (hYM : Y ≤ M)
-    (hY : (Y : Set G) = ((X ⊓ Y : Subgroup G) : Set G) * (pCoreOf 2 Y : Set G))
-    (hX' : (X : Set G) = ((Y ⊓ X : Subgroup G) : Set G) * (pCoreOf 2 X : Set G))
-    {B : Subgroup G} (hB : IsMaxSignalizer M Y B) : IsMaxSignalizer M X B := by
-  obtain ⟨h1, h1Y⟩ := a4_3_1 hX hXM hYM hY hX'
-  have hBM₀ := h1 B hB.1
-  obtain ⟨S, hS, hBS⟩ := exists_isSylowTwoOf_ge hBM₀ hB.1.2.1
-  have hSM₀ : S ≤ centralizerSection M X (pCoreOf 2 X) := hS.1
-  have hO2XB : pCoreOf 2 X ≤ B := by
-    have hbnorm : B ≤ Subgroup.normalizer (pCoreOf 2 X : Set G) :=
-      hBM₀.trans (centralizerSection_le_normalizer_right M X _)
-    have hYnorm : Y ≤ Subgroup.normalizer (pCoreOf 2 X : Set G) :=
-      fun y hy => normalizer_le_normalizer_pCoreOf 2 X (h1Y hy).2
-    have hsig : IsSignalizer M Y (pCoreOf 2 X ⊔ B) :=
-      ⟨sup_le ((pCoreOf_le 2 X).trans (subnormal_le hXM)) hB.1.1,
-        IsPGroup.to_sup_of_normal_left' (pCoreOf_isPGroup 2 X) hB.1.2.1 hbnorm,
-        fun y hy => Subgroup.inf_normalizer_le_normalizer_sup _ _
-          ⟨hYnorm hy, hB.1.2.2 hy⟩⟩
-    have := hB.eq_of_le hsig le_sup_right
-    rw [← this]
-    exact le_sup_left
-  have hO2XS : pCoreOf 2 X ≤ S := hO2XB.trans hBS
-  have hXS : X ≤ Subgroup.normalizer (S : Set G) := by
-    rw [Subgroup.le_normalizer_iff_commutator_le_right]
-    exact (((le_centralizerSection_iff (pCoreOf_le 2 X)).mp hSM₀).2).trans hO2XS
-  have hO2Y : pCoreOf 2 Y ≤ S := (pCoreOf_le_of_isMaxSignalizer hYM hB).trans hBS
-  have hSY : IsSignalizer M Y S := by
-    refine ⟨hSM₀.trans (centralizerSection_le_left M X _), hS.2.1, fun y hy => ?_⟩
-    have hy' : y ∈ (↑(X ⊓ Y) : Set G) * (pCoreOf 2 Y : Set G) := hY ▸ hy
-    obtain ⟨a, ha, w, hw, rfl⟩ := hy'
-    exact Subgroup.mul_mem _ (hXS ha.1) (Subgroup.le_normalizer (hO2Y hw))
-  have hSB : S = B := hB.eq_of_le hSY hBS
-  rw [← hSB]
-  exact (a4_2_4 hX hXM S).mpr hS
 
 end Finite
 

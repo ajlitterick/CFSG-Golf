@@ -125,8 +125,6 @@ theorem Sec4Hyp.a1_mul_v : a₁ * v = v * a₁⁻¹ := by
   calc a₁ * v = v * (v⁻¹ * a₁ * v) := by group
     _ = v * a₁⁻¹ := by rw [e]
 
-include h in
-theorem Sec4Hyp.a2_mul_v' : c.a2 a₁ * v = v * (c.a2 a₁)⁻¹ := h.a2_mul_v
 
 include h in
 theorem Sec4Hyp.e_sq : (a₁ * c.a2 a₁) * (a₁ * c.a2 a₁) = 1 := by

@@ -31,9 +31,6 @@ theorem lanes_rec_add (F : Nat → Nat) : ∀ n,
     rw [Finset.sum_range_succ, ← lanes_rec_add F n]
     rfl
 
-theorem lanes_lt {w n : Nat} {g : Nat → Nat} (hg : ∀ t < n, g t < 2 ^ w) :
-    ∑ t ∈ range n, g t * 2 ^ (w * t) < 2 ^ (w * n) :=
-  CFSG.KS.Ord.pk_lt hg
 
 theorem lanes_lane {w n s : Nat} {g : Nat → Nat} (hg : ∀ t < n, g t < 2 ^ w) (hs : s < n) :
     (∑ t ∈ range n, g t * 2 ^ (w * t)) / 2 ^ (w * s) % 2 ^ w = g s :=

@@ -47,17 +47,6 @@ theorem A6.barHom_mk' (g : ↥(normalizer (F : Set X))) {x y : X} (hx : x ∈ F)
   rw [Subgroup.normalizerMonoidHom_apply_apply_coe]
   exact hxy
 
-theorem A6.barHom_of_mem (g : ↥(normalizer (F : Set X))) (hg : (g : X) ∈ F) :
-    A6.barHom F g = MulAut.conj (QuotientGroup.mk' (center ↥F) ⟨g, hg⟩) := by
-  refine MulEquiv.ext fun x => ?_
-  induction x using QuotientGroup.induction_on with
-  | H x =>
-    rw [MulAut.conj_apply]
-    change A6.barHom F g (QuotientGroup.mk' (center ↥F) x) = QuotientGroup.mk' _ ⟨g, hg⟩ *
-      QuotientGroup.mk' _ x * (QuotientGroup.mk' _ ⟨g, hg⟩)⁻¹
-    rw [A6.barHom_mk, ← map_inv, ← map_mul, ← map_mul]
-    exact congrArg (QuotientGroup.mk' (center ↥F))
-      (Subtype.ext (Subgroup.normalizerMonoidHom_apply_apply_coe _ _ _))
 
 end BarHom
 

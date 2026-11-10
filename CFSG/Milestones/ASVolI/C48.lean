@@ -10,12 +10,6 @@ namespace CFSG.ASVolI
 
 section C48
 
-set_option linter.unusedSectionVars false
-
-
-theorem as_C_4_8
-    : C_4_8 :=
-  burnsideC48w_C_4_8_of_P0 (burnsideJ4NP_maxNonParabolicP0_of_openReachP burnsideJ4NP_openReachP)
 
 end C48
 

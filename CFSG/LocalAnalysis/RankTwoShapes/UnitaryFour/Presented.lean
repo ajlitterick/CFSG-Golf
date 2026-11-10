@@ -208,13 +208,6 @@ theorem normalWords_mul_gen {p : UnitaryFourPresented} (hp : p ∈ normalWords) 
     · exact ⟨u, 1, _, _, hu, by norm_num, rfl⟩
     · exact ⟨u, 0, _, _, hu, by norm_num, normalWord_two' u _ _⟩
 
-theorem normalWords_mul_gen_pow {p : UnitaryFourPresented} (hp : p ∈ normalWords) (k : Fin 4)
-    (n : ℕ) : p * PresentedGroup.of k ^ n ∈ normalWords := by
-  induction n with
-  | zero => simpa using hp
-  | succ n ih =>
-    rw [pow_succ, ← mul_assoc]
-    exact normalWords_mul_gen ih k
 
 theorem gen_inv_eq (k : Fin 4) :
     ∃ w : List (Fin 4), (PresentedGroup.of k : UnitaryFourPresented)⁻¹ =

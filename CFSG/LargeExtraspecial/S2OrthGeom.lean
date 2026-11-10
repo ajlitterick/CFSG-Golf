@@ -239,10 +239,6 @@ omit [FiniteDimensional (ZMod 2) V] in
 theorem radFix_bot (p : V) : radFix q ⊥ p = pointRadical q p := by
   rw [radFix, fixGroup_bot, inf_top_eq]
 
-omit [FiniteDimensional (ZMod 2) V] in
-theorem radFix_le_pointRadical (F : Submodule (ZMod 2) V) (p : V) :
-    radFix q F p ≤ pointRadical q p :=
-  inf_le_left
 
 omit [FiniteDimensional (ZMod 2) V] in
 theorem radFix_anti {F F' : Submodule (ZMod 2) V} (h : F ≤ F') (p : V) :

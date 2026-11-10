@@ -48,9 +48,5 @@ open CFSG.Sporadic.Ly.Native CFSG.Sporadic.Th.Native CFSG.Sporadic.LySchreier.Na
     (List.range pts.size).foldl (fun m k => m.insert pts[k]! k) ∅
   allIn 0 pts.size (fun k => gens.all fun g => index.contains (mul7 (mul7 g.1 pts[k]!) g.2))
 
-@[expose] def fixSetOK (n : Nat) (T : Table) (fi : Array Nat) : Bool :=
-  let m := fixedMask n fi
-  allIn 0 (fi.size - 1) (fun k => fi[k]! < fi[k + 1]!) && allIn 0 fi.size (fun k => fi[k]! < n) &&
-    allIn 0 n (fun i => (ap T i == i) == m[i]!)
 
 end CFSG.RankThree.PartOne.LyFive

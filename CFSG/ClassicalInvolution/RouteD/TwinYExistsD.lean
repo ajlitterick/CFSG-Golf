@@ -32,19 +32,6 @@ local notation "𝒞" => CoreAssembly.conjClass
 @[expose] def TwinDExistsSmall₄₆ (p f : ℕ) [Fact p.Prime] : Prop :=
   TwinDExistsOn p f fun m => m = 4 ∨ m = 6
 
-theorem twinDExistsSmall₄₆_of_small (h : MilestoneAssembly.TwinDSmall₄₆ p f) :
-    TwinDExistsSmall₄₆ p f := by
-  intro G _ _ _ hnab K z S m hm hshape
-  have hm4 : 4 ≤ m := by omega
-  have hf : 1 ≤ f := by
-    rcases Nat.eq_zero_or_pos f with rfl | h
-    · simpa using S.five
-    · exact h
-  have hadm : StatedLieAdmissible .POmegaPlus m p f := ⟨Fact.out, hf, by show 4 ≤ m; omega⟩
-  obtain ⟨c⟩ := TCtx.nonempty_plus hm4 S.odd S.five S.inClass S.exact (mem_conjClass_self K)
-    S.cls S.p1 hshape
-  obtain ⟨β, hβ, ⟨t, ht⟩, hKβ, hfix⟩ := c.exists_partner_plus hm4 hadm (single_class K) hshape
-  exact ⟨β, hβ, t, ht, hKβ, h G hnab K z S m hm hshape β hβ t ht hKβ hfix⟩
 
 theorem routeD_typeD_of_exists_pattern_n {G : Type} [Group G] [Finite G] (hp2 : p ≠ 2)
     (hq : 5 ≤ p ^ f) (hMFZ : Gaps.FundNoncentral p)
@@ -106,12 +93,6 @@ theorem twinDExistsOn_of_small (hMFZ : Gaps.FundNoncentral p) (hS : TwinDExistsS
   · exact hS G hnab K z S m h46 hshape
   · exact twinDExistsOn_proved hMFZ G hnab K z S m ⟨hm, by omega, by omega⟩ hshape
 
-theorem twinDExistsOn_of_cases (hMFZ : Gaps.FundNoncentral p) (h4 : TwinDExistsCase p f 4)
-    (h6 : TwinDExistsCase p f 6) : TwinDExistsOn p f fun m => 4 ≤ m :=
-  twinDExistsOn_of_small hMFZ fun G _ _ _ hnab K z S m hm hshape => by
-    rcases hm with rfl | rfl
-    · exact h4 G hnab K z S 4 rfl hshape
-    · exact h6 G hnab K z S 6 rfl hshape
 
 theorem rowTwinD_of_exists_small (hMFZ : Gaps.FundNoncentral p) (hS : TwinDExistsSmall₄₆ p f) :
     RowPiece p f ShapeTwinD :=

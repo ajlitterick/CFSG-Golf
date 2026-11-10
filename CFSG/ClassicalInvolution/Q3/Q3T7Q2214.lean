@@ -139,38 +139,7 @@ theorem sup_le_normalizer_left
     : K ⊔ K' ≤ Subgroup.normalizer (K : Set G) :=
   sup_le Subgroup.le_normalizer d.K'_le
 
-theorem sup_le_normalizer_right
-    : K ⊔ K' ≤ Subgroup.normalizer (K' : Set G) :=
-  sup_le d.K_le Subgroup.le_normalizer
 
-theorem sup_le_normalizer_oddCore_left
-    : K ⊔ K' ≤ Subgroup.normalizer (oddCoreOf K : Set G) :=
-  fun _ hg => mem_normalizer_oddCore_of_mem_normalizer (d.sup_le_normalizer_left hg)
-
-theorem sup_le_normalizer_oddCore_right
-    : K ⊔ K' ≤ Subgroup.normalizer (oddCoreOf K' : Set G) :=
-  fun _ hg => mem_normalizer_oddCore_of_mem_normalizer (d.sup_le_normalizer_right hg)
-
-theorem sup_le_normalizer_oddProd
-    : K ⊔ K' ≤ Subgroup.normalizer (oddProd K K' : Set G) :=
-  fun _ hg => Subgroup.inf_normalizer_le_normalizer_sup (oddCoreOf K) (oddCoreOf K')
-    ⟨d.sup_le_normalizer_oddCore_left hg, d.sup_le_normalizer_oddCore_right hg⟩
-
-theorem oddCoreOf_le_oddCoreOf_sup
-    : oddCoreOf K ≤ oddCoreOf (K ⊔ K') :=
-  Balance.le_oddCoreIn_of_normalizes ((oddCoreOf_le_self K).trans le_sup_left)
-    d.sup_le_normalizer_oddCore_left (oddCoreOf_odd_natCard K)
-
-theorem oddCoreOf_le_oddCoreOf_sup'
-    : oddCoreOf K' ≤ oddCoreOf (K ⊔ K') :=
-  Balance.le_oddCoreIn_of_normalizes ((oddCoreOf_le_self K').trans le_sup_right)
-    d.sup_le_normalizer_oddCore_right (oddCoreOf_odd_natCard K')
-
-theorem odd_oddProd
-    : Odd (Nat.card (oddProd K K')) := by
-  have hle : oddProd K K' ≤ oddCoreOf (K ⊔ K') :=
-    sup_le d.oddCoreOf_le_oddCoreOf_sup d.oddCoreOf_le_oddCoreOf_sup'
-  exact (oddCoreOf_odd_natCard (K ⊔ K')).of_dvd_nat (Subgroup.card_dvd_of_le hle)
 end TwinPair
 end Twin
 section Chart
@@ -646,20 +615,6 @@ section Perfect
 end Perfect
 section Alpha
 
-theorem oddCore_commutes_of_alphaOf
-    [Finite G] (hΩ : ConjInvariant Ω) {c t : G} (hc1 : c ≠ 1)
-    {A : Subgroup G} (hcA : c ∈ A) (htA : t ∈ A) (hα : alphaOf A = ⊥) {n : G}
-    (hn : n ∈ oddCoreOf (Q3T8.Asc77.ExactLayer.exactLayer Ω c)) : n * t = t * n := by
-  have hBN : ∀ b ∈ Subgroup.centralizer ({c} : Set G),
-      b ∈ Subgroup.normalizer (oddCoreOf (Q3T8.Asc77.ExactLayer.exactLayer Ω c) : Set G) := fun b
-          hb =>
-    T7L.mem_normalizer_oddCoreOf (Q3T8.Asc77.T7Y.mem_normalizer_exactLayer hΩ hb)
-  have hOY : oddCoreOf (Q3T8.Asc77.ExactLayer.exactLayer Ω c) ≤ oddCoreOf (Subgroup.centralizer
-      ({c} : Set G)) :=
-    le_oddCoreIn_of_normalizes ((oddCoreIn_le _).trans
-        (Q3T8.Asc77.ExactLayer.exactLayer_le_centralizer Ω c)) hBN
-      (oddCoreOf_odd_natCard _)
-  exact T7Y.commute_of_alphaOf_eq_bot hcA hc1 hα (hOY hn) htA
 variable [IsSimpleGroup G]
 end Alpha
 section ZStarE

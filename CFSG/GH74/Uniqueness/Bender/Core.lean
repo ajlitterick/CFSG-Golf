@@ -1135,21 +1135,6 @@ theorem BenderCore.rootCenter_le_sup [Finite K] (h : BenderCore q i e P t) {z : 
     rw [hzd]
     exact mul_mem (mul_mem (inv_mem hdL) hzL) hdL
 
-theorem BenderCore.lemma32h_top_of_card_eq [Finite K] [IsSimpleGroup K] (h : BenderCore q i e P t)
-    (hi : i = 1) {z : K} (hz : z ∈ rootCenter P) (hz1 : z ≠ 1) :
-    Subgroup.closure ({z, t} : Set K) ⊔ ⁅cartan P t, Subgroup.zpowers t⁆ = ⊤ := by
-  set L := Subgroup.closure ({z, t} : Set K) ⊔ ⁅cartan P t, Subgroup.zpowers t⁆ with hL
-  have hPZ : rootCenter P = P := by
-    apply Subgroup.eq_of_le_of_card_ge (rootCenter_le P)
-    have h1 := h.card_center
-    have h2 := h.card_eq
-    rw [h1, h2, hi, pow_one]
-  have hPL : P ≤ L := by
-    have := h.rootCenter_le_sup hz hz1
-    rwa [hPZ] at this
-  have htL : t ∈ L := Subgroup.mem_sup_left (Subgroup.subset_closure (by simp))
-  by_contra hne
-  exact h.not_mem (h.le_borel_of_le hPL hne htL)
 
 theorem BenderCore.exists_conj_rootCenter [Finite K] (h : BenderCore q i e P t) {u : K}
     (hu : u * u = 1) (hu1 : u ≠ 1) :
@@ -1309,28 +1294,6 @@ end Transitivity
 
 section BruhatUnique
 
-theorem BenderCore.eq_of_bruhat_eq [Finite K] (h : BenderCore q i e P t) {p p' m m' : K}
-    (hp : p ∈ P) (hp' : p' ∈ P) (hm : m ∈ borel P) (hm' : m' ∈ borel P)
-    (heq : p * t * m = p' * t * m') : p = p' := by
-  have hti : t⁻¹ = t := inv_eq_of_mul_self h.sq_eq_one
-  have h1 : (p * t)⁻¹ * (p' * t) ∈ borel P := by
-    have : (p * t)⁻¹ * (p' * t) = m * m'⁻¹ := by
-      have e1 : p' * t = p * t * m * m'⁻¹ := by
-        calc p' * t = p' * t * m' * m'⁻¹ := by group
-          _ = p * t * m * m'⁻¹ := by rw [← heq]
-      rw [e1]; group
-    rw [this]
-    exact (borel P).mul_mem hm ((borel P).inv_mem hm')
-  have hx : p⁻¹ * p' ∈ cartan P t := by
-    refine Subgroup.mem_inf.mpr ⟨le_borel P (P.mul_mem (P.inv_mem hp) hp'), ?_⟩
-    rw [mem_conjugate_iff_mul_inv, hti]
-    have : t * (p⁻¹ * p') * t = (p * t)⁻¹ * (p' * t) := by
-      simp [mul_assoc, hti]
-    rw [this]
-    exact h1
-  have hx' : p⁻¹ * p' ∈ P ⊓ cartan P t := ⟨P.mul_mem (P.inv_mem hp) hp', hx⟩
-  rw [h.inf_eq, Subgroup.mem_bot] at hx'
-  exact inv_mul_eq_one.mp hx'
 
 end BruhatUnique
 

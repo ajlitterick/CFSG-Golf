@@ -27,11 +27,6 @@ theorem ws_pos : ∀ wk ∈ ws, 0 < wk.2 := by
 
 section Consequences
 
-variable {K : Type} [Group K] (e : K ≃* QP.originalSubgroup)
-
-include e
-
-theorem finite_K : Finite K := Finite.of_equiv QP.originalSubgroup e.symm.toEquiv
 
 end Consequences
 

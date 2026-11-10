@@ -187,16 +187,5 @@ theorem card_center_dvd_U42 (hGA : TBLit.GriessMultipliersAllModels) {G : Type} 
   (card_center_dvd_tableOrder hq (griessRow_of_classical hGA hL (by decide))).trans
     (by decide)
 
-theorem card_center_dvd_U62 (hGA : TBLit.GriessMultipliersAllModels) {G : Type} [Group G]
-    [Finite G] (hq : IsQuasisimple G) (hL : Blueprint.LieModel (G ⧸ center G) .PSU 6 2 1) :
-    Nat.card (center G) ∣ 12 :=
-  (card_center_dvd_tableOrder hq (griessRow_of_classical hGA hL (by decide))).trans
-    (by decide)
-
-theorem card_center_dvd_O82 (hGA : TBLit.GriessMultipliersAllModels) {G : Type} [Group G]
-    [Finite G] (hq : IsQuasisimple G) (hL : Blueprint.LieModel (G ⧸ center G) .POmegaPlus 4 2 1) :
-    Nat.card (center G) ∣ 4 :=
-  (card_center_dvd_tableOrder hq (griessRow_of_classical hGA hL (by decide))).trans
-    (by decide)
 
 end CFSG.ComponentClassification.GrSLit.L34Facts.EvenCover

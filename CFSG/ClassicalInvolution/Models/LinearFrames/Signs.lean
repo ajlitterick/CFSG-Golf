@@ -23,8 +23,6 @@ theorem zMat_apply_self (N : Finset (Fin n)) (a : Fin n) :
     zMat K n N a a = if a ∈ N then (-1 : K) else 1 := by
   simp [zMat]
 
-theorem zMat_apply_of_ne (N : Finset (Fin n)) {a b : Fin n} (h : a ≠ b) : zMat K n N a b = 0 := by
-  simp [zMat, Matrix.diagonal_apply_ne _ h]
 
 theorem zMat_mul_self (N : Finset (Fin n)) : zMat K n N * zMat K n N = 1 := by
   rw [zMat, Matrix.diagonal_mul_diagonal, ← Matrix.diagonal_one]
@@ -114,40 +112,6 @@ theorem single_mem_eigSpace_zMat (h2 : (2 : K) ≠ 0) {N : Finset (Fin n)} {a : 
   have : b ≠ a := fun h => hb (h ▸ ha)
   simp [Pi.single_eq_of_ne this]
 
-theorem finrank_eigSpace_zMat (h2 : (2 : K) ≠ 0) (N : Finset (Fin n)) :
-    finrank K (eigSpace (zMat K n N) (-1)) = N.card := by
-  classical
-  set w : Fin n → K := fun a => if a ∈ N then 0 else 2 with hw
-  have hker : eigSpace (zMat K n N) (-1) = LinearMap.ker (Matrix.toLin' (Matrix.diagonal w)) := by
-    ext v
-    rw [mem_eigSpace_zMat_neg_one h2, LinearMap.mem_ker, Matrix.toLin'_apply]
-    constructor
-    · intro h
-      funext a
-      rw [Matrix.mulVec_diagonal]
-      by_cases ha : a ∈ N
-      · simp [hw, ha]
-      · simp [hw, ha, h a ha]
-    · intro h a ha
-      have := congr_fun h a
-      rw [Matrix.mulVec_diagonal] at this
-      simp only [hw, ha, ite_false, Pi.zero_apply] at this
-      exact (mul_eq_zero.mp this).resolve_left h2
-  have hrank := LinearMap.finrank_range_add_finrank_ker (Matrix.toLin' (Matrix.diagonal w))
-  rw [← hker, Module.finrank_fin_fun] at hrank
-  have hr : finrank K (LinearMap.range (Matrix.toLin' (Matrix.diagonal w))) =
-      Fintype.card {a // w a ≠ 0} := by
-    rw [← Matrix.rank_diagonal w]
-    rfl
-  have hc : Fintype.card {a // w a ≠ 0} = n - N.card := by
-    have : Fintype.card {a // w a ≠ 0} = Fintype.card {a // a ∉ N} :=
-      Fintype.card_congr (Equiv.subtypeEquivRight fun a => by
-        by_cases ha : a ∈ N <;> simp [hw, ha, h2])
-    rw [this, Fintype.card_subtype_compl, Fintype.card_fin]
-    simp
-  have hNn : N.card ≤ n := by
-    simpa using Finset.card_le_univ N
-  omega
 
 end Eigen
 
@@ -283,14 +247,6 @@ theorem IsMonomialFor.mul_diagonal {M : Matrix (Fin n) (Fin n) K} {τ : Equiv.Pe
     simp [_root_.mul_comm]
   · simp [Pi.single_eq_of_ne hx]
 
-theorem IsMonomialFor.inv_mul_diagonal_mul {M N : Matrix (Fin n) (Fin n) K}
-    {τ : Equiv.Perm (Fin n)} (h : IsMonomialFor M τ) (hNM : N * M = 1) (d : Fin n → K) :
-    N * Matrix.diagonal d * M = Matrix.diagonal (fun a => d (τ a)) := by
-  have h1 := h.mul_diagonal (fun a => d (τ a))
-  simp only [Equiv.apply_symm_apply] at h1
-  calc N * Matrix.diagonal d * M = N * (Matrix.diagonal d * M) := by rw [Matrix.mul_assoc]
-    _ = N * (M * Matrix.diagonal (fun a => d (τ a))) := by rw [h1]
-    _ = Matrix.diagonal (fun a => d (τ a)) := by rw [← Matrix.mul_assoc, hNM, Matrix.one_mul]
 
 theorem IsMonomialFor.mul_diagonal_mul_inv {M N : Matrix (Fin n) (Fin n) K}
     {τ : Equiv.Perm (Fin n)} (h : IsMonomialFor M τ) (hMN : M * N = 1) (d : Fin n → K) :
@@ -344,31 +300,11 @@ theorem entOf_mul {e f : G} (he : e ∈ signSubgroup mat) (hf : f ∈ signSubgro
   have h2 : entOf mat (e * f) a = mat (e * f) a a := rfl
   rw [h2, h1, Matrix.diagonal_apply_eq]
 
-theorem entOf_ne_neg (h2 : (2 : K) ≠ 0) {e : G} (he : e ∈ signSubgroup mat) (a : Fin n) :
-    entOf mat e a ≠ -entOf mat e a := by
-  intro h
-  have h1 : (2 : K) * entOf mat e a = 0 := by linear_combination h
-  have h3 := entOf_mul_self he a
-  rcases mul_eq_zero.mp h1 with h4 | h4
-  · exact h2 h4
-  · rw [h4] at h3
-    simp at h3
 
 theorem inv_eq_self_of_mem_signSubgroup (hinj : Function.Injective mat) {e : G}
     (he : e ∈ signSubgroup mat) : e⁻¹ = e :=
   inv_eq_of_mul_eq_one_right (signSubgroup_sq hinj he)
 
-theorem conj_mem_signSubgroup {g : G} {τ : Equiv.Perm (Fin n)} (hg : IsMonomialFor (mat g) τ)
-    {e : G} (he : e ∈ signSubgroup mat) :
-    g⁻¹ * e * g ∈ signSubgroup mat ∧ ∀ a, entOf mat (g⁻¹ * e * g) a = entOf mat e (τ a) := by
-  have hm : mat (g⁻¹ * e * g) = Matrix.diagonal fun a => entOf mat e (τ a) := by
-    rw [map_mul, map_mul, mat_eq_diagonal he]
-    exact hg.inv_mul_diagonal_mul (by rw [← map_mul, inv_mul_cancel, map_one]) _
-  have hs : g⁻¹ * e * g ∈ signSubgroup mat :=
-    ⟨fun a => entOf mat e (τ a), fun a => entOf_cases he _, hm⟩
-  refine ⟨hs, fun a => ?_⟩
-  have h2 : entOf mat (g⁻¹ * e * g) a = mat (g⁻¹ * e * g) a a := rfl
-  rw [h2, hm, Matrix.diagonal_apply_eq]
 
 end Entries
 
@@ -464,36 +400,6 @@ theorem exists_perm_pair (hn : 2 ≤ n) {i j : Fin n} (hij : i ≠ j) :
     fin_cases a <;> fin_cases b <;> simp_all [Ne.symm hij])
   exact ⟨τ, by simpa using hτ 0, by simpa using hτ 1⟩
 
-theorem exists_perm_triple (hn : 3 ≤ n) {i j k : Fin n} (hij : i ≠ j) (hjk : j ≠ k)
-    (hik : i ≠ k) :
-    ∃ τ : Equiv.Perm (Fin n), τ ⟨0, by omega⟩ = i ∧ τ ⟨1, by omega⟩ = j ∧
-      τ ⟨2, by omega⟩ = k := by
-  obtain ⟨τ, hτ⟩ := exists_perm_of_injective hn ![i, j, k] (by
-    intro a b h
-    fin_cases a <;> fin_cases b <;> simp_all [Ne.symm hij, Ne.symm hjk, Ne.symm hik])
-  exact ⟨τ, by simpa using hτ 0, by simpa using hτ 1, by simpa using hτ 2⟩
-
-theorem exists_pair_eq_of_mem {T : Finset (Fin n)} (hT : T.card = 2) {x : Fin n} (hx : x ∈ T) :
-    ∃ i, i ≠ x ∧ T = {i, x} := by
-  obtain ⟨a, b, hab, rfl⟩ := Finset.card_eq_two.mp hT
-  rcases Finset.mem_insert.mp hx with rfl | hx'
-  · exact ⟨b, hab.symm, Finset.pair_comm _ _⟩
-  · rw [Finset.mem_singleton] at hx'
-    subst hx'
-    exact ⟨a, hab, rfl⟩
-
-theorem pair_disjoint_or_share_one {T T' : Finset (Fin n)} (hT : T.card = 2) (hT' : T'.card = 2)
-    (hne : T ≠ T') :
-    Disjoint T T' ∨ ∃ i j k : Fin n, i ≠ j ∧ j ≠ k ∧ i ≠ k ∧ T = {i, j} ∧ T' = {j, k} := by
-  by_cases hd : Disjoint T T'
-  · exact Or.inl hd
-  · right
-    obtain ⟨x, hx, hx'⟩ := Finset.not_disjoint_iff.mp hd
-    obtain ⟨i, hix, hi⟩ := exists_pair_eq_of_mem hT hx
-    obtain ⟨k, hkx, hk⟩ := exists_pair_eq_of_mem hT' hx'
-    refine ⟨i, x, k, hix, hkx.symm, ?_, hi, by rw [hk, Finset.pair_comm]⟩
-    rintro rfl
-    exact hne (by rw [hi, hk])
 
 @[expose] def weylGraph (n : ℕ) : SimpleGraph (Pair n) :=
   SimpleGraph.fromRel fun T T' => Disjoint T.1 T'.1

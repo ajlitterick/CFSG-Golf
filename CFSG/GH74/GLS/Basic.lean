@@ -31,9 +31,6 @@ theorem kProper_iff_forall_isKGroupNative {G : Type} [Group G] [Finite G] :
     Assembly.KProper Blueprint.Catalog G ↔ ∀ H : Subgroup G, H ≠ ⊤ → IsKGroupNative H :=
   ⟨fun hK _ hH => isKGroupNative_of_kProper hK hH, kProper_of_forall_isKGroupNative⟩
 
-theorem kProper_of_isKGroupNative {G : Type} [Group G] (hG : IsKGroupNative G) :
-    Assembly.KProper Blueprint.Catalog G :=
-  fun K L _ _ _ hsimple _ => hG K (L.subgroupOf K) hsimple
 
 theorem isKProperSimple_iff {G : Type} [Group G] [Finite G] :
     IsKProperSimple G ↔ IsSimpleGroup G ∧ (∃ a b : G, a * b ≠ b * a) ∧
@@ -44,9 +41,6 @@ theorem IsKProperSimple.isKGroupNative_of_ne_top {G : Type} [Group G] [Finite G]
     (hG : IsKProperSimple G) {H : Subgroup G} (hH : H ≠ ⊤) : IsKGroupNative H :=
   isKGroupNative_of_kProper hG.2.2 hH
 
-theorem isKProperSimple_of_isKGroupNative {G : Type} [Group G] (hs : IsSimpleGroup G)
-    (hn : ∃ a b : G, a * b ≠ b * a) (hG : IsKGroupNative G) : IsKProperSimple G :=
-  ⟨hs, hn, kProper_of_isKGroupNative hG⟩
 
 section Sections
 
@@ -83,7 +77,6 @@ variable {G : Type*} [Group G]
 @[expose] def zStar (X : Subgroup G) : Subgroup G :=
   X ⊓ centralizerSection X (pPrimeCoreOf 2 X)
 
-@[expose] def elementsOfOrder (p : ℕ) (X : Type*) [Group X] : Set X := {x | orderOf x = p}
 
 end Sections
 

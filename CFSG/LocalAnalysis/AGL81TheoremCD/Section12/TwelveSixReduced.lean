@@ -369,51 +369,6 @@ theorem odd_prime_divisors_of_n_eq_one {M H : Subgroup G} {d : ℕ} {L₁ L₂ L
     · exact prime_eq_three_or_seven_of_dvd_card_of_isL3TwoPow_one hq hq2 (h2 ▸ hdata.type₂) hq2'
   · exact prime_eq_three_or_seven_of_dvd_card_of_isL3TwoPow_one hq hq2 (h3 ▸ hdata.type₃) hq3
 
-structure TwelveSixInputsV2 (M H : Subgroup G) (p d n₁ n₂ n₃ : ℕ) : Prop where
-  nineFourTwo : ∀ C : Subgroup G, C ≠ ⊤ → 2 ≤ CFSG.Open.pRank d (C ⊓ M) →
-    ¬ CFSG.HallHigman.IsPSolvable d ↥(C ⊓ M) → C ≤ M
-  n₁_eq_one : n₁ = 1
-  n₂_eq_one : n₂ = 1
-  n₃_eq_one : n₃ = 1
-  p_eq_three : p = 3
-  kbar_type : CFSG.Blueprint.LieModel (modTwoCore (kSub p M H)) .PSp 2 3 1 ∨
-    Nonempty (modTwoCore (kSub p M H) ≃* alternatingGroup (Fin 9))
-  k_inter : ∀ P : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 3 P (kSub p M H ⊓ M) →
-    kSub p M H ⊓ M =
-      (kSub p M H ⊓ normalizer (thompsonSubgroup P : Set G)) ⊔ pCoreOf 2 (kSub p M H)
-
-theorem twelveSixInputs_of_v2 {M H : Subgroup G} {p d : ℕ} {L₁ L₂ L₃ : Subgroup G}
-    {n₁ n₂ n₃ : ℕ}
-    (h41 : ∀ q : ℕ, q ∈ sigmaSet G M → ¬ q ∣ Nat.card (H ⊓ M : Subgroup G))
-    (h3 : ∃ L : Subgroup G, L ∈ weakBlockSet M H ∧ 3 ∣ Nat.card (L ⊓ H : Subgroup G))
-    (h125 : ∀ q : ℕ, q ∈ sigmaSet G M → TwelveFive M H q)
-    (hL3 : ∀ A : Subgroup G, A ∈ weakBlockSet M H →
-      ∃ n : ℕ, Odd n ∧ IsL3TwoPow n (↥A ⧸ pCore 2 ↥A))
-    (hdvdL : ∀ A : Subgroup G, A ∈ weakBlockSet M H → d ∣ Nat.card A)
-    (hcard : 3 ≤ (weakBlockSet M H).ncard)
-    (hdata : TwelveFiveData M H d L₁ L₂ L₃ n₁ n₂ n₃)
-    (hin : TwelveSixInputsV2 M H p d n₁ n₂ n₃) :
-    TwelveSixInputs M H p d L₁ L₂ L₃ n₁ n₂ n₃ := by
-  have hd : d.Prime := CFSG.RankThreeCoreUniqueness.Helpers.sigmaA_prime d hdata.mem_sigma.1
-  have hd2 : d ≠ 2 := CFSG.RankThreeCoreUniqueness.Helpers.sigmaA_odd d hdata.mem_sigma.1
-  exact
-    { nineFourTwo := hin.nineFourTwo
-      centralizer₁ := fun W hW hWL =>
-        centralizer_inputs_of_mem_weakBlockSet hd hd2 hL3 hdvdL hcard hdata.mem₁ hW hWL
-      centralizer₂ := fun W hW hWL =>
-        centralizer_inputs_of_mem_weakBlockSet hd hd2 hL3 hdvdL hcard hdata.mem₂ hW hWL
-      centralizer₃ := fun W hW hWL =>
-        centralizer_inputs_of_mem_weakBlockSet hd hd2 hL3 hdvdL hcard hdata.mem₃ hW hWL
-      n₁_eq_one := hin.n₁_eq_one
-      n₂_eq_one := hin.n₂_eq_one
-      n₃_eq_one := hin.n₃_eq_one
-      twelveFour := twelveFour_of_weakBlock h41 h3
-      j_eq_all := fun q hq => TwelveFive.part_one (h125 q hq)
-      odd_prime_divisors :=
-        odd_prime_divisors_of_n_eq_one hdata hin.n₁_eq_one hin.n₂_eq_one hin.n₃_eq_one
-      p_eq_three := hin.p_eq_three
-      kbar_type := hin.kbar_type
-      k_inter := hin.k_inter }
 
 end CFSG.LocalAnalysis.AGL81TheoremCD.Section12
 

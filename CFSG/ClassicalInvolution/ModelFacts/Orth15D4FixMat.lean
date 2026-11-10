@@ -567,12 +567,6 @@ theorem VpC_U0 {w : Fin 4 → Idx → F} (hw : ∀ k, VpC (w k)) (v : Idx → F)
   rw [U0_apply]
   simp [Finset.sum_apply, hw _ μ hμ]
 
-theorem U0_Pp (w : Fin 4 → Idx → F) (v : Idx → F) : U0 w (Pp v) = U0 w v := by
-  rw [U0_apply, U0_apply]
-  refine Finset.sum_congr rfl fun k _ => ?_
-  have : Pp v (kap k) = v (kap k) := by
-    fin_cases k <;> simp [kap, Pp]
-  rw [this]
 
 theorem U0_of_vanish (w : Fin 4 → Idx → F) {u : Idx → F} (hu : ∀ k, u (kap k) = 0) :
     U0 w u = 0 := by
@@ -759,9 +753,6 @@ theorem AL_injective {w : Fin 4 → Idx → F} (hw : ∀ k, VpC (w k))
     (Idx → F) ≃ₗ[F] (Idx → F) :=
   LinearEquiv.ofInjectiveEndo (AL w) (AL_injective hw hG)
 
-theorem ALe_apply {w : Fin 4 → Idx → F} (hw : ∀ k, VpC (w k))
-    (hG : ∀ k l, polar (quadPlus 4 F) (w k) (w l) = polar (quadPlus 4 F) (ek F k) (ek F l))
-    (v : Idx → F) : ALe hw hG v = AL w v := rfl
 
 end IsoExt
 

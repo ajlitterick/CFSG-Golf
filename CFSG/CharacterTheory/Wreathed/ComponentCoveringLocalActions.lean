@@ -208,19 +208,5 @@ theorem component_v_quotient_sym3 [IsSimpleGroup G]
     ((modelVNormalizerQuotientEquiv n hn _ _).trans
       (erange.trans ((modelVNormalizerQuotientEquiv n hn S e).symm.trans e3)))⟩
 
-theorem component_cover_v_quotient_sym3
-    [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (p f : ℕ) (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (centralizerSimpleLayer n hn S e) .PSL 2 p f)
-    (K : Subgroup G) (hSK : (S : Subgroup G) ≤ K)
-    (hcover : CFSG.layer (centralizerOddCoreQuotient n S e) ≤ originalImage n S e K) :
-    Nonempty (coveringVQuotient S e K ≃* Equiv.Perm (Fin 3)) := by
-  obtain ⟨hnormal, hodd⟩ := component_cover_image_normal_odd_index
-    hnonab n hn S e hfour p f hp hpodd hf hmodel K hSK hcover
-  exact component_v_quotient_sym3 hnonab n hn S e K hSK hnormal hodd
 
 end CFSG.Wreathed.ComponentCoveringLocal

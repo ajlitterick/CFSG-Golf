@@ -82,17 +82,6 @@ theorem two_subgroup_card_le_conjugate_sylow {G : Type*} [Group G] [Finite G]
   have hbound : Nat.card T ≤ Nat.card (sylowImage P D) := Subgroup.card_le_of_le hD
   rwa [sylowImage_card, ← hcards, ← sylowImage_card Q R] at hbound
 
-theorem two_subgroup_equiv_sylowImage_of_card {G : Type*} [Group G] [Finite G]
-    (M R : Subgroup G) (htwo : IsPGroup 2 R) (hR : R ≤ M) (P : Sylow 2 M)
-    (hcard : Nat.card R = Nat.card (sylowImage M P)) :
-    Nonempty (R ≃* sylowImage M P) := by
-  obtain ⟨D, hD⟩ := exists_sylowImage_containing M R htwo hR
-  have hsame : Nat.card (sylowImage M D) = Nat.card (sylowImage M P) := by
-    rw [sylowImage_card, sylowImage_card, SubgroupSylowTransport.same_card D P]
-  have heq : R = sylowImage M D := Subgroup.eq_of_le_of_card_ge hD (hsame.trans hcard.symm).le
-  exact ⟨(MulEquiv.subgroupCongr heq).trans
-    (((D : Subgroup M).equivMapOfInjective M.subtype M.subtype_injective).symm.trans
-      ((D.equiv P).trans ((P : Subgroup M).equivMapOfInjective M.subtype M.subtype_injective)))⟩
 
 theorem sylowImage_equiv_conjugate {G : Type*} [Group G] [Finite G]
     (Q P : Subgroup G) (g : G) (hP : rightConjugate Q g = P)

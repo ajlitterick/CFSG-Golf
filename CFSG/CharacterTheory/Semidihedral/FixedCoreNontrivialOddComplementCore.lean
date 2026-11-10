@@ -318,41 +318,5 @@ end LocalData
 
 open CFSG.Open CFSG.Semidihedral CFSG.Semidihedral.ActualSimpleLayerLocalPackage
   CFSG.Semidihedral.StationaryConfinement in
-theorem odd_subgroup_core_normal_complement
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (hGnonab : ∃ a b : G, a * b ≠ b * a)
-    (hrecognition : PerfectLayerNormalization.OriginalSmallerSimpleRecognition G)
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G) (fS : SemidihedralGroup n ≃* (S : Subgroup G)) (t : G)
-    (ht : t = (fS (r n) : G) ^ 2 ^ (n - 2))
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma t))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma t), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma t) : Set (Gamma t)) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting (Gamma t)), ¬ IsCyclic U)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 9 < p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (CFSG.generalizedFitting (Gamma t)) .PSL 2 p f)
-    (hcov : EscapingLocalEigensubgroups.allLocalPrimeStationaryCovers t (fS (s n) : G))
-    (hY : (((CFSG.generalizedFitting (Gamma t)).comap (barKappa t)).comap (nu t)).index = 2)
-    (hA₀ : (N t).map (C t).subtype ⊓ Subgroup.centralizer {(fS (s n) : G)} = ⊥)
-    (R : Subgroup G) (hR : Odd (Nat.card R)) (hBR : (N t).map (C t).subtype ≤ R) :
-    ∃ M : Subgroup G, M ≤ R ∧ R ≤ Subgroup.normalizer (M : Set G) ∧
-      Disjoint M ((N t).map (C t).subtype) ∧ M ⊔ (N t).map (C t).subtype = R ∧
-      Nat.card M * Nat.card ((N t).map (C t).subtype) = Nat.card R := by
-  obtain ⟨J, d, hL, -⟩ := trivial_fixed_core_local_data G hGnonab hrecognition n hn S fS t ht
-    hnonab hcentral hnc p f hp hpodd hf hq hmodel hcov hY hA₀
-  obtain ⟨-, ht2, -, hsC, hs2, hst⟩ := Principal.supplied_t_s_facts hn fS ht
-  obtain ⟨-, hconf, -, -⟩ :=
-    stationary_all_local_prime_covers_confine_every_nontrivial_odd_core_element
-      G hGnonab hrecognition n hn S fS t (fS (s n)) ht2 hs2 hsC hst.symm hnonab hcentral hnc p f
-      hp hpodd hf (by omega) hmodel hcov
-  have hBodd : Odd (Nat.card ((N t).map (C t).subtype)) := by
-    rw [Subgroup.card_map_of_injective (C t).subtype_injective]
-    exact Nat.coprime_two_left.mp (CFSG.pPrimeCore_coprime_card (p := 2) (G := C t))
-  have hBnormal : (((N t).map (C t).subtype).subgroupOf (C t)).Normal :=
-    ⟨fun x hx c => hL.B_conj c c.2 x hx⟩
-  obtain ⟨hloc, -⟩ :=
-    Principal.confined_normal_inverted_odd_subgroup_primes_do_not_divide_centralizer_index n hn S
-      fS t ht _ (map_subtype_le _) hBodd hBnormal hL.s_inv hconf
-  exact hL.odd_normal_complement hconf
-    (fun ℓ hℓ hℓB P Q hQC hQp hPQ => (hloc ℓ hℓ hℓB P).1 Q hQC hQp hPQ) hR hBR
 
 end CFSG.Semidihedral.FixedCoreNontrivial

@@ -67,17 +67,6 @@ theorem conjAutQ_mk (X : Subgroup G) [(pPrimeCore 3 ↥X).Normal]
       ∀ D : Subgroup H, D ≠ ⊥ → IsPGroup 2 D → (∀ d ∈ D, σ d ∈ D) →
         (∀ u : H, u * t = t * u → ∀ d ∈ D, u * d * u⁻¹ ∈ D) → σ = 1
 
-@[expose] def KFact26 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),
-    Sec17Std G A c L Y₀ → omegaA A = {Subgroup.zpowers c} → ¬ IsL3TwoPow L →
-    ¬ ⁅CFSG.Open.pCoreOf 2 (Subgroup.centralizer (Y₀ : Set G)), Subgroup.zpowers c⁆ ≤
-        pPrimeCoreOf 3 (normalClosureIn (Subgroup.centralizer ((A ⊓ L : Subgroup G) : Set G)) c) →
-    haveI : (pPrimeCore 3 ↥(normalClosureIn (Subgroup.centralizer ((A ⊓ L : Subgroup G) : Set G))
-      c)).Normal := pPrimeCore_normal
-    ∃ n : ℕ, Odd n ∧
-      Nonempty (↥(normalClosureIn (Subgroup.centralizer ((A ⊓ L : Subgroup G) : Set G)) c) ⧸
-        pPrimeCore 3 ↥(normalClosureIn (Subgroup.centralizer ((A ⊓ L : Subgroup G) : Set G)) c) ≃*
-          CFSG.PGLModel.projSL 3 (GaloisField 2 n))
 
 @[expose] def KFact26At (A : Subgroup G) (c : G) (L Y₀ : Subgroup G) : Prop :=
   omegaA A = {Subgroup.zpowers c} → ¬ IsL3TwoPow L →

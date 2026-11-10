@@ -145,19 +145,5 @@ theorem xbar_mem_Ebar : xbar ∈ Ebar := ⟨xC, xmat_mem_rhoCQ, rfl⟩
 
 theorem xbar_mem_Jbar : xbar ∈ Jbar := Ebar_le_Jbar xbar_mem_Ebar
 
-theorem short_centralizer_generated_subgroup_data :
-    Jstar = Gvis ⊓ Subgroup.centralizer {tStar} ∧
-    Cgen = Subgroup.closure (insert tauB (Jstar : Set (SpaceB ≃ₗ[ℚ] SpaceB))) ∧
-    (∀ f, f ∈ rhoCQ ↔ ∃ q ∈ Subgroup.centralizer {rStar}, rhoEquiv q = f) ∧
-    tStar ∈ Jstar ∧ xmat ∈ Jstar ∧ rhoCQ ≤ Jstar ∧ Jstar ≤ Cgen ∧ tauB ∈ Cgen ∧
-    Cgen ≤ Gmat ⊓ Subgroup.centralizer {tStar} ∧ Finite Cgen ∧
-    Zstar = Subgroup.zpowers tStarC ∧ Nat.card Zstar = 2 ∧ Zstar ≤ Subgroup.center Cgen ∧
-    Finite Cbar ∧ kappa = QuotientGroup.mk' Zstar ∧ kappa.ker = Zstar ∧
-    Jbar = (Jstar.subgroupOf Cgen).map kappa ∧ Ebar = (rhoCQ.subgroupOf Cgen).map kappa ∧
-    xbar = kappa ⟨xmat, xmat_mem_Cgen⟩ ∧ taubar = kappa ⟨tauB, tauB_mem_Cgen⟩ ∧
-    Ebar ≤ Jbar ∧ xbar ∈ Ebar :=
-  ⟨rfl, rfl, fun _ => mem_rhoCQ, tStar_mem_Jstar, xmat_mem_Jstar, rhoCQ_le_Jstar, Jstar_le_Cgen,
-    tauB_mem_Cgen, Cgen_le, inferInstance, rfl, natCard_Zstar, Zstar_le_center, inferInstance, rfl,
-    ker_kappa, rfl, rfl, rfl, rfl, Ebar_le_Jbar, xbar_mem_Ebar⟩
 
 end CFSG.Monster.B

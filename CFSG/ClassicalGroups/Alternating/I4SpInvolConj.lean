@@ -15,8 +15,6 @@ theorem mem_orthogonal_iff_form {X : Submodule K N} {x : N} :
     x ∈ BN.orthogonal X ↔ ∀ n ∈ X, BN n x = 0 := by
   rw [LinearMap.BilinForm.mem_orthogonal_iff]
 
-theorem Tsp_mem_fixator (hBN : BN.IsAlt) {S : Set N} {x : N} (hx : ∀ y ∈ S, BN y x = 0) (c : K) :
-    Tsp hBN x c ∈ Gsp.fixator S := fun y hy => Tsp_app_of_form_eq_zero hBN c (hx y hy)
 
 theorem exists_Tsp_swap [CharP K 2] (hBN : BN.IsAlt) {a b : N} (hab : BN a b ≠ 0) {l : K}
     (hl : l ≠ 0) :
@@ -196,21 +194,5 @@ theorem exists_conj_commute [CharP K 2] [Finite K] (hq : 4 ≤ Nat.card K) (hBN 
       rw [this, Gsp.app_one]
     exact exists_conj_commute_of_transvection (by omega) hBN hBNnd hX.sup_eq_top hu hfix hα hz₀
 
-theorem exists_conj_commute_sq [CharP K 2] [Finite K] (hq : 4 ≤ Nat.card K) (hBN : BN.IsAlt)
-    (hBNnd : BN.Nondegenerate) {X : Submodule K N} (hX : IsCompl X (BN.orthogonal X))
-    {u : Gsp BN} (hu : u * u = 1) (hu1 : u ≠ 1) (hfix : ∀ x ∈ X, u.app x = x) :
-    ∃ k : Gsp BN, (∀ x ∈ X, k.app x = x) ∧ k * u * k⁻¹ ≠ u ∧
-      (u * (k * u * k⁻¹)) ^ 2 = 1 := by
-  obtain ⟨k, hk, hne, hcomm⟩ := exists_conj_commute hq hBN hBNnd hX hu hu1 hfix
-  refine ⟨k, hk, hne, ?_⟩
-  have hu'sq : (k * u * k⁻¹) * (k * u * k⁻¹) = 1 := by
-    calc (k * u * k⁻¹) * (k * u * k⁻¹) = k * (u * u) * k⁻¹ := by group
-      _ = 1 := by rw [hu]; group
-  rw [sq]
-  calc u * (k * u * k⁻¹) * (u * (k * u * k⁻¹)) = u * ((k * u * k⁻¹) * u) * (k * u * k⁻¹) := by
-        group
-    _ = u * (u * (k * u * k⁻¹)) * (k * u * k⁻¹) := by rw [← hcomm.eq]
-    _ = (u * u) * ((k * u * k⁻¹) * (k * u * k⁻¹)) := by group
-    _ = 1 := by rw [hu, hu'sq, one_mul]
 
 end CFSG.ClassicalGroups.Alternating

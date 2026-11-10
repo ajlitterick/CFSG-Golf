@@ -65,8 +65,6 @@ theorem planePoint_planeVector (x : Fin 11) (hx : x.val < 9) : planePoint (plane
   revert x
   decide
 
-theorem planePoint_injective : Function.Injective planePoint := fun v w h => by
-  rw [← planeVector_planePoint v, h, planeVector_planePoint]
 
 @[expose] def affineMap (A : Matrix (Fin 2) (Fin 2) (ZMod 3)) (t : Fin 2 → ZMod 3) (x : Fin 11) :
     Fin 11 :=
@@ -181,11 +179,6 @@ theorem point_cases : ∀ x : Fin 11, x = 9 ∨ x = 10 ∨ x = 0 ∨ ∃ j, x = 
 
 @[expose] def candB : Fin 8 → Fin 8 := ![4, 5, 1, 6, 1, 6, 4, 5]
 
-theorem autArray_cand : ∀ k, autArray (candA k) (candB k) =
-    ![![0, 2, 4, 3, 1, 6, 7, 5], ![0, 2, 5, 3, 6, 1, 7, 4], ![0, 4, 1, 3, 2, 7, 5, 6],
-      ![0, 4, 6, 3, 7, 2, 5, 1], ![0, 5, 1, 3, 7, 2, 4, 6], ![0, 5, 6, 3, 2, 7, 4, 1],
-      ![0, 7, 4, 3, 6, 1, 2, 5], ![0, 7, 5, 3, 1, 6, 2, 4]] k := by
-  decide +kernel
 
 theorem autArray_classification : ∀ a b : Fin 8,
     (∀ i j, autArray a b i = autArray a b j → i = j) →

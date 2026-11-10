@@ -58,14 +58,6 @@ theorem padicValNat_card_inf_eq_zero_of_tight (ht : S19R.TightStdDelta p f K z) 
   refine padicValNat.eq_zero_of_not_dvd fun h2 => ?_
   exact (Nat.not_even_iff_odd.mpr (odd_card_inf_of_tight ht hK₁ hJ hne)) (even_iff_two_dvd.mpr h2)
 
-theorem omega4_of_tight (ht : S19R.TightStdDelta p f K z) :
-    ∀ K₁ ∈ CoreAssembly.conjClass K, ∀ J ∈ CoreAssembly.conjClass K, K₁ ≠ J →
-      padicValNat 2 (Nat.card ↥(K₁ ⊓ J)) ≤ 1 ∧
-        (padicValNat 2 (Nat.card ↥(K₁ ⊓ J)) = 1 → Commutes K₁ J) := by
-  intro K₁ hK₁ J hJ hne
-  have h0 := padicValNat_card_inf_eq_zero_of_tight ht hK₁ hJ hne
-  refine ⟨by omega, fun h1 => ?_⟩
-  omega
 
 theorem mem_normalizer_of_commute_of_tight (ht : S19R.TightStdDelta p f K z) {K₁ : Subgroup G}
     (hK₁ : K₁ ∈ CoreAssembly.conjClass K) {z₁ : G} (hz₁ : IsUniqueInvolution K₁ z₁) {v : G}

@@ -327,69 +327,6 @@ theorem base_isConj_iff (hn : 2 ≤ n) {x y : G} (hx : x ∈ modelBase S e)
   · rintro ⟨g, -, rfl⟩
     exact isConj_iff.mpr ⟨g⁻¹, by rw [inv_inv]⟩
 
-theorem exists_isConj_mem_modelBase (hn : 2 ≤ n)
-    (hsix : Nonempty (Subgroup.normalizer (modelV S e : Set G) ⧸ modelVInnerCentralizer S e ≃*
-      Equiv.Perm (Fin 3)))
-    (g : G) (hg : ∃ k : ℕ, orderOf g = 2 ^ k) (hord : orderOf g ≠ 2 * 2 ^ n) :
-    ∃ x ∈ modelBase S e, IsConj g x := by
-  let : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨k, hk⟩ := hg
-  have hgp : IsPGroup 2 (Subgroup.zpowers g) := IsPGroup.of_card (by rw [Nat.card_zpowers, hk])
-  obtain ⟨y, hgy⟩ := CFSG.Semidihedral.InvolutionFusion.exists_ambient_conjugate_mem_sylow S g hgp
-  have hyord : orderOf (y : G) ≠ 2 * 2 ^ n := by
-    obtain ⟨c, hc⟩ := isConj_iff.mp hgy
-    rw [← hc, show c * g * c⁻¹ = (MulAut.conj c) g by simp, MulEquiv.orderOf_eq]
-    exact hord
-  by_cases hyB : (y : G) ∈ modelBase S e
-  · exact ⟨y, hyB, hgy⟩
-  ·
-    obtain ⟨w, hw⟩ := exists_wreathModelHom_eq S e y.property
-    obtain ⟨⟨c, d, f⟩, rfl⟩ := (coordinateEquiv (2 ^ n)).symm.surjective w
-    change wreathModelHom S e (element _ c d f) = _ at hw
-    rw [← hw, mem_modelBase_iff, element_mem_base] at hyB
-    have hf : f = 1 := (swap_exponent_cases f).resolve_left hyB
-    subst hf
-    rw [← hw, orderOf_injective _ (wreathModelHom_injective S e)] at hyord
-    obtain ⟨k', rfl⟩ : ∃ k', n = k' + 1 := ⟨n - 1, by omega⟩
-    have heven : ¬ Odd (c + d).val := fun hodd =>
-      hyord ((element_maximal_order_iff k' c d 1).mpr ⟨rfl, hodd⟩)
-    rw [Nat.not_odd_iff_even] at heven
-    obtain ⟨j, hj⟩ := heven
-    have hconj : IsConj (element (2 ^ (k' + 1)) c d 1)
-        (element (2 ^ (k' + 1)) (j : ZMod _) (j : ZMod _) 1) := by
-      rw [swap_isConj_iff, ← ZMod.natCast_zmod_val (c + d), hj]
-      push_cast
-      ring
-    obtain ⟨h₀, hh₀N, hh₀⟩ := exists_centralizer_conj_swap_eq_x2 hn S e hsix
-    have haj : wreathModelHom S e (element (2 ^ (k' + 1)) (j : ZMod _) (j : ZMod _) 1) =
-        wreathModelHom S e (Original.a (2 ^ (k' + 1))) ^ j *
-          wreathModelHom S e (Original.z (2 ^ (k' + 1))) := by
-      rw [← map_pow, ← map_mul, Original.a_eq, element_base_pow, Original.z, element_base_mul]
-      simp only [nsmul_eq_mul, mul_one, add_zero]
-    have haZ : wreathModelHom S e (Original.a (2 ^ (k' + 1))) ^ j ∈ modelCenter S e :=
-      (modelCenter S e).pow_mem ⟨_, Subgroup.mem_zpowers _, rfl⟩ j
-    have hcen := Subgroup.mem_centralizer_iff.mp hh₀N _ haZ
-    refine ⟨wreathModelHom S e (Original.a (2 ^ (k' + 1))) ^ j *
-      wreathModelHom S e (Original.x2 (2 ^ (k' + 1))), ?_, ?_⟩
-    · exact (modelBase S e).mul_mem
-        ((modelBase S e).pow_mem ((mem_modelBase_iff S e _).mpr
-          (by rw [Original.a_eq, element_mem_base])) j)
-        (modelHom_x2_mem_modelBase S e)
-    · have hgy' : IsConj g (wreathModelHom S e (element (2 ^ (k' + 1)) c d 1)) := by
-        rw [hw]
-        exact hgy
-      refine hgy'.trans ((((wreathModelHom S e).map_isConj hconj).trans ?_))
-      rw [haj]
-      refine isConj_iff.mpr ⟨h₀⁻¹, ?_⟩
-      rw [inv_inv, ← hh₀]
-      calc
-        h₀⁻¹ * (wreathModelHom S e (Original.a (2 ^ (k' + 1))) ^ j *
-            wreathModelHom S e (Original.z (2 ^ (k' + 1)))) * h₀ =
-          (h₀⁻¹ * wreathModelHom S e (Original.a (2 ^ (k' + 1))) ^ j * h₀) *
-            (h₀⁻¹ * wreathModelHom S e (Original.z (2 ^ (k' + 1))) * h₀) := by group
-        _ = _ := by
-          rw [mul_assoc h₀⁻¹, hcen]
-          group
 
 theorem modelBase_sylow_centralizer_of_not_isConj (hn : 2 ≤ n) {μ : G}
     (hμ : μ ∈ modelBase S e) (hμZ : ¬ ∃ z ∈ modelCenter S e, IsConj μ z) :

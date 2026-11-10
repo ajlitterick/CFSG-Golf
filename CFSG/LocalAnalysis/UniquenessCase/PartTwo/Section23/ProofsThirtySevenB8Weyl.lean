@@ -390,19 +390,6 @@ private theorem exists_centralizing_translate (D : Data G) (Ch : Choice2011 G)
   exact CFSG.GroupTheory.exists_mul_mem_inf_centralizer_of_commutator_mem
     hPleL hPn hFLn hsolv hcop hx (fun r hr => hFLcomm r hr x hx)
 
-private theorem exists_covering_subgroup (D : Data G) (Ch : Choice2011 G)
-    (h4 : S23_4 D Ch) (h23 : S23_23 D Ch) (h208 : S20_8 D) (h1930 : H1930 D)
-    (c : Ctx23L D Ch) {F FL : Subgroup G} (hFLF : FL ≤ F)
-    (hFodd : Odd (Nat.card F)) (hFN : F ≤ c.N)
-    (hFLcomm : ∀ r ∈ FL, ∀ x ∈ c.L, ⁅x, r⁆ ∈ CFSG.Open.pCoreOf 2 c.L) :
-    c.L ≤ (c.L ⊓ Subgroup.centralizer (FL : Set G)) ⊔ CFSG.Open.pCoreOf 2 c.L := by
-  intro x hx
-  obtain ⟨n, hnP, hxn⟩ :=
-    exists_centralizing_translate D Ch h4 h23 h208 h1930 c hFLF hFodd hFN hFLcomm hx
-  have hxeq : x = (x * n) * n⁻¹ := by group
-  rw [hxeq]
-  exact Subgroup.mul_mem_sup (show x * n ∈ c.L ⊓ Subgroup.centralizer (FL : Set G) from
-    ⟨hxn.1, hxn.2⟩) ((CFSG.Open.pCoreOf 2 c.L).inv_mem hnP)
 
 private theorem cartan_le_l1 (D : Data G) (Ch : Choice2011 G) (c : Ctx23L D Ch)
     {DL F FL : Subgroup G} (hDLleB : DL ≤ CFSG.Quasithin.borelOf c.L D.T)

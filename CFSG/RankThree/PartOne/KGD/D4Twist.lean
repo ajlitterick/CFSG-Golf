@@ -74,8 +74,6 @@ section Twist
 
 variable {L : Type} [Field L]
 
-theorem zsmul_zsmul_sign {ε : ℤ} (h : ε = 1 ∨ ε = -1) (x : L) : ε • ε • x = x := by
-  rcases h with rfl | rfl <;> simp
 
 theorem exists_conj_rootSL2_eq_twist {t : TwistTag} {n : ModGL t.tag L}
     (hn : n ∈ monomialSubgroup t.tag L) {β : Fin t.tag.rank → ℤ} (hβ : IsRoot t.tag β) :

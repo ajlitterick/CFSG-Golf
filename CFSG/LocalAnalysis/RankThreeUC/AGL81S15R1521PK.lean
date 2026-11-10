@@ -458,16 +458,6 @@ theorem exists_centralizing_pGroup_gen {G : Type} [Group G] [Finite G] {M T : Su
   · exact exists_centralizing_pGroup_aux_branch1 hL.1 hcp hpP hp2 hpJ hym j hj
   · exact exists_centralizing_pGroup_aux_branch2 hL.1 hL3 hr3 hpP hp2 hpJ hym j hj
 
-theorem exists_centralizing_pGroup {G : Type} [Group G] [Finite G] {M T : Subgroup G}
-    {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂) (h20 : Row1520 G M T T₁ T₂)
-    {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    {p : ℕ} (hp : p ∈ sigmaM G M) (hpJ : ¬ p ∣ Nat.card (Subgroup.normalClosure (L : Set ↥M)))
-    (hsh : IsCentralProdA6Z3 ↥(barO2 (Subgroup.normalClosure (L : Set ↥M))) ∨
-      IsLThreeOfExp 1 ↥(barO2 L)) :
-    ∃ P₀ : Subgroup ↥M, IsPGroup p P₀ ∧ 2 ≤ CFSG.Open.pRank p P₀ ∧
-      ∀ y ∈ P₀, ∀ j ∈ Subgroup.normalClosure (L : Set ↥M), ⁅y, j⁆ ∈ CFSG.pCore 2 ↥M :=
-  exists_centralizing_pGroup_gen (ctx.rank_odd 3 Nat.prime_three (by norm_num)) h20 hLs hL hp hpJ hsh
 
 section ExistsE9
 
@@ -489,9 +479,6 @@ theorem exists_E9_of_ne_aux_Y0_gen {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X 
         (Subgroup.commutator_eq_bot_iff_le_centralizer.1 hc hz)
   exact mem_normalizer_of_map_conj_eq_s15 (liftOf_conj hl.gn hl.comp.1 hl.lift y (hY hy))
 
-theorem exists_E9_of_ne_aux_Y0 {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X}
-    (hl : LiftCtx X T T₁ T₂ Ls L) : Y0 T T₁ T₂ ≤ Subgroup.normalizer (L : Set X) :=
-  exists_E9_of_ne_aux_Y0_gen hl.toGen
 
 theorem exists_E9_of_ne_aux_move_gen {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
     {L : Subgroup X} (hl : LiftCtxGen X T T₁ T₂ Ls L)
@@ -511,11 +498,6 @@ theorem exists_E9_of_ne_aux_move_gen {T T₁ T₂ : Subgroup X} {Ls : Subgroup (
   haveI : L.Normal := ⟨fun n hn g => ((Subgroup.mem_normalizer_iff.1 (htop g)) n).1 hn⟩
   exact (Subgroup.normalClosure_eq_self L).symm
 
-theorem exists_E9_of_ne_aux_move {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X}
-    (hl : LiftCtx X T T₁ T₂ Ls L) (hne : L ≠ Subgroup.normalClosure (L : Set X)) :
-    ∃ g : X, (g ∈ Subgroup.normalizer (T₁ : Set X) ∨ g ∈ Subgroup.normalizer (T₂ : Set X)) ∧
-      g ∉ Subgroup.normalizer (L : Set X) :=
-  exists_E9_of_ne_aux_move_gen hl.toGen hne
 
 theorem exists_E9_of_ne_aux_ppart {G H : Type*} [Group G] [Group H] (f : G →* H) {x₀ : G} {y : H}
     (hy : f x₀ = y) {k : ℕ} (hk : y ^ (3 ^ k) = 1) (hfin : 0 < orderOf x₀) :
@@ -749,14 +731,6 @@ theorem exists_E9_of_ne_gen {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC
   rw [hEc]
   norm_num
 
-theorem exists_E9_of_ne {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {L : Subgroup X}
-    (hl : LiftCtx X T T₁ T₂ Ls L) (hne : L ≠ Subgroup.normalClosure (L : Set X))
-    (hsh : IsCentralProdA6Z3 ↥(barO2 (Subgroup.normalClosure (L : Set X))) ∨
-      (IsLThreeOfExp 1 ↥(barO2 L) ∧
-        Set.ncard {L' : Subgroup X | IsC2 L' ∧ L' ≤ Subgroup.normalClosure (L : Set X)} ≤ 3)) :
-    ∃ E : Subgroup X, E ≤ Subgroup.normalClosure (L : Set X) ∧ IsElemAbelian 3 E ∧ Nat.card E = 9 ∧
-      E ≤ Subgroup.normalizer (T₁ : Set X) :=
-  exists_E9_of_ne_gen hl.toGen hne hsh
 
 end ExistsE9
 
@@ -1048,16 +1022,6 @@ theorem isCentralProdA6Z3_gnImg_aux_inj_gen {T T₁ T₂ : Subgroup X} {Ls : Sub
   have := CFSG.SectionRank.pRank_mono Nat.prime_three.one_lt hUle
   omega
 
-theorem isCentralProdA6Z3_gnImg_aux_inj {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L) {A B : Subgroup (X ⧸ CFSG.pCore 2 X)}
-    (hA : IsAltSixCoverThree ↥A) (hcAB : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a)
-    (hsup : A ⊔ B = barO2 (Subgroup.normalClosure (L : Set X)))
-    (hAc : KFactsPair.centerIn A = A ⊓ B) (hBc : KFactsPair.centerIn B = A ⊓ B)
-    (hLA : barO2 L = A)
-    (hQ : CFSG.Open.pRank 3 (Subgroup.normalizer (T₁ : Set X) ⊓ L) ≤ 1) :
-    ∀ n ∈ barO2 (Subgroup.normalClosure (L : Set X)),
-      barToStar T (pCore_le_gnC hl.gn) n = 1 → n = 1 :=
-  isCentralProdA6Z3_gnImg_aux_inj_gen hl.toGen hA hcAB hsup hAc hBc hLA hQ
 
 theorem isCentralProdA6Z3_gnImg_aux_cp_of_mulEquiv {S S' : Type} [Group S] [Group S'] (e : S ≃* S')
     (h : IsCentralProdA6Z3 S) : IsCentralProdA6Z3 S' := by
@@ -1116,12 +1080,6 @@ theorem isCentralProdA6Z3_gnImg_aux_core_gen {T T₁ T₂ : Subgroup X}
     exact ⟨⟨QuotientGroup.mk' (CFSG.pCore 2 X) j, j, hj, rfl⟩, rfl⟩
   exact isCentralProdA6Z3_gnImg_aux_cp_of_mulEquiv (MulEquiv.ofBijective f ⟨hfinj, hfsurj⟩) hcp
 
-theorem isCentralProdA6Z3_gnImg_aux_core {T T₁ T₂ : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)}
-    {L : Subgroup X} (hl : LiftCtx X T T₁ T₂ Ls L)
-    (hcp : IsCentralProdA6Z3 ↥(barO2 (Subgroup.normalClosure (L : Set X))))
-    (hQ : CFSG.Open.pRank 3 (Subgroup.normalizer (T₁ : Set X) ⊓ L) ≤ 1) :
-    IsCentralProdA6Z3 ↥(gnImg T (Subgroup.normalClosure (L : Set X))) :=
-  isCentralProdA6Z3_gnImg_aux_core_gen hl.toGen hcp hQ
 
 theorem isCentralProdA6Z3_gnImg_of_Q_gen {G : Type} [Group G] [Finite G] {M T : Subgroup G}
     {T₁ T₂ : Subgroup ↥M} (hR : LiftRankBound G M T T₁ T₂)
@@ -1133,14 +1091,6 @@ theorem isCentralProdA6Z3_gnImg_of_Q_gen {G : Type} [Group G] [Finite G] {M T : 
     IsCentralProdA6Z3 ↥(gnImg (T.subgroupOf M) (Subgroup.normalClosure (L : Set ↥M))) :=
   isCentralProdA6Z3_gnImg_aux_core_gen (hR.liftCtxGen hgn hg hLs hL) hcp hQ
 
-theorem isCentralProdA6Z3_gnImg_of_Q {G : Type} [Group G] [Finite G] {M T : Subgroup G}
-    {T₁ T₂ : Subgroup ↥M} (ctx : S15Ctx2 G M T T₁ T₂)
-    {Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))} {L : Subgroup ↥M}
-    (hLs : GNYComponent (T.subgroupOf M) T₁ T₂ Ls) (hL : LiftOf (T.subgroupOf M) L Ls)
-    (hcp : IsCentralProdA6Z3 ↥(barO2 (Subgroup.normalClosure (L : Set ↥M))))
-    (hQ : CFSG.Open.pRank 3 (Subgroup.normalizer (T₁ : Set ↥M) ⊓ L) ≤ 1) :
-    IsCentralProdA6Z3 ↥(gnImg (T.subgroupOf M) (Subgroup.normalClosure (L : Set ↥M))) :=
-  isCentralProdA6Z3_gnImg_of_Q_gen (liftRankBound_of_ctx2 ctx) ctx.gn ctx.good hLs hL hcp hQ
 
 end CentralProd
 

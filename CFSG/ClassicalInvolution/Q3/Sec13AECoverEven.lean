@@ -900,15 +900,5 @@ theorem aeCover_ker {G : Type} [Group G] [Finite G] {P : Set (Subgroup G)} {k : 
   obtain ⟨ψ, hψ⟩ := exists_aeSub_equiv hH hk hΦadd hΦφ hWs hconj hπ1
   exact ⟨ψ, hψ, fun L hL α h b hlab => map_member_eq hH ψ hψ hL hlab⟩
 
-theorem aeCoverEvenKer_proved :
-    ∀ (G : Type) [Group G] [Finite G] (P : Set (Subgroup G)) (k : ℕ) (I : AEIdent P k),
-      5 ≤ k → Even k → TL4.AECoverHyp I →
-        Nat.card I.φ.ker ≤ 2 ∧
-        (I.φ.ker = ⊥ ∨ ∃ ψ : ↥(pSpan P) ≃* ↥(aeSub k),
-          (∀ x, mkQ k (ψ x : Wr k) = I.φ x) ∧
-          ∀ L ∈ P, ∀ (α : Finset (Fin k)) (h : α.card = 4) (b : Bool),
-            (L.subgroupOf (pSpan P)).map I.φ = memBar α h b →
-            ((L.subgroupOf (pSpan P)).map ψ.toMonoidHom).map (aeSub k).subtype = memAt α h b) :=
-  fun _ _ _ _ _ _ hk _ hH => aeCover_ker hH hk
 
 end CFSG.ClassicalInvolution.Q3.Sec13

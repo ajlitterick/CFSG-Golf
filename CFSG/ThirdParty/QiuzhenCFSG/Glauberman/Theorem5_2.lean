@@ -293,55 +293,9 @@ private lemma relIndex_sup_eq_relIndex_inf {H K : Subgroup G} [Finite G]
     simpa [Nat.mul_comm, Nat.mul_left_comm, Nat.mul_assoc] using hmul
   exact Nat.eq_of_mul_eq_mul_left hpos hmul'
 
-/-- If `C ⊴ H` and `P ∈ Syl_p H`, then `P ∩ C` is a Sylow `p`-subgroup of `C`. -/
-private lemma theorem52_sylow_inf_normal {p : ℕ} [Fact p.Prime]
-    {H : Type*} [Group H] [Finite H]
-    (P : Sylow p H) {C : Subgroup H} [C.Normal] :
-    ∃ Q : Sylow p (↥C), (Q : Subgroup (↥C)).map C.subtype = (P : Subgroup H) ⊓ C := by
-  classical
-  let T : Subgroup (↥C) := ((P : Subgroup H) ⊓ C).subgroupOf C
-  have hT_map : T.map C.subtype = (P : Subgroup H) ⊓ C := by
-    simp [T, Subgroup.subgroupOf_map_subtype]
-  have hT_p : IsPGroup p T := by
-    have hPC_p : IsPGroup p ((P : Subgroup H) ⊓ C : Subgroup H) := P.isPGroup'.to_inf_left
-    exact hPC_p.of_equiv
-      ((Subgroup.subgroupOfEquivOfLe (H := (P : Subgroup H) ⊓ C) (K := C) inf_le_right).symm.trans
-        (MulEquiv.subgroupCongr (by rfl : ((P : Subgroup H) ⊓ C).subgroupOf C = T)))
-  have hnot : ¬ p ∣ T.index := by
-    intro hp
-    have hCtop : Subgroup.normalizer (C : Set H) = ⊤ :=
-      Subgroup.normalizer_eq_top_iff.mpr (inferInstance : C.Normal)
-    have hPleNC : (P : Subgroup H) ≤ Subgroup.normalizer (C : Set H) := by
-      rw [hCtop]
-      exact le_top
-    have hrel : (P : Subgroup H).relIndex ((P : Subgroup H) ⊔ C) =
-        ((P : Subgroup H) ⊓ C).relIndex C :=
-      relIndex_sup_eq_relIndex_inf (H := (P : Subgroup H)) (K := C) hPleNC
-    have hdvd : ((P : Subgroup H) ⊓ C).relIndex C ∣ P.index := by
-      rw [← hrel]
-      exact Subgroup.relIndex_dvd_index_of_le (H := (P : Subgroup H))
-        (K := (P : Subgroup H) ⊔ C) le_sup_left
-    have hT_idx : T.index = ((P : Subgroup H) ⊓ C).relIndex C := by
-      rw [Subgroup.relIndex]
-    exact P.not_dvd_index (hp.trans (hT_idx ▸ hdvd))
-  refine ⟨IsPGroup.toSylow (p := p) hT_p hnot, ?_⟩
-  simp [T]
 
 /-! ## Transport of `(C_p)` and `SatisfiesCp` along group isomorphisms -/
 
-lemma map_conjSubset {H H' : Type*} [Group H] [Group H'] (e : H ≃* H')
-    (g : H) (W : Set H) :
-    e '' (conjSubset g W) = conjSubset (e g) (e '' W) := by
-  ext x
-  constructor
-  · rintro ⟨w, hw, rfl⟩
-    rcases hw with ⟨w0, hw0, rfl⟩
-    refine ⟨e w0, ⟨w0, hw0, rfl⟩, ?_⟩
-    simp [e.map_mul, e.map_inv]
-  · rintro ⟨w', hw', rfl⟩
-    rcases hw' with ⟨w0, hw0, rfl⟩
-    refine ⟨g⁻¹ * w0 * g, ⟨w0, hw0, rfl⟩, ?_⟩
-    simp [e.map_mul, e.map_inv]
 
 /-- A Sylow subgroup transported out and back is unchanged. -/
 private lemma sylow_map_map {H H' : Type u} [Group H] [Group H'] [Finite H] [Finite H']
@@ -420,16 +374,6 @@ private lemma cp_map {H H' : Type u} [Group H] [Group H'] [Finite H] [Finite H']
                 simpa using congrArg (fun X : Subgroup H => X.map e.toMonoidHom) hn
   · simpa [map_mul] using congrArg e hg
 
-/-- `(C_p)` is invariant under group isomorphisms (both directions). -/
-private lemma cp_congr {H H' : Type u} [Group H] [Group H'] [Finite H] [Finite H']
-    {p : ℕ} [Fact p.Prime] (K : CharacteristicFunctor p) (e : H ≃* H') (S : Sylow p H) :
-    Cp (G := H) K S ↔ Cp (G := H') K (S.mapSurjective (f := e.toMonoidHom) e.surjective) := by
-  constructor
-  · exact cp_map K e S
-  · intro hS'
-    have h := cp_map K e.symm (S.mapSurjective (f := e.toMonoidHom) e.surjective) hS'
-    rw [sylow_map_map] at h
-    exact h
 
 /-- `SatisfiesCp` is invariant under group isomorphisms. -/
 private lemma satisfiesCp_congr {H H' : Type u} [Group H] [Group H'] [Finite H] [Finite H']

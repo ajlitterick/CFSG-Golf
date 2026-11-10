@@ -52,7 +52,6 @@ inductive CocL where
     (cArr (cocImg l) p.1, cArr p.2.1 (cocInvImg l),
       act11 p.2.1 (cocVal x y l) ^^^ p.2.2)
 
-@[inline, expose] def cocWordArr (x y : ℕ) (w : List CocL) : Array ℕ := (cocFold x y w).1
 
 @[inline, expose] def cocInvArrOf (x y : ℕ) (w : List CocL) : Array ℕ := (cocFold x y w).2.1
 

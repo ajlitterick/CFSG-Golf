@@ -269,9 +269,6 @@ theorem not_isNaturalSLTwoModule_one {X : Type} [Group X] [Finite X] (hX : IsSho
   · rw [hcard] at hq
     exact absurd hq (by decide)
 
-theorem not_isLin2Type_one {L : Subgroup G} (hL : IsShort2 L) : ¬ IsLin2Type L 1 := fun h =>
-  not_isNaturalSLTwoModule_one (isShortGroup_of_isShort2 hL)
-    (isNaturalSLTwoModule_of_isLin2Type one_ne_zero h)
 
 omit [Finite G] in
 theorem isMaximalTwoLocal_of_glb {M : Subgroup G} (hM : CFSG.Open.GLBIsMaxTwoLocal M) :

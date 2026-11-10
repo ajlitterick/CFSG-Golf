@@ -157,33 +157,6 @@ end Hyp
     ∀ t ∈ T, t ≠ 1 → ∀ p : G, IsAPart A t p →
       (APartsLe A T (jGroup A p) ∧ Nat.card T ≤ q ∧ I p) ∨ II t
 
-@[expose] def Linear222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A T : Subgroup G) (D : ClassicalModel A),
-    D.family = .linear → Hyp221 A T →
-    Conclusion222 A T D.q (Case1 D) fun t => CaseII D T ∧ D.HasRank t 2 ∧
-      ∀ S : Subgroup G, IsSylowOf 2 S (A ⊓ centralizer ({t} : Set G)) → T ≤ S →
-        T ≤ (frattini ↥S).map S.subtype
-
-@[expose] def Unitary222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A T : Subgroup G) (D : ClassicalModel A),
-    D.family = .unitary → Hyp221 A T → Conclusion222 A T D.q (Case1 D) fun _ => False
-
-@[expose] def Symplectic222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A T : Subgroup G) (D : ClassicalModel A),
-    D.family = .symplectic → Hyp221 A T →
-    Conclusion222 A T D.q (fun p => Case1 D p ∨ Case23 D p) fun t =>
-      CaseII D T ∧ D.SuzukiType t .c 2 ∧ ∃ a ∈ A ⊓ centralizer ({t} : Set G),
-        a ∈ normalizer (T : Set G) ∧ a ∉ centralizer (T : Set G)
-
-@[expose] def OrthPlus222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A T : Subgroup G) (D : ClassicalModel A),
-    D.family = .orthPlus → Hyp221 A T →
-    Conclusion222 A T D.q (fun p => Case1 D p ∨ Case4 D p) fun _ => False
-
-@[expose] def OrthMinus222 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A T : Subgroup G) (D : ClassicalModel A),
-    D.family = .orthMinus → Hyp221 A T →
-    Conclusion222 A T D.q (fun p => Case1 D p ∨ Case4 D p) fun _ => False
 
 @[expose] def SymplecticJSylow (L : Letter) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A),
@@ -200,8 +173,6 @@ end Hyp
     D.family = .orthMinus → CFSG.Open.IsQuasisimple ↥A → Odd (Nat.card (center A)) →
       4 ≤ D.q → ∀ (p : G) (ℓ : ℕ), D.SuzukiType p L ℓ → JSylowAt A p
 
-@[expose] def Classical222 : Prop :=
-  Linear222 ∧ Unitary222 ∧ Symplectic222 ∧ OrthPlus222 ∧ OrthMinus222
 
 @[expose] def ClassicalJSylow : Prop :=
   (∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (D : ClassicalModel A), D.family = .linear →

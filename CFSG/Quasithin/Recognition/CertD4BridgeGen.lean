@@ -259,11 +259,6 @@ theorem d4b_G8_le_map
       rw [one_smul, d4bΨ_xPar_pos hk, hA]
       exact d4bUm_mid (nd 2) rfl true 1
 
-include hσ in
-theorem d4b_map_twistedGroup
-    : (twistedGroup σ).map (d4bΨ' hk) = d4bG8 k :=
-  le_antisymm (Subgroup.map_le_iff_le_comap.2 (d4b_twistedGroup_le hk σ hσ))
-    (d4b_G8_le_map hk σ hσ)
 
 end GenΨ
 

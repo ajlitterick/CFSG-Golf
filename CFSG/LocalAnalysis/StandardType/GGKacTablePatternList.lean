@@ -14,12 +14,6 @@ open CFSG CFSG.Assembly
 instance k0patPerm.instDecidablePred (N : ℕ) : DecidablePred (fun a : List ℕ => k0patPerm a N) :=
   fun a => decidable_of_iff (a.Nodup ∧ a.length = N ∧ ∀ x ∈ a, x < N) (by unfold k0patPerm; rfl)
 
-private theorem k0patPerm_id (N : ℕ) : k0patPerm (k0pId N) N := by
-  refine ⟨?_, ?_, ?_⟩
-  · exact List.nodup_range
-  · exact List.length_range
-  · intro x hx
-    exact List.mem_range.mp hx
 
 theorem k0patPerm_mul {a b : List ℕ} {N : ℕ} (ha : k0patPerm a N) (hb : k0patPerm b N) :
     k0patPerm (k0pMul a b) N := by

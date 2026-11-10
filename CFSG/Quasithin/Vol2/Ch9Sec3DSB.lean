@@ -42,6 +42,5 @@ theorem oTwoQuot_facts_of_alt_five {G : Type} [Group G]
       (CFSG.Assembly.LowTwoRank.projectiveSpecialLinearGroupEquivStatedProj 2
         (GaloisField 2 2)).symm)⟩⟩
 
-variable {G : Type} [Group G] [Finite G] {T L I : Subgroup G} {n : ℕ}
 
 end CFSG.Quasithin.H13.Ch9

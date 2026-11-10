@@ -86,13 +86,6 @@ theorem card_outer_psu3_dvd (hp : 2 ≤ p) : Nat.card (Outer (PSU3 2 p)) ∣ 6 *
   rw [card_outer_psu3 hp, show 6 * p = 2 * p * 3 by ring]
   exact Nat.mul_dvd_mul_left _ (Nat.gcd_dvd_left 3 _)
 
-theorem card_outer_psu3_of_ne_two (hp : p.Prime) (h2 : p ≠ 2) :
-    Nat.card (Outer (PSU3 2 p)) = 6 * p := by
-  have h3 : 3 ∣ 2 ^ p + 1 := by
-    have := NearSolvable.two_pow_mod_three (hp.odd_of_ne_two h2)
-    omega
-  rw [card_outer_psu3 hp.two_le, Nat.gcd_eq_left h3]
-  ring
 
 theorem outer_solvable_psu3 (hp : 2 ≤ p) : Group.IsSolvable (Outer (PSU3 2 p)) :=
   (unitary_rank_one_classical_model_schreier (statedClassicalModel_psu3 hp)).2

@@ -24,10 +24,6 @@ open Equiv Equiv.Perm Subgroup CFSG.Open CFSG.ABGLocalTools CFSG.Blueprint
   CFSG.ComponentClassification.RankTwoStandard CFSG.ComponentClassification.RankTwoClassical
   CFSG.ComponentClassification.AS76b
 
-abbrev AltStandardAtNF (m : ℕ) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G), RankTwoHypNF G A →
-    standardComponentOddCore G = ⊥ → Nonempty (rankTwoQuot A ≃* alternatingGroup (Fin m)) →
-      Nonempty (rankTwoX A ≃* alternatingGroup (Fin (m + 4)))
 
 variable {G : Type} [Group G] [Finite G] {A R T : Subgroup G} {g : G} {n : ℕ}
 

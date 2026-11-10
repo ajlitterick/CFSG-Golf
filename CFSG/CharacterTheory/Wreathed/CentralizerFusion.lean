@@ -185,11 +185,6 @@ theorem sylow_le_modelY_normalizer (n : ℕ) (hn : 2 ≤ n)
   rw [Subgroup.normalizer_eq_top, Subgroup.map_top, wreathModelHom_range S e] at h
   exact h
 
-theorem modelYInSylow_normal (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ((modelY S e).subgroupOf (S : Subgroup G)).Normal :=
-  (Subgroup.normal_subgroupOf_iff_le_normalizer (modelY_le_sylow S e)).mpr
-    (sylow_le_modelY_normalizer n hn S e)
 
 theorem modelV_eq_modelCenter_sup_modelQ (n : ℕ) (hn : 2 ≤ n)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -243,12 +238,6 @@ theorem modelVNormalizer_le_involutionCentralizer [Finite G]
   exact (Subgroup.mem_centralizer_iff.mp
     (modelVNormalizer_le_center_centralizer n hn S e hg) _ hx).symm
 
-theorem modelY_eq_centralizerQuaternion_subgroupOf (n : ℕ) (hn : 2 ≤ n)
-    (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    centralizerQuaternion n hn S e = (modelY S e).subgroupOf (involutionCentralizer n S e) := by
-  apply Subgroup.map_injective (involutionCentralizer n S e).subtype_injective
-  rw [centralizerQuaternion_map, Subgroup.map_subgroupOf_eq_of_le
-    ((modelY_le_sylow S e).trans (sylow_le_involutionCentralizer n hn S e))]
 
 theorem sylow_derived_eq_model_rotation (n : ℕ)
     (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
@@ -525,12 +514,6 @@ theorem centralizer_focal_eq_quaternion_of_simple [Finite G] [IsSimpleGroup G]
   exact modelY_le_focal_of_v_sym3 n hn _ _
     (centralizerVNormalizerQuotient_sym3_of_simple hnonab n hn S e)
 
-theorem centralizer_focal_map_eq_modelY_of_simple [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n)) :
-    ((centralizerSylow n hn S e : Subgroup (involutionCentralizer n S e)).focalSubgroup).map
-      (involutionCentralizer n S e).subtype = modelY S e := by
-  rw [centralizer_focal_eq_quaternion_of_simple hnonab, centralizerQuaternion_map]
 
 theorem centralizer_original_center_weakly_closed_ambient [Finite G]
     (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
@@ -546,14 +529,5 @@ theorem centralizer_original_center_weakly_closed_ambient [Finite G]
   exact congrArg Subtype.val
     (centralizer_original_center_weakly_closed n hn S e v hv gN hconjN)
 
-theorem centralizer_fusion_difference_mem_quaternion [Finite G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (P : Subgroup (involutionCentralizer n S e)) {g : involutionCentralizer n S e}
-    (hchain : WreathedFusionDecomposition
-      (centralizerSylow n hn S e : Subgroup (involutionCentralizer n S e))
-      (centralizerCoordinates n hn S e) P g) :
-    ∀ v ∈ P, (g⁻¹ * v * g) * v⁻¹ ∈ centralizerQuaternion n hn S e :=
-  wreathedFusionDecomposition_difference_mem_Y_of_base_order_two n hn _ _
-    (centralizerBaseNormalizerQuotient_order_two n hn S e) P hchain
 
 end CFSG.Wreathed

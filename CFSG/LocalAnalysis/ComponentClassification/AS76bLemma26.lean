@@ -314,12 +314,5 @@ theorem lemma26_of_isAdmissible {A T : Subgroup G} (hA : IsAdmissible T A)
     ∀ x ∈ T ⊔ A, T ⊓ rightConjugate T x ≠ ⊥ → rightConjugate T x = T :=
   lemma26 hA.1.1 hA.1.2.1 hA.1.2.2.1 hA.2.1 hZ hF
 
-theorem lemma27_of_isAdmissible {A T : Subgroup G} (hA : IsAdmissible T A)
-    (hZ : (center A).map A.subtype ≤ centralizer (T : Set G))
-    (hF : ∀ t ∈ T, t ≠ 1 → ∀ x ∈ CFSG.inSubgroup CFSG.generalizedFitting
-      (A ⊓ centralizer ({t} : Set G)), ∃ k : ℕ, x ^ 2 ^ k ∈ (center A).map A.subtype)
-    (hAT : A ⊓ T = ⊥) :
-    ∀ t ∈ T, t ≠ 1 → ⁅A ⊓ centralizer ({t} : Set G), T⁆ = ⊥ :=
-  lemma27 hA.1.1 hA.1.2.1 hA.1.2.2.1 hA.2.1 hZ hF hAT
 
 end CFSG.ComponentClassification.AS76b

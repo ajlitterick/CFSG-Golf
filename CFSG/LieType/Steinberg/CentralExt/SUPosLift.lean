@@ -258,7 +258,6 @@ theorem map_coe_fixField (c : fixField σ) : σ (c : F) = c := c.2
 variable (σ) in
 noncomputable abbrev toF : (fixField σ)ˣ →* Fˣ := Units.map (fixField σ).subtype.toMonoidHom
 
-theorem coe_toF (u : (fixField σ)ˣ) : (toF σ u : F) = ((u : fixField σ) : F) := rfl
 
 theorem map_coe_toF (u : (fixField σ)ˣ) : σ (toF σ u : F) = toF σ u := map_coe_fixField _
 

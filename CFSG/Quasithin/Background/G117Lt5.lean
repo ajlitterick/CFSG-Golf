@@ -16,7 +16,6 @@ namespace G117
 attribute [-instance] instCommGroupOfIsSimpleGroupOfIsNilpotent
   instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
 
 end G117
 

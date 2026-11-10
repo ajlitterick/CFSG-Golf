@@ -58,44 +58,6 @@ theorem exists_comm_subgroup {G₀ : Subgroup H} (hG₀ : ∀ m ∈ G₀, ∀ v 
         rw [h.card_V]
         exact Nat.mul_le_mul_right 4 hinj
 
-theorem comm_t_mem_V {q : H} (hq : q ∈ Q) : q * t * q⁻¹ * t⁻¹ ∈ V := by
-  have hVY : V ≤ Y := by rw [h.Y_eq]; exact le_sup_left
-  have hVQ : V ≤ Q := fun x hx => h.Y_le_Q (hVY hx)
-  have hG₀ : ∀ m ∈ Q, ∀ v ∈ V, m * v * m⁻¹ = v := by
-    intro m hm v hv
-    rw [h.Q_comm m hm v (hVQ hv)]
-    group
-  obtain ⟨D, hDmem, _⟩ := h.exists_comm_subgroup hG₀ t
-  have hyV : y ∈ V := by rw [h.V_eq]; exact Subgroup.subset_closure (by simp)
-  have hzV : z ∈ V := by rw [h.V_eq]; exact Subgroup.subset_closure (by simp)
-  have hkey : ∀ u w : H, u ∈ Q → w ∈ V → t * u * t⁻¹ = u * w → u * t * u⁻¹ * t⁻¹ ∈ V := by
-    intro u w hu hw htu
-    have htu' : t * u⁻¹ * t⁻¹ = (u * w)⁻¹ := by rw [← htu]; group
-    have he : u * t * u⁻¹ * t⁻¹ = w⁻¹ := by
-      calc u * t * u⁻¹ * t⁻¹ = u * (t * u⁻¹ * t⁻¹) := by group
-        _ = u * (u * w)⁻¹ := by rw [htu']
-        _ = w⁻¹ := by
-              rw [mul_inv_rev, h.Q_comm w⁻¹ (hVQ (V.inv_mem hw)) u⁻¹ (Q.inv_mem hu)]
-              group
-    rw [he]
-    exact V.inv_mem hw
-  have hBD : B ≤ D := by
-    intro b hb
-    refine (hDmem b).mpr ⟨h.B_le_Q hb, ?_⟩
-    rw [show b * t * b⁻¹ * t⁻¹ = 1 by rw [← h.B_cent_t b hb]; group]
-    exact V.one_mem
-  have hV'D : V' ≤ D := by
-    rw [h.V'_eq, Subgroup.closure_le]
-    intro u hu
-    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hu
-    rcases hu with e | e
-    · rw [e]
-      exact (hDmem v₁).mpr ⟨h.Y_le_Q h.v₁_mem, hkey v₁ y (h.Y_le_Q h.v₁_mem) hyV h.t_v₁⟩
-    · rw [e]
-      exact (hDmem v₂).mpr
-        ⟨h.Y_le_Q h.v₂_mem, hkey v₂ (y * z) (h.Y_le_Q h.v₂_mem) (V.mul_mem hyV hzV) h.t_v₂⟩
-  have hQD : Q ≤ D := by rw [h.Q_eq]; exact sup_le hBD hV'D
-  exact ((hDmem q).mp (hQD hq)).2
 
 variable {Mh : Subgroup H} (hMh : IsZJMh y z v₁ v₂ Mh) include hMh
 
@@ -185,33 +147,6 @@ theorem Mc_cent_tau (hb : ZJBound t) {m : H} (hm : m ∈ Mc) (hc : τ * m = m * 
     ⟨hm, (Subgroup.mem_centralizer_singleton_iff).mpr hc.symm⟩
   exact hYeq.symm ▸ hmG₀
 
-theorem Mc_comm_t_mem_V_iff (hb : ZJBound t) {m : H} (hm : m ∈ Mc) :
-    m * t * m⁻¹ * t⁻¹ ∈ V ↔ m ∈ Q := by
-  have hMcV : ∀ x ∈ Mc, ∀ v ∈ V, x * v * x⁻¹ = v :=
-    fun x hx v hv => h.Mh_cent_V hMh (h.Mc_le_Mh hMh hMc hx) hv
-  constructor
-  · intro hmV
-    obtain ⟨D, hDmem, hDcard⟩ := h.exists_comm_subgroup hMcV t
-    have hQMc : Q ≤ Mc := h.Q_le_Mc hMh hMc
-    have hQD : Q ≤ D := fun q hq => (hDmem q).mpr ⟨hQMc hq, h.comm_t_mem_V hq⟩
-    have hcentB : Mc ⊓ centralizer ({t} : Set H) ≤ B := by
-      intro x hx
-      exact h.Mc_cent_t hMh hMc hb hx.1
-        ((Subgroup.mem_centralizer_singleton_iff).mp hx.2).symm
-    have hcard_cent : Nat.card ↥(Mc ⊓ centralizer ({t} : Set H)) ≤ 16 :=
-      calc Nat.card ↥(Mc ⊓ centralizer ({t} : Set H)) ≤ Nat.card B :=
-            Subgroup.card_le_of_le hcentB
-        _ = 16 := h.card_B
-    have hDcard64 : Nat.card D ≤ 64 := by
-      calc Nat.card D ≤ Nat.card ↥(Mc ⊓ centralizer ({t} : Set H)) * 4 := hDcard
-        _ ≤ 16 * 4 := Nat.mul_le_mul_right 4 hcard_cent
-        _ = 64 := by norm_num
-    have hQD_eq : Q = D :=
-      Subgroup.eq_of_le_of_card_ge hQD (by rw [h.card_Q]; exact hDcard64)
-    have hmD : m ∈ D := (hDmem m).mpr ⟨hm, hmV⟩
-    exact hQD_eq.symm ▸ hmD
-  · intro hmQ
-    exact h.comm_t_mem_V hmQ
 
 theorem Mc_comm_tau_mem_V_iff (hb : ZJBound t) {m : H} (hm : m ∈ Mc) :
     m * τ * m⁻¹ * τ⁻¹ ∈ V ↔ m ∈ Q := by

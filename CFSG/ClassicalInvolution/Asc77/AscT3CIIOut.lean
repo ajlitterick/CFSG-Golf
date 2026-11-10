@@ -94,44 +94,11 @@ end SL2
 
 section Group
 
-variable {G : Type} [Group G] {F : Type*} [Field F] [Finite F]
-
-theorem outComm_of_equiv_sl2 (hK : IsOddPrimePower (Nat.card F)) (h4 : 4 ≤ Nat.card F)
-    {K : Subgroup G} (e : K ≃* SL(2, F)) : OutComm K := by
-  intro x hx y hy
-  have hxy : ⁅x, y⁆ ∈ Subgroup.normalizer (K : Set G) := by
-    have : ⁅x, y⁆ = x * y * x⁻¹ * y⁻¹ := by simp only [commutatorElement_def]
-    rw [this]
-    exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (Subgroup.mul_mem _ hx hy)
-      (Subgroup.inv_mem _ hx)) (Subgroup.inv_mem _ hy)
-  obtain ⟨k₀, hk₀⟩ := isInnerAut_commutator_of_equiv_sl2 hK h4 e
-    (K.normalizerMonoidHom ⟨x, hx⟩) (K.normalizerMonoidHom ⟨y, hy⟩)
-  refine ⟨k₀, k₀.2, fun g hg => ?_⟩
-  have h1 : K.normalizerMonoidHom ⟨⁅x, y⁆, hxy⟩ = K.normalizerMonoidHom ⟨x, hx⟩ *
-      K.normalizerMonoidHom ⟨y, hy⟩ * (K.normalizerMonoidHom ⟨x, hx⟩)⁻¹ *
-      (K.normalizerMonoidHom ⟨y, hy⟩)⁻¹ := by
-    rw [← map_inv, ← map_inv, ← map_mul, ← map_mul, ← map_mul]
-    congr 1
-  have h2 := congrArg (fun φ : MulAut K => ((φ ⟨g, hg⟩ : K) : G)) (h1.trans hk₀.symm)
-  simpa using h2
 
 end Group
 
 section Galois
 
-variable {G : Type} [Group G] {p f : ℕ} [Fact p.Prime]
-
-theorem outComm_of_equiv_galoisField (hp : p ≠ 2) (hq : 5 ≤ p ^ f) {K : Subgroup G}
-    (e : K ≃* SL(2, GaloisField p f)) : OutComm K := by
-  have hf : f ≠ 0 := by
-    rintro rfl
-    simp at hq
-  have hcard : Nat.card (GaloisField p f) = p ^ f := GaloisField.card p f hf
-  refine outComm_of_equiv_sl2 ⟨p, f, Fact.out, ?_, Nat.one_le_iff_ne_zero.mpr hf, hcard⟩
-    (by rw [hcard]; exact (by norm_num : 4 ≤ 5).trans hq) e
-  rcases (Fact.out : p.Prime).eq_two_or_odd' with h | h
-  · exact absurd h hp
-  · exact h
 
 end Galois
 

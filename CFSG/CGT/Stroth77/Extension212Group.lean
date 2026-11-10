@@ -25,8 +25,6 @@ theorem orderOf_a_lift (D : StrothTypeData B τ) : orderOf D.a = 2 ^ τ.k 1 := b
 theorem orderOf_b_lift (D : StrothTypeData B τ) : orderOf D.b = 2 ^ τ.k 2 := by
   rw [D.orderOf_b, τ.k_two]
 
-theorem mul_comm_of_data (D : StrothTypeData B τ) (x y : B) : x * y = y * x :=
-  D.ec_injective (by rw [D.ec_mul, D.ec_mul, add_comm])
 
 section Fixed
 
@@ -312,9 +310,6 @@ theorem incl4_gen (h0 : K 0 = k 0) (h1 : K 1 = k 1 + 1) (h2 : K 2 = k 2 + 1) (j 
 
 end Inclusion
 
-theorem conjTorusIdx4_trans {k : Fin 3 → ℕ} (E : Torus k ≃+ Additive C) (φ : Torus k ≃+ Torus k)
-    {g : S} (hg : g ∈ Subgroup.normalizer C) (x : Torus k) :
-    conjTorusIdx4 (φ.trans E) hg x = φ.symm (conjTorusIdx4 E hg (φ x)) := rfl
 
 theorem hasStrothTypeOver_of_basisChange (D : StrothTypeData B τ)
     (hL : D.L ≤ Subgroup.normalizer C)
@@ -327,15 +322,6 @@ theorem hasStrothTypeOver_of_basisChange (D : StrothTypeData B τ)
     HasStrothTypeOver D C τ' :=
   hasStrothTypeOver_of_conjTorus_Idx4 D hL τ' (φ.trans E) h
 
-theorem hasStrothType_of_basisChange (D : StrothTypeData B τ) (hL : D.L ≤ Subgroup.normalizer C)
-    (τ' : StrothTypeIndex) (E : Torus τ'.k ≃+ Additive C) (φ : Torus τ'.k ≃+ Torus τ'.k)
-    (h : ∀ j, φ.symm (conjTorusIdx4 E (hL D.uv_mem_L) (φ (gen τ'.k j))) =
-        τ'.action.φuv (gen τ'.k j) ∧
-      φ.symm (conjTorusIdx4 E (hL D.t_mem_L) (φ (gen τ'.k j))) = τ'.action.φt (gen τ'.k j) ∧
-      φ.symm (conjTorusIdx4 E (hL D.u_mem_L) (φ (gen τ'.k j))) = τ'.action.φu (gen τ'.k j) ∧
-      φ.symm (conjTorusIdx4 E (hL D.ρ_mem_L) (φ (gen τ'.k j))) = τ'.action.φρ (gen τ'.k j)) :
-    HasStrothType C τ' :=
-  (hasStrothTypeOver_of_basisChange D hL τ' E φ h).hasStrothType
 
 section BasisTwo
 
@@ -533,27 +519,5 @@ theorem hasStrothTypeOver_or_of_index_two_of_data (D : StrothTypeData B τ) (hBC
   · exact Or.inl (hasStrothTypeOver_of_basisChange D hL τ₁ E φ h1)
   · exact Or.inr ⟨E, φ, h2⟩
 
-theorem hasStrothType_or_of_index_two_of_data (D : StrothTypeData B τ) (hBC : B ≤ C)
-    (hC : C ≤ Subgroup.centralizer (B : Set S)) (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : D.L ≤ Subgroup.normalizer C) (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S')
-    (hsec : ∀ v : Torus τ.k, (∃ z, 2 • z = τ.action.φuv v - v) →
-      (∃ z, 2 • z = τ.action.φt v - v) → (∃ z, 2 • z = τ.action.φu v - v) →
-      (∃ z, 2 • z = τ.action.φρ v - v) → (∃ z, 2 • z = v) ∨ (∃ z, 2 • z = v - gen τ.k 0))
-    (τ₁ : StrothTypeIndex) (hK0 : τ₁.k 0 = τ.k 0 + 1) (hK1 : τ₁.k 1 = τ.k 1)
-    (hK2 : τ₁.k 2 = τ.k 2) (hk : ∀ j, 1 ≤ τ₁.k j) (hk0 : 2 ≤ τ₁.k 0) (A' : SigmaFourAction τ₁.k)
-    (hP : Profile2 τ₁.k τ₁.action.φuv τ₁.action.φt τ₁.action.φu τ₁.action.φρ)
-    (hT : Twist2 τ₁.k τ₁.action.φuv τ₁.action.φt τ₁.action.φu τ₁.action.φρ A'.φuv A'.φt A'.φu
-      A'.φρ)
-    (cV : MatEq τ₁.k (τ₁.action.uv * diag2) (diag2 * τ.action.uv))
-    (cW : MatEq τ₁.k (τ₁.action.t * diag2) (diag2 * τ.action.t))
-    (cU : MatEq τ₁.k (τ₁.action.u * diag2) (diag2 * τ.action.u))
-    (cR : MatEq τ₁.k (τ₁.action.ρ * diag2) (diag2 * τ.action.ρ)) :
-    HasStrothType C τ₁ ∨ ∃ (E : Torus τ₁.k ≃+ Additive C) (φ : Torus τ₁.k ≃+ Torus τ₁.k),
-      ∀ j, φ.symm (conjTorusIdx4 E (hL D.uv_mem_L) (φ (gen τ₁.k j))) = A'.φuv (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.t_mem_L) (φ (gen τ₁.k j))) = A'.φt (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.u_mem_L) (φ (gen τ₁.k j))) = A'.φu (gen τ₁.k j) ∧
-        φ.symm (conjTorusIdx4 E (hL D.ρ_mem_L) (φ (gen τ₁.k j))) = A'.φρ (gen τ₁.k j) :=
-  (hasStrothTypeOver_or_of_index_two_of_data D hBC hC hrel hL hH hcS hsec τ₁ hK0 hK1 hK2 hk hk0 A'
-    hP hT cV cW cU cR).imp_left (·.hasStrothType)
 
 end CFSG.CGT.Stroth77

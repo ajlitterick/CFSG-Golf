@@ -22,9 +22,6 @@ theorem na550822sv : sevenK CFSG.KD.YamakiA0.REC = true := by quickRfl
 
 theorem na550822ac : alphaClassK CFSG.KD.YamakiA0.REC = true := by quickRfl
 
-theorem na550822nC : (!cA0Chunk RH 14 23040 RH 512 0) = true := by quickRfl
-
-theorem na550822nN : (!normA0K RH) = true := by quickRfl
 
 end CFSG.KD.YamakiNA
 

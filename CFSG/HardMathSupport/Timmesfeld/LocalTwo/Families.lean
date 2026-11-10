@@ -48,10 +48,5 @@ theorem localTwoBalanceSimpleGtFive_of_families (hD : LocalTwoBalanceDefCharGtFi
   | sporadic name =>
     exact hSp S hsimple hnab name ⟨e⟩ p hp hp5
 
-theorem localTwoBalanceGtFive_of_families (hD : LocalTwoBalanceDefCharGtFive)
-    (hC : LocalTwoBalanceCrossCharGtFive) (hSp : LocalTwoBalanceSporadicGtFive)
-    (hA : LocalTwoBalanceAltGtFive) (hE : LocalTwoBalanceLpEpsGtFive) :
-    LocalTwoBalanceGtFive :=
-  localTwoBalanceGtFive_of_parts (localTwoBalanceSimpleGtFive_of_families hD hC hSp) hA hE
 
 end CFSG.HardMathSupport.Timmesfeld.LocalTwo

@@ -27,7 +27,6 @@ variable {V : Type*} [Group V]
     calc a⁻¹ z = a⁻¹ (a z) := by rw [this]
       _ = z := by simp
 
-theorem mem_fixingV {S : Set V} {φ : MulAut V} : φ ∈ fixingV S ↔ ∀ z ∈ S, φ z = z := Iff.rfl
 
 end Fixing
 
@@ -90,9 +89,6 @@ def projSub (A B K : Subgroup (MulAut V)) (hc : ∀ a ∈ A, ∀ b ∈ B, a * b 
         _ = (a * b)⁻¹ := by rw [← hc a ha b hb]
     rw [this]
     exact K.inv_mem hab
-
-theorem mem_projSub {A B K : Subgroup (MulAut V)} {hc : ∀ a ∈ A, ∀ b ∈ B, a * b = b * a}
-    {a : MulAut V} : a ∈ projSub A B K hc ↔ a ∈ A ∧ ∃ b ∈ B, a * b ∈ K := Iff.rfl
 
 
 theorem card_two_subgroup {X : Type*} [Group X] {P : Subgroup X} (hP : Nat.card P = 2) {s : X}
@@ -161,9 +157,6 @@ structure SixGens (A₁ A₂ T : Subgroup (MulAut V)) (s u : MulAut V) : Prop wh
   all : ∀ x ∈ T ⊓ (A₁ ⊔ A₂), x = 1 ∨ x = s ∨ x = u ∨ x = s * u
 
 
-theorem commV_mono_c6 {X Y : Subgroup (MulAut V)} (hXY : X ≤ Y) : commV X ≤ commV Y :=
-  Subgroup.closure_mono fun _ ⟨a, ha, v, hv⟩ => ⟨a, hXY ha, v, hv⟩
-
 theorem exists_comm_rep [Finite V] {c : MulAut V} {W : Subgroup V} (hcW : ∀ w ∈ W, c w ∈ W)
     (hfix : ∀ w ∈ W, c w = w → w = 1) : ∀ v ∈ W, ∃ w ∈ W, c w * w⁻¹ = v := by
   let f : W → W := fun w => ⟨c w * (w : V)⁻¹, W.mul_mem (hcW w w.2) (W.inv_mem w.2)⟩
@@ -184,11 +177,6 @@ theorem exists_comm_rep [Finite V] {c : MulAut V} {W : Subgroup V} (hcW : ∀ w 
   obtain ⟨w, hw⟩ := hsurj ⟨v, hv⟩
   exact ⟨w, w.2, congrArg Subtype.val hw⟩
 
-theorem le_commV_zpowers [Finite V] {c : MulAut V} {W : Subgroup V} (hcW : ∀ w ∈ W, c w ∈ W)
-    (hfix : ∀ w ∈ W, c w = w → w = 1) : W ≤ commV (Subgroup.zpowers c) := by
-  intro v hv
-  obtain ⟨w, hw, rfl⟩ := exists_comm_rep hcW hfix v hv
-  exact Subgroup.subset_closure ⟨c, Subgroup.mem_zpowers c, w, rfl⟩
 
 namespace SixCtx
 
@@ -215,24 +203,6 @@ theorem mem_A₀ [Finite V] {x : MulAut V} (hx : x ∈ A₁ ⊔ A₂) : ∃ a �
   obtain ⟨a, ha, b, hb, rfl⟩ := this
   exact ⟨a, ha, b, hb, rfl⟩
 
-
-theorem mul_inj {a a' b b' : MulAut V} (ha : a ∈ A₁) (ha' : a' ∈ A₁) (hb : b ∈ A₂)
-    (hb' : b' ∈ A₂) (hab : a * b = a' * b') : a = a' ∧ b = b' := by
-  have h1 : a'⁻¹ * a = b' * b⁻¹ := by
-    have : a' ⁻¹ * (a * b) * b⁻¹ = a'⁻¹ * (a' * b') * b⁻¹ := by rw [hab]
-    simpa [mul_assoc] using this
-  have hmem1 : a'⁻¹ * a ∈ A₁ := A₁.mul_mem (A₁.inv_mem ha') ha
-  have hmem2 : a'⁻¹ * a ∈ A₂ := by
-    rw [h1]
-    exact A₂.mul_mem hb' (A₂.inv_mem hb)
-  have hbot : a'⁻¹ * a ∈ A₁ ⊓ A₂ := ⟨hmem1, hmem2⟩
-  rw [h.disj, Subgroup.mem_bot] at hbot
-  have haa : a = a' := by
-    have := congrArg (a' * ·) hbot
-    simpa using this
-  refine ⟨haa, ?_⟩
-  rw [haa] at hab
-  exact mul_left_cancel hab
 
 end SixCtx
 
@@ -527,7 +497,6 @@ theorem card_V₂ [Finite V] : Nat.card (commV A₂) = 16 := by
   exact h.card_V₁
 
 
-
 omit h in
 theorem mem_fixV_T₀ {s u : MulAut V}
     (hall : ∀ x ∈ T ⊓ (A₁ ⊔ A₂), x = 1 ∨ x = s ∨ x = u ∨ x = s * u)
@@ -613,7 +582,6 @@ theorem Z₁_inf_Z₂ [Finite V] :
   exact inf_le_inf inf_le_left inf_le_left
 
 
-
 theorem exists_gens [Finite V] : ∃ s u : MulAut V, SixGens A₁ A₂ T s u := by
   obtain ⟨s, hsA, hs1, hss, hsT, u, huA, hu1, huu, huT, hall⟩ := h.T₀_struct
   exact ⟨s, u, ⟨hsA, hs1, hss, hsT, huA, hu1, huu, huT, hall⟩⟩
@@ -638,15 +606,6 @@ theorem mem_Z₁ [Finite V] (h : SixCtx A₁ A₂ M T τ) (g : SixGens A₁ A₂
   · rintro ⟨hv, hs⟩
     exact ⟨hv, hs, h.A₂_fix_V₁ g.uA hv⟩
 
-theorem mem_Z₂ [Finite V] (h : SixCtx A₁ A₂ M T τ) (g : SixGens A₁ A₂ T s u) (v : V) :
-    v ∈ sixZ₂ A₁ A₂ T ↔ v ∈ commV A₂ ∧ u v = v := by
-  unfold sixZ₂
-  rw [Subgroup.mem_inf, g.fixV_iff]
-  constructor
-  · rintro ⟨hv, -, hu⟩
-    exact ⟨hv, hu⟩
-  · rintro ⟨hv, hu⟩
-    exact ⟨hv, h.A₁_fix_V₂ g.sA hv, hu⟩
 
 theorem card_Z₁ [Finite V] (h : SixCtx A₁ A₂ M T τ) (g : SixGens A₁ A₂ T s u) :
     Nat.card (sixZ₁ A₁ A₂ T) = 4 :=
@@ -876,12 +835,6 @@ theorem oTwoUpper_Cbar [Finite V] (h : SixCtx A₁ A₂ M T τ) (g : SixGens A�
 
 end SixGens
 
-theorem commV_zpowers_eq [Finite V] {A₂ : Subgroup (MulAut V)} {c : MulAut V} (hcA : c ∈ A₂)
-    (hfix : ∀ w : V, w ∈ commV A₂ → c w = w → w = 1) :
-    commV (Subgroup.zpowers c) = commV A₂ :=
-  le_antisymm (commV_mono_c6 (Subgroup.zpowers_le.mpr hcA))
-    (le_commV_zpowers (fun _ hw => commV_invariant_c6 hcA hw) hfix)
-
 
 namespace SixCtx
 
@@ -941,20 +894,6 @@ theorem T₀_fix_V₁ [Finite V] (h : SixCtx A₁ A₂ M T τ) (g : SixGens A₁
     · rfl
     · exact h.A₂_fix_V₁ g.uA hv
 
-theorem tau_Z₁ [Finite V] (h : SixCtx A₁ A₂ M T τ) {z : V}
-    (hz : z ∈ sixZ₁ A₁ A₂ T) : τ z ∈ sixZ₂ A₁ A₂ T := by
-  refine ⟨conj_commV (fun a ha => h.tau_conj_mem ha) (Z₁_le_V₁ hz), fun x hx => ?_⟩
-  have hτinvT : τ⁻¹ ∈ T := T.inv_mem h.tau_mem
-  have hconj : τ⁻¹ * x * τ ∈ T ⊓ (A₁ ⊔ A₂) := by
-    have := h.T₀_conj_mem hτinvT hx
-    simpa [mul_assoc] using this
-  have h1 : (τ⁻¹ * x * τ) z = z := hz.2 _ hconj
-  have h2 : x (τ z) = τ z := by
-    have h3 : τ ((τ⁻¹ * x * τ) z) = x (τ z) := by
-      show τ (τ⁻¹ (x (τ z))) = x (τ z)
-      simp
-    rw [← h3, h1]
-  exact h2
 
 theorem tau_Z₂ [Finite V] (h : SixCtx A₁ A₂ M T τ) {z : V}
     (hz : z ∈ sixZ₂ A₁ A₂ T) : τ z ∈ sixZ₁ A₁ A₂ T := by

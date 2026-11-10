@@ -137,40 +137,6 @@ theorem perfect_normalizer_enters_layer {G : Type*} [Group G] [Finite G]
   have heq : actor = implementer := (inv_mul_eq_one.mp hcentralizer).symm
   rwa [heq]
 
-theorem involution_component_enters_layer {G : Type*} [Group G] [Finite G]
-    (hfree : SolvableRadical.Free G) (element : G) (hsquare : element * element = 1)
-    (houter : ∀ component : Subgroup G, IsComponentOf component ⊤ →
-      Group.IsSolvable (OuterAutomorphisms.Outer (component ⧸ Subgroup.center component)))
-    (localComponent : Subgroup (Subgroup.centralizer ({element} : Set G)))
-    (hlocal : IsComponentOf localComponent ⊤) :
-    localComponent.map (Subgroup.centralizer ({element} : Set G)).subtype ≤ Layer.subgroup G := by
-  let centralizer := Subgroup.centralizer ({element} : Set G)
-  let layer := Layer.subgroup G
-  let : layer.Normal := Layer.normal G
-  let localLayer := layer.subgroupOf centralizer
-  let : localLayer.Normal := inferInstance
-  rcases LocalComponents.normal_contains_or_commutes localComponent localLayer hlocal with
-    hcontained | hcommutes
-  · intro member hmember
-    obtain ⟨lift, hlift, rfl⟩ := Subgroup.mem_map.mp hmember
-    exact hcontained hlift
-  · let image := localComponent.map centralizer.subtype
-    let : Group.IsPerfect image := ⟨(Components.quasisimple_of_equiv
-      (localComponent.equivMapOfInjective centralizer.subtype centralizer.subtype_injective).symm
-      hlocal.2.2).1⟩
-    have hfixed : ⁅image, layer ⊓ centralizer⁆ = ⊥ := by
-      have hmap := congrArg (Subgroup.map centralizer.subtype) hcommutes
-      change ⁅localComponent, layer.subgroupOf centralizer⁆.map centralizer.subtype =
-        (⊥ : Subgroup centralizer).map centralizer.subtype at hmap
-      simpa only [Subgroup.map_commutator, Subgroup.subgroupOf_map_subtype,
-        Subgroup.map_bot] using hmap
-    have hcenter : ⁅image, (Subgroup.center layer).map layer.subtype⁆ = ⊥ := by
-      have hbot := center_eq_bot (SolvableRadical.free_normal_subgroup hfree layer)
-      rw [hbot, Subgroup.map_bot, Subgroup.commutator_bot_right]
-    apply perfect_normalizer_enters_layer hfree image _ houter
-    intro component hcomponent
-    exact ComponentAutomorphisms.ambient_normalizes_components image element hsquare
-      (Subgroup.map_subtype_le _) hcenter hfixed component hcomponent
 
 theorem component_center_eq_bot {G : Type*} [Group G] [Finite G]
     (hfree : SolvableRadical.Free G) (component : Subgroup G)

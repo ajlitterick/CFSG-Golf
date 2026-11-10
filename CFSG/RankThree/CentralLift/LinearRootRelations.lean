@@ -259,8 +259,6 @@ omit [Finite k] [Finite E] hk hπ in
 theorem xLift_neg (i j : Fin n) (a : k) : xLift π i j (-a) = (xLift π i j a)⁻¹ := by
   rw [eq_inv_iff_mul_eq_one, ← xLift_add, neg_add_cancel, xLift_zero]
 
-theorem xLift_injective {i j : Fin n} (hij : i ≠ j) : Function.Injective (xLift π i j) :=
-  (sl2Lift_injective_large hk hπ (rhoSL_injective hij)).comp uSL_injective
 
 theorem rhoLift_swap {i j : Fin n} (hij : i ≠ j) : rhoLift π j i = (rhoLift π i j).comp swapSL := by
   rw [rhoLift, rhoLift, rhoSL_swap hij, sl2Lift_comp_large hk hk hπ]
@@ -658,37 +656,6 @@ theorem ringChar_ne_two_of_card {k : Type} [Field k] {ℓ f : ℕ} (hℓ : ℓ.P
   rw [ringChar.eq k ℓ]
   exact hℓodd.ne_two_of_dvd_nat (dvd_refl ℓ)
 
-theorem odd_field_linear_central_large_prime_root_relations_and_unipotent_lift {p ℓ f : ℕ}
-    (hp : p.Prime) (hp3 : 3 < p) (hℓ : ℓ.Prime) (hℓodd : Odd ℓ) (_hf : 1 ≤ f) {k : Type}
-    [Field k] (hk : Nat.card k = ℓ ^ f) {n : ℕ} (_hn : 2 ≤ n) {E : Type*} [Group E] [Finite E]
-    (π : E →* SpecialLinearGroup (Fin n) k) (hπ : Function.Surjective π)
-    (hC : π.ker ≤ Subgroup.center E) (hCp : IsPGroup p π.ker) :
-    (∀ i j : Fin n, i ≠ j → ∀ β : SpecialLinearGroup (Fin 2) k →* E,
-      π.comp β = rhoSL k i j ↔ β = rhoLift π i j) ∧
-    (∀ i j : Fin n, i ≠ j → ∀ a b : k, xLift π i j a * xLift π i j b = xLift π i j (a + b)) ∧
-    (∀ i j : Fin n, i ≠ j → Function.Injective (xLift π i j)) ∧
-    (∀ i j : Fin n, i ≠ j → ∀ a : k, xLift π j i a = rhoLift π i j (vSL a)) ∧
-    (∀ i j k' l : Fin n, i ≠ j → k' ≠ l → j ≠ k' → i ≠ l → ∀ a b : k,
-      ⁅xLift π i j a, xLift π k' l b⁆ = 1) ∧
-    (∀ i j k' : Fin n, i ≠ j → j ≠ k' → i ≠ k' → ∀ a b : k,
-      ⁅xLift π i j a, xLift π j k' b⁆ = xLift π i k' (a * b)) ∧
-    ((unipotentLift π).map π = CFSG.LocalAnalysis.ComponentInitial.LinearFlag.unitriangular n k ∧
-      Function.Injective (π.comp (unipotentLift π).subtype)) ∧
-    (∀ (g : E) (σ : Equiv.Perm (Fin n)) (c : Fin n → kˣ),
-      ((π g : SpecialLinearGroup (Fin n) k) : Matrix (Fin n) (Fin n) k) =
-        signedPerm σ (fun x => (c x : k)) →
-      ∀ i j : Fin n, i ≠ j → ∀ a : k,
-        g * xLift π i j a * g⁻¹ = xLift π (σ i) (σ j) ((c i : k) / c j * a)) := by
-  have : Finite k := Nat.finite_of_card_ne_zero (by rw [hk]; exact pow_ne_zero f hℓ.ne_zero)
-  have hk2 := ringChar_ne_two_of_card hℓ hℓodd hk
-  have hπ' : IsLargeCentralExt π := ⟨hπ, hC, p, hp, hp3, hCp⟩
-  refine ⟨fun i j _ β => ⟨eq_sl2Lift_large hk2 hπ', fun h => h ▸ comp_sl2Lift_large hk2 hπ' _⟩,
-    fun i j _ a b => (xLift_add i j a b).symm, fun i j hij => xLift_injective hk2 hπ' hij,
-    fun i j hij a => xLift_swap hk2 hπ' hij a,
-    fun i j k' l hij hkl hjk hil a b => commutatorElement_xLift_eq_one hk2 hπ' hij hkl hjk hil a b,
-    fun i j k' hij hjk hik a b => commutatorElement_xLift hk2 hπ' hij hjk hik a b,
-    ⟨map_unipotentLift hk2 hπ', injective_unipotentLift hk2 hπ'⟩,
-    fun g σ c hg i j hij a => conj_xLift_of_signedPerm hk2 hπ' hij hg a⟩
 
 end LinearRoots
 

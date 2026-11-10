@@ -80,11 +80,6 @@ theorem re_alg (a : F) : Q.re (algebraMap F K a) = a :=
 theorem im_alg (a : F) : Q.im (algebraMap F K a) = 0 :=
   (Q.re_im_eq (a := a) (b := 0) (by rw [map_zero]; ring)).2
 
-theorem re_i : Q.re Q.i = 0 :=
-  (Q.re_im_eq (a := 0) (b := 1) (by rw [map_zero, map_one]; ring)).1
-
-theorem im_i : Q.im Q.i = 1 :=
-  (Q.re_im_eq (a := 0) (b := 1) (by rw [map_zero, map_one]; ring)).2
 
 theorem re_one : Q.re 1 = 1 := by simpa using Q.re_alg 1
 
@@ -116,7 +111,6 @@ theorem re_cpl (a b : F) : Q.re (Q.cpl a b) = a := (Q.re_im_eq rfl).1
 
 theorem im_cpl (a b : F) : Q.im (Q.cpl a b) = b := (Q.re_im_eq rfl).2
 
-theorem cpl_re_im (z : K) : Q.cpl (Q.re z) (Q.im z) = z := (Q.decomp z).symm
 
 theorem re_inj {z w : K} (h1 : Q.re z = Q.re w) (h2 : Q.im z = Q.im w) : z = w := by
   rw [Q.decomp z, Q.decomp w, h1, h2]

@@ -105,9 +105,6 @@ theorem admConj_mem : ∀ k ∈ admConj, k ∈ QA45.originalSubgroup := by
   simp only [List.mem_cons, List.not_mem_nil, or_false] at hg
   rcases hg with rfl | rfl | rfl <;> rw [tab_eq] <;> exact subset_closure (by simp)
 
-theorem s045_mem : s045 ∈ QA45.originalSubgroup := by
-  rw [mem_iff_sift QA45 QA45_ok]
-  exact Certificates.certificate2015.2.2.1
 
 theorem QL45_valid : QL45.check = true ∧ QL45.orderCertificate = 360 :=
   Certificates.certificate2015.2.2.2.1

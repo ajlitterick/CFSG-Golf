@@ -18,18 +18,6 @@ section LinkAlpha
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem isElemAbelian2_of_le {B F : Subgroup G} (hB : IsElemAbelian 2 B) (hFB : F ≤ B)
-    (hF4 : Nat.card F = 4) : IsElemAbelian2 F 2 :=
-  ⟨by rw [hF4]; norm_num, fun x hx => by rw [← pow_two]; exact hB.2 x (hFB hx)⟩
-
-theorem alphaOf_eq_of_shareFour {A B : Subgroup G} (hA : RankThreeBalance A)
-    (hB : RankThreeBalance B) (hAB : ShareFour A B) {F₁ F₂ : Subgroup G} (h₁ : F₁ ≤ A)
-    (h₁4 : Nat.card F₁ = 4) (h₂ : F₂ ≤ B) (h₂4 : Nat.card F₂ = 4) :
-    alphaOf F₁ = alphaOf F₂ := by
-  obtain ⟨F, hFA, hFB⟩ := hAB
-  have hF4 : Nat.card F = 4 := by rw [hFA.2]; norm_num
-  exact (alphaOf_eq_alphaOf_of_rankThreeBalance hA h₁ hFA.1 h₁4 hF4).trans
-    (alphaOf_eq_alphaOf_of_rankThreeBalance hB hFB.1 h₂ hF4 h₂4)
 
 theorem exists_le_conj {B F₂ : Subgroup G} {y : G} (h₂ : F₂ ≤ B.map (MulAut.conj y).toMonoidHom)
     (h₂4 : Nat.card F₂ = 4) :

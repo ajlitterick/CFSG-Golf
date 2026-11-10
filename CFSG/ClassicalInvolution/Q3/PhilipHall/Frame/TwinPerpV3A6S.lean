@@ -329,13 +329,6 @@ abbrev AE6Om : Type := ↥CFSG.EvenSmallLie.OmegaEight.omegaT
       ∀ x : ↥((AE.aeSub 8).map (AE.mkQ 8)), (x : AE.AEQ 8) ∈ AE.memBar α h b ↔
         ((ρ x : ↥(ae6ModelV k)) : AE6Om) ∈ J
 
-@[expose] def AE6ModelEdgePairs : Prop :=
-  ∀ k l m : Fin 3, k ≠ l → k ≠ m → l ≠ m → ∀ E E' : Subgroup AE6Om, E ≤ ae6ModelV k → E' ≤ ae6ModelV k →
-    pCoreOf 2 (ae6ModelV k) ≤ E → pCoreOf 2 (ae6ModelV k) ≤ E' → Nat.card E = 86016 → Nat.card E' = 86016 →
-    Nat.card ↥(E ⊓ E') = 12288 →
-    ∃ β : MulAut ↥(ae6ModelV k),
-      ((ae6ModelE k l).subgroupOf (ae6ModelV k)).map β.toMonoidHom = E.subgroupOf (ae6ModelV k) ∧
-        ((ae6ModelE k m).subgroupOf (ae6ModelV k)).map β.toMonoidHom = E'.subgroupOf (ae6ModelV k)
 
 @[expose] def AE6EdgeAut (k l : Fin 3) (θ : MulAut ↥(ae6ModelE k l)) : Prop :=
   (∀ g : ↥(ae6ModelE k l), (g : AE6Om) ∈ ae6ModelM ↔ (θ g : AE6Om) ∈ ae6ModelM) ∧

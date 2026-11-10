@@ -49,7 +49,6 @@ namespace CFSG.KC.Hall82K
 @[expose] def x1BasisK : List Nat :=
   [309508194433, 1065422438529, 1477739298945, 389048975489, 395408588993, 378226086404]
 
-@[expose] def c5GensK : List Nat := [12968614928, 48773480577, 68013125019]
 
 @[expose] def c5K : List Nat :=
   [595670153928214907541, 3352305471443187919707, 149489531645367769104, 2913042378187980782046,
@@ -101,9 +100,6 @@ namespace CFSG.KC.Hall82K
 
 @[expose] noncomputable def c5LinK : List Nat := List.map (fun w => Nat.land w m36K) c5K
 
-@[expose] noncomputable def c5ClosK : Bool :=
-  band (allL (fun g => memL g c5LinK) c5GensK)
-    (allL (fun s => allL (fun g => memL (compL g s) c5LinK) c5GensK) c5LinK)
 
 @[expose] noncomputable def conjXK (b w x : Nat) : Nat :=
   xcodeK (compA (compA (compA (trK b) (Nat.land w m36K)) x)
@@ -141,8 +137,6 @@ namespace CFSG.KC.Hall82K
 
 @[expose] noncomputable def inU (a : Nat) : Bool := memL a u0K
 
-@[expose] noncomputable def liftInvK (r0 r1 r2 : Nat) : Bool :=
-  band (Nat.beq (compL r0 r0) idK) (band (Nat.beq (compL r1 r1) idK) (Nat.beq (compL r2 r2) idK))
 
 @[expose] noncomputable def liftK (r0 r1 r2 : Nat) : Bool :=
   allN (fun a0 => bor (Bool.rec (motive := fun _ => Bool) true false (sqOK (xiK r0 a0)))

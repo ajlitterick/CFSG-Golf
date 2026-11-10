@@ -50,7 +50,6 @@ theorem e7T3W_eq : e7T3W = toMat Tag.E7.rank e7T3WList := by
   rw [e7T3W, pow_succ', pow_succ', pow_succ', pow_one, e7T12W_eq, e7T3WList, toMat_lmul,
     toMat_lmul, toMat_lmul]
 
-theorem e7wl_e7T3Word : e7wl e7T3Word = e7T3WList := by decide +kernel
 
 @[expose] def e7T3FList : List ℤ := [2, 3, 4, 6, 5, 4, 3]
 

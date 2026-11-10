@@ -72,12 +72,6 @@ local instance : DecidableRel MonsterY443Adj := fun a b => by
   rcases a with _ | ⟨i, j⟩ <;> rcases b with _ | ⟨i', j'⟩ <;> unfold MonsterY443Adj <;>
     infer_instance
 
-theorem e443_even_presentation_data :
-    Nat.card E443Gen = 11 ∧
-      Nat.card {p : MonsterY443Gen × MonsterY443Gen // e443Lt p.1 p.2} = 66 ∧
-      Nat.card {p : MonsterY443Gen × MonsterY443Gen //
-        e443Lt p.1 p.2 ∧ MonsterY443Adj p.1 p.2} = 11 := by
-  refine ⟨?_, ?_, ?_⟩ <;> rw [Nat.card_eq_fintype_card] <;> decide
 
 end Data
 
@@ -232,7 +226,6 @@ theorem e443AlphaHom_comp_self : e443AlphaHom.comp e443AlphaHom = MonoidHom.id E
 @[expose] noncomputable def e443Alpha : MulAut E443 :=
   MonoidHom.toMulEquiv e443AlphaHom e443AlphaHom e443AlphaHom_comp_self e443AlphaHom_comp_self
 
-theorem e443Alpha_apply (x : E443) : e443Alpha x = e443AlphaHom x := rfl
 
 @[simp] theorem e443Alpha_of (g : E443Gen) :
     e443Alpha (PresentedGroup.of g) = (PresentedGroup.of g)⁻¹ :=
@@ -247,22 +240,10 @@ theorem e443Alpha_R : e443Alpha (PresentedGroup.mk e443Rels e443R) =
     PresentedGroup.mk e443Rels e443RSharp :=
   (e443AlphaHom_mk e443R).trans e443_lift_alpha_R
 
-theorem e443Alpha_RSharp : e443Alpha (PresentedGroup.mk e443Rels e443RSharp) =
-    PresentedGroup.mk e443Rels e443R :=
-  (e443AlphaHom_mk e443RSharp).trans e443_lift_alpha_RSharp
 
 theorem e443Alpha_mul_self : e443Alpha * e443Alpha = 1 :=
   MulEquiv.ext fun x => DFunLike.congr_fun e443AlphaHom_comp_self x
 
-theorem e443Alpha_trans_self : e443Alpha.trans e443Alpha = MulEquiv.refl E443 :=
-  e443Alpha_mul_self
-
-theorem e443Alpha_unique {β : MulAut E443}
-    (hβ : ∀ g, β (PresentedGroup.of g) = (PresentedGroup.of g)⁻¹) : β = e443Alpha := by
-  refine MulEquiv.ext fun x => ?_
-  have h : (β : E443 →* E443) = e443AlphaHom :=
-    PresentedGroup.ext fun g => (hβ g).trans (e443AlphaHom_of g).symm
-  exact DFunLike.congr_fun h x
 
 namespace Y443
 
@@ -298,12 +279,6 @@ end Y443
 
 @[simp] theorem e443Act_one : e443Act 1 = 1 := map_one _
 
-theorem e443Act_unique {φ : Multiplicative (ZMod 2) →* MulAut E443}
-    (h : φ (Multiplicative.ofAdd 1) = e443Alpha) : φ = e443Act := by
-  refine MonoidHom.ext fun x => ?_
-  rcases Y443.z2_cases x with rfl | rfl
-  · rw [map_one, map_one]
-  · rw [h, e443Act_ofAdd_one]
 
 section Semi
 
@@ -545,24 +520,6 @@ theorem e443Psi_comp_psiInv : e443PsiHom.comp e443PsiInvHom = MonoidHom.id _ := 
 @[expose] noncomputable def e443Psi : MonsterY443 ≃* E443 ⋊[e443Act] Multiplicative (ZMod 2) :=
   MonoidHom.toMulEquiv e443PsiHom e443PsiInvHom e443PsiInv_comp_psi e443Psi_comp_psiInv
 
-theorem e443Psi_a : e443Psi (PresentedGroup.of none) = inr (Multiplicative.ofAdd 1) := by
-  rw [← e443PsiGen_none]
-  exact e443PsiHom_of none
-
-theorem e443Psi_x (g : E443Gen) :
-    e443Psi (PresentedGroup.of (some g)) =
-      inr (Multiplicative.ofAdd 1) * inl (PresentedGroup.of g) :=
-  e443PsiHom_of (some g)
-
-theorem e443Psi_unique {f : MonsterY443 →* E443 ⋊[e443Act] Multiplicative (ZMod 2)}
-    (ha : f (PresentedGroup.of none) = inr (Multiplicative.ofAdd 1))
-    (hx : ∀ g, f (PresentedGroup.of (some g)) =
-      inr (Multiplicative.ofAdd 1) * inl (PresentedGroup.of g)) :
-    f = e443Psi.toMonoidHom := by
-  refine PresentedGroup.ext fun s => ?_
-  rcases s with _ | g
-  · exact ha.trans e443Psi_a.symm
-  · exact (hx g).trans (e443Psi_x g).symm
 
 theorem e443_rightHom_comp_psi :
     (rightHom : E443 ⋊[e443Act] Multiplicative (ZMod 2) →* Multiplicative (ZMod 2)).comp
@@ -581,17 +538,6 @@ theorem e443Psi_mem_range_inl_iff (x : MonsterY443) :
     ← e443_rightHom_comp_psi]
   rfl
 
-theorem e443_range_inl_normal :
-    ((inl : E443 →* E443 ⋊[e443Act] Multiplicative (ZMod 2)).range).Normal := by
-  rw [SemidirectProduct.range_inl_eq_ker_rightHom]
-  infer_instance
-
-theorem e443Psi_map_derived :
-    MonsterY443Derived.map e443Psi.toMonoidHom =
-      (inl : E443 →* E443 ⋊[e443Act] Multiplicative (ZMod 2)).range := by
-  ext y
-  rw [Subgroup.mem_map_equiv, e443Psi_mem_range_inl_iff]
-  simp only [MulEquiv.apply_symm_apply, MonoidHom.mem_range]
 
 end Psi
 
@@ -639,38 +585,8 @@ theorem e443Phi_of (g : E443Gen) :
       ⟨PresentedGroup.of none * PresentedGroup.of (some g), e443_ax_mem_derived g⟩ :=
   Subtype.ext (e443PhiHom_of g)
 
-theorem e443Phi_unique {f : E443 →* MonsterY443Derived}
-    (hf : ∀ g, (f (PresentedGroup.of g) : MonsterY443) =
-      PresentedGroup.of none * PresentedGroup.of (some g)) :
-    f = e443Phi.toMonoidHom :=
-  PresentedGroup.ext fun g => Subtype.ext ((hf g).trans (e443PhiHom_of g).symm)
-
-theorem e443Psi_phi (u : E443) : e443Psi (e443Phi u : MonsterY443) = inl u :=
-  e443Psi_phiHom u
 
 end Phi
 
-theorem y443_derived_presentation_isomorphism :
-    ((∀ g, e443Alpha (PresentedGroup.of g) = (PresentedGroup.of g)⁻¹) ∧
-      e443Alpha * e443Alpha = 1 ∧
-      ∀ β : MulAut E443, (∀ g, β (PresentedGroup.of g) = (PresentedGroup.of g)⁻¹) →
-        β = e443Alpha) ∧
-    (e443Act (Multiplicative.ofAdd 1) = e443Alpha ∧
-      ∀ φ : Multiplicative (ZMod 2) →* MulAut E443, φ (Multiplicative.ofAdd 1) = e443Alpha →
-        φ = e443Act) ∧
-    (e443Psi (PresentedGroup.of none) = SemidirectProduct.inr (Multiplicative.ofAdd 1) ∧
-      ∀ g, e443Psi (PresentedGroup.of (some g)) =
-        SemidirectProduct.inr (Multiplicative.ofAdd 1) *
-          SemidirectProduct.inl (PresentedGroup.of g)) ∧
-    Function.Bijective e443Psi ∧
-    MonsterY443Derived.map e443Psi.toMonoidHom =
-      (SemidirectProduct.inl : E443 →* E443 ⋊[e443Act] Multiplicative (ZMod 2)).range ∧
-    (∀ g, (e443Phi (PresentedGroup.of g) : MonsterY443) =
-      PresentedGroup.of none * PresentedGroup.of (some g)) ∧
-    Function.Bijective e443Phi :=
-  ⟨⟨e443Alpha_of, e443Alpha_mul_self, fun _ h => e443Alpha_unique h⟩,
-    ⟨e443Act_ofAdd_one, fun _ h => e443Act_unique h⟩,
-    ⟨e443Psi_a, e443Psi_x⟩, e443Psi.bijective, e443Psi_map_derived,
-    fun g => congrArg Subtype.val (e443Phi_of g), e443Phi.bijective⟩
 
 end CFSG.YGroups

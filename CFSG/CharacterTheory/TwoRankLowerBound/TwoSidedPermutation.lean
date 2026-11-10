@@ -23,8 +23,6 @@ namespace CFSG.TwoRankLowerBound.Helpers
       left.1 * (right.1 * element * right.2⁻¹) * left.2⁻¹
     group
 
-theorem groupTwoSidedPermutationHom_apply {group : Type*} [Group group] (left right element : group) :
-    groupTwoSidedPermutationHom group (left, right) element = left * element * right⁻¹ := rfl
 
 theorem groupTwoSidedPermutation_representation {ring group : Type*} [CommRing ring] [Group group]
     (left right : group) :

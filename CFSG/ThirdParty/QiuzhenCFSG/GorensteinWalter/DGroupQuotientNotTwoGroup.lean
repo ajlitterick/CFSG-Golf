@@ -49,52 +49,6 @@ public theorem not_isPGroup_two_of_psl2_odd
   · subst p
     norm_num at hpodd
 
-/-- An odd-prime-power `PGL₂(K)` is not a `2`-group. -/
-public theorem not_isPGroup_two_of_pgl2_odd
-    (K : Type u) [Field K] [Finite K]
-    (hK : IsOddPrimePower (Nat.card K)) :
-    ¬ IsPGroup 2 (PGL2 K) := by
-  intro htwo
-  let R : Subgroup (PGL2 K) :=
-    (Matrix.ProjectiveSpecialLinearGroup.toPGL
-      (n := Fin 2) (R := K)).range
-  have hRtwo : IsPGroup 2 R := htwo.to_subgroup R
-  have hPSLtwo : IsPGroup 2 (PSL2 K) :=
-    hRtwo.of_equiv (psl2EquivToPGLRange K).symm
-  exact not_isPGroup_two_of_psl2_odd K hK hPSLtwo
-
-/-- The quotient clause of a `D`-group is incompatible with the quotient by
-the odd core being a two-group. -/
-public theorem not_isPGroup_quotient_pPrimeCore_of_isDGroupQuotient
-    {G : Type u} [Group G] [Finite G]
-    (hD : IsDGroupQuotient G) :
-    ¬ IsPGroup 2 (G ⧸ pPrimeCore 2 G) := by
-  have hPSL := not_isPGroup_two_of_psl2_odd
-  have hPGL := not_isPGroup_two_of_pgl2_odd
-  have hA7 : ¬ IsPGroup 2 (alternatingGroup (Fin 7)) := by
-    intro htwo
-    obtain ⟨n, hn⟩ := IsPGroup.iff_card.mp htwo
-    have hcard : Nat.card (alternatingGroup (Fin 7)) = 2520 := by
-      rw [nat_card_alternatingGroup]
-      norm_num
-    have hthree : 3 ∣ 2 ^ n := by
-      rw [← hn, hcard]
-      norm_num
-    have : 3 ∣ 2 := Nat.prime_three.dvd_of_dvd_pow hthree
-    norm_num at this
-  intro htwo
-  rcases hD with hA7model | ⟨L, _hLnormal, _hLindex, hLmodel⟩
-  · exact hA7 (htwo.of_equiv hA7model.some)
-  · have hLtwo : IsPGroup 2 L := htwo.to_subgroup L
-    rcases hLmodel with hPSLmodel | hPGLmodel
-    · rcases hPSLmodel with ⟨K, instK, finK, hK⟩
-      let : Field K := instK
-      let : Finite K := finK
-      exact hPSL K hK.1 (hLtwo.of_equiv hK.2.some)
-    · rcases hPGLmodel with ⟨K, instK, finK, hK⟩
-      let : Field K := instK
-      let : Finite K := finK
-      exact hPGL K hK.1 (hLtwo.of_equiv hK.2.some)
 
 /-- The `2`-core of a group isomorphic to odd `PSL₂(K)` is trivial for
 `|K| > 3`. -/

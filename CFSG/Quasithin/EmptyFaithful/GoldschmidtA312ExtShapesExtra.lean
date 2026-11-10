@@ -66,10 +66,6 @@ theorem isExtraspecial2_of_central_involution {V : Type} [Group V] [Finite V] (z
 
 open CFSG.QuasithinUnique.Vol2Native.A312L
 
-theorem isExt_extraspecial_sl3 {A : Type} [Group A] (V : Subgroup A) [V.Normal]
-    (hV : IsExtraspecial2 3 ↥V) (e : A ⧸ V ≃* Matrix.SpecialLinearGroup (Fin 3) (ZMod 2)) :
-    IsExt A (fun V _ => IsExtraspecial2 3 V) (fun Y _ => IsPSL 3 2 1 Y) :=
-  ⟨V, inferInstance, hV, Seven.isPSL_three_two e⟩
 
 theorem isExt_extraspecial_sl3_of_lFamily {G : Type} [Group G] [Finite G]
     {T B Z A : Subgroup G} (hB : B ∈ lFamily T) (hZ : B ⊔ T = Z) (hAZ : A ≤ Z)

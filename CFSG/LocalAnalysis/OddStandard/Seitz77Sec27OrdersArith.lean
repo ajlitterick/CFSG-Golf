@@ -68,12 +68,6 @@ theorem factorization_le_GL8 {n : ℕ} (hn : n ≠ 0)
     n.factorization p ≤ (2 ^ 28 * 3 ^ 5 * 5 ^ 2 * 7 ^ 2 * 17 * 31 * 127 : ℕ).factorization p :=
   (Nat.factorization_le_iff_dvd hn (by norm_num)).2 h p
 
-theorem not_le_factorization_GL8_of_six_le {p k f : ℕ} (hp : p.Prime) (h2 : p ≠ 2)
-    (hf : 1 ≤ f) (hk : 6 ≤ k) :
-    ¬ k * f ≤ (2 ^ 28 * 3 ^ 5 * 5 ^ 2 * 7 ^ 2 * 17 * 31 * 127 : ℕ).factorization p := by
-  intro h
-  have := factorization_GL8_le_five hp h2
-  nlinarith
 
 theorem eq_three_of_four_mul_le {p f : ℕ} (hp : p.Prime) (h2 : p ≠ 2) (hf : 1 ≤ f)
     (h : 4 * f ≤ (2 ^ 28 * 3 ^ 5 * 5 ^ 2 * 7 ^ 2 * 17 * 31 * 127 : ℕ).factorization p) :

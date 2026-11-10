@@ -8,8 +8,6 @@ namespace CFSG.KS.J4Hub
 
 open CFSG.KC.Ord CFSG.KS.Ord Matrix
 
-@[expose] noncomputable def ordVec (p d w v : Nat) : Fin d → ZMod p :=
-  fun j => ((v / 2 ^ (w * j.val) % 2 ^ w : Nat) : ZMod p)
 
 @[expose] def RegsIn (p d w S nb L H : Nat) (G : Subgroup (GL (Fin d) (ZMod p))) (RB : Nat → Nat)
     (n : Nat) : Prop :=

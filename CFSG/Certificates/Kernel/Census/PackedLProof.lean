@@ -217,11 +217,6 @@ theorem pcN_getElem! (nodes : Array NodeP) {j : Nat} (hj : j < nodes.size) :
   unfold pcN
   rw [getElem!_pos _ j (by simpa using hj), getElem!_pos nodes j hj, Array.getElem_map]
 
-theorem mapCert_getElem! (nodes : Array NodeP) {j : Nat} (hj : j < nodes.size) :
-    (Array.mk (nodes.toList.map fun nd => pmaskCert n w nd.basis))[j]! =
-      pmaskCert n w nodes[j]!.basis := by
-  rw [getElem!_pos _ j (by simpa using hj), getElem!_pos nodes j hj]
-  simp
 
 end Checks
 

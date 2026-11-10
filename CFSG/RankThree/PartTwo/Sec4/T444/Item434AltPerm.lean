@@ -178,8 +178,6 @@ theorem isElemAbelian_F0 (hf : F0Facts n) :
   rw [F0_eq_range hf]
   exact isElemAbelian_range _
 
-theorem isPGroup_F0 (hf : F0Facts n) : IsPGroup 3 (F0 n) :=
-  IsPGroup.of_card (n := 2) (by rw [card_F0 hf]; norm_num)
 
 end F0
 
@@ -199,9 +197,6 @@ structure A0Facts (n : ℕ) [NeZero n] : Prop where
   map_one' := by simp [vecPerm]
   map_mul' u v := hf.add _ _
 
-theorem vecHom_apply (hf : A0Facts n) (v : Multiplicative (Fin 3 → ZMod 3)) :
-    vecHom hf v = vecPerm n (Multiplicative.toAdd v) :=
-  rfl
 
 theorem vecHom_injective (hf : A0Facts n) : Function.Injective (vecHom hf) := by
   rw [injective_iff_map_eq_one]
@@ -298,8 +293,6 @@ theorem zpowers_tt_le_normalizer (hf : WFacts n) :
     zpowers (tt n) ≤ normalizer (A0 n : Set (Perm (Fin n))) :=
   zpowers_le.mpr (tt_mem_normalizer hf)
 
-theorem W_le_normalizer (hf : WFacts n) : W n ≤ normalizer (A0 n : Set (Perm (Fin n))) :=
-  sup_le le_normalizer (zpowers_tt_le_normalizer hf)
 
 theorem tt_ne_one (hf : WFacts n) : tt n ≠ 1 := by
   intro h
@@ -470,8 +463,6 @@ theorem factorization_card_perm {n k m : ℕ} (h : n.factorial = 3 ^ k * m) (hm 
     (Nat.card (Perm (Fin n))).factorization 3 = k := by
   rw [Nat.card_perm, Nat.card_fin, h, factorization_three_pow_mul k hm]
 
-theorem factorization_six : (Nat.card (Perm (Fin 6))).factorization 3 = 2 :=
-  factorization_card_perm (m := 80) (by decide) (by decide)
 
 theorem factorization_seven : (Nat.card (Perm (Fin 7))).factorization 3 = 2 :=
   factorization_card_perm (m := 560) (by decide) (by decide)

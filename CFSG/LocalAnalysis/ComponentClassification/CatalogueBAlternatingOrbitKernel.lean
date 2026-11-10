@@ -30,9 +30,6 @@ open MulAction
   map_one' := Equiv.ext fun o => Quotient.inductionOn' o (fun _ => rfl)
   map_mul' _ _ := Equiv.ext fun o => Quotient.inductionOn' o (fun _ => rfl)
 
-theorem equivariantOrbitHom_mk {P Ω : Type*} [Group P] [MulAction P Ω]
-    (c : equivariantSubgroup P Ω) (x : Ω) :
-    equivariantOrbitHom P Ω c (Quotient.mk'' x) = Quotient.mk'' (c.val x) := rfl
 
 @[expose] def orbitKernel (P Ω : Type*) [Group P] [MulAction P Ω] :
     Subgroup (equivariantSubgroup P Ω) := (equivariantOrbitHom P Ω).ker
@@ -49,8 +46,6 @@ theorem mem_orbitKernel {P Ω : Type*} [Group P] [MulAction P Ω]
     intro o
     exact Quotient.inductionOn' o hc
 
-theorem orbitKernel_normal (P Ω : Type*) [Group P] [MulAction P Ω] :
-    (orbitKernel P Ω).Normal := inferInstanceAs (equivariantOrbitHom P Ω).ker.Normal
 
 theorem orbitKernel_preserves {P Ω : Type*} [Group P] [MulAction P Ω]
     (c : orbitKernel P Ω) (o : orbitRel.Quotient P Ω) (x : Ω) :
@@ -154,54 +149,5 @@ theorem orbitKernelExtension_apply_not_mem {P Ω : Type*} [Group P] [MulAction P
   classical
   exact Equiv.Perm.ofSubtype_apply_of_not_mem u.val hx
 
-theorem orbit_nontrivial_of_no_fixedPoints {P Ω : Type*} [Group P] [MulAction P Ω]
-    (hfixed : MulAction.fixedPoints P Ω = ∅) (o : orbitRel.Quotient P Ω) :
-    Nontrivial o.orbit := by
-  obtain ⟨x, hx⟩ := o.nonempty_orbit
-  have hnot : ¬∀ g : P, g • x = x := by
-    intro h
-    have hm := MulAction.mem_fixedPoints.mpr h
-    rw [hfixed] at hm
-    exact hm
-  obtain ⟨g, hg⟩ := not_forall.mp hnot
-  exact nontrivial_of_ne (⟨g • x, o.mapsTo_smul_orbit g hx⟩ : o.orbit) ⟨x, hx⟩
-    (fun h => hg (congrArg Subtype.val h))
-
-theorem orbitKernel_centralizer_le {P Ω : Type*} [Group P] [Finite P] [MulAction P Ω]
-    [Finite Ω] (p : ℕ) [Fact p.Prime] (hP : IsPGroup p P)
-    (hfixed : MulAction.fixedPoints P Ω = ∅) :
-    Subgroup.centralizer (orbitKernel P Ω : Set (equivariantSubgroup P Ω)) ≤
-      orbitKernel P Ω := by
-  intro c hc
-  apply (mem_orbitKernel c).mpr
-  intro x
-  let o : orbitRel.Quotient P Ω := Quotient.mk'' x
-  have hx : x ∈ o.orbit := orbitRel.Quotient.mem_orbit.mpr rfl
-  let : Nontrivial o.orbit := orbit_nontrivial_of_no_fixedPoints hfixed o
-  let : Nontrivial (equivariantSubgroup P o.orbit) :=
-    transitive_equivariant_nontrivial p hP ⟨x, hx⟩
-  obtain ⟨u, hu⟩ := exists_ne (1 : equivariantSubgroup P o.orbit)
-  let v := orbitKernelExtension o u
-  have hcomm := Subgroup.mem_centralizer_iff.mp hc v.val v.property
-  have happly := congrArg (fun d : equivariantSubgroup P Ω => d.val x) hcomm
-  change v.val.val (c.val x) = c.val (v.val.val x) at happly
-  by_contra hmove
-  have houtside : c.val x ∉ o.orbit := by
-    intro h
-    exact hmove (orbitRel.Quotient.mem_orbit.mp h)
-  rw [orbitKernelExtension_apply_not_mem o u _ houtside,
-    orbitKernelExtension_apply_mem o u x hx] at happly
-  have hfix := c.val.injective happly
-  exact equivariant_nonidentity_fixedPointFree u hu ⟨x, hx⟩
-    (Subtype.ext hfix.symm)
-
-theorem fixedFree_equivariant_kernel {P Ω : Type*} [Group P] [Finite P]
-    [MulAction P Ω] [Finite Ω] (p : ℕ) [Fact p.Prime] (hP : IsPGroup p P)
-    (hfixed : MulAction.fixedPoints P Ω = ∅) :
-    (orbitKernel P Ω).Normal ∧ IsPGroup p (orbitKernel P Ω) ∧
-      Subgroup.centralizer (orbitKernel P Ω : Set (equivariantSubgroup P Ω)) ≤
-        orbitKernel P Ω :=
-  ⟨orbitKernel_normal P Ω, orbitKernel_isPGroup p hP,
-    orbitKernel_centralizer_le p hP hfixed⟩
 
 end CFSG.ComponentClassification.CatalogueBAlternating

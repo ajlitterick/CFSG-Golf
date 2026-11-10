@@ -47,12 +47,5 @@ theorem congr_eq_conjAut_of_basis {G : Type} [Group G] (E : Subgroup G)
     exact DFunLike.congr_fun heq d
   exact hφ
 
-theorem mem_automizer_of_conj_basis {G : Type} [Group G] (E : Subgroup G)
-    (e : D ≃* E) (φ : MulAut D) (n : G)
-    (hn : n ∈ Subgroup.normalizer (E : Set G))
-    (h : ∀ i, n * (e (basis i) : G) * n⁻¹ = (e (φ (basis i)) : G)) :
-    MulAut.congr e φ ∈ ggAutomizer (⊤ : Subgroup G) E := by
-  rw [congr_eq_conjAut_of_basis E e φ n hn h]
-  exact Subgroup.subset_closure (ggConjAut_mem_ggInduced (show n ∈ (⊤ : Subgroup G) by trivial) hn)
 
 end CFSG.LieType.Chevalley.E7Three.BasisActions

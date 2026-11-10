@@ -1059,29 +1059,6 @@ theorem exists_uniCover_std
 
 end Data
 
-theorem leviInnOn_unitary :
-    LeviInnOn (IsLieOf IdxTwistedA) := by
-  intro Y _ _ L P hCP hC hLn hrank h3 hrk
-  haveI := hLn
-  obtain ⟨K, _, f, t, s, ε, h, ρ, I, hε, hI, -, -, hρs, hZ, hcomap⟩ := exists_uniCover_std hCP hC
-  haveI : Finite K := h.finite
-  intro l hl k hcomm
-  have hlL : l ∈ L := hCP.parab.1 hl
-  obtain ⟨x₀, hx₀⟩ := hρs ⟨l, hlL⟩
-  have hA : (x₀ : GL (HypIndex (t + s) ε) K) ∈ hypUnitary h (t + s) ε :=
-    mem_hypUnitary.2 x₀.2.1
-  refine uniActsInnerly_of_compat hCP h hε hI ρ hρs hZ hcomap
-    (hrank 3 Nat.prime_three (by norm_num)) hA (a := l) (Subgroup.le_normalizer hl)
-    (fun y => ?_) ⟨k, fun w hw => ?_⟩ hrk
-  · have e : uniConjSU (x₀ : GL (HypIndex (t + s) ε) K) hA y = x₀ * y * x₀⁻¹ := rfl
-    have e2 : ρ (uniConjSU (x₀ : GL (HypIndex (t + s) ε) K) hA y) =
-        (MulAut.conjNormal l : MulAut ↥L) (ρ y) := by
-      rw [e, map_mul, map_mul, map_inv, hx₀]
-      apply Subtype.ext
-      simp [MulAut.conjNormal_apply]
-    rw [e2, mul_inv_cancel]
-    exact Subgroup.one_mem _
-  · exact commutatorElement_eq_one_iff_mul_comm.1 (hcomm w hw)
 
 section Diagonal
 

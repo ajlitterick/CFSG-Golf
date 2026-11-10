@@ -42,12 +42,6 @@ theorem card_eq_of_statedPSL_two_eight {X : Type} [Group X]
 
 end Residual
 
-@[expose] def RankTwoL28Standard : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G),
-    ComponentClassification.RankTwoStandard.RankTwoHyp G A →
-    Open.standardComponentOddCore G = ⊥ →
-    ¬ Assembly.LowTwoRank.StatedClassicalModel
-      (ComponentClassification.RankTwoStandard.rankTwoQuot A) .PSL 2 2 3
 
 @[expose] def HarrisSolomonFritzScope (L : Type) [Group L] : Prop :=
   IsSimpleGroup (L ⧸ CFSG.pPrimeCore 2 L) ∧ CFSG.pRank 2 (L ⧸ CFSG.pPrimeCore 2 L) = 2 ∧

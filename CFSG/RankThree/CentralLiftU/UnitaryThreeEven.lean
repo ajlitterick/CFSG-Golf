@@ -20,41 +20,6 @@ section Package
 
 variable {H : Type u} [Group H] {E : Type v} {G : Type*} [Group E] [Group G]
 
-theorem lifting_package_of_unique (π : E →* G)
-    (hex : ∀ β : H →* G, ∃ βh : H →* E, π.comp βh = β)
-    (huniq : ∀ β₁ β₂ : H →* E, π.comp β₁ = π.comp β₂ → β₁ = β₂) (α : H →* G) :
-    (∃! αh : H →* E, π.comp αh = α) ∧
-    ∀ αh : H →* E, π.comp αh = α →
-      (Function.Injective α → Function.Injective αh) ∧
-      (∀ (e : E) (β : H →* E),
-        π.comp β = (MulAut.conj (π e)).toMonoidHom.comp α ↔
-          β = (MulAut.conj e).toMonoidHom.comp αh) ∧
-      ∀ g : G, (∀ x, g * α x = α x * g) → ∀ e : E, π e = g → ∀ x, e * αh x = αh x * e := by
-  obtain ⟨αh, hαh⟩ := hex α
-  refine ⟨⟨αh, hαh, fun β hβ => huniq β αh (hβ.trans hαh.symm)⟩, fun αh' hαh' => ?_⟩
-  have hconj : ∀ e : E, π.comp ((MulAut.conj e).toMonoidHom.comp αh') =
-      (MulAut.conj (π e)).toMonoidHom.comp α := by
-    intro e
-    ext x
-    change π (e * αh' x * e⁻¹) = π e * α x * (π e)⁻¹
-    rw [map_mul, map_mul, map_inv, ← DFunLike.congr_fun hαh' x]
-    rfl
-  refine ⟨fun hα x y hxy => hα ?_, fun e β => ⟨fun hβ => ?_, fun hβ => ?_⟩,
-    fun g hg e he x => ?_⟩
-  · rw [← DFunLike.congr_fun hαh' x, ← DFunLike.congr_fun hαh' y]
-    exact congrArg π hxy
-  · exact huniq _ _ (hβ.trans (hconj e).symm)
-  · rw [hβ]
-    exact hconj e
-  · have hα : (MulAut.conj (π e)).toMonoidHom.comp α = α := by
-      ext y
-      change π e * α y * (π e)⁻¹ = α y
-      rw [he, hg y, mul_inv_cancel_right]
-    have h := huniq _ αh' (((hconj e).trans hα).trans hαh'.symm)
-    have hx := DFunLike.congr_fun h x
-    change e * αh' x * e⁻¹ = αh' x at hx
-    calc e * αh' x = e * αh' x * e⁻¹ * e := by group
-      _ = αh' x * e := by rw [hx]
 
 theorem lift_unique_of_coprime [Finite H] {p : ℕ} [Fact p.Prime] {π : E →* G}
     (hcen : π.ker ≤ Subgroup.center E) (hp : IsPGroup p π.ker)
@@ -196,58 +161,6 @@ theorem statedSU_three_even_lift_facts {p : ℕ} (hp : p.Prime) (hp3 : 3 < p) :
         hodd
     exact ⟨σ, hσ⟩
 
-theorem even_unitary_three_central_large_prime_homomorphism_lifting
-    {G₀ : Matrix (Fin 3) (Fin 3) K} (hG : (G₀.map h.bar)ᵀ = G₀) (hdet : G₀.det ≠ 0) {p : ℕ}
-    (hp : p.Prime) (hp3 : 3 < p) {E G : Type*} [Group E] [Group G] [Finite E] [Finite G]
-    (π : E →* G) (hπ : Function.Surjective π) (hC : π.ker ≤ Subgroup.center E)
-    (hCp : IsPGroup p π.ker) (α : gramSU h G₀ →* G) :
-    (∃! αh : gramSU h G₀ →* E, π.comp αh = α) ∧
-    ∀ αh : gramSU h G₀ →* E, π.comp αh = α →
-      (Function.Injective α → Function.Injective αh) ∧
-      (∀ (e : E) (β : gramSU h G₀ →* E),
-        π.comp β = (MulAut.conj (π e)).toMonoidHom.comp α ↔
-          β = (MulAut.conj e).toMonoidHom.comp αh) ∧
-      ∀ g : G, (∀ x, g * α x = α x * g) → ∀ e : E, π e = g → ∀ x, e * αh x = αh x * e := by
-  obtain ⟨e⟩ := nonempty_gramSU_mulEquiv_statedSU h hG hdet
-  have := h.finite
-  have : Finite (gramSU h G₀) := Finite.of_equiv _ e.symm.toEquiv
-  obtain ⟨hsplit, huniq⟩ := statedSU_three_even_lift_facts h hp hp3
-  refine lifting_package_of_unique π (fun β => ?_) (fun β₁ β₂ hβ => ?_) α
-  · exact exists_lift_of_forall_section_prime (fun R _ _ ρ hρ hcen hpk =>
-      forall_section_of_mulEquiv e (fun ρ' hρ' hcen' hp' => hsplit R ρ' hρ' hcen' hp')
-        ρ hρ hcen hpk) hπ hC hCp β
-  · have h1 := huniq π hC hCp (β₁.comp e.symm.toMonoidHom) (β₂.comp e.symm.toMonoidHom)
-      (by rw [← MonoidHom.comp_assoc, hβ, MonoidHom.comp_assoc])
-    ext x
-    have := DFunLike.congr_fun h1 (e x)
-    simpa using this
-
-theorem even_unitary_three_central_large_prime_homomorphism_lifting'
-    {V : Type*} [AddCommGroup V] [Module K V] {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm)
-    (hBl : B.SeparatingLeft) (hV : Module.finrank K V = 3) {p : ℕ} (hp : p.Prime) (hp3 : 3 < p)
-    {E G : Type*} [Group E] [Group G] [Finite E] [Finite G] (π : E →* G)
-    (hπ : Function.Surjective π) (hC : π.ker ≤ Subgroup.center E) (hCp : IsPGroup p π.ker)
-    (α : sesqSpecialUnitaryGroup B →* G) :
-    (∃! αh : sesqSpecialUnitaryGroup B →* E, π.comp αh = α) ∧
-    ∀ αh : sesqSpecialUnitaryGroup B →* E, π.comp αh = α →
-      (Function.Injective α → Function.Injective αh) ∧
-      (∀ (e : E) (β : sesqSpecialUnitaryGroup B →* E),
-        π.comp β = (MulAut.conj (π e)).toMonoidHom.comp α ↔
-          β = (MulAut.conj e).toMonoidHom.comp αh) ∧
-      ∀ g : G, (∀ x, g * α x = α x * g) → ∀ e : E, π e = g → ∀ x, e * αh x = αh x * e := by
-  obtain ⟨e⟩ := nonempty_sesqSU_mulEquiv_statedSU h hB hBl hV
-  have := h.finite
-  have : Finite (sesqSpecialUnitaryGroup B) := Finite.of_equiv _ e.symm.toEquiv
-  obtain ⟨hsplit, huniq⟩ := statedSU_three_even_lift_facts h hp hp3
-  refine lifting_package_of_unique π (fun β => ?_) (fun β₁ β₂ hβ => ?_) α
-  · exact exists_lift_of_forall_section_prime (fun R _ _ ρ hρ hcen hpk =>
-      forall_section_of_mulEquiv e (fun ρ' hρ' hcen' hp' => hsplit R ρ' hρ' hcen' hp')
-        ρ hρ hcen hpk) hπ hC hCp β
-  · have h1 := huniq π hC hCp (β₁.comp e.symm.toMonoidHom) (β₂.comp e.symm.toMonoidHom)
-      (by rw [← MonoidHom.comp_assoc, hβ, MonoidHom.comp_assoc])
-    ext x
-    have := DFunLike.congr_fun h1 (e x)
-    simpa using this
 
 end Even
 

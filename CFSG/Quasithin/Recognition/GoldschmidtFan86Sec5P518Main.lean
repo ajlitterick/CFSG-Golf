@@ -31,6 +31,5 @@ theorem b3 (F : FanTree Γ G) (h40 : Fan40 F) {L : ZLab Γ G} {T : Track Γ G} {
 
 end P518
 
-variable {V G : Type*} [Group G] [MulAction G V] {Γ : SimpleGraph V}
 
 end CFSG.Quasithin.Fan86

@@ -424,8 +424,6 @@ theorem s39a1_N₅_le_centralizer_I₅ (d : Data G h) : d.N₅ ≤ centralizer (
 theorem s39a1_N₅_le_M₅ (d : Data G h) : d.N₅ ≤ d.M₅ :=
   (s39a1_closure_facts (s39a1_N₅_le_centralizer_I₅ d)).1
 
-theorem s39a1_M₅_le_centralizer (d : Data G h) : d.M₅ ≤ centralizer (d.I₅ : Set G) :=
-  (s39a1_closure_facts (s39a1_N₅_le_centralizer_I₅ d)).2.1
 
 theorem s39a1_centralizer_le_normalizer_M₅ (d : Data G h) :
     centralizer (d.I₅ : Set G) ≤ normalizer (d.M₅ : Set G) :=

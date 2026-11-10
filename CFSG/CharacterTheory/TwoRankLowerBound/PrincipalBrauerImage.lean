@@ -95,24 +95,5 @@ theorem brauerNormalizer_principal_residue_image {G : Type*}
   exact p_centralizer_projection_augmentation prime subgroup hgroup _
     (centralCoefficientReductionHom_conjugationInvariant ideal value subgroup)
 
-theorem brauerNormalizer_principal_block_image {G : Type*}
-    [Group G] [Fintype G] (basis : FiniteIrreducibleCharacterBasis G)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal]
-    (prime : ℕ) [Fact prime.Prime] [CharP (ComplexAlgebraicIntegers ⧸ ideal) prime]
-    (subgroup : Subgroup G) (hgroup : IsPGroup prime subgroup) (intermediate : Subgroup G)
-    (hcontains : Subgroup.centralizer (subgroup : Set G) ≤ intermediate)
-    (hnormalizes : intermediate ≤ Subgroup.normalizer (subgroup : Set G))
-    (localBasis : FiniteIrreducibleCharacterBasis intermediate)
-    (principal : basis.index) (hprincipal : (basis.representation principal).character = 1)
-    (localPrincipal : localBasis.index)
-    (hlocalPrincipal : (localBasis.representation localPrincipal).character = 1)
-    (imageLabel : basis.index)
-    (himage : brauerNormalizerCharacterResidueHom ideal prime subgroup hgroup intermediate hcontains
-      hnormalizes localBasis localPrincipal = centralCharacterResidueHom basis ideal imageLabel) :
-    imageLabel ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal := by
-  apply (coefficientBlock_mem_iff _ _ _ _).mpr
-  apply (sameCoefficientBlock_iff_centralCharacterResidueHom_eq basis ideal principal imageLabel).mpr
-  exact (brauerNormalizer_principal_residue_image basis ideal prime subgroup hgroup intermediate hcontains
-    hnormalizes localBasis principal hprincipal localPrincipal hlocalPrincipal).symm.trans himage
 
 end CFSG.TwoRankLowerBound.Helpers

@@ -144,13 +144,6 @@ theorem uniqueMax : IsUniqueMaxOver H T (H ⊓ M) := by
 
 theorem not_le_M : ¬ H ≤ M := s.hyp.hStar.2.1
 
-theorem two_le_k : 2 ≤ k := by
-  have hc := s.cases
-  dsimp only [E22FieldCases] at hc
-  rcases hc with ⟨-, -, -, -, -, hk, -⟩ | ⟨-, -, ⟨hBen, -⟩ | ⟨hk, -⟩⟩
-  · exact hk
-  · exact hBen.1
-  · exact hk
 
 theorem pCoreOf_le_T : pCoreOf 2 H ≤ T :=
   s.sylowH.le_of_normalizes (CFSG.LieType.BorelTits.pCoreOf_le 2 H)

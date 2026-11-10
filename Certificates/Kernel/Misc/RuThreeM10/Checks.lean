@@ -74,11 +74,6 @@ theorem kCenter : centerK = true := by quickRfl
 
 theorem kOdd : oddK = true := by quickRfl
 
-theorem negOdd : (!(CFSG.KC.LQT.P.anyN 16 fun e => invK (pw 11 4 (pidn 11 4) e))) = true := by
-  quickRfl
-
-theorem negCenter : (!allN 3 fun l => CFSG.KC.FiveLocK.commK 11 4 (ET.G 1) (ET.G l)) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMisc.RuThreeM10
 

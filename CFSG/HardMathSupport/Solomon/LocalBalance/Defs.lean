@@ -79,8 +79,6 @@ variable [Finite G]
   sSup {L | GLAPComponent p (Subgroup.centralizer ({b} : Set G)) L ∧
     ¬ IsStronglyLocallyOneBalanced p B b L ∧ Lemma31v p L}
 
-@[expose] noncomputable def lambdaMGroup (p : ℕ) (B : Subgroup G) : Subgroup G :=
-  ⨆ (b : G) (_ : b ∈ B) (_ : b ≠ 1), lambdaMOf p B b
 
 end Lemma31
 

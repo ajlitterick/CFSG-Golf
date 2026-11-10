@@ -285,23 +285,6 @@ private theorem frameBlockCoords_singleton_subset_right {n e s r : ℕ}
   rw [frameBlockCoords_pair_eq_union hij]
   exact Finset.subset_union_right
 
-private theorem pairBasis_repr_pair {K : Type} [Field K] {g : K[X]} [Fact (Irreducible g)]
-    {n s r : ℕ} (ε : Fin n ≃ (Fin (rootPB g).dim × Fin s) ⊕ Fin r)
-    {i j : Fin s} (hij : i ≠ j) (v w : AdjoinRoot g)
-    (x : ↥(frameBlockCoords ε ({i, j} : Finset (Fin s)))) :
-    (pairBasis (g := g) ε hij).repr (v, w)
-        ((frameBlockCoords ε ({i, j} : Finset (Fin s))).equivFin x) =
-      match pairCoordsEquiv ε hij x with
-      | Sum.inl a => (rootPB g).basis.repr v a
-      | Sum.inr a => (rootPB g).basis.repr w a := by
-  rw [pairBasis, Basis.repr_reindex_apply]
-  have hsymm : ((pairCoordsEquiv ε hij).symm.trans
-      (frameBlockCoords ε ({i, j} : Finset (Fin s))).equivFin).symm
-        (((frameBlockCoords ε ({i, j} : Finset (Fin s)))).equivFin x) =
-      pairCoordsEquiv ε hij x := by
-    simp
-  rw [hsymm]
-  rcases hq : pairCoordsEquiv ε hij x with a | a <;> simp [hq]
 
 private theorem frameCoords_pairFrame_fst_zero {K : Type} [Field K] {g : K[X]}
     [Fact (Irreducible g)] {n s r : ℕ}
@@ -559,20 +542,6 @@ private theorem pairSLHom_blockSLk_mem_left {K : Type} [Field K] {g : K[X]}
       rfl
   · exact (CALinearPlane.mem_coordBlockSL_iff.mp hBC) p q (Or.inr hqC)
 
-private theorem frameBlockCoords_singletons_disjoint {n e s r : ℕ}
-    {ε : Fin n ≃ (Fin e × Fin s) ⊕ Fin r} {i j : Fin s} (hij : i ≠ j) :
-    Disjoint (frameBlockCoords ε ({i} : Finset (Fin s)))
-      (frameBlockCoords ε ({j} : Finset (Fin s))) := by
-  rw [Finset.disjoint_left]
-  intro x hxi hxj
-  obtain ⟨a, k, hε, hk⟩ := exists_inl_of_mem_frameBlockCoords hxi
-  have hki : k = i := by simpa using hk
-  have hεi : ε x = Sum.inl (a, i) := by simpa [hki] using hε
-  obtain ⟨b, l, hε', hl⟩ := exists_inl_of_mem_frameBlockCoords hxj
-  have hlj : l = j := by simpa using hl
-  have hεj : ε x = Sum.inl (b, j) := by simpa [hlj] using hε'
-  have hpair : (a, i) = (b, j) := Sum.inl.inj (hεi.symm.trans hεj)
-  exact hij (Prod.mk.inj hpair).2
 
 private theorem pairSLHom_blockSLk_prodComm_mem_right {K : Type} [Field K] {g : K[X]}
     [Fact (Irreducible g)] {n s r : ℕ}

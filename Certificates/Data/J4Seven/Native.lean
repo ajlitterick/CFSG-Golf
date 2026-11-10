@@ -44,15 +44,5 @@ open CFSG.Sporadic.J4.Native CFSG.Sporadic.J4.QT CFSG.Sporadic.J4.QT2
 @[expose] def cntFs (k : Nat) : Nat :=
   ((List.range 2048).filter fun c => (actIter (k * 3) c ^^^ actIter (k * 2) c ^^^ c) == 0).length
 
-@[expose] def chkSeven : Bool :=
-  eqRows (powRows sevenR 7) idRows && !eqRows sevenR idRows &&
-    (sevenR.size == 112 && sevenR.all V2.wf) &&
-    vorbOK locTabsS rep5S orbS5 15180 &&
-    fixedS sevenR orbS5 == sevenFix && sevenFix.all V2.wf && rootV.wf &&
-    sevenFix.all (fun v => !(v.beq rootV)) &&
-    (List.range 4).all (fun i => (List.range 4).all fun j =>
-      i == j || !((sevenFix.getD i rootV).beq (sevenFix.getD j rootV))) &&
-    (List.range 2048).all (fun c => actMask c == actX c && decide (actMask c < 2048)) &&
-    (List.range' 1 6).all fun k => cntF k != cntFs k
 
 end CFSG.Quasithin.J4Seven

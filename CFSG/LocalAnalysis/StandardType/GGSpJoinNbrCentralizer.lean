@@ -11,16 +11,6 @@ namespace CFSG.StandardType
 open CFSG.Assembly CFSG.Assembly.LowTwoRank CFSG.LieType.Universal.Symplectic CFSG.Open
   CFSG.StandardType.SpJoin
 
-@[expose] def GGSpLeviInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (m f : ℕ) (y : G) (K : Subgroup G),
-    GGConfig p B Bs x L D J → GGOpAutTrivial p Bs → GGInnerDiagAll p B Bs x L D J →
-      GGNoTransvection p Bs → GGTypeCNbr p B Bs x L D J (m + 1) f y K →
-    ∀ X : Subgroup G, (X = L ∨ ∃ y' : G, GGNbr p B x D J y' X ∧
-        ggAutomizer X Bs ≤ ggAutomizer L Bs ⊔ ggAutomizer K Bs) →
-    ∀ φ₀ : StatedSp (m + 1) (GaloisField 2 f) →* G, Function.Injective φ₀ → φ₀.range = X →
-      ∃ φ : StatedSp (m + 1) (GaloisField 2 f) →* G, Function.Injective φ ∧ φ.range = X ∧
-        (φ.comp (spLeviBlock m (GaloisField 2 f))).range = J
 
 @[expose] def GGSpLeviInputAtL : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)

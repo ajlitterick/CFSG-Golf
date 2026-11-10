@@ -41,10 +41,6 @@ private noncomputable def coordLin (e : Fin k ↪ Fin n)
     rw [h]
     exact Function.extend_smul c e (g (x ∘ e)) x
 
-omit [Finite K] [CharP K 2] in
-private theorem coordLin_apply (e : Fin k ↪ Fin n)
-    (g : (Fin k → K) ≃ₗ[F] (Fin k → K)) (x : Fin n → K) :
-    coordLin e g x = Function.extend e (g (x ∘ e)) x := rfl
 
 omit [Finite K] [CharP K 2] in
 private theorem coordLin_one (e : Fin k ↪ Fin n) :
@@ -205,10 +201,6 @@ private theorem extend_comp_self (e : Fin k ↪ Fin n) (x : Fin n → K) :
     rfl
   · rw [Function.extend_apply' _ _ _ hj]
 
-private theorem Qn_map_sum (e : Fin k ↪ Fin n) (x : Fin n → K) :
-    ∑ j ∈ Finset.univ.map e, normQuad E (x j) = Qn E k (x ∘ e) := by
-  rw [Qn_apply, Finset.sum_map]
-  rfl
 
 theorem coordExt_mem_orthogonalGroup (e : Fin k ↪ Fin n)
     {g : (Fin k → K) ≃ₗ[F] (Fin k → K)}
@@ -874,19 +866,6 @@ private theorem tauConj_coe (n : ℕ) (j : Fin n) (x : normOmega E n) :
       hypExt (K := F) (W := Fin n → K) (tauAt E j) * (x : _ ≃ₗ[F] _) *
         (hypExt (K := F) (W := Fin n → K) (tauAt E j))⁻¹ := rfl
 
-private theorem map_coordAnchor_tauAt (n : ℕ) (j : Fin n) :
-    (coordAnchor (LinearEquiv.refl F ((F × F) × (Fin n → K)))).map
-        (hypExt (K := F) (W := Fin n → K) (tauAt E j)).toLinearMap =
-      coordAnchor (LinearEquiv.refl F ((F × F) × (Fin n → K))) := by
-  refine le_antisymm ?_ ?_
-  · rintro - ⟨v, hv, rfl⟩
-    obtain ⟨r, rfl⟩ := mem_coordAnchor.mp hv
-    refine mem_coordAnchor.mpr ⟨r, ?_⟩
-    simp [hypExt_apply]
-  · intro v hv
-    obtain ⟨r, rfl⟩ := mem_coordAnchor.mp hv
-    refine ⟨(r, 0), mem_coordAnchor.mpr ⟨r, rfl⟩, ?_⟩
-    simp [hypExt_apply]
 
 private theorem map_planeSupport_tauAt (n : ℕ) (j : Fin n) (S : Finset (Fin n)) :
     (planeSupport S).map
@@ -928,15 +907,6 @@ private theorem map_planeSupport_tauAt (n : ℕ) (j : Fin n) (S : Finset (Fin n)
     rfl
   exact le_antisymm h1 h2
 
-private theorem map_coordSupport_tauAt (n : ℕ) (j : Fin n) (S : Finset (Fin n)) :
-    (coordSupport (LinearEquiv.refl F ((F × F) × (Fin n → K))) S).map
-        (hypExt (K := F) (W := Fin n → K) (tauAt E j)).toLinearMap =
-      coordSupport (LinearEquiv.refl F ((F × F) × (Fin n → K))) S := by
-  unfold coordSupport
-  change (coordAnchor (LinearEquiv.refl F ((F × F) × (Fin n → K))) ⊔ planeSupport S).map
-      (hypExt (K := F) (W := Fin n → K) (tauAt E j)).toLinearMap =
-    coordAnchor (LinearEquiv.refl F ((F × F) × (Fin n → K))) ⊔ planeSupport S
-  rw [Submodule.map_sup, map_coordAnchor_tauAt E n j, map_planeSupport_tauAt E n j]
 
 private theorem map_subgroupOf_tauConj (n : ℕ) (j : Fin n)
     (H : Subgroup (((F × F) × (Fin n → K)) ≃ₗ[F] ((F × F) × (Fin n → K))))
@@ -998,24 +968,6 @@ theorem map_normPureBlock_tauConj {n : ℕ} (j : Fin n) (S : Finset (Fin n)) :
     H.subgroupOf (normOmega E n)
   exact map_subgroupOf_tauConj E n j H hH hHmap
 
-theorem map_normBlock_tauConj {n : ℕ} (j : Fin n) (S : Finset (Fin n)) :
-    (normBlock E n S).map (tauConj E n j).toMonoidHom = normBlock E n S := by
-  let H := supportedDerived (normHypForm E n)
-    (coordSupport (LinearEquiv.refl F ((F × F) × (Fin n → K))) S)
-  have hH : H ≤ normOmega E n :=
-    supportedDerived_le_orthDerived_of_regular
-      (CFSG.LieType.SeitzGeneration.OrthBlk.nondegenerate_of_polarNondegOn
-        (coordSupport_polarNondegOn (ψ := LinearEquiv.refl F ((F × F) × (Fin n → K)))
-          (hψ := normHypForm_apply_coord E n)
-          (hQ := normHypForm_polarBilin_nondegenerate E n)
-          (hQE := normQuad_polarBilin_nondegenerate E) S))
-  have hHmap : H.map
-      (MulAut.conj (hypExt (K := F) (W := Fin n → K) (tauAt E j))).toMonoidHom = H :=
-    map_supportedDerived_conj_of_map_eq (hypExt (K := F) (W := Fin n → K) (tauAt E j))
-      (hypExt_tauAt_mem_orthogonalGroup E n j) (map_coordSupport_tauAt E n j S)
-  change (H.subgroupOf (normOmega E n)).map (tauConj E n j).toMonoidHom =
-    H.subgroupOf (normOmega E n)
-  exact map_subgroupOf_tauConj E n j H hH hHmap
 
 private theorem tauAt_mul_coordExt_of_not_mem (e : Fin k ↪ Fin n)
     (g : (Fin k → K) ≃ₗ[F] (Fin k → K)) {j : Fin n}

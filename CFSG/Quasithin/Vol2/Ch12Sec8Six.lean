@@ -59,11 +59,6 @@ theorem normalizer_omegaOneCenter (h : Hyp1281Two G T M L) :
   le_antisymm (normalizer_le_centralizer_of_card_two h.card_omegaOneCenter)
     (Subgroup.centralizer_le_normalizer _)
 
-theorem uOfL22_abelian_of_forall (h : Hyp1281Two G T M L)
-    (hall : ∀ H : Subgroup G, IsHz T M L H → IsMulCommutative ↥(conjClosure (VZ T M) H)) :
-    IsMulCommutative ↥(uOfL22 T M) := by
-  have := hall _ h.isHz_normalizer
-  rwa [h.normalizer_omegaOneCenter] at this
 
 theorem commutator_eq_bot_of_abelian (h : Hyp1281Two G T M L)
     (hU : IsMulCommutative ↥(uOfL22 T M)) {g : G} (hg : VZ T M ⊓ conjSub g (VZ T M) ≠ ⊥) :
@@ -203,32 +198,6 @@ theorem hypF81_of_commutator (h : Hyp1281Two G T M L)
     have hNM : N = M := h.unique.2 N ⟨hN.1, le_sup_left.trans hN.2⟩
     exact hHz.2.2 (hNM ▸ le_sup_right.trans hN.2)
 
-theorem abelian_of_hypF81 {H : Subgroup G}
-    (hF : HypF81 T (VZ T M) L (quasithinOmegaOneCenter T) H) :
-    IsMulCommutative ↥(conjClosure (VZ T M) H) :=
-  (F8.isElemAbelian_conjClosure hF).1
-
-theorem lemma_12_8_6 (h : Hyp1281Two G T M L) :
-    ((∀ H : Subgroup G, IsHz T M L H → IsMulCommutative ↥(conjClosure (VZ T M) H)) ↔
-      IsMulCommutative ↥(uOfL22 T M)) ∧
-    (IsMulCommutative ↥(uOfL22 T M) ↔
-      ∀ g : G, VZ T M ⊓ conjSub g (VZ T M) ≠ ⊥ → ⁅VZ T M, conjSub g (VZ T M)⁆ = ⊥) ∧
-    ((∀ g : G, VZ T M ⊓ conjSub g (VZ T M) ≠ ⊥ → ⁅VZ T M, conjSub g (VZ T M)⁆ = ⊥) ↔
-      ∀ H : Subgroup G, IsHz T M L H → HypF81 T (VZ T M) L (quasithinOmegaOneCenter T) H) := by
-  have h12 : (∀ H : Subgroup G, IsHz T M L H → IsMulCommutative ↥(conjClosure (VZ T M) H)) →
-      IsMulCommutative ↥(uOfL22 T M) := h.uOfL22_abelian_of_forall
-  have h23 : IsMulCommutative ↥(uOfL22 T M) →
-      ∀ g : G, VZ T M ⊓ conjSub g (VZ T M) ≠ ⊥ → ⁅VZ T M, conjSub g (VZ T M)⁆ = ⊥ :=
-    fun hU g hg => h.commutator_eq_bot_of_abelian hU hg
-  have h34 : (∀ g : G, VZ T M ⊓ conjSub g (VZ T M) ≠ ⊥ → ⁅VZ T M, conjSub g (VZ T M)⁆ = ⊥) →
-      ∀ H : Subgroup G, IsHz T M L H → HypF81 T (VZ T M) L (quasithinOmegaOneCenter T) H :=
-    fun h3 H hH => h.hypF81_of_commutator h3 hH
-  have h41 : (∀ H : Subgroup G, IsHz T M L H →
-      HypF81 T (VZ T M) L (quasithinOmegaOneCenter T) H) →
-      ∀ H : Subgroup G, IsHz T M L H → IsMulCommutative ↥(conjClosure (VZ T M) H) :=
-    fun h4 H hH => abelian_of_hypF81 (h4 H hH)
-  exact ⟨⟨h12, fun hU => h41 (h34 (h23 hU))⟩, ⟨h23, fun h3 => h12 (h41 (h34 h3))⟩,
-    ⟨h34, fun h4 => h23 (h12 (h41 h4))⟩⟩
 
 end Hyp1281Two
 

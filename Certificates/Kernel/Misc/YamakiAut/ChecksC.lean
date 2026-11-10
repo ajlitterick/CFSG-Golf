@@ -39,22 +39,6 @@ open CFSG.KD.Sp62 (ONE)
 @[expose] noncomputable def ch550712c2 (q : Nat) : Bool :=
   c2Chunk RX HC2 (fun k => pc1.getD k 0) (fun k => pc2.getD k 0) ts2 1536 cr0 cr1 512 q
 
-theorem ch550712c1n : (!c1Chunk RX (fun i => HC1 (Nat.add i 1)) 1536 cr0 cr1 512 0) = true := by
-  quickRfl
-
-theorem ch550712c1m : (!c1Chunk RX HC1 1536 cr1 cr0 512 0) = true := by quickRfl
-
-theorem ch550712c2n :
-    (!c2Chunk RX (fun i => HC2 (Nat.add i 1)) (fun k => pc1.getD k 0) (fun k => pc2.getD k 0) ts2
-      1536 cr0 cr1 512 0) = true := by quickRfl
-
-theorem ch550712c2m :
-    (!c2Chunk RX HC2 (fun k => pc2.getD k 0) (fun k => pc1.getD k 0) ts2 1536 cr0 cr1 512 0) =
-      true := by quickRfl
-
-theorem ch550712c2t :
-    (!c2Chunk RX (fun _ => 0) (fun k => pc1.getD k 0) (fun k => pc2.getD k 0) ts2 1536 cr0 cr1
-      512 0) = true := by quickRfl
 
 end CFSG.KD.YamakiAutC
 

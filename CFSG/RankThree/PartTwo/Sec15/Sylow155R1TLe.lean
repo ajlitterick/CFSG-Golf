@@ -9,9 +9,6 @@ namespace CFSG.RankThree.PartTwo.Sec15.Sylow155R1
 open CFSG CFSG.RankThree CFSG.RankThree.PartTwo CFSG.RankThree.PartTwo.Sec13
   CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.LocalRank CFSG.GH74.GLS
 
-@[expose] noncomputable def Item1514RQ (Q : ∀ (X : Type) [Group X], Prop) : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec15R G A c L → Q (↥L ⧸ aschbacherSolvableCore 3 ↥L) → Item1514 A (lB A) c L
 
 @[expose] def Res1DeltaQ (Q : ∀ (X : Type) [Group X], Prop) : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
@@ -60,6 +57,5 @@ theorem res1DeltaQ_m22 (h22 : Step142LowerGenM22) (h142 : Concl142S14) :
       ⁅pPrimeCoreOf 2 (delta A (lB A) (CFSG.Open.pCoreOf 2 Y ⊔ pPrimeCoreOf 3 (u155 A M X))),
         Subgroup.zpowers z⁆ ≠ ⊥ → False
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.RankThree.PartTwo.Sec15.Sylow155R1

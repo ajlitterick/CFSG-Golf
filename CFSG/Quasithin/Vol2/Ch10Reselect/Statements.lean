@@ -21,21 +21,10 @@ variable {G : Type} [Group G]
       fsuCVM T L I ∧
     fsuUL T L I ≤ Subgroup.centralizer (CFSG.conjugate L t : Set G)
 
-@[expose] def Case3_2_6_ivA (T L I : Subgroup G) [IsMulCommutative ↥(fsuVM T L I)] : Prop :=
-  Concl326A T L I ∧ Case3_2_6_iv T L I
 
 @[expose] def Concl326ThreeIvA (T L I : Subgroup G) [IsMulCommutative ↥(fsuVM T L I)] : Prop :=
   Concl326A T L I ∧ Concl326ThreeIv T L I
 
-theorem concl326ThreeIvA_iff (T L I : Subgroup G) [IsMulCommutative ↥(fsuVM T L I)] :
-    Concl326ThreeIvA T L I ↔ Case3_2_6_ivA T L I :=
-  Iff.rfl
-
-theorem concl326A_of_cab [Finite G] {T L V₀ : Subgroup G}
-    [IsMulCommutative ↥(conjClosure (conjClosure V₀ T)
-      (Subgroup.normalizer (conjClosure L T : Set G)))] (h : Concl326Cab T L V₀) :
-    Concl326A T L V₀ :=
-  h.1
 
 end Defs
 
@@ -182,17 +171,5 @@ theorem stmt10_0_1_of_stepsR (hfsu : StmtFSUChoice) (h701 : Stmt7_0_1A) (h1010 :
   obtain ⟨⟨⟨eL⟩, -⟩, -, -⟩ := h10213 G T K J hJ
   exact not_sl_three_two_equiv_alternating_five (eL.symm.trans eA)
 
-@[expose] def Ch10CaseIVFFA : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L I : Subgroup G), FSU G T L I → L < fsuL0 T L →
-    ∀ _ : IsMulCommutative ↥(fsuV T I), Concl701FF T L I ∨ Concl701FourA T L I →
-      ∀ _ : IsMulCommutative ↥(fsuVM T L I), ¬ Case3_2_6_ivA T L I
-
-theorem ch10CaseIVFFA_of_stmt10_0_1 (h : Stmt10_0_1) : Ch10CaseIVFFA := by
-  intro G _ _ T L I hfsu hlt
-  exfalso
-  have hT := h G T L hfsu.simple hfsu.nonabelian hfsu.qtke hfsu.sylow hfsu.maximal
-    hfsu.faithful hfsu.quasisimple
-  exact hlt.ne (le_antisymm (le_conjClosure L T) (conjClosure_le fun _ hg z hz =>
-    (Subgroup.mem_normalizer_iff.mp (hT hg) z).mp hz))
 
 end CFSG.Quasithin.Vol2.Ch10

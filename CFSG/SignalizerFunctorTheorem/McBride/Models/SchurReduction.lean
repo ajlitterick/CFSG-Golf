@@ -52,9 +52,6 @@ theorem commutator_derivedPreimage {π : Y →* Q} (hπ : Function.Surjective π
     ↥(derivedPreimage π J) →* ↥J :=
   (π.comp (derivedPreimage π J).subtype).codRestrict J fun x => derivedPreimage_le_comap π J x.2
 
-theorem coe_derivedPreimageHom (π : Y →* Q) (J : Subgroup Q) (x : derivedPreimage π J) :
-    ((derivedPreimageHom π J x : J) : Q) = π x :=
-  rfl
 
 theorem mem_ker_derivedPreimageHom {π : Y →* Q} {J : Subgroup Q} {x : derivedPreimage π J} :
     x ∈ (derivedPreimageHom π J).ker ↔ (x : Y) ∈ π.ker := by

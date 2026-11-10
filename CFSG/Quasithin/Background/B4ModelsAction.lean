@@ -410,15 +410,6 @@ theorem golayC_le_coreMod : golayC ≤ G6.coreMod 24 := by
   have h2 : 2 ∣ hammingNorm (Multiplicative.toAdd c) := Nat.dvd_trans (by norm_num) h4
   exact (ZMod.natCast_eq_zero_iff _ 2).mpr h2
 
-theorem golayC_inv {σ : Equiv.Perm (Fin 24)} (hσ : σ ∈ AutPerm) {m : G6.PermMod 24} (hm : m ∈ golayC) :
-    G6.permAct 24 σ m ∈ golayC := by
-  rw [mem_golayC_iff] at hm ⊢
-  have h := (mem_AutPerm_iff.mp (AutPerm.inv_mem hσ) (Multiplicative.toAdd m)).mp hm
-  have e : Multiplicative.toAdd (G6.permAct 24 σ m) = Multiplicative.toAdd m ∘ ⇑σ⁻¹ := by
-    funext i
-    exact G6.permAct_apply 24 σ m i
-  rw [e]
-  exact h
 
 theorem permAct_mem_zpowers_allOnes (n : ℕ) (σ : Equiv.Perm (Fin n)) {m : G6.PermMod n}
     (hm : m ∈ Subgroup.zpowers (G6.allOnes n)) : G6.permAct n σ m ∈ Subgroup.zpowers (G6.allOnes n) := by
@@ -432,44 +423,6 @@ theorem permAct_mem_zpowers_allOnes (n : ℕ) (σ : Equiv.Perm (Fin n)) {m : G6.
   rw [this]
   rfl
 
-theorem permAct_mem_sup {M : Type*} [CommGroup M] (f : MulAut M) {A B : Subgroup M}
-    (hA : ∀ m ∈ A, f m ∈ A) (hB : ∀ m ∈ B, f m ∈ B) {m : M} (hm : m ∈ A ⊔ B) : f m ∈ A ⊔ B := by
-  obtain ⟨a, ha, b, hb, rfl⟩ := Subgroup.mem_sup.mp hm
-  rw [map_mul]
-  exact Subgroup.mul_mem_sup (hA a ha) (hB b hb)
-
-theorem permAct_mem_closure {M : Type*} [CommGroup M] (f : MulAut M) {S : Set M}
-    (hS : ∀ m ∈ S, f m ∈ Subgroup.closure S) {m : M} (hm : m ∈ Subgroup.closure S) :
-    f m ∈ Subgroup.closure S := by
-  induction hm using Subgroup.closure_induction with
-  | mem m hm => exact hS m hm
-  | one => rw [map_one]; exact Subgroup.one_mem _
-  | mul a b _ _ ha hb => rw [map_mul]; exact Subgroup.mul_mem _ ha hb
-  | inv a _ ha => rw [map_inv]; exact Subgroup.inv_mem _ ha
-
-theorem unitVec_apply (x i : Fin 24) : Multiplicative.toAdd (unitVec x) i = if i = x then 1 else 0 := by
-  simp [unitVec, Pi.single_apply]
-
-theorem permAct_unitVec (σ : Equiv.Perm (Fin 24)) (x : Fin 24) :
-    G6.permAct 24 σ (unitVec x) = unitVec (σ x) := by
-  apply Multiplicative.toAdd.injective
-  funext i
-  rw [G6.permAct_apply, unitVec_apply, unitVec_apply]
-  simp [Equiv.Perm.inv_def, Equiv.symm_apply_eq]
-
-theorem permAct_pairVec_of_fix {σ : Equiv.Perm (Fin 24)} {x y : Fin 24} (hx : σ x = x) (hy : σ y = y) :
-    G6.permAct 24 σ (pairVec x y) = pairVec x y := by
-  rw [pairVec, map_mul, permAct_unitVec, permAct_unitVec, hx, hy]
-
-theorem pairKer_inv {σ : Equiv.Perm (Fin 24)} {x y : Fin 24} (hx : σ x = x) (hy : σ y = y)
-    {m : G6.PermMod 24} (hm : m ∈ pairKer x y) : G6.permAct 24 σ m ∈ pairKer x y := by
-  have hx' : σ⁻¹ x = x := by
-    rw [Equiv.Perm.inv_def, Equiv.symm_apply_eq]; exact hx.symm
-  have hy' : σ⁻¹ y = y := by
-    rw [Equiv.Perm.inv_def, Equiv.symm_apply_eq]; exact hy.symm
-  show (Multiplicative.toAdd (G6.permAct 24 σ m)) x + (Multiplicative.toAdd (G6.permAct 24 σ m)) y = 0
-  rw [G6.permAct_apply, G6.permAct_apply, hx', hy']
-  exact hm
 
 theorem pairVec_mem_core (x y : Fin 24) : pairVec x y ∈ G6.coreMod 24 := by
   rw [G6.mem_coreMod]
@@ -477,47 +430,6 @@ theorem pairVec_mem_core (x y : Fin 24) : pairVec x y ∈ G6.coreMod 24 := by
   simp only [Finset.sum_pi_single', Finset.mem_univ, ite_true]
   decide
 
-theorem allOnes_mem_pairKer (x y : Fin 24) : G6.allOnes 24 ∈ pairKer x y := by
-  show (Multiplicative.toAdd (G6.allOnes 24)) x + (Multiplicative.toAdd (G6.allOnes 24)) y = 0
-  show (1 : ZMod 2) + 1 = 0
-  decide
-
-theorem permSubAct_mul (Γ : Subgroup (Equiv.Perm (Fin 24))) (σ : ↥Γ) (x y : G6.PermMod 24) :
-    permSubAct Γ σ (x * y) = permSubAct Γ σ x * permSubAct Γ σ y :=
-  map_mul (G6.permAct 24 (σ : Equiv.Perm (Fin 24))) x y
-
-theorem permSubAct_one (Γ : Subgroup (Equiv.Perm (Fin 24))) (x : G6.PermMod 24) :
-    permSubAct Γ 1 x = x := permAct_one_act 24 x
-
-theorem permSubAct_mul_act (Γ : Subgroup (Equiv.Perm (Fin 24))) (σ τ : ↥Γ) (x : G6.PermMod 24) :
-    permSubAct Γ (σ * τ) x = permSubAct Γ σ (permSubAct Γ τ x) :=
-  permAct_mul_act 24 (σ : Equiv.Perm (Fin 24)) τ x
-
-theorem FFModel.golaySec_isActionModel (Γ : Subgroup (Equiv.Perm (Fin 24)))
-    (numer denom : Subgroup (G6.PermMod 24))
-    (hnum : ∀ σ : ↥Γ, ∀ m ∈ numer, permSubAct Γ σ m ∈ numer)
-    (hden : ∀ σ : ↥Γ, ∀ m ∈ denom, permSubAct Γ σ m ∈ denom) (hle : denom ≤ numer) :
-    (FFModel.golaySec Γ numer denom).IsActionModel where
-  act_mul := permSubAct_mul Γ
-  act_one := permSubAct_one Γ
-  act_mul_act := permSubAct_mul_act Γ
-  sec_inv := hnum
-  ker_inv := hden
-  ker_le := hle
-
-theorem golayCode_isActionModel (Γ : Subgroup (Equiv.Perm (Fin 24))) (hΓ : Γ ≤ AutPerm) :
-    (FFModel.golaySec Γ golayC (Subgroup.zpowers (G6.allOnes 24))).IsActionModel :=
-  FFModel.golaySec_isActionModel Γ golayC (Subgroup.zpowers (G6.allOnes 24))
-    (fun σ _ hm => golayC_inv (hΓ σ.2) hm)
-    (fun σ _ hm => permAct_mem_zpowers_allOnes 24 σ hm)
-    (Subgroup.zpowers_le.mpr allOnes_mem_golayC)
-
-theorem golayCocode_isActionModel (Γ : Subgroup (Equiv.Perm (Fin 24))) (hΓ : Γ ≤ AutPerm) :
-    (FFModel.golaySec Γ (G6.coreMod 24) golayC).IsActionModel :=
-  FFModel.golaySec_isActionModel Γ (G6.coreMod 24) golayC
-    (fun σ _ hm => G6.permAct_mem_coreMod (σ : Equiv.Perm (Fin 24)) hm)
-    (fun σ _ hm => golayC_inv (hΓ σ.2) hm)
-    golayC_le_coreMod
 
 theorem mem_stabilizer_fix {x : Fin 24} {σ : Equiv.Perm (Fin 24)}
     (h : σ ∈ MulAction.stabilizer (Equiv.Perm (Fin 24)) x) : σ x = x :=
@@ -532,68 +444,6 @@ theorem stab_facts (x y : Fin 24) (Γ : Subgroup (Equiv.Perm (Fin 24)))
   rw [Subgroup.mem_inf, Subgroup.mem_inf] at h
   exact ⟨h.1.1, mem_stabilizer_fix h.1.2, mem_stabilizer_fix h.2⟩
 
-theorem code22_sec_inv (x y : Fin 24) (Γ : Subgroup (Equiv.Perm (Fin 24)))
-    (hΓ : Γ ≤ AutPerm ⊓ MulAction.stabilizer (Equiv.Perm (Fin 24)) x ⊓
-      MulAction.stabilizer (Equiv.Perm (Fin 24)) y) (σ : ↥Γ) (m : G6.PermMod 24)
-    (hm : m ∈ golayC ⊓ pairKer x y) : permSubAct Γ σ m ∈ golayC ⊓ pairKer x y := by
-  obtain ⟨h1, h2, h3⟩ := stab_facts x y Γ hΓ σ
-  rw [Subgroup.mem_inf] at hm ⊢
-  exact ⟨golayC_inv h1 hm.1, pairKer_inv h2 h3 hm.2⟩
-
-theorem golayCode22_isActionModel (x y : Fin 24) (Γ : Subgroup (Equiv.Perm (Fin 24)))
-    (hΓ : Γ ≤ AutPerm ⊓ MulAction.stabilizer (Equiv.Perm (Fin 24)) x ⊓
-      MulAction.stabilizer (Equiv.Perm (Fin 24)) y) :
-    (FFModel.golaySec Γ (golayC ⊓ pairKer x y) (Subgroup.zpowers (G6.allOnes 24))).IsActionModel :=
-  FFModel.golaySec_isActionModel Γ (golayC ⊓ pairKer x y) (Subgroup.zpowers (G6.allOnes 24))
-    (fun σ m hm => code22_sec_inv x y Γ hΓ σ m hm)
-    (fun σ _ hm => permAct_mem_zpowers_allOnes 24 σ hm)
-    (Subgroup.zpowers_le.mpr (Subgroup.mem_inf.mpr ⟨allOnes_mem_golayC, allOnes_mem_pairKer x y⟩))
-
-theorem cocode22_ker_inv (x y : Fin 24) (Γ : Subgroup (Equiv.Perm (Fin 24)))
-    (hΓ : Γ ≤ AutPerm ⊓ MulAction.stabilizer (Equiv.Perm (Fin 24)) x ⊓
-      MulAction.stabilizer (Equiv.Perm (Fin 24)) y) (σ : ↥Γ) (m : G6.PermMod 24)
-    (hm : m ∈ golayC ⊔ Subgroup.zpowers (pairVec x y)) :
-    permSubAct Γ σ m ∈ golayC ⊔ Subgroup.zpowers (pairVec x y) := by
-  obtain ⟨h1, h2, h3⟩ := stab_facts x y Γ hΓ σ
-  refine permAct_mem_sup (G6.permAct 24 (σ : Equiv.Perm (Fin 24)))
-    (fun m hm' => golayC_inv h1 hm') (fun m hm' => ?_) hm
-  obtain ⟨k, hk⟩ := Subgroup.mem_zpowers_iff.mp hm'
-  refine Subgroup.mem_zpowers_iff.mpr ⟨k, ?_⟩
-  rw [← hk]
-  show (pairVec x y) ^ k = G6.permAct 24 (σ : Equiv.Perm (Fin 24)) ((pairVec x y) ^ k)
-  rw [map_zpow, permAct_pairVec_of_fix h2 h3]
-  rfl
-
-theorem golayCocode22_isActionModel (x y : Fin 24) (Γ : Subgroup (Equiv.Perm (Fin 24)))
-    (hΓ : Γ ≤ AutPerm ⊓ MulAction.stabilizer (Equiv.Perm (Fin 24)) x ⊓
-      MulAction.stabilizer (Equiv.Perm (Fin 24)) y) :
-    (FFModel.golaySec Γ (G6.coreMod 24) (golayC ⊔ Subgroup.zpowers (pairVec x y))).IsActionModel :=
-  FFModel.golaySec_isActionModel Γ (G6.coreMod 24) (golayC ⊔ Subgroup.zpowers (pairVec x y))
-    (fun σ _ hm => G6.permAct_mem_coreMod (σ : Equiv.Perm (Fin 24)) hm)
-    (fun σ m hm => cocode22_ker_inv x y Γ hΓ σ m hm)
-    (sup_le golayC_le_coreMod (Subgroup.zpowers_le.mpr (pairVec_mem_core x y)))
-
-theorem m12Ten_isActionModel (eY : G6.PermMod 24) (hY : eY ∈ golayC) :
-    (FFModel.golaySec (m24Fix eY) golayC (Subgroup.closure {G6.allOnes 24, eY})).IsActionModel :=
-  FFModel.golaySec_isActionModel _ _ _
-    (fun σ _ hm => golayC_inv σ.2.1 hm)
-    (fun σ _ hm => permAct_mem_closure _ (fun m hm' => by
-      rcases hm' with rfl | rfl
-      · have : G6.permAct 24 (σ : Equiv.Perm (Fin 24)) (G6.allOnes 24) = G6.allOnes 24 := by
-          apply Multiplicative.toAdd.injective
-          funext i
-          simp [G6.permAct_apply, G6.allOnes]
-        show G6.permAct 24 (σ : Equiv.Perm (Fin 24)) (G6.allOnes 24) ∈ _
-        rw [this]
-        exact Subgroup.subset_closure (Set.mem_insert _ _)
-      · show G6.permAct 24 (σ : Equiv.Perm (Fin 24)) m ∈ _
-        rw [σ.2.2]
-        exact Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)) hm)
-    ((Subgroup.closure_le _).mpr (by
-      intro m hm'
-      rcases hm' with rfl | rfl
-      · exact allOnes_mem_golayC
-      · exact hY))
 
 end Golay
 
@@ -605,49 +455,12 @@ private theorem commutator_le_self_aux {G : Type*} [Group G] (H : Subgroup G) : 
   rw [commutatorElement_def]
   exact H.mul_mem (H.mul_mem (H.mul_mem h₁ h₂) (H.inv_mem h₁)) (H.inv_mem h₂)
 
-theorem exists_alternatingNatural (n : ℕ) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), AlternatingNatural H ⊤ ⊥ n :=
-  ⟨_, inferInstance, _, (FFModel.altDn_isActionModel n).realizesMod_range⟩
-
-theorem exists_symmetricNatural (n : ℕ) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), SymmetricNatural H ⊤ ⊥ n :=
-  ⟨_, inferInstance, _, (FFModel.symDn_isActionModel n).realizesMod_range⟩
-
-theorem exists_binaryNaturalSL (d a : ℕ) (ha : a ≠ 0) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), BinaryNaturalSL H ⊤ ⊥ d a :=
-  ⟨_, inferInstance, _, GaloisField 2 a, inferInstance, inferInstance,
-    GaloisField.card 2 a ha, (FFModel.nat_isActionModel _).realizesMod_range⟩
 
 theorem exists_g2Natural (a : ℕ) (ha : a ≠ 0) :
     ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), G2Natural H ⊤ ⊥ a :=
   ⟨_, inferInstance, _, GaloisField 2 a, inferInstance, inferInstance, GaloisField.card 2 a ha,
     (FFModel.zornQ_isActionModel (quasithinG2 (GaloisField 2 a)) le_rfl).realizesMod_range⟩
 
-theorem exists_g2NaturalDerived (a : ℕ) (ha : a ≠ 0) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), G2NaturalDerived H ⊤ ⊥ a :=
-  ⟨_, inferInstance, _, GaloisField 2 a, inferInstance, inferInstance, GaloisField.card 2 a ha,
-    (FFModel.zornQ_isActionModel ⁅quasithinG2 (GaloisField 2 a), quasithinG2 (GaloisField 2 a)⁆
-      (commutator_le_self_aux _)).realizesMod_range⟩
-
-theorem exists_slExteriorTwo (d : ℕ) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), SLExteriorTwo H ⊤ ⊥ d :=
-  ⟨_, inferInstance, _, (FFModel.extSq_isActionModel (ZMod 2) d).realizesMod_range⟩
-
-theorem exists_twistedTensorSL (d a : ℕ) (ha : a ≠ 0) :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), TwistedTensorSL H ⊤ ⊥ d a :=
-  ⟨_, inferInstance, _, GaloisField 2 (2 * a), inferInstance, inferInstance, inferInstance,
-    GaloisField.card 2 (2 * a) (by omega),
-    (FFModel.twistTensor_isActionModel a _ (GaloisField.card 2 (2 * a) (by omega))).realizesMod_range⟩
-
-theorem exists_mathieuCode24 :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), MathieuCode24 H ⊤ ⊥ :=
-  ⟨_, inferInstance, _,
-    (golayCode_isActionModel CFSG.Monster.Code.AutPerm le_rfl).realizesMod_range⟩
-
-theorem exists_mathieuCocode24 :
-    ∃ (V : Type) (_ : CommGroup V) (H : Subgroup (MulAut V)), MathieuCocode24 H ⊤ ⊥ :=
-  ⟨_, inferInstance, _,
-    (golayCocode_isActionModel CFSG.Monster.Code.AutPerm le_rfl).realizesMod_range⟩
 
 end Satisfiable
 

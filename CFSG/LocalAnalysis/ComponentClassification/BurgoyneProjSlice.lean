@@ -115,11 +115,6 @@ abbrev slice : Subgroup (MulAut (StatedProj H)) := L.map (conjProjH H)
   (MonoidHom.ofInjective (conjProjH_injective_of_inf hinj hLZ)).trans
     (MulEquiv.subgroupCongr (by rw [MonoidHom.range_comp, range_subtype]))
 
-theorem coe_sliceEquiv
-    (hinj : Function.Injective (MulAut.conj : StatedProj H →* MulAut (StatedProj H)))
-    (hLZ : ∀ g ∈ L, g ∈ (StatedScalars ι K).subgroupOf H → g = 1) (g : L) :
-    ((sliceEquiv hinj hLZ g : slice L) : MulAut (StatedProj H)) = conjProjH H g :=
-  rfl
 
 theorem slice_le_range :
     slice L ≤ (MulAut.conj : StatedProj H →* MulAut (StatedProj H)).range := by

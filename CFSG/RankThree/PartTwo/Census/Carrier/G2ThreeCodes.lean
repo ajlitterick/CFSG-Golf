@@ -101,8 +101,6 @@ theorem dec14_injective {m m' : List ℕ} (h : canon14 m = true) (h' : canon14 m
   par.foldl (fun acc ps => acc.push (conjStep (gps.getD ps.2 (one14 ++ one14))
     (acc.getD ps.1 t))) #[t]
 
-@[expose] def orbitParents (t : List ℕ) (gps : List (List ℕ)) (fuel : ℕ) : List (ℕ × ℕ) :=
-  CFSG.Quasithin.G2U.bfsParents t (fun x gp => conjStep gp x) gps fuel
 
 theorem take_drop_one14 :
     (one14 ++ one14).take 196 = one14 ∧ (one14 ++ one14).drop 196 = one14 := by

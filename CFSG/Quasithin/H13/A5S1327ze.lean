@@ -14,7 +14,6 @@ variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} (S : Setting G T L
 
 @[expose] noncomputable def G0e (H : Subgroup G) : Subgroup G := S.G1e H ⊔ S.G2e
 
-include S
 
 end Setting
 

@@ -66,9 +66,6 @@ structure Sec12Std (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L :
       (Subgroup.normalizer (A : Set G) ⊓ Subgroup.normalizer (Subgroup.zpowers c : Set G)) ∧
     ¬ A ⊓ Subgroup.centralizer (L : Set G) ≤ (Subgroup.center P).map P.subtype
 
-structure Sec12StdE (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G) :
-    Prop extends Sec12Std G A c L where
-  mem_partTwoE : A ∈ partTwoE G
 
 @[expose] def Item122 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
@@ -78,51 +75,5 @@ structure Sec12StdE (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L 
       Sec4.IsTripleCover (L ⧸ aschbacherSolvableCore 3 L) (alternatingGroup (Fin 7)) ∨
       Sec4.IsTripleCover (L ⧸ aschbacherSolvableCore 3 L) CFSG.Blueprint.NativeSporadic.M22
 
-@[expose] def Item123 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G)
-    (h : Sec12Std G A c L) (P : Subgroup G),
-    CFSG.ABGLocalTools.IsSylowOf 3 P
-        (Subgroup.normalizer (A : Set G) ⊓ Subgroup.normalizer (Subgroup.zpowers c : Set G)) →
-      ¬ A ⊓ Subgroup.centralizer (L : Set G) ≤ (Subgroup.center P).map P.subtype →
-      Sec4.autIn P A = transvectionGroup A ⟨c, h.mem_A⟩ ∧ Nat.card (Sec4.autIn P A) = 9
-
-@[expose] def Item124 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec12Std G A c L →
-      Subgroup.normalizer (A : Set G) ≤ Subgroup.normalizer (Subgroup.zpowers c : Set G)
-
-@[expose] def Item125 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec12Std G A c L → ∀ E : Subgroup G, Late.IsE27 E → E ≤ lcBar c L → c ∈ E →
-      Subgroup.normalizer (E : Set G) ≤ Subgroup.normalizer (Subgroup.zpowers c : Set G)
-
-@[expose] def Item128 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec12StdE G A c L →
-      A ∈ partTwoT G ∨
-      (∀ D : Subgroup G, D ≤ A → Nat.card D = 9 →
-          thetaAlpha 3 D = thetaAlpha 3 (A ⊓ Subgroup.centralizer (L : Set G))) ∧
-        aschbacherSolvableCore 3 (thetaAlpha 3 (A ⊓ Subgroup.centralizer (L : Set G))) = ⊤ ∨
-      ∃ L₀ ∈ thetaComponentsAt 3 c,
-        Sec4.IsTripleCover (L₀ ⧸ aschbacherSolvableCore 3 L₀) (alternatingGroup (Fin 6)) ∧
-        ∃ a ∈ Late.sectionCentralizer A L₀ ((aschbacherSolvableCore 3 L₀).map L₀.subtype),
-          a ≠ 1 ∧ ∃ K ∈ thetaComponentsAt 3 a,
-            Nonempty (K ⧸ CFSG.pCore 2 K ≃* CFSG.Blueprint.NativeSporadic.J2) ∧
-            Subgroup.zpowers a ∈ omegaA A ∧ K ∈ lA A a
-
-@[expose] def Item129 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec12StdE G A c L → A ∉ partTwoS G
-
-@[expose] def Item1210 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec12StdE G A c L →
-      A ∈ partTwoT G ∨
-      A ∉ partTwoS G ∧ ∃ L₀ ∈ thetaComponentsAt 3 c,
-        Sec4.IsTripleCover (L₀ ⧸ aschbacherSolvableCore 3 L₀) (alternatingGroup (Fin 6)) ∧
-        ∃ a ∈ Late.sectionCentralizer A L₀ ((aschbacherSolvableCore 3 L₀).map L₀.subtype),
-          a ≠ 1 ∧ ∃ K ∈ thetaComponentsAt 3 a,
-            Nonempty (K ⧸ CFSG.pCore 2 K ≃* CFSG.Blueprint.NativeSporadic.J2) ∧
-            Subgroup.zpowers a ∈ omegaA A ∧ K ∈ lA A a
 
 end CFSG.RankThree.PartTwo.Sec12

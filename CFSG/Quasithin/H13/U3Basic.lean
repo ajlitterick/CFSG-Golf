@@ -31,8 +31,6 @@ variable {V}
 theorem mulAutToLin_apply (f : MulAut V) (x : Additive V) :
     mulAutToLin V f x = Additive.ofMul (f (Additive.toMul x)) := rfl
 
-theorem mulAutToLin_injective : Function.Injective (mulAutToLin V) := fun _ _ h =>
-  MulEquiv.ext fun v => LinearEquiv.congr_fun h (Additive.ofMul v)
 
 end Lin
 
@@ -175,9 +173,6 @@ theorem subOf_congr {K₁ K₂ : Subgroup G} (h : V ⊓ K₁ = V ⊓ K₂) : sub
   le_antisymm (subOf_le_subOf (by rw [h]; exact inf_le_right))
     (subOf_le_subOf (by rw [← h]; exact inf_le_right))
 
-theorem ofMul_mem_subOf {K : Subgroup G} {v : G} (hv : v ∈ V) (hvK : v ∈ K) :
-    Additive.ofMul (⟨v, hv⟩ : V) ∈ subOf V K :=
-  mem_subOf.2 hvK
 
 theorem u3ConjLin_eq_one_iff (h : H) :
     u3ConjLin V H hH h = 1 ↔ (h : G) ∈ centralizer (V : Set G) := by
@@ -329,9 +324,6 @@ theorem conjugate_TI {V : Subgroup G}
   · right
     rw [show g * x = g * x * g⁻¹ * g by group, ← hcc, h]
 
-theorem conj_mem_conjugate_iff {H : Subgroup G} {g y : G} :
-    g⁻¹ * y * g ∈ CFSG.conjugate H g ↔ y ∈ H := by
-  rw [mem_conjugate_iff', show g * (g⁻¹ * y * g) * g⁻¹ = y by group]
 
 end Conjugate
 

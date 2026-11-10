@@ -382,14 +382,6 @@ private theorem ltrcov_orbit_true1 {n : ℕ} (hn : 1 ≤ n) {D : GGKacDatum}
     rw [heqo]; exact hsh'
   exact ltrcov_classify_true1 hsh hdvd h3
 
-private theorem ltrcov_iso_eq_of_mem {o_lab labJ : LargeEvenLabel} {n : ℕ}
-    (hJmem : labJ = ⟨.D, 5, n⟩ ∨ labJ = ⟨.twD, 5, n⟩ ∨ labJ = ⟨.A, 5, n⟩ ∨
-      labJ = ⟨.twA, 5, n⟩ ∨ labJ = ⟨.triD4, 0, n⟩ ∨ labJ = ⟨.twD, 4, n⟩ ∨
-      labJ = ⟨.A, 2, 3 * n⟩ ∨ labJ = ⟨.twA, 2, 3 * n⟩)
-    (hiso : GGLabelIso o_lab labJ) : o_lab = labJ := by
-  rcases hJmem with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
-    (unfold GGLabelIso at hiso
-     rcases hiso with h | h | h | h | h | h | h | h <;> simp_all)
 
 private theorem ltrcov_bad {labJ bad : LargeEvenLabel} {n : ℕ} (hn : 1 ≤ n)
     (hJmem : labJ = ⟨.D, 5, n⟩ ∨ labJ = ⟨.twD, 5, n⟩ ∨ labJ = ⟨.A, 5, n⟩ ∨
@@ -573,79 +565,6 @@ theorem ggE6Three_rows_of_datum
       exact ltrcov_rows_of_JLabel hpair
         (ltrcov_extract_true1 hn hlabL_eq hJmem hoeq hclass)
 
-
-private theorem ltrcov_datum
-    (hB : GGK0ExcB)
-    {L : Type} [Group L] [Finite L] {J : Subgroup L} {y : MulAut L}
-    {E : Subgroup (MulAut L)} {labL : LargeEvenLabel}
-    (hΛL : LargeEvenInLambda2 labL) (htagL : labL.tag = .E6 ∨ labL.tag = .twE6)
-    (hhL : GGHasLabel labL (L ⧸ Subgroup.center L))
-    (hpairKac : GGKacExcPair labL 3) (hyE : y ∈ E) (hy3 : y ^ 3 = 1)
-    (hcomp : IsComponentOf J (ggAutFixedSubgroup y))
-    (hmark : LargeEvenMarking L (fun _ _ _ I _ θ => GGInducedInn E θ I)) :
-    ∃ D : GGKacDatum, GGKacValid labL 3 D ∧ ∃ o ∈ D.orbits,
-      o.qs = true ∧ labL.n ∣ o.lab.n ∧ LargeEvenInLambda2 o.lab ∧
-      GGHasLabel o.lab (J ⧸ Subgroup.center J) := by
-  obtain ⟨hperfL, lab', hΛlab', hrawLeg⟩ := hmark
-  have hraw : LargeEvenRawDatum lab' (fun R _ I F =>
-      IsSimpleGroup R ∧ (∃ a b : R, a * b ≠ b * a) ∧
-        ∃ θ : L ⧸ Subgroup.center L ≃* R, GGInducedInn E θ I) := hrawLeg
-  have hHasLabel_lab' : GGHasLabel lab' (L ⧸ Subgroup.center L) :=
-    largeEvenRawDatum_mono (fun R _ I F h => h.2.2.elim (fun θ _ => ⟨θ⟩)) hraw
-  have hiso_mark : GGLabelIso lab' labL :=
-    ggLabelRigidInput_holds lab' labL (L ⧸ Subgroup.center L) hΛlab' hΛL hHasLabel_lab' hhL
-  have hrawX : LargeEvenRawDatum labL (fun R _ I F =>
-      IsSimpleGroup R ∧ (∃ a b : R, a * b ≠ b * a) ∧
-        ∃ θ : L ⧸ Subgroup.center L ≃* R, GGInducedInn E θ I) :=
-    largeEvenRawDatum_of_ggLabelIso hiso_mark hraw
-  have hmain := hB 3 labL hΛL hpairKac _ hrawX
-  obtain ⟨R, hRgrp, I, F, hQR⟩ := largeEvenRawDatum_exists hmain
-  obtain ⟨hsimple, hna, θ, hInd⟩ := hQR.1
-  let ψ : L →* R := θ.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center L))
-  have hψ : Function.Surjective ψ := by
-    intro r
-    obtain ⟨q, hq⟩ := θ.surjective r
-    obtain ⟨l, hl⟩ := QuotientGroup.mk'_surjective (Subgroup.center L) q
-    refine ⟨l, ?_⟩
-    show θ (QuotientGroup.mk' (Subgroup.center L) l) = r
-    rw [hl]
-    exact hq
-  have hker_le : ψ.ker ≤ Subgroup.center L := by
-    intro l hl
-    rw [MonoidHom.mem_ker] at hl
-    have hl' : θ (QuotientGroup.mk' (Subgroup.center L) l) = 1 := by simpa [ψ] using hl
-    have hl'' : QuotientGroup.mk' (Subgroup.center L) l = 1 :=
-      θ.injective (by simpa using hl')
-    exact (QuotientGroup.eq_one_iff l).mp hl''
-  have hfixsub : ggFixSub y = ggAutFixedSubgroup y := by ext l; rfl
-  have hcomp' : IsComponentOf J (ggFixSub y) := by rw [hfixsub]; exact hcomp
-  have hφ_apply : ∀ l : L, ggInducedAut θ y (ψ l) = ψ (y l) := by
-    intro l
-    change ggInducedAut θ y (θ (l : L ⧸ Subgroup.center L)) =
-      θ ((y l : L) : L ⧸ Subgroup.center L)
-    exact ggInducedAut_apply θ y l
-  have hφ_mem : ggInducedAut θ y ∈ I := hInd y hyE
-  obtain ⟨D, hDval, ha, -⟩ :=
-    hQR.2 L ψ hψ hker_le hperfL y hy3 ⟨ggInducedAut θ y, hφ_mem, hφ_apply⟩
-  obtain ⟨o, ho, hqs, hdvd, hΛo, hHasO⟩ := ha J hcomp'
-  exact ⟨D, hDval, o, ho, hqs, hdvd, hΛo, hHasO⟩
-
-theorem ggE6ThreeRowCover1585_of_B
-    (hB : GGK0ExcB) : GGE6ThreeRowCover1585 := by
-  intro L _ _ J y E labL labJ hΛL hΛJ hpair hhL hhJ hy hy3 hyE hcomp hcomm hfix hmark
-  obtain ⟨t, r, n⟩ := labL
-  have htagL : t = .E6 ∨ t = .twE6 := hpair.2.1
-  have hJmem := hpair.2.2
-  have hpairKac : GGKacExcPair ⟨t, r, n⟩ 3 :=
-    ⟨by norm_num, by norm_num, ltrcov_three_dvd n,
-      htagL.elim (fun h => by rw [h]; exact Or.inl rfl)
-        (fun h => by rw [h]; exact Or.inr (Or.inl rfl))⟩
-  obtain ⟨D, hValid, o, ho, hqs, hdvd, hΛo, hHasO⟩ :=
-    ltrcov_datum hB hΛL htagL hhL hpairKac hyE hy3 hcomp hmark
-  have hiso : GGLabelIso o.lab labJ :=
-    ggLabelRigidInput_holds o.lab labJ (J ⧸ Subgroup.center J) hΛo hΛJ hHasO hhJ
-  have hoeq : o.lab = labJ := ltrcov_iso_eq_of_mem hJmem hiso
-  exact ggE6Three_rows_of_datum hΛL hpair hValid ho hdvd hoeq
 
 end CFSG.StandardType
 

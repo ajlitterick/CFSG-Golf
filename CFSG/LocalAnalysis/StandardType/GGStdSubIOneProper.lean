@@ -490,14 +490,5 @@ theorem ggStdSubIOneProperInputOn_of_labels {S : ℕ → LargeEvenLabel → Prop
     largeEvenRawDatum_exists hraw
   exact exists_stdSubIOne_of_data hT hBs hne hnc hL θ hBN h3 hOD hlift hend
 
-theorem ggStdSubIOneProperInput_of_labels (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => GGOutdiagOdd p R I ∧
-        ∃ r, GGTorusLift p r R ∧ GGEndNodeIOne p r R I) :
-    GGStdSubIOneProperInput :=
-  ggStdSubIOneProperInput_of_cover (S := fun _ _ => True)
-    (ggStdSubIOneProperInputOn_of_labels ha₀ fun p lab hp hlab _ hs => h p lab hp hlab hs)
-    fun _ _ _ _ => trivial
 
 end CFSG.StandardType

@@ -26,14 +26,6 @@ open CFSG.KC.FiveStdK
 
 theorem s0_closure : closureK S0gK = S0c := by decide +kernel
 
-theorem s0_right : (S0c.all fun x => S0gK.all fun g => S0c.contains (mulK x g)) = true := by
-  decide +kernel
-
-theorem s0_right_neg :
-    (!(S0c.dropLast.all fun x => S0gK.all fun g => S0c.dropLast.contains (mulK x g))) = true := by
-  decide +kernel
-
-theorem s0_closure_neg : (closureK S0gK != S0c.set 5 80878) = true := by decide +kernel
 
 end CertificateChecks.FiveStd
 

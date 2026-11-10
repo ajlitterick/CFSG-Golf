@@ -50,11 +50,6 @@ theorem mem_SUid_map_iff {K F : Type*} [Field K] [Field F]
   right_inv A := Subtype.ext ((glFieldEquiv (Fin n) e).apply_symm_apply A.val)
   map_mul' A B := Subtype.ext ((glFieldEquiv (Fin n) e).map_mul A.val B.val)
 
-theorem specialUnitaryRingEquiv_entry {K F : Type*} [Field K] [Field F]
-    (e : K ≃+* F) (sigma : K ≃+* K) (tau : F ≃+* F)
-    (he : ∀ x : K, e (sigma x) = tau (e x)) (n : ℕ)
-    (A : SUid sigma n) (i j : Fin n) :
-    (specialUnitaryRingEquiv e sigma tau he n A).val.val i j = e (A.val.val i j) := rfl
 
 private theorem SUid_quasisimple_typeZero (K : Type) [Field K]
     (sigma : K ≃+* K) (hunitary : IsUnitaryInvolution sigma) (n : ℕ) (hn : 3 ≤ n)
@@ -204,34 +199,6 @@ theorem quadraticFrobenius_data {K : Type*} [Field K] [Finite K]
     (Fact.out : r.Prime) (by rw [pow_mul]; exact hK) sigma hsq hne
   exact ⟨hsq, hne, by simpa using hparams.2.2⟩
 
-theorem unitary_field_isometry_p_components {K : Type*} [Field K] [Finite K]
-    (r e : ℕ) [Fact r.Prime] [CharP K r]
-    (hK : Nat.card K = (r ^ e) ^ 2) (n : ℕ) (hn : 3 ≤ n)
-    (hnq : (n, r ^ e) ≠ (3, 2)) :
-    CFSG.IsQuasisimple (SUid (iterateFrobeniusEquiv K r e) n) ∧
-      ∀ (p : ℕ), p.Prime → ∀ L : Subgroup (Uid (iterateFrobeniusEquiv K r e) n),
-        CFSG.IsPComponent p L →
-          L = specialUnitary (iterateFrobeniusEquiv K r e) n ∧ CFSG.IsQuasisimple L := by
-  obtain ⟨hsq, hne, hfixed⟩ := quadraticFrobenius_data r e hK
-  apply unitary_isometry_p_components (iterateFrobeniusEquiv K r e) hsq hne n hn
-  simpa only [hfixed] using hnq
-
-theorem stated_unitary_isometry_p_components (K : Type) [Field K] [Finite K]
-    (r e : ℕ) [Fact r.Prime] (hK : Nat.card K = (r ^ e) ^ 2)
-    (n : ℕ) (hn : 3 ≤ n) (hnq : (n, r ^ e) ≠ (3, 2)) :
-    letI : CharP K r := charP_of_card_sq (p := r) (f := e) hK
-    let sigma := CFSG.LieType.BorelTits.unitaryInvolution K r e
-    CFSG.IsQuasisimple (StatedSU n (r ^ e) K) ∧
-      ∀ (p : ℕ), p.Prime → ∀ L : Subgroup (Uid sigma n), CFSG.IsPComponent p L →
-        L = (StatedSU n (r ^ e) K).subgroupOf (Uid sigma n) ∧ CFSG.IsQuasisimple L := by
-  let : CharP K r := charP_of_card_sq (p := r) (f := e) hK
-  change CFSG.IsQuasisimple (StatedSU n (r ^ e) K) ∧ _
-  have hfull := unitary_field_isometry_p_components r e hK n hn hnq
-  rw [CFSG.LieType.Universal.Unitary.SUid_eq_statedSU hK n] at hfull
-  refine ⟨hfull.1, fun p hp L hL => ?_⟩
-  obtain ⟨heq, hquasi⟩ := hfull.2 p hp L hL
-  refine ⟨heq.trans ?_, hquasi⟩
-  rw [specialUnitary_eq_subgroupOf, SUid_eq_statedSU hK n]
 
 end
 

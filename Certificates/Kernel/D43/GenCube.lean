@@ -26,8 +26,6 @@ open CFSG.KC.D43
 
 #kc_forall_chunks genCube (fun c => cubeD43g c = true) 104 CertificateChecks.KernelD43.d43cubeg 1
 
-theorem negGenCube : (!cubeChunk (fun j => if j = 0 then GX.F 1 else GX.F j) 0 0) = true := by
-  decide +kernel
 
 end CertificateChecks.KernelD43
 

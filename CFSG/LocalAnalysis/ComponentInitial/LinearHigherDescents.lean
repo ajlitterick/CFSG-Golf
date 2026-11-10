@@ -144,15 +144,6 @@ theorem inversionCount_one : inversionCount (1 : Equiv.Perm (Fin n)) = 0 := by
   rintro ⟨a, b⟩ - ⟨hab, hba⟩
   exact absurd hab (not_lt.mpr hba.le)
 
-theorem eq_one_of_inversionCount_eq_zero {w : Equiv.Perm (Fin n)} (h : inversionCount w = 0) :
-    w = 1 := by
-  rw [inversionCount, Finset.card_eq_zero, Finset.filter_eq_empty_iff] at h
-  have hmono : StrictMono w := fun a b hab => by
-    rcases lt_or_gt_of_ne (w.injective.ne hab.ne) with hlt | hgt
-    · exact hlt
-    · exact absurd ⟨hab, hgt⟩ (h (Finset.mem_univ (a, b)))
-  ext a
-  exact congrArg Fin.val (hmono.apply_eq (x := a))
 
 theorem strictMono_of_lt_succ {f : Fin n → Fin n}
     (h : ∀ (k : ℕ) (hk : k + 1 < n), f ⟨k, by omega⟩ < f ⟨k + 1, hk⟩) : StrictMono f := by

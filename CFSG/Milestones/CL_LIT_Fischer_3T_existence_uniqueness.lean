@@ -11,19 +11,6 @@ universe u v w
 
 namespace CFSG.Open
 
-open Matrix in
-theorem _root_.CFSG.Milestones.cl_lit_fischer_3t_existence_uniqueness :
-    ∀ k ∈ ({22, 23, 24} : Set ℕ),
-      (∃ (G : Type) (_ : Group G) (_ : Finite G) (D : Set G),
-        fischerEUIsCenterlessPair D ∧ fischerEUType k D ∧
-        (∀ D' : Set G, fischerEUIsPair D' → D' = D) ∧
-        ∀ d ∈ D, fischerEULocalStructure k d) ∧
-      (∀ (G H : Type) [Group G] [Group H] [Finite G] [Finite H] (D : Set G) (E : Set H),
-        fischerEUIsCenterlessPair D → fischerEUType k D →
-        fischerEUIsCenterlessPair E → fischerEUType k E →
-        ∃ φ : G ≃* H, φ '' D = E) :=
-  CFSG.Fischer.open_of_facts
-    (Sporadic.Fi23.fi23Facts (Sporadic.Fi22.fi22Facts Fischer.polarFacts Fischer.hyperovalFacts))
 
 end CFSG.Open
 

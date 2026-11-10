@@ -245,22 +245,6 @@ theorem span_bQ' : Submodule.span (ZMod 2) (Set.range bQ') = ⊤ := by
 theorem bQ_eq (t : Fin 5) : bQ t = bQ' t := by
   rw [bQ, coe_basisOfTopLeSpanOfCardEqFinrank]
 
-@[expose] def basisCoord : Fin 5 → Fin 24 := ![8, 9, 10, 12, 16]
-
-theorem basisCoord_mem : ∀ t, basisCoord t ∈ X₀ := by decide
-
-theorem bQ_apply (t : Fin 5) :
-    bQ t = U₀.mkQ (K₀.mkQ (e ⟨basisCoord t, basisCoord_mem t⟩)) := by
-  rw [bQ_eq, bQ', qv, ← qmk_apply]
-  congr 1
-  have h1 : spreadQ (2 ^ (t : ℕ)) = 2 ^ freeQ t := spreadQ_two_pow t t.2
-  have h2 : freeQ t < 22 := by revert t; decide
-  rw [h1, vecOf_two_pow ⟨freeQ t, h2⟩]
-  congr 1
-  apply Subtype.ext
-  apply Fin.ext
-  revert t
-  decide
 
 theorem qv_eq_sum_bQ (m : ℕ) : qv m = ∑ t : Fin 5, if m.testBit t then bQ t else 0 := by
   simp only [bQ_eq]
@@ -330,15 +314,6 @@ theorem rhoQ_qv
 
 theorem linQ_lt : ∀ i < 3, ∀ m < 32, linQ i m < 32 := by decide +kernel
 
-theorem linQ_two_pow : ∀ i < 3, ∀ t < 5, linQ i (2 ^ t) = matQ i t := by decide +kernel
-
-theorem two_pow_lt_32 : ∀ t : Fin 5, 2 ^ (t : ℕ) < 32 := by decide
-
-theorem rhoQ_bQ
-    (i : Fin 3) (t : Fin 5) :
-    rhoQ (gKB i) (bQ t) = ∑ s : Fin 5, if (matQ i t).testBit s then bQ s else 0 := by
-  rw [bQ_eq, bQ', rhoQ_qv i (two_pow_lt_32 t),
-    linQ_two_pow i i.2 t t.2, qv_eq_sum_bQ]
 
 theorem linQ_fix : ∀ m < 32, linQ 0 m = m → linQ 1 m = m → linQ 2 m = m → m = 0 := by
   decide +kernel

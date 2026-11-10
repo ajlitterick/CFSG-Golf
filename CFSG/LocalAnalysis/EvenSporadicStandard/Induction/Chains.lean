@@ -20,18 +20,6 @@ abbrev GroupClass : Type 1 := ∀ (X : Type) [Group X], Prop
     @StdBare (↥Y ⧸ Z.subgroupOf Y) (@QuotientGroup.Quotient.group ↥Y _ _ hZ)
       ((K.subgroupOf Y).map (@QuotientGroup.mk' ↥Y _ _ hZ))
 
-@[expose] def OddLieFour (X : Type) [Group X] : Prop :=
-  ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧
-    (CFSG.Blueprint.LieModel X .PSL 4 p f ∨ CFSG.Blueprint.LieModel X .PSU 4 p f ∨
-      CFSG.Blueprint.LieModel X .PSp 2 p f ∨ CFSG.Blueprint.LieModel X .G2 0 p f)
-
-@[expose] def IsSL2Odd (X : Type) [Group X] : Prop :=
-  ∃ (K : Type) (_ : Field K) (_ : Finite K), Odd (Nat.card K) ∧
-    Nonempty (X ≃* Matrix.SpecialLinearGroup (Fin 2) K)
-
-@[expose] def FS79Link5b (Li Lp Ti : Subgroup H) : Prop :=
-  Li = conjClosure Lp (layerIn (centralizer (Ti : Set H))) ∧ IsSL2Odd ↥Lp ∧
-    OddLieFour (↥Li ⧸ center ↥Li)
 
 @[expose] def Sol78Link5a (Li Lp : Subgroup H) (s : H) : Prop :=
   Li ≠ Li.map (MulAut.conj s).toMonoidHom ∧ Nonempty ((↥Li ⧸ center ↥Li) ≃* (↥Lp ⧸ center ↥Lp))

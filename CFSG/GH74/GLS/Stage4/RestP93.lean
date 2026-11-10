@@ -247,23 +247,12 @@ theorem Ch6Pre.core_or_allX2 (h : Ch6Pre D) : (∃ D' : Ch6Notation G, Ch6Core D
   · exact Or.inl ⟨D, h.core_of_shape hS⟩
   · exact absurd rfl hαγ
 
-@[expose] def Ch6RestT2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
-    ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
-      ¬ (q₁ = 9 ∧ q₂ = 9) → (¬ ∃ n : ℕ, 3 ≤ n ∧ q₁ = 3 ^ n ∧ q₂ = 3 ^ n) →
-        ∃ D : Ch6Notation G, Ch6Pre D
 
 @[expose] def Ch6RestAllX2 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], Std G → pRank 2 G = 3 →
     ∀ (Gs : Type) [Group Gs] (q₁ q₂ : ℕ), IsTwoCentralG2TypeG2At G Gs q₁ q₂ →
       ∀ D : Ch6Notation G, Ch6Pre D → D.AllX2 → ∃ D' : Ch6Notation G, Ch6Core D'
 
-theorem ch6RestMain_of (hT2 : Ch6RestT2) (hX2 : Ch6RestAllX2) : Ch6RestMain := by
-  intro G _ _ hStd hr Gs _ q₁ q₂ hAt h99 hn
-  obtain ⟨D, hD⟩ := hT2 G hStd hr Gs q₁ q₂ hAt h99 hn
-  rcases hD.core_or_allX2 with h | h
-  · exact h
-  · exact hX2 G hStd hr Gs q₁ q₂ hAt D hD h
 
 theorem Ch6Pre.outPlus (hX2 : Ch6RestAllX2) (hL : Ch6RestL92) (hZ : Ch6RestZClass) {G : Type}
     [Group G] [Finite G] (hStd : Std G) (hr : pRank 2 G = 3) {Gs : Type} [Group Gs] {q₁ q₂ : ℕ}
@@ -274,12 +263,5 @@ theorem Ch6Pre.outPlus (hX2 : Ch6RestAllX2) (hL : Ch6RestL92) (hZ : Ch6RestZClas
   · obtain ⟨D', hD'⟩ := hX2 G hStd hr Gs q₁ q₂ hAt D hD h
     exact (Ch6Post.mk hD' (hL G hStd hr Gs q₁ q₂ hAt D' hD') (hZ G hStd hr Gs q₁ q₂ hAt D' hD')).outPlus
 
-theorem ch6CaseRest_of_leaves4 (hT2 : Ch6RestT2) (hX2 : Ch6RestAllX2) (hL : Ch6RestL92)
-    (hZ : Ch6RestZClass) : Ch6CaseRest :=
-  ch6CaseRest_of_leaves (ch6RestMain_of hT2 hX2) hL hZ
-
-theorem ch6CaseRestPlus_of_leaves4 (hT2 : Ch6RestT2) (hX2 : Ch6RestAllX2) (hL : Ch6RestL92)
-    (hZ : Ch6RestZClass) : Ch6CaseRestPlus :=
-  ch6CaseRestPlus_of_leaves (ch6RestMain_of hT2 hX2) hL hZ
 
 end CFSG.GH74.GLS.Stage4.Rest

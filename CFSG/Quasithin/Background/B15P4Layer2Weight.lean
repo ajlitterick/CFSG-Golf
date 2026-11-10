@@ -26,9 +26,6 @@ theorem wt_le_of_isFFStarOffender {X A B : Subgroup (MulAut V)} (hA : IsFFStarOf
     (hB : B ≤ A) : wt B ≤ wt A :=
   hA.card_le hB
 
-theorem wt_bot [Finite V] : wt (⊥ : Subgroup (MulAut V)) = Nat.card V := by
-  unfold wt
-  rw [Subgroup.card_bot, B1.fixV_bot, Subgroup.card_top, one_mul]
 
 theorem fixV_sup (B₁ B₂ : Subgroup (MulAut V)) : fixV (B₁ ⊔ B₂) = fixV B₁ ⊓ fixV B₂ :=
   CFSG.Quasithin.FixVLat.fixV_sup_eq B₁ B₂
@@ -141,12 +138,5 @@ theorem isFFStarOffender_A2sub [Finite V] {X A : Subgroup (MulAut V)}
     rw [wt_A2sub hA]
     exact h1⟩
 
-theorem A2sub_ne_bot_of_lt [Finite V] {X A : Subgroup (MulAut V)} (hA : IsFFStarOffender X A)
-    (hlt : Nat.card V < Nat.card A * Nat.card (fixV A)) : A2sub A ≠ ⊥ := by
-  intro h
-  have h1 := wt_A2sub hA
-  rw [h, wt_bot] at h1
-  unfold wt at h1
-  omega
 
 end CFSG.Quasithin.B15P4

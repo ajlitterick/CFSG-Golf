@@ -73,35 +73,6 @@ variable (F) in
 theorem stdPinnedPSp4Even_graph : (stdPinnedPSp4Even F).graph = {tauAut} :=
   rfl
 
-theorem conj_eq_of_mem_fieldGraph (A : gsp 2 F) (ρ : F ≃+* F) (ε : ℕ)
-    {X : MulAut (StatedProj (StatedSp 2 F))}
-    (hX : X ∈ Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut})) :
-    conjAut 2 F A * fieldAut 2 F ρ * tauAut ^ ε * X * (conjAut 2 F A * fieldAut 2 F ρ *
-      tauAut ^ ε)⁻¹ = conjAut 2 F A * X * (conjAut 2 F A)⁻¹ := by
-  have hgen : (Set.range (fieldAut 2 F) ∪ {tauAut}).Pairwise Commute := by
-    rintro a (⟨σ, rfl⟩ | rfl) b (⟨τ, rfl⟩ | rfl) -
-    · change fieldAut 2 F σ * fieldAut 2 F τ = fieldAut 2 F τ * fieldAut 2 F σ
-      rw [← map_mul, ← map_mul, CFSG.LocalAnalysis.ComponentInitial.ringAut_mul_comm F σ τ]
-    · exact (tauAut_mul_fieldAut σ).symm
-    · exact tauAut_mul_fieldAut τ
-    · exact Commute.refl _
-  have hcomm := Subgroup.isMulCommutative_closure hgen
-  have hρmem : fieldAut 2 F ρ ∈ Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut}) :=
-    Subgroup.subset_closure (Set.mem_union_left _ ⟨ρ, rfl⟩)
-  have hτmem : (tauAut : MulAut (StatedProj (StatedSp 2 F))) ∈
-      Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut}) :=
-    Subgroup.subset_closure (Set.mem_union_right _ rfl)
-  have hr : fieldAut 2 F ρ * tauAut ^ ε ∈
-      Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut}) :=
-    mul_mem hρmem (pow_mem hτmem ε)
-  have h := congrArg Subtype.val (hcomm.is_comm.comm (⟨_, hr⟩ :
-    Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut})) ⟨X, hX⟩)
-  change fieldAut 2 F ρ * tauAut ^ ε * X = X * (fieldAut 2 F ρ * tauAut ^ ε) at h
-  calc conjAut 2 F A * fieldAut 2 F ρ * tauAut ^ ε * X *
-        (conjAut 2 F A * fieldAut 2 F ρ * tauAut ^ ε)⁻¹ =
-      conjAut 2 F A * (fieldAut 2 F ρ * tauAut ^ ε * X) * (fieldAut 2 F ρ * tauAut ^ ε)⁻¹ *
-        (conjAut 2 F A)⁻¹ := by group
-    _ = conjAut 2 F A * X * (conjAut 2 F A)⁻¹ := by rw [h]; group
 
 theorem range_conjAut_normal_of_charTwo :
     ((conjAut 2 F).range : Subgroup (MulAut (StatedProj (StatedSp 2 F)))).Normal := by
@@ -111,29 +82,6 @@ theorem range_conjAut_normal_of_charTwo :
   rw [← hy, mul_mulAutConj_mul_inv]
   exact innAut_le_range_spConjAut 2 F ⟨α y, rfl⟩
 
-theorem stdPinnedPSp4Even_stable : (stdPinnedPSp4Even F).Stable := by
-  have hmemσ : ∀ σ : F ≃+* F, fieldAut 2 F σ ∈
-      Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut}) := fun σ =>
-    Subgroup.subset_closure (Or.inl ⟨σ, rfl⟩)
-  have hmemτ : (tauAut : MulAut (StatedProj (StatedSp 2 F))) ∈
-      Subgroup.closure (Set.range (fieldAut 2 F) ∪ {tauAut}) :=
-    Subgroup.subset_closure (Or.inr rfl)
-  refine ⟨range_conjAut_normal_of_charTwo, ?_, ?_, ?_⟩
-  · rintro α _ ⟨σ, rfl⟩ h1
-    obtain ⟨A, ρ, ε, -, rfl⟩ := exists_eq_conjAut_mul_fieldAut_mul_tauAut_pow α
-    exact ⟨fieldAut 2 F σ, ⟨σ, rfl⟩, h1, conjAut 2 F A, ⟨A, rfl⟩,
-      conj_eq_of_mem_fieldGraph A ρ ε (hmemσ σ)⟩
-  · rintro α γ hγ h1
-    rw [stdPinnedPSp4Even_graph, Set.mem_singleton_iff] at hγ
-    subst hγ
-    obtain ⟨A, ρ, ε, -, rfl⟩ := exists_eq_conjAut_mul_fieldAut_mul_tauAut_pow α
-    exact ⟨tauAut, rfl, h1, conjAut 2 F A, ⟨A, rfl⟩, conj_eq_of_mem_fieldGraph A ρ ε hmemτ⟩
-  · rintro α γ _ hγ hγ1 ⟨σ, rfl⟩ hφ1
-    rw [stdPinnedPSp4Even_graph, Set.mem_singleton_iff] at hγ
-    subst hγ
-    obtain ⟨A, ρ, ε, -, rfl⟩ := exists_eq_conjAut_mul_fieldAut_mul_tauAut_pow α
-    exact ⟨tauAut, rfl, hγ1, fieldAut 2 F σ, ⟨σ, rfl⟩, hφ1, conjAut 2 F A, ⟨A, rfl⟩,
-      conj_eq_of_mem_fieldGraph A ρ ε (mul_mem hmemτ (hmemσ σ))⟩
 
 theorem stdPinnedPSp4Even_separated : (stdPinnedPSp4Even F).Separated := by
   have hnorm := (range_conjAut_normal_of_charTwo (F := F)).conj_mem
@@ -175,20 +123,6 @@ variable (F) in
   ∃ e : L ⧸ aschbacherSolvableCore 3 L ≃* StatedProj (StatedSp 2 F),
     InducesKind L (stdPinnedPSp4Even F) e x k
 
-theorem inducesKindPSp4Even_iff (e : L ⧸ aschbacherSolvableCore 3 L ≃* StatedProj (StatedSp 2 F))
-    (x : G) (k : AutKind) :
-    InducesKindPSp4Even F L x k ↔ InducesKind L (stdPinnedPSp4Even F) e x k := by
-  constructor
-  · rintro ⟨e', h⟩
-    exact (inducesKind_iff_of_stable L stdPinnedPSp4Even_stable e' e x k).1 h
-  · intro h
-    exact ⟨e, h⟩
-
-theorem inducesKindPSp4Even_unique {x : G} {k₁ k₂ : AutKind}
-    (h₁ : InducesKindPSp4Even F L x k₁) (h₂ : InducesKindPSp4Even F L x k₂) : k₁ = k₂ := by
-  obtain ⟨e, h₁⟩ := h₁
-  exact InducesKind.unique L stdPinnedPSp4Even_separated h₁
-    ((inducesKindPSp4Even_iff L e x k₂).mp h₂)
 
 end Induced
 

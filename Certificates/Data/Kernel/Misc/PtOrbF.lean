@@ -31,15 +31,11 @@ open CFSG.KC.Enum (strictN strictB)
 @[expose] noncomputable def orbClosed (f : Nat → Nat → Nat) (k n r x : Nat) : Bool :=
   strictB (closeF f k n r (Nat.shiftLeft (nat_lit 1) x)) (closedF f k n)
 
-@[expose] noncomputable def bitsIs (S n : Nat) (t : Nat → Bool) : Bool :=
-  strictB S fun s => allF n fun y => bIf(bitP s y, t y, Bool.rec (motive := fun _ => Bool) true false (t y))
 
 @[expose] noncomputable def popF (s n : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) (nat_lit 0)
     (fun y acc => Nat.add acc (nIf(bitP s y, nat_lit 1, nat_lit 0))) n
 
-@[expose] noncomputable def popIs (S n c : Nat) : Bool :=
-  strictB S fun s => Nat.beq (popF s n) c
 
 end CFSG.KC.PtOrb
 

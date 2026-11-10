@@ -38,11 +38,6 @@ theorem reflDiag_comm (i j : Fin 4) : reflDiag F i * reflDiag F j = reflDiag F j
   funext k
   exact mul_comm _ _
 
-theorem det_reflDiag (i : Fin 4) : ((reflDiag F i : GL (Fin 4) F) : Matrix (Fin 4) (Fin 4) F).det = -1 := by
-  change (reflDiagMat F i).det = -1
-  unfold reflDiagMat
-  rw [det_diagonal]
-  fin_cases i <;> simp
 
 theorem reflDiag_prod : reflDiag F 0 * reflDiag F 1 * reflDiag F 2 * reflDiag F 3 = -1 := by
   apply Units.ext

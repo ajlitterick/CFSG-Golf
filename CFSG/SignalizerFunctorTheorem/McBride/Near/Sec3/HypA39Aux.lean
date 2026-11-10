@@ -86,15 +86,6 @@ theorem inf_sup_le_sup_inf' {S U X : Subgroup Γ} (hSU : S ≤ U)
     Subgroup.mem_inf.mpr ⟨by simpa using mul_mem (inv_mem (hSU hs)) hxU, ht⟩
   exact mul_mem (Subgroup.mem_sup_left hs) (Subgroup.mem_sup_right htU)
 
-theorem inf_sup_eq_sup_inf' {S U X : Subgroup Γ} (hSU : S ≤ U)
-    (hX : X ≤ Subgroup.normalizer (S : Set Γ)) : U ⊓ (S ⊔ X) = S ⊔ (U ⊓ X) :=
-  le_antisymm (inf_sup_le_sup_inf' hSU hX)
-    (sup_le (le_inf hSU le_sup_left) (inf_le_inf_left U le_sup_right))
-
-theorem inf_sup_eq_sup_inf {S U X : Subgroup Γ} (hSU : S ≤ U)
-    (hS : S ≤ Subgroup.normalizer (X : Set Γ)) : U ⊓ (S ⊔ X) = S ⊔ (U ⊓ X) :=
-  le_antisymm (HypAAux.inf_sup_le_sup_inf hSU hS)
-    (sup_le (le_inf hSU le_sup_left) (inf_le_inf_left U le_sup_right))
 
 @[expose] def HasB (A D D₁ D₂ R : Subgroup Γ) : Prop :=
   ∃ B : Subgroup Γ, B ≤ R ∧ Admits (R ⊔ D ⊔ A) B ∧ B ⊓ D = D₂ ∧ R = B ⊔ D₁

@@ -168,16 +168,6 @@ theorem involution_iff (n : ℕ) (hn : 3 ≤ n) (g : SemidihedralGroup n) :
       rw [← Int.natCast_mul, zpow_natCast] at h
       exact h
 
-theorem quarter_residue_ne_zero (n : ℕ) (hn : 4 ≤ n) :
-    ((2 ^ (n - 3) : ℕ) : ZMod (modulus n)) ≠ 0 := by
-  intro h
-  have hp : 0 < 2 ^ (n - 3) := pow_pos (by decide) _
-  have hm : modulus n = 4 * 2 ^ (n - 3) := by
-    rw [modulus_eq_two_mul_half (by omega), half_eq_two_mul_quarter (by omega)]
-    ring
-  have hv := congrArg (fun x : ZMod (modulus n) => x.val) h
-  rw [ZMod.val_natCast_of_lt (by omega), ZMod.val_zero] at hv
-  omega
 
 theorem rotation_order_four_iff (n : ℕ) (hn : 4 ≤ n) (i : ZMod (modulus n)) :
     orderOf (element n (by omega) i 0) = 4 ↔

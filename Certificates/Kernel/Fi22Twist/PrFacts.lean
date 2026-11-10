@@ -97,16 +97,6 @@ theorem q2_tab : ∃ T : Subgroup (Equiv.Perm (Fin 3510)), ∃ e : ℕ → Equiv
       vc := blk_all (b := 8) (n := 517) (m := 65) (by norm_num) (by norm_num) pr431009vAll }
   exact ⟨T, _, P, le_antisymm hTQ hQT⟩
 
-theorem q2_e27_le_record (A : Subgroup (Equiv.Perm (Fin 3510)))
-    (hA : A ≤ Subgroup.closure (permsA 3510 (qGens 2))) (hcard : Nat.card A = 27)
-    (hcomm : ∀ a ∈ A, ∀ b ∈ A, a * b = b * a) (hexp : ∀ a ∈ A, a ^ 3 = 1) :
-    ∃ c < 81, A ≤ Subgroup.closure {g | ∃ i < 729, qpBit (PM (730 + c)) i = true ∧
-      PRep 3510 12 (MonoidHom.id _) (KF i) g} := by
-  obtain ⟨T, e, P, hT⟩ := q2_tab
-  obtain ⟨c, hc, hle⟩ := P.e27_le_record A (by rw [hT]; exact hA) hcard hcomm hexp
-  refine ⟨c, hc, hle.trans (Subgroup.closure_mono ?_)⟩
-  rintro _ ⟨i, hi, hbit, rfl⟩
-  exact ⟨i, hi, hbit, P.key i hi⟩
 
 end CertificateChecks.KernelFi22Twist
 

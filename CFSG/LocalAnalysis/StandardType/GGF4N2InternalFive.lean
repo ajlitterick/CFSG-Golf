@@ -47,13 +47,6 @@ theorem eq_one_of_mem_center_of_pow_five {z : E6sc}
   have h1 : orderOf x = 1 := Nat.dvd_one.mp (by simpa using Nat.dvd_gcd h3 h5)
   exact congrArg Subtype.val (orderOf_eq_one_iff.mp h1)
 
-theorem not_five_dvd_card_ker {G : Type} [Group G] (psi : E6sc →* G)
-    (hker : psi.ker ≤ Subgroup.center E6sc) : ¬ 5 ∣ Nat.card psi.ker := by
-  have hd := Subgroup.card_dvd_of_le hker
-  rw [card_center_e6_four] at hd
-  intro h5
-  have h := h5.trans hd
-  norm_num at h
 
 theorem orderOf_map_eq_five {G : Type} [Group G] (psi : E6sc →* G)
     (hker : psi.ker ≤ Subgroup.center E6sc) {a : E6sc} (ha : orderOf a = 5) :
@@ -67,18 +60,6 @@ theorem orderOf_map_eq_five {G : Type} [Group G] (psi : E6sc →* G)
     rw [ha1, orderOf_one] at ha
     norm_num at ha
 
-theorem exists_adjoint_five_in_highRoot :
-    ∃ a : adjointGroup .E6 F4,
-      a ∈ (CFSG.SeitzReduction.EPilot.highRootSL2 .E6 F4).subgroupOf
-        (adjointGroup .E6 F4) ∧ orderOf a = 5 := by
-  obtain ⟨P, hP, -, hcard⟩ :=
-    CFSG.SeitzReduction.E6Pilot.exists_nonsplit_le_subgroupOf_highRootSL2
-      (τ := .E6) (K := F4)
-  have hP5 : Nat.card P = 5 := by
-    have hF : Nat.card F4 = 4 := by simpa using GaloisField.card 2 2 (by decide)
-    simpa [hF] using hcard
-  obtain ⟨a, ha⟩ := exists_prime_orderOf_dvd_card' (G := P) 5 (by rw [hP5])
-  exact ⟨a, hP a.property, (Subgroup.orderOf_coe a).trans ha⟩
 
 theorem isRoot_nativeTheta : IsRoot .E6 (e6NativeGamma 3) := by
   rw [isRoot_iff_mem_artifactRoots]
@@ -194,49 +175,6 @@ theorem native_highRoot_le_centralizer_firstA5 :
     (CFSG.RankThree.PartTwo.Census.Exceptional.rankOne_le_centralizer e6Data_valid F4
       isRoot_nativeTheta (IsRoot.basis (τ := .E6) j) h1 h2 h3 h4)
 
-theorem map_firstA5_eq_range {G : Type} [Group G]
-    (psi : Matrix.SpecialLinearGroup (Fin 6) F4 →* G)
-    (hpsi : psi.ker ≤ Subgroup.center _) (Psi : E6sc →* G)
-    (h0 : (CFSG.LieType.CurtisTits.rankOne (e6Datum F4).rootGroup 0).map Psi =
-      (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 0).range.map psi)
-    (h2 : (CFSG.LieType.CurtisTits.rankOne (e6Datum F4).rootGroup 2).map Psi =
-      (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 1).range.map psi)
-    (h3 : (CFSG.LieType.CurtisTits.rankOne (e6Datum F4).rootGroup 3).map Psi =
-      (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 2).range.map psi)
-    (h4 : (CFSG.LieType.CurtisTits.rankOne (e6Datum F4).rootGroup 4).map Psi =
-      (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 3).range.map psi)
-    (h5 : (CFSG.LieType.CurtisTits.rankOne (e6Datum F4).rootGroup 5).map Psi =
-      (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 4).range.map psi) :
-    (CFSG.LieType.CurtisTits.levi (e6Datum F4).rootGroup
-      CFSG.SeitzReduction.F4Pilot.e6A5Nodes).map Psi = psi.range := by
-  let V : Fin 5 → Subgroup G := fun i =>
-    (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 i).range.map psi
-  have hm : ∀ j : Fin Tag.E6.rank, j ≠ 1 → j ∈ CFSG.SeitzReduction.F4Pilot.e6A5Nodes := by
-    decide +kernel
-  have hgen : (⨆ i, V i) = psi.range := (ggStdChain_map_of_ker_le_center psi hpsi).2.2
-  rw [← hgen]
-  simp only [CFSG.LieType.CurtisTits.levi, Subgroup.map_iSup]
-  apply le_antisymm
-  · refine iSup_le fun j => iSup_le fun hj => ?_
-    fin_cases j
-    · exact h0.le.trans (le_iSup V 0)
-    · exact (CFSG.SeitzReduction.F4Pilot.ne_one_of_mem_e6A5Nodes hj rfl).elim
-    · exact h2.le.trans (le_iSup V 1)
-    · exact h3.le.trans (le_iSup V 2)
-    · exact h4.le.trans (le_iSup V 3)
-    · exact h5.le.trans (le_iSup V 4)
-  · refine iSup_le fun i => ?_
-    fin_cases i
-    · exact le_iSup_of_le (0 : Fin 6)
-        (le_iSup_of_le (hm 0 (by decide)) h0.symm.le)
-    · exact le_iSup_of_le (2 : Fin 6)
-        (le_iSup_of_le (hm 2 (by decide)) h2.symm.le)
-    · exact le_iSup_of_le (3 : Fin 6)
-        (le_iSup_of_le (hm 3 (by decide)) h3.symm.le)
-    · exact le_iSup_of_le (4 : Fin 6)
-        (le_iSup_of_le (hm 4 (by decide)) h4.symm.le)
-    · exact le_iSup_of_le (5 : Fin 6)
-        (le_iSup_of_le (hm 5 (by decide)) h5.symm.le)
 
 theorem exists_internal_five_of_given_Psi {G : Type} [Group G]
     (Psi : E6sc →* G) (hker : Psi.ker ≤ Subgroup.center E6sc) {K : Subgroup G}
@@ -265,35 +203,6 @@ theorem exists_internal_five_of_given_Psi {G : Type} [Group G]
     simpa only [map_mul] using congrArg Psi hc
   · exact orderOf_map_eq_five Psi hker ((orderOf_injective rho hinj t).trans ht)
 
-theorem exists_internal_five_of_twoSL6Charts_of_t {G : Type} [Group G]
-    (psi1 psi2 : Matrix.SpecialLinearGroup (Fin 6) F4 →* G)
-    (h1 : psi1.ker ≤ Subgroup.center _) (h2 : psi2.ker ≤ Subgroup.center _)
-    (hJ : psi1.comp (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 4 0 (by norm_num)) =
-      psi2.comp (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 4 0 (by norm_num)))
-    (hM : ∀ a ∈ (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 3 3 (by norm_num)).range.map psi1,
-      ∀ b ∈ (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 3 3 (by norm_num)).range.map psi2,
-        a * b = b * a)
-    (t : Matrix.SpecialLinearGroup (Fin 2) F4) (ht : orderOf t = 5) :
-    ∃ Psi : E6sc →* G, Psi.ker ≤ Subgroup.center E6sc ∧
-      Psi.range = psi1.range ⊔ (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 3).range.map psi2 ∧
-      (CFSG.LieType.CurtisTits.levi (e6Datum F4).rootGroup
-        CFSG.SeitzReduction.F4Pilot.e6A5Nodes).map Psi = psi1.range ∧
-      ∃ rho : Matrix.SpecialLinearGroup (Fin 2) F4 →* E6sc, Function.Injective rho ∧
-        (∀ c, rho (CFSG.RankThree.CentralCover.sl2Upper c) =
-          e6Data_valid.xm F4 (e6NativeGamma 3) c) ∧
-        (∀ c, rho (sl2Lower c) = e6Data_valid.xm F4 (-e6NativeGamma 3) c) ∧
-        (∀ A, rho A ∈ Subgroup.centralizer ((CFSG.LieType.CurtisTits.levi
-          (e6Datum F4).rootGroup CFSG.SeitzReduction.F4Pilot.e6A5Nodes : Subgroup E6sc) : Set E6sc)) ∧
-        Psi (rho t) ∈ psi1.range ⊔ (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 3).range.map psi2 ∧
-        Psi (rho t) ∈ Subgroup.centralizer (psi1.range : Set G) ∧ orderOf (Psi (rho t)) = 5 := by
-  obtain ⟨Psi, hker, hrange, hnodes⟩ :=
-    ggE6Psi_of_twoSL6Charts (by decide : 2 ≤ 2) psi1 psi2 h1 h2 hJ hM
-  change E6sc →* G at Psi
-  have hA5 := map_firstA5_eq_range psi1 h1 Psi
-    (hnodes 0) (hnodes 2) (hnodes 3) (hnodes 4) (hnodes 5)
-  obtain ⟨rho, hinj, hupper, hlower, hcent, hX, hK, horder⟩ :=
-    exists_internal_five_of_given_Psi Psi hker hA5 t ht
-  exact ⟨Psi, hker, hrange, hA5, rho, hinj, hupper, hlower, hcent, hrange ▸ hX, hK, horder⟩
 
 theorem exists_internal_five_of_twoSL6Charts_marked_of_t {G : Type} [Group G]
     (psi1 psi2 : Matrix.SpecialLinearGroup (Fin 6) F4 →* G)
@@ -339,23 +248,5 @@ theorem exists_internal_five_of_twoSL6Charts_marked_of_t {G : Type} [Group G]
     rho, hinj, hupper, hlower, hcent, hrange ▸ hX, hK, horder,
     e6Isogeny_pinned_native_highRootSL2 rho hupper hlower⟩
 
-theorem exists_internal_five_of_twoSL6Charts {G : Type} [Group G]
-    (psi1 psi2 : Matrix.SpecialLinearGroup (Fin 6) F4 →* G)
-    (h1 : psi1.ker ≤ Subgroup.center _) (h2 : psi2.ker ≤ Subgroup.center _)
-    (hJ : psi1.comp (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 4 0 (by norm_num)) =
-      psi2.comp (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 4 0 (by norm_num)))
-    (hM : ∀ a ∈ (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 3 3 (by norm_num)).range.map psi1,
-      ∀ b ∈ (CFSG.ClassicalInvolution.WeakCT.blockSL F4 6 3 3 (by norm_num)).range.map psi2,
-        a * b = b * a) :
-    ∃ a : G,
-      a ∈ psi1.range ⊔ (CFSG.ClassicalInvolution.WeakCT.blockSL2 F4 5 3).range.map psi2 ∧
-      a ∈ Subgroup.centralizer (psi1.range : Set G) ∧ orderOf a = 5 := by
-  obtain ⟨t, ht⟩ := CFSG.SeitzReduction.F4Pilot.exists_orderOf_eq_natCard_add_one (K := F4)
-  have ht5 : orderOf t = 5 := by
-    have hF : Nat.card F4 = 4 := by simpa using GaloisField.card 2 2 (by decide)
-    simpa [hF] using ht
-  obtain ⟨Psi, -, -, -, rho, -, -, -, -, hX, hK, horder⟩ :=
-    exists_internal_five_of_twoSL6Charts_of_t psi1 psi2 h1 h2 hJ hM t ht5
-  exact ⟨Psi (rho t), hX, hK, horder⟩
 
 end CFSG.StandardType.N2InternalFive

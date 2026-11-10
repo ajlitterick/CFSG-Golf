@@ -28,30 +28,6 @@ theorem exists_core_kerQuotHom_eq_plus (hn : 3 ≤ n) (hq4 : 4 ≤ Nat.card K)
       (fun _ hx v => projLift_sNil_of_mem_core _ s hx v) x = h :=
   exists_core_kerQuotHom_eq _ (regular_coordinateQuadPlus n K hn).1 hq4 s hss hW h hh
 
-theorem spLeviData_typeBC_of_quad (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 5 ≤ n)
-    (hq4 : 4 ≤ Nat.card K) (s : matrixIsometries (coordinateQuadPlus n K)) (hss : s * s = 1)
-    (hW : ∃ w ∈ LinearMap.range (sNil s.val), coordinateQuadPlus n K w ≠ 0)
-    (hposM : finrank K (LinearMap.ker (sNil s.val) ⧸ rangeInKer (sNil s.val)) ≠ 0)
-    (N₂ : Subgroup ↥(perfectCore (autFixSubgroup (isometryConjugationHom _ s)))) [N₂.Normal]
-    (h12 : IsPGroup 2 ↥((kerQuotHom (exists_coordinateQuadPlus_ne_zero (by omega))
-        (perfectCore (autFixSubgroup (isometryConjugationHom _ s))) (sNil s.val)
-        (fun x hx v => projLift_sNil_of_mem_core _ s hx v)).ker ⊓ N₂))
-    (hq₂ : ∀ M : Subgroup ↥(perfectCore (autFixSubgroup (isometryConjugationHom _ s))),
-      M.Normal → N₂ ≤ M → M = N₂ ∨ M = ⊤)
-    (hab₂ : N₂ = ⊤ ∨
-      ∃ a b : ↥(perfectCore (autFixSubgroup (isometryConjugationHom _ s))) ⧸ N₂, a * b ≠ b * a)
-    (hs₂ : SpLeviSection (plusFieldPart hf hK hn)
-      (perfectCore (autFixSubgroup (isometryConjugationHom _ s))) N₂)
-    (hU : ∀ v, v ∈ LinearMap.range (sNil s.val) ↔
-      ∀ x ∈ (kerQuotHom (exists_coordinateQuadPlus_ne_zero (by omega))
-          (perfectCore (autFixSubgroup (isometryConjugationHom _ s))) (sNil s.val)
-          (fun x hx v => projLift_sNil_of_mem_core _ s hx v)).ker ⊓ N₂,
-        projLift (exists_coordinateQuadPlus_ne_zero (by omega))
-          (x : matrixProjectiveDerived (coordinateQuadPlus n K)) v = v) :
-    SpLeviData (plusFieldPart hf hK hn)
-      (perfectCore (autFixSubgroup (isometryConjugationHom _ s))) :=
-  spLeviData_typeBC hf hK hn hq4 s hss hposM
-    (fun h hh => exists_core_kerQuotHom_eq_plus (by omega) hq4 s hss hW h hh) N₂ h12 hq₂ hab₂ hs₂ hU
 
 theorem spLeviData_typeBC_unequal (hf : 1 ≤ f) (hK : Nat.card K = 2 ^ f) (hn : 5 ≤ n)
     (hq4 : 4 ≤ Nat.card K) (s : matrixIsometries (coordinateQuadPlus n K)) (hss : s * s = 1)

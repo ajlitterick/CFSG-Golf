@@ -157,24 +157,6 @@ theorem noL3Comp_of_noDvd {G : Type} [Group G] [Finite G] {C : Subgroup G}
     (Subgroup.card_quotient_dvd_card _).trans (Subgroup.card_dvd_of_le hJ.1)
   exact hN r ε e he hc (by rw [← hcard]; exact Nat.mul_dvd_mul_right hdvd e)
 
-theorem noL3Comp_of_solvable {G : Type} [Group G] [Finite G] {C : Subgroup G}
-    (hC : Group.IsSolvable ↥C) : NoL3Comp C := by
-  intro J hJ p hL
-  have hone := hom_eq_one_of_solvable Nat.prime_three hJ (MonoidHom.id ↥C)
-  have hJ0 : J = ⊥ := by
-    rw [eq_bot_iff]
-    intro g hg
-    have h1 : g = 1 := congrArg Subtype.val (hone g hg)
-    exact Subgroup.mem_bot.2 h1
-  have hq : CFSG.Open.IsQuasisimple (barOf 3 J) := isQuasisimple_quotient_of_glaPComponent hJ
-  have hnt := nontrivial_of_isQuasisimple hq
-  subst hJ0
-  have hsub : Subsingleton (barOf 3 (⊥ : Subgroup G)) := by
-    refine ⟨fun a b => ?_⟩
-    obtain ⟨a, rfl⟩ := QuotientGroup.mk_surjective a
-    obtain ⟨b, rfl⟩ := QuotientGroup.mk_surjective b
-    rw [Subsingleton.elim a b]
-  exact (not_nontrivial_iff_subsingleton.2 hsub) hnt
 
 theorem glaPPrimeCore_eq_bot_of_glaPComponent {G : Type} [Group G] [Finite G] {C J : Subgroup G}
     (hC : GLAPPrimeCoreOf 3 C = ⊥) (hJ : GLAPComponent 3 C J) : GLAPPrimeCore 3 ↥J = ⊥ := by
@@ -204,9 +186,6 @@ theorem card_barOf_of_glaPComponent {G : Type} [Group G] [Finite G] {C J : Subgr
     (QuotientGroup.quotientMulEquivOfEq hcore).trans QuotientGroup.quotientBot
   exact Nat.card_congr e.toEquiv
 
-theorem noL3Comp_of_no_component {G : Type} [Group G] [Finite G] {C : Subgroup G}
-    (hO : GLAPPrimeCoreOf 3 C = ⊥) (h : ∀ K : Subgroup G, IsComponentOf K C → False) :
-    NoL3Comp C := fun J hJ _ _ => h J (isComponentOf_of_glaPComponent' hO hJ)
 
 private theorem subgroupOf_commutator_self' {G : Type*} [Group G] (C : Subgroup G) :
     ⁅C, C⁆.subgroupOf C = commutator ↥C := by

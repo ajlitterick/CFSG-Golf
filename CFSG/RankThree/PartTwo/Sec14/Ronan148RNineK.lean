@@ -178,8 +178,6 @@ variable {f : ℕ} {K : Type} [Field K] {h : UnitaryFieldData 2 f K}
   map_one' := diagGL_one
   map_mul' x y := (diagGL_mul x y).symm
 
-theorem diagHom_apply (x : Fin 3 → Kˣ) : diagHom x = diagGL x :=
-  rfl
 
 theorem exists_fixed_e9_conj {X : Type} [Group X] (β α' : MulAut X) {u d t : X} (hu1 : u ≠ 1)
     (hu3 : u ^ 3 = 1) (hd3 : d ^ 3 = 1) (hud : u * d = d * u) (hdu : d ∉ Subgroup.zpowers u)

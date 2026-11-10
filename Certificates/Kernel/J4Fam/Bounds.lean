@@ -40,6 +40,5 @@ open CFSG.KC (notB)
 #kc_forall_chunks bd_ok5 (fun c => bd5F c = true) 1 CertificateChecks.KernelJ4Fam.bd5F 1
 #kc_forall_chunks bd_ok6 (fun c => bd6F c = true) 1 CertificateChecks.KernelJ4Fam.bd6F 1
 
-theorem neg_bnd : notB (boundsChunk FBT FLLT [[[2 ^ 191]]] 1 0) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Fam

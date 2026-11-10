@@ -803,9 +803,4 @@ theorem dLeafZ_of {r : ℕ} {IH : ℕ → Prop} (h8 : DLeafZ8 r IH) : DLeafZ r I
       ⟨AEIdentOn.ofQuot hc.toThmDHyp hZK I⟩)))))
 
 
-theorem thmDAbs_of_leaves₂ {r : ℕ} {IH : ℕ → Prop} (h8 : DLeafZ8 r IH) (hC : DLeafC r IH)
-    (hE4 : DLeafE4 r IH) (hstar : DLeafStar r IH) (hend : DLeafEnd r IH) (hih : ∀ n, IH n) :
-    ThmDAbs r :=
-  thmDAbs_of_leaves (dLeafZ_of h8) hC (dLeafCls_holds r) hE4 hstar hend hih
-
 end CFSG.ClassicalInvolution.Q3.TC.Thin

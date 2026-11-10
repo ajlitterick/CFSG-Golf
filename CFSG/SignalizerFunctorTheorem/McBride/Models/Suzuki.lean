@@ -55,10 +55,6 @@ open SzModel
 
 variable {n : ℕ}
 
-theorem exists_aut_sz (hp : (2 * n + 1).Prime)
-    (_hcop : Nat.Coprime (2 * n + 1) (Nat.card (Sz n))) :
-    ∃ f : MulAut (Sz n), orderOf f = 2 * n + 1 :=
-  SzModel.exists_aut hp
 
 theorem frame_sz
     (hp : (2 * n + 1).Prime) (hcop : Nat.Coprime (2 * n + 1) (Nat.card (Sz n)))

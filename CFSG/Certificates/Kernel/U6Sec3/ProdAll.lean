@@ -284,82 +284,6 @@ private theorem decomp {kO : ℕ} (hF1 : ChainCheckFacts n (S.extract 0 kO) S ba
 
 end Native
 
-private theorem prodAllK_spec {n w m nw : ℕ} {LR TR : ℕ → ℕ} {f : ℕ → Bool} (κ : ℕ → ℕ) :
-    ∀ d i acc, prodAllK n w m nw LR TR f d i acc = true →
-      (∀ j < d, κ (i + j) < rcnt (LR (i + j))) →
-      f (((List.range d).map fun j => TR (roff n nw (LR (i + j)) + κ (i + j))).foldl
-        (pcomp n w m) acc) = true
-  | 0, i, acc, h, _ => by simpa [prodAllK_zero] using h
-  | d + 1, i, acc, h, hκ => by
-    rw [prodAllK_succ] at h
-    have h1 := prodAllK_spec κ d (i + 1) _ (allN_spec h (κ i) (by simpa using hκ 0 (by omega)))
-      (fun j hj => by
-        have := hκ (j + 1) (by omega)
-        rwa [show i + (j + 1) = i + 1 + j by omega] at this)
-    have e : (fun j => TR (roff n nw (LR (i + (j + 1))) + κ (i + (j + 1)))) =
-        fun j => TR (roff n nw (LR (i + 1 + j)) + κ (i + 1 + j)) :=
-      funext fun j => by rw [Nat.add_assoc, Nat.add_comm 1 j]
-    rw [List.range_succ_eq_map, List.map_cons, List.map_map, List.foldl_cons, Nat.add_zero]
-    simpa only [Function.comp_def, Nat.succ_eq_add_one, e] using h1
-
-private theorem prodLazyK_spec {n nw : ℕ} {LR TR : ℕ → ℕ} {f : List ℕ → Bool} (κ : ℕ → ℕ) :
-    ∀ d i L, prodLazyK n nw LR TR f d i L = true →
-      (∀ j < d, κ (i + j) < rcnt (LR (i + j))) →
-      f (((List.range d).map fun j => TR (roff n nw (LR (i + j)) + κ (i + j))).reverse ++ L) =
-        true
-  | 0, i, L, h, _ => by simpa [prodLazyK_zero] using h
-  | d + 1, i, L, h, hκ => by
-    rw [prodLazyK_succ] at h
-    have h1 := prodLazyK_spec κ d (i + 1) _ (allN_spec h (κ i) (by simpa using hκ 0 (by omega)))
-      (fun j hj => by
-        have := hκ (j + 1) (by omega)
-        rwa [show i + (j + 1) = i + 1 + j by omega] at this)
-    have e : (fun j => TR (roff n nw (LR (i + (j + 1))) + κ (i + (j + 1)))) =
-        fun j => TR (roff n nw (LR (i + 1 + j)) + κ (i + 1 + j)) :=
-      funext fun j => by rw [Nat.add_assoc, Nat.add_comm 1 j]
-    rw [List.range_succ_eq_map, List.map_cons, List.map_map, List.reverse_cons,
-      List.append_assoc, List.singleton_append, Nat.add_zero]
-    simpa only [Function.comp_def, Nat.succ_eq_add_one, e] using h1
-
-private theorem canonK_foldl {n w : ℕ} : ∀ (L : List ℕ) (acc : ℕ),
-    canonK n w (mask w) (n * w) acc = true → (∀ t ∈ L, canonK n w (mask w) (n * w) t = true) →
-    canonK n w (mask w) (n * w) (L.foldl (pcomp n w (mask w)) acc) = true
-  | [], _, h, _ => h
-  | t :: L, acc, h, hL => canonK_foldl L _ (CFSG.KC.BfsPin.canonK_pcomp h (hL t (by simp)))
-      fun t' ht' => hL t' (by simp [ht'])
-
-private theorem pg_foldl_pcomp {n w : ℕ} (hn : n < 2 ^ 32) :
-    ∀ {Ts : List ℕ} {Gs : List (Equiv.Perm (Fin n))},
-      List.Forall₂ (fun t (g : Equiv.Perm (Fin n)) => ∀ z : Fin n, pg w (mask w) t z = g z) Ts Gs →
-      ∀ (acc : ℕ) (A : Equiv.Perm (Fin n)), (∀ z : Fin n, pg w (mask w) acc z = A z) →
-      ∀ z : Fin n, pg w (mask w) (Ts.foldl (pcomp n w (mask w)) acc) z = ((A * Gs.prod) z : ℕ)
-  | [], [], .nil, _, A, hA, z => by simpa using hA z
-  | t :: Ts, g :: Gs, .cons ht h, acc, A, hA, z => by
-    rw [List.foldl_cons, pg_foldl_pcomp hn h (pcomp n w (mask w) acc t) (A * g) (fun y => by
-      rw [CFSG.KS.PF.pg_pcomp hn y.2, ht y, hA (g y), Equiv.Perm.mul_apply]) z, List.prod_cons,
-      mul_assoc]
-
-private theorem pg_foldl {n w : ℕ} (hn : n < 2 ^ 32) :
-    ∀ (L : List ℕ) (acc i : ℕ), i < n →
-      pg w (mask w) (List.foldl (fun acc t => strictN acc fun acc => pcomp n w (mask w) t acc)
-        acc L) i = ptL w (mask w) L (pg w (mask w) acc i)
-  | [], _, _, _ => rfl
-  | t :: L, acc, i, hi => by
-    have e : ∀ (y : ℕ) (k : ℕ → ℕ), strictN y k = k y := fun y k => by cases y <;> rfl
-    rw [List.foldl_cons, e, pg_foldl hn L _ i hi, CFSG.KS.PF.pg_pcomp hn hi]
-    rfl
-
-private theorem ptL_reverse {n w : ℕ} :
-    ∀ {Ts : List ℕ} {Gs : List (Equiv.Perm (Fin n))},
-      List.Forall₂ (fun t (g : Equiv.Perm (Fin n)) => ∀ z : Fin n, pg w (mask w) t z = g z) Ts Gs →
-      ∀ z : Fin n, ptL w (mask w) Ts.reverse z = (Gs.prod z : ℕ)
-  | [], [], .nil, _ => rfl
-  | t :: Ts, g :: Gs, .cons ht h, z => by
-    have e : ptL w (mask w) (Ts.reverse ++ [t]) z =
-        pg w (mask w) t (ptL w (mask w) Ts.reverse z) := by
-      simp only [ptL, List.foldl_append, List.foldl_cons, List.foldl_nil]
-    rw [List.reverse_cons, e, ptL_reverse h z, List.prod_cons, Equiv.Perm.mul_apply]
-    exact ht _
 
 private theorem canonK_of_permOK {n w p q : ℕ} (hs : szOK n w = true)
     (h : permOK n w (mask w) (n * w) p q = true) : canonK n w (mask w) (n * w) p = true := by
@@ -367,16 +291,6 @@ private theorem canonK_of_permOK {n w p q : ℕ} (hs : szOK n w = true)
   unfold permOK at h
   exact ((bAnd_iff _ _).1 h).1
 
-private theorem canonK_pidn {n w : ℕ} (hn : n < 16777216) (hw : n + 1 < 2 ^ w) :
-    canonK n w (mask w) (n * w) (pidn n w) = true := by
-  refine (bAnd_iff _ _).2 ⟨(bAnd_iff _ _).2 ⟨Nat.blt_eq.mpr hn, Nat.blt_eq.mpr ?_⟩,
-    (bAnd_iff _ _).2 ⟨Nat.beq_eq.mpr (CFSG.KS.PF.pidn_shr hn hw),
-      allN_of_forall fun i hi => Nat.blt_eq.mpr ?_⟩⟩
-  · change n + 1 < 1 <<< w
-    rw [Nat.shiftLeft_eq, Nat.one_mul]
-    exact hw
-  · rw [CFSG.KS.PF.pg_pidn hn hw hi]
-    exact hi
 
 private theorem kernel_T {n w kS kO nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ}
     {SA : Array (Array ℕ)} {base : Array ℕ} {W : Array (List ℤ)}
@@ -400,69 +314,6 @@ private theorem kernel_T {n w kS kO nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ
       hk)).1 z
   exact ((P _ hkc).1 z).trans (((A.tr _ hk).1 z).symm.trans r3)
 
-theorem forall_of_prodAllK' {n w kS kO nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ}
-    {SA : Array (Array ℕ)} {base : Array ℕ} {W : Array (List ℤ)} {f : ℕ → Bool}
-    (hb : Binds n w PS kS nb BP SA base)
-    (hp : allN kS (fun j => permOK n w (mask w) (n * w) (PS j) (PSI j)) = true)
-    (hl : LevelsOK n w PS PSI LR TR TRI kS nb BP)
-    (hraw : rawChainOK n (SA.extract 0 kO) SA base W 1 = true)
-    (hf : prodAllK n w (mask w) (n * w) LR TR f nb 0 (pidn n w) = true) :
-    ∀ x ∈ Subgroup.closure (permsA n (SA.extract 0 kO)), ∃ X : ℕ,
-      canonK n w (mask w) (n * w) X = true ∧ Rep n (unpack n w X) x ∧ f X = true := by
-  intro x hx
-  have hn24 : n < 16777216 := by have := hb.2.2.1; omega
-  have hn32 : n < 2 ^ 32 := by omega
-  have hw' : n + 1 < 2 ^ w := hb.2.1
-  have hbs : base.size = nb := hb.2.2.2.2.2.1
-  have hF := CFSG.Certificates.chainCheckFacts hraw
-  obtain ⟨κ, hK, hx'⟩ := decomp hF hx
-  rw [hbs] at hK hx'
-  have hTj := fun j (hj : j < nb) => kernel_T hb hp hl hF hj (hK j hj)
-  let T : ℕ → ℕ := fun j => TR (roff n (n * w) (LR j) + κ j)
-  refine ⟨((List.range nb).map T).foldl (pcomp n w (mask w)) (pidn n w), ?_, fun z => ?_, ?_⟩
-  · refine canonK_foldl _ _ (canonK_pidn hn24 hw') fun t ht => ?_
-    obtain ⟨j, hj, rfl⟩ := List.mem_map.1 ht
-    exact (hTj j (List.mem_range.1 hj)).2.1
-  · rw [Raw.Orb.unpack_get z.2, pg_foldl_pcomp hn32 (Gs := (List.range nb).map fun j =>
-      CFSG.Certificates.ChainArrays.levT n SA base j (κ j)) ?_ (pidn n w) 1
-      (fun y => by rw [CFSG.KS.PF.pg_pidn hn24 hw' y.2]; rfl) z, one_mul, hx']
-    rw [List.forall₂_map_left_iff, List.forall₂_map_right_iff]
-    exact List.forall₂_same.2 fun j hj => (hTj j (List.mem_range.1 hj)).2.2
-  · have := prodAllK_spec κ nb 0 (pidn n w) hf fun j hj => by
-      simpa using (hTj j hj).1
-    simpa using this
-
-theorem forall_of_prodLazyK' {n w kS kO nb BP : ℕ} {PS PSI LR TR TRI : ℕ → ℕ}
-    {SA : Array (Array ℕ)} {base : Array ℕ} {W : Array (List ℤ)} {f : List ℕ → Bool}
-    (hb : Binds n w PS kS nb BP SA base)
-    (hp : allN kS (fun j => permOK n w (mask w) (n * w) (PS j) (PSI j)) = true)
-    (hl : LevelsOK n w PS PSI LR TR TRI kS nb BP)
-    (hraw : rawChainOK n (SA.extract 0 kO) SA base W 1 = true)
-    (hf : prodLazyK n (n * w) LR TR f nb 0 [] = true) :
-    ∀ x ∈ Subgroup.closure (permsA n (SA.extract 0 kO)), ∃ L : List ℕ,
-      (∀ t ∈ L, canonK n w (mask w) (n * w) t = true) ∧
-      Rep n (unpack n w (prodL n w (mask w) L)) x ∧ f L = true := by
-  intro x hx
-  have hn24 : n < 16777216 := by have := hb.2.2.1; omega
-  have hn32 : n < 2 ^ 32 := by omega
-  have hw' : n + 1 < 2 ^ w := hb.2.1
-  have hbs : base.size = nb := hb.2.2.2.2.2.1
-  have hF := CFSG.Certificates.chainCheckFacts hraw
-  obtain ⟨κ, hK, hx'⟩ := decomp hF hx
-  rw [hbs] at hK hx'
-  have hTj := fun j (hj : j < nb) => kernel_T hb hp hl hF hj (hK j hj)
-  let T : ℕ → ℕ := fun j => TR (roff n (n * w) (LR j) + κ j)
-  refine ⟨((List.range nb).map T).reverse, fun t ht => ?_, fun z => ?_, ?_⟩
-  · obtain ⟨j, hj, rfl⟩ := List.mem_map.1 (List.mem_reverse.1 ht)
-    exact (hTj j (List.mem_range.1 hj)).2.1
-  · rw [Raw.Orb.unpack_get z.2, prodL, pg_foldl hn32 _ _ _ z.2, CFSG.KS.PF.pg_pidn hn24 hw' z.2,
-      hx']
-    refine ptL_reverse ?_ z
-    rw [List.forall₂_map_left_iff, List.forall₂_map_right_iff]
-    exact List.forall₂_same.2 fun j hj => (hTj j (List.mem_range.1 hj)).2.2
-  · have := prodLazyK_spec κ nb 0 [] hf fun j hj => by
-      simpa using (hTj j hj).1
-    simpa using this
 
 end CFSG.KC.U6Sec3.ProdPf
 

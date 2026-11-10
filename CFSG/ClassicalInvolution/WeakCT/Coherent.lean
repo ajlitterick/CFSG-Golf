@@ -198,10 +198,6 @@ theorem exists_ctFamily_of_pairs (hK : 4 ≤ Nat.card K) {n : ℕ} (hn : 2 ≤ n
     have hb : ι j b ∈ U j := (hrange_inj j).1 ▸ ⟨b, rfl⟩
     exact hcomm i j hij _ ha _ hb
 
-theorem exists_ctFamily (hK : 4 ≤ Nat.card K) {n : ℕ} (hn : 2 ≤ n) {U : Fin n → Subgroup X}
-    {W : Fin n → Fin n → Subgroup X} (hW : WeakCTSystem K n U W) :
-    ∃ F : CTFamily K X n, ∀ i, (F.ι i).range = U i ∧ Function.Injective (F.ι i) :=
-  exists_ctFamily_of_pairs hK hn hW.comm fun i j hj => ⟨_, hW.pair i j hj⟩
 
 end Family
 

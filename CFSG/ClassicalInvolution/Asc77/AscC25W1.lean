@@ -103,13 +103,6 @@ section Powers
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem mem_zStarOf_of_pow {z x : G} (hxz : x * z = z * x) {k : ℕ}
-    (h : z ∈ zStarOf (Subgroup.centralizer ({x ^ k} : Set G))) :
-    z ∈ zStarOf (Subgroup.centralizer ({x} : Set G)) := by
-  refine T7T.mem_zStarOf_of_le ?_ h (Subgroup.mem_centralizer_singleton_iff.mpr hxz.symm)
-  intro y hy
-  rw [Subgroup.mem_centralizer_singleton_iff] at hy ⊢
-  exact ((Commute.pow_right (show Commute y x from hy) k).eq)
 
 theorem good_of_mem_zpowers {z x : G} (hz : z ∈ Subgroup.zpowers x) :
     z ∈ zStarOf (Subgroup.centralizer ({x} : Set G)) := by

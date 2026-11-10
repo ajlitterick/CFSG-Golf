@@ -160,10 +160,6 @@ theorem DirFac.normal_of_conj_closed {Q : Type*} [Group Q] (hQ : DirFac Q) {N M 
   rw [e]
   exact h y hy m hm
 
-theorem isSolvable_subgroupOf (R H : Subgroup A) [Group.IsSolvable R] :
-    Group.IsSolvable (R.subgroupOf H) :=
-  Group.isSolvable_of_isSolvable_injective (f := H.subtype.subgroupComap R)
-    (MonoidHom.subgroupComap_injective _ _ H.subtype_injective)
 
 theorem oStar_eq_top_of_normal [Finite A] (hA : oStar A = ⊤) (N : Subgroup A) [N.Normal] :
     oStar N = ⊤ := by

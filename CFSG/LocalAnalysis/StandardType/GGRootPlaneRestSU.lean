@@ -44,10 +44,6 @@ theorem pow_mod_of_pow_eq_one {x : H} (hx : x ^ p = 1) (k : ℕ) : x ^ (k % p) =
           rw [(hc.pow_pow _ _).eq]
       _ = _ := by group
 
-theorem pairHom_apply [NeZero p] (x y : H) (hx : x ^ p = 1) (hy : y ^ p = 1)
-    (hxy : x * y = y * x) (a : Multiplicative (ZMod p × ZMod p)) :
-    pairHom x y hx hy hxy a =
-      x ^ (Multiplicative.toAdd a).1.val * y ^ (Multiplicative.toAdd a).2.val := rfl
 
 end Pair
 
@@ -521,8 +517,6 @@ theorem ggRootPlaneInputOn_PSUNonsplit : GGRootPlaneInputOn GGPSUNonsplit := by
   · intro ψ hP
     exact absurd hP.1 ht
 
-theorem ggRootPlaneAt_PSU : GGRootPlaneAt .PSU :=
-  ggRootPlaneAt_PSU_of_nonsplit ggRootPlaneInputOn_PSUNonsplit
 
 end Inputs
 

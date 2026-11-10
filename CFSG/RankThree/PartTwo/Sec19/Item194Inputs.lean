@@ -35,22 +35,5 @@ open CFSG.Assembly.RankThreeEven (projSU)
           Sec4.IsExtOf (starIm K (Subgroup.normalizer (S : Set G))) (Equiv.Perm (Fin 5))
             (Multiplicative (Fin 4 → ZMod 2))))
 
-@[expose] def Item194UsedWide : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Sec19Std G →
-    ∀ A M H : Subgroup G, IsE27 A → M ∈ scriptM (gamma 2 A : Set G) →
-      H ∈ scriptM (A : Set G) → H ≠ M →
-      (scriptJ M H).Nonempty ∧
-      ∀ K ∈ scriptJ M H,
-        (IsList194 (K ⧸ CFSG.pCore 2 K) ∨ IsSmall194 (K ⧸ CFSG.pCore 2 K)) ∧
-        ((IsEmpty (K ⧸ CFSG.pCore 2 K ≃* alternatingGroup (Fin 10)) ∧
-            IsProperParabolic (starIm K H)) ∨
-          (Nonempty (K ⧸ CFSG.pCore 2 K ≃* alternatingGroup (Fin 10)) ∧
-            Sec4.IsExtOf (starIm K H) (Equiv.Perm (Fin 5)) (Multiplicative (Fin 4 → ZMod 2))))
-
-@[expose] def Item194NoSmall : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], Sec19Std G →
-    ∀ A M H : Subgroup G, IsE27 A → M ∈ scriptM (gamma 2 A : Set G) →
-      H ∈ scriptM (A : Set G) → H ≠ M →
-      ∀ K ∈ scriptJ M H, ¬ IsSmall194 (K ⧸ CFSG.pCore 2 K)
 
 end CFSG.RankThree.PartTwo.Sec19

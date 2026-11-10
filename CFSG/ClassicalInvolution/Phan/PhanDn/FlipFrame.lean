@@ -325,14 +325,6 @@ section Unitary
 
 variable [Finite K] {p f : ℕ} [Fact p.Prime] [CharP K p]
 
-theorem exists_gen_unitaryInvolution (hK : Nat.card K = (p ^ f) ^ 2)
-    (c : FlipFrame (unitaryInvolution K p f) n) (i : Fin n) :
-    ∃ v ∈ c.line i, quadPlus n K v = 0 ∧
-      flipHerm (unitaryInvolution K p f) v v = 1 ∧ c.line i = K ∙ v := by
-  have hσ := (CFSG.ClassicalGroups.Unitary.isUnitaryInvolution_unitaryInvolution
-    (p := p) (f := f) hK).invol
-  exact exists_gen hσ (fun a ha ha0 =>
-    exists_mul_unitaryInvolution_eq_of_fixed hK ha ha0) c i
 
 end Unitary
 

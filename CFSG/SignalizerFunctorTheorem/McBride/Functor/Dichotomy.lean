@@ -52,18 +52,5 @@ theorem glauberman_dichotomy (hp : p.Prime) (hA : IsElemAbelian p A) (hrank : p 
     have hXM : sSup T ∈ signalizers p A θ P := (le_antisymm hXU hUX) ▸ hUθ
     exact ⟨hXM, fun B hBA hB => exists_apply_not_le_of_mem hp hA hinc hBA hB hXM⟩
 
-theorem forall_le_of_maximal_lt (hp : p.Prime) (hA : IsElemAbelian p A)
-    (hrank : p ^ 2 ≤ Nat.card A) (hθ : IsFunctor p A θ) (hP : ∀ a ∈ A, a ≠ 1 → P (θ a))
-    (hmono : ∀ X Y : Subgroup G, Y ≤ X → A ≤ Subgroup.normalizer (Y : Set G) → P X → P Y)
-    (hinc : ¬ IsCompleteIn (signalizers p A θ P))
-    (hmin : ∀ θ' : G → Subgroup G, IsFunctor p A θ' → (∀ a ∈ A, a ≠ 1 → P (θ' a)) →
-      size A θ' < size A θ → IsCompleteIn (signalizers p A θ' P))
-    {X Y : Subgroup G} (hX : ∃ T ⊆ signalizers p A θ P, X = sSup T)
-    (hY : Maximal (· ∈ signalizers p A θ P) Y) (hYX : Y < X) :
-    ∀ Z ∈ signalizers p A θ P, Z ≤ X := by
-  rcases glauberman_dichotomy hp hA hrank hθ hP hmono hinc hmin hX with ⟨hall, -⟩ | ⟨hXM, -⟩
-  · intro Z hZ
-    exact hall Z hZ
-  · exact absurd (hY.2 hXM hYX.le) hYX.not_ge
 
 end CFSG.SignalizerFunctorTheorem.McBride

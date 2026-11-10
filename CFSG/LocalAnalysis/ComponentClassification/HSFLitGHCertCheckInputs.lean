@@ -80,25 +80,9 @@ set_option compiler.extract_closed false
     [-2, -2, 1, 2, 1, -2, 1, 2, 1, 2, 1, 2, 1, 2, 2, 1, -2, -2, 1, -2, -1, -2, -1, -2, -1, 2, -1,
       -2, -1, 2, 2]]
 
-@[expose] def letterCode (l : Fin 9 × Bool) : ℤ :=
-  if l.2 then (l.1.val : ℤ) + 1 else -((l.1.val : ℤ) + 1)
-
-@[expose] def gens9 (T Ti : Array Table) (c : ℤ) : Table :=
-  if 0 < c then T[(c - 1).toNat]! else Ti[(-c - 1).toNat]!
 
 @[expose] def nfCodes (k : ℕ) : List ℤ :=
   (List.range 9).filterMap fun i => if k.testBit i then some ((i : ℤ) + 1) else none
 
-@[expose] def distinctT (A : Array Table) : Bool :=
-  (List.range A.size).all fun k => (List.range k).all fun k' => A[k]! != A[k']!
-
-@[noinline, expose] def ghTabs (n : ℕ) (O : VOrbit) : Array Table :=
-  Array.ofFn (n := 9) fun i => wordT n (genT n O) (abWords.getD i.val [])
-
-@[noinline, expose] def tabCheck (n : ℕ) (T : Array Table) : Bool :=
-  let Ti := T.map (invT n)
-  (List.range 9).all (fun i => invOK n T[i]! Ti[i]!) &&
-    ghWordsD.all (fun r => wordT n (gens9 T Ti) (r.map letterCode) == idT n) &&
-    distinctT (Array.ofFn (n := 512) fun k => wordT n (gens9 T Ti) (nfCodes k.val))
 
 end CFSG.ComponentClassification.HSFLit.GHCert

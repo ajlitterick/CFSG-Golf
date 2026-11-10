@@ -208,16 +208,5 @@ theorem l6_10_of_l6_6ii (h : L6_6ii p f) : L6_10 p f := by
 theorem l6_10 (h : L6_6 p f) : L6_10 p f :=
   l6_10_of_l6_6ii p f (l6_6ii_of_l6_6 p f h)
 
-@[expose] def L6_10AEmpty : Prop :=
-  p ≠ 2 → 5 ≤ p ^ f →
-    ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)), HypOmegaMod p f Ω →
-      (∀ K ∈ Ω, AEmpty Ω K) →
-      ∀ S : Sylow 2 G, ∀ η ∈ etaG Ω, (∀ V ∈ η, V ≤ (S : Subgroup G)) →
-        (∀ R ∈ RSet Ω, R ≤ (S : Subgroup G) → ∀ r ∈ R, ∀ V ∈ η, conjSub r V ∈ η) ∧
-        (∀ U ∈ USet Ω, U ≤ (S : Subgroup G) → ∀ u ∈ U, ∀ V ∈ η, conjSub u V ∈ η)
-
-theorem l6_10AEmpty (h : L6_6iiAEmpty p f) : L6_10AEmpty p f := by
-  intro hp hq G _ _ Ω hΩ hA S η hη hηS
-  exact eta_acts_of_cyc66 hp hq hΩ (h hp hq G Ω hΩ hA) hη hηS
 
 end CFSG.ClassicalInvolution.Asc77

@@ -131,13 +131,6 @@ theorem t1W_eq : t1W = gw 8 := by
   rw [T1S.eq, decodeW_ofList]
   decide +kernel
 
-theorem sigmaW_eq : sigmaW = gw 7 := by
-  rw [SGS.eq, decodeW_ofList]
-  decide +kernel
-
-theorem c1W_eq : c1W.getD 5 [] = gw 9 ∧ c1W.getD 10 [] = gw 10 := by
-  rw [C1S.eq, decodeWs_ofList (by decide) (ascii_of_all (by decide +kernel))]
-  decide +kernel
 
 theorem elt_t1W :
     elt t1W = heT1P := (rep_wA (by decide)).unique rep_t1A

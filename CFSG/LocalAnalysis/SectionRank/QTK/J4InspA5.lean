@@ -125,7 +125,5 @@ open CFSG.Open CFSG.Blueprint CFSG.Assembly.LowTwoRank
       ((∃ a : ℕ, p = 2 ^ a + 1) ∧ StatedClassicalModel S .PSL 4 p 1) ∨
       ((∃ b : ℕ, p + 1 = 2 ^ b) ∧ StatedClassicalModel S .PSU 4 p 1))
 
-@[expose] def OddCharTwoRankQTK : Prop :=
-  ∀ (S : Type) [Group S] [Finite S], OddCharList S → CFSG.Open.pRank 2 (⊤ : Subgroup S) ≤ 8
 
 end CFSG.SectionRank.QTK

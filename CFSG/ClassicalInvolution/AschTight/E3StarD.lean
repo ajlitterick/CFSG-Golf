@@ -117,9 +117,6 @@ variable {G : Type} [Group G]
   ⨆ V ∈ {V : Subgroup G | (V ∈ Asc77.RSet (CoreAssembly.conjClass K) ∨
       V ∈ Asc77.USet (CoreAssembly.conjClass K)) ∧ V ≤ Subgroup.centralizer ({z} : Set G)}, V
 
-theorem xGroup_le_centralizer (K : Subgroup G) (z : G) :
-    xGroup K z ≤ Subgroup.centralizer ({z} : Set G) :=
-  iSup₂_le fun _ hV => hV.2
 
 variable (p f : ℕ) [Fact p.Prime]
 
@@ -133,29 +130,6 @@ variable (p f : ℕ) [Fact p.Prime]
         normalizerToPGammaL2Mod e hFcard hF h3 x ∈
           (SemidirectProduct.inl : PGL2 (GaloisField p f) →* PGammaL2 (GaloisField p f)).range
 
-@[expose] def C19_16Tmp : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (K : Subgroup G) (z : G),
-    S19R.TightStd p f K z → (∀ e : ℕ, 5 ≤ p ^ e → CITBelowU p e (Nat.card G)) →
-    ∀ x ∈ Subgroup.centralizer ({z} : Set G), IsPGroup 2 (Subgroup.zpowers x) → x ∈ xGroup K z
-
-variable {p f}
-
-theorem innerDiagonalTwo_of_c19 (h5 : C19_5Tmp p f) (h16 : C19_16Tmp p f) [Finite G]
-    [IsSimpleGroup G] {K : Subgroup G} {z : G} (ht : S19R.TightStd p f K z)
-    (hIH : ∀ e : ℕ, 5 ≤ p ^ e → CITBelowU p e (Nat.card G)) : InnerDiagonalTwo p f K := by
-  intro e hFcard hF h3 x hx
-  refine h5 G K z ht e hFcard hF h3 x (h16 G K z ht hIH (x : G) ?_ ?_)
-  · rw [← normalizer_eq_centralizer_of_tight ht.toTightBranch]
-    exact x.2
-  · have := hx.map (Subgroup.normalizer (K : Set G)).subtype
-    rwa [MonoidHom.map_zpowers] at this
-
-theorem normalizerQuotientTwoGeneratedStar_of_c19 (h5 : C19_5Tmp p f) (h16 : C19_16Tmp p f)
-    [Finite G] [IsSimpleGroup G] {K : Subgroup G} {z : G} (ht : S19R.TightStd p f K z)
-    (hIH : ∀ e : ℕ, 5 ≤ p ^ e → CITBelowU p e (Nat.card G)) :
-    NormalizerQuotientTwoGeneratedStar K :=
-  normalizerQuotientTwoGeneratedStar_of_innerDiagonalTwo ht.branch.odd ht.branch.five
-    ht.branch.member (innerDiagonalTwo_of_c19 h5 h16 ht hIH)
 
 end C19
 

@@ -88,8 +88,5 @@ theorem catalogBridgeFor_of_remaining
     | tits => exact h.tits hv
   · exact h.sporadic s
 
-theorem tcKGroupBridge_of_remaining
-    (h : B1Remaining) : TCKGroupBridge :=
-  tcKGroupBridge_of_bridges (catalogBridgeFor_of_remaining h)
 
 end CFSG.TauCetiBridge

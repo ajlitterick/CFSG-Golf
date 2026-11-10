@@ -53,69 +53,6 @@ structure Kid where
   conj : String
 deriving Inhabited
 
-structure NodeData where
-  id : Nat
-  gens : List (Nat × Nat)
-  ngens : List String
-  kids : List Kid
-deriving Inhabited
-
-structure FEntry where
-  f : Code
-  par : Nat
-  lab : Nat
-  root : Nat
-deriving Inhabited
-
-@[noinline, expose] def buildForest (Al : List Code) (nc ni yc : Array Code) (fuel : Nat) :
-    Array FEntry × Std.HashMap Code Nat := Id.run do
-  let mut ents : Array FEntry := #[]
-  let mut cos : Std.HashMap Code Nat := {}
-  for j in [0:yc.size] do
-    let y := yc[j]!
-    if !cos.contains y then
-      let i := ents.size
-      ents := ents.push ⟨y, 0, 0, j + 1⟩
-      for a in Al do
-        cos := cos.insert (y * a) i
-  let mut q := 0
-  for _ in [0:fuel] do
-    if q < ents.size then
-      let e := ents[q]!
-      for l in [0:nc.size] do
-        let z := nc[l]! * e.f * ni[l]!
-        if !cos.contains z then
-          let i := ents.size
-          ents := ents.push ⟨z, q, l, 0⟩
-          for a in Al do
-            cos := cos.insert (z * a) i
-      q := q + 1
-  return (ents, cos)
-
-@[expose] def entryOK (S A : Std.HashSet Code) (nc ni yc : Array Code) (ents : Array FEntry)
-    (i : Nat) : Bool :=
-  match ents[i]? with
-  | none => false
-  | some e =>
-    S.contains e.f && e.f * e.f == 1 &&
-      if e.root != 0 then yc[e.root - 1]? == some e.f
-      else decide (e.par < i) &&
-        match ents[e.par]?, nc[e.lab]?, ni[e.lab]? with
-        | some p, some n, some n' => A.contains (n * p.f * n' * e.f)
-        | _, _, _ => false
-
-@[expose] def forestOK (S A : Std.HashSet Code) (nc ni yc : Array Code) (ents : Array FEntry) :
-    Bool :=
-  (List.range ents.size).all (entryOK S A nc ni yc ents)
-
-@[expose] def coverOK (t : Code → Bool) (Sl : List Code) (A : Std.HashSet Code)
-    (ents : Array FEntry) (cos : Std.HashMap Code Nat) : Bool :=
-  Sl.all fun s => A.contains s || !(s * s == 1) || !(t s) ||
-    match cos[s]? with
-    | some i => match ents[i]? with
-      | some e => A.contains (e.f * s)
-      | none => false
-    | none => false
 
 @[noinline, expose] def greedyGens (Cl : List Code) : List Code := Id.run do
   let mut gens : Array Code := #[]
@@ -155,13 +92,6 @@ deriving Inhabited
   decide (kd.y.2 < 1024) && S.contains (cc kd.y) && cc kd.y * cc kd.y == 1 &&
     if kd.tgt == 0 then prunedOK S Sl (cc kd.y) else mergeOK bc gp ordK (cc kd.y) kd
 
-@[expose] def basisOK (bc : List Code) : Bool :=
-  bc.all fun b => b * b == 1 && bc.all fun b' => b * b' == b' * b
-
-@[expose] def commOK (gc bc : List Code) : Bool := gc.all fun g => bc.all fun b => g * b == b * g
-
-@[expose] def selfClOK (Sl : List Code) (A : Std.HashSet Code) (gc : List Code) : Bool :=
-  Sl.all fun s => !(s * s == 1) || !(gc.all fun g => s * g == g * s) || A.contains s
 
 @[expose] def n1OK (A : Std.HashSet Code) (bc : List Code) (n : Code) : Bool :=
   n * n.inv == 1 && n.inv.wf && bc.all fun b => A.contains (n * b * n.inv)
@@ -170,65 +100,5 @@ deriving Inhabited
   ngens.all fun w =>
     n1OK A bc (codeOfStr w)
 
-@[noinline, expose] def nodeOKWith (t : Code → Bool) (nd : NodeData) (bc gc : List Code)
-    (A S : Std.HashSet Code) (Sl : List Code) (nc ni yc : Array Code) (gp : List (Code × Code))
-    (fo : Array FEntry × Std.HashMap Code Nat) : Bool :=
-  (treeBasis nd.id).all (fun ce => decide (ce.2 < 1024)) &&
-    nd.gens.all (fun ce => decide (ce.2 < 1024)) &&
-    A.contains 1 && closedUnder bc rmul A && S.contains 1 && closedUnder gc rmul S &&
-    S.size == treeOrd nd.id && treeOrd nd.id == 2 ^ Nat.log2 (treeOrd nd.id) && basisOK bc &&
-    commOK gc bc && gp.all (fun p => p.1 * p.2 == 1 && p.2.wf) && selfClOK Sl A gc &&
-    normOK A bc nd.ngens && forestOK S A nc ni yc fo.1 && coverOK t Sl A fo.1 fo.2 &&
-    nd.kids.all (kidOK S Sl bc gp (treeOrd nd.id))
-
-@[expose] def basisCodes (nd : NodeData) : List Code := (treeBasis nd.id).map cc
-
-@[expose] def genCodes (nd : NodeData) : List Code := nd.gens.map cc
-
-@[expose] def normCodes (nd : NodeData) : Array Code := (nd.ngens.map codeOfStr).toArray
-
-@[expose] def kidCodes (nd : NodeData) : Array Code := (nd.kids.map fun kd => cc kd.y).toArray
-
-@[expose] def invCodes (nd : NodeData) : Array Code := (normCodes nd).map Code.inv
-
-@[expose] def genPairs (nd : NodeData) : List (Code × Code) := (genCodes nd).map fun g => (g, g.inv)
-
-@[expose] def nodeA (nd : NodeData) : Std.HashSet Code := bfsFrom (basisCodes nd) rmul 1 4096
-
-@[expose] def nodeS (nd : NodeData) : Std.HashSet Code :=
-  bfsFrom (genCodes nd) rmul 1 (treeOrd nd.id + 1)
-
-@[expose] def forestOf (nd : NodeData) (A S : Std.HashSet Code) :
-    Array FEntry × Std.HashMap Code Nat :=
-  buildForest A.toList (normCodes nd) (invCodes nd) (kidCodes nd) (S.size + nd.kids.length + 1)
-
-@[noinline, expose] def nodeOKAS (t : Code → Bool) (nd : NodeData) (A S : Std.HashSet Code) :
-    Bool :=
-  nodeOKWith t nd (basisCodes nd) (genCodes nd) A S S.toList (normCodes nd) (invCodes nd)
-    (kidCodes nd) (genPairs nd) (forestOf nd A S)
-
-@[expose] def nodeOK (t : Code → Bool) (nd : NodeData) : Bool := nodeOKAS t nd (nodeA nd) (nodeS nd)
-
-@[expose] def parseNat (s : String) : Nat := s.toNat?.getD 0
-
-@[expose] def fields (s sep : String) : List String := (s.splitOn sep).filter (· ≠ "")
-
-@[expose] def parsePair (s : String) : Nat × Nat :=
-  match s.splitOn "," with
-  | [a, b] => (parseNat a, parseNat b)
-  | _ => (0, 0)
-
-@[expose] def parseKid (s : String) : Kid :=
-  match s.splitOn "," with
-  | [a, b, t, w] => ⟨(parseNat a, parseNat b), parseNat t, w⟩
-  | _ => ⟨(0, 0), 0, ""⟩
-
-@[expose] def parseNode (s : String) : NodeData :=
-  match s.splitOn "|" with
-  | [i, g, n, k] => ⟨parseNat i, (fields g " ").map parsePair, fields n " ",
-      (fields k " ").map parseKid⟩
-  | _ => default
-
-@[expose] def parseChunk (s : String) : List NodeData := (fields s "\n").map parseNode
 
 end CFSG.J4Tree.Native.Node

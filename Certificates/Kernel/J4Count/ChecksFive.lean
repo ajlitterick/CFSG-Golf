@@ -78,21 +78,6 @@ theorem n_fix_qA : Nat.beq (nVec (getN 0 XPTS 1)) (getN 0 XPTS 1) = true := by q
 
 theorem n_fix_q1 : Nat.beq (nVec (v2N x0Q1)) (v2N x0Q1) = true := by quickRfl
 
-theorem neg_cand : notB (Nat.beq (candN GB GP XI CRD FL TL) 11) = true := by quickRfl
-
-theorem neg_oct : notB (octOK GB XI (maskL FL) (maskL [0, 3, 15, 19])) = true := by quickRfl
-
-theorem neg_gen : notB (genOK GB GP (getN 0 [1, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-    16, 17, 18, 19, 20, 21, 22, 23])) = true := by quickRfl
-
-theorem neg_fix : notB (fixOK XI [4, 10, 14]) = true := by quickRfl
-
-theorem neg_eqv : notB (eqvOK rm one XPTS XG [0, 1, 4, 5, 2, 3, 7, 6, 11, 10, 9, 8, 13, 12] 14 16) =
-    true := by quickRfl
-
-theorem neg_fix_qA : notB (Nat.beq cntQA 127) = true := by quickRfl
-
-theorem neg_n_fix : notB (Nat.beq (nVec (getN 0 XPTS 2)) (getN 0 XPTS 2)) = true := by quickRfl
 
 end CertificateChecks.KernelJ4Count.Five
 

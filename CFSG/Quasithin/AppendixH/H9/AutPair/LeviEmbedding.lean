@@ -78,17 +78,6 @@ theorem levi_val (B : GL (Fin m) (ZMod 2)) :
     ((levi m B : GL (Fin (m + 1)) (ZMod 2)) : Matrix (Fin (m + 1)) (Fin (m + 1)) (ZMod 2)) =
       leviMat (B : Matrix (Fin m) (Fin m) (ZMod 2)) := rfl
 
-theorem levi_injective : Function.Injective (levi m) := by
-  intro B B' h
-  have hmat : leviMat (B : Matrix (Fin m) (Fin m) (ZMod 2)) =
-      leviMat (B' : Matrix (Fin m) (Fin m) (ZMod 2)) := by
-    have := congrArg (fun g : GL (Fin (m + 1)) (ZMod 2) =>
-      (g : Matrix (Fin (m + 1)) (Fin (m + 1)) (ZMod 2))) h
-    simpa only [levi_val] using this
-  apply Units.ext
-  ext i j
-  have := congrFun (congrFun hmat i.succ) j.succ
-  simpa only [leviMat_succ_succ] using this
 
 theorem dualGLn_levi (B : GL (Fin m) (ZMod 2)) :
     dualGLn (m + 1) (levi m B) = levi m (dualGLn m B) := by

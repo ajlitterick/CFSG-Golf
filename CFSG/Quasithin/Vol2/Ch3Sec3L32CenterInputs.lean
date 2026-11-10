@@ -84,6 +84,5 @@ end L32Cen
 
 open L32Cen
 
-variable {Ω : Type} [Group Ω] [Finite Ω]
 
 end CFSG.Quasithin.H13

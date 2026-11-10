@@ -64,18 +64,7 @@ end Local
 @[expose] def quasithinOrdM24 : ℕ := 2 ^ 10 * 3 ^ 3 * 5 * 7 * 11 * 23
 @[expose] def quasithinOrdHe : ℕ := 2 ^ 10 * 3 ^ 3 * 5 ^ 2 * 7 ^ 3 * 17
 @[expose] def quasithinOrdJ4 : ℕ := 2 ^ 21 * 3 ^ 3 * 5 * 7 * 11 ^ 3 * 23 * 29 * 31 * 37 * 43
-@[expose] def quasithinOrdHS : ℕ := 2 ^ 9 * 3 ^ 2 * 5 ^ 3 * 7 * 11
-@[expose] def quasithinOrdRu : ℕ := 2 ^ 14 * 3 ^ 3 * 5 ^ 3 * 7 * 13 * 29
 
-@[expose] def quasithinTheoremDOrders : Set ℕ :=
-  {m | ∃ n : ℕ, 2 ≤ n ∧ (m = ordA 2 (2 ^ n) ∨ m = ordBC 2 (2 ^ n) ∨ m = ordG2 (2 ^ n) ∨
-      m = ordTwistedA 3 (2 ^ n) ∨ m = ordTrialityD4 (2 ^ n))} ∪
-  {m | ∃ k : ℕ, 1 ≤ k ∧ m = ordTwistedF4 (2 ^ (2 * k + 1))} ∪
-  {ordTwistedA 4 4,
-    ordA 3 2, ordA 4 2, Nat.factorial 9 / 2, quasithinOrdM22, quasithinOrdM23, quasithinOrdM24,
-    quasithinOrdHe, quasithinOrdJ4,
-    ordBC 3 2, ordTwistedA 3 2, ordA 3 3, ordTwistedA 3 3, ordG2 3, quasithinOrdHS,
-    quasithinOrdRu}
 
 @[expose] def quasithinH13ExcludedOrders : Set ℕ :=
   {m | ∃ f : ℕ, 2 ≤ f ∧ m ∈ lieOrdersOver (2 ^ f)} ∪
@@ -83,40 +72,6 @@ end Local
   {ordA 3 2, ordA 4 2, Nat.factorial 9 / 2, quasithinOrdM22, quasithinOrdM23, quasithinOrdM24,
     quasithinOrdHe, quasithinOrdJ4}
 
-structure quasithinQTH13 (G : Type*) [Group G] [Finite G] (T L : Subgroup G) : Prop where
-  simple : IsSimpleGroup G
-  nonabelian : ∃ a b : G, a * b ≠ b * a
-  qtke : quasithinIsQTKE G
-  sylow : quasithinIsSylowTwo T
-  faithful : quasithinIsFaithfulLocal T L
-  not_excluded : Nat.card G ∉ quasithinH13ExcludedOrders
-  a5 : quasithinO2QuotientIso L (alternatingGroup (Fin 5)) →
-    ∀ K : Subgroup G, quasithinIsFaithfulLocal T K →
-      quasithinO2QuotientIso K (alternatingGroup (Fin 5))
-
-structure quasithinQTFE14 (G : Type*) [Group G] [Finite G] (T Mc : Subgroup G) : Prop where
-  simple : IsSimpleGroup G
-  nonabelian : ∃ a b : G, a * b ≠ b * a
-  qtke : quasithinIsQTKE G
-  sylow : quasithinIsSylowTwo T
-  faithful_empty : ∀ L : Subgroup G, ¬ quasithinIsFaithfulLocal T L
-  mc_max : quasithinIsMaxTwoLocal Mc
-  t_le_mc : T ≤ Mc
-  centralizer_le_mc : Subgroup.centralizer (quasithinOmegaOneCenter T : Set G) ≤ Mc
-  mc_unique : ∀ M : Subgroup G, quasithinIsMaxTwoLocal M →
-    Subgroup.centralizer (quasithinOmegaOneCenter T : Set G) ≤ M → M = Mc
-  two_maximal : ∃ M : Subgroup G, quasithinIsMaxTwoLocal M ∧ T ≤ M ∧ M ≠ Mc
-
-abbrev quasithinHopfRelations (X : Type) [Group X] : Subgroup (FreeGroup X) :=
-  (FreeGroup.lift (id : X → X)).ker
-
-abbrev quasithinHopfMultiplier (X : Type) [Group X] : Type :=
-  ↥(quasithinHopfRelations X ⊓ commutator (FreeGroup X)) ⧸
-    (⁅(⊤ : Subgroup (FreeGroup X)), quasithinHopfRelations X⁆).subgroupOf
-      (quasithinHopfRelations X ⊓ commutator (FreeGroup X))
-
-@[expose] def quasithinMultiplierCyclic (X : Type) [Group X] (d : ℕ) : Prop :=
-  Nonempty (quasithinHopfMultiplier X ≃* Multiplicative (ZMod d))
 
 @[expose] def quasithinAntidiag (n : ℕ) (K : Type*) [Zero K] [One K] : Matrix (Fin n) (Fin n) K :=
   Matrix.of fun i j => if i.val + j.val + 1 = n then 1 else 0
@@ -131,8 +86,6 @@ abbrev quasithinHopfMultiplier (X : Type) [Group X] : Type :=
       quasithinAntidiag n (GaloisField p (2 * k)) ∧
     Matrix.GeneralLinearGroup.det A = 1}).map Matrix.ProjGenLinGroup.mk
 
-abbrev quasithinPSp (n : ℕ) (R : Type) [CommRing R] : Type :=
-  Matrix.symplecticGroup (Fin n) R ⧸ Subgroup.center (Matrix.symplecticGroup (Fin n) R)
 
 abbrev quasithinZorn (K : Type*) : Type _ := K × (Fin 3 → K) × (Fin 3 → K) × K
 
@@ -391,7 +344,6 @@ abbrev quasithinPermSeedUnits (n : ℕ) (f g : Function.End (Fin n)) : Type :=
 00011001011101111111001110110101011110001011001111001100010000010010011001111101
 00011101000000101101000010100111101011000000000100100110011001011111111010100110"
 
-@[expose] def quasithinHSData1 : String := "
 01000000000000000000
 10000000000000000000
 00001000000000000000
@@ -413,7 +365,6 @@ abbrev quasithinPermSeedUnits (n : ℕ) (f g : Function.End (Fin n)) : Type :=
 00000100101000100010
 01101100011111001001"
 
-@[expose] def quasithinHSData2 : String := "
 00100000000000000000
 00010000000000000000
 00000100000000000000
@@ -495,7 +446,6 @@ abbrev quasithinPermSeedUnits (n : ℕ) (f g : Function.End (Fin n)) : Type :=
 0011001010001101001010110001
 0011011111110110000001101110"
 
-@[expose] def quasithinMcLData1 : String := "
 010000000000000000000
 100000000000000000000
 000100000000000000000
@@ -518,7 +468,6 @@ abbrev quasithinPermSeedUnits (n : ℕ) (f g : Function.End (Fin n)) : Type :=
 122120100010200200110
 120022111102120000201"
 
-@[expose] def quasithinMcLData2 : String := "
 001000000000000000000
 022000000000000000000
 000010000000000000000
@@ -729,17 +678,6 @@ abbrev quasithinJ3 : Type :=
   quasithinSeedUnits 2 80 (quasithinDecodeMatrix 2 80 quasithinJ3Data1)
     (quasithinDecodeMatrix 2 80 quasithinJ3Data2)
 
-abbrev quasithinHS : Type :=
-  quasithinSeedUnits 2 20 (quasithinDecodeMatrix 2 20 quasithinHSData1)
-    (quasithinDecodeMatrix 2 20 quasithinHSData2)
-
-abbrev quasithinRu : Type :=
-  quasithinSeedUnits 2 28 (quasithinDecodeMatrix 2 28 quasithinRuData1)
-    (quasithinDecodeMatrix 2 28 quasithinRuData2)
-
-abbrev quasithinMcL : Type :=
-  quasithinSeedUnits 3 21 (quasithinDecodeMatrix 3 21 quasithinMcLData1)
-    (quasithinDecodeMatrix 3 21 quasithinMcLData2)
 
 abbrev quasithinTits : Type :=
   quasithinPermSeedUnits 1755 (quasithinDecodePerm 1755 (by norm_num) quasithinTitsData1)

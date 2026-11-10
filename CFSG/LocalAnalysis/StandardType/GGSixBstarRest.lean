@@ -39,9 +39,6 @@ theorem ggSixBstarNoOffenderInput_of_rest5 (h : GGSixBstarNoOffenderRest5) :
   obtain ⟨hPSL, hPSU, hPSp, hPlus, hMinus, hF4, hE6, hE7, hE8, hTwE6⟩ := h
   exact ggSixBstarNoOffenderInput_of_remaining hPSL hPSU hPSp hPlus hMinus hF4 hE6 hE7 hE8 hTwE6
 
-theorem ggSixBstarUniqueV2Input_of_rest5 (h : GGSixBstarNoOffenderRest5) :
-    GGSixBstarUniqueV2Input :=
-  ggSixBstarUniqueV2Input_of_noOffender (ggSixBstarNoOffenderInput_of_rest5 h)
 
 end Inputs
 

@@ -66,11 +66,6 @@ theorem vs2D_rank {M a b e m f : ℕ} {Z : ℕ → Prop} (hm : 4 ≤ m) (hf : 1 
     _ = f * (2 * m) * (m - 1) := by ring
     _ = e * (b * (m - 1)) := by rw [← hw']; ring
 
-theorem vsD_two {M N m f : ℕ} {Z : ℕ → Prop} (hm : 1 ≤ m) (hf : 1 ≤ f) (h : Profile M N Z)
-    (hM : M = ordD m (2 ^ f)) : N = f * (m * (m - 1)) := by
-  have hS := profile_idxD hm hf
-  rw [← hM] at hS
-  exact (h.transfer hS).1
 
 theorem twelve_le_mul_rank {m f : ℕ} (hm : 4 ≤ m) (hf : 1 ≤ f) :
     12 ≤ f * (m * (m - 1)) ∧ (f * (m * (m - 1)) = 12 → m = 4 ∧ f = 1) := by

@@ -22,6 +22,5 @@ theorem centralizer_ne_top_of_simple [IsSimpleGroup G] (hnab : ∃ a b : G, a * 
   · obtain ⟨a, b, hab⟩ := hnab
     exact hab (mem_center_iff.1 (h0 ▸ mem_top b) a)
 
-variable [Finite G]
 
 end CFSG.EvenSporadicStandard.TwoB

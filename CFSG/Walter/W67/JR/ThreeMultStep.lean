@@ -25,8 +25,6 @@ variable {A B C : Type*} [CommGroup A] [CommGroup B] [CommGroup C]
     ext z
     simp [MonoidHom.mul_apply]
 
-theorem addPair_apply (f : A →* (B →* C)) (x : Additive A) (y : Additive B) :
-    addPair f x y = Additive.ofMul (f (Additive.toMul x) (Additive.toMul y)) := rfl
 
 end Add
 

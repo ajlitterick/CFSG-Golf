@@ -200,13 +200,6 @@ theorem exists_spinNu_ne (hF : 4 ≤ Nat.card F) : ∃ t, spinNu b c t ≠ (1 : 
   have := congrArg (fun u : Fˣ => (u : F)) h1
   simpa [QuadraticAlgebra.norm_algebraMap] using this
 
-omit [Fact (∀ r : F, r ^ 2 ≠ -c + b * r)] in
-theorem exists_spinMu_ne (hF : 3 ≤ Nat.card F) : ∃ s, spinMu b c s ≠ (1 : (ShortField b c)ˣ) := by
-  obtain ⟨s, hs⟩ := exists_unit_ne_one (K := F) hF
-  refine ⟨s, fun h => hs ?_⟩
-  have h1 : Units.map (algebraMap F (ShortField b c)).toMonoidHom s⁻¹ =
-      Units.map (algebraMap F (ShortField b c)).toMonoidHom 1 := by rw [map_one]; exact h
-  exact inv_eq_one.mp (Units.map_injective (algebraMap F (ShortField b c)).injective h1)
 
 end Short
 

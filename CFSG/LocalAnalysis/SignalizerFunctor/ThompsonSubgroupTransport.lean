@@ -17,19 +17,6 @@ theorem maximum_order_abelian_family_subgroupOf (parent target : Subgroup GroupT
     target.subgroupOf parent ∈ maximumOrderAbelianFamily parent :=
   CFSG.IsMaxCardAbelian.subgroupOf member contained
 
-omit [Finite GroupType] in
-theorem maximum_order_abelian_family_subgroup_map (parent witness : Subgroup GroupType)
-    (contained : witness ≤ parent) (witness_member : witness ∈ maximumOrderAbelianFamily GroupType)
-    (candidate : Subgroup parent) (member : candidate ∈ maximumOrderAbelianFamily parent) :
-    candidate.map parent.subtype ∈ maximumOrderAbelianFamily GroupType :=
-  CFSG.IsMaxCardAbelian.map_subtype witness_member contained member
-
-theorem maximum_abelian_order_subgroup (parent witness : Subgroup GroupType)
-    (contained : witness ≤ parent) (member : witness ∈ maximumOrderAbelianFamily GroupType) :
-    maximumAbelianOrder parent = maximumAbelianOrder GroupType := by
-  rw [maximum_abelian_order_eq_maxAbelianOrder, maximum_abelian_order_eq_maxAbelianOrder]
-  exact CFSG.maxAbelianOrder_subgroup_eq
-    (CFSG.isMaxCardAbelian_iff_mem_maxOrderAbelianFamily.mp member) contained
 
 theorem order_thompson_center_overgroup (parent witness : Subgroup GroupType)
     (contained : witness ≤ parent) (member : witness ∈ maximumOrderAbelianFamily GroupType) :

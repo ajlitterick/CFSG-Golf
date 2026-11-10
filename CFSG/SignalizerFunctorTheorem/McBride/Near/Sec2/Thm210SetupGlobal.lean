@@ -39,14 +39,6 @@ section Finite
 
 variable [Finite Γ]
 
-theorem SemisimpleAction.isDirectProduct_kProd (h : SemisimpleAction p A G) :
-    IsDirectProduct {X | ∃ J ∈ lcal G, X = kJ A J} (kProd A G) :=
-  isDirectProduct_image h.isDirectProduct_lcal (kJ A) fun J _ => kJ_le A J
-
-theorem SemisimpleAction.isDirectProduct_fProd (h : SemisimpleAction p A G) :
-    IsDirectProduct {X | ∃ J ∈ lcal G, X = CFSG.fittingSubgroupOf (kJ A J)} (fProd A G) :=
-  isDirectProduct_image h.isDirectProduct_lcal (fun J => CFSG.fittingSubgroupOf (kJ A J))
-    fun J _ => fittingSubgroupOf_kJ_le A J
 
 theorem SemisimpleAction.mem_kProd_iff (h : SemisimpleAction p A G) {x : Γ} :
     x ∈ kProd A G ↔ ∃ hx : x ∈ G, ∀ (J : Subgroup Γ) (hJ : J ∈ lcal G),
@@ -269,12 +261,6 @@ theorem SemisimpleAction.cenIn_le_normalizer_smear (h : SemisimpleAction p A G) 
     cenIn G A ≤ Subgroup.normalizer (smear J A : Set Γ) :=
   le_normalizer_of_conj_mem fun _ hd _ hy => h.conj_mem_smear hJ hd hy
 
-omit [Finite Γ] in
-theorem SemisimpleAction.isSolvable_smear (h : SemisimpleAction p A G) (hJ : J ∈ lcal G) :
-    Group.IsSolvable (smear J A) := by
-  have := h.solvable_cen
-  exact Group.isSolvable_of_isSolvable_injective
-    (Subgroup.inclusion_injective (h.smear_le_cenIn hJ))
 
 theorem SemisimpleAction.fittingSubgroupOf_smear_le (h : SemisimpleAction p A G)
     (hJ : J ∈ lcal G) :

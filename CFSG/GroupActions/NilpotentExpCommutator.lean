@@ -51,27 +51,5 @@ theorem truncExp_commutator {d : ℕ} {a b : A} (ha : a ^ d = 0) (hb : b ^ d = 0
       IsNilpotent.zero hz hu ((hbc.smul_left t).smul_right (s * t)) (Commute.zero_right _)
       (Commute.zero_right _) (Commute.zero_right _), smul_zero, IsNilpotent.exp_zero, mul_one]
 
-open MvPolynomial in
-theorem nilpotent_exponential_commutator {n d : ℕ} (A B : Matrix (Fin n) (Fin n) ℚ)
-    (hA : A ^ d = 0) (hB : B ^ d = 0) (hC : (A * B - B * A) ^ d = 0)
-    (hAC : A * (A * B - B * A) = (A * B - B * A) * A)
-    (hBC : B * (A * B - B * A) = (A * B - B * A) * B) :
-    truncExp d (A.map (C : ℚ →+* MvPolynomial (Fin 2) ℚ)) (X 0 : MvPolynomial (Fin 2) ℚ) *
-        truncExp d (B.map (C : ℚ →+* MvPolynomial (Fin 2) ℚ)) (X 1 : MvPolynomial (Fin 2) ℚ) *
-        truncExp d (A.map (C : ℚ →+* MvPolynomial (Fin 2) ℚ)) (-X 0 : MvPolynomial (Fin 2) ℚ) *
-        truncExp d (B.map (C : ℚ →+* MvPolynomial (Fin 2) ℚ)) (-X 1 : MvPolynomial (Fin 2) ℚ) =
-      truncExp d ((A * B - B * A).map (C : ℚ →+* MvPolynomial (Fin 2) ℚ))
-        (X 0 * X 1 : MvPolynomial (Fin 2) ℚ) := by
-  set φ : Matrix (Fin n) (Fin n) ℚ →+* Matrix (Fin n) (Fin n) (MvPolynomial (Fin 2) ℚ) :=
-    (C : ℚ →+* MvPolynomial (Fin 2) ℚ).mapMatrix
-  have hφ : ∀ M, M.map (C : ℚ →+* MvPolynomial (Fin 2) ℚ) = φ M := fun _ => rfl
-  have hc : φ A * φ B - φ B * φ A = φ (A * B - B * A) := by
-    rw [map_sub, map_mul, map_mul]
-  simp only [hφ]
-  rw [← hc]
-  refine truncExp_commutator (by rw [← map_pow, hA, map_zero]) (by rw [← map_pow, hB, map_zero])
-    (by rw [hc, ← map_pow, hC, map_zero]) ?_ ?_ (X 0) (X 1)
-  · rw [hc, Commute, SemiconjBy, ← map_mul, ← map_mul, hAC]
-  · rw [hc, Commute, SemiconjBy, ← map_mul, ← map_mul, hBC]
 
 end CFSG.GroupActions

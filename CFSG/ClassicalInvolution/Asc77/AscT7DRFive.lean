@@ -27,14 +27,6 @@ variable (p f : ℕ) [Fact p.Prime]
       Nat.card ↥(S : Subgroup G) = 2 * Nat.card ↥(R ⊔ R') ∨
         Nat.card ↥(S : Subgroup G) = 4 * Nat.card ↥(R ⊔ R')
 
-theorem c25_2_t_of (h : C25_2 p f) : C25_2_t p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp
-  obtain ⟨t', ht', hg, hconj, -, -⟩ := h G Ω K K' W S R R' z t u₁ u₂ hyp
-  exact ⟨t', ht', hg, hconj⟩
-
-theorem c25_17_idx_of (h : C25_17 p f) : C25_17_idx p f := by
-  intro G _ _ _ Ω K K' W S R R' z t u₁ u₂ hyp
-  exact (h G Ω K K' W S R R' z t u₁ u₂ hyp).2.2
 
 namespace T7DR
 

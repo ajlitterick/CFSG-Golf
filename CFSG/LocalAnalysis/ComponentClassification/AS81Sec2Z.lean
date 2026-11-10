@@ -247,14 +247,6 @@ theorem sec2M_le_normalizer {Q T : Subgroup G} (hT : T ≤ normalizer (Q : Set G
   have h := mul_mem (mul_mem (inv_mem n.2) (hT hx)) n.2
   simpa [mul_assoc] using h
 
-omit [Finite G] in
-theorem sec2M_le_of_normal {Q T X : Subgroup G} (hX : X.Normal) (hT : T ≤ X) :
-    sec2M Q T ≤ X := by
-  refine iSup_le fun n => ?_
-  intro x hx
-  rw [mem_rightConjugate_iff] at hx
-  have h := hX.conj_mem _ (hT hx) (n : G)⁻¹
-  simpa [mul_assoc] using h
 
 theorem card_eq_card_inf_ker_mul_card_map' {H K : Type*} [Group H] [Group K] [Finite H]
     (φ : H →* K) (W : Subgroup H) :

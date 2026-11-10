@@ -108,7 +108,6 @@ theorem MoU_sq : ∀ x ∈ Mo ⊔ U, x * x = 1 := by
     _ = (m * m) * (u * u) := by group
     _ = 1 := by rw [F.Mo_sq m hm, F.U_sq u hu, one_mul]
 
-theorem MoU_comm : ∀ a ∈ Mo ⊔ U, ∀ b ∈ Mo ⊔ U, a * b = b * a := comm_of_sq_eq_one (MoU_sq F)
 
 theorem MoU_central : ∀ w ∈ Mo ⊔ U, ∀ x ∈ T, w * x = x * w := by
   intro w hw x hx
@@ -283,24 +282,6 @@ theorem K_comm_U : ∀ k ∈ K, ∀ u ∈ U, k * u = u * k := fun k hk u hu =>
 theorem K_norm_Mo : ∀ k ∈ K, ∀ m ∈ Mo, k * m * k⁻¹ ∈ Mo := fun k hk m hm =>
   F.Mo_normal k (K_le_M F hk) m hm
 
-theorem K_le_NT : K ≤ normalizer (T : Set X) := by
-  intro k hk
-  rw [mem_normalizer_iff]
-  intro x
-  have key : ∀ k ∈ K, ∀ x ∈ T, k * x * k⁻¹ ∈ T := by
-    intro k hk x hx
-    obtain ⟨p, hp, u, hu, rfl⟩ := (mem_T_iff F).mp hx
-    have hkP := F.D_norm_P (K_le_D F hk)
-    have h1 : k * p * k⁻¹ ∈ P := (mem_normalizer_iff.mp hkP p).mp hp
-    have h2 : k * u * k⁻¹ = u := by rw [K_comm_U F k hk u hu, mul_inv_cancel_right]
-    have e : k * (p * u) * k⁻¹ = (k * p * k⁻¹) * (k * u * k⁻¹) := by group
-    rw [e, h2]
-    exact mul_mem (P_le_T F h1) (U_le_T F hu)
-  constructor
-  · exact key k hk x
-  · intro hx
-    have := key k⁻¹ (inv_mem hk) _ hx
-    simpa [mul_assoc] using this
 
 theorem cent_MoU_le {g : X} (hg : ∀ w ∈ Mo ⊔ U, g * w = w * g) : g ∈ T := by
   obtain ⟨u, hu, hu1⟩ : ∃ u ∈ U, u ≠ 1 := by

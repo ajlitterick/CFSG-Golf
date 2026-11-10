@@ -282,11 +282,6 @@ theorem e7TwoNative_of_interfaces (h1 : E7TwoSylow) (h2 : E7TwoA1D6) : E7TwoNati
     (fun E hE hEp hEc => h2 K p hp11 hpq E hE hEp hEc) E₀ hE₀p hE₀c
     (h1 K p hp11 hpq E₀ hE₀p hE₀c)
 
-@[expose] def E7TwoSylowLow : Prop :=
-  ∀ (K : Type) [Field K] [Finite K] (p : ℕ) [Fact p.Prime], 5 ≤ p → p < 11 → p ∣ Nat.card K + 1 →
-    ∀ E₀ : Subgroup (adjointGroup .E7 K), (∀ x ∈ E₀, x ^ p = 1) → Nat.card E₀ = p ^ 2 →
-      ¬ NormalizesRGroup (ringChar K) E₀ →
-        ∃ g : adjointGroup .E7 K, E₀.map (MulAut.conj g).toMonoidHom ≤ e7FrameGroup K
 
 end Frame
 
@@ -540,15 +535,6 @@ theorem e7TwoA1D6 : E7TwoA1D6 := by
 
 theorem e7TwoNative : E7TwoNative := e7TwoNative_of_interfaces e7TwoSylow e7TwoA1D6
 
-theorem e7TwoNativeLow_of_sylow (h1 : E7TwoSylowLow) :
-    ∀ (K : Type) [Field K] [Finite K] (p : ℕ) [Fact p.Prime], 5 ≤ p → p < 11 → p ∣ Nat.card K + 1 →
-      ∀ E₀ : Subgroup (adjointGroup .E7 K), (∀ x ∈ E₀, x ^ p = 1) → Nat.card E₀ = p ^ 2 →
-        ¬ NormalizesRGroup (ringChar K) E₀ →
-          Subgroup.closure {k | ∃ x ∈ E₀, x ≠ 1 ∧ Commute k x} = ⊤ := by
-  intro K _ _ p hpF hp5 hlt hpq E₀ hE₀p hE₀c hN
-  exact closure_centralizers_eq_top_of_conj_frame
-    (fun E hE hEp hEc => e7A1D6_le_closure_centralizers_two hpF.out hp5 hpq E hE hEp hEc)
-    E₀ hE₀p hE₀c (h1 K p hp5 hlt hpq E₀ hE₀p hE₀c hN)
 
 end Native
 
@@ -600,11 +586,6 @@ theorem seitzExcHighE7Two_of_ge_eleven_of_lt
   SeitzExcHighForAt.union (fun d p _ _ hQ => (Nat.lt_or_ge p 11).elim (fun h' => Or.inr ⟨h', hQ⟩)
     (fun h' => Or.inl ⟨h', hQ⟩)) seitzExcHighE7Two_of_ge_eleven h
 
-theorem seitzExcHighE7TwoLtEleven_of_sylow (h : E7TwoSylowLow) : SeitzExcHighE7TwoLtEleven :=
-  seitzExcHighE7Two_of_native_for (R := fun p => p < 11) (e7TwoNativeLow_of_sylow h)
-
-theorem seitzExcHighE7Two_of_sylow_low (h : E7TwoSylowLow) : SeitzExcHighE7Two :=
-  seitzExcHighE7Two_of_ge_eleven_of_lt (seitzExcHighE7TwoLtEleven_of_sylow h)
 
 end Glue
 

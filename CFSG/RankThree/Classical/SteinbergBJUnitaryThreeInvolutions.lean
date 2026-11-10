@@ -357,26 +357,5 @@ theorem unitary_three_five_model (B : Type) [Group B] (hB : StatedClassicalModel
     have hxy := MonoidHom.map_isConj φ.symm.toMonoidHom (hx'.trans hy'.symm)
     simpa using hxy
 
-theorem odd_unitary_three_projective_involutions_single_class (h : UnitaryFieldData p f K)
-    (hp : p ≠ 2) :
-    unitaryScalars h 3 = (StatedScalars (Fin 3) K).subgroupOf (unitarySU p f K 3) ∧
-    orderOf (unitaryProj h 3 (unitaryInvT h)) = 2 ∧
-    (∀ s : unitaryPSU h 3, orderOf s = 2 → IsConj s (unitaryProj h 3 (unitaryInvT h))) ∧
-    (∀ s : unitaryPSU h 3, orderOf s = 2 →
-      ∃! g : unitarySU p f K 3, unitaryProj h 3 g = s ∧ orderOf g = 2) ∧
-    (∀ g : unitarySU p f K 3, orderOf g = 2 → IsConj g (unitaryInvT h)) ∧
-    Nat.card (unitaryScalars h 3) = Nat.gcd 3 (p ^ f + 1) ∧
-    Odd (Nat.card (unitaryScalars h 3)) ∧
-    ∀ (B : Type) [Group B], StatedClassicalModel B .PSU 3 5 1 →
-      Nat.card B = 126000 ∧ Group.IsPerfect B ∧ (∃ x : B, orderOf x = 2) ∧
-        ∀ x y : B, orderOf x = 2 → orderOf y = 2 → IsConj x y := by
-  have hZ := card_unitaryScalars h (n := 3) (by norm_num)
-  refine ⟨unitaryScalars_eq h (by norm_num), orderOf_unitaryProj_unitaryInvT h hp,
-    fun s hs => isConj_unitaryProj_unitaryInvT h hp hs,
-    fun s hs => existsUnique_unitaryProj_lift h hs,
-    fun g hg => (isConj_unitaryInvT_of_orderOf h hp hg).symm, hZ, ?_,
-    fun B _ hB => unitary_three_five_model B hB⟩
-  rw [hZ]
-  exact Odd.of_dvd_nat (by decide) (Nat.gcd_dvd_left 3 _)
 
 end CFSG.RankThree.Classical

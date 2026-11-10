@@ -87,7 +87,5 @@ theorem spThreeGraphRowsInput_of_inputs (hLE : SpThreeLinearEvenRecognitionInput
 
 end Rows
 
-open CFSG.ComponentClassification.CatLeaf (GLS3OddLieAutComponentsInput MonsterInnerInput
-  MonsterLocalComponentsInput)
 
 end CFSG.SeitzReduction.SymplecticPilot

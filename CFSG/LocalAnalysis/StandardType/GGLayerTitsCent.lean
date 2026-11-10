@@ -48,8 +48,6 @@ theorem ggTitsThreeCentInput_holds :
 
 section Wiring
 
-theorem ggLayerDerivedFixSolvableInput_holds : GGLayerDerivedFixSolvableInput :=
-  ggLayerDerivedFixSolvableInput_of_tits ggTitsThreeCentInput_holds
 
 theorem ggLayerCenterCyclicInput_of_exc
     (hexc : GGLayerCenterCyclicExcInput) : GGLayerCenterCyclicInput :=

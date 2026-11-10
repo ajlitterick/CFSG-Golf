@@ -471,14 +471,6 @@ theorem eq_one_of_two_group_centralizes (hn : 5 ≤ n) {a b : Fin n} (hab : a �
       Nat.Coprime.pow_left _ (Nat.coprime_two_left.2 odd_natCard_add_one)
     exact hx1 (orderOf_eq_one_iff.1 (Nat.eq_one_of_dvd_coprimes hcop hd1 hd2))
 
-theorem eq_one_of_isPGroup_centralizes (hn : 5 ≤ n) {a b : Fin n} (hab : a ≠ b)
-    {X : Subgroup (LinearFlag.projectiveSL n K)} (hX : X ≤ rootSL2 a b)
-    (hXc : Nat.card X = Nat.card K + 1) {β : MulAut (LinearFlag.projectiveSL n K)}
-    (hβ2 : IsPGroup 2 (Subgroup.zpowers β)) (hβX : ∀ x ∈ X, β x = x)
-    (hβD : ∀ d ∈ blockSL (({a, b} : Finset (Fin n))ᶜ), β d = d) : β = 1 := by
-  obtain ⟨k, hk⟩ := hβ2 ⟨β, Subgroup.mem_zpowers β⟩
-  exact eq_one_of_two_group_centralizes hn hab hX hXc hβX hβD (k := k)
-    (congrArg Subtype.val hk)
 
 theorem eq_one_of_two_group_fix_levi (hn : 4 ≤ n) (a : Fin n)
     {β : MulAut (LinearFlag.projectiveSL n K)}
@@ -643,33 +635,6 @@ theorem eq_one_of_fix_map_levi (e : L ≃* LinearFlag.projectiveSL n K) (hn : 4 
   have := congrArg (MulAut.congr e).symm key
   rwa [MulEquiv.symm_apply_apply, map_one] at this
 
-theorem card_le_two_of_torusQ1 [Finite G] {t : G}
-    (hCtN : Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (L : Set G))
-    (hK : Subgroup.centralizer (L : Set G) ⊓ Subgroup.centralizer ({t} : Set G) =
-      Subgroup.zpowers t) (ht : orderOf t = 2) (e : L ≃* LinearFlag.projectiveSL n K)
-    (hn : 5 ≤ n) {a b : Fin n} (hab : a ≠ b) {X D : Subgroup G}
-    (hX : (X.subgroupOf L).map e.toMonoidHom ≤ rootSL2 a b)
-    (hXc : Nat.card ((X.subgroupOf L).map e.toMonoidHom) = Nat.card K + 1)
-    (hDe : D = ((blockSL (({a, b} : Finset (Fin n))ᶜ)).map e.symm.toMonoidHom).map L.subtype)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ Subgroup.centralizer (X : Set G) ⊓ Subgroup.centralizer ({t} : Set G) ⊓
-      Subgroup.centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  CFSG.SeitzReduction.F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hK ht
-    (eq_one_of_fix_map_torusQ1 e hn hab hX hXc hDe) hU hUC
-
-theorem card_le_two_of_levi [Finite G] {t : G}
-    (hCtN : Subgroup.centralizer ({t} : Set G) ≤ Subgroup.normalizer (L : Set G))
-    (hK : Subgroup.centralizer (L : Set G) ⊓ Subgroup.centralizer ({t} : Set G) =
-      Subgroup.zpowers t) (ht : orderOf t = 2) (e : L ≃* LinearFlag.projectiveSL n K)
-    (hn : 4 ≤ n) (a : Fin n) {X D : Subgroup G}
-    (hDe : D = ((blockSL (({a} : Finset (Fin n))ᶜ)).map e.symm.toMonoidHom).map L.subtype)
-    {U : Subgroup G} (hU : IsPGroup 2 U)
-    (hUC : U ≤ Subgroup.centralizer (X : Set G) ⊓ Subgroup.centralizer ({t} : Set G) ⊓
-      Subgroup.centralizer (D : Set G)) :
-    Nat.card U ≤ 2 :=
-  CFSG.SeitzReduction.F4Pilot.card_le_two_of_forall_fix_eq_one hCtN hK ht
-    (eq_one_of_fix_map_levi e hn a hDe) hU hUC
 
 end Transport
 

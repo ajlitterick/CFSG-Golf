@@ -58,29 +58,5 @@ theorem gLAPPrimeCoreOf_eq_bot_of_isQuasisimple [Finite S] (hp : p.Prime) {C L :
   ∃ Q : Subgroup S, Q ≤ C ∧ (∀ g ∈ C, ∀ q ∈ Q, g * q * g⁻¹ ∈ Q) ∧ IsPGroup p Q ∧
     C ⊓ Subgroup.centralizer (Q : Set S) ≤ Q
 
-@[expose] def ComponentShape (p : ℕ) (C : Subgroup S) : Prop :=
-  ∃ L : Subgroup S, L ≤ C ∧ (∀ g ∈ C, ∀ l ∈ L, g * l * g⁻¹ ∈ L) ∧ CFSG.Open.IsQuasisimple ↥L ∧
-    p ∣ Nat.card L ∧ IsPGroup p ↥(C ⊓ Subgroup.centralizer (L : Set S))
-
-theorem gLAPPrimeCoreOf_eq_bot_of_pConstrainedShape [Finite S] (hp : p.Prime) {C : Subgroup S}
-    (h : PConstrainedShape p C) : GLAPPrimeCoreOf p C = ⊥ := by
-  obtain ⟨Q, hQC, hQn, hQp, hcQ⟩ := h
-  exact gLAPPrimeCoreOf_eq_bot_of_pConstrained hp hQC hQn hQp hcQ
-
-theorem gLAPPrimeCoreOf_eq_bot_of_componentShape [Finite S] (hp : p.Prime) {C : Subgroup S}
-    (h : ComponentShape p C) : GLAPPrimeCoreOf p C = ⊥ := by
-  obtain ⟨L, hLC, hLn, hL, hpL, hCL⟩ := h
-  exact gLAPPrimeCoreOf_eq_bot_of_isQuasisimple hp hLC hLn hL hpL hCL
-
-@[expose] def CentralizerShapes (p : ℕ) (S : Type*) [Group S] : Prop :=
-  ∀ s : S, orderOf s = p → PConstrainedShape p (Subgroup.centralizer ({s} : Set S)) ∨
-    ComponentShape p (Subgroup.centralizer ({s} : Set S))
-
-theorem oPrimeCoreTrivialAt_of_centralizerShapes [Finite S] (hp : p.Prime)
-    (h : CentralizerShapes p S) : OPrimeCoreTrivialAt p S := by
-  intro s hs
-  rcases h s hs with h1 | h1
-  · exact gLAPPrimeCoreOf_eq_bot_of_pConstrainedShape hp h1
-  · exact gLAPPrimeCoreOf_eq_bot_of_componentShape hp h1
 
 end CFSG.HardMathSupport.Timmesfeld.SporadicBalance

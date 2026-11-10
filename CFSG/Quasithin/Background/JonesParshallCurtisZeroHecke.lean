@@ -199,7 +199,6 @@ variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V] (ρ : Representation (
 @[expose] def evT (l : List (Fin 4)) : V →ₗ[ZMod 2] V :=
   l.foldr (fun s f => Th ρ s ∘ₗ f) LinearMap.id
 
-theorem evT_nil (x : V) : evT ρ [] x = x := rfl
 
 theorem evT_cons (s : Fin 4) (l : List (Fin 4)) (x : V) :
     evT ρ (s :: l) x = Th ρ s (evT ρ l x) := rfl

@@ -64,8 +64,6 @@ theorem gR_injective
     apply inv_eq_of_mul_eq_one_right
     rw [gR_mul (uList_lt p hp).2 (uList_lt q hq).2, hpq, gR_zero]
 
-theorem mem_Usub
-    {x : RfN} : x ∈ Usub ↔ ∃ p ∈ uList, x = gR p := Iff.rfl
 
 theorem gR_nElt_sq
     : gR nElt * gR nElt = 1 := by

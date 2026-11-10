@@ -44,44 +44,5 @@ structure HessCtx {G : Type} [Group G] [Finite G] (p : ℕ) (A : Subgroup G) (c 
           ((Subgroup.zpowers x ⊔ Subgroup.zpowers z : Subgroup G) : Set G))).factorization 3 ≤
           (Nat.card L).factorization 3
 
-@[expose] noncomputable def semilinMat {K : Type} [Field K] (g : GL (Fin 3) K) (σ : K ≃+* K)
-    (e : Bool) (x : Matrix (Fin 3) (Fin 3) K) : Matrix (Fin 3) (Fin 3) K :=
-  (g : Matrix (Fin 3) (Fin 3) K) * ((if e then Matrix.transpose x⁻¹ else x).map σ) *
-    ((g⁻¹ : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K)
-
-@[expose] def KFOut3 : Prop :=
-  ∀ (f : ℕ), 3 ≤ f → ∀ (K : Type) [Field K] [Finite K], Nat.card K = 2 ^ f →
-    ∀ p : ℕ, p.Prime → 5 ≤ p → p ∣ 2 ^ f - 1 →
-    ∀ φ : StatedProj (StatedSL 3 K) ≃* StatedProj (StatedSL 3 K),
-      (∀ x : ↥(StatedSL 3 K), (x : GL (Fin 3) K) ∈ torusSU p 3 K →
-        ∃ y : ↥(StatedSL 3 K), (y : GL (Fin 3) K) ∈ torusSU p 3 K ∧
-          φ (QuotientGroup.mk x) = QuotientGroup.mk y) →
-      ∃ (g : GL (Fin 3) K) (σ : K ≃+* K) (e : Bool), ∀ x : ↥(StatedSL 3 K),
-        ∃ y : ↥(StatedSL 3 K),
-          ((y : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-            semilinMat g σ e ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) ∧
-          φ (QuotientGroup.mk x) = QuotientGroup.mk y
-
-@[expose] def KF64W : Prop :=
-  ∀ (H : Type) [Group H] [Finite H], CFSG.IsKGroup H → CFSG.Assembly.evenRank H ≤ 3 →
-    Group.IsPerfect H → ∀ p : ℕ, p.Prime → 7 ≤ p →
-    CFSG.IsQuasisimple (H ⧸ aschbacherSolvableCore p H) →
-    CFSG.Blueprint.EvenLieType
-      ((H ⧸ aschbacherSolvableCore p H) ⧸ Subgroup.center (H ⧸ aschbacherSolvableCore p H)) →
-    ∀ E : Subgroup H, CFSG.IsElementaryAbelian p E → Nat.card E = p ^ 3 →
-      (∃ S : Subgroup H, S ≠ ⊥ ∧ IsPGroup 2 S ∧ E ≤ Subgroup.normalizer (S : Set H)) →
-      (Nat.card (torusWeyl E)).factorization 3 ≤ 1
-
-@[expose] def Item613 : Prop :=
-  SchreierFor InCatalog →
-  ∀ (H : Type) [Group H] [Finite H], CFSG.IsKGroup H → CFSG.Assembly.evenRank H ≤ 3 →
-    ∀ p : ℕ, p.Prime → 7 ≤ p →
-    ∀ L ∈ thetaComponents p H, ∀ E : Subgroup H, CFSG.IsElementaryAbelian p E →
-      p ^ 2 ≤ Nat.card E → E ≤ L →
-      (∃ S : Subgroup H, S ≠ ⊥ ∧ IsPGroup 2 S ∧ S ≤ L ∧
-        ¬ S.subgroupOf L ≤ aschbacherSolvableCore p ↥L ∧
-        E ≤ Subgroup.normalizer (S : Set H) ∧ ⁅S, E⁆ = S) →
-      CFSG.Blueprint.EvenLieType
-        ((L ⧸ aschbacherSolvableCore p L) ⧸ Subgroup.center (L ⧸ aschbacherSolvableCore p L))
 
 end CFSG.RankThree.PartOne.N143

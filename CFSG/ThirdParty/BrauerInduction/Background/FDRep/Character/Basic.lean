@@ -130,12 +130,6 @@ lemma char_res_apply
     (FDRep.res ρ I).character y = ρ.character (y : G) := by
   rfl
 
-/-- Function-level form of `FDRep.char_res_apply`. -/
-lemma char_res
-    (ρ : FDRep k G) (I : Subgroup G) :
-    (FDRep.res ρ I).character = ρ.character ∘ Subtype.val := by
-  ext y
-  simp
 
 end Constructions.Group
 
@@ -223,7 +217,6 @@ lemma char_biproduct {ι : Type} [Fintype ι] (f : ι → FDRep k G) :
     rw [Fintype.sum_option]
     rw [hα (g ∘ Option.some)]
     rfl
-
 
 
 end Biproducts

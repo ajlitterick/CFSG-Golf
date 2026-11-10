@@ -11,7 +11,6 @@ namespace CFSG.ComponentClassification.RankTwoAlt
 
 open Equiv Equiv.Perm Subgroup CFSG.Quasithin.SteinbergCB CFSG.LocalAnalysis.ComponentInitial
 
-theorem fourEmb6_apply (i : Fin 4) : fourEmb (by decide : 4 ≤ 6) i = ⟨i, by omega⟩ := Fin.ext rfl
 
 theorem viaEmbeddingHom_kOf_six : ∀ i : Fin 4,
     (viaEmbeddingHom (fourEmb (by decide : 4 ≤ 6)) (kOf i) : Perm (Fin 6)) =

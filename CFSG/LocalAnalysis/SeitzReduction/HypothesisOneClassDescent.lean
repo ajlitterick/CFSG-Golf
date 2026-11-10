@@ -72,35 +72,6 @@ theorem classDescent_parabolicPosRoots_closed {τ : Tag} (J : Set (Fin τ.rank))
   · rw [height_nsmul_add_nsmul]
     nlinarith [hα.2.2, hβ.2.2]
 
-theorem classDescent_wordProd_mem_closure {τ : Tag} {J : Set (Fin τ.rank)}
-    {ω : List (Fin τ.rank)} (hω : ∀ j ∈ ω, j ∈ J) :
-    (coxeterSystem τ).wordProd ω ∈ Subgroup.closure ((simple τ) '' J) := by
-  induction ω with
-  | nil => rw [CoxeterSystem.wordProd_nil]; exact one_mem _
-  | cons j ω ih =>
-    rw [CoxeterSystem.wordProd_cons]
-    exact mul_mem (Subgroup.subset_closure ⟨j, hω j List.mem_cons_self, rfl⟩)
-      (ih fun j' hj' => hω j' (List.mem_cons_of_mem _ hj'))
-
-theorem classDescent_prod_weylElt_eq_mul_canonicalRep
-    {τ : Tag} (ω : List (Fin τ.rank)) :
-    ∃ k ∈ torusGroup τ K, (ω.map fun j => weylElt τ K j 1).prod =
-      k * canonicalRep (coxeterSystem τ) K ((coxeterSystem τ).wordProd ω) := by
-  induction ω with
-  | nil =>
-    exact ⟨1, one_mem _, by
-      rw [List.map_nil, List.prod_nil, CoxeterSystem.wordProd_nil, canonicalRep_one, one_mul]⟩
-  | cons j ω ih =>
-    obtain ⟨k, hk, he⟩ := ih
-    obtain ⟨k', hk', he'⟩ := canonicalRep_mul_mem (R := K) ((coxeterSystem τ).simple j)
-      ((coxeterSystem τ).wordProd ω)
-    have hconj : weylElt τ K j 1 * k * (weylElt τ K j 1)⁻¹ ∈ torusGroup τ K :=
-      (Subgroup.mem_normalizer_iff.1 (weylElt_mem_normalizer_torus τ K j 1) k).1 hk
-    refine ⟨weylElt τ K j 1 * k * (weylElt τ K j 1)⁻¹ * k', mul_mem hconj hk', ?_⟩
-    rw [List.map_cons, List.prod_cons, he, (coxeterSystem τ).wordProd_cons, mul_assoc _ k',
-      ← he', canonicalRep_simple]
-    group
-
 
 theorem classDescent_coeff_eq_zero_of_mem_rootSpan {τ : Tag} {T : Set (Fin τ.rank → ℤ)}
     (hT : ∀ β ∈ T, IsRoot τ β ∧ 0 < height β)
@@ -355,42 +326,6 @@ theorem exists_prod_weylElt_conj_not_mem_simpleRadical {τ : Tag} (J : Set (Fin 
     exact classDescent_list_prod_not_mem_rootSpan_ne_single hnd' (fun β hβ => (hL' β hβ).1.2) hi
       (hL' _ hi).2
 
-theorem exists_canonicalRep_conj_not_mem_rootSpan_ne_single {τ : Tag} (J : Set (Fin τ.rank))
-    {t : ModGL τ K} (ht : t ∈ rootSpan τ K (parabolicPosRoots τ J)) (ht1 : t ≠ 1) :
-    ∃ w ∈ Subgroup.closure ((simple τ) '' J), ∃ i ∈ J,
-      canonicalRep (coxeterSystem τ) K w * t * (canonicalRep (coxeterSystem τ) K w)⁻¹ ∈
-        rootSpan τ K (parabolicPosRoots τ J) ∧
-      canonicalRep (coxeterSystem τ) K w * t * (canonicalRep (coxeterSystem τ) K w)⁻¹ ∉
-        rootSpan τ K {α | IsRoot τ α ∧ 0 < height α ∧ α ≠ Pi.single i 1} := by
-  obtain ⟨ω, hωJ, i, hiJ, hmem, hnot⟩ := exists_prod_weylElt_conj_not_mem_simpleRadical J ht ht1
-  obtain ⟨k, hk, he⟩ := classDescent_prod_weylElt_eq_mul_canonicalRep (K := K) ω
-  set P := (ω.map fun j => weylElt τ K j 1).prod with hP
-  set n := canonicalRep (coxeterSystem τ) K ((coxeterSystem τ).wordProd ω) with hn
-  have hconj : n * t * n⁻¹ = k⁻¹ * (P * t * P⁻¹) * k := by rw [he]; group
-  have hT1 := torusGroup_le_normalizer_rootSpan (K := K) (S := parabolicPosRoots τ J)
-    fun α hα => hα.2.1
-  have hT2 := torusGroup_le_normalizer_rootSpan (K := K)
-    (S := {α | IsRoot τ α ∧ 0 < height α ∧ α ≠ Pi.single i 1}) fun α hα => hα.1
-  refine ⟨(coxeterSystem τ).wordProd ω, classDescent_wordProd_mem_closure hωJ, i, hiJ, ?_, ?_⟩
-  · rw [hconj]
-    simpa using (Subgroup.mem_normalizer_iff.1 (hT1 (inv_mem hk)) _).1 hmem
-  · rw [hconj]
-    intro hcon
-    refine hnot ?_
-    have h := (Subgroup.mem_normalizer_iff.1 (hT2 hk) _).1 hcon
-    simpa [mul_assoc] using h
-
-theorem exists_canonicalRep_conj_not_mem_simpleRadical {τ : Tag} (J : Set (Fin τ.rank))
-    {t : ModGL τ K} (ht : t ∈ rootSpan τ K (parabolicPosRoots τ J)) (ht1 : t ≠ 1) :
-    ∃ w ∈ Subgroup.closure ((simple τ) '' J), ∃ i ∈ J,
-      canonicalRep (coxeterSystem τ) K w * t * (canonicalRep (coxeterSystem τ) K w)⁻¹ ∈
-        rootSpan τ K (parabolicPosRoots τ J) ∧
-      canonicalRep (coxeterSystem τ) K w * t * (canonicalRep (coxeterSystem τ) K w)⁻¹ ∉
-        rootSpan τ K (parabolicPosRoots τ J \ {Pi.single i 1}) := by
-  obtain ⟨w, hw, i, hiJ, hmem, hnot⟩ := exists_canonicalRep_conj_not_mem_rootSpan_ne_single J ht ht1
-  refine ⟨w, hw, i, hiJ, hmem, fun h => hnot (classDescent_rootSpan_mono ?_ h)⟩
-  rintro α ⟨hα, hαi⟩
-  exact ⟨hα.2.1, hα.2.2, hαi⟩
 
 theorem classDescent_exists_pinnedX_mul {τ : Tag} {J : Set (Fin τ.rank)} {i : Fin τ.rank}
     (hi : i ∈ J) {x : ModGL τ K} (hx : x ∈ rootSpan τ K (parabolicPosRoots τ J)) :
@@ -420,17 +355,6 @@ theorem classDescent_exists_pinnedX_mul {τ : Tag} {J : Set (Fin τ.rank)} {i : 
   · rw [← hd]
     simp only [List.ofFn_succ, List.prod_cons, hβ, Fin.cons_zero, Fin.cons_succ]
 
-theorem exists_canonicalRep_conj_eq_pinnedX_simple_mul {τ : Tag} (J : Set (Fin τ.rank))
-    {t : ModGL τ K} (ht : t ∈ rootSpan τ K (parabolicPosRoots τ J)) (ht1 : t ≠ 1) :
-    ∃ w ∈ Subgroup.closure ((simple τ) '' J), ∃ i ∈ J, ∃ c : K, c ≠ 0 ∧
-      ∃ u ∈ rootSpan τ K (parabolicPosRoots τ J \ {Pi.single i 1}),
-        canonicalRep (coxeterSystem τ) K w * t * (canonicalRep (coxeterSystem τ) K w)⁻¹ =
-          pinnedX τ K (Pi.single i 1) c * u := by
-  obtain ⟨w, hw, i, hiJ, hmem, hnot⟩ := exists_canonicalRep_conj_not_mem_simpleRadical J ht ht1
-  obtain ⟨c, u, hu, he⟩ := classDescent_exists_pinnedX_mul hiJ hmem
-  refine ⟨w, hw, i, hiJ, c, fun hc => hnot ?_, u, hu, he⟩
-  rw [he, hc, pinnedX_zero, one_mul]
-  exact hu
 
 theorem exists_prod_weylElt_conj_eq_pinnedX_simple_mul {τ : Tag} (J : Set (Fin τ.rank))
     {t : ModGL τ K} (ht : t ∈ rootSpan τ K (parabolicPosRoots τ J)) (ht1 : t ≠ 1) :
@@ -446,13 +370,5 @@ theorem exists_prod_weylElt_conj_eq_pinnedX_simple_mul {τ : Tag} (J : Set (Fin 
   rintro α ⟨hα, hαi⟩
   exact ⟨hα.2.1, hα.2.2, hαi⟩
 
-theorem exists_mem_parabolicLevi_conj_eq_pinnedX_simple_mul {τ : Tag} (J : Set (Fin τ.rank))
-    {t : ModGL τ K} (ht : t ∈ rootSpan τ K (parabolicPosRoots τ J)) (ht1 : t ≠ 1) :
-    ∃ g ∈ parabolicLevi τ K J, ∃ i ∈ J, ∃ c : K, c ≠ 0 ∧
-      ∃ u ∈ rootSpan τ K (parabolicPosRoots τ J \ {Pi.single i 1}),
-        g * t * g⁻¹ = pinnedX τ K (Pi.single i 1) c * u := by
-  obtain ⟨w, hw, i, hiJ, c, hc, u, hu, he⟩ :=
-    exists_canonicalRep_conj_eq_pinnedX_simple_mul J ht ht1
-  exact ⟨_, canonicalRep_mem_parabolicLevi hw, i, hiJ, c, hc, u, hu, he⟩
 
 end CFSG.SeitzReduction

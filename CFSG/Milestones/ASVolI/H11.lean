@@ -80,12 +80,6 @@ namespace CFSG.ASVolI.ChH
 
 open CFSG.Quasithin CFSG.Open
 
-@[expose] noncomputable def m12Model : FFModel where
-  Gam := ↥CFSG.Blueprint.NativeSporadic.M12
-  Amb := G6.PermMod 12
-  act g x := G6.permAct 12 (g : Equiv.Perm (Fin 12)) x
-  sec := G6.coreMod 12
-  ker := Subgroup.zpowers (G6.allOnes 12)
 
 end CFSG.ASVolI.ChH
 
@@ -93,57 +87,12 @@ namespace CFSG.ASVolI
 
 open CFSG.Quasithin CFSG.ASVolI.ChH
 
-@[expose] def H_11_1 : Prop :=
-  ∀ (V : Type) [CommGroup V] [Finite V] [Finite (MulAut V)], (∀ v : V, v ^ 2 = 1) →
-  ∀ M : Subgroup (MulAut V), m12Model.Realizes (perfectCore M) ⊤ ⊥ →
-    ((M ≠ perfectCore M → CFSG.Open.pRank 2 M = 4) ∧ (M = perfectCore M → CFSG.Open.pRank 2 M = 3)) ∧
-    E3.mParam M = 4 ∧
-    ¬ H.IsFOneModule M ∧
-    (∀ A : Subgroup (MulAut V), A ≤ M → IsElemAbelian2 A → Nat.card A = 16 →
-      Nonempty (↥M ≃* MulAut ↥CFSG.Blueprint.NativeSporadic.M12) ∧ rk ↥(fixV A) ≤ 3 ∧
-        8 ≤ rk ↥(xiSub A)) ∧
-    (∀ A : Subgroup (MulAut V), A ≤ M → ¬ IsCyclic ↥A → IsQuadratic A →
-      (∀ a ∈ A, a ≠ 1 → IsTwoCentralElt M a) ∨ (rk ↥A = 2 ∧ 4 < rkIdx (fixV A)))
 
 section H11Proof
 
 open CFSG.Quasithin.H CFSG.Quasithin.H.Mathieu CFSG.Quasithin.H13.A5.M12
   CFSG.Quasithin.AppendixH.H11
 
-
-theorem as_H_11_1 : H_11_1 := by
-  intro V _ _ _ hV M hR
-  have hR' : m12NativeModel.Realizes (perfectCore M) ⊤ ⊥ := hR
-  obtain ⟨c⟩ := nonempty_nativeCoords_of_realizes hR'
-  obtain ⟨e, he⟩ := exists_std_of_nativeCoords c
-  have h : M12Ten (perfectCore M) ⊤ ⊥ := m12Ten_of_std he
-  have hLM : IsOver (perfectCore M) M :=
-    ⟨perfectCore_le M, Subgroup.le_normalizer.trans (normalizer_le_normalizer_perfectCore M)⟩
-  have hC : Subgroup.centralizer ((perfectCore M : Subgroup (MulAut V)) : Set (MulAut V)) = ⊥ :=
-    centralizer_eq_bot_of_std he
-  have hne_of : ∀ A : Subgroup (MulAut V), A ≤ M → IsElemAbelian2 A → Nat.card A = 16 →
-      M ≠ perfectCore M := by
-    intro A hAM hAe hcard hML
-    have hAL : A ≤ perfectCore M := hML ▸ hAM
-    have h8 := card_le_eight_of_le_of_isElemAbelian2 c hAL hAe
-    omega
-  refine ⟨⟨fun hne => pRank_eq_four_of_ne hLM hC c.mulEquiv.symm h hne, fun heq => ?_⟩,
-    mParam_eq_four c hV hLM hC, m12_not_isFOneModule hLM h, ?_, ?_⟩
-  · rw [heq]
-    exact pRank_eq_three c
-  · intro A hAM hAe hcard
-    obtain ⟨hfix, hxi⟩ := m12_E16 hLM h hAM hAe hcard
-    refine ⟨nonempty_mulEquiv_mulAut_of_ne hLM hC c.mulEquiv.symm (hne_of A hAM hAe hcard),
-      ?_, ?_⟩
-    · have hpow := card_eq_two_pow_rk hV (fixV A)
-      rw [hpow] at hfix
-      exact (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp hfix
-    · have hpow := card_eq_two_pow_rk hV (xiSub A)
-      have hxi' : 2 ^ 8 ≤ Nat.card ↥(xiSub A) := hxi
-      rw [hpow] at hxi'
-      exact (Nat.pow_le_pow_iff_right (by norm_num : 1 < 2)).mp hxi'
-  · intro A hAM hnc hq
-    exact Or.inr (rk_eq_two_and_four_lt_rkIdx_of_isQuadratic c hV hLM hC h hAM hnc hq)
 
 end H11Proof
 

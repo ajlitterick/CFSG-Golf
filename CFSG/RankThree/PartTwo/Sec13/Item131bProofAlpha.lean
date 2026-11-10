@@ -173,16 +173,5 @@ theorem ks131AlphaInvolutionCentral_of_noPair (h : KS131AlphaCentralNoPair) :
       simpa only [Subgroup.coe_mul] using h3
   · exact absurd hα (h G A c L hD hAL hP)
 
-theorem ks131AlphaCentralNoPair_of (h : KS131AlphaInvolutionCentral) :
-    KS131AlphaCentralNoPair := by
-  intro G _ _ A c L hD hAL _ hα
-  apply hD.mem_lA.2.2.2
-  exact thetaAlpha_subgroupOf_eq_bot_of_le (autThetaQuot_mono hD.A_le_centralizer L)
-    (autThetaQuot_mono (centralizer_le_normalizer_zpowers c) L)
-    (autThetaQuot_centralizer_normal c L)
-    (fun β hβ => autThetaQuot_pow_three hD.isElemAbelian.2 hβ)
-    (fun β hβ γ hγ => autThetaQuot_commute (fun x hx y hy => hD.commute hx hy) hβ hγ)
-    (fun x hx => sq_mem_autThetaQuot_centralizer hD.orderOf_eq L hx) hα
-    (h G A c L hD hAL hα)
 
 end CFSG.RankThree.PartTwo.Sec13

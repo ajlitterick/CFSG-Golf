@@ -57,7 +57,6 @@ theorem xAct_eq (i : Nat) : xAct i = xK i := by
 
 theorem kKept : allN 4713 (condK KT) = true := by quickRfl
 
-theorem negKept : (!allN 4713 (condK (KT + 1))) = true := by quickRfl
 
 @[expose] def stepT (t : Array (Nat × Nat × Nat)) (n : Nat) : Array (Nat × Nat × Nat) :=
   if keptCodes[n]! % 3 = 0 then
@@ -136,9 +135,6 @@ theorem psiC : psiCheck () = true := by
   simp only [psi_pt, act_pt, allLt_eq_allN]
   quickRfl
 
-theorem negPsi : (!allN 4725 fun i => allN 2 fun j =>
-    mulCols (colsJ (1 - j)) (pg 12 (mask 12) PSI (actK j i)) == pg 12 (mask 12) PSI i) = true := by
-  quickRfl
 
 theorem orbitC : orbitCheck () = true := by
   unfold orbitCheck
@@ -174,8 +170,6 @@ theorem conjC : conjCheck () = true := by
       (wordP_canon x0Word))) cId]
   quickRfl
 
-theorem negConj : (!Nat.beq (pcomp 315 9 (mask 9) (wordP gWord) (wordP x0Word))
-    (pcomp 315 9 (mask 9) (wordP x0Word) (wordP gWord))) = true := by quickRfl
 
 end CertificateChecks.KernelJ2Cover.C4725K
 

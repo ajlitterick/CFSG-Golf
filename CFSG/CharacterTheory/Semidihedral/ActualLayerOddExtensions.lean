@@ -31,12 +31,6 @@ instance actualLayer_normal (Γ : Type v) [Group Γ] :
     rw [← MonoidHom.comap_ker, QuotientGroup.ker_mk']
   exact QuotientGroup.liftEquiv (N.comap pi) hq hker.symm
 
-theorem quotientPreimageEquiv_mk
-    {H : Type u} {Γ : Type v} [Group H] [Group Γ]
-    (pi : H →* Γ) (hpi : Function.Surjective pi)
-    (N : Subgroup Γ) [N.Normal] (x : H) :
-    quotientPreimageEquiv pi hpi N (QuotientGroup.mk x) =
-      QuotientGroup.mk (pi x) := rfl
 
 theorem faithful_layer_index
     {Γ : Type v} [Group Γ] (F : Type w) [Field F] [Finite F]
@@ -90,13 +84,6 @@ theorem index_two_subgroup_special_extension
     exact Subgroup.mem_map_iff_mem hrho
   exact QuotientGroup.liftEquiv L hq hker.symm
 
-theorem quotientFaithfulImageEquiv_mk
-    {Γ : Type v} [Group Γ] (F : Type w) [Field F] [Finite F]
-    (L : Subgroup Γ) [L.Normal]
-    (rho : Γ →* coordinateE F) (hrho : Function.Injective rho)
-    (hmap : L.map rho = specialLayer F) (x : Γ) :
-    quotientFaithfulImageEquiv F L rho hrho hmap (QuotientGroup.mk x) =
-      QuotientGroup.mk (rho.rangeRestrict x) := rfl
 
 @[expose] def restrictedQuotientImageEquiv
     {H : Type u} {Γ : Type v} [Group H] [Group Γ]
@@ -242,74 +229,6 @@ theorem actual_linear_two_local_layer_odd_field_extension
     hetaz, hprojective, hHcyclic, hHcard, hTcyclic, hTcard, hcardL, htwoL, hpowL,
     hfixed, hpower, hmod, hfactor.symm.trans htwoL, hpowerTwo.symm.trans hpowL⟩
 
-theorem actual_linear_two_local_layer_odd_field_extension_int
-    {H : Type u} [Group H] [Finite H]
-    {Γ : Type} [Group Γ] [Finite Γ]
-    [IsSimpleGroup (CFSG.generalizedFitting Γ)]
-    (z : H) (hz : orderOf z = 2) (hc : z ∈ Subgroup.center H)
-    (pi : H →* Γ) (hpi : Function.Surjective pi)
-    (hker : pi.ker = Subgroup.zpowers z)
-    (k : ℤ) (hk : 2 ≤ k)
-    (S : Sylow 2 Γ) (eS : S ≃* DihedralGroup (2 ^ (k - 1).toNat))
-    (hnonab : ∃ a b : CFSG.generalizedFitting Γ, a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting Γ : Set Γ) = ⊥)
-    (hnc : ∀ U : Sylow 2 (CFSG.generalizedFitting Γ), ¬ IsCyclic U)
-    (J : Subgroup Γ) (hJindex : J.index = 2)
-    (hLJ : CFSG.generalizedFitting Γ ≤ J)
-    (hunique : ∀ x : J.comap pi, orderOf x = 2 → (x : H) = z)
-    {p f : ℕ} (hparameters : p.Prime ∧ p ≠ 2 ∧ 1 ≤ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (CFSG.generalizedFitting Γ) .PSL 2 p f) :
-    3 ≤ k ∧
-      ((CFSG.generalizedFitting Γ).comap pi).Characteristic ∧
-      Subgroup.center H = Subgroup.zpowers z ∧
-      Subgroup.centralizer ((CFSG.generalizedFitting Γ).comap pi : Set H) =
-        Subgroup.zpowers z ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        ∃ (A : Subgroup (F ≃+* F))
-          (rho : Γ →* coordinateE F)
-          (eta : (CFSG.generalizedFitting Γ).comap pi ≃*
-            Matrix.SpecialLinearGroup (Fin 2) F),
-          Odd (Nat.card A) ∧ Nat.card A ∣ f ∧ Function.Injective rho ∧
-          (CFSG.generalizedFitting Γ).map rho = specialLayer F ∧
-          rho.range = linearLayer F ⊔ liftedField F A ∧
-          J.map rho = specialLayer F ⊔ liftedField F A ∧
-          LinearExtension F rho.range A ∧ SpecialExtension F (J.map rho) A ∧
-          eta ⟨z, QuaternionDoubleCoverUniqueness.central_involution_mem_preimage
-            z pi hker (CFSG.generalizedFitting Γ)⟩ = -1 ∧
-          (∀ x : (CFSG.generalizedFitting Γ).comap pi,
-            (rho (pi x)).val =
-              coordinatePSLAction F (ProjectiveSL2Cover.nativeQuotient F (eta x))) ∧
-          IsCyclic (H ⧸ (CFSG.generalizedFitting Γ).comap pi) ∧
-          Nat.card (H ⧸ (CFSG.generalizedFitting Γ).comap pi) = 2 * Nat.card A ∧
-          IsCyclic ((J.comap pi) ⧸
-            ((CFSG.generalizedFitting Γ).comap pi).subgroupOf (J.comap pi)) ∧
-          Nat.card ((J.comap pi) ⧸
-            ((CFSG.generalizedFitting Γ).comap pi).subgroupOf (J.comap pi)) = Nat.card A ∧
-          Nat.card ((CFSG.generalizedFitting Γ).comap pi) =
-            Nat.card F * (Nat.card F ^ 2 - 1) ∧
-          ((Nat.card F ^ 2 - 1).factorization 2 : ℤ) = k ∧
-          2 ^ (Nat.card F ^ 2 - 1).factorization 2 = 2 ^ k.toNat ∧
-          Nat.card (FixedPoints.subfield A F) = p ^ (f / Nat.card A) ∧
-          Nat.card F = (p ^ (f / Nat.card A)) ^ Nat.card A ∧
-          Nat.card F % 8 = p ^ (f / Nat.card A) % 8 ∧
-          (((p ^ (f / Nat.card A)) ^ 2 - 1).factorization 2 : ℤ) = k ∧
-          2 ^ ((p ^ (f / Nat.card A)) ^ 2 - 1).factorization 2 = 2 ^ k.toNat := by
-  have hexp : (k - 1).toNat = k.toNat - 1 := by omega
-  obtain ⟨hk3, hchar, hcenter, hcent, F, hfield, hfinite, hcard,
-      A, rho, eta, hAodd, hAdvd, hrho, hmap, hGamma, hJ, hlinear, hspecial,
-      hetaz, hprojective, hHcyclic, hHcard, hTcyclic, hTcard, hcardL, htwoL, hpowL,
-      hfixed, hpower, hmod, htwoFixed, hpowFixed⟩ :=
-    actual_linear_two_local_layer_odd_field_extension
-      z hz hc pi hpi hker k.toNat (by omega)
-      S (by rw [← hexp]; exact eS) hnonab hcentral hnc J hJindex hLJ
-      hunique hparameters hmodel
-  refine ⟨by omega, hchar, hcenter, hcent, F, hfield, hfinite, hcard,
-    A, rho, eta, hAodd, hAdvd, hrho, hmap, hGamma, hJ, hlinear, hspecial,
-    hetaz, hprojective, hHcyclic, hHcard, hTcyclic, hTcard, hcardL, ?_, hpowL,
-    hfixed, hpower, hmod, ?_, hpowFixed⟩
-  · rw [htwoL, Int.toNat_of_nonneg (by omega)]
-  · rw [htwoFixed, Int.toNat_of_nonneg (by omega)]
 
 end
 

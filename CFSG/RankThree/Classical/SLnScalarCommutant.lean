@@ -50,21 +50,6 @@ theorem mem_range_scalar_of_commute_elementary {n : ℕ} (A : GL (Fin n) M)
   rw [Matrix.GeneralLinearGroup.coe_scalar, Units.val_mk0]
   exact ha
 
-theorem centralizer_naturalSL (k : Subfield M) {n : ℕ} (_hn : 3 ≤ n) :
-    Subgroup.centralizer (naturalSL k n : Set (GL (Fin n) M)) =
-      (Matrix.GeneralLinearGroup.scalar (Fin n)).range := by
-  ext A
-  constructor
-  · intro hA
-    refine mem_range_scalar_of_commute_elementary A fun i j hij => ?_
-    obtain ⟨X, hX, hXe⟩ := exists_elementary_mem_naturalSL k hij
-    have h := congrArg Units.val (Subgroup.mem_centralizer_iff.mp hA X hX)
-    rw [Units.val_mul, Units.val_mul, hXe] at h
-    exact h
-  · rintro ⟨a, rfl⟩
-    refine Subgroup.mem_centralizer_iff.mpr fun X _ => Units.ext ?_
-    rw [Units.val_mul, Units.val_mul, Matrix.GeneralLinearGroup.coe_scalar]
-    exact (Matrix.scalar_commute (a : M) (fun r => Commute.all _ r) _).eq.symm
 
 theorem apply_eq_zero_of_conj_inv_transpose_elementary {n : ℕ} (A : GL (Fin n) M) {i j : Fin n}
     (h : (A : Matrix (Fin n) (Fin n) M) * (1 - Matrix.single j i 1) *
@@ -80,31 +65,5 @@ theorem apply_eq_zero_of_conj_inv_transpose_elementary {n : ℕ} (A : GL (Fin n)
   rw [Matrix.sub_apply, Matrix.add_apply, Matrix.mul_single_apply_same, h4] at h3
   linear_combination -h3
 
-theorem not_exists_conj_inv_transpose_naturalSL (k : Subfield M) {n : ℕ} (hn : 3 ≤ n) :
-    ¬ ∃ A : GL (Fin n) M, ∀ X ∈ naturalSL k n,
-      (A : Matrix (Fin n) (Fin n) M) * (↑X⁻¹ : Matrix (Fin n) (Fin n) M)ᵀ *
-        (↑A⁻¹ : Matrix (Fin n) (Fin n) M) = X := by
-  rintro ⟨A, hA⟩
-  have hcol : ∀ i j : Fin n, i ≠ j → ∀ l, l ≠ i → (A : Matrix (Fin n) (Fin n) M) l j = 0 := by
-    intro i j hij l hl
-    obtain ⟨X, hX, hXe⟩ := exists_elementary_mem_naturalSL k hij
-    have hXinv : (↑X⁻¹ : Matrix (Fin n) (Fin n) M) = 1 - Matrix.single i j 1 := by
-      rw [Matrix.coe_units_inv, hXe]
-      apply Matrix.inv_eq_left_inv
-      rw [sub_mul, one_mul, mul_add, mul_one, Matrix.single_mul_single_of_ne (h := hij.symm)]
-      abel
-    have h := hA X hX
-    rw [hXinv, Matrix.transpose_sub, Matrix.transpose_one, Matrix.transpose_single, hXe] at h
-    exact apply_eq_zero_of_conj_inv_transpose_elementary A h hl
-  have h0 : (⟨0, by omega⟩ : Fin n) ≠ ⟨1, by omega⟩ := by simp [Fin.ext_iff]
-  have h1 : (⟨0, by omega⟩ : Fin n) ≠ ⟨2, by omega⟩ := by simp [Fin.ext_iff]
-  have h2 : (⟨1, by omega⟩ : Fin n) ≠ ⟨2, by omega⟩ := by simp [Fin.ext_iff]
-  have hzero : ∀ l, (A : Matrix (Fin n) (Fin n) M) l ⟨0, by omega⟩ = 0 := by
-    intro l
-    by_cases hl : l = ⟨1, by omega⟩
-    · subst hl
-      exact hcol _ _ h1.symm _ h2
-    · exact hcol _ _ h0.symm _ hl
-  exact Matrix.GeneralLinearGroup.det_ne_zero A (Matrix.det_eq_zero_of_column_eq_zero _ hzero)
 
 end CFSG.RankThree.Classical

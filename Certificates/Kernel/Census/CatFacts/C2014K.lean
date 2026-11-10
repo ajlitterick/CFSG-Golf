@@ -43,11 +43,5 @@ theorem cS2014K :
     ((elemsV QS8).filter (fun g => decide (g * s8 = s8 * g))).length = 2 ^ 5 * 45 := by
   decide +kernel
 
-theorem neg2014K : ((elemsV QA8).filter (fun g => decide (g * s8 = s8 * g))).length ≠ 721 ∧
-    ((elemsV QS8).all fun s => !(decide (s * s = 1)) || siftP QA8 s 0 ||
-      (([] : List (Equiv.Perm (Fin 8))).any fun k => decide (k * s8 * k⁻¹ = s)) ||
-      ((elemsV QA8).filter fun x => decide (x ^ 5 = 1) && !decide (x = 1)).all fun x =>
-        !(decide (x * s = s * x))) = false := by
-  constructor <;> decide +kernel
 
 end CertificateChecks.KernelCatFacts

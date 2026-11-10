@@ -26,31 +26,9 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native CFSG.Sporadic.Schreier.P
 
 @[expose] def tTab (k : ℕ) : Table := tabOf (tArr k)
 
-@[expose] def gensR : Array Table := #[tabOf tabA, tabOf tabB, tabOf deltaArr, tabOf phiArr]
 
 @[expose] def conjTab (u x : Table) : Table := conjT 820 u (invT 820 u) x
 
-@[expose] def dI4 : CaseData where
-  ks := List.range 8
-  sizeG := 26127360
-  gensG := gensR
-  Tt := tabOf reps[4]!
-  cg := tabsOf i4Cg
-  y0 := tabOf i4Y0
-  yg := tabsOf i4Yg
-  ysz := 648
-  nsol := 0
-
-@[expose] def dI5 : CaseData where
-  ks := List.range 8
-  sizeG := 26127360
-  gensG := gensR
-  Tt := tabOf reps[5]!
-  cg := (tabsOf i4Cg).map (conjTab (tabOf i5U))
-  y0 := conjTab (tabOf i5U) (tabOf i4Y0)
-  yg := (tabsOf i4Yg).map (conjTab (tabOf i5U))
-  ysz := 648
-  nsol := 0
 
 @[expose] def dZ4 : CaseData where
   ks := [0, 1, 2, 3]

@@ -122,8 +122,6 @@ theorem slin_inv_right (A : GL (Fin 3) F4) (σ : F4 ≃+* F4) (v : Vec3) :
   left_inv := slin_inv_left A σ
   right_inv := slin_inv_right A σ
 
-theorem slinPerm_apply (A : GL (Fin 3) F4) (σ : F4 ≃+* F4) (v : Vec3) :
-    slinPerm A σ v = slin A σ v := rfl
 
 @[expose] def GammaL3 : Subgroup (Perm Vec3) where
   carrier := {g | ∃ (A : GL (Fin 3) F4) (σ : F4 ≃+* F4), ∀ v, g v = slin A σ v}
@@ -138,8 +136,6 @@ theorem slinPerm_apply (A : GL (Fin 3) F4) (σ : F4 ≃+* F4) (v : Vec3) :
     rw [hg]
     rfl
 
-theorem mem_GammaL3 {g : Perm Vec3} :
-    g ∈ GammaL3 ↔ ∃ (A : GL (Fin 3) F4) (σ : F4 ≃+* F4), ∀ v, g v = slin A σ v := Iff.rfl
 
 theorem slinPerm_mem (A : GL (Fin 3) F4) (σ : F4 ≃+* F4) : slinPerm A σ ∈ GammaL3 :=
   ⟨A, σ, fun _ => rfl⟩

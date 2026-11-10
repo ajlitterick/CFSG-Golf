@@ -169,25 +169,6 @@ theorem s168e3_exists_cond1512_at_three {D : Data G} {V₀ V L : Subgroup G}
   exact exists_cond1512 hO
 
 
-theorem case163_1_of_l3_two_rank_eight_of_ne_three {D : Data G} {V₀ V L : Subgroup G}
-    {hV : IsElemAbelian 2 V}
-    (c : S168e3Ctx D V₀ V L hV)
-    (hcomp : IsComponentOf (lBar V₀ V hV L) (Mbar D.M V₀ V hV))
-    (hL : IsL3 (lBar V₀ V hV L) 1)
-    (hirr : commSub (⊤ : Subgroup (Vtil V₀ V hV)) (lBar V₀ V hV L) ∈
-      irrSet (lBar V₀ V hV L))
-    (h8 : E3.mQuot
-      (commSub (⊤ : Subgroup (Vtil V₀ V hV)) (lBar V₀ V hV L))
-      (commSub (⊤ : Subgroup (Vtil V₀ V hV)) (lBar V₀ V hV L) ⊓
-        fixV (lBar V₀ V hV L)) = 8)
-    (hnot3 : s15 D.M V₀ V hV L ≠ 3) :
-    Case163_1 D V₀ V hV L := by
-  refine ⟨hL, s168e3_st8_gamma_eq_eight D hL hirr h8, ?_⟩
-  have h1 : 1 < s15 D.M V₀ V hV L := s168e3_one_lt_s c hcomp hL hirr h8
-  have hle : s15 D.M V₀ V hV L ≤ 3 := s168e3_s_le_three c hcomp hL
-  omega
-
-
 theorem s168e3_twelve_kernel_data {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
     (c : S168e3Ctx D V₀ V L hV)
     (hcomp : IsComponentOf (lBar V₀ V hV L) (Mbar D.M V₀ V hV))
@@ -287,7 +268,6 @@ theorem s168e3_twelve_kernel_data {D : Data G} {V₀ V L : Subgroup G} {hV : IsE
       have := hc f hfW
       rwa [hV1]
   exact ⟨a, Y, C, ha, rfl, hCY, hY2, hC6, hYnorm, hYstab, hCcharW⟩
-
 
 
 theorem s168e3_s_ne_three {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbelian 2 V}
@@ -396,7 +376,6 @@ theorem s168e3_s_ne_three {D : Data G} {V₀ V L : Subgroup G} {hV : IsElemAbeli
     exact pow_dvd_pow 2 hC6
   have h64 : (2 : ℕ) ^ 6 ∣ 336 := hpow.trans hrange_dvd
   norm_num at h64
-
 
 
 theorem case163_1_of_l3_two_rank_eight {D : Data G} {V₀ V L : Subgroup G}

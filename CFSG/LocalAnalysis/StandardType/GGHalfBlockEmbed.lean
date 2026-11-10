@@ -116,17 +116,6 @@ private theorem slLower2Hom_apply_one_zero (m : ℕ)
   exact slLowerBlockHom_apply_one_zero (n := m + 1)
     (A := slLowerBlockHom (m + 1) F2 s)
 
-private theorem omegaBlock_last_apply (m : ℕ) :
-    ((omegaBlock (m + 1 + 1) ⟨m + 1, by omega⟩ :
-        SpecialLinearGroup (Fin (m + 1 + 1 + 1)) F2) :
-        Matrix (Fin (m + 1 + 1 + 1)) (Fin (m + 1 + 1 + 1)) F2)
-      (Fin.last (m + 2)) ((Fin.last (m + 1)).castSucc) = 1 := by
-  have hk : (⟨m + 1, by omega⟩ : Fin (m + 1 + 1)).succ = (Fin.last (m + 2) : Fin (m + 1 + 1 + 1)) :=
-    Fin.ext rfl
-  have hk' : (⟨m + 1, by omega⟩ : Fin (m + 1 + 1)).castSucc = (Fin.last (m + 1)).castSucc :=
-    Fin.ext rfl
-  rw [← hk, ← hk']
-  exact omegaBlock_apply_succ_castSucc (m + 1 + 1) (⟨m + 1, by omega⟩ : Fin (m + 1 + 1))
 
 theorem slLower2Hom_omegaBlock (m : ℕ) (j : Fin m) :
     slLower2Hom m (omegaBlock m j) = omegaBlock (m + 1 + 1) ⟨j.val + 2, by omega⟩ := by

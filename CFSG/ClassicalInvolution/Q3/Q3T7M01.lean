@@ -21,11 +21,6 @@ end Models
 section Class
 variable {Y : Type} [Group Y]
 
-structure InClass (Λ : Set (Subgroup Y)) : Prop where
-  nonempty : Λ.Nonempty
-  conjInvariant : ConjInvariant Λ
-  generated : ⨆ L ∈ Λ, L = ⊤
-  classical : ∀ L ∈ Λ, ∃ z : Y, IsClassicalMember L z
 end Class
 section LieSystem
 variable {Y : Type} [Group Y]
@@ -224,9 +219,6 @@ end
         h⁻¹ * z * h ≠ z → z * (h⁻¹ * z * h) = (h⁻¹ * z * h) * z →
           FixesUniqueCoset (z * (h⁻¹ * z * h)) H
 
-@[expose] def E18_zW : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) (S : Sylow 2 G)
-    (R W H : Subgroup G), MinCex Ω K S R W H → ∃ z : G, IsUniqueInvolution K z ∧ z ∈ W
 end Asc77
 
 end
@@ -255,9 +247,6 @@ namespace Asc77
 open CFSG.ClassicalInvolution.Asc77
 open CFSG.Open CFSG.ClassicalInvolution.Generic
 
-theorem e18_zW : E18_zW := by
-  intro G _ _ Ω K S R W H c
-  exact CFSG.ClassicalInvolution.T7FU.Asc77.e18_zW G Ω K S R W H c.toU
 end Asc77
 
 end

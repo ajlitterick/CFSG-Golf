@@ -219,12 +219,5 @@ theorem Ctx17_42.exists_cartan_rank_two_on {D : Data G} {V₀ V L X : Subgroup G
   exact ⟨r, hr, hr2, hrdvd, hC2,
     not_dvd_card_center_bar2 hN ctx.mem_calC hmodel htPSL htE6 hr hr2 hrdvd⟩
 
-theorem Ctx17_42.exists_cartan_rank_two {D : Data G} {V₀ V L X : Subgroup G} {p n l : ℕ}
-    {C Dc : Subgroup G} {Gamma : Set G} (ctx : Ctx17_42 D V₀ V L X p n l C Dc Gamma)
-    (h43 : R17_43At D V₀ V) (h46 : R17_46At D V₀ V) (h47 : R17_47At D V₀ V)
-    (hK4 : Inputs1719.K_CartanRank) (hN : uc22p20rNativeGriess) :
-    ∃ r, r.Prime ∧ r ≠ 2 ∧ r ∣ 2 ^ n - 1 ∧ 2 ≤ CFSG.Open.pRank r C ∧
-      ¬ r ∣ Nat.card (center (Bar2 L)) :=
-  Ctx17_42.exists_cartan_rank_two_on ctx h43 h46 h47 hK4.leThree hN
 
 end CFSG.LocalAnalysis.UniquenessCase.PartTwo.S17

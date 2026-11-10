@@ -194,11 +194,6 @@ theorem natCard_centralizer_beta
     Nat.card_congr (Subgroup.subgroupOfEquivOfLe inf_le_left).toEquiv, hcard]
   norm_num
 
-theorem hc5F_le_centralizer
-    (hvu : cgraph.dist cv0 u = 3) (hβ : (β : Shat) = clabelS u) :
-    hc5F u ≤ Subgroup.centralizer {β} := fun y hy => by
-  rw [mem_centralizer_beta_iff hvu hβ]
-  exact (pairF4_le_inf cv0 u (mem_hc5F.1 hy)).2
 
 theorem closure_le_center
     (β : vStab cv0) :

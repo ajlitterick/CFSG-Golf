@@ -172,17 +172,6 @@ open CFSG.AGLEmbeddingD2.McLaughlin.WeakBlockModuleData CFSG.AGLEmbedding KFacts
               IsUThreeThree ↥Js) ∨
             (IsCentralProdA6Z3 ↥Js ∧ sigmaM G M = {5})
 
-@[expose] def Row1523Chev (G : Type) [Group G] [Finite G] (M T : Subgroup G)
-    (T₁ T₂ : Subgroup ↥M) : Prop :=
-  ∀ (Ls : Subgroup (↥M ⧸ gnC (T.subgroupOf M))) (L : Subgroup ↥M),
-    GNYComponent (T.subgroupOf M) T₁ T₂ Ls → LiftOf (T.subgroupOf M) L Ls →
-      IsChevTwo (↥Ls ⧸ Subgroup.center ↥Ls) → ¬ IsLTwoTwoPow (↥Ls ⧸ Subgroup.center ↥Ls) →
-        ∃ S₀ P : Subgroup (↥M ⧸ gnC (T.subgroupOf M)),
-          CFSG.QuasithinUnique.IsSylowTwoOf S₀ Ls ∧ IsMinOverBorel Ls S₀ P ∧
-            pElementSubgroup 2 (P.comap (toStar (T.subgroupOf M))) ≤
-              Subgroup.centralizer ((gnV (T.subgroupOf M) ⊓ Subgroup.centralizer
-                ((T.subgroupOf M ⊓ Subgroup.normalizer (L : Set ↥M) : Subgroup ↥M) : Set ↥M) :
-                  Subgroup ↥M) : Set ↥M)
 
 @[expose] def Row1523 (G : Type) [Group G] [Finite G] (M T : Subgroup G) (T₁ T₂ : Subgroup ↥M) :
     Prop :=

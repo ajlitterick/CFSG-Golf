@@ -10,10 +10,6 @@ namespace CertificateChecks.KernelBM.Align
 
 open CFSG.KC.BM CFSG.KC.BM.Dyadic
 
-@[expose] noncomputable def monoMs : List (List Nat) :=
-  [M0.b0, M1.b0, M2.b0, M3.b0, M4.b0, M5.b0, M6.b0, M7.b0, M8.b0, M9.b0, M10.b0, M11.b0, M12.b0,
-    M13.b0, M14.b0, M15.b0, M16.b0, M17.b0, M18.b0, M19.b0, M20.b0, M21.b0, M22.b0, M23.b0,
-    M26.b0]
 
 @[expose] noncomputable def colors24 : List (List Nat) :=
   [CL24_0.b0, CL24_1.b0, CL24_2.b0, CL24_3.b0, CL24_4.b0, CL24_5.b0, CL24_6.b0, CL24_7.b0,
@@ -25,7 +21,6 @@ open CFSG.KC.BM CFSG.KC.BM.Dyadic
 
 theorem shifts : shifts16 dyDs = true := by quickRfl
 
-theorem mono_aligned : allAlignedL monoMs = true := by quickRfl
 
 theorem colors24_aligned : allAlignedL colors24 = true := by quickRfl
 

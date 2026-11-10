@@ -59,13 +59,5 @@ theorem hypothesisOne_projectiveSL {f : ℕ} (hn : 4 ≤ n) (hK : Nat.card K = 2
 
 end Model
 
-theorem hypothesisOne_of_lieModel_PSL {Y : Type} [Group Y] {n f : ℕ} (hn : 4 ≤ n)
-    (hnf : ¬(n = 4 ∧ f = 1)) (h : CFSG.Blueprint.LieModel Y .PSL n 2 f) : HypothesisOne Y := by
-  obtain ⟨K, _, _, hK, ⟨e⟩⟩ := LinearCover.exists_mulEquiv_projectiveSL_of_lieModel h
-  exact CFSG.EvenSmallLie.hypothesisOne_of_mulEquiv e.symm (hypothesisOne_projectiveSL hn hK hnf)
-
-theorem hypothesisOne_of_highPSL {X : Type} [Group X] (h : HighPSL X) : HypothesisOne X := by
-  obtain ⟨n, f, hn, hnf, hm⟩ := h
-  exact hypothesisOne_of_lieModel_PSL hn (fun h41 => hnf (by rw [h41.1, h41.2])) hm
 
 end CFSG.SeitzReduction

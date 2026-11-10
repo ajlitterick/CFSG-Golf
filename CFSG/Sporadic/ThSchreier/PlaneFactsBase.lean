@@ -27,22 +27,6 @@ namespace CFSG.Sporadic.ThSchreier
 
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Th.Max3 Pointwise
 
-@[expose] def CanonRows (P : Set RowV) (m₁ m₂ : ℕ) : Prop :=
-  ∃ m₃ : ℕ, 0 < m₁ ∧ m₁ < m₂ ∧ m₂ < m₃ ∧ m₃ < 2 ^ 248 ∧
-    toRow (rowOfNat m₃) = toRow (rowOfNat m₁) + toRow (rowOfNat m₂) ∧
-    P = {0, toRow (rowOfNat m₁), toRow (rowOfNat m₂), toRow (rowOfNat m₃)}
-
-theorem canonRows_of_isCanonical {k : Key} (hk : k.isCanonical = true) :
-    CanonRows (rowPlane k) k.u.toNat k.v.toNat := by
-  obtain ⟨hu, hv, hu0, huv, hvs⟩ := Key.isCanonical_iff.1 hk
-  refine ⟨(k.u.xor k.v).toNat, ?_, huv, hvs, (V4.wf_iff_toNat_lt _).1 (V4.xor_wf hu hv), ?_, ?_⟩
-  · rcases Nat.eq_zero_or_pos k.u.toNat with h | h
-    · exact absurd (V4.toNat_eq_zero.1 h) hu0
-    · exact h
-  · rw [← toVec_eq_rowOfNat, ← toVec_eq_rowOfNat, ← toVec_eq_rowOfNat, V4.toVec_xor]
-    rfl
-  · rw [rowPlane, ← toVec_eq_rowOfNat, ← toVec_eq_rowOfNat, ← toVec_eq_rowOfNat, V4.toVec_xor]
-    rfl
 
 theorem pairwise_lt_of_succ {l : List ℕ}
     (h : ∀ k (hk : k + 1 < l.length), l[k]'(by omega) < l[k + 1]) :
@@ -93,11 +77,6 @@ theorem getElem!_toArray_eq {l : List ℕ} {k : ℕ} (hk : k < l.length) :
     l.toArray[k]! = l[k] := by
   rw [getElem!_pos l.toArray k (by simpa using hk), List.getElem_toArray]
 
-theorem centImageKeys_getElem {k : ℕ} (hk : k < 120) :
-    centImageKeys[k]! = ⟨v4OfNat (centImageRows.getD (2 * k) 0),
-      v4OfNat (centImageRows.getD (2 * k + 1) 0)⟩ := by
-  rw [getElem!_pos centImageKeys k (by simp [centImageKeys, hk])]
-  simp [centImageKeys]
 
 section Facts
 

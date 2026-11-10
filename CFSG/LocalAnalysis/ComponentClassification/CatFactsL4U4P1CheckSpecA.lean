@@ -13,17 +13,6 @@ open CFSG Subgroup CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.SmallO
 
 variable {n : ℕ}
 
-theorem inCOK_spec {A₀ : Subgroup (Equiv.Perm (Fin n))} {pg : Array Table}
-    {gg : ℕ → Equiv.Perm (Fin n)} {sift : Table → Bool} (hD : GroupData n A₀ pg gg sift)
-    {T G : Table} {t : Equiv.Perm (Fin n)} (hT : Rep n T t) (h : inCOK n sift T G = true) :
-    Rep n G (tp n G) ∧ tp n G ∈ A₀ ⊓ centralizer ({t} : Set _) ∧
-      Rep n (invT n G) (tp n G)⁻¹ := by
-  rw [inCOK, Bool.and_eq_true, Bool.and_eq_true, Bool.and_eq_true] at h
-  obtain ⟨⟨⟨hp, hs⟩, hc⟩, hi⟩ := h
-  have hG := rep_tp hp
-  refine ⟨hG, mem_inf.mpr ⟨(hD.sift _ _ hG).1 hs, ?_⟩, rep_invT hG hi⟩
-  rw [mem_centralizer_singleton_iff]
-  exact (commTT_iff hG hT).1 hc
 
 section Index
 

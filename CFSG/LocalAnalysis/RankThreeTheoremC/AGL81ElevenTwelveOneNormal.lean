@@ -21,15 +21,6 @@ variable {G : Type} [Group G] [Finite G]
     3 ≤ Open.pRank 3 H ∧ TwelveB M H Q K b ∧ IsWeakSBlock M (pCoreOf 2 H) L ∧
     ∃ I₀ ∈ cZero (H ⊓ L), CFSG.ComponentClassification.AS76b.oUpperTwo I₀ ≤ hyp111Pre 3 H K
 
-variable (G) in
-@[expose] def AGL81TenThreeOTwoZ : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    AGL81CfgData p P M H Q K → ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L →
-    ∀ I₀ ∈ cZero (H ⊓ L), IsSymThreeOrSUThreeTwo (↥I₀ ⧸ CFSG.pCore 2 ↥I₀) →
-    ∀ x ∈ CFSG.ComponentClassification.AS76b.oUpperTwo I₀,
-      (∀ l ∈ L, x * l * x⁻¹ * l⁻¹ ∈ pCoreOf 2 L) →
-      x ∈ pCoreOf 2 (CFSG.ComponentClassification.AS76b.oUpperTwo I₀)
 
 variable (G) in
 @[expose] def AGL81TenFourteenThreeAt : Prop :=
@@ -172,35 +163,5 @@ theorem not_three_dvd_card_of_perfect {L I : Subgroup G} (hIL : I ≤ L) (hperf 
     have := Nat.Prime.dvd_of_dvd_pow Nat.prime_three h
     omega
 
-theorem agl81TwelveNormalizes_of (h1031 : AGL81TenThreeOneAt G) (h2255 : AGL81TenThreeOTwoZ G) :
-    AGL81TwelveNormalizes G := by
-  intro hS P M H Q K b L hc
-  obtain ⟨hd, -, -, -, ⟨hbHM, hbX, -, -, -⟩, hL, I₀, hI₀, hI₀K⟩ := hc
-  have hI₀' : IsCZeroMember (H ⊓ L) I₀ := hI₀
-  rw [Subgroup.zpowers_le]
-  by_contra hbL
-  have hI₀L : I₀ ≤ L := hI₀'.le.trans inf_le_right
-  have h3 := h1031 hS 3 P M H Q K hd L hL I₀ hI₀
-  have key : ∀ x ∈ CFSG.ComponentClassification.AS76b.oUpperTwo I₀, (∃ k : ℕ, x ^ 3 ^ k = 1) →
-      ∀ l ∈ L, x * l * x⁻¹ * l⁻¹ ∈ pCoreOf 2 L := fun x hx ⟨k, hk⟩ =>
-    commutator_mem_pCoreOf_of_not_mem_normalizer hL.toIsTwoPrimeComponent hbHM.2 hbX hbL
-      (hI₀L (oUpperTwo_le_self I₀ hx)) (hI₀K hx) hk
-  rcases hI₀'.shape with hperf | ⟨-, hsym⟩
-  · refine not_three_dvd_card_of_perfect hI₀L hperf.perfect (fun x hx ⟨k, hk⟩ => key x ?_ ⟨k, hk⟩)
-      (h3.trans (Subgroup.card_dvd_of_le (oUpperTwo_le_self I₀)))
-    refine Subgroup.subset_closure ⟨hx, ?_⟩
-    exact Odd.of_dvd_nat (Odd.pow (by decide : Odd 3)) (orderOf_dvd_of_pow_eq_one hk)
-  · haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-    obtain ⟨x, hx⟩ := exists_prime_orderOf_dvd_card' 3 h3
-    have hx' : orderOf (x : G) = 3 := by rwa [Subgroup.orderOf_coe]
-    have hx3 : (x : G) ^ 3 ^ 1 = 1 := by rw [pow_one, ← hx', pow_orderOf_eq_one]
-    have hO := h2255 hS 3 P M H Q K hd L hL I₀ hI₀ hsym x x.2 (key x x.2 ⟨1, hx3⟩)
-    obtain ⟨m, hm⟩ := pCoreOf_isPGroup 2 _ ⟨(x : G), hO⟩
-    have hdvd : orderOf (x : G) ∣ 2 ^ m := by
-      apply orderOf_dvd_of_pow_eq_one
-      simpa using congrArg Subtype.val hm
-    rw [hx'] at hdvd
-    have := Nat.Prime.dvd_of_dvd_pow Nat.prime_three hdvd
-    omega
 
 end CFSG.LocalAnalysis.RankThreeTheoremC

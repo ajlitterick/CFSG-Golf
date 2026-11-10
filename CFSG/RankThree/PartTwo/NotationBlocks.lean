@@ -261,12 +261,6 @@ theorem IsShort.map [Finite G] [Finite G'] {L : Subgroup G} (h : IsShort L) :
     · exact Or.inl (blockZ_map φ L)
     · exact Or.inr (blockU_map φ L)
 
-theorem isShort_map_iff [Finite G] [Finite G'] {L : Subgroup G} :
-    IsShort (L.map φ.toMonoidHom) ↔ IsShort L := by
-  refine ⟨fun h => ?_, fun h => h.map φ⟩
-  have h' := h.map φ.symm
-  rwa [Subgroup.map_map, show φ.symm.toMonoidHom.comp φ.toMonoidHom = MonoidHom.id G from
-    MonoidHom.ext φ.symm_apply_apply, Subgroup.map_id] at h'
 
 theorem IsBlock.map [Finite G] [Finite G'] {X L : Subgroup G} (h : IsBlock X L) :
     IsBlock (X.map φ.toMonoidHom) (L.map φ.toMonoidHom) := by

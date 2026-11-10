@@ -102,7 +102,6 @@ theorem eq_one_of_central_of_prod_S3 {A : Type*} [Group A] [Finite A] {Γ H : Su
     (hrel e₂) (congrArg Subtype.val (hcomm γ γ)) (congrArg Subtype.val (hcomm τ γ))
     hc₀Γ hc₀ hc₀3
 
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
 
 end G117
 

@@ -291,10 +291,6 @@ theorem ne_bot_of_le_map_subtype {X : Type*} [Group X] {C : Subgroup X} {K : Sub
   rw [Subgroup.map_bot, le_bot_iff] at hle
   exact hA hle
 
-theorem isSimpleGroup_of_eq_of_mulEquiv {X S : Type*} [Group X] [Group S] [IsSimpleGroup S]
-    {A B : Subgroup X} (h : A = B) (e : B ≃* S) : IsSimpleGroup A := by
-  subst h
-  exact e.isSimpleGroup
 
 variable {G : Type} [Group G]
 
@@ -307,88 +303,5 @@ theorem hull_sup_eq_top (L D : Subgroup G) (y : G) :
     map_subtype_subgroupOf (le_hull_right L y D), ← MonoidHom.range_eq_map, range_subtype]
   rfl
 
-theorem hull_meet_le_centralizer (x y : G) (L : Subgroup G) :
-    (oddCentralizerMeet x y).subgroupOf (hull L y (oddCentralizerMeet x y)) ≤
-      centralizer {(⟨y, mem_hull_elem L y _⟩ : hull L y (oddCentralizerMeet x y))} := by
-  intro d hd
-  refine mem_centralizer_singleton.mpr (Subtype.ext ?_)
-  exact mem_centralizer_singleton.mp (oddCentralizerMeet_le x y (mem_subgroupOf.mp hd))
-
-theorem hull_meet_normal {x y : G} (hxy : x * y = y * x) {L : Subgroup G}
-    (hLx : L ≤ centralizer ({x} : Set G)) :
-    (((oddCentralizerMeet x y).subgroupOf (hull L y (oddCentralizerMeet x y))).subgroupOf
-      (centralizer {(⟨y, mem_hull_elem L y _⟩ : hull L y (oddCentralizerMeet x y))})).Normal := by
-  rw [normal_subgroupOf_iff (hull_meet_le_centralizer x y L)]
-  intro d c hd hc
-  rw [mem_subgroupOf] at hd ⊢
-  have hcy : (c : G) ∈ centralizer ({y} : Set G) :=
-    mem_centralizer_singleton.mpr (congrArg Subtype.val (mem_centralizer_singleton.mp hc))
-  exact conj_mem_oddCentralizerMeet (hull_le_centralizer hxy hLx c.2) hcy hd
-
-variable [Finite G]
-
-theorem unbalancing_local_odd_two_quotient {x y : G} (hy : orderOf y = 2) (hxy : x * y = y * x)
-    (hxZ : x ∉ center G) {L : Subgroup G} (hLx : L ≤ centralizer ({x} : Set G))
-    (hL : IsPComponent 2 (L.subgroupOf (centralizer ({x} : Set G))))
-    (hLy : ⁅L, zpowers y⁆ = L) (hLD : ⁅L, oddCentralizerMeet x y⁆ = L) :
-    let D := oddCentralizerMeet x y
-    let H := hull L y D
-    let α := hullAction L y D hLy.le hLD.le
-    let yH : H := ⟨y, mem_hull_elem L y D⟩
-    let N : Subgroup H :=
-      (pCore 2 (H ⧸ pPrimeCore 2 H)).comap (QuotientGroup.mk' (pPrimeCore 2 H))
-    H < ⊤ ∧
-      (IsSimpleGroup (hullSection L H) ∧ ∃ s t : hullSection L H, s * t ≠ t * s) ∧
-      (∀ (h : H) (l : L.subgroupOf H) (hl : h * l * h⁻¹ ∈ L.subgroupOf H),
-        α h (l : hullSection L H) = ((⟨h * l * h⁻¹, hl⟩ : L.subgroupOf H) : hullSection L H)) ∧
-      α.ker = N ∧ Nonempty (H ⧸ N ≃* α.range) ∧
-      generalizedFitting α.range =
-        (MulAut.conj : hullSection L H →* MulAut (hullSection L H)).range.subgroupOf α.range ∧
-      Nonempty ((MulAut.conj : hullSection L H →* MulAut (hullSection L H)).range.subgroupOf
-        α.range ≃* hullSection L H) ∧
-      Nat.card α.range < Nat.card G ∧
-      orderOf (α yH) = 2 ∧
-      (D.subgroupOf H).map α.rangeRestrict ≠ ⊥ ∧
-      (D.subgroupOf H).map α.rangeRestrict ≤
-        (pPrimeCore 2 (centralizer {α.rangeRestrict yH})).map
-          (centralizer {α.rangeRestrict yH}).subtype ∧
-      IsSimpleGroup (generalizedFitting α.range) ∧
-      pPrimeCore 2 (centralizer {α.rangeRestrict yH}) ≠ ⊥ ∧
-      (KProper InCatalog G → CFSG.IsKGroup α.range ∧ InCatalog (hullSection L H)) ∧
-      (KProper Blueprint.Catalog G →
-        SectionRank.IsKGroupCat α.range ∧ Blueprint.Catalog (hullSection L H)) := by
-  intro D H α yH N
-  obtain ⟨hHx, hCx, hLn, hS, hform, -, hF, hFe, hαy, hαD, -, -, -, -, hKin, hKcat⟩ :=
-    unbalancing_local_KProper_action_section hy hxy hxZ hLx hL hLy hLD
-  have hHtop : H < ⊤ := lt_of_le_of_lt hHx hCx
-  have hDodd : Nat.Coprime 2 (Nat.card (D.subgroupOf H)) := by
-    rw [Nat.card_congr (subgroupOfEquivOfLe (le_hull_right L y D)).toEquiv]
-    exact coprime_card_oddCentralizerMeet x y
-  have hyH : orderOf yH = 2 := by
-    rw [Subgroup.orderOf_mk]
-    exact hy
-  have hcore := odd_two_quotient_core (LH := L.subgroupOf H) (DH := D.subgroupOf H) (hLn := hLn)
-    (hull_quasisimple hLx hL (le_hull_left L y D)) hyH (hull_meet_le_centralizer x y L)
-    (hull_meet_normal hxy hLx) hDodd (hull_sup_eq_top L D y) (hull_commutator_elem hLy)
-    (hull_commutator_right hLD)
-  have hker : α.ker = N := hcore.1
-  have hαDcore := map_rangeRestrict_le_of_ker_eq 2 (pPrimeCore 2 H) (pCore 2 (H ⧸ pPrimeCore 2 H))
-    α hker (D.subgroupOf H) yH hcore.2
-  have hcardB : Nat.card α.range < Nat.card G := by
-    calc Nat.card α.range ≤ Nat.card H :=
-          Nat.card_le_card_of_surjective _ α.rangeRestrict_surjective
-      _ < Nat.card G := by
-          rw [← card_top (G := G)]
-          exact card_lt_of_lt hHtop
-  obtain ⟨f⟩ := hFe
-  have := hS.1
-  refine ⟨hHtop, hS, hform, hker,
-    ⟨(QuotientGroup.quotientMulEquivOfEq hker.symm).trans (QuotientGroup.quotientKerEquivRange α)⟩,
-    hF, ⟨f⟩, hcardB, hαy, hαD, hαDcore, isSimpleGroup_of_eq_of_mulEquiv hF f,
-    ne_bot_of_le_map_subtype hαD hαDcore, fun hK => ?_, fun hK => ?_⟩
-  · obtain ⟨hS', -, hB⟩ := hKin hK
-    exact ⟨hB, hS'⟩
-  · obtain ⟨hS', -, hB⟩ := hKcat hK
-    exact ⟨hB, hS'⟩
 
 end CFSG.ComponentClassification.UnbalancingLocal

@@ -50,41 +50,4 @@ theorem four_le_localRank_three_of_mulEquiv_nativeM {G : Type} [Group G] [Finite
   rfl
 
 
-theorem qt_sporadic_restriction
-    {S : Type} [Group S] [Finite S]
-    (hnonab : ∃ a b : S, a * b ≠ b * a) (hQT : CFSG.Open.evenRank S ≤ 2)
-    (s : TauCeti.SporadicName) (e : S ≃* Carrier s) : s ∈ qtkSporadicNames := by
-  have hloc : ∀ {T : Type} [Group T] {k : ℕ}, S ≃* T → 3 ≤ k →
-      (∀ [Finite T], k ≤ localRank 3 T) → False := fun e' hk h =>
-    not_evenRank_le_two_of_localRank e' Nat.prime_three (by norm_num) (le_trans hk h) hQT
-  cases s with
-  | M11 | M12 | M22 | M23 | M24 | J1 | J2 | J3 | J4 | HS | He | Ru | McL =>
-    simp [qtkSporadicNames]
-  | Co1 => exact (hloc (T := NativeSporadic.Co1) e (by norm_num) four_le_localRank_three_Co1).elim
-  | Co2 => exact (hloc (T := NativeSporadic.Co2) e le_rfl three_le_localRank_nativeCo2).elim
-  | Co3 => exact (hloc (T := NativeSporadic.Co3) e le_rfl three_le_localRank_nativeCo3).elim
-  | Fi22 =>
-    exact (hloc (T := NativeSporadic.Fi22) e (by norm_num) four_le_localRank_three_Fi22).elim
-  | Fi23 =>
-    exact (hloc (T := NativeSporadic.Fi23) e (by norm_num) four_le_localRank_three_Fi23).elim
-  | Suz => exact (hloc (T := NativeSporadic.Suz) e le_rfl three_le_localRank_nativeSuz).elim
-  | ONan => exact (hloc (T := NativeSporadic.ON) e le_rfl three_le_localRank_nativeON).elim
-  | HN => exact (hloc (T := NativeSporadic.HN) e le_rfl three_le_localRank_nativeHN).elim
-  | Ly => exact (hloc (T := NativeSporadic.Ly) e le_rfl three_le_localRank_nativeLy).elim
-  | Th => exact (hloc (T := NativeSporadic.Th) e le_rfl three_le_localRank_nativeTh).elim
-  | B => exact (hloc (T := NativeSporadic.B) e (by norm_num) four_le_localRank_three_B).elim
-  | M =>
-    exact (hloc (MulEquiv.refl S) (by norm_num)
-      (four_le_localRank_three_of_mulEquiv_nativeM e hnonab)).elim
-  | Fi24Prime =>
-    have h4 : 4 ≤ CFSG.Assembly.evenRank S :=
-      (CFSG.RankThree.ThetaFree.sectionsForceEvenRankFour_fi23_fi24prime').2 S ⊤ ⊥
-        ⟨(QuotientGroup.quotientBot.trans Subgroup.topEquiv).trans e⟩
-    have : CFSG.Open.evenRank S = CFSG.Assembly.evenRank S := rfl
-    omega
-
-theorem qtSporadicRestriction_holds
-    : QTSporadicRestriction :=
-  fun _ _ _ hnonab hQT s ⟨e⟩ => qt_sporadic_restriction hnonab hQT s e
-
 end CFSG.SectionRank.QTK

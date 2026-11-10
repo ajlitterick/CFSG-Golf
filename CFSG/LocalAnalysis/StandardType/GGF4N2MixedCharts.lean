@@ -326,22 +326,6 @@ theorem ggF4N2_secondChart_of_chart {G : Type} [Group G] [Finite G] {B Bs : Subg
   refine ⟨ψ₂, h₂, ?_, hblock⟩
   rw [hK₂, hK₁]
 
-theorem ggF4N2_exists_secondChart {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K) (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hK : GGCentralImage .PSL 6 2 K) :
-    ∃ ψ₁ ψ₂ : Matrix.SpecialLinearGroup (Fin 6) (GaloisField 2 2) →* G, ∃ g ∈ L,
-      ψ₁.ker ≤ Subgroup.center _ ∧ ψ₁.range = K ∧
-      (ψ₁.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num))).range = J ∧
-      g ∈ Subgroup.normalizer (Bs : Set G) ∧ (∀ b ∈ Bs ⊓ L, g * b * g⁻¹ = b⁻¹) ∧ g * x * g⁻¹ = x ∧
-      ψ₂.ker ≤ Subgroup.center _ ∧ ψ₂.range = K.map (MulAut.conj g).toMonoidHom ∧
-      ψ₂.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num)) =
-        ψ₁.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num)) := by
-  obtain ⟨ψ₁, h₁, hK₁, hJ₁⟩ := ggF4N2K_chart_blockSL hR hNbr hL hK
-  obtain ⟨-, -, -, -, -, g, hgL, hgN, hinv, hxg, -, -, -⟩ := ggF4N2L_exists_swap hR hL
-  obtain ⟨ψ₂, h₂, hK₂, hblock⟩ := ggF4N2_secondChart_of_chart hR hL h₁ hK₁ hJ₁ hgL hinv hxg
-  exact ⟨ψ₁, ψ₂, g, hgL, h₁, hK₁, hJ₁, hgN, hinv, hxg, h₂, hK₂, hblock⟩
 
 theorem ggF4N2_sStar_map_conj
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
@@ -383,27 +367,6 @@ theorem ggF4N2_mixed_E6_of_charts {G : Type} [Group G] [Finite G] {B : Subgroup 
   have hc := ggCentralImage_E6_of_twoSL6Charts (le_refl 2) ψ₁ ψ₂ h₁ h₂ hblock.symm hM
   rwa [le_antisymm hle hge] at hc
 
-theorem ggF4N2_mixed_centralImage_of_charts {G : Type} [Group G] [Finite G] {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {y : G} {K : Subgroup G}
-    {Rd Ra : Prop} (hR : GGSecFiveRestGen 5 B Bs x L D J Rd Ra)
-    (hNbr : GGNbr 5 B x D J y K) (hL : GGCentralImage .POmegaMinus 4 2 L)
-    (hK : GGCentralImage .PSL 6 2 K) :
-    ∃ ψ₁ ψ₂ : Matrix.SpecialLinearGroup (Fin 6) (GaloisField 2 2) →* G, ∃ g ∈ L,
-      ψ₁.ker ≤ Subgroup.center _ ∧ ψ₁.range = K ∧
-      (ψ₁.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num))).range = J ∧
-      g ∈ Subgroup.normalizer (Bs : Set G) ∧ (∀ b ∈ Bs ⊓ L, g * b * g⁻¹ = b⁻¹) ∧ g * x * g⁻¹ = x ∧
-      ψ₂.ker ≤ Subgroup.center _ ∧ ψ₂.range = K.map (MulAut.conj g).toMonoidHom ∧
-      ψ₂.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num)) =
-        ψ₁.comp (blockSL (GaloisField 2 2) 6 4 0 (by norm_num)) ∧
-      ψ₁.range ⊔ (blockSL2 (GaloisField 2 2) 5 3).range.map ψ₂ ≤ ggG0 5 B x L D J ∧
-      ((∀ a ∈ (blockSL (GaloisField 2 2) 6 3 3 (by norm_num)).range.map ψ₁,
-          ∀ b ∈ (blockSL (GaloisField 2 2) 6 3 3 (by norm_num)).range.map ψ₂, a * b = b * a) →
-        ggG0 5 B x L D J ≤ ψ₁.range ⊔ (blockSL2 (GaloisField 2 2) 5 3).range.map ψ₂ →
-        GGCentralImage .E6 0 2 (ggG0 5 B x L D J)) := by
-  obtain ⟨ψ₁, ψ₂, g, hgL, h₁, hK₁, hJ₁, hgN, hinv, hxg, h₂, hK₂, hblock⟩ :=
-    ggF4N2_exists_secondChart hR hNbr hL hK
-  obtain ⟨hle, hfin⟩ := ggF4N2_mixed_E6_of_charts hNbr hgL h₁ hK₁ h₂ hK₂ hblock
-  exact ⟨ψ₁, ψ₂, g, hgL, h₁, hK₁, hJ₁, hgN, hinv, hxg, h₂, hK₂, hblock, hle, hfin⟩
 
 end CFSG.StandardType
 

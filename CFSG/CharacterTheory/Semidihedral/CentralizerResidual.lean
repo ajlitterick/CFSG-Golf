@@ -36,10 +36,6 @@ theorem sylow_le_involutionCentralizer (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
     SemidihedralGroup n ≃* centralizerSylow n hn S f :=
   f.trans (Subgroup.subgroupOfEquivOfLe (sylow_le_involutionCentralizer n hn S f)).symm
 
-theorem centralizerCoordinates_coe (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) (x : SemidihedralGroup n) :
-    ((centralizerCoordinates n hn S f x : involutionCentralizer n S f) : G) =
-      (f x : G) := rfl
 
 theorem centeredInvolution_mem (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) :
@@ -214,13 +210,6 @@ instance oddResidual_characteristic (n : ℕ) (S : Sylow 2 G)
 instance oddResidual_normal (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) : (oddResidual n S f).Normal := inferInstance
 
-theorem oddResidual_eq_odd_order_closure (n : ℕ) (S : Sylow 2 G)
-    (f : SemidihedralGroup n ≃* S) : oddResidual n S f =
-    Subgroup.closure {x : involutionCentralizer n S f | Odd (orderOf x)} := by
-  rw [oddResidual, primeResidual]
-  congr 1
-  ext x
-  simp only [Set.mem_ofPred_eq, ← even_iff_two_dvd, Nat.not_even_iff_odd]
 
 theorem oddResidual_index [Finite G] (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -257,12 +246,6 @@ theorem oddResidual_sylow [Finite G] (n : ℕ) (hn : 4 ≤ n)
   rw [hi] at hT
   exact hT
 
-theorem oddResidual_unique_index_two [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2)
-    (H : Subgroup (involutionCentralizer n S f)) (hH : H.index = 2) : H = oddResidual n S f :=
-  primeResidual_unique_normal_index (centralizerSylow n hn S f)
-    (centralizer_derived_index n hn S f hG) H (H.normal_of_index_eq_two hH) hH
 
 theorem oddResidual_hom_eq_one (n : ℕ) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) {P : Type*} [Group P]
@@ -277,27 +260,6 @@ theorem oddResidual_hom_eq_one (n : ℕ) (S : Sylow 2 G)
       (centralizerSylow n hn S f : Subgroup (involutionCentralizer n S f)).subtype
       Subtype.val_injective).trans (MulEquiv.subgroupCongr (sylowQuaternion_map n hn S f)))
 
-theorem centralizerQuaternionEquiv_coe (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) (g : QuaternionGroup (2 ^ (n - 3))) :
-    (centralizerQuaternionEquiv n hn S f g : involutionCentralizer n S f) =
-      ((suppliedQuaternionEquiv n hn (centralizerCoordinates n hn S f) g :
-        centralizerSylow n hn S f) : involutionCentralizer n S f) := by
-  rfl
-
-theorem centralizerQuaternionEquiv_rotation (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    (centralizerQuaternionEquiv n hn S f (QuaternionGroup.a 1) : involutionCentralizer n S f) =
-      (centralizerCoordinates n hn S f (r n) : involutionCentralizer n S f) ^ 2 := by
-  rw [centralizerQuaternionEquiv_coe, suppliedQuaternionEquiv_rotation]
-  rfl
-
-theorem centralizerQuaternionEquiv_generator (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S) :
-    (centralizerQuaternionEquiv n hn S f (QuaternionGroup.xa 0) : involutionCentralizer n S f) =
-      (centralizerCoordinates n hn S f (r n) : involutionCentralizer n S f) *
-        (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f) := by
-  rw [centralizerQuaternionEquiv_coe, suppliedQuaternionEquiv_generator]
-  rfl
 
 theorem centralInvolution_mem_quaternion (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) :
@@ -371,47 +333,6 @@ theorem s_order (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
     Subgroup (involutionCentralizer n S f)).subtype Subtype.val_injective, equiv_orderOf]
   exact orderOf_s n (by omega)
 
-theorem sup_zpowers_of_index_two {H : Type*} [Group H] (K : Subgroup H)
-    (hK : K.index = 2) (s : H) (hs : s ∉ K) : K ⊔ Subgroup.zpowers s = ⊤ := by
-  apply top_unique
-  intro x _
-  by_cases hx : x ∈ K
-  · exact (show K ≤ K ⊔ Subgroup.zpowers s from le_sup_left) hx
-  · have hxs : x * s⁻¹ ∈ K := (Subgroup.mul_mem_iff_of_index_two hK).mpr
-      (iff_of_false hx (by simpa only [Subgroup.inv_mem_iff] using hs))
-    have h : (x * s⁻¹) * s ∈ K ⊔ Subgroup.zpowers s :=
-      (K ⊔ Subgroup.zpowers s).mul_mem
-        ((show K ≤ K ⊔ Subgroup.zpowers s from le_sup_left) hxs)
-        ((show Subgroup.zpowers s ≤ K ⊔ Subgroup.zpowers s from le_sup_right)
-          (Subgroup.mem_zpowers s))
-    simpa only [mul_assoc, inv_mul_cancel, mul_one] using h
-
-theorem inf_zpowers_of_order_two {H : Type*} [Group H] (K : Subgroup H)
-    (s : H) (hs : s ∉ K) (ho : orderOf s = 2) : K ⊓ Subgroup.zpowers s = ⊥ := by
-  classical
-  apply le_antisymm
-  · intro x hx
-    have hfin : IsOfFinOrder s := orderOf_pos_iff.mp (by omega)
-    have hmem := hfin.mem_zpowers_iff_mem_range_orderOf.mp hx.2
-    obtain ⟨i, hi, he⟩ := Finset.mem_image.mp hmem
-    rw [Finset.mem_range] at hi
-    have hic : i = 0 ∨ i = 1 := by rw [ho] at hi; omega
-    rcases hic with rfl | rfl
-    · simpa only [pow_zero, Subgroup.mem_bot] using he.symm
-    · simp only [pow_one] at he
-      exact (hs (he.symm ▸ hx.1)).elim
-  · exact bot_le
-
-theorem oddResidual_split [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) :
-    oddResidual n S f ⊔ Subgroup.zpowers
-      (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f) = ⊤ ∧
-    oddResidual n S f ⊓ Subgroup.zpowers
-      (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f) = ⊥ :=
-  ⟨sup_zpowers_of_index_two _ (oddResidual_index n hn S f hG) _
-      (s_not_mem_oddResidual n hn S f hG),
-    inf_zpowers_of_order_two _ _ (s_not_mem_oddResidual n hn S f hG) (s_order n hn S f)⟩
 
 theorem oddResidual_unique_involution [Finite G] (n : ℕ) (hn : 4 ≤ n)
     (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
@@ -438,31 +359,6 @@ theorem oddResidual_unique_involution [Finite G] (n : ℕ) (hn : 4 ≤ n)
   rw [hy] at hC
   exact (conjugate_to_central_iff (centralInvolution_mem_center n S f)).mp hC
 
-theorem oddResidual_involution_iff [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) (x : oddResidual n S f) :
-    orderOf x = 2 ↔ (x : involutionCentralizer n S f) = centralInvolution n S f := by
-  constructor
-  · exact oddResidual_unique_involution n hn S f hG x
-  · intro h
-    have ho := orderOf_injective (oddResidual n S f).subtype Subtype.val_injective x
-    change orderOf (x : involutionCentralizer n S f) = orderOf x at ho
-    rw [h, centralInvolution_order n hn S f] at ho
-    exact ho.symm
-
-theorem oddResidual_factorization [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) (x : involutionCentralizer n S f) :
-    ∃ k : oddResidual n S f,
-      ∃ u : Subgroup.zpowers
-        (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f),
-        (k : involutionCentralizer n S f) * u = x := by
-  have hx : x ∈ oddResidual n S f ⊔ Subgroup.zpowers
-      (centralizerCoordinates n hn S f (s n) : involutionCentralizer n S f) := by
-    rw [(oddResidual_split n hn S f hG).1]
-    trivial
-  obtain ⟨k, hk, u, hu, hku⟩ := Subgroup.mem_sup_of_normal_left.mp hx
-  exact ⟨⟨k, hk⟩, ⟨u, hu⟩, hku⟩
 
 theorem centralizerQuaternion_ambient_map (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G)
     (f : SemidihedralGroup n ≃* S) :
@@ -472,85 +368,5 @@ theorem centralizerQuaternion_ambient_map (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 
   simp only [Set.image_insert_eq, Set.image_singleton, map_pow, map_mul]
   rfl
 
-theorem centered_quaternion_residual [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) :
-    let C := involutionCentralizer n S f
-    let P := centralizerSylow n hn S f
-    let e := centralizerCoordinates n hn S f
-    let Q := centralizerQuaternion n hn S f
-    let K := oddResidual n S f
-    let t := centralInvolution n S f
-    let s := (e (CFSG.Semidihedral.s n) : C)
-    (S : Subgroup G) ≤ C ∧
-    (P : Subgroup C) = (S : Subgroup G).subgroupOf C ∧
-    (P : Subgroup C) ⊓ commutator C = Q ∧
-    K = Subgroup.closure {x : C | Odd (orderOf x)} ∧ K.Characteristic ∧ K.index = 2 ∧
-    (P : Subgroup C) ⊓ K = Q ∧
-    (∃ T : Sylow 2 K, (T : Subgroup K) = Q.subgroupOf K) ∧
-    (∃ q : QuaternionGroup (2 ^ (n - 3)) ≃* Q,
-      (q (QuaternionGroup.a 1) : C) = (e (r n) : C) ^ 2 ∧
-      (q (QuaternionGroup.xa 0) : C) = (e (r n) : C) * (e (CFSG.Semidihedral.s n) : C)) ∧
-    t ∈ K ∧ orderOf t = 2 ∧ (∀ x : K, orderOf x = 2 ↔ (x : C) = t) ∧
-    K ⊔ Subgroup.zpowers s = ⊤ ∧ K ⊓ Subgroup.zpowers s = ⊥ ∧
-    (∀ x : C, ∃ k : K, ∃ u : Subgroup.zpowers s, (k : C) * u = x) ∧
-    (∀ H : Subgroup C, H.index = 2 → H = K) ∧
-    (∀ (A : Type*) [Group A] [Finite A], IsPGroup 2 A → ∀ φ : K →* A, φ = 1) := by
-  dsimp only
-  refine ⟨sylow_le_involutionCentralizer n hn S f, rfl,
-    centralizer_derived_inf n hn S f hG, oddResidual_eq_odd_order_closure n S f,
-    oddResidual_characteristic n S f, oddResidual_index n hn S f hG,
-    oddResidual_inf_sylow n hn S f hG, oddResidual_sylow n hn S f hG,
-    ⟨centralizerQuaternionEquiv n hn S f, centralizerQuaternionEquiv_rotation n hn S f,
-      centralizerQuaternionEquiv_generator n hn S f⟩,
-    centralInvolution_mem_oddResidual n hn S f hG, centralInvolution_order n hn S f,
-    oddResidual_involution_iff n hn S f hG,
-    (oddResidual_split n hn S f hG).1, (oddResidual_split n hn S f hG).2,
-    oddResidual_factorization n hn S f hG,
-    oddResidual_unique_index_two n hn S f hG, ?_⟩
-  intro A _ _ hA φ
-  exact oddResidual_hom_eq_one n S f hA φ
-
-theorem involution_centralizer_quaternion_residual [Finite G] (n : ℕ) (hn : 4 ≤ n)
-    (S₀ : Sylow 2 G) (f₀ : SemidihedralGroup n ≃* S₀)
-    (hG : ∀ H : Subgroup G, H.index ≠ 2) :
-    ∀ t : G, orderOf t = 2 →
-      (∃ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S),
-        ((f (r n) ^ (2 ^ (n - 2)) : S) : G) = t) ∧
-      (∀ (S : Sylow 2 G) (f : SemidihedralGroup n ≃* S),
-        ((f (r n) ^ (2 ^ (n - 2)) : S) : G) = t →
-        let C := involutionCentralizer n S f
-        let P := centralizerSylow n hn S f
-        let e := centralizerCoordinates n hn S f
-        let Q := centralizerQuaternion n hn S f
-        let K := oddResidual n S f
-        let tC := centralInvolution n S f
-        let s := (e (CFSG.Semidihedral.s n) : C)
-        C = Subgroup.centralizer {t} ∧ (tC : G) = t ∧
-        (S : Subgroup G) ≤ C ∧ (P : Subgroup C) = (S : Subgroup G).subgroupOf C ∧
-        (P : Subgroup C) ⊓ commutator C = Q ∧
-        K = Subgroup.closure {x : C | Odd (orderOf x)} ∧ K.Characteristic ∧ K.index = 2 ∧
-        (P : Subgroup C) ⊓ K = Q ∧
-        (∃ T : Sylow 2 K, (T : Subgroup K) = Q.subgroupOf K) ∧
-        (∃ q : QuaternionGroup (2 ^ (n - 3)) ≃* Q,
-          (q (QuaternionGroup.a 1) : C) = (e (r n) : C) ^ 2 ∧
-          (q (QuaternionGroup.xa 0) : C) =
-            (e (r n) : C) * (e (CFSG.Semidihedral.s n) : C)) ∧
-        tC ∈ K ∧ orderOf tC = 2 ∧ (∀ x : K, orderOf x = 2 ↔ (x : C) = tC) ∧
-        K ⊔ Subgroup.zpowers s = ⊤ ∧ K ⊓ Subgroup.zpowers s = ⊥ ∧
-        (∀ x : C, ∃ k : K, ∃ u : Subgroup.zpowers s, (k : C) * u = x) ∧
-        (∀ H : Subgroup C, H.index = 2 → H = K) ∧
-        (∀ (A : Type*) [Group A] [Finite A], IsPGroup 2 A → ∀ φ : K →* A, φ = 1)) := by
-  intro t ht
-  obtain ⟨S, f, hz, hr⟩ :=
-    (InvolutionFusion.involution_centered_sylow_existence n hn S₀ f₀ hG t ht).2
-  refine ⟨⟨S, f, hr⟩, ?_⟩
-  intro S f hcenter
-  have hz : centeredInvolution n S f = t := by
-    change (f (z n) : G) = t
-    simpa only [z, half, map_pow] using hcenter
-  refine ⟨?_, hz, centered_quaternion_residual n hn S f hG⟩
-  change Subgroup.centralizer {centeredInvolution n S f} = Subgroup.centralizer {t}
-  rw [hz]
 
 end CFSG.Semidihedral.CentralizerResidual

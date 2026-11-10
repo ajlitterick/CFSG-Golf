@@ -67,50 +67,6 @@ theorem ggReflRealizedIn_of_torusComponents {G : Type} [Group G] [Finite G] {p r
   exact (CFSG.HardMathSupport.Solomon.Coordinator.i183_glaPComponent_iff_isPComponent hp).mpr
     ⟨hJc.1, isPComponent_subgroupOf_of_isComponentOf_of_dvd hJc hpJ⟩
 
-theorem ggKGComponentDatumAt_of_componentCover {R : Type} [Group R] [Finite R]
-    {p : ℕ} {E : Subgroup R} (hE : IsElemAbelian p E)
-    {ι : Type} (m : ι → R) (J : ι → Subgroup R)
-    (hmJ : ∀ i, m i ∈ J i)
-    (hJcomp : ∀ i, CFSG.Assembly.IsComponentOf (J i)
-      (Subgroup.centralizer ((E ⊓ Subgroup.centralizer ({m i} : Set R) : Subgroup R) : Set R)))
-    (hdvd : ∀ i, p ∣ Nat.card (J i))
-    (hcover : ∀ w₀ : R, GGKGIsReflAt p E w₀ →
-      ∃ i, ∃ u ∈ Subgroup.normalizer (E : Set R),
-        ∀ e ∈ E, w₀ * e * w₀⁻¹ =
-          (u * m i * u⁻¹) * e * (u * m i * u⁻¹)⁻¹) :
-    GGKGComponentDatumAt p E := by
-  classical
-  intro w₀ hrefl
-  obtain ⟨i, u, huN, hwu⟩ := hcover w₀ hrefl
-  set w : R := u * m i * u⁻¹ with hwdef
-  set c : R ≃* R := MulAut.conj u with hcdef
-  have hw_eq : w = c (m i) := by
-    simp [hwdef, hcdef, MulAut.conj_apply]
-  have hEN : E.map c.toMonoidHom = E := by
-    simpa [hcdef] using Subgroup.mem_normalizer_iff_map_conj_eq.mp huN
-  have hA_map : (E ⊓ Subgroup.centralizer ({m i} : Set R)).map c.toMonoidHom =
-      E ⊓ Subgroup.centralizer ({w} : Set R) := by
-    rw [CFSG.centralizer_inter_map c E (m i), hEN, ← hw_eq]
-  have hcent_map :
-      (Subgroup.centralizer
-        ((E ⊓ Subgroup.centralizer ({m i} : Set R) : Subgroup R) : Set R)).map
-        c.toMonoidHom =
-      Subgroup.centralizer
-        ((E ⊓ Subgroup.centralizer ({w} : Set R) : Subgroup R) : Set R) := by
-    rw [CFSG.Glauberman.map_centralizer_eq_of_equiv c
-      (E ⊓ Subgroup.centralizer ({m i} : Set R)), hA_map]
-  have hJcomp' : CFSG.Assembly.IsComponentOf ((J i).map c.toMonoidHom)
-      (Subgroup.centralizer
-        ((E ⊓ Subgroup.centralizer ({w} : Set R) : Subgroup R) : Set R)) := by
-    have h := isComponentOf_map_of_injective c.toMonoidHom c.injective (hJcomp i)
-    rwa [hcent_map] at h
-  refine ⟨w, ?_, (J i).map c.toMonoidHom, ?_, hJcomp', ?_⟩
-  · intro e he
-    simpa [hwdef] using (hwu e he).symm
-  · rw [hw_eq]
-    exact Subgroup.mem_map_of_mem c.toMonoidHom (hmJ i)
-  · rw [Subgroup.card_map_of_injective c.injective]
-    exact hdvd i
 
 theorem ggTorusComponents_of_componentDatum {p r : ℕ} {R : Type} [Group R] [Finite R]
     {I : Set (MulAut R)} (hp : p.Prime)

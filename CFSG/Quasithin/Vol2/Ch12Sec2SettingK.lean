@@ -26,7 +26,5 @@ open CFSG.Open CFSG.Blueprint
           ¬ Nonempty (G ≃* NativeSporadic.He) ∧
             (LieModel G .PSL 5 2 1 ∨ Nonempty (G ≃* NativeSporadic.M24)))
 
-theorem asc94K_of_asc94 (h : Asc94_M24He_L52Type) : Asc94_M24He_L52TypeK :=
-  fun G _ _ z hs _ hord hC hnw => h G z hs hord hC hnw
 
 end CFSG.Quasithin.H13

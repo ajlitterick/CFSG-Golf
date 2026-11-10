@@ -95,18 +95,6 @@ theorem ggMem_ker_mk_comp_subtype {H K : Subgroup W} [K.Normal] (x : ↥H) :
     QuotientGroup.eq_one_iff]
   rfl
 
-theorem ggIsSolvable_quot_inf_generalizedFitting [Finite W]
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog) {p : ℕ}
-    {H E : Subgroup W} (hyp : GGHypThreeSixteen p H E) :
-    have : (CFSG.generalizedFitting W).Normal := CFSG.LocalCores.generalized_fitting_characteristic.2
-    Group.IsSolvable (↥H ⧸ ((QuotientGroup.mk' (CFSG.generalizedFitting W)).comp H.subtype).ker) := by
-  intro hKn
-  obtain ⟨-, ⟨hsimple, hnab, hcat⟩, -⟩ := hyp
-  have : IsSimpleGroup ↥(CFSG.generalizedFitting W) := hsimple
-  have hout := hSch _ hnab hcat
-  have hWK := ggIsSolvable_quot_generalizedFitting hsimple hnab hout
-  exact Group.isSolvable_of_isSolvable_injective
-    (QuotientGroup.kerLift_injective ((QuotientGroup.mk' (CFSG.generalizedFitting W)).comp H.subtype))
 
 end Hyp
 

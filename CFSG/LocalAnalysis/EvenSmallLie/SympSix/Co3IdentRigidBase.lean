@@ -37,11 +37,6 @@ theorem eaH_ne_one :
     exact co3Z_mul_self
   exact eH_ne_aH (by rw [h2, he2])
 
-theorem eaH_ne_eH
-    : eH * aH ≠ eH := fun h => aH_ne_one (by simpa using h)
-
-theorem eaH_ne_aH
-    : eH * aH ≠ aH := fun h => eH_ne_one (by simpa using h)
 
 open Classical in
 noncomputable def zcH
@@ -107,10 +102,6 @@ theorem zcH_map
   rw [zcH_other d0 d1 d2 d3, zcH_other c0 c1 c2 c3]
   rfl
 
-theorem perm_pow
-    (x : edgeGroup) (n : ℕ) : perm (x ^ n) = perm x ^ n := by
-  rw [← permHom_apply, map_pow]
-  rfl
 
 theorem rep_powA
     {t : Array ℕ} {x : edgeGroup} (ht : Rep 276 t (perm x)) :

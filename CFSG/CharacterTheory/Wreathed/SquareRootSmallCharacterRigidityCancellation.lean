@@ -82,34 +82,5 @@ theorem actual_root_odd_eigenmultiplicity_cancellation {G : Type} [Group G]
   · exact isConj_iff.mpr ⟨wreathModelHom S e (Original.x2 (2 ^ n)),
       actualRoot_conjugate_half n (by omega) S e⟩
 
-theorem odd_eigenvalue_pair_trace_cancel {G : Type*} [Group G]
-    (data : FiniteComplexRepresentation G) (y : G) (m : ℕ) (hm : 0 < m)
-    (heven : Even m) (hy : y ^ (2 * m) = 1) (root : ℂ)
-    (hroot : IsPrimitiveRoot root (2 * m)) (hconj : IsConj y (y ^ (m + 1)))
-    (t h : ℕ) (ht : Odd t) (hh : Odd h) :
-    (cyclicEigenmultiplicity data y root t : ℂ) * root ^ (t * h) +
-      (cyclicEigenmultiplicity data y root (t + m) : ℂ) * root ^ ((t + m) * h) = 0 := by
-  have hpair : root ^ ((t + m) * h) = -root ^ (t * h) := by
-    rw [Nat.add_mul, pow_add]
-    have hmh : root ^ (m * h) = -1 := by
-      rw [pow_mul, primitive_twice_root_half hm hroot, Odd.neg_one_pow hh]
-    rw [hmh]
-    ring
-  rw [hpair, odd_eigenmultiplicity_eq_half_period data y m hm heven hy root hroot hconj t ht]
-  ring
-
-theorem actual_root_odd_eigenvalue_pair_trace_cancel {G : Type} [Group G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (data : FiniteComplexRepresentation G) (root : ℂ)
-    (hroot : IsPrimitiveRoot root (2 * 2 ^ n)) (t h : ℕ) (ht : Odd t) (hh : Odd h) :
-    (cyclicEigenmultiplicity data (actualRoot S e) root t : ℂ) * root ^ (t * h) +
-      (cyclicEigenmultiplicity data (actualRoot S e) root (t + 2 ^ n) : ℂ) *
-        root ^ ((t + 2 ^ n) * h) = 0 := by
-  apply odd_eigenvalue_pair_trace_cancel data (actualRoot S e) (2 ^ n)
-    (pow_pos (by omega) _) (Even.pow_of_ne_zero even_two (by omega)) _ root hroot _ t h ht hh
-  · rw [← actualRoot_orderOf n hn S e]
-    exact pow_orderOf_eq_one _
-  · exact isConj_iff.mpr ⟨wreathModelHom S e (Original.x2 (2 ^ n)),
-      actualRoot_conjugate_half n (by omega) S e⟩
 
 end CFSG.Wreathed.SquareRootSmallCharacterRigidity

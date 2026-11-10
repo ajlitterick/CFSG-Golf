@@ -435,10 +435,5 @@ theorem spThreeLinearOddStandardInput_of_orth
       e (LinearPilot.mem_centralizer_of_inf_eq_zpowers hKt) ht hroot hstd
       (hO G L hset f K hKc hf e t ht hKt hroot hstd))
 
-theorem spThreeKindCoverInput_linearOdd_of_orth
-    (hcat : LinearPilot.SLmCatalogueClausesAt 3) (hdet : LinearPilot.SLmEvenTypeDetAt 3)
-    (hO : SpThreeLinearOddOrthInput) : SpThreeKindCoverInput .linearOdd :=
-  spThreeKindCoverInput_linearOdd_of_clauses hcat hdet
-    (spThreeLinearOddStandardInput_of_orth hcat hdet hO) spThreeLinearOddTrivialSiegelInput_holds
 
 end CFSG.SeitzReduction.SymplecticPilot

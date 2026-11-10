@@ -130,7 +130,6 @@ theorem V_le_S : ruV R.L ≤ ruS R.L := inf_le_left
 
 theorem V_le_L : ruV R.L ≤ R.L := R.V_le_S.trans R.S_le_L
 
-theorem Z_le_T : ruZ R.T ≤ (R.T : Subgroup G) := inf_le_left
 
 theorem mem_V_iff {v : G} : v ∈ ruV R.L ↔ v ∈ ruS R.L ∧ ∀ s ∈ ruS R.L, s * v = v * s := by
   unfold ruV centerOf

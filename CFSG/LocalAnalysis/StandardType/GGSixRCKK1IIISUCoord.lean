@@ -82,27 +82,6 @@ noncomputable def suOmega : SUF := exists_suOmega.choose
 
 theorem suOmega_spec : suOmega ^ 2 + suOmega + 1 = 0 := exists_suOmega.choose_spec
 
-private theorem suOmega_ne_zero : suOmega ≠ 0 := by
-  intro h
-  have hspec := suOmega_spec
-  rw [h] at hspec
-  norm_num at hspec
-
-private theorem suOmega_ne_one : suOmega ≠ 1 := by
-  intro h
-  have hspec := suOmega_spec
-  rw [h] at hspec
-  have h2 : (2 : SUF) = 0 := CharP.cast_eq_zero SUF 2
-  norm_num at hspec
-  have h3 : (3 : SUF) = 1 := by
-    rw [show (3 : SUF) = 2 + 1 by norm_num, h2, zero_add]
-  rw [h3] at hspec
-  exact one_ne_zero hspec
-
-private theorem suOmega_sq : suOmega ^ 2 = suOmega + 1 := by
-  have h := suOmega_spec
-  have h2 : (2 : SUF) = 0 := CharP.cast_eq_zero SUF 2
-  linear_combination h - (suOmega + 1) * h2
 
 private noncomputable def suB (v : Fin 4 → ZMod 2) : SUF :=
   algebraMap (ZMod 2) SUF (v 1) + algebraMap (ZMod 2) SUF (v 2) * suOmega
@@ -224,13 +203,6 @@ private theorem suCorner_apply_01 (hk : 4 ≤ k) (v : Fin 4 → ZMod 2) :
     su_rev_sI1_ne_sI0 hk, su_sI1_ne_rev_sI0 hk, su_rev_sI0_ne_rev_sI1 hk,
     su_rev_sI1_ne_rev_sI0 hk]
 
-private theorem suCorner_apply_10 (hk : 4 ≤ k) (v : Fin 4 → ZMod 2) :
-    suCorner hk v (sI1 hk) (Fin.rev (sI0 hk)) = SUσ (suB v) := by
-  rw [suCorner_eq_one_add_suN hk v]
-  simp only [Matrix.add_apply, Matrix.one_apply, suN, Matrix.single_apply]
-  simp [su_sI0_ne_sI1 hk, su_sI1_ne_sI0 hk, su_rev_sI0_ne_sI0 hk, su_sI0_ne_rev_sI0 hk,
-    su_rev_sI0_ne_sI1 hk, su_sI1_ne_rev_sI0 hk, su_rev_sI0_ne_rev_sI1 hk,
-    su_rev_sI1_ne_rev_sI0 hk]
 
 private theorem suCorner_apply_11 (hk : 4 ≤ k) (v : Fin 4 → ZMod 2) :
     suCorner hk v (sI1 hk) (Fin.rev (sI1 hk)) = algebraMap (ZMod 2) SUF (v 3) := by
@@ -424,25 +396,5 @@ theorem card_suZ0 (hk : 4 ≤ k) : Nat.card (suZ0 hk) = 16 := by
     Nat.card_congr Multiplicative.toAdd, Nat.card_eq_fintype_card]
   norm_num [Fintype.card_fun, ZMod.card]
 
-theorem isElemAbelian_suZ0 (hk : 4 ≤ k) : IsElemAbelian 2 (suZ0 hk) := by
-  change IsMulCommutative (suZ0 hk) ∧ ∀ x ∈ suZ0 hk, x ^ 2 = 1
-  constructor
-  · refine ⟨⟨?_⟩⟩
-    intro x y
-    obtain ⟨v, hv⟩ := x.2
-    obtain ⟨w, hw⟩ := y.2
-    apply Subtype.ext
-    rw [Subgroup.coe_mul, Subgroup.coe_mul, ← hv, ← hw]
-    change suZ hk v.toAdd * suZ hk w.toAdd = suZ hk w.toAdd * suZ hk v.toAdd
-    rw [suZ_add, suZ_add, add_comm]
-  · intro x hx
-    obtain ⟨v, hv⟩ := hx
-    rw [← hv]
-    change (suZ hk v.toAdd) ^ 2 = 1
-    rw [sq, suZ_add]
-    have hv2 : v.toAdd + v.toAdd = 0 := by
-      funext i
-      exact (by decide : ∀ a : ZMod 2, a + a = 0) (v.toAdd i)
-    rw [hv2, suZ_zero]
 
 end CFSG.StandardType.RCKK1IIISU

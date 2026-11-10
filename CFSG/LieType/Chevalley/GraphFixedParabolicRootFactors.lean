@@ -69,11 +69,6 @@ theorem graphFixedParabolicLeviUnipotent_le_graphFixedRootGroup :
   (graphFixedParabolicLeviUnipotent_le t K σ J).trans
     (graphFixedPosUnipotent_le_graphFixedRootGroup t K σ)
 
-theorem graphFixedParabolicRadicalGe_le_graphFixedRootGroup
-    (h : ℤ) :
-    graphFixedParabolicRadicalGe t K σ J h ≤ graphFixedRootGroup t K σ :=
-  (graphFixedParabolicRadicalGe_le t K σ J h).trans
-    (graphFixedParabolicRadical_le_graphFixedRootGroup t K σ J)
 
 theorem graphFixedParabolicLevi_le
     : graphFixedParabolicLevi t K σ J ≤ graphFixedRootGroup t K σ :=

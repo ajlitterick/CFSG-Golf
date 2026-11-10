@@ -210,8 +210,6 @@ namespace Setting4
 
 attribute [local instance] commGroupOfFact
 
-variable {G : Type} [Group G] [Finite G] {T L V : Subgroup G} (S : Setting4 G T L V)
-include S
 
 end Setting4
 

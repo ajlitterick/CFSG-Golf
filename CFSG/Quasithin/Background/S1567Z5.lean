@@ -24,8 +24,6 @@ open CFSG.Open CFSG.QuasithinUnique CFSG.LieType.BorelTits CFSG.Quasithin.F7
       Subgroup.normalizer (thompsonJ (TE153 T E) : Set G) ≤ M →
         (M ⊓ Subgroup.normalizer (E : Set G)).relIndex (Subgroup.normalizer (E : Set G)) = 3
 
-theorem input15367Inspect_of_step67Index (h : Step67Index) : Input15367Inspect :=
-  fun G _ _ T Mc M V₁ V₂ E t k _ _ _ _ _ => h G T Mc M V₁ V₂ E t k
 
 theorem step67Index_of_inspect (h113 : StageLemma14113) (hI : Input15367Inspect) : Step67Index := by
   intro G _ _ T Mc M V₁ V₂ E t k

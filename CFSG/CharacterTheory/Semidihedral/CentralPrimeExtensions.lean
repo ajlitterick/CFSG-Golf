@@ -14,8 +14,6 @@ variable {A : Type u} {E₁ : Type v} {E₂ : Type w} {G : Type x}
 @[expose] def fiberProduct (π₁ : E₁ →* G) (π₂ : E₂ →* G) : Subgroup (E₁ × E₂) :=
   (π₁.comp (MonoidHom.fst E₁ E₂)).eqLocus (π₂.comp (MonoidHom.snd E₁ E₂))
 
-theorem mem_fiberProduct (π₁ : E₁ →* G) (π₂ : E₂ →* G) (z : E₁ × E₂) :
-    z ∈ fiberProduct π₁ π₂ ↔ π₁ z.1 = π₂ z.2 := Iff.rfl
 
 @[expose] def firstProjection (π₁ : E₁ →* G) (π₂ : E₂ →* G) :
     fiberProduct π₁ π₂ →* E₁ :=
@@ -57,10 +55,6 @@ theorem fiberQuotient_surjective (π₁ : E₁ →* G) (π₂ : E₂ →* G)
       _ = (((f a)⁻¹ * g a) * (f b)⁻¹) * g b := by rw [hc]
       _ = ((f a)⁻¹ * g a) * ((f b)⁻¹ * g b) := by group
 
-theorem centralDifference_apply {D H : Type*} [Group D] [Group H]
-    (K : Subgroup H) (hK : K ≤ Subgroup.center H) (f g : D →* H)
-    (hfg : ∀ d, (f d)⁻¹ * g d ∈ K) (d : D) :
-    (centralDifference K hK f g hfg d : H) = (f d)⁻¹ * g d := rfl
 
 @[expose] def centralCoefficient {D H : Type*} [Group D] [Group H]
     (ι : A →* H) (hι : Function.Injective ι)

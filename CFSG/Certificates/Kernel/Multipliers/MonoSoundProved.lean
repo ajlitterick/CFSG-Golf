@@ -56,9 +56,6 @@ theorem wk_add : ∀ (w : List ℕ) (x : Fin N) (α β : ZMod n),
       (wk T m N n w (lmap T m N n c (x, α))).2 + β)
     rw [lmap_add, wk_add w]
 
-theorem wk_zero (w : List ℕ) (x : Fin N) (α : ZMod n) :
-    wk T m N n w (x, α) = ((wk T m N n w (x, 0)).1, (wk T m N n w (x, 0)).2 + α) := by
-  rw [← wk_add, zero_add]
 
 omit [NeZero N] in
 theorem enc_inj [NeZero n] (hN : N ≤ 65536) {p q : Fin N × ZMod n} (h : enc p = enc q) : p = q := by

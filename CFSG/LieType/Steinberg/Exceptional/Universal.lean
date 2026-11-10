@@ -20,14 +20,5 @@ abbrev e7UniversalGroup : Type := ↥(e7Data_valid.minGroup (GaloisField p f))
 
 abbrev e7UniversalDatum : UniversalRootDatum (e7UniversalGroup p f) := e7Datum (GaloisField p f)
 
-abbrev f4UniversalGroup : Type := ↥(adjointGroup .F4 (GaloisField p f))
-
-abbrev f4UniversalDatum : UniversalRootDatum (f4UniversalGroup p f) :=
-  CFSG.LieType.Steinberg.Adjoint.f4Datum (GaloisField p f)
-
-abbrev e8UniversalGroup : Type := ↥(adjointGroup .E8 (GaloisField p f))
-
-abbrev e8UniversalDatum : UniversalRootDatum (e8UniversalGroup p f) :=
-  CFSG.LieType.Steinberg.Adjoint.e8Datum (GaloisField p f)
 
 end CFSG.LieType.Steinberg.Exceptional

@@ -32,33 +32,6 @@ theorem cyclic_quotient_pair_intersection_card_bound
   exact Nat.le_of_mul_le_mul_right (large.trans product_bound)
     (Nat.mul_pos prime_prime.pos prime_prime.pos)
 
-theorem cyclic_quotient_pair_intersection_nontrivial
-    (prime : ℕ) (prime_prime : prime.Prime)
-    (ActorType : Type actorUniverse) [CommGroup ActorType] [Finite ActorType]
-    (exponent : ∀ element : ActorType, element ^ prime = 1)
-    (large : prime ^ 3 ≤ Nat.card ActorType)
-    (first second : Subgroup ActorType)
-    (first_cyclic : IsCyclic (ActorType ⧸ first))
-    (second_cyclic : IsCyclic (ActorType ⧸ second)) :
-    ∃ element : ActorType, element ≠ 1 ∧ element ∈ first ∧ element ∈ second := by
-  have first_index := cyclic_quotient_index_le_prime prime prime_prime ActorType
-    exponent first first_cyclic
-  have second_index := cyclic_quotient_index_le_prime prime prime_prime ActorType
-    exponent second second_cyclic
-  have intersection_nontrivial : first ⊓ second ≠ ⊥ := by
-    intro trivial
-    have index_bound := Subgroup.index_inf_le (H := first) (K := second)
-    rw [trivial, Subgroup.index_bot] at index_bound
-    have product_bound := Nat.mul_le_mul first_index second_index
-    have cube : prime ^ 3 = prime * prime * prime := by ring
-    rw [cube] at large
-    nlinarith [prime_prime.two_le]
-  obtain ⟨element, nonidentity⟩ :=
-    Subgroup.ne_bot_iff_exists_ne_one.mp intersection_nontrivial
-  refine ⟨element.val, ?_, element.property.1, element.property.2⟩
-  intro identity
-  apply nonidentity
-  exact Subtype.ext identity
 
 variable {GroupType : Type groupUniverse} [Group GroupType]
 
@@ -215,84 +188,5 @@ theorem prime_coprime_pgroup_card [Finite GroupType]
   intro divides
   exact distinct ((prime_prime.dvd_iff_eq groupPrime_prime.ne_one).mp divides)
 
-theorem pairwise_normalizer_fixed_growth
-    (ActorType : Type actorUniverse) [CommGroup ActorType] [Finite ActorType]
-    [Finite GroupType] [MulDistribMulAction ActorType GroupType]
-    (prime groupPrime : ℕ) (prime_prime : prime.Prime)
-    (groupPrime_prime : groupPrime.Prime) (distinct : prime ≠ groupPrime)
-    (exponent : ∀ element : ActorType, element ^ prime = 1)
-    (large : prime ^ 3 ≤ Nat.card ActorType)
-    (first second : Subgroup GroupType)
-    (first_pgroup : IsPGroup groupPrime first)
-    (second_pgroup : IsPGroup groupPrime second)
-    (first_invariant : ∀ actorElement : ActorType, ∀ element ∈ first,
-      actorElement • element ∈ first)
-    (second_invariant : ∀ actorElement : ActorType, ∀ element ∈ second,
-      actorElement • element ∈ second)
-    (first_proper : first ⊓ second < first)
-    (second_proper : first ⊓ second < second) :
-    ∃ actorElement : ActorType, actorElement ≠ 1 ∧
-      (∃ element ∈ first ⊓ Subgroup.normalizer (first ⊓ second : Set GroupType),
-        element ∉ first ⊓ second ∧ actorElement • element = element) ∧
-      (∃ element ∈ second ⊓ Subgroup.normalizer (first ⊓ second : Set GroupType),
-        element ∉ first ⊓ second ∧ actorElement • element = element) := by
-  classical
-  have actor_pgroup : IsPGroup prime ActorType := by
-    intro element
-    exact ⟨1, by simpa using exponent element⟩
-  let intersection := first ⊓ second
-  let firstNormalizer := first ⊓ Subgroup.normalizer (intersection : Set GroupType)
-  let secondNormalizer := second ⊓ Subgroup.normalizer (intersection : Set GroupType)
-  have intersection_invariant : ∀ actorElement : ActorType, ∀ element ∈ intersection,
-      actorElement • element ∈ intersection := by
-    intro actorElement element member
-    exact ⟨first_invariant actorElement element member.1,
-      second_invariant actorElement element member.2⟩
-  have normalizer_invariant := normalizer_invariant_of_invariant
-    intersection intersection_invariant
-  have firstNormalizer_invariant : ∀ actorElement : ActorType,
-      ∀ element ∈ firstNormalizer, actorElement • element ∈ firstNormalizer := by
-    intro actorElement element member
-    exact ⟨first_invariant actorElement element member.1,
-      normalizer_invariant actorElement element member.2⟩
-  have secondNormalizer_invariant : ∀ actorElement : ActorType,
-      ∀ element ∈ secondNormalizer, actorElement • element ∈ secondNormalizer := by
-    intro actorElement element member
-    exact ⟨second_invariant actorElement element member.1,
-      normalizer_invariant actorElement element member.2⟩
-  have firstNormalizer_coprime : Nat.Coprime prime (Nat.card firstNormalizer) :=
-    prime_coprime_pgroup_card prime groupPrime prime_prime groupPrime_prime distinct
-      (first_pgroup.to_le inf_le_left)
-  have secondNormalizer_coprime : Nat.Coprime prime (Nat.card secondNormalizer) :=
-    prime_coprime_pgroup_card prime groupPrime prime_prime groupPrime_prime distinct
-      (second_pgroup.to_le inf_le_left)
-  have first_growth := pgroup_normalizer_strict_growth groupPrime groupPrime_prime
-    first intersection first_pgroup first_proper
-  have second_growth := pgroup_normalizer_strict_growth groupPrime groupPrime_prime
-    second intersection second_pgroup second_proper
-  obtain ⟨firstActorSubgroup, first_cyclic, first_escape⟩ :=
-    exists_cyclic_quotient_fixed_points_escape ActorType prime prime_prime actor_pgroup
-      firstNormalizer intersection firstNormalizer_invariant firstNormalizer_coprime
-      first_growth.not_ge
-  obtain ⟨secondActorSubgroup, second_cyclic, second_escape⟩ :=
-    exists_cyclic_quotient_fixed_points_escape ActorType prime prime_prime actor_pgroup
-      secondNormalizer intersection secondNormalizer_invariant secondNormalizer_coprime
-      second_growth.not_ge
-  obtain ⟨actorElement, nonidentity, first_member, second_member⟩ :=
-    cyclic_quotient_pair_intersection_nontrivial prime prime_prime ActorType exponent
-      large firstActorSubgroup secondActorSubgroup first_cyclic second_cyclic
-  refine ⟨actorElement, nonidentity, ?_, ?_⟩
-  · have witness : ∃ element ∈ firstNormalizer ⊓
-        FixedPoints.subgroup firstActorSubgroup GroupType, element ∉ intersection := by
-      by_contra! all_contained
-      exact first_escape all_contained
-    obtain ⟨element, member, outside⟩ := witness
-    exact ⟨element, member.1, outside, member.2 ⟨actorElement, first_member⟩⟩
-  · have witness : ∃ element ∈ secondNormalizer ⊓
-        FixedPoints.subgroup secondActorSubgroup GroupType, element ∉ intersection := by
-      by_contra! all_contained
-      exact second_escape all_contained
-    obtain ⟨element, member, outside⟩ := witness
-    exact ⟨element, member.1, outside, member.2 ⟨actorElement, second_member⟩⟩
 
 end CFSG.SignalizerFunctor.Helpers

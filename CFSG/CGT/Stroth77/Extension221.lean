@@ -369,13 +369,6 @@ theorem false_of_index_two_t230_of_data {S : Type*} [Group S] [Finite S] {B C S'
   false_of_index_two_of_rho_u_t230 D (fun _ _ h => rho_fixed_mod_two_t230 s hs h)
     (fun _ _ _ hp h1 h2 => false_of_u_cocycle_t230 s hs hp h1 h2) hBC hC hrel hL hH hcS
 
-theorem false_of_index_two_t230 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
-    {s : ℕ} {hs : 1 ≤ s} (hB : HasStrothType B (StrothTypeIndex.t230 s hs))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_t230_of_data hB.data hBC hC hrel hL hH hcS
 
 theorem false_of_index_two_t231_of_data {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
     {s : ℕ} {hs : 1 ≤ s} (D : StrothTypeData B (StrothTypeIndex.t231 s hs))
@@ -386,13 +379,6 @@ theorem false_of_index_two_t231_of_data {S : Type*} [Group S] [Finite S] {B C S'
   false_of_index_two_of_rho_u_t230 D (fun _ _ h => rho_fixed_mod_two_t231 s hs h)
     (fun _ _ _ hp h1 h2 => false_of_u_cocycle_t231 s hs hp h1 h2) hBC hC hrel hL hH hcS
 
-theorem false_of_index_two_t231 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
-    {s : ℕ} {hs : 1 ≤ s} (hB : HasStrothType B (StrothTypeIndex.t231 s hs))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_two_t231_of_data hB.data hBC hC hrel hL hH hcS
 
 theorem t_apply_gens_t230 (s : ℕ) (hs : 1 ≤ s) (i j l : ℤ) :
     (StrothTypeIndex.t230 s hs).action.φt
@@ -721,13 +707,6 @@ theorem false_of_index_four_t230_of_data {S : Type*} [Group S] [Finite S] {B C S
       (parityTorus_t_t230 s hs) (fun _ hρ ht => fixed_rho_t_t230 D hρ ht) hBC hC hrel hL
       hH hcS hcyc
 
-theorem false_of_index_four_t230 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
-    {s : ℕ} {hs : 1 ≤ s} (hB : HasStrothType B (StrothTypeIndex.t230 s hs))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_four_t230_of_data hB.data hBC hC hrel hL hH hcS
 
 theorem false_of_index_four_t231_of_data {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
     {s : ℕ} {hs : 1 ≤ s} (D : StrothTypeData B (StrothTypeIndex.t231 s hs))
@@ -745,12 +724,5 @@ theorem false_of_index_four_t231_of_data {S : Type*} [Group S] [Finite S] {B C S
       (parityTorus_t_t231 s hs) (fun _ hρ ht => fixed_rho_t_t231 D hρ ht) hBC hC hrel hL
       hH hcS hcyc
 
-theorem false_of_index_four_t231 {S : Type*} [Group S] [Finite S] {B C S' : Subgroup S}
-    {s : ℕ} {hs : 1 ≤ s} (hB : HasStrothType B (StrothTypeIndex.t231 s hs))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') : False :=
-  false_of_index_four_t231_of_data hB.data hBC hC hrel hL hH hcS
 
 end CFSG.CGT.Stroth77

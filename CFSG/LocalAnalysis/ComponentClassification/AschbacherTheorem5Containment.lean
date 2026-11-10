@@ -39,15 +39,6 @@ theorem factor_normalizer_le {G : Type*} [Group G]
   apply Subgroup.map_mono
   exact (preimage_le D (Abar i)).trans Subgroup.le_normalizer
 
-theorem factor_centralizer_le {G : Type*} [Group G]
-    (D : Subgroup G) (r : ℕ) (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D))
-    (hii : ∀ (i : Fin r) (g : G) (X : Subgroup G),
-      X ≤ (Subgroup.normalizer (D : Set G)).map (MulAut.conj g⁻¹).toMonoidHom →
-      (∀ a ∈ aschbacherThm5Preimage D (Abar i), ∃ x ∈ X, ∃ o ∈ aschbacherThm5Core D,
-        a = x * o) → g ∈ Subgroup.normalizer (D : Set G)) (i : Fin r) :
-    Subgroup.centralizer (aschbacherThm5Preimage D (Abar i) : Set G) ≤
-      Subgroup.normalizer (D : Set G) :=
-  (Subgroup.centralizer_le_normalizer _).trans (factor_normalizer_le D r Abar hii i)
 
 theorem normalizer_adjoin_center {G : Type*} [Group G]
     (D : Subgroup G) (r : ℕ) (hr : 1 ≤ r)

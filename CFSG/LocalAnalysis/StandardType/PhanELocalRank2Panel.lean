@@ -26,11 +26,6 @@ private theorem plpa_mem_Vsub_one (v : Fin 3 → K) :
   · rintro ⟨h1, h2⟩ j hj
     fin_cases j <;> simp_all
 
-private theorem plpa_zvec_not_mem_V1 (c : K) :
-    (![0, 1, c] : Fin 3 → K) ∉ Vsub (K := K) 3 1 := by
-  intro h
-  have h1 : (![0, 1, c] : Fin 3 → K) 1 = 0 := (plpa_mem_Vsub_one _).mp h |>.1
-  simpa using h1
 
 private theorem plpa_dir_eq_imp {u : Fin 3 → K} {c : K}
     (h : Submodule.span K {u} ⊔ Vsub (K := K) 3 1 =

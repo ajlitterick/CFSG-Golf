@@ -243,10 +243,6 @@ theorem coe_congr_graph_apply (A : SpecialLinearGroup (Fin 3) F) (s : ↥(Stated
   (QuotientGroup.quotientMulEquivOfEq (scalars_eq_center 3 F)).trans
     (projectiveSpecialLinearGroupEquivStatedProj 3 F)
 
-theorem projEquivStated_proj (s : SpecialLinearGroup (Fin 3) F) :
-    projEquivStated (proj 3 F s) =
-      (QuotientGroup.mk (specialLinearGroupEquivStatedSL 3 F s) : StatedProj (StatedSL 3 F)) :=
-  rfl
 
 variable [Finite F] {p : ℕ} [Fact p.Prime]
 

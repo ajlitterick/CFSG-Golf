@@ -84,6 +84,5 @@ open CFSG.ComponentClassification.AS76b (Asc75Theorem4)
 
 local notation "𝒞" => Generic.CoreAssembly.conjClass
 
-variable {p f : ℕ} [Fact p.Prime]
 
 end CFSG.ClassicalInvolution.MilestoneAssembly

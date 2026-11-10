@@ -47,14 +47,6 @@ end TableBExcSmallRest
 section Inputs
 
 
-theorem ggBstarInputOn_twF4der : GGBstarInputOn fun _ lab => lab.tag = .twF4der :=
-  ggBstarInputOn_of_labelAll_card_lt fun _ _ hp hlab ht hs =>
-    TableBExcSmallRest.largeEvenLabelAll_card_lt_twF4der_holds hp hlab ht hs
-
-theorem ggStdSubPreInputOn_twF4der : GGStdSubPreInputOn fun _ lab => lab.tag = .twF4der :=
-  ggStdSubPreInputOn_of_labelAll_card_lt fun _ _ hp hlab ht hs =>
-    TableBExcSmallRest.largeEvenLabelAll_card_lt_twF4der_holds hp hlab ht hs
-
 end Inputs
 
 end CFSG.StandardType

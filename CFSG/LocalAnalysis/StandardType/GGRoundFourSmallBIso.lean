@@ -30,10 +30,6 @@ theorem commutator_mem_ggInndiagComm (α β : MulAut R) : ⁅α, β⁆ ∈ ggInn
   Subgroup.mem_sup_right (Subgroup.commutator_mem_commutator (Subgroup.mem_top α)
     (Subgroup.mem_top β))
 
-theorem ggCongr_conj_eq (σ : R ≃* R') (r : R) :
-    MulAut.congr σ (MulAut.conj r) = MulAut.conj (σ r) := by
-  ext s
-  simp [MulAut.congr_apply, MulAut.conj_apply]
 
 theorem ggInndiagComm_eq_innAutDerived :
     ggInndiagComm R = CFSG.ComponentClassification.OuterAutomorphisms.innAutDerived R :=
@@ -148,16 +144,6 @@ end ExcOut
 
 section F4WeakRawFive
 
-
-theorem ggRawFiveInnerDiagOn_F4
-    {lab : LargeEvenLabel} (hlab : LargeEvenInLambda2 lab) (hF4 : lab.tag = .F4) :
-    LargeEvenLabelAll lab (LargeEvenSimpleGuard fun R _ I _ =>
-      ∀ a ∈ I, orderOf a = 5 → a ∈ ggInndiagComm R) := by
-  obtain ⟨t, l, n⟩ := lab
-  subst hF4
-  intro Q hQ
-  exact recipeChevalley_and (fun K _ _ _ _ _ a ha _ =>
-    range_conj_le_ggInndiagComm (TableBF4.idImage_subset_inn K ha)) hQ
 
 end F4WeakRawFive
 

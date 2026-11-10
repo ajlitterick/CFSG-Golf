@@ -110,13 +110,6 @@ theorem ggLayerOmegaMinusInnerModelInput_holds : GGLayerOmegaMinusInnerModelInpu
   · rw [MonoidHom.range_comp, MonoidHom.range_eq_top.mpr e.symm.surjective,
       ← MonoidHom.range_eq_map, Spin.range_spinAction_quadMinus_eq_commutator (by omega) hbc]
 
-theorem ggLayerOmegaPlusModelInput_holds :
-    GGLayerOmegaPlusModelInput :=
-  ggLayerOmegaPlusModelInput_of ggLayerOmegaPlusInnerModelInput_holds
-
-theorem ggLayerOmegaMinusModelInput_holds :
-    GGLayerOmegaMinusModelInput :=
-  ggLayerOmegaMinusModelInput_of ggLayerOmegaMinusInnerModelInput_holds
 
 theorem ggLayerCenterCyclicInput_of_derived_exc
     (hder : GGLayerDerivedFixSolvableInput) (hexc : GGLayerCenterCyclicExcInput) :

@@ -97,22 +97,6 @@ theorem exists_mem_comp_not_commuting_of_isSigmaMaximal (h : Hyp G R) {A A₀ E 
     (fun X hX g hg => conjSub_mem_comp h hA hAne hA₀ hE hX hg) hall
   exact (Set.eq_empty_iff_forall_notMem.1 h0) E Relation.ReflTransGen.refl
 
-theorem exists_mem_gen_comp_conjSub_ne (h : Hyp G R) {A A₀ E F : Subgroup G}
-    (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A)
-    (hmax : IsSigmaMaximal R (centralGroup R A)) (hA₀ : A₀ ∈ omegaSet R A)
-    (hE : E ∈ leviSet R A A₀) (hF : F ∈ lambdaStar R A A₀) :
-    ∃ v ∈ gen (comp R A A₀ E), conjSub F v ≠ F := by
-  have := h.finite
-  have hR := h.root
-  have hiso := h.noIsolated
-  obtain ⟨X, hX, hFX⟩ := exists_mem_comp_not_commuting_of_isSigmaMaximal h hA hAne hmax hA₀ hE hF
-  have hXl := comp_subset h hA hAne hA₀ hE hX
-  have hXR : X ∈ R := hXl.1.1
-  obtain ⟨hs, -, -, -⟩ := CentralOrbit.commutator_mem_lambdaSet h hA hXl.1
-    (fun hl => not_commuting_of_opposite_of_mem_lambdaSet hR hA₀.1 hA₀.2.symm hl hXl.2.2.2)
-    hF.1 fun hc => hFX hc.symm
-  obtain ⟨x, hx, hx1⟩ := hR.exists_ne_one hXR
-  exact ⟨x, le_gen hX hx, Sec3.conjSub_ne_of_special hR hiso hXR hF.1.1.1 hs hx hx1⟩
 
 theorem commuting_conjSub_of_isSigmaMaximal (h : Hyp G R) {A A₀ E E' F : Subgroup G}
     (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A)
@@ -160,15 +144,6 @@ theorem commuting_conjSub_of_isSigmaMaximal (h : Hyp G R) {A A₀ E E' F : Subgr
     (Subgroup.commutator_mono (QD.le_M hFD) (QD.le_M hFvD)).trans (Q_eq_M h hD.1.1).2.2.1.le
   exact (le_inf h1 h2).trans (inf_eq_bot hR hiso hA hD.1.1 hD.1.2.1.symm).le
 
-theorem commuting_conjSub_conjSub_of_isSigmaMaximal (h : Hyp G R) {A A₀ E E' F : Subgroup G}
-    (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A)
-    (hmax : IsSigmaMaximal R (centralGroup R A)) (hA₀ : A₀ ∈ omegaSet R A)
-    (hE : E ∈ leviSet R A A₀) (hE' : E' ∈ leviSet R A A₀) (hE'E : E' ∉ comp R A A₀ E)
-    (hF : F ∈ lambdaStar R A A₀) {v w : G} (hv : v ∈ gen (comp R A A₀ E))
-    (hw : w ∈ gen (comp R A A₀ E)) : Commuting (conjSub F v) (conjSub F w) := by
-  have := (commuting_conjSub_of_isSigmaMaximal h hA hAne hmax hA₀ hE hE' hE'E hF
-    (Subgroup.mul_mem _ (Subgroup.inv_mem _ hv) hw)).conjSub v
-  rwa [← conjSub_mul, mul_inv_cancel_left] at this
 
 namespace Levi
 
@@ -380,17 +355,5 @@ theorem sigmaSet_inter_lambdaStar_eq_of_isSigmaMaximal (h : Hyp G R)
   exact Levi.mem_lambdaSet_of_commuting_of_degenerate h hA hAne hA₀ hE₀ hdeg ⟨X, hX, hBX⟩ hF
     hB.2 hB.1.2.2
 
-theorem sigmaSet_inter_lambdaStar_eq_of_subset_comp (h : Hyp G R) {A A₀ E₀ F : Subgroup G}
-    (hA : A ∈ R) (hAne : sigmaSet R A ≠ lambdaSet R A) (hA₀ : A₀ ∈ omegaSet R A)
-    (hE₀ : E₀ ∈ leviSet R A A₀) (hsub : leviSet R A A₀ ⊆ comp R A A₀ E₀)
-    (hdeg : ∀ X ∈ leviSet R A A₀, ∀ Y ∈ leviSet R A A₀, ¬ Special R X Y)
-    (hF : F ∈ leviSet R A A₀) :
-    sigmaSet R F ∩ lambdaStar R A A₀ = lambdaSet R F ∩ lambdaStar R A A₀ := by
-  have hdeg' : ∀ X ∈ comp R A A₀ E₀, ∀ Y ∈ comp R A A₀ E₀, ¬ Special R X Y :=
-    fun X hX Y hY => hdeg X (comp_subset h hA hAne hA₀ hE₀ hX) Y (comp_subset h hA hAne hA₀ hE₀ hY)
-  refine Set.Subset.antisymm (fun B hB => ⟨?_, hB.2⟩) fun B hB => ⟨hB.1.1, hB.2⟩
-  obtain ⟨X, hX, hBX⟩ := exists_mem_leviSet_not_commuting h hA hAne hA₀ hB.2
-  exact Levi.mem_lambdaSet_of_commuting_of_degenerate h hA hAne hA₀ hE₀ hdeg' ⟨X, hsub hX, hBX⟩
-    (hsub hF) hB.2 hB.1.2.2
 
 end CFSG.Timmesfeld.ARS

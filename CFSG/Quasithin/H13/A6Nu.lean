@@ -140,14 +140,6 @@ theorem cfix_sup_eq_of_fpf {c : G} {X Y : Subgroup G}
   rw [e]
   exact Y.one_mem
 
-theorem nu_eq_card {c : G} {Y : Subgroup G} (h : ∀ y ∈ Y, c * y = y * c → y = 1) :
-    nu c Y = Nat.card Y := by
-  have hb : cfix c Y = ⊥ := by
-    rw [eq_bot_iff]
-    intro y hy
-    obtain ⟨hyY, hyc⟩ := mem_cfix.1 hy
-    exact (Subgroup.mem_bot).2 (h y hyY hyc)
-  rw [nu, hb, Subgroup.relIndex_bot_left]
 
 theorem nu_conj {g c : G} {X : Subgroup G} (hg : g ∈ Subgroup.normalizer (X : Set G)) :
     nu (g * c * g⁻¹) X = nu c X := by

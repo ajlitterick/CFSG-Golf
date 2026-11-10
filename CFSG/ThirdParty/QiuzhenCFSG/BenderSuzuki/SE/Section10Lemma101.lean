@@ -1184,33 +1184,6 @@ public theorem Lemma101ChoiceData.corollary85_of_nontrivial_invariant
     hM ht htM d83 h84 hBA1 hBne hPnormB
   exact ⟨supported.conclusion⟩
 
-/-- Uniform centralizer count supplied by Corollary 8.5 for every nontrivial
-`P`-invariant subgroup of `A₁`.  The witness is the subgroup denoted
-`C_I(B)` in the source. -/
-public theorem Lemma101ChoiceData.exists_centralizer_card_of_nontrivial_invariant
-    {X : Type u} [Group X] [Finite X]
-    {M E : Subgroup X} {t : X}
-    (hM : IsStronglyEmbedded M)
-    (ht : IsInvolution t) (htM : t ∉ M)
-    (d83 : Lemma83Data M t)
-    (h84 : Proposition84Statement M t d83.u)
-    (d : Lemma101ChoiceData
-      (M ⊓ rightConjugate M t) E
-      (peterfalviV (M ⊓ rightConjugate M t) t) t)
-    {B : Subgroup X}
-    (hBA1 : B ≤ d.initial.A1)
-    (hBne : B ≠ ⊥)
-    (hPnormB : d.P ≤ Subgroup.normalizer (B : Set X)) :
-    ∃ J : Subgroup X,
-      (J : Set X) =
-          {x : X |
-            x ∈ peterfalviKSet (M ⊓ rightConjugate M t) t ∧
-              x ∈ Subgroup.centralizer (B : Set X)} ∧
-        Nat.card J = 2 ^ d.p - 1 := by
-  obtain ⟨h85⟩ := d.corollary85_of_nontrivial_invariant
-    hM ht htM d83 h84 hBA1 hBne hPnormB
-  exact ⟨h85.J, h85.J_eq_centralizer, by
-    simpa [d.card_P_eq] using h85.J_card⟩
 
 /-- The uniform Corollary 8.5 cardinality upgrades to equality of the
 Peterfalvi centralizers: `C_I(B) = C_I(A₁)` for every nontrivial

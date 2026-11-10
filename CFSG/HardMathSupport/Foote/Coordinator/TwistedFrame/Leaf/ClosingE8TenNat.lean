@@ -255,11 +255,6 @@ theorem expandV_xor (v v' i : Nat) :
   · rw [expandV_getD_out (by omega), expandV_getD_out (by omega), expandV_getD_out (by omega)]
     rfl
 
-theorem expandV_zero (i : Nat) : (expandV 0).getD i 0 = 0 := by
-  by_cases hi : i < 20
-  · rw [expandV_getD hi]
-    split_ifs <;> simp [f4sq]
-  · exact expandV_getD_out (by omega)
 
 theorem expandV_pair : ∀ k < 10, ∀ a < 4, ∀ i < 20, (expandV (a <<< (2 * k))).getD i 0 =
     if i = 2 * k then a else if i = 2 * k + 1 then f4sq a else 0 := by
@@ -391,15 +386,6 @@ theorem modelFactor_lt (γ : List Int) (s : Nat) (X : List Nat) (hX : ∀ i, X.g
   · rw [modelFactor_getD_out γ s X (by omega)]
     norm_num
 
-theorem modelGen_lt4 (g : Nat) (X : List Nat) (hX : ∀ i, X.getD i 0 < 4) (i : Nat) :
-    (modelGen g X).getD i 0 < 4 := by
-  unfold modelGen
-  generalize genFac g = l
-  induction l generalizing i with
-  | nil => exact hX i
-  | cons p l ih =>
-    simp only [List.foldr_cons]
-    exact modelFactor_lt _ _ _ (fun i => ih i) i
 
 theorem gmats_getD {g : Nat} (hg : g < 8) : (gmats ()).getD g [] = gcols g := by
   unfold gmats

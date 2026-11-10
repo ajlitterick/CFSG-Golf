@@ -112,38 +112,6 @@ theorem semilin_image_eq_of_normalizes_supportedDerived
     obtain ⟨x, hx, rfl⟩ := exists_map_eq_of_mapsTo F R hFR hy
     exact ⟨x, hx, rfl⟩
 
-theorem semilinConj_mem_supportedDerived_of_map_eq
-    {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V]
-    {Q : QuadraticForm K V} {R R' : Submodule K V}
-    (F : V ≃+ V) (σ : K ≃+* K)
-    (hF : ∀ (c : K) (v : V), F (c • v) = σ c • F v)
-    (μ : K) (hμ : μ ≠ 0) (hFQ : ∀ v, Q (F v) = μ * σ (Q v))
-    (hR : F '' (R : Set V) = (R' : Set V)) {g : V ≃ₗ[K] V}
-    (hg : g ∈ supportedDerived Q R) :
-    semilinConj F σ hF g ∈ supportedDerived Q R' := by
-  letI : RingHomInvPair (σ : K →+* K) (σ.symm : K →+* K) :=
-    RingHomInvPair.of_ringEquiv σ
-  letI : RingHomInvPair (σ.symm : K →+* K) (σ : K →+* K) :=
-    RingHomInvPair.of_ringEquiv_symm σ
-  have hmap : R.map (semilinLinearEquiv (σ := σ) F hF).toLinearMap = R' := by
-    apply SetLike.coe_injective
-    rw [Submodule.map_coe]
-    simpa [semilinLinearEquiv] using hR
-  have h := autCongr_mem_supportedDerived_of_map_eq (σ := σ)
-    (e := semilinLinearEquiv (σ := σ) F hF) μ hμ hFQ hmap hg
-  rw [semilinConj_eq_autCongr (σ := σ) F hF]
-  exact h
-
-theorem semilinConj_mem_supportedDerived_of_image_eq
-    {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V]
-    {Q : QuadraticForm K V} {R : Submodule K V}
-    (F : V ≃+ V) (σ : K ≃+* K)
-    (hF : ∀ (c : K) (v : V), F (c • v) = σ c • F v)
-    (μ : K) (hμ : μ ≠ 0) (hFQ : ∀ v, Q (F v) = μ * σ (Q v))
-    (hR : F '' (R : Set V) = (R : Set V)) {g : V ≃ₗ[K] V}
-    (hg : g ∈ supportedDerived Q R) :
-    semilinConj F σ hF g ∈ supportedDerived Q R :=
-  semilinConj_mem_supportedDerived_of_map_eq F σ hF μ hμ hFQ hR hg
 
 theorem map_supportedDerived_semilinConj_of_map_eq
     {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V]

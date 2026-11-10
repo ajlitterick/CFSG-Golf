@@ -23,10 +23,5 @@ open CFSG.Monster.B.Co2.Native CFSG.Certificates.Native
 
 @[expose] def fi22Nbr : Array (List ℕ) := adjSearch 3510 fi22OrigArrs fi22N0List
 
-@[expose] def fi22Colour (s : ℕ) : Array ℕ :=
-  refineIter 3510 fi22Nbr (individualize 3510 fi22GraphBase s) 4
-
-@[expose] def fi22ClassCount (c : Array ℕ) (v : ℕ) : ℕ :=
-  (Finset.univ.filter fun w : Fin 3510 => c[w.val]! = c[v]!).card
 
 end CFSG.Monster.B.Fischer

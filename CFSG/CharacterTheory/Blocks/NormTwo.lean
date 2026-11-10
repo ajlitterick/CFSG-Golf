@@ -127,46 +127,5 @@ theorem blocksVChar_degree_zero_norm_two_signed_difference
   refine ⟨χ, ψ, ε, hne, hε, hequal, ?_⟩
   simpa only [hsigns, Int.cast_neg, neg_smul, sub_eq_add_neg] using hexpansion
 
-theorem blocksVChar_degree_zero_norm_two_orthonormal_difference
-    {G : Type} [Group G] [Fintype G] {f : G → ℂ}
-    (hf : f ∈ BlocksVChar G) (hnorm : BlocksInnerProduct f f = 2) (hdegree : f 1 = 0) :
-    ∃ (χ ψ : BlocksIrr G) (ε : ℤ) (a b : G → ℂ),
-      χ ≠ ψ ∧ (ε = 1 ∨ ε = -1) ∧ (χ : G → ℂ) 1 = (ψ : G → ℂ) 1 ∧
-      a = (ε : ℂ) • (χ : G → ℂ) ∧ b = (ε : ℂ) • (ψ : G → ℂ) ∧
-      a ∈ BlocksVChar G ∧ b ∈ BlocksVChar G ∧
-      BlocksInnerProduct a a = 1 ∧ BlocksInnerProduct b b = 1 ∧
-      BlocksInnerProduct a b = 0 ∧ BlocksInnerProduct b a = 0 ∧
-      a 1 = b 1 ∧ f = a - b := by
-  obtain ⟨χ, ψ, ε, hne, hε, hequal, hexpansion⟩ :=
-    blocksVChar_degree_zero_norm_two_signed_difference hf hnorm hdegree
-  have hχ : (χ : G → ℂ) ∈ BlocksVChar G := AddSubgroup.subset_closure χ.property
-  have hψ : (ψ : G → ℂ) ∈ BlocksVChar G := AddSubgroup.subset_closure ψ.property
-  have hχnorm : BlocksInnerProduct (χ : G → ℂ) (χ : G → ℂ) = 1 := by
-    simp [blocksInnerProduct_irreducible]
-  have hψnorm : BlocksInnerProduct (ψ : G → ℂ) (ψ : G → ℂ) = 1 := by
-    simp [blocksInnerProduct_irreducible]
-  have horth : BlocksInnerProduct (χ : G → ℂ) (ψ : G → ℂ) = 0 := by
-    simp [blocksInnerProduct_irreducible, hne]
-  have horth' : BlocksInnerProduct (ψ : G → ℂ) (χ : G → ℂ) = 0 := by
-    simp [blocksInnerProduct_irreducible, hne.symm]
-  have hneg (a b : G → ℂ) : BlocksInnerProduct (-a) (-b) = BlocksInnerProduct a b := by
-    simp only [BlocksInnerProduct, Pi.neg_apply, map_neg, neg_mul_neg]
-  rcases hε with rfl | rfl
-  · refine ⟨χ, ψ, 1, (χ : G → ℂ), (ψ : G → ℂ), hne, Or.inl rfl, hequal,
-      ?_, ?_, hχ, hψ, hχnorm, hψnorm, horth, horth', hequal, ?_⟩
-    · simp only [Int.cast_one, one_smul]
-    · simp only [Int.cast_one, one_smul]
-    · simpa only [Int.cast_one, one_smul] using hexpansion
-  · refine ⟨χ, ψ, -1, -(χ : G → ℂ), -(ψ : G → ℂ), hne, Or.inr rfl, hequal,
-      ?_, ?_, (BlocksVChar G).neg_mem hχ, (BlocksVChar G).neg_mem hψ,
-      ?_, ?_, ?_, ?_, ?_, ?_⟩
-    · simp only [Int.cast_neg, Int.cast_one, neg_one_smul]
-    · simp only [Int.cast_neg, Int.cast_one, neg_one_smul]
-    · rwa [hneg]
-    · rwa [hneg]
-    · rwa [hneg]
-    · rwa [hneg]
-    · simpa only [Pi.neg_apply] using congrArg Neg.neg hequal
-    · simpa only [Int.cast_neg, Int.cast_one, neg_one_smul] using hexpansion
 
 end CFSG

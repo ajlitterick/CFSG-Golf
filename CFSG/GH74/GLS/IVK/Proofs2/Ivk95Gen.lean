@@ -332,9 +332,6 @@ theorem false_of_solvable (h : Ivk95Cfg z) (hs : Group.IsSolvable ↥(centralize
   h.not_solvable (Group.isSolvable_of_isSolvable_injective
     (f := Subgroup.inclusion h.le_cent) (Subgroup.inclusion_injective h.le_cent))
 
-theorem false_of_no_order_four (h : Ivk95Cfg z) (hJ : ∀ g : J, g ^ 4 = 1 → g ^ 2 = 1) : False := by
-  obtain ⟨g, -, hg2, hg4⟩ := h.exists_order_four
-  exact hg2 (hJ g hg4)
 
 theorem false_of_derived_le (h : Ivk95Cfg z) {F : Subgroup J} (hF : Nat.card ↥F < 120)
     (hD : ∀ x ∈ centralizer ({z} : Set J), ∀ y ∈ centralizer ({z} : Set J), ⁅x, y⁆ ∈ F) :

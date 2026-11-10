@@ -19,11 +19,6 @@ variable {G : Type} [Group G] [Finite G] {n : ℕ} (hn : 2 ≤ n) {S : Sylow 2 G
     hSigma ≃* centralizerOddCoreQuotient n S e}
   {h : CentralExtension F b (2 ^ n) (wreathModulus_pos n) (wreathModulus_even hn)}
 
-omit [Finite G] in
-theorem liftMap_eq_comp :
-    liftMap n hn S e Ψ h = (Ψ.symm.trans (MulAut.conj
-      (modelInl F b n hn Sigma hSigma h)⁻¹)).toMonoidHom.comp (centralizerOddCoreMap n S e) :=
-  MonoidHom.ext fun _ => rfl
 
 theorem map_centralizer_y :
     (Subgroup.centralizer {nModel n hn S e (Original.x2 (2 ^ n))}).map (liftMap n hn S e Ψ h) =

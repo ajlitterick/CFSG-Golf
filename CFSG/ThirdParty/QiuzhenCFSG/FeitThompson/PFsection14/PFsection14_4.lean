@@ -138,49 +138,5 @@ public theorem section14_theorem_14_4_source_bridge
     ⟨hsource, hv⟩
   exact ⟨section14_case_9_7_b_for_section13_of_sourceData hsource, hv⟩
 
-public theorem section14_theorem_14_4_context_bridge
-    {G : Type u} [Group G] [Finite G]
-    (Smax Tmax W W1 W2 P Q U V C D : Subgroup G)
-    (Sfam : Finset (Section1.ClassFunction Smax))
-    (Tfam : Finset (Section1.ClassFunction Tmax))
-    (τS : Section1.ClassFunction Smax →ₗ[ℂ] Section1.ClassFunction G)
-    (τT : Section1.ClassFunction Tmax →ₗ[ℂ] Section1.ClassFunction G)
-    (p q u v c d : ℕ) :
-    hypothesis_14_context_data Smax Tmax W W1 W2 P Q U V C D
-        Sfam Tfam τS τT p q u v c d →
-      Section13.case_9_7_b_for_section13 Tmax D q p v ∧
-        v = (q ^ p - 1) / (q - 1) := by
-  intro hctx
-  rcases section14_theorem_14_4_source_data_of_q_lt_p hctx with
-    ⟨hsource, hv⟩
-  exact ⟨section14_case_9_7_b_for_section13_of_sourceData hsource, hv⟩
-
-
-/-- Proof placeholder for `theorem_14_4_statement`. -/
-public theorem theorem_14_4
-    {G : Type u}
-    [Group G]
-    [Finite G]
-    (Smax Tmax W W1 W2 P Q U V C D L _ : Subgroup G)
-    (Sfam : Finset (Section1.ClassFunction Smax))
-    (Tfam : Finset (Section1.ClassFunction Tmax))
-    (τS : Section1.ClassFunction Smax →ₗ[ℂ] Section1.ClassFunction G)
-    (τT : Section1.ClassFunction Tmax →ₗ[ℂ] Section1.ClassFunction G)
-    (_ : Finset (Section1.ClassFunction L))
-    (_ : G → Subgroup G)
-    (_ _ : Section1.ClassFunction L →ₗ[ℂ] Section1.ClassFunction G)
-    (_ : Section1.ClassFunction L)
-    (_ : Section1.ClassFunction Smax)
-    (_ : Section1.ClassFunction Tmax)
-    (_ : Section1.ClassFunction Smax)
-    (_ : Section1.ClassFunction Tmax)
-    (_ : Section1.ClassFunction L)
-    (p q u v c d : ℕ)
-    : hypothesis_14_context_data Smax Tmax W W1 W2 P Q U V C D
-        Sfam Tfam τS τT p q u v c d →
-      Section13.case_9_7_b_for_section13 Tmax D q p v ∧
-        v = (q ^ p - 1) / (q - 1) := by
-  exact section14_theorem_14_4_context_bridge
-    Smax Tmax W W1 W2 P Q U V C D Sfam Tfam τS τT p q u v c d
 
 end CFSG.Section14

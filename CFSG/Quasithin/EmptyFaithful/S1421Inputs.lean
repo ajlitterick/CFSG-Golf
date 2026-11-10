@@ -19,53 +19,6 @@ variable {G : Type} [Group G]
     IsSpecialPow 2 2 4 ↥(pCoreOf 2 K1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
     Nat.card (pCoreOf 2 L2) = 2 ^ 11
 
-@[expose] def Survivor10LegacyBare (K1 L2 S : Subgroup G) : Prop :=
-  IsParabolicAmalgamOfGroup
-      (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
-      (fun Y _ => Nonempty (Y ≃* quasithinJ2)) ∧
-    IsL2Quot 2 (OTwoQuot K1) ∧ IsQ8D8 ↥(pCoreOf 2 K1) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-    Nat.card (pCoreOf 2 L2) = 2 ^ 6
-
-@[expose] def Survivor11LegacyBare (K1 L2 S : Subgroup G) : Prop :=
-  IsParabolicAmalgamOfGroup
-      (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
-      (fun Y _ => Nonempty (Y ≃* MulAut quasithinJ2)) ∧
-    Nonempty (OTwoQuot (K1 ⊔ S) ≃* Equiv.Perm (Fin 5)) ∧ IsQ8D8 ↥(pCoreOf 2 K1) ∧
-    Nonempty (OTwoQuot L2 ≃* Equiv.Perm (Fin 3)) ∧ Nat.card (pCoreOf 2 L2) = 2 ^ 6
-
-@[expose] def Survivor4Vertex (K1 L2 S : Subgroup G) : Prop :=
-  IsAmalgamOfGroup (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
-      (IsLieOverTwo .trialityD4 0 1) ∧ IsL2Quot 3 (OTwoQuot K1) ∧
-    IsSpecialPow 2 2 4 ↥(pCoreOf 2 (K1 ⊔ bigB K1 L2 S)) ∧ IsL2Quot 1 (OTwoQuot L2) ∧
-    Nat.card (pCoreOf 2 (L2 ⊔ bigB K1 L2 S)) = 2 ^ 11
-
-@[expose] def Survivor10Vertex (K1 L2 S : Subgroup G) : Prop :=
-  IsParabolicAmalgamOfGroup
-      (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
-      (fun Y _ => Nonempty (Y ≃* quasithinJ2)) ∧
-    IsL2Quot 2 (OTwoQuot K1) ∧ IsQ8D8 ↥(pCoreOf 2 (K1 ⊔ bigB K1 L2 S)) ∧
-    IsL2Quot 1 (OTwoQuot L2) ∧ Nat.card (pCoreOf 2 (L2 ⊔ bigB K1 L2 S)) = 2 ^ 6
-
-@[expose] def Survivor11Vertex (K1 L2 S : Subgroup G) : Prop :=
-  IsParabolicAmalgamOfGroup
-      (RankTwoAmalgam.ofSubgroups (K1 ⊔ bigB K1 L2 S) (L2 ⊔ bigB K1 L2 S))
-      (fun Y _ => Nonempty (Y ≃* MulAut quasithinJ2)) ∧
-    Nonempty (OTwoQuot (K1 ⊔ S) ≃* Equiv.Perm (Fin 5)) ∧
-    IsQ8D8 ↥(pCoreOf 2 (K1 ⊔ bigB K1 L2 S)) ∧
-    Nonempty (OTwoQuot L2 ≃* Equiv.Perm (Fin 3)) ∧
-    Nat.card (pCoreOf 2 (L2 ⊔ bigB K1 L2 S)) = 2 ^ 6
-
-abbrev Survivor4 (K1 L2 S : Subgroup G) : Prop := Survivor4Vertex K1 L2 S
-
-theorem f112Survivor_iff (K1 L2 S : Subgroup G) :
-    F112Survivor K1 L2 S ↔
-      Survivor4Vertex K1 L2 S ∨ Survivor10Vertex K1 L2 S ∨ Survivor11Vertex K1 L2 S :=
-  Iff.rfl
-
-theorem f112SurvivorLegacyBare_iff (K1 L2 S : Subgroup G) :
-    F112SurvivorLegacyBare K1 L2 S ↔
-      Survivor4LegacyBare K1 L2 S ∨ Survivor10LegacyBare K1 L2 S ∨ Survivor11LegacyBare K1 L2 S :=
-  Iff.rfl
 
 end Survivors
 
@@ -120,10 +73,6 @@ end D4
 @[expose] def Facts1422Input : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Hyp1421 G T M → Facts1422 T M
 
-@[expose] def E22Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H : Subgroup G), Hyp1421 G T M → Facts1422 T M →
-    IsHStar T M H → E1.nParam H ≠ 1 →
-    ∃ K1 : Subgroup G, Notation1428 T M H K1 ∧ Shape1428 T H K1
 
 @[expose] def Lemma14213 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
@@ -139,24 +88,6 @@ end D4
     S1421.sOf T K1 < T → pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
     pCoreOf 2 (K1 ⊔ S1421.l2Of T H (yOfL22 T M) ⊔ S1421.sOf T K1) = ⊥
 
-@[expose] def Lemma14216Tail : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
-    pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
-    F112Survivor K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1) →
-    oTwoUpper H = K1 ∧ T = S1421.sOf T K1 ∧ pCoreOf 2 (mcOf T) = pCoreOf 2 K1
-
-@[expose] def Lemma14217J2LegacyBare : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
-    pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
-    (Survivor10LegacyBare K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1) ∨
-      Survivor11LegacyBare K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1)) →
-    (oTwoUpper H = K1 ∧ T = S1421.sOf T K1 ∧ pCoreOf 2 (mcOf T) = pCoreOf 2 K1) →
-    ∃ z : G, z ^ 2 = 1 ∧ z ≠ 1 ∧ CharTwo (Subgroup.centralizer ({z} : Set G)) ∧
-      IsQ8D8 ↥(pCoreOf 2 (Subgroup.centralizer ({z} : Set G))) ∧
-      Nonempty (OTwoQuot (Subgroup.centralizer ({z} : Set G)) ≃* alternatingGroup (Fin 5)) ∧
-      (∃ g : G, g * z * g⁻¹ ∈ pCoreOf 2 (Subgroup.centralizer ({z} : Set G)) ∧
-        g * z * g⁻¹ ≠ z) ∧
-      (involutionClassCount G = 1 ∨ involutionClassCount G = 2)
 
 @[expose] def Lemma14218D4LegacyBare : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
@@ -170,35 +101,5 @@ end D4
       z ∈ Subgroup.centralizer (twoPrimeResidual M₁ : Set G) ∧
       Subgroup.centralizer ({z} : Set G) ≤ M₁
 
-@[expose] def Lemma14216TailLegacyBare : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
-    pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
-    F112SurvivorLegacyBare K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1) →
-    oTwoUpper H = K1 ∧ T = S1421.sOf T K1 ∧ pCoreOf 2 (mcOf T) = pCoreOf 2 K1
-
-@[expose] def Lemma14217J2 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
-    pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
-    (Survivor10Vertex K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1) ∨
-      Survivor11Vertex K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1)) →
-    (oTwoUpper H = K1 ∧ T = S1421.sOf T K1 ∧ pCoreOf 2 (mcOf T) = pCoreOf 2 K1) →
-    ∃ z : G, z ^ 2 = 1 ∧ z ≠ 1 ∧ CharTwo (Subgroup.centralizer ({z} : Set G)) ∧
-      IsQ8D8 ↥(pCoreOf 2 (Subgroup.centralizer ({z} : Set G))) ∧
-      Nonempty (OTwoQuot (Subgroup.centralizer ({z} : Set G)) ≃* alternatingGroup (Fin 5)) ∧
-      (∃ g : G, g * z * g⁻¹ ∈ pCoreOf 2 (Subgroup.centralizer ({z} : Set G)) ∧
-        g * z * g⁻¹ ≠ z) ∧
-      (involutionClassCount G = 1 ∨ involutionClassCount G = 2)
-
-@[expose] def Lemma14218D4 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T M H K1 : Subgroup G), Setting1427 T M H K1 →
-    pCoreOf 2 (yOfL22 T M) ≤ S1421.sOf T K1 →
-    Survivor4Vertex K1 (S1421.l2Of T H (yOfL22 T M)) (S1421.sOf T K1) →
-    (oTwoUpper H = K1 ∧ T = S1421.sOf T K1 ∧ pCoreOf 2 (mcOf T) = pCoreOf 2 K1) →
-    ∃ (M₁ M₂ : Subgroup G) (z : G),
-      (∃ (D : Type) (_ : Group D), IsLieOverTwo .trialityD4 0 1 D ∧
-        IsExtensionOfLieAmalgam D M₁ M₂) ∧
-      z ^ 2 = 1 ∧ z ≠ 1 ∧ z ∈ twoPrimeResidual M₁ ∧
-      z ∈ Subgroup.centralizer (twoPrimeResidual M₁ : Set G) ∧
-      Subgroup.centralizer ({z} : Set G) ≤ M₁
 
 end CFSG.Quasithin

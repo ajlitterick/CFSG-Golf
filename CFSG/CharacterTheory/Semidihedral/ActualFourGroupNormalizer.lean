@@ -214,8 +214,6 @@ theorem tInK_central {t : G} (s : C t) : tInK s ∈ Subgroup.center (K s) := by
   ((nu t).comp (K s).subtype).codRestrict _ (fun k =>
     Subgroup.le_normalizer_map (nu t) (Subgroup.mem_map_of_mem (nu t) k.property))
 
-theorem onNormalizer_value {t : G} (s : C t) (k : K s) :
-    (onNormalizer s k : H t) = nu t (k : C t) := rfl
 
 theorem onNormalizer_kernel {t : G} (s : C t) :
     (onNormalizer s).ker = N0InK s := by
@@ -251,10 +249,6 @@ theorem onNormalizer_surjective [Finite G] {t : G} (ht : orderOf t = 2)
     (QuotientGroup.quotientKerEquivOfSurjective (onNormalizer s)
       (onNormalizer_surjective ht s hs hst))
 
-theorem normalizerQuotientEquiv_mk [Finite G] {t : G} (ht : orderOf t = 2)
-    (s : C t) (hs : orderOf s = 2) (hst : s ≠ tInC t) (k : K s) :
-    (normalizerQuotientEquiv ht s hs hst (QuotientGroup.mk' (N0InK s) k) : H t) =
-      nu t (k : C t) := rfl
 
 theorem actual_order_four_lift [Finite G] {t : G} (ht : orderOf t = 2)
     (s : C t) (hs : orderOf s = 2) (hst : s ≠ tInC t)
@@ -313,17 +307,6 @@ instance RInK_normal {t : G} (s : C t) : (RInK s).Normal := by
 theorem REquivK_value {t : G} (s : C t) (r : R s) :
     (REquivK s r).val.val = r.val.val := rfl
 
-theorem N0InK_le_RInK [Finite G] {t : G} (ht : orderOf t = 2)
-    (s : C t) (hs : orderOf s = 2) (hst : s ≠ tInC t) : N0InK s ≤ RInK s := by
-  intro k hk
-  have hD : (k : C t) ∈ D s :=
-    (actual_kernel_intersection ht s hs hst ▸
-      (show (k : C t) ∈ N t ⊓ K s from ⟨hk, k.property⟩)).2
-  let dk : D s := ⟨k, hD⟩
-  have hR : dk ∈ R s :=
-    KleinFourOddKernel.centralizerKernel_le_oddKernel (N t)
-      (Nat.coprime_two_left.mp CFSG.pPrimeCore_coprime_card) s hk
-  exact ⟨dk, hR, Subtype.ext rfl⟩
 
 @[expose] def conjugationOnR {t : G} (s : C t) (d : K s) : MulAut (R s) :=
   (REquivK s).trans ((MulAut.conjNormal (H := RInK s) d).trans (REquivK s).symm)
@@ -387,9 +370,6 @@ theorem original_V_image
     have hn : nu t (k : C t) = 1 := (QuotientGroup.eq_one_iff _).mpr hk
     rw [hn, map_one])
 
-theorem quotientToOriginalModel_mk (k : K s) :
-    quotientToOriginalModel F a A hfix s Psi (QuotientGroup.mk' (N0InK s) k) =
-      Psi.symm (nu t (k : C t)) := rfl
 
 theorem original_D_image [Finite G] (hs : orderOf s = 2)
     (hu : Psi (MatrixTorus.originalU F a A hfix) = nu t s) :
@@ -698,11 +678,6 @@ theorem quotient_conjugation_fixes_A [Finite G] [Finite F]
       Set (MatrixTorus.OriginalH F a A hfix))).map Psi.toMonoidHom = _
     rw [Subgroup.map_equiv_normalizer_eq, original_V_image F a A hfix s Psi hz hu]))
 
-theorem originalNormalizerImageEquiv_value
-    (hz : Psi (MatrixTorus.originalZ F a A hfix) = nu t (tInC t))
-    (hu : Psi (MatrixTorus.originalU F a A hfix) = nu t s)
-    (m : MatrixFourGroupNormalizer.Normalizer F a A hfix) :
-    (originalNormalizerImageEquiv F a A hfix s Psi hz hu m : H t) = Psi m := rfl
 
 @[expose] def actualModelNormalizerEquiv [Finite G]
     (ht : orderOf t = 2) (hs : orderOf s = 2) (hst : s ≠ tInC t)
@@ -1014,9 +989,6 @@ instance N0InD_normal {t : G} (s : C t) : (N0InD s).Normal := inferInstance
     D s ⧸ N0InD s →* K s ⧸ N0InK s :=
   QuotientGroup.quotientMapSubgroupOfOfLe (A' := N t) (B' := N t) le_rfl (D_le_K s)
 
-theorem DQuotientInclusion_mk {t : G} (s : C t) (d : D s) :
-    DQuotientInclusion s (QuotientGroup.mk' (N0InD s) d) =
-      QuotientGroup.mk' (N0InK s) (DToK s d) := rfl
 
 theorem DQuotientInclusion_injective {t : G} (s : C t) :
     Function.Injective (DQuotientInclusion s) := by
@@ -1092,20 +1064,6 @@ theorem RQuotientInclusion_range {t : G} (s : C t) :
       MonoidHom.rangeRestrict_surjective _⟩).trans
         (MulEquiv.subgroupCongr (DQuotientInclusion_range s))
 
-theorem DQuotientImageEquiv_mk {t : G} (s : C t) (d : D s) :
-    (DQuotientImageEquiv s (QuotientGroup.mk' (N0InD s) d) : K s ⧸ N0InK s) =
-      QuotientGroup.mk' (N0InK s) (DToK s d) := rfl
-
-@[expose] def RQuotientImageEquiv {t : G} (s : C t) :
-    R s ⧸ N0InR s ≃* RInNormalizerQuotient s :=
-  (MulEquiv.ofBijective (RQuotientInclusion s).rangeRestrict
-    ⟨MonoidHom.rangeRestrict_injective_iff.mpr (RQuotientInclusion_injective s),
-      MonoidHom.rangeRestrict_surjective _⟩).trans
-        (MulEquiv.subgroupCongr (RQuotientInclusion_range s))
-
-theorem RQuotientImageEquiv_mk {t : G} (s : C t) (r : R s) :
-    (RQuotientImageEquiv s (QuotientGroup.mk' (N0InR s) r) : K s ⧸ N0InK s) =
-      QuotientGroup.mk' (N0InK s) (DToK s r) := rfl
 
 section ModelEmbeddings
 variable (F : Type v) [Field F] (a : Fˣ) (A : Subgroup (F ≃+* F))

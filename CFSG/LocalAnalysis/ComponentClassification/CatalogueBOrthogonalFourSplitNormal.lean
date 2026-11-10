@@ -14,8 +14,6 @@ variable {K : Type*} [Field K]
   map_one' := map_one _
   map_mul' z w := map_mul _ z.val.1 w.val.1
 
-theorem commonDeterminant_apply (z : equalDeterminants K) :
-    commonDeterminant z = Matrix.GeneralLinearGroup.det z.val.1 := rfl
 
 theorem specialPairs_range : (specialPairs (K := K)).range = commonDeterminant.ker := by
   ext z
@@ -48,8 +46,6 @@ theorem leftRightImage_index_dvd_two : (leftRightImage K).index ∣ 2 := by
   · exact Or.inl (by simpa only [mul_assoc, tau_mul_tau, mul_one] using
       (show rho z ∈ leftRightImage K from ⟨z, rfl⟩))
 
-theorem leftRightImage_index_le_two : (leftRightImage K).index ≤ 2 :=
-  Nat.le_of_dvd (by decide) leftRightImage_index_dvd_two
 
 instance leftRightImageNormal : (leftRightImage K).Normal := by
   obtain h | h := Nat.prime_two.eq_one_or_self_of_dvd _

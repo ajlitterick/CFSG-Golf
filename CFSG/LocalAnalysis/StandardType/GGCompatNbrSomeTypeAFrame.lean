@@ -160,33 +160,6 @@ theorem ggSecFiveCompat_of_join (hE : GGTypeAJoinEndNodeInput) {p : ℕ} {B Bs :
     (fun y' K' hK' => (hjoin y' K' hK').trans (sup_le le_sup_left hKle))
   exact ⟨.PSL, n + 1 + 1, f, ψ₀, hpres, L, Or.inl rfl, hcomp⟩
 
-theorem ggSecFiveCompat_of_corankTwo (hE : GGTypeAJoinEndNodeInput)
-    (hC : GGTypeACorankTwoInput) {p : ℕ} {B Bs : Subgroup G} {x : G} {L D J : Subgroup G}
-    {n f : ℕ} {y : G} {K : Subgroup G} (hcfg : GGConfig p B Bs x L D J)
-    (hOp : GGOpAutTrivial p Bs) (hInn : GGInnerDiagAll p B Bs x L D J)
-    (hNoTr : GGNoTransvection p Bs) (h : GGTypeANbr p B Bs x L D J n f y K) (hdiv : p ∣ n + 3)
-    (hout : ∃ (y' : G) (K' : Subgroup G), GGNbr p B x D J y' K' ∧ ¬ K' ≤ L ⊔ K) :
-    GGSecFiveCompat p B x L D J := by
-  obtain ⟨hf1, φ₁, hφL, hker⟩ := h.exists_lift hcfg
-  obtain ⟨T₁, hT₁LK, hT₁, hKle⟩ := hE G p B Bs x L D J n f y K hcfg hOp hInn hNoTr h φ₁ hφL hker
-  obtain ⟨T₂, hT₂G, hT, hnbr⟩ := hC G p B Bs x L D J n f y K hcfg hOp hInn hNoTr h hdiv hout φ₁
-    hφL hker T₁ hT₁LK hT₁ hKle
-  obtain ⟨ψ₀, hpres, hcomp⟩ := ggSecFiveCompat_of_twoEndNodesAt h.2.2.1 hf1 φ₁ hφL hker hT
-    (le_ggG0_left p B x L D J) (h.sup_le_ggG0 hT₁LK) hT₂G
-    (le_sup_left.trans (le_sup_left.trans le_sup_left)) hnbr
-  exact ⟨.PSL, n + 1 + 1 + 1, f, ψ₀, hpres, L, Or.inl rfl, hcomp⟩
-
-theorem ggSecFiveCompat_of_half (hH : GGTypeAHalfEndNodesInput) {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {n : ℕ} {y : G} {K : Subgroup G}
-    (hcfg : GGConfig p B Bs x L D J) (hOp : GGOpAutTrivial p Bs)
-    (hInn : GGInnerDiagAll p B Bs x L D J) (hNoTr : GGNoTransvection p Bs)
-    (h : GGTypeAHalfNbr p B Bs x L D J n y K) : GGSecFiveCompat p B x L D J := by
-  obtain ⟨φ₁, hφL, hker, T₁, T₂, hT₁G, hT₂G, hT, hnbr⟩ :=
-    hH G p B Bs x L D J n y K hcfg hOp hInn hNoTr h
-  obtain ⟨ψ₀, hpres, hcomp⟩ := ggSecFiveCompat_of_twoEndNodesAt
-    (by have := h.2.2.1; omega) le_rfl φ₁ hφL hker hT (le_ggG0_left p B x L D J) hT₁G hT₂G
-    (le_sup_left.trans (le_sup_left.trans le_sup_left)) hnbr
-  exact ⟨.PSL, n + 1 + 1 + 1, 1, ψ₀, hpres, L, Or.inl rfl, hcomp⟩
 
 end Configs
 

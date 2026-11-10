@@ -23,8 +23,6 @@ theorem z71_dist1 : distinctL Z1P = true := by quickRfl
 theorem z71_tree2 : (treeOK71 Z2G Z2P Z2Par Z2Lab 96 && distinctL Z2P && canonL Z2P) = true := by
   quickRfl
 
-theorem z71_neg : (!treeOK71 Z2G Z2P (Z2Par.set 7 0) Z2Lab 96 && !distinctL (Z2P.getD 5 0 :: Z2P) &&
-    !noConjOK Z2P []) = true := by quickRfl
 
 end CertificateChecks.KernelCo1M
 

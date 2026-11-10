@@ -203,8 +203,6 @@ variable (f) in
   one_mem' := isIsom_one
   inv_mem' ha := IsIsom.inv ha
 
-theorem mem_isomGroup {g : GL (Fin m) (ZMod 3)} : g ∈ isomGroup f ↔ IsIsom f g :=
-  Iff.rfl
 
 theorem conj_refl {g : GL (Fin m) (ZMod 3)} (hg : IsIsom f g) (v : Fin m → ZMod 3) :
     g * refl f v * g⁻¹ = refl f (act g v) := by

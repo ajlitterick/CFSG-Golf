@@ -220,18 +220,5 @@ theorem hasStrothTypeOver_of_images218 (D : StrothTypeData B τ) (hBC : B ≤ C)
     conj_eq_of_generator_images (hL D.ρ_mem_L) E.e τ'.action.φρ E.e_d E.e_a E.e_b
       (hρ 0) (hρ 1) (hρ 2)⟩, rfl, rfl, rfl, rfl⟩
 
-theorem hasStrothType_of_images218 (D : StrothTypeData B τ) (hBC : B ≤ C)
-    (hL : D.L ≤ Subgroup.normalizer C) {d : S} (hdC : d ∈ C) (τ' : StrothTypeIndex)
-    (E : CubicBasisEquiv218 D hBC d hdC τ'.k)
-    (huv : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.uv_mem_L)
-      (![⟨d, hdC⟩, ⟨D.a, hBC D.a.2⟩, ⟨D.b, hBC D.b.2⟩] j))) = τ'.action.φuv (gen τ'.k j))
-    (ht : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.t_mem_L)
-      (![⟨d, hdC⟩, ⟨D.a, hBC D.a.2⟩, ⟨D.b, hBC D.b.2⟩] j))) = τ'.action.φt (gen τ'.k j))
-    (hu : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.u_mem_L)
-      (![⟨d, hdC⟩, ⟨D.a, hBC D.a.2⟩, ⟨D.b, hBC D.b.2⟩] j))) = τ'.action.φu (gen τ'.k j))
-    (hρ : ∀ j : Fin 3, E.e (Additive.ofMul (conjBy (hL D.ρ_mem_L)
-      (![⟨d, hdC⟩, ⟨D.a, hBC D.a.2⟩, ⟨D.b, hBC D.b.2⟩] j))) = τ'.action.φρ (gen τ'.k j)) :
-    HasStrothType C τ' :=
-  (hasStrothTypeOver_of_images218 D hBC hL hdC τ' E huv ht hu hρ).hasStrothType
 
 end CFSG.CGT.Stroth77

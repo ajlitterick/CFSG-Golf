@@ -89,12 +89,6 @@ theorem j1BasisMat_col : j1BasisMat.col = j1BasisVec := by
   funext c r
   rfl
 
-theorem j1BasisVec_linearIndependent :
-    LinearIndependent (ZMod 11) j1BasisVec := by
-  have hu : IsUnit j1BasisMat :=
-    (Matrix.isUnit_iff_isUnit_det _).2 (Matrix.isUnit_det_of_right_inverse j1BasisMat_mul_inv)
-  rw [← j1BasisMat_col]
-  exact Matrix.linearIndependent_cols_of_isUnit hu
 
 theorem j1BasisVec_span :
     Submodule.span (ZMod 11) (Set.range j1BasisVec) = ⊤ := by
@@ -202,9 +196,6 @@ theorem range_j1Rho :
     j1Rho_b]
   rfl
 
-@[expose] def j1Mat (g : NativeSporadic.J1) : Matrix (Fin 7) (Fin 7) (ZMod 11) :=
-  ((g : NativeSporadic.seedMonoid 11 7 3 NativeSporadic.J1Seed1 NativeSporadic.J1Seed2) :
-    Matrix (Fin 7) (Fin 7) (ZMod 11))
 
 theorem seed_closure_eq :
     NativeSporadic.seedMonoid 11 7 3 NativeSporadic.J1Seed1 NativeSporadic.J1Seed2 =
@@ -217,39 +208,11 @@ theorem seed_closure_eq :
   (Units.mapEquiv (MulEquiv.submonoidCongr seed_closure_eq)).trans
     (NativeSporadic.unitSeedEquiv j1_first_unit j1_second_unit)
 
-theorem mat_j1SeedEquiv (g : NativeSporadic.J1) : mat (j1SeedEquiv g) = j1Mat g := rfl
 
 @[expose] noncomputable def j1PermEquiv :
     NativeSporadic.J1 ≃* j1P :=
   j1SeedEquiv.trans ((MonoidHom.ofInjective j1Rho_injective).trans
     (MulEquiv.subgroupCongr range_j1Rho))
 
-theorem j1PermEquiv_apply
-    (g : NativeSporadic.J1) :
-    (j1PermEquiv g : Equiv.Perm (Fin 3080)) = j1Rho (j1SeedEquiv g) := rfl
-
-theorem fam_j1_faithful_permutation_action :
-    Function.Injective j1Vec ∧ (∀ i, j1Vec i ≠ 0) ∧
-      LinearIndependent (ZMod 11) j1BasisVec ∧
-      Submodule.span (ZMod 11) (Set.range j1BasisVec) = ⊤ ∧
-      (∀ i, NativeSporadic.decode 11 7 3 NativeSporadic.J1Seed1 *ᵥ j1Vec i = j1Vec (j1A1 i)) ∧
-      (∀ i, NativeSporadic.decode 11 7 3 NativeSporadic.J1Seed2 *ᵥ j1Vec i = j1Vec (j1A2 i)) ∧
-      ∃ φ : NativeSporadic.J1 ≃* j1P,
-        (∀ (g : NativeSporadic.J1) (i : Fin 3080),
-          j1Mat g *ᵥ j1Vec i = j1Vec ((φ g : Equiv.Perm (Fin 3080)) i)) ∧
-        (∃ s : NativeSporadic.J1, j1Mat s = NativeSporadic.decode 11 7 3 NativeSporadic.J1Seed1 ∧
-          (φ s : Equiv.Perm (Fin 3080)) = j1A1) ∧
-        (∃ s : NativeSporadic.J1, j1Mat s = NativeSporadic.decode 11 7 3 NativeSporadic.J1Seed2 ∧
-          (φ s : Equiv.Perm (Fin 3080)) = j1A2) := by
-  refine ⟨j1Vec_injective, j1Vec_ne_zero, j1BasisVec_linearIndependent, j1BasisVec_span,
-    fun i => ?_, fun i => ?_, j1PermEquiv, fun g i => ?_, ⟨j1SeedEquiv.symm a, ?_, ?_⟩,
-    ⟨j1SeedEquiv.symm b, ?_, ?_⟩⟩
-  · rw [j1_first_decode_eq, j1_first_mulVec, j1Idx_A1]
-  · rw [j1_second_decode_eq, j1_second_mulVec, j1Idx_A2]
-  · rw [j1PermEquiv_apply, j1Vec_rho, mat_j1SeedEquiv]
-  · rw [← mat_j1SeedEquiv, MulEquiv.apply_symm_apply, mat_a, j1_first_decode_eq]
-  · rw [j1PermEquiv_apply, MulEquiv.apply_symm_apply, j1Rho_a]
-  · rw [← mat_j1SeedEquiv, MulEquiv.apply_symm_apply, mat_b, j1_second_decode_eq]
-  · rw [j1PermEquiv_apply, MulEquiv.apply_symm_apply, j1Rho_b]
 
 end CFSG.Sporadic.Schreier

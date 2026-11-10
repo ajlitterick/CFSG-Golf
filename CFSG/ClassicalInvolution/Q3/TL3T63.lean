@@ -50,6 +50,5 @@ theorem AEIdent.conjE_apply {P : Set (Subgroup G)} {n : ℕ} (I : AEIdent P n) (
   rw [AEIdent.conjHom_apply]
   congr 1
 
-variable [Finite G] {IH : ℕ → Prop} {Ω : Set (Subgroup G)}
 
 end CFSG.ClassicalInvolution.Q3.TC.Thin

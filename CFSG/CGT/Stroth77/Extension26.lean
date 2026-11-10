@@ -393,15 +393,6 @@ theorem exists_square_root_c_of_data_t201
   exists_square_root_c_t201 D hBC hC hrel (hL D.u_mem_L) (hL D.ρ_mem_L)
     hH hCS hne
 
-theorem exists_square_root_c_of_hasStrothType_t201
-    {m : ℕ} {B C S' : Subgroup S}
-    (hB : HasStrothType B (StrothTypeIndex.t201 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hCS : C ≤ S') (hne : C ≠ B) :
-    ∃ d : S, d ∈ C ∧ d ∉ B ∧ d * d = (hB.data.c : S) :=
-  exists_square_root_c_of_data_t201 hB.data hBC hC hrel hL hH hCS hne
 
 theorem one_le_of_noInvolutionsCentralizing_t201_of_data
     {B C S' : Subgroup S} {m : ℕ}
@@ -426,15 +417,6 @@ theorem one_le_of_noInvolutionsCentralizing_t201_of_data
     simpa using h
   exact hdB (hH d (hcS hdC) (by rw [hd2, hc1]) (hC hdC))
 
-theorem one_le_of_noInvolutionsCentralizing_t201
-    {B C S' : Subgroup S} {m : ℕ}
-    (hB : HasStrothType B (StrothTypeIndex.t201 m))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 2 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hH : NoInvolutionsCentralizing S' B) (hcS : C ≤ S') (hne : C ≠ B) :
-    1 ≤ m :=
-  one_le_of_noInvolutionsCentralizing_t201_of_data hB.data hBC hC hrel hL hH hcS hne
 
 namespace Type201
 

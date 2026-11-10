@@ -112,9 +112,6 @@ theorem e6Unfold_e6Fold (l : Fin TwistTag.E6.tag.rank) :
       e6Unfold (e6Fold l) = (Equiv.swap (0 : Fin 6) 5 * Equiv.swap 2 4).symm l := by decide
   exact h l
 
-theorem e6Fold_e6Unfold (i : Fin 4) : e6Fold (e6Unfold i) = i := by
-  revert i
-  decide
 
 variable {k : Type} [Field k]
 

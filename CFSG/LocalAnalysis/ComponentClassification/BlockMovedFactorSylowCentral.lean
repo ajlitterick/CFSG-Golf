@@ -52,24 +52,5 @@ theorem unique {G : Type*} [Group G] [Finite G]
   exact CentralSylowImage.unique _ _ inf_le_left secondSylow
     (central component heven huniversal hquasisimple hcard hodd second hsecond actor hactor hmoved secondSylow) firstSylow
 
-theorem central_actual {G : Type*} [Group G] [Finite G]
-    (component : Subgroup G) (heven : Even (Nat.card component))
-    (huniversal : UniversalComponentBlock.Universal component) (hquasisimple : IsQuasisimple component)
-    (hcard : 3 ≤ Nat.card ↥(UniversalOrbitBlock.block component))
-    (hodd : Odd (Nat.card ↥(UniversalOrbitBlock.block component)))
-    (actor : G) (hactor : actor ∉ UniversalOrbitBlock.normalizer component)
-    (second : Subgroup G) (hsecond : second ∈ UniversalOrbitBlock.block (UniversalOrbitBlock.conjugate component actor))
-    (hmoved : ∀ first ∈ UniversalOrbitBlock.block component,
-      ∃ moving ∈ first ⊓ (UniversalOrbitBlock.normalizer component).map (MulAut.conj actor).toMonoidHom,
-        UniversalOrbitBlock.conjugate second moving ≠ second)
-    (sylow : Sylow 2 ↥(second ⊓ UniversalOrbitBlock.normalizer component)) :
-    (sylow : Subgroup ↥(second ⊓ UniversalOrbitBlock.normalizer component)).map
-        (second ⊓ UniversalOrbitBlock.normalizer component).subtype ≤
-      (Subgroup.center second).map second.subtype := by
-  obtain ⟨original, heq⟩ := (OrbitBlockConjugation.equivalence component actor).surjective ⟨second, hsecond⟩
-  have hfactorEq := congrArg Subtype.val heq
-  change UniversalOrbitBlock.conjugate original.val actor = second at hfactorEq
-  subst second
-  exact central component heven huniversal hquasisimple hcard hodd original.val original.property actor hactor hmoved sylow
 
 end CFSG.ComponentClassification.BlockMovedFactorSylowCentral

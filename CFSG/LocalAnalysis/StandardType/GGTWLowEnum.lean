@@ -223,68 +223,6 @@ theorem ggTWLEnum_sound {p d : ℕ} [Fact p.Prime] {T : List (List (List ℕ))}
     _ = L.length := Nat.card_fin L.length
     _ = (ggTWLReplay p d T par).length := rfl
 
-private lemma l05nLE_frameMats_wf {p N : ℕ} [Fact p.Prime] (hp : 3 ≤ p) (hN : 5 ≤ N) :
-    ∀ t ∈ ggTWLFrameMats p N, ggTWLMatWF (N - 1) t := by
-  intro t ht
-  rw [ggTWLFrameMats] at ht
-  obtain ⟨g, hg, rfl⟩ := List.mem_map.mp ht
-  have hg' : g < N - 1 := List.mem_range.mp hg
-  have hgN : g + 1 < N := by omega
-  have hval : GGTWNValid p N (ggTWNGen p N [] g) :=
-    ggTWNGen_valid hp hN (by simp) (by simpa using hg')
-  have hgen : ggTWNGen p N [] g = (ggTWNH p N g, ggTWNA p N g) := by
-    simp [ggTWNGen, hgN]
-  rw [← hgen]
-  exact (ggTWLMatOfPair_lin (p := p) (N := N) (q := ggTWNGen p N [] g) hval).1
-
-private lemma l05nLE_frameMats_lin {p N : ℕ} [Fact p.Prime] (hp : 3 ≤ p) (hN : 5 ≤ N) :
-    {g : Module.End (ZMod p) (GGDepAE p (N - 1)) |
-        ∃ t ∈ ggTWLFrameMats p N, g = ggTWLMatLin p (N - 1) t} = ggTWFrameGens p N := by
-  ext g
-  constructor
-  · rintro ⟨t, ht, rfl⟩
-    rw [ggTWLFrameMats] at ht
-    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp ht
-    have ha' : a < N - 1 := List.mem_range.mp ha
-    have haN : a + 1 < N := by omega
-    have hval : GGTWNValid p N (ggTWNGen p N [] a) :=
-      ggTWNGen_valid hp hN (by simp) (by simpa using ha')
-    have hgen : ggTWNGen p N [] a = (ggTWNH p N a, ggTWNA p N a) := by
-      simp [ggTWNGen, haN]
-    have hlin := (ggTWLMatOfPair_lin (p := p) (N := N) (q := ggTWNGen p N [] a) hval).2
-    rw [hgen] at hlin
-    rw [hlin]
-    refine Set.mem_range.mpr ⟨⟨a, ha'⟩, ?_⟩
-    simp only [ggTWNRflOf]
-    rw [ggTWNH_toZ (p := p) (N := N) ⟨a, ha'⟩, ggTWNA_toZ (p := p) (N := N) ⟨a, ha'⟩]
-  · rintro ⟨i, rfl⟩
-    refine ⟨ggTWLMatOfPair p (N - 1) (ggTWNH p N i.val, ggTWNA p N i.val), ?_, ?_⟩
-    · rw [ggTWLFrameMats]
-      exact List.mem_map.mpr ⟨i.val, List.mem_range.mpr i.isLt, rfl⟩
-    · have hiN : i.val + 1 < N := by omega
-      have hval : GGTWNValid p N (ggTWNGen p N [] i.val) :=
-        ggTWNGen_valid hp hN (by simp) (by simpa using i.isLt)
-      have hgen : ggTWNGen p N [] i.val = (ggTWNH p N i.val, ggTWNA p N i.val) := by
-        simp [ggTWNGen, hiN]
-      have hlin := (ggTWLMatOfPair_lin (p := p) (N := N) (q := ggTWNGen p N [] i.val) hval).2
-      rw [hgen] at hlin
-      rw [hlin]
-      simp only [ggTWNRflOf]
-      rw [ggTWNH_toZ (i := i), ggTWNA_toZ (i := i)]
-
-theorem ggTWLFrameOK_sound {p N : ℕ} [Fact p.Prime] (hp : 3 ≤ p) (hN : 5 ≤ N)
-    (h : ggTWLFrameOK p N = true) :
-    720 ≤ Nat.card ↥(Submonoid.closure (ggTWFrameGens p N)) := by
-  have h' := h
-  simp only [ggTWLFrameOK, Bool.and_eq_true] at h'
-  obtain ⟨hlen, hOK⟩ := h'
-  have hlen' : 720 ≤ (ggTWLReplay p (N - 1) (ggTWLFrameMats p N)
-      (ggTWLBfsTree p (N - 1) (ggTWLFrameMats p N) 1000)).length := of_decide_eq_true hlen
-  have hT := l05nLE_frameMats_wf (p := p) (N := N) hp hN
-  have hcard := (ggTWLEnum_sound (p := p) (d := N - 1) (T := ggTWLFrameMats p N) hT
-    (ggTWLBfsTree p (N - 1) (ggTWLFrameMats p N) 1000) hOK).2.2
-  rw [← l05nLE_frameMats_lin (p := p) (N := N) hp hN]
-  exact hcard ▸ hlen'
 
 end CFSG.StandardType
 

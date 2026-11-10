@@ -63,9 +63,6 @@ theorem symCong_one : symCong (1 : Matrix (Fin 3) (Fin 3) K) = 1 := by
   fin_cases i <;> fin_cases j <;>
     simp [symCong, symCoord, symMat, Matrix.mul_apply, Matrix.one_apply, Pi.single_apply]
 
-theorem symCoord_symMat (x : Fin 6 → K) : symCoord (symMat x) = x := by
-  ext i
-  fin_cases i <;> simp [symCoord, symMat]
 
 theorem symMat_transpose (x : Fin 6 → K) : (symMat x)ᵀ = symMat x := by
   ext i j

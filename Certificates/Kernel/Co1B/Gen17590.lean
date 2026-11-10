@@ -48,11 +48,6 @@ public meta def natV (v : Val) : Except String Nat :=
   | .nat n => .ok n
   | _ => .error "expected a natural number"
 
-public meta def rowsOfP (X : Nat) : Array Nat :=
-  Array.ofFn (n := 24) fun i => (X >>> (24 * i.val)) &&& (2 ^ 24 - 1)
-
-public meta def mulRw (X Y : Array Nat) : Array Nat :=
-  X.map fun r => (List.range 24).foldl (fun acc j => if r.testBit j then acc ^^^ Y.getD j 0 else acc) 0
 
 public meta def actRw (R : Array Nat) (v : Nat) : Nat :=
   (List.range 24).foldl (fun acc i =>

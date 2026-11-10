@@ -108,11 +108,9 @@ namespace DValueData
 
 variable {G : Type} [Group G] [Fintype G] (D : DValueData G)
 
-theorem toThree_t : D.toThree.t = D.tThree := rfl
 
 theorem tThree_x : D.tThree * D.x * D.tThree⁻¹ = D.z := D.toThree.t_x
 
-theorem tThree_z : D.tThree * D.z * D.tThree⁻¹ = D.x * D.z := D.toThree.t_z
 
 theorem tThree_cube_mem_C : D.tThree ^ 3 ∈ D.C := D.toThree.t_cube_mem_C
 
@@ -784,7 +782,4 @@ theorem three_dvd_card_A (h9 : 9 ∣ D.q + 1) : 3 ∣ Nat.card D.A := by
 end DValueData
 
 end CFSG.Semidihedral.UnitaryDValue
-
-
-
 

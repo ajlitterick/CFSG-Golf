@@ -27,9 +27,6 @@ theorem ggLayerTagsPilotRest_of_six (h : GGLayerTagsPilotRestSix) : GGLayerTagsP
 theorem ggLayerTagsRound5_of_six (h : GGLayerTagsPilotRestSix) : GGLayerTagsRound5 :=
   ggLayerTagsRound5_of_pilotRest (ggLayerTagsPilotRest_of_six h)
 
-theorem ggLayerInputs_of_six (h : GGLayerTagsPilotRestSix) :
-    GGLayerCentreOddInput ∧ GGLayerPerfectInput :=
-  ggLayerInputs_of_pilotRest (ggLayerTagsPilotRest_of_six h)
 
 end Layer
 

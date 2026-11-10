@@ -23,9 +23,6 @@ variable {F : Type} [Field F] [CharP F 2]
     rw [zP_add]
     rfl
 
-omit [CharP F 2] in
-theorem mem_zornO0 {x : Multiplicative (quasithinZorn F)} :
-    x ∈ zornO0 F ↔ cayleyTr (Multiplicative.toAdd x) = 0 := Iff.rfl
 
 omit [CharP F 2] in
 @[expose] noncomputable def secEquivOfHom (D : FFModel) {M : Type*} [CommGroup M]
@@ -46,10 +43,6 @@ omit [CharP F 2] in
       obtain ⟨x, hx⟩ := hsurj m
       exact ⟨QuotientGroup.mk x, hx⟩⟩
 
-omit [CharP F 2] in
-theorem secEquivOfHom_mk (D : FFModel) {M : Type*} [CommGroup M] (φ : ↥D.sec →* M) (hker)
-    (hker') (hsurj) (y : ↥D.sec) :
-    secEquivOfHom D φ hker hker' hsurj (QuotientGroup.mk y) = φ y := rfl
 
 theorem zornPHom_eq_one {x : ↥(zornO0 F)} (hx : zornPHom x = 1) :
     (x : Multiplicative (quasithinZorn F)) ∈ zornR F := by
@@ -132,16 +125,5 @@ instance finite_zornAut [Finite F] : Finite (quasithinZorn F ≃ₗ[F] quasithin
   Finite.of_injective (fun g : quasithinZorn F ≃ₗ[F] quasithinZorn F =>
     (g : quasithinZorn F → quasithinZorn F)) (fun _ _ hgh => LinearEquiv.ext (congrFun hgh))
 
-theorem finrank_H1_G2Derived_of_one_lt [Fintype F] {a : ℕ} (hF : Fintype.card F = 2 ^ a)
-    (ha : 1 < a) {ρ : Representation (ZMod 2) Γ W} (h : Explicit.G2Natural ρ F .derived) :
-    Module.finrank (ZMod 2) (H1 ρ) = a := by
-  obtain ⟨θ, β, hβ⟩ := G2Natural.intertwiner h
-  obtain ⟨c, hc0, hc1⟩ := exists_ne_zero_one hF ha
-  let θ' : Γ ≃* ↥(cayleyGroup F) := θ.trans (MulEquiv.subgroupCongr (cayley_commutator_eq hc0 hc1))
-  have : Finite Γ := Finite.of_equiv _ θ'.toEquiv.symm
-  have : Finite W := Finite.of_equiv _ β.toEquiv.symm
-  have hβ' : ∀ γ w, β (ρ γ w) = g2Act (θ' γ) (β w) := hβ
-  apply finrank_H1_of_card
-  rw [card_H1_eq_of_card ρ hβ' (card_Z1A_g2Act hF ha), hF]
 
 end CFSG.Quasithin.JonesParshall

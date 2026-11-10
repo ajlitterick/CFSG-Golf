@@ -80,15 +80,12 @@ section Q
 
 variable {D : Subgroup G}
 
-theorem Q_eq_gen : Q R D = gen (isolatedSet R D) := rfl
 
 theorem le_Q {B : Subgroup G} (hB : B ∈ isolatedSet R D) : B ≤ Q R D := le_gen hB
 
 theorem Q_le_centralizer : Q R D ≤ Subgroup.centralizer (D : Set G) :=
   gen_le fun _ hB => commuting_iff_le_centralizer.1 hB.1.2
 
-theorem Q_le_normalizer : Q R D ≤ Subgroup.normalizer (D : Set G) :=
-  Q_le_centralizer.trans (Subgroup.centralizer_le_normalizer _)
 
 theorem le_M_self : D ≤ M R D := le_sup_left
 
@@ -110,13 +107,6 @@ theorem mem_isolatedSet_self (hD : D ∈ R) : D ∈ isolatedSet R D :=
 
 theorem le_Q_self (hD : D ∈ R) : D ≤ Q R D := le_Q (mem_isolatedSet_self hR hD)
 
-theorem conjSub_mem_isolatedSet {B : Subgroup G} {g : G}
-    (hg : g ∈ Subgroup.normalizer (D : Set G)) (hB : B ∈ isolatedSet R D) :
-    conjSub B g ∈ isolatedSet R D := by
-  refine ⟨conjSub_mem_centralSet hR hg hB.1, fun C hC hop => ?_⟩
-  refine hB.2 _ (conjSub_mem_centralSet hR (Subgroup.inv_mem _ hg) hC) ?_
-  have := Opposite.conj hop g⁻¹
-  rwa [← conjSub_mul, inv_mul_cancel, conjSub_one] at this
 
 theorem conjSub_Q {g : G} (hg : g ∈ Subgroup.normalizer (D : Set G)) :
     conjSub (Q R D) g = Q R D :=

@@ -11,8 +11,6 @@ open CFSG.KC.Enum CFSG.KS
 @[expose] noncomputable def letT (T TI : Nat → Nat) (l : Int) : Nat :=
   Int.rec (motive := fun _ => Nat) (fun k => T (Nat.sub k 1)) (fun k => TI k) l
 
-@[expose] noncomputable def wpt (w m : Nat) (L : Int → Nat) (ws : List Int) (a : Nat) : Nat :=
-  List.rec (motive := fun _ => Nat) a (fun l _ ih => pg w m (L l) ih) ws
 
 @[expose] noncomputable def wprod (n w m : Nat) (L : Int → Nat) (ws : List Int) : Nat :=
   List.rec (motive := fun _ => Nat) (pidn n w)
@@ -26,9 +24,6 @@ open CFSG.KC.Enum CFSG.KS
 @[expose] noncomputable def secOK (deg n : Nat) (F S : Nat → Nat) : Bool :=
   allN n (fun j => bAnd(Nat.blt (S j) deg, Nat.beq (F (S j)) j))
 
-@[expose] noncomputable def imgOK (n wA : Nat) (F S : Nat → Nat) (apt : Nat → Nat) (A : Nat) :
-    Bool :=
-  allN n (fun j => Nat.beq (F (apt (S j))) (pg wA (mask wA) A j))
 
 @[expose] noncomputable def lcode (l : Int) : Nat :=
   Int.rec (motive := fun _ => Nat) (fun k => nIf(Nat.beq k 1, nat_lit 0, nat_lit 2))

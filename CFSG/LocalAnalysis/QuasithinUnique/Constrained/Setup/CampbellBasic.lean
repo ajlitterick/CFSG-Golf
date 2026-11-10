@@ -353,40 +353,6 @@ theorem isQuasisimple_of_central_quotient {E : Type*} [Group E] (A : Subgroup E)
   refine ⟨hE, e.symm.isSimpleGroup, e a, e b, fun h => hab (e.injective ?_)⟩
   rw [map_mul, map_mul, h]
 
-theorem not_dvd_card_of_abelian {E : Type*} [Group E] [Finite E] {p : ℕ} [Fact p.Prime]
-    (hab : ∀ x y : E, x * y = y * x) (hno : NoPQuotient p E) : ¬ p ∣ Nat.card E := by
-  intro hdvd
-  obtain ⟨x, hx⟩ := exists_prime_orderOf_dvd_card' (G := E) p hdvd
-  let P : Subgroup E :=
-    { carrier := {y | ∃ z : E, z ^ p = y}
-      one_mem' := ⟨1, one_pow p⟩
-      mul_mem' := by
-        rintro _ _ ⟨a, rfl⟩ ⟨b, rfl⟩
-        exact ⟨a * b, (Commute.mul_pow (hab a b) p)⟩
-      inv_mem' := by
-        rintro _ ⟨a, rfl⟩
-        exact ⟨a⁻¹, inv_pow a p⟩ }
-  have hPn : P.Normal := ⟨fun n hn g => by
-    obtain ⟨z, rfl⟩ := hn
-    refine ⟨g * z * g⁻¹, ?_⟩
-    simp [conj_pow]⟩
-  have hPtop : P = ⊤ := by
-    refine hno P ?_
-    intro g
-    obtain ⟨y, rfl⟩ := QuotientGroup.mk_surjective g
-    refine ⟨1, ?_⟩
-    rw [pow_one, ← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
-    exact ⟨y, rfl⟩
-  have hsurj : Function.Surjective (fun z : E => z ^ p) := by
-    intro y
-    have : y ∈ P := hPtop ▸ mem_top y
-    exact this
-  have hinj : Function.Injective (fun z : E => z ^ p) := Finite.injective_iff_surjective.mpr hsurj
-  have h1 : x ^ p = (1 : E) ^ p := by rw [← hx, pow_orderOf_eq_one, one_pow]
-  have := hinj h1
-  have hp1 : orderOf x = 1 := by rw [this]; exact orderOf_one
-  rw [hx] at hp1
-  exact (Fact.out : p.Prime).one_lt.ne' hp1
 
 theorem isPerfect_of_quotient {L : Type*} [Group L] {p : ℕ} (Q : Subgroup L) [Q.Normal]
     (hQ : IsPGroup p Q) (hno : NoPQuotient p L) (hperfQ : Group.IsPerfect (L ⧸ Q)) :
@@ -414,73 +380,5 @@ theorem isPerfect_of_quotient {L : Type*} [Group L] {p : ℕ} (Q : Subgroup L) [
     hqk]
   rfl
 
-theorem prime_residual_core_commutator_quotient {L : Type*} [Group L] [Finite L] {p : ℕ}
-    [Fact p.Prime] (Q : Subgroup L) [Q.Normal] (hQ : IsPGroup p Q) (hno : NoPQuotient p L) :
-    (CFSG.IsQuasisimple (L ⧸ Q) →
-        Group.IsPerfect L ∧ CFSG.IsQuasisimple (L ⧸ ⁅Q, (⊤ : Subgroup L)⁆)) ∧
-    ∀ m : ℕ, IsCyclic (L ⧸ Q) → Nat.card (L ⧸ Q) = m → Nat.Coprime m p →
-      Q = ⁅Q, (⊤ : Subgroup L)⁆ ∧ IsCyclic (L ⧸ ⁅Q, (⊤ : Subgroup L)⁆) ∧
-        Nat.card (L ⧸ ⁅Q, (⊤ : Subgroup L)⁆) = m := by
-  set U : Subgroup L := ⁅Q, (⊤ : Subgroup L)⁆ with hU
-  have hUQ : U ≤ Q := Subgroup.commutator_le_left _ _
-  have hUn : U.Normal := inferInstance
-  have hAcent : Q.map (QuotientGroup.mk' U) ≤ center (L ⧸ U) := by
-    rintro _ ⟨q, hq, rfl⟩
-    rw [Subgroup.mem_center_iff]
-    intro y
-    obtain ⟨l, rfl⟩ := QuotientGroup.mk'_surjective U y
-    have hc : q * l * q⁻¹ * l⁻¹ ∈ U := Subgroup.commutator_mem_commutator hq (mem_top l)
-    have : QuotientGroup.mk' U (q * l * q⁻¹ * l⁻¹) = 1 := (QuotientGroup.eq_one_iff _).mpr hc
-    simp only [map_mul, map_inv] at this
-    calc (QuotientGroup.mk' U) l * (QuotientGroup.mk' U) q
-        = ((QuotientGroup.mk' U) q * (QuotientGroup.mk' U) l * ((QuotientGroup.mk' U) q)⁻¹ *
-          ((QuotientGroup.mk' U) l)⁻¹)⁻¹ *
-            ((QuotientGroup.mk' U) q * (QuotientGroup.mk' U) l) := by group
-      _ = (QuotientGroup.mk' U) q * (QuotientGroup.mk' U) l := by rw [this]; group
-  have hAn : (Q.map (QuotientGroup.mk' U)).Normal := inferInstance
-  let eQ : (L ⧸ U) ⧸ Q.map (QuotientGroup.mk' U) ≃* L ⧸ Q :=
-    QuotientGroup.quotientQuotientEquivQuotient U Q hUQ
-  refine ⟨fun hq => ?_, fun m hcyc hcard hm => ?_⟩
-  · have hLperf : Group.IsPerfect L := isPerfect_of_quotient Q hQ hno hq.1
-    refine ⟨hLperf, ?_⟩
-    have hEperf : Group.IsPerfect (L ⧸ U) :=
-      Group.IsPerfect.ofSurjective (QuotientGroup.mk'_surjective U)
-    exact isQuasisimple_of_central_quotient _ hAcent hEperf
-      (CFSG.LocalCores.isQuasisimple_of_mulEquiv eQ.symm hq)
-  · let f : (L ⧸ U) →* L ⧸ Q :=
-      eQ.toMonoidHom.comp (QuotientGroup.mk' (Q.map (QuotientGroup.mk' U)))
-    have hker : f.ker ≤ center (L ⧸ U) := by
-      intro x hx
-      have : x ∈ Q.map (QuotientGroup.mk' U) := by
-        have hx' : eQ (QuotientGroup.mk' (Q.map (QuotientGroup.mk' U)) x) = 1 := hx
-        rw [MulEquiv.map_eq_one_iff] at hx'
-        exact (QuotientGroup.eq_one_iff _).mp hx'
-      exact hAcent this
-    have := hcyc
-    have habel : ∀ a b : L ⧸ U, a * b = b * a := by
-      have := MonoidHom.isMulCommutative_of_isCyclic_of_ker_le_center f hker
-      exact fun a b => (IsMulCommutative.is_comm.comm a b)
-    have hnoE : NoPQuotient p (L ⧸ U) :=
-      NoPQuotient.of_surjective _ (QuotientGroup.mk'_surjective U) hno
-    have hcop := not_dvd_card_of_abelian habel hnoE
-    have hQU : Q ≤ U := by
-      have hAcard : Nat.card (Q.map (QuotientGroup.mk' U)) = 1 := by
-        obtain ⟨k, hk⟩ := (IsPGroup.iff_card).mp hQ
-        have h1 : Nat.card (Q.map (QuotientGroup.mk' U)) ∣ p ^ k := hk ▸ Subgroup.card_map_dvd _ _
-        have h2 : Nat.card (Q.map (QuotientGroup.mk' U)) ∣ Nat.card (L ⧸ U) :=
-          Subgroup.card_subgroup_dvd_card _
-        obtain ⟨j, hj, hj'⟩ := (Nat.dvd_prime_pow (Fact.out : p.Prime)).mp h1
-        rw [hj']
-        rcases Nat.eq_zero_or_pos j with h0 | hpos
-        · simp [h0]
-        · exfalso
-          apply hcop
-          exact (dvd_pow_self p hpos.ne').trans (hj' ▸ h2)
-      have : Q.map (QuotientGroup.mk' U) = ⊥ := Subgroup.eq_bot_of_card_eq _ hAcard
-      rw [Subgroup.map_eq_bot_iff, QuotientGroup.ker_mk'] at this
-      exact this
-    have hQUeq : U = Q := le_antisymm hUQ hQU
-    let e : L ⧸ U ≃* L ⧸ Q := QuotientGroup.quotientMulEquivOfEq hQUeq
-    exact ⟨hQUeq.symm, (MulEquiv.isCyclic e).mpr hcyc, by rw [Nat.card_congr e.toEquiv, hcard]⟩
 
 end CFSG.QuasithinUnique.Setup.Campbell

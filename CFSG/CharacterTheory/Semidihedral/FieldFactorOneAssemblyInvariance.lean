@@ -50,15 +50,6 @@ def restrictionStabilizer {t : G} (θ : C t →* ℂˣ) (V : Subgroup G) (htV : 
       group
     exact (hg c' c hc'V e).symm
 
-theorem mem_restrictionStabilizer {t : G} (θ : C t →* ℂˣ) (V : Subgroup G) (htV : t ∈ V)
-    {g : G} :
-    g ∈ restrictionStabilizer θ V htV ↔ g ∈ Subgroup.normalizer (V : Set G) ∧ ∀ c c' : C t,
-      (c : G) ∈ Subgroup.centralizer (V : Set G) → (c' : G) = g * c * g⁻¹ → θ c' = θ c :=
-  Iff.rfl
-
-theorem restrictionStabilizer_le_normalizer {t : G} (θ : C t →* ℂˣ) (V : Subgroup G)
-    (htV : t ∈ V) : restrictionStabilizer θ V htV ≤ Subgroup.normalizer (V : Set G) :=
-  fun _ hg => hg.1
 
 theorem inf_le_restrictionStabilizer {t : G} (θ : C t →* ℂˣ) (V : Subgroup G) (htV : t ∈ V) :
     Subgroup.normalizer (V : Set G) ⊓ C t ≤ restrictionStabilizer θ V htV := by
@@ -67,92 +58,9 @@ theorem inf_le_restrictionStabilizer {t : G} (θ : C t →* ℂˣ) (V : Subgroup
   have e : c' = ⟨g, hgC⟩ * c * ⟨g, hgC⟩⁻¹ := Subtype.ext hc'
   rw [e, map_mul, map_mul, map_inv, mul_comm (θ ⟨g, hgC⟩) (θ c), mul_inv_cancel_right]
 
-theorem relIndex_inf_C_le_three [Finite G] {t : G} {V : Subgroup G} (htV : t ∈ V)
-    (ht1 : t ≠ 1) (hV : Nat.card V = 4) :
-    (Subgroup.normalizer (V : Set G) ⊓ C t).relIndex (Subgroup.normalizer (V : Set G)) ≤ 3 := by
-  set M := Subgroup.normalizer (V : Set G) with hM
-  have hconj : ∀ g : M, (g : G) * t * (g : G)⁻¹ ∈ V := fun g =>
-    (Subgroup.mem_normalizer_iff.mp g.2 t).mp htV
-  have hne : ∀ g : M, (⟨(g : G) * t * (g : G)⁻¹, hconj g⟩ : V) ≠ 1 := by
-    intro g h
-    apply ht1
-    have h' : (g : G) * t * (g : G)⁻¹ = 1 := congrArg Subtype.val h
-    calc t = (g : G)⁻¹ * ((g : G) * t * (g : G)⁻¹) * g := by group
-      _ = 1 := by rw [h']; group
-  let φ : M ⧸ (M ⊓ C t).subgroupOf M → {x : V // x ≠ 1} :=
-    Quotient.lift (fun g : M => ⟨⟨(g : G) * t * (g : G)⁻¹, hconj g⟩, hne g⟩) (by
-      intro a b hab
-      have hC : ((a⁻¹ * b : M) : G) ∈ C t :=
-        (Subgroup.mem_subgroupOf.mp (QuotientGroup.leftRel_apply.mp hab)).2
-      have hC' : (a : G)⁻¹ * b * t = t * ((a : G)⁻¹ * b) :=
-        Subgroup.mem_centralizer_singleton_iff.mp hC
-      apply Subtype.ext
-      apply Subtype.ext
-      change (a : G) * t * (a : G)⁻¹ = (b : G) * t * (b : G)⁻¹
-      calc (a : G) * t * (a : G)⁻¹ = (a : G) * (t * ((a : G)⁻¹ * b)) * (b : G)⁻¹ := by group
-        _ = (a : G) * ((a : G)⁻¹ * b * t) * (b : G)⁻¹ := by rw [hC']
-        _ = (b : G) * t * (b : G)⁻¹ := by group)
-  have hφ : Function.Injective φ := by
-    intro x y hxy
-    induction x using QuotientGroup.induction_on with | H a => ?_
-    induction y using QuotientGroup.induction_on with | H b => ?_
-    have h : (a : G) * t * (a : G)⁻¹ = (b : G) * t * (b : G)⁻¹ :=
-      congrArg (fun x : {x : V // x ≠ 1} => ((x : V) : G)) hxy
-    apply QuotientGroup.eq.mpr
-    rw [Subgroup.mem_subgroupOf]
-    refine ⟨(a⁻¹ * b).2, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-    change (a : G)⁻¹ * b * t = t * ((a : G)⁻¹ * b)
-    calc (a : G)⁻¹ * b * t = (a : G)⁻¹ * ((b : G) * t * (b : G)⁻¹) * b := by group
-      _ = (a : G)⁻¹ * ((a : G) * t * (a : G)⁻¹) * b := by rw [h]
-      _ = t * ((a : G)⁻¹ * b) := by group
-  have hlt := Finite.card_subtype_lt (p := fun x : V => x ≠ 1) (x := 1) (by simp)
-  calc (M ⊓ C t).relIndex M = Nat.card (M ⧸ (M ⊓ C t).subgroupOf M) := rfl
-    _ ≤ Nat.card {x : V // x ≠ 1} := Nat.card_le_card_of_injective φ hφ
-    _ ≤ 3 := by omega
 
 end Stabilizer
 
-theorem invariant_of_moving_element
-    (G : Type) [Group G] [Finite G]
-    (n : ℕ) (hn : 4 ≤ n) (S : Sylow 2 G) (fS : SemidihedralGroup n ≃* (S : Subgroup G))
-    (t : G) (ht : t = (fS (r n) : G) ^ 2 ^ (n - 2))
-    (θ : C t →* ℂˣ) (η : G)
-    (hη : η ∈ Subgroup.normalizer
-      ((Subgroup.closure {t, (fS (s n) : G)} : Subgroup G) : Set G))
-    (hηt : η * t * η⁻¹ ≠ t)
-    (hθη : ∀ c c' : C t,
-        (c : G) ∈ Subgroup.centralizer
-          ((Subgroup.closure {t, (fS (s n) : G)} : Subgroup G) : Set G) →
-        (c' : G) = η * c * η⁻¹ → θ c' = θ c) :
-    ∀ g ∈ Subgroup.normalizer
-        ((Subgroup.closure {t, (fS (s n) : G)} : Subgroup G) : Set G),
-      ∀ c c' : C t,
-        (c : G) ∈ Subgroup.centralizer
-          ((Subgroup.closure {t, (fS (s n) : G)} : Subgroup G) : Set G) →
-        (c' : G) = g * c * g⁻¹ → θ c' = θ c := by
-  obtain ⟨-, ht2, -, hsC, hs2, hst⟩ := Principal.supplied_t_s_facts hn fS ht
-  obtain ⟨hV, htV, -, -, ht1, -⟩ :=
-    StationaryConfinement.pair_facts t (fS (s n) : G) ht2 hs2 hsC (fun h => hst h.symm)
-  set V := Subgroup.closure ({t, (fS (s n) : G)} : Set G) with hVdef
-  set M := Subgroup.normalizer (V : Set G) with hMdef
-  set P := restrictionStabilizer θ V htV with hPdef
-  have hKP : M ⊓ C t ≤ P := inf_le_restrictionStabilizer θ V htV
-  have hPM : P ≤ M := restrictionStabilizer_le_normalizer θ V htV
-  have hηP : η ∈ P := ⟨hη, hθη⟩
-  have hηK : η ∉ M ⊓ C t := fun h => hηt (by
-    rw [Subgroup.mem_centralizer_singleton_iff.mp h.2, mul_inv_cancel_right])
-  have h3 : (M ⊓ C t).relIndex M ≤ 3 := relIndex_inf_C_le_three htV ht1 hV.card_four
-  have hmul := Subgroup.relIndex_mul_relIndex (M ⊓ C t) P M hKP hPM
-  have h1 : (M ⊓ C t).relIndex P ≠ 1 := fun h => hηK (Subgroup.relIndex_eq_one.mp h hηP)
-  have h0 : (M ⊓ C t).relIndex P ≠ 0 := Subgroup.index_ne_zero_of_finite
-  have hPM1 : P.relIndex M = 1 := by
-    have h0' : P.relIndex M ≠ 0 := Subgroup.index_ne_zero_of_finite
-    by_contra hne
-    have : 2 * 2 ≤ (M ⊓ C t).relIndex P * P.relIndex M :=
-      Nat.mul_le_mul (by omega) (by omega)
-    omega
-  intro g hg
-  exact (Subgroup.relIndex_eq_one.mp hPM1 hg).2
 
 open CFSG.Semidihedral.StationaryConfinement
   (stationary_all_prime_odd_core_has_cyclic_fixed_factor_and_fixed_free_complement_action) in

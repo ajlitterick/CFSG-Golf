@@ -17,8 +17,6 @@ open Subgroup Matrix Module CFSG.LocalAnalysis.ComponentInitial
 theorem u42Sgn_ne_zero {E : Type} [Field E] (j : Fin 2 ⊕ Fin 2) : u42Sgn E j ≠ 0 := by
   rcases j with j | j <;> simp [u42Sgn]
 
-theorem u42Sgn_sq {E : Type} [Field E] (j : Fin 2 ⊕ Fin 2) : u42Sgn E j * u42Sgn E j = 1 := by
-  rcases j with j | j <;> simp [u42Sgn]
 
 theorem u42Sgn_bar {p f : ℕ} {E : Type} [Field E] (h : UnitaryFieldData p f E)
     (j : Fin 2 ⊕ Fin 2) : h.bar (u42Sgn E j) = u42Sgn E j := by

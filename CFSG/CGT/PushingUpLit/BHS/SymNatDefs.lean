@@ -22,11 +22,5 @@ open CFSG.Quasithin CFSG.Quasithin.G6
 
 instance commGroupCoreMod (n : ℕ) : CommGroup ↥(coreMod n) := Subgroup.toCommGroup (coreMod n)
 
-theorem coreMod_sq (n : ℕ) (v : ↥(coreMod n)) : v ^ 2 = 1 := by
-  apply Subtype.ext
-  apply Multiplicative.toAdd.injective
-  funext i
-  simp [pow_two]
-  exact CharTwo.add_self_eq_zero _
 
 end CFSG.CGT.PushingUpLit.BHS

@@ -87,47 +87,6 @@ theorem extend_nested {G : Type*} [Group G]
   rw [hmap] at hchain
   exact hchain.trans (by intro element hmem; exact hcomponentSmaller hmem) hsmaller
 
-theorem nested_component {G : Type*} [Group G]
-    (component smaller larger : Subgroup G) (hsmallerLarger : smaller ≤ larger)
-    (hcomponent : IsComponentOf (component.subgroupOf smaller) ⊤) :
-    IsComponentOf ((component.subgroupOf larger).subgroupOf (smaller.subgroupOf larger)) ⊤ := by
-  let equivalence := (Subgroup.subgroupOfEquivOfLe hsmallerLarger).symm
-  have hmap : (component.subgroupOf smaller).map equivalence.toMonoidHom =
-      (component.subgroupOf larger).subgroupOf (smaller.subgroupOf larger) := by
-    ext member
-    constructor
-    · rintro ⟨lift, hlift, rfl⟩
-      exact hlift
-    · intro hmem
-      exact ⟨⟨member.val.val, member.property⟩, hmem, rfl⟩
-  rw [← hmap]
-  exact (LocalComponents.equiv_iff equivalence (component.subgroupOf smaller)).mpr hcomponent
-
-theorem centralizer_restrict {G : Type*} [Group G]
-    (component overgroup : Subgroup G) (element : G) (helement : element ∈ overgroup)
-    (hcentralizer : Subgroup.centralizer {element} ≤ overgroup)
-    (hcomponent : IsComponentOf (component.subgroupOf (Subgroup.centralizer {element})) ⊤) :
-    IsComponentOf ((component.subgroupOf overgroup).subgroupOf
-      (Subgroup.centralizer {(⟨element, helement⟩ : overgroup)})) ⊤ := by
-  let equivalence : (Subgroup.centralizer {element}) ≃*
-      (Subgroup.centralizer {(⟨element, helement⟩ : overgroup)}) :=
-    { toFun := fun member => ⟨⟨member.val, hcentralizer member.property⟩,
-        Subgroup.mem_centralizer_singleton_iff.mpr
-          (Subtype.ext (Subgroup.mem_centralizer_singleton_iff.mp member.property))⟩
-      invFun := fun member => ⟨member.val.val,
-        Subgroup.mem_centralizer_singleton_iff.mpr
-          (congrArg Subtype.val (Subgroup.mem_centralizer_singleton_iff.mp member.property))⟩
-      left_inv := fun _ => rfl
-      right_inv := fun _ => rfl
-      map_mul' := fun _ _ => rfl }
-  have hmap : (component.subgroupOf (Subgroup.centralizer {element})).map equivalence.toMonoidHom =
-      (component.subgroupOf overgroup).subgroupOf
-        (Subgroup.centralizer {(⟨element, helement⟩ : overgroup)}) := by
-    ext member
-    rw [Subgroup.mem_map_equiv]
-    rfl
-  rw [← hmap]
-  exact (LocalComponents.equiv_iff equivalence _).mpr hcomponent
 
 theorem commute_local_distinct {G : Type*} [Group G] [Finite G]
     (first second overgroup : Subgroup G)

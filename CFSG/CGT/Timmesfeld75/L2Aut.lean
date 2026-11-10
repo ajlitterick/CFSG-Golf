@@ -282,32 +282,6 @@ variable {F : Type} [Field F]
 theorem mem_autFixedSubfield {σ : F ≃+* F} {x : F} : x ∈ autFixedSubfield σ ↔ σ x = x :=
   Iff.rfl
 
-theorem sl2FieldAut_eq_self_iff (σ : F ≃+* F) (x : SL(2, F)) :
-    sl2FieldAut σ x = x ↔ ∀ i j, x i j ∈ autFixedSubfield σ := by
-  constructor
-  · intro h i j
-    exact congrArg (fun g : SL(2, F) => (g : Matrix (Fin 2) (Fin 2) F) i j) h
-  · intro h
-    ext i j
-    exact h i j
-
-theorem natCard_fixed_utri (σ : F ≃+* F) :
-    Nat.card {u : utri F // sl2FieldAut σ u = u} = Nat.card (autFixedSubfield σ) := by
-  refine Nat.card_congr
-    { toFun := fun u => ⟨(u.1 : SL(2, F)) 0 1, ?_⟩
-      invFun := fun s => ⟨⟨utriElt (s : F), utriElt_mem_utri (s : F)⟩, ?_⟩
-      left_inv := ?_
-      right_inv := ?_ }
-  · exact congrArg (fun g : SL(2, F) => g 0 1) u.2
-  · show sl2FieldAut σ (utriElt (s : F)) = utriElt (s : F)
-    rw [sl2FieldAut_utriElt, (mem_autFixedSubfield.1 s.2)]
-  · rintro ⟨⟨g, hg⟩, hfix⟩
-    apply Subtype.ext
-    apply Subtype.ext
-    exact (eq_utriElt_of_mem_utri hg).symm
-  · rintro ⟨s, hs⟩
-    apply Subtype.ext
-    exact utriElt_apply_01 s
 
 @[expose] def autAddMap (σ : F ≃+* F) : F →+ F where
   toFun s := s + σ s
@@ -347,51 +321,6 @@ theorem natCard_range_autAddMap [Finite F] [CharP F 2] {σ : F ≃+* F} (hσ : o
   rw [h2, sq] at h1
   exact Nat.eq_of_mul_eq_mul_left Nat.card_pos h1
 
-@[expose] def utriCommutator (σ : F ≃+* F) : Subgroup SL(2, F) where
-  carrier := {x | ∃ s : F, x = utriElt (s - σ s)}
-  one_mem' := ⟨0, by rw [map_zero, sub_zero, utriElt_zero]⟩
-  mul_mem' := by
-    rintro _ _ ⟨s, rfl⟩ ⟨t, rfl⟩
-    refine ⟨s + t, ?_⟩
-    rw [← utriElt_add, map_add]
-    congr 1
-    ring
-  inv_mem' := by
-    rintro _ ⟨s, rfl⟩
-    refine ⟨-s, ?_⟩
-    rw [utriElt_inv, map_neg]
-    congr 1
-    ring
-
-theorem mem_utriCommutator_iff {σ : F ≃+* F} {x : SL(2, F)} :
-    x ∈ utriCommutator σ ↔ ∃ u ∈ utri F, x = u * (sl2FieldAut σ u)⁻¹ := by
-  constructor
-  · rintro ⟨s, rfl⟩
-    refine ⟨utriElt s, utriElt_mem_utri s, ?_⟩
-    rw [sl2FieldAut_utriElt, utriElt_inv, ← utriElt_add, sub_eq_add_neg]
-  · rintro ⟨u, hu, rfl⟩
-    obtain ⟨s, rfl⟩ := mem_utri_iff.1 hu
-    refine ⟨s, ?_⟩
-    rw [sl2FieldAut_utriElt, utriElt_inv, ← utriElt_add, sub_eq_add_neg]
-
-theorem utriElt_mem_utriCommutator_of_mem_range [CharP F 2] {σ : F ≃+* F} {y : F}
-    (hy : y ∈ (autAddMap σ).range) : utriElt y ∈ utriCommutator σ := by
-  obtain ⟨s, rfl⟩ := hy
-  exact ⟨s, by rw [autAddMap_apply, CharTwo.sub_eq_add]⟩
-
-theorem natCard_utriCommutator [Finite F] [CharP F 2] {σ : F ≃+* F} (hσ : orderOf σ = 2) :
-    Nat.card (utriCommutator σ) = Nat.card (autFixedSubfield σ) := by
-  rw [← natCard_range_autAddMap hσ]
-  symm
-  refine Nat.card_congr (Equiv.ofBijective
-    (fun y : (autAddMap σ).range => (⟨utriElt (y : F), ?_⟩ : utriCommutator σ)) ⟨?_, ?_⟩)
-  · exact utriElt_mem_utriCommutator_of_mem_range y.2
-  · intro y z h
-    exact Subtype.ext (utriElt_injective (congrArg Subtype.val h))
-  · rintro ⟨x, s, rfl⟩
-    refine ⟨⟨s + σ s, s, rfl⟩, ?_⟩
-    apply Subtype.ext
-    simp only [CharTwo.sub_eq_add]
 
 end Fixed
 
@@ -431,12 +360,6 @@ theorem sl2_eq_refl_of_map_conjSubgroup_eq (φ : SL(2, F) ≃* SL(2, F))
   rw [ha x, ha1, hσ, torusElt_one, sl2FieldAut_refl]
   simp
 
-theorem sl2_eq_refl_of_map_sylow_eq (φ : SL(2, F) ≃* SL(2, F))
-    (h : ∀ P : Sylow 2 SL(2, F), (P : Subgroup SL(2, F)).map φ.toMonoidHom = P) :
-    φ = MulEquiv.refl SL(2, F) :=
-  sl2_eq_refl_of_map_conjSubgroup_eq φ fun k =>
-    h (Sylow.mapSurjective (f := (MulAut.conj k).toMonoidHom) (MulAut.conj k).surjective
-      (utriSylow F))
 
 end Rigidity
 

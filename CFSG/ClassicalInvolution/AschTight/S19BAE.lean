@@ -28,8 +28,5 @@ theorem aEmpty_of_tightD (ht : S19R.TightStd p f K z) {K₁ : Subgroup G}
   obtain ⟨hKs, u, hu₁, hu₂⟩ := hmem
   exact hne (S1911.eq_of_isUniqueInvolution_member ht.toTightBranch hKs hK₁ hu₂ hu₁)
 
-theorem partIHyp_of_tightD (ht : S19R.TightStd p f K z) :
-    PartIHyp p f (CoreAssembly.conjClass K) :=
-  ⟨ht.branch.odd, ht.branch.five, hypOmegaMod_of_tightD ht, fun _ hK₁ => aEmpty_of_tightD ht hK₁⟩
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.S19B

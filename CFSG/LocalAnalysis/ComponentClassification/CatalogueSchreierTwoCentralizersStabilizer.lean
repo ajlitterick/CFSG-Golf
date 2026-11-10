@@ -57,8 +57,6 @@ theorem mem_stabilizer_iff_map (M : Subgroup G) (automorphism : MulAut G) :
   map_one' := by ext member; rfl
   map_mul' _ _ := by ext member; rfl
 
-theorem restrict_apply_val (M : Subgroup G) (automorphism : stabilizer M) (member : M) :
-    (restrict M automorphism member).val = (automorphism : MulAut G) member := rfl
 
 @[expose] def pointwiseKernel (M : Subgroup G) : Subgroup (stabilizer M) := (restrict M).ker
 

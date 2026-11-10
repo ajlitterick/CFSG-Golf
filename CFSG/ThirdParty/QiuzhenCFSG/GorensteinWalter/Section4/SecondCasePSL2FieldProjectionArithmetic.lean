@@ -18,16 +18,5 @@ and subgroup transport.
 
 namespace CFSG.GorensteinWalter
 
-/-- A prime-order field component with either source centralizer equation is
-impossible. -/
-public theorem secondCase_psl2_field_component_equation_impossible
-    (r p : ℕ) (hr : 3 ≤ r) (hp : 3 ≤ p)
-    (heq : r ^ p + 1 = p * (r + 1) ∨
-      r ^ p - 1 = p * (r - 1)) : False := by
-  rcases fieldAutomorphism_centralizer_equations_impossible r p hr hp with
-    ⟨hplus, hminus⟩
-  rcases heq with h | h
-  · exact hplus h
-  · exact hminus h
 
 end CFSG.GorensteinWalter

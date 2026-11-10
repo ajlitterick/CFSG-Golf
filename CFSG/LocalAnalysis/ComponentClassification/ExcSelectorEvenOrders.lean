@@ -247,29 +247,8 @@ theorem not_smallType_of_card_ordTrialityD4 (hX : Nat.card X = ordTrialityD4 (2 
   · rw [hX, ordTrialityD4]
     ring
 
-theorem not_smallType_of_card_ordTwistedF4 (he3 : 3 ≤ e)
-    (hX : Nat.card X = ordTwistedF4 (2 ^ e)) : ¬ SmallType X := by
-  set q := 2 ^ e with hq
-  have hq2 : 2 ≤ q := two_le_two_pow he
-  have o : ∀ k, 1 ≤ k → Odd (q ^ k - 1) := fun k hk => odd_two_pow_pow_sub_one he hk
-  have o' : ∀ k, 1 ≤ k → Odd (q ^ k + 1) := fun k hk => odd_two_pow_pow_add_one he hk
-  have o1 : Odd (q - 1) := by simpa using o 1 le_rfl
-  refine not_smallType_of_pow_mul hZ (e := e) (a := 12) (b := 16)
-    ((((o' 6 (by norm_num)).mul (o 4 (by norm_num))).mul (o' 3 (by norm_num))).mul o1) ?_ ?_
-    (by omega) (by omega) (by omega) (by omega)
-  · calc (q ^ 6 + 1) * (q ^ 4 - 1) * (q ^ 3 + 1) * (q - 1) ≤ q ^ 7 * q ^ 4 * q ^ 4 * q :=
-        Nat.mul_le_mul (Nat.mul_le_mul (Nat.mul_le_mul (pow_add_one_le hq2 6)
-          (pow_sub_one_le q 4)) (pow_add_one_le hq2 3)) (Nat.sub_le q 1)
-      _ = q ^ 16 := by ring
-  · rw [hX, ordTwistedF4]
-    ring
 
 end Families
 
-theorem not_smallType_of_card_ordTits {X : Type} [Group X] (hZ : center X = ⊥)
-    (hX : Nat.card X = ordTits) : ¬ SmallType X :=
-  not_smallType_of_two_adic hZ (N := 11) (m := 3 ^ 3 * 5 ^ 2 * 13) (by decide)
-    (by rw [hX, ordTits]; ring) (by norm_num) (by norm_num) (by norm_num)
-    (by rw [hX, ordTits]; norm_num)
 
 end CFSG.ComponentClassification.ExcSelector

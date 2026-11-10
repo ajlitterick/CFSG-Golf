@@ -23,9 +23,6 @@ attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
     conv_lhs => rw [← hσ.2 x hx]
     exact Equiv.symm_apply_apply σ x⟩
 
-theorem mem_vertexStabilizer {S : Set (Submodule (ZMod 2) X)} {σ : Equiv.Perm QVertex} :
-    σ ∈ vertexStabilizer S ↔ σ ∈ typeAut ∧ ∀ x : QVertex, x.1 ∈ S → σ x = x :=
-  Iff.rfl
 
 @[expose] def baseFlagSpaces : Set (Submodule (ZMod 2) X) :=
   {(ZMod 2) ∙ e₁, Submodule.span (ZMod 2) {e₁, e₂}, (ZMod 2) ∙ f₁,
@@ -97,7 +94,6 @@ theorem inducedPerm_tailIso_mem (A : GL (Fin 2) (ZMod 2)) :
     simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hv ⊢
     rcases hv with rfl | rfl <;> simp
 
-theorem ptOn_zero_three : PtOn 0 3 := by decide
 
 theorem lnVertex_injective : Function.Injective lnVertex := fun j j' h =>
   Sum.inr_injective (@vertexOf_injective (.inr j) (.inr j') h)
@@ -281,13 +277,5 @@ theorem card_GL_two_zmod_two : Nat.card (GL (Fin 2) (ZMod 2)) = 6 := by
   rw [Matrix.card_GL_field, ZMod.card, Fin.prod_univ_two]
   rfl
 
-theorem card_baseStabilizer : Nat.card (vertexStabilizer baseFlagSpaces) = 6 := by
-  rw [← card_GL_two_zmod_two]
-  refine (Nat.card_congr (Equiv.ofBijective
-    (fun A : GL (Fin 2) (ZMod 2) => (⟨inducedPerm (tailIso A), inducedPerm_tailIso_mem A⟩ :
-      vertexStabilizer baseFlagSpaces)) ⟨fun A B h => ?_, fun σ => ?_⟩)).symm
-  · exact inducedPerm_tailIso_injective (congrArg Subtype.val h)
-  · obtain ⟨A, hA⟩ := exists_tail_of_mem σ.2
-    exact ⟨A, Subtype.ext hA.symm⟩
 
 end CFSG.LieType.Chevalley.C2E6Overlap

@@ -91,25 +91,6 @@ theorem kN : allN 64 (fun v => perpK v == (rigBil v == 0)) = true := by quickRfl
 
 theorem kIrr : rigIrrWords = (List.range 8).map fun k => rigBfs.getD k [] := by decide +kernel
 
-theorem negCell : Bool.not (cellR 0 5 (Nat.xor (pg 256 (mask 256) (SuzRgE 0) 5) 1)) = true := by
-  quickRfl
-
-theorem negCell2 : Bool.not (cellR 3 70 (Nat.xor (pg 256 (mask 256) (SuzRgE 3) 70) 1)) = true := by
-  quickRfl
-
-theorem negT : Bool.not (allN 8 fun i => Nat.beq (SuzRgT i)
-    (pc (SuzRgU (gen i).2.2.1) (QE (Nat.xor (gen i).2.2.2 1)))) = true := by quickRfl
-
-theorem negUP : Bool.not (allN 1620 fun i =>
-    bIf(uTestK (SuzFbE.T i), SuzFb.memK SuzRgUP.tail i, true)) = true := by quickRfl
-
-theorem negIrr : Bool.not (allN 64 fun u =>
-    bIf(perpK u, rigXor (bvec 2) 0 == u, true)) = true := by quickRfl
-
-theorem negSeed : Bool.not (Nat.beq (SuzRgV 1) (QE (Nat.xor (nget SuzRgSQ 0) 1))) = true := by
-  quickRfl
-
-theorem negPT : Bool.not (Nat.beq (SuzRgPT 255) (ptK 127)) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzRg
 

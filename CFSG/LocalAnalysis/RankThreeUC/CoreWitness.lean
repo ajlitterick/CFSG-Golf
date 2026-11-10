@@ -97,8 +97,6 @@ theorem fullCoreLocal_of_rankThreeUC (hS : Standing G) (hUC : rankThreeUC G) :
     FullCoreLocal G :=
   fun _ hp _ _ hM => (isCoreWitness_of_isCoreMaxLocal hS hUC hp hM).u0
 
-theorem theoremE_of_rankThreeUC (hS : Standing G) (hUC : rankThreeUC G) : TheoremE G :=
-  fun _ hp _ _ hM => (isCoreWitness_of_isCoreMaxLocal hS hUC hp hM).u2
 
 theorem IsWitness.isCoreMaxLocal {p : ℕ} {P : Sylow p G} {M : Subgroup G}
     (hw : IsWitness p P M) : IsCoreMaxLocal p P M :=

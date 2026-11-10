@@ -11,7 +11,5 @@ namespace CFSG.StandardType.FrameRoute
 
 attribute [-instance] instAddCommGroupOfIsSimpleAddGroupOfIsNilpotent
 
-variable {K : Type} [Field K] [CharP K 2] {V : Type} [AddCommGroup V] [Module K V] {s : ℕ}
-  {W : Type} [AddCommGroup W] [Module K W]
 
 end CFSG.StandardType.FrameRoute

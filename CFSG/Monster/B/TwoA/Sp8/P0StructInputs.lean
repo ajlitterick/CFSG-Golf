@@ -110,41 +110,5 @@ namespace CFSG.Monster.B.TwoA.Sp8.WordRel
 @[expose] def uProd (κ : ℕ) : List XLetter :=
   (List.range 10).flatMap fun k => if κ.testBit k then uWord k else []
 
-@[expose] def lCommCheck : Bool :=
-  (List.range 16).all fun i => (List.range 16).all fun j =>
-    relCheck (lWord (2 ^ i) ++ lWord (2 ^ j))
-      (lWord (2 ^ j) ++ lWord (2 ^ i) ++ tWord ((lCommN.getD i []).getD j 0))
-
-@[expose] def lSqCheck : Bool :=
-  (List.range 16).all fun i => relCheck (lWord (2 ^ i) ++ lWord (2 ^ i)) []
-
-@[expose] def uConjLCheck : Bool :=
-  (List.range 10).all fun k => (List.range 16).all fun j =>
-    let p := (uConjLN.getD k []).getD j (0, 0)
-    relCheck (uWord k ++ lWord (2 ^ j)) (lWord p.1 ++ tWord p.2 ++ uWord k)
-
-@[expose] def uConjTCheck : Bool :=
-  (List.range 10).all fun k => (List.range 9).all fun j =>
-    relCheck (uWord k ++ tWord (2 ^ j)) (tWord ((uConjTN.getD k []).getD j 0) ++ uWord k)
-
-@[expose] def uSqCheck : Bool :=
-  (List.range 10).all fun k =>
-    let p := uSqN.getD k (0, 0)
-    relCheck (uWord k ++ uWord k) (lWord p.1 ++ tWord p.2)
-
-@[expose] def uCommCheck : Bool :=
-  (List.range 10).all fun j => (List.range 10).all fun k =>
-    let p := (uCommN.getD j []).getD k (0, 0)
-    relCheck (uWord j ++ uWord k) (lWord p.1 ++ tWord p.2 ++ uWord k ++ uWord j)
-
-@[expose] def coDecCheck (gens : List (List ℕ)) : Bool :=
-  (List.range gens.length).all fun i =>
-    let p := coDecN.getD i (0, 0)
-    relCheck ((gens.getD i []).map .lift) (lWord p.1 ++ tWord p.2)
-
-@[expose] def paDecCheck (gens : List (List ℕ)) : Bool :=
-  (List.range gens.length).all fun i =>
-    let p := paDecN.getD i (0, 0)
-    relCheck ((gens.getD i []).map .lift) (lWord p.1 ++ tWord p.2)
 
 end CFSG.Monster.B.TwoA.Sp8.WordRel

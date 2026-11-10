@@ -34,14 +34,5 @@ theorem finite_modelUniv {p n e : ℕ} {t : StatedLieTag} (hp2 : p ≠ 2) (hp : 
     exact (finite_and_centralTwoSplit_modelUniv_twistedD4 hp2 hp hadm).1
   exact (finite_and_centralTwoSplit_modelUniv hp2 hp hFT hadm hE hD).1
 
-theorem classicalIsFundamental_of_members {p f : ℕ} [Fact p.Prime]
-    (h : ∀ (t : StatedLieTag) (n e : ℕ) (hp : p.Prime), IsFundTag t →
-      StatedLieAdmissible t n p e → (e = f ∨ (t = .trialityD4 ∧ 3 * e = f)) →
-      ClassicalMembersFundamental p f t n e hp) :
-    ClassicalIsFundamental p f := by
-  intro hp2 hq t n e hp hFT hadm hef X _ _ ψ hψ hcen L z hL
-  have : Finite (modelUniv t n p e hp).K := finite_modelUniv hp2 hp hFT hadm
-  obtain ⟨L', z', hL', hmap, -⟩ := IsClassicalMember.exists_lift hp2 hq ψ hψ hcen hL
-  exact ⟨L', h t n e hp hFT hadm hef L' z' hL', hmap.symm⟩
 
 end CFSG.ClassicalInvolution.ModelFacts

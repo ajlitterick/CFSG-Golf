@@ -24,29 +24,6 @@ theorem b0Facts_spec : B0Facts :=
 
 @[expose] def SD : Setup := setup gmats
 
-@[expose] def gmI : Array (Array V2) := gmats.map invRows
-
-theorem chkBase_parts {gm : Array (Array V2)} {S : Setup} (h : chkBase gm S = true) :
-    gm.size = 32 ∧
-      (∀ n < 32, wfR gm[n]! = true ∧ eqRows (mulT gm[n]! S.git[n]!) idRows = true) ∧
-      (∀ i < 16, eqRows (mulT S.b[i]! S.bit[i]!) idRows = true) ∧
-      (∀ i < 60, eqRows (mulT S.t[i]! (frTable S.ti[i]!)) idRows = true) := by
-  simp only [chkBase, Bool.and_eq_true, beq_iff_eq, List.all_eq_true, List.mem_range] at h
-  obtain ⟨⟨⟨⟨⟨⟨h1, -⟩, -⟩, -⟩, h5⟩, h6⟩, h7⟩ := h
-  exact ⟨h1, h5, h6, h7⟩
-
-theorem gmI_getElem {n : ℕ} (hn : n < 32) : gmI[n]! = invRows gmats[n]! := by
-  have h : n < gmats.size := by rw [gmats_size]; exact hn
-  unfold gmI
-  rw [getElem!_pos _ n (by simpa using h), getElem!_pos gmats n h]
-  simp
-
-theorem gmI_size : gmI.size = 32 := by
-  unfold gmI
-  rw [Array.size_map, gmats_size]
-
-theorem SD_git_getElem {n : ℕ} (hn : n < 32) : SD.git[n]! = frTable gmI[n]! :=
-  getElem!_map_frTable (m := gmI) (by rw [gmI_size]; exact hn)
 
 theorem g0W_ok : ∀ w ∈ g0W, WordOK 32 w := by
   unfold WordOK
@@ -60,9 +37,6 @@ theorem tW_ok : ∀ w ∈ tW, WordOK 16 w := by
   unfold WordOK
   decide
 
-theorem perfW_ok : ∀ l ∈ perfW, ∀ p ∈ l, WordOK 16 p.1 ∧ WordOK 16 p.2 := by
-  unfold WordOK
-  decide
 
 theorem getD_ok {k : ℕ} {L : List (List ℤ)} (h : ∀ w ∈ L, WordOK k w) (i : ℕ) :
     WordOK k (L.getD i []) := by
@@ -79,8 +53,6 @@ theorem b0El_mem {i : ℕ} (hi : i < 16) : b0El i ∈ B0 :=
 theorem evalW_b0El_mem {w : List ℤ} (hw : WordOK 16 w) : evalW b0El w ∈ B0 :=
   mem_of_evalW b0El (fun _ hn => b0El_mem hn) hw
 
-theorem rEl_mem {j : ℕ} (hj : j < 15) : rEl j ∈ R0 :=
-  Subgroup.subset_closure (List.mem_map.2 ⟨j, List.mem_range.2 hj, rfl⟩)
 
 theorem R0_le_B0 : R0 ≤ B0 := by
   rw [R0, Subgroup.closure_le]
@@ -88,269 +60,45 @@ theorem R0_le_B0 : R0 ≤ B0 := by
   obtain ⟨j, -, rfl⟩ := List.mem_map.1 hx
   exact evalW_b0El_mem (getD_ok rW_ok j)
 
-theorem tEl_mem_B0 (i : ℕ) : tEl i ∈ B0 := evalW_b0El_mem (getD_ok tW_ok i)
-
-theorem b0El_eq_one {i : ℕ} (hi : 16 ≤ i) : b0El i = 1 := by
-  unfold b0El
-  rw [List.getD_eq_default _ _ (by simp [g0W]; omega)]
-  rfl
 
 section Generators
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true)
 include hM hb
 
-theorem Mx_gE_inv {n : ℕ} (hn : n < 32) :
-    Mx (gE n) = rowsMatrix gmats[n]! ∧ Mx (gE n)⁻¹ = rowsMatrix gmI[n]! ∧
-      wfR gmats[n]! = true ∧ wfR gmI[n]! = true := by
-  obtain ⟨-, hbase, -⟩ := chkBase_parts hb
-  obtain ⟨hw, hinv⟩ := hbase n hn
-  rw [SD_git_getElem hn] at hinv
-  refine ⟨Mx_gE hM hn, rowsMatrix_inv_of_mul (Mx_gE hM hn) hinv, hw, ?_⟩
-  rw [gmI_getElem hn]
-  exact wfR_invRows _
 
 end Generators
 
-theorem SD_b_getElem {i : ℕ} (hi : i < 16) :
-    SD.b[i]! = wordT SD.gt SD.git (g0W.getD i []) := by
-  have h : i < g0W.length := by simpa [g0W] using hi
-  show ((g0W.map (wordT (gtOf gmats) (gitOf gmats))).toArray)[i]! = _
-  rw [getElem!_pos _ i (by simpa using h), List.getElem_toArray, List.getElem_map,
-    List.getD_eq_getElem _ _ h]
-  rfl
-
-theorem SD_b_size : SD.b.size = 16 := by
-  show ((g0W.map (wordT (gtOf gmats) (gitOf gmats))).toArray).size = 16
-  simp [g0W]
-
-theorem SD_bi_size : SD.bi.size = 16 := by
-  show ((bOf gmats).map invRows).size = 16
-  rw [Array.size_map]
-  exact SD_b_size
-
-theorem SD_bi_getElem {i : ℕ} (hi : i < 16) : SD.bi[i]! = invRows SD.b[i]! := by
-  have h : i < SD.b.size := by rw [SD_b_size]; exact hi
-  have h' : i < (bOf gmats).size := h
-  show ((bOf gmats).map invRows)[i]! = _
-  rw [getElem!_pos _ i (by simpa using h'), getElem!_pos SD.b i h]
-  simp
-  rfl
 
 section Generators2
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true)
 include hM hb
 
-theorem Mx_b0El {i : ℕ} (hi : i < 16) :
-    Mx (b0El i) = rowsMatrix SD.b[i]! ∧ wfR SD.b[i]! = true ∧
-      Mx (b0El i)⁻¹ = rowsMatrix SD.bi[i]! ∧ wfR SD.bi[i]! = true := by
-  have hs : gmats.size = 32 := gmats_size
-  have hmain := rowsMatrix_wordT (gens := gE) (m := gmats) (mi := gmI)
-    (fun n hn => (Mx_gE_inv hM hb (by omega)).1)
-    (fun n hn => (Mx_gE_inv hM hb (by omega)).2.1)
-    (fun n hn => (Mx_gE_inv hM hb (by omega)).2.2.1)
-    (fun n hn => (Mx_gE_inv hM hb (by omega)).2.2.2)
-    (by rw [gmI_size, hs]) (w := g0W.getD i [])
-    (by rw [hs]; exact getD_ok g0W_ok i)
-  have hbi : SD.b[i]! = wordT (gmats.map frTable) (gmI.map frTable) (g0W.getD i []) :=
-    SD_b_getElem hi
-  rw [← hbi] at hmain
-  obtain ⟨hw, hm⟩ := hmain
-  have hmb : Mx (b0El i) = rowsMatrix SD.b[i]! := hm.symm
-  have hinv : eqRows (mulT SD.b[i]! SD.bit[i]!) idRows = true :=
-    (chkBase_parts hb).2.2.1 i hi
-  have hbit : SD.bit[i]! = frTable SD.bi[i]! := by
-    show (SD.bi.map frTable)[i]! = _
-    exact getElem!_map_frTable (by rw [SD_bi_size]; exact hi)
-  rw [hbit] at hinv
-  refine ⟨hmb, hw, rowsMatrix_inv_of_mul hmb hinv, ?_⟩
-  rw [SD_bi_getElem hi]
-  exact wfR_invRows _
 
 end Generators2
 
-theorem SD_r_getElem {j : ℕ} (hj : j < 15) :
-    SD.r[j]! = wordT SD.bt SD.bit (rW.getD j []) := by
-  have h : j < rW.length := by simpa [rW] using hj
-  show ((rW.map (wordT (btOf gmats) (bitOf gmats))).toArray)[j]! = _
-  rw [getElem!_pos _ j (by simpa using h), List.getElem_toArray, List.getElem_map,
-    List.getD_eq_getElem _ _ h]
-  rfl
-
-theorem SD_r_size : SD.r.size = 15 := by
-  show ((rW.map (wordT (btOf gmats) (bitOf gmats))).toArray).size = 15
-  simp [rW]
-
-theorem SD_t_getElem {i : ℕ} (hi : i < 60) :
-    SD.t[i]! = wordT SD.bt SD.bit (tW.getD i []) := by
-  have h : i < tW.length := by simpa [tW] using hi
-  show ((tW.map (wordT (btOf gmats) (bitOf gmats))).toArray)[i]! = _
-  rw [getElem!_pos _ i (by simpa using h), List.getElem_toArray, List.getElem_map,
-    List.getD_eq_getElem _ _ h]
-  rfl
-
-theorem SD_t_size : SD.t.size = 60 := by
-  show ((tW.map (wordT (btOf gmats) (bitOf gmats))).toArray).size = 60
-  simp [tW]
-
-theorem SD_rt_getElem {j : ℕ} (hj : j < 15) : SD.rt[j]! = frTable SD.r[j]! :=
-  getElem!_map_frTable (m := SD.r) (by rw [SD_r_size]; exact hj)
-
-theorem SD_ti_getElem {i : ℕ} (hi : i < 60) : SD.ti[i]! = invRows SD.t[i]! := by
-  have h : i < SD.t.size := by rw [SD_t_size]; exact hi
-  have h' : i < (tOf gmats).size := h
-  show ((tOf gmats).map invRows)[i]! = _
-  rw [getElem!_pos _ i (by simpa using h'), getElem!_pos SD.t i h]
-  simp
-  rfl
-
-theorem SD_ti_size : SD.ti.size = 60 := by
-  show ((tOf gmats).map invRows).size = 60
-  rw [Array.size_map]
-  exact SD_t_size
 
 section Words2
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true)
 include hM hb
 
-theorem rowsMatrix_wordB {w : List ℤ} (hw : WordOK 16 w) :
-    wfR (wordT SD.bt SD.bit w) = true ∧ rowsMatrix (wordT SD.bt SD.bit w) = Mx (evalW b0El w) :=
-  rowsMatrix_wordT (gens := b0El) (m := SD.b) (mi := SD.bi)
-    (fun n hn => (Mx_b0El hM hb (by rw [SD_b_size] at hn; exact hn)).1)
-    (fun n hn => (Mx_b0El hM hb (by rw [SD_b_size] at hn; exact hn)).2.2.1)
-    (fun n hn => (Mx_b0El hM hb (by rw [SD_b_size] at hn; exact hn)).2.1)
-    (fun n hn => (Mx_b0El hM hb (by rw [SD_b_size] at hn; exact hn)).2.2.2)
-    (by rw [SD_bi_size, SD_b_size]) (by rw [SD_b_size]; exact hw)
-
-theorem Mx_rEl {j : ℕ} (hj : j < 15) :
-    Mx (rEl j) = rowsMatrix SD.r[j]! ∧ wfR SD.r[j]! = true := by
-  obtain ⟨hw, hm⟩ := rowsMatrix_wordB hM hb (getD_ok rW_ok j)
-  rw [← SD_r_getElem hj] at hw hm
-  exact ⟨hm.symm, hw⟩
-
-theorem Mx_tEl {i : ℕ} (hi : i < 60) :
-    Mx (tEl i) = rowsMatrix SD.t[i]! ∧ wfR SD.t[i]! = true ∧
-      Mx (tEl i)⁻¹ = rowsMatrix SD.ti[i]! ∧ wfR SD.ti[i]! = true := by
-  obtain ⟨hw, hm⟩ := rowsMatrix_wordB hM hb (getD_ok tW_ok i)
-  rw [← SD_t_getElem hi] at hw hm
-  have hmt : Mx (tEl i) = rowsMatrix SD.t[i]! := hm.symm
-  have hinv := (chkBase_parts hb).2.2.2 i hi
-  refine ⟨hmt, hw, rowsMatrix_inv_of_mul hmt hinv, ?_⟩
-  rw [SD_ti_getElem hi]
-  exact wfR_invRows _
 
 end Words2
 
-theorem foldl_insert_contains {α : Type} [BEq α] [LawfulBEq α] [Hashable α] [LawfulHashable α]
-    (f : ℕ → α) (l : List ℕ) (T : Std.HashSet α) (X : α) :
-    (l.foldl (fun (T : Std.HashSet α) (c : ℕ) => T.insert (f c)) T).contains X = true ↔
-      T.contains X = true ∨ ∃ c ∈ l, f c = X := by
-  induction l generalizing T with
-  | nil => simp
-  | cons c l ih =>
-    rw [List.foldl_cons, ih, Std.HashSet.contains_insert, Bool.or_eq_true, beq_iff_eq]
-    constructor
-    · rintro ((h | h) | ⟨d, hd, h⟩)
-      · exact Or.inr ⟨c, List.mem_cons_self, h⟩
-      · exact Or.inl h
-      · exact Or.inr ⟨d, List.mem_cons_of_mem _ hd, h⟩
-    · rintro (h | ⟨d, hd, h⟩)
-      · exact Or.inl (Or.inr h)
-      · rcases List.mem_cons.1 hd with rfl | hd
-        · exact Or.inl (Or.inl h)
-        · exact Or.inr ⟨d, hd, h⟩
-
-theorem setup_rset (gm : Array (Array V2)) : (setup gm).rset = rsetOf (setup gm).rt := by
-  simp only [setup]
-
-theorem SD_rset : SD.rset = rsetOf SD.rt := setup_rset gmats
-
-theorem rset_contains_iff (X : Array V2) :
-    SD.rset.contains X = true ↔ ∃ c < 32768, rExp SD.rt c = X := by
-  rw [SD_rset, rsetOf, foldl_insert_contains]
-  simp
-
-@[expose] noncomputable def rProdN (n c : ℕ) : J :=
-  (List.range n).foldl (fun acc j => if c.testBit j then acc * rEl j else acc) 1
-
-@[expose] noncomputable def rProd (c : ℕ) : J := rProdN 15 c
-
-@[expose] def rExpN (rt : Array (Array V2)) (n c : ℕ) : Array V2 :=
-  (List.range n).foldl (fun acc j => if c.testBit j then mulT acc rt[j]! else acc) idRows
-
-theorem rProdN_mem (n c : ℕ) (hn : n ≤ 15) : rProdN n c ∈ R0 := by
-  induction n with
-  | zero => exact Subgroup.one_mem _
-  | succ n ih =>
-    have h1 := ih (by omega)
-    unfold rProdN at h1 ⊢
-    rw [List.range_succ, List.foldl_append]
-    simp only [List.foldl_cons, List.foldl_nil]
-    split_ifs
-    · exact Subgroup.mul_mem _ h1 (rEl_mem (by omega))
-    · exact h1
-
-theorem rProd_mem (c : ℕ) : rProd c ∈ R0 := rProdN_mem 15 c le_rfl
 
 section RProd
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true)
 include hM hb
 
-theorem Mx_rProdN (n c : ℕ) (hn : n ≤ 15) :
-    Mx (rProdN n c) = rowsMatrix (rExpN SD.rt n c) ∧ wfR (rExpN SD.rt n c) = true := by
-  induction n with
-  | zero =>
-    refine ⟨?_, wfR_idRows⟩
-    simp [rProdN, rExpN, rowsMatrix_idRows]
-  | succ n ih =>
-    obtain ⟨ih1, ih2⟩ := ih (by omega)
-    obtain ⟨hm, hw⟩ := Mx_rEl hM hb (j := n) (by omega)
-    unfold rProdN rExpN at ih1 ⊢
-    unfold rExpN at ih2
-    simp only [List.range_succ, List.foldl_append, List.foldl_cons, List.foldl_nil]
-    by_cases hc : c.testBit n = true
-    · simp only [hc, ↓reduceIte]
-      refine ⟨?_, ?_⟩
-      · rw [SD_rt_getElem (by omega), rowsMatrix_mulT, map_mul, ih1, hm]
-      · rw [SD_rt_getElem (by omega)]
-        exact wfR_mulT ih2 hw
-    · simp only [hc]
-      exact ⟨ih1, ih2⟩
-
-theorem Mx_rProd (c : ℕ) :
-    Mx (rProd c) = rowsMatrix (rExp SD.rt c) ∧ wfR (rExp SD.rt c) = true :=
-  Mx_rProdN hM hb 15 c le_rfl
 
 end RProd
 
-theorem inTR_iff {S : Setup} {x : Array V2} :
-    inTR S x = true ↔ ∃ i < 60, S.rset.contains (mulT S.ti[i]! (frTable x)) = true := by
-  simp [inTR]
-
-theorem chkPerf_parts {S : Setup} (h : chkPerf S = true) :
-    ∀ i < 16, eqRows (wordT S.bt S.bit (perfWord (perfW.getD i []))) S.b[i]! = true := by
-  simp only [chkPerf, List.all_eq_true, List.mem_range] at h
-  exact h
-
-theorem rExp_zero (rt : Array (Array V2)) : rExp rt 0 = idRows := by
-  simp [rExp]
-
-theorem SD_bit_getElem {i : ℕ} (hi : i < 16) : SD.bit[i]! = frTable SD.bi[i]! :=
-  getElem!_map_frTable (m := SD.bi) (by rw [SD_bi_size]; exact hi)
-
-theorem SD_bt_getElem {i : ℕ} (hi : i < 16) : SD.bt[i]! = frTable SD.b[i]! :=
-  getElem!_map_frTable (m := SD.b) (by rw [SD_b_size]; exact hi)
 
 theorem tEl_zero : tEl 0 = 1 := rfl
 
-theorem mem_R0_of_rExp (hM : MatFacts) (hb : chkBase gmats SD = true) {x : J} {c : ℕ}
-    (hx : Mx x = rowsMatrix (rExp SD.rt c)) : x ∈ R0 := by
-  have hxe : x = rProd c := Mx_injective (hx.trans (Mx_rProd hM hb c).1.symm)
-  rw [hxe]
-  exact rProd_mem c
 
 section R0
 
@@ -369,8 +117,6 @@ include hR
 theorem B0_le_normalizer_R0 : B0 ≤ Subgroup.normalizer (R0 : Set J) := fun _ hb =>
   Subgroup.mem_normalizer_fintype fun r hr => hR.normal _ hb r hr
 
-theorem R0_normal {b : J} (hb' : b ∈ B0) {r : J} (hr : r ∈ R0) : b * r * b⁻¹ ∈ R0 :=
-  hR.normal b hb' r hr
 
 theorem B0_subset_TR : ∀ x ∈ B0, ∃ i < 60, ∃ r ∈ R0, x = tEl i * r := hR.cover
 
@@ -395,142 +141,21 @@ theorem center_R0 {x : J} (hx : x ∈ R0) (hc : ∀ r ∈ R0, x * r = r * x) :
 
 end Normal
 
-theorem WordOK.perfWord {k : ℕ} {l : List (List ℤ × List ℤ)}
-    (h : ∀ p ∈ l, WordOK k p.1 ∧ WordOK k p.2) : WordOK k (perfWord l) := by
-  induction l with
-  | nil => intro x hx; simp [CFSG.Sporadic.J4.ZCent.perfWord] at hx
-  | cons p l ih =>
-    have h1 : CFSG.Sporadic.J4.ZCent.perfWord (p :: l) =
-        CFSG.Sporadic.J4.ZCent.commW p.1 p.2 ++ CFSG.Sporadic.J4.ZCent.perfWord l := by
-      simp [CFSG.Sporadic.J4.ZCent.perfWord]
-    rw [h1]
-    exact (WordOK.commW (h p List.mem_cons_self).1 (h p List.mem_cons_self).2).append
-      (ih fun q hq => h q (List.mem_cons_of_mem _ hq))
-
-theorem perfW_getD_ok (i : ℕ) : ∀ p ∈ perfW.getD i [], WordOK 16 p.1 ∧ WordOK 16 p.2 := by
-  by_cases hi : i < perfW.length
-  · rw [List.getD_eq_getElem _ _ hi]
-    exact perfW_ok _ (List.getElem_mem hi)
-  · rw [List.getD_eq_default _ _ (by omega)]
-    intro p hp
-    simp at hp
 
 section Perfect
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true) (hP : chkPerf SD = true)
 include hM hb hP
 
-theorem B0_perfect : ⁅B0, B0⁆ = B0 := by
-  apply le_antisymm
-  · rw [Subgroup.commutator_le]
-    intro a ha b hb'
-    rw [commutatorElement_def]
-    exact Subgroup.mul_mem _
-      (Subgroup.mul_mem _ (Subgroup.mul_mem _ ha hb') (Subgroup.inv_mem _ ha))
-      (Subgroup.inv_mem _ hb')
-  · rw [B0, Subgroup.closure_le]
-    intro g hg
-    obtain ⟨i, hi, rfl⟩ := List.mem_map.1 hg
-    have hi' := List.mem_range.1 hi
-    have hw : WordOK 16 (perfWord (perfW.getD i [])) := WordOK.perfWord (perfW_getD_ok i)
-    obtain ⟨-, hwm⟩ := rowsMatrix_wordB hM hb hw
-    obtain ⟨hgm, -, -, -⟩ := Mx_b0El hM hb hi'
-    have heq := eqRows_iff.1 (chkPerf_parts hP i hi')
-    have hel : b0El i = evalW b0El (perfWord (perfW.getD i [])) := by
-      apply Mx_injective
-      rw [← hwm, heq, hgm]
-    rw [SetLike.mem_coe, hel]
-    exact evalW_perfWord_mem b0El (fun n hn => b0El_mem hn) _ (perfW_getD_ok i)
 
 end Perfect
 
-theorem chkK_parts {gm : Array (Array V2)} {S : Setup} (h : chkK gm S = true) :
-    eqRows (mulT (cMatZ gm S) (frTable (cInvZ gm S))) idRows = true ∧
-      (∀ k < 12, ∀ i < 16, inTR S (mulT (mulT gm[k]! S.bt[i]!) S.git[k]!) = true) ∧
-      ∀ i < 16, inTR S (mulT (mulT (cMatZ gm S) S.bt[i]!) (frTable (cInvZ gm S))) = true := by
-  simp only [chkK, Bool.and_eq_true, List.all_eq_true, List.mem_range] at h
-  obtain ⟨⟨h1, h2⟩, h3⟩ := h
-  exact ⟨h1, h2, h3⟩
 
 section KNorm
 
 variable (hM : MatFacts) (hb : chkBase gmats SD = true) (hK : chkK gmats SD = true)
 include hM hb hK
 
-omit hK in
-theorem mem_B0_of_inTR {y : J} {X : Array V2} (hy : Mx y = rowsMatrix X)
-    (hin : inTR SD X = true) : y ∈ B0 := by
-  obtain ⟨i, hi, hmem⟩ := inTR_iff.1 hin
-  obtain ⟨c, -, hce⟩ := (rset_contains_iff _).1 hmem
-  obtain ⟨-, -, htiinv, -⟩ := Mx_tEl hM hb hi
-  have hz : (tEl i)⁻¹ * y ∈ R0 := by
-    refine mem_R0_of_rExp hM hb (c := c) ?_
-    rw [hce, map_mul, htiinv, hy, rowsMatrix_mulT]
-  have : y = tEl i * ((tEl i)⁻¹ * y) := by group
-  rw [this]
-  exact Subgroup.mul_mem _ (tEl_mem_B0 i) (R0_le_B0 hz)
-
-omit hM hb hK in
-theorem conj_mem_B0_of_gens {g : J} (h : ∀ i < 16, g * b0El i * g⁻¹ ∈ B0) {x : J} (hx : x ∈ B0) :
-    g * x * g⁻¹ ∈ B0 := by
-  induction hx using Subgroup.closure_induction with
-  | mem y hy =>
-    obtain ⟨i, hi, rfl⟩ := List.mem_map.1 hy
-    exact h i (List.mem_range.1 hi)
-  | one => simp
-  | mul x y _ _ ihx ihy =>
-    have : g * (x * y) * g⁻¹ = (g * x * g⁻¹) * (g * y * g⁻¹) := by group
-    rw [this]
-    exact Subgroup.mul_mem _ ihx ihy
-  | inv x _ ih =>
-    have : g * x⁻¹ * g⁻¹ = (g * x * g⁻¹)⁻¹ := by group
-    rw [this]
-    exact Subgroup.inv_mem _ ih
-
-theorem conj_mem_B0_gE {k : ℕ} (hk : k < 12) {x : J} (hx : x ∈ B0) : gE k * x * (gE k)⁻¹ ∈ B0 := by
-  refine conj_mem_B0_of_gens (fun i hi => ?_) hx
-  obtain ⟨hgk, hgki, -, -⟩ := Mx_gE_inv hM hb (show k < 32 by omega)
-  obtain ⟨hgm, -, -, -⟩ := Mx_b0El hM hb hi
-  refine mem_B0_of_inTR hM hb (X := mulT (mulT gmats[k]! SD.bt[i]!) SD.git[k]!) ?_
-    ((chkK_parts hK).2.1 k hk i hi)
-  rw [map_mul, map_mul, hgk, hgm, hgki, SD_git_getElem (by omega), SD_bt_getElem hi,
-    rowsMatrix_mulT, rowsMatrix_mulT]
-
-theorem Mx_cE_inv :
-    Mx cE = rowsMatrix (cMatZ gmats SD) ∧ Mx cE⁻¹ = rowsMatrix (cInvZ gmats SD) := by
-  obtain ⟨ha, -, -, -⟩ := Mx_gE_inv hM hb (show 12 < 32 by norm_num)
-  obtain ⟨hbm, -, -, -⟩ := Mx_gE_inv hM hb (show 13 < 32 by norm_num)
-  obtain ⟨-, hai, -, -⟩ := Mx_gE_inv hM hb (show 12 < 32 by norm_num)
-  obtain ⟨-, hbi, -, -⟩ := Mx_gE_inv hM hb (show 13 < 32 by norm_num)
-  have hc : Mx cE = rowsMatrix (cMatZ gmats SD) := by
-    have h1 : SD.gt[13]! = frTable gmats[13]! :=
-      getElem!_map_frTable (m := gmats) (by rw [gmats_size]; norm_num)
-    unfold cE
-    rw [commutatorElement_def, map_mul, map_mul, map_mul, ha, hbm, hai, hbi]
-    unfold cMatZ
-    rw [h1, SD_git_getElem (by norm_num), SD_git_getElem (by norm_num), rowsMatrix_mulT,
-      rowsMatrix_mulT, rowsMatrix_mulT]
-  exact ⟨hc, rowsMatrix_inv_of_mul hc (chkK_parts hK).1⟩
-
-theorem conj_mem_B0_cE {x : J} (hx : x ∈ B0) : cE * x * cE⁻¹ ∈ B0 := by
-  refine conj_mem_B0_of_gens (fun i hi => ?_) hx
-  obtain ⟨hc, hci⟩ := Mx_cE_inv hM hb hK
-  obtain ⟨hgm, -, -, -⟩ := Mx_b0El hM hb hi
-  refine mem_B0_of_inTR hM hb
-    (X := mulT (mulT (cMatZ gmats SD) SD.bt[i]!) (frTable (cInvZ gmats SD))) ?_
-    ((chkK_parts hK).2.2 i hi)
-  rw [map_mul, map_mul, hc, hgm, hci, SD_bt_getElem hi, rowsMatrix_mulT, rowsMatrix_mulT]
-
-theorem Kgrp_conj_mem_B0 {k : J} (hk : k ∈ Kgrp) {x : J} (hx : x ∈ B0) : k * x * k⁻¹ ∈ B0 := by
-  have hQ : Qgrp ≤ Subgroup.normalizer (B0 : Set J) := by
-    rw [Qgrp, Subgroup.closure_le]
-    rintro _ ⟨n, hn, rfl⟩
-    exact Subgroup.mem_normalizer_fintype fun y hy => conj_mem_B0_gE hM hb hK hn hy
-  have hc : Subgroup.zpowers cE ≤ Subgroup.normalizer (B0 : Set J) := by
-    rw [Subgroup.zpowers_le]
-    exact Subgroup.mem_normalizer_fintype fun y hy => conj_mem_B0_cE hM hb hK hy
-  have hKn : Kgrp ≤ Subgroup.normalizer (B0 : Set J) := sup_le hQ hc
-  exact (Subgroup.mem_normalizer_iff.1 (hKn hk) x).1 hx
 
 end KNorm
 

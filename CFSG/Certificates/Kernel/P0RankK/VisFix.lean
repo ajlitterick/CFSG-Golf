@@ -134,27 +134,6 @@ theorem vO_lt (RT o : ℕ) : vO RT o < 2 ^ 16 :=
 
 theorem emb_lt' (z : ℕ) : emb z < 2 ^ 9 := colsAct_lt (cs := embCols) (w := 9) (by decide) z
 
-theorem faOK_iff_actK {FA AT RT o : ℕ} {GC : List (List ℕ)} (h : faOK FA AT RT o = true)
-    (h0 : at0OK AT GC = true) (hrows : ∀ t < 10, atOK AT GC t = true)
-    (hGC : ∀ cs ∈ GC, ∀ c ∈ cs, c < 2 ^ 16) (κ : ℕ) :
-    (fld FA (1024 * o) m1024).testBit κ = true ↔ κ < 1024 ∧ actK GC κ (vO RT o) = vO RT o := by
-  rw [faOK_iff h]
-  constructor
-  · rintro ⟨hκ, hfix⟩
-    exact ⟨hκ, by rwa [← aAct_eq_actK h0 hrows hGC κ hκ _ (vO_lt RT o)]⟩
-  · rintro ⟨hκ, hfix⟩
-    exact ⟨hκ, by rwa [aAct_eq_actK h0 hrows hGC κ hκ _ (vO_lt RT o)]⟩
-
-theorem fbOK_iff_actK {FB BT z : ℕ} {BG : List (List ℕ)} (h : fbOK FB BT z = true)
-    (h0 : bt0OK BT BG = true) (hrows : ∀ t < 10, btOK BT BG t = true)
-    (hBG : ∀ cs ∈ BG, ∀ c ∈ cs, c < 2 ^ 9) (κ : ℕ) :
-    (fld FB (1024 * z) m1024).testBit κ = true ↔ κ < 1024 ∧ actK BG κ (emb z) = emb z := by
-  rw [fbOK_iff h]
-  constructor
-  · rintro ⟨hκ, hfix⟩
-    exact ⟨hκ, by rwa [← bAct_eq_actK h0 hrows hBG κ hκ _ (emb_lt' z)]⟩
-  · rintro ⟨hκ, hfix⟩
-    exact ⟨hκ, by rwa [bAct_eq_actK h0 hrows hBG κ hκ _ (emb_lt' z)]⟩
 
 @[expose] noncomputable def cuN (FB e n : ℕ) : ℕ :=
   Nat.rec (motive := fun _ => Nat) m1024

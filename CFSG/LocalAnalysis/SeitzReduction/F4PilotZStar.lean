@@ -72,19 +72,5 @@ theorem exists_conj_ne_mem_centralizer_of_isSimpleGroup [IsSimpleGroup G]
   obtain ⟨g, hne, hc⟩ := exists_conj_ne_commute_of_isSimpleGroup hnonab ht
   exact ⟨g, mem_centralizer_singleton_iff.2 hc, hne⟩
 
-theorem exists_conj_four_group_of_isSimpleGroup [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) {t : G} (ht : orderOf t = 2) :
-    ∃ g : G, g⁻¹ * t * g ≠ t ∧ (g⁻¹ * t * g) * t = t * (g⁻¹ * t * g) ∧
-      orderOf (g⁻¹ * t * g) = 2 ∧ orderOf (t * (g⁻¹ * t * g)) = 2 := by
-  obtain ⟨g, hne, hc⟩ := exists_conj_ne_commute_of_isSimpleGroup hnonab ht
-  have ht2 : t * t = 1 := by rw [← sq, ← ht, pow_orderOf_eq_one]
-  have hs2 : (g⁻¹ * t * g) * (g⁻¹ * t * g) = 1 := by
-    calc (g⁻¹ * t * g) * (g⁻¹ * t * g) = g⁻¹ * (t * t) * g := by group
-      _ = 1 := by rw [ht2, mul_one, inv_mul_cancel]
-  have hso : orderOf (g⁻¹ * t * g) = 2 := by
-    have h := MulEquiv.orderOf_eq (MulAut.conj g⁻¹) t
-    rw [MulAut.conj_apply, inv_inv] at h
-    rw [h, ht]
-  exact ⟨g, hne, hc, hso, orderOf_mul_eq_two_of_commute ht2 hs2 hc hne⟩
 
 end CFSG.SeitzReduction.F4Pilot

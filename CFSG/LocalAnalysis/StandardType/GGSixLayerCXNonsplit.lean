@@ -120,9 +120,6 @@ theorem ggSixLayerCXNonsplitInput_of_kg (hlift : GGNonsplitCompLiftInput)
   exact hmark G t n f ψ _ hpres p hctx.prime hctx.ne_two hq1 hq2 x y hxp hyp hxy hxN hyN hxD hyD
     K K' hK hpK hK'c hKK' (h5.1 (hctx.stdSub.1.1 hctx.x_mem_d)) h5.2
 
-theorem ggSixLayerCXInput_of_nonsplitKG (hKG : GGLayerPDivInput)
-    (hlift : GGNonsplitCompLiftInput) (hmark : GGNonsplitNbrMarkingInput) : GGSixLayerCXInput :=
-  ggSixLayerCXInput_of_split hKG (ggSixLayerCXNonsplitInput_of_kg hlift hmark)
 
 end Main
 

@@ -442,37 +442,6 @@ theorem isElemAbelian_axis :
         | exact h.z_comm
         | exact h.z_comm.symm
 
-theorem card_axis [Finite G] :
-    Nat.card (Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G))) = 8 := by
-  have hB : Nat.card (Subgroup.closure ({z₁, z₂} : Set G)) = 4 := by
-    have := (T7A.isElemAbelian2_closure_pair h.z₁_sq h.z₂_sq h.uniq₁.ne_one h.uniq₂.ne_one h.ne
-      h.z_comm).1
-    simpa using this
-  have hs1 := h.s_comm₁
-  have hs2 := h.s_comm₂
-  have hscomm : ∀ x ∈ ({z₁, z₂} : Set G), (t₁ * t₂ * t₃) * x = x * (t₁ * t₂ * t₃) := by
-    intro x hx
-    rcases hx with hx | hx
-    · rw [hx]
-      exact hs1.symm.eq
-    · rw [Set.mem_singleton_iff.mp hx]
-      exact hs2.symm.eq
-  have hle : Nat.card (Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G))) ≤ 8 := by
-    have := Theorem5.card_closure_insert_le h.s_mul_self hscomm
-    rw [hB] at this
-    exact this
-  have hBA : Subgroup.closure ({z₁, z₂} : Set G) ≤
-      Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G)) :=
-    Subgroup.closure_mono (Set.subset_insert _ _)
-  have hdvd : 4 ∣ Nat.card (Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G))) :=
-    hB ▸ Subgroup.card_dvd_of_le hBA
-  have hpos : 0 < Nat.card (Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G))) :=
-    Nat.card_pos
-  by_contra h8
-  have h4 : Nat.card (Subgroup.closure (insert (t₁ * t₂ * t₃) ({z₁, z₂} : Set G))) = 4 := by
-    omega
-  have hEq := Subgroup.eq_of_le_of_card_ge hBA (by omega)
-  exact h.s_not_mem_pair (hEq ▸ Subgroup.subset_closure (Set.mem_insert _ _))
 
 theorem flip₁ : BadAxis K₁ K₂ K₃ z₁ z₂ (t₁ * z₁) t₂ t₃ R₁ R₂ R₃ :=
   { h with

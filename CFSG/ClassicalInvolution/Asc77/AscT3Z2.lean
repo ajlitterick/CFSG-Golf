@@ -35,17 +35,6 @@ theorem Std20.z_exists_swap (d : Std20 p f K K' J S R R' W V z t)
   · exact d.z_swap_comm c7 hb.mem hb.sq hbK hat hk hu huo (Or.inl rfl) h
   · exact d.z_swap_comm c7 hb.mem hb.sq hbK hat hk hu huo (Or.inr rfl) h
 
-theorem Std20.z_not_dEdgeless [IsSimpleGroup G] (d : Std20 p f K K' J S R R' W V z t)
-    (c7 : Concl20_7 S K K' z) (c9 : Concl20_9 S K K' R R' z) (h8 : 8 < Nat.card R)
-    (h9 : p ^ f ≠ 9) {b : G} (hb : FieldInv20 S K K' W z t b) :
-    ∃ e₀ : ℕ, f = 2 * e₀ ∧ 5 ≤ p ^ e₀ ∧ ∃ hzA : z ∈ Subgroup.centralizer ({b} : Set G),
-      IsClassicalMember p e₀ (perfectCoreIn K b) ⟨z, hzA⟩ ∧
-        ¬ Disconnected.DEdgeless (conjFamily (perfectCoreIn K b)) := by
-  obtain ⟨e₀, hfe, h5, hzA, hmem, -, -⟩ := d.x_sectionData c9 h8 h9 hb
-  obtain ⟨s, hsS, hsK, hsb⟩ := d.z_exists_swap c7 c9 h8 hb
-  refine ⟨e₀, hfe, h5, hzA, hmem, d.x_not_dEdgeless_of_swap hzA hmem hsb ?_ hsK⟩
-  have h1 := Subgroup.mem_centralizer_singleton_iff.mp (d.hSz hsS)
-  exact h1
 
 end Std
 

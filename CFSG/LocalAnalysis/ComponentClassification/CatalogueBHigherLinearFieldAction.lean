@@ -88,11 +88,6 @@ abbrev pslFieldEquiv {K : Type u} {F : Type v} [Field K] [Field F]
     ProjectiveSpecialLinearGroup ι K ≃* ProjectiveSpecialLinearGroup ι F :=
   CFSG.ClassicalModels.projectiveSpecialLinearFieldEquiv e ι
 
-theorem pslFieldEquiv_mk {K : Type u} {F : Type v} [Field K] [Field F]
-    (ι : Type*) [Fintype ι] [DecidableEq ι] (e : K ≃+* F)
-    (A : SpecialLinearGroup ι K) :
-    pslFieldEquiv ι e (QuotientGroup.mk A) =
-      QuotientGroup.mk (SpecialLinearGroup.map e.toRingHom A) := rfl
 
 theorem toPGL_pslFieldEquiv {K : Type u} {F : Type v} [Field K] [Field F]
     (ι : Type*) [Fintype ι] [DecidableEq ι] (e : K ≃+* F)

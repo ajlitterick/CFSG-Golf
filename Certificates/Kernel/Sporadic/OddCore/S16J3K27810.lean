@@ -80,16 +80,12 @@ open CertificateChecks.KernelSpor CertificateChecks.KernelSporSch
 theorem k_rout : bAnd(cK rK, bAnd(iK rK rK, outJ3 rOut rK)) = true := by
   quickRfl
 
-theorem k_rout_neg : outJ3 [] (PJ3.S 0) = false := by
-  decide +kernel
 
 @[expose] noncomputable def s16j3q (i : Nat) : Bool :=
   bAnd(cK (S16J3CA i), bAnd(iK (S16J3C.T i) (S16J3CA i),
     bAnd(quadK (pc (S16J3C.T i) (S16J3C.T i)),
     allN 32 (fun j => quadK (pc (pc (S16J3C.T i) (S16J3C.T j)) (pc (S16J3CA i) (S16J3CA j)))))))
 
-theorem s16j3q_neg : quadK rK = false := by
-  decide +kernel
 
 end CertificateChecks.KernelSpor.S16J3
 

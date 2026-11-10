@@ -195,15 +195,6 @@ theorem exists_sub_card_pow {E : Subgroup G} (hE : IsElemAbelian 3 E) {k : ℕ}
   refine ⟨K'.map E.subtype, Subgroup.map_subtype_le K', hE.mono (Subgroup.map_subtype_le K'), ?_⟩
   rw [Subgroup.card_map_of_injective E.subtype_injective, hK']
 
-theorem exists_E_T_of_pQuot_rank (K : Subgroup G) {k : ℕ}
-    (h : ∃ Eb Wb : Subgroup (PQuot 3 K), IsElemAbelian 3 Eb ∧ Nat.card Eb = 3 ^ k ∧ IsPGroup 2 Wb ∧
-      Wb ≠ ⊥ ∧ Eb ≤ Subgroup.normalizer (Wb : Set (PQuot 3 K))) :
-    ∃ E T : Subgroup G, E ≤ K ∧ IsElemAbelian 3 E ∧ Nat.card E = 3 ^ k ∧ T ≤ K ∧ IsPGroup 2 T ∧
-      ¬ T ≤ GLAPPrimeCoreOf 3 K ∧ E ≤ Subgroup.normalizer (T : Set G) := by
-  obtain ⟨Eb, Wb, hE, hc, hW2, hW1, hEW⟩ := h
-  obtain ⟨E, T, W, -, hEK, hEe, hEc, -, -, hTK, hT2, hTn, hEN⟩ :=
-    exists_E_T_pQuot_of_sub K hE hW2 hW1 hEW
-  exact ⟨E, T, hEK, hEe, hEc.trans hc, hTK, hT2, hTn, hEN⟩
 
 end Component
 

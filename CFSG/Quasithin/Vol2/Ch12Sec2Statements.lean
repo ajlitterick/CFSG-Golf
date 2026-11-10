@@ -89,24 +89,6 @@ open scoped IsMulCommutative
         autOn L V ⊓ Subgroup.centralizer (autOn L V : Set (MulAut ↥V)) ∧
       oTwoUpper h.MVbar = autOn L V ∧ h.MVbar = autOn L V ⊔ autOn T V
 
-@[expose] def Stmt12_2_11 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L V H U : Subgroup G), Hyp1223 G T L V →
-    IsHStar T (Subgroup.normalizer (L : Set G)) H → U ≠ ⊥ → U ≤ V →
-    H ≤ Subgroup.normalizer (U : Set G) →
-    (Nonempty (↥L ⧸ CFSG.pCore 2 ↥L ≃* Matrix.SpecialLinearGroup (Fin 5) (ZMod 2)) ∨
-      (Group.IsPerfect (↥L ⧸ CFSG.pCore 2 ↥L) ∧
-        Nat.card (Subgroup.center (↥L ⧸ CFSG.pCore 2 ↥L)) = 3 ∧
-        Nonempty ((↥L ⧸ CFSG.pCore 2 ↥L) ⧸ Subgroup.center (↥L ⧸ CFSG.pCore 2 ↥L) ≃*
-          alternatingGroup (Fin 6)) ∧
-        ∀ v ∈ V ⊓ Subgroup.centralizer (T : Set G), v ≠ 1 →
-          V ≤ pCoreOf 2 (Subgroup.centralizer ({v} : Set G))) ∨
-      (LieModel (↥L ⧸ CFSG.pCore 2 ↥L) .PSU 3 3 1 ∧ Nat.card V = 2 ^ 6 ∧
-        ∀ V₃ : Subgroup G, V₃ ≤ V → Nat.card V₃ = 2 ^ 3 → T ⊓ L ≤ Subgroup.normalizer (V₃ : Set G) →
-          Subgroup.centralizer (V₃ : Set G) ≤ Subgroup.normalizer (L : Set G))) →
-      E1.nParam H ≤ 2 ∧
-      (E1.nParam H = 2 → ∀ C : Subgroup G, C ≤ H ⊓ Subgroup.normalizer (L : Set G) →
-        Odd (Nat.card C) → (∃ k : ℕ, C.relIndex (H ⊓ Subgroup.normalizer (L : Set G)) = 2 ^ k) →
-        C ≠ ⊥ ∧ IsPGroup 3 C)
 
 @[expose] def NoEscape12_2_13 {G : Type} [Group G] (L V : Subgroup G) : Prop :=
   ∀ v ∈ V, v ≠ 1 → Subgroup.centralizer ({v} : Set G) ≤ Subgroup.normalizer (L : Set G)
@@ -127,10 +109,6 @@ open scoped IsMulCommutative
     NoEscape12_2_13 L V → ∀ H : Subgroup G, IsHStar T (Subgroup.normalizer (L : Set G)) H →
       ¬ V ≤ pCoreOf 2 H
 
-@[expose] def Stmt12_2_19 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G), Hyp1223 G T L V →
-    NoEscape12_2_13 L V → ∀ H : Subgroup G, IsHStar T (Subgroup.normalizer (L : Set G)) H →
-      Group.IsSolvable ↥H
 
 @[expose] def Stmt12_2_20 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G), Hyp1223 G T L V →
@@ -160,26 +138,6 @@ open scoped IsMulCommutative
       (n = 4 → Nonempty (G ≃* NativeSporadic.M24) ∨ LieModel G .PSL 5 2 1) ∧
       (n = 3 → LieModel G .PSL 4 2 1 ∨ Nonempty (G ≃* alternatingGroup (Fin 9)))
 
-theorem stmt12_2_4_of (h1222 : Stmt12_2_2) :
-    ∀ (G : Type) [Group G] [Finite G] (T L V : Subgroup G), Hyp1223 G T L V →
-      ∀ K : Subgroup G, quasithinIsMaximalLocal T K → quasithinIsFaithfulLocal T K →
-        CFSG.IsQuasisimple (↥K ⧸ CFSG.pCore 2 ↥K) →
-          T ≤ Subgroup.normalizer (K : Set G) ∧
-          (∃ VK : Subgroup G, IsIrrPlusIn K (reducedAggregate (K ⊔ T)) T VK) ∧
-          ∀ VK : Subgroup G, IsIrrPlusIn K (reducedAggregate (K ⊔ T)) T VK →
-            Hyp1223 G T K VK ∧
-            (VK ≤ T ∧ T ≤ Subgroup.normalizer (VK : Set G) ∧
-              IsPrimeReduced 2 (VK.subgroupOf (K ⊔ T)) ∧ FSU G T K VK) ∧
-            (∀ m ∈ Subgroup.normalizer (K : Set G),
-              CFSG.conjugate VK m = VK ∨ VK ⊓ CFSG.conjugate VK m = ⊥) ∧
-            (Subgroup.normalizer (K : Set G) ≤ Subgroup.normalizer (VK : Set G) ∨
-              VK ⊓ Subgroup.centralizer (K : Set G) = ⊥) ∧
-            ∃ _ : IsMulCommutative ↥VK, Modules12_2_2 K VK := by
-  intro G _ _ T L V hH K hKmax hKf hKq
-  obtain ⟨hTK, hex, hall⟩ :=
-    ((h1222 G T hH.simple hH.nonabelian hH.qtke hH.sylow).resolve_left hH.notAlt) K hKmax hKf hKq
-  refine ⟨hTK, hex, fun VK hVK => ⟨⟨hH.simple, hH.nonabelian, hH.qtke, hH.sylow, hH.notAlt, hKmax,
-    hKf, hKq, hTK, hVK⟩, hall VK hVK⟩⟩
 
 theorem nonempty_mulEquiv_sl_of_isLnBlock {G : Type} [Group G] {L : Subgroup G} {n : ℕ}
     (h : IsLnBlock L n) :

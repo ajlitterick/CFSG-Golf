@@ -101,13 +101,6 @@ theorem finrank_W : Module.finrank K (W F) = 1 := by
   rw [W_eq_span_four]
   exact finrank_span_singleton (F.e.ne_zero 4)
 
-theorem W_nondegenerate : (Q.comp (W F).subtype).Nondegenerate := by
-  let _ : Invertible (2 : K) := invertibleOfNonzero F.two_ne_zero
-  have hsym : LinearMap.BilinForm.IsSymm (polarBilin Q) :=
-    LinearMap.BilinForm.isSymm_iff.mpr (CFSG.RankThree.Classical.isSymm_polarBilin Q)
-  have h := (positive_adjoint_eigenspaces_nondegenerate (Q.polarBilin) F.nondeg
-    hsym (zOp F) 1 one_ne_zero F.two_ne_zero (zOp_mul_self F) (zOp_selfAdjoint F)).1
-  exact QuadraticMap.nondegenerate_polar_iff.mp h
 
 theorem U_nondegenerate : (Q.comp (U F).subtype).Nondegenerate := by
   let _ : Invertible (2 : K) := invertibleOfNonzero F.two_ne_zero
@@ -117,9 +110,6 @@ theorem U_nondegenerate : (Q.comp (U F).subtype).Nondegenerate := by
     hsym (zOp F) 1 one_ne_zero F.two_ne_zero (zOp_mul_self F) (zOp_selfAdjoint F)).2
   exact QuadraticMap.nondegenerate_polar_iff.mp h
 
-theorem W_polar_nondegenerate : (Q.comp (W F).subtype).polarBilin.Nondegenerate := by
-  let _ : Invertible (2 : K) := invertibleOfNonzero F.two_ne_zero
-  exact QuadraticMap.nondegenerate_polar_iff.mpr (W_nondegenerate F)
 
 theorem U_polar_nondegenerate : (Q.comp (U F).subtype).polarBilin.Nondegenerate := by
   let _ : Invertible (2 : K) := invertibleOfNonzero F.two_ne_zero
@@ -381,11 +371,6 @@ theorem restrictU_extendU (h : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F
   right_inv := restrictU_extendU F
   map_mul' := (restrictU F).map_mul
 
-@[expose] def extendUHom : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype) →* H F :=
-  (centralizerEquiv F).symm.toMonoidHom
-
-theorem extendUHom_apply (h : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype)) :
-    extendUHom F h = extendU F h := rfl
 
 abbrev C0 : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q) :=
   SO5 (Q := Q) ⊓ Subgroup.centralizer ({F.zO} : Set (TauCeti.QuadraticMap.orthogonalGroup Q))
@@ -421,31 +406,11 @@ def C0toH (x : C0 F) : H F where
     intro g h
     rfl
 
-theorem centralizerEquiv_apply (g : H F) :
-    centralizerEquiv F g = restrictU F g := rfl
-
-theorem centralizerEquiv_symm_apply (h : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype)) :
-    (centralizerEquiv F).symm h = extendU F h := rfl
-
 
 @[expose] def iota : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype) →*
     TauCeti.QuadraticMap.orthogonalGroup Q :=
   (SO5 (Q := Q)).subtype.comp ((H F).subtype.comp
     (centralizerEquiv F).symm.toMonoidHom)
 
-theorem iota_apply (h : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype)) :
-    iota F h = (extendU F h).val.val := rfl
-
-theorem iota_mem_C0 (h : TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype)) :
-    iota F h ∈ C0 F := by
-  have hmem := (HtoC0 F ((centralizerEquiv F).symm h)).property
-  simpa [iota, HtoC0, centralizerEquiv_symm_apply] using hmem
-
-def zFullCentralizerEquiv :
-    orthogonalOperatorCentralizer Q (zOp F) ≃*
-      (TauCeti.QuadraticMap.orthogonalGroup (Q.comp (W F).subtype) ×
-        TauCeti.QuadraticMap.orthogonalGroup (Q.comp (U F).subtype)) :=
-  positiveOrthogonalCentralizerEquiv Q (zOp F) 1 one_ne_zero F.two_ne_zero
-    (zOp_mul_self F) (zOp_selfAdjoint F)
 
 end CFSG.ClassicalGroups.Orthogonal.FiveDimensionalLocalModel

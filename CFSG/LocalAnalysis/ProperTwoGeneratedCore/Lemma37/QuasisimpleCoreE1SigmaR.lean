@@ -205,12 +205,6 @@ theorem conj_of_mem_e1NBar_of_not_typeD (htype : ¬ ∀ s ∈ S.map (QuotientGro
     mul_inv_cancel_right]
   exact hb.conj_of_mem_e1RBar hr hs
 
-theorem e1KBar_eq_of_not_typeD (htype : ¬ ∀ s ∈ S.map (QuotientGroup.mk' Z),
-      s ∉ T.map (QuotientGroup.mk' Z) → s * s = 1 → CaseC3.Genuine Z s)
-    (S' : Sylow 2 G) (hS' : (S' : Subgroup G) = S) :
-    e1KBar Z u m y x = e1NBar Z u m y x :=
-  le_antisymm hb.e1KBar_le_e1NBar fun _ hn => (hb.mem_e1KBar_iff S' hS').mpr
-    ⟨hn, fun _ hs => hb.conj_of_mem_e1NBar_of_not_typeD htype S' hS' hn hs⟩
 
 end CaseC3BCD
 

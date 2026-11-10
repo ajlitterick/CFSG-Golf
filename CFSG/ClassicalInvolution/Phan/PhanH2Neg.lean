@@ -107,10 +107,6 @@ theorem thetaC_mem {S : Set Γ} (hS : Subgroup.closure S = ⊤)
     (hmem : ∀ s ∈ S, thetaC Q Q' κ hκ φ s ∈ spinGroup Q') : Γ →* spinGroup Q' :=
   (thetaC Q Q' κ hκ φ).codRestrict (spinGroup Q') (thetaC_mem Q Q' κ hκ φ hS hmem)
 
-theorem coe_negTheta {S : Set Γ} (hS : Subgroup.closure S = ⊤)
-    (hmem : ∀ s ∈ S, thetaC Q Q' κ hκ φ s ∈ spinGroup Q') (g : Γ) :
-    ((negTheta Q Q' κ hκ φ hS hmem g : spinGroup Q') : CliffordAlgebra Q') =
-      negSpinHom Q Q' κ hκ (φ g) := rfl
 end Hom
 
 section Nat

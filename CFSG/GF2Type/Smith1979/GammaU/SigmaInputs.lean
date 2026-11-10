@@ -31,8 +31,6 @@ open CFSG.GF2Type.Smith1979.GammaU.ResPair
 @[expose] def pGens (i : ℕ) : List (Array ℕ) :=
   (commPairs i).map fun p => commR (n2Gens i)[p.1]! (n2Gens i)[p.2]!
 
-@[expose] def dGens (i : ℕ) : List (Array ℕ) :=
-  (perfPairs i).map fun p => commR (pGens i)[p.1]! (pGens i)[p.2]!
 
 @[expose] def thetaRows : Array ℕ := ((List.range 12).map fun j => theta0N (2 ^ j)).toArray
 
@@ -43,8 +41,6 @@ open CFSG.GF2Type.Smith1979.GammaU.ResPair
   | [] => true
   | v :: vs => !((spanList vs).contains v) && indepCheck vs
 
-@[expose] def orbitPts (gs : List (Array ℕ)) : List ℕ :=
-  bfsClosure (fun x : ℕ => x) (gs.map appN) 4096 [a0] ((∅ : Std.HashSet ℕ).insert a0) []
 
 @[expose] def outPts (i : ℕ) : List ℕ :=
   (spanList (sigmaBasis i)).filter fun v => v != 0 && !((s45 i).contains v)
@@ -52,9 +48,6 @@ open CFSG.GF2Type.Smith1979.GammaU.ResPair
 @[expose] def inF4Span (x y w : ℕ) : Bool :=
   (spanList [x, theta0N x, y, theta0N y]).contains w
 
-@[expose] def orbitOK (W : List (Array ℕ × Array ℕ)) (S OP : List ℕ) : Bool :=
-  S.contains a0 && S.all (fun x => W.all fun p => S.contains (appN p.1 x) && S.contains (appN p.2 x)) &&
-    S.all OP.contains
 
 @[expose] def sigmaOK (S B SP : List ℕ) : Bool :=
   B.all S.contains && S.all SP.contains && SP.all (fun v => !q0b v) &&
@@ -64,35 +57,9 @@ open CFSG.GF2Type.Smith1979.GammaU.ResPair
   O.length == 18 && O.all (fun x => O.all fun y => O.all fun w =>
     !(f4Indep x y && f4Indep x w && f4Indep y w) || !(inF4Span x y w))
 
-@[expose] def pOK (W : List (Array ℕ × Array ℕ)) (PG XP : List (Array ℕ))
-    (HP : Std.HashSet (Array ℕ)) : Bool :=
-  XP.contains idR && closedCheck PG XP && XP.dedup.length == 17280 && HP.contains thetaRows &&
-    W.all (fun a => W.all fun b => HP.contains (mulR a.1 (mulR b.1 (mulR a.2 b.2)))) &&
-    XP.all (fun x => W.all fun p =>
-      HP.contains (mulR p.1 (mulR x p.2)) && HP.contains (mulR p.2 (mulR x p.1)))
-
-@[expose] def dOK (DG XD : List (Array ℕ)) : Bool :=
-  XD.contains idR && closedCheck DG XD && XD.dedup.length == 17280
 
 @[expose] def centOK (B : List ℕ) (PG XP : List (Array ℕ)) : Bool :=
   XP.any fun c => B.all (fun b => appN c b == b) && PG.any fun p => mulR c p != mulR p c
 
-@[expose] def idxOK (i : ℕ) : Bool :=
-  (commPairs i).all (fun p => p.1 < (n2Gens i).length && p.2 < (n2Gens i).length) &&
-    (perfPairs i).all (fun p => p.1 < (pGens i).length && p.2 < (pGens i).length)
-
-@[expose] def sigmaCheckAt (i : ℕ) : Bool :=
-  let N := n2Gens i
-  let S := s45 i
-  let B := sigmaBasis i
-  let PG := pGens i
-  let DG := dGens i
-  let XP := enumGrp PG
-  let W := withInv N
-  gensOK N && gensOK PG && gensOK DG && idxOK i &&
-    orbitOK W S (orbitPts N) && sigmaOK S B (spanList B) && ovalOK (outPts i) &&
-    pOK W PG XP (Std.HashSet.ofList XP) && dOK DG (enumGrp DG) && centOK B PG XP
-
-@[expose] def sigmaCheck (_ : Unit := ()) : Bool := sigmaCheckAt 0 && sigmaCheckAt 1
 
 end CFSG.GF2Type.Smith1979.GammaU.SigmaP

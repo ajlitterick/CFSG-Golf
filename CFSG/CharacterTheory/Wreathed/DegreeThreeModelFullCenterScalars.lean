@@ -78,16 +78,6 @@ theorem center_comap_eq_of_perfect_image
     exact (map_mul phi b g).symm.trans
       ((congrArg phi (Subgroup.mem_center_iff.mp (hZ hg) b)).trans (map_mul phi g b))
 
-theorem center_eq_map_of_perfect_image
-    {P : Type u} {B : Type v} {H : Type w}
-    [Group P] [Group B] [Group H] [Group.IsPerfect P]
-    (i : P →* B) (phi : B →* H) (hphi : Function.Surjective phi)
-    (hk : phi.ker ≤ Subgroup.center B) (Z : Subgroup B)
-    (hZ : Z ≤ Subgroup.center B)
-    (hscalar : ∀ g : B, (∀ x : P, Commute g (i x)) → g ∈ Z) :
-    Subgroup.center H = Z.map phi := by
-  rw [← center_comap_eq_of_perfect_image i phi hphi hk Z hZ hscalar]
-  exact (Subgroup.map_comap_eq_self_of_surjective hphi _).symm
 
 @[expose] def fullCenterQuotientEquiv
     {B : Type u} {H : Type v} [Group B] [Group H]
@@ -102,15 +92,6 @@ theorem center_eq_map_of_perfect_image
   change phi b ∈ Subgroup.center H ↔
     (QuotientGroup.mk' (Subgroup.center H)) (phi b) = 1
   exact (QuotientGroup.eq_one_iff (N := Subgroup.center H) (phi b)).symm
-
-theorem fullCenterQuotientEquiv_mk
-    {B : Type u} {H : Type v} [Group B] [Group H]
-    (phi : B →* H) (hphi : Function.Surjective phi) (Z : Subgroup B) [Z.Normal]
-    (hc : (Subgroup.center H).comap phi = Z) (b : B) :
-    fullCenterQuotientEquiv phi hphi Z hc (QuotientGroup.mk' Z b) =
-      QuotientGroup.mk' (Subgroup.center H) (phi b) := by
-  unfold fullCenterQuotientEquiv
-  exact QuotientGroup.liftEquiv_mk Z _ _ b
 
 
 theorem centralizer_range_eq_bot_of_perfect_image
@@ -175,12 +156,6 @@ theorem scalarSubgroup_le_center (B : Subgroup (GeneralLinearGroup (Fin 2) E)) :
     rw [conjugatedImageSL_eq_range]
     exact ⟨x, rfl⟩)
 
-omit [Finite F] in
-theorem specialInclusion_coe (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    (x : SpecialLinearGroup (Fin 2) F) :
-    (specialInclusion i b B hSB x : GeneralLinearGroup (Fin 2) E) =
-      conjugatedEntrywiseSL i b x := rfl
 
 omit [Finite F] in
 theorem centralizes_specialInclusion_scalar (i : F →+* E)
@@ -214,14 +189,6 @@ theorem matrix_overgroup_center_comap (hF : 4 ≤ Nat.card F) (i : F →+* E)
     (hk.trans (scalarSubgroup_le_center B)) (scalarSubgroup B)
     (scalarSubgroup_le_center B) (centralizes_specialInclusion_scalar i b B hSB)
 
-theorem matrix_overgroup_center_image (hF : 4 ≤ Nat.card F) (i : F →+* E)
-    (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))
-    (hSB : conjugatedImageSL i b ≤ B) {H : Type w} [Group H]
-    (phi : B →* H) (hphi : Function.Surjective phi)
-    (hk : phi.ker ≤ scalarSubgroup B) :
-    Subgroup.center H = (scalarSubgroup B).map phi := by
-  rw [← matrix_overgroup_center_comap hF i b B hSB phi hphi hk]
-  exact (Subgroup.map_comap_eq_self_of_surjective hphi _).symm
 
 instance scalarSubgroup_isMulCommutative
     (B : Subgroup (GeneralLinearGroup (Fin 2) E)) : IsMulCommutative (scalarSubgroup B) := by
@@ -251,38 +218,10 @@ theorem oddScalarSubgroup_eq_bot_of_two_power
     ((Nat.coprime_two_right.mpr hu).pow_right k).eq_one_of_dvd hd
   rw [oddScalarSubgroup, (Subgroup.eq_bot_iff_card _).mpr hcard, Subgroup.map_bot]
 
-theorem matrix_overgroup_oddScalar_center_image (hF : 4 ≤ Nat.card F) (i : F →+* E)
-    (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))
-    (hSB : conjugatedImageSL i b ≤ B) :
-    Subgroup.center (B ⧸ oddScalarSubgroup B) =
-      (scalarSubgroup B).map (QuotientGroup.mk' (oddScalarSubgroup B)) :=
-  matrix_overgroup_center_image hF i b B hSB _ (QuotientGroup.mk'_surjective _)
-    (by rw [QuotientGroup.ker_mk']; exact oddScalarSubgroup_le_scalars B)
 
 instance scalarSubgroup_normal (B : Subgroup (GeneralLinearGroup (Fin 2) E)) :
     (scalarSubgroup B).Normal := Subgroup.normal_of_le_center (scalarSubgroup_le_center B)
 
-@[expose] def matrixOvergroupFullCenterQuotientEquiv (hF : 4 ≤ Nat.card F) (i : F →+* E)
-    (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))
-    (hSB : conjugatedImageSL i b ≤ B) :
-    B ⧸ scalarSubgroup B ≃*
-      (B ⧸ oddScalarSubgroup B) ⧸ Subgroup.center (B ⧸ oddScalarSubgroup B) := by
-  exact fullCenterQuotientEquiv (QuotientGroup.mk' (oddScalarSubgroup B))
-    (QuotientGroup.mk'_surjective _) (scalarSubgroup B)
-    (matrix_overgroup_center_comap hF i b B hSB _ (QuotientGroup.mk'_surjective _)
-      (by rw [QuotientGroup.ker_mk']; exact oddScalarSubgroup_le_scalars B))
-
-
-theorem matrixOvergroupFullCenterQuotientEquiv_mk (hF : 4 ≤ Nat.card F)
-    (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    (g : B) :
-    matrixOvergroupFullCenterQuotientEquiv hF i b B hSB
-      (QuotientGroup.mk' (scalarSubgroup B) g) =
-        QuotientGroup.mk' (Subgroup.center (B ⧸ oddScalarSubgroup B))
-          (QuotientGroup.mk' (oddScalarSubgroup B) g) := by
-  unfold matrixOvergroupFullCenterQuotientEquiv
-  exact fullCenterQuotientEquiv_mk _ _ _ _ g
 
 omit [Finite F] in
 theorem matrix_overgroup_center_comap_of_ker_bot (i : F →+* E)
@@ -293,27 +232,6 @@ theorem matrix_overgroup_center_comap_of_ker_bot (i : F →+* E)
   rw [center_comap_eq_of_bijective phi ⟨(MonoidHom.ker_eq_bot_iff phi).mp hk, hphi⟩]
   exact matrix_overgroup_center_eq_scalars i b B hSB
 
-omit [Finite F] in
-theorem matrix_overgroup_oddScalar_center_comap_of_two_power (i : F →+* E)
-    (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))
-    (hSB : conjugatedImageSL i b ≤ B) [Finite (scalarSubgroup B)]
-    (k : ℕ) (hZ : Nat.card (scalarSubgroup B) = 2 ^ k) :
-    (Subgroup.center (B ⧸ oddScalarSubgroup B)).comap
-      (QuotientGroup.mk' (oddScalarSubgroup B)) = scalarSubgroup B := by
-  exact matrix_overgroup_center_comap_of_ker_bot i b B hSB _
-    (QuotientGroup.mk'_surjective _) (by
-      rw [QuotientGroup.ker_mk', oddScalarSubgroup_eq_bot_of_two_power B k hZ])
-
-omit [Finite F] in
-theorem matrix_overgroup_oddScalar_center_image_of_two_power (i : F →+* E)
-    (b : GeneralLinearGroup (Fin 2) E) (B : Subgroup (GeneralLinearGroup (Fin 2) E))
-    (hSB : conjugatedImageSL i b ≤ B) [Finite (scalarSubgroup B)]
-    (k : ℕ) (hZ : Nat.card (scalarSubgroup B) = 2 ^ k) :
-    Subgroup.center (B ⧸ oddScalarSubgroup B) =
-      (scalarSubgroup B).map (QuotientGroup.mk' (oddScalarSubgroup B)) := by
-  rw [← matrix_overgroup_oddScalar_center_comap_of_two_power i b B hSB k hZ]
-  exact (Subgroup.map_comap_eq_self_of_surjective
-    (QuotientGroup.mk'_surjective _) _).symm
 
 theorem matrix_overgroup_projective_special_centralizer (hF : 4 ≤ Nat.card F)
     (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
@@ -331,29 +249,6 @@ theorem matrix_overgroup_projective_special_centralizer (hF : 4 ≤ Nat.card F)
     rw [QuotientGroup.ker_mk']
     exact centralizes_specialInclusion_scalar i b B hSB g hg
 
-
-@[expose] def matrixOvergroupFullCenterQuotientEquivOfTwoPower
-    (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    [Finite (scalarSubgroup B)] (k : ℕ) (hZ : Nat.card (scalarSubgroup B) = 2 ^ k) :
-    B ⧸ scalarSubgroup B ≃*
-      (B ⧸ oddScalarSubgroup B) ⧸ Subgroup.center (B ⧸ oddScalarSubgroup B) :=
-  fullCenterQuotientEquiv (QuotientGroup.mk' (oddScalarSubgroup B))
-    (QuotientGroup.mk'_surjective _) (scalarSubgroup B)
-    (matrix_overgroup_oddScalar_center_comap_of_two_power i b B hSB k hZ)
-
-omit [Finite F] in
-theorem matrixOvergroupFullCenterQuotientEquivOfTwoPower_mk
-    (i : F →+* E) (b : GeneralLinearGroup (Fin 2) E)
-    (B : Subgroup (GeneralLinearGroup (Fin 2) E)) (hSB : conjugatedImageSL i b ≤ B)
-    [Finite (scalarSubgroup B)] (k : ℕ) (hZ : Nat.card (scalarSubgroup B) = 2 ^ k)
-    (g : B) :
-    matrixOvergroupFullCenterQuotientEquivOfTwoPower i b B hSB k hZ
-      (QuotientGroup.mk' (scalarSubgroup B) g) =
-        QuotientGroup.mk' (Subgroup.center (B ⧸ oddScalarSubgroup B))
-          (QuotientGroup.mk' (oddScalarSubgroup B) g) := by
-  unfold matrixOvergroupFullCenterQuotientEquivOfTwoPower
-  exact fullCenterQuotientEquiv_mk _ _ _ _ g
 
 end MatrixOvergroup
 

@@ -49,15 +49,10 @@ theorem ggVia_apply_of_notMem (π : Perm α) {z : V} (hz : z ∉ Set.range ι) :
     π.viaEmbedding ι z = z :=
   Perm.viaEmbedding_apply_of_notMem π ι z hz
 
-theorem ggVia_mul (π π' : Perm α) :
-    (π * π').viaEmbedding ι = π.viaEmbedding ι * π'.viaEmbedding ι :=
-  map_mul (Perm.viaEmbeddingHom ι) π π'
 
 theorem ggVia_inv (π : Perm α) : π⁻¹.viaEmbedding ι = (π.viaEmbedding ι)⁻¹ :=
   map_inv (Perm.viaEmbeddingHom ι) π
 
-theorem ggVia_pow (π : Perm α) (n : ℕ) : (π ^ n).viaEmbedding ι = (π.viaEmbedding ι) ^ n :=
-  map_pow (Perm.viaEmbeddingHom ι) π n
 
 theorem ggSign_via [DecidableEq V] [Fintype V] [Fintype α] [DecidableEq α] (π : Perm α) :
     Perm.sign (π.viaEmbedding ι) = Perm.sign π := by

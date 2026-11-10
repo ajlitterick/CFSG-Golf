@@ -57,93 +57,11 @@ end HypOmega
 
 section Induction
 
-theorem CITBelowAllT.toAll {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) {n : ℕ} (h : CITBelowAllT p n) :
-    CITBelowAll p n :=
-  fun e he => (citBelowT_iff_citBelowU hp2 he n).mp (h e (by omega))
-
-theorem citBelowAllT_iff_citBelowAll {p : ℕ} [Fact p.Prime] (hp2 : p ≠ 2) (hp3 : p ≠ 3)
-    (n : ℕ) : CITBelowAllT p n ↔ CITBelowAll p n := by
-  refine ⟨fun h => h.toAll hp2, fun h e he => ?_⟩
-  have hp : 5 ≤ p := by
-    have h2 := (Fact.out : p.Prime).two_le
-    by_contra hlt
-    interval_cases p
-    · exact hp2 rfl
-    · exact hp3 rfl
-    · exact absurd (Fact.out : Nat.Prime 4) (by norm_num)
-  have h5 : 5 ≤ p ^ e := by
-    have he0 : e ≠ 0 := by rintro rfl; simp at he
-    exact hp.trans (Nat.le_self_pow he0 p)
-  exact (citBelowT_iff_citBelowU hp2 h5 n).mpr (h e h5)
-
-theorem citBelowAllT_three_iff (n : ℕ) :
-    CITBelowAllT 3 n ↔ CITBelowAll 3 n ∧ Q3.CIT3Below n := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  refine ⟨fun h => ⟨h.toAll (by norm_num), ?_⟩, fun ⟨h, h3⟩ e he => ?_⟩
-  · exact (citBelowT_three_iff (p := 3) (f := 1) (by norm_num) n).mp (h 1 (by norm_num))
-  · by_cases h1 : e = 1
-    · subst h1
-      exact (citBelowT_three_iff (p := 3) (f := 1) (by norm_num) n).mpr h3
-    · have he0 : e ≠ 0 := by rintro rfl; simp at he
-      have h2 : 2 ≤ e := by omega
-      have h5 : 5 ≤ 3 ^ e := by
-        calc 5 ≤ 3 ^ 2 := by norm_num
-          _ ≤ 3 ^ e := Nat.pow_le_pow_right (by norm_num) h2
-      exact (citBelowT_iff_citBelowU (by norm_num) h5 n).mpr (h e h5)
 
 end Induction
 
 section Stand
 
-variable (p f : ℕ) [Fact p.Prime]
-
-@[expose] def IH8U (n : ℕ) : Prop :=
-  5 ≤ p ^ f → IH8 p f n
-
-@[expose] def IH8AllU (n : ℕ) : Prop :=
-  ∀ e : ℕ, 3 ≤ p ^ e → IH8U p e n
-
-variable {p f}
-
-theorem ih8AllU_iff_ih8All (n : ℕ) : IH8AllU p n ↔ IH8All p n :=
-  ⟨fun h e he => h e (by omega) he, fun h e _ he => h e he⟩
-
-variable (p f) in
-structure AscStandU {G : Type} [Group G] [Finite G] (Ω : Set (Subgroup G)) (K : Subgroup G) :
-    Prop where
-  odd : p ≠ 2
-  three : 3 ≤ p ^ f
-  hyp : HypOmegaModU (.sl2 p f) Ω
-  below : CITBelowAllT p (Nat.card G)
-  ih : IH8AllU p (Nat.card G)
-  aEmpty : ∀ J ∈ Ω, AEmpty Ω J
-  mem : K ∈ Ω
-  trans : ∀ J ∈ Ω, ∃ g : G, conjSub g K = J
-  gen : (⨆ J ∈ Ω, J) = ⊤
-
-variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {K : Subgroup G}
-
-theorem AscStandU.toAscStand (h : AscStandU p f Ω K) (hq : 5 ≤ p ^ f) : AscStand p f Ω K where
-  odd := h.odd
-  five := hq
-  hyp := (hypOmegaModU_iff_hypOmegaMod h.odd hq).mp h.hyp
-  below := h.below.toAll h.odd
-  ih := (ih8AllU_iff_ih8All _).mp h.ih
-  aEmpty := h.aEmpty
-  mem := h.mem
-  trans := h.trans
-  gen := h.gen
-
-theorem AscStandU.of_ascStand (hp3 : p ≠ 3) (h : AscStand p f Ω K) : AscStandU p f Ω K where
-  odd := h.odd
-  three := by have := h.five; omega
-  hyp := (hypOmegaModU_iff_hypOmegaMod h.odd h.five).mpr h.hyp
-  below := (citBelowAllT_iff_citBelowAll h.odd hp3 _).mpr h.below
-  ih := (ih8AllU_iff_ih8All _).mpr h.ih
-  aEmpty := h.aEmpty
-  mem := h.mem
-  trans := h.trans
-  gen := h.gen
 
 end Stand
 

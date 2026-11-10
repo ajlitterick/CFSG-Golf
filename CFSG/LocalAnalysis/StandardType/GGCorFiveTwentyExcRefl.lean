@@ -209,31 +209,6 @@ theorem unique [Finite G] (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs)
       (T.mem_ggFixedSubmodule_of_commute hp2 hJL htc hfy hLt hf)
       (T.mem_ggFixedSubmodule_of_commute hp2 hJL htc' hgy hLt' hg) hyy
 
-theorem ggWeylReflectionGroup [Finite G] (hp2 : p ≠ 2)
-    (hli : LinearIndependent (ZMod p) T.coroot) :
-    GGWeylReflectionGroup p (ggAutomizer L Bs) := by
-  have hα : ∀ i, T.root i (T.coroot i) = 2 := T.root_coroot_self
-  have hlin : ∀ i, ggLin (p := p) T.model (T.simple i) = reflection (hα i) := fun i =>
-    ggLin_eq_reflection T.model (hα i) (T.simple_apply i)
-  have hlinL := isLiftable_reflection_of_intCartan T.isCartan T.coroot T.root hα T.pairing
-  have hφL : T.coxeter.IsLiftable T.simple := by
-    intro i j
-    apply ggLin_injective (p := p) T.model
-    rw [map_pow, map_mul, hlin, hlin, map_one]
-    exact hlinL i j
-  rw [T.automizer_eq]
-  refine ggWeylReflectionGroup_of_lift T.isWeyl T.simple hφL
-    (fun i => ggIsReflection_of_eq_reflection hp2 T.model (hα i) (hlin i)) ?_
-  have hinjL := ggCartanFaithfulInputFixed_holds p Fact.out hp2 T.Λ T.coxeter T.cartan T.isWeyl
-    T.isCartan T.V T.coroot T.root hα T.pairing hli
-  have hcomp : (ggLin (p := p) T.model).comp (T.coxeter.toCoxeterSystem.lift ⟨T.simple, hφL⟩) =
-      T.coxeter.toCoxeterSystem.lift ⟨_, hlinL⟩ := by
-    refine T.coxeter.toCoxeterSystem.ext_simple fun i => ?_
-    rw [MonoidHom.comp_apply, CoxeterSystem.lift_apply_simple, CoxeterSystem.lift_apply_simple,
-      hlin]
-  intro w₁ w₂ hw
-  apply hinjL
-  rw [← hcomp, MonoidHom.comp_apply, MonoidHom.comp_apply, hw]
 
 end GGExcReflTBData
 

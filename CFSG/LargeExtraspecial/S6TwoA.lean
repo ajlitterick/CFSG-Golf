@@ -19,8 +19,6 @@ open CFSG.ClassicalGroups.Orthogonal (eichler)
 variable {V : Type*} [AddCommGroup V] [Module (ZMod 2) V] [FiniteDimensional (ZMod 2) V]
   {β : LinearMap.BilinForm (ZMod 2) V}
 
-theorem zmod2_mul_self (x : ZMod 2) : x * x = x := by
-  rcases zmod2_eq_zero_or_eq_one x with rfl | rfl <;> rfl
 
 theorem exists_hyperbolic_complement (hβ : β.IsAlt) (hnd : β.Nondegenerate)
     (h4 : finrank (ZMod 2) V = 4) {a b : V} (hab : β a b = 1) :

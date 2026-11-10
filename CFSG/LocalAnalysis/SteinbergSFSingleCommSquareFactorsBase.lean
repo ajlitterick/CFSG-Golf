@@ -37,9 +37,6 @@ def commSub (X U : Subgroup G) (hXU : X ≤ normalizer (U : Set G)) (x : G) : Su
     rw [e]
     exact h3
 
-theorem mem_commSub {X U : Subgroup G} {hXU : X ≤ normalizer (U : Set G)} {x y : G} :
-    y ∈ commSub X U hXU x ↔ y ∈ X ∧ x * y * x⁻¹ * y⁻¹ ∈ U :=
-  Iff.rfl
 
 theorem commSub_le {X U : Subgroup G} {hXU : X ≤ normalizer (U : Set G)} {x : G} :
     commSub X U hXU x ≤ X := fun _ hy => hy.1
@@ -94,13 +91,6 @@ theorem exists_coset_injective {X Y M L : Subgroup G} {t : G}
         rw [QuotientGroup.eq, key] at hab
         exact QuotientGroup.eq.mpr hab
 
-theorem relIndex_le_of_coset [Finite G] {X Y M L : Subgroup G} {t : G}
-    (hXL : ∀ x ∈ X, ∀ l ∈ L, x * l * x⁻¹ ∈ L)
-    (hXM : ∀ x ∈ X, t⁻¹ * (x * t * x⁻¹) ∈ M)
-    (hY : ∀ x ∈ X, x ∈ Y ↔ t⁻¹ * (x * t * x⁻¹) ∈ L) :
-    Y.relIndex X ≤ L.relIndex M := by
-  obtain ⟨f, hf, -⟩ := exists_coset_injective hXL hXM hY
-  exact Nat.card_le_card_of_injective f hf
 
 theorem relIndex_eq_of_coset [Finite G] {X Y M L : Subgroup G} {t : G}
     (hXL : ∀ x ∈ X, ∀ l ∈ L, x * l * x⁻¹ ∈ L)
@@ -365,11 +355,6 @@ theorem exists_uElt_eq {p : G} (hp : p ∈ 𝐏) : ∃ a b c d : K, 𝐮[a, b, c
   obtain ⟨x, ⟨a, b, c, d, rfl⟩, rfl⟩ := exists_eq_symm_of_mem_pull hp
   exact ⟨a, b, c, d, rfl⟩
 
-omit [Finite G] [Finite K] in
-theorem uElt_mul_G (a b c d A B C D : K) :
-    𝐮[a, b, c, d] * 𝐮[A, B, C, D] =
-      𝐮[a + A, b + B + a * D, c + C + a * B + a * A * D + b * A, d + D] := by
-  rw [← coe_mul, ← map_mul, uElt_mul]
 
 omit [Finite G] [Finite K] in
 theorem uElt_comm_G (a b c d a' b' c' d' : K) :

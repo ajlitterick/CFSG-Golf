@@ -263,39 +263,6 @@ theorem actual_card_ggAutomizer_eq_factorial_of_model
       TypeANbrDvd.card_ggAutomizer_eq_factorial_of_model hp hp2 hpK hd
         hφs hφker hA hscA hdiag
 
-theorem actual_card_ggAutomizer_eq_six_of_nine_le_card
-    {K : Type} [Field K] [Finite K] [CharP K 2]
-    {Bs J : Subgroup G} (hBs : IsElemAbelian 3 Bs)
-    (hSC : ∀ g ∈ Subgroup.centralizer (Bs : Set G), g ^ 3 = 1 → g ∈ Bs)
-    (hNoTr : GGNoTransvection 3 Bs)
-    (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (hZ : Nat.card ↥(Bs ⊓ J ⊓ Subgroup.centralizer (J : Set G)) ≤ 3)
-    {φ : Matrix.SpecialLinearGroup (Fin 3) K →* J}
-    (hφs : Function.Surjective φ)
-    (hφker : ∀ g, φ g = 1 → g ∈ scalars 3 K)
-    (hdiag : ∀ a ∈ (ggGamma J hN).range, ∃ t : Fin 3 → K, ActsDiag φ a t)
-    (h3K : 3 ∣ Nat.card K - 1)
-    (h9 : 9 ≤ Nat.card ((ggGamma J hN).range)) :
-    Nat.card (ggAutomizer J Bs) = 6 := by
-  have hA : IsElemAbelian 3 (ggGamma J hN).range := by
-    have hBp : ∀ b : ↥Bs, b ^ 3 = 1 := fun b =>
-      Subtype.ext (by simpa using hBs.2 b b.2)
-    have hBc : ∀ a b : ↥Bs, a * b = b * a := fun a b =>
-      Subtype.ext (IsElemAbelian.comm hBs a.2 b.2)
-    exact isElemAbelian_range hBc hBp (ggGamma J hN)
-  have hscA : GGTorusSelfCent 3 (ggGamma J hN).range :=
-    ggTorusSelfCent_ggGamma hN hSC
-  calc
-    Nat.card (ggAutomizer J Bs) =
-        Nat.card (ggAutomizer (MulAut.conj : ↥J →* MulAut ↥J).range
-          (ggGamma J hN).range) :=
-      Nat.card_congr
-        (MulEquiv.ofBijective (ggAutomizerGammaHom hN)
-          (ggAutomizerGammaHom_bijective_of_model (p := 3) (d := 3)
-            (by norm_num) (by norm_num) hBs hSC hNoTr hN hZ
-            hφs hφker hdiag h3K (by norm_num))).toEquiv
-    _ = 6 :=
-      TypeANbrDvd.ggAutomizer_card_six_of_nine_le_card hφs hφker hA hscA hdiag h3K h9
 
 end ActualAction
 

@@ -23,22 +23,6 @@ theorem ont_eq :
     ont = onc * onz * onc⁻¹ :=
   eq_of_peq prep_t (prep_conj prep_onc prep_onc_inv prep_z) qt_cert.2.2.2.2.2.1
 
-theorem ont_ne_z :
-    ont ≠ onz := by
-  intro h
-  have h1 : peq nPts tArr zArr = true := (peq_iff prep_t prep_z).2 h
-  rw [qt_cert.2.2.2.2.2.2.1] at h1
-  exact absurd h1 (by decide)
-
-theorem orderOf_ont :
-    orderOf ont = 2 := by
-  have h2 : ont ^ 2 = 1 := by
-    rw [ont_eq, sq, show onc * onz * onc⁻¹ * (onc * onz * onc⁻¹) = onc * (onz * onz) * onc⁻¹ by
-      group, onz_sq, mul_one, mul_inv_cancel]
-  refine orderOf_eq_prime h2 fun h => onz_ne_one ?_
-  rw [ont_eq] at h
-  calc onz = onc⁻¹ * (onc * onz * onc⁻¹) * onc := by group
-    _ = 1 := by rw [h]; group
 
 theorem onc_mem_P :
     onc ∈ Pv := evalS_mem _
@@ -77,11 +61,5 @@ theorem onM1_outer_solvable :
   (CFSG.LocalAnalysis.ComponentInitial.outer_isomorphism mToM1).2.1
     at_on_first_centralizer_schreier
 
-theorem at_on_two_centralizer_generation :
-    ont ∈ onM ∧ orderOf ont = 2 ∧ ont ≠ onz ∧ ont = onc * onz * onc⁻¹ ∧
-      onM1 = Pv ⊓ Subgroup.centralizer {ont} ∧ onM ⊔ onM1 = Pv ∧
-      Group.IsSolvable (Outer onM1) :=
-  ⟨ont_mem_M, orderOf_ont, ont_ne_z, ont_eq, onM1_eq_centralizer_t, onM_sup_M1,
-    onM1_outer_solvable⟩
 
 end CFSG.ONSchreier

@@ -149,7 +149,5 @@ theorem lemma91ii_of_inputs (i20 : Input20_1) (i11 : Input11_6) (l23 : Lemma23) 
     ((CFSG.LieType.BorelTits.pCoreOf_le 2 _).trans hK₀C) hCn
     (CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 _))
 
-theorem lemma91_of_inputs (i20 : Input20_1) (i11 : Input11_6) (l23 : Lemma23) : Lemma91 :=
-  lemma91_iff.2 (lemma91ii_of_inputs i20 i11 l23)
 
 end CFSG.LocalAnalysis.GLTheoremB

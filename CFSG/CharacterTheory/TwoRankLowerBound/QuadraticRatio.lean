@@ -40,22 +40,5 @@ public section
 
 namespace CFSG.TwoRankLowerBound.Helpers
 
-theorem three_term_quadratic_ratio {field : Type*} [Field field]
-    (leftDegree rightDegree sumDegree leftValue rightValue sumValue : field)
-    (hleft : leftDegree ≠ 0) (hright : rightDegree ≠ 0) (hsum : sumDegree ≠ 0)
-    (hdegrees : sumDegree = -leftDegree - rightDegree)
-    (hvalues : sumValue = leftValue + rightValue)
-    (hquadratic : leftValue ^ 2 / leftDegree + rightValue ^ 2 / rightDegree +
-      sumValue ^ 2 / sumDegree = 0) :
-    leftValue / leftDegree = rightValue / rightDegree := by
-  have hcombined : (leftValue * rightDegree - rightValue * leftDegree) ^ 2 = 0 := by
-    rw [hdegrees, hvalues] at hquadratic
-    have hdenominator : -leftDegree - rightDegree ≠ 0 := by rw [← hdegrees]; exact hsum
-    field_simp [hleft, hright, hdenominator] at hquadratic
-    linear_combination -hquadratic
-  have hcross : leftValue * rightDegree = rightValue * leftDegree := by
-    apply sub_eq_zero.mp
-    exact (pow_eq_zero_iff (by omega : (2 : ℕ) ≠ 0)).mp hcombined
-  exact (div_eq_div_iff hleft hright).mpr hcross
 
 end CFSG.TwoRankLowerBound.Helpers

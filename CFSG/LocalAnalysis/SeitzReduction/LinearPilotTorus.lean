@@ -854,26 +854,6 @@ theorem commutator_mem_blockSL_of_mem_centralizer_torusQ1 [Finite K] [CharP K 2]
   have := proj_mem_blockSL hmem
   simpa only [map_mul, map_inv] using this
 
-theorem layer_centralizer_torusQ1_of_four_le [Finite K] [CharP K 2] (hn : 4 ≤ n)
-    (hnq : 5 ≤ n ∨ 4 ≤ Nat.card K) (hab : a ≠ b) {X : Subgroup (LinearFlag.projectiveSL n K)}
-    (hX : X ≤ rootSL2 a b) (hXc : Nat.card X = Nat.card K + 1) :
-    inSubgroup layer (Subgroup.centralizer (X : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a, b} : Finset (Fin n))ᶜ) := by
-  have hcard : (({a, b} : Finset (Fin n))ᶜ).card = n - 2 := by
-    rw [Finset.card_compl, Fintype.card_fin, Finset.card_pair hab]
-  refine inSubgroup_layer_eq_of_commutator_mem (blockSL_compl_le_centralizer hX)
-    (fun g hg h hh => commutator_mem_blockSL_of_mem_centralizer_torusQ1 hab hX hXc hg hh)
-    (isQuasisimple_blockSL (by omega) (by omega) ?_)
-  rcases hnq with h | h
-  · exact Or.inl (by omega)
-  · exact Or.inr h
-
-theorem layer_centralizer_torusQ1 [Finite K] [CharP K 2] (hn : 5 ≤ n) (hab : a ≠ b)
-    {X : Subgroup (LinearFlag.projectiveSL n K)} (hX : X ≤ rootSL2 a b)
-    (hXc : Nat.card X = Nat.card K + 1) :
-    inSubgroup layer (Subgroup.centralizer (X : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a, b} : Finset (Fin n))ᶜ) :=
-  layer_centralizer_torusQ1_of_four_le (by omega) (Or.inl hn) hab hX hXc
 
 end TorusQ1
 
@@ -928,16 +908,6 @@ theorem commutator_mem_blockSL_of_mem_centralizer_levTorus (hn : 3 ≤ n) {a : F
   have := proj_mem_blockSL (commutator_mem_of_mem_centralizer_lev hn hc hA hB)
   simpa only [map_mul, map_inv] using this
 
-theorem layer_centralizer_levTorus_of_four_le [Finite K] (hn : 4 ≤ n) (a : Fin n)
-    (hc : ∃ c : Kˣ, c ^ n ≠ 1) :
-    inSubgroup layer
-        (Subgroup.centralizer (levTorus (K := K) a : Set (LinearFlag.projectiveSL n K))) =
-      blockSL (({a} : Finset (Fin n))ᶜ) := by
-  have hcard : (({a} : Finset (Fin n))ᶜ).card = n - 1 := by
-    rw [Finset.card_compl, Fintype.card_fin, Finset.card_singleton]
-  exact inSubgroup_layer_eq_of_commutator_mem (blockSL_compl_le_centralizer_levTorus a)
-    (fun g hg h hh => commutator_mem_blockSL_of_mem_centralizer_levTorus (by omega) hc hg hh)
-    (isQuasisimple_blockSL (by omega) (by omega) (Or.inl (by omega)))
 
 theorem exists_pow_four_ne_one [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K) :
     ∃ c : Kˣ, c ^ 4 ≠ 1 := by
@@ -952,11 +922,6 @@ theorem exists_pow_four_ne_one [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K) :
   rw [Units.val_one]
   exact eq_one_of_sq_eq_one (eq_one_of_sq_eq_one h4')
 
-theorem layer_centralizer_levTorus [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K) (a : Fin 4) :
-    inSubgroup layer
-        (Subgroup.centralizer (levTorus (K := K) a : Set (LinearFlag.projectiveSL 4 K))) =
-      blockSL (({a} : Finset (Fin 4))ᶜ) :=
-  layer_centralizer_levTorus_of_four_le le_rfl a (exists_pow_four_ne_one hq)
 
 end LeviLayer
 

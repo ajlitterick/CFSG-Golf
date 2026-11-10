@@ -75,11 +75,6 @@ theorem two_mul_eq_zero_iff (i : ZMod (2 * m)) : i + i = 0 ↔ i = 0 ∨ i = (m 
       push_cast at h5
       exact h5
 
-theorem a_m_ne_one : (a (m : ZMod (2 * m)) : QuaternionGroup m) ≠ 1 := by
-  intro h
-  have h' : (a (m : ZMod (2 * m)) : QuaternionGroup m) = a 0 := h
-  have h'' := a.inj h'
-  exact m_ne_zero h''
 
 theorem sq_eq_one_iff (x : QuaternionGroup m) : x * x = 1 ↔ x = 1 ∨ x = a (m : ZMod (2 * m)) := by
   cases x with
@@ -124,11 +119,6 @@ theorem mem_zpowers_a1 {x : QuaternionGroup m} :
   · rintro ⟨i, rfl⟩
     exact a_mem_zpowers i
 
-theorem xa_not_mem_zpowers (i : ZMod (2 * m)) :
-    xa i ∉ Subgroup.zpowers (a 1 : QuaternionGroup m) := by
-  intro h
-  obtain ⟨j, hj⟩ := mem_zpowers_a1.1 h
-  cases hj
 
 omit [NeZero m] in
 theorem card_zpowers_a1 : Nat.card (Subgroup.zpowers (a 1 : QuaternionGroup m)) = 2 * m := by
@@ -465,34 +455,6 @@ theorem GQ.card_of_normal_maxCyclic {G : Type*} [Group G] [Finite G] {Q : Subgro
       rw [hgen, Nat.card_zpowers, hord]
     omega
 
-theorem no_cyclic_in_central_prod {G : Type*} [Group G] {z : G} {P₁ P₂ V : Subgroup G} {k : ℕ}
-    (hk : 1 ≤ k) (h12 : ∀ a ∈ P₁, ∀ b ∈ P₂, a * b = b * a) (hzP₁ : z ∈ P₁)
-    (hP₂ : ∀ x ∈ P₂, x ^ (2 ^ (k - 1)) = 1 ∨ x ^ (2 ^ (k - 1)) = z)
-    (hV : IsCyclic ↥V) (hVcard : Nat.card ↥V = 2 ^ k) (hVP : V ≤ P₁ ⊔ P₂) (hVP₁ : V ⊓ P₁ = ⊥) :
-    False := by
-  obtain ⟨g, hgV, hgen⟩ := exists_generator_of_cyclic hV
-  have hord : orderOf g = 2 ^ k := by
-    rw [← hVcard, hgen, Nat.card_zpowers]
-  obtain ⟨p₁, hp₁, p₂, hp₂, hg⟩ := mem_sup_of_commute' h12 (hVP hgV)
-  have hcomm : p₁ * p₂ = p₂ * p₁ := h12 p₁ hp₁ p₂ hp₂
-  have hpow : g ^ (2 ^ (k - 1)) = p₁ ^ (2 ^ (k - 1)) * p₂ ^ (2 ^ (k - 1)) := by
-    rw [hg]
-    exact (Commute.mul_pow hcomm _)
-  have hmem : g ^ (2 ^ (k - 1)) ∈ P₁ := by
-    rw [hpow]
-    apply mul_mem (pow_mem hp₁ _)
-    rcases hP₂ p₂ hp₂ with h | h
-    · rw [h]; exact one_mem _
-    · rw [h]; exact hzP₁
-  have hmemV : g ^ (2 ^ (k - 1)) ∈ V := pow_mem hgV _
-  have h1 : g ^ (2 ^ (k - 1)) ∈ V ⊓ P₁ := ⟨hmemV, hmem⟩
-  rw [hVP₁] at h1
-  have h2 : g ^ (2 ^ (k - 1)) = 1 := by simpa using h1
-  have h3 : orderOf g ∣ 2 ^ (k - 1) := orderOf_dvd_of_pow_eq_one h2
-  rw [hord] at h3
-  have h4 : 2 ^ k ≤ 2 ^ (k - 1) := Nat.le_of_dvd (by positivity) h3
-  have h5 : 2 ^ (k - 1) < 2 ^ k := Nat.pow_lt_pow_right (by norm_num) (by omega)
-  omega
 
 theorem cyclic_comm {G : Type*} [Group G] {W : Subgroup G} (hW : IsCyclic ↥W) :
     ∀ a ∈ W, ∀ b ∈ W, a * b = b * a := by

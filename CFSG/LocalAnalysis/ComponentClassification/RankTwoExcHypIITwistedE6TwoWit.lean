@@ -930,10 +930,6 @@ theorem exists_pullback_of_witnessO2 (hZ : center C = ⊥) {ξ : MulAut C}
     rw [e]
     exact ha⟩
 
-theorem mem_normalizingMonoid {G : Type*} [Group G] {C : Subgroup G} {E : Subgroup C} {g : G} :
-    g ∈ normalizingMonoid C E ↔
-      ∃ hg : g ∈ C, ∀ a ∈ E, (⟨g, hg⟩ : C) * a * (⟨g, hg⟩ : C)⁻¹ ∈ E :=
-  Iff.rfl
 
 theorem mem_normalizingMonoid_of_mem_map {G : Type*} [Group G] {C : Subgroup G}
     {E : Subgroup C} {S : Set C} (hS : ∀ c ∈ closure S, ∀ a ∈ E, c * a * c⁻¹ ∈ E) {g : G}

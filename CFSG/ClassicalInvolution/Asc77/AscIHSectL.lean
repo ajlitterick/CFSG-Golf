@@ -190,13 +190,6 @@ theorem thm6_of_datum (hP1 : Ih8SmallEdge p) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
   · exact Or.inr (Or.inr (Or.inl hLie))
   · exact Or.inr (Or.inr (Or.inr hLie))
 
-theorem thm6_tag_of_datum_five (hP1 : Ih8SmallEdge p) (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (M : Ih8Model p f Φ t k e) (hne : Φ.Nonempty) (hDE : DEdgeless Φ) :
-    (t = .PSL ∧ k = 2) ∨ (t = .PSL ∧ k = 3) ∨ (t = .PSU ∧ k = 3) ∨ (t = .G2 ∧ k = 0) ∨
-      (t = .trialityD4 ∧ k = 0) := by
-  by_cases hA1 : t = .PSL ∧ k = 2
-  · exact Or.inl hA1
-  exact Or.inr (thm6_tag_of_datum hP1 hp2 hq M hne hDE hA1)
 
 end Thm6
 
@@ -205,9 +198,6 @@ section Quot
 variable {G : Type} [Group G] {Φ : Set (Subgroup G)} {t : StatedLieTag} {k e : ℕ}
   (M : Ih8Model p f Φ t k e)
 
-noncomputable def Ih8Model.quotKerEquiv :
-    ((modelUniv t k p e Fact.out).K ⧸ M.ψ.ker) ≃* G :=
-  QuotientGroup.quotientKerEquivOfSurjective M.ψ M.surj
 
 theorem Ih8Model.bijective_of_g2d4 (hp2 : p ≠ 2) (ht : t = .G2 ∨ t = .trialityD4) :
     Function.Bijective M.ψ :=
@@ -273,18 +263,6 @@ theorem sectionThm6_exists_datum {e n : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e)
   obtain ⟨hΦ, hO, hgen, hDEΦ, hneΦ⟩ := section_facts hp2 h5 hΩ hne hDE
   exact exists_datum_of_dEdgeless hIH ((natCard_section_le Λ₀).trans_lt hn) hΦ hO hgen hDEΦ hneΦ
 
-theorem sectionThm6_datum {e n : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) (hP1 : Ih8SmallEdge p)
-    (hIH : CITBelowU p e n) (hn : Nat.card Y₀ < n) {Λ₀ : Set (Subgroup Y₀)}
-    (hΩ : HypOmegaMod p e Λ₀) (hne : Λ₀.Nonempty) (hDE : DEdgeless Λ₀)
-    (hTop : (⊤ : Subgroup (↥(omegaGen Λ₀) ⧸ classicalInvolutionOddCore ↥(omegaGen Λ₀))) ∉
-      oddQuotientFamily (restrictFamily Λ₀ (omegaGen Λ₀))) :
-    ∃ (t : StatedLieTag) (k e' : ℕ)
-      (_ : Ih8Model p e (oddQuotientFamily (restrictFamily Λ₀ (omegaGen Λ₀))) t k e'),
-      (t = .PSL ∧ k = 3) ∨ (t = .PSU ∧ k = 3) ∨ (t = .G2 ∧ k = 0) ∨
-        (t = .trialityD4 ∧ k = 0) := by
-  obtain ⟨hΦ, hO, hgen, hDEΦ, hneΦ⟩ := section_facts hp2 h5 hΩ hne hDE
-  obtain ⟨t, k, e', M, -⟩ := sectionThm6_exists_datum hp2 h5 hIH hn hΩ hne hDE
-  exact ⟨t, k, e', M, thm6_tag_of_datum_top hP1 hp2 h5 M hneΦ hDEΦ hTop⟩
 
 theorem sectionThm6 {e n : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) (hP1 : Ih8SmallEdge p)
     (hIH : CITBelowU p e n) (hn : Nat.card Y₀ < n) {Λ₀ : Set (Subgroup Y₀)}
@@ -302,21 +280,6 @@ theorem sectionThm6 {e n : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) (hP1 : Ih8Sma
   · exact Or.inr (Or.inr (Or.inl (sectionLieType_of_hasLieType hgen h)))
   · exact Or.inr (Or.inr (Or.inr (sectionLieType_of_hasLieType hgen h)))
 
-theorem sectionThm6_five {e n : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) (hP1 : Ih8SmallEdge p)
-    (hIH : CITBelowU p e n) (hn : Nat.card Y₀ < n) {Λ₀ : Set (Subgroup Y₀)}
-    (hΩ : HypOmegaMod p e Λ₀) (hne : Λ₀.Nonempty) (hDE : DEdgeless Λ₀) :
-    SectionLieType p e Λ₀ (omegaGen Λ₀) .PSL 2 ∨ SectionLieType p e Λ₀ (omegaGen Λ₀) .PSL 3 ∨
-      SectionLieType p e Λ₀ (omegaGen Λ₀) .PSU 3 ∨ SectionLieType p e Λ₀ (omegaGen Λ₀) .G2 0 ∨
-        SectionLieType p e Λ₀ (omegaGen Λ₀) .trialityD4 0 := by
-  obtain ⟨hΦ, hO, hgen, hDEΦ, hneΦ⟩ := section_facts hp2 h5 hΩ hne hDE
-  obtain ⟨t, k, e', M, hLie⟩ := sectionThm6_exists_datum hp2 h5 hIH hn hΩ hne hDE
-  rcases thm6_tag_of_datum_five hP1 hp2 h5 M hneΦ hDEΦ with
-    ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
-  · exact Or.inl (sectionLieType_of_hasLieType hgen hLie)
-  · exact Or.inr (Or.inl (sectionLieType_of_hasLieType hgen hLie))
-  · exact Or.inr (Or.inr (Or.inl (sectionLieType_of_hasLieType hgen hLie)))
-  · exact Or.inr (Or.inr (Or.inr (Or.inl (sectionLieType_of_hasLieType hgen hLie))))
-  · exact Or.inr (Or.inr (Or.inr (Or.inr (sectionLieType_of_hasLieType hgen hLie))))
 
 end SectionThm
 

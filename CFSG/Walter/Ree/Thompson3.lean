@@ -74,11 +74,6 @@ theorem reeType_unique
     rw [Hopkins.apply_eq_of_sq hn hk hσ₁, Hopkins.apply_eq_of_sq hn hk hσ₂]
   exact RType.nonempty_mulEquiv_of_rType R₁ R₂
 
-theorem reeType_unique_of_thompson2
-    (T2 : Thompson2) {G₁ G₂ : Type} [Group G₁] [Finite G₁]
-    [Group G₂] [Finite G₂] (h₁ : ReeTypeHyp G₁) (h₂ : ReeTypeHyp G₂) (hq : h₁.q = h₂.q) :
-    Nonempty (G₁ ≃* G₂) :=
-  reeType_unique T2.base h₁ h₂ hq
 
 theorem ree_order_lt {x y : ℕ} (hx : 2 ≤ x) (hxy : x < y) :
     x ^ 3 * (x ^ 3 + 1) * (x - 1) < y ^ 3 * (y ^ 3 + 1) * (y - 1) := by
@@ -120,8 +115,5 @@ theorem reeIdentNative
   obtain ⟨e⟩ := reeType_unique hbase h hΓ (hqn.trans hqΓ.symm)
   exact ⟨n, K, inferInstance, inferInstance, inferInstance, hn, hK, hqn.trans hK.symm, ⟨e⟩⟩
 
-theorem reeIdentNative_of_thompson2
-    (T2 : Thompson2) : W67.ReeIdentNative :=
-  reeIdentNative T2.base
 
 end CFSG.Walter.Ree

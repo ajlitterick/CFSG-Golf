@@ -81,7 +81,6 @@ theorem spModelData_transfer {Gs : Type} [Group Gs] [Finite Gs] {F : Type} [Fiel
 
 variable {F : Type} [Field F]
 
-theorem units_sq_eq_one_unit {c : Fˣ} (h : c * c = 1) : c = 1 ∨ c = -1 := units_sq_eq_one h
 
 theorem two_power_ratio (l m : Fˣ) {N : ℕ} (hN : ¬ 8 ∣ N) (hl : l ^ N = 1)
     (hlm : l * m * (l * m) = 1) {i : ℕ} (hi : (l * m⁻¹) ^ 2 ^ i = 1) : l = m ∨ l = -m := by

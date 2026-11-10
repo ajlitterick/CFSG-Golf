@@ -41,23 +41,5 @@ theorem spGraphRowsInput_of_rows (hLE : SpLinearEvenRowInput) (hUE : SpUnitaryEv
   | omegaPlus => exact hOP G L hset n f K hn hKc hf e t ht hKt hκ
   | omegaMinus => exact hOM G L hset n f K hn hKc hf e t ht hKt hκ
 
-theorem spGraphRowInput_of_spGraphRowsInput (h : SpGraphRowsInput) {κ : Sp2mKind}
-    (hκf : κ ≠ .field) (hκs : κ ≠ .swap) : SpGraphRowInput κ :=
-  fun G _ _ L hset n f K _ _ _ hn hKc hf e t ht hKt hκ =>
-    h G L hset n f K hn hKc hf e t ht hKt κ hκf hκs hκ
-
-theorem spGraphRowsInput_iff : SpGraphRowsInput ↔
-    SpLinearEvenRowInput ∧ SpUnitaryEvenRowInput ∧ SpLinearOddRowInput ∧
-      SpUnitaryOddRowInput ∧ SpOmegaPlusRowInput ∧ SpOmegaMinusRowInput := by
-  constructor
-  · intro h
-    exact ⟨spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide),
-      spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide),
-      spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide),
-      spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide),
-      spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide),
-      spGraphRowInput_of_spGraphRowsInput h (by decide) (by decide)⟩
-  · rintro ⟨h1, h2, h3, h4, h5, h6⟩
-    exact spGraphRowsInput_of_rows h1 h2 h3 h4 h5 h6
 
 end CFSG.SeitzReduction.SymplecticPilot

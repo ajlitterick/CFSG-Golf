@@ -13,19 +13,6 @@ open CFSG.Certificates CFSG.Certificates.Native CFSG.Monster.B.Co2 CFSG.Monster.
   CFSG.Monster.B.Fischer
 open scoped commutatorElement
 
-theorem fi22FiveKeyPts_lt : ∀ p ∈ fi22FiveKeyPts, p < 3510 := by decide
-
-theorem mem_fi22P_of_sift {g : Array ℕ} {G : Equiv.Perm (Fin 3510)} (hG : Rep 3510 g G)
-    (h : siftA 3510 (rawLevels 3510 fi22StrongArrs fi22BaseArr) fi22BaseArr 0 g = true) :
-    G ∈ fi22P :=
-  (siftA_iff_mem_originalSubgroup fi22ChainArrays (by norm_num) fi22Order_check.1 hG).1 h
-
-theorem not_mem_fi22P_of_sift {g : Array ℕ} {G : Equiv.Perm (Fin 3510)} (hG : Rep 3510 g G)
-    (h : siftA 3510 (rawLevels 3510 fi22StrongArrs fi22BaseArr) fi22BaseArr 0 g = false) :
-    G ∉ fi22P := fun hG' => by
-  have := (siftA_iff_mem_originalSubgroup fi22ChainArrays (by norm_num) fi22Order_check.1 hG).2 hG'
-  rw [h] at this
-  exact Bool.false_ne_true this
 
 theorem fi22FiveQ_le_P : fi22FiveQ ≤ fi22P :=
   Certificates.certificate8124.1.1.1
@@ -85,9 +72,6 @@ theorem rep_qgen {k : ℕ} (hk : k < fi22FiveQGenArrs.size) :
     Rep 3510 fi22FiveQGenArrs[k]! (permOfArr 3510 fi22FiveQGenArrs[k]!) :=
   Certificates.certificate8124.2.2.1 k hk
 
-theorem valid_qgen {k : ℕ} (hk : k < fi22FiveQGenArrs.size) :
-    validA 3510 fi22FiveQGenArrs[k]! = true :=
-  F2.validA_of_rep (rep_qgen hk)
 
 theorem fi22FiveW_mem_R : fi22FiveW ∈ fi22R :=
   Certificates.certificate8124.1.2.2.1.1
@@ -147,14 +131,6 @@ theorem fi22Five_mem_zpowers_sup_iff {G : Type*} [Group G] {x w : G} (hc : Commu
     exact Subgroup.mul_mem _ (Subgroup.mem_sup_left (Subgroup.npow_mem_zpowers _ e))
       (Subgroup.mem_sup_right (Subgroup.npow_mem_zpowers _ f))
 
-theorem fi22FiveLineArr_zero : fi22FiveLineArr 0 = fi22FiveQ1Arr := by
-  rw [fi22FiveLineArr, ite_eq_left (rfl : (0 : ℕ) = 0)]
-
-theorem fi22FiveCGenArrs_zero (j : ℕ) : (fi22FiveCGenArrs j)[0]! = fi22FiveLineArr j := by
-  simp [fi22FiveCGenArrs]
-
-theorem fi22FiveCGenArrs_three (j : ℕ) : (fi22FiveCGenArrs j)[3]! = fi22FiveWArr := by
-  simp [fi22FiveCGenArrs]
 
 theorem fi22FiveDGenArrs_zero (j : ℕ) :
     (fi22FiveDGenArrs j)[0]! =
@@ -188,38 +164,6 @@ theorem valid_dgen {l : ℕ} (hl : l < 2) : validA 3510 (fi22FiveDGenArrs i)[l]!
   · rw [fi22FiveDGenArrs_one]
     exact valid_cgen i (by norm_num)
 
-theorem rep_dgen {l : ℕ} (hl : l < 2) :
-    Rep 3510 (fi22FiveDGenArrs i)[l]! (permOfArr 3510 (fi22FiveDGenArrs i)[l]!) :=
-  rep_of_validA (valid_dgen i hl)
-
-theorem rep_fi22FiveLine : Rep 3510 (fi22FiveLineArr i) (fi22FiveLine i) := by
-  have h := rep_cgen i (k := 0) (by norm_num)
-  rw [fi22FiveCGenArrs_zero] at h
-  exact h
-
-theorem rep_fi22FiveW : Rep 3510 fi22FiveWArr fi22FiveW := by
-  have h := rep_cgen 0 (k := 3) (by norm_num)
-  rw [fi22FiveCGenArrs_three] at h
-  exact h
-
-theorem cgen_zero : permOfArr 3510 (fi22FiveCGenArrs i)[0]! = fi22FiveLine i := by
-  rw [fi22FiveCGenArrs_zero]
-  rfl
-
-theorem cgen_three : permOfArr 3510 (fi22FiveCGenArrs i)[3]! = fi22FiveW := by
-  rw [fi22FiveCGenArrs_three]
-  rfl
-
-theorem cgen_mem {k : ℕ} (hk : k < 4) : permOfArr 3510 (fi22FiveCGenArrs i)[k]! ∈ fi22FiveC i :=
-  Subgroup.subset_closure (mem_permsA hk)
-
-theorem fi22FiveLine_mem_C : fi22FiveLine i ∈ fi22FiveC i := by
-  rw [← cgen_zero i]
-  exact cgen_mem i (by norm_num)
-
-theorem fi22FiveW_mem_C : fi22FiveW ∈ fi22FiveC i := by
-  rw [← cgen_three i]
-  exact cgen_mem i (by norm_num)
 
 theorem cgen_mem_P {k : ℕ} (hk1 : 1 ≤ k) (hk : k < 3) :
     permOfArr 3510 (fi22FiveCGenArrs i)[k]! ∈ fi22P :=
@@ -228,8 +172,6 @@ theorem cgen_mem_P {k : ℕ} (hk1 : 1 ≤ k) (hk : k < 3) :
 theorem fi22FiveC_eq : fi22FiveC i = Subgroup.centralizer {fi22FiveLine i} ⊓ fi22R :=
   (Certificates.certificate8124.1.2.2.2 i).1
 
-theorem card_fi22FiveC : Nat.card (fi22FiveC i) = 1200 :=
-  (Certificates.certificate8124.1.2.2.2 i).2.1
 
 theorem fi22FiveC_inf_P :
     fi22FiveC i ⊓ fi22P = Subgroup.centralizer {fi22FiveLine i} ⊓ fi22P :=
@@ -259,17 +201,10 @@ theorem fi22FiveCentD_eq :
       Subgroup.zpowers (fi22FiveLine i) ⊔ Subgroup.zpowers fi22FiveW :=
   (Certificates.certificate8124.1.2.2.2 i).2.2.2.2.2.2.2.2.2.1
 
-theorem fi22FiveLine_inf_W :
-    Subgroup.zpowers (fi22FiveLine i) ⊓ Subgroup.zpowers fi22FiveW = ⊥ :=
-  (Certificates.certificate8124.1.2.2.2 i).2.2.2.2.2.2.2.2.2.2.1
 
 theorem fi22FiveLine_commute_W : Commute (fi22FiveLine i) fi22FiveW :=
   (Certificates.certificate8124.1.2.2.2 i).2.2.2.2.2.2.2.2.2.2.2.1
 
-theorem card_fi22FiveCentD :
-    Nat.card (Subgroup.centralizer (fi22FiveD i : Set (Equiv.Perm (Fin 3510))) ⊓ fi22FiveC i :
-      Subgroup (Equiv.Perm (Fin 3510))) = 10 :=
-  (Certificates.certificate8124.1.2.2.2 i).2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem fi22FiveCentDP_eq :
     Subgroup.centralizer (fi22FiveD i : Set (Equiv.Perm (Fin 3510))) ⊓ (fi22FiveC i ⊓ fi22P) =
@@ -287,15 +222,10 @@ theorem fi22FiveH_conj :
       fi22FiveLine 0 :=
   (Certificates.certificate8124.2.1 i).2
 
-theorem card_centralizer_fi22FiveLine_le :
-    Nat.card (Subgroup.centralizer {fi22FiveLine i} ⊓ fi22P : Subgroup _) ≤ 600 := by
-  rw [← fi22FiveC_inf_P i, card_fi22FiveC_inf_P i]
 
 theorem fi22FiveC_le : fi22FiveC i ≤ Subgroup.centralizer {fi22FiveLine i} ⊓ fi22R :=
   (fi22FiveC_eq i).le
 
-theorem cgen_mem_R {k : ℕ} (hk : k < 4) : permOfArr 3510 (fi22FiveCGenArrs i)[k]! ∈ fi22R :=
-  (Subgroup.mem_inf.1 (fi22FiveC_le i (cgen_mem i hk))).2
 
 theorem fi22FiveC_le_centralizer_line : fi22FiveC i ≤ Subgroup.centralizer {fi22FiveLine i} :=
   fun _ hg => (Subgroup.mem_inf.1 (fi22FiveC_le i hg)).1
@@ -309,15 +239,6 @@ theorem fi22FiveC_le_centralizer_W : fi22FiveC i ≤ Subgroup.centralizer {fi22F
 theorem fi22FiveW_comm_line : fi22FiveW * fi22FiveLine i = fi22FiveLine i * fi22FiveW :=
   (fi22FiveLine_commute_W i).eq.symm
 
-theorem dgen_zero : permOfArr 3510 (fi22FiveDGenArrs i)[0]! =
-    ⁅permOfArr 3510 (fi22FiveCGenArrs i)[1]!, permOfArr 3510 (fi22FiveCGenArrs i)[2]!⁆ := by
-  rw [fi22FiveDGenArrs_zero]
-  exact permOfArr_eq_of_rep (rep_commutatorA (valid_cgen i (by norm_num))
-    (valid_cgen i (by norm_num)))
-
-theorem dgen_one : permOfArr 3510 (fi22FiveDGenArrs i)[1]! =
-    permOfArr 3510 (fi22FiveCGenArrs i)[2]! := by
-  rw [fi22FiveDGenArrs_one]
 
 theorem fi22FiveD_le_C : fi22FiveD i ≤ fi22FiveC i := by
   rw [fi22FiveD, Subgroup.commutator_le]

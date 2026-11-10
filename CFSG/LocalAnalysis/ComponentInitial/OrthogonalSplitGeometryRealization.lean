@@ -33,10 +33,6 @@ variable (r K) in
       rw [LinearMap.comp_apply, splitScale_mul, inv_mul_cancel₀ hc, splitScale_one,
         LinearMap.id_apply])
 
-theorem coe_splitScaleEquiv {c : K} (hc : c ≠ 0) :
-    ((splitScaleEquiv r K hc : (Fin r ⊕ Fin r → K) ≃ₗ[K] _) : (Fin r ⊕ Fin r → K) →ₗ[K] _) =
-      splitScale r K c :=
-  rfl
 
 theorem sCoord_splitScale (σ : K ≃+* K) (c : K) (v : Fin r ⊕ Fin r → K) :
     sCoord σ (splitScale r K c v) = splitScale r K (σ c) (sCoord σ v) := by

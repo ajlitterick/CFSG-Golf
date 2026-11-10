@@ -87,9 +87,6 @@ theorem adj_add (X Y : Matrix (Fin n) (Fin n) K) : adj h (X + Y) = adj h X + adj
   ext i j
   simp [adj]
 
-theorem adj_sub (X Y : Matrix (Fin n) (Fin n) K) : adj h (X - Y) = adj h X - adj h Y := by
-  ext i j
-  simp [adj]
 
 theorem adj_smul (c : K) (X : Matrix (Fin n) (Fin n) K) : adj h (c • X) = h.bar c • adj h X := by
   ext i j

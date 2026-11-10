@@ -26,11 +26,6 @@ variable (K : Type) [Field K] [Finite K] [CharP K 2]
 
 omit
   [Finite K] [CharP K 2] in
-theorem coe_c3LeviConjEquiv (g : C3Levi K) :
-    (((c3LeviConjEquiv K g : C3Levi1242 K) : adjointGroup .F4 K) : ModGL .F4 K) =
-      (n1242 K : ModGL .F4 K) * ((g : adjointGroup .F4 K) : ModGL .F4 K) *
-        (n1242 K : ModGL .F4 K)⁻¹ :=
-  rfl
 
 @[expose] noncomputable def neighbourLeviEquiv :
     (N : AmalgamNeighbour) → (↥(StatedSp 3 K) ≃* ↥(N.levi K))

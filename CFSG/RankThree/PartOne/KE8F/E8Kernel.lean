@@ -50,20 +50,6 @@ theorem not_dvd_gE_minor {p : ℕ} (hp2 : 2 < p) {q : ℕ} (hpq : (p : ℤ) ∣ 
     have := Int.le_of_dvd (by norm_num) hdvd
     omega
 
-theorem not_dvd_gE {p : ℕ} (hp4 : 4 < p) {q : ℕ} (hpq : (p : ℤ) ∣ (q : ℤ) * q + 1)
-    {γ : Fin Tag.E8.rank → ℤ} {j : Fin 4} (h1 : 1 ≤ gA γ j ^ 2 + gB γ j ^ 2)
-    (h4 : gA γ j ^ 2 + gB γ j ^ 2 ≤ 4) : ¬ (p : ℤ) ∣ gE q γ j := by
-  intro h
-  unfold gE at h
-  have hid : gA γ j ^ 2 + gB γ j ^ 2 =
-      (gA γ j + (q : ℤ) * gB γ j) * (gA γ j - (q : ℤ) * gB γ j) +
-        ((q : ℤ) * q + 1) * (gB γ j * gB γ j) := by ring
-  have hdvd : (p : ℤ) ∣ gA γ j ^ 2 + gB γ j ^ 2 := by
-    rw [hid]
-    exact dvd_add (Dvd.dvd.mul_right h _) (Dvd.dvd.mul_right hpq _)
-  have := Int.le_of_dvd (by omega) hdvd
-  have hp4' : (4 : ℤ) < p := by exact_mod_cast hp4
-  omega
 
 end Arith
 
@@ -131,28 +117,6 @@ theorem rootChar_pairGauss {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q
   · intro h
     exact absurd (Finset.mem_univ k) h
 
-omit [IsAlgClosed L] [Fact ℓ.Prime] [CharP L ℓ] in
-theorem pairGauss_mul {Fr : L →+* L} {q : ℕ} (hFr : ∀ c, Fr c = c ^ q) {p : ℕ}
-    (hpq : p ∣ q * q + 1) {j k : Fin 4} (hjk : j ≠ k) {u w u' w' : Lˣ} (hu : u ^ p = 1)
-    (hw : w ^ p = 1) (hu' : u' ^ p = 1) (hw' : w' ^ p = 1) :
-    pairGauss q j k u w * pairGauss q j k u' w' = pairGauss q j k (u * u') (w * w') := by
-  have h1 := ((mem_T0tors_iff hFr).1 (pairGauss_mem hFr hpq hjk hu hw)).1
-  have h2 := ((mem_T0tors_iff hFr).1 (pairGauss_mem hFr hpq hjk hu' hw')).1
-  have h3 := ((mem_T0tors_iff hFr).1 (pairGauss_mem hFr hpq hjk
-    (u := u * u') (w := w * w') (by rw [mul_pow, hu, hu', one_mul])
-    (by rw [mul_pow, hw, hw', one_mul]))).1
-  refine cg_injective hFr ((fixedCharTuples e8P4V Fr).mul_mem h1 h2) h3 (fun i => ?_)
-  have hc : ∀ (b b' : Fin Tag.E8.rank → Lˣ), cg (b * b') i = cg b i * cg b' i := fun b b' => by
-    simp only [cg, bs]
-    exact CTTorus.rootChar_mul b b' (e8P4col (ev i))
-  rw [hc]
-  by_cases hij : i = j
-  · subst hij
-    simp only [cg_pairGauss_j]
-  · by_cases hik : i = k
-    · subst hik
-      simp only [cg_pairGauss_k q hjk]
-    · simp only [cg_pairGauss_other q hij hik, mul_one]
 
 end Group
 
@@ -273,22 +237,6 @@ theorem eq_cls_of_trivial {Fr : L →+* L} {q : ℕ}
   have h2 : p ^ 2 < p ^ 3 := Nat.pow_lt_pow_right hp.one_lt (by norm_num)
   omega
 
-omit [Fact ℓ.Prime] in
-theorem exists_nontrivial_char {Fr : L →+* L} {q : ℕ}
-    (hFr : ∀ c, Fr c = c ^ q) {p : ℕ} (hp : p.Prime) (hp4 : 4 < p) (hpq : p ∣ q * q + 1)
-    (hpℓ : ¬ ℓ ∣ p) {α : Fin Tag.E8.rank → ℤ} (hα : IsRoot .E8 α) :
-    ∃ b ∈ T0tors Fr p, rootChar b α ≠ 1 := by
-  obtain ⟨j, h1, h4⟩ := e8P4_coord_nonzero hα
-  obtain ⟨ζ, hζ⟩ := exists_unit_orderOf (L := L) hp hpℓ
-  obtain ⟨k, hjk⟩ : ∃ k : Fin 4, j ≠ k := ⟨j + 1, by fin_cases j <;> decide⟩
-  have hζp : ζ ^ p = 1 := by rw [← hζ]; exact pow_orderOf_eq_one ζ
-  have hpq' : (p : ℤ) ∣ (q : ℤ) * q + 1 := by exact_mod_cast hpq
-  refine ⟨pairGauss q j k ζ 1, pairGauss_mem hFr hpq hjk hζp (one_pow _), ?_⟩
-  rw [rootChar_pairGauss hFr hpq hjk hζp (one_pow _), _root_.one_zpow, mul_one]
-  intro h
-  have := orderOf_dvd_iff_zpow_eq_one.2 h
-  rw [hζ] at this
-  exact not_dvd_gE hp4 hpq' h1 h4 this
 
 omit [Fact ℓ.Prime] in
 theorem exists_ne_one_trivial {Fr : L →+* L} {p : ℕ}

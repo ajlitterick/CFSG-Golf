@@ -288,14 +288,5 @@ theorem centralizerGenerationModOTwo_of_exactTriple (hIH : LocalLieSystems3 Ω)
 
 end Triple
 
-theorem centralizerGenerationModOTwoAt : CentralizerGenerationModOTwoAt := by
-  intro G _ _ _ K z hS K₁ K₂ K₃ z₁ z₂ z₃ T a ha hfa
-  have hΩ : InClass3 (conjClass3 K) := inClass3_conjugates hS.member
-  have hIH : LocalLieSystems3 (conjClass3 K) := localLieSystems3_of_cit3Below hΩ hS.below
-  have hnc : ∀ b : G, b ≠ 1 → b ∉ Subgroup.center G := fun b hb1 hbc =>
-    not_subset_center_of_ne_one hS.nonabelian hb1 (Set.singleton_subset_iff.mpr hbc)
-  obtain ⟨L, -, hLa⟩ := hfa
-  exact centralizerGenerationModOTwo_of_exactTriple hIH T.exact T.ind T.mem₁ T.mem₂ T.mem₃
-    T.cls₁ T.cls₂ T.cls₃ ha hLa.ne_one (hnc a hLa.ne_one)
 
 end CFSG.ClassicalInvolution.Q3.Q3KC

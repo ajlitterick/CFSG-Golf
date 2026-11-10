@@ -19,8 +19,6 @@ variable {G : Type} [Group G] {X : Subgroup G} {Q : Type*} [Group Q]
 @[expose] noncomputable def quotProj (e : (↥X ⧸ Subgroup.center ↥X) ≃* Q) : ↥X →* Q :=
   e.toMonoidHom.comp (QuotientGroup.mk' (Subgroup.center ↥X))
 
-theorem quotProj_apply (e : (↥X ⧸ Subgroup.center ↥X) ≃* Q) (x : X) :
-    quotProj e x = e (QuotientGroup.mk x) := rfl
 
 theorem quotProj_surjective (e : (↥X ⧸ Subgroup.center ↥X) ≃* Q) :
     Function.Surjective (quotProj e) :=
@@ -83,9 +81,6 @@ theorem quotActHom_injective (hX : Group.IsPerfect X) :
   have h2 := PerfectAutomorphisms.centerQuotientHom_injective X
   exact h1.comp h2
 
-theorem quotActHom_fix {σ : MulAut X} {x : X} (hx : σ x = x) :
-    quotActHom π hπ hker σ (π x) = π x := by
-  rw [quotActHom_apply, hx]
 
 theorem quotActHom_conj (l : X) : quotActHom π hπ hker (MulAut.conj l) = MulAut.conj (π l) := by
   ext q

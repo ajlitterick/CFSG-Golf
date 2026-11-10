@@ -12,29 +12,6 @@ universe u
 
 variable {K : Type u} [Field K] {d : ℕ}
 
-abbrev LinearIsometryQuotient (Q : QuadraticForm K (Fin d → K)) :=
-  linearSimilarityPairs Q ⧸ (matrixIsometryPairs Q).subgroupOf (linearSimilarityPairs Q)
-
-@[expose] def multiplierQuotientEquivRange (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) :
-    LinearIsometryQuotient Q ≃* (multiplierHom Q hQ).range :=
-  (QuotientGroup.quotientMulEquivOfEq (multiplierHom_kernel Q hQ).symm).trans
-    (QuotientGroup.quotientKerEquivRange (multiplierHom Q hQ))
-
-theorem multiplierQuotientEquivRange_mk (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) (g : linearSimilarityPairs Q) :
-    (multiplierQuotientEquivRange Q hQ
-      ((QuotientGroup.mk' ((matrixIsometryPairs Q).subgroupOf (linearSimilarityPairs Q)))
-        g)).val = multiplier Q g.val := rfl
-
-theorem linearIsometryQuotient_commutative (Q : QuadraticForm K (Fin d → K))
-    (hQ : ∃ v, Q v ≠ 0) : IsMulCommutative (LinearIsometryQuotient Q) := by
-  constructor
-  constructor
-  intro a b
-  apply (multiplierQuotientEquivRange Q hQ).injective
-  rw [map_mul, map_mul]
-  exact mul_comm _ _
 
 theorem linear_commutator_le_isometry (Q : QuadraticForm K (Fin d → K))
     (hQ : ∃ v, Q v ≠ 0) :
@@ -72,22 +49,5 @@ theorem similarityIsometryQuotient_secondDerived [Finite K]
   rw [QuotientGroup.ker_mk']
   exact similarity_secondDerived_le_isometry Q hQ
 
-theorem quadratic_semilinear_multiplier_filtration [Finite K]
-    (hd : 1 ≤ d) (Q : QuadraticForm K (Fin d → K)) (hQ : Q ≠ 0) :
-    (matrixIsometryPairs Q).Normal ∧
-    ((matrixIsometryPairs Q).subgroupOf (linearSimilarityPairs Q)).Normal ∧
-    (linearSimilarityPairs Q).Normal ∧
-    (fieldProjection Q).ker = linearSimilarityPairs Q ∧
-    (multiplierHom Q (exists_nonzero_value Q hQ)).ker =
-      (matrixIsometryPairs Q).subgroupOf (linearSimilarityPairs Q) ∧
-    IsCyclic (fieldProjection Q).range ∧
-    IsCyclic (similarityPairs Q ⧸ linearSimilarityPairs Q) ∧
-    IsMulCommutative (LinearIsometryQuotient Q) ∧
-    derivedSeries (SimilarityIsometryQuotient Q) 2 = ⊥ := by
-  have _hd := hd
-  exact ⟨inferInstance, inferInstance, inferInstance, rfl,
-    multiplierHom_kernel Q (exists_nonzero_value Q hQ), fieldProjection_range_cyclic Q,
-    fieldQuotient_cyclic Q, linearIsometryQuotient_commutative Q (exists_nonzero_value Q hQ),
-    similarityIsometryQuotient_secondDerived Q (exists_nonzero_value Q hQ)⟩
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalSemilinearFiltration

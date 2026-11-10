@@ -56,7 +56,5 @@ theorem S_CorZD_unconditional :
     S_CorZD :=
   S_CorZD_of_S_ZD_gen S_ZD_gen_unconditional
 
-theorem gapHyp
-    : GapHyp := fun _ _ _ _ _ S => S.false_unconditional.elim
 
 end CFSG.GH74.Uniqueness

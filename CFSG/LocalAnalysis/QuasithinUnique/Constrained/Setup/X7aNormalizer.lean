@@ -61,12 +61,6 @@ theorem intertwines_one_scalars (hker : ∀ x : SL(3, F), ρ x = 1 → x ∈ sca
   rw [map_one, Module.End.one_apply] at this
   exact this.symm
 
-theorem intertwines_unique (hker : ∀ x : SL(3, F), ρ x = 1 → x ∈ scalars 3 F)
-    {a : U ≃ₗ[ZMod 2] U} {x y y' : SL(3, F)} (h : Intertwines ρ a x y)
-    (h' : Intertwines ρ a x y') : y⁻¹ * y' ∈ scalars 3 F := by
-  have := (h.inv).mul h'
-  rw [inv_mul_cancel] at this
-  exact intertwines_one_scalars ρ hker this
 
 theorem Intertwines.of_inv {a : U ≃ₗ[ZMod 2] U} {x y : SL(3, F)}
     (h : Intertwines ρ a⁻¹ x y) : Intertwines ρ a y x := by

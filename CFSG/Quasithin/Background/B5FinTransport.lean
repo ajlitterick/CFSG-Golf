@@ -30,10 +30,6 @@ variable {V : Type*} [CommGroup V]
       obtain ⟨m, rfl⟩ := hÊ n
       exact ⟨QuotientGroup.mk m, rfl⟩⟩
 
-theorem modEquivOfSurj_mk {D D' : FFModel} (Ê : ↥D'.sec →* ↥D.sec) (hÊ : Function.Surjective Ê)
-    (hker : ∀ m : ↥D'.sec, ((Ê m : ↥D.sec) : D.Amb) ∈ D.ker ↔ (m : D'.Amb) ∈ D'.ker)
-    (m : ↥D'.sec) :
-    modEquivOfSurj Ê hÊ hker (QuotientGroup.mk m) = QuotientGroup.mk (Ê m) := rfl
 
 theorem RealizesVia.of_surjHom {D D' : FFModel} (hD' : D'.IsActionModel)
     {H : Subgroup (MulAut V)} {U Z : Subgroup V} {π : D.Gam →* ↥H}

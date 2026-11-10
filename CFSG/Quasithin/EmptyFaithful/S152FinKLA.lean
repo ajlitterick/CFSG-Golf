@@ -47,9 +47,6 @@ theorem le_normalizer_of_conj {F K : Subgroup G} (h : ∀ f ∈ F, ∀ x ∈ K, 
     rw [e, hcomm]
     exact L.inv_mem h
 
-theorem mem_fixOne {x : G} {L N : Subgroup G} {hab : ∀ a ∈ N, ∀ b ∈ N, a * b = b * a}
-    {hLN : L ≤ N} {n : G} :
-    n ∈ fixOne x L N hab hLN ↔ n ∈ N ∧ x * n * x⁻¹ * n⁻¹ ∈ L := Iff.rfl
 
 theorem eq_two_of_mul_eq_four {a b : ℕ} (h : a * b = 4) (h1 : a ≠ 1) (h2 : b ≠ 1) (h3 : a ≠ 0)
     (h4 : b ≠ 0) : a = 2 ∧ b = 2 := by

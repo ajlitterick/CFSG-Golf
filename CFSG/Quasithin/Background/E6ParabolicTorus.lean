@@ -27,7 +27,6 @@ theorem parabolicTorusFact_of_e22C (hE22 : E2.E22StatementC)
     hYcard, hYN⟩
   exact congrArg Subtype.val (hCab.is_comm.comm ⟨a, ha⟩ ⟨b, hb⟩)
 
-variable {G : Type} [Group G] [Finite G]
 
 end E6
 end CFSG.Quasithin

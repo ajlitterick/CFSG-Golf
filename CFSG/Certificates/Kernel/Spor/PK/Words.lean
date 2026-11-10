@@ -130,19 +130,6 @@ private theorem lettersFrom_cons (n : Nat) (gens : Int → Nat → Nat) (L : Lis
     lettersFrom n gens L (wd :: ws) =
       lettersFrom n gens (L ++ [wordFn gens L wd, finv n (wordFn gens L wd)]) ws := rfl
 
-private theorem length_lettersFrom (n : Nat) (gens : Int → Nat → Nat) (ws : List (List Int)) :
-    ∀ L : List (Nat → Nat), (lettersFrom n gens L ws).length = L.length + 2 * ws.length := by
-  induction ws with
-  | nil => intro L; rfl
-  | cons wd ws ih =>
-    intro L
-    rw [lettersFrom_cons, ih]
-    simp only [List.length_append, List.length_cons, List.length_nil]
-    omega
-
-theorem length_lettersFn (n : Nat) (gens : Int → Nat → Nat) (ws : List (List Int)) :
-    (lettersFn n gens ws).length = 2 * ws.length := by
-  rw [lettersFn, length_lettersFrom, List.length_nil, Nat.zero_add]
 
 private theorem getD_append_left' {α : Type _} (L L' : List α) (d : α) {l : Nat}
     (h : l < L.length) : (L ++ L').getD l d = L.getD l d := by

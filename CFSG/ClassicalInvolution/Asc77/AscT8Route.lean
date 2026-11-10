@@ -77,24 +77,5 @@ end Mu
 
 end T8
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem c27_2_of_c27_1 (h1 : C27_1 p f) : C27_2 p f := by
-  intro G _ _ _ Ω K J S R T W z t hs hdisc
-  by_contra hne
-  have hP : PartIHyp p f Ω := ⟨hs.stand.odd, hs.stand.five, hs.stand.hyp, hs.stand.aEmpty⟩
-  have hW : W ∈ WSet Ω := hs.hW.1
-  have hnc : ¬ DbarConnected Ω W := thompsonGraphAll G Ω hP hs.stand.mem hne hW
-  have h27 := h1 G Ω K J S R T W z t hs hdisc
-  rcases l7_10_proved G Ω hP W hW hnc with h3 | h4 | h5
-  · exact T8.not_muIsoS3_of_std8 hs h3
-  · exact h27 (Or.inr (Or.inl h4))
-  · exact h27 (Or.inr (Or.inr h5))
-
-theorem thm8A_of_inputs (h26_2 : C26_2 p f) (h26_13 : C26_13 p f) (h26_7 : C26_7 p f)
-    (h26_L5 : C26_L5 p f) (h274a : C27_4a p f) (h278 : C27_8 p f) : Thm8A p f :=
-  thm8A_of_steps c27_nbr_proved c27_setup_proved
-    (c27_4_of_steps (c27_2_of_c27_1 (c27_1_of_steps (cf26_of_steps h26_7 h26_L5) h26_2 h26_13))
-      h274a) h278
 
 end CFSG.ClassicalInvolution.Asc77

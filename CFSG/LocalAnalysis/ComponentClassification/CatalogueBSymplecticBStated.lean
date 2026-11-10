@@ -162,8 +162,6 @@ theorem projectiveStatedEquiv_conjAut (hr : 1 ≤ r) (A : gsp r K) (μ : Kˣ)
   right_inv v := by funext i; exact σ.apply_symm_apply (v i)
   map_add' v w := by funext i; exact σ.map_add (v i) (w i)
 
-theorem coordFieldMap_apply (σ : K ≃+* K) (v : Fin r ⊕ Fin r → K) :
-    coordFieldMap σ v = fun i => σ (v i) := rfl
 
 @[expose] def semilinearCoordMap (A : GL (Fin r ⊕ Fin r) K) (σ : K ≃+* K) :
     (Fin r ⊕ Fin r → K) ≃+ (Fin r ⊕ Fin r → K) :=

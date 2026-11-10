@@ -58,26 +58,5 @@ theorem permutationCoefficientExtension_translation {ring target group points : 
   simp only [Representation.ofMulAction_single, MonoidAlgebra.coeff_single, Finsupp.single_apply]
   split_ifs <;> simp
 
-theorem finite_p_action_extended_summand_trace_zero {ring target group points : Type*}
-    [CommRing ring] [IsDomain ring] [IsLocalRing ring] [CommRing target]
-    [CommGroup group] [Finite group] [MulAction group points] [Fintype points]
-    (embedding : ring →+* target) (prime : ℕ) [Fact prime.Prime]
-    [CharP (IsLocalRing.ResidueField ring) prime] (hgroup : IsPGroup prime group)
-    (element : group) (hfixedpointFree : ∀ point : points, element • point ≠ point)
-    (period : ℕ) (periodUnit root : ringˣ) (hunit : (periodUnit : ring) = period)
-    (hroot : IsPrimitiveRoot (root : ring) period)
-    (operator projection : Module.End ring (MonoidAlgebra ring points))
-    (hoperator : ∀ member : group, Commute operator (Representation.ofMulAction ring group points member))
-    (hprojection : ∀ member : group, Commute projection (Representation.ofMulAction ring group points member))
-    (hperiod : operator ^ period = 1) (hidempotent : IsIdempotentElem projection)
-    (hcommute : Commute projection operator) :
-    LinearMap.trace target (MonoidAlgebra target points)
-      (permutationCoefficientExtension embedding projection * permutationCoefficientExtension embedding operator *
-        Representation.ofMulAction target group points element) = 0 := by
-  rw [← permutationCoefficientExtension_translation embedding element, ← map_mul, ← map_mul,
-    permutationCoefficientExtension_trace,
-    finite_p_action_equivariant_summand_trace_zero prime hgroup element hfixedpointFree
-      period periodUnit root hunit hroot operator projection hoperator hprojection hperiod hidempotent hcommute,
-    map_zero]
 
 end CFSG.TwoRankLowerBound.Helpers

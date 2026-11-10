@@ -72,11 +72,6 @@ theorem OFrame.e₁_mem_span (G : OFrame Q) : G.e₁ ∈ G.span :=
 theorem OFrame.f₁_mem_span (G : OFrame Q) : G.f₁ ∈ G.span :=
   ⟨!![0, 0; 0, 1], by simp [Frame.incl_apply]⟩
 
-theorem OFrame.e₂_mem_span (G : OFrame Q) : G.e₂ ∈ G.span :=
-  ⟨!![0, -1; 0, 0], by simp [Frame.incl_apply]⟩
-
-theorem OFrame.f₂_mem_span (G : OFrame Q) : G.f₂ ∈ G.span :=
-  ⟨!![0, 0; 1, 0], by simp [Frame.incl_apply]⟩
 
 theorem mem_perp_of_mem_hypPair_perp {G : OFrame Q} {w : V} (h1 : w ∈ G.P.perp)
     (h2 : w ∈ G.P'.perp) : w ∈ G.perp := by

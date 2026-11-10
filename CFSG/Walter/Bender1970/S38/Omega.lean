@@ -78,8 +78,6 @@ variable {A : Type*} [CommGroup A]
     conv_lhs => rw [← ha v hv]
     exact MulAut.inv_apply_self A (ρ a) v
 
-theorem mem_kerOn {ρ : Y →* MulAut A} {Q : Subgroup A} {x : Y} :
-    x ∈ kerOn ρ Q ↔ ∀ v ∈ Q, ρ x v = v := Iff.rfl
 
 namespace Bender38Action
 

@@ -49,8 +49,6 @@ theorem comm_A {a b : Γ} (ha : a ∈ A) (hb : b ∈ A) : a * b = b * a := by
   have := S.near.elemAbelian.1
   exact congrArg Subtype.val (mul_comm' (⟨a, ha⟩ : A) ⟨b, hb⟩)
 
-omit S [Finite Γ] in
-theorem D_cen : cenIn W (A : Set Γ) ≤ Subgroup.centralizer (A : Set Γ) := inf_le_right
 
 omit [Finite Γ] in
 theorem W₀_DA : Admits (cenIn W (A : Set Γ) ⊔ A) W₀ :=

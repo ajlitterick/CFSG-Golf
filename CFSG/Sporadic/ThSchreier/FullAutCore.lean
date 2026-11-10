@@ -62,24 +62,5 @@ theorem twoR_not_mem_center :
   rw [center_Q, Subgroup.mem_subgroupOf]
   exact twoR_not_mem_zpowers
 
-theorem inner_J_eq_top
-    {c : ℕ} (hC : CertFacts c) (hS : ThScanFacts)
-    (hInv : ∀ u : J, orderOf u = 2 → IsConj a u) : inner J = ⊤ := by
-  have hcore := (ctuc_Th_core_hyperplane_centralizers twoR twoR_mem_Q twoR_not_mem_center).2
-  rw [z_eq_a] at hcore
-  have hL : M ⊓ twoM1 = Subgroup.centralizer {twoR} ⊓ M := by
-    rw [twoM1_eq_centralizer hC hS, inf_comm]
-  have hZ : ∀ s ∈ M ⊓ twoM1, (∀ l ∈ M ⊓ twoM1, s * l = l * s) →
-      s ∈ Subgroup.closure {a, twoR} := by
-    intro s hs hsc
-    rw [hL] at hs hsc
-    rw [← hcore]
-    exact ⟨Subgroup.mem_centralizer_iff.2 fun l hl => (hsc l hl).symm, hs⟩
-  have h1 : ∀ α : MulAut ↥M, ∃ m : ↥M, α = MulAut.conj m := max3_aut_eq_conj
-  have h2 : twoR = twoG * a * twoG⁻¹ := rfl
-  have h3 : twoM1 = M.map (MulAut.conj twoG).toMonoidHom := rfl
-  have h := aut_inner_of_two_centralizers a twoR twoG M twoM1 hInv (orderOf_a hC)
-    (centralizer_a_eq_M hC hS) h1 twoR_mem_M h2 h3 hZ (sup_twoM1_eq_top hC hS)
-  exact inner_eq_top_of_allInner h
 
 end CFSG.Sporadic.ThSchreier

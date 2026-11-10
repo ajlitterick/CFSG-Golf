@@ -33,8 +33,6 @@ namespace CFSG.EvenSmallLie.SympSix.Co3Ident
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Sporadic.Schreier.Co3
   CFSG.Sporadic.Schreier.Co3.Native Subgroup
 
-theorem rep_g1 :
-    Rep 276 (genArr 1) (gp 1) := rep_gp (i := 1) (by norm_num)
 theorem rep_g5 :
     Rep 276 (genArr 5) (gp 5) := rep_gp (i := 5) (by norm_num)
 
@@ -62,9 +60,6 @@ theorem rep_eaH :
     ← gp_four]
   exact rep_compA rep_g4 rep_g0
 
-theorem perm_gH
-    (i : ℕ) : perm (gH i)
-    = ((mWord (gLetters i) : co3M) : _) := rfl
 
 theorem commutesA_iff
     {x w : edgeGroup} {t u : Array ℕ}

@@ -142,7 +142,6 @@ variable {T : Type} [Group T] [Finite T]
     show r (Multiplicative.toAdd a + Multiplicative.toAdd b) = r (Multiplicative.toAdd a) * r (Multiplicative.toAdd b)
     rw [r_mul_r]
 
-theorem rotHom_apply (n : ℕ) (a : Multiplicative (ZMod n)) : rotHom n a = r (Multiplicative.toAdd a) := rfl
 
 omit [Finite T] in
 theorem exists_q₀_of_rot (n : ℕ) [NeZero n] (π : T →* DihedralGroup n) {z : T}

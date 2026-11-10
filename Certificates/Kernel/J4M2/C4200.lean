@@ -284,7 +284,6 @@ theorem idxF_lt (v : Nat) : ∀ (l : List Nat) (k : Nat), v ∈ l → idxF v l k
 theorem evL_eq : evL = (List.range 2048).map fun e => vecJ rm wv (etaK c rm one Us e) := by
   rw [evL, smapK_eq, rangeK_eq]
 
-theorem evL_length : evL.length = 2048 := by rw [evL_eq]; simp
 
 @[expose] noncomputable def memK (ev : List Nat) (x : Nat) (b : Bool) : Bool :=
   strictB (idxF (vecJ rm wv x) ev 0) fun r => Bool.rec (motive := fun _ => Bool)

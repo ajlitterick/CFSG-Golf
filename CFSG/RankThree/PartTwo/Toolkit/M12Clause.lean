@@ -147,38 +147,5 @@ theorem m12ThreeLocalData (G : Type u) [Group G] (h : Nonempty (G ≃* NativeSpo
   rw [hg, Subgroup.map_map]
   exact M12SylowData.map (e.symm.trans (MulAut.conj g)) M12.m12SylowData_P0
 
-theorem j1ThreeRank (G : Type u) [Group G] (h : Nonempty (G ≃* NativeSporadic.J1)) :
-    Nat.card G = 175560 ∧ CFSG.pRank 3 G = 1 := by
-  obtain ⟨e⟩ := h
-  have : Fact (Nat.Prime 3) := ⟨by norm_num⟩
-  have hcard : Nat.card G = 175560 :=
-    (Nat.card_congr e.toEquiv).trans CFSG.Sporadic.J1.card_J1
-  have : Finite G := Nat.finite_of_card_ne_zero (by rw [hcard]; norm_num)
-  refine ⟨hcard, ?_⟩
-  obtain ⟨x, hx⟩ := exists_prime_orderOf_dvd_card' 3 (by rw [hcard]; norm_num)
-  have hE : IsElementaryAbelian 3 (zpowers x) := by
-    rw [isElementaryAbelian_iff]
-    refine ⟨fun a ha b hb => ?_, fun a ha => ?_⟩
-    · obtain ⟨i, rfl⟩ := mem_zpowers_iff.1 ha
-      obtain ⟨j, rfl⟩ := mem_zpowers_iff.1 hb
-      rw [← zpow_add, ← zpow_add, add_comm]
-    · obtain ⟨i, rfl⟩ := mem_zpowers_iff.1 ha
-      rw [← zpow_natCast, ← zpow_mul, mul_comm, zpow_mul, zpow_natCast, ← hx, pow_orderOf_eq_one,
-        one_zpow]
-  refine pRank_eq (by norm_num) hE (by rw [Nat.card_zpowers, hx, pow_one]) fun A hA => ?_
-  obtain ⟨k, hk⟩ := (isPGroup_of_isElementaryAbelian hA).exists_card_eq
-  have hdvd : 3 ^ k ∣ 175560 := hk ▸ hcard ▸ Subgroup.card_subgroup_dvd_card A
-  rw [hk, pow_one]
-  by_contra hlt
-  push Not at hlt
-  have hk2 : 2 ≤ k := by
-    by_contra h2
-    push Not at h2
-    interval_cases k <;> norm_num at hlt
-  have : 3 ^ 2 ∣ 175560 := (pow_dvd_pow 3 hk2).trans hdvd
-  norm_num at this
-
-theorem toolkit_clause5 : M12J1ThreeLocal.{u} :=
-  ⟨m12ThreeLocalData, j1ThreeRank⟩
 
 end CFSG.RankThree.PartTwo.Toolkit

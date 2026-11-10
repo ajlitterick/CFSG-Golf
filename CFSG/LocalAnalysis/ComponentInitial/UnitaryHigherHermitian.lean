@@ -10,15 +10,6 @@ open CFSG.ClassicalGroups.UnitaryFlag CFSG.LinearGroups
 
 variable {p f : ℕ} {K : Type*} [Field K] {V : Type*} [AddCommGroup V] [Module K V]
 
-theorem hermitian_nonisotropic_vector (h : UnitaryFieldData p f K) [Nontrivial V]
-    {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm) (hBl : B.SeparatingLeft) :
-    ∃ v : V, B v v ≠ 0 := by
-  by_contra hall
-  push Not at hall
-  obtain ⟨c₀, hc₀⟩ := h.exists_bar_ne
-  have hpol := sesq_eq_zero_of_forall_isotropic hB hc₀ LinearMap.id hall
-  obtain ⟨x, hx⟩ := exists_ne (0 : V)
-  exact hx (hBl x fun y => hpol x y)
 
 theorem span_isotropic_eq_top (h : UnitaryFieldData p f K) [FiniteDimensional K V]
     {B : V →ₛₗ[h.bar] V →ₗ[K] K} (hB : B.IsSymm) (hBl : B.SeparatingLeft)

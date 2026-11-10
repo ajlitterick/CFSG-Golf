@@ -225,51 +225,6 @@ theorem center_eq_bot_of_noncentral_sylow_centralizer {L : Type u} [Group L] [Fi
   · exact unitary_center_eq_bot hp hf e
   · exact suzuki_center_eq_bot_of_noncentral_sylow_centralizer hp ha e P hx hxn
 
-theorem simple_nonabelian_of_center_eq_bot {L : Type*} [Group L] [Finite L] [Group.IsPerfect L]
-    (hcenter : Subgroup.center L = ⊥) (hmodel : fusionIsBenderGroup (L ⧸ Subgroup.center L)) :
-    IsSimpleGroup L ∧ ∃ a b : L, a * b ≠ b * a := by
-  have hL : fusionIsBenderGroup L := fusionIsBenderGroup_of_center_eq_bot hcenter hmodel
-  exact ⟨isSimpleGroup_of_fusionIsBenderGroup hL, exists_noncommuting_of_perfect hL⟩
-
-theorem even_linear_two_central_cover_inner_action_reconstruction {G : Type*} [Group G] [Finite G]
-    {H S L : Subgroup G} {w : G} (hS : IsSylowTwoOf S H) (hLH : L ≤ H)
-    (hsub : (L.subgroupOf H).IsSubnormal) (hperf : Group.IsPerfect L)
-    (hZ : IsPGroup 2 (Subgroup.center L)) {f : ℕ} (hf : 2 ≤ f)
-    (e : L ⧸ Subgroup.center L ≃* PSL(2, GaloisField 2 f))
-    (hwS : w ∈ Subgroup.centralizer (S : Set G))
-    (hinner : ∃ x ∈ L, ∀ y ∈ L, w⁻¹ * y * w = x⁻¹ * y * x)
-    (hnc : ¬ L ≤ Subgroup.centralizer ({w} : Set G)) :
-    Subgroup.center L = ⊥ ∧ IsSimpleGroup L ∧ (∃ a b : L, a * b ≠ b * a) ∧
-      Nonempty (L ≃* PSL(2, GaloisField 2 f)) := by
-  have := hperf
-  obtain ⟨P, x, hx, hxn⟩ := exists_noncentral_sylow_centralizer hS hLH hsub hwS hinner hnc
-  have hcenter := linear_center_eq_bot_of_noncentral_sylow_centralizer hZ hf e P hx hxn
-  have h := simple_nonabelian_of_center_eq_bot hcenter (Or.inl ⟨f, hf, ⟨e⟩⟩)
-  exact ⟨hcenter, h.1, h.2, ⟨mulEquivOfCenterEqBot hcenter e⟩⟩
-
-theorem even_unitary_three_central_cover_reconstruction {L : Type u} [Group L] [Finite L]
-    [Group.IsPerfect L] (hZ : IsPGroup 2 (Subgroup.center L)) {f : ℕ} (hf : 2 ≤ f)
-    (e : L ⧸ Subgroup.center L ≃* PSU3 2 f) :
-    Subgroup.center L = ⊥ ∧ IsSimpleGroup L ∧ (∃ a b : L, a * b ≠ b * a) ∧
-      Nonempty (L ≃* PSU3 2 f) := by
-  have hcenter := unitary_center_eq_bot hZ hf e
-  have h := simple_nonabelian_of_center_eq_bot hcenter (Or.inr (Or.inl ⟨f, hf, ⟨e⟩⟩))
-  exact ⟨hcenter, h.1, h.2, ⟨mulEquivOfCenterEqBot hcenter e⟩⟩
-
-theorem Suzuki_central_cover_inner_action_reconstruction {G : Type*} [Group G] [Finite G]
-    {H S L : Subgroup G} {w : G} (hS : IsSylowTwoOf S H) (hLH : L ≤ H)
-    (hsub : (L.subgroupOf H).IsSubnormal) (hperf : Group.IsPerfect L)
-    (hZ : IsPGroup 2 (Subgroup.center L)) {a : ℕ} (ha : 1 ≤ a)
-    (e : L ⧸ Subgroup.center L ≃* Sz a) (hwS : w ∈ Subgroup.centralizer (S : Set G))
-    (hinner : ∃ x ∈ L, ∀ y ∈ L, w⁻¹ * y * w = x⁻¹ * y * x)
-    (hnc : ¬ L ≤ Subgroup.centralizer ({w} : Set G)) :
-    Subgroup.center L = ⊥ ∧ IsSimpleGroup L ∧ (∃ a b : L, a * b ≠ b * a) ∧
-      Nonempty (L ≃* Sz a) := by
-  have := hperf
-  obtain ⟨P, x, hx, hxn⟩ := exists_noncentral_sylow_centralizer hS hLH hsub hwS hinner hnc
-  have hcenter := suzuki_center_eq_bot_of_noncentral_sylow_centralizer hZ ha e P hx hxn
-  have h := simple_nonabelian_of_center_eq_bot hcenter (Or.inr (Or.inr ⟨a, ha, ⟨e⟩⟩))
-  exact ⟨hcenter, h.1, h.2, ⟨mulEquivOfCenterEqBot hcenter e⟩⟩
 
 end Bender
 

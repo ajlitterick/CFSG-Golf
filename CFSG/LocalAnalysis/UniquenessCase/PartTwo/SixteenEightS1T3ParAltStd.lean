@@ -17,10 +17,6 @@ private theorem s16t3_alt_eq_four_mul_div_add_mod (n : ℕ) :
     n = 4 * (n / 4) + n % 4 :=
   (s16t3_alt_four_mul_div_add_mod n).symm
 
-private theorem s16t3_alt_div_mul_add_mod (n : ℕ) :
-    n / 4 * 4 + n % 4 = n := by
-  rw [Nat.mul_comm]
-  exact s16t3_alt_four_mul_div_add_mod n
 
 private def s16t3_alt_f (n : ℕ) (i : Fin n) : Fin (n / 4 + 1) :=
   ⟨(i : ℕ) / 4, Nat.lt_succ_of_le (Nat.div_le_div_right (Nat.le_of_lt i.isLt))⟩

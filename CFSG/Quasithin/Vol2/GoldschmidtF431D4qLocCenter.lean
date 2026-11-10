@@ -112,8 +112,6 @@ theorem conj_mem_autStab_of_mem {G : Type} [Group G] {P : Subgroup G} {h : G} (h
   have := conj_mul_mem_autStab hh (ψ := (1 : MulAut G)) (fun _ => Iff.rfl)
   simpa using this
 
-variable (Kb : Subgroup (MulAut (Cm σ)))
-  (hinn : (MulAut.conj : Cm σ →* MulAut (Cm σ)).range ≤ Kb)
 
 end Centre
 

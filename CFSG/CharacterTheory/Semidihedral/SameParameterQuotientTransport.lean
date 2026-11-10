@@ -17,10 +17,6 @@ open CFSG.Semidihedral.Local
 
 universe u
 
-theorem subgroupCentralizerEquiv_tInC {G : Type u} [Group G]
-    (U : Subgroup G) (t : U) :
-    subgroupCentralizerEquiv U t (tInC t) =
-      (⟨tInC (t : G), t.property⟩ : U.subgroupOf (C (t : G))) := rfl
 
 theorem subgroupCentralizerEquiv_Z {G : Type u} [Group G]
     (U : Subgroup G) (t : U) :

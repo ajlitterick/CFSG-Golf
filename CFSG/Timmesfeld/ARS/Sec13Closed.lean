@@ -145,12 +145,6 @@ theorem eq_of_forall_commuting (hcl : LeviClosed R A A₀) {B C : Subgroup G}
         (QD.le_normalizer_M hR hCR ⟨hX'.1.1, hX'C.symm⟩)
     exact hBC (mem_lambdaSet_of_le_M_of_hyp hS.hyp hCR hBR hle fun e' => hne e'.symm)
 
-theorem eq_of_le_normalizer (hcl : LeviClosed R A A₀) {B C : Subgroup G}
-    (hB : B ∈ lambdaStar R A A₀) (hC : C ∈ lambdaStar R A A₀)
-    (hCB : ∀ X ∈ deltaSet R A A₀ C, ∀ x ∈ X,
-      conjSet (deltaSet R A A₀ B) x = deltaSet R A A₀ B) : C = B :=
-  hS.eq_of_forall_commuting hcl hB hC fun X hX =>
-    hS.commuting_of_forall_conjSet_eq hB hX.1 (hCB X hX)
 
 end Sec13
 

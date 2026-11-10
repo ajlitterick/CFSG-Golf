@@ -31,7 +31,6 @@ abbrev Delta : SimpleGraph (G ⧸ c.G1) := colGraph c.G1 c.G2
 
 abbrev ptsL : Set (G ⧸ c.G1) := objOf c.G1 c.G2 c.l0
 
-abbrev plsL : Set (G ⧸ c.G3) := objOf c.G3 c.G2 c.l0
 
 abbrev ptsP : Set (G ⧸ c.G1) := objOf c.G1 c.G3 c.pi0
 
@@ -43,18 +42,6 @@ abbrev farP : Set (G ⧸ c.G1) := {a | a ∈ c.ptsP ∧ a ≠ c.x0 ∧ ¬ c.Delt
 
 end Loc49
 
-@[expose] def Stmt5_1 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (z : G) (_ : HypJ4 G z) (c : Loc49 G z),
-    Nat.card c.ptsL = 5 ∧ Nat.card c.plsL = 7 ∧
-    (∀ g ∈ c.G2, (∀ p ∈ c.ptsL, g • p = p) ↔ g ∈ c.K) ∧
-    (∀ g ∈ c.G2, (∀ q ∈ c.plsL, g • q = q) ↔ g ∈ c.CZ) ∧
-    ∀ y ∈ c.ptsL, y ≠ c.x0 →
-      (∃ Y : Subgroup G, Y ≤ c.CZ ⊓ c.G1 ∧ IsPGroup 3 Y ∧
-        (∀ P : Subgroup G, P ≤ c.CZ ⊓ c.G1 → IsPGroup 3 P → Nat.card P ≤ Nat.card Y) ∧
-        c.G1 ⊓ stabilizer G y = c.K ⊔ (c.CZ ⊓ c.G1 ⊓ normalizer (Y : Set G))) ∧
-      pCoreOf 2 (c.G1 ⊓ stabilizer G y) = c.R ∧
-      (∀ g ∈ c.G2, g • c.x0 = y → (c.E.map (MulAut.conj g).toMonoidHom) ⊓ c.E = c.Z) ∧
-      (∀ g ∈ c.G2, g • c.x0 = y → c.G1.relIndex (c.E.map (MulAut.conj g).toMonoidHom) = 4)
 
 @[expose] def Stmt5_5 : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (z : G) (_ : HypJ4 G z) (c : Loc49 G z),

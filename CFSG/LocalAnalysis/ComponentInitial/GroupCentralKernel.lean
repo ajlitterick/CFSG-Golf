@@ -36,10 +36,6 @@ theorem apply_mem_center (a : MulAut G) {z : G} (hz : z ∈ center G) : a z ∈ 
       _ = (x : G)⁻¹ * a x * (y : G)⁻¹ * a y := by rw [hc]
       _ = (x : G)⁻¹ * a x * ((y : G)⁻¹ * a y) := by group
 
-theorem centralDisplacement_apply (a : MulAut G) {T : Subgroup G}
-    (hT : ∀ x ∈ T, x⁻¹ * a x ∈ center G) (x : T) :
-    centralDisplacement a hT x = (x : G)⁻¹ * a x :=
-  rfl
 
 @[expose] def centralNorm {K : Subgroup G} (hK : K ≤ center G) (a : MulAut G) : K →* G where
   toFun k := (k : G) * a k
@@ -51,12 +47,6 @@ theorem centralDisplacement_apply (a : MulAut G) {T : Subgroup G}
     calc (x : G) * y * (a x * a y) = (x : G) * (a x * y) * a y := by rw [hy]; group
       _ = (x : G) * a x * ((y : G) * a y) := by group
 
-@[expose] def centralSquare {F : Subgroup G} (hF : F ≤ center G) : F →* G where
-  toFun f := (f : G) ^ 2
-  map_one' := by simp
-  map_mul' x y := by
-    change ((x : G) * y) ^ 2 = (x : G) ^ 2 * (y : G) ^ 2
-    exact Commute.mul_pow (mem_center_iff.mp (hF y.2) x) 2
 
 @[expose] def normKernel {K : Subgroup G} (hK : K ≤ center G) (a : MulAut G) : Subgroup G :=
   (centralNorm hK a).ker.map K.subtype
@@ -68,8 +58,6 @@ theorem centralDisplacement_apply (a : MulAut G) {T : Subgroup G}
     Subgroup G :=
   (centralDifference hK a).range
 
-@[expose] def squareImage {F : Subgroup G} (hF : F ≤ center G) : Subgroup G :=
-  (centralSquare hF).range
 
 variable {K : Subgroup G} {hK : K ≤ center G} {a : MulAut G}
 
@@ -87,13 +75,6 @@ theorem mem_differenceImage {x : G} : x ∈ differenceImage hK a ↔ ∃ k ∈ K
   · rintro ⟨k, hk, rfl⟩
     exact ⟨⟨k, hk⟩, rfl⟩
 
-theorem mem_squareImage {F : Subgroup G} {hF : F ≤ center G} {x : G} :
-    x ∈ squareImage hF ↔ ∃ f ∈ F, f ^ 2 = x := by
-  constructor
-  · rintro ⟨f, rfl⟩
-    exact ⟨f, f.2, rfl⟩
-  · rintro ⟨f, hf, rfl⟩
-    exact ⟨⟨f, hf⟩, rfl⟩
 
 theorem normKernel_le : normKernel hK a ≤ K := fun _ hx => (mem_normKernel.mp hx).1
 
@@ -126,58 +107,6 @@ theorem isElementaryAbelian_normKernel_quotient :
   rw [← QuotientGroup.mk_pow, QuotientGroup.eq_one_iff]
   exact sq_mem_differenceImage j.2
 
-theorem card_normKernel_quotient_eq_two_pow [Finite G] :
-    ∃ n : ℕ, Nat.card
-      (normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a)) = 2 ^ n := by
-  have := isElementaryAbelian_normKernel_quotient (hK := hK) (a := a)
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact (IsElementaryAbelian.isPGroup 2 _).exists_card_eq
-
-theorem relIndex_squareImage_eq_card [Finite G] {F : Subgroup G} (hF : F ≤ center G) :
-    (squareImage hF).relIndex F = Nat.card {f : F // (f : G) ^ 2 = 1} := by
-  have hle : squareImage hF ≤ F := by
-    rintro _ ⟨f, rfl⟩
-    exact pow_mem f.2 2
-  have h1 := relIndex_mul_card (squareImage hF) F
-  rw [inf_eq_left.mpr hle] at h1
-  have h2 := card_mul_index (centralSquare hF).ker
-  rw [index_ker] at h2
-  have hker : Nat.card (centralSquare hF).ker = Nat.card {f : F // (f : G) ^ 2 = 1} :=
-    Nat.card_congr (Equiv.subtypeEquivRight fun _ => Iff.rfl)
-  rw [hker] at h2
-  have hpos : 0 < Nat.card (squareImage hF) := Nat.card_pos
-  exact Nat.eq_of_mul_eq_mul_right hpos (h1.trans h2.symm)
-
-theorem not_sylow_map_le_of_mem [Finite G] {p : ℕ} [Fact p.Prime] {H Z : Subgroup G}
-    (hZ : Z ≤ center G) {x : G} (hxH : x ∈ H) (hx : ∃ n : ℕ, orderOf x = p ^ n) (hxZ : x ∉ Z)
-    (R : Sylow p H) : ¬ (R : Subgroup H).map H.subtype ≤ Z := by
-  intro hR
-  have hRc : (R : Subgroup H) ≤ center H := fun r hr =>
-    mem_center_iff.mpr fun g => Subtype.ext (mem_center_iff.mp (hZ (hR (mem_map_of_mem _ hr))) g)
-  have : (R : Subgroup H).Normal := normal_of_le_center hRc
-  obtain ⟨n, hn⟩ := hx
-  have hp : IsPGroup p (zpowers (⟨x, hxH⟩ : H)) :=
-    IsPGroup.of_card (n := n) (by rw [Nat.card_zpowers, orderOf_mk, hn])
-  obtain ⟨Q, hQ⟩ := hp.exists_le_sylow
-  obtain ⟨g, hg⟩ := MulAction.exists_smul_eq H R Q
-  rw [Sylow.smul_eq_of_normal] at hg
-  subst hg
-  exact hxZ (hR (mem_map_of_mem _ (hQ (mem_zpowers _))))
-
-theorem exists_odd_pow_orderOf_eq_two_pow [Finite G] (z : G) :
-    ∃ m : ℕ, Odd m ∧ ∃ n : ℕ, orderOf (z ^ m) = 2 ^ n := by
-  obtain ⟨n, m, hm, h⟩ := Nat.exists_eq_two_pow_mul_odd (orderOf_pos z).ne'
-  refine ⟨m, hm, n, ?_⟩
-  rw [orderOf_pow_of_dvd hm.pos.ne' (Dvd.intro_left _ h.symm), h, Nat.mul_div_cancel _ hm.pos]
-
-theorem pow_ne_one_of_odd {y : G} {n : ℕ} (hy : y ^ 2 ^ n = 1) (hy1 : y ≠ 1) {m : ℕ}
-    (hm : Odd m) : y ^ m ≠ 1 := by
-  intro h
-  apply hy1
-  have hcop : Nat.Coprime (2 ^ n) m := Nat.Coprime.pow_left n (Nat.coprime_two_left.mpr hm)
-  have hdvd := Nat.dvd_gcd (orderOf_dvd_of_pow_eq_one hy) (orderOf_dvd_of_pow_eq_one h)
-  rw [hcop.gcd_eq_one, Nat.dvd_one] at hdvd
-  exact orderOf_eq_one_iff.mp hdvd
 
 theorem isElementaryAbelian_of_injective {p : ℕ} {H : Type*} [Group H]
     [hH : IsElementaryAbelian p H] {f : G →* H} (hf : Function.Injective f) :
@@ -190,77 +119,6 @@ theorem isElementaryAbelian_of_injective {p : ℕ} {H : Type*} [Group H]
   rw [map_pow, map_one]
   exact Monoid.exponent_dvd_iff_forall_pow_eq_one.mp hH.exponent_dvd_p (f x)
 
-theorem mem_ker_centralDifference {k : K} : k ∈ (centralDifference hK a).ker ↔ a k = k := by
-  rw [MonoidHom.mem_ker]
-  change (k : G)⁻¹ * a k = 1 ↔ _
-  rw [inv_mul_eq_one, eq_comm]
-
-theorem card_normKernel_mul_card_range [Finite G] :
-    Nat.card (normKernel hK a) * Nat.card (centralNorm hK a).range = Nat.card K := by
-  rw [normKernel, card_map_of_injective K.subtype_injective, ← index_ker, card_mul_index]
-
-theorem card_fixed_mul_card_differenceImage [Finite G] :
-    Nat.card (K ⊓ fixedSubgroup a : Subgroup G) * Nat.card (differenceImage hK a) = Nat.card K := by
-  have hmap : (centralDifference hK a).ker.map K.subtype = K ⊓ fixedSubgroup a := by
-    ext x
-    constructor
-    · rintro ⟨k, hk, rfl⟩
-      exact ⟨k.2, mem_ker_centralDifference.mp hk⟩
-    · rintro ⟨hxK, hxa⟩
-      exact ⟨⟨x, hxK⟩, mem_ker_centralDifference.mpr hxa, rfl⟩
-  rw [← hmap, card_map_of_injective K.subtype_injective, differenceImage, ← index_ker,
-    card_mul_index]
-
-theorem range_centralNorm_le (ha : ∀ x, a (a x) = x) (hKa : ∀ k ∈ K, a k ∈ K) :
-    (centralNorm hK a).range ≤ K ⊓ fixedSubgroup a := by
-  rintro _ ⟨k, rfl⟩
-  refine ⟨mul_mem k.2 (hKa k k.2), ?_⟩
-  change a ((k : G) * a k) = k * a k
-  rw [map_mul, ha]
-  exact mem_center_iff.mp (hK k.2) (a k)
-
-theorem squareImage_le_range_centralNorm :
-    squareImage (F := K ⊓ fixedSubgroup a) (inf_le_left.trans hK) ≤
-      (centralNorm hK a).range := by
-  rintro _ ⟨f, rfl⟩
-  refine ⟨⟨f, f.2.1⟩, ?_⟩
-  change (f : G) * a f = (f : G) ^ 2
-  rw [mem_fixedSubgroup_iff.mp f.2.2, sq]
-
-theorem differenceImage_le_normKernel_of (ha : ∀ x, a (a x) = x) (hKa : ∀ k ∈ K, a k ∈ K) :
-    differenceImage hK a ≤ normKernel hK a := by
-  intro b hb
-  obtain ⟨k, hk, rfl⟩ := mem_differenceImage.mp hb
-  refine mem_normKernel.mpr ⟨mul_mem (inv_mem hk) (hKa k hk), ?_⟩
-  rw [map_mul, map_inv, ha]
-  group
-
-theorem relIndex_differenceImage_le_of [Finite G] (ha : ∀ x, a (a x) = x)
-    (hKa : ∀ k ∈ K, a k ∈ K) :
-    (differenceImage hK a).relIndex (normKernel hK a) ≤
-      (squareImage (F := K ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-        (K ⊓ fixedSubgroup a) := by
-  have hBJ := differenceImage_le_normKernel_of ha hKa (hK := hK)
-  have hsq : squareImage (F := K ⊓ fixedSubgroup a) (inf_le_left.trans hK) ≤
-      K ⊓ fixedSubgroup a :=
-    (squareImage_le_range_centralNorm (hK := hK)).trans (range_centralNorm_le ha hKa)
-  have e1 := relIndex_mul_card (differenceImage hK a) (normKernel hK a)
-  rw [inf_eq_left.mpr hBJ] at e1
-  have e2 := card_normKernel_mul_card_range (hK := hK) (a := a)
-  have e3 := card_fixed_mul_card_differenceImage (hK := hK) (a := a)
-  have e4 := relIndex_mul_card (squareImage (F := K ⊓ fixedSubgroup a) (inf_le_left.trans hK))
-    (K ⊓ fixedSubgroup a)
-  rw [inf_eq_left.mpr hsq] at e4
-  have e5 := card_le_of_le (squareImage_le_range_centralNorm (hK := hK) (a := a))
-  have hb : 0 < Nat.card (differenceImage hK a) := Nat.card_pos
-  have hn : 0 < Nat.card (centralNorm hK a).range := Nat.card_pos
-  have h6 : (differenceImage hK a).relIndex (normKernel hK a) * Nat.card (centralNorm hK a).range =
-      Nat.card (K ⊓ fixedSubgroup a : Subgroup G) := by
-    apply Nat.eq_of_mul_eq_mul_right hb
-    rw [mul_right_comm, e1, e2, e3]
-  refine Nat.le_of_mul_le_mul_right ?_ hn
-  rw [h6, ← e4]
-  exact Nat.mul_le_mul_left _ e5
 
 end General
 
@@ -268,10 +126,6 @@ section CentralKernel
 
 variable {L S : Type*} [Group L] [Group S] {π : L →* S} {a : MulAut L} {α : MulAut S}
 
-theorem apply_mem_ker (hcomm : ∀ x, π (a x) = α (π x)) {k : L} (hk : k ∈ π.ker) :
-    a k ∈ π.ker := by
-  rw [MonoidHom.mem_ker] at hk ⊢
-  rw [hcomm, hk, map_one]
 
 theorem inv_mul_apply_mem_ker (hcomm : ∀ x, π (a x) = α (π x)) {x : L} (hx : α (π x) = π x) :
     x⁻¹ * a x ∈ π.ker := by
@@ -303,38 +157,6 @@ theorem fixedPerfectLift (hπ : Function.Surjective π) (hK : π.ker ≤ center 
     exact (commutator_sup_central _ _ hK).symm
   exact ⟨isPerfect_iff.mpr hperf, hmap, fun x hx => hfix hx⟩
 
-theorem not_sylow_le_ker_of_even [Finite L] (hπ : Function.Surjective π)
-    (hK : π.ker ≤ center L) (hcomm : ∀ x, π (a x) = α (π x)) (P : Subgroup S)
-    [Group.IsPerfect P] (hP : ∀ s ∈ P, α s = s) (heven : Even (Nat.card P))
-    (R : Sylow 2 (fixedSubgroup a)) :
-    ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ π.ker := by
-  obtain ⟨-, hmap, hfix⟩ := fixedPerfectLift hπ hK hcomm P hP
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have : Finite P := Finite.of_surjective _ (π.subgroupComap_surjective P hπ)
-  obtain ⟨s, hs⟩ := exists_prime_orderOf_dvd_card' (G := P) 2 (even_iff_two_dvd.mp heven)
-  have hsmem : (s : S) ∈ ⁅P.comap π, P.comap π⁆.map π := by
-    rw [hmap]
-    exact s.2
-  obtain ⟨y, hy, hys⟩ := mem_map.mp hsmem
-  obtain ⟨m, hm, n, hn⟩ := exists_odd_pow_orderOf_eq_two_pow y
-  have hs2 : (s : S) ^ 2 ^ 1 = 1 := by
-    rw [pow_one, ← hs, ← orderOf_coe, pow_orderOf_eq_one]
-  have hs1 : (s : S) ≠ 1 := by
-    intro h
-    have h' : s = 1 := Subtype.ext h
-    rw [h', orderOf_one] at hs
-    exact absurd hs (by norm_num)
-  refine not_sylow_map_le_of_mem hK (hfix _ (pow_mem hy m)) ⟨n, hn⟩ ?_ R
-  rw [MonoidHom.mem_ker, map_pow, hys]
-  exact pow_ne_one_of_odd hs2 hs1 hm
-
-theorem not_sylow_le_center_of_even [Finite L] (hπ : Function.Surjective π)
-    (hK : π.ker = center L) (hcomm : ∀ x, π (a x) = α (π x)) (P : Subgroup S)
-    [Group.IsPerfect P] (hP : ∀ s ∈ P, α s = s) (heven : Even (Nat.card P))
-    (R : Sylow 2 (fixedSubgroup a)) :
-    ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ center L := by
-  rw [← hK]
-  exact not_sylow_le_ker_of_even hπ hK.le hcomm P hP heven R
 
 variable (hK : π.ker ≤ center L)
 
@@ -344,9 +166,6 @@ theorem inv_mul_apply_mem_normKernel (ha : ∀ x, a (a x) = x) (hcomm : ∀ x, �
   rw [map_mul, map_inv, ha]
   group
 
-theorem differenceImage_le_normKernel (ha : ∀ x, a (a x) = x)
-    (hcomm : ∀ x, π (a x) = α (π x)) : differenceImage hK a ≤ normKernel hK a :=
-  differenceImage_le_normKernel_of ha fun _ hk => apply_mem_ker hcomm hk
 
 theorem exists_fixedImageHom (hπ : Function.Surjective π) (ha : ∀ x, a (a x) = x)
     (hcomm : ∀ x, π (a x) = α (π x)) :
@@ -425,136 +244,6 @@ theorem fixedImage_quotient_embedding (hπ : Function.Surjective π) (ha : ∀ x
   have := isElementaryAbelian_normKernel_quotient (hK := hK) (a := a)
   exact ⟨⟨φ, hφ⟩, isElementaryAbelian_of_injective hφ⟩
 
-theorem relIndex_fixedImage_le [Finite L] (hπ : Function.Surjective π) (ha : ∀ x, a (a x) = x)
-    (hcomm : ∀ x, π (a x) = α (π x)) :
-    ((fixedSubgroup a).map π).relIndex (fixedSubgroup α) ≤
-      (differenceImage hK a).relIndex (normKernel hK a) := by
-  obtain ⟨θ, -, hθ⟩ := exists_fixedImageHom hK hπ ha hcomm
-  rw [relIndex, ← hθ, index_ker, relIndex, index_eq_card]
-  exact card_le_card_group θ.range
-
-theorem relIndex_differenceImage_le [Finite L] (ha : ∀ x, a (a x) = x)
-    (hcomm : ∀ x, π (a x) = α (π x)) :
-    (differenceImage hK a).relIndex (normKernel hK a) ≤
-      (squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-        (π.ker ⊓ fixedSubgroup a) :=
-  relIndex_differenceImage_le_of ha fun _ hk => apply_mem_ker hcomm hk
-
-theorem exists_fixed_two_element [Finite L] (hπ : Function.Surjective π)
-    (ha : ∀ x, a (a x) = x) (hcomm : ∀ x, π (a x) = α (π x)) {V : Subgroup S}
-    (hV : IsPGroup 2 V) (hVfix : ∀ v ∈ V, α v = v)
-    (hcard : (squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-      (π.ker ⊓ fixedSubgroup a) < Nat.card V) :
-    ∃ x ∈ fixedSubgroup a, (∃ n : ℕ, orderOf x = 2 ^ n) ∧ π x ∈ V ∧ π x ≠ 1 ∧ x ∉ π.ker := by
-  obtain ⟨θ, -, hθ⟩ := exists_fixedImageHom hK hπ ha hcomm
-  have : Finite S := Finite.of_surjective _ hπ
-  have hVC : V ≤ fixedSubgroup α := fun v hv => hVfix v hv
-  let θV := θ.comp (inclusion hVC)
-  have hnotinj : ¬ Function.Injective θV := by
-    intro hinj
-    have h1 := Nat.card_le_card_of_injective θV hinj
-    have h2 := relIndex_differenceImage_le hK ha hcomm
-    rw [relIndex, index_eq_card] at h2
-    omega
-  rw [injective_iff_map_eq_one] at hnotinj
-  push Not at hnotinj
-  obtain ⟨v, hθv, hv1⟩ := hnotinj
-  have hvI : inclusion hVC v ∈ θ.ker := hθv
-  rw [hθ, mem_subgroupOf] at hvI
-  obtain ⟨z, hz, hzv⟩ := hvI
-  obtain ⟨m, hm, n, hn⟩ := exists_odd_pow_orderOf_eq_two_pow z
-  have hvS : (v : S) ≠ 1 := fun h => hv1 (Subtype.ext h)
-  obtain ⟨e, he⟩ := hV v
-  have hve : (v : S) ^ 2 ^ e = 1 := by
-    rw [← coe_pow, he, coe_one]
-  have hzm : π (z ^ m) = (v : S) ^ m := by
-    rw [map_pow, hzv]
-    rfl
-  have hne : π (z ^ m) ≠ 1 := by
-    rw [hzm]
-    exact pow_ne_one_of_odd hve hvS hm
-  refine ⟨z ^ m, pow_mem hz m, ⟨n, hn⟩, ?_, hne, fun h => hne (MonoidHom.mem_ker.mp h)⟩
-  rw [hzm]
-  exact pow_mem v.2 m
-
-theorem exists_fixed_two_element' [Finite L] (hK : π.ker ≤ center L)
-    (hπ : Function.Surjective π) (ha : ∀ x, a (a x) = x) (hcomm : ∀ x, π (a x) = α (π x))
-    {V : Subgroup S} (hV : IsPGroup 2 V) (hVfix : ∀ v ∈ V, α v = v)
-    (hcard : Nat.card {f : (π.ker ⊓ fixedSubgroup a : Subgroup L) // (f : L) ^ 2 = 1} <
-      Nat.card V) :
-    ∃ x ∈ fixedSubgroup a, (∃ n : ℕ, orderOf x = 2 ^ n) ∧ π x ∈ V ∧ π x ≠ 1 ∧ x ∉ π.ker :=
-  exists_fixed_two_element hK hπ ha hcomm hV hVfix
-    ((relIndex_squareImage_eq_card (inf_le_left.trans hK)).trans_lt hcard)
-
-theorem not_sylow_le_ker_of_card_lt [Finite L] (hπ : Function.Surjective π)
-    (ha : ∀ x, a (a x) = x) (hcomm : ∀ x, π (a x) = α (π x)) {V : Subgroup S}
-    (hV : IsPGroup 2 V) (hVfix : ∀ v ∈ V, α v = v)
-    (hcard : (squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-      (π.ker ⊓ fixedSubgroup a) < Nat.card V)
-    (R : Sylow 2 (fixedSubgroup a)) :
-    ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ π.ker := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨x, hxa, hx2, -, -, hxK⟩ := exists_fixed_two_element hK hπ ha hcomm hV hVfix hcard
-  exact not_sylow_map_le_of_mem hK hxa hx2 hxK R
-
-theorem fixed_perfect_quotient_subgroup_lifts_through_full_center [Finite L] [Finite S]
-    (hπ : Function.Surjective π) (hK : π.ker ≤ center L) (hcomm : ∀ x, π (a x) = α (π x))
-    (P : Subgroup S) [Group.IsPerfect P] (hP : ∀ s ∈ P, α s = s) :
-    (Group.IsPerfect ↥⁅P.comap π, P.comap π⁆ ∧ ⁅P.comap π, P.comap π⁆.map π = P ∧
-      ∀ x ∈ ⁅P.comap π, P.comap π⁆, a x = x) ∧
-    (Even (Nat.card P) → ∀ R : Sylow 2 (fixedSubgroup a),
-      ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ π.ker) ∧
-    (π.ker = center L → Even (Nat.card P) → ∀ R : Sylow 2 (fixedSubgroup a),
-      ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ center L) :=
-  ⟨fixedPerfectLift hπ hK hcomm P hP, not_sylow_le_ker_of_even hπ hK hcomm P hP,
-    fun hZ => not_sylow_le_center_of_even hπ hZ hcomm P hP⟩
-
-theorem full_central_kernel_involution_fixed_image_quotient [Finite L] [Finite S]
-    (hπ : Function.Surjective π) (hK : π.ker ≤ center L) (ha : ∀ x, a (a x) = x)
-    (_hα : ∀ s, α (α s) = s) (hcomm : ∀ x, π (a x) = α (π x)) :
-    differenceImage hK a ≤ normKernel hK a ∧
-    IsElementaryAbelian 2
-      (normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a)) ∧
-    (∃ n : ℕ, Nat.card
-      (normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a)) = 2 ^ n) ∧
-    (∃ θ : fixedSubgroup α →*
-        normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a),
-      (∀ (x : L) (hx : π x ∈ fixedSubgroup α) (hxJ : x⁻¹ * a x ∈ normKernel hK a),
-        θ ⟨π x, hx⟩ = ((⟨x⁻¹ * a x, hxJ⟩ : normKernel hK a) :
-          normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a))) ∧
-      θ.ker = ((fixedSubgroup a).map π).subgroupOf (fixedSubgroup α)) ∧
-    (∃ _ : (((fixedSubgroup a).map π).subgroupOf (fixedSubgroup α)).Normal,
-      (∃ φ : fixedSubgroup α ⧸ ((fixedSubgroup a).map π).subgroupOf (fixedSubgroup α) →*
-          normKernel hK a ⧸ (differenceImage hK a).subgroupOf (normKernel hK a),
-        Function.Injective φ) ∧
-      IsElementaryAbelian 2
-        (fixedSubgroup α ⧸ ((fixedSubgroup a).map π).subgroupOf (fixedSubgroup α))) ∧
-    ((fixedSubgroup a).map π).relIndex (fixedSubgroup α) ≤
-      (differenceImage hK a).relIndex (normKernel hK a) ∧
-    (differenceImage hK a).relIndex (normKernel hK a) ≤
-      (squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-        (π.ker ⊓ fixedSubgroup a) :=
-  ⟨differenceImage_le_normKernel hK ha hcomm, isElementaryAbelian_normKernel_quotient,
-    card_normKernel_quotient_eq_two_pow, exists_fixedImageHom hK hπ ha hcomm,
-    fixedImage_quotient_embedding hK hπ ha hcomm, relIndex_fixedImage_le hK hπ ha hcomm,
-    relIndex_differenceImage_le hK ha hcomm⟩
-
-theorem central_kernel_involution_fixed_quotient_rank_obstruction [Finite L] [Finite S]
-    (hπ : Function.Surjective π) (hK : π.ker ≤ center L) (ha : ∀ x, a (a x) = x)
-    (hcomm : ∀ x, π (a x) = α (π x)) {V : Subgroup S} (hV : IsPGroup 2 V)
-    (hVfix : ∀ v ∈ V, α v = v) :
-    (squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-        (π.ker ⊓ fixedSubgroup a) =
-      Nat.card {f : (π.ker ⊓ fixedSubgroup a : Subgroup L) // (f : L) ^ 2 = 1} ∧
-    ((squareImage (F := π.ker ⊓ fixedSubgroup a) (inf_le_left.trans hK)).relIndex
-        (π.ker ⊓ fixedSubgroup a) < Nat.card V →
-      (∃ x ∈ fixedSubgroup a, (∃ n : ℕ, orderOf x = 2 ^ n) ∧ π x ∈ V ∧ π x ≠ 1 ∧
-        x ∉ π.ker) ∧
-      ∀ R : Sylow 2 (fixedSubgroup a),
-        ¬ (R : Subgroup (fixedSubgroup a)).map (fixedSubgroup a).subtype ≤ π.ker) :=
-  ⟨relIndex_squareImage_eq_card _, fun hcard =>
-    ⟨exists_fixed_two_element hK hπ ha hcomm hV hVfix hcard,
-      not_sylow_le_ker_of_card_lt hK hπ ha hcomm hV hVfix hcard⟩⟩
 
 end CentralKernel
 

@@ -25,11 +25,6 @@ theorem commute_of_coe {x y : spinGroup Q} (h : Commute (x : CliffordAlgebra Q) 
     Commute x y :=
   Subtype.ext (by rw [Submonoid.coe_mul, Submonoid.coe_mul]; exact h.eq)
 
-theorem coe_mul_rootHom_mul_inv (g : spinGroup Q) {u w : V} (hu : Q u = 0)
-    (huw : polar Q u w = 0) (hmem : ∀ c : K, 1 + c • (ι Q w * ι Q u) ∈ spinGroup Q) (c : K) :
-    ((g * rootHom Q hu huw hmem (.ofAdd c) * g⁻¹ : spinGroup Q) : CliffordAlgebra Q) =
-      1 + c • (ι Q (spinAction Q g w) * ι Q (spinAction Q g u)) := by
-  rw [Submonoid.coe_mul, Submonoid.coe_mul, coe_rootHom, coe_mul_one_add_smul_mul_coe_inv]
 
 namespace HypFrame
 

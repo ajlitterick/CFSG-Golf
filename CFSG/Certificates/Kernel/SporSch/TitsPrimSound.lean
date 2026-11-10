@@ -671,8 +671,6 @@ theorem labOKK_sound {n w kG m REP LAB DEP PAR GL : Nat} {GS : Nat → Nat}
         Nat.eq_of_beq_eq_true e5, e3', beq_self_eq_true, decide_eq_true_eq, and_true]
       omega
 
-theorem hexAt_one (b : ByteArray) (o : Nat) : hexAt b o 1 = hexVal (b.get! o) := by
-  simp [hexAt]
 
 theorem hexAt_three (b : ByteArray) (o : Nat) :
     hexAt b o 3 = (hexAt b o 1 * 16 + hexAt b (o + 1) 1) * 16 + hexAt b (o + 2) 1 := by

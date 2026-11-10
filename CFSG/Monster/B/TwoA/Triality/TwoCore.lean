@@ -365,33 +365,5 @@ theorem R2_eq_map_pCore_Ntwo :
     (pCore_prod_eq_bot pCore_Ppair pCore_perm_three)
   rw [← hker, ker_twoCore, Subgroup.subgroupOf_map_subtype, inf_eq_left.2 R2_le_Ntwo]
 
-theorem index_Vhat_R2 :
-    (Vhat.subgroupOf R2).index = 2 ^ 30 := by
-  have h := (Vhat.subgroupOf R2).card_mul_index
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe Vhat_le_R2).toEquiv, isKleinFour_Vhat.card_four,
-    natCard_R2] at h
-  omega
-
-theorem full_short_triality_normalizer_two_core_quotient :
-    (∀ g : Ctwo, (((piC g : Mfr) : Kstab v0) : OLq) =
-      ((jhatToKv ⟨g, Ctwo_le_Jhat g.2⟩ : Kstab (phi0 (coordOf rStar))) : OLq)) ∧
-    Function.Surjective piC ∧
-    Aeq = (SemidirectProduct.inl.range).map MfrEquiv.toMonoidHom ∧ Nat.card Aeq = 2 ^ 10 ∧
-    R2 = (Aeq.comap piC).map Ctwo.subtype ∧
-    R2 = (CFSG.pCore 2 Ctwo).map Ctwo.subtype ∧ R2 = (CFSG.pCore 2 Ntwo).map Ntwo.subtype ∧
-    Nat.card R2 = 2 ^ 32 ∧ Vhat ≤ R2 ∧ (Vhat.subgroupOf R2).index = 2 ^ 30 ∧
-    (R2.subgroupOf Ntwo).Normal ∧
-    (∃ e : Ntwo ⧸ R2.subgroupOf Ntwo ≃* Ppair × Equiv.Perm (Fin 3),
-      (∀ g : Ntwo, (e (QuotientGroup.mk g)).2 = sym3Hom g) ∧
-      (∀ g : Ntwo, (g : Dfull) ∈ Ctwo ↔ (e (QuotientGroup.mk g)).2 = 1) ∧
-      ∀ c : Ctwo, e (QuotientGroup.mk (Subgroup.inclusion Ctwo_le_Ntwo c)) = (projP (piC c), 1)) ∧
-    IsKleinFour Vhat ∧ (Vhat.subgroupOf Ntwo).Normal ∧ Function.Surjective sym3Hom ∧
-    sym3Hom.ker = Ctwo.subgroupOf Ntwo :=
-  ⟨coe_piC, piC_surjective, rfl, natCard_Aeq, rfl, R2_eq_map_pCore, R2_eq_map_pCore_Ntwo,
-    natCard_R2, Vhat_le_R2, index_Vhat_R2, R2_subgroupOf_normal,
-    ⟨twoCoreEquiv, twoCoreEquiv_snd, fun g => by
-      rw [mem_Ctwo_iff_sym3Hom]
-      exact (twoCoreEquiv_snd g).symm ▸ Iff.rfl, twoCoreEquiv_inclCN⟩,
-    isKleinFour_Vhat, Subgroup.normal_in_normalizer, sym3Hom_surjective, ker_sym3Hom⟩
 
 end CFSG.Monster.B.TwoA

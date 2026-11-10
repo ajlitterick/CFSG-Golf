@@ -274,27 +274,6 @@ theorem normalizer_le_sup_of_homocyclic {p : ℕ} {B Bs : Subgroup G} {x : G}
 
 end Config
 
-@[expose] def GGL48NonHomocyclicInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G)
-    (L D J X B₂ : Subgroup G) (d y : G) (K U U₁ : Subgroup G),
-    GGFieldCaseSetup p B Bs x L D J X B₂ d y K U U₁ → GGL46 p Bs x X U U₁ →
-      ∀ R : Subgroup G, IsPGroup p R → (∀ Q : Subgroup G, IsPGroup p Q → R ≤ Q → Q = R) →
-        U ≤ R → (∀ A ∈ thompsonAbelianSubgroups R, A = U₁) →
-        x ∉ ⁅ggL48H0 x U₁, ggL48H0 x U₁⁆ ⊔ ggL48U2 x U₁ →
-        ¬ Subgroup.normalizer (U₁ : Set G) ≤
-          ggL48H0 x U₁ ⊔ Subgroup.centralizer (U₁ : Set G) →
-        ¬ GGL48Homocyclic p U₁ →
-        ∃ ψ : Subgroup.normalizer (U₁ : Set G) →* Multiplicative (ZMod p), ψ ≠ 1
-
-theorem ggL48NonCoverInput_of_nonHomocyclic (h : GGL48NonHomocyclicInput) :
-    GGL48NonCoverInput := by
-  intro G _ _ p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov
-  exact h G p B Bs x L D J X B₂ d y K U U₁ hS h46 R hRp hRmax hUR hA hcent hcov
-    fun hhom => hcov (normalizer_le_sup_of_homocyclic hS h46 hRp hRmax hA hhom)
-
-theorem ggL48QuotInput_of_cent_nonHomocyclic (hC : GGL48CentInput)
-    (hN : GGL48NonHomocyclicInput) : GGL48QuotInput :=
-  ggL48QuotInput_of_cent hC (ggL48NonCoverInput_of_nonHomocyclic hN)
 
 end CFSG.StandardType
 

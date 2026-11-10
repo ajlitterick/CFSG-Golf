@@ -138,7 +138,6 @@ theorem center_PU : Subgroup.center PU = ⊥ := by
 theorem conj_injective_PU : Function.Injective (MulAut.conj : PU →* MulAut PU) :=
   conj_injective_of_center center_PU
 
-theorem z0_mem_T0 : z0 ∈ T0 := ⟨RR ^ 4, pow_mem (Subgroup.subset_closure (by simp)) 4, rfl⟩
 
 theorem z0_ne_one : z0 ≠ 1 := by
   intro h

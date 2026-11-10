@@ -270,25 +270,6 @@ theorem conj_mem_J_iff
         _ = b⁻¹ * (j * (b * y * b⁻¹)) * b := by rw [hcomm]
         _ = b⁻¹ * j * b * y := by group
 
-theorem conjugacyWithin_J_iff
-    (d : FinalHyps H z beta t) {j k : G}
-    (hj : j ∈ Subgroup.centralizer (minimalLocalFailureProperPairHull H z beta t : Set G))
-    (hj1 : j ≠ 1)
-    (hk : k ∈ Subgroup.centralizer (minimalLocalFailureProperPairHull H z beta t : Set G)) :
-    k ∈ conjugacyWithin H j ↔ k ∈ conjugacyWithin (pairPointStabilizer H beta) j := by
-  obtain ⟨hQH, hQn, -, -, -, hBH, -⟩ := d.point_data
-  obtain ⟨-, -, -, -, -, -, -, hJQ, -⟩ := d.core_data
-  constructor
-  · rintro ⟨⟨g, hg⟩, rfl⟩
-    have hgQB := (d.conj_mem_J_iff hj hj1 hg).mp hk
-    obtain ⟨c, hc, b, hb, rfl⟩ := exists_mul_of_mem_sup hQH hQn hBH hgQB
-    refine ⟨⟨b, hb⟩, ?_⟩
-    have hcj : c⁻¹ * j * c = j := by
-      rw [mul_assoc, ← (Subgroup.mem_centralizer_iff.mp (hJQ hj) c hc), inv_mul_cancel_left]
-    change b⁻¹ * j * b = (c * b)⁻¹ * j * (c * b)
-    rw [show (c * b)⁻¹ * j * (c * b) = b⁻¹ * (c⁻¹ * j * c) * b by group, hcj]
-  · rintro ⟨⟨b, hb⟩, rfl⟩
-    exact ⟨⟨b, hBH hb⟩, rfl⟩
 
 end FinalHyps
 

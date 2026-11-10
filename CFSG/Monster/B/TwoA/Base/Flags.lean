@@ -40,11 +40,6 @@ theorem index_eq_of_natCard {G : Type*} [Group G] {H K : Subgroup G} (hle : H �
   rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv, ha, hb, hc] at h
   exact Nat.eq_of_mul_eq_mul_left hpos h
 
-theorem lt_of_le_of_natCard_lt {G : Type*} [Group G] {H K : Subgroup G} (hle : H ≤ K)
-    (hc : Nat.card H < Nat.card K) : H < K :=
-  lt_of_le_of_ne hle fun e => by
-    rw [e] at hc
-    exact lt_irrefl _ hc
 
 section Sub
 
@@ -183,51 +178,5 @@ theorem flag_pair {G : Type*} [Group G] [Finite G] {E F : Subgroup G}
 
 attribute [local instance] sharpAction
 
-theorem pCore_normalizer_le_centralizer {G : Type*} [Group G] [Finite G] {E : Subgroup G} {p : ℕ}
-    [Fact p.Prime] (hp : ¬ p ∣ Nat.card E - 1) {x0 : G}
-    (htr : ∀ a ∈ E, a ≠ 1 → ∃ g ∈ Subgroup.normalizer (E : Set G), g * x0 * g⁻¹ = a) :
-    CFSG.pCore p (Subgroup.normalizer (E : Set G)) ≤
-      (Subgroup.centralizer (E : Set G)).subgroupOf (Subgroup.normalizer (E : Set G)) := by
-  obtain ⟨a, ha⟩ := (CFSG.pCore_isPGroup (p := p)
-    (G := Subgroup.normalizer (E : Set G))).nonempty_fixed_point_of_prime_not_dvd_card
-      (Esharp E) (by rw [natCard_Esharp]; exact hp)
-  obtain ⟨ka, hka, hkax⟩ := htr a.1 a.2.1 a.2.2
-  intro q hq
-  rw [Subgroup.mem_subgroupOf, Subgroup.mem_centralizer_iff]
-  intro e he
-  by_cases he1 : e = 1
-  · rw [he1, one_mul, mul_one]
-  obtain ⟨kb, hkb, hkbx⟩ := htr e he he1
-  let k : Subgroup.normalizer (E : Set G) :=
-    ⟨kb, hkb⟩ * (⟨ka, hka⟩ : Subgroup.normalizer (E : Set G))⁻¹
-  have hk : (k : G) * a * (k : G)⁻¹ = e := by
-    change kb * ka⁻¹ * a * (kb * ka⁻¹)⁻¹ = e
-    rw [← hkax, ← hkbx]
-    group
-  let r : Subgroup.normalizer (E : Set G) := k⁻¹ * q * k
-  have hr : r ∈ CFSG.pCore p (Subgroup.normalizer (E : Set G)) := by
-    have h := (CFSG.pCore_normal (p := p)
-      (G := Subgroup.normalizer (E : Set G))).conj_mem q hq k⁻¹
-    rwa [inv_inv] at h
-  have hra : (r : G) * a * (r : G)⁻¹ = a := congrArg Subtype.val (ha ⟨r, hr⟩)
-  have hqe : (q : G) * e * (q : G)⁻¹ = e := by
-    rw [← hk]
-    calc (q : G) * ((k : G) * a * (k : G)⁻¹) * (q : G)⁻¹
-        = (k : G) * ((r : G) * a * (r : G)⁻¹) * (k : G)⁻¹ := by
-          change (q : G) * ((k : G) * a * (k : G)⁻¹) * (q : G)⁻¹ =
-            (k : G) * ((k : G)⁻¹ * q * k * a * ((k : G)⁻¹ * q * k)⁻¹) * (k : G)⁻¹
-          group
-      _ = (k : G) * a * (k : G)⁻¹ := by rw [hra]
-  rw [mul_inv_eq_iff_eq_mul] at hqe
-  exact hqe.symm
-
-theorem pCore_normalizer_eq_centralizer {G : Type*} [Group G] [Finite G] {E : Subgroup G} {p : ℕ}
-    [Fact p.Prime] (hC : IsPGroup p (Subgroup.centralizer (E : Set G)))
-    (hp : ¬ p ∣ Nat.card E - 1) {x0 : G}
-    (htr : ∀ a ∈ E, a ≠ 1 → ∃ g ∈ Subgroup.normalizer (E : Set G), g * x0 * g⁻¹ = a) :
-    CFSG.pCore p (Subgroup.normalizer (E : Set G)) =
-      (Subgroup.centralizer (E : Set G)).subgroupOf (Subgroup.normalizer (E : Set G)) :=
-  le_antisymm (pCore_normalizer_le_centralizer hp htr)
-    (le_pCore_of_normal (ker_conjE E ▸ (conjE E).normal_ker) hC.comap_subtype)
 
 end CFSG.Monster.B.TwoA

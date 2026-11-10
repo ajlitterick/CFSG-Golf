@@ -94,21 +94,6 @@ theorem autCommutator_centralizer_le (f : MulAut X) :
   exact Subgroup.mul_mem _ (Subgroup.inv_mem _ hx)
     (apply_mem_centralizer (fun _ hk => fixedFitting_apply hk) hx)
 
-theorem conj_mem_autCommutator {f : MulAut X} {c w : X} (hc : c ∈ signalizerFixedSubgroup f)
-    (hw : w ∈ autCommutator f (Subgroup.centralizer (fixedFitting f : Set X))) :
-    c * w * c⁻¹ ∈ autCommutator f (Subgroup.centralizer (fixedFitting f : Set X)) := by
-  have hle : autCommutator f (Subgroup.centralizer (fixedFitting f : Set X)) ≤
-      (autCommutator f (Subgroup.centralizer (fixedFitting f : Set X))).comap
-        (MulAut.conj c).toMonoidHom := by
-    refine (Subgroup.closure_le _).mpr ?_
-    rintro y ⟨u, hu, rfl⟩
-    simp only [SetLike.mem_coe, Subgroup.mem_comap, MulEquiv.coe_toMonoidHom, MulAut.conj_apply]
-    refine Subgroup.subset_closure ⟨c * u * c⁻¹, ?_, ?_⟩
-    · exact conj_mem_centralizer (fixed_le_fixedNormalizer f hc) hu
-    · have hfc : f c = c := hc
-      simp only [map_mul, map_inv, hfc]
-      group
-  simpa using hle hw
 
 end FrameItems
 
@@ -516,22 +501,6 @@ theorem Frame.invariant_subgroup [Finite X] {f : MulAut X} (h : Frame p ℓ f) (
     rw [hyy]
     exact Subgroup.pow_mem _ hmem _
 
-theorem Frame.autCommutator_fitting_eq [Finite X] {f : MulAut X} (h : Frame p ℓ f) :
-    autCommutator f (CFSG.fittingSubgroupOf (fixedNormalizer f)) =
-      autCommutator f (fixedNormalizer f) := by
-  rw [h.fittingSubgroupOf_eq_centralizer]
-  refine le_antisymm (Subgroup.closure_mono fun y ⟨x, hx, hy⟩ =>
-    ⟨x, FrameItems.centralizer_le_fixedNormalizer f hx, hy⟩) ?_
-  refine (Subgroup.closure_le _).mpr ?_
-  rintro y ⟨x, hx, rfl⟩
-  obtain ⟨z, hz, c, hc, rfl⟩ := h.normalizer_le x hx
-  have hfc : f c = c := hc
-  have e : (z * c)⁻¹ * f (z * c) = c⁻¹ * (z⁻¹ * f z) * c := by
-    rw [map_mul, hfc]
-    group
-  rw [e]
-  simpa using FrameItems.conj_mem_autCommutator (Subgroup.inv_mem _ hc)
-    (Subgroup.subset_closure ⟨z, hz, rfl⟩)
 
 theorem Frame.nilpotent_le_fitting [Finite X] {f : MulAut X} (h : Frame p ℓ f) (Y : Subgroup X)
     (hY : Group.IsNilpotent Y)

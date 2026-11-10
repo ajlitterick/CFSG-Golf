@@ -16,46 +16,6 @@ section Standard
 
 variable {n : ℕ} {F : Type} [Field F] {X : Type*} [Group X]
 
-theorem ggSpEndNode_standard (h2 : (2 : F) = 0) (hn : 2 ≤ n) (ψ : StatedSp (n + 1) F →* X) :
-    GGSpEndNode (ψ.comp (spLeviBlock n F)) (ψ (weylRep (n + 1) F 0)) := by
-  refine ⟨?_, ?_, ?_⟩
-  · rw [← map_mul, spWeylRep_mul_self (n + 1) h2, map_one]
-  · intro k hk
-    rw [MonoidHom.comp_apply, spLeviBlock_weylRep, ← map_mul, ← map_pow]
-    have hW : (coxeterMatrix (isFiniteType_cartanC (n + 1))).IsLiftable (weylRep (n + 1) F) :=
-      isLiftable_of_braid _ (spWeylRep_mul_self (n + 1) h2) (isCTGroupDatum (n + 1) F).braid
-    have h3 := hW 0 k.succ
-    rw [coxeterMatrix_C_zero_one hn k hk] at h3
-    rw [h3, map_one]
-  · intro r hr c
-    rw [MonoidHom.comp_apply, spLeviBlock_elt, ← map_mul, ← map_mul]
-    congr 1
-    obtain ⟨w, k, hwk⟩ := isStdOrbit_stdVec (n + 1) (spShift r)
-    obtain ⟨r', hr', he⟩ := spWeylRep_conj_elt h2 (0 : Fin (n + 1)) hwk.symm c
-    have h0 : (0 : Fin (n + 1)).val + 1 < n + 1 := by simp; omega
-    have hs0 := spRealizes_simple_of_lt h0
-      (weylAction (isFiniteType_cartanC (n + 1)) w (Pi.single k 1))
-    rw [hs0, hwk] at hr'
-    have hrr : r' = spShift r := by
-      apply stdVec_injective
-      rw [hr', stdVec_spShift]
-      funext b
-      change 1 * (Fin.cons 0 (stdVec r) : Fin (n + 1) → ℤ)
-          ((Equiv.swap 0 ⟨(0 : Fin (n + 1)).val + 1, h0⟩).symm b) =
-        (Fin.cons 0 (stdVec r) : Fin (n + 1) → ℤ) b
-      rw [one_mul, Equiv.symm_swap]
-      have hk0 : stdVec r ⟨0, by omega⟩ = 0 := hr _ rfl
-      have e1 : (⟨(0 : Fin (n + 1)).val + 1, h0⟩ : Fin (n + 1)) = Fin.succ ⟨0, by omega⟩ :=
-        Fin.ext (by simp)
-      rw [e1]
-      rcases eq_or_ne b 0 with rfl | hb0
-      · rw [Equiv.swap_apply_left, Fin.cons_succ, Fin.cons_zero, hk0]
-      rcases eq_or_ne b (Fin.succ ⟨0, by omega⟩) with rfl | hb1
-      · rw [Equiv.swap_apply_right, Fin.cons_succ, Fin.cons_zero, hk0]
-      · rw [Equiv.swap_apply_of_ne_of_ne hb0 hb1]
-    rw [hrr] at he
-    rw [mul_inv_eq_iff_eq_mul] at he
-    exact he
 
 end Standard
 
@@ -192,28 +152,6 @@ section Assembly
 
 open CFSG.Blueprint CFSG.RankThree.PartTwo.Sec21
 
-theorem lc_gl_std_of_secFiveWeylB (hHolt : HoltUniqueFixedPointSimple) (ha : GGBstarInput)
-    (ha₀ : GGLNoncyclicInput) (hb : GGStdSubPreInput) (hc₀ : GGFieldNbrCanonicalInput)
-    (hc₁ : GGProp41Input) (hc₂ : GGCor42Input) (hc₃ : GGNoTransvectionInput)
-    (hd : GGCoxeterLabelInput) (heE : GGTypeAJoinEndNodeInput) (heD : GGTypeAJoinInput)
-    (heC : GGTypeACorankTwoInput) (heH : GGTypeAHalfEndNodesInput)
-    (heNW : GGSecFiveNonWeylInput) (heA : GGSecFiveWeylAInput)
-    (heSL : GGSpLiftInput) (heSE : GGSpJoinEndNodeInput) (heSJ : GGSpJoinInput)
-    (heB : GGSecFiveWeylBRestInput) (heDn : GGSecFiveWeylDInput) (heEx : GGSecFiveWeylEInput)
-    (heF : GGSecFiveWeylF4Input) (heG : GGSecFiveWeylG2Input)
-    (hf : GGHypSixV2Input) (hg₁ : GGCorFiveTwentyInput) (hg₂ : GGOmegaOneInput)
-    (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput) (h1 : GGSixStepOneV2Input)
-    (h2 : GGSixStepTwoV2Input) (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput)
-    (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput)
-    (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : KProper InCatalog G) (hchar : IsCharTwoType G)
-    (he4 : 4 ≤ evenRank G) (p : ℕ) (hp : p ∈ LargeEvenBeta 4 G) (B : Subgroup G) (x : G)
-    (L : Subgroup G) (hS : LargeEvenSStar p B x L) (hst : LargeEvenStandardType p B x L) :
-    InCatalog G :=
-  lc_gl_std_of_secFiveCases hHolt ha ha₀ hb hc₀ hc₁ hc₂ hc₃ hd heE heD heC heH heNW heA
-    (ggSecFiveWeylBInput_of_typeC heSL heSE heSJ heB) heDn heEx heF heG hf hg₁ hg₂ hR1 hR h1 h2
-    h3a h3b h3c h3d hKG G hnonab hK hchar he4 p hp B x L hS hst
 
 end Assembly
 

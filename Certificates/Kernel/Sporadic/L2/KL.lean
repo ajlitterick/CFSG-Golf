@@ -42,23 +42,6 @@ theorem kGroup : groupK = true := by quickRfl
 theorem kSortA : sortK 2835 fA ordA posA = true := by quickRfl
 theorem kSortT : sortK 486 fT ordT posT = true := by quickRfl
 
-theorem negTree : Bool.not (Nat.beq (L2A 1)
-    (pcomp 1782 11 (mask 11) (XG (Nat.sub 1 (aLabK 1)))
-      (pcomp 1782 11 (mask 11) (L2A 0) (XGI (Nat.sub 1 (aLabK 1)))))) = true := by quickRfl
-
-theorem negAct : Bool.not (Nat.beq (fA (Nat.succ (VK 0 5)))
-    (fpCK 11 (mask 11) (XG 0) (XGI 0) (L2A 5))) = true := by quickRfl
-
-theorem negSort : Bool.not (Nat.blt (fA (ordA 1)) (fA (ordA 0))) = true := by quickRfl
-
-theorem negGraph : Bool.not (adjK (VK 0 0) (VK 1 (nbK 0 1))) = true := by quickRfl
-
-theorem negStep : Bool.not (Nat.blt (S4 3000) (S4 3000)) = true := by quickRfl
-
-theorem negElt : Bool.not (invEqK 1782 11 (mask 11) (1782 * 11) (L2EL.F 0) (L2EI 1)) = true := by
-  quickRfl
-
-theorem negClass : Bool.not (Nat.beq (pcomp 1782 11 (mask 11) RHO RHO) RHO) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.L2K
 

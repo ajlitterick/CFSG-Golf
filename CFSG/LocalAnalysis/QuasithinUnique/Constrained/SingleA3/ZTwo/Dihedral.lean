@@ -57,8 +57,6 @@ theorem z_central {r : G} (hr : r ∈ R) : r * z = z * r := by
 theorem U_comm {a b : G} (ha : a ∈ U) (hb : b ∈ U) : a * b = b * a :=
   comm_of_exp_two hd.U_exp ha hb
 
-theorem V_comm {a b : G} (ha : a ∈ V) (hb : b ∈ V) : a * b = b * a :=
-  comm_of_exp_two hd.V_exp ha hb
 
 theorem card_zpowers_z : Nat.card (zpowers z) = 2 := by
   rw [Nat.card_zpowers]

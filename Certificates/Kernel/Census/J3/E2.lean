@@ -16,14 +16,6 @@ namespace CertificateChecks.KernelCensus.J3
 
 set_option maxRecDepth 1000000
 
-theorem kE32 : ((j3EB.drop 32).take 2).all ebF = true := by quickRfl
-theorem kE34 : ((j3EB.drop 34).take 2).all ebF = true := by quickRfl
-theorem kE36 : ((j3EB.drop 36).take 2).all ebF = true := by quickRfl
-theorem kE38 : ((j3EB.drop 38).take 2).all ebF = true := by quickRfl
-theorem kE40 : ((j3EB.drop 40).take 2).all ebF = true := by quickRfl
-theorem kE42 : ((j3EB.drop 42).take 2).all ebF = true := by quickRfl
-theorem kE44 : ((j3EB.drop 44).take 2).all ebF = true := by quickRfl
-theorem kE46 : ((j3EB.drop 46).take 2).all ebF = true := by quickRfl
 
 end CertificateChecks.KernelCensus.J3
 

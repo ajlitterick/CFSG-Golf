@@ -82,64 +82,6 @@ theorem actual_full_center_quotient_layer_odd_projective_model
   obtain ⟨eP⟩ := hSylow P
   exact nonalternating_simple_dihedral_odd_projective_model hnonabL P _ eP hseven
 
-theorem quotient_nonempty_mulEquiv_iff_of_eq {H : Type u} [Group H]
-    (A B : Subgroup H) [A.Normal] [B.Normal] (hAB : A = B)
-    {D : Type*} [Group D] :
-    Nonempty ((H ⧸ A) ≃* D) ↔ Nonempty ((H ⧸ B) ≃* D) := by
-  subst B
-  rfl
-
-theorem quotient_layer_model_iff_of_eq {H : Type u} [Group H]
-    (A B : Subgroup H) [A.Normal] [B.Normal] (hAB : A = B) (p f : ℕ) :
-    PSLTwoClassicalModel (CFSG.generalizedFitting (H ⧸ A)) p f ↔
-      PSLTwoClassicalModel (CFSG.generalizedFitting (H ⧸ B)) p f := by
-  subst B
-  rfl
-
-theorem wreathed_actual_nonalternating_dihedral_layer_odd_projective_model_all_universes
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4))) :
-    ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ Odd p ∧ 1 ≤ f ∧
-      PSLTwoClassicalModel (CFSG.generalizedFitting
-        (centralizerOddCoreQuotient n S e ⧸ Subgroup.center
-          (centralizerOddCoreQuotient n S e))) p f := by
-  have hA := centralizerOddCoreQuotient_center_eq_fullCenterImage n hn S e
-  have hfourA : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)) := by
-    intro h
-    exact hfour ((quotient_nonempty_mulEquiv_iff_of_eq _ _ hA).mpr h)
-  obtain ⟨p, f, hp, hpne, hodd, hf, hmodel⟩ :=
-    actual_full_center_quotient_layer_odd_projective_model hnonab n hn S e hfourA
-  exact ⟨p, f, hp, hpne, hodd, hf, (quotient_layer_model_iff_of_eq _ _ hA p f).mpr hmodel⟩
-
-theorem wreathed_actual_nonalternating_dihedral_layer_has_odd_projective_model
-    {G₀ : Type} [Group G₀] [Finite G₀] [IsSimpleGroup G₀]
-    (hnonab : ∃ a b : G₀, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G₀) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4))) :
-    ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ Odd p ∧ 1 ≤ f ∧
-      CFSG.Assembly.LowTwoRank.StatedClassicalModel (CFSG.generalizedFitting
-        (centralizerOddCoreQuotient n S e ⧸ Subgroup.center
-          (centralizerOddCoreQuotient n S e))) .PSL 2 p f := by
-  obtain ⟨p, f, hp, hpne, hodd, hf, hmodel⟩ :=
-    wreathed_actual_nonalternating_dihedral_layer_odd_projective_model_all_universes
-      hnonab n hn S e hfour
-  exact ⟨p, f, hp, hpne, hodd, hf,
-    (pslTwoClassicalModel_iff_stated _ p f).mp hmodel⟩
-
-theorem actual_full_center_quotient_layer_stated_odd_projective_model
-    {G₀ : Type} [Group G₀] [Finite G₀] [IsSimpleGroup G₀]
-    (hnonab : ∃ a b : G₀, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G₀) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4))) :
-    ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ Odd p ∧ 1 ≤ f ∧
-      CFSG.Assembly.LowTwoRank.StatedClassicalModel
-        (CFSG.generalizedFitting (centralizerFullQuotient n hn S e)) .PSL 2 p f := by
-  obtain ⟨p, f, hp, hpne, hodd, hf, hmodel⟩ :=
-    actual_full_center_quotient_layer_odd_projective_model hnonab n hn S e hfour
-  exact ⟨p, f, hp, hpne, hodd, hf, (pslTwoClassicalModel_iff_stated _ p f).mp hmodel⟩
 
 end CFSG.Wreathed.ActualProjectiveLayer
 
@@ -369,36 +311,5 @@ theorem actual_projective_layer_model_compatible_sl2
   exact ⟨F, hfield, hfinite, hcard, hchar, hcard ▸ Nat.one_lt_pow (by omega) hp.one_lt, theta, rho, eta,
     hrho, hextends, hmap, hcontains, hindex, hprojective, hinvolution, hvalues⟩
 
-theorem actual_stated_projective_layer_model_compatible_sl2
-    {G₀ : Type} [Group G₀] [Finite G₀] [IsSimpleGroup G₀]
-    (hnonab : ∃ a b : G₀, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G₀) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty (centralizerFullQuotient n hn S e ≃* Equiv.Perm (Fin 4)))
-    (p f : ℕ) (hp : p.Prime) (hpodd : p ≠ 2) (hf : 1 ≤ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedClassicalModel
-      (centralizerSimpleLayer n hn S e) .PSL 2 p f) :
-    ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-      ringChar F = p ∧ 1 < Nat.card F ∧
-      ∃ (theta : centralizerSimpleLayer n hn S e ≃*
-          Matrix.ProjectiveSpecialLinearGroup (Fin 2) F)
-        (rho : centralizerFullQuotient n hn S e →* coordinateE F)
-        (eta : CFSG.layer (centralizerOddCoreQuotient n S e) ≃*
-          Matrix.SpecialLinearGroup (Fin 2) F),
-        Function.Injective rho ∧
-        (∀ l : centralizerSimpleLayer n hn S e,
-          (rho l.val).val = ((pslEquivCoordinateG F) (theta l)).val) ∧
-        (centralizerSimpleLayer n hn S e).map rho =
-          (coordinateG F).subgroupOf (coordinateE F) ∧
-        (coordinateG F).subgroupOf (coordinateE F) ≤ rho.range ∧
-        ((coordinateG F).subgroupOf (coordinateE F)).relIndex rho.range =
-          (centralizerSimpleLayer n hn S e).index ∧
-        (nativeQuotient F).comp eta.toMonoidHom =
-          theta.toMonoidHom.comp (centralizerActualLayerMap hnonab n hn S e hfour) ∧
-        eta (centralizerActualLayerInvolution hnonab n hn S e hfour) = minusIdentity F ∧
-        (∀ v : CFSG.layer (centralizerOddCoreQuotient n S e),
-          coordinatePSLAction F (nativeQuotient F (eta v)) =
-            (rho (centralizerFullQuotientMap n hn S e v)).val) :=
-  actual_projective_layer_model_compatible_sl2 hnonab n hn S e hfour p f hp hpodd hf
-    ((pslTwoClassicalModel_iff_stated _ p f).mpr hmodel)
 
 end CFSG.Wreathed.ActualProjectiveLayer

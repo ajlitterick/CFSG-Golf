@@ -131,55 +131,5 @@ theorem exists_conj_commutes_of_commutator_mem {A B N : Subgroup G} (hA : IsPGro
   have := (commutatorElement_eq_one_iff_mul_comm).mp h1'
   exact this
 
-theorem exists_conj_commutes_of_commutator_mem_centralizer {A B N : Subgroup G} {c : G}
-    (hA : IsPGroup 2 A) (hB : IsPGroup 2 B) (hN : Odd (Nat.card N))
-    (hAN : A ≤ Subgroup.normalizer (N : Set G)) (hBN : B ≤ Subgroup.normalizer (N : Set G))
-    (hAB : ∀ a ∈ A, ∀ b ∈ B, ⁅a, b⁆ ∈ N) (hAc : ∀ a ∈ A, a * c = c * a)
-    (hBc : ∀ b ∈ B, b * c = c * b) :
-    ∃ p ∈ N, p * c = c * p ∧ ∀ a ∈ A, ∀ b ∈ B, a * (p * b * p⁻¹) = (p * b * p⁻¹) * a := by
-  set N' : Subgroup G := N ⊓ Subgroup.centralizer ({c} : Set G) with hN'
-  have hN'odd : Odd (Nat.card N') :=
-    hN.of_dvd_nat (Subgroup.card_dvd_of_le (inf_le_left : N' ≤ N))
-  have hnorm : ∀ g : G, g ∈ Subgroup.normalizer (N : Set G) → g * c = c * g →
-      ∀ x ∈ N', g * x * g⁻¹ ∈ N' := by
-    intro g hg hgc x hx
-    refine ⟨(Subgroup.mem_normalizer_iff.mp hg x).mp hx.1,
-      Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-    have hxc : x * c = c * x := Subgroup.mem_centralizer_singleton_iff.mp hx.2
-    have hcg : c * g⁻¹ = g⁻¹ * c := by
-      calc c * g⁻¹ = g⁻¹ * (g * c) * g⁻¹ := by group
-        _ = g⁻¹ * (c * g) * g⁻¹ := by rw [hgc]
-        _ = g⁻¹ * c := by group
-    calc (g * x * g⁻¹) * c = g * x * (g⁻¹ * c) := by group
-      _ = g * x * (c * g⁻¹) := by rw [← hcg]
-      _ = g * (x * c) * g⁻¹ := by group
-      _ = g * (c * x) * g⁻¹ := by rw [hxc]
-      _ = (g * c) * x * g⁻¹ := by group
-      _ = (c * g) * x * g⁻¹ := by rw [hgc]
-      _ = c * (g * x * g⁻¹) := by group
-  have hnormiff : ∀ g ∈ Subgroup.normalizer (N : Set G), g * c = c * g →
-      g ∈ Subgroup.normalizer (N' : Set G) := by
-    intro g hg hgc
-    rw [Subgroup.mem_normalizer_iff]
-    intro x
-    refine ⟨fun hx => hnorm g hg hgc x hx, fun hx => ?_⟩
-    have hginv : g⁻¹ ∈ Subgroup.normalizer (N : Set G) := (Subgroup.normalizer _).inv_mem hg
-    have hgc' : g⁻¹ * c = c * g⁻¹ := by
-      calc g⁻¹ * c = g⁻¹ * (c * g) * g⁻¹ := by group
-        _ = g⁻¹ * (g * c) * g⁻¹ := by rw [hgc]
-        _ = c * g⁻¹ := by group
-    have := hnorm g⁻¹ hginv hgc' _ hx
-    simpa [mul_assoc] using this
-  obtain ⟨p, hp, hcomm⟩ := exists_conj_commutes_of_commutator_mem hA hB hN'odd
-    (fun a ha => hnormiff a (hAN ha) (hAc a ha)) (fun b hb => hnormiff b (hBN hb) (hBc b hb))
-    (fun a ha b hb => by
-      refine ⟨hAB a ha b hb, Subgroup.mem_centralizer_singleton_iff.mpr ?_⟩
-      have hac : Commute a c := hAc a ha
-      have hbc : Commute b c := hBc b hb
-      have hcomm : Commute ⁅a, b⁆ c := by
-        simp only [commutatorElement_def]
-        exact ((hac.mul_left hbc).mul_left hac.inv_left).mul_left hbc.inv_left
-      exact hcomm.eq)
-  exact ⟨p, hp.1, Subgroup.mem_centralizer_singleton_iff.mp hp.2, hcomm⟩
 
 end CFSG.ClassicalInvolution.Q3.Q3AM

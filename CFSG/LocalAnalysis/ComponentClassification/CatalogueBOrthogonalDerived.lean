@@ -61,14 +61,6 @@ theorem derived_map_eq_elementary [FiniteDimensional K V]
     (TauCeti.QuadraticMap.orthogonalGroup Q).subtype_injective).trans
       (MulEquiv.subgroupCongr (derived_map_eq_elementary Q h2 hQ hT hTQ))
 
-theorem derivedEquivElementary_val [FiniteDimensional K V]
-    (Q : QuadraticForm K V) (h2 : (2 : K) ≠ 0)
-    (hQ : (polarBilin Q).Nondegenerate)
-    {T : Submodule K V} (hT : 3 ≤ Module.finrank K T)
-    (hTQ : ∀ x ∈ T, Q x = 0)
-    (g : commutator (TauCeti.QuadraticMap.orthogonalGroup Q)) :
-    (derivedEquivElementary Q h2 hQ hT hTQ g : V ≃ₗ[K] V) = g.val.val := by
-  rfl
 
 theorem derived_quasisimple [FiniteDimensional K V]
     (Q : QuadraticForm K V) (h2 : (2 : K) ≠ 0)

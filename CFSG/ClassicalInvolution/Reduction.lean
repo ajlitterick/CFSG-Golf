@@ -23,22 +23,6 @@ variable {G : Type*} [Group G]
 @[expose] def DeltaConnected (J : Subgroup G) : Prop :=
   ∀ A ∈ conjugateSet J, ∀ B ∈ conjugateSet J, Relation.ReflTransGen (commutingAdj J) A B
 
-@[expose] def DistinctCentralTriple (z : G) (J : Subgroup G) : Prop :=
-  ∃ g : Fin 3 → G, (∀ i j, i ≠ j → ∀ a ∈ J.map (MulAut.conj (g i)⁻¹).toMonoidHom,
-      ∀ b ∈ J.map (MulAut.conj (g j)⁻¹).toMonoidHom, a * b = b * a) ∧
-    Function.Injective fun i => (g i)⁻¹ * z * g i
-
-theorem case_partition (z : G) (J : Subgroup G) :
-    Group.IsSolvable J ∨ (¬ Group.IsSolvable J ∧ ¬ DeltaConnected J) ∨
-      (¬ Group.IsSolvable J ∧ DeltaConnected J ∧ ¬ DistinctCentralTriple z J) ∨
-      (¬ Group.IsSolvable J ∧ DeltaConnected J ∧ DistinctCentralTriple z J) := by
-  by_cases hs : Group.IsSolvable J
-  · exact Or.inl hs
-  by_cases hc : DeltaConnected J
-  · by_cases ht : DistinctCentralTriple z J
-    · exact Or.inr (Or.inr (Or.inr ⟨hs, hc, ht⟩))
-    · exact Or.inr (Or.inr (Or.inl ⟨hs, hc, ht⟩))
-  · exact Or.inr (Or.inl ⟨hs, hc⟩)
 
 end Configuration
 
@@ -61,26 +45,10 @@ abbrev PartTwoConclusion (G : Type) [Group G] : Prop :=
 abbrev PartOneSolvable : Prop :=
   PartOneUnder fun _ J => Group.IsSolvable J
 
-abbrev PartOneDisconnected : Prop :=
-  PartOneUnder fun _ J => ¬ Group.IsSolvable J ∧ ¬ DeltaConnected J
-
-abbrev PartOneConnectedNoTriple : Prop :=
-  PartOneUnder fun z J => ¬ Group.IsSolvable J ∧ DeltaConnected J ∧ ¬ DistinctCentralTriple z J
-
-abbrev PartOneConnectedTriple : Prop :=
-  PartOneUnder fun z J => ¬ Group.IsSolvable J ∧ DeltaConnected J ∧ DistinctCentralTriple z J
 
 abbrev PartOne : Prop :=
   PartOneUnder fun _ _ => True
 
-theorem partOne_of_cases (hs : PartOneSolvable) (hd : PartOneDisconnected)
-    (hn : PartOneConnectedNoTriple) (ht : PartOneConnectedTriple) : PartOne := by
-  intro G _ _ _ hnab z hz J hzJ hJ S hS hw _
-  rcases case_partition z J with h | h | h | h
-  · exact hs G hnab z hz J hzJ hJ S hS hw h
-  · exact hd G hnab z hz J hzJ hJ S hS hw h
-  · exact hn G hnab z hz J hzJ hJ S hS hw h
-  · exact ht G hnab z hz J hzJ hJ S hS hw h
 
 @[expose] def NormalOddByQuaternionUnder
     (P : ∀ {G : Type} [Group G] [Finite G], Subgroup G → Prop) : Prop :=
@@ -94,24 +62,10 @@ theorem partOne_of_cases (hs : PartOneSolvable) (hd : PartOneDisconnected)
     IsPGroup 2 (R ⧸ classicalInvolutionOddCore R) →
     P ((S : Subgroup R).map R.subtype) → PartTwoConclusion G
 
-@[expose] def NormalizerHasSylow {G : Type} [Group G] [Finite G] (S : Subgroup G) : Prop :=
-  ∃ T : Sylow 2 G, (T : Subgroup G) ≤ Subgroup.normalizer (S : Set G)
-
-abbrev NormalOddByQuaternionAmbient : Prop :=
-  NormalOddByQuaternionUnder fun S => NormalizerHasSylow S
-
-abbrev NormalOddByQuaternionNonambient : Prop :=
-  NormalOddByQuaternionUnder fun S => ¬ NormalizerHasSylow S
 
 abbrev NormalOddByQuaternion : Prop :=
   NormalOddByQuaternionUnder fun _ => True
 
-theorem normalOddByQuaternion_of_cases (ha : NormalOddByQuaternionAmbient)
-    (hn : NormalOddByQuaternionNonambient) : NormalOddByQuaternion := by
-  intro G _ _ _ hnab R S hS t ht hto hRC hRn h2 _
-  by_cases hamb : NormalizerHasSylow ((S : Subgroup R).map R.subtype)
-  · exact ha G hnab R S hS t ht hto hRC hRn h2 hamb
-  · exact hn G hnab R S hS t ht hto hRC hRn h2 hamb
 
 @[expose] def WitnessOfNotTwoGroup : Prop :=
   ∀ {G : Type} [Group G] [Finite G] (J : Subgroup G) (S : Sylow 2 J),

@@ -24,12 +24,6 @@ variable {n : Nat}
 
 @[expose] def memC (p : Nat) (L : List (CV n)) : Bool := L.any fun c => Nat.beq p c.1
 
-variable [Small n]
-
-@[expose] noncomputable def groupF (L : List (CV n)) : Bool :=
-  forceCL L fun L => decide L.Nodup &&
-    (L.all fun a => L.all fun b => forceD (a * b).1 fun p _ => memC p L) &&
-    L.all fun a => forceD a⁻¹.1 fun p _ => memC p L
 
 end CFSG.Certificates.Kernel.PkCV
 

@@ -39,8 +39,6 @@ theorem relIndex_sup_of_normalizes {A B : Subgroup G}
   map_one' := rfl
   map_mul' _ _ := rfl
 
-theorem mulAutToEnd_apply {W : Type*} [Group W] (α : MulAut W) (m : Additive W) :
-    mulAutToEnd W α m = Additive.ofMul (α (Additive.toMul m)) := rfl
 
 theorem card_toSubgroup' {W : Type*} [Group W] (A : AddSubgroup (Additive W)) :
     Nat.card ↥(AddSubgroup.toSubgroup' A) = Nat.card ↥A :=

@@ -39,9 +39,6 @@ theorem lineCoord_injective : Function.Injective (lineCoord (r := r) (ε := ε))
   intro x y hxy
   rcases x with x | x <;> rcases y with y | y <;> simp_all [lineCoord]
 
-theorem lineCoord_ne_z (x : Fin r ⊕ Fin r) (k : Fin ε) :
-    lineCoord (ε := ε) x ≠ .inr (.inl k) := by
-  rcases x with x | x <;> simp [lineCoord]
 
 theorem lineCoord_swap_ne (x : Fin r ⊕ Fin r) : lineCoord (ε := ε) x.swap ≠ lineCoord x :=
   fun h => SymplecticHigher.swap_ne_self x (lineCoord_injective h)
@@ -184,26 +181,6 @@ theorem det_uRootMat (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hab :
       abel
     rw [hfac, det_mul, det_transvection_of_ne _ _ hab', det_transvection_of_ne _ _ hsw, mul_one]
 
-theorem uRootMat_mulVec_z (h : UnitaryFieldData p f K) (a b : Fin r ⊕ Fin r) (t : K)
-    (k : Fin ε) :
-    uRootMat ε h a b t *ᵥ Pi.single (.inr (.inl k)) 1 = Pi.single (.inr (.inl k)) 1 := by
-  rw [uRootMat, Matrix.add_mulVec, Matrix.one_mulVec, add_eq_left]
-  ext x
-  rw [mulVec_single_one, col_apply]
-  unfold uRootNil
-  split_ifs <;> simp [lineCoord_ne_z]
-
-theorem uRootMat_apply_self (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hab : a ≠ b)
-    (t : K) : uRootMat ε h a b t (lineCoord a) (lineCoord b) = t := by
-  have hab' : lineCoord (ε := ε) a ≠ lineCoord b := fun h' => hab (lineCoord_injective h')
-  rw [uRootMat, Matrix.add_apply, one_apply_ne hab', zero_add]
-  unfold uRootNil
-  split_ifs with hb
-  · simp
-  · have h' : ¬(lineCoord (ε := ε) b.swap = lineCoord a ∧
-        lineCoord (ε := ε) a.swap = lineCoord b) :=
-      fun hh => hb (lineCoord_injective hh.2).symm
-    simp [h']
 
 theorem uRootMat_partner (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hb : b ≠ a.swap)
     (t : K) : uRootMat ε h b.swap a.swap t = uRootMat ε h a b (-h.bar t) := by
@@ -235,19 +212,6 @@ theorem coe_uRootElt (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hab :
     rw [Subgroup.coe_mul, Units.val_mul, coe_uRootElt, coe_uRootElt, coe_uRootElt, toAdd_mul,
       AddSubgroup.coe_add, uRootMat_mul hab]))
 
-theorem uRootHom_apply (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hab : a ≠ b)
-    (t : uRootDom h a b) :
-    uRootHom (ε := ε) h hab (Multiplicative.ofAdd t) = uRootElt h hab t :=
-  rfl
-
-theorem uRootHom_injective (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin r} (hab : a ≠ b) :
-    Function.Injective (uRootHom (ε := ε) h hab) := by
-  intro s t hst
-  have := congrArg (fun g : hypSU h r ε => ((g : GL (HypIndex r ε) K) :
-    Matrix (HypIndex r ε) (HypIndex r ε) K) (lineCoord a) (lineCoord b)) hst
-  simp only [uRootHom, MonoidHom.coe_mk, OneHom.coe_mk, coe_uRootElt,
-    uRootMat_apply_self h hab] at this
-  exact Multiplicative.toAdd.injective (Subtype.ext this)
 
 variable (ε) in
 @[expose] noncomputable def uRootSubgroup (h : UnitaryFieldData p f K) (α : Fin r → ℤ) :
@@ -292,17 +256,6 @@ theorem uRootSubgroup_eq_range (h : UnitaryFieldData p f K) {a b : Fin r ⊕ Fin
   · exact le_rfl
   · exact (range_uRootHom_partner h hab hcd).le
 
-variable (ε) in
-@[expose] noncomputable def zFixer (h : UnitaryFieldData p f K) : Subgroup (hypSU h r ε) :=
-  ⨅ k : Fin ε, MulAction.stabilizer (hypSU h r ε) (Pi.single (.inr (.inl k)) 1 :
-    HypIndex r ε → K)
-
-theorem uRootSubgroup_le_zFixer (h : UnitaryFieldData p f K) (α : Fin r → ℤ) :
-    uRootSubgroup ε h α ≤ zFixer ε h := by
-  refine iSup_le fun q => ?_
-  rintro _ ⟨t, rfl⟩
-  refine Subgroup.mem_iInf.mpr fun k => MulAction.mem_stabilizer_iff.mpr ?_
-  exact uRootMat_mulVec_z h _ _ _ k
 
 theorem uRootMat_inl_inl (h : UnitaryFieldData p f K) {i j : Fin r} (t : K) :
     uRootMat ε h (.inl i) (.inl j) t =
@@ -317,12 +270,6 @@ theorem uRootMat_inl_inr (h : UnitaryFieldData p f K) {i j : Fin r} (hij : i ≠
   rw [uRootMat, uRootNil, ite_eq_right_iff.mpr (fun h' => absurd h' hne), add_sub_assoc]
   rfl
 
-theorem uRootMat_inr_inl (h : UnitaryFieldData p f K) {i j : Fin r} (hij : i ≠ j) (t : K) :
-    uRootMat ε h (.inr i) (.inl j) t =
-      1 + single (.inr (.inr i)) (.inl j) t - single (.inr (.inr j)) (.inl i) (h.bar t) := by
-  have hne : (Sum.inl j : Fin r ⊕ Fin r) ≠ (Sum.inr i).swap := by simpa using hij.symm
-  rw [uRootMat, uRootNil, ite_eq_right_iff.mpr (fun h' => absurd h' hne), add_sub_assoc]
-  rfl
 
 theorem uRootMat_inl_inr_self (h : UnitaryFieldData p f K) (i : Fin r) (t : K) :
     uRootMat ε h (.inl i) (.inr i) t = 1 + single (.inl i) (.inr (.inr i)) t := by
@@ -378,61 +325,5 @@ variable (ε) in
       rw [show (Sum.inr k : Fin r ⊕ Fin r) = (Sum.inl k).swap from rfl, uRootDom_swap]
       exact neg_mem (inv_mem_traceZero hc)⟩
 
-theorem unitary_hyperbolic_root_matrix_data (h : UnitaryFieldData p f K) :
-    (∀ (a b : Fin r ⊕ Fin r) (hab : a ≠ b) (s t : uRootDom h a b),
-      ((uRootMat ε h a b t).map h.bar)ᵀ * hypGram r ε K * uRootMat ε h a b t = hypGram r ε K ∧
-      (uRootMat ε h a b t).det = 1 ∧
-      uRootElt (ε := ε) h hab s * uRootElt h hab t = uRootElt h hab (s + t) ∧
-      (uRootElt (ε := ε) h hab t)⁻¹ = uRootElt h hab (-t) ∧
-      Function.Injective (uRootHom (ε := ε) h hab) ∧
-      uRootSubgroup ε h (rootVec a b) = (uRootHom h hab).range) ∧
-    (∀ α : Fin r → ℤ, uRootSubgroup ε h α ≤ zFixer ε h) ∧
-    (∀ (a b : Fin r ⊕ Fin r), uRootDom h a b = if b = a.swap then h.traceZero else ⊤) ∧
-    (∀ (i j : Fin r) (t : K), i ≠ j →
-      uRootMat ε h (.inl i) (.inl j) t =
-          1 + single (.inl i) (.inl j) t - single (.inr (.inr j)) (.inr (.inr i)) (h.bar t) ∧
-        rootVec (Sum.inl i) (Sum.inl j) = Pi.single i 1 - Pi.single j 1 ∧
-      uRootMat ε h (.inl i) (.inr j) t =
-          1 + single (.inl i) (.inr (.inr j)) t - single (.inl j) (.inr (.inr i)) (h.bar t) ∧
-        rootVec (Sum.inl i) (Sum.inr j) = Pi.single i 1 + Pi.single j 1 ∧
-      uRootMat ε h (.inr i) (.inl j) t =
-          1 + single (.inr (.inr i)) (.inl j) t - single (.inr (.inr j)) (.inl i) (h.bar t) ∧
-        rootVec (Sum.inr i) (Sum.inl j) = -Pi.single i 1 - Pi.single j 1) ∧
-    (∀ (i : Fin r) (t : K),
-      uRootMat ε h (.inl i) (.inr i) t = 1 + single (.inl i) (.inr (.inr i)) t ∧
-        rootVec (Sum.inl i) (Sum.inr i) = 2 • Pi.single i 1 ∧
-      uRootMat ε h (.inr i) (.inl i) t = 1 + single (.inr (.inr i)) (.inl i) t ∧
-        rootVec (Sum.inr i) (Sum.inl i) = -(2 • Pi.single i 1)) ∧
-    (∀ k : Fin r, simpleRefl r k ∈ hypWeyl r ∧ simpleRefl r k * simpleRefl r k = 1 ∧
-      rootVec (Sum.inl k) (simpleSnd k) = simpleRootVec r k) ∧
-    (∀ (k : Fin r) (hk : (k : ℕ) + 1 < r), uWeylRepShort ε h k hk =
-      uRootElt h (inl_ne_simpleSnd k) ⟨1, one_mem_uRootDom_simple h hk 1⟩ *
-        uRootElt h (inl_ne_simpleSnd k).symm ⟨-1, one_mem_uRootDom_simple_symm h hk (-1)⟩ *
-        uRootElt h (inl_ne_simpleSnd k) ⟨1, one_mem_uRootDom_simple h hk 1⟩) ∧
-    ∀ (k : Fin r) (c : K) (hc : c ∈ h.traceZero),
-      ((uWeylRepLong ε h k c hc : hypSU h r ε) : GL (HypIndex r ε) K) =
-        ((uRootElt (ε := ε) h (inl_ne_inr k) ⟨-c⁻¹, by
-            rw [show (Sum.inr k : Fin r ⊕ Fin r) = (Sum.inl k).swap from rfl, uRootDom_swap]
-            exact neg_mem (inv_mem_traceZero hc)⟩ : hypSU h r ε) : GL (HypIndex r ε) K) *
-          ((uRootElt (ε := ε) h (inl_ne_inr k).symm ⟨c, by
-            rw [show (Sum.inl k : Fin r ⊕ Fin r) = (Sum.inr k).swap from rfl, uRootDom_swap]
-            exact hc⟩ : hypSU h r ε) : GL (HypIndex r ε) K) *
-          ((uRootElt (ε := ε) h (inl_ne_inr k) ⟨-c⁻¹, by
-            rw [show (Sum.inr k : Fin r ⊕ Fin r) = (Sum.inl k).swap from rfl, uRootDom_swap]
-            exact neg_mem (inv_mem_traceZero hc)⟩ : hypSU h r ε) : GL (HypIndex r ε) K) := by
-  refine ⟨fun a b hab s t => ⟨uRootMat_gram h hab t.2, det_uRootMat h hab t, ?_, ?_,
-    uRootHom_injective h hab, uRootSubgroup_eq_range h hab⟩, uRootSubgroup_le_zFixer h,
-    fun a b => rfl,
-    fun i j t hij => ⟨uRootMat_inl_inl h t, by simp [rootVec, SymplecticHigher.lineVec],
-      uRootMat_inl_inr h hij t,
-      by simp [rootVec, SymplecticHigher.lineVec, sub_eq_add_neg],
-      uRootMat_inr_inl h hij t, by simp [rootVec, SymplecticHigher.lineVec]⟩,
-    fun i t => ⟨uRootMat_inl_inr_self h i t,
-      by simp [rootVec, SymplecticHigher.lineVec, two_smul],
-      uRootMat_inr_inl_self h i t, by simp [rootVec, SymplecticHigher.lineVec, two_smul]; abel⟩,
-    fun k => ⟨simpleRefl_mem k, simpleRefl_mul_self k, rootVec_simpleSnd k⟩,
-    fun k hk => rfl, fun k c hc => rfl⟩
-  · exact (map_mul (uRootHom h hab) (Multiplicative.ofAdd s) (Multiplicative.ofAdd t)).symm
-  · exact (map_inv (uRootHom h hab) (Multiplicative.ofAdd t)).symm
 
 end CFSG.LocalAnalysis.ComponentInitial.UnitaryHigher

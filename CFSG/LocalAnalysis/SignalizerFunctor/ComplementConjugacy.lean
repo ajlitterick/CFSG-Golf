@@ -40,10 +40,6 @@ variable {GroupType : Type groupUniverse} [Group GroupType]
     rw [map_mul, normal_trivial, one_mul]
   exact MulEquiv.ofBijective restricted ⟨injective, surjective⟩
 
-theorem complement_quotient_equiv_apply (normal complement : Subgroup GroupType)
-    [normal.Normal] (complementary : normal.IsComplement' complement) (element : complement) :
-    complementQuotientEquiv normal complement complementary element =
-      QuotientGroup.mk' normal element.val := rfl
 
 theorem abelian_normal_complements_conjugate [Finite GroupType]
     (normal first second : Subgroup GroupType) [normal.Normal]

@@ -34,76 +34,6 @@ theorem _root_.CFSG.StandardType.GGQ2Frame.ExcRaw.occurs_cent_of_occurs {m : Fin
   · intro i hi j hj hadj
     exact hclosed i hi j (fun u hu => hj u (hUle hu)) hadj
 
-private def rootVec (i : ExcRaw.Root 1) : ExcRaw.V 1 := fun k => (ExcRaw.F 1 i k : ZMod 3)
-
-private theorem root_apply_rootVec (i : ExcRaw.Root 1) (v : ExcRaw.V 1) :
-    ExcRaw.root 1 i v = ∑ k, rootVec i k * v k :=
-  ExcRaw.root_apply 1 i v
-
-private theorem root_apply_single (i : ExcRaw.Root 1) (k : Fin (ExcRaw.dim 1)) :
-    ExcRaw.root 1 i (Pi.single k 1) = rootVec i k := by
-  rw [root_apply_rootVec, Finset.sum_eq_single k]
-  · simp
-  · intro l _ hlk
-    simp [hlk]
-  · intro hk
-    exact absurd (Finset.mem_univ k) hk
-
-private theorem rootVec_injective : Function.Injective rootVec := by
-  decide
-
-private theorem root_injective : Function.Injective (fun i : ExcRaw.Root 1 => ExcRaw.root 1 i) := by
-  intro i j h
-  apply rootVec_injective
-  funext k
-  have hk := congrArg (fun f : Module.Dual (ZMod 3) (ExcRaw.V 1) => f (Pi.single k 1)) h
-  simpa [rootVec, root_apply_rootVec, Pi.single_apply] using hk
-
-private theorem vanish_cent_iff_mem_span (c : Finset (ExcRaw.Root 1)) (t : ExcRaw.Root 1) :
-    ExcRaw.Vanish 1 (ExcRaw.cent 1 c) t ↔
-      ExcRaw.root 1 t ∈ Submodule.span (ZMod 3)
-        ((fun i : ExcRaw.Root 1 => ExcRaw.root 1 i) '' (c : Set (ExcRaw.Root 1))) := by
-  constructor
-  · intro h
-    have hcent : (⨅ i : ↥c, LinearMap.ker (ExcRaw.root 1 (i : ExcRaw.Root 1))) =
-        ExcRaw.cent 1 c := by
-      ext v
-      rw [Submodule.mem_iInf, mem_cent_iff]
-      exact ⟨fun h i hi => h ⟨i, hi⟩, fun h i => h i i.2⟩
-    have hle : (⨅ i : ↥c, LinearMap.ker (ExcRaw.root 1 (i : ExcRaw.Root 1))) ≤
-        LinearMap.ker (ExcRaw.root 1 t) := by
-      rw [hcent]
-      intro v hv
-      rw [LinearMap.mem_ker]
-      exact h v hv
-    have hspan := FiniteDimensional.mem_span_of_iInf_ker_le_ker hle
-    have hrange : Set.range (fun i : ↥c => ExcRaw.root 1 (i : ExcRaw.Root 1)) =
-        (fun i : ExcRaw.Root 1 => ExcRaw.root 1 i) '' (c : Set (ExcRaw.Root 1)) := by
-      ext x
-      constructor
-      · rintro ⟨i, rfl⟩
-        exact ⟨i, i.2, rfl⟩
-      · rintro ⟨i, hi, rfl⟩
-        exact ⟨⟨i, hi⟩, rfl⟩
-    rw [hrange] at hspan
-    exact hspan
-  · rintro hspan v hv
-    rw [mem_cent_iff] at hv
-    have hzero : ∀ i ∈ c, ExcRaw.root 1 i v = 0 := fun i hi => hv i hi
-    have hle : Submodule.span (ZMod 3)
-        ((fun i : ExcRaw.Root 1 => ExcRaw.root 1 i) '' (c : Set (ExcRaw.Root 1))) ≤
-        LinearMap.ker (LinearMap.applyₗ v) := by
-      rw [Submodule.span_le]
-      rintro x ⟨i, hi, rfl⟩
-      exact LinearMap.mem_ker.mpr (hzero i hi)
-    exact LinearMap.mem_ker.mp (hle hspan)
-
-private theorem mem_iff_span_of_occurs {U : Submodule (ZMod 3) (ExcRaw.V 1)}
-    {c : Finset (ExcRaw.Root 1)} (hc : ExcRaw.occurs 1 U c) (t : ExcRaw.Root 1) :
-    t ∈ c ↔ ExcRaw.root 1 t ∈ Submodule.span (ZMod 3)
-      ((fun i : ExcRaw.Root 1 => ExcRaw.root 1 i) '' (c : Set (ExcRaw.Root 1))) := by
-  rw [ExcRaw.mem_iff_vanish_of_occurs (ExcRaw.occurs_cent_of_occurs hc) rfl t,
-    vanish_cent_iff_mem_span]
 
 private def orbitList (i : ExcRaw.Root 1) : List (Fin Tag.E6.rank → ℤ) :=
   e6SplitRoot i :: -e6SplitRoot i ::
@@ -343,8 +273,6 @@ private theorem adjOK_spec (h : adjOK = true) (i j : ExcRaw.Root 1) :
 
 private theorem kerOK_eq : kerOK = true := by decide +kernel
 
-theorem e6SplitKerTab_getD_lt (i : ExcRaw.Root 1) : e6SplitKerTab.getD i.val 0 < 2 ^ 81 :=
-  (kerOK_spec kerOK_eq i).1
 
 theorem testBit_e6SplitKerTab_iff (i : ExcRaw.Root 1) {u : ℕ} (hu : u < 81) :
     (e6SplitKerTab.getD i.val 0).testBit u = true ↔ ExcRaw.root 1 i (ExcRaw.vec 1 u) = 0 :=

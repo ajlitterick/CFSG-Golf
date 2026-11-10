@@ -17,8 +17,6 @@ open scoped commutatorElement
 
 @[expose] def ofCoords (a b c : F4) : ↥(unipAll F4) := ⟨unipU F4 a b c, a, b, c, rfl⟩
 
-theorem coe_ofCoords (a b c : F4) : (ofCoords a b c : SpecialLinearGroup (Fin 3) F4) =
-    unipU F4 a b c := rfl
 
 theorem exists_ofCoords (x : ↥(unipAll F4)) : ∃ a b c, x = ofCoords a b c := by
   obtain ⟨a, b, c, h⟩ := x.2
@@ -701,30 +699,8 @@ open scoped commutatorElement
 
 variable {A : Type*} [Group A] [Finite A]
 
-theorem exists_equiv_unip (hZ : Odd (Nat.card (center A)))
-    (e : A ⧸ center A ≃* PSL3Four.S) (V : Sylow 2 A) :
-    ∃ (k : Type) (_ : Field k) (_ : Finite k), Nat.card k = 4 ∧
-      Nonempty (↥V ≃* ↥(unipAll k)) := by
-  obtain ⟨ι, -, hι, hr, -⟩ := L34.exists_chart hZ e V
-  exact ⟨PSL3Four.F4, inferInstance, inferInstance, PSL3Four.natCard_F4,
-    ⟨(MulEquiv.subgroupCongr hr.symm).trans (MonoidHom.ofInjective hι).symm⟩⟩
-
 
 open CFSG.Open
-
-theorem exists_parabolic_radicals
-    (hZ : Odd (Nat.card (center A))) (e : A ⧸ center A ≃* PSL3Four.S) (V : Sylow 2 A) :
-    ∃ V₁ V₂ : Subgroup A, V₁ ≤ (V : Subgroup A) ∧ V₂ ≤ (V : Subgroup A) ∧
-      (V₁.subgroupOf (V : Subgroup A)).Normal ∧ (V₂.subgroupOf (V : Subgroup A)).Normal ∧
-      IsElemAbelian 2 V₁ ∧ IsElemAbelian 2 V₂ ∧ Nat.card V₁ = 16 ∧ Nat.card V₂ = 16 ∧
-      V₁ ⊓ V₂ = (V : Subgroup A) ⊓ centralizer (V : Set A) ∧ V₁ ⊔ V₂ = (V : Subgroup A) ∧
-      Nat.card ↥((V : Subgroup A) ⊓ centralizer (V : Set A)) = 4 ∧
-      (∀ E : Subgroup A, E ≤ (V : Subgroup A) → IsElemAbelian 2 E → E ≤ V₁ ∨ E ≤ V₂) ∧
-      (∀ E : Subgroup A, E ≤ (V : Subgroup A) → IsElemAbelian 2 E → Nat.card E = 16 →
-        E = V₁ ∨ E = V₂) ∧
-      (∀ x ∈ (V : Subgroup A), x ^ 2 = 1 → x ∈ V₁ ∨ x ∈ V₂) := by
-  obtain ⟨ι, -, hι, hr, -⟩ := L34.exists_chart hZ e V
-  exact ⟨_, _, L34.radicals_of_chart hι hr⟩
 
 
 theorem exists_torus
@@ -767,17 +743,6 @@ theorem exists_parabolic_radicals_of_isSylowOf
   obtain ⟨ι, -, hι, hr, -⟩ := L34.exists_chart_of_isSylowOf hZ e hV
   exact ⟨_, _, L34.radicals_of_chart hι hr⟩
 
-theorem exists_torus_of_isSylowOf
-    (hZ : Odd (Nat.card (center ↥A))) (e : ↥A ⧸ center ↥A ≃* PSL3Four.S)
-    (hV : IsSylowOf 2 V A) :
-    ∃ h ∈ A, h ∈ normalizer (V : Set G) ∧ Odd (orderOf h) ∧
-      (∀ E : Subgroup G, E ≤ V → IsElemAbelian 2 E → Nat.card E = 16 →
-        h ∈ normalizer (E : Set G)) ∧ ⁅V, Subgroup.zpowers h⁆ = V ∧
-      (∀ u ∈ V ⊓ centralizer (V : Set G), u ≠ 1 → ∀ u' ∈ V ⊓ centralizer (V : Set G), u' ≠ 1 →
-        ∃ y ∈ normalizer ((V ⊓ centralizer (V : Set G) : Subgroup G) : Set G),
-          y * u * y⁻¹ = u') := by
-  obtain ⟨ι, h, hι, hr, hhA, hodd, hact⟩ := L34.exists_chart_of_isSylowOf hZ e hV
-  exact ⟨h, hhA, L34.torus_of_chart hι hr hodd hact⟩
 
 end Ambient
 

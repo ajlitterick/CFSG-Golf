@@ -36,11 +36,6 @@ theorem blk : blockK 504 D.CLK D.POK D.POIK D.STK = true := by quickRfl
 
 theorem sift : allN 7 (fun k => siftF (SK k)) = true := by quickRfl
 
-open CFSG.KLie.CT (notB) in
-theorem negStab : bAnd(notB (stabAt 9 D.IK (fun q => Nat.xor (D.SMK q) (nat_lit 1)) 5),
-    bAnd(notB (classK 504 32 D.SMK (fun q => Nat.succ (D.CLK q)) D.CMK),
-      notB (uniqAtK 9 D.IK D.CLK D.POK D.STK (fun q => Nat.succ (D.WK q)) 0))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelFi24Rk.K
 

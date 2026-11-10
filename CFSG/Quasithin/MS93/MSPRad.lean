@@ -145,9 +145,6 @@ theorem exists_of_mem_sylS {g : Sp4 F} (hg : g ∈ sylS F) :
   change ((g : GL (Fin 2 ⊕ Fin 2) F) : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) F) = _
   rw [hg, ← eq_unitri_of_isUnitriangular hA]
 
-theorem mem_sylS_of {g : Sp4 F} {a : F} {C : Matrix (Fin 2) (Fin 2) F} (hC : Cᵀ = C)
-    (hg : mat g = blockMat (unitri a) C) : g ∈ sylS F :=
-  mem_unipotent.2 ⟨unitri a, C, isUnitriangular_unitri a, hC, hg⟩
 
 theorem mat_tau {C : Matrix (Fin 2) (Fin 2) F} (hC : Cᵀ = C) :
     mat (tau hC) = blockMat (unitri 0) C := by
@@ -263,15 +260,6 @@ theorem commSp_Q₁ : commSp (Q₁ F) = ln₀ F := by
   · simp [e2, h0]
   · simp [e3, h1]
 
-theorem commSp_Q₁_le_fixSp : commSp (Q₁ F) ≤ fixSp (Q₁ F) := by
-  rw [commSp_Q₁, fixSp_Q₁]
-
-theorem finrank_fixSp_Q₁ : Module.finrank F (fixSp (Q₁ F)) = 2 := by
-  rw [fixSp_Q₁]
-  exact isLine_ln₀.1
-
-theorem card_fixSp_Q₁ [Finite F] : Nat.card (fixSp (Q₁ F)) = Nat.card F ^ 2 := by
-  rw [Module.natCard_eq_pow_finrank (K := F), finrank_fixSp_Q₁]
 
 theorem mat_apply_eq (g : Sp4 F) (i j : Fin 2 ⊕ Fin 2) :
     mat g i j = (mat g *ᵥ Pi.single j 1) i := by
@@ -475,9 +463,6 @@ theorem not_commSp_Q₂_le_fixSp : ¬ commSp (Q₂ F) ≤ fixSp (Q₂ F) := by
   have := (mem_pt₀.1 (h (mem_perp_pt₀.2 (show e₂ F (.inr 0) = 0 by simp)))).1
   simp at this
 
-theorem finrank_fixSp_Q₂ : Module.finrank F (fixSp (Q₂ F)) = 1 := by
-  rw [fixSp_Q₂]
-  exact isPoint_pt₀
 
 theorem transv_e₁ (c : F) : transv (e₁ F) c = tau (sym2_transpose c 0 0) := by
   refine ext_mulVec fun v => ?_

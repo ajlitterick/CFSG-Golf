@@ -45,9 +45,6 @@ theorem pairN_191 (x : ℕ) :
     boolZ_xor]
   rfl
 
-theorem testBit_wordN_63 (i : Fin 24) : (Model.wordN 63).testBit i = true := by
-  revert i
-  decide
 
 theorem Xlift_labelElt (l : ShortLabel) : Xlift (labelElt l) = Pi.single (labelIdx l) 1 := by
   rw [Xlift_eq (isShortCoord_labelElt l), centralCoord_labelElt, sgn_zero, one_smul]

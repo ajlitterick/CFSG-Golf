@@ -8,19 +8,6 @@ universe u v w
 
 namespace CFSG.Open
 
-open scoped MatrixGroups in
-theorem _root_.CFSG.Milestones.cl_lit_borel_tits_local_parabolic
-    (r k n : ℕ) [Fact r.Prime] (hk : 0 < k) (hn : 2 ≤ n) (hsmall : n = 2 → 4 ≤ r ^ k)
-    (U : Subgroup PSL(n, GaloisField r k)) (hU : U ≠ ⊥) (hUr : IsPGroup r U) :
-    ∃ (S : Sylow r PSL(n, GaloisField r k)) (P : Subgroup PSL(n, GaloisField r k)),
-      P ≠ ⊤ ∧
-      Subgroup.normalizer (U : Set PSL(n, GaloisField r k)) ≤ P ∧
-      pCoreOf r (Subgroup.normalizer (U : Set PSL(n, GaloisField r k))) ≤ pCoreOf r P ∧
-      Subgroup.normalizer ((S : Subgroup PSL(n, GaloisField r k)) :
-        Set PSL(n, GaloisField r k)) ≤ P := by
-  obtain ⟨S, P, hP, hN, hcore, -, hS⟩ :=
-    LieType.BorelTits.holds_projectiveSpecialLinearGroup n (GaloisField r k) r U hU hUr
-  exact ⟨S, P, hP, hN, hcore, hS⟩
 
 end CFSG.Open
 

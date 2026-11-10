@@ -25,9 +25,6 @@ variable {Γ : Type*} [Group Γ] {W : Type*} [AddCommGroup W] [Module (ZMod 2) W
       exact congrArg _ hxy,
     fun m => ⟨QuotientGroup.mk m, rfl⟩⟩
 
-theorem secEquivSub_mk (D : FFModel) (hk : D.ker = ⊥) (m : ↥D.sec) :
-    secEquivSub D hk (QuotientGroup.mk m) = m :=
-  rfl
 
 theorem Witness.sub {D : FFModel} (hk : D.ker = ⊥) {ρ : Representation (ZMod 2) Γ W}
     {θ : Γ ≃* D.Gam} {β : W ≃+ Additive D.Sec} (h : D.Witness ρ θ β) (γ : Γ) (w : W) :

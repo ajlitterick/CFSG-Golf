@@ -46,6 +46,5 @@ open CFSG.Sporadic.Co1Schreier.Native
     ki.1.all (fun p => decide (p.2 < 2 ^ 24) && act N p.2 == p.1) &&
     echelonOK (ki.1.map Prod.fst)
 
-@[expose] def fixDim (M : Rows) : Nat := (echelonize (kerIm (add M one)).2).length
 
 end CFSG.Sporadic.Co1Patterson.Native

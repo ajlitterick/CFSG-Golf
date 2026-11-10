@@ -50,11 +50,6 @@ section RankOnePerfect
 
 variable {F : Type} [Field F] [Finite F] {b c : F} (hirr : ∀ s : F, s ^ 2 + b * s + c ≠ 0) {n : ℕ}
 
-omit [Finite F] in
-private theorem comm_le_self (R : Subgroup (spinGroup (quadMinus n F b c))) : ⁅R, R⁆ ≤ R :=
-  Subgroup.commutator_le.mpr fun a ha b hb => by
-    rw [commutatorElement_def]
-    exact R.mul_mem (R.mul_mem (R.mul_mem ha hb) (R.inv_mem ha)) (R.inv_mem hb)
 
 private theorem rankOne_minusDatum_perfect' (h4 : 4 ≤ Nat.card F) (k : Fin (n - 1)) :
     ⁅rankOne (minusDatum n hirr).rootGroup k, rankOne (minusDatum n hirr).rootGroup k⁆ =

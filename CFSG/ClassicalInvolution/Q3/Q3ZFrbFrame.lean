@@ -111,29 +111,6 @@ section Chain
         (∃ W, Models.SymplecticPairs.SymplecticBlockStandardPair (GaloisField 3 1) W (U 2)
           (U 1))
 
-theorem exists_frame_of_setup {G : Type} [Group G] [Finite G] {K : Subgroup G} {z : G}
-    (hR : Q3W.RouteD3Setup K z)
-    (hshape : Q3W.LocalShapeC3 1 (CompData.model .PSp 2) (conjClass3 K) z)
-    (hO3 : Q3W.LocalOddThreeFree3 (conjClass3 K) z) :
-    ∃ fr : C3Frame G (conjClass3 K), fr.K₀ = K := by
-  have hK : K ∈ conjClass3 K := ⟨1, conjSub_one K⟩
-  obtain ⟨d⟩ := LocalShapeC3.nonempty_cdict hR.inClass hK hR.cls hshape
-  exact exists_frame hR.inClass hR.setup.1 hK hR.cls
-    (fun L ⟨g, hg⟩ => ⟨g, hg.symm⟩) hR.setup.2 hO3 d
-
-theorem chain_exists_of_a2rel (h : C3A2Rel) {G : Type} [Group G] [Finite G] [IsSimpleGroup G]
-    (hnab : ∃ x y : G, x * y ≠ y * x) {K : Subgroup G} {z : G} (hR : Q3W.RouteD3Setup K z)
-    (hshape : Q3W.LocalShapeC3 1 (CompData.model .PSp 2) (conjClass3 K) z)
-    (hO3 : Q3W.LocalOddThreeFree3 (conjClass3 K) z) :
-    ∃ U : Fin 3 → Subgroup G, U 2 ∈ conjClass3 K ∧ (∀ a ∈ U 0, ∀ b ∈ U 2, a * b = b * a) ∧
-      (∃ W, WeakCT.LinearBlockStandardPair (GaloisField 3 1) W (U 0) (U 1)) ∧
-      (∃ W, Models.SymplecticPairs.SymplecticBlockStandardPair (GaloisField 3 1) W (U 2)
-        (U 1)) := by
-  obtain ⟨fr, -⟩ := exists_frame_of_setup hR hshape hO3
-  exact chain_of_c3A2Rel h hnab hR hshape hO3 fr
-
-theorem c3ChainInput_of_a2rel (h : C3A2Rel) : C3ChainInput :=
-  fun _ _ _ _ hnab _ _ hR hshape hO3 => chain_exists_of_a2rel h hnab hR hshape hO3
 
 end Chain
 

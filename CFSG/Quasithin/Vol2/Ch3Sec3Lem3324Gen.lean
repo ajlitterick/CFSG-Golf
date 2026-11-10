@@ -36,14 +36,6 @@ theorem pre₀_le (Q : Subgroup Γ) : pre₀ ρ Q ≤ K := fun _ hg => ((mem_pre
 theorem pre₀_mono {Q₁ Q₂ : Subgroup Γ} (h : Q₁ ≤ Q₂) : pre₀ ρ Q₁ ≤ pre₀ ρ Q₂ :=
   Subgroup.map_mono (Subgroup.comap_mono h)
 
-theorem pre₀_inf (Q₁ Q₂ : Subgroup Γ) : pre₀ ρ (Q₁ ⊓ Q₂) = pre₀ ρ Q₁ ⊓ pre₀ ρ Q₂ := by
-  ext g
-  rw [Subgroup.mem_inf, mem_pre₀, mem_pre₀, mem_pre₀]
-  constructor
-  · rintro ⟨hg, h1, h2⟩
-    exact ⟨⟨hg, h1⟩, hg, h2⟩
-  · rintro ⟨⟨hg, h1⟩, hg', h2⟩
-    exact ⟨hg, h1, h2⟩
 
 theorem pre₀_le_normalizer {Q₁ Q₂ : Subgroup Γ} (h : Q₁ ≤ Subgroup.normalizer (Q₂ : Set Γ)) :
     pre₀ ρ Q₁ ≤ Subgroup.normalizer (pre₀ ρ Q₂ : Set G) := by
@@ -337,11 +329,6 @@ theorem exists_top_factor {K U : Subgroup G} (hUK : U ≤ K)
       exact B.one_mem⟩
   · exact (not_le_of_gt hBU) (hUc.trans h)
 
-theorem le_oTwoUpper_sup {H S : Subgroup G} (hS : IsSylowTwoOf S H) : H ≤ oTwoUpper H ⊔ S := by
-  have h := CFSG.Quasithin.sup_twoResidual_eq hS
-  rw [CFSG.Quasithin.F6.twoResidual_eq_oTwoUpper] at h
-  rw [sup_comm] at h
-  exact h.ge
 
 theorem dih_check : ∀ g : DihedralGroup 6, g ≠ 1 → g ≠ DihedralGroup.r 3 →
     ∃ h : DihedralGroup 6, g * (h * g * h⁻¹) ≠ 1 ∧ (g * (h * g * h⁻¹)) ^ 3 = 1 := by

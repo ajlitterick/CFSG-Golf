@@ -21,20 +21,6 @@ theorem isQuasisimple_of_open {K : Type} [Group K] (hq : CFSG.Open.IsQuasisimple
   ⟨⟨hq.1⟩, hq.2,
     CFSG.ComponentClassification.Helpers.quasisimple_central_quotient_nonabelian K hq⟩
 
-theorem torsion_center_le_sq (hGA : GriessAllModelsStatement) {K : Type} [Group K] [Finite K]
-    (hq : CFSG.Open.IsQuasisimple K) {d : ValidLieTypeIndex}
-    (e : K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) {p : ℕ} (hp : p.Prime)
-    (hp2 : p ≠ 2) : Nat.card {z : Subgroup.center K // z ^ p = 1} ≤ p ^ 2 := by
-  obtain ⟨t, n, p0, f, hm, -⟩ := exists_lieModel_spec d
-  refine (center_torsion_le hGA hq e hm hp).trans ?_
-  by_cases hp5 : 5 ≤ p
-  · exact (torsBound_le_of_five_le hp5 t n p0 f).trans (Nat.le_self_pow two_ne_zero p)
-  · rcases (show p = 3 ∨ p = 4 by have := hp.two_le; omega) with rfl | rfl
-    · by_cases h9 : 9 ≤ torsBound 3 t n p0 f
-      · obtain ⟨rfl, rfl, rfl, rfl⟩ := eq_psu_four_three_of_nine_le h9
-        simp [torsBound, genericOrders, exceptionalOrders, tors]
-      · omega
-    · exact absurd hp (by norm_num)
 
 theorem ne_of_dvd_pow_sub_one {p p0 f : ℕ} (hp : p.Prime) (hf : 0 < f) (h : p ∣ p0 ^ f - 1) :
     p ≠ p0 := by
@@ -266,11 +252,6 @@ theorem lie_three (hGA : GriessAllModelsStatement) {K : Type} [Group K] [Finite 
   | reeF4 m => exact htc.elim
   | tits => exact htc.elim
 
-theorem lie_rank (hGA : GriessAllModelsStatement) {K : Type} [Group K] [Finite K]
-    (hq : CFSG.Open.IsQuasisimple K) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (d : ValidLieTypeIndex)
-    (e : K ⧸ Subgroup.center K ≃* (CFSGIndex.lie d).Group) :
-    CFSG.Open.pRank p (Subgroup.center K) ≤ 2 :=
-  pRank_center_le_two_of_torsion hp.one_lt (torsion_center_le_sq hGA hq e hp hp2)
 
 theorem lie_case (hGA : GriessAllModelsStatement) {K : Type} [Group K] [Finite K]
     (hq : CFSG.Open.IsQuasisimple K) {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2)

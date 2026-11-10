@@ -30,13 +30,6 @@ theorem K_conj_torus (t : kˣ) {a ν p : ThompsonN k σ}
     _ = T⁻¹ * R.ι ν * T⁻¹ * (R.K * T⁻¹) * R.ι p * T := by rw [hTK]
     _ = _ := by group
 
-theorem K_f_K {a ν p : ThompsonN k σ} (h : R.K * R.ι a * R.K = R.ι ν * R.K * R.ι p) :
-    R.K * R.ι p * R.K = R.ι ν⁻¹ * R.K * R.ι a := by
-  have hKK := R.K_mul_K
-  rw [map_inv]
-  calc R.K * R.ι p * R.K = (R.ι ν)⁻¹ * (R.ι ν * R.K * R.ι p) * R.K := by group
-    _ = (R.ι ν)⁻¹ * R.K * R.ι a * (R.K * R.K) := by rw [← h]; group
-    _ = _ := by rw [hKK, mul_one]
 
 theorem K_inv_K {a g p : ThompsonN k σ} {κ : kˣ}
     (h : R.K * R.ι a * R.K = R.ι (g * ThompsonN.torus σ κ) * R.K * R.ι p) :

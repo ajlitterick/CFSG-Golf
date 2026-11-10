@@ -73,9 +73,6 @@ variable (p) (A : Type*) [CommGroup A] [Module (ZMod p) (Additive A)]
   map_one' := Units.ext (LinearMap.ext fun _ => rfl)
   map_mul' _ _ := Units.ext (LinearMap.ext fun _ => rfl)
 
-theorem mulAutGL_apply (σ : MulAut A) (v : Additive A) :
-    (mulAutGL p A σ : Module.End (ZMod p) (Additive A)) v = Additive.ofMul (σ v.toMul) :=
-  rfl
 
 end Linear
 

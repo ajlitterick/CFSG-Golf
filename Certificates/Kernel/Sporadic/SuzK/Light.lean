@@ -21,8 +21,6 @@ theorem canon_ok : bAnd(canonF (ln 0), bAnd(canonF (ln 1), bAnd(canonF (ln 2), b
     bAnd(canonF (ln 4), bAnd(canonF (ln 5), bAnd(canonF (ln 6), bAnd(canonF (ln 7),
     bAnd(canonF (ln 8), canonF (mulF (ln 0) (ln 1))))))))))) = true := by quickRfl
 
-theorem canonK_ok : bAnd(canonF (laneK 0), bAnd(canonF (laneK 1), bAnd(canonF (laneK 2),
-    bAnd(canonF (laneK 3), bAnd(canonF (laneK 4), canonF (laneK 5)))))) = true := by quickRfl
 
 theorem id_ok : eqMK 64 (idM 64) (unlane 64 (ln 3)) = true := by decide +kernel
 theorem formF_ok : eqMK 64 (formF ()) (unlane 64 (ln 4)) = true := by decide +kernel

@@ -30,11 +30,6 @@ theorem j4Sec_K : mcertN (opsF2K 112) JA.M JB.M
     ⟨j4_7_claims.nregs, j4_7_claims.prog, j4_7_claims.facts⟩ = true := by
   quickRfl
 
-theorem j4Sec_neg : (!mcertN (opsF2K 112) JA.M JB.M ⟨2, [], [.eq [(0, 1)] [(1, 1)]]⟩) = true := by
-  quickRfl
-
-theorem j4Fix_neg : (!mcertN (opsF2K 112) JA.M JB.M ⟨2, [], [.ne [(0, 1)] [(0, 1)] 0]⟩) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMC
 

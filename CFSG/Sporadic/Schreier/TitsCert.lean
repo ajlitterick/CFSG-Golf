@@ -106,17 +106,11 @@ theorem titsPerfect_perm
     (by rw [titsPerfectArrs_size]; omega))
     (titsEArr_rep hj) (titsChains_check.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2.2 j hj).2.2.2.2.2
 
-theorem titsQA_valid : ValidSchreier titsQA :=
-  (valid_ofArrays titsChains_check.2.2.2.2.2.1 (by norm_num : 0 < 4)
-    titsChains_check.2.2.2.2.2.2.2.2.1).1
 
 theorem titsQD_valid : ValidSchreier titsQD :=
   (valid_ofArrays titsChains_check.2.2.2.2.2.2.1 (by norm_num : 0 < 4)
     titsChains_check.2.2.2.2.2.2.2.2.2.1).1
 
-theorem titsQE_valid : ValidSchreier titsQE :=
-  (valid_ofArrays titsChains_check.2.2.2.2.2.2.2.1 (by norm_num : 0 < 4)
-    titsChains_check.2.2.2.2.2.2.2.2.2.2.1).1
 
 theorem titsQA_original : titsQA.originalSubgroup = titsA := by
   have hf : (fun i : Fin 4 => permOfArr 1755 titsAmbientArrs[(i : ℕ)]!) =
@@ -183,55 +177,6 @@ theorem titsD_pretransitive :
   rw [titsQD_original] at hg
   exact ⟨⟨g, hg⟩, hgx⟩
 
-theorem titsQA_original_toList :
-    titsQA.original.toList = List.ofFn fun i : Fin 4 => titsGen i := by
-  show (Vector.ofFn fun i : Fin 4 => permOfArr 1755 titsAmbientArrs[(i : ℕ)]!).toList = _
-  rw [Vector.toList_ofFn]
-  exact congrArg List.ofFn (funext fun i => titsAmbient_perm i.2)
-
-theorem titsQD_original_toList :
-    titsQD.original.toList = List.ofFn fun j : Fin 2 => titsDGen j := by
-  show (Vector.ofFn fun i : Fin 2 => permOfArr 1755 titsDerivedArrs[(i : ℕ)]!).toList = _
-  rw [Vector.toList_ofFn]
-  exact congrArg List.ofFn (funext fun i => titsDerived_perm i.2)
-
-theorem titsQE_original_toList :
-    titsQE.original.toList = List.ofFn fun j : Fin 2 => titsEGen j := by
-  show (Vector.ofFn fun i : Fin 2 => permOfArr 1755 titsPerfectArrs[(i : ℕ)]!).toList = _
-  rw [Vector.toList_ofFn]
-  exact congrArg List.ofFn (funext fun i => titsPerfect_perm i.2)
-
-theorem CERT_Tits_Schreier_validity :
-    ValidSchreier titsQA ∧ ValidSchreier titsQD ∧ ValidSchreier titsQE ∧
-    titsQA.original.toList = (List.ofFn fun i : Fin 4 => titsGen i) ∧
-    titsQD.original.toList = (List.ofFn fun j : Fin 2 => titsDGen j) ∧
-    titsQE.original.toList = (List.ofFn fun j : Fin 2 => titsEGen j) ∧
-    titsQA.originalSubgroup = titsA ∧ titsQD.originalSubgroup = titsD ∧
-    titsQE.originalSubgroup = titsE ∧
-    titsQA.base.toList.map Fin.val = [1, 3, 6, 5, 12, 24] ∧
-    titsQD.base.toList.map Fin.val = [0, 1, 5, 6, 24, 12] ∧
-    titsQE.base.toList.map Fin.val = [0, 1, 3, 5, 6, 12, 24] ∧
-    List.ofFn titsQA.orbitSize = [1755, 80, 8, 2, 4, 4] ∧
-    List.ofFn titsQD.orbitSize = [1755, 10, 8, 8, 8, 2] ∧
-    List.ofFn titsQE.orbitSize = [1755, 10, 8, 2, 8, 4, 2] ∧
-    Nat.card titsA = 35942400 ∧ Nat.card titsD = 17971200 ∧ Nat.card titsE = 17971200 ∧
-    MulAction.IsPretransitive titsD (Fin 1755) := by
-  refine ⟨titsQA_valid, titsQD_valid, titsQE_valid, titsQA_original_toList,
-    titsQD_original_toList, titsQE_original_toList, titsQA_original, titsQD_original,
-    titsQE_original, ?_, ?_, ?_, ?_, ?_, ?_, card_titsA, card_titsD, card_titsE,
-    titsD_pretransitive⟩
-  · rw [titsQA, RawSchreierDatum.ofArrays_base_toList]
-    decide
-  · rw [titsQD, RawSchreierDatum.ofArrays_base_toList]
-    decide
-  · rw [titsQE, RawSchreierDatum.ofArrays_base_toList]
-    decide
-  · exact (orbitSizes_ofArrays titsChains_check.2.2.2.2.2.1 (by norm_num : 0 < 4)
-      titsChains_check.2.2.2.2.2.2.2.2.1).trans titsChains_check.2.2.2.2.2.2.2.2.2.2.2.1
-  · exact (orbitSizes_ofArrays titsChains_check.2.2.2.2.2.2.1 (by norm_num : 0 < 4)
-      titsChains_check.2.2.2.2.2.2.2.2.2.1).trans titsChains_check.2.2.2.2.2.2.2.2.2.2.2.2.1
-  · exact (orbitSizes_ofArrays titsChains_check.2.2.2.2.2.2.2.1 (by norm_num : 0 < 4)
-      titsChains_check.2.2.2.2.2.2.2.2.2.2.1).trans titsChains_check.2.2.2.2.2.2.2.2.2.2.2.2.2.1
 
 theorem titsGen_mem_titsA {i : ℕ} (hi : i < 4) : titsGen i ∈ titsA :=
   Subgroup.subset_closure ⟨⟨i, hi⟩, rfl⟩

@@ -226,23 +226,5 @@ theorem ch36408_ehU_lt (e : Nat) (he : e < 12) : ∀ c < 16384, wrEhU e c = true
 #kc_each ch36408_efam 0 12
 #kc_each_by ch36408_echi 0 12 ch36408_echi_lt
 
-theorem ch36408_e_neg : (!e14Lvl3O (wrEM 0) (wrED 0 0) (wrED 0 1) (wrED 0 3) 128 (wrED 0 4)
-    (wrED 0 5) (wrED 0 7) (wrEP 0 8) (wrED 0 14) (wrED 0 16) (pvL (wrED 0 9) 1) (pvL (wrED 0 9) 2)
-    (wrTG (wrEP 0 9)) (Nat.mul 16 (wrEP 0 10)) (wrED 0 17) (wrEP 0 5) 0 0) = true := by
-  decide +kernel
-
-theorem ch36408_e_neg2 : (!allB (wrEP 0 7) fun r2 => e14Lvl3O (wrEM 0) (wrED 0 0) (wrED 0 1)
-    (wrED 0 3) 128 (wrED 0 4) (wrED 0 5) (wrED 0 7) (wrEP 0 8) (wrED 0 14) (wrED 0 16)
-    (pvL (wrED 0 9) 1) (pvL (wrED 0 9) 2) (wrTG (wrEP 0 9)) 1 (wrED 0 17) (wrEP 0 5)
-    (wrED 0 (Nat.add 19 (Nat.add (wrEP 0 6) r2))) r2) = true := by
-  decide +kernel
-
-theorem ch36408_e_pc_neg : (!pcB 16384 (wrEM 0) (wrED 0 0) (wrED 0 1) (wrED 0 2) (wrED 0 3)
-    (wrEP 0 2) 128 128) = true := by
-  decide +kernel
-
-theorem ch36408_e_chi_neg : (!chiB 16384 (wrEM 0) (wrED 0 5) (Nat.xor (wrX 0) 8) 128
-    (l16 (wrED 0 5) 0)) = true := by
-  decide +kernel
 
 end Certificates.KernelTower

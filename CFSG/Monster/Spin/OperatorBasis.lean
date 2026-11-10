@@ -109,10 +109,6 @@ theorem TDR_eq_qmatR {R : Type*} [CommRing R] (p : C × Cocode) : TDR R p = qmat
   rw [TDR, TmatR_eq_qmatR, DmatR_eq_qmatR, qmatR_mul, pair_zero_right]
   simp only [add_zero, zero_add]
 
-theorem TDR_eq_map {R : Type*} [CommRing R] (p : C × Cocode) :
-    TDR R p = (TDR ℤ p).map (Int.cast : ℤ → R) := by
-  rw [TDR_eq_qmatR, TDR_eq_qmatR, ← map_qmatR (Int.castRingHom R)]
-  rfl
 
 section Field
 
@@ -234,41 +230,6 @@ theorem coe_reduceQ_spinEquiv (R : Type*) [CommRing R] (x : SpinCoord) :
     MulEquiv.symm_apply_apply]
   rfl
 
-theorem reduceQ_eq_map (R : Type*) [CommRing R] (g : Q) :
-    ∃ M : Matrix SpinIdx SpinIdx ℤ, ((g : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) =
-      M.map (Int.cast : ℤ → ℚ) ∧
-      ((reduceQ R g : GL SpinIdx R) : Matrix SpinIdx SpinIdx R) = M.map (Int.cast : ℤ → R) := by
-  obtain ⟨x, rfl⟩ := spinEquiv.surjective g
-  refine ⟨qmatR ℤ x.s x.a x.δ, ?_, ?_⟩
-  · rw [coe_spinEquiv, coe_toGL, ← map_qmatR (Int.castRingHom ℚ)]
-    rfl
-  · rw [coe_reduceQ_spinEquiv, ← map_qmatR (Int.castRingHom R)]
-    rfl
-
-theorem XU_eq_spinEquiv (e : Parker) :
-    (⟨XU e, XU_mem_Q e⟩ : Q) = spinEquiv ⟨e.sign, e.code, thetaD e.code⟩ :=
-  Subtype.ext (XU_eq_toGL e)
-
-theorem DU_eq_spinEquiv (δ : Cocode) : (⟨DU δ, DU_mem_Q δ⟩ : Q) = spinEquiv ⟨0, 0, δ⟩ :=
-  Subtype.ext (DU_eq_toGL δ)
-
-theorem coe_reduceQ_XU (R : Type*) [CommRing R] (e : Parker) :
-    ((reduceQ R ⟨XU e, XU_mem_Q e⟩ : GL SpinIdx R) : Matrix SpinIdx SpinIdx R) = XmatR R e := by
-  rw [XU_eq_spinEquiv, coe_reduceQ_spinEquiv, XmatR_eq_qmatR]
-
-theorem coe_reduceQ_DU (R : Type*) [CommRing R] (δ : Cocode) :
-    ((reduceQ R ⟨DU δ, DU_mem_Q δ⟩ : GL SpinIdx R) : Matrix SpinIdx SpinIdx R) = DmatR R δ := by
-  rw [DU_eq_spinEquiv, coe_reduceQ_spinEquiv, DmatR_eq_qmatR]
-
-theorem reduceQ_irreducible {k : Type*} [Field k] (hk : ringChar k ≠ 2)
-    (W : Submodule k (SpinIdx → k))
-    (hW : ∀ g : Q, ∀ v ∈ W, v ᵥ* ((reduceQ k g : GL SpinIdx k) : Matrix SpinIdx SpinIdx k) ∈ W) :
-    W = ⊥ ∨ W = ⊤ :=
-  eq_bot_or_eq_top_of_invariant (Ring.two_ne_zero hk) W
-    (fun e v hv => coe_reduceQ_XU k e ▸ hW _ v hv)
-    (fun δ v hv => coe_reduceQ_DU k δ ▸ hW _ v hv)
-
-theorem TDR_rat (p : C × Cocode) : TDR ℚ p = Tmat p.1 * Dmat p.2 := rfl
 
 private theorem two_ne_zero_rat : (2 : ℚ) ≠ 0 := two_ne_zero
 
@@ -280,40 +241,5 @@ theorem exists_scalar_of_commute_Q {M : Matrix SpinIdx SpinIdx ℚ}
     rwa [Units.val_mul, coe_TU, coe_DU] at this
   exact ⟨c, hc.symm⟩
 
-theorem Q_irreducible (W : Submodule ℚ (SpinIdx → ℚ))
-    (hW : ∀ g ∈ Q, ∀ v ∈ W, v ᵥ* (g : Matrix SpinIdx SpinIdx ℚ) ∈ W) : W = ⊥ ∨ W = ⊤ :=
-  eq_bot_or_eq_top_of_invariant two_ne_zero_rat W (fun e v hv => hW _ (XU_mem_Q e) v hv)
-    (fun δ v hv => hW _ (DU_mem_Q δ) v hv)
-
-theorem spin_full_operator_basis :
-    Fintype.card (C × Cocode) = 2 ^ 24 ∧
-    LinearIndependent ℚ (fun p : C × Cocode => Tmat p.1 * Dmat p.2) ∧
-    Submodule.span ℚ (Set.range fun p : C × Cocode => Tmat p.1 * Dmat p.2) = ⊤ ∧
-    (∀ p q : C × Cocode, trace ((Tmat p.1 * Dmat p.2)ᵀ * (Tmat q.1 * Dmat q.2)) =
-      if p = q then 4096 else 0) ∧
-    (∀ M : Matrix SpinIdx SpinIdx ℚ, (∀ g ∈ Q, (g : Matrix SpinIdx SpinIdx ℚ) * M = M * g) →
-      ∃ c : ℚ, M = Matrix.scalar SpinIdx c) ∧
-    (∀ W : Submodule ℚ (SpinIdx → ℚ), (∀ g ∈ Q, ∀ v ∈ W, v ᵥ* (g : Matrix SpinIdx SpinIdx ℚ) ∈ W) →
-      W = ⊥ ∨ W = ⊤) ∧
-    ∀ (k : Type*) [Field k], ringChar k ≠ 2 →
-      (∀ p : C × Cocode, TmatR k p.1 * DmatR k p.2 =
-        (TmatR ℤ p.1 * DmatR ℤ p.2).map (Int.cast : ℤ → k)) ∧
-      LinearIndependent k (fun p : C × Cocode => TmatR k p.1 * DmatR k p.2) ∧
-      Submodule.span k (Set.range fun p : C × Cocode => TmatR k p.1 * DmatR k p.2) = ⊤ ∧
-      (∀ p q : C × Cocode, trace ((TmatR k p.1 * DmatR k p.2)ᵀ * (TmatR k q.1 * DmatR k q.2)) =
-        if p = q then 4096 else 0) ∧
-      (∀ g : Q, ∃ M : Matrix SpinIdx SpinIdx ℤ,
-        ((g : GL SpinIdx ℚ) : Matrix SpinIdx SpinIdx ℚ) = M.map (Int.cast : ℤ → ℚ) ∧
-        ((reduceQ k g : GL SpinIdx k) : Matrix SpinIdx SpinIdx k) = M.map (Int.cast : ℤ → k)) ∧
-      (∀ W : Submodule k (SpinIdx → k),
-        (∀ g : Q, ∀ v ∈ W, v ᵥ* ((reduceQ k g : GL SpinIdx k) : Matrix SpinIdx SpinIdx k) ∈ W) →
-        W = ⊥ ∨ W = ⊤) := by
-  refine ⟨by rw [Fintype.card_prod, card_C, card_cocode]; norm_num,
-    linearIndependent_TDR two_ne_zero_rat,
-    span_TDR two_ne_zero_rat, trace_transpose_TDR_mul two_ne_zero_rat,
-    fun M hM => exists_scalar_of_commute_Q hM, Q_irreducible, fun k _ hk => ?_⟩
-  have h2 := Ring.two_ne_zero hk
-  exact ⟨TDR_eq_map, linearIndependent_TDR h2, span_TDR h2, trace_transpose_TDR_mul h2,
-    reduceQ_eq_map k, reduceQ_irreducible hk⟩
 
 end CFSG.Monster.Spin

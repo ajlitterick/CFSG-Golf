@@ -18,15 +18,6 @@ private theorem andB_tt' {a b : Bool} (h : CFSG.KLie.CT.andB a b = true) : a = t
   · exact absurd h Bool.false_ne_true
   · exact ⟨rfl, h⟩
 
-private theorem allN_tt' {m : ℕ} {f : ℕ → Bool} (h : allN m f = true) : ∀ i < m, f i = true := by
-  induction m with
-  | zero => exact fun i hi => absurd hi (Nat.not_lt_zero i)
-  | succ m ih =>
-    obtain ⟨h1, h2⟩ := andB_tt' (h : CFSG.KLie.CT.andB (f m) (allN m f) = true)
-    intro i hi
-    rcases Nat.lt_succ_iff_lt_or_eq.mp hi with hi | rfl
-    · exact ih h2 i hi
-    · exact h1
 
 private theorem strictB_eq3 (y : ℕ) (k : ℕ → Bool) : strictB y k = k y := by
   cases y <;> rfl
@@ -166,24 +157,6 @@ theorem exists_of_entry_recK2 {K : Type*} [Group K]
   exact hmin (fun X => ∃ x, ψ x = CFSG.KC.WordPts.matOfF d X) ⟨1, by rw [map_one, matOfF_idF]⟩
     (fun X j hj ⟨x, hx⟩ => ⟨x * g ⟨j, hj⟩, by rw [map_mul, hx, hg, matOfF_mulF]⟩) t ht
 
-theorem mulF_idF {X : ℕ} (hX : X < 2 ^ (d * d)) : mulF d (idF d) X = X :=
-  matOfF_inj (mulF_lt d _ _) hX (by rw [matOfF_mulF, matOfF_idF, one_mul])
-
-theorem genR_eq (hh : headK d w lb ng CF = true) (h0 : recK2 d w lb ng CF G N 0 = true)
-    {j : ℕ} (hj : j < ng) (hG : G j < 2 ^ (d * d)) : genR d w lb ng CF j = G j := by
-  have hE : elemAt d w lb ng CF 0 = idF d := by
-    unfold headK at hh
-    rw [strictB_eq3] at hh
-    exact Nat.eq_of_beq_eq_true (andB_tt' hh).1
-  unfold recK2 at h0
-  simp only [strictB_eq3] at h0
-  have h1 := allN_tt' (andB_tt' h0).1 j hj
-  rw [strictB_eq3] at h1
-  have h2 := Nat.eq_of_beq_eq_true (andB_tt' h1).2
-  change elemAt d w lb ng CF (fldOf d w (recAt d w lb ng CF 0) j) = G j
-  rw [h2, mulF2_eq_mulF]
-  change mulF d (elemAt d w lb ng CF 0) (G j) = G j
-  rw [hE, mulF_idF hG]
 
 theorem memK_spec {t X : ℕ} (h : memK d w lb ng CF N t X = true) :
     t < N ∧ elemAt d w lb ng CF t = X := by

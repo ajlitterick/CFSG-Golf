@@ -155,7 +155,5 @@ instance (N : ℕ) (pos : GGTWPos) (c : ℕ) : Decidable (ggTWInJ N pos c) := by
 @[expose] def GGTWCells (mode : GGTWMode) (p N : ℕ) : Prop :=
   ¬ GGTWSurv1 mode p N ∧ ¬ GGTWSurv2 mode p N
 
-@[expose] def ggRowTwoNodeW1 (p : ℕ) (J X : LargeEvenLabel) : Prop :=
-  ggRowTwoNode p J X ∧ (X.rank = 6 ∨ X.rank = 9)
 
 end CFSG.StandardType

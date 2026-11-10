@@ -119,13 +119,6 @@ private theorem mulVec_blockMat_inr (k : Fin 2) (S : Matrix (Fin 2) (Fin 2) F)
   rw [mulVec_apply4]
   fin_cases k <;> simp [blockMat]
 
-private theorem mulVec_blockMat_of_not_mem (k : Fin 2) (S : Matrix (Fin 2) (Fin 2) F)
-    (u : Fin 2 ⊕ Fin 2 → F) {a : Fin 2 ⊕ Fin 2} (ha : a ∉ coords k) :
-    ((blockMat (Sum.inl k) (Sum.inr k) S : Mat4 F) *ᵥ u) a = u a := by
-  rw [mulVec_apply4]
-  rw [mem_coords, not_or] at ha
-  fin_cases k <;> rcases a with a | a <;> fin_cases a <;> simp_all [blockMat]
-
 
 theorem map_blockMat (σ : F ≃+* F) (k : Fin 2) (S : Matrix (Fin 2) (Fin 2) F) :
     (blockMat (Sum.inl k) (Sum.inr k) S : Mat4 F).map σ =
@@ -140,20 +133,6 @@ private theorem blockMat_mulVec_eq_self_of_isPlaneVec_zero (S : Matrix (Fin 2) (
   mulVec_eq_self_of_isSupp (isSupp_blockMat 1 S) fun t ht => hv t (by
     rw [mem_coords] at ht
     rcases ht with rfl | rfl <;> simp [mem_coords])
-
-private theorem isPlaneVec_zero_of_fix (σ : F ≃+* F) {u : Fin 2 ⊕ Fin 2 → F}
-    (hup : (blockMat (Sum.inl 1) (Sum.inr 1)
-      (((sl2Upper (1 : F) : SL(2, F)) : Matrix (Fin 2) (Fin 2) F).map σ) : Mat4 F) *ᵥ u = u)
-    (hlo : (blockMat (Sum.inl 1) (Sum.inr 1)
-      (((sl2Lower (1 : F) : SL(2, F)) : Matrix (Fin 2) (Fin 2) F).map σ) : Mat4 F) *ᵥ u = u) :
-    IsPlaneVec 0 u := by
-  rw [isPlaneVec_zero_iff]
-  have h1 := congrFun hup (Sum.inl 1)
-  have h2 := congrFun hlo (Sum.inr 1)
-  rw [mulVec_blockMat_inl] at h1
-  rw [mulVec_blockMat_inr] at h2
-  simp [CFSG.LieType.Steinberg.coe_sl2Upper, CFSG.LieType.Steinberg.coe_sl2Lower] at h1 h2
-  exact ⟨h2, h1⟩
 
 
 private theorem isPlaneVec_zero_of_fix' {u : Fin 2 ⊕ Fin 2 → F} (S T : Matrix (Fin 2) (Fin 2) F)
@@ -282,10 +261,6 @@ private theorem planes_preserved {A B : Mat4 F} (hAB : A * B = 1) (hBA : B * A =
     exact ⟨h2, h1⟩
 
 
-private theorem coe_gsp_inv_matrix (A : gsp 2 F) :
-    (((A⁻¹ : gsp 2 F) : GL (Fin 2 ⊕ Fin 2) F) : Mat4 F) =
-      (((A : GL (Fin 2 ⊕ Fin 2) F)⁻¹ : GL (Fin 2 ⊕ Fin 2) F) : Mat4 F) := rfl
-
 theorem mat_conjSp_fieldSp (A : gsp 2 F) (σ : F ≃+* F) (x : StatedSp 2 F) :
     mat 2 F (conjSp 2 F A (fieldSp 2 F σ x)) =
       ((A : GL (Fin 2 ⊕ Fin 2) F) : Mat4 F) * (mat 2 F x).map σ *
@@ -320,11 +295,6 @@ private theorem mulVec_planeVec_of_preserves {M : Mat4 F} (k : Fin 2)
 
 private theorem mat2_eq_of_mulVec_eq {M N : Matrix (Fin 2) (Fin 2) F}
     (h : ∀ y : Fin 2 → F, M *ᵥ y = N *ᵥ y) : M = N := by
-  have : Matrix.toLin' M = Matrix.toLin' N := LinearMap.ext h
-  exact Matrix.toLin'.injective this
-
-private theorem mat4_eq_of_mulVec_eq {M N : Mat4 F} (h : ∀ y : Fin 2 ⊕ Fin 2 → F, M *ᵥ y = N *ᵥ y) :
-    M = N := by
   have : Matrix.toLin' M = Matrix.toLin' N := LinearMap.ext h
   exact Matrix.toLin'.injective this
 
@@ -1014,7 +984,6 @@ theorem core_mat [Finite F] (h2 : (2 : F) ≠ 0) {Am Bm : Mat4 F} (hAB : Am * Bm
     rw [det_stdBlock_zero hsim hA0, hmeq]
   obtain ⟨p₁, r₁, hp₁, hr₁, hd₁⟩ := exists_eigenpair h2 ha hA₁sq hA₁det
   exact exists_frame_of_eigen hA0 hA1 hp₁ hr₁ hd₁ hp hr hd h01
-
 
 
 end CFSG.ClassicalInvolution.Q3.Q3TPS

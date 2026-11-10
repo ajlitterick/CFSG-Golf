@@ -84,10 +84,6 @@ private theorem sq_eq_zero_of_reduceLevel_eq_zero
         (hcoeff h) (hcoeff (h⁻¹ * g))
     _ = 0 := Finsupp.sum_fun_zero x.coeff
 
-theorem reduceLevel_surjective (n : ℕ) :
-    Function.Surjective (reduceLevel (G := G) n) := by
-  exact MonoidAlgebra.map_surjective _
-    (ZMod.castHom_surjective (pow_dvd_pow 2 (Nat.le_succ n)))
 
 @[expose] noncomputable def liftScalar (n : ℕ) (a : ZMod (2 ^ n)) : ZMod (2 ^ (n + 1)) :=
   Classical.choose

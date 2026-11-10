@@ -58,7 +58,5 @@ theorem check_shift : ∀ t < 10, ∀ i < 77,
       spreadQ (zShift t i)) = 0 :=
   Certificates.certificate3034.2.2.2.2.2.1
 
-theorem check_size : ∀ g < 2, (indM22Gen g).size = 3510 :=
-  Certificates.certificate3034.2.2.2.2.2.2
 
 end CFSG.Monster.B.Fischer

@@ -97,8 +97,6 @@ section Ke
 
 variable (hyp : Hyp1223 G T L V) (h : A7NatPre T L V ψ) {e : V} (he : vec ψ e = vecFS)
 
-include hyp in
-theorem Kv_le_Lv (v : G) : Kv hyp v ≤ hyp.Lv v := perfectCore_le _
 
 include hyp in
 theorem Kv_le_L (v : G) : Kv hyp v ≤ L :=

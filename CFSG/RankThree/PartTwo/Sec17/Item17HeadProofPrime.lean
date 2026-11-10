@@ -117,40 +117,6 @@ theorem open_pRank_top_le_localRank {T : Subgroup G} (hT : T ≠ ⊥) (hT2 : IsP
     omega
   exact h1.trans (le_csSup hbdd ⟨K, ⟨T, hT, hT2, rfl⟩, rfl⟩)
 
-theorem claim1715Prime_of (h41 : Sec4.Item4_1) : Claim1715Prime := by
-  intro G _ _ A c L Y₀ h p e _ hp3 he hiso
-  have hp : p.Prime := Fact.out
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  have hp2 : p ≠ 2 := by omega
-  set T := CFSG.Open.pCoreOf 2 Y₀ with hT
-  have hT1 : T ≠ ⊥ := h.mem_y0Star.prop.2.2
-  have hT2 : IsPGroup 2 T := CFSG.LieType.BorelTits.pCoreOf_isPGroup (r := 2) Y₀
-  set K := Subgroup.normalizer (T : Set G) with hK
-  have hKtop : K ≠ ⊤ := normalizer_ne_top_of_isPGroup h.isSimpleGroup h.nonabelian hT1 hT2
-  have hLK : L ≤ K := h.le_y0.trans (CFSG.LieType.BorelTits.le_normalizer_pCoreOf 2 Y₀)
-  have hK4 : SectionFourHyp K := h.toTheoremFourHyp.sectionFourHyp hKtop
-  have hpK : CFSG.Open.pRank p (⊤ : Subgroup K) ≤ 2 := by
-    have h1 := open_pRank_top_le_localRank hT1 hT2 hp
-    have h2 := h.localRank_lt p hp hp3
-    rw [← hK] at h1
-    omega
-  set H : Subgroup K := L.subgroupOf K with hH
-  have eH : H ≃* L := Subgroup.subgroupOfEquivOfLe hLK
-  set N : Subgroup H := aschbacherSolvableCore 3 H with hN
-  have hNc : N.Characteristic :=
-    (solvable_prime_complement_core_characterization (H := ↥H) Nat.prime_three).2.1
-  have : N.Normal := inferInstance
-  have hθ : N.map eH.toMonoidHom = aschbacherSolvableCore 3 L :=
-    CFSG.RankThree.aschbacherSolvableCore_map_mulEquiv Nat.prime_three eH
-  have eQ : (H ⧸ N) ≃* (L ⧸ aschbacherSolvableCore 3 L) := QuotientGroup.congr N _ eH hθ
-  have hqL := Sec6.isQuasisimple_of_mem_thetaComponentsAt h.mem_lA.1
-  have hq : CFSG.IsQuasisimple (H ⧸ N) := CFSG.LocalCores.isQuasisimple_of_mulEquiv eQ.symm hqL
-  have hlayer : layer (H ⧸ N) = ⊤ := CFSG.RankThree.Coprime.layer_eq_top_of_isQuasisimple hq
-  obtain ⟨-, h2⟩ := h41 K hK4 H N hlayer
-  have h5 := (h2 p hp (hpK.trans (by norm_num))).1 hp3
-  have h6 := two_mul_le_open_pRank_of_isoLThreePi hp2 he hiso
-  rw [← CFSG.SectionRank.pRank_top_eq_of_mulEquiv hp.one_lt eQ] at h6
-  omega
 
 end Prime
 
@@ -160,12 +126,5 @@ namespace CFSG.RankThree.PartTwo.Sec17
 
 open CFSG.RankThree.PartTwo.Sec14 CFSG.RankThree.PartTwo.Sec15
 
-theorem item1715_of_item4_1
-    (h1514 : ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),
-      Sec17Std G A c L Y₀ → Item1514 A (lB A) c L)
-    (h1714 : ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L Y₀ : Subgroup G),
-      Sec17Std G A c L Y₀ → Item1714 L)
-    (h41 : Sec4.Item4_1) (hMeets : Claim1715Meets) (hAY : Claim1715A) : Item1715 :=
-  item1715_of h1514 h1714 hMeets (HeadProof.claim1715Prime_of h41) hAY
 
 end CFSG.RankThree.PartTwo.Sec17

@@ -204,9 +204,6 @@ theorem mul_mem_Rr (hs : ∀ x ∈ B, x * x = 1) {β β' : MulAut (hypPSU h 2 0)
   rw [← hy]
   exact mem_Rr_of_linear h B (hyr.trans hz) hyU (hy ▸ B.mul_mem hβ hβ')
 
-theorem Rr_le (B : Subgroup (MulAut (hypPSU h 2 0))) : Rr h B ≤ B := by
-  rintro _ ⟨a, ha, rfl⟩
-  exact ((mem_Hs h B).1 ha).1
 
 theorem card_le_two_mul_Rr (hs : ∀ x ∈ B, x * x = 1) :
     Nat.card B ≤ 2 * Nat.card (Rr h B) := by

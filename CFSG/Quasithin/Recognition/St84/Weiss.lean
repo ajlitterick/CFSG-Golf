@@ -41,8 +41,6 @@ theorem mem_G1 {x : V} {g : G} :
 theorem G1_le_stabilizer (x : V) : G1 (Γ := Γ) (G := G) x ≤ MulAction.stabilizer G x :=
   inf_le_left
 
-theorem G1_le_fixSet (x : V) :
-    G1 (Γ := Γ) (G := G) x ≤ fixSet G (Γ.neighborSet x) := inf_le_right
 
 theorem G1_fixes (x : V) : ∀ g ∈ G1 (Γ := Γ) (G := G) x, g • x = x :=
   fun g hg => MulAction.mem_stabilizer_iff.mp (G1_le_stabilizer x hg)
@@ -55,38 +53,11 @@ theorem mem_G1Set {W : Set V} {g : G} :
     g ∈ G1Set (Γ := Γ) (G := G) W ↔ ∀ x ∈ W, g ∈ G1 (Γ := Γ) (G := G) x := by
   simp [G1Set]
 
-theorem G1Set_fixes {W : Set V} {x : V} (hx : x ∈ W) {g : G}
-    (hg : g ∈ G1Set (Γ := Γ) (G := G) W) : g • x = x :=
-  G1_fixes x g ((mem_G1Set.mp hg) x hx)
-
-theorem G1Set_mono {W W' : Set V} (h : W' ⊆ W) :
-    G1Set (Γ := Γ) (G := G) W ≤ G1Set (Γ := Γ) (G := G) W' := by
-  intro g hg
-  rw [mem_G1Set] at hg ⊢
-  exact fun x hx => hg x (h hx)
 
 theorem mem_Gm {m : ℕ} {x : V} {g : G} :
     g ∈ Gm (Γ := Γ) (G := G) m x ↔ ∀ y, Γ.dist x y ≤ m → g • y = y := by
   simp [Gm, mem_fixSet]
 
-theorem Gm_le_stabilizer (m : ℕ) (x : V) :
-    Gm (Γ := Γ) (G := G) m x ≤ MulAction.stabilizer G x := by
-  intro g hg
-  rw [MulAction.mem_stabilizer_iff]
-  exact (mem_Gm.mp hg) x (by simp)
-
-theorem Gm_mono {m n : ℕ} (hmn : m ≤ n) (x : V) :
-    Gm (Γ := Γ) (G := G) n x ≤ Gm (Γ := Γ) (G := G) m x := by
-  intro g hg
-  simp only [Gm, mem_fixSet, Set.mem_setOf_eq] at hg ⊢
-  intro y hy
-  exact hg y (hy.trans hmn)
-
-theorem GmPair_le_left (m : ℕ) (x y : V) :
-    GmPair (Γ := Γ) (G := G) m x y ≤ Gm (Γ := Γ) (G := G) m x := inf_le_left
-
-theorem GmPair_le_right (m : ℕ) (x y : V) :
-    GmPair (Γ := Γ) (G := G) m x y ≤ Gm (Γ := Γ) (G := G) m y := inf_le_right
 
 theorem conjSub_G1 (h : Hyp30 Γ G) (g : G) (x : V) :
     conjSub g (G1 (Γ := Γ) (G := G) x) = G1 (Γ := Γ) (G := G) (g • x) := by
@@ -107,13 +78,6 @@ theorem finite_G1 (h : Hyp30 Γ G) (x : V) : Finite (G1 (Γ := Γ) (G := G) x) :
   exact Finite.of_injective (Subgroup.inclusion (G1_le_stabilizer x))
     (Subgroup.inclusion_injective _)
 
-theorem finite_G1Set_of_mem (h : Hyp30 Γ G) {W : Set V} {x : V} (hx : x ∈ W) :
-    Finite (G1Set (Γ := Γ) (G := G) W) := by
-  have hle : G1Set (Γ := Γ) (G := G) W ≤ G1 (Γ := Γ) (G := G) x := by
-    intro g hg
-    exact (mem_G1Set.mp hg) x hx
-  haveI := finite_G1 h x
-  exact Finite.of_injective (Subgroup.inclusion hle) (Subgroup.inclusion_injective _)
 
 @[expose] def snocArc {m : ℕ} (P : Arc Γ m) (x : V) (hx : Γ.Adj (P.vert m) x)
     (hx' : 1 ≤ m → x ≠ P.vert (m - 1)) : Arc Γ (m + 1) where
@@ -147,9 +111,6 @@ theorem snocArc_vert_le {m : ℕ} (P : Arc Γ m) (x : V) (hx : Γ.Adj (P.vert m)
     (snocArc P x hx hx').vert i = P.vert i := by
   simp [snocArc, hi]
 
-theorem snocArc_vert {m : ℕ} (P : Arc Γ m) (x : V) (hx : Γ.Adj (P.vert m) x)
-    (hx' : 1 ≤ m → x ≠ P.vert (m - 1)) (i : ℕ) :
-    (snocArc P x hx hx').vert i = if i ≤ m then P.vert i else x := rfl
 
 @[expose] def consArc {m : ℕ} (P : Arc Γ m) (x : V) (hx : Γ.Adj x (P.vert 0))
     (hx' : 1 ≤ m → x ≠ P.vert 1) : Arc Γ (m + 1) where
@@ -215,14 +176,6 @@ theorem mem_arcStab {m : ℕ} (P : Arc Γ m) {g : G} :
   · intro h i hi0 hi
     exact h i hi
 
-theorem arcStab_le_stabilizer_last {m : ℕ} (P : Arc Γ m) :
-    arcStab (G := G) P ≤ MulAction.stabilizer G (P.vert m) := by
-  intro g hg
-  exact MulAction.mem_stabilizer_iff.mpr ((mem_arcStab P).mp hg m le_rfl)
-
-theorem mem_arcStab_of_forall {m : ℕ} (P : Arc Γ m) {g : G}
-    (h : ∀ i, i ≤ m → g • P.vert i = P.vert i) : g ∈ arcStab (G := G) P :=
-  (mem_arcStab P).mpr h
 
 theorem arcStab_le_stabilizer {m : ℕ} (P : Arc Γ m) {i : ℕ} (hi : i ≤ m) :
     arcStab (G := G) P ≤ MulAction.stabilizer G (P.vert i) := by
@@ -313,14 +266,6 @@ theorem lineStab_le_arcStab (T : KTrack (Γ := Γ) (G := G)) (i : ℤ) (m : ℕ)
   change g • T.line.vert (i + k) = T.line.vert (i + k)
   exact (mem_lineStab T).mp hg (i + k)
 
-theorem K_trans_off (T : KTrack (Γ := Γ) (G := G))
-    (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
-      a ≠ T.line.vert (i - 1) → a ≠ T.line.vert (i + 1) →
-      b ≠ T.line.vert (i - 1) → b ≠ T.line.vert (i + 1) → ∃ k ∈ T.K, k • a = b)
-    (i : ℤ) {a b : V} (ha : Γ.Adj (T.line.vert i) a) (ha1 : a ≠ T.line.vert (i - 1))
-    (ha2 : a ≠ T.line.vert (i + 1)) (hb : Γ.Adj (T.line.vert i) b)
-    (hb1 : b ≠ T.line.vert (i - 1)) (hb2 : b ≠ T.line.vert (i + 1)) :
-    ∃ k ∈ T.K, k • a = b := hK i a b ha hb ha1 ha2 hb1 hb2
 
 theorem not_rightSingular_of_move_right (h : Hyp30 Γ G) (T : KTrack (Γ := Γ) (G := G))
     (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
@@ -577,23 +522,6 @@ theorem exists_smul_to_line (h : Hyp30 Γ G) (T : KTrack (Γ := Γ) (G := G)) (v
     obtain ⟨g, hg⟩ := hv
     exact ⟨g⁻¹, by rw [← hg, inv_smul_smul]⟩
 
-private theorem normal_fixes_of_twoTransitive {α : Type*} [MulAction G α]
-    {H N : Subgroup G} (hN : ∀ h ∈ H, ∀ n ∈ N, h * n * h⁻¹ ∈ N)
-    (hH2 : ∀ a b c d : α, a ≠ b → c ≠ d → ∃ h ∈ H, h • a = c ∧ h • b = d)
-    (hNnot : ¬ ∀ a b : α, ∃ n ∈ N, n • a = b) :
-    ∀ n ∈ N, ∀ a : α, n • a = a := by
-  intro n hn a
-  by_contra hne
-  apply hNnot
-  intro x y
-  by_cases hxy : x = y
-  · exact ⟨1, N.one_mem, by rw [hxy, one_smul]⟩
-  · obtain ⟨h, hh, hx, hy⟩ := hH2 a (n • a) x y (Ne.symm hne) hxy
-    refine ⟨h * n * h⁻¹, hN h hh n hn, ?_⟩
-    calc (h * n * h⁻¹) • x = h • (n • (h⁻¹ • x)) := by simp [mul_smul]
-      _ = h • (n • a) := by
-        rw [show h⁻¹ • x = a by rw [← hx, inv_smul_smul]]
-      _ = y := hy
 
 theorem G1_inf_arcStab_le_G1_end (h : Hyp30 Γ G) (hs : IsSingularity Γ G s) (hev : Even s)
     (hs6 : 6 ≤ s) (T : KTrack (Γ := Γ) (G := G))
@@ -1249,16 +1177,6 @@ theorem track_G1_pair_inf_arcStab_eq_bot_gen (h : Hyp30 Γ G)
   intro y
   exact (mem_G1.mp (hAll_F1 y ha)).1
 
-theorem track_G1_pair_inf_arcStab_eq_bot (h : Hyp30 Γ G) (hn : ∀ v, nOf Γ v = 2)
-    (hs : IsSingularity Γ G s) (hev : Even s) (hs6 : 6 ≤ s) (T : KTrack (Γ := Γ) (G := G))
-    (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
-      a ≠ T.line.vert (i - 1) → a ≠ T.line.vert (i + 1) →
-      b ≠ T.line.vert (i - 1) → b ≠ T.line.vert (i + 1) → ∃ k ∈ T.K, k • a = b)
-    (j : ℤ) :
-    G1 (Γ := Γ) (G := G) (T.line.vert (j + 1)) ⊓
-      G1 (Γ := Γ) (G := G) (T.line.vert (j + 2)) ⊓
-      arcStab (G := G) (T.line.arc j s) = ⊥ :=
-  track_G1_pair_inf_arcStab_eq_bot_gen h hs hev hs6 T hK j
 
 theorem conjSub_arcStab
     (hadj : ∀ (g : G) (x y : V), Γ.Adj (g • x) (g • y) ↔ Γ.Adj x y)
@@ -1323,15 +1241,6 @@ theorem G1_pair_inf_arcStab_eq_bot_gen (h : Hyp30 Γ G)
     simpa [mul_assoc] using this
   simpa [this]
 
-theorem G1_pair_inf_arcStab_eq_bot (h : Hyp30 Γ G) (hn : ∀ v, nOf Γ v = 2)
-    (hs : IsSingularity Γ G s) (hev : Even s) (hs6 : 6 ≤ s) (T : KTrack (Γ := Γ) (G := G))
-    (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
-      a ≠ T.line.vert (i - 1) → a ≠ T.line.vert (i + 1) →
-      b ≠ T.line.vert (i - 1) → b ≠ T.line.vert (i + 1) → ∃ k ∈ T.K, k • a = b)
-    (P : Arc Γ s) :
-    G1 (Γ := Γ) (G := G) (P.vert 1) ⊓ G1 (Γ := Γ) (G := G) (P.vert 2) ⊓
-      arcStab (G := G) P = ⊥ :=
-  G1_pair_inf_arcStab_eq_bot_gen h hs hev hs6 T hK P
 
 private theorem exists_fixed_neighbor_of_odd_prime (h : Hyp30 Γ G)
     {g : G} {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hord : orderOf g = p)
@@ -1504,14 +1413,6 @@ theorem G1_pair_isPGroup_gen (h : Hyp30 Γ G)
   have h1 : orderOf (g : G) = 1 := by rw [hgone, orderOf_one]
   exact hp.ne_one (hgord'.symm.trans h1)
 
-theorem G1_pair_isPGroup (h : Hyp30 Γ G) (hn : ∀ v, nOf Γ v = 2)
-    (hs : IsSingularity Γ G s) (hev : Even s) (hs6 : 6 ≤ s) (T : KTrack (Γ := Γ) (G := G))
-    (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
-      a ≠ T.line.vert (i - 1) → a ≠ T.line.vert (i + 1) →
-      b ≠ T.line.vert (i - 1) → b ≠ T.line.vert (i + 1) → ∃ k ∈ T.K, k • a = b)
-    {x y : V} (hxy : Γ.Adj x y) :
-    IsPGroup 2 ↥((G1 (Γ := Γ) (G := G) x) ⊓ (G1 (Γ := Γ) (G := G) y)) :=
-  G1_pair_isPGroup_gen h hs hev hs6 T hK hxy
 
 private theorem pCoreOf_isPGroup_ambient (H : Subgroup G) : IsPGroup 2 (pCoreOf 2 H) :=
   (CFSG.pCore_isPGroup (p := 2) (G := H)).map H.subtype
@@ -1667,13 +1568,5 @@ theorem G1Set_arc_eq_bot_gen (h : Hyp30 Γ G)
       rw [initialArc_vert]
       exact hXG1 2 (by omega) ha
 
-theorem G1Set_arc_eq_bot (h : Hyp30 Γ G) (hn : ∀ v, nOf Γ v = 2)
-    (hs : IsSingularity Γ G s) (hev : Even s) (hs6 : 6 ≤ s) (T : KTrack (Γ := Γ) (G := G))
-    (hK : ∀ (i : ℤ) (a b : V), Γ.Adj (T.line.vert i) a → Γ.Adj (T.line.vert i) b →
-      a ≠ T.line.vert (i - 1) → a ≠ T.line.vert (i + 1) →
-      b ≠ T.line.vert (i - 1) → b ≠ T.line.vert (i + 1) → ∃ k ∈ T.K, k • a = b)
-    {m : ℕ} (hm : s - 2 ≤ m) (P : Arc Γ m) :
-    G1Set (Γ := Γ) (G := G) (P.vert '' Set.Icc 0 m) = ⊥ :=
-  G1Set_arc_eq_bot_gen h hs hev hs6 T hK hm P
 
 end CFSG.Quasithin.St84

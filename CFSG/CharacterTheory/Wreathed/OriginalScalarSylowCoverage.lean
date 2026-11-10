@@ -147,31 +147,5 @@ theorem original_scalar_Sylow_action_gives_primewise_layer_coverage
       hquasi hcentralizer hell hdiv P v hnormalizes
       (original_second_involution_noncentral n hn S e v hv hne) hscalar
 
-theorem original_all_prime_scalar_pairs_give_layer_coverage
-    [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a)
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (hfour : ¬ Nonempty ((centralizerOddCoreQuotient n S e ⧸
-      Subgroup.center (centralizerOddCoreQuotient n S e)) ≃* Equiv.Perm (Fin 4)))
-    (hpairs : ∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-      ∃ P : Sylow ell (centralizerOddCore n S e), ∃ v : involutionCentralizer n S e,
-        orderOf v = 2 ∧ v ≠ centralInvolution n S e ∧
-        v ∈ Subgroup.normalizer (((P : Subgroup (centralizerOddCore n S e)).map
-          (centralizerOddCore n S e).subtype) : Set (involutionCentralizer n S e)) ∧
-        ((∀ a ∈ (P : Subgroup (centralizerOddCore n S e)).map
-          (centralizerOddCore n S e).subtype, v * a * v⁻¹ = a) ∨
-          (∀ a ∈ (P : Subgroup (centralizerOddCore n S e)).map
-            (centralizerOddCore n S e).subtype, v * a * v⁻¹ = a⁻¹))) :
-    ∀ ell : ℕ, ell.Prime → ell ∣ Nat.card (centralizerOddCore n S e) →
-      ∃ P : Sylow ell (centralizerOddCore n S e),
-        (Subgroup.centralizer (((P : Subgroup (centralizerOddCore n S e)).map
-          (centralizerOddCore n S e).subtype) : Set (involutionCentralizer n S e)) ⊓
-          (CFSG.layer (centralizerOddCoreQuotient n S e)).comap
-            (centralizerOddCoreMap n S e)).map (centralizerOddCoreMap n S e) =
-              CFSG.layer (centralizerOddCoreQuotient n S e) := by
-  intro ell hell hdiv
-  obtain ⟨P, v, hv, hne, hnormalizes, hscalar⟩ := hpairs ell hell hdiv
-  exact ⟨P, original_scalar_Sylow_action_gives_primewise_layer_coverage
-    hnonab n hn S e hfour hell hdiv P v hv hne hnormalizes hscalar⟩
 
 end CFSG.Wreathed.OriginalScalarSylowCoverage

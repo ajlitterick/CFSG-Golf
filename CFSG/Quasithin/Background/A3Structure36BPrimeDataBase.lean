@@ -16,6 +16,5 @@ namespace CFSG.Quasithin.A36B
 open CFSG.SectionRank CFSG.SectionRank.Ccomm CFSG.Open
 open scoped commutatorElement
 
-variable {X : Type} [Group X]
 
 end CFSG.Quasithin.A36B

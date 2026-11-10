@@ -47,24 +47,6 @@ theorem five_dvd_sq_sub_one_or_sq_add_one {n : ℕ} (hn : ¬ 5 ∣ n) :
     rw [← ZMod.natCast_eq_zero_iff, Nat.cast_add, Nat.cast_pow, Nat.cast_one]
     exact h
 
-theorem factorization_pow_four_sub_one_of_dvd_sq_add_one {q : ℕ} (hq : 2 ≤ q)
-    (h5 : 5 ∣ q ^ 2 + 1) : (q ^ 4 - 1).factorization 5 = (q ^ 2 + 1).factorization 5 := by
-  have hq1 : 1 ≤ q ^ 2 := Nat.one_le_pow _ _ (by omega)
-  have h4 : q ^ 4 - 1 = (q ^ 2 + 1) * (q ^ 2 - 1) := by
-    have : q ^ 4 = (q ^ 2) ^ 2 := by ring
-    rw [this]
-    zify [hq1, Nat.one_le_pow 2 (q ^ 2) (by omega)]
-    ring
-  have hne : ¬ 5 ∣ q ^ 2 - 1 := by
-    intro h1
-    have h2 : 5 ∣ (q ^ 2 + 1) - (q ^ 2 - 1) := Nat.dvd_sub h5 h1
-    rw [show q ^ 2 + 1 - (q ^ 2 - 1) = 2 by omega] at h2
-    norm_num at h2
-  have hpos : q ^ 2 - 1 ≠ 0 := by
-    have : 4 ≤ q ^ 2 := by nlinarith
-    omega
-  rw [h4, Nat.factorization_mul (by omega) hpos, Finsupp.add_apply,
-    Nat.factorization_eq_zero_of_not_dvd hne, add_zero]
 
 noncomputable abbrev e8PhiFourWeyl :
     WeylGroup Tag.E8 :=
@@ -145,56 +127,6 @@ end Four
 section Neg
 
 
-theorem langTorusPlaneBalance_E8_neg_of_twisted (hTw : E8TwistedResidual) {p : ℕ}
-    (hp : p.Prime) (hp5 : 5 ≤ p) : LangTorusPlaneBalance Tag.E8 e8Neg p fun q => p ∣ q + 1 := by
-  intro K _ _ hQ Fr hFr g0 hg0C hg0 D₀ hpow hcard htor H hH
-  set L := AlgebraicClosure K
-  set M := langModel Tag.E8 K L g0 with hM
-  let e : adjointGroup Tag.E8 K ≃* M :=
-    ((adjointGroup Tag.E8 K).equivMapOfInjective _ (baseChangeGL_injective _)).trans
-      ((MulAut.conj g0⁻¹).subgroupMap _)
-  set ψ : MulAut (adjointGroup Tag.E8 K) →* MulAut M := (MulAut.congr e).toMonoidHom with hψ
-  have hψinj : Function.Injective ψ := (MulAut.congr e).injective
-  have hconj : ∀ x : adjointGroup Tag.E8 K, ψ (MulAut.conj x) = MulAut.conj (e x) := fun x => by
-    ext z
-    simp [hψ, MulAut.congr_apply, MulAut.conj_apply]
-  have he_val : ∀ x : adjointGroup Tag.E8 K, ((e x : M) : ModGL Tag.E8 L) =
-      g0⁻¹ * baseChangeGL (algebraMap K L) (x : ModGL Tag.E8 K) * g0⁻¹⁻¹ := fun x => by
-    change (MulAut.conj g0⁻¹) (baseChangeGL (algebraMap K L) (x : ModGL Tag.E8 K)) = _
-    rw [MulAut.conj_apply]
-  set E₀ : Subgroup M := D₀.map e.toMonoidHom with hE₀
-  have hE₀pow : ∀ y ∈ E₀, y ^ p = 1 := by
-    rintro _ ⟨x, hx, rfl⟩
-    change e x ^ p = 1
-    rw [← map_pow, hpow x hx, map_one]
-  have hE₀card : p < Nat.card E₀ := by
-    rw [hE₀, Subgroup.card_map_of_injective e.injective]
-    exact hcard
-  have hE₀tor : ∀ y ∈ E₀, (y : ModGL Tag.E8 L) ∈ torusGroup Tag.E8 L := by
-    rintro _ ⟨x, hx, rfl⟩
-    obtain ⟨t, ht, hte⟩ := htor x hx
-    change ((e x : M) : ModGL Tag.E8 L) ∈ torusGroup Tag.E8 L
-    rw [he_val, inv_inv, ← hte]
-    change g0⁻¹ * (g0 * t * g0⁻¹) * g0 ∈ torusGroup Tag.E8 L
-    rw [show g0⁻¹ * (g0 * t * g0⁻¹) * g0 = t by group]
-    exact (mem_twistedTorusOf.1 ht).1
-  have hH' : innerAut M ≤ H.map ψ := by
-    rintro _ ⟨m, rfl⟩
-    refine ⟨MulAut.conj (e.symm m), hH ⟨e.symm m, rfl⟩, ?_⟩
-    rw [hconj, MulEquiv.apply_symm_apply]
-  have h0 := localDeltaIn_eq_bot_langModel_E8 hTw K L hFr hp hp5 hQ hg0C hg0 hH' E₀ hE₀pow
-    hE₀card hE₀tor
-  have hDmap : (D₀.map (MulAut.conj : adjointGroup Tag.E8 K →* MulAut (adjointGroup Tag.E8 K))).map
-      ψ = E₀.map (MulAut.conj : M →* MulAut M) := by
-    rw [Subgroup.map_map, hE₀, Subgroup.map_map]
-    congr 1
-    ext x : 1
-    exact hconj x
-  have hle := map_localDeltaIn_le p ψ hψinj H
-    (D₀.map (MulAut.conj : adjointGroup Tag.E8 K →* MulAut (adjointGroup Tag.E8 K)))
-  rw [hDmap, h0, le_bot_iff, Subgroup.map_eq_bot_iff_of_injective _ hψinj] at hle
-  exact hle
-
 end Neg
 
 @[expose] def E8FiveToralPlane :
@@ -258,34 +190,6 @@ end Toral
 
 section Family
 
-
-theorem crossCharInnerAt_E8_five_of_parts (htor : E8FiveToralPlane)
-    (hSplit : ∀ w : WeylGroup Tag.E8, LangTorusPlaneBalance Tag.E8 w 5 fun q => 5 ∣ q - 1)
-    (hNeg : ∀ w : WeylGroup Tag.E8, w ≠ e8Neg →
-      LangTorusPlaneBalance Tag.E8 w 5 fun q => 5 ∣ q + 1)
-    (hTw : E8TwistedResidual)
-    (hFour : LangTorusPlaneBalance Tag.E8 e8PhiFourWeyl 5 fun q => 5 ∣ q ^ 2 + 1) :
-    CrossCharInnerAt .E8 fun _ p => p = 5 := by
-  rintro ⟨d, hv⟩ hk p hp hp2 hc rfl
-  obtain ⟨q, hq⟩ : ∃ q, d = TauCeti.LieTypeIndex.E8 q := hk
-  subst hq
-  have hpq : 5 ≠ q.p := fun h => hc (by simp [h])
-  obtain ⟨K, _, _, hK, -, ⟨e⟩⟩ := exists_catEquiv_adjointGroup Even.chevalleyBridgesAll.e8 q hv
-  have h5 : ¬ 5 ∣ Nat.card K := by
-    rw [hK]
-    exact not_dvd_card_of_ne hp hpq
-  refine IsInnerLocallyBalanced.of_mulEquiv e ?_
-  rcases five_dvd_sq_sub_one_or_sq_add_one h5 with h | h
-  · rcases five_dvd_sq_sub_one_iff_or.1 h with h1 | h1
-    · exact isInnerLocallyBalanced_adjointE8_five_of_toral htor hSplit K h5 h1
-    · refine isInnerLocallyBalanced_adjointE8_five_of_toral htor (Q := fun q => 5 ∣ q + 1)
-        (fun w => ?_) K h5 h1
-      by_cases hw : w = e8Neg
-      · have hb := langTorusPlaneBalance_E8_neg_of_twisted hTw Nat.prime_five le_rfl
-        rw [← hw] at hb
-        exact hb
-      · exact hNeg w hw
-  · exact isInnerLocallyBalanced_adjointE8_five_of_dvd_sq_add_one hFour K h
 
 end Family
 

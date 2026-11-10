@@ -266,9 +266,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (S
 
 namespace TwinLiftCore
 
-theorem zbar_mem₀ (S : C.Spec) : oddQuotMk z ⟨z, XCtx.hzC z⟩ ∈ (C.psi C.i₀).range := by
-  rw [← S.hK₀]
-  exact oddQuotMk_mem_modOdd (C.involution_mem_exactCore C.K_tq C.K_cl) (XCtx.hzC z)
 
 theorem link_z (S : C.Spec) (hB : C.BigLink) {N : Subgroup G} {w : G} (hN : N ∈ tqMembers Ω z)
     (hw : IsClassicalMember p f N w) :
@@ -444,14 +441,6 @@ theorem A1_cover_of_ne (S : C.Spec) (hB : C.BigLink) (htrans : ∀ M ∈ Ω, ∃
   · rw [conjSub_mul, hcM, hMeq]
     exact hMimg
 
-theorem A1_cover (S : C.Spec) (hB : C.BigLink) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.K₁ = M)
-    {j : Fin C.D.card} (hj : j = C.i₀ ∨ j = C.i₂) :
-    ∃ g : G, z ∈ conjSub g (Subgroup.closure ({z, L.u, L.t} : Set G)) ∧
-      modOdd z (exactCore z (conjSub g L.J)) = (C.psi j).range := by
-  refine L.A1_cover_of_ne S hB htrans ?_
-  rcases hj with rfl | rfl
-  · exact C.ne₀₁
-  · exact C.ne₁₂.symm
 
 theorem cover_z (S : C.Spec) (hB : C.BigLink) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.K₁ = M)
     {N : Subgroup G} (hN : N ∈ centMembers Ω z) :
@@ -486,8 +475,6 @@ variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (S
 
 namespace TwinLift
 
-theorem zbar_mem₀ (S : C.Spec) : oddQuotMk z ⟨z, XCtx.hzC z⟩ ∈ (C.psi C.i₀).range :=
-  TwinLiftCore.zbar_mem₀ S.toCore
 
 theorem link_z (S : C.Spec) {N : Subgroup G} {w : G} (hN : N ∈ tqMembers Ω z)
     (hw : IsClassicalMember p f N w) :
@@ -510,17 +497,6 @@ theorem link_t_star (S : C.Spec) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.
       ({L.K₁, L.J} : Set (Subgroup G)) L.t :=
   L.toCore.link_t_star S.toCore (C.toCore.bigLink_of_listed C.listed) htrans
 
-theorem A1_cover_of_ne (S : C.Spec) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.K₁ = M)
-    {j : Fin C.D.card} (hj : j ≠ C.i₁) :
-    ∃ g : G, z ∈ conjSub g (Subgroup.closure ({z, L.u, L.t} : Set G)) ∧
-      modOdd z (exactCore z (conjSub g L.J)) = (C.psi j).range :=
-  L.toCore.A1_cover_of_ne S.toCore (C.toCore.bigLink_of_listed C.listed) htrans hj
-
-theorem A1_cover (S : C.Spec) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.K₁ = M)
-    {j : Fin C.D.card} (hj : j = C.i₀ ∨ j = C.i₂) :
-    ∃ g : G, z ∈ conjSub g (Subgroup.closure ({z, L.u, L.t} : Set G)) ∧
-      modOdd z (exactCore z (conjSub g L.J)) = (C.psi j).range :=
-  L.toCore.A1_cover S.toCore (C.toCore.bigLink_of_listed C.listed) htrans hj
 
 theorem cover_z (S : C.Spec) (htrans : ∀ M ∈ Ω, ∃ g : G, conjSub g L.K₁ = M) {N : Subgroup G}
     (hN : N ∈ centMembers Ω z) :

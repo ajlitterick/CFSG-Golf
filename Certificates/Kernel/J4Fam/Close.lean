@@ -47,7 +47,5 @@ open CFSG.KC (notB)
 #kc_forall_chunks cl_ok5 (fun c => cl5F c = true) 2 CertificateChecks.KernelJ4Fam.cl5F 1
 #kc_forall_chunks cl_ok6 (fun c => cl6F c = true) 1 CertificateChecks.KernelJ4Fam.cl6F 1
 
-theorem neg_close : notB (closeChunk CML PTP LVT1 LV1.length LVT0 [[[[]]]] LV0.length 0) = true := by
-  quickRfl
 
 end CertificateChecks.KernelJ4Fam

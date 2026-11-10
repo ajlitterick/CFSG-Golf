@@ -498,12 +498,6 @@ theorem o89At_of_kFact76MaxRankThree
       exists_sylow_of_normalClosure hXH hXnorm hSXsyl hSXM hSXnorm hNHXM
     exact ⟨S, hS, hSM, hSN⟩
 
-theorem o89At_of_kFact76Max
-    (h76 : KFact76Max)
-    {G : Type} [Group G] [Finite G] (hC : CStarGen G) {M : Subgroup G}
-    (hM : CFSG.Open.rankThreeIsMaxTwoLocal M) :
-    CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O89At G M :=
-  o89At_of_kFact76MaxRankThree (kFact76MaxRankThree_of_kFact76Max h76) hC hM
 
 theorem o89Gen_of_kFact76MaxRankThree
     (h76 : KFact76MaxRankThree) :
@@ -511,10 +505,6 @@ theorem o89Gen_of_kFact76MaxRankThree
   intro G _ _ hC M hM _ _
   exact o89At_of_kFact76MaxRankThree h76 hC hM
 
-theorem o89Gen_of_kFact76Max
-    (h76 : KFact76Max) :
-    CFSG.LocalAnalysis.AGL81TheoremCD.Section15.O89Gen :=
-  o89Gen_of_kFact76MaxRankThree (kFact76MaxRankThree_of_kFact76Max h76)
 
 end Certificates
 

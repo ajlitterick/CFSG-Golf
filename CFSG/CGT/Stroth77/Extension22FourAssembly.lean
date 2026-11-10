@@ -403,8 +403,5 @@ theorem hasType200Or201AdjustedBasis_of_torusBasis
 
 end TorusBasisEquivFour
 
-variable {S : Type*} [Group S] [Finite S]
-
-variable {B C S' : Subgroup S}
 
 end CFSG.CGT.Stroth77

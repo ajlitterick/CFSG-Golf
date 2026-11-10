@@ -68,42 +68,6 @@ theorem linearRootBorel_matrix_parameters (A : linearRootBorel K) :
       rfl
     · rfl
 
-@[expose] def linearRootBorelDiagonalHom : linearRootBorel K →* Kˣ where
-  toFun A := Units.mk0 (A.val.val 0 0) (linearRootBorel_diagonal A).1
-  map_one' := by
-    apply Units.ext
-    rfl
-  map_mul' A B := by
-    have hB10 : B.val.val 1 0 = 0 := B.property
-    apply Units.ext
-    change (A.val * B.val).val 0 0 = A.val.val 0 0 * B.val.val 0 0
-    change (A.val.val * B.val.val) 0 0 = A.val.val 0 0 * B.val.val 0 0
-    simp only [Matrix.mul_apply, Fin.sum_univ_two, hB10, mul_zero, add_zero]
-
-theorem linearRootBorelDiagonalHom_kernel :
-    (linearRootBorelDiagonalHom (K := K)).ker =
-      (linearCoverRootSubgroup K).subgroupOf (linearRootBorel K) := by
-  ext A
-  constructor
-  · intro hA
-    change linearRootBorelDiagonalHom A = 1 at hA
-    have hdiag : A.val.val 0 0 = 1 := congrArg (fun a : Kˣ => (a : K)) hA
-    have hA10 : A.val.val 1 0 = 0 := A.property
-    have hmatrix : A.val = linearCoverRoot (A.val.val 0 1) := by
-      apply Subtype.ext
-      change A.val.val = !![1, A.val.val 0 1; 0, 1]
-      ext i j
-      fin_cases i <;> fin_cases j <;>
-        simp [hA10, (linearRootBorel_diagonal A).2, hdiag]
-    change A.val ∈ linearCoverRootSubgroup K
-    exact ⟨Multiplicative.ofAdd (A.val.val 0 1), hmatrix.symm⟩
-  · intro hA
-    change A.val ∈ linearCoverRootSubgroup K at hA
-    obtain ⟨t, ht⟩ := hA
-    apply Units.ext
-    change A.val.val 0 0 = 1
-    rw [← ht]
-    rfl
 
 theorem linearRootBorel_conj_root (A : linearRootBorel K) (t : K) :
     A.val * linearCoverRoot t * A.val⁻¹ =

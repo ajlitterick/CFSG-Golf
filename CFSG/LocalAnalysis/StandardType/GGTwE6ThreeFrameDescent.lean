@@ -256,9 +256,6 @@ theorem fieldActor_mul_twistedE6InndiagConj_mul_inv {f : ℕ} (hf : 1 ≤ f)
 end Lift
 
 
-private theorem frobQEquiv_toRingHom {f : ℕ} (hf : 1 ≤ f) :
-    (frobQEquiv hf).toRingHom = frobQ 2 f := rfl
-
 set_option maxHeartbeats 1000000 in
 theorem ggBstarModelFrame_of_twLift_sigma {W V : Type} [Group W] [AddCommGroup V]
     {ρ : W →* Equiv.Perm V} {f : ℕ} (hf : 1 ≤ f)

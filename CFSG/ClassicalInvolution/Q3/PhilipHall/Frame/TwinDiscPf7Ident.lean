@@ -30,7 +30,6 @@ theorem centralizer_le_normalizer_alphaOf (A : Subgroup Y) :
   refine mem_normalizer_of_conjSub_eq ?_
   rw [← alphaOf_conjSub, conjSub_eq_of_mem_normalizer (Subgroup.centralizer_le_normalizer _ hg)]
 
-variable {n : ℕ} {R : Subgroup Y} {S : Sylow 2 R} {t₀ : Y} {K K' J W : Subgroup Y} {z u t : Y}
 
 end Glue
 

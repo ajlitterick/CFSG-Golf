@@ -296,17 +296,6 @@ theorem F913_3 (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) {X Y 
   · exact h1.trans (stab_le_normalizer_Uγ s h Y)
   · exact h2.trans (le_normalizer_conjClosure X H)
 
-theorem F913_4 (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
-    F8.Uγ V H (g : G) ≤ Subgroup.normalizer (conjClosure V H : Set G) ∧
-      F8.Uγ V H (g : G) ≤ Subgroup.normalizer (conjClosure Vp H : Set G) := by
-  have hb3 : 3 ≤ critDist ((L ⊔ T) ⊔ H) (L ⊔ T) H V := h.three_le_b_and_odd.1
-  obtain ⟨-, ⟨γ₂, hγ₂nb, hd⟩⟩ :=
-    exists_nbrs_of_geodesic h.amalgamHypV.gen s.critical.geodesic (by omega : 2 ≤ _)
-  have h2 : F8.Uγ V H (g : G) ≤ H := by
-    have := (h.F913_2 s).2 γ₂ hγ₂nb hd
-    rw [stab_γ₁ h.amalgamHypV.le₂] at this
-    exact this.trans ((pCoreOf_le 2 _).trans inf_le_left)
-  exact ⟨h2.trans (le_normalizer_conjClosure V H), h2.trans (le_normalizer_conjClosure Vp H)⟩
 
 theorem F913_5a (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
     ¬ ⁅F8.Uγ Vp H (g : G), V⁆ ≤ F8.A₁ V₁ (g : G) := by
@@ -367,11 +356,6 @@ theorem F913_5b (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
   rw [Subgroup.commutator_eq_bot_iff_le_centralizer.mpr hcent] at h1
   exact h1.trans bot_le
 
-omit [Finite G] in
-theorem F913_6 (V Vp V₁ H : Subgroup G) (g : G) :
-    ⁅F8.Uγ Vp H g, F9.EH V Vp V₁ H g⁆ ≤ F8.A₁ V₁ g ∧
-      ⁅conjClosure Vp H, F9.Eγ V Vp V₁ H g⁆ ≤ V₁ :=
-  ⟨commutator_centralizerMod_le _ _ _, commutator_centralizerMod_le _ _ _⟩
 
 theorem F913_7 (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
     ⁅F8.DH Vp V₁ H (g : G), F8.Dγ Vp V₁ H (g : G)⁆ = ⊥ := by
@@ -393,34 +377,6 @@ theorem pCoreOf_stab_eq_centralizerMod (h : HypF98 T V L V₁ Vp H) (s : F8Setup
     rw [← s.edge₁, stab_smul, stab_γ₁ h.amalgamHypV.le₂]
   rw [hstab]; exact h3
 
-theorem F915_1 (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
-    conjClosure V H ⊓ ballStab 1 γ = F9.EH V Vp V₁ H (g : G) := by
-  have hVH := (h.F913_2 s).1
-  have hVstab : conjClosure V H ≤ stab γ := hVH.trans ((pCoreOf_le 2 _).trans inf_le_right)
-  have hstab : stab γ = conjSub (g : G) H := by
-    rw [← s.edge₁, stab_smul, stab_γ₁ h.amalgamHypV.le₂]
-  have hN : stab γ ≤ Subgroup.normalizer (F8.A₁ V₁ (g : G) : Set G) := by
-    rw [hstab]; exact conjSub_le_normalizer h.H_normalizes_V₁
-  have h77 := pCoreOf_stab_eq h.amalgamHypV.toAmalgamHyp (α := γ) (β := γ')
-    (mem_nbrs_symm s.nbr)
-  have hA : conjClosure V H ⊓ ballStab 1 γ = conjClosure V H ⊓ pCoreOf 2 (stab γ) := by
-    rw [h77]
-    ext x
-    simp only [Subgroup.mem_inf]
-    constructor
-    · rintro ⟨hx1, hx2⟩
-      refine ⟨hx1, ?_, hx2⟩
-      have := hVH hx1
-      rwa [inf_comm] at this
-    · rintro ⟨hx1, -, hx2⟩
-      exact ⟨hx1, hx2⟩
-  rw [hA, h.pCoreOf_stab_eq_centralizerMod s]
-  ext x
-  constructor
-  · rintro ⟨hx1, hx2⟩
-    exact ⟨hx1, hx2.2.1, hx2.2.2⟩
-  · rintro ⟨hx1, hx2, hx3⟩
-    exact ⟨hx1, hVstab hx1, hx2, hx3⟩
 
 theorem F915_2 (h : HypF98 T V L V₁ Vp H) (s : F8Setup T V L H γ γ' g) :
     F8.Uγ V H (g : G) ⊓ ballStab 1 (F8.γ₁ T L H) = F9.Eγ V Vp V₁ H (g : G) := by

@@ -76,73 +76,6 @@ theorem wGroup_zpowers_eq_of_reachable (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
     exact wGroup_zpowers_eq_of_commute h32 hG hN hK hK' hne hE hEK c.1.2 d.1.2 hc2 hd2
       hne' hcomm'
 
-theorem le_normalizer_wGroup_of_preconnected (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N)
-    (hne : K ≠ K') {V B E : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B)
-    (hB8 : Nat.card B = 8) (hE : IsKleinFour E) (hEB : E ≤ B)
-    (hconn : (CFSG.Assembly.involutionGraph ↥(K' ⊓ centralizer (E : Set G))).Preconnected) :
-    K' ≤ normalizer (wGroup B V : Set G) := by
-  classical
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  set Y := K' ⊓ centralizer (E : Set G) with hY
-  have hEK : E ≤ K := hEB.trans hBK
-  have hE2 := isPGroup_of_isKleinFour hE
-  have hEQ : E ≤ coreActionKernel K' := hEK.trans (le_coreActionKernel_of_ne hK' hK hne.symm)
-  have hK'q : IsQuasisimple (↥K' ⧸ pPrimeCore 2 ↥K') :=
-    isQuasisimple_quotient_of_isPComponent hK'.1.1 hK'.1.2
-  obtain ⟨-, -, hsup, -⟩ := cover_facts hK'q inf_le_left (inf_centralizer_sup_oddCoreIn_eq hE2 hEQ)
-  have hWE : wGroup E V = wGroup B V :=
-    wGroup_eq_of_le h32 hG hN hK hK' hne hV hVK' hBK hBV hB hE hEB
-  obtain ⟨v, hv, hv1⟩ : ∃ v ∈ V, v ≠ 1 := by
-    by_contra h
-    push Not at h
-    have h4 := hV.card_four
-    rw [show V = ⊥ from eq_bot_iff.mpr fun x hx => (mem_bot).mpr (h x hx), card_bot] at h4
-    norm_num at h4
-  have hv2 : orderOf v = 2 := orderOf_eq_two_of_isKleinFour hV hv hv1
-  have hvY : v ∈ Y := ⟨hVK' hv, fun e he =>
-    ((mem_centralizer_iff.mp (hBV (hEB he))) v hv).symm⟩
-  have hWv : wGroup E (zpowers v) = wGroup B V := by
-    rw [← hWE, wGroup_eq_wGroup_zpowers h32 hG hN hK hK' hne hV hVK' hE hEK
-      (hEB.trans hBV) hv hv1]
-  set v₀ : {t : ↥Y // orderOf t = 2} := ⟨⟨v, hvY⟩, by rw [Subgroup.orderOf_mk]; exact hv2⟩
-  have hWt : ∀ t ∈ Y, orderOf t = 2 → wGroup E (zpowers t) = wGroup B V := by
-    intro t htY ht2
-    set t₀ : {t : ↥Y // orderOf t = 2} := ⟨⟨t, htY⟩, by rw [Subgroup.orderOf_mk]; exact ht2⟩
-    rw [← hWv]
-    exact (wGroup_zpowers_eq_of_reachable h32 hG hN hK hK' hne hE hEK (hconn v₀ t₀)).symm
-  rw [← hsup]
-  refine sup_le ?_ ?_
-  ·
-    rw [oddResidualIn, closure_le]
-    rintro x ⟨hxY, k, hk⟩
-    rcases Nat.eq_zero_or_pos k with rfl | hk0
-    · rw [pow_zero, orderOf_eq_one_iff] at hk
-      rw [hk]
-      exact one_mem _
-    · set t := x ^ (2 ^ (k - 1)) with ht
-      have ht2 : orderOf t = 2 := by
-        refine orderOf_eq_prime ?_ ?_
-        · rw [ht, ← pow_mul, ← pow_succ, Nat.sub_add_cancel hk0, ← hk, pow_orderOf_eq_one]
-        · rw [ht]
-          exact pow_ne_one_of_lt_orderOf (by positivity)
-            (by rw [hk]; exact Nat.pow_lt_pow_right (by norm_num) (by omega))
-      have htY : t ∈ Y := pow_mem hxY _
-      have hxE : x ∈ normalizer (E : Set G) :=
-        Subgroup.centralizer_le_normalizer (E : Set G) hxY.2
-      have hxt : x ∈ normalizer ((zpowers t : Subgroup G) : Set G) := by
-        refine Subgroup.centralizer_le_normalizer _ ?_
-        rw [centralizer_zpowers_eq, mem_centralizer_singleton_iff, ht]
-        exact (Commute.self_pow x _).eq
-      have h := le_normalizer_wGroup hxE hxt
-      rwa [hWt t htY ht2] at h
-  ·
-    refine le_normalizer_wGroup_of_odd h32 hG hN hK hK' hne hV hVK' hBK hBV hB hB8
-      (coprime_card_oddCoreIn K') ?_ ?_
-    · exact fun b hb => mem_normalizer_iff_map_conj_eq.mpr
-        (map_conj_oddCoreIn (le_normalizer_of_mem_kStarComponents hK hK' (hBK hb)))
-    · exact fun w hw => le_normalizer_oddCoreIn K' (hVK' hw)
 
 @[expose] def CommFourIn (X F F' : Subgroup G) : Prop :=
   IsKleinFour F ∧ IsKleinFour F' ∧ F ≤ X ∧ F' ≤ X ∧ F ≤ centralizer (F' : Set G)
@@ -165,54 +98,5 @@ theorem wGroup_eq_of_reflTransGen (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
       (wGroup_le_wGroup h32 hG hN hK hK' hne hV hVK' hC (hCX.trans inf_le_left)
         (hCX.trans inf_le_right) hD (hDX.trans inf_le_left) (hDX.trans inf_le_right) hCDc)
 
-theorem le_normalizer_wGroup_of_twoConnected (h32 : Lemma32FullFor 𝒜) (hG : 𝒜 G)
-    (hN : IsSolomonChoice N) (hK : K ∈ kStarComponents N) (hK' : K' ∈ kStarComponents N)
-    (hne : K ≠ K') {V B E : Subgroup G} (hV : IsKleinFour V) (hVK' : V ≤ K') (hBK : B ≤ K)
-    (hBV : B ≤ centralizer (V : Set G)) (hB : CFSG.Open.IsElemAbelian 2 B)
-    (hB8 : Nat.card B = 8) (hE : IsKleinFour E) (hEB : E ≤ B)
-    (hconn : ∀ F : Subgroup G, IsKleinFour F → F ≤ K ⊓ centralizer (V : Set G) →
-      Relation.ReflTransGen (CommFourIn (K ⊓ centralizer (V : Set G))) E F) :
-    K ≤ normalizer (wGroup B V : Set G) := by
-  have hWE : wGroup E V = wGroup B V :=
-    wGroup_eq_of_le h32 hG hN hK hK' hne hV hVK' hBK hBV hB hE hEB
-  have hV2 := isPGroup_of_isKleinFour hV
-  have hVQ : V ≤ coreActionKernel K := hVK'.trans (le_coreActionKernel_of_ne hK hK' hne)
-  rw [← inf_centralizer_sup_oddCoreIn_eq hV2 hVQ]
-  refine sup_le ?_ ?_
-  ·
-    intro g hg
-    have hVg : V.map (MulAut.conj g).toMonoidHom = V := by
-      ext x
-      constructor
-      · rintro ⟨y, hy, rfl⟩
-        show g * y * g⁻¹ ∈ V
-        have hgy : g * y = y * g := ((mem_centralizer_iff.mp hg.2) y hy).symm
-        rw [hgy, mul_inv_cancel_right]
-        exact hy
-      · intro hx
-        refine ⟨x, hx, ?_⟩
-        show g * x * g⁻¹ = x
-        have hgx : g * x = x * g := ((mem_centralizer_iff.mp hg.2) x hx).symm
-        rw [hgx, mul_inv_cancel_right]
-    set Eg := E.map (MulAut.conj g).toMonoidHom with hEg
-    have hEg4 : IsKleinFour Eg := by
-      refine isKleinFour_of_card_eq_four ?_ fun x hx => ?_
-      · rw [hEg, Subgroup.card_map_of_injective (MulAut.conj g).injective, hE.card_four]
-      · obtain ⟨v, hv, rfl⟩ := hx
-        rw [← map_pow, sq_eq_one_of_isKleinFour hE hv, map_one]
-    have hEX : E ≤ K ⊓ centralizer (V : Set G) := le_inf (hEB.trans hBK) (hEB.trans hBV)
-    have hEgX : Eg ≤ K ⊓ centralizer (V : Set G) := by
-      rintro _ ⟨e, he, rfl⟩
-      exact (mul_mem (mul_mem hg (hEX he)) (inv_mem hg))
-    have key : (wGroup B V).map (MulAut.conj g).toMonoidHom = wGroup B V := by
-      rw [← hWE, map_wGroup, hVg]
-      exact wGroup_eq_of_reflTransGen h32 hG hN hK hK' hne hV hVK' (hconn Eg hEg4 hEgX)
-    exact mem_normalizer_iff_map_conj_eq.mpr key
-  ·
-    refine le_normalizer_wGroup_of_odd h32 hG hN hK hK' hne hV hVK' hBK hBV hB hB8
-      (coprime_card_oddCoreIn K) ?_ ?_
-    · exact fun b hb => le_normalizer_oddCoreIn K (hBK hb)
-    · exact fun w hw => mem_normalizer_iff_map_conj_eq.mpr
-        (map_conj_oddCoreIn (le_normalizer_of_mem_kStarComponents hK' hK (hVK' hw)))
 
 end CFSG.ComponentClassification.Sol76.Sig

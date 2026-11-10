@@ -15,13 +15,6 @@ open CFSG.AGLEmbedding (Asc81bHyp IsWeakSBlock IsTwoPrimeComponent barM InClassX
   NineThreeThree NineThreeFour NineThreeFive NineThreeEight IsClassicalTwoOrG2)
 open CFSG.HardMathSupport.Cooperstein.Proving (barMEquiv quotCenterEquiv)
 
-@[expose] def Asc81bNineThreeChevLS : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (S L : Subgroup G), CFSG.Open.IsKGroup ↥(L ⊔ S) →
-    Asc81bHyp (L ⊔ S) S → IsWeakSBlock (L ⊔ S) S L → S ≤ Subgroup.normalizer (L : Set G) →
-    IsClassicalTwoOrG2 (↥(barM (L ⊔ S) L) ⧸ Subgroup.center ↥(barM (L ⊔ S) L)) →
-      InClassXBlock L ∨ NineThreeTwo (L ⊔ S) S L ∨
-        (NineThreeThree (L ⊔ S) S L ∧ IsTypeScriptL L) ∨
-        (NineThreeFour (L ⊔ S) S L ∧ IsA6Z3Type L)
 
 @[expose] def Asc81bNineThreeAltLS : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (X S L : Subgroup G), CFSG.Open.IsKGroup ↥X →

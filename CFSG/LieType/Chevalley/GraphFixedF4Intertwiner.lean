@@ -242,13 +242,6 @@ theorem f4ToE6Module_apply
       f4ToE6Module_single, Finsupp.smul_apply, Finsupp.single_apply]
     simp only [smul_eq_mul, mul_ite, mul_one, mul_zero, eq_comm]
 
-theorem f4ToE6Module_injective
-    : Function.Injective (f4ToE6Module K) := by
-  intro w w' h
-  ext a
-  have := congrArg (fun v => v (f4LabelRep a)) h
-  simp only [f4ToE6Module_apply, e6LabelToF4_f4LabelRep] at this
-  exact this
 
 @[expose] def e6GraphFixedModule (K : Type*) [Field K] : Submodule K (RootModule Tag.E6 K) :=
   LinearMap.eqLocus (e6DiagramEnd K) LinearMap.id
@@ -353,11 +346,6 @@ theorem f4ToE6Module_vecOf
       ih fun y hy => hv y (List.mem_cons_of_mem _ hy)]
     simp only [f4ToE6Vec, List.flatMap_cons, vecOf_append, vecOf_map_mul]
 
-theorem validVec_f4ToE6Vec (v : List (ℕ × ℤ)) : ValidVec Tag.E6 (f4ToE6Vec v) := by
-  intro x hx
-  obtain ⟨y, -, hy⟩ := List.mem_flatMap.1 hx
-  obtain ⟨z, hz, rfl⟩ := List.mem_map.1 hy
-  exact validVec_f4ToE6Pos _ z hz
 
 @[expose] def simplePos (τ : Tag) (y : Bool) (i : Fin τ.rank) : ℕ :=
   if y then τ.rootCertificate.image i i else i
@@ -640,32 +628,5 @@ theorem f4OrbitY_comp_f4ToE6Module
     exact pair_poly_comp R _ _ _ _
       (fun n hn => coeffOp_comp_of_check_pair R h2 intertwinerCheck_y3 hn) c
 
-theorem even_E6_graph_fixed_module_F4_intertwiner
-    (K : Type) [Field K] (hK : ringChar K = 2) :
-    (∀ β, IsRoot Tag.E6 β → IsRoot Tag.F4 (e6ToF4 β)) ∧
-    (∀ α, IsRoot Tag.F4 α → ∃ β, IsRoot Tag.E6 β ∧ e6ToF4 β = α ∧ ∀ β', IsRoot Tag.E6 β' →
-      (e6ToF4 β' = α ↔ β' = β ∨ β' = permLattice TwistTag.E6.perm β)) ∧
-    (∀ j, f4ToE6Module K (hVec Tag.F4 K j) =
-      ((f4IndexOrbit j).map fun i => hVec Tag.E6 K i).sum) ∧
-    (∀ α, IsRoot Tag.F4 α → f4ToE6Module K (rootVec Tag.F4 K α) =
-      ∑ β ∈ (rootFinset Tag.E6).filter (fun β => e6ToF4 β = α), rootVec Tag.E6 K β) ∧
-    (∀ v, v ∈ e6GraphFixedModule K ↔
-      (diagramMap TwistTag.E6 K : Module.End K (RootModule TwistTag.E6.tag K)) v = v) ∧
-    Function.Injective (f4ToE6Module K) ∧
-    LinearMap.range (f4ToE6Module K) = e6GraphFixedModule K ∧
-    (∀ j (c : K), f4OrbitX K j c ∘ₗ f4ToE6Module K = f4ToE6Module K ∘ₗ xOp Tag.F4 K j c) ∧
-    (∀ j (c : K), f4OrbitY K j c ∘ₗ f4ToE6Module K = f4ToE6Module K ∘ₗ yOp Tag.F4 K j c) ∧
-    ∀ (R : Type) [CommRing R], (2 : R) = 0 → ∀ j (c : R),
-      f4OrbitX R j c ∘ₗ f4ToE6Module R = f4ToE6Module R ∘ₗ xOp Tag.F4 R j c ∧
-      f4OrbitY R j c ∘ₗ f4ToE6Module R = f4ToE6Module R ∘ₗ yOp Tag.F4 R j c := by
-  have : CharP K 2 := ringChar.of_eq hK
-  have h2 : (2 : K) = 0 := by exact_mod_cast CharP.cast_eq_zero K 2
-  refine ⟨fun β hβ => isRoot_e6ToF4 hβ, fun α hα => exists_e6ToF4_fibre hα, fun j => ?_,
-    fun α hα => ?_, fun v => mem_e6GraphFixedModule, f4ToE6Module_injective K,
-    range_f4ToE6Module K, f4OrbitX_comp_f4ToE6Module K h2, f4OrbitY_comp_f4ToE6Module K h2,
-    fun R _ hR j c => ⟨f4OrbitX_comp_f4ToE6Module R hR j c, f4OrbitY_comp_f4ToE6Module R hR j c⟩⟩
-  · rw [hVec, f4ToE6Module, Finsupp.linearCombination_single, one_smul]
-  · rw [CFSG.LieType.Ree.rootVec_eq_single K hα, f4ToE6Module, Finsupp.linearCombination_single,
-      one_smul]
 
 end CFSG.LieType.Chevalley

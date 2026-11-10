@@ -34,36 +34,6 @@ theorem e8P4J_odd' (c : Fin 8 → ℤ) (j : Fin 4) :
   fin_cases j <;>
     simp [Matrix.mulVec, dotProduct, Fin.sum_univ_eight, toMat, lget, e8P4JRows]
 
-theorem e8P4J_even (c : Fin Tag.E8.rank → ℤ) (j : Fin 4) :
-    (e8P4J *ᵥ c) ⟨2 * j.val, by have : Tag.E8.rank = 8 := rfl; omega⟩ =
-      - c ⟨2 * j.val + 1, by have : Tag.E8.rank = 8 := rfl; omega⟩ :=
-  e8P4J_even' c j
-
-theorem e8P4J_odd (c : Fin Tag.E8.rank → ℤ) (j : Fin 4) :
-    (e8P4J *ᵥ c) ⟨2 * j.val + 1, by have : Tag.E8.rank = 8 := rfl; omega⟩ =
-      c ⟨2 * j.val, by have : Tag.E8.rank = 8 := rfl; omega⟩ :=
-  e8P4J_odd' c j
-
-theorem gA_V (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gA (e8P4V *ᵥ x) j = - gB x j := by
-  unfold gA gB
-  rw [Matrix.mulVec_mulVec, e8P4Binv_mul_V, ← Matrix.mulVec_mulVec]
-  exact e8P4J_even _ j
-
-theorem gB_V (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gB (e8P4V *ᵥ x) j = gA x j := by
-  unfold gA gB
-  rw [Matrix.mulVec_mulVec, e8P4Binv_mul_V, ← Matrix.mulVec_mulVec]
-  exact e8P4J_odd _ j
-
-theorem gA_neg (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gA (-x) j = - gA x j := by
-  unfold gA
-  rw [Matrix.mulVec_neg]
-  rfl
-
-theorem gB_neg (x : Fin Tag.E8.rank → ℤ) (j : Fin 4) : gB (-x) j = - gB x j := by
-  unfold gB
-  rw [Matrix.mulVec_neg]
-  rfl
-
 
 end Coordinates
 
@@ -87,21 +57,6 @@ theorem e8P4G_coord (α : Fin Tag.E8.rank → ℤ) :
   exact ⟨⟨h ⟨0, by decide⟩, h ⟨1, by decide⟩⟩, ⟨h ⟨2, by decide⟩, h ⟨3, by decide⟩⟩,
     ⟨h ⟨4, by decide⟩, h ⟨5, by decide⟩⟩, ⟨h ⟨6, by decide⟩, h ⟨7, by decide⟩⟩⟩
 
-theorem e8P4_coord_nonzero {α : Fin Tag.E8.rank → ℤ}
-    (hα : IsRoot .E8 α) :
-    ∃ j : Fin 4, 1 ≤ gA α j ^ 2 + gB α j ^ 2 ∧ gA α j ^ 2 + gB α j ^ 2 ≤ 4 := by
-  have hl := e8P4_coord_nonzero_list (List.ofFn α) (isRoot_iff_mem_artifactRoots.1 hα)
-  rw [List.any_eq_true] at hl
-  obtain ⟨j, hj, h⟩ := hl
-  rw [decide_eq_true_eq] at h
-  have hj4 : j < 4 := List.mem_range.1 hj
-  refine ⟨⟨j, hj4⟩, ?_⟩
-  have h1 := coord_getD α ⟨2 * j, by have : Tag.E8.rank = 8 := rfl; omega⟩
-  have h2 := coord_getD α ⟨2 * j + 1, by have : Tag.E8.rank = 8 := rfl; omega⟩
-  simp only [e8P4Nrm] at h
-  simp only [gA, gB]
-  rw [h1, h2] at h
-  constructor <;> nlinarith [h.1, h.2]
 
 @[expose] def GRow.get (u : GRow) : Fin 4 → GZ := ![u.1, u.2.1, u.2.2.1, u.2.2.2]
 

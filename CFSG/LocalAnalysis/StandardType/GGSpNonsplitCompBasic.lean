@@ -32,9 +32,6 @@ variable {F : Type} [Field F] {n e s r p : ℕ}
     rw [fromBlocks_add, blockDiagonal_add]
     simp
 
-theorem bdHom_apply (x : (Fin s → Matrix (Fin e) (Fin e) F) × Matrix (Fin r) (Fin r) F) :
-    bdHom x = fromBlocks (blockDiagonal x.1) 0 0 x.2 :=
-  rfl
 
 theorem nsCore_eq_bdHom (C : Matrix (Fin e) (Fin e) F) (k : Fin s → ℕ) :
     SLNS.nsCore (r := r) C k = bdHom (fun j => C ^ k j, 1) :=

@@ -90,29 +90,6 @@ theorem heisenbergCoordHom_mem (z : hermitianUnipotentCoord (fieldDataHermitianF
         change heisenbergMatrix h (-h.bar (-h.bar a)) b i j = _
         rw [map_neg, h.bar_bar, neg_neg])
 
-theorem coe_heisenbergRootEquiv (z : hermitianUnipotentCoord (fieldDataHermitianForm h)) :
-    ((heisenbergRootEquiv h z : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-      heisenbergMatrix h (-h.bar z.1.1) z.1.2 :=
-  coe_heisenbergCoordHom h z
-
-theorem coe_eq_heisenbergMatrix (x : heisenbergRoot h) :
-    ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-      heisenbergMatrix h (-h.bar ((heisenbergRootEquiv h).symm x).1.1)
-        ((heisenbergRootEquiv h).symm x).1.2 := by
-  rw [← coe_heisenbergRootEquiv, MulEquiv.apply_symm_apply]
-
-theorem coord_of_coe_eq {x : heisenbergRoot h} {a b : K}
-    (hx : ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = heisenbergMatrix h a b) :
-    ((heisenbergRootEquiv h).symm x).1.1 = -h.bar a ∧ ((heisenbergRootEquiv h).symm x).1.2 = b := by
-  rw [coe_eq_heisenbergMatrix, heisenbergMatrix_inj] at hx
-  refine ⟨?_, hx.2⟩
-  rw [← hx.1, map_neg, h.bar_bar, neg_neg]
-
-theorem entry_one_two (x : heisenbergRoot h) :
-    ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) 1 2 =
-      -h.bar ((heisenbergRootEquiv h).symm x).1.1 := by
-  rw [coe_eq_heisenbergMatrix]
-  simp [heisenbergMatrix]
 
 @[expose] def heisenbergRootCenter : Subgroup (heisenbergRoot h) :=
   rootCenter (fieldDataHermitianForm h) (heisenbergRootEquiv h)
@@ -120,35 +97,5 @@ theorem entry_one_two (x : heisenbergRoot h) :
 instance : (heisenbergRootCenter h).Normal :=
   inferInstanceAs (rootCenter _ _).Normal
 
-theorem mem_heisenbergRootCenter (x : heisenbergRoot h) :
-    x ∈ heisenbergRootCenter h ↔ ∃ b ∈ h.fixedField,
-      ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = heisenbergMatrix h 0 b := by
-  have : CharP K 2 := h.charP
-  rw [heisenbergRootCenter, mem_rootCenter]
-  constructor
-  · intro hx
-    refine ⟨((heisenbergRootEquiv h).symm x).1.2, ?_, ?_⟩
-    · exact conj_snd_of_fst_eq_zero (fieldDataHermitianForm h) hx
-    · rw [coe_eq_heisenbergMatrix, hx, map_zero, neg_zero]
-  · rintro ⟨b, -, hx⟩
-    rw [(coord_of_coe_eq h hx).1, map_zero, neg_zero]
-
-theorem coe_fieldInvolution {x : heisenbergRoot h} {a b : K}
-    (hx : ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = heisenbergMatrix h a b) :
-    ((fieldInvolution (fieldDataHermitianForm h) (heisenbergRootEquiv h) x : GL (Fin 3) K) :
-      Matrix (Fin 3) (Fin 3) K) = heisenbergMatrix h (h.bar a) (h.bar b) := by
-  obtain ⟨h₁, h₂⟩ := coord_of_coe_eq h hx
-  rw [coe_eq_heisenbergMatrix, symm_fieldInvolution_apply, fst_rootTau, snd_rootTau, h₁, h₂,
-    fieldDataHermitianForm_conj, fieldDataHermitianForm_conj, map_neg, h.bar_bar, map_neg,
-    neg_neg]
-
-@[expose] def heisenbergRootBar : MulAut (heisenbergRoot h) :=
-  fieldInvolution (fieldDataHermitianForm h) (heisenbergRootEquiv h)
-
-theorem coe_heisenbergRootBar {x : heisenbergRoot h} {a b : K}
-    (hx : ((x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) = heisenbergMatrix h a b) :
-    ((heisenbergRootBar h x : GL (Fin 3) K) : Matrix (Fin 3) (Fin 3) K) =
-      heisenbergMatrix h (h.bar a) (h.bar b) :=
-  coe_fieldInvolution h hx
 
 end CFSG.ShultStronglyClosedTI.UnitaryRootAutomorphism

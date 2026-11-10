@@ -363,14 +363,5 @@ theorem deltaCore_trivial_gu (hK : Nat.card K = (p ^ f) ^ 2) (hp2 : p ≠ 2) (hq
 
 end Delta
 
-theorem deltaCore_trivial_su_gf {e : ℕ} (hp2 : p ≠ 2) (h5 : 5 ≤ p ^ e) (hn : 3 ≤ n) {X : Type}
-    [Group X] [Finite X] (ψ : Su (GaloisField p (2 * e)) p e n →* X)
-    (hker : ψ.ker ≤ Subgroup.center (Su (GaloisField p (2 * e)) p e n)) (hnorm : ψ.range.Normal)
-    {F : Subgroup X} (hcard : Nat.card F = 4) (hF2 : ∀ f' ∈ F, f' * f' = 1)
-    (htoral : ToralDiagGU 2 ψ F) {d : X} (hd : d ∈ deltaCore F) {x : X} (hx : x ∈ ψ.range) :
-    d * x = x * d :=
-  deltaCore_trivial_gu
-    (CFSG.ClassicalInvolution.ModelFacts.UnitaryAut.card_galoisField_two_mul_eq h5) hp2 h5 hn ψ
-    hker hnorm hcard hF2 htoral hd hx
 
 end CFSG.ClassicalInvolution.Balance.StrongBalance.Unitary

@@ -10,23 +10,6 @@ namespace CFSG.OrderReductions.ThompsonSolvableOdd
 open CFSG.OrderReductions.ActionPrimeCore CFSG.OrderReductions.PrimeComplementCore CFSG.OrderReductions.ThompsonCoreProduct
 open CFSG.OrderReductions.ThompsonCenter
 
-theorem thompsonCenter_characteristic_of_trivial_core {group : Type*} [Group group] [Finite group]
-    [Group.IsSolvable group] (prime : ℕ) [Fact (Nat.Prime prime)] (odd_prime : Odd prime)
-    (odd_order : Odd (Nat.card group)) (core_bot : primeComplementCore prime group = ⊥)
-    (sylow : Sylow prime group) :
-    ((thompsonCenter (sylow : Subgroup group)).map (sylow : Subgroup group).subtype).Characteristic := by
-  apply CFSG.OrderReductions.ThompsonCharacteristic.glauberman_characteristic prime odd_prime sylow
-    (CFSG.OrderReductions.SolvablePrimeCore.centralizer_primeCore_le prime core_bot)
-  intro normal normal_instance prime_normal
-  exact CFSG.OrderReductions.SolvableOddStability.primeStable_of_solvable_odd prime prime_normal
-    (conjugationAction normal) odd_order
-
-theorem thompsonCenter_nontrivial_of_trivial_core {group : Type*} [Group group] [Finite group]
-    [Nontrivial group] (prime : ℕ) [Fact (Nat.Prime prime)]
-    (core_bot : primeComplementCore prime group = ⊥) (sylow : Sylow prime group) :
-    (thompsonCenter (sylow : Subgroup group)).map (sylow : Subgroup group).subtype ≠ ⊥ := by
-  have nontrivial := coreProduct_nontrivial prime sylow
-  simpa only [coreProduct, core_bot, bot_sup_eq] using nontrivial
 
 theorem coreProduct_characteristic_of_solvable_odd {group : Type*} [Group group] [Finite group]
     [Group.IsSolvable group] (prime : ℕ) [Fact (Nat.Prime prime)] (odd_prime : Odd prime)

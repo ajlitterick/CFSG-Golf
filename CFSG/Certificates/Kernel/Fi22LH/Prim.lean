@@ -261,21 +261,5 @@ theorem testBit_bsF_zero {n d : Nat} (hn : n ≤ 2 ^ d) (f : Nat → Nat) (y : N
 theorem testBit_bs (q y : Nat) : (bs q).testBit y = true ↔ ∃ j < 351, ent q j = y :=
   testBit_bsF_zero (by norm_num) _ y
 
-theorem bsF_lt {n d : Nat} (hn : n ≤ 2 ^ d) {f : Nat → Nat} {N : Nat} (hf : ∀ i < n, f i < N) :
-    bsF n f d 0 < 2 ^ N := by
-  apply Nat.lt_pow_two_of_testBit
-  intro i hi
-  cases e : (bsF n f d 0).testBit i
-  · rfl
-  · obtain ⟨j, hj, e2⟩ := (testBit_bsF_zero hn f i).1 e
-    have := hf j hj
-    omega
-
-theorem bsP_lt {n d : Nat} (hn : n ≤ 2 ^ d) (p : Nat → Bool) : bsP n p d 0 < 2 ^ n := by
-  apply Nat.lt_pow_two_of_testBit
-  intro i hi
-  rw [testBit_bsP_zero hn]
-  simp only [Bool.and_eq_false_iff, decide_eq_false_iff_not, not_lt]
-  exact Or.inl hi
 
 end CFSG.KS.Fi22LH

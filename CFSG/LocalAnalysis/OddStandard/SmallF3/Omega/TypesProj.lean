@@ -83,12 +83,6 @@ noncomputable abbrev toProj (Q : QuadraticForm (ZMod 3) V) : OGroup Q →* ProjO
 private lemma aux_unit_mul_self (u : ℤˣ) : u * u = 1 := by
   rcases Int.units_eq_one_or u with h | h <;> rw [h] <;> decide
 
-private lemma aux_sign_compose (σ β : ℤˣ) (k : ℕ) :
-    σ * (σ * β * (-1) ^ k) * (-1) ^ k = β := by
-  have hσ : σ * σ = 1 := aux_unit_mul_self σ
-  have hp : (-1 : ℤˣ) ^ k * (-1) ^ k = 1 := aux_unit_mul_self _
-  rw [show σ * (σ * β * (-1) ^ k) * (-1) ^ k =
-      (σ * σ) * β * ((-1) ^ k * (-1) ^ k) by group, hσ, hp, mul_one, one_mul]
 
 private lemma aux_neg_mul_mul_pow (u : ℤˣ) (r : ℕ) :
     (-1 : ℤˣ) * u * (-1) ^ r = (-1) ^ (r + 1) * u := by
@@ -185,89 +179,5 @@ theorem invType_piOrth_mul_of_even_minus (hQ : Q.Nondegenerate) {t : OGroup Q} (
   rw [invType_piOrth_mul hQ htt, hσ,
     aux_neg_one_pow_mul_sub_of_even (invDim_le t) hn, aux_neg_mul_mul_pow (invSign t) (invDim t)]
 
-private lemma aux_hasType_sub_forward (hQ : Q.Nondegenerate) {x : ProjOrth Q} {r : ℕ}
-    (hr : r ≤ Module.finrank (ZMod 3) V) {α : ℤˣ} (h : HasType x r α) :
-    HasType x (Module.finrank (ZMod 3) V - r)
-      (quadSign Q * α * (-1) ^ (r * (Module.finrank (ZMod 3) V - r))) := by
-  simp only [HasType] at h ⊢
-  rcases h with ⟨hx1, t, htt, htype, rfl⟩
-  refine ⟨hx1, piOrth Q * t, piOrth_mul_mul_self htt, ?_, ?_⟩
-  · have hdim : invDim t = r := by
-      simpa only [invType] using congrArg Prod.fst htype
-    have hsign : invSign t = α := by
-      simpa only [invType] using congrArg Prod.snd htype
-    rw [invType_piOrth_mul hQ htt, hdim, hsign]
-  · rw [map_mul, toProj_piOrth, one_mul]
-
-theorem hasType_iff_hasType_sub (hQ : Q.Nondegenerate) {x : ProjOrth Q} {r : ℕ}
-    (hr : r ≤ Module.finrank (ZMod 3) V) {α : ℤˣ} :
-    HasType x r α ↔
-      HasType x (Module.finrank (ZMod 3) V - r)
-        (quadSign Q * α * (-1) ^ (r * (Module.finrank (ZMod 3) V - r))) := by
-  constructor
-  · exact aux_hasType_sub_forward hQ hr
-  · intro h
-    have hf := aux_hasType_sub_forward (hQ := hQ)
-      (hr := Nat.sub_le (Module.finrank (ZMod 3) V) r)
-      (α := quadSign Q * α * (-1) ^ (r * (Module.finrank (ZMod 3) V - r))) h
-    rw [Nat.sub_sub_self hr] at hf
-    rw [show (Module.finrank (ZMod 3) V - r) * r =
-      r * (Module.finrank (ZMod 3) V - r) from Nat.mul_comm _ _] at hf
-    rwa [aux_sign_compose] at hf
-
-theorem hasType_iff_of_odd (hQ : Q.Nondegenerate) {x : ProjOrth Q} {r : ℕ}
-    (hr : r ≤ Module.finrank (ZMod 3) V) {α : ℤˣ} (hn : Odd (Module.finrank (ZMod 3) V))
-    (hσ : quadSign Q = 1) :
-    HasType x r α ↔ HasType x (Module.finrank (ZMod 3) V - r) α := by
-  rw [hasType_iff_hasType_sub hQ hr, hσ, one_mul,
-    aux_neg_one_pow_mul_sub_of_odd hr hn, mul_one]
-
-theorem hasType_iff_of_even_plus (hQ : Q.Nondegenerate) {x : ProjOrth Q} {r : ℕ}
-    (hr : r ≤ Module.finrank (ZMod 3) V) {α : ℤˣ} (hn : Even (Module.finrank (ZMod 3) V))
-    (hσ : quadSign Q = 1) :
-    HasType x r α ↔ HasType x (Module.finrank (ZMod 3) V - r) ((-1) ^ r * α) := by
-  rw [hasType_iff_hasType_sub hQ hr, hσ, one_mul,
-    aux_neg_one_pow_mul_sub_of_even hr hn, mul_comm]
-
-theorem hasType_iff_of_even_minus (hQ : Q.Nondegenerate) {x : ProjOrth Q} {r : ℕ}
-    (hr : r ≤ Module.finrank (ZMod 3) V) {α : ℤˣ} (hn : Even (Module.finrank (ZMod 3) V))
-    (hσ : quadSign Q = -1) :
-    HasType x r α ↔ HasType x (Module.finrank (ZMod 3) V - r) ((-1) ^ (r + 1) * α) := by
-  rw [hasType_iff_hasType_sub hQ hr, hσ,
-    aux_neg_one_pow_mul_sub_of_even hr hn, aux_neg_mul_mul_pow α r]
-
-theorem isConj_toProj_iff (hQ : Q.Nondegenerate) {s t : OGroup Q} (hs : s * s = 1)
-    (ht : t * t = 1) :
-    IsConj (toProj Q s) (toProj Q t) ↔
-      invType s = invType t ∨ invType s = invType (piOrth Q * t) := by
-  have ht' : (piOrth Q * t) * (piOrth Q * t) = 1 := piOrth_mul_mul_self ht
-  constructor
-  · intro hconj
-    rw [isConj_iff] at hconj
-    obtain ⟨y, hy⟩ := hconj
-    obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective (piGroup Q) y
-    have hy' : toProj Q (g * s * g⁻¹) = toProj Q t := by
-      rw [map_mul, map_mul, map_inv]
-      exact hy
-    have hmem : (g * s * g⁻¹) / t ∈ piGroup Q := by
-      refine (QuotientGroup.eq_iff_div_mem (N := piGroup Q)).mp ?_
-      change toProj Q (g * s * g⁻¹) = toProj Q t
-      exact hy'
-    rw [div_eq_mul_inv] at hmem
-    rcases (mem_piGroup_iff.mp hmem) with h1 | h1
-    · left
-      have hgt : g * s * g⁻¹ = t := by
-        have h := congrArg (fun z => z * t) h1
-        simpa [mul_assoc] using h
-      rw [← invType_conj hQ hs g, hgt]
-    · right
-      have hgt : g * s * g⁻¹ = piOrth Q * t := by
-        have h := congrArg (fun z => z * t) h1
-        simpa [mul_assoc] using h
-      rw [← invType_conj hQ hs g, hgt]
-  · rintro (h | h)
-    · exact (toProj Q).map_isConj ((isConj_iff_invType_eq hQ hs ht).mpr h)
-    · have h1 := (toProj Q).map_isConj ((isConj_iff_invType_eq hQ hs ht').mpr h)
-      simpa only [map_mul, toProj_piOrth, one_mul] using h1
 
 end CFSG.OddStandard.SmallF3.Omega

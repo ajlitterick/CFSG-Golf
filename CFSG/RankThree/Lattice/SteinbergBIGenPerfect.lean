@@ -17,9 +17,6 @@ variable {τ : Tag} {p₀ : ℕ} [Fact p₀.Prime] {k : Type} [Field k] [CharP k
   {M : Type} [CommGroup M]
   (D : GenFixedRootDatum τ p₀ k M)
 
-theorem orbitMapHom_HSL {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits) (t : (D.orbitField O)ˣ) :
-    D.orbitMapHom hO (HSL t) = D.orbitH O t :=
-  rfl
 
 theorem orbitX_mem_commutator_of_sq_ne_one {O : Set (Fin τ.rank → ℤ)} (hO : O ∈ D.orbits)
     {t : (D.orbitField O)ˣ} (ht : (t : D.orbitField O) ^ 2 ≠ 1) (c : D.orbitField O) :

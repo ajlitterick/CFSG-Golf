@@ -313,11 +313,6 @@ theorem commutator_D : ⁅Model.D K, Model.D K⁆ = U K := by
 
 omit
   [CharP K 2] in
-theorem U_le_of_forall {T : Subgroup (ModGL .G2 K)} (h : ∀ f : K, g2N 0 0 0 0 0 f ∈ T) :
-    U K ≤ T := by
-  intro x hx
-  obtain ⟨f, rfl⟩ := mem_U.1 hx
-  exact h f
 
 theorem Y_le_of_forall {T : Subgroup (ModGL .G2 K)} (he : ∀ e : K, g2N 0 0 0 0 e 0 ∈ T)
     (hf : ∀ f : K, g2N 0 0 0 0 0 f ∈ T) : Y K ≤ T := by
@@ -607,10 +602,6 @@ theorem twoElementaryProduct_F : Common.TwoElementaryProduct (Model.F K) (W K) (
       refine ⟨W_le_F hx, mem_centralizer_singleton_iff.2 ?_⟩
       exact (commute_of_mem_g2ShortRadical hx hw).eq
 
-theorem maximal_elementaryAbelian_F_iff (E : Subgroup (ModGL .G2 K)) :
-    Maximal (fun E' : Subgroup (ModGL .G2 K) => E' ≤ Model.F K ∧ CFSG.IsElementaryAbelian 2 E')
-      E ↔ E = W K ∨ E = X K :=
-  twoElementaryProduct_F.maximal_iff E
 
 theorem F_inf_centralizer_F :
     Model.F K ⊓ centralizer (Model.F K : Set (ModGL .G2 K)) = Y K := by
@@ -1131,49 +1122,6 @@ theorem adjointGroup_inf_normalizer_M :
       (le_inf (leviB_le_adjointGroup K) leviB_le_normalizer_M))
       (J_le_of_borel borelGroup_le_normalizer_M)
 
-theorem adjointGroup_inf_normalizer_v [Finite K] :
-    adjointGroup .G2 K ⊓ normalizer (rootSubgroup .G2 K g2v : Set (ModGL .G2 K)) =
-      W K ⊔ leviB K ⊔ J K := by
-  apply le_antisymm
-  · rintro g ⟨hg, hgN⟩
-    have h1 : g * pinnedX .G2 K g2v 1 * g⁻¹ ∈ rootSubgroup .G2 K g2v :=
-      (mem_normalizer_iff.1 hgN _).1 (mem_rootSubgroup.2 ⟨1, rfl⟩)
-    obtain ⟨μ, hμ⟩ := mem_rootSubgroup.1 h1
-    have hμ0 : μ ≠ 0 := by
-      rintro rfl
-      rw [pinnedX_zero] at hμ
-      have : pinnedX .G2 K g2v 1 = 1 := by
-        have h2 := congrArg (fun x => g⁻¹ * x * g) hμ
-        simpa [mul_assoc] using h2.symm
-      exact one_ne_zero (pinnedX_injective .G2 K _ (this.trans (pinnedX_zero .G2 K _).symm))
-    set d := torusElt .G2 K g2ir (Units.mk0 μ hμ0) with hd
-    have hdv : d * pinnedX .G2 K g2v 1 * d⁻¹ = pinnedX .G2 K g2v μ := by
-      rw [hd, torus_r_v, Units.val_mk0, mul_one]
-    have hc : d⁻¹ * g ∈ adjointGroup .G2 K ⊓ centralizer {pinnedX .G2 K g2v 1} := by
-      refine mem_inf.2 ⟨mul_mem (inv_mem (torusElt_mem_adjointGroup _ _)) hg,
-        mem_centralizer_singleton_iff.2 ?_⟩
-      have e : d⁻¹ * g * pinnedX .G2 K g2v 1 = d⁻¹ * (g * pinnedX .G2 K g2v 1 * g⁻¹) * g := by
-        group
-      rw [e, ← hμ, ← hdv]
-      group
-    rw [(even_G2_highest_short_root_centralizer K).2.2.2.1] at hc
-    have hdJ : d ∈ J K := torusElt_mem_torusGroup g2ir _
-    have e : g = d * (d⁻¹ * g) := by group
-    rw [e]
-    exact mul_mem (mem_sup_right hdJ) (mem_sup_left hc)
-  · refine sup_le (sup_le (le_inf W_le_adjointGroup ?_) (le_inf (leviB_le_adjointGroup K) ?_))
-      (le_inf (J_le_adjointGroup K) ?_)
-    · refine fun w hw => centralizer_le_normalizer _ (mem_centralizer_iff.2 fun x hx => ?_)
-      obtain ⟨y, rfl⟩ := mem_rootSubgroup.1 hx
-      exact (commute_of_mem_g2ShortRadical (pinnedX_v_mem_g2ShortRadical y) hw).eq
-    · refine fun l hl => centralizer_le_normalizer _ (mem_centralizer_iff.2 fun x hx => ?_)
-      obtain ⟨y, rfl⟩ := mem_rootSubgroup.1 hx
-      exact (commute_of_mem_g2RankOne_a hl y).eq.symm
-    · refine le_normalizer_of_conj_mem fun h hh x hx => ?_
-      obtain ⟨y, rfl⟩ := mem_rootSubgroup.1 hx
-      obtain ⟨c, hc⟩ := exists_torus_scale hh isRoot_g2v
-      rw [hc]
-      exact mem_rootSubgroup.2 ⟨_, rfl⟩
 
 end Model
 
@@ -1388,10 +1336,6 @@ theorem yamada_3_13_1 :
   ⟨adjointGroup_inf_normalizer_X, adjointGroup_inf_normalizer_F,
     (adjointGroup_inf_normalizer_S (K := K)).1⟩
 
-theorem yamada_3_15 [Finite K] :
-    adjointGroup .G2 K ⊓ normalizer (rootSubgroup .G2 K g2v : Set (ModGL .G2 K)) =
-      W K ⊔ (leviB K ⊔ J₄ K) :=
-  adjointGroup_inf_normalizer_v.trans (sup_leviB_sup_J _)
 
 theorem J_le_normalizer_D_sup_leviA :
     J K ≤ normalizer ((Model.D K ⊔ leviA K : Subgroup (ModGL .G2 K)) : Set (ModGL .G2 K)) := by
@@ -1665,8 +1609,6 @@ theorem pRank_S [Finite G] {n : ℕ} (hK : Nat.card K = 2 ^ n) (hn : 1 ≤ n) :
 
 omit
   [CharP K 2] [Finite K] in
-theorem emb_wa_wb : d.emb ⟨Model.wa K, Model.wa_mem_adjointGroup K⟩ = d.wa ∧
-    d.emb ⟨Model.wb K, Model.wb_mem_adjointGroup K⟩ = d.wb := ⟨rfl, rfl⟩
 
 omit [Finite K] in
 theorem image_conj : d.image ((Model.W K).map (MulAut.conj (Model.wa K)).toMonoidHom) =
@@ -1849,15 +1791,6 @@ theorem natural_Y [Finite K] :
   obtain ⟨ρ, hu, hv, hrange, hinj⟩ := (even_G2_highest_short_root_centralizer K).2.2.2.2.2.2.2.1
   exact ⟨ρ, hrange, hinj, hu, hv, conj_Y_of_uv hu hv⟩
 
-theorem natural_M_mod_W [Finite K] :
-    ∃ ρ : SL2 K →* ModGL .G2 K, ρ.range = leviB K ∧ Function.Injective ρ ∧
-      (∀ s, ρ (uSL s) = pinnedX .G2 K g2a s) ∧ (∀ s, ρ (vSL s) = pinnedX .G2 K g2na s) ∧
-      ∀ (g : SL2 K) (v : Fin 2 → K) (D E F : K), ∃ D' E' F' : K,
-        ρ g * g2N (v 1) 0 (v 0) D E F * (ρ g)⁻¹ =
-          g2N ((Matrix.mulVec (g : Matrix (Fin 2) (Fin 2) K) v) 1) 0
-            ((Matrix.mulVec (g : Matrix (Fin 2) (Fin 2) K) v) 0) D' E' F' := by
-  obtain ⟨ρ, hu, hv, hrange, hinj⟩ := (even_G2_highest_short_root_centralizer K).2.2.2.2.2.2.2.1
-  exact ⟨ρ, hrange, hinj, hu, hv, conj_M_of_uv hu hv⟩
 
 theorem g2N_inv_mul_mem_W (A C D E F D' E' F' : K) :
     (g2N A 0 C D E F)⁻¹ * g2N A 0 C D' E' F' ∈ W K := by
@@ -2410,19 +2343,6 @@ section Yamada313
 
 variable [CharP K 2]
 
-theorem yamada_3_12_2_F (E : Subgroup G) :
-    Maximal (fun E' : Subgroup G => E' ≤ d.F ∧ CFSG.IsElementaryAbelian 2 E') E ↔
-      E = d.W ∨ E = d.X := by
-  rw [d.maximal_iff_image (P := fun E' => E' ≤ Model.F K ∧ CFSG.IsElementaryAbelian 2 E')
-    (fun E hE => hE.1.trans (d.image_le _)) (fun E' hE' => hE'.1.trans Model.F_le_adjointGroup)
-    (fun E' hE' => by rw [G2Data.F, d.image_le_image_iff hE', d.isElementaryAbelian_image_iff hE'])]
-  constructor
-  · rintro ⟨E', hE', rfl⟩
-    rcases (Model.maximal_elementaryAbelian_F_iff E').1 hE' with rfl | rfl
-    exacts [Or.inl rfl, Or.inr rfl]
-  · rintro (rfl | rfl)
-    exacts [⟨_, (Model.maximal_elementaryAbelian_F_iff _).2 (Or.inl rfl), rfl⟩,
-      ⟨_, (Model.maximal_elementaryAbelian_F_iff _).2 (Or.inr rfl), rfl⟩]
 
 theorem yamada_3_12_2_quotients (E : Subgroup G) :
     (Maximal (fun E' : Subgroup G => d.Y ≤ E' ∧ E' ≤ d.S ∧ ElemModulo d.Y E') E ↔
@@ -2509,12 +2429,6 @@ theorem yamada_3_13_3_G [Finite K] :
     exact hx'.2
   · rw [G2Data.leviB, G2Data.J₄, ← d.image_inf, h5, d.image_bot]
 
-theorem yamada_3_15_G [Finite K] :
-    L ⊓ normalizer (d.rootGroup g2v : Set G) = d.W ⊔ (d.leviB ⊔ d.J₄) := by
-  rw [G2Data.rootGroup, ← d.image_inf_normalizer (rootSubgroup_le_adjointGroup _),
-    Model.yamada_3_15, d.image_sup_sup Model.W_le_adjointGroup (Model.leviB_le_adjointGroup K)
-      (Model.torusFix_le_adjointGroup K g2a)]
-  rfl
 
 theorem yamada_3_13_4_G [Finite K] (hK : 4 ≤ Nat.card K) :
     ⁅L ⊓ normalizer (d.D : Set G), L ⊓ normalizer (d.D : Set G)⁆ = d.D ⊔ d.leviA ∧

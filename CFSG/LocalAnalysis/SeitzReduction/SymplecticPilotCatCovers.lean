@@ -40,9 +40,5 @@ theorem catSp2mCovers : CatSp2mCovers := by
   have hZ := odd_card_center_of_twoSmall_inner hτ hin hsmall
   exact ⟨hZ, twoSmall_centerQuotientAut hD hZ hsmall⟩
 
-theorem catSp6Covers_of_catSp2mCovers (h : CatSp2mCovers) : F4Pilot.CatSp6Covers := by
-  intro K _ _ hK τ hτ f D hD hD6
-  obtain ⟨h1, h2, D', hD', hD'6, h3, -⟩ := h K hK τ hτ 3 f D hD hD6
-  exact ⟨h1, h2, D', hD', hD'6, h3⟩
 
 end CFSG.SeitzReduction.SymplecticPilot

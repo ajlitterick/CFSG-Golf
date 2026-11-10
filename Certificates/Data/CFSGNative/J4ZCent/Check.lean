@@ -127,25 +127,11 @@ structure Setup where
     (List.range 16).all (fun i => eqRows (mulT S.b[i]! S.bit[i]!) idRows) &&
     (List.range 60).all fun i => eqRows (mulT S.t[i]! (frTable S.ti[i]!)) idRows
 
-@[expose] def chkR (S : Setup) : Bool :=
-  S.rset.size == 32768 &&
-    (List.range 32768).all fun c =>
-      let x := rExp S.rt c
-      let xt := frTable x
-      (List.range 15).all (fun j => S.rset.contains (mulT x S.rt[j]!)) &&
-        ((List.range 15).any (fun j => !eqRows (mulT x S.rt[j]!) (mulT S.r[j]! xt)) ||
-          (List.range 16).all fun i => eqRows (mulT x S.bt[i]!) (mulT S.b[i]! xt))
-
-@[expose] def chkNormR (S : Setup) : Bool :=
-  (List.range 16).all fun i => (List.range 15).all fun j =>
-    S.rset.contains (mulT (mulT S.b[i]! S.rt[j]!) S.bit[i]!)
 
 @[expose] def inTR (S : Setup) (x : Array V2) : Bool :=
   let xt := frTable x
   (List.range 60).any fun i => S.rset.contains (mulT S.ti[i]! xt)
 
-@[expose] def chkCover (S : Setup) : Bool :=
-  (List.range 60).all fun i => (List.range 16).all fun j => inTR S (mulT S.t[i]! S.bt[j]!)
 
 @[expose] def chkPerf (S : Setup) : Bool :=
   (List.range 16).all fun i =>
@@ -165,12 +151,5 @@ structure Setup where
       inTR S (mulT (mulT gm[k]! S.bt[i]!) S.git[k]!)) &&
     (List.range 16).all fun i => inTR S (mulT (mulT c S.bt[i]!) (frTable ci))
 
-@[expose] def chk9685 (gm : Array (Array V2)) : Bool :=
-  let S := setup gm
-  chkBase gm S && chkR S && chkNormR S && chkCover S
-
-@[expose] def chk9686 (gm : Array (Array V2)) : Bool :=
-  let S := setup gm
-  chkBase gm S && chkPerf S && chkK gm S
 
 end CFSG.Sporadic.J4.ZCent

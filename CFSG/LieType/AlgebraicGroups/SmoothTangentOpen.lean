@@ -19,10 +19,6 @@ variable {k A : Type} [Field k] [CommRing A] [Algebra k A] [Algebra A k]
   ⟨D.toLinearMap, fun a b => by
     simp only [Derivation.coeFn_coe, Derivation.leibniz, Algebra.smul_def, hx]⟩
 
-theorem coe_derivationToTangent (x : A →ₐ[k] k) (hx : ∀ a, algebraMap A k a = x a)
-    (D : Derivation k A k) :
-    ((derivationToTangent x hx D : tangentSpace k A x) : A →ₗ[k] k) = D.toLinearMap :=
-  rfl
 
 theorem derivationToTangent_bijective (x : A →ₐ[k] k) (hx : ∀ a, algebraMap A k a = x a) :
     Function.Bijective (derivationToTangent x hx) := by

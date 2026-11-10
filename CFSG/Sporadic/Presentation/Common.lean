@@ -20,15 +20,5 @@ theorem relatorSet_eq (P : GroupPresentation) :
   · rintro ⟨w, ⟨t, ht, rfl⟩, rfl⟩
     exact ⟨t, ht, (Relator.toWord_toFreeGroup t).symm⟩
 
-theorem group_card_le (P : GroupPresentation) {n : ℕ}
-    (h : Finite (PG P.generatorCount P.relators) ∧ Nat.card (PG P.generatorCount P.relators) ≤ n) :
-    Finite P.Group ∧ Nat.card P.Group ≤ n := by
-  rw [GroupPresentation.Group, relatorSet_eq]
-  exact h
-
-theorem group_finite (P : GroupPresentation) (h : Finite (PG P.generatorCount P.relators)) :
-    Finite P.Group := by
-  rw [GroupPresentation.Group, relatorSet_eq]
-  exact h
 
 end CFSG.Sporadic.Presentation

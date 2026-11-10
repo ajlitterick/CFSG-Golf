@@ -14,10 +14,6 @@ namespace GPath
 
 variable {n : ℕ}
 
-theorem take_take (p : GPath Γ n) (k j : ℕ) (hk : k ≤ n) (hj : j ≤ k) :
-    (p.take k hk).take j hj = p.take j (hj.trans hk) :=
-  ext' fun i hi => by
-    simp [take_apply_of_le _ _ _ hi, take_apply_of_le _ _ _ (hi.trans hj)]
 
 theorem snoc_take_self (p : GPath Γ n) (w : V) (h : Γ.Adj (p n) w) :
     (p.snoc w h).take n (Nat.le_succ n) = p :=
@@ -39,11 +35,6 @@ theorem noBack_snoc {p : GPath Γ n} (hp : p.NoBack) {w : V} (h : Γ.Adj (p n) w
     rw [snoc_of_le _ _ _ (by omega), hi', snoc_last] at heq
     exact hw (by omega) (by rw [← heq, hin])
 
-theorem noBack_snoc_last_ne {p : GPath Γ n} {w : V} {h : Γ.Adj (p n) w} (hp : (p.snoc w h).NoBack)
-    (hn : 1 ≤ n) : w ≠ p (n - 1) := by
-  intro heq
-  apply hp (n - 1) (by omega)
-  rw [snoc_of_le _ _ _ (by omega), show n - 1 + 2 = n + 1 by omega, snoc_last, heq]
 
 @[expose] def F35Conclusion (Γ : SimpleGraph V) (H : Type*) [Group H] [MulAction H V]
     [GraphAction H Γ] (u : V) (m : ℕ) (p : GPath Γ (m + 1)) : Prop :=

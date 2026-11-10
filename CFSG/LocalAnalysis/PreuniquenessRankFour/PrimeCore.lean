@@ -138,47 +138,6 @@ theorem primeCore_normalizer_normalizes
     himageContained (Subgroup.mem_map_of_mem _ hlift),
     source.normalizerMonoidHom_apply_apply_coe ⟨conjugator, hconjugator⟩ lift⟩
 
-theorem normal_coprime_quotient_has_no_normal_coprime_subgroup
-    (source : Type u) [Group source] [Finite source]
-    (prime : ℕ) (hprime : prime.Prime)
-    (largest : Subgroup source) [largest.Normal]
-    (hcoprime : ¬ prime ∣ Nat.card largest)
-    (hlargest : ∀ candidate : Subgroup source, candidate.Normal →
-      ¬ prime ∣ Nat.card candidate → candidate ≤ largest)
-    (normal : Subgroup (source ⧸ largest)) [normal.Normal]
-    (hnormalCoprime : ¬ prime ∣ Nat.card normal) : normal = ⊥ := by
-  let hom := QuotientGroup.mk' largest
-  let lifted := normal.comap hom
-  let : lifted.Normal := inferInstance
-  have hlargestLift : largest ≤ lifted := by
-    intro member hmember
-    change hom member ∈ normal
-    rw [show hom member = 1 from (QuotientGroup.eq_one_iff member).mpr hmember]
-    exact normal.one_mem
-  have hliftedCoprime : ¬ prime ∣ Nat.card lifted := by
-    let restriction := hom.subgroupMap lifted
-    have himage : lifted.map hom = normal :=
-      Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective largest) normal
-    have hkernel : restriction.ker = largest.subgroupOf lifted := by
-      ext member
-      change (⟨hom member, _⟩ : lifted.map hom) = 1 ↔ (member : source) ∈ largest
-      rw [Subtype.ext_iff]
-      exact @QuotientGroup.eq_one_iff source _ largest _ member
-    have hkernelCard : Nat.card restriction.ker = Nat.card largest := by
-      rw [hkernel, Nat.card_congr (largest.subgroupOfEquivOfLe hlargestLift).toEquiv]
-    have hquotientCard : Nat.card (lifted ⧸ restriction.ker) = Nat.card normal := by
-      rw [Nat.card_congr (QuotientGroup.quotientKerEquivOfSurjective restriction
-        (hom.subgroupMap_surjective lifted)).toEquiv, himage]
-    rw [Subgroup.card_eq_card_quotient_mul_card_subgroup restriction.ker,
-      hquotientCard, hkernelCard]
-    exact fun hdivides => (hprime.dvd_mul.mp hdivides).elim hnormalCoprime hcoprime
-  have hequal : lifted = largest := le_antisymm (hlargest _ inferInstance hliftedCoprime) hlargestLift
-  have himage : lifted.map hom = normal :=
-    Subgroup.map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective largest) normal
-  rw [hequal] at himage
-  have hzero : largest.map hom = ⊥ := by
-    exact (Subgroup.map_eq_bot_iff largest).mpr (by rw [QuotientGroup.ker_mk'])
-  exact himage.symm.trans hzero
 
 theorem normal_prime_section_le_of_rank_three_elementary
     {ambient : Type u} [Group ambient] [Finite ambient]
@@ -225,29 +184,6 @@ theorem normal_prime_section_le_of_rank_three_elementary
   exact hsourceMap (Subgroup.mem_map_of_mem source.subtype
     (Subgroup.mem_top (⟨member, hmember⟩ : source)))
 
-theorem primeCore_quotient_has_no_normal_coprime_subgroup
-    {ambient : Type u} [Group ambient] [Finite ambient]
-    (prime : ℕ) (hprime : prime.Prime) (source : Subgroup ambient)
-    [((GLBPrimeCore prime source).subgroupOf source).Normal]
-    (normal : Subgroup (source ⧸ (GLBPrimeCore prime source).subgroupOf source))
-    [normal.Normal]
-    (hcoprime : ¬ prime ∣ Nat.card normal) : normal = ⊥ := by
-  apply normal_coprime_quotient_has_no_normal_coprime_subgroup source prime hprime
-    ((GLBPrimeCore prime source).subgroupOf source)
-  · rw [Nat.card_congr ((GLBPrimeCore prime source).subgroupOfEquivOfLe
-      (primeCore_le prime source)).toEquiv]
-    exact hprime.coprime_iff_not_dvd.mp (primeCore_coprime prime hprime source)
-  · intro candidate hnormal hcandidateCoprime
-    have himage : candidate.map source.subtype ≤ GLBPrimeCore prime source := by
-      apply le_sSup
-      refine ⟨Subgroup.map_subtype_le candidate, ?_, ?_⟩
-      · rw [show (candidate.map source.subtype).subgroupOf source = candidate from
-          Subgroup.comap_map_eq_self_of_injective Subtype.val_injective candidate]
-        exact hnormal
-      · rw [Subgroup.card_map_of_injective Subtype.val_injective]
-        exact hprime.coprime_iff_not_dvd.mpr hcandidateCoprime
-    exact Subgroup.map_le_iff_le_comap.mp himage
-  · exact hcoprime
 
 theorem intersecting_rank_three_primeCore_quotient_normal_primeSubgroup_lift_le
     {ambient : Type u} [Group ambient] [Finite ambient]

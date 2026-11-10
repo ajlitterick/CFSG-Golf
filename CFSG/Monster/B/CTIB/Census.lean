@@ -281,8 +281,6 @@ theorem exists_vecW
 @[expose] noncomputable def censusList : List (Set WS) :=
   (censusRecs.map (·.1)).map fun n => jOrbit (qS n)
 
-theorem censusList_eq : censusList =
-    [jOrbit (qS 1), jOrbit (qS 3), jOrbit (qS 7), jOrbit (qS 17), jOrbit (qS 19)] := rfl
 
 theorem censusList_disjoint :
     censusList.Pairwise Disjoint := by
@@ -449,10 +447,6 @@ theorem jClass_eq_of_mem {u t : Sbp} (h : u ∈ jClass t) : jClass u = jClass t 
   · rintro ⟨k, hk, rfl⟩
     exact ⟨g⁻¹ * k, Jbar.op.mul_mem (Jbar.op.inv_mem hg) hk, by group⟩
 
-theorem jClass_disjoint
-    {a b : Sbp} (h : (jClass a).ncard ≠ (jClass b).ncard) :
-    Disjoint (jClass a) (jClass b) :=
-  Set.disjoint_left.2 fun _ ha hb => h (by rw [← jClass_eq_of_mem ha, ← jClass_eq_of_mem hb])
 
 theorem jClass_xs : jClass xs = {xs} := by
   ext u

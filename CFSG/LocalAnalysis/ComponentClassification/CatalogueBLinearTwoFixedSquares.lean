@@ -42,15 +42,6 @@ theorem fixedField_unit_isSquare (K : Type u) [Field K] [Finite K]
   rw [← Nat.card_eq_fintype_card, card_eq_fixedField_card_sq K sigma hsigma,
     odd_square_half _ hr, pow_mul, ← map_pow, hpow, map_one, one_pow]
 
-theorem fixed_coefficient_isSquare (K : Type u) [Field K] [Finite K]
-    (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2)
-    (a : K) (ha : a ≠ 0) (hfixed : sigma a = a) : IsSquare a := by
-  let aF : fixedField K sigma := ⟨a, (mem_fixedField_iff K sigma a).mpr hfixed⟩
-  have hne : aF ≠ 0 := by
-    intro h
-    exact ha (congrArg Subtype.val h)
-  obtain ⟨b, hb⟩ := fixedField_unit_isSquare K hodd sigma hsigma (Units.mk0 aF hne)
-  exact ⟨(b : K), congrArg Units.val hb⟩
 
 theorem fixedField_GL_det_isSquare (K : Type u) [Field K] [Finite K]
     (hodd : ringChar K ≠ 2) (sigma : K ≃+* K) (hsigma : orderOf sigma = 2)

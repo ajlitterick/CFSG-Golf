@@ -53,9 +53,6 @@ theorem pkb_bytes_mod (W : ℕ) : ∀ n, pkb 256 (bytes W n) = W % 256 ^ n
 theorem pkb_bytes {W n : ℕ} (h : W < 256 ^ n) : pkb 256 (bytes W n) = W := by
   rw [pkb_bytes_mod, Nat.mod_eq_of_lt h]
 
-theorem bytes_lt_of_mem {l : List ℕ} {W n : ℕ} (h : l = bytes W n) : ∀ d ∈ l, d < 256 := by
-  subst h
-  exact bytes_lt W n
 
 theorem rot_eq (r n s : ℕ) : CFSG.KC.Th.rot r n s = CFSG.Certificates.KB.rot r n s := by
   unfold CFSG.KC.Th.rot CFSG.Certificates.KB.rot

@@ -80,23 +80,6 @@ theorem involutionsFourJoined_of_sylow (hr : 2 ≤ CFSG.Open.pRank 2 (⊤ : Subg
   rw [inv_inv]
   exact Subgroup.mem_map.mpr ⟨x, hxF, by simp only [MulEquiv.coe_toMonoidHom, MulAut.conj_apply]⟩
 
-theorem involutionsFourJoined_of_normal_elemAbelian
-    (hr : 2 ≤ CFSG.Open.pRank 2 (⊤ : Subgroup Q)) (S : Sylow 2 Q) {A : Subgroup Q}
-    (hSA : (S : Subgroup Q) ≤ normalizer (A : Set Q)) (hA2 : ∀ a ∈ A, a * a = 1)
-    (hA8 : 8 ≤ Nat.card A) : InvolutionsFourJoined Q :=
-  involutionsFourJoined_of_sylow hr S fun _ _ hE hES hF hFS =>
-    reflTransGen_commFourAdj_of_normal_elemAbelian hSA hA2 hA8 hE hES hF hFS
-
-theorem involutionsFourJoined_of_center (hr : 2 ≤ CFSG.Open.pRank 2 (⊤ : Subgroup Q))
-    {Z : Subgroup Q} (hZ : IsKleinFour Z) (hZc : Z ≤ center Q) : InvolutionsFourJoined Q := by
-  intro E hE x hx
-  obtain ⟨F, -, hF, hxF⟩ := exists_isKleinFour_mem hr (mem_top x) hx
-  refine ⟨1, F, hF, by simpa using hxF, ?_⟩
-  have hEZ : CommFourAdj Q E Z := ⟨hE, hZ, fun e _ => mem_centralizer_iff.mpr fun z hz =>
-    (mem_center_iff.mp (hZc hz) e).symm⟩
-  have hZF : CommFourAdj Q Z F := ⟨hZ, hF, fun z hz => mem_centralizer_iff.mpr fun f _ =>
-    mem_center_iff.mp (hZc hz) f⟩
-  exact (Relation.ReflTransGen.single hEZ).tail hZF
 
 theorem fourGenerated_of_noNormalEight
     (S : Sylow 2 Q)

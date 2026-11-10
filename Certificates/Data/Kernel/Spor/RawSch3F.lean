@@ -20,12 +20,6 @@ open CFSG.KC.Enum CFSG.KS
     Nat.beq (U (Nat.add (Nat.mul a D) b))
       (pcomp n w m (TR (Nat.add o1 a)) (TR (Nat.add o2 b)))))))))
 
-@[expose] noncomputable def vtabK (n w m nw idn : Nat) (LR TRI : Nat → Nat) (BP i : Nat) : Bool :=
-  strictB (LR (Nat.succ i)) (fun R1 => strictB (LR (Nat.succ (Nat.succ i))) (fun R2 =>
-  strictB (roff n nw R1) (fun o1 => strictB (roff n nw R2) (fun o2 =>
-  allN (rcnt R1) (fun a => allN (rcnt R2) (fun b =>
-    siftK n w m nw idn LR TRI BP (nat_lit 2) (Nat.succ i)
-      (pcomp n w m (TRI (Nat.add o2 b)) (TRI (Nat.add o1 a)))))))))
 
 @[expose] noncomputable def t3K (n w m nw : Nat) (S SI LR TR TRI U : Nat → Nat)
     (kS BP i T D h j : Nat) : Bool :=

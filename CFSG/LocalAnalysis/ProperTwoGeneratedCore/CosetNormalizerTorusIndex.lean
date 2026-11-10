@@ -15,9 +15,6 @@ variable {G : Type*} [Group G]
 @[expose] def invertedPart (A : Subgroup G) (t : G) : Set G :=
   {a | a ∈ A ∧ t⁻¹ * a * t = a⁻¹}
 
-theorem mem_invertedPart {A : Subgroup G} {t a : G} :
-    a ∈ invertedPart A t ↔ a ∈ A ∧ t⁻¹ * a * t = a⁻¹ :=
-  Iff.rfl
 
 @[expose] def invertedSubgroup (A : Subgroup G) [IsMulCommutative A] (t : G) : Subgroup G where
   carrier := invertedPart A t
@@ -36,13 +33,6 @@ theorem mem_invertedPart {A : Subgroup G} {t a : G} :
     calc t⁻¹ * a⁻¹ * t = (t⁻¹ * a * t)⁻¹ := by group
       _ = a⁻¹⁻¹ := by rw [hat]
 
-theorem coe_invertedSubgroup (A : Subgroup G) [IsMulCommutative A] (t : G) :
-    (invertedSubgroup A t : Set G) = invertedPart A t :=
-  rfl
-
-theorem mem_invertedSubgroup {A : Subgroup G} [IsMulCommutative A] {t a : G} :
-    a ∈ invertedSubgroup A t ↔ a ∈ A ∧ t⁻¹ * a * t = a⁻¹ :=
-  Iff.rfl
 
 theorem eq_one_or_eq_of_mem_zpowers {t g : G} (ht : orderOf t = 2) (hg : g ∈ Subgroup.zpowers t) :
     g = 1 ∨ g = t := by

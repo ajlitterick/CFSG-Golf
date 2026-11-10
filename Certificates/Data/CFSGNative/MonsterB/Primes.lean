@@ -60,10 +60,6 @@ deriving Inhabited
     .pwr 26 7 1, .pwr 5 3 5, .mu 5 5 3, .mu 1 3 4, .mu 4 4 5, .iv 5 6, .mu 5 3 7, .mu 6 3 8,
     .mu 7 8 9, .mu 9 5 4, .iv 4 6, .mu 4 3 7, .mu 6 3 8, .mu 7 8 9, .mu 9 4 5, .mu 17 5 1]
 
-@[expose] def wordFrom (n : Nat) (A B : Mat) : Mat → List Char → Mat
-  | X, [] => X
-  | X, c :: w =>
-    wordFrom n A B (if c = 'a' then mulP n X A else if c = 'b' then mulP n X B else X) w
 
 @[expose] def word7 : String := "ababbabbab"
 
@@ -81,119 +77,12 @@ deriving Inhabited
 
 @[expose] def ordOK (n p : Nat) (X : Mat) : Bool := powM n X p == idMat n && neM n X (idMat n)
 
-@[expose] def ordExactOK (n e : Nat) (rs : List Nat) (X : Mat) : Bool :=
-  powM n X e == idMat n && rs.all fun r => neM n (powM n X (e / r)) (idMat n)
-
-@[expose] def powTable (n p : Nat) (X : Mat) : List Mat := (List.range p).map (powM n X)
-
-@[expose] def prodPows (n : Nat) : List (List Mat) → List Nat → Mat
-  | T :: Ts, e :: es => if e = 0 then prodPows n Ts es else mulP n (T.getD e #[]) (prodPows n Ts es)
-  | _, _ => idMat n
 
 @[expose] def mulTab (n : Nat) (P : Mat) (Z : List Mat) (c : Nat) : Mat :=
   if c = 0 then P else mulP n P (Z.getD c #[])
 
-@[expose] def commDataOK (n p : Nat) (qs : List Mat) (z : Mat) (Z : List Mat)
-    (Mr : List (List Nat)) : Bool :=
-  let qi := qs.map (powM n · (p - 1))
-  qs.all (ordOK n p) && ordOK n p z && qs.all (fun q => mulP n q z == mulP n z q) &&
-  (List.range qs.length).all fun i => (List.range qs.length).all fun j =>
-    !(decide (i < j)) ||
-      mulP n (mulP n (mulP n (qi.getD i #[]) (qi.getD j #[])) (qs.getD i #[])) (qs.getD j #[]) ==
-        Z.getD ((Mr.getD i []).getD j 0) #[]
-
-@[expose] def actOK (n : Nat) (qs : List Mat) (T : List (List Mat)) (Z : List Mat) (b bi : Mat)
-    (R : List (List Nat)) (c : List Nat) : Bool :=
-  (List.range qs.length).all fun i =>
-    mulP n (mulP n bi (qs.getD i #[])) b ==
-      mulTab n (prodPows n T (R.getD i [])) Z (c.getD i 0)
-
-@[expose] def sha7 (_ : Unit := ()) : Nat := 0x80a35ce7456365c0a505cc692d8a8fe0b3a3a54d46249da0d68ea0c87a2922bd
-
-@[expose] def sha13 (_ : Unit := ()) : Nat := 0x9c1870299022a06b87110d4545446435e8ab03540c709ac23a95cf41b6302cc2
-
-@[expose] def sha17 (_ : Unit := ()) : Nat := 0xebe65f3e4a0959c62f5b7eff558d05b0e4e2a29c89fa7d2125bfb46787405dd4
-
-@[expose] def sha19 (_ : Unit := ()) : Nat := 0x4c9c5cfcb0313c0b4032d706770b553ef448c88de8166ae92571a51bfbfd19dc
-
-@[expose] def sha31 (_ : Unit := ()) : Nat := 0x0fd5280ace30af3848f55e4f6e049911e2d810c36336e8b232b9e812189e1d16
-
-@[expose] def sha47 (_ : Unit := ()) : Nat := 0x45597aead4a29578bf71035e134c551920871a63aae2d5d291d96f3721405dc3
-
-@[expose] def primeOK (n p : Nat) (G : Mat) (sha : Nat) : Bool :=
-  ordOK n p G && Binary.Native.sha256Nat (payload n #[G]) == sha
-
-@[expose] def sixChecks (n : Nat) (A B : Mat) : Bool :=
-  let W7 := wordFrom n A B (idMat n) word7.toList
-  let W17 := wordFrom n A B W7 (word17.toList.drop 10)
-  let W19 := wordFrom n A B W17 (word19.toList.drop 21)
-  let W31 := wordFrom n A B W19 (word31.toList.drop 28)
-  let W47 := wordFrom n A B W31 (word47.toList.drop 35)
-  let W13 := wordFrom n A B W47 (word13.toList.drop 65)
-  primeOK n 7 (powM n W7 1) sha7 && primeOK n 13 (powM n W13 2) sha13 &&
-    primeOK n 17 (powM n W17 2) sha17 && primeOK n 19 (powM n W19 1) sha19 &&
-    primeOK n 31 (powM n W31 1) sha31 && primeOK n 47 (powM n W47 1) sha47
-
-@[expose] def fiveSha (_ : Unit := ()) : Nat := 0xa82afd335ad2953a74490c5b8dd0ea46cc3ccf617daf097bf2bb75b689e53b2b
-
-@[expose] def fiveChecks (n : Nat) (A B : Mat) (Mr Ar : List (List Nat)) (ac : List Nat) : Bool :=
-  let R := regRun n 22 fiveProg A B
-  let x := R.1.getD 1 #[]
-  let h := R.1.getD 2 #[]
-  let xi := powM n x 4
-  let hi := powM n h 7
-  let w := mulP n x (powM n h 3)
-  let q1 := powM n w 8
-  let q2 := mulP n (mulP n hi q1) h
-  let q3 := mulP n (mulP n xi q1) x
-  let q4 := mulP n (mulP n xi q2) x
-  let qs := [q1, q2, q3, q4]
-  let z := mulP n (mulP n (mulP n (powM n q1 4) (powM n q2 4)) q1) q2
-  let Z := powTable n 5 z
-  let T := qs.map (powTable n 5)
-  R.2 && ordExactOK n 5 [5] x && ordExactOK n 8 [2] h && ordExactOK n 40 [2, 5] w &&
-    commDataOK n 5 qs z Z Mr && mulP n x z == mulP n z x &&
-    actOK n qs T Z x xi Ar ac &&
-    Binary.Native.sha256Nat (payload n #[q1, q2, q3, q4, z, x]) == fiveSha
-
-@[expose] def threeSha (_ : Unit := ()) : Nat := 0xfd478aa064a3334e430eb0570049bc72e123b9ba9c0942a63de1e8ffdce8d9aa
 
 @[expose] def conjM (n : Nat) (Y b bi : Mat) : Mat := mulP n (mulP n bi Y) b
 
-@[expose] def threeChecks (n : Nat) (A B : Mat) (Mr Xr Yr : List (List Nat)) (c d : List Nat) :
-    Bool :=
-  let R := regRun n 18 threeProg A B
-  let x := R.1.getD 1 #[]
-  let h := R.1.getD 2 #[]
-  let xi := powM n x 39
-  let hi := powM n h 7
-  let x20 := powM n x 20
-  let q1 := mulP n x20 (conjM n x20 h hi)
-  let q2 := conjM n q1 x xi
-  let q3 := conjM n q1 h hi
-  let q4 := conjM n q2 x xi
-  let q5 := conjM n q2 h hi
-  let q6 := conjM n q3 x xi
-  let q7 := conjM n q3 h hi
-  let q8 := conjM n q4 x xi
-  let qs := [q1, q2, q3, q4, q5, q6, q7, q8]
-  let z := mulP n (mulP n (mulP n (powM n q1 2) (powM n q2 2)) q1) q2
-  let Z := powTable n 3 z
-  let T := qs.map (powTable n 3)
-  let h4 := powM n h 4
-  let r17 := powM n (R.1.getD 17 #[]) 4
-  let r15 := powM n (R.1.getD 15 #[]) 2
-  let seeds := #[mulP n h4 (conjM n h4 x xi), q1, mulP n r17 (conjM n r17 x xi),
-    mulP n r17 (conjM n r17 h hi), mulP n r15 (conjM n r15 x xi), mulP n r15 (conjM n r15 h hi)]
-  R.2 && ordExactOK n 40 [2, 5] x && ordExactOK n 8 [2] h &&
-    commDataOK n 3 qs z Z Mr &&
-    conjM n z x xi == mulP n z z && conjM n z h hi == mulP n z z &&
-    actOK n qs T Z x xi Xr c && actOK n qs T Z h hi Yr d &&
-    Binary.Native.sha256Nat
-        (payload n (#[x, h] ++ seeds ++ #[q1, q2, z, q3, q4, q5, q6, q7, q8, z])) == threeSha
-
-@[expose] def sixOK (_ : Unit := ()) : Bool :=
-  sixChecks 4370 (seedMat 4370 CFSG.SectionRank.Native.bData.seedA)
-    (seedMat 4370 CFSG.SectionRank.Native.bData.seedB)
 
 end CFSG.Monster.B.Primes.Native

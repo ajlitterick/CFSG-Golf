@@ -93,18 +93,6 @@ variable (G) in
     ¬ AGL81ElevenFiveOne p H K L →
       IsAGLQ p M (d1LiftX p H Q K) ∧ ⁅d1LiftX p H Q K, L⁆ ≤ pCoreOf 2 L
 
-variable (G) in
-@[expose] def AGL81ElevenElevenRankOneCfg : Prop :=
-  Setting G → ∀ (p : ℕ) (P : Sylow p G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) p)),
-    AGL81CfgData p P M H Q K → ¬ HasPrimeConstraint (G := H) p →
-    Open.pRank p K ≤ 1 → 3 ≤ Open.pRank p H → ¬ (p = 3 ∧ IsAltTwoP 3 K) →
-    ∀ L : Subgroup G, IsWeakSBlock M (pCoreOf 2 H) L → (L.subgroupOf M).Normal →
-    ¬ AGL81ElevenFiveOne p H K L →
-      ∃ A : Subgroup G, A ≤ H ∧ IsAGLQ p M A ∧
-        (∃ S : Sylow p K, (S : Subgroup K).map K.subtype =
-          (A.subgroupOf H).map (QuotientGroup.mk' (primeComplementCore (G := H) p)) ⊓ K) ∧
-        ⁅A, L⁆ ≤ pCoreOf 2 L
 
 theorem AGL81CfgData.sylowK_d1LiftX {p : ℕ} {P : Sylow p G} {M H Q : Subgroup G}
     {K : Subgroup (H ⧸ primeComplementCore (G := H) p)} (hd : AGL81CfgData p P M H Q K) :
@@ -116,17 +104,6 @@ theorem AGL81CfgData.sylowK_d1LiftX {p : ℕ} {P : Sylow p G} {M H Q : Subgroup 
   rw [map_d1LiftX, inf_assoc, inf_idem]
   exact hS'
 
-theorem agl81ElevenElevenOtherCfg_of (h2 : AGL81ElevenElevenRankTwoCfg G)
-    (h1 : AGL81ElevenElevenRankOneCfg G) : AGL81ElevenElevenOtherCfg G := by
-  intro hS p P M H Q K hσ hd hnc hrk hA6 L hL hLn hno
-  by_cases hK : 2 ≤ Open.pRank p K
-  · obtain ⟨hQ, hAL⟩ := h2 hS p P M H Q K hσ hd hnc hK hA6 L hL hLn hno
-    exact ⟨d1LiftX p H Q K, (d1LiftX_le p H Q K).trans hd.le_H, hQ, hd.sylowK_d1LiftX, hAL,
-      fun _ => rfl⟩
-  · push Not at hK
-    obtain ⟨A, hAH, hAQ, hsyl, hAL⟩ := h1 hS p P M H Q K hd hnc (by omega) (hrk (by omega)) hA6
-      L hL hLn hno
-    exact ⟨A, hAH, hAQ, hsyl, hAL, fun h => absurd h (by omega)⟩
 
 namespace OtherCfg
 

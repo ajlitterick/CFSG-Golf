@@ -57,13 +57,9 @@ theorem rootCharKernel_inter_closed {a : Fin Tag.F4.rank → Kˣ} {S : Set (Fin 
 
 @[expose] def f4WordV : List (Fin Tag.F4.rank) := ([0, 1, 2, 1, 0, 3, 2, 0, 1] : List (Fin 4))
 
-@[expose] def f4WordVRev : List (Fin Tag.F4.rank) := ([1, 0, 2, 3, 0, 1, 2, 1, 0] : List (Fin 4))
 
 @[expose] noncomputable def f4WeylV : WeylGroup .F4 := (coxeterSystem .F4).wordProd f4WordV
 
-theorem f4WeylV_inv : f4WeylV⁻¹ = (coxeterSystem .F4).wordProd f4WordVRev := by
-  rw [f4WeylV, ← CoxeterSystem.wordProd_reverse]
-  rfl
 
 theorem f4WeylV_smul_single_zero :
     f4WeylV • (Pi.single ⟨0, by decide⟩ 1 : Fin Tag.F4.rank → ℤ) = orbitCertRoot .F4 47 := by
@@ -536,10 +532,6 @@ theorem centralizer_c3PerpLevi_eq_of_exists_ne_zero_ne_one [CharP K 2]
     (le_inf highestRootRankOne_le_adjointGroup highestRootRankOne_le_centralizer_c3PerpLevi)
   exact mem_highestRootRankOne_of_mem_centralizer hK hg.1 hg.2
 
-theorem centralizer_c3PerpLevi_eq [Finite K] [CharP K 2] (hq : 4 ≤ Nat.card K) :
-    adjointGroup .F4 K ⊓ centralizer (c3PerpLevi K : Set (ModGL .F4 K)) =
-      highestRootRankOne K :=
-  centralizer_c3PerpLevi_eq_of_exists_ne_zero_ne_one (exists_ne_zero_ne_one_of_four_le hq)
 
 theorem exists_eq_conj_highestRootRankOne_of_fix_c3PerpLevi {f : ℕ} (hf : 2 ≤ f) [Finite K]
     [CharP K 2] (hK : Nat.card K = 2 ^ f) (β : MulAut (adjointGroup .F4 K))

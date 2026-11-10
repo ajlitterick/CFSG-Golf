@@ -750,14 +750,6 @@ end Item1015Proof
 section Main
 
 
-theorem item1015_of (h45 : Sec4.Item4_5) (h97 : Sec9.Item97) : Item1015 := by
-  intro G _ _ A c L a R h d hdL _ X hX hcond
-  obtain ⟨hcase, U, hU, hU1⟩ := hcond
-  rcases hcase with ⟨hlist, -⟩ | ⟨h27, -⟩
-  · exact (Item1015Proof.false_of_listFacts h45 h97 h hdL hX
-      (Item1015Proof.listFacts_of_list hlist) hU hU1).elim
-  · exact h27
-
 end Main
 
 end CFSG.RankThree.PartTwo.Sec10

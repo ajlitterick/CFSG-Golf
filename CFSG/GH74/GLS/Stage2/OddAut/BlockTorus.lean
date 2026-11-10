@@ -74,9 +74,6 @@ variable (K : Type) [Field K] [Finite K] (p : ℕ) [Fact p.Prime] [CharP K p] (s
 @[expose] noncomputable def Φ : GL (Fin (4 + s)) K ≃* (Module.End K (Em K p s))ˣ :=
   Units.mapEquiv (ΦA K p s).toMulEquiv
 
-theorem Φ_val (x : GL (Fin (4 + s)) K) :
-    ((Φ K p s x : (Module.End K (Em K p s))ˣ) : Module.End K (Em K p s)) =
-      ΦA K p s (x : Matrix (Fin (4 + s)) (Fin (4 + s)) K) := rfl
 
 end Sylow
 

@@ -62,11 +62,6 @@ theorem pairProj_of_mem_left (h : IsDirectPair K L W) {k : G} (hk : k ∈ K) (hk
   have := pairProj_mul h hk (one_mem L) (by simpa using hkW)
   simpa using this
 
-theorem pairProj_of_mem_right (h : IsDirectPair K L W) {l : G} (hl : l ∈ L) (hlW : l ∈ W) :
-    pairProj h ⟨l, hlW⟩ = 1 := by
-  apply Subtype.ext
-  have := pairProj_mul h (one_mem K) hl (by simpa using hlW)
-  simpa using this
 
 theorem proj_eq_map_pairProj (h : IsDirectPair K L W) {X : Subgroup G} (hXW : X ≤ W) :
     proj K L X = ((X.subgroupOf W).map (pairProj h)).map K.subtype := by
@@ -127,11 +122,6 @@ theorem mem_normalizer_proj (h : IsDirectPair K L W) {X : Subgroup G} {k l : G} 
   have := conj_mem_proj h (inv_mem hk) (inv_mem hl) hc' hx
   rwa [show k⁻¹ * (k * x * k⁻¹) * k⁻¹⁻¹ = x by group] at this
 
-theorem pairProj_mem_normalizer_proj (h : IsDirectPair K L W) {X : Subgroup G} {c : ↥W}
-    (hc : (c : G) ∈ Subgroup.normalizer (X : Set G)) :
-    ((pairProj h c : K) : G) ∈ Subgroup.normalizer (proj K L X : Set G) := by
-  obtain ⟨l, hl, hcl⟩ := pairProj_spec h c
-  exact mem_normalizer_proj h (pairProj h c).2 hl (hcl ▸ hc)
 
 theorem mem_normalizer_proj_of_normalizes (hcomm : ∀ x ∈ K, ∀ y ∈ L, Commute x y)
     {X : Subgroup G} {g : G} (hK : g ∈ Subgroup.normalizer (K : Set G))

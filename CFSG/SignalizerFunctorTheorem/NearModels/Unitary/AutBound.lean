@@ -75,9 +75,6 @@ theorem glAut_mem_hypUnitary {σ : K ≃+* K} {A : GL (HypIndex r ε) K}
 
 variable {h r ε}
 
-theorem mem_semilinearIsometries {x : SemiGL (HypIndex r ε) K} :
-    x ∈ semilinearIsometries h r ε ↔ x.left ∈ hypUnitary h r ε :=
-  Iff.rfl
 
 theorem semilinearIsometries_le : semilinearIsometries h r ε ≤ semilinearSimilitudes h r ε :=
   fun _ hx => ⟨1, one_ne_zero, map_one _, by rw [one_smul]; exact mem_hypUnitary.mp hx⟩

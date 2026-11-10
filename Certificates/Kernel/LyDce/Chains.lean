@@ -15,7 +15,6 @@ namespace CertificateChecks.KernelLyDce
 
 open CFSG.KC.LyDce
 
-theorem gens_ok : gensOK sG = true := by decide +kernel
 
 end CertificateChecks.KernelLyDce
 

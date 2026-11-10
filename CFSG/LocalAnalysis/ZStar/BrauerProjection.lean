@@ -197,15 +197,6 @@ theorem brauerProjection_central_idempotent
     (conjInvariantBy_of_isGroupCentral w e hecentral)
     (conjInvariantBy_of_isGroupCentral w e hecentral), heidem]
 
-theorem augmentation_brauerProjection
-    (w : G) (hw2 : w * w = 1) (e : GroupAlgebraTwo G)
-    (he : IsGroupCentral G e) :
-    augmentationTwo (Subgroup.centralizer ({w} : Set G))
-        (brauerProjection w e) = augmentationTwo G e := by
-  have hsum := sum_eq_sum_centralizer_of_conjInvariant w hw2
-    (fun g : G => e.coeff g)
-    (conjInvariantBy_of_isGroupCentral w e he)
-  simpa only [augmentationTwo, brauerProjection_coeff] using hsum.symm
 
 end ZStar.BrauerProjection
 

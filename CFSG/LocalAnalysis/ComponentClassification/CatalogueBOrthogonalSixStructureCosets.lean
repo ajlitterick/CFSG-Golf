@@ -73,9 +73,6 @@ theorem six_kappa_range_index_dvd_two (delta : K) [Fact (¬ IsSquare delta)]
   · exact Or.inl (by simpa only [mul_assoc, sixGamma_square, mul_one] using
       (show kappa delta h2 g ∈ (kappa delta h2).range from ⟨g, rfl⟩))
 
-theorem six_kappa_range_index_le_two (delta : K) [Fact (¬ IsSquare delta)]
-    (h2 : (2 : K) ≠ 0) : (kappa delta h2).range.index ≤ 2 :=
-  Nat.le_of_dvd (by decide) (six_kappa_range_index_dvd_two delta h2)
 
 instance sixKappaRangeNormal (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0) :
     (kappa delta h2).range.Normal := by

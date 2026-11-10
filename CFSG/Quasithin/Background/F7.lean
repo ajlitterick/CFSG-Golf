@@ -526,42 +526,6 @@ theorem even_critDist_of_weakClosureW0_le_G₂ (hyp : AmalgamHypV G₀ G₁ G₂
   · rw [stab_γ₁ hyp.le₂]; exact hW
   · rw [← hg]; exact V_le_stab_of_dist_le hyp hV hγ.le
 
-theorem odd_critDist_of_weakClosureW0_le_G₁ (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥)
-    (hW : weakClosureW0 T V ≤ pCoreOf 2 G₁) : Odd (critDist G₀ G₁ G₂ V) := by
-  obtain ⟨γ, hγ, hVγ⟩ := exists_dist_eq_critDist_not_le hyp hV
-  by_contra hodd
-  have hvt : vtype γ = false :=
-    vtype_eq_false_of_even hyp.gen (by rw [hγ]; exact Nat.not_odd_iff_even.mp hodd)
-  obtain ⟨g, hg⟩ := exists_smul_eq_γ₀ hvt
-  apply hVγ
-  rw [hg]
-  refine V_le_ballStab_one_of_W0 hyp.toAmalgamHyp hyp.isPGroup (γ' := γ₀ G₀ G₁ G₂) ?_ g ?_ ?_
-  · rw [stab_γ₀ hyp.le₁]; exact hyp.sylow₁
-  · rw [stab_γ₀ hyp.le₁]; exact hW
-  · rw [← hg]; exact V_le_stab_of_dist_le hyp hV hγ.le
-
-theorem critDist_mod_two_of_weakClosureW0_le (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥)
-    (i : Fin 2)
-    (hW : weakClosureW0 T V ≤
-      pCoreOf 2 (stab (if i = 0 then γ₀ G₀ G₁ G₂ else γ₁ G₀ G₁ G₂))) :
-    critDist G₀ G₁ G₂ V % 2 = (i.val + 1) % 2 := by
-  fin_cases i
-  · simp only [Fin.zero_eta, ite_true, stab_γ₀ hyp.le₁] at hW
-    have := odd_critDist_of_weakClosureW0_le_G₁ hyp hV hW
-    simpa using Nat.odd_iff.mp this
-  · simp only [Fin.mk_one, one_ne_zero, ite_false, stab_γ₁ hyp.le₂] at hW
-    have := even_critDist_of_weakClosureW0_le_G₂ hyp hV hW
-    simpa using Nat.even_iff.mp this
-
-theorem V_le_stab_of_mem_walk_support (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥)
-    {δ : CosetGeom G₀ G₁ G₂} (p : (graph G₀ G₁ G₂).Walk (γ₀ G₀ G₁ G₂) δ)
-    (hp : p.length ≤ critDist G₀ G₁ G₂ V) {v : CosetGeom G₀ G₁ G₂} (hv : v ∈ p.support) :
-    V ≤ stab v := by
-  classical
-  refine V_le_stab_of_dist_le hyp hV ?_
-  have h1 : dist (γ₀ G₀ G₁ G₂) v ≤ (p.takeUntil v hv).length := SimpleGraph.dist_le _
-  have h2 := SimpleGraph.Walk.length_takeUntil_le_length p hv
-  omega
 
 theorem conjSub_V_le_pCoreOf (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥) (g : G₀)
     {γ δ : CosetGeom G₀ G₁ G₂} (hγ : dist (g • γ₀ G₀ G₁ G₂) γ < critDist G₀ G₁ G₂ V)
@@ -672,12 +636,6 @@ theorem isElementaryAbelian_of_isElemAbelian {X : Subgroup G} (h : IsElemAbelian
     CFSG.IsElementaryAbelian 2 X :=
   CFSG.Open.IsElemAbelian.isElementaryAbelian h
 
-theorem frattini_Vv_γ₁ (hyp : AmalgamHypV G₀ G₁ G₂ T V) (hV : V ≠ ⊥)
-    (hb : 2 < critDist G₀ G₁ G₂ V) : frattini (Vv V (γ₁ G₀ G₁ G₂)) = ⊥ := by
-  have h := isElemAbelian_Vv_γ₁ hyp hV hb
-  have : Fact (IsPGroup 2 (Vv V (γ₁ G₀ G₁ G₂))) := ⟨isPGroup_of_isElemAbelian h⟩
-  exact (CFSG.frattini_eq_bot_iff_isElementaryAbelian (p := 2)).mpr
-    (isElementaryAbelian_of_isElemAbelian h)
 
 omit [Finite G] in
 theorem mem_nbrs_symm {γ δ : CosetGeom G₀ G₁ G₂} (h : δ ∈ nbrs γ) : γ ∈ nbrs δ :=

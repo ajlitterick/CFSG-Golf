@@ -74,9 +74,6 @@ variable {G : Type} [Group G] [Finite G] {z : G} {S K : Subgroup G}
   map_one' := phi_one_aux K _
   map_mul' x y := phi_mul K x.2 y.2
 
-omit [Finite G] in
-theorem phiHom_apply (K : Subgroup G) (c : ↥(normalizer (K : Set G))) :
-    phiHom K c = phi K c c.2 := rfl
 
 theorem std6r1_C_normalizes (h : Std6r1 G z S K) {c : G} (hc : c ∈ centralizer ({z} : Set G)) :
     c ∈ normalizer (K : Set G) := by

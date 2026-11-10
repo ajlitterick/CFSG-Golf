@@ -80,10 +80,6 @@ theorem ggDeltaLocal_of_prime {p r : ℕ} {I : Set (MulAut R)} (hO : GGOutdiagPr
   fun _ _ _ _ hψ hker hperf _ hA hAI _ _ hadm =>
     (not_ggDeltaAdm_of_prime hO hZ hψ hker hperf hA hAI hadm).elim
 
-theorem ggBstarBoundDelta_of_prime {p r : ℕ} {I : Set (MulAut R)} (hO : GGOutdiagPrime p R I)
-    (hZ : GGCenterPrime p R) : GGBstarBoundDelta p r R I :=
-  fun _ _ _ _ hψ hker hperf _ _ hA hAI _ _ hadm _ _ =>
-    (not_ggDeltaAdm_of_prime hO hZ hψ hker hperf hA hAI hadm).elim
 
 end Prime
 
@@ -106,45 +102,6 @@ theorem exists_two_subgroup_of_ggGamma {B L : Subgroup G}
 
 variable [Finite G]
 
-theorem exists_two_subgroup_of_ggBeta {B L : Subgroup G}
-    (hBN : B ≤ Subgroup.normalizer (L : Set G))
-    {R : Type} [Group R] (θ : L ⧸ Subgroup.center L ≃* R)
-    (h : ∃ U : Subgroup R, U ≠ ⊥ ∧ IsPGroup 2 U ∧
-      ∀ a ∈ (ggBeta L θ hBN).range, ∀ u ∈ U, a u ∈ U) :
-    ∃ U : Subgroup G, U ≤ L ∧ U ≠ ⊥ ∧ IsPGroup 2 U ∧
-      B ≤ Subgroup.normalizer (U : Set G) := by
-  obtain ⟨U, hU1, hU2, hAU⟩ := h
-  let W := CFSG.LieType.CentralExt.liftSubgroup 2 (ggQuotHom θ) U
-  have hcen : (ggQuotHom θ).ker ≤ Subgroup.center L := (ker_ggQuotHom θ).le
-  have hW1 : W ≠ ⊥ :=
-    CFSG.LieType.CentralExt.liftSubgroup_ne_bot (ggQuotHom_surjective θ) hcen hU2 hU1
-  have hW2 : IsPGroup 2 W :=
-    CFSG.LieType.CentralExt.liftSubgroup_isPGroup hcen hU2
-  apply exists_two_subgroup_of_ggGamma hBN
-  refine ⟨W, hW1, hW2, ?_⟩
-  rintro a ⟨b, rfl⟩ u hu
-  obtain ⟨huU, n, hn⟩ :=
-    (CFSG.LieType.CentralExt.mem_liftSubgroup_iff hcen hU2).mp hu
-  apply (CFSG.LieType.CentralExt.mem_liftSubgroup_iff hcen hU2).mpr
-  refine ⟨?_, n, ?_⟩
-  · rw [← ggBeta_ggQuotHom L hBN θ b u]
-    exact hAU _ ⟨b, rfl⟩ _ huU
-  · rw [MulEquiv.orderOf_eq, hn]
-
-theorem exists_innLocal_of_data {p r : ℕ} {B : Subgroup G} {x : G} {L : Subgroup G}
-    (hT : GGThmIHyp p B x L) (hnc : ∃ S : Subgroup G, S ≤ L ∧ IsPGroup p S ∧ ¬ IsCyclic S)
-    (hL : commutator L = ⊤) {R : Type} [Group R] (θ : L ⧸ Subgroup.center L ≃* R)
-    {I : Set (MulAut R)} (hBN : B ≤ Subgroup.normalizer (L : Set G))
-    (h3 : ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ)
-    (hOD : GGOutdiagOdd p R I) (hlift : GGTorusLift p r R) (hloc : GGDeltaLocal p r R I) :
-    ∃ U : Subgroup G, U ≤ L ∧ U ≠ ⊥ ∧ IsPGroup 2 U ∧ B ≤ Subgroup.normalizer (U : Set G) := by
-  obtain ⟨-, -, -, -, -, hβ, hS, hst⟩ := hT
-  have hp : p.Prime := hβ.1
-  rcases ggInnLocal_or_delta hp hβ.2.1 hS hnc hL θ hBN h3 hOD hst.2.1 with hU | hδ
-  · exact hU
-  · obtain ⟨hA, hAI, hr, h3'⟩ := ggGamma_range_props hp hS hβ.2.2.2 hL θ hBN h3 hlift
-    exact exists_two_subgroup_of_ggGamma hBN (hloc L (ggQuotHom θ) (ggQuotHom_surjective θ)
-      (by rw [ker_ggQuotHom]) hL _ hA hAI hr h3' (ggDeltaAdm_of_delta hp hS hBN hδ))
 
 theorem card_le_of_bstarBoundDelta {p r : ℕ} (hp : p.Prime) {B : Subgroup G} {x : G}
     {L : Subgroup G} (hS : LargeEvenSStar p B x L) (h4 : 4 ≤ LargeEvenTwoLocalRank p G)
@@ -202,42 +159,6 @@ theorem exists_ggBstar_of_data {p r : ℕ} {B : Subgroup G} {x : G} {L : Subgrou
 
 end Config
 
-theorem ggInnLocalInputOn_of_labels {S : ℕ → LargeEvenLabel → Prop} (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab → S p lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => GGOutdiagOdd p R I ∧
-        ∃ r, GGTorusLift p r R ∧ GGDeltaLocal p r R I) :
-    ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B : Subgroup G) (x : G) (L : Subgroup G),
-      GGThmIHyp p B x L →
-      LargeEvenMarking L (fun lab _ _ I _ θ => S p lab ∧ LargeEvenSplit p lab ∧
-        B ≤ Subgroup.normalizer (L : Set G) ∧
-        ∀ b ∈ B, ∃ φ ∈ I, LargeEvenInduces θ (fun l l' => (l' : G) = b⁻¹ * l * b) φ) →
-      ∃ U : Subgroup G, U ≤ L ∧ U ≠ ⊥ ∧ IsPGroup 2 U ∧ B ≤ Subgroup.normalizer (U : Set G) := by
-  intro G _ _ p B x L hT hM
-  have hnc := ha₀ G p B x L hT
-  have hp : p.Prime := hT.2.2.2.2.2.1.1
-  have hM' := largeEvenMarking_and_labelAll (S := fun lab => S p lab ∧ LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs.1 hs.2) (fun _ _ _ _ _ _ hP => ⟨hP.1, hP.2.1⟩) hM
-  obtain ⟨hL, lab, -, hraw⟩ := hM'
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, -, hBN, h3⟩, hOD, r, hlift, hloc⟩ :=
-    largeEvenRawDatum_exists hraw
-  exact exists_innLocal_of_data hT hnc hL θ hBN h3 hOD hlift hloc
-
-theorem ggInnLocalInput_of_labels (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => GGOutdiagOdd p R I ∧
-        ∃ r, GGTorusLift p r R ∧ GGDeltaLocal p r R I) :
-    GGInnLocalInput := by
-  intro G _ _ p B x L hT
-  have hnc := ha₀ G p B x L hT
-  have hp : p.Prime := hT.2.2.2.2.2.1.1
-  have hM := largeEvenMarking_and_labelAll (S := fun lab => LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hT.2.2.2.2.2.2.2.1
-  obtain ⟨hL, lab, -, hraw⟩ := hM
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, hBN, h3⟩, hOD, r, hlift, hloc⟩ :=
-    largeEvenRawDatum_exists hraw
-  exact exists_innLocal_of_data hT hnc hL θ hBN h3 hOD hlift hloc
 
 theorem ggBstarInputOn_of_labels_delta {S : ℕ → LargeEvenLabel → Prop}
     (ha₀ : GGLNoncyclicInput)
@@ -256,20 +177,5 @@ theorem ggBstarInputOn_of_labels_delta {S : ℕ → LargeEvenLabel → Prop}
     largeEvenRawDatum_exists hraw
   exact exists_ggBstar_of_data hT hnc hL θ hBN h3 hOD hlift hinn hdel
 
-theorem ggBstarInput_of_labels_delta (ha₀ : GGLNoncyclicInput)
-    (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab →
-      LargeEvenSplit p lab →
-      LargeEvenLabelAll lab fun R _ I _ => GGOutdiagOdd p R I ∧ ∃ r, GGTorusLift p r R ∧
-        GGBstarBoundInn p r R I ∧ (GGDeltaLocal p r R I ∨ GGBstarBoundDelta p r R I)) :
-    GGBstarInput := by
-  intro G _ _ p B x L hT
-  have hnc := ha₀ G p B x L hT
-  have hp : p.Prime := hT.2.2.2.2.2.1.1
-  have hM := largeEvenMarking_and_labelAll (S := fun lab => LargeEvenSplit p lab)
-    (fun lab hlab hs => h p lab hp hlab hs) (fun _ _ _ _ _ _ hP => hP.1) hT.2.2.2.2.2.2.2.1
-  obtain ⟨hL, lab, -, hraw⟩ := hM
-  obtain ⟨R, _, I, F, -, -, θ, ⟨-, hBN, h3⟩, hOD, r, hlift, hinn, hdel⟩ :=
-    largeEvenRawDatum_exists hraw
-  exact exists_ggBstar_of_data hT hnc hL θ hBN h3 hOD hlift hinn hdel
 
 end CFSG.StandardType

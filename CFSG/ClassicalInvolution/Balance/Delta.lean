@@ -152,13 +152,6 @@ theorem completion_eq_iSup_of_mem_E3 {A A₀ : Subgroup G} (hA : IsElemAbelian 2
     exact le_iSup₂_of_le F hF le_rfl
   · exact iSup₂_le fun F hF => le_completion (mem_Ek_of_le hA₀.1 hF)
 
-theorem completion_eq_of_mem_E3 {A A' A₀ : Subgroup G} (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hB : TwoBalancedWrt A) (hA' : IsElemAbelian 2 A')
-    (h16' : 16 ≤ Nat.card A') (hB' : TwoBalancedWrt A') (hA₀ : A₀ ∈ signalizerFunctorEk 2 3 A)
-    (hA₀' : A₀ ∈ signalizerFunctorEk 2 3 A') :
-    completion 2 2 A deltaCore = completion 2 2 A' deltaCore :=
-  (completion_eq_iSup_of_mem_E3 hA h16 hB hA₀).trans
-    (completion_eq_iSup_of_mem_E3 hA' h16' hB' hA₀').symm
 
 theorem map_conj_completion_le {A A₀ : Subgroup G} (hA : IsElemAbelian 2 A)
     (h16 : 16 ≤ Nat.card A) (hB : TwoBalancedWrt A) (hA₀ : A₀ ∈ signalizerFunctorEk 2 3 A)
@@ -216,50 +209,11 @@ variable {G : Type*} [Group G]
   Subgroup.closure {g : G | ∃ A₀ ∈ signalizerFunctorEk 2 3 A,
     A₀.map (MulAut.conj g).toMonoidHom ≤ A} = ⊤
 
-theorem fusionGenerated_of_centralizer_generated {A : Subgroup G}
-    (h : (⨆ E₀ ∈ signalizerFunctorEk 2 3 A, Subgroup.centralizer (E₀ : Set G)) = ⊤) :
-    FusionGenerated A := by
-  refine top_unique ?_
-  rw [← h]
-  refine iSup₂_le fun E₀ hE₀ g hg => ?_
-  refine Subgroup.subset_closure ⟨E₀, hE₀, ?_⟩
-  rintro _ ⟨x, hx, rfl⟩
-  have hcomm := Subgroup.mem_centralizer_iff.mp hg x hx
-  have : (MulAut.conj g).toMonoidHom x = x := by
-    change g * x * g⁻¹ = x
-    rw [← hcomm]
-    group
-  rw [this]
-  exact hE₀.1 hx
 
 end DeltaTriviality
 
 section DeltaTrivial
 
-variable {G : Type} [Group G] [Finite G]
-
-theorem deltaCore_eq_bot_of_fusionGenerated {A : Subgroup G} (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hB : TwoBalancedWrt A)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated A) :
-    ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥ := by
-  obtain ⟨⟨hcop, -⟩, -⟩ := isComplete_deltaCore hA h16 hB
-  have hnormal : (completion 2 2 A deltaCore).Normal := by
-    rw [← Subgroup.normalizer_eq_top_iff, eq_top_iff, ← hGen, Subgroup.closure_le]
-    rintro g ⟨A₀, hA₀, hg⟩
-    exact mem_normalizer_completion_of_map_le hA h16 hB hA₀ hg
-  have hodd : Odd (Nat.card (completion 2 2 A deltaCore)) := Nat.coprime_two_left.mp hcop
-  have hle : completion 2 2 A deltaCore ≤ componentClassificationOddCore G :=
-    CFSG.ComponentClassification.OddCore.maximal G _ hnormal hodd
-  rw [hO] at hle
-  intro F hF
-  exact le_bot_iff.mp ((le_completion hF).trans hle)
-
-theorem deltaCore_eq_bot_of_centralizer_generated {A : Subgroup G} (hA : IsElemAbelian 2 A)
-    (h16 : 16 ≤ Nat.card A) (hB : TwoBalancedWrt A)
-    (hO : componentClassificationOddCore G = ⊥)
-    (hGen : (⨆ E₀ ∈ signalizerFunctorEk 2 3 A, Subgroup.centralizer (E₀ : Set G)) = ⊤) :
-    ∀ F ∈ signalizerFunctorEk 2 2 A, deltaCore F = ⊥ :=
-  deltaCore_eq_bot_of_fusionGenerated hA h16 hB hO (fusionGenerated_of_centralizer_generated hGen)
 
 end DeltaTrivial
 
@@ -267,62 +221,6 @@ section BalanceEight
 
 open Subgroup
 
-variable {G : Type*} [Group G] [Finite G]
-
-private theorem zpowers_eq_one_or_self_delta {z g : G} (hz2 : z * z = 1)
-    (h : g ∈ Subgroup.zpowers z) : g = 1 ∨ g = z := by
-  obtain ⟨k, rfl⟩ := Subgroup.mem_zpowers_iff.1 h
-  obtain ⟨m, hm | hm⟩ := Int.even_or_odd' k
-  · left
-    rw [hm, zpow_mul, zpow_two, hz2, one_zpow]
-  · right
-    rw [hm, zpow_add_one, zpow_mul, zpow_two, hz2, one_zpow, one_mul]
-
-theorem twoBalancedWrt_of_eight
-    {S A : Subgroup G} (hAe : CFSG.Open.IsElemAbelian 2 A) (hAS : A ≤ S)
-    (hbal : ∀ V : Subgroup G, V ≤ S → CFSG.Open.IsElemAbelian 2 V →
-      Nat.card V = 8 → TwoBalancedWrt V) :
-    TwoBalancedWrt A := by
-  intro F hF a haA ha1
-  obtain ⟨hFA, hFcard⟩ := hF
-  by_cases haF : a ∈ F
-  · exact inf_le_left.trans (deltaCore_le_involutionOddCore haF ha1)
-  · have hFe : CFSG.Open.IsElemAbelian 2 F := hAe.mono hFA
-    have hcomm : a ∈ centralizer (F : Set G) := by
-      rw [Subgroup.mem_centralizer_iff]
-      intro f hf
-      exact congrArg Subtype.val
-        (hAe.1.is_comm.comm ⟨f, hFA hf⟩ ⟨a, haA⟩)
-    have ha2 : a ^ 2 = 1 := hAe.2 a haA
-    have haord : orderOf a = 2 :=
-      orderOf_eq_prime (by simpa [pow_two] using ha2) ha1
-    have hdisj : Disjoint F (Subgroup.zpowers a) := by
-      rw [Subgroup.disjoint_def]
-      intro x hxF hxZ
-      rcases zpowers_eq_one_or_self_delta (by simpa [pow_two] using ha2) hxZ with h1 | h1
-      · exact h1
-      · exact absurd (h1 ▸ hxF) haF
-    have hPa : CFSG.Open.IsElemAbelian 2 (Subgroup.zpowers a) :=
-      CFSG.Open.isElemAbelian_zpowers (p := 2) ha2
-    have hzle : Subgroup.zpowers a ≤ Subgroup.centralizer (F : Set G) :=
-      Subgroup.zpowers_le.mpr hcomm
-    have hcardV : Nat.card (F ⊔ Subgroup.zpowers a : Subgroup G) = 8 := by
-      have hnorm : Subgroup.zpowers a ≤ Subgroup.normalizer (F : Set G) :=
-        hzle.trans (Subgroup.centralizer_le_normalizer (F : Set G))
-      have hcard := CFSG.GorensteinWalter.card_sup_eq_mul_of_disjoint_of_le_normalizer
-        (A := F) (B := Subgroup.zpowers a) hnorm hdisj
-      rw [hFcard, Nat.card_zpowers, haord] at hcard
-      simpa using hcard
-    have hcomm' : ∀ x ∈ F, ∀ y ∈ Subgroup.zpowers a, x * y = y * x := by
-      intro x hx y hy
-      exact Subgroup.mem_centralizer_iff.mp (hzle hy) x hx
-    have hVe : CFSG.Open.IsElemAbelian 2 (F ⊔ Subgroup.zpowers a) :=
-      CFSG.Open.IsElemAbelian.sup_of_commute hFe hPa hcomm'
-    have hVS : F ⊔ Subgroup.zpowers a ≤ S :=
-      sup_le (hFA.trans hAS) (Subgroup.zpowers_le.mpr (hAS haA))
-    have haV : a ∈ F ⊔ Subgroup.zpowers a :=
-      Subgroup.mem_sup_right (Subgroup.mem_zpowers_iff.mpr ⟨1, by simp⟩)
-    exact hbal (F ⊔ Subgroup.zpowers a) hVS hVe hcardV F ⟨le_sup_left, hFcard⟩ a haV ha1
 
 end BalanceEight
 

@@ -117,9 +117,5 @@ theorem selfAdjointConjugation_form (h2 : (2 : K) ≠ 0)
       A.val.val * (B.val.val * X.val * B.val⁻¹.val) * A.val⁻¹.val
     simp only [Units.val_mul, _root_.mul_inv_rev, Matrix.mul_assoc]
 
-theorem selfAdjointOrthogonalAction_val (h2 : (2 : K) ≠ 0)
-    (A : symplecticSimilitudes K) (X : selfAdjointSubmodule K) :
-    ((selfAdjointOrthogonalAction h2 A).val X).val =
-      A.val.val * X.val * A.val⁻¹.val := rfl
 
 end CFSG.ComponentClassification.CatalogueBOrthogonalFive

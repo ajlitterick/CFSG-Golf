@@ -26,44 +26,21 @@ end Item42
 
 section Item43
 
-theorem rank3II_4_3_of_multipliers (h41 : Item4_1) (hmult : TripleCoverInputs)
-    (hSuz : TripleCoverSuzRankFour) (hU62 : TripleCoverU62RankFour) : Item4_3 :=
-  rank3II_4_3_of_inputs h41 hmult hSuz hU62 PartOne.CTP.spinRankFour
 
 end Item43
 
 section Item46
 
-theorem rank3II_4_6_of_open (h41 : Item4_1) (hmult : TripleCoverInputs)
-    (hSuz : TripleCoverSuzRankFour) (hU62 : TripleCoverU62RankFour) (hsl : CoverSLThree46)
-    (hcen : CoverCenterThree) (hu43r : NineCoverU43RankFour) (hrank : RankThree46Open) :
-    Item4_6 :=
-  rank3II_4_6_of h41 rank3II_4_2 (rank3II_4_3_of_multipliers h41 hmult hSuz hU62)
-    (Inputs46.of_open hsl hcen hu43r hrank)
 
 end Item46
 
 section Census44
 
-theorem twoCoverCensus_of_open (hGA : GriessMultipliersAllModels)
-    (hSpor : SporadicMultipliers) (hcov : TwoCoverRanksOpen) : TwoCoverCensus :=
-  twoCoverCensus_of rank3II_4_2 hGA griessMultipliersCentralCovers hSpor
-    (TwoCoverRanks.of_open hcov)
-
-theorem quasisimpleCensus_of_open (h41 : Item4_1) (hGA : GriessMultipliersAllModels)
-    (hSpor : SporadicMultipliers) (hcov : TwoCoverRanksOpen) : QuasisimpleCensus :=
-  quasisimpleCensus_of_inputs h41 rank3II_4_2 hGA griessMultipliersCentralCovers hSpor
-    (TwoCoverRanks.of_open hcov)
 
 end Census44
 
 section Item44
 
-theorem rank3II_4_4_of_open (h41 : Item4_1) (hGA : GriessMultipliersAllModels)
-    (hSpor : SporadicMultipliers) (hcov : TwoCoverRanksOpen) (hL34 : FourL34NotSLFourOdd) :
-    Item4_4 :=
-  rank3II_4_4_of_inputs h41 rank3II_4_2 hGA griessMultipliersCentralCovers hSpor
-    (TwoCoverRanks.of_open hcov) hL34
 
 end Item44
 

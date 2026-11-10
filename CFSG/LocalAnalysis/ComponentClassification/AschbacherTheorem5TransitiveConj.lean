@@ -131,9 +131,6 @@ theorem iSup_map_eq_top {Q Q' : Type*} [Group Q] [Group Q'] (f : Q ≃* Q') {ι 
 @[expose] def subgroupEquiv (e : G ≃* G') (D : Subgroup G) : D ≃* D.map e.toMonoidHom :=
   D.equivMapOfInjective e.toMonoidHom e.injective
 
-theorem subgroupEquiv_apply (e : G ≃* G') (D : Subgroup G) (d : D) :
-    (subgroupEquiv e D d : G') = e d :=
-  rfl
 
 theorem subtype_comp_subgroupEquiv (e : G ≃* G') (D : Subgroup G) :
     (D.map e.toMonoidHom).subtype.comp (subgroupEquiv e D).toMonoidHom =
@@ -262,9 +259,6 @@ theorem conclusion_transport_iff {G G' : Type} [Group G] [Group G'] [Finite G] [
   exact and_congr (Conj.product_map_iff e D _ _)
     (and_congr Iff.rfl (Conj.involution_map_iff e _ _ _))
 
-theorem map_conj_inv_eq_rightConjugate {G : Type*} [Group G] (D : Subgroup G) (g : G) :
-    D.map (MulAut.conj g⁻¹).toMonoidHom = rightConjugate D g :=
-  rfl
 
 @[expose] def conjFactors {G : Type*} [Group G] (D : Subgroup G) {ι : Type*}
     (Abar : ι → Subgroup (D ⧸ aschbacherThm5OddCore D)) (g : G) :
@@ -296,15 +290,6 @@ theorem centralizes_conj_iff {G : Type*} [Group G] (D : Subgroup G) {ι : Type*}
   exact (Conj.centralizes_map_iff (MulAut.conj g⁻¹) (aschbacherThm5Core D)
     (aschbacherThm5Preimage D (Abar i)) t).trans (by rw [MulAut.conj_symm_apply, inv_inv])
 
-theorem hyp61_conj {G : Type} [Group G] [Finite G] {D : Subgroup G} {r : ℕ}
-    {Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D)} (hyp : Hyp61 G D r Abar) (g : G) :
-    Hyp61 G (rightConjugate D g) r (conjFactors D Abar g) :=
-  hyp61_transport (MulAut.conj g⁻¹) hyp
-
-theorem conclusion_conj_iff {G : Type} [Group G] [Finite G] (D : Subgroup G) {r : ℕ}
-    (Abar : Fin r → Subgroup (D ⧸ aschbacherThm5OddCore D)) (g : G) :
-    Conclusion G (rightConjugate D g) r (conjFactors D Abar g) ↔ Conclusion G D r Abar :=
-  conclusion_transport_iff (MulAut.conj g⁻¹) D Abar
 
 end SectionSix
 

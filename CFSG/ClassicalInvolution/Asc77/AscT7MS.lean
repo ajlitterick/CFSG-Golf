@@ -45,30 +45,6 @@ theorem suMat_suConjD (j : Fin 4) (g : Su K p f 4) :
   unfold suConjD
   exact suMat_mkSU _ _
 
-theorem suConjD_mul (j : Fin 4) (g h : Su K p f 4) :
-    suConjD K p f j (g * h) = suConjD K p f j g * suConjD K p f j h := by
-  apply suMat_injective
-  rw [suMat_mul, suMat_suConjD, suMat_suConjD, suMat_suConjD, suMat_mul]
-  calc dMat j * (suMat g * suMat h) * dMat j
-      = dMat j * suMat g * (dMat j * dMat j) * suMat h * dMat j := by
-        rw [dMat_mul_self, Matrix.mul_one]; simp only [Matrix.mul_assoc]
-    _ = _ := by simp only [Matrix.mul_assoc]
-
-theorem suConjD_one (j : Fin 4) : suConjD K p f j 1 = 1 := by
-  apply suMat_injective
-  rw [suMat_suConjD, suMat_one, Matrix.mul_one, dMat_mul_self]
-
-theorem suConjD_inv (j : Fin 4) (g : Su K p f 4) :
-    suConjD K p f j g⁻¹ = (suConjD K p f j g)⁻¹ := by
-  rw [eq_inv_iff_mul_eq_one, ← suConjD_mul, inv_mul_cancel, suConjD_one]
-
-theorem suConjD_suConjD (j : Fin 4) (g : Su K p f 4) :
-    suConjD K p f j (suConjD K p f j g) = g := by
-  apply suMat_injective
-  rw [suMat_suConjD, suMat_suConjD]
-  calc dMat j * (dMat j * suMat g * dMat j) * dMat j
-      = (dMat j * dMat j) * suMat g * (dMat j * dMat j) := by simp only [Matrix.mul_assoc]
-    _ = _ := by rw [dMat_mul_self, Matrix.one_mul, Matrix.mul_one]
 
 theorem comm_of_fix_U (hK : Nat.card K = (p ^ f) ^ 2) (hq : 5 ≤ p ^ f) (h2 : (2 : K) ≠ 0)
     {j : Fin 4} {g : Su K p f 4}

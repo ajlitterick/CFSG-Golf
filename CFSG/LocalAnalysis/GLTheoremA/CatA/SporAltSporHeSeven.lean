@@ -13,30 +13,6 @@ open Subgroup CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates
   CFSG.Certificates.Native CFSG.Monster.B.Mathieu CFSG.Monster.B.Fischer CFSG.RankThree.Native
   CFSG.RankThree.PartOne CFSG.RankThree.PartTwo.KFacts.K426
 
-theorem check_sylow_sound (D : Data) {A B : Equiv.Perm (Fin D.n)} (hA : Rep D.n D.A A)
-    (hB : Rep D.n D.B B) (h : check D = true) :
-    closure (permsA D.n D.QGens) ≤ closure {A, B} ∧
-      Nat.card (closure (permsA D.n D.QGens)) = D.N3 ∧
-      ∀ l < D.QGens.size, validA D.n D.QGens[l]! = true := by
-  unfold check at h
-  simp only [Bool.and_eq_true, decide_eq_true_eq, beq_iff_eq] at h
-  obtain ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨hpos, -⟩, -⟩, -⟩, -⟩, hlines⟩, hsift⟩, -⟩, -⟩, -⟩, hcases⟩ := h
-  have hc0 := allLt_spec hcases hpos
-  obtain ⟨bs, hbs, hbsm, hn1, hk2, hlt, hchain⟩ := caseOK_chain hc0
-  have hbase : (bs.map Fin.val).toArray = D.cases[0]!.base := by rw [hbsm]
-  have hchain' : caseChainOK2P D.n D.cases[0]!.S (bs.map Fin.val).toArray D.cases[0]!.W D.A D.B
-      = true := by rw [hbase]; exact hchain
-  have hmemP : ∀ {g : Array ℕ} {G : Equiv.Perm (Fin D.n)}, Rep D.n g G →
-      siftA D.n (rawLevels D.n D.cases[0]!.S D.cases[0]!.base) D.cases[0]!.base 0 g = true →
-      G ∈ closure {A, B} := by
-    intro g G hG hs
-    refine mem_closure_two_of_siftG hn1 hk2 hbs hA hB hchain' hG ?_
-    rw [hbase]; exact hs
-  refine ⟨?_, linesOK3_card hlt hlines, fun l hl => enumOK_gens_valid (linesOK3_parts hlines).1 hl⟩
-  rw [closure_le]
-  rintro _ ⟨l, hl, rfl⟩
-  exact hmemP (rep_of_validA (enumOK_gens_valid (linesOK3_parts hlines).1 hl))
-    (allLt_spec hsift hl)
 
 end CFSG.HardMathSupport.Solomon.Coordinator.B3S3
 
@@ -180,51 +156,6 @@ theorem false_of_alt7_comp {Q : Type} [Group Q] [Finite Q] {m : ℕ} (hQ : Nat.c
     (hHc' (f ⟨a, by simpa [SP] using ha⟩) (f ⟨b, by simpa [SP] using hb⟩))
   simpa only [← map_mul, MulEquiv.symm_apply_apply, Subgroup.coe_mul] using h
 
-theorem facts_of_check (D : CFSG.HardMathSupport.Solomon.Coordinator.B3S3.Data) (n' : ℕ)
-    (hn : D.n = n') (hD : CFSG.HardMathSupport.Solomon.Coordinator.B3S3.check D = true)
-    {A B : Equiv.Perm (Fin n')}
-    (hA : CFSG.Monster.B.Co2.Rep n' D.A A) (hB : CFSG.Monster.B.Co2.Rep n' D.B B)
-    (P : Subgroup (Equiv.Perm (Fin n'))) (hP : P = Subgroup.closure {A, B}) {m : ℕ}
-    (hord : D.ord = 3 ^ 3 * m) (hN3 : D.N3 = 27) (hn0 : 0 < D.n) (h2 : 2 ≤ D.QGens.size)
-    (hne : (D.QGens[0]!)[(D.QGens[1]!)[0]!]! ≠ (D.QGens[1]!)[(D.QGens[0]!)[0]!]!)
-    (hsmall : ∀ c < D.cases.size, D.cases[c]!.card ∣ 7560) :
-    Nat.card ↥P = 3 ^ 3 * m ∧
-      (∃ Pq : Subgroup ↥P, Nat.card Pq = 27 ∧ ∃ a ∈ Pq, ∃ b ∈ Pq, a * b ≠ b * a) ∧
-      ∀ k : ↥P, orderOf k = 3 → Nat.card (Subgroup.centralizer ({k} : Set ↥P)) ∣ 7560 := by
-  subst hn
-  subst hP
-  obtain ⟨hcardP, hcls⟩ :=
-    CFSG.HardMathSupport.Solomon.Coordinator.B3S3.check_card_order_sound D hA hB hD
-  obtain ⟨hle, hQcard, hval⟩ :=
-    CFSG.HardMathSupport.Solomon.Coordinator.B3S3.check_sylow_sound D hA hB hD
-  refine ⟨hcardP.trans hord, ?_, ?_⟩
-  · set Qs := Subgroup.closure (CFSG.RankThree.Native.permsA D.n D.QGens)
-    have r0 := CFSG.RankThree.Native.rep_of_validA (hval 0 (by omega))
-    have r1 := CFSG.RankThree.Native.rep_of_validA (hval 1 (by omega))
-    set g0 := CFSG.Monster.B.Co2.permOfArr D.n D.QGens[0]!
-    set g1 := CFSG.Monster.B.Co2.permOfArr D.n D.QGens[1]!
-    have hg0 : g0 ∈ Qs := Subgroup.subset_closure ⟨0, by show 0 < D.QGens.size; omega, rfl⟩
-    have hg1 : g1 ∈ Qs := Subgroup.subset_closure ⟨1, by show 1 < D.QGens.size; omega, rfl⟩
-    refine ⟨Qs.subgroupOf (Subgroup.closure {A, B}), ?_, ⟨g0, hle hg0⟩, hg0, ⟨g1, hle hg1⟩, hg1, ?_⟩
-    · rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hle).toEquiv, hQcard, hN3]
-    · intro h
-      apply hne
-      have h' := congrArg (fun g : ↥(Subgroup.closure {A, B}) => ((g : Equiv.Perm (Fin D.n))
-        ⟨0, hn0⟩ : ℕ)) h
-      simp only [Subgroup.coe_mul, Equiv.Perm.mul_apply] at h'
-      rw [r1.apply hn0, r0 (g1 ⟨0, hn0⟩), r0.apply hn0, r1 (g0 ⟨0, hn0⟩)]
-      exact h'
-  · intro x hx
-    have hx3 : orderOf (x : Equiv.Perm (Fin D.n)) = 3 := by rw [Subgroup.orderOf_coe]; exact hx
-    obtain ⟨c, hc, hcc⟩ := hcls x x.2 hx3
-    have hmapc := CFSG.HardMathSupport.Solomon.Coordinator.map_centralizer_subtype
-      (Subgroup.closure {A, B}) x
-    have hcc' : Nat.card (Subgroup.centralizer ({x} : Set ↥(Subgroup.closure {A, B}))) =
-        Nat.card ↥(Subgroup.centralizer ({(x : Equiv.Perm (Fin D.n))} : Set (Equiv.Perm (Fin D.n))) ⊓
-          Subgroup.closure {A, B}) := by
-      rw [← hmapc, Subgroup.card_map_of_injective (Subgroup.closure {A, B}).subtype_injective]
-    rw [hcc', hcc]
-    exact hsmall c hc
 
 theorem altRow_seven_of_facts {s : TauCeti.SporadicName} {Q : Type} [Group Q] [Finite Q]
     [IsSimpleGroup Q] (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
@@ -320,31 +251,5 @@ theorem altRow_He_seven
     (CFSG.LocalAnalysis.GLTheoremA.S8.HNRows.exists_noncomm_of_simple
       (by rw [hcard]; norm_num)) 149273600 (by norm_num) hcard hP hC
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-theorem i1415SevenSporS_of_residual2
-    (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hbr : CFSG.HardMathSupport.Timmesfeld.Tables.Census.SporadicBridges)
-    (hOrd : CFSG.HardMathSupport.Solomon.Coordinator.SporadicOrdersTable)
-    (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge)
-    (hres : AltRow 7 .B ∧ AltRow 7 .M) : I1415SevenSporS :=
-  i1415SevenSporS_of_residual hOut hbr hOrd hb ⟨hres.1, hres.2, altRow_He_seven hOut hbr⟩
 
 end CFSG.LocalAnalysis.GLTheoremA.SporAltRows

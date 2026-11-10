@@ -326,18 +326,6 @@ end DoubleSetup
 
 namespace IsSeed
 
-variable [Finite G] [Finite k] (h : IsSeed S ρ (Ecore G) ψ)
-include h
-
-theorem final_translated_containment_exclusion (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hVall : ∀ β : (S : Subgroup G) ≃* (S : Subgroup G),
-      aimg (S : Subgroup G) β (Vmod G) ≤ CFSG.pCore 2 G)
-    (hα : ¬ ⁅Hone S, aimg (S : Subgroup G) α (Fcore G)⁆ ≤ Fcore G) {A : Subgroup G}
-    (hA : IsMaxElemAbelian (S : Subgroup G) A) (hAQ : ¬ A ≤ CFSG.pCore 2 G) {g : G}
-    (hgH : g ∈ Hone S) (hgM : g ∉ Mnorm S ρ) (hg2 : g ^ 2 = 1) :
-    ¬ Ysub S α g ≤ Bb S α A g :=
-  (⟨h, hVall α, hVall α.symm, hα, hA, hAQ, hgH, hgM, by rw [← pow_two]; exact hg2⟩ :
-    DoubleSetup S ρ ψ α A g).Y_not_le_B
 
 end IsSeed
 

@@ -68,10 +68,6 @@ theorem contains_decE_eq_proved (D : Nat → Nat) (m k : Nat) :
     intro he
     exact hne ⟨i, List.mem_range.2 hi, Nat.eq_of_beq_eq_true he⟩
 
-theorem contains_decE_proved {D : Nat → Nat} {m k : Nat} (h : enNotMemK D m k = true) :
-    (decE D m).keys.contains k = false := by
-  rw [contains_decE_eq_proved, h]
-  rfl
 
 theorem commCount_eq_proved (E : Enum) (s : ℕ) : commCount E s =
     ((List.range E.keys.size).filter fun i =>

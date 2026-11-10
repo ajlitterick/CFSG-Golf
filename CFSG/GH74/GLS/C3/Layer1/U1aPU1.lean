@@ -180,26 +180,6 @@ theorem pu1_claimU (S : Setup M L N W Q T)
     {x : G} (hx : x ∈ W) (hx2 : orderOf x = 2) {g : G} (hg : g⁻¹ * x * g ∈ M) : g ∈ M :=
   pu1_claimU_of_sylow S.sylowQ S.W_le hU hx hx2 hg
 
-theorem pu1_mem_W (S : Setup M L N W Q T)
-    (hU : ∀ x ∈ Q, orderOf x = 2 → ∀ g : G, g⁻¹ * x * g ∈ M → g ∈ M)
-    {z : G} (hz : z ∈ pu1Z W) (hzM : z ∈ M) : z ∈ W :=
-  pu1_mem_W_of_normal S.W_le S.W_norm
-    (fun w hw hw2 g hg => pu1_claimU S hU hw hw2 hg) hz hzM
-
-theorem pu1_centralizer_le (S : Setup M L N W Q T)
-    (hU : ∀ x ∈ Q, orderOf x = 2 → ∀ g : G, g⁻¹ * x * g ∈ M → g ∈ M)
-    {u : G} (hu : u ∈ productInvolutions (pu1Z W)) (huM : u ∈ M) :
-    centralizer ({u} : Set G) ≤ M :=
-  pu1_centralizer_le_of_normal S.W_le S.W_norm
-    (fun w hw hw2 g hg => pu1_claimU S hU hw hw2 hg) hu huM
-
-theorem pu1_productDisconnected (S : Setup M L N W Q T)
-    (hU : ∀ x ∈ Q, orderOf x = 2 → ∀ g : G, g⁻¹ * x * g ∈ M → g ∈ M) :
-    IsProductDisconnected (pu1Z W) M := by
-  refine pu1_productDisconnected_of_normal S.M_ne_top S.W_le S.W_norm ?_
-    (fun w hw hw2 g hg => pu1_claimU S hU hw hw2 hg)
-  obtain ⟨a, haQ, -, -, ha2, -, -, -⟩ := S.rankQ
-  exact ⟨a, S.Q_le_W haQ, ha2⟩
 
 theorem pu1_false (hCor : S_CorZD) (hG : IsSimpleGroup G) (hnon : ∃ a b : G, a * b ≠ b * a)
     (S : Setup M L N W Q T)

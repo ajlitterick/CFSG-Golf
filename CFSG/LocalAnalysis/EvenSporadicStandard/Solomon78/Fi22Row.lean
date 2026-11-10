@@ -54,32 +54,5 @@ theorem fi22_autCenterCondExc_native :
   fi22_autRowData.autCenterCondExc fun α w hw hwP hα hww z hz hz2 hzw hall =>
     fi22_outerCentre α w hw hwP hα hww z hz hz2 hzw hall
 
-theorem fi22_card_fixSubgroup_conj_ne
-    (a : ↥fi22P) (ha : a * a = 1) :
-    Nat.card (fixSubgroup (MulAut.conj a)) ≠ 2903040 := by
-  have hfix : fixSubgroup (MulAut.conj a) = centralizer ({a} : Set ↥fi22P) := by
-    ext z
-    rw [mem_centralizer_singleton_iff]
-    show a * z * a⁻¹ = z ↔ z * a = a * z
-    constructor
-    · intro h
-      calc z * a = (a * z * a⁻¹) * a := by rw [h]
-        _ = a * z := by group
-    · intro h
-      rw [← h]
-      group
-  rw [hfix, Nat.card_congr (centralizerSubgroupEquiv fi22P a).toEquiv]
-  by_cases h1 : a = 1
-  · subst h1
-    have : centralizerIn fi22P ((1 : ↥fi22P) : Equiv.Perm (Fin 3510)) = fi22P := by
-      ext x
-      simp [centralizerIn, Subgroup.mem_centralizer_iff]
-    rw [this, card_fi22P]
-    norm_num
-  · have hne : (a : Equiv.Perm (Fin 3510)) ≠ 1 := fun e => h1 (Subtype.ext e)
-    have hsq : (a : Equiv.Perm (Fin 3510)) * a = 1 := congrArg Subtype.val ha
-    have hord : orderOf (a : Equiv.Perm (Fin 3510)) = 2 :=
-      orderOf_eq_prime (by rw [pow_two]; exact hsq) hne
-    rcases card_centralizerIn_fi22_inner a.2 hord with h | h | h <;> rw [h] <;> norm_num
 
 end CFSG.EvenSporadicStandard.Solomon78

@@ -53,14 +53,6 @@ private lemma ggQ2xFA_projH_add_coeff {m : ℕ} (hm : (m : ZMod 3) ≠ 0) (v : G
     ggQ2xFA_projH hm v + ggQ2xFA_coeff hm v • ggQ2_AH_one m = v := by
   rw [ggQ2xFA_projH, sub_add_cancel]
 
-private lemma ggQ2xFA_coeff_of_mem {m : ℕ} (hm : (m : ZMod 3) ≠ 0) {v : GGBCV m}
-    (hv : v ∈ ggQ2_AH_H m) : ggQ2xFA_coeff hm v = 0 := by
-  rw [ggQ2_AH_mem_H] at hv
-  simp [ggQ2xFA_coeff, hv]
-
-private lemma ggQ2xFA_projH_of_mem {m : ℕ} (hm : (m : ZMod 3) ≠ 0) {v : GGBCV m}
-    (hv : v ∈ ggQ2_AH_H m) : ggQ2xFA_projH hm v = v := by
-  rw [ggQ2xFA_projH, ggQ2xFA_coeff_of_mem hm hv, zero_smul, sub_zero]
 
 private lemma ggQ2xFA_coeff_add_smul_one {m : ℕ} (hm : (m : ZMod 3) ≠ 0) {v : GGBCV m}
     (hv : v ∈ ggQ2_AH_H m) (c : ZMod 3) :

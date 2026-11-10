@@ -36,8 +36,6 @@ theorem pow5_mul {x : G} (hx : x ^ 5 = 1) (c c' : ZMod 5) :
   rw [pow5, pow5, pow5, ← pow_mul, ZMod.val_mul]
   conv_rhs => rw [← Nat.mod_add_div (c.val * c'.val) 5, pow_add, pow_mul, hx, one_pow, mul_one]
 
-theorem pow5_pow_five {x : G} (hx : x ^ 5 = 1) (c : ZMod 5) : (pow5 x c) ^ 5 = 1 := by
-  rw [pow5, ← pow_mul, mul_comm, pow_mul, hx, one_pow]
 
 theorem commute_pow5 {x y : G} (h : x * y = y * x) (c c' : ZMod 5) :
     pow5 x c * pow5 y c' = pow5 y c' * pow5 x c :=
@@ -85,11 +83,6 @@ omit h0 h1 h2 c01 c02 c12 in
 theorem coord5_zero : coord5 z₀ v₀ v₁ 0 = 1 := by
   simp [coord5, pow5_zero]
 
-theorem coord5_neg (m : ZMod 5 × ZMod 5 × ZMod 5) :
-    coord5 z₀ v₀ v₁ (-m) = (coord5 z₀ v₀ v₁ m)⁻¹ := by
-  have h := coord5_add h0 h1 h2 c01 c02 c12 (-m) m
-  rw [neg_add_cancel, coord5_zero] at h
-  exact eq_inv_of_mul_eq_one_left h.symm
 
 end
 

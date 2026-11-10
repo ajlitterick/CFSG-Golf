@@ -17,39 +17,6 @@ variable {G : Type} [Group G] {p : ℕ} [Fact p.Prime] {Bs : Subgroup G} {V : Ty
   {C : Matrix Λ Λ ℤ} {b c : Λ} {h : Λ → V} {α : Λ → Module.Dual (ZMod p) V} {ha : V}
   {αa : Module.Dual (ZMod p) V}
 
-theorem ggReflDatum_of_fork_zero (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs)
-    (ι : Additive ↥Bs ≃+ V) (hF : GGForkPairing C b c h α ha αa) {φ : Λ → MulAut ↥Bs}
-    {φa : MulAut ↥Bs} (hφ : ∀ i, φ i ∈ ggInduced ⊤ Bs) (hφa : φa ∈ ggInduced ⊤ Bs)
-    (hlin : ∀ i w, ggLin (p := p) ι (φ i) w = w - α i w • h i)
-    (hlina : ∀ w, ggLin (p := p) ι φa w = w - αa w • ha)
-    (hind : LinearIndependent (ZMod p) (ggOptFam ha h))
-    (hspan : Submodule.span (ZMod p) (Set.range (ggOptFam ha h)) = ⊤) (hu : αa (h b) = 0) :
-    Nonempty (GGReflDatum p ι (ggAttachCartan C c)) := by
-  have hv : α b ha = 0 := (ggFork_cross_iff hp2 hNT ι hF hφ hφa hlin hlina).1.mp hu
-  refine ⟨GGReflDatum.mk (ggOptFam φa φ) ?_ (ggOptFam ha h) (ggOptFam αa α) ?_ ?_ ?_ hind
-    hspan⟩
-  · rintro (_ | i)
-    · exact hφa
-    · exact hφ i
-  · rintro (_ | i) w
-    · exact hlina w
-    · exact hlin i w
-  · rintro (_ | i) (_ | j)
-    · simp [hF.aa]
-    · by_cases hjb : j = b
-      · subst hjb
-        simp [hu, hF.ne]
-      · simp only [ggOptFam_none, ggOptFam_some, ggAttachCartan_none_some, hF.aL j hjb]
-        split_ifs <;> simp
-    · by_cases hib : i = b
-      · subst hib
-        simp [hv, hF.ne]
-      · simp only [ggOptFam_none, ggOptFam_some, ggAttachCartan_some_none, hF.aR i hib]
-        split_ifs <;> simp
-    · simp only [ggOptFam_some, ggAttachCartan_some_some, hF.pair]
-  · rintro (_ | i)
-    · rfl
-    · exact hF.diag i
 
 theorem ggReflDatum_of_fork_one (hp2 : p ≠ 2) (hNT : GGNoTransvection p Bs)
     (ι : Additive ↥Bs ≃+ V) (hF : GGForkPairing C b c h α ha αa) {φ : Λ → MulAut ↥Bs}

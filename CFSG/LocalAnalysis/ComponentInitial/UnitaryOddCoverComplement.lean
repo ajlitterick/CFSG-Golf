@@ -128,10 +128,6 @@ section Properties
 
 variable {A : GL (Fin r) K} {g : E} (hg : θ g = hypProj h r 1 (lHom h r A))
 
-theorem mem_complement {y : E} :
-    y ∈ complement θ hθ hC hr Vt hVt hg ↔
-      y ∈ preN θ ∧ y * (g * y * g⁻¹) * (g * (g * y * g⁻¹) * g⁻¹) ∈ Vt :=
-  Iff.rfl
 
 theorem le_complement : Vt ≤ complement θ hθ hC hr Vt hVt hg := fun v hv =>
   ⟨preV_le_preN (hVt.le hv), mul_mem (mul_mem hv (hVt.conj A g hg v hv))

@@ -17,32 +17,6 @@ open Subgroup CFSG.Blueprint CFSG.ComponentClassification.M12Cover CFSG.Sporadic
 open CFSG.Sporadic.Th CFSG.Sporadic.Th.Native CFSG.Sporadic.Schreier.Native
 open CFSG.Sporadic.SmallOddCore CFSG.Sporadic.FischerOddCore CFSG.Monster.B.Fischer
 
-theorem rep_tT
-    {k : ℕ} (hk : k < 6) : Rep 3510 (tT k) (fi22ExtRep k) :=
-  rep_arrayMap_ofNat (by norm_num) (rep_fi22ExtRep hk)
-
-theorem rep_uT : Rep 3510 uT fi22U :=
-  rep_arrayMap_ofNat (by norm_num) rep_fi22U
-
-theorem siftP_iff
-    {T : Table} {g : Equiv.Perm (Fin 3510)} (hT : Rep 3510 T g) :
-    siftP T = true ↔ g ∈ fi22P :=
-  fi22InP_iff (co2Rep_natArr_iff.2 hT)
-
-theorem fi22U_sq : fi22U ^ 2 = 1 := by
-  rw [sq]
-  exact fi22U_mul_self
-
-theorem mem_fi22R_iff'
-    {g : Equiv.Perm (Fin 3510)} :
-    g ∈ fi22R ↔ g ∈ fi22P ∨ g * fi22U ∈ fi22P := by
-  rw [← (fi22R_semidirect).2.2]
-  exact mem_sup_zpowers_iff fi22U_sq fun p hp => fi22U_conj_mem hp
-
-theorem siftR_iff
-    {T : Table} {g : Equiv.Perm (Fin 3510)} (hT : Rep 3510 T g) :
-    siftR T = true ↔ g ∈ fi22R := by
-  rw [siftR, Bool.or_eq_true, siftP_iff hT, siftP_iff (Rep.compT hT rep_uT), mem_fi22R_iff']
 
 theorem exists_comm_not_mem {k : ℕ} (hk : k < 6) :
     ∃ c ∈ fi22R, c ∉ fi22P ∧ c * fi22ExtRep k = fi22ExtRep k * c :=
@@ -143,12 +117,6 @@ theorem card_centralizerIn_P_outer
     rw [h5, hcard.2.2.2.2.1]
     rfl
 
-theorem card_centralizerIn_R
-    {k : ℕ} (hk : k < 6) :
-    Nat.card ↥(centralizerIn fi22R (fi22ExtRep k)) =
-      2 * Nat.card ↥(centralizerIn fi22P (fi22ExtRep k)) := by
-  obtain ⟨z, hz, hzP, hzt⟩ := exists_comm_not_mem hk
-  exact card_inf_centralizer_R hz hzP hzt
 
 theorem two_part_P
     {k : ℕ} (hk : k < 3) :
@@ -160,25 +128,6 @@ theorem two_part_P
   · exact (two_pow_factorization_eq (k := 17) (b := 405) (by decide) (by norm_num)).trans rfl
   · exact (two_pow_factorization_eq (k := 16) (b := 280665) (by decide) (by norm_num)).trans rfl
 
-theorem two_part_R_inner
-    {k : ℕ} (hk : k < 3) :
-    2 ^ (Nat.card ↥(centralizerIn fi22R (fi22ExtRep k))).factorization 2 =
-      [131072, 262144, 131072][k]! := by
-  rw [card_centralizerIn_R (by omega), card_centralizerIn_P hk]
-  interval_cases k
-  · exact (two_pow_factorization_eq (k := 17) (b := 27) (by decide) (by norm_num)).trans rfl
-  · exact (two_pow_factorization_eq (k := 18) (b := 405) (by decide) (by norm_num)).trans rfl
-  · exact (two_pow_factorization_eq (k := 17) (b := 280665) (by decide) (by norm_num)).trans rfl
-
-theorem two_part_R_outer
-    {k : ℕ} (hk : k < 3) :
-    2 ^ (Nat.card ↥(centralizerIn fi22R (fi22ExtRep (3 + k)))).factorization 2 =
-      [16384, 16384, 2048][k]! := by
-  rw [card_centralizerIn_R (by omega), card_centralizerIn_P_outer hk]
-  interval_cases k
-  · exact (two_pow_factorization_eq (k := 14) (b := 405) (by decide) (by norm_num)).trans rfl
-  · exact (two_pow_factorization_eq (k := 14) (b := 127575) (by decide) (by norm_num)).trans rfl
-  · exact (two_pow_factorization_eq (k := 11) (b := 2835) (by decide) (by norm_num)).trans rfl
 
 theorem center_fi22P :
     Subgroup.center fi22P = ⊥ := by

@@ -123,18 +123,6 @@ theorem commute_specialBlock_of_ne (blocks : SpPrimaryBlocks ℓ f p x (proj r K
   rw [orbitFactor_spForm] at h1 h2
   exact hcomm _ hO _ hO' hne g h1 g' h2
 
-theorem specialBlock_reciprocal
-    (facts : ∀ h : primaryFactors (spEnd x), SpBlockFacts (spForm r K) (spLin r K x) h)
-    (hrr : ∀ a ∈ primaryFactors (spEnd x), reciprocalPolynomial (reciprocalPolynomial a) = a)
-    (a b : primaryFactors (spEnd x)) (hb : (b : K[X]) = reciprocalPolynomial (a : K[X]))
-    (hma : 2 ≤ primaryMultiplicity (spEnd x) (a : K[X]))
-    (hmb : 2 ≤ primaryMultiplicity (spEnd x) (b : K[X])) :
-    specialBlock (spForm r K) (spLin r K x) (b : K[X]) =
-      specialBlock (spForm r K) (spLin r K x) (a : K[X]) := by
-  have hset : orbitFactor (spForm r K) (spLin r K x) (b : K[X]) =
-      orbitFactor (spForm r K) (spLin r K x) (a : K[X]) := by
-    rw [orbitFactor_spForm, orbitFactor_spForm, hb, hrr a a.2, Set.pair_comm]
-  rw [← (facts a).commutator_eq hma, ← (facts b).commutator_eq hmb, hset]
 
 theorem mem_center_of_commute_specialBlocks
     (blocks : SpPrimaryBlocks ℓ f p x (proj r K x))

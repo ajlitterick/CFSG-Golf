@@ -181,24 +181,5 @@ theorem exists_mem_scriptHStar_pCoreOf_ne_bot (h182 : Item182) (hSL : KFacts.KS1
     exact (hSL L₁ φ (CFSG.pCore 2 L₁) (CFSG.pCore_isPGroup (p := 2) (G := L₁)) hker).false
       hL34.some
 
-theorem rank3II_rem_18_7_of (h182 : Item182) (h1841 : Item184_1) (hSL : KFacts.KS18SL34)
-    (hQ : Rem187Q) : Rem187 := by
-  intro G _ _ A M h hex
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  obtain ⟨H₀, hH₀, hH₀2⟩ := hex
-  obtain ⟨H, hH, hH2⟩ := exists_mem_scriptHStar_pCoreOf_ne_bot h182 hSL h hH₀ hH₀2
-  obtain ⟨-, c, -, hc⟩ := h1841 G A M h H hH.prop
-  have hHc : Sec18H G A M H c := ⟨h, hH.prop, hc⟩
-  have hO2H : CFSG.Open.pCoreOf 2 H ≠ ⊥ := by
-    have hle : CFSG.Open.pCoreOf 2 (inSubgroup perfectResidual H) ≤ CFSG.Open.pCoreOf 2 H :=
-      CFSG.LieType.BorelTits.le_pCoreOf_of_le_normalizer 2
-        ((CFSG.LieType.BorelTits.pCoreOf_le 2 _).trans (Subgroup.map_subtype_le _))
-        ((le_normalizer_inSubgroup_perfectResidual H).trans
-          (CFSG.LieType.BorelTits.normalizer_le_normalizer_pCoreOf 2 _))
-        (CFSG.LieType.BorelTits.pCoreOf_isPGroup 2 _)
-    exact fun hbot => hH2 (le_bot_iff.mp (hbot ▸ hle))
-  by_cases hC : CFSG.Open.pCoreOf 2 (Subgroup.centralizer ({c} : Set G)) = ⊥
-  · exact ⟨H, c, hHc, hH, hO2H, fun hne => absurd hC hne⟩
-  · exact hQ G A M H c hHc hH hO2H hC
 
 end CFSG.RankThree.PartTwo.Sec18

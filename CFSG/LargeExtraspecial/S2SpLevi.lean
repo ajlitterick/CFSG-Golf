@@ -98,13 +98,6 @@ theorem exists_mem_spRadFix_inv_mul_mem (hf : f.IsAlt) {F : Submodule (ZMod 2) V
   · rw [LinearEquiv.mul_apply, ← htp₁]
     exact CFSG.ClassicalGroups.Orthogonal.LinearEquiv.inv_apply_apply' t p₁
 
-omit [FiniteDimensional (ZMod 2) V] in
-theorem spRadFix_inf_spFix_eq_bot {F : Submodule (ZMod 2) V} {p p₁ : V} (hpp₁ : f p p₁ = 1) :
-    spRadFix f F p ⊓ spFix f (F ⊔ Submodule.span (ZMod 2) {p, p₁}) = ⊥ := by
-  rw [eq_bot_iff]
-  rintro t ⟨ht, hty⟩
-  exact (Subgroup.mem_bot).mpr (eq_one_of_mem_spPointRadical_of_apply_eq hpp₁ ht.1
-    (mem_spFix_sup_span_pair.mp hty).2.2)
 
 theorem sp_exists_partner (hf : f.IsAlt) (hnd : f.Nondegenerate) {F : Submodule (ZMod 2) V}
     (hF : F ⊓ spPerp f F = ⊥) {p : V} (hpF : p ∈ spPerp f F) (hp0 : p ≠ 0) :

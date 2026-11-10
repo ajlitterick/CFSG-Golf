@@ -29,9 +29,6 @@ theorem p13e7_polarV_neg_right (ψ x : V) : polarV ψ (-x) = -polarV ψ x := by
   simp only [polarV, Pi.neg_apply]
   ring
 
-theorem p13e7_polarV_zero_right (ψ : V) : polarV ψ 0 = 0 := by
-  simp only [polarV, Pi.zero_apply]
-  ring
 
 @[expose] def p13e7PolarHom (ψ : V) : V →+ ZMod 3 :=
   AddMonoidHom.mk' (polarV ψ) (p13e7_polarV_add_right ψ)

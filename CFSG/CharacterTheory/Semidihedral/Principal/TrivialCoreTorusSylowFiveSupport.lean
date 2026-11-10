@@ -28,8 +28,6 @@ theorem pow_val_add {w : G} (hw : w ^ 5 = 1) (a b : ZMod 5) :
     w ^ (a + b).val = w ^ a.val * w ^ b.val := by
   rw [ZMod.val_add, ← pow_eq_pow_mod _ hw, pow_add]
 
-theorem pow_val_natCast {w : G} (hw : w ^ 5 = 1) (m : ℕ) : w ^ (m : ZMod 5).val = w ^ m := by
-  rw [ZMod.val_natCast, ← pow_eq_pow_mod _ hw]
 
 theorem exists_eq_pow_val_of_mem_zpowers {w x : G} (hw : w ^ 5 = 1)
     (hx : x ∈ Subgroup.zpowers w) : ∃ a : ZMod 5, x = w ^ a.val := by
@@ -220,7 +218,6 @@ theorem exists_perm_hom_of_torus {G : Type} [Group G] [Finite G] (W : Subgroup G
     P eP
   refine ⟨σH, hsurj, fun h => hker h, fun h => ?_⟩
   rw [← hσK h, hcent, Subgroup.mem_subgroupOf]
-
 
 
 theorem ncard_conjOrbit_mod_five_ne_four {G : Type*} [Group G] (N : Subgroup G)

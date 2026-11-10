@@ -15,13 +15,6 @@ section Perfect
 
 variable {X : Type*} [Group X]
 
-theorem comm_center_mul_left {c : X} (hc : c ∈ Subgroup.center X) (a b : X) :
-    ⁅c * a, b⁆ = ⁅a, b⁆ := by
-  exact T8V.comm_center_mul_left hc a b
-
-theorem comm_center_mul_right {c : X} (hc : c ∈ Subgroup.center X) (a b : X) :
-    ⁅a, c * b⁆ = ⁅a, b⁆ := by
-  exact T8V.comm_center_mul_right hc a b
 
 theorem eq_of_central_ratio (φ : X →* X) {P : Subgroup X} (hP : ⁅P, P⁆ = P)
     (h : ∀ p ∈ P, φ p * p⁻¹ ∈ Subgroup.center X) : ∀ p ∈ P, φ p = p := by

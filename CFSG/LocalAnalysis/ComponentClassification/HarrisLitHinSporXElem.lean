@@ -117,6 +117,5 @@ theorem hinConcl_of_autModel {M : Type} [Group M] {P R : Subgroup M} (h : AutMod
   · exact not_sectionalTwoRankLE_of_le hfix hc hs
       (by rw [hcard]; exact hE2 fun hρP => hτo (hinn.mpr (hxP.mpr hρP)))
 
-variable {n : ℕ}
 
 end CFSG.ComponentClassification.HarrisLit.Hin.SporX

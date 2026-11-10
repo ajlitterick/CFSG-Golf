@@ -67,7 +67,6 @@ variable {G : Type*} [Group G]
 
 variable {K : Subgroup G} {hKab : ∀ a ∈ K, ∀ b ∈ K, a * b = b * a} {p : ℕ}
 
-theorem mem_pPart {k : G} : k ∈ pPart K hKab p ↔ k ∈ K ∧ ∃ n : ℕ, k ^ p ^ n = 1 := Iff.rfl
 
 theorem pPart_le : pPart K hKab p ≤ K := fun _ h => h.1
 

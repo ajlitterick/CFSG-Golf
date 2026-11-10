@@ -97,36 +97,5 @@ end Layer
 
 end T8
 
-variable {p f : ℕ} [Fact p.Prime]
-
-theorem rLayer_le_sigmaNorm_of_c27_6_c27_7 (h6 : C27_6 p f) (h7 : C27_7 p f) {G : Type} [Group G]
-    [Finite G] [IsSimpleGroup G] {Ω : Set (Subgroup G)} {K J : Subgroup G} {S : Sylow 2 G}
-    {R T W : Subgroup G} {z t : G} (hs : Std8 p f Ω K J S R T W z t) (hdisc : ¬ DConnected Ω) :
-    rLayer Ω (z * t) ≤ sigmaNorm Ω K := by
-  have hΩ : HypOmegaMod p f Ω := hs.stand.hyp
-  have hK : K ∈ Ω := hs.stand.mem
-  have h6' := (h6 G Ω K J S R T W z t hs hdisc).1
-  have h7' := h7 G Ω K J S R T W z t hs hdisc
-  have hzt : z ≠ t := by
-    intro h
-    apply hs.hJ.2.1
-    refine hs.noTwins J ⟨hs.hJ.1, z, hs.hz, h ▸ hs.ht⟩
-  have ha1 : z * t ≠ 1 := by
-    intro h
-    exact hzt ((eq_inv_of_mul_eq_one_left h).trans (inv_eq_of_mul_eq_one_right hs.ht.sq))
-  have hzA : z ∈ Subgroup.closure ({t, z} : Set G) := Subgroup.subset_closure (by simp)
-  have htA : t ∈ Subgroup.closure ({t, z} : Set G) := Subgroup.subset_closure (by simp)
-  have haA : z * t ∈ Subgroup.closure ({t, z} : Set G) := Subgroup.mul_mem _ hzA htA
-  have hOY : oddCoreOf (rLayer Ω (z * t)) ≤ sigmaNorm Ω K := by
-    intro x hx
-    have hYC : rLayer Ω (z * t) ≤ Subgroup.centralizer ({z * t} : Set G) :=
-      iSup₂_le fun _ _ => iSup_le fun h => h
-    have hxC := T8.oddCoreOf_le_oddCoreOf_of_normalized hYC
-      (fun c hc => T8.rLayer_conjSub_eq hΩ.conjInvariant hc) hx
-    have hxz : x * z = z * x := T8.oddCoreOf_centralizer_commutes h7' haA ha1 hzA x hxC
-    exact T8.normalizer_le_sigmaNorm hΩ.conjInvariant hK
-      (T8.centralizer_le_normalizer_of_noTwins hΩ.conjInvariant hK hs.noTwins hs.hz
-        (Subgroup.mem_centralizer_singleton_iff.mpr hxz))
-  exact h6'.trans (sup_le hOY inf_le_right)
 
 end CFSG.ClassicalInvolution.Asc77

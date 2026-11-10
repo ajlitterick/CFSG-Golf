@@ -31,11 +31,6 @@ theorem Std20.late_nine_three (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl2
   · exact mem_normalizer_iff_conjSub_eq.mpr h
   · exact (d.late_swap_not_sq_X c3 h8 hu h hX).elim
 
-theorem Std20.late_SX_le_N_K (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V z)
-    (h8 : 8 < Nat.card R) :
-    (S : Subgroup G) ⊓ sec20X (CoreAssembly.conjClass K) z K K' ≤
-      Subgroup.normalizer (K : Set G) := fun u hu =>
-  d.late_nine_three c3 h8 u hu.1 (Subgroup.mul_mem _ hu.2 hu.2)
 
 theorem Std20.late_not_le_X (d : Std20 p f K K' J S R R' W V z t) (c3 : Concl20_3 K K' V z)
     (h8 : 8 < Nat.card R) :

@@ -35,8 +35,6 @@ theorem three_dvd_card_M11 : 3 ∣ Nat.card NativeSporadic.M11 := by
       (Subgroup.mul_mem _ ha hb) hb) ha) hb) hb)
     (by unfold m11a m11b; decide) (by unfold m11a m11b; decide)
 
-def m12a : Perm (Fin 12) :=
-  List.formPerm [0, 3] * List.formPerm [2, 9] * List.formPerm [4, 10] * List.formPerm [5, 11]
 
 def m12b : Perm (Fin 12) :=
   List.formPerm [0, 7, 8] * List.formPerm [1, 2, 3] * List.formPerm [4, 11, 10] *
@@ -81,11 +79,6 @@ theorem three_dvd_card_M23 : 3 ∣ Nat.card NativeSporadic.M23 := by
       (Subgroup.mul_mem _ ha hb) hb) ha) hb) hb)
     (by unfold m23a m23b; decide) (by unfold m23a m23b; decide)
 
-def m24a : Perm (Fin 24) :=
-  List.formPerm [0, 3] * List.formPerm [1, 6] * List.formPerm [2, 16] * List.formPerm [4, 12] *
-    List.formPerm [5, 8] * List.formPerm [7, 14] * List.formPerm [9, 18] *
-    List.formPerm [10, 17] * List.formPerm [11, 20] * List.formPerm [13, 15] *
-    List.formPerm [19, 23] * List.formPerm [21, 22]
 
 def m24b : Perm (Fin 24) :=
   List.formPerm [0, 3, 5] * List.formPerm [1, 20, 13] * List.formPerm [2, 8, 14] *

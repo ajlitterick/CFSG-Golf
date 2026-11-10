@@ -178,9 +178,6 @@ theorem nodeEltF_mem (D : ℕ → Int × ℕ) (j : ℕ) :
   · exact Subgroup.mul_mem _ (ih _ hab.1) (ih _ hab.2)
   · exact Subgroup.one_mem _
 
-theorem nodeElt_mem (j : ℕ) :
-    nodeElt j ∈ Subgroup.closure ({R1u, R2u} : Set (GL (Fin 22) (ZMod 2))) :=
-  nodeEltF_mem dagE j
 
 theorem decMat_nodeMats (j : ℕ) (hj : j < dagSize) :
     decMat ((nodeMats ())[j]!) =

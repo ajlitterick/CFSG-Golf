@@ -290,9 +290,6 @@ theorem ggHypDichotomyInput_of_catalogueSchreier (hS : CatalogueRelativeB.Catalo
     (hP : GGStdSubPrimeInput) : GGHypDichotomyInput :=
   ggHypDichotomyInput_of_lBalance (ggLBalanceInput_of_catalogueSchreier hS) hP
 
-theorem ggHypG0Input_of_lBalance (hL : GGLBalanceInput) (hP : GGStdSubPrimeInput)
-    (hE : GGExcReflInput) : GGHypG0Input :=
-  ggHypG0Input_of_dichotomy (ggHypDichotomyInput_of_lBalance hL hP) hE
 
 end Main
 

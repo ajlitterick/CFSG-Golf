@@ -267,21 +267,6 @@ theorem ggStepTwoChoiceThreeTag_of_placeholder (t : StatedLieTag)
 theorem ggStepTwoChoiceThreeTag_POmegaOdd : GGStepTwoChoiceThreeTag .POmegaOdd :=
   fun _ _ _ _ _ _ _ _ _ _ _ _ _ hctx => absurd rfl hctx.2.2.2.1.1.2.2.2
 
-theorem ggLayerNotUFourAltSixTag_PSL : GGLayerNotUFourAltSixTag .PSL := by
-  intro G _ _ n f ψ G₀ hpres _ p hp hp2 y hy _ hdiag C hC
-  have h := ggAKFL_not_excThree_PSL hpres hp hp2 hy hdiag hC
-  exact ⟨fun hU => h (Or.inl hU), ⟨fun e => h (Or.inr (Or.inl ⟨e⟩))⟩⟩
-
-theorem ggLayerNotUFourAltSixTag_of_placeholder (t : StatedLieTag)
-    (ht : t = .G2 ∨ t = .trialityD4 ∨ t = .twistedB2 ∨ t = .twistedG2 ∨ t = .twistedF4 ∨
-      t = .Tits) : GGLayerNotUFourAltSixTag t := by
-  intro G _ _ n f ψ G₀ hpres
-  have hrk := hpres.1.2
-  rcases ht with rfl | rfl | rfl | rfl | rfl | rfl <;>
-    exact absurd hrk (show ¬ 2 ≤ 0 by omega)
-
-theorem ggLayerNotUFourAltSixTag_POmegaOdd : GGLayerNotUFourAltSixTag .POmegaOdd :=
-  fun _ _ _ _ _ _ _ hpres => absurd rfl hpres.1.1.2.2.2
 
 end Tags
 

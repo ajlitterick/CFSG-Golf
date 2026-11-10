@@ -82,46 +82,4 @@ lemma conjMap_rho_apply
   rfl
 
 
-/--
-If `A` is normal and `A ≤ I`, then `A` is contained in the conjugate subgroup
-`I.map (MulAut.conj g).toMonoidHom`.
--/
-lemma le_conjMap_of_normal
-    (A I : Subgroup G) [haN : A.Normal] (hAI : A ≤ I) (g : G) :
-    A ≤ I.map (MulAut.conj g).toMonoidHom := by
-  intro a haA
-  refine ⟨(MulAut.conj g).symm a, ?_, ?_⟩
-  · apply hAI
-    have hmem : (g⁻¹ : G) * (a : G) * g ∈ A :=
-      Subgroup.Normal.conj_mem' haN a haA g
-    simpa [MulAut.conj_symm_apply] using hmem
-  · simpa using (MulAut.conj g).apply_symm_apply a
-
-/--
-Evaluate `conjMap I g σ` on an element of a normal subgroup contained in `I`.
-
-If `A` is normal in `G`, `A ≤ I`, and `a : A`, then the element `a`, viewed as
-an element of the conjugate subgroup `I.map (MulAut.conj g).toMonoidHom`, acts
-in `conjMap I g σ` as the original representation `σ` evaluated at
-`g⁻¹ * a * g`, viewed as an element of `I`.
--/
-lemma conjMap_rho_apply_of_mem_normal
-    (A I : Subgroup G) [haN : A.Normal] (hAI : A ≤ I)
-    (g : G) (σ : FDRep k I)
-    (a : A)
-    (v : (FDRep.conjMap (k := k) I g σ)) :
-    let Ig : Subgroup G := I.map (MulAut.conj g).toMonoidHom
-    let hAIg : A ≤ Ig := FDRep.le_conjMap_of_normal A I hAI g
-    let aIg : Ig := ⟨(a : G), hAIg a.2⟩
-    let a_conj_val : G := g⁻¹ * (a : G) * g
-    let h_mem_A : a_conj_val ∈ A := by
-      simpa [a_conj_val] using
-         Subgroup.Normal.conj_mem' haN (a : G) a.2 g
-    let aI : I := ⟨a_conj_val, hAI h_mem_A⟩
-    (FDRep.conjMap (k := k) I g σ).ρ aIg v =
-      σ.ρ aI v := by
-  intro Ig hAIg aIg a_conj_val h_mem_A aI
-  rw [FDRep.conjMap_rho_apply]
-  congr
-
 end FDRep

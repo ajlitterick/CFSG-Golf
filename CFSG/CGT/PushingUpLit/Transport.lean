@@ -350,10 +350,6 @@ theorem sylow_of_isSylowOf {S H : Subgroup G} (hS : IsSylowOf 2 S H) :
     hp.of_equiv (Subgroup.subgroupOfEquivOfLe hSH).symm
   exact ⟨hp'.toSylow hidx, IsPGroup.toSylow_coe hp' hidx⟩
 
-omit [Finite G] in
-theorem isTwoLocal_iff_isPLocal {H : Subgroup G} :
-    CFSG.Assembly.IsTwoLocal H ↔ CFSG.IsPLocal 2 H :=
-  Iff.rfl
 
 export CFSG.CGT.PushingUp (isCharacteristicP_of_isPLocal)
 

@@ -26,7 +26,6 @@ theorem etaTrue_mk (q : ℕ) (g : ↥(slPi true 3 q K)) :
       proj 3 K (slPiTrueEquiv q K g) :=
   rfl
 
-theorem etaTrue_surj (q : ℕ) : Function.Surjective (etaTrue q K) := (etaTrue q K).surjective
 
 theorem slPiTrueEquiv_frob (hK : PiField true p f K) (σ : K ≃+* K) (g : ↥(slPi true 3 (p ^ f) K)) :
     slPiTrueEquiv (p ^ f) K (frobSL hK σ g) =

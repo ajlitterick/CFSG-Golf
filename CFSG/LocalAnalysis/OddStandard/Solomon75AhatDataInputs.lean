@@ -42,35 +42,6 @@ namespace CFSG.OddStandard.Solomon75.AhatData
 
 @[expose] def gensA (n : Nat) : Array (Array Nat) := (genSwaps n).toArray.map (swapsA n)
 
-@[expose] def buildTable (n : Nat) (g : Array (Array Nat)) :
-    Array (Array Nat) × Array Nat × Array Nat :=
-  Id.run do
-    let mut tab : Array (Array Nat) := #[idA n]
-    let mut par : Array Nat := #[0]
-    let mut lab : Array Nat := #[0]
-    let mut i := 0
-    while i < tab.size do
-      for j in [0:g.size] do
-        let y := mulA n tab[i]! g[j]!
-        if !(tab.contains y) then
-          tab := tab.push y
-          par := par.push i
-          lab := lab.push j
-      i := i + 1
-    return (tab, par, lab)
-
-@[expose] def invIdx (n : Nat) (tab : Array (Array Nat)) : Array Nat :=
-  tab.map fun x => ((List.range tab.size).find? fun l => eqA n (mulA n x tab[l]!) (idA n)).getD 0
-
-@[expose] def tableOK (n : Nat) (g : Array (Array Nat)) (tab : Array (Array Nat))
-    (par lab : Array Nat) (card : Nat) : Bool :=
-  tab.size == card && par.size == card && lab.size == card && eqA n tab[0]! (idA n) &&
-  g.all (fun x => eqA n (mulA n x x) (idA n)) &&
-  Nat.all tab.size (fun k _ => k == 0 ||
-    (decide (par[k]! < k) && decide (lab[k]! < g.size) &&
-      eqA n (mulA n tab[par[k]!]! g[lab[k]!]!) tab[k]!)) &&
-  Nat.all tab.size (fun k _ => g.all fun x => tab.any fun y => eqA n (mulA n tab[k]! x) y) &&
-  Nat.all tab.size (fun k _ => Nat.all k fun l _ => !(eqA n tab[k]! tab[l]!))
 
 @[expose] def invOK (n : Nat) (tab : Array (Array Nat)) (inv : Array Nat) : Bool :=
   inv.size == tab.size &&
@@ -83,20 +54,6 @@ namespace CFSG.OddStandard.Solomon75.AhatData
 @[expose] def nbrOK (n : Nat) (tab : Array (Array Nat)) : Bool :=
   (isoIdx n tab).all fun k => (isoIdx n tab).any fun l => adjA n tab[k]! tab[l]!
 
-@[expose] def connOrder (n : Nat) (tab : Array (Array Nat)) : Array Nat := Id.run do
-  let I := isoIdx n tab
-  let m := I.size
-  let mut seen : Array Bool := (Array.replicate m false).set! 0 true
-  let mut queue : Array Nat := #[0]
-  let mut h := 0
-  while h < queue.size do
-    let x := queue[h]!
-    for y in [0:m] do
-      if !seen[y]! && adjA n tab[I[x]!]! tab[I[y]!]! then
-        seen := seen.set! y true
-        queue := queue.push y
-    h := h + 1
-  return queue
 
 @[expose] def connOK (n : Nat) (tab : Array (Array Nat)) (ord : Array Nat) : Bool :=
   let I := isoIdx n tab
@@ -133,10 +90,5 @@ namespace CFSG.OddStandard.Solomon75.AhatData
     (Nat.all tab.size fun j _ => commA n tab[k]! tab[j]!) &&
     tab.any fun s => dblA n s && commA n s tab[k]! && isoA n (mulA n s tab[k]!)
 
-@[expose] def sylowCheck (n card : Nat) : Bool :=
-  let g := gensA n
-  let T := buildTable n g
-  tableOK n g T.1 T.2.1 T.2.2 card && invOK n T.1 (invIdx n T.1) && nbrOK n T.1 &&
-    connOK n T.1 (connOrder n T.1) && rankOK n T.1 && eightOK n T.1 && halfOK n T.1
 
 end CFSG.OddStandard.Solomon75.AhatData

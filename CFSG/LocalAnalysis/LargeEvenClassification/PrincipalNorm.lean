@@ -21,12 +21,6 @@ universe groupUniverse
       intro element
       exact automorphism.symm_apply_apply element }
 
-theorem additiveAutomorphismUnits_injective (Abelian : Type groupUniverse) [AddCommGroup Abelian] :
-    Function.Injective (additiveAutomorphismUnits Abelian) := by
-  intro first second heq
-  apply AddEquiv.ext
-  intro element
-  exact congrArg (fun unit : (AddMonoid.End Abelian)ˣ => unit.val element) heq
 
 @[expose] def abelianAutomorphismUnits (Abelian : Type groupUniverse) [CommGroup Abelian] :
     MulAut Abelian →* (AddMonoid.End (Additive Abelian))ˣ := {

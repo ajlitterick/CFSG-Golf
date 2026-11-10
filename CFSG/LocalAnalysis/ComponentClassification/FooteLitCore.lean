@@ -9,12 +9,6 @@ namespace CFSG.ComponentClassification.FooteLit
 
 open CFSG Subgroup
 
-@[expose] def FooteAbelianCoreAxiom : Prop :=
-  ∀ (S : Type) [Group S] [Finite S] [IsSimpleGroup S], (∃ a b : S, a * b ≠ b * a) →
-    Blueprint.Catalog S →
-    (¬ ∃ p f : ℕ, p.Prime ∧ p ≠ 2 ∧ 1 ≤ f ∧ Blueprint.LieModel S .PSL 2 p f) →
-    ∀ i : MulAut S, orderOf i = 2 →
-      ∀ x y : ↥(pPrimeCore 2 ↥(centralizer ({i} : Set (MulAut S)))), x * y = y * x
 
 @[expose] def FooteCoreCentral (K : Type) [Group K] : Prop :=
   ∀ a : K, orderOf a = 2 → ∀ Y : Subgroup K, IsPComponent 2 Y →

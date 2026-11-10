@@ -33,11 +33,6 @@ theorem x_mem_normalizer_I {H X L Q I : Subgroup G} (h : Setup49 H X L Q I)
     {x : G} (hx : x ∈ X) : x ∈ Subgroup.normalizer (I : Set G) :=
   le_normalizer_I h (h.X_le hx)
 
-theorem conjugate_mem_I {H X L Q I : Subgroup G} (h : Setup49 H X L Q I)
-    {x t : G} (hx : x ∈ X) (ht : t ∈ I) : cj x t ∈ I := by
-  have hxN : x ∈ Subgroup.normalizer (I : Set G) := x_mem_normalizer_I h hx
-  have hxN' : x⁻¹ ∈ Subgroup.normalizer (I : Set G) := (Subgroup.normalizer _).inv_mem hxN
-  simpa only [cj, inv_inv] using (Subgroup.mem_normalizer_iff.mp hxN' t).mp ht
 
 theorem eq_sup_Lc {H X L Q I : Subgroup G} (h : Setup49 H X L Q I) {x : G}
     (hxX : x ∈ X) (hgen : X = Subgroup.zpowers x) (hord : orderOf x = 3) :

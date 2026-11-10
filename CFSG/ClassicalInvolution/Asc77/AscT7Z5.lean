@@ -56,10 +56,6 @@ theorem t_sq (hd : Hyp23bData Ω K K' W z u e g) (hs : Hyp23Setting p f Ω K K' 
   rw [← hd.hgt]
   exact (hs.hz.conj g).sq
 
-theorem u_eq_t_mul_e (hd : Hyp23bData Ω K K' W z u e g) : u = (u * e) * e := by
-  have : e * e = 1 := hd.he2
-  calc u = u * (e * e) := by rw [this, mul_one]
-    _ = (u * e) * e := by group
 
 theorem t_ne_z (hs : Hyp23Setting p f Ω K K' z) (hd : Hyp23bData Ω K K' W z u e g) :
     u * e ≠ z := by

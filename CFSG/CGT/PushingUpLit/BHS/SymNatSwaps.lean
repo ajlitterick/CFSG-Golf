@@ -146,8 +146,6 @@ theorem two_pow_ncard_le_card_closure {T : Set (Equiv.Perm (Fin n))} (hfin : T.F
     rw [perm_apply_inv_self] at this
     exact this.symm
 
-theorem mem_stabFun {f : Fin n → ZMod 2} {a : Equiv.Perm (Fin n)} :
-    a ∈ stabFun f ↔ ∀ i, f (a i) = f i := Iff.rfl
 
 theorem mem_fixV_map_closure_iff {T : Set (Equiv.Perm (Fin n))} {v : ↥(coreMod n)} :
     v ∈ fixV ((Subgroup.closure T).map (coreAct n)) ↔
@@ -243,68 +241,5 @@ theorem card_le_two_pow_mul_card_fixV (T : Set (Equiv.Perm (Fin n)))
     _ ≤ 2 ^ Nat.card T * Nat.card (fixV ((Subgroup.closure T).map (coreAct n))) :=
         Nat.mul_le_mul_right _ h2
 
-theorem weight_map_le (hn : Odd n) (h3 : 3 ≤ n) {B : Subgroup (Equiv.Perm (Fin n))}
-    (hc : ∀ a ∈ B, ∀ b ∈ B, a * b = b * a) :
-    Nat.card (B.map (coreAct n)) * Nat.card (fixV (B.map (coreAct n))) ≤ Nat.card (coreMod n) := by
-  have h1 : Nat.card (B.map (coreAct n)) = Nat.card B :=
-    Subgroup.card_map_of_injective (coreAct_injective h3)
-  rw [h1]
-  exact weight_le hn hc
-
-theorem card_le_weight_map_closure (h3 : 3 ≤ n) {T : Set (Equiv.Perm (Fin n))}
-    (hT : ∀ t ∈ T, t.IsSwap) (hc : ∀ t ∈ T, ∀ t' ∈ T, t * t' = t' * t) :
-    Nat.card (coreMod n) ≤ Nat.card ((Subgroup.closure T).map (coreAct n)) *
-      Nat.card (fixV ((Subgroup.closure T).map (coreAct n))) := by
-  have h1 : Nat.card ((Subgroup.closure T).map (coreAct n)) = Nat.card (Subgroup.closure T) :=
-    Subgroup.card_map_of_injective (coreAct_injective h3)
-  have h2 := two_pow_ncard_le_card_closure (Set.toFinite T) hT hc
-  have h4 := card_le_two_pow_mul_card_fixV T hT
-  rw [Nat.card_coe_set_eq] at h4
-  rw [h1]
-  exact h4.trans (Nat.mul_le_mul_right _ h2)
-
-theorem ne_bot_of_mem_ne_one {G : Type*} [Group G] {X : Subgroup G} {a : G} (ha : a ∈ X)
-    (h1 : a ≠ 1) : X ≠ ⊥ := fun h => h1 (Subgroup.mem_bot.1 (h ▸ ha))
-
-theorem sym_swaps_offender (n : ℕ) (hn : Odd n) {T : Set (Equiv.Perm (Fin n))}
-    (hT : ∀ t ∈ T, t.IsSwap) (hc : ∀ t ∈ T, ∀ t' ∈ T, t * t' = t' * t) (hne : T.Nonempty) :
-    IsFFStarOffender (⊤ : Subgroup (MulAut (coreMod n)))
-      ((Subgroup.closure T).map (coreAct n)) := by
-  obtain ⟨t₀, ht₀⟩ := hne
-  have h3 : 3 ≤ n := by
-    obtain ⟨x, y, hxy, -⟩ := hT t₀ ht₀
-    have : Nontrivial (Fin n) := ⟨x, y, hxy⟩
-    have h2 : 2 ≤ n := Fin.nontrivial_iff_two_le.1 this
-    obtain ⟨k, hk⟩ := hn
-    omega
-  have hinj := coreAct_injective h3
-  have hAc : ∀ a ∈ Subgroup.closure T, ∀ b ∈ Subgroup.closure T, a * b = b * a :=
-    fun a ha b hb => closure_comm hc ha hb
-  refine ⟨le_top, ?_, ⟨?_, ?_⟩, ?_⟩
-  · have hne1 : coreAct n t₀ ≠ 1 := fun h => by
-      have ht1 : t₀ = 1 := hinj (h.trans (map_one _).symm)
-      obtain ⟨x, y, hxy, rfl⟩ := hT t₀ ht₀
-      have := congrArg (fun σ : Equiv.Perm (Fin n) => σ x) ht1
-      simp only [Equiv.swap_apply_left, Equiv.Perm.one_apply] at this
-      exact hxy this.symm
-    exact ne_bot_of_mem_ne_one (Subgroup.mem_map_of_mem _ (Subgroup.subset_closure ht₀)) hne1
-  · intro a ha b hb
-    obtain ⟨a₀, ha₀, rfl⟩ := Subgroup.mem_map.1 ha
-    obtain ⟨b₀, hb₀, rfl⟩ := Subgroup.mem_map.1 hb
-    calc coreAct n a₀ * coreAct n b₀ = coreAct n (a₀ * b₀) := (map_mul _ _ _).symm
-      _ = coreAct n (b₀ * a₀) := by rw [hAc a₀ ha₀ b₀ hb₀]
-      _ = coreAct n b₀ * coreAct n a₀ := map_mul _ _ _
-  · intro a ha
-    obtain ⟨a₀, ha₀, rfl⟩ := Subgroup.mem_map.1 ha
-    calc coreAct n a₀ ^ 2 = coreAct n (a₀ ^ 2) := (map_pow _ _ _).symm
-      _ = coreAct n 1 := by rw [sq_eq_one_of_mem_closure hT hc ha₀]
-      _ = 1 := map_one _
-  · intro B hB
-    have hrange : B ≤ (coreAct n).range := hB.trans (Subgroup.map_le_range _ _)
-    obtain ⟨B₀, rfl⟩ : ∃ B₀ : Subgroup (Equiv.Perm (Fin n)), B = B₀.map (coreAct n) :=
-      ⟨B.comap (coreAct n), (Subgroup.map_comap_eq_self hrange).symm⟩
-    have hB₀ : B₀ ≤ Subgroup.closure T := (Subgroup.map_le_map_iff_of_injective hinj).1 hB
-    exact (weight_map_le hn h3 fun a ha b hb => hAc a (hB₀ ha) b (hB₀ hb)).trans
-      (card_le_weight_map_closure h3 hT hc)
 
 end CFSG.CGT.PushingUpLit.BHS

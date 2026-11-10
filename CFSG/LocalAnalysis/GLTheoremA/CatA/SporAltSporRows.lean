@@ -219,12 +219,6 @@ theorem pSimple_equiv_of_isAltPType {G : Type} [Group G] {p : ℕ} {J : Subgroup
     ∀ β : MulAut S, β ^ 3 = 1 → β ≠ 1 → ∀ J : Subgroup S,
       GLAPComponent 3 (fixSubgroup β) J → IsAltPType 3 J m → False
 
-theorem sporAltNoComp_iff (m : ℕ) : SporAltNoComp m ↔ ∀ s, AltRow m s := by
-  constructor
-  · intro h s S _ _ he β hβ hβ1 J hJ hA
-    exact h S s he β hβ hβ1 J hJ hA
-  · intro h S _ _ s he β hβ hβ1 J hJ hA
-    exact h s S he β hβ hβ1 J hJ hA
 
 theorem altRow_of_srow {m : ℕ} (hm : 7 ≤ m) {s : TauCeti.SporadicName} (h : SRow s 3) :
     AltRow m s := fun S _ _ he β hβ hβ1 J hJ hA =>

@@ -71,12 +71,6 @@ theorem ggStepTwoToralWitnessInput_of_tags (hPSL : GGStepTwoToralWitnessOn .PSL)
   · exact hTwF4
   · exact hTits
 
-theorem ggStepTwoCentralizerInput_of_tags (hPSL : GGStepTwoToralWitnessOn .PSL)
-    (hPSU : GGStepTwoToralWitnessOn .PSU) (hPSp : GGStepTwoToralWitnessOn .PSp)
-    (hPlus : GGStepTwoToralWitnessOn .POmegaPlus) (hMinus : GGStepTwoToralWitnessOn .POmegaMinus)
-    (hRest : GGStepTwoToralWitnessRestInput) : GGStepTwoCentralizerInput :=
-  ggStepTwoCentralizerInput_of_fusedWitness (ggStepTwoFusedWitnessInput_of_toral
-    (ggStepTwoToralWitnessInput_of_tags hPSL hPSU hPSp hPlus hMinus hRest))
 
 end Inputs
 

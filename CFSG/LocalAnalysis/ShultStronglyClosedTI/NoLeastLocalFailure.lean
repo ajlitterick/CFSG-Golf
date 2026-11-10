@@ -18,10 +18,5 @@ theorem not_minimalInvolutionPointLocalFailure
     (z : G) : ¬ MinimalInvolutionPointLocalFailure H z :=
   not_minimalLocalFailure_of_theoremTwo theoremTwo G H z
 
-theorem local_criterion
-    (Y : Type) [Group Y] [Finite Y] (H : Subgroup Y) (z : Y)
-    (hlocal : InvolutionPointLocalEmbedding H z) (hcentral : InvolutionPointCentralSylow z) :
-    fusionStronglyEmbedded (H.subgroupOf (involutionPointHull z)) :=
-  local_criterion_of_no_least_failure not_minimalInvolutionPointLocalFailure Y H z hlocal hcentral
 
 end CFSG.ShultStronglyClosedTI

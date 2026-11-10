@@ -28,6 +28,5 @@ theorem isSporadic_quotient_of_center_eq_bot {Y : Type} [Group Y] (h : center Y 
   obtain ⟨e⟩ := hs
   exact ⟨((QuotientGroup.quotientMulEquivOfEq h).trans QuotientGroup.quotientBot).trans e⟩
 
-variable {G : Type} [Group G] [Finite G] {L : Subgroup G}
 
 end CFSG.EvenSporadicStandard.Fin76b

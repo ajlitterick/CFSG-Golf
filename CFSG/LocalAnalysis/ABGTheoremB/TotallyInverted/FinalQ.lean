@@ -16,11 +16,6 @@ theorem pGroupR_of_R01 (Δ : Data σ r) (h : IsPGroup r (R Δ 0 ⊔ R Δ 1 : Sub
   rw [conjSub_sup, conjSub_a_pow_R, conjSub_a_pow_R, sup_comm] at h'
   exact h'
 
-theorem pGroupR_of_R12 (Δ : Data σ r) (h : IsPGroup r (R Δ 1 ⊔ R Δ 2 : Subgroup G)) :
-    PGroupR Δ := by
-  have h' := isPGroup_conjSub h (Δ.a ^ ((1 : Fin 3) : ℕ))
-  rw [conjSub_sup, conjSub_a_pow_R, conjSub_a_pow_R, sup_comm] at h'
-  exact h'
 
 theorem one_lt_q (hσ : σ.IsValid) : 1 < σ.q := by
   have := hσ.five_lt_q
@@ -151,15 +146,6 @@ theorem Q_inf_Ps (i : Fin 3) : Δ.Q i ⊓ σ.Ps r i = ⊥ := by
   rw [← zero_add_fin i, ← conjSub_a_pow_Q Δ, ← conjSub_a_pow_Ps Δ, ← conjSub_inf, h0,
     conjSub_bot]
 
-theorem Qs_inf_Ps (i : Fin 3) : Δ.Qs i ⊓ σ.Ps r i = ⊥ := by
-  have h0 : Δ.Qs 0 ⊓ σ.Ps r 0 = ⊥ := by
-    rw [eq_bot_iff]
-    intro g hg
-    have hJ : g ∈ Δ.J := by simpa [conjSub_one] using Qs_le_J_conj Δ 0 hg.1
-    have := (J_inf_ON Δ hδq).le ⟨hJ, Ps_zero_le_ON Δ hg.2⟩
-    exact this
-  rw [← zero_add_fin i, ← conjSub_a_pow_Qs Δ, ← conjSub_a_pow_Ps Δ, ← conjSub_inf, h0,
-    conjSub_bot]
 
 end Q
 
@@ -327,11 +313,6 @@ theorem conj_Rs (hσ : σ.IsValid) : conjSub z (Rs Δ 1) = R Δ 2 ∧ conjSub z 
   hz.conjSub_family hσ hδq (conjSub_Rs Δ) (conjSub_R Δ) (C_le_normalizer_R Δ)
     (hz.conj_Rs_zero hδq hσ)
 
-include hδq in
-theorem conj_Q12 (hσ : σ.IsValid) :
-    conjSub z (Δ.Q 1) = Δ.Qs 2 ∧ conjSub z (Δ.Q 2) = Δ.Qs 1 :=
-  hz.conjSub_family hσ hδq (fun i => (Δ.Q_conj i).1) (fun i => (Δ.Q_conj i).2)
-    (C_le_normalizer_Qs Δ) hz.conj_Q
 
 include hδq in
 theorem conj_Qs12 (hσ : σ.IsValid) :
@@ -339,10 +320,6 @@ theorem conj_Qs12 (hσ : σ.IsValid) :
   hz.conjSub_family hσ hδq (fun i => (Δ.Q_conj i).2) (fun i => (Δ.Q_conj i).1)
     (C_le_normalizer_Q Δ) (hz.conj_Qs hδq hσ)
 
-include hδq in
-theorem conj_Ps12 (hσ : σ.IsValid) :
-    conjSub z (σ.Ps r 1) = σ.Ps r 2 ∧ conjSub z (σ.Ps r 2) = σ.Ps r 1 :=
-  hz.conjSub_family hσ hδq Δ.P_conj Δ.P_conj (C_le_normalizer_Ps r) (hz.conj_Ps_zero hσ)
 
 end IsSwap
 

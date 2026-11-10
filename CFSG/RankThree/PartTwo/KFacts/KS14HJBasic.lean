@@ -24,18 +24,6 @@ theorem card_eq_of_j2 {X : Type*} [Group X] (hX : Nonempty (X ≃* NativeSporadi
   obtain ⟨e⟩ := hX
   rw [Nat.card_congr e.toEquiv, card_nativeJ2]
 
-theorem m24W_mem : m24W ∈ NativeSporadic.M24 := by
-  unfold m24W
-  have ha : m24A ∈ NativeSporadic.M24 := Subgroup.subset_closure (Set.mem_insert _ _)
-  have hb : m24B ∈ NativeSporadic.M24 := Subgroup.subset_closure (Set.mem_insert_of_mem _ rfl)
-  have hbi := inv_mem hb
-  exact mul_mem (mul_mem (mul_mem (mul_mem (mul_mem (mul_mem (mul_mem (mul_mem (mul_mem
-    (mul_mem (mul_mem ha hb) ha) hb) ha) hb) ha) hbi) ha) hbi) ha) hbi
-
-theorem not_eleven_dvd_card_of_j2 {X : Type*} [Group X] (hX : Nonempty (X ≃* NativeSporadic.J2)) :
-    ¬ 11 ∣ Nat.card X := by
-  rw [card_eq_of_j2 hX]
-  norm_num
 
 section Center
 

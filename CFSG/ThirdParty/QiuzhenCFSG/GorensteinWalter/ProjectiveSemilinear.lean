@@ -92,65 +92,6 @@ public theorem psl2FieldAut_injective (K : Type u) [Field K] :
   rw [hdiff, Matrix.SpecialLinearGroup.transvection_mem_center_iff] at hcent
   exact sub_eq_zero.mp hcent
 
-/-- A field automorphism is determined by its entrywise action on `PGL₂`.
-Again the elementary transvections recover every coefficient. -/
-public theorem pgl2FieldAut_injective (K : Type u) [Field K] :
-    Function.Injective (pgl2FieldAut K) := by
-  intro e f hef
-  apply RingEquiv.ext
-  intro t
-  let i : Fin 2 := 0
-  let j : Fin 2 := 1
-  have hij : i ≠ j := by decide
-  let ue : Matrix.SpecialLinearGroup (Fin 2) K :=
-    Matrix.SpecialLinearGroup.transvection hij (e t)
-  let uf : Matrix.SpecialLinearGroup (Fin 2) K :=
-    Matrix.SpecialLinearGroup.transvection hij (f t)
-  let u : Matrix.GeneralLinearGroup (Fin 2) K :=
-    Matrix.SpecialLinearGroup.toGL
-      (Matrix.SpecialLinearGroup.transvection hij t)
-  have hq := DFunLike.congr_fun hef
-    (QuotientGroup.mk' (Subgroup.center _) u)
-  change pgl2RingEquiv e (QuotientGroup.mk' (Subgroup.center _) u) =
-    pgl2RingEquiv f (QuotientGroup.mk' (Subgroup.center _) u) at hq
-  rw [pgl2RingEquiv_mk, pgl2RingEquiv_mk] at hq
-  have hmap_e : Matrix.GeneralLinearGroup.map e.toRingHom u =
-      Matrix.SpecialLinearGroup.toGL ue := by
-    classical
-    ext a b
-    by_cases h : i = a ∧ j = b <;>
-      simp [u, ue, Matrix.SpecialLinearGroup.transvection_coe,
-        Matrix.one_apply, h]
-  have hmap_f : Matrix.GeneralLinearGroup.map f.toRingHom u =
-      Matrix.SpecialLinearGroup.toGL uf := by
-    classical
-    ext a b
-    by_cases h : i = a ∧ j = b <;>
-      simp [u, uf, Matrix.SpecialLinearGroup.transvection_coe,
-        Matrix.one_apply, h]
-  rw [hmap_e, hmap_f] at hq
-  have hcentGL :
-      Matrix.SpecialLinearGroup.toGL ue /
-          Matrix.SpecialLinearGroup.toGL uf ∈
-        Subgroup.center (Matrix.GeneralLinearGroup (Fin 2) K) :=
-    QuotientGroup.eq_iff_div_mem.mp hq
-  have htoGLdiv :
-      Matrix.SpecialLinearGroup.toGL (ue / uf) =
-        Matrix.SpecialLinearGroup.toGL ue /
-          Matrix.SpecialLinearGroup.toGL uf := by
-    exact map_div Matrix.SpecialLinearGroup.toGL ue uf
-  have hcentSL : ue / uf ∈
-      Subgroup.center (Matrix.SpecialLinearGroup (Fin 2) K) := by
-    apply (Matrix.SpecialLinearGroup.toGL_mem_center_iff (ue / uf)).mp
-    rw [htoGLdiv]
-    exact hcentGL
-  have hdiff : ue / uf =
-      Matrix.SpecialLinearGroup.transvection hij (e t - f t) := by
-    dsimp [ue, uf]
-    rw [div_eq_mul_inv, Matrix.SpecialLinearGroup.transvection_inv,
-      ← Matrix.SpecialLinearGroup.transvection_add, sub_eq_add_neg]
-  rw [hdiff, Matrix.SpecialLinearGroup.transvection_mem_center_iff] at hcentSL
-  exact sub_eq_zero.mp hcentSL
 
 /-- The canonical map `PSL₂(K) → PGL₂(K)` is equivariant for
 coefficient-field automorphisms. -/

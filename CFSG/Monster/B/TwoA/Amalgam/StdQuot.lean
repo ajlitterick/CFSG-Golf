@@ -24,8 +24,6 @@ open CFSG.LieType.Chevalley.CosetBuilding CFSG.Monster.B.Geometry CFSG.Monster.B
     simp only [chamberMulPerm_apply, Equiv.Perm.coe_mul, Function.comp_apply, mul_inv_rev,
       chamberMul_mul]
 
-theorem nativeAct_apply
-    (e : Eam) (z : Chamber) : nativeAct e z = chamberMul z e⁻¹ := rfl
 
 theorem ker_nativeAct :
     nativeAct.ker = Subgroup.zpowers cE' := by

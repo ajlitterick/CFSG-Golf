@@ -152,27 +152,6 @@ section Hyp
 
 variable {W : Type} [Group W] [Finite W] {p : ℕ} {H E : Subgroup W}
 
-theorem ggSeitzExc_card_quotComponent_dvd
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog)
-    (hyp : GGHypThreeSixteen p H E) {C : Subgroup (GGHypQuot H)}
-    (hC : CFSG.Assembly.IsComponentOf C ⊤) :
-    Nat.card ↥C ∣ Nat.card ↥(H.subgroupOf (CFSG.generalizedFitting W)) := by
-  have : (CFSG.generalizedFitting W).Normal :=
-    CFSG.LocalCores.generalized_fitting_characteristic.2
-  set N : Subgroup ↥H := ((QuotientGroup.mk' (CFSG.generalizedFitting W)).comp H.subtype).ker
-    with hN
-  have hQ := ggIsSolvable_quot_inf_generalizedFitting hSch hyp
-  obtain ⟨k, hk⟩ := ggExists_derivedSeries_le_of_isSolvable N hQ
-  set Q : Subgroup ↥H := CFSG.pCore 2 ↥H with hQdef
-  set π : ↥H →* GGHypQuot H := QuotientGroup.mk' Q with hπ
-  have hCN : C ≤ N.map π := by
-    have h1 := ggLe_derivedSeries_of_perfect (ggComponent_perfect hC) k
-    rw [← map_derivedSeries_eq (QuotientGroup.mk'_surjective Q) k] at h1
-    exact h1.trans (Subgroup.map_mono hk)
-  calc Nat.card ↥C ∣ Nat.card ↥(N.map π) := Subgroup.card_dvd_of_le hCN
-    _ ∣ Nat.card ↥N := Subgroup.card_map_dvd (H := N) π
-    _ = Nat.card ↥(H.subgroupOf (CFSG.generalizedFitting W)) :=
-      Nat.card_congr (ggSubgroupOfEquivKer H (CFSG.generalizedFitting W)).symm.toEquiv
 
 end Hyp
 
@@ -206,19 +185,6 @@ theorem ggMarkedModel_not_dvd_szThirtyTwo {lab : LargeEvenLabel} (htag : GGChevS
     exact ggCharTwoOrder_not_dvd_szThirtyTwo hadm (by first | decide | (split_ifs <;> decide))
       (by first | decide | (split_ifs <;> decide)) (by first | decide | (split_ifs <;> decide))
 
-theorem ggKGroupFusionAt_szThirtyTwo
-    (hSch : CFSG.LocalAnalysis.ComponentInitial.SchreierFor InCatalog) :
-    GGKGroupFusionAt GGKFSeitzSzThirtyTwo := by
-  rintro W _ _ p H E i ⟨rfl, d, rfl, hd⟩ hyp hL hKH ⟨e⟩
-  exfalso
-  obtain ⟨C, hC⟩ := ggExists_component_of_layer_ne_bot hL
-  obtain ⟨-, hmark⟩ := hyp.2.2.1 C hC
-  obtain ⟨lab, -, R, _, I, F, θ, -, -, ⟨htag, -⟩, hmod⟩ :=
-    largeEvenMarking_exists_markedModel hmark
-  refine ggMarkedModel_not_dvd_szThirtyTwo htag hmod ?_
-  rw [← Nat.card_congr θ.toEquiv, ← ggCard_szThirtyTwo d hd e]
-  exact (Subgroup.card_quotient_dvd_card _).trans
-    ((ggSeitzExc_card_quotComponent_dvd hSch hyp hC).trans (Subgroup.card_subgroup_dvd_card _))
 
 end Marked
 

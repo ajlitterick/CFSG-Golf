@@ -13,7 +13,6 @@ variable {G : Type*} [Group G]
 
 @[expose] def SameLine (p a q : G) : Prop := q = a ∨ q = p * a
 
-theorem sameLine_refl (p a : G) : SameLine p a a := Or.inl rfl
 
 theorem sameLine_symm {p a q : G} (hp : p * p = 1) (h : SameLine p a q) : SameLine p q a := by
   rcases h with rfl | rfl

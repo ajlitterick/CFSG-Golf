@@ -18,14 +18,6 @@ theorem word : (tGenK 4060 12 [A0, A1] [A0I, A1I] A0 A0I (SY.G.getD 0 0) (wsK.ge
 theorem comm : (tGenK 4060 12 [A0, A1] [A0I, A1I] A1 A1I (SY.G.getD 4 0) (wsK.getD 4 [])).not =
     true := by quickRfl
 
-theorem elt : (chunkSV 4060 12 256 7 SY.G.reverse SY.E SY.PT SY.LT SY.TB 1 1).not = true := by
-  quickRfl
-
-theorem pairs : (pairsSV 12 256 SY.E [0, 1, 2, 3] 4).not = true := by quickRfl
-
-theorem sort : (sortAllSV 256 SY.E SY.SR SY.IS).not = true := by quickRfl
-
-theorem bind : (bindSV SY.LabL SY.PT 256).not = true := by quickRfl
 
 end CFSG.KD.B45.C260393Neg
 

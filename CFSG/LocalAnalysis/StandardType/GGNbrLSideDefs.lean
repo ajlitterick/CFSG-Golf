@@ -78,9 +78,6 @@ inductive GGNbrLSideFamily : Type
 theorem ggNbrLSideRS_of_families (h : ∀ f, GGNbrLSideRSFamily f) : GGNbrLSideRS :=
   fun lab => h _ lab rfl
 
-theorem ggNbrLSideDich_of_largeRank {lab : LargeEvenLabel} {R : Type} [Group R]
-    (I : Set (MulAut R)) (h : GGNbrLSideLargeRank lab) : GGNbrLSideDich lab I :=
-  fun _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ => Or.inr h
 
 theorem ggNbrLSide_marking_of_config {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
     {L D J : Subgroup G} (hcfg : GGConfig 3 B Bs x L D J) :

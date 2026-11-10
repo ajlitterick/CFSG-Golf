@@ -123,19 +123,11 @@ theorem Pminus_le_core (α : (S : Subgroup G) ≃* (S : Subgroup G))
     (hV' : aimg (S : Subgroup G) α.symm (Vmod G) ≤ CFSG.pCore 2 G) (g : G) :
     Pminus S α g ≤ CFSG.pCore 2 G := cj_le_core (h.aimg_Fcore_le_core α.symm hV') g
 
-theorem Pminus_adm (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hV' : aimg (S : Subgroup G) α.symm (Vmod G) ≤ CFSG.pCore 2 G) (g : G) :
-    Adm (CFSG.pCore 2 G) (Pminus S α g) := adm_core_cj (h.adm_core_aimg_Fcore α.symm hV') g
 
 theorem Pminus_le_R0 (α : (S : Subgroup G) ≃* (S : Subgroup G))
     (hV' : aimg (S : Subgroup G) α.symm (Vmod G) ≤ CFSG.pCore 2 G) (g : G) :
     Pminus S α g ≤ thompsonJ (CFSG.pCore 2 G) := h.tr_Fcore_le_thompsonJ_core α.symm hV' g
 
-theorem Fcore_le_centralizer_Pminus (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hV' : aimg (S : Subgroup G) α.symm (Vmod G) ≤ CFSG.pCore 2 G) (g : G) :
-    Fcore G ≤ Subgroup.centralizer ((Pminus S α g : Subgroup G) : Set G) := fun _ hf =>
-  Subgroup.mem_centralizer_iff.mpr fun _ hw =>
-    Fcore_commute_thompsonJ_core hf (h.Pminus_le_R0 α hV' g hw)
 
 theorem Bb_isMax (α : (S : Subgroup G) ≃* (S : Subgroup G))
     (hV : aimg (S : Subgroup G) α (Vmod G) ≤ CFSG.pCore 2 G)
@@ -156,11 +148,6 @@ omit [Field k] [Finite G] [Finite k] h in
 theorem Fcore_le_B0 (α : (S : Subgroup G) ≃* (S : Subgroup G)) (A : Subgroup G) :
     Fcore G ≤ B0 S α A := le_sup_left.trans le_sup_left
 
-theorem Fcore_le_Bb (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hV' : aimg (S : Subgroup G) α.symm (Vmod G) ≤ CFSG.pCore 2 G) (A : Subgroup G) (g : G) :
-    Fcore G ≤ Bb S α A g :=
-  (le_inf (Fcore_le_B0 α A) (h.Fcore_le_centralizer_Pminus α hV' g) : Fcore G ≤ Cc S α A g).trans
-    le_sup_right
 
 end IsSeed
 
@@ -463,39 +450,6 @@ theorem exists_A_g : ∃ A : Subgroup G, IsMaxElemAbelian (S : Subgroup G) A ∧
   · calc c⁻¹ * a₀ * c * (c⁻¹ * a₀ * c) = c⁻¹ * (a₀ * a₀) * c := by group
       _ = 1 := by rw [ha₀2]; group
 
-theorem final_double_replacement_configuration (α : (S : Subgroup G) ≃* (S : Subgroup G))
-    (hVall : ∀ β : (S : Subgroup G) ≃* (S : Subgroup G),
-      aimg (S : Subgroup G) β (Vmod G) ≤ CFSG.pCore 2 G)
-    (hα : ¬ ⁅Hone S, aimg (S : Subgroup G) α (Fcore G)⁆ ≤ Fcore G) {A : Subgroup G}
-    (hA : IsMaxElemAbelian (S : Subgroup G) A) (hAQ : ¬ A ≤ CFSG.pCore 2 G) {g : G}
-    (hgH : g ∈ Hone S) (hgM : g ∉ Mnorm S ρ) (hg2 : g ^ 2 = 1) :
-    cj (aimg (S : Subgroup G) α (Fcore G)) g ≤ (S : Subgroup G) ∧
-    (IsMaxElemAbelian (CFSG.pCore 2 G) (B0 S α A) ∧ IsMaxElemAbelian (S : Subgroup G) (B0 S α A)) ∧
-    (IsMaxElemAbelian (CFSG.pCore 2 G) (Bb S α A g) ∧
-      IsMaxElemAbelian (S : Subgroup G) (Bb S α A g)) ∧
-    (∀ a ∈ A, ∀ b ∈ B0 S α A, a * b * a⁻¹ ∈ B0 S α A) ∧
-    (∀ a ∈ A, ∀ b ∈ Bb S α A g, a * b * a⁻¹ ∈ Bb S α A g) ∧
-    (∀ a ∈ A, ∀ b ∈ Cc S α A g, a * b * a⁻¹ ∈ Cc S α A g) ∧
-    (Fcore G ≤ B0 S α A ∧ Fcore G ≤ Bb S α A g) ∧
-    (aimg (S : Subgroup G) α (Zfix S) ≤ Subgroup.center G ∧
-      aimg (S : Subgroup G) α.symm (Zfix S) ≤ Subgroup.center G) ∧
-    ⁅A, B0 S α A⁆ ≤ Zfix S ⊔ aimg (S : Subgroup G) α (Zfix S) ∧
-    ⁅A, Bb S α A g⁆ ≤ Bb S α A g ⊓ Subgroup.centralizer ((Ysub S α g : Subgroup G) : Set G) ∧
-    (⁅thompsonJ (CFSG.pCore 2 G), cj (aimg (S : Subgroup G) α (Fcore G)) g⁆ =
-        aimg (S : Subgroup G) α (Zfix S) ∧
-      ⁅B0 S α A, cj (aimg (S : Subgroup G) α (Fcore G)) g⁆ = aimg (S : Subgroup G) α (Zfix S)) ∧
-    Hone S = thompsonJ (S : Subgroup G) ⊔ cj A g := by
-  have c : DoubleSetup S ρ ψ α A g :=
-    ⟨h, hVall α, hVall α.symm, hα, hA, hAQ, hgH, hgM, by rw [← pow_two]; exact hg2⟩
-  obtain ⟨hB0Q, hB0S, -⟩ := h.B0_isMax α (hVall α) hA
-  obtain ⟨hBbQ, hBbS, -⟩ := h.Bb_isMax α (hVall α) (hVall α.symm) hA g
-  exact ⟨(cj_le_core (h.aimg_Fcore_le_core α (hVall α)) g).trans (core_le_sylow S),
-    ⟨hB0Q, hB0S⟩, ⟨hBbQ, hBbS⟩, fun a ha b hb => c.B0_normalized ha hb,
-    fun a ha b hb => c.Bb_normalized ha hb,
-    fun a ha x hx => mem_cj.mp (by rw [c.cj_Cc_eq ha]; exact hx),
-    ⟨Fcore_le_B0 α A, h.Fcore_le_Bb α (hVall α.symm) A g⟩, ⟨c.Za_central, c.Zi_central⟩,
-    c.commutator_A_B0_le_ZZ, c.commutator_A_Bb_le, ⟨c.commutator_R0_Pg, c.commutator_B0_Pg⟩,
-    c.Hone_eq_sup⟩
 
 end IsSeed
 

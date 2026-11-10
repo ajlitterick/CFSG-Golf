@@ -323,16 +323,5 @@ theorem orderOf_mk_xP1 :
     · exact xhat_ne_one h
     · exact cQ_ne_xhat h.symm
 
-theorem natCard_center_P1_quot :
-    Nat.card (Subgroup.center (P1 ⧸ Subgroup.zpowers cP1)) = 2 := by
-  rw [center_P1_quot, Nat.card_zpowers, orderOf_mk_xP1]
-
-theorem native_F4_point_stabilizer_central_involution :
-    Subgroup.center Unitary.Usig = ⊥ ∧
-    CFSG.IsExtraspecialPGroup 2 (N1 ⧸ Subgroup.zpowers cN1) ∧
-    Nat.card (N1 ⧸ Subgroup.zpowers cN1) = 2 ^ 21 ∧
-    Subgroup.center (P1 ⧸ Subgroup.zpowers cP1) = Subgroup.zpowers (QuotientGroup.mk xP1) ∧
-    Nat.card (Subgroup.center (P1 ⧸ Subgroup.zpowers cP1)) = 2 :=
-  ⟨center_Usig, N1_quot_extraspecial, natCard_N1_quot_c, center_P1_quot, natCard_center_P1_quot⟩
 
 end CFSG.Monster.B.TwoA.Sp8

@@ -77,14 +77,6 @@ structure ChoiceY {G : Type} [Group G] [Finite G] (D : Data G) (L Q P X Y : Subg
 @[expose] def R860 {G : Type} [Group G] [Finite G] (D : Data G) : Prop :=
   ∀ L Q P : Subgroup G, Cex856 D L Q P → ¬ List857Clause1 (Bar2 L)
 
-@[expose] def R861 {G : Type} [Group G] [Finite G] (D : Data G) : Prop :=
-  ∀ L Q P : Subgroup G, Cex856 D L Q P → ∀ X : Subgroup G, X ≤ P → Nat.card X = 3 → ¬ X ≤ Q →
-    1 < CFSG.Open.pRank 3 (centralizer (X : Set G) ⊓ L) ∧
-      (¬ normalizer (X : Set G) ≤ D.M →
-        ⁅X, L⁆ ≤ pCoreOf 2 L ∨
-          ((LieModel (Bar2 L) .PSU 3 3 1 ∨ IsSpor (Bar2 L) .J2 ∨
-              ∃ p f : ℕ, LieModel (Bar2 L) .G2 0 p f) ∧
-            X ≤ (Subgroup.center ↥P).map P.subtype))
 
 @[expose] def R862 {G : Type} [Group G] [Finite G] (D : Data G) : Prop :=
   ∀ L Q P : Subgroup G, Cex856 D L Q P →

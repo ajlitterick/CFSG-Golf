@@ -11,13 +11,6 @@ namespace CFSG.Wreathed.SquareRootSmallCharacterRigidity
 open CFSG.Wreathed CFSG.Wreathed.WreathCentralSquare CFSG.TwoRankLowerBound.Helpers
 open scoped BigOperators Classical
 
-theorem zpowers_odd_power_eq {G : Type*} [Group G] {y : G} {a : ℕ}
-    (hy : orderOf y = 2 ^ a) {h : ℤ} (hh : Odd h) :
-    Subgroup.zpowers (y ^ h) = Subgroup.zpowers y := by
-  apply le_antisymm
-  · exact Subgroup.zpowers_le.mpr (Subgroup.zpow_mem_zpowers y h)
-  · exact Subgroup.zpowers_le.mpr (CFSG.Wreathed.mem_zpowers_zpow_of_odd
-      (by rw [← hy]; exact pow_orderOf_eq_one y) hh)
 
 theorem orderOf_odd_power {G : Type*} [Group G] {y : G} {a : ℕ}
     (hy : orderOf y = 2 ^ a) {h : ℤ} (hh : Odd h) : orderOf (y ^ h) = 2 ^ a := by
@@ -91,22 +84,5 @@ theorem original_integral_average_supported {G : Type} [Group G] [Fintype G]
       original_principal_odd_power_column_off_section n hn S e y hy basis ideal
         principal hprincipal (hh k hk) g hg)
 
-theorem original_fourier_average_supported {G : Type} [Group G] [Fintype G]
-    (n : ℕ) (hn : 2 ≤ n) (S : Sylow 2 G) (e : S ≃* Wreath (2 ^ n))
-    (basis : FiniteIrreducibleCharacterBasis G) (ideal : Ideal ComplexAlgebraicIntegers)
-    [ideal.IsMaximal] [CharP (ComplexAlgebraicIntegers ⧸ ideal) 2]
-    (principal : basis.index) (hprincipal : (basis.representation principal).character = 1)
-    (c : basis.index → ℤ) (T : G → ℂ)
-    (hT : ∀ g, T g = ∑ χ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal,
-      (c χ : ℂ) * (basis.representation χ).character g)
-    (hc : ∀ χ ∈ coefficientBlock basis (localizedComplexIntegerRing ideal) principal,
-      (c χ : ℂ) = ((2 ^ n / 2 : ℕ) : ℂ)⁻¹ *
-        ∑ k : Fin (2 ^ n / 2),
-          (basis.representation χ).character (actualRoot S e ^ (2 * (k : ℤ) + 1))) :
-    ∀ g ∉ squareRootSection (actualRoot S e), T g = 0 := by
-  exact original_integral_average_supported n hn S e (actualRoot S e)
-    (actualRoot_orderOf n hn S e) basis ideal principal hprincipal
-    (Finset.univ : Finset (Fin (2 ^ n / 2))) (fun k => 2 * (k : ℤ) + 1)
-    (fun k _ => ⟨(k : ℤ), rfl⟩) c (((2 ^ n / 2 : ℕ) : ℂ)⁻¹) T hT hc
 
 end CFSG.Wreathed.SquareRootSmallCharacterRigidity

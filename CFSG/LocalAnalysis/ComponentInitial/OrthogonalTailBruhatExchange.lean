@@ -271,30 +271,5 @@ theorem tailBorel_tailWeylElt_mul_mem {n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ
 
 end Exchange
 
-theorem orthogonal_geometry_tail_Bruhat_exchange {K : Type*} [Field K] {A : Type*}
-    [AddCommGroup A] [Module K A] [FiniteDimensional K A] {r : ℕ} {qA : QuadraticForm K A}
-    (hani : qA.Anisotropic) {a₀ : A} (ha₀ : a₀ ≠ 0)
-    {n : ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A)}
-    (hn : n ∈ tailTorusWeyl r qA a₀) (i : Fin r) :
-    (tailBorel r qA : Set (((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))) *
-        {tailWeylElt r qA a₀ i} * (tailBorel r qA : Set _) * {n} * (tailBorel r qA : Set _) ⊆
-      (tailBorel r qA : Set _) * {tailWeylElt r qA a₀ i * n} * (tailBorel r qA : Set _) ∪
-        (tailBorel r qA : Set _) * {n} * (tailBorel r qA : Set _) ∧
-    ((((tailTorusWeylNu r qA hani ha₀ ⟨n, hn⟩)⁻¹ : weylGroupB r) :
-        (Fin r → ℤ) ≃ₗ[ℤ] (Fin r → ℤ)) (simpleRootB r i) ∈ posRootsB r →
-      (tailBorel r qA : Set (((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] ((Fin r ⊕ Fin r → K) × A))) *
-          {tailWeylElt r qA a₀ i} * (tailBorel r qA : Set _) * {n} * (tailBorel r qA : Set _) =
-        (tailBorel r qA : Set _) * {tailWeylElt r qA a₀ i * n} * (tailBorel r qA : Set _)) := by
-  refine ⟨fun g hg => ?_, fun hw => Set.Subset.antisymm (fun g hg => ?_) fun g hg => ?_⟩
-  · obtain ⟨b₁, h1, b₂, h2, b₃, h3, rfl⟩ := mem_mul_singleton_mul_singleton_mul.1 hg
-    rcases (tailBorel_tailWeylElt_mul_mem hani ha₀ hn i h1 h2 h3).2 with
-      ⟨c₁, hc₁, c₂, hc₂, he⟩ | ⟨c₁, hc₁, c₂, hc₂, he⟩
-    · exact Or.inl (mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩)
-    · exact Or.inr (mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩)
-  · obtain ⟨b₁, h1, b₂, h2, b₃, h3, rfl⟩ := mem_mul_singleton_mul_singleton_mul.1 hg
-    obtain ⟨c₁, hc₁, c₂, hc₂, he⟩ := (tailBorel_tailWeylElt_mul_mem hani ha₀ hn i h1 h2 h3).1 hw
-    exact mem_mul_singleton_mul.2 ⟨c₁, hc₁, c₂, hc₂, he⟩
-  · obtain ⟨b₁, h1, b₂, h2, rfl⟩ := mem_mul_singleton_mul.1 hg
-    exact mem_mul_singleton_mul_singleton_mul.2 ⟨b₁, h1, 1, one_mem _, b₂, h2, by group⟩
 
 end CFSG.LocalAnalysis.ComponentInitial.OrthogonalTail

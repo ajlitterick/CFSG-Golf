@@ -46,13 +46,6 @@ theorem mem_AutPerm_of_autA {a : Array ℕ} (h : autA a = true) : permOfArr 24 a
 
 @[expose] def m22PS : List ℕ := [0, 1, 2, 3, 4, 5, 8, 9]
 
-@[expose] def m22Fuel : ℕ := 2 ^ 20
-
-@[expose] def m22Check (allowPW allowInX : Bool) (s : String) : Bool :=
-  let d := decodeCert 24 s
-  censusOK 24 m22PS m22Fuel m22InX m22OutX allowPW allowInX false d.sGens d.roots d.nodes &&
-    (allLt d.sGens.size fun k => pairA d.sGens[k]!) &&
-    (enumBfs 24 d.sGens m22PS m22Fuel).pts.size == 256
 
 theorem m22PS_lt : ∀ p ∈ m22PS, p < 24 := by decide
 

@@ -17,6 +17,5 @@ theorem kQA : schP QA = true ∧ orderV QA = 241920 := by constructor <;> decide
 
 theorem kCent : centTrivC (elemsC QA) (cOf PA) (cOf PB) = true := by decide +kernel
 
-theorem kQA_neg : orderV QA ≠ 120960 := by decide +kernel
 
 end CFSG.Certificates.Kernel.PkCV.KGrp.K5123

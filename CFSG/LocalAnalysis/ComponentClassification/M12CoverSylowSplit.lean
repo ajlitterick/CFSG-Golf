@@ -118,50 +118,9 @@ theorem exists_section_of_cocycles (hQ : InvolutionCocyclesSplit Q) (ρ : E →*
   refine ⟨MonoidHom.mk' σf hσ, fun q => ?_⟩
   simp [σf, τ_ker, hu]
 
-theorem exists_mulEquiv_prod_of_section (ρ : E →* Q) (htZ : t ∈ Subgroup.center E)
-    (hker : ρ.ker = Subgroup.zpowers t) (σ : Q →* E) (hσ : ∀ q, ρ (σ q) = q) :
-    ∃ φ : Subgroup.zpowers t × Q ≃* E, ∀ z q, φ (z, q) = z * σ q := by
-  have hcen : ∀ (z : Subgroup.zpowers t) (x : E), x * z = z * x := fun z x =>
-    Subgroup.mem_center_iff.1 (Subgroup.zpowers_le.2 htZ z.2) x
-  have hρz : ∀ z : Subgroup.zpowers t, ρ z = 1 := fun z => by
-    rw [← MonoidHom.mem_ker, hker]
-    exact z.2
-  let φ : Subgroup.zpowers t × Q →* E :=
-    MonoidHom.mk' (fun p => (p.1 : E) * σ p.2) fun p p' => by
-      simp only [Prod.fst_mul, Prod.snd_mul, Subgroup.coe_mul, map_mul, mul_assoc]
-      rw [← mul_assoc (p'.1 : E) (σ p.2), ← hcen p'.1 (σ p.2), mul_assoc]
-  have hinj : Function.Injective φ := by
-    rintro ⟨z, q⟩ ⟨z', q'⟩ h
-    have h' : (z : E) * σ q = z' * σ q' := h
-    have hq : q = q' := by
-      have := congrArg ρ h'
-      rwa [map_mul, map_mul, hρz, hρz, hσ, hσ, one_mul, one_mul] at this
-    subst hq
-    exact Prod.ext (Subtype.ext (mul_right_cancel h')) rfl
-  have hsurj : Function.Surjective φ := by
-    intro x
-    have hmem : x * (σ (ρ x))⁻¹ ∈ Subgroup.zpowers t := by
-      rw [← hker, MonoidHom.mem_ker, map_mul, map_inv, hσ, mul_inv_cancel]
-    exact ⟨(⟨_, hmem⟩, ρ x), by simp [φ]⟩
-  exact ⟨MulEquiv.ofBijective φ ⟨hinj, hsurj⟩, fun z q => rfl⟩
 
 end Splitting
 
-theorem splits_of_involution_lifts {E : Type*} [Group E] [Finite E] (ρ : E →* ↥S)
-    (hρ : Function.Surjective ρ) {t : E} (ht : orderOf t = 2) (htZ : t ∈ Subgroup.center E)
-    (hker : ρ.ker = Subgroup.zpowers t)
-    (hinv : ∀ e : E, orderOf (ρ e) = 2 → orderOf e = 2) :
-    ∃ σ : ↥S →* E, ∀ s, ρ (σ s) = s :=
-  exists_section_of_cocycles involutionCocyclesSplit_S ρ hρ ht htZ hker hinv
-
-theorem exists_section_mulEquiv_prod {E : Type*} [Group E] [Finite E] (ρ : E →* ↥S)
-    (hρ : Function.Surjective ρ) {t : E} (ht : orderOf t = 2) (htZ : t ∈ Subgroup.center E)
-    (hker : ρ.ker = Subgroup.zpowers t)
-    (hinv : ∀ e : E, orderOf (ρ e) = 2 → orderOf e = 2) :
-    ∃ σ : ↥S →* E, (∀ s, ρ (σ s) = s) ∧
-      ∃ φ : Subgroup.zpowers t × ↥S ≃* E, ∀ z s, φ (z, s) = z * σ s := by
-  obtain ⟨σ, hσ⟩ := splits_of_involution_lifts ρ hρ ht htZ hker hinv
-  exact ⟨σ, hσ, exists_mulEquiv_prod_of_section ρ htZ hker σ hσ⟩
 
 theorem splits_of_involution_lifts_of_mulEquiv {Q E : Type*} [Group Q] [Group E] [Finite E]
     (eQ : Q ≃* ↥S) (ρ : E →* Q) (hρ : Function.Surjective ρ) {t : E} (ht : orderOf t = 2)
@@ -170,13 +129,5 @@ theorem splits_of_involution_lifts_of_mulEquiv {Q E : Type*} [Group Q] [Group E]
     ∃ σ : Q →* E, ∀ q, ρ (σ q) = q :=
   exists_section_of_cocycles (involutionCocyclesSplit_S.of_mulEquiv eQ) ρ hρ ht htZ hker hinv
 
-theorem exists_section_mulEquiv_prod_of_mulEquiv {Q E : Type*} [Group Q] [Group E] [Finite E]
-    (eQ : Q ≃* ↥S) (ρ : E →* Q) (hρ : Function.Surjective ρ) {t : E} (ht : orderOf t = 2)
-    (htZ : t ∈ Subgroup.center E) (hker : ρ.ker = Subgroup.zpowers t)
-    (hinv : ∀ e : E, orderOf (ρ e) = 2 → orderOf e = 2) :
-    ∃ σ : Q →* E, (∀ q, ρ (σ q) = q) ∧
-      ∃ φ : Subgroup.zpowers t × Q ≃* E, ∀ z q, φ (z, q) = z * σ q := by
-  obtain ⟨σ, hσ⟩ := splits_of_involution_lifts_of_mulEquiv eQ ρ hρ ht htZ hker hinv
-  exact ⟨σ, hσ, exists_mulEquiv_prod_of_section ρ htZ hker σ hσ⟩
 
 end CFSG.ComponentClassification.M12Cover

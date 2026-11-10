@@ -115,43 +115,6 @@ section Gen
 
 variable {G : Type} [Group G] {θ : StatedSp 2 F3 →* G} {φ : Heis →* G}
 
-theorem act_of_gens
-    (h : ∀ s ∈ sp4Gens, ∀ x ∈ heisGens, θ s * φ x * (θ s)⁻¹ = φ (heisAct s x)) :
-    ∀ (s : StatedSp 2 F3) (x : Heis), θ s * φ x * (θ s)⁻¹ = φ (heisAct s x) := by
-  have h1 : ∀ s ∈ sp4Gens, ∀ x, θ s * φ x * (θ s)⁻¹ = φ (heisAct s x) := by
-    intro s hs
-    have hfg : (MulAut.conj (θ s)).toMonoidHom.comp φ = φ.comp (heisAct s).toMonoidHom :=
-      MonoidHom.eq_of_eqOn_dense heis_closure_eq_top fun x hx => h s hs x hx
-    intro x
-    exact DFunLike.congr_fun hfg x
-  let T : Subgroup (StatedSp 2 F3) :=
-    { carrier := {s | ∀ x, θ s * φ x * (θ s)⁻¹ = φ (heisAct s x)}
-      one_mem' := by
-        intro x
-        simp
-      mul_mem' := by
-        intro s t hs ht x
-        calc θ (s * t) * φ x * (θ (s * t))⁻¹ = θ s * (θ t * φ x * (θ t)⁻¹) * (θ s)⁻¹ := by
-              simp only [map_mul, _root_.mul_inv_rev, mul_assoc]
-          _ = θ s * φ (heisAct t x) * (θ s)⁻¹ := by rw [ht x]
-          _ = φ (heisAct s (heisAct t x)) := hs _
-          _ = φ (heisAct (s * t) x) := by rw [map_mul]; rfl
-      inv_mem' := by
-        intro s hs x
-        have h2 := hs (heisAct s⁻¹ x)
-        have h3 : heisAct s (heisAct s⁻¹ x) = x := by
-          rw [← MulAut.mul_apply, ← map_mul, mul_inv_cancel, map_one, MulAut.one_apply]
-        rw [h3] at h2
-        calc θ s⁻¹ * φ x * (θ s⁻¹)⁻¹ = (θ s)⁻¹ * φ x * θ s := by simp only [map_inv, inv_inv]
-          _ = (θ s)⁻¹ * (θ s * φ (heisAct s⁻¹ x) * (θ s)⁻¹) * θ s := by rw [h2]
-          _ = φ (heisAct s⁻¹ x) := by group }
-  have hle : Subgroup.closure sp4Gens ≤ T := (Subgroup.closure_le T).2 fun s hs => h1 s hs
-  intro s x
-  have hs' : s ∈ Subgroup.closure sp4Gens := by
-    rw [sp4Gens_closure]
-    exact Subgroup.mem_top s
-  have hmem : s ∈ T := hle hs'
-  exact hmem x
 
 end Gen
 
@@ -160,8 +123,6 @@ theorem heisAct_center (s : StatedSp 2 F3) : heisAct s Heis.center = Heis.center
   show (mat 2 F3 s).mulVec 0 = 0
   exact Matrix.mulVec_zero _
 
-theorem heisAct_vec (s : StatedSp 2 F3) (v : V4) :
-    heisAct s (Heis.vec v) = Heis.vec (mat 2 F3 s *ᵥ v) := rfl
 
 theorem vec_add_eq (v w : V4) :
     Heis.vec (v + w) = (⟨-(2 * form v w), 0⟩ : Heis) * (Heis.vec v * Heis.vec w) := by
@@ -169,7 +130,6 @@ theorem vec_add_eq (v w : V4) :
   · simp [Heis.mul_def, Heis.vec, form_zero_left]
   · simp [Heis.mul_def, Heis.vec]
 
-theorem form_E1_F1 : form bE1 bF1 = 1 := form_single_inl_inr 1
 
 theorem lb1U_e0 : mat 2 F3 (longBlock F3 2 1 uSL) *ᵥ bE0 = bE0 :=
   lb_mulVec_other 1 uSL (by simp [coords])
@@ -201,88 +161,6 @@ theorem lb1L_f1 : mat 2 F3 (longBlock F3 2 1 lSL) *ᵥ bF1 = bF1 := by
 
 section Action
 
-variable {G : Type} [Group G]
-
-structure HeisAction (θ : StatedSp 2 F3 →* G) (z e0 e1 f0 f1 : G) : Prop where
-  U_z : Commute (θ sbU) z
-  U_e0 : θ sbU * e0 * (θ sbU)⁻¹ = e0
-  U_e1 : θ sbU * e1 * (θ sbU)⁻¹ = e1 * e0
-  U_f0 : θ sbU * f0 * (θ sbU)⁻¹ = f0 * f1⁻¹
-  U_f1 : θ sbU * f1 * (θ sbU)⁻¹ = f1
-  L_z : Commute (θ sbL) z
-  L_e0 : θ sbL * e0 * (θ sbL)⁻¹ = e0 * e1
-  L_e1 : θ sbL * e1 * (θ sbL)⁻¹ = e1
-  L_f0 : θ sbL * f0 * (θ sbL)⁻¹ = f0
-  L_f1 : θ sbL * f1 * (θ sbL)⁻¹ = f1 * f0⁻¹
-  V_z : Commute (θ (longBlock F3 2 1 uSL)) z
-  V_e0 : θ (longBlock F3 2 1 uSL) * e0 * (θ (longBlock F3 2 1 uSL))⁻¹ = e0
-  V_e1 : θ (longBlock F3 2 1 uSL) * e1 * (θ (longBlock F3 2 1 uSL))⁻¹ = e1
-  V_f0 : θ (longBlock F3 2 1 uSL) * f0 * (θ (longBlock F3 2 1 uSL))⁻¹ = f0
-  V_f1 : θ (longBlock F3 2 1 uSL) * f1 * (θ (longBlock F3 2 1 uSL))⁻¹ = z * (e1 * f1)
-  W_z : Commute (θ (longBlock F3 2 1 lSL)) z
-  W_e0 : θ (longBlock F3 2 1 lSL) * e0 * (θ (longBlock F3 2 1 lSL))⁻¹ = e0
-  W_e1 : θ (longBlock F3 2 1 lSL) * e1 * (θ (longBlock F3 2 1 lSL))⁻¹ = z * (e1 * f1)
-  W_f0 : θ (longBlock F3 2 1 lSL) * f0 * (θ (longBlock F3 2 1 lSL))⁻¹ = f0
-  W_f1 : θ (longBlock F3 2 1 lSL) * f1 * (θ (longBlock F3 2 1 lSL))⁻¹ = f1
-
-theorem heisDatum_of_rels {θ : StatedSp 2 F3 →* G} {z e0 e1 f0 f1 : G}
-    (hr : HeisRels z e0 e1 f0 f1) (ha : HeisAction θ z e0 e1 f0 f1) :
-    HeisDatum θ z e0 e1 f0 f1 := by
-  obtain ⟨φ, hz, h0, h1, h2, h3⟩ := exists_hom_of_rels hr
-  refine ⟨φ, hz, h0, h1, h2, h3, act_of_gens ?_⟩
-  have hph0 : ph φ bE0 = e0 := h0
-  have hph1 : ph φ bE1 = e1 := h1
-  have hph2 : ph φ bF0 = f0 := h2
-  have hph3 : ph φ bF1 = f1 := h3
-  have hEF : ph φ (bE1 + bF1) = z * (e1 * f1) := by
-    have h := congrArg φ (vec_add_eq bE1 bF1)
-    have e : (-(2 * 1) : F3) = 1 := by linear_combination (-1 : F3) * three_eq_zero_f3
-    rw [map_mul, map_mul, form_E1_F1, e, h1, h3] at h
-    exact h.trans (by rw [show (⟨1, 0⟩ : Heis) = Heis.center from rfl, hz])
-  have hasAct : ∀ {s : StatedSp 2 F3} {b w : V4} {x y : G}, mat 2 F3 s *ᵥ b = w → ph φ b = x →
-      ph φ w = y → θ s * x * (θ s)⁻¹ = y →
-        θ s * φ (Heis.vec b) * (θ s)⁻¹ = φ (heisAct s (Heis.vec b)) := by
-    intro s b w x y hb hx hy h
-    rw [heisAct_vec, hb, show φ (Heis.vec b) = x from hx, show φ (Heis.vec w) = y from hy]
-    exact h
-  have hcen : ∀ {s : StatedSp 2 F3}, Commute (θ s) z →
-      θ s * φ Heis.center * (θ s)⁻¹ = φ (heisAct s Heis.center) := by
-    intro s hs
-    rw [heisAct_center, hz]
-    exact mul_inv_eq_iff_eq_mul.2 hs.eq
-  have fE0E1 : form bE0 bE1 = 0 := form_E0_E1
-  have fE1E0 : form bE1 bE0 = 0 := form_E1_E0
-  have fF0nF1 : form bF0 (-bF1) = 0 := by rw [Heis.form_neg_right', form_F0_F1, neg_zero]
-  have fF1nF0 : form bF1 (-bF0) = 0 := by rw [Heis.form_neg_right', form_F1_F0, neg_zero]
-  have hUe1 : ph φ (bE1 + bE0) = e1 * e0 := by rw [← ph_mul φ fE1E0, hph1, hph0]
-  have hUf0 : ph φ (bF0 + -bF1) = f0 * f1⁻¹ := by
-    rw [← ph_mul φ fF0nF1, ph_neg, hph2, hph3]
-  have hLe0 : ph φ (bE0 + bE1) = e0 * e1 := by rw [← ph_mul φ fE0E1, hph0, hph1]
-  have hLf1 : ph φ (bF1 + -bF0) = f1 * f0⁻¹ := by
-    rw [← ph_mul φ fF1nF0, ph_neg, hph3, hph2]
-  intro s hs x hx
-  simp only [sp4Gens, heisGens, Set.mem_insert_iff, Set.mem_singleton_iff] at hs hx
-  rcases hs with rfl | rfl | rfl | rfl <;> rcases hx with rfl | rfl | rfl | rfl | rfl
-  · exact hcen ha.U_z
-  · exact hasAct (sb_usl_e0 1) hph0 hph0 ha.U_e0
-  · exact hasAct ((sb_usl_e1 1).trans (by rw [one_smul])) hph1 hUe1 ha.U_e1
-  · exact hasAct ((sb_usl_f0 1).trans (by rw [one_smul, sub_eq_add_neg])) hph2 hUf0 ha.U_f0
-  · exact hasAct (sb_usl_f1 1) hph3 hph3 ha.U_f1
-  · exact hcen ha.L_z
-  · exact hasAct ((sb_lsl_e0 1).trans (by rw [one_smul])) hph0 hLe0 ha.L_e0
-  · exact hasAct (sb_lsl_e1 1) hph1 hph1 ha.L_e1
-  · exact hasAct (sb_lsl_f0 1) hph2 hph2 ha.L_f0
-  · exact hasAct ((sb_lsl_f1 1).trans (by rw [one_smul, sub_eq_add_neg])) hph3 hLf1 ha.L_f1
-  · exact hcen ha.V_z
-  · exact hasAct lb1U_e0 hph0 hph0 ha.V_e0
-  · exact hasAct lb1U_e1 hph1 hph1 ha.V_e1
-  · exact hasAct lb1U_f0 hph2 hph2 ha.V_f0
-  · exact hasAct lb1U_f1 hph3 hEF ha.V_f1
-  · exact hcen ha.W_z
-  · exact hasAct lb1L_e0 hph0 hph0 ha.W_e0
-  · exact hasAct lb1L_e1 hph1 hEF ha.W_e1
-  · exact hasAct lb1L_f0 hph2 hph2 ha.W_f0
-  · exact hasAct lb1L_f1 hph3 hph3 ha.W_f1
 
 end Action
 

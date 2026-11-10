@@ -62,8 +62,6 @@ theorem mem_MbSt {Kb : Subgroup (MulAut (Cm σ))} {P : Subgroup (Cm σ)} {φ : �
   ⟨fun h => (Subgroup.mem_inf.mp (Subgroup.mem_subgroupOf.mp h)).2,
     fun h => Subgroup.mem_subgroupOf.mpr (Subgroup.mem_inf.mpr ⟨φ.2, h⟩)⟩
 
-variable (Kb : Subgroup (MulAut (Cm σ)))
-  (hinn : (MulAut.conj : Cm σ →* MulAut (Cm σ)).range ≤ Kb)
 
 end Stab
 

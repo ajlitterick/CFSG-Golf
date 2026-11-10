@@ -29,19 +29,6 @@ noncomputable instance subAction : MulAction J Sub781 where
 theorem smul_sp
     (g : J) (S : Sub781) : (g • S).sp = S.sp.map (Matrix.mulVecLin (mat g)) := rfl
 
-theorem pt_step_one {k : ℕ} (hk : k < nPts) :
-    (⟨rowSpan 253 (stepForm ((gensT ()).get 1) (form k).rows).rows⟩ : Sub781) = a • pt k := by
-  obtain ⟨hs, hw⟩ := form_facts hk
-  apply Sub781.ext'
-  rw [smul_sp, gensT_get_one, rowSpan_stepForm rowsWF_matAT matAT_size hw hs, matW_matAT_T, mat_a]
-  rfl
-
-theorem pt_step_two {k : ℕ} (hk : k < nPts) :
-    (⟨rowSpan 253 (stepForm ((gensT ()).get 2) (form k).rows).rows⟩ : Sub781) = b • pt k := by
-  obtain ⟨hs, hw⟩ := form_facts hk
-  apply Sub781.ext'
-  rw [smul_sp, gensT_get_two, rowSpan_stepForm rowsWF_matBT matBT_size hw hs, matW_matBT_T, mat_b]
-  rfl
 
 theorem alpha_lt
     {k : ℕ} (hk : k < nPts) : ap orb.alpha k < nPts := (core_facts.alpha k hk).1

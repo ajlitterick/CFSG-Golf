@@ -78,9 +78,6 @@ variable (σ n) in
   (MulAction.toPermHom (SUid σ (n + 1)) (Frame σ (n + 1))).codRestrict (frameSystem σ n).typeAut
     fun g _ _ _ => frameSystem_adj_smul_iff g
 
-theorem frameAut_apply (g : SUid σ (n + 1)) (c : Frame σ (n + 1)) :
-    ((frameAut σ n g : (frameSystem σ n).typeAut) : Equiv.Perm (Frame σ (n + 1))) c = g • c :=
-  rfl
 
 theorem exists_frameAut_apply_stdFrame (hσ : IsUnitaryInvolution σ) (c : Frame σ (n + 1)) :
     ∃ g : SUid σ (n + 1),
@@ -116,9 +113,6 @@ theorem mem_stabResidue {J : Set (Fin n)} {g : SUid σ (n + 1)} :
       g • stdFrame σ (n + 1) ∈ (frameSystem σ n).residue J (stdFrame σ (n + 1)) :=
   Iff.rfl
 
-theorem stabResidue_mono {J J' : Set (Fin n)} (h : J ⊆ J') :
-    stabResidue σ n J ≤ stabResidue σ n J' :=
-  fun _ hg => mem_stabResidue.2 (residue_mono h _ (mem_stabResidue.1 hg))
 
 theorem torus_le_stabResidue (J : Set (Fin n)) :
     torus σ (n + 1) ≤ stabResidue σ n J := fun g hg => by
@@ -316,9 +310,6 @@ theorem mem_parabolic_iff (hK : Nat.card K = (p ^ f) ^ 2) (J : Set (Fin n))
     (by rw [one_smul]; exact hend.symm)
   exact this
 
-theorem parabolic_eq_stabResidue (hK : Nat.card K = (p ^ f) ^ 2) (J : Set (Fin n)) :
-    parabolic K p f n J = stabResidue (unitaryInvolution K p f) n J :=
-  le_antisymm (parabolic_le_stabResidue J) fun x hx => (mem_parabolic_iff hK J x).2 hx
 
 theorem frames_universal_completion (hK : Nat.card K = (p ^ f) ^ 2)
     (hconn : (frameSystem (unitaryInvolution K p f) n).Connected)

@@ -37,68 +37,6 @@ open scoped Pointwise
 
 variable {G : Type} [Group G] [Finite G] {D : Set G}
 
-theorem ncard_blockLine_eq_ncard_rootBlock_add_one (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    {s₀ : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC)
-    (hb1 : ∀ B, IsBlock (imageClass hC) B → s₀ ∈ B → B ⊆ rootBlock (imageClass hC) s₀)
-    (hne : rootBlock (imageClass hC) s₀ ≠ imageClass hC) (hα : hC.alpha = {hC.d})
-    {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) {b : Halpha D hC.alpha} (hb : (b : G) ∈ β) :
-    (blockLine D hC.alpha β).ncard = (rootBlock (imageClass hC)
-      (QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) b)).ncard + 1 := by
-  classical
-  have hinj := injOn_mk_DstarH_of_rootBlock_ne hC hMZ hs₀ hne
-  set π := QuotientGroup.mk' (CFSG.solvableRadical (Halpha D hC.alpha)) with hπ
-  have hsingle : ∀ γ ∈ blockClass hC.alpha, ∃ c : G, γ = {c} := by
-    intro γ hγ
-    obtain ⟨g, rfl⟩ := mem_blockClass_iff.mp hγ
-    exact ⟨g * hC.d * g⁻¹, by rw [hα, Set.image_singleton]⟩
-  have hαD : hC.alpha ⊆ D := hC.isBlock_alpha.subset
-  have hαβ : hC.alpha ∈ perp D hC.alpha ∩ perp D β :=
-    ⟨mem_perp_iff.mpr (Or.inr rfl), mem_perp_iff.mpr (Or.inl (mem_Dalpha_symm hβ hαD))⟩
-  have hL : ∀ γ ∈ blockLine D hC.alpha β \ {hC.alpha}, γ ∈ Dalpha D hC.alpha := by
-    rintro γ ⟨hγL, hγα⟩
-    rcases mem_perp_iff.mp (hγL.2 _ hαβ) with h | h
-    · exact h
-    · exact absurd h hγα
-  have hαL : hC.alpha ∈ blockLine D hC.alpha β := by
-    refine ⟨mem_blockClass_self _, fun γ hγ => ?_⟩
-    rcases mem_perp_iff.mp hγ.1 with h | h
-    · exact mem_perp_iff.mpr (Or.inl (mem_Dalpha_symm h hαD))
-    · exact mem_perp_iff.mpr (Or.inr h.symm)
-  set T : Set (Halpha D hC.alpha) :=
-    {c | ∃ γ ∈ blockLine D hC.alpha β \ {hC.alpha}, (c : G) ∈ γ} with hT
-  have hTstar : T ⊆ DstarH hC := fun c ⟨γ, hγ, hc⟩ => ⟨γ, hL γ hγ, hc⟩
-  have himg : lineImage hC β = π '' T := by
-    ext x
-    simp only [lineImage, Set.mem_iUnion, Set.mem_image, exists_prop]
-    constructor
-    · rintro ⟨γ, hγ, c, hc, rfl⟩
-      exact ⟨c, ⟨γ, hγ, hc⟩, rfl⟩
-    · rintro ⟨c, ⟨γ, hγ, hc⟩, rfl⟩
-      exact ⟨γ, hγ, c, hc, rfl⟩
-  have h1 : (lineImage hC β).ncard = T.ncard := by
-    rw [himg]
-    exact (hinj.mono hTstar).ncard_image
-  have h2 : blockLine D hC.alpha β \ {hC.alpha} =
-      (fun c : Halpha D hC.alpha => ({(c : G)} : Set G)) '' T := by
-    ext γ
-    constructor
-    · intro hγ
-      obtain ⟨c, rfl⟩ := hsingle γ hγ.1.1
-      have hcH : c ∈ Halpha D hC.alpha := Subgroup.subset_closure ⟨{c}, hL _ hγ, rfl⟩
-      exact ⟨⟨c, hcH⟩, ⟨{c}, hγ, rfl⟩, rfl⟩
-    · rintro ⟨c, ⟨γ, hγ, hcγ⟩, rfl⟩
-      obtain ⟨c', rfl⟩ := hsingle γ hγ.1.1
-      show ({(c : G)} : Set G) ∈ _
-      rw [Set.mem_singleton_iff.mp hcγ]
-      exact hγ
-  have h3 : (blockLine D hC.alpha β \ {hC.alpha}).ncard = T.ncard := by
-    rw [h2]
-    exact Set.ncard_image_of_injective _
-      (fun c c' h => Subtype.ext (Set.singleton_eq_singleton_iff.mp h))
-  rw [← Set.ncard_diff_singleton_add_one hαL (Set.toFinite _), h3, ← h1,
-    lineImage_eq_rootBlock hC hMZ hs₀ hb1 hne hβ hb]
 
 theorem ncard_rootBlock_of_isSymplecticTransvection {X : Type} [Group X] {E : Set X}
     (hcls : ∃ d₀ : X, E = {g | IsConj d₀ g}) (hZ : Subgroup.center X = ⊥) {s : X} (hs : s ∈ E)
@@ -365,30 +303,6 @@ theorem ncard_rootBlock_of_isUnitaryTransvection {X : Type} [Group X] {E : Set X
 
 end UnitaryModelCount
 
-theorem ncard_rootBlock_eq_of_mem_imageClass (hC : HypothesisC D)
-    {s₀ t : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC) (ht : t ∈ imageClass hC) :
-    (rootBlock (imageClass hC) t).ncard = (rootBlock (imageClass hC) s₀).ncard := by
-  obtain ⟨d₀, hd₀⟩ := imageClass_isClass hC
-  have hst : IsConj s₀ t := by
-    rw [hd₀] at hs₀ ht
-    exact (isConj_comm.mp hs₀).trans ht
-  obtain ⟨g, rfl⟩ := isConj_iff.mp hst
-  rw [← image_conj_rootBlock (imageClass_isNormalSet hC) g s₀]
-  exact Set.ncard_image_of_injective _ fun x y h => by simpa using h
-
-theorem ncard_blockLine_eq_ncard_rootBlock_add_one_of_mem (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    {s₀ : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC)
-    (hb1 : ∀ B, IsBlock (imageClass hC) B → s₀ ∈ B → B ⊆ rootBlock (imageClass hC) s₀)
-    (hne : rootBlock (imageClass hC) s₀ ≠ imageClass hC) (hα : hC.alpha = {hC.d})
-    {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) :
-    (blockLine D hC.alpha β).ncard = (rootBlock (imageClass hC) s₀).ncard + 1 := by
-  obtain ⟨b, hb⟩ := nonempty_of_mem_blockClass ⟨hC.d, hC.d_mem_alpha⟩ hβ.1
-  have hbH : b ∈ Halpha D hC.alpha := Subgroup.subset_closure ⟨β, hβ, hb⟩
-  rw [ncard_blockLine_eq_ncard_rootBlock_add_one hC hMZ hs₀ hb1 hne hα hβ (b := ⟨b, hbH⟩) hb,
-    ncard_rootBlock_eq_of_mem_imageClass hC hs₀ ⟨⟨b, hbH⟩, ⟨β, hβ, hb⟩, rfl⟩]
 
 theorem center_Hbar_eq_bot (hC : HypothesisC D) :
     Subgroup.center (Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)) = ⊥ := by
@@ -397,48 +311,5 @@ theorem center_Hbar_eq_bot (hC : HypothesisC D) :
   rw [solvableRadical_quotient_H hC] at h1
   exact le_bot_iff.mp h1
 
-theorem twelveFive_of_isSymplecticTransvection (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    (hα : hC.alpha = {hC.d}) {s : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs : s ∈ imageClass hC) {m f : ℕ}
-    (h : IsSymplecticTransvection
-      (Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)) m f s)
-    {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) :
-    (blockLine D hC.alpha β).ncard = 2 ^ f := by
-  have hZ := center_Hbar_eq_bot hC
-  obtain ⟨hb1, hne⟩ :=
-    subset_rootBlock_and_ne_of_isSymplecticTransvection (imageClass_isClass hC) hZ hs h
-  rw [ncard_blockLine_eq_ncard_rootBlock_add_one_of_mem hC hMZ hs hb1 hne hα hβ,
-    ncard_rootBlock_of_isSymplecticTransvection (imageClass_isClass hC) hZ hs h]
-  have : 1 ≤ 2 ^ f := Nat.one_le_two_pow
-  omega
-
-theorem twelveFive_of_isUnitaryTransvection (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    (hα : hC.alpha = {hC.d}) {s : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs : s ∈ imageClass hC) {m f : ℕ} (hm : 4 ≤ m)
-    (h : IsUnitaryTransvection
-      (Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)) m f s)
-    {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) :
-    (blockLine D hC.alpha β).ncard = 2 ^ f := by
-  have hZ := center_Hbar_eq_bot hC
-  obtain ⟨hb1, hne⟩ :=
-    subset_rootBlock_and_ne_of_isUnitaryTransvection (imageClass_isClass hC) hZ hs hm h
-  rw [ncard_blockLine_eq_ncard_rootBlock_add_one_of_mem hC hMZ hs hb1 hne hα hβ,
-    ncard_rootBlock_of_isUnitaryTransvection (imageClass_isClass hC) hZ hs hm h]
-  have : 1 ≤ 2 ^ f := Nat.one_le_two_pow
-  omega
-
-theorem twelveFive_of_rootBlock_eq_singleton (hC : HypothesisC D)
-    (hMZ : CFSG.solvableRadical (Halpha D hC.alpha) ≤ Subgroup.center (Halpha D hC.alpha))
-    (hα : hC.alpha = {hC.d})
-    {s₀ : Halpha D hC.alpha ⧸ CFSG.solvableRadical (Halpha D hC.alpha)}
-    (hs₀ : s₀ ∈ imageClass hC)
-    (hb1 : ∀ B, IsBlock (imageClass hC) B → s₀ ∈ B → B ⊆ rootBlock (imageClass hC) s₀)
-    (hne : rootBlock (imageClass hC) s₀ ≠ imageClass hC)
-    (hsing : rootBlock (imageClass hC) s₀ = {s₀}) {β : Set G} (hβ : β ∈ Dalpha D hC.alpha) :
-    (blockLine D hC.alpha β).ncard = 2 := by
-  rw [ncard_blockLine_eq_ncard_rootBlock_add_one_of_mem hC hMZ hs₀ hb1 hne hα hβ, hsing,
-    Set.ncard_singleton]
 
 end CFSG.OddTranspositions.PartThree

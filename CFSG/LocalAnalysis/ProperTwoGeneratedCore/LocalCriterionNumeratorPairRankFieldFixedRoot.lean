@@ -71,10 +71,6 @@ theorem fixed_field_multiple_scalar_fixed
     apply Subtype.ext
     exact div_mul_cancel₀ y.val hb
 
-theorem scalarRootFixedEquiv_apply
-    (sigma : RingAut F) (c b : F) (hb : b ≠ 0)
-    (hbfixed : c * sigma b = b) (k : fixedField sigma) :
-    (scalarRootFixedEquiv sigma c b hb hbfixed k : F) = (k : F) * b := rfl
 
 @[expose] def scalarRootNonzeroFixedEquiv
     (sigma : RingAut F) (c b : F) (hb : b ≠ 0)

@@ -111,17 +111,9 @@ theorem A_el (h : Cex127 G m p B M E A N D) : IsElemAbelian p A := h.pair.1.2.1.
 theorem three_le_rank_A (h : Cex127 G m p B M E A N D) : 3 ≤ CFSG.Open.pRank p A :=
   h.pair.1.2.1.1.2
 
-theorem E_le_M (h : Cex127 G m p B M E A N D) : E ≤ M := h.pair.1.1.1.1.1
-
-theorem E_el (h : Cex127 G m p B M E A N D) : IsElemAbelian p E := h.pair.1.1.1.1.2.1
-
-theorem three_le_rank_E (h : Cex127 G m p B M E A N D) : 3 ≤ CFSG.Open.pRank p E :=
-  h.pair.1.1.1.2
 
 theorem uniq_E (h : Cex127 G m p B M E A N D) : IsUniquenessTwoLocal p E M := h.pair.1.1.2
 
-theorem not_uniq_A (h : Cex127 G m p B M E A N D) : ¬ IsUniquenessTwoLocal p A M :=
-  h.pair.1.2.1.2
 
 theorem two_le_rank_inf (h : Cex127 G m p B M E A N D) :
     2 ≤ CFSG.Open.pRank p (E ⊓ A) := h.pair.1.2.2
@@ -496,23 +488,6 @@ section Input1916
     ∀ B' : Subgroup (MulAut K), IsElemAbelian p B' → p ^ 2 ≤ Nat.card B' →
       IsWeaklyLocallyOTwoBalanced p 2 B'
 
-@[expose] def Input19_16 : Prop :=
-  ∀ (p k : ℕ), p.Prime → p ≠ 2 → 2 ≤ k →
-    ∀ (K : Type) [Group K] [Finite K], CFSG.Open.IsKGroup K → CFSG.Open.IsQuasisimple K →
-      GLAPPrimeCore p K = ⊥ →
-      ∀ B : Subgroup (MulAut K), IsElemAbelian p B → Nat.card B = p ^ k →
-        (IsLocallyOTwoBalanced p k B ∨ Alt1916 p k B ∨ Spor1916 p k B ∨ Lie1916 p k B) ∧
-        (¬ IsWeaklyLocallyOTwoBalanced p 2 B →
-          p = 3 ∧ ∃ m : ℕ, 0 < m ∧ Nonempty (K ≃* alternatingGroup (Fin (m * 3 ^ k + 4))))
-
-@[expose] def Input19_16Fixed : Prop :=
-  ∀ (p k : ℕ), p.Prime → p ≠ 2 → 2 ≤ k →
-    ∀ (K : Type) [Group K] [Finite K], CFSG.Open.IsKGroup K → CFSG.Open.IsQuasisimple K →
-      GLAPPrimeCore p K = ⊥ →
-      ∀ B : Subgroup (MulAut K), IsElemAbelian p B → Nat.card B = p ^ k →
-        (IsLocallyOTwoBalanced p k B ∨ Alt1916 p k B ∨ Spor1916 p k B ∨ Lie1916 p k B) ∧
-        (¬ IsWeaklyLocallyOTwoBalanced p 2 B →
-          p = 3 ∧ ∃ m : ℕ, 0 < m ∧ Nonempty (K ≃* alternatingGroup (Fin (m * 3 ^ 2 + 4))))
 
 @[expose] def Input19_16Main : Prop :=
   ∀ (p k : ℕ), p.Prime → p ≠ 2 → 2 ≤ k →
@@ -521,8 +496,6 @@ section Input1916
       ∀ B : Subgroup (MulAut K), IsElemAbelian p B → Nat.card B = p ^ k →
         IsLocallyOTwoBalanced p k B ∨ Alt1916 p k B ∨ Spor1916 p k B ∨ Lie1916 p k B
 
-theorem input19_16Main_of_fixed (h : Input19_16Fixed) : Input19_16Main :=
-  fun p k hp hp2 hk K _ _ hKG hKq hO B hB hBc => (h p k hp hp2 hk K hKG hKq hO B hB hBc).1
 
 end Input1916
 
@@ -570,19 +543,6 @@ theorem isQuasisimple_barOf129 {p : ℕ} (hp : p.Prime) {X L : Subgroup G} [Fini
   CFSG.ComponentClassification.Components.quasisimple_of_equiv (quotEquivBarX hp h.1 h.2.1)
     h.2.2.1.2.2
 
-theorem apply_input1916 (hI : Input19_16) {m p : ℕ} {B M E A N D : Subgroup G}
-    (h : Cex127 G m p B M E A N D) {K : Subgroup G} (hK : GLAPComponent p N K)
-    {Bb : Subgroup (MulAut (barOf p K))} {k : ℕ} (hk : 2 ≤ k) (hBel : IsElemAbelian p Bb)
-    (hBc : Nat.card Bb = p ^ k) :
-    (IsLocallyOTwoBalanced p k Bb ∨ Alt1916 p k Bb ∨ Spor1916 p k Bb ∨ Lie1916 p k Bb) ∧
-      (¬ IsWeaklyLocallyOTwoBalanced p 2 Bb →
-        p = 3 ∧ ∃ m : ℕ, 0 < m ∧ Nonempty (barOf p K ≃* alternatingGroup (Fin (m * 3 ^ k + 4)))) := by
-  have hp := prime_of h
-  have hKtop : K ≠ ⊤ := fun htop => N_ne_top h (top_le_iff.1 (htop ▸ hK.1))
-  have hKG : CFSG.Open.IsKGroup (barOf p K) :=
-    (h.standing.kProper.isKGroup K hKtop).quotient (GLAPPrimeCore p ↥K)
-  exact hI p k hp (ne_two_of h) hk (barOf p K) hKG (isQuasisimple_barOf129 hp hK)
-    (glaPPrimeCore_quotient_eq_bot hp) Bb hBel hBc
 
 theorem apply_input1916Main (hI : Input19_16Main) {m p : ℕ} {B M E A N D : Subgroup G}
     (h : Cex127 G m p B M E A N D) {K : Subgroup G} (hK : GLAPComponent p N K)
@@ -844,39 +804,6 @@ section Cover
 
 variable {G : Type} [Group G] [Finite G] {m p : ℕ} {B M E A N D : Subgroup G}
 
-theorem exists_isSylowIn_above {p : ℕ} [Fact p.Prime] {X P : Subgroup G} (hPX : P ≤ X)
-    (hP : IsPGroup p ↥P) : ∃ Q : Subgroup G, IsSylowIn p X Q ∧ P ≤ Q := by
-  obtain ⟨Q, hPQ, hQmax⟩ :=
-    (Set.toFinite {R : Subgroup G | R ≤ X ∧ IsPGroup p ↥R}).exists_le_maximal ⟨hPX, hP⟩
-  exact ⟨Q, ⟨hQmax.1.1, hQmax.1.2, fun R' hR'X hR'p hQR' =>
-    le_antisymm (hQmax.2 ⟨hR'X, hR'p⟩ hQR') hQR'⟩, hPQ⟩
-
-theorem normalizer_le_of_rank_four (h : Cex127 G m p B M E A N D)
-    (hA3 : CFSG.Open.pRank p A = 3) {Y X : Subgroup G} (hYM : Y ≤ M) (hYel : IsElemAbelian p Y)
-    (hY4 : 4 ≤ CFSG.Open.pRank p Y) (hXY : X ≤ Y) (hX2 : 2 ≤ CFSG.Open.pRank p X) :
-    Subgroup.normalizer (X : Set G) ≤ M := by
-  have hp := prime_of h
-  haveI : Fact p.Prime := ⟨hp⟩
-  obtain ⟨R, hR, hYR⟩ := exists_isSylowIn_above hYM hYel.isPGroup
-  have h104 := lemma104_v_holds h.toSec11.toSec10Fails h.pair (Or.inr hA3) hR
-  by_cases hX4 : 4 ≤ CFSG.Open.pRank p X
-  · exact (le_sSup (show Subgroup.normalizer (X : Set G) ∈
-      {N | ∃ Q : Subgroup G, Q ≤ R ∧ 4 ≤ CFSG.Open.pRank p Q ∧ N = Subgroup.normalizer (Q : Set G)} from
-      ⟨X, hXY.trans hYR, hX4, rfl⟩)).trans h104.2
-  · push Not at hX4
-    have hXel : IsElemAbelian p X := hYel.mono hXY
-    have hXcard := card_eq_pow_pRank hp hXel
-    have hYcard := card_eq_pow_pRank hp hYel
-    obtain ⟨E4, hE4c, hXE4, hE4Y⟩ := Sylow.exists_subgroup_card_pow_prime_le_le hp
-      (show Nat.card X ∣ p ^ 4 by rw [hXcard]; exact pow_dvd_pow p (by omega))
-      (show p ^ 4 ∣ Nat.card Y by rw [hYcard]; exact pow_dvd_pow p hY4) hXY
-    have hE4R : E4 ≤ R := hE4Y.trans hYR
-    have hE4 : IsEkIn p 4 R E4 := ⟨hE4R, hYel.mono hE4Y, hE4c⟩
-    obtain ⟨-, -, E', hE', hE4E'⟩ := h104.1 E4 hE4
-    have hcore : GLBCore p 2 E' ≤ M := hE'.2.clause_d
-    exact (le_sSup (show Subgroup.normalizer (X : Set G) ∈
-      {N | ∃ Q : Subgroup G, Q ≤ E' ∧ 2 ≤ CFSG.Open.pRank p Q ∧ N = Subgroup.normalizer (Q : Set G)} from
-      ⟨X, hXE4.trans hE4E', hX2, rfl⟩)).trans hcore
 
 theorem exists_isSCp_top_above {p : ℕ} {W : Subgroup G} (hW : IsElemAbelian p W) :
     ∃ A₁ : Subgroup G, IsSCp p ⊤ A₁ ∧ W ≤ A₁ := by

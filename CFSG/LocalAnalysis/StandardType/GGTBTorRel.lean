@@ -8,31 +8,6 @@ namespace CFSG.StandardType
 
 open CFSG CFSG.Assembly
 
-def ggFoldD (n : ℕ) : Matrix (Fin (n - 1)) (Fin (n - 1)) ℤ :=
-  Matrix.of fun i j =>
-    if j.val + 2 = n then
-      CartanMatrix.D n ⟨i.val, by have := i.isLt; omega⟩ ⟨n - 2, by have := i.isLt; omega⟩ +
-        CartanMatrix.D n ⟨i.val, by have := i.isLt; omega⟩ ⟨n - 1, by have := i.isLt; omega⟩
-    else CartanMatrix.D n ⟨i.val, by have := i.isLt; omega⟩ ⟨j.val, by have := j.isLt; omega⟩
-
-theorem ggFoldD_eq {n : ℕ} (hn : 4 ≤ n) : ggFoldD n = CartanMatrix.B (n - 1) := by
-  ext i j
-  have hi := i.isLt
-  have hj := j.isLt
-  simp only [ggFoldD, CartanMatrix.D, CartanMatrix.B, Matrix.of_apply, Fin.ext_iff]
-  split_ifs <;> omega
-
-def ggFoldCartan {n k : ℕ} (C : Matrix (Fin n) (Fin n) ℤ) (rep : Fin k → Fin n)
-    (orb : Fin n → Fin k) : Matrix (Fin k) (Fin k) ℤ :=
-  Matrix.of fun i j => ∑ j' ∈ Finset.univ.filter (fun j' => orb j' = j), C (rep i) j'
-
-theorem ggFoldE₆_eq : ggFoldCartan CartanMatrix.E₆ ![1, 3, 2, 0] ![3, 0, 2, 1, 2, 3] =
-    CartanMatrix.F₄ := by
-  decide
-
-theorem ggFoldA₅_eq : ggFoldCartan (CartanMatrix.A 5) ![0, 1, 2] ![0, 1, 2, 1, 0] =
-    CartanMatrix.C 3 := by
-  decide
 
 def GGTBTorRelD : Prop :=
   ∀ p : ℕ, p.Prime → p ≠ 2 → ∀ lab : LargeEvenLabel, LargeEvenInLambda2 lab →

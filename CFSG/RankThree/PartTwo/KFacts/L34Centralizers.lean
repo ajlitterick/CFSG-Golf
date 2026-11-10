@@ -295,21 +295,6 @@ theorem involution_cases_card (hk : Nat.card k = 4) (hσ : ∀ a, σ a = a ^ 2)
   · exact Or.inr (Or.inr (Or.inr ⟨⟨H, h⟩,
       by rw [h, card_autFixed_conj, card_autFixed_betaAut hk hσ]⟩))
 
-theorem card_autFixed_of_isField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
-    (h : (stdPinnedPSL 3 k).IsField τ) : Nat.card (autFixed τ) = 168 := by
-  have := LinearFieldFour.finite_of_card_eq_four hk
-  have := LinearFieldFour.charP_two_of_card_eq_four hk
-  have hσ : ∀ a, frobeniusEquiv k 2 a = a ^ 2 := fun a => frobeniusEquiv_apply k 2 a
-  obtain ⟨φ, ⟨σ', rfl⟩, hφ1, d, -, rfl⟩ := h
-  rcases LinearThreeFourOuter.ringEquiv_eq_one_or hσ hk σ' with h1 | h1
-  · exact absurd (by rw [h1, map_one]) hφ1
-  · rw [card_autFixed_conj, h1, card_autFixed_fieldAut hk hσ]
-
-theorem card_autFixed_of_isGraph (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
-    (h : (stdPinnedPSL 3 k).IsGraph τ) : Nat.card (autFixed τ) = 60 := by
-  obtain ⟨γ, hγ, -, d, -, rfl⟩ := h
-  rw [stdPinnedPSL_graph, Set.mem_singleton_iff] at hγ
-  rw [card_autFixed_conj, hγ, card_autFixed_dualAut hk]
 
 theorem card_autFixed_of_isGraphField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
     (h : (stdPinnedPSL 3 k).IsGraphField τ) : Nat.card (autFixed τ) = 72 := by
@@ -418,35 +403,6 @@ theorem isInnerAut_of_conj {G : Type*} [Group G] {d α : MulAut G}
   have := (LinearThreeFourOuter.innerAut_normal G).conj_mem _ h d⁻¹
   rwa [inv_inv, show d⁻¹ * (d * α * d⁻¹) * d = α by group] at this
 
-theorem not_isInnerAut_of_isField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
-    (h : (stdPinnedPSL 3 k).IsField τ) : ¬ IsInnerAut τ := by
-  have := LinearFieldFour.charP_two_of_card_eq_four hk
-  have := LinearFieldFour.finite_of_card_eq_four hk
-  have hσ : ∀ a, frobeniusEquiv k 2 a = a ^ 2 := fun a => frobeniusEquiv_apply k 2 a
-  intro hinn
-  obtain ⟨φ, ⟨σ', rfl⟩, hφ1, d, -, rfl⟩ := h
-  have h0 := isInnerAut_of_conj hinn
-  have he : conjAut 3 k 1 * fieldAut 3 k σ' * dualAut 3 k ^ 0 = fieldAut 3 k σ' := by
-    rw [map_one, one_mul, pow_zero, mul_one]
-  rw [← he] at h0
-  obtain ⟨h1, -⟩ := eq_of_conjAut_mul_mem_range hk hσ 1 σ' (by norm_num) h0
-  exact hφ1 (by rw [h1, map_one])
-
-theorem not_isInnerAut_of_isGraph (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
-    (h : (stdPinnedPSL 3 k).IsGraph τ) : ¬ IsInnerAut τ := by
-  have := LinearFieldFour.charP_two_of_card_eq_four hk
-  have := LinearFieldFour.finite_of_card_eq_four hk
-  have hσ : ∀ a, frobeniusEquiv k 2 a = a ^ 2 := fun a => frobeniusEquiv_apply k 2 a
-  intro hinn
-  obtain ⟨γ, hγ, -, d, -, rfl⟩ := h
-  rw [stdPinnedPSL_graph, Set.mem_singleton_iff] at hγ
-  subst hγ
-  have h0 := isInnerAut_of_conj hinn
-  have he : conjAut 3 k 1 * fieldAut 3 k 1 * dualAut 3 k ^ 1 = dualAut 3 k := by
-    rw [map_one, map_one, one_mul, one_mul, pow_one]
-  rw [← he] at h0
-  obtain ⟨-, h1, -⟩ := eq_of_conjAut_mul_mem_range hk hσ 1 1 le_rfl h0
-  exact absurd h1 one_ne_zero
 
 theorem not_isInnerAut_of_isGraphField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)}
     (h : (stdPinnedPSL 3 k).IsGraphField τ) : ¬ IsInnerAut τ := by
@@ -465,20 +421,6 @@ theorem not_isInnerAut_of_isGraphField (hk : Nat.card k = 4) {τ : MulAut (proje
   obtain ⟨h1, -⟩ := eq_of_conjAut_mul_mem_range hk hσ 1 σ' le_rfl h0
   exact hφ1 (by rw [h1, map_one])
 
-theorem not_isField_and_isGraph (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)} :
-    ¬ ((stdPinnedPSL 3 k).IsField τ ∧ (stdPinnedPSL 3 k).IsGraph τ) := fun h => by
-  have := (card_autFixed_of_isField hk h.1).symm.trans (card_autFixed_of_isGraph hk h.2)
-  norm_num at this
-
-theorem not_isField_and_isGraphField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)} :
-    ¬ ((stdPinnedPSL 3 k).IsField τ ∧ (stdPinnedPSL 3 k).IsGraphField τ) := fun h => by
-  have := (card_autFixed_of_isField hk h.1).symm.trans (card_autFixed_of_isGraphField hk h.2)
-  norm_num at this
-
-theorem not_isGraph_and_isGraphField (hk : Nat.card k = 4) {τ : MulAut (projectiveSL 3 k)} :
-    ¬ ((stdPinnedPSL 3 k).IsGraph τ ∧ (stdPinnedPSL 3 k).IsGraphField τ) := fun h => by
-  have := (card_autFixed_of_isGraph hk h.1).symm.trans (card_autFixed_of_isGraphField hk h.2)
-  norm_num at this
 
 end Kinds
 

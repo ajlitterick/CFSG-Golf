@@ -57,9 +57,6 @@ theorem le_pCoreOf {A N : Subgroup G} (hNA : N ≤ A) (hN : ∀ a ∈ A, ∀ n �
     rw [e]
     exact hO _ (A.inv_mem hg.1) _ (O.inv_mem (hg.2 s hs))⟩
 
-theorem mem_centMod {A M O : Subgroup G} {hO : ∀ a ∈ A, ∀ o ∈ O, a * o * a⁻¹ ∈ O} {g : G} :
-    g ∈ centMod A M O hO ↔ g ∈ A ∧ ∀ s ∈ M, g * s * g⁻¹ * s⁻¹ ∈ O :=
-  Iff.rfl
 
 theorem mem_centMod_of_mem {A M O : Subgroup G} {hO : ∀ a ∈ A, ∀ o ∈ O, a * o * a⁻¹ ∈ O}
     (hOA : O ≤ A) (hMA : M ≤ A) {u : G} (hu : u ∈ O) : u ∈ centMod A M O hO := by

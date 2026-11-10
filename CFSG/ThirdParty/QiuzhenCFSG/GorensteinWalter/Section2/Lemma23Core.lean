@@ -58,15 +58,6 @@ from Fact 1.5(ii): `D := O₂'(M)` is a `2'`-group acted on by the involution
 trivial, so `x` itself is inverted by `t`.
 -/
 
-/-- If the odd core of `M` avoids `Ĥ`, then `t` inverts it whenever
-`t ∈ M`.  This valid specialization is retained for independent callers;
-it is not the source-corrected `lemma_2_3_ii`. -/
-public theorem lemma_2_3_ii_inverts_of_core_disjoint
-    {G : Type u} [Group G] [Finite G]
-    (c : CentralizerSetup G) (M : Subgroup G)
-    (hcore : oddCoreOf M ⊓ c.Hhat = ⊥) :
-    c.t ∈ M → ∀ x : G, x ∈ (oddCoreOf M : Set G) → c.t * x * c.t⁻¹ = x⁻¹ := by
-  exact oddCore_inversion_of_disjoint c M hcore
 
 /-! ## Lemma 2.3(iii): the equality alternative via Bender [1, 1.6]
 
@@ -83,33 +74,6 @@ corollary of `lemma_2_3_of_controlCore`.  The `A = M` branch
 is discharged first (repo protocol: prune easy branches early).
 -/
 
-/-- Lemma 2.3(iii) of Bender (p. 219), i.e. [1, 1.6], from the two
-containments: if the generalized Fitting subgroups of the two maximal
-subgroups `A`, `M` are mutually contained (`F*(A) ≤ M`, `F*(M) ≤ A`), then
-either `A = M` or `F*(A)` and `F*(M)` are p-groups for one common prime
-`p`.  The `NormalizerControlledBy` hypotheses are carried over from
-`lemma_2_3` in `Section2/Basic.lean`; the paper's bridge from them to the
-two containments is the control-core route of `Section2/ControlCore.lean`
-(the direct containment is false in general: S₄ counterexample), so this
-theorem is the stronger-containment form of
-`lemma_2_3_of_controlCore` — see the module header and
-`node_graph/section2/lemma_2_3.md`. -/
-public theorem lemma_2_3_equalityAlternative_of_Fstar_contained
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    {A M : Subgroup G}
-    (hA : IsCoatom A) (hM : IsCoatom M)
-    (_hAM : NormalizerControlledBy A M) (_hMA : NormalizerControlledBy M A)
-    (hFAM : generalizedFittingSubgroupOf A ≤ M)
-    (hFMA : generalizedFittingSubgroupOf M ≤ A) :
-    A = M ∨
-      ∃ p : ℕ, p.Prime ∧
-        IsPGroup p (generalizedFittingSubgroupOf A) ∧
-          IsPGroup p (generalizedFittingSubgroupOf M) := by
-  by_cases h : A = M
-  · exact Or.inl h
-  · exact Or.inr (bender1970_1_6_maximalSubgroups_pGroups
-      (minimalCounterexample_isSimple hmin) A M hA hM h hFAM hFMA)
 
 /-! ## Prime-wise Bender 1.7(i) consequences
 
@@ -125,49 +89,5 @@ corrected Lemma 2.3(ii) uses only the primes outside `π(F(Ĥ))`,
 because its subgroup is `O_{πᶜ}(F(M))`.
 -/
 
-/-- Prime-wise Bender 1.7(i), for primes outside `π(F(Ĥ))`: given
-`F*(Ĥ) ≤ M` (the explicit-containment bridge), every `q`-core of `M`
-with `q ∉ π(F(Ĥ))` avoids `Ĥ` — i.e. `O_q(M) ∩ Ĥ = 1` — by Bender [1,
-1.7(i)] applied with `A := Ĥ`, `B := M`, `S := F*(Ĥ)`.  The control-core analogue
-(`lemma_2_3_ii_coreDisjoint_prime_of_controlCore` below) consumes the
-bridge output `ControlCore c.Hhat M` instead of the containment. -/
-public theorem lemma_2_3_ii_coreDisjoint_prime_of_Fstar_le
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (M : Subgroup G)
-    (hFstar : generalizedFittingSubgroupOf c.Hhat ≤ M) :
-    ∀ q : ℕ, q.Prime → q ∉ primesOfOrder (fittingSubgroupOf c.Hhat) →
-      qCoreOf M q ⊓ c.Hhat = ⊥ := by
-  intro q hq hqπ
-  have hSsub : ((generalizedFittingSubgroupOf c.Hhat).subgroupOf
-      (generalizedFittingSubgroupOf c.Hhat)).IsSubnormal := by
-    rw [Subgroup.subgroupOf_self]
-    exact Subgroup.IsSubnormal.top
-  have hCS : generalizedFittingSubgroupOf c.Hhat ⊓
-      Subgroup.centralizer ((generalizedFittingSubgroupOf c.Hhat : Set G)) ≤
-        generalizedFittingSubgroupOf c.Hhat := by
-    intro x hx
-    exact hx.1
-  exact bender1970_1_7_i_oddCoreDisjoint (minimalCounterexample_isSimple hmin)
-    c.Hhat c.Hhat_maximal (generalizedFittingSubgroupOf c.Hhat) le_rfl hSsub hCS
-    hFstar q hq hqπ
-
-/-- Prime-wise Bender 1.7(i), for primes outside `π(F(Ĥ))`, from the
-control-core bridge: given `ControlCore c.Hhat M` (the hypothesis shape of
-[1, 1.7] produced by the bridge in `Section2/ControlCore.lean`), every
-`q`-core of `M` with `q ∉ π(F(Ĥ))` avoids `Ĥ` — i.e. `O_q(M) ∩ Ĥ = 1` — by
-Bender [1, 1.7(i)] applied with `A := Ĥ`, `B := M`, and the control-core
-witness as `S`.  This is the control-core analogue of
-`lemma_2_3_ii_coreDisjoint_prime_of_Fstar_le`. -/
-public theorem lemma_2_3_ii_coreDisjoint_prime_of_controlCore
-    {G : Type u} [Group G] [Finite G]
-    (hmin : IsMinimalCounterexample G)
-    (c : CentralizerSetup G) (M : Subgroup G)
-    (hC : ControlCore c.Hhat M) :
-    ∀ q : ℕ, q.Prime → q ∉ primesOfOrder (fittingSubgroupOf c.Hhat) →
-      qCoreOf M q ⊓ c.Hhat = ⊥ := by
-  rcases hC with ⟨S, _hSne, hSF, hSB, hSsub, hCS⟩
-  exact bender1970_1_7_i_oddCoreDisjoint (minimalCounterexample_isSimple hmin)
-    c.Hhat c.Hhat_maximal S hSF hSsub hCS hSB
 
 end CFSG.GorensteinWalter

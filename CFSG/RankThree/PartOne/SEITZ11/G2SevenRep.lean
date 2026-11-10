@@ -355,11 +355,6 @@ theorem rep7_xPar
     rep7 k (xPar (rootOperatorFamily .G2) γ c) = yfam k γ c :=
   (existsUnique_rep7 k).choose_spec.1 γ hγ c
 
-theorem rep7_unique
-    (k : Type) [Field k] [Finite k] (ψ : adjointGroup .G2 k →* GL (Fin 7) k)
-    (h : ∀ γ, IsRoot .G2 γ → ∀ c, ψ (xPar (rootOperatorFamily .G2) γ c) = yfam k γ c) :
-    ψ = rep7 k :=
-  (existsUnique_rep7 k).unique h (existsUnique_rep7 k).choose_spec.1
 
 theorem rep7_xPar_pos
     (k : Type) [Field k] [Finite k] {a : ℕ} (ha : a < 12) (c : k) :

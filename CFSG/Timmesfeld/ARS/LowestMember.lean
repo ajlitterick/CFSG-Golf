@@ -85,16 +85,6 @@ theorem exists_mem_conjSub_eq_of_bruhat (hTU : T ≤ Subgroup.normalizer (U : Se
   refine ⟨t₄ * t, mul_mem ht₄ ht, ?_⟩
   rw [hconj, hFeq, conjSub_mul, hte]
 
-theorem exists_mem_conjSub_eq_of_bruhat' {V : Subgroup G}
-    (hB : ∀ v ∈ V, ∃ b ∈ T ⊔ U, ∃ k, ∃ b' ∈ T ⊔ U, v = b * x k * b')
-    (hTU : T ≤ Subgroup.normalizer (U : Set G)) (hxT : ∀ k, ∀ t ∈ T, x k * t * (x k)⁻¹ ∈ T)
-    (hQ : ∀ j, Q j ≤ U)
-    (hD : ∀ k, x k ∈ T ∨ ∃ j k', ∃ m ∈ P j ⊔ Q j, x k = x k' * m ∧ ℓ k' < ℓ k ∧
-      conjSub (P j) (x k) ≤ U)
-    {E : Subgroup G} (hE : Commuting E U) {v : G} (hv : v ∈ V)
-    (hEv : Commuting (conjSub E v) U) : ∃ t ∈ T, conjSub E t = conjSub E v := by
-  obtain ⟨b, hb, k, b', hb', rfl⟩ := hB v hv
-  exact exists_mem_conjSub_eq_of_bruhat hTU hxT hQ hD hE hb hb' k hEv
 
 end Abstract
 

@@ -72,41 +72,9 @@ theorem card_MG_inf_OG_eq
   rw [hj3] at h27 hlt ⊢
   interval_cases j <;> omega
 
-variable {c}
-
-theorem IsW.MG_sup_OG
-    {W : Subgroup G} (hW : c.IsW W) : c.MG ⊔ c.OG = W := by
-  have hle : c.MG ⊔ c.OG ≤ W := sup_le (c.MG_le_W hW) hW.OG_le
-  have h := card_sup_mul_card_inf_ge c.MG c.OG
-  rw [c.card_MG, (c.isPGroup_three_oddCore hW).2, c.card_OG_eq_81, c.card_MG_inf_OG_eq] at h
-  refine Subgroup.eq_of_le_of_card_ge hle ?_
-  rw [hW.card]
-  omega
-
-variable (c)
-
-theorem lemma17
-    : ∃ W : Subgroup G, IsPGroup 3 W ∧ Nat.card W = 3 ^ 6 ∧ (Nat.card G).factorization 3 = 6 ∧
-      c.OG ≤ W ∧ W ≤ c.NG ∧ (∀ w ∈ W, w * (c.a : G) = (c.a : G) * w) ∧
-      (∀ y : G, (y ∈ W ∧ ∀ w ∈ W, w * y = y * w) ↔ y ∈ zpowers (c.a : G)) ∧
-      normalizer (W : Set G) = c.NG ⊓ normalizer ((zpowers (c.a : G) : Subgroup G) : Set G) ∧
-      Nat.card ↥(normalizer (W : Set G)) = 2 ^ 3 * 3 ^ 6 ∧
-      IsExtraspecialThree c.MG (c.a : G) ∧ c.MG ≤ W ∧ Nat.card ↥c.Kg = 29160 ∧
-      Nat.card ↥(c.MG ⊓ c.OG) = 27 ∧ c.MG ⊔ c.OG = W := by
-  obtain ⟨W, hW⟩ := c.exists_isW
-  refine ⟨W, hW.isPGroup, hW.card, hW.factorization_three_card, hW.OG_le, hW.le_NG, hW.comm_a,
-    fun y => ?_, hW.normalizer_eq, by rw [hW.card_normalizer]; norm_num,
-    c.isExtraspecialThree_MG hW, c.MG_le_W hW, ?_, c.card_MG_inf_OG_eq, hW.MG_sup_OG⟩
-  · rw [← hW.centerW_eq_zpowers_a, mem_centerW]
-  · rw [c.card_Kg_eq, (c.isPGroup_three_oddCore hW).2]; norm_num
 
 end Ctx
 
-theorem factorization_three_card_eq (S : Setup G)
-    : (Nat.card G).factorization 3 = 6 := by
-  obtain ⟨c⟩ := S.exists_ctx
-  obtain ⟨W, hW⟩ := c.exists_isW
-  exact hW.factorization_three_card
 
 end Setup
 

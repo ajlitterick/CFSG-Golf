@@ -87,85 +87,11 @@ end Omega
 
 section Layer
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
-
-theorem exists_conj_layer_of_comm_mod (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmega p f Ω)
-    {K T M : Subgroup G} {z u : G} (hK : K ∈ Ω) (hT : T ∈ Ω) (hKz : IsUniqueInvolution K z)
-    (hTz : IsUniqueInvolution T z) (hKu : ¬ K ≤ Subgroup.centralizer ({u} : Set G))
-    (hTu : ¬ T ≤ Subgroup.centralizer ({u} : Set G))
-    (hzu : z ∈ Subgroup.centralizer ({u} : Set G)) (hM : M ∈ centralizingMembers Ω {u})
-    (hzM : ∀ x ∈ M, z * x * z⁻¹ * x⁻¹ ∈ oddCoreIn (locLayer Ω u)) :
-    ∃ o ∈ oddCoreIn (locLayer Ω u), conjSub o M ∈ centralizingMembers Ω {z} ∧
-      conjSub o M ∈ centralizingMembers Ω {u} ∧ conjSub o M ≠ K ∧ conjSub o M ≠ T ∧
-      locImg Ω u (conjSub o M) = locImg Ω u M := by
-  set Y := locLayer Ω u with hY
-  have hMY : M ≤ Y := le_centralizingLayer hM
-  have hzNorm : z ∈ Subgroup.normalizer (oddCoreIn Y : Set G) :=
-    mem_normalizer_oddCoreIn_centralizingLayer hΩ.conjInvariant hzu
-  have hzN : ∀ n ∈ oddCoreIn Y, z * n * z⁻¹ ∈ oddCoreIn Y := fun n hn =>
-    (Subgroup.mem_normalizer_iff.mp hzNorm n).mp hn
-  obtain ⟨o, hoN, hM', hKc, hTc⟩ := exists_conj_commutes_of_comm_mod hp hq hΩ hK hT hM.1 hKz hTz
-    (odd_card_oddCoreIn Y) (fun x hx n hn => conj_mem_oddCoreIn (hMY hx) hn) hzN hzM
-  have hoY : o ∈ Y := oddCoreIn_le Y hoN
-  have hoC : o ∈ Subgroup.centralizer ({u} : Set G) :=
-    centralizingLayer_le_centralizer Ω {u} hoY
-  have hM'u : conjSub o M ≤ Subgroup.centralizer ({u} : Set G) := by
-    intro y hy
-    have h1 : o⁻¹ * y * o ∈ M := mem_conjSub_iff.mp hy
-    have h2 : o⁻¹ * y * o ∈ Subgroup.centralizer ({u} : Set G) := hM.2 h1
-    have e : y = o * (o⁻¹ * y * o) * o⁻¹ := by group
-    rw [e]
-    exact mul_mem (mul_mem hoC h2) (inv_mem hoC)
-  have hne : ∀ {L : Subgroup G}, ¬ L ≤ Subgroup.centralizer ({u} : Set G) → conjSub o M ≠ L :=
-    fun hL h => hL (h ▸ hM'u)
-  have hMK : conjSub o M ≠ K := hne hKu
-  have hMT : conjSub o M ≠ T := hne hTu
-  refine ⟨o, hoN, ⟨hM', fun x hx => ?_⟩, ⟨hM', hM'u⟩, hMK, hMT, ?_⟩
-  · rw [Subgroup.mem_centralizer_singleton_iff]
-    exact ((hKc.resolve_left hMK) z hKz.mem x hx).symm
-  · have hmk : locMk Ω u ⟨o, hoY⟩ = 1 :=
-      (QuotientGroup.eq_one_iff (⟨o, hoY⟩ : ↥(locLayer Ω u))).mpr
-        (mem_oddCoreOf_iff.mp hoN).2
-    rw [locImg_conjSub_layer M ⟨o, hoY⟩, hmk]
-    ext x
-    simp
 
 end Layer
 
 section Twin
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
-  {K T : Subgroup G} {z : G}
-
-theorem TwinElt.exists_conj_layer_of_comm_mod (hp : p ≠ 2) (hq : 5 ≤ p ^ f) (hΩ : HypOmega p f Ω)
-    (e : TwinElt K T z) (hK : K ∈ Ω) (hT : T ∈ Ω) (hKz : IsClassicalMember p f K z)
-    (hTz : IsClassicalMember p f T z) (hKT : Commutes K T) {M : Subgroup G}
-    (hM : M ∈ centralizingMembers Ω {e.u})
-    (hzM : ∀ x ∈ M, z * x * z⁻¹ * x⁻¹ ∈ oddCoreIn (locLayer Ω e.u)) :
-    ∃ o ∈ oddCoreIn (locLayer Ω e.u), conjSub o M ∈ centralizingMembers Ω {z} ∧
-      conjSub o M ∈ centralizingMembers Ω {e.u} ∧ conjSub o M ≠ K ∧ conjSub o M ≠ T ∧
-      locImg Ω e.u (conjSub o M) = locImg Ω e.u M := by
-  have hodd : Odd (Nat.card (GaloisField p f)) := odd_natCard_galoisField hp hq
-  have hzu : z ∈ Subgroup.centralizer ({e.u} : Set G) :=
-    Subgroup.mem_centralizer_singleton_iff.mpr
-      (e.u_comm_z (le_centralizer_of_isClassicalMember hKz)
-        (le_centralizer_of_isClassicalMember hTz)).symm
-  exact TwinY.exists_conj_layer_of_comm_mod hp hq hΩ hK hT
-    (ConnectedA2.isUniqueInvolution_of_isClassicalMember hp hq hKz)
-    (ConnectedA2.isUniqueInvolution_of_isClassicalMember hp hq hTz)
-    (e.not_le_centralizer_left hKz (hΩ.exact K hK) hodd hKT)
-    (e.not_le_centralizer_right hTz (hΩ.exact T hT) hodd hKT) hzu hM hzM
-
-theorem TwinElt.exists_layer_member_of_comm_mod (hp : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hΩ : HypOmega p f Ω) (e : TwinElt K T z) (hK : K ∈ Ω) (hT : T ∈ Ω)
-    (hKz : IsClassicalMember p f K z) (hTz : IsClassicalMember p f T z) (hKT : Commutes K T)
-    {M : Subgroup G} (hM : M ∈ centralizingMembers Ω {e.u})
-    (hzM : ∀ x ∈ M, z * x * z⁻¹ * x⁻¹ ∈ oddCoreIn (locLayer Ω e.u)) :
-    ∃ N ∈ centralizingMembers Ω {z}, N ≠ K ∧ N ≠ T ∧
-      N ∈ centralizingMembers Ω {e.u} ∧ locImg Ω e.u N = locImg Ω e.u M := by
-  obtain ⟨o, -, hNz, hNu, hNK, hNT, himg⟩ :=
-    e.exists_conj_layer_of_comm_mod hp hq hΩ hK hT hKz hTz hKT hM hzM
-  exact ⟨conjSub o M, hNz, hNK, hNT, hNu, himg⟩
 
 end Twin
 

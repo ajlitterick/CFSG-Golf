@@ -93,7 +93,6 @@ variable (G₀ G₁ G₂) in
 
 @[expose] def ballLT (i : ℕ) (γ : CosetGeom G₀ G₁ G₂) : Set (CosetGeom G₀ G₁ G₂) := {δ | dist γ δ < i}
 
-@[expose] def ballLE (i : ℕ) (γ : CosetGeom G₀ G₁ G₂) : Set (CosetGeom G₀ G₁ G₂) := {δ | dist γ δ ≤ i}
 
 theorem smul_coe_quot (g k : G₀) (H : Subgroup G₀) :
     g • (k : G₀ ⧸ H) = ((g * k : G₀) : G₀ ⧸ H) := rfl
@@ -207,13 +206,6 @@ theorem orbit_γ₀_eq_Γ0 : MulAction.orbit G₀ (γ₀ G₀ G₁ G₂) = Γ0 G
   · rintro ⟨x, rfl⟩
     exact exists_smul_γ₀ x
 
-theorem orbit_γ₁_eq_Γ1 : MulAction.orbit G₀ (γ₁ G₀ G₁ G₂) = Γ1 G₀ G₁ G₂ := by
-  ext v
-  constructor
-  · rintro ⟨g, rfl⟩
-    exact ⟨_, rfl⟩
-  · rintro ⟨x, rfl⟩
-    exact exists_smul_γ₁ x
 
 @[expose] def stab (γ : CosetGeom G₀ G₁ G₂) : Subgroup G := (MulAction.stabilizer ↥G₀ γ).map G₀.subtype
 
@@ -485,29 +477,6 @@ theorem exists_smul_edge {u v : CosetGeom G₀ G₁ G₂} (h : (graph G₀ G₁ 
       · rw [smul_γ₁, hk2]
     | inr y' => exact (not_adj_inr_inr h).elim
 
-theorem exists_smul_edge_set {u v : CosetGeom G₀ G₁ G₂} (h : (graph G₀ G₁ G₂).Adj u v) :
-    ∃ g : G₀, g • ({γ₀ G₀ G₁ G₂, γ₁ G₀ G₁ G₂} : Set (CosetGeom G₀ G₁ G₂)) = {u, v} := by
-  obtain ⟨g, hg | hg⟩ := exists_smul_edge h
-  · refine ⟨g, ?_⟩
-    rw [Set.smul_set_insert, Set.smul_set_singleton, hg.1, hg.2]
-  · refine ⟨g, ?_⟩
-    rw [Set.smul_set_insert, Set.smul_set_singleton, hg.1, hg.2, Set.pair_comm]
-
-theorem smul_edge_eq_iff (h₁ : G₁ ≤ G₀) (h₂ : G₂ ≤ G₀) (g : G₀) :
-    g • ({γ₀ G₀ G₁ G₂, γ₁ G₀ G₁ G₂} : Set (CosetGeom G₀ G₁ G₂)) = {γ₀ G₀ G₁ G₂, γ₁ G₀ G₁ G₂} ↔
-      (g : G) ∈ G₁ ⊓ G₂ := by
-  rw [Set.smul_set_insert, Set.smul_set_singleton, Set.pair_eq_pair_iff]
-  constructor
-  · rintro (⟨h1, h2⟩ | ⟨h1, _⟩)
-    · have a1 : (g : G) ∈ stab (γ₀ G₀ G₁ G₂) := mem_stab_of_smul_eq h1
-      have a2 : (g : G) ∈ stab (γ₁ G₀ G₁ G₂) := mem_stab_of_smul_eq h2
-      rw [stab_γ₀ h₁] at a1
-      rw [stab_γ₁ h₂] at a2
-      exact ⟨a1, a2⟩
-    · exact (smul_γ₀_ne_smul_γ₁ g 1 (by simpa using h1)).elim
-  · rintro ⟨a1, a2⟩
-    left
-    exact ⟨smul_γ₀_of_mem h₁ a1, smul_γ₁_of_mem h₂ a2⟩
 
 theorem exists_stab_smul_eq {γ δ δ' : CosetGeom G₀ G₁ G₂} (h : (graph G₀ G₁ G₂).Adj γ δ)
     (h' : (graph G₀ G₁ G₂).Adj γ δ') : ∃ g : G₀, g • γ = γ ∧ g • δ = δ' := by

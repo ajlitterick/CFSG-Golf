@@ -54,16 +54,5 @@ structure Input25_3FactsNo38 : Prop where
     A ≤ Subgroup.normalizer (K : Set Y) → IsPGroup 3 ↥A → IsMaxInvSub A K q Q →
     ¬ Q ≤ centerIn K → ∀ y ∈ K, y ∈ Subgroup.centralizer (Q : Set Y) → y ∈ centerIn K ⊔ Q
 
-structure Input25_3Facts : Prop extends Input25_3FactsNo38 where
-  su38 : ∀ (Y : Type) [Group Y] [Finite Y] (K J A : Subgroup Y) (b : Y) (hbJ : b ∈ J),
-    CFSG.Open.IsQuasisimple ↥K → CFSG.Open.IsKGroup ↥K → b ∈ K →
-    orderOf b = 3 → CFSG.Open.IsComponentOf J (K ⊓ Subgroup.centralizer ({b} : Set Y)) →
-    IsSU38 (↥J ⧸ GLAPPrimeCore 3 ↥J) →
-    Subgroup.center (↥J ⧸ GLAPPrimeCore 3 ↥J) =
-      Subgroup.zpowers (QuotientGroup.mk (⟨b, hbJ⟩ : ↥J)) →
-    A ≤ Subgroup.normalizer (K : Set Y) → CFSG.Open.IsElemAbelian 3 A → Nat.card A = 9 → b ∈ A →
-    (∀ a ∈ A, a ≠ 1 → InducesFieldAut 3 J a) →
-    (∃ a ∈ A, ∃ h : a ∈ Subgroup.normalizer (J : Set Y), barAut 3 J ⟨a, h⟩ ≠ 1) →
-      J = K ∨ ∃ a ∈ A, a ≠ 1 ∧ b ∉ oPrimePOf 3 (K ⊓ Subgroup.centralizer ({a} : Set Y))
 
 end CFSG.HardMathSupport.Solomon.Coordinator

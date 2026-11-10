@@ -196,15 +196,6 @@ theorem closure_c_e_conj_t131_of_data (D : StrothTypeData B (StrothTypeIndex.t13
     rw [inv_mul_cancel_right] at this
     exact this
 
-theorem closure_c_e_conj_t131 (hB : HasStrothType B (StrothTypeIndex.t131 (s + 2) hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) {e : C}
-    (he : e * e = ⟨hB.data.a, hBC hB.data.a.2⟩) :
-    Subgroup.closure (Set.range ![(⟨hB.data.c, hBC hB.data.c.2⟩ : C), e,
-      conjBy (hL hB.data.ρ_mem_L) e]) = ⊤ :=
-  closure_c_e_conj_t131_of_data hB.data hBC hC hrel hL hncyc he
 
 theorem exists_torusBasis_t131_of_data (D : StrothTypeData B (StrothTypeIndex.t131 (s + 2) hm))
     (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
@@ -262,16 +253,6 @@ theorem exists_torusBasis_t131_of_data (D : StrothTypeData B (StrothTypeIndex.t1
   obtain ⟨E, hE⟩ := exists_torusEquiv_Idx4 hcomm x hx hgen hcard
   exact ⟨E, hE 0, hE 1, hE 2⟩
 
-theorem exists_torusBasis_t131 (hB : HasStrothType B (StrothTypeIndex.t131 (s + 2) hm))
-    (hBC : B ≤ C) (hC : C ≤ Subgroup.centralizer (B : Set S))
-    (hrel : Nat.card C = 4 * Nat.card B)
-    (hL : hB.data.L ≤ Subgroup.normalizer C)
-    (hncyc : ¬ IsCyclic (C ⧸ B.subgroupOf C)) {e : C}
-    (he : e * e = ⟨hB.data.a, hBC hB.data.a.2⟩) :
-    ∃ E : Torus (Type230.k s) ≃+ Additive C,
-      E (𝔤 s 0) = Additive.ofMul ⟨hB.data.c, hBC hB.data.c.2⟩ ∧ E (𝔤 s 1) = Additive.ofMul e ∧
-        E (𝔤 s 2) = Additive.ofMul (conjBy (hL hB.data.ρ_mem_L) e) :=
-  exists_torusBasis_t131_of_data hB.data hBC hC hrel hL hncyc he
 
 end Basis
 

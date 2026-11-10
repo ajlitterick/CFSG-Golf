@@ -27,8 +27,6 @@ variable {k C : Type*} [Field k] [AddCommGroup C]
     simp only [Prod.fst_neg, Prod.snd_neg, neg_mul, map_neg, AddMonoidHom.neg_apply]
     rw [ha s t]
 
-theorem mem_multRing {c : k →+ k →+ C} {m : k × k} :
-    m ∈ multRing c ↔ ∀ s t, c (m.1 * s) t = c s (m.2 * t) := Iff.rfl
 
 theorem skew_of_alternating {c : k →+ k →+ C} (halt : ∀ s, c s s = 0) (s t : k) :
     c s t = - c t s := by

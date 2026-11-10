@@ -36,6 +36,5 @@ theorem exists_E6_graphCoordinate (K : Type) [Field K] [Finite K] :
     rw [h]
     rfl
 
-variable {G : Type*} [Group G] [Finite G] {G₀ : Subgroup G}
 
 end CFSG.SeitzReduction.EPilot

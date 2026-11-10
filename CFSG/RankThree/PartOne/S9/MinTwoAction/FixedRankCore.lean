@@ -98,9 +98,6 @@ variable {L P : Type*} [Group L] [Group P]
     rw [map_mul]
     rfl)
 
-theorem restrictAutHom_apply (ρ : L →* MulAut P) (U : Subgroup P)
-    (hU : ∀ (l : L) (x : P), x ∈ U ↔ ρ l x ∈ U) (l : L) (x : U) :
-    ((restrictAutHom ρ U hU l x : U) : P) = ρ l x := rfl
 
 theorem mem_iff_of_characteristic (U : Subgroup P) [U.Characteristic] (σ : MulAut P) (x : P) :
     x ∈ U ↔ σ x ∈ U := by

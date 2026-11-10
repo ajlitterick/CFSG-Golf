@@ -22,9 +22,5 @@ open CFSG.Open CFSG.LocalAnalysis.GLTheoremB CFSG.HardMathSupport.Solomon.Coordi
                 barImageAt 3 b (Subgroup.zpowers b) = barCenterAt 3 b (bClosure B L))) →
             b ∈ oPrimePOf 3 (Subgroup.centralizer ({x} : Set G)))
 
-theorem lemma25_of_strong (h : Lemma25Strong) : Lemma25 :=
-  fun G _ _ m hS B D b L hs Lᵢ hLᵢ x hx hord hc =>
-    ⟨fun hxB => (h G m hS B D b L hs Lᵢ hLᵢ x hx hord hc).1 hxB |>.2,
-      (h G m hS B D b L hs Lᵢ hLᵢ x hx hord hc).2⟩
 
 end CFSG.HardMathSupport.Solomon.LocalBalance

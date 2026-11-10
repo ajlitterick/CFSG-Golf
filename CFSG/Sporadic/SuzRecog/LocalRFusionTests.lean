@@ -12,9 +12,6 @@ namespace CFSG.Sporadic.SuzRecog.LocalR
 open CFSG.ComponentClassification.AS81.SuzB0 CFSG.Monster.B.Co2.Native CFSG.PSL3Four.Native
   CFSG.Sporadic.SuzOddCore CFSG.Sporadic.SuzRecog
 
-@[expose] def fusionGens : Array Tab := Array.ofFn (n := 10) fun k => cTab k.val
-
-@[expose] def fusionInvs : Array Tab := fusionGens.map (invTab 1782)
 
 @[expose] def lambda3Word : List Nat := [1]
 
@@ -28,11 +25,6 @@ open CFSG.ComponentClassification.AS81.SuzB0 CFSG.Monster.B.Co2.Native CFSG.PSL3
 
 @[expose] def lambdaFixed : Array Nat := #[54, 54, 54, 42]
 
-@[expose] def lambdaOrbit (i : Nat) : Enum :=
-  orbitBFS 1782 fusionGens fusionInvs (lambdaTab i) lambdaSizes[i]!
-
-@[expose] def lambdaOrbitTabs : Array (Array Tab) :=
-  Array.ofFn (n := 4) fun i => (lambdaOrbit i.val).tabs
 
 @[expose] def sylowLiftWords : List (List Nat) :=
   [[1], [6], [3, 5, 3], [7, 9, 2, 4], [3, 2, 1, 9, 8], [3, 6, 5, 7]]
@@ -54,14 +46,6 @@ open CFSG.ComponentClassification.AS81.SuzB0 CFSG.Monster.B.Co2.Native CFSG.PSL3
     (allBelow 13 fun j => (sylowGenTab j).size == 1782) &&
     (qProds[4]!).size == 1782 && (qProds[8]!).size == 1782
 
-@[expose] def orbitsCheck : Bool :=
-  allBelow 4 fun i =>
-    orbitOK 1782 fusionGens fusionInvs (lambdaTab i) (lambdaOrbit i) &&
-      (lambdaOrbit i).tabs.size == lambdaSizes[i]!
-
-@[expose] def sylowCheck : Bool :=
-  enumOK 1782 fusionSylowGens fusionSylowEnum && fusionSylowEnum.tabs.size == 8192 &&
-    coverOK 1782 fusionSylowEnum.tabs lambdaOrbitTabs
 
 @[expose] def v0Check : Bool :=
   fusionV0.size == 512 &&
@@ -78,7 +62,5 @@ open CFSG.ComponentClassification.AS81.SuzB0 CFSG.Monster.B.Co2.Native CFSG.PSL3
     comp 1782 qProds[8]! (lambdaTab 1) == comp 1782 (lambdaTab 1) qProds[8]! &&
     comp 1782 (comp 1782 (comp 1782 qProds[4]! qProds[8]!) qProds[4]!) qProds[8]! == tTab
 
-@[expose] def fusionCheck : Bool :=
-  sizesCheck && orbitsCheck && sylowCheck && v0Check && repsCheck
 
 end CFSG.Sporadic.SuzRecog.LocalR

@@ -72,21 +72,5 @@ theorem fixedPointSubgroup_and_quotient_eq_bot_of_involution_capture
     Q hQinv hQsolv hQcop
   exact ⟨hfixed, by simpa only [hfixed, Subgroup.map_bot] using hlift⟩
 
-theorem fixedPointSubgroup_and_quotient_eq_bot_of_restricted_fixed_eq_bot
-    {M : Type u} [Group M] [Finite M] {A : Type v} [Group A] [Finite A]
-    [MulDistribMulAction A M] (hM : IsPGroup 2 M) (hA : Odd (Nat.card A))
-    (Q : Subgroup M) [Q.Normal] [hQinv : CFSG.IsInvariant A M Q]
-    (hInv : ∀ x : M, orderOf x = 2 → x ∈ Q)
-    (hQfixed : CFSG.fixedPointSubgroup A Q = ⊥) :
-    letI : MulDistribMulAction A (M ⧸ Q) :=
-      CFSG.quotientMulDistribMulAction (A := A) (G := M) Q hQinv
-    CFSG.fixedPointSubgroup A M = ⊥ ∧ CFSG.fixedPointSubgroup A (M ⧸ Q) = ⊥ := by
-  apply fixedPointSubgroup_and_quotient_eq_bot_of_involution_capture hM hA Q hQinv hInv
-  intro x hx hfix
-  have hxfix : (⟨x, hx⟩ : Q) ∈ CFSG.fixedPointSubgroup A Q := by
-    intro a
-    exact Subtype.ext (hfix a)
-  rw [hQfixed] at hxfix
-  exact congrArg Subtype.val (Subgroup.mem_bot.mp hxfix)
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowthCoprime

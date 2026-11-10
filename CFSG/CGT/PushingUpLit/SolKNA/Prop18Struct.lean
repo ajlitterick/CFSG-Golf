@@ -312,7 +312,6 @@ theorem inv_mul_mem_L_of_index_two {R L : Subgroup X} (hAL : L.relIndex R = 2) {
       (Subgroup.mem_subgroupOf.mp h) hyL⟩
   rwa [Subgroup.mem_subgroupOf] at h
 
-variable [N.Normal]
 
 end Dihedral
 

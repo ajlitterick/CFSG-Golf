@@ -86,8 +86,6 @@ section Elementary
 
 variable [Finite K]
 
-omit [Finite K] in
-theorem spLin_eq_gspLin (s : StatedSp r K) : spLin r K s = gspLin r K (spXg s) := rfl
 
 omit [Finite K] in
 theorem spXg_mem_ker_multiplier [NeZero r] (s : StatedSp r K) : spXg s ∈ (multiplier r K).ker := by

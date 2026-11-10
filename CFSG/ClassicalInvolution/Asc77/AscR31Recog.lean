@@ -101,17 +101,6 @@ theorem c22_chainSettingX_of_recog (hpos : C22_chainPos p f) (h : C22_recogNeg p
     C22_chainSettingX p f :=
   c22_chainSettingX_of_pos_neg hpos (c22_chainNeg_of_recog h)
 
-variable {p f} in
-theorem c22_recogNeg_of_chainNeg (h : C22_chainNeg p f) : C22_recogNeg p f := by
-  intro hq G _ _ _ Ω K K' K₃ z u₁ u₂ u₃ hs hW hLayer
-  have hΩ := hs.stand.hyp.conjInvariant
-  obtain ⟨U, hUΩ, hcomm, hpair, hgen⟩ := h hq G Ω K K' K₃ z u₁ u₂ u₃ hs hW hLayer
-  have hcls : ∀ J ∈ Ω, ∃ g : G, J = conjSub g (U (zeroD (n := 4) (by omega))) := by
-    intro J hJ
-    obtain ⟨g, hg⟩ := (hs.stand.of_mem (hUΩ (zeroD (n := 4) (by omega)))).trans J hJ
-    exact ⟨g, hg.symm⟩
-  exact exists_lieSystemData_of_chain_plus (n := 4) hs.stand.five (by norm_num) hΩ U hUΩ hcls
-    hcomm hpair hgen
 
 end CIT40
 
@@ -127,77 +116,6 @@ theorem c23_chainNeg_of_recog (h : C23_recogNeg p f) : C23_chainNeg p f := by
   · exact Or.inl (R31.chainB3_of_lieSystem hs.stand.odd hs.stand.five hΩ D hc ht hr)
   · exact Or.inr (R31.chainMinus4_of_lieSystem hs.stand.odd hs.stand.five hΩ D hc ht hr)
 
-variable {p f} in
-theorem c23_chainX_of_recog (hodd : T7Z.OddCenterClassical) (h : C23_recogNeg p f) :
-    C23_chainX p f :=
-  c23_chainX_of_inputs hodd (c23_chainNeg_of_recog h)
-
-variable {p f} in
-theorem c23_recogNeg_of_chainNeg (h : C23_chainNeg p f) : C23_recogNeg p f := by
-  intro hq G _ _ _ Ω K K' W z u e g hs hd hα hE hY
-  have hΩ := hs.stand.hyp.conjInvariant
-  have hcls : ∀ (U : Fin 3 → Subgroup G), U 0 ∈ Ω → ∀ J ∈ Ω, ∃ g : G, J = conjSub g (U 0) := by
-    intro U hU0 J hJ
-    obtain ⟨g, hg⟩ := (hs.stand.of_mem hU0).trans J hJ
-    exact ⟨g, hg.symm⟩
-  rcases h hq G Ω K K' W z u e g hs hd hα hE hY with
-    ⟨U, hU0, hc02, ⟨_, hp01⟩, ⟨_, hs12⟩, hgen⟩ | ⟨U, hU0, hc02, ⟨_, hp01⟩, ⟨_, ht12⟩, hgen⟩
-  · have hcomm : ∀ i j : Fin 3, i.val + 1 < j.val → ∀ a ∈ U i, ∀ b ∈ U j, a * b = b * a := by
-      intro i j hij
-      fin_cases i <;> fin_cases j <;> simp at hij
-      exact hc02
-    have hpair : ∀ i j : Fin 3, i.val + 1 = j.val → j.val + 1 < 3 →
-        ∃ W, LinearBlockStandardPair (GaloisField p f) W (U i) (U j) := by
-      intro i j hij hj
-      fin_cases i <;> fin_cases j <;> simp at hij hj
-      exact ⟨_, hp01⟩
-    have hsp : ∀ i j : Fin 3, i.val + 2 = 3 → j.val + 1 = 3 →
-        ∃ W, SymplecticBlockPair (GaloisField p f) W (U i) (U j) := by
-      intro i j hi hj
-      fin_cases i <;> fin_cases j <;> simp at hi hj
-      exact ⟨_, hs12⟩
-    obtain ⟨D, hc, i, ht, hr⟩ := exists_lieSystemData_of_chain_odd (n := 3) hs.stand.odd
-      hs.stand.five (by norm_num) hΩ U hU0 (hcls U hU0) hcomm hpair hsp hgen
-    exact ⟨D, hc, i, Or.inl ⟨ht, hr⟩⟩
-  · have hcomm : ∀ i j : Fin (4 - 1), i.val + 1 < j.val → ∀ a ∈ U i, ∀ b ∈ U j,
-        a * b = b * a := by
-      intro i j hij
-      fin_cases i <;> fin_cases j <;> simp at hij
-      exact hc02
-    have hpair : ∀ i j : Fin (4 - 1), i.val + 1 = j.val → j.val + 2 < 4 →
-        ∃ W, LinearBlockStandardPair (GaloisField p f) W (U i) (U j) := by
-      intro i j hij hj
-      fin_cases i <;> fin_cases j <;> simp at hij hj
-      exact ⟨_, hp01⟩
-    have htw : ∀ i j : Fin (4 - 1), i.val + 3 = 4 → j.val + 2 = 4 →
-        ∃ W, TwistedB2BlockPair (minusCoeffs_irr p f) W (U i) (U j) := by
-      intro i j hi hj
-      fin_cases i <;> fin_cases j <;> simp at hi hj
-      exact ⟨_, ht12⟩
-    obtain ⟨D, hc, i, ht, hr⟩ := exists_lieSystemData_of_chain_minus (n := 4) hs.stand.odd
-      hs.stand.five (by norm_num) (CFSG.ClassicalInvolution.RouteD.spinMinus6Generated_galois
-        hs.stand.odd) hΩ U hU0 (hcls U hU0) hcomm hpair htw hgen
-    exact ⟨D, hc, i, Or.inr ⟨ht, hr⟩⟩
-
-@[expose] def SpinSectionLie : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G] (Ω : Set (Subgroup G)) (K K' : Subgroup G)
-    (z u : G) (J : Subgroup G) (t : G) (W : Subgroup G), Hyp21 p f Ω K K' z u J t W → u ∈ W →
-      alphaOf (Subgroup.closure {u, z}) = ⊥ → dComp Ω K ≠ dstarComp Ω K →
-        SectionConnected Ω u → T7P.SpinSection p f Ω u → CFSG.Blueprint.OddLieType G
-
-variable {p f} in
-theorem spinSectionRecog_of_lie (h : SpinSectionLie p f) : T7P.SpinSectionRecog p f :=
-  fun G _ _ _ Ω K K' z u J t W hH huW hα hne hconn hspin =>
-    hH.std.cex (Or.inl (Or.inl (h G Ω K K' z u J t W hH huW hα hne hconn hspin)))
-
-variable {p f} in
-theorem spinSectionLie_of_recog (h : T7P.SpinSectionRecog p f) : SpinSectionLie p f :=
-  fun G _ _ _ Ω K K' z u J t W hH huW hα hne hconn hspin =>
-    (h G Ω K K' z u J t W hH huW hα hne hconn hspin).elim
-
-variable {p f} in
-theorem spinSectionConn_of_lie (h : SpinSectionLie p f) : T7P.SpinSectionConn p f :=
-  T7P.spinSectionConn_of_recog (spinSectionRecog_of_lie h)
 
 end Big
 

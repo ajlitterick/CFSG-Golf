@@ -366,22 +366,6 @@ private theorem a8kf_card_E {G : Type} [Group G] {Bs K : Subgroup G}
       exact MonoidHom.mem_range.mpr ⟨⟨g, hg.1⟩, a8kf_kappa_retract hrange hZ hA ⟨g, hg.1⟩ hg.2⟩
   rw [← hmap, Subgroup.card_map_of_injective K.subtype_injective]
 
-private noncomputable def a8kf_tail {G : Type} [Group G] {Bs K : Subgroup G}
-    {φ : SpecialLinearGroup (Fin 9) F2 →* G} (hrange : φ.range = K)
-    {A : ↥Bs → GL (Fin 9) F2} (hA : ∀ b : ↥Bs, ((b : G), A b) ∈ LinFusion.ggInducedPairs φ)
-    (hκB : ∀ b : ↥Bs, (a8kf_kappa hrange hA b : G) ∈ Bs)
-    (ρ : ↥K ≃* (GGSL9V ≃ₗ[ZMod 2] GGSL9V))
-    (hρE : ((Bs ⊓ K).subgroupOf K).map ρ.toMonoidHom = ggSL9Torus)
-    (b : ↥Bs) : Fin 3 → ZMod 7 :=
-  Multiplicative.toAdd (Classical.choose (show ∃ f : Multiplicative (Fin 3 → ZMod 7),
-      ggSL9TorusCoord f = ρ (a8kf_kappa hrange hA b) from by
-    have hmem : ρ (a8kf_kappa hrange hA b) ∈
-        ((Bs ⊓ K).subgroupOf K).map ρ.toMonoidHom :=
-      Subgroup.mem_map_of_mem ρ.toMonoidHom
-        ⟨hκB b, (a8kf_kappa hrange hA b).2⟩
-    rw [hρE] at hmem
-    rw [← range_ggSL9TorusCoord] at hmem
-    exact hmem))
 
 private noncomputable def a8kf_eVFun {G : Type} [Group G] {K : Subgroup G}
     (ρ : ↥K ≃* (GGSL9V ≃ₗ[ZMod 2] GGSL9V)) (v : Fin 4 → ZMod 7) : G :=

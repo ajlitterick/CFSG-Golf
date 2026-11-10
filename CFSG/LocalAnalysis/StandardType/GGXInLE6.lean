@@ -14,39 +14,6 @@ namespace CFSG.StandardType.GGXInL
 open CFSG CFSG.Assembly CFSG.Blueprint.Chevalley CFSG.LieType.Chevalley
   CFSG.StandardType.E6ThreeModel CFSG.StandardType.TableBExc.E6Three
 
-private lemma lup8e_nbar_le_normalizer {R : Type} [Group R] (D : FrameData R) (hD : D.Good) :
-    Subgroup.closure (↑D.Tor ∪ Set.range D.nb) ≤ Subgroup.normalizer (D.V0 : Set R) := by
-  refine (Subgroup.closure_le _).2 ?_
-  rintro z (hz | ⟨i, rfl⟩)
-  · refine (Subgroup.centralizer_le_normalizer (D.V0 : Set R)) ?_
-    rw [Subgroup.mem_centralizer_iff]
-    intro y hy
-    exact (hD.torus.1 z hz y (D.V0_le_Tor hy)).symm
-  · change D.nb i ∈ Subgroup.normalizer (D.V0 : Set R)
-    rw [Subgroup.mem_normalizer_iff]
-    intro y
-    constructor
-    · intro hy
-      obtain ⟨_, v, hv, hyv⟩ := (FrameData.mem_V0 D).1 hy
-      rw [FrameData.mem_V0]
-      refine ⟨hD.weyl.2.1 i y (D.V0_le_Tor hy), ?_⟩
-      refine ⟨adRefl .E6 3 i v, adRefl_mem_hypE6 hv i, ?_⟩
-      rw [map_mul, map_mul, map_inv, hyv]
-      exact hD.weyl.2.2.1 i v
-    · intro hy
-      have hni : (D.nb i)⁻¹ = D.nb i := inv_eq_of_mul_eq_one_right (hD.weyl.1 i)
-      have hx : D.nb i * (D.nb i * y * (D.nb i)⁻¹) * (D.nb i)⁻¹ = y := by
-        calc D.nb i * (D.nb i * y * (D.nb i)⁻¹) * (D.nb i)⁻¹
-            = (D.nb i * D.nb i) * y * ((D.nb i)⁻¹ * (D.nb i)⁻¹) := by group
-          _ = y := by rw [hD.weyl.1 i, one_mul, hni, hD.weyl.1 i, mul_one]
-      obtain ⟨_, v, hv, hyv⟩ := (FrameData.mem_V0 D).1 hy
-      rw [FrameData.mem_V0]
-      refine ⟨?_, ?_⟩
-      · rw [← hx]
-        exact hD.weyl.2.1 i _ (D.V0_le_Tor hy)
-      · refine ⟨adRefl .E6 3 i v, adRefl_mem_hypE6 hv i, ?_⟩
-        rw [← hx, map_mul, map_mul, map_inv, hyv]
-        exact hD.weyl.2.2.1 i v
 
 private theorem lup8e_conj_injective {G : Type} [Group G] (hZ : Subgroup.center G = ⊥) :
     Function.Injective (MulAut.conj : G → MulAut G) := by
@@ -115,12 +82,6 @@ private noncomputable def lup8e_equiv {R : Type} [Group R] (D : FrameData R)
     (hD : D.Good) : D.V0 ≃ NoOffRest.hypE6 :=
   Equiv.ofBijective _ (lup8e_eVec_bijective D hD)
 
-private noncomputable def lup8e_act {R : Type} [Group R] (D : FrameData R)
-    (hD : D.Good) :
-    Subgroup.closure (↑D.Tor ∪ Set.range D.nb) →* Equiv.Perm D.V0 :=
-  (MulAut.toPerm D.V0).comp
-    ((Subgroup.normalizerMonoidHom D.V0).comp
-      (Subgroup.inclusion (lup8e_nbar_le_normalizer D hD)))
 
 private theorem lup8e_norm_hyp {R : Type} [Group R] (D : FrameData R) (hD : D.Good)
     (r : R) (hr : r ∈ Subgroup.closure (↑D.Tor ∪ Set.range D.nb)) :

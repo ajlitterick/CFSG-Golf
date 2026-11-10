@@ -22,9 +22,6 @@ section Normalizes
 
 variable {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)} {c : G}
 
-theorem normalizesLayer_exactFamily3 (hΦ : SecData3 c (exactFamily3 Ω c)) :
-    NormalizesLayer (exactFamily3 Ω c) c := fun _ hn =>
-  mem_normalizer_centralizingLayer_of_secData hΦ hn
 
 end Normalizes
 
@@ -103,10 +100,6 @@ variable {X Yb : Type} [Group X] [Group Yb] {Φ : Set (Subgroup Yb)} {ι : Type}
           exact Subgroup.mem_centralizer_singleton_iff.mp ((iSup_le hcen) hg)
     · exact Or.inr (Or.inr (range_m11 hM hc (θ.comp (D.hom i)) (hnt i)))
 
-theorem explicitDec_Q (h0 : ModelClauseZero) (hM : M11Facts) (D : LieSystemData3 ι Yb Φ)
-    (θ : Yb →* X) (hθ : Function.Injective θ) (hnc : ∀ L ∈ Φ, ¬ L ≤ Subgroup.center Yb)
-    (i : ι) : (explicitDec h0 hM D θ hθ hnc).Q i = (θ.comp (D.hom i)).range :=
-  rfl
 
 end Abstract
 

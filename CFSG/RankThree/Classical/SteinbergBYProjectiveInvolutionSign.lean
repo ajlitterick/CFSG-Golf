@@ -260,11 +260,6 @@ theorem exists_lift_of_mem_coordinateD {d : Equiv.Perm (Omega F)} (hd : d ∈ co
   rw [← (linear_two_projective_identification F).2.2.2.2.1] at hd
   exact hd
 
-omit [Finite F] in
-theorem coordinateGLAction_mem_coordinateD (A : GL (Fin 2) F) :
-    coordinateGLAction F A ∈ coordinateD F := by
-  rw [← (linear_two_projective_identification F).2.2.2.2.1]
-  exact ⟨A, rfl⟩
 
 omit [Finite F] in
 theorem lift_conditions_of_involution {z : coordinateD F} (hz : orderOf z = 2) {Z : GL (Fin 2) F}

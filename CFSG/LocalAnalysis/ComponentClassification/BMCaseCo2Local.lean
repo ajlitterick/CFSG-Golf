@@ -24,30 +24,6 @@ theorem Kstab_rStar_simple :
     MulEquiv.subgroupCongr (congrArg Kstab phi0_coordOf_rStar.symm)
   exact ⟨@MulEquiv.isSimpleGroup _ _ _ _ hs e.symm, (Nat.card_congr e.toEquiv).symm.trans h⟩
 
-theorem pCore_Jbar : CFSG.pCore 2 Jbar = Ebar.subgroupOf Jbar := by
-  have hEcard : Nat.card (Ebar.subgroupOf Jbar) = 2 ^ 23 :=
-    (Nat.card_congr (Subgroup.subgroupOfEquivOfLe Ebar_le_Jbar).toEquiv).trans
-      Ebar_extraspecial.2
-  refine le_antisymm ?_ (le_sSup ⟨inferInstance, IsPGroup.of_card hEcard⟩)
-  obtain ⟨hsimple, hcard⟩ := Kstab_rStar_simple
-  have := hsimple
-  have : Finite (Kstab (phi0 (coordOf rStar))) :=
-    Nat.finite_of_card_ne_zero (by rw [hcard]; norm_num)
-  have hn : ((CFSG.pCore 2 Jbar).map jbarToKv).Normal :=
-    Subgroup.Normal.map pCore_normal jbarToKv jbarToKv_surjective
-  have hp : IsPGroup 2 ((CFSG.pCore 2 Jbar).map jbarToKv) := IsPGroup.map pCore_isPGroup _
-  rcases hn.eq_bot_or_eq_top with hbot | htop
-  · rw [← ker_jbarToKv, ← Subgroup.map_eq_bot_iff]
-    exact hbot
-  · exfalso
-    rw [htop] at hp
-    have hp' : IsPGroup 2 (Kstab (phi0 (coordOf rStar))) := hp.of_equiv Subgroup.topEquiv
-    obtain ⟨n, hn'⟩ := (IsPGroup.iff_card (p := 2)).1 hp'
-    rw [hcard] at hn'
-    have h3 : 3 ∣ 2 ^ n := by rw [← hn']; norm_num
-    have := (Nat.prime_dvd_prime_iff_eq (by norm_num) (by norm_num)).1
-      (Nat.Prime.dvd_of_dvd_pow (by norm_num) h3)
-    omega
 
 theorem centralizer_Ebar_eq : Subgroup.centralizer (Ebar : Set Cbar) = Subgroup.zpowers xbar := by
   apply le_antisymm
@@ -90,18 +66,6 @@ theorem conj_xbar_not_mem_zpowers : taubar * xbar * taubar⁻¹ ∉ Subgroup.zpo
   · exact ybar_ne_one h
   · exact xbar_ne_ybar h.symm
 
-theorem exists_mul_ne_mul_Cbar : ∃ a b : Cbar, a * b ≠ b * a := by
-  by_contra h
-  push Not at h
-  have htop : Subgroup.center Ebar = ⊤ := by
-    rw [eq_top_iff]
-    intro e _
-    rw [Subgroup.mem_center_iff]
-    intro f
-    exact Subtype.ext (h f e)
-  have hc := Ebar_extraspecial.1.2.2.2
-  rw [htop, Subgroup.card_top, Ebar_extraspecial.2] at hc
-  norm_num at hc
 
 theorem exists_surjective_ker_eq_of_quotient_equiv {J : Type*} [Group J] (N : Subgroup J)
     [N.Normal] {G : Type*} [Group G] (e : J ⧸ N ≃* G) :
@@ -116,32 +80,5 @@ theorem jbar_exact_sequence : ∃ f : Jbar →* Blueprint.NativeSporadic.Co2,
     Function.Surjective f ∧ f.ker = Ebar.subgroupOf Jbar :=
   exists_surjective_ker_eq_of_quotient_equiv _ Co2Catalog.jbarQuotEquiv
 
-theorem short_centralizer_Co2_local_recognition_hypotheses :
-    Finite Cbar ∧ IsSimpleGroup Cbar ∧ (∃ a b : Cbar, a * b ≠ b * a) ∧
-      Subgroup.centralizer {xbar} = Jbar ∧ CFSG.pCore 2 Jbar = Ebar.subgroupOf Jbar ∧
-      IsExtraspecialPGroup 2 Ebar ∧ Nat.card Ebar = 2 ^ 23 ∧
-      (Subgroup.center Ebar).map Ebar.subtype = Subgroup.zpowers xbar ∧
-      (∃ f : Jbar →* Blueprint.NativeSporadic.Co2,
-        Function.Surjective f ∧ f.ker = Ebar.subgroupOf Jbar) ∧
-      Subgroup.centralizer (Ebar : Set Cbar) = Subgroup.zpowers xbar ∧
-      taubar * xbar * taubar⁻¹ ∈ Ebar ∧ taubar * xbar * taubar⁻¹ ∉ Subgroup.zpowers xbar ∧
-      {y | ∃ c : Cbar, c * xbar * c⁻¹ = y} ∩
-        ((CFSG.pCore 2 Jbar).map Jbar.subtype : Set Cbar) ≠ {xbar} := by
-  obtain ⟨hfin, -, hsimple, -⟩ := short_centralizer_generated_quotient_simple
-  refine ⟨hfin, hsimple, exists_mul_ne_mul_Cbar, centralizer_xbar, pCore_Jbar,
-    Ebar_extraspecial.1, Ebar_extraspecial.2, map_center_Ebar, ?_, centralizer_Ebar_eq,
-    conj_xbar_mem_Ebar, conj_xbar_not_mem_zpowers, ?_⟩
-  · exact jbar_exact_sequence
-  · intro h
-    have hmem : taubar * xbar * taubar⁻¹ ∈ {y | ∃ c : Cbar, c * xbar * c⁻¹ = y} ∩
-        ((CFSG.pCore 2 Jbar).map Jbar.subtype : Set Cbar) := by
-      refine ⟨⟨taubar, rfl⟩, ?_⟩
-      rw [pCore_Jbar]
-      exact ⟨⟨_, Ebar_le_Jbar conj_xbar_mem_Ebar⟩, conj_xbar_mem_Ebar, rfl⟩
-    have hx : taubar * xbar * taubar⁻¹ = xbar :=
-      Set.mem_singleton_iff.1 ((Set.ext_iff.1 h _).1 hmem)
-    apply conj_xbar_not_mem_zpowers
-    rw [hx]
-    exact Subgroup.mem_zpowers xbar
 
 end CFSG.ComponentClassification.BMCase

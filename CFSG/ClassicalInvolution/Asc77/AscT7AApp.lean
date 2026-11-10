@@ -138,38 +138,5 @@ variable (p f) in
     Hyp21 p f Ω K K' z u J t W → MuIsoWylD4 Ω W → ∀ H : Subgroup G, rLayer Ω (t * z) ≤ H →
       ∀ M ∈ dstarComp Ω K, ∃ h ∈ H, conjSub h K = M
 
-variable (p f) in
-theorem c21_16_of (hE : ThmEWithSylow p f) (h3 : C21_3 p f) (h4 : TwinNormAlpha p f)
-    (h12 : C21_12 p f)
-    (h13 : C21_13 p f) (h14 : C21_14 p f) (hWyl : C21_WylTrans p f) : C21_16 p f := by
-  intro G _ _ _ Ω K K' z u J t W h
-  by_contra hα
-  have hs : AlphaSteps p f := ⟨h3, h4⟩
-  have hstd := stdCent_normalizer_alpha hs h13 h14 h
-  have hD : rLayer Ω (t * z) ≤ Subgroup.normalizer
-      (alphaOf (Subgroup.closure ({u, z} : Set G)) : Set G) :=
-    (rLayer_le_centralizer Ω (t * z)).trans ((h13 G Ω K K' z u J t W h).1)
-  have htrans : ∀ M ∈ dstarComp Ω K, ∃ x ∈ Subgroup.normalizer
-      (alphaOf (Subgroup.closure ({u, z} : Set G)) : Set G), conjSub x K = M := by
-    rcases h12 G Ω K K' z u J t W h with heq | hWylD4
-    · intro M hM
-      rw [← heq] at hM
-      exact hs.exists_mem_normalizer h hM
-    · exact hWyl G Ω K K' z u J t W h hWylD4 _ hD
-  have htop := thmE_apply hE h.std.stand h.std.hz h.std.hK' h.std.hne hstd htrans
-  have hnormal : (alphaOf (Subgroup.closure ({u, z} : Set G))).Normal :=
-    Subgroup.normalizer_eq_top_iff.mp htop
-  have hodd := (h3 G Ω K K' z u J t W h).1
-  rcases hnormal.eq_bot_or_eq_top with hbot | htopα
-  · exact hα hbot
-  · rw [htopα] at hodd
-    have hcard : Nat.card ↥(⊤ : Subgroup G) = Nat.card G := Subgroup.card_top
-    rw [hcard] at hodd
-    have h2 : 2 ∣ Nat.card G := by
-      have := orderOf_dvd_natCard (x := z)
-      have hz2 : orderOf z = 2 := orderOf_eq_prime (by rw [pow_two]; exact h.std.hz.sq)
-        h.std.hz.ne_one
-      rwa [hz2] at this
-    exact (Nat.not_even_iff_odd.mpr hodd) (even_iff_two_dvd.mpr h2)
 
 end CFSG.ClassicalInvolution.Asc77

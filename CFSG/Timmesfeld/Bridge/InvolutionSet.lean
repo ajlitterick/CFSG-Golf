@@ -44,8 +44,6 @@ theorem isInvolutionSet_image {Q : Type*} [Group Q] (hD : IsInvolutionSet D) (φ
 @[expose] def OddAcross (D : Set G) : Prop :=
   ∀ x ∈ D, ∀ y ∈ D, ¬ Reach D x y → Odd (orderOf (x * y))
 
-theorem oddAcross_of_isRootInvolutionSet (hD : IsRootInvolutionSet D) : OddAcross D :=
-  fun _ hx _ hy h => (opposite_of_not_reach hD hx hy h).2
 
 section Closed
 

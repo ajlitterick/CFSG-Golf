@@ -42,19 +42,6 @@ structure Ctx20One (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G
   ∀ (G : Type) [Group G] [Finite G] (A M L N : Subgroup G) (c : G) (T : Subgroup G),
     Ctx20One G A M L N c T → T ≤ N → ⁅L, vTwenty M c T⁆ = ⊥
 
-theorem item204One_of (h : Item204) : Item204One :=
-  fun G _ _ A M L N c T hT => h G A M L N c T hT.toCtx20
-
-theorem item205One_of (h : Item205) : Item205One := by
-  intro G _ _ A M L N c T hT
-  obtain ⟨h1, h2, h3, h4, T', hT', hT'N⟩ := h G A M L N c T hT.toCtx20
-  exact ⟨h1, h2, h3, h4, T', ⟨hT', hT.one⟩, hT'N⟩
-
-theorem item208One_of (h : Item208) : Item208One :=
-  fun G _ _ A M L N c T hT => h G A M L N c T hT.toCtx20
-
-theorem item209One_of (h : Item209) : Item209One :=
-  fun G _ _ A M L N c T hT => h G A M L N c T hT.toCtx20
 
 variable {G : Type} [Group G] [Finite G]
 

@@ -42,16 +42,6 @@ theorem frattini_quotient_automorphism_kernel : (frattiniQuotientAutomorphism Gr
     rw [frattini_quotient_automorphism_equivariant]
     exact member representative
 
-theorem quadratic_automorphism_quotient (automorphism : MulAut GroupType)
-    (quadratic : ∀ element : GroupType,
-      automorphism (element⁻¹ * automorphism element) = element⁻¹ * automorphism element)
-    (element : GroupType ⧸ frattini GroupType) :
-    frattiniQuotientAutomorphism GroupType automorphism
-      (element⁻¹ * frattiniQuotientAutomorphism GroupType automorphism element) =
-      element⁻¹ * frattiniQuotientAutomorphism GroupType automorphism element := by
-  obtain ⟨representative, rfl⟩ := QuotientGroup.mk'_surjective (frattini GroupType) element
-  rw [frattini_quotient_automorphism_equivariant, ← map_inv, ← map_mul,
-    frattini_quotient_automorphism_equivariant, quadratic]
 
 variable [Finite GroupType]
 

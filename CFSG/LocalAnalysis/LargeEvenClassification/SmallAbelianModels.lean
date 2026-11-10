@@ -38,10 +38,6 @@ theorem fourTwo_generator_rank : pGeneratorRank 2 FourTwo ≤ 2 := by
       Set FourTwo) = ⊤ := by simpa using fourTwo_generators
   exact (pGeneratorRank_le_generators Nat.prime_two hpgroup _ hgenerates).trans (by decide)
 
-theorem fourTwo_isPGroup : IsPGroup 2 FourTwo := by
-  apply IsPGroup.of_card (n := 3)
-  rw [Nat.card_eq_fintype_card]
-  decide
 
 def fourTwoRotate (element : FourTwo) : FourTwo :=
   (Multiplicative.ofAdd (element.1.toAdd + 2 * (element.2.toAdd.val : ZMod 4)),

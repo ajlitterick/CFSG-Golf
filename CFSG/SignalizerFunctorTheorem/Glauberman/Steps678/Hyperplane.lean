@@ -52,16 +52,6 @@ theorem exists_Ek_le_of_card (hp : p.Prime) {A C : Subgroup G} (hA : IsElemAbeli
   rw [Subgroup.card_map_of_injective C.subtype_injective]
   exact hK
 
-omit [Finite G] in
-theorem exists_Ek_le_hyperplane (hp : p.Prime) {A B : Subgroup G} (hA : IsElemAbelian p A)
-    (hA2 : p ^ 2 ≤ Nat.card A) (hB : B ∈ Coprime.hyperplanes p A) :
-    ∃ S ∈ signalizerFunctorEk p 1 A, S ≤ B := by
-  refine exists_Ek_le_of_card hp hA hB.1 ?_
-  have h1 : p * p ≤ p * Nat.card B := by
-    calc p * p = p ^ 2 := (sq p).symm
-      _ ≤ Nat.card A := hA2
-      _ = p * Nat.card B := hB.2
-  exact Nat.le_of_mul_le_mul_left h1 hp.pos
 
 theorem exists_Ek_le_inf_hyperplanes (hp : p.Prime) {A B B' : Subgroup G}
     (hA : IsElemAbelian p A) (hA3 : p ^ 3 ≤ Nat.card A) (hB : B ∈ Coprime.hyperplanes p A)

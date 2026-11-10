@@ -141,13 +141,6 @@ theorem cubeSub_ne_of_between {a N : ℕ} (ha : 1 ≤ a) (h1 : a * (a ^ 2 - 1) <
     · have := cubeSub_le_cubeSub ht0 hat
       omega
 
-theorem two_dvd_cubeSub (t : ℕ) : 2 ∣ t * (t ^ 2 - 1) := by
-  rcases Nat.even_or_odd t with ⟨k, hk⟩ | ⟨k, hk⟩
-  · exact Dvd.dvd.mul_right ⟨k, by omega⟩ _
-  · refine Dvd.dvd.mul_left ⟨2 * k ^ 2 + 2 * k, ?_⟩ _
-    rw [hk]
-    ring_nf
-    omega
 
 theorem prime_pow_inj {p f l g : ℕ} (hp : p.Prime) (hl : l.Prime) (hf : 1 ≤ f) (hg : 1 ≤ g)
     (h : p ^ f = l ^ g) : p = l ∧ f = g := by

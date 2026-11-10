@@ -23,13 +23,6 @@ open scoped _root_.Classical in
     (if x ∈ ⁅S, Subgroup.zpowers b⁆ ⊔ ⁅S, Subgroup.zpowers b₂⁆ then 0 else 1) +
     (if x ∈ ⁅S, Subgroup.zpowers b⁆ ⊔ ⁅S, Subgroup.zpowers b₁⁆ then 0 else 1)
 
-@[expose] def FF84OmegaData (S : Subgroup G) : Prop :=
-  ∃ (e : ↥S ≃* Multiplicative F6) (ψ : ↥(Nor S) →* OmG), Function.Surjective ψ ∧
-    ψ.ker = S.subgroupOf (Nor S) ∧
-    (∀ (n : G) (hn : n ∈ Nor S) (x : ↥S), ∃ hx : n * (x : G) * n⁻¹ ∈ S,
-      e ⟨n * (x : G) * n⁻¹, hx⟩ =
-        Multiplicative.ofAdd ((ψ ⟨n, hn⟩ : F6 ≃ₗ[ZMod 2] F6) (Multiplicative.toAdd (e x)))) ∧
-    ∀ x : ↥S, (x : G) ≠ 1 → (qMinus (Multiplicative.toAdd (e x)) = 1 ↔ Op 2 (Cen (x : G)) = S)
 
 @[expose] def FF84OmegaDataFor (S : Subgroup G) (e : ↥S ≃* Multiplicative F6) : Prop :=
   ∃ ψ : ↥(Nor S) →* OmG, Function.Surjective ψ ∧

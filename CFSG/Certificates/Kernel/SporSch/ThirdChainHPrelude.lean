@@ -13,7 +13,5 @@ namespace CFSG.Sporadic.Co2Schreier
 open CFSG.Monster.B.Co2 CFSG.Monster.B.Co2.Native CFSG.Certificates CFSG.Certificates.Native
   CFSG.Monster.B.Mathieu CFSG.Sporadic.Co2Cert
 
-variable (h : ThirdFactsH)
-include h
 
 end CFSG.Sporadic.Co2Schreier

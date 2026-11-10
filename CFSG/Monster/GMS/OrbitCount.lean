@@ -59,13 +59,5 @@ theorem card_conjClass_eq_sum_index (a : G) {n : ℕ} (b : Fin n → G)
     _ = _ := Finset.sum_congr rfl fun i _ =>
         (Nat.card_coe_set_eq (O i)).trans (index_subgroupOf_centralizer_eq_ncard C (b i)).symm
 
-theorem card_eq_card_centralizer_mul_sum (a : G) {n : ℕ} (b : Fin n → G)
-    (hb : ∀ i, IsConj a (b i))
-    (hcover : ∀ x, IsConj a x → ∃ i, ∃ g ∈ centralizer ({a} : Set G), g * b i * g⁻¹ = x)
-    (hdisj : ∀ i j, ∀ g ∈ centralizer ({a} : Set G), g * b i * g⁻¹ = b j → i = j) :
-    Nat.card G = Nat.card (centralizer ({a} : Set G)) *
-      ∑ i, ((centralizer ({b i} : Set G)).subgroupOf (centralizer ({a} : Set G))).index := by
-  rw [← card_conjClass_mul_card_centralizer a, card_conjClass_eq_sum_index a b hb hcover hdisj,
-    mul_comm]
 
 end CFSG.Monster.GMS

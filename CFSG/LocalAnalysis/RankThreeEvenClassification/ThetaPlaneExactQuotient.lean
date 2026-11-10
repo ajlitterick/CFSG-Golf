@@ -237,24 +237,6 @@ theorem thetaPlaneIntersection_map_eq_of_solvable_prime_complement_kernel
   simpa only [mul_inv_cancel_left] using
     (thetaCoreOf prime (Subgroup.centralizer ({element} : Set G))).mul_mem hother hdifferenceTheta
 
-theorem thetaPlaneAlpha_map_eq_of_solvable_prime_complement_kernel
-    {G : Type u} {H : Type v} [Group G] [Group H] [Finite G] [Finite H]
-    (prime : ℕ) (hprime : prime.Prime) (homomorphism : G →* H)
-    (hsurjective : Function.Surjective homomorphism)
-    (hkernelSolvable : Group.IsSolvable homomorphism.ker)
-    (hkernelComplement : ¬prime ∣ Nat.card homomorphism.ker)
-    (plane : Subgroup G) (hpgroup : IsPGroup prime plane)
-    (hinjective : Set.InjOn homomorphism (plane : Set G)) :
-    (thetaPlaneAlpha prime plane).map homomorphism =
-      thetaPlaneAlpha prime (plane.map homomorphism) := by
-  rw [thetaPlaneAlpha, Subgroup.map_sup,
-    thetaPlaneCommutators_map_eq_of_element_theta_images prime homomorphism plane hinjective
-      (fun element helement _ =>
-        thetaCoreOf_element_centralizer_map_eq_of_solvable_prime_complement_kernel prime hprime
-          homomorphism hsurjective hkernelSolvable hkernelComplement plane hpgroup element helement),
-    thetaPlaneIntersection_map_eq_of_solvable_prime_complement_kernel prime hprime homomorphism
-      hsurjective hkernelSolvable hkernelComplement plane hpgroup hinjective]
-  rfl
 
 theorem injOn_subgroup_of_disjoint_kernel {G : Type u} {H : Type v} [Group G] [Group H]
     (homomorphism : G →* H) (subgroup : Subgroup G) (hdisjoint : Disjoint subgroup homomorphism.ker) :
@@ -275,16 +257,6 @@ theorem injOn_pSubgroup_of_prime_complement_kernel
     (prime_complement_disjoint_pSubgroup prime hprime homomorphism.ker subgroup
       hkernelComplement hpgroup).symm
 
-theorem card_subgroup_map_eq_of_injOn {G : Type u} {H : Type v} [Group G] [Group H]
-    (homomorphism : G →* H) (subgroup : Subgroup G)
-    (hinjective : Set.InjOn homomorphism (subgroup : Set G)) :
-    Nat.card (subgroup.map homomorphism) = Nat.card subgroup := by
-  have hrestrictionInjective : Function.Injective (homomorphism.subgroupMap subgroup) := by
-    intro first second heq
-    apply Subtype.ext
-    exact hinjective first.property second.property (congrArg Subtype.val heq)
-  exact (Nat.card_congr (Equiv.ofBijective (homomorphism.subgroupMap subgroup)
-    ⟨hrestrictionInjective, homomorphism.subgroupMap_surjective subgroup⟩)).symm
 
 theorem thetaPlaneAlpha_le_theta_iff_of_central_pKernel
     {G : Type u} {H : Type v} [Group G] [Group H] [Finite G] [Finite H]
@@ -306,29 +278,5 @@ theorem thetaPlaneAlpha_le_theta_iff_of_central_pKernel
   · exact thetaPlaneAlpha_le_of_quotient_alpha_le_of_injective_plane prime hprime homomorphism
       hsurjective hcentral hkernel plane hcomm hinjective element hmem hne
 
-theorem thetaPlaneAlpha_le_theta_iff_of_solvable_prime_complement_kernel
-    {G : Type u} {H : Type v} [Group G] [Group H] [Finite G] [Finite H]
-    (prime : ℕ) (hprime : prime.Prime) (homomorphism : G →* H)
-    (hsurjective : Function.Surjective homomorphism)
-    (hkernelSolvable : Group.IsSolvable homomorphism.ker)
-    (hkernelComplement : ¬prime ∣ Nat.card homomorphism.ker)
-    (plane : Subgroup G) (hpgroup : IsPGroup prime plane) :
-    thetaPlaneAlpha prime plane ≤ solvablePrimeComplementCore G prime ↔
-      thetaPlaneAlpha prime (plane.map homomorphism) ≤ solvablePrimeComplementCore H prime := by
-  have hinjective := injOn_pSubgroup_of_prime_complement_kernel prime hprime homomorphism
-    hkernelComplement plane hpgroup
-  have hmap := thetaPlaneAlpha_map_eq_of_solvable_prime_complement_kernel prime hprime homomorphism
-    hsurjective hkernelSolvable hkernelComplement plane hpgroup hinjective
-  have hcoreMap := solvablePrimeComplementCore_map_eq_of_solvable_prime_complement_kernel prime hprime
-    homomorphism hsurjective hkernelSolvable hkernelComplement
-  constructor
-  · intro hle
-    rw [← hmap, ← hcoreMap]
-    exact Subgroup.map_mono hle
-  · intro hle
-    have hcomap := Subgroup.map_le_iff_le_comap.mp (hmap.le.trans hle)
-    rw [solvablePrimeComplementCore_comap_eq_of_solvable_prime_complement_kernel prime hprime
-      homomorphism hsurjective hkernelSolvable hkernelComplement] at hcomap
-    exact hcomap
 
 end CFSG.RankThreeEvenClassification.Helpers

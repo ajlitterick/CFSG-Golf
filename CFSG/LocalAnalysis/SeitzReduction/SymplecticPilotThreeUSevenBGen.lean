@@ -40,9 +40,6 @@ variable (hσ : ∀ c, σ (σ c) = c)
     det_heisenbergMatrix σ (by decide) (by decide) (by decide) a b,
     heisenbergMatrix_isometry σ hσ (by decide) (by decide) (by decide) h⟩
 
-theorem coe_ug3Heis {a b : F} (h : b + σ b + σ a * a = 0) :
-    ((ug3Heis hσ h : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =
-      heisenbergMatrix σ (0 : Fin 3) 1 a b := rfl
 
 theorem coe_ug3Heis_three {a b : F} (h : b + σ b + σ a * a = 0) :
     ((ug3Heis hσ h : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) = !![1, a, b; 0, 1, -σ a; 0, 0, 1] :=
@@ -109,8 +106,6 @@ variable (σ) (ι : K →+* F) (hι : ∀ c, σ (ι c) = ι c)
 @[expose] noncomputable def ug3Sl : SL(2, K) →* SU σ 3 :=
   (ctuEmbed 1 le_rfl σ ι hι).comp (longBlock K 1 0)
 
-theorem ug3Sl_apply (A : SL(2, K)) : ug3Sl σ ι hι A = ctuEmbed 1 le_rfl σ ι hι (longBlock K 1 0 A) :=
-  rfl
 
 theorem coe_ug3Sl (A : SL(2, K)) :
     ((ug3Sl σ ι hι A : GL (Fin 3) F) : Matrix (Fin 3) (Fin 3) F) =

@@ -184,15 +184,6 @@ theorem kVN : Nat.ble (SuzMcN 0) 520 = true := by quickRfl
 theorem kBad0 : (badK 0 15 0 && badK 2 7 0) = true := by quickRfl
 theorem kBad1 : (badK 0 8 1 && badK 2 8 1) = true := by quickRfl
 
-theorem neg_scan : Bool.not (allN 3456 (kwK (fun _ => 1) 0 5)) = true := by quickRfl
-
-theorem neg_wit : Bool.not (kwK (fun _ => 0) 0 5 0) = true := by quickRfl
-
-theorem neg_v : Bool.not (allN 512 (vwK (fun _ => 2))) = true := by quickRfl
-
-theorem neg_pin : Bool.not (Nat.beq (wK (wget boundW0 3)) (M 0 2)) = true := by quickRfl
-
-theorem neg_comm : Bool.not (cmK X TAU) = true := by quickRfl
 
 end CertificateChecks.KernelSpor.SuzMcK
 

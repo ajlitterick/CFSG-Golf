@@ -288,33 +288,11 @@ theorem autThetaQuot_commute {E L : Subgroup G} (hE : ∀ x ∈ E, ∀ y ∈ E, 
 
 end Automizers
 
-@[expose] def KS131AlphaInvolution : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (A : Subgroup G) (c : G) (L : Subgroup G),
-    Sec13Data G A c L →
-    thetaAlpha 3 ((Sec4.autThetaQuot A L).subgroupOf
-        (Sec4.autThetaQuot (Subgroup.centralizer ({c} : Set G)) L)) = ⊥ →
-    ∀ t ∈ thetaT 3 ((Sec4.autThetaQuot A L).subgroupOf
-        (Sec4.autThetaQuot (Subgroup.normalizer (Subgroup.zpowers c : Set G)) L)),
-      t ^ 2 = 1 →
-        (t : MulAut (L ⧸ aschbacherSolvableCore 3 L)) ∈
-          Sec4.autThetaQuot (Subgroup.centralizer ({c} : Set G)) L
 
 section PartOne
 
 variable {G : Type} [Group G] [Finite G]
 
-theorem thetaAlpha_autThetaQuot_centralizer_ne_bot (hK : KS131AlphaInvolution)
-    {A L : Subgroup G} {c : G} (hD : Sec13Data G A c L) :
-    thetaAlpha 3 ((Sec4.autThetaQuot A L).subgroupOf
-      (Sec4.autThetaQuot (Subgroup.centralizer ({c} : Set G)) L)) ≠ ⊥ := by
-  intro hα
-  apply hD.mem_lA.2.2.2
-  exact thetaAlpha_subgroupOf_eq_bot_of_le (autThetaQuot_mono hD.A_le_centralizer L)
-    (autThetaQuot_mono (centralizer_le_normalizer_zpowers c) L)
-    (autThetaQuot_centralizer_normal c L)
-    (fun β hβ => autThetaQuot_pow_three hD.isElemAbelian.2 hβ)
-    (fun β hβ γ hγ => autThetaQuot_commute (fun x hx y hy => hD.commute hx hy) hβ hγ)
-    (fun x hx => sq_mem_autThetaQuot_centralizer hD.orderOf_eq L hx) hα (hK G A c L hD hα)
 
 theorem mem_thetaQuotCentralizer_of_ne_mem_thetaComponentsAt {c : G} {K₁ K₂ : Subgroup G}
     (h₁ : K₁ ∈ thetaComponentsAt 3 c) (h₂ : K₂ ∈ thetaComponentsAt 3 c) (hne : K₁ ≠ K₂)
@@ -435,9 +413,6 @@ theorem thetaAlpha_autThetaQuot_centralizer_ne_bot_of_not_le (h422 : Sec4.Item4_
         (t : MulAut (L ⧸ aschbacherSolvableCore 3 L)) ∈
           Sec4.autThetaQuot (Subgroup.centralizer ({c} : Set G)) L
 
-theorem ks131AlphaInvolutionCentral_of (h : KS131AlphaInvolution) :
-    KS131AlphaInvolutionCentral :=
-  fun G _ _ A c L hD _ hα => h G A c L hD hα
 
 theorem thetaAlpha_autThetaQuot_centralizer_ne_bot_of_central (h422 : Sec4.Item4_22)
     (h45 : Sec4.Item4_5) (hK : KS131AlphaInvolutionCentral) {A L : Subgroup G} {c : G}
@@ -487,69 +462,6 @@ theorem inSubgroup_theta_le_of_isSubnormal {K D : Subgroup G} (hKD : K ≤ D)
   rw [h2]
   exact inf_le_right
 
-theorem inSubgroup_theta_inf_centralizer_le {c a : G} {L : Subgroup G}
-    (hL : L ∈ thetaComponentsAt 3 c) :
-    inSubgroup (aschbacherSolvableCore 3) (L ⊓ Subgroup.centralizer ({a} : Set G)) ≤
-      inSubgroup (aschbacherSolvableCore 3)
-        (Subgroup.centralizer ({c} : Set G) ⊓ Subgroup.centralizer ({a} : Set G)) := by
-  set C := Subgroup.centralizer ({c} : Set G) with hC
-  set D := C ⊓ Subgroup.centralizer ({a} : Set G) with hD
-  have hLC : L ≤ C := Sec6.le_centralizer_of_mem_thetaComponentsAt hL
-  have hKD : L ⊓ Subgroup.centralizer ({a} : Set G) ≤ D := inf_le_inf_right _ hLC
-  have hsnC : (L.subgroupOf C).IsSubnormal := (mem_thetaComponentsIn_iff.mp hL).2.2.1
-  have hsn : ((L ⊓ Subgroup.centralizer ({a} : Set G)).subgroupOf D).IsSubnormal := by
-    have h := hsnC.comap (Subgroup.inclusion (inf_le_left : D ≤ C))
-    convert h using 1
-    ext x
-    simp only [Subgroup.mem_subgroupOf, Subgroup.mem_comap, Subgroup.coe_inclusion,
-      Subgroup.mem_inf]
-    exact ⟨fun h => h.1, fun h => ⟨h, x.2.2⟩⟩
-  exact inSubgroup_theta_le_of_isSubnormal hKD hsn
-
-omit [Finite G] in
-theorem centralizer_closure_pair (c a : G) :
-    Subgroup.centralizer ((Subgroup.closure {c, a} : Subgroup G) : Set G) =
-      Subgroup.centralizer ({c} : Set G) ⊓ Subgroup.centralizer ({a} : Set G) := by
-  rw [Subgroup.centralizer_closure]
-  ext g
-  simp only [Subgroup.mem_centralizer_iff, Subgroup.mem_inf, Set.mem_insert_iff,
-    Set.mem_singleton_iff, forall_eq_or_imp, forall_eq]
-
-theorem exists_hyperplane_of_theta_inf_centralizer {A L : Subgroup G} {c a : G}
-    (hD : Sec13Data G A c L) (haA : a ∈ A) (hac : a ∉ Subgroup.zpowers c)
-    (h : ¬ ⁅inSubgroup (aschbacherSolvableCore 3) (L ⊓ Subgroup.centralizer ({a} : Set G)), A⁆ ≤
-      Sec4.thetaQuotCentralizer L) :
-    ∃ A' : Subgroup G, A' ≤ A ∧ Nat.card A = 3 * Nat.card A' ∧ c ∈ A' ∧
-      ¬ ⁅inSubgroup (aschbacherSolvableCore 3) (Subgroup.centralizer (A' : Set G)), A⁆ ≤
-        Sec4.thetaQuotCentralizer L := by
-  have hA'A : Subgroup.closure {c, a} ≤ A := by
-    rw [Subgroup.closure_le]
-    rintro x (rfl | rfl)
-    · exact hD.mem_A
-    · exact haA
-  have hcA' : c ∈ Subgroup.closure ({c, a} : Set G) :=
-    Subgroup.subset_closure (Set.mem_insert c _)
-  have haA' : a ∈ Subgroup.closure ({c, a} : Set G) :=
-    Subgroup.subset_closure (Set.mem_insert_of_mem c rfl)
-  refine ⟨Subgroup.closure {c, a}, hA'A, ?_, hcA', ?_⟩
-  · have hle := Sec10.card_closure_pair_le (hD.commute hD.mem_A haA) (hD.isElemAbelian.2 c hD.mem_A)
-      (hD.isElemAbelian.2 a haA)
-    have hlt : Subgroup.zpowers c < Subgroup.closure {c, a} :=
-      lt_of_le_of_ne (Subgroup.zpowers_le.mpr hcA') fun he => hac (he ▸ haA')
-    have hgt := Subgroup.card_lt_of_lt hlt
-    rw [hD.card_zpowers] at hgt
-    have hdvd : Nat.card (Subgroup.closure ({c, a} : Set G)) ∣ 3 ^ 3 := by
-      rw [show 3 ^ 3 = 27 by norm_num, ← hD.card_eq]
-      exact Subgroup.card_dvd_of_le hA'A
-    obtain ⟨k, hk, hk'⟩ := (Nat.dvd_prime_pow Nat.prime_three).mp hdvd
-    rw [hk'] at hle hgt
-    rw [hD.card_eq, hk']
-    interval_cases k <;> simp_all
-  · intro hle
-    apply h
-    refine le_trans (Subgroup.commutator_mono ?_ le_rfl) hle
-    rw [centralizer_closure_pair]
-    exact inSubgroup_theta_inf_centralizer_le hD.mem_thetaComponentsAt
 
 end PartTwo
 

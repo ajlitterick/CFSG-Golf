@@ -34,12 +34,6 @@ variable (Q : QuadraticForm K V)
   left_inv p := Subtype.ext (Projectivization.mk''_submodule p.val)
   right_inv L := Subtype.ext (Projectivization.submodule_mk'' L.val L.property.1)
 
-theorem nativePointEquiv_submodule (p : singularLines Q) :
-    (nativePointEquiv Q p).val = p.val.submodule := rfl
-
-theorem nativePointEquiv_symm_submodule (L : Points Q) :
-    ((nativePointEquiv Q).symm L).val.submodule = L.val :=
-  Projectivization.submodule_mk'' L.val L.property.1
 
 variable {Q}
 

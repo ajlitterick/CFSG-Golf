@@ -8,20 +8,6 @@ namespace CFSG.LocalAnalysis.RankThreeTheoremC.TenThreeThree
 
 open CFSG.Open CFSG.AGLEmbedding Subgroup
 
-@[expose] def Asc81bAltBlockAut : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (M S L : Subgroup G), Open.IsKGroup ↥M → Asc81bHyp M S →
-    IsWeakSBlock M S L →
-    (NineThreeSix M S L ∨ NineThreeSeven M S L ∨ NineThreeEight M S L) →
-    ∀ X : Subgroup G, normalizer (S : Set G) ⊓ L = X →
-    ∀ b (hb : b ∈ M), b ∈ normalizer (S : Set G) → Odd (orderOf b) →
-      b ∈ normalizer (L : Set G) →
-      (∀ w (hw : w ∈ barM M X),
-        QuotientGroup.mk' (CFSG.pCore 2 ↥(barM M X)) ⟨w, hw⟩ ∈
-          wSup (↥(barM M X) ⧸ CFSG.pCore 2 ↥(barM M X)) →
-        QuotientGroup.mk' (CFSG.pCore 2 ↥M) ⟨b, hb⟩ * w *
-          (QuotientGroup.mk' (CFSG.pCore 2 ↥M) ⟨b, hb⟩)⁻¹ * w⁻¹ ∈ pCoreOf 2 (barM M X)) →
-      ∀ y ∈ barM M L, QuotientGroup.mk' (CFSG.pCore 2 ↥M) ⟨b, hb⟩ * y =
-        y * QuotientGroup.mk' (CFSG.pCore 2 ↥M) ⟨b, hb⟩
 
 @[expose] def Asc81bAltBlockAutNX : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (M S L : Subgroup G), Open.IsKGroup ↥M → Asc81bHyp M S →

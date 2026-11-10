@@ -16,11 +16,6 @@ namespace CFSG.Yardstones.M0362f3a873a3
     CFSG.Blueprint.LieModel Q .PSU 4 3 1 ∨ CFSG.Blueprint.LieModel Q .POmegaOdd 3 3 1 ∨
     CFSG.Blueprint.LieModel Q .POmegaPlus 4 3 1 ∨ CFSG.Blueprint.LieModel Q .POmegaMinus 4 3 1
 
-@[expose] def SmallF3StandardOddLie : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] [IsSimpleGroup G], (∃ a b : G, a * b ≠ b * a) →
-    CFSG.Assembly.KProper CFSG.Blueprint.Catalog G →
-    ∀ L : Subgroup G, CFSG.Open.standardComponentIsStandard L →
-      SmallF3LieQuotient (L ⧸ Subgroup.center L) → CFSG.Blueprint.OddLieType G
 
 @[expose] def SmallF3StandardOddLieU : Prop :=
   CFSG.OddStandard.SmallF3Interfaces.SmallF3StandardOddLieU

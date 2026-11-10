@@ -405,7 +405,6 @@ theorem q8108_explicit
   exact ⟨hQX, hQP, hQp, hQexp_pt, hQ_ext, hQcard, hQrank, hE9contain, hΓQ⟩
 
 
-
 theorem normalizer_sylow_le_8108
     (hS : Standing4 G) (hU : CFSG.Open.uniqueFourUnique G) (S : Setup4 G)
     (hMS : S.InMSigma) (hC : CFSG.Yardstones.Mf4cdcdf2e013.TheoremCAt S.M)
@@ -426,53 +425,5 @@ theorem normalizer_sylow_le_8108
     pRank_three_le_three_of_not_strong hS hU S hMS hnot
   exact normalizer_le_of_gammaQ hQM hQp hQrank hQP hP hm3 hΓQ
 
-theorem q8108_singleton_pRank
-    (S : Setup4 G) {L L' : Subgroup G} (hL : L ∈ calC S.M)
-    (hLL : L' = L) (hSL : IsSL3Four (Bar2 L))
-    {P : Subgroup G} (hP : CFSG.ABGLocalTools.IsSylowOf 3 P S.M) :
-    CFSG.Open.pRank 3 ((P ⊓ L) ⊔ (P ⊓ L')) = 2 := by
-  have hR_sylow : CFSG.ABGLocalTools.IsSylowOf 3 (P ⊓ L) L :=
-    CFSG.GH74.GLS.Stage2.Signalizer.Ivk8.YCfg.isSylowOf_inf_of_subnormalIn
-      hP hL.1.le hL.1.subgroupOf
-  have hQeq : (P ⊓ L) ⊔ (P ⊓ L') = P ⊓ L := by rw [hLL, sup_idem]
-  rw [hQeq]
-  exact (CFSG.LocalAnalysis.RankFourTheoremC.pRank_eq_of_isSylowOf
-    Nat.prime_three hR_sylow).trans
-    (pRank_three_eq_two_of_mem_calC_of_isSL3Four hL hSL)
-
-theorem q8108_singleton_card
-    (S : Setup4 G) {L L' : Subgroup G} (hL : L ∈ calC S.M)
-    (hLL : L' = L) (hSL : IsSL3Four (Bar2 L))
-    {P : Subgroup G} (hP : CFSG.ABGLocalTools.IsSylowOf 3 P S.M) :
-    Nat.card ↥((P ⊓ L) ⊔ (P ⊓ L')) = 27 := by
-  haveI : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hLM : L ≤ S.M := hL.1.le
-  have hR_sylow : CFSG.ABGLocalTools.IsSylowOf 3 (P ⊓ L) L :=
-    CFSG.GH74.GLS.Stage2.Signalizer.Ivk8.YCfg.isSylowOf_inf_of_subnormalIn
-      hP hLM hL.1.subgroupOf
-  have hQeq : (P ⊓ L) ⊔ (P ⊓ L') = P ⊓ L := by rw [hLL, sup_idem]
-  set A : Subgroup (Bar2 S.M) := barImage S.M L with hAdef
-  set PA : Subgroup (Bar2 S.M) := barImage S.M (P ⊓ L) with hPAdef
-  obtain ⟨eA, -⟩ := uc22p22l_barImage_equiv (L := S.M) (K := L) hL
-  have hSL_A : IsSL3Four ↥A := isSL3Four_of_mulEquiv eA hSL
-  have hPA_sylow : CFSG.ABGLocalTools.IsSylowOf 3 PA A := by
-    rw [hPAdef, hAdef]
-    exact isSylowOf_barImage_of_isSylowOf hLM hR_sylow eA
-  have hPA_abs : CFSG.ABGLocalTools.IsSylowOf 3 (PA.subgroupOf A) ⊤ := by
-    rw [← CFSG.ABGLocalTools.isSylowOf_map_subtype_iff (p := 3) A
-      (A := PA.subgroupOf A) (B := ⊤)]
-    simpa [Subgroup.subgroupOf_map_subtype, Subgroup.map_top, Subgroup.range_subtype,
-      inf_eq_left.mpr hPA_sylow.le] using hPA_sylow
-  obtain ⟨-, hPA_card_abs⟩ :=
-    isExtraspecial_sylow_three_of_isSL3Four_of_certificates hSL_A hPA_abs
-  have hPA_card : Nat.card PA = 27 := by
-    rw [← Nat.card_congr (Subgroup.subgroupOfEquivOfLe hPA_sylow.le).toEquiv]
-    exact hPA_card_abs
-  have eR : ↥(P ⊓ L) ≃* ↥PA := by
-    rw [hPAdef]
-    exact equiv_barImage_of_isPGroup (M := S.M) (Q := P ⊓ L)
-      (hR_sylow.le.trans hLM) hR_sylow.isPGroup
-  rw [hQeq]
-  exact (Nat.card_congr eR.toEquiv).trans hPA_card
 
 end CFSG.LocalAnalysis.UniquenessCase.PartOne.Section8

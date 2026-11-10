@@ -49,7 +49,6 @@ theorem isDiag_of_commute_separating {X : Matrix (Fin d) (Fin d) F}
   · exact absurd (sub_eq_zero.mp h3) hne
   · exact h3
 
-variable [Finite F]
 
 end Matrices
 

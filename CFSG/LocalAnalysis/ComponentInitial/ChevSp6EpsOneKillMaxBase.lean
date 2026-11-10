@@ -143,7 +143,6 @@ theorem Jh_le_sup : Jh ≤ h.Jl ⊔ h.Jr := by
   rw [e]
   exact mul_mem (mul_mem (mem_sup_left hxa) (mem_sup_right hxb)) (mem_sup_left (h.E_le_Jl he))
 
-variable [Finite G]
 
 end KillData
 

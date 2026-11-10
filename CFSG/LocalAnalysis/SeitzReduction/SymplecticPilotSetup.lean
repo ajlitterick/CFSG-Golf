@@ -102,11 +102,6 @@ theorem hypothesisOne_quotient_center (hset : SeitzSetting G L) {n f : ℕ} (hn 
   CFSG.EvenSmallLie.hypothesisOne_of_mulEquiv (quotientCenterMulEquiv hset.center_eq_bot).symm
     (hypothesisOne_of_lieModel_PSp_of_three_le hn hL)
 
-theorem card_sylow_eq_two (hset : SeitzSetting G L) {n f : ℕ} (hn : 3 ≤ n)
-    (hL : CFSG.Blueprint.LieModel L .PSp n 2 f) (S : Sylow 2 (centralizer (L : Set G))) :
-    Nat.card S = 2 :=
-  card_sylow_eq_two_of_standard_of_center_eq_bot hset.standardSetting hset.center_eq_bot
-    (hypothesisOne_quotient_center hset hn hL) S
 
 theorem inf_centralizer_eq_zpowers (hset : SeitzSetting G L) {n f : ℕ} (hn : 3 ≤ n)
     (hL : CFSG.Blueprint.LieModel L .PSp n 2 f) {t : G} (htC : t ∈ centralizer (L : Set G))
@@ -156,23 +151,6 @@ section Fusion
 
 variable {G : Type} [Group G] [Finite G] {L : Subgroup G} {r : ℕ} {K : Type} [Field K]
 
-theorem exists_conj_eq_mul_twoCentral (hset : SeitzSetting G L) (hr : 3 ≤ r) [Finite K]
-    [CharP K 2] (e : L ≃* StatedSp r K) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    (hnot : ∀ (U : Sylow 2 L) (g : G), g⁻¹ * t * g ∈ L →
-      ¬ ∀ u ∈ (U : Subgroup L), (u : G) * (g⁻¹ * t * g) = (g⁻¹ * t * g) * u)
-    (hAutU : ∀ (U : Sylow 2 L) (β : MulAut L), (∀ u ∈ (U : Subgroup L), β u = u) →
-      β ∈ (MulAut.conj : L →* MulAut L).range) :
-    ∃ g : G, ∃ z ∈ L, g⁻¹ * t * g = t * z ∧ z ≠ 1 ∧
-      ∃ U : Sylow 2 L, ∀ u ∈ (U : Subgroup L), (u : G) * z = z * u := by
-  have hOut : IsCyclic (Outer L) := isCyclic_outer_of_mulEquiv_statedSp hr e
-  have htC : t ∈ centralizer (L : Set G) := LinearPilot.mem_centralizer_of_inf_eq_zpowers hKt
-  have hCN := CFSG.EvenSmallLie.centralizer_le_normalizer_of_standard
-    hset.standardSetting.standard htC ht
-  exact LinearPilot.exists_conj_eq_mul_of_commutator_eq_top
-    (SeitzQ2.commutator_eq_top_of_standardSetting hset.standardSetting) ht
-    (SeitzQ2.le_centralizer_singleton_of_mem_centralizer htC) hCN hKt hnot hAutU
-    (SeitzQ2.commutator_mem_of_sylow_le_centralizer_of_isCyclic_outer htC ht hCN hKt hOut)
 
 theorem exists_conj_eq_mul_twoCentral_twoSided (hset : SeitzSetting G L) (hr : 3 ≤ r)
     [Finite K] [CharP K 2] (e : L ≃* StatedSp r K) {t : G} (ht : orderOf t = 2)
@@ -201,21 +179,5 @@ theorem seitzExclusion_highPSp_of_forall
   obtain ⟨K, _, _, _, hK, ⟨e⟩, -, -, t, ht, -, -, -, hKt, -⟩ := exists_setup hset hn hL
   exact h G L hset n f K hK hn hnf e t ht hKt
 
-theorem seitzExclusion_highPSp_of_cases
-    (h4 : ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-      ∀ (n f : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2], Nat.card K = 2 ^ f → 2 ≤ f →
-        3 ≤ n → ∀ (_ : L ≃* StatedSp n K) (t : G), orderOf t = 2 →
-          centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t → False)
-    (h2 : ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G), SeitzSetting G L →
-      ∀ (n : ℕ) (K : Type) [Field K] [Finite K] [CharP K 2], Nat.card K = 2 → 4 ≤ n →
-        ∀ (_ : L ≃* StatedSp n K) (t : G), orderOf t = 2 →
-          centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t → False) :
-    SeitzExclusion HighPSp := by
-  refine seitzExclusion_highPSp_of_forall fun G _ _ L hset n f K _ _ _ hK hn hnf e t ht hKt => ?_
-  rcases LinearPilot.card_eq_two_or_four_le hK with ⟨rfl, hK2⟩ | ⟨hf, -⟩
-  · refine h2 G L hset n K hK2 ?_ e t ht hKt
-    by_contra hn4
-    exact hnf (by rw [show n = 3 by omega])
-  · exact h4 G L hset n f K hK hf hn e t ht hKt
 
 end CFSG.SeitzReduction.SymplecticPilot

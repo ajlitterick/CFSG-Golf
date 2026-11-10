@@ -157,12 +157,6 @@ section Pieces
   ∀ (a : ℕ) (t : StatedLieTag) (n : ℕ), 1 ≤ a → ¬ ShapeTable3 a t n →
     ShapePiece3 a (CompData.model t n)
 
-theorem shapePiece3_of_setupRecognition3 (h : SetupRecognition3) (a : ℕ) (c : CompData) :
-    ShapePiece3 a c :=
-  fun G _ _ _ hnab K z hR _ => h G hnab K z hR.cls hR.below hR.rank hR.large hR.conn hR.setup
-
-theorem multiPiece3_of_setupRecognition3 (h : SetupRecognition3) : MultiPiece3 :=
-  fun G _ _ _ hnab K z hR _ => h G hnab K z hR.cls hR.below hR.rank hR.large hR.conn hR.setup
 
 end Pieces
 
@@ -216,14 +210,6 @@ theorem rowPiece3_table (h1 : Piece3SL7) (h2 : Piece3SL6) (h3 : Piece3SLs) (h4 :
   · exact h17 a t n h
   · exact h9 a t n h
 
-theorem setupRecognition3_of_rows (h1 : Piece3SL7) (h2 : Piece3SL6) (h3 : Piece3SLs)
-    (h4 : Piece3SU7) (h5 : Piece3SU6) (h6 : Piece3SUs) (h7 : Piece3Sp4) (h8 : Piece3Sp3)
-    (h9 : Piece3Sp2) (h10 : Piece3E7) (h11 : Piece3E8) (h12 : Piece3TwinD)
-    (h13 : Piece3TwinSL4) (h14 : Piece3TwinB) (h15 : Piece3TwinSp2) (h16 : Piece3TwinTD)
-    (h17 : Piece3TwinSU4) (hA1 : PieceAllA1₃) (hM11 : PieceM11₃) (hNo : PieceNoA1₃)
-    (hEx : PieceExotic₃) (hmulti : MultiPiece3) : SetupRecognition3I :=
-  setupRecognition3_of_pieces (rowPiece3_table h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15
-    h16 h17) hA1 hM11 hNo hEx hmulti
 
 end Assembly
 

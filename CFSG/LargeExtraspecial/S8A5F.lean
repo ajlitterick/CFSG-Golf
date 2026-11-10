@@ -19,14 +19,6 @@ open CFSG.CGT.Timmesfeld75
 
 universe u
 
-@[expose] def Timmesfeld83A5Inf : Prop :=
-  ∀ {G : Type u} [Group G] [Finite G] {S : Setting G} {g : G}, CentralExtInput.{u} →
-    S5.Irr S → ∀ (H : Hyp4 S g), NoA2 S g → ∀ (C : Cons311 S g) {t : S.O}
-      (ht : t ∈ S.Lbar g) (ht1 : t ≠ 1) (hVQ : ¬ V S g t ≤ S.Qa g),
-      OmegaCase H C ht ht1 hVQ → ∀ D : Std H C ht ht1 hVQ, D.m = 2 → D.IsMinus →
-      S.Lbar g ⊓ Nbar S g t ≠ zpowers t →
-      ∀ y ∈ S.Mbar, y * t * y⁻¹ * t = t * (y * t * y⁻¹) → y * t * y⁻¹ ≠ t →
-        S.Lbar g ⊓ Nbar S g t ⊓ conjSubgroup y (S.Lbar g ⊓ Nbar S g t) = ⊥
 
 @[expose] def Timmesfeld83A5Good : Prop :=
   ∀ {G : Type u} [Group G] [Finite G] {S : Setting G} {g : G}, TimmesfeldCorBInput →

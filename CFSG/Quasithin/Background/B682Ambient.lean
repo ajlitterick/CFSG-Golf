@@ -144,21 +144,6 @@ namespace MinParabolic
 
 variable {G : Type*} [Group G] [Finite G] {H T M : Subgroup G}
 
-theorem exists_odd_prime_ambient (h : MinParabolic H T M) (hsolv : Group.IsSolvable ↥H) :
-    ∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧ p ∣ Nat.card ↥H ∧
-      ∀ q : ℕ, q.Prime → q ∣ Nat.card ↥H → q = 2 ∨ q = p := by
-  obtain ⟨p, hp, hp2, hq⟩ := h.subgroupOf.exists_odd_prime_of_solvable hsolv
-  refine ⟨p, hp, hp2, ?_, hq⟩
-  by_contra hpH
-  have hX : Nat.card ↥H ≠ 0 := Nat.card_pos.ne'
-  have hpow : Nat.card ↥H = 2 ^ (Nat.card ↥H).primeFactorsList.length :=
-    Nat.eq_prime_pow_of_unique_prime_dvd hX fun {d} hd hdX =>
-      (hq d hd hdX).resolve_right fun e => hpH (e ▸ hdX)
-  apply h.subgroupOf.not_isPGroup_top
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  refine IsPGroup.of_card (n := (Nat.card ↥H).primeFactorsList.length) ?_
-  rw [Subgroup.card_top]
-  exact hpow
 
 theorem isCyclic_twoResidual_ambient (h : MinParabolic H T M) (hsolv : Group.IsSolvable ↥H)
     {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (hpH : p ∣ Nat.card ↥H)
@@ -179,20 +164,6 @@ theorem isCyclic_twoResidual_ambient (h : MinParabolic H T M) (hsolv : Group.IsS
   exact isCyclic_of_surjective ((QuotientGroup.mk' _).subgroupMap (P : Subgroup ↥H))
     (MonoidHom.subgroupMap_surjective _ _)
 
-theorem e2_1_ambient (h : MinParabolic H T M)
-    (hSQT : ∀ p : ℕ, p.Prime → p ≠ 2 → CFSG.Open.pRank p H ≤ 2) (hsolv : Group.IsSolvable ↥H)
-    (hR : ¬ pCoreOf 2 (M.subgroupOf H) ≤ CFSG.Open.pCore 2 ↥H ∨
-      ∃ t ∈ T.subgroupOf H, (∀ j ∈ kerIn (M.subgroupOf H) ⊤,
-        t * j * t⁻¹ * j⁻¹ ∈ pCoreOf 2 (kerIn (M.subgroupOf H) ⊤)) ∧ t ∉ CFSG.Open.pCore 2 ↥H) :
-    ∃ p : ℕ, p.Prime ∧ p ≠ 2 ∧
-      (Nonempty (twoResidual (⊤ : Subgroup (↥H ⧸ CFSG.Open.pCore 2 ↥H)) ≃*
-          Multiplicative (ZMod p)) ∨
-        IsElemAbelianOfRank p 2 (twoResidual (⊤ : Subgroup (↥H ⧸ CFSG.Open.pCore 2 ↥H))) ∨
-        IsPOnePlusTwo p (twoResidual (⊤ : Subgroup (↥H ⧸ CFSG.Open.pCore 2 ↥H)))) := by
-  refine E2_1 h.subgroupOf (fun p hp hp2 => ?_) hsolv hR
-  have : Fact p.Prime := ⟨hp⟩
-  rw [pRank_top_subtype]
-  exact hSQT p hp hp2
 
 end MinParabolic
 

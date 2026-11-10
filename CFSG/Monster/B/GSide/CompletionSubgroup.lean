@@ -43,21 +43,6 @@ theorem injective_of_map_cV0_ne_one
     rw [← Φ.mem_ker, hk]
     exact Subgroup.mem_top _
 
-theorem exists_injective_completion
-    (φv : vStab cv0 →* G) (hφv : Function.Injective φv) (φe : cvSetStab {cv0, cw0} →* G)
-    (φt : ∀ j, cvSetStab {cv0, cw0, cu j} →* G)
-    (hve : ∀ a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0}), φv ⟨a, ha⟩ = φe ⟨a, hb⟩)
-    (hvt : ∀ j a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
-      φv ⟨a, ha⟩ = φt j ⟨a, hb⟩)
-    (het : ∀ j a (ha : a ∈ cvSetStab {cv0, cw0}) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
-      φe ⟨a, ha⟩ = φt j ⟨a, hb⟩) :
-    ∃ Φ : Shat →* G, Function.Injective Φ ∧ (∀ a : vStab cv0, Φ a = φv a) ∧
-      (∀ a : cvSetStab {cv0, cw0}, Φ a = φe a) ∧
-      ∀ j (a : cvSetStab {cv0, cw0, cu j}), Φ a = φt j a := by
-  have hU := native_universal_completion φv φe φt hve hvt het
-  obtain ⟨Φ, ⟨hΦv, hΦe, hΦt⟩, -⟩ := hU
-  refine ⟨Φ, injective_of_map_cV0_ne_one Φ fun h => cV0_ne_one (hφv ?_), hΦv, hΦe, hΦt⟩
-  exact (hΦv cV0).symm.trans (h.trans (map_one φv).symm)
 
 @[expose] def psiInvHom
     {d : G} (ψ : Subgroup.centralizer {d} ≃* vStab cv0) : vStab cv0 →* G :=
@@ -208,33 +193,5 @@ theorem nonempty_mulEquiv_B_of_range_eq_top
     (htop : Φ.range = ⊤) : Nonempty (G ≃* NativeSporadic.B) :=
   ⟨(MulEquiv.ofBijective Φ ⟨hΦ, MonoidHom.range_eq_top.1 htop⟩).symm.trans shatEquivB⟩
 
-theorem nonempty_mulEquiv_B_of_centralizer_le
-    [Finite G] (Φ : Shat →* G)
-    (hΦ : Φ (cV0 : Shat) ≠ 1)
-    (hC : ∀ t ∈ Φ.range, orderOf t = 2 → Subgroup.centralizer {t} ≤ Φ.range) :
-    Nonempty (G ≃* NativeSporadic.B) :=
-  nonempty_mulEquiv_B_of_range_eq_top Φ (injective_of_map_cV0_ne_one Φ hΦ)
-    (range_eq_top_of_centralizer_le Φ (injective_of_map_cV0_ne_one Φ hΦ) hC)
-
-theorem gside_reduction
-    [Finite G] (d₀ : NativeSporadic.B) (hd₀ : orderOf d₀ = 2)
-    (hrank : Matrix.rank (d₀.val.val - 1) = 1860) {d : G}
-    (φ : Subgroup.centralizer {d} ≃* Subgroup.centralizer {d₀})
-    (φe : cvSetStab {cv0, cw0} →* G) (φt : ∀ j, cvSetStab {cv0, cw0, cu j} →* G)
-    (hve : ∀ a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0}),
-      psiInvHom (psiOf hd₀ hrank φ) ⟨a, ha⟩ = φe ⟨a, hb⟩)
-    (hvt : ∀ j a (ha : a ∈ vStab cv0) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
-      psiInvHom (psiOf hd₀ hrank φ) ⟨a, ha⟩ = φt j ⟨a, hb⟩)
-    (het : ∀ j a (ha : a ∈ cvSetStab {cv0, cw0}) (hb : a ∈ cvSetStab {cv0, cw0, cu j}),
-      φe ⟨a, ha⟩ = φt j ⟨a, hb⟩)
-    (hC : ∀ Φ : Shat →* G, (∀ a : vStab cv0, Φ a = psiInvHom (psiOf hd₀ hrank φ) a) →
-      (∀ a : cvSetStab {cv0, cw0}, Φ a = φe a) →
-      (∀ j (a : cvSetStab {cv0, cw0, cu j}), Φ a = φt j a) →
-      ∀ t ∈ Φ.range, orderOf t = 2 → Subgroup.centralizer {t} ≤ Φ.range) :
-    Nonempty (G ≃* NativeSporadic.B) := by
-  obtain ⟨Φ, hΦ, hΦv, hΦe, hΦt⟩ := exists_injective_completion _
-    (psiInvHom_injective (psiOf hd₀ hrank φ)) φe φt hve hvt het
-  exact nonempty_mulEquiv_B_of_range_eq_top Φ hΦ
-    (range_eq_top_of_centralizer_le Φ hΦ (hC Φ hΦv hΦe hΦt))
 
 end CFSG.Monster.B.GSide

@@ -103,28 +103,6 @@ theorem dvd_card_starOf {A X : Subgroup G} {g : MulAut A} (hg : g ∈ starOf A X
   have := orderOf_dvd_natCard (⟨g, hg⟩ : starOf A X)
   rwa [Subgroup.orderOf_mk] at this
 
-theorem starOf_dihedral_of_mem_lThreeStar [Finite G] (h222 : Item222) {A : Subgroup G}
-    (hA : Sec21Std G A) (hA27 : Nat.card A = 3 ^ 3) {X : Subgroup G} (hX : X ∈ lThreeStar A)
-    {S : Type} [Group S] [IsSimpleGroup S] (e : X ≃* S) :
-    starOf A X = Subgroup.closure ((starOf A X : Set (MulAut A)) ∩ dStar A) ∧
-      Nonempty (starOf A X ≃* DihedralGroup 4) := by
-  obtain ⟨-, E', hE', U', hU', c', hp⟩ := hX
-  obtain ⟨hgen, ⟨χ, hχX, hχD⟩, hcase⟩ := h222 G A E' U' c' X ⟨hA, hE', hU', hp⟩
-  refine ⟨hgen, ?_⟩
-  have hXc : X ∈ thetaComponentsAt 3 c' := (lZeroStarAt_subset A c') hp.2.2.1
-  have hperf : Group.IsPerfect X := isPerfect_of_mem_thetaComponentsIn hXc
-  rcases hcase χ hχX hχD with ⟨-, n, hn0, hne, ⟨eL⟩, -, -⟩ | ⟨-, -, -, -, -, -, he⟩ |
-      ⟨-, -, -, -, -, -, he⟩ | ⟨-, -, -, he⟩ | ⟨h81, -⟩
-  · have : IsSimpleGroup X := e.isSimpleGroup
-    have hθ := inSubgroup_theta_eq_bot_of_isSimpleGroup hperf
-    have : IsSimpleGroup (SL3 n) :=
-      (((mulEquiv_lBar_of_theta_eq_bot hθ).trans eL).symm.trans e).isSimpleGroup
-    exact absurd this (not_isSimpleGroup_SL3 hn0 hne)
-  · exact he
-  · exact he
-  · exact he
-  · rw [hA27] at h81
-    norm_num at h81
 
 theorem not_dihedral_of_image_eq_swapRefl {A : Subgroup G}
     (f : Multiplicative (Fin 3 → ZMod 3) ≃* A) (hD : coordGL f '' dStar A = swapRefl)
@@ -232,70 +210,6 @@ theorem card_of_mulEquiv_perm_three {X : Type*} [Group X] (e : X ≃* Equiv.Perm
   rw [Nat.card_congr e.toEquiv, Nat.card_perm, Nat.card_eq_fintype_card, Fintype.card_fin]
   rfl
 
-theorem exists_kOf_sup_SL3 [Finite G] (h222 : Item222) (h228 : Item228)
-    (hL3 : Item228LThree) {A E U L : Subgroup G} {c : G} (hpair : Sec21Pair G A E U c L)
-    (hA27 : Nat.card A = 3 ^ 3) (hK : KOfWellDefined A) {φ ψ : MulAut A} (hφ : φ ∈ dStar A)
-    (hψ : ψ ∈ dStar A) (h3 : orderOf (φ * ψ) = 3) :
-    ∃ m : ℕ, 0 < m ∧ Even m ∧ Nonempty (kOf A φ ≃* projSL 2 (GaloisField 2 m)) ∧
-      Nonempty (kOf A ψ ≃* projSL 2 (GaloisField 2 m)) ∧
-      Nonempty ((kOf A φ ⊔ kOf A ψ : Subgroup G) ≃* SL3 m) := by
-  have hφ2 := mul_self_of_mem_dStar hφ
-  have hψ2 := mul_self_of_mem_dStar hψ
-  have hnc : ψ * φ ≠ φ * ψ := by
-    intro hc
-    have h2 : (φ * ψ) ^ 2 = 1 := by
-      rw [sq, mul_assoc, ← mul_assoc ψ, hc, mul_assoc, hψ2, mul_one, hφ2]
-    have := orderOf_dvd_of_pow_eq_one h2
-    rw [h3] at this
-    norm_num at this
-  have hne : ψ ≠ φ := by
-    intro h
-    apply hnc
-    rw [h]
-  have h3Y : 3 ∣ Nat.card (starOf A (kOf A φ ⊔ kOf A ψ)) := by
-    obtain ⟨h1, h2⟩ := mem_starOf_sup h222 hpair hK hφ hψ
-    have := dvd_card_starOf ((starOf A _).mul_mem h1 h2)
-    rwa [h3] at this
-  obtain ⟨hX1, -, hX3⟩ := h228 G A E U c L hpair hA27 φ hφ ψ hψ hne
-  rcases hX3 hnc with ⟨hYL, hcase, -⟩ | ⟨-, X, hX, hYX, ⟨eX⟩⟩
-  · have hYperf : Group.IsPerfect (kOf A φ ⊔ kOf A ψ : Subgroup G) :=
-      isPerfect_of_mem_thetaComponentFamily (lStar_subset A hYL)
-    rcases hcase with ⟨-, n, hn0, hne', ⟨eL⟩, ⟨eK⟩, -⟩ | ⟨-, -, -, -, -, -, ⟨e8⟩⟩ |
-        ⟨-, -, -, -, -, -, ⟨e8⟩⟩ | ⟨-, -, -, ⟨e8⟩⟩ | ⟨h81, -⟩
-    · obtain ⟨m', hm'0, hm'e, ⟨eK'⟩, hX'⟩ := hX1 _ hYL le_sup_left
-      have hm : m' = n := eq_of_mulEquiv_projSL_two (by omega) (by omega) (eK'.symm.trans eK)
-      subst hm
-      obtain ⟨eψ⟩ := nonempty_kOf_mulEquiv_of_orderOf_eq_three hK hφ hψ h3
-      refine ⟨m', hm'0, hm'e, ⟨eK⟩, ⟨eψ.trans eK⟩, ?_⟩
-      have hm2 : 2 ≤ m' := by obtain ⟨k, hk⟩ := hm'e; omega
-      rcases hX' with hSL | hS | hS | ⟨hm4, hS⟩ | ⟨-, hS⟩
-      · exact hSL
-      · obtain ⟨eS⟩ := hS
-        have := isSimpleGroup_projSp_two hm2
-        exact (not_lBar_SL3_of_simple hYperf eS hm'0 hm'e eL).elim
-      · obtain ⟨eS⟩ := hS
-        have := isSimpleGroup_projSU (m := 4) (n := m') le_rfl (by omega)
-        exact (not_lBar_SL3_of_simple hYperf eS hm'0 hm'e eL).elim
-      · obtain ⟨eS⟩ := hS
-        have := isSimpleGroup_projSU (m := 4) (n := m' / 2) le_rfl (by omega)
-        exact (not_lBar_SL3_of_simple hYperf eS hm'0 hm'e eL).elim
-      · obtain ⟨eS⟩ := hS
-        have := isSimpleGroup_projSU (m := 5) (n := 2) (by norm_num) (by norm_num)
-        exact (not_lBar_SL3_of_simple hYperf eS hm'0 hm'e eL).elim
-    · rw [card_of_mulEquiv_dihedral e8] at h3Y
-      norm_num at h3Y
-    · rw [card_of_mulEquiv_dihedral e8] at h3Y
-      norm_num at h3Y
-    · rw [card_of_mulEquiv_dihedral e8] at h3Y
-      norm_num at h3Y
-    · rw [hA27] at h81
-      norm_num at h81
-  · have hX3' := hL3 G A E U c L hpair hA27 φ hφ ψ hψ hne.symm X hX hYX (Or.inr ⟨eX⟩)
-    have := isSimpleGroup_projSU (m := 5) (n := 2) (by norm_num) (by norm_num)
-    obtain ⟨-, ⟨e8⟩⟩ := starOf_dihedral_of_mem_lThreeStar h222 hpair.toSec21Std hA27 hX3' eX
-    have hdvd := h3Y.trans (Subgroup.card_dvd_of_le (starOf_mono A hYX))
-    rw [card_of_mulEquiv_dihedral e8] at hdvd
-    norm_num at hdvd
 
 theorem commute_kOf_of_not_conj [Finite G] (h228 : Item228) {A E U L : Subgroup G} {c : G}
     (hpair : Sec21Pair G A E U c L) (hA27 : Nat.card A = 3 ^ 3) {φ ψ : MulAut A}
@@ -310,26 +224,6 @@ theorem commute_kOf_of_not_conj [Finite G] (h228 : Item228) {A E U L : Subgroup 
   · exact (hnconj w hw hwφ).elim
   · exact (hnconj w hw hwφ).elim
 
-theorem commute_kOf_of_swapRefl [Finite G] (h222 : Item222) (h228 : Item228)
-    (hL3 : Item228LThree) {A E U L : Subgroup G} {c : G} (hpair : Sec21Pair G A E U c L)
-    (hA27 : Nat.card A = 3 ^ 3) (f : Multiplicative (Fin 3 → ZMod 3) ≃* A)
-    (hD : coordGL f '' dStar A = swapRefl) {φ ψ : MulAut A} (hφ : φ ∈ dStar A)
-    (hψ : ψ ∈ dStar A) (hne : ψ ≠ φ) (hc : ψ * φ = φ * ψ) :
-    ∀ x ∈ kOf A φ, ∀ y ∈ kOf A ψ, x * y = y * x := by
-  obtain ⟨-, hX2, -⟩ := h228 G A E U c L hpair hA27 φ hφ ψ hψ hne
-  rcases hX2 hc with hb | ⟨hYL, m, hm0, hm4, -, -, ⟨eY⟩, -⟩ | ⟨-, -, -, ⟨X, hX, hYX, ⟨eX⟩⟩, -⟩
-  · intro x hx y hy
-    have hle := (Subgroup.commutator_eq_bot_iff_le_centralizer).mp hb
-    exact (Subgroup.mem_centralizer_iff.mp (hle hx) y hy).symm
-  · have hY3 := hL3 G A E U c L hpair hA27 φ hφ ψ hψ hne.symm _ hYL le_rfl
-      (Or.inl ⟨m / 2, ⟨eY⟩⟩)
-    have := isSimpleGroup_projSU (m := 4) (n := m / 2) le_rfl (by omega)
-    obtain ⟨hgen, ⟨e8⟩⟩ := starOf_dihedral_of_mem_lThreeStar h222 hpair.toSec21Std hA27 hY3 eY
-    exact (not_dihedral_of_image_eq_swapRefl f hD hgen e8).elim
-  · have hX3 := hL3 G A E U c L hpair hA27 φ hφ ψ hψ hne.symm X hX hYX (Or.inr ⟨eX⟩)
-    have := isSimpleGroup_projSU (m := 5) (n := 2) (by norm_num) (by norm_num)
-    obtain ⟨hgen, ⟨e8⟩⟩ := starOf_dihedral_of_mem_lThreeStar h222 hpair.toSec21Std hA27 hX3 eX
-    exact (not_dihedral_of_image_eq_swapRefl f hD hgen e8).elim
 
 theorem inf_eq_bot_of_commute {X Y : Subgroup G} {m : ℕ}
     (e : X ≃* projSL 2 (GaloisField 2 m)) (h : ∀ x ∈ X, ∀ y ∈ Y, x * y = y * x) :
@@ -340,64 +234,6 @@ theorem inf_eq_bot_of_commute {X Y : Subgroup G} {m : ℕ}
     Subtype.ext (h x x.2 z hz.2)
   exact (Subgroup.mem_bot).mpr (congrArg Subtype.val h1)
 
-theorem fixed_p01_p12_m01 : ∀ v : Fin 3 → ZMod 3,
-    (p01 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-    (p12 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-    (m01 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v → v = 0 := by
-  decide +kernel
-
-theorem fixed_p01_p12_d2 : ∀ v : Fin 3 → ZMod 3,
-    (p01 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-    (p12 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-    (d2 : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v → v = 0 := by
-  decide +kernel
-
-theorem eq_one_of_fixed_coord {A : Subgroup G} (f : Multiplicative (Fin 3 → ZMod 3) ≃* A)
-    {φ₁ φ₂ φ₃ : MulAut A} {M₁ M₂ M₃ : GL (Fin 3) (ZMod 3)} (h₁ : coordGL f φ₁ = M₁)
-    (h₂ : coordGL f φ₂ = M₂) (h₃ : coordGL f φ₃ = M₃)
-    (hfix : ∀ v : Fin 3 → ZMod 3, (M₁ : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-      (M₂ : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v →
-      (M₃ : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v → v = 0)
-    {a : A} (ha₁ : φ₁ a = a) (ha₂ : φ₂ a = a) (ha₃ : φ₃ a = a) : a = 1 := by
-  set v : Fin 3 → ZMod 3 := Multiplicative.toAdd (f.symm a)
-  have hv : ∀ {φ : MulAut A} {M : GL (Fin 3) (ZMod 3)}, coordGL f φ = M → φ a = a →
-      (M : Matrix (Fin 3) (Fin 3) (ZMod 3)) *ᵥ v = v := by
-    intro φ M hM hφ
-    rw [← hM, coordGL_mulVec, coordLin3_apply]
-    simp only [v, ofAdd_toAdd, MulEquiv.apply_symm_apply, hφ]
-  have h0 := hfix v (hv h₁ ha₁) (hv h₂ ha₂) (hv h₃ ha₃)
-  have : f.symm a = 1 := by
-    simpa [v] using congrArg Multiplicative.ofAdd h0
-  simpa using congrArg f this
-
-theorem coprime_card_center_six [Finite G] (h224 : Item224) {A E U L : Subgroup G} {c : G}
-    (hpair : Sec21Pair G A E U c L) {I : Subgroup G} (hAI : A ≤ I)
-    (hfix : ∀ a ∈ A, (∀ x ∈ I, a * x = x * a) → a = 1) :
-    Nat.Coprime (Nat.card (Subgroup.center I)) 6 := by
-  have : Fact (Nat.Prime 3) := ⟨Nat.prime_three⟩
-  have hle : (Subgroup.center I).map I.subtype ≤ Subgroup.centralizer (A : Set G) := by
-    rintro _ ⟨z, hz, rfl⟩
-    rw [Subgroup.mem_centralizer_iff]
-    intro a ha
-    exact congrArg Subtype.val ((Subgroup.mem_center_iff.mp hz) ⟨a, hAI ha⟩)
-  have hodd : Odd (Nat.card (Subgroup.center I)) := by
-    have hdvd := Subgroup.card_dvd_of_le hle
-    rw [Subgroup.card_map_of_injective I.subtype_injective] at hdvd
-    exact (h224 G A E U c L hpair).of_dvd_nat hdvd
-  have h3 : ¬ 3 ∣ Nat.card (Subgroup.center I) := by
-    intro h3
-    obtain ⟨z, hz⟩ := exists_prime_orderOf_dvd_card' 3 h3
-    have hzC : ((z : I) : G) ∈ Subgroup.centralizer (A : Set G) := hle ⟨z, z.2, rfl⟩
-    have hz3 : orderOf ((z : I) : G) = 3 := by
-      rw [Subgroup.orderOf_coe, Subgroup.orderOf_coe, hz]
-    have hzA := mem_of_mem_centralizer_of_orderOf_eq_three' hpair.mem_S.1 hzC hz3
-    have h1 := hfix _ hzA fun x hx =>
-      (congrArg Subtype.val ((Subgroup.mem_center_iff.mp z.2) ⟨x, hx⟩)).symm
-    rw [h1, orderOf_one] at hz3
-    norm_num at hz3
-  rw [show (6 : ℕ) = 2 * 3 by norm_num]
-  exact Nat.Coprime.mul_right (Nat.coprime_two_right.mpr hodd)
-    ((Nat.Prime.coprime_iff_not_dvd Nat.prime_three).mpr h3).symm
 
 theorem iSup_fin_three (K : Fin 3 → Subgroup G) : (⨆ i, K i) = K 0 ⊔ K 1 ⊔ K 2 := by
   apply le_antisymm
@@ -459,53 +295,5 @@ theorem isChainSystem_kOf [Finite G] (h222 : Item222) {A E U L : Subgroup G} {c 
     · exact card_eq_nine_mul_inf_centralizer_kOf h222 hpair hK h₃ h₁ h13.symm
     · exact card_eq_nine_mul_inf_centralizer_kOf h222 hpair hK h₃ h₂ h23.symm
 
-theorem eq_of_le_of_mem_lStar [Finite G] {A L Y : Subgroup G} (hL : L ∈ lStar A)
-    (hY : Y ∈ lStar A) (hYL : Y ≤ L) (hθ : inSubgroup (aschbacherSolvableCore 3) L = ⊥) :
-    L = Y := by
-  have hYperf := isPerfect_of_mem_thetaComponentFamily (lStar_subset A hY)
-  have hYL' : llRel Y L := by
-    rw [llRel, inf_eq_left.mpr hYL, inSubgroup_perfectResidual_of_isPerfect hYperf]
-    exact (sup_eq_left.mpr (Subgroup.map_subtype_le _)).symm
-  have h := hY.2 L (lStar_subset A hL) hYL'
-  rwa [llRel, inf_eq_right.mpr hYL, inSubgroup_perfectResidual_of_isPerfect hYperf, hθ,
-    sup_bot_eq] at h
-
-theorem dihedral_involutions : ∀ x y : DihedralGroup 4, x * x = 1 → y * y = 1 →
-    x * y ≠ y * x → (x * y) ^ 4 = 1 ∧ (x * y) ^ 2 ≠ 1 := by
-  decide
-
-theorem exists_orderOf_mul_eq_four {X : Type*} [Group X] {Z : Subgroup X} {S : Set X}
-    (hS : ∀ s ∈ S, s * s = 1) (hZ : Z = Subgroup.closure (S ∩ (Z : Set X)))
-    (e : Z ≃* DihedralGroup 4) : ∃ s ∈ S ∩ (Z : Set X), ∃ t ∈ S ∩ (Z : Set X),
-      orderOf (s * t) = 4 := by
-  by_cases hcomm : (S ∩ (Z : Set X)).Pairwise Commute
-  · have hab := Subgroup.isMulCommutative_closure hcomm
-    rw [← hZ] at hab
-    exact (not_isMulCommutative_dihedral_four (isMulCommutative_of_mulEquiv e hab)).elim
-  · simp only [Set.Pairwise, not_forall] at hcomm
-    obtain ⟨x, hx, y, hy, -, hxy⟩ := hcomm
-    refine ⟨x, hx, y, hy, ?_⟩
-    have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-    have hx' : e ⟨x, hx.2⟩ * e ⟨x, hx.2⟩ = 1 := by
-      rw [← map_mul, ← map_one e]
-      exact congrArg e (Subtype.ext (hS x hx.1))
-    have hy' : e ⟨y, hy.2⟩ * e ⟨y, hy.2⟩ = 1 := by
-      rw [← map_mul, ← map_one e]
-      exact congrArg e (Subtype.ext (hS y hy.1))
-    have hxy' : e ⟨x, hx.2⟩ * e ⟨y, hy.2⟩ ≠ e ⟨y, hy.2⟩ * e ⟨x, hx.2⟩ := by
-      intro h
-      apply hxy
-      have h' : (⟨x, hx.2⟩ * ⟨y, hy.2⟩ : Z) = ⟨y, hy.2⟩ * ⟨x, hx.2⟩ :=
-        e.injective (by rw [map_mul, map_mul]; exact h)
-      exact congrArg Subtype.val h'
-    obtain ⟨h4, h2⟩ := dihedral_involutions _ _ hx' hy' hxy'
-    have hord : orderOf (e ⟨x, hx.2⟩ * e ⟨y, hy.2⟩) = 2 ^ (1 + 1) :=
-      orderOf_eq_prime_pow (by simpa using h2) (by simpa using h4)
-    rw [← map_mul, MulEquiv.orderOf_eq] at hord
-    have : orderOf (⟨x, hx.2⟩ * ⟨y, hy.2⟩ : Z) = orderOf (x * y) := by
-      rw [← Subgroup.orderOf_coe]
-      rfl
-    rw [this] at hord
-    simpa using hord
 
 end CFSG.RankThree.PartTwo.Sec21

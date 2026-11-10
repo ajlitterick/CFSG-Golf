@@ -112,9 +112,6 @@ theorem adj_liftAt (c : P.C) (w : V) (h : G.Adj (P.π c) w) : P.adj.Adj c (P.lif
 theorem π_liftAt (c : P.C) (w : V) (h : G.Adj (P.π c) w) : P.π (P.liftAt c w h) = w :=
   (Classical.choose_spec (P.lift c w h).exists).2
 
-theorem eq_liftAt {c c' : P.C} (h : P.adj.Adj c c') :
-    c' = P.liftAt c (P.π c') (P.proj h) :=
-  (P.lift c (P.π c') (P.proj h)).unique ⟨h, rfl⟩ ⟨P.adj_liftAt _ _ _, P.π_liftAt _ _ _⟩
 
 theorem adj_iff_tri {a c d : P.C} (hc : G.Adj (P.π a) (P.π c)) (hd : G.Adj (P.π a) (P.π d))
     (hcd : G.Adj (P.π c) (P.π d)) :

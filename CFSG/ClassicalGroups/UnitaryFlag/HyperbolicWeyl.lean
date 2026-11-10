@@ -164,19 +164,6 @@ theorem weylMat_mulVec_single (h : UnitaryFieldData p f K) (c : K)
   rw [mulVec_single_one, col_apply, weylMat, signedPerm_apply]
   by_cases hy : y = weylPerm w x <;> simp [hy]
 
-theorem weylMat_mulVec_z (h : UnitaryFieldData p f K) (c : K) (w : Equiv.Perm (Fin r ⊕ Fin r))
-    (k : Fin ε) :
-    weylMat h c w *ᵥ Pi.single (.inr (.inl k)) 1 = Pi.single (.inr (.inl k)) 1 := by
-  rw [weylMat_mulVec_single, weylPerm_inr_inl, weylCoeff, one_smul]
-
-theorem weylMat_mulVec_of_inl (h : UnitaryFieldData p f K) (c : K)
-    {w : Equiv.Perm (Fin r ⊕ Fin r)} (hw : w ∈ hypWeyl r) {i j : Fin r}
-    (hij : w (.inl i) = .inl j) :
-    weylMat (ε := ε) h c w *ᵥ Pi.single (.inl i) 1 = Pi.single (.inl j) 1 ∧
-      weylMat (ε := ε) h c w *ᵥ Pi.single (.inr (.inr i)) 1 = Pi.single (.inr (.inr j)) 1 := by
-  have h' : w (.inr i) = .inr j := by rw [apply_inr_of_mem_hypWeyl hw, hij]; rfl
-  refine ⟨?_, ?_⟩ <;>
-    rw [weylMat_mulVec_single] <;> simp [weylCoeff, hij, h', lineCoord]
 
 theorem weylMat_mulVec_of_inr (h : UnitaryFieldData p f K) (c : K)
     {w : Equiv.Perm (Fin r ⊕ Fin r)} (hw : w ∈ hypWeyl r) {i j : Fin r}

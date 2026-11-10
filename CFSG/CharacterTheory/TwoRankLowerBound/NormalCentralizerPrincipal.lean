@@ -54,23 +54,6 @@ noncomputable def normalCentralizerConjugationEquiv {group : Type*} [Group group
   map_add' left right := Subtype.ext (map_add _ left.val.val right.val.val)
   map_mul' left right := Subtype.ext (map_mul _ left.val.val right.val.val)
 
-theorem commonCentralCoefficientScalar_mem {group : Type*} [Group group]
-    (ring : Subring ℂ) (subgroup : Subgroup group) (scalar : ring) :
-    centralCoefficientScalarHom (G := subgroup) ring scalar ∈ commonCentralCoefficientSubring ring subgroup := by
-  change MonoidAlgebra.mapDomainRingHom ℂ subgroup.subtype
-    (MonoidAlgebra.single 1 scalar.val) ∈ Subring.center (MonoidAlgebra ℂ group)
-  rw [MonoidAlgebra.mapDomainRingHom_apply, MonoidAlgebra.mapDomain_single, map_one]
-  exact (centralCoefficientScalarHom (G := group) ring scalar).property.2
-
-theorem commonCentralCoefficientInclusion_scalar {group : Type*} [Group group]
-    (ring : Subring ℂ) (subgroup : Subgroup group) (scalar : ring) :
-    commonCentralCoefficientInclusion ring subgroup
-      ⟨centralCoefficientScalarHom ring scalar, commonCentralCoefficientScalar_mem ring subgroup scalar⟩ =
-        centralCoefficientScalarHom ring scalar := by
-  apply Subtype.ext
-  change MonoidAlgebra.mapDomainRingHom ℂ subgroup.subtype (MonoidAlgebra.single 1 scalar.val) =
-    MonoidAlgebra.single 1 scalar.val
-  rw [MonoidAlgebra.mapDomainRingHom_apply, MonoidAlgebra.mapDomain_single, map_one]
 
 theorem commonCentralCoefficientInclusion_projection {group : Type*} [Group group] [Fintype group]
     (ring : Subring ℂ) (subgroup : Subgroup group) (value : commonCentralCoefficientSubring ring subgroup) :
@@ -221,50 +204,6 @@ theorem centralSubalgebraResidue_extension_from_inclusion {source group : Type*}
   rw [equivalence.symm_apply_apply] at hvalue
   exact hvalue.symm
 
-theorem commonCentralCoefficientScalarHom {group : Type*} [Group group]
-    (ring : Subring ℂ) (subgroup : Subgroup group) :
-    ∃ scalar : ring →+* commonCentralCoefficientSubring ring subgroup,
-      ∀ value, scalar value = ⟨centralCoefficientScalarHom ring value,
-        commonCentralCoefficientScalar_mem ring subgroup value⟩ := by
-  exact ⟨(centralCoefficientScalarHom ring).codRestrict (commonCentralCoefficientSubring ring subgroup)
-    (commonCentralCoefficientScalar_mem ring subgroup), fun _ => rfl⟩
-
-theorem normalCentralizer_residue_restriction_exists {group : Type*} [Group group] [Fintype group]
-    (basis : FiniteIrreducibleCharacterBasis group)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal] (primary : Subgroup group)
-    (localBasis : FiniteIrreducibleCharacterBasis (Subgroup.centralizer (primary : Set group)))
-    (label : basis.index) :
-    ∃ localLabel : localBasis.index, ∀ value : commonCentralCoefficientSubring
-      (localizedComplexIntegerRing ideal) (Subgroup.centralizer (primary : Set group)),
-      centralCharacterResidueHom localBasis ideal localLabel value.val =
-        centralCharacterResidueHom basis ideal label (commonCentralCoefficientInclusion _ _ value) := by
-  let inclusion := commonCentralCoefficientInclusion (localizedComplexIntegerRing ideal)
-    (Subgroup.centralizer (primary : Set group))
-  obtain ⟨localLabel, hequal⟩ := centralSubalgebraResidue_extension localBasis ideal
-    (commonCentralCoefficientSubring _ _) (commonCentralCoefficientScalar_mem _ _)
-      ((centralCharacterResidueHom basis ideal label).comp inclusion) (by
-        intro scalar
-        change centralCharacterResidueHom basis ideal label (inclusion _) = _
-        rw [commonCentralCoefficientInclusion_scalar, centralCharacterResidueHom_scalar])
-  exact ⟨localLabel, fun value => (congrArg (fun hom => hom value) hequal).symm⟩
-
-theorem normalCentralizer_residue_extension_exists {group : Type*} [Group group] [Fintype group]
-    (basis : FiniteIrreducibleCharacterBasis group)
-    (ideal : Ideal ComplexAlgebraicIntegers) [ideal.IsMaximal] (primary : Subgroup group)
-    (localBasis : FiniteIrreducibleCharacterBasis (Subgroup.centralizer (primary : Set group)))
-    (localLabel : localBasis.index) :
-    ∃ label : basis.index, ∀ value : commonCentralCoefficientSubring
-      (localizedComplexIntegerRing ideal) (Subgroup.centralizer (primary : Set group)),
-      centralCharacterResidueHom basis ideal label (commonCentralCoefficientInclusion _ _ value) =
-        centralCharacterResidueHom localBasis ideal localLabel value.val := by
-  obtain ⟨scalar, hscalar⟩ := commonCentralCoefficientScalarHom (localizedComplexIntegerRing ideal)
-    (Subgroup.centralizer (primary : Set group))
-  exact centralSubalgebraResidue_extension_from_inclusion basis ideal
-    (commonCentralCoefficientInclusion _ _) (commonCentralCoefficientInclusion_injective _ _) scalar
-    (fun value => by rw [hscalar, commonCentralCoefficientInclusion_scalar])
-    ((centralCharacterResidueHom localBasis ideal localLabel).comp (commonCentralCoefficientSubring _ _).subtype)
-    (fun value => by change centralCharacterResidueHom localBasis ideal localLabel (scalar value).val = _
-                     rw [hscalar]; exact centralCharacterResidueHom_scalar localBasis ideal localLabel value)
 
 theorem normalCentralizer_principal_detection {group : Type*} [Group group] [Fintype group]
     (basis : FiniteIrreducibleCharacterBasis group)

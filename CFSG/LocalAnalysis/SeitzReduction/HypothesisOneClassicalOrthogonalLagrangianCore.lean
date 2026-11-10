@@ -90,10 +90,6 @@ include hTQ in
 theorem polar_semilinear_apply (x y : V) : polar Q (T x) (T y) = φ (polar Q x y) := by
   rw [polar, polar, ← map_add, hTQ, hTQ, hTQ, map_sub, map_sub]
 
-include hTs in
-theorem semilinear_symm_smul (a : K) (x : V) : T.symm (a • x) = φ.symm a • T.symm x := by
-  apply T.injective
-  rw [hTs, AddEquiv.apply_symm_apply, AddEquiv.apply_symm_apply, RingEquiv.apply_symm_apply]
 
 include hTQ in
 theorem semilinear_map_symm (x : V) : Q (T.symm x) = φ.symm (Q x) := by

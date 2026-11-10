@@ -264,37 +264,6 @@ end ClassesFinite
 
 section Cross
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {𝒞 : Set (Subgroup G)} {a : G}
-  (hs : SecData p f a (linkFamily p f 𝒞 a))
-  (D' : LieDecomposition (memberImages (linkFamily p f 𝒞 a) a) (memberJoin (linkFamily p f 𝒞 a) a))
-
-include hs D' in
-theorem exists_fuzzyFrame_of_link_vertices (hp2 : p ≠ 2) (hq : 5 ≤ p ^ f)
-    (hinv : ConjInvariant 𝒞) (hcan : 𝒞 ⊆ canonicalMembers p f G) {M : Subgroup G}
-    (hM𝒞 : M ∈ 𝒞) (hM : IsClassicalMember p f M a) {J : Subgroup G} {t : G} (hJ𝒞 : J ∈ 𝒞)
-    (hJ : IsClassicalMember p f J t) (haJ : a ∈ trivialOnQuot J) (hta : t ≠ a)
-    {N : Subgroup G} {u : G} (hN𝒞 : N ∈ 𝒞) (hN : IsClassicalMember p f N u)
-    (haN : a ∈ trivialOnQuot N) (hua : u ≠ a) {i j : D'.ι} (hij : i ≠ j)
-    (hi : modOdd a (triangleResidual J a) ≤ D'.Q i)
-    (hj : modOdd a (triangleResidual N a) ≤ D'.Q j) (hclass : ¬ SameClass a t u) :
-    ∃ x ∈ involutionOddCore a, FuzzyFrameOn p f 𝒞 (triangleAxis a t (x * u * x⁻¹)) ∧
-      a ∈ fuzzyVertices p f 𝒞 (triangleAxis a t (x * u * x⁻¹)) ∧
-      Subgroup.closure ({a, t} : Set G) ≤ triangleAxis a t (x * u * x⁻¹) ∧
-      conjSub x (Subgroup.closure ({a, u} : Set G)) ≤ triangleAxis a t (x * u * x⁻¹) := by
-  have hMcan : IsCanonical M a := isCanonical_of_mem_canonicalMembers hp2 hq (hcan hM𝒞) hM
-  have hJcan := isCanonical_of_mem_canonicalMembers hp2 hq (hcan hJ𝒞) hJ
-  have hNcan := isCanonical_of_mem_canonicalMembers hp2 hq (hcan hN𝒞) hN
-  have ha2 := (isCentralInvolution_of_isClassicalMember hM).sq
-  have hsJ := isSectionMember_triangleResidual hJ ha2 haJ
-  have hsN := isSectionMember_triangleResidual hN ha2 haN
-  have htC : t ∈ Subgroup.centralizer ({a} : Set G) := hsJ.le hsJ.mem
-  have huC : u ∈ Subgroup.centralizer ({a} : Set G) := hsN.le hsN.mem
-  have htM := mem_trivialOnQuot_of_linkVertex hs D' hp2 hq hM𝒞 hM hMcan hJ𝒞 hJ haJ hta htC
-  have huM := mem_trivialOnQuot_of_linkVertex hs D' hp2 hq hM𝒞 hM hMcan hN𝒞 hN haN hua huC
-  have hJN := hs.commutator_mem_oddCore D' (triangleResidual_mem_linkFamily hJ𝒞 hJ haJ)
-    (triangleResidual_mem_linkFamily hN𝒞 hN haN) hij hi hj
-  exact exists_fuzzyFrame_of_residuals_commute hinv hM𝒞 hJ𝒞 hN𝒞 hM hJ hN hq hJcan hNcan htM huM
-    haJ haN hJN (Ne.symm hta) (conj_notMem_of_not_sameClass htC hua hclass)
 
 end Cross
 

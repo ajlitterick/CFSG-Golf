@@ -15,8 +15,6 @@ section Defs
 
 variable {G : Type} [Group G]
 
-@[expose] def rankThreeSpan (A : Subgroup G) : Subgroup G :=
-  ⨆ E₀ ∈ signalizerFunctorEk 2 3 A, Subgroup.centralizer (E₀ : Set G)
 
 abbrev LocalQuot (Ω : Set (Subgroup G)) (a : G) : Type :=
   ↥(centralizingLayer Ω {a}) ⧸ classicalInvolutionOddCore ↥(centralizingLayer Ω {a})
@@ -72,10 +70,6 @@ structure FrameSide (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup 
   generation : ∀ a ∈ A, IsFrameInvolution p f S a → CentralizerGenerationModO Ω A a
   link : ∀ a ∈ A, IsFrameInvolution p f S a → InvolutionLink p f Ω A S a
 
-@[expose] def omegaStar (Ω : Set (Subgroup G)) (A : Subgroup G) (S : Set (Subgroup G)) :
-    Set (Subgroup G) :=
-  {L | L ∈ Ω ∧ ∃ h ∈ rankThreeSpan A, ∃ K ∈ S, ∃ z ∈ A,
-    IsClassicalMember p f K z ∧ IsClassicalMember p f L (h * z * h⁻¹)}
 
 end Defs
 

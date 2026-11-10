@@ -26,8 +26,6 @@ theorem factorization_3_two : (3 : ℕ).factorization 2 = 0 :=
 theorem factorization_2_two : (2 : ℕ).factorization 2 = 1 :=
   factorization_pow_mul (p := 2) 1 1 (by norm_num) (by norm_num)
 
-theorem factorization_12_three : (12 : ℕ).factorization 3 = 1 :=
-  factorization_pow_mul (p := 3) 1 4 (by norm_num) (by norm_num)
 
 theorem factorization_6_three : (6 : ℕ).factorization 3 = 1 :=
   factorization_pow_mul (p := 3) 1 2 (by norm_num) (by norm_num)
@@ -43,12 +41,6 @@ theorem twoPartBound_eq_two_pow_factorization (s : TauCeti.SporadicName) :
   cases s <;> simp [twoPartBound, sporadicMultiplierOrder, factorization_12_two,
     factorization_6_two, factorization_3_two, factorization_2_two]
 
-theorem threePart_eq (s : TauCeti.SporadicName) :
-    3 ^ (sporadicMultiplierOrder s).factorization 3 =
-      if s = .M22 ∨ s = .J3 ∨ s = .McL ∨ s = .Suz ∨ s = .ONan ∨ s = .Fi22 ∨ s = .Fi24Prime
-      then 3 else 1 := by
-  cases s <;> simp [sporadicMultiplierOrder, factorization_12_three, factorization_6_three,
-    factorization_3_three, factorization_2_three]
 
 end CFSG.RankThree.PartTwo.Sec4.Census.Karpilovsky.Proving
 

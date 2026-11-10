@@ -59,9 +59,6 @@ omit [Finite V] in
 theorem fix_le : Z ≤ fixV L :=
   H.toSecHypS.fix_le
 
-omit [Finite V] in
-theorem stabLZ : L ≤ stabSub Z :=
-  H.toSecHypS.stabLZ
 
 omit [Finite V] in
 theorem stabX : L ⊔ A ≤ stabSub U ⊓ stabSub Z :=
@@ -101,9 +98,6 @@ theorem commute_of_mem_centSec {x : MulAut V} (hx : x ∈ A) (hxs : x ∈ centSe
     ∀ l ∈ L, x * l = l * x :=
   H.toSecHypS.commute_of_mem_centSec hx hxs
 
-omit [Finite V] in
-theorem inf_centSec_le_centSub : A ⊓ centSec U Z ≤ centSub U :=
-  H.toSecHypS.inf_centSec_le_centSub
 
 omit [Finite V] in
 theorem not_le_centSec_A : ¬ A ≤ centSec U Z :=
@@ -136,9 +130,6 @@ omit [Finite V] in
 theorem isSimple_autSec : IsSimpleGroup ↥(autSec L U Z) :=
   H.toSecHypS.isSimple_autSec
 
-omit [Finite V] in
-theorem quasisimple_autSec : CFSG.Open.IsQuasisimple ↥(autSec L U Z) :=
-  H.toSecHypS.quasisimple_autSec
 
 omit [Finite V] in
 theorem normG : ∀ y ∈ autSec (L ⊔ A) U Z, ∀ l ∈ autSec L U Z, y * l * y⁻¹ ∈ autSec L U Z :=
@@ -160,20 +151,6 @@ omit [Finite V] in
 theorem isIrrSec : XMod.IsIrrSec ↥(autSec L U Z) (⊥ : Subgroup (Sec U Z)) ⊤ :=
   H.toSecHypS.isIrrSec
 
-omit [Finite V] H in
-theorem eq_one_of_commOf_eq_bot
-    (h : XMod.commOf ↥(autSec L U Z) (⊤ : Subgroup (Sec U Z)) = ⊥) (a : ↥(autSec L U Z)) :
-    a = 1 :=
-  L2Block.SecHypS.eq_one_of_commOf_eq_bot h a
-
-omit [Finite V] in
-theorem commOf_top : XMod.commOf ↥(autSec L U Z) (⊤ : Subgroup (Sec U Z)) = ⊤ :=
-  H.toSecHypS.commOf_top
-
-omit [Finite V] in
-theorem isIrrSec_fixed :
-    XMod.IsIrrSec ↥(autSec L U Z) (XMod.fixed ↥(autSec L U Z) (⊤ : Subgroup (Sec U Z))) ⊤ :=
-  H.toSecHypS.isIrrSec_fixed
 
 theorem isTwoReduced : XMod.IsTwoReduced ↥(autSec L U Z) (⊤ : Subgroup (Sec U Z)) :=
   H.toSecHypS.isTwoReduced

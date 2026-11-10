@@ -502,12 +502,6 @@ theorem pair_decomp :
   have h : g ∈ A ⊓ Qp p H := ⟨hg.1, hg.2.2⟩
   rwa [pairF_inf_eq_bot hA] at h
 
-include hA hxQ in
-theorem pair_Qx_normal :
-    ∀ e ∈ A ⊔ cj x A, ∀ q ∈ (A ⊔ cj x A) ⊓ Qp p H, e * q * e⁻¹ ∈ (A ⊔ cj x A) ⊓ Qp p H :=
-  fun _ he _ hq =>
-    ⟨Subgroup.mul_mem _ (Subgroup.mul_mem _ he hq.1) (inv_mem he),
-      pairF_conj_mem (pairF_E_le hA hxQ he) hq.2⟩
 
 include hH hA hxQ hx in
 theorem pair_Qx_card :

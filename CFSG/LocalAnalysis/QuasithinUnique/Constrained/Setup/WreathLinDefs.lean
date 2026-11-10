@@ -29,10 +29,6 @@ variable {k : Type*} [Field k] {V : Type v} [AddCommGroup V] [Module k V]
     rw [e1, gl_apply_inv] at h
     exact h.symm
 
-theorem mem_linWreath_iff {ι : Type*} {W : Submodule k V} {I : ι → Submodule k V}
-    {P : Subgroup (Equiv.Perm ι)} {g : W ≃ₗ[k] W} :
-    g ∈ linWreath W I P ↔
-      ∃ σ ∈ P, ∀ i, ∀ w : W, ((g w : W) : V) ∈ I (σ i) ↔ (w : V) ∈ I i := Iff.rfl
 
 @[expose] def restrictPlane {W U : Submodule k V} (hUW : U ≤ W) (g : W ≃ₗ[k] W)
     (h : ∀ w : W, ((g w : W) : V) ∈ U ↔ (w : V) ∈ U) : U ≃ₗ[k] U where

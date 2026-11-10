@@ -100,12 +100,6 @@ variable {Y : Type u} [Group Y]
       Matrix.toLin'_mul]
     rfl
 
-@[expose] def H1Vanishing : Prop :=
-  ∀ (Y : Type) [Group Y] (φ : Y ≃* Matrix.SpecialLinearGroup (Fin 3) (ZMod 3)),
-    Subsingleton (groupCohomology.H1 (@Rep.of (ZMod 3) Y _ _ (Fin 3 → ZMod 3) _
-        (Pi.Function.module _ _ _) (natRepVia φ.toMonoidHom))) ∧
-      Subsingleton (groupCohomology.H1 (@Rep.of (ZMod 3) Y _ _ (Fin 3 → ZMod 3) _
-        (Pi.Function.module _ _ _) (dualRepVia φ.toMonoidHom)))
 
 variable {D : Type v} [AddCommGroup D] [Module (ZMod 3) D]
 
@@ -137,15 +131,6 @@ variable {D : Type v} [AddCommGroup D] [Module (ZMod 3) D]
 
 end Clause3
 
-@[expose] def YoshidaTransfer : Prop :=
-  ∀ (G : Type u) [Group G] [Finite G] (p : ℕ), p.Prime → ∀ P : Sylow p G,
-    (∀ (N : Subgroup (P : Subgroup G)) [N.Normal],
-      IsEmpty ((↥(P : Subgroup G) ⧸ N) ≃* (Multiplicative (ZMod p) ≀ᵣ Multiplicative (ZMod p)))) →
-    ((P : Subgroup G) ⊓ commutator G =
-        (P : Subgroup G) ⊓
-          (commutator (normalizer (P : Set G))).map (normalizer (P : Set G)).subtype) ∧
-      ((∀ (N : Subgroup G) [N.Normal], IsPGroup p (G ⧸ N) → N = ⊤) →
-        (P : Subgroup G) = ⁅(P : Subgroup G), normalizer ((P : Subgroup G) : Set G)⁆)
 
 section Clause5
 
@@ -179,16 +164,8 @@ open CFSG.RankThree.Asc83Table
 @[expose] def M12ThreeLocalData (G : Type u) [Group G] : Prop :=
   ∀ P : Sylow 3 G, M12SylowData (P : Subgroup G)
 
-@[expose] def M12J1ThreeLocal : Prop :=
-  (∀ (G : Type u) [Group G], Nonempty (G ≃* CFSG.Blueprint.NativeSporadic.M12) →
-      M12ThreeLocalData G) ∧
-    ∀ (G : Type u) [Group G], Nonempty (G ≃* CFSG.Blueprint.NativeSporadic.J1) →
-      Nat.card G = 175560 ∧ pRank 3 G = 1
 
 end Clause5
 
-@[expose] def KnownGroupToolkit : Prop :=
-  CFSG.RankThree.PartTwo.Item37.{u} ∧ BloomIrreducibleGL33 ∧
-    (H1Vanishing ∧ SL33Splitting.{u, u}) ∧ M12J1ThreeLocal.{u} ∧ YoshidaTransfer.{u}
 
 end CFSG.RankThree.PartTwo.Toolkit

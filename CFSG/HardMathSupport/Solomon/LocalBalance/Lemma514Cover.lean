@@ -116,8 +116,6 @@ section Glue
 theorem gl_isSubnormal_inf {G : Type} [Group G] {A B : Subgroup G} (C : Subgroup G)
     (h : IsSubnormal A B) : IsSubnormal (A ⊓ C) (B ⊓ C) := isSubnormal_inf h C
 
-theorem gl_isSubnormal_of_le {G : Type} [Group G] {A B C : Subgroup G} (h : IsSubnormal A C)
-    (hAB : A ≤ B) (hBC : B ≤ C) : IsSubnormal A B := isSubnormal_of_le_of_le h hAB hBC
 
 theorem gl_comp_lift {G : Type} [Group G] [Finite G] {Y' Y J : Subgroup G}
     (hsn : IsSubnormal Y' Y) (hJ : GLAPComponent 3 Y' J) : GLAPComponent 3 Y J := by
@@ -262,10 +260,6 @@ theorem gl_quasi_barOf {X K : Subgroup G} (h : GLAPComponent 3 X K) :
   obtain ⟨e⟩ := gl_barOf_equiv h
   exact glb_isQuasisimple_of_mulEquiv e.symm (gl_quasi_barX h)
 
-theorem gl_card_barX {X K : Subgroup G} (h : GLAPComponent 3 X K) :
-    Nat.card ↥(barX 3 X K) = Nat.card (barOf 3 K) := by
-  obtain ⟨e⟩ := gl_barOf_equiv h
-  exact (Nat.card_congr e.toEquiv).symm
 
 theorem gl_cover_of_barX_eq {X J K : Subgroup G} (hK : GLAPComponent 3 X K) (hJK : J ≤ K)
     (h : barX 3 X J = barX 3 X K) : K ≤ J ⊔ GLAPPrimeCoreOf 3 K := by
@@ -462,10 +456,6 @@ theorem gl_indInn_pow {V : InndiagVocab} {K : Subgroup G} {g : G} (hg : IndInn V
     rw [pow_succ]
     exact gl_indInn_mul ih hg
 
-theorem gl_indInn_of_trivOn {V : InndiagVocab} {K : Subgroup G} {g : G} (h : TrivOn K g) :
-    IndInn V K g := by
-  obtain ⟨hg, h1⟩ := h
-  exact ⟨hg, by rw [h1]; exact one_mem _⟩
 
 theorem gl_mul_trivOn {V : InndiagVocab} {K : Subgroup G} {g h : G}
     (hg : g ∈ Subgroup.normalizer (K : Set G)) (hh : TrivOn K h) :
@@ -549,13 +539,6 @@ end Glue
       (A' : GL (Fin n) F) = g * (A : GL (Fin n) F) * g⁻¹ →
         e (α (e.symm (QuotientGroup.mk A))) = QuotientGroup.mk A'
 
-@[expose] def LinkInndiag (V : InndiagVocab) : Prop :=
-  (∀ (n : ℕ), (n = 2 ∨ n = 3) → ∀ (Y : Type) [Group Y] (F : Type) [Field F]
-    (e : Y ≃* StatedProj (StatedSL n F)) (α : MulAut Y),
-      α ∈ V.innDiag Y ↔ IsInnDiagPSL n e α) ∧
-  (∀ (r : ℕ) (Y : Type) [Group Y] (F : Type) [Field F]
-    (e : Y ≃* StatedProj (StatedSU 3 r F)) (α : MulAut Y),
-      α ∈ V.innDiag Y ↔ IsInnDiagPSU 3 r e α)
 
 @[expose] def InputL3T : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (K : Subgroup G) (g : G),

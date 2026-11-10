@@ -17,12 +17,6 @@ section Predicate
 
 variable {G : Type*} [Group G]
 
-theorem conjInvariant_conjugateSet (J : Subgroup G) : ConjInvariant (conjugateSet J) := by
-  rintro n K ⟨g, rfl⟩
-  refine ⟨g * n⁻¹, ?_⟩
-  show (J.map (MulAut.conj g⁻¹).toMonoidHom).map (MulAut.conj n).toMonoidHom = _
-  rw [map_map_conj]
-  simp
 
 @[expose] def HasEFrameRank4 (J : Subgroup G) : Prop :=
   ∃ (F : Type) (_ : Field F) (E : Subgroup G),
@@ -232,99 +226,6 @@ end Frame
 
 section Application
 
-variable {G : Type} [Group G] [Finite G] {F : Type*} [Field F] {Ω : Set (Subgroup G)}
-  {E : Subgroup G} {S : Set (Subgroup G)}
-
-theorem isQuasisimple_of_frame (Fr : ToralFrame F Ω E S) (h16 : 16 ≤ Nat.card E)
-    (hΔ : ∀ Φ ∈ signalizerFunctorEk 2 2 E, deltaCore Φ = ⊥)
-    {L₀ : Subgroup G} (hL₀ : L₀ ∈ S) {z₀ t : G} (hz₀ : IsUniqueInvolution L₀ z₀)
-    (hsub : IsSubnormal L₀ (Subgroup.centralizer ({z₀} : Set G)))
-    (ht : t ∈ axisSub E L₀) {K : Subgroup G} (hKC : K ≤ Subgroup.centralizer ({t} : Set G))
-    (hK : TwoComponents.IsTwoComponent (K.subgroupOf (Subgroup.centralizer ({t} : Set G))))
-    (hL₀K : L₀ ≤ K)
-    (hB : ∀ f ∈ axisSub E L₀, f ≠ 1 →
-      ∀ M : Subgroup ↥(imageModOddCore f (Subgroup.centralizer {t} ⊓ Subgroup.centralizer {f})),
-        TwoComponents.IsTwoComponent M → CFSG.Open.IsQuasisimple M ∨
-          ⁅M.map (imageModOddCore f (Subgroup.centralizer {t} ⊓ Subgroup.centralizer {f})).subtype,
-            imageModOddCore f L₀⁆ = ⊥) :
-    CFSG.Open.IsQuasisimple K := by
-  obtain ⟨E₀, hE₀L, hE₀, hcard, hz₀E, htE⟩ := exists_card_eight_of_frame Fr h16 hL₀ hz₀ ht
-  have hE₀E : E₀ ≤ E := hE₀L.trans inf_le_left
-  have hE₀C : E₀ ≤ Subgroup.centralizer ({t} : Set G) := fun e he => by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact toralFrame_mul_comm Fr (hE₀E he) (hE₀E htE)
-  have hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G) := fun l hl => by
-    rw [Subgroup.mem_centralizer_iff]
-    intro e he
-    exact ((mem_axisSub_iff.mp (hE₀L he)).2 l hl).symm
-  have hL₀t : L₀ ≤ Subgroup.centralizer ({t} : Set G) := fun l hl => by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (mem_axisSub_iff.mp ht).2 l hl
-  exact isQuasisimple_of_isTwoComponent_of_layer_of_centralizes hKC hK hE₀C hE₀ hcard hL₀K hL₀E
-    (commutator_eq_top_of_mem_frame Fr hL₀) (ne_bot_of_mem_frame Fr hL₀)
-    (deltaCore_eq_bot_of_le hE₀E hΔ)
-    (isSubnormal_inf_centralizer_of_isSubnormal hz₀E (le_inf hL₀t hL₀E) hsub)
-    (isQuasisimple_oddCoreQuotient_of_mem_frame Fr hL₀) fun f hf hf1 => hB f (hE₀L hf) hf1
-
-theorem isQuasisimple_of_frame_of_bInclusion (Fr : ToralFrame F Ω E S) (h16 : 16 ≤ Nat.card E)
-    (hΔ : ∀ Φ ∈ signalizerFunctorEk 2 2 E, deltaCore Φ = ⊥)
-    {L₀ : Subgroup G} (hL₀ : L₀ ∈ S) {z₀ t : G} (hz₀ : IsUniqueInvolution L₀ z₀)
-    (hsub : IsSubnormal L₀ (Subgroup.centralizer ({z₀} : Set G)))
-    (ht : t ∈ axisSub E L₀) (ht1 : t ≠ 1) {K : Subgroup G}
-    (hKC : K ≤ Subgroup.centralizer ({t} : Set G))
-    (hK : TwoComponents.IsTwoComponent (K.subgroupOf (Subgroup.centralizer ({t} : Set G))))
-    (hL₀K : L₀ ≤ K)
-    (hinc : ∀ f ∈ axisSub E L₀, f ≠ 1 → CentralTwoBInclusion.Property
-      (↥(Subgroup.centralizer {f}) ⧸ componentClassificationOddCore ↥(Subgroup.centralizer {f}))) :
-    CFSG.Open.IsQuasisimple K := by
-  obtain ⟨E₀, hE₀L, hE₀, hcard, hz₀E, htE⟩ := exists_card_eight_of_frame Fr h16 hL₀ hz₀ ht
-  have hE₀E : E₀ ≤ E := hE₀L.trans inf_le_left
-  have hL₀E : L₀ ≤ Subgroup.centralizer (E₀ : Set G) := fun l hl => by
-    rw [Subgroup.mem_centralizer_iff]
-    intro e he
-    exact ((mem_axisSub_iff.mp (hE₀L he)).2 l hl).symm
-  have hL₀t : L₀ ≤ Subgroup.centralizer ({t} : Set G) := fun l hl => by
-    rw [Subgroup.mem_centralizer_singleton_iff]
-    exact (mem_axisSub_iff.mp ht).2 l hl
-  exact isQuasisimple_of_isTwoComponent_of_bInclusion_of_centralizes htE ht1 hKC hK hE₀ hcard hL₀K
-    hL₀E (commutator_eq_top_of_mem_frame Fr hL₀) (ne_bot_of_mem_frame Fr hL₀)
-    (deltaCore_eq_bot_of_le hE₀E hΔ)
-    (isSubnormal_inf_centralizer_of_isSubnormal hz₀E (le_inf hL₀t hL₀E) hsub)
-    (isQuasisimple_oddCoreQuotient_of_mem_frame Fr hL₀) fun f hf hf1 => hinc f (hE₀L hf) hf1
-
-theorem isQuasisimple_of_frame_of_twoBalancedWrt (Fr : ToralFrame F Ω E S)
-    (h16 : 16 ≤ Nat.card E) (hB2 : TwoBalancedWrt E)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated E)
-    {L₀ : Subgroup G} (hL₀ : L₀ ∈ S) {z₀ t : G} (hz₀ : IsUniqueInvolution L₀ z₀)
-    (hsub : IsSubnormal L₀ (Subgroup.centralizer ({z₀} : Set G)))
-    (ht : t ∈ axisSub E L₀) {K : Subgroup G} (hKC : K ≤ Subgroup.centralizer ({t} : Set G))
-    (hK : TwoComponents.IsTwoComponent (K.subgroupOf (Subgroup.centralizer ({t} : Set G))))
-    (hL₀K : L₀ ≤ K)
-    (hB : ∀ f ∈ axisSub E L₀, f ≠ 1 →
-      ∀ M : Subgroup ↥(imageModOddCore f (Subgroup.centralizer {t} ⊓ Subgroup.centralizer {f})),
-        TwoComponents.IsTwoComponent M → CFSG.Open.IsQuasisimple M ∨
-          ⁅M.map (imageModOddCore f (Subgroup.centralizer {t} ⊓ Subgroup.centralizer {f})).subtype,
-            imageModOddCore f L₀⁆ = ⊥) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_frame Fr h16
-    (fun Φ hΦ => deltaCore_eq_bot_of_fusionGenerated (toralFrame_isElemAbelian Fr) h16 hB2 hO hGen
-      Φ hΦ) hL₀ hz₀ hsub ht hKC hK hL₀K hB
-
-theorem isQuasisimple_of_frame_of_twoBalancedWrt_of_bInclusion (Fr : ToralFrame F Ω E S)
-    (h16 : 16 ≤ Nat.card E) (hB2 : TwoBalancedWrt E)
-    (hO : componentClassificationOddCore G = ⊥) (hGen : FusionGenerated E)
-    {L₀ : Subgroup G} (hL₀ : L₀ ∈ S) {z₀ t : G} (hz₀ : IsUniqueInvolution L₀ z₀)
-    (hsub : IsSubnormal L₀ (Subgroup.centralizer ({z₀} : Set G)))
-    (ht : t ∈ axisSub E L₀) (ht1 : t ≠ 1) {K : Subgroup G}
-    (hKC : K ≤ Subgroup.centralizer ({t} : Set G))
-    (hK : TwoComponents.IsTwoComponent (K.subgroupOf (Subgroup.centralizer ({t} : Set G))))
-    (hL₀K : L₀ ≤ K)
-    (hinc : ∀ f ∈ axisSub E L₀, f ≠ 1 → CentralTwoBInclusion.Property
-      (↥(Subgroup.centralizer {f}) ⧸ componentClassificationOddCore ↥(Subgroup.centralizer {f}))) :
-    CFSG.Open.IsQuasisimple K :=
-  isQuasisimple_of_frame_of_bInclusion Fr h16
-    (fun Φ hΦ => deltaCore_eq_bot_of_fusionGenerated (toralFrame_isElemAbelian Fr) h16 hB2 hO hGen
-      Φ hΦ) hL₀ hz₀ hsub ht ht1 hKC hK hL₀K hinc
 
 end Application
 

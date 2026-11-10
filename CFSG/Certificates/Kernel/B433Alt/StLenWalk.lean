@@ -25,9 +25,6 @@ theorem stL_wsFail_eq (s : ℕ) : wsFail s = s / 256 % 2 := by
   rw [show wsFail s = fld s 8 (2 ^ 1 - 1) from rfl, stL_fld_eq]
   norm_num
 
-theorem stL_wsJ_eq (s : ℕ) : wsJ s = s / 65536 := by
-  show s >>> 16 = _
-  rw [Nat.shiftRight_eq_div_pow]
 
 theorem stL_wsFail_lt (s : ℕ) : wsFail s < 2 := by
   rw [stL_wsFail_eq]; exact Nat.mod_lt _ (by norm_num)
@@ -39,8 +36,6 @@ theorem stL_wsFail_wsMk {k f : ℕ} (J : ℕ) (hk : k < 256) (hf : f < 2) :
     wsFail (wsMk k f J) = f := by
   rw [stL_wsFail_eq, stL_wsMk_eq J hk (by omega)]; omega
 
-theorem stL_wsJ_wsMk {k f : ℕ} (J : ℕ) (hk : k < 256) (hf : f < 2) : wsJ (wsMk k f J) = J := by
-  rw [stL_wsJ_eq, stL_wsMk_eq J hk (by omega)]; omega
 
 theorem stL_wsK_lt (s : ℕ) : wsK s < 256 := by
   rw [stL_wsK_eq]; exact Nat.mod_lt _ (by norm_num)

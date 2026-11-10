@@ -307,29 +307,6 @@ public theorem lemma115_exists_prime_order_mem_peterfalviKSet_of_dvd_closure
     ht hDodd hDnorm hr
   exact h42 D t hDodd ht hDnorm r hr hrdvd
 
-/-- A prime at least seven does not divide the automorphism-group order of a
-cyclic `3`- or `5`-group.  Written arithmetically, it does not divide the
-Euler totient of the corresponding prime power. -/
-public theorem lemma115_large_prime_not_dvd_totient_small_prime_power
-    {p f n : ℕ} (hp : p.Prime) (hp7 : 7 ≤ p)
-    (hf : f = 3 ∨ f = 5) :
-    ¬ p ∣ Nat.totient (f ^ n) := by
-  have hfprime : f.Prime := by
-    rcases hf with rfl | rfl
-    · exact Nat.prime_three
-    · exact Nat.prime_five
-  rcases n with _ | n
-  · simpa using hp.not_dvd_one
-  · rw [Nat.totient_prime_pow hfprime (Nat.succ_pos n)]
-    intro hdiv
-    rcases hp.dvd_mul.mp hdiv with hpow | hpred
-    · have hpf : p ∣ f := hp.dvd_of_dvd_pow hpow
-      have hple : p ≤ f := Nat.le_of_dvd hfprime.pos hpf
-      rcases hf with rfl | rfl <;> omega
-    · have hpredpos : 0 < f - 1 := by
-        rcases hf with rfl | rfl <;> omega
-      have hple : p ≤ f - 1 := Nat.le_of_dvd hpredpos hpred
-      rcases hf with rfl | rfl <;> omega
 
 /-- Under the disjointness supplied by the Lemma 11.5 argument, Peterfalvi's
 factorization lemma shows that the closure of the anti-fixed set is already

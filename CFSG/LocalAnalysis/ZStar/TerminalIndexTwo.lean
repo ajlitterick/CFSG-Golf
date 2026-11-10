@@ -106,20 +106,6 @@ theorem zStar_of_terminal_index_two_unique
   rw [← commutatorElement_def]
   exact Subgroup.commutator_mem_commutator (by simp) (by simp)
 
-theorem terminal_index_two_zStar_or_exists_distinct
-    {t : G} (ht : Isolated t) (ht1 : t ≠ 1) (ht2 : t * t = 1)
-    (hmin : ∀ H : Subgroup G, H.Normal → t ∈ H → H = ⊤)
-    (hindex : (commutator G).index = 2)
-    (P : Sylow 2 G) (htP : t ∈ P) :
-    (∃ N : Subgroup G, N.Normal ∧ Odd (Nat.card N) ∧
-      ∀ g : G, g * t * g⁻¹ * t⁻¹ ∈ N) ∨
-      ∃ s : G, s ∈ P ∧ s ≠ 1 ∧ s * s = 1 ∧ s ≠ t := by
-  rcases uniqueInvolutionIn_or_exists_distinct (P : Subgroup G) t with
-    hunique | hdistinct
-  · exact Or.inl
-      (zStar_of_terminal_index_two_unique
-        ht ht1 ht2 hmin hindex P htP hunique)
-  · exact Or.inr hdistinct
 
 end ZStar
 

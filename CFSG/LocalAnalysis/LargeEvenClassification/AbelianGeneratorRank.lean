@@ -63,12 +63,6 @@ theorem commutative_pGeneratorRank_embedding_le {Source : Type groupUniverse} [C
     commutative_frattini_card_eq_power_kernel hprime hptarget]
   exact Nat.log_mono_right hcard
 
-theorem commutative_pGeneratorRank_subgroup_le {Ambient : Type groupUniverse} [CommGroup Ambient]
-    [Finite Ambient] {prime : ℕ} (hprime : prime.Prime) (hpgroup : IsPGroup prime Ambient)
-    (SubgroupOfAmbient : Subgroup Ambient) :
-    pGeneratorRank prime SubgroupOfAmbient ≤ pGeneratorRank prime Ambient := by
-  exact commutative_pGeneratorRank_embedding_le hprime hpgroup SubgroupOfAmbient.subtype
-    Subtype.val_injective
 
 theorem cyclic_generators {Ambient : Type groupUniverse} [Group Ambient] [IsCyclic Ambient] :
     ∃ generators : Finset Ambient, Subgroup.closure (generators : Set Ambient) = ⊤ ∧
@@ -88,14 +82,6 @@ theorem cyclic_pGeneratorRank_le_one {Ambient : Type groupUniverse} [Group Ambie
   obtain ⟨generators, hgenerates, hcard⟩ := cyclic_generators (Ambient := Ambient)
   exact (pGeneratorRank_le_generators hprime hpgroup generators hgenerates).trans hcard
 
-theorem pGeneratorRank_of_cyclic_kernel_image {Source : Type groupUniverse} [Group Source]
-    [Finite Source] {Target : Type targetUniverse} [Group Target] [IsCyclic Target]
-    {prime : ℕ} (hprime : prime.Prime) (hpgroup : IsPGroup prime Source)
-    (quotient : Source →* Target) (hsurjective : Function.Surjective quotient)
-    [IsCyclic quotient.ker] : pGeneratorRank prime Source ≤ 2 := by
-  obtain ⟨generators, hgenerates, hcard⟩ := extension_generator_bound quotient hsurjective
-    (cyclic_generators (Ambient := quotient.ker)) (cyclic_generators (Ambient := Target))
-  exact (pGeneratorRank_le_generators hprime hpgroup generators hgenerates).trans hcard
 
 theorem pGeneratorRank_extension_le {Ambient : Type groupUniverse} [Group Ambient]
     [Finite Ambient] {prime : ℕ} (hprime : prime.Prime) (hpgroup : IsPGroup prime Ambient)

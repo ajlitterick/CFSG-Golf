@@ -77,8 +77,6 @@ namespace CFSG.ClassicalInvolution.Q3.Q3Z
   [(5, false), (2, false), (5, true), (2, true)],
   [(5, false), (3, false), (5, true), (3, true)]]
 
-@[expose] def v6Words : List (List (Fin 12 × Bool)) :=
-  a2Words.map (mapWord a2Idx) ++ c2Words.map (mapWord c2Idx) ++ commWords
 
 @[expose] def xPlus : Fin 12 := 9
 

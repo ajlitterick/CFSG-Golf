@@ -35,14 +35,6 @@ theorem tSub_le_yK (k : Nat) : tSub k ≤ yK k := by
   obtain ⟨l, -, rfl⟩ := List.mem_map.1 hw
   exact elemW_expandL_mem (S := yK k) (fun w hw => Subgroup.subset_closure ⟨w, hw, rfl⟩) l
 
-theorem mSub_le_yK (k : Nat) : mSub k ≤ yK k := by
-  rw [mSub, wSub, Subgroup.closure_le]
-  rintro _ ⟨w, hw, rfl⟩
-  obtain ⟨l, -, rfl⟩ := List.mem_map.1 hw
-  exact elemW_expandL_mem (S := yK k) (fun w hw => Subgroup.subset_closure ⟨w, hw, rfl⟩) l
-
-theorem uElt_mem_yK (k : Nat) : uElt k ∈ yK k :=
-  elemW_expandL_mem (S := yK k) (fun w hw => Subgroup.subset_closure ⟨w, hw, rfl⟩) _
 
 structure TFacts (k : Nat) : Prop where
   card_T : Nat.card ↥(tSub k) = 16

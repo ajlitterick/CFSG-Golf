@@ -77,11 +77,5 @@ theorem c21_12_exclude_proved : C21_12_exclude p f := by
 
 theorem c21_12_proved : C21_12 p f := c21_12_of p f l7_17_proved (c21_12_exclude_proved p f)
 
-theorem c21_2_final_proved (hE : ThmEWithSylow p f) (hHz : TwinFrameHyp51z p f)
-    (hHt : TwinFrameHyp51t p f) (hHu : TwinFrameHyp51u p f) (hMF : DStarConnectedTwin p f)
-    (h3s : ∀ n, CITBelowU p f n → T3.Thm3SectBelow p f n) (h13N : C21_13_N p f)
-    (h14N : C21_14_N p f) (h14a : C21_14_alt p f) (h15 : C21_15 p f)
-    (hWyl : C21_WylTrans' p f) (hY : C21_YSigma p f) : C21_2 p f :=
-  c21_2_final_sect' p f hE hHz hHt hHu (c21_12_proved p f) hMF h3s h13N h14N h14a h15 hWyl hY
 
 end CFSG.ClassicalInvolution.Asc77

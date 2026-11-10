@@ -152,15 +152,6 @@ theorem ffMonoPRho_eq_of_hat (fr : PFrame Q (Option (Fin 5)) ffC) {g : ↥(ffMon
   rw [hg]
   exact ffMonoPRho_apply fr σ _
 
-theorem ff6p_B0_normalE16 (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    IsNormalE16In (ffP0p hQ fr) (ffB0p fr) := by
-  refine ⟨ffB0p_le_ffP0p hQ fr, ⟨⟨?_, ?_⟩, ?_⟩, ffB0p_normal_ffP0p hQ fr⟩
-  · exact IsMulCommutative.of_comm fun a b => Subtype.ext (ffB0p_comm fr a.2 b.2)
-  · intro x hx
-    rw [pow_two]
-    exact ffB0p_mul_self fr hx
-  · rw [ffB0p_card]
-    norm_num
 
 @[expose] noncomputable def ffZ0p (fr : PFrame Q (Option (Fin 5)) ffC) : OGroup Q :=
   fr.signChange (ffOpt {0, 1, 2, 3})
@@ -169,9 +160,6 @@ theorem ffZ0p_mem_ffB0p (fr : PFrame Q (Option (Fin 5)) ffC) : ffZ0p fr ∈ ffB0
   rw [ffZ0p]
   exact (mem_ffB0p_iff_ffOpt fr).mpr ⟨{0, 1, 2, 3}, ⟨2, by decide⟩, rfl⟩
 
-theorem ffZ0p_mem_ffP0p (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC) :
-    ffZ0p fr ∈ ffP0p hQ fr :=
-  ffB0p_le_ffP0p hQ fr (ffZ0p_mem_ffB0p fr)
 
 theorem ffZ0p_ne_one (fr : PFrame Q (Option (Fin 5)) ffC) : ffZ0p fr ≠ 1 := by
   intro h
@@ -181,8 +169,6 @@ theorem ffZ0p_ne_one (fr : PFrame Q (Option (Fin 5)) ffC) : ffZ0p fr ≠ 1 := by
   have hJ := (ffOpt_signChange_eq_iff fr).mp h'
   exact absurd hJ (by decide)
 
-theorem ffZ0p_mul_self (fr : PFrame Q (Option (Fin 5)) ffC) : ffZ0p fr * ffZ0p fr = 1 := by
-  rw [ffZ0p, fr.signChange_mul_self]
 
 theorem ffZ0p_central (hQ : Q.Nondegenerate) (fr : PFrame Q (Option (Fin 5)) ffC)
     {g : OGroup Q} (hg : g ∈ ffP0p hQ fr) : g * ffZ0p fr = ffZ0p fr * g := by

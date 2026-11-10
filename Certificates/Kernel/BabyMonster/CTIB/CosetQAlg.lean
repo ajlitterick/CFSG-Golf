@@ -247,9 +247,6 @@ theorem sq_sq (G : Array ℕ) (a : ℕ) : qmul G (qmul G a a) (qmul G a a) = 0 :
 theorem qinvG_mul (G : Array ℕ) (a : ℕ) : qmul G (qinvG G a) a = 0 := by
   rw [qinvG, qmul_assoc G (qmul G a a) a a, sq_sq]
 
-theorem mul_qinvG (G : Array ℕ) (a : ℕ) : qmul G a (qinvG G a) = 0 := by
-  rw [qinvG, ← qmul_assoc G a (qmul G a a) a, ← qmul_assoc G a a a,
-    qmul_assoc G (qmul G a a) a a, sq_sq]
 
 @[expose] def QC (_ : Array ℕ) : Type := {n : ℕ // n < 2 ^ 23}
 
@@ -333,9 +330,6 @@ theorem autApply_bit22 (G A : Array ℕ) (n : ℕ) :
   (∀ i < 22, cc G A i i = false) ∧
     ∀ i < 22, ∀ j < 22, (cc G A i j ^^ cc G A j i) = (gam G i j ^^ gam G j i)
 
-theorem quadA_bits {G A : Array ℕ} {n n' : ℕ} (h : ∀ i < 22, n.testBit i = n'.testBit i) :
-    quadA G A n = quadA G A n' :=
-  dsum_congr fun s hs t ht => by rw [h s hs, h t ht]
 
 theorem cross_eq {G A : Array ℕ} (hA : RelOK G A) (a b : ℕ) :
     ((corr G a b ^^ dsum (fun s j => a.testBit s && b.testBit j && decide (j < s) && cc G A j s)) ^^

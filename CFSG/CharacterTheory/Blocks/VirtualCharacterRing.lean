@@ -26,13 +26,6 @@ theorem blocksVChar_mul {G : Type} [Group G] [Finite G]
   rw [blocksVChar_eq_virtualCharacters, Submodule.mem_toAddSubgroup] at hf hg ⊢
   exact virtualCharacters_mul f g hf hg
 
-@[expose] def blocksVCharSubring (G : Type) [Group G] [Finite G] : Subring (G → ℂ) where
-  carrier := BlocksVChar G
-  zero_mem' := (BlocksVChar G).zero_mem
-  add_mem' := (BlocksVChar G).add_mem
-  neg_mem' := (BlocksVChar G).neg_mem
-  one_mem' := blocksVChar_one G
-  mul_mem' := blocksVChar_mul
 
 theorem blocksVChar_comp {G H : Type} [Group G] [Group H] [Finite G] [Finite H]
     (homomorphism : H →* G) {f : G → ℂ} (hf : f ∈ BlocksVChar G) :
@@ -40,9 +33,5 @@ theorem blocksVChar_comp {G H : Type} [Group G] [Group H] [Finite G] [Finite H]
   rw [blocksVChar_eq_virtualCharacters, Submodule.mem_toAddSubgroup] at hf ⊢
   exact inflation_mem_virtualCharacters homomorphism hf
 
-theorem blocksVChar_restrict {G : Type} [Group G] [Finite G]
-    (H : Subgroup G) {f : G → ℂ} (hf : f ∈ BlocksVChar G) :
-    (fun h : H => f h) ∈ BlocksVChar H := by
-  simpa only [Function.comp_def, Subgroup.subtype_apply] using blocksVChar_comp H.subtype hf
 
 end CFSG

@@ -57,12 +57,6 @@ variable
   {φ₀ : Lgen M (LB M Q B) →* (Module.End K (Fin e7Data.d →₀ K))ˣ}
   {ψ₀ : ↥Q ⧸ Z.subgroupOf Q ≃* Multiplicative (Fin e7Data.d →₀ K)}
 
-@[expose] def E5WeightHyp (φ₀ : Lgen M (LB M Q B) →* (Module.End K (Fin e7Data.d →₀ K))ˣ)
-    (ψ : M₀.E ≃ₗ[K] V K) : Prop :=
-  ∀ A : Subgroup G, IsZConjugate Z A → A ≤ Q → A ≠ Z → ∃ g ∈ EAut K,
-    (fun a : G => ψ (M₀.π a)) '' (A : Set G) = (Submodule.span K {g (w0 : V K)} : Set (V K)) ∧
-    ∀ u ∈ conjSub g (rootRad7 K), ∃ t : Lgen M (LB M Q B), (t : G) ∈ QB A ∧
-      ((vAut K).toMonoidHom.comp φ₀) t = u
 
 end ToUniform
 

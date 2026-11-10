@@ -129,8 +129,6 @@ variable {F : Type} [Field F] {G : Type*} [Group G]
     calc x⁻¹ * Φ A * x = x⁻¹ * (x * Φ (glConjSL D⁻¹ A) * x⁻¹) * x := by rw [h]
       _ = Φ (glConjSL D⁻¹ A) := by group
 
-theorem mem_linActSubgroup {Φ : SL2 F →* G} {x : G} : x ∈ linActSubgroup Φ ↔ LinAct Φ x :=
-  Iff.rfl
 
 theorem linAct_of_mem_range {Φ : SL2 F →* G} {x : G} (hx : x ∈ Φ.range) : LinAct Φ x := by
   obtain ⟨B, rfl⟩ := hx

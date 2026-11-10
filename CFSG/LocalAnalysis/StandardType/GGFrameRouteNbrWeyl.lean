@@ -48,13 +48,6 @@ theorem ggNbrInnerWeylInput_of_rest (hI3 : GGNbrSubcomponentInput)
   · exact Or.inr h
   · exact Or.inl ⟨hS, h⟩
 
-theorem exists_automizer_moves_x_of_rest {G : Type} [Group G] [Finite G]
-    (hI3 : GGNbrSubcomponentInput)
-    (hweyl : GGNbrInnerWeylOn GGNbrWeylRestLabel) {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} (hR : GGSecFiveRestHyp 3 B Bs x L D J) {y : G} {K : Subgroup G}
-    (hN : GGNbr 3 B x D J y K) (hx : x ∈ Bs) :
-    ∃ φ ∈ ggAutomizer K Bs, φ ⟨x, hx⟩ ≠ ⟨x, hx⟩ :=
-  exists_automizer_moves_x_of_innerWeyl (ggNbrInnerWeylInput_of_rest hI3 hweyl) hR.1 hR.2.2.1 hN hx
 
 theorem ggNbrInnerWeylInput_of_reduction (hLB : GGLBalanceInput) (hP : GGStdSubPrimeInput)
     (hinW : GGNbrInnerWeylOn GGNbrWeylRestLabel) : GGNbrInnerWeylInput :=

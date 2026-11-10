@@ -45,12 +45,6 @@ open CFSG.Sporadic.He.Native
 
 section Spec
 
-variable {n : ℕ}
-
-@[expose] def Rep (σ : Equiv.Perm (Fin n)) (A : Array ℕ) : Prop :=
-  ∀ i : Fin n, (σ i : ℕ) = A[i.val]!
-
-variable {G : Type*} [Group G]
 
 end Spec
 

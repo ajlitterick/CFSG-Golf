@@ -13,9 +13,6 @@ namespace CFSG.KS.SporSch
 
 open CFSG.Monster.B.Co2.Native
 
-theorem hexAt_lt_of_le70 {cs : List Char} (h : le70K cs = true) (o d : Nat) :
-    hexAt (String.ofList cs).toUTF8 o d < 2 ^ (4 * d) :=
-  hexAt_lt_le70 h o d
 
 theorem le70K_append (a b : List Char) : le70K (a ++ b) = (le70K a && le70K b) := by
   induction a with
@@ -33,10 +30,6 @@ theorem Le70Str.append {s t : String} (hs : Le70Str s) (ht : Le70Str t) : Le70St
   obtain ⟨b, rfl, hb⟩ := ht
   exact ⟨a ++ b, String.ofList_append.symm, by rw [le70K_append, ha, hb]; rfl⟩
 
-theorem Le70Str.hexAt_lt {s : String} (h : Le70Str s) (o d : Nat) :
-    hexAt s.toUTF8 o d < 2 ^ (4 * d) := by
-  obtain ⟨cs, rfl, hc⟩ := h
-  exact hexAt_lt_of_le70 hc o d
 
 theorem lenK_eq {α : Type} (l : List α) : lenK l = l.length := by
   induction l with
@@ -273,14 +266,6 @@ theorem trisI_length (ts : List (Nat × Nat × Nat)) : (trisI ts []).length = 3 
     change (trisI ts []).length + 3 = 3 * (ts.length + 1)
     omega
 
-theorem msI_eq (ms : List (Nat × List (Nat × Nat × Nat))) (tl : List Int) :
-    msI ms tl = msI ms [] ++ tl := by
-  induction ms with
-  | nil => rfl
-  | cons m ms ih =>
-    change _ :: _ :: trisI m.2 (msI ms tl) = (_ :: _ :: trisI m.2 (msI ms [])) ++ tl
-    rw [trisI_eq, trisI_eq m.2 (msI ms []), ih]
-    simp
 
 theorem get_toArray (L : List Int) (i : Nat) : L.toArray[i]! = L.getD i 0 := by
   simp only [getElem!_def, List.getD_eq_getElem?_getD, List.getElem?_toArray]

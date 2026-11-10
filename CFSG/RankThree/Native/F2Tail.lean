@@ -27,25 +27,6 @@ structure LevFacts (d : ℕ) (V : Array ℕ) (L : Array Level) (nb : ℕ) (m : �
   trInv : ∀ l < nb, ∀ k < m l, (L[l]!).trInv[k]! = permOfMat d V (TIM l k)
   inv : ∀ l < nb, ∀ k < m l, Inv d V (TM l k) (TIM l k)
 
-theorem levFacts_lvlOf {d : ℕ} {V : Array ℕ} {nb : ℕ} {m : ℕ → ℕ}
-    {PT PO PA LB TM TIM : ℕ → ℕ → ℕ} (hlt : ∀ l < nb, ∀ k < m l, PT l k < V.size)
-    (hpp : ∀ l < nb, ∀ k < m l, PO l (PT l k) = k)
-    (hinv : ∀ l < nb, ∀ k < m l, Inv d V (TM l k) (TIM l k)) :
-    LevFacts d V (Array.ofFn (n := nb) fun i =>
-      lvlOf d V (m i) (PT i) (PO i) (PA i) (LB i) (TM i) (TIM i)) nb m PT PO TM TIM := by
-  have hg : ∀ l (hl : l < nb), (Array.ofFn (n := nb) fun i : Fin nb =>
-      lvlOf d V (m i) (PT i) (PO i) (PA i) (LB i) (TM i) (TIM i))[l]! =
-        lvlOf d V (m l) (PT l) (PO l) (PA l) (LB l) (TM l) (TIM l) := by
-    intro l hl
-    rw [getElem!_pos _ l (by simpa using hl), Array.getElem_ofFn]
-  refine ⟨by simp, fun l hl => ?_, fun l hl k hk => ?_, hlt, hpp, fun l hl x hx => ?_,
-    fun l hl k hk => ?_, fun l hl k hk => ?_, hinv⟩
-  · rw [hg l hl]
-    simp [lvlOf]
-  · rw [hg l hl, lvlOf, getElem!_pos _ k (by simpa using hk), Array.getElem_ofFn]
-  · rw [hg l hl, lvlOf, getElem!_pos _ x (by simpa using hx), Array.getElem_ofFn]
-  · rw [hg l hl, lvlOf, getElem!_pos _ k (by simpa using hk), Array.getElem_ofFn]
-  · rw [hg l hl, lvlOf, getElem!_pos _ k (by simpa using hk), Array.getElem_ofFn]
 
 theorem strictB_eq' (y : ℕ) (k : ℕ → Bool) : strictB y k = k y := by
   cases y <;> rfl

@@ -143,9 +143,6 @@ theorem mem_shortRoots_of_memDec
     v ∈ ReeTag.F4.shortRoots :=
   ⟨isRoot_of_memDec h, lengthParam_eq_one_iff.2 hq⟩
 
-theorem mem_shortKernel {g : adjointGroup ReeTag.F4.tag K} :
-    g ∈ ReeTag.F4.shortKernel K ↔ ∀ v ∈ ReeTag.F4.shortModule K, glRep _ g v = v :=
-  Iff.rfl
 
 theorem shortKernel_normal
     (hp : (ReeTag.F4.prime : K) = 0) : (ReeTag.F4.shortKernel K).Normal := by

@@ -45,30 +45,6 @@ open CFSG.Sporadic.SmallF2.Native (mulRows idRows powRows rowsOfPayload ofBits)
 
 @[expose] def fmaskOf (free : List ℕ) : ℕ := free.foldl (fun m f => m ||| (1 <<< f)) 0
 
-@[expose] def gaussJordan (rows0 : Array ℕ) (fmask : ℕ) : Array ℕ × Array ℕ := Id.run do
-  let mut rows := rows0
-  let mut piv : Array ℕ := Array.replicate 576 0
-  let mut r := 0
-  for c in [0:576] do
-    if !fmask.testBit c then
-      let mut p := r
-      while p < rows.size && !(rows[p]!.testBit c) do
-        p := p + 1
-      if p < rows.size then
-        let tmp := rows[p]!
-        rows := rows.set! p rows[r]!
-        rows := rows.set! r tmp
-        let pr := rows[r]!
-        for i in [0:rows.size] do
-          if i != r && rows[i]!.testBit c then
-            rows := rows.set! i (rows[i]! ^^^ pr)
-        piv := piv.set! c (r + 1)
-        r := r + 1
-  return (rows, piv)
-
-@[expose] def certOf (gj : Array ℕ × Array ℕ) (a : ℕ) : ℕ × ℕ :=
-  let row := gj.1[gj.2[a]! - 1]!
-  (row >>> 576, (row % 2 ^ 576) ^^^ (1 <<< a))
 
 @[expose] def foldXor (eqs : Array ℕ) (μ : ℕ) : ℕ :=
   (List.range eqs.size).foldl (fun acc r => if μ.testBit r then acc ^^^ eqs[r]! else acc) 0
@@ -79,11 +55,6 @@ open CFSG.Sporadic.SmallF2.Native (mulRows idRows powRows rowsOfPayload ofBits)
 @[expose] def spanCheckWith (eqs : Array ℕ) (fmask : ℕ) (cert : ℕ → ℕ × ℕ) : Bool :=
   (List.range 576).all fun a => fmask.testBit a || verifyCert eqs fmask a (cert a)
 
-@[expose] def spanCheck (Xs : List (Array ℕ)) (free : List ℕ) : Bool :=
-  let eqs := eqsOf Xs
-  let fmask := fmaskOf free
-  let gj := gaussJordan ((Array.range eqs.size).map fun r => eqs[r]! ||| (1 <<< (576 + r))) fmask
-  spanCheckWith eqs fmask (certOf gj)
 
 @[expose] def xRows :
     List (Array ℕ) := [(prX 0).r, (prX 1).r, (prX 2).r]

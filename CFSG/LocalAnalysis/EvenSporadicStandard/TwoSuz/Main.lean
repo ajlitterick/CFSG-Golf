@@ -34,10 +34,5 @@ structure Setup (G : Type) [Group G] [Finite G] (L : Subgroup G) (z : G) : Prop 
       z' ∈ centralizer ({z} : Set G) → orderOf x = 2 → orderOf z' = 2 → x ≠ z → z' ≠ z →
       NoSwap z x z'
 
-@[expose] def TwoSuzNoSwapOuter : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (z : G), Setup G L z →
-    ∀ x z' : G, ¬ (x ∈ L ∧ z' ∈ L) → x ∈ centralizer ({z} : Set G) →
-      z' ∈ centralizer ({z} : Set G) → orderOf x = 2 → orderOf z' = 2 → x ≠ z → z' ≠ z →
-      NoSwap z x z'
 
 end CFSG.EvenSporadicStandard.TwoSuz

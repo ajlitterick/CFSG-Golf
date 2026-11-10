@@ -33,36 +33,6 @@ theorem Q_twoRank_le_point_hull (Q : Subgroup G)
   exact CFSG.ComponentClassification.TwoRankTransport.rank_le (involutionPointHull z) E
     (elementary_Q_le_point_hull Q hodd hnormal z hzQ hz E hEQ hE) hE _ hcard
 
-theorem normal_hull_Q_twoRank_le_point_hull (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (hnormal : ¬ Q.Normal)
-    (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-    twoRank Q ≤ twoRank (involutionPointHull zJ) := by
-  let J := Subgroup.normalClosure (Q : Set G)
-  let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-  have hle := Q_twoRank_le_point_hull Q hodd hnormal z hzQ hz
-  have hrank : twoRank (involutionPointHull zJ) = twoRank (involutionPointHull z) :=
-    CFSG.RankThreeCoreUniqueness.Helpers.pRank_top_eq_of_equiv 2 (by decide)
-      (normalHullPointHullEquiv Q hodd hnormal z hzQ hz)
-  change twoRank Q ≤ twoRank (involutionPointHull zJ)
-  rw [hrank]
-  exact hle
-
-theorem normal_hull_odd_quotient_Q_twoRank_le_point_hull (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (hnormal : ¬ Q.Normal)
-    (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-    let q := QuotientGroup.mk' (oddCore J)
-    twoRank Q ≤ twoRank (involutionPointHull (q zJ)) := by
-  let J := Subgroup.normalClosure (Q : Set G)
-  let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-  let q := QuotientGroup.mk' (oddCore J)
-  have h := odd_kernel_image_twoRank_le q (normal_hull_odd_quotient_ker_odd Q)
-    (involutionPointHull zJ)
-  rw [point_hull_map q (normal_hull_odd_quotient_surjective Q)] at h
-  exact (normal_hull_Q_twoRank_le_point_hull Q hodd hnormal z hzQ hz).trans h
 
 theorem point_hull_odd_core (z : G) :
     oddCore (involutionPointHull z) = (oddCore G).subgroupOf (involutionPointHull z) := by
@@ -75,14 +45,6 @@ theorem point_hull_odd_core (z : G) :
   rw [Subgroup.subgroupOf_map_subtype, inf_comm]
   exact CFSG.ComponentClassification.OddCore.normal_intersection G L
 
-theorem normal_hull_odd_quotient_point_hull_ker (Q : Subgroup G)
-    (z : G) (hzQ : z ∈ Q) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-    let q := QuotientGroup.mk' (oddCore J)
-    (pointHullHom q zJ).ker = oddCore (involutionPointHull zJ) := by
-  dsimp only
-  rw [pointHullHom_ker, QuotientGroup.ker_mk', point_hull_odd_core]
 
 theorem normal_hull_odd_quotient_point_hull_corefree (Q : Subgroup G)
     (z : G) (hzQ : z ∈ Q) :
@@ -94,32 +56,5 @@ theorem normal_hull_odd_quotient_point_hull_corefree (Q : Subgroup G)
   rw [point_hull_odd_core, normal_hull_odd_quotient_corefree]
   exact Subgroup.bot_subgroupOf _
 
-@[expose] noncomputable def normalHullOddQuotientPointHullEquiv (Q : Subgroup G)
-    (z : G) (hzQ : z ∈ Q) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-    let q := QuotientGroup.mk' (oddCore J)
-    (involutionPointHull zJ ⧸ oddCore (involutionPointHull zJ)) ≃*
-      involutionPointHull (q zJ) := by
-  let J := Subgroup.normalClosure (Q : Set G)
-  let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-  let q := QuotientGroup.mk' (oddCore J)
-  exact (QuotientGroup.quotientMulEquivOfEq
-    (normal_hull_odd_quotient_point_hull_ker Q z hzQ).symm).trans
-    (QuotientGroup.quotientKerEquivOfSurjective (pointHullHom q zJ)
-      (pointHullHom_surjective q (normal_hull_odd_quotient_surjective Q) zJ))
-
-theorem normalHullOddQuotientPointHullEquiv_apply (Q : Subgroup G)
-    (z : G) (hzQ : z ∈ Q) :
-    let J := Subgroup.normalClosure (Q : Set G)
-    let zJ : J := ⟨z, Subgroup.le_normalClosure hzQ⟩
-    let q := QuotientGroup.mk' (oddCore J)
-    ∀ x : involutionPointHull zJ,
-      (normalHullOddQuotientPointHullEquiv Q z hzQ
-        ((QuotientGroup.mk' (oddCore (involutionPointHull zJ))) x) : J ⧸ oddCore J) =
-      q (x : J) := by
-  dsimp only
-  intro x
-  rfl
 
 end CFSG.ComponentClassification.AschbacherTightEmbedding

@@ -15,9 +15,6 @@ variable {G : Type*} [Group G]
 @[expose] def rightComponent (L : Subgroup G) (g : G) : Subgroup G :=
   UniversalOrbitBlock.conjugate L g⁻¹
 
-@[expose] def gammaOne (U : Subgroup G) : Subgroup G :=
-  sSup {N : Subgroup G | ∃ V : Subgroup G,
-    V ≤ U ∧ V ≠ ⊥ ∧ N = Subgroup.normalizer (V : Set G)}
 
 theorem involution_inverse (u : G) (hu : u * u = 1) : u⁻¹ = u := by
   calc
@@ -52,24 +49,6 @@ theorem involution_conjugation_twice (u x : G) (hu : u * u = 1) :
     u * (u * x * u) * u = (u * u) * x * (u * u) := by group
     _ = x := by rw [hu]; group
 
-theorem normalizer_le_gammaOne (U V : Subgroup G) (hVU : V ≤ U) (hne : V ≠ ⊥) :
-    Subgroup.normalizer (V : Set G) ≤ gammaOne U :=
-  le_sSup ⟨V, hVU, hne, rfl⟩
-
-theorem centralizer_le_gammaOne (U : Subgroup G) (u : G) (hu : u ∈ U) (hne : u ≠ 1) :
-    Subgroup.centralizer ({u} : Set G) ≤ gammaOne U := by
-  apply le_trans _ (normalizer_le_gammaOne U (Subgroup.zpowers u)
-    (Subgroup.zpowers_le.mpr hu) (Subgroup.zpowers_ne_bot.mpr hne))
-  intro c hc
-  apply Subgroup.mem_normalizer_iff_map_conj_eq.mpr
-  rw [MonoidHom.map_zpowers]
-  have hcu := Subgroup.mem_centralizer_singleton_iff.mp hc
-  have hfixed : MulAut.conj c u = u := by
-    change c * u * c⁻¹ = u
-    rw [hcu]
-    group
-  change Subgroup.zpowers (MulAut.conj c u) = Subgroup.zpowers u
-  rw [hfixed]
 
 theorem cyclic_involution_cases (u : G) (hu : u * u = 1) {x : G}
     (hx : x ∈ Subgroup.zpowers u) : x = 1 ∨ x = u := by

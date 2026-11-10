@@ -28,7 +28,6 @@ instance instNeZeroRankE6 : NeZero Tag.E6.rank := ⟨by decide⟩
   [[0], [1], [2, 3], [4, 5], [6], [7, 8], [9], [10, 11], [12, 13], [14], [15], [16, 17], [18],
     [19], [20]].getD i []
 
-theorem radRootList_length : radRootList.length = 21 := rfl
 
 theorem radRootList_eq : radRootList = (List.range 21).map rr := by decide +kernel
 
@@ -144,9 +143,6 @@ theorem X1_mul_self
     (a : Fin Tag.E6.rank → ℤ) : X1 a * X1 a = 1 := by
   rw [X1, ← pinnedX_add, one_add_one_eq_two, StdF4.two_eq_zero_K, pinnedX_zero]
 
-theorem X1_inv
-    (a : Fin Tag.E6.rank → ℤ) : (X1 a)⁻¹ = X1 a :=
-  inv_eq_of_mul_eq_one_left (X1_mul_self a)
 
 theorem xr_twenty :
     xr 20 = rootInvM := by

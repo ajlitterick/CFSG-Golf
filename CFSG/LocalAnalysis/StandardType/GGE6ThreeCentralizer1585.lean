@@ -60,18 +60,6 @@ noncomputable def fullCentre {Omega : Type} [Field Omega] [IsAlgClosed Omega] [C
       (g ∈ ρ.setup.D.model ∧ ∃ b : Fin ρ.tau.rank → Omegaˣ, rootDiagUnit ρ.tau b = g ∧
         ∀ v ∈ kernelRoots (rootCharHom ρ.a), rootChar b v = 1)
 
-@[expose] def GGE6ThreeCompanionOn1585 (Omega : Type) [Field Omega] [IsAlgClosed Omega]
-    [CharP Omega 2]
-    (row : LargeEvenLabel → LargeEvenLabel → Prop) : Prop :=
-  ∀ (lab : LargeEvenLabel) (R : Type) [Group R] (I : Set (MulAut R)) (phi : MulAut R)
-    (ρ : MarkedRationalKacRealization Omega lab 3 R I phi)
-    (j : Fin ρ.row.D.orbits.length),
-    LargeEvenInLambda2 lab → (∀ k, k = j) → ρ.row.D.orbits[j].qs = true →
-    row lab ρ.row.D.orbits[j].lab →
-    Subgroup.center (component ρ j) = ⊥ ∧
-    ∀ u ∈ centralizerGroup ρ,
-      (∃ d ∈ component ρ j, ∀ x ∈ component ρ j, u x = d * x * d⁻¹) ↔
-        ∃ d ∈ component ρ j, ∃ s ∈ fullCentre ρ, u = MulAut.conj d * s
 
 @[expose] def GGE6ThreeFullCentreCyclicOn1585 (Omega : Type) [Field Omega] [IsAlgClosed Omega]
     [CharP Omega 2]

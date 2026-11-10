@@ -145,14 +145,6 @@ private theorem exists_mulEquiv_adjointGroup_of_markedModel_exceptional
         (by decide) (Or.inr (Or.inr (Or.inr ⟨rfl, rfl⟩)))
     exact ⟨.E8, F, hF, hFin, Or.inr (Or.inr (Or.inr ⟨rfl, rfl⟩)), hcard, ⟨e⟩⟩
 
-theorem exists_mulEquiv_adjointGroup_of_markedModel_exc
-    {R : Type} [Group R] [Finite R] {lab : GLALabel} (hM : MarkedModel lab R)
-    (htag : lab.tag = .F4 ∨ lab.tag = .E6 ∨ lab.tag = .E7 ∨ lab.tag = .E8) :
-    ∃ (τ : Tag) (F : Type) (_ : Field F) (_ : Finite F),
-      (lab.tag = .F4 ∧ τ = .F4 ∨ lab.tag = .E6 ∧ τ = .E6 ∨
-        lab.tag = .E7 ∧ τ = .E7 ∨ lab.tag = .E8 ∧ τ = .E8) ∧
-      Nat.card F = 2 ^ lab.n ∧ Nonempty (R ≃* ↥(adjointGroup τ F)) :=
-  exists_mulEquiv_adjointGroup_of_markedModel_exceptional hM htag
 
 theorem exists_mulEquiv_statedSp_of_markedModel
     {R : Type} [Group R] [Finite R] {r n : ℕ}
@@ -282,13 +274,6 @@ private theorem not_dvd_card_center_of_markedModel_exceptional
     exact not_dvd_card_center_e8 hQ
       (by simpa [MarkedModel, markTag, markRank, markChar, markDeg] using hM) hp
 
-theorem not_dvd_card_center_of_markedModel_exc
-    {K : Type} [Group K] [Finite K] {lab : GLALabel} {p : ℕ}
-    (hQ : CFSG.Open.IsQuasisimple K) (hM : MarkedModel lab (K ⧸ Subgroup.center K))
-    (htag : lab.tag = .F4 ∨ lab.tag = .E6 ∨ lab.tag = .E7 ∨ lab.tag = .E8)
-    (hp : p.Prime) (hp2 : p ≠ 2) (hE6 : lab.tag = .E6 → p ≠ 3 ∨ lab.n = 1) :
-    ¬ p ∣ Nat.card (Subgroup.center K) :=
-  not_dvd_card_center_of_markedModel_exceptional hQ hM htag hp hp2 hE6
 
 private theorem not_dvd_card_center_psp {K : Type} [Group K] [Finite K] {r n p : ℕ}
     (hQ : CFSG.Open.IsQuasisimple K)
@@ -333,12 +318,6 @@ private theorem not_dvd_card_center_of_markedModel_symplectic
       simpa [MarkedModel, markTag, markRank, markChar, markDeg] using hM
   exact not_dvd_card_center_psp hQ hM' hp hp2
 
-theorem not_dvd_card_center_of_markedModel_sp
-    {K : Type} [Group K] [Finite K] {lab : GLALabel} {p : ℕ}
-    (hQ : CFSG.Open.IsQuasisimple K) (hM : MarkedModel lab (K ⧸ Subgroup.center K))
-    (htag : lab.tag = .B ∨ lab.tag = .C) (hp : p.Prime) (hp2 : p ≠ 2) :
-    ¬ p ∣ Nat.card (Subgroup.center K) :=
-  not_dvd_card_center_of_markedModel_symplectic hQ hM htag hp hp2
 
 end
 

@@ -27,14 +27,6 @@ theorem pow_eq_self_of_natCast_eq_one {p n : ℕ} (hn : (n : ZMod p) = 1) {e : G
   calc e ^ n = e ^ 1 := pow_eq_pow_iff_modEq.mpr h2
     _ = e := pow_one e
 
-theorem exists_pow_pow_eq_of_natCast_ne_zero {p c : ℕ} (hp : p.Prime) (hc : (c : ZMod p) ≠ 0)
-    {e : G} (he : e ^ p = 1) : ∃ d : ℕ, (e ^ d) ^ c = e := by
-  have := Fact.mk hp
-  have : NeZero p := ⟨hp.ne_zero⟩
-  refine ⟨((c : ZMod p)⁻¹).val, ?_⟩
-  rw [← pow_mul]
-  refine pow_eq_self_of_natCast_eq_one ?_ he
-  rw [Nat.cast_mul, ZMod.natCast_zmod_val, inv_mul_cancel₀ hc]
 
 end Pow
 

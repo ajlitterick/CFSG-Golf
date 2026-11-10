@@ -37,10 +37,6 @@ open Subgroup
 
 variable (G : Type) [Group G] [Finite G]
 
-@[expose] def AGL81NineOneThreeCfg : Prop :=
-  Setting G → ∀ (P : Sylow 3 G) (M H Q : Subgroup G)
-    (K : Subgroup (H ⧸ primeComplementCore (G := H) 3)), AGL81CfgData 3 P M H Q K →
-    ∀ R : Subgroup G, IsSylowIn 3 R (H ⊓ M) → IsSylowIn 3 R H
 
 @[expose] def AGL81TenNineOneThreeNormCfg : Prop :=
   Setting G → ∀ (P : Sylow 3 G) (M H Q : Subgroup G)

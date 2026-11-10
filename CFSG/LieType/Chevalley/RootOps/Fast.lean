@@ -391,28 +391,5 @@ theorem entriesOp_filter_ne_zero (L : List Entry) :
 theorem entriesOp_canonE (L : List Entry) : entriesOp τ R (canonE L) = entriesOp τ R L := by
   rw [canonE, entriesOp_filter_ne_zero, entriesOp_combineE, entriesOp_perm (msortF_perm _ _)]
 
-@[expose] def fastConjCheck (τ : Tag) (a : ℕ) (i : Fin τ.rank) (k : ℕ) : Bool :=
-  validB τ (entries τ a k) &&
-    canonE (conjEntries τ i (entries τ a k)) ==
-      (entries τ (τ.rootCertificate.image a i) k).map fun e =>
-        (e.1, e.2.1, signOf τ a i ^ k * e.2.2)
-
-theorem conj_of_fastConjCheck (htab : tabCheck τ = true) {a : ℕ} {i : Fin τ.rank} {k : ℕ}
-    (h : fastConjCheck τ a i k = true) :
-    (weylElt τ R i 1 : Module.End R (RootModule τ R)) * entriesOp τ R (entries τ a k) =
-      ((signOf τ a i ^ k : ℤ) : R) • (entriesOp τ R (entries τ (τ.rootCertificate.image a i) k) *
-        (weylElt τ R i 1 : Module.End R (RootModule τ R))) := by
-  simp only [fastConjCheck, Bool.and_eq_true, beq_iff_eq] at h
-  obtain ⟨hv, heq⟩ := h
-  have hc := congrArg (entriesOp τ R) heq
-  rw [entriesOp_canonE, entriesOp_map_smul] at hc
-  rw [← entriesOp_conjEntries_mul htab i (validEntries_of_validB hv), hc, smul_mul_assoc]
-
-@[expose] def fastCheckAll (τ : Tag) : Bool :=
-  tabCheck τ &&
-    ((List.range τ.rootCertificate.roots.length).all fun a => (List.finRange τ.rank).all fun i =>
-      [1, 2, 3].all fun k => fastConjCheck τ a i k) &&
-    (List.finRange τ.rank).all fun j =>
-      [1, 2, 3].all fun k => simpleCheck τ j k && negSimpleCheck τ j k
 
 end CFSG.LieType.Chevalley.RootOps

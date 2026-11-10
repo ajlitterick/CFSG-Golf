@@ -58,6 +58,5 @@ theorem fixQ_orth : fixQ orth D (ellO p) = commW orth (Subgroup.zpowers z) ⊤ :
 theorem card_fixQ_orth : Nat.card (fixQ orth D (ellO p)) = 2 * Nat.card (ellO p) := by
   rw [fixQ_orth hD hz h hdec, card_commW_z hD hz, card_ellO]
 
-omit hD hz h hdec
 
 end CFSG.Quasithin.F53.Stellmacher.S35.F2b

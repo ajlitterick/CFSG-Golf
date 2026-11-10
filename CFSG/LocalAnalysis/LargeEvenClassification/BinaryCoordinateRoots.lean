@@ -127,41 +127,5 @@ theorem binary_rank_two_square_kernel_card {Ambient : Type groupUniverse} [Group
   rw [Nat.gcd_eq_right (dvd_pow_self 2 (Nat.ne_zero_of_lt hupper)),
     Nat.gcd_eq_right (dvd_pow_self 2 (Nat.ne_zero_of_lt hlower))]
 
-theorem rank_two_deep_involutions_card_bound {Ambient : Type groupUniverse} [Group Ambient]
-    [Finite Ambient] (hpgroup : IsPGroup 2 Ambient) (Normal : Subgroup Ambient) [Normal.Normal]
-    (hcommutative : IsMulCommutative Normal)
-    (hselfCentralizing : Subgroup.centralizer (Normal : Set Ambient) = Normal)
-    (hnoEight : ∀ Eight : Subgroup Ambient, Eight.Normal →
-      CFSG.Open.IsElemAbelian 2 Eight → Nat.card Eight ≠ 8)
-    {upper lower : ℕ} (hupper : 2 ≤ upper) (hlower : 2 ≤ lower)
-    (coordinates : Normal ≃* Multiplicative (ZMod (2 ^ upper)) ×
-      Multiplicative (ZMod (2 ^ lower))) :
-    let _ : CommGroup Normal := { (inferInstance : Group Normal) with
-      mul_comm := @mul_comm' Normal _ hcommutative }
-    ∃ Involutions : Subgroup (MulAut Normal),
-      (∀ automorphism : MulAut Normal, automorphism ∈ Involutions ↔
-        automorphism ∈ deepAbelianAutomorphisms Normal ∧ automorphism ^ 2 = 1 ∧
-          automorphism ∈ (MulAut.conjNormal (H := Normal)).range) ∧ Nat.card Involutions ≤ 4 := by
-  dsimp only
-  let : CommGroup Normal := { (inferInstance : Group Normal) with
-    mul_comm := @mul_comm' Normal _ hcommutative }
-  have hroot := binary_rank_two_power_root Normal hcommutative hupper hlower coordinates
-  have hcard := binary_rank_two_square_kernel_card Normal hcommutative (by omega) (by omega) coordinates
-  let : (normalPowerSubgroup Normal hcommutative 2).Normal :=
-    normalPowerSubgroup_normal Normal hcommutative 2
-  obtain ⟨Involutions, helementary, hshape, squareMap, hinjective, hsquares⟩ :=
-    exists_deep_conjugation_square_injection hpgroup Normal hcommutative hselfCentralizing
-      hnoEight hcard hroot
-  have hnormalRank : pGeneratorRank 2 Normal ≤ 2 := by
-    obtain ⟨generators, hgenerates, hcard⟩ :=
-      no_normal_eight_abelian_normal_two_generators hpgroup hnoEight Normal hcommutative
-    exact (pGeneratorRank_le_generators Nat.prime_two (hpgroup.to_subgroup Normal)
-      generators hgenerates).trans hcard
-  have hlifts : ∀ automorphism : Involutions, ∃ lift : Ambient,
-      MulAut.conjNormal (H := Normal) lift = (automorphism : MulAut Normal) := by
-    intro automorphism
-    exact ((hshape _).mp automorphism.property).2.2
-  exact ⟨Involutions, hshape, conjugation_square_injection_card_bound hpgroup Normal hcommutative
-    hselfCentralizing hnormalRank Involutions helementary hlifts squareMap hinjective hsquares⟩
 
 end CFSG.LargeEvenClassification.Helpers

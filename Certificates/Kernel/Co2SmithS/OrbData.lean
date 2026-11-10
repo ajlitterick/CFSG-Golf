@@ -46,16 +46,6 @@ meta def chainRec (k : Nat) : Array Nat × Array (Array Nat) :=
   let G := (chainGens ())[k]!.map (mRows seedRowsArr)
   recOf (vecStep G) G.size (orbitBFS (vecStep G) G.size chainBase[k]! 100)
 
-meta def orbRecs : Array (Array Nat × Array (Array Nat)) :=
-  #[pairRec] ++ (List.range 6).toArray.map chainRec
-
-meta def orbPts : Array (Array Nat) := orbRecs.map (·.1)
-
-meta def orbIdx : Array (Array Nat) := Id.run do
-  let mut out : Array (Array Nat) := #[]
-  for r in orbRecs do
-    out := out ++ r.2 ++ Array.replicate (16 - r.2.size) #[]
-  return out
 
 end CertificateChecks.KernelCo2SmithS
 

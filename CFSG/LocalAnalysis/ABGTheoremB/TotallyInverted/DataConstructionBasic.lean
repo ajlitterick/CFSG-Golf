@@ -40,9 +40,6 @@ theorem conjSub_inv_conjSub (g : G) (X : Subgroup G) : conjSub g⁻¹ (conjSub g
 theorem conjSub_conjSub_inv (g : G) (X : Subgroup G) : conjSub g (conjSub g⁻¹ X) = X := by
   rw [conjSub_conjSub, mul_inv_cancel, conjSub_one]
 
-theorem conjSub_pow_succ (g : G) (n : ℕ) (X : Subgroup G) :
-    conjSub (g ^ (n + 1)) X = conjSub g (conjSub (g ^ n) X) := by
-  rw [conjSub_conjSub, pow_succ']
 
 theorem conjSub_mono {g : G} {X Y : Subgroup G} (h : X ≤ Y) : conjSub g X ≤ conjSub g Y :=
   Subgroup.map_mono h
@@ -87,9 +84,6 @@ theorem conjSub_eq_self_of_mem {g : G} {X : Subgroup G}
     (hg : g ∈ Subgroup.normalizer (X : Set G)) : conjSub g X = X :=
   conjSub_eq_self_iff.mpr hg
 
-theorem mem_conjSub_of_mem_normalizer {g y : G} {X : Subgroup G}
-    (hg : g ∈ Subgroup.normalizer (X : Set G)) (hy : y ∈ X) : y ∈ conjSub g X := by
-  rwa [conjSub_eq_self_of_mem hg]
 
 theorem normalizer_conjSub (g : G) (X : Subgroup G) :
     Subgroup.normalizer (conjSub g X : Set G) = conjSub g (Subgroup.normalizer (X : Set G)) := by

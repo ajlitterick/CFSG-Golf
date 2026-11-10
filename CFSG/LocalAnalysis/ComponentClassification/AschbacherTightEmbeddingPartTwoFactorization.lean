@@ -86,17 +86,6 @@ theorem group_normalizer_point_hull_factorization (Q : Subgroup G)
     · exact hgl
     · exact (mul_inv_cancel_right g (r ^ k)).symm
 
-theorem group_eq_normalizer_mul_point_hull (Q : Subgroup G)
-    (hodd : OddNormalizerOverlaps Q) (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2) :
-    (Set.univ : Set G) = (Subgroup.normalizer (Q : Set G) : Set G) *
-      (involutionPointHull z : Set G) := by
-  ext g
-  constructor
-  · intro _
-    obtain ⟨h, hh, l, hl, hgl⟩ := group_normalizer_point_hull_factorization Q hodd z hzQ hz g
-    exact Set.mem_mul.mpr ⟨h, hh, l, hl, hgl.symm⟩
-  · intro _
-    trivial
 
 theorem normalClosure_eq_sup_point_hull (Q : Subgroup G)
     (hodd : OddNormalizerOverlaps Q) (z : G) (hzQ : z ∈ Q) (hz : orderOf z = 2) :

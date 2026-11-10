@@ -366,11 +366,6 @@ private theorem le_normalizer_pPrimePCoreIn :
     K ≤ Subgroup.normalizer (pPrimePCoreIn p K : Set G) :=
   le_normalizer_map_subtype K (CFSG.Op_p'p p K)
 
-private theorem exists_pow_mem_pPrimeCoreIn {y : G} (hy : y ∈ pPrimePCoreIn p K) :
-    ∃ k : ℕ, y ^ p ^ k ∈ pPrimeCoreIn p K := by
-  obtain ⟨y', hy', rfl⟩ := hy
-  obtain ⟨k, hk⟩ := exists_pow_mem_pPrimeCore_of_mem_Op_p'p hy'
-  exact ⟨k, ⟨_, hk, by simp⟩⟩
 
 private theorem le_pPrimePCoreIn_of_normal {X : Subgroup G} (hXK : X ≤ K)
     (hKX : K ≤ Subgroup.normalizer (X : Set G))
@@ -430,22 +425,6 @@ private theorem solvableRadical_characteristic (H : Type*) [Group H] [Finite H] 
   let e := (CFSG.solvableRadical H).equivMapOfInjective φ.toMonoidHom φ.injective
   exact Group.isSolvable_of_surjective (f := e.toMonoidHom) e.surjective
 
-private theorem solvRadIn_le_solvRadIn [Finite G] {L N : Subgroup G} (hLN : L ≤ N)
-    (hNL : N ≤ Subgroup.normalizer (L : Set G)) : solvRadIn L ≤ solvRadIn N := by
-  have : (CFSG.solvableRadical L).Characteristic := solvableRadical_characteristic L
-  have hXN : solvRadIn L ≤ N := (solvRadIn_le L).trans hLN
-  have hn : ((solvRadIn L).subgroupOf N).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer hXN).mpr
-      (hNL.trans (normalizer_le_normalizer_map_of_characteristic _))
-  have hsolv : Group.IsSolvable ((solvRadIn L).subgroupOf N) := by
-    have : Group.IsSolvable (CFSG.solvableRadical L) := solvableRadical_isSolvable
-    let e : CFSG.solvableRadical L ≃* (solvRadIn L).subgroupOf N :=
-      ((CFSG.solvableRadical L).equivMapOfInjective L.subtype L.subtype_injective).trans
-        (Subgroup.subgroupOfEquivOfLe hXN).symm
-    exact Group.isSolvable_of_surjective (f := e.toMonoidHom) e.surjective
-  have hle : (solvRadIn L).subgroupOf N ≤ CFSG.solvableRadical N := le_sSup ⟨hn, hsolv⟩
-  intro x hx
-  exact ⟨⟨x, hXN hx⟩, hle hx, rfl⟩
 
 private theorem thompsonCenter_subgroupOf_map [Finite G] {Y P : Subgroup G} (hPY : P ≤ Y) :
     (thompsonCenter (G := Y) (P.subgroupOf Y)).map Y.subtype = thompsonCenter (G := G) P :=
@@ -541,14 +520,6 @@ private theorem exists_two_pow_mem_ON (hσ : σ.IsValid) (hII : σ.NStructure) {
   have h := inv_pow_mul_pow_mem (hZON hz) ho (2 ^ a)
   rwa [ha', inv_one, one_mul] at h
 
-private theorem mem_ON_of_mem_solvRadIn (hσ : σ.IsValid) (hII : σ.NStructure) {y : G}
-    (hy : y ∈ solvRadIn σ.N) (hodd : Odd (orderOf y)) : y ∈ σ.ON := by
-  obtain ⟨a, ha⟩ := σ.exists_two_pow_mem_ON hσ hII hy
-  have h1 : y ^ orderOf y ∈ σ.ON := by
-    rw [pow_orderOf_eq_one]
-    exact one_mem _
-  exact mem_of_pow_mem_of_pow_mem
-    (Nat.Coprime.pow_left a (Nat.coprime_two_left.mpr hodd)) ha h1
 
 private theorem isSylowOf_pPrimePCoreIn_N_of_inf (hσ : σ.IsValid) (hII : σ.ChapterIIFacts)
     {r : ℕ} (hr : r.Prime) (hr2 : r ≠ 2) (hc : σ.Constrained r) {X : Subgroup G}
@@ -645,33 +616,6 @@ theorem lemmaIV71 (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr : �
     exact (Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr le_sup_left)).trans
       (Subgroup.centralizer_le_normalizer _)
 
-omit [Finite G] in
-private theorem mul_pow_mem_ON {a b : G} (ha : a ∈ σ.N) (hb : b ∈ σ.N)
-    (hab : a * b * a⁻¹ * b⁻¹ ∈ σ.ON) {n : ℕ} (han : a ^ n ∈ σ.ON) (hbn : b ^ n ∈ σ.ON) :
-    (a * b) ^ n ∈ σ.ON := by
-  have : (σ.ON.subgroupOf σ.N).Normal :=
-    (Subgroup.normal_subgroupOf_iff_le_normalizer σ.ON_le_N).mpr σ.N_le_normalizer_ON
-  set π := QuotientGroup.mk' (σ.ON.subgroupOf σ.N) with hπ
-  have hπ1 : ∀ (y : G) (hy : y ∈ σ.N), π ⟨y, hy⟩ = 1 ↔ y ∈ σ.ON := by
-    intro y hy
-    rw [QuotientGroup.mk'_apply, QuotientGroup.eq_one_iff, Subgroup.mem_subgroupOf]
-  have hcomm : Commute (π ⟨a, ha⟩) (π ⟨b, hb⟩) := by
-    have h := (hπ1 _ (σ.N.mul_mem (σ.N.mul_mem (σ.N.mul_mem ha hb) (σ.N.inv_mem ha))
-      (σ.N.inv_mem hb))).mpr hab
-    have e : (⟨a * b * a⁻¹ * b⁻¹, σ.N.mul_mem (σ.N.mul_mem (σ.N.mul_mem ha hb)
-        (σ.N.inv_mem ha)) (σ.N.inv_mem hb)⟩ : σ.N) =
-        ⟨a, ha⟩ * ⟨b, hb⟩ * ⟨a, ha⟩⁻¹ * ⟨b, hb⟩⁻¹ := rfl
-    rw [e, map_mul, map_mul, map_mul, map_inv, map_inv] at h
-    change π ⟨a, ha⟩ * π ⟨b, hb⟩ = π ⟨b, hb⟩ * π ⟨a, ha⟩
-    calc π ⟨a, ha⟩ * π ⟨b, hb⟩ = π ⟨a, ha⟩ * π ⟨b, hb⟩ * (π ⟨a, ha⟩)⁻¹ * (π ⟨b, hb⟩)⁻¹ *
-          (π ⟨b, hb⟩ * π ⟨a, ha⟩) := by group
-      _ = π ⟨b, hb⟩ * π ⟨a, ha⟩ := by rw [h, one_mul]
-  have h1 : π (⟨a, ha⟩ ^ n) = 1 := (hπ1 _ (σ.N.pow_mem ha n)).mpr han
-  have h2 : π (⟨b, hb⟩ ^ n) = 1 := (hπ1 _ (σ.N.pow_mem hb n)).mpr hbn
-  rw [map_pow] at h1 h2
-  apply (hπ1 _ (σ.N.pow_mem (σ.N.mul_mem ha hb) n)).mp
-  change π ((⟨a, ha⟩ * ⟨b, hb⟩) ^ n) = 1
-  rw [map_pow, map_mul, hcomm.mul_pow, h1, h2, one_mul]
 
 section K
 
@@ -766,123 +710,6 @@ private theorem le_oddCoreIn_C [Fact r.Prime] (hr2 : r ≠ 2) (hP : IsSylowOf r 
   have h1 : orderOf c ∣ r ^ n := orderOf_dvd_of_pow_eq_one (by simpa using congrArg Subtype.val hn)
   exact ((Fact.out : r.Prime).eq_two_or_odd'.resolve_left hr2).pow.of_dvd_nat h1
 
-private theorem centerOf_S_le_IV7K (h_L_normal : σ.N ≤ Subgroup.normalizer (σ.L : Set G))
-    (hσ : σ.IsValid) (hPD : σ.D ≤ Subgroup.normalizer (P : Set G)) :
-    centerOf (σ.S : Subgroup G) ≤ σ.IV7K P := by
-  intro z hz
-  have hzT : z ∈ Subgroup.centralizer (σ.T : Set G) :=
-    Subgroup.centralizer_le (SetLike.coe_subset_coe.mpr (σ.T_le_S hσ)) hz.2
-  have hzD : z ∈ σ.D := ⟨hz.1, Subgroup.centralizer_le_normalizer _ hzT⟩
-  have hzL : z ∈ σ.L := Subgroup.mem_sup_right hz.1
-  refine Subgroup.mem_sup_left ⟨⟨hzT, hzL⟩, ?_⟩
-  exact Subgroup.inf_normalizer_le_normalizer_inf
-    ⟨hPD hzD, ((σ.D_le_N hσ).trans h_L_normal) hzD⟩
-
-theorem lemmaIV72_iii (hσ : σ.IsValid) (hII : σ.ChapterIIFacts) {r : ℕ} (hr : r.Prime)
-    (hr2 : r ≠ 2) {P : Subgroup G} (hP : IsSylowOf r P σ.C)
-    (hPD : σ.D ≤ Subgroup.normalizer (P : Set G))
-    (h_L_normal : σ.N ≤ Subgroup.normalizer (σ.L : Set G))
-    (h_C : ∀ c ∈ σ.C, Odd (orderOf c) → c ∈ oddCoreIn σ.C)
-    (h_II42 : ⁅σ.C ⊓ σ.L, σ.C ⊓ σ.L⁆ ≤ solvRadIn σ.L)
-    (h_II42iii : ∀ u ∈ oddCoreIn σ.C, (∃ n : ℕ, u ^ r ^ n = 1) → u ∉ σ.L →
-      ∃ w ∈ oddCoreIn σ.C ⊓ σ.L, Nat.Coprime (orderOf w) r ∧ u * w * u⁻¹ * w⁻¹ ∉ σ.ON) :
-    pCoreIn r (σ.IV7K P) = P ⊓ σ.L := by
-  have : Fact r.Prime := ⟨hr⟩
-  have h_II42i : ⁅oddCoreIn σ.C ⊓ σ.L, oddCoreIn σ.C ⊓ σ.L⁆ ≤ σ.ON := by
-    rw [Subgroup.commutator_le]
-    intro a ha b hb
-    have hab : ⁅a, b⁆ ∈ oddCoreIn σ.C := by
-      rw [commutatorElement_def]
-      exact (oddCoreIn σ.C).mul_mem ((oddCoreIn σ.C).mul_mem ((oddCoreIn σ.C).mul_mem ha.1 hb.1)
-        ((oddCoreIn σ.C).inv_mem ha.1)) ((oddCoreIn σ.C).inv_mem hb.1)
-    refine σ.mem_ON_of_mem_solvRadIn hσ hII.toNStructure
-      (solvRadIn_le_solvRadIn (σ.L_le_N' hσ) h_L_normal (h_II42 ?_))
-      ((odd_card_oddCoreIn σ.C).of_dvd_nat (Subgroup.orderOf_dvd_natCard _ hab))
-    exact Subgroup.commutator_mem_commutator ⟨oddCoreIn_le σ.C ha.1, ha.2⟩
-      ⟨oddCoreIn_le σ.C hb.1, hb.2⟩
-  set K : Subgroup G := σ.IV7K P with hKdef
-  set O : Subgroup G := pCoreIn r K with hOdef
-  set PL : Subgroup G := P ⊓ σ.L with hPLdef
-  have hPK : IsSylowOf r P K := σ.isSylowOf_IV7K hP
-  have hKC : K ≤ σ.C := σ.IV7K_le_C hP.le
-  have hKN : K ≤ σ.N := hKC.trans σ.C_le_N
-  have hKPL : K ≤ Subgroup.normalizer (PL : Set G) := σ.IV7K_le_normalizer_inf_L h_L_normal hP.le
-  have hOK : O ≤ K := pCoreIn_le r K
-  have hKO : K ≤ Subgroup.normalizer (O : Set G) := le_normalizer_map_subtype K (CFSG.pCore r K)
-  have hOp : IsPGroup r O := CFSG.pCore_isPGroup.map K.subtype
-  have hPLO : PL ≤ O := by
-    have hn : (PL.subgroupOf K).Normal :=
-      (Subgroup.normal_subgroupOf_iff_le_normalizer (inf_le_left.trans hPK.le)).mpr hKPL
-    have hle : PL.subgroupOf K ≤ CFSG.pCore r K :=
-      le_sSup ⟨hn, (hP.isPGroup.to_le inf_le_left).comap_subtype⟩
-    intro x hx
-    exact ⟨⟨x, (inf_le_left.trans hPK.le) hx⟩, hle hx, rfl⟩
-  have hOP : O ≤ P := by
-    have h := hPK.eq_of_le le_sup_right (sup_le hOK hPK.le)
-      (IsPGroup.to_sup_of_normal_left' hOp hP.isPGroup (hPK.le.trans hKO))
-    rw [← h]
-    exact le_sup_left
-  refine le_antisymm (le_inf hOP ?_) hPLO
-  intro u hu
-  by_contra huL
-  have huP : u ∈ P := hOP hu
-  have huN : u ∈ σ.N := hKN (hOK hu)
-  have huC : u ∈ oddCoreIn σ.C := σ.le_oddCoreIn_C hr2 hP h_C huP
-  obtain ⟨j, hj⟩ := hP.isPGroup ⟨u, huP⟩
-  have hj' : u ^ r ^ j = 1 := by simpa using congrArg Subtype.val hj
-  obtain ⟨w, hwW, hwr, hwu⟩ := h_II42iii u huC ⟨j, hj'⟩ huL
-  apply hwu
-  have hwN : w ∈ σ.N := σ.C_le_N (oddCoreIn_le σ.C hwW.1)
-  have hZON : centerOf (σ.S : Subgroup G) ≤ Subgroup.normalizer (σ.ON : Set G) :=
-    (inf_le_left.trans (σ.S_le_N hσ)).trans σ.N_le_normalizer_ON
-  obtain ⟨k₀, hk₀, o₀, ho₀, hwk⟩ : ∃ k₀ ∈ K, ∃ o₀ ∈ σ.ON, k₀ * o₀ = w := by
-    obtain ⟨k, hk, c, hc, rfl⟩ := (σ.lemmaIV72 hr hP h_L_normal h_II42).2
-      ⟨oddCoreIn_le σ.C hwW.1, hwW.2⟩
-    have hcS : c ∈ solvRadIn σ.N := solvRadIn_le_solvRadIn (σ.L_le_N' hσ) h_L_normal hc.2
-    rw [hII.N_solvRad, sup_comm] at hcS
-    have hcS' : c ∈ ((centerOf (σ.S : Subgroup G) ⊔ σ.ON : Subgroup G) : Set G) := hcS
-    rw [Subgroup.coe_mul_of_left_le_normalizer_right _ _ hZON] at hcS'
-    obtain ⟨z, hz, o, ho, rfl⟩ := hcS'
-    exact ⟨k * z, K.mul_mem hk (σ.centerOf_S_le_IV7K h_L_normal hσ hPD hz), o, ho,
-      by simp [mul_assoc]⟩
-  set a : G := u * (k₀ * u⁻¹ * k₀⁻¹) with hadef
-  have haO : a ∈ O :=
-    O.mul_mem hu ((Subgroup.mem_normalizer_iff.mp (hKO hk₀) _).mp (O.inv_mem hu))
-  have hk₀N : k₀ ∈ σ.N := hKN hk₀
-  have hrest : a⁻¹ * (u * w * u⁻¹ * w⁻¹) ∈ σ.ON := by
-    have h1 : u * o₀ * u⁻¹ ∈ σ.ON :=
-      (Subgroup.mem_normalizer_iff.mp (σ.N_le_normalizer_ON huN) _).mp ho₀
-    have h2 := (Subgroup.mem_normalizer_iff.mp (σ.N_le_normalizer_ON hk₀N) _).mp
-      (σ.ON.mul_mem h1 (σ.ON.inv_mem ho₀))
-    have e : a⁻¹ * (u * w * u⁻¹ * w⁻¹) = k₀ * (u * o₀ * u⁻¹ * o₀⁻¹) * k₀⁻¹ := by
-      rw [hadef, ← hwk]
-      group
-    rw [e]
-    exact h2
-  obtain ⟨i, hi⟩ := hOp ⟨a, haO⟩
-  have hi' : a ^ r ^ i = 1 := by simpa using congrArg Subtype.val hi
-  have hpow1 : (u * w * u⁻¹ * w⁻¹) ^ r ^ i ∈ σ.ON := by
-    have e : u * w * u⁻¹ * w⁻¹ = a * (a⁻¹ * (u * w * u⁻¹ * w⁻¹)) := by group
-    have h := inv_pow_mul_pow_mem (σ.N_le_normalizer_ON (hKN (hOK haO))) hrest (r ^ i)
-    rwa [hi', inv_one, one_mul, ← e] at h
-  have huw : u * w * u⁻¹ ∈ oddCoreIn σ.C ⊓ σ.L := by
-    refine ⟨(Subgroup.mem_normalizer_iff.mp (le_normalizer_oddCoreIn σ.C (hP.le huP)) w).mp
-      hwW.1, (Subgroup.mem_normalizer_iff.mp (h_L_normal huN) w).mp hwW.2⟩
-  have hpow2 : (u * w * u⁻¹ * w⁻¹) ^ orderOf w ∈ σ.ON := by
-    have hcomm : u * w * u⁻¹ * w⁻¹ * (u * w * u⁻¹)⁻¹ * w⁻¹⁻¹ ∈ σ.ON := by
-      apply h_II42i
-      have h := Subgroup.commutator_mem_commutator huw ((oddCoreIn σ.C ⊓ σ.L).inv_mem hwW)
-      rwa [commutatorElement_def] at h
-    have h1 : (u * w * u⁻¹) ^ orderOf w ∈ σ.ON := by
-      rw [conj_pow, pow_orderOf_eq_one, mul_one, mul_inv_cancel]
-      exact one_mem _
-    have h2 : w⁻¹ ^ orderOf w ∈ σ.ON := by
-      rw [inv_pow, pow_orderOf_eq_one, inv_one]
-      exact one_mem _
-    have huwN : u * w * u⁻¹ ∈ σ.N := σ.N.mul_mem (σ.N.mul_mem huN hwN) (σ.N.inv_mem huN)
-    have h := σ.mul_pow_mem_ON huwN (σ.N.inv_mem hwN) hcomm h1 h2
-    simpa [mul_assoc] using h
-  exact mem_of_pow_mem_of_pow_mem (Nat.Coprime.pow_right i hwr) hpow2 hpow1
 
 omit [Finite G] in
 private theorem exists_pow_not_mem_pow_mem {L : Subgroup G} {a : G} (haL : a ∉ L) {j : ℕ}

@@ -45,16 +45,6 @@ theorem c8FourActionNormImage_doubles {g : C8FourCode} (hg : c8FourActionNormIma
   intro x
   exact (hg (2 • x)).mpr ⟨x, rfl⟩
 
-theorem c8FourActionCentral_center (H : Subgroup C8FourCode) (g : H) :
-    c8FourActionCentral H g.val ↔ g ∈ Subgroup.center H := by
-  rw [Subgroup.mem_center_iff]
-  constructor
-  · intro hg h
-    exact Subtype.ext (hg.2 h.val h.property).symm
-  · intro hg
-    refine ⟨g.property, ?_⟩
-    intro h hh
-    exact (congrArg Subtype.val (hg ⟨h, hh⟩)).symm
 
 theorem c8FourActionCentral_mono {H M Q : Subgroup C8FourCode} {g : C8FourCode}
     (hHM : H ≤ M) (hQH : Q ≤ H) (hgQ : g ∈ Q) (hgM : c8FourActionCentral M g) :

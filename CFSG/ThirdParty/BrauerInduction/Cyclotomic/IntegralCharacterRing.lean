@@ -76,11 +76,6 @@ lemma rLambda_mem
     (f : ClassFun k G) ∈ R_Lambda.top k G :=
   f.1.property
 
-/-- The underlying class function is integer-valued. -/
-lemma intValued_mem
-    (f : IntegralCyclotomicCharacterRing (k := k) (G := G)) :
-    (f : ClassFun k G) ∈ C_Z k G :=
-  f.property
 
 /--
 Restricting a global integral cyclotomic character to a subgroup produces an
@@ -146,16 +141,6 @@ lemma coe_toIntegerValuedClassFun
       (f : ClassFun k G) :=
   rfl
 
-lemma toIntegerValuedClassFun_injective :
-    Function.Injective
-      (toIntegerValuedClassFun (k := k) (G := G)) := by
-  intro f g h
-  apply Subtype.ext
-  apply Subtype.ext
-  exact congrArg
-    (fun q :
-      IntegerValued (k := k) (G := G) =>
-        (q : ClassFun k G))  h
 
 /--
 The inclusion of integral cyclotomic characters into the integer-valued

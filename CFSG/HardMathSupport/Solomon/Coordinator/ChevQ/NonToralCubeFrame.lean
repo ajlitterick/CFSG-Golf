@@ -41,27 +41,6 @@ theorem weylQuotientHom_mem_rootCharStabilizer {L : Type} [Field L] {ι : Type}
     group
   rw [h1, mul_inv_cancel_right]
 
-theorem monomialElt_comm_of_mem_rootCharStabilizer {L : Type} [Field L] [IsAlgClosed L]
-    {a : Fin τ.rank → Lˣ} (b : Fin τ.rank → Lˣ) {ω : WeylGroup τ}
-    (hω : ω ∈ rootCharStabilizer a) :
-    rootDiagUnit τ a * monomialElt τ L b ω = monomialElt τ L b ω * rootDiagUnit τ a := by
-  have hdb : rootDiagUnit τ a * rootDiagUnit τ b = rootDiagUnit τ b * rootDiagUnit τ a :=
-    rootDiagUnit_mul_comm_of_mem_torusGroup a (rootDiagUnit_mem_torusGroup b)
-  have hcr : rootDiagUnit τ a * canonicalRep (coxeterSystem τ) L ω =
-      canonicalRep (coxeterSystem τ) L ω * rootDiagUnit τ a := by
-    have h := (conj_canonicalRep_eq_iff (K := L) (a := a) (w := ω)).2 hω
-    calc rootDiagUnit τ a * canonicalRep (coxeterSystem τ) L ω
-        = (rootDiagUnit τ a * canonicalRep (coxeterSystem τ) L ω * (rootDiagUnit τ a)⁻¹) *
-            rootDiagUnit τ a := by group
-      _ = canonicalRep (coxeterSystem τ) L ω * rootDiagUnit τ a := by rw [h]
-  unfold monomialElt
-  calc rootDiagUnit τ a * (rootDiagUnit τ b * canonicalRep (coxeterSystem τ) L ω)
-      = (rootDiagUnit τ a * rootDiagUnit τ b) * canonicalRep (coxeterSystem τ) L ω := by group
-    _ = rootDiagUnit τ b * (rootDiagUnit τ a * canonicalRep (coxeterSystem τ) L ω) := by
-        rw [hdb]; group
-    _ = rootDiagUnit τ b * (canonicalRep (coxeterSystem τ) L ω * rootDiagUnit τ a) := by
-        rw [hcr]
-    _ = rootDiagUnit τ b * canonicalRep (coxeterSystem τ) L ω * rootDiagUnit τ a := by group
 
 theorem exists_eq_monomialElt {L : Type} [Field L] {n : ModGL τ L}
     (hn : n ∈ monomialSubgroup τ L) :

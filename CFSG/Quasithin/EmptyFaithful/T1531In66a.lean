@@ -15,7 +15,6 @@ variable {G : Type} [Group G] {V : Subgroup G} (hV : IsElemAbelian 2 V)
 
 @[expose] def modOf (E : Subgroup G) : Subgroup (IntMod V hV) := E.comap (inclMod hV)
 
-theorem mem_modOf {E : Subgroup G} {w : IntMod V hV} : w ∈ modOf hV E ↔ w.val ∈ E := Iff.rfl
 
 theorem map_modOf {E : Subgroup G} (hEV : E ≤ V) : (modOf hV E).map (inclMod hV) = E := by
   ext x

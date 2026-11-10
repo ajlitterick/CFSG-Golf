@@ -77,15 +77,5 @@ theorem two_group_card_cube_le_of_extra_prime_divisor
   apply (Nat.pow_le_pow_iff_right (by omega : 1 < 2)).mpr
   omega
 
-theorem two_group_card_eq_cube_of_extra_prime_divisor_and_bound
-    {M : Type u} [Group M] [Finite M] (hM : IsPGroup 2 M)
-    (Q : Subgroup M) [Q.Normal] (hQproper : Q ≠ ⊤)
-    {e p : ℕ} (he : 0 < e) (hQcard : Nat.card Q = 2 ^ e)
-    (hdiv : p * (Nat.card Q - 1) ∣ Nat.card (M ⧸ Q) - 1)
-    (hnot : ¬ p ∣ Nat.card Q - 1) (hbound : Nat.card M ∣ Nat.card Q ^ 3) :
-    Nat.card M = Nat.card Q ^ 3 := by
-  obtain ⟨d, hdcard, hd, hexp, hdouble, hlower⟩ :=
-    two_group_card_cube_le_of_extra_prime_divisor hM Q hQproper he hQcard hdiv hnot
-  exact le_antisymm (Nat.le_of_dvd (pow_pos (Nat.card_pos (α := Q)) 3) hbound) hlower
 
 end CFSG.ShultStronglyClosedTI.TwoCoreGrowthCoprime

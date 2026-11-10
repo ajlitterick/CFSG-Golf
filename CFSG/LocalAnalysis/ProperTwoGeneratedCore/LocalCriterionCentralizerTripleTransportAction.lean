@@ -65,17 +65,6 @@ theorem rightStabilizer_rightConjugate (a : Ω) (g : G) :
     have hh := congrArg (fun b : Ω => rightAct b g⁻¹) hx
     simpa only [rightAct_mul, mul_inv_cancel, rightAct_one] using hh
 
-theorem rightFixedSet_rightConjugate_mem (A : Subgroup G) (g : G)
-    {a : Ω} (ha : a ∈ rightFixedSet A) :
-    rightAct a g ∈ rightFixedSet (rightConjugate A g) := by
-  intro x hx
-  have hh := (mem_rightConjugate A g x).mp hx
-  calc
-    rightAct (rightAct a g) x = rightAct a (g * x) := rightAct_mul _ _ _
-    _ = rightAct (rightAct a (g * x * g⁻¹)) g := by
-      rw [rightAct_mul]
-      simp only [mul_assoc, inv_mul_cancel, mul_one]
-    _ = rightAct a g := by rw [ha _ hh]
 
 theorem normalizer_preserves_rightFixedSet (A : Subgroup G) (g : G)
     (hg : g ∈ Subgroup.normalizer (A : Set G)) {a : Ω}

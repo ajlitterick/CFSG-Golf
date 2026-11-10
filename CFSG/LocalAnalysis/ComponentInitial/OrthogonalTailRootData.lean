@@ -157,27 +157,11 @@ theorem tailLongElt_eps_add_eps {i j : Fin r} (hij : i < j) (t : K) :
       eichler (quadTail r qA) (hypVec K A (.inl i)) ((-t) • hypVec K A (.inl j)) := by
   rw [tailLongElt_eq_prodCongr, rootElt_eps_add_eps' hij, hypVec_smul, hypVec, eichler_prod_fst]
 
-theorem tailLongElt_neg_eps_sub_eps {i j : Fin r} (hij : i < j) (t : K) :
-    tailLongElt r qA (-eps r i - eps r j) t =
-      eichler (quadTail r qA) (hypVec K A (.inr j)) ((-t) • hypVec K A (.inr i)) := by
-  rw [tailLongElt_eq_prodCongr, rootElt_neg_eps_sub_eps' hij, hypVec_smul, hypVec,
-    eichler_prod_fst]
 
 theorem polar_hypVec_smul_hypVec {c d : Fin r ⊕ Fin r} (h : d ≠ c.swap) (t : K) :
     polar (quadTail r qA) (hypVec K A c) (t • hypVec K A d) = 0 := by
   rw [polar_smul_right_eq, polar_hypVec_hypVec, ite_eq_right h, mul_zero]
 
-theorem coe_eichler_hypVec {c d : Fin r ⊕ Fin r} (h : d ≠ c.swap) (t : K) :
-    ((eichler (quadTail r qA) (hypVec K A c) (t • hypVec K A d) :
-      ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] _) : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] _) =
-      orthElementaryMap (quadTail r qA) (hypVec K A c) (t • hypVec K A d) :=
-  LinearMap.ext fun x => eichler_apply (quadTail_hypVec c) (polar_hypVec_smul_hypVec h t) x
-
-theorem coe_eichler_tail (c : Fin r ⊕ Fin r) (a : A) :
-    ((eichler (quadTail r qA) (hypVec K A c) ((0, a) : (Fin r ⊕ Fin r → K) × A) :
-      ((Fin r ⊕ Fin r → K) × A) ≃ₗ[K] _) : ((Fin r ⊕ Fin r → K) × A) →ₗ[K] _) =
-      orthElementaryMap (quadTail r qA) (hypVec K A c) (0, a) :=
-  LinearMap.ext fun x => eichler_apply (quadTail_hypVec c) (polar_hypVec_tail c a) x
 
 theorem tailLongElt_mem (α : Fin r → ℤ) (t : K) :
     tailLongElt r qA α t ∈ orthElementaryGroup (quadTail r qA) := by
@@ -228,11 +212,6 @@ theorem tailShortElt_neg_eps (i : Fin r) (a : A) :
   rw [tailShortElt, dite_eq_right h0, dite_eq_left h,
     ← eps_injective (neg_injective h.choose_spec)]
 
-theorem tailShortElt_of_not {α : Fin r → ℤ} (h : α ∉ shortRootsB r) (a : A) :
-    tailShortElt r qA α a = 1 := by
-  have h0 : ¬∃ j : Fin r, α = eps r j := fun ⟨j, hj⟩ => h ⟨j, Or.inl hj⟩
-  have h1 : ¬∃ j : Fin r, α = -eps r j := fun ⟨j, hj⟩ => h ⟨j, Or.inr hj⟩
-  rw [tailShortElt, dite_eq_right h0, dite_eq_right h1]
 
 theorem tailShortElt_mem (α : Fin r → ℤ) (a : A) :
     tailShortElt r qA α a ∈ orthElementaryGroup (quadTail r qA) := by

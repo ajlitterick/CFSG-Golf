@@ -150,14 +150,5 @@ theorem fG_g2X (a : Fin 3 → F) : fG (g2X a) = q6 (a 0) (a 1) (a 2) 0 0 0 := by
   simp only [fG, h, q6]
   apply q6_congr <;> simp
 
-theorem fG_g2Y (b : Fin 3 → F) : fG (g2Y b) = q6 0 0 0 (b 0) (b 1) (b 2) := by
-  have h : ∀ w, ellG (g2Y b) w = b 0 * w (.inl 0) + b 1 * w (.inl 1) + b 2 * w (.inl 2) :=
-    fun w => by
-      rw [ellG, g2Y_inv]
-      change (ybFun b (zI w)).1 = _
-      rw [q6_eta w, zI_q6, ybFun_zmk]
-      simp [zmk, q6]
-  simp only [fG, h, q6]
-  apply q6_congr <;> simp
 
 end CFSG.Quasithin.JonesParshall

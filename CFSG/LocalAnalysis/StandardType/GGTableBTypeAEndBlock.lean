@@ -81,9 +81,6 @@ include ht0 hD in
   map_one' := by simp
   map_mul' s s' := entry_mul_of_mem ht0 D hD s.2 s'
 
-theorem blockEnt_apply (s : Subgroup.centralizer {D}) :
-    blockEnt ht0 D hD s = ((s : SpecialLinearGroup (Fin d) K) : Matrix (Fin d) (Fin d) K) i₀ i₀ :=
-  rfl
 
 include ht0 hD in
 theorem mem_coordBlockSL_of_mem {s : SpecialLinearGroup (Fin d) K}

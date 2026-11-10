@@ -262,37 +262,6 @@ theorem exists_coroot_subgroup_of_A3 {G : Type} [Group G] [Finite G] {Bs J : Sub
   rw [hprops.2.2.1]
   norm_num
 
-theorem exists_coroot_subgroup_of_A3_character {G : Type} [Group G] [Finite G]
-    {Bs J : Subgroup G}
-    (hN : Bs ≤ Subgroup.normalizer (J : Set G)) (hD : GGResLineJDatum 3 Bs J .A3) :
-    ∃ E : Subgroup G, E ≤ Bs ⊓ J ∧ IsElemAbelian 3 E ∧ Nat.card E = 27 ∧
-      E ⊓ Subgroup.centralizer (J : Set G) = ⊥ ∧
-      (∀ (C : Type*) [Group C], (∀ c : C, c ^ 3 = 1) →
-        ∀ (χ : Bs →* C),
-          (∀ φ ∈ ggAutomizer J Bs, ∀ b : Bs, χ (φ b) = χ b) →
-          ∀ e (_heE : e ∈ E) (he : (e : G) ∈ Bs), χ ⟨e, he⟩ = 1) := by
-  classical
-  obtain ⟨V, instA, instM, ι, r, h, α, hform, _hrefl, hpair, hind, hgen⟩ := hD
-  have hpairA : ∀ i j : Fin 3, α i (h j) = (CartanMatrix.A 3 i j : ZMod 3) := by
-    intro i j
-    simpa only [GGResLineJType.cartan] using hpair i j
-  have hα2 : ∀ j : Fin 3, α j (h j) = 2 := ggResI_alpha_self_eq_two_of_A3 hpairA
-  have hC : ∀ c : Fin 3 → ZMod 3,
-      (∀ j, ∑ k, (CartanMatrix.A 3 j k : ZMod 3) * c k = 0) → c = 0 :=
-    ggCartanAInd_ker_zero (p := 3) (N := 3) (by norm_num)
-  let W : Submodule (ZMod 3) V := Submodule.span (ZMod 3) (Set.range h)
-  have hprops := coroot_span_subgroup_properties_of_cartan (k := 3) (hN := hN) ι r h α
-    (CartanMatrix.A 3) hform hα2 hpairA hind hC hgen W rfl
-  refine ⟨ggSpanSub ι W, hprops.1, hprops.2.1, ?_, hprops.2.2.2, ?_⟩
-  · rw [hprops.2.2.1]
-    norm_num
-  · intro C _ hCexp χ hχinv e heE he
-    obtain ⟨v, hvW, hve⟩ := mem_ggSpanSub.mp heE
-    have hrep : χ (Additive.toMul (ι.symm v)) = 1 :=
-      ggCharacter_apply_corootSpan ι r h α hform hα2 hgen hCexp χ hχinv v hvW
-    have hsub : (⟨e, he⟩ : ↥Bs) = Additive.toMul (ι.symm v) := Subtype.ext hve.symm
-    rw [hsub]
-    exact hrep
 
 theorem exists_coroot_quotient_of_A3 {G : Type} [Group G] [Finite G] {Bs J : Subgroup G}
     (hN : Bs ≤ Subgroup.normalizer (J : Set G)) (hD : GGResLineJDatum 3 Bs J .A3) :
@@ -412,88 +381,6 @@ theorem coroot_span_le_ker_of_diag_two
     exact LinearMap.mem_ker.mpr (hmem j)
   · rw [finrank_span_eq_card hind, Fintype.card_fin]
 
-theorem coroot_span_le_ker_of_A3
-    {G : Type} [Group G] {Bs J : Subgroup G}
-    {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (ι : Additive ↥Bs ≃+ V) (r : Fin 3 → MulAut ↥Bs) (h : Fin 3 → V)
-    (α : Fin 3 → Module.Dual (ZMod 3) V)
-    (hform : ∀ j w, ggLin (p := 3) ι (r j) w = w - α j w • h j)
-    (hpair : ∀ i j, α i (h j) = (CartanMatrix.A 3 i j : ZMod 3))
-    (hind : LinearIndependent (ZMod 3) h)
-    (hgen : ggAutomizer J Bs = Subgroup.closure (Set.range r))
-    {W : Type} [AddCommGroup W] [Module (ZMod 3) W]
-    (b : V →ₗ[ZMod 3] V →ₗ[ZMod 3] W) (hbalt : b.IsAlt)
-    (hinv : ∀ φ ∈ ggAutomizer J Bs, ∀ u v,
-      b (ggLin (p := 3) ι φ u) (ggLin (p := 3) ι φ v) = b u v) :
-    (∀ j, b (h j) = 0) ∧
-      Submodule.span (ZMod 3) (Set.range h) ≤ b.ker ∧
-      Module.finrank (ZMod 3) (Submodule.span (ZMod 3) (Set.range h)) = 3 := by
-  have hα2 : ∀ j : Fin 3, α j (h j) = 2 := by
-    intro j
-    rw [hpair j j]
-    have hdiag : CartanMatrix.A 3 j j = 2 := by
-      fin_cases j <;> decide
-    rw [hdiag]
-    norm_num
-  exact coroot_span_le_ker_of_diag_two ι r h α hform hα2 hind hgen b hbalt hinv
-
-theorem exists_coroot_span_le_ker_of_A3
-    {G : Type} [Group G] {Bs J : Subgroup G}
-    (hD : GGResLineJDatum 3 Bs J .A3)
-    {W : Type} [AddCommGroup W] [Module (ZMod 3) W] :
-    ∃ (V : Type) (_ : AddCommGroup V) (_ : Module (ZMod 3) V)
-      (ι : Additive ↥Bs ≃+ V) (r : Fin 3 → MulAut ↥Bs) (h : Fin 3 → V)
-      (α : Fin 3 → Module.Dual (ZMod 3) V),
-      (∀ j w, ggLin (p := 3) ι (r j) w = w - α j w • h j) ∧
-        (∀ j, GGIsReflection 3 (r j)) ∧
-        (∀ i j, α i (h j) = (GGResLineJType.cartan .A3 i j : ZMod 3)) ∧
-        LinearIndependent (ZMod 3) h ∧
-        ggAutomizer J Bs = Subgroup.closure (Set.range r) ∧
-        ∀ (b : V →ₗ[ZMod 3] V →ₗ[ZMod 3] W), b.IsAlt →
-          (∀ φ ∈ ggAutomizer J Bs, ∀ u v,
-            b (ggLin (p := 3) ι φ u) (ggLin (p := 3) ι φ v) = b u v) →
-          (∀ j, b (h j) = 0) ∧
-            Submodule.span (ZMod 3) (Set.range h) ≤ b.ker ∧
-            Module.finrank (ZMod 3) (Submodule.span (ZMod 3) (Set.range h)) = 3 := by
-  obtain ⟨V, instA, instM, ι, r, h, α, hform, hrefl, hpair, hind, hgen⟩ := hD
-  let : AddCommGroup V := instA
-  let : Module (ZMod 3) V := instM
-  have hpairA : ∀ i j : Fin 3, α i (h j) = (CartanMatrix.A 3 i j : ZMod 3) := by
-    intro i j
-    simpa only [GGResLineJType.cartan] using hpair i j
-  exact ⟨V, instA, instM, ι, r, h, α, hform, hrefl, hpair, hind, hgen,
-    fun b hbalt hinv => coroot_span_le_ker_of_A3 ι r h α hform hpairA hind hgen b hbalt hinv⟩
-
-theorem card_ker_of_A3
-    {G : Type} [Group G] {Bs J : Subgroup G} [Finite Bs]
-    {V : Type} [AddCommGroup V] [Module (ZMod 3) V]
-    (ι : Additive ↥Bs ≃+ V) (r : Fin 3 → MulAut ↥Bs) (h : Fin 3 → V)
-    (α : Fin 3 → Module.Dual (ZMod 3) V)
-    (hform : ∀ j w, ggLin (p := 3) ι (r j) w = w - α j w • h j)
-    (hpair : ∀ i j, α i (h j) = (CartanMatrix.A 3 i j : ZMod 3))
-    (hind : LinearIndependent (ZMod 3) h)
-    (hgen : ggAutomizer J Bs = Subgroup.closure (Set.range r))
-    {W : Type} [AddCommGroup W] [Module (ZMod 3) W]
-    (b : V →ₗ[ZMod 3] V →ₗ[ZMod 3] W) (hbalt : b.IsAlt)
-    (hinv : ∀ φ ∈ ggAutomizer J Bs, ∀ u v,
-      b (ggLin (p := 3) ι φ u) (ggLin (p := 3) ι φ v) = b u v) :
-    27 ≤ Nat.card b.ker := by
-  classical
-  have : Finite V := Finite.of_equiv _ ι.toEquiv
-  obtain ⟨hmem, hspan, hfin⟩ :=
-    coroot_span_le_ker_of_A3 ι r h α hform hpair hind hgen b hbalt hinv
-  have : Finite (Submodule.span (ZMod 3) (Set.range h)) := Subtype.finite
-  have : Finite b.ker := Subtype.finite
-  have hcard : Nat.card (Submodule.span (ZMod 3) (Set.range h)) = 27 := by
-    rw [← FiniteField.pow_finrank_eq_natCard 3
-      (Submodule.span (ZMod 3) (Set.range h)), hfin]
-    norm_num
-  have hle : Nat.card (Submodule.span (ZMod 3) (Set.range h)) ≤ Nat.card b.ker :=
-    Nat.card_le_card_of_injective
-      (fun x : Submodule.span (ZMod 3) (Set.range h) => (⟨x.1, hspan x.2⟩ : b.ker))
-      (fun x y hxy => Subtype.ext (congrArg (fun z : b.ker => z.1) hxy))
-  rw [hcard] at hle
-  exact hle
 
 end GGResLineJDatum
 
@@ -1090,27 +977,5 @@ theorem actual_rankThree_recipe_abelianPreimage
   exact (CFSG.HardMathSupport.Dickson.LocalTwoBalance.Cross.E6Heis.PairAux.minBC_injective
     e6Data_valid κ) hxy
 
-theorem actual_A3_recipe_abelianPreimage
-    {G : Type} [Group G] [Finite G] {Bs J : Subgroup G}
-    (hN : Bs ≤ Subgroup.normalizer (J : Set G))
-    (hD : GGResLineJDatum 3 Bs J .A3)
-    {n : ℕ} (hn : 1 ≤ n) {K : Type} [Field K] [Finite K]
-    (hK : Nat.card K = (2 ^ n) ^ 2) (σ : K ≃+* K) (hσ : ∀ c, σ c = c ^ 2 ^ n)
-    [Algebra K GGL] [IsAlgClosure K GGL]
-    (Fr : GGL →+* GGL) (hFr : ∀ c, Fr c = c ^ 2 ^ n)
-    (ε : ↥(graphFixedRootGroup TwistTag.E6 K σ.toRingHom) ≃* TwE6Delta.RecipeR K n)
-    (hε : ∀ x : MulAut ↥(graphFixedRootGroup TwistTag.E6 K σ.toRingHom),
-      MulAut.congr ε x ∈ TwE6Delta.RecipeI K n ↔ x ∈ (RecipeExcLang.twConj K σ).range)
-    {ψ : ↥J →* TwE6Delta.RecipeR K n}
-    (hψ : Function.Surjective ψ) (hker : ψ.ker ≤ Subgroup.center ↥J)
-    (hperf : commutator ↥J = ⊤)
-    (hAI : ∀ a ∈ (ggGamma J hN).range,
-      ∃ φ ∈ TwE6Delta.RecipeI K n, ∀ l : ↥J, φ (ψ l) = ψ (a l))
-    (hcardA : Nat.card (ggGamma J hN).range ≤ 81) :
-    CFSG.StandardType.LieCore.M6c.GGLieAbelianPreimageE6
-      (rgrpModel hn hK σ hσ Fr hFr ε
-        (TypeA.inducedSub ψ (ggGamma J hN).range)) :=
-  actual_rankThree_recipe_abelianPreimage hN hD (Or.inl rfl) hn hK σ hσ Fr hFr ε hε
-    hψ hker hperf hAI hcardA
 
 end CFSG.StandardType.SCFourCover

@@ -88,12 +88,6 @@ theorem coe_mem_center_of_mem_center (hθ : ∀ c, θ (θ c) = c) {z : fixedGrou
   rw [← e]
   exact (minTorus_mem_center_iff e6Data_valid k u).2 hu
 
-theorem center_fixedGroup_eq (hθ : ∀ c, θ (θ c) = c) :
-    Subgroup.center (fixedGroup k θ) =
-      (Subgroup.center (e6Data_valid.minGroup k)).subgroupOf (fixedGroup k θ) := by
-  ext g
-  rw [Subgroup.mem_subgroupOf]
-  exact ⟨coe_mem_center_of_mem_center θ hθ, mem_center_of_coe_mem_center θ⟩
 
 theorem sigma_minTorus_tvec {v : kˣ} (hv : v ^ 3 = 1) :
     sigma k θ (minTorus e6Data_valid k (tvec v e6c)) =
@@ -180,10 +174,6 @@ theorem centerHom_surjective [Finite k] (hk : Nat.card k = q ^ 2) (hθq : ∀ c,
   (MulEquiv.ofBijective (centerHom hθq)
     ⟨centerHom_injective hθq, centerHom_surjective hk hθq⟩).symm
 
-theorem centerEquivRootsOfUnity_symm_apply [Finite k] (hk : Nat.card k = q ^ 2)
-    (hθq : ∀ c, θ c = c ^ q) (v : rootsOfUnity (Nat.gcd 3 (q + 1)) k) :
-    (centerEquivRootsOfUnity hk hθq).symm v = centerHom hθq v :=
-  rfl
 
 theorem card_center_fixedGroup [Finite k] (hk : Nat.card k = q ^ 2) (hθq : ∀ c, θ c = c ^ q) :
     Nat.card (Subgroup.center (fixedGroup k θ)) = Nat.gcd 3 (q + 1) ∧

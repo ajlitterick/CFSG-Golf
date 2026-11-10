@@ -64,16 +64,6 @@ theorem kOf_one_act (c : Coord J) : hermitianTorusAction J (C.kOf 1) c = c := by
   have e := C.kOf_spec' 1 u u (by simp)
   rw [← e]
 
-theorem kOf_inv_act (x : pairStab G a b) (c : Coord J) :
-    hermitianTorusAction J (C.kOf x⁻¹) c = hermitianTorusAction J (C.kOf x)⁻¹ c := by
-  have h1 : ∀ c', hermitianTorusAction J (C.kOf x) (hermitianTorusAction J (C.kOf x⁻¹) c') = c' :=
-    fun c' => by
-      rw [← torus_mul_apply, ← C.kOf_mul_act S, mul_inv_cancel, C.kOf_one_act]
-  calc hermitianTorusAction J (C.kOf x⁻¹) c
-      = hermitianTorusAction J (C.kOf x)⁻¹ (hermitianTorusAction J (C.kOf x)
-          (hermitianTorusAction J (C.kOf x⁻¹) c)) := by
-        rw [← torus_mul_apply, inv_mul_cancel, torus_one_apply]
-    _ = hermitianTorusAction J (C.kOf x)⁻¹ c := by rw [h1]
 
 theorem kOf_tOf_act (k : Kˣ) (c : Coord J) :
     hermitianTorusAction J (C.kOf (C.tOf k)) c = hermitianTorusAction J k c := by

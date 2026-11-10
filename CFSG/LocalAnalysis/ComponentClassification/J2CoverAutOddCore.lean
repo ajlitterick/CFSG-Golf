@@ -357,18 +357,10 @@ theorem P_outer_oddCore (α : MulAut P) (hα2 : α * α = 1) (hα : α ∉ inner
     center_P permU_outer ?_ outer_witness α hα2 hα
   rw [card_mulAut_P, card_P]
 
-theorem j2_inner_oddCore (t : NativeSporadic.J2) (ht : orderOf t = 2) :
-    CFSG.oddCore (Subgroup.centralizer ({t} : Set NativeSporadic.J2)) = ⊥ := by
-  have h := inner_of_equiv (G := NativeSporadic.J2) (H := P) nativeEquivP P_inner_oddCore
-  exact h t ht
 
 theorem j2_mulAut_card : Nat.card (MulAut NativeSporadic.J2) = 2 * Nat.card NativeSporadic.J2 := by
   rw [Nat.card_congr mulAutEquivP, Nat.card_congr nativeEquivP.toEquiv, card_mulAut_P, card_P]
 
-theorem j2_outer_oddCore (α : MulAut NativeSporadic.J2) (hα2 : α * α = 1)
-    (hα : α ∉ inner NativeSporadic.J2) : CFSG.oddCore (fixSub (G := NativeSporadic.J2) α) = ⊥ := by
-  have h := outer_of_equiv (G := NativeSporadic.J2) (H := P) nativeEquivP P_outer_oddCore
-  exact h α hα2 hα
 
 theorem ctuc_j2_almost_simple_involution_centralizer_odd_core_trivial {X : Type*} [Group X]
     [Finite X] (S : Subgroup X) [S.Normal] (ψ : S ≃* NativeSporadic.J2)

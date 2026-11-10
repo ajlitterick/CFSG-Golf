@@ -93,9 +93,6 @@ theorem typ_excl : ∀ ν ∈ deg1Roots, ∀ γ ∈ simp6,
   rw [List.contains_iff_mem.2 m1, List.contains_iff_mem.2 m2] at h3
   exact absurd h3 (by decide)
 
-theorem gens12_lx : ∀ γ ∈ gens12, γ ∈ lxRoots := by
-  simp only [e8tK_lx_iff]
-  decide +kernel
 
 theorem mRoots_cls : ∀ μ ∈ mRoots, cls μ = 1 ∨ cls μ = 2 ∨ cls μ = 3 ∨ cls μ = 4 := by
   exact e8tK_forall_of e8tK_m_iff.1 (Q := fun μ => cls μ = 1 ∨ cls μ = 2 ∨ cls μ = 3 ∨ cls μ = 4)

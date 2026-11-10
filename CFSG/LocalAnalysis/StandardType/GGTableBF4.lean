@@ -66,12 +66,6 @@ theorem largeEvenLabelAll_tableB_F4 {lab : LargeEvenLabel} (htag : lab.tag = .F4
   intro Q hQ
   exact recipeChevalleyF4_tableB hlab.1 hp hpn h3 hQ
 
-theorem largeEvenLabelAll_tableB_F4_five {lab : LargeEvenLabel} (htag : lab.tag = .F4)
-    (hlab : LargeEvenInLambda2 lab) {p : ℕ} (hp : p.Prime) (hp5 : 5 ≤ p)
-    (hpn : p ∣ 2 ^ lab.n - 1) :
-    LargeEvenLabelAll lab fun R _ I _ =>
-      ∃ r, GGTorusLift p r R ∧ GGBstarBound p r R I ∧ GGEndNode p r R I :=
-  largeEvenLabelAll_tableB_F4 htag hlab hp hpn fun h => by omega
 
 theorem TableBF4.ggBstarInputOn_of_labelAll {S : ℕ → LargeEvenLabel → Prop}
     (h : ∀ (p : ℕ) (lab : LargeEvenLabel), p.Prime → LargeEvenInLambda2 lab → S p lab →
@@ -88,8 +82,6 @@ theorem TableBF4.ggBstarInputOn_of_labelAll {S : ℕ → LargeEvenLabel → Prop
 @[expose] def GGTableBF4Label (p : ℕ) (lab : LargeEvenLabel) : Prop :=
   lab.tag = .F4 ∧ p ∣ 2 ^ lab.n - 1
 
-@[expose] def GGTableBF4LabelFive (p : ℕ) (lab : LargeEvenLabel) : Prop :=
-  lab.tag = .F4 ∧ p ∣ 2 ^ lab.n - 1 ∧ 5 ≤ p
 
 theorem ggBstarInputOn_F4 (h3 : GGF4ThreeRankInput) : GGBstarInputOn GGTableBF4Label :=
   TableBF4.ggBstarInputOn_of_labelAll fun _ _ hp hlab h =>
@@ -101,14 +93,5 @@ theorem ggStdSubPreInputOn_F4 (h3 : GGF4ThreeRankInput) : GGStdSubPreInputOn GGT
     (largeEvenLabelAll_tableB_F4 h.1 hlab hp h.2 fun _ => h3).mono
       fun _ _ _ _ ⟨r, h1, _, h4⟩ => ⟨r, h1, h4⟩
 
-theorem ggBstarInputOn_F4_five : GGBstarInputOn GGTableBF4LabelFive :=
-  TableBF4.ggBstarInputOn_of_labelAll fun _ _ hp hlab h =>
-    (largeEvenLabelAll_tableB_F4_five h.1 hlab hp h.2.2 h.2.1).mono
-      fun _ _ _ _ ⟨r, h1, h2, _⟩ => ⟨r, h1, h2⟩
-
-theorem ggStdSubPreInputOn_F4_five : GGStdSubPreInputOn GGTableBF4LabelFive :=
-  ggStdSubPreInputOn_of_labels fun _ _ hp hlab h =>
-    (largeEvenLabelAll_tableB_F4_five h.1 hlab hp h.2.2 h.2.1).mono
-      fun _ _ _ _ ⟨r, h1, _, h4⟩ => ⟨r, h1, h4⟩
 
 end CFSG.StandardType

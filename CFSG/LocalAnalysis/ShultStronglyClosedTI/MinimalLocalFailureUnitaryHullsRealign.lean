@@ -30,10 +30,6 @@ variable {G : Type} [Group G]
     change u * ((x : G) * y) * u⁻¹ = u * x * u⁻¹ * (u * y * u⁻¹)
     group)
 
-theorem coe_conjInvolutionAut {L : Subgroup G} {u : G} (hu2 : u * u = 1)
-    (huL : ∀ x ∈ L, u * x * u⁻¹ ∈ L) (x : L) :
-    ((conjInvolutionAut hu2 huL x : L) : G) = u * x * u⁻¹ :=
-  rfl
 
 theorem exists_bar_coordinates [Finite G] {H L : Subgroup G} {z t : G}
     {beta : rightCosetSpace H} (F : UnitaryHullCoordinates H z beta t L) {u : G}

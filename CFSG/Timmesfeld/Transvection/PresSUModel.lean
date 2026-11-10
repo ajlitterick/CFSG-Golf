@@ -50,10 +50,6 @@ theorem crd_ne_rev (a : Fin (m / 2) ⊕ Fin (m / 2)) : crd a ≠ Fin.rev (crd a)
   rw [← crd_swap]
   exact fun h => swap_ne_self a (crd_injective h).symm
 
-theorem crd_eq_rev_iff {a b : Fin (m / 2) ⊕ Fin (m / 2)} :
-    crd b = Fin.rev (crd a) ↔ b = Sum.swap a := by
-  rw [← crd_swap]
-  exact crd_injective.eq_iff
 
 theorem weight_crd (a : Fin (m / 2) ⊕ Fin (m / 2)) : weight m (crd a) = wt a := by
   rcases a with a | a
@@ -344,29 +340,6 @@ theorem suElt_comm_shortLong {a b : Fin (m / 2) ⊕ Fin (m / 2)} (hab : idx a �
       ite_false, add_zero, *]
   · simp only [single_mul_single', crd_injective.eq_iff, Sum.swap_swap, ite_false, *]
 
-theorem suLong_comm_short {a d : Fin (m / 2) ⊕ Fin (m / 2)} (had : idx a ≠ idx d) {s : F}
-    (hs : σ s = s) (t : F) :
-    ⁅suLong σ a s, suElt σ hσ (Sum.swap a) d t⁆ =
-      suElt σ hσ a d (s * t) * suLong σ d (s * σ t * t) := by
-  have had' : idx (Sum.swap a) ≠ idx d := by rwa [idx_swap]
-  obtain ⟨n1, n2, n3, n4⟩ := ne_facts had
-  obtain ⟨n1', n2', n3', n4'⟩ := ne_facts had.symm
-  have sa := swap_ne_self a
-  have sd := swap_ne_self d
-  have sa' := (swap_ne_self a).symm
-  have sd' := (swap_ne_self d).symm
-  have hs0 : s + σ s = 0 := add_map_eq_zero_iff.2 hs
-  have hc0 : s * σ t * t + σ (s * σ t * t) = 0 := by
-    rw [add_map_eq_zero_iff, map_mul, map_mul, hσ, hs, mul_assoc, mul_assoc, mul_comm (σ t)]
-  apply mat_injective
-  rw [mat_commutator_eq (mat_suLong a hs0) (mat_suElt_two hσ had' t), map_mul,
-    mat_suElt_two hσ had, mat_suLong d hc0]
-  · simp only [add_mul, mul_add, single_mul_single', crd_injective.eq_iff, Sum.swap_swap,
-      ite_true, ite_false, add_zero, zero_add, sub_zero, map_mul, mul_one, zero_mul, one_mul, *]
-    rw [sub_eq_add_neg, single_neg, CharTwo.neg_eq, mul_comm (σ t) s]
-  · simp only [single_mul_single', crd_injective.eq_iff, ite_false, *]
-  · simp only [add_mul, mul_add, single_mul_single', crd_injective.eq_iff, Sum.swap_swap,
-      ite_false, add_zero, *]
 
 theorem suElt_comm_trace {a b : Fin (m / 2) ⊕ Fin (m / 2)} (hab : idx a ≠ idx b) (s t : F) :
     ⁅suElt σ hσ a b s, suElt σ hσ a (Sum.swap b) t⁆ = suLong σ a (s * σ t + σ s * t) := by

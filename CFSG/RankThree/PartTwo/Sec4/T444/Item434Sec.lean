@@ -11,21 +11,6 @@ namespace CFSG.RankThree.PartTwo.Sec4
 
 open CFSG CFSG.RankThree CFSG.RankThree.LocalRank CFSG.RankThree.PartTwo CFSG.LocalCores
 
-theorem exists_surjective_layer_quotient_center {G₀ : Type} [Group G₀] {H : Subgroup G₀}
-    {G : Type} [Group G] (f : H →* G) (hf : Function.Surjective f) :
-    ∃ (H₁ : Subgroup G₀) (g : H₁ →* layer G ⧸ Subgroup.center (layer G)),
-      Function.Surjective g := by
-  set H₁' : Subgroup H := (layer G).comap f with hH₁'
-  set H₁ : Subgroup G₀ := H₁'.map H.subtype with hH₁
-  set e : H₁' ≃* H₁ := H₁'.equivMapOfInjective H.subtype H.subtype_injective with he
-  set g₁ : H₁' →* layer G := (f.comp H₁'.subtype).codRestrict (layer G) fun x => x.2 with hg₁
-  have hg₁s : Function.Surjective g₁ := by
-    rintro ⟨l, hl⟩
-    obtain ⟨h, rfl⟩ := hf l
-    exact ⟨⟨h, hl⟩, rfl⟩
-  refine ⟨H₁, (QuotientGroup.mk' (Subgroup.center (layer G))).comp
-    (g₁.comp e.symm.toMonoidHom), ?_⟩
-  exact (QuotientGroup.mk'_surjective _).comp (hg₁s.comp e.symm.surjective)
 
 @[expose] def Item434LayerRanks : Prop :=
   ∀ (G₀ : Type) [Group G₀] [Finite G₀], SectionFourHyp G₀ →
@@ -37,20 +22,6 @@ theorem exists_surjective_layer_quotient_center {G₀ : Type} [Group G₀] {H : 
         (Subgroup.center (layer G) ≠ ⊥ →
           CFSG.Assembly.RankThreeEven.localRank 3 (layer G ⧸ Subgroup.center (layer G)) ≤ 3)
 
-open CFSG.Assembly.RankThreeEven (localRank) in
-theorem item434LayerRanks_of_item4_1 (h41 : Item4_1) : Item434LayerRanks := by
-  intro G₀ _ _ hG₀ H G _ _ f hf _ A M Q hc
-  obtain ⟨H₁, g, hg⟩ := exists_surjective_layer_quotient_center f hf
-  have hq := hc.isQuasisimple
-  have : IsSimpleGroup (layer G ⧸ Subgroup.center (layer G)) := hq.2.1
-  have e : H₁ ⧸ g.ker ≃* layer G ⧸ Subgroup.center (layer G) :=
-    QuotientGroup.quotientKerEquivOfSurjective g hg
-  have hq' : IsQuasisimple (H₁ ⧸ g.ker) :=
-    isQuasisimple_of_mulEquiv e.symm (isQuasisimple_of_isSimpleGroup hq.2.2).1
-  have hX := Census.sectionFourHyp_of_mulEquiv e
-    (Census.sectionFourHyp_of_section h41 hG₀ H₁ g.ker hq')
-  exact ⟨fun p hp hp3 _ => hX.localRank_lt p hp hp3, fun _ =>
-    (OddKernel.localRank_le_evenRank Nat.prime_three (by norm_num)).trans hX.evenRank_le⟩
 
 open CFSG.Assembly.RankThreeEven (localRank) in
 theorem localRank_three_layer_quotient_center_le {G : Type} [Group G] [Finite G]
@@ -163,9 +134,6 @@ theorem item4_34Sec_of (hS : Seitz434) (hR : Item434LayerRanks) (h3 : Item434Cha
   · exact hA G₀ hG₀ H G f hf hker A M Q hc halt
   · exact hSp G₀ hG₀ H G f hf hker A M Q hc hspor
 
-theorem item4_34Sec_of_item4_1 (hS : Seitz434) (h41 : Item4_1) (h3 : Item434CharThree)
-    (h2 : Item434SmallTwo) (hA : Item434Alt) (hSp : Item434Spor) : Item4_34Sec :=
-  item4_34Sec_of hS (item434LayerRanks_of_item4_1 h41) h3 h2 hA hSp
 
 end Assembly
 

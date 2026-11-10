@@ -125,30 +125,6 @@ theorem sp2m_of_spFixedRankOrNoPComponent {m : ℕ} (hdet : Sp2mEvenTypeDetClass
     exact ⟨hR, rfl, hX⟩
   · exact (h D (isPComponent_of_isComponent_lieModel_PSp_two hD hDm)).elim
 
-theorem sp2mOvergroupType_two_iff {S : Type} [Group S] {f : ℕ} :
-    Sp2mOvergroupType S 2 f ↔
-      LieModel S .PSp 2 2 (2 * f) ∨ LieModel S .PSL 4 2 f ∨ LieModel S .PSU 4 2 f ∨
-        LieModel S .PSL 5 2 f ∨ LieModel S .PSU 5 2 f := by
-  have hO : ∀ {t : StatedLieTag}, (t = .POmegaPlus ∨ t = .POmegaMinus) →
-      ¬ LieModel S t (2 + 1) 2 f := fun ht h => by
-    have h4 : 4 ≤ 2 + 1 := by
-      rcases ht with rfl | rfl <;> exact (F4Pilot.statedLieAdmissible_of_lieModel h).2.2
-    omega
-  constructor
-  · rintro (h | h | h | h | h | h | h)
-    · exact .inl h
-    · exact .inr (.inl h)
-    · exact .inr (.inr (.inl h))
-    · exact .inr (.inr (.inr (.inl h)))
-    · exact .inr (.inr (.inr (.inr h)))
-    · exact (hO (.inl rfl) h).elim
-    · exact (hO (.inr rfl) h).elim
-  · rintro (h | h | h | h | h)
-    · exact .inl h
-    · exact .inr (.inl h)
-    · exact .inr (.inr (.inl h))
-    · exact .inr (.inr (.inr (.inl h)))
-    · exact .inr (.inr (.inr (.inr (.inl h))))
 
 section Symplectic
 

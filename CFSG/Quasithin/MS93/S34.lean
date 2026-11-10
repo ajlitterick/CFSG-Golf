@@ -128,7 +128,6 @@ theorem exists_sp4_of_gl {V : Subgroup G} {F : Type} [Field F] [Finite F] [CharP
   refine ⟨g, hγ.congr fun v => ?_⟩
   rw [← hTγ, hg v]
 
-variable [Finite G]
 
 end Sp4
 

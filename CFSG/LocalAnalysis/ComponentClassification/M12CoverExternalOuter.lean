@@ -45,16 +45,6 @@ theorem exists_conj_beta_of_outer {α : MulAut NativeSporadic.M12} (h2 : orderOf
     autModelEquiv_iota]
   rfl
 
-theorem outer_involution_iff_conj_beta (α : MulAut NativeSporadic.M12) :
-    (orderOf α = 2 ∧ α ∉ inner NativeSporadic.M12) ↔
-      ∃ g : NativeSporadic.M12, α = MulAut.conj g * beta * (MulAut.conj g)⁻¹ := by
-  refine ⟨fun h => exists_conj_beta_of_outer h.1 h.2, ?_⟩
-  rintro ⟨g, rfl⟩
-  refine ⟨by rw [← MulAut.conj_apply, MulEquiv.orderOf_eq, orderOf_beta], fun h => ?_⟩
-  apply beta_not_mem_inner
-  have h' := (inner_normal NativeSporadic.M12).conj_mem _ h (MulAut.conj g)⁻¹
-  rwa [show (MulAut.conj g)⁻¹ * (MulAut.conj g * beta * (MulAut.conj g)⁻¹) *
-    (MulAut.conj g)⁻¹⁻¹ = beta by group] at h'
 
 theorem conj_beta_apply_conj (g x : NativeSporadic.M12) (hx : beta x = x) :
     (MulAut.conj g * beta * (MulAut.conj g)⁻¹) (g * x * g⁻¹) = g * x * g⁻¹ := by

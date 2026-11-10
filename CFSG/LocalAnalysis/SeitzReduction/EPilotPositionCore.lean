@@ -241,20 +241,6 @@ theorem orderOf_eq_two_of_inner {t : G} (ht : orderOf t = 2)
     (mem_centralizer_singleton_iff.1 (mem_centralizer_of_eq_or_eq_mul htC hwL hg)) hne
     (eq_or_eq_mul_conj_of_inner ht hKt hwL hg hw'L hact)
 
-theorem perfectCore_inf_centralizer_eq_of_inner (hset : StandardSetting G L)
-    (hOut : Group.IsSolvable (Outer L)) {t : G} (ht : orderOf t = 2)
-    (hKt : centralizer (L : Set G) ⊓ centralizer ({t} : Set G) = zpowers t)
-    {w : G} (hwL : w ∈ L) {g : G} (hg : g⁻¹ * t * g = w ∨ g⁻¹ * t * g = t * w)
-    {w' : G} (hw'L : w' ∈ CFSG.conjugate L g)
-    (hact : ∀ l ∈ CFSG.conjugate L g, t * l * t⁻¹ = w' * l * w'⁻¹) :
-    (t = w' ∨ t = w' * (g⁻¹ * t * g)) ∧
-      perfectCore (L ⊓ centralizer ({w} : Set G)) =
-        perfectCore (CFSG.conjugate L g ⊓ centralizer ({w'} : Set G)) := by
-  have htK : t ∈ centralizer (L : Set G) ⊓ centralizer ({t} : Set G) := hKt ▸ mem_zpowers t
-  have htC : t ∈ centralizer (L : Set G) := htK.1
-  exact ⟨eq_or_eq_mul_conj_of_inner ht hKt hwL hg hw'L hact,
-    perfectCore_inf_centralizer_eq_of_inv_mul_mem hset hOut htC ht hg
-      (inv_mul_mem_centralizer_of_conj_eq hact)⟩
 
 theorem map_perfectCore_centralizer_eq_of_inner (hset : StandardSetting G L)
     (hOut : Group.IsSolvable (Outer L)) {t : G} (htC : t ∈ centralizer (L : Set G))

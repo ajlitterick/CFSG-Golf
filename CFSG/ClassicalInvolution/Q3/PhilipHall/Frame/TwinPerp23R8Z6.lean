@@ -30,5 +30,3 @@ theorem I1Six.exists_sylow_B (P : I1Six z e E B) (hz2 : z * z = 1) :
 
 end CFSG.ClassicalInvolution.Sp62Rec
 
-set_option linter.unusedSectionVars false
-

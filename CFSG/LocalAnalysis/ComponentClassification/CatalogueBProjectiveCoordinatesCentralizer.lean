@@ -38,27 +38,6 @@ theorem matrix_mem_centralizer_iff (A B : Matrix.GeneralLinearGroup ι K) :
   right_inv B := Subtype.ext (matrixActionEquiv_apply_symm_apply B.val)
   map_mul' B C := Subtype.ext (map_mul matrixActionEquiv B.val C.val)
 
-theorem matrixCentralizerEquiv_apply (A : Matrix.GeneralLinearGroup ι K)
-    (B : Subgroup.centralizer {A}) :
-    (matrixCentralizerEquiv A B).val = matrixActionEquiv B.val := rfl
-
-theorem matrixCentralizerEquiv_symm_apply (A : Matrix.GeneralLinearGroup ι K)
-    (B : operatorCentralizer (matrixActionEquiv A).toLinearMap) :
-    ((matrixCentralizerEquiv A).symm B).val = matrixActionEquiv.symm B.val := rfl
-
-theorem matrixCentralizerEquiv_symm_apply_apply (A : Matrix.GeneralLinearGroup ι K)
-    (B : Subgroup.centralizer {A}) :
-    (matrixCentralizerEquiv A).symm (matrixCentralizerEquiv A B) = B :=
-  (matrixCentralizerEquiv A).symm_apply_apply B
-
-theorem matrixCentralizerEquiv_apply_symm_apply (A : Matrix.GeneralLinearGroup ι K)
-    (B : operatorCentralizer (matrixActionEquiv A).toLinearMap) :
-    matrixCentralizerEquiv A ((matrixCentralizerEquiv A).symm B) = B :=
-  (matrixCentralizerEquiv A).apply_symm_apply B
-
-theorem scalar_mem_matrixCentralizer (A : Matrix.GeneralLinearGroup ι K) (c : Kˣ) :
-    Matrix.GeneralLinearGroup.scalar ι c ∈ Subgroup.centralizer {A} :=
-  Subgroup.mem_centralizer_singleton_iff.mpr (Matrix.GeneralLinearGroup.scalar_commute c A)
 
 theorem matrixCentralizerEquiv_scalar (A : Matrix.GeneralLinearGroup ι K) (c : Kˣ) :
     matrixCentralizerEquiv A (ordinaryCentralizerScalar A c) =
@@ -66,10 +45,5 @@ theorem matrixCentralizerEquiv_scalar (A : Matrix.GeneralLinearGroup ι K) (c : 
   apply Subtype.ext
   exact matrixActionEquiv_scalar c
 
-theorem matrixCentralizerEquiv_symm_scalar (A : Matrix.GeneralLinearGroup ι K) (c : Kˣ) :
-    (matrixCentralizerEquiv A).symm
-        (operatorCentralizerScalar (matrixActionEquiv A).toLinearMap c) =
-      ordinaryCentralizerScalar A c := by
-  rw [← matrixCentralizerEquiv_scalar, MulEquiv.symm_apply_apply]
 
 end CFSG.ComponentClassification.CatalogueBProjectiveCoordinates

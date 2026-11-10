@@ -84,8 +84,6 @@ theorem toVec_smulC (c : GF49) (x : V7) : toVec (smulC c x) = c • toVec x := b
 
 theorem toVec_tauC (x : V7) : toVec (tauC x) = tauV m0 (toVec x) := (tauV_toVec x).symm
 
-noncomputable def ptC (x : V7) (h : isFFC x = true) : FFPt m0 :=
-  FFPt.mk m0 ((isFF_toVec x).2 h)
 
 @[expose] def SigmaWitt : Prop :=
   ∀ v w : Fin 2 → Vec GF49,

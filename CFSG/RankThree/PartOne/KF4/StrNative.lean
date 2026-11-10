@@ -48,17 +48,6 @@ theorem vec_apply (k i : Fin n) : D.vec K k (D.label i) = if i = k then 1 else 0
   · rw [ite_eq_left (congrArg D.label h).symm, ite_eq_left h]
   · rw [ite_eq_right fun e => h (D.label_injective e).symm, ite_eq_right h]
 
-theorem rootVec_apply_label (γ : Fin τ.rank → ℤ) (i : Fin n) :
-    rootVec τ K γ (D.label i) = if γ = w i then 1 else 0 := by
-  by_cases hγ : IsRoot τ γ
-  · rw [CFSG.TauCetiBridge.Minuscule.rootVec_eq_single K hγ, Finsupp.single_apply]
-    by_cases h : γ = w i
-    · subst h
-      rw [ite_eq_left rfl, ite_eq_left rfl]
-    · rw [ite_eq_right fun e => h (congrArg Subtype.val (Sum.inr_injective e)), ite_eq_right h]
-  · rw [rootVec, dite_eq_right hγ, Finsupp.zero_apply, ite_eq_right]
-    rintro rfl
-    exact hγ (D.isRoot i)
 
 theorem vec_mem (k : Fin n) : D.vec K k ∈ D.module K := Submodule.subset_span ⟨k, rfl⟩
 
@@ -192,23 +181,6 @@ theorem Mat_list_prod (l : List (ModGL τ K)) (hl : ∀ g ∈ l, g ∈ subsystem
       D.Mat_mul (hl g List.mem_cons_self) (Subgroup.list_prod_mem _ fun h hh => hl h
         (List.mem_cons_of_mem g hh)), ih fun h hh => hl h (List.mem_cons_of_mem g hh)]
 
-theorem Mat_xUnit_apply {i : Fin τ.rank} (hi : i ∈ J) (t : K) (a b : Fin n) :
-    D.Mat (xUnit τ K i t) a b =
-      ∑ j ∈ Finset.range (stringUp τ i (w b) + 1),
-        (((stringDown τ i (w b) + j).choose j : K) * t ^ j) *
-          (if w b + (j : ℤ) • Pi.single i 1 = w a then 1 else 0) := by
-  rw [Mat, Matrix.of_apply, coe_xUnit, D.xOp_vec hi, Finsupp.finsetSum_apply]
-  refine Finset.sum_congr rfl fun j _ => ?_
-  rw [Finsupp.smul_apply, D.rootVec_apply_label, smul_eq_mul]
-
-theorem Mat_yUnit_apply {i : Fin τ.rank} (hi : i ∈ J) (t : K) (a b : Fin n) :
-    D.Mat (yUnit τ K i t) a b =
-      ∑ j ∈ Finset.range (stringDown τ i (w b) + 1),
-        (((stringUp τ i (w b) + j).choose j : K) * t ^ j) *
-          (if w b - (j : ℤ) • Pi.single i 1 = w a then 1 else 0) := by
-  rw [Mat, Matrix.of_apply, coe_yUnit, D.yOp_vec hi, Finsupp.finsetSum_apply]
-  refine Finset.sum_congr rfl fun j _ => ?_
-  rw [Finsupp.smul_apply, D.rootVec_apply_label, smul_eq_mul]
 
 theorem Mat_torusElt (i : Fin τ.rank) (a : Kˣ) :
     D.Mat (torusElt τ K i a) = Matrix.diagonal fun k =>

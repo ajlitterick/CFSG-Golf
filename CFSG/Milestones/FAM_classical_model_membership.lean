@@ -32,15 +32,5 @@ theorem statedClassicalModel_tag_mem (G : Type) [Group G]
   | G2 | F4 | E6 | E7 | E8 | twistedE6 | trialityD4
   | twistedB2 | twistedG2 | twistedF4 | Tits => exact h.2.elim
 
-theorem fam_classical_model_membership (G : Type) [Group G] :
-    ClassicalRep G ↔ ∃ t : Assembly.LowTwoRank.StatedLieTag,
-      t ∈ ({.PSL, .PSU, .PSp, .POmegaOdd, .POmegaPlus, .POmegaMinus} :
-        Set Assembly.LowTwoRank.StatedLieTag) ∧
-      ∃ n p f : ℕ, Assembly.LowTwoRank.StatedClassicalModel G t n p f := by
-  constructor
-  · rintro ⟨t, n, p, f, h⟩
-    exact ⟨t, statedClassicalModel_tag_mem G t n p f h, n, p, f, h⟩
-  · rintro ⟨t, -, n, p, f, h⟩
-    exact ⟨t, n, p, f, h⟩
 
 end CFSG.Milestones

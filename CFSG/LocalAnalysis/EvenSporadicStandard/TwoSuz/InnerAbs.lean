@@ -390,14 +390,6 @@ theorem Setup.noSwap_of_perfect (h : Setup G L z)
     obtain ⟨Q, hQB, hQperf, hz'Q⟩ := exists_perfect_image f hPA hPperf hzP
     exact h.le_of_perfect (hQB.trans inf_le_left) hQperf (hfz ▸ hz'Q)
 
-theorem twoSuzNoSwapOuter_of_perfect
-    (hP : ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (z : G), Setup G L z →
-      ∀ y : G, y ∈ centralizer ({z} : Set G) → orderOf y = 2 → y ≠ z →
-        ∃ P : Subgroup G, P ≤ centralizer ({z} : Set G) ⊓ centralizer ({y} : Set G) ∧
-          P ≤ ⁅P, P⁆ ∧ z ∈ P) :
-    TwoSuzNoSwapOuter := by
-  intro G _ _ L z h x z' hnot hxD hz'D hx2 hz'2 hxz hz'z
-  exact h.noSwap_of_perfect (hP G L z h) hnot hxD hz'D hx2 hz'2 hxz hz'z
 
 @[expose] def TwoSuzNoSwapOuter' : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (L : Subgroup G) (z : G), Setup G L z →

@@ -273,14 +273,5 @@ theorem rank_two_signalizer_le_gamma_one
   exact embedded_rank_two_signalizer_le_gamma_one prime hprime embedding hinjective
     ambient signalizer (hrange.trans hinclusion) (hrange.trans hinvariant) hcoprime
 
-theorem rank_two_signalizer_join_le_gamma_one
-    {G : Type*} [Group G] [Finite G] (prime : ℕ) (hprime : prime.Prime)
-    (ambient actingGroup : Subgroup G) (hinclusion : actingGroup ≤ ambient)
-    (hrank : 2 ≤ pRank prime actingGroup) :
-    rankTwoSignalizerJoin prime actingGroup ≤ rankThreeGamma 1 prime ambient := by
-  apply (rankTwoSignalizerJoin_le_iff prime actingGroup _).mpr
-  intro signalizer hcoprime hinvariant
-  exact rank_two_signalizer_le_gamma_one prime hprime ambient actingGroup signalizer
-    hinclusion hrank hinvariant hcoprime
 
 end CFSG.RankThreeCoreUniqueness.Helpers

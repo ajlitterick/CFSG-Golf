@@ -149,8 +149,6 @@ theorem card_lvl_zero : Nat.card (lvl 0) = 460815505920 := by
   rw [Finset.prod_congr rfl hs]
   decide
 
-theorem chainQ_lt'
-    {t : ℕ} (ht : t < chainQ.size) : chainQ[t]! < nPts := chainQ_lt ht
 
 theorem ga_mem_lvl : ga ∈ lvl 0 := by
   refine chain_sift_mem rep_letters sep chain_ok (img := apT orb.alpha chainQ) (apT_size _ _)

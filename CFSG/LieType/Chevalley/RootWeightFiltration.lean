@@ -59,7 +59,5 @@ theorem weightFiltration_le_iff {l : E} {c : ℝ} {W : Submodule K V} :
     weightFiltration Ω Vχ l c ≤ W ↔ ∀ χ ∈ Ω, c ≤ ⟪χ, l⟫ → Vχ χ ≤ W := by
   simp only [weightFiltration, iSup_le_iff]
 
-theorem weightFiltration_antitone (l : E) : Antitone (weightFiltration Ω Vχ l) :=
-  fun _ _ hcc' => weightFiltration_le_iff.2 fun _ hχ hc => le_weightFiltration hχ (hcc'.trans hc)
 
 end CFSG.LieType.Chevalley.RootWeight

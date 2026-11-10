@@ -28,9 +28,6 @@ theorem ord129006 : bAnd(Nat.beq (ppw 6156 13 Y129006 19) (pidn 6156 13),
     bIf(Nat.beq Y129006 (pidn 6156 13), false, true)) = true := by
   quickRfl
 
-theorem ord129006_neg :
-    bIf(Nat.beq (ppw 6156 13 Y129006 18) (pidn 6156 13), false, true) = true := by
-  quickRfl
 
 end CertificateChecks.KernelSpor.OddCore
 

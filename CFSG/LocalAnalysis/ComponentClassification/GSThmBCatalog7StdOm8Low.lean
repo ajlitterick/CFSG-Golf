@@ -81,28 +81,6 @@ theorem pComponent_split_four {p e : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (he : 1
       (determinantRightFactor_quasisimple hK2 hK3) h
     exact lieModel_of_equiv_psl_two hp he hK hK2 hK3 E
 
-open LocalAnalysis.ComponentInitial CatalogueBOrthogonalFourSplit in
-theorem two_pComponents_split_four (hodd : Odd (Nat.card K)) (hK3 : Nat.card K ≠ 3)
-    {Q : QuadraticForm K W} (hQ : Q.polarBilin.Nondegenerate) (hdim : finrank K W = 4)
-    (hS : ∃ S : Submodule K W, finrank K S = 2 ∧ ∀ x ∈ S, Q x = 0) :
-    ∃ L₁ L₂ : Subgroup (TauCeti.QuadraticMap.orthogonalGroup Q),
-      IsPComponent 2 L₁ ∧ IsPComponent 2 L₂ ∧ L₁ ≠ L₂ := by
-  have hK2 : Nat.card K ≠ 2 := fun h => absurd (h ▸ hodd) (by decide)
-  obtain ⟨-, e', -, -, hsup, hq₁, hq₂, hn₁, hn₂, hcomm, -, -⟩ :=
-    orthogonal_split_four_derived hK2 hK3 Q hQ hdim hS
-  set L₁ := (determinantLeftFactor K).map e'.symm.toMonoidHom
-  set L₂ := (determinantRightFactor K).map e'.symm.toMonoidHom
-  have hnormal := (inferInstance : (commutator (TauCeti.QuadraticMap.orthogonalGroup Q)).Normal)
-  have h₁ : IsPComponent 2 L₁ := LocalAnalysis.ComponentInitial.isPComponent_two_of_isComponent
-    ⟨hq₁, Subgroup.IsSubnormal.trans (hsup ▸ le_sup_left) hn₁.isSubnormal hnormal.isSubnormal⟩
-  have h₂ : IsPComponent 2 L₂ := LocalAnalysis.ComponentInitial.isPComponent_two_of_isComponent
-    ⟨hq₂, Subgroup.IsSubnormal.trans (hsup ▸ le_sup_right) hn₂.isSubnormal hnormal.isSubnormal⟩
-  refine ⟨L₁, L₂, h₁, h₂, fun heq => ?_⟩
-  obtain ⟨x, y, hxy⟩ := CatLeafProof.exists_mul_ne_of_isQuasisimple hq₁ (MulEquiv.refl L₁)
-  apply hxy
-  apply Subtype.ext
-  have hy : (y : TauCeti.QuadraticMap.orthogonalGroup Q) ∈ L₂ := heq ▸ y.property
-  exact hcomm x x.property y hy
 
 open LocalAnalysis.ComponentInitial CatalogueBOrthogonalFourNonsplit in
 theorem pComponent_nonsplit_four {p e : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (he : 1 ≤ e)

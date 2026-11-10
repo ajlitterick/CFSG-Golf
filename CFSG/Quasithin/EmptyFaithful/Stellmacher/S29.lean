@@ -68,7 +68,6 @@ theorem Sit29.card_R_eq {α a₂ a₃ β : Geo H M} (hs : Sit29 H M S α a₂ a�
 
 end S29
 
-variable {H M S : Subgroup G}
 
 end At
 

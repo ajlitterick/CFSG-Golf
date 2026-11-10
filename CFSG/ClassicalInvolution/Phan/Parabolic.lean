@@ -286,11 +286,6 @@ theorem blockEmb3_mem_parabolic (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 
       (range_blockEmb2_le_parabolic (by rw [hJ]; exact Set.mem_insert_of_mem _ rfl))
   exact hle ⟨A, rfl⟩
 
-theorem parabolic_pair_succ (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2) (i : Fin n)
-    (h : (i : ℕ) + 1 < n) (J : Set (Fin n)) (hJ : J = {i, ⟨i + 1, h⟩}) :
-    parabolic K p f n J =
-      torus (unitaryInvolution K p f) (n + 1) ⊔ (blockEmb3 K p f n i h).range := by
-  rw [parabolic, hJ, blockSup_pair, range_blockEmb3_eq hK hq i h]
 
 theorem PhanFamily.parabolicHom_blockEmb3 (hK : Nat.card K = (p ^ f) ^ 2) (hq : p ^ f ≠ 2)
     (F : PhanFamily K p f Y n) (i : Fin n) (h : (i : ℕ) + 1 < n) (J : Set (Fin n))

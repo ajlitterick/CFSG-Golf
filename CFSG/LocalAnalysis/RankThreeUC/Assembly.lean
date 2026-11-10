@@ -24,14 +24,6 @@ variable {G : Type} [Group G] [Finite G]
     IsWitness p P M → ∀ T : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 2 T M →
       normalizer (T : Set G) ≤ M
 
-theorem IsWitness.normalizer_le_of_characteristic {p : ℕ} {P : Sylow p G} {M : Subgroup G}
-    (hw : IsWitness p P M) {T C : Subgroup G} (hT : IsPGroup 2 T) (hCT : C ≤ T)
-    (hC : (C.subgroupOf T).Characteristic) (hC1 : C ≠ ⊥)
-    (h2 : 2 ≤ CFSG.Open.pRank p (M ⊓ normalizer (C : Set G))) : normalizer (T : Set G) ≤ M := by
-  have hCM : normalizer (C : Set G) ≤ M :=
-    hw.u2 _ ⟨C, hC1, hT.to_le hCT, rfl⟩ (by rwa [inf_comm])
-  exact (CFSG.RankThree.PartOne.Sec15Final.normalizer_le_normalizer_of_characteristic hCT hC).trans
-    hCM
 
 @[expose] def AGL81TheoremC (G : Type) [Group G] [Finite G] : Prop :=
   rankThreeUC G → ∀ p ∈ rankThreeSigmaA G, ∀ (P : Sylow p G) (M : Subgroup G),
@@ -39,12 +31,6 @@ theorem IsWitness.normalizer_le_of_characteristic {p : ℕ} {P : Sylow p G} {M :
       2 ≤ CFSG.Open.pRank q Q → rankThreeGamma 1 q Q ≤ M →
         ∀ H : Subgroup G, IsTwoLocal H → Q ≤ H → H ≤ M
 
-@[expose] def cgtCore (T : Subgroup G) : Subgroup G :=
-  ⨆ (C : Subgroup G) (_ : C ≠ ⊥ ∧ C ≤ T ∧ (C.subgroupOf T).Characteristic),
-    normalizer (C : Set G)
-
-@[expose] def GlobalCGTRankBound (G : Type) [Group G] [Finite G] : Prop :=
-  ∀ T : Subgroup G, CFSG.ABGLocalTools.IsSylowOf 2 T ⊤ → cgtCore T ≠ ⊤ → evenRank G ≤ 2
 
 @[expose] def CatalogNoUC (G : Type) [Group G] [Finite G] : Prop :=
   Standing G → CFSG.Blueprint.Catalog G → ¬ rankThreeUC G
@@ -70,20 +56,11 @@ structure Setup (G : Type) [Group G] [Finite G] where
   elemAbelian : IsElemAbelian 2 V
   not_isTI : ¬ CFSG.CGT.Timmesfeld75.IsTI V
 
-@[expose] def UniquenessStageB (G : Type) [Group G] [Finite G] : Prop :=
-  rankThreeUC G → Setup G → False
 
 open Classical in
 @[expose] noncomputable def kParam (M : Subgroup G) : ℕ :=
   if CFSG.RankThree.PartOne.IsStronglyPEmbedded 3 M then 1 else 2
 
-@[expose] def SmallNH (G : Type) [Group G] [Finite G] : Prop :=
-  rankThreeUC G → ∀ S : Setup G, ∀ H ∈ hSet S.T S.M,
-    (kParam S.M : ℕ∞) < CFSG.Quasithin.E1.nParam H
-
-@[expose] def LargeNH (G : Type) [Group G] [Finite G] : Prop :=
-  rankThreeUC G → ∀ S : Setup G,
-    (∀ H ∈ hSet S.T S.M, (kParam S.M : ℕ∞) < CFSG.Quasithin.E1.nParam H) → False
 
 @[expose] def uCore (M T : Subgroup G) : Subgroup G :=
   ⨆ m : M, (CFSG.RankThree.PartOne.omegaOneCenterIn T).map (MulAut.conj (m : G)).toMonoidHom
@@ -110,39 +87,12 @@ theorem uCore_le_and_isElemAbelian (hchar : IsCharTwoType G) {M T : Subgroup G}
     (fun _ h => (hX h).2), isElemAbelian_iSup_conj hchar hM hT (fun _ h => (hX h).1)
     (fun _ h => (hX h).2) hXe⟩
 
-@[expose] def NotTIStage (G : Type) [Group G] [Finite G] : Prop :=
-  rankThreeUC G → ∀ S : Setup G,
-    (∀ H ∈ hSet S.T S.M, (kParam S.M : ℕ∞) < CFSG.Quasithin.E1.nParam H) →
-      CFSG.CGT.Timmesfeld75.IsTI (uCore S.M S.T)
-
-@[expose] def TIStage (G : Type) [Group G] [Finite G] : Prop :=
-  rankThreeUC G → ∀ S : Setup G,
-    (∀ H ∈ hSet S.T S.M, (kParam S.M : ℕ∞) < CFSG.Quasithin.E1.nParam H) →
-      CFSG.CGT.Timmesfeld75.IsTI (uCore S.M S.T) → False
-
-theorem largeNH_of_stages (h1 : NotTIStage G) (h2 : TIStage G) : LargeNH G :=
-  fun hUC S hsmall => h2 hUC S hsmall (h1 hUC S hsmall)
-
-theorem uniquenessStageB_of_small_large (h1 : SmallNH G) (h2 : LargeNH G) :
-    UniquenessStageB G :=
-  fun hUC S => h2 hUC S (h1 hUC S)
 
 omit [Finite G] in
 theorem le_normalizer_of_characteristic {C T : Subgroup G} (hCT : C ≤ T)
     (hC : (C.subgroupOf T).Characteristic) : T ≤ normalizer (C : Set G) :=
   (normal_subgroupOf_iff_le_normalizer hCT).mp inferInstance
 
-theorem exists_mem_hSet (hS : Standing G) (hCGT : GlobalCGTRankBound G) {M T : Subgroup G}
-    (hM : M ≠ ⊤) (hT : CFSG.ABGLocalTools.IsSylowOf 2 T ⊤) : (hSet T M).Nonempty := by
-  by_contra hempty
-  have hcore : cgtCore T ≤ M := by
-    refine iSup₂_le fun C hC => ?_
-    by_contra hCM
-    refine hempty ⟨normalizer (C : Set G), le_normalizer_of_characteristic hC.2.1 hC.2.2, hCM,
-      hS.charTwo _ ⟨C, hC.1, hT.isPGroup.to_le hC.2.1, rfl⟩⟩
-  have h2 := hCGT T hT fun htop => hM (top_le_iff.mp (htop ▸ hcore))
-  have h3 := hS.rank
-  omega
 
 omit [Finite G] in
 theorem le_centralizer_omegaOneCenterIn (T : Subgroup G) :
@@ -190,21 +140,5 @@ theorem exists_not_isTI (hS : Standing G) (hGF : CFSG.RankThree.GF2n.GF2nTypeSta
   exact (hGF G hS.nonab hK (CFSG.GH74.isCharTwoType_iff.mp hS.charTwo) M
     (isMaximalTwoLocal_of_rankThreeIsMaxTwoLocal hM) B hB hTI).2
 
-theorem not_rankThreeUC_of_inputs (hS : Standing G) (hcat : CatalogNoUC G)
-    (hD : AGL81TheoremD G) (hPU : CFSG.RankThree.PartOne.PushingUpCorollary)
-    (hGF : CFSG.RankThree.GF2n.GF2nTypeStatement) (hB : UniquenessStageB G) :
-    ¬ rankThreeUC G := by
-  intro hUC
-  by_cases hC : CFSG.Blueprint.Catalog G
-  · exact hcat hS hC hUC
-  have := hS.simple
-  obtain ⟨p, hp⟩ := sigmaA_nonempty_of_evenRank_three hS.rank
-  obtain ⟨P, M, hw⟩ := rankThreeUC_iff.mp hUC p hp
-  obtain ⟨T, hT⟩ := CFSG.ABGLocalTools.exists_isSylowOf 2 M
-  have hN := hD hUC p hp P M hw T hT
-  have hTG := isSylowOf_top_of_normalizer_le hT hN
-  obtain ⟨V, hVM, hMV, hVe, hVTI⟩ := exists_not_isTI hS hGF hC hw.maxLocal
-  have hH := exists_mem_hSet_of_pushingUp hS hPU hw.maxLocal hT
-  exact hB hUC ⟨p, hp, P, M, hw, T, hT, hTG, hN, hC, hH, V, hVM, hMV, hVe, hVTI⟩
 
 end CFSG.LocalAnalysis.RankThreeUC

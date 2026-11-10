@@ -14,9 +14,6 @@ open scoped commutatorElement
 
 @[expose] def vecFS : Fin 7 → ZMod 2 := fun i => if i = 5 ∨ i = 6 then 1 else 0
 
-theorem vecFS_mem : vecFS ∈ evenWeight 7 := by
-  rw [mem_evenWeight]
-  decide
 
 theorem hammingNorm_vecFS : hammingNorm vecFS = 2 := by
   decide

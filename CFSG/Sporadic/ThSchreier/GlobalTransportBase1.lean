@@ -34,15 +34,11 @@ theorem psiSet_smul (g : J) (S : Set V) : psiSet (g • S) = g • psiSet S := p
 
 section Facts
 
-variable (hF : OrbitFacts)
-include hF
 
 end Facts
 
 section Cert
 
-variable {c : ℕ} (hC : CertFacts c)
-include hC
 
 end Cert
 

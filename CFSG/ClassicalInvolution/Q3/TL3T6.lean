@@ -66,10 +66,6 @@ theorem tightThinLeaf_of_indep (h : TightIndepLeaf n) : TightThinLeaf n := by
     ⟨hKJ, by rw [hJP]; exact hP⟩
   exact hS.false_of_indep hall (h Y R S t hL hO hconn hsep hall) hmax
 
-theorem tightLargeLiftS_of_leaves' (hodd : ∀ n, TightOddLeaf n) (hconn : ∀ n, TightConnLeaf n)
-    (hsep : ∀ n, TightSepLeaf n) (hind : ∀ n, TightIndepLeaf n) (hE3 : ∀ n, TightE3Leaf n) :
-    ∀ n, TightLargeLiftS n :=
-  tightLargeLiftS_of_leaves hodd hconn hsep (fun n => tightThinLeaf_of_indep (hind n)) hE3
 
 end Cit3
 

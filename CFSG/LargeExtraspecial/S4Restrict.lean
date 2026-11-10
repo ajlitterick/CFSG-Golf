@@ -79,9 +79,5 @@ theorem restrictHom_eq_one_iff {H : Type*} [Group H] (φ : H →* (V ≃ₗ[K] V
   · intro h
     exact LinearEquiv.ext fun u => Subtype.ext (by simpa using h u u.2)
 
-theorem restrictHom_apply_sub {H : Type*} [Group H] (φ : H →* (V ≃ₗ[K] V))
-    (U : Submodule K V) (hU : ∀ x u, u ∈ U → φ x u ∈ U) (x : H) (u : U) :
-    ((restrictHom φ U hU x u - u : U) : V) = φ x (u : V) - (u : V) :=
-  rfl
 
 end CFSG.LargeExtraspecial.S4

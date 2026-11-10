@@ -42,8 +42,6 @@ theorem V_get {i : ℕ} (hi : i < 2300) : co2FiveV[i]! = VG i := by
   rw [V_eq, CFSG.KC.Misc.PairCount.unpack_get hi]
   rfl
 
-theorem VG_lt (i : ℕ) : VG i < 2 ^ 22 :=
-  lt_of_le_of_lt Nat.and_le_right (by decide)
 
 theorem hlk {i : ℕ} (hi : i < 2300) : LK (VG i) = i :=
   Nat.eq_of_beq_eq_true (allN_spec vec_ok i hi)
@@ -170,18 +168,6 @@ theorem levK_all : ∀ i < 6, levK i = true := by
   · exact levK4
   · exact levK5
 
-theorem steps_eq {i : ℕ} (hi : i < 6) :
-    (List.range 11).filter (fun j => allN i fun t => Nat.beq (vmK (VG (BS t)) (MS j)) (VG (BS t))) =
-      (List.range (cL i)).map (IX i) := by
-  have h := levK_all i hi
-  unfold levK at h
-  rw [Bool.and_eq_true] at h
-  exact eq_of_beq h.1
-
-theorem IX_lt {i t : ℕ} (hi : i < 6) (ht : t < cL i) : IX i t < 11 := by
-  have hm : IX i t ∈ (List.range (cL i)).map (IX i) := List.mem_map.2 ⟨t, List.mem_range.2 ht, rfl⟩
-  rw [← steps_eq hi, List.mem_filter, List.mem_range] at hm
-  exact hm.1
 
 theorem lev_levelM {i : ℕ} (hi : i < 6) :
     levelM vmK mmK I22 2300 VG (BS i) (mL i) (rL i) (PT i) (PO i) (PA i) (LB i) (ED i) (SM i)

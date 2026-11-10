@@ -539,56 +539,6 @@ theorem StrothFrame.IsD.mem_normalizer_of_mem_normalizer_normalizerIn (h : F.IsD
       simpa using this.1
     exact hKc _ hyK _ hkK
 
-theorem StrothFrame.stroth_3_10' (F : StrothFrame G)
-    (h223 : ∃ (D : Subgroup G) (τ : StrothTypeIndex) (dD : StrothWeakTypeData D τ),
-      F.IsD D dD ∧ IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G)))
-    (h223X : ∀ (D' : Subgroup G) (τ' : StrothTypeIndex) (dD' : StrothWeakTypeData D' τ')
-      (X : Subgroup G), F.IsD D' dD' →
-      IsSylowIn 2 (Subgroup.normalizer (D' : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G)) →
-      IsMulCommutative X → F.A ≤ X → X ≤ (F.S : Subgroup G) →
-      F.dA.L ≤ Subgroup.normalizer ((X ⊔ Subgroup.centralizer (D' : Set G) : Subgroup G) : Set G) →
-      ∃ (D₁ : Subgroup G) (τ₁ : StrothTypeIndex) (dD₁ : StrothWeakTypeData D₁ τ₁),
-        F.IsD D₁ dD₁ ∧ IsSylowIn 2 (Subgroup.normalizer (D₁ : Set G))
-          ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D₁ : Set G)) ∧ Nat.card X ≤ Nat.card D₁)
-    (h35 : ∀ (D' : Subgroup G) (τ' : StrothTypeIndex) (dD' : StrothWeakTypeData D' τ'),
-      F.IsD D' dD' → τ'.m = τ'.n →
-      IsSylowIn 2 (Subgroup.normalizer (D' : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G)) →
-      (F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) ⊓
-          Subgroup.centralizer ((omegaIn 1 D' : Subgroup G) : Set G) = D' ∨
-        ∃ X : Subgroup G, IsMulCommutative X ∧ F.A ≤ X ∧ X ≤ (F.S : Subgroup G) ∧
-          F.dA.L ≤ Subgroup.normalizer
-            ((X ⊔ Subgroup.centralizer (D' : Set G) : Subgroup G) : Set G) ∧
-          Nat.card D' < Nat.card X)
-    (hcharB : ∀ (D' : Subgroup G) (τ' : StrothTypeIndex) (dD' : StrothWeakTypeData D' τ'),
-      F.IsD D' dD' → τ'.m ≠ τ'.n →
-      IsSylowIn 2 (Subgroup.normalizer (D' : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G)) →
-      ∀ g ∈ (F.S : Subgroup G), g ∈ Subgroup.normalizer
-          (((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) : Subgroup G) : Set G) →
-        g ∈ Subgroup.normalizer ((omegaIn 1 D' : Subgroup G) : Set G))
-    (h226 : ∀ (D' : Subgroup G) (τ' : StrothTypeIndex) (dD' : StrothWeakTypeData D' τ')
-      (B : Subgroup G), F.IsD D' dD' →
-      B ≤ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) ⊓
-          Subgroup.centralizer ((omegaIn 1 D' : Subgroup G) : Set G) →
-      (∀ x ∈ (F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G) ⊓
-          Subgroup.centralizer ((omegaIn 1 D' : Subgroup G) : Set G), ∀ b ∈ B,
-        x * b * x⁻¹ ∈ B) →
-      B ≠ D' → (∃ g : G, B = D'.map (MulAut.conj g).toMonoidHom) → τ'.m = τ'.n) :
-    ∃ (D : Subgroup G) (τ : StrothTypeIndex) (dD : StrothWeakTypeData D τ),
-      F.IsD D dD ∧ IsSylowIn 2 (Subgroup.normalizer (D : Set G))
-        ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G)) ∧
-      (∀ (D' : Subgroup G) (τ' : StrothTypeIndex) (dD' : StrothWeakTypeData D' τ'),
-        F.IsD D' dD' → IsSylowIn 2 (Subgroup.normalizer (D' : Set G))
-          ((F.S : Subgroup G) ⊓ Subgroup.normalizer (D' : Set G)) → Nat.card D' ≤ Nat.card D) ∧
-      (τ.m = τ.n → (F.S : Subgroup G) ⊓ Subgroup.normalizer (D : Set G) ⊓
-        Subgroup.centralizer ((omegaIn 1 D : Subgroup G) : Set G) = D) ∧
-      (F.S : Subgroup G) ≤ Subgroup.normalizer (D : Set G) :=
-  F.stroth_3_10 h223 h223X h35
-    (fun _ _ _ h' hτ' _ hR' _ hgS hgN => h'.mem_normalizer_of_mem_normalizer_normalizerIn hτ' hR'
-      hgS hgN) hcharB h226
 
 end Char
 

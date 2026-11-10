@@ -153,7 +153,6 @@ structure Lemma246Inputs : Prop where
   a7 : ∀ (G : Type) [Group G] [Finite G], L238.C129A7StatementCat (G := G)
   a38 : Vol2Native.A38ForSQTKCat
 
-abbrev Lemma238Inputs : Prop := Lemma246Inputs
 
 namespace L238
 

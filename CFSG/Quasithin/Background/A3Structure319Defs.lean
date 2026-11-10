@@ -23,15 +23,6 @@ open scoped Matrix
     (φ : ↥L ⧸ CFSG.pCore 2 ↥L ≃* ↥(StatedSL 3 K)),
     Even n ∧ Nat.card K = 2 ^ n ∧ 1 ≤ s ∧ s ≤ 2 ∧ IsNaturalSum s K L V φ
 
-@[expose] def A319PrintedHyp {H : Type} [Group H] (L V : Subgroup H) : Prop :=
-  ∃ (n s : ℕ) (K : Type) (_ : Field K) (_ : Finite K)
-    (φ : ↥L ⧸ CFSG.pCore 2 ↥L ≃* ↥(StatedSL 3 K)),
-    Even n ∧ Nat.card K = 2 ^ n ∧ s ≤ 2 ∧ IsNaturalSum s K L V φ
-
-theorem A319Hyp.printed {H : Type} [Group H] {L V : Subgroup H} (hHyp : A319Hyp L V) :
-    A319PrintedHyp L V := by
-  obtain ⟨n, s, K, fieldInstance, finiteInstance, φ, hn, hcard, _, hbound, hsum⟩ := hHyp
-  exact ⟨n, s, K, fieldInstance, finiteInstance, φ, hn, hcard, hbound, hsum⟩
 
 @[expose] def A319SL3Facts : Prop :=
   (∀ (K : Type) [Field K] [Finite K], 4 ≤ Nat.card K → CFSG.IsQuasisimple ↥(StatedSL 3 K)) ∧

@@ -95,23 +95,6 @@ end Unique
 
 section Frame
 
-variable {p f : ℕ} [Fact p.Prime] {G : Type} [Group G] [Finite G] {Ω : Set (Subgroup G)}
-  {E : Subgroup G}
-
-theorem localOddCentral_of_classicalInvolution [IsSimpleGroup G]
-    (hnab : ∃ a b : G, a * b ≠ b * a) (hp2 : p ≠ 2) (hf : 0 < f) (h0 : ModelClauseZero)
-    (hA1 : FundamentalWholeA1) (hΩ : InClass p f Ω)
-    (hsingle : ∃ K ∈ Ω, ∀ L ∈ Ω, ∃ g : G, L = conjSub g K) (hIH : LocalLieSystems p f Ω)
-    {F : Type*} [Field F] {S : Set (Subgroup G)} (Fr : WeakToralFrame F Ω E S)
-    (h16 : 16 ≤ Nat.card E) (hGen : FusionGenerated E)
-    (hlay : ∀ a ∈ E, a ≠ 1 → LayerGenerationAt E a) {K₀ : Subgroup G} (hK₀ : K₀ ∈ S) {z₀ : G}
-    (hz₀ : IsCentralInvolution K₀ z₀) (hmeet : FrameMeetsAt Ω E S z₀) :
-    ∀ L ∈ Ω, ∀ z : G, IsClassicalMember p f L z → LocalOddCentral Ω {z} := by
-  obtain ⟨z', hz'⟩ := hΩ.classical K₀ (Fr.subset hK₀)
-  have hzz : z₀ = z' := hz'.eq_of_isCentralInvolution hp2 hf hz₀
-  subst hzz
-  exact localOddCentral_of_classicalMember hp2 hf hΩ hsingle (Fr.subset hK₀) hz'
-    (localOddCentral_of_central_involution hnab hp2 h0 hA1 hΩ hIH Fr h16 hGen hlay hK₀ hz₀ hmeet)
 
 end Frame
 

@@ -38,8 +38,6 @@ theorem decV_coord0_eq_zero {r : ℕ} : decV r 0 = 0 ↔ r % 3 = 0 := by
   · intro h
     rw [h]; rfl
 
-theorem negV_lt (r : ℕ) : negV r < 27 := by
-  unfold negV; omega
 
 theorem decV_negV (r : ℕ) : decV (negV r) = - decV r := by
   have h2 : (2 : ZMod 3) = -1 := by decide

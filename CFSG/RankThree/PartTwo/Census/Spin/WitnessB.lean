@@ -140,46 +140,5 @@ theorem card_fixedField_frob :
     Nat.card (RootData.fixedField (frob b)) = b.1.characteristic ^ b.1.fieldExponent := by
   rw [fixedField_eq, b.1.card_fixedField, ValidLieTypeIndex.fieldOrder_eq_characteristic_pow]
 
-theorem hasWitness_unipotent (hodd : b.1.characteristic ≠ 2) (h3 : 3 ≤ b.carrierRank + 1)
-    {κ : Type} [Fintype κ] [DecidableEq κ] (J : κ → Fin (b.carrierRank + 1))
-    (hJ : Function.Injective J)
-    (horth : ∀ a a', a ≠ a' → (CartanMatrix.B (b.carrierRank + 1)).transpose (J a) (J a') = 0)
-    (k : Fin (b.carrierRank + 1))
-    (hk : ∀ a, Even ((CartanMatrix.B (b.carrierRank + 1)).transpose k (J a)))
-    (j₀ : Fin (b.carrierRank + 1))
-    (hj₀ : Odd ((CartanMatrix.B (b.carrierRank + 1)).transpose k j₀)) :
-    HasWitness b.Group b.1.characteristic (b.1.fieldExponent * Fintype.card κ) :=
-  (rootData b.carrierRank b.1.Closure).unipotent_witness_h (rootsInCommutator_odd b hodd h3)
-    (two_ne_zero_closure b hodd) (card_fixedField_frob b) J hJ horth k hk j₀ hj₀
-
-theorem hasWitness_unipotent_even (hodd : b.1.characteristic ≠ 2) (k : ℕ) (hk : 2 ≤ k)
-    (hkr : 2 * k ≤ b.carrierRank + 2) :
-    HasWitness b.Group b.1.characteristic (b.1.fieldExponent * k) := by
-  have h3 : 3 ≤ b.carrierRank + 1 := by omega
-  let J : Fin k → Fin (b.carrierRank + 1) := fun a => ⟨2 * a.val, by omega⟩
-  have hJ : Function.Injective J := fun a a' h => by
-    have h' : 2 * a.val = 2 * a'.val := congrArg Fin.val h
-    exact Fin.ext (by omega)
-  have horth : ∀ a a', a ≠ a' →
-      (CartanMatrix.B (b.carrierRank + 1)).transpose (J a) (J a') = 0 := fun a a' h => by
-    have h' : a.val ≠ a'.val := fun h'' => h (Fin.ext h'')
-    rw [Matrix.transpose_apply]
-    exact B_apply_far _ _ _ (by change 2 * a'.val ≠ 2 * a.val; omega)
-      (by change 2 * a'.val + 1 ≠ 2 * a.val; omega) (by change 2 * a.val + 1 ≠ 2 * a'.val; omega)
-  have hk0 : ∀ a, Even ((CartanMatrix.B (b.carrierRank + 1)).transpose ⟨0, by omega⟩ (J a)) := by
-    intro a
-    rw [Matrix.transpose_apply]
-    rcases Nat.eq_zero_or_pos a.val with ha | ha
-    · have : J a = ⟨0, by omega⟩ := Fin.ext (by simp [J, ha])
-      rw [this, CartanMatrix.B_diag]
-      exact even_two
-    · rw [B_apply_far _ _ _ (by change 2 * a.val ≠ 0; omega)
-        (by change 2 * a.val + 1 ≠ 0; omega) (by change 0 + 1 ≠ 2 * a.val; omega)]
-      exact ⟨0, rfl⟩
-  have hj : Odd ((CartanMatrix.B (b.carrierRank + 1)).transpose ⟨0, by omega⟩ ⟨1, by omega⟩) := by
-    rw [Matrix.transpose_apply, B_apply_pred _ _ _ (by simp)]
-    exact odd_neg_one_int
-  have h := hasWitness_unipotent b hodd h3 J hJ horth ⟨0, by omega⟩ hk0 ⟨1, by omega⟩ hj
-  rwa [Fintype.card_fin] at h
 
 end CFSG.RankThree.PartTwo.Census.Spin.CarrierB

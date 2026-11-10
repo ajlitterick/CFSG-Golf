@@ -15,12 +15,6 @@ namespace CFSG.KC
 
 namespace RelNormNeg
 
-noncomputable def rBad : Nat := nat_lit 66048
-noncomputable def eBad (_ : Nat) : Nat := Nat.add (nat_lit 8) (Nat.shiftLeft rBad (nat_lit 12))
-
-theorem old_rot : isRot rBad (nat_lit 2) (nat_lit 258) = true := by quickRfl
-
-theorem f_rot : notB (relsNorm eBad (nat_lit 1)) = true := by quickRfl
 
 end RelNormNeg
 

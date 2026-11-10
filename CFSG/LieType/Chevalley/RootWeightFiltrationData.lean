@@ -41,10 +41,6 @@ variable {M : Type*} [NormedAddCommGroup M] [InnerProductSpace ℝ M] {G : Type*
     rw [map_mul]
     rfl)
 
-theorem coe_restrictIsometry_apply (ρ : G →* (M ≃ₗᵢ[ℝ] M)) (F : Submodule ℝ M)
-    (hF : ∀ g x, x ∈ F → ρ g x ∈ F) (g : G) (x : F) :
-    (restrictIsometry ρ F hF g x : M) = ρ g x :=
-  rfl
 
 end Restrict
 
@@ -235,44 +231,6 @@ theorem isInternal_weightSpace :
     refine Finsupp.supported_mono fun l _ => Set.mem_iUnion.2
       ⟨⟨D.labelWeight l, D.labelWeight_mem_weights l⟩, rfl⟩
 
-open _root_.Classical in
-theorem root_weight_filtration_data
-    (D : RootWeightDatum K) :
-    (∀ x y : RootWeightSpace D.tag,
-      ⟪x, y⟫ = ∑ i, ∑ j, x i * (D.tag.symmetrizedCartan i j : ℝ) * y j) ∧
-    (∀ x y : D.space, ⟪x, y⟫ = ⟪(x : RootWeightSpace D.tag), (y : RootWeightSpace D.tag)⟫) ∧
-    (∀ l : D.space, ‖l‖ ^ 2 = ⟪l, l⟫) ∧
-    (∀ w ∈ D.weyl, ∀ x ∈ D.space, weylIsometry D.tag w x ∈ D.space) ∧
-    (∀ (w : D.weyl) (x : D.space),
-      (D.weylAction w x : RootWeightSpace D.tag) = weylIsometry D.tag w x) ∧
-    (∀ (x : RootWeightSpace D.tag), ∀ y ∈ D.space, ⟪x - D.proj x, y⟫ = 0) ∧
-    (∀ x : D.space, D.proj x = x) ∧
-    (∀ χ : D.space, χ ∈ D.weights ↔ χ = 0 ∨ ∃ α, IsRoot D.tag α ∧ D.proj (ofLattice α) = χ) ∧
-    (∀ (j : Fin D.tag.rank) (χ : D.space), hVec D.tag K j ∈ D.weightSpace χ ↔ χ = 0) ∧
-    (∀ (α : Fin D.tag.rank → ℤ), IsRoot D.tag α → ∀ χ : D.space,
-      rootVec D.tag K α ∈ D.weightSpace χ ↔ D.proj (ofLattice α) = χ) ∧
-    (∀ l : Label D.tag, D.labelWeight l ∈ D.weights) ∧
-    DirectSum.IsInternal (fun χ : D.weights => D.weightSpace χ) ∧
-    (∀ (w : D.weyl) (ω : List (Fin D.tag.rank)), (coxeterSystem D.tag).IsReduced ω →
-      (coxeterSystem D.tag).wordProd ω = w →
-      D.rep w = (ω.map fun i => weylElt D.tag K i 1).prod) := by
-  classical
-  refine ⟨fun x y => inner_eq_sum x y, fun x y => rfl, fun l => (real_inner_self_eq_norm_sq l).symm,
-    fun w hw x hx => D.weylIsometry_mem_space hw hx, fun w x => rfl, fun x y hy => ?_,
-    fun x => Submodule.orthogonalProjectionOnto_mem_subspace_eq_self x, fun χ => ?_,
-    fun j χ => ?_, fun α hα χ => ?_, D.labelWeight_mem_weights, D.isInternal_weightSpace,
-    fun w ω hω hw => ?_⟩
-  · exact Submodule.starProjection_inner_eq_zero x y hy
-  · simp only [weights, Finset.mem_insert, Finset.mem_image, mem_rootFinset, rootWeight]
-  · have := D.single_mem_weightSpace_iff (.inl j) χ
-    rw [labelWeight] at this
-    rw [hVec, this, eq_comm]
-  · have := D.single_mem_weightSpace_iff (.inr ⟨α, hα⟩) χ
-    rw [labelWeight] at this
-    rw [rootVec_eq_single_of_isRoot hα, this]
-    rfl
-  · rw [rep, ← hw]
-    exact canonicalRep_wordProd hω
 
 end RootWeightDatum
 

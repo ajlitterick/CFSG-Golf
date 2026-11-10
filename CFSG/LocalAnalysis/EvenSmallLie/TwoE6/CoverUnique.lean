@@ -60,9 +60,6 @@ theorem conjMat_one (M : Matrix (Fin 3) (Fin 3) F) : conjMat 1 M = M := by
 @[expose] noncomputable def conjSLFun (g : GL (Fin 3) F) (A : SL(3, F)) : SL(3, F) :=
   ⟨conjMat g A, by rw [det_conjMat, A.2]⟩
 
-theorem coe_conjSLFun (g : GL (Fin 3) F) (A : SL(3, F)) :
-    (conjSLFun g A : Matrix (Fin 3) (Fin 3) F) = conjMat g A :=
-  rfl
 
 theorem conjSLFun_conjSLFun (g h : GL (Fin 3) F) (A : SL(3, F)) :
     conjSLFun g (conjSLFun h A) = conjSLFun (g * h) A :=

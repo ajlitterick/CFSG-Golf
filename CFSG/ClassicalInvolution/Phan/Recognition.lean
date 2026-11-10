@@ -20,9 +20,6 @@ theorem weakPhan_odd_central_quotient_assembly (hU : PhanUniversal) (K : Type) [
       θ.ker ≤ Subgroup.center (Su K p f (n + 1)) :=
   weakPhan_of_phanUniversal hU K p f hK hq hn hW
 
-theorem stated_psu_iff_open (G : Type) [Group G] (n p f : ℕ) :
-    StatedClassicalModel G .PSU n p f ↔ CFSG.Open.StatedClassicalModel G .PSU n p f :=
-  Iff.rfl
 
 theorem weakPhan_odd_simple_native_recognition (hU : PhanUniversal) (K : Type) [Field K]
     [Finite K] (p f : ℕ) [Fact p.Prime] [CharP K p] (hK : Nat.card K = (p ^ f) ^ 2)

@@ -161,26 +161,11 @@ theorem exists_injective_fieldRow (hX : FieldNeighbourIso σ e .X) (hY : FieldNe
       (fun i c => key i _ (yElement_mem_levi_singleton i c))
     exact DFunLike.congr_fun h x
 
-theorem nonempty_mulEquiv_fieldRow (hX : FieldNeighbourIso σ e .X)
-    (hY : FieldNeighbourIso σ e .Y) (hq : 4 ≤ Nat.card (fixSubfield σ)) :
-    ∃ Ψ : adjointGroup .F4 K ≃*
-        ↥(⨆ J : {J : Finset (Fin (Tag.rank .F4)) // J.card ≤ 2}, pieceCore e J.1),
-      ∀ x : adjointGroup .F4 (fixSubfield σ),
-        ((Ψ (fixedFieldInclusion σ x) : G)) = ((e.symm x : L) : G) := by
-  obtain ⟨ψ, hinj, hrange, -, hfix⟩ := exists_injective_fieldRow hX hY hq
-  exact ⟨(MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr hrange), fun x => hfix x⟩
 
 end Main
 
 section Normalizer
 
-variable {K : Type} [Field K] {σ : K ≃+* K} {G : Type} [Group G] {L : Subgroup G}
-  {e : L ≃* adjointGroup .F4 (fixSubfield σ)}
-
-theorem mem_normalizer_iSup_pieceCore {t : G} (ht : t ∈ centralizer (L : Set G)) :
-    t ∈ normalizer ((⨆ J : {J : Finset (Fin (Tag.rank .F4)) // J.card ≤ 2}, pieceCore e J.1 :
-      Subgroup G) : Set G) :=
-  mem_normalizer_iSup fun J => le_normalizer_pieceCore e ht J.1
 
 end Normalizer
 

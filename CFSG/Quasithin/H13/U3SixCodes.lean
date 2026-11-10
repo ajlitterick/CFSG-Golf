@@ -147,10 +147,6 @@ theorem exists_vecOf (w : Fin 6 → ZMod 2) : ∃ v < 64, vecOf v = w := by
   obtain ⟨v, hv, rfl⟩ := Finset.mem_image.1 hw
   exact ⟨v, Finset.mem_range.1 hv, rfl⟩
 
-theorem forall_vecOf {P : (Fin 6 → ZMod 2) → Prop} (h : ∀ v < 64, P (vecOf v))
-    (w : Fin 6 → ZMod 2) : P w := by
-  obtain ⟨v, hv, rfl⟩ := exists_vecOf w
-  exact h v hv
 
 @[expose] def canon6 (m : List ℕ) : Bool :=
   m.length == 6 && m.all (· < 64)

@@ -24,7 +24,6 @@ noncomputable instance : DecidableEq Gam := Classical.decEq _
 
 @[expose] def gz : ZMod 2 × ZMod 2 := (1, 1)
 
-theorem gx_add_gy : gx + gy = gz := rfl
 
 abbrev clsΩ (a : C) : CmodΩ := Submodule.Quotient.mk a
 
@@ -255,8 +254,6 @@ theorem xgrade_rOct (d : C) {δ : Finset (Fin 24)} (he : Even δ.card) :
   rw [h]
   rfl
 
-theorem isShortCoord_of_tbasis {r : Q} (h : IsShort (QuotientGroup.mk r)) :
-    IsShortCoord (coordOf r) := (isShort_mk_iff r).1 h
 
 theorem tbasis_mem_Bstd (x : TIdx) : tbasis x ∈ Bstd (tgrade x) := by
   obtain ⟨_, _, _, _, hPair, hOdd, hOct, -⟩ := short_vector_triality_basis
@@ -311,74 +308,6 @@ theorem T_Bg {g h k : Gam} (hghk : g + h + k ≠ 0) {u v w : SpaceB} (hu : u ∈
     (hv : v ∈ Bg h) (hw : w ∈ Bg k) : T u v w = 0 :=
   T_Bstd hghk (Bg_le_Bstd g hu) (Bg_le_Bstd h hv) (Bg_le_Bstd k hw)
 
-theorem bform_Bg_eq_zero {g h : Gam} (hgh : g ≠ h) {u v : SpaceB} (hu : u ∈ Bg g)
-    (hv : v ∈ Bg h) : bform u v = 0 := by
-  induction hu using Submodule.span_induction with
-  | mem x hx =>
-    obtain ⟨i, hi, rfl⟩ := hx
-    induction hv using Submodule.span_induction with
-    | mem y hy =>
-      obtain ⟨j, hj, rfl⟩ := hy
-      have hi' : tgrade i = g := hi
-      have hj' : tgrade j = h := hj
-      have hij : i ≠ j := fun e => hgh (by rw [← hi', ← hj', e])
-      rw [bform_tbasis, ite_eq_right hij]
-    | zero => exact map_zero _
-    | add a b _ _ ha hb => rw [map_add, ha, hb, add_zero]
-    | smul c a _ ha => rw [map_smul, ha, smul_zero]
-  | zero => rw [map_zero, LinearMap.zero_apply]
-  | add a b _ _ ha hb => rw [map_add, LinearMap.add_apply, ha, hb, add_zero]
-  | smul c a _ ha => rw [map_smul, LinearMap.smul_apply, ha, smul_zero]
-
-theorem iSup_Bg : ⨆ g, Bg g = ⊤ := by
-  rw [eq_top_iff, ← tbasis.span_eq, Submodule.span_le]
-  rintro _ ⟨x, rfl⟩
-  exact Submodule.mem_iSup_of_mem (tgrade x) (tbasis_mem_Bg x)
-
-theorem iSupIndep_Bg : iSupIndep Bg := by
-  intro g
-  rw [disjoint_iff_inf_le]
-  rintro x ⟨hx1, hx2⟩
-  have hker : ⨆ (h : Gam) (_ : h ≠ g), Bg h ≤ LinearMap.ker (bform x) :=
-    iSup₂_le fun h hne v hv => LinearMap.mem_ker.2 (bform_Bg_eq_zero (Ne.symm hne) hx1 hv)
-  have h0 : bform x x = 0 := LinearMap.mem_ker.1 (hker hx2)
-  rw [Submodule.mem_bot]
-  by_contra hne
-  exact lt_irrefl _ (h0 ▸ bform_self_pos hne)
-
-theorem isInternal_Bg : DirectSum.IsInternal Bg :=
-  DirectSum.isInternal_submodule_of_iSupIndep_of_iSup_eq_top iSupIndep_Bg iSup_Bg
-
-theorem bform_tbasis_right (x : SpaceB) (y : TIdx) :
-    bform x (tbasis y) = tbasis.repr x y * tnorm y := by
-  have h : LinearMap.flip bform (tbasis y) = tnorm y • tbasis.coord y := by
-    refine tbasis.ext fun z => ?_
-    rw [LinearMap.flip_apply, bform_tbasis, LinearMap.smul_apply, Basis.coord_apply,
-      Basis.repr_self, smul_eq_mul]
-    by_cases hz : z = y
-    · subst hz
-      rw [ite_eq_left rfl, Finsupp.single_eq_same, mul_one]
-    · rw [ite_eq_right hz, Finsupp.single_eq_of_ne (Ne.symm hz), mul_zero]
-  have h' := congrArg (fun f : SpaceB →ₗ[ℚ] ℚ => f x) h
-  simp only [LinearMap.flip_apply, LinearMap.smul_apply, Basis.coord_apply, smul_eq_mul] at h'
-  rw [h', mul_comm]
-
-theorem mem_Bg_of_orthogonal {m : Gam} {x : SpaceB}
-    (h : ∀ y, tgrade y ≠ m → bform x (tbasis y) = 0) : x ∈ Bg m := by
-  rw [← tbasis.sum_repr x]
-  refine Submodule.sum_mem _ fun y _ => ?_
-  by_cases hy : tgrade y = m
-  · exact Submodule.smul_mem _ _ (Submodule.subset_span ⟨y, hy, rfl⟩)
-  · have h1 := h y hy
-    rw [bform_tbasis_right] at h1
-    rw [(mul_eq_zero.1 h1).resolve_right (tnorm_ne_zero y), zero_smul]
-    exact zero_mem _
-
-theorem gmul_mem_Bg {g h : Gam} {u v : SpaceB} (hu : u ∈ Bg g) (hv : v ∈ Bg h) :
-    gmul u v ∈ Bg (g + h) :=
-  mem_Bg_of_orthogonal fun y hy => by
-    rw [bform_gmul]
-    exact T_Bg (fun h0 => hy (eq_of_add_eq_zero' h0)) hu hv (tbasis_mem_Bg y)
 
 @[expose] def alpha2 (a : ZMod 2 × ZMod 2) : ZMod 2 × ZMod 2 := (a.2, a.1 + a.2)
 
@@ -397,22 +326,10 @@ theorem alpha2_add (a b : ZMod 2 × ZMod 2) : alpha2 (a + b) = alpha2 a + alpha2
   right_inv g := Prod.ext (alpha2_alpha2_alpha2 g.1) rfl
   map_add' g h := Prod.ext (alpha2_add g.1 h.1) rfl
 
-theorem alphaG_apply (g : Gam) : alphaG g = (alpha2 g.1, g.2) := rfl
-
-theorem alphaG_gx (c : CmodΩ) : alphaG (gx, c) = (gy, c) :=
-  Prod.ext (show alpha2 gx = gy by decide) rfl
-
-theorem alphaG_gy (c : CmodΩ) : alphaG (gy, c) = (gz, c) :=
-  Prod.ext (show alpha2 gy = gz by decide) rfl
-
-theorem alphaG_gz (c : CmodΩ) : alphaG (gz, c) = (gx, c) :=
-  Prod.ext (show alpha2 gz = gx by decide) rfl
 
 theorem alphaG_zero_left (c : CmodΩ) : alphaG (0, c) = (0, c) :=
   Prod.ext (show alpha2 0 = 0 by decide) rfl
 
-theorem alphaG_alphaG_alphaG (g : Gam) : alphaG (alphaG (alphaG g)) = g :=
-  Prod.ext (alpha2_alpha2_alpha2 g.1) rfl
 
 theorem alpha2_oddSlot (k : Fin 3) : alpha2 (oddSlot k) = oddSlot (k + 1) := by
   revert k
@@ -442,59 +359,5 @@ theorem tauB_tbasis_mem_Bg (x : TIdx) : tauB (tbasis x) ∈ Bg (alphaG (tgrade x
     exact Submodule.sum_mem _ fun w _ =>
       Submodule.smul_mem _ _ (tbasis_mem_Bg (.inr (.inr (.inr ⟨d, w⟩))))
 
-theorem tauB_mem_Bg {g : Gam} {u : SpaceB} (hu : u ∈ Bg g) : tauB u ∈ Bg (alphaG g) := by
-  induction hu using Submodule.span_induction with
-  | mem x hx =>
-    obtain ⟨i, hi, rfl⟩ := hx
-    have hi' : tgrade i = g := hi
-    exact hi' ▸ tauB_tbasis_mem_Bg i
-  | zero => rw [map_zero]; exact zero_mem _
-  | add a b _ _ ha hb => rw [map_add]; exact add_mem ha hb
-  | smul c a _ ha => rw [map_smul]; exact Submodule.smul_mem _ _ ha
-
-theorem tauB_inv_eq : tauB⁻¹ = tauB * tauB :=
-  inv_eq_of_mul_eq_one_right ((pow_three tauB).symm.trans tauB_pow_three)
-
-theorem tauB_symm_apply' (u : SpaceB) : tauB.symm u = tauB (tauB u) :=
-  congrArg (fun f : SpaceB ≃ₗ[ℚ] SpaceB => f u) tauB_inv_eq
-
-theorem map_tauB_Bg (g : Gam) : (Bg g).map (tauB : SpaceB →ₗ[ℚ] SpaceB) = Bg (alphaG g) := by
-  apply le_antisymm
-  · rintro _ ⟨u, hu, rfl⟩
-    exact tauB_mem_Bg hu
-  · intro v hv
-    refine ⟨tauB.symm v, ?_, tauB.apply_symm_apply v⟩
-    rw [tauB_symm_apply']
-    have h := tauB_mem_Bg (tauB_mem_Bg hv)
-    rwa [alphaG_alphaG_alphaG] at h
-
-theorem tauB_symm_mem_Bg {g : Gam} {u : SpaceB} (hu : u ∈ Bg (alphaG g)) : tauB.symm u ∈ Bg g := by
-  rw [tauB_symm_apply']
-  have h := tauB_mem_Bg (tauB_mem_Bg hu)
-  rwa [alphaG_alphaG_alphaG] at h
-
-theorem rational_Griess_binary_grading :
-    (∀ i : Fin 24, tgrade (.inl i) = 0) ∧ (∀ q : LtPair × Fin 3, tgrade (.inr (.inl q)) = 0) ∧
-    (∀ (c : C₀) (i : Fin 24), tgrade (.inr (.inr (.inl (c, i, 0)))) = (gx, clsΩ (c : C)) ∧
-      tgrade (.inr (.inr (.inl (c, i, 1)))) = (gy, clsΩ (c : C)) ∧
-      tgrade (.inr (.inr (.inl (c, i, 2)))) = (gz, clsΩ (c : C))) ∧
-    (∀ o : OctIdx, tgrade (.inr (.inr (.inr o))) = (0, clsΩ (o.1 : C))) ∧
-    gx + gy = gz ∧
-    (∀ g, Bg g = Submodule.span ℚ (tbasis '' {x | tgrade x = g})) ∧
-    DirectSum.IsInternal Bg ∧
-    (∀ g h : Gam, g ≠ h → ∀ u ∈ Bg g, ∀ v ∈ Bg h, bform u v = 0) ∧
-    (∀ g h k : Gam, g + h + k ≠ 0 → ∀ u ∈ Bg g, ∀ v ∈ Bg h, ∀ w ∈ Bg k, T u v w = 0) ∧
-    (∀ g h : Gam, ∀ u ∈ Bg g, ∀ v ∈ Bg h, gmul u v ∈ Bg (g + h)) ∧
-    (∀ c : CmodΩ, alphaG (gx, c) = (gy, c) ∧ alphaG (gy, c) = (gz, c) ∧ alphaG (gz, c) = (gx, c) ∧
-      alphaG (0, c) = (0, c)) ∧
-    (∀ g, (Bg g).map (tauB : SpaceB →ₗ[ℚ] SpaceB) = Bg (alphaG g)) ∧
-    (∀ g h k : Gam, g + h + k = 0 ↔ alphaG g + alphaG h + alphaG k = 0) ∧
-    (∀ g h k : Gam, g + h + k = 0 ↔ alphaG.symm g + alphaG.symm h + alphaG.symm k = 0) :=
-  ⟨fun _ => rfl, fun _ => rfl, fun _ _ => ⟨rfl, rfl, rfl⟩, fun _ => rfl, gx_add_gy, fun _ => rfl,
-    isInternal_Bg, fun _ _ hgh _ hu _ hv => bform_Bg_eq_zero hgh hu hv,
-    fun _ _ _ h _ hu _ hv _ hw => T_Bg h hu hv hw, fun _ _ _ hu _ hv => gmul_mem_Bg hu hv,
-    fun c => ⟨alphaG_gx c, alphaG_gy c, alphaG_gz c, alphaG_zero_left c⟩, map_tauB_Bg,
-    fun g h k => by rw [← map_add, ← map_add, AddEquivClass.map_eq_zero_iff],
-    fun g h k => by rw [← map_add, ← map_add, AddEquivClass.map_eq_zero_iff]⟩
 
 end CFSG.Monster.Griess

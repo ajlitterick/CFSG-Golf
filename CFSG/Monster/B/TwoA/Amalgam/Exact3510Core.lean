@@ -43,10 +43,6 @@ local notation "𝕄" v:max w:max => cgraph.induce (cgraph.commonNeighbors v w)
     exact ⟨h1, h2⟩⟩
   map_rel' h := (cgraph_adj_cvMul _ _ s).2 h
 
-theorem coe_cnHom
-    {v w : CVert} (s : Shat) (hv : cvMul v s = v) (hw : cvMul w s = w)
-    (z : cgraph.commonNeighbors v w) : ((cnHom s hv hw z : cgraph.commonNeighbors v w) : CVert) =
-      cvMul z s := rfl
 
 theorem conj_eq_of_braid {G : Type*} [Group G] {d e : G} (hd : d * d = 1) (he : e * e = 1)
     (h : d * e * d = e * d * e) : (d * e * d)⁻¹ * d * (d * e * d) = e := by

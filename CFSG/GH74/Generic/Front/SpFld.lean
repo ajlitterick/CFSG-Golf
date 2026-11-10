@@ -18,15 +18,6 @@ section Embed
 
 variable {K L : Type} [Field K] [Field L]
 
-theorem formJ_map_hom (f : K →+* L) :
-    (fromBlocks 0 1 (-1) 0 : Matrix (Fin 2 ⊕ Fin 2) (Fin 2 ⊕ Fin 2) K).map f =
-      fromBlocks 0 1 (-1) 0 := by
-  rw [fromBlocks_map]
-  congr 1
-  · exact Matrix.map_zero _ (map_zero f)
-  · exact Matrix.map_one _ (map_zero f) (map_one f)
-  · rw [Matrix.map_neg _ (map_neg f), Matrix.map_one _ (map_zero f) (map_one f)]
-  · exact Matrix.map_zero _ (map_zero f)
 
 theorem map_mem_statedSp (f : K →+* L) {g : GL (Fin 2 ⊕ Fin 2) K} (hg : g ∈ StatedSp 2 K) :
     Matrix.GeneralLinearGroup.map f g ∈ StatedSp 2 L :=

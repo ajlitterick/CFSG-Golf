@@ -707,22 +707,6 @@ theorem P₁_inf_N (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓
     exact mem_E_of_mem_transZ h i hx.1 hx.2
   · exact le_inf (E_le_P₁ h i hne hbot) (map_subtype_le _)
 
-theorem P₁_mul_N (h : FCHyp L K n φ t) (i : Axis) (hne : ⁅𝐀[i], 𝐅 ⊓ 𝐃[i.swap]⁆ ≠ ⊥)
-    (hbot : ⁅𝐀[i.swap], 𝐅 ⊓ 𝐃[i]⁆ = ⊥) :
-    (𝐏₁[i] : Set G) * (𝐍[i] : Set G) = (𝐃𝐧[i] : Set G) := by
-  ext g
-  simp only [Set.mem_mul, SetLike.mem_coe]
-  constructor
-  · rintro ⟨x, hx, y, hy, rfl⟩
-    exact mul_mem (P₁_le i hx) (N_le_normalizer_D h i hy)
-  · intro hg
-    obtain ⟨z, hzZ, hz⟩ := (aff₁_translations h i hne hbot).1 ((actHyp₁ h i).aff ⟨g, hg⟩ 0)
-    have hzT : (z : G) ∈ transZ h i :=
-      (mem_transZ_iff h i z).mpr ⟨hzZ, ⟨_, hz⟩⟩
-    refine ⟨z, (pCore_eq_transZ h i hne hbot).symm ▸ hzT, (z : G)⁻¹ * g, ?_, by group⟩
-    have e : (⟨(z : G)⁻¹ * g, mul_mem (inv_mem z.2) hg⟩ : 𝐃𝐧[i]) = z⁻¹ * ⟨g, hg⟩ := rfl
-    refine (aff₁_zero_eq_zero_iff h i ⟨_, mul_mem (inv_mem z.2) hg⟩).mp ?_
-    rw [e, map_mul, Equiv.Perm.mul_apply, map_inv, Equiv.Perm.inv_eq_iff_eq, hz, zero_add]
 
 theorem kappa_P₁ (h : FCHyp L K n φ t) (i : Axis) {x : G} (hx : x ∈ 𝐃𝐧[i]) :
     t⁻¹ * (x⁻¹ * t * x) ∈ 𝐊[i] ∧

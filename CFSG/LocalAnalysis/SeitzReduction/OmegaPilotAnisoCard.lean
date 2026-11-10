@@ -183,12 +183,6 @@ theorem IsAnisoCoord.card_fixSpace_comap_anisoTorusOf (h : IsAnisoCoord Q a a' b
     Nat.card (fixSpace ((anisoTorusOf Q h.ne b c).comap (projHom Q))) = Nat.card K ^ (d - 2) := by
   rw [h.fixSpace_comap_anisoTorusOf hQ hT, card_perpSub h.ne]
 
-theorem fixSpace_comap_anisoTorus {n : ℕ} (hn : 4 ≤ n) (hirr : ∀ s : K, s ^ 2 + b * s + c ≠ 0) :
-    fixSpace ((anisoTorus (K := K) (by omega : 1 ≤ n) b c).comap
-      (projHom (coordinateQuadMinus n K (by omega) b c))) =
-      perpSub K (anisoCoordLeft (by omega : 1 ≤ n)) (anisoCoordRight (by omega : 1 ≤ n)) := by
-  obtain ⟨hQ, hT⟩ := regular_coordinateQuadMinus n K b c hn hirr
-  exact (isAnisoCoord_coordinateQuadMinus (by omega) hirr).fixSpace_comap_anisoTorusOf hQ hT
 
 end Fix
 

@@ -31,14 +31,5 @@ theorem card_fixV_Bv [Finite V] {X A : Subgroup (MulAut V)} (hA : IsFFStarOffend
     _ = (B1.Bv A v).relIndex A * Nat.card (B1.Bv A v) * Nat.card (fixV A) := by rw [h3]
     _ = Nat.card (B1.Bv A v) * ((B1.Bv A v).relIndex A * Nat.card (fixV A)) := by ring
 
-theorem exists_proper_offender_below_of_not_quadratic [Finite V] (hV : ∀ v : V, v ^ 2 = 1)
-    {X A : Subgroup (MulAut V)} (hA : IsFFStarOffender X A) (hq : ¬ IsQuadratic A) :
-    ∃ B : Subgroup (MulAut V), B < A ∧ IsFFStarOffender X B ∧ FFLe X B A := by
-  by_contra hcon
-  push Not at hcon
-  apply hq
-  refine B1_4_3 hV ⟨hA, fun B hB hBA => ?_⟩
-  by_contra hne
-  exact hcon B (lt_of_le_of_ne hBA.2.2.1 hne) hB hBA
 
 end CFSG.Quasithin

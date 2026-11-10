@@ -97,9 +97,6 @@ variable (D : Tabs)
 
 @[expose] def memA (c : Nat) : Bool := memB D.AM c
 
-@[expose] def memAF (f : Nat) : Bool := l32.any fun r => rd 44 D.AF r == f
-
-@[expose] def memLF (f : Nat) : Bool := l24.any fun k => rd 44 D.LF k == f
 
 @[expose] def tabOK : Bool :=
   (l16.all fun i => rd 44 D.EF i == eK i && rd 44 D.PF i == pK i &&
@@ -129,15 +126,6 @@ variable (D : Tabs)
   (l32.all fun r => rd 44 D.AF r == fullOf D (phiS D r)) &&
   (l256.all fun c => !memA D c || [1, 2, 4, 8, 16, 32, 64, 128].all fun g => memA D (conjS D g c))
 
-@[expose] def lOK : Bool :=
-  rd 44 D.LF 0 == oneK &&
-  (l24.all fun k => k == 0 ||
-    (decide (rd 7 D.LP k % 32 < k) &&
-      mulK (rd 44 D.LF (rd 7 D.LP k % 32)) (gL (rd 7 D.LP k / 32)) == rd 44 D.LF k)) &&
-  (l24.all fun k => l24.all fun k' => !(rd 44 D.LF k == rd 44 D.LF k') || k == k') &&
-  (l24.all fun k => gensLK.all fun g => memLF D (mulK (rd 44 D.LF k) g)) &&
-  (l24.all fun k => k == 0 || !memAF D (rd 44 D.LF k)) &&
-  (gensLK.all fun g => gensAK.all fun a => memAF D (conjK g a))
 
 @[expose] def bt (e i : Nat) : Nat := e / 2 ^ i % 2
 

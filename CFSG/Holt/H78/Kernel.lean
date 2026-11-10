@@ -310,9 +310,6 @@ theorem mem_blockEven {β : Ω} {g : G} :
   · rintro ⟨hg, h⟩
     exact ⟨⟨g, hg⟩, h, rfl⟩
 
-theorem blockEven_le_stabilizer (β : Ω) :
-    blockEven G β ≤ stabilizer G (orbit (CFSG.pPrimeCore 2 G) β) := fun _ hg =>
-  (mem_blockEven.mp hg).1
 
 theorem conj_mem_blockEven {β : Ω} {h g : G}
     (hh : h ∈ stabilizer G (orbit (CFSG.pPrimeCore 2 G) β)) (hg : g ∈ blockEven G β) :

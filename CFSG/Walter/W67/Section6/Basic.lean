@@ -227,12 +227,6 @@ theorem p5_card_X
   rw [hc, Nat.mul_div_cancel_left _ hcpos] at hf1
   rw [hc, hf1, mul_one]
 
-theorem p5_eq_E
-    (hR : RFacts) (hp : s.p = 5) {X : Subgroup G} (hXE : X ≤ s.fr.E)
-    (hX : X ≠ ⊥) : X = s.fr.E := by
-  refine Subgroup.eq_of_le_of_card_ge hXE ?_
-  rw [p5_card_X s hR hp hXE hX]
-  exact Nat.le_of_dvd s.f_pos (card_dvd_f s le_rfl s.E_ne_bot)
 
 theorem p5_card_E
     (hR : RFacts) (hp : s.p = 5) :
@@ -381,11 +375,6 @@ theorem q_mul_dvd
     rw [e]
     exact Nat.sub_dvd_pow_sub_pow _ _ _
 
-theorem coprime_card_K_E
-    (h41 : S_prop_4_1) (h56 : S_prop_5_6) (hJ : JFacts) (hR : RFacts) :
-    Nat.Coprime (Nat.card s.K) (Nat.card s.fr.E) := by
-  refine Nat.coprime_of_dvd fun k hk hkK hkE => ?_
-  exact not_dvd_card_K s h41 h56 hJ hR ((mem_sigma_iff s).mpr ⟨hk, hkE⟩) hkK
 
 theorem not_three_dvd_card_E
     (h41 : S_prop_4_1) (h56 : S_prop_5_6) (hJ : JFacts)

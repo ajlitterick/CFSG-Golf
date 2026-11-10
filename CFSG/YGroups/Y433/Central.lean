@@ -118,28 +118,9 @@ theorem sgn_F433 (i j k : ℕ) : sgn (F433 i j k) = Multiplicative.ofAdd 1 := by
 
 end U433
 
-theorem F433_ne_one (i j k : ℕ) : F433 i j k ≠ 1 := by
-  intro h
-  have := U433.sgn_F433 i j k
-  rw [h, map_one] at this
-  exact absurd (Multiplicative.ofAdd.injective this) (by decide)
-
-theorem orderOf_F433_213 :
-    orderOf (F433 2 1 3) = 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact orderOf_eq_prime (by rw [pow_two]; exact F433_213_mul_self) (F433_ne_one 2 1 3)
-
-theorem orderOf_F433_312 :
-    orderOf (F433 3 1 2) = 2 := by
-  have : Fact (Nat.Prime 2) := ⟨Nat.prime_two⟩
-  exact orderOf_eq_prime (by rw [pow_two]; exact F433_312_mul_self) (F433_ne_one 3 1 2)
 
 namespace R433
 
-theorem π_F433_231 :
-    π (F433 2 3 1) = 1 := by
-  rw [F433_231_eq_213]
-  exact π_F433_213
 
 theorem π_mem_center {x : U433} (hx : x ∈ Subgroup.center U433) : π x ∈ Subgroup.center R433 := by
   rw [Subgroup.mem_center_iff] at hx ⊢

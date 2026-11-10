@@ -265,14 +265,6 @@ theorem HypS.of_map [Finite G] [Finite G'] (φ : G ≃* G') {A : Subgroup G}
   rw [← mem_omegaA_map_iff φ, MonoidHom.map_zpowers] at ha
   exact hS (φ a) ha _ ((mem_lA_map_iff φ).mpr hK) (Subgroup.mem_map_of_mem _ haK)
 
-theorem hypS_map_iff [Finite G] [Finite G'] (φ : G ≃* G') {A : Subgroup G} :
-    HypS (A.map φ.toMonoidHom) ↔ HypS A := by
-  refine ⟨HypS.of_map φ, fun h => HypS.of_map φ.symm ?_⟩
-  rwa [map_symm_map]
-
-theorem hypS_map_conj_iff [Finite G] (g : G) {A : Subgroup G} :
-    HypS (A.map (MulAut.conj g).toMonoidHom) ↔ HypS A :=
-  hypS_map_iff (MulAut.conj g)
 
 theorem collectionIn_partTwoT_centralizer_map_eq_empty_iff [Finite G] [Finite G'] (φ : G ≃* G')
     (a : G) :
@@ -297,13 +289,5 @@ theorem HypT.of_map [Finite G] [Finite G'] (φ : G ≃* G') {A : Subgroup G}
   rw [← mem_omegaA_map_iff φ, MonoidHom.map_zpowers] at ha
   exact (collectionIn_partTwoT_centralizer_map_eq_empty_iff φ a).mp (hC (φ a) ha)
 
-theorem hypT_map_iff [Finite G] [Finite G'] (φ : G ≃* G') {A : Subgroup G} :
-    HypT (A.map φ.toMonoidHom) ↔ HypT A := by
-  refine ⟨HypT.of_map φ, fun h => HypT.of_map φ.symm ?_⟩
-  rwa [map_symm_map]
-
-theorem hypT_map_conj_iff [Finite G] (g : G) {A : Subgroup G} :
-    HypT (A.map (MulAut.conj g).toMonoidHom) ↔ HypT A :=
-  hypT_map_iff (MulAut.conj g)
 
 end CFSG.RankThree.PartTwo.Sec13

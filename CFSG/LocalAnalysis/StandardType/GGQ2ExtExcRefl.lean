@@ -384,9 +384,6 @@ theorem admissible_reflCode (hT : Chk.tabsOK m T = true) (u : Root m) (c : Finse
   normalizerGroup_eq := normalizerGroup_reflCode hT u
   label_eq := label_reflCode hT u
 
-theorem reflFrameAut_g (hT : Chk.tabsOK m T = true) (u : Root m) :
-    (reflFrameAut hT u).g = reflection m u :=
-  rfl
 
 theorem extCasesVx_reflection (hT : Chk.tabsOK m T = true) (u : Root m) {vx : V m}
     (h : ExtCasesVx (excRaw m) vx) : ExtCasesVx (excRaw m) (reflection m u vx) :=

@@ -99,10 +99,6 @@ variable {C : Type} [CommGroup C] {r k : ℕ}
   (powMonoidHom r : C →* C).comp
     ((Pi.evalMonoidHom (fun _ : Fin (k + 1) => C) 0).comp (omegaSub r k C₀).subtype)
 
-theorem omega_pow_eq {C₀ : Subgroup C} {t : Fin (k + 1) → C} (ht : t ∈ omegaSub r k C₀)
-    (i : Fin (k + 1)) : t i ^ r = t 0 ^ r := by
-  obtain ⟨-, z, -, hz⟩ := ht
-  rw [hz i, hz 0]
 
 theorem mem_range_omegaPsi {C₀ : Subgroup C} (hC₀ : ∀ z ∈ C₀, z ^ (k + 1) = 1) {z : C}
     (hz : z ∈ C₀ ⊓ (powMonoidHom r : C →* C).range) : z ∈ (omegaPsi r k C₀).range := by

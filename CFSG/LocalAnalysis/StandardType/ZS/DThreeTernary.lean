@@ -249,7 +249,6 @@ theorem exists_scalarFrame_D3_diagF3 {m : ℕ} {δ : ZMod 3} (hm : 8 ≤ m ∨ (
     reflBar (diagF3 m δ) (frameSum m hm7), ⟨hmem_d, hd, hpairwise, hmem_e, he_ne, hzcomm⟩,
     hnoncomm⟩
 
-private def triangleC : Fin 6 → ZMod 3 := ![0, 1, 0, 1, 2, 1]
 
 private def e₆Vec : Fin 6 → Fin 5 → ZMod 3 :=
   ![![0, 1, 0, 1, 2], ![1, 1, 0, 0, 2], ![0, 1, 0, 2, 2],

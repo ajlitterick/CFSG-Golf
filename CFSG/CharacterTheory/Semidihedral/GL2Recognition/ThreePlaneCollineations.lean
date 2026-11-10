@@ -82,9 +82,6 @@ theorem projPointMap_one (L : ProjPoint) : projPointMap 1 L = L :=
   map_one' := Equiv.ext projPointMap_one
   map_mul' A B := Equiv.ext (projPointMap_mul A B)
 
-theorem projPointPerm_apply (A : SpecialLinearGroup (Fin 3) (ZMod 3)) (L : ProjPoint) :
-    ((projPointPerm A) L).1 = L.1.map (Matrix.toLin' (A : Matrix (Fin 3) (Fin 3) (ZMod 3))) :=
-  rfl
 
 theorem image_projPointSet (A : SpecialLinearGroup (Fin 3) (ZMod 3))
     (H : Submodule (ZMod 3) (Fin 3 → ZMod 3)) :

@@ -19,8 +19,6 @@ theorem t_inv : C.t⁻¹ = C.t := inv_eq_of_mul_eq_one_right (by rw [← pow_two
 theorem u_inv : C.u⁻¹ = C.u := inv_eq_of_mul_eq_one_right (by rw [← pow_two, C.hu2])
 
 theorem uv_mul_ev (v : Co) : C.uv * C.ev v = C.ev (fuv v) * C.uv := by rw [mul_ev, act_uv_inv]
-theorem t_mul_ev (v : Co) : C.t * C.ev v = C.ev (ft v) * C.t := by rw [mul_ev, act_t_inv]
-theorem u_mul_ev (v : Co) : C.u * C.ev v = C.ev (fu v) * C.u := by rw [mul_ev, act_u_inv]
 
 theorem ev_mul_ev_mul (a b : Co) (g h : X) :
     C.ev a * g * (C.ev b * h) = C.ev (a + C.act g⁻¹ b) * (g * h) := by

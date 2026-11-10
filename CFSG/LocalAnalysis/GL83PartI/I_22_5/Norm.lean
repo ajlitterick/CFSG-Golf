@@ -188,15 +188,6 @@ theorem cjEmb_cj {K : Subgroup G} {b c : G} (hcb : c * b = b * c) (i : ZMod p) (
         rw [← hcu.eq, hcu.inv_inv.eq]
     _ = c * (b ^ i.val * x * (b ^ i.val)⁻¹) * c⁻¹ := by group
 
-omit [Fact p.Prime] in
-theorem NormComm.cj' {K : Subgroup G} {b c : G} (hc : NormComm p K b) (hcb : c * b = b * c) :
-    NormComm p (cj c K) b := by
-  intro i j hij x y
-  obtain ⟨x', hx'⟩ := (cjHom_surjective c K) x
-  obtain ⟨y', hy'⟩ := (cjHom_surjective c K) y
-  subst hx' hy'
-  rw [cjEmb_cj hcb, cjEmb_cj hcb]
-  exact (hc hij x' y').map (MulAut.conj c).toMonoidHom
 
 theorem normHom_cj {K : Subgroup G} {b c : G} (hc : NormComm p K b) (hc' : NormComm p (cj c K) b)
     (hcb : c * b = b * c) (x : K) :

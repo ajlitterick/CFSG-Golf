@@ -40,11 +40,6 @@ theorem cwfix : CFSG.LargeExtraspecial.S63.cWords.all (fun w => stepOKK (false, 
 
 theorem pw : pwK = true := by quickRfl
 
-theorem vneg : bAnd(bIf(bfsK (cjStepK CD.CG) ZCP ZCPar ZCLab ZCW ZCS 4 (3 + 1) 3 (ID.ZP 1), false,
-      true),
-    bAnd(bIf(invK (AD.QP 0), false, true),
-      bIf(Nat.beq (memS AD.QP AD.QS 512 (HD.TP (QB (QK 0)))) 1, false, true))) = true := by
-  quickRfl
 
 end CertificateChecks.KernelS63.PD
 

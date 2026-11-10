@@ -23,8 +23,5 @@ open scoped commutatorElement
       (∀ y ∈ Y, y ^ p ∈ J) → (∀ x ∈ Y, ∀ y ∈ Y, ∀ z ∈ Y, ⁅⁅x, y⁆, z⁆ ∈ J) →
       J.relIndex Y = p ∨ (J.relIndex Y = p ^ 3 ∧ ∃ y ∈ Y, ∃ z ∈ Y, ⁅y, z⁆ ∉ J)
 
-variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
-variable {G : Subgroup (LGL 2 V)} {Γ : Set (Subgroup (LGL 2 V))}
-  {VA : Subgroup (LGL 2 V) → Submodule (ZMod 2) V} {i : ℕ}
 
 end CFSG.LocalAnalysis.WeakClosure81

@@ -127,9 +127,6 @@ theorem ggStepTwoCoordModelOn_PSU_of_move_shape (hmove : GGSUPieceMoveInput)
     (hshape : GGSUPieceShapeInput) : GGStepTwoCoordModelOn .PSU :=
   ggStepTwoCoordModelOn_PSU_of_piece hmove ggSUPieceCompInput_holds hshape
 
-theorem ggStepTwoToralWitnessOn_PSU_of_move_shape (hmove : GGSUPieceMoveInput)
-    (hshape : GGSUPieceShapeInput) : GGStepTwoToralWitnessOn .PSU :=
-  ggStepTwoToralWitnessOn_of_coordModel (ggStepTwoCoordModelOn_PSU_of_move_shape hmove hshape)
 
 end Model
 

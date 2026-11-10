@@ -23,34 +23,12 @@ private lemma twE6Gamma_add_rev (i : Fin 8) :
 private lemma twE6Gamma_level (i : Fin 8) : twE6Gamma i twE6Last = 1 := by
   fin_cases i <;> decide +kernel
 
-private lemma twE6_levelOne_all :
-    ((List.range (Tag.rootCertificate .F4).roots.length).all fun m =>
-      decide ((Tag.rootCertificate .F4).root m twE6Last ≠ 1) ||
-        (List.finRange 8).any fun i =>
-          decide (twE6Gamma i = (Tag.rootCertificate .F4).root m)) = true := by
-  decide +kernel
-
-private lemma exists_twE6Gamma_of_level_one
-    {β : Fin (Tag.rank .F4) → ℤ}
-    (hβ : IsRoot .F4 β) (hl : β twE6Last = 1) : ∃ i : Fin 8, twE6Gamma i = β := by
-  obtain ⟨m, hm, rfl⟩ := RootCertificate.exists_root_eq (Tag.rootCertificate_check .F4) hβ
-  have h := twE6_levelOne_all
-  simp only [List.all_eq_true, List.mem_range, Bool.or_eq_true, decide_eq_true_eq,
-    List.any_eq_true, List.mem_finRange, true_and] at h
-  rcases h m hm with hne | ⟨i, hi⟩
-  · exact absurd hl hne
-  · exact ⟨i, hi⟩
 
 private lemma teCenter_twE6Gamma_isRoot
     (i : Fin 8) : IsRoot .F4 (twE6Gamma i) := by
   rw [← twE6_proj_lift i]
   exact isRoot_proj (twE6Lift_isRoot i)
 
-private lemma twE6Gamma_mem_roots
-    {k : Type} [Field k] (θ : k →+* k) (i : Fin 8) :
-    twE6Gamma i ∈ (twistedDatum k θ).roots := by
-  rw [twistedDatum_roots]
-  exact teCenter_twE6Gamma_isRoot i
 
 private lemma twE6X_mem
     {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) (c : k) :
@@ -58,43 +36,6 @@ private lemma twE6X_mem
   rw [← twE6_proj_lift i]
   exact xPair_mem θ hθ (twE6Lift_isRoot i) (twE6Lift_ne_rho i) c
 
-private lemma mem_twE6X_iff
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8)
-    {x : fixedGroup k θ} :
-    x ∈ (twistedDatum k θ).rootGroup (twE6Gamma i) ↔ ∃ c, x = twE6X θ hθ i c := by
-  constructor
-  · intro hx
-    rw [← twE6_proj_lift i] at hx
-    obtain ⟨c, hc⟩ := (mem_twistedRootGroup_iff_of_pair θ (twE6Lift_isRoot i) rfl
-      (twE6Lift_ne_rho i) x).1 hx
-    refine ⟨c, Subtype.ext ?_⟩
-    simp only [hc, twE6X, xPair_val]
-  · rintro ⟨c, rfl⟩
-    exact twE6X_mem θ hθ i c
-
-private lemma teCenter_twE6X_injective
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) :
-    Function.Injective (twE6X θ hθ i) := by
-  intro c c' h
-  have h' : (twE6X θ hθ i c : e6Data_valid.minGroup k) = (twE6X θ hθ i c' :
-      e6Data_valid.minGroup k) := congrArg Subtype.val h
-  simp only [twE6X, xPair_val] at h'
-  exact (xm_mul_xm_rho_inj (twE6Lift_isRoot i) (twE6Lift_ne_rho i) h').1
-
-private lemma teCenter_twE6X_zero
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) :
-    twE6X θ hθ i 0 = 1 := by
-  apply Subtype.ext
-  simp [twE6X, xPair_val, e6Data_valid.xm_zero]
-
-private lemma twE6X_ne_one_iff
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) (c : k) :
-    twE6X θ hθ i c ≠ 1 ↔ c ≠ 0 := by
-  constructor
-  · intro h hc
-    exact h (by rw [hc, teCenter_twE6X_zero θ hθ i])
-  · intro hc h
-    exact hc (teCenter_twE6X_injective θ hθ i (h.trans (teCenter_twE6X_zero θ hθ i).symm))
 
 private lemma twE6PairRoot_mem_alpha
     {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) (u : k) :
@@ -162,16 +103,6 @@ private lemma isRoot_F4_level_le
   simp only [List.all_eq_true, List.mem_range, Bool.and_eq_true, decide_eq_true_eq] at h
   exact (h m hm).1
 
-private lemma isRoot_F4_level_ge
-    {β : Fin (Tag.rank .F4) → ℤ} (hβ : IsRoot .F4 β) : -2 ≤ β twE6Last := by
-  obtain ⟨m, hm, rfl⟩ := RootCertificate.exists_root_eq (Tag.rootCertificate_check .F4) hβ
-  have h := f4_level_bound_check
-  simp only [List.all_eq_true, List.mem_range, Bool.and_eq_true, decide_eq_true_eq] at h
-  exact (h m hm).2
-
-private lemma isRoot_E6_level_le
-    {v : Fin (Tag.rank .E6) → ℤ} (hv : IsRoot .E6 v) : (proj v) twE6Last ≤ 2 :=
-  isRoot_F4_level_le (isRoot_proj hv)
 
 private def twE6CenRoots : List (Fin (Tag.rank .F4) → ℤ) :=
   [![0, 1, 2, 2], ![1, 1, 2, 2], ![1, 2, 2, 2], ![1, 2, 3, 2], ![1, 2, 4, 2], ![1, 3, 4, 2],
@@ -491,219 +422,6 @@ private lemma getElem_map_finRange {M : Type*} (F : Fin 8 → M) (i : Fin 8) :
     ((List.finRange 8).map F)[i.val] = F i := by
   fin_cases i <;> rfl
 
-private lemma not_isRoot_E6_of_level_gt
-    {v : Fin (Tag.rank .E6) → ℤ} (h : 2 < (proj v) twE6Last) : ¬ IsRoot .E6 v :=
-  fun hv => absurd (isRoot_E6_level_le hv) (not_le.2 h)
-
-private lemma ne_zero_of_level_pos
-    {v : Fin (Tag.rank .E6) → ℤ} (h : 0 < (proj v) twE6Last) : v ≠ 0 :=
-  fun hv => by rw [hv, map_zero] at h; exact lt_irrefl 0 h
-
-private lemma teCenter_rho_add (x y : Fin (Tag.rank .E6) → ℤ) : rho (x + y) = rho x + rho y :=
-  map_add rhoHom x y
-
-private lemma teCenter_proj_add (x y : Fin (Tag.rank .E6) → ℤ) : proj (x + y) = proj x + proj y :=
-  map_add proj x y
-
-private lemma teCenter_rho_pairRoot_eq (i : Fin 8) :
-    rho (twE6PairRoot i) = rho (twE6Lift i) + twE6Lift i.rev := by
-  rw [twE6PairRoot, teCenter_rho_add, rho_rho]
-
-private lemma twE6PairRoot_eq (i : Fin 8) :
-    twE6PairRoot i = twE6Lift i + rho (twE6Lift i.rev) := rfl
-
-private lemma twE6Lift_add_rev_not_root
-    (i : Fin 8) : ¬ IsRoot .E6 (twE6Lift i + twE6Lift i.rev) := by
-  intro h
-  have hp : proj (twE6Lift i + twE6Lift i.rev) = proj (twE6PairRoot i) := by
-    rw [teCenter_proj_add, twE6_proj_lift, twE6_proj_lift, twE6Gamma_add_rev, twE6_proj_pairRoot]
-  rcases (proj_eq_proj_iff h (twE6PairRoot_isRoot i)).1 hp with h' | h'
-  · exact twE6Lift_ne_rho i.rev (add_left_cancel (((twE6PairRoot_eq i).symm).trans h'))
-  · rw [twE6PairRoot_eq i, teCenter_rho_add] at h'
-    exact twE6Lift_ne_rho i (add_right_cancel h'.symm)
-
-private lemma twE6Lift_add_rev_ne_zero
-    (i : Fin 8) : twE6Lift i + twE6Lift i.rev ≠ 0 := by
-  intro h
-  have hp : (proj (twE6Lift i + twE6Lift i.rev)) twE6Last = 0 := by rw [h, map_zero]; rfl
-  rw [teCenter_proj_add, twE6_proj_lift, twE6_proj_lift, twE6Gamma_add_rev, twE6Alpha_level] at hp
-  exact absurd hp (by norm_num)
-
-private lemma teCenter_commutator_mul_mul_eq {G : Type*} [Group G] (A B C D : G)
-    (hAC : ⁅A, C⁆ = 1) (hBD : ⁅B, D⁆ = 1)
-    (hABC : A * ⁅B, C⁆ * A⁻¹ = ⁅B, C⁆) (hCAD : C * ⁅A, D⁆ * C⁻¹ = ⁅A, D⁆) :
-    ⁅A * B, C * D⁆ = ⁅B, C⁆ * ⁅A, D⁆ := by
-  calc ⁅A * B, C * D⁆
-      = A * ⁅B, C * D⁆ * A⁻¹ * ⁅A, C * D⁆ :=
-        commutatorElement_mul_left_eq_conj_mul A B (C * D)
-    _ = A * (⁅B, C⁆ * C * ⁅B, D⁆ * C⁻¹) * A⁻¹ *
-          (⁅A, C⁆ * C * ⁅A, D⁆ * C⁻¹) := by
-        rw [commutatorElement_mul_right_eq_mul_conj, commutatorElement_mul_right_eq_mul_conj]
-    _ = A * ⁅B, C⁆ * A⁻¹ * (C * ⁅A, D⁆ * C⁻¹) := by rw [hBD, hAC]; group
-    _ = ⁅B, C⁆ * ⁅A, D⁆ := by rw [hABC, hCAD]
-
-private lemma twE6_pair_comm_expand
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) {t s : k}
-    (ht : t ≠ 0) (hs : s ≠ 0) :
-    ∃ c1 c2 : k, c1 ≠ 0 ∧
-      ((⁅twE6X θ hθ i t, twE6X θ hθ i.rev s⁆ : fixedGroup k θ) :
-          e6Data_valid.minGroup k) =
-        e6Data_valid.xm k (rho (twE6PairRoot i)) c1 *
-          e6Data_valid.xm k (twE6PairRoot i) c2 := by
-  classical
-  set u : k := (twistSign (twE6Lift i) : k) * θ t with hu
-  set v : k := (twistSign (twE6Lift i.rev) : k) * θ s with hv
-  set A : e6Data_valid.minGroup k := e6Data_valid.xm k (twE6Lift i) t with hA
-  set B : e6Data_valid.minGroup k := e6Data_valid.xm k (rho (twE6Lift i)) u with hB
-  set C : e6Data_valid.minGroup k := e6Data_valid.xm k (twE6Lift i.rev) s with hC
-  set D : e6Data_valid.minGroup k := e6Data_valid.xm k (rho (twE6Lift i.rev)) v with hD
-  have hx : (twE6X θ hθ i t : e6Data_valid.minGroup k) = A * B := by
-    change e6Data_valid.xm k (twE6Lift i) t *
-        e6Data_valid.xm k (rho (twE6Lift i)) ((twistSign (twE6Lift i) : k) * θ t) = A * B
-    rfl
-  have hy : (twE6X θ hθ i.rev s : e6Data_valid.minGroup k) = C * D := by
-    change e6Data_valid.xm k (twE6Lift i.rev) s *
-        e6Data_valid.xm k (rho (twE6Lift i.rev)) ((twistSign (twE6Lift i.rev) : k) * θ s) =
-      C * D
-    rfl
-  have hnr_ab := twE6Lift_add_rev_not_root i
-  have hne_ab := twE6Lift_add_rev_ne_zero i
-  have hne_rhorho : rho (twE6Lift i) + rho (twE6Lift i.rev) ≠ 0 := by
-    rw [← teCenter_rho_add]
-    intro h
-    exact twE6Lift_add_rev_ne_zero i (by
-      calc twE6Lift i + twE6Lift i.rev
-          = rho (rho (twE6Lift i + twE6Lift i.rev)) := (rho_rho _).symm
-        _ = rho 0 := by rw [h]
-        _ = 0 := map_zero rhoHom)
-  have hnr_rhorho : ¬ IsRoot .E6 (rho (twE6Lift i) + rho (twE6Lift i.rev)) := by
-    rw [← teCenter_rho_add]
-    exact fun h => twE6Lift_add_rev_not_root i (by
-      have h' := isRoot_rho h
-      rwa [rho_rho] at h')
-  have hAC : ⁅A, C⁆ = 1 := by
-    change ⁅e6Data_valid.xm k (twE6Lift i) t, e6Data_valid.xm k (twE6Lift i.rev) s⁆ = 1
-    exact (e6Data_valid.commutator_xm k (twE6Lift_isRoot i) (twE6Lift_isRoot i.rev)
-      hne_ab).2 hnr_ab t s
-  have hBD : ⁅B, D⁆ = 1 := by
-    change ⁅e6Data_valid.xm k (rho (twE6Lift i)) u,
-      e6Data_valid.xm k (rho (twE6Lift i.rev)) v⁆ = 1
-    exact (e6Data_valid.commutator_xm k (isRoot_rho (twE6Lift_isRoot i))
-      (isRoot_rho (twE6Lift_isRoot i.rev)) hne_rhorho).2 hnr_rhorho u v
-  have hr_rhob : IsRoot .E6 (rho (twE6Lift i) + twE6Lift i.rev) := by
-    rw [← teCenter_rho_pairRoot_eq i]; exact isRoot_rho (twE6PairRoot_isRoot i)
-  have hne_rhob : rho (twE6Lift i) + twE6Lift i.rev ≠ 0 := hr_rhob.ne_zero
-  have hr_arhob : IsRoot .E6 (twE6Lift i + rho (twE6Lift i.rev)) := by
-    rw [← twE6PairRoot_eq i]; exact twE6PairRoot_isRoot i
-  have hne_arhob : twE6Lift i + rho (twE6Lift i.rev) ≠ 0 := hr_arhob.ne_zero
-  obtain ⟨σ1, hσ1, hBC⟩ := (e6Data_valid.commutator_xm k (isRoot_rho (twE6Lift_isRoot i))
-    (twE6Lift_isRoot i.rev) hne_rhob).1 hr_rhob
-  obtain ⟨σ2, hσ2, hAD⟩ := (e6Data_valid.commutator_xm k (twE6Lift_isRoot i)
-    (isRoot_rho (twE6Lift_isRoot i.rev)) hne_arhob).1 hr_arhob
-  have hnr_a_rhoA : ¬ IsRoot .E6 (twE6Lift i + rho (twE6PairRoot i)) :=
-    not_isRoot_E6_of_level_gt (by
-      rw [teCenter_proj_add, twE6_proj_lift, proj_rho, twE6_proj_pairRoot]
-      simp only [Pi.add_apply, twE6Gamma_level, twE6Alpha_level]
-      norm_num)
-  have hne_a_rhoA : twE6Lift i + rho (twE6PairRoot i) ≠ 0 :=
-    ne_zero_of_level_pos (by
-      rw [teCenter_proj_add, twE6_proj_lift, proj_rho, twE6_proj_pairRoot]
-      simp only [Pi.add_apply, twE6Gamma_level, twE6Alpha_level]
-      norm_num)
-  have hnr_b_A : ¬ IsRoot .E6 (twE6Lift i.rev + twE6PairRoot i) :=
-    not_isRoot_E6_of_level_gt (by
-      rw [teCenter_proj_add, twE6_proj_lift, twE6_proj_pairRoot]
-      simp only [Pi.add_apply, twE6Gamma_level, twE6Alpha_level]
-      norm_num)
-  have hne_b_A : twE6Lift i.rev + twE6PairRoot i ≠ 0 :=
-    ne_zero_of_level_pos (by
-      rw [teCenter_proj_add, twE6_proj_lift, twE6_proj_pairRoot]
-      simp only [Pi.add_apply, twE6Gamma_level, twE6Alpha_level]
-      norm_num)
-  have hABC : A * ⁅B, C⁆ * A⁻¹ = ⁅B, C⁆ := by
-    have h1 : ⁅A, ⁅B, C⁆⁆ = 1 := by
-      rw [hBC u s, ← teCenter_rho_pairRoot_eq i]
-      exact (e6Data_valid.commutator_xm k (twE6Lift_isRoot i)
-        (isRoot_rho (twE6PairRoot_isRoot i)) hne_a_rhoA).2 hnr_a_rhoA t _
-    have hcomm := commutatorElement_eq_one_iff_commute.mp h1
-    rw [hcomm.eq]; group
-  have hCAD : C * ⁅A, D⁆ * C⁻¹ = ⁅A, D⁆ := by
-    have h1 : ⁅C, ⁅A, D⁆⁆ = 1 := by
-      rw [hAD t v, ← twE6PairRoot_eq i]
-      exact (e6Data_valid.commutator_xm k (twE6Lift_isRoot i.rev)
-        (twE6PairRoot_isRoot i) hne_b_A).2 hnr_b_A s _
-    have hcomm := commutatorElement_eq_one_iff_commute.mp h1
-    rw [hcomm.eq]; group
-  refine ⟨σ1 * u * s, σ2 * t * v, ?_, ?_⟩
-  · have hσ1ne : σ1 ≠ 0 := by rcases hσ1 with h | h <;> rw [h] <;> norm_num
-    have hune : u ≠ 0 := by
-      change (twistSign (twE6Lift i) : k) * θ t ≠ 0
-      exact mul_ne_zero (by rcases twistSign_eq_one_or (twE6Lift i) with h | h <;>
-        rw [h] <;> norm_num) (fun h => ht (RingHom.injective θ (by rw [h, map_zero])))
-    exact mul_ne_zero (mul_ne_zero hσ1ne hune) hs
-  · have hcoe : ((⁅twE6X θ hθ i t, twE6X θ hθ i.rev s⁆ : fixedGroup k θ) :
-        e6Data_valid.minGroup k) = ⁅A * B, C * D⁆ := by
-      change ⁅(↑(twE6X θ hθ i t) : e6Data_valid.minGroup k),
-        (↑(twE6X θ hθ i.rev s) : e6Data_valid.minGroup k)⁆ = ⁅A * B, C * D⁆
-      rw [hx, hy]
-    rw [hcoe, teCenter_commutator_mul_mul_eq A B C D hAC hBD hABC hCAD]
-    rw [hBC u s, hAD t v, ← teCenter_rho_pairRoot_eq i, ← twE6PairRoot_eq i]
-
-private lemma twE6_pair_mem_alpha
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) (t s : k) :
-    ⁅twE6X θ hθ i t, twE6X θ hθ i.rev s⁆ ∈ (twistedDatum k θ).rootGroup twE6Alpha := by
-  have hii : i ≠ i.rev := by fin_cases i <;> decide
-  have hle : (⨆ ε ∈ openCone {β | IsRoot .F4 β} (twE6Gamma i) (twE6Gamma i.rev),
-      twistedRootGroup k θ ε) ≤ twistedRootGroup k θ twE6Alpha := by
-    refine iSup₂_le fun ε hε => ?_
-    obtain ⟨hεroot, a, b, ha, hb, hεeq⟩ := hε
-    have hlev : ε twE6Last = (a : ℤ) + (b : ℤ) := by
-      rw [hεeq]
-      simp only [Pi.add_apply, Pi.smul_apply, twE6Gamma_level i, twE6Gamma_level i.rev]
-      simp
-    have hbnd := isRoot_F4_level_le hεroot
-    have hab : a = 1 ∧ b = 1 := by omega
-    have hεeq' : ε = twE6Alpha := by
-      rw [hεeq, hab.1, hab.2, one_smul, one_smul, twE6Gamma_add_rev]
-    rw [hεeq']
-  exact hle (commutator_mem_iSup_twistedRootGroup (twE6Gamma_linIndep i i hii)
-    (twE6X_mem θ hθ i t) (twE6X_mem θ hθ i.rev s))
-
-private lemma twE6_pair_ne_one
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) (i : Fin 8) {t s : k}
-    (ht : t ≠ 0) (hs : s ≠ 0) :
-    ⁅twE6X θ hθ i t, twE6X θ hθ i.rev s⁆ ≠ 1 := by
-  obtain ⟨c1, c2, hc1, hexp⟩ := twE6_pair_comm_expand θ hθ i ht hs
-  intro h1
-  have h2 : ((⁅twE6X θ hθ i t, twE6X θ hθ i.rev s⁆ : fixedGroup k θ) :
-      e6Data_valid.minGroup k) = 1 := congrArg Subtype.val h1
-  rw [hexp] at h2
-  have h3 : e6Data_valid.xm k (rho (twE6PairRoot i)) c1 *
-      e6Data_valid.xm k (rho (rho (twE6PairRoot i))) c2 =
-      e6Data_valid.xm k (rho (twE6PairRoot i)) 0 *
-        e6Data_valid.xm k (rho (rho (twE6PairRoot i))) 0 := by
-    rw [rho_rho, h2, e6Data_valid.xm_zero, e6Data_valid.xm_zero, mul_one]
-  exact hc1 (xm_mul_xm_rho_inj (isRoot_rho (twE6PairRoot_isRoot i))
-    (fun h => twE6PairRoot_ne_rho i (by rw [rho_rho] at h; exact h.symm)) h3).1
-
-theorem twE6_commutator_level_one_ne_one
-    {k : Type} [Field k] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c)
-    {β : Fin (Tag.rank .F4) → ℤ} (hβ : β ∈ (twistedDatum k θ).roots) (hl : β twE6Last = 1)
-    {x y : fixedGroup k θ} (hx : x ∈ (twistedDatum k θ).rootGroup β) (hx1 : x ≠ 1)
-    (hy : y ∈ (twistedDatum k θ).rootGroup (twE6Alpha - β)) (hy1 : y ≠ 1) :
-    ⁅x, y⁆ ∈ (twistedDatum k θ).rootGroup twE6Alpha ∧ ⁅x, y⁆ ≠ 1 := by
-  have hβr : IsRoot .F4 β := isRoot_of_mem_twistedDatum_roots θ hβ
-  obtain ⟨i, hi⟩ := exists_twE6Gamma_of_level_one hβr hl
-  rw [← hi] at hx hy
-  have hsub : twE6Alpha - twE6Gamma i = twE6Gamma i.rev := by
-    rw [sub_eq_iff_eq_add, add_comm, twE6Gamma_add_rev]
-  rw [hsub] at hy
-  obtain ⟨t, hxt⟩ := (mem_twE6X_iff θ hθ i).1 hx
-  obtain ⟨s, hys⟩ := (mem_twE6X_iff θ hθ i.rev).1 hy
-  have ht : t ≠ 0 := (twE6X_ne_one_iff θ hθ i t).1 (by rw [← hxt]; exact hx1)
-  have hs : s ≠ 0 := (twE6X_ne_one_iff θ hθ i.rev s).1 (by rw [← hys]; exact hy1)
-  rw [hxt, hys]
-  exact ⟨twE6_pair_mem_alpha θ hθ i t s, twE6_pair_ne_one θ hθ i ht hs⟩
 
 theorem twE6_ggCenterOf_rad
     {k : Type} [Field k] [CharP k 2] (θ : k →+* k) (hθ : ∀ c, θ (θ c) = c) :

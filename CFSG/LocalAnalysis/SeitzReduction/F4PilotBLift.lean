@@ -90,9 +90,6 @@ variable {H : Type*} [Group H]
 @[expose] def HasBLift (E : Subgroup (H ⧸ oddCore H)) : Prop :=
   oddCoreLift E ≤ centralizer (oddCore H : Set H)
 
-theorem hasBLift_iff {E : Subgroup (H ⧸ oddCore H)} :
-    HasBLift E ↔ oddCoreLift E ≤ centralizer (oddCore H : Set H) :=
-  Iff.rfl
 
 theorem oddCoreLift_le_comap (E : Subgroup (H ⧸ oddCore H)) :
     oddCoreLift E ≤ E.comap (QuotientGroup.mk' (oddCore H)) :=
@@ -115,10 +112,6 @@ theorem le_oddCoreLift_of_perfect {E : Subgroup (H ⧸ oddCore H)} {P : Subgroup
     (hP : ⁅P, P⁆ = P) (hPE : P.map (QuotientGroup.mk' (oddCore H)) ≤ E) : P ≤ oddCoreLift E :=
   CFSG.Quasithin.le_perfectCore_of_perfect (map_le_iff_le_comap.1 hPE) hP
 
-theorem HasBLift.le_centralizer_of_perfect {E : Subgroup (H ⧸ oddCore H)} (h : HasBLift E)
-    {P : Subgroup H} (hP : ⁅P, P⁆ = P) (hPE : P.map (QuotientGroup.mk' (oddCore H)) ≤ E) :
-    P ≤ centralizer (oddCore H : Set H) :=
-  (le_oddCoreLift_of_perfect hP hPE).trans h
 
 theorem oddCoreLift_normal (E : Subgroup (H ⧸ oddCore H)) :
     ((oddCoreLift E).subgroupOf (E.comap (QuotientGroup.mk' (oddCore H)))).Normal :=
@@ -136,22 +129,6 @@ theorem map_oddCoreLift {E : Subgroup (H ⧸ oddCore H)} (hE : ⁅E, E⁆ = E) :
     map_comap_eq_self_of_surjective (QuotientGroup.mk'_surjective _),
     CFSG.Quasithin.perfectCore_eq_self_of_perfect hE]
 
-theorem comap_eq_oddCoreLift_sup {E : Subgroup (H ⧸ oddCore H)} (hE : ⁅E, E⁆ = E) :
-    E.comap (QuotientGroup.mk' (oddCore H)) = oddCoreLift E ⊔ oddCore H := by
-  apply le_antisymm
-  · intro x hx
-    have hx' : QuotientGroup.mk' (oddCore H) x ∈ (oddCoreLift E).map (QuotientGroup.mk' _) :=
-      (map_oddCoreLift hE).symm ▸ hx
-    obtain ⟨y, hy, hyx⟩ := hx'
-    have hn : y⁻¹ * x ∈ oddCore H := by
-      rw [← QuotientGroup.ker_mk' (oddCore H), MonoidHom.mem_ker, map_mul, map_inv, hyx,
-        inv_mul_cancel]
-    have := mul_mem (mem_sup_left hy)
-      (mem_sup_right hn : y⁻¹ * x ∈ oddCoreLift E ⊔ oddCore H)
-    rwa [mul_inv_cancel_left] at this
-  · refine sup_le (oddCoreLift_le_comap E) fun x hx => ?_
-    rw [mem_comap, show QuotientGroup.mk' (oddCore H) x = 1 from (QuotientGroup.eq_one_iff x).2 hx]
-    exact one_mem E
 
 omit [Finite H] in
 theorem HasBLift.inf_le_center {E : Subgroup (H ⧸ oddCore H)} (h : HasBLift E) :

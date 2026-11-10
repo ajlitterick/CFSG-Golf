@@ -268,49 +268,6 @@ theorem tau_mem_dyadic (d e c : ShortIdx) : tau d e c ∈ dyadic := by
   · exact sgn_mem_dyadic _
   · exact zero_mem _
 
-theorem fAWW_mem_dyadic {A : Matrix (Fin 24) (Fin 24) ℚ} {N N' : SpaceW} (hA : IsDyM A)
-    (hN : IsDyM N) (hN' : IsDyM N') : fAWW A N N' ∈ dyadic :=
-  add_mem (div_eight_mem_dyadic (mul_mem hA.trace_mem (hN.transpose.mul hN').trace_mem))
-    (hA.mul (hN.transpose.mul hN')).trace_mem
-
-theorem gWWX_mem_dyadic (c : ShortIdx) {N N' : SpaceW} (hN : IsDyM N) (hN' : IsDyM N') :
-    gWWX c N N' ∈ dyadic := by
-  have hM : IsDyM (Nᵀ * Rmat c * N') := (hN.transpose.mul (Rmat_isDyM c)).mul hN'
-  exact div_eight_mem_dyadic (sub_mem hM.trace_mem (div_four_mem_dyadic (qf_mem_dyadic c hM)))
-
-theorem Tex_mem_dyadic {u v w : SpaceB} (hu : IsDyadicVec u) (hv : IsDyadicVec v)
-    (hw : IsDyadicVec w) : Tex u v w ∈ dyadic := by
-  have hAu : IsDyM (Am u) := hu.1
-  have hAv : IsDyM (Am v) := hv.1
-  have hAw : IsDyM (Am w) := hw.1
-  have hNu : IsDyM (Nm u) := hu.2.2
-  have hNv : IsDyM (Nm v) := hv.2.2
-  have hNw : IsDyM (Nm w) := hw.2.2
-  have hxu : ∀ c, xs u c ∈ dyadic := hu.2.1
-  have hxv : ∀ c, xs v c ∈ dyadic := hv.2.1
-  have hxw : ∀ c, xs w c ∈ dyadic := hw.2.1
-  have h4 : (4 : ℚ) ∈ dyadic := natCast_mem dyadic 4
-  unfold Tex
-  refine add_mem (add_mem (add_mem (add_mem (add_mem (add_mem (add_mem (add_mem (add_mem
-    (add_mem (mul_mem h4 ((hAu.mul hAv).mul hAw).trace_mem) ?_) ?_) ?_) ?_)
-    (fAWW_mem_dyadic hAw hNu hNv)) (fAWW_mem_dyadic hAu hNv hNw)) (fAWW_mem_dyadic hAv hNu hNw))
-    ?_) ?_) ?_
-  · exact mul_mem inv_eight_mem_dyadic (sum_mem fun c _ =>
-      mul_mem (mul_mem (hxu c) (hxv c)) (qf_mem_dyadic c hAw))
-  · exact mul_mem inv_eight_mem_dyadic (sum_mem fun c _ =>
-      mul_mem (mul_mem (hxv c) (hxw c)) (qf_mem_dyadic c hAu))
-  · exact mul_mem inv_eight_mem_dyadic (sum_mem fun c _ =>
-      mul_mem (mul_mem (hxu c) (hxw c)) (qf_mem_dyadic c hAv))
-  · exact sum_mem fun c _ => sum_mem fun d _ => sum_mem fun e _ =>
-      mul_mem (mul_mem (mul_mem (hxu d) (hxv e)) (hxw c)) (tau_mem_dyadic d e c)
-  · exact sum_mem fun c _ => mul_mem (hxw c) (gWWX_mem_dyadic c hNu hNv)
-  · exact sum_mem fun c _ => mul_mem (hxu c) (gWWX_mem_dyadic c hNv hNw)
-  · exact sum_mem fun c _ => mul_mem (hxv c) (gWWX_mem_dyadic c hNu hNw)
-
-theorem T_mem_dyadic {u v w : SpaceB} (hu : u ∈ BR) (hv : v ∈ BR) (hw : w ∈ BR) :
-    T u v w ∈ dyadic := by
-  rw [T_eq_Tex]
-  exact Tex_mem_dyadic (mem_BR_iff.1 hu) (mem_BR_iff.1 hv) (mem_BR_iff.1 hw)
 
 theorem isShortCoord_rep (c : ShortIdx) : IsShortCoord (coordOf (rep c.1)) :=
   (coordOf_rep c.1).symm ▸ c.2
@@ -460,11 +417,5 @@ theorem T_unique (T' : SpaceB →ₗ[ℚ] SpaceB →ₗ[ℚ] SpaceB →ₗ[ℚ] 
     exact key _ _ _ (kind_basisB i) (kind_basisB j) (kind_basisB k)
   exact sub_eq_zero.1 hD
 
-theorem rational_Griess_trilinear_data :
-    IsGriessForm T ∧ (∀ u v w, T u v w = T v u w) ∧ (∀ u v w, T u v w = T u w v) ∧
-    (∀ T' : SpaceB →ₗ[ℚ] SpaceB →ₗ[ℚ] SpaceB →ₗ[ℚ] ℚ, (∀ u v w, T' u v w = T' v u w) →
-      (∀ u v w, T' u v w = T' u w v) → IsGriessForm T' → T' = T) ∧
-    (∀ u v w, u ∈ BR → v ∈ BR → w ∈ BR → T u v w ∈ dyadic) :=
-  ⟨isGriessForm_T, T_swap12, T_swap23, T_unique, fun _ _ _ hu hv hw => T_mem_dyadic hu hv hw⟩
 
 end CFSG.Monster.Griess

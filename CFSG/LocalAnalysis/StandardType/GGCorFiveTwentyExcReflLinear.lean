@@ -96,13 +96,6 @@ theorem apply_eq_zero_of_mem_span_range {h : Λ → V} {f : Module.Dual K V}
     exact hf k)
   exact hle hw
 
-theorem not_linearIndependent_pair_of_vanishing [FiniteDimensional K V] {h : Λ → V}
-    (hh : LinearIndependent K h) (hdim : Module.finrank K V = Fintype.card Λ + 1)
-    {f₁ f₂ : Module.Dual K V} (h₁ : ∀ k, f₁ (h k) = 0) (h₂ : ∀ k, f₂ (h k) = 0) :
-    ¬ LinearIndependent K ![f₁, f₂] :=
-  not_linearIndependent_pair_of_vanishing_of_codim_le _
-    (by rw [finrank_span_eq_card hh, hdim]) (fun _ => apply_eq_zero_of_mem_span_range h₁)
-    (fun _ => apply_eq_zero_of_mem_span_range h₂)
 
 end Hyperplane
 

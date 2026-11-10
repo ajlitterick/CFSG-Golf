@@ -139,10 +139,6 @@ theorem restrictElt_quad {W : Submodule K (Fin d → K)} (hW : NondegOn (polB Q)
     (Submodule.mem_orthogonalBilin.mp hz) a ha
   rw [quad_add, quad_add, hpol _ (hc m hm), hpol m hm, hcQ]
 
-omit [Finite K] [CharP K 2] in
-theorem mem_comap_map_iff {Bs : Subgroup G} {φ : matrixDerived Q →* G} {X : GL (Fin d) K} :
-    X ∈ (Bs.comap φ).map (matrixDerived Q).subtype ↔
-      ∃ Y : matrixDerived Q, φ Y ∈ Bs ∧ (Y : GL (Fin d) K) = X := Iff.rfl
 
 omit [CharP K 2] in
 theorem genMax_of_orth (hnd : Q.polarBilin.Nondegenerate)

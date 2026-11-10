@@ -91,13 +91,6 @@ private theorem sq_formula {N : ℕ} {i j : Fin N} (hij : i ≠ j) :
   simp only [Matrix.add_apply, Matrix.one_apply, Matrix.single_apply]
   split_ifs <;> simp_all [gf2_two, one_add_one_eq_two]
 
-private theorem coe_omegaBlock_sq_sum (n : ℕ) (k : Fin n) :
-    (((omegaBlock n k) ^ 2 : SpecialLinearGroup (Fin (n + 1)) F2) :
-        Matrix (Fin (n + 1)) (Fin (n + 1)) F2) =
-      1 + Matrix.single k.castSucc k.succ (1 : F2) +
-        Matrix.single k.succ k.castSucc 1 + Matrix.single k.succ k.succ 1 := by
-  rw [pow_two, Matrix.SpecialLinearGroup.coe_mul, coe_omegaBlock_sum]
-  exact sq_formula (show k.castSucc ≠ k.succ from Fin.castSucc_lt_succ.ne)
 
 private theorem mul_single_apply' {N : ℕ} (M : Matrix (Fin N) (Fin N) F2) (i j : Fin N)
     (c0 : F2) (r c : Fin N) :

@@ -35,14 +35,6 @@ theorem toArray_eq_unpack {n w P : Nat} {l : List Nat} (hn : l.length = n)
   simp only [List.getElem_toArray, Array.getElem_ofFn]
   rw [bindListK_get l 0 h i (by simpa using hi), Nat.zero_add]
 
-theorem permOK_inv {n w m nw p q : Nat} (h : permOK n w m nw p q = true) :
-    ∀ i < n, pg w m p i < n ∧ pg w m q (pg w m p i) = i := by
-  unfold permOK at h
-  rw [bAnd_iff, bAnd_iff] at h
-  intro i hi
-  have := allN_spec h.2.2 i hi
-  rw [strictB_eq, bAnd_iff] at this
-  exact ⟨Nat.blt_eq.mp this.1, Nat.eq_of_beq_eq_true this.2⟩
 
 end CFSG.KC.BindList
 

@@ -23,8 +23,6 @@ variable {G : Type} [Group G] [Finite G] {L : Subgroup G} (D : Alt7Data L)
     ⟨H.inv_mem ha.1, Subgroup.inv_mem _ ha.2.1, by
       rw [rho_inv D ha.2.1]; exact K.inv_mem ha.2.2⟩
 
-theorem mem_rhoPre {H : Subgroup G} {K : Subgroup S₇} {g : G} :
-    g ∈ rhoPre D H K ↔ g ∈ H ∧ g ∈ Subgroup.normalizer (L : Set G) ∧ rho D g ∈ K := Iff.rfl
 
 theorem rhoPre_le (H : Subgroup G) (K : Subgroup S₇) : rhoPre D H K ≤ H := fun _ hg => hg.1
 

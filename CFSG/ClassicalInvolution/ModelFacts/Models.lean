@@ -358,21 +358,6 @@ theorem exists_conj_of_isLongestRoot (t : StatedLieTag) (n p f : ℕ) (hp : p.Pr
   obtain ⟨hirr, hratio⟩ := cartanOK t n p f hp hfund hadm
   exact exists_conj_of_isLongest hct hirr hratio hγ hγ'
 
-theorem exists_conj_of_lenSq_eq (t : StatedLieTag) (n p f : ℕ) (hp : p.Prime)
-    (hfund : IsFundTag t) (hadm : StatedLieAdmissible t n p f)
-    {γ γ' : Fin (modelUniv t n p f hp).D.rank → ℤ}
-    (hγ : γ ∈ roots (modelUniv t n p f hp).D.isFiniteType ∅)
-    (hγ' : γ' ∈ roots (modelUniv t n p f hp).D.isFiniteType ∅)
-    (h : lenSq (modelUniv t n p f hp).D.isFiniteType γ =
-      lenSq (modelUniv t n p f hp).D.isFiniteType γ') :
-    ∃ g : (modelUniv t n p f hp).K,
-      ((modelUniv t n p f hp).D.rootGroup γ ⊔ (modelUniv t n p f hp).D.rootGroup (-γ)).map
-          (MulAut.conj g).toMonoidHom =
-        (modelUniv t n p f hp).D.rootGroup γ' ⊔ (modelUniv t n p f hp).D.rootGroup (-γ') := by
-  obtain ⟨_, _, hct, -⟩ := hasBruhatDatum t n p f hp hfund hadm
-  obtain ⟨g, h1, h2⟩ := exists_map_conj_rankOne_of_lenSq_eq hct (cartanOK t n p f hp hfund hadm).1
-    hγ hγ' h
-  exact ⟨g, by rw [Subgroup.map_sup, h1, h2]⟩
 
 @[expose] def FundamentalSingleClass (t : StatedLieTag) (D : UniversalRootDatum K) : Prop :=
   ∀ R ∈ fundamentalSubgroups t D, ∀ R' ∈ fundamentalSubgroups t D,

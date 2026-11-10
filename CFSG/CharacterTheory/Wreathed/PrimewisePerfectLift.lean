@@ -513,14 +513,5 @@ theorem primewise_Sylow_centralizer_coverage_gives_canonical_perfect_lift
   · obtain ⟨e, he⟩ := original_central_extension R J M hJimage
     exact ⟨e, fun j => congrArg Subtype.val (he j)⟩
 
-theorem trivial_kernel_primewise_coverage {G : Type u} [Group G]
-    (R : Subgroup G) [R.Normal] (hR : R = ⊥) (M : Subgroup (G ⧸ R)) :
-    ∀ ell : ℕ, ell.Prime → ell ∣ Nat.card R →
-      ∃ P : Sylow ell R,
-        (Subgroup.centralizer (((P : Subgroup R).map R.subtype) : Set G) ⊓
-          M.comap (QuotientGroup.mk' R)).map (QuotientGroup.mk' R) = M := by
-  intro ell hell hdiv
-  rw [hR, Subgroup.card_bot] at hdiv
-  exact False.elim (hell.not_dvd_one hdiv)
 
 end CFSG.Wreathed.PrimewisePerfectLift

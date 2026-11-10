@@ -29,7 +29,6 @@ abbrev Cover : Type := ↥G.P ⧸ G.Δ'
   QuotientGroup.lift G.Δ' ((S.φ.comp (MonoidHom.fst H H')).comp G.P.subtype) fun _ hx =>
     (mem_F.1 (G.mem_Δ.1 (Subgroup.mem_subgroupOf.1 hx)).1).1
 
-theorem π_mk (g : ↥G.P) : G.π (QuotientGroup.mk g) = S.φ (g : H × H').1 := rfl
 
 @[expose] def ζ : G.Cover := QuotientGroup.mk ⟨(S.z, 1), G.z1_mem_P⟩
 

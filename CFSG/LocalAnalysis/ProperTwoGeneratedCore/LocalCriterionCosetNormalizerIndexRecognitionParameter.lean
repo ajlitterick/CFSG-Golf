@@ -57,14 +57,5 @@ theorem simpleBender_borel_exact_parameter_at_exponent
       (fun C hC => unitary_borel_index_and_whole_involution_parameter
         J f hf hKcard hfixed hJ C hC) B hB
 
-theorem simpleBender_borel_exact_whole_parameter
-    {G : Type u} [Group G] [Finite G] (hmodel : IsSimpleBenderGroup G) :
-    ∃ f i : ℕ, 2 ≤ f ∧ i ∈ ({1, 2, 3} : Set ℕ) ∧
-      ∀ B : Subgroup G, IsBorelSubgroup B →
-        B.index = (2 ^ f) ^ i + 1 ∧
-          Nat.card {x : G // x ∈ B ∧ IsInvolution x} = 2 ^ f - 1 := by
-  obtain ⟨f, hf, hmodel⟩ := hmodel.exists_exponent
-  obtain ⟨i, hi, hB⟩ := simpleBender_borel_exact_parameter_at_exponent f hf hmodel
-  exact ⟨f, i, hf, hi, hB⟩
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionCosetNormalizerIndex

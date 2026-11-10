@@ -278,7 +278,6 @@ theorem tbar_mem : oddQuotMk z ⟨L.t, L.ht⟩ ∈ (C.psi C.i₁).range := L.toC
 
 theorem t_ne_z : L.t ≠ z := L.toCore.t_ne_z
 
-theorem T₁_ne_K₁ (S : C.Spec) : L.T₁ ≠ L.K₁ := L.toCore.T₁_ne_K₁ S.toCore
 
 theorem frameData (S : C.Spec) : TwinFrameData Ω L.K₁ L.T₁ z L.u L.J L.t :=
   L.toCore.frameData S.toCore
@@ -302,18 +301,10 @@ theorem le_exactLayer_of_isClassicalMember {N : Subgroup G} (hNΩ : N ∈ Ω)
   have h := exactCore_le_exactLayer hKtq
   rwa [exactCore_eq_self hN.perfect (le_centralizer_of_isClassicalMember hN)] at h
 
-theorem u_mem_exactLayer : L.u ∈ exactLayer Ω z := L.toCore.u_mem_exactLayer
 
 theorem B_le_exactLayer :
     Subgroup.closure ({z, L.u, L.t} : Set G) ≤ exactLayer Ω z := L.toCore.B_le_exactLayer
 
-theorem u_mem_normalizer
-    (hset : TwinFrameSetting p f Ω L.K₁ L.T₁ L.J z L.u L.t) :
-    L.u ∈ Subgroup.normalizer (L.J : Set G) := L.toCore.u_mem_normalizer hset.toCore
-
-theorem u_mem_trivialOnQuot
-    (hset : TwinFrameSetting p f Ω L.K₁ L.T₁ L.J z L.u L.t) : L.u ∈ trivialOnQuot L.J :=
-  L.toCore.u_mem_trivialOnQuot hset.toCore
 
 theorem B_le_trivialOnQuot
     (hset : TwinFrameSetting p f Ω L.K₁ L.T₁ L.J z L.u L.t) :

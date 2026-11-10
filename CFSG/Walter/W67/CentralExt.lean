@@ -78,10 +78,5 @@ theorem inf_commutator_eq_bot {Z : Subgroup E} (hZc : Z ≤ Subgroup.center E)
   rw [hw1, orderOf_one] at hwo
   exact hp.one_lt.ne hwo
 
-omit [Finite E] in
-theorem commutator_sup_eq_top_and_inf_eq_bot {Z : Subgroup E}
-    (hZD : Z ⊓ commutator E = ⊥) (hEZ : commutator E ⊔ Z = ⊤) :
-    commutator E ⊔ Z = ⊤ ∧ commutator E ⊓ Z = ⊥ :=
-  ⟨hEZ, by rw [inf_comm]; exact hZD⟩
 
 end CFSG.Walter.W67

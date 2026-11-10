@@ -26,9 +26,6 @@ include hF in
 theorem add_self_vec (x : W) : x + x = 0 := by
   rw [← two_smul F x, two_eq_zero hF, zero_smul]
 
-include hF in
-theorem neg_vec (x : W) : -x = x :=
-  neg_eq_of_add_eq_zero_right (add_self_vec hF x)
 
 include hF in
 theorem trace_eq (a : F) : hF.trace a = a + hF.bar a :=

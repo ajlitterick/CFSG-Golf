@@ -295,21 +295,6 @@ theorem orderOf_mul_eq_four_iff_of_isTypeA [FiniteDimensional (ZMod 2) V]
     simp only [Finset.mem_insert, Finset.mem_singleton] at hmem
     rcases hmem with h | h | h | h <;> simp_all
 
-theorem orderOf_mul_eq_two_iff_of_isTypeA [FiniteDimensional (ZMod 2) V]
-    (hq : q.polarBilin.Nondegenerate) {α β : V ≃ₗ[ZMod 2] V} (hα : IsTypeA q α 2)
-    (hβ : IsTypeA q β 2) :
-    orderOf (α * β) = 2 ↔ commSpace α ≠ commSpace β ∧ (commSpace α ⊓ commSpace β ≠ ⊥ ∨
-      ∀ a ∈ commSpace α, ∀ b ∈ commSpace β, polar q a b = 0) := by
-  rw [← orderOf_mul_dvd_two_iff_of_isTypeA hq hα hβ, ne_eq,
-    ← orderOf_mul_eq_one_iff_of_isTypeA hq hα hβ]
-  constructor
-  · intro h
-    rw [h]
-    norm_num
-  · rintro ⟨h1, h2⟩
-    have hpos : 0 < orderOf (α * β) := Nat.pos_of_dvd_of_pos h2 (by norm_num)
-    have hle := Nat.le_of_dvd (by norm_num) h2
-    omega
 
 theorem finrank_fixSpace_inf_of_meet [FiniteDimensional (ZMod 2) V]
     (hq : q.polarBilin.Nondegenerate) {α β : V ≃ₗ[ZMod 2] V} (hα : IsTypeA q α 2)
@@ -342,21 +327,6 @@ theorem finrank_fixSpace_inf_of_meet [FiniteDimensional (ZMod 2) V]
   have h3 := Submodule.finrank_le (commSpace α ⊔ commSpace β)
   omega
 
-theorem isTypeA_mul_of_meet_of_orthogonal [FiniteDimensional (ZMod 2) V]
-    (hq : q.polarBilin.Nondegenerate) {α β : V ≃ₗ[ZMod 2] V} (hα : IsTypeA q α 2)
-    (hβ : IsTypeA q β 2) (hne : commSpace α ≠ commSpace β) (hmeet : commSpace α ⊓ commSpace β ≠ ⊥)
-    (horth : ∀ a ∈ commSpace α, ∀ b ∈ commSpace β, polar q a b = 0) :
-    α * β = β * α ∧ IsTypeA q (α * β) 2 := by
-  refine ⟨commute_of_inf_ne_bot hq hα hβ hmeet, ?_⟩
-  obtain ⟨p, x, y, hp0, -, -, hxy, hqp, hqx, hqy, hpx, hpy, hspx, hspy, rfl, rfl⟩ :=
-    exists_eichler_of_isTypeA_pair hq hα hβ hne hmeet
-  have hxy0 : polar q x y = 0 :=
-    horth x (by rw [hspx]; exact Submodule.subset_span (by simp)) y
-      (by rw [hspy]; exact Submodule.subset_span (by simp))
-  have hq1 : q (x + y) = 0 := by rw [map_add_eq, hqx, hqy, hxy0, add_zero, add_zero]
-  have hpxy : polar q p (x + y) = 0 := by rw [polar_add_right, hpx, hpy, add_zero]
-  rw [eichler_mul hpx hpy]
-  exact (eichler_type_of_not_mem_span hq hp0 hqp hpxy hxy).2.1 hq1
 
 theorem isTypeA_four_mul_of_inf_eq_bot [FiniteDimensional (ZMod 2) V]
     (hq : q.polarBilin.Nondegenerate) {α β : V ≃ₗ[ZMod 2] V} (hα : IsTypeA q α 2)

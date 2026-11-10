@@ -1310,53 +1310,6 @@ theorem eq_bot_of_normal_of_isPGroup_of_mulEquiv [CharP K 2] {m : ℕ} (hK : 4 �
 omit [Finite K] [CharP K 2] in
 theorem spRep_c2_eq (n : ℕ) : spRep (K := K) n .c2 = twoCentralElt (n + 3) 1 2 1 1 := rfl
 
-theorem perfectCore_centralizer_spRep_c2 (hK : 4 ≤ Nat.card K) :
-    ∃ Q M S : Subgroup (StatedSp (n + 3) K), IsPGroup 2 Q ∧
-      M ≤ normalizer (Q : Set (StatedSp (n + 3) K)) ∧ Disjoint Q M ∧
-      perfectCore (centralizer ({spRep n .c2} : Set (StatedSp (n + 3) K))) = Q ⊔ M ∧
-      (∀ N : Subgroup M, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      spRep n .c2 ∈ perfectCore (centralizer ({spRep n .c2} : Set (StatedSp (n + 3) K))) ∧
-      longRootSp2 K (n + 3) 0 ≤ S ∧ S = perfectCore M ∧
-      Nonempty (S ≃* StatedSp (n + 1) K) := by
-  have h12 : (1 : Fin (n + 3)) ≠ 2 := by
-    intro h
-    have h' := congrArg Fin.val h
-    rw [Fin.val_one, Fin.val_two] at h'
-    omega
-  set C := centralizer ({twoCentralElt (n + 3) 1 2 (1 : K) 1} : Set (StatedSp (n + 3) K))
-  have hML : ∀ m ∈ spCompl12 K n, ∃ hm : m ∈ C,
-      leviHom h12 (1 : K) one_ne_zero ⟨m, hm⟩ = m := by
-    intro m hm
-    have hmC : m ∈ C := spCompl12_le_centralizer_twoCentralElt n 1 1 hm
-    refine ⟨hmC, mat_injective ?_⟩
-    rw [mat_leviHom]
-    have hsupp : IsSupp {t : Fin (n + 3) ⊕ Fin (n + 3) | OffPQ 1 2 t} (mat (n + 3) K m) := by
-      rw [spCompl12_eq_suppGroup] at hm
-      exact hm
-    ext r t
-    rw [leviPart_apply]
-    split_ifs with hb
-    · rfl
-    · have hnt : ¬(OffPQ 1 2 r ∧ OffPQ 1 2 t) := fun h =>
-        hb ((blk_eq_two_iff.2 h.1).trans (blk_eq_two_iff.2 h.2).symm)
-      rw [hsupp r t hnt, Matrix.one_apply_ne (by rintro rfl; exact hb rfl)]
-  refine ⟨wRadical K (1 : Fin (n + 3)) 2, spCompl12 K n, spCompl12 K n, isPGroup_wRadical h12,
-    ?_, ?_, ?_, ?_, spRep_mem_perfectCore_centralizer hK n .c2, longRootSp2_le_spCompl12 n,
-    (CFSG.Quasithin.perfectCore_eq_self_of_perfect (commutator_spCompl12 n hK)).symm,
-    ⟨(spCompl12Equiv K n).symm⟩⟩
-  · intro m hm
-    obtain ⟨hmC, e⟩ := hML m hm
-    exact range_leviHom_le_normalizer_wRadical h12 one_ne_zero ⟨⟨m, hmC⟩, e⟩
-  · rw [Subgroup.disjoint_def]
-    intro m hq hm
-    obtain ⟨hmC, e⟩ := hML m hm
-    have h1 := (mem_wRadical_iff_leviHom_eq_one h12 one_ne_zero (g := ⟨m, hmC⟩)).1 hq
-    rw [e] at h1
-    exact h1
-  · rw [spRep_c2_eq]
-    exact perfectCore_centralizer_c2 hK
-  · intro N hN hN2
-    exact eq_bot_of_normal_of_isPGroup_of_mulEquiv hK (by omega) (spCompl12Equiv K n).symm N hN2
 end Perfect12
 
 section A2
@@ -1803,27 +1756,6 @@ theorem eq_bot_of_normal_of_isPGroup_a2Levi [Finite K] (hK : 4 ≤ Nat.card K)
   have h1 := congrArg Subtype.val ((Subgroup.mem_bot).1 hmem)
   exact (Subgroup.mem_bot).2 (Subtype.ext h1)
 
-theorem perfectCore_centralizer_spRep_a2 [Finite K] (hK : 4 ≤ Nat.card K) :
-    ∃ Q M S : Subgroup (StatedSp (n + 3) K), IsPGroup 2 Q ∧
-      M ≤ normalizer (Q : Set (StatedSp (n + 3) K)) ∧ Disjoint Q M ∧
-      perfectCore (centralizer ({spRep n .a2} : Set (StatedSp (n + 3) K))) = Q ⊔ M ∧
-      (∀ N : Subgroup M, N.Normal → IsPGroup 2 N → N = ⊥) ∧
-      spRep n .a2 ∈ perfectCore (centralizer ({spRep n .a2} : Set (StatedSp (n + 3) K))) ∧
-      longRootSp2 K (n + 3) 0 ≤ S ∧ S ≤ M ∧ S = perfectCore S ∧
-      Nonempty (S ≃* StatedSp (n + 1) K) := by
-  have h12 := one_ne_two_fin (n := n)
-  have hML : a2Levi K n ≤ (leviHom h12 0 (one_ne_zero (α := K))).range :=
-    sup_le (range_shortBlock_le_range_leviHom one_ne_zero)
-      (spCompl12_le_range_leviHom one_ne_zero)
-  refine ⟨wRadical K (1 : Fin (n + 3)) 2, a2Levi K n, spCompl12 K n, isPGroup_wRadical h12,
-    hML.trans (range_leviHom_le_normalizer_wRadical h12 one_ne_zero),
-    (disjoint_wRadical_range_leviHom h12 one_ne_zero).mono_right hML, ?_,
-    fun N hN hN2 => eq_bot_of_normal_of_isPGroup_a2Levi hK N hN2,
-    spRep_mem_perfectCore_centralizer hK n .a2, longRootSp2_le_spCompl12 n, le_sup_right,
-    (CFSG.Quasithin.perfectCore_eq_self_of_perfect (commutator_spCompl12 n hK)).symm,
-    ⟨(spCompl12Equiv K n).symm⟩⟩
-  rw [spRep_a2_eq]
-  exact (perfectCore_centralizer_a2 hK).1
 
 end A2Planes
 

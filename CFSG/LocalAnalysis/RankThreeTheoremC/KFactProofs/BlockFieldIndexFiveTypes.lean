@@ -24,6 +24,5 @@ theorem div_three_le_pRank_of_alt {Y : Type} [Group Y] [Finite Y] {H : Subgroup 
   · rintro _ ⟨x, rfl⟩
     exact (ψ.symm (Subgroup.inclusion hEA x)).2
 
-variable {G : Type} [Group G] [Finite G]
 
 end CFSG.LocalAnalysis.RankThreeTheoremC.KFactProofs.FieldIndexP

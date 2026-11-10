@@ -45,6 +45,5 @@ theorem stmt13_3_15_of_F4
     exact u3Stmt13_3_15_of_L32_F4 h1332 h13314 hH hl hnat hV hzv hV2 (hXn hnh) hI₂
   · exact u3Stmt13_3_15_of_U3_F4 h1332 h13314 hH hu hV hV2 (hXn (not_isHatA6_of_U3 hu)) hI₂
 
-variable {G : Type} [Group G] [CFSG.GH74.QTGen4.Finite4 G]
 
 end CFSG.Quasithin.H13.U3

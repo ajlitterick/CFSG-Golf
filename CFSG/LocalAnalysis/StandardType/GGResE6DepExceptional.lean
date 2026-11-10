@@ -34,12 +34,6 @@ theorem four_le_card_of_automizer_five_dvd {L' : Type} [Group L'] [Finite L']
   rw [hk]
   exact Nat.pow_le_pow_right (by norm_num) hk4
 
-theorem four_le_card_of_automizer_dvd {L' : Type} [Group L'] [Finite L']
-    {A : Subgroup (MulAut L')} (hA : IsElemAbelian 3 A)
-    (hbad : 51840 ∣ Nat.card (ggAutomizer (MulAut.conj : L' →* MulAut L').range A)) :
-    3 ^ 4 ≤ Nat.card A :=
-  four_le_card_of_automizer_five_dvd hA
-    ((show 5 ∣ 51840 from by norm_num).trans hbad)
 
 theorem not_five_dvd_automizer_of_order_1152
     {G : Type} [Group G] [Finite G] {Bs X : Subgroup G}
@@ -114,16 +108,6 @@ theorem GGResHyp.not_torusLift_six_of_card_bstar
   norm_num at hmul h6
   omega
 
-theorem GGResE6DepShape.not_torusLift_six
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) (hperf : commutator X = ⊤)
-    {R : Type} [Group R] (θ : X ⧸ Subgroup.center X ≃* R)
-    (hN : Bs ≤ Subgroup.normalizer (X : Set G)) (hLift : GGTorusLift p 6 R) : False := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  exact hH.not_torusLift_six_of_card_bstar hX hperf θ hN hS.2.1 hLift
 
 theorem GGResHyp.not_torusLift_seven_of_card_bs_le
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
@@ -237,7 +221,6 @@ theorem GGResHyp.e7plus_marking_of_e7e8_of_card_bstar_le_seven
     · exact marked (fun lab => lab.tag = .E7 ∧ 3 ∣ 2 ^ lab.n + 1) ⟨rfl, hplus⟩
   · exact False.elim (GGResHyp.not_E8_of_card_bstar_le_seven hH hX hcardBs
       (marked (fun lab => lab.tag = .E8) rfl))
-
 
 
 theorem GGResHyp.not_E7plus_of_card_bstar_le_seven
@@ -364,15 +347,6 @@ theorem GGResHyp.not_E7_E8_of_card_bstar
   obtain ⟨R, _, I, F, ⟨-, -, θ, -, hN, -⟩, hLift⟩ := largeEvenRawDatum_exists (hAll _ hraw)
   exact hH.not_torusLift_six_of_card_bstar hX hperf θ hN hcardBs hLift
 
-theorem GGResE6DepShape.not_E7_E8
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) :
-    ¬ GGInnerDiagOnLabel (fun _ lab => lab.tag = .E7 ∨ lab.tag = .E8) p Bs X := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  exact hH.not_E7_E8_of_card_bstar hX hS.2.1
 
 theorem GGResHyp.not_five_dvd_automizer_of_F4
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
@@ -430,19 +404,6 @@ theorem GGResHyp.not_F4_of_card_automizer_E6
     (hMark : GGInnerDiagOnLabel (fun _ lab => lab.tag = .F4) 3 Bs X) : False := by
   exact hH.not_five_dvd_automizer_of_F4 hX (by rw [hcard]; norm_num) hMark
 
-theorem GGResE6DepShape.not_F4
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) :
-    ¬ GGInnerDiagOnLabel (fun _ lab => lab.tag = .F4) p Bs X := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  have hcard : Nat.card (ggAutomizer X Bs) = 51840 := by
-    rcases hX with hX | hX
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).1
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).2
-  exact hH.not_F4_of_card_automizer_E6 hX hcard
 
 theorem GGResHyp.not_oppositeE6_of_card_automizer_E6
     {G : Type} [Group G] [Finite G] {B Bs : Subgroup G} {x : G}
@@ -482,46 +443,6 @@ theorem GGResHyp.not_oppositeE6_of_card_automizer_E6
   exact not_automizer_card_of_order_1152 hBs hSC hH.2.2.2.1 hperf θ hN hBsI hZ hOrder
     (hH.pow_three_le_card_range hX hN) hActual
 
-theorem GGResE6DepShape.not_oppositeE6
-    {G : Type} [Group G] [Finite G] {p : ℕ} [Fact p.Prime] {B Bs : Subgroup G} {x : G}
-    {L D J : Subgroup G} {y : G} {K X : Subgroup G}
-    (hH : GGResHyp p B Bs x L D J y K) (hS : GGResE6DepShape p Bs L J K)
-    (hX : X = L ∨ X = K) :
-    ¬ GGInnerDiagOnLabel (fun p lab => (lab.tag = .E6 ∧ p ∣ 2 ^ lab.n + 1) ∨
-      (lab.tag = .twE6 ∧ p ∣ 2 ^ lab.n - 1)) p Bs X := by
-  have hp3 : p = 3 := hS.1
-  subst hp3
-  have hcard : Nat.card (ggAutomizer X Bs) = 51840 := by
-    rcases hX with hX | hX
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).1
-    · rw [hX]; exact (ggResE6DepShape_card_automizer hS).2
-  exact hH.not_oppositeE6_of_card_automizer_E6 hX hcard
-
-
-
-theorem GGResHyp.not_F4_of_e6_exactTwo_either_all_fields
-    {G : Type} [Group G] [Finite G]
-    {B Bs L D J K X : Subgroup G} {x y : G}
-    (hH : GGResHyp 3 B Bs x L D J y K)
-    (hD : GGResLeviDatumExact2 3 Bs L J K ggSelAny ggTypLE6 ∨
-      GGResLeviDatumExact2 3 Bs K J L ggSelAny ggTypLE6)
-    (hMJ : GGInnerDiagOnLabel
-      (fun _ lab => lab = (⟨.twA, 4, 1⟩ : LargeEvenLabel)) 3 Bs J)
-    (hX : X = L ∨ X = K)
-    (hF4 : GGInnerDiagOnLabel (fun _ lab => lab.tag = .F4) 3 Bs X) : False := by
-  have h120 := hH.twA_four_two_J_automizer_card_of_e6_exactTwo hD hMJ
-  have hAJ : ggAutomizer J Bs ≤ ggAutomizer L Bs ⊓ ggAutomizer K Bs := by
-    rcases hD with hDL | hDK
-    · exact hDL.aj_le
-    · simpa only [inf_comm] using hDK.aj_le
-  have hJX : ggAutomizer J Bs ≤ ggAutomizer X Bs := by
-    rcases hX with rfl | rfl
-    · exact hAJ.trans inf_le_left
-    · exact hAJ.trans inf_le_right
-  have h5 : 5 ∣ Nat.card ↥(ggAutomizer X Bs) :=
-    (show 5 ∣ 120 from by norm_num).trans
-      (by rw [← h120]; exact Subgroup.card_dvd_of_le hJX)
-  exact hH.not_five_dvd_automizer_of_F4 hX h5 hF4
 
 end Exceptional
 

@@ -68,26 +68,6 @@ theorem full_translation_centralizer_eq :
     obtain ⟨a, rfl⟩ := hd
     rw [← map_mul, ← map_mul, mul_comm]
 
-theorem mem_full_translation_centralizer_iff (c : Equiv.Perm (Omega F)) :
-    c ∈ Subgroup.centralizer (coordinateU F : Set (Equiv.Perm (Omega F))) ↔
-      ∃ b : F, c = translation F b := by
-  constructor
-  · intro hc
-    obtain ⟨b, hb, -⟩ := full_translation_centralizer_representative c hc
-    exact ⟨b, hb⟩
-  · rintro ⟨b, rfl⟩
-    rw [full_translation_centralizer_eq]
-    exact translation_mem_coordinateU b
-
-@[expose] def fullTranslationCentralizerEquiv (F : Type u) [Field F] :
-    Multiplicative F ≃*
-      Subgroup.centralizer (coordinateU F : Set (Equiv.Perm (Omega F))) :=
-  (coordinateUEquiv F).trans (MulEquiv.subgroupCongr full_translation_centralizer_eq.symm)
-
-theorem fullTranslationCentralizerEquiv_apply (b : F) :
-    (fullTranslationCentralizerEquiv F (Multiplicative.ofAdd b) :
-      Equiv.Perm (Omega F)) = translation F b :=
-  coordinateUEquiv_apply b
 
 theorem coordinate_sylow_translation_image [Finite F]
     (p : ℕ) [Fact p.Prime] [CharP F p] (Q : Sylow p (coordinateG F)) :
@@ -491,23 +471,6 @@ theorem original_full_root_sylow_centralizer
   · obtain ⟨Q, hQ, g, hg⟩ := original_sylow_translation_action i p F rho hinj hL P
     exact ⟨Q, g, hQ, hg⟩
 
-theorem original_perfect_full_root_sylow_centralizer
-    {G : Type u} [Group G] [Finite G] [Group.IsPerfect G]
-    (n : ℕ) (hn : 4 ≤ n) (S0 : Sylow 2 G) (f0 : SemidihedralGroup n ≃* S0)
-    (i : G) (hi : orderOf i = 2)
-    [IsSimpleGroup (CFSG.generalizedFitting (Gamma i))]
-    (hnonab : ∃ a b : CFSG.generalizedFitting (Gamma i), a * b ≠ b * a)
-    (hcentral : Subgroup.centralizer (CFSG.generalizedFitting (Gamma i) : Set (Gamma i)) = ⊥)
-    (hnc : ∀ Q : Sylow 2 (CFSG.generalizedFitting (Gamma i)), ¬ IsCyclic Q)
-    (p f : ℕ) (hp : p.Prime) (hpodd : Odd p) (hf : 1 ≤ f) (hq : 5 ≤ p ^ f)
-    (hmodel : CFSG.Assembly.LowTwoRank.StatedLieAdmissible .PSL 2 p f ∧
-      ∃ (F : Type) (_ : Field F) (_ : Finite F), Nat.card F = p ^ f ∧
-        Nonempty (CFSG.generalizedFitting (Gamma i) ≃*
-          CFSG.Assembly.LowTwoRank.StatedProj (CFSG.Assembly.LowTwoRank.StatedSL 2 F)))
-    (P : Sylow p (originalT0 i)) : OriginalRootSylowCentralizerConclusion i p f P :=
-  original_full_root_sylow_centralizer n hn S0 f0
-    Principal.RotationCongruence.index_ne_two_of_isPerfect i hi
-    hnonab hcentral hnc p f hp hpodd hf hq hmodel P
 
 theorem original_simple_full_root_sylow_centralizer
     {G : Type u} [Group G] [Finite G] [IsSimpleGroup G]

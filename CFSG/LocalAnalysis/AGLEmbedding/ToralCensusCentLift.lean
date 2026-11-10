@@ -226,9 +226,5 @@ theorem kFactCentNoncycThree_of_group {𝔉 : (X : Type) → [Group X] → Prop}
     (h : ∀ (X : Type) [Group X], 𝔉 X → CentNoncycThreeGroup X) : KFactCentNoncycThree 𝔉 :=
   fun _ _ _ _ _ _ hF _ hu hu3 hnc => centPerfectNoncyc_of_quotient (h _ hF) hu hu3 hnc
 
-open ToralCensus in
-theorem fixThreeVoid_of_group {𝔉 : (X : Type) → [Group X] → Prop}
-    (h : ∀ (X : Type) [Group X], 𝔉 X → CentNoncycThreeGroup X) : FixThreeVoid 𝔉 :=
-  fixThreeVoid_of_centNoncyc (kFactCentNoncycThree_of_group h)
 
 end CFSG.AGLEmbedding

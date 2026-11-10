@@ -115,11 +115,6 @@ theorem single_mul_principalBlockCandidate_of_mem
     _ = q * e := by rw [single_mul_oddNormalSum N n]
     _ = e := hqe
 
-theorem mem_algebraStabilizer_principalBlockCandidate
-    (N : Subgroup G) [N.Normal] (hNodd : Odd (Nat.card N))
-    {n : G} (hn : n ∈ N) :
-    n ∈ algebraStabilizer G (principalBlockCandidate G) := by
-  exact single_mul_principalBlockCandidate_of_mem N hNodd ⟨n, hn⟩
 
 end ZStar.OddNormalBlock
 

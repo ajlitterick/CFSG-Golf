@@ -70,9 +70,6 @@ variable {D : Type} [Group D]
 @[expose] def F618ConclusionCat (H₁ H₂ : Subgroup D) : Prop :=
   IsF618CaseOrientedCat H₁ H₂ ∨ IsF618CaseOrientedCat H₂ H₁
 
-theorem f618ConclusionCat_comm {H₁ H₂ : Subgroup D} :
-    F618ConclusionCat H₁ H₂ ↔ F618ConclusionCat H₂ H₁ :=
-  or_comm
 
 end Cases
 

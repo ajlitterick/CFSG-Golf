@@ -132,21 +132,6 @@ theorem subgroup_flip_mem_ambient {H A : Subgroup G} {z : G} (hzA : z ∈ A)
   (pairOddCore H (subgroupRightCosetInclusion H A beta)).subgroupOf A ⊓
     pairFlipGroup (H.subgroupOf A) beta t
 
-theorem subgroup_pair_odd_intersection_map (H A : Subgroup G)
-    (beta : rightCosetSpace (H.subgroupOf A)) (t : A) :
-    (subgroupPairOddIntersection H A beta t).map A.subtype =
-      pairOddCore H (subgroupRightCosetInclusion H A beta) ⊓
-        (pairFlipGroup (H.subgroupOf A) beta t).map A.subtype := by
-  ext x
-  constructor
-  · rintro ⟨a, ha, rfl⟩
-    exact ⟨ha.1, Subgroup.mem_map_of_mem A.subtype ha.2⟩
-  · rintro ⟨hxJ, a, haK, hax⟩
-    change (a : G) = x at hax
-    have haJ : (a : G) ∈ pairOddCore H (subgroupRightCosetInclusion H A beta) := by
-      rw [hax]
-      exact hxJ
-    exact ⟨a, ⟨haJ, haK⟩, hax⟩
 
 theorem subgroup_pair_odd_intersection_comap (H A : Subgroup G)
     (beta : rightCosetSpace (H.subgroupOf A)) (t : A) :
@@ -240,29 +225,6 @@ theorem subgroup_pair_flip_product_mem_intersection [Finite G]
   exact ⟨hprod.1, pairPointStabilizer_le_pairFlipGroup _ _ _
     (pair_flip_product_mem hzorder ht hs)⟩
 
-theorem subgroup_pair_flip_mem_odd_coset [Finite G]
-    {H A : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z) (hzA : z ∈ A)
-    (S : Sylow 2 G) (hzS : z ∈ (S : Subgroup G))
-    (hzcenter : (⟨z, hzS⟩ : (S : Subgroup G)) ∈ Subgroup.center (S : Subgroup G))
-    {beta : rightCosetSpace (H.subgroupOf A)}
-    (hbeta : beta ≠ rightCosetMk (H.subgroupOf A) 1) {t s : A}
-    (ht : t ∈ rightPairFlipFiber (H.subgroupOf A) (⟨z, hzA⟩ : A) beta)
-    (hs : s ∈ rightPairFlipFiber (H.subgroupOf A) (⟨z, hzA⟩ : A) beta) :
-    ∃ n : subgroupPairOddIntersection H A beta t, t * (n : A) = s := by
-  have hzorder : orderOf (⟨z, hzA⟩ : A) = 2 := by
-    simpa only [Subgroup.orderOf_mk] using h.distinguished_order
-  have htorder := order_two_of_mem_pointClass hzorder ht.1
-  have hsorder := order_two_of_mem_pointClass hzorder hs.1
-  have hprod := subgroup_pair_flip_product_mem_intersection h hzA S hzS hzcenter hbeta ht hs
-  have hts : t * s ∈ subgroupPairOddIntersection H A beta t := by
-    have hh := (subgroupPairOddIntersection H A beta t).inv_mem hprod
-    simpa only [mul_inv_rev, inv_eq_self_of_orderOf_eq_two htorder,
-      inv_eq_self_of_orderOf_eq_two hsorder] using hh
-  refine ⟨⟨t * s, hts⟩, ?_⟩
-  have htt : t * t = 1 := by
-    simpa only [pow_two] using (orderOf_eq_prime_iff.mp htorder).1
-  change t * (t * s) = s
-  rw [← mul_assoc, htt, one_mul]
 
 theorem subgroup_pair_flip_fiber_eq_odd_class [Finite G]
     {H A : Subgroup G} {z : G} (h : InvolutionPointLocalEmbedding H z) (hzA : z ∈ A)

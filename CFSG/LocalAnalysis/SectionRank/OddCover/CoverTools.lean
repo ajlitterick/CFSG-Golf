@@ -123,15 +123,6 @@ section Lifts
 
 variable {E J : Type*} [Group E] [Group J] {π : E →* J}
 
-theorem eq_of_sq_eq_of_mem {C : Subgroup E} [Finite C] (hodd : Odd (Nat.card C))
-    (hCZ : C ≤ Subgroup.center E) {c d : E} (hc : c ∈ C) (hd : d ∈ C) (h : c ^ 2 = d ^ 2) :
-    c = d := by
-  have hcd : c * d⁻¹ ∈ C := C.mul_mem hc (C.inv_mem hd)
-  have hcomm : Commute c d⁻¹ := Subgroup.mem_center_iff.1 (hCZ (C.inv_mem hd)) c
-  have h2 : (c * d⁻¹) ^ 2 = 1 := by
-    rw [hcomm.mul_pow, h, inv_pow, mul_inv_cancel]
-  have := eq_one_of_sq_eq_one_of_odd h2 (odd_orderOf_of_mem hodd hcd)
-  exact mul_inv_eq_one.1 this
 
 theorem exists_sq_eq_of_mem {C : Subgroup E} [Finite C] (hodd : Odd (Nat.card C)) {c : E}
     (hc : c ∈ C) : ∃ d ∈ C, d ^ 2 = c := by

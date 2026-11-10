@@ -38,10 +38,6 @@ theorem weights : ∀ n < 13,
   unfold weightCount C
   interval_cases n <;> rfl
 
-theorem supports : sixSupports.card = 132 ∧
-    ∀ F ∈ (Finset.univ : Finset (Fin 12)).powersetCard 5,
-      (sixSupports.filter fun s => F ⊆ s).card = 1 :=
-  ⟨(ternK_sound (Rm := R) rfl code).2.1, (ternK_sound (Rm := R) rfl code).2.2⟩
 
 end CertificateChecks.KernelSporSch.Co1Tern
 

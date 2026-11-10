@@ -22,22 +22,6 @@ theorem eq_three_or_five_or_seven {p : ℕ} (hp : p.Prime) (hp2 : p ≠ 2) (h11 
   interval_cases p <;> first | omega | exact absurd hp (by decide)
 
 
-theorem ggE8SmallToralRankInput_of_three (h3 : GGE8ThreeToralRankInput) :
-    GGE8SmallToralRankInput := by
-  intro K _ _ _ p hp hp2 h11 hpq
-  rcases eq_three_or_five_or_seven hp hp2 h11 with rfl | rfl | rfl
-  · exact h3 K hpq
-  · exact TableBExc.ggExcToralRankInput_E8_five hpq
-  · exact TableBExc.ggExcToralRankInput_E8_seven hpq
-
-theorem ggE7SmallToralRankInput_of_three (h3 : GGE7ThreeToralRankInput) :
-    GGE7SmallToralRankInput := by
-  intro K _ _ _ p hp hp2 h11 hpq
-  rcases eq_three_or_five_or_seven hp hp2 h11 with rfl | rfl | rfl
-  · exact h3 K hpq
-  · exact TableBExc.ggExcToralRankInput_E7_five hpq
-  · exact TableBExc.ggExcToralRankInput_E7_seven hpq
-
 theorem ggExcToralRankInput_E8_of_ne_three {K : Type} [Field K] [Finite K] [CharP K 2] {p : ℕ}
     (hp : p.Prime) (hp2 : p ≠ 2) (hp3 : p ≠ 3) (hpq : p ∣ Nat.card K - 1) :
     GGExcToralRankInput .E8 K p := by

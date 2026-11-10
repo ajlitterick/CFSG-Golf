@@ -104,10 +104,6 @@ theorem abelian_subgroup_of_rank_one_two_group_isCyclic (G : Type*)
   exact abelian_rank_one_two_group_isCyclic subgroup (htwogroup.to_subgroup _)
     ((twoRank_subgroup_le subgroup).trans hrank)
 
-theorem center_of_rank_one_two_group_isCyclic (G : Type*)
-    [Group G] [Finite G] (htwogroup : IsPGroup 2 G) (hrank : twoRank G ≤ 1) :
-    IsCyclic (Subgroup.center G) := by
-  exact abelian_subgroup_of_rank_one_two_group_isCyclic G htwogroup hrank _
 
 theorem cyclic_elementary_two_subgroup_card_dvd_two (G : Type*) [Group G] [Finite G]
     (elementary : Subgroup G) (helementary : IsElemAbelian 2 elementary)
@@ -132,14 +128,5 @@ theorem twoRank_le_one_of_abelian_subgroups_cyclic (G : Type*) [Group G] [Finite
   norm_num at hlarge
   omega
 
-theorem rank_one_two_group_iff_abelian_subgroups_cyclic (G : Type*)
-    [Group G] [Finite G] (htwogroup : IsPGroup 2 G) :
-    twoRank G ≤ 1 ↔
-      ∀ subgroup : Subgroup G, IsMulCommutative subgroup → IsCyclic subgroup := by
-  constructor
-  · intro hrank subgroup hab
-    have := hab
-    exact abelian_subgroup_of_rank_one_two_group_isCyclic G htwogroup hrank subgroup
-  · exact twoRank_le_one_of_abelian_subgroups_cyclic G
 
 end CFSG.TwoRankLowerBound.Helpers

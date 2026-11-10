@@ -22,8 +22,6 @@ theorem specialInclusion_smul (X : SpecialLinearGroup (Fin 2) F) (x : Omega F) :
   rw [centralExtension_smul_def, specialInclusion_apply, projAction_quotientClass, ZMod.val_zero,
     pow_zero, mul_one]
 
-theorem toGL_val (X : SpecialLinearGroup (Fin 2) F) (i j : Fin 2) :
-    (SpecialLinearGroup.toGL X : Matrix (Fin 2) (Fin 2) F) i j = X i j := rfl
 
 theorem specialInclusion_smul_none (X : SpecialLinearGroup (Fin 2) F) :
     specialInclusion F b m hm heven X • (none : Omega F) =

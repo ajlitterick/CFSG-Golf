@@ -72,17 +72,5 @@ end CFSG.HardMathSupport.Dickson.I271.TabCo1
 
 namespace CFSG.LocalAnalysis.GLTheoremA.I1416Rows
 
-@[expose] def I1416SporResidual5 : Prop :=
-  (∀ p, I1416SporRow .B p) ∧ (∀ p, I1416SporRow .M p) ∧ I1416SporRow .Fi24Prime 5
-
-theorem i1416TwoSporS_of_residual5
-    (hOut : CFSG.HardMathSupport.Timmesfeld.Coordinator.SporadicOuterLeTwo)
-    (hbr : CFSG.HardMathSupport.Timmesfeld.Tables.Census.SporadicBridges)
-    (hOrd : CFSG.HardMathSupport.Solomon.Coordinator.SporadicOrdersTable)
-    (hb : CFSG.HardMathSupport.Solomon.Coordinator.LieOrderBridge)
-    (hres : I1416SporResidual5) : I1416TwoSporS := by
-  obtain ⟨hB, hM, hF5⟩ := hres
-  exact i1416TwoSporS_of_residual4 hOut hbr hOrd hb
-    ⟨hB, hM, CFSG.HardMathSupport.Dickson.I271.TabCo1.row_Co1_three hOut hbr hb, hF5⟩
 
 end CFSG.LocalAnalysis.GLTheoremA.I1416Rows

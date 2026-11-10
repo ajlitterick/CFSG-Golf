@@ -161,33 +161,6 @@ theorem centralAlgebraAction_mem_brauerKernel
   rw [brauerKernel_fixed] at happ
   exact happ
 
-private theorem involutionDifference_sq_eq_zero
-    (ρ : Representation (ZMod 2) G V) (w : G) (hw2 : w * w = 1) :
-    involutionDifference ρ w * involutionDifference ρ w = 0 := by
-  ext x
-  have hρ2 : ρ w (ρ w x) = x := by
-    have h := congrArg
-      (fun f : Module.End (ZMod 2) V ↦ f x)
-      (show ρ w * ρ w = 1 by rw [← map_mul, hw2, map_one])
-    simpa using h
-  change ρ w (ρ w x - x) - (ρ w x - x) = 0
-  rw [map_sub, hρ2]
-  calc
-    x - ρ w x - (ρ w x - x) =
-        (x + x) + (ρ w x + ρ w x) := by
-      simp only [sub_eq_add_neg, neg_eq_self]
-      abel
-    _ = 0 := by rw [add_self_eq_zero, add_self_eq_zero, zero_add]
-
-theorem involutionDifference_range_le_ker
-    (ρ : Representation (ZMod 2) G V) (w : G) (hw2 : w * w = 1) :
-    (involutionDifference ρ w).range ≤ (involutionDifference ρ w).ker := by
-  rintro y ⟨x, rfl⟩
-  change involutionDifference ρ w (involutionDifference ρ w x) = 0
-  have h := congrArg
-    (fun f : Module.End (ZMod 2) V ↦ f x)
-    (involutionDifference_sq_eq_zero ρ w hw2)
-  simpa using h
 
 private theorem involutionDifference_commute_centralizer
     (ρ : Representation (ZMod 2) G V) (w : G)

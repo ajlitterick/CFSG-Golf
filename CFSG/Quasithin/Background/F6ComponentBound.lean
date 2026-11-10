@@ -268,19 +268,6 @@ theorem index_normalizer_le_two_of_isComponent (hO : CFSG.pPrimeCore 3 D = ⊥)
     hx₁ hx₂ hx₃ hc₁ hc₂ hc₃ h₂₁ h₃₁ h₁₂' h₃₂ h₁₃' h₂₃'
   omega
 
-theorem componentConjugatesBound : ComponentConjugatesBound := by
-  intro D _ _ hX K hK
-  obtain ⟨X, _, _, hsq, -, ⟨e⟩⟩ := hX
-  obtain ⟨hO, hm⟩ := pPrimeCore_eq_bot_and_pRank_le (hsq 3 Nat.prime_three (by norm_num)) e
-  exact index_normalizer_le_two_of_isComponent hO hm hK
-
-theorem theoremF618Cyclic_of_cases (hNQ : F617NonquasisimpleCase)
-    (hQS : F618QuasisimpleCase) : TheoremF618Cyclic :=
-  theoremF618Cyclic_of componentConjugatesBound hNQ hQS
-
-theorem theoremF618_of_cases (hNQ : F617NonquasisimpleCase) (hQS : F618QuasisimpleCase) :
-    TheoremF618 :=
-  theoremF618_of componentConjugatesBound hNQ hQS
 
 end F6
 

@@ -52,24 +52,5 @@ open CFSG.EvenSmallLie.UnitarySix.YamadaPar CFSG.EvenSmallLie.UnitarySix.YamadaD
 @[expose] def kWA (a : Array ℕ) : ℕ :=
   ((a4KeyTab.find? fun p => p.1 == a[3]! && p.2.1 == a[1]!).map fun p => p.2.2).getD 0
 
-@[expose] def coordNCheck : Bool :=
-  kNA (idA 693) == 0 && pt1Mask.all (· < 256) &&
-  (allLt eA1.pts.size fun i =>
-    (chA1.O.all fun s => kNA (compA 693 eA1.pts[i]! s) == (kNA eA1.pts[i]! ^^^ kNA s)) &&
-    ((kNA eA1.pts[i]! == 0) == siftA 693 lvZ chZ.B 0 eA1.pts[i]!) &&
-    (List.range 5).all fun j =>
-      kNA (conjA 693 chK1.O[j]! eA1.pts[i]!) ==
-        bmulVec 8 8 (wedgeGensN.getD j #[]) (kNA eA1.pts[i]!))
-  && (List.range 256).all fun v => eA1.pts.any fun a => kNA a == v
-
-@[expose] def coordWCheck : Bool :=
-  (allLt eA4.pts.size fun i =>
-    (allLt eA4.pts.size fun j =>
-      kWA (compA 693 eA4.pts[i]! eA4.pts[j]!) == (kWA eA4.pts[i]! ^^^ kWA eA4.pts[j]!)) &&
-    (kWA eA4.pts[i]! != 0 || eqA 693 eA4.pts[i]! (idA 693)) &&
-    (List.range 3).all fun j =>
-      kWA (conjA 693 chLam.O[j]! eA4.pts[i]!) ==
-        bmulVec 4 4 (wedgeGensW.getD j #[]) (kWA eA4.pts[i]!))
-  && (List.range 16).all fun v => eA4.pts.any fun a => kWA a == v
 
 end CFSG.EvenSmallLie.UnitarySix.YamadaSec3

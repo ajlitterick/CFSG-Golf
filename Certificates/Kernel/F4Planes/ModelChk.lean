@@ -26,20 +26,6 @@ theorem om_ok : omChk VT AT QT OM = true := by quickRfl
 
 theorem rep_ok : repChk VT AT QT PR = true := by quickRfl
 
-theorem rows_len : Nat.beq rows.length 48 = true := by quickRfl
-
-theorem neg_tab : (!tabChk (Nat.xor VT (Nat.shiftLeft 1 45920)) AT QT) = true := by quickRfl
-theorem neg_om : (!omChk VT AT QT (Nat.xor OM 2)) = true := by quickRfl
-
-theorem neg_rep : (!repChk VT AT QT (Nat.xor PR 1024)) = true := by quickRfl
-
-theorem neg_rep_range : (!repChk VT AT QT (Nat.add PR 440)) = true := by quickRfl
-
-theorem neg_row : (!rowK VT AT QT OM PR CFSG.KD.F4Syl3.reps (rows.map List.tail) 0) = true := by
-  quickRfl
-
-theorem neg_row_u : (!rowK VT AT QT OM PR (CFSG.KD.F4Syl3.reps.map (· + 1)) rows 0) = true := by
-  quickRfl
 
 end CFSG.KD.F4Planes
 

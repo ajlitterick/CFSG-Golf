@@ -25,9 +25,6 @@ open Equiv Perm Subgroup CFSG.GH74.GLS.C3.Prop121 CFSG.GH74.GLS.C3.Layer2
   mul_mem' := fun {a b} ha hb => hm a ha b hb
   inv_mem' := fun {a} ha => hi a ha
 
-theorem mem_lsub {M : Type*} [Group M] {l : List M} {h1 : (1 : M) ∈ l}
-    {hm : ∀ a ∈ l, ∀ b ∈ l, a * b ∈ l} {hi : ∀ a ∈ l, a⁻¹ ∈ l} {p : M} :
-    p ∈ lsub l h1 hm hi ↔ p ∈ l := Iff.rfl
 
 theorem mul_of_chk {l : List (Amb 5)} (h : mulClosedChk l = true) :
     ∀ a ∈ l, ∀ b ∈ l, a * b ∈ l := by

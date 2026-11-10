@@ -154,7 +154,6 @@ theorem insTT_erase (t : TT) (x v : Nat) (T : List Nat) :
 
 theorem letF_eq (y : Nat) (k : Nat → EF) : letF y k = k y := by cases y <;> rfl
 
-theorem kidsF_nil (n w i x : Nat) (st : EF) : kidsF n w [] i x st = st := rfl
 
 theorem kidsF_cons (n w s : Nat) (G : List Nat) (i x : Nat) (st : EF) :
     kidsF n w (s :: G) i x st = kidsF n w G i x
@@ -179,11 +178,6 @@ theorem kidsF_cons (n w s : Nat) (G : List Nat) (i x : Nat) (st : EF) :
 
 @[expose] def VW (w n : Nat) (T : List Nat) : Prop := (∀ x ∈ T, x < 2 ^ w) ∧ n ≤ T.length
 
-theorem vw_imgs {w n g : Nat} {T : List Nat} (h : VW w n T) : VW w n (imgsW w g T) := by
-  refine ⟨fun x hx => ?_, by rw [imgsW_eq, List.length_map]; exact h.2⟩
-  rw [imgsW_eq, List.mem_map] at hx
-  obtain ⟨y, -, rfl⟩ := hx
-  exact imgW_lt _ _ _
 
 theorem kids_proj {w n : Nat} {i : Nat} {T : List Nat} (hT : VW w n T) : ∀ (Gc : List Nat) (es : ES),
     projF w n (kidsW w n (imgsW w) Gc i T es) = kidsF n w Gc i (keyW w n T) (projF w n es)
@@ -199,8 +193,6 @@ theorem kids_proj {w n : Nat} {i : Nat} {T : List Nat} (hT : VW w n T) : ∀ (Gc
         keyW_imgs hT.1 hT.2]
     · simp only [ite_true, foundE, idxTT_erase]
 
-theorem roundF_nil (n w gi : Nat) (G : List Nat) (i : Nat) (st : EF) :
-    roundF n w gi G [] i st = st := rfl
 
 theorem roundF_cons (n w gi : Nat) (G : List Nat) (x : Nat) (F : List Nat) (i : Nat) (st : EF) :
     roundF n w gi G (x :: F) i st = roundF n w gi G F (i + 1)

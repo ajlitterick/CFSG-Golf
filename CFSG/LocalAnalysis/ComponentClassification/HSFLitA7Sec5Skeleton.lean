@@ -81,9 +81,6 @@ structure Sec5 (F : S.Frame) (T₁ : Subgroup X) where
 
 variable {S}
 
-@[expose] noncomputable def Sec5.Q₀ {F : S.Frame} {T₁ : Subgroup X} (D : S.Sec5 F T₁) :
-    Subgroup X :=
-  closure {S.z, F.yF, D.w₁, D.w₂}
 
 end A7Base
 

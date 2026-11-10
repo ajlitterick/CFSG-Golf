@@ -82,9 +82,6 @@ theorem card_eq_of_injective_comp_subtype {H M : Type*} [Group H] [Group M] (π 
   (MonoidHom.ofInjective hinj).trans (MulEquiv.subgroupCongr (by
     rw [MonoidHom.range_comp, Subgroup.range_subtype]))
 
-theorem mulEquivMap_apply {H M : Type*} [Group H] [Group M] (π : H →* M) {W : Subgroup H}
-    (hinj : Function.Injective (π.comp W.subtype)) (w : W) :
-    ((mulEquivMap π hinj w : W.map π) : M) = π w := rfl
 
 theorem isElemAbelian_of_injective_comp_subtype {H M : Type*} [Group H] [Group M] {p : ℕ}
     (π : H →* M) {W : Subgroup H} (hinj : Function.Injective (π.comp W.subtype))
@@ -449,7 +446,6 @@ theorem isQuasisimple_of_simple_nonabelian {K : Type*} [Group K] [IsSimpleGroup 
       (QuotientGroup.quotientMulEquivOfEq (center_eq_bot_of_simple hn)).trans
         QuotientGroup.quotientBot
     exact e.isSimpleGroup
-
 
 
 section Simple

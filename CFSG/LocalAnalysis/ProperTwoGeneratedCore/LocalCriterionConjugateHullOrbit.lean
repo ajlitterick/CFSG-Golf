@@ -55,49 +55,5 @@ theorem conjugate_hull_full_fixedSet_orbit (H : Subgroup G) (z u g : G)
   rw [← elementFixedSet_conjugate_image, hfull, right_orbit_conjugate_image,
     local_hull_conjugate_map]
 
-theorem conjugate_hull_fixedSet_transitive (H : Subgroup G) (z u g : G) :
-    letI := hullFixedSetAction H z u
-    letI := hullFixedSetAction H z (rightConjugateElem u g)
-    MulAction.IsPretransitive (localInvolutionPointHull z u) (elementFixedSet H u) →
-      MulAction.IsPretransitive (localInvolutionPointHull z (rightConjugateElem u g))
-        (elementFixedSet H (rightConjugateElem u g)) := by
-  let := hullFixedSetAction H z u
-  let := hullFixedSetAction H z (rightConjugateElem u g)
-  intro htrans
-  constructor
-  intro a b
-  let E := localHullConjugateEquiv z u g
-  let B := elementFixedSetConjugateEquiv H u g
-  obtain ⟨l, hl⟩ := htrans.exists_smul_eq (B.symm a) (B.symm b)
-  refine ⟨E l, ?_⟩
-  have hh := elementFixedSetConjugateEquiv_equivariant H z u g l (B.symm a)
-  change B (l • B.symm a) = E l • B (B.symm a) at hh
-  rw [hl, B.apply_symm_apply, B.apply_symm_apply] at hh
-  exact hh.symm
-
-theorem conjugate_hull_fixedSet_doubly_transitive (H : Subgroup G) (z u g : G) :
-    letI := hullFixedSetAction H z u
-    letI := hullFixedSetAction H z (rightConjugateElem u g)
-    MulAction.IsMultiplyPretransitive (localInvolutionPointHull z u) (elementFixedSet H u) 2 →
-      MulAction.IsMultiplyPretransitive (localInvolutionPointHull z (rightConjugateElem u g))
-        (elementFixedSet H (rightConjugateElem u g)) 2 := by
-  let := hullFixedSetAction H z u
-  let := hullFixedSetAction H z (rightConjugateElem u g)
-  intro hdouble
-  apply MulAction.is_two_pretransitive_iff.mpr
-  intro a b c d hab hcd
-  let E := localHullConjugateEquiv z u g
-  let B := elementFixedSetConjugateEquiv H u g
-  obtain ⟨l, hla, hlb⟩ := MulAction.is_two_pretransitive_iff.mp hdouble
-    (fun hh => hab (B.symm.injective hh)) (fun hh => hcd (B.symm.injective hh))
-  refine ⟨E l, ?_, ?_⟩
-  · have hh := elementFixedSetConjugateEquiv_equivariant H z u g l (B.symm a)
-    change B (l • B.symm a) = E l • B (B.symm a) at hh
-    rw [hla, B.apply_symm_apply, B.apply_symm_apply] at hh
-    exact hh.symm
-  · have hh := elementFixedSetConjugateEquiv_equivariant H z u g l (B.symm b)
-    change B (l • B.symm b) = E l • B (B.symm b) at hh
-    rw [hlb, B.apply_symm_apply, B.apply_symm_apply] at hh
-    exact hh.symm
 
 end CFSG.ProperTwoGeneratedCore.LocalCriterionConjugateHull

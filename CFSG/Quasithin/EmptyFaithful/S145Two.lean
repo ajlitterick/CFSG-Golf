@@ -193,11 +193,6 @@ theorem Setting146.lemma_14_5_21_two (h1413 : StageLemma1413) (S : Setting146 G 
     group
   exact hz1 (eq_one_of_mem_commutator_of_fixed hUab hPU hodd' hzU hzW hfix)
 
-theorem stage14521_two_proof (h1413 : StageLemma1413) :
-    ∀ (G : Type) [Group G] [Finite G] (T M : Subgroup G), Setting146 G T M →
-      ∀ H : Subgroup G, IsHTM T M H →
-        ⁅conjClosure (VZ T M) H, pCoreOf 2 H⁆ = quasithinOmegaOneCenter T :=
-  fun _ _ _ _ _ S _ hH => S.lemma_14_5_21_two h1413 hH
 
 end Main
 

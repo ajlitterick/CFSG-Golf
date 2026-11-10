@@ -41,9 +41,7 @@ theorem fold_zsmul (n : ℤ) (v : Fin TwistTag.D4.tag.rank → ℤ) : fold (n �
   ring
 
 theorem fold_single0 : fold (Pi.single i0 1) = (1, 0) := by decide
-theorem fold_single1 : fold (Pi.single i1 1) = (1, 0) := by decide
 theorem fold_single2 : fold (Pi.single i2 1) = (0, 1) := by decide
-theorem fold_single3 : fold (Pi.single i3 1) = (1, 0) := by decide
 
 theorem perm_symm_i0 : TwistTag.D4.perm.symm i0 = i3 := by decide
 theorem perm_symm_i1 : TwistTag.D4.perm.symm i1 = i0 := by decide
@@ -170,10 +168,6 @@ theorem mem_diagramOrbit_of_fold_eq {α β : Fin TwistTag.D4.tag.rank → ℤ}
       rw [pow_two, permLattice_mul_apply]
       exact (List.ofFn_injective h2).symm⟩
 
-theorem mem_diagramOrbit_iff_fold_eq {α β : Fin TwistTag.D4.tag.rank → ℤ}
-    (hα : IsRoot TwistTag.D4.tag α) (hβ : IsRoot TwistTag.D4.tag β) :
-    β ∈ TwistTag.D4.diagramOrbit α ↔ fold β = fold α :=
-  ⟨fold_eq_of_mem_diagramOrbit, mem_diagramOrbit_of_fold_eq hα hβ⟩
 
 theorem smul_permLattice_of_mem {w : WeylGroup TwistTag.D4.tag}
     (hw : w ∈ relWeylTwist TwistTag.D4) (v : Fin TwistTag.D4.tag.rank → ℤ) :

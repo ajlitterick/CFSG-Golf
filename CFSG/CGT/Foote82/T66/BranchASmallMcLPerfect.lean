@@ -50,9 +50,6 @@ variable {V : Type} [AddCommGroup V] [Module (ZMod 2) V] [Finite V]
       simp only [glv_inv_apply_apply] at this
       exact this.symm
 
-theorem mem_flagQ {a : V} {φ : Module.Dual (ZMod 2) V} {g : GLV V} :
-    g ∈ flagQ a φ ↔ (∀ v, φ (g v) = φ v) ∧
-      (∀ v, φ v = 0 → g v - v ∈ Submodule.span (ZMod 2) {a}) ∧ g a = a := Iff.rfl
 
 theorem pow_four_eq_one_of_mem_flagQ {a : V} {φ : Module.Dual (ZMod 2) V} (hφa : φ a = 0)
     {g : GLV V} (hg : g ∈ flagQ a φ) : g ^ 4 = 1 := by

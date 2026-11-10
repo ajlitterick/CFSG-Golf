@@ -306,19 +306,5 @@ theorem table_lt : ∀ e ∈ g2CommPairs, e.1.1 < 12 ∧ e.1.2 < 12 ∧ ∀ f �
 theorem factors_lt : ∀ a < 12, ∀ b < 12, ∀ f ∈ g2CommFactors a b, f.2.2.1 < 12 := by
   decide +kernel
 
-theorem rootMat_table {e : (ℕ × ℕ) × List Factor} (he : e ∈ g2CommPairs) (c d : R) :
-    rootMat e.1.1 c * rootMat e.1.2 d =
-      (e.2.map fun f => rootMat f.2.2.1 ((f.2.2.2 : R) * c ^ f.1 * d ^ f.2.1)).prod *
-        (rootMat e.1.2 d * rootMat e.1.1 c) :=
-  repCheck7_sound (List.all_eq_true.1 tableOk_true e he) c d
-
-theorem rootMat_comm_of_nil {a b : ℕ} (ha : a < 12) (hb : b < 12) (hab : a ≠ b)
-    (hs : g2CommRoot a + g2CommRoot b ≠ 0) (h0 : g2CommFactors a b = []) (c d : R) :
-    rootMat a c * rootMat b d = rootMat b d * rootMat a c := by
-  have hc := List.all_eq_true.1 (List.all_eq_true.1 commOk_true a (List.mem_range.2 ha)) b
-    (List.mem_range.2 hb)
-  have hr : repCheck7 a b [] = true := by
-    simpa [hab, hs, h0] using hc
-  simpa using repCheck7_sound (R := R) hr c d
 
 end CFSG.RankThree.PartOne.SEITZ11.G2Seven

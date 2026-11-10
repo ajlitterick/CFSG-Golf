@@ -178,13 +178,6 @@ theorem centralizer_le_of_two_le_pRank (hp : p.Prime) (P : Sylow p G) {M E F : S
 
 end Hyperplane
 
-theorem hyperplane_centralizers_le
-    {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (P : Sylow p G) {M E : Subgroup G}
-    (hWM : GLBWeakCore p (P : Subgroup G) ≤ M)
-    (hE : IsElemAbelian p E) (hEcard : Nat.card E = p ^ 3) (hEP : E ≤ P) :
-    ⨆ (F : Subgroup G) (_ : F ≤ E ∧ F.relIndex E = p), Subgroup.centralizer (F : Set G) ≤ M :=
-  iSup₂_le fun _ hF => centralizer_le_of_two_le_pRank hp P hWM hE hEcard hEP hF.1
-    (two_le_pRank_of_relIndex hp hE hEcard hF.1 hF.2)
 
 section Transfer
 
@@ -270,37 +263,11 @@ theorem hyperplane_centralizers_map_le_map_inf_of_coprime (hp : p.Prime) (P : Sy
 
 end Transfer
 
-theorem glbPrimeCore_subgroupOf_coprime {G : Type*} [Group G] [Finite G] (p : ℕ)
-    (H : Subgroup G) : p.Coprime (Nat.card ((GLBPrimeCore p H).subgroupOf H)) := by
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe (glbPrimeCore_le p H)).toEquiv]
-  exact glbPrimeCore_coprime p H
 
 theorem glbPrimeCore_subgroupOf_le_inf {G : Type*} [Group G] {p : ℕ} {M H : Subgroup G}
     (hcore : GLBPrimeCore p H ≤ M) :
     (GLBPrimeCore p H).subgroupOf H ≤ (H ⊓ M).subgroupOf H := fun o ho =>
   Subgroup.mem_subgroupOf.mpr ⟨o.property, hcore (Subgroup.mem_subgroupOf.mp ho)⟩
 
-theorem quotient_weakCore_le_map_inf
-    {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (P : Sylow p G) {M H R : Subgroup G}
-    (hWM : GLBWeakCore p (P : Subgroup G) ≤ M) (hRP : R ≤ P) (hRH : R ≤ H)
-    (hcore : GLBPrimeCore p H ≤ M) [((GLBPrimeCore p H).subgroupOf H).Normal] :
-    GLBWeakCore p ((R.subgroupOf H).map (QuotientGroup.mk' ((GLBPrimeCore p H).subgroupOf H))) ≤
-      ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' ((GLBPrimeCore p H).subgroupOf H)) :=
-  weakCore_map_le_map_inf_of_coprime hp P hWM hRP hRH _ (glbPrimeCore_subgroupOf_coprime p H)
-    (glbPrimeCore_subgroupOf_le_inf hcore)
-
-theorem quotient_hyperplane_centralizers_le_map_inf
-    {G : Type*} [Group G] [Finite G] {p : ℕ} (hp : p.Prime) (P : Sylow p G) {M H E : Subgroup G}
-    (hWM : GLBWeakCore p (P : Subgroup G) ≤ M)
-    (hE : IsElemAbelian p E) (hEcard : Nat.card E = p ^ 3) (hEP : E ≤ P) (hEH : E ≤ H)
-    (hcore : GLBPrimeCore p H ≤ M) [((GLBPrimeCore p H).subgroupOf H).Normal] :
-    ⨆ (F : Subgroup (↥H ⧸ (GLBPrimeCore p H).subgroupOf H))
-        (_ : F ≤ (E.subgroupOf H).map (QuotientGroup.mk' ((GLBPrimeCore p H).subgroupOf H)) ∧
-          F.relIndex ((E.subgroupOf H).map
-            (QuotientGroup.mk' ((GLBPrimeCore p H).subgroupOf H))) = p),
-        Subgroup.centralizer (F : Set (↥H ⧸ (GLBPrimeCore p H).subgroupOf H)) ≤
-      ((H ⊓ M).subgroupOf H).map (QuotientGroup.mk' ((GLBPrimeCore p H).subgroupOf H)) :=
-  hyperplane_centralizers_map_le_map_inf_of_coprime hp P hWM hE hEcard hEP hEH _
-    (glbPrimeCore_subgroupOf_coprime p H) (glbPrimeCore_subgroupOf_le_inf hcore)
 
 end CFSG.AGLEmbedding

@@ -105,9 +105,6 @@ theorem le_stabilizer_left (h : SuzukiPointAction G X q α β U T) :
     U ≤ MulAction.stabilizer G α :=
   h.sup_eq_stabilizer ▸ le_sup_left
 
-theorem le_stabilizer_right (h : SuzukiPointAction G X q α β U T) :
-    T ≤ MulAction.stabilizer G α :=
-  h.sup_eq_stabilizer ▸ le_sup_right
 
 theorem normalizer_eq_stabilizer (h : SuzukiPointAction G X q α β U T) (hq : 1 < q) :
     Subgroup.normalizer (U : Set G) = MulAction.stabilizer G α := by
@@ -335,12 +332,6 @@ theorem twoRank_eq_of_mulEquiv {G : Type*} [Group G] [Finite G]
     (CFSG.TwoRankLowerBound.Helpers.le_twoRank_of_injective e.toMonoidHom e.injective)
     (CFSG.TwoRankLowerBound.Helpers.le_twoRank_of_injective e.symm.toMonoidHom e.symm.injective)
 
-theorem twoRank_eq_of_mulEquiv_suzukiMatrixGroup
-    {G : Type*} [Group G] [Finite G] (m : ℕ)
-    (e : G ≃* SuzukiMatrixGroup m) : twoRank G = 2 * m + 1 :=
-  have hK : Nat.card (GaloisField 2 (2 * m + 1)) = 2 ^ (2 * m + 1) :=
-    GaloisField.card 2 (2 * m + 1) (by omega)
-  twoRank_eq_of_mulEquiv hK (e.trans (suzukiGroupEquivSuzukiMatrixGroup hK).symm)
 
 theorem suzukiPointAction_cosets_of_mulEquiv {G : Type*} [Group G]
     (hK : Nat.card K = 2 ^ (2 * a + 1)) (e : G ≃* suzukiGroup a K) (Q : Sylow 2 G) :

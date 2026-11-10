@@ -19,10 +19,6 @@ variable {G : Type u} [Group G]
     (e : S ≃* Wreath m) (P : Subgroup (Wreath m)) : Subgroup G :=
   (P.map e.symm.toMonoidHom).map S.subtype
 
-theorem ambientWreathSubgroup_le (S : Subgroup G) {m : ℕ}
-    (e : S ≃* Wreath m) (P : Subgroup (Wreath m)) :
-    ambientWreathSubgroup S e P ≤ S :=
-  Subgroup.map_subtype_le _
 
 theorem ambientWreathSubgroup_transport (S U : Subgroup G) (hUS : U ≤ S) {m : ℕ}
     (e : S ≃* Wreath m) :
@@ -364,9 +360,6 @@ theorem prefix_succ (i : Fin k) (x : c.subgroups 0) :
 @[expose] def composite : c.subgroups 0 →* c.subgroups (Fin.last k) :=
   c.prefixMap (Fin.last k)
 
-theorem composite_empty (c : WreathedFusionChain S e 0) (x : c.subgroups 0) :
-    (c.composite x : G) = x :=
-  congrArg Subtype.val (c.prefix_zero x)
 
 theorem prefix_coe_eq
     (prefixes : Fin (k + 1) → G) (actors : Fin k → G)
@@ -385,34 +378,6 @@ theorem prefix_coe_eq
     rw [c.prefix_succ, c.step_coe, ha, ih, hstep]
     group
 
-theorem subgroups_eq_rightConjugate
-    (prefixes : Fin (k + 1) → G) (actors : Fin k → G)
-    (hfirst : prefixes 0 = 1)
-    (hstep : ∀ i, prefixes i.succ = prefixes i.castSucc * actors i)
-    (ha : ∀ i, ∀ x : c.supports i,
-      (c.automorphisms i x : G) = (actors i)⁻¹ * (x : G) * actors i) :
-    ∀ i, c.subgroups i = rightConjugate (c.subgroups 0) (prefixes i) := by
-  intro i
-  refine Fin.induction ?_ (fun j ih => ?_) i
-  · simp only [hfirst, rightConjugate, inv_one, Subgroup.conjBy_one]
-  · rw [← c.image_eq j,
-      GorensteinWalter.support_automorphism_image_eq_rightConjugate (c.domain_le j)
-        (c.automorphisms j) (actors j) (ha j), ih, hstep]
-    simp only [rightConjugate, mul_inv_rev, Subgroup.conjBy_mul]
-
-theorem exists_realizing_element :
-    ∃ g : G, c.subgroups (Fin.last k) = rightConjugate (c.subgroups 0) g ∧
-      ∀ x : c.subgroups 0, (c.composite x : G) = g⁻¹ * (x : G) * g := by
-  classical
-  choose actors _hallowed ha using c.realized
-  let prefixes : Fin (k + 1) → G :=
-    Fin.induction 1 (fun i g => g * actors i)
-  have hfirst : prefixes 0 = 1 := Fin.induction_zero _ _
-  have hstep : ∀ i, prefixes i.succ = prefixes i.castSucc * actors i :=
-    fun i => Fin.induction_succ _ _ i
-  refine ⟨prefixes (Fin.last k),
-    c.subgroups_eq_rightConjugate prefixes actors hfirst hstep ha (Fin.last k), ?_⟩
-  exact c.prefix_coe_eq prefixes actors hfirst hstep ha (Fin.last k)
 
 end WreathedFusionChain
 
@@ -453,31 +418,5 @@ theorem WreathedFusionDecomposition.exists_chain
     have hx := c.prefix_coe_eq prefixes actors hfirst hstep ha (Fin.last k) x
     simpa only [WreathedFusionChain.composite, hlast] using hx
 
-theorem wreathed_fusion_automorphism_chain [Finite G]
-    (S : Sylow 2 G) (n : ℕ) (hn : 2 ≤ n) (e : S ≃* Wreath (2 ^ n))
-    (P : Subgroup G) (hPS : P ≤ (S : Subgroup G))
-    (g : G) (hg : rightConjugate P g ≤ (S : Subgroup G)) :
-    ∃ k : ℕ, ∃ c : WreathedFusionChain (S : Subgroup G) e k,
-      c.subgroups 0 = P ∧ c.subgroups (Fin.last k) = rightConjugate P g ∧
-      ∀ x : c.subgroups 0, (c.composite x : G) = g⁻¹ * (x : G) * g := by
-  obtain ⟨z, hz, himage, hpointwise⟩ := wreathed_fusion_decomposition S n hn e P hPS g hg
-  obtain ⟨k, c, hfirst, hlast, hcomp⟩ := hz.exists_chain hPS
-  refine ⟨k, c, hfirst, hlast.trans himage, ?_⟩
-  intro x
-  rw [hcomp x]
-  exact hpointwise x (hfirst ▸ x.property)
-
-theorem wreathed_fusion_generated_by_base_and_central_quaternion_normalizers [Finite G]
-    (S : Sylow 2 G) (n : ℕ) (hn : 2 ≤ n) (e : S ≃* Wreath (2 ^ n)) :
-    (∀ (P : Subgroup G), P ≤ (S : Subgroup G) →
-      ∀ (g : G), rightConjugate P g ≤ (S : Subgroup G) →
-        ∃ k : ℕ, ∃ c : WreathedFusionChain (S : Subgroup G) e k,
-          c.subgroups 0 = P ∧ c.subgroups (Fin.last k) = rightConjugate P g ∧
-          ∀ x : c.subgroups 0, (c.composite x : G) = g⁻¹ * (x : G) * g) ∧
-    (∀ (k : ℕ) (c : WreathedFusionChain (S : Subgroup G) e k),
-      ∃ g : G, c.subgroups (Fin.last k) = rightConjugate (c.subgroups 0) g ∧
-        ∀ x : c.subgroups 0, (c.composite x : G) = g⁻¹ * (x : G) * g) := by
-  exact ⟨wreathed_fusion_automorphism_chain S n hn e,
-    fun _ c => c.exists_realizing_element⟩
 
 end CFSG.Wreathed

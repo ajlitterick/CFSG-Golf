@@ -17,9 +17,6 @@ instance finite_generalLinearGroup (ι : Type) [Fintype ι] [DecidableEq ι] (K 
   Finite.of_injective (fun u : Matrix.GeneralLinearGroup ι K => (u : Matrix ι ι K))
     fun _ _ h => Units.ext h
 
-theorem finite_statedProj {ι : Type} [Fintype ι] [DecidableEq ι] {K : Type} [Field K] [Finite K]
-    (H : Subgroup (Matrix.GeneralLinearGroup ι K)) : Finite (StatedProj H) :=
-  inferInstance
 
 theorem finite_of_statedClassicalModel (G : Type) [Group G] (t : StatedLieTag) (n p f : ℕ)
     (h : StatedClassicalModel G t n p f) : Finite G := by
@@ -45,9 +42,5 @@ theorem finite_of_statedClassicalModel (G : Type) [Group G] (t : StatedLieTag) (
     exact finite_of_mulEquiv e
   | _ => exact h.elim
 
-theorem finite_of_suzukiModel' (G : Type) [Group G] (p f : ℕ) (h : SuzukiModel G p f) :
-    Finite G := by
-  obtain ⟨-, a, -, K, _, _, -, -, ⟨e⟩⟩ := h
-  exact finite_of_mulEquiv e
 
 end CFSG.HardMathSupport.Foote.Proving

@@ -105,14 +105,6 @@ theorem BenderType.lemma_3_2_h_unitary_ne_top
     · rw [he]; exact unitary_e_gt_one n hn
   exact hc.lemma32h_ne_top he hnc hz hz1
 
-theorem BenderType.lemma_3_2_h_linear
-    [Finite K] {n e : ℕ} (h : BenderType K n 1 e)
-    (Q : Sylow 2 K) {t : K} (ht : t * t = 1) (htQ : t ∉ borel (Q : Subgroup K)) {z : K}
-    (hz : z ∈ rootCenter (Q : Subgroup K)) (hz1 : z ≠ 1) :
-    Subgroup.closure ({z, t} : Set K) ⊔ ⁅cartan (Q : Subgroup K) t, Subgroup.zpowers t⁆ = ⊤ := by
-  have hc := h.benderCore Q ht htQ
-  have : IsSimpleGroup K := h.isSimple
-  exact hc.lemma32h_top_of_card_eq rfl hz hz1
 
 theorem BenderType.lemma_3_4_b
     [Finite K] {n i e : ℕ} (h : BenderType K n i e) (Q : Sylow 2 K)
@@ -143,12 +135,6 @@ theorem BenderType.lemma_3_4_a
   obtain ⟨t, hc⟩ := h.exists_benderCore (default : Sylow 2 K)
   exact hc.isConj_of_involutions hu hu1 hv hv1
 
-theorem BenderType.lemma_3_5_d
-    [Finite K] {n i e : ℕ} (h : BenderType K n i e) (Q : Sylow 2 K)
-    {t : K} (ht : t * t = 1) (htQ : t ∉ borel (Q : Subgroup K)) :
-    centralizer (rootCenter (Q : Subgroup K) : Set K) =
-      (Q : Subgroup K) ⊔ fixCartan (Q : Subgroup K) t :=
-  (h.benderCore Q ht htQ).centralizer_rootCenter_eq
 
 theorem BenderType.le_borel_of_sylow_le
     [Finite K] {n i e : ℕ} (h : BenderType K n i e)

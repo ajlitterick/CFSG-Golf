@@ -35,19 +35,5 @@ theorem S_shapeCaseMax_of_S_shapeCase
   fun G _ _ hs hn hr hgen hK hnab hL x hx K hKc hG2 hP =>
     h G hs hn hr hgen hK hnab hL x hx K hKc hG2 hP.2
 
-theorem s_generic_of_shape_casesMax
-    (hF : GenericKnownFacts)
-    (h1 : S_shapeCaseMax @ShapeS1) (h2 : S_shapeCaseMax @ShapeS2) (h3 : S_shapeCaseMax @ShapeS3)
-    (h4 : S_shapeCaseMax @ShapeS4) (h5 : S_shapeCaseMax @ShapeS5) : S_generic' := by
-  intro G _ _ hs hn hr hgen hK hnab hL hg
-  obtain ⟨x₀, hx₀, K₀, hK₀c, hK₀G2⟩ := hg
-  obtain ⟨x, K, hmax⟩ := exists_isJMax ⟨x₀, K₀, hx₀, hK₀c, hK₀G2⟩
-  obtain ⟨hx, hKc, hG2⟩ := hmax.1
-  rcases generic_shapes_of_inG2 hF hs hn hgen hK hx hG2 with h | h | h | h | h
-  · exact h1 G hs hn hr hgen hK hnab hL x hx K hKc hG2 ⟨hmax, h⟩
-  · exact h2 G hs hn hr hgen hK hnab hL x hx K hKc hG2 ⟨hmax, h⟩
-  · exact h3 G hs hn hr hgen hK hnab hL x hx K hKc hG2 ⟨hmax, h⟩
-  · exact h4 G hs hn hr hgen hK hnab hL x hx K hKc hG2 ⟨hmax, h⟩
-  · exact h5 G hs hn hr hgen hK hnab hL x hx K hKc hG2 ⟨hmax, h⟩
 
 end CFSG.GH74.Generic

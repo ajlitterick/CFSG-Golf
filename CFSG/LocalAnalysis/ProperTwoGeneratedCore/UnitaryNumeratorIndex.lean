@@ -545,34 +545,6 @@ theorem unitary_pair_centralizer_numerator_is_q_minus_one
   · rw [centralizer_zpowers_sup_zpowers, ← inf_assoc, hidx, hinv, hq]
 
 
-theorem unitary_pair_centralizer_numerator_of_trivial_odd_core
-    [Finite G]
-    {H : Subgroup G} {z : G} (h : MinimalInvolutionPointLocalFailure H z)
-    {beta : rightCosetSpace H} (hbeta : beta ≠ rightCosetMk H 1)
-    {t : G} (ht : t ∈ rightPairFlipFiber H z beta)
-    (hrank : twoRank (pairPointStabilizer H beta) = 1)
-    {w : G} (hwB : w ∈ pairPointStabilizer H beta) (hw : orderOf w = 2) (hwz : Commute w z)
-    (hwt : Commute w t)
-    (hdeg : Nat.card (elementFixedSet H w) =
-      Nat.card ({1} ∪ distinguishedRoots H z w : Set G) ^ 3 + 1)
-    (hodd : CFSG.oddCore (localInvolutionPointHull z w) = ⊥) :
-    IsCyclic ↥(localInvolutionPointHull z w ⊓ pairPointStabilizer H beta) ∧
-      Nat.card ↥(localInvolutionPointHull z w ⊓ pairPointStabilizer H beta) =
-        (Nat.card ({1} ∪ distinguishedRoots H z w : Set G) ^ 2 - 1) /
-          Nat.gcd 3 (Nat.card ({1} ∪ distinguishedRoots H z w : Set G) + 1) := by
-  obtain ⟨-, -, -, -, hcyc, hcard, -⟩ :=
-    unitary_pair_centralizer_numerator_is_q_minus_one h hbeta ht hrank hwB hw hwz hwt hdeg
-  have hinj : Function.Injective
-      (QuotientGroup.mk' (CFSG.oddCore (localInvolutionPointHull z w))) := by
-    rw [← MonoidHom.ker_eq_bot_iff, QuotientGroup.ker_mk', hodd]
-  let eA : ↥(localInvolutionPointHull z w ⊓ pairPointStabilizer H beta) ≃*
-      ↥(((localInvolutionPointHull z w ⊓ pairPointStabilizer H beta).subgroupOf
-        (localInvolutionPointHull z w)).map (QuotientGroup.mk' (CFSG.oddCore _))) :=
-    (Subgroup.subgroupOfEquivOfLe inf_le_left).symm.trans
-      (Subgroup.equivMapOfInjective _ _ hinj)
-  exact ⟨isCyclic_of_injective eA.toMonoidHom eA.injective,
-    (Nat.card_congr eA.toEquiv).trans hcard⟩
-
 theorem unitaryNumeratorTheorem
     (G : Type u) [Group G] [Finite G] :
     UnitaryNumeratorTheorem G := by

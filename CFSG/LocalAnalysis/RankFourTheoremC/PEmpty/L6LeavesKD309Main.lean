@@ -25,11 +25,6 @@ namespace KD309
 
 end KD309
 
-@[expose] def KD309LieOrder : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (P : Sylow 5 Y) (x z : Y), Plane63 5 Y P x z →
-    ∀ L : Subgroup (Y ⧸ primeComplementCore (G := Y) 5), IsComponentOf L ⊤ →
-      (∀ K : Subgroup (Y ⧸ primeComplementCore (G := Y) 5), IsComponentOf K ⊤ → K = L) →
-      I291P65.Is29a ↥L → Nat.card (P : Subgroup Y) ≤ 5 ^ 6 → Nat.card (P : Subgroup Y) ≤ 5 ^ 5
 
 @[expose] def KD309LieMono : Prop :=
   ∀ (Y : Type) [Group Y] [Finite Y] (P : Sylow 5 Y) (x z : Y), Plane63 5 Y P x z →

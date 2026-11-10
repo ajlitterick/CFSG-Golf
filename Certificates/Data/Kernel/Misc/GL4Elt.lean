@@ -12,9 +12,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
   List.rec (motive := fun _ => Nat → Nat) (fun _ => nat_lit 0)
     (fun x _ ih j => Nat.rec (motive := fun _ => Nat) x (fun j' _ => ih j') j) l i
 
-@[expose] noncomputable def lAtL (L : List (List Nat)) (i : Nat) : List Nat :=
-  List.rec (motive := fun _ => Nat → List Nat) (fun _ => [])
-    (fun x _ ih j => Nat.rec (motive := fun _ => List Nat) x (fun j' _ => ih j') j) L i
 
 @[expose] noncomputable def pow4F (c n : Nat) : Nat :=
   Nat.rec (motive := fun _ => Nat) id4 (fun _ acc => mul4F acc c) n
@@ -24,9 +21,6 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
 @[expose] noncomputable def invOK (c : Nat) : Bool :=
   andB (Nat.blt c (nat_lit 65536)) (Nat.beq (mul4F c (inv4F c)) id4)
 
-@[expose] noncomputable def normOK (H : List Nat) (s : Nat) : Bool :=
-  andB (invOK s) (CFSG.KC.LQT.P.letB (inv4F s) fun si =>
-    allL H fun h => CFSG.KC.Misc.memN (mul4F (mul4F s h) si) H)
 
 @[expose] noncomputable def inL (E : Nat → Nat) (N c : Nat) : Bool :=
   anyN N fun k => Nat.beq (E k) c
@@ -57,23 +51,10 @@ open CFSG.KC.Ord CFSG.KC.LQT.P
     (nat_lit 1)) (nat_lit 256)) (Nat.mul (Nat.land (Nat.shiftRight u (nat_lit 3)) (nat_lit 1))
     (nat_lit 4096)))
 
-@[expose] noncomputable def cntN (m : Nat) (f : Nat → Bool) : Nat :=
-  Nat.rec (motive := fun _ => Nat) (nat_lit 0)
-    (fun i acc => Bool.rec (motive := fun _ => Nat) acc (Nat.succ acc) (f i)) m
-
-@[expose] noncomputable def fixFree (c : Nat) : Bool :=
-  allN (nat_lit 15) fun u => notB (Nat.beq (mul4F c (colC (Nat.succ u))) (colC (Nat.succ u)))
-
-@[expose] noncomputable def fixCnt (c : Nat) : Nat :=
-  cntN (nat_lit 16) fun u => Nat.beq (mul4F c (colC u)) (colC u)
 
 @[expose] noncomputable def ordDiv (c n : Nat) : Bool :=
   andB (notB (Nat.beq c id4)) (Nat.beq (pow4F c n) id4)
 
-@[expose] noncomputable def conjW (E : Nat → Nat) (N c w : Nat) : Bool :=
-  letB (Nat.mod w (nat_lit 512)) fun l => letB (Nat.shiftRight w (nat_lit 9)) fun li =>
-    andB (Nat.blt l N) (andB (Nat.blt li N) (andB (Nat.beq (mul4F (E l) (E li)) id4)
-      (notB (Nat.beq (pow4F (mul4F c (mul4F (mul4F (E l) c) (E li))) (nat_lit 8)) id4))))
 
 end CFSG.KC.Misc.GL4
 

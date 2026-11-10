@@ -80,55 +80,6 @@ section Rows
 @[expose] def DownRow (name : TauCeti.SporadicName) (p : ℕ) : Prop :=
   SporTables.SporTypes p (fun T _ => IsLocallyOTwoBalancedWrtP p 1 T) name
 
-theorem input27_4SporDown_of_rows (hOut : SporadicOuterLeTwo) (hBr : SporadicBridges)
-    (hcard : ∀ s, Nat.card (CFSG.Blueprint.NativeSporadic.Carrier s) = CFSG.AGLEmbedding.sporOrd s)
-    (hOff : ∀ s, OffPair s (CFSG.Blueprint.NativeSporadic.Carrier s))
-    (hrows : ∀ name p, SporadicOnePair name p ∨ CubeRow name p → DownRow name p) :
-    Inputs273.Input27_4SporDown := by
-  intro S _ _ hS hnab s he p hp hp2 α hα hα1 I hI
-  haveI := hS
-  have hcen : Subgroup.center S = ⊥ := center_eq_bot_of_isSimpleGroup hnab
-  have hout : Nat.card (Outer S) ≤ 2 := hOut S hS hnab s he
-  obtain ⟨e⟩ := he
-  have e' : S ≃* CFSG.Blueprint.NativeSporadic.Carrier s := e.trans (hBr s).some.symm
-  have hcS : Nat.card S = CFSG.AGLEmbedding.sporOrd s := (Nat.card_congr e'.toEquiv).trans (hcard s)
-  by_cases hrow : SporadicOnePair s p ∨ CubeRow s p
-  · left
-    have hcop : Nat.Coprime p (Nat.card (Outer S)) := coprime_of_le_two hp hp2 Nat.card_pos.ne' hout
-    have hαp : IsPGroup p (Subgroup.zpowers α) := by
-      haveI : Fact p.Prime := ⟨hp⟩
-      exact IsPGroup.of_card (n := 1) (by rw [Nat.card_zpowers, orderOf_eq_prime hα hα1, pow_one])
-    obtain ⟨x, rfl⟩ := le_inner_of_isPGroup hcop hαp (Subgroup.mem_zpowers α)
-    have hinj : Function.Injective (MulAut.conj : S →* MulAut S) := conj_injective_of_center_eq_bot hcen
-    have hxo : orderOf x = p := by
-      haveI : Fact p.Prime := ⟨hp⟩
-      rw [← orderOf_injective _ hinj x]
-      exact orderOf_eq_prime hα hα1
-    rw [Inputs1415.fixSubgroup_conj] at hI
-    exact hrows s p hrow S ⟨e⟩ x hxo I hI
-  · right
-    push Not at hrow
-    obtain ⟨hnotOne, hnotCube⟩ := hrow
-    rcases hOff s p hp hp2 hnotOne with h3 | ⟨h4, hpair⟩
-    · rw [← (Nat.card_congr e'.toEquiv)] at h3
-      exact ⟨Inputs273.pRank_le_two_of_noCube hp (noElemAbelianCubeAut_of_not_dvd hp hp2 hcen hout h3), Or.inr h3⟩
-    · rw [← (Nat.card_congr e'.toEquiv)] at h4
-      have hpairS : CFSG.RankThree.PartOne.StrongP.HasNoncommPair p S :=
-        CFSG.RankThree.PartOne.StrongP.HasNoncommPair.map e'.symm.toMonoidHom e'.symm.injective hpair
-      refine ⟨Inputs273.pRank_le_two_of_noCube hp (noElemAbelianCubeAut_of_noncomm hp hp2 hcen hout h4 hpairS), ?_⟩
-      by_cases hp3 : p = 3
-      · exact Or.inl hp3
-      · right
-        intro h3
-        have hp5 : 5 ≤ p := by
-          have := hp.two_le
-          rcases (by omega : p = 2 ∨ p = 3 ∨ p = 4 ∨ 5 ≤ p) with h | h | h | h
-          · exact absurd h hp2
-          · exact absurd h hp3
-          · exact absurd (h ▸ hp) (by norm_num)
-          · exact h
-        rw [hcS] at h3 h4
-        exact hnotCube (cubeRow_of s hp hp5 h3 h4)
 
 end Rows
 
@@ -275,15 +226,6 @@ theorem balanced_of_leafType (hIn : DefCharInnerCoreFree)
   ∀ (U : Type) [Group U] [Finite U], IsSimpleGroup U → (∃ a b : U, a * b ≠ b * a) →
     Nonempty (U ≃* (TauCeti.CFSGIndex.sporadic X).Group) → IsLocallyOneBalancedAbs p U
 
-theorem sporOneAt_of_data (hOne : SporadicLocalOneData)
-    (hOrd : CFSG.HardMathSupport.Solomon.Coordinator.SporadicOrdersTable) {X : TauCeti.SporadicName} {p : ℕ}
-    (hp : p.Prime) (hp2 : p ≠ 2) (h4 : p ^ 4 ∣ CFSG.HardMathSupport.Solomon.Coordinator.sporOrd X) :
-    SporOneAt X p := by
-  intro U _ _ hU hnab ⟨e⟩
-  have hc : Nat.card U = CFSG.HardMathSupport.Solomon.Coordinator.sporOrd X :=
-    (Nat.card_congr e.toEquiv).trans (hOrd X)
-  exact hOne U hU hnab X ⟨e⟩ p hp hp2 (by rw [hc]; exact (pow_dvd_pow p (by norm_num)).trans h4)
-    (Or.inl (by rw [hc]; exact h4))
 
 theorem sporOneAt_of_cube (hBr : SporadicBridges) {X : TauCeti.SporadicName} {p : ℕ} (h : CubePairHolds X p) :
     SporOneAt X p :=
@@ -1157,37 +1099,11 @@ end MThirteenRow
 
 section Assembly
 
-@[expose] def DownRowsRest : Prop :=
-  DownRow .B 3 ∧ DownRow .M 3 ∧ DownRow .B 5 ∧ DownRow .M 5
-
-@[expose] def Input27_34Rest2 : Prop :=
-  CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp ∧ CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp ∧
-    CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp ∧
-    CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M) ∧
-    Inputs273.Input27_3ChevQ ∧ Inputs273.Input27_4ChevQ
 
 end Assembly
 
 section NoComp
 
-
-theorem downRowsRest_of_noComp
-    (hB3 : CFSG.HardMathSupport.Dickson.I271.TabBThreeBNoComp)
-    (hM3 : CFSG.HardMathSupport.Dickson.I271.M3ResBNoComp) (hB5 : CFSG.HardMathSupport.Dickson.I271.TabBFiveBNoComp)
-    (hM5 : CFSG.HardMathSupport.Dickson.I271.CentFiveBNoComp (CFSG.Blueprint.NativeSporadic.Carrier .M)) :
-    DownRowsRest := by
-  have hBr : SporadicBridges := CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-  have hOut : SporadicOuterLeTwo := CFSG.HardMathSupport.Timmesfeld.Proving.sporadicOuterLeTwo_holds
-  exact ⟨downRow_B_three_of_census hOut hBr
-      CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_Fi22_three
-      (CFSG.HardMathSupport.Dickson.BMRows.census_B_three_of_noComp hB3),
-    downRow_M_three_of_census hOut hBr CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_Fi24_three
-      CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_Th_three
-      (CFSG.HardMathSupport.Dickson.BMRows.census_M_three_of_noComp hM3),
-    downRow_B_five_of_census hBr cubePairHolds_HS_five
-      (CFSG.HardMathSupport.Dickson.BMRows.census_B_five_of_noComp hB5),
-    downRow_M_five_of_census hOut hBr CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_HN_five
-      (CFSG.HardMathSupport.Dickson.BMRows.census_M_five_of_noComp hM5)⟩
 
 end NoComp
 
@@ -1196,109 +1112,10 @@ section DownRows
 open CFSG.HardMathSupport.Dickson.I271
 
 
-theorem downRows_of_rest
-    (hrest : DownRowsRest) :
-    ∀ name p, SporadicOnePair name p ∨ CubeRow name p → DownRow name p := by
-  have hBr : SporadicBridges := CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-  have hOut : SporadicOuterLeTwo := CFSG.HardMathSupport.Timmesfeld.Proving.sporadicOuterLeTwo_holds
-  have hIn : DefCharInnerCoreFree := CFSG.HardMathSupport.Solomon.Coordinator.defCharInnerCoreFree_holds
-  have hOutC : CFSG.HardMathSupport.Dickson.I271.DefCharOuterCoreFree := Inputs273b.defCharOuterCoreFree_holds
-  have h3 : Nat.Prime 3 := Nat.prime_three
-  have h5 : Nat.Prime 5 := Nat.prime_five
-  obtain ⟨hB3, hM3, hB5, hM5⟩ := hrest
-  intro name p h
-  rcases h with h | h
-  · simp only [SporadicOnePair, Finset.mem_insert, Finset.mem_singleton] at h
-    rcases h with ⟨rfl, h⟩ | ⟨rfl, h⟩ | ⟨rfl, rfl⟩
-    · rcases h with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .J3 (by decide)
-        exact downRow_of_split hIn hOutC hBr h3 (by norm_num) centShapeSplit_J3
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .McL (by decide)
-        refine downRow_of_noComp hBr h3 (centTypes_of_constrained h3 fun k hk => ?_)
-        refine mcl_constrainedShape_three CFSG.HardMathSupport.Timmesfeld.SporadicBalance.oPrimeCoreTrivialAt_McL k
-          (fun h1 => ?_) (by rw [← hk]; exact pow_orderOf_eq_one k)
-        rw [h1, orderOf_one] at hk
-        norm_num at hk
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Suz (by decide)
-        exact downRow_of_split hIn hOutC hBr h3 (by norm_num) centShapeSplit_Suz
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .ONan (by decide)
-        exact downRow_of_centTypes h3 (hBr .ONan).some (SporTables.centTypes_of_centShapeRk h3 onThree_centShapeRk)
-          fun _ _ _ _ _ ⟨_, ⟨e⟩⟩ => balanced_of_alt (m := 6) h3 (by norm_num) (by norm_num) (by norm_num) e
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Co3 (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_Co3
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Co2 (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_Co2
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Co1 (by decide)
-        refine downRow_of_goodSpor hIn hOutC hBr h3 (by norm_num) (names := [.Suz]) (fun S hS => ?_)
-          (SporTables.centTypes_of_centShapeRk h3 (TabCo1.centShapeRk_Co1_three hBr (TabCo1.co1ThreeAShape_holds hOut hBr)))
-        rw [List.mem_singleton] at hS
-        subst hS
-        exact sporOneAt_of_onePair h3 (by norm_num) hOut hBr
-          CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_Suz_three
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Fi22 (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_Fi22
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Fi23 (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) (TabFi23.leafShape_Fi23_of
-            TabFi23.pConstrained_t3_two)
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Fi24Prime (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_Fi24_three
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .HN (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_HN
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Ly (by decide)
-        refine downRow_of_goodSpor hIn hOutC hBr h3 (by norm_num) (names := [.McL]) (fun S hS => ?_)
-          (SporTables.centTypes_of_centShapeRk h3 (tabLy_centShapeRk hOut hBr))
-        rw [List.mem_singleton] at hS
-        subst hS
-        exact sporOneAt_of_onePair h3 (by norm_num) hOut hBr
-          CFSG.HardMathSupport.Timmesfeld.SporadicBalance.sporadicOnePairHolds_McL
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Th (by decide)
-        exact downRow_of_leafShape hIn hOutC hBr h3 (by norm_num) leafShape_Th
-      · exact hB3
-      · exact hM3
-    · rcases h with rfl | rfl | rfl | rfl | rfl
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Co1 (by decide)
-        refine downRow_of_goodSpor hIn hOutC hBr h5 (by norm_num) (names := [.J2]) (fun S hS => ?_)
-          (SporTables.centTypes_of_centShapeMulti h5 (TabCo1.centShapeMulti_Co1_five hOut))
-        rw [List.mem_singleton] at hS
-        subst hS
-        exact sporOneAt_J2_five
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .HN (by decide)
-        exact downRow_of_goodSpor hIn hOutC hBr h5 (by norm_num) (names := []) (fun S hS => (List.not_mem_nil hS).elim)
-          (SporTables.centTypes_of_centShapeRk' h5 (hn5_centShapeRk'_HN hnFiveMoved_holds))
-      · haveI := CFSG.Sporadic.finite_carrier_of_ne_M .Ly (by decide)
-        exact downRow_of_noComp hBr h5 (centTypes_of_constrained h5 fun k hk =>
-          pConstrainedShape_Ly_five _ ⟨MulEquiv.refl _⟩ hk)
-      · exact hB5
-      · exact hM5
-    · exact downRow_M_seven_of_census hBr (cubePairHolds_He_seven hOut hBr)
-        CFSG.HardMathSupport.Dickson.BMRows.census_M_seven
-  · rcases h with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ |
-      ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
-    · exact downRow_HS_five hBr
-    · exact downRow_McL_five hBr
-    · exact downRow_Co2_five hBr
-    · exact downRow_Co3_five hBr
-    · exact downRow_Ru_five hBr
-    · exact downRow_Th_five hBr
-    · exact downRow_He_seven hIn hOutC hBr
-    · exact downRow_ON_seven hBr
-    · exact downRow_Fi24_seven hBr
-    · exact downRow_J4_eleven hBr
-    · exact downRow_M_thirteen hBr
-
 end DownRows
 
 section SporDown
 
-
-theorem input27_4SporDown_of_rest
-    (hrest : DownRowsRest) : Inputs273.Input27_4SporDown :=
-  input27_4SporDown_of_rows CFSG.HardMathSupport.Timmesfeld.Proving.sporadicOuterLeTwo_holds
-    CFSG.Sporadic.Bridge.nonempty_carrier_mulEquiv_group
-    (CFSG.AGLEmbedding.card_carrier_eq_sporOrd CFSG.Open.Open.monster_y443_derived_card)
-    (CFSG.HardMathSupport.Timmesfeld.Tables.Census.offPair_carrier
-      CFSG.HardMathSupport.Timmesfeld.Coordinator.sporadicBMData_holds)
-    (downRows_of_rest hrest)
 
 end SporDown
 
@@ -2129,24 +1946,10 @@ end AltRegularTwo
 section Rest
 
 
-theorem input27_34Rest_of
-    (hAlt : Inputs273.Input27_3AltRegularTwo) (hrest : DownRowsRest)
-    (hQ3 : Inputs273.Input27_3ChevQ) (hQ4 : Inputs273.Input27_4ChevQ) : Inputs273b.Input27_34Rest :=
-  ⟨hAlt, sporOneBalanceCube_holds, input27_4SporDown_of_rest hrest, hQ3, hQ4⟩
-
-theorem input27_34Rest_of_rest
-    (hrest : DownRowsRest) (hQ3 : Inputs273.Input27_3ChevQ)
-    (hQ4 : Inputs273.Input27_4ChevQ) : Inputs273b.Input27_34Rest :=
-  input27_34Rest_of input27_3AltRegularTwo_holds hrest hQ3 hQ4
-
 end Rest
 
 section RestNoComp
 
-
-theorem input27_34Rest_of_rest2
-    (h : Input27_34Rest2) : Inputs273b.Input27_34Rest :=
-  input27_34Rest_of_rest (downRowsRest_of_noComp h.1 h.2.1 h.2.2.1 h.2.2.2.1) h.2.2.2.2.1 h.2.2.2.2.2
 
 end RestNoComp
 

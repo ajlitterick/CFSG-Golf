@@ -638,8 +638,6 @@ theorem rho_aCa : rho aCa = 1 := by
   rw [this, Equiv.symm_apply_apply]
   rfl
 
-theorem aCa_ne_one :
-    aCa ≠ 1 := fun h => a_ne_one (congrArg Subtype.val h)
 
 theorem orderOf_aCa :
     orderOf aCa = 2 := by

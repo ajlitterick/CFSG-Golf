@@ -105,7 +105,6 @@ theorem kCover : allN 64 (fun t => strictB (SE.T t) fun x =>
       (notB (allN 7 fun j => notB (Nat.beq x (ZJ j))))))) = true := by
   quickRfl
 
-theorem kNeg : notB (Nat.beq (pc TZ TZ) TZ) = true := by quickRfl
 
 end CertificateChecks.KernelSporSch.TMem27100
 

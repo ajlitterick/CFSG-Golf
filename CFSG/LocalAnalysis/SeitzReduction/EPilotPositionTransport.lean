@@ -229,17 +229,6 @@ theorem exists_conj_le_inf_sup_of_complements_of_odd {Q M M' J X : Subgroup G}
   exists_conj_le_inf_sup_of_complements hQ hMN hM hM' hMM' hJ hXJ
     fun h => (Nat.not_even_iff_odd.2 hX) (even_iff_two_dvd.2 h)
 
-theorem exists_conj_le_inf_sup_of_two_decompositions {p : ℕ} [Fact p.Prime]
-    {Q₁ M₁ Q₂ M₂ J X : Subgroup G} (hQ₁ : IsPGroup p Q₁) (hQ₂ : IsPGroup p Q₂)
-    (hM₁ : ∀ N : Subgroup M₁, N.Normal → IsPGroup p N → N = ⊥)
-    (hM₂ : ∀ N : Subgroup M₂, N.Normal → IsPGroup p N → N = ⊥)
-    (hM₁N : M₁ ≤ normalizer (Q₁ : Set G)) (hM₂N : M₂ ≤ normalizer (Q₂ : Set G))
-    (hQM₁ : Disjoint Q₁ M₁) (hQM₂ : Disjoint Q₂ M₂) (hΛ : Q₁ ⊔ M₁ = Q₂ ⊔ M₂) (hJ : J ≤ M₁)
-    (hXJ : X ≤ J) (hX : ¬ p ∣ Nat.card X) :
-    Q₁ = Q₂ ∧ ∃ q₀ ∈ Q₁, X ≤ ((J ⊔ Q₁) ⊓ M₂).map (MulAut.conj q₀).toMonoidHom := by
-  have hQ := eq_of_sup_eq_of_forall_normal_isPGroup hQ₁ hQ₂ hM₁ hM₂ hM₁N hM₂N hΛ
-  subst hQ
-  exact ⟨rfl, exists_conj_le_inf_sup_of_complements hQ₁ hM₁N hQM₁ hQM₂ hΛ hJ hXJ hX⟩
 
 end Transport
 

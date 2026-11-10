@@ -37,11 +37,6 @@ theorem swapSU_mul_self : (swapSU : GL (Fin 3) K) * swapSU = 1 := by
   apply Units.ext
   rw [Units.val_mul, swapSU, coe_glOfDetOne, swapMat_mul_self, Units.val_one]
 
-omit [Finite K] in
-theorem swapSU_ne_one : (swapSU : GL (Fin 3) K) ≠ 1 := by
-  intro h
-  have := congrArg (fun A : GL (Fin 3) K => (A : Matrix (Fin 3) (Fin 3) K) 0 0) h
-  simp [swapSU, coe_glOfDetOne, swapMat] at this
 
 @[expose] noncomputable def tSwap (n : ℕ) : MulAut (StdMod (Fin 3) K) :=
   natAut (StatedSU 3 (2 ^ n) K) ⟨swapSU, swapSU_mem (by positivity)⟩

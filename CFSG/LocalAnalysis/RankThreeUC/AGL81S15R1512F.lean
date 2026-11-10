@@ -171,11 +171,6 @@ theorem pRank_le_pRank_of_le_comap_at {T : Subgroup X} {Ls : Subgroup (X ⧸ gnC
     (fun a => Subtype.ext (hE.2 a a.2)) hEcard ((toStar T).comp E.subtype) hinj
     (by rintro _ ⟨x, rfl⟩; exact hEle x.2)
 
-theorem three_le_pRank_of_le_comap_at {T : Subgroup X} {Ls : Subgroup (X ⧸ gnC T)} {q : ℕ}
-    (hq : q.Prime) (hC : ¬ q ∣ Nat.card (gnC T))
-    (hle : pElementSubgroup q (⊤ : Subgroup X) ≤ Ls.comap (toStar T))
-    (hX : CFSG.Open.pRank q (⊤ : Subgroup X) = 3) : 3 ≤ CFSG.Open.pRank q Ls := by
-  simpa [hX] using pRank_le_pRank_of_le_comap_at hq hC hle
 
 theorem pElement_le_lift_aux1_at {L C : Subgroup X} [L.Normal] [C.Normal] {q : ℕ} (hq : q.Prime)
     (hC : ¬ q ∣ Nat.card C) {x : X} (hx : x ∈ L ⊔ C) {k : ℕ} (hk : orderOf x = q ^ k) : x ∈ L := by

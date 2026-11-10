@@ -77,15 +77,6 @@ open CFSG.Assembly.RankThreeEven (projSL projSU projSp)
         Nonempty (L ≃* Blueprint.NativeSporadic.McL) ∨
         Nonempty (L ≃* projSL 4 (GaloisField 3 1)) ∨ Nonempty (L ≃* projSU 4 3 1)))
 
-@[expose] def Item4_13 : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G → ∀ L : Subgroup G, IsComponent L →
-    ((∃ (A E : Subgroup G) (c : G), IsTriple413 L A E c ∧ 4 < CFSG.Open.pRank 3 A) ↔
-      ∃ (A E : Subgroup G) (c : G), IsTriple413 L A E c ∧ Alt413 L A E c)
-
-@[expose] def Item4_13_forward : Prop :=
-  ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G → ∀ L : Subgroup G, IsComponent L →
-    ∀ (A E : Subgroup G) (c : G), IsTriple413 L A E c → 4 < CFSG.Open.pRank 3 A →
-      Alt413 L A E c
 
 @[expose] def Item4_29 : Prop :=
   ∀ (G : Type) [Group G] [Finite G], SectionFourHyp G → aschbacherSolvableCore 3 G = ⊥ →

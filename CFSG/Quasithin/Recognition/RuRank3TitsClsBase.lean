@@ -45,8 +45,6 @@ open scoped MatrixGroups
 
 attribute [local instance] fact_prime_five'
 
-@[expose] def titsK0Levels : Array Level :=
-  rawLevels 1755 titsK0Strong (ruBaseArr 1755 [0, 12, 1])
 
 theorem mem_titsD_iff_inTitsD {a : Array ℕ}
     {g : Equiv.Perm (Fin 1755)} (hg : Rep 1755 a g) :

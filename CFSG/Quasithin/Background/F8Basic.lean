@@ -453,20 +453,10 @@ theorem sq_mem_conjClosure (h : HypF81 T V L V₁ H) : ∀ u ∈ conjClosure V H
     rw [inv_pow]
     exact V₁.inv_mem ih
 
-theorem F82_1 (h : HypF81 T V L V₁ H) :
-    conjClosure V H ≤ pCoreOf 2 H ∧
-      (∀ u ∈ conjClosure V H, ∀ q ∈ pCoreOf 2 H, u * q * u⁻¹ * q⁻¹ ∈ V₁) ∧
-      ∀ u ∈ conjClosure V H, u ^ 2 ∈ V₁ :=
-  ⟨h.conjClosure_V_le_pCoreOf, h.commutator_conjClosure_le, h.sq_mem_conjClosure⟩
 
 theorem isPGroup_conjClosure (h : HypF81 T V L V₁ H) : IsPGroup 2 (conjClosure V H) :=
   (pCoreOf_isPGroup 2 H).to_le h.conjClosure_V_le_pCoreOf
 
-theorem F82_2 (h : HypF81 T V L V₁ H) :
-    (frattini (conjClosure V H)).map (conjClosure V H).subtype ≤ V₁ :=
-  frattini_map_le_of_forall h.isPGroup_conjClosure
-    (fun x hx y hy => h.commutator_conjClosure_le x hx y (h.conjClosure_V_le_pCoreOf hy))
-    h.sq_mem_conjClosure
 
 theorem F82_3 (h : HypF81 T V L V₁ H) : pCoreOf 2 H = centralizerMod V₁ H (conjClosure V H) := by
   apply le_antisymm
@@ -482,85 +472,6 @@ theorem F82_3 (h : HypF81 T V L V₁ H) : pCoreOf 2 H = centralizerMod V₁ H (c
       le_coreIn (centralizerMod_le_left _ _ _) hHC (centralizerMod_anti_right H (le_conjClosure V H))
     exact hle.trans h.ker_le
 
-theorem F82_1_reduced (h : HypF81 T V L V₁ H) {D : Subgroup G} (hDH : D ≤ H)
-    (hHD : H ≤ Subgroup.normalizer (D : Set G))
-    (hD : ∀ d ∈ D, ∃ k : ℕ, d ^ 2 ^ k ∈ centralizerMod V₁ H (conjClosure V H)) :
-    D ≤ centralizerMod V₁ H (conjClosure V H) := by
-  have htop : ∀ K : Subgroup G, K ≤ Subgroup.normalizer ((⊤ : Subgroup G) : Set G) :=
-    fun K x _ => by rw [Subgroup.mem_normalizer_iff]; intro y; simp
-  have hHC : H ≤ Subgroup.normalizer (centralizerMod V₁ H (conjClosure V H) : Set G) :=
-    le_normalizer_centralizerMod h.H_normalizes_V₁ Subgroup.le_normalizer
-      (le_normalizer_conjClosure V H)
-  have hXH : L₁Of L V₁ ⊔ T ≤ H := h.L₁T_le_H
-  have hXV : L₁Of L V₁ ⊔ T ≤ Subgroup.normalizer (V : Set G) := h.L₁T_normalizes_V
-  have hXV₁ : L₁Of L V₁ ⊔ T ≤ Subgroup.normalizer (V₁ : Set G) := hXH.trans h.H_normalizes_V₁
-  have hW : V ≤ conjClosure (V ⊓ centralizerMod V₁ ⊤ T) (L₁Of L V₁ ⊔ T) ⊔ V₁ := by
-    have hWV : conjClosure (V ⊓ centralizerMod V₁ ⊤ T) (L₁Of L V₁ ⊔ T) ⊔ V₁ ≤ V :=
-      sup_le (conjClosure_le fun x hx z hz =>
-        (Subgroup.mem_normalizer_iff.mp (hXV hx) z).mp hz.1) h.V₁_le_V
-    have hXW : L₁Of L V₁ ⊔ T ≤ Subgroup.normalizer
-        ((conjClosure (V ⊓ centralizerMod V₁ ⊤ T) (L₁Of L V₁ ⊔ T) ⊔ V₁ : Subgroup G) : Set G) :=
-      (le_inf (le_normalizer_conjClosure _ _) hXV₁).trans
-        (Subgroup.inf_normalizer_le_normalizer_sup _ _)
-    by_cases hEq : V₁ = V
-    · exact hEq ▸ le_sup_right
-    · have hlt := lt_of_le_of_ne h.V₁_le_V hEq
-      obtain ⟨z, hzV, hzV₁, hz⟩ := exists_fixed_mod h.sylow.2.1 h.V_le_T hlt h.T_normalizes_V
-        h.T_normalizes_V₁
-      have hzZ : z ∈ V ⊓ centralizerMod V₁ ⊤ T :=
-        ⟨hzV, Subgroup.mem_top _, h.T_normalizes_V₁ (h.V_le_T hzV), fun t ht => by
-          have := V₁.inv_mem (hz t ht)
-          have e : (t * z * t⁻¹ * z⁻¹)⁻¹ = z * t * z⁻¹ * t⁻¹ := by group
-          rwa [e] at this⟩
-      rcases h.irred _ le_sup_right hWV hXW with hEq' | hEq'
-      · exact absurd (hEq' ▸ Subgroup.mem_sup_left (le_conjClosure _ _ hzZ)) hzV₁
-      · exact hEq'.symm.le
-  have hDsyl : IsSylowTwoOf (T ⊓ D) D :=
-    isSylowTwoOf_inf_normal h.sylow_H hDH (h.T_le_H.trans hHD)
-  have hDle := isSylowTwoOf_le_sup_of_two_power hDsyl (hDH.trans hHC) hD
-  have hZU : V ⊓ centralizerMod V₁ ⊤ T ≤ conjClosure V H := inf_le_left.trans (le_conjClosure V H)
-  have hC'C : centralizerMod V₁ H (conjClosure V H) ≤ centralizerMod V₁ ⊤ (V ⊓ centralizerMod V₁ ⊤ T) :=
-    (centralizerMod_anti_right H hZU).trans (centralizerMod_mono_left _ le_top)
-  have hC'T : T ⊓ D ≤ centralizerMod V₁ ⊤ (V ⊓ centralizerMod V₁ ⊤ T) := by
-    rintro t ⟨ht, -⟩
-    refine ⟨Subgroup.mem_top _, h.T_normalizes_V₁ ht, fun z hz => ?_⟩
-    have := V₁.inv_mem (hz.2.2.2 t ht)
-    have e : (z * t * z⁻¹ * t⁻¹)⁻¹ = t * z * t⁻¹ * z⁻¹ := by group
-    rwa [e] at this
-  have hDC' : D ≤ centralizerMod V₁ ⊤ (V ⊓ centralizerMod V₁ ⊤ T) :=
-    hDle.trans (sup_le hC'C hC'T)
-  have hSgen : conjClosure (V ⊓ centralizerMod V₁ ⊤ T) (L₁Of L V₁ ⊔ T) ≤
-      centralizerMod V₁ ⊤ D := by
-    refine conjClosure_le fun x hx z hz => ?_
-    refine ⟨Subgroup.mem_top _, ?_, fun d hd => ?_⟩
-    · exact Subgroup.mul_mem _ (Subgroup.mul_mem _ (hXV₁ hx) hz.2.2.1)
-        (Subgroup.inv_mem _ (hXV₁ hx))
-    · have hd' : x⁻¹ * d * x⁻¹⁻¹ ∈ D :=
-        (Subgroup.mem_normalizer_iff.mp (hHD (H.inv_mem (hXH hx))) d).mp hd
-      have h1 := (hDC' hd').2.2 z hz
-      have h2 : x * ((x⁻¹ * d * x⁻¹⁻¹) * z * (x⁻¹ * d * x⁻¹⁻¹)⁻¹ * z⁻¹) * x⁻¹ ∈ V₁ :=
-        (Subgroup.mem_normalizer_iff.mp (hXV₁ hx) _).mp h1
-      have h3 := V₁.inv_mem h2
-      have e : (x * ((x⁻¹ * d * x⁻¹⁻¹) * z * (x⁻¹ * d * x⁻¹⁻¹)⁻¹ * z⁻¹) * x⁻¹)⁻¹ =
-          (x * z * x⁻¹) * d * (x * z * x⁻¹)⁻¹ * d⁻¹ := by group
-      rwa [e] at h3
-  have hV₁S : V₁ ≤ centralizerMod V₁ ⊤ D := by
-    intro v hv
-    refine ⟨Subgroup.mem_top _, Subgroup.le_normalizer hv, fun d hd => ?_⟩
-    have h1 : d * v⁻¹ * d⁻¹ ∈ V₁ :=
-      (Subgroup.mem_normalizer_iff.mp (h.H_normalizes_V₁ (hDH hd)) v⁻¹).mp (V₁.inv_mem hv)
-    have e : v * d * v⁻¹ * d⁻¹ = v * (d * v⁻¹ * d⁻¹) := by group
-    rw [e]; exact V₁.mul_mem hv h1
-  have hVS : V ≤ centralizerMod V₁ ⊤ D := hW.trans (sup_le hSgen hV₁S)
-  have hHS : H ≤ Subgroup.normalizer (centralizerMod V₁ ⊤ D : Set G) :=
-    le_normalizer_centralizerMod h.H_normalizes_V₁ (htop H) hHD
-  have hUS : conjClosure V H ≤ centralizerMod V₁ ⊤ D :=
-    conjClosure_le fun x hx v hv => (Subgroup.mem_normalizer_iff.mp (hHS hx) v).mp (hVS hv)
-  intro d hd
-  refine ⟨hDH hd, h.H_normalizes_V₁ (hDH hd), fun u hu => ?_⟩
-  have := V₁.inv_mem ((hUS hu).2.2 d hd)
-  have e : (u * d * u⁻¹ * d⁻¹)⁻¹ = d * u * d⁻¹ * u⁻¹ := by group
-  rwa [e] at this
 
 end F82
 

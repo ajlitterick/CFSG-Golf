@@ -84,23 +84,6 @@ theorem oTwoRes_sup_le {A Q : Subgroup G} (hQ : IsPGroup 2 Q)
     exact A.pow_mem hqm c
   exact A.mul_mem ha hqA
 
-theorem oTwoRes_L1_sup {Q : Subgroup G} (hQT : Q ≤ T) : oTwoRes (S.L1 ⊔ Q) = S.L1 := by
-  apply le_antisymm
-  · exact oTwoRes_sup_le (S.isPGroup_T.to_le hQT) (hQT.trans S.T_le_normalizer_L1)
-  · show oTwoRes (L ⊓ Subgroup.normalizer (S.V1 : Set G)) ≤ oTwoRes (S.L1 ⊔ Q)
-    rw [oTwoRes, Subgroup.closure_le]
-    rintro y ⟨hy, m, hm, hym⟩
-    refine Subgroup.subset_closure ⟨le_sup_left (a := S.L1) ?_, m, hm, hym⟩
-    exact Subgroup.subset_closure ⟨hy, m, hm, hym⟩
-
-theorem mem_normalizer_L1_of_mem_normalizer_sup {H : Subgroup G} (hH : H ∈ S.Hz) {x : G}
-    (hx : x ∈ Subgroup.normalizer ((S.L1 ⊔ pCoreOf 2 H : Subgroup G) : Set G)) :
-    x ∈ Subgroup.normalizer (S.L1 : Set G) := by
-  have hQT : pCoreOf 2 H ≤ T :=
-    pCoreOf_two_le_of_isSylowTwoOf (isSylowTwoOf_of_le S.h13.sylow (le_sup_right.trans hH.1.1))
-  have := le_normalizer_oTwoRes_of_le_normalizer (Subgroup.zpowers_le.mpr hx)
-    (Subgroup.mem_zpowers x)
-  rwa [S.oTwoRes_L1_sup hQT] at this
 
 theorem normalizer_L1_mem_Hz {H : Subgroup G} (hH : H ∈ S.Hz)
     (hM : ¬ H ⊓ Subgroup.normalizer (S.L1 : Set G) ≤ Subgroup.normalizer (L : Set G)) :

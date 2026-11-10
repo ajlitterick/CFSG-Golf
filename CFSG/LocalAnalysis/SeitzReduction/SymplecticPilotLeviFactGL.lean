@@ -329,28 +329,6 @@ theorem modelToG_rootTorusSp_le_stringTorusSp {k : Fin n} {B : Finset (Fin n)} (
     modelToG e (rootTorusSp K k) ≤ modelToG e (stringTorusSp K B) :=
   modelToG_mono e (rootTorusSp_le_stringTorusSp hk)
 
-theorem stringCore_le_neighbourCore {k : Fin n} {B : Finset (Fin n)} (hk : k ∉ B) :
-    stringCore e B ≤ neighbourCore e k :=
-  CFSG.SeitzReduction.F4Pilot.centralizerPerfectCore_anti
-    (modelToG_rootTorusSp_le_stringTorusSp e hk)
-
-theorem modelToG_siegelBlock_le_stringCore {B : Finset (Fin n)}
-    (hperf : ⁅blockSpecialLinear (K := K) B, blockSpecialLinear (K := K) B⁆ =
-      blockSpecialLinear B) :
-    modelToG e (siegelBlock K B) ≤ stringCore e B := by
-  refine UnitaryPilot.modelToG_le_centralizerPerfectCore e ?_ (commutator_siegelBlock_eq hperf)
-  have hset : ((stringTorusSp K B : Subgroup (StatedSp n K)) : Set (StatedSp n K)) =
-      diagSp K n '' (stringTorusParam K B : Set (Fin n → Kˣ)) := Subgroup.coe_map _ _
-  change siegelBlock K B ≤ centralizer ((stringTorusSp K B : Subgroup (StatedSp n K)) :
-    Set (StatedSp n K))
-  rw [hset]
-  exact siegelBlock_le_centralizer_of_const fun s hs => hs
-
-theorem stringCore_eq [Finite G] {k : Fin n} {B : Finset (Fin n)} (hk : k ∉ B) :
-    stringCore e B = perfectCore (neighbourCore e k ⊓
-      centralizer (modelToG e (stringTorusSp K B) : Set G)) :=
-  UnitaryPilot.centralizerPerfectCore_modelToG_eq_perfectCore_inf e
-    (modelToG_rootTorusSp_le_stringTorusSp e hk)
 
 end Cores
 
@@ -403,129 +381,16 @@ theorem pieceCore_string_eq_map_of_neighbourCore (hK : 4 ≤ Nat.card K) {a b : 
   exact stringCore_eq_map_of_conjDiagSp_of_four_le e ι hK (subset_compl_singleton_of_notMem hk) hB
     (modelToG_rootTorusSp_le_stringTorusSp e hk) Φ hker hrange hΦ
 
-theorem nonempty_mulEquiv_stringCore_of_conjDiagSp [CharP F 2] (hK : 4 ≤ Nat.card K)
-    {N B : Finset (Fin n)} (hBN : B ⊆ N) (hB : 2 ≤ B.card) {X : Subgroup G}
-    (hXB : X ≤ modelToG e (stringTorusSp K B))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦ : TorusEquivariant e ι N (stringTorusParam K B) Φ) :
-    Nonempty (Matrix.SpecialLinearGroup (Fin B.card) F ≃* stringCore e B) := by
-  set H := (siegelBlock F B).subgroupOf (spBlock F N)
-  have hinj : Function.Injective Φ := by
-    rw [← MonoidHom.ker_eq_bot_iff, eq_bot_iff]
-    exact hker.trans (center_spBlock_eq_bot N).le
-  have hrangeH : (Φ.comp H.subtype).range = stringCore e B := by
-    rw [MonoidHom.range_comp, range_subtype,
-      stringCore_eq_map_of_conjDiagSp_of_four_le e ι hK hBN hB hXB Φ hker hrange hΦ]
-  have e₁ : H ≃* stringCore e B :=
-    (MonoidHom.ofInjective (f := Φ.comp H.subtype) (hinj.comp H.subtype_injective)).trans
-      (MulEquiv.subgroupCongr hrangeH)
-  have e₂ : siegelBlock F B ≃* H :=
-    (Subgroup.subgroupOfEquivOfLe ((siegelBlock_le_spBlock B).trans (spBlock_mono hBN))).symm
-  exact ⟨(siegelBlockEquiv B).trans (e₂.trans e₁)⟩
 
 end Piece
 
 section Disjoint
 
-theorem map_subgroupOf_le_centralizer_of_disjoint {G : Type*} [Group G] {F : Type} [Field F]
-    {n : ℕ} {N I J : Finset (Fin n)} (hIJ : Disjoint I J) {H₁ H₂ : Subgroup (StatedSp n F)}
-    (h₁ : H₁ ≤ spBlock F I) (h₂ : H₂ ≤ spBlock F J) (Φ : spBlock F N →* G) :
-    (H₁.subgroupOf (spBlock F N)).map Φ ≤
-      centralizer (((H₂.subgroupOf (spBlock F N)).map Φ : Subgroup G) : Set G) := by
-  rintro _ ⟨x, hx, rfl⟩
-  rw [mem_centralizer_iff]
-  rintro _ ⟨y, hy, rfl⟩
-  have h : y * x = x * y := Subtype.ext (commute_of_mem_spBlock_of_disjoint hIJ
-    (h₁ (mem_subgroupOf.1 hx)) (h₂ (mem_subgroupOf.1 hy))).eq.symm
-  rw [← map_mul, ← map_mul, h]
-
-variable {G : Type*} [Group G] [Finite G] {L : Subgroup G} {K : Type} [Field K] {F : Type}
-  [Field F] [Finite F] {n : ℕ} (e : L ≃* StatedSp n K) (ι : K →+* F)
-
-theorem stringCore_le_centralizer_planeCore_of_disjoint (hK : 4 ≤ Nat.card K)
-    {N B I : Finset (Fin n)} (hBN : B ⊆ N) (hIN : I ⊆ N) (hBI : Disjoint B I) (hB : 2 ≤ B.card)
-    {X : Subgroup G} (hXB : X ≤ modelToG e (stringTorusSp K B))
-    (hXI : X ≤ modelToG e (planeTorusSp K I))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦB : TorusEquivariant e ι N (stringTorusParam K B) Φ)
-    (hΦI : TorusEquivariant e ι N (planeTorusParam K I) Φ) :
-    stringCore e B ≤ centralizer (planeCore e I : Set G) := by
-  rw [stringCore_eq_map_of_conjDiagSp_of_four_le e ι hK hBN hB hXB Φ hker hrange hΦB,
-    planeCore_eq_map_of_conjDiagSp_of_four_le e ι hK hIN hXI Φ hker hrange hΦI]
-  exact map_subgroupOf_le_centralizer_of_disjoint hBI (siegelBlock_le_spBlock B) le_rfl Φ
-
-theorem stringCore_le_centralizer_stringCore_of_disjoint (hK : 4 ≤ Nat.card K)
-    {N B B' : Finset (Fin n)} (hBN : B ⊆ N) (hB'N : B' ⊆ N) (hBB' : Disjoint B B')
-    (hB : 2 ≤ B.card) (hB' : 2 ≤ B'.card)
-    {X : Subgroup G} (hXB : X ≤ modelToG e (stringTorusSp K B))
-    (hXB' : X ≤ modelToG e (stringTorusSp K B'))
-    (Φ : spBlock F N →* G) (hker : Φ.ker ≤ center (spBlock F N))
-    (hrange : Φ.range = centralizerPerfectCore X)
-    (hΦB : TorusEquivariant e ι N (stringTorusParam K B) Φ)
-    (hΦB' : TorusEquivariant e ι N (stringTorusParam K B') Φ) :
-    stringCore e B ≤ centralizer (stringCore e B' : Set G) := by
-  rw [stringCore_eq_map_of_conjDiagSp_of_four_le e ι hK hBN hB hXB Φ hker hrange hΦB,
-    stringCore_eq_map_of_conjDiagSp_of_four_le e ι hK hB'N hB' hXB' Φ hker hrange hΦB']
-  exact map_subgroupOf_le_centralizer_of_disjoint hBB' (siegelBlock_le_spBlock B)
-    (siegelBlock_le_spBlock B') Φ
 
 end Disjoint
 
 section Transport
 
-theorem image_sumMap_planeCoords {n : ℕ} (π : Equiv.Perm (Fin n)) (I : Finset (Fin n)) :
-    Sum.map π π '' planeCoords I = planeCoords (I.map π.toEmbedding) := by
-  ext a
-  constructor
-  · rintro ⟨x, hx, rfl⟩
-    rcases x with i | i <;>
-      exact Finset.mem_map_of_mem π.toEmbedding (show i ∈ I from hx)
-  · intro ha
-    obtain ⟨i, hi, hia⟩ := Finset.mem_map.1 (show planeOf a ∈ I.map π.toEmbedding from ha)
-    rcases a with j | j
-    · exact ⟨Sum.inl i, hi, by
-        simp only [Sum.map_inl, Equiv.coe_toEmbedding] at hia ⊢
-        rw [hia, planeOf_inl]⟩
-    · exact ⟨Sum.inr i, hi, by
-        simp only [Sum.map_inr, Equiv.coe_toEmbedding] at hia ⊢
-        rw [hia, planeOf_inr]⟩
-
-theorem map_conj_permSp_spBlock {F : Type} [Field F] {n : ℕ} (π : Equiv.Perm (Fin n))
-    (I : Finset (Fin n)) :
-    (spBlock F I).map (MulAut.conj (permSp F π)).toMonoidHom = spBlock F (I.map π.toEmbedding) := by
-  rw [spBlock, map_conj_permSp_suppGroup, image_sumMap_planeCoords, spBlock]
-
-theorem map_permParam_stringTorusParam {K : Type} [Field K] {n : ℕ} (π : Equiv.Perm (Fin n))
-    (B : Finset (Fin n)) :
-    (stringTorusParam K B).map (permParam K π) = stringTorusParam K (B.map π.toEmbedding) := by
-  ext t
-  rw [mem_map, mem_stringTorusParam]
-  constructor
-  · rintro ⟨s, hs, rfl⟩ i hi j hj
-    obtain ⟨i', hi', rfl⟩ := Finset.mem_map.1 hi
-    obtain ⟨j', hj', rfl⟩ := Finset.mem_map.1 hj
-    simp only [coe_permParam, Function.comp_apply, Equiv.coe_toEmbedding, Equiv.symm_apply_apply]
-    exact hs i' hi' j' hj'
-  · intro ht
-    refine ⟨t ∘ π, fun i hi j hj => ht (π i) (Finset.mem_map_of_mem _ hi) (π j)
-      (Finset.mem_map_of_mem _ hj), ?_⟩
-    funext j
-    simp [coe_permParam]
-
-variable {G : Type*} [Group G] {L : Subgroup G} {K : Type} [Field K] {n : ℕ}
-  (e : L ≃* StatedSp n K)
-
-theorem modelToG_spBlock_map_eq (π : Equiv.Perm (Fin n)) (I : Finset (Fin n)) :
-    modelToG e (spBlock K (I.map π.toEmbedding)) =
-      (modelToG e (spBlock K I)).map (MulAut.conj ((e.symm (permSp K π) : L) : G)).toMonoidHom := by
-  rw [← map_conj_permSp_spBlock, UnitaryPilot.modelToG_map_conj]
-
-theorem stringCore_map_eq [Finite G] (π : Equiv.Perm (Fin n)) (B : Finset (Fin n)) :
-    stringCore e (B.map π.toEmbedding) =
-      (stringCore e B).map (MulAut.conj ((e.symm (permSp K π) : L) : G)).toMonoidHom := by
-  rw [stringCore, stringCore, ← map_permParam_stringTorusParam, torusCore_map_permParam]
 
 end Transport
 

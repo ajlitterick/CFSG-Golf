@@ -19,7 +19,6 @@ open scoped commutatorElement MatrixGroups
 
 variable {r : ℕ} {K : Type} [Field K]
 
-theorem projH_eq : projH (StatedSp r K) = proj r K := rfl
 
 @[expose] def semiLift (D : gsp r K) (σ : K ≃+* K) : StatedSp r K →* StatedSp r K :=
   (conjSp r K D).toMonoidHom.comp (fieldSp r K σ).toMonoidHom

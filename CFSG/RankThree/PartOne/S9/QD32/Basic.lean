@@ -133,8 +133,6 @@ theorem aut_qd32Z (α : MulAut QD32) : α qd32Z = qd32Z := by
     have h2 := inv_mem h
     rwa [mul_inv_rev, inv_inv] at h2
 
-theorem mem_trivialOnCenterQuotient {S : Type*} [Group S] {α : MulAut S} :
-    α ∈ trivialOnCenterQuotient S ↔ ∀ s, s⁻¹ * α s ∈ center S := Iff.rfl
 
 theorem ker_conj_eq_center (S : Type*) [Group S] :
     (MulAut.conj : S →* MulAut S).ker = center S := by

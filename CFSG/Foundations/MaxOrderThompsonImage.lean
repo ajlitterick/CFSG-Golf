@@ -24,12 +24,6 @@ private theorem map_map_subtype_eq (f : G →* H) (S : Subgroup G)
   ⟨MulEquiv.ofBijective (f.subgroupMap S)
     ⟨fun _ _ h => hf (congrArg Subtype.val h), f.subgroupMap_surjective S⟩, by ext; rfl⟩
 
-theorem map_ambientOrderThompson_of_injective (f : G →* H) (S : Subgroup G)
-    (hf : Function.Injective (f.comp S.subtype)) :
-    (ambientOrderThompson S).map f = ambientOrderThompson (S.map f) := by
-  obtain ⟨e, he⟩ := map_map_subtype_eq f S hf
-  unfold ambientOrderThompson
-  rw [map_map, he, ← map_map, map_orderThompson e]
 
 theorem map_ambientOrderZJ_of_injective (f : G →* H) (S : Subgroup G)
     (hf : Function.Injective (f.comp S.subtype)) :

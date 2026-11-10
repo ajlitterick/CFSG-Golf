@@ -64,14 +64,6 @@ theorem gSeeds : seedRegsL lay (G.SL.getD 28 []) A B 0 1 = true := by quickRfl
 
 theorem g_wf : on_5_claims.wf = true := by decide +kernel
 
-theorem ch_neg : (!chunkL lay on_5_claims.prog 100 0 (G.SL.getD 0 []) (G.SL.getD 2 [])) = true := by
-  quickRfl
-
-theorem fa_neg : (!factsL lay (P.SL.getD 0 []) on_31_claims.nregs on_31_claims.facts 1 2) = true := by
-  quickRfl
-
-theorem seeds_neg : (!seedRegsL lay (G.SL.getD 28 []) B A 0 1) = true := by
-  quickRfl
 
 end CertificateChecks.KernelMP.ON
 

@@ -86,9 +86,6 @@ variable (G col)
       (exists_line_map_iff f.2 (b : V) a))
     exact (Equiv.injective _).ne_iff
 
-theorem pointAut_apply (f : partAut G col) (x : {v : V // col v = false}) :
-    (pointAut G col f x : V) = (f : G ≃g G) x :=
-  rfl
 
 end Parts
 

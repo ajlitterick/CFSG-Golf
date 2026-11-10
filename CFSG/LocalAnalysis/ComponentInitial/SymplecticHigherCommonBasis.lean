@@ -14,9 +14,6 @@ universe u
 
 variable {K : Type*} [Field K]
 
-theorem flagOrder_succ_inl_zero (m : ℕ) : (flagOrder (m + 1) (Sum.inl 0) : ℕ) = 0 := by
-  rw [flagOrder_inl]
-  rfl
 
 theorem flagOrder_succ_inr_zero (m : ℕ) : (flagOrder (m + 1) (Sum.inr 0) : ℕ) = 2 * m + 1 := by
   rw [flagOrder_inr]

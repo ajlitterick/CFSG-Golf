@@ -302,22 +302,6 @@ theorem isPointIrreducible_range_of_words
       rw [ofFn_append_pairs, wordElt, List.map_append, List.prod_append, ← wordElt, ← wordElt]
       simp only [Pi.zero_apply, wordElt_ofFn_zero, one_mul]
 
-theorem isPointConstructible_range_of_cover [IsAlgClosed k] {A : Type} [CommRing A]
-    [Algebra k A] [Algebra.FiniteType k A] (F : adjointGroup τ k → (A →ₐ[k] k)) {J : Type}
-    [Finite J] (D : J → Type) [∀ j, CommRing (D j)] [∀ j, Algebra k (D j)]
-    [∀ j, Algebra.FiniteType k (D j)] (co : ∀ j, A →ₐ[k] D j)
-    (hco : ∀ j (z : D j →ₐ[k] k), ∃ g, z.comp (co j) = F g)
-    (hcov : ∀ g, ∃ j, ∃ z : D j →ₐ[k] k, z.comp (co j) = F g) :
-    IsPointConstructible k (Set.range F) := by
-  have h := isPointConstructible_iUnion_range D co
-  convert h using 1
-  ext y
-  simp only [Set.mem_range, Set.mem_iUnion]
-  constructor
-  · rintro ⟨g, rfl⟩
-    exact hcov g
-  · rintro ⟨j, z, rfl⟩
-    exact (hco j z).imp fun g hg => hg.symm
 
 variable (τ k) in
 @[expose] def groupPoints : Set (GLCoord k (Label τ) →ₐ[k] k) :=

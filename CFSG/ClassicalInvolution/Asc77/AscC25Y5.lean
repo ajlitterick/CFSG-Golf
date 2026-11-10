@@ -42,35 +42,6 @@ theorem c25_8_one (hyp : Hyp25 p f Ω K K' W S R R' z t u₁ u₂) {a : G} (ha2 
   exact exists_centralizer_conj_of_member hyp ha2 hzY hK D hD1 hD4 hM hMb
 
 
-theorem exists_exceptional (hyp : Hyp25 p f Ω K K' W S R R' z t u₁ u₂) {a : G}
-    (ha2 : a * a = 1) (ha1 : a ≠ 1) (haz : a ≠ z)
-    (haA : a ∈ (S : Subgroup G) ⊓ Subgroup.centralizer ((R ⊔ R' : Subgroup G) : Set G))
-    (hconj : ∀ s ∈ (S : Subgroup G), s * a * s⁻¹ = a ∨ s * a * s⁻¹ = a * z)
-    (hA0 : ∀ b ∈ (S : Subgroup G) ⊓ Subgroup.centralizer ((R ⊔ R' : Subgroup G) : Set G),
-      b = 1 ∨ b = a ∨ b = z ∨ b = a * z)
-    (D : LieSystemData p f (↥(exactLayer Ω a) ⧸ classicalInvolutionOddCore ↥(exactLayer Ω a))
-      (oddQuotientFamily (exactPair Ω a)))
-    (hD1 : D.card = 1) (hD4 : ∀ i, D.tag i ≠ .G2 ∧ D.tag i ≠ .trialityD4) :
-    ∃ (w : G) (hwC : w * z * w⁻¹ ∈ Subgroup.centralizer ({a} : Set G)),
-      (∀ h ∈ Subgroup.centralizer ({a} : Set G), h * z * h⁻¹ ≠ w * z * w⁻¹) ∧
-      ∀ J ∈ oddQuotientFamily (exactPair Ω a),
-        ∀ y ∈ J, y * y * y * y = 1 → y * y ≠ 1 →
-          layerAut (exactLayer Ω a)
-            (conjSub_exactLayer hyp.std.setting.stand.hyp.conjInvariant hwC) y ≠ y := by
-  classical
-  have hcent := Subgroup.mem_centralizer_iff.mp haA.2
-  have haR : ∀ x ∈ R, a * x = x * a := fun x hx => (hcent x (Subgroup.mem_sup_left hx)).symm
-  have haR' : ∀ x ∈ R', a * x = x * a := fun x hx => (hcent x (Subgroup.mem_sup_right hx)).symm
-  obtain ⟨hzY, -, -, hK₂, -, -⟩ := C25X.layer_a_frame hyp ha2 ha1 haR haR'
-  have hnGF := not_goodFusion hyp ha2 ha1 haz haA hconj hA0
-  unfold GoodFusion at hnGF
-  push Not at hnGF
-  obtain ⟨w, hwC, hw⟩ := hnGF
-  refine ⟨w, hwC, hw, ?_⟩
-  intro J hJ y hyJ hy4 hy2 hfix
-  obtain ⟨h, hhC, hh⟩ := c25_8_one hyp ha2 hzY hK₂ D hD1 hD4 hwC hJ hyJ hy4 hy2 hfix
-  exact hw h hhC hh
-
 end Exceptional
 
 end C25Y

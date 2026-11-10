@@ -64,10 +64,6 @@ theorem testBit_mkV (f : ℕ → ℕ) (i : ℕ) :
     rw [e2]
     exact h.2
 
-theorem mkV_lt (f : ℕ → ℕ) : mkV f < 4096 := by
-  have h : mkV f < 2 ^ 12 := Nat.lt_pow_two_of_testBit _ fun i hi => by
-    rw [testBit_mkV, decide_eq_false (by omega), Bool.false_and]
-  exact h
 
 theorem vec6_mkV (f : ℕ → ℕ) (t : Fin 6) : vec6 (mkV f) t = cF4 (f t) := by
   rw [vec6_cv]
@@ -138,15 +134,6 @@ theorem expK_eq (R : ℕ → ℕ) (x : ℕ) : vec6 (expK R x) = fun t : Fin 6 =>
   refine Finset.sum_congr rfl fun b _ => ?_
   rw [fm_spec (cv_lt _ _) (cv_lt _ _), vec6_cv (R b) t, vec6_cv x (piv (vec6 (R b))), pivK_eq]
 
-theorem expK_lt (R : ℕ → ℕ) (x : ℕ) : expK R x < 4096 := by
-  unfold expK
-  rw [Aux.strictN_eq]
-  exact mkV_lt _
-
-theorem imK_lt (f : Bool) (M : ℕ → ℕ) (x : ℕ) : imK f M x < 4096 := by
-  unfold imK
-  rw [Aux.strictN_eq]
-  exact mkV_lt _
 
 theorem hGram_mul_apply (A : Matrix (Fin 6) (Fin 6) F4) (i l : Fin 6) :
     (A * hGram) i l = A i (partner l) := by
@@ -163,7 +150,6 @@ theorem gram_eq (A : Matrix (Fin 6) (Fin 6) F4) (i j : Fin 6) :
   exact Fintype.sum_equiv (Equiv.mk partner partner partner_partner partner_partner) _ _
     (fun l => by simp [partner_partner])
 
-theorem allN_iff' (n : ℕ) (f : ℕ → Bool) : allN n f = true ↔ ∀ i < n, f i = true := allN_iff n f
 
 theorem gram_of_gramOK {M : ℕ → ℕ} (h : gramOK M = true) :
     (Matrix.of fun i : Fin 6 => vec6 (M i)) * hGram *

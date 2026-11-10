@@ -121,33 +121,6 @@ theorem sylowOf_le_of_normal {q : ℕ} {T U Y : Subgroup G} (h : IsSylowOf q T U
   rw [Subgroup.map_subgroupOf_eq_of_le hYU] at hmap
   exact hmap
 
-theorem sylowOf_card_eq {q : ℕ} (hq : q.Prime) {T T' U : Subgroup G} (h : IsSylowOf q T U)
-    (h' : IsSylowOf q T' U) : Nat.card T = Nat.card T' := by
-  have : Fact q.Prime := ⟨hq⟩
-  obtain ⟨P, rfl⟩ := h
-  obtain ⟨P', rfl⟩ := h'
-  have e1 : Nat.card (P : Subgroup U) = q ^ (Nat.card U).factorization q :=
-    Sylow.card_eq_multiplicity P
-  have e2 : Nat.card (P' : Subgroup U) = q ^ (Nat.card U).factorization q :=
-    Sylow.card_eq_multiplicity P'
-  rw [Subgroup.card_map_of_injective U.subtype_injective,
-    Subgroup.card_map_of_injective U.subtype_injective, e1, e2]
-
-theorem sylowOf_card_le {q : ℕ} (hq : q.Prime) {T U Y : Subgroup G} (h : IsSylowOf q T U)
-    (hY : IsPGroup q Y) (hYU : Y ≤ U) : Nat.card Y ≤ Nat.card T := by
-  have : Fact q.Prime := ⟨hq⟩
-  obtain ⟨P, rfl⟩ := h
-  have hY' : IsPGroup q (Y.subgroupOf U) :=
-    hY.of_equiv (Subgroup.subgroupOfEquivOfLe hYU).symm
-  obtain ⟨P', hle⟩ := hY'.exists_le_sylow
-  have e1 : Nat.card (P : Subgroup U) = q ^ (Nat.card U).factorization q :=
-    Sylow.card_eq_multiplicity P
-  have e2 : Nat.card (P' : Subgroup U) = q ^ (Nat.card U).factorization q :=
-    Sylow.card_eq_multiplicity P'
-  have h3 : Nat.card (Y.subgroupOf U) ≤ Nat.card (P' : Subgroup U) := Subgroup.card_le_of_le hle
-  rw [Nat.card_congr (Subgroup.subgroupOfEquivOfLe hYU).toEquiv] at h3
-  rw [Subgroup.card_map_of_injective U.subtype_injective, e1, ← e2]
-  exact h3
 
 theorem isSylowOf_of_card {q : ℕ} (hq : q.Prime) {T T₀ U : Subgroup G} (h : IsSylowOf q T₀ U)
     (hTU : T ≤ U) (hT : IsPGroup q T) (hcard : Nat.card T = Nat.card T₀) : IsSylowOf q T U := by

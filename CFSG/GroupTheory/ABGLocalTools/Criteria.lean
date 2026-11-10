@@ -492,18 +492,5 @@ theorem pConstrainedWithin_criteria_of_solvableRadical_eq (hp : p ≠ 2) (S : Sy
       exact ⟨_, hle hx', rfl⟩
     exact ⟨hER, isPConstrained_of_centralizer_le hQE' hCQ⟩
 
-theorem pConstrainedWithin_criteria_of_qgroup_data (hp : p ≠ 2)
-    (S : Sylow 2 H) (_hZ : IsCyclic (center S))
-    (hrad : solvableRadical H = oddCore H ⊔ (center S).map (S : Subgroup H).subtype)
-    (_hthree : ∀ N : Subgroup H, N.Normal → ¬ N ≤ solvableRadical H → 3 ∣ Nat.card N)
-    (_hcent : 3 < p → ∀ S₁ Q₁ : Subgroup H, S₁ ≤ S → IsPGroup p Q₁ →
-      Q₁ ≤ normalizer (S₁ : Set H) → Q₁ ≤ centralizer (S₁ : Set H))
-    {P : Subgroup H} (hP : IsSylowOf p P (oddCore H))
-    (hSP : (S : Subgroup H) ≤ normalizer (P : Set H)) :
-    (PConstrainedWithin p H (solvableRadical H) ↔
-        IsSylowOf 2 ((center S).map (S : Subgroup H).subtype ⊓ centralizer (P : Set H))
-          (centralizer (P : Set H))) ∧
-      (PConstrainedWithin p H (oddCore H) ↔ Odd (Nat.card (centralizer (P : Set H)))) :=
-  pConstrainedWithin_criteria_of_solvableRadical_eq hp S hrad hP hSP
 
 end CFSG.ABGLocalTools

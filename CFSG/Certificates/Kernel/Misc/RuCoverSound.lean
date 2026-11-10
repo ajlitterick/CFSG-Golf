@@ -153,11 +153,6 @@ theorem etaW_succ (c m : ℕ) :
     etaW c (m + 1) =
       etaW c m ++ cond (c.testBit m) (CFSG.Quasithin.KGC31.RuCover.eW.getD m []) [] := rfl
 
-theorem lettersOK_append {u v : List ℤ} (hu : Native.lettersOK 2 u = true)
-    (hv : Native.lettersOK 2 v = true) :
-    Native.lettersOK 2 (u ++ v) = true := by
-  simp only [Native.lettersOK, List.all_append, Bool.and_eq_true] at hu hv ⊢
-  exact ⟨hu, hv⟩
 
 theorem eq_of_onePoint {J : Type*} [Group J] [Finite G] {N : ℕ} (π : G →* J)
     (hπ : Function.Surjective π) (hcard : Nat.card G ≤ 2 * Nat.card J) {z : G}

@@ -388,7 +388,6 @@ theorem endHom_xPar_without117
   · rw [xPar_of_not_isRoot_without117 F h, RootOperatorFamily'.eltOr_of_not_isRoot_without117 F K h,
       map_one]
 
-variable {D : AdjData τ}
 
 end GroupLayer
 end CFSG.LieType.Steinberg.Adjoint

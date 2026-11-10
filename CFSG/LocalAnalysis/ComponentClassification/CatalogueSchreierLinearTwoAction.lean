@@ -19,9 +19,6 @@ universe u
     ⟨fun _ _ h => Matrix.ProjectiveSpecialLinearGroup.toPGL_injective
       (congrArg Subtype.val h), Matrix.ProjectiveSpecialLinearGroup.toPGL.rangeRestrict_surjective⟩
 
-theorem pslRangeEquiv_coe (K : Type u) [Field K] (x : PSL2 K) :
-    ((pslRangeEquiv K x : Matrix.ProjectiveSpecialLinearGroup.toPGL.range) : PGL2 K) =
-      Matrix.ProjectiveSpecialLinearGroup.toPGL x := rfl
 
 @[expose] def pglAction (K : Type u) [Field K] : PGL2 K →* MulAut (PSL2 K) := by
   let H := (Matrix.ProjectiveSpecialLinearGroup.toPGL (n := Fin 2) (R := K)).range

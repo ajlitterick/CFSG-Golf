@@ -13,10 +13,6 @@ open scoped IsMulCommutative
 
 variable {G : Type} [Group G] [Finite G] {T L I : Subgroup G} {n : ℕ}
 
-omit [Finite G] in
-theorem conjAct_mul_mul_inv {V : Subgroup G} (x y : Subgroup.normalizer (V : Set G)) :
-    conjAct V (x * y * x⁻¹) = conjAct V x * conjAct V y * (conjAct V x)⁻¹ := by
-  rw [map_mul, map_mul, map_inv]
 
 omit [Finite G] in
 theorem autOn_le_normalizer {V X Z : Subgroup G} (hXV : X ≤ Subgroup.normalizer (V : Set G))

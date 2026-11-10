@@ -28,8 +28,6 @@ theorem sixBar_mem (delta : K) (X : sixSubmodule delta) :
   map_add' X Y := Subtype.ext (sixBar_add delta X.val Y.val)
   map_smul' a X := Subtype.ext (sixBar_smul delta a X.val)
 
-theorem sixGammaLinear_val (delta : K) (X : sixSubmodule delta) :
-    (sixGammaLinear delta X).val = sixBar delta X.val := rfl
 
 theorem sixGammaLinear_form (delta : K) (X : sixSubmodule delta) :
     sixForm delta (sixGammaLinear delta X) = sixForm delta X := by
@@ -82,11 +80,6 @@ theorem sixMultiplier_conjugate (delta : K) (g : sixSimilitudes delta) :
     sixBar_smul, sixBar_gram] at h
   exact h
 
-theorem sixConjugateD_square (delta : K) (g : sixSimilitudes delta) :
-    sixConjugateD delta (sixConjugateD delta g) = g := by
-  apply Subtype.ext
-  apply Units.ext
-  exact sixBar_square delta g.val.val
 
 theorem sixGamma_kappa_gamma (delta : K) [Fact (¬ IsSquare delta)] (h2 : (2 : K) ≠ 0)
     (g : sixSimilitudes delta) :

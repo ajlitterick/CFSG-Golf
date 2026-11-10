@@ -50,10 +50,6 @@ theorem excluded433_D_of_four (hv : (LieTypeIndex.D r q).Valid) (hp : p.Prime) (
     Excluded433 (.lie ⟨.D r q, hv⟩) :=
   excluded433_of_hasWitness_four hp hp2 hk h
 
-theorem excluded433_D_of_three (hv : (LieTypeIndex.D r q).Valid) (hp : p.Prime) (hp3 : 3 < p)
-    (hk : 3 ≤ k) (h : HasWitness (TypeDLieIndex.Group ⟨⟨.D r q, hv⟩, by simp⟩) p k) :
-    Excluded433 (.lie ⟨.D r q, hv⟩) :=
-  excluded433_of_hasWitness_three hp hp3 hk h
 
 theorem excluded433_twistedD_of_four (hv : (LieTypeIndex.twistedD r q).Valid) (hp : p.Prime)
     (hp2 : p ≠ 2) (hk : 4 ≤ k)

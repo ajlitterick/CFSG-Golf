@@ -78,8 +78,6 @@ theorem rep_elD {v : ℕ} (hv : v < D.nV) : Rep 22 ((Eqns.ofCD D).elaTab[v]!) (e
 theorem mulc (σ τ : Equiv.Perm (Fin 22)) : CFSG.KC.LQT.P.mul 22 (P.code σ) (P.code τ) = P.code (σ * τ) :=
   P.code_mul (by omega) σ τ
 
-theorem invc (σ : Equiv.Perm (Fin 22)) : CFSG.KC.LQT.P.inv 22 (P.code σ) = P.code σ⁻¹ :=
-  P.code_inv (by omega) σ
 
 theorem beqc (σ τ : Equiv.Perm (Fin 22)) : Nat.beq (P.code σ) (P.code τ) = true ↔ σ = τ :=
   P.beq_code (by omega) σ τ
@@ -88,42 +86,10 @@ theorem beq1 (σ : Equiv.Perm (Fin 22)) :
     Nat.beq (P.code σ) (CFSG.KC.LQT.P.one 22) = true ↔ σ = 1 := by
   rw [P.code_one, beqc]
 
-theorem cjc (a b c : Equiv.Perm (Fin 22)) : cjK (P.code a) (P.code b) (P.code c) = P.code (a * b * c) := by
-  rw [cjK, mulc, mulc]
 
 theorem contains_iff {v : ℕ} {l : List ℕ} : l.contains v = true ↔ v ∈ l := by
   simp
 
-theorem memE (hA : P.code m22gA = cA) (hB : P.code m22gB = cB) (hxw : D.xw.length = 3)
-    (hwl : D.words.length = D.nV) (G : Equiv.Perm (Fin 22)) :
-    CFSG.KC.LQT.S.memL (P.code G) (eltsOf cA cB D) = true ↔ ∃ v < D.nV, elD D v = G := by
-  rw [memL_iff, List.mem_iff_getElem]
-  have hlen : (eltsOf cA cB D).length = D.nV := by rw [eltsOf, List.length_map, hwl]
-  constructor
-  · rintro ⟨v, hv, he⟩
-    rw [hlen] at hv
-    refine ⟨v, hv, P.code_inj (by omega) ?_⟩
-    rw [← codeE hA hB hxw hwl hv, getK_eq, List.getD_eq_getElem?_getD,
-      List.getElem?_eq_getElem (by omega), Option.getD_some, he]
-  · rintro ⟨v, hv, he⟩
-    refine ⟨v, by omega, ?_⟩
-    have := codeE hA hB hxw hwl hv
-    rw [getK_eq, List.getD_eq_getElem?_getD, List.getElem?_eq_getElem (by omega),
-      Option.getD_some] at this
-    rw [this, he]
-
-theorem inS_iff {g : Array ℕ} {G : Equiv.Perm (Fin 22)} (hg : Rep 22 g G) :
-    i22inS (Eqns.ofCD D).elaTab (Eqns.ofCD D).nV g = true ↔ ∃ v < D.nV, elD D v = G := by
-  unfold i22inS
-  rw [Bool.not_eq_true', ← Bool.not_eq_true, allLt_iff]
-  push Not
-  constructor
-  · rintro ⟨v, hv, hne⟩
-    exact ⟨v, hv, CFSG.Monster.B.Co2.eq_of_eqA (rep_elD hv) hg (by simpa using hne)⟩
-  · rintro ⟨v, hv, hveq⟩
-    refine ⟨v, hv, ?_⟩
-    have : eqA 22 (Eqns.ofCD D).elaTab[v]! g = true := (eqA_iff (rep_elD hv) hg).2 hveq
-    simpa using this
 
 theorem posK_map (W : List ℕ) : (posK W).map (fun l => (fo l.1, l.2)) = posW (W.map fo) := by
   simp only [posK, posW, List.map_map, Function.comp_def]
@@ -338,108 +304,6 @@ theorem twHK_sound {cA cB : ℕ} (hA : P.code m22gA = cA) (hB : P.code m22gB = c
         have hr := rep_elD (D := D) hv
         exact (eqA_iff (rep_compA hz hr) (rep_compA hr hz)).2 this
 
-theorem core_iff {cA cB : ℕ} (hA : P.code m22gA = cA) (hB : P.code m22gB = cB) {D : CD}
-    (hxw : D.xw.length = 3) (hwl : D.words.length = D.nV) {g : Array ℕ}
-    {G : Equiv.Perm (Fin 22)} (hg : Rep 22 g G) :
-    i22isCore (Eqns.ofCD D).elaTab (Eqns.ofCD D).nV (wordArrP i22hWord)
-      (invCand 22 (wordArrP i22hWord)) g = true ↔
-    coreK (eltsOf cA cB D) (P.code i22hP) (P.code i22hP⁻¹) (P.code G) = true := by
-  have hh : Rep 22 (wordArrP i22hWord) i22hP := rep_i22h
-  have hhi := Perm.rep_invCand hh
-  unfold i22isCore coreK i22cj
-  rw [allBs_cons, allBs_cons, allBs_cons, CFSG.KC.LQT.BW.Pf.allBs_nil, Bool.and_true,
-    Bool.and_eq_true, Bool.and_eq_true, Bool.and_eq_true, Bool.and_eq_true,
-    inS_iff hg, inS_iff (rep_compA (rep_compA hhi hg) hh), inS_iff (rep_compA (rep_compA hh hg) hhi),
-    cjc, cjc, memE hA hB hxw hwl, memE hA hB hxw hwl, memE hA hB hxw hwl, and_assoc]
-
-theorem i22K_sound {cA cB : ℕ} (hA : P.code m22gA = cA) (hB : P.code m22gB = cB)
-    {cs : List Char} (hcs : covData = parseData (String.ofList cs))
-    (h : i22K cA cB cs hWK = true) : i22Check () = true := by
-  rw [i22K] at h
-  cases hp : parseCov cs with
-  | none =>
-    rw [hp] at h
-    exact absurd h Bool.false_ne_true
-  | some D =>
-    rw [hp] at h
-    change CFSG.KC.LQT.P.letB _ _ = true at h
-    obtain ⟨hpd, hxw, hwl, hw3⟩ := parsed hp
-    rw [CFSG.KC.LQT.P.letB_eq, CFSG.KC.LQT.P.letB_eq, i22D] at h
-    simp only [allBs_cons, CFSG.KC.LQT.BW.Pf.allBs_nil, Bool.and_true, Bool.and_eq_true] at h
-    obtain ⟨hn, hcomm, hcube, hne, haV, hroots, hcore, hacomm, hnorm⟩ := h
-    have hn' : D.nV = 128 := Nat.beq_eq.mp hn
-    have h79 : 79 < D.nV := by omega
-    have hhc : wP 22 cA cB hWK = P.code i22hP := Perm.wP_code hA hB hWK
-    have hE : ∀ {v}, v < D.nV → CFSG.KC.LQT.Syl.getK (eltsOf cA cB D) v 0 = P.code (elD D v) :=
-      fun hv => codeE hA hB hxw hwl hv
-    have hx : ∀ i, Rep 22 ((Eqns.ofCD D).xa i) ((Eqns.ofCD D).x i) := fun i => (Eqns.ofCD D).xa_rep i
-    have hh : Rep 22 (wordArrP i22hWord) i22hP := rep_i22h
-    have hhi := Perm.rep_invCand hh
-    have hr : ∀ {v}, v < D.nV → Rep 22 ((Eqns.ofCD D).elaTab[v]!) (elD D v) := fun hv => rep_elD hv
-    have hz : Rep 22 (compA 22 (Eqns.ofCD D).elaTab[79]! (Eqns.ofCD D).elaTab[79]!)
-        (elD D 79 * elD D 79) := rep_compA (hr h79) (hr h79)
-    have haV' : ∀ v ∈ aV, v < D.nV := fun v hv => by have := i22_aV_lt v hv; omega
-    have hrV' : ∀ v ∈ rootsV, v < D.nV := fun v hv => by have := i22_rootsV_lt v hv; omega
-    simp only [hhc, hE h79, mulc, invc, cjc] at hcomm hcube hne haV hroots hcore hacomm hnorm
-    unfold i22Check
-    rw [hcs, hpd]
-    simp only [Bool.and_eq_true, beq_iff_eq]
-    refine ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨hn', Perm.isInvA_of_rep hh hhi⟩, ?_⟩, ?_⟩, ?_⟩, ?_⟩, ?_⟩, by decide⟩, ?_⟩,
-      Perm.isInvA_of_rep (hr h79) (Perm.rep_invCand (hr h79))⟩, ?_⟩,
-      allLt_iff.2 fun i _ => Perm.isInvA_of_rep (hx _) (Perm.rep_invCand (hx _))⟩, ?_⟩
-    · rw [beqc] at hcomm
-      exact (eqA_iff (rep_compA hh hz) (rep_compA hz hh)).2 hcomm
-    · rw [beq1] at hcube
-      exact (eqA_iff (rep_compA (rep_compA hh hh) hh) rep_idA).2 hcube
-    · rw [CFSG.KC.LQT.P.notB_iff, beq1] at hne
-      rw [Bool.not_eq_true']
-      cases he : eqA 22 (wordArrP i22hWord) (idA 22)
-      · rfl
-      · exact absurd ((eqA_iff hh rep_idA).1 he) hne
-    · rw [List.all_eq_true]
-      intro v hv
-      have := (CFSG.KC.LQT.P.allL_iff _ _).1 haV v hv
-      rw [hE (haV' v hv), mulc, beqc] at this
-      exact (eqA_iff (rep_compA (hr (haV' v hv)) (hr (haV' v hv))) hz).2 this
-    · rw [List.all_eq_true]
-      intro v hv
-      have hvn := hrV' v hv
-      have := (CFSG.KC.LQT.P.allL_iff _ _).1 hroots v hv
-      rw [hE hvn, cjc, CFSG.KC.LQT.P.orB_iff, CFSG.KC.LQT.P.notB_iff, memE hA hB hxw hwl,
-        memL_iff] at this
-      rw [Bool.or_eq_true, Bool.not_eq_true']
-      rcases this with hni | hm
-      · left
-        rw [Bool.eq_false_iff]
-        intro hin
-        exact hni ((inS_iff (rep_compA (rep_compA hhi (hr hvn)) hh)).1 hin)
-      · right
-        exact contains_iff.2 hm
-    · exact (core_iff hA hB hxw hwl (hr h79)).2 hcore
-    · rw [List.any_eq_true]
-      obtain ⟨w, hw, hwe⟩ := (CFSG.KC.LQT.P.anyL_iff _ _).1 hacomm
-      have hwn := haV' w hw
-      rw [hE hwn, beqc] at hwe
-      exact ⟨w, hw, (eqA_iff (rep_compA (rep_compA (rep_compA (hr h79) hh)
-        (Perm.rep_invCand (hr h79))) hhi) (hr hwn)).2 hwe⟩
-    · rw [allLt_iff]
-      intro v hv
-      have := (Perm.allLtK_iff _ _).1 hnorm v hv
-      rw [CFSG.KC.LQT.P.letB_eq, hE hv, CFSG.KC.LQT.P.orB_iff, CFSG.KC.LQT.P.notB_iff,
-        Perm.allLtK_iff] at this
-      rw [Bool.or_eq_true, Bool.not_eq_true']
-      rcases this with hnc | hall
-      · left
-        rw [Bool.eq_false_iff]
-        intro hc
-        exact hnc ((core_iff hA hB hxw hwl (hr hv)).1 hc)
-      · right
-        rw [allLt_iff]
-        intro i hi
-        have := hall i hi
-        rw [codeX hA hB hxw hi, invc, cjc] at this
-        exact (core_iff hA hB hxw hwl (rep_compA (rep_compA (hx _) (hr hv))
-          (Perm.rep_invCand (hx _)))).2 this
 
 end CFSG.KC.M22S
 

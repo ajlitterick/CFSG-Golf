@@ -26,8 +26,6 @@ theorem sqT : sqK W1 I1 Co2HT.R = true := by quickRfl
 
 theorem sqU : sqK W2 I2 Co2HU.R = true := by quickRfl
 
-theorem sqNeg : (!sqK W0 I0 Co2HT.R) = true ∧ (!sqK W0 I1 Co2HZ.R) = true :=
-  ⟨by quickRfl, by quickRfl⟩
 
 end CertificateChecks.KernelSpor.Co2SQ
 

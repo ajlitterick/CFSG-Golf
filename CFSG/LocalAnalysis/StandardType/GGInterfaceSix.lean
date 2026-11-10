@@ -88,11 +88,6 @@ section Inputs
     (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
     GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J
 
-@[expose] def GGSixStepTwoV2Input : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
-    (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-    GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ → GGSixStepOne p B Bs x L D J →
-      GGSixStepTwo p B Bs x L D J
 
 @[expose] def GGSixStepThreeAInput : Prop :=
   ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G)
@@ -135,11 +130,6 @@ section Inputs
       ∃ T : Sylow 2 G₀, r ∈ (T : Subgroup G₀).map G₀.subtype ∧
         (T : Subgroup G₀).map G₀.subtype ≤ Subgroup.centralizer {r}
 
-@[expose] def GGMarkedPresentedInput : Prop :=
-  ∀ (G : Type) [Group G] [Finite G] (p : ℕ) (B Bs : Subgroup G) (x : G) (L D J : Subgroup G),
-    GGSixCtx p B Bs x L D J → GGSixStepOne p B Bs x L D J →
-      ∃ (t : StatedLieTag) (n f : ℕ) (ψ : (ggU t n f).K →* G),
-        GGSixHypV2Core p B Bs x L D J (ggU t n f).D t n f ψ
 
 theorem ggSixStepThree_of_split (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput)
     (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
@@ -156,43 +146,6 @@ theorem ggSixStepThree_of_split (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThr
   obtain ⟨T, hrT, hTc⟩ := hKG G t n f ψ hadm hker _ hrange r hch.rootInvolution
   exact ⟨hodd, r, Subgroup.map_subtype_le _ hrT, hch.2.2.2.2.1, ⟨T, hrT, hTc⟩, hC, hfus⟩
 
-theorem ggSecSixV2Input_of_inputs (h1 : GGSixStepOneV2Input) (h2 : GGSixStepTwoV2Input)
-    (h3a : GGSixStepThreeAInput) (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput)
-    (h3d : GGSixStepThreeDInput) (hKG : GGRootInvolutionCentralInput) : GGSecSixV2Input := by
-  intro G _ _ _ hnonab hK hchar he p hp B x L hS hst Bs D J t n f ψ hsix
-  have hctx : GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ :=
-    ⟨⟨inferInstance, hnonab, hK, hchar, he, hp, hS, hst⟩, hsix⟩
-  have s1 := h1 G p B Bs x L D J t n f ψ hctx
-  exact ggSix_holt_of_stepThree (ggSixStepThree_of_split h3a h3b h3c h3d hKG hctx s1
-    (h2 G p B Bs x L D J t n f ψ hctx s1))
-
-theorem ggSixCtx_of_v2 (hR1 : GGLieModelMarkingInput) (hR : GGInnerDiagBridgeInput)
-    (ha' : GGBstarRankInput) {G : Type} [Group G] [Finite G] {p : ℕ} {B Bs : Subgroup G}
-    {x : G} {L D J : Subgroup G} {t : StatedLieTag} {n f : ℕ} {ψ : (ggU t n f).K →* G}
-    (hctx : GGSixCtxV2 p B Bs x L D J (ggU t n f).D t n f ψ) : GGSixCtx p B Bs x L D J := by
-  obtain ⟨hI, hsix⟩ := hctx
-  obtain ⟨hs, hnonab, hK, hchar, he, hp, hS, hst⟩ := hI
-  exact ⟨hs, hnonab, hK, hchar, he, hp, hS, hst,
-    ggSixHyp_of_v2Core hR1 hR ha' ⟨hs, hnonab, hK, hchar, he, hp, hS, hst⟩ hsix⟩
-
-theorem ggSixStepOneV2Input_of_input (h1 : GGSixStepOneInput) (hR1 : GGLieModelMarkingInput)
-    (hR : GGInnerDiagBridgeInput) (ha' : GGBstarRankInput) : GGSixStepOneV2Input :=
-  fun G _ _ p B Bs x L D J _ _ _ _ hctx =>
-    h1 G p B Bs x L D J (ggSixCtx_of_v2 hR1 hR ha' hctx)
-
-theorem ggSixStepTwoV2Input_of_input (h2 : GGSixStepTwoInput) (hR1 : GGLieModelMarkingInput)
-    (hR : GGInnerDiagBridgeInput) (ha' : GGBstarRankInput) : GGSixStepTwoV2Input :=
-  fun G _ _ p B Bs x L D J _ _ _ _ hctx s1 =>
-    h2 G p B Bs x L D J (ggSixCtx_of_v2 hR1 hR ha' hctx) s1
-
-theorem ggSixStepThreeInput_of_split (hfw : GGMarkedPresentedInput) (h3a : GGSixStepThreeAInput)
-    (h3b : GGSixStepThreeBInput) (h3c : GGSixStepThreeCInput) (h3d : GGSixStepThreeDInput)
-    (hKG : GGRootInvolutionCentralInput) : GGSixStepThreeInput := by
-  intro G _ _ p B Bs x L D J hctx s1 s2
-  obtain ⟨t, n, f, ψ, hsix⟩ := hfw G p B Bs x L D J hctx s1
-  obtain ⟨hs, hnonab, hK, hchar, he, hp, hS, hst, -⟩ := hctx
-  exact ggSixStepThree_of_split h3a h3b h3c h3d hKG
-    ⟨⟨hs, hnonab, hK, hchar, he, hp, hS, hst⟩, hsix⟩ s1 s2
 
 end Inputs
 

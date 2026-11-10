@@ -38,13 +38,10 @@ open scoped commutatorElement
             (p = 3 ∧ IsHatON ↥K ∧ CFSG.Open.pRank 3 B = 4 ∧ autOrderIn B K = 27) ∨
             (p = 5 ∧ IsFiTwentyTwo ↥K ∧ CFSG.Open.pRank 5 B = 4)
 
-@[expose] def Input27_1 : Prop :=
-  ∀ (X : Type) [Group X] [Finite X], Input27_1At X
 
 @[expose] def Input27_1K : Prop :=
   ∀ (X : Type) [Group X] [Finite X], CFSG.Open.IsKGroup X → Input27_1At X
 
-theorem input27_1K_of_input27_1 (h : Input27_1) : Input27_1K := fun X _ _ _ => h X
 
 section Bar
 
@@ -924,7 +921,5 @@ theorem lemma31_of_input27_1K (h : Input27_1K) : Lemma31 := by
     exact Or.inr (Or.inr (Or.inr (Or.inr ⟨rfl, hrk,
       ⟨(quotEquivBarX hp hL.1 hL.2.1).trans f⟩⟩)))
 
-theorem lemma31_of_input27_1 (h : Input27_1) : Lemma31 :=
-  lemma31_of_input27_1K (input27_1K_of_input27_1 h)
 
 end CFSG.HardMathSupport.Solomon.LocalBalance

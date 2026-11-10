@@ -103,8 +103,6 @@ namespace CFSG.ClassicalInvolution.SmallWeyl
   𝓛.all fun S => decide S.Nodup && tab.any fun e =>
     S.length == e.1 && S.all fun p => valency S p == e.2
 
-theorem adjC_comm (a b : ℕ × ℕ) : adjC a b = adjC b a := by
-  simp only [adjC, Bool.and_comm]
 
 theorem mem_memC {x : ℕ × ℕ} {l : List (ℕ × ℕ)} : memC x l = true ↔ x ∈ l := by
   induction l with
@@ -392,14 +390,10 @@ structure EncOK (d : ℕ) : Prop where
   add : ∀ x y : Fin d → ZMod 2, enc (x + y) = enc x ^^^ enc y
   pair : ∀ c x : Fin d → ZMod 2, pairC (enc c) (enc x) = decide (c ⬝ᵥ x = 1)
 
-theorem encOK_two : EncOK 2 :=
-  ⟨by decide +kernel, by decide +kernel, by decide +kernel, by decide +kernel⟩
 
 theorem encOK_three : EncOK 3 :=
   ⟨by decide +kernel, by decide +kernel, by decide +kernel, by decide +kernel⟩
 
-theorem encOK_four : EncOK 4 :=
-  ⟨by decide +kernel, by decide +kernel, by decide +kernel, by decide +kernel⟩
 
 theorem enc_zero (d : ℕ) : enc (0 : Fin d → ZMod 2) = 0 := by simp [enc]
 
@@ -600,12 +594,6 @@ end Classification
 
 section Families
 
-private def fam2 : List (List (ℕ × ℕ)) := [
-  [(1, 2)],
-  [(2, 1)],
-  [(3, 3)],
-  [(1, 2), (2, 1), (3, 3)]
-]
 
 private def fam3 : List (List (ℕ × ℕ)) := [
   [(1, 2)],
@@ -673,11 +661,6 @@ private def fam3 : List (List (ℕ × ℕ)) := [
   [(3, 4), (3, 7), (4, 1), (4, 2), (7, 5), (7, 6)]
 ]
 
-private theorem familyOK_two : familyOK 2 30 fam2 = true := by decide +kernel
-
-private theorem seedsOK_two : seedsOK 2 fam2 = true := by decide +kernel
-
-private theorem tableOK_two : tableOK [(1, 0), (3, 0)] fam2 = true := by decide +kernel
 
 private theorem familyOK_three : familyOK 3 30 fam3 = true := by decide +kernel
 
@@ -686,9 +669,6 @@ private theorem seedsOK_three : seedsOK 3 fam3 = true := by decide +kernel
 private theorem tableOK_three : tableOK [(1, 0), (3, 0), (6, 1)] fam3 = true := by
   decide +kernel
 
-theorem goodSet_two {R : Finset (ℕ × ℕ)} (hne : R.Nonempty) (hR : CodedSet 2 R) :
-    GoodSet [(1, 0), (3, 0)] R :=
-  classification_of_cert (by norm_num) familyOK_two seedsOK_two tableOK_two hne hR
 
 theorem goodSet_three {R : Finset (ℕ × ℕ)} (hne : R.Nonempty) (hR : CodedSet 3 R) :
     GoodSet [(1, 0), (3, 0), (6, 1)] R :=
@@ -700,18 +680,6 @@ section Dimensions
 
 variable {A : Type*} [AddCommGroup A]
 
-theorem rootSet_classification_two (h2 : ∀ x : A, x + x = 0) (hcard : Nat.card A = 4)
-    (R : Finset (Datum A)) (hne : R.Nonempty) (hs : IsSymm R) (hc : IsClosed R)
-    (hconn : IsConn R) :
-    R.card = 1 ∨ (R.card = 3 ∧ ∀ p ∈ R, ∀ q ∈ R, p ≠ q → p.Adj q) := by
-  obtain ⟨x, hx, hcd, hval⟩ := classification_of_card encOK_two
-    (fun _ hne hR => goodSet_two hne hR) h2 (hcard.trans (by norm_num : 4 = 2 ^ 2)) R hne hs hc
-    hconn
-  simp only [List.mem_cons, List.not_mem_nil, or_false] at hx
-  rcases hx with rfl | rfl
-  · exact Or.inl hcd
-  · refine Or.inr ⟨hcd, fun p hp q hq hpq => ?_⟩
-    exact adj_of_ncard_eq_zero (hval p hp) q hq (Ne.symm hpq)
 
 theorem rootSet_classification_three (h2 : ∀ x : A, x + x = 0) (hcard : Nat.card A = 8)
     (R : Finset (Datum A)) (hne : R.Nonempty) (hs : IsSymm R) (hc : IsClosed R)

@@ -124,22 +124,6 @@ theorem schurMult2He_holds :
   CFSG.Sporadic.Recognition.HeMultiplier.heldTrivialMultiplier_of_certificate K
     ((CFSG.Foundations.SteinbergCA.quasisimple_iff K).2.2.1.2 hK) hs
 
-theorem schurMult2L32_holds :
-    SchurMult2L32 := by
-  intro K _ _ hK _ h
-  have := card_center_dvd_row hK (MulEquiv.refl _)
-    (CFSG.LieType.Steinberg.CentralExt.GriessClassical.psl_row h)
-  simpa [CFSG.Blueprint.Multiplier.genericOrders, CFSG.Blueprint.Multiplier.exceptionalOrders]
-    using this
-
-theorem schurMult2L34_holds :
-    SchurMult2L34 := by
-  intro K _ _ hK hZ h
-  have := card_center_dvd_row hK (MulEquiv.refl _)
-    (CFSG.LieType.Steinberg.CentralExt.GriessClassical.psl_row h)
-  simp only [CFSG.Blueprint.Multiplier.genericOrders,
-    CFSG.Blueprint.Multiplier.exceptionalOrders] at this
-  exact card_dvd_of_dvd_mul_odd hZ (a := 4) (m := 3) (by decide) (by simpa using this)
 
 theorem schurMult2L3_holds :
     SchurMult2L3 := by
@@ -214,14 +198,6 @@ theorem schurMult2U5_holds :
   simp only [CFSG.Blueprint.Multiplier.genericOrders, mul_one] at this
   exact eq_bot_of_dvd_odd hZ (Odd.of_dvd_nat (by decide) (Nat.gcd_dvd_left 5 _)) this
 
-theorem schurMult2G2_holds :
-    SchurMult2G2 := by
-  intro n hn K _ _ hK _ h
-  obtain ⟨-, F, _, _, hF, ⟨e⟩⟩ := h
-  refine eq_bot_of_subsingleton hK e
-    (CFSG.LieType.Steinberg.CentralExt.AdjointClosed.g2_hopfMultiplier ?_).2
-  rw [hF]
-  exact (show 5 ≤ 2 ^ 3 by norm_num).trans (Nat.pow_le_pow_right (by norm_num) hn)
 
 theorem schurMult2G24_holds :
     SchurMult2G24 := by
@@ -250,21 +226,5 @@ theorem schurMult2D4_holds :
     (CFSG.LieType.Steinberg.CentralExt.GriessExceptional.triality_hopfMultiplier
       (Nat.le_self_pow (by omega) 2) hF hσ).2
 
-theorem schurMult2F4_holds :
-    SchurMult2F4 := by
-  intro n K _ _ hK _ h
-  have hR := h
-  obtain ⟨⟨-, -, -, -, -, h3⟩, a, rfl, -⟩ := h
-  refine eq_bot_of_subsingleton hK (MulEquiv.refl _)
-    (CFSG.LieType.Steinberg.CentralExt.GriessExceptional.reeF4_hopfMultiplier (m := a)
-      (by omega) (Or.inr (Or.inr (Or.inl ⟨rfl, by decide, hR⟩)))).2
-
-theorem schurMultTwoTable_holds :
-    SchurMultTwoTable :=
-  ⟨schurMult2M22_holds, schurMult2M23_holds, schurMult2M24_holds, schurMult2J4_holds,
-    schurMult2He_holds, schurMult2L32_holds, schurMult2L34_holds, schurMult2L3_holds,
-    schurMult2L42_holds, schurMult2L52_holds, schurMult2Sp4_holds, schurMult2G24_holds,
-    schurMult2G2_holds, schurMult2D4_holds, schurMult2F4_holds, schurMult2U4_holds,
-    schurMult2U5_holds⟩
 
 end CFSG.Quasithin

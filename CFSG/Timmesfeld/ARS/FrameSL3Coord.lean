@@ -32,14 +32,10 @@ theorem lowPar_add (s t : K) : lowPar φ (s + t) = lowPar φ s * lowPar φ t := 
 theorem upPar_injective : Function.Injective (upPar φ) := fun _ _ h =>
   upperElt_injective K (φ.symm.injective (Subtype.ext h))
 
-theorem lowPar_injective : Function.Injective (lowPar φ) := fun _ _ h =>
-  lowerElt_injective K (φ.symm.injective (Subtype.ext h))
 
 theorem upPar_zero : upPar φ 0 = 1 := by
   simp [upPar, upperElt_zero]
 
-theorem lowPar_zero : lowPar φ 0 = 1 := by
-  simp [lowPar, lowerElt_zero]
 
 theorem torPar_conj_upPar (c : Kˣ) (t : K) :
     torPar φ c * upPar φ t * (torPar φ c)⁻¹ = upPar φ ((c : K) ^ 2 * t) := by
@@ -129,9 +125,6 @@ theorem injective_left : Function.Injective fun s : K => θ ![s, 0] := fun _ _ h
   have := congrFun (hθ.injective h) 0
   simpa using this
 
-theorem injective_right : Function.Injective fun s : K => θ ![0, s] := fun _ _ h => by
-  have := congrFun (hθ.injective h) 1
-  simpa using this
 
 end Module
 

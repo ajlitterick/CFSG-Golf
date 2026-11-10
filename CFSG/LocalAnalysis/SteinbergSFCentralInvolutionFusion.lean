@@ -380,10 +380,6 @@ theorem mem_T (hS : Setup L K n φ TG t) {x : G} (h0 : x ∈ centralizer (L : Se
     (h1 : x ∈ centralizer ({t} : Set G)) : x ∈ TG :=
   hS.cent_inf ▸ ⟨h0, h1⟩
 
-theorem conj_mem_T (hS : Setup L K n φ TG t) {c x : G} (hc : c ∈ centralizer ({t} : Set G))
-    (hx : x ∈ TG) : c * x * c⁻¹ ∈ TG :=
-  hS.mem_T (conj_mem_centralizer_of_mem_normalizer (hS.cent_le hc)
-    (hS.T_le hx)) (mul_mem (mul_mem hc (hS.T_le_C hx)) (inv_mem hc))
 
 theorem eq_t_of_mem_T [Finite G] (hS : Setup L K n φ TG t) {x : G} (hx : x ∈ TG)
     (h2 : orderOf x = 2) :
@@ -1211,85 +1207,6 @@ theorem conj_not_mem_L [Finite G] [Finite K] [CharP K 2]
   rw [hgm, show m * (m⁻¹ * t * m) * m⁻¹ = t by group, hS.closure_sq_eq hT] at h1
   exact hS.t_not_mem_L (pull_le φ _ h1)
 
-theorem mem_PG_of_commute [CharP K 2] {l : G} (hlL : l ∈ L)
-    (hc : ∀ z ∈ pull φ (antiUnipotentCenter K), l * z = z * l) :
-    l ∈ pull φ (antiUnipotent K) := by
-  refine mem_pull.mpr ⟨hlL, ?_⟩
-  rw [← SymplecticFourFusion.centralizer_center_eq, mem_centralizer_iff]
-  intro a ha
-  have h := hc _ (symm_mem_pull.mpr ha)
-  have h2 : (φ.symm a) * ⟨l, hlL⟩ = ⟨l, hlL⟩ * φ.symm a := Subtype.ext h.symm
-  have h3 := congrArg φ h2
-  rwa [map_mul, map_mul, MulEquiv.apply_symm_apply] at h3
-
-theorem normalizer_center_eq [Finite G] [Finite K] [CharP K 2]
-    (hS : Setup L K n φ TG t) :
-    normalizer (((center ↥(pull φ (antiUnipotent K) ⊔ TG)).map
-      (pull φ (antiUnipotent K) ⊔ TG).subtype : Subgroup G) : Set G) =
-      normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) : Set G) := by
-  set Q := pull φ (antiUnipotent K) ⊔ TG with hQ
-  set ZQ := (center ↥Q).map Q.subtype with hZQ
-  have hNle : ∀ g ∈ normalizer (Q : Set G), g ∈ normalizer (ZQ : Set G) := by
-    intro g hg
-    rw [mem_normalizer_iff]
-    intro x
-    refine ⟨conj_mem_center hg, fun hx => ?_⟩
-    have := conj_mem_center (inv_mem hg) hx
-    rwa [show g⁻¹ * (g * x * g⁻¹) * g⁻¹⁻¹ = x by group] at this
-  apply le_antisymm
-  · intro g₂ hg₂
-    have hCN : ∀ c ∈ centralizer ({t} : Set G), c ∈ normalizer (ZQ : Set G) →
-        ∀ q ∈ Q, c * q * c⁻¹ ∈ Q := by
-      intro c hcC hcN q hq
-      obtain ⟨p, hp, a, ha, rfl⟩ := hS.mem_Q.mp hq
-      have hpL : p ∈ L := pull_le φ _ hp
-      have hl : c * p * c⁻¹ ∈ L := (mem_normalizer_iff.mp (hS.cent_le hcC) p).mp hpL
-      have ha' : c * a * c⁻¹ ∈ TG := hS.conj_mem_T hcC ha
-      have hcomm : ∀ z ∈ pull φ (antiUnipotentCenter K),
-          c * p * c⁻¹ * z = z * (c * p * c⁻¹) := by
-        intro z hz
-        have hzZ := hS.mul_mem_ZQ hz (one_mem TG)
-        rw [mul_one] at hzZ
-        have hz' : c⁻¹ * z * c ∈ ZQ := by
-          have := (mem_normalizer_iff.mp (inv_mem hcN) z).mp hzZ
-          simpa using this
-        have h1 := (mem_center_map_iff.mp hz').2 (p * a) hq
-        have h2 : c * (p * a) * c⁻¹ * z = z * (c * (p * a) * c⁻¹) := by
-          calc c * (p * a) * c⁻¹ * z = c * ((p * a) * (c⁻¹ * z * c)) * c⁻¹ := by group
-            _ = c * ((c⁻¹ * z * c) * (p * a)) * c⁻¹ := by rw [h1]
-            _ = z * (c * (p * a) * c⁻¹) := by group
-        have h3 : c * a * c⁻¹ * z = z * (c * a * c⁻¹) :=
-          (hS.comm_L_T (pull_le φ _ hz) ha').symm
-        have e : c * (p * a) * c⁻¹ = (c * p * c⁻¹) * (c * a * c⁻¹) := by group
-        rw [e] at h2
-        calc c * p * c⁻¹ * z
-            = (c * p * c⁻¹) * (c * a * c⁻¹) * z * (c * a * c⁻¹)⁻¹ := by
-              rw [mul_assoc (c * p * c⁻¹) (c * a * c⁻¹) z, h3]; group
-          _ = z * ((c * p * c⁻¹) * (c * a * c⁻¹)) * (c * a * c⁻¹)⁻¹ := by rw [h2]
-          _ = z * (c * p * c⁻¹) := by group
-      have hpP := mem_PG_of_commute (φ := φ) hl hcomm
-      have e : c * (p * a) * c⁻¹ = (c * p * c⁻¹) * (c * a * c⁻¹) := by group
-      rw [e]
-      exact mul_mem (mem_sup_left hpP) (mem_sup_right ha')
-    have htZ : t ∈ ZQ := by
-      have := hS.mul_mem_ZQ (one_mem _) hS.t_mem
-      rwa [one_mul] at this
-    have h1 : g₂⁻¹ * t * g₂ ∈ ZQ := by
-      have := (mem_normalizer_iff.mp (inv_mem hg₂) t).mp htZ
-      simpa using this
-    obtain ⟨m, hm, hgm⟩ := hS.mem_conj_normalizer h1
-    have hcC : g₂ * m⁻¹ ∈ centralizer ({t} : Set G) := by
-      rw [mem_centralizer_singleton_iff]
-      calc g₂ * m⁻¹ * t = g₂ * (m⁻¹ * t * m) * m⁻¹ := by group
-        _ = g₂ * (g₂⁻¹ * t * g₂) * m⁻¹ := by rw [hgm]
-        _ = t * (g₂ * m⁻¹) := by group
-    have hcN : g₂ * m⁻¹ ∈ normalizer (ZQ : Set G) := mul_mem hg₂ (hNle _ (inv_mem hm))
-    have hcQ : g₂ * m⁻¹ ∈ normalizer (Q : Set G) :=
-      mem_normalizer_of_conj_le (hCN _ hcC hcN)
-    have e : g₂ = g₂ * m⁻¹ * m := by group
-    rw [e]
-    exact mul_mem hcQ hm
-  · exact hNle
 
 end Setup
 theorem charP_two_of_card {K : Type} [Field K] {n : ℕ} (hK : Nat.card K = 2 ^ n) :
@@ -1335,58 +1252,6 @@ namespace Setup
 variable {G : Type} [Group G] {L : Subgroup G} {K : Type} [Field K] {n : ℕ} {φ : L ≃* antiSp K}
   {TG : Subgroup G} {t : G}
 
-theorem fusion [Finite G] [Finite K] [CharP K 2]
-    (hS : Setup L K n φ TG t) (hO : CFSG.oddCore G = ⊥) (hLn : ¬ L.Normal) :
-    (∀ R : Subgroup G, R ≤ centralizer ({t} : Set G) → IsPGroup 2 R →
-        pull φ (antiUnipotent K) ⊔ TG ≤ R →
-        (CFSG.LocalAnalysis.rankThompson R).map R.subtype = pull φ (antiUnipotent K) ⊔ TG) ∧
-      {x : G | ∃ g ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) : Set G),
-          x = g⁻¹ * t * g} =
-        {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ (center ↥(pull φ (antiUnipotent K) ⊔ TG)).map
-          (pull φ (antiUnipotent K) ⊔ TG).subtype} ∧
-      {x : G | ∃ g ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) : Set G),
-          x = g⁻¹ * t * g} ≠ {t} ∧
-      TG = zpowers t ∧
-      (∀ g : G, g⁻¹ * t * g ∉ L) ∧
-      normalizer (((center ↥(pull φ (antiUnipotent K) ⊔ TG)).map
-        (pull φ (antiUnipotent K) ⊔ TG).subtype : Subgroup G) : Set G) =
-        normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) : Set G) ∧
-      (pull φ (antiUnipotent K) ⊔ TG = zpowers t ⊔ pull φ (antiUnipotent K) ∧
-        zpowers t ⊓ pull φ (antiUnipotent K) = ⊥ ∧
-        ∀ p ∈ pull φ (antiUnipotent K), t * p = p * t) ∧
-      closure {x : G | ∃ y ∈ pull φ (antiUnipotent K) ⊔ TG, x = y * y} =
-        (center ↥(pull φ (antiUnipotent K))).map (pull φ (antiUnipotent K)).subtype := by
-  have hT := hS.T_eq_zpowers hO hLn
-  have htZ : t ∈ (center ↥(pull φ (antiUnipotent K) ⊔ TG)).map
-      (pull φ (antiUnipotent K) ⊔ TG).subtype := by
-    have := hS.mul_mem_ZQ (one_mem _) hS.t_mem
-    rwa [one_mul] at this
-  have horbit : {x : G | ∃ g ∈ normalizer ((pull φ (antiUnipotent K) ⊔ TG : Subgroup G) : Set G),
-      x = g⁻¹ * t * g} =
-      {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ (center ↥(pull φ (antiUnipotent K) ⊔ TG)).map
-        (pull φ (antiUnipotent K) ⊔ TG).subtype} := by
-    ext x
-    constructor
-    · rintro ⟨g, hg, rfl⟩
-      refine ⟨⟨g, rfl⟩, ?_⟩
-      have := conj_mem_center (inv_mem hg) htZ
-      rwa [inv_inv] at this
-    · rintro ⟨⟨g, rfl⟩, hx⟩
-      obtain ⟨m, hm, hgm⟩ := hS.mem_conj_normalizer hx
-      exact ⟨m, hm, hgm⟩
-  refine ⟨fun R hRC hR hQR => hS.rankThompson_eq hRC hR hQR, horbit, ?_, hT,
-    hS.conj_not_mem_L hO hLn, hS.normalizer_center_eq, ⟨?_, ?_, ?_⟩, ?_⟩
-  · rw [horbit]
-    intro h
-    obtain ⟨s, hsg, hst, hsZ⟩ := hS.exists_conj_mem_ZQ hO hLn
-    have : s ∈ ({t} : Set G) := h ▸ ⟨hsg, hsZ⟩
-    exact hst this
-  · rw [hT, sup_comm]
-  · rw [eq_bot_iff, ← hS.L_inf_T, hT]
-    exact inf_le_inf (le_refl _) (pull_le φ _) |>.trans (by rw [inf_comm])
-  · intro p hp
-    exact (hS.comm_P_T hp hS.t_mem).symm
-  · rw [hS.closure_sq_eq hT, center_pull_antiUnipotent]
 
 end Setup
 theorem setup_of_standard {G : Type} [Group G] [Finite G] {L : Subgroup G}
@@ -2136,38 +2001,6 @@ end GomiFusion
 open Subgroup GomiFusion
 open CFSG.ComponentClassification.UnbalancedCatalog.SpChain CFSG.QuasithinUnique.Setup.X7b
 
-theorem standard_symplectic_four_central_involution_fusion
-    {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)
-    {L : Subgroup G} (hL : CFSG.Open.standardComponentIsStandard L) (hLn : ¬ L.Normal)
-    {n : ℕ} (hn : 2 ≤ n) {K : Type} [Field K] [Finite K] (hK : Nat.card K = 2 ^ n)
-    (φ : L ≃* antiSp K)
-    (T : Sylow 2 (centralizer (L : Set G)))
-    (hT : IsCyclic (T : Subgroup (centralizer (L : Set G))))
-    {t : centralizer (L : Set G)} (htT : t ∈ T) (ht : orderOf t = 2)
-    (hcore : CFSG.Open.standardComponentOddCore (centralizer ({(t : G)} : Set G)) = ⊥)
-    (P : Sylow 2 L) :
-    let TG := (T : Subgroup (centralizer (L : Set G))).map (centralizer (L : Set G)).subtype
-    let PG := (P : Subgroup L).map L.subtype
-    let Q := PG ⊔ TG
-    (∀ R : Subgroup G, R ≤ centralizer ({(t : G)} : Set G) → IsPGroup 2 R → Q ≤ R →
-        (CFSG.LocalAnalysis.rankThompson R).map R.subtype = Q) ∧
-      {x : G | ∃ g ∈ normalizer (Q : Set G), x = g⁻¹ * t * g} =
-        {x : G | (∃ g : G, x = g⁻¹ * t * g) ∧ x ∈ (center Q).map Q.subtype} ∧
-      {x : G | ∃ g ∈ normalizer (Q : Set G), x = g⁻¹ * t * g} ≠ {(t : G)} ∧
-      (Nat.card (T : Subgroup (centralizer (L : Set G))) = 2 ∧ TG = zpowers (t : G)) ∧
-      (∀ g : G, g⁻¹ * t * g ∉ L) ∧
-      normalizer (((center Q).map Q.subtype : Subgroup G) : Set G) = normalizer (Q : Set G) ∧
-      (Q = zpowers (t : G) ⊔ PG ∧ zpowers (t : G) ⊓ PG = ⊥ ∧ ∀ p ∈ PG, (t : G) * p = p * t) ∧
-      closure {x : G | ∃ y ∈ Q, x = y * y} = (center PG).map PG.subtype := by
-  intro TG PG Q
-  have : CharP K 2 := charP_two_of_card hK
-  obtain ⟨φ', hφ'⟩ := exists_equiv_pull_eq φ P
-  have hS : Setup L K n φ' TG t := setup_of_standard hL hn hK φ' T hT htT ht hcore
-  obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8⟩ := hS.fusion hO hLn
-  rw [← hφ'] at h1 h2 h3 h6 h7 h8
-  refine ⟨h1, h2, h3, ⟨?_, h4⟩, h5, h6, h7, h8⟩
-  have hcard : Nat.card TG = 2 := by rw [h4, Nat.card_zpowers, hS.order_t]
-  rwa [card_map_of_injective (subtype_injective _)] at hcard
 
 theorem standard_symplectic_four_normalizer_fusion_orbits
     {G : Type} [Group G] [Finite G] (hO : CFSG.Open.standardComponentOddCore G = ⊥)

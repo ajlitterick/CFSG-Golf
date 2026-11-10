@@ -80,6 +80,5 @@ theorem exists_involution_classes_suz {Y : Type*} [Group Y] (e : Y ≃* suzM) :
 
 end Classes
 
-variable {G : Type} [Group G] [Finite G] (S : CFSG.LargeExtraspecial.Setting G)
 
 end CFSG.Sporadic.SuzRecog

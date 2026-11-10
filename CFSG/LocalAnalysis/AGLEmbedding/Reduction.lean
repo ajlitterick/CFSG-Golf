@@ -68,14 +68,5 @@ theorem le_of_maxSylowCase {p : ℕ} (hp : p.Prime) (P : Sylow p G) {M : Subgrou
   · rw [map_subtype_sylowMapMulAut, pRank_map_of_injective p hp _ (MulEquiv.injective _)]
     exact hRrank
 
-theorem d1_of_maxCase (hmax : D1MaxCase) (G : Type) [Group G] [Finite G] [IsSimpleGroup G]
-    (hnonab : ∃ a b : G, a * b ≠ b * a) (hK : CFSG.Open.IsKProper G)
-    (hchar : CFSG.Open.IsCharTwoType G) (he : 4 ≤ CFSG.Open.evenRank G)
-    (hpre : CFSG.Open.GLBPreuniqueness G) (p : ℕ) (hp : p ∈ CFSG.Open.GLBBetaFour G)
-    (P : Sylow p G) (M : Subgroup G) (hM : CFSG.Open.GLBIsMaxTwoLocal M)
-    (hWM : CFSG.Open.GLBWeakCore p (P : Subgroup G) ≤ M) (H : Subgroup G)
-    (hH : CFSG.Open.IsTwoLocal H) (hHM : 3 ≤ CFSG.Open.pRank p (H ⊓ M)) : H ≤ M :=
-  le_of_maxSylowCase hp.1 P hWM
-    (hmax G ⟨inferInstance, hnonab, hK, hchar, he, hpre⟩ p P M ⟨hp, hM, hWM⟩) hH hHM
 
 end CFSG.AGLEmbedding

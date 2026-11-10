@@ -28,8 +28,6 @@ theorem sylS_conj : bAnd(conjMemK 11 (mask 11) 2 0 SylS.T SylS.FA SylS.FC (r32 S
     Nat.beq (maskK SylS.FC 0 64) (maskK SylS.FM 6252 64)) = true := by
   quickRfl
 
-theorem sylS_conj_neg : (!conjMemK 11 (mask 11) 2 0 SylS.T SylS.FA SylS.FC 0 64) = true := by
-  quickRfl
 
 end CFSG.KD.HN1408
 

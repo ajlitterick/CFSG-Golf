@@ -130,7 +130,5 @@ theorem l7_1Key : L7_1Key p f := by
   exact keyOn hp hq hmod (fun η ⟨S, hS, hinv⟩ => ((l6_9_proved p f hp hq G Ω hmod S).2 η hS hinv).1)
     (l6_11_proved p f hp hq G Ω hmod)
 
-variable (p f) in
-theorem l7_6_mod : L7_6ModTmp p f := l7_6ModTmp_of_key p f (l7_1Key p f)
 
 end CFSG.ClassicalInvolution.Disconnected.AschTight.Sec7

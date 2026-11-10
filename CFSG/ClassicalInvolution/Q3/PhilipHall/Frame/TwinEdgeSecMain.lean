@@ -67,13 +67,6 @@ theorem datumLift_of_IH {n : ℕ} (hT : Thm1RTwinHasLiftBelow n) (hB : TightBelo
 
 end Outcome
 
-@[expose] def TwinSecHyp : Prop :=
-  ∀ (Y : Type) [Group Y] [Finite Y] (R : Subgroup Y) (S : Sylow 2 R) (t : Y),
-    Q8TwinDatum R S t → tightCore R = R →
-    HypOmegaGen (CoreAssembly.conjClass (tightCore R)) →
-    ∀ J ∈ omegaNbr (CoreAssembly.conjClass (tightCore R)) (tightCore R),
-    ∀ u : Y, IsUniqueInvolution J u → u ≠ t →
-      HypOmegaGen (CoreAssembly.conjClass (tightCore (secR R u)))
 
 section Main
 
@@ -88,7 +81,6 @@ section Main
             TightInO2 (QuotientGroup.mk' (classicalInvolutionOddCore ↥(secH R u))
               (⟨⟨t, htu⟩, ht⟩ : secH R u))
 
-variable {Y : Type} [Group Y] [Finite Y] {R : Subgroup Y} {S : Sylow 2 R} {t : Y}
 
 end Main
 

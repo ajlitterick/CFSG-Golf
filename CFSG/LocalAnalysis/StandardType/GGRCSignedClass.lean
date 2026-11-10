@@ -789,13 +789,6 @@ private lemma l05nK42_Gamma_self
   rw [h]
   exact A.one_mem
 
-private lemma l05nK42_Gamma_comm
-    {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]
-    {n : ℕ} (b : Module.Basis (Fin n) (ZMod p) V) (A : Subgroup (V ≃ₗ[ZMod p] V))
-    {i j : Fin n} (h : l05nK42_Gamma b A i j) : l05nK42_Gamma b A j i := by
-  rcases h with h | h
-  · exact Or.inl (by rwa [l05nK42_Tp_comm])
-  · exact Or.inr (by rwa [l05nK42_Tm_comm])
 
 private lemma l05nK42_Gamma_step_distinct
     {p : ℕ} [Fact p.Prime] {V : Type} [AddCommGroup V] [Module (ZMod p) V]

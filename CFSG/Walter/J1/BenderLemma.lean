@@ -171,25 +171,6 @@ theorem involutionsOf_ncard (H : Subgroup G) (n : ℕ) :
     simp only [T, Finset.mem_filter, Finset.mem_univ, true_and]
     exact ⟨fun h => hu.2.1 (rightCoset_eq_one_iff.mp h), hu.2.2⟩
 
-theorem ncard_involutions_diff (H : Subgroup G) :
-    (involutions G \ (H : Set G)).ncard =
-      ∑ n ∈ Finset.range (Nat.card G + 1), (involutionsOf H n).ncard := by
-  rw [ncard_eq_sum_ncard_fiber _ (fun u => cosetInvolutions H (rightCoset H u))
-    (Finset.range (Nat.card G + 1))]
-  · refine Finset.sum_congr rfl (fun n _ => ?_)
-    congr 1
-    ext u
-    simp [involutionsOf, and_assoc]
-  · intro u _
-    simp only [Finset.mem_range]
-    exact Nat.lt_succ_of_le (cosetInvolutions_le H _)
-
-theorem ncard_involutions_eq (H : Subgroup G) :
-    (involutions G).ncard = (involutions G ∩ (H : Set G)).ncard +
-      ∑ n ∈ Finset.range (Nat.card G + 1), n * cosetCount H n := by
-  rw [← Set.ncard_inter_add_ncard_sdiff_eq_ncard (involutions G) (H : Set G),
-    ncard_involutions_diff]
-  simp only [involutionsOf_ncard]
 
 theorem index_eq (H : Subgroup G) :
     H.index = 1 + ∑ n ∈ Finset.range (Nat.card G + 1), cosetCount H n := by
@@ -329,56 +310,6 @@ theorem exists_cosetCount_one_eq (H : Subgroup G) :
   rw [← h1, hsplit, hm, mul_comm]
   rfl
 
-theorem cosetCount_one_lt (H : Subgroup G) (f : ℚ)
-    (hf : f = ((involutions G).ncard : ℚ) / H.index - 1) (hpos : 0 < f) :
-    (cosetCount H 1 : ℚ) < f⁻¹ * (((involutions G ∩ (H : Set G)).ncard : ℚ) +
-        ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), ((n : ℚ) - 1) * cosetCount H n) - 1 -
-      ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), (cosetCount H n : ℚ) := by
-  have hG : 1 ≤ Nat.card G := Nat.card_pos
-  have hsplit : ∀ g : ℕ → ℚ, ∑ n ∈ Finset.range (Nat.card G + 1), g n =
-      g 0 + g 1 + ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), g n := by
-    intro g
-    rw [Finset.range_eq_Ico, ← Finset.sum_Ico_consecutive _ (show 0 ≤ 2 by norm_num)
-      (show 2 ≤ Nat.card G + 1 by omega), ← Finset.range_eq_Ico, Finset.sum_range_succ,
-      Finset.sum_range_one]
-  have hJ := ncard_involutions_eq H
-  have hN := index_eq H
-  have hJq : ((involutions G).ncard : ℚ) = ((involutions G ∩ (H : Set G)).ncard : ℚ) +
-      (cosetCount H 1 : ℚ) + ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), (n : ℚ) * cosetCount H n := by
-    rw [hJ]
-    push_cast
-    rw [hsplit (fun n => ((n : ℚ) * (cosetCount H n : ℚ)))]
-    simp only [CharP.cast_eq_zero, zero_mul, zero_add, Nat.cast_one, one_mul]
-    ring
-  have hNq : (H.index : ℚ) = 1 + cosetCount H 0 + cosetCount H 1 +
-      ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), (cosetCount H n : ℚ) := by
-    rw [hN]
-    push_cast
-    rw [hsplit (fun n => (cosetCount H n : ℚ))]
-    ring
-  set A := ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), (cosetCount H n : ℚ)
-  set B := ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), (n : ℚ) * cosetCount H n
-  have hBA : ∑ n ∈ Finset.Ico 2 (Nat.card G + 1), ((n : ℚ) - 1) * cosetCount H n = B - A := by
-    rw [← Finset.sum_sub_distrib]
-    refine Finset.sum_congr rfl (fun n _ => by ring)
-  rw [hBA]
-  have hNpos : (0 : ℚ) < H.index := by
-    rw [hNq]
-    positivity
-  set N : ℚ := (H.index : ℚ)
-  set jH : ℚ := ((involutions G ∩ (H : Set G)).ncard : ℚ)
-  set b0 : ℚ := (cosetCount H 0 : ℚ)
-  set b1 : ℚ := (cosetCount H 1 : ℚ)
-  have hfN : f * N = jH + (B - A) - 1 - b0 := by
-    rw [hf, sub_mul, div_mul_cancel₀ _ hNpos.ne', hJq, hNq]
-    ring
-  have hkey : jH + (B - A) = f * N + 1 + b0 := by linarith
-  rw [hkey, mul_add, mul_add, ← mul_assoc, inv_mul_cancel₀ hpos.ne', one_mul]
-  have hb0 : (0 : ℚ) ≤ b0 := Nat.cast_nonneg _
-  have h1 : 0 < f⁻¹ * 1 := by rw [mul_one]; exact inv_pos.mpr hpos
-  have h2 : 0 ≤ f⁻¹ * b0 := mul_nonneg (inv_pos.mpr hpos).le hb0
-  rw [hNq]
-  linarith
 
 end Counting
 
